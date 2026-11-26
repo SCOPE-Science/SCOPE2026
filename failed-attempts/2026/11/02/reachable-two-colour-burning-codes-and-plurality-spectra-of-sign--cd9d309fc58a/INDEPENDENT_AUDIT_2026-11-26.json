@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:07:55.075802Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–79; VERIFICATION.md lines 19–31; verify_signed_star.py inspected",
+        "Fallat et al. Definition 2.1, Lemma 2.3 and Proposition 2.9"
+      ],
+      "rationale": "Switching by the center-normalized sign vector multiplies the signed influence at each receiving vertex by its own switching sign. Zeros and ties are preserved, and legal ignitions correspond in both directions. On the positive star, center-first ignition produces a constant word. If a leaf burns first, the next spread colors the center from that single leaf; no other leaf can yet acquire a color at this same simultaneous spread. At most one of them can then be ignited before the next spread colors all remaining leaves. An exceptional leaf is realized by igniting another leaf first and the chosen leaf in the opposite color after the center burns. Thus there are exactly 2(n+1) distinct words, with the center sign and exceptional leaf recovering the word. Global negation reduces plurality to the maximum number of positive vertices, so the error count is the minimum distance of the switching vector to the positive-star code. For q negative leaves the two center choices cost max(0,q−1) and 1+max(0,n−q−1); grouping by q gives the signing polynomial. The distances at q=0,1 are zero and at q=n the distance is 1. On 2≤q≤n−1 the distance is min(q−1,n−q), whose maximizers are centered at (n+1)/2. Including q=n in the small tie cases gives q=2,3 for n=3 and q=2,3,4 for n=4; beyond them, the maximizing radius is floor((n−1)/2), with one central weight for odd n and two for even n. Binomial counting and the freely paired center signs give the claimed signing and full-code deep-hole counts.",
+      "residual_risks": [
+        "The uploaded checker was not executed and does not explicitly assert the full deep-hole table. The proof checks all weights and is not an extrapolation from test sizes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The theorem for balanced signings of connected complete multipartite graphs gives the antipodal repetition code augmented by one-coordinate flips exactly in nonsingleton parts, and an exact Hamming-distance formula and count of minimizing signings."
+        ],
+        "reasoning": "A star is complete bipartite with parts of sizes 1 and n. It has no cycles, so every signing meets the balance hypothesis. Its nonsingleton vertices are exactly the leaves; there is no need to extend the older theorem's scope.",
+        "searches": [
+          "Local Resultary 2026/10/18/SCOPE-signed-burning-reachable-codes-and-sharp-plurality-phases-on-com--0b9d2c1c4cc4"
+        ]
+      },
+      "checked_sources": [
+        "The three local Resultary records identified above",
+        "Fallat–Gupta–Khodamoradi–Zilles, arXiv:2610.02506v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Writing N=n+1 and fixing the center sign, its two distance terms specialize to q−1_{q>0} and N−q−1_{q<n}. The earlier minimizing-signing H(G) formula and deepest-word proof specialize at one singleton part, including H=4 at N=4 and H=11 at N=5."
+        ],
+        "reasoning": "The earlier distance expression gives the entire q table, including the boundary ties, and H(G) counts exactly the normalized antipodal pairs. Summing binom(n,q) times the monomial for the covered plurality yields the frozen polynomial with no new dynamical or coding step.",
+        "searches": [
+          "October 18 complete-multipartite record, Finding offsets 0–3182 and proof offsets 3500–10695"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Switching on a connected balanced graph identifies signings with vertex sign words modulo global negation. A center-fixed representative on a star is exactly (1,σ₁,…,σₙ), and plurality is order minus Hamming distance from this word to the all-positive reachable code."
+        ],
+        "reasoning": "The balanced-signing and normalized coding formulations are equivalent for this graph, not two independent claims. The general paper supplies the reduction, while catalog theorems supply the star code.",
+        "searches": [
+          "Local Resultary queries for signed-star burning/plurality, reachable binary codes and complete multipartite graphs",
+          "arXiv:2610.02506v1, Lemma 2.3, Proposition 2.9 and Remark 2.10",
+          "Primary-literature query for the constant-word/single-flip code and its deep holes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 26 record gives the same 2(n+1)-word code, exact plurality and radius for all n≥2. The October 12 record also gives the exact signed-star plurality and radius. The October 26 terminal-colour count polynomial describes one fixed signing, not the distribution of maximal plurality across signings."
+        ],
+        "reasoning": "The per-signing entries are exact matches. The distinction between the two polynomials is real, but the across-signings polynomial follows by weighting each already covered value by the number of signings of that weight.",
+        "searches": [
+          "Local Resultary 2026/10/26/SCOPE-reachable-colouring-code-and-exact-plurality-profile-of-signed-s--97e5bc53aa08",
+          "Local Resultary 2026/10/12/SCOPE-exact-plurality-number-of-signed-stars--0a6ed269e5a9"
+        ]
+      },
+      "rationale": "The reachable code, plurality function and covering-radius interpretation are already covered by star-specific catalog results and by the stronger complete-multipartite theorem. Its deep-hole characterization and counts specialize to the asserted star cases, and the proposed signing polynomial is a direct binomial aggregation of its per-signing formula. This is substantive prior coverage, irrespective of the notation used for the polynomial.",
+      "residual_risks": [
+        "Historical first publication beyond these matched statements is not established; the general coding search was not exhaustive. This uncertainty does not remove the demonstrated coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger exact code, distance, radius and minimizing-signing count",
+          "evidence": [
+            "The two Hamming terms subtract an indicator of disagreement on a nonsingleton vertex; H(G) enumerates antipodal pairs of deepest words."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-signed-burning-reachable-codes-and-sharp-plurality-phases-on-com--0b9d2c1c4cc4",
+          "material_read": "RESULT.md Finding offsets 0–3182, proof offsets 3500–10695",
+          "method": "Local Resultary mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Signed burning reachable codes and sharp plurality phases on complete multipartite graphs",
+          "trigger": "Star as a complete bipartite graph"
+        },
+        {
+          "assessment": "Direct code/plurality/radius match; fixed-signing polynomial is a different observable",
+          "evidence": [
+            "Constant and single-exception leaf words after switching; exact per-signing maximum and all-positive code radius."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-reachable-colouring-code-and-exact-plurality-profile-of-signed-s--97e5bc53aa08",
+          "material_read": "RESULT.md offsets 0–3996 and 3500–6994",
+          "method": "Local Resultary mirror",
+          "title": "Reachable-colouring code and exact plurality profile of signed stars",
+          "trigger": "Same signed-star dynamics and exact code"
+        },
+        {
+          "assessment": "Direct signed-star per-signing plurality and radius match",
+          "evidence": [
+            "Covers every signing with at least three leaves."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-exact-plurality-number-of-signed-stars--0a6ed269e5a9",
+          "material_read": "RESULT.md offsets 0–3757 and 3757–6316",
+          "method": "Local Resultary mirror",
+          "title": "Exact plurality number of signed stars",
+          "trigger": "Same exact plurality invariant"
+        },
+        {
+          "assessment": "Same model and general framework; inspected exact class is signed paths rather than the star census",
+          "evidence": [
+            "Spread precedes ignition and ties stay unburned; switching covariance and covering-radius interpretation are explicit."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.02506v1",
+          "material_read": "Definition 2.1, Lemma 2.3, Proposition 2.9/Remark 2.10, Section 3 and Conclusions, located around offsets 8862, 15010, 26050, 29463 and 117947",
+          "method": "Open-access primary HTML",
+          "title": "Burning Signed Graphs",
+          "trigger": "Original model, Hamming equivalence and exact graph-class results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 31–55 and 91–97",
+        "October 18 complete-multipartite theorem and October 26 exact star theorem"
+      ],
+      "rationale": "A complete signed-tree code and its plurality census would be a natural object of study, but this star case has already been settled, including the minimizing-signing count by specialization. The residual change of presentation to a signing polynomial collects known per-signing values with binomial weights and adds no independently unknown structural or exact invariant.",
+      "residual_risks": [
+        "This judgment does not extend to unbalanced graphs or arbitrary signed trees."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

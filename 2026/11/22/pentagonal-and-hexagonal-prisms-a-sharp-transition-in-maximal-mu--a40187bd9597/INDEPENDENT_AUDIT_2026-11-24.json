@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:15:10.830986Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding and Proof",
+        "Frozen verify_paths.py, verify_bfs.py, paths_results.txt, bfs_results.txt",
+        "/workspace/evidence/check_4.py (independent coordinate replay, run with python3)"
+      ],
+      "rationale": "Independent coordinate replay: a geodesic follows a shortest cycle arc and switches layers exactly once if the endpoints differ in layer. On each eligible arc a switch index must lie strictly between the last blocker on the destination layer and the first blocker on the source layer; same-layer endpoints require a clear arc. Exhausting all 1024 and 4096 subsets with this predicate reproduces both feasibility and optimal-mask hashes, all four polynomials, the ten stated four-set templates, and the two alternating-column six-sets with precisely their twelve deletions as nonmaximal feasible five-sets. Heredity makes the one-vertex extension test exhaustive for maximality. Orbit enumeration matches one size-ten orbit and, for C6, two size-twelve and nine size-twenty-four orbits. Grouping sets by shared (k−1)-subsets identifies each move edge; bitset neighborhood expansion gives ten slide isolates and a connected 2-regular ten-vertex jump graph for C5; for C6 it gives 816 slide edges with eccentricities 6 and 7 (120 each) and 1842 jump edges with every eccentricity 5, both connected on 240 vertices. The independent scripts did not execute the frozen programs.",
+      "residual_risks": [
+        "The exhaustive universe is the two labelled prisms, and only minimum inclusion-maximal configurations are vertices of the move graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brešar–Yero pose lower (total) mutual visibility on Cartesian cylinders in Problem 1. Ordinary product bounds are adjacent but concern a different optimization.",
+          "The two cylinder lower-number catalog entries apply to first factors C3 and C4, not C5 and C6."
+        ],
+        "reasoning": "General terminology and the stated cylinder problem cover the setting, not the answer at these parameters. Total visibility imposes conditions on all graph-vertex pairs and does not identify the ordinary family in the frozen result.",
+        "searches": [
+          "Brešar–Yero arXiv:2307.02951v2, Problem 1",
+          "Cicerone–Di Stefano–Klavžar arXiv:2112.13024v2",
+          "Resultary 8a5e173d7e2e and 6d8bf40baa6c"
+        ]
+      },
+      "checked_sources": [
+        "Brešar–Yero arXiv:2307.02951v2",
+        "Korže–Vesel DOI 10.1007/s00025-024-02139-x",
+        "Cicerone–Di Stefano–Klavžar arXiv:2112.13024",
+        "Resultary 971ab78f4fba, 9297186832e0, 8a5e173d7e2e, 6d8bf40baa6c, f7b2fcae2dd0, 716d52474dbd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lower parameter requires excluding all smaller maximal sets, which no result about largest sets does. Exact relocation data also depend on the geometry of the whole minimum maximal state space."
+        ],
+        "reasoning": "For example, the contrast between ten isolated slide states and one connected slide component cannot be inferred from either known ordinary maximum.",
+        "searches": [
+          "Brešar–Yero Problem 1 and lower-number definition",
+          "Korže–Vesel Prop. 2.2",
+          "Resultary 971ab78f4fba Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "P2 is K2, so the ordinary maximum theorem covers the same graphs. Resultary 716d52474dbd also treats circular ladders, but with power-domination configurations.",
+          "Resultary 971ab78f4fba uses the analogous relocation construction for the Desargues graph's maximum sets."
+        ],
+        "reasoning": "Changing graph names does not change the target; substituting power domination, maximum cardinality, or a different graph changes the set family and cannot establish the target relocation graphs.",
+        "searches": [
+          "Resultary: K2 Cartesian cycle, circular ladder/prism, mutual-visibility facets, token sliding/jumping",
+          "Korže–Vesel Prop. 2.2 under P2 square C5/C6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known exact values of the ordinary maxima are 5 and 6. The closest exact catalog censuses and moves are for the Desargues graph, C3 square C8, and visible triples of cycles, not these prism enumerators."
+        ],
+        "reasoning": "A maximum fixes only the top degree of a feasibility polynomial, not its coefficients or the polynomial of inclusion-maximal faces.",
+        "searches": [
+          "Resultary 9297186832e0, 971ab78f4fba, f7b2fcae2dd0; prism and Cartesian cylinder census aliases",
+          "Korže–Vesel Prop. 2.2"
+        ]
+      },
+      "rationale": "Credit the literature for the lower-visibility definition, the cylinder question, and the already known maximum cardinalities. The strongest inspected prior and catalog matches do not supply these labelled maximal-set censuses, the lower numbers for these two cylinders, or the mobility contrast with the stated admissible states.",
+      "residual_risks": [
+        "The inspected catalog Results do not establish same-day priority. The deferred broader literature search and inaccessible total-visibility article are not negative evidence; an unindexed prism census remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "establishes definition and poses the family question",
+          "evidence": "Minimum size of an inclusion-maximal set; asks for lower (total) mutual visibility of Cartesian cylinders.",
+          "identifier_or_url": "https://arxiv.org/html/2307.02951v2",
+          "material_read": "abstract and Problem 1 near OA offsets 330 and 61750",
+          "method": "OA arXiv text",
+          "title": "Lower (total) mutual visibility in graphs",
+          "trigger": "lower parameter and Cartesian cylinder theorem or open question"
+        },
+        {
+          "assessment": "covers ordinary maxima, not the lower number or mobility",
+          "evidence": "The constants for P2 square C5/C6 are 5 and 6 for maximum cardinality.",
+          "identifier_or_url": "https://doi.org/10.1007/s00025-024-02139-x",
+          "material_read": "Prop. 2.2, p. 5, OA offset about 9800",
+          "method": "OA PDF passage",
+          "title": "Mutual-Visibility Sets in Cartesian Products of Paths and Cycles",
+          "trigger": "same prism graphs and exact known values"
+        },
+        {
+          "assessment": "related ordinary mutual visibility, not matching census in inspected statements",
+          "evidence": "Product bounds and constructions using independent sets are for ordinary mutual visibility.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.13024",
+          "material_read": "v2 abstract and introduction pp. 1–3, OA offsets 1800 and 6500",
+          "method": "OA PDF passages",
+          "title": "On the mutual visibility in Cartesian products and triangle-free graphs",
+          "trigger": "general ordinary product results"
+        },
+        {
+          "assessment": "different graph and maximum-eight-set configurations",
+          "evidence": "Its slide graph is isolated and jump graph is 2L(P) disjoint union 120 isolated vertices.",
+          "identifier_or_url": "Resultary 971ab78f4fba",
+          "material_read": "Finding, offset 0",
+          "method": "local mirror",
+          "title": "Mutual-visibility facets and frozen optimal relocations in the Desargues graph",
+          "trigger": "closest visibility census and mobility overlap"
+        },
+        {
+          "assessment": "different Cartesian product",
+          "evidence": "C3 square C8, with lower number 7.",
+          "identifier_or_url": "Resultary 9297186832e0",
+          "material_read": "Finding, offset 0",
+          "method": "local mirror",
+          "title": "Exact mutual visibility and maximal-set census of the triangular Cartesian product",
+          "trigger": "comparable full maximal-set polynomial"
+        },
+        {
+          "assessment": "unresolved exact text of this paper, not evidence of no overlap",
+          "evidence": "Total visibility is a different predicate; claims about detailed results of this exact source were not used.",
+          "identifier_or_url": "https://doi.org/10.1007/s40840-023-01590-3",
+          "material_read": "Frozen citation; full-text retrieval did not succeed; comparison of parameter definitions from Brešar–Yero",
+          "method": "configured OA retrieval attempted",
+          "title": "Total Mutual-Visibility in Graphs with Emphasis on Lexicographic and Cartesian Products",
+          "trigger": "cited Cartesian product coverage for related parameter"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Brešar–Yero Problem 1",
+        "Frozen RESULT.md",
+        "/workspace/evidence/check_4.py"
+      ],
+      "rationale": "These are natural width-two instances of a stated cylinder problem. A complete census supplies reusable extremal configurations, and the exact contrast between all slide-frozen optimum states at length five and a connected optimum slide graph at length six is structural reconfiguration information, not a recomputation of the already known ordinary maxima.",
+      "residual_risks": [
+        "Two cycle lengths cannot establish a parity law or eventual pattern for larger prisms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

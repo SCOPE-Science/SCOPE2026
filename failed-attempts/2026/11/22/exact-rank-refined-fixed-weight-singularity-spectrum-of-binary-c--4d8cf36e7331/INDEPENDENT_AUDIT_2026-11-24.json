@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:14:21.676134Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Complex rank is the number of nonzero Fourier multipliers. The sign-to-binary change doubles the nontrivial multipliers and the sign DC term is 2k−pq≠0 even at the endpoints. Galois conjugacy partitions the other frequencies into full prime and mixed orbits. Vanishing of a prime orbit is equivalent to constant integral margins in its CRT coordinate; both cannot vanish at an interior weight. Mixed vanishing leaves only univariate terms under Fourier inversion, so B_ij=A_i+D_j. If any two rows differ, they differ by a nonzero constant, which forces both rows and hence every row to be constant, giving identical columns; otherwise rows are identical. The nonconstant repeated-row/column cases then retain all Fourier characters in the other coordinate. Otherwise removal of exactly the relevant prime orbit, or no removal, gives the remaining interior ranks. The binomial counts are the independent fixed-weight choices per row or column minus the repeated-vector subfamily, with disjoint interior divisibility conditions; endpoints, distinctness and attainability follow (unit support, repeated or nonrepeated unit rows/columns, and constants). Independently enumerated every weight and rank at n=15 and 21 by exact integer coefficients in the product cyclotomic basis, not by classifying repeated rows: python3 /workspace/checks/5.py (NumPy), output /workspace/checks/5.out. Both frozen programs were read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Miller's semiprime proof explicitly shows that Φ_pq division forces q-residue sums all congruent modulo p. The analogous statement with p and q swapped follows from the same lemma applied with the opposite naming of the two primes. Miller also records that both prime divisors of the symbol can vanish only at the constant endpoints.",
+          "Yang gives the Fourier rank framework in general and a fixed-weight universal zero-one invertibility criterion, but not the deficient-rank count explicitly. Miller's Corollary 1 concerns aggregate asymptotics."
+        ],
+        "reasoning": "The strongest relevant prior is proof-level coverage of orbit and margin constraints at the very same parameters, coupled with the general rank formula. Neither the aggregate asymptotic nor the general rank formula alone gives the detailed weight split.",
+        "searches": [
+          "arXiv:2411.17577, Lemma 1, Lemma 2(3) proof and Corollary 1",
+          "Yang PDF, Theorem 3.11, Corollary 4.4, Theorem 4.6",
+          "doi:10.1112/jlms/s1-31.4.445, publisher and lawful copy attempts"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2411.17577",
+        "Yang 2023 public author PDF",
+        "doi:10.1112/jlms/s1-31.4.445 (metadata/access only)",
+        "Resultary: 8ae406556a5e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Miller's proof: if Φ_pq divides the binary symbol, all q-residue sums lie in [0,p] and are congruent mod p, hence are either equal or in {0,p}; the same holds under interchanging primes. At an interior weight at most one margin family can be equal. If the p-row sums are equal, q-column sums cannot be equal; mixed vanishing therefore forces every column full or empty, giving identical rows. Conversely identical rows eliminate the mixed and p-row orbits by direct Fourier factorization. The symmetric implication gives identical columns for equal column sums.",
+          "Thus Miller's two disjoint interior prime-zero families split into repeated and nonrepeated vectors. At k=pr there are binom(q,r)^p equal-row-sum choices with binom(q,r) repeated-row choices; the remaining members lose only p−1 frequencies rather than p−1+(p−1)(q−1). Swap primes for the column family; all other interior words are full rank."
+        ],
+        "reasoning": "This obtains exactly the frozen structure and all counts without discovering any new rigidity lemma. While it is correct that an aggregate probability by itself does not specify rank, the original proof already provides the needed structural case split once read in both prime labels.",
+        "searches": [
+          "arXiv:2411.17577, original Lemma 2(3) proof p. 6, independently re-read at OA offset 18100",
+          "Yang PDF, general Fourier rank Theorem 3.11/Corollary 4.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For 0<k<pq the 0–1 and ±1 convolution symbols have identical zeros: the nontrivial Fourier terms differ by a factor 2, and both DC terms are nonzero. At k=0 and pq the sign symbols are both constant and rank one.",
+          "The residue sums modulo q and p in Miller are exactly the CRT column and row sums, up to permutations. Divisibility by Φ_q, Φ_p, Φ_pq annihilates the corresponding complete character orbits."
+        ],
+        "reasoning": "Neither the binary alphabet convention nor the CRT representation avoids the prior structural result. Once the vanished divisors are known, the orbit sizes directly give the four interior deficient ranks.",
+        "searches": [
+          "arXiv:2411.17577, Lemma 2(3) and proof, PDF p. 6, OA offset 18100",
+          "Yang, Rigidity and Rank of Group-Circulant Matrices, Theorem 3.11 and Corollary 4.4",
+          "Resultary: six ranks and fixed-weight multiplicities of sign circulants at odd pq"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day indexed rank census is on the affine group F_5² with a different character structure; it is not this cyclic product of distinct primes. The assigned result itself was excluded as a match.",
+          "Miller's probability polynomial gives the exact combined deficient count at every weight (by uniqueness of the Bernstein coefficients), not a printed separate rank table."
+        ],
+        "reasoning": "No distinct identical printed table was identified in this bounded check, but the absence of explicit tabulation cannot outweigh the constructive prior implication. The noncyclic rank census is not used to infer a priority ordering.",
+        "searches": [
+          "Resultary: exact six ranks/fixed-weight multiplicities at odd semiprime convolution order",
+          "2026/11/22/SCOPE-complete-binary-convolution-rank-census-on-the-five-by-five-affi--8ae406556a5e",
+          "arXiv:2411.17577, Lemma 2(3)"
+        ]
+      },
+      "rationale": "The six-rank classification and every weight-specific multiplicity are a mechanical corollary of Miller's proof of Lemma 2(3) (not merely its aggregate probability statement), the Fourier-rank identity, and an elementary count of repeated rows/columns within Miller's margin events. The rank table need not be printed in either prior reference for this to constitute coverage. The scientific failure is prior implication, not unavailable historical literature.",
+      "residual_risks": [
+        "The priority and contents of Ingleton's full paper remain unresolved, but are unnecessary to the demonstrated implication from inspected evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The displayed formula is aggregate; the structural proof gives the full orbit-defect classification by symmetry",
+          "evidence": [
+            "The proof says the residue sums are congruent modulo the other prime and either all equal or all at endpoints of their range. It uses the symbol value at one to exclude two simultaneous prime vanishing events at interior weights."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2411.17577",
+          "material_read": "Lemma 2(3) and proof PDF p. 6 (OA offset 18100), Corollary 1 p. 3 (offset 7100)",
+          "method": "Primary OA PDF, decisive proof passage re-read",
+          "title": "On the singularity probability of random circulant Bernoulli matrices",
+          "trigger": "Same semiprime model and exact singularity probability"
+        },
+        {
+          "assessment": "Abelian Fourier-rank identity; fixed-weight invertibility, not printed rank multiplicities",
+          "evidence": [
+            "Rank counts nonzero Fourier coefficients in the abelian case; the cited weight theorem separates weights at which all binary circulants are invertible."
+          ],
+          "identifier_or_url": "https://math.mit.edu/research/highschool/primes/materials/2023/Yang.pdf",
+          "material_read": "Theorem 3.11 p. 16 (offset 52600), Corollary 4.4 p. 17 (57050), Theorem 4.6 pp. 19–20 (67150)",
+          "method": "Primary author OA PDF",
+          "title": "Rigidity and Rank of Group-Circulant Matrices",
+          "trigger": "Fourier rank and arithmetic fixed-weight invertibility"
+        },
+        {
+          "assessment": "Unresolved comparison; not evidence of coverage or noncoverage",
+          "evidence": [
+            "No primary theorem passage obtained."
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/jlms/s1-31.4.445",
+          "material_read": "Publisher metadata only, J. London Math. Soc. 31(4), 445–460 (1956)",
+          "method": "Publisher and lawful full-text search; OUP/Wiley returned 403 and DOI route did not yield full text",
+          "title": "The Rank of Circulant Matrices",
+          "trigger": "Plausible historical source for rank classification"
+        },
+        {
+          "assessment": "Same output type for a different finite group; not a semiprime rank table",
+          "evidence": [
+            "Uses F_5² rather than Z_pq with distinct primes."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-complete-binary-convolution-rank-census-on-the-five-by-five-affi--8ae406556a5e",
+          "material_read": "RESULT.md finding and parameters, offsets 279 and 770",
+          "method": "Resultary search then local publication mirror",
+          "title": "Complete binary convolution rank census on the five-by-five affine group",
+          "trigger": "Closest distinct Resultary rank-by-weight census"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exact nullity at a given support weight is a naturally motivated invariant and the tabulation is convenient. However, the entire proposed refinement here follows by the Fourier rank identity and elementary fixed-margin counting inside Miller's existing proof-level cases. The count of repeated choices is one copy of the binomial coefficient instead of its power; both residual strata follow by subtraction. This provides no further independent structural result or new useful exact invariant beyond that mechanical consequence. No scientifically distinct valuable remainder was established to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

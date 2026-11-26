@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The boundary-modulus identity reduces the full nonlinear \(H^4\) optimization to a quartic in the first two Taylor coefficients. Strict convexity justifies uniqueness and the real-coordinate reduction; Schwarz–Pick bounds the normalized first derivative. The exactly positive expression for the partial derivative at one gives \(0<a<1\), and the other stationarity equation gives \(0<b<a^2/2\). This proves the strict radius-two exclusion, including all vanishing-coefficient boundary cases. Symbolic and direct-integration checks reproduce the algebra.
+## correctness
 
-**Originality: PASS (best-knowledge).** Centner–Cheng–Felder (2023), Theorem 5.13, gives only existence of an unspecified uniform radius; Cheng–Felder (2023) studies root sets and iterations; Bénéteau et al. (2025) bounds roots by approximation-error expressions. Their inspected formulations do not supply the explicit radius two together with the first-jet determination for all inner \(H^4\) functions. No equivalent claim surfaced in the accessible mathematical-record search. This is not a guarantee that no other paper contains an equivalent result.
+PASS
 
-**Value: PASS.** Replacing an existential exclusion radius by a concrete, function-independent disk is useful in the exact zero-location question for nonlinear Hardy-space approximants. The first-jet formula additionally collapses the infinite-dimensional inner-function input to a two-complex-parameter optimization, permitting exact comparison of otherwise distinct inner functions. The bound is not claimed sharp; general non-inner input and higher polynomial degrees remain open here.
+For X=f(A+Bz), expansion of (1−X)^2(1−conj(X))^2 and inner boundary values cancel paired powers of f and conj(f). The only nonconstant Taylor coefficient of f that survives integration is f′(0), from the term f q² conj(q), whose only negative mode is −1; the f²q² term uses just its constant coefficient. Independent symbolic Laurent extraction gives the entire frozen quartic. The map q↦fq is injective and isometric on the boundary; coercivity follows from the reverse triangle inequality and equivalence of norms on the two-dimensional polynomial space. Strict convexity of the fourth power of the norm gives uniqueness. If f(0)=0 the mean-value lower bound is attained uniquely at q=0; if f is unimodular constant take q=1/f. Otherwise normalize to real u=f(0) in (0,1) and v=f′(0) in [0,1−u²] by phase and disk rotation. Conjugation invariance forces real minimizing coefficients a,b. When v=0 the phase symmetry in B gives b=0. When v>0, the odd b term favors b≥0; at a=0 the a derivative is negative, forcing a>0 by convexity on that slice, and then the b derivative at zero is negative, so b>0. At a=1 the derivative's verified decomposition is strictly positive for nonnegative b, because the (1−u)² term is positive and 1−u²−v≥0. Thus a<1. The other verified stationarity identity yields b[2(1−u²)+2(a−u)²+b²]=va², hence b<a²/2 strictly, also at the Schwarz–Pick endpoint. Therefore |a/b|>2/a>2. Zero and constant optimizers have no degree-one zero to which the assertion applies.
 
-**Closest literature:** arXiv:2305.16068v1, arXiv:2310.16010v1, and arXiv:2511.08000v1. The residual priority risk is an unlocated equivalent result or an unexamined stronger theorem; comparisons used material sections rather than treating abstract searches as proof of novelty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Uniform positive separation for degree-one inner-input OPA zeros is already established. The exact first-jet determination of the objective and the explicit strict separation beyond radius two were not found in the statements or implications examined. The new bound is not a claim of a new qualitative exclusion theorem or of a sharp constant.
+
+## value
+
+PASS
+
+Quantifying the known uniform exclusion for the first non-Hilbert even exponent is a natural gap. The explicit bound places all the degree-one inner-input zeros strictly past the closed disk of radius two, rather than only keeping them away from zero. Separately, exact objective rigidity reduces the infinite inner-input family to two Taylor data and a constrained two-variable real optimization; that reduction can be used to investigate the optimal radius without choosing a concrete generator.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

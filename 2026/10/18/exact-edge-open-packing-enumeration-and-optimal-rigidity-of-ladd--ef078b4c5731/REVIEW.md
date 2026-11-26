@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the finite simple ladder \(L_n=P_2\square P_n\), \(n\ge1\), every edge subset is encoded bijectively by permitted six-symbol column masks and two-step exclusions. The certificate explicitly enumerates **17** legal ordered-pair states; all 17 exact transfer identities share the displayed denominator and are checked by literal polynomial arithmetic, proving the full rational enumeration without extrapolating from small instances. A finite potential verifies the universal upper bound of \(n\) selected edges, and the equality transitions give the two alternating star patterns with precisely enumerated terminal fragments. Small-graph exhaustive checks corroborate rather than replace the proof. The proof applies to all positive ladder lengths, including the one-rung boundary.
+PASS
 
-## Originality — PASS (qualified priority risk)
+For the repaired size enumerator, testing against a third edge gives the single same-column pair (p,q), exactly five offset-one and four offset-two types, and no more distant conflicts. Therefore the last two masks suffice, with (0,0) padding and a final mask in {0,1}. The repair groups the 17 state equations into five by row reflection and identical successor classes; both the list of states and the right sides match the original transfer. The cleared polynomial identities in the repair agree with the exact integer certificate and have unique formal solution since every recursive term has a factor t and D(0,z)=1. Independent replay in /workspace/branches/ba3e0b65-af74-42c3-bc08-198803ecc6d2/literal_edge_open_check.py and symbolic_transfer_check.py built conflicts from actual third edges, matched 74,898 exhaustive small subsets through n=6, and verified the exact symbolic resolvent, not merely a finite prefix. The z=1 numerator is 2t+7t²+8t³+t⁴, so the order-four recurrence starts at n=5. The original optimum and classification were not rejected as false: the original potential bound telescopes; at equality a singleton-rung branch can only finish, a same-row successive single rail stalls, and a row-double is followed by zero, after which either the string finishes or the opposite row must start. This gives its indicated triples and boundaries (right piece opposite to the preceding piece). The original script checks arcs from 17 states, not 17 arcs. The repaired Finding does not rely on that extremal argument. Frozen scripts were inspected, not executed.
 
-Chelladurai et al. (2022; DOI 10.1051/ro/2022171) study edge open packings and scalar parameters in several graph families; the inspected full article has no ladder theorem. Bhanupriya et al. (2023; DOI 10.2298/FIL2312959C), Proposition 2.16 and subsequent ladder discussion, give an injective edge-coloring index of three for ladders, which only entails a lower bound for *some* open packing, not the maximum upper bound, complete size enumerator or optimum multiplicity. Brešar–Samadi (arXiv:2403.00750, 2024) establish complexity and tree algorithmic results, but no ladder enumeration. Das–Santra (arXiv:2610.02275, 2026) give wider-class maximum-packing algorithms, not the proposed polynomial and classification. Semantically targeted mathematical-record searches yielded only unrelated ladder topology, geodesic graph and edge-coloring results. An unindexed equivalent polynomial remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The two-row ladder is the natural narrowest non-tree Cartesian grid, and its edge-open-packing polynomial is not obtained from a scalar coloring index. A closed rational bivariate enumerator for every cardinality plus the sharp all-order optimum and exact residue-dependent count of optimum configurations provide substantially stronger structural information than an isolated value. The explicit automaton/potential gives a reusable exact-enumeration method while the alternating-star rigidity explains the period-three phenomenon.
+The original could not pass unchanged: its optimal size, count and complete rigidity classification occur in distinct catalogue record d9bdf15b2f02. The repair drops those as contributions, credits the exact overlap, and retains only the supported distinct rational all-size enumerator and its counting specialization. No corresponding all-size ladder formula or implying theorem was found in the inspected material. This is an assessment of the narrower repaired claim; no priority ordering is inferred just from catalogue dates.
 
-## Remaining scientific limitations
+## value
 
-The proof concerns the edge-open-packing definition requiring a **third different edge** between endpoints of distinct chosen edges. It does not claim anything about broader grids, wrapped ends, induced matchings, ordinary matchings, or a complete priority census. Integer arithmetic operation counts ignore bit complexity; finite enumerations are checks, not infinite proofs.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two-row ladder is a basic product-graph test family and the edge-open-packing constraint distinguishes this count from matching, independent-edge or coloring counts. The repaired formula resolves the full activity-weighted size distribution, which an optimum-only result cannot give, and allows exact size-specific and total enumeration with a fixed rung recurrence. Its utility does not come from re-proving the published census or from a few small values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

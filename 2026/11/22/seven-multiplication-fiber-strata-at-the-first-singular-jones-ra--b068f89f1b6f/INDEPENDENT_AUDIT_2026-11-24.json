@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:20:55.370486Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A one-cap half has adjacent endpoints; after removing it the propagating identification is the increasing bijection between the two ordered complements. If |j−k|≤1, the two middle arcs coincide or meet and do not create new exterior caps, giving 3n−5 middle choices at each rank-(n−2) target. If disjoint they each pull back to a cap in an exterior half, so the rank falls exactly two. A two-cap half is disjoint adjacent D or nested consecutive N, as no unmatched strand can pass under a cap; the propagating strands then match uniquely in order. Transfer along the ordered complements gives four branches for D, two for N; substitution of the other middle index gives the complementary inequality pairs in the proof and hence the four target formulas. More explicitly, the correction is the equality count between multisets {a,b−2} for D and {a} for N, and the constant is the product of their sizes. For D,D any three of four equality matches force the fourth; the two crossed equalities together require b=a+2, d=c+2, and a=c. The other five pair intersections each have d=m(m+1)/2 elements; one- and two-equality incidences then give the full histogram. Positivity proves that all target diagrams of both ranks occur; the sum of the lower counts is [n(n−3)/2]^2 and their weighted sum is (n−3)(n−2)(n−1)^2. Independent ordered-complement transfer reproduced every lower target and the census for 4≤n≤20. The size 7 is absent only in the rank-decreasing class (the rank-preserving fiber is 7 at n=4). There are four lower targets at n=4, six occupied fiber sizes at n=5, and seven occupied sizes exactly for n≥6; the zero entries of the displayed table handle the small n cases. The all-n result is combinatorial, not extrapolated from the checks.",
+      "replay": "python /workspace/checks/finite.py 3 (own ordered-complement transfer); frozen check_jones.py and CHECK_OUTPUT.txt inspected, not executed",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "East–Gray gives the principal-factor adjacency for caps at distance at most one.",
+          "Dolinka et al. count idempotents; Fresacher–Stewart–Tubbenhauer give generator-word algorithms."
+        ],
+        "reasoning": "Principal-factor multiplication discards the lower target class. Neither counting idempotents nor expressing one diagram by generators yields all unrestricted ordered two-factor prescribed products, particularly the nested lower halves. Cite East–Gray v3 §9.2 following Lemma 9.8 rather than Lemma 9.7 as numbered in the frozen record.",
+        "searches": [
+          "arXiv:1404.2359v3 §9.2",
+          "arXiv:1507.04838v3 §2 and enumeration scope",
+          "arXiv:2609.30804v1 planar factorization"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1404.2359v3",
+        "arXiv:1507.04838v3",
+        "arXiv:2609.30804v1",
+        "Resultary 07ccfcfc5438, 4866f1ecdc09, d4c885580c8a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two nested halves yield a new count 1+δ; one nested and one disjoint gives baseline 2 and at most two equality matches. The partial-bijection law has baseline 4 with four possible matches; restricting its targets cannot by itself yield counts 1,2,3."
+        ],
+        "reasoning": "Algebraically the nested contribution can be obtained by halving the adjacent double-cap D row or column, but establishing that operation counts the correct Jones ordered pairs requires the nested cap correspondence, absent from the partial-map theorem. The Jones-specific complete target law, not the reused equality pattern, clears this check.",
+        "searches": [
+          "East–Gray rank-preserving projection products versus Jones lower target bijection",
+          "07ccfcfc5438 near-unit assumptions and census compared with the four Jones half-type formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The partial-bijection record uses equality matches of compressed missing-position multisets {u,v−1} versus {a,b−1} with baseline 4. Convert each Jones D(a,b) to missing positions a,b−1 on an (n−2)-element chain in zero-based indices. The compressed pair is then {a,b−2}, exactly the Jones D correction multiset."
+        ],
+        "reasoning": "This is an exact reindexing of the whole D,D block, not merely the common missing value 7. The comparable near-unit factorization statement does not have Jones nested halves: a Jones N(a) contributes a singleton instead of the doubled multiset for D(a,a+2). Its Jones-specific two-branch realization and the N,D and N,N counts are needed for the full classification.",
+        "searches": [
+          "Resultary: Jones corank-two prescribed product structure constants, planar Temperley–Lieb rank-decreasing target, near-unit order-preserving partial bijections",
+          "07ccfcfc5438 near-unit formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "07ccfcfc5438's exact four multiplicities equal the Jones D,D block with its N=n−3; the other two kinds of Jones halves are absent from that table.",
+          "4866f1ecdc09 is the rank-uniform Brauer count; d4c885580c8a is a Motzkin rank/path/loop aggregate. The search also returned the assigned record itself, not separate coverage."
+        ],
+        "reasoning": "A rank-uniform count including nonplanar factors cannot produce the shape-sensitive planar distribution by specialization, and a Motzkin aggregate cannot supply individual Jones fibers. The material four-stratum overlap is credited; no separate full seven-stratum table for Jones was identified.",
+        "searches": [
+          "Resultary: all-n prescribed target multiplication fiber census for Jones, Brauer and Motzkin diagrams at corank two",
+          "Resultary: gap-interleaving multiplication fibers"
+        ]
+      },
+      "rationale": "Supported distinct content is the full Jones lower-target law, including nested halves and their contribution to the seven-stratum census. The rank-preserving part is credited to existing adjacency. The disjoint/disjoint law and its four-stratum distribution are exactly algebraically equivalent to the near-unit partial-bijection law in a distinct same-date record; do not assign that shared subcalculation separate priority. That overlap does not give the Jones nested branches, rank-preserving count or combined seven-stratum table. Relative publication ordering of the same-date records is not established.",
+      "residual_risks": [
+        "Unindexed general planar diagram-product coefficient formulas are not excluded.",
+        "Same-date comparisons show mathematical coverage of a subcalculation but not chronology or dependence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers rank-preserving adjacency. In v3 Remark 9.7 is about Catalan-triangle numbers.",
+          "evidence": [
+            "Products τ_i², τ_iτ_{i+1}, τ_{i+1}τ_i following Lemma 9.8 give allowed adjacency in the principal factor."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1404.2359",
+          "material_read": "v3 §9.2 p.39 (OA offset 132000)",
+          "method": "OA PDF passage",
+          "title": "Diagram monoids and Graham–Houghton graphs: idempotents and generating sets of ideals",
+          "trigger": "Classical Jones rank and adjacency result"
+        },
+        {
+          "assessment": "Counts idempotents rather than ordered factors from the full class.",
+          "evidence": [
+            "The object of the enumeration is the idempotent set."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1507.04838",
+          "material_read": "v3 p.1 abstract and introduction and §2 p.6 product convention",
+          "method": "OA PDF passages",
+          "title": "Enumeration of idempotents in planar diagram monoids",
+          "trigger": "Same stacking and interface-graph techniques"
+        },
+        {
+          "assessment": "Generator-word algorithms, not fixed two-factor coefficients.",
+          "evidence": [
+            "The planar case constructs words for individual diagrams."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.30804",
+          "material_read": "v1 abstract p.1 and planar case pp.9–12",
+          "method": "OA PDF passages",
+          "title": "Fast Factorization in Diagram Monoids",
+          "trigger": "Potential general factorization theorem"
+        },
+        {
+          "assessment": "Equivalent D,D subcalculation; no nested Jones halves or full Jones census.",
+          "evidence": [
+            "4 plus the equality count of two compressed pairs, with exact multiplicities (N(N−1)(N²−N+2)/4, N(N−1)(N−2), 5N(N−1)/2, N)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-gap-interleaving-multiplication-fibers-in-the-order-preserving-p--07ccfcfc5438",
+          "material_read": "Near-unit Finding and assumptions, offsets 1100–2705",
+          "method": "Resultary local mirror and exact reindexing",
+          "title": "Gap-interleaving multiplication fibers in the order-preserving partial-bijection monoid",
+          "trigger": "Closest same-day theorem with the same missing 7 and exact lower-stratum formulas"
+        },
+        {
+          "assessment": "Nonplanar pairings and rank-uniform fibers, not planar shape-dependent coefficients.",
+          "evidence": [
+            "Uses the Brauer rank-(n−2) class and unrestricted within-rank target counts."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-corank-two-brauer-product-fibers-and-parity-dependent-abso--4866f1ecdc09",
+          "material_read": "Indexed finding and scope",
+          "method": "Resultary statement comparison",
+          "title": "Exact corank-two Brauer product fibers and parity-dependent absorption",
+          "trigger": "Same-day all-length prescribed-product analogue"
+        },
+        {
+          "assessment": "Aggregate Motzkin statistic, not prescribed Jones products.",
+          "evidence": [
+            "Counts the joint rank/path/loop outcomes, summing over actual targets."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-corank-two-motzkin-multiplication-seven-exact-rank-path-loop-str--d4c885580c8a",
+          "material_read": "Indexed scientific statement",
+          "method": "Resultary statement comparison",
+          "title": "Corank-two Motzkin multiplication: seven exact rank/path/loop strata",
+          "trigger": "Same-day seven-stratum diagram multiplication result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first singular rank is a natural full multiplication layer. The shape-sensitive law resolves each rank-lowering product across all sizes; the nested branch calculation materially changes the spectrum and census from the four strata already present in the disjoint part. This is useful as exact planar multiplication data, not a claim of general structure constants for arbitrary ranks or loop-weighted multiplication.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

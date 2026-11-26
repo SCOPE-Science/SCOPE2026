@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:47:30.270791Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–94; VERIFICATION.md and verify.py inspected, not executed",
+        "Independent analytic reconstruction of the stationary entry measure and moment-weighted Laplace estimate"
+      ],
+      "rationale": "The stationary convolution is well-defined by positive occupation of the on mode. On/off transport of U=kV/D−1 has velocities −2kU and 2k, so zero flux gives the joint-density ratio f_off/f_on=u and the stationary shapes B and B+1 at the common rate A. At a stationary off observation, the joint measure of the entry excess u₀ and age t is proportional to b f_on(u₀)exp(−at) du₀dt: the transition hazard is constant, and survival after entry depends only on t. Thus U₀ and 2kT are independent Gammas with shapes B and 1, and J=2kT/U is Beta(1,B), independent of U and therefore of X in the off mode. For either mode, at u=Rv the exponential rate is Av+1/(2v) with unique minimizer √(k/a). At u≤δR the likelihood is bounded by exp(−R/(4δ)) for large R; at u≥MR the Gamma exponential controls the tails even after adding a moment weight. This yields both posterior concentration and the first-moment asymptotic in the on mode. Rescaling 2kT=JU gives the stated Beta limit, and the exact on/off density odds give the coefficient √(aD)/(k||x||).",
+      "residual_risks": [
+        "Fixed finite dimension, strictly positive rates and complete release only. No numerical certification is needed for the limit; no claim of a uniform rate of convergence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frydel gives the age-resolved stationary birth/propagation/survival formula for general residence-time laws. The variance-space equations explicitly retain the birth value, off survival and deterministic age propagator. Equations (55) and (61) give the mode relation and memoryless Gamma law.",
+          "Santra et al. give unequal-rate state-resolved spatial transforms; Biroli et al. describe common-history Gaussian variances and exponential switching. Neither static comparison is needed to infer that the age kernel is prior: Frydel directly supplies it."
+        ],
+        "reasoning": "The exponential residence laws are an explicitly solved specialization, not a new parameter domain. For fixed finite d the same scalar variance and age dynamics apply; in the spatial mixture only the common Gaussian radial likelihood gains a polynomial dimension factor, which does not change the saddle or Beta split.",
+        "searches": [
+          "Frydel arXiv:2607.05173v1 Eq. (14), §§V.1–V.2, Eqs. (54)–(61)",
+          "Santra–Das–Nath arXiv:2104.00609 Appendix B",
+          "Biroli et al. arXiv:2312.02570 Supplement §II"
+        ]
+      },
+      "checked_sources": [
+        "Frydel arXiv:2607.05173v1 §§I–II, V.1–V.2",
+        "Santra–Das–Nath arXiv:2104.00609 Appendix B",
+        "Frydel arXiv:2407.12213v2 §III",
+        "Biroli et al. arXiv:2312.02570 Supplement §II",
+        "Local Resultary related findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Compare Frydel Eq. (60) for p_b,off with Eq. (59) for p_on: r_on=S_on/τ_on gives p_b,off=p_on. Equations (55),(61) give p_on(s′)∝(s′)^{B−1}exp(−As′).",
+          "In the first Eq. (59), the integrand is the joint kernel in s′ and s: p_b,off(s′) S_off(τ_K(s−s′)/2)∝(s′)^{B−1}exp(−As) on 0<s′<s, with t=τ_K(s−s′)/2. Conditional on s, changing to j=1−s′/s gives B(1−j)^{B−1}. Equation (54) then makes this split independent of the spatial observation in the off mode.",
+          "The spatial likelihood in Eq. (54) yields the saddle of Av+1/(2v) under s=Rv, so the exact split gives the scaled age limit. The joint-mode weighting in Eq. (55) gives off/on density ratio s before Gaussian mixing, so its moment ratio at the same saddle gives the inverse-distance posterior coefficient."
+        ],
+        "reasoning": "Both claims follow by inserting the explicitly solved exponential case into the prior joint integrand, applying a one-variable change of variables and the same scalar Laplace estimate. Static laws alone would not justify the age claim, but the earlier paper includes the requisite age-resolved kernel. No changed statement is deemed repaired.",
+        "searches": [
+          "Frydel Eqs. (54)–(61) and memoryless constant-hazard boundary in §§I–II",
+          "Santra et al. Appendix B Eqs. (B.1)–(B.4)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In Frydel, the age in Eq. (14) is the current elapsed time since the latest switch, not the full duration of a finished sojourn. §§V.1–V.2 use excess variance s, with the same normalization as U, and deterministic released propagator δ(s−s′−2t/τ_K) in Eq. (58).",
+          "The parameter match is τ_K=1/k, τ_off=1/a, τ_on=1/b, c_off=A, c_on=B. This is the complete-release case at finite on stiffness, not instantaneous resetting."
+        ],
+        "reasoning": "The prior age variable and entry variance are exactly T and U₀ after this parameter map; they are not merely analogous latent variables.",
+        "searches": [
+          "intermittent harmonic trap Brownian particle age of current off sojourn conditional on position far tail beta distribution residence time Markov switching Ornstein Uhlenbeck",
+          "Frydel arXiv:2607.05173v1 §II and §V"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected findings describe Gamma-timed diffusion followed by deterministic return, and reset-driven forcing of a harmonic particle, respectively. Neither is the same model or Beta limit."
+        ],
+        "reasoning": "No exact catalogue table is needed for the rejection; the strongest coverage is by the earlier explicit age-resolved formula, not the topical catalogue analogues.",
+        "searches": [
+          "Local Resultary: switching harmonic trap extreme position current off age Beta fraction",
+          "2026/10/26/SCOPE-universal-hidden-phase-and-gaussian-age-laws-for-extreme-gamma-r--5c356dfeaeaf",
+          "2026/11/8/SCOPE-extreme-position-velocity-and-reset-age-boundary-layers-in-a-har--8c9e65d5e747"
+        ]
+      },
+      "rationale": "The result is mathematically correct but covered by a direct specialization of Frydel's earlier age-structured and variance-space formulas, arXiv:2607.05173v1. This is not a conclusion drawn from static laws alone. The earlier paper supplies the stationary age/birth propagator, its deterministic variance version, and the explicit memoryless Gamma law, all for the same complete-release model with finite on stiffness. Substitution gives the very joint kernel whose Beta fraction and far-position limit the frozen record claims. The earlier paper need not state the Beta limit verbatim for the coverage to hold.",
+      "residual_risks": [
+        "No assertion that the prior paper literally labels the conditional limit Beta or gives its displayed coefficient. The rejection is based on mathematical implication of inspected formulas, not on the absence or presence of those words in a search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger prior coverage by explicit specialization",
+          "evidence": "Eqs. (58)–(60) specify the joint kernel before marginalization over age and birth value, Eq. (61) solves the memoryless off law, and Eq. (55) determines the on law and mode weighting. Eqs. (50)–(53) retain finite τ_K=1/k.",
+          "identifier_or_url": "https://arxiv.org/html/2607.05173v1",
+          "material_read": "§I age definition and memoryless boundary; §II Eqs. (13)–(16); §§V–V.2 Eqs. (50)–(61)",
+          "method": "Lawful OA article, located by literal age/birth queries and read in bounded offsets",
+          "title": "Semi-Markovian switching in a fluctuating harmonic trap: An age-structured formulation",
+          "trigger": "Same spatial model, explicit current-age variable, general waiting laws including unequal exponential rates"
+        },
+        {
+          "assessment": "Exact prior static mode laws, not an age law by themselves",
+          "evidence": "The state-resolved Fourier transforms invert to Gamma variance mixtures with shapes B and B+1 under γ_off=a, γ_on=b, μ₀=k.",
+          "identifier_or_url": "https://arxiv.org/pdf/2104.00609",
+          "material_read": "PDF p. 19, Appendix B, Eqs. (B.1)–(B.4)",
+          "method": "Lawful OA PDF bounded passage",
+          "title": "Brownian motion under intermittent harmonic potentials",
+          "trigger": "Identical Markov trap with unequal switch rates"
+        },
+        {
+          "assessment": "Related common variance and path construction; not needed for the coverage conclusion",
+          "evidence": "Independent exponential switching intervals and a random-variance recursion; no stated current-off extreme-position age law in the inspected material.",
+          "identifier_or_url": "https://arxiv.org/pdf/2312.02570",
+          "material_read": "Supplement §II, Eqs. (S30)–(S45), pp. 4–5",
+          "method": "Lawful OA PDF bounded passage",
+          "title": "Dynamically emergent correlations between particles in a switching harmonic trap",
+          "trigger": "Fixed vector of particles with common switching history"
+        },
+        {
+          "assessment": "Distinct model and limit",
+          "evidence": "Gamma-timed diffusion and constant-speed return yield Gaussian fluctuations of a duration, not the Beta age split in the off mode of an intermittent trap.",
+          "identifier_or_url": "2026/10/26/SCOPE-universal-hidden-phase-and-gaussian-age-laws-for-extreme-gamma-r--5c356dfeaeaf",
+          "material_read": "Local Resultary Finding",
+          "method": "Local mirror statement comparison",
+          "title": "Universal hidden phase and Gaussian age laws for extreme Gamma-timed excursions",
+          "trigger": "Same-day analogue inferring age from an extreme location"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and exact Gamma-age decomposition",
+        "Frydel arXiv:2607.05173v1 Eqs. (54)–(61)"
+      ],
+      "rationale": "Inferring excursion age from a distant observation is a motivated path question, and the beta fraction is an informative interpretation. But for this exact exponential-switching case the earlier age-resolved variance kernel and Gamma solution already yield the split, and the scalar saddle gives the two limits without a new invariant or estimate. The fixed-dimensional formulation changes only the Gaussian likelihood prefactor and does not add a new mechanism or nontrivial extension. The claimed narrow exact result therefore does not supply an independently needed new fact beyond a direct deduction from the earlier framework.",
+      "residual_risks": [
+        "The decision does not rule out worthwhile age asymptotics for non-exponential waits, varying dimension, or a new higher-order quantitative result; none is a finding of the frozen record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

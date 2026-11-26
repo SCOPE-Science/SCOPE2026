@@ -1,0 +1,178 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:32:18.789835Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:3–88",
+        "VERIFICATION.md and check.py (inspected)",
+        "/workspace/branches/replay-3.py (independent high-precision replay)",
+        "Bakouch (2018), §5, Definition 5.3 and its following paragraph (apparent conflict checked and resolved by a counterexample)"
+      ],
+      "rationale": "For 0<β<1 strict concavity orders the six exponents as 1<A<B<1+A<1+B<2A; in particular the gaps give B<1+A and midpoint concavity gives 1+B<2A. The four sign changes bound the number of positive roots counted with multiplicity by four via differentiated Rolle induction: after dividing by the lowest power, an initial same-sign derivative costs an additional derivative zero before the first function zero. At q=1 the constant and linear terms vanish and the quadratic coefficient 2·3^β−2^β−4^β is strictly positive. Near q=0 the leading term is −q. After counting the exact double root at one, the total interior multiplicity is at most two and must be odd by the change of sign, hence exactly one and simple. The mandatory innovation PGF quotient is analytic near zero with positive constant term. Its normalized first derivative equals r_1−c(log G)'(1−c)=(1−c)(r_1−r_2)+O((1−c)^2), and the mass expansion yields r_2−r_1=H_β(q)/(1−q)^2. Thus q>q_* excludes all sufficiently high retentions at each fixed pair (β,q), without asserting sufficiency below the curve. At β=1 the negative value −q(1−q)^3 at each fixed q<1 forces q_*→1. In t=−log q the divided expansion is F_β−t+O((1−β)t+t²), yielding t_*~(10 log 2−6 log 3)(1−β). At β↓0, q=e^(−τ/β) gives H/q→−1+3·2^(−τ)−2·3^(−τ); its derivative has one positive zero and its sign around its unique positive root brackets the rescaled threshold. Ordinary ID follows separately from the geometric mixture induced by the positive stable Laplace transform: log-convex masses give nonnegative reciprocal-renewal coefficients, and the PGF logarithm has a finite nonnegative Lévy sequence. A 60-digit direct mass replay found q_*(1/2)=0.633705137004670016969118…, both endpoint constants as stated, and a normalized one-count quotient near −0.000214832801325664 at (β,q,c)=(0.5,0.8,0.99), with explicit omitted-tail bounds. The replay corroborates rather than proves the parameter-uniform theorem.",
+      "residual_risks": [
+        "No classification on or below the boundary and no single retention cutoff uniform in the parameters. The exponent endpoint β=1 is a separate geometric case."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible 2024 abstract states ordinary infinite divisibility / compound-Poisson representation for this family. The 1975 primary definition paper and the 2024 proof were not accessible; the Adesina abstract covers applied zero-truncated count-model comparison.",
+          "Bakouch states literally that a discrete ID distribution is discrete SD after defining thinning SD. That general statement is false as written: G(z)=exp(λ(z²−1)), λ>0, is compound Poisson, yet the normalized linear quotient coefficient is −2λc(1−c)<0 for every 0<c<1. Its family-specific assertions are about weighted negative-binomial Lindley."
+        ],
+        "reasoning": "Ordinary infinite divisibility is not a dominating thinning theorem. The explicit compound-Poisson counterexample resolves the apparent conflict in the accessible Bakouch passage independently of the Weibull proof.",
+        "searches": [
+          "Kreer–Kizilersu–Thomas DOI 10.1016/j.spl.2024.110238 and SSRN abstract_id 4785843",
+          "Nakagawa–Osaki DOI 10.1109/TR.1975.5214915",
+          "Bakouch DOI article at SciELO §5",
+          "Adesina et al. article 27172 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Kreer–Kizilersu–Thomas DOI 10.1016/j.spl.2024.110238 via RePEc abstract and blocked full-text routes",
+        "Nakagawa–Osaki DOI 10.1109/TR.1975.5214915 bibliographic record",
+        "Bakouch SciELO PDF §5",
+        "Adesina et al. article 27172 abstract",
+        "Steutel–van Harn general criterion via Resultary passage; original repository cover only",
+        "Resultary IDs 12cdb9820df2, d7a7540680dd, 669cf2e9718e, ccc124e0694b, and the indexed self-match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General canonical monotonicity supplies the necessary comparison, and substitution yields the function H_β up to a positive factor.",
+          "Uniqueness, simplicity, strict two-sided signs, and the two singular endpoint limits require the Weibull-specific exponent, multiplicity and asymptotic arguments.",
+          "The inspected abstract problem of ordinary compound-Poisson representation says nothing about preserving a nonnegative innovation quotient under thinning."
+        ],
+        "reasoning": "Credit the classical inequality and the known ordinary-ID result. Neither mechanically gives the asserted Weibull first-obstruction curve or the two endpoint laws; the inaccessible full proofs limit historical priority, not the independent correctness check.",
+        "searches": [
+          "2024 ordinary-ID abstract; Bakouch §5; BPL criterion quotation at offset 6750; Poisson generalized Lindley Finding at offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The innovation test uses the first difference of the canonical sequence a_n=(n+1)[z^(n+1)]log G, namely a_0−a_1=r_1−r_2. Requiring a nonincreasing canonical sequence is prior general theory; the target is the zero set and sign of this one difference after substituting the Weibull law.",
+          "The exact catalogue copy is a self-match. The related BPL result uses comparisons at the first two canonical indices of a different count law."
+        ],
+        "reasoning": "Canonical-sequence language and high-retention one-count PGF testing give the same necessary inequality, but its zero geometry for these Weibull probabilities is an additional result.",
+        "searches": [
+          "Resultary: discrete Weibull, thinning innovation, self-decomposability, INAR(1)",
+          "Bakouch 2018 §5 Definition 5.3",
+          "Steutel–van Harn 1979 canonical criterion, as quoted in Resultary BPL result 12cdb9820df2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related exact catalogue boundaries address Bernoulli–Poisson–Lindley, two-parameter Poisson generalized Lindley, a geometric–negative-binomial mixture, and Bernoulli–negative-binomial laws.",
+          "The closest methodological Lindley result has a negative one-count innovation witness but for its own PGF."
+        ],
+        "reasoning": "The exact thresholds and tables were compared on model and scope, not excluded by same-day date. These PGFs are not the Weibull mass sequence at the assessed parameters and give no exact table of the Weibull curve or limits.",
+        "searches": [
+          "Resultary: exact thinning frontier, one-count innovation sign and Weibull threshold",
+          "Resultary same-day records 12cdb9820df2, d7a7540680dd, 669cf2e9718e and ccc124e0694b"
+        ]
+      },
+      "rationale": "The general thinning definition, PGF quotient and first canonical-sequence comparison are prior tools, and ordinary ID of type-I discrete Weibull is prior art. The distinct content is the unique simple crossing and exact sign characterization of the evaluated one-count obstruction for every shape, with two explicit parameter endpoint laws. The accessible closest comparisons do not give those facts. The verdict is best-of-knowledge and does not claim priority for a complete thinning-SD classification.",
+      "residual_risks": [
+        "The 1975 and 2024 original full proofs were not accessible. Unindexed or implicit coverage of the evaluated curve is possible; the observed matches do not establish it. No chronological order is inferred from a shared catalogue date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Ordinary ID is verified prior scope; possible further overlap in unavailable proof is unresolved",
+          "evidence": "The abstract addresses additive infinite divisibility and constructs a compound-Poisson representation; no thinning sign boundary is in the accessible statement.",
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2024.110238",
+          "material_read": "RePEc abstract, offset 425, https://ideas.repec.org/a/eee/stapro/v215y2024ics0167715224002074.html",
+          "method": "Bounded publisher and SSRN access attempts, then RePEc abstract; no full paper",
+          "title": "When is the discrete Weibull distribution infinitely divisible?",
+          "trigger": "Closest primary study of the same discrete Weibull family and divisibility"
+        },
+        {
+          "assessment": "Law is attributed to prior work; further overlap not assessed from full text",
+          "evidence": "Frozen reference 2 identifies Nakagawa and Osaki, 1975, pp. 300–301.",
+          "identifier_or_url": "https://doi.org/10.1109/TR.1975.5214915",
+          "material_read": "Bibliographic citation; original theorem or proof text not retrieved",
+          "method": "Bounded IEEE OA lookup (HTTP 202, no article text)",
+          "title": "The discrete Weibull distribution",
+          "trigger": "Original distribution and possible early structural statements"
+        },
+        {
+          "assessment": "Application to count models in abstract; mass-formula passage not independently exposed",
+          "evidence": "The abstract compares Bayesian fits of discrete Weibull and other zero-truncated count models.",
+          "identifier_or_url": "https://www.naturalspublishing.com/Article.asp?ArtcID=27172",
+          "material_read": "Accessible abstract, offset 629",
+          "method": "Bounded landing-page inspection",
+          "title": "On the Performance of Dirichlet Prior Mixture of Generalized Linear Mixed Models for Zero Truncated Count Data",
+          "trigger": "Cited applied paper with possible mass-function comparison"
+        },
+        {
+          "assessment": "Same quotient definition; subsequent unconditional ordinary-ID implication is false as printed, not a dominating theorem",
+          "evidence": "The paragraph after the quotient says that a discrete infinitely-divisible distribution is discrete self-decomposable, and then specializes to WNBL. The independent compound-Poisson even-count example refutes the general sentence.",
+          "identifier_or_url": "https://www.scielo.br/j/aabc/a/NHrM8Y4mnHGjJrBWC8zqqQy/?lang=en&format=pdf",
+          "material_read": "§5, Definition 5.3 through beginning of Proposition 2, PDF offset 53750",
+          "method": "Bounded OA PDF passage inspected directly",
+          "title": "A weighted negative binomial Lindley distribution with applications to dispersed data",
+          "trigger": "Explicit thinning definition and apparent ordinary-ID versus thinning-SD conflict"
+        },
+        {
+          "assessment": "Credit the general canonical test, not the solved Weibull boundary",
+          "evidence": "The cited criterion is that the canonical sequence is nonincreasing; the first comparison is r_1>=r_2. Independent quotient expansion verifies this comparison directly.",
+          "identifier_or_url": "Steutel and van Harn, 1979, Annals of Probability 7, 893–899",
+          "material_read": "Repository cover only; general criterion as quoted in Resultary BPL proof, offset 6750",
+          "method": "Bounded lawful lookup and local catalogue mirror",
+          "title": "Discrete analogues of self-decomposability and stability",
+          "trigger": "General canonical-sequence special-case implication"
+        },
+        {
+          "assessment": "Different law; shared general method",
+          "evidence": "The family-specific exact criterion uses the first two canonical comparisons.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-two-index-thinning-self-decomposability-criterion-for-bernoull--12cdb9820df2/RESULT.md",
+          "material_read": "Finding and general-criterion passage, offsets 0 and 6750",
+          "method": "Local catalogue mirror",
+          "title": "A two-index thinning self-decomposability criterion for Bernoulli–Poisson–Lindley laws",
+          "trigger": "Same-day canonical comparison work"
+        },
+        {
+          "assessment": "Different family and parameter boundary",
+          "evidence": "The exact all-thinning statement and rational negative one-innovation witness refer to the Poisson generalized Lindley PGF.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-thinning-self-decomposability-frontier-of-the-two-paramete--d7a7540680dd/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local catalogue mirror",
+          "title": "Sharp thinning self-decomposability frontier of the two-parameter Poisson generalized Lindley law",
+          "trigger": "Closest same-day negative one-innovation boundary methodology"
+        },
+        {
+          "assessment": "Different mixture law",
+          "evidence": "The result concerns a uniform threshold in mixture weights and failure near q=1, not the Weibull one-count obstruction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-uniform-thinning-threshold-in-geometric-negative-binomia--669cf2e9718e/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local catalogue mirror",
+          "title": "A sharp uniform thinning threshold in geometric–negative-binomial mixtures",
+          "trigger": "Same-day ordinary ID contrasted with thinning failure"
+        },
+        {
+          "assessment": "Different PGF and boundary",
+          "evidence": "The exact thinning and log-concavity claims concern the Bernoulli–negative-binomial family.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-thinning-and-log-concavity-boundaries-for-bernoulli-negati--ccc124e0694b/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local catalogue mirror",
+          "title": "Sharp thinning and log-concavity boundaries for Bernoulli–negative-binomial laws",
+          "trigger": "Same-day exact thinning frontier"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:3–36, 42–88",
+        "2024 discrete Weibull ordinary-ID abstract",
+        "Direct PGF quotient comparison"
+      ],
+      "rationale": "An exact exclusion region for a proposed stationary count marginal at all sufficiently high thinning retentions is operationally meaningful even without a complete sufficiency classification. This theorem turns a generic necessary coefficient test into an unambiguous sharp sign transition, including a near-geometric scale and a distinct exponentially small threshold at small shape. It also gives a family-specific separation of ordinary additive ID from the stronger thinning requirement, not just a numerical witness or restatement of that distinction.",
+      "residual_risks": [
+        "The admissible stationary-marginal parameter set could be smaller than the region not ruled out by this first test; higher innovation coefficients and equality are open here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

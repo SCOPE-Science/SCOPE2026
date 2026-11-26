@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The tensor orthonormal expansion yields the exact kernel, and its square-free highest-support sector dominates the integrated absolute kernel at order \(d^{k/2}\): all lower-support terms have uniform \(L^2\) norm at most order \(d^{(k-1)/2}\). A bounded triangular-array central limit theorem together with Newton identities sends the normalized elementary symmetric polynomial to \(H_k(Z)/k!\). Its explicit uniform second-moment bound justifies convergence of absolute expectations. Compactness of standardized coordinate energy establishes both the global sharp upper bound and an if-and-only-if near-extremizer criterion, including zero-energy sequences. Equality of endpoint operator norms comes from the symmetric kernel. This proof covers every fixed \(k\ge3\) and every stated compactly supported law. The finite checker provides supplementary evidence only.
+## correctness
 
-## Originality — PASS within checked sources
-The related high-dimensional quadratic product-law projector estimate concerns degree two and symmetry, neither of which yields higher-degree Hermite limits or the arbitrary-law statement. Cohen–Davenport–Leviatan's sampling-stability criteria, Zhou–Narayan–Xu's multivariate approximation constructions, and the polynomial-mesh Lebesgue-constant work do not establish fixed-degree \(k\ge3\) sharp endpoint asymptotics as spatial dimension diverges. Classical Krawtchouk-to-Hermite limits cover a component in a special discrete setting but are not a covering theorem for product-law projection norms and all extremizing evaluations. Searches for polynomial-chaos projection constants, Krawtchouk limits, degree-three Walsh norms and product-measure Lebesgue constants did not identify a logically dominating result. Historical equivalence under another formulation remains a residual risk; full text was unavailable for some potentially related sources.
+PASS
 
-## Mathematical value — PASS
-Worst-case amplification of polynomial-chaos truncation is a natural uniform-stability invariant, not determined by sampling guarantees or dimension-free \(L^2\) contractivity. A full family of sharp coefficients for every fixed higher degree exhibits non-Gaussian oscillation patterns through higher Hermite modes while remaining universal across compact product laws. The complete characterization of the maximizing geometry adds usable information for support-oriented truncation and worst-case stability analysis, including asymmetric or atomic inputs. The result does not purport to give a finite-dimensional optimum or growing-degree law.
+For fixed k and a fixed compact marginal with at least k+1 support points the orthonormal tensor basis exists, including for atomic laws. In a kernel row the terms other than the degree-k square-free sector have O(d^{k-1}) uniformly bounded, orthogonal coefficients, hence O(d^{(k-1)/2}) error in L1. If a_i=(x_i-m)/sqrt(v), normalize the leading sector by d^{k/2}; the resulting inputs to the elementary symmetric polynomial are a_i Z_i/sqrt(d). On any subsequence with mean a_i^2 tending to q, their first power sum tends in law to sqrt(q)Z (or zero in L2 for q=0), their second tends to q in L2, and each fixed higher power sum vanishes deterministically. Newton's identities give q^{k/2}H_k(Z)/k!; orthogonality gives a uniform second-moment bound (mean a_i^2)^k/k!, justifying absolute expectations. Compact subsequences give the global upper limit, a repeated farthest support point attains it, and strict increase in q yields both directions of rigidity. A sign-of-kernel input realizes each row's absolute integral; continuity and full support identify the max with the essential-supremum operator norm, and symmetry with L1 duality gives exact finite-d endpoint equality. Independent replay `python /workspace/branches/independent_audit_replay.py` confirms the four numerical coefficients by Gaussian integration at Hermite roots, not the infinite-dimensional theorem. The bundled checker, inspected but not executed, counts 1278 pointwise kernel comparisons plus three Hermite moment checks; the text's description of 1281 kernel comparisons conflates these without affecting the theorem.
 
-## Scientific limits and comparators
-Finite tests do not certify infinite statements. A 2015 Krawtchouk–Hermite asymptotic is a serious special-case comparator, and complete texts for one 2014 hyperinterpolation study and some historical literature were not available. The analysis assesses the present higher-degree, arbitrary-marginal statement, not the already established quadratic case. Independent priority and mathematical auditing remain unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the fixed higher-degree theorem for general compact marginals with its complete near-maximizer criterion. Its uniform-cube specialization explicitly overlaps another record, and both the degree-two product result and the interaction projection result anticipate key mechanisms. None of those statements gives this full combination of degree, law, operator and evaluation geometry. No novelty is assigned to endpoint duality, Newton identities, or the elementary-symmetric-to-Hermite method.
+
+## value
+
+PASS
+
+The endpoint norm quantifies worst-case amplification under fixed-order polynomial chaos truncation as dimension grows. A sharp constant and a necessary and sufficient maximizing geometry valid across nonsymmetric continuous and discrete laws go beyond a cube constant or an upper bound. The change to centered energy is meaningful for asymmetric laws, where a farthest endpoint may be unique. No finite-d optimizer, rate uniform in the marginal, or growing-degree result follows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

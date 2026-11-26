@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The cap lemma converts every perimeter-halving chord into one of three explicitly bounded concave quadratics, and an independent minimum-cap analysis handles both choices of side of the chord. The inequalities for the global constant and the optimizer transition are elementary algebra with strict triangle inequalities; no finite test is offered as an infinite proof. The standalone rational and coordinate-area tests passed. Scientific risk: the formula presumes straight chords, Euclidean arclength and strictly nondegenerate triangles; these are explicit assumptions.
+## correctness
 
-## Originality
-PASS, with residual priority risk. The inspected accessible 2022 source proves a more general **envelope** theorem in the arclength ratio but does not state the area-fraction extremal functional, its two-case support profile or its unique sharp triangle bound. The 2023 extremal-bisector theorem optimizes chord **length**, not region area. The 2010 equalizer paper classifies simultaneous area and perimeter bisections, whose existence does not imply worst-case area discrepancy. Searches of published mathematical records for the \(9/16\) area fraction, triangle perimeter-halving imbalance, and equivalent geometric formulations did not reveal this exact result. An unindexed classical corollary or an inaccessible appendix could preempt priority.
+PASS
 
-## Mathematical value
-PASS. Area and perimeter are the two fundamental competing measures in geometric bisection. Determining the **whole attainable area-fraction interval** of all perimeter-halving chords, its sharp equilateral rigidity, and the geometric transition from interior to vertex-passing extremizers supplies a natural complete family invariant. The statement does not rely on artificial parameter choices, a finite random sample or a tiny unsupported improvement; its \(1/16\) discrepancy is sharp and universal for triangles. The proof is elementary, and no broader convex-body claim is implied.
+Each side is shorter than the semiperimeter s, so two points separated by s lie on different sides and a cap at their shared vertex has side distances x,s−x and fraction x(s−x)/(uv), with x between s−v and u. The maximal cap on a pair is obtained by projecting s/2 onto this interval. For a>=s/2 every pair contains the midpoint, so (a,b) gives the largest cap. Otherwise a+b>s gives b,c>s/2, and the (a,b) endpoint (s−a)/b dominates the (a,c) endpoint and the (b,c) centered cap; 4c(s−a)>s². The vertex-passing endpoint values are (s−v)/u over ordered pairs. Their least value is (s−c)/b: the only possible competing ratio involving the larger denominator c is bounded below by (s−b)/c, and b(s−b)>=c(s−c) since b,c>s/2. The maximal complement thus has fraction (s−a)/b and cannot exceed the maximal cap (in the first branch the difference is (s−2a)²/(4ab)). The two formulas agree at a=s/2. Oriented antipodal chords depend continuously on the circle of boundary starts; exchanging endpoints complements the fraction, giving the full interval. In the first regime ab<=a(2s−a)/2<=4s²/9 with equality only equilateral. In the second regime (s−a)/b>2/3. Every cap leaves positive area on the other side because it cannot use both entire sides; compactness yields M<1. As a/s goes to zero, b/s lies between 1−a/s and 1, so M tends to 1. This does not assert that other degenerating sequences cannot approach 1.
 
-## Closest literature and limits
-Amadtohed et al. (2022), DOI 10.1155/2022/2751666; Berele–Catoiu (2023), DOI 10.1007/s00010-023-01001-9; Kodokostas (2010), DOI 10.4169/002557010X482916. The 2023 paper's accessible preview included the main theorem but not all later pages. No uniqueness conclusion is inferred solely from absence of a search hit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the full two-sided area interval, its explicit branch change over arbitrary triangles, and the sharp equilateral minimax discrepancy. Closest inspected indexed theorems compare shortest-chord length or identify an atomic distribution in quadrilaterals; neither supplies these area extrema. Earlier perimeter-halving parameterizations and equalizer existence are credited and are not the novelty. Priority is bounded by the unavailable primary passages specified below.
+
+## value
+
+PASS
+
+An equipartition line gives equality of area and perimeter, but it supplies no quantitative control when varying all perimeter-halving chords. The exact set of possible area ratios, a sharp rigid obstruction to uniformly small deviation in triangles, and the change from an interior vertex cap to a vertex-passing line are reusable information about the natural bisection family. This is a complete family classification rather than a repackaging of the exact equalizer problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

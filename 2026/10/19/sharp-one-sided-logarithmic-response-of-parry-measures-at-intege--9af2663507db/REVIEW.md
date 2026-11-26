@@ -1,15 +1,21 @@
-# Review of sharp one-sided logarithmic Parry response
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The invariant density is constructed from the classical Parry series and is verified by a transfer-operator identity. The first \(m_eta\) orbit digits are maximal with \(m_eta=\log(1/(b-eta))/\log b+O_b(1)\). This yields a defect mass with exact leading coefficient. The postcut tail is uniformly \(O_b(b-eta)\), and the defect away from \(x=1\) is uniformly of that smaller order. These facts establish the signed weak limit and a matching total-variation bound. Finite high-precision checks are supplemental. Both limits and all quantifiers are one-sided.
+PASS
 
-## Originality — PASS, with risks
+The Parry series normalized by its integral is invariant: applying the transfer operator to each initial interval and telescoping the digits recovers the series, including when the orbit terminates. Subtracting its nonnegative defect vβ from Sβ=β/(β−1) gives the signed density (dβ−vβ)/(Sβ−dβ), where dβ=∫vβ. To check the exact digit cutoff, let Dₙ=ε(βⁿ−1)/(β−1) be the candidate endpoint defect. Given aₙ₋₁=1−Dₙ₋₁ on the maximal-digit block, βaₙ₋₁=b−Dₙ. Thus the digit at the preceding step n−1 is b−1 exactly when Dₙ≤1 (Dₙ>0); equality yields aₙ=0 and is correctly included. Equivalently Dₙ₋₁≤(1−ε)/β, so there is no index discrepancy. The maximal block has length floor(logβ(1+(β−1)/ε)); β^(−m)=O_b(ε), and its contribution to dβ is ε/(β−1) times ∑ₙ₌₁ᵐ(1−β^(−n)), with all later contributions O_b(ε). Hence dβ~ε log(1/ε)/[(b−1)log b]. On any [0,1−η] the terms present have Dₙ≥η or lie in the tail, giving vβ=O_{b,η}(ε) there. Nonnegativity and the mass asymptotic imply a concentrated endpoint measure in the scaling limit, and Sβ−dβ→b/(b−1). Probability TV is the positive-part integral of the signed density, bounded above by dβ/(Sβ−dβ); its lower bound over [0,1−η] is asymptotically at least 1−η times that upper bound. Let η tend to zero. Testing the weak limit with x gives the stated mean coefficient and sign.
 
-Parry's explicit invariant density and Keller's logarithmic continuity scale are acknowledged prior art. Baladi's 2014 accessible full text discusses general order estimates and different unimodal families rather than the exact all-integer beta-base signed coefficient. Brown–Yin and other beta papers address natural extensions or common invariant probabilities. Góra's 2007 article is directly relevant but available only as abstract; absence of prior exact coefficients there cannot be certified, and its full text remains a priority risk. Targeted literature and mathematical-record searches did not return an equivalent signed weak limit together with the sharp setwise coefficient. This is not absolute novelty certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem captures a natural parameter bifurcation, identifies the boundary origin of its non-differentiable response, gives all observable coefficients simultaneously, and determines the strongest setwise scale exactly. A general stability upper bound cannot provide these coefficients. The result does not cover right-sided response, nonlinear parameter paths, or total-variation convergence of signed rescalings.
+The invariant-density formula and general logarithmic stability or failure of linear response are prior knowledge. The supported distinct claim is the explicit signed leading coefficient for every integer approached from below, with the matching sharp probability-TV asymptotic. The closest Resultary statement has the same structural response and proof device for a different double-base map and path; it does not specialize to the single-slope greedy β family here.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The one-sided perturbation of a classical greedy expanding map at a full-branch integer base is a natural response problem. The sharp scale, signed endpoint term, and explicit coefficient determine which observables have nonzero leading response and how strongly the invariant law moves in probability TV. This is useful information beyond an order bound or a failure of differentiability for one observable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

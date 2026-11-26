@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:29:27.860348Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The matrices were matched entrywise to Rodrigues's primary text. Independent exact replay (python /workspace/checks/3.py) solves augmented equal-payoff systems on the full and face supports, and reproduces the Sylvester minors, rational branches, strict sign certificates, simple root brackets, endpoint states and endpoint log rates. Negative tangent definiteness extends over each affine path and makes every equal-payoff system on a fixed support nonsingular (subtract two solutions and take the inner product with their tangent difference). The support-wise relative entropy has derivative at most a strictly negative quadratic away from the candidate, while its sublevels keep all candidate-supported coordinates bounded away from zero. This yields convergence from all positive initial data even when the absent-type invasion rate is zero. The boundary equilibrium is unique as a Nash equilibrium and interior limit, not as an arbitrary stationary point on a face. The rate follows from Cesàro averaging the limiting log derivative. Small endpoint changes preserve invertibility and positivity uniformly; near the simple zero the signs persist by derivative control and away from it by compactness. A zero of the candidate's disappearing coordinate is exactly a zero of the face invasion gap, by uniqueness of the full equal-payoff solution. Thus the qualitative local perturbation clause holds.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hofbauer–Sandholm prove interior replicator convergence for strictly stable games; Rodrigues gives reusable face formulas, but those works do not give the two cubics in the inspected passages.",
+          "ae547ad29046 explicitly gives the exact log-loss functions at every fixed parameter above threshold, encompassing both endpoint rates."
+        ],
+        "reasoning": "General convergence and face formulas need branch-specific algebra; they are not the originality failure by themselves. The indexed result has that specific algebra and a broader rate statement.",
+        "searches": [
+          "Hofbauer–Sandholm 2009, §7.2",
+          "Rodrigues 2026 Appendix A",
+          "ae547ad29046 post-threshold formulas",
+          "Murali–Shaiju 10.3934/jdg.2023004"
+        ]
+      },
+      "checked_sources": [
+        "Rodrigues 2026 cited sections and Appendix A",
+        "Rodrigues 2025 primary PDF pp. 9–10",
+        "Hofbauer–Sandholm 2009 §7.2",
+        "Resultary ae547ad29046 original RESULT.md",
+        "Murali–Shaiju 2023 bibliographic scope only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed proof uses the same three tangent-form certificates, equivalent full and face branches, and the same change from interior to boundary Nash equilibrium. The displayed endpoint loss magnitudes have quotient 115564/677."
+        ],
+        "reasoning": "The threshold and exponential-rate results are already explicit. Simple zeros, nonsingular equilibrium systems, and compact strict positivity away from the zeros imply local persistence; there is no quantitative perturbation radius or independent robustness classification here. The exact rate ratio is direct division. Neither remainder supplies a new substantive result.",
+        "searches": [
+          "ae547ad29046 original Finding and proof",
+          "Hofbauer–Sandholm 2009 proof in §7.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct record ae547ad29046 writes t instead of theta and uses positive loss Delta instead of negative invasion excess. Its g_a, g_b, matrices and both post-threshold rate functions agree with the frozen formulas under those sign and variable conventions."
+        ],
+        "reasoning": "Different parameter letters and sign conventions do not define different equilibrium or dynamical claims. The same starting simplex and initial positivity quantifier hold.",
+        "searches": [
+          "Resultary search for sharp phenotype-loss thresholds and Rodrigues tumor-game environment paths",
+          "Extract of ae547ad29046 RESULT.md",
+          "Rodrigues DOI 10.20944/preprints202601.1761.v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Its Finding gives the same root pair in (0,1), the identical active supports and acidic/buffered endpoint equilibria, and rates 173/3385 and 1/3340 as positive log-loss magnitudes."
+        ],
+        "reasoning": "This is an exact match to the key invariant data and stronger than a title similarity. The catalogue date is later than that displayed for this source; the comparison establishes overlapping content now, not which analysis appeared first or whether independent discovery occurred.",
+        "searches": [
+          "Resultary 2026/11/8/SCOPE-sharp-phenotype-loss-thresholds-along-two-published-tumor-game-e--ae547ad29046 and mirrored RESULT.md"
+        ]
+      },
+      "rationale": "A distinct indexed record, ae547ad29046, has demonstrably equivalent coverage of the substantive conclusion, including the same model, paths, both threshold polynomials and identities of the disappearing strategies, global attraction, and both endpoint rates. It also states the full post-threshold rate functions. The endpoint ratio is an arithmetic consequence, and qualitative persistence is a standard local consequence of the strict signs and simple support crossing already visible in those exact branches. This is a statement-level coverage finding, not a priority or provenance determination from the catalogue dates.",
+      "residual_risks": [
+        "Murali–Shaiju full text was not verified. The relationship and priority of the frozen result and the indexed match were not established and are not inferred from displayed dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "the exact inputs and generic reductions are covered, not the identified complete path classification",
+          "evidence": [
+            "All three printed matrices agree entrywise; the scenario discussion calls the acidic changes phenomenological. Appendix A derives generic face equal-fitness reductions."
+          ],
+          "identifier_or_url": "https://doi.org/10.20944/preprints202601.1761.v1",
+          "material_read": "Eq. (5), p. 8; §§7.2–7.3 pp. 15–16; Appendix A pp. 18–19",
+          "method": "Primary preprint PDF passage and literal keyword checks",
+          "title": "Modeling Tumor Phenotypic Heterogeneity with Multi-Strategy Evolutionary Games",
+          "trigger": "source scenario matrices and possible exact path thresholds"
+        },
+        {
+          "assessment": "different model dimension and matrices",
+          "evidence": [
+            "Two strategies, glycolytic and oxidative, with 2-by-2 payoff examples."
+          ],
+          "identifier_or_url": "https://www.preprints.org/manuscript/202508.1253",
+          "material_read": "PDF pp. 9–10 around text offset 42000",
+          "method": "Primary PDF passage inspection",
+          "title": "Modeling Tumor Metabolic Heterogeneity through Evolutionary Game Theory: Insights into Therapy Design",
+          "trigger": "same author's earlier tumor scenario comparisons"
+        },
+        {
+          "assessment": "direct broader coverage of convergence mechanism under strict stability",
+          "evidence": [
+            "Interior replicator trajectories converge to the unique Nash equilibrium; the argument uses relative entropy."
+          ],
+          "identifier_or_url": "https://www.ssc.wisc.edu/~whs/research/sg.pdf",
+          "material_read": "§7.2, p. 29, text near offset 76700",
+          "method": "Author-hosted primary PDF passage",
+          "title": "Stable games and their dynamics",
+          "trigger": "general global convergence could subsume part of the claim"
+        },
+        {
+          "assessment": "equivalent substantive theorem with wider rate coverage",
+          "evidence": [
+            "Same matrices and paths, identical two cubics, endpoint states and rates, and attraction from every strictly positive state. Its rate expressions agree for all parameters above threshold."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-phenotype-loss-thresholds-along-two-published-tumor-game-e--ae547ad29046",
+          "material_read": "original RESULT.md, Finding, assumptions and full/face branch and convergence proof",
+          "method": "Resultary local query followed by primary record mirror passage inspection",
+          "title": "Sharp phenotype-loss thresholds along two published tumor-game environment paths",
+          "trigger": "same matrices, both environmental paths and threshold claims"
+        },
+        {
+          "assessment": "full theorem comparison unverified; does not affect the positive exact-coverage evidence",
+          "evidence": [
+            "Stated title concerns stable stochastic games."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/jdg.2023004",
+          "material_read": "bibliographic title only",
+          "method": "Lawful article-page and alternate-copy attempts",
+          "title": "Dynamic stability of the set of Nash equilibria in stable stochastic games",
+          "trigger": "related stability theory cited in the record"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An exact support diagram for these illustrative but motivated payoff paths would be useful on its own. Compared with the independently located matching diagram and its wider rate functions, this package adds essentially a numerical ratio of two known exact magnitudes and qualitative simple-crossing persistence without a quantified robustness domain. Those increments do not provide a separately valuable classification or method, and the affine interpolation is not a physical pH calibration. No surviving valuable repair is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

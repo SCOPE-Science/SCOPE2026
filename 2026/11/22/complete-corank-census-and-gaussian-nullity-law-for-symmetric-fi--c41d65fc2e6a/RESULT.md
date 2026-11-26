@@ -1,155 +1,71 @@
-# Complete corank census and Gaussian nullity law for symmetric finite-field tridiagonal matrices
+# Gaussian nullity law for symmetric finite-field tridiagonal matrices
 
 ## Finding
 
-For each prime power \(q\ge2\), let \(\mathcal T_n(q)\) consist of all symmetric \(n\times n\) matrices over \(\mathbb F_q\) whose entries vanish outside the three central diagonals. All \(2n-1\) free entries are unrestricted. Define the corank polynomial
-
+Fix a prime power \(q\ge 2\). Let \(A_n\) be uniformly distributed over symmetric tridiagonal \(n\times n\) matrices over \(\mathbb F_q\), with all \(2n-1\) diagonal and subdiagonal entries independent and uniform, including zero. Set \(K_{n,q}=\dim_{\mathbb F_q}\ker A_n\) and
 \[
-Z_{n,q}(t)=\sum_{A\in\mathcal T_n(q)}t^{\dim_{\mathbb F_q}\ker A},\qquad Z_{0,q}(t)=1.
+\delta_q=q^2+q-1,\qquad \mu_q=\frac{1}{\delta_q},\qquad
+\sigma_q^2=\frac{1}{\delta_q}-\frac{q^2-q+1}{\delta_q^3}>0.
 \]
-
-For every \(q\) and all \(n\ge0\), the complete corank census is
-
-\[
-\boxed{\sum_{n\ge0}Z_{n,q}(t)z^n=
-\frac{1-(q-1)^2z-q(q-1)^2z^2}
-{1-\big(q(q-1)+t\big)z-q^2(q-1)z^2}.}
-\]
-
-In particular, \(Z_{1,q}(t)=q-1+t\), \(Z_{2,q}(t)=q^2(q-1)+(q^2-1)t+t^2\), and for every \(n\ge3\)
-
-\[
-Z_{n,q}(t)=\big(q(q-1)+t\big)Z_{n-1,q}(t)+q^2(q-1)Z_{n-2,q}(t).
-\]
-
-The coefficient \([t^k]Z_{n,q}(t)\) counts exactly the matrices of nullity \(k\), for every \(0\le k\le n\). In particular \(Z_{n,q}(1)=q^{2n-1}\) for \(n\ge1\).
-
-Let \(K_{n,q}\) be the nullity of a uniformly chosen matrix from \(\mathcal T_n(q)\), with \(q\) fixed. Put
-
-\[
-\delta_q=q^2+q-1,\qquad
-\mu_q=\frac1{\delta_q},\qquad
-\sigma_q^2=\frac1{\delta_q}-\frac{q^2-q+1}{\delta_q^3}>0.
-\]
-
 Then
-
 \[
 \mathbb E K_{n,q}=\mu_q n+O_q(1),\qquad
-\operatorname{Var}(K_{n,q})=\sigma_q^2n+O_q(1),
+\operatorname{Var}(K_{n,q})=\sigma_q^2n+O_q(1),\qquad
+\frac{K_{n,q}-\mu_q n}{\sigma_q\sqrt n}\xrightarrow{\mathrm{law}}\mathcal N(0,1).
 \]
-
-and the central limit theorem holds:
-
-\[
-\frac{K_{n,q}-\mu_q n}{\sigma_q\sqrt n}
-\xrightarrow[n\to\infty]{\mathrm{law}}\mathcal N(0,1).
-\]
-
-Thus the corank of a uniformly chosen sparse symmetric tridiagonal matrix grows linearly with dimension and fluctuates on the square-root scale, in contrast with the tight corank of uniformly chosen dense symmetric matrices.
+Thus the nullity has positive linear density and fluctuations of order \(\sqrt n\), unlike the tight nullity of the uniform full symmetric ensemble over the same field.
 
 ## Assumptions and scope
 
-The field has arbitrary prime-power size \(q\ge2\) and arbitrary characteristic. Symmetry requires each subdiagonal entry to equal its corresponding superdiagonal entry. Entries on the diagonal and on the subdiagonal are independent and uniform; *zero offdiagonal entries are included*. The corank is taken over the same field. The generating function is a formal identity in \(\mathbb Z[t][[z]]\) for each fixed \(q\). The asymptotic limit holds with \(q\) fixed and \(n\to\infty\); no simultaneous field-size limit is claimed.
+The field size is fixed as \(n\) tends to infinity, and the result includes characteristic two. Zero offdiagonal entries are essential: if all are conditioned to be nonzero, the nullity is at most one. The all-corank generating function below is a supporting corollary of the known invertible census and the decomposition at zeros; it is not asserted as a separate originality contribution.
 
 ## Proof
 
-**Step 1: irreducible tridiagonal blocks have corank at most one.** Fix \(\ell\ge1\) and nonzero offdiagonal entries \(b_1,\ldots,b_{\ell-1}\in\mathbb F_q^\times\). Let \(d_i\) denote the determinant of the leading \(i\times i\) block, with \(d_0=1\) and \(d_1=a_1\). Expansion along the final row gives
+### From the invertible census to a corank generating function
 
+Let \(S(z)\) count invertible matrices by dimension and let \(T(z)\) count all matrices by dimension, with the empty matrix counted once in both. The nonsingular counts of Martínez-Moro, Rodnit and Jitman (Theorem 2.1), with initial values \(q-1\) and \(q^2(q-1)\) at dimensions one and two, give
 \[
-d_i=a_i d_{i-1}-b_{i-1}^2d_{i-2}\quad (i\ge2).
+S(z)=\frac{N(z)}{1-q(q-1)z-q^2(q-1)z^2},\qquad
+N(z)=(1+(q-1)z)(1-q(q-1)z).
 \]
+Direct counting gives \(T(z)=1+qz/(1-q^2z)=(1-q(q-1)z)/(1-q^2z)\).
 
-If \(d_{i-1}=0\), then \(d_{i-2}\ne0\), by induction: two consecutive continuants cannot vanish because \(b_{i-1}\ne0\), and the initial \(d_0=1\). Equivalently, the homogeneous equation \(A v=0\) successively determines all coordinates of \(v\) from its first coordinate since each \(b_i\) is invertible. Hence the kernel has dimension at most one, and it is one-dimensional precisely when \(d_\ell=0\).
-
-**Step 2: exact singular-block count.** For each fixed sequence of nonzero offdiagonal entries, the diagonal coefficients are independent uniform variables. Conditional on \(d_{i-1}\ne0\), exactly one value of \(a_i\) makes \(d_i=0\); conditional on \(d_{i-1}=0\), none does. Thus if \(p_i=\Pr(d_i=0)\), then \(p_0=0\) and
-
+A matrix splits uniquely into a sequence of blocks at its zero offdiagonals. A block has nullity at most one: in a kernel vector, its first coordinate determines all the others by the rows with nonzero next offdiagonal. This includes singletons and uses no restriction on characteristic. Write \(B_0(z)\) and \(B_1(z)\) for the counting series for such blocks with nullity zero and one. The unique block decomposition and additivity of nullity give \(1/S=1-B_0\) and \(1/T=1-B_0-B_1\). Thus the full generating function for the unnormalized nullity polynomials \(Z_{n,q}(t)\), with \(Z_{0,q}=1\), is
 \[
-p_i=\frac{1-p_{i-1}}q,
-\qquad p_i=\frac{1-(-q^{-1})^i}{q+1}.
+\begin{aligned}
+\sum_{n\ge 0}Z_{n,q}(t)z^n
+ &=\frac{1}{1-B_0(z)-tB_1(z)}
+ =\frac{1}{(1-t)/S(z)+t/T(z)}\\
+ &=\frac{N(z)}{1-(q(q-1)+t)z-q^2(q-1)z^2}.
+\end{aligned}
 \]
+This identity holds formally for every fixed prime power \(q\). In particular, \(Z_{1,q}(t)=q-1+t\), \(Z_{2,q}(t)=q^2(q-1)+(q^2-1)t+t^2\), and for \(n\ge3\) the homogeneous recurrence has first coefficient \(q(q-1)+t\) and second coefficient \(q^2(q-1)\).
 
-For each prescribed nonzero offdiagonal sequence, the numbers of diagonal choices giving corank one and zero are respectively
+### Dominant root and fluctuation law
 
+Set \(a(t)=q(q-1)+t\) and \(\lambda_\pm(t)=(a(t)\pm\sqrt{a(t)^2+4q^2(q-1)})/2\), taking the positive square root at \(t=1\). The roots there are \(q^2\) and \(-(q-1)\), so on a small complex neighborhood of 1 they are distinct, both nonzero, and \(|\lambda_- /\lambda_+|\le\rho<1\). Partial fractions (a constant polynomial part affects dimension zero only) give, for \(n\ge1\),
 \[
-s_\ell=\frac{q^\ell-(-1)^\ell}{q+1},\qquad
-r_\ell=\frac{q^{\ell+1}+(-1)^\ell}{q+1}.
+Z_{n,q}(t)=c(t)\lambda_+(t)^n+d(t)\lambda_-(t)^n
 \]
-
-These are nonnegative integers and sum to \(q^\ell\). The values are independent of the fixed nonzero offdiagonal coefficients, even in characteristic two.
-
-**Step 3: unique block decomposition.** Every matrix in \(\mathcal T_n(q)\) splits uniquely at its zero offdiagonal entries into a nonempty ordered sequence of maximal irreducible tridiagonal blocks of positive lengths summing to \(n\). A block of size \(\ell\) has \((q-1)^{\ell-1}\) choices for its nonzero internal offdiagonal coefficients, and has corank generating weight
-
+with analytic \(c,d\). At \(t=1\), \(Z_{n,q}(1)=q^{2n-1}\), so \(c(1)=1/q\). In a smaller neighborhood \(c\) has no zeros. For \(s\) complex close to zero the normalized moment generating function is therefore
 \[
-w_\ell(t)=(q-1)^{\ell-1}(r_\ell+s_\ell t).
+\mathbb E e^{sK_{n,q}}=q c(e^s)
+\left(\frac{\lambda_+(e^s)}{q^2}\right)^n(1+O_q(\rho^n)),
 \]
+with analytic uniform error. The logarithmic error and its first two derivatives at zero are \(O_q(\rho^n)\) by Cauchy's estimate on a smaller disk.
 
-The intervening zero offdiagonal entries contribute exactly one choice; block nullities add. Thus for
-
-\[
-B_q(z,t)=\sum_{\ell\ge1}w_\ell(t)z^\ell,
-\]
-
-we have \(\sum_{n\ge0}Z_{n,q}(t)z^n=(1-B_q(z,t))^{-1}\). Summing the two geometric series gives
-
-\[
-B_q(z,t)=\frac{z\big(q-1+t+q(q-1)z\big)}
-{\big(1+(q-1)z\big)\big(1-q(q-1)z\big)},
-\]
-
-and algebraic simplification yields the displayed rational bivariate generating function. Coefficient comparison gives the initial cases and recurrence; substituting \(t=1\) recovers \(q^{2n-1}\).
-
-**Step 4: quantitative Gaussian limit.** Let
-
-\[
-a_q(t)=q(q-1)+t,\qquad
-\lambda_\pm(t)=\frac{a_q(t)\pm\sqrt{a_q(t)^2+4q^2(q-1)}}2.
-\]
-
-Choose the positive real square root near \(t=1\). There \(\lambda_+(1)=q^2\) and \(\lambda_-(1)=-(q-1)\), with \(|\lambda_-(1)|<\lambda_+(1)\). Partial fractions of the rational generating function consequently give
-
-\[
-Z_{n,q}(t)=c_q(t)\lambda_+(t)^n+d_q(t)\lambda_-(t)^n,
-\]
-
-for analytic coefficient functions near \(t=1\), with \(c_q(1)\ne0\). The latter follows directly from the numerator evaluated at \(z=q^{-2}\): \((1+(q-1)q^{-2})(1-(q-1)q^{-1})\ne0\). Therefore, uniformly in a complex neighborhood of \(s=0\),
-
-\[
-\mathbb E e^{sK_{n,q}}
-=\frac{c_q(e^s)}{c_q(1)}
-\left(\frac{\lambda_+(e^s)}{q^2}\right)^n(1+O_q(\rho^n))
-\]
-
-for some \(0<\rho<1\). Implicit differentiation of \(\lambda^2-a_q(t)\lambda-q^2(q-1)=0\) gives \(\lambda_+'(1)/\lambda_+(1)=1/\delta_q\) and
-
-\[
-\left.\frac{d^2}{ds^2}\log\lambda_+(e^s)\right|_{s=0}
-=\frac1{\delta_q}-\frac{q^2-q+1}{\delta_q^3}=\sigma_q^2.
-\]
-
-The variance constant is positive because \(\delta_q^2>q^2-q+1\) for \(q\ge2\). Differentiating the moment generating function gives the stated mean and variance with bounded errors. For fixed real \(u\), insert \(s=iu/(\sigma_q\sqrt n)\), subtract the linear term and expand the analytic logarithm to third order. The centered characteristic functions tend to \(e^{-u^2/2}\), proving the central limit theorem by the continuity theorem.
+Writing \(D(t)=\sqrt{a(t)^2+4q^2(q-1)}\), differentiation of the root equation gives \(\partial_t\log\lambda_+(t)=1/D(t)\) and \(\partial_t^2\log\lambda_+(t)=-a(t)/D(t)^3\). At \(t=1\), \(D(1)=\delta_q\) and \(a(1)=q^2-q+1\). Applying the chain rule at \(t=e^s\) gives the stated mean and variance coefficients; the variance is positive since \(\delta_q^2>q^2-q+1\). Expanding \(\log(\lambda_+(e^s)/q^2)\) at zero to second order and setting \(s=iu/(\sigma_q\sqrt n)\) gives the centered characteristic functions tending to \(e^{-u^2/2}\) for each real \(u\). The continuity theorem proves the Gaussian limit.
 
 ## Verification
 
-The standalone script `check_tridiagonal.py` constructs every symmetric tridiagonal matrix at 18 finite field-size and matrix-size pairs, computes its rank by Gaussian elimination independently of the continuant derivation, and compares the complete histogram to the polynomial recurrence. It covers field orders \(2,3,4,5,7\), including the nonprime extension field \(\mathbb F_4\), and checks 9,887 matrices in total. Its captured, independently replayable output is `check_output.txt`.
+`check_tridiagonal.py` builds matrices explicitly, computes rank by row elimination, and compares the finite nullity histograms with the supporting generating function. The recorded `check_output.txt` covers 9,887 matrices across 18 field-size and dimension pairs, including \(\mathbb F_4\). Those checks do not establish the large-dimension limit, which follows from the proof above.
 
-To reproduce, run `python3 check_tridiagonal.py` in a directory containing that script. The checker is finite evidence only; the arbitrary-size and asymptotic assertions are established by the algebraic and analytic proof above.
+## Relationship to prior work and limitations
 
-## Relationship to prior work
-
-Fulman and Goldstein, first circulated in November 2012, study the rank distributions of full finite-field random-matrix ensembles, including unrestricted symmetric matrices, where the nullity has a tight limiting law. The banded symmetric family here is not one of their ensembles, and instead has positive corank density.
-
-Safarji, O'Brien and Quinlan (2025), Theorem 2.2, already determine the two possible ranks for matrices representing the connected path graph over \(\mathbb F_2\) (equivalently this construction conditional on every offdiagonal being nonzero when \(q=2\)); this conditional binary result is credited and not claimed as new. The unrestricted-zero-edge all-field composition, its rational bivariate polynomial, and its central limit law are different claims.
-
-Martínez-Moro, Rodnit and Jitman (arXiv September 2025; journal 2026), Theorems 2.1–2.2, determine the *invertible* symmetric tridiagonal counts (precisely the specialization \(t=0\) here) and extend prescribed determinant counts to chain rings. Their manuscript's finite-field determinant-value theorem does not state or imply the coefficients of positive powers of \(t\), because all singular coranks are aggregated at determinant zero. Jitman and Sricharoen (2024) likewise study prescribed determinants, generally for nonsymmetric tridiagonal matrices. No priority is claimed for the already known invertible specialization or the connected-path binary case.
-
-## Limitations
-
-The result only concerns symmetric tridiagonal matrices over finite *fields* with uniform unrestricted entries, not general zero-pattern graphs, fixed nonzero offdiagonals, nonsymmetric matrices, finite chain rings, or simultaneous field-size and dimension limits. The proposed historical distinction concerns the full corank polynomial and its Gaussian law; the invertible specialization and connected-path binary rank counts are known. An unindexed or indirectly equivalent all-rank formula could narrow historical originality. The computational tests do not certify the infinite theorem independently.
+Martínez-Moro, Rodnit and Jitman give the invertible counts for all prime powers in the same symmetric unrestricted tridiagonal ensemble, as well as prescribed-determinant results. The block-series identity above shows explicitly how their invertible counts and the total counts determine the positive-corank coefficients for this pattern. For \(q=2\), the connected-path rank distribution of Safarji, O'Brien and Quinlan (Theorem 2.2) gives an alternative starting point: it counts the two ranks of every all-nonzero-offdiagonal block, so the composition of those block counts recovers the unrestricted binary polynomial. Neither cited result states the Gaussian law with the mean and variance coefficients above. The asymptotic analysis concerns the uniform symmetric tridiagonal ensemble, not dense symmetric matrices, independent upper- and lower-diagonal entries, general zero patterns, finite chain rings, or a simultaneous limit in \(q\) and \(n\). An undiscovered ensemble-specific asymptotic comparison remains possible.
 
 ## References
 
-1. J. Fulman and L. Goldstein, *Stein's method and the rank distribution of random matrices over finite fields*, arXiv:1211.0504, first posted 2012-11-02; *Annals of Probability* 43 (2015), 1274–1314. https://arxiv.org/abs/1211.0504
-2. B. Safarji, C. O'Brien and R. Quinlan, *The rank distribution of matrices representing graphs with a long induced path over the field of two elements*, arXiv:2509.10332, 2025-09-12, especially §2 and Theorem 2.2. https://arxiv.org/html/2509.10332v1
-3. E. Martínez-Moro, N. Rodnit and S. Jitman, *On the enumeration of symmetric tridiagonal matrices with prescribed determinant over commutative finite chain rings*, arXiv:2509.17719, 2025-09-22, especially §2, Theorems 2.1–2.2 and Corollary 2.3. https://www.degruyterbrill.com/document/doi/10.1515/spma-2025-0049/html
-4. S. Jitman and Y. Sricharoen, *Determinants of tridiagonal matrices over some commutative finite chain rings*, *Special Matrices* 12 (2024). https://www.degruyterbrill.com/document/doi/10.1515/spma-2023-0114/html
+1. E. Martínez-Moro, N. Rodnit and S. Jitman, *On the enumeration of symmetric tridiagonal matrices with prescribed determinant over commutative finite chain rings*, arXiv:2509.17719, §2.1, Theorems 2.1–2.2. https://arxiv.org/abs/2509.17719
+2. B. Safarji, C. O'Brien and R. Quinlan, *The rank distribution of matrices representing graphs with a long induced path over the field of two elements*, arXiv:2509.10332, §2, Theorem 2.2. https://arxiv.org/abs/2509.10332
+3. J. Fulman and L. Goldstein, *Stein's method and the rank distribution of random matrices over finite fields*, Annals of Probability 43 (2015), 1274–1314, §4. https://arxiv.org/abs/1211.0504

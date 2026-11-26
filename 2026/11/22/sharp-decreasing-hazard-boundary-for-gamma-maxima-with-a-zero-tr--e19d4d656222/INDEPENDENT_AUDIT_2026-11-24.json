@@ -1,0 +1,87 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:17:31.157157Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With t=beta*z, the conditional Poisson generating function gives survival (1-exp(-lambda*Q))/(1-exp(-lambda)) and hazard beta*lambda*f/expm1(lambda*Q). Using Q'=-f and f'/f=(alpha-1)/t-1, direct logarithmic differentiation gives (f/Q)[V(lambda*Q)-1-m']; the sign is unchanged on changing from t to z. The integral m=integral_0^infinity exp(-y)(1+y/t)^(alpha-1)dy has strictly negative derivative for alpha>1, zero for alpha=1, and strictly positive derivative for alpha<1. Differentiation is dominated on compact positive t intervals. For alpha>=1, V>1 gives strict increase. Otherwise V is strictly increasing onto (1,infinity), so its inverse defines the unique pointwise intensity at derivative zero. Put a=1-alpha: at zero m~Gamma(alpha)t^a, and m'=-1+m(1+a/t)~a*Gamma(alpha)t^(-alpha). At infinity t^2*m'=a*integral exp(-y)y(1+y/t)^(-a-1)dy -> a, and Q~f. Since V(u)-1~u/2 at zero and V(u)~u at infinity, the age-dependent critical intensity diverges at both endpoints. It is continuous and positive inside, so attains a positive finite minimum. Below it the derivative is everywhere negative; at equality it is nonpositive with no constant interval by analyticity and the negative endpoint signs. Above it there is a positive derivative at a minimizing age and negative derivatives on both sides sufficiently far away. Minimizing and maximizing on intervals bracketed by the derivative signs gives an interior minimum and a later maximum; no uniqueness follows or is claimed. Replay python3 -B /workspace/reproductions/4.py uses half-integer survival formulas and finite differences (12 sign checks, illustrative half-shape crossing about 1.65543269); neither that grid nor the frozen script certifies a global minimum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Section 3.2 invokes Glaser for the increasing alpha=1 case and discusses signs of the density score eta' otherwise; the source states that it has no explicit conditions in just one parameter.",
+          "The single public query did not provide a decisive stronger theorem; Glaser's standalone paper was not independently inspected."
+        ],
+        "reasoning": "A general sufficient shape test in terms of the density score is not an iff criterion on the hazard derivative for subunit gamma shape. The specific threshold requires endpoint and equality analysis of the actual hazard derivative.",
+        "searches": [
+          "Niyomdecha–Srisuradetchai (2023), Section 3.2 and reference to Glaser (1980)",
+          "Public search: global decreasing hazard criterion for complementary gamma zero-truncated Poisson maxima"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py (read only)",
+        "2023 most closely matching primary paper, Sections 2 and 3.2",
+        "Local Resultary search and a bounded public literature lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old expression is eta' for eta=-g'/g, not h' or (log h)'; it explicitly proves IFR for alpha=1 and suggests bathtub behavior in an alpha>1 case.",
+          "Under the shared hazard formula the two positive factors beta/m(t) and u/expm1(u), u=lambda*Q(t), are increasing for alpha>=1, the latter strictly because u decreases. Thus the earlier possible-bathtub remark for alpha>1 does not describe this hazard."
+        ],
+        "reasoning": "The alpha>=1 statement is a short consequence of known ingredients and not the main novelty. For alpha<1 the earlier formula is input, but the monotone-in-intensity derivative sign, blow-up at both ends, analytic strictness at the threshold and two successive turns above it do not follow from the reported eta' test or plot examples.",
+        "searches": [
+          "Niyomdecha–Srisuradetchai (2023), PDF p. 4 offset 19700: density score and shape discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest indexed exact result was the frozen record itself.",
+          "Niyomdecha–Srisuradetchai (2023), Section 2 p. 2 offset 5620 and Section 3.2 p. 4 offset 17752: Z is the same gamma maximum, and the hazard simplifies to the frozen hazard."
+        ],
+        "reasoning": "Complementary gamma ZTP is an alias for the very same model, not an independent new distribution. The equivalent hazard formula alone does not give an explicit global monotonicity phase classification. Minimum compounds correspond to a different generating-function transformation.",
+        "searches": [
+          "Resultary: complementary gamma zero-truncated Poisson maxima and exact decreasing hazard threshold",
+          "Public search: global decreasing hazard criterion for complementary gamma zero-truncated Poisson maxima",
+          "doi:10.3390/math11112584, sections 2 and 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact threshold listing was established in the indexed results; the exact hit was the frozen result itself.",
+          "The 2023 discussion labels Figure 2 as selected parameter examples, not a full intensity/shape boundary."
+        ],
+        "reasoning": "The claim is about all positive real intensities and shapes, so a table or selected plots cannot establish the iff criterion, endpoint behavior, or threshold equality. The frozen half-shape decimal is illustrative, not claimed as a table or certified optimization.",
+        "searches": [
+          "Resultary: gamma maximum ZTP hazard rate threshold and endpoint/intermediate phases",
+          "2023 paper, Section 3.2 and accompanying Figure 2 discussion"
+        ]
+      },
+      "rationale": "The 2023 distribution, hazard and alpha=1 increasing result are prior. The distinct mathematical claim is the sharp global phase classification, particularly the attained, positive finite iff threshold for subunit shape and the strict boundary/turning-point behavior. The closest prior calculation gives the same model but works with a different derivative and stops short of that classification. This is a bounded comparison, not an assertion of historical priority for the model.",
+      "residual_risks": [
+        "The retrieved 2023 text settles the comparison with the original model, not historical coverage of broader compounded-lifetime theory.",
+        "Glaser's standalone full text and all possible parameterizations in reliability literature were not independently compared."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of model, formula and alpha=1 case; not the sharp global subunit shape boundary",
+          "evidence": [
+            "Same conditioning on a positive Poisson count and same gamma maximum.",
+            "Auxiliary eta' test, qualitative shapes, no explicit one-parameter conditions in that treatment."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math11112584",
+          "material_read": "OA PDF Section 2 p. 2 offset 5620; Section 3.2 p. 4 offsets 17752 and 19700, including Figure 2 discussion; Glaser reference p. 13 offset 96500",
+          "method": "Lawful publisher-deployed PDF text",
+          "title": "Complementary Gamma Zero-Truncated Poisson Distribution and Its Application",
+          "trigger": "Identical model, hazard and purported hazard shapes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The model is established in reliability analysis; being able to decide strict DFR globally rather than read off plots or a sufficient shape diagnostic resolves a real ambiguity. The rate-free scalar threshold includes the critical case and explains why a large sampling intensity adds an intermediate increasing interval without changing the endpoint signs. This goes beyond recovering the distribution or differentiating at individual ages.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

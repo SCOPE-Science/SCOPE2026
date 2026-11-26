@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The source word is fixed by an explicit eight-step closure recurrence with checked intermediate lengths. The six-position upper bound is confirmed by enumerating every occurrence of every distinct factor, and the five-position obstruction follows from twelve factor-coverage conditions reduced to exactly twelve maximal incidence types; the \(792\) exhaustive five-type unions all fail. The standalone standard-library checker recomputes the word, the incidence table, and both bounds. This is a finite proof, not an extrapolation.
+## correctness
 
-**Originality: PASS, with residual risk.** The earlier conjectured bound of four [1] has already been disproved by a published example of size five [2]. The new exact claim is existence of size six; size five neither implies nor proves size six. Searches using both phrasing and structural equivalents retrieved [2] as the closest published claim, not a six-point witness. Full text of [1] and [3] was inspected at relevant sections; only the title/summary of [2] was accessible. Equivalent material elsewhere remains a concrete risk, so this is not a claim of guaranteed uniqueness.
+PASS
 
-**Value: PASS.** Whether pseudopalindromic closure families admit a small universal upper bound is an explicitly motivated question [1]. A six-point example decisively excludes the next possible constant bound after the already known five-point example and exposes a new finite lower-bound obstruction using a compact twelve-factor certificate. This is a structural parameter boundary, not a meaningless extension of a finite census; no unboundedness or optimal-length conclusion follows.
+I rebuilt the eight closures by testing candidate lengths in increasing order and imposing the reversal or reversed-complement relation on symmetric pairs, independent of the uploaded suffix-based implementation. The final word equals the stated length-182 word. All 12608 distinct nonempty factors have an occurrence meeting the six specified positions. For the lower bound I rebuilt the occurrence masks of the twelve displayed factors and iterated all ORs of positional masks. There are 29 distinct masks; the successive reachable-set cardinalities for one to six choices are 29, 281, 1067, 1879, 1935, 1936, and the full twelve-bit mask first appears at six. Repetition is allowed in this computation, so it includes all unions of at most five choices. Any attractor must cover these twelve factors. The finite directive can be continued indefinitely (for example, with any binary letters and consistently choosing an antimorphism giving continued growth, which here holds since a letter is appended each time).
 
-The closest literature is [1] L. Dvořáková and V. Hendrychová, *String attractors of Rote sequences* (arXiv:2308.00850, 2023; 2024 journal version), [2] the published length-36, five-point example, and [3] V. Hendrychová's 2023 thesis. The exact length-182 witness and its full 12-factor certificate have no identified equivalent in these accessible inspected materials.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest prior direct witness has exact attractor size five. The cited subclass theorems and the indexed exact smaller witnesses do not imply this size-six example or the failure of a universal size-five bound.
+
+## value
+
+PASS
+
+After the natural published bound four failed at five, five was the next candidate uniform bound for the same structured class. This exact witness excludes it as well and gives a small independently checkable obstruction, providing a specific benchmark for any proposed uniform theorem. The mathematical threshold, not the arbitrary word length, is what makes the result useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

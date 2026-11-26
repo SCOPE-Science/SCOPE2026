@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,45 +19,24 @@
 }
 ---
 
-The standalone `verify.py` artifact was read from its packaged path before replay.
+# Independent mathematical audit
 
-It constructs the six-type Boolean blow-up with weights
-\[
-\lambda_1,\lambda_2,\lambda_3,
-\lambda_2\lambda_3,\lambda_1\lambda_3,\lambda_1\lambda_2.
-\]
+## correctness
 
-Independently, it constructs the co-maximal ideal graph of products of three prime-power chain rings at the ideal level. Ideals are indexed by their chain exponents, and adjacency is computed from the condition that their coordinatewise sum is the whole product ring.
+PASS
 
-For the triples
-\[
-(1,1,2),\quad(1,2,2),\quad(2,2,2),
-\]
-every vertex subset is exhaustively tested for zero forcing. The resulting complete polynomials agree with the factorized formula, including the minimum-set coefficient.
+A product ideal whose proper-coordinate set is S is a vertex exactly for nonempty proper S; a proper local ideal is contained in the local radical, and two proper ideals in one local factor cannot sum to the factor. This proves the six-class structure directly. Two white vertices in a class are inseparable. With lambda_3 > 1, blue sources in L_1 and L_2 clear C_1 and C_2; if L_3 is a white singleton, a blue vertex in C_3 forces it before L_3 clears C_3. All other leaf whites can then be forced. The quotient has block form [A I; I 0], determinant -1; the incidence lift has rank six and M <= Z gives equality. In the six positive root magnitudes all pair products are >= the second smallest local ideal count, so the first two order statistics yield the two smallest counts including ties; the product gives the cube of the full local-count product. Counting proper powers in a chain ring includes the zero ideal, yielding the stated lengths. Independent replay: python /workspace/audit_checks.py 5 uses coordinatewise ideal sums and exhaustive vertex masks. It obtains (N,Z,minimizers) = (9,3,8), (13,7,64), (18,12,512) and validates every coefficient and complement profile. The excluded all-field graph has 9u^2+20u^3+15u^4+6u^5+u^6. These are finite checks, not the general proof.
 
-The actual adjacency matrix is row-reduced over the rationals and has rank \(6\) in every test.
+## originality
 
-For every ordered triple
-\[
-1\le\lambda_1\le\lambda_2\le\lambda_3\le8
-\]
-other than \((1,1,1)\), the checker reconstructs the triple from the six root magnitudes using the two-smallest-roots and cube-product formula.
+PASS
 
-Finally, for the boundary profile
-\[
-(1,1,3),
-\]
-all \(64\) possible choices of at most one white representative in each type are checked directly and all force.
+Credit the prior Boolean class decomposition and generic type-profile compression, not the fact that a type-profile formula exists. A published catalogue comparison exactly overlaps the fully nonfield subcase and is broader in the number of factors, but explicitly excludes the field-factor boundary and describes the three-factor result as a special case comparison. This does not establish priority from folder dates. The supported distinct contribution is the complete three-factor statement including one or two field factors and explicit recovery of the ideal counts from the standard zero forcing polynomial at that boundary. The overlap with the mixed finite-field record is structurally close but not identical: its parameter restrictions q_i-1 do not realize every proper-ideal count. No verified source gives the complete bound statement.
 
-Exact replay output:
+## value
 
-```text
-l=(1, 1, 2): weights=[1, 1, 2, 2, 2, 1], N=9, Z=3, min_sets=8, adjacency_rank=6
-l=(1, 2, 2): weights=[1, 2, 2, 4, 2, 2], N=13, Z=7, min_sets=64, adjacency_rank=6
-l=(2, 2, 2): weights=[2, 2, 2, 4, 4, 4], N=18, Z=12, min_sets=512, adjacency_rank=6
-RECOVERY_CENSUS_OK
-ALL_64_PROFILES_FORCE_OK
-VERIFY_OK
-```
+PASS
 
-The exhaustive checks are finite corroboration. The arbitrary finite-ring factorization, rank equality, and reconstruction theorem are proved symbolically in `RESULT.md`.
+At the first Boolean rank with both singleton and doubleton supports, the three-factor graph includes the one- and two-field cases omitted by the known arbitrary-factor all-nonfield theorem. Characterizing all forcing sets across those boundaries, distinguishing the all-field failure and explicitly recovering local ideal counts from the enumerator make this a useful exact classification. It recovers the graph and chain lengths, not the local rings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

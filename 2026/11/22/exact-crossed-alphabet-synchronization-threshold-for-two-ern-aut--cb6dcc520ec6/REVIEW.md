@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The all-integer theorem uses two noncomputational arguments and a checked constructive upper bound. For every initial state trajectory, the count of defect-letter visits to the special state has a residue modulo \(n\) that is distinct across all initial states; this proves the forced scattered subsequence \(b(a^{n-1}b)^{n-2}\) directly. The complementary pattern follows by letter exchange. Run-skipping inequalities for common scattered subsequences establish an exact LCS of \(2(n-2)\), giving a sharp all-word lower bound. For \(n\ge5\), explicit transition-set invariants prove that the displayed witness synchronizes both factors; the three smaller cases are directly checked. Each of these logical steps applies to all integers in its stated domain. Full subset-graph BFS checks \(n=2,\ldots,9\); a separate implementation checks witness images through \(n=50\). These finite checks are corroboration, not infinite proof.
+## correctness
 
-## Originality — PASS, with priority limitations
-Fernau and Rystsov (arXiv:2611.09136, Section 3) give generic product bounds; their Section 4 uses the classical Černý family but does not state this exact crossed-alphabet all-\(n\) threshold. Maslennikova (arXiv:1405.3576) treats reset-language equality/inclusion complexity. A published mandatory-subsequence result treats one automaton only; the finite same-letter simultaneous-reset table concerns unequal sizes with the same orientation. These are all insufficient to deduce the crossed formula without the new exact LCS and matching construction. Research-record searches for crossed/alphabet-swapped products and the exact polynomial returned no equivalent claim. Unindexed or previously implicit equivalent constructions are a priority risk; search absence is not a proof of uniqueness.
+PASS
 
-## Value — PASS
-The new result quantifies precisely the extra synchronization cost of two extremal, individually slowly synchronizing automata when the same two inputs have opposite meanings. For all \(n\), the answer lies close to the sum of individual reset thresholds rather than the maximum, and the exact linear saving \(2n-4\) is established, not guessed. The argument also identifies why the rigid mandatory input patterns create an information-theoretic common-supersequence obstruction and when it is achievable. This is a natural infinite-family exact invariant of synchronous products, not a finite census, a normalization check, or a mere substitution of known bounds.
+Each image of the entire direct product is the Cartesian product of the two coordinate images. In the first factor, equality of terminal states means that the counts of b-moves from n−1 have all n different residues; one trajectory therefore makes at least n−1 such moves. Between consecutive such moves it needs at least n−1 rotations, forcing the scattered subsequence R; swapping letters forces its mate. In an embedding of a common subsequence in R, each selected a-run uses a source a-run distinct from those used by the other selected a-runs, and each consecutive pair within a selected b-run skips a distinct source a-run disjoint from those. The swapped inequality gives the bound 2(n−2) on the shared subsequence length, attained by (ab)^(n−2). Shared positions in any two embeddings form a common subsequence, so their union gives the claimed lower bound independently of the reset construction. For n≥5, the first prefix leaves {0,1} and a second image missing 0 and n−2; after a² these are {2,3} and {0,…,n−3}. Each of the next n−5 blocks advances the first pair and reduces the second interval by one; the final blocks then produce {1},{0}. The total length is 3+n(n−3)+2+n(n−5)+(n−1)+2+n=2(n²−3n+3). The three small words act as claimed. Independent multi-target backward preimage BFS in /workspace/review_checks/5.py confirms lengths 2,6,14,26,42,62,86,114 for n=2,…,9 and replays the witnesses through n=32. Finite checks are corroboration, not proof for all n.
 
-## Scope and remaining risks
-The theorem is not about two independently controlled inputs, unlike a two-tape product. Its proof does not claim that every common supersequence resets, and does not classify shortest-word multiplicities or unequal crossed pairs. The closest papers and published records have been materially compared, but unindexed prior equivalence remains possible. Independent expert verification has not been undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the product/intersection equivalence, general bounds, and the known single-factor forced subsequence. The supported distinct claim is the exact threshold for the crossed equal-size family, using a two-pattern LCS and a matching actual reset word. The frozen citation's proposition label is imprecise for the inspected v1 PDF: Proposition 7 on p. 5 is the stated general bound, rather than Proposition 3.4. This is bibliographic, not a defect in the mathematical argument.
+
+## value
+
+PASS
+
+Two individually extremal factors share one input but disagree on the roles of both letters. The result determines an exact infinite-family synchronization cost: nearly additive, yet with a sharp saving of 2n−4 over separate resetting. The matched LCS obstruction and image-set witness explain why the saving is attainable, beyond numerical observation or the generic max-to-sum interval. No general product classification or shortest-word multiplicities are claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

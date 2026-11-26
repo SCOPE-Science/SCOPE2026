@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_base.py` and `python3 verify_extensions.py` with Python 3 in the directory containing the included programs. Their deterministic terminal output should match `verify_base.out` and `verify_extensions.out` byte-for-byte, respectively.
+## correctness
 
-`verify_base.py` independently constructs regular paperfolding bits from the odd-part definition and exhausts all starting positions of every shorter factor for \(k=6,7,8\). It checks the parity separation of all length-seven factors and the complete length-sixteen multiplicity histogram \((3:16,4:47,5:1)\) in the order-eight prefix.
+PASS
 
-`verify_extensions.py` constructs bits by the independent recurrence \(x_{2j}=1-(j\bmod2)\), \(x_{2j+1}=x_j\), and uses sorted suffixes with adjacent longest-common-prefix comparisons. It verifies the exact global shortest unique length and both starts for \(8\le k\le12\), including the predicted suffix multiplicity at one below the threshold.
+The proof uses zero-based starts, overlapping windows, and a one-ended finite prefix. For same-parity coverage of length sixteen, at most one letter per window has index divisible by 16; the others depend only on index mod 32. The seven representatives at each residue fit in P8 and realize both values of the exceptional letter (alternation on odd arguments, or two odd arguments two apart after division by 2). The independent finite replay matched the disjoint 12/16 parity sets of length seven, the length-sixteen multiplicities (3:16,4:47,5:1), and the three base pairs of starts at lengths 5,9,17. For longer factors, if the first retained odd-position letter occurs at global position 2j+1, the projected factor starts at j. Its parity fixes all reinserted filler bits. The start is either 2j or 2j+1, both legal on the left; on the right only a final filler after the last retained letter can fail to fit. A shorter projected suffix has at least three occurrences, so losing one preserves nonuniqueness. A lifted suffix ends at an odd position and loses none, maintaining the stronger suffix invariant. At length 2d−1 the even-start factors project to length d−1 and cannot be unique; odd-start factors project to length d with no loss. Iteration gives the claimed length and both starts.
 
-**Limits:** The programs independently establish the finite base-case assertions and check additional instances. They do not certify the all-length theorem by computation; Lemmas 1–3 and the simultaneous (A)/(B) induction in `RESULT.md` establish the infinite claim. No external independent validation has been performed.
+## originality
+
+PASS
+
+The exact finite-prefix minimum and two minimizer locations are supported as distinct to the best of current knowledge. Prior work includes length-seven parity rigidity, infinite distinct-factor counts, and general algorithms for this invariant, all distinct from the evaluated finite-prefix theorem.
+
+## value
+
+PASS
+
+The automatic word and its canonical dyadic prefixes are natural, and the global shortest-unique invariant measures finite-prefix distinguishability not captured by ordinary factor complexity. The result gives both a sharp threshold and a complete location classification for an unbounded family. Its suffix invariant addresses a genuine boundary defect in naive desubstitution and is useful for exact prefix occurrence calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

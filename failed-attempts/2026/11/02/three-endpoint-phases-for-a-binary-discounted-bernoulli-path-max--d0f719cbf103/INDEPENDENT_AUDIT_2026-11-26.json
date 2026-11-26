@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:43:16.044022Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof (lines 5–91)",
+        "Frozen VERIFICATION.md, checker.py and verification_output.txt (read, not rerun)",
+        "Independent exact 128-assignment depth-two enumeration: python3 /tmp/opencode/frozen_review_calcs.py, section 2"
+      ],
+      "rationale": "Uniform convergence of partial scores on the compact ray space ensures attainment. The root decomposition is D=(1−B)+min(D₁,D₂)/2 in law and, for x<1, gives f(y)=p(2y−y²). No use of the recursion at x=1 is needed: the first iterated argument is x/2, while the initial value at 1 includes the failed-root/zero-child-deficit event. The atom is the all-success survival probability r, with the root factor included. For any x>0 a finite cylinder with all early successes and a compulsory later failure gives positive mass in (0,x], so the seeds above r are strictly positive after centering. Then the noncritical centered iteration is z↦a z−p z², with a=2p or 2(1−p); the normalized orbit product converges to a finite positive limit since z_n≤a^n z_0 and all factors are bounded below by 1/2. At criticality, reciprocal differences tend to 1/2 and give nF(2^−n x)→2. Dyadic monotonicity proves the all-scale comparison and converts the critical logarithm with the factor log 2. It does not prove an all-scale ratio limit in either noncritical regime.",
+      "residual_risks": [
+        "The finite enumeration checks only a finite-depth endpoint event. The continuum threshold limits follow from the infinite distributional recursion, not enumeration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two inspected RDE sources supply broader constructions and the exact recursion; their boundedness and existence claims alone do not give sharp tails. Skiredj–Berrada compare related constant-discount models in the context of boundedness/moment criteria. Only limited bibliographic material was accessible for Athreya (1985)."
+        ],
+        "reasoning": "The decisive bridge to endpoint results is the exact scalar recursion. Its conjugacy f(pu)=p[1−(1−pu)^2] identifies the Bernoulli-tree endpoint iteration with the survival iteration of Binomial(2,p) offspring.",
+        "searches": [
+          "arXiv:math/0401388v3 Theorem 32",
+          "arXiv:2602.18919v1 p. 3",
+          "arXiv:2610.33897v1 p. 4",
+          "doi:10.2307/1427052"
+        ]
+      },
+      "checked_sources": [
+        "Resultary meaning lookups",
+        "arXiv:math/0401388v3, 2602.18919v1, 2610.33897v1",
+        "Athreya 1985, doi:10.2307/1427052 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At x=1 and p≤1/2, the initial value is p; the dyadic sequence is p times the usual n-generation Galton–Watson survival probability. At p=1/2 the offspring variance is 1/2, giving the coefficient 2 after inclusion of the root. The positive fixed point for p>1/2 is (2p−1)/p, with derivative 2(1−p); at zero below criticality the derivative is 2p.",
+          "For every seed above the relevant fixed point, z_n/a^n=z_0∏_{j<n}(1−pz_j/a). This is the standard linearizing normalization for the explicit attracting quadratic and needs only geometric summability. It covers x=1 in the supercritical case too, without interpreting its seed as an ordinary one-particle survival probability."
+        ],
+        "reasoning": "The scale-specific amplitude is the normalized iterate of the known map at a seed F_p(x), not a separately determined observable. Strict seed positivity is immediate from a forced-failure cylinder. The all-scale statements follow by dyadic monotonicity; no further asymptotic theorem is needed.",
+        "searches": [
+          "Zhang arXiv:2602.18919v1 (2)–(3); specialize offspring to 2, discount to 1/2 and mark law to Bernoulli"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aldous–Bandyopadhyay give a max-type RDE and the discounted ray-sum construction. Zhang gives the same construction and the general CDF equation with offspring mean m and discount m^(−H).",
+          "The exact specialization has two children, H=1, and Bernoulli root contribution."
+        ],
+        "reasoning": "In the score variable this is precisely T_p; reflecting around 2 changes max to min and gives the quadratic f after restricting to threshold x<1, not a different branching process.",
+        "searches": [
+          "arXiv:math/0401388v3 §4.4, (35)–(36)",
+          "arXiv:2602.18919v1 (2)–(3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No materially matching table or separate indexed theorem was found among the returned results. The recursion, not a table, is directly available in the primary passages."
+        ],
+        "reasoning": "A bounded catalogue lookup does not establish novelty. A table of numerical constants is not required when the known map yields them and their asymptotics algebraically.",
+        "searches": [
+          "Resultary meaning lookup: three endpoint phases for a binary discounted Bernoulli path maximum",
+          "Resultary meaning lookup: discounted Bernoulli tree endpoint tails and Galton–Watson survival"
+        ]
+      },
+      "rationale": "The exact discounted-ray model and CDF recursion are already specializations of inspected max-type recursive-distribution results. The asserted endpoint laws, including the positive scale-specific limits, follow mechanically from the same quadratic map: the atom and critical constant are ordinary binary Galton–Watson survival facts, and the noncritical arbitrary-seed limits are the elementary attracting-fixed-point normalization of that explicit map. The statement does not evaluate the amplitudes, show phase oscillation or regularity, or otherwise go beyond the normalization. Failure rests on this implication, not on an unavailable paper or a catalogue miss.",
+      "residual_risks": [
+        "No assertion about which source first printed the exact endpoint statement; the defeat is mathematical implication.",
+        "Athreya’s full text was not accessible in the bounded lawful attempts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broad construction includes the precise model; not a stated Bernoulli tail theorem",
+          "evidence": [
+            "X equals a root term plus the maximum of independently discounted subtree copies."
+          ],
+          "identifier_or_url": "arXiv:math/0401388v3",
+          "material_read": "§4.4, pp. 28–29, (35)–(36), Theorem 32",
+          "method": "OA original PDF",
+          "title": "A Survey of Max-Type Recursive Distributional Equations",
+          "trigger": "Equivalent max-type discounted ray construction"
+        },
+        {
+          "assessment": "Exact CDF recursion specializes directly; the endpoint assertions are elementary consequences of the resulting map",
+          "evidence": [
+            "Includes generation discounts m^(−iH) and the max-type CDF identity; m=2 and H=1 give the binary dyadic case."
+          ],
+          "identifier_or_url": "arXiv:2602.18919v1",
+          "material_read": "pp. 1 and 3, especially (2)–(3), offsets about 2900 and 9500",
+          "method": "OA original PDF",
+          "title": "Boundedness of discounted branching random walks via generic chaining",
+          "trigger": "Exact general probability recursion and deterministic discount"
+        },
+        {
+          "assessment": "Inspected passage addresses boundedness/moment conditions, not the endpoint ratios",
+          "evidence": [
+            "Acknowledges overlap with constant-discount boundedness and moment work."
+          ],
+          "identifier_or_url": "arXiv:2610.33897v1",
+          "material_read": "p. 4, comparison to generation-discounted results, offset about 16000",
+          "method": "OA original PDF",
+          "title": "Persistent occupation and critical marked sums on branching random walks",
+          "trigger": "Closely related marks and deterministic discount"
+        },
+        {
+          "assessment": "Unresolved access risk, not a decision basis",
+          "evidence": [
+            "The title and bibliographic record are relevant; no endpoint theorem can be inferred from them."
+          ],
+          "identifier_or_url": "doi:10.2307/1427052",
+          "material_read": "Only listing/snippet; no full result inspected",
+          "method": "Lawful JSTOR landing material and identified Cambridge PDF retrieval attempted",
+          "title": "Discounted branching random walks",
+          "trigger": "Early primary work on the same class"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and its explicit limitations",
+        "Zhang arXiv:2602.18919v1, (2)–(3)"
+      ],
+      "rationale": "The critical transition is a useful interpretation of the model, but as stated it is a routine survival/iteration deduction from the known exact quadratic CDF recursion. No independent information about the actual scale amplitudes or the distinction between a constant and a genuine phase dependence is proved. The result is suitable as an example of the established framework rather than as a new exact endpoint finding.",
+      "residual_risks": [
+        "This does not prejudge value of additional endpoint structure that is not asserted in the frozen record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

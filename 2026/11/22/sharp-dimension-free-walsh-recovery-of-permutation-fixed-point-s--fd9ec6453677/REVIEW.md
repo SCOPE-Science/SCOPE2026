@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-All coordinates, characters, and mass normalizations are explicit. Expanding the prescribed fixed-position signs counts \((n-j)!\) permutations with given fixed labels, proving the entire spectrum exactly. The Pascal-difference identity and the known positive row at order four inductively force strict signs and order in every larger dimension. The end multiplier is an alternating exponential partial sum, whose parity monotonicity proves the sharp minimum and the unique \(1/15\) transition. All four exceptional small rows are listed, including both signs and the two zero characters at order two. A standalone exact enumerator/checker passes on the actual embedded artifact. The finite checks corroborate but do not replace the infinite proof.
+PASS
 
-## Originality: PASS (bounded comparison)
+XOR convolution is diagonal on the characters χ_A with probability-normalized multipliers. In the product of fixed-position signs, choosing j out of k labels contributes (−2)^j(n−j)! for each chosen set. This gives L_(n,k)=n! p̂_n(A), and subtracting adjacent binomial expansions gives L_(n,k)−L_(n,k+1)=2L_(n−1,k). The first four unnormalized rows are (1,−1), (2,0,2), (6,2,2,−2), (24,12,8,4,8); the binomial multiplicities give nullity two at n=2 and just one negative eigenvalue at n=1,3. The last entry is n! times the truncated exp(−2) sum. Odd truncations increase strictly from S_5=1/15; even truncations lie above exp(−2) and decrease to it. The positive fourth row then starts the induction: each later row is strictly decreasing in k with positive last term. This gives the n=4 minimum at k=3 and the unique n=5 full-weight uniform equality, and the maximum eigenvalue 1 gives the stated inverse norm and condition numbers. Inspected the supplied integer checker; a separate permutation enumeration through n=7 checked all 254 frequencies. The exact recurrence and alternating-sum argument, not that finite run, prove the all-order assertions.
 
-The classical rencontres law, 2007 fixed-point count survey, 2013 complete restricted fixed-set distribution and 2013 fixed-point polynomial all provide underlying enumeration or the full-character value; those results are explicitly treated as prior. None of the inspected relevant sections establishes the strict all-character Boolean-cube positivity from order four or the sharp uniform \(1/15\) operator lower bound. A separately inspected 2026 note treats \(n!\)-by-\(n!\) central convolution on the symmetric group via permutation matrices and thus does not imply the present \(2^n\)-by-\(2^n\) Boolean-state result. Search comparisons were based on claims, not title similarity. Residual risk: an unindexed signed fixed-position transform or a special Krawtchouk corollary could independently derive the same positivity inequality; historical priority is not certified.
+## originality
 
-## Value: PASS
+PASS
 
-The exact joint distribution alone does not answer whether fixed-position profile convolution loses information, is a strictly positive smoothing operator, or remains stably reversible in arbitrarily high dimension. The dimension-free lower spectral bound, optimal uniform inverse amplification \(15\), and the exceptional singular order together answer this natural Fourier-recovery question for an infinite family; the sharp constant is attained at a finite, non-asymptotic dimension. The claim does not demand unproved downstream applications or an unrelated enlargement of scope.
+Pass for the all-weight Boolean convolution inertia and sharp uniform spectral/conditioning theorem. The count polynomial, exchangeable labelled law, and full-character scalar are known or directly implied by known work. The closest indexed operators either change the group, embedding, or statistic, and none of the inspected comparators gives the minimum over all Walsh weights or its sharp uniform bound for this law.
 
-## Limits
+## value
 
-No endpoint \(\ell^1\)/\(\ell^\infty\) inverse norm or alternate permutation law is asserted. Numerical checks are finite; the proof handles all orders. Bounded literature and indexed comparisons do not prove uniqueness.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact inversion of convolution by a natural nonproduct Boolean law can be obstructed by zero or small Fourier multipliers. The proof isolates the only singular order and shows uniformly well-conditioned recovery in all positive orders, with a sharp amplification constant and its unique worst dimension and character. This solves an operator question left open by knowing the scalar fixed-point count alone, rather than just computing a short finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

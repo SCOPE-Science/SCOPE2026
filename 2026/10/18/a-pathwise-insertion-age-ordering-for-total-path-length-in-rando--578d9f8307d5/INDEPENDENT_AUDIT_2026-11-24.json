@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:46:30.278834Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding and Proof; VERIFICATION.md and check.py inspected, not executed",
+        "Independent replay: python /workspace/branches/independent_replay.py 2"
+      ],
+      "rationale": "Deleting the maximum contracts just the inserted node: the keys above the prefix maximum constitute its only subtree, and the depth of the inserted node is the prefix record count. This gives (1) for the empty prefix too. On moving the maximum one slot, a new record x adds one to the record count and subtracts x−R from the subtree size, proving (2). For the tail, sample the unordered set of the first t entries, then require its largest element to arrive last (probability 1/t); lowering that largest element by k is a bijection to t-subsets of {1,…,n−1−k} when its spacing from the preceding maximum is at least k+1 (sentinel zero for t=1). This gives (3), and summing gives (4). The relative-order ranks of the prefix are independent uniform ranks, independent of the set of prefix values; this gives the two factors in (5). The standard root split gives the base mean in (6). At t=n−1 there can be no positive jump; at n=2 the only gap is zero. The conditional law is under uniform insertions, not uniform tree shapes. The suggested subtraction direction in the middle of proof §Exact decrement tails (RESULT.md line 56) is reversed; (4), (6), the final subtraction and the independent tail-sum proof give the correct sign. Own replay via recursive root splitting, exhaustive base permutations for 2≤n≤8, verifies (1)–(6), with tails computed from actual path-length differences and the PGF checked as exact coefficient counts. This finite check supplements the all-n argument.",
+      "residual_risks": [
+        "Only ordinary unbalanced BSTs under the stated distinct-key convention; (5) is for the increment and does not factor the full path-length law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Holmgren–Janson address asymptotic fringe-functionals and unconditioned path length. Prodinger's PGF and moment calculations concern one unconditioned word/permutation, not joint costs under all maximum slots. Mahmoud–Pittel was accessible only at landing-page/abstract level."
+        ],
+        "reasoning": "General unconditioned PGFs and moments do not specify the neighboring-gap law of the common-permutation coupling; one must identify and count the events after changing the arrival time.",
+        "searches": [
+          "arXiv:1406.6883, introduction and PDF p. 11",
+          "arXiv:math/9910070, PDF pp. 1–2 and 8",
+          "doi:10.1016/0166-218X(88)90080-7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/9910070",
+        "arXiv:1406.6883",
+        "doi:10.1016/0166-218X(88)90080-7 (landing page/abstract only)",
+        "Resultary 5b00ad67dd05, 8d9cdff4f275 and bb8f7b84dc3a (Findings)",
+        "OEIS A374811"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day covariance equals 3n+H_n−2(n+1)H_n^(2), with an accompanying response to a full-spine tilt. It is not a joint or conditional statement for the position of n.",
+          "Classical uniform moments are recovered independently of any insertion-slot conditioning. The old pair sum gives an alternate route to the increment identity, not an age-resolved gap distribution by direct specialization of the published PGF."
+        ],
+        "reasoning": "The evaluated spacing-tail and record-count/prefix-maximum PGF require different events and a separate conditional count; neither an aggregate covariance nor the pair-count framework already evaluates this comparison.",
+        "searches": [
+          "Resultary Oct. 18 5b00ad67dd05 and Oct. 13 8d9cdff4f275, RESULT.md Finding",
+          "Prodinger pair-sum and PGF, arXiv:math/9910070"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Oct. 18 Resultary covariance finding 5b00ad67dd05 uses the full right spine, equivalently all upper records, not the record count of a prefix indexed by the maximum's insertion slot.",
+          "Prodinger indexes pairs by key and takes minima of insertion times on key intervals. This is an exact alternative encoding of total path length, not a different BST model."
+        ],
+        "reasoning": "Comparing the encodings exposes overlap in the tools: deleting the last key index n in Prodinger's formula leaves only pairs ending at n, and sorting those pairs into the two endpoint-minimum events recovers (1). Extracting and evaluating the coupled changes across all slots and their finite-sample laws is not an identity stated for that encoding in the inspected source.",
+        "searches": [
+          "Resultary semantic search: maximum insertion slot, conditional BST path length, right-spine/upper-records, decrement tails",
+          "Prodinger, arXiv:math/9910070, PDF pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A374811 tabulates expected BST height (a maximum of depths), not total internal path length or a changing-slot decrement.",
+          "The closest inspected exact Resultary quantities are the unconditional covariance in 5b00ad67dd05 / 8d9cdff4f275 and leaf-count-conditioned CDF comparison in bb8f7b84dc3a."
+        ],
+        "reasoning": "Neither the table nor these exact results encode a decrement indexed by n, t and the threshold k; no matching exact table was located in those checks.",
+        "searches": [
+          "OEIS search q=binary search tree path length; A374811",
+          "Resultary semantic returns on conditioned BST path length and gap laws"
+        ]
+      },
+      "rationale": "The underlying path-length representation and record laws are classical. The supported distinct contribution is the evaluated simultaneous maximum-slot comparison, including exact neighboring-gap laws and the increment PGF, not path-length enumeration generally. Neither the closest Resultary covariance/tilt result nor the inspected general literature supplies those conditional laws.",
+      "residual_risks": [
+        "Mahmoud–Pittel full text was unavailable; exact historical priority is not established.",
+        "A prior extraction of the conditioning and spacing laws from the known pair representation remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact underlying representation, not the evaluated conditional comparison",
+          "evidence": "ρ counts pairs whose minimum time on the intervening key interval is at one endpoint. The word PGF aggregates over all words with geometric weights.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/9910070",
+          "material_read": "PDF pp. 1–2 (offsets 0, 2385), later marginal calculation near p. 8",
+          "method": "OA PDF",
+          "title": "A q-Analogue of the Path Length of Binary Search Trees",
+          "trigger": "Strong exact permutation-pair predecessor"
+        },
+        {
+          "assessment": "Limit-law framework, not coupled arrival-slot tails",
+          "evidence": "The inspected path-length application is unconditioned and asymptotic.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.6883",
+          "material_read": "Introduction and path-length discussion near PDF p. 11 (offset 38900)",
+          "method": "OA PDF",
+          "title": "Limit Laws for Functions of Fringe Trees for Binary Search Trees and Recursive Trees",
+          "trigger": "Broad BST path-length coverage"
+        },
+        {
+          "assessment": "Same global cost and related record observable, different claim",
+          "evidence": "Full-spine covariance and θ tilt average over the entire insertion permutation; the finding gives neither slot-conditioned stochastic order nor gap tails.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-negative-covariance-of-right-spine-length-and-total-path-l--5b00ad67dd05",
+          "material_read": "RESULT.md Finding and adjacent characterization, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact negative covariance of right-spine length and total path length",
+          "trigger": "Strongest distinct same-day exact comparison"
+        },
+        {
+          "assessment": "Unresolved at full-text level",
+          "evidence": "No full theorem or appendix was available to decide equivalent coverage.",
+          "identifier_or_url": "https://doi.org/10.1016/0166-218X(88)90080-7",
+          "material_read": "Landing page and abstract only; no lawful OA copy located",
+          "method": "OA lookup for the same paper",
+          "title": "On the joint distribution of the insertion path length and the number of comparisons in search trees",
+          "trigger": "Plausible historical marked-insertion predecessor"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "Defines height from the longest root-to-node path; numbers are expectations, not adjacent differences in sums of depths.",
+          "identifier_or_url": "https://oeis.org/A374811",
+          "material_read": "Definition, comments and formula as returned in OEIS search",
+          "method": "OA web page",
+          "title": "Numerator of the expected height of a random binary search tree (BST) with n elements",
+          "trigger": "Exact database comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md equations (1)–(6); comparison with Prodinger and Resultary 5b00ad67dd05"
+      ],
+      "rationale": "A natural arrival statistic for the extreme key affects a canonical global search-cost statistic. The result orders every conditional law in one coupling and measures exactly when and by how much neighboring slots differ, including the terminal equality; this is more informative than another moment of the unconditioned path length.",
+      "residual_risks": [
+        "No claim of a new general path-length representation or an independent-increment model for the full tree cost."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,95 +1,65 @@
-# Two degree-matched tournaments separate into exclusive four- and twenty-three-step majority clocks
+# Exact majority basins and a sharp four-update entry bound in the 23-vertex carousel tournament
 
 ## Finding
-Let \(P_{23}\) be the quadratic-residue Paley tournament and \(C_{23}\) the clockwise carousel tournament, both on the labelled vertex set \(\mathbb Z/23\mathbb Z\). Apply simultaneous strict binary majority to every vertex's eleven out-neighbors. Then the **complete** recurrent dynamics on \(P_{23}\) consists of the two unanimous fixed states and exactly **3,542 primitive temporal four-cycles**, with no other least periods. On \(C_{23}\) it consists of the same two unanimous fixed states and exactly **12 primitive temporal twenty-three-cycles**, with no other least periods. Thus the two regular tournaments have equal order and out-degree but **disjoint nontrivial temporal period sets**.
 
-Of the \(2^{23}=8,388,608\) labelled binary initial configurations, \(69,828\) on \(P_{23}\) eventually reach four-cycles and \(8,318,780\) reach unanimity; the corresponding numbers on \(C_{23}\) are \(3,906,412\) reaching twenty-three-cycles and \(4,482,196\) reaching unanimity. The exact oscillator-basin probabilities are \(69,828/8,388,608\) and \(3,906,412/8,388,608\), respectively. The sharp maximum first-periodic-entry times are **ten** and **four** synchronous updates.
+On the labelled 23-vertex carousel tournament, synchronous strict binary majority over the eleven out-neighbors sends **3,906,412** of the **8,388,608** initial configurations to travelling waves and **4,482,196** to unanimity. The sharp maximum time to enter a periodic orbit is **four updates**. Exactly **60,858** configurations take all four updates, and all of them enter unanimity. The latest entry to a travelling wave is at update three, attained by **47,012** configurations. The exact profile is:
 
-The identities of maps on the *entire* configuration spaces are, sharply,
-\[
-F_P^{14}=F_P^{10},\qquad F_C^{27}=F_C^4,
-\]
-while \(F_P^{13}\ne F_P^9\) and \(F_C^{26}\ne F_C^3\).
+| First periodic-entry time | Eventually unanimous | Eventually a travelling wave |
+|---:|---:|---:|
+| 0 | 2 | 276 |
+| 1 | 1,375,952 | 2,302,576 |
+| 2 | 2,427,880 | 1,556,548 |
+| 3 | 617,504 | 47,012 |
+| 4 | 60,858 | 0 |
+
+In particular, the carousel map satisfies \(F^{27}=F^4\) and \(F^{26}\ne F^3\). The two unanimous states and twelve travelling-wave orbits of period 23 follow from the centered-majority classification of Nakar and Ron [1], as explained below. The contribution here is the labelled **attraction and first-entry census**, not the classification of the recurrent states.
 
 ## Assumptions and scope
-Both tournaments have vertices \(i\in\mathbb Z/23\mathbb Z\). The Paley arcs are \(i\to i+d\) for \(d\in Q=\{1,2,3,4,6,8,9,12,13,16,18\}\), the eleven nonzero quadratic residues modulo 23. The carousel arcs are \(i\to i+d\) for \(d\in\{1,2,\ldots,11\}\). All additions are modulo 23. As \(-1\) is a nonresidue mod 23, each orientation has one directed edge between every pair, with out-degree eleven.
 
-For either out-neighborhood \(N^+(i)\) and initial binary vector \(x\in\{0,1\}^{23}\), the synchronous update is
+The vertices are \(i\in\mathbb Z/23\mathbb Z\), and the out-neighbors of \(i\) are \(i+1,\ldots,i+11\). For a configuration \(x\in\{0,1\}^{23}\), the synchronous rule is
 \[
-F(x)_i=\mathbf 1\!\left\{\sum_{j\in N^+(i)}x_j\ge6\right\}.
+ F(x)_i=\mathbf 1\left\{\sum_{j=1}^{11}x_{i+j}\ge 6\right\}.
 \]
-No tie arises because each out-degree is odd. Encode a configuration by the nonnegative integer \(\sum_{i=0}^{22}2^ix_i\); bit zero is vertex zero. A *primitive temporal cycle* is a distinct set of states lying on one closed orbit, not an oriented graph cycle. The *first periodic-entry time* is the least \(t\ge0\) for which \(F^{t+p}(x)=F^t(x)\) for some \(p\ge1\), and its period is the minimal such positive \(p\).
+The first periodic-entry time of \(x\) is the smallest \(t\ge0\) for which \(F^{t+p}x=F^t x\) for some \(p>0\). The basin counts refer to all labelled inputs, with no quotient by spatial rotation or complementation. The encoding of a configuration is \(\sum_{i=0}^{22}2^ix_i\).
 
-## Proof
-The claim is an exact finite-state theorem, proved by a complete traversal of two explicitly defined deterministic maps, not by statistical sampling. Each map has precisely \(2^{23}\) states. The two standalone source programs compute its complete functional directed graph using **different** update and orbit-classification implementations.
+The reproducibility files also report a comparator: the Paley tournament on the same vertex set, with arc offsets \(\{1,2,3,4,6,8,9,12,13,16,18\}\) and the same threshold. Its census is stated in [2] and is not a new result here.
 
-Program `code/exhaustive_peel.cpp` computes a 23-bit successor from the population counts of eleven bit masks, builds indegrees, and repeatedly peels states with zero remaining indegree. The remaining vertices are *exactly* those on directed cycles, because each has one successor and all non-cycle branches disappear. It traverses each unvisited remaining component to assign its actual primitive cycle length. Processing all peeled vertices in reverse deletion order assigns each the length and first-entry distance of its successor plus one. This proves exhaustiveness of every counted period, depth and basin. The program enumerates each integer \(0\le x<2^{23}\).
+## Recurrent states from centered majority
 
-Independently, `code/exhaustive_paths.cpp` calculates each successor using eleven individual shifted-bit tests (rather than population-count masks) and follows as-yet-unclassified orbits until meeting a previously classified state or detecting a repetition on its own path. It assigns each new cycle its measured primitive length and each predecessor its recursive entry depth. This second enumeration also visits the entire integer interval and gives exactly the same full depth-by-period table as the first, without using any saved results from it. The programs' full outputs are contained in `data/peel_output.txt` and `data/paths_output.txt`.
+Write \((Sx)_i=x_{i+1}\), and let \(M_5\) be strict majority in the centered window \(i-5,\ldots,i+5\). Then \(F=S^6M_5\), and \(M_5\) commutes with \(S\). The vertices on periodic orbits of \(F\) are exactly the configurations on periodic orbits of \(M_5\): a period \(p\) for either map yields a return for the other after \(23p\) steps, since \(S^{23}=I\).
 
-The resulting cycle counts are \(2\) length-one and \(3542\) length-four cycles for \(P_{23}\), and \(2\) length-one and \(12\) length-twenty-three cycles for \(C_{23}\). The entire entry-time distribution is shown below, including zero entries only by omission. The maximal entry times are ten and four; because all eventual periods divide four and twenty-three respectively, these tables imply the displayed global iterate identities. For sharpness, state encoding `23807` on \(P_{23}\) first reaches its fixed point at step ten, and encoding `171551` on \(C_{23}\) first reaches its fixed point at step four. Further, encoding `15611` is on a primitive four-cycle on \(P_{23}\), while `63` is on a primitive twenty-three-cycle on \(C_{23}\); direct iterations from these states are independent sanity checks of the two period counts.
+Nakar and Ron's Theorem 1 and Definitions 8–9 [1] imply that a nonconstant recurrent configuration either has all monochromatic runs of length at least six, or has a spatial period strictly smaller than 23. The latter is impossible on a prime-order ring: invariance by a nonzero shift implies invariance by a generator and hence constancy. In the former case there can be just two runs, since the number of runs of a nonconstant binary cyclic word is even and four runs of length at least six would use at least 24 sites. The words with two runs of lengths at least six are all fixed under \(M_5\), as are the unanimous states. Thus \(F\) acts on the nonconstant recurrent words by shift \(S^6\). For each one-block length from 6 to 17 the 23 labelled rotations form a single orbit. This gives precisely twelve orbits of least period 23 and the 276 nonconstant inputs at entry time zero.
 
-## Verification
-All counts below are for *labelled initial states*, not equivalence classes modulo a tournament automorphism. A row means first periodic entry at the specified update and eventual minimal period as specified.
+## Exhaustive basin and entry calculation
 
-**Paley tournament**:
+The supplied programs enumerate all integers from zero to \(2^{23}-1\). Their carousel branches compute the rule above using eleven consecutive offsets but use different classification algorithms:
 
-| First entry | Period | Number of initial configurations |
-|---:|---:|---:|
-| 0 | 1 | 2 |
-| 0 | 4 | 14,168 |
-| 1 | 1 | 556,140 |
-| 1 | 4 | 29,854 |
-| 2 | 1 | 4,746,326 |
-| 2 | 4 | 9,108 |
-| 3 | 1 | 2,061,996 |
-| 3 | 4 | 8,602 |
-| 4 | 1 | 628,958 |
-| 4 | 4 | 4,048 |
-| 5 | 1 | 174,064 |
-| 5 | 4 | 3,036 |
-| 6 | 1 | 89,562 |
-| 6 | 4 | 1,012 |
-| 7 | 1 | 33,902 |
-| 8 | 1 | 16,192 |
-| 9 | 1 | 10,626 |
-| 10 | 1 | 1,012 |
+- `code/exhaustive_peel.cpp` computes the successor by popcount on each out-neighborhood mask, builds indegrees, and successively removes vertices of indegree zero. A vertex on a cycle always retains its predecessor. Conversely, the unremoved finite subgraph has one successor per vertex and positive indegree everywhere, so every unremoved vertex lies on a cycle. A cycle has entry time zero; in reverse removal order each other vertex inherits its successor's least eventual period and adds one to the successor's entry time.
+- `code/exhaustive_paths.cpp` uses direct bit tests of the eleven neighbors. Following an unclassified path either finds a repetition on that path, which gives the entire new cycle, or hits a previously classified state. In either case processing the remaining path backwards gives the period and first-entry time.
 
+The carousel output rows in `data/peel_output.txt` and `data/paths_output.txt` agree and give the table above. The table's period-23 and unanimous columns sum to the two basin totals. The input mask `171551` first reaches a periodic state after four updates. All periods divide 23; consequently the universal depth-four bound yields \(F^{27}=F^4\). At time three the depth-four witness cannot already return after 23 more steps, proving \(F^{26}\ne F^3\).
 
-**Carousel tournament**:
+## Reproduction
 
-| First entry | Period | Number of initial configurations |
-|---:|---:|---:|
-| 0 | 1 | 2 |
-| 0 | 23 | 276 |
-| 1 | 1 | 1,375,952 |
-| 1 | 23 | 2,302,576 |
-| 2 | 1 | 2,427,880 |
-| 2 | 23 | 1,556,548 |
-| 3 | 1 | 617,504 |
-| 3 | 23 | 47,012 |
-| 4 | 1 | 60,858 |
+With C++17 and a compiler supporting the stated flag, run from the package directory:
 
+```sh
+g++ -std=c++17 -O3 -mpopcnt code/exhaustive_peel.cpp -o exhaustive_peel
+./exhaustive_peel
+g++ -std=c++17 -O3 code/exhaustive_paths.cpp -o exhaustive_paths
+./exhaustive_paths
+```
 
-The Paley table totals \(8,388,608\); its two period-basin totals are \(8,318,780\) and \(69,828\). The carousel table independently totals \(8,388,608\); its basin totals are \(4,482,196\) and \(3,906,412\). Compiling the two source files separately with `g++ -std=c++17 -O3 -mpopcnt code/exhaustive_peel.cpp -o exhaustive_peel` and `g++ -std=c++17 -O3 code/exhaustive_paths.cpp -o exhaustive_paths`, then executing them, reproduces the recorded counts exactly. No random seeds, third-party libraries, external files, or omitted datasets are required.
+Compare the carousel rows with the corresponding files under `data/`. The programs also print Paley rows, which reproduce the comparator. The recurrence classification above is independent of this finite basin computation.
 
-The result demonstrates a finite-order dynamical difference between the two specific canonical orientations. It does **not** establish any analogous statement for all regular tournaments, all Paley primes, or all carousel orders.
+## Relationship to prior work and limitations
 
-## Relationship to prior work
-Benjamini, Chan, O'Donnell, Tamuz and Tan [1] discuss the symmetric/undirected majority setting, for which every orbit becomes a fixed point or a two-cycle. Their undirected hypothesis excludes both tournaments here and cannot imply these length-four and length-twenty-three attractors. Jørgensen [2] describes Paley tournaments within normally regular directed graphs, but does not count binary majority orbits.
+The centered classification [1] supplies the carousel's recurrent states through a shift, but not the exact numbers of inputs reaching either type at each entry time. The same-size Paley census [2] gives 3,542 primitive four-cycles, an oscillator basin of 69,828 inputs, and a sharp entry time of ten. Thus on the same 23 labelled vertices with the same out-degree and threshold, the carousel waves attract far more inputs while the Paley relaxation tail is longer. The disjoint nontrivial periods follow from [1] and [2]; they are not a separate novelty claim. Both the present record and [2] have the same catalogue date, which does not establish priority. The closely related carousel calculation [3] treats order 19, including its exact basins and sharp depth; that different order does not give the 23-site histogram.
 
-Nakar and Ron [3] analyze **centered** radius-\(r\) binary majority automata on one-dimensional cyclic rings. The carousel update here is related to their centered radius-five rule \(M_5\) by the exact change of formulation \(F_C=S^6M_5\), where \(S\) is one-site cyclic shift; therefore their structural results may constrain possible carousel waves. Their classification of eventual centered fixed points/two-cycles does not state the above labelled \(23\)-site carousel basin histogram, nor the Paley comparison. This distinction matters: merely naming the network a tournament does not make the carousel an unrelated update rule.
-
-The closest examined published graph-specific majority census [4] covers Paley tournaments on \(3,7,11,19\) vertices, including primitive four- and nineteen-cycles at order 19. Its complete proof and tables do not address order 23 or the two-tournament comparison. The general absence of two-cycles on tournaments and consensus-only fixed-point behavior on regular tournaments are prior results, and are not claimed as innovations here. The new contribution is the *complete order-23 contrast*, including its exact attraction proportions and sharp transients.
-
-## Limitations
-This is a full finite enumeration at one vertex count, not an infinite-family theorem. The correctness check consists of two independent implementations and exact complete state traversal, not external mathematical validation. The priority comparison covered accessible published full text and indexed mathematical findings, but equivalent unindexed historical numerical studies may exist; broader theoretical treatments of directed majority and the shifted radius-five cellular automaton could potentially imply some counts after additional work. No inference about a measure on tournaments, asymptotic probability, or universal period prohibition is made.
+The census is for one graph size, threshold and orientation, under synchronous updates. The proportions refer to uniform choice from the labelled binary inputs. No general transient bound, per-wave basin size, or historical priority is asserted.
 
 ## References
-[1] I. Benjamini, S.-O. Chan, R. O'Donnell, O. Tamuz and L.-Y. Tan, *Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs*, arXiv:1405.2486v1, publicly posted 2014-05-11. https://arxiv.org/abs/1405.2486
 
-[2] L. K. Jørgensen, *Normally Regular Digraphs*, arXiv:1410.8424v1, publicly posted 2014-10-30. https://arxiv.org/abs/1410.8424
-
-[3] Y. Nakar and D. Ron, *The Structure of Configurations in One-Dimensional Majority Cellular Automata: From Cell Stability to Configuration Periodicity*, arXiv:2205.08972v1, publicly posted 2022-05-18. https://arxiv.org/abs/2205.08972
-
-[4] *A forbidden two-clock and the Paley-19 revival of majority oscillations*, full result, proof and census posted 2026-11-17. https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-a-forbidden-two-clock-and-the-paley-19-revival-of-majority-oscil--13a06d889156
+1. Y. Nakar and D. Ron, *The Structure of Configurations in One-Dimensional Majority Cellular Automata: From Cell Stability to Configuration Periodicity*, [arXiv:2205.08972](https://arxiv.org/abs/2205.08972), especially Definitions 8–9 and Theorem 1.
+2. [*Paley-23 majority: fourteen affine oscillator families and a sharp ten-step consensus tail*](https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-paley-23-majority-fourteen-affine-oscillator-families-and-a-shar--200a56a85158), Finding and assumptions.
+3. [*A ten-wave nineteen-clock and exact majority basins on the cyclic tournament of order nineteen*](https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-ten-wave-nineteen-clock-and-exact-majority-basins-on-the-cycli--caf7069a6706), Finding and assumptions.

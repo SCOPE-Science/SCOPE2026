@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:46:31.732876Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–72; VERIFICATION.md and verify.py, inspected without execution",
+        "Independent sign bisection for H on [1/2,1] (60 midpoint iterations): u=0.8425689643517065, 2u−log u=1.8564376920118404, H(1/2)≈−0.029121599 and H(1)≈0.031696960."
+      ],
+      "rationale": "The two Poisson marginal tails give the stated additive objective, even without joint independence. Its derivative has the sign of vy exp(B−2y)−1; this factor rises then falls, with its maximum at y=1/2 if the full positive half-line is considered. The stationary equation b_v(y)=B has its sole minimum at 1/2; each positive root satisfies B−y=y−log(vy)≥1, so any roots are interior. Up to the first stationary budget the objective strictly decreases except possibly at an isolated stationary point; above it only y=0 and the upper stationary point can maximize. Substituting stationarity into the value difference gives vH(y). Here H(0)=0, H′=(2y−1)e^(−y)(1−e^(−y)), and H(1)=1−3/e+1/e²>0, giving exactly one upper-branch zero u in (1/2,1). The strictly increasing upper branch therefore switches globally at b_v(u), with exactly the stated two allocations at the tie. Since y−B/2=(1/2)log(vy), equal effort occurs precisely at b_v(1/v)=2/v, strictly after the switch for v≤1. For fixed v and large B, the increasing solution has y=B/2+O_v(log B); substituting in the logarithm of the stationary equation gives the displayed next term and error.",
+      "residual_risks": [
+        "The decimals are not interval certificates. The proof uses continuous allocation, additive expected fruit value and the specified Poisson marginals, not a fixed integer total or empirical prediction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alban et al. discuss weighted adoption at service sites and provide a support result for homogeneous point-symmetric responses. Srivastava–Bullo give equal active doses with optimally selected support size for identical sigmoid utilities."
+        ],
+        "reasoning": "The general frameworks and active-set precedents apply to allocation questions, but the inspected specific support theorems do not specialize to this concave/sigmoid pair with unequal relative values and a non-equal active split.",
+        "searches": [
+          "Author/full-text query for Alban et al. 10.1287/msom.2021.1020; lawful accepted manuscript at City Research Online",
+          "Srivastava–Bullo, Knapsack Problems with Sigmoid Utilities, Corollary 5"
+        ]
+      },
+      "checked_sources": [
+        "Alban et al. doi:10.1287/msom.2021.1020 (accepted manuscript)",
+        "Srivastava–Bullo author PDF",
+        "Local Resultary entries 9ebfe525ba28, 6c42718054c6, ae3e6f6f2f0f and a81be9bbd6bd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Homogeneous support choices are compared using equal-return allocations, or symmetric endpoint/interior competitors. Here eliminating B at a mixed stationary point factors the objective gap as vH(y), and the balance occurs where vy=1 on the resulting upper branch."
+        ],
+        "reasoning": "The established general existence of concentration or support changes does not imply that exact cancellation or the strict ordering of the two budget thresholds for all v in the specified interval.",
+        "searches": [
+          "Alban et al., accepted manuscript §§2.3 and 3 and Proposition 4; Srivastava–Bullo Corollary 5; Resultary 9ebfe525ba28 and 6c42718054c6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-site confirmation problem uses identical two-encounter quorum sites and probability that at least one confirms; its log transform gives a sum of two identical S-shaped functions. Here one return is the strictly concave one-hit Poisson tail, the other the two-hit tail, and expected weighted count is additive without a log transform."
+        ],
+        "reasoning": "Threshold labels, multiplication by v, or switching from maximization to failure minimization do not turn the symmetric two-site confirmation objective into this heterogeneous expected-output objective. The candidate comparison and crossing dose concern a different tradeoff.",
+        "searches": [
+          "Local Resultary: mixed one-visit two-visit Poisson fruit pollination allocation universal activation jump effort reversal; Poisson quorum threshold heterogeneous activation positive allocation 1 visit 2 visit global optimization",
+          "Closest two-site entry 9ebfe525ba28"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matches give threshold laws for identical confirmation sites, support sizes for homogeneous Poisson quotas r≥3, an unequal-optima example with identical sites and an at-least-one objective, or homogeneous Hill-response activation."
+        ],
+        "reasoning": "These are relevant exact records and motivate the search but do not identify the universal dose u or the balance crossing 2/v for the frozen mixed model. The common date of some entries supplies no order of priority.",
+        "searches": [
+          "Local Resultary: Poisson threshold quorum allocation multiple resource types global optimum discontinuous activation threshold; Poisson allocation mixed quorum thresholds effort split fixed budget expected success global maximizer",
+          "Inspected Resultary 9ebfe525ba28, 6c42718054c6, ae3e6f6f2f0f and a81be9bbd6bd"
+        ]
+      },
+      "rationale": "The supported distinct claim is the complete mixed one-/two-visit Poisson split for all 0<v≤1, especially the exact value-independent positive entry and later effort reversal. Optimization of S-shaped returns and budget-driven support activation are established. Neither the closely related homogeneous quorum problems nor the inspected general sigmoid allocation results yield the two thresholds for this objective.",
+      "residual_risks": [
+        "Ginsberg's 1974 The multiplant firm with increasing returns was available as a landing page/abstract only. Uninspected or differently formulated allocation results remain a historical-priority risk. No claim of priority for generic sigmoid activation is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Generic allocation precedent, not a mixed-threshold solution",
+          "evidence": "Weighted site-demand model and an explicit support result for homogeneous point-symmetric response functions.",
+          "identifier_or_url": "https://openaccess.city.ac.uk/id/eprint/28435/1/MSI.pdf (doi:10.1287/msom.2021.1020)",
+          "material_read": "Accepted manuscript: abstract p. 2; §2.3 p. 6; §3 p. 7; Proposition 4 p. 12 (offsets 2169, 17540, 19440, 36306)",
+          "method": "Lawful institutional repository copy of the same work; targeted OA PDF review",
+          "title": "Resource Allocation with Sigmoidal Demands: Mobile Healthcare Units and Service Adoption",
+          "trigger": "Closest cited general sigmoid resource-allocation paper; frozen package reports only metadata access"
+        },
+        {
+          "assessment": "Homogeneous precedent",
+          "evidence": "For identical utilities an optimal support of size m has dose T/m on each active item; a finite comparison chooses m.",
+          "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2012n-sb.pdf",
+          "material_read": "p. 6, Corollary 5",
+          "method": "Targeted lawful author PDF",
+          "title": "Knapsack Problems with Sigmoid Utilities",
+          "trigger": "Budget-dependent activation for S-shaped allocation"
+        },
+        {
+          "assessment": "Related, but identical site thresholds and different objective",
+          "evidence": "Threshold between concentration and equal division for probability of at least one confirmation at two identical two-hit sites.",
+          "identifier_or_url": "Resultary 9ebfe525ba28",
+          "material_read": "RESULT.md Finding and Relationship to prior work",
+          "method": "Configured local Resultary mirror",
+          "title": "The sharp universal budget for unequal two-site Poisson confirmation",
+          "trigger": "Closest two-site, two-encounter objective and sharp budget cutoff"
+        },
+        {
+          "assessment": "Homogeneous quorum family",
+          "evidence": "Ordered equal-dose support thresholds for identical sites of quorum r≥3, not mixed 1/2 quorums.",
+          "identifier_or_url": "Resultary 6c42718054c6",
+          "material_read": "RESULT.md Finding",
+          "method": "Configured local Resultary mirror",
+          "title": "Consecutive habitat activation thresholds for Poisson founder quorums",
+          "trigger": "Poisson expected-output support activation"
+        },
+        {
+          "assessment": "Different objective and no threshold classification",
+          "evidence": "Two unequal optima at a specified budget and suitability for an at-least-one success objective with identical sites.",
+          "identifier_or_url": "Resultary ae3e6f6f2f0f",
+          "material_read": "RESULT.md Finding",
+          "method": "Configured local Resultary mirror",
+          "title": "Asymmetric optimal founder effort in two identical quorum-limited habitats",
+          "trigger": "Asymmetric two-site Poisson optimum"
+        },
+        {
+          "assessment": "Structural analogue only",
+          "evidence": "Sequential activation for identical Hill responses, not one- and two-hit Poisson tails.",
+          "identifier_or_url": "Resultary a81be9bbd6bd",
+          "material_read": "RESULT.md Finding",
+          "method": "Configured local Resultary mirror",
+          "title": "A complete active-target staircase for independent Hill inhibition",
+          "trigger": "Exact active-set thresholds for nonconcave response functions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, objective, phase classification and limitations",
+        "Alban et al. accepted manuscript, general nonconcave resource-allocation setting"
+      ],
+      "rationale": "The two-site problem is a natural minimal model of heterogeneous success thresholds. Its complete global classification isolates two different effects that local stationarity does not resolve: a value-independent positive entry dose while the entry budget varies, followed by the less valuable, harder target receiving the larger share. The exact split and thresholds supply a benchmark for more general resource-allocation models without claiming a field law.",
+      "residual_risks": [
+        "The allocation result is restricted to the modeled visit tails and costs; it is not evidence for horticultural prescriptions or arbitrary many-flower extensions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

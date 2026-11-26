@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The proof has two independent components. A co-recursive-enumerability certificate lists one modal formula outside a generated theory and finitely many formulas within the theory excluding every possible counterworld. The hardness construction transforms any Turing-machine description into a primitive-recursive syntactic procedure that computes theory membership by inspecting only the finite set of indices occurring in the input formula and performing bounded computations for those indices.
+## correctness
 
-The normality conditions are verified as *frame* properties, with all valuations quantified for (G) and (E), rather than just the model's actual valuation. The construction has one world, an empty generator and a standard extensive, monotone, idempotent, finite-union-preserving closure operation.
+PASS
 
-Run `python checker.py` from this package to reproduce finite checks of bounded-time halting and looping examples, the uniform modal recursion, conjunction, modus ponens, finite-test instances of (G), and the two possible one-world Kripke relations. Observed output on this package: `ALL_CHECKS_OK (44624 finite diagnostic assertions)`. These checks are supporting diagnostics; their finite coverage proves neither \(\Pi^0_1\)-hardness nor novelty, which rest on the written mathematical reduction and literature comparison. No external certification or independent audit has occurred.
+If a relation on the same worlds and valuation preserves all truth, its successor set at w is contained in E_w and satisfies exactly the formulas in H_w; hence KRep is necessary. Conversely taking E_w as successor sets proves agreement by induction. Only the direction from truth on E_w to membership can fail. Given a missing formula, one H_w-formula falsified at each of its finitely many counterworlds is a complete certificate of failure, including the empty tuple when there are no counterworlds. Membership and truth tests are effective on the total-input promise; dovetail the certificate tests if treating all codes as potential inputs. For hardness one can tabulate all subformulas on the all-false assignment and the singleton-true assignments at the input formula's finitely many atomic indices that qualify by bounded simulation. All other singleton-true assignments agree with the all-false one on its support, so the tabulation is exact, and primitive recursive. With H the intersection of the resulting theories, the concrete one-world frame under each valuation evaluates by the same recursion. Thus E and G hold under their all-valuations quantifiers, while M, C, N, K follow from classical truth at every simulated assignment. The absent contradiction excludes the dead-end relation; after halting a missing negated atom, true at the actual world, excludes the reflexive relation. Before halting the reflexive relation agrees on all formulas. This verifies both directions and preserves the promise.
+
+## originality
+
+PASS
+
+The strongest inspected work provides the underlying same-carrier semantic criterion or studies recognition on materially different inputs. Neither supplies the finite-effective co-c.e. classification with a primitive-recursive normal one-world hard family. No prior coverage was established in the bounded comparison.
+
+## value
+
+PASS
+
+The result identifies precisely when finite-carrier recognition differs from a finite-table test. The reduction shows that the obstruction survives even primitive-recursive membership, one world, and all the stated normality principles, so neither stronger frame assumptions of this kind nor finite branching alone repairs the algorithmic problem. This is more informative than an arbitrary undecidable encoding or a nonrepresentable example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

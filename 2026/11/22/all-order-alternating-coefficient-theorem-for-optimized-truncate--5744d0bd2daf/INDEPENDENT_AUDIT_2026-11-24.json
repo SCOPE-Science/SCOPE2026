@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:25:08.557397Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let x=pi/(J+1) and set q_j=sin((j+1)x) with support 0 through J-1. For lag k<J, product-to-sum gives the sine-vector correlation: the sum of cos((2j+k+2)x) has central angle (J+1)x=pi and is -sin((J-k)x)/sin x. This gives precisely Ferrari's Eq. (30) after multiplying by 2(-1)^k and dividing by S=(J+1)/2. Lag one gives S cos x and agrees with -4c_2^J/(4-2c_2^J); Eq. (30) is vacuous at J=2, so the constant and first cosine coefficients already suffice there. Multiplying the spectral factor by (1-z)^2 with the normalization sin^4(theta/2)=|1-z|^4/16 yields C_J=1/[2(J+1)(1+cos x)]. The new factor P_J has strictly positive coefficients at every index 0 through J+1, including the two endpoints. Comparing the real-part cosine coefficients of the real analytic symbol with the autocorrelations proves strict alternation. Triangle equality against the positive constant and negative linear term forces z=-r on every disk of positive radius. At r=1, C_J(4 cot(x/2))^2 is the stated value. The optional mpmath script was inspected, not run; its sampled contours and finite orders do not establish the theorem. No operator-valued or general A-stable-family assertion was verified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ferrari gives the optimal vector, Fejér extremal equality and real-part factorization; Banjai gives a finite numerical TTR construction."
+        ],
+        "reasoning": "A-stability controls the sign of the real part, not the claimed modulus or all monomial signs. The published factorization is an input; the sign deduction needs the specialized positive factor and its autocorrelations. The finite construction cannot cover the family.",
+        "searches": [
+          "arXiv:2607.11422, Theorems 3.1 and 4.1 and Lemmas 4.2–4.3",
+          "arXiv:2203.00986, Sec. 6"
+        ]
+      },
+      "checked_sources": [
+        "Ferrari arXiv:2607.11422",
+        "Banjai arXiv:2203.00986",
+        "Resultary 5744d0bd2daf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq. (30) supplies real-part Fourier data before multiplication by sin^4(theta/2); Proposition 3.6 evaluates delta_J(-1). Footnote 3 explicitly labels the unrestricted supremum a conjecture."
+        ],
+        "reasoning": "The known endpoint computation alone does not exclude larger complex values. The change to a positive polynomial factor following z->-z and the strict sign transfer from correlations provide the missing implication and yield uniqueness for arbitrary positive radius.",
+        "searches": [
+          "arXiv:2607.11422 Eq. (30), Proposition 3.6 and Sec. 5.1 footnote 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ferrari explicitly conjectures the endpoint supremum for all J>=2 in footnote 3; the positivity test there concerns coefficients in powers of 1-z, not powers of z.",
+          "The matching Resultary entry has the identical frozen record ID; it is not distinct prior evidence."
+        ],
+        "reasoning": "The unit-disk claim is exactly the conjectured one; strict alternation in the ordinary basis gives a stronger sufficient condition and all radii, not a restatement of known shifted-coefficient positivity.",
+        "searches": [
+          "arXiv:2607.11422, Lemma 3.8 and Sec. 5.1 footnote 3",
+          "Resultary 5744d0bd2daf, alternating symbol coefficients and sharp disk norms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Strongest local exact match is the identical record; Ferrari's Table 2 supplies finite shifted-basis data and footnote 3 limits its argument to J<=6."
+        ],
+        "reasoning": "Neither an identical index entry nor finitely tabulated optimized coefficients cover the all-order analytic claim. The exact scalar endpoint value is already in Proposition 3.6, so it is excluded from novelty on its own.",
+        "searches": [
+          "Resultary 5744d0bd2daf and related truncated-trapezoidal findings",
+          "arXiv:2607.11422, Table 2 and footnote 3"
+        ]
+      },
+      "rationale": "The distinct result is the all-order strict sign property of ordinary symbol coefficients and the exact unique maximizer at every radius. The parent paper supplies the optimized family and enough Fourier data to derive it, but leaves the unit-disk supremum explicitly open outside J=2 through 6. The autocorrelation argument closes that gap, not a separate claim on the already known endpoint value.",
+      "residual_risks": [
+        "A concurrent or unindexed all-order solution is not ruled out; the positive factor itself is reconstructible from Ferrari's known extremal data."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the optimizer, Fejér input and endpoint value, not the all-order bound as a stated result",
+          "evidence": [
+            "Eq. (30) gives A_Jk/(4-2c_2^J)=2(-1)^k[(J-k)cos(kx)+sin((k+1)x)/sin x]/(J+1).",
+            "Footnote 3: ‘only for J=2,...,6 … but we conjecture it is true for all J>=2.’"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.11422",
+          "material_read": "Sec. 3 and Theorem 3.1, Proposition 3.6 p. 8, Theorem 4.1 p. 9, Lemmas 4.2–4.3 pp. 10–11, Eq. (30) p. 12, Sec. 5.1 footnote 3 p. 13",
+          "method": "Read located primary PDF passages and checked the Fourier normalization and the scope of the conjecture",
+          "title": "Convolution quadrature based on a truncated trapezoidal rule",
+          "trigger": "Exact optimized symbol and unit-disk conjecture"
+        },
+        {
+          "assessment": "Finite numerical example, not analytic all-order optimal signs or norms",
+          "evidence": [
+            "Numerical J=4 choice using fmincon with A-stability tested on 50,000 points."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2203.00986",
+          "material_read": "Sec. 6, p. 19, finite optimization example",
+          "method": "Read the relevant primary PDF passage",
+          "title": "Implicit/explicit, BEM/FEM coupled scheme for acoustic waves with the wave equation in the second order formulation",
+          "trigger": "Earlier TTR construction"
+        },
+        {
+          "assessment": "Identical record, not a second source",
+          "evidence": [
+            "Same all-orders sign and all-radii claim, same record suffix 5744d0bd2daf."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-all-order-alternating-coefficient-theorem-for-optimized-truncate--5744d0bd2daf",
+          "material_read": "Indexed statement compared with the supplied frozen Finding and proof",
+          "method": "Local Resultary lookup and exact identifier comparison",
+          "title": "All-order alternating-coefficient theorem for optimized truncated-trapezoidal symbols",
+          "trigger": "Strongest local Resultary hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Resolves the explicitly posed unit-disk extremum problem and gives a stronger ordinary-coefficient theorem and unique extremum on every circular contour. These are precise scalar symbol bounds for the optimized family, not claims about CQ operator convergence or numerical stability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

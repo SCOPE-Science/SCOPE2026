@@ -1,19 +1,21 @@
-# Review of the rooted-tree Aluthge depth-tail theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Orthogonality of distinct parent columns gives the exact Schatten \(p\)-energy \(\sum_v\rho_v^p\) for every \(p>0\). Direct polar decomposition yields the child-weight formula. A nonstandard but elementary branching inequality dominates the next energy vector by \(((1-t)I+t\mathcal Q)\) applied to the previous one. Unique parent paths yield an exact summation identity for the powers of \(\mathcal Q\); binomial expansion, Tonelli, and dominated convergence prove the global estimate and endpoint convergence. Chernoff gives the explicit tail rate; finite constant-weight paths prove the absence of a uniform rate. A self-contained standard-library finite checker passed 30,516 assertions; this supports computation but does not replace the infinite proof.
+PASS
 
-## Originality
+Disjoint column supports make the modulus diagonal, with the v-entry r_v=||Te_v||. For r_v>0 the polar update gives edge weight lambda_vu(r_u/r_v)^t, and gives a zero outgoing column if r_v=0. The resulting p-mass at v is at most b_v^(1-t)(sum_children b_u)^t, by bounding each r_u in the weighted quadratic mean by (sum_children b_u)^(1/p). This remains valid for countably many children, vanishing weights, and p<1. Scalar weighted AM–GM then bounds it by ((1-t)I+tQ)b, where Q adds child masses. Unique parents make Q positive and contractive on l1; Q^k counts each vertex once exactly when it has depth at least k. Iteration and the binomial expansion thus give the precise depth-weighted sum over the original masses, including n=0, and justify that every iterate is in the same Schatten class. Since each vertex has finite depth, dominated convergence gives the endpoint result. Splitting at K, and setting K=floor(nt/2)+1 for the Chernoff estimate, gives precisely the claimed strict depth tail and e^(-nt/8). On L equally weighted positive path edges of normalized weight L^(-1/p), exactly one more terminal edge vanishes in each iteration up to L, so the p-energy is (L-n)/L for n<L and gives the stated supremum by sending L to infinity.
 
-**PASS, with bibliographic qualification.** The closest direct statement is Stanković (2026), Proposition 5.8, for classical unilateral weighted shifts; his Corollary 5.9 includes orthogonal direct sums of such shifts and finite blocks. The new theorem handles genuinely branching trees that cannot be in that direct-sum class, supplies a branching energy transport inequality, and controls all iterates by the initial depth distribution. Trepkowski (2014) gives the one-step tree weight formula; it is not an iterated Schatten endpoint theorem. Bala (2026) gives operator-norm convergence rather than same-class Schatten convergence. Altwaijry et al. (2024) give Schatten norm inequalities/equality criteria for transforms, not this depth-tail limit. Searches for aliases, broader coverage, special cases and indexed related claims did not reveal an implication covering the new conclusion. A full exclusion of unpublished or less-indexed results is not established.
+## originality
 
-## Value
+PASS
 
-**PASS.** The motivating 2026 result leaves equal-Schatten-class convergence outside its general theorem and treats only one-path unilateral shifts in its explicit endpoint proposition. The branching theorem gives a sharp natural class enlargement (including nonreducing infinite trees), a computable bound from the initial distribution of column norms over depth, a quantitative exponential-plus-tail estimate, and a rigorous obstruction to any distribution-free rate. These provide functional-analytic control not captured by mere operator-norm convergence or finite experiments.
+The supported distinction is the explicit binomial-depth estimate and its same-ideal decay consequence on general rooted branching trees. The one-step edge formula and same-Schatten unilateral result are already known, as is the scalar path iteration on which the sharp nonuniformity witness rests. Neither is being credited for originality in isolation.
 
-## Closest sources and limitations
+## value
 
-Closest primary sources: Stanković (arXiv:2611.07728v1), Trepkowski (arXiv:1401.4415v1), Bala (arXiv:2602.07916v1), and Altwaijry–Conde–Feki–Stanković (DOI:10.3934/cpaa.2024078). The theorem does not address rootless trees, cycles, multiple-parent graphs, backward shifts, arbitrary compact operators, or the parameter endpoint \(t=1\). Related indexed results for weighted partial permutations and finite-star shifts were compared at their published summaries rather than claimed as complete text inspections.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Equal-ideal convergence at every p>0 is a meaningful endpoint question, including the quasi-Banach regime. This solves it for a natural nontrivial branching class with operators outside the previous smaller-ideal and direct-sum hypotheses, and provides usable quantitative decay governed by initial depth tails. The simple path witness clarifies why a unit-normalized, depth-free uniform rate is not an acceptable replacement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

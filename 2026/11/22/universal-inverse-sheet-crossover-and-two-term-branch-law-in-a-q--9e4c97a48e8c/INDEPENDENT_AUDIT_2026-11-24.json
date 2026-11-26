@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:04:07.328737Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The second output forces q=v−x. The first then imposes a sine level on the cubic phase Φ=ω[−bx³+2bvx²+(1+b−bv²)x], or on ωx at b=0. These phases are surjective, so each attainable target has infinitely many polynomial inverse roots across distinct phase levels, finitely many per level, and no inverse exists outside the stated strip. Each closed phase interval meets one progression of spacing 2π at the endpoint levels or two disjoint progressions at interior levels. The per-interval count differs from κ times length/π by at most two. Splitting into at most three strictly monotone pieces and subtracting at most two duplicated turning-point solutions bounds the variation count error by eight, uniformly even as b→0. For fixed b>0, the derivative is a downward quadratic with the two displayed zeros, hence the compact central increase contributes twice its phase increment in addition to Φ(−R)−Φ(R). That endpoint difference is exactly 2ωbR³−2ω(1+b−bv²)R; the even term cancels. At b=0 the variation is 2ωR. For fixed t,v at R=t/√b, rescaling shows √b times the variation equals ω∫[−t,t]|1−3s²+4v√b s+b(1−v²)|ds. The integral without ω differs from the claimed limiting integral by at most 4|v|t²√b+2t b|1−v²|; integrating |1−3s²| yields the stated breakpoint and profile, with Ψ′(t)=2|1−3t²| (zero at the breakpoint, not a sign change of Ψ′). In coordinates x,v the determinant equals a cosΦ·∂Φ/∂x, since the coordinate change has determinant one. This proves the at-most-two interior critical points for positive b, no such point at b=0, and all-critical endpoint levels. The inspected uploaded diagnostics were not executed; the integer-interval argument and explicit estimates prove the quantifiers, including exact turning-point hits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The eight-map proof bounds the discrepancy by O(K_h(R)) for K_h monotonicity intervals and derives h(−R)−h(R)+O(1) for phases with eventually decreasing tails.",
+          "a19a767134c3 applies the same line-elimination and phase-variation method to x cos(y) in the sine phase; Chialvo uses a different positive-quadrant map."
+        ],
+        "reasoning": "The elementary crossing count is reusable and is not new. The analogous maps do not have the cubic phase or the same small-coupling balance. The eight-map fixed-parameter remainder is not asserted uniform in b and does not on its own give a scaled limit.",
+        "searches": [
+          "Resultary 6dcb1b1c26ac Proof Eq. (1) and §2, offset 4540–7884",
+          "Resultary a19a767134c3 phase variation with periodic cosine-flux",
+          "arXiv:2605.00442v1 Eq. (4)"
+        ]
+      },
+      "checked_sources": [
+        "10.3390/sym15081574",
+        "Resultary 6dcb1b1c26ac, a19a767134c3 and 8b96b0ec53ba",
+        "arXiv:2605.00442v1 Eq. (4)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For Model 1, the eight-map proof's h(−R)−h(R)+O(1) combined with exact H₁ yields both odd terms by elementary subtraction, even though the formal statement retains O(R) after the leading term.",
+          "That record explicitly classes the sharper Model 1 count and crossover as background from its ref. [2], the frozen finding. Neither the cited different-map findings nor the stated eight-map fixed-parameter bound supplies the scaled crossover as an independent result."
+        ],
+        "reasoning": "Record both proof-level coverage of the fixed-b count in the companion record and its textual dependency rather than treating them as independently novel or independently earlier. The crossover requires keeping an absolute lattice-count error while b varies, selecting the balance R=t/√b, and evaluating the limiting absolute derivative including the moving turning-point geometry. Those are additional conclusions for this exact problem, not claimed as new general analysis methods.",
+        "searches": [
+          "Resultary 6dcb1b1c26ac exact Model 1 H₁, proof Steps 1–2 and Relationship to prior work, offset 10550",
+          "Resultary a19a767134c3 Finding and scope; arXiv:2605.00442v1 Eq. (4)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (7) with M(q)=q²−1 and the Table 1 charge update q+x is exactly the frozen map.",
+          "Resultary 6dcb1b1c26ac uses the identical first phase H₁=ωx(1−bQ(q)), Q(q)=q²−1, and the same real inverse counting domain."
+        ],
+        "reasoning": "There is exact map and leading-law overlap, not just matching terminology. The main 2023 article gives the map in its dynamics setup, not an inverse-count asymptotic. The eight-map record's theorem gives O(R) accuracy for Model 1 and attributes a sharper count and crossover to this very finding.",
+        "searches": [
+          "Yihyis et al. 10.3390/sym15081574 Eq. (7), Table 1 Model 1",
+          "Resultary same-map quadratic memory, two-term inverse count, small-coupling window"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2023 table lists defining equations, not predecessor counts. 6dcb1b1c26ac lists the identical-model cubic count to O(R) and the zero-coupling linear count, referring in its prior-work section to this record for the sharper Model 1 result.",
+          "Related catalogue records instead have quadratic or linear window growth on other equations/domains."
+        ],
+        "reasoning": "The exact same-map overlap is credited; neither the theorem table nor the neighboring distinct-map count reports the independent sharp crossover formula. Publication ordering is unresolved from the single catalogue date.",
+        "searches": [
+          "Resultary 6dcb1b1c26ac, a19a767134c3, 8b96b0ec53ba; exact quadratic-memristor crossover and window valence",
+          "Yihyis et al. Table 1 Model 1"
+        ]
+      },
+      "rationale": "Credit the already published map, standard variation method, and exact overlap in the leading Model 1 law, b=0 law and basic image/criticality in the same-day eight-map record. Its proof even recovers the fixed-coupling linear coefficient by substituting the cubic into its endpoint-variation estimate. That record explicitly credits this frozen Model 1 result as background and does not present an independent crossover theorem. The sharp fixed-charge scaled crossover and its explicit breakpoint/profile distinguish the assessed result from the inspected independent comparisons; same-day order is not inferred.",
+      "residual_risks": [
+        "Same-day catalogue chronology is not verified; the textual citation of the frozen result is evidence about dependence, not a dated priority certificate.",
+        "The exact map, phase-level counting principle, and conclusions already covered or immediately recoverable in the companion record are not independent priority claims. Unindexed equivalent crossover work may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same-map prior definition, not inverse asymptotic in inspected passages",
+          "evidence": [
+            "Uses M(q)=q²−1 and q_next=q+x within the internal perturbation template."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym15081574",
+          "material_read": "OA PDF Eq. (7) p. 5 and Table 1 Model 1 p. 6 with surrounding dynamics discussion",
+          "method": "Primary paper passages; compare exact charge update and phase",
+          "title": "A Class of Discrete Memristor Chaotic Maps Based on the Internal Perturbation",
+          "trigger": "Exact defining primary source and possible inverse results"
+        },
+        {
+          "assessment": "Partial stated and proof-level same-map overlap, with sharp result explicitly acknowledged as background from this record",
+          "evidence": [
+            "N₁=2κωbR³/π+O(R), exact H₁, and Eq. (1) with eventual monotone tail comparison; nonuniform b→0 scope, no independent crossover conclusion."
+          ],
+          "identifier_or_url": "Resultary 6dcb1b1c26ac",
+          "material_read": "Finding offsets 0–3251; Proof Steps 1–2 offsets 4540–7884; Relationship to prior work at offset 10550–11850 and ref. [2]",
+          "method": "Mirrored RESULT.md exact equations and proof implication",
+          "title": "A second-order inverse-sheet signature across eight sine-memristor maps",
+          "trigger": "Exact same Model 1 and explicit leading valence law"
+        },
+        {
+          "assessment": "Methodological analogue, not dominating",
+          "evidence": [
+            "F(x,y)=(c+a sin(bx cos y), x+y); periodic rather than quadratic charge dependence yields quadratic window count."
+          ],
+          "identifier_or_url": "Resultary a19a767134c3",
+          "material_read": "Finding and map/phase scope",
+          "method": "Mirrored statement comparison",
+          "title": "Quadratic inverse-sheet growth and a boundary criticality jump",
+          "trigger": "Same scalar phase-variation method with charge elimination"
+        },
+        {
+          "assessment": "Different map, domain and growth law",
+          "evidence": [
+            "Cosine-flux map on the positive quadrant and a linear window count, not the full-plane charge-linear update with cubic eliminated phase."
+          ],
+          "identifier_or_url": "Resultary 8b96b0ec53ba; primary map arXiv:2605.00442v1",
+          "material_read": "Available Resultary result and primary Eq. (4), p. 4",
+          "method": "Catalogue statement and original model equation",
+          "title": "Singular zero-to-infinite inverse-valence transition in a cosine-flux Chialvo map",
+          "trigger": "Earlier adjacent inverse-valence and zero-coupling transition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cutoff and dimensionless crossover variable have a mathematical reason: the cubic memory term competes with the linear phase when bR² is of order one. The profile identifies where internal phase turning points enter the window and quantifies the transition for all fixed scaled radii, adding useful information to the leading growth orders alone. The target-sensitive linear correction distinguishes finite-window defects. This is valuable one-step inverse geometry in the stated plane; most large-window branches cannot appear as recurrent orbit states in the signal strip.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

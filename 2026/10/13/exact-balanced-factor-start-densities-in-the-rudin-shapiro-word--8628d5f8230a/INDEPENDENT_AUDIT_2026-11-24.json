@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:40:55.690283Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The coding satisfies a(2i)=a(i), a(2i+1)=(-1)^i a(i) with a(0)=1, so it represents overlapping 11 parity. In a positive scale-m block every nonempty prefix is positive; the A and B upper bounds 2H-1 and H, respectively, propagate under the two-step substitution with block-entry heights (0,H,2H,3H) and (0,H,2H,H). At height 2H the only hits are in the second and fourth subblocks, including the second subblock's right endpoint, giving T_(m+1)=(Q+T_m) union (3Q+T_m). A full window has signed mass S_X-P_X(j)+P_Y(j); complement and the two prefix-difference cases give the six stated admissible bigrams, while BA and DC give no hits. Primitivity gives limiting frequencies; the four internal-image pairs have frequency 1/8 and the boundary-pair equations force the other four to have the same frequency. Thus there are six contributing pairs each with 2^(k-1) offsets per 4^k positions, giving 3/(8*2^k). This covers j=0, the block endpoints, and k=1. An independently written digit-parity/prefix-sum check matched every predicted start for 0 <= i < 262144 and 1 <= k <= 8 (counts 49152, 24576, 12288, 6144, 3072, 1536, 768, 384); replay with python3 /workspace/branches/ce62b1a5-10db-471b-99bc-453ad619124f/independent_check.py. This is bounded corroboration, not the proof or a formal certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Automata for the cumulative sums supply general access to the endpoints, not an evaluated distribution of their difference at lengths 4^k.",
+          "The broader distinct-factor and Abelian-power results address possible profiles or repetitions, not frequencies of the zero profile."
+        ],
+        "reasoning": "An endpoint-comparison automaton is a plausible alternative approach, but availability of a general representation is not a displayed or established implication of the exact scale-dependent density and residue families.",
+        "searches": [
+          "arXiv:2302.00405, introductory definitions and cumulative-sum automata",
+          "arXiv:1606.06935, definition and extrema recurrences",
+          "Resultary: SCOPE-sharp-dyadic-abelian-exponent-dichotomy-for-the-rudin-shapiro-wo--8d724f7fbd11"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.00405",
+        "arXiv:1606.06935",
+        "arXiv:2301.06145",
+        "Resultary four-uniform classification ab2150ff923b",
+        "Resultary Rudin–Shapiro 2-abelian table 31cd4f3a34d3",
+        "Resultary first-extremum locations 5cea8f57dd29",
+        "Resultary dyadic exponent dichotomy 8d724f7fbd11",
+        "A Note on the Abelian Complexity of the Rudin-Shapiro Sequence (landing material only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Maximum/minimum factor sums can locate the balanced profile among possible profiles without counting a single occurrence; automatic descriptions of existence of Dyck lengths also do not count starts.",
+          "The frozen derivation evaluates the endpoint equality uniformly in k via prefix-level sets and pair frequencies, steps not supplied by the inspected cumulative-sum statements."
+        ],
+        "reasoning": "No direct stronger theorem or table giving the classification and density was established; a separate all-scale consequence of the automata remains possible.",
+        "searches": [
+          "arXiv:2302.00405, pp. 1–5",
+          "arXiv:2301.06145, Theorems 6.3–6.4",
+          "arXiv:1606.06935, pp. 1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A balanced start is exactly a return to the same cumulative sign sum at a displacement 4^k. Rampersad–Shallit give synchronized cumulative sums, not the return-set classification at this displacement.",
+          "A Dyck window has zero sum but must also have nonnegative internal prefix sums; Mol–Rampersad–Shallit's Dyck existence and length results count neither all balanced starts nor their offsets."
+        ],
+        "reasoning": "The signed-sum and Parikh-vector reformulations preserve equality of letter multiplicities, but a Dyck restriction, distinct Parikh counts, or an extremum does not preserve the occurrence statistic.",
+        "searches": [
+          "arXiv:2302.00405",
+          "arXiv:2301.06145",
+          "arXiv:1606.06935",
+          "Resultary: Rudin–Shapiro balanced factors and zero-sum factor starts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest finite indexed data give counts of distinct 2-Abelian classes at thirteen dyadic lengths through 65536. The first-attainment record gives a start index for extremal sums, not the zero-sum start set.",
+          "The same-day balanced four-uniform fixed-point result treats 18 substitutions with a balanced first image; the standard Rudin–Shapiro word begins 0001. It also counts distinct profiles, not their occurrences."
+        ],
+        "reasoning": "Neither the finite tables nor the index-level extremum statements compute the claimed invariant. The same-day comparison turns on the hypotheses and statistic, not the date. No exact matching table was identified in the inspected material.",
+        "searches": [
+          "Resultary: Rudin–Shapiro dyadic factor data and balanced-start density",
+          "Resultary: SCOPE-exact-finite-dyadic-2-abelian-complexity-of-rudin-shapiro-factor--31cd4f3a34d3",
+          "Resultary: SCOPE-first-attainment-locations-for-dyadic-extremal-rudin-shapiro-fac--5cea8f57dd29"
+        ]
+      },
+      "rationale": "The best-supported distinct finding is the joint all-scale occurrence-density formula and explicit start-location classification. The closest inspected results concern global cumulative sums, existence of more constrained factors, or distinct factor classes. None was shown to give this formula or classification; this is not a priority guarantee.",
+      "residual_risks": [
+        "The 2022 note was not accessible in full in the lawful retrieval attempt.",
+        "An uninspected consequence of synchronized cumulative-sum automata or an unindexed occurrence-count result may cover the formula; the searches do not exclude this."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related method; no evaluated window return-set result in inspected passages",
+          "evidence": "s(n) and t(n) are cumulative sums; window balance compares two s-values at a prescribed displacement.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.00405",
+          "material_read": "OA PDF pp. 1–5, cumulative-sum definitions and synchronized representations",
+          "method": "Original PDF text, bounded passages",
+          "title": "Rudin-Shapiro Sums Via Automata Theory and Logic",
+          "trigger": "Potentially stronger cumulative-sum automata"
+        },
+        {
+          "assessment": "Distinct profiles and extrema do not measure frequencies of starts",
+          "evidence": "The definition counts different Parikh vectors; in the binary case extrema determine the number of possible sums.",
+          "identifier_or_url": "https://arxiv.org/abs/1606.06935",
+          "material_read": "OA PDF pp. 1–4; definitions, range of factor sums and recurrences",
+          "method": "Original PDF text, bounded passages",
+          "title": "On the abelian complexity of the Rudin-Shapiro sequence",
+          "trigger": "Same word and fixed-length factor statistics"
+        },
+        {
+          "assessment": "Existence/nesting and admissible lengths, not all balanced-start counts",
+          "evidence": "The Dyck condition imposes a prefix requirement in addition to equal total multiplicities.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.06145",
+          "material_read": "Theorems 6.3–6.4",
+          "method": "Original PDF text, theorem passages",
+          "title": "Dyck Words, Pattern Avoidance, and Automatic Sequences",
+          "trigger": "Same word and zero-total-sum subfamilies"
+        },
+        {
+          "assessment": "Neither the same fixed point nor the same statistic",
+          "evidence": "First image 0011, 0101 or 0110 versus Rudin–Shapiro prefix 0001; counts distinct Parikh vectors.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-complete-abelian-complexity-classification-of-balanced-binary-fo--ab2150ff923b",
+          "material_read": "Finding and allowed first images",
+          "method": "Resultary index and mirrored result passage",
+          "title": "Complete abelian-complexity classification of balanced binary four-uniform fixed points",
+          "trigger": "Same-day binary four-uniform abelian-statistics result"
+        },
+        {
+          "assessment": "Different finite invariant",
+          "evidence": "Counts distinct 2-Abelian classes at thirteen lengths, not occurrence density of equal Hamming composition.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-finite-dyadic-2-abelian-complexity-of-rudin-shapiro-factor--31cd4f3a34d3",
+          "material_read": "Finding, finite length range and counted classes",
+          "method": "Resultary index and mirrored result passage",
+          "title": "Exact finite dyadic 2-abelian complexity of Rudin–Shapiro factors",
+          "trigger": "Exact dyadic tables for the same word"
+        },
+        {
+          "assessment": "Different location statistic",
+          "evidence": "First start of an extremal sum, not all starts with sum zero.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-first-attainment-locations-for-dyadic-extremal-rudin-shapiro-fac--5cea8f57dd29",
+          "material_read": "Finding, extrema and location quantifiers",
+          "method": "Resultary index and mirrored result passage",
+          "title": "First attainment locations for dyadic extremal Rudin–Shapiro factors",
+          "trigger": "Same word, dyadic sums and start positions"
+        },
+        {
+          "assessment": "Repetition statistic rather than zero-sum start frequencies",
+          "evidence": "The indexed invariant is the maximum Abelian-power exponent.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-dyadic-abelian-exponent-dichotomy-for-the-rudin-shapiro-wo--8d724f7fbd11",
+          "material_read": "Indexed finding on maximal Abelian-power exponents",
+          "method": "Resultary comparison",
+          "title": "Sharp dyadic Abelian-exponent dichotomy for the Rudin–Shapiro word",
+          "trigger": "Same word, dyadic blocks and Abelian balance terminology"
+        },
+        {
+          "assessment": "Not assessed at full-text level",
+          "evidence": "Available description discusses maximum factor sums and abelian complexity; an implicit consequence is not ruled out.",
+          "identifier_or_url": "2022 MDPI article, exact title",
+          "material_read": "Landing/search description only; full text not retrieved",
+          "method": "Lawful OA retrieval attempt",
+          "title": "A Note on the Abelian Complexity of the Rudin-Shapiro Sequence",
+          "trigger": "Same word and abelian factor statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a canonical automatic word, the probability that a uniformly sampled start has zero discrepancy over a complete substitution scale is not given by Abelian complexity or the range of discrepancies. The theorem supplies that probability (including its exact inverse-square-root coefficient) and a finite digit rule locating every qualifying start. This resolves a natural occurrence question at all complete scales without extrapolation from a prefix.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

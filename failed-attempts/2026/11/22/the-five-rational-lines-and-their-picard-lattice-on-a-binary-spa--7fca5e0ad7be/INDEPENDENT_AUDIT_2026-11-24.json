@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:43:59.663299Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§Finding, Assumptions, Proof",
+        "VERIFICATION.md and verify.py (read only)",
+        "Bourgeois-Conti et al., §9, Lemma 9.2; Veniani, Lemma 2.2",
+        "Replay: python3 /workspace/branches/independent_quartic.py (SymPy); /workspace/branches/independent_quartic.out"
+      ],
+      "rationale": "Independently enumerated all projective binary lines as the 35 triples {a,b,a+b} of nonzero vectors and tested the whole restricted quartic polynomial, not pointwise vanishing. The five spanning pairs and intersections agree; the intersection points are 0101, 1101, 1010 for (0,4), (1,2), (1,3). Four dehomogenized Jacobian ideals over F2 each have Groebner basis [1], also checking geometric smoothness. Smoothness makes distinct intersecting lines transverse; with the hyperplane and adjunction the Gram determinant is -132 and gives rank six. If L is given by x=y=0, write F=xA+yB. Residual plane cubics have no common zero off L; on L a base point forces both A and B to vanish, making X singular. A plane-section residual is a cubic of arithmetic genus one. A skew line maps isomorphically onto the pencil base by linear projection, giving a section over F2. The respective counts are 3,2,3,3,3. No assertion about geometric generic smoothness or saturation is required.",
+      "residual_risks": [
+        "This computation checks only rational lines and the generated sublattice. It does not classify all genus-one pencils or determine an overlattice, the full Néron–Severi discriminant, or fiber smoothness."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bourgeois-Conti et al. §9 construct the exact q=2,b=1 model and prove smoothness. Veniani Lemma 2.2 already establishes the line-induced residual-cubic genus-one fibration in this characteristic. The inductive count gives five at its linearly equivalent base, but alone does not fix incidences."
+        ],
+        "reasoning": "The residual pencil is a general theorem, and a skew line provides a section by degree-one linear projection. The count by itself is insufficient, unlike the inspected coordinate table.",
+        "searches": [
+          "Bourgeois-Conti et al. arXiv:2611.15768v1 §§3,9; Veniani arXiv:1606.02135 Lemma 2.2; inductive binary space-filling line census d08a7f779e4e"
+        ]
+      },
+      "checked_sources": [
+        "Frozen result and companion verifier",
+        "Resultary 9ab1f1514068, d08a7f779e4e and exact self-hit",
+        "Bourgeois-Conti et al. §9; Veniani Lemma 2.2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The negative Cartan blocks from these coordinates have total determinant -12 and the hyperplane Schur complement is 11; the value -132 is forced. Each section count is four minus the incidence degree."
+        ],
+        "reasoning": "Once the same coordinate data are available, the rank, discriminant, pencils and sections are direct standard consequences. No saturation, complete elliptic-fibration classification or new fiber invariant survives as a separate claim.",
+        "searches": [
+          "Cross-checked the coordinate table of 9ab1f1514068 with frozen RESULT.md line list and Veniani Lemma 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In 9ab1f1514068 the equations for the five lines give exactly the frozen spanning pairs 1001/0101, 1010/0111, 1011/0110, 1000/0010, 0100/0001. It is the same quartic and same embedding, not a different surface with the same count."
+        ],
+        "reasoning": "Computing nonzero vector intersections of the five already specified two-dimensional subspaces recovers precisely the three edges and then all skew counts. The exact embedded line list is a strictly stronger datum than an abstract graph.",
+        "searches": [
+          "Resultary: binary space-filling quartic five rational lines incidence A3 A2 discriminant -132 skew line pencils",
+          "Rational lines as Grassmannian points and the complete geometric line Fano scheme"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9ab1f1514068 lists the five embedded lines and asserts no additional geometric lines, with split reduced line scheme. Its own prior-work section already describes rational lines and incidence as previously computed, without identifying the computation. Exact-title hit 7fca5e0ad7be is the assigned record itself."
+        ],
+        "reasoning": "The distinct explicit table, not the summary, exact self-hit, or unspecified earlier computation, supplies the decisive stronger coverage. No priority is assigned based on display dates.",
+        "searches": [
+          "Resultary exact coordinates and Picard-lattice search; mirror statements of 9ab1f1514068 and d08a7f779e4e"
+        ]
+      },
+      "rationale": "The closest distinct indexed result gives not merely a five-line count but precisely the same five embedded lines, as the complete split geometric Fano scheme. Those coordinates and the standard line-pencil theorem determine every claimed refinement by linear intersection, adjunction and one determinant. This is demonstrable stronger-result coverage, not a claim of chronological priority or attribution between same-day records. No separate mathematical increment beyond those immediate consequences was established.",
+      "residual_risks": [
+        "The relative chronology and attribution of the two same-day records are unresolved. The scientific comparison establishes implication and coverage, not which derivation came first."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger embedded line classification supplies all the requisite inputs",
+          "evidence": "All and only the five geometric lines are listed by equations at the identical coordinates, and the Fano scheme is split and reduced.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-split-five-point-fano-scheme-of-a-binary-space-filling-k3-qu--9ab1f1514068/RESULT.md",
+          "material_read": "Finding and coordinate list; Relationship to prior work and Limitations, offset 5300 onward",
+          "method": "Resultary search and exact local mirror text",
+          "title": "The split five-point Fano scheme of a binary space-filling K3 quartic",
+          "trigger": "same explicit quartic and stronger line claim"
+        },
+        {
+          "assessment": "Covers scalar count, not incidence by itself",
+          "evidence": "L_n=(2·4^n−9·2^n+4)/12 gives five at n=3; base is obtained by replacing the last two coordinates with X2+X3,X2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-rational-line-counts-for-an-inductive-family-of-smooth-bin--d08a7f779e4e/RESULT.md",
+          "material_read": "Finding, count formula and base-case coordinate transformation",
+          "method": "Resultary search and local mirror text",
+          "title": "Exact rational line counts for an inductive family of smooth binary space-filling hypersurfaces",
+          "trigger": "five-line count in coordinate-equivalent base of family"
+        },
+        {
+          "assessment": "Covers model and smoothness",
+          "evidence": "Specialization q=2,b=1 yields precisely the frozen quartic, with geometric smoothness.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.15768v1",
+          "material_read": "§9 pp. 16–17, construction and Lemma 9.2",
+          "method": "arXiv PDF text",
+          "title": "Space-Filling Hypersurfaces",
+          "trigger": "primary exact model"
+        },
+        {
+          "assessment": "Direct general coverage of the pencil",
+          "evidence": "Planes through a line give a genus-one fibration with residual cubics; characteristic 2 does not ensure generic smoothness.",
+          "identifier_or_url": "https://arxiv.org/abs/1606.02135",
+          "material_read": "p. 3, Lemma 2.2 and qualification following it",
+          "method": "arXiv PDF text",
+          "title": "Lines on K3 quartic surfaces in characteristic 2",
+          "trigger": "residual pencil as already-known general theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "The five coordinates in the distinct Fano-scheme record",
+        "Veniani Lemma 2.2",
+        "Frozen lattice and pencil derivations"
+      ],
+      "rationale": "The explicit lattice would be useful if not already mechanically determined by available facts. Here the useful input is the exact embedded line list; the three-edge graph, six-by-six determinant and counts of skew-line sections are routine deductions from it and from the general pencil construction. The frozen result does not go beyond this to e.g. establish saturation or describe fibers.",
+      "residual_risks": [
+        "The failure concerns the frozen combination of standard consequences, not the value of the stronger geometric line census or of further nonmechanical geometry on this surface."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

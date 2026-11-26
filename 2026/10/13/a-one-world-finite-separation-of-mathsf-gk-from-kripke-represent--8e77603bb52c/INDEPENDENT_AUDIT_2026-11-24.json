@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:35:23.260665Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen proof uses the correct closure value H, but RESULT.md:6 incorrectly gives G and K on the generated sets without specifying closure; read literally for G(w) the former is false since the frame-valid top is not in the empty raw generator. The frozen limitations likewise incorrectly exclude monotonicity and idempotence. The replacements in repairs/3 correct these issues, preserving the witness, the original scope of the claim, and the verification front matter. Re-audit: Nishimura's Definitions 2.2–2.3 require nonempty W, finite raw generators for finiteness, and evaluate box by membership in cl(G(w)). Definition 2.5/Figure 1 require frame-valid formulas to belong to cl(G(w)) and modus ponens within cl(G(w)). On the repaired singleton frame G(w)=∅ and cl(G(w))=H=b⁻¹(1). Under the all-false valuation truth is b by Boolean induction and the box-membership clause; every frame-valid formula is thus in H. Boolean modus ponens keeps H closed. Switching to the valuation where p is true falsifies ¬p in H at the only world; the truth-set intersection in Definition 4.22 is empty, while p is not in H. Thus its implication from the subset relation to membership fails. The same calculation excludes a separation world for p. Nonemptiness makes the world bound sharp. The constant map is monotone and idempotent and fails extensivity on {p}; the repaired scope states this correctly without asserting a result under identity or extensivity. No numerical or formal certificate is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nishimura's converse countermodel uses identity closure, W=N, and cofinite truth-set generators. The related finite-world representability result assumes model-relative globality (U), which is false in the proposed countermodel since p is globally true there but p is not in H."
+        ],
+        "reasoning": "Neither the stronger identity requirement with infinite worlds nor a theorem with the different hypothesis U settles the finite frame-G case.",
+        "searches": [
+          "Nishimura arXiv:2610.01433v1, Lemma 4.23 and Example 4.24",
+          "Resultary 06c5919ebb94 finite-world model-relative normality"
+        ]
+      },
+      "checked_sources": [
+        "Nishimura arXiv:2610.01433v1",
+        "Resultary 06c5919ebb94 and 700dd8e5e5b0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cofinite example excludes one world at a time, requiring infinitely many exclusions on N; restriction is not a theorem preserving global validity and the source's finite-generator requirement. A model-globality premise invokes the chosen valuation, unlike the present frame condition."
+        ],
+        "reasoning": "The earlier construction establishes failure under a different restriction, not existence inside the finite class. The distinct model-global theorem is consistent with failure here and does not imply it.",
+        "searches": [
+          "Compare Definition 2.2 finiteness, Definition 4.22, Example 4.24 and finite-world model-globality record 06c5919ebb94"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition 4.22 of arXiv:2610.01433v1 gives the intersection test and equivalent separation-world test. The proposed singleton has no world satisfying H under the changed valuation, so both fail for the same missing p."
+        ],
+        "reasoning": "The singleton bound is not an artifact of the chosen formulation; the prior cofinite example uses the same separation obstruction with infinitely many worlds.",
+        "searches": [
+          "Resultary: finite/singleton closure countermodel; (G),(K) vs KRep; KRep separation form; identity closure"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest distinct catalogue match (06c5919ebb94) concerns a representation theorem with U. The same-day catalogue match 700dd8e5e5b0 treats singleton completeness countermodels under different modal conditions."
+        ],
+        "reasoning": "The query targets an exact semantic witness, not a numerical table. Neither inspected catalogue statement records or yields the singleton witness for this implication.",
+        "searches": [
+          "Resultary singleton finite (G),(K) versus KRep, exact title, and separation formulation"
+        ]
+      },
+      "rationale": "Credit the finite singleton boundary and the empty raw generator, not the already-known unrestricted non-implication. The repair does not claim a new distinct theorem about monotonicity or idempotence; it accurately describes the existing witness.",
+      "residual_risks": [
+        "Indexing of this recent closure semantics is sparse; a finite construction under an equivalent formulation may exist outside inspected sources. No priority assumption was made from the date of a distinct same-day record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes unrestricted non-implication by a different, countably infinite identity-closure example",
+          "evidence": "Validity and modus ponens are conditions on cl(G(w)); finiteness is on W and G(w). In the prior witness the p_n have truth sets N minus n and q has the even numbers as its truth set.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.01433v1",
+          "material_read": "Definitions 2.2–2.3 pp. 4–5; Definition 2.5/Figure 1 pp. 5–6; Definition 4.22 p. 19; Example 4.24 p. 20, offsets 11235, 13835–17178, 45298 and 47822",
+          "method": "OA PDF definition and example passages",
+          "title": "Closure Semantics for Weak Modal Logics: Completeness and Representations",
+          "trigger": "Primary definitions and closest prior counterexample"
+        },
+        {
+          "assessment": "Different globality hypothesis; does not dominate",
+          "evidence": "U requires truth throughout a chosen model to force closure membership, which would force p into H under the changed valuation.",
+          "identifier_or_url": "Resultary:2026/11/2/06c5919ebb94",
+          "material_read": "RESULT.md, offsets 899 and 5559, statement and distinction between U and G",
+          "method": "Local Resultary mirror",
+          "title": "Finite-world model-relative normality and exact Kripke representation",
+          "trigger": "Finite-world Kripke representation with a globality condition"
+        },
+        {
+          "assessment": "Different separation question",
+          "evidence": "Treats selected no-rule logics and serial consistency/positive introspection, not the G+K-to-KRep implication.",
+          "identifier_or_url": "Resultary:2026/10/13/700dd8e5e5b0",
+          "material_read": "RESULT.md finding on completeness countermodels",
+          "method": "Local Resultary mirror",
+          "title": "Serial consistency and positive introspection preserve one-world countermodels",
+          "trigger": "Same-day singleton closure countermodels"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The witness shows that restricting to the source's finite models cannot rescue the representability implication, and sharpens the cardinality bound down to the minimum. It identifies a distinct finite obstruction: checking frame validity can use a different valuation from the one whose truth sets must represent H. This is a motivated structural boundary, even though the constant-map construction is short; it neither replaces the identity-closure example nor claims a finite H.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

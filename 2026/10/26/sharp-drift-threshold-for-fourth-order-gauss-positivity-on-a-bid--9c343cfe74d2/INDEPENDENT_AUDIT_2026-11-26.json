@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:05:00.308257Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–57, VERIFICATION.md, verify.py and requirements.txt as evidence",
+        "/workspace/branches/independent_algebra.py (independent cross multiplication in the shift algebra)"
+      ],
+      "rationale": "On the clockwise shift eigenvalues 1,−1,i,−i the generator eigenvalues are 0, −2(a+b), and −(a+b)±i(a−b). None hits the Padé denominator poles 3±i√3 after scaling by h≥0. To check the decisive numerator identities without the uploaded checker or a Fourier inversion, I put Z=h(ax+bx³−a−b) in the polynomial ring with x⁴=1 and verified exactly that the proposed numerator N=ΣN_j x^j satisfies (12−6Z+Z²)N=D(12+6Z+Z²), and N(1)=D. Thus the four coefficients divided by D are the actual four row entries with the stated orientation. The common denominator and diagonal numerator are positive on h≥0; the opposite entry is positive for h>0. Both nearest-neighbor quartics have positive coefficients at degrees zero through three. Their leading coefficients have the signs of 3b²−a² and 3a²−b², respectively. This gives strict positivity for finite h>0 in the closed rate interval. Outside, exactly one leading coefficient is negative, and its F(h)/h⁴ decreases strictly from +∞ to that negative coefficient. It has exactly one positive root, simple, with the necessary sign on both sides. The other entries stay positive. At h=0 the update is the identity; at the horizon precisely the affected entry type is zero. These calculations establish every h, including both bias endpoints.",
+      "residual_risks": [
+        "This is completed-step positivity on a constant-rate four-cycle only, not stage positivity or a variable-rate/larger-cycle assertion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2010 manuscript has sufficient Padé positivity criteria and treats 2×2 Hurwitz Metzler systems in Section III-E. The 2012 Example 3 gives a negative [2/2] Padé entry at every h>0 for an eight-state nilpotent shift."
+        ],
+        "reasoning": "The sufficient results and counterexample establish neither a necessary-and-sufficient ratio nor the unique horizon here. The four-state conservative generator has a zero eigenvalue and is not a two-state Hurwitz system or an eight-state nilpotent shift.",
+        "searches": [
+          "Zappavigna–Colaneri–Kirkland–Shorten 2010, Section III and III-E",
+          "Zappavigna–Colaneri–Kirkland–Shorten 2012, Section 4 Example 3"
+        ]
+      },
+      "checked_sources": [
+        "The two open positive-systems texts and three Resultary mirror findings listed above",
+        "Focused primary web search for the exact circulant positivity threshold, no sources returned"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The nearest same-day directed-eight-cycle finding has positive-step reentry and completely different support and state count. The earlier undirected cycle result restricts to equal rates; the later unidirectional result restricts one rate to zero.",
+          "The frozen criterion depends on which of the two leading quartic coefficients 3b²−a² and 3a²−b² can be negative; the prior slices and general criteria do not impose or classify those signs for two positive rates."
+        ],
+        "reasoning": "The exact negative-direction sign and uniqueness of its crossover follow from the new two-rate coefficient calculation. They are not implied by the available general criteria, symmetry result or unidirectional examples. No priority order is inferred from a same-day date.",
+        "searches": [
+          "Earlier undirected four-cycle subset and same-day directed-eight-cycle Resultary findings",
+          "Zappavigna et al. 2010 Section III and 2012 Section 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The map r(hQ) is exactly the [2/2] diagonal Padé approximation of exp(hQ). For this conservative generator it fixes the all-ones vector, so completed-step entrywise nonnegativity is equivalent to stochasticity.",
+          "Interchanging a and b transposes the map, and scaling both rates merely rescales h. The equal-rate four-cycle in the earlier undirected record is therefore exactly one slice, not an alternative formulation covering all ratios."
+        ],
+        "reasoning": "Equivalent rational or stochastic interpretations were compared. Neither swapping orientation nor scaling time transforms unequal positive rates into equal rates or into a one-way cycle.",
+        "searches": [
+          "Resultary: fourth-order Gauss/diagonal [2/2] Padé cycle positivity, asymmetric/bidirectional four-cycle",
+          "Primary literature: [2/2] Padé/Gauss stochasticity and a biased four-state circulant generator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier undirected-cycle statement gives unconditional positivity for the symmetric four-cycle. The later directed-cycle statement gives a finite horizon for the single-direction four-cycle. It has the polynomial x⁴−24x²−72x−72, matching the limiting b=0 quartic with x=ah after a nonzero rescaling."
+        ],
+        "reasoning": "Those exact entries describe the symmetric and zero-counterflow slices, not the two-rate classification or the boundary √3 for positive rates. The limiting horizon is not treated as new.",
+        "searches": [
+          "Resultary exact cycle positivity results",
+          "SCOPE-the-six-cycle-is-the-first-cycle-to-lose-fourth-order-gauss-posi--164458fb3547",
+          "SCOPE-exact-pad-positivity-horizons-for-finite-directed-markov-cycles--50bf05f4d07d"
+        ]
+      },
+      "rationale": "The distinct supported result is the exact drift ratio and complete finite-step positivity horizon for positive unequal rates on the homogeneous bidirectional four-cycle. The earlier symmetric cycle result supplies a=b, and the later one-way result agrees with b=0 after scaling. The most relevant Padé positivity literature gives general sufficient conditions and failure examples, not this sharp two-way classification. A targeted primary search returned no results and does not establish absence.",
+      "residual_risks": [
+        "A specialized circulant-matrix or positive-systems result may contain an equivalent unnoticed two-rate classification. The empty primary lookup does not rule one out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant sufficient criteria and a different dimension-two classification",
+          "evidence": "The two-state case is 2×2 Hurwitz Metzler; it does not specify any sharp bias interval for the conservative four-cycle.",
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/2195/",
+          "material_read": "Section III, especially III-E, PDF p. 5; extraction offsets approximately 28450–30137",
+          "method": "Lawful open primary manuscript, relevant passages",
+          "title": "On the preservation of co-positive Lyapunov functions under Padé discretization for positive systems",
+          "trigger": "General positivity criteria for diagonal Padé discretizations"
+        },
+        {
+          "assessment": "Broader obstruction in a distinct family",
+          "evidence": "An eight-state nilpotent shift has a negative entry in the [2/2] Padé update for all positive steps.",
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/3761/",
+          "material_read": "Section 4, Example 3, PDF pp. 13–14; offsets about 36900–42394",
+          "method": "Lawful open primary preprint, relevant passages",
+          "title": "Essentially Negative News About Positive Systems",
+          "trigger": "Counterexamples for the same diagonal Padé scheme"
+        },
+        {
+          "assessment": "Earlier and directly covers the equal-rate case only",
+          "evidence": "Concerns symmetric unit-weight undirected cycles, with unconditional positivity for C4.",
+          "identifier_or_url": "SCOPE-the-six-cycle-is-the-first-cycle-to-lose-fourth-order-gauss-posi--164458fb3547",
+          "material_read": "Mirrored RESULT.md finding and assumptions",
+          "method": "Local catalogue and mirror",
+          "title": "The six-cycle is the first cycle to lose fourth-order Gauss positivity",
+          "trigger": "Same method and exact positive four-cycle case"
+        },
+        {
+          "assessment": "Distinct directed eight-cycle and distinct positivity regime",
+          "evidence": "One direction on eight vertices, with stochasticity at zero and a bounded interval rather than the claimed two-way four-cycle criterion.",
+          "identifier_or_url": "SCOPE-exact-stochasticity-reentry-for-fourth-order-gauss-stepping-on-t--6e27618b0571",
+          "material_read": "Mirrored RESULT.md finding and assumptions",
+          "method": "Local catalogue and mirror",
+          "title": "Exact stochasticity reentry for fourth-order Gauss stepping on the directed eight-cycle",
+          "trigger": "Same-day directed cycle positivity diagram"
+        },
+        {
+          "assessment": "Later overlap in the excluded zero-rate limit",
+          "evidence": "The n=4 polynomial x⁴−24x²−72x−72 corresponds to b=0, x=ah, not to two positive rates.",
+          "identifier_or_url": "SCOPE-exact-pad-positivity-horizons-for-finite-directed-markov-cycles--50bf05f4d07d",
+          "material_read": "Mirrored RESULT.md finding and four-cycle formula",
+          "method": "Local catalogue and mirror",
+          "title": "Exact Padé positivity horizons for finite directed Markov cycles",
+          "trigger": "Exact one-way four-cycle horizon for the same method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and sign proof; symmetric and unidirectional prior cases compared above"
+      ],
+      "rationale": "A bidirectional homogeneous four-cycle is a natural small conservative transport model where drift can vary independently of overall time scale. The criterion gives the precise drift tolerance of a standard fourth-order integrator, and the unique horizon beyond it exactly determines the permitted step range. It resolves both an all-step boundary and the finite-step behavior across the full positive two-rate family, rather than tabulating isolated parameter choices.",
+      "residual_risks": [
+        "The usefulness pertains to this homogeneous cycle and rational update; other graphs or integrators are not automatically covered."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

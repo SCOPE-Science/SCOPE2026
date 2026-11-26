@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:56:39.816585Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–99",
+        "VERIFICATION.md lines 19–25",
+        "verify.py lines 18–139 (inspected, not run)",
+        "/workspace/branches/review_replay.py, resistance_budget()"
+      ],
+      "rationale": "For each petal both hub-to-leaf resistances appear N−2 times in the all-pairs sum; the leaf-to-leaf resistance appears once. Using the triangle denominator pq+pc+qc gives the claimed exact decomposition. At fixed p+q and c the numerator is fixed and the denominator is uniquely maximized at p=q. This rules out asymmetric optima directly, including designs with one missing spoke. With r=c/a and s=1+2r≥1 the local cost-normalized objective is 2(N−2)+t+[t(N−2)s+N(4−t)/s]/2. For t<4 minimization over s≥1 gives the stated radical if its stationary point is above 1, and otherwise s=1; for t≥4 the function is strictly increasing. At the threshold the minimum remains unique at s=1 with zero closing conductance. Positive petal spends then have the unique Cauchy–Schwarz equality z_i=B√G_i/S. Comparing the local costs at a positive minimizer shows strict increase up to the boundary. A fresh full-Laplacian check at m=3 with a subcritical, critical and supercritical price gave K=39.5404190161; conductance sensitivities divided by price equaled K/B on active edges, tied at the critical missing edge, and were strictly smaller for the supercritical edge.",
+      "residual_risks": [
+        "The numerical example checks a finite mixed-support case only. The result relies on equal prices within each spoke pair and the shared hub; no arbitrary cactus or asymmetric-price claim is made."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed generalization solves arbitrary block sizes, with uniqueness and an exact support threshold.",
+          "Ghosh et al. cover general convex allocation methods. Bhoite et al. optimize candidate additions to an existing weighted graph, not all conductances."
+        ],
+        "reasoning": "The general convex theory and augmentation formulation by themselves are not direct coverage; the explicit earlier clique-bouquet solution is.",
+        "searches": [
+          "Resultary eaa2b980f9e3, Finding, assumptions and proof",
+          "Ghosh–Boyd–Saberi, pp. 2–3, 8–9",
+          "arXiv:2609.29790 pp. 1–3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary eaa2b980f9e3, 4d675b14a64b, 66129dc90e7c",
+        "Ghosh–Boyd–Saberi paper",
+        "arXiv:2609.29790",
+        "Windmill DOI retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitution q_i=2, c_i=1, d_i=t_i gives β_i=t_i/4, x_i=(y_i−1)/2=r_i and local C_i=G_i, including inactive value 4(N−1). The prior budget split is proportional to √C_i."
+        ],
+        "reasoning": "The normalized active inequality becomes t_i<2N/(N−1). Scaling the earlier unit-budget weights by B scales every effective resistance by 1/B. The specialized local coefficient and square-root split reproduce each spoke, base conductance and objective; the expenditure monotonicity and all support patterns are immediate from those same local functions and the independent inequalities.",
+        "searches": [
+          "Resultary eaa2b980f9e3, proof offsets 6500–8700"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 12 indexed statement uses blocks with q_i peripheral vertices, common spoke price c_i, common internal-edge price d_i, and independently selectable prices across blocks. Two later indexed records also cover heterogeneous clique bouquets."
+        ],
+        "reasoning": "A triangle is exactly the q_i=2 block. The objective counts all vertex pairs and the price constraints match after taking c_i=1 and d_i=t_i, not after imposing any extra constraint on the decision weights.",
+        "searches": [
+          "Resultary eaa2b980f9e3",
+          "Resultary 4d675b14a64b",
+          "Resultary 66129dc90e7c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed hit contains exact allocation and optimal value, not merely sampled conductances or unit-edge resistance data.",
+          "The windmill paper was not lawfully accessible to inspect; the frozen record's description of its abstract is not independently verified."
+        ],
+        "reasoning": "Even if unit-resistor windmill values are known they do not give priced optimization; here the decisive overlap is the indexed formula, not any inference from the unavailable article.",
+        "searches": [
+          "Resultary eaa2b980f9e3, explicit allocation",
+          "DOI:10.2174/0115701794299562240606054510"
+        ]
+      },
+      "rationale": "Earlier indexed record eaa2b980f9e3 solves the strictly broader priced clique-bouquet problem. With every peripheral clique of size two, unit spoke prices, and closure prices t_i, its unique solution gives the entire frozen theorem (including the equality boundary, mixed supports, petal spends and minimum), not just the high-price test.",
+      "residual_risks": [
+        "The inaccessible windmill paper could contain additional antecedents. This does not affect the already established indexed mathematical implication.",
+        "The earlier October 12 catalogue path and exact implication are recorded; no claim is made about discovery chronology or unpublished work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly implies all core frozen formulas",
+          "evidence": "Arbitrary peripheral clique sizes and independent block prices; q_i=2 gives triangles, with the same price cutoff, local shape, and optimal cost share.",
+          "identifier_or_url": "2026/10/12/SCOPE-universal-internal-edge-price-threshold-for-resistance-optimal-c--eaa2b980f9e3",
+          "material_read": "Finding and assumptions at offset 0; threshold and budget proof at extracted offsets 6500–8700",
+          "method": "Local mirror text",
+          "title": "Universal internal-edge price threshold for resistance-optimal clique bouquets",
+          "trigger": "Closest stronger indexed statement"
+        },
+        {
+          "assessment": "Later broader indexed overlap",
+          "evidence": "Closed-form unique mixed-support optimum and S²/B for heterogeneous clique bouquets.",
+          "identifier_or_url": "2026/10/26/SCOPE-universal-internal-edge-cost-frontier-for-resistance-optimal-cli--4d675b14a64b",
+          "material_read": "Finding, offsets 0–6766",
+          "method": "Local mirror text",
+          "title": "Universal internal-edge cost frontier for resistance-optimal clique bouquets",
+          "trigger": "Additional close indexed match"
+        },
+        {
+          "assessment": "Later broader indexed overlap",
+          "evidence": "Blade-specific spoke and peripheral prices in a clique-bouquet design.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-mixed-support-conductance-design-for-heterogeneous-clique--66129dc90e7c",
+          "material_read": "Finding, offsets 0–5386",
+          "method": "Local mirror text",
+          "title": "Exact mixed-support conductance design for heterogeneous clique bouquets",
+          "trigger": "Additional close indexed match"
+        },
+        {
+          "assessment": "Framework, not the inspected heterogeneous bouquet formulas",
+          "evidence": "Unit-sum objective, strict convexity, and example analytic graph families.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "PDF pp. 2–3, 8–9",
+          "method": "Lawful OA PDF passages",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Foundational conductance optimization"
+        },
+        {
+          "assessment": "Different design variables",
+          "evidence": "Exact-k augmentation with a fixed weighted base and continuously weighted candidate edges.",
+          "identifier_or_url": "arXiv:2609.29790",
+          "material_read": "PDF pp. 1–3, formulation and comparison table",
+          "method": "OA preprint passages",
+          "title": "Budget-Constrained Graph Augmentation for Robust Network Design via Kirchhoff Index Minimization",
+          "trigger": "Heterogeneous-price analogue"
+        },
+        {
+          "assessment": "Unresolved scope, not negative evidence",
+          "evidence": "The original reports a unit-resistor abstract; the full text could not be checked for weighted-design comparisons.",
+          "identifier_or_url": "DOI:10.2174/0115701794299562240606054510",
+          "material_read": "No article text or abstract independently inspected",
+          "method": "Lawful attempts via DOI, PubMed, and Europe PMC did not return accessible text",
+          "title": "Resistance Distance and Kirchhoff Index in Windmill Graphs",
+          "trigger": "Same graph class"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 26–41, 91–99",
+        "Resultary eaa2b980f9e3, Finding and allocation proof"
+      ],
+      "rationale": "The general priced design is motivated, but specialization to two leaves per petal supplies no new phenomenon or invariant once the earlier closed form is credited. Threshold equality, all support patterns and expenditure ordering follow from the same exact coefficients. There is no distinct substantive remainder to retain.",
+      "residual_risks": [
+        "The negative assessment concerns this theorem as a distinct scientific contribution, not its usefulness as a worked example."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

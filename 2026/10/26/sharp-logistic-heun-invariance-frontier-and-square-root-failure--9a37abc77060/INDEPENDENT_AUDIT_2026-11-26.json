@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:39:57.701160Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and proof Steps 1–3; VERIFICATION.md and verify.py (inspected only)",
+        "Independent replay: /workspace/review_evidence/frozen_review_replay.py, section 1; symbolic discriminant and carrying-bound factor and a 60-digit two-stage-map calculation of tangency, width and depth"
+      ],
+      "rationale": "Starting with the two Euler stages gives the claimed P_r and the physical interval [0,1-1/r]. For x>0 its sign is the sign of g_r(1-x). The discriminant is r^6(r^4-18r^2-27); on [0,1] the only stationary point that can become a zero is the local minimum, since the maximum exceeds g_r(0)=1. Its sign is initially positive and eventually negative, and g_r>=1 on [0,1/r]. This gives the tangency and both negative-interval endpoints in the physical domain. Independently the factor of P_r-c_r stays positive throughout that domain for r<=r_*: the bounded quadratic on 0<=rx<=1 is strictly below 2 and the expression on 1<=rx<=r-1 is at most 1. Fixed-step induction gives the all-iterate statement. The rescaling y-y_*=s z, r-r_*=s^2 gives simple limiting roots because g_r's parameter derivative is negative and its state curvature positive. The negative minimum is inside that shrinking interval; the local minimum branch of P_r is smooth at the tangency and has the claimed derivative. The ever-present zero at x=0 cannot compete just above onset.",
+      "residual_risks": [
+        "The numerical checks are corroboration, not interval-arithmetic certification. Claims are for exact fixed-step Heun on the scalar logistic carrying interval only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For the logistic physical interval forward Euler is invariant exactly for ah<=1; the Heun SSP coefficient of one inherits that sufficient restriction.",
+          "The paper's fixed-point stability thresholds r=3 and r=1+2 sqrt(2) and outcomes for other maps concern different conditions."
+        ],
+        "reasoning": "SSP yields a lower guaranteed range, not an optimal boundary; fixed-point eigenvalues or PDE restrictions do not classify all one-step outputs or the bad-input measure.",
+        "searches": [
+          "arXiv:2607.19413, pp. 3–6, comparisons of discretizations and iterated dynamics",
+          "Standard SSP inheritance from forward Euler applied to the same scalar logistic equation"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and prior-work references",
+        "arXiv:2607.19413",
+        "Resultary SCOPE-90014a7600e9 and SCOPE-183c626111c5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior map supplies the starting polynomial; the current proof uses an additional discriminant sign analysis, a global carrying-bound factor inequality, and two onset calculations."
+        ],
+        "reasoning": "The published recursion and observed positivity loss motivate the exact computation, but no theorem was found that delivers the quantified invariance and coefficients by mere parameter substitution. The elementary fold exponent alone is not the originality claim.",
+        "searches": [
+          "arXiv:2607.19413, Eq. (6) and positivity discussion",
+          "Frozen RESULT.md, proof Steps 1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (6) is algebraically the same Heun map. Its positivity observation uses the same r and reports 'around 4.4037'.",
+          "SCOPE-90014a7600e9 concerns correction sweeps for the normalized logistic equation, not Heun. SCOPE-183c626111c5 concerns cubic-Hermite dense output for linear decay."
+        ],
+        "reasoning": "After matching normalization and the update, the numerical threshold is prior coverage; it is not an exact statement for every initial state with both bounds, nor a width/depth law. Changing the integrator or switching from endpoint updates to dense output is not an equivalent formulation.",
+        "searches": [
+          "Resultary searches on logistic Heun invariance, positivity-loss threshold and fold onset; SCOPE-90014a7600e9 and SCOPE-183c626111c5",
+          "arXiv:2607.19413, Eq. (6) and p. 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest numerical value is 4.4037 for the same step parameter; the inspected comparison passages do not give the radical or the coefficients."
+        ],
+        "reasoning": "This is a continuum operator bound and onset computation, not identification of a size-indexed sequence. The prior numerical threshold is credited, but does not determine the exact boundary, the upper-bound test, or either asymptotic coefficient.",
+        "searches": [
+          "Resultary search for exact logistic Heun threshold and failure-window law",
+          "arXiv:2607.19413, p. 6, offset 15100"
+        ]
+      },
+      "rationale": "Credit the published Heun polynomial and the numerical positivity-loss observation near 4.4037. The distinct supported claim is the exact global physical-interval iff, including the separate upper boundary, together with the two sharp local onset laws for the forbidden inputs and their minimum output. Neither the closest primary passages nor the related corpus findings checked give those statements or their quantified conclusion.",
+      "residual_risks": [
+        "The focused external lookup returned no results and is not evidence of absence. Older exact analyses of this map under dynamical or numerical-analysis terminology remain possible.",
+        "No priority/order is inferred from the dates of the compared corpus records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact map and approximate threshold already reported; the inspected statements do not supply the frozen exact joint result",
+          "evidence": "Reports nonpositive solutions for r 'around 4.4037' without the all-state quantifier there, and discusses distinct fixed-point thresholds and other algorithms.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.19413",
+          "material_read": "PDF pp. 3–4, Eq. (6), offset 9720; p. 6, offset 15100",
+          "method": "OA PDF passages",
+          "title": "On unconventional discretisations",
+          "trigger": "Same logistic equation, Heun recursion and reported cutoff"
+        },
+        {
+          "assessment": "Different operator and quantifier, irrespective of date",
+          "evidence": "Uniform sweep convergence for h<=2 and onset of a two-cycle concern a Gauss–Lobatto exponential deferred-correction iteration.",
+          "identifier_or_url": "Resultary SCOPE-90014a7600e9",
+          "material_read": "RESULT.md, offsets 0 and 2200",
+          "method": "Local mirror",
+          "title": "Sharp correction-sweep flip boundary for two-node positive deferred correction",
+          "trigger": "Same-day indexed record for the same normalized logistic flow"
+        },
+        {
+          "assessment": "Related local mechanism, not same mathematical claim",
+          "evidence": "Studies dense output of a linear decay equation and false interior zeros rather than a logistic Heun endpoint map.",
+          "identifier_or_url": "Resultary SCOPE-183c626111c5",
+          "material_read": "Indexed finding on the dense-output threshold and interior zeros",
+          "method": "Resultary claim comparison",
+          "title": "Sharp positivity threshold and spurious event bifurcation for cubic-Hermite dense output",
+          "trigger": "Exact positivity threshold with a square-root interval near onset"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof Steps 1–3",
+        "arXiv:2607.19413, p. 6"
+      ],
+      "rationale": "The full carrying-capacity range is canonical, and practical fixed-step control requires a uniform interval guarantee rather than a test of a stable or typical orbit. The exact threshold excludes steps that fail immediately, and the width and depth quantify how much initial data is affected and how far it leaves the physical range near failure. The contribution is not the already reported approximate location or the general existence of a fold.",
+      "residual_risks": [
+        "No implication for other RK tableaux, variable stepping, spatial discretizations, or dynamics after failure."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

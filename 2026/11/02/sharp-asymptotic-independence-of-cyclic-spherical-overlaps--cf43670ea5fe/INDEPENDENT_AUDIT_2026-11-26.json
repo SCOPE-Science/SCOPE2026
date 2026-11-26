@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:58:59.974804Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Leaf integration gives the exact product law on each forest. With normalized sphere measure the kernel Q_l is the degree-l harmonic projector divided by its rank D_l, and cyclic contraction gives mixed moments zero unless all degrees agree, then D_l^(1-m). In the one-edge inner-product measure, the Q_l have squared norm 1/D_l, by the same projector norm identity. Thus the proposed summands have squared product-space norms D_l^(2-m), summable since (m-2)(d-2)>=2. Their L2 limit defines a finite signed measure matching the joint law on tensor polynomials, which are uniformly dense on the compact cube. Equality of measures also proves positivity; no pointwise convergence is needed. The test product of the edges has mean d^(1-m), not zero. Parseval yields the divergence; the tail starting at l=2 is at most D_2^(4-m) times the convergent sum of D_l^(-2) over l>=2. The reverse L1 triangle inequality and L2 bound give the TV error about the degree-one term (d/2)a_d^m. For both parities D_2 a_d^2>1: it is 5/4 and 16/pi^2 for d=3,4, and the ratio at d+2 versus d is d^2(d+4)/[(d-1)(d+1)(d+2)]>1. Hence the error is smaller order, for each fixed d. The bijective Bloch change of variables gives a_3=1/2 and exactly the indicated TV prefactor. The general-m moment comparison in Step 5 should cite Zhang Proposition 6.8, not Theorem 6.7 (the latter is for triples); this is a citation-locator error and the mathematical identity is independently proved. Frozen scripts and finite checks were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang–Li p. 11 gives Tr(T_f^m) for a repeated edge kernel; p. 14 gives spectral expansion and trace; p. 3 gives forest edge-indicator independence.",
+          "Jones–Potechin Lemma 3.7 gives graph-based spherical monomial moments."
+        ],
+        "reasoning": "Harmonic moments can be obtained with those tools, but the relevant prior targets are graph indicators/tests or polynomial expectation formulas. The record identifies the full-vector expansion in L2 and controls the leading L1 contribution relative to its tail for all fixed d>=3.",
+        "searches": [
+          "Huang–Li arXiv:2610.12765 cycle trace and spherical harmonic decomposition",
+          "Jones–Potechin arXiv:2107.00216v2 graph monomial moments"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "arXiv:2610.12765",
+        "arXiv:2610.25196v1",
+        "arXiv:2107.00216v2",
+        "Resultary girth/cumulant and cap-intersection records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The trace method already determines the diagonal harmonic moment pattern once one inserts the projections; moment determinacy is standard on the compact cube.",
+          "The cap-intersection record bounds an even-cycle scalar event by harmonic modes in the opposite limiting regime; Zhang's second moment matches 2^(-m)+3*6^(-m)."
+        ],
+        "reasoning": "These precedents account for the underlying machinery and one scalar projection. The sharp TV assertion also uses product-space reconstruction, isolates a degree-one L1 norm with explicit coefficient, and proves the uniform-in-length spectral gap relative to that L1 rate in every stated dimension. No inspected theorem with a sharp L1 estimate implies this assertion by specialization.",
+        "searches": [
+          "Huang–Li arXiv:2610.12765 pp. 11, 14; Zhang arXiv:2610.25196v1 pp. 47–49; Resultary cap-intersection remainder"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhang Proposition 6.8 gives the scalar moment E|Delta_m|^2, and Theorems 6.9 and 6.10 concern the scalar product process and its log modulus.",
+          "The same-day Resultary girth record uses a scalar weighted sum and first cumulant defect, including a qubit aggregate."
+        ],
+        "reasoning": "The affine Bloch transformation is an equivalence of vector laws; the Bargmann modulus squared gives only the product of the fidelities. The first cumulant of a scalar aggregate at the defect degree captures shared cycle moments, not the mixed harmonics of every degree or the TV constant.",
+        "searches": [
+          "Resultary: spherical overlap cycle, joint law / fidelity / first-cycle dependence",
+          "Zhang arXiv:2610.25196v1, Section 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed records give a first-cycle cumulant or an exact spectral enclosure for a thresholded even-cycle event."
+        ],
+        "reasoning": "Neither a threshold specialization with fixed length and growing dimension nor a finite collection of graph moments is the target fixed-d, length-asymptotic formula. A numerical table is not a natural source for the full continuous density and asymptotic coefficient.",
+        "searches": [
+          "Resultary overlap/cycle and spherical cycle cap-intersection comparisons"
+        ]
+      },
+      "rationale": "The forest and cyclic trace mechanisms are established prior techniques, and the cited qubit product moment is already known. Neither the scalar product or cumulant results nor the inspected kernel-cycle work provides the claimed sharp fixed-dimensional TV asymptotic for the full continuously valued edge vector, including its prefactor and smaller-order error. Credit is for that joint-law result, not for inventing harmonic trace identities or for global priority.",
+      "residual_risks": [
+        "The trace inputs are classical and prior formulations of the vector result could exist in harmonic convolution or random-geometric-graph literature. Ranked search and inspected text do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close method overlap; separate statistical targets",
+          "evidence": [
+            "Forest-indicator independence and cycle moment equal to a trace, with eigenvalue power sums."
+          ],
+          "identifier_or_url": "arXiv:2610.12765",
+          "material_read": "PDF pp. 3, 11, 14, OA offsets 10260, 40266, 52990–55575",
+          "method": "OA PDF passage inspection",
+          "title": "Detecting Random Geometric Graphs with General Kernel",
+          "trigger": "Exact trace identity for sphere cycles"
+        },
+        {
+          "assessment": "Known scalar moment and scalar long-cycle results, not vector TV",
+          "evidence": [
+            "Proposition 6.8 gives the arbitrary-cycle modulus-square moment; Theorem 6.7 is specific to three states."
+          ],
+          "identifier_or_url": "arXiv:2610.25196v1",
+          "material_read": "PDF pp. 47–49, Theorem 6.7, Proposition 6.8 and Theorems 6.9–6.10",
+          "method": "OA PDF passage inspection",
+          "title": "Exact probability laws of random inner products: Dirichlet splines, overlaps, uncertainty, and Bargmann invariants",
+          "trigger": "Qubit product moments and long cycles"
+        },
+        {
+          "assessment": "General polynomial machinery",
+          "evidence": [
+            "Spherical graph-monomial expectation formula via matchings."
+          ],
+          "identifier_or_url": "arXiv:2107.00216v2",
+          "material_read": "PDF pp. 1, 14, Lemma 3.7 and basis definitions",
+          "method": "OA PDF passage inspection",
+          "title": "Almost-Orthogonal Bases for Inner Product Polynomials",
+          "trigger": "Graph-indexed exact spherical moments"
+        },
+        {
+          "assessment": "Substantial overlap in moments, not the TV assertion; no priority inferred from date",
+          "evidence": [
+            "Exact forest independence and first cumulant defect of weighted overlap sum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-girth-from-the-first-cumulant-defect-of-random-spherical-overlap--104aa867bba8",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Local mirror",
+          "title": "Girth from the first cumulant defect of random spherical overlaps",
+          "trigger": "Same-day independent-edge and cycle mechanism match"
+        },
+        {
+          "assessment": "Event-specific and different asymptotic regime",
+          "evidence": [
+            "Cap incidence on even cycles, including fixed-length high-dimension asymptotics."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-even-cycle-cap-intersection-excess-on-high-dimensional-sph--1cb79c83e2af",
+          "material_read": "RESULT.md Finding and remainder, mirror offsets 0 and 5144",
+          "method": "Local mirror",
+          "title": "Sharp even-cycle cap-intersection excess on high-dimensional spheres",
+          "trigger": "Cycle spectral remainder and first harmonic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cycle is the first obstruction to exact forest independence. A vector-law error with a sharp coefficient quantifies that obstruction in a way that a single cycle moment or chi-square upper bound does not. The fixed-d TV rate a_d^m is strictly smaller than the scale d^(-m/2) from chi-square alone, since |Z| is nonconstant. The qubit result is a useful interpretation of the real theorem, not a separate source of novelty.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

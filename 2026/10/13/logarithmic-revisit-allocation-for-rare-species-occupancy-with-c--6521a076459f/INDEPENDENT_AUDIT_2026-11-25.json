@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:49:22.787181Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 23–82",
+        "Frozen VERIFICATION.md and verify.py, inspected but not executed"
+      ],
+      "rationale": "The variance decomposition of the latent occupancy score yields I_k=(1−R_k)/[ψ(1−ψ)], where R_k=E_P[(1−ψ+ψ L_k)^{-1}], and gives a complete-information bound independent of k. Since J_1>0 and J_k tends to zero at fixed ψ, a finite maximizing integer exists. With T=log(1/ψ), a design just above T/d has ψL_k diverging in P-probability by the law of large numbers and R_k tending to zero by boundedness. Below (1−ε)T/d, 1−R_k is bounded uniformly by (ψ/(1−ψ))^θ M_θ^k, exponentially small in T for small fixed θ because the derivative of log M_θ at zero is d. Above (1+ε)T/d, the bound from complete information gives a strictly worse leading constant than the design at (1+η)T/d with 0<η<ε. This confines every maximizer and squeezes the normalized optimum to d. At f=0, the event of any detection is sufficient, with probability ψa_k where a_k=1−(1−p)^k. For k≥2, a_k/k≤p(1−p/2), so the upper bound on J_k is strictly below J_1 for the claimed sufficient range ψ<p/(2−2p+p²).",
+      "residual_risks": [
+        "The zero-false-positive cutoff is sufficient, not claimed sharp. Finite tests do not establish the limits; the proof is uniform in k for each fixed calibrated pair, not uniform as f tends to zero."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Royle–Link describe the two-component mixture and a data analysis and simulation. The accessible Clement abstract describes numerical MSE-minimizing designs across scenarios and increased recommended surveys with false positives in a two-observation-state approach. The indexed full-history theorem treats the same efficiency criterion but only qualitative divergence."
+        ],
+        "reasoning": "An established observation model, numerical MSE design comparisons, or qualitative divergence for maximizers does not determine the relative-entropy coefficient or the maximum-information limit.",
+        "searches": [
+          "Royle–Link false-positive occupancy mixtures, 2006",
+          "Clement, DOI 10.1111/2041-210X.12617, closest positive-false-positive repeat-visit design study"
+        ]
+      },
+      "checked_sources": [
+        "Resultary record b1cdc6e1f5b4, Finding and proof",
+        "Royle–Link (2006), published abstract",
+        "Clement, DOI 10.1111/2041-210X.12617, USGS abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed proof excludes each fixed finite cutoff rather than a range of order log(1/ψ). The likelihood-ratio law under the occupied component yields the candidate threshold, but does not by itself control per-visit information uniformly over all shorter or longer allocations."
+        ],
+        "reasoning": "The two uniform exclusions and the matched bound on efficiency are needed for the exact maximizing asymptotic. The f=0 boundary is not obtained by substituting f=0 in a fixed-positive-rate KL limit. No directly implying general result was identified in the checked literature.",
+        "searches": [
+          "Indexed RESULT.md b1cdc6e1f5b4, proof of Full-history phase, offset 6802",
+          "Frozen RESULT.md, lines 47–82, likelihood-ratio and testing comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed theorem shows divergence of all full-history maximizers as ψ tends to 1, with fixed calibrated rates. Its full-history proof uses the boundary chi-squared identity I_t(1)=K^t−1 and continuity at each fixed t. Its separate logarithmic theorem is for one-bit OR histories."
+        ],
+        "reasoning": "Exchange occupancy labels and complement every outcome: (ψ,p,f) becomes (1−ψ,1−f,1−p), preserving full-history Fisher information and rate ordering. This transfers qualitative divergence, not the calibrated KL coefficient or the optimal efficiency. Complementing the observations also changes which histories are collapsed by OR; an OR optimum is not the full-history optimum. The overlapping indexed record is later-dated, not evidence of earlier priority.",
+        "searches": [
+          "Resultary: calibrated false-positive occupancy, repeated visits and Fisher efficiency",
+          "Indexed record b1cdc6e1f5b4, Finding and Full-history phase"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed full-history statement supplies no exact KL rate or scaled optimum. Its numerical illustrations concern finite OR allocations. Clement's abstract describes numerical comparisons, but the full tables were not accessible."
+        ],
+        "reasoning": "The target is a pair of limits over freely varying ψ and all maximizing integers, not a finite tabulated allocation. A numerical setting with an optimum at some k would not establish those limits.",
+        "searches": [
+          "Resultary b1cdc6e1f5b4",
+          "Clement, DOI 10.1111/2041-210X.12617, USGS publication abstract"
+        ]
+      },
+      "rationale": "The model and the general idea of repeating visits under false positives are not new. The inspected sources do not give the directed-KL scale for every full-history maximizer, the matched limiting information constant, or its contrast with the one-visit regime. The strongest indexed overlap already accounts for qualitative divergence by a symmetry, so qualitative divergence alone is not credited.",
+      "residual_risks": [
+        "Clement's full article and tables were not inspected; the finer assertions about its tables and estimation of nuisance parameters in the frozen relationship-to-prior-work discussion were not independently confirmed.",
+        "An equivalent general rare-mixture design theorem under different terminology may have escaped the bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative full-history overlap up to relabeling; exact rate belongs only to coarsened OR design",
+          "evidence": [
+            "Full histories: all optimizers diverge; proof uses I_t(1)=K^t−1 at fixed t and continuity. OR histories: separate exact logarithmic scale in one regime."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-coarsened-occupancy-surveys-have-a-sharp-near-ubiquity-replicati--b1cdc6e1f5b4",
+          "material_read": "RESULT.md Finding and Full-history phase proof, offsets 0 and 6802",
+          "method": "Resultary and local mirror",
+          "title": "Coarsened occupancy surveys have a sharp near-ubiquity replication transition",
+          "trigger": "Strongest indexed same-model Fisher allocation result"
+        },
+        {
+          "assessment": "Establishes the model, not the claimed allocation limit in the inspected passage",
+          "evidence": [
+            "The model ‘can be represented as a two-component finite mixture model.’"
+          ],
+          "identifier_or_url": "https://www.uvm.edu/~tdonovan/Occupancy%20Exercises/Exercise12/Royle_Link_2006.pdf",
+          "material_read": "Page 1, abstract, offset 0",
+          "method": "OA PDF",
+          "title": "Generalized site occupancy models allowing for false positive and false negative errors",
+          "trigger": "Original false-positive occupancy model"
+        },
+        {
+          "assessment": "Abstract establishes design overlap, not coverage of the limit; full-text comparison remains limited",
+          "evidence": [
+            "Numerical designs minimizing occupancy MSE; under its two-observation-state approach false positives increased survey recommendations."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/2041-210X.12617",
+          "material_read": "USGS publication-record abstract, offsets 0–1800 and 1100–2572; full article not available via attempted publisher and repository routes",
+          "method": "Public publication abstract; lawful full-text and repository retrieval attempted",
+          "title": "Designing occupancy studies when false-positive detections occur",
+          "trigger": "Most relevant empirical/design literature match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Limitations",
+        "Indexed b1cdc6e1f5b4, Full-history phase"
+      ],
+      "rationale": "The result resolves the number of repeats and the leading information payoff in a motivated sites-versus-visits problem, rather than merely detecting that repeats become desirable. The contrast with zero false positives shows which idealization changes the order of the optimal allocation even when a positive false-positive rate is small.",
+      "residual_risks": [
+        "Local Fisher efficiency with externally calibrated rates does not imply finite-budget risk guarantees or optimality with estimated detection parameters, adaptive stopping, or heterogeneous sites."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

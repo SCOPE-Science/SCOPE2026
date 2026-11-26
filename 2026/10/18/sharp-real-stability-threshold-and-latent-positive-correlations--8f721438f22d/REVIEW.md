@@ -1,17 +1,21 @@
-# Scientific review: sharp real-stability threshold and latent positive correlations
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact eight-state Boolean Markov generator follows from the batch-transfer rules, and the stationary mass table is positive, normalized, and solves every global balance equation. Irreducibility gives uniqueness. The three explicit Rayleigh differences are quadratics in the remaining real argument with positive leading coefficients and identical discriminant. The multiaffine real-stability equivalence then yields the if-and-only-if threshold including its critical endpoint. The external-field correlation is exactly the negative middle-field Rayleigh difference divided by a positive square, giving a strict positive-correlation interval and an explicit witness. `verify.py` independently constructs the generator, reconstructs the critical polynomial equalities, and tests the first-three marginal in a four-site model. Computation supports the argument but does not substitute for the all-parameter proof.
+## correctness
 
-## Originality — PASS
-The 2011 original ASIP paper already developed stationary probability-generating functions and worked small systems; no novelty is claimed for the model or mere availability of its three-site coefficients. The 2014 interval-load analysis and 2019 unweighted integer-occupancy covariance results cover different observables. The 2009 polynomial-geometry theorem supplies the general characterization of stability, not this transport model's critical rate. Direct comparisons and completed semantic searches under terminology for strong-Rayleigh measures, negative dependence, fields, ASIP, coalescing batch service, and three-site occupation identified no dominating claim implying the sharp threshold or its exact field-induced covariance reversal. Database nonmatches are not taken as uniqueness proofs.
+PASS
 
-Closest results include a general three-variable negative-dependence counterexample and an iid occupied-box precision-matrix analysis; neither treats an open Poisson-driven batch-coalescing lattice or derives its rate-dependent real-stability transition. The complete 2011 source could not be read after open-access and institutional retrieval attempts; the publisher abstract and subsequent primary full texts were read, and this residual overlap risk remains explicit. A plausible general coalescing-walk manuscript was also inaccessible in full and has not been conclusively excluded.
+The prefix Boolean occupancy is an autonomous eight-state continuous-time Markov chain: arrivals set the first bit, and a gate empties its bit and sets the next bit only when carrying a nonempty batch. With r>0 one can clear the prefix without arrivals and build any target occupancy from right to left, proving irreducibility. An independent symbolic solve and polynomial expansion reproduce every displayed stationary mass and Rayleigh quadratic. Each quadratic has positive leading coefficient for r>0, with the same discriminant r^6(r²−16r−16)/[256(1+r)^10]. The all-real Rayleigh criterion therefore gives precisely 0<r≤8+4√5, including equality. Evaluating the three differences at the all-ones point gives strict negative unweighted covariances. Under the positive middle-site tilt the covariance of the endpoints is −Δ_13(t)/F(1,t,1)^2; the denominator is positive and the numerator sign reduces to r²(t²−t)+4(r+1). Its two roots lie in (0,1) above threshold, as stated, and at equality the covariance is zero rather than positive at t=1/2. The prefix is the same marginal in any longer finite stationary ASIP, and specialization of a stable Boolean generating polynomial at 1 preserves stability here because the marginal is nonzero. No low-rate claim for longer chains follows.
 
-## Value — PASS
-The parameter boundary is tied to the standard strong-Rayleigh notion of robustness under arbitrary positive external fields, not selected to create an unmotivated small example. The result identifies an exact physical input-versus-service threshold where ordinary negative covariances cease to be robust, constructs the full positive-covariance interval, and propagates a non-stability obstruction to every longer chain by autonomy. Its small-site calculation thereby supplies a structural, transport-motivated counterexample and a sharp reusable benchmark, rather than a raw finite table.
+## originality
 
-## Scope and residual limits
-The theorem proves strong Rayleigh only for the three-site law; below the threshold it does not classify longer chains. The positive outer-site correlation occurs under a statistical reweighting, not under the original unbiased measure. The inaccessible original 2011 full text and coalescing-walk manuscript leave limited bibliographic risk; the scientific derivations themselves are self-contained. Independent review or validation is not asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The ASIP model, stationary probability methods, and the multiaffine real-stability criterion are known. The distinct supported result is the exact joint Boolean stability boundary and the exact field-induced endpoint correlation reversal despite strictly negative ordinary covariances. Inspected occupation laws and integer-count covariance results do not state or give this threshold without a fresh Boolean joint-law and Rayleigh sign calculation. No equivalent earlier ASIP statement was substantiated; the founding article is an explicit full-text access risk.
+
+## value
+
+PASS
+
+This is a sharp, interpretable boundary in a standard interacting-particle model, not just an isolated sign check. Ordinary pairwise correlations remain negative throughout, but one concrete physical-site reweighting distinguishes all rates above the boundary and quantifies the full detection interval. The three-site obstruction immediately rules out strong Rayleigh for every longer homogeneous prefix above threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

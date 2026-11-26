@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Analytic and numerical verification
 
-The claimed results are established by a direct proof in `RESULT.md`: (i) toroidal Jacobian for uniform volume-point anchoring; (ii) exact section topology classifier; (iii) square-root angular boundary-layer limit with a tilt-integrable majorant; (iv) an exact semicircle/arcsine integral yielding the annulus coefficient. Finite computer experiments alone cannot prove either asymptotic limit.
+# Independent mathematical audit
 
-Run `python3 check_torus_area.py` with Python 3, NumPy and SciPy. The script checks 130 independent angular discretizations against exact conditional arcsine-CDF predictions and uses deterministic Gaussian quadrature to evaluate four increasing major radii. With the packaged implementation, the observed scaled disk probabilities at radii \(5,20,80,320\) were approximately \(1.054344295,1.045220482,1.038786341,1.036698474\), converging toward \(1.0359209536249055\). Corresponding scaled annulus probabilities were approximately \(0.180755848,0.180165497,0.180135938,0.180132289\), converging toward \(0.1801265486974894\). Numerical quadrature is corroboration and is not a certified error-bound argument.
+## correctness
 
-All topology equalities are up to planar-section tangencies and limiting transition planes, which form null events. The theorem does not claim independent external audit or formal computer certification.
+PASS
+
+Reconstructed the classifier independently: for 0<β<π/2, a meridian fibre at φ is a line segment in the unit (H,V) disk exactly when (M−Rs cosφ)^2≤q²+s² cos²φ, where s=sinβ and q=cosβ. The sublevel set in u=cosφ is an interval since the coefficient of u² is (R²−1)s²>0. Its containment of both, one, or neither of ±1 gives the full angle circle, one arc, or two arcs, respectively, for a plane that hits; the segment bundle is trivial on the circle (the continuous direction (−q,s cosφ) never vanishes), and over each arc the fibre collapses only at the ends. This proves the annulus/disk/two-disks classification off null boundaries. The toroidal Jacobian gives density (1+H/R)/π and Φ uniform. For fixed β>0 and Rs>1 the two disk caps have half-width arccos(1−δ±/[(R+H)s]), with clipping when necessary, where δ±=1+sH±qV∈[0,2]. Their scaled limits follow from arccos(1−y)∼√(2y); a constant times s^(-1/2) bounds the scaled probability for Rs≥4 and also for Rs<4 by the trivial probability bound. This is integrable under s dβ; the semicircle projection and β-integral give the stated gamma quotient. In the annulus layer put t=Rs<1, then the Jacobian after scaling by R² is t/√(1−t²/R²); it is dominated for R≥2 and offset threshold equality has zero probability. Integrating in t gives E[τ²]/2, and splitting on V+cosΦ≥0 by symmetry gives the stated tangent-half-angle integral and 16/(9π²). The complementary topology and Crofton baseline follow, with disk offset numerator tending to 2 and annulus numerator asymptotic to 1/(6R²) against normalizer 1+πR/4. The supplied checker was read, not run: its grid discretizes the same topology inequalities, not an independent classification of the geometry.
+
+## originality
+
+PASS
+
+The classifier and two unweighted baselines are prior mathematics. The two anchored limits, including their constants, are distinct from those baselines and the closest obtained area or rare-topology results.
+
+## value
+
+PASS
+
+A natural sampling change in random sections changes both rare topology exponents, not just normalization. The exact constants quantify two different mechanisms: an azimuthal cap near projection extrema for disks and a shrinking tilt cone for annuli. These are usable benchmarks for random planar sections taken through interior points rather than for an arbitrary subcase of Crofton sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

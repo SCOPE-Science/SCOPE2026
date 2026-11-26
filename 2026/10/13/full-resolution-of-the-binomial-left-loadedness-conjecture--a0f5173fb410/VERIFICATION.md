@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -17,8 +20,6 @@
 ---
 # Verification
 
-The proof was checked symbolically at the level of its critical identities: the consecutive symmetric-mass ratio, the factorization determining its sign, the derivative of the endpoint-ratio logarithm, and the induction ratio for \(L_m=m^{2m}/(2m)!\).
+The infinite-domain proof is analytic. The mass comparison uses the exact ratio and its numerator-minus-denominator factorization. The endpoint lemma follows from the derivative of the logarithm of the consecutive endpoint ratio and an induction for the limiting endpoint. The two imported facts are the center-tail inequality of Simmons (as stated in the motivating paper) and the mean identity, which is also derived in the proof from the tail sums of the positive and negative parts.
 
-The accompanying `verify.py` uses only Python's standard library. It reconstructs binomial probability masses as exact integers up to their common denominator, verifies the stated left-loadedness condition on a broad finite grid, checks the endpoint inequality on a separate finite grid, and checks the algebraic sign identity numerically with exact integers. A successful run prints `VERIFY_OK`.
-
-These computations are consistency checks only. They are not exhaustive over the infinite parameter domain and do not replace the analytic proof. The proof relies on the classical Simmons inequality for the initial coefficient when \(n>2m\); that premise is explicitly stated in the motivating paper and in later literature on Simmons' theorem. The stronger condition \(L_2\) for \(m\ge3\) remains outside the verified claim.
+The unchanged `verify.py` supplies supplemental exact-integer checks of the ratio-sign identity, endpoint bound and disjunctive left-loadedness on its finite grids. It does not certify the infinite theorem or directly check strict positivity of every partial sum. The latter is proved by combining the single-crossing property with the mean identity, with small means and the symmetric boundary handled separately.

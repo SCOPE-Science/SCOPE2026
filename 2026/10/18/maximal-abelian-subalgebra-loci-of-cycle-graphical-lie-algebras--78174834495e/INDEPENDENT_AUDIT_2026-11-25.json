@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:49:10.633341Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked RESULT.md lines 5–51. Adding the central edge space preserves commutation, so any largest abelian subalgebra is its inverse image from a commuting vertex plane. Adjacent nonzero coordinate restrictions on that plane are proportional because independent edge labels test the corresponding exterior products, also in characteristic two. Dimension ≥2 rules out full support, and the nonzero runs each contribute at most one dual direction. Thus the dimension is at most floor(n/2), achieved by an independent vertex set. Equality gives independent directions, one per run. All run and gap lengths are one if n is even; if n is odd exactly one of them is two. The single doubled supported run has the indicated projective parameter with nonzero coordinates, whose two limits are the coordinate planes with a doubled omitted gap. Every such gap has exactly two endpoints in the family, obtained by thickening across either of its two omitted vertices; the neighboring line indices are i±2. No third line meets there. Each family is literally a Plücker line because the other a−1 vectors are fixed; the reduced union is the whole geometric locus by the support classification. Over any k, this union of k-defined lines (or points) has radical ideal after algebraic closure, and equality of the geometric zero sets identifies the reduced k-locus by contraction. Near an intersection the two lines can be made coordinate axes in their Plücker projective span, giving local equation uv=0 and hence an ordinary node in any characteristic. Step two generates the odd cyclic index group, so the normalization exact sequence gives χ(O)=n−n=0 and arithmetic genus one. Counting rational nodes once gives n(q+1)−n=nq, with two rational points in the even case. A separately written enumeration of commuting generating lines and their spans (python3 /workspace/review_checks.py 1) checked exact point sets and pairwise incidence on eight cases, including n=5 over F4 (20 points), and n=7 over F2 (14 points). These checks corroborate the field-independent proof; they do not certify unreduced scheme structure, and the frozen verifier was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "640289cbe228 treats all finite simple graphs and all inclusion-maximal dimensions over finite fields.",
+          "0a1963133942 explicitly describes each echelon stratum for maximum-dimensional abelian ideals over arbitrary fields by a graph Stanley–Reisner ideal, with global geometry examples for K3 disjoint union K1 and P4."
+        ],
+        "reasoning": "These results dominate the dimension and numerical enumeration, and materially organize the geometry, but the cited stratum theorem does not identify how the different Schubert-stratum closures attach for C_n. The frozen answer determines that global intersection pattern and node type.",
+        "searches": [
+          "Resultary 640289cbe228, Finding, assumptions and Steps 1–4",
+          "Resultary 0a1963133942, Finding and Schubert-stratum theorem"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 640289cbe228",
+        "Resultary 0a1963133942",
+        "Resultary a874723da77e",
+        "arXiv:2504.19836v2",
+        "arXiv:1310.3414",
+        "arXiv:2107.05564"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The dominating-support proof produces the open doubled-run parameters. One must still take their projective closures, identify the two coordinate endpoints of each and show they coincide with exactly the neighboring families of step two; neither the count nor separate echelon-cell schemes assert those facts.",
+          "The graphical-group rank formula concerns ranks of weighted skew adjacency specializations, not pairwise commutation inside vertex planes."
+        ],
+        "reasoning": "The global geometry uses the additional cycle combinatorics and Plücker description to produce the reduced union, node type and arithmetic genus, beyond specialization of a numerical formula or a statement of which affine cells exist.",
+        "searches": [
+          "Resultary: projective-line components, abelian-subalgebra loci and Grassmannian cycle polygon",
+          "0a1963133942, theorem and examples in Finding",
+          "Rossmann arXiv:2107.05564v1, §1.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day result writes each maximal abelian subalgebra as the sum of the central edge space and full-support lines on connected components of a dominating support. For length-a vertex planes of C_n those components are precisely the equality runs used here.",
+          "Aldi et al. give dim h≤α(g)+d−b, encompassing the upper bound in this graphical setting."
+        ],
+        "reasoning": "The coordinate-proportionality classification and dimension are covered. A support cell or a list of finite-field points with their linear parameters is not the stated global description of a reduced projective curve with incidence and local rings.",
+        "searches": [
+          "Resultary: cycle graphical Lie algebra, abelian Grassmannian equality locus and nodal projective lines",
+          "arXiv:2504.19836v2, Proposition 24",
+          "Resultary 640289cbe228, support components"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "In [t^a]M_{C_n}(q,t), even n gives two alternating supports, each weight 1. Odd n has n supports with one doubled omitted gap (weight 1) and n with one doubled active run (weight q−1), giving nq. These supports dominate, and the run count excludes all others.",
+          "a874723da77e instead tabulates weighted antisymmetric-cycle matrix ranks and character degrees."
+        ],
+        "reasoning": "The exact numerical sequence is a corollary of 640289cbe228. It is a check on, not an additional originality claim for, the polygon geometry. The character invariant counts different objects.",
+        "searches": [
+          "Resultary: maximum-dimensional cycle graphical Lie abelian subalgebras exact F_q counts",
+          "640289cbe228, M_G(q,t)",
+          "a874723da77e, cycle character-degree enumerator"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the global reduced equality-locus geometry: the explicit Plücker lines, their closed incidence and split ordinary nodes, and the resulting genus-one polygon for odd cycles. Dimension, finite-field support classification and the numerical count are not independently original: 640289cbe228 gives the latter by specialization, with substantial overlap in the proof's coordinate-support method. The strongest geometric comparator 0a1963133942 supplies local-in-stratum affine support arrangements, not the closure incidences among strata. Getting the global claim requires determining those closures and which limits coincide, not just evaluating the general censuses. No inspected source states or supplies that completed global gluing, and the date of 640289cbe228 does not establish priority relative to this record.",
+      "residual_risks": [
+        "A differently phrased global closure theorem for graph-isotropic subspace loci or a prior cycle specialization may exist outside the inspected passages and indexed records.",
+        "The same-day comparison establishes overlapping coverage, not priority; unsuccessful literature lookup is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers numerical and finite-field pointwise classification; does not give global reduced gluing",
+          "evidence": [
+            "The displayed M_G(q,t) and direct sum of one full-support line per component of a dominating subset give the count and support parameters for cycles."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-domination-weighted-maximal-abelian-subalgebra-census-for-graph--640289cbe228/RESULT.md",
+          "material_read": "Finding, scope and proof Steps 1–4, offsets 0–5428",
+          "method": "Original record through local mirror",
+          "title": "Domination-weighted maximal abelian subalgebra census for graph Lie algebras",
+          "trigger": "All graphs, all maximal dimensions, same edge-central bracket"
+        },
+        {
+          "assessment": "Gives strata and count; no stated global cycle closure-incidence theorem in these passages",
+          "evidence": [
+            "The stratum is Spec k[t_v]/(t_u t_v for edges of H_S); global examples are for K3 disjoint union K1 and P4."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-schubert-stanley-reisner-census-of-maximal-abelian-ideals-in-gra--0a1963133942/RESULT.md",
+          "material_read": "Finding including stated theorem and examples, offsets 0–2584",
+          "method": "Original record through local mirror",
+          "title": "Schubert–Stanley–Reisner census of maximal abelian ideals in graphical Lie algebras",
+          "trigger": "Broader arbitrary-field geometry on the same abelian Grassmannian"
+        },
+        {
+          "assessment": "Dimension antecedent; no equality-locus conclusion in the cited statements",
+          "evidence": [
+            "Proposition 24 gives dim h≤α(g)+d−b; Example 25 illustrates that the general bound can be strict."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2504.19836v2",
+          "material_read": "PDF Proposition 24 and Example 25, pp. 6–7",
+          "method": "OA primary PDF passage inspection",
+          "title": "Independence Polynomials of 2-Step Nilpotent Lie Algebras",
+          "trigger": "Established bounds on dimensions of abelian subalgebras"
+        },
+        {
+          "assessment": "Established ambient construction",
+          "evidence": [
+            "Vertex brackets are given by edge-basis coordinates; not a classification of abelian Grassmannian loci in the inspected material."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1310.3414",
+          "material_read": "PDF p. 1, construction near offset 2926",
+          "method": "OA primary PDF passage inspection",
+          "title": "Graphs and two-step nilpotent Lie algebras",
+          "trigger": "Foundational graphical Lie algebra construction"
+        },
+        {
+          "assessment": "Different rank statistic",
+          "evidence": [
+            "Weighted skew adjacency rank and character degrees do not classify maximal simultaneous commuting linear subspaces."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.05564",
+          "material_read": "PDF §1.6, p. 5, near offset 14302",
+          "method": "OA primary PDF passage inspection",
+          "title": "Enumerating conjugacy classes of graphical groups over finite fields",
+          "trigger": "Potential relation between graphical-group ranks and commuting subspaces"
+        },
+        {
+          "assessment": "Different counted object",
+          "evidence": [
+            "The formula counts weighted cyclic skew-matrix ranks and characters, not maximum abelian planes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-cycle-graphical-groups-have-an-explicit-character-degree-enumera--a874723da77e/RESULT.md",
+          "material_read": "Finding, offsets 0–1748",
+          "method": "Original record through local mirror",
+          "title": "Cycle graphical groups have an explicit character-degree enumerator",
+          "trigger": "Same cycle parameters and finite-field enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The global equality locus refines a familiar maximal-dimension bound by describing all maximizers and their degenerations. The shift from two isolated choices to a connected rational-component curve of arithmetic genus one is a substantive structural invariant of the graphical construction. It is information not carried by the numerical census or by separate affine strata, and gives a useful test case for how maximal abelian loci on more general graphs are assembled.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

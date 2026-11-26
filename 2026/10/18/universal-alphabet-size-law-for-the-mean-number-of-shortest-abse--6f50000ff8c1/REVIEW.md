@@ -1,21 +1,21 @@
-# Scientific review: exact mean shortest-absent-subsequence law for \(q\ge3\)
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof fixes the ambient alphabet, including words with absent alphabet letters and the empty source. Greedy full-alphabet arch factorization establishes that an absent shortest target matches exactly one target symbol per complete arch and none in the terminal rest. Diagonal and off-diagonal transition series are derived by exhaustive combinatorial cases on the unique arch-terminal symbol; all unmarked-symbol requirements are enforced by inclusion–exclusion. Every complete word has a unique arch decomposition, and the all-ones eigenvector of the symmetric transition matrix yields the rational generating function. The ternary specialization follows by exact polynomial algebra. The simple positive dominant pole is proved using nonnegative, aperiodic arch-length support, not inferred from numerical coefficients.
+PASS
 
-Independent finite checks in `verify_qary_sas.py` directly reconstruct shortest absent subsequences for all source words through the stated bounds, enumerate transition arches, and verify the quintic recurrence through degree 35. The numerical growth constants are approximations to rigorously specified algebraic quantities.
+For K complete greedy arches, every K-letter target embeds, but the K terminal letters followed by a letter missing from the rest do not. Greedily scanning any absent target of length K+1 must make at least one match in every arch and exactly K matches overall. Thus absence is equivalent to one match per arch and none in the rest. Recounting transitions: if x=y the terminal letter either is x, or a unique x is inserted in a fully supported word on q−2 symbols; the length-plus-one insertion weight produces G+zG'. If x≠y an arch terminating in y is forbidden, one ending in x contributes zG_(q−1), and all other terminal choices require a y before the first x and no y after it, with full support among the q−3 other symbols across both sides. Inclusion–exclusion gives the displayed H. Summing constant row sums over K and adding the rest avoiding the last target letter yields the claimed rational series, including K=0. In the ternary simplification J=D₃+2E₃ has positive coefficients at degrees 3 and 4; Q(1/3)=−16/243, so the crossing of J=1 lies below 1/3. The nonnegative series is strictly increasing and its consecutive degrees exclude another pole on that circle. The derivative is positive and the numerator nonzero there. Independent bisection and the simple-pole residue give ρ≈0.3087879767626592, growth factor 1.079489353270837 and prefactor 1.692088487255384. Independent enumeration by building the set of all distinct subsequences of each host (without arch factorization) recovered every ternary coefficient through n=8, the q=4 values through n=6, and A₅(5)=6920.
 
-## Originality — PASS, with residual risk
+## originality
 
-The closest primary reference, Kosche et al. (arXiv:2108.13968), develops structural and algorithmic tools for absent subsequences of *individual* words. Adamson et al. (arXiv:2407.18599) determine extremal counts conditioned on universality index, not the average over all fixed-length words. Manea et al. (arXiv:2504.21471) improve algorithms for enumerating absent subsequences of a supplied word, not all-word statistics. Accessible published research records and prior related results were compared for both direct statements and stronger implications. A previously known binary first-moment theorem is explicitly excluded from the new scope: here \(q\ge3\). There was no identified general formula implying the all-length ternary quintic or the stated full-alphabet generalization. An independently discovered equivalent enumeration in unindexed work remains possible.
+PASS
 
-## Mathematical value — PASS
+Pass for the fixed-ambient q≥3 aggregate first moment and the ternary specialization, not the arch characterization, individual-word enumeration, or a binary law. The closest inspected primary results give structural or extremal statements, and the closest indexed first moment is binary. In particular its transition rules do not count the new case in which the terminal letter differs from both successive target letters. No equivalent or dominating q≥3 result was found in the bounded comparison.
 
-The number of shortest absent subsequences is a natural size measure for a shortest missing-pattern set. Exact averages for full-length ensembles characterize typical enumeration output size, which is not determined by structural descriptions, an algorithm on one word, or extremal bounds alone. The first nonbinary instance gives a concrete five-term rational law and rigorous exponential mean-growth constant, while the general \(q\)-ary theorem covers all finite alphabets of size at least three, including the four-letter setting of sequence data. The additional distinct-terminal-letter transition creates a substantive case absent from the binary proof.
+## value
 
-## Limits and closest coverage
+PASS
 
-The model is a fixed labeled alphabet with uniform host-word sampling; fixed-composition, nonuniform, dependent-source, and higher moment questions remain open here. The primary-source and published-record comparisons are not a proof of global bibliographic uniqueness. The checker supplies finite consistency only; the mathematical proof supplies the infinite result.
+The shortest absence multiplicity differs from the universality index and is a natural statistic of a random word. The result computes it without enumerating host words, identifies a rational recurrence at each alphabet size, and quantifies the nontrivial exponential growth of the ternary mean. This is useful beyond per-word algorithms and worst-case bounds.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

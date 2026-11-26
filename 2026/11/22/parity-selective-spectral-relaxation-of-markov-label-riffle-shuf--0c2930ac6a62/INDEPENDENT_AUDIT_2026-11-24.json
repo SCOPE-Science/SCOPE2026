@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:48:33.817019Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Assumptions and Proof; frozen check.py lines 6–14, 19–24",
+        "/workspace/branches/4fe50e92-0698-4ecd-9d29-86aad5d5fe17/literal_stay_check.py",
+        "/workspace/repairs/2/RESULT.md, VERIFICATION.md and check.py"
+      ],
+      "rationale": "This PASS applies only to the corrected files. The frozen definition made p the literal probability of keeping a label, so the two-card sign mean is p (the only odd outcome is the binary word 10, of probability (1−p)/2). The frozen formula gives (1+p)/2, even giving 1/2 instead of zero at p=0. Its proof and checker instead use the adhesion transition law. The repair keeps the literal convention and updates all affected formulas and checks. Its four signed states give a transfer with characteristic polynomial λ^4−2p²λ²+(2p−1)², verified by direct determinant expansion, and the displayed first four means. Independent flips with probability q=1−p yield m one-switch odd configurations (including the initial-bit choice) on an even deck; on an odd deck one switch has even sign and both initial bits give odd sign precisely for the m(m+1)/2 pairs (odd first switch position, even second position). Thus 1−ρ has leading term mq and m(m+1)q² respectively. Character multiplication yields the time limits. Near p=1 the two subsequence roots are p²±(1−p)√(p²+2p−1); their first-order slopes are 2∓√2 in q, and solving against the initial means gives the two distinct pairs of limiting weights. Iteration indices are n/2+O(1), giving the displayed e^(−aξ), e^(−bξ) profiles including ξ=0. The recurrence itself covers all literal p, even when the roots coincide or are not real. Independent exact enumeration includes p=0 and p=1; the delivered replacement checker ran successfully (66 exact means, 42 recurrence comparisons, rare-switch counts through size 30, and growing-profile numerical error below 0.001 on the specified grid).",
+      "residual_risks": [
+        "The grid is only finite numerical corroboration of the limiting profiles; the transfer and limit arguments establish the general claims. This is one sign character, not a full mixing result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jonasson–Morris prove O(log^4 n) total-variation mixing at fixed p in (0,1); Jiang gives fixed-deck strong-adhesion full-chain bounds. Resultary inversion records address expectation, zero-inversion probability, weak limits and cut-size dependence."
+        ],
+        "reasoning": "A whole-chain upper bound controls character deviations but does not give a character's exact rate or the even/odd gap. The two regimes in those mixing theorems also differ from a one-shuffle n(1−p) crossover.",
+        "searches": [
+          "Jonasson–Morris Theorem 2.1 and Jiang arXiv:2611.02092v1 abstract, full-chain p-riffle and strong-adhesion mixing",
+          "Local Resultary 6806b0a229ff and 7e94f87ad757"
+        ]
+      },
+      "checked_sources": [
+        "Corrected RESULT.md; local Resultary 6806b0a229ff and 7e94f87ad757",
+        "Jonasson–Morris, Jiang and Palomares primary passages; Wager citation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Strongest local inversion overlap has Gaussian, Poisson-switch and rare-switch inversion limits. The other inversion record includes a cut/inversion regression. The repaired sign law keeps oscillatory parity information lost by normalizing inversion counts."
+        ],
+        "reasoning": "Knowing a shuffle law makes its sign coefficient definable, but does not supply the signed transfer reduction or its asymptotics. Weak convergence of normalized inversions does not imply convergence of the changing test function (−1)^I. The phenomenon is not a parameter substitution in a known sign theorem on the inspected evidence.",
+        "searches": [
+          "Statement comparison of Jonasson–Morris §2, Jiang Definition 2.4 and abstract, Palomares §§5 and 7, and Resultary 6806b0a229ff/7e94f87ad757"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jonasson–Morris use literal p and their time-reversed Markovian model is the same stable binary sort; inversion leaves sign unchanged. Jiang's adhesion u equals 2p−1 here. Palomares uses switch α=1−p, giving word mass α^j(1−α)^(n−j−1)/2 for j switches."
+        ],
+        "reasoning": "These are exact model aliases, not different shuffle models. The inspected results under these aliases concern whole-chain mixing or finite spectra, not the all-size sign identity. The same-model prior is credited.",
+        "searches": [
+          "Local Resultary: correlated-label inverse shuffle sign and inversion laws",
+          "Jonasson–Morris §§1–2; Jiang Definition 2.4; Palomares §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Palomares reports finite-deck spectral calculations for n<9; an eigenvalue therein can implicitly be the sign Fourier scalar. The exact inversion zero-mass and mean in 6806b0a229ff do not give the full inversion distribution at each size."
+        ],
+        "reasoning": "A finite numerical spectrum can overlap on individual sizes without yielding the exact recurrence, rare-switch coefficients at arbitrary size, or the parity-dependent limiting functions.",
+        "searches": [
+          "Palomares, Comparing the Mixing Rates of Neat Riffle Shuffles, §7 finite eigenvalue computations",
+          "Resultary exact inversion statistics, 6806b0a229ff"
+        ]
+      },
+      "rationale": "Reassessed the exact sign law and the fixed- and growing-deck even/odd relaxation under the corrected literal-stay convention. The shuffle, its adhesion parameter conversion, and previously published full-chain mixing results are not new. The closest inspected overlaps are the actual same-model mixing theorems, finite-deck spectral computations, and correlated-label inversion laws. They do not give the all-size sign recurrence and crossover. The repair's contribution is that law, not the change of variable.",
+      "residual_risks": [
+        "Possible finite spectral overlap with Palomares; Wager's thesis and any unindexed exact sign calculations remain unresolved. No same-day priority inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model match; inspected theorem concerns fixed-p total-variation mixing",
+          "evidence": "Fair first mark, literal p retention, stable sorting zeros first; τ_mix=O(log^4 n) for fixed p.",
+          "identifier_or_url": "https://publications.lib.chalmers.se/records/fulltext/215159/local_215159.pdf",
+          "material_read": "§§1–2, OA offsets 4950–10936, especially the reverse rule and Theorem 2.1",
+          "method": "Lawful alternate university repository PDF after Project Euclid attempts did not yield full text",
+          "title": "Rapid mixing of dealer shuffles and clumpy shuffles",
+          "trigger": "Same Markovian model, including time reversal and literal p"
+        },
+        {
+          "assessment": "Adhesion normalization and full-chain bounds, not a sign law in these statements",
+          "evidence": "Retention (1+u)/2 in the Markov-label model; mixing bounds concern the full permutation chain.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.02092v1",
+          "material_read": "Abstract, p. 1; §2 p. 5 near offset 16500 and Definition 2.4 p. 6 near 20280",
+          "method": "Open primary PDF",
+          "title": "Adhesive riffle shuffles: one-parameter models and mixing bounds",
+          "trigger": "Exact strong-adhesion convention and fixed-deck regime"
+        },
+        {
+          "assessment": "Exact shuffle law, finite spectral overlap possible",
+          "evidence": "Explicit probability in switch count and finite-deck spectra for n<9, not an all-size character in the inspected passages.",
+          "identifier_or_url": "https://lsa.umich.edu/content/dam/math-assets/reu-su22/2025/REU_Report_Final_Mateo_Palomares.pdf",
+          "material_read": "§5 Definition 7, p. 5 near offset 14750; §7 p. 6 near offset 18200",
+          "method": "Open primary PDF",
+          "title": "Comparing the Mixing Rates of Neat Riffle Shuffles",
+          "trigger": "Identical correlated words and potentially overlapping spectra"
+        },
+        {
+          "assessment": "Inversion statistics and weak limits, not sign expectation",
+          "evidence": "Inversion mean and zero-inversion probability; Gaussian, Poisson-switch and rare-switch laws.",
+          "identifier_or_url": "Resultary 6806b0a229ff",
+          "material_read": "RESULT.md finding and limit comparison",
+          "method": "Local snapshot mirror",
+          "title": "Three-scale inversion laws for correlated-label inverse riffle shuffles",
+          "trigger": "Same one-step distribution and near-maximal adhesion scalings"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "Cut/inversion regression and one-step dependence limits, rather than a sign character.",
+          "identifier_or_url": "Resultary 7e94f87ad757",
+          "material_read": "RESULT.md finding",
+          "method": "Local mirror",
+          "title": "Orthogonal cut sizes and inversions in correlated-label riffle shuffles",
+          "trigger": "Same-day exact and asymptotic statistics of one shuffle"
+        },
+        {
+          "assessment": "Unresolved; not relied on as negative evidence",
+          "evidence": "Jonasson–Morris refer to facts in the extremely clumpy setting; the returned Stanford repository hit was a different author's thesis.",
+          "identifier_or_url": "Citation [9] in Jonasson–Morris, DOI 10.1214/ECP.v20-3682",
+          "material_read": "Only Jonasson–Morris's reference and mention in §1; no identified primary text from the targeted author/title search",
+          "method": "Citation inspection and bounded primary-literature search",
+          "title": "Clumpy riffle shuffles (Wager, Stanford, 2011)",
+          "trigger": "Earlier extremely clumpy regime with parameter varying by deck size"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md, rare-switch proof and growing-deck limit; Jonasson–Morris Theorem 2.1 and Jiang's full-chain comparison"
+      ],
+      "rationale": "The alternating sign is a natural one-dimensional spectral observable and an immediate obstruction to total-variation mixing. The law isolates a real mechanism: a single rare label switch can change parity on an even deck but never on an odd one, which needs two switches. This gives genuinely different fixed-size relaxation scales and distinct nontrivial growing-deck profiles; the result is more than a correction of factors of two or a finite spectral table.",
+      "residual_risks": [
+        "The sign may relax before the rest of the spectrum. No sharp total-variation profile, cutoff or joint time/size mixing claim is supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

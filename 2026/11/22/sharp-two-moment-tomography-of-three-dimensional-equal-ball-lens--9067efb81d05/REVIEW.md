@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Surface area is uniform in spherical axial coordinate on each of two opposite equal-area caps. The exact parametrization, first and fourth radial moments, and diagonal covariance matrix are integrated explicitly in RESULT.md; an independent-pair polarization identity gives both even distance moments. The inverse follows by a strictly monotone quadratic ratio; the global square-root inequality and exact equality case are elementary, with all endpoints handled. `verify.py` rechecks seven symbolic identities and ten independent two-point simulations across five settings. Risks: experiments cannot certify continuum statements; the proof supplies those. The collapsed lens is explicitly excluded, and a coincident-ball full sphere is included without double counting.
+PASS
 
-## Originality — PASS (provisional)
+For a>0 each supporting sphere contributes the cap on the opposite side of the midplane, and both have area 2πR²(1−a). Sphere area in axial coordinate and azimuth is constant; the seam has measure zero and at a=0 the construction partitions a sphere into hemispheres. Independently integrated the two-point fourth power by averaging over the azimuth difference, treating same-cap and opposite-cap pairs separately. For b=1−a and R=1 this gives μ=2b and ν=4b²(b²−2b+5)/3; scaling restores the stated R factors. The dimensionless ratio (4+a²)/3 is strictly increasing on [0,1), so a and then R are uniquely recovered; the ball is included and a=1 excluded. The bound follows from |a₁²−a₂²|≥|a₁−a₂|², with equality against a=0 setting the constant and exponent. One positive even moment can be held fixed over varying a by scaling R. The independently integrated one-cap case also gives the claimed shared wedge, with distinct surfaces off the full-sphere endpoint. Replay: python3 /workspace/reproductions/review_04_lens.py (SymPy, exact integrals). The frozen symbolic/simulation checker was inspected, not run. No volume-sampling, unequal-ball, noisy-estimation or uniform radius-stability claim is verified; collapse as a→1 refers to fixed R. The two moments recover absolute scale as well as shape.
 
-Relevant published published-finding corpus full texts were compared at the **claim and implication** level: `589d8e6fc2c0` handles one cap, not the two-sphere boundary mixture; `dbb6d001c487` handles uniform **volume** points within the same lens, not its boundary; `bdea9ec9027d` handles spherical lunes. Drach–Tatarko's 2023 original study proves isoperimetric lens extremality and gives background geometry but not two-point boundary moments. Searches for surface-pair chords, random distances, tomography, moment inverses, and equivalent parameterizations found no stated stronger covering theorem. The single-cap moment wedge is credited, and its coincidence with the lens wedge is recognized as an ambiguity, not evidence of globally unique reconstruction. Residual priority risk: unindexed/classical boundary-lens moment formula, or an unpublished deduction, could be equivalent; independent literature audit remains outstanding.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The equal-ball lens is a natural curvature-bounded extremizer with two freely varying geometric parameters. Exact quantitative reconstruction of both radius and overlap from a minimal pair of rotation-invariant boundary distance statistics fills a motivated geometric measurement gap. The sharp inverse exponent identifies the precise near-ball loss of identifiability; the cross-family cap/lens ambiguity gives a concrete limit to this method. Unlike isolated number tables or arbitrary slices, this is a complete all-parameter inverse classification with boundary and stability behavior. It does not claim a general convex-body inverse theorem.
+The exact moment law and sharp separation inverse are supported as distinct for the entire equal-ball lens boundary. The single-cap wedge is verified overlap, not an originality claim; the lens realization of the same wedge gives the ambiguity. The generic iid-pair expansion and the geometry of spherical zones are not claimed as new.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This is a complete inverse law for two natural rigid-motion invariant statistics on a geometrically motivated family. It specifies what can be recovered from two moments, the sharp loss of resolution near a ball, and a concrete ambiguity if the family is unknown. These are not consequences of a general distance expansion alone, and they are exact population statements, not statistical guarantees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

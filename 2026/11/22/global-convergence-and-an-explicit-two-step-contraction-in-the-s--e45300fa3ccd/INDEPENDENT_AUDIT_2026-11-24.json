@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:10:44.824551Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The odds rewrite gives 0<z<w<=1 and R_x>1, R_x>R_y and R_x R_y>1, proving strict order preservation on both branches, including a tie. Before entry, r'-1=(r-1)(1+r/(1+w)) >= 3(r-1)/2, and r>=alpha forces R_y<1; this proves the stated ceiling bound even when it is zero. At or after entry, the denominator-minus-numerator identity for R_y' is at least alpha-2>0. The proposed fixed point has w_*=1/(alpha-1), z_*<w_* and R_y=w_*<1. The two log-odds deviations satisfy u'=u-av and v'=bu-v; the mean-value bounds a>=1/2 and b>=1-1/alpha make N nonincreasing and bound |u'-v'| by qN, q=1/2+1/alpha. At the second step each of the first two components puts weight at least 1/2 on that tightened bound, giving (1+q)/2; the difference component is bounded by qN. This proves the rate from T, not a sharp asymptotic multiplier or a contraction during the transient. RESULT.md §§1–4 and CHECK.py were inspected, not executed; the finite checker's entry-time ceiling uses floating-point logarithms even in its rational map checks. No computation is needed for the analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The high-resource theorem allows one coordinate equal to 1/2 but requires alpha>=4 and contracts in a different weighted odds norm after entry into an explicit rectangle.",
+          "Satur's Theorem 3 is local for alpha>2; §5 is numerical."
+        ],
+        "reasoning": "The high-resource result has a slightly broader initial domain but does not dominate the alpha range or the post-switch log-odds guarantee. Neither fixed-point linearization nor sampled basin tests prove global convergence for 2<alpha<4.",
+        "searches": [
+          "Resultary mirror: f2ff6066d0c6 RESULT.md, Finding, scope and proof",
+          "arXiv:2611.13318v1 §3 and §5"
+        ]
+      },
+      "checked_sources": [
+        "Satur arXiv:2611.13318v1",
+        "Resultary f2ff6066d0c6",
+        "Resultary 8b71d315903b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Satur describes numerical convergence to ‘these fixed points’ (the alpha>2 fixed points in that paragraph) and says a rigorous global proof remains open; §5 separately identifies the local-only scope of Theorem 3. ‘As for 0<alpha<2’ makes a comparison to the subcritical case, not a restriction of ‘these fixed points’ to it.",
+          "The high-resource comparator gives geometric eventual entry under its hypotheses, followed by a 55/64 estimate in its own rectangle and norm."
+        ],
+        "reasoning": "Existing order preservation and strict branch conditions near the fixed point do not establish that every orbit enters and stays in the branch. The high-resource estimate does not imply the specified post-switch norm bound or convergence below 4.",
+        "searches": [
+          "Satur §3, paragraph after Theorem 3, PDF p. 24; §5.1, PDF p. 33",
+          "f2ff6066d0c6 proof, finite-entry and rectangle steps"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Satur studies the identical map and reports local stability and numerical convergence. The high-resource Resultary record studies the identical map in positive odds; the critical-collapse record is at alpha=2."
+        ],
+        "reasoning": "Taking reciprocal odds ratios or switching player labels does not distinguish the maps. The high-resource result overlaps exactly on eventual selection and limit over its parameter range, whereas critical collapse goes to a different invariant state and cannot be equated with supercritical attraction.",
+        "searches": [
+          "Resultary: Satur two-player maxima / absorbing mixed branch / nonlinear critical collapse",
+          "Primary-literature lookup: Satur two-player maxima map global convergence",
+          "arXiv:2611.13318v1 Eq. (1), Lemma 2, Theorem 3 and §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f2ff6066d0c6 contains exact global conclusions on alpha>=4. 8b71d315903b contains critical collapse amplitudes at alpha=2. Satur §5.1 reports a finite table of sampled convergence times."
+        ],
+        "reasoning": "The archive statement provides true partial coverage; the numerical table does not record or certify an all-parameter theorem, and the critical table cannot supply the supercritical result. Same-day overlap is not a priority determination.",
+        "searches": [
+          "Resultary lookups for same map, global winner–loser convergence and branch absorption; comparison of f2ff6066d0c6 and 8b71d315903b"
+        ]
+      },
+      "rationale": "Credit existing same-map global convergence and eventual branch selection for alpha>=4, and credit Satur for the fixed points, order preservation and local stability. The supported distinct claim is global attraction down to every 2<alpha<4, together with the specific explicit entry-time and log-odds estimates for all alpha>2. No equivalent coverage of this stronger parameter-and-estimate statement was identified in the sources checked.",
+      "residual_risks": [
+        "Same-day overlap at alpha>=4 is real; relative priority is unresolved.",
+        "The literature search was bounded; equivalent treatments of the map under a different description remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same map, local analytic and global numerical coverage; not the global theorem",
+          "evidence": [
+            "Theorem 3 proves local stability and gives the fixed points. The §3 paragraph discusses global convergence to those supercritical fixed points as open; §5 gives simulations including alpha=2.01, 2.1, 2.5 and 3."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.13318v1",
+          "material_read": "Eq. (1), Lemma 2, Theorem 3, closing paragraph of §3 (PDF p. 24; text near offset 87042), §5 and §5.1 (near offset 117900)",
+          "method": "Lawfully accessible original PDF, bounded passages",
+          "title": "From oscillations to symmetry breaking in a two-dimensional piecewise-smooth dynamical system",
+          "trigger": "Identical maxima map and previously proved stability"
+        },
+        {
+          "assessment": "Verified overlap for alpha>=4; no proof of ordering between same-day records",
+          "evidence": [
+            "Same exact limit and eventual permanent branch selection; 55/64 after a trapping rectangle in a different odds norm; does not address 2<alpha<4."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-global-high-resource-attraction-through-an-absorbing-mixed-branc--f2ff6066d0c6/RESULT.md",
+          "material_read": "Finding, scope and mixed-branch proof (from offset 0 and around 2100)",
+          "method": "Configured local mirror",
+          "title": "Global high-resource attraction through an absorbing mixed branch in a two-maxima map",
+          "trigger": "Strongest same-map catalogue overlap"
+        },
+        {
+          "assessment": "Complementary critical theorem only",
+          "evidence": [
+            "Its parameter is exactly alpha=2, not alpha>2."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-nonlinear-critical-collapse-amplitudes-and-a-quadratic-phase-law--8b71d315903b",
+          "material_read": "Resultary indexed statement and scope",
+          "method": "Configured catalogue lookup",
+          "title": "Nonlinear critical-collapse amplitudes and a quadratic phase law in two-player maxima dynamics",
+          "trigger": "Same map with nearby parameter"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The extension reaches arbitrarily close to the bifurcation threshold where the local theorem and numerical evidence did not settle the basin. The absorbing branch and explicit transient estimate give a structural reason for winner–loser selection; the two-step estimate then supplies a uniform bound even for points that enter far from the fixed point. This is not a recomputation of the fixed point or a merely local multiplier.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

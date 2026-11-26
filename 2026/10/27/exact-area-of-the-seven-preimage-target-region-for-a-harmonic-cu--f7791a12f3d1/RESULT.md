@@ -1,65 +1,58 @@
 # Exact area of the seven-preimage target region for a harmonic cubic
 
 ## Finding
-For the harmonic polynomial \(F(z)=z^3-\overline z^{\,2}\), define the regular seven-preimage set
+
+For the harmonic polynomial \(F(z)=z^3-\overline z^{\,2}\), let \(U_7\) be the set of regular targets with exactly seven distinct preimages. This set is a bounded, connected open set with fivefold rotational symmetry. More precisely, it is a punctured radial domain: there is a positive continuous radial function \(\rho\) such that
 \[
-U_7=\{w\in\mathbb C\setminus(F(\{J_F=0\})): \#\{z\in\mathbb C:F(z)=w\}=7\}.
+U_7=\{re^{i\phi}:0<r<\rho(\phi)\}.
 \]
-Then \(U_7\) is a bounded, connected, star-shaped open set with fivefold rotational symmetry. Its boundary consists of five smooth caustic segments meeting at five transverse double points. The **exact planar area** is
+The filled domain \(U_7\cup\{0\}\) is star-shaped about zero. The boundary of \(U_7\) consists of the isolated point \(0\) together with five smooth caustic arcs that join at five transverse double points of the caustic. Its planar Lebesgue area is
 \[
-\operatorname{area}(U_7)=\frac{160}{243}\left(\arccos\frac14-\frac{2\pi}{5}+\frac{\sqrt{15}}{64}\right)
-=0.0803255144042085\ldots.
+\operatorname{area}(U_7)=\frac{160}{243}\left(\arccos\frac14-\frac{2\pi}{5}+\frac{\sqrt{15}}{64}\right)=0.0803255144042085\ldots.
 \]
-More generally the regular seven-preimage set of \(F_b(z)=z^3-b\overline z^{\,2}\), for \(b>0\), has area \(b^6\operatorname{area}(U_7)\), because \(F_b(bu)=b^3F(u)\).
+For \(F_b(z)=z^3-b\overline z^{\,2}\), \(b>0\), the analogous regular-target area is \(b^6\operatorname{area}(U_7)\).
 
 ## Assumptions and scope
-Here area denotes ordinary planar Lebesgue measure; zeros are counted **without multiplicity** and only regular targets are assigned a valence. The Jacobian is \(J_F(z)=9|z|^4-4|z|^2\), so the critical locus is the origin together with \(|z|=2/3\). The target \(w=0\) is critical, as is every point of the caustic described below; exclusion of the critical values does not affect area. The result concerns the specific harmonic cubic and its positive coefficient rescalings, not arbitrary harmonic polynomials.
+
+The Jacobian is \(9|z|^4-4|z|^2\), so the critical points are zero and the circle of radius \(2/3\). Regular targets omit all images of those points, including the origin. Counts are without multiplicity. The result concerns this harmonic cubic and its positive-coefficient rescalings.
 
 ## Proof
-**1. Critical-value curve and monotone polar angle.** Parametrize the nontrivial critical circle by \(z=(2/3)e^{it}\). Its image is
+
+**Caustic and winding.** The image of the critical circle is
 \[
-C(t)=\frac8{27}e^{3it}-\frac49e^{-2it},\qquad 0\le t<2\pi.
+C(t)=\frac8{27}e^{3it}-\frac49 e^{-2it}=\frac4{27}e^{-2it}(2e^{5it}-3),\qquad t\in\mathbb R/(2\pi\mathbb Z).
 \]
-It never vanishes because the two Fourier amplitudes differ. Direct differentiation gives
+It avoids zero, and its argument decreases strictly through two full turns in one period: the second factor in parentheses winds zero times about zero, and
 \[
-\operatorname{Im}(\overline{C(t)}C'(t))=-\frac{32}{243}(1+\cos5t).
+\operatorname{Im}(\overline C C')=-\frac{32}{243}(1+\cos5t)
 \]
-Consequently \(\arg C(t)\) decreases monotonically and strictly over every nontrivial interval, with total change \(-4\pi\). To see the total change, factor \(C(t)=(4/27)e^{-2it}(2e^{5it}-3)\); the second factor winds zero times about the origin. Every ray is thus met exactly twice (with the natural continuous convention at isolated zero angular derivative points).
+is negative except at isolated parameters. Thus every ray has exactly two intersections counted by parameter, even if both parameters give the same image. On an outward radial ray, the winding about the target is minus the number of those intersections farther from zero than the target. This follows by counting signed crossings of the ray from the target to infinity, and extends to rays with a nontransverse crossing by continuity at any target off the caustic. As a multiset, the two radii vary continuously locally in angle by strict monotonicity of the lifted polar angle; their minimum \(\rho\) is positive and continuous.
 
-**2. Valence and the inner radial envelope.** Outside the critical circle the map preserves orientation, and inside it reverses orientation. The harmonic argument principle, or degree additivity over the disk and its exterior, yields for each regular target
+The proper map \(F\) has degree three: on a sufficiently large circle the leading term dominates both the conjugate-quadratic term and any fixed target. All regular preimages in the open disk of radius \(2/3\) reverse orientation; all others preserve it. The degree in the disk equals \(\operatorname{wind}(C,w)\), so the negative count is \(-\operatorname{wind}(C,w)\), and the total count is \(3-2\operatorname{wind}(C,w)\). Consequently the regular seven-preimage set is the radial region inside both intersections, with zero deleted. Near zero, it has two orientation-reversing preimages in the disk and five orientation-preserving preimages outside. The deletion leaves the domain connected but introduces the isolated boundary point; no point of the punctured domain is a star center, since its antipodal ray also has points in the domain.
+
+**Double points and the inner arcs.** For two distinct parameters with the same image, choose their midpoint \(m\) and half-separation \(0<h\le\pi/2\) on a shorter parameter arc. The equality reduces to
 \[
-N(w)=3-2\operatorname{wind}(C,w).
+2e^{5im}\sin(3h)+3\sin(2h)=0.
 \]
-Because the polar argument of \(C\) travels twice around clockwise and radial intersections occur in pairs, the winding numbers are \(0,-1,-2\), and the seven-preimage locus is precisely the region **inside both radial intersections**. This region is star-shaped about the origin in the closure sense, and its boundary is the smaller radial envelope of the two caustic branches. Near \(w=0\), the five simple unit-modulus solutions of \(z^3=\overline z^{\,2}\) persist, while the critical solution at the origin splits into two solutions of opposite signs; hence nearby regular targets have seven preimages, identifying the innermost region. Strict radial ordering can change only at a self-intersection.
+Dividing by \(2\sin h\) and writing \(x=\cos h\) gives \(e^{5im}(4x^2-1)+3x=0\). Hence \(|4x^2-1|=3x\), and the only solution in \([0,1)\) is \(x=1/4\); it forces \(e^{5im}=1\). Set \(h_0=\arccos(1/4)\). The pair \(\pm h_0\) gives the image \(5/27\), and the other four double points are its rotations by \(e^{6\pi i j/5}\), by the covariance \(C(t+2\pi/5)=e^{6\pi i/5}C(t)\). At \(h_0\), \(C'=(5\sqrt{15}-25i)/18\), and at \(-h_0\) the derivative is the negative conjugate of that vector. The two tangents are nonparallel; rotation propagates this transversality.
 
-**3. Exact location of double points and boundary segments.** If \(C(t+h)=C(t-h)\) for distinct parameter points, then
+Let \(\delta=h_0-2\pi/5>0\). The images of \(-\delta\) and \(\delta\) are the double points on the rays of angles \(6\pi/5\) and \(4\pi/5\), respectively. The arc between them through \(t=0\) traverses precisely the sector between these rays containing the negative real axis, by strict monotonicity and the continuous lift of the argument. On the negative real ray the two parameters are \(0\) and \(\pi\); the radii there are \(4/27\) and \(20/27\). Thus the arc through \(t=0\) supplies the smaller radius on that ray. By continuity it stays smaller up to the sector endpoints, since radii can exchange order only at a double point. The other sectors are the four rotations of this sector. In each sector the arc is smooth (the zeros of \(C'\) lie at \(5t=\pi\bmod 2\pi\), off the selected arcs). These five arcs form the outer boundary of \(U_7\).
+
+**Area.** Apply Green's theorem to the filled domain, whose area equals that of the punctured domain. Increasing \(t\) traverses the selected arcs clockwise, so
 \[
-2e^{5it}\sin(3h)+3\sin(2h)=0.
+\operatorname{area}(U_7)=-\frac52\int_{-\delta}^{\delta}\operatorname{Im}(\overline C C')\,dt=\frac{160}{243}\left(\delta+\frac{\sin(5\delta)}5\right).
 \]
-After excluding coinciding parameters, this forces \(\cos h=\pm1/4\) and \(e^{5it}=\pm1\). Up to periodicity, there are exactly five distinct double-point images at modulus \(5/27\), namely \((5/27)e^{6\pi i j/5}\) for \(j=0,\ldots,4\). In particular, the solutions \(t=\pm h_0\), where \(h_0=\arccos(1/4)\), map to \(5/27\). Their other equivalent parameter representations give the same five images; the derivative vectors at these parameter pairs are not parallel, so the crossings are transverse.
+Here \(\sin(5\delta)=5\sqrt{15}/64\) follows from the quintuple-angle identity and \(\cos h_0=1/4\). Finally, \(F_b(bu)=b^3F(u)\) maps the regular seven-preimage regions by the target dilation \(b^3\), which scales area by \(b^6\).
 
-Set \(\delta=h_0-2\pi/5>0\). The five selected arcs making up the inner radial envelope are exactly \(C(t)\) for \(|t-2\pi j/5|\le\delta\), with \(j=0,\ldots,4\). Indeed the endpoints are consecutive double points, the open portions contain no self-intersection, and at \(t=0\) the radius \(|C(0)|=4/27\) is the **smaller** of the two radial intersections on the negative real ray. Continuity and the complete double-point classification force the same choice on every intervening ray. These arcs join to form a simple star-shaped boundary. The fivefold rotational symmetry follows from \(C(t+2\pi/5)=e^{6\pi i/5}C(t)\).
+## Reproducibility
 
-**4. Oriented area.** The boundary is clockwise, so Green's formula, with \(t\) traversing each selected arc in increasing order, gives
-\[
-\begin{aligned}
-\operatorname{area}(U_7)
-&=-\frac{5}{2}\int_{-\delta}^{\delta}\operatorname{Im}(\overline{C(t)}C'(t))\,dt\\
-&=\frac{160}{243}\left(\delta+\frac{\sin(5\delta)}5\right).
-\end{aligned}
-\]
-The identities \(\delta=\arccos(1/4)-2\pi/5\) and \(\sin(5\delta)=5\sqrt{15}/64\) give the advertised closed form. The coefficient scaling follows by substituting \(z=bu\) and observing the dilation of the target plane by \(b^3\).
+The same caustic parametrization and area integral can be corroborated numerically by inverting the two branches of the lifted angle and integrating one-half the square of their smaller radius over a full turn. A periodic midpoint grid of 4,000 evenly spaced rays with bisection for both radii gives approximately \(0.0803254871\). This is a numerical comparison only; the proof uses exact intersection classification and exact integration.
 
-## Verification
-The supplementary script `verify_area.py` computes the constant by two separate methods: the derived exact caustic-arc formula, and an independently discretized polar integral of the minimum of the two radial intersections. With 10,001 caustic samples and 40,001 angular quadrature points the results are respectively \(0.0803255144042085\ldots\) and \(0.0803262828733777\ldots\), an absolute discrepancy of less than \(8\times10^{-7}\). It also checks the critical-value identity and five vertex radii at finitely many sample points. The proof above, not finite discretization, establishes the exact assertion.
+## Relationship to prior work and limitations
 
-## Relationship to prior work
-Brilleslyper, Brooks, Dorff, Howell, and Schaubroeck (2020) use winding of critical hypocycloids to classify **numbers of zeros** in real-parameter harmonic trinomial families; Brooks and coauthors (2022) extend such counts to complex parameters. Those established root-counting principles are used here. The present claim concerns a different invariant: the two-dimensional Lebesgue **area of the target locus attaining seven preimages** for one fixed map, including its exact inner-caustic envelope. Neither inspected paper states the present area expression. A 2023 study of convex combinations of harmonic families concerns changes of valence under polynomial interpolation, not this target-plane area. This work does not claim that the general winding principle or the occurrence of seven roots is new.
-
-## Limitations
-Historical priority for the precise area formula remains provisional; geometrically equivalent older caustic-area calculations under different names are possible. The 2023 related paper was accessible in bibliographic/abstract form rather than complete readable text. The numerical verification has finite discretization error, unlike the closed-form proof. Transverse-intersection classification applies specifically to this fivefold caustic. No independent audit has been performed.
+Winding of critical-image curves already gives zero counts for families of harmonic trinomials; that counting machinery and the occurrence of seven distinct roots are not the contribution here. The exact area uses the smaller radial envelope and counts a fixed map's regular target locus, not a multiplicity-weighted image area. The argument uses this specific caustic and does not establish areas for general harmonic polynomials. Historical priority for this particular area expression remains subject to mathematically equivalent caustic-cell calculations in the literature.
 
 ## References
-1. M. Brilleslyper, J. Brooks, M. Dorff, R. Howell, L. Schaubroeck, *Zeros of a one-parameter family of harmonic trinomials*, Proceedings of the AMS Series B **7** (2020), 82–90, DOI 10.1090/bproc/51 (publicly available 2020-06-17).
-2. J. Brooks, M. Dorff, A. Hudson, E. Pitts, C. Whiffen, A. Woodall, *Zeros of a Family of Complex-Valued Harmonic Trinomials*, Bulletin of the Malaysian Mathematical Sciences Society **45** (2022), 1079–1091, DOI 10.1007/s40840-021-01230-8.
-3. J. Brooks, M. Dixon, M. Dorff, A. Lee, R. Ottinger, *Zeros of Convex Combinations of Elementary Families of Harmonic Functions*, Mathematics **11** (2023), 4057, DOI 10.3390/math11194057.
+
+1. M. Brilleslyper, J. Brooks, M. Dorff, R. Howell and L. Schaubroeck, *Zeros of a one-parameter family of harmonic trinomials*, Proc. Amer. Math. Soc. Ser. B **7** (2020), 82–90, DOI 10.1090/bproc/51.
+2. J. Brooks, M. Dorff, A. Hudson, E. Pitts, C. Whiffen and A. Woodall, *Zeros of a Family of Complex-Valued Harmonic Trinomials*, Bull. Malays. Math. Sci. Soc. **45** (2022), 1079–1091, DOI 10.1007/s40840-021-01230-8.

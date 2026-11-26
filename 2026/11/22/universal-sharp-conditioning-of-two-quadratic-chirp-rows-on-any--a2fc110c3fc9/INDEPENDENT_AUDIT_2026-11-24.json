@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:23:46.588839Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two phase differences relative to x_0 are an invertible linear map of the label difference, with determinant (x_1-x_0)(x_2-x_0)(x_1-x_2); thus all nonzero ordered pairs occur once for each first label on each aperture. The row Gram eigenvalues are 3 plus or minus |1+omega^u+omega^v|. The modulus is below 3 unless both differences vanish, and the positive singular-value ratio increases strictly with it. For the maximum at least two of u,v,u-v are nonzero; each corresponding cosine is at most cos(2pi/p). Equality requires exactly one zero and the others +/-1, giving the six displayed pairs. For the minimum a repeated root gives modulus >1, and for distinct roots with a cyclic gap at least p/2 the identity |S|^2=1-8 product cos(pi*gap/p) gives modulus at least one. Balanced triples have all gaps below p/2, even at p=5, and give modulus below one. On the remaining range, strict concavity of log cos shows that transferring one unit from a larger gap to a gap at least two smaller strictly increases the product; exactly the balanced gap multiset minimizes. Its representative {0,k,2k} yields rho_p. The unique exceptional cyclic gap gives p distinct translates of the minimizing root triple, with exactly three translates containing 1 and two ways to order the other roots. Both six-per-label counts thus give 3p^2 unordered pairs. Taylor expansion gives rho_p=2pi*sqrt(3)/(3p)+O(p^-2) and tau_p=3-4pi^2/(3p^2)+O(p^-4), leading to both stated asymptotics. Independent finite enumeration for p=5,7,11,13,29,101 matched both extrema within 1e-12 and both six-counts; the proof, not enumeration, gives the universal claim. The frozen checker and verification notes were inspected without executing the uploaded code.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li bounds the number of zeros of weighted quadratic-chirp sums for arbitrary support size; for three sites Theorem 3.7 bounds it by p. The consecutive-triple Riesz record treats every order N>=3, but its optimized ratio uses all three singular values of a square matrix. Kalogirou defines the smallest nonzero modulus with repetitions and credits the exact k=3 case as known, while developing upper bounds for larger k."
+        ],
+        "reasoning": "The parabolic zero theorem is for a vanishing set of a scalar polynomial-phase sum, not quantitative extremal angles between evaluation rows. The square Riesz objective can be written using a larger Gram matrix, but optimizing its full spectrum does not optimize the two-row principal block and does not address repeated phasors.",
+        "searches": [
+          "arXiv:2609.16030v2, Section 3, Theorem 3.7",
+          "Resultary 1200745c9cae",
+          "arXiv:2607.06098, introduction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "arXiv:2104.15057",
+        "arXiv:2607.06098",
+        "arXiv:2609.16030v2",
+        "Resultary a2fc110c3fc9, 1200745c9cae and 11239821c1c5",
+        "S0022314X18301045 (retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Combining the elementary invertible phase-difference map and Gram spectrum with Barber already yields the minimum row condition number and its minimizing pairs for sufficiently large primes. The square Fourier record independently counts p balanced root triples but gives no optimality statement for their two-row blocks. Neither source gives the sharp supremum with the one-step repeated-root equality set."
+        ],
+        "reasoning": "The nonzero phase-pair reduction does not make the known lower endpoint new. It does transfer the independently established upper endpoint and equality count to all apertures, giving the full classification including small primes. No evidence of an equivalent two-sided result was established.",
+        "searches": [
+          "arXiv:2104.15057, Section 2, Proposition 3(b) and proof",
+          "Resultary 1200745c9cae, proof Steps 1–5",
+          "arXiv:2609.16030v2, Theorem 3.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After dephasing and rotating, the minimum is the smallest modulus of a sum of three p-th roots. There is no zero sum of three p-th roots at p>=5: three unit vectors summing to zero are equally spaced. Barber gives the exact nonzero minimum for sufficiently large n and finds the balanced optimizing configurations when 3 does not divide n."
+        ],
+        "reasoning": "For p congruent to +/-1 modulo 3, expansion about 2pi/3 shows Barber's sine expressions are exactly |1+2cos(2pi*floor((p+1)/3)/p)|. The listed configurations are the same rotation orbit and yield six anchored ordered pairs. The overlap includes the lower asymptotic, not just the general intuition about balance.",
+        "searches": [
+          "Web: smallest absolute value sum of three not necessarily distinct nth roots of unity exact minimum three roots of unity minimum modulus Myerson",
+          "Web: Ben Barber small sums of five roots of unity k=3 closest equilateral roots exact smallest arxiv",
+          "arXiv:2104.15057, Proposition 3(b)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary match a2fc110c3fc9 is the assigned record itself. 1200745c9cae enumerates the balanced optimizer sets for its distinct square objective. Barber has the exact three-root minimum formulas in the large-order regime. The full-vector Bargmann entry was available only through its indexed summary."
+        ],
+        "reasoning": "Credit the published minimum formulas and their configurations. An exact phasor-modulus table excluding the all-coincident tuple, if available, could settle the maxima as well after the aperture bijection. No inspected table or same-family spectral theorem gives the sharp upper end and its optimizer counts.",
+        "searches": [
+          "Resultary exact-scope chirp conditioning, consecutive triple Riesz, and Bargmann phase/three-column spectra: a2fc110c3fc9, 1200745c9cae, 11239821c1c5",
+          "arXiv:2104.15057, Proposition 3(b)"
+        ]
+      },
+      "rationale": "The minimum three-root modulus and the balanced optimizer geometry are substantially known: Barber proves the same congruence formulas and configurations for sufficiently large orders, and the exact square Fourier Riesz theorem gives the same balanced triple geometry for a different objective. Do not credit either as new over those ranges. The supported distinct result is the full two-sided row-pair conditioning classification, especially the sharp repeated-phase maximum and its multiplicity on every three-site aperture, with an argument valid for every prime p>=5. Neither prior result states or mechanically supplies that full two-sided classification.",
+      "residual_risks": [
+        "The three-root minimum is known over the large-prime range; this review does not assert priority for it. Earlier exact maximum formulas or a restricted-frame classification indexed under another description may exist.",
+        "The identified two/three-root journal article and full Bargmann record could not be inspected; the accessible comparisons give only their documented conclusions or scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact lower-end overlap for sufficiently large orders with 3 not dividing n; no upper-end theorem in the inspected result",
+          "evidence": "The n congruent to +/-1 modulo 3 formulas agree with rho_p, and the proof identifies one rotation orbit of the balanced perturbation. Proposition 3(b) is stated for sufficiently large n.",
+          "identifier_or_url": "https://arxiv.org/pdf/2104.15057",
+          "material_read": "Introduction; Section 2, Proposition 3(b), arXiv pp. 4–6, offsets about 10000–17500",
+          "method": "OA primary PDF",
+          "title": "Small sums of five roots of unity",
+          "trigger": "Exact smallest three-root modulus and balanced configurations under an equivalent objective"
+        },
+        {
+          "assessment": "Same geometric minimizing sets for a different objective",
+          "evidence": "Minimizes the squared condition number of a square 3 by 3 Fourier synthesis matrix with consecutive rows and three distinct frequencies, not the two-row condition number or its maximum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-riesz-conditioning-for-consecutive-triples-on-finite-cycle--1200745c9cae/RESULT.md",
+          "material_read": "Finding, Assumptions, Gram reduction and Steps 2–5, offsets 0–6278",
+          "method": "Local mirror",
+          "title": "Sharp Riesz conditioning for consecutive triples on finite cycles",
+          "trigger": "Same optimal gap multiset and related exact conditioning"
+        },
+        {
+          "assessment": "Zero-count bound, not a row-conditioning classification",
+          "evidence": "For support size k>=2 the weighted sum has at most p+2*floor(k/2)-2 zeros; no two-row spectral ratio appears in that result.",
+          "identifier_or_url": "https://arxiv.org/html/2609.16030v2",
+          "material_read": "Section 3, Theorem 3.7 and start of proof, HTML offsets 37700–40164",
+          "method": "OA primary HTML",
+          "title": "Sharp Total-Support Uncertainty for the Standard Complete Set of Mutually Unbiased Bases",
+          "trigger": "Identical finite quadratic-chirp family and small arbitrary supports"
+        },
+        {
+          "assessment": "Points to known exact small-root minima; not a maximum result",
+          "evidence": "Defines exact smallest nonzero modulus, notes exact values known for k=2,3,4 and cites Barber and Myerson.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.06098",
+          "material_read": "Introduction and references, p. 1 and p. 9",
+          "method": "OA primary PDF",
+          "title": "Small sums of roots of unity",
+          "trigger": "Exact small sums and broader bounds with root repetition"
+        },
+        {
+          "assessment": "Limited comparison; not used to establish whole-source noncoverage",
+          "evidence": "The indexed objective is full-vector three-column spectra and Bargmann phases, not restricted two-row conditioning.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-bargmann-phase-histograms-and-three-column-spectra-for-pri--11239821c1c5",
+          "material_read": "Indexed abstract only; full local file unavailable",
+          "method": "Resultary and bounded local-mirror attempt",
+          "title": "Exact Bargmann-phase histograms and three-column spectra for prime quadratic-chirp bases",
+          "trigger": "Related exact spectra of the same chirp vectors"
+        },
+        {
+          "assessment": "Residual access risk, not verdict evidence",
+          "evidence": "The description refers to small moduli and conjugate products of sums of distinct roots.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0022314X18301045",
+          "material_read": "Public search description only; full-text retrieval was forbidden by site",
+          "method": "Bounded OA primary retrieval attempt",
+          "title": "On sums of two and three roots of unity",
+          "trigger": "Direct possible overlap with exact three-root bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The best and especially worst nonzero singular-value ratios determine exact conditioning of two observable row combinations on any three-site aperture, independent of geometry. The equality counts explain how many label choices attain each end, and the worst case growing linearly in p is materially different from the near-isometric best case. This is a complete natural condition classification, not a claim that the balanced minimum for roots of unity is new or that arbitrary three-component inputs can be recovered.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

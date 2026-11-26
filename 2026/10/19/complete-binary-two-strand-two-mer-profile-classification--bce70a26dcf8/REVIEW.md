@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every boundary is quantified for all \(n\ge2\). For a single binary strand, transition signs alternate and loops can be distributed freely exactly when at least one cross-transition occurs. The paired-strand proof separately covers zero, one and two units of pooled flow imbalance, including zero-transition all-constant strands and the parity-limited maximum imbalance. The four cases are exhaustive and the interval counts sum to the stated piecewise polynomial. Literal unordered-word pair enumeration through \(n=10\) and an independent single-word-profile sum through \(n=17\) corroborate the argument. Finite tests are not used as infinite proofs.
+## correctness
 
-## Originality — PASS (qualified)
-The relevant 2021 multi-strand reconstruction paper defines the same observation model but analyzes asymptotic read-length and code-rate constraints, not this exact \(k=2\), \(q=2\), read-length-two finite-channel optimum. Its 2022 generalization also does not give the proposed polynomial. The nearest published one-strand result counts a single word's spectrum, so it does not imply the attainable *sumset* of two strands or the exceptional parity correction. Cyclic single-walk Markov-type counts constrain imbalance to zero and cannot cover the same object. Targeted full-text, index and formula searches detected no direct coverage; residual risks include an unindexed elementary equivalent or a broader Markov-type classification overlooked by those searches.
+PASS
 
-## Value — PASS
-The pooled observation class is the central object of multi-strand DNA-data reconstruction, and fixing the shortest nontrivial read length poses a natural exact finite-alphabet question. The theorem provides a complete characterization of possible observations for **all** binary strand lengths, including the parity obstruction, not an arbitrary numerical slice. Its profile number gives an exact zero-error reconstruction-code optimum in this model, sharpening the previously general unrestricted-composition bound and clarifying an unavoidable quadratic-sized observation space. The value does not depend on an unproved downstream claim.
+For a single word, r positive cross-transitions determine alternating runs; either (odd r) sign is possible, and duplicating zeros or ones supplies any split of L−r loops. Zero transitions instead give a constant word. For t=±2 the strand transition counts are both positive odd, so their sum fills the even interval 2 through twice the largest odd integer ≤L. For t=0 choose opposite odd signs over that same interval and, for the remaining top row when L is even, take two even counts L. For t=±1 the positive odd and positive even count ranges add to every odd s from 3 through 2L−1; at s=1 the choices of constant strand fill the two adjacent 00-count intervals [0,L−1] and [L,2L−1]. This includes L=1 where the s≥3 interval is empty. Each positive count on both strands gives the full possible loop-count interval. Summation yields 3+L²+2L(L+1)+2(L²−1_{L even}); the optimum selects one preimage per profile. An independent last-bit/histogram DP and pooled set computation checked full sets for n=2..16 (python3 /workspace/reviews/evidence/reproduce.py 3). This tests the finite instances, not the all-length proof.
 
-## Scope and limitations
-Two equal-length unordered binary strands with repetition, noiseless complete multiplicity-preserving length-two reads. No fibre-size distribution, encoding algorithm, larger alphabet or other channel model is established. Independent originality assessment may change the status if stronger unindexed prior art is found.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The observation model and single-strand classification are prior; the pooled two-path feasible-set enumeration, including the excluded maximal-switch imbalances, is the distinct result. The bounded checks did not establish covering prior art.
+
+## value
+
+PASS
+
+The minimal nontrivial reads in this established pooled channel pose a natural exact finite-length benchmark. The result gives both attainable observations and the maximal zero-error code size for every n; in particular the parity correction identifies a constraint hidden by asymptotic rates and by treating pooled counts as unrestricted compositions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

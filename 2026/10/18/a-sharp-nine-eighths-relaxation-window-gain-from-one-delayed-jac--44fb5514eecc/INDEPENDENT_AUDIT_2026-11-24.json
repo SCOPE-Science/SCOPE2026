@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:05:45.914515Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–94",
+        "Frozen VERIFICATION.md and verify.py, statically inspected",
+        "Independent characteristic, root-location, endpoint and witness deductions"
+      ],
+      "rationale": "Positive diagonal scaling and a sign change give r∈(0,1), q=1−β and s=βr for both directions. Current/current has eigenvalues q±s. One-stale on (u_k,v_k,v_{k−1}) has characteristic z(z−q)^2−s²: when q∈[0,1), |z|≥1 would imply |z||z−q|²≥β²>s². When β>1, put d=β−1. The polynomial z(z+d)^2−s² is negative for z≤0 and strictly increasing for z>0, with its positive root p<1 by evaluation at 1. The other roots are a conjugate pair of modulus p+d, by Vieta and p(p+d)^2=s². For 1<β<2, p+d<1 iff the polynomial is positive at 2−β, i.e. 2−β−β²r²>0, giving 4/(1+√(1+8r²)); β≥2 cannot be stable. The pair has unit modulus on the boundary. In stale/stale, the sum and difference quadratics are z²−qz±s. For β<2/(1+r), |s|<1 and both quadratics are positive at ±1, which are the real quadratic Schur conditions. At or above that β, the difference polynomial at −1 is nonpositive, so it has a root at or below −1. Arbitrary real initial histories permit real nondecaying modes whenever a spectral radius is at least one. Swapping the stale direction permutes variables. Strict gain follows from √(1+8r²)<1+2r; the square identity 81(1+8r²)−(7+16r)^2=8(7r−2)^2 gives the 9/8 bound and the sole equality at r=2/7. The ceilings there bracket β=5/3: 14/9<5/3<7/4. Setting q=0 in the three spectra yields the stated spectral factors at β=1. No finite grid is used to establish a universal statement.",
+      "residual_risks": [
+        "The frozen report's 104 comparisons are recorded, not independently executed. The proof only treats simultaneous commits, the fixed message ages, and exact arithmetic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carson–Ma updates one component per iteration and analyzes expectation for i.i.d. uniform directions.",
+          "The general sufficient condition ρ(|B|)<1 gives |q|+s<1, hence the common 2/(1+r) ceiling as a sufficient bound."
+        ],
+        "reasoning": "The sufficient majorant does not reach β between 2/(1+r) and the one-stale ceiling. The expected single-coordinate result is not a theorem for simultaneous fixed-age rounds.",
+        "searches": [
+          "Carson–Ma arXiv:2609.15605 §3.1 and Theorem 1",
+          "Wolfson-Pou–Chow IPDPS 2018 §III"
+        ]
+      },
+      "checked_sources": [
+        "Wolfson-Pou–Chow IPDPS 2018",
+        "arXiv:2609.15605",
+        "Resultary 457b47fc383f, 1b839e7f4866, 9ae0040f2dac, 1b8d6aef9d3a, 4c8f7d961672",
+        "Moga–Dubois CENG 95-06 (specific matrix not confirmed)",
+        "10.1137/24M1669669 and PII S0021999116302418 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The qualitative possibility that asynchronous Jacobi can converge while synchronous Jacobi fails is explicit in the 2018 abstract.",
+          "The synchronized ceiling and a general sufficient region do not determine the asymmetric cubic’s first unit-circle crossing, nor the loss of gain when both messages are stale."
+        ],
+        "reasoning": "The contribution is exact quantification, not existence of asynchronous advantage. The one-stale boundary is a conjugate-pair crossing instead of the difference-mode −1 boundary; the coupling maximization uses their different exact thresholds.",
+        "searches": [
+          "Wolfson-Pou–Chow IPDPS 2018 abstract and §§III, C–D",
+          "Carson–Ma arXiv:2609.15605 Theorem 1",
+          "Resultary 457b47fc383f Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The present two-coordinate asymmetric age pattern has z(z−q)^2−s²; the prior delayed-process matrix technique and qualitative advantage are explicit in the IPDPS paper.",
+          "Exchanging stale directions is equivalent by relabeling. Matching formulas in Resultary 1b8d6aef9d3a and 4c8f7d961672 are from later stochastic scalar delay models."
+        ],
+        "reasoning": "A similar delay augmentation or quadratic root is not by itself the same deterministic protocol or comparison. No covering equivalence is shown by those passages.",
+        "searches": [
+          "Resultary: weighted Jacobi simultaneous fixed directed stale messages, delay-state spectra, 4/(1+√(1+8r²))",
+          "Wolfson-Pou–Chow IPDPS 2018 §§C–D"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2×2 Euclidean damping frontier (2ad−|c|(a+d))/(ad−c²) gives the synchronized ceiling at a=d=1 and |c|=r.",
+          "The same-day hit 1b839e7f4866 studies stochastic stale Kaczmarz on an identity system; 9ae0040f2dac is a randomly selected-coordinate Gauss–Seidel second-moment law."
+        ],
+        "reasoning": "Credit the exact undelayed baseline. Neither the indexed random-delay results nor the later same-shaped scalar formulas are a table of these three deterministic protocol stability thresholds.",
+        "searches": [
+          "Resultary 457b47fc383f, 1b839e7f4866, 9ae0040f2dac, 1b8d6aef9d3a and 4c8f7d961672"
+        ]
+      },
+      "rationale": "The synchronized ceiling, the use of delay-state matrices and qualitative asynchronous advantage are prior art. The best supported distinct claim is the exact one-edge simultaneous-round ceiling compared with both zero and two stale directions, together with the maximal 9/8 gain. The inspected prior theorems do not yield that contrast or maximization.",
+      "residual_risks": [
+        "Full-text overlap of the 2025 semi-iterative paper and the 2016 delayed overrelaxation paper is unresolved. The original Moga–Dubois matrix passage was not readable. No positive priority claim rests on those access failures."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative overlap and prior modeling; not exact three-protocol coverage in inspected passages",
+          "evidence": "States convergence can improve in the sense of asynchronous success despite synchronous failure; treats delayed propagation matrices and ρ(|B|)<1.",
+          "identifier_or_url": "https://faculty.cc.gatech.edu/~echow/pubs/IPDPS18.pdf",
+          "material_read": "Abstract p. 1 offset 2000; §III p. 2 offset 6500; §C p. 4 offset 24600; §D p. 5 offset 26800; ref. [22] p. 12",
+          "method": "Original OA PDF passages",
+          "title": "Convergence Models and Surprising Results for the Asynchronous Jacobi Method",
+          "trigger": "Explicit asynchronous advantage and 2×2 delayed process"
+        },
+        {
+          "assessment": "Different update and expectation criterion",
+          "evidence": "Exactly one updated component per iteration and an expected linear convergence result under uniform i.i.d. coordinate sampling and sufficient stability conditions.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.15605",
+          "material_read": "§3.1 p. 4 offset 12682; Theorem 1 p. 7 offset 25800",
+          "method": "Original OA PDF passages",
+          "title": "Asynchronous Jacobi and randomized Gauss–Seidel methods in shared and distributed memory",
+          "trigger": "Broader SPD delayed convergence theory"
+        },
+        {
+          "assessment": "Undelayed comparator covered; no asymmetric age conclusion",
+          "evidence": "Substitute equal diagonal entries one and off-diagonal modulus r into the exact safe damping bound.",
+          "identifier_or_url": "Resultary 457b47fc383f",
+          "material_read": "Finding, 2×2 damping formula and regime",
+          "method": "Configured Resultary search and local mirror read",
+          "title": "Weighted-Jacobi Euclidean damping frontier",
+          "trigger": "Exact same undelayed stability number in the normalized SPD case"
+        },
+        {
+          "assessment": "Prior delayed-process modeling credited; exact original matrix claim not independently confirmed",
+          "evidence": "The 2018 paper attributes a delayed 2×2 process to their paper.",
+          "identifier_or_url": "https://ceng.usc.edu/techreports/1995/Dubois%20CENG%2095-06.pdf",
+          "material_read": "Original PDF not text-readable in the available route; secondary attribution in Wolfson-Pou–Chow p. 4 and ref. [22]",
+          "method": "Lawful OA PDF and bounded secondary-source passages",
+          "title": "Performance of Asynchronous Linear Iterations with Random Delays",
+          "trigger": "Cited for a specific augmented 2×2 delayed example"
+        },
+        {
+          "assessment": "Possible overlap unresolved, not evidence of coverage or noncoverage",
+          "evidence": "Available descriptions identify related scope but do not give the schedules and equations needed to compare the exact ceilings.",
+          "identifier_or_url": "https://doi.org/10.1137/24M1669669 ; ScienceDirect PII S0021999116302418",
+          "material_read": "Abstract-level/search material only; no decisive primary text accessible",
+          "method": "Lawful retrieval attempted; alternate metadata lookup for the latter also unavailable",
+          "title": "Asynchronous Semi-iterative Methods and the Asynchronous Chebyshev Method with Multigrid Preconditioning; Delayed Over-Relaxation for iterative methods",
+          "trigger": "Plausible related weighted delays and overrelaxation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof §§1–3",
+        "IPDPS 2018 qualitative asynchronous-advantage comparison"
+      ],
+      "rationale": "For the smallest coupled SPD system, the number and placement of stale edges matter even when the maximum delay and fresh self-read assumptions agree. The theorem separates a true one-edge enlargement from no enlargement with two stale edges, proves its exact best size, and includes an explicit separating β. The β=1 factors prevent a stability-window gain from being misread as equal-parameter speedup. This is a motivated, exact comparison not supplied by an arbitrary-delay sufficient bound.",
+      "residual_risks": [
+        "No implication for changing schedules, larger systems, wall-clock advantages, or an optimal protocol at equal computation cost."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

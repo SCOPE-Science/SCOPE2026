@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:12:05.375405Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Unit-circle scaling and rotation, followed by nonzero nodewise multipliers on the Wirtinger derivative rows, reduce to the DFT blocks by signed frequency mod M. A positive-frequency block with p distinct positive degrees has derivative-row rank min(p,k): the polynomials (u)_j, j=1,…,k, span u times the polynomials of degrees ≤k−1. The negative-frequency block has the corresponding q rank with disjoint support. The value row adds one if the block contains the constant mode, or if one sign count exceeds k (a zero-constant polynomial of degree ≤k cannot equal 1 on >k nodes); otherwise it is in the span. Thus the formula holds with empty blocks, k=0, and k>L, where the harmonic jet channel count is an ambient dimension and does not mean all high-order derivative functionals are nonzero on the band. Arbitrary nodes require M(2k+1)≥2L+1 by rank. Under that inequality the zero residue has ≤k of each sign, other residues have ≤k+1 of each sign and ≤2k+1 total, and every block is full column rank by the formula. Tangential-only rows are degree-0-through-k Vandermonde rows in each residue, yielding the separate threshold. Inspected the checker and recorded 10,514 assertions; an independent unreduced complex-matrix check matched all 252 bounded cases L≤6, k≤3, M≤9, with floating-point tolerance 10⁻⁹. The block proof, not the finite checks, establishes the exact theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bojanov–Xu's model is ambient bivariate polynomial interpolation with values and successive normal orders on several concentric circles (opening material; PDF textual encoding is poor). Chandrasekaran–Gorman–Mhaskar describe general Sobolev interpolation with values and derivatives on manifolds (abstract).",
+          "The available description of the 2026 JAT paper uses differential operators induced by harmonic polynomials for multivariate Hermite interpolation in R^n and on the sphere. Its precise domain and schemes could not be checked in full text."
+        ],
+        "reasoning": "Interpolation existence for general data or an ambient polynomial grid using a different node and differential-order pattern does not provide ranks of this finite-band, single-circle data map. The JAT paper cannot be classified whole-document from its available description.",
+        "searches": [
+          "Bojanov–Xu On a Hermite Interpolation by Polynomials of Two Variables",
+          "arXiv:1710.01419",
+          "Multivariate Hermite interpolation with interpolation conditions induced by harmonic polynomials — doi:10.1016/j.jat.2026.106303"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py, checker_results.txt",
+        "doi:10.3390/math9091043",
+        "doi:10.1155/2014/808519 (access attempted)",
+        "Bojanov–Xu author-hosted PDF",
+        "arXiv:1710.01419",
+        "doi:10.1016/j.jat.2026.106303 (description and attempted full-text routes)",
+        "Resultary exact-item and neighbor comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard local harmonic jet dimension implies the lower bound, and ordinary Fourier/Vandermonde reasoning implies the tangential-only threshold. Neither implies attainability by full jets on the regular circle: one must account for positive and negative alias multiplicities and the single shared value row.",
+          "Normal-only data on a single circle depend on |n| in the derivative factors, so they do not distinguish aliased +n and −n by derivatives alone. The proof in the frozen record uses independent Wirtinger directions instead."
+        ],
+        "reasoning": "No verified stronger sampled-space theorem in the inspected sources gives the exact sign-sector defect or proves full rank at the harmonic data bound. Credit dimension counting and the ordinary tangential Hermite construction as background, not distinct new results.",
+        "searches": [
+          "Berriochoa et al. doi:10.3390/math9091043, Introduction and §2",
+          "Bojanov–Xu concentric-circle Hermite scheme",
+          "arXiv:1710.01419 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A circle trace is a Laurent polynomial; its complex Laurent derivative H′ on the circle is tangential differentiation divided by iz, and iterated derivatives differ by an invertible triangular transformation.",
+          "The unknown harmonic polynomial instead has independent analytic and anti-analytic parts; the complete physical jets distinguish their derivative sectors, jointly sharing only the value row in each residue."
+        ],
+        "reasoning": "The trace and full-jet problems share a Fourier representation, but not a data map. Laurent derivatives at the same nominal order give only k+1 channels and may fail when the full jets already attain injectivity.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-sharp-dimension-optimal-boundary-jets-for-planar-harmonic-fourie--259293334bb9",
+          "doi:10.3390/math9091043",
+          "doi:10.1155/2014/808519"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit is the frozen item, not an independent match. Returned distinct items did not give its sum of min(p_r,k), min(q_r,k) and the value contribution.",
+          "Berriochoa et al. specify symmetric unit-circle Laurent Hermite systems with prescribed H(α_j) and H′(α_j), not tabulations of harmonic-jet ranks for all L,k,M."
+        ],
+        "reasoning": "The exact invariant under review is the symbolic rank/nullity for arbitrary undersampling, not finite instances or the known square Laurent Hermite systems.",
+        "searches": [
+          "Resultary lookup for planar harmonic regular-circle complete-jet rank and optimal node count",
+          "Berriochoa et al. 2021 §2"
+        ]
+      },
+      "rationale": "Pass for the full planar harmonic jet theorem: simultaneous attainment of the dimension bound on one regular circle and the exact all-residue rank even below that bound. Unit-circle Laurent Hermite interpolation is direct background for the tangential-only comparison; existing general derivative interpolation in available passages does not give this split rank theorem. The inaccessible closely titled 2026 paper is a stated limitation rather than a negative result.",
+      "residual_risks": [
+        "The inaccessible 2026 JAT paper may contain a related special case or stronger result; current evidence does not settle that comparison.",
+        "The Bojanov–Xu PDF extraction did not support full detailed theorem inspection and the 2014 Laurent text was inaccessible. Priority beyond bounded source comparisons is unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Laurent trace/Hermite coverage, not complete harmonic jets",
+          "evidence": "Root-of-unity nodes and Laurent interpolation conditions H(α_j)=u_j and H′(α_j)=v_j; one derivative direction.",
+          "identifier_or_url": "https://doi.org/10.3390/math9091043",
+          "material_read": "OA PDF Introduction pp. 1–2 (offset ~4200), §2 p. 3 (offset ~13800)",
+          "method": "Primary PDF passage inspection",
+          "title": "Mechanical Models for Hermite Interpolation on the Unit Circle",
+          "trigger": "Equally spaced unit-circle Hermite sampling"
+        },
+        {
+          "assessment": "Stated Laurent derivative scope is consistent with tangential overlap but was not independently confirmed in primary text",
+          "evidence": "Frozen RESULT.md lines 68 and 79 describe value and first two Laurent derivatives.",
+          "identifier_or_url": "https://doi.org/10.1155/2014/808519",
+          "material_read": "Frozen source description only; no readable primary passage obtained",
+          "method": "DOI, Hindawi PDF and Wiley PDF routes denied (403)",
+          "title": "Hermite Interpolation on the Unit Circle Considering up to the Second Derivative",
+          "trigger": "Higher-order equispaced Laurent data comparator"
+        },
+        {
+          "assessment": "Concentric-circle and normal-derivative comparison; exact theorem not reconstructed from the extraction",
+          "evidence": "Opening material describes bivariate polynomial data as values and consecutive normal derivatives on circles centred at the origin; see also the frozen source synopsis.",
+          "identifier_or_url": "https://homepage.divms.uiowa.edu/~atkinson/Seminar/BoXu1.pdf",
+          "material_read": "Opening abstract and introduction insofar as legible; text extraction garbled and not used for detailed theorem hypotheses",
+          "method": "Lawful author-hosted academic PDF extraction",
+          "title": "On a Hermite Interpolation by Polynomials of Two Variables",
+          "trigger": "Concentric-circle bivariate Hermite interpolation"
+        },
+        {
+          "assessment": "Broader interpolation setting, different space and question",
+          "evidence": "Describes prescribed values and some derivatives at arbitrary manifold samples and a Sobolev norm construction, not bandwidth-limited ranks on a regular circle.",
+          "identifier_or_url": "https://arxiv.org/abs/1710.01419",
+          "material_read": "OA PDF p. 1 abstract, offset 0",
+          "method": "Primary PDF passage inspection",
+          "title": "Minimum Sobolev Norm Interpolation of Derivative Data",
+          "trigger": "General manifold interpolation with derivative data"
+        },
+        {
+          "assessment": "Open comparison risk, not evidence for or against whole-paper coverage",
+          "evidence": "Available description mentions Hermite-type schemes in R^n and on the sphere with operators induced by harmonic polynomials; it does not expose the full conditions or the exact rank.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jat.2026.106303",
+          "material_read": "Available search/publisher description only; no theorem passage",
+          "method": "Focused DOI/author-copy lookup and lawful publisher access attempts, full text unavailable",
+          "title": "Multivariate Hermite interpolation with interpolation conditions induced by harmonic polynomials",
+          "trigger": "Plausibly related 2026 harmonic differential-operator interpolation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result answers a concrete minimal-experiment question for harmonic-field recovery and determines exactly how many degrees of freedom are lost below that optimum. The sign-sector and shared-value calculation gives an actionable structural reason that full jets can saturate the universal dimension bound, and a block reconstruction rather than just a count. It does not claim robustness or conditioning from injectivity alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

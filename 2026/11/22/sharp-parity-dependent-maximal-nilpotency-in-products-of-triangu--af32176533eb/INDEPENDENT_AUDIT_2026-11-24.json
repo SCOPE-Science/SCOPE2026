@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:46:11.253015Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every step in a path for (AB)^r advances by at least 2. The common choice of A and B with only unit first superdiagonals realizes the sharp bound (no cancellation). In odd dimensions exactly one all-two path can contribute to the last nonzero power, and the required 2N coordinates are independent. In even dimensions only the two all-two products U,V and a single corner sum W are relevant. The latter uses one jump of size three; its j-th linear term survives the t-products exactly for R≤j≤L when U=V=0. If R<L, choose j=L: b_(2L+1) is nonzero because t_(2L) is nonzero (L>R), and the surviving second-band coordinate of A is unique to that term. If R=L, the two endpoint coefficients have independent conditional zero probabilities q/(2q−1): each is the zero component of a pair of independent uniform scalars conditioned on product zero. Thus the conditional probability of nonzero rank is η there, zero when R>L, and one when R<L. A nonzero linear form in independent uniform second-band coordinates hits nonzero with probability 1−1/q, accounting for field cancellation. Independence of odd and even t-products gives the weights f²s^(L−1+N−R), which sum to the displayed even formula. Summing the geometric series at fixed q yields C_q and C_2=s=1/4. Independent `python3 /workspace/reproduce_reviews.py` multiplies matrices and finds exact agreement at (n,q)=(4,2),(4,3),(4,4),(5,2),(6,2), including 927/1024 over F_4 represented by the binary polynomial x²+x+1. Only coordinates on the first two bands that can enter a product path are enumerated. The path argument proves the universal claim, not the finite replay.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full-triangular and unrestricted-matrix product records classify index n under a different sampling law conditioned on product nilpotency. Fuchs–Kirillov counts Jordan types under uniform sampling of a single strict triangular matrix."
+        ],
+        "reasoning": "One cannot specialize a probability for index n in the full algebra to the restricted event: on the radical-pair subspace index n is impossible, and the new threshold is ceil(n/2). Uniform single-matrix Jordan counts do not weight each product by its number of factorizations.",
+        "searches": [
+          "Resultary: maximum nilpotency index in products of random upper triangular matrices",
+          "arXiv:2204.00066v1 and Resultary regular-nilpotent product findings"
+        ]
+      },
+      "checked_sources": [
+        "Same-day bracket, full-upper-triangular product, J_4 product-fiber, and unrestricted matrix product findings cited above",
+        "Fuchs–Kirillov arXiv:2204.00066v1 abstract",
+        "Kambites–Steinberg arXiv:math/0512024v1 abstract (structural semigroup decompositions)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Actual findings and assumptions inspected: the bracket result uses both AB and BA in each relevant rank test; the full-upper-triangular result uses different factors, conditioning, and extremum."
+        ],
+        "reasoning": "Neither specifies the survival/cancellation of the length-three corner jump for AB once both all-two paths are zero. That conditional calculation is what produces the new even law. Same-day dating of the bracket result does not establish priority.",
+        "searches": [
+          "2026/11/22/SCOPE-exact-parity-split-maximum-nilpotency-law-for-random-brackets-of--73cdd92c05b2",
+          "2026/11/2/SCOPE-maximal-nilpotency-index-in-products-of-random-upper-triangular--3038b4056c47"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day bracket finding gives odd probability [(1−q^(-2))(1−q^(-1))]^N and a linear same-index parity ratio, for AB−BA; the assigned product gives [(1−q^(-1))²]^N."
+        ],
+        "reasoning": "Counting factorizations for which the last possible power survives is equivalent to the target probability. A commutator is not a product of two independent uniform radical factors, including in characteristic two; even the respective odd probabilities differ (3/8 vs 1/4 for n=3, q=2).",
+        "searches": [
+          "Resultary: two-factor nilpotency probability product strictly upper triangular matrices highest power nonzero",
+          "Resultary: exact parity-split maximum nilpotency law random brackets of triangular radicals"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 13 exact four-strata record counts every J_4(q) product fiber; totaling all nonzero product fibers gives precisely P_4(q) after normalization."
+        ],
+        "reasoning": "Credit the directly covered n=4 case. Its product-fiber table has no higher-order path or all-dimension fixed-field parity information. Search nonmatches are not decisive by themselves.",
+        "searches": [
+          "Resultary product-fiber strata in the strictly upper-triangular 4×4 algebra",
+          "Resultary: even dimension correction linear N parity factor products triangular radical maximum nilpotency probability"
+        ]
+      },
+      "rationale": "The sharp filtration bound, odd single-path observation, and small exact counts are not separately novel. The supported distinct contribution is the all-dimension factorization-weighted extremal law, in particular the even cancellation term and resulting fixed-field linear parity factor for independent radical products. Checked results with matching graph/filtration structure, extremal terminology, or small n do not imply this law.",
+      "residual_risks": [
+        "Unlocated higher-dimensional weighted product-fiber enumeration could give an equivalent consequence.",
+        "The same-day bracket comparison distinguishes claims but not chronology or independent discovery; some primary literature was available only as abstracts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same dimension parity phenomenon, but a different operation and probabilities; date alone implies no priority.",
+          "evidence": [
+            "C=XY−YX; odd probability [(1−q^(-2))(1−q^(-1))]^N."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-parity-split-maximum-nilpotency-law-for-random-brackets-of--73cdd92c05b2",
+          "material_read": "Finding and Assumptions and scope.",
+          "method": "Local Resultary mirror.",
+          "title": "Exact parity-split maximum nilpotency law for random brackets of triangular radicals",
+          "trigger": "Closest parity law with the same input matrices."
+        },
+        {
+          "assessment": "Full algebra with conditioning is not the strict-radical factorization law.",
+          "evidence": [
+            "Uniform factors in T_n(q), conditioned on product nilpotency; extremal index n."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-maximal-nilpotency-index-in-products-of-random-upper-triangular--3038b4056c47",
+          "material_read": "Finding and Assumptions and scope.",
+          "method": "Local Resultary mirror.",
+          "title": "Maximal nilpotency index in products of random upper triangular matrices",
+          "trigger": "Closest product extremal statistic by title."
+        },
+        {
+          "assessment": "Covers n=4 by summing the nonzero fibers, not n-variable parity laws.",
+          "evidence": [
+            "Counts every ordered XY=Z factorization in J_4(q)."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-four-product-fiber-strata-in-the-strictly-upper-triangular-4-tim--9ed32ce5752d",
+          "material_read": "Finding and Assumptions and scope.",
+          "method": "Local Resultary mirror.",
+          "title": "Four product-fiber strata in the strictly upper-triangular 4×4 algebra",
+          "trigger": "Exact factorization-weighted count for the same law in one dimension."
+        },
+        {
+          "assessment": "Event and sampling law differ.",
+          "evidence": [
+            "Uniform factors on M_n(F_q), index n, conditionally on product nilpotency."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-regular-nilpotent-products-of-two-uniform-finite-field-matrices--8c69f508b22a",
+          "material_read": "Finding and Assumptions and scope.",
+          "method": "Local Resultary mirror.",
+          "title": "Regular-nilpotent products of two uniform finite-field matrices",
+          "trigger": "Similar probability for unrestricted matrices."
+        },
+        {
+          "assessment": "Abstract concerns one uniform matrix and does not claim the product distribution.",
+          "evidence": [
+            "Jordan-type counts for individual strictly upper triangular matrices."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2204.00066",
+          "material_read": "p. 1 abstract; full-text comparison not achieved.",
+          "method": "Available arXiv abstract; targeted OA attempts timed out.",
+          "title": "Jordan types of triangular matrices over a finite field",
+          "trigger": "Uniform radical Jordan counts might be confused with product counts."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Maximal index is a natural extreme statistic of a nilradical product. The formula separates the effect of a unique length-three detour from field cancellation and finds a parity enhancement of linear relative order at equal maximal index. It quantifies a rare-event law not recoverable by treating the product as one uniformly sampled nilpotent matrix. This does not claim the whole product Jordan distribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

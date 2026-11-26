@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:01:10.250342Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md and VERIFICATION.md; inspected both supplied scripts without executing them",
+        "Independent exact replay: python /tmp/opencode/scope_cubic_spectra_repro.py (python-flint and NumPy integer arrays)",
+        "Brosowsky–Page–Ryan–Smith Corollary 3.2.3 and the geometric totals"
+      ],
+      "rationale": "Invertibility gives smoothness from the gradient AᵀX^[2]. In the tangent plane at u write X=tu+w with w in a complement of u. The t³ and t² terms of F vanish, and the t term is w^[2]ᵀAu. It vanishes on the whole tangent plane precisely when Au is proportional to Aᵀu^[4], by taking the square of the tangent linear form. Then the residual homogeneous binary cubic splits into three lines through u; a repeated line would force a singular point since the normal derivative, of degree two, has a zero on that line. Conversely a concurrent triple forces the t term to vanish. Rescaling projective coordinates reduces proportionality to u^[4]=Bu with B=(Aᵀ)⁻¹A. All normalized solutions lie in the splitting field F_(2^(2 ord B)) by iteration, and those on the surface give the geometric Eckardt set. I independently constructed a basis for the normalized vectors using a twisted trace, verifying nonsingularity, then used FLINT to enumerate projective points and row-reduced 2-subspaces in this transported F4 geometry. Each of the 27 surviving subspaces lies on the surface because the cubic restriction vanishes at all five distinct F4-points, and the geometric total is 27. Plücker coordinates and Frobenius fixed counts of powers give the line cycles without constructing five-star subsets or using the packaged verifier. Independent full binary change-of-basis enumeration gives precisely the disjoint matrix orbits listed, of total size 20160. Matched all ten rows in every numerical column, in particular the equal-Eckardt/different-line pair and the three degree-12 Eckardt places of 128d. The zeta formulas follow from the cycle partitions.",
+      "residual_risks": [
+        "Independent enumeration verifies the specific binary congruence forms and reduced supports, not higher-dimensional Frobenius forms, nonreduced structures or all smooth binary cubics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Das gives aggregate counts by W(E6) conjugacy class; the Zariski chamber record lists all 25 line and chamber profiles. Karaoğlu's publisher abstract describes work starting with Dickson's binary surfaces and counting lines over larger fields. Betten–Karaoğlu's full text could not be retrieved."
+        ],
+        "reasoning": "The abstract Weyl group analysis is broader in field and surface but does not, in the inspected statements, assign a marked Weyl class and its tritangent profile to every binary A. Aggregate counts by conjugacy class are not that assignment. The companion indexed result on 165 Eckardt points concerns cubic threefolds and does not specialize to these surfaces.",
+        "searches": [
+          "Das arXiv:2002.11183 Theorem 1.1/Table 1",
+          "Resultary c3a0678c9dc9 all W(E6) classes",
+          "Karaoğlu DOI 10.3906/mat-2102-10 and lawful alternate-copy lookup",
+          "Betten–Karaoğlu DOI 10.1007/s10623-021-00999-w"
+        ]
+      },
+      "checked_sources": [
+        "Resultary higher-dimensional record 44b590bbcbb6 and the cited cubic-surface catalogue records",
+        "arXiv:2007.12018; arXiv:2110.15908; arXiv:2002.11183",
+        "Karaoğlu and Betten–Karaoğlu public access attempts above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day double-six record gives the line types 1^5 2 4^5 and 1 2^3 4^5 for order-four classes (1²,4) and (2,4), but their surface counts would be 11 and 7 over F2, not 11 and 3 for 124a and 126b. Das Table 1 shows class (2,4) does not occur over F2 at all."
+        ],
+        "reasoning": "The double-six line-factor match is not the same pair of marked Weyl classes, let alone the same Eckardt comparison. Conversely, prior data specifying each binary form's exact Weyl class would permit reconstructing the joint cycles from the line-incidence action, so the distinction is the actual marked arithmetic classification rather than new incidence theory or new lists of possible Weyl types.",
+        "searches": [
+          "Resultary 55ac05d63848 Finding and c3a0678c9dc9 Weyl table",
+          "Das arXiv:2002.11183 Table 1 (offset 4098)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed Clebsch result gives exactly 1^15 2^15 on the 45 points and 1^15 2^6 on the 27 lines for the Clebsch form, corresponding to 1248. Geometric extremal-surface formulas give the totals 45 and 27."
+        ],
+        "reasoning": "On these extremal cubics every Eckardt point supplies a distinct concurrent tritangent plane, and there are exactly 45 tritangent planes. Thus the marked Weyl action on the incident lines determines the Eckardt action. This is an alternative description of what to compute, not evidence that every marked class and its tritangent profile are already tabulated. Credit the exact Clebsch subcase.",
+        "searches": [
+          "Resultary: 45 Eckardt points or tritangent planes and 27 lines, binary Hermitian/extremal cubic, Frobenius splitting and zeta; exact 126b/124a pair",
+          "Resultary Clebsch incidence record 163d2f015601",
+          "Brosowsky–Page–Ryan–Smith arXiv:2110.15908, §3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Weyl tables contain the individual line partitions; e.g. 1 2^3 4^5 occurs twice in the Zariski chamber table. The Clebsch indexed record has an exact joint subcase. The accessible Karaoğlu item is a publisher landing/abstract, not its tables and appendices."
+        ],
+        "reasoning": "A marked table giving both fixed-support counts for every proper divisor of D=2 ord(B), plus the geometric totals, would already give the exact joint classification by inversion. The values of D here are 2,4,6,8,10,12, so tabulated counts through degree six could suffice if they indeed cover both sets and all ten marked forms. The inspected literature did not establish that much coverage. Merely advertising all extension degrees is not a novelty argument.",
+        "searches": [
+          "Resultary: full joint Frobenius spectra and named representatives",
+          "Complete line-cycle rows of Resultary Zariski chambers c3a0678c9dc9 and double-six 55ac05d63848",
+          "Publisher and search for Karaoğlu exact title, DOI, Dickson/Eckardt data and full text"
+        ]
+      },
+      "rationale": "Credit existing geometric counts, the prior binary surface setting and rational counts, the general Weyl-class line types, and the exact Clebsch row. The supported distinct content is the complete marked assignment of joint Eckardt and line cycles to these ten binary matrix forms, in particular the same Eckardt spectrum for the two stated binary forms with different line spectra. A list of possible line types without the marked assignment or tritangent action is not this table; an inaccessible potential table remains a priority risk, not negative evidence.",
+      "residual_risks": [
+        "Karaoğlu and Betten–Karaoğlu full texts and possible appendices were not inspected. A complete table of the marked Weyl classes, or fixed counts of both supports through the required divisor powers, would reduce or subsume the distinct claim. This best-of-knowledge comparison is not a statement of priority among same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior family geometry, not the marked cycle table in the passages inspected",
+          "evidence": "Frobenius splitting is characterized by a square-free monomial; for Frobenius forms the rank determines singular-locus codimension.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.12018",
+          "material_read": "PDF p. 5, Propositions 3.1 and 3.4, around offset 16773",
+          "method": "OA PDF passages",
+          "title": "Cubic Surfaces of Characteristic Two",
+          "trigger": "Original characterization of this family and smoothness"
+        },
+        {
+          "assessment": "Geometric totals already known",
+          "evidence": "Specializing the lines and stars formulas for an extremal cubic gives 27 lines and 45 stars over the closure.",
+          "identifier_or_url": "https://arxiv.org/abs/2110.15908",
+          "material_read": "p. 1 and §3.2, Corollary 3.2.3 p. 8, offsets 1364 and 28391",
+          "method": "OA PDF passages",
+          "title": "Geometry of Smooth Extremal Surfaces",
+          "trigger": "Exact extremal-surface incidence and geometric support"
+        },
+        {
+          "assessment": "Relevant partial evidence, with table-level priority risk unresolved",
+          "evidence": "Abstract describes investigating lines over larger fields of even characteristic, extending Dickson, including 15- and 9-line cases; does not specify full joint counts over the degrees needed here.",
+          "identifier_or_url": "https://doi.org/10.3906/mat-2102-10",
+          "material_read": "Publisher abstract at https://journals.tubitak.gov.tr/math/vol45/iss6/11/, including offset 760; not the PDF",
+          "method": "Publisher landing retrieval, identified PDF/DOI and lawful alternate search including the ResearchGate listing (access unsuccessful)",
+          "title": "Non-Singular Cubic Surfaces over F_(2^k)",
+          "trigger": "Likeliest marked finite-field counts for the Dickson surfaces"
+        },
+        {
+          "assessment": "Unresolved full-text comparison",
+          "evidence": "The full text did not resolve in the attempted routes; no exclusion follows from title or failed retrieval.",
+          "identifier_or_url": "https://doi.org/10.1007/s10623-021-00999-w",
+          "material_read": "Bibliographic identification only",
+          "method": "DOI, Springer article and PDF access attempts",
+          "title": "The Eckardt Point Configuration of Cubic Surfaces Revisited",
+          "trigger": "Directly relevant configuration classification"
+        },
+        {
+          "assessment": "General aggregate Weyl-class counts, not marked Eckardt spectra",
+          "evidence": "The count is summed over smooth cubics with a given line Frobenius class; the (2,4) count vanishes at q=2.",
+          "identifier_or_url": "https://arxiv.org/abs/2002.11183",
+          "material_read": "Theorem 1.1 locator and Table 1 including the virtual class (2,4), pp. 1–2 (offset 4098)",
+          "method": "OA PDF",
+          "title": "Arithmetic statistics on cubic surfaces",
+          "trigger": "Potential general Frobenius-class coverage"
+        },
+        {
+          "assessment": "Exact prior joint coverage for 1248",
+          "evidence": "The 45 points and 27 lines split over F4, with 15 rational of each over F2.",
+          "identifier_or_url": "2026/10/25/SCOPE-the-marked-five-ten-thirty-eckardt-incidence-of-the-characterist--163d2f015601",
+          "material_read": "RESULT.md Finding, local mirror offset 0",
+          "method": "Resultary and local mirror",
+          "title": "The marked five-ten-thirty Eckardt incidence of the characteristic-two Clebsch cubic",
+          "trigger": "Exact same invariants in one known class"
+        },
+        {
+          "assessment": "Line partitions known abstractly; no exact joint comparison with the binary Eckardt rows",
+          "evidence": "The order-four line profiles include both factors, but the double-six pair has surface counts incompatible with the stated pair at q=2; the chamber table separates two classes with the one-rational-line profile.",
+          "identifier_or_url": "Resultary 55ac05d63848 and c3a0678c9dc9",
+          "material_read": "First Findings and all-class line table, offsets 0",
+          "method": "Resultary and decisive local-mirror passages",
+          "title": "Near-rigidity of the double-six zeta function on smooth cubic surfaces; Twenty-five Frobenius spectra of Zariski chambers on smooth cubic surfaces",
+          "trigger": "Same line zeta factors; full possible line partition coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Independently reproduced ten-row table and 126b/124a comparison",
+        "Prior geometric and Weyl-class tables"
+      ],
+      "rationale": "These are two intrinsic finite arithmetic configurations on a natural complete family. The joint assignment gives exact extension degrees of definition and separates two forms with the very same complete Eckardt zeta function by the arithmetic of their lines. The complete marked table, including actual degree-twelve places, is useful when the input is an explicit binary form and a general abstract Weyl list or counts of rational lines cannot directly give the answer. The known possibility of an abstract line type and the already solved Clebsch example are not counted as new value.",
+      "residual_risks": [
+        "Value is bounded to exact reduced-support arithmetic in this family; no claim about classifying all smooth cubics or all incidence-scheme structures."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

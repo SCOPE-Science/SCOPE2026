@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The bracket equations reduce, by an invertible linear splitting, to one common row and \(r\) independent image rows. The rank-one-or-zero dichotomy proves the complete reduced geometric component decomposition. Direct separation by nonzero and zero common row yields the point-count formula; the four-case rank analysis of the joint-adjoint map proves the displayed rank polynomial for all \(r,s\ge2\). The explicit pair of nilpotent matrices has different nilpotency class and different central quotients. Exhaustive prime-field checks from the standalone verifier agree. No scheme reducedness is claimed.
+## correctness
 
-## Originality
-PASS with literature risk. Richardson (1979) and Goodwin–Röhrle (arXiv:1209.1289v1, §3.5) establish relevant pair-variety geometry, with the latter already covering two pair components for the \(B_2\) nilradical. Those are acknowledged as covered. Their stated results and inspected primary text do not determine arbitrary-rank almost-abelian commuting **schemes** for all lengths or the complete joint-centralizer rank polynomial. Salemkar–Mirzaei (2010) address isoclinism, which does not dominate the example: its two central quotients have different Lie brackets. Related rank spectra for different filiform families and subalgebra commutativity counts likewise do not imply the result. An equivalent statement in more specialized literature remains possible.
+PASS
 
-## Value
-PASS. All arities, all finite fields and even the reduced scheme geometry collapse to a single endomorphism-rank parameter, while the original Lie algebras can have different nilpotency classes. This demonstrates a natural, sharp failure of reconstruction, beginning in dimension five for nilpotent almost-abelian algebras, and supplies complete centralizer spectra rather than a single commuting probability.
+For any k, choose complements to ker D and bases of im D. The bracket of inputs (a_i,v_i),(a_h,v_h) has coordinates a_i Dv_h−a_h Dv_i in im D. This identifies defining ideals under a linear input change, with c independent kernel coordinates per input; it is not merely a pointwise match. If a is nonzero, every row of Y is a multiple of a, so the support is the union of a=0 and the rank-at-most-one stacked matrix locus. The irreducible rank-one cone has dimension equal to number of rows plus number of columns minus one, and neither locus contains the other for r,s≥2. This proves the stated dimensions, intersection and unique equidimensional case. For finite fields, counting on a=0 and a≠0 gives N_s and hence the displayed zeta function. On all tuples the joint map is (b,u)↦(a_i u−b y_i)_i: when a=0 it has rank 0 or 1; otherwise the u-block has rank r and the b-column adds one precisely when Y is not of the form ua. This gives the claimed four frequencies, including in characteristic 2. For the nilpotent rank-two example D_{31}²≠0 and D_{22}²=0; γ_{j+1}=D^jV, and the central quotient is abelian exactly when D²=0. For d≤3, rank fixes the nilpotent partition. Independent direct simultaneous-centralizer enumeration used two invertible rank-two matrices over F₂ and one rank-two singular matrix over F₃, checking both the rank frequencies and commuting counts (python3 /workspace/reviews/evidence/reproduce.py 1).
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The common ideal is exactly a known generalized binomial edge ideal after transpose, and its decomposition and the component formulas are covered. Credit that prior result rather than treating the geometry of this model as new. The distinct contribution is the Lie-theoretic identification of all-arity commuting schemes and joint-adjoint rank distributions for same-dimension, same-rank almost-abelian algebras, including the sharp nonisoclinic class-two/class-three collision. No checked source covers that conclusion or the full joint-adjoint enumerator.
+
+## value
+
+PASS
+
+The value is the sharp failure of Lie reconstruction even if every ordered-tuple commuting scheme and every joint-adjoint rank frequency is supplied. The pair changes nilpotency class and isoclinism at the first possible dimension, so it isolates a real loss of structure. The known determinantal component geometry alone is not the value claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

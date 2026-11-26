@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:19:09.338282Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–83; VERIFICATION.md and verify.py",
+        "Lavenant et al., arXiv:2405.04987, Proposition 6.3 and coupling proof pp. 47–48"
+      ],
+      "rationale": "Proposition 6.3 uses ε/2 in the tensor and b=exp(−2C/ε). Writing a=p(1−p), the off-diagonal self-coupling w solves B w²+w=a. Substitution yields g=εB/(2√(1+4Ba)), including a finite positive boundary extension. The coordinate obtained by integrating √g is an isometry to an interval with Euclidean distance, proving the constant-speed inverse and its normalization. On the left half interval, the normalized density ratio for β₁<β₂ strictly decreases and both densities have half their mass there, implying strict CDF order; comparison to the uniform density and reflection give the full inequalities. L¹ convergence of the densities gives uniform CDF convergence and uniform convergence of the inverses to the beta quantile. After u=βv the left-end loss, divided by β^(3/4), is dominated by a constant times min(v^(−1/4),v^(−5/4)) on a fixed short endpoint neighborhood. Its integral limit is 4/3 by explicit antidifferentiation. The right-end loss is identical and the rest is O(β), uniformly for fixed compact interior ranges of the upper limit. The inverse equation therefore gives the claimed interior coefficient, including zero at the midpoint. The rescaled arclength from zero to βy converges locally uniformly to (4/3)((1+y)^(3/4)−1), which is strictly increasing and unbounded; inversion proves the endpoint profile including s=0. Zβ→K and the exact prefactor prove the distance equivalent.",
+      "residual_risks": [
+        "The uploaded numerical verifier was inspected, not executed; no numerical check is needed for the analytic claims. The expansion at fixed interior t is not uniform in an endpoint layer."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The newer general computation paper describes rapid splitting from one atom to a symmetric two-atom target on a subset of the line, not transport between opposite Diracs on a fixed two-site ground space. Its nearby discussion is qualitative/numerical."
+        ],
+        "reasoning": "General numerical/geodesic results and a different splitting example do not state or imply the two-site endpoint profile and fractional interior correction.",
+        "searches": [
+          "arXiv:2610.02007v1, Example 4.13 and §6.4",
+          "arXiv:2405.04987, §6.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2405.04987",
+        "arXiv:2610.02007v1",
+        "Resultary Riccati flux profile record above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published coefficient and standard arclength give the endpoint quadrature. Its interior metric asymptotic explains the exponential scale; the Beta normalization follows by an integrable domination argument. The quantitative β^(3/4) loss comes from the nonuniform endpoint region, not by substituting the interior metric asymptotic; ordering requires the symmetric single-crossing comparison."
+        ],
+        "reasoning": "Credit the routine implications as background; the two-scale analysis and strict ordering are the surviving additions.",
+        "searches": [
+          "Lavenant et al., arXiv:2405.04987, Proposition 6.3 and preceding diameter discussion",
+          "arXiv:2610.02007v1, Example 4.13"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The geodesic is precisely the quantile of the normalized square-root tensor on the one-dimensional simplex; this identifies exact inverse arclength with quantile inversion, not with a Schrödinger entropic interpolation."
+        ],
+        "reasoning": "The source tensor determines the quadrature, but the inspected result does not give ordering across ε or either of the two quantitative path limits.",
+        "searches": [
+          "Beta(3/4,3/4) two-site Sinkhorn geodesic temperature ordering boundary layer",
+          "Lavenant et al., arXiv:2405.04987, §6.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected catalogue hit resolves cross-flux of Sinkhorn scaling iterations by a Riccati profile. The target here is instead normalized arclength of the static metric, with explicit power-law profile."
+        ],
+        "reasoning": "No inspected catalogue formula or table matched this invariant; two atoms and singular low-regularization behavior alone do not make the records equivalent.",
+        "searches": [
+          "Resultary searches for two-site Sinkhorn geodesic and endpoint boundary layer",
+          "2026/11/8/SCOPE-a-near-disconnected-sinkhorn-crossover-with-a-riccati-flux-profi--3c84f6d344ba"
+        ]
+      },
+      "rationale": "The tensor is published, and one-dimensional arclength and dominated convergence give the inverse quadrature, leading beta limit and leading length constant once the tensor is simplified. Exponential diameter growth is also credited to the source. The distinct supported contribution is the strict temperature ordering together with the quantitative fractional interior displacement and the resolved endpoint scales/profile.",
+      "residual_risks": [
+        "The targeted literature query was narrow. Unindexed equivalent one-dimensional asymptotics could exist; novelty is limited to the supported quantitative and ordering claims, not the known tensor or routine arclength formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers starting tensor and qualitative exponential growth, not the quantitative path conclusions",
+          "evidence": "Proposition 6.3(1) gives ε/2 times the coupling expression; (3) gives a large-distance interior metric estimate, and the preceding discussion identifies exponential diameter growth.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.04987",
+          "material_read": "§6.2, Proposition 6.3 and proof, pp. 46–48, OA offsets 154250–160935",
+          "method": "Primary OA PDF passages",
+          "title": "The Riemannian geometry of Sinkhorn divergences",
+          "trigger": "Exact same metric, two sites and squared cost"
+        },
+        {
+          "assessment": "Different setup and type of result",
+          "evidence": "The initial splitting example uses a Dirac to a symmetric two-atom measure; no stated rescaled geodesic mass profile for opposite Diracs in the inspected material.",
+          "identifier_or_url": "https://arxiv.org/html/2610.02007v1",
+          "material_read": "Example 4.13 and §6.4 discussion, OA offsets 136800 and 179300",
+          "method": "Primary OA HTML passages",
+          "title": "Approximation and computation of the geodesic Sinkhorn distance",
+          "trigger": "Same length metric and potentially related sharp initial behavior"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "Riccati cross-flux under iteration is not normalized geodesic arclength.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-near-disconnected-sinkhorn-crossover-with-a-riccati-flux-profi--3c84f6d344ba",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "A near-disconnected Sinkhorn crossover with a Riccati flux profile",
+          "trigger": "Closest catalogue comparison on a two-atom crossover"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Steps 2–5"
+      ],
+      "rationale": "For the simplest nontrivial ground space, the interior error and endpoint time and mass scales quantify a stiffness that mere convergence of the path or exponential length growth misses. The explicit profile is a precise benchmark for geodesic computation and distinguishes behavior near a pure mass from that at interior times.",
+      "residual_risks": [
+        "The benchmark does not prove correctness or convergence of any particular solver or extend ordering to larger spaces."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

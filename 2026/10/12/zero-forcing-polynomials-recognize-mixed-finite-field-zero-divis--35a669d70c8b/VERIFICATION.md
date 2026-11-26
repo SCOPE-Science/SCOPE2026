@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,39 +19,24 @@
 }
 ---
 
-The standalone `verify.py` artifact was read from its actual packaged path before replay.
+# Independent mathematical audit
 
-It exhausts all at-most-one-white support profiles in representative mixed binary/nonbinary products through four factors, computes Boolean-disjointness quotient ranks exactly through six factors, and enumerates every vertex subset for four small mixed products to reproduce the complete zero forcing polynomial.
+## correctness
 
-It independently reconstructs adjacency by coordinatewise multiplication in three products of prime fields and replays the root-multiset recovery algorithm on repeated and unequal field orders. It also checks the pure-binary two-factor failure boundary.
+PASS
 
-Exact replay output:
+Coordinate multiplication gives precisely the stated class sizes and disjoint-support adjacency. Double whites in a class prevent a first force into the class. If any singleton class is white, its support lies entirely in binary coordinates; the complement of an inclusion-minimal such white support has a nonbinary coordinate, hence an available blue vertex. Its only white neighbor lies in the chosen support, since disjointness from the complement is exactly containment in the support. After all singleton whites are gone, the same minimal-support step works for every remaining white support. This proves the product, the minimum complements and their count. For rank, order supports by increasing size and columns by their complements in the same order. The quotient becomes triangular with unit diagonal, since its entry is now 1 precisely when the row support is contained in the column's uncomplemented label. The complement permutation is an odd number of transpositions, so the determinant is -1. The lift with full-column-rank incidence matrix gives rank h, while M <= Z is the matching bound. The root count fixes r; the root product recovers the full subset product. Add the empty and full products with their multiplicities, use the multiplicity of 1 to recover binary factors, then strip the products of recovered factors as multisets. The least unexplained positive product is the next factor greater than 1; existing collisions do not matter when counts are subtracted. Finite fields are unique by order. Independent replay: python /workspace/audit_checks.py 4 tests all initial vertex subsets by direct multiplication in four mixed products and the binary exclusion; for (2,2,3) it obtains {3:8,4:36,5:66,6:63,7:33,8:9,9:1} and checks every complement profile. The all-binary example gives 2u+u², not the claimed product.
 
-```text
-profile theorem (2, 3): 4 profiles
-profile theorem (2, 2, 3): 64 profiles
-profile theorem (2, 3, 3): 64 profiles
-profile theorem (2, 2, 2, 3): 16384 profiles
-profile theorem (2, 2, 3, 5): 16384 profiles
-quotient rank r=2: 2
-quotient rank r=3: 6
-quotient rank r=4: 14
-quotient rank r=5: 30
-quotient rank r=6: 62
-full polynomial (2, 3): N=3, Z=1, coeff_min=2
-full polynomial (2, 2, 3): N=9, Z=3, coeff_min=8
-full polynomial (2, 3, 3): N=13, Z=7, coeff_min=64
-full polynomial (2, 2, 5): N=15, Z=9, coeff_min=64
-direct product (2, 3): vertices=3
-direct product (2, 2, 3): vertices=9
-direct product (2, 3, 5): vertices=21
-recover (2, 3): r=2, binary=1, unit_product=2, fields=(2, 3)
-recover (2, 2, 3): r=3, binary=2, unit_product=2, fields=(2, 2, 3)
-recover (2, 3, 5): r=3, binary=1, unit_product=8, fields=(2, 3, 5)
-recover (2, 2, 3, 4): r=4, binary=2, unit_product=6, fields=(2, 2, 3, 4)
-recover (2, 2, 2, 3, 5): r=5, binary=3, unit_product=8, fields=(2, 2, 2, 3, 5)
-pure binary boundary F2xF2: {1: 2, 2: 1}
-VERIFY_OK
-```
+## originality
 
-The computations are finite corroboration. The arbitrary-factor theorem is established by the two-stage support forcing proof, the Boolean quotient determinant argument, and exact subset-product inversion.
+PASS
+
+The material contribution is the exact standard forcing condition with both singleton and nonsingleton support classes, the resulting rank and the inverse from this polynomial. The class decomposition and exact graph order are prior. A catalogue theorem has the same symbolic polynomial, minimum-set count and rank on the all-nonsingleton side for co-maximal ideal graphs, but cannot be specialized to mixed supports. A same-day result has the same factor multiset for an automorphism-determining polynomial on a reduced co-maximal graph; this is not the standard zero forcing polynomial of the specified graph. Neither catalogue date decides priority. The multiple overlaps constrain distinctness but do not establish the full bound finding.
+
+## value
+
+PASS
+
+This gives an exact propagation census and real minimum rank for a natural class in which some modules have no initial blue representative. The pure binary failure makes that distinction necessary, and root-multiplicity inversion is a concrete use of the full polynomial, retrieving the ring rather than just its order. The three-factor cross-overlap is real but leaves the arbitrary-factor classification and reconstruction useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:59:49.478276Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Horizontal integration gives Eq. (1) in angular frequency, with coefficients sin(u) and -i cos(u). At u=0 the real part can only vanish at v=kπ≠0, where the imaginary part is nonzero. Away from u=jπ/2 both sinc factors must vanish, hence the two integer indices are nonzero and distinct. On exceptional lines cross-multiplication gives Eq. (2); at v=±p the original expression is nonzero by |sinc(2p)|<1. If cos(p)≠0, no positive tangent pole can be a root and tan(v)/v and v tan(v) have strictly positive derivatives, by v>|sin(v)cos(v)|. Every full positive branch gives one root, with only bounded error at the two ends, the origin, the removed points and reflection. If cos(p)=0, the cosine zeros give the same count up to a bounded error. This proves local finiteness and the uniform vertical census, not just a linewise asymptotic. The lattice covolume is π²/(2α); the three removed lines cost O_α(R). Summation of 2sqrt(R²-u²)/π at step π/2 gives 2R²/π with O(R) error by bounded variation. For irrational α the lattice has no exceptional-line points; at α=p/q in lowest terms, lattice overlap is the index-q sublattice ℓ-k≡0 mod q, with the same deletions. This yields precisely the subtraction 2R²/(πq). Other rationals approaching a fixed point without repeating it have denominators tending to infinity; the rational defect is a downward point discontinuity. An independent integer-index count using j²+(2k+αj)²≤(2R/π)², j∈qZ excluding j=0 and k(k+αj)=0, gives overlaps 266 and 1186 at α=1/4 and 210 and 934 at α=2/5, for R=45 and 90 respectively, as in the archived output. The supplied sign-change checker was inspected, not run; its finite counts do not establish the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two sources provide general polytope or polygon Fourier formulas; the third gives complex non-containment results for spheres or certain rationally parametrized curves."
+        ],
+        "reasoning": "An evaluation formula does not count roots, bound the error uniformly on the varying exceptional lines, or count their intersection with the reciprocal lattice. Complex non-containment does not imply this discrete real-zero census.",
+        "searches": [
+          "arXiv:1602.08593, Theorem 1",
+          "arXiv:1703.00255, Proposition 10",
+          "arXiv:2404.03405, Theorem 1.1 and Corollary 3.2 discussion"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py and checker_output.txt",
+        "arXiv:1602.08593, arXiv:1703.00255 and arXiv:2404.03405",
+        "Resultary ce454fd1584b, 148b8519ca71 and 7b6a77a84411"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specializing general transform evaluation can recover the elementary sinc expression. The asserted density requires the full exceptional-line count and an overlap sublattice of index q for rational α=p/q; for irrational α the two populations are still present but do not intersect."
+        ],
+        "reasoning": "The nontrivial content after crediting the formula is the global real-zero classification with the uniform census and arithmetic overlap. None of the closest inspected statements supplies those implications on this domain.",
+        "searches": [
+          "Wuttke, Proposition 10",
+          "Diaz–Le–Robins, Theorem 1",
+          "ce454fd1584b, RESULT.md offsets 0 and 1876",
+          "148b8519ca71, RESULT.md offsets 120 and 2700"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "ce454fd1584b treats the continuous transform of a one-dimensional asymmetric tent; irrational apex yields no real zeros there. 148b8519ca71 treats integer-frequency extinction of a clipped square, not all real frequencies of an isosceles trapezoid."
+        ],
+        "reasoning": "A diffraction form factor uses the same underlying transform (with a possible 2π frequency change), but the candidate zero sets and frequency domains must match. Here neither catalogue analogy has the two surviving zero families and their rational intersection.",
+        "searches": [
+          "Resultary: Fourier zeros isosceles trapezoid exact zero set density rational slope",
+          "Resultary: Fourier transform trapezoid real zeros reciprocal lattice vertical lines zero counting density",
+          "Web: \"isosceles trapezoid\" \"Fourier transform\" zeros diffraction form factor real zero density"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7b6a77a84411 has a Thomae-type density of integer zeros for weighted triangular self-similar measures; ce454fd1584b and 148b8519ca71 give exact arithmetic laws for different objects."
+        ],
+        "reasoning": "A catalogue exact formula would apply if shape and real-frequency domain matched. A finite diffraction plot or discrete frequency table cannot cover distinct zeros for all R and all 0<α<1. The inspected formula entries do not supply that law.",
+        "searches": [
+          "Resultary: polygon form factor diffraction trapezoid zero lines rational slope Fourier null density",
+          "Resultary: polygon Fourier zeros trapezoid diffraction exact census form factor zero density",
+          "Resultary: A Thomae law for the asymptotic Fourier-null density of isosceles trapezoids complete real zero set rational slope"
+        ]
+      },
+      "rationale": "Known polygon Fourier formulas evaluate the transform, but the strongest inspected sources do not give the complete real zero census and the dimension-two rational overlap term for this trapezoid. Closest indexed arithmetic analogies change the domain, the shape or the frequency set. This is a bounded comparison, not an assertion of global priority.",
+      "residual_risks": [
+        "Unindexed or differently normalized applied diffraction work may contain a closer same-shape census. Ranked search and the cited sources cannot establish global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General face-to-facets transform, not zero-set counting",
+          "evidence": [
+            "Stokes-based recursion evaluates the transform and is used with Poisson summation for weighted spatial lattice-point counting."
+          ],
+          "identifier_or_url": "arXiv:1602.08593",
+          "material_read": "Abstract p. 1, Theorem 1 p. 5 (offsets 243 and 15201)",
+          "method": "Compare the computed object and target of the lattice count",
+          "title": "Fourier transforms of polytopes, solid angle sums, and discrete volume",
+          "trigger": "General polytopal Fourier transform and lattice counting"
+        },
+        {
+          "assessment": "Provides evaluation for arbitrary wavevectors, not the new zero arithmetic",
+          "evidence": [
+            "Proposition 10 supplies an edge-sum polygon formula."
+          ],
+          "identifier_or_url": "arXiv:1703.00255",
+          "material_read": "Introduction pp. 1–2, Proposition 10 p. 5 (offsets 3394 and 17510)",
+          "method": "Compare the polygon edge expression with the trapezoid classification and census",
+          "title": "Form factor (Fourier shape transform) of polygon and polyhedron",
+          "trigger": "Exact diffraction formula for this polygon class"
+        },
+        {
+          "assessment": "Does not classify or count real isolated zeros in this family",
+          "evidence": [
+            "Rules out vanishing on a complex sphere or on certain rationally parametrized curves."
+          ],
+          "identifier_or_url": "arXiv:2404.03405",
+          "material_read": "Theorem 1.1 p. 3 and Corollary 3.2 discussion p. 5 (offsets 8061 and 13304)",
+          "method": "Compare complex set non-containment to quantitative real point counts",
+          "title": "Curves in the Fourier zeros of polytopal regions and the Pompeiu problem",
+          "trigger": "Directly related questions on polytopal Fourier zero geometry"
+        },
+        {
+          "assessment": "Material analogy, not equivalent coverage; same date does not resolve priority",
+          "evidence": [
+            "A one-dimensional triangular density has no real zeros at irrational apex, and has nonzero double zeros at 2πqℓ for reduced rational apex."
+          ],
+          "identifier_or_url": "Resultary ce454fd1584b",
+          "material_read": "RESULT.md offsets 0 and 1876",
+          "method": "Compare dimension, normalization and actual zeros",
+          "title": "Arithmetic conditioning and zero-free irrational asymmetric tent transforms",
+          "trigger": "Same-date rational denominator phenomenon for a piecewise linear profile"
+        },
+        {
+          "assessment": "Different shape and frequency set",
+          "evidence": [
+            "The result covers integer-frequency extinction and excludes the complete real-frequency zero set."
+          ],
+          "identifier_or_url": "Resultary 148b8519ca71",
+          "material_read": "RESULT.md offsets 120 and 2700",
+          "method": "Compare clipped square vs. trapezoid and integer vs. continuous frequencies",
+          "title": "Arithmetic Fourier extinction and a sharp lattice-overlap transition",
+          "trigger": "Two-dimensional rational extinction and overlap"
+        },
+        {
+          "assessment": "Different object and frequency regime",
+          "evidence": [
+            "Integer zeros at exceptional cyclotomic weights are counted for a self-similar measure."
+          ],
+          "identifier_or_url": "Resultary 7b6a77a84411",
+          "material_read": "RESULT.md offset 0",
+          "method": "Compare measures and count domains",
+          "title": "A Thomae law and laminar Fourier kernels for weighted triangular self-similar measures",
+          "trigger": "Closest title/Thomae-type density match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact census describes extinction of a simple polygon family at fixed area and identifies a discontinuous arithmetic invariant of its slope. It separates two geometrically different populations of zeros and proves the overlap loss and O_α(R) remainder, rather than merely evaluating a standard integral or plotting selected zero sets.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

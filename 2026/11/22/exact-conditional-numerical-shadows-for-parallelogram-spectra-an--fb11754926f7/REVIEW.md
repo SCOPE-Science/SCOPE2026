@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The normalized complex Haar squared-coordinate law is uniform Dirichlet, and the Walsh-coordinate Jacobian is exactly \(1/16\). The feasible conditional interval and constant density give a uniform posterior; its mean, variance and unconditional Beta integral yield exactly \(|c_3|^2/10\). The affine comparator is the orthogonal projection onto three pairwise uncorrelated Walsh coordinates, leaving \(|c_3|^2/5\). The exact-rational checker confirms 3,853 individual supplementary identities. The analytic argument, not the finite tests, establishes the full quantified statement.
+## correctness
 
-## Originality
-PASS, subject to an explicit general-Dirichlet-priority risk. Johnson (2026) proves exact pointwise information inclusion, not quantitative best recovery. Dunkl et al. (2010) establish the simplex pushforward and square-shadow marginal, which are credited premises. The published exact Haar-regression criterion (2026) proves the general optimal affine formula and that dependent spectral configurations admit a strict nonlinear gain, not the four-corner posterior distribution or universal sharp one-half ratio. The published three-level numerical-shadow study does not contain four-corner conditional claims. Searches of mathematical records, exact-number formulas and geometric/conditional aliases did not locate an equivalent or dominating published statement. A prior unindexed theorem on Dirichlet conditional regressions may imply this specialized law; absence from search is not proof of priority.
+PASS
 
-## Mathematical value
-PASS. Four noncollinear corners constitute the first planar normal spectrum with a hidden commuting spectral direction. The statement resolves the complete posterior, optimal nonlinear predictor and exact Bayes risk for **all** commuting targets and all nondegenerate parallelograms; the universal factor-two risk gain supplies a quantitative invariant not given by qualitative observability or the marginal numerical shadow. The result is more than recalculation of the known shadow density: it identifies the hidden direction's recoverable fraction in a natural inverse-observation problem.
+For a complex Haar vector the four squared amplitudes are independent exponential variables normalized by their sum, hence Dirichlet(1,1,1,1). Distinct eigenvalues force a commuting target to be diagonal. Under the Walsh coordinates of the finding put a=p_(++)+p_(--), V=(X+Y)/2 and W=(X−Y)/2. Dirichlet aggregation gives a~Beta(2,2); conditionally on a, V and W are independent uniforms on [−a,a] and [−(1−a),1−a]. Their conditional density times 6a(1−a) is the constant 3/2 on |V|≤a≤1−|W|, so Q=2a−1 is uniform between the stated endpoints. Its midpoint gives the unique a.e. optimal predictor, with a continuous point-mass version at interval collapse. The density of (|V|,|W|) is 6(1−v−w) on v,w≥0, v+w≤1. The conditional variance of Q is (1−v−w)^2/3, whose expectation is 2∫∫(1−v−w)^3 dv dw=1/10. Sign symmetry of V,W conditional on a makes Q orthogonal to the observed linear coordinates, and E Q²=1/5 from a's beta law. The real-affine projection removes precisely the constant and the X,Y components, since the real-linear parallelogram map is invertible. Multiplication by |c_3|² gives the two risks, and only c_3=0 gives loss zero. A fresh exact test checked the triangle/beta integrals and 560 simplex grid points; replay: python /workspace/replay_frozen.py 3. The grid is an algebraic check, not a proof of the conditional distribution.
 
-## Limits and closest literature
-The result excludes arbitrary quadrilaterals, noncommuting targets and other probe ensembles. The strongest nearby sources are Dunkl et al. (2010), Johnson (2026), and the published exact Haar-regression criterion for normal matrices (2026); their established components are not claimed as new. Novelty rests on the exact four-corner conditional law and its risk ratio. No external or independent mathematical audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass is for the geometry-specific explicit optimal predictor and quantitative residual risk, yielding a universal one-half ratio for the nonzero hidden direction. The uniform simplex law, marginal fiber-volume formula, inherited conditional uniformity, and optimal affine benchmark are not counted as new. Neither the inspected general marginal theorems nor the earlier quantitative regression criterion supplies the conditional-mean/error evaluation for this four-level geometry. The available earlier explicit three-level calculation has a genuinely different loss ratio.
+
+## value
+
+PASS
+
+The four-level parallelogram is a natural first planar spectrum with one unobserved commuting coordinate. The explicit predictor and nonzero optimum determine the attainable recovery accuracy and quantify what is lost by insisting on an affine predictor for any target in that geometry. The factor compares two precisely motivated risks independently of the parallelogram embedding; it captures a different phenomenon than the known qualitative strict-improvement criterion or the marginal shadow density.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

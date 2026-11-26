@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:55:19.026894Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–89 (Steiner normalization, integral and derivative formula, root construction and witness)",
+        "Frozen VERIFICATION.md lines 19–25",
+        "Frozen verify.py lines 17–98",
+        "Independent analytic coefficient-Jacobian check recorded above"
+      ],
+      "rationale": "With the stated Steiner normalization, the ellipsoid integral in RESULT.md lines 34–43 is the input. Its expanded numerator shows locally uniform integrable bounds at zero and infinity, also for coefficient derivatives, on the open positive-coefficient domain. For j>=k, differentiate with T_k fixed and integrate by parts the derivative of u^(j-k/2)T_k Q^(-3/2); its endpoint terms vanish and the result is the stated A_k formula. For j<k use R=Q-T_k fixed with numerator R'Q-RQ', giving B_k by the same calculation. The crucial nonsingularity can be checked independently without the unavailable cited convexity proof, as follows. Normalize row k by sqrt(s_k) instead of v_k. For fixed u>0 put a_p=s_p u^p. This is a positive log-concave sequence by Newton's inequalities for the positive squared semiaxes. The new integrands have common positive factor u^(j-1)Q^(-3/2)/4 times A_k/sqrt(a_k) or B_k/sqrt(a_k). Write D=sum_{p<k}a_p, r=sqrt(a_(k+1)/a_k), x=sqrt(a_k/a_(k-1))>=r. Then sqrt(a_k) times the second difference of the A-sequence is x A_(k-1)+A_(k+1)/r-2A_k, bounded below by [(r-1)^2 A_(k-1)-2(r-1)D+a_k]/r, using A_k-A_(k-1)=D and A_(k+1)-A_k=D+a_k. This is strictly positive for r<=1. For r>1, all earlier ratios a_(p+1)/a_p are at least r^2, so D<a_k/(r^2-1); the last two terms already have positive sum. The B-sequence follows by reversal of the a_p. At k=j both choices give the same integrated matrix entry, since A_j-B_j=jQ-uQ' and the difference is proportional to the vanishing boundary term [u^(j/2)/sqrt(Q)] from zero to infinity for 1<=j<n. The zero ghost rows are A_0=B_n=0. Thus every off-diagonal entry of the Dirichlet second-difference matrix with sign reversed times this row-scaled Jacobian is strictly negative, and its column sums are positive boundary row entries; strict column diagonal dominance gives invertibility. The v_n=sqrt(s_n) row then gives full rank. This independently establishes the required lemma's consequence even at repeated axes. The inverse function theorem on the open extension, with a convex small data neighborhood, bounds coefficient differences for any two nearby real spectra. Rouché in separated clusters of multiplicity m_j matches roots within O(delta^(1/m_j)); the disk radius may be picked between the displayed radius and twice it avoiding tangencies, and components are ordered along the real line. For zero coefficient difference the roots coincide; square roots are uniformly bi-Lipschitz on the positive compact neighborhoods. Sharpness follows by adding a fixed small nonzero constant to a real simple-root cluster polynomial, then moving each scaled root into the fixed cluster: the ordered squared-axis displacement is order epsilon, whereas the characteristic coefficient difference is exactly epsilon^m times a fixed nonzero multiple of the remaining-root polynomial. Local bi-Lipschitz coefficient-to-data control transfers both bounds. For the three-ball, the beta integrals give the displayed six coefficient derivatives and determinant 8/315; the triples have common s_1=3 and s_2=3-3 epsilon^2 with s_3 difference 4 epsilon^3. The smooth derivative at a point O(epsilon^2) from the ball gives data leading vector (4/35,24/35,2) epsilon^3 with O(epsilon^5) remainder. Sorting and square-rooting yields d=epsilon+O(epsilon^2). The attached finite diagnostics were inspected, not executed.",
+      "residual_risks": [
+        "Local constants can degenerate near vanishing axes or coalescing distinct clusters; the theorem is on ordered axes, not center or orientation.",
+        "The attribution to the specific cited primary lemma was not independently read from the paper; nonsingularity itself was independently proved above."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The bound RESULT.md identifies the strict coefficient Jacobian of Myroshnychenko–Tatarko–Yaskin, arXiv:2611.24923v1, Lemmas 3.5, 4.1, 4.2 and Section 5, as a borrowed premise. The original passage was not retrieved. The cited 3D uniqueness and the intrinsic-volume integral identity are antecedents, not new here.",
+          "Generic polynomial root conditioning entirely accounts for the form of the upper exponent after the local coefficient estimate; the primary search for the exact multiplicity bound did not return a passage and is not negative evidence."
+        ],
+        "reasoning": "Uniqueness by itself does not supply a modulus, but nonsingularity in elementary coefficients supplies the necessary pairwise Lipschitz bound on coefficients. Abstract complex-root stability does not by itself exhibit sharpness for positive real semiaxes paired under this data map.",
+        "searches": [
+          "Primary: Unique determination of ellipsoids by their intrinsic volumes stability Hölder condition number semiaxes quantitative inverse arXiv 2611.24923",
+          "Primary exact title/author/arXiv and Lemma 4.1 lookup; targeted OA Lemma 4.1 attempt",
+          "Primary: Beauzamy How the roots of a polynomial vary with its coefficients a local quantitative result Newton multiplicity sharp optimal 1/m Beauzamy root matching"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 38–79, 91–101",
+        "Resultary self-hit 15027f8984af and adjacent records cd61381281e0, 62c25fed6e68",
+        "Primary query and OA attempts for arXiv:2611.24923v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The nonsingular coefficient Jacobian and clusterwise root theory give the 1/m upper modulus; no originality is claimed for that tool chain alone.",
+          "A generic coefficient perturbation at a multiple root can leave the class of real-rooted polynomials. The source instead perturbs two nearby split clusters, each real and positive, with equal low-order coefficient data. Smooth coefficient equivalence makes this construction sharp in the actual intrinsic-volume norm.",
+          "The distance-moment summary explicitly concerns the ball and does not itself state the arbitrary fixed multiset pairwise theorem."
+        ],
+        "reasoning": "The positive-real, all-strata sharpness comparison is the supported distinction; the three-ball example alone or a uniqueness-to-stability heuristic would not justify the originality finding.",
+        "searches": [
+          "Frozen RESULT.md lines 45–79 versus arXiv:2611.24923v1 as cited, and Resultary cd61381281e0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact same summary is 15027f8984af, the frozen self-hit. Taking ordered squared axes, switching to unnormalized intrinsic volumes, or using another finite-dimensional coefficient norm leaves the exponent unchanged locally.",
+          "The separate geodesic-length conditioning summary treats three coordinate sections and a perturbation near the 3D sphere, not Steiner data."
+        ],
+        "reasoning": "Equivalent reparametrizations cannot count as novelty. Different measurement maps would need a verified local change of data and the same all-strata modulus to cover this claim.",
+        "searches": [
+          "Resultary: sharp local Hölder stability ellipsoid intrinsic volumes multiplicity semiaxes pairwise exponent",
+          "Resultary: ellipsoid intrinsic volumes root conditioning sharp exponent stability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct earlier entry cd61381281e0 states sharp inverse exponent 1/d near a ball for the first d positive even distance moments, not intrinsic volumes.",
+          "The exact intrinsic-volume statement in the returned material is the frozen self-hit 15027f8984af; no independent same-statement table or separate record was inspected."
+        ],
+        "reasoning": "The earlier ball result shares the singularity of root recovery, but the available statement does not prove pairwise all-strata recovery for intrinsic volumes. Its full record was not available, so deeper equivalence has not been excluded.",
+        "searches": [
+          "Resultary: ellipsoid intrinsic volume recovery Hölder multiplicity",
+          "Resultary: semiaxes determined by intrinsic volumes inverse stability quantitative"
+        ]
+      },
+      "rationale": "Credit the combined sharp, pairwise intrinsic-volume modulus at each semiaxis multiplicity stratum and the matching realizable perturbations, not intrinsic-volume injectivity, the coefficient integral or the inverse function theorem. The earlier distance-moment result shares the ball exponent but changes the observable and identified scope; the geodesic result also uses a different observation map. The 18 November preprint is the closest plausible primary precedent and supplies the Jacobian framework according to the frozen reference; its original full text remained inaccessible. The upper bound is a consequence of that framework and root conditioning. The supported increment is the complete sharp intrinsic-volume statement, particularly the two near realizable positive spectra giving the lower order at general centers. This is a qualified statement-level assessment, not a priority certificate or independent claim that the source paper omits the theorem.",
+      "residual_risks": [
+        "The 18 November preprint and closest distance-moment record could not be checked line by line; unindexed sharp root-conditioning/volume corollaries may bear on priority.",
+        "The upper exponent is a comparatively direct application of existing Jacobian and root arguments. The originality judgment is for the stated exact local classification with hyperbolic sharpness, not those inputs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit the Jacobian framework and resulting coefficient bound; cannot certify whole-document noncoverage",
+          "evidence": [
+            "The cited lemma is columnwise strict convexity away from the diagonal in the normalized derivative array. The proof check independently obtains nonsingularity with a different row normalization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.24923",
+          "material_read": "Frozen RESULT.md lines 38–56, 91–101 exact lemma citation and mathematical reformulation; primary passage not retrieved",
+          "method": "Exact-title/lemma search and bounded OA HTML/PDF attempts",
+          "title": "Unique determination of ellipsoids by their intrinsic volumes",
+          "trigger": "Exact observable and the indispensable coefficient Jacobian of the original proof"
+        },
+        {
+          "assessment": "Clear distance-moment/ball antecedent; all-strata intrinsic-volume coverage is not stated in material read",
+          "evidence": [
+            "First d positive even distance moments recover semiaxes with sharp exponent 1/d near the ball."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-finite-distance-moment-tomography-of-solid-euclidean-ellip--cd61381281e0",
+          "material_read": "Indexed summary; full mirror not retrieved",
+          "method": "Resultary and OA mirror attempt",
+          "title": "Sharp finite distance-moment tomography of solid Euclidean ellipsoids",
+          "trigger": "Same inverse-ellipsoid setting and sharp ball multiplicity exponent"
+        },
+        {
+          "assessment": "Different input data and narrower center geometry",
+          "evidence": [
+            "Three coordinate-section geodesic measurements; no statement about the intrinsic-volume coefficient map."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-local-geodesic-length-conditioning-for-ellipsoids-near-the--62c25fed6e68",
+          "material_read": "Indexed summary",
+          "method": "Resultary",
+          "title": "Sharp local geodesic-length conditioning for ellipsoids near the sphere",
+          "trigger": "Nearby inverse ellipsoid conditioning and clustered spherical perturbation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–27, 58–86 and 94–95"
+      ],
+      "rationale": "The theorem distinguishes identification from conditioning: two observations corrupted near a fixed nearly symmetric ellipsoid can be close to order m while the geometry differs at first order. The maximal multiplicity, not merely ambient dimension, controls the optimal pairwise noise exponent; distinct axes are Lipschitz and repeated clusters progressively worsen recoverability. The realizable lower bounds make this significant for inverse use of intrinsic-volume data, beyond a generic dimension-only root bound or a single ball example.",
+      "residual_risks": [
+        "Does not optimize stability constants, including at the 3D ball, or provide a global modulus uniform over E_0."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

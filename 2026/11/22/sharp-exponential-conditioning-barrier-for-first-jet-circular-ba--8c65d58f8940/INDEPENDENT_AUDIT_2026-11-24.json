@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:55:04.562487Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and Proof; VERIFICATION.md; check_fock_jet.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/reproduce_frozen_reviews.py 2 (NumPy)"
+      ],
+      "rationale": "The factorial basis, Gaussian weight, 1/√M and two-channel unitary DFT give residue blocks with columns √p_n(1,(n−x)/√x)^T for n=k,k+M, p_n=e^{−x}x^n/n!. Their positive determinants M√(p_k p_{k+M})/√x establish interpolation, and their Gram determinants multiply to M^{2M}e^{−2Mx}x^{2M(M−1)}/∏n!, maximized uniquely at x=M−1. For x/M in a compact positive interval the unweighted 2×2 block has operator norm O(√M) and determinant M/√x of order √M, so its least singular value is bounded below by a positive constant. This quantitatively reduces the squared condition exponent to the extremal Poisson-weight ratio, uniformly with log-error O(log M) before division by M. Stirling yields I_ρ(s)=ρ−s+s log(s/ρ), whose oscillation on [0,2] is the displayed F (the mesh endpoint error is O(1/M)); endpoint balancing gives the unique ρ=2/e. No escaping radii improve the rate: with N=2M−1, r=x/N and d_n the squared column norm, d_N/d_0 ≤(1+N)e^N r^{N−1} when r≤1 (N!≥(N/e)^N) and d_N/d_0≥r^N/4 when r≥2 (N!≤N^N). Either escape makes the scaled log squared condition diverge. The uniform compact estimate and the trial x=(2/e)M then justify the infimum limit and localize every rate-optimal sequence. Independent direct complex value/derivative matrix checks matched the full block SVD and log Gram determinant in 20 cases across M=2–12. Those cases do not certify the asymptotics.",
+      "residual_risks": [
+        "The result fixes the coefficient norm and radius-dependent derivative normalization. It concerns the exponential rate of the squared ratio, not finite-M condition-optimal radii or their prefactors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Calixto et al. compute Poisson Fourier eigenvalues and infinite-space residue sums for values. Escudero et al. treat the same type of covariant derivative (up to phase/sign and normalization) with infinite-set density hypotheses. Cruz et al. study multiplicity arrays with a Bombieri/Weyl norm."
+        ],
+        "reasoning": "These general settings supply Fourier, derivative, or interpolation antecedents, but the checked statements give no sharp condition bound for the critical factorial-norm two-channel residue pairs. The cited Hermite article's detailed coverage was not verified from the inaccessible routes.",
+        "searches": [
+          "arXiv:1109.2171 Eqs. (28), (30), (52)",
+          "arXiv:2004.12922 pp. 1–2",
+          "arXiv:2405.19945 pp. 5–6",
+          "DOI 10.1155/2014/808519 Hermite interpolation"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 413970b27bf4, 3eb6ee5c2781, 7b97c5b1856d, 72797b836898 and exact target 8c65d58f8940",
+        "arXiv:1109.2171, 2004.12922, 2405.19945",
+        "DOI 10.1155/2014/808519 (retrieval attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Each first-jet pair uses a weight-independent matrix with columns (1,(k−x)/√x) and (1,(k+M−x)/√x). Their separation gives determinant M/√x and a uniform lower singular bound at x≈M. That estimate is not part of the point-evaluation eigenvalue results."
+        ],
+        "reasoning": "The older exact point-only result transfers once this polynomial distortion and the endpoint-radius bounds are proved. Without derivative separation the aliased square map could be singular or the rate could change, so neither rescaling n nor reading the old estimate proves the first-jet conclusion. The finite Hermite determinant alone would not locate the ratios of extreme singular values.",
+        "searches": [
+          "Resultary 413970b27bf4 finite condition formula",
+          "arXiv:1109.2171 Eq. (52)",
+          "Resultary 72797b836898 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The finite point-only ratio is h_n=max_{0≤j≤n}(x^j/j!)/min_{0≤j≤n}(x^j/j!); n=2M−1 and x=ρM give exactly the same F and x/M→2/e. The apparent factor of two is from normalizing per site rather than per degree.",
+          "The two-site cubic Hermite map is equivalent to M=2 up to common row normalization and derivative signs, but optimizes the least squared singular value, not the spectral ratio. Full-Fock point sampling uses Poisson residue masses, and minimum-norm interpolation amplification is yet another objective."
+        ],
+        "reasoning": "The rate coincidence is exact at exponential order, not evidence of equality of finite matrices or that derivative data give two extra point values by a unitary change. At M=2 the comparison is on the same operator, but neither objective nor large-M regime coincides.",
+        "searches": [
+          "Resultary 413970b27bf4 optimal circular sampling of Gaussian Fock polynomials",
+          "Resultary 3eb6ee5c2781 sharp e^{-1} conditioning transition and 7b97c5b1856d minimax interpolation",
+          "Resultary 72797b836898 two-site cubic Hermite sampling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior exact finite point-only maximum/minimum formula and radius (n!)^{1/n} completely encode the point-only rate. The exact two-site Hermite case gives a least-energy optimum x≈1.519055, not an all-degree condition solution."
+        ],
+        "reasoning": "The relevant exact catalogue is symbolic in n and x; no inspected distinct entry gives the complete all-M first-jet Gram spectrum and conditioning rate on the assigned normalization. The identity hit is not prior evidence.",
+        "searches": [
+          "Resultary 413970b27bf4 and 72797b836898 Findings and proof/formulas",
+          "Resultary identical record 8c65d58f8940"
+        ]
+      },
+      "rationale": "The same rate curve, optimized exponent, and radius scale are already obtained for the point-only design on the same polynomial space by rescaling its exact earlier formula; these numerical facts are not new in isolation. The supported distinct result is that the critically sampled first-jet design, with half as many sites on that space, has the same rate despite aliasing, with an exact coupled spectrum and a different determinant objective. The point-only result supplies the rate function after, not before, establishing control of the new residue blocks and exclusion of escaping jet radii.",
+      "residual_risks": [
+        "The precise coverage of Berriochoa–Cachafeiro–Díaz remains unverified. Other unlocated specialized finite confluent/Fock work could reduce the distinct increment. No priority claim is inferred from a same-day date or an unsuccessful broad search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact rate/radius overlap after scaling; different measurement operator",
+          "evidence": "n+1 point sites; κ² is the factorial weight ratio, minimized at (n!)^{1/n}.",
+          "identifier_or_url": "2026/11/1/SCOPE-optimal-circular-sampling-of-gaussian-fock-polynomials-unique-fa--413970b27bf4",
+          "material_read": "Mirrored RESULT.md Finding, Assumptions and Proof, offset 0",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "Optimal circular sampling of Gaussian Fock polynomials",
+          "trigger": "Strongest distinct indexed predecessor, identical Fock coefficient space"
+        },
+        {
+          "assessment": "Full-Fock point Gram, not finite first jets",
+          "evidence": "Poisson residue masses from N coherent kernels at radius squared ρN.",
+          "identifier_or_url": "2026/11/1/SCOPE-a-sharp-e-1-conditioning-transition-for-circular-fock-interpolat--3eb6ee5c2781",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "A sharp e^{-1} conditioning transition for circular Fock interpolation",
+          "trigger": "Same radius transition constant after changing units"
+        },
+        {
+          "assessment": "Different spectral objective",
+          "evidence": "Squared minimum-norm amplification and worst-residue localization, not a full ratio of singular values.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-exponential-minimax-interpolation-cost-on-expanding-fock-c--7b97c5b1856d",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "Sharp exponential minimax interpolation cost on expanding Fock circles",
+          "trigger": "Point-only interpolation amplification and rate"
+        },
+        {
+          "assessment": "Same M=2 operator up to harmless scaling/signs; different objective, no same-day priority inference",
+          "evidence": "Maximizes the least squared singular value at x≈1.519055, not the condition number.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-e-optimal-two-site-hermite-sampling-of-cubic-bargmann-fock--72797b836898",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "Sharp E-optimal two-site Hermite sampling of cubic Bargmann–Fock polynomials",
+          "trigger": "Strongest indexed finite first-jet overlap"
+        },
+        {
+          "assessment": "Point-only Fourier/Poisson antecedent",
+          "evidence": "Poisson weights N e^{-p}p^m/m! and full Gram residue sums.",
+          "identifier_or_url": "https://arxiv.org/abs/1109.2171",
+          "material_read": "p. 7 Eqs. (28), (30), p. 12 Eq. (52), offsets 21800 and 39700",
+          "method": "Open primary PDF passages",
+          "title": "Almost Complete Coherent State Subsystems and Partial Reconstruction of Wave Functions in the Fock-Bargmann Phase-Number Representation",
+          "trigger": "Exact circular coherent-state spectra"
+        },
+        {
+          "assessment": "Infinite sampling/interpolation density statements",
+          "evidence": "Derivative α conjugate(z)f−∂f, equal to the current covariant derivative up to phase/sign and normalization in the classical space.",
+          "identifier_or_url": "https://arxiv.org/abs/2004.12922",
+          "material_read": "Abstract and p. 2, offset 5100",
+          "method": "Open primary PDF passages",
+          "title": "Multiple Sampling and Interpolation in Weighted Fock Spaces of Entire Functions",
+          "trigger": "Same class of covariant first derivative"
+        },
+        {
+          "assessment": "Different polynomial norm, criteria and quantitative objective",
+          "evidence": "Bombieri/Weyl spaces and separation/density of arrays with multiplicities.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.19945",
+          "material_read": "Abstract and pp. 5–6, offset 15700",
+          "method": "Open primary PDF passages",
+          "title": "Multiple sampling and interpolation in a space of polynomials",
+          "trigger": "Finite polynomial multiplicity sampling"
+        },
+        {
+          "assessment": "Unresolved exact normalization and spectral coverage; failed retrieval is not negative evidence",
+          "evidence": "Cited by the frozen record as unit-circle Hermite interpolation; no unverified theorem attributed here.",
+          "identifier_or_url": "https://doi.org/10.1155/2014/808519",
+          "material_read": "No usable full text from checked routes",
+          "method": "Lawful publisher PDF and alternate Wiley/Hindawi retrieval attempts",
+          "title": "Hermite Interpolation on the Unit Circle Considering up to the Second Derivative",
+          "trigger": "Potentially close finite circular confluent interpolation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions, Proof",
+        "Resultary 413970b27bf4 and 72797b836898"
+      ],
+      "rationale": "First jets allow exact recovery with half the sites but that alone says nothing about noise amplification. Quantifying the sharp obstruction for the actual normalized sampling operator shows that derivative enrichment does not improve the leading conditioning exponent per coefficient and specifies the required radius scale. Comparing to the exact determinant optimum also rules out determinant tuning as a surrogate for worst-case conditioning at exponential order in this design. This is a useful negative design result despite the shared point-only exponent.",
+      "residual_risks": [
+        "No claim for arbitrary nodes, different channel noise weights, or multiple radii; the result does not prescribe finite-M condition minimizers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

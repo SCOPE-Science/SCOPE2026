@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The accompanying `verify.py` is standalone and uses Python standard library only. Run `python3 verify.py`; a successful run ends with `PASS_CUBOCTAHEDRAL_MATCHING_QUOTIENT_H2_Z2_PLUS_Z6_H3_Z_PI1_TRIVIAL`.
+# Independent mathematical audit
 
-It reconstructs the 24 edges of the cuboctahedral graph, all 2648 nonempty matchings, all 48 graph symmetries, 11152 quotient orbit cells, their integral incidence, 5117 elementary collapses and the resulting four-dimensional chain complex. Modular ranks 37,192,229, exact integral unit elimination of the third boundary (227 pivots), and remaining determinantal divisors 2 and 12 give Smith factors 2,6 and a free H3 class. The verifier also eliminates 181 generators in a fundamental-group presentation of the unquotiented complex, and verifies fixed barycenters for a generating set of the symmetry group. The homotopy conclusion uses Armstrong, Hurewicz and Whitehead as described in RESULT.md. No claim of independent audit is made.
+## correctness
+
+PASS
+
+Reconstructing L(Q3) and independently exhausting its graph automorphisms gives exactly the 48 maps induced from the cube. The face counts (24,204,744,1116,528,32) and flag-orbit counts (73,843,2983,4253,2520,480) match. Strict face-size types distinguish all subfaces of a flag, giving regular quotient cells and the signed deletion differential. An independent collapse order reached a three-dimensional regular residual (49,350,684,383) and checked consecutive signed boundary products. Exact Smith ranks (48,302,382) give Betti numbers (1,0,0,1); the only nonunit factors 2 and 6 of boundary degree three give H2 torsion because the outgoing boundary image is free. A direct presentation of the quotient residual kills all 302 generators, avoiding dependence on the separate Armstrong route. Hurewicz realizes the two torsion generators by maps from two-spheres that extend over cells of degrees 2 and 6. The simply connected three-dimensional complex has surjective pi3 to H3 (equivalently, use the Whitehead exact sequence), so a three-sphere realizes the generator of H3. The wedge of these maps is an integral homology equivalence between simply connected CW complexes and thus a homotopy equivalence.
+
+## originality
+
+PASS
+
+The closest accessible result computes the rational homology of the exact same geometric quotient and explicitly leaves integral and homotopy classification open. It does not imply degree-two torsion or a wedge splitting. The result treats Match(L(Q3)), not Match(Q3).
+
+## value
+
+PASS
+
+This is a complete integral classification of a natural symmetry quotient whose previously known rational homology looks like a sphere. It resolves whether torsion remains after taking all octahedral symmetries, identifies two independent degree-two summands including a 3-primary component, and realizes the free class by a sphere splitting off in homotopy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

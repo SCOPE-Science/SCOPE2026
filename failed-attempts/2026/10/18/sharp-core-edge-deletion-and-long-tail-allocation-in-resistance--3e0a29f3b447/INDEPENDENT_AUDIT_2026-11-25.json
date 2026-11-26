@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:22:20.812793Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The graph and budget are as stated, with unordered vertex pairs. The strictly convex inverse-trace objective is injectively parametrized by the edge weights on a simple graph; averaging over permutations of the nonroot clique vertices reduces the unrestricted problem to the symmetric one, with strictness yielding uniqueness. Bridge counting and the clique eigenvalues give A/x+C/v+Σ c_j/z_j, with v=x+ky and core expenditure αx+βv. At any prescribed core expenditure, the product to minimize over ρ=v/x≥1 is (α+βρ)(A+C/ρ), with derivative Aβ−Cα/ρ². If α≤0 it is increasing; otherwise the stationary ρ is interior exactly when Cα>Aβ. Equality is a unique boundary minimizer, not a continuum. This gives the two core formulas and t*=2N/(N−1) using A+C=k(N−1). Cauchy–Schwarz splits expenditure across the core and bridges, giving h² per unit reciprocal core spend, z_j proportional to √c_j, and (S+h)²/B. The normalized bridge sum converges to ∫₀¹√(u(1−u))du=π/8, including the fixed-t=2 mixed regime; this gives the stated tail laws. At m=3, ℓ=1, t=t* and B=1 the three remaining edges have conductance 1/3, giving unordered-pair sum 27 directly. The frozen script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed statement supplies the globally unique core prescription for each leaf count and every positive budget; no alternative attachment topology is asserted there. The published resistance-minimization framework and equal-price barbell are not by themselves exact statements of this lollipop theorem."
+        ],
+        "reasoning": "Pendants attached at the same root have the same clique-internal and clique-to-pendant core contribution whether the pendant edges form a star or a path. The change in bridge terms is entirely separable.",
+        "searches": [
+          "Pineapple 623da493ba70, exact Finding and scope",
+          "Ghosh–Boyd–Saberi, Minimizing Effective Resistance of a Graph, convex formulation and barbell"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 623da493ba70 and 45632063ad9c",
+        "Ghosh–Boyd–Saberi, proceedings PDF",
+        "Bianchi et al., Filomat PDF"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let b denote the expenditure on the clique and keep m, ℓ, and the core prices fixed. In the star attachment the core objective is exactly the same A/x+C/v as for a path: each of ℓ outside vertices adds one copy of the clique-root resistance sum. The pineapple theorem gives the optimal core cost h²/b and its core optimizer for every b>0 (vary the total star budget; the star core budget is a fixed positive fraction). For the serial path the optimum on the bridges at leftover budget B−b is S²/(B−b), with conductance proportional to √[j(N−j)]."
+        ],
+        "reasoning": "Minimizing h²/b+S²/(B−b) gives b/B=h/(S+h) and exactly the frozen allocation and minimum. Dividing the bridge sum by ℓ² yields the beta integral π/8; dividing the already determined h by √ℓ yields q_t. Thus the different long-tail rate is real, but the claimed coefficient follows directly from that transfer.",
+        "searches": [
+          "Pineapple 623da493ba70, mixed and deleted formulas",
+          "Ghosh–Boyd–Saberi, tree and barbell examples"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pineapple Finding: τ_N=2N/(N−1), exact mixed optimizer with core terms √((m+1)α) and √((k−1)Nβ), and complete deletion at equality. The frozen A+C=(m−1)(N−1), so its threshold simplifies to τ_N."
+        ],
+        "reasoning": "With one pendant vertex the two graphs and all formulas agree. For more pendant vertices, the topology is different, so transfer of the finite claim needs the bridge reduction, not just renaming.",
+        "searches": [
+          "Resultary: resistance-optimal lollipop, nonroot clique price threshold and long-tail allocation",
+          "2026/10/18/SCOPE-a-universal-chord-price-cutoff-for-resistance-optimal-pineapple--623da493ba70"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact symbolic cutoff and all one-pendant conductances are in 623da493ba70; 45632063ad9c reports a matching threshold in a different spectral-gap objective."
+        ],
+        "reasoning": "This is not a census or a table, so the relevant exact lookup is a symbolic optimizer. The spectral-gap formula is not resistance-optimization evidence.",
+        "searches": [
+          "Resultary 623da493ba70, exact theorem and formulas",
+          "Resultary 45632063ad9c, pendant-clique threshold"
+        ]
+      },
+      "rationale": "The distinct indexed pineapple theorem already states the identical deletion cutoff and the core optimizer, and its result transfers mechanically to the path by bridge separability. The long-tail coefficient is not printed in that theorem, but follows from the transferred core cost and the elementary Riemann sum for the known bridge weights. This is a statement/implication assessment, not a claim about which same-day record came first.",
+      "residual_risks": [
+        "Same-day path dates do not determine priority or dependence.",
+        "Yang (2014) primary text was not available; no inference about its scope is based on the access failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact cutoff/core coverage; lollipop allocation follows by bridge separability. No priority inferred.",
+          "evidence": "Theorem gives τ_N, the mixed core terms, and the deleted-core equal assignments for the pendant star.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-universal-chord-price-cutoff-for-resistance-optimal-pineapple--623da493ba70/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, and start of Proof, offsets 0–3450",
+          "method": "Configured Resultary search and local-mirror passage",
+          "title": "A universal chord-price cutoff for resistance-optimal pineapple networks",
+          "trigger": "Same priced nonhub clique edges, exact resistance optimization and candidate universal cutoff"
+        },
+        {
+          "assessment": "Different objective; not evidence for Kirchhoff-index optimization",
+          "evidence": "The theorem optimizes Laplacian spectral gap, not unordered-pair resistance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-sharp-core-edge-price-threshold-for-fastest-diffusion-on-a-pendant-clique--45632063ad9c",
+          "material_read": "Finding at the start of exact RESULT.md",
+          "method": "Configured Resultary search and local-mirror passage",
+          "title": "A sharp core-edge price threshold for fastest diffusion on a pendant clique",
+          "trigger": "Matching one-pendant graph and price cutoff"
+        },
+        {
+          "assessment": "Known framework, tree allocation and barbell examples; no same priced lollipop theorem in the inspected material.",
+          "evidence": "The barbell example has two cliques and one interclique edge; it does not carry the two-price one-tail model.",
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+          "material_read": "Convexity passage near offset 7951; §V equal-price barbell, printed pp. 1193–94",
+          "method": "Lawful OA proceedings PDF passages",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "General allocation method and potentially solvable attached-clique examples"
+        },
+        {
+          "assessment": "Different index and no conductance-budget optimization in the inspected passages",
+          "evidence": "Uses a mixed degree-Kirchhoff index and unweighted lollipop extremizers.",
+          "identifier_or_url": "https://journal.pmf.ni.ac.rs/filomat/index.php/filomat/article/download/1354/1218",
+          "material_read": "Definitions and lollipop discussion, pp. 2351–54",
+          "method": "Lawful OA PDF passages",
+          "title": "Upper and Lower Bounds for the Mixed Degree-Kirchhoff Index",
+          "trigger": "Lollipop and related resistance invariant"
+        },
+        {
+          "assessment": "Unresolved; not used as negative or positive coverage evidence",
+          "evidence": "The frozen citation describes an unweighted clique-number extremum; primary comparison could not confirm it.",
+          "identifier_or_url": "https://doi.org/10.1155/2014/794781",
+          "material_read": "No primary passage recovered; the characterization in frozen RESULT.md line 121 was read but not independently confirmed",
+          "method": "Lawful Wiley and identified Hindawi PDF routes returned access errors",
+          "title": "Some Bounds for the Kirchhoff Index of Graphs",
+          "trigger": "Potential lollipop extremal theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The graph and allocation problem are natural, and distinguishing a serial tail from leaves is useful. The headline threshold and phase information add no exact invariant to the indexed core solution, and the path-specific rate is a direct bridge-law substitution and standard integral once that core solution is credited. No separate nonroutine structural or quantitative finding is established by the frozen result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

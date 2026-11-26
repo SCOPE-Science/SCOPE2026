@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is the exactly specified primal-first, equal-step, extrapolation-one, planar quadratic iteration with a rotation mismatch. The proof constructs the real block update, reduces it to a two-by-two complex characteristic polynomial, and applies the degree-two strict Schur criterion. The modulus condition is strictly satisfied at every positive step; an exact factorization reduces the remaining condition to an explicit cosine inequality. Differentiation and factorization locate the unique transitions at \(\varphi=(1+\sqrt5)/2\) and \(1+\sqrt3\). The antipodal endpoint is handled separately by its exact eigenvalues. The proof verifies strict and boundary cases, with the unproved limits explicitly excluded. The accompanying verifier independently reconstructs the update and checks both symbolic identities and real-matrix spectra, but finite testing is not used as a proof of continuum assertions.
+## correctness
 
-## Originality — PASS with remaining priority uncertainty
-Lorenz–Schneppe, arXiv:2201.04928 (2022), define mismatched Chambolle–Pock and derive sufficient convergence conditions and quadratic examples, not the necessary-and-sufficient rotation-angle diagram. The full relevant text, including the update definition, convergence theorem, and quadratic examples, was compared. Chouzenoux–Contreras–Pesquet–Savanier, 2022 open preprint, analyze several other mismatched proximal schemes and sufficient conditions, rather than the exact rotational Schur frontier for this specified iteration. A published mathematical record on scalar matched PDHG optimizes spectral radius for \(\theta=0\) under \(\tau\sigma<1\); its full displayed theorem and proof do not imply the off-axis phase transition, the golden-ratio robustness threshold, or the larger-step endpoint. No equivalent or stronger covering result was identified in the performed searches. Specialized unpublished notes, or an unrecognized Schur specialization in other primal–dual literature, remain possible.
+PASS
 
-## Mathematical value — PASS
-The result quantifies a practical design question left open by norm-based sufficient mismatch conditions: how far can the implemented adjoint rotate before the actual strongly convex quadratic iteration loses linear stability? The answer is a complete angular phase boundary, including a surprisingly broad step range in which every non-antipodal rotation remains stable, a sharp golden-ratio change in qualitative behavior, and loss of stability even in the matched case above a second explicit threshold. It is a structural linear-algebraic diagnostic, not an arbitrary numerical sample or merely a recomputation of a sufficient upper bound.
+The exact frontier is correct, but the frozen opening is misleading if read as saying the angle provides information beyond the norm at fixed step size. In this family (I−R)^T(I−R)=2(1−cos θ)I, so the norm and the cosine identify one another. The complete repaired RESULT gives the equivalent norm thresholds and clarifies their dependence on the step size. Independently reconstructing the complex two-by-two update gives P=2u−2u²t²z and Q=u²(1−t²z). The determinant modulus is strictly below one. For roots a,b, the Schur difference equals (1−|a|²)(1−|b|²)|1−a conjugate(b)|²; hence its positive, zero or negative sign decides both strict stability and the exact radius-one boundary. Expanding yields the prefactor (1+c) times the sign factor c−H(t), with c=cos θ. At c=−1 the two roots are 1 and (1+t²)/(1+t)², including for t above the matched cutoff. Factoring H±1 and differentiating proves the two transitions and strict monotonicity; substitution gives H(2)=−11/25. Replay: repairs/1/RESULT.md Proof and the frozen verify.py lines 8–59, inspected but not executed. Its finite angle grid cannot establish the equality cases, which are covered by the algebra. Applies only to the exact, constant, equal-step primal-first quadratic iteration with extrapolation one.
 
-## Scope and risks
-All conclusions concern a homogeneous, strongly convex–concave quadratic with one exact forward identity operator, a planar orthogonal surrogate backward map, equal positive steps, and extrapolation one. They do not establish convergence for other algorithms, general surrogate adjoints, forced/noisy models, or finite precision. Publication-priority uncertainty remains because a general Schur argument may have been independently specialized elsewhere. There is no independent scientific audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct supported claim is the full necessary-and-sufficient rotational frontier with its exact neutral cases and two transition steps, equivalently the joint norm/step threshold for this particular family. The overlap with existing mismatched-adjoint Chambolle–Pock convergence theorems concerns the algorithm and sufficient conditions, not this frontier. The assessment is bounded to examined evidence and is not a determination of historical priority.
+
+## value
+
+PASS
+
+For a standard splitting algorithm, the exact model tests what generic sufficient mismatch estimates miss. The frontier identifies a sharp safe region, distinguishes a fixed-point obstruction from an expanding mode, and yields explicit changes in angular tolerance, including convergence at a substantial mismatch beyond familiar matched sufficient step restrictions. The purpose survives the clarification that in this rotation family the norm is already a complete angular parameter at each fixed t.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

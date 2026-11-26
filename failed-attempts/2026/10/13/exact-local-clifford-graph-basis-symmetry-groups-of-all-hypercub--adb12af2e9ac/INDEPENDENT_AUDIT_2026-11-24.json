@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:21:24.809696Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Graph-basis preservation is equivalent to preserving the unsigned graph stabilizer space {(x,Ax)}, since its joint eigenspaces are the graph-basis rays. The stated diagonal-block symplectic equation and local determinants follow. Neighbor pairs force opposite-parity a/e values and distance-two pairs have two common neighbors, forcing their b values equal. Distance-two moves connect each parity class, also allowing the vacuous singleton classes in d=1. The diagonal gives c_v as the sum of neighboring b values. This yields the determinant rw+(d mod 2)st=1, exactly six inverse-transpose pairs in odd dimension and four independent shears in even dimension. On label vectors the linear part is diag(e)+A diag(b), and a Pauli gives a translation. Its diagonal recovers e and each column has a neighbor entry recovering b, so the linear action distinguishes the patterns, with the other bits determined. Every translation occurs, giving the stated orders. The two attached finite verification programs were inspected, not executed; the all-dimensional argument was checked symbolically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2020 one-copy characterization splits every non-Pauli symmetry of a connected graph into an order-three coset form with b=c=1 and an order-two coset form (order-four lifts) determined by the support of its upper-right bit and the corresponding neighbor sums.",
+          "Claudet describes a general equivalence criterion; Wang et al. give a two-copy framework and discuss a Q_3 transversal S in a CSS presentation. Conjugating CSS transversal S back by Hadamards on one parity gives a lower shear on that parity and an upper shear on the other, one of the stated Q_3 patterns, not a competing extra pattern in the same fixed frame."
+        ],
+        "reasoning": "The first source provides a stronger evaluated structural theorem than a generic feasibility test, with the two exact cases needed for arbitrary d; the latter sources are not the reason for the FAIL.",
+        "searches": [
+          "10.1103/PhysRevA.101.062302 (arXiv:2001.07106), Theorems 5–6 and Eqs. (31)–(36)",
+          "arXiv:2511.22271 §2.5 Proposition 20; arXiv:2606.23809 pp. 11, 15 and Appendix B"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2001.07106",
+        "arXiv:2606.23809",
+        "arXiv:2511.22271",
+        "10.1007/s10231-023-01361-8",
+        "arXiv:2605.30428",
+        "Resultary 9b0bea4304a1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the order-three case of Eq. (32), A_cube^2=(d mod 2)I makes the diagonal condition exactly odd d; the edge condition requires alternate diagonal bits across every edge. Connected bipartiteness gives exactly two choices, both valid.",
+          "In the order-two coset case Eq. (35) fixes the lower-left bit from neighbor sums and at distance two requires the two common-neighbor upper-right bits to coincide. Thus this support is one of empty, E, O, or E∪O. For each of these choices the remaining diagonal condition fixes the lower-left bit to (d mod 2) times the opposite-parity upper-right bit; the edge constraints hold since the product of the two bits is the same on both parities. These are exactly the four remaining patterns, including the identity.",
+          "The odd group has order six and noncommuting inverse-transpose paired actions; the even patterns are commuting independent shears. The action on the Pauli cosets sends a bare phase label through diag(e)+A_cube diag(b), and every column has an edge, so distinct patterns have distinct linear actions. Adding freely available Z translations multiplies the order by 2^N."
+        ],
+        "reasoning": "These substitutions into the exact prior classification and the usual Pauli label quotient yield the full list and both orders mechanically. The absence of its written all-cube numbers in that paper is not distinct mathematical coverage.",
+        "searches": [
+          "arXiv:2001.07106, Eq. (32) and Eqs. (34)–(35) in the proofs of Theorems 5–6",
+          "RESULT.md proof of label action, §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Englbrecht–Kraus arXiv:2001.07106 §III.B explicitly use the same quotient-level binary action and show existence of a unique Z-label correction to turn a graph-state image proportional to a Pauli translate into a state-fixing symmetry.",
+          "A graph-basis symmetry sends |G> to a graph-basis ray, so composition with the inverse Z translation makes it a state-fixing Clifford with the same symplectic action. Conversely any state-fixing local Clifford normalizes the unsigned stabilizer and permutes all basis rays."
+        ],
+        "reasoning": "The quotient in the finding is the local Clifford stabilizer of the graph state modulo its projective Pauli stabilizer. Calling it a graph-basis permutation does not avoid the prior one-copy classification.",
+        "searches": [
+          "Clifford symmetries and hypercube in arXiv:2001.07106",
+          "Resultary: one-copy local Clifford graph-basis symmetry of Boolean cube, stabilizer symmetries up to Pauli"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local catalogue's marked-site cube record 9b0bea4304a1 is about quantum-walk mixing rank, not graph-state symmetries.",
+          "Table I tabulates the binary local Clifford cosets; the exact hypercube count need not appear in a table because the subsequent theorems determine it. The Wang et al. finite observation does not tabulate the one-copy count."
+        ],
+        "reasoning": "No exact hypercube row was needed: concrete stronger primary coverage, not a failed catalogue lookup, establishes the implication.",
+        "searches": [
+          "Resultary: hypercube graph-state stabilizer quotient, Clifford graph-basis label order and parity classes",
+          "arXiv:2001.07106 p. 8 Table I and Eq. (31)/(34); arXiv:2606.23809 p. 11 Q_3"
+        ]
+      },
+      "rationale": "The strongest earlier source is Englbrecht–Kraus, not merely a general graph-equivalence criterion. Its exact one-copy Clifford symmetry classification of graph states, up to local Paulis, evaluates to the full claimed list by the parity and common-neighbor identities of the cube. The graph-basis reformulation and label count are immediate consequences of this list, not an independent extension beyond it.",
+      "residual_risks": [
+        "An explicit all-hypercube table may also exist; the demonstrated stronger implication does not depend on finding one.",
+        "The CSS/two-copy observation was not treated as a priority claim over the full one-copy result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger prior coverage: specializes to the full hypercube list",
+          "evidence": "The two cases distinguish a+d=1 (local order three, b=c=1) and a+d=0 (quarter-turn or identity, lower-left bit determined by neighbor sums); the equations apply to arbitrary connected graph states.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.07106; DOI 10.1103/PhysRevA.101.062302",
+          "material_read": "OA PDF §III.B, pp. 7–10, Theorems 5 and 6 and proof Eqs. (28)–(36), Pauli correction and Table I discussion",
+          "method": "Lawful arXiv alternate recovered from the DOI; exact statements and proofs read by offset",
+          "title": "Symmetries and entanglement of stabilizer states",
+          "trigger": "Exact one-copy state symmetry classification equivalent modulo Paulis to graph-basis symmetry"
+        },
+        {
+          "assessment": "Two-copy setting and finite CSS observation, not the same all-dimensional count",
+          "evidence": "Notes Q_3 transversal S using a doubly-even CSS representation; does not supply the full fixed-vertex one-copy list.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.23809",
+          "material_read": "PDF p. 11 scope and Q_3 passage, p. 15 future directions, Appendix B p. 17",
+          "method": "Lawful OA PDF bounded passages",
+          "title": "Efficient Graph State Purification with Factorized Graph-Preserving Operations across Local Clifford Orbits",
+          "trigger": "Q_3 and graph-basis preserving Clifford overlap"
+        },
+        {
+          "assessment": "General criterion; less decisive than the 2020 symmetry theorem",
+          "evidence": "Local-complementation and symplectic equivalence framework for graph states.",
+          "identifier_or_url": "https://arxiv.org/abs/2511.22271",
+          "material_read": "§2.5 Proposition 20, pp. 29–30",
+          "method": "Lawful OA PDF passage",
+          "title": "Local Equivalences of Graph States",
+          "trigger": "Foundational equivalence conditions"
+        },
+        {
+          "assessment": "Different object and invariant",
+          "evidence": "Marked-vertex quantum-walk average-mixing rank, not local Clifford symmetry.",
+          "identifier_or_url": "Resultary 9b0bea4304a1",
+          "material_read": "Local-mirror RESULT.md claim",
+          "method": "Configured Resultary search and local read",
+          "title": "A marked site raises Boolean-cube average mixing rank",
+          "trigger": "Same-day exact Boolean-cube catalogue match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The natural symmetry question is useful, but the claimed contribution evaluates an exact general classification by the elementary parity and common-neighbor rules of a cube. The label count is the immediate affine extension, not a surviving independently motivated new invariant, so the correct specialization does not supply independent scientific value under the stated criterion.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

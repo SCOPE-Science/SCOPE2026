@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:57:41.005776Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Pass applies to the repaired RESULT.md and SLOGAN.txt, not the standalone literal parameter statement in the frozen result. The frozen inequality (4d+2)p<1 does not specify positive decay. At p=0 the formula has p^(−1), and CG on the identity stops at one step at zero tolerance rather than following the stated law. Negative p is not fixed by excluding the singular point: for example p=−1 under the literal inequality gives a non-probability density on the asserted support [1,∞), whereas (n/j)^p lies in (0,1]. The repaired theorem specifies 0<p<1/(4d+2), the intended decay regime. Independently checked its proof: after scaling the spectral variable, the common normalization of Haar coordinates cancels and the weights are Y_{j,n}E_j with independent mean-one exponentials (real model: chi-squares with one degree of freedom). The real minimizer suffices since imaginary coefficients add nonnegative energy with zero constraint at the origin. Under x=1/y, the normalization r(0)=1 makes x^d r(1/x) monic and the weight becomes x^(p^(−1)−2d−2). The shifted Jacobi leading coefficient is binom(p^(−1)−2,d), and its squared norm before making it monic is 1/(p^(−1)−1); the density prefactor cancels this norm, giving F_d. A mesh-vs-integral bound O(n^(ap−1)) on the a-th raw mean is o(n^(−1/2)) for ap<1/2; the largest centered coefficient in each √n-scaled linear combination is O(n^((2d+1)p−1/2)), and the quadratic covariances tend to 1/(1−(a+b)p). Bounded total coefficient squares and a vanishing largest coefficient imply Lindeberg by integrability of the squared centered weights. The limiting Gram block is positive definite, so the optimizing polynomial coefficients and the Schur-complement quotient are smooth near the limit. Differentiating the optimized quotient gives (1−p)y(r(y)^2−F_d) at a grid point; its squared integral against t on (0,1] changes to (1−p) times the integral of y(r²−F_d)² against ν_p. It is positive because the degree-d polynomial is nonconstant, and finite since the tail exponent is 4d+1−1/p<−1. A variance-two raw weight multiplies the covariance and the final variance by two. Since (2d+3)p<1, a weighted law of large numbers applies to degree d+1 as well (integrable deterministic means and maximal unscaled weight tending to zero). The binomial ratio gives F_{d−1}>F_d>F_{d+1}, with F_0=1. Monotonicity of the actual errors then leaves only steps d and d+1 with high probability, and continuity and symmetry of the nondegenerate limiting Gaussian give the two equal masses. No claim at the variance boundary, for growing degree, or in finite precision was accepted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Iteris gives fixed-degree convergence to F_{min(d,K(p))} in the same source model and analyzes the terminal tolerance F_{K(p)}. For the repaired range K(p)≥d+1, so that critical-terminal theorem is about another step of the staircase.",
+          "Paquette–Trogdon assumes sample covariance XX*, aspect ratio in (0,1], independent entries with Gaussian moment matching through order four and bounded normalized moments. A deterministic SPD spectrum with a Haar source is not such an ensemble.",
+          "Velikanov–Yarotsky gives deterministic loss rates and uses a shifted Jacobi minimizer; it does not give a weighted-source CLT."
+        ],
+        "reasoning": "The named broader results either give first-order convergence in this model without a CLT on the interior floor or prove fluctuation/halting results in models that do not include the spectral measures and source weights here. No general deterministic-spectrum weighted-moment CLT with a CG error conclusion was identified by the additional focused search.",
+        "searches": [
+          "Chen et al., Iteris, arXiv:2606.02484v1, Theorem 1, fixed-degree floor and first-inactive correction",
+          "Paquette–Trogdon, arXiv:2007.00640, fixed-k CG CLT and stopping law",
+          "Velikanov–Yarotsky, JMLR 25 (2024), §4.3, Theorem 4.4"
+        ]
+      },
+      "checked_sources": [
+        "Chen et al. arXiv:2606.02484v1",
+        "Velikanov–Yarotsky JMLR 25 (2024), Theorem 4.4",
+        "Paquette–Trogdon arXiv:2007.00640, Theorem 1.4 and Remark 2",
+        "Resultary ef42dbde8c03 and 6fb38697fa62"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sign-to-stopping implication from an interior Gaussian limit and strict separated neighboring floors is already illustrated by Remark 2. The prior terminal correction in Iteris does not give joint interior raw-moment fluctuations or a zero-bias √n limit.",
+          "The new model-specific CLT controls the singular upper tail of the rescaled deterministic grid and its centering, then propagates the Haar-weight fluctuations through the minimizing polynomial."
+        ],
+        "reasoning": "The halting conclusion alone is routine once the CLT is obtained. Neither a deterministic moment limit nor a CLT with a different spectral sampling mechanism mechanically supplies this variance and centering; the weighted-moment and optimization computation supplies the credited content.",
+        "searches": [
+          "Iteris arXiv:2606.02484v1, Theorem 1 and proof discussion on first-inactive correction",
+          "Paquette–Trogdon arXiv:2007.00640, Theorem 1.4 and Remark 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary's exact matching record ef42dbde8c03 is the assigned finding itself. The distinct entry 6fb38697fa62 is for exact fixed-step GMRES on a deterministic real skew-tridiagonal Toeplitz matrix with a real-Haar start.",
+          "Paquette–Trogdon states a fixed-step Gaussian law and, at its exact energy-error threshold, the same pair of adjacent halves. This checks the formula under another ensemble rather than treating its different terminology as a distinction."
+        ],
+        "reasoning": "CG's energy minimization for the deterministic SPD spectrum and its size-biased, randomly weighted spectral measure are not GMRES's optimization for that skew operator or Paquette–Trogdon's sample-covariance model. No equivalent model-specific law was identified in the bounded comparison.",
+        "searches": [
+          "Configured Resultary: fixed-degree CG Gaussian fluctuations, critical tolerance, Haar power-law spectral weights",
+          "Paquette–Trogdon, arXiv:2007.00640, Theorem 1.4 and Remark 2",
+          "Fixed-step Lanczos/CG CLT with a deterministic spectrum and a random or Haar start; weighted spectral-measure CLT formulations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching catalogue entry is ef42dbde8c03 itself; the distinct fixed-step Krylov result 6fb38697fa62 has different matrices and residuals.",
+          "Iteris gives the exact limiting floor in this model's fixed-degree framework, not the claimed fluctuation variance. The exact two-point law in Remark 2 is at a sample-covariance threshold, not at F_d(p)."
+        ],
+        "reasoning": "This is a continuum parameter asymptotic, not a finite table. The exact variance may be written as the displayed integral or a finite combination of power-law moments; its equality and stopping implication in this model were not found in the checked prior entries.",
+        "searches": [
+          "Configured Resultary: explicit variance, exact interior tolerance F_d and two adjacent stopping steps",
+          "Iteris arXiv:2606.02484v1; Paquette–Trogdon arXiv:2007.00640 Remark 2"
+        ]
+      },
+      "rationale": "The repaired files credit the earlier 50/50 half-step law explicitly; neither that general phenomenon nor the Jacobi optimization method is novel here. Credit the explicit Gaussian fluctuation theorem, variance and consequent critical stopping distribution specifically in the fixed-interior-degree deterministic power-law spectrum/Haar-source model. The positive exponent repair delimits the checked model and does not assert a new claim beyond it. The assessment is limited to the inspected statements and the bounded search.",
+      "residual_risks": [
+        "A more general deterministic-measure CG/Lanczos theorem for Haar source weights with unbounded spectral moment hypotheses could cover the result; two focused searches did not identify a plausible primary passage to compare. This sparse search is not evidence of universal absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the deterministic degree floors and studies the terminal-floor behavior; the present degree is strictly interior.",
+          "evidence": [
+            "K(p)=max{k:(2k+1)p<1}; fixed-degree limits are F_{min(d,K(p))}.",
+            "Theorem 1 uses a first-inactive Schur-complement correction at the terminal tolerance."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.02484v1",
+          "material_read": "Definition of K(p), Theorem 1 (pp. 6–7), fixed-degree convergence and proof discussion (p. 8)",
+          "method": "Read bounded arXiv full-text passages and compared the active degree and scaling.",
+          "title": "Iteris: Agentic Research Loops for Computational Mathematics",
+          "trigger": "Same deterministic power-law, Haar-source CG model and exact tolerance terminology"
+        },
+        {
+          "assessment": "Prior Jacobi CG minimization and deterministic rates, not random Haar-weight fluctuation.",
+          "evidence": [
+            "Theorem 4.4 uses a shifted Jacobi polynomial for its deterministic CG loss under a power-law spectral measure."
+          ],
+          "identifier_or_url": "https://jmlr.org/papers/volume25/23-0698/23-0698.pdf",
+          "material_read": "§4.3, Theorem 4.4, p. 16",
+          "method": "Inspected the lawful JMLR PDF passage and compared the minimized quantities.",
+          "title": "Tight Convergence Rate Bounds for Optimization Under Power Law Spectral Conditions",
+          "trigger": "Prior exact power-law optimization and Jacobi representations"
+        },
+        {
+          "assessment": "Gives both general phenomena on a sample-covariance ensemble; the repair acknowledges this explicitly. It does not establish the deterministic power-law/Haar-source formula.",
+          "evidence": [
+            "Fixed-k Gaussian CG energy-error and residual results assume W=XX* and sample-covariance aspect-ratio and entry conditions.",
+            "Remark 2 states masses 1/2 at k and k+1 when the energy tolerance satisfies ε²=δ^k/(1−δ), with δ the sample-covariance aspect ratio."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2007.00640",
+          "material_read": "Theorem 1.4 (pp. 7–8), Remark 2 (p. 8)",
+          "method": "Read the prior theorem's matrix and moment hypotheses and the exact threshold passage in the arXiv PDF.",
+          "title": "Universality for the Conjugate Gradient and MINRES Algorithms on Sample Covariance Matrices",
+          "trigger": "Closest substantive Gaussian-CG and exact half-step precedent"
+        },
+        {
+          "assessment": "Fixed-step Gaussian residual result for a different minimization, matrix and spectrum, not the SPD CG theorem audited here.",
+          "evidence": [
+            "The matrix is deterministic real skew-tridiagonal Toeplitz and the algorithm is GMRES with a real-Haar start."
+          ],
+          "identifier_or_url": "Resultary SCOPE-a-sharp-fixed-step-gaussian-law-for-random-start-gmres-on-a-skew--6fb38697fa62",
+          "material_read": "Matching RESULT.md statement and matrix/start assumptions",
+          "method": "Read the matching full statement through the local published mirror.",
+          "title": "A sharp fixed-step Gaussian law for random-start GMRES on a skew matrix",
+          "trigger": "Strongest distinct overlapping Krylov/Haar catalogue result"
+        },
+        {
+          "assessment": "Same assigned finding; not independent prior coverage.",
+          "evidence": [
+            "It is the same Gaussian fixed-degree power-law/Haar-source law and stopping limit."
+          ],
+          "identifier_or_url": "Resultary SCOPE-critical-tolerance-fluctuations-cg-haar-power-law-spectra--ef42dbde8c03",
+          "material_read": "Exact identity and matching claim; bound full RESULT.md",
+          "method": "Matched the catalogue hit to the frozen result; compared the statement and repair scope.",
+          "title": "Critical-tolerance Gaussian fluctuations and half-step CG law on Haar power-law spectra",
+          "trigger": "Exact catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At a strict interior limiting error floor, first-order convergence alone cannot predict the iteration count. The explicit, nondegenerate variance resolves the critical transition for this spectrum and source model (and distinguishes real and complex sources), even though the normal-sign argument for the stopping count is familiar. The parameters specify the exact finite-variance window for the displayed influence integral, not an arbitrary finite instance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

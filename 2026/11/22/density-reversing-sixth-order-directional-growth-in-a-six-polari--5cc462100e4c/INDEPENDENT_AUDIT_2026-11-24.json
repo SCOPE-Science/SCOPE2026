@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:03:12.298534Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, §§ Finding, Assumptions, Proof and Verification",
+        "Frozen VERIFICATION.md and verify.py (read, not executed)",
+        "Bhowmick–Mohanty, arXiv:2611.08296v1, Eq. (3)"
+      ],
+      "rationale": "Independently rederived the linearized symbol of the matched PDE. In angular Fourier coordinates, sI−M has diagonal s+Γ_m+d_m k², with Γ=(0,1,3,4,3,1), d_0=1, d_m=1−r otherwise. Each off-diagonal shift from m to m±1 contributes ikp(1−r−rδ_{m0})exp(±iθ)/2. In the determinant the only nonconstant angular terms are the two full six-cycles: all other permutations use diagonal entries and disjoint adjacent transpositions whose phases cancel. The six-cycles have permutation sign −1 and i⁶=−1, giving exactly +k⁶p⁶(1−r)^5(1−2r)cos(6θ)/32 in the characteristic polynomial. Its s-derivative at the simple root (s,k)=(0,0) is 36. This yields the claimed coefficient with the opposite sign and denominator 1152. The diagonal k² term and the two transpositions involving mode zero give the stated a₂. The determinant is real and polynomial in k² and cos(6θ); the simple-root implicit expansion is uniform on the compact angular range at fixed r,p. At r=1/2 the transport column of angular mode zero vanishes, so its uniform orientation vector has eigenvalue −k² at every wavevector, regardless of any crossings. The heading–bisector difference and its sign follow. The archived finite eigensolver compares the branch at sample parameters, not an exact symbolic proof; the determinant derivation proves the result without executing it. RESULT.md's reference to an 'infinite-wave-number-limit argument' in its verification paragraph is a wording slip, not the small-k argument actually used.",
+      "residual_risks": [
+        "The result concerns the simple branch near zero of the deterministic continuum PDE; there is no assertion of global dominance, microscopic validity at arbitrary wavevector, or nonlinear pattern selection."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Supplement derives the adiabatic closure through fourth gradient order on the very same model.",
+          "Loewe–Shendruk consider fourfold right-angle turn dynamics, with different anisotropy and no six-state occupied-mobility coefficient."
+        ],
+        "reasoning": "Neither a lower-order closure nor the different fourfold model provides a stronger assertion containing the exact sixth-order density effect.",
+        "searches": [
+          "Bhowmick–Mohanty supplemental triRTP_supp_arXiv.pdf",
+          "Loewe–Shendruk, arXiv:2305.03663v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact-record match 5cc462100e4c",
+        "arXiv:2611.08296v1 and its supplement",
+        "arXiv:2305.03663v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sixfold symmetry allows but does not fix the sign or magnitude of the first anisotropic term.",
+          "The exact PDE is the input to a new coefficient calculation: only the six-cycle determinant terms retain the phase, and their sign and normalization require the transport weights and the product of gaps. The all-k identity uses a separate exact column cancellation."
+        ],
+        "reasoning": "The half-filling observation is directly derived from the full linearization, but the claimed spectral refinement as a whole is not an implication of a published dispersion result or a substitution into the prior truncated equation.",
+        "searches": [
+          "arXiv:2611.08296v1 Eq. (3), Eqs. (4)–(9) and supplement; comparison with the audit determinant"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The strongest Resultary match is the identical assigned record (5cc462100e4c), not independent coverage.",
+          "Bhowmick–Mohanty's p₃ is an orientation moment, omitted from the fourth-gradient closure, not a spatial cos(6θ) dispersion coefficient."
+        ],
+        "reasoning": "Checked the same observable both as a spatial angular harmonic and as heading–bisector growth splitting; the reduction computes neither through sixth order.",
+        "searches": [
+          "Targeted Resultary search for the six-polarity density branch, sixth-order anisotropy and half filling",
+          "arXiv:2611.08296v1, angular harmonics section"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching catalogue entry is the frozen claim itself; the model sources provide PDE and lower-order formulas, not a table of sixth-order dispersion data.",
+          "A focused broader primary literature lookup was unavailable; this is not a negative result."
+        ],
+        "reasoning": "An exact database/table hit would have to give the coefficient or equivalent directional split in this same symbol at variable occupancy. No independent such hit is established in the inspected sources.",
+        "searches": [
+          "Resultary search for the exact six-polarity dispersion, matched ID 5cc462100e4c",
+          "arXiv:2611.08296v1 Eqs. (3)–(9) and analytical supplement"
+        ]
+      },
+      "rationale": "Credit the continuum model and its isotropic fourth-order reduction as prior. The inspected sources do not evaluate the sixfold sixth-order coefficient of the exact time-dependent density branch for general occupancy or state its exact uniform-vector cancellation at half filling. The assessed contribution is this spectral refinement, not the model, the selection rule alone, or the known fourth-order closure.",
+      "residual_risks": [
+        "The focused broader literature lookup was unavailable; unindexed higher-order or unpublished same-symbol calculations could affect priority. The decision is based on the actual accessible primary texts and catalogue comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and fourth-order reduction covered; no sixth-order density dispersion established in these passages.",
+          "evidence": "ρ=sum_n ρ^n, symmetric nearest-heading rotation; third orientation harmonic is higher order and ignored in the closure.",
+          "identifier_or_url": "https://arxiv.org/html/2611.08296v1",
+          "material_read": "Eq. (3), OA HTML offset 5947; angular harmonics and isotropy, Eqs. (4)–(9), around offset 11941",
+          "method": "OA primary article, bounded passages",
+          "title": "Active model B+ from run-and-tumble particles on a triangular lattice",
+          "trigger": "Underlying exact six-component equation and possible prior dispersion"
+        },
+        {
+          "assessment": "Lower-order adiabatic elimination, not the full time-dependent sixth-order spectral expansion.",
+          "evidence": "Retains p₂ and its O(Pe⁴) correction for the fourth-gradient density closure.",
+          "identifier_or_url": "https://arxiv.org/src/2611.08296v1/anc/triRTP_supp_arXiv.pdf",
+          "material_read": "pp. 1–3, OA offsets 0 and 5980",
+          "method": "OA primary appendix passages",
+          "title": "Active model B+ supplementary material",
+          "trigger": "Possible omitted higher-gradient result in technical derivation"
+        },
+        {
+          "assessment": "Different fourfold model and different spectral/trajectory information.",
+          "evidence": "Right-angle turning with fourfold symmetry does not give the variable-density sixfold term.",
+          "identifier_or_url": "https://arxiv.org/html/2305.03663v1",
+          "material_read": "Abstract and appendix around OA offset 54500",
+          "method": "OA primary article, bounded passages",
+          "title": "Anisotropic run-and-tumble-turn dynamics",
+          "trigger": "Anisotropic turning in related particle dynamics"
+        },
+        {
+          "assessment": "Same record, no independent prior overlap.",
+          "evidence": "Both state p⁶(1−r)^5(2r−1)/1152 and −k² for the uniform vector at half occupancy.",
+          "identifier_or_url": "2026/11/22/SCOPE-density-reversing-sixth-order-directional-growth-in-a-six-polari--5cc462100e4c",
+          "material_read": "Indexed statement compared with frozen Finding and assumptions",
+          "method": "Configured Resultary search and frozen original",
+          "title": "Density-reversing sixth-order directional growth in a six-polarity active lattice gas",
+          "trigger": "Strongest Resultary hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and limitations",
+        "Bhowmick–Mohanty angular harmonics and isotropy section"
+      ],
+      "rationale": "This resolves where spatial symmetry first permits the exact density mode to distinguish headings from bisectors in the existing triangular-lattice continuum model, and determines which direction wins at fixed small wave number on each side of half filling. It identifies the occupancy boundary where anisotropy vanishes exactly for the uniform branch and gives a benchmark missing from the isotropic fourth-order model. This is a meaningful local spectral invariant, not a claim about nonlinear phase selection.",
+      "residual_risks": [
+        "The effect is sixth order and may be small relative to isotropic terms; no finite-wave-number or experimental scaling claim is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

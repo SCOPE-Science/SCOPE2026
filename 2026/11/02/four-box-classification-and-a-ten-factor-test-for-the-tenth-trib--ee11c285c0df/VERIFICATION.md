@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the exact finite claim
+# Independent mathematical audit
 
-The enclosed `certify.py` and `independent_replay.py` are standalone Python 3.10+ programs. Neither requires nonstandard packages, downloaded data, or external network access.
+## correctness
 
-`certify.py` regenerates the \(504\)-symbol word from its three-letter substitution, derives all distinct factor occurrence supports, computes the full antichain of twelve minimal supports, counts all triple hitting sets by exact coverage-signature multiplicities, checks the four Cartesian boxes, and checks ten explicit invalid-witness triples. The resulting ten-factor sufficiency and necessity statements are deduced by a finite covering argument explained in `RESULT.md`.
+PASS
 
-`independent_replay.py` independently generates the word, assigns identifiers to all distinct factors, constructs per-position coverage integers, and directly enumerates all increasing triples. It also confirms the \(224\)-attractor previous-stage comparison and exact equality with the four-box family. This is an independent implementation of the *finite* computation, not an external mathematical audit.
+The revised word, positions, factor-hit predicate and restriction to exactly three distinct positions match the replay. Of 80,559 nonempty factors with 79,983 distinct support masks, the twelve inclusion-minimal masks suffice since each support contains one. The full test and the listed ten tests accept 416 triples apiece, so their solution sets are equal by inclusion. The count groups signature classes with binomial weights for repeated classes, not repeated positions. Witness W_i misses support i and hits the other eleven. Each original support contains a minimal support, so if W_i misses an original support, support i is the only possible minimal support it contains. A single factor predicate thus cannot reject two witnesses; ten predicates are necessary even when nonminimal supports are allowed. The fresh replay confirmed these assertions and the original four-box and T_9 counts; the repaired table's twelve factors and ten witnesses were checked exactly against the tested certificate.
 
-Recorded program outputs are `certify_output.txt` and `replay_output.txt`; rerunning the scripts must reproduce all asserted values and terminate with `PASS`. The proof of the finite theorem relies on exhaustive enumerators with explicit exact ranges and loop invariants, not on sampling or extrapolation. No infinite-stage claim is made.
+## originality
+
+PASS
+
+This decision applies only to the revised extremal theorem about the minimum number of factor-hit predicates. The strongest indexed match already gives the full attractor list and even the underlying twelve-mask count, so those are credited, not relabelled as novelty. That prior method does not show that ten predicates suffice on triples or that nine arbitrary factor predicates cannot suffice. No covering result for the revised theorem was identified in the bounded comparison.
+
+## value
+
+PASS
+
+The remaining question asks for the smallest exact factor test at a canonical morphism iterate. It distinguishes support minimality from indispensability on the fixed-size domain, and provides a usable optimal test together with a reusable obstruction argument against arbitrary factor choices. The usefulness is in the extremal test size, not in repeating the known census or just recertifying a known count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

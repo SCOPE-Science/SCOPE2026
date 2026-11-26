@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:39:41.558364Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof Steps 1–5; verification notes and static verifier inspection",
+        "/workspace/branches/57cea2d2-9dab-41b1-a7de-a76a8ee9c187/fvs_independent_check.py"
+      ],
+      "rationale": "For a minimizing deletion the complement is nonempty (deleting all but one vertex would suffice). Its edge count gives 2k−n=c+e(S), hence k≥floor(n/2)+1. Adjacent empty columns are forbidden by a square. For the candidate minima, intact rungs are isolated. Between them there can be only one connecting path, provided the surviving rail stays constant across the intervening singleton run; other surviving path segments are acyclic and attach to at most one intact rung. Contract intact rungs and suppress connecting paths, retaining possible loops and parallel edges: the surviving cyclic chain has a cycle exactly when no link is cut, including one or two intact rungs. A double deletion cuts the chain. The empty-column bound leaves just the stated odd pattern or the three even patterns; the odd pair must select opposite rails, and at least one of the two adjacent pairs in an even single-only state must do so. Both parities therefore attain the bound. For the two length-two runs, anchor one of the m−1 empty columns and choose two of its m−1 ordered cyclic gaps; dividing by m−1 gives n(m−2)/2 placements of labelled column sets. The four rail-assignment counts give the two census formulas. In odd lengths the isolated singleton flips are always legal; a horizontal slide that preserves the independent empty-column set must move from the unique paired run, and its destination pair must be oppositely selected. The two tests involve distinct unconstrained singleton rails for n≥7, the same singleton with opposite requirements for n=5, and both moves are legal for n=3. The special degrees and all-size polynomial follow.",
+      "residual_risks": [
+        "Replay with python3 /workspace/branches/57cea2d2-9dab-41b1-a7de-a76a8ee9c187/fvs_independent_check.py. Independent exact DSU enumeration tested deletion sizes in increasing order at n=3,...,11, yielding counts 6,32,20,132,56,448,144,1360,352; odd edge totals were 6,20,84,288,880 with the stated histograms. This is bounded corroboration; the frozen scripts were not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yang–Ren, Theorem 3 gives a general minimum-size expression via maximum independence over cotrees. Bousquet et al. address connectivity under arbitrary single-vertex replacement; requiring the replaced vertices to be incident is an extra constraint."
+        ],
+        "reasoning": "Neither a minimum-size optimization identity nor arbitrary exchange connectivity gives local slide degree counts or an enumeration of distinct labelled minima.",
+        "searches": [
+          "The decycling number of generalized Petersen graphs",
+          "Feedback vertex set reconfiguration in planar graphs, DOI 10.1016/j.tcs.2023.114188",
+          "Yang–Ren, doi:10.7151/dmgt.2064"
+        ]
+      },
+      "checked_sources": [
+        "Verma–Binwal indexed figure and title; Bousquet et al. DOI record and frozen reference report",
+        "Yang–Ren open Theorem 3",
+        "Resultary GP(7,2) mirrored result; prism zero-forcing and independent-domination search results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Minimum size alone does not say which deletions attain it. Even in the same n and at the same optimum size, the frozen odd slide proof gives distinct degrees for n≥7. GP(7,2) has isolated sliding optima and is not a source for the GP(n,1) law."
+        ],
+        "reasoning": "Column and rail feasibility, marked-gap counting and the conditional slide tests are substantive ingredients beyond prior size and exchange statements.",
+        "searches": [
+          "Study of Decycling Number Problem in Prism Graph, Verma–Binwal",
+          "Resultary: mixed token-slide phase and connected jump metric for minimum decycling sets of GP(7,2)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complementation converts a minimum deletion set into a maximum induced forest and preserves the adjacent exchange predicate. Verma–Binwal concerns the same prism/decycling problem and supplies prior minimum-size evidence. The earlier GP(7,2) study concerns a different Petersen family parameter."
+        ],
+        "reasoning": "Switching between deletion and retention does not hide a second problem; neither the identified size result nor the GP(7,2) census counts these labelled GP(n,1) optima.",
+        "searches": [
+          "prism graphs minimum decycling sets count maximum induced forests circular ladder GP(n,1) optimal feedback vertex set enumeration sliding reconfiguration",
+          "Resultary: minimum feedback vertex sets decycling sets maximum induced forests prism circular ladder count enumeration token sliding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching Resultary entry is the frozen record. The inspected earlier GP(7,2) entry counts 70 optima, not the 56 of GP(7,1); retrieved prism entries concern zero forcing or minimum independent domination, not this deletion predicate."
+        ],
+        "reasoning": "No independently identified matching formula or table in this check; finite verification is not a priority argument.",
+        "searches": [
+          "Resultary: minimum feedback vertex sets decycling sets maximum induced forests prism circular ladder count enumeration token sliding",
+          "minimum decycling sets prism enumeration GP(n,1) 6 32 20 number all optimal feedback sets prism graphs"
+        ]
+      },
+      "rationale": "The minimum size is prior; the full labelled optimum census and odd adjacent-slide degrees are not established by the identified prior results. This is a bounded best-evidence assessment.",
+      "residual_risks": [
+        "Verma–Binwal full PDF/figures and the Bousquet full text were not independently available here; older equivalent enumerations or unindexed prior claims are not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The inspected theorem determines a size, not counts or a sliding graph",
+          "evidence": [
+            "Theorem 3: n−max_T α(G−E(T))."
+          ],
+          "identifier_or_url": "https://geodesic.mathdoc.fr/item/DMGT_2019_39_1_a10/",
+          "material_read": "Open full-text introduction and Theorem 3 with its setup",
+          "method": "Primary-text comparison of the optimized quantity",
+          "title": "New Formulae for the Decycling Number of Graphs",
+          "trigger": "Potential broader decycling theorem"
+        },
+        {
+          "assessment": "Direct antecedent for the size; no exact census established by the material independently available",
+          "evidence": [
+            "Indexed figure is described as decycling sets and the decycling number of several prisms; not an all-size degree formula."
+          ],
+          "identifier_or_url": "https://advancedengineeringscience.com/article/pdf/2023/551.pdf",
+          "material_read": "Indexed title and figure description; full PDF not independently retrieved; the frozen dossier reports its own textual reading",
+          "method": "Bibliographic and scope comparison, with access limitation",
+          "title": "Study of Decycling Number Problem in Prism Graph",
+          "trigger": "Same graph and optimum definition"
+        },
+        {
+          "assessment": "Unrestricted exchange connectivity is not the claimed edge-local degree statistic",
+          "evidence": [
+            "The reported Theorem 2 connects fixed-size FVSs by unrestricted vertex replacement on K3,3-minor-free subcubic graphs."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2023.114188",
+          "material_read": "Indexed publisher record and frozen dossier's report of Theorem 2; primary full text not independently retrieved",
+          "method": "Predicate comparison; no whole-document exclusion claimed",
+          "title": "Feedback vertex set reconfiguration in planar graphs",
+          "trigger": "Potential dominating reconfiguration theorem"
+        },
+        {
+          "assessment": "Distinct family, only selected sizes for GP(n,2)",
+          "evidence": [
+            "70 optima and slide graph 14K1+14K2+7P4 at GP(7,2)."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-mixed-token-slide-phase-and-a-connected-jump-metric-for-minimu--b91350f1784b",
+          "material_read": "Mirrored result statement, scope and proof of finite census",
+          "method": "Compared graph and enumerated state space",
+          "title": "A mixed token-slide phase and a connected jump metric for minimum decycling sets of GP(7,2)",
+          "trigger": "Same optimization and sliding predicate on related graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, theorem and scope; prior comparisons above"
+      ],
+      "rationale": "These are exact natural statistics of a cubic family with known minimum deletion number. Classification distinguishes the extra even-parity patterns, and the complete degree enumerator gives quantitative information about permissible repairs that ordinary exchange connectivity misses; these are useful exact benchmarks and not a claim about global slide distances.",
+      "residual_risks": [
+        "No even slide-degree law or global sliding metric is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

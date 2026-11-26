@@ -1,87 +1,59 @@
-# All Poisson–transmuted geometric counts are binomial-thinning self-decomposable
+# Positive compound-Poisson innovations for transmuted-geometric thinning
 
 ## Finding
-For every \(\lambda>0\), \(0<q<1\), and \(0<\alpha<1\), the Poisson–transmuted geometric count law \(Y\sim\operatorname{PoiTG}(\lambda,q,\alpha)\) of Nandi, Chakraborty and Biswas is **discrete self-decomposable under binomial thinning**. More precisely, for every \(0<c<1\), there is a nonnegative integer-valued innovation \(Z_c\), independent of \(Y\), such that
-\[
-Y\stackrel{d}{=}c\odot Y+Z_c,
-\]
-where \(c\odot Y\mid Y\sim\operatorname{Binomial}(Y,c)\) is formed with independent Bernoulli thinnings. Consequently the law is unimodal, infinitely divisible on the nonnegative integers, and admits an exact compound-Poisson representation with strictly positive jump intensities
-\[
-\nu_1=\lambda+q+q^2-r,\qquad
-\nu_j=\frac{q^j+q^{2j}-r^j}{j}\quad(j\ge2),\qquad
-r=\frac{q(q+\alpha)}{1+\alpha q}.
-\]
-The canonical sequence \(j\nu_j\) is strictly decreasing in \(j\ge1\), except that the first term additionally contains \(\lambda\). The same conclusion extends continuously to the natural limits \(\lambda=0\) and \(\alpha\in\{0,1\}\).
 
-The square relationship between the two geometric components is mathematically material: an equally weighted mixture of independent zero-based geometric laws having respective survival ratios \(1/6\) and \(5/6\) is **not** self-decomposable under binomial thinning, and adding any independent Poisson count does not repair that failure.
+The fixed-marginal transmuted-geometric INAR construction of Ghodake et al. [1, §2] uses a rational expression for the thinning innovation. Its interpretation as a positive mixture of a point mass and three geometric laws is not in general valid, **even for positive transmutation**. Here is a positive compound-Poisson construction on the whole positive range, together with exact witnesses distinguishing the mixture error from failure of the underlying construction.
 
-## Assumptions and scope
-The original model has \(Y=N+T\), with \(N\sim\operatorname{Poisson}(\lambda)\) and \(T\) independent, whose probability mass function is
+Let \(0<q<1\), \(0\le\alpha\le1\), \(\lambda\ge0\), and let \(Y=N+T\) with independent \(N\sim\mathrm{Poisson}(\lambda)\) and \(\Pr(T=k)=(1-\alpha)(1-q)q^k+\alpha(1-q^2)q^{2k}\) for \(k\ge0\). Write \(P\) for its PGF, put \(r=q(q+\alpha)/(1+\alpha q)\), and define \(x_c=cx/[1-(1-c)x]\) for \(0<c<1\) and \(0<x<1\). The PGF of the independent innovation for binomial thinning with retention \(c\) is \(P(z)/P(1-c+cz)\). It is compound Poisson with **strictly positive rates for every jump size** \(j\ge1\):
+
 \[
-\Pr(T=k)=(1-\alpha)(1-q)q^k+\alpha(1-q^2)q^{2k},\quad k=0,1,2,\ldots.
+\eta_j(c)=\lambda(1-c)\mathbf 1_{j=1}
++\frac{q^j-q_c^j+(q^2)^j-(q^2)_c^j-r^j+r_c^j}{j}.
 \]
-All parameters are real in the ranges stated in the Finding. The word *self-decomposable* here refers specifically to **binomial-thinning** self-decomposability of \(\mathbb N_0\)-valued laws, not self-decomposability under real scalar multiplication. A law with probability-generating function (PGF) \(P\) has this property when \(P(z)/P(1-c+cz)\) is a PGF for each \(c\in(0,1)\). The usual discrete Lévy-sequence criterion says that when \(P(z)=\exp(\sum_{j\ge1}\nu_j(z^j-1))\), \(\nu_j\ge0\), the thinning self-decomposability condition is that \(j\nu_j\) be nonincreasing in \(j\ge1\). This is a standard characterization, not claimed as new here (see Pakes, 2022, Definition 3 and canonical-sequence discussion).
+
+In particular the construction includes the transmuted-geometric marginal itself (\(\lambda=0\)). For \(q=\alpha=1/2\) and \(c=2/5\) that marginal innovation has a **negative** weight \(-3/10\) at the geometric survival ratio \(1/4\) in the three-pole decomposition used in [1, Eq. (8)]; nevertheless its PGF and each of its compound-Poisson rates are positive in the senses above. In contrast, the same fixed-marginal construction cannot work at every thinning coefficient for \(q=1/2,\alpha=-9/10\), which is inside the negative transmutation range considered in [1].
 
 ## Proof
-**Step 1: exact compound-Poisson representation.** The model's PGF is
-\[
-P(z)=e^{\lambda(z-1)}\left(\frac{(1-\alpha)(1-q)}{1-qz}+\frac{\alpha(1-q^2)}{1-q^2z}\right).
-\]
-Elementary rational simplification gives
-\[
-P(z)=e^{\lambda(z-1)}\frac{(1-q)(1+\alpha q)(1-rz)}{(1-qz)(1-q^2z)},\qquad r=\frac{q(q+\alpha)}{1+\alpha q}.
-\]
-Here
-\[
-r-q^2=\frac{\alpha q(1-q^2)}{1+\alpha q}>0,
-\qquad q-r=\frac{q(1-q)(1-\alpha)}{1+\alpha q}>0,
-\]
-so \(q^2<r<q\). Expanding the analytic logarithm for \(|z|\le1\) yields the announced \(\nu_j\) (the independent Poisson contribution affects only \(j=1\)). Each \(\nu_j>0\), because \(r^j<q^j\). Their sum is finite and equals
-\[
-\sum_{j=1}^\infty\nu_j=\lambda-\log\bigl((1-q)(1+\alpha q)\bigr),
-\]
-so the representation is genuinely compound Poisson, not merely a formal series.
 
-**Step 2: the key all-index inequality.** Fix an integer \(j\ge1\), put \(f_j(x)=x^j(1-x)\) for \(x\in[0,1]\), and set \(p=j/(j+1)\). Then \(f_j\) increases up to its unique maximizer \(p\) and decreases afterwards. We prove the strict inequality
+For the specified nonnegative parameters, elementary factorization gives
 \[
-f_j(r)<f_j(q)+f_j(q^2)\qquad(q^2\le r\le q).
+P(z)=e^{\lambda(z-1)}\frac{(1-q)(1+\alpha q)(1-rz)}{(1-qz)(1-q^2z)},\qquad q^2\le r\le q.
 \]
-If \(p\notin[q^2,q]\), the function \(f_j\) is monotone on \([q^2,q]\), so \(f_j(r)\le\max\{f_j(q),f_j(q^2)\}<f_j(q)+f_j(q^2)\).
-
-If \(p\in[q^2,q]\), then \(p\le q\le\sqrt p\) and \(p^2\le q^2\le p\). Unimodality of \(f_j\) gives
+Expanding the logarithm gives \(P(z)=\exp(\sum_{j\ge1}a_j(z^j-1)/j)\), where \(a_j=\lambda\mathbf 1_{j=1}+q^j+q^{2j}-r^j\). These terms are positive and tend to zero geometrically. Define \(w_j=a_j-a_{j+1}\). To prove strict positivity of \(w_j\), put \(f(x)=x^j(1-x)\), which has its unique maximum at \(p=j/(j+1)\). If \(p\notin[q^2,q]\), monotonicity bounds \(f(r)\) by the larger endpoint value, which is strictly smaller than the sum of the endpoint values. Otherwise \(p\le q\le\sqrt p\) and \(p^2\le q^2\le p\). Hence
 \[
-f_j(q)\ge f_j(\sqrt p)>\tfrac12 f_j(p),\qquad
-f_j(q^2)\ge f_j(p^2)>\tfrac12 f_j(p).
+f(q)\ge f(\sqrt p)>f(p)/2,\qquad f(q^2)\ge f(p^2)>f(p)/2.
 \]
-For completeness, the first strict bound follows exactly from
+Indeed the two lower-bound ratios to \(f(p)\) are \(p^{-j/2}/(1+\sqrt p)>1/2\) and \(p^j(1+p)>3/(2e)>1/2\). Thus \(w_j=\lambda\mathbf1_{j=1}+f(q)+f(q^2)-f(r)>0\) for every \(j\), also at \(\alpha=0,1\).
+
+Let \(\phi_t(z)=1-e^{-t}+e^{-t}z\) and \(D=-\log c>0\). Differentiating \(\log P(\phi_t(z))\) and telescoping gives
 \[
-\frac{f_j(\sqrt p)}{f_j(p)}=\frac{p^{-j/2}}{1+\sqrt p}>\frac12.
+\log\frac{P(z)}{P(\phi_D(z))}
+=\int_0^D\sum_{\ell\ge1}w_\ell(\phi_t(z)^\ell-1)\,dt.
 \]
-For the second, \(f_j(p^2)/f_j(p)=p^j(1+p)>3/(2e)>1/2\), using \((1+1/j)^j<e<3\) and \(p\ge1/2\). Thus \(f_j(q)+f_j(q^2)>f_j(p)\ge f_j(r)\). The inequality is proved for every integer \(j\), not just finitely many tested indices.
-
-**Step 3: thinning self-decomposability.** Define \(b_j=q^j+q^{2j}-r^j\). Then
+This yields the nonnegative representation
 \[
-b_j-b_{j+1}=f_j(q)+f_j(q^2)-f_j(r)>0
+\eta_j(c)=\int_0^D\sum_{\ell\ge j}w_\ell\binom{\ell}{j}e^{-tj}(1-e^{-t})^{\ell-j}\,dt.
 \]
-for every \(j\ge1\). Therefore \(j\nu_j=b_j\) for \(j\ge2\) decreases strictly, and \(\nu_1=\lambda+b_1>b_2=2\nu_2\), so \((j\nu_j)_{j\ge1}\) is strictly decreasing. The discrete canonical-sequence criterion from the Assumptions section establishes thinning self-decomposability. The standard unimodality implication follows. The PGF calculation is continuous at \(\lambda=0\) and \(\alpha=0,1\), and the same inequalities cover these limits.
+The terms sum to a finite value since their sum over \(j\ge1\) is bounded by \(D\sum_{\ell\ge1}w_\ell=D a_1\). The term \(\ell=j\) shows \(\eta_j(c)\ge w_j(1-c^j)/j>0\). Thus exponentiation gives an actual innovation law, which may be sampled independently of \(Y\) and its Bernoulli thinnings. On the other hand \(1-x\phi_D(z)=[1-(1-c)x](1-x_c z)\); coefficient extraction from the rational logarithm gives the displayed closed form for \(\eta_j(c)\).
 
-**Step 4: why the geometric-ratio restriction matters.** A general equal-weight geometric mixture with survival ratios \(a=1/6\) and \(b=5/6\) has rational PGF proportional to \((1-sz)/[(1-az)(1-bz)]\), with \(s=13/18\). Its compound-Poisson canonical terms satisfy \(j\nu_j=a^j+b^j-s^j\). Exact rational calculation gives
+For the positive-transmutation witness, write \(G_x(z)=(1-x)/(1-xz)\). At \(\lambda=0,q=\alpha=1/2,c=2/5\) one has \(r=2/5\), \(r_c=4/19\), and exact partial fractions give
 \[
-3\nu_3-2\nu_2=\frac{35}{5832}>0.
+\frac{P(z)}{P(1-c+cz)}=\frac25+\frac35\left(\frac{13}{22}G_{1/2}(z)-\frac12G_{1/4}(z)+\frac{10}{11}G_{4/19}(z)\right).
 \]
-Hence that generic mixture is not thinning self-decomposable. Convolution with any \(\operatorname{Poisson}(\lambda)\) changes only \(\nu_1\), so it cannot repair this violation. Thus the universal conclusion for the PoiTG family is not a generic property of all two-geometric mixtures.
+The three poles are distinct, so this is not a positive mixture at those rates. This sign agrees with the \(G_{q^2}\) term in [1, Eq. (8)]: its sign is the sign of \(((1-c)q-c)/((1-c)q-\alpha c)\) in this interior example. The rational identity is not itself the problem; its use as a positive mixture is. The integral representation above establishes existence without relying on those signed weights.
 
-## Verification
-Run \(\texttt{python verify.py}\) in a Python installation with SymPy. The checker verifies the rational PGF factorization, both bounds for \(r\), the exact log-PGF coefficients, 25 rational parameter pairs across 89 adjacent-index inequalities, three Poisson intensities, and the rational generic-mixture counterexample. These finite checks are reproducibility supplements. The infinitely many canonical inequalities are established analytically by Step 2, rather than inferred from experiments.
+For the negative-transmutation witness, the transmuted-geometric law is still a probability law with exactly the same rational PGF, but \(r=-4/11\). Its log coefficients give \(a_3-a_2=719/85184>0\) (also with any independent Poisson summand). In the ratio \(P(z)/P(\phi_t(z))\), the coefficient of \(z^2\) is zero at \(t=0\) and has derivative \(a_2-a_3<0\) there, by the same differentiated PGF identity locally at zero. Hence that coefficient is negative for all sufficiently small positive \(t\); the ratio is not a PGF for all retention probabilities. This witness is not a classification of negative transmutation.
 
-## Relationship to prior work
-Nandi, Chakraborty and Biswas (arXiv:2306.07219v1, first submitted 12 June 2023) introduce the PoiTG convolution, its PGF and graphical unimodality, as well as count-model inference. Their Section 2 defines the positive transmutation parameter, and Section 3 derives its generating functions, moments and reliability measures. Those formulas supply this result's starting distribution; the **new claim** is global thinning self-decomposability and its all-index canonical monotonicity, with an explicit jump-intensity formula. Ordinary infinite divisibility is not claimed as new: Chakraborty and Bhati (2016, Section 3.2) had already established infinite divisibility for the positive-transmutation geometric parent, and the PoiTG convolution with an independent Poisson variable inherits it. The source text does not state a self-decomposability theorem. Chakraborty and Bhati (2016, Section 3.2 and Theorem 4) establish infinite divisibility and the PGF of the parent transmuted geometric law; those findings already imply PoiTG infinite divisibility but do not provide the stricter thinning self-decomposability inequality. The 2019 follow-up analyzes the same parent model. Pakes (2022), *Mutant Number Laws and Infinite Divisibility*, reviews the general canonical-sequence criterion and geometric mixtures; that standard criterion alone does not show monotonicity for these special rational coefficients. The distinct-rate counterexample demonstrates why an unqualified geometric-mixture closure statement would not subsume the new theorem.
+## Relationship to prior work and limits
 
-## Limitations
-The self-decomposability theorem applies to the published PoiTG parameter domain \(0<\alpha<1\), and its stated boundary limits; no assertion is made for negative transmutation parameters. It concerns binomial thinning, not continuous scaling. The argument does not classify all finite geometric mixtures or derive statistical estimator performance. The claim's historical priority is based on the cited literature and semantic searches; no search can guarantee that an equivalent argument does not exist elsewhere. The verification program is not an independent mathematical audit.
+Ghodake et al. [1, Definition 1 and Eqs. (6)–(10)] already give the fixed-marginal binomial-thinning formulation and rational innovation quotient for the geometric parent; a positive-domain self-decomposability assertion for the Poisson convolution is not separately claimed as new. Indeed a Poisson component adds an independent Poisson innovation of rate \(\lambda(1-c)\). Their Appendix A.1 starts from the recursion with innovations and addresses the stationary series; this does not address the nonnegative-coefficient issue in the preceding construction. The distinct contribution here is a rigorous positive-domain construction with all jump rates strictly positive and explicit, even when the proposed geometric weights have mixed signs. The standard decreasing-canonical-sequence characterization is prior [4]. The negative witness illustrates the need for a parameter distinction; a separate negative-range criterion is given in [5]. The underlying parent law and its ordinary infinite divisibility on the positive range, and the Poisson convolution itself, are prior [2,3]. We make no claim about continuous scaling or the whole negative-transmutation classification.
+
+Run `python3 verify.py` for exact rational checks of the signed decomposition witness, the negative-range obstruction, and the innovation log coefficients at finite parameter samples. The all-parameter positivity and every jump size are established analytically, not by the samples.
 
 ## References
-1. A. Nandi, S. Chakraborty, A. Biswas, “A new count model based on Poisson-Transmuted Geometric convolution,” arXiv:2306.07219v1, 12 June 2023, https://arxiv.org/abs/2306.07219. Full publicly readable transcription: https://www.researchgate.net/publication/371506994_A_new_count_model_based_on_Poisson-Transmuted_Geometric_convolution.
-2. A. G. Pakes, “Mutant Number Laws and Infinite Divisibility,” *Axioms* 11 (2022), 584. https://doi.org/10.3390/axioms11110584. Definition 3 and canonical-sequence criterion; Section on geometric mixtures.
-3. S. Chakraborty, D. Bhati, “Transmuted geometric distribution with applications in modeling and regression analysis of count data,” *SORT* 40 (2016), 153–176. https://www.idescat.cat/sort/sort401/40.1.7.chakraborty-bhati.pdf.
-4. S. Chakraborty, D. Bhati, “Analysis of Count Data by Transmuted Geometric Distribution,” *Journal of Statistical Theory and Applications* 18 (2019), 450–463. https://doi.org/10.2991/jsta.d.191218.001.
+
+1. A. Ghodake, M. Awale, H. S. Bakouch, G. Alomair and A. F. Daghestani, “A Seasonal Transmuted Geometric INAR Process: Modeling and Applications in Count Time Series,” *Mathematics* 13 (2025), 2334, §2 and Appendix A.1, https://doi.org/10.3390/math13152334.
+2. S. Chakraborty and D. Bhati, “Transmuted geometric distribution with applications in modeling and regression analysis of count data,” *SORT* 40 (2016), 153–176, §3.2, https://www.idescat.cat/sort/sort401/40.1.7.chakraborty-bhati.pdf.
+3. A. Nandi, S. Chakraborty and S. Biswas, “A new count model based on Poisson-Transmuted Geometric convolution,” arXiv:2306.07219v1, https://arxiv.org/abs/2306.07219.
+4. F. W. Steutel and K. van Harn, “Discrete analogues of self-decomposability and stability,” *Ann. Probab.* 7 (1979), 893–899, https://doi.org/10.1214/aop/1176994950.
+5. “A two-index thinning self-decomposability criterion with reentrant negative-transmutation phases,” https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-two-index-thinning-self-decomposability-criterion-with-reentra--2fdc7de1a76a/RESULT.md.

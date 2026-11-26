@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:00:48.873608Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen recurrence partitions embeddings by use of the last text position. Nonzero base-four digits encode distinct patterns, appending multiplies the old code by four and adds a digit, the two streams are individually sorted, and the merge adds exactly the coinciding counts; the integer keys and counts cannot overflow through length 16. Restricted growth adds existing symbols or the next new one, giving one exemplar per relabeling class, including words omitting symbols and without reversal quotient. Independently enumerated all canonical words of each length 1..16 by base-three suffixes with leading 0 and discarding a 2 before the first 1. For each length, discarded only words with an explicit multiplicity above the tabulated target, calculated from a single-letter binomial or selected fixed-pattern integer DP. On all survivors, visited the trie of present patterns, using counts by final text position: the count for an extension ending at j sums all prefix counts ending before j. This checks every present pattern or finds a witness over the target. Thus all words at or below the target are recovered, and their exact scores certify the lower bound, not just attainability. The total at length 16 was 7,174,454 canonical texts, with 1,049 passing the preliminary sieve and exactly the four frozen optimizers at 46. The full lists, counts, minima and examples for all 16 lengths agree with data/census.json. Replay paths: /workspace/branches/independent_replays/replay5.py and replay5_1_13.jsonl, replay5_14_15.jsonl, replay5_16.jsonl in that directory. The submitted secondary checker alone exhausts only lengths through nine; the independent threshold census exhausts the whole claim. No inference beyond length 16.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fang defines the objective for arbitrary alphabet size and gives general bounds and asymptotic context; its reported exact minimizer table is binary, up to 35 in v1 and 40 in v3. At n=16 the binary row has maximum multiplicity 252."
+        ],
+        "reasoning": "Allowing a third letter gives a larger domain, hence only an upper bound from a binary minimum; the longer range in n does not dominate the missing alphabet parameter.",
+        "searches": [
+          "Fang arXiv:2406.02971v1/v3 §§2, 3, 5, Table 1",
+          "Fang, AofA 2024 DOI 10.4230/LIPIcs.AofA.2024.3 (same problem)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, census.cpp, data/census.json, verify_independent.py",
+        "Fang arXiv:2406.02971v1 and v3",
+        "Resultary f0f863a4b43d, 246b4cc4bcec, 0509ac1ee874"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Binary symmetries preserve maxocc, but the frozen canon only identifies alphabet relabelings and has the larger search space. Existing general bounds, monotonicity under alphabet enlargement, and a per-word recurrence do not give exact minimizer classes or equality at these values."
+        ],
+        "reasoning": "The general algorithm makes this computable, but is not an evaluation or a sharp bound with equality conditions at these ternary instances. The full-domain certification supplies the missing information.",
+        "searches": [
+          "Fang arXiv:2406.02971v3 §5 Lemma 5.1 and Table 1",
+          "Resultary f0f863a4b43d, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fang's maxocc is the same maximum over subsequences counted by increasing positions, including the empty word once. Exponentiating the minimum binary-log subword entropy for ternary words gives F_3(n)."
+        ],
+        "reasoning": "The entropy terminology is an equivalent value transformation and preserves optimizer sets; it is not evidence of a distinct objective.",
+        "searches": [
+          "Fang arXiv:2406.02971v1 §2, maxocc and subword entropy",
+          "Resultary: ternary minimum subword entropy, minimax scattered-subsequence multiplicity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fang's table holds one representative per complement-and-reversal class of binary words. Indexed f0f863a4b43d is a binary counterexample about restricting pattern lengths for a fixed word. Same-day 246b4cc4bcec concerns consecutive trigram multiset profiles; 0509ac1ee874 concerns maximal common subsequences of a pair of words. None supplies the target exact ternary minimizer sets in the inspected passages."
+        ],
+        "reasoning": "The stronger-looking length ranges, fixed-word multiplicity checks, and different equivalences or statistics cannot stand in for the ternary minimax table. No exact match was located in the checked sources; this is a bounded comparison.",
+        "searches": [
+          "Fang v1 and v3 §5 Table 1",
+          "Resultary: maxocc, ternary canonical optimizers, scattered-subsequence census"
+        ]
+      },
+      "rationale": "The objective, recurrence idea and general-alphabet framework are already known, and trivial initial values are not a distinct contribution. The supported novel content is the nontrivial exact ternary finite profile with all relabeling-class optimizer sets through length 16, not a novelty claim about the minimax problem or the method. The strongest actual tables inspected are for a different alphabet.",
+      "residual_risks": [
+        "An unindexed or unpublished ternary census could precede or cover this data. The checked primary passages and index hits do not establish historical priority or a claim for lengths greater than 16."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical maxocc objective, exact table is binary",
+          "evidence": [
+            "Definition via occurrence counts and log₂; n=16 binary row has representative 0111000101110001, maxocc 252."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2406.02971v1",
+          "material_read": "§2 at offsets 6350–8031; §5 Table 1 n=16 row at 64458–64678 and caption at 66229",
+          "method": "OA primary HTML passages",
+          "title": "Maximal number of subword occurrences in a word",
+          "trigger": "Original objective, including finite table"
+        },
+        {
+          "assessment": "Binary table extended to 40; still not ternary",
+          "evidence": [
+            "Equivalence is complement and reversal; this is not the frozen relation."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2406.02971v3",
+          "material_read": "§5 Lemma 5.1 around offset 65200 and Table 1 caption at 68555",
+          "method": "OA primary HTML passages",
+          "title": "Maximal number of subword occurrences in a word, revised version",
+          "trigger": "Longer published table and optimizer normalization"
+        },
+        {
+          "assessment": "Different extremum and alphabet",
+          "evidence": [
+            "Compares maxima over unrestricted versus length-restricted patterns of a fixed binary word."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-a-smallest-binary-counterexample-to-the-half-length-most-frequen--f0f863a4b43d/RESULT.md",
+          "material_read": "Finding, offsets 0–2009",
+          "method": "Resultary search and local-mirror reading",
+          "title": "A smallest binary counterexample to the half-length most frequent subsequence conjecture",
+          "trigger": "Same per-word maximum and Fang connection"
+        },
+        {
+          "assessment": "Different problem",
+          "evidence": [
+            "Asymptotic count of distinct consecutive trigram multiset profiles over a binary alphabet."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-asymptotic-for-binary-trigram-multispectrum-capacity--246b4cc4bcec/RESULT.md",
+          "material_read": "Finding, offsets 0–2200",
+          "method": "Resultary search and local-mirror reading",
+          "title": "Sharp asymptotic for binary trigram multispectrum capacity",
+          "trigger": "Same-day word-pattern counting search hit"
+        },
+        {
+          "assessment": "Different extremum",
+          "evidence": [
+            "Common maximal subsequences of a particular pair, not a minimax of occurrence multiplicities."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-maximal-common-subsequences-collapse-to-longest-ones-for-reverse--0509ac1ee874/RESULT.md",
+          "material_read": "Finding, offsets 0–1904",
+          "method": "Resultary search and local-mirror reading",
+          "title": "Maximal common subsequences collapse to longest ones for reversed periodic words",
+          "trigger": "Same-day scattered subsequence search hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimum max-occurrence invariant is motivated by the existing subword entropy problem; complete first nonbinary data are useful for comparing proposed optimizer structure and alphabet-size bounds against exact outcomes. The substantial contiguous range and full optimizer lists, rather than an isolated small value, expose variation in structure: uniqueness at lengths 14 and 15, four relabeling classes at 16, and markedly larger sets at some smaller lengths. The certified lower bounds and equalities are useful independently of a future asymptotic theorem; neither the cutoff nor these data imply asymptotic behavior.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

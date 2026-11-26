@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,17 +21,6 @@
 
 # Reproducible verification
 
-Run `python verify.py` with a standard Python 3 installation. No third-party libraries or external data are needed. The script reads no external files.
+The general affine-hull criterion is established analytically in `RESULT.md`. At the negative diagonal radial endpoint, active inequalities force the pinned edge coordinates by switching and character orthogonality. A positive slack neighborhood in the other coordinates provides the matching dimension bound. The triangle with pendant edges gives a direct product check of nonuniqueness.
 
-Expected successful output:
-
-```
-EXACT_CHECKS_PASS
-edge_transitive_labeled_graphs= 174
-automorphism_actions= 1508
-cut_switches= 2422
-balanced_multipartite_pairs= 60
-exact_rational_and_integer_arithmetic=True
-```
-
-The exact finite script enumerates all simple labeled graphs with two to five vertices, identifies edge-transitive instances through the full permutation group, computes their maximum cuts from all sign assignments, and confirms the uniform automorphism-average and switched reflection identities. It separately verifies the multipartite parity expressions for all tested \(2\le r\le11\) and \(1\le a\le6\); complete max-cut enumeration is also executed when \(ra\le12\). All integer/rational comparisons are exact. These bounded tests do not prove the general classification, center uniqueness or the infinite-parameter closed form; those steps are established in RESULT.md.
+The original standard-library `verify.py` is unchanged and checks only the edge-transitive numerical specialization and the balanced complete multipartite MaxCut evaluation, not the general criterion. Running `python verify.py` is expected to check 174 edge-transitive labeled graphs, 1,508 automorphism actions, 2,422 cut switches and 60 multipartite parameter pairs with exact arithmetic. These finite checks are not used as a proof.

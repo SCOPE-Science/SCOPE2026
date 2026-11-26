@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:32:21.344317Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–54",
+        "Frozen VERIFICATION.md and verify_period_doubling.py (inspected, not executed)",
+        "Bounded replay method: for k=0..5 expand each of 00, 01 and 10 by 0→01,1→00 for k+2 iterations, insert (sum of bits, sum of zero-based indices of ones) for every window of length 3·2^k into a set, and sort J by weight."
+      ],
+      "rationale": "At fixed length the scattered 01 count is J-binomial(t,2) and t determines the other pair counts given that count, so the signature is exact. Every even-length factor comes from exactly the even- or odd-start construction by the fixed-point equations (the two sets may intersect). Both maps send t to m-t, and their J maps are injective in each weight, differing by the new weight. Thus at m=3x the odd outer new weights force opposite parities of the two entire image sets and double both outer counts. At the central weight the two reversed progressions of step 2x translate by a single step; the new minimum is 3x(3x-1)-2(A_k+(k+2)x)=x(6x-k-4). Together with the five length-three signatures this proves all scales, with no inference from finite data. An independently written bounded enumeration checked k=0..5 using all length-3·2^k windows in the images of 00, 01 and 10 under sigma^(k+2), directly summing each window's signature; the group counts and central progressions matched, including at length 96 (32,8,32 and 1408..1632 in steps of 32).",
+      "residual_risks": [
+        "The bounded independent replay corroborates, but does not extend, the exact induction. No claim for all factor lengths or for contiguous-pair equivalence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lejeune gives the dyadic equality with factor complexity and a qualitative non-dyadic comparison; the exact doubling/odd-length recurrence there is for ordinary factor complexity, not b^(2). The other inspected binomial-complexity results concern Thue–Morse and related morphic words."
+        ],
+        "reasoning": "Neither a qualitative comparison for the same word nor binomial theorems for those other words evaluate the three weight groups or their J-values. The thesis's printed strict non-dyadic comparison should not be used at the length-three base, where all five factors have distinct signatures.",
+        "searches": [
+          "Lejeune thesis §4.5 pp. 115–117",
+          "arXiv:2201.04603v2 §7.1",
+          "Rigo–Salimov 2013 Theorem 5"
+        ]
+      },
+      "checked_sources": [
+        "Lejeune thesis §4.5",
+        "arXiv:2201.04603v2 §7.1",
+        "Rigo–Salimov 2013 Theorem 5",
+        "OEIS A052968",
+        "Resultary ea4a069f1a17 and indexed summary 4e783b08b718"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing dyadic injectivity and the binary signature are ingredients, but doubling from a dyadic start stays dyadic. Tripled-dyadic central collisions require tracking a separate progression and its displacement at each doubling."
+        ],
+        "reasoning": "The disjoint outer and overlapping central branches are a separate exact computation, not given by the base-two equalities or by the ordinary factor recurrence.",
+        "searches": [
+          "Lejeune thesis §4.5 Proposition 4.5.1 and Figure 4.2",
+          "Resultary ea4a069f1a17 Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The thesis uses the equivalent binary invariant (number of zeros, scattered 01 count), distinct from 2-Abelian statistics. It plots values through 70 and studies comparison to ordinary factor complexity."
+        ],
+        "reasoning": "Equivalent signatures make this a material overlap, but the thesis does not evaluate the target tripled-dyadic profile in those coordinates. The finite graph is prior numerical evidence, not an all-exponent calculation.",
+        "searches": [
+          "Web literature lookup for period-doubling 2-binomial complexity and exact all-length formulas",
+          "Lejeune thesis §4.5, Proposition 4.5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ea4a069f1a17 proves injectivity and exact counts at powers of two and gives a length-five collision. Indexed summary 4e783b08b718 concerns 3-binomial collisions in the family 10·2^t; primary record text unavailable. A052968 has exactly the numerical sequence after a shift: a(k+2)=2^(k+1)+k+3, with other combinatorial interpretations and no period-doubling profile in the entry."
+        ],
+        "reasoning": "Powers of two and 10·2^t are disjoint from the target, and individual collisions cannot yield its exact profile. A known number sequence does not establish that it counts these signatures, still less the central progression.",
+        "searches": [
+          "Local Resultary/SCOPE search for period-doubling binomial profiles and collisions",
+          "OEIS A052968"
+        ]
+      },
+      "rationale": "The numerical expression is known under other interpretations; the specific period-doubling identification and refined signature counts are distinct on the literature and catalog evidence checked. The older same-word thesis does not give exact values across this infinite non-dyadic family.",
+      "residual_risks": [
+        "Full text of the neighboring third-order collision record could not be compared; only its indexed claim was available.",
+        "The bounded comparison cannot exclude earlier unindexed work or a broader exact formula under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial qualitative coverage; no exact tripled-dyadic calculation here",
+          "evidence": "The author distinguishes factor-complexity recurrences and explicitly reports not being able to compute the 2-binomial complexity precisely.",
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/259266/1/PhDThesis_LejeuneMarie.pdf",
+          "material_read": "§4.5, Proposition 4.5.1 and Figure 4.2 discussion, printed pp. 115–117, text offsets 347500–352798",
+          "method": "Open primary PDF passages",
+          "title": "On the k-binomial equivalence of finite words and k-binomial complexity of infinite words",
+          "trigger": "Identical word and binomial order"
+        },
+        {
+          "assessment": "Different words",
+          "evidence": "Concerns Thue–Morse morphic images of Sturmian words.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.04603v2",
+          "material_read": "§7.1, text offset 152500",
+          "method": "Open full-text passage",
+          "title": "Characterizations of families of morphisms and words via binomial complexities",
+          "trigger": "Exact 2-binomial comparisons in morphic words"
+        },
+        {
+          "assessment": "Different word",
+          "evidence": "Bounded complexity result for Thue–Morse.",
+          "identifier_or_url": "https://orbi.uliege.be/handle/2268/149313",
+          "material_read": "Theorem 5, p. 7",
+          "method": "Open full-text passage",
+          "title": "Another Generalization of Abelian Equivalence: Binomial Complexity of Infinite Words",
+          "trigger": "Foundational 2-binomial calculations"
+        },
+        {
+          "assessment": "Different family",
+          "evidence": "Injectivity at lengths 2^k, not the 3·2^k profile.",
+          "identifier_or_url": "Resultary ea4a069f1a17",
+          "material_read": "Finding and proof",
+          "method": "Local full-text mirror",
+          "title": "Dyadic two-binomial rigidity of the period-doubling word",
+          "trigger": "Same word, related doubling argument and exact count"
+        },
+        {
+          "assessment": "Unresolved full-text comparison, known overlap limited to distinct lengths",
+          "evidence": "Indexed collisions at lengths 10·2^t.",
+          "identifier_or_url": "Resultary 4e783b08b718",
+          "material_read": "Index summary only; full text unavailable in local mirror",
+          "method": "Local index and attempted mirror retrieval",
+          "title": "Explicit infinite third-order binomial collisions in the period-doubling word",
+          "trigger": "3-binomial equality implies 2-binomial equality"
+        },
+        {
+          "assessment": "Identical numerical expression but not the stated combinatorial interpretation",
+          "evidence": "a(n)=1+2^(n-1)+n for n>0; entry links relate to powers of five and an encyclopedia counting specification, not period-doubling factors.",
+          "identifier_or_url": "https://oeis.org/A052968",
+          "material_read": "Description, OFFSET, COMMENTS, LINKS and FORMULA, text offsets 412–2585",
+          "method": "Open public entry",
+          "title": "A052968",
+          "trigger": "Identical total counts after an index shift"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–49",
+        "Lejeune thesis §4.5"
+      ],
+      "rationale": "Three is the first non-dyadic odd base, so its doubling orbit is a natural test of the gap left by dyadic rigidity. The result resolves both the exact count and the contrasting collision behavior of even central and odd outer weights. The central progression in particular gives more than a computed sequence and is exact data for comparisons with other dyadic orbits.",
+      "residual_risks": [
+        "This result determines one natural orbit, not the unrestricted function or its regularity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:44:53.475127Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The total number of partial matchings is N=n^3+2n+1 by choosing occupied rows and injecting them into columns. A specified edge occurs in Q=n^2-n+1 matchings because its endpoints leave K_{2,n-1}. The number of matchings with odd intersection with S is at most |S|Q, proving W>=N-2|S|Q. This is at least 2n for |S|<=r=(n+1)/2 when n is odd. If n is even, every multiplier has the parity of the odd N and cannot vanish. An r-edge row star attains the union bound since a matching uses at most one edge in that row. Appending an edge in another row but a selected column flips exactly those matching contributions containing the new edge. In the residual board K_{2,n-1}, omitting the star row has n completions, and using it has signed column sum (n-1)-2(r-1)=0 with the same number of remaining completions per chosen column. Thus the new support has W=2n-2n=0. When n>=3, r>=2 distinguishes the heavy row, so the 3 choices of heavy row, binomial(n,r) column selections, 2 extra rows and r extra-edge columns give distinct supports. This proves a lower bound on multiplicity, not a classification. Counting convolution has these unnormalized multipliers on the full Boolean edge group, so invertibility and injectivity statements follow. Both frozen verifiers and reported results were inspected, not executed. A separate direct signed-count run (python3 /workspace/review_checks.py 3) exhausts frequencies at n=3,4,5 (36 first zeros, none, and 270 first zeros, respectively), and checks selected boundary stars and their extensions through n=25. The proof, not these finite tests, covers all widths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "5bf177d89df5 states a global parity split, least positive magnitudes 1 for even widths and 2 for odd widths, and cancellation using four-column and eight-column blocks, with at least 24^floor((n-1)/4) global zeros at odd widths.",
+          "8c4fd903853f uses matched-vertex sets rather than edge incidence. The frozen Walter citation concerns matching polytope facets with a quadratic coordinate."
+        ],
+        "reasoning": "A global min magnitude is not a positive signed lower bound on low-weight multipliers. The results addressing matched-vertex multiplicities or polytopes also change the function or invariant.",
+        "searches": [
+          "Resultary 5bf177d89df5, 8c4fd903853f",
+          "arXiv:1607.01880"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and both verifier sources",
+        "Resultary 5bf177d89df5, 75693f3f8db9, 8c4fd903853f",
+        "arXiv:1607.01880 and arXiv:1610.00805 (identified; retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existence/nonexistence of some zero at each width is fully covered by 5bf177d89df5. Its stated total zero lower bound contains no specification of minimum Hamming support or of where those zeros occur.",
+          "The sharp distinction comes from combining a restricted-support union bound and a star-plus-one support with exact conditional cancellation; the summary's block construction does not state these conclusions."
+        ],
+        "reasoning": "Do not infer width-filtered coverage from a full-spectrum positive gap and an unrestricted family of zero modes. Whether the inaccessible full proof has related sparse examples remains a material risk, not evidence of coverage by itself.",
+        "searches": [
+          "Resultary 5bf177d89df5, exact available summary and scoped full-text retrieval",
+          "RESULT.md lines 33–63"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The signed rook/monomer-dimer partition function with weight -1 on S and +1 off S is exactly this W(S); 5bf177d89df5 uses the identical indicator and Boolean edge transform.",
+          "Leake–Ryder is identified in RESULT.md lines 70–82 as a multivariate matching and independence polynomial stability/root-bounds comparison."
+        ],
+        "reasoning": "The former is materially overlapping and creditable; a stability result about polynomial roots is not, from the reported statement, a bound on the number of -1 activities required for zero.",
+        "searches": [
+          "Resultary 5bf177d89df5: all matchings of K_{3,n}, first Walsh zero and Hamming weight",
+          "all matchings K_{3,n} Walsh first zero signed rook monomer dimer degree threshold exact Fourier coefficient",
+          "arXiv:1610.00805"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "75693f3f8db9 is a complete Walsh spectrum for the single board K_{5,5}; the rook counts choose j nonintersecting placements on a rectangular board but do not tabulate signed cancellations.",
+          "The bound verification includes fixed widths 3–7, not an earlier all-width rank-by-degree table."
+        ],
+        "reasoning": "Neither a finite fixed-board spectrum nor a classical unsigned rook census gives the least frequency weight at which cancellation occurs for all odd widths.",
+        "searches": [
+          "Resultary 75693f3f8db9 and 5bf177d89df5",
+          "RESULT.md lines 25–32 and 66–82; MathWorld Rook Polynomial"
+        ]
+      },
+      "rationale": "The earlier same-operator finding 5bf177d89df5 covers the even/odd global singularity split and establishes full-spectrum minimum positive magnitudes and zero family counts. These overlap and should be credited rather than presented as a discovery here. The distinct contribution supported by the available statements is the sharp odd-width bound at bounded frequency weight, exact first-zero degree, and its explicit multiplicity bound at that degree. The available stronger global spectral statements are not bounds in frequency weight.",
+      "residual_risks": [
+        "The earlier exact same-family summary is not a substitute for its full proof, which could contain sparse threshold material not stated there.",
+        "Unindexed work under signed rook or monomer-dimer terminology may cover the minimum support. The targeted public search did not resolve this risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the global parity split, but no first-frequency-degree assertion in the available statement",
+          "evidence": [
+            "Existence of a zero iff n is odd; least positive magnitude 2 (odd), 1 (even); a global multiplicity lower bound without Hamming-weight restriction."
+          ],
+          "identifier_or_url": "Resultary:5bf177d89df5",
+          "material_read": "Exact catalogue summary; local mirror did not supply the requested RESULT.md",
+          "method": "Matched the local catalogue statement to the hypotheses and quantifiers",
+          "title": "Complete Walsh singularity and sharp spectral gap for all matchings of K_{3,n}",
+          "trigger": "Identical graph family and Walsh operator, earlier proof of global singularity"
+        },
+        {
+          "assessment": "Fixed different board, not a covering result",
+          "evidence": [
+            "Width and height are both 5, rather than one shore of size 3 with arbitrary width."
+          ],
+          "identifier_or_url": "Resultary:75693f3f8db9",
+          "material_read": "Catalogue summary",
+          "method": "Compare grid dimensions and invariant",
+          "title": "Complete Walsh spectrum and sharp endpoint projection for all matchings of K_{5,5}",
+          "trigger": "Same-day complete spectral match under a nearby board"
+        },
+        {
+          "assessment": "Credit classical counts; no whole-paper exclusion inferred for inaccessible sources",
+          "evidence": [
+            "The unsigned totals alone give the even-width parity implication; the cited polyhedral and root-bound comparisons use different invariants."
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/RookPolynomial.html; arXiv:1607.01880; arXiv:1610.00805",
+          "material_read": "Frozen RESULT.md lines 70–82 and its reported prior inspections; attempted primary retrieval did not produce independently readable passages",
+          "method": "Scoped source identification, access-limited retrieval and claim-level comparison",
+          "title": "Rook Polynomial; Complete Description of Matching Polytopes with One Linearized Quadratic Term for Bipartite Graphs; Generalizations of the Matching Polynomial to the Multivariate Independence Polynomial",
+          "trigger": "Unsigned rectangular counts, polytope and polynomial aliases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The precise first lost degree is a motivated recovery boundary for the natural all-matchings model, not merely the already known singularity parity. The positive margin 2n and a uniform family of lost modes together distinguish low-frequency recovery from the full spectrum across all odd widths. The count is not the total number of lost modes or an exact minimum-degree census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

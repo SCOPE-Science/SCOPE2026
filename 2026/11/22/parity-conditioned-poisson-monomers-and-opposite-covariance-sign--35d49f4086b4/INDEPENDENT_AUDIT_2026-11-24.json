@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:47:32.463360Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations and proof at lines 3–84; VERIFICATION.md and verify_tripartite.py inspected, not executed",
+        "Independent replay: python3 /workspace/branches/396bea04-d922-4ef9-9929-663f26626f16/independent_tripartite_check.py. Exact matching histograms agreed for n=1,…,5. At c=2, TV at n=80,81 was approximately 0.01032,0.00934 below the respective bounds 0.16833,0.97261, with positive even and negative odd cross-part count and scaled same-part site covariance."
+      ],
+      "rationale": "Each monomer vector fixes the three cross-part edge counts via the vertex-balance equations. Choosing uncovered vertices, partitioning the covered vertices by partner part, and matching the corresponding blocks gives C_n(u)=(n!)³ divided by the six stated factorials. An out-of-range monomer coordinate forces an inadmissible edge count. Dividing by maximum-matching weight yields j=(sum u−ε)/2 missing dimers. With n=2m, the weight ratio to its limiting factorial weight is a product of three f_m(j−u_i)∈[0,1]; with n=2m+1 it has additionally the prefactor (1+1/m)(2m/(2m+1))^j. The deficit of each factorial ratio is at most the sum of its factor deficits, giving even defect bounded by 3j(j+1)/(2m) and odd defect bounded by 1/m+j/(2m+1)+3(j+1)(j+2)/(2m). The even law has normalizer ≤cosh x and its TV deficit is bounded by the missing fraction of that normalizer; in the odd case the finite normalizer is ≥1, so TV is bounded by the sum of the absolute weight deviations. The parity-weighted factorial moments yield exactly the two displayed constants. The finite weights are dominated by twice the corresponding factorial weights, allowing convergence of quadratic moments as well as probability. The limit is a multinomial split of the parity-conditioned Poisson total R, whose falling second moment is x² and whose first moment is x tanh x or x coth x. This gives the stated strict covariance signs. For distinct sites, exchangeability uses U_i U_j across parts and U_i(U_i−1) within one part, with denominators n² and n(n−1); multiplying each covariance by n² gives the same limit.",
+      "residual_risks": [
+        "The finite probability TV and covariance evaluations are numerical corroboration, not an exhaustive certificate. Moment and TV estimates justify the fixed-c limit separately by parity; no assertion is made for c varying with n or about signs at all finite sizes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected mean-field results concern complete-graph density LLN/CLT with an attractive interaction, not a balanced tripartite O(1) monomer window. Ma's graph is the path-tree of K_{1,s,t}, not K_{n,n,n}. The bipartite Gibbs comparison gives a Bessel limit with a fixed shore difference, a constraint absent in the three-part graph."
+        ],
+        "reasoning": "A matching-polynomial identity or a general density limit provides background, but the inspected results do not supply the needed three-variable limiting coefficients and parity-uniform envelope on each subsequence.",
+        "searches": [
+          "Alberici et al. arXiv:1506.04241 Theorems 1.6, 1.8; Quitmann arXiv:2309.13632v1; Ma DOI 10.4236/am.2025.167030; Heilmann–Lieb DOI 10.1103/PhysRevLett.24.1412; Resultary e1aa8589f7c5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e1aa8589f7c5, da8e15806a97, 27cbb78034e7",
+        "OEIS A297527; Quitmann arXiv:2309.13632v1; Alberici et al. arXiv:1506.04241; Ma DOI 10.4236/am.2025.167030; Heilmann–Lieb access attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The bipartite Bessel result depends on equality up to a fixed imbalance of the two shore counts; this cannot be specialized to three independent Poisson counts modulo total parity. The maximum count says nothing about relative weights when j>0. General exact matching enumerators still require an asymptotic argument at λ_n=n/c, with relative deficit estimates that also control unbounded moment tests."
+        ],
+        "reasoning": "The new step is the finite-to-limit three-variable comparison at the specified activity together with its parity-dependent rate and moment domination. Hyperbolic covariance identities are elementary after this joint law, but prior equilibrium/kinetic conclusions do not imply that law and domination.",
+        "searches": [
+          "RESULT.md finite factorial ratio and moment proof compared with A297527, e1aa8589f7c5, da8e15806a97, arXiv:1506.04241 and arXiv:2309.13632v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Unit dimer activity with monomer fugacity ρ_n=√(c/n) gives the same law. Quitmann arXiv:2309.13632v1 treats decay at a positive monomer activity, not this vanishing-fugacity scaling. The tripartite deposition record da8e15806a97 instead has kinetic time and covariance on scale n, rather than the equilibrium parity split on scale n²."
+        ],
+        "reasoning": "Changing activity convention leaves the target probability measure unchanged but does not turn fixed-activity decay or kinetic reversal into its target limit. The earlier complete-graph result 27cbb78034e7 is about precision of disjoint edge indicators, also not the same observable.",
+        "searches": [
+          "Resultary balanced tripartite Gibbs matchings, parity-conditioned monomer law, and same-part site covariance; e1aa8589f7c5, da8e15806a97, 27cbb78034e7; primary monomer-dimer correlation/limit search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A297527 directly gives the target j=0 counts: (n!)³/(m!)³ at n=2m and 3(n!)³/[(m!)²(m+1)!] at n=2m+1. The earlier Bessel distribution concerns a different graph."
+        ],
+        "reasoning": "The exact maximum-matching sequence is prior and should be credited. It supplies the normalizer of one sector, not the law across all defect sectors or the rate and covariance limits.",
+        "searches": [
+          "OEIS A297527 maximum matchings in K_{n,n,n}, COMMENTS and FORMULA; Resultary e1aa8589f7c5 exact defect distribution"
+        ]
+      },
+      "rationale": "The material distinction is the quantitative joint Gibbs law on the balanced three-part graph and the parity-dependent limiting two-site sign, not the maximum-matching count or the covariance calculation for a prescribed conditioned Poisson law in isolation. The strongest equilibrium analogue has a two-shore deterministic count difference and a Bessel law. The strongest tripartite analogue changes the sampling mechanism to irreversible deposition; the same sign-reversal terminology does not identify the same probability law or covariance scale.",
+      "residual_risks": [
+        "The Heilmann–Lieb full text was not inspected. An unexamined multipartite matching asymptotic or an equivalent statement in matching-polynomial language remains possible; this is a bounded judgment, not a universal priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Analogous but different limiting law and covariance mechanism; same-day priority unresolved",
+          "evidence": "K_{n,n+k} has a Bessel defect law with O(1/n) TV and a fixed shore difference, not a total parity constraint on three counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-bessel-saturation-window-and-signed-monomer-correlations-on-co--e1aa8589f7c5",
+          "material_read": "RESULT.md Finding, local offset 0",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A Bessel saturation window and signed monomer correlations on complete bipartite graphs",
+          "trigger": "Closest Gibbs scaling and covariance theorem"
+        },
+        {
+          "assessment": "Different sampling law and scaling; same-day priority unresolved",
+          "evidence": "Irreversible placement, kinetic sign as a function of time, scale n.",
+          "identifier_or_url": "Resultary da8e15806a97",
+          "material_read": "RESULT.md Finding, local offset 0",
+          "method": "Local mirror",
+          "title": "A unique cross-sublattice covariance reversal during tripartite dimer parking",
+          "trigger": "Same tripartite graph and sign reversal"
+        },
+        {
+          "assessment": "Not the monomer covariance claim",
+          "evidence": "Concerns inverse covariance for disjoint edge indicators on K_n.",
+          "identifier_or_url": "Resultary 27cbb78034e7",
+          "material_read": "RESULT.md Finding, local offset 0",
+          "method": "Local mirror",
+          "title": "A parity reversal in complete-graph monomer-dimer precision",
+          "trigger": "Earlier parity-dependent sign result"
+        },
+        {
+          "assessment": "Positive-activity correlation decay, not a parity-restricted limit at vanishing activity",
+          "evidence": "The quoted activity setting does not give the stated joint limit or its covariance coefficients.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.13632v1",
+          "material_read": "Abstract p. 1 offset 0 and introduction p. 2 offsets 4400–6662",
+          "method": "Open-access primary PDF",
+          "title": "A note on the monomer-dimer model",
+          "trigger": "Primary monomer correlation result surfaced by focused search"
+        },
+        {
+          "assessment": "Different graph, activity setting and limiting statistic",
+          "evidence": "LLN and CLT for monomer density in complete-graph mean-field models.",
+          "identifier_or_url": "https://arxiv.org/abs/1506.04241",
+          "material_read": "Model p. 2 offsets 6100–9100; Theorems 1.6 and 1.8 offsets 18400–20694 and 21200–23449",
+          "method": "Open-access primary PDF",
+          "title": "Limit theorems for monomer-dimer mean-field models with attractive potential",
+          "trigger": "Possible prior Gibbs asymptotics"
+        },
+        {
+          "assessment": "Different graph and objective",
+          "evidence": "The object is a path-tree of an unbalanced complete tripartite graph.",
+          "identifier_or_url": "https://doi.org/10.4236/am.2025.167030",
+          "material_read": "Opening p. 1, offset 0",
+          "method": "Open-access primary text",
+          "title": "The Matching Polynomial of the Path-Tree of the Complete Tripartite Graph K_{1,s,t}",
+          "trigger": "Tripartite matching-polynomial antecedent"
+        },
+        {
+          "assessment": "Exact prior coverage of j=0 only",
+          "evidence": "The binomial-factorial formula has factor 2−(−1)^n and is equal to both frozen maximum-count formulas after simplification.",
+          "identifier_or_url": "https://oeis.org/A297527",
+          "material_read": "Entry COMMENTS and FORMULA, offset 120 onward",
+          "method": "Direct public OEIS entry",
+          "title": "Number of maximum matchings in the complete tripartite graph K_{n,n,n}",
+          "trigger": "Exact known normalizing sector"
+        },
+        {
+          "assessment": "Access unresolved",
+          "evidence": "Both routes returned HTTP 403, from which no coverage inference is drawn.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevLett.24.1412",
+          "material_read": "No primary passage retrieved; DOI and APS-PDF tried",
+          "method": "Lawful public access attempts",
+          "title": "Monomers and Dimers",
+          "trigger": "Classical matching-model background and possible older specialization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md TV rates, covariance limits and assumptions",
+        "OEIS maximum-matching formula and same-day bipartite and irreversible tripartite analogues"
+      ],
+      "rationale": "The O(1) near-perfect window is dictated by the activity scale, and exposes a genuine sign change in equilibrium dependence that would be invisible to a density law. The explicit TV bounds and the convergence of quadratic moments quantify separate even and odd limits. Agreement across within-part and cross-part distinct sites is a useful structural fact for interpreting spatial correlations, and differs from the two-shore mechanism of the closest equilibrium analogue.",
+      "residual_risks": [
+        "These conclusions do not identify a thermodynamic phase transition or assert universality on other multipartite graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:17:32.720895Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–72 and Limitations",
+        "VERIFICATION.md; checker.py, lines 12–99; checker_output.txt"
+      ],
+      "rationale": "Integrating the order-one Cauchy kernel gives the signed simple-pole endpoint sum. With the common denominator, the numerator has degree exactly 2n−2 and is nonzero at all endpoints, so n−1 upper-half-plane zeros counted with multiplicity is equivalent to no real zeros. Outside the pulses every summand is positive. In pulse k the sign is the sign of Φ_k−w_k, with strictly negative limiting sign at each interior endpoint. This gives necessity including equality and sufficiency of the strict maximum inequalities. They are homogeneous linear tests indexed by compact real intervals; the maxima are continuous functions of w. For equal positive heights, the contribution from the other pulses is strictly smaller than the integral of the positive kernel over the entire complement of pulse k. That latter integral equals the absolute value of the negative own-pulse summand, independently confirming strict feasibility. Mixing any positive weakly feasible vector with the equal-height vector shows that the positive-relative boundary consists exactly of weakly feasible vectors with at least one tight inequality; at the interior maximizer both F and its real derivative vanish. This is not a converse for arbitrary multiple real roots. For two pulses, computing the quadratic's discriminant gives the stated strict gap test and its double and distinct real regimes. As an exact threshold check, intervals [−1,0], [1/4,5/4] with weights (4,1) give P(z)=5(z−1/2)^2. The one-pulse case has no zeros and no boundary inside the positive orthant.",
+      "residual_risks": [
+        "The boundary statement is relative to strictly positive amplitudes; zero weights can cause pole cancellation.",
+        "The stored 96-case output combines rational identities with approximate root counts. The defined chamber grid is not a certificate for continuous weights. The checker was inspected, not executed; the universal result and tangency are analytic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The wavelet paper identifies the holomorphic upper-half-plane factor but studies phase retrieval. The discrete Cauchy-transform paper gives localization equivalences in a different class. The Walsh full text was not accessible in the attempted copies."
+        ],
+        "reasoning": "Broader analytic settings give tools but not the claimed dependence of maximal zero count on weights in this finite interleaved-endpoint family. Rational critical-point theory remains a plausible route to an older equivalent statement and was not exhaustively covered.",
+        "searches": [
+          "arXiv:1404.1183v3, equations (7)–(8)",
+          "arXiv:1312.6706v2, Theorem 1.1",
+          "Walsh monograph, Internet Archive scan lookup"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1404.1183v3",
+        "arXiv:1312.6706v2",
+        "Walsh monograph (access limited)",
+        "Resultary 422cb4df3838, 9812aa5539e1, 8bc1faa947ce"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Degree alone gives the zero ceiling; the no-real-zero reformulation follows from real coefficients. The exact contrast inequality comes from the discriminant of the actual two-pulse numerator, and strict feasibility follows from the pulse geometry, not from a general zero ceiling."
+        ],
+        "reasoning": "Standard results imply parts of the conclusion but do not, in the inspected statements, mechanically imply the exact interval-by-interval chamber and gap boundary. No claim is made to novelty of the underlying discriminant or convexity arguments.",
+        "searches": [
+          "Gauss–Lucas / rational critical-point comparison; Walsh monograph lookup",
+          "arXiv:1404.1183v3, equations (7)–(8); arXiv:1312.6706v2, Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "F is the ordinary Cauchy transform of the signed endpoint measure with residues −w_j at a_j and +w_j at b_j. For equal weights it is a constant times −R′/R, where R is a real rational interlacing product; integer weights similarly give a rational product with multiplicities. General positive real amplitudes need not give a rational product.",
+          "The exact chamber is the preimage of strict positivity on the real line under the linear map w↦P_w. The inspected discrete-transform localization theorem is about function spaces, not this specific coefficient domain."
+        ],
+        "reasoning": "The signed-measure and polynomial formulations explain why generic zero localization, rational critical-point bounds and positive-polynomial convexity are relevant. None of the inspected statements supplies the pulse sign constraints, a strict witness for all interval geometries and the sharp contrast test together.",
+        "searches": [
+          "arXiv:1312.6706v2, Theorem 1.1 and setup",
+          "Walsh, The Location of Critical Points of Analytic and Harmonic Functions; rational derivative/logarithmic-derivative formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected Findings concern a symmetric equal-height three-interval collision, four positive point atoms, and two intervals with the order-three rather than order-one kernel. No exact amplitude-chamber match was found in those returned records."
+        ],
+        "reasoning": "Restrictions to a width parameter at equal heights, a change from intervals to atoms, and a change of analytic kernel do not recover the arbitrary positive amplitude cone. The catalogue dates are not the basis of the mathematical comparison.",
+        "searches": [
+          "Resultary semantic search for the Cauchy-wavelet amplitude chamber and gap/contrast zero transition",
+          "Resultary records ending 422cb4df3838, 9812aa5539e1 and 8bc1faa947ce"
+        ]
+      },
+      "rationale": "Credit the pulse-specific, all-positive-amplitude chamber, a strictly feasible equal-height ray for every separated geometry, and the sharp width–gap–contrast calculation together. The conjugate-pair count, convexity of the positive-polynomial preimage and equal-height rational interlacing are classical mechanisms, not separate originality claims. The inspected wavelet and Cauchy-transform papers do not give the full chamber or an immediately applicable classification of the paired, alternating-residue family.",
+      "residual_risks": [
+        "An older paired-endpoint or alternating-residue theorem could be equivalent; in particular Walsh original full text remained unavailable.",
+        "Bounded catalogue and literature searches do not establish universal priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework, not the pulse amplitude classification",
+          "evidence": [
+            "Horizontal sections of the holomorphic representative yield scaled wavelet transforms."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1404.1183v3",
+          "material_read": "pp. 6–7, equations (7)–(8), OA offsets 17569–19939",
+          "method": "Open-access PDF passage read",
+          "title": "Phase retrieval for the Cauchy wavelet transform",
+          "trigger": "Same holomorphic wavelet transform"
+        },
+        {
+          "assessment": "Zero localization in spaces of transforms, not a paired-residue amplitude domain",
+          "evidence": [
+            "Theorem 1.1 gives equivalences for localization properties of the transform spaces."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1312.6706v2",
+          "material_read": "Abstract, setup and Theorem 1.1, pp. 1–3, OA offsets 95, 4145 and 6681",
+          "method": "Open-access PDF passage read",
+          "title": "Localization of zeros for Cauchy transforms",
+          "trigger": "Equivalent signed discrete Cauchy-transform formulation"
+        },
+        {
+          "assessment": "Residual access and overlap risk, not evidence of absence",
+          "evidence": [
+            "The equal-height rational-product reduction can be checked directly in the frozen proof."
+          ],
+          "identifier_or_url": "J. L. Walsh, monograph, cited in RESULT.md reference 3",
+          "material_read": "Frozen attribution only; no specific full-text theorem inspected",
+          "method": "Identified Internet Archive scan attempted in PDF, text and page formats; unavailable",
+          "title": "The Location of Critical Points of Analytic and Harmonic Functions",
+          "trigger": "Zeros can be rational critical points in integer-weight cases"
+        },
+        {
+          "assessment": "Restricted width transition, not all positive weights",
+          "evidence": [
+            "Symmetric three intervals, equal heights and varying central width."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-zero-collision-threshold-for-a-three-band-cauchy-wavelet--422cb4df3838",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp zero collision threshold for a three-band Cauchy wavelet",
+          "trigger": "Exact upper-half-plane zero transition for interval pulses"
+        },
+        {
+          "assessment": "Different positive atom model",
+          "evidence": [
+            "The phase diagram uses four symmetric point atoms rather than interval pulses."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-a-semicubical-cusp-in-the-zero-geometry-of-a-four-atom-cauchy-wa--9812aa5539e1",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "A semicubical cusp in the zero geometry of a four-atom Cauchy wavelet",
+          "trigger": "Finite weighted inputs and zero phase diagram"
+        },
+        {
+          "assessment": "Different kernel order",
+          "evidence": [
+            "Uses the order-three kernel (z−x)^−4, rather than the order-one kernel here."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-the-four-simple-upper-half-plane-zeros-of-a-two-band-order-three--8bc1faa947ce",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "The four simple upper-half-plane zeros of a two-band order-three Cauchy wavelet",
+          "trigger": "Two-band zero classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding, proof and Limitations",
+        "arXiv:1404.1183v3, pp. 6–7"
+      ],
+      "rationale": "This gives a usable complete criterion in the original pulse amplitudes for the maximal upper-half-plane zero census, not just a generic root bound. The nonempty convex geometry gives feasible interpolations between designs; the boundary and explicit two-pulse formula identify when amplitude contrast defeats zero retention. These facts are useful in the holomorphic signal model without needing a larger wavelet theorem.",
+      "residual_risks": [
+        "No noise robustness, overlapping-pulse criterion, or generic simplicity claim follows. For general n, checking chamber membership still requires one-variable maxima."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

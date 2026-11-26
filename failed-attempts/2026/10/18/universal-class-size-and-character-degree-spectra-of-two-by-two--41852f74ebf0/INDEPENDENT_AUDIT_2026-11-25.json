@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:09:39.810666Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–55",
+        "Frozen VERIFICATION.md and verify_borel_chain.py (inspected, not executed)",
+        "Replay: python3 -B /workspace/reproductions/recheck.py 1"
+      ],
+      "rationale": "The scalar unit is a central direct factor and the other factor is the affine group. For a fixed affine element (t,u), commutation is (t−1)z=us with 1+s a unit. The unrestricted kernel has size q^(m+min(ν(t−1),ν(u))). When ν(u)<ν(t−1), a forbidden s of residue −1 is impossible; otherwise each forbidden s has q^ν(t−1) lifts in z. The centralizers and both class families follow. Under conjugation the multiplier is fixed and the translation becomes yu+(1−t)z with y a unit, so the valuation bins used to divide by class size are invariant. A character nontrivial on the socle yields an injective additive-dual parameterization, since each nonzero ideal contains the socle; induction from unit stabilizers gives one layer of q^j irreducibles per valuation with orbit degree w_j, besides the zero-orbit U linear characters of the affine factor. The scalar factor replicates each degree U times. The q=2 overlap of degree one and the extra socle-sized affine center are correctly included. The class total, order, commuting probability and complex algebra decomposition then follow. An independent orbit enumeration on Z/4 and F4[e]/e² reproduced both spectra; the latter includes nonprime residue size. In particular it gave class counts {1:12,3:12,4:36,12:48,16:96} and degrees {1:144,3:48,12:12} for q=4, m=2.",
+      "residual_risks": [
+        "Finite orbit cases do not prove the all-ring claim; the invariant-bin and little-group arguments do. The sentence describing the affine linear characters in the proof is read by orbit layer, as the Finding explicitly requires."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The affine record gives one size-q^(m−k) class per multiplier of k=ν(1−t), and one class of size w_h for each h<k, for arbitrary length; it also classifies affine character degrees.",
+          "The ambient GL length-two sources and finite-field affine enumeration differ in group and/or ring regime.",
+          "2026/11/22/SCOPE-conjugacy-and-character-degree-spectra-of-rank-two-borel-groups--30f4456b942a has a square-zero table; radical dimension 1 yields m=2, not m≥3."
+        ],
+        "reasoning": "The multiplier-resolved affine theorem is stronger than its aggregated Borel spectrum consequence; the square-zero table is not an all-length substitute.",
+        "searches": [
+          "Resultary: affine classification on chain rings and rank-two Borel square-zero tables",
+          "arXiv:1001.5304",
+          "arXiv:1212.6157",
+          "arXiv:2112.15219"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 0a4181d7ad6d and 30f4456b942a",
+        "arXiv:1001.5304",
+        "arXiv:1212.6157",
+        "arXiv:2112.15219",
+        "arXiv:2410.21761",
+        "arXiv:2506.05652"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Summing the affine large-class branch over multipliers of valuation j gives v_j; summing its size-w_h branch over k>h gives q^(m−h−1); the scalar factor supplies U copies of each. The affine degree layers U and q^j multiply to U² and Uq^j. Center, class number, commuting probability and complex algebra then follow directly."
+        ],
+        "reasoning": "Both centerpiece distributions and the corollaries follow without any new mathematical lemma. Additive-character orbits also have substantial antecedents, but that alone would not settle the internal class-size question.",
+        "searches": [
+          "0a4181d7ad6d, Finding, conjugacy and dual-action proof",
+          "arXiv:2410.21761, abstract and p. 12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/18/SCOPE-conjugacy-and-ordinary-character-spectra-of-affine-groups-over-f--0a4181d7ad6d, Finding and proof: complete affine spectra for H=R⁺⋊R×",
+          "The frozen proof itself identifies B₂(R)=R××H."
+        ],
+        "reasoning": "Passing from H to B₂ on both multisets only replicates each class and each degree U times, since the complementary factor is abelian. Thus changing between these two objects does not produce a scientifically distinct spectrum theorem.",
+        "searches": [
+          "Resultary: internal Borel/affine group class sizes and character degrees over finite commutative chain rings",
+          "arXiv:2112.15219",
+          "arXiv:2506.05652"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The affine Finding yields both exact class families and exact degree layers, after multiplication by U. The later square-zero Borel Finding gives an exact six-row table whose chain-ring specialization covers the m=2 slice."
+        ],
+        "reasoning": "Full coverage is from an exact indexed theorem, not a match of parameters or test rows. For the additional table match, only length two is credited.",
+        "searches": [
+          "Resultary: two-family valuation spectrum, internal Borel centralizer-size histogram, affine class-size and degree distributions"
+        ]
+      },
+      "rationale": "A distinct indexed affine-group record states an all-length classification implying both complete distributions and their consequences by the scalar direct product. This is demonstrated mathematical coverage, not an inference about priority from the two records' shared date.",
+      "residual_risks": [
+        "Ordering between the same-date records was not established and is not needed for the coverage finding.",
+        "A linked MathOverflow discussion of character tables for affine groups of cyclic prime-power rings was inaccessible on the tried routes. It may cover a special case; the access outcome plays no role in the verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen multisets by direct product",
+          "evidence": "Per multiplier k: one q^(m−k) class and a w_h class for each h<k; degree layers U and q^j. Same date alone does not resolve priority.",
+          "identifier_or_url": "2026/10/18/SCOPE-conjugacy-and-ordinary-character-spectra-of-affine-groups-over-f--0a4181d7ad6d/RESULT.md",
+          "material_read": "Finding and conjugacy/dual-action treatment, offset 0 onward; Related Work near offset 5910",
+          "method": "Resultary and bounded local mirror read, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Conjugacy and ordinary character spectra of affine groups over finite chain rings",
+          "trigger": "Exact affine-group equivalent"
+        },
+        {
+          "assessment": "Exact length-two specialization only; later record",
+          "evidence": "Six-row table, square-zero radical dimension d; chain case d=1.",
+          "identifier_or_url": "2026/11/22/SCOPE-conjugacy-and-character-degree-spectra-of-rank-two-borel-groups--30f4456b942a/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary and bounded local mirror read",
+          "title": "Conjugacy and character-degree spectra of rank-two Borel groups over square-zero local rings",
+          "trigger": "Exact Borel table"
+        },
+        {
+          "assessment": "Related odd-residue-characteristic stabilizer theory; no full spectra in the inspected passages",
+          "evidence": "Strong Gelfand property and upper-unipotent characters ψ_t with stabilizers Z_t^ℓ U_ℓ.",
+          "identifier_or_url": "arXiv:2410.21761",
+          "material_read": "Abstract p. 1; p. 12 stabilizer paragraph near offset 62800",
+          "method": "OA primary PDF passages",
+          "title": "On Gelfand pairs and degenerate Gelfand-Graev modules of General Linear groups of degree two over principal ideal local rings of finite length",
+          "trigger": "Potential internal Borel character/conjugacy coverage"
+        },
+        {
+          "assessment": "Relevant quotient-orbit method, not this valuation-resolved chain-ring statement",
+          "evidence": "Finite-field classical affine groups; class reduction to centralizer orbits on A/[g,A].",
+          "identifier_or_url": "arXiv:2112.15219",
+          "material_read": "pp. 1, 3; centralizer-orbit lemma near offset 6800",
+          "method": "OA primary PDF passages",
+          "title": "Enumeration of conjugacy classes in affine groups",
+          "trigger": "General affine class enumeration"
+        },
+        {
+          "assessment": "Different group and invariant in checked statement",
+          "evidence": "Dimension-preserving correspondence for ambient GL irreducible representations.",
+          "identifier_or_url": "arXiv:1001.5304",
+          "material_read": "Abstract p. 1",
+          "method": "OA primary PDF passage",
+          "title": "On Representations of General Linear Groups over Principal Ideal Local Rings of Length Two",
+          "trigger": "Same ring family at length two"
+        },
+        {
+          "assessment": "Ambient similarity in checked statement",
+          "evidence": "Length-two GL conjugation, not internal conjugation in the triangle subgroup.",
+          "identifier_or_url": "arXiv:1212.6157",
+          "material_read": "Abstract p. 1",
+          "method": "OA primary PDF passage",
+          "title": "Similarity of matrices over local rings of length two",
+          "trigger": "Candidate class and centralizer classification"
+        },
+        {
+          "assessment": "Checked scope is finite fields",
+          "evidence": "Class-algebra stability for affine groups over finite fields.",
+          "identifier_or_url": "arXiv:2506.05652",
+          "material_read": "Abstract p. 1",
+          "method": "OA primary PDF passage",
+          "title": "Wan–Zhou study of affine conjugacy types and class algebras",
+          "trigger": "Potential affine conjugacy classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and scalar splitting",
+        "0a4181d7ad6d, all-length affine spectra"
+      ],
+      "rationale": "The complete spectra are natural invariants, but as a separate result this frozen delivery adds only the routine effect of an abelian direct factor and immediate corollaries of already covered affine distributions. No new invariant determination or independently useful sharper boundary survives that reduction.",
+      "residual_risks": [
+        "This is a decision about separate research value, not about the usefulness of the underlying affine classification or truth of the Borel formulas."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

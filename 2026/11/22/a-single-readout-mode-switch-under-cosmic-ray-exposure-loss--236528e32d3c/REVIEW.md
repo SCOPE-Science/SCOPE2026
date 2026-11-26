@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The normalized expected-information model follows from a Gaussian measurement with calibrated variance and an independent Poisson no-hit probability. Each mode's unique time maximum follows from an explicitly strictly decreasing logarithmic derivative. The exact quadratic numerator controlling the difference of the two derivative curves has one positive root when the sum and product rankings oppose each other. The envelope derivative and its two rigorously derived endpoint asymptotics prove exactly one optimized-mode crossing, including the strict preferred-duration ordering at the tie. The analytic single-mode mean-hit-time condition and the optimality bound for mixed cycles are derived separately. The standalone diagnostic checker passed 29,265 finite assertions; finite checks are not used as a proof for arbitrary positive parameters.
+PASS
 
-## Originality
+The known-variance Gaussian and a parameter-independent hit flag give clean information t²/(bt+σ²), weighted by exp(−λt); dividing by t+h gives the stipulated wall-time rate. The stationarity function strictly decreases from infinity to zero. Pointwise ordering of t²+st+p proves dominance/equivalence; evaluating stationarity at 1/λ gives the exact λ²p test, and λt<2. I independently checked the switch by setting T=(p1−p2)/(s2−s1) in the crossed case. Mode 1 is pointwise better exactly when t>T. At a tie the two optimizing times must bracket T, strictly: equality would imply a common optimizer by uniqueness, but the two log-time derivatives differ at T. Thus the envelope derivative of log(F1/F2) is t2−t1<0 at every zero. The low-hazard optimizer of mode 2 tends to infinity, and the high-hazard optimizer of mode 1 tends to zero, so the rate ratio lies above and below one at the respective ends. This gives existence, uniqueness and the downward jump without relying on the endpoint expansions. Independent Newton evaluation gave λ*=1.098884851672255, t1=1.358587148822112, t2=0.954820016525674. The adaptive extension uses conditional score orthogonality and bounds information divided by expected total completed cycle time, not a fixed-window stopping objective. The attached check.py and VERIFICATION.md were inspected, not executed. Overheads are fixed per mode, not necessarily equal; with equal overhead only dominance or identity is possible.
 
-**PASS relative to searched and materially inspected literature, with residual historical uncertainty.** Fixsen et al. (2000) analyze cosmic-ray damage and nonlinear readout processing, while Regan and Stockman (2001) give a numerical optimization framework for multiple read modes under specified radiation and detector characteristics. These are the closest inspected works; the latter is substantially related and is not treated as unrelated merely because its mathematical variables differ. Neither inspected text supplies an exact all-radiation-rate classification for two independently optimized readout modes, the necessary-and-sufficient opposing sum/product ranking criterion, or the discontinuous optimum-duration change. General single-mode optimization formulas do not imply the one-crossing theorem without the extra quadratic-sign and envelope argument. Unindexed sources or alternate detector models might contain a stronger statement; priority has not been independently certified.
+## originality
 
-## Value
+PASS
 
-**PASS.** Comparing two detector readout modes while allowing each mode's exposure time to reoptimize is a natural decision within astronomy. A pairwise comparison at one hazard does not determine if repeated preference reversals are possible as space-radiation conditions vary. The theorem gives a complete no-switch / one-switch classification and proves a genuine jump in preferred exposure duration; it also reveals the interchangeable roles of overhead and read-noise-equivalent time in this idealized information objective. The result is a precise benchmark for protocol analysis, not practical advice to override instrument constraints or software capable of recovering partly damaged exposures.
+The supported distinct claim is the exact all-hazard classification for two separately optimized, whole-exposure-rejection modes: when there is a switch, it is unique and the preferred duration jumps downward. The inspected sources cover detector-specific readout optimization, partially salvageable ramps, hit detection, or switches of a different objective. No inspected statement supplies the same classification or a sufficient stronger result. This is a best-of-knowledge comparison, not priority certification.
 
-## Limitations and closest literature
+## value
 
-The exact analysis assumes known stationary Gaussian noise variance, independently flagged whole-exposure losses, common radiation hazard and background across modes, unlimited repeated cycles, and no additional mode-change costs. Actual HST/JWST read ramps, photon-counting and saturation constraints can violate these hypotheses. The closest historical comparison is Regan and Stockman (2001), *Optimum Integration Times for Different Read Modes*, section 4 and Figures 2–4. Fixsen et al. (2000), arXiv:astro-ph/0005486, provides the most relevant earlier open full-text discussion of cosmic-ray loss versus detector read noise. Anderson and Gordon (2011), arXiv:1109.2626, studies more sophisticated cosmic-ray detection but was assessed from an abstract rather than a complete text. Independent historical-priority review remains necessary.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+It answers a concrete design comparison not settled by finding a single-mode optimum: sums determine the low-hazard winner, products the high-hazard winner, and crossed rankings force exactly one abrupt downward change in duration despite smooth within-mode optima. The all-rate classification and the no-switch cases give a usable benchmark and do not depend on chosen example numbers. Value is for the stated background-dominated, whole-exposure-loss model, not empirical operating guidance or a claim about partially salvaged read ramps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

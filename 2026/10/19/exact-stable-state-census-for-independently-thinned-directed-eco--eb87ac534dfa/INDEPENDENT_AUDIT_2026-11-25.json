@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:24:10.480936Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A missing link cuts the dependency cycle into feed-forward paths. Starting at each cut, the limiting logistic carrying capacity gives x_i*=max(0,1−σ e_i x_(i+1)*). Once the input has converged, comparison by constant-capacity logistic equations proves convergence from positive data. In weak inhibition the capacities are positive; in strong inhibition the recursion alternates 0 and 1 along each path, and all capacities are nonzero. At equilibrium the triangular Jacobian requires selection of exactly this recursion for a Hurwitz state: the diagonal is −x_i* on occupied sites and the invasion rate on vacant sites. On the intact cycle the positive equilibrium is uniquely uniform since I+σP is invertible off σ=1. Its eigenvalues are −(1+σ exp(2πik/n))/(1+σ); the least cosine is −1 on even n and −cos(π/n) on odd n. For a Hurwitz boundary state a vacancy must have negative invasion rate; this is impossible for σ<1. For σ>1 two vacancies cannot be adjacent. A vacancy forces its predecessor to be one, which forces the next predecessor to be vacant; this propagates around the cycle and yields just the even alternations. Their full Jacobian is block triangular with strictly negative diagonals. Thus the sole exceptional graph event is intactness, with probability q^n. At a fixed vertex, j consecutive retained edges followed by a cut has probability (1−q)q^j, and it gives a survivor exactly when j is even. Summing j<n proves the expectation with K=0 on intact graphs, including q=0,1. The exponential rare-deletion limit uses fixed σ>1 and the odd threshold tending to 1. The reported finite support enumeration was inspected, not executed; no claim about non-equilibrium attractors or the excluded critical gains follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nassor et al. define ensemble measures and use Bernoulli connectance times random strengths for a sampled sparse ensemble, enumerating supports numerically.",
+          "Hong–Pego constrain support exclusion and multiplicity, including that two stable communities cannot differ by exactly one species; those results do not enumerate supports of the one-sided cycle."
+        ],
+        "reasoning": "The probabilistic framework and general exclusion results give definitions and partial structure, not a general evaluated census that can be specialized to this law.",
+        "searches": [
+          "arXiv:2609.17232v1 §§2.4, 3.2–3.3 and conclusion",
+          "arXiv:2102.00611 Theorem 3.1, Corollary 3.2 and Theorem 3.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.17232v1",
+        "arXiv:2102.00611",
+        "doi:10.1007/s00285-026-02419-w",
+        "Resultary 02b220d6360a, 46ff4ec363d2 and 0ef290bdfe79"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The secant criterion accounts for when the intact odd interior state loses stability. It says nothing about boundary invasion or what happens when the directed cycle is cut. The discrete logistic analogue has no edge-deletion probability law."
+        ],
+        "reasoning": "The atom q^n is the elementary probability of an intact graph, not novel on its own. Its relevance to S, and the mean survivor count, require the broken-path recursion and the exhaustive even/odd boundary-state analysis, not a mechanical substitution into the known secant threshold or ensemble framework.",
+        "searches": [
+          "Chen–Shih DOI 10.1007/s00285-026-02419-w, p. 4",
+          "arXiv:2102.00611 pp. 9–10",
+          "Resultary 02b220d6360a, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed directed inhibitory logistic ring 02b220d6360a gives checkerboard attractors and an odd-ring secant condition, but for a synchronous clipped discrete map with a growth-factor condition, not a continuous-time Hurwitz/deletion result.",
+          "Chen–Shih report the shared secant mechanism for a cyclic negative-feedback linearization with equal diagonal slopes; its equivalence concerns the intact-cycle interior stability calculation only."
+        ],
+        "reasoning": "The parity and feedback comparisons overlap with interpretable pieces, not the same graph ensemble, stability notion and count of all boundary equilibria.",
+        "searches": [
+          "Resultary: directed inhibitory logistic ring parity, stable equilibria, thinning and survivor richness",
+          "Chen–Shih DOI 10.1007/s00285-026-02419-w, p. 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "02b220d6360a is the discrete logistic ring, 46ff4ec363d2 has random initial biomasses on a symmetric discrete ring, and 0ef290bdfe79 treats an undirected competitive ring with a different threshold and n exclusion states. In Nassor et al. the example statistics are computed from samples of finite random matrices, not exact formulas for a directed cycle."
+        ],
+        "reasoning": "None of the inspected samples, censuses or richness formulas is an exact table for this particular thinning ensemble.",
+        "searches": [
+          "Resultary semantic lookup: finite Bernoulli-thinned directed cycle Hurwitz-count distribution and survivor-richness expectation",
+          "arXiv:2609.17232v1 §§3.2–3.3"
+        ]
+      },
+      "rationale": "Prior work includes random-system stable-community statistics, general stable-support constraints and the negative-feedback secant threshold. The stated distinct result is the exhaustive Hurwitz census in this independently thinned directed cycle, combined with its finite-size multiplicity law and mean richness on broken graphs. The secant threshold alone is not new.",
+      "residual_risks": [
+        "An unlocated specialized directed-cycle ecology or general equilibrium enumeration theorem may give more of the deterministic census. The direct Sontag secant source was not recovered; no originality is ascribed to that ingredient.",
+        "The indexed comparisons are bounded and do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework and numerical samples, not exact finite directed-cycle formulas",
+          "evidence": [
+            "Sparse model A=−I+B has B_ij=X_ij U_ij; the N=10 example uses M=10000 samples with support enumeration."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.17232",
+          "material_read": "v1 PDF §2.4 p. 7, §§3.2–3.3 p. 8, conclusion p. 25; extraction offsets 27564, 31718, 84300",
+          "method": "Read model/ensemble and sampling passages in the original and compare the probability law",
+          "title": "A system-centered probabilistic formalism linking multiple equilibria and biodiversity in ecological and evolutionary models",
+          "trigger": "Same probabilistic objective and sparse random Lotka–Volterra interactions"
+        },
+        {
+          "assessment": "Supplies structural constraints, not the directed-cycle or deletion classification",
+          "evidence": [
+            "Exclusion includes a restriction on stable communities differing by exactly one species."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2102.00611",
+          "material_read": "PDF introduction p. 3, Theorem 3.1, Corollary 3.2 and Theorem 3.3 pp. 9–10; offsets 7307 and 24631",
+          "method": "Read exact uniqueness and exclusion statements and compare to all-support count",
+          "title": "Exclusion and multiplicity for stable communities in Lotka–Volterra systems",
+          "trigger": "General stable-support theorems could subsume the deterministic census"
+        },
+        {
+          "assessment": "Relevant prior for the stability mechanism; not an ecological boundary-state or deletion census",
+          "evidence": [
+            "The threshold is [sec(π/n)]^n in the loop-gain ratio, with the equal-diagonal case giving instability past threshold."
+          ],
+          "identifier_or_url": "doi:10.1007/s00285-026-02419-w",
+          "material_read": "PDF p. 4, extraction offset 10393, cyclic model and secant condition",
+          "method": "Compare loop architecture and its linear stability threshold to the intact odd coexistence equilibrium",
+          "title": "Stoichiometric balance and sustained rhythms",
+          "trigger": "Pre-existing negative-feedback secant stability criterion"
+        },
+        {
+          "assessment": "Structural overlap; different dynamical system, no edge-thinning law",
+          "evidence": [
+            "Synchronous clipped discrete map gives checkerboards and an odd secant condition with an additional growth condition."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-lucas-equilibrium-census-and-parity-sharp-stability-in-a-directe--02b220d6360a",
+          "material_read": "RESULT.md, Finding, beginning of local-mirror text",
+          "method": "Compare topology, update rule, stability and counted quantities",
+          "title": "Lucas equilibrium census and parity-sharp stability in a directed inhibitory logistic ring",
+          "trigger": "Closest indexed directed inhibitory ring"
+        },
+        {
+          "assessment": "Different ensembles or topology",
+          "evidence": [
+            "Fragmentation uses random initial biomasses with symmetric competition; the odd competitive ring is undirected and uses 1/[2 cos(π/n)] as a threshold."
+          ],
+          "identifier_or_url": "Resultary 46ff4ec363d2 and 0ef290bdfe79",
+          "material_read": "Each RESULT.md, Finding and Assumptions, beginning of local-mirror text",
+          "method": "Compare what is sampled, graph orientation and stability conclusions",
+          "title": "Ecological fragmentation law and odd competitive ring comparisons",
+          "trigger": "Possible catalogue overlap for survivor richness or stable-state count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an analytically tractable benchmark for a motivated ensemble quantity: the number of stable communities under uncertain network structure. A single cut erases the exceptional parity-dependent stable-state counts, a structural conclusion that supports the exact finite-size probability and rare-deletion limits. Full transverse stability and the incomplete-graph survivor mean add quantitative information not available from an interior secant test alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:42:26.812171Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each old-old-new triangle requires its two new distances to sum to at least 2h, so there is at most one entry below h; a low entry t restricts all other entries to [2h−t,2h]. Each triangle containing both new points is independently checked by K_s at its old coordinate. The four disjoint cases give exactly the distinct-location factor n(n−1) and the same-location factor n; the distinct-location term is absent at n=1. Universality and homogeneity identify the feasible labelled diagrams with types (equivalently, the finite distance diagrams give quantifier elimination by the extension property). For s<h the no-low count is the band (h+1)(2s+1)−s(s+1), maximized at s=h−1, and all exceptional bases strictly miss (h,h). For s≥h the leading base is (h+1)², the largest one-low base is h(h+1) with coefficients h,h+1,h at the left endpoint, interiors and right endpoint, and the remaining ordinary bases are ≤h². Summing establishes the stated prefactor and decay at fixed h. For the endpoint difference, the same-position term has K_h=1 exactly when t+u≥h, while K_2h=0. The distinct-position penalty has b=(min(t,u)+1)²−max(0,t+u−h+1)²>p/h for p=(t+1)(u+1), so n−1≥h makes every two-low contribution strictly negative; at n=1 only the h(h−1)/2 favorable pairs remain. At h=2 substitution gives n·4^(n−2)(7−3n). No unique crossover for general h is proved or needed. The source checker and saved output were read but not rerun; its finite comparisons are only corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mubayi–Terry count all labelled metrics in their even-diameter zero-one law; the probability space does not condition on a fixed growing diameter-equilateral named base with exactly two new points.",
+          "Sauer's results provide the realization and amalgamation conditions."
+        ],
+        "reasoning": "Neither global concentration nor the extension property determines the four-term channel counts or the lower-/upper-edge comparisons under this type distribution.",
+        "searches": [
+          "arXiv:1502.01212 §1 Definition 1.1 and Theorem 1.2",
+          "arXiv:1010.4212 §2 and arXiv:1107.4794 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CHECKER.py and CHECKER_OUTPUT.txt",
+        "arXiv:1010.4212",
+        "arXiv:1107.4794",
+        "arXiv:1502.01212",
+        "Resultary bd424f752796, 6e891113d557, 29adaa0e35f2 and ec80747a5989"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The new lower band misses exactly two no-low entries at s=h−1; the common upper leading and endpoint second-layer terms cancel in their difference. None of the inspected count or realization results supplies those competing layers in this model."
+        ],
+        "reasoning": "The conclusion needs both the even-alphabet exceptional-coordinate enumeration and the comparison of its two-low sectors. An extension criterion plus global upper-half concentration does not deliver either the sharp rate or reversal.",
+        "searches": [
+          "arXiv:1502.01212 Theorem 1.2",
+          "arXiv:1010.4212 Theorem 2.1",
+          "Resultary 6e891113d557 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A complete type in this structure is equivalently a labelled finite metric extension; a Katětov function describes one extension point, not its distance-class counts over two varying vectors.",
+          "The closest exact pair-type record does count ordered labelled extensions, but for {1,2,3}; the matching-base record has non-equilateral old distances."
+        ],
+        "reasoning": "Rephrasing as labelled diagrams leaves the same compatibility problem. Neither analogous record reaches even diameter 2h≥4 over a diameter-equilateral base.",
+        "searches": [
+          "arXiv:1010.4212 §2 Theorem 2.1",
+          "Resultary 6e891113d557 and 29adaa0e35f2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "bd424f752796 is the identical record, not independent coverage. 6e891113d557 and 29adaa0e35f2 give exact three-distance counts; ec80747a5989 is a one-point graph-metric type polynomial."
+        ],
+        "reasoning": "The inspected catalogue scopes do not tabulate the even-diameter ordered-pair spectrum. Same-date distinct records were compared by statements, not excluded by date.",
+        "searches": [
+          "Resultary bd424f752796, 6e891113d557, 29adaa0e35f2, ec80747a5989"
+        ]
+      },
+      "rationale": "The all-even-diameter ordered-pair count, sharp fixed-base exponential rate and finite reversal are distinct on checked evidence. The one-point Katětov criterion is established background, and global concentration of typical metrics and three-distance exact pair counts are not equivalent distributions or parameter regimes.",
+      "residual_risks": [
+        "Priority for analogous same-day records is not established by their date; the inspected scopes differ.",
+        "Equivalent enumeration under other names has not been ruled out exhaustively."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit the extension and realization framework; not a pair-type spectrum.",
+          "evidence": [
+            "The theorem realizes Katětov functions for the countable Urysohn space and characterizes the extension property."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1010.4212",
+          "material_read": "§2 Theorem 2.1, p. 4, offset near 9000",
+          "method": "OA original PDF passage inspection",
+          "title": "Partitions of metric spaces with finite distance sets",
+          "trigger": "Katětov and finite extension equivalence"
+        },
+        {
+          "assessment": "Related but different random objects and asymptotic.",
+          "evidence": [
+            "The theorem makes the upper-half family typical among globally labelled metrics; it does not condition on the specified old base or state its endpoint ordering."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1502.01212",
+          "material_read": "§1 setup p. 1 (offset near 1500), Definition 1.1 and Theorem 1.2 p. 4 (near 16300)",
+          "method": "OA original PDF passage inspection",
+          "title": "Discrete metric spaces: structure, enumeration, and 0-1 laws",
+          "trigger": "Even-diameter upper-half law and enumeration"
+        },
+        {
+          "assessment": "Close analogue for odd maximum distance 3, not a covering theorem for even 2h.",
+          "evidence": [
+            "Works over named equilateral bases of distances 1, 2, or 3 in the alphabet {1,2,3}."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-distance-resolved-pair-type-phase-diagram-over-equilateral--6e891113d557",
+          "material_read": "Original record, offsets 0–4130 and 4100–7466",
+          "method": "Resultary lookup and original record mirror",
+          "title": "Exact distance-resolved pair-type phase diagram over equilateral bases",
+          "trigger": "Strongest separate exact spectrum in the same type-counting formulation"
+        },
+        {
+          "assessment": "Different old base and distance alphabet.",
+          "evidence": [
+            "Pairs in the old matching have distance 1 and different pairs have separation 3."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-matching-base-two-point-spectrum-of-the-homogeneous-three-va--29adaa0e35f2",
+          "material_read": "Finding, original mirror at offset 0",
+          "method": "Resultary lookup and original record mirror",
+          "title": "The matching-base two-point spectrum of the homogeneous three-valued metric space",
+          "trigger": "Competing exact two-point type count"
+        },
+        {
+          "assessment": "Different arity.",
+          "evidence": [
+            "Only one new point is counted and so there is no new-new distance channel."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-widom-rowlinson-partition-functions-as-1-type-polynomials-of-the--ec80747a5989",
+          "material_read": "Finding, original mirror at offset 0",
+          "method": "Resultary lookup and original record mirror",
+          "title": "Widom–Rowlinson partition functions as 1-type polynomials",
+          "trigger": "Earlier type-counting polynomial"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete distance-resolved count over a natural extremal base, not a scan of isolated small cases. It quantifies the rare lower half with an exact exponent and prefactor, and exposes a finite reversal between two channels that are indistinguishable at both leading exponential layers. Those distinctions are not given by a qualitative concentration theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:07:10.049625Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–72; VERIFICATION.md; verify.py and verification_output.txt inspected without execution",
+        "Shapiro, INTEGERS 23 (2023) A57, Definition 4 and stated equivalence via Corollary 10",
+        "Independent replay checks/frozen_replay.py, option 3"
+      ],
+      "rationale": "Shapiro's definition is exactly the binomidness of every column, equivalently integrality of the pyramid, without any extra recursive requirement. For a periodic exponent word, complete blocks cancel from each column exponent and again from each comparison of a consecutive block sum to the initial block sum; only the two remainder lengths and the starting residue matter. The five column residues of the proposed word give cyclic minima equal to their prefix sums, respectively (0,1,2,2), (0,1,1,2), (0,0,1,1), (0,2,3,4), and (0,0,0,0). The exponent two appears once per period, and f_2=q does not divide f_4=1. For period T≤4 apply the inequalities to each prime separately. The first column forces its initial valuation A to be minimal. For T=3, the length-two comparison in column two forces B≤A, hence A=B≤C. For T=4, column one's length-three comparison forces B≤D, and column three's length-two comparison forces C≤A, hence C=A≤B≤D. Together with A≤B for T=2 and the constant case, these are exactly the required divisibility orders: odd indices have the bottom value for T=2,4, multiples of four have the top value for T=4, and for T=3 the residue-zero class has the top value. The proof covers every prime, unbounded lengths and all integer q≥2, including composite bases. Independent replay `python3 /workspace/checks/frozen_replay.py 3` reproduces all displayed cyclic minima, checks 780 bounded valuation words using a divisor/multiplier residue test, and checks 9750 direct integer coefficients for bases 2, 6 and 9. Finite regressions do not prove the primewise classification.",
+      "residual_risks": [
+        "Neither eventual periodicity nor signed sequences are classified by the period-minimality proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shapiro Theorem 15 gives an all-level sufficient condition for divisor products; Questions 27 in v1 (29 in the journal) ask about recurrence orders.",
+          "Resultary 076dbf2243ff classifies exactly eventually periodic second-order recurrences; 353261d6159b gives signed nonperiodic all-level nondivisibility; 3012f8aa405b provides eventually constant all-level constructions from cofinite semigroups."
+        ],
+        "reasoning": "An implication from divisor products cannot settle the converse. An eventual-periodic result with a second-order recurrence hypothesis does not cover all the positive words of periods 3 and 4, and signed or eventually constant constructions do not settle pure-period minimality.",
+        "searches": [
+          "Web: Shapiro Divisibility Properties for Integer Sequences binomid Theorem 15 Open Question 27(2) higher order recurrence; Caalim Tanaka Lexicographically Minimal Extension of a Finite Binomid Index every-level pyramid periodic examples",
+          "Resultary: positive integer purely periodic sequence binomid at every level nondivisible least period five"
+        ]
+      },
+      "checked_sources": [
+        "Shapiro arXiv:2302.02243v1 and INTEGERS A57",
+        "Caalim–Tanaka INTEGERS A53 and arXiv:2505.20018",
+        "Resultary 076dbf2243ff, f8a8d041cb09, 353261d6159b, 3012f8aa405b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 15 assumes a divisor-product sequence; the candidate is not even a divisibility sequence.",
+          "The second-order bounded test imposes a linear recurrence. The stated signed cyclotomic family can separate the properties without being a positive purely periodic family.",
+          "Caalim–Tanaka's first-level extension result supplies no lower bound on periods of all-level counterexamples."
+        ],
+        "reasoning": "None of those hypotheses mechanically implies the claim for arbitrary positive periods at most four, and none supplies the pure period-five all-level witness. The later signed example updates the literature context but does not refute or subsume the narrower finding.",
+        "searches": [
+          "Shapiro A57 Definition 4, Theorem 15 and Open Questions 29; arXiv v1 Questions 27",
+          "Caalim–Tanaka A53 Proposition 5 and arXiv:2505.20018",
+          "Resultary 076dbf2243ff and 353261d6159b, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shapiro Definition 4 identifies integrality of the pyramid with binomidness of all columns, not merely the base triangle.",
+          "Caalim–Tanaka A53 Proposition 5 concerns purely periodic binomid indices for the base-triangle condition."
+        ],
+        "reasoning": "Passing to prime valuations replaces divisibility of positive products with inequalities, but all columns impose additional inequalities not certified by a first-level index classification. The word (0,1,1,0,2) must pass the columnwise tests, not just be a binomid index.",
+        "searches": [
+          "Resultary: periodic positive integer sequence binomid at every level binomid pyramid divisibility pure period four period five counterexample",
+          "Resultary: Shapiro open question 27(2) second order recurrence binomid divisibility periodic example"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ranked, capped index results gave a four-row test in 076dbf2243ff and a cyclotomic example q=2,t=8 in 353261d6159b; the latter belongs to a signed nonperiodic sequence with a different recurrence. The periodic example discussed after Shapiro Definition 4 is actually eventually constant and satisfies a single column condition but fails at level one."
+        ],
+        "reasoning": "A table of finitely many rows is not a statement of the least period, and the other explicit examples have distinct term, recurrence or column hypotheses. No exact entry was verified; absence from a ranked list is not exhaustive evidence.",
+        "searches": [
+          "Resultary: (1,q,q,1,q^2) binomid pyramid periodic",
+          "Resultary: positive integer purely periodic sequence binomid at every level nondivisible least period five"
+        ]
+      },
+      "rationale": "The distinct supported contribution is a positive pure-periodic all-level witness and its least possible period. Inspected sources treat first-level indices, sufficient divisor-product conditions, restricted second-order subclasses, or signed/nonperiodic examples; none covers either assertion in this combination. The order-two side remark in the frozen relationship section should not be treated as a present-day claim: a later indexed result gives a signed nonperiodic counterexample to the unrestricted all-level implication for second-order recurrences.",
+      "residual_risks": [
+        "The searches were capped and are not a priority proof. Equivalent results under additive prefix-minimum terminology or in unindexed sources remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines and motivates the finding; no shortest-period result in the checked statements",
+          "evidence": "All-level means every column is binomid; divisor products are sufficient; the questions distinguish order two from orders greater than two.",
+          "identifier_or_url": "https://math.colgate.edu/~integers/x57/x57.pdf ; https://arxiv.org/pdf/2302.02243v1",
+          "material_read": "Journal Definition 4 and example (p. 6, offset 16300); Theorem 15 (p. 11, offset 32622); Questions 29 (p. 18, offset 52000); v1 Questions 27 (p. 21, offset 51606)",
+          "method": "Open-access PDF passage inspection",
+          "title": "Divisibility Properties for Integer Sequences",
+          "trigger": "Origin of the pyramid definition and exact open problem"
+        },
+        {
+          "assessment": "First-level extension, not every-column divisibility",
+          "evidence": "Every purely periodic binomid index is the lex-minimal extension of a finite index.",
+          "identifier_or_url": "https://math.colgate.edu/~integers/y53/y53.pdf",
+          "material_read": "Proposition 5, PDF p. 11, offset 28259",
+          "method": "Open-access PDF passage inspection",
+          "title": "Lexicographically Minimal Extension of a Finite Binomid Index",
+          "trigger": "Purely periodic valuation words"
+        },
+        {
+          "assessment": "Index-level context, not a shortest-period pyramid result",
+          "evidence": "The extension and monoid results are formulated for binomid indices.",
+          "identifier_or_url": "https://arxiv.org/pdf/2505.20018",
+          "material_read": "PDF p. 2, offset 5817",
+          "method": "Open-access PDF passage inspection",
+          "title": "On the monoid of lexicographically minimal extensions",
+          "trigger": "Follow-up on the same periodic index formalism"
+        },
+        {
+          "assessment": "Distinct restricted recurrence theorem",
+          "evidence": "Divisibility, all-level binomidness and finite tests are equivalent in the exactly eventually periodic second-order subclass.",
+          "identifier_or_url": "Resultary 076dbf2243ff",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp four-row binomid test for eventually periodic second-order recurrences",
+          "trigger": "Strong same-domain-looking finite cutoff"
+        },
+        {
+          "assessment": "Updates the order-two remark; different scope from the frozen positive pure-period theorem",
+          "evidence": "For f_(n+2)=−q f_(n+1)−q²f_n, the signed nonperiodic example q=2,t=8 passes all levels but is not divisible.",
+          "identifier_or_url": "Resultary 353261d6159b",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "An all-level binomid nondivisibility family of cyclotomic recurrences",
+          "trigger": "Closest indexed all-level nondivisibility family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "Shapiro v1 Questions 27 / journal Questions 29"
+      ],
+      "rationale": "This is a sharp answer to a natural converse in a published framework: even integrality in all columns does not force divisibility, and the first possible period for a positive purely periodic example is five. The example and the primewise impossibility below five are both needed; neither could be replaced by observing a small finite triangle. It gives a reproducible obstruction in the higher-order recurrence setting, without claiming to resolve the positive order-two case.",
+      "residual_risks": [
+        "Minimality is specific to positive pure periods, not to recurrence order in general."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

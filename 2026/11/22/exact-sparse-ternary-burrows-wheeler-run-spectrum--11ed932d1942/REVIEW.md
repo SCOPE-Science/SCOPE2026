@@ -1,11 +1,21 @@
-# Scientific review: exact sparse-ternary Burrows–Wheeler run spectrum
+# Independent mathematical audit
 
-**Correctness — PASS.** The rotation-order lemma explicitly describes every zero-starting row and the three remaining marker-starting rows. The nonempty nested active-gap masks give 26 possible chains, and one-level versus repeated-level choices give 111 exhaustive rational-weighted cases. The exact symbolic identity confirms each of the five generating-function numerators and the independent composition count. Direct BWT sorting of every gap triple for lengths 3 through 54 independently reproduces the coefficients. These finite tests alone are not a proof; the case-partition rational identity is the infinite argument.
+## correctness
 
-**Originality — PASS, qualified.** The 1994 BWT algorithm is foundational. Simpson–Puglisi's 2008 ternary theorem characterizes BWT outputs with one consecutive block per symbol in a special descending order, not the entire sparse-content run distribution. The closest explicit binary three-marker census produces only even runs and divides necklace counts by the symmetry of identical markers; that theorem neither counts nor subsumes the mixed ternary three-marker result. Direct searches for sparse ternary BWT run spectra returned no equivalent published table, but an unindexed historical formula remains a concrete residual risk.
+PASS
 
-**Value — PASS.** Sparse-marker words are a natural test family for run-length-based BWT compression and indexing, and the first nonbinary three-marker composition exposes a qualitative change from the binary parity-restricted run spectrum to both odd and even numbers. The theorem resolves all lengths and exact multiplicities, not an arbitrary finite cutoff.
+The unique 1 makes every necklace primitive and canonically gives three nonnegative zero gaps. Rows starting in zeros first sort by decreasing leading-zero length, then by the next nonzero letter; for the two rows with next letter 2, the comparison is b versus c and at equality the B row reaches 1 first. The same tie-break applies to the marker-start rows. A gap contributes its nonzero predecessor on its first active level only; further levels at a constant active set contribute zeros, so one zero preserves all run boundaries for two or more levels. The multiplicities give a geometric factor for each repeated active-set size. Independently, I used all weak rankings of the three gaps with zero allowed and with adjacent positive length increments either 1 or at least 2. I sorted the literal rotations of each representative and used integer polynomial arithmetic to reproduce every numerator over (1-z)(1-z^2)(1-z^3) in exactly 111 cases; I also enumerated and sorted all rotations at each length 3–54 as a finite cross-check. For positivity, F3 has denominator 1-z^6 and numerator z^4(2+2z+z^2+3z^3+z^4+2z^5), F5=zF3/(1-z), F4 has positive numerator z^4(1+2z+3z^2) over (1-z^2)(1-z^3), and F6 has a z^6 contribution with denominator containing 1-z. Contributions below six runs grow at most linearly, versus quadratically many necklaces.
 
-**Limitations.** The theorem is specific to composition \((n-3,1,2)\) and ordinary linear runs of the sentinel-free BWT. It does not claim general ternary content, circular output runs, or external certification. An older inaccessible or unindexed sparse ternary enumeration might supersede the originality assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the all-length joint census of frequencies by linear run count at the ordered ternary content (n-3,1,2), not the standard transform, general inversion, gap-order methods, or the existence of odd runs by itself. No inspected source covered the whole run census or implied the rational generating functions as a direct specialization.
+
+## value
+
+PASS
+
+BWT runs are the statistic used in run-length compression; this is a natural first sparse ternary extension of the three-marker binary family, with just one marker changing letter. The complete generating functions quantify which run values persist at every length, how often each exceptional value occurs, and the concentration on six runs. This gives a reusable fixed-content benchmark rather than a single example of an odd run count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

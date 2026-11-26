@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:32:02.006735Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Proof Steps 1–5, lines 33–69",
+        "VERIFICATION.md lines 18–22 and verify_rectangle.py lines 23–70, inspected without executing"
+      ],
+      "rationale": "Reflection averaging at one midpoint is valid for signed constant-preserving extensions. The two corner distance witnesses give affine lower bounds of opposite slopes, intersecting at L_a (or L_b), with positive minimizing weights. Transport to a vertex attains those bounds. For adjacent midpoints, convexity bounds the transport distance by the maximum of c,b,a,0: in the edge-to-edge case the common corner is fixed and the remaining half mass is sent diagonally. For opposite midpoints the uniform parts cancel. Thus the four operators fit together with midpoint-to-midpoint slopes at most one. Rationalizing D_a-D_b and using D_a+D_b≤3(a+b) identifies the controlling bound. The log of the positive excess over one is strictly concave in log t, and its derivative has opposite signs at the two ends. Independent bisection yields t=0.4115947538262989 and norm 1.0861565120461234. In RESULT.md line 45 the correspondences after squaring are reversed: b+c>D_a uses c>b, and a+c>D_b uses c>a. Both inequalities hold; the theorem and weights are unaffected.",
+      "residual_risks": [
+        "The packaged 418 pair comparisons are finite floating-point evidence only. The proof is for positive side lengths, real scalar data and Euclidean chord distances."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.1 provides a doubling-set extension bound, not an exact norm for this metric. The catalogue record treats equal-sided cubes in dimensions two and three."
+        ],
+        "reasoning": "An anisotropic linear image of a square distorts chord distances, so the equal-sided result does not yield the sharp aspect-ratio-dependent result.",
+        "searches": [
+          "Bruè–Di Marino–Stra arXiv:1801.07533v1, Theorem 4.1",
+          "Resultary square and cube midpoint extension, e491b9ad8b61"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e491b9ad8b61",
+        "Basso arXiv:2104.14238v2",
+        "Bruè–Di Marino–Stra arXiv:1801.07533v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior machinery gives an extension setup or a bound. It does not show that optimal signed minimax functionals at four separate points can be chosen compatibly with cross-midpoint transport cost at most the target distance."
+        ],
+        "reasoning": "The simultaneous sharpness and the strict log-concavity of the aspect-ratio deficit need separate geometric and analytic arguments.",
+        "searches": [
+          "Basso arXiv:2104.14238v2, rectangle example",
+          "Bruè–Di Marino–Stra arXiv:1801.07533v1, Theorem 4.1",
+          "Published e491b9ad8b61, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The dual formulation is a projection on a finite Lipschitz-free space. Basso uses that formulation for an ℓ∞² rectangle with two added points, rather than the Euclidean four-midpoint configuration."
+        ],
+        "reasoning": "Identifying the dual problem does not remove the difference in source and target distances or in the number of added points.",
+        "searches": [
+          "Resultary search for sharp linear Lipschitz extension from rectangle/square corners to edge midpoints",
+          "Basso arXiv:2104.14238v2, pp. 17–18"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed square finding yields (2+√2)/(1+√5), exactly the t=1 specialization. The strongest identified match does not state a table or formula for arbitrary rectangular aspect ratios."
+        ],
+        "reasoning": "Credit the matching square statement regardless of provenance order; it does not establish the nonsquare values or their maximum.",
+        "searches": [
+          "Resultary: Euclidean rectangle four edge midpoints sharp Lipschitz extension; published match 2026/10/27/SCOPE-sharp-real-linear-lipschitz-extension-to-all-edge-midpoints-of-t--e491b9ad8b61",
+          "Bounded primary-literature search for the exact rectangle formula and square specialization"
+        ]
+      },
+      "rationale": "The square specialization is covered and not credited. The evidence supports the distinct all-aspect-ratios rectangle formula, simultaneous one-point optimality, and the unique nonsquare maximizer. No checked source covers or supplies these conclusions.",
+      "residual_risks": [
+        "The frozen text does not identify the earlier square source it mentions. The covered square specialization is not credited here; global priority for nonsquare rectangles is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related method, different metric and added points",
+          "evidence": [
+            "Four rectangle vertices in ℓ∞² with two added points; a projection-constant lower bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2104.14238v2",
+          "material_read": "Rectangle example, pp. 17–18 (text offset near 49950)",
+          "method": "Lawful OA primary full-text passage",
+          "title": "Absolute Lipschitz extendability and linear projection constants",
+          "trigger": "Rectangle geometry and sharp projection constants"
+        },
+        {
+          "assessment": "General existence and upper bound; not sharp for the rectangle problem",
+          "evidence": [
+            "Lipschitz extension for doubling subsets, without the present finite-metric norm calculation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1801.07533v1",
+          "material_read": "Theorem 4.1, p. 12 (text offset near 35850)",
+          "method": "Lawful OA primary full-text passage",
+          "title": "Linear Lipschitz and C¹ extension operators through random projection",
+          "trigger": "Positive linear extensions via random projection"
+        },
+        {
+          "assessment": "Exact overlap in the equal-sided planar case; no anisotropic comparison",
+          "evidence": [
+            "Square and cube vertex sets with all edge midpoints and ambient Euclidean distances."
+          ],
+          "identifier_or_url": "2026/10/27/SCOPE-sharp-real-linear-lipschitz-extension-to-all-edge-midpoints-of-t--e491b9ad8b61",
+          "material_read": "Finding for dimensions two and three",
+          "method": "Resultary discovery and published statement comparison",
+          "title": "Sharp real-linear Lipschitz extension to all edge midpoints of the Euclidean square and cube",
+          "trigger": "Nearest published configuration match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Steps 1–5",
+        "Basso rectangle example; Resultary e491b9ad8b61"
+      ],
+      "rationale": "The natural four-corner extension test distinguishes one-point obstructions from simultaneous ones. The result computes the exact unrestricted norm and shows positivity and no additional pairwise midpoint loss can attain it jointly. It also identifies which geometry is worst in the whole rectangle family, disproving the square as the worst aspect ratio.",
+      "residual_risks": [
+        "No conclusion for general quadrilaterals or Banach-valued target data."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

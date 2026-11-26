@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:34:02.075350Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Walsh characters diagonalize the unit-weight Laplacian with eigenvalues 2k. Grouping by overlap with the differing coordinates gives precisely the Hamming-shell formula (including the 2⁻ᵈ factor). The scalar rational multiplier is strictly positive and is 1 on constants, giving positive definiteness and preservation of mass but not entrywise positivity. Independent exact integer convolution reproduced all off-diagonal numerator factorizations: N₁=−864hP₁, N₂=−864h²P₂, N₇=90720h⁷P₇; the other reduced shell polynomials have strictly positive coefficients. Descartes' rule and the opposite signs at zero and infinity give one simple positive root of each sign-changing polynomial. Exact evaluations are P₇(1/20)=−92179451/16000000, P₇(1/10)=2007369/250000, P₁(1/2)=−207094797/1024, P₁(1)=36753129, and P₂(1)=−18333623. Thus the shell-2 upper bound lies above the shell-1 upper bound and the required closed window is exactly the one claimed; h=0 gives the identity. Numerical Horner bisection agrees with the stated approximations. For the dimension assertion, the Padé recurrence gives c₁,…,c₇=1,1/2,1/6,1/24,1/144,0,−1/1728. Distance r≤5 contributes r!cᵣ at its first possible degree. At distance 6, cube parity forces exactly six edge moves and one diagonal stay in degree seven, giving −7d·6! before multiplication by c₇; at distance 7 the seven moves give 7! and a negative leading term −35h⁷/12. This is a proof for all fixed d, not a finite-dimensional scan. The original replay path artifacts/verify_hypercube_pade.py is present and was read but not executed. VERIFICATION.md reports a package run; the three not_performed fields concern different channels and are not evidence of that run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two records treat the same rational step on cycles and strongly regular graphs. The third gives all-dimension feasibility, including h=1/3 through dimension twelve."
+        ],
+        "reasoning": "Q₇ is not a cycle or a noncomplete strongly regular graph (diameter 7). Existence of a working step on Q₇ does not characterize all working steps or their endpoints.",
+        "searches": [
+          "Resultary 98f4ce42b84c and 4defdf9c32e5: cycles and strongly regular graphs",
+          "Resultary 15a59396529c: general Boolean cubes and positive-step feasibility"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and artifacts/verify_hypercube_pade.py",
+        "Resultary 4aad2a3f58ab, 98f4ce42b84c, 4defdf9c32e5 and 15a59396529c",
+        "doi:10.1016/j.laa.2011.12.021 (located manuscript excerpt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The dimension-twelve record contains the same d≤6 small-step cutoff and −35h⁷/12 distance-seven leading term. The directed record has a different seven, counting states rather than dimensions."
+        ],
+        "reasoning": "Exact small-step overlap is acknowledged. Neither the shared Taylor term nor a successful intermediate step implies that the positivity set is one closed positive-step interval with the specific polynomial endpoints; competing shells and possible additional intervals need analysis.",
+        "searches": [
+          "Resultary 15a59396529c, small-step claim and all-dimension feasibility theorem",
+          "Resultary 4aad2a3f58ab, Theorems 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The eight-state record Theorems 1–2 give a directed pure-birth counterexample with an intermediate positivity interval. The primary 2012 text excerpt introduces an 8×8 nonnegative nilpotent matrix."
+        ],
+        "reasoning": "For a conservatively normalized update, entrywise nonnegativity is stochasticity, but the pure-birth transition graph and a reversible 128-vertex seven-cube are different generators; the directed witness does not give the cube interval.",
+        "searches": [
+          "Resultary: fourth-order Gauss/[2/2] Padé positivity, Boolean or binary cube, Markov stochasticity interval",
+          "doi:10.1016/j.laa.2011.12.021 MURAL manuscript"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct cube record reports a successful common step, a feasibility cutoff, and the distance-seven Taylor coefficient, not the full Q₇ root pair. The exact interval results in the other two records use different graph classes."
+        ],
+        "reasoning": "A feasible-step list or a table on a different graph class is not the exact Q₇ interval. The independent coefficient reconstruction does not make a historical priority claim.",
+        "searches": [
+          "Resultary direct Boolean-cube match 15a59396529c, theorem and Proof §§3–4",
+          "Resultary graph-specific exact intervals: 98f4ce42b84c; 4defdf9c32e5"
+        ]
+      },
+      "rationale": "The exact nonnegative step set on Q₇, including which distance shell controls each endpoint, is supported as distinct. The seventh-order Padé obstruction itself is not new, and the small-step dimension assertion overlaps verbatim in substance with the dimension-twelve cube record. The pass does not credit that shared assertion as independently novel, nor infer priority from catalog dates.",
+      "residual_risks": [
+        "The original 2012 manuscript comparison is limited to the retrieved excerpt and cross-reference, not a complete inspection.",
+        "A specialized cube-specific interval calculation outside inspected sources remains possible. Catalog dates do not resolve priority for the shared small-step result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related but directed non-cube result",
+          "evidence": [
+            "At most seven states are safe for small steps; a directed eight-state pure-birth generator has a separated intermediate stochastic interval."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+          "material_read": "Theorems 1–2",
+          "method": "Original record through local Resultary mirror",
+          "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+          "trigger": "Same endpoint rational function and re-entrant positivity pattern"
+        },
+        {
+          "assessment": "Cycle-specific thresholds, not a coverage theorem for Q₇",
+          "evidence": [
+            "Gives the exact C₆ interval and the eventual nearest-neighbor obstruction on larger cycles."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-six-cycle-threshold-and-all-size-positivity-dichotomy-for-fourth--98f4ce42b84c",
+          "material_read": "Finding and Proof §2",
+          "method": "Original record through local Resultary mirror",
+          "title": "Six-cycle threshold and all-size positivity dichotomy for fourth-order Gauss diffusion",
+          "trigger": "Same map on undirected unit-edge graphs"
+        },
+        {
+          "assessment": "Assumptions exclude Q₇",
+          "evidence": [
+            "Time-set classification is for connected noncomplete strongly regular graphs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-positivity-intervals-for-fourth-order-pad-diffusion-on-str--4defdf9c32e5",
+          "material_read": "Finding and Proof",
+          "method": "Original record through local Resultary mirror",
+          "title": "Exact positivity intervals for fourth-order Padé diffusion on strongly regular graphs",
+          "trigger": "Exact intervals on a reversible graph family"
+        },
+        {
+          "assessment": "Covers the small-step cutoff in substance; does not give the exact Q₇ window",
+          "evidence": [
+            "Some positive step works exactly through d=12, with h=1/3 positive through d=12; same small-step cutoff and leading distance-seven term."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-dimension-twelve-feasibility-boundary-for-positive-gauss--15a59396529c",
+          "material_read": "Theorem and Proof §§3–4",
+          "method": "Original record through local Resultary mirror",
+          "title": "A sharp dimension-twelve feasibility boundary for positive Gauss–Padé diffusion on Boolean cubes",
+          "trigger": "Same map and graph family; strongest overlap"
+        },
+        {
+          "assessment": "Confirms a related nilpotent construction in the located text, not a whole-paper exclusion of stronger results",
+          "evidence": [
+            "The located passage introduces an 8×8 nonnegative nilpotent matrix."
+          ],
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/3761/1/SK_Essentially_Negative.pdf",
+          "material_read": "Located excerpt at p. 14, text offset 38967; surrounding full page not retrieved",
+          "method": "Literal passage search in OA manuscript; bounded page retrieval timed out and CORE alternate was inaccessible",
+          "title": "Essentially Negative News About Positive Systems",
+          "trigger": "Primary Padé-positivity obstruction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the first dimension where refining the step fails to ensure a nonnegative heat update, the result supplies the complete set of usable steps, not merely a negative-entry witness or an example of a usable step. Exact endpoints and their controlling shells matter to a practitioner selecting a positivity-preserving step and to comparisons of graph classes. The cube is a natural reversible, highly symmetric benchmark. The result is not a universal stability bound or an all-dimension all-step classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:57:49.877836Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a fixed nonempty integer interval [l,u], J'=p_{l-1}-p_u; if l=0 this is negative, otherwise the ratio of the two terms is a positive multiple of lambda^{-(u-l+1)}. There can only be a strict interior maximum. At a finite breakpoint the interval at the point is exactly the intersection of the two adjacent effective intervals: floor selects the higher lower bound and ceiling selects the lower upper bound; clipping the lower endpoint at zero preserves this statement. Thus the value at a breakpoint is no larger than either one-sided branch limit, a detail implicit in the frozen reduction. The raw lower endpoint has no negative integer crossing since lambda-sqrt(lambda)>=-1/4; A_0 changes the raw but not the clipped lower endpoint, and it coincides with B_2. At zero the limit is 1; at infinity the two standardized endpoints converge to -1 and 1 with rounding errors of at most 1/sqrt(lambda), so the CLT gives the stated limit. At s^2 for s>=2 the left and right branches have the additional atoms s^2-s-1 and s^2+s+1, respectively, both with positive mass, proving strict local minimality. Independent replay: python3 /workspace/review_replay.py 2, 45-digit checks of rounded cells through parameter 50 and the exact side-interval indices at squares 4 through 10000. These diagnostics are not the proof. The frozen checker was inspected, not executed; the scientific claim does not rely on it. No proof of the exact-normal lower bound for finite parameters is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected Resultary theorem concerns an infimum over all infinitely divisible laws and a two-jump compound-Poisson family, with upper bound e^{-1} for the closed one-sigma infimum; the assigned problem is a single Poisson family and an outward integer envelope.",
+          "A targeted broader Poisson interval-coverage lookup produced no dispositive source."
+        ],
+        "reasoning": "An extremum over a larger family for another event does not imply the minimizers or reduction for this restricted event. General fixed-endpoint derivative and coverage lemmas are not credited as new; even the constant-cell minimum principle leaves the breakpoint point values and strict square jumps to check.",
+        "searches": [
+          "Resultary: SCOPE-a-hermite-perturbation-lowers-the-closed-one-sigma-infinitely-di--32b5d62fdd6c",
+          "Targeted interval-coverage prior check (Poisson fixed/relative error)",
+          "arXiv:2310.03471v2 §4.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2304.11459v2 §7.3",
+        "arXiv:2310.03471v2 §4.1",
+        "Resultary record 32b5d62fdd6c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inward-rounded probability drops atoms relative to J and its exact infimum is strictly below the normal benchmark; it provides at most a weaker global lower bound for J, not the stated location principle.",
+          "The Gaussian limit implies the obstruction to any larger constant but does not imply the side jumps or the finite-parameter reduction."
+        ],
+        "reasoning": "Credit the classical inputs and the prior event; the atom accounting at intersections of the two integer-level sequences is the extra structural assertion.",
+        "searches": [
+          "arXiv:2304.11459v2 §7.3",
+          "arXiv:2310.03471v2 Theorem 4.1",
+          "Resultary record 32b5d62fdd6c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "§7.3 defines exactly the outward-rounded Poisson event but gives a numerical comparison, not a localization theorem.",
+          "Theorem 4.1 of arXiv:2310.03471v2 studies inward rounding and gives 3/(2e) for its infimum."
+        ],
+        "reasoning": "The two rounding conventions are not equivalent. At a noninteger upper crossing the outward-rounded endpoint picks the smaller adjacent upper index, and at a lower crossing the larger adjacent lower index; this matters at the actual breakpoint and cannot be inferred from the unrounded infimum.",
+        "searches": [
+          "arXiv:2304.11459v2 §7.3",
+          "arXiv:2310.03471v2 §4.1",
+          "Resultary search for one-sigma Poisson/infinitely-divisible concentration and outward rounding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching prior data are a numerical claim of >0.6827, not a table or proof of the breakpoint locus or of integer-square minima. The Resultary upper-bound record is for a different event and family."
+        ],
+        "reasoning": "This is a quantified structural result, not a submitted table or constant lookup. The exact Gaussian probability is classical and is not credited; the literal prior decimal inequality is incompatible with the large-square limit.",
+        "searches": [
+          "arXiv:2304.11459v2 §7.3 exact-event numerical comparison",
+          "Resultary one-sigma concentration search"
+        ]
+      },
+      "rationale": "The exact event is already stated in Sun–Hu–Sun, and interval-probability endpoint methods are prior tools. The supported distinct result is the outward-rounded localization with the correct side-value comparison and simultaneous-breakpoint minima, not the definition, the differentiation identity, the CLT, or a solution of the remaining finite-parameter normal comparison.",
+      "residual_risks": [
+        "A wider exact discrete-coverage theorem under different terminology may give an implicit equivalent localization; the targeted broader lookup did not identify a decisive statement, so this assessment is not a priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the quantity and poses the numerical comparison, not the structural result",
+          "evidence": [
+            "Floor below and ceiling above; 'By virtue of Mathematica' and the bound 0.6827."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.11459v2",
+          "material_read": "§7.3, p. 20, PDF text offset 68378, outward-rounding display and accompanying claim",
+          "method": "Bounded lawful OA primary PDF inspection",
+          "title": "Variation comparison between infinitely divisible distributions and the normal distribution",
+          "trigger": "Defines the exact corrected discrete comparison"
+        },
+        {
+          "assessment": "Exact prior infimum for the different, inward-rounded event",
+          "evidence": [
+            "The infimum of Pr(|N_lambda-lambda|<=sqrt(lambda)) is 3/(2e)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2310.03471v2",
+          "material_read": "§4.1, p. 9, PDF text offset 29010, Theorem 4.1",
+          "method": "Bounded lawful OA primary PDF inspection",
+          "title": "On the measure concentration of infinitely divisible distributions",
+          "trigger": "Potential exact Poisson prior theorem"
+        },
+        {
+          "assessment": "Related concentration problem, not coverage of J",
+          "evidence": [
+            "Two-jump compound-Poisson witness; closed one-sigma upper bound e^{-1} over infinitely divisible laws."
+          ],
+          "identifier_or_url": "Resultary/2026/2026/10/12/SCOPE-a-hermite-perturbation-lowers-the-closed-one-sigma-infinitely-di--32b5d62fdd6c",
+          "material_read": "RESULT.md, offset 0, finding and assumptions",
+          "method": "Resultary search and bounded mirror inspection",
+          "title": "A Hermite perturbation lowers the closed one-sigma infinitely divisible infimum",
+          "trigger": "Strongest thematic published Resultary match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The motivation is a published corrected Poisson comparison against the normal law. Reducing the continuous problem to two explicit candidate sequences and showing an infinite family of strict local minima gives concrete structure useful to anyone attempting the sharp bound, including why global smoothness/monotonicity is unavailable. It also distinguishes the exact benchmark from a rounded decimal; the elementary derivative or CLT alone would not justify credit. The difficult sign comparison at finite breakpoints remains open in this record.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

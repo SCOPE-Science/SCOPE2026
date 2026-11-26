@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:05:20.711720Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The posted NetworkX generator edge list agrees with the 24 edges in the supplied verify.py. For the ordinary cut complex, σ fails to be in the dual exactly when V\\σ is a face of Δ_4, i.e. when σ contains a disconnected four-set. Independently checked all quadruples by testing proper bipartitions, then listed every face of the full uncollapsed dual. Replay: python /workspace/audit-evidence/frozen4.py. This finds 282 disconnected quadruples and dual face vector (12,66,220,213,48), with no higher face. On the full signed boundaries, integer unit row/column splitting gives Smith forms with only unit nonzero entries and ranks (11,55,157,48); the code tests that the residual matrix after the unit pivots vanishes and verifies consecutive compositions are zero. Thus each boundary image is primitive in its target chain group; H_i embeds in the resulting torsion-free quotient of that chain group. Ranks in degrees 2 and 3 are 220−55−157=8 and 213−157−48=8, and other reduced ranks are zero. The frozen collapse-based script was inspected, not executed: its unique immediate coface and maximality tests are sufficient for the reported elementary-collapse approach, and the independent full-dual integer computation bypasses it. Integral UCT introduces no Ext term, so Alexander duality on twelve vertices places the two free groups in original degrees 9−2=7 and 9−3=6. All 282 original facets have size eight; H̃_6≠0 rules out pure shellability. This is not an identification of homotopy type or a map between cut parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Topology of Cut Complexes Theorem 6.1 assumes a complete (n−k−2)-skeleton for the stated torsion-free two-degree result. For n=12,k=4 the 48 dual size-five faces certify absent size-seven faces, so its criterion fails.",
+          "The cut-complex sequel discusses disjoint unions, squared paths and grids. The Resultary girth≥5 theorem places H̃ only in degree n−5, and excludes the squares of C."
+        ],
+        "reasoning": "The unfulfilled skeleton/girth hypotheses block coverage even though the frozen homology is torsion-free in exactly the two candidate degrees of the conditional theorem. Structural results on different graph families do not entail the ranks.",
+        "searches": [
+          "Bayer et al., arXiv:2304.13675, Theorem 6.1 and Proposition 6.2",
+          "Bayer et al., arXiv:2407.08158, abstract and conclusion",
+          "Resultary: four-cut homotopy classification girth at least five"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verify_output.txt",
+        "Bayer et al. primary papers; NetworkX generator; Resultary Chvátal three-cut, pentagonal girth, Dürer, six-crown, truncated tetrahedral and Shrikhande/rook comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The triangle-free result in Bayer et al. Theorem 6.4 is for k=2; the all-graph girth-at-least-five four-cut result excludes C.",
+          "The same-graph three-cut record has no theorem about changing the cut parameter. Alexander duality translates the needed computation into cohomology of a specific forbidden-family complex; it does not calculate ranks or torsion itself."
+        ],
+        "reasoning": "The original normalized result does not follow by applying an applicable family theorem, taking a known special case, or changing indices in the three-cut answer. The full integral rank/torsion computation and consequent nonshellability are the substantive addition.",
+        "searches": [
+          "Topology of Cut Complexes §6, girth conditions and triangle-free case",
+          "Chvátal three-cut Finding and four-cut pentagonal-girth Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact-match four-cut hit --4c06718b5efc is the assigned record itself.",
+          "Chvátal --bc7d229f8c3e Finding identifies Δ_3(C) as M(Z/2,7), not the four-cut complex.",
+          "The Clebsch comparator concerns total cut (independent subsets), not ordinary cut; even on one graph these need not have the same facets."
+        ],
+        "reasoning": "Changing k changes the entire forbidden family in the Alexander dual; disconnected triples and disconnected quadruples are not interchangeable. The same graph at k=3 or a total cut computation cannot be substituted for the stated integral invariant.",
+        "searches": [
+          "Resultary: ordinary Chvátal four-cut complex, integral homology and Alexander dual",
+          "Resultary: Chvátal cut-complex Moore space and total four-cut homology"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest same-graph computation --bc7d229f8c3e gives Z/2 in degree 7 for three-cut.",
+          "Distinct same-day Dürer --fcd3a75bd7da reports a wedge of 105 seven-spheres; six-crown --a8682d81c341 reports ranks one and 66 in degrees 5 and 6; truncated tetrahedral --1c1ca2747108 reports a wedge of 117 seven-spheres.",
+          "Shrikhande/rook --de2f98e55b1f concerns two 16-vertex graphs and different homology."
+        ],
+        "reasoning": "Matching vertex count, ordinary cut parameter, or methods of finite computation do not identify the underlying graph or its integral boundary matrices. No inspected exact table on the same graph and parameter matched except for the assigned entry.",
+        "searches": [
+          "Resultary: Chvátal graph cut-complex integral homology",
+          "Resultary: same-size exact ordinary four-cut complexes and torsion tables"
+        ]
+      },
+      "rationale": "The supported distinct result is the complete integral ordinary four-cut homology on the standard Chvátal graph, notably two adjacent free groups of rank eight and no torsion. The same-graph three-cut Moore space, related four-cut computations, and conditional general four-cut theorems do not imply this invariant. In particular, the most relevant general result requires a complete 6-skeleton, whereas the computed dual has 48 faces of size five whose complements give absent size-seven faces. The comparison uses exact graph, parameter, and ordinary/total distinctions, not inference from absent keywords.",
+      "residual_risks": [
+        "Bounded literature and catalogue comparison cannot exclude an unindexed equivalent computation. No precedence inference follows from same-day cataloguing of structurally related graph examples."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The key complete-skeleton hypothesis fails, and the triangle-free statement uses k=2",
+          "evidence": "Theorem 6.1 specifies (n−k−2)-skeleton and conditional torsion-free homology in degrees n−k−1 and n−k−2. Neither prerequisite set includes this complex.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.13675",
+          "material_read": "PDF p. 1 abstract and §6 Theorems 6.1, 6.4 and Proposition 6.2, pp. 17–18 at offsets 72200–77659",
+          "method": "Open primary PDF relevant passages",
+          "title": "Topology of Cut Complexes of Graphs",
+          "trigger": "Foundational general results could cover Chvátal"
+        },
+        {
+          "assessment": "Scope of inspected results differs",
+          "evidence": "Disjoint unions, squared paths, grids, and related families; no same-graph result in the inspected passages.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.08158",
+          "material_read": "PDF p. 1 abstract, p. 28 conclusion (offset 125778)",
+          "method": "Open primary PDF relevant passages",
+          "title": "Topology of Cut Complexes II",
+          "trigger": "Sequel might cover a graph family including this case"
+        },
+        {
+          "assessment": "Different cut parameter",
+          "evidence": "Δ_3(C)≃M(Z/2,7), with torsion; does not relate Δ_3 to Δ_4.",
+          "identifier_or_url": "2026/11/8/SCOPE-the-chv-tal-three-cut-complex-is-an-integral-moore-space--bc7d229f8c3e",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–6163",
+          "method": "Local published-record mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The Chvátal three-cut complex is an integral Moore space",
+          "trigger": "Closest same-graph integral homology"
+        },
+        {
+          "assessment": "Fails the girth hypothesis",
+          "evidence": "For simple graphs with n≥9 and girth≥5, Δ_4 is a wedge of spheres of dimension n−5, unlike this graph with squares.",
+          "identifier_or_url": "2026/10/18/SCOPE-homotopy-classification-of-four-cut-complexes-at-the-pentagonal--94b36fd5471f",
+          "material_read": "RESULT.md Finding/Assumptions at offset 0 and proof continuation at 6287",
+          "method": "Local published-record mirror",
+          "title": "Homotopy classification of four-cut complexes at the pentagonal girth boundary",
+          "trigger": "Strongest family-level four-cut comparison"
+        },
+        {
+          "assessment": "Same underlying labelled graph; no cut-complex theorem",
+          "evidence": "Rows 0 through 9 of the edge representation reproduce exactly the 24 supplied edges.",
+          "identifier_or_url": "https://networkx.org/documentation/stable/_modules/networkx/generators/small.html",
+          "material_read": "chvatal_graph implementation, offsets 4736 and 5430",
+          "method": "Official open source documentation, relevant source listing",
+          "title": "NetworkX chvatal_graph generator",
+          "trigger": "Check exact graph and labels"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The standard Chvátal graph is already a test object for torsion in ordinary cut complexes. Its next cut parameter is a natural point of comparison, is outside the available girth theorem, and gives a concrete benchmark with two nonzero free integral homology degrees rather than the nearby sphere-wedge pattern or three-cut torsion. The exact integer computation also settles nonshellability; this is a meaningful invariant for this named graph, not a proposed persistence trend.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

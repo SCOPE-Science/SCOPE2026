@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:43:56.269427Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In an induced matching no clique fiber meets two distinct edges, and any two occupied adjacent fibers must share the unique chosen cross edge. Thus the occupied support consists of isolates (a internal choices each) and isolated pairs (b cross choices each), with every such labelled lift allowed. A fiber outside the closed neighborhood admits an additional internal edge since m>=2, while a dominated fiber rules out any new endpoint there. This proves the maximal-support rule, including empty and isolated-base cases. On a cycle, including the triangle, maximal supports are nonconstant cyclic words avoiding both 000 and 111. With k one-runs and k zero-runs, choosing p long one-runs and q long zero-runs requires p+q=n-2k. Marking an initial one-run counts n times the two binomial choices and counts each labelled word k times. All such coefficients are positive on precisely the claimed k interval, and its endpoints agree exactly at 3 and 5. Read the frozen proof, notes and Python checker; did not execute uploaded code. A separate direct edge compatibility and cyclic-word replay passed 150 small base/m profiles, n=3–16 at m=2,3 for the cyclic count, and the purity interval for n=3–64. It also gave 15z, 16z+2z^2, 25z^2, 99z^2+2z^3 for m=2 and n=3–6. Bounded replay: /workspace/branches/762912a8-3bac-4b50-9cb1-5c670bb72f83/independent_check.py. The general claim rests on the proof, not the finite replay.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The product theorem gives nu_I(G composed with H)=alpha(G)nu_I(H). Yuan et al. give sharp global total-count bounds with extremizers for connected graphs."
+        ],
+        "reasoning": "Setting H=K_m yields the largest exponent but not the maximality criterion, coefficient values, or full support. Optimizing total counts over graph classes is not a coefficient-by-coefficient count of the members of this clique-blowup family.",
+        "searches": [
+          "arXiv:2406.04020 Theorem 3.1, lexicographic products",
+          "arXiv:2410.11288 Theorems 1.2–1.3, maximal versus maximum induced matchings"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2406.04020 and 2410.11288",
+        "Resultary a59056cf41f6, 8c7ade1511c3, 16e6e289ad7d",
+        "Indexed well-indumatched trees and perfectly well-indumatched graphs leads (access attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The product proof splits edges by projection type and selects one base vertex from each cross pair in order to bound maximum size. The bare-cycle power formula specializes at r=1 to a graph with no internal clique choices. The forest record uses a different maximality condition on the same host."
+        ],
+        "reasoning": "Counting a and b choices is a natural refinement of the older projection. But the weighted sum for maximal matches uses an extra domination test, which needs the internal-edge extension argument and fails at m=1. The old extremal identity, exact counts on the bare cycle and exact forest-facet counts do not mechanically give the two alternating length constraints and labelled maximal coefficients for the blowups.",
+        "searches": [
+          "arXiv:2406.04020 pp. 13–14, proof of Theorem 3.1",
+          "Resultary 8c7ade1511c3 and 16e6e289ad7d, Finding and pertinent cyclic formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brešar et al. project cross-fiber edges to a base induced matching and internal fibers to a mutually nonadjacent independent set of base vertices. Well-indumatched is the property that all inclusion-maximal induced matchings have the same size."
+        ],
+        "reasoning": "The precursor's two projected collections already form the component types of the dissociation support. The reviewed maximal enumerator additionally requires that support to dominate, and counts cardinalities of all labelled lifts; mere maximum size or equality of extremal sizes is much weaker.",
+        "searches": [
+          "Resultary: clique blowup, weighted dissociation supports, induced matching polynomial, dominating supports",
+          "Primary discovery: well-indumatched graphs and clique-blown cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The a59056cf41f6 hit is the same finding. The distinct 8c7ade1511c3 gives exact induced-matching polynomials on distance powers C_n^r. The distinct 16e6e289ad7d gives exact induced-forest facet counts on C_n[K_m] and different purity orders."
+        ],
+        "reasoning": "These are parametric enumerators, not a fixed-instance numerical table. Cycle powers concern a different adjacency rule rather than replacing each vertex by a fiber. Induced-forest facets use vertex subsets rather than the edge subsets of the reviewed complex. Neither exact enumerator supplies this formula.",
+        "searches": [
+          "Resultary: cyclic maximal induced-matching coefficients, purity of clique-expanded cycles",
+          "Exact indexed findings a59056cf41f6, 8c7ade1511c3, 16e6e289ad7d"
+        ]
+      },
+      "rationale": "The supported distinct claim is the closed-neighborhood criterion and the resulting weighted maximal enumerator, complete cyclic size spectrum and purity consequence. The projection precursor substantially overlaps the structure underlying the all-matching support sum; neither the projection method nor the maximum size alpha(G) is independently new here. No equivalent maximal weighted formula or complete cyclic spectrum was identified in the inspected sources.",
+      "residual_risks": [
+        "The well-indumatched literature leads did not yield a retrievable primary passage for these clique-expanded cycles; no negative inference from that access limit is made. Earlier independently indexed exact coefficient formulas remain possible. No priority precedence is inferred from the related records sharing a date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Real structural and extremal coverage; no labelled maximal enumerator in that theorem",
+          "evidence": "The projection separates cross edges and internal fibers, with no base adjacency between the projected edge components or to internal fibers. It then bounds the number of components by alpha(G).",
+          "identifier_or_url": "https://arxiv.org/abs/2406.04020",
+          "material_read": "Theorem 3.1 and proof, PDF pp. 13–14, text offsets 57600–61437",
+          "method": "Primary OA PDF passage",
+          "title": "Induced matching vs edge open packing: trees and product graphs",
+          "trigger": "Same invariant in a broader lexicographic product; structural projection match"
+        },
+        {
+          "assessment": "Global extremal counts, not this coefficient law",
+          "evidence": "The theorems bound counts over connected graphs and describe equality cases.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.11288",
+          "material_read": "Theorems 1.2–1.3, p. 3, text offsets near 7900–13081",
+          "method": "Primary OA PDF passages",
+          "title": "Maximal and maximum induced matchings in connected graphs",
+          "trigger": "Previously counted maximal induced matchings"
+        },
+        {
+          "assessment": "Different graph family; same invariant",
+          "evidence": "The displayed formulas are for C_n^r including a maximal-size spectrum; at r=1 this is the bare cycle, not a clique blowup with m>=2.",
+          "identifier_or_url": "2026/11/8/SCOPE-complete-induced-and-maximal-induced-matching-polynomials-of-cyc--8c7ade1511c3",
+          "material_read": "Mirrored Finding and pertinent proof near offset 570",
+          "method": "Resultary local mirror",
+          "title": "Complete induced and maximal induced matching polynomials of cycle powers",
+          "trigger": "Closely matched exact cyclic induced-matching enumerator"
+        },
+        {
+          "assessment": "Same graph family; different invariant",
+          "evidence": "Its facets are inclusion-maximal induced forests on vertex subsets, with exceptional n=5,7 for n>=4.",
+          "identifier_or_url": "2026/11/8/SCOPE-induced-forest-facets-of-clique-expanded-cycles-exact-polynomial--16e6e289ad7d",
+          "material_read": "Mirrored Finding near offset 500",
+          "method": "Resultary local mirror",
+          "title": "Induced-forest facets of clique-expanded cycles",
+          "trigger": "Same cyclic blowups and exceptional purity claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The weighted dominating-support identity makes inclusion-maximal matchings countable without enumerating edges of the expanded graph. On the natural cyclic family it yields both the full labelled distribution and the exceptional, nonmonotone purity boundary, information not obtainable from an extremal maximum-size count alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

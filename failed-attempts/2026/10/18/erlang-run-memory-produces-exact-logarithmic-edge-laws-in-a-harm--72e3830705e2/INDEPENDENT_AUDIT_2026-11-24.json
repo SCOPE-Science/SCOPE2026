@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:14:43.688667Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exponential pathwise contraction and the stationary alternating renewal law give a unique stationary position. The two-run update is Y'=2(1-C)+BCY; the iid product tends to zero and comparison to the telescoping sum of 2(1-BC) gives 0<Y<2. Occupation within an independent positive run gives the equilibrium-age kernel, with the factor 1/2 for sign. Testing stationary spatial current on the whole real line shows its distributional derivative is zero; compact support then forces zero current and p_-/p_+=y/(2-y). For the inverse moment, the stated Laplace bootstrap is sound: C<1/2 yields exp(-t), while C>=1/2 gives an O(t^-m) endpoint factor. Splitting the B integral at order 1/t yields the exponent min(s,r) with arbitrarily small loss from logarithms. Iteration reaches any exponent below r+m, giving all inverse moments of order 0<p<r+m. In the normalized age kernel, for y<Y<2 the log(Y/y)/log(1/y) ratio is uniformly bounded; dominated convergence gives exactly r^m E[Y^-r]/(2m!). Symmetry and integration give the remaining claims, including m=r=1.",
+      "reproduction": "python3 /workspace/review-evidence/frozen_math_crosschecks.py 3. Independent exact cyclic phase-moment propagation for shapes 1–6 and rates 1/3, 1, 7/4 through order eight; r=1 moments of orders 2 and 4 for shapes 1–4 matched (1/3,1/5), (2/5,9/34), (13/27,883/2535), (19/34,891/2056). These are finite checks of model normalization, not proofs of the edge law. The supplied checker was read, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Farago–Smith gives steady integral equations for arbitrary holding-time laws; examples inspected use exponential, semi-Gaussian and half-t laws. Hahn Theorem 3 supplies critical-point regularity criteria in the finite-state switching setting. Di Crescenzo–Martinucci studies gamma alternating velocities without the harmonic drift."
+        ],
+        "reasoning": "The general occupation framework applies, but the inspected papers by themselves do not supply the sharp Erlang coefficient and requisite inverse moment. Erlang phase augmentation makes Hahn relevant, not an exact substitute for the moment calculation.",
+        "searches": [
+          "Farago–Smith arXiv:2401.01576v2; Hahn arXiv:2506.02274v4; Di Crescenzo–Martinucci arXiv:0803.1067v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md, check.py",
+        "Resultary c52eab8c8805",
+        "arXiv:2401.01576v2, 2506.02274v4, 0803.1067v1, 1811.03808v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching Finding gives E[Y^-r]<infinity; the equilibrium age density for an Erlang run is λ/m times exp(-λa) times the first m terms of exp(λa).",
+          "The two-state spatial current equation uses rates only through the signed densities."
+        ],
+        "reasoning": "Condition on the entrance deficit and differentiate the exact age-occupation kernel, not the asymptotic tail. At 0<y<Y the positive-sign density is proportional to y^(r-1) Y^-r times a polynomial of degree m-1 in log(Y/y). After dividing by log(1/y)^(m-1) that polynomial is uniformly bounded since Y<=2, so the known inverse moment alone permits passage to the limit. Its top coefficient gives A_m(r), and zero current multiplies the positive density by 2/(2-y), asymptotically one. No further moment theorem is needed for the claimed pointwise hierarchy.",
+        "searches": [
+          "Resultary c52eab8c8805 Finding and negative-orientation proof passage near offset 6319",
+          "Farago–Smith arXiv:2401.01576v2, stationary equations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed result gives tail power r and logarithmic degree m-1 with coefficient r^(m-1) E[Y^-r]/(2m!), exactly A_m(r)/r. It has the same iid entrance recursion in law after interchanging B and C.",
+          "The exponential-holding harmonic baseline is known."
+        ],
+        "reasoning": "The normalizations agree after identifying the dimensionless stage rate r and the positive-run entrance gap. Tail and density are not equivalent simply by differentiating an asymptotic; the model-specific implication below closes that distinction.",
+        "searches": [
+          "Resultary: Erlang logarithmic edge hierarchy for harmonically confined active particles; match c52eab8c8805",
+          "Dhar et al., arXiv:1811.03808"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed Finding states the exact tail constant, not merely qualitative divergence or numerical moments. No numerical table is germane to an all-r, all-m edge law."
+        ],
+        "reasoning": "This is exact functional coverage for the same normalized model, not agreement on a parameter grid.",
+        "searches": [
+          "Resultary indexed exact Erlang boundary statements, c52eab8c8805"
+        ]
+      },
+      "rationale": "The Finding identifies the Erlang logarithmic-degree hierarchy as the contribution. A distinct indexed record covers this same mechanism, exponent, logarithmic degree, finite inverse moment and exact coefficient at the level of stationary tail mass for m>=2. The pointwise density is stronger than a bare tail asymptotic, but it follows directly from that indexed entrance-moment theorem and the existing equilibrium-age occupation/current representation (explicit implication below). The m=1 case is previously known. The more extensive inverse-moment bound in the proof is supporting analysis, not a distinct complete sharp moment classification claimed in the Finding. This is a coverage judgment, not an assertion that the later-catalogued record establishes earlier priority.",
+      "residual_risks": [
+        "Literature search was bounded and not decisive about earlier priority; a broader sharp phase-type endpoint theorem may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same hierarchy and moment prefactor for tail mass; not relied on as an explicit density claim or priority evidence.",
+          "evidence": "The tail coefficient is r^(m-1) E[Y^-r]/(2m(m-1)!), finite and positive; the perpetuity is distributionally identical.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-logarithmic-edge-hierarchy-for-erlang-run-active-particles-in--c52eab8c8805/RESULT.md",
+          "material_read": "Finding at offset 0; comparison near offset 7800; negative-run occupation passage around offset 6319",
+          "method": "Local mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A logarithmic edge hierarchy for Erlang-run active particles in a harmonic trap",
+          "trigger": "Closest exact indexed logarithmic edge theorem"
+        },
+        {
+          "assessment": "General stationary framework, not an explicit Erlang asymptotic in the material inspected.",
+          "evidence": "Arbitrary waiting laws enter a stationary integral equation; the examples highlighted are exponential, semi-Gaussian and half-t.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.01576v2",
+          "material_read": "Abstract, model p. 2 offset 12300, integral equations p. 3 offset 16700, examples p. 5 offset 32700",
+          "method": "Lawful OA PDF passages",
+          "title": "Confined run and tumble particles with non-Markovian tumbling statistics",
+          "trigger": "General non-Markovian steady-state predecessor"
+        },
+        {
+          "assessment": "Related critical-point criteria; no exact Erlang log power or coefficient in the inspected theorem.",
+          "evidence": "Continuity, divergence and integrability criteria for stationary densities under switching.",
+          "identifier_or_url": "https://arxiv.org/abs/2506.02274v4",
+          "material_read": "Abstract, Definition 1 p. 3 offset 11400, Theorem 3 p. 11 offset 43487",
+          "method": "Lawful OA PDF passages",
+          "title": "Invariant-measure regularity for one-dimensional PDMPs with applications to shape transitions in run-and-tumble particle systems",
+          "trigger": "Possible stronger finite-state switching result"
+        },
+        {
+          "assessment": "Different dynamics: no harmonic trap.",
+          "evidence": "Integrated constant-speed alternating telegraph motion on the real line.",
+          "identifier_or_url": "https://arxiv.org/abs/0803.1067v1",
+          "material_read": "Abstract and opening model description",
+          "method": "Lawful OA PDF passage",
+          "title": "Random motion with gamma-distributed alternating velocities in biological modeling",
+          "trigger": "Gamma-run exact law"
+        },
+        {
+          "assessment": "Known m=1 baseline, not the repeated-stage result.",
+          "evidence": "Exact harmonic-trap distribution for telegraphic switching.",
+          "identifier_or_url": "https://arxiv.org/abs/1811.03808v2",
+          "material_read": "Abstract, harmonic specialization",
+          "method": "Lawful OA PDF passage",
+          "title": "Run-and-tumble particle in one-dimensional confining potential: steady state, relaxation and first passage properties",
+          "trigger": "Markovian harmonic case"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp edge law is scientifically meaningful for confinement: at the same critical stage-rate ratio it distinguishes exponential waiting from all higher Erlang stages, with an exact positive amplitude and a specific logarithmic order. The value of that mathematical result is separate from the coverage of its core contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

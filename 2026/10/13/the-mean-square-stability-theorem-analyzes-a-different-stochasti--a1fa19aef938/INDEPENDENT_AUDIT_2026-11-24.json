@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:41:54.639684Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Talapatra's printed Eq. (2), translating by the strictly positive drift equilibrium adds no Itô correction and gives affine diffusion diag(alpha_i E_i*)+diag(alpha_i U_i). The nonzero constant diagonal matrix already excludes a constant equilibrium solution: its quadratic variation is strictly positive. Eq. (13) instead centers the diffusion, and Eqs. (15) and (17) and Theorems 3.1–3.2 concern the resulting centered linearized system, not directly the full nonlinear centered system or the original Eq. (2). Section 6, Eqs. (34)–(35), returns to abundance noise. For the optional short-time expansion, continuity alone needs an integrability justification. In this printed model, on the positive cone each coordinate drift is bounded above by C X_i, the drift has absolute size at most C(1+S^2) with S=sum X_i (positive saturation constants), and diffusion grows at most linearly. Localization and Itô for S^4 give uniform fourth moments on bounded time intervals by Gronwall. Positivity before explosion follows from the logarithmic coordinate equations before compact exits, and the same moment bound prevents explosion. Thus the martingale in Itô's formula for squared displacement is square-integrable on finite intervals, and its generator, of growth at most cubic in S, is uniformly integrable at time zero. Its initial expected value is the strictly positive squared Frobenius norm of the diffusion at E*, yielding the stated expansion. The frozen exact rational checker was inspected, not executed; it illustrates the affine identity but cannot verify stability or the infinite statement. No claim is made about long-time fluctuations, stationary laws, or other theorems in the article.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The standard Itô equilibrium test requires both drift and diffusion to vanish; the prior immigration-model record uses exactly this test. Its scope is a different paper's original and centered equations. The cited Shao–Kong primary text could not be reached in full on the attempted lawful routes."
+        ],
+        "reasoning": "The general test covers the mathematics of both obstructions but does not establish the specific textual premise that Talapatra changes the diffusion and then returns to the initial formulation. The pass is limited to the demonstrated consequence for the named theorem, not a general SDE result.",
+        "searches": [
+          "Talapatra printed Eq. (2) and §3",
+          "Centered-noise precedent Shao–Kong DOI 10.3390/math10183378",
+          "Resultary comparison with f4c1fbc12c0d"
+        ]
+      },
+      "checked_sources": [
+        "Talapatra DOI 10.34198/ejms.15625.9891020, primary PDF",
+        "Resultary f4c1fbc12c0d, mirror Finding and Proof",
+        "Shao–Kong DOI 10.3390/math10183378 (landing-level only)",
+        "Focused Talapatra literature and Resultary lookups"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.2 expressly concludes asymptotic mean-square stability for the zero solution of Eq. (15), with centered diffusion; translating Eq. (2) cannot give this homogeneous system. The other correction already gives the analogous translation and positive short-time growth argument for its own model."
+        ],
+        "reasoning": "The earlier counterexample/correction transfers as a proof method, not as a theorem about a different article's numbered equations. The remaining contribution is showing that the premise of the elementary obstruction really holds in this published stability analysis.",
+        "searches": [
+          "Talapatra §3, Theorems 3.1–3.2 and Eq. (17), compared with Eq. (2) and renewed abundance noise in §6",
+          "Resultary f4c1fbc12c0d Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two formulations being compared have nonzero versus zero diffusion at the same deterministic equilibrium. Section 3 presents the centered equation as the model expressed around the equilibrium; Eq. (2) explicitly prints abundance-proportional noise, and §6 retains it for the original SDE.",
+          "The earlier indexed analogue f4c1fbc12c0d diagnoses the same kind of model switch in Alebraheem et al.'s immigration system, Eqs. (2.1)–(2.4) versus §4, Theorem 4.3."
+        ],
+        "reasoning": "The observable test can be stated either as nonexistence of a constant SDE solution or as a nonvanishing constant term under translation. These are equivalent here, but the other article's correction is not a statement about Talapatra's formulas or Theorem 3.2. The primary text establishes what is printed, not author intent.",
+        "searches": [
+          "Focused Resultary and literature lookup for Talapatra, DOI 10.34198/ejms.15625.9891020, and its mean-square stability equations",
+          "Talapatra Eq. (2) versus §3 Eqs. (13)–(17) and §6 Eqs. (34)–(35)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/4/SCOPE-the-mean-square-stability-theorem-analyzes-a-different-sde-than--f4c1fbc12c0d is the strongest matched record. Its Finding and Proof concern a 2024 stochastic-immigration article, not Talapatra 2025; no exact Talapatra correction surfaced in the bounded lookup."
+        ],
+        "reasoning": "This is a published-equation comparison, not a numerical data or table claim; the relevant exact match would be an indexed correction to this named article and theorem. The matched record gives a close analogue but not that correction.",
+        "searches": [
+          "Configured Resultary source-specific lookup for Talapatra/dual-prey stability, and broader search for proportional-to-centered diffusion switches"
+        ]
+      },
+      "rationale": "Pass for the source-specific obstruction in Talapatra's dual-prey article only. Neither the general nonvanishing-diffusion obstruction, its affine translation proof, nor centering noise at an equilibrium is new. The strongest indexed analogue has the same obstruction and proof pattern but identifies a defect in another published model and theorem, not this one.",
+      "residual_risks": [
+        "An inaccessible or unindexed note may already flag the precise Talapatra switch. The earlier immigration-model correction was checked in its indexed record but its underlying original article was not independently recovered. The exact centered-noise precedent in Shao–Kong remains unverified in full text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_SPECIFIC_MISMATCH_VERIFIED",
+          "evidence": [
+            "Equation (2) has diffusion proportional to each abundance. Equation (13) uses deviations, and the stability theorem names the zero solution of (15). The stationary-distribution section again uses the diffusion of (2)."
+          ],
+          "identifier_or_url": "https://earthlinepublishers.com/index.php/ejms/article/download/1098/653",
+          "material_read": "Eq. (2) and alpha_i>0 (OA offsets 17980–21000); §3 Eqs. (13)–(17) and Theorems 3.1–3.2 (offsets around 24600–35745); §6 Eqs. (34)–(35) (around 70978)",
+          "method": "Primary OA PDF passages",
+          "title": "Stochastic Dynamics of Dual-Prey–Predator Interactions under Harvesting Pressure: Insights from the California Current Ecosystem",
+          "trigger": "Exact equations and scope of disputed stability theorem"
+        },
+        {
+          "assessment": "SAME_OBSTRUCTION_AND_PROOF_PATTERN_BUT_DISTINCT_SOURCE_CLAIM",
+          "evidence": [
+            "The matched result concerns Alebraheem et al., Eqs. (2.1)–(2.4) and Theorem 4.3, and derives a positive initial quadratic mean term for that model."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-the-mean-square-stability-theorem-analyzes-a-different-sde-than--f4c1fbc12c0d",
+          "material_read": "Finding and Proof in mirror RESULT.md, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Configured Resultary and local mirror; underlying original not independently retrieved",
+          "title": "The mean-square stability theorem analyzes a different SDE than the stochastic-immigration model",
+          "trigger": "Strongest indexed match for the same obstruction and proof"
+        },
+        {
+          "assessment": "CITED_PRECEDENT_NOT_FULLY_CHECKED",
+          "evidence": [
+            "No full-text inference about its precise diffusion is made from the available landing material. The Talapatra equation comparison is independent of this citation."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math10183378",
+          "material_read": "Landing/abstract access only; exact primary passage not recovered",
+          "method": "Bounded lawful OA retrieval on DOI/publisher routes",
+          "title": "A Predator–Prey Model with Beddington–DeAngelis Functional Response and Multiple Delays in Deterministic and Stochastic Environments",
+          "trigger": "Frozen citation for equilibrium-centered noise modeling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a consequential correction to a stated stability goal of a named published model. It resolves which SDE the theorem actually treats and shows that the equilibrium whose stability is discussed is not even a constant solution of the originally printed SDE. That is useful for interpretation and subsequent reuse of the theorem; the algebra alone, or a general claim about centered noise, would not justify this verdict.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

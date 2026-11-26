@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:34:53.576374Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, theorem and Parts A–C, lines 5–80",
+        "Frozen VERIFICATION.md and verify.py, inspected without execution; finite sign sampling is not zero exhaustion"
+      ],
+      "rationale": "The normalized positive n-rate mixture has R'(0)=1. Multiplying its affine-coefficient exponential derivative by a nonvanishing exponential and differentiating twice removes one mode. Rolle with multiplicities gives the bound 2n-1 by induction, including the affine exception. Between successive strict maxima there is an interior minimum, so there are at most n. For the geometric construction, after division by L^j the slower-rate positive terms at the right endpoint sum to less than 1/(L-1) versus its own negative e^(-3/2)/2; at the left endpoint the faster-rate losses are at most e^(-L/4)/(2(1-e^(-L/4))) versus its own positive e^(-1/2)/2. Signs in the disjoint windows and in the gaps exhaust the 2n-1 zero budget and force simplicity. On each window the own contribution to the unnormalized objective is at most 1/e, and attains 1/e at the center price 1/L^j; geometric slow tails and decreasing exponential fast tails give the stated common upper bound. An independent decimal evaluation gives 1.01021910461827 at L=400 for the ratio bound. Positive normalization cancels in the ratio and does not alter stationary points. The case n=1 is included. Simple roots persist locally; the theorem does not assert that the fixed geometric weights make the peaks exactly equal.",
+      "residual_risks": [
+        "No conclusion about peak resolution with finite price grids or noise, or about arbitrary demand families or positive costs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The common-slope logit construction gives at least m strict maxima for m segments and explicitly does not give an upper bound.",
+          "Kunz and Crone discuss exponential demand, not a positive finite mixture mode/height theorem, in the inspected sections."
+        ],
+        "reasoning": "Positive exponential survivals and logistic purchase functions are different as functions on the pricing domain, despite exponential right tails of logistic curves. A classical extended Chebyshev zero bound does cover the upper-bound mechanism, but does not provide the simultaneous near-equal constructive lower bound.",
+        "searches": [
+          "Resultary 408fceb9bc2a",
+          "Kunz and Crone, doi:10.4230/OASIcs.SCOR.2014.101, §§4.2.1–4.2.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7b04ad2cc534, 408fceb9bc2a, e45ac4ab94e8",
+        "doi:10.4230/OASIcs.SCOR.2014.101"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact two-component tie and sharp two-component regime are already known. The larger-component example family in the inspected logit record concerns a different objective and does not give height control."
+        ],
+        "reasoning": "The accepted distinct content is the general sharp cap jointly with a single explicit parameter family whose peak count saturates it and whose relative height bound is independent of n. Neither a count-only theorem for another family nor the exact n=2 characterization supplies that construction.",
+        "searches": [
+          "Resultary 7b04ad2cc534 and 408fceb9bc2a, actual Findings; doi:10.4230/OASIcs.SCOR.2014.101, §4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 7b04ad2cc534 matches the demand law exactly for two rates after rescaling price.",
+          "Resultary e45ac4ab94e8, Finding, treats common-shape two-rate Gamma densities and gives their log-curvature, not their peak counts and heights."
+        ],
+        "reasoning": "The objective after positive normalization is a Gamma shape-two rate-mixture density: pass from revenue weights w_j to density weights proportional to w_j/lambda_j^2. The inspected Gamma result only covers two rates; log-concavity gives a sufficient unimodal regime, while loss of log-concavity does not establish bimodality. In log-price the revenue itself is a weighted sum of translates of exp(t-exp(t)); this is a reformulation, not an implication from the inspected mixed-logit result.",
+        "searches": [
+          "Resultary: finite exponential-mixture price maxima and near-equal peaks",
+          "Resultary: gamma shape 2 equal shape different scale multimodal finite scale mixture Gamma density maxima mode count common shape near equal height gumbel translate peaks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7b04ad2cc534 gives the exact two-rate mode bifurcation, and a unique weight gives two exactly tied global peaks when the rate ratio exceeds 3+2 sqrt(2)."
+        ],
+        "reasoning": "This is substantive exact overlap and is stronger than near equality at n=2. It neither tabulates nor proves the geometric construction or equal-height approximation for arbitrary n; a finite collection of mixture examples would not establish the uniform bound.",
+        "searches": [
+          "Resultary 7b04ad2cc534; e45ac4ab94e8; 408fceb9bc2a"
+        ]
+      },
+      "rationale": "Credit the classical zero-count principle and the stronger, exactly tied two-component special case. No statement located in the compared sources covers the joint all-n saturation by simple modes with a dimension-uniform near-equal-height construction. This assessment is for that combination, not a priority claim about two-component bimodality or extended Chebyshev bounds.",
+      "residual_risks": [
+        "Unsearched historical common-shape Gamma, translate-mixture or pricing literature could contain a more general theorem or construction. The comparisons do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact subset coverage; stronger there",
+          "evidence": [
+            "Two-rate threshold 3+2 sqrt(2), bimodal weight interval, unique exactly tied weight."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-two-segment-price-bifurcation-and-discontinuous-optimal-un--7b04ad2cc534/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror, bounded primary record passage",
+          "title": "Sharp two-segment price bifurcation and discontinuous optimal uniform pricing",
+          "trigger": "Exact demand model in two segments, including ties"
+        },
+        {
+          "assessment": "Different family and existential lower bound",
+          "evidence": [
+            "At least m strict local maxima; no all-m upper bound claimed there."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-arbitrarily-many-local-price-optima-in-a-one-product-common-slop--408fceb9bc2a/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror, bounded primary record passage",
+          "title": "Arbitrarily many local price optima in a one-product common-slope logit mixture",
+          "trigger": "All-n construction in neighboring pricing model"
+        },
+        {
+          "assessment": "Two-rate log-concavity is not general mode-count and height control",
+          "evidence": [
+            "Common shape alpha, exactly two rates, criterion on the normalized fast-rate amplitude ratio."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-sharp-log-concavity-threshold-for-equal-shape-gamma-rate-mixtu--e45ac4ab94e8/RESULT.md",
+          "material_read": "Finding and model, offset 0 through 2342",
+          "method": "Literal locality followed by bounded local-mirror text",
+          "title": "A sharp log-concavity threshold for equal-shape Gamma rate mixtures",
+          "trigger": "Gamma shape-two equivalence of the revenue curve"
+        },
+        {
+          "assessment": "Model background, not the claimed theorem in the passages checked",
+          "evidence": [
+            "Conventional exponential demand model discussion."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/OASIcs.SCOR.2014.101",
+          "material_read": "PDF §§4.2.1–4.2.2, pp. 107–108, extraction offset 26823",
+          "method": "Public primary conference PDF passages",
+          "title": "Demand models for the static retail price optimization problem – A Revenue Management perspective",
+          "trigger": "Exponential demand in posted pricing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 11–24, 71–80 and 90–92"
+      ],
+      "rationale": "A count bound alone would not tell whether the spurious peaks can have comparable economic objective values. Achieving the largest permitted mode count with uniformly comparable heights is a meaningful obstruction to relying on a single local optimization of a natural one-price model, even though the witness is highly dispersed and not an empirical claim.",
+      "residual_risks": [
+        "The construction is ill-conditioned at large n and makes no empirical pricing or stability recommendation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

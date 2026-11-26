@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:32:05.808144Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For unit normal u, support is a sqrt(1-u_z²)+b sqrt(1-u_x²)+c sqrt(1-u_y²). Concavity in the three squared coordinates bounds the support below by the least of the axial supports, b+c. The two z-normal constraints bound every ball radius by b+c, and force maximal centers into z=0. For a fixed unit horizontal direction v and horizontal normal length ρ, h_K is the concave function aρ+b sqrt(1-ρ²v_x²)+c sqrt(1-ρ²v_y²) of ρ in [0,1]. Its chord between 0 and 1 yields h_K(u)-(b+c) ≥ ρ[h_K(v,0)-(b+c)]. Thus the horizontal support inequalities are necessary and sufficient even for balls tested against all spatial normals. Horizontally the inequality is t·v ≤ c|v_x|+b|v_y|+a-b-c, identifying planar disk dilation when a≥b+c and disk erosion otherwise. Erosion against the four rectangle sides gives half widths a-b and a-c, including ties. Strips and quarter circles give the area in the dilated phase. At the transition the slopes are both 4(b+c) and the one-sided second derivatives are 8 and 2π. The argument covers all positive weights after sorting. The frozen CHECK.py probes only finitely many normals and thresholds; it was inspected, not executed. Replay of the unrestricted check is by the chord inequality above and the half-plane support test in RESULT.md lines 40–63.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General defining theory for sums of disks and a volume/balancing theorem on exactly the weighted family; the worked coordinate-discotope boundary is for unit summands."
+        ],
+        "reasoning": "Neither the general class definition nor the volume theorem computes inner parallel bodies, and the explicit unweighted case cannot imply the two positive-area regimes with unequal weights.",
+        "searches": [
+          "Gesmundo–Meroni arXiv:2111.01241, Definition 2.2 and §7; Resultary 2026/11/8/SCOPE-exact-weighted-dice-volume-and-sharp-radius-balancing-stability--7d027fadfd46"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2105.12406",
+        "arXiv:2111.01241",
+        "Resultary 7d027fadfd46",
+        "Resultary 14663bdfc53a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known support additivity and axial supports give the radius; the general support membership test expresses the locus as a spatial erosion. For t_z=0, the new directional reduction is what gives the horizontal support constraints and hence identifies the planar body whose area is taken."
+        ],
+        "reasoning": "The radius and standard convex-geometric identities by themselves do not classify all translations. The area jump is a direct consequence of the new classification, not an independently new parallel-area identity.",
+        "searches": [
+          "Mathis–Meroni arXiv:2105.12406 §5.3; Gesmundo–Meroni arXiv:2111.01241 §2 and §7; Resultary weighted-dice and orthogonal-hull findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The maximal inner parallel body is exactly the set of translated inball centers. Mathis–Meroni Definition 5.20/Proposition 5.21 concern the equal-weight dice and a fiber body under projection; Gesmundo–Meroni study exposed/algebraic boundary of the equal-weight dice."
+        ],
+        "reasoning": "A fiber body or an algebraic description of the boundary is not the intersection of all radius-adjusted support half-spaces. Neither inspected statement identifies that erosion or its weighted transition.",
+        "searches": [
+          "Maximal inner parallel body K ⊖ (b+c)B₃; compare Mathis–Meroni arXiv:2105.12406, §5.3, and Gesmundo–Meroni arXiv:2111.01241, §7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Read exact Finding statements in records 7d027fadfd46 and 14663bdfc53a. The first is the same weighted sum but a different invariant; the second uses conv(D_xy ∪ D_yz ∪ D_zx), not the Minkowski sum, and reports an inradius, not the center locus."
+        ],
+        "reasoning": "The relevant indexed formulas do not tabulate the claimed invariant; no general parameter table is needed for the continuum of weights. The distinct same-day entry was compared on content, not discounted based on its date.",
+        "searches": [
+          "Resultary weighted dice volume and radius balancing; orthogonal three-disk hull and inradius"
+        ]
+      },
+      "rationale": "Pass the explicit weighted maximal-center locus and its additive shape/area transition, not the inradius, the coordinate-discotope model, erosion/dilation identities, or the planar parallel-area formula in isolation. The closest inspected statements address the same unweighted body and its boundary/fiber body, the same weighted body and its volume/balancing, or a different orthogonal disk hull. The essential bridge from a three-dimensional erosion to precisely the planar rectangle constraints is not supplied by those statements.",
+      "residual_risks": [
+        "No independent primary source was identified for the earlier weighted-sum radius optimization mentioned in the record; the radius is excluded from the originality claim.",
+        "Bounded comparisons cannot exclude an older equivalent explicit classification in inner-parallel-body terminology; historical priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same unit-weight instance, different invariant",
+          "evidence": "The dice is D₁+D₂+D₃; the proposition computes a fiber body, not the maximal erosion.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.12406",
+          "material_read": "§5.3, pp. 19–20, Definition 5.20 and Proposition 5.21",
+          "method": "OA full-text passage inspection, offsets 60772–65515",
+          "title": "Fiber Convex Bodies",
+          "trigger": "Same coordinate disks and a related projection operation"
+        },
+        {
+          "assessment": "Background and boundary analysis, not an inball-center classification",
+          "evidence": "The example uses three unit discs in the coordinate hyperplanes; its algebraic boundary includes a degree-24 surface.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.01241",
+          "material_read": "Definition 2.2 (p. 3), §7 (pp. 16–17)",
+          "method": "OA full-text passage inspection, offsets 7679 and 53500–56000",
+          "title": "The Geometry of Discotopes",
+          "trigger": "General theory and coordinate-plane example"
+        },
+        {
+          "assessment": "Different invariant despite identical body",
+          "evidence": "Volume and a balancing inequality, not the distribution of maximal ball centers.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-weighted-dice-volume-and-sharp-radius-balancing-stability--7d027fadfd46",
+          "material_read": "RESULT.md Finding and prior-work passage",
+          "method": "Local Resultary and mirror, text offsets 0 and 6808",
+          "title": "Exact weighted dice volume and sharp radius-balancing stability",
+          "trigger": "Strongest distinct indexed match for the same weighted sum"
+        },
+        {
+          "assessment": "Different convex body",
+          "evidence": "The body is a convex hull of the union of disks, with unrestricted inradius R sqrt(2/3), not a weighted Minkowski sum.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-intrinsic-volumes-and-boundary-decomposition-of-the-orthog--14663bdfc53a",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary and mirror, text offset 0",
+          "title": "Exact intrinsic volumes and boundary decomposition of the orthogonal three-disk hull",
+          "trigger": "Indexed radius/orthogonal three-disk match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives every permissible translation of a largest ball, not just contact directions or a radius. The full dimension/tie classification and the exact transition between rectangular and rounded loci make a concrete distinction for the geometry of inner parallel bodies of Minkowski sums. The value lies in the all-directions reduction and the resulting complete classification, not in differentiating Steiner's area formula alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:16:43.004920Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed both directions of Theorem 1 for noncomplete n>=3: an (n-1)-set omits just x, so each internal nonedge must have a two-edge geodesic through x. This holds exactly when every complement neighbor of x has no other complement neighbor; connectivity of the induced set is the remaining condition. The full set is visible only for a complete graph. The complement component at x is a star; a leaf of a nontrivial star is universal in G-x, while for an isolated x connectivity requires the complement of the remainder to be connected. If both graphs are connected a spanning complement star would disconnect G, proving the corollary. For n>=5 complete/edgeless pairs do not attain either upper bound. Otherwise both parameters are at most n-1 and the prior sum bound excludes two n-1 values; attaining either bound is exactly (n-1,n-2) in some order. Take the star component as above in the complement of the (n-1) graph. A star contributes at most 2 (a connected set containing two leaves must include their center, blocking their geodesic), so some remaining component must support n-2>=3 vertices; the star has at most two vertices. For a two-vertex star the remainder must be a clique K_{n-2}, giving K_{2,n-2}. For an isolated x the remainder Q has mu_c(Q)=|Q|-1 and connected complement. Applying the criterion inside Q forces its complement to be a spanning star; this yields K_2 joined to an independent set. Both examples give n-1 by the criterion and n-2 by the component rule in the complement. This verifies the theorem precisely for n>=5 without inferring anything about order-four equality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 2 and Theorem 3 treat maximum n and minimum 2, not sharp complement-pair classification. Theorem 7 gives both inequalities and sharpness, and Theorems 11 and 15 give the family values as instances of complete-bipartite and join formulas.",
+          "Resultary SCOPE-9bfa61f8ea8a gives mu_c=3 and describes maximum sets in Cartesian products of connected high-girth factors."
+        ],
+        "reasoning": "Neither the Cartesian-product result nor the complete-bipartite/join formulas quantify over all graphs with equality in a complement-pair inequality.",
+        "searches": [
+          "Resultary: connected mutual visibility Nordhaus–Gaddum equality / Cartesian high girth",
+          "Tonny–Shikhi Propositions 2, Theorems 3, 7, 11, 15"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Theorem 1, Corollary 2 and Theorem 3",
+        "Tonny–Shikhi arXiv:2609.18877v1, Proposition 2 and Theorems 3, 7, 11, 15",
+        "Resultary SCOPE-0da0bb4ef6f9, SCOPE-9bfa61f8ea8a, SCOPE-d0cab96518f2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof of Theorem 7 uses (3.1)–(3.2) to rule out (n-1,n-1), then constructs one example. It does not analyze all graphs with (n-1,n-2).",
+          "The new exclusion uses the star-component structure to force the component size, including the separate recursive local test in the case of an isolated complement vertex."
+        ],
+        "reasoning": "The earlier bounds imply the two numerical values at equality, not the classification of all graphs attaining the pair. Recognizing the structural reformulation as largely implicit does not remove the additional necessity argument.",
+        "searches": [
+          "Tonny–Shikhi arXiv:2609.18877v1, PDF p. 5, proof at text offset 18420",
+          "Resultary: Nordhaus–Gaddum upper equality and connected mutual visibility"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 7 explicitly observes that for a connected visible V-x, every nonedge internal to V-x has both endpoints adjacent to x. With G-x connected, the converse follows immediately by using those two-edge paths.",
+          "The complement-leaf and star-component conditions are translations of this observation, together with induced connectivity."
+        ],
+        "reasoning": "The prior paper already contains the heart of the near-maximum local test; the distinct part of the record is its use to exhaust all equality cases.",
+        "searches": [
+          "Resultary: connected mutual visibility n-1 / near-maximum / complement-neighbor degree",
+          "Tonny–Shikhi arXiv:2609.18877v1, Theorem 7 proof, display (3.1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same Resultary entry SCOPE-0da0bb4ef6f9 states both theorems and is not independent coverage.",
+          "Theorem 7 names the clique-plus-isolates pair as a sharpness example; the other pair is recoverable from Theorem 11 and the disjoint union of two cliques.",
+          "A distinct same-day catalog entry SCOPE-d0cab96518f2 is about graph cover-free numbers of paths, cycles and wheels, not this parameter."
+        ],
+        "reasoning": "The actual known exact examples and family values must be credited but do not constitute a census. The same-day comparison does not rely on priority or date ordering.",
+        "searches": [
+          "Resultary: connected mutual-visibility equality K_{2,n-2}, K_2 join independent, and complement forms",
+          "Tonny–Shikhi Theorems 7, 11, 15"
+        ]
+      },
+      "rationale": "Credit the complete equality classification for n>=5, not the inequalities, the examples attaining them, or the omitted-vertex implication as independently novel. The structural test is a useful reformulation of the source's proof idea. The checked papers and closest catalog results do not supply the necessity proof excluding all other extremizers. This is a bounded best-of-knowledge comparison.",
+      "residual_risks": [
+        "Public-search coverage was limited; very recent work under another terminology or not indexed could contain the classification. The introducing paper's decisive passages were accessible and compared.",
+        "The local near-maximum observation substantially overlaps display (3.1) in the introducing paper; no independent priority claim is made for it or for the sharpness examples."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the bounds, family values and omitted-vertex implication, not the complete classifications of extremizers",
+          "evidence": "Theorem 7's (3.1) is the implication about nonedges in V-x; the proof then rules out simultaneous n-1 and uses K_{n-2} plus two isolates for sharpness.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.18877v1",
+          "material_read": "Proposition 2 and Theorem 3 (p. 3, text offset 11120); Theorem 7 proof (p. 5, offset 18420); Theorems 11 and 15 (pp. 6–7 and p. 9, offsets 23820 and 33660)",
+          "method": "OA PDF passages; HTML cross-reference for complement notation",
+          "title": "Connected Mutual-Visibility in Graphs",
+          "trigger": "Introducing paper, directly overlapping sharpness proof and family formulas"
+        },
+        {
+          "assessment": "Same record",
+          "evidence": "Identical local criterion and two families up to complement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/17/SCOPE-connected-mutual-visibility-nordhaus-gaddum-equality--0da0bb4ef6f9/RESULT.md",
+          "material_read": "Mirror Theorems 1 and 3 at text offsets 0 and 3860",
+          "method": "Local catalog mirror text",
+          "title": "Near-maximum connected mutual visibility and Nordhaus–Gaddum equality",
+          "trigger": "Exact catalog match"
+        },
+        {
+          "assessment": "Different theorem",
+          "evidence": "Value 3 and Cartesian-corner maximizers do not classify complement pairs at n-1,n-2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/19/SCOPE-connected-mutual-visibility-cartesian-high-girth--9bfa61f8ea8a/RESULT.md",
+          "material_read": "Finding: high-girth hypotheses and extremizer statement",
+          "method": "Locally returned catalog statement",
+          "title": "Connected mutual visibility in Cartesian products of high-girth graphs",
+          "trigger": "Distinct catalog result on the same invariant"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Concerns minimum cardinalities of ground sets for graph cover-free blocks, not geodesic visibility or complement equality.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/17/SCOPE-cover-free-path-cycle-wheel-exact-values--d0cab96518f2/RESULT.md",
+          "material_read": "Statement of exact cover-free values, also in frozen assigned record 5, RESULT.md lines 5–23",
+          "method": "Local catalog and frozen result text",
+          "title": "Exact small cover-free-family numbers for paths, cycles, and wheels",
+          "trigger": "Distinct same-day graph-theory catalog hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result converts two known sharp inequalities into a complete structural classification of extremizers for all n>=5. The distinction between producing examples and proving there are no others matters to the extremal question. The complement-component reduction makes the necessity proof short and transparent; the small-order limitation is explicit.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

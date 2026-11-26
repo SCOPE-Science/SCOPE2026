@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The mathematical proof evaluates two independent finite combinatorial sums over all subsets of the two graph types. It then uses the exact classification of 2-regular complements to exhaust all simple cubic graphs on six vertices; the latter classification is analytic and not assumed from a graph database. For admissible \(d\ge2\) and \(2d\mid n\), no nonisomorphic comparison graph exists below six vertices.
+## correctness
 
-Run `python3 verify.py` with a standard Python 3 interpreter, with no downloaded data and no third-party dependencies. The verifier independently enumerates each graph's \(64\) vertex subsets and also computes both polynomials by the separate layer formulas. It asserts the exact induced-edge distributions, the factorization of their difference, and the cumulative threshold values. It checks every labelled nine-edge simple graph on six fixed vertices, retaining the \(70\) cubic ones and comparing their polynomials with the two claimed types. The expected terminal string is `VERIFY_OK`.
+PASS
 
-Verification returned:
+An independent count avoids relying on the supplied enumerator. Subsets of size at most two have identical induced-edge distributions in both graphs. For a k-set in a cubic graph of order six, e(S)-e(V\S)=3(k-3), so sizes at least four also agree. For three-sets the counts at 0,1,2,3 edges have the same zeroth, first and second binomial moments (20 triples, 36 incidences of an edge in a triple, and 18 wedges). The third moment differs by two because the prism has exactly two triangles and the biclique none. Back substitution gives the difference (-2,6,-6,2), hence the stated polynomial and all cumulative differences. The biclique's 15 independent sets and 9 one-edge sets give 24 at threshold one, so the prism gives 28. Complements of simple cubic graphs at order six are exactly the cycle types (6) and (3,3), giving the prism and the biclique. The only smaller positive admissible order for d>=2 and 2d|n has (d,n)=(2,4), with the unique graph C4. Carenini's inclusive cutoff equals one at the stated parameters. This proof reconstructs the census and threshold profile for simple graphs without executing the deposited code.
 
-```text
-CUBIC_LABELLED_GRAPHS_OK {(6,): 60, (3, 3): 10}
-EDGE_COUNT_DISTRIBUTIONS_OK K33= (15, 9, 18, 6, 9, 0, 6, 0, 0, 1) PRISM= (13, 15, 12, 8, 9, 0, 6, 0, 0, 1)
-PHASE_DIAGRAM_OK [-2, 4, -2, 0]
-EXACT_COUNTEREXAMPLE_OK 28 > 24
-VERIFY_OK
-```
+## originality
 
-The computations use exact integers, not floating-point approximations. The result pertains to vertex subsets inducing at most a fixed number of edges, not independent sets alone or arbitrary larger orders. No independent scientific audit or exhaustive historical-priority certification is claimed.
+PASS
+
+The directly inspected Question 1.3 poses precisely the universal cumulative inequality contradicted here. No covering counterexample or exact comparison turned up in the limited searches. The distinct supported contribution is the negative answer with the smallest simple-graph admissible order and the complete local threshold profile, not ownership of the general graph polynomial or the cubic graph census.
+
+## value
+
+PASS
+
+The short counterexample settles an explicitly published unrestricted extremal question. Minimality and the exhaustive threshold comparison make clear that the reversal is localized and compatible with weighted biclique extremality. The low-order calculation is motivated by that question, not an arbitrary graph enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

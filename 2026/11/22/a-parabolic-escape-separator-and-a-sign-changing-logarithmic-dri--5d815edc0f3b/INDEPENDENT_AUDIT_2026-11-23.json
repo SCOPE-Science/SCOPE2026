@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:42:36.336215Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the exact scaled map, q(y)=1-lambda/(1+y²) belongs to (0,1) and increases on y>=0. Thus y increases, u decreases, the two limits exist in their extended domains, and coordinatewise ordering is preserved. The strict test V/[1-q(Y+1)]<1 at a state (Y,V) traps height below Y+1 by a first-crossing geometric bound; every finite-height orbit eventually meets the test. For f(y)=1/(1+y²), the excess of the left sum on a step is at most u_k[f(y_k)-f(y_{k+1})]. Summing with u_k<=V gives total velocity loss at most lambda times (integral_Y^infinity f + V f(Y)), valid also for bounded orbits. This is O(1/u_0) from the first post-step state when u_0 is large. For a ballistic orbit it becomes smaller than V at a sufficiently late iterate; this strict finite test establishes openness. Ordering and the two nonempty open phases leave a nonempty closed bounded critical interval of speeds. On a critical tail Y=y_n, the left-sum excess E is between 0 and u_n f(Y), giving u_n=lambda/Y+O(Y^-3). In its Taylor refinement the quadratic term is sum_k Δy_k·(u_k(-f'(y_k))/2), with the second factor lambda*y_k^-4+O(y_k^-6); the cubic remainder sums to O(Y^-5) by integral comparison. Quadrature of y^-4 also costs at most u_n Y^-4=O(Y^-5). Therefore E=lambda/(3Y³)+O(Y^-5), and the arctangent integral adds the -1/(3Y³) term, giving A=lambda(lambda-1)/3 for the cubic velocity coefficient. The squared-height increment is 2lambda+(2A+lambda²)/y_n²+O(y_n^-4). It first yields y_n²=2lambda*n+O(log n), then the harmonic coefficient (5lambda-2)/6 and an absolutely summable O(log n/n²) residual, proving the finite C and all three log signs. Reflection preserves the recurrence. As an independent formal replay, the Laurent ansatz h=lambda/y+A/y³+B/y⁵ in h(y+h(y))=q(y)h(y) gives lambda³-4lambda*A=lambda²-lambda*A at order y^-5 after B cancels; this checks the coefficient but proves no existence. The frozen script was inspected, not run: it shoots to y=100 at lambda=0.4,0.6, checks finitely many residuals, and does not certify a critical initial speed. The coefficient and critical-orbit assertion rest on the analytical bounds, not on finite shooting.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The originating article introduces the broader four-parameter family. The accessible full comparator for a>0, b=d=0 proves a positive terminal speed, and the full a,c,d>0, b=0 comparator proves a critical y~constant*n^(2/3) with no fixed line."
+        ],
+        "reasoning": "The compared theorem domains are disjoint from the negative-feedback unforced interior here; a broader definition of the map is not a broader theorem on capture/escape. No full-text exclusion is made for the original article on the basis of bibliographic material.",
+        "searches": [
+          "Web: Zhang Liu Wei Jiang Bi rational map x ax/(1+y^2) parabolic escape critical fixed line rational discrete asymptotics logarithmic separatrix",
+          "DOI 10.1088/1674-1056/ac4025 and publisher/author open-text attempts",
+          "Resultary 2026-11-02 positive-feedback and forced separatrix records"
+        ]
+      },
+      "checked_sources": [
+        "Resultary endpoint hyperbola 7b5d143a6371",
+        "Resultary positive-feedback scattering c216a2b82ab6",
+        "Resultary forced separatrix a68c4d4e0fdd",
+        "Zhang et al. DOI 10.1088/1674-1056/ac4025 (bibliographic material only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At lambda=1, u*y=1 is exactly invariant, which immediately reduces the endpoint to y'=y+1/y. At interior lambda, substituting u*y=lambda gives (u'*y')/(u*y)=(y²+lambda)(y²+1-lambda)/(y²(1+y²)), not 1 for y>0."
+        ],
+        "reasoning": "The endpoint proof's scalar critical recurrence does not extend by parameter substitution. The interior proof must control the accumulated discretization error; its nonzero cubic velocity correction contributes to the interior squared-height logarithm. Neither the a>0 scattering proof nor the forced 2/3 law supplies that calculation.",
+        "searches": [
+          "Resultary 7b5d143a6371 exact hyperbolic escape boundary, proof Steps 1–3",
+          "Resultary a68c4d4e0fdd and c216a2b82ab6, findings and proofs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Writing u=cx gives the same map as the indexed hyperbolic escape result at a=-1 and the positive-feedback scattering result at a>0; the present case is -1<a<0, b=d=0."
+        ],
+        "reasoning": "Compare normalized speeds and squared heights rather than raw x. The adjacent endpoint has an exact invariant hyperbola and the limiting logarithm coefficient 1/2, not a conjugacy or formula for the interior parameters.",
+        "searches": [
+          "Resultary: rational planar map negative feedback fixed line critical parabolic escape logarithmic drift Zhang Liu Wei Jiang Bi",
+          "Resultary: velocity at infinity bounded capture ballistic critical y_{n+1}=y_n+u_n negative lambda rational damping u*(1-lambda/(1+y^2)) (5 lambda-2)/6 parabolic transition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed exact contrast supplies y_n²=2n+(1/2)log n+C+O(log n/n) at lambda=1. The same-model forced result supplies a different exact separating exponent and constant."
+        ],
+        "reasoning": "An exact endpoint or finite orbit diagnostics do not determine an interior coupling-dependent coefficient, let alone its sign reversal and every-height quantifier. The bounded search is not a proof of absence.",
+        "searches": [
+          "Resultary: velocity at infinity bounded capture ballistic critical y_{n+1}=y_n+u_n negative lambda rational damping u*(1-lambda/(1+y^2)) (5 lambda-2)/6 parabolic transition",
+          "Web: Zhang Liu Wei Jiang Bi rational map x ax/(1+y^2) parabolic escape critical fixed line rational discrete asymptotics logarithmic separatrix"
+        ]
+      },
+      "rationale": "The bounded comparison found exact same-map results in other parameter regimes, including an adjacent endpoint with the same leading exponent. They do not cover the critical expansion for the open interval 0<lambda<1 or the cancellation at 2/5. The originating paper is recognized as prior art for the model, not credited here as independently checked full text. The comparison supports the bounded mathematical novelty judgment, not a historical priority claim.",
+      "residual_risks": [
+        "The original paper's detailed Case I text was not independently retrievable; it is not excluded by full-text inspection.",
+        "Unindexed literature on discrete parabolic escape at infinity could contain a model-equivalent coefficient or stronger classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact endpoint a=-1; does not cover -1<a<0",
+          "evidence": [
+            "Step 1 factors the change of u*y-1; Step 3 on the invariant hyperbola yields coefficient 1/2. This agrees with the endpoint limit of, but does not give, the audited coefficient."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-an-exact-hyperbolic-escape-boundary-with-square-root-critical-mo--7b5d143a6371/RESULT.md",
+          "material_read": "Finding, hypotheses and proof Steps 1–4",
+          "method": "Published repository mirror",
+          "title": "An exact hyperbolic escape boundary with square-root critical motion in a rational plane map",
+          "trigger": "Nearest same-map negative-feedback trichotomy and logarithmic critical correction"
+        },
+        {
+          "assessment": "Positive feedback, distinct mechanism",
+          "evidence": [
+            "Its speed is uniformly bounded away from zero in the off-line slice, excluding the critical mechanism addressed here under opposite sign."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-logarithmic-ballistic-scattering-and-a-uniform-velocity-gap-in-a--c216a2b82ab6",
+          "material_read": "Finding, sign hypotheses and proofs of positive velocity and logarithmic drift",
+          "method": "Published RESULT.md mirror",
+          "title": "Logarithmic ballistic scattering and a uniform velocity gap in a rational planar map",
+          "trigger": "Same equation and fixed line, with asymptotic logarithmic drift"
+        },
+        {
+          "assessment": "Forced positive-feedback case, distinct hypotheses and clock",
+          "evidence": [
+            "Assumes a,c,d>0 and uses cancellation at terminal -cx/d=1, yielding a 2/3 power rather than the unforced 1/2 law."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-unique-subballistic-separatrix-in-a-no-equilibrium-rational-plan--a68c4d4e0fdd",
+          "material_read": "Finding, assumptions and proof of critical power law",
+          "method": "Published RESULT.md mirror",
+          "title": "Unique subballistic separatrix in a no-equilibrium rational planar map",
+          "trigger": "Same family and critical basin boundary"
+        },
+        {
+          "assessment": "Primary family source; full-text claim comparison remains limited",
+          "evidence": [
+            "The bibliographic excerpt describes the new rational-map family and attractors; the complete same-family mathematical comparators explicitly identify it as their source. This access limit is not evidence that the paper omits a theorem."
+          ],
+          "identifier_or_url": "https://doi.org/10.1088/1674-1056/ac4025",
+          "material_read": "Indexed bibliographic/abstract excerpts only; independently retrieved full Eq. (1) and Case I were unavailable",
+          "method": "Public literature lookup and lawful open-text attempts",
+          "title": "A class of two-dimensional rational maps with self-excited and hidden attractors",
+          "trigger": "Original map and potentially overlapping equilibrium-line analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "On a natural fixed-line slice, the result classifies the two open phases and proves a critical escape for every nonnegative starting height. Linear stability of the fixed line cannot determine that global boundary. The controlled next-order term separates opposite signs of secular drift and identifies the exact coupling where the uncorrected squared-height clock converges. It is not a conjecture about arbitrary quadrants or about numerical shooting, and the proof does not rely on asserting a singleton critical set.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

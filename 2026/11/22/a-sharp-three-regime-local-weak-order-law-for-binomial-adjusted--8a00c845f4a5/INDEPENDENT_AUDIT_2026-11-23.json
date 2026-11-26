@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:03:58.905292Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed theta in [1/2,1), A=a0>0 and nonincreasing nonnegative rates, I recover both branch laws from Definition 3 of Scott–McCallum–Foster. At r_m=c_theta the ordinary branch adds zero jumps and the alternative binomial would retain all m jumps. Uniformization at rate A bounds exact-chain paths of three or more jumps by O(h^3); P>=3 has the same bound and the active second-stage rate is at most (1-theta)A. Write s=theta A, b0=(1-theta)A, b1=A(r1-c_theta)/(2 theta) when r1>=c_theta. In the ordinary branches the numerical mass at 0 is exp(-Ah), and the h^2 coefficient of the mass at 2 is b0^2/2+s b1+s^2/2=A a1/2; normalization and first-order mass give the exact coefficient at 1. Changing the P=1 outcome to Bernoulli thinning changes the first-order mass at 1 by s(p1-1), with opposite mass at 0. If P=1 is ordinary but P=2 thins, the h^2 perturbation is (s^2/2) times Binomial(2,p) minus unit mass at 2. The given indicator witnesses give strict nonzero coefficients in both unsafe regions. The safe boundary is inclusive, with theta=1/2 allowed and r=1 safe for all admissible theta. Sharpness is over bounded tests, not a claim for each individual test. The result is local from the specified state, not a global convergence claim. Reconstruct from RESULT.md lines 20–65 or the coefficients above. VERIFICATION.md and verify.py were inspected as evidence, not executed; the analytic argument supplies the uniform-in-h tail bounds and quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 of arXiv:2611.16975v1 supplies a general O(h) LTE bound in the degenerate-channel setting. Its proof in Appendix A uses propensity differences and a degenerate-channel generator, not a sharp expansion to the first active thinning event. The earlier Hu–Li–Min method uses the ordinary trapezoidal leap rather than the new conditional binomial replacement; full text was not accessible in the attempted retrieval."
+        ],
+        "reasoning": "An O(h) upper bound is compatible with every regime here; it neither proves a nonzero coefficient nor proves O(h^2) or O(h^3) under sharp ratio conditions. Ordinary-branch second-order consistency alone does not control the defect when thinning occurs.",
+        "searches": [
+          "Scott–McCallum–Foster arXiv:2611.16975v1, Sections II–IV and Appendix A",
+          "Hu–Li–Min DOI 10.1063/1.3609119; earlier trapezoidal tau leaping and weak second order"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.16975v1, Sections II–IV and Appendix A",
+        "Resultary: assigned ID 8a00c845f4a5 (self), non-self ID 2a23090a8b96",
+        "DOI 10.1063/1.3609119 (context only; full text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original branch condition specializes exactly to r_m>=c_theta. It specifies when thinning takes place but not the unconditional order. The indexed death result does not track a P=2 pure-birth thinning outcome."
+        ],
+        "reasoning": "The first nontrivial thinning at m=1 or m=2 affects a different order because the predictor event has probability of order h^m. One must match the ordinary transition kernel through h^2, compute the signed thinning perturbation, and show that it cannot cancel for all tests. Neither retrieved prior theorem removes those steps or supplies the resulting sharp frontier. Both prior and new local errors are expectations over random draws from a fixed state; novelty is not based on redefining that expectation.",
+        "searches": [
+          "arXiv:2611.16975v1 equations (3)–(7), Definition 3, Theorem 2 and Appendix A",
+          "2026/11/22/SCOPE-sharp-one-particle-survival-floor-and-inconsistent-zero-step-lim--2a23090a8b96/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first ID is the assigned record itself. The second RESULT.md, offsets 0–3352 and 5400–7361, treats one-particle linear death and computes its exact one-step survival and incorrect refined-step limit."
+        ],
+        "reasoning": "There is real overlap in the algorithm and the detection of first-order errors from thinning, but the death record stops at one molecule and does not provide the pure-birth behavior at predictor count two. It does not yield the trichotomy by replacing an observable or renaming the rates. A shared date is not evidence of priority.",
+        "searches": [
+          "Resultary: BθTTLe initial propensity ratios and local weak order; degeneracy and weak consistency",
+          "2026/11/22/SCOPE-a-sharp-three-regime-local-weak-order-law-for-binomial-adjusted--8a00c845f4a5",
+          "2026/11/22/SCOPE-sharp-one-particle-survival-floor-and-inconsistent-zero-step-lim--2a23090a8b96"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected indexed non-self result gives a survival formula/floor for the death process, not a table of local weak coefficients. The primary source gives the algorithm and bound, not an exact parameter-region table."
+        ],
+        "reasoning": "The index was checked for an analytic table or equivalent statement of the ratios. A numerical example of local error, even at the same theta, cannot establish necessity and sufficiency over all admissible rates and tests. No specialized exact lookup table is identified for this continuous-parameter law.",
+        "searches": [
+          "Resultary target and related record IDs above",
+          "Exact-title/local-order lookup for Scott–McCallum–Foster, arXiv:2611.16975v1; Definition 3, Theorem 2 and Appendix A"
+        ]
+      },
+      "rationale": "Credit the sampling algorithm, earlier weak second-order framework and generic O(h) local error bound to the literature. The supported distinct claim is the sharp unconditional three-regime classification for a bounded nonincreasing pure-birth channel, including explicit defect coefficients and the necessary-and-sufficient second-order boundary. Neither the original article's expansion and bound nor the inspected related same-day record states or mechanically implies this classification. This is a best-of-knowledge comparison, not a claim of historical priority over the distinct same-day result.",
+      "residual_risks": [
+        "An unindexed or algebraically equivalent sharp classification may exist. Hu–Li–Min's original full text was not inspected. The same-day indexed overlap does not establish priority. A deferred or empty lookup is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the algorithm and generic upper bound, not the sharp ratio classification",
+          "evidence": "Definition 3 selects the Poisson branch at nonnegative extrapolated rate, including zero; Appendix A gives a bound in terms of propensity variation, not sharp pure-birth coefficients.",
+          "identifier_or_url": "https://arxiv.org/html/2611.16975v1",
+          "material_read": "Sections II–III equations (3)–(7) and Definition 3, HTML offsets 9000–16500; Section IV Theorem 2, 17500–22354; Appendix A, especially 36700–42687",
+          "method": "Bounded passages of the open original HTML",
+          "title": "A binomial-adjusted θ-trapezoidal tau-leaping method for chemical kinetic systems",
+          "trigger": "Exact original algorithm and strongest existing general local-error theorem"
+        },
+        {
+          "assessment": "Partial overlap, not equivalent; no temporal ordering inferred",
+          "evidence": "Exact survival and erroneous zero-step limit are for linear death from one particle, not bounded pure birth or the second predictor-ratio boundary.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-one-particle-survival-floor-and-inconsistent-zero-step-lim--2a23090a8b96",
+          "material_read": "RESULT.md offsets 0–3352 and 5400–7361, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Indexed open mirror passages",
+          "title": "Sharp one-particle survival floor and inconsistent zero-step limit",
+          "trigger": "Related indexed same-day claim for the exact same algorithm and degeneracy mechanism"
+        },
+        {
+          "assessment": "Full proof not assessed",
+          "evidence": "The accessible article identifies the antecedent as the ordinary θ-trapezoidal leap; the binomial adjustment belongs to the later method.",
+          "identifier_or_url": "https://doi.org/10.1063/1.3609119",
+          "material_read": "Citation and discussion of this antecedent in Scott–McCallum–Foster; full text not inspected",
+          "method": "Primary contextual attribution; attempted open retrieval returned HTTP 403",
+          "title": "A weak second order tau-leaping method for chemical kinetic systems",
+          "trigger": "Earlier weak second-order trapezoidal method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The positivity adjustment changes the generator already at order h in one explicit region and preserves generator consistency but loses order two in another. Exact ratio cutoffs, including when no choice of theta can restore consistency, are useful for choosing or diagnosing the method even in this deliberately simple channel. The sharp witnesses and the transition driven by predictor count two add information beyond a generic local upper bound. No network-wide or global-order conclusion is needed or credited.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:00:09.697312Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The nonzero factorizations uv^T with v^Tu=0 have free scalar orbits of size q−1 and all belong to one Jordan class. Fix X=e_1 e_2^T and set a=s_2, b=t_1 for Y=st^T. Then [X,Y]=a e_1 t^T−b s e_2^T and tr(XY)=ab. No nonzero contraction gives rank zero, exactly one gives rank one and square zero, and two give rank two by independence of the two image vectors and two covectors. In the last case span(e_1,s) carries eigenvalues ab,−ab and the two covectors' common kernel complements it, even when the eigenvalues coincide in characteristic two. For fixed a≠0, imposing t_1 and t^Ts=0 imposes two independent scalar conditions, so the count with fixed nonzero ab is q^(2n−3); with b=0 it is q^(n−1)(q^(n−2)−1). The other one-sided count follows by transpose and swapping coordinates 1 and 2. Subtraction from the full class size gives the zero count. The sandwich identities give [C,X]=2ab X and [C,Y]=−2ab Y. If ab≠0, on span(e_1,s) the two generators have opposite off-diagonal entries and C is nonzero diagonal, so they are independent even in characteristic two. In the one-sided case C shares one image or covector line with X and the other with Y; using the distinct lines gives independence. Therefore the span is the stated three-dimensional Lie algebra whenever C≠0; the commuting case reduces to the scalar-multiple test. Normalizing by the full class size gives the stated limits. Independent replay `python3 -B /workspace/review_checks.py 5` enumerated the ambient matrices for (q,n)=(2,2),(3,2),(5,2),(2,3),(3,3), checking rank, trace, eigenspace sizes and Lie span against the proof. The trace in the finding is tr(XY), not the trace of C, which is always zero.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The stronger 9ca4dfd9ead7 theorem allows arbitrary fixed nilpotent J in n>=3 and arbitrary characteristic. With J rank-one square-zero, b=n−1, d=n, c=n−2 and A=0, B=q^(2n−3). The second moment is identically zero. In §3, a commutator has rank one exactly when one of the two mixed actions vanishes; the rank-one total U specializes to 2q^(n−1)(q^(n−2)−1), with no remaining rank-two zero-moment cases.",
+          "Britnell–Wildon compare existence of commuting representatives of similarity types. Chistopolskaya studies existence of nilpotent Lie generators over infinite fields of characteristic different from two."
+        ],
+        "reasoning": "The same-day theorem covers the full rank/trace component by substitution, not just a few matching parameters. The existence theorems do not give these pair counts. The general indexed theorem does not claim a Lie-algebra census, so the implication for that part is checked separately.",
+        "searches": [
+          "Resultary: fixed nilpotent and rank-one square-zero commutator moment/similarity distribution; 9ca4dfd9ead7",
+          "arXiv:1001.0811 Theorem 4.10",
+          "arXiv:1804.09457 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9ca4dfd9ead7",
+        "Resultary ad422a937f4d (later comparison)",
+        "arXiv:0705.2332v4",
+        "arXiv:1001.0811",
+        "arXiv:1804.09457"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In odd characteristic, applying the two-transvection cases to the rank census gives the Lie counts directly, including M times the rank-two fiber for ordered pairs generating split sl2.",
+          "In characteristic two, for any two square-zero matrices, [X,[X,Y]]=[Y,[X,Y]]=0 by expanding the double brackets. If C≠0, it cannot lie in span(X,Y): taking brackets of such a relation with X and Y would force both coefficients to vanish. Hence every noncommuting pair generates the same three-dimensional Heisenberg algebra, so the entire even-field census reads off the commuting count plus the q−1 scalar multiples."
+        ],
+        "reasoning": "The characteristic-two result is correct and is not a statement of the odd-characteristic literature, but it is an immediate general matrix identity plus the overlapping rank census, not an independent finite-field counting invariant. The asymptotics and n=2 boundary similarly offer no distinct claim here.",
+        "searches": [
+          "9ca4dfd9ead7 RESULT.md Finding and proof step 3",
+          "arXiv:0705.2332v4 §§1.2, 6, Lemma 6.5",
+          "frozen RESULT.md:31–45"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the primary text of arXiv:0705.2332v4, Lemma 6.5 classifies the Lie algebra of two infinitesimal transvections by the incidences of their image lines and kernel hyperplanes, including the one-dimensional, two-dimensional, Heisenberg and sl2 cases.",
+          "A nonzero rank-one square-zero matrix is exactly an infinitesimal transvection: image in its own kernel. The two mixed incidence tests are precisely a=0 and b=0 in the frozen notation."
+        ],
+        "reasoning": "For odd characteristic the older geometry gives the same pairwise classification after scalar extension. Dimension and zero-bracket tests descend, and for ab≠0 the two image vectors form a basis exhibiting opposite off-diagonal generators with nonzero entries over the original field, giving the split sl2 form, not merely a geometric form. The older source excludes characteristic two and does not count the finite-field incidences.",
+        "searches": [
+          "two extremal elements generate Heisenberg sl2 Lie algebra characteristic 2 rank one nilpotent Cohen Ivanyos sandwich finite field trace pairs distribution",
+          "Lie algebras generated by extremal elements, Steinbach, Ushirobira",
+          "arXiv:0705.2332v4 Lemma 6.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026-11-02 record 9ca4dfd9ead7 explicitly tabulates the moment-refined similarity types; its formulas give precisely the target rank counts, nonzero traces and characteristic-two eigenvalue behavior for n>=3.",
+          "The 2026-11-08 record ad422a937f4d is a later stronger comparison for prescribed commutator fibers, not evidence of prior priority."
+        ],
+        "reasoning": "The indexed overlap is checked algebraically, independent of unresolved same-day posting order. A later prescribed-fiber result cannot prove the frozen work lacked priority. The 2-by-2 boundary is not covered by 9ca4dfd9ead7; here Y has entries (u,v;w,−u) and square zero iff u²+vw=0, so w≠0 gives exactly q options for each w, and w=0 leaves only scalar multiples of X.",
+        "searches": [
+          "Resultary minimal nilpotent finite-field pair commutator census and Lie generation, hits 9ca4dfd9ead7 and ad422a937f4d"
+        ]
+      },
+      "rationale": "The rank, trace and similarity census for n>=3 is already covered mathematically by an independently indexed, stronger same-day Resultary theorem. The relative posting order of the same-day records is not established. The qualitative odd-characteristic Lie classification also has explicit antecedent coverage in the infinitesimal-transvection literature over algebraically closed fields, with split descent here. Combining that comparison with the rank distribution and the elementary square-zero identity in characteristic two leaves no scientifically distinct exact invariant in the submitted conjunction. This is a failure to establish distinct originality on the combined evidence, not a claim that the entire text or even its exact numerical conjunction appeared in a single earlier-dated paper.",
+      "residual_risks": [
+        "Relative priority of the same-day records was not established.",
+        "Cheng–Liang (DOI 10.13001/ela.2020.4955) full-text retrieval was unsuccessful; the Guralnick and Neubauer primary texts were not inspected. The scientific decision rests on demonstrated coverage and implications from inspected statements, not on access failures."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the entire rank/trace/similarity part for n>=3; no Lie census stated; same-day priority unresolved",
+          "evidence": "In the square-zero fixed orbit, A=0 and s=0. Items 1–2 give the nonzero-trace eigenvalues and multiplicities; step 3 gives the zero- and one-sided splits, with V=0 in this specialization.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-first-two-nullity-control-of-rank-one-nilpotent-commutator-spect--9ca4dfd9ead7/RESULT.md",
+          "material_read": "Mirrored Finding, assumptions and proof steps 1–3, offsets 0–5625",
+          "method": "Specialized the joint-moment and similarity formulas to the minimal fixed orbit",
+          "title": "First-two-nullity control of rank-one nilpotent commutator spectra",
+          "trigger": "Broader same-day theorem for the same moving nilpotent orbit"
+        },
+        {
+          "assessment": "Explicit qualitative coverage in odd characteristic over an algebraically closed base field; no finite counts or characteristic two",
+          "evidence": "Lemma 6.5 distinguishes proportional and commuting pairs, one mixed incidence giving Heisenberg, and neither giving sl2. §1.2 excludes characteristic two.",
+          "identifier_or_url": "https://arxiv.org/pdf/0705.2332",
+          "material_read": "v4 pp. 2, 14–15: §1.2 conventions near offset 7426 and Lemmas 6.2–6.5 at offsets 56630–58864",
+          "method": "Read the primary definitions and exact incidence cases; compared characteristics and checked split descent",
+          "title": "Extremal Presentations for Classical Lie Algebras",
+          "trigger": "Infinitesimal transvection or extremal-element formulations of two-generator Lie classification"
+        },
+        {
+          "assessment": "Later, finer bracket-fiber result; not used as prior art",
+          "evidence": "Prescribed commutator counts for zero, rank-one square-zero, and rank-two split semisimple targets; no generated-algebra classification asserted.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-lie-bracket-fibers-of-the-minimal-nonzero-nilpotent-orbit--ad422a937f4d",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Compared target fibers, generated Lie algebras and date",
+          "title": "Exact Lie-bracket fibers of the minimal nonzero nilpotent orbit",
+          "trigger": "Same orbit and exact ordered-pair bracket counts"
+        },
+        {
+          "assessment": "Does not give the exact pairwise census in the inspected statements",
+          "evidence": "Theorem 4.10 concerns existence of commuting representatives for certain nilpotent classes with at most two partition parts.",
+          "identifier_or_url": "https://arxiv.org/abs/1001.0811",
+          "material_read": "p. 1 and Theorem 4.10, p. 30, near offset 78407",
+          "method": "Compared class-existence and fixed-partner counting statements",
+          "title": "On types and classes of commuting matrices over finite fields",
+          "trigger": "Possible broader finite-field commuting count"
+        },
+        {
+          "assessment": "Different existence problem",
+          "evidence": "Over an infinite field of characteristic not two, finds a nilpotent partner generating sl_n; it does not prescribe partner rank one or count pairs.",
+          "identifier_or_url": "https://arxiv.org/abs/1804.09457",
+          "material_read": "p. 1, Theorem 1 at offset 0",
+          "method": "Checked the field, rank restrictions and quantifiers",
+          "title": "On nilpotent generators of the Lie algebra sl_n",
+          "trigger": "Potential broader nilpotent-generation theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The orbit and joint invariant are natural, but after removing the rank-and-trace census covered by the stronger indexed theorem and the known two-transvection Lie cases, the remaining characteristic-two count is the same commuting census relabeled by an immediate double-bracket identity. The direct 2-by-2 boundary and asymptotic division do not independently supply a useful new invariant. No distinct valuable claim suitable for repair was established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

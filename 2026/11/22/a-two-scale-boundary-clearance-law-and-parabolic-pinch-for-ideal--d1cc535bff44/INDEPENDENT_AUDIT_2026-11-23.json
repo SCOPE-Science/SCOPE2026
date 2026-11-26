@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:49:13.810420Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The hyperboloid signed distance to the lines x=±c, y=±s gives the stated minimum after division by sqrt(1-x^2-y^2); these lines intersect the disk in the complete ideal sides. The Klein area density and total area 2π give the normalization. For an independent localization check, in the first quadrant let α=c-x, β=s-y and τ=min(α/s,β/c). The squared disk factor is α(2c-α)+β(2s-β), increasing separately on the allowed coordinate intervals. It is at least 4csτ-τ² with equality on α=sτ, β=cτ. Thus sinh(clearance)≤sqrt(τ/(4cs-τ)), increasing up to τ=s/c. This recovers the maximizing centers and radius, and the same bound tends uniformly to zero at the moving ideal corners when c is near the square. At a fixed right maximizer, the first-order inequalities for the displacements X,y give X≤U h+O(h²+X²+y²) and |y|≤2cs h+[c(2c²-1)/(s(4c²-1))]X+O(h²+X²+y²), with positive X coefficient in the latter. They imply |X|+|y|=O(h) by absorption after localization. The triangle has area s³(4c²-1)³/[c³(2c²-1)], and multiplying by the local area factor [1-x_*²]^(-3/2), two lobes, and 1/(2π) gives the fixed nonsquare coefficient. The square gives |x|,|y|=O(h) and the stated unit-half-width square. In the drifting shape, δ=sqrt(h) and the exact inequalities imply |x|=O(δ+x²+y²), |y|=O(δ²+x²+y²); first absorb in the sum, then apply its O(δ) bound to the second to get the anisotropic localization. The vertical-side first-order constraint is |u|≤2sqrt(2)λ, and the horizontal-side second-order constraint is |v|≤1+u²/(2sqrt(2))-2sqrt(2)λ². On bounded transformed supports, the constraint boundaries have measure zero and the area density converges uniformly; after removing the coordinate Jacobian and constant area normalization, dominated convergence and division by the limiting area give TV, not just weak convergence. Integrating twice the positive height yields the given area, the pinch at λ=2^(-3/4), and the 1/λ large-λ asymptotic. This is not a uniform two-parameter result. I inspected VERIFICATION.md and the SciPy quadrature artifact; integration of the Klein density there is a finite diagnostic and the argument here does not rely on its local integration windows or a script execution.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "4d5a27e5da32 gives the full distance CDF for every regular ideal n-gon. 1d7379fbdbb6 gives small-clearance asymptotics for ideal polygons and a full ideal-triangle CDF, which includes a quadratic upper tail for the triangle.",
+          "The inspected Gallego–Solanes opening treats expanding convex sets and asymptotic ratios, not the inward near-terminal erosion here."
+        ],
+        "reasoning": "The full regular-family CDF is broader in side count and stronger in the scalar threshold but only for regular shapes. Neither regular polygons nor the triangle reach nonsquare quadrilaterals or the specific near-square deformation. General ideal-polygon small-clearance theory pertains to the other end of the distribution.",
+        "searches": [
+          "Resultary 4d5a27e5da32 (clearance law for regular ideal polygons)",
+          "Resultary 1d7379fbdbb6 (boundary-distance law)",
+          "Primary inner-parallel area search; Gallego–Solanes author OA text"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 94e6734758c9",
+        "Resultary 1d7379fbdbb6",
+        "Resultary 4d5a27e5da32",
+        "Gallego–Solanes (2001), author OA p. 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Regular-polygon inward offsets all share a central radial symmetry, and its TV result is between scalar laws as side count changes. The nonregular family instead has two distinct maximizing centers and a shape drift that changes the active constraints. The triangle and regular-square scalar upper tails are covered; neither supplies the nonregular deformation law."
+        ],
+        "reasoning": "The known geometry is an input, not a derivation of the anisotropic O(sqrt(h)) by O(h) localization and its changing support. The area integration and conditional convergence require this new shape analysis.",
+        "searches": [
+          "94e6734758c9, Finding and Proof",
+          "4d5a27e5da32, Finding and Hyperbolic side coordinates",
+          "1d7379fbdbb6, Finding and Limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The probability is the area of an inner-parallel superlevel set divided by 2π. 94e6734758c9 identifies its terminal radius and the entire maximizing set with exactly the same rectangle coordinates."
+        ],
+        "reasoning": "Terminal radius and maximizer count alone do not give the local area prefactors, conditional shapes, or the parabolic merging profile. The formulation as erosion was included in the comparison.",
+        "searches": [
+          "Resultary: ideal hyperbolic polygon inner parallel area / erosion / boundary clearance",
+          "Resultary 94e6734758c9 (two-inball symmetry breaking)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Putting n=4 and ρ=arsinh(1) into its exact density gives f_4(ρ-h)~4h/π, hence the exact same 2h²/π coefficient after integration. The indexed two-inball record already gives the coordinate maxima exactly."
+        ],
+        "reasoning": "This is actual exact coverage of the square scalar law, not just a related title or a numerical coincidence. No separate inspected catalogue entry supplied the nonregular coefficients or the critical area function.",
+        "searches": [
+          "Resultary: ideal quadrilateral clearance tail near its inradius",
+          "Resultary 4d5a27e5da32, Finding, specialize n=4"
+        ]
+      },
+      "rationale": "The distinct contribution is the nonsquare upper tail and anisotropic near-square spatial law with its explicit area profile and pinch. The inradius and maximizing centers are existing coverage, as is the scalar square coefficient under the separately indexed complete regular-polygon law. The square is a benchmark, not a distinct originality finding. The same-day catalogue dates are not evidence of priority in either direction.",
+      "residual_risks": [
+        "A specialized general formula for inner parallel area through changes of contact geometry could furnish additional implication; the bounded primary search did not establish or exclude such a formula.",
+        "No independent historical ordering was established for the same-day regular-polygon record. Square scalar coverage is credited regardless of ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of geometric input, not the upper tail",
+          "evidence": "Finding gives arsinh(1/sqrt(4c²-1)) and centers (±(c²-s²)/c,0), with a unique square center.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-two-inball-symmetry-breaking-theorem-for-ideal-hyperbolic-quad--94e6734758c9/RESULT.md",
+          "material_read": "Finding and Proof, opening mirror passage",
+          "method": "Bounded local mirror reading, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A two-inball symmetry breaking theorem for ideal hyperbolic quadrilaterals",
+          "trigger": "Identical shape model and maximal disks"
+        },
+        {
+          "assessment": "Ideal-polygon lower tail and exact ideal-triangle distribution; distinct from nonregular quadrilateral upper tail",
+          "evidence": "The triangle case also gives upper tail (3sqrt(3)/π)h²; Limitations restricts its complete CDF to triangles.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-logarithmic-boundary-distance-law-and-a-renormalized-shape-i--1d7379fbdbb6/RESULT.md",
+          "material_read": "Finding at offset 0 and Limitations at offset 9200",
+          "method": "Bounded local mirror reading",
+          "title": "The logarithmic boundary-distance law and a renormalized shape invariant for ideal hyperbolic polygons",
+          "trigger": "Same observable on the broader family of ideal polygons"
+        },
+        {
+          "assessment": "Covers the square probability coefficient exactly; does not cover nonsquare or critical deformation",
+          "evidence": "f_n(t)=2n cosh(t) log(cos(π/n)coth(t))/((n-2)π) for regular ideal polygons. Its TV compares scalar distance laws, not conditioned spatial blow-ups.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-boundary-clearance-law-and-a-sharp-side-count-limit-for-re--4d5a27e5da32/RESULT.md",
+          "material_read": "Finding, scope and hyperbolic side-coordinate proof opening, offsets 0–4325",
+          "method": "Bounded local mirror reading, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact boundary-clearance law and a sharp side-count limit for regular ideal hyperbolic polygons",
+          "trigger": "Strongest exact same-observable match; square is regular n=4"
+        },
+        {
+          "assessment": "Inspected passage addresses a different area/perimeter asymptotic; not a whole-document exclusion",
+          "evidence": "Opening describes ratios for expanding hyperbolic convex sets, not upper clearance or degeneration near a square.",
+          "identifier_or_url": "Gallego–Solanes (2001), author-hosted OA PDF",
+          "material_read": "p. 1, OA offset 0",
+          "method": "Bounded lawful author-hosted PDF reading",
+          "title": "Perimeter, Diameter and Area of Convex Sets in the Hyperbolic Plane",
+          "trigger": "Possible general hyperbolic parallel-area result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The divergent fixed-nonsquare coefficient poses a concrete nonuniformity question when the two maximizing disks merge. The crossover scale resolves it with an explicit probability constant and the full conditional spatial law. Its pinch and nonanalytic area turn a symmetry-breaking statement about maximizers into a quantitative statement about neighborhoods of near-maximizers. The square probability alone is not the basis for this value judgment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

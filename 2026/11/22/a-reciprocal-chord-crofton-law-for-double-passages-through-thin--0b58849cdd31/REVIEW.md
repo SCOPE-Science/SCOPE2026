@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof uses the exact pushforward of invariant affine-line measure to viewing directions and perpendicular offsets. Its key local lens has overlap \(r(2-v\ell)_+\); uniform curvature bounds control the negligible grazing and steep-angle regions, allowing dominated convergence and the normalized conditional law. Cauchy's averaged projected arc length gives the all-hit denominator. Direct integration verifies the ellipse formula, and seeded numerical experiments corroborate the circular finite-radius case. Limits: fixed \(C^3\) positively curved oval, \(r\to0\), no uniformity in shape.
+## correctness
 
-**Originality — PASS (historical priority provisional).** Searches for Crofton double traversals, thin spatial tubes, reciprocal chord integrals, torus four-intersection lines, and conditional orientation laws returned nearby but distinct references. Slepian covers convex projection averages; Egan notes multiple torus ray crossings without this probability law; the published published-finding corpus torus-shadow result treats planar shadow topology; Finch considers slicing planes. None of the inspected propositions implies the full general marked thin-tube law. Residual risk: older unindexed stereology may contain equivalent integral identities.
+PASS
 
-**Value — PASS.** Multiple crossings are the natural obstruction to applying convex-body Cauchy–Crofton intuition to nonconvex thin tubes. The leading double-hit constant is a nonstandard, finite reciprocal-chord functional, and the marked law predicts systematic rare-event viewing biases. In the ellipse family the bias enables aspect-ratio reconstruction from viewing directions alone, beyond simply computing a scalar coefficient.
+For the corrected files in /workspace/repairs/3. The frozen Step 3 assumes an exact 2r slice-width upper bound for oblique projected bands (false for a sloping band), gives no uniform control at or just outside planar support, and gives no argument that excludes multiple passages from one branch at the inclinations used in its tail estimate. The blanket component-count sentence in its scope is not needed and is omitted. The corrected signed-distance proof resolves these issues: along a line the material criterion is g(q)=f(q)^2+(h+m q)^2<=r^2. For m>=A sqrt(r), any two hits bound an interval of length <=2r/m; bounded signed-distance Hessian gives |f|<=r+O((r/m)^2) throughout and g''>0, excluding multiple passages. At offsets within O(r) of either support, hit q varies within O(sqrt(r)) of the support point; the multiple-hit inclination cutoff gives allowed orthogonal offset width O(r) and measure O(r^(5/2)), including exterior offsets. At support distance delta>D r, the two planar band intervals are separated by at least c sqrt(delta), |f'|>=c' sqrt(delta) on both, and g is strictly convex within each. Thus multiple hits have exactly two components outside the strips and require mu<=C r/sqrt(delta) and s-width O(r). These yield boundary loss O(sqrt(eta)+sqrt(r)) and inclination tail O(1/M)+O(sqrt(r)) after scaling by r^-2. On compact interior subsets the offset overlap is trapped between intersections of corresponding intervals with half-widths alpha r and alpha r+O(r^2); the centers are exactly rv ell apart. This proves the marked limit and its mass J(K), including negligible higher multiplicity. For all hits the projected convex-curve tube area divided by r is dominated uniformly by the planar parallel-area bound; averaging projected tangent lengths gives pi L/2. The ellipse law follows by completing the quadratic and integrating a beta density. The frozen script was read, not run; it samples radii 0.2 and 0.5 and does not reproduce the stated 0.05 numerical benchmark, so that extraneous benchmark was not carried into the repair.
 
-**Closest literature and limitations.** Slepian (2011), Egan (2021–2022), Finch (2026), and the published published-finding corpus torus-shadow theorem (2026). No claims are made about arbitrary nonsmooth cores, finite-radius exact formulas, or independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical invariant projection formulas and a qualitative four-crossing observation are prior, as are circular central-line and torus-shadow results. No inspected prior passage established the general arbitrary-oval offset-dependent thin-limit coefficient or marked law for invariant affine lines, which are unchanged by the proof repair.
+
+## value
+
+PASS
+
+The repaired theorem quantifies a natural rare multiplicity event and identifies a geometrically nontrivial reciprocal-chord weighting, not a usual mean chord law. The joint law retains enough directional information to identify an ellipse's aspect ratio and axes, and the boundary estimates distinguish exactly two components from merely two candidate encounters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

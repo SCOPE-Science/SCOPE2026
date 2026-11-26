@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:10:16.748170Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen proof does not justify its strict-base claim: 1+√3>3 is false. The replacement RESULT.md proves instead θ<3/4−(3/4)^3/3+(3/4)^5/5=3363/5120<2/3 by integrating the exact alternating decomposition of 1/(1+s²). Since √3>5/3, this gives 4θ<8/3<1+√3, keeping the original statement and parameter scope. Rechecked the repaired proof: shortest-path molecules reduce to edge roots; a product of two Hilbert–Schmidt operators yields the cyclic trace, with trace-square value 3. On x∈(0,1), λ f'(x)=−f(x−1) implies f''=−λ⁻²f; reflection and the endpoint equations give cos(1/λ)=4/5, sin(1/λ)=3/5 for even functions, sin(1/λ)=1 for odd ones. The converse identities at x=1 and the differentiated equation ensure no spurious roots, and both disjoint branches are simple. Signed powers are absolutely summable for m≥2. Cotangent subtraction gives the claimed generating function. The primary primal formula uses lattice-normalized volume, so divide by m! in the anchored basis; the square-summable subleading spectrum gives the relative asymptotic. A separate exact cube-order-simplex count gave m!W_m=24, 144, 1100, 10188, 110516 for m=3–7 (/workspace/branches/independent_checks.js). A separate recovered Ehrhart leading-coefficient check for m=3–6 agrees (direct_wheel_volume_check.py and multi_check.txt under /workspace/branches/a27ab2d7-6f37-481a-8c03-b9655717902f/). These checks are finite; the all-dimension result rests on the spectral proof. The uploaded verifier's reported checks were read, not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Poset Lipschitz polytopes use directed inequalities 0≤f(b)−f(a)≤1, not the symmetric cyclic constraints. The general finite-metric results include a four-point theorem, not a wheel evaluation. Proposition 5.1 gives a correspondence with polar lattice points/cuts, not an evaluated cycle trace or spectrum."
+        ],
+        "reasoning": "These frameworks identify or relate polytopes or counts; they do not give the closed wheel trace formula as a stated evaluation. The constraints and normalization must match before any volume formula transfers.",
+        "searches": [
+          "Sanyal–Stump, Lipschitz Polytopes of Posets and Permutation Statistics, p. 1",
+          "Alexander–Fradelizi–García-Lirola–Zvavitch, arXiv:1911.10642, Theorem 5.14",
+          "D’Alì–Juhnke-Kubitzke–Koch, arXiv:2307.04933, Proposition 5.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4165cc2a1f44, a1cf1bcec8eb and 39d62ea47ea0",
+        "arXiv:1910.05193, 1911.10642 and 2307.04933; Sanyal–Stump",
+        "Frozen RESULT.md, VERIFICATION.md and verify.py; repaired RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fan even-trace term has the same leading pole as the wheel, but the fan resolvent projects away the odd subspace. The cited primal theorem gives A_m exactly; it does not determine the wheel Lip polar volume."
+        ],
+        "reasoning": "The even pole plus primal asymptotics suggest the exponential base, but a wheel result requires ruling out competing spectral terms and incorporating the missing branch for the exact invariant. The wheel's full formula is not a reindexing of the fan one.",
+        "searches": [
+          "Resultary: wheel Mahler growth and alternating spectral volumes for wheels, fans and squared paths",
+          "Fan 4165cc2a1f44, generating-function and pole-expansion proof, offset 2150–5427",
+          "arXiv:1910.05193, §§2.1, 4.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fan record states V_n=(4/5)∑_k (α+2πk)^−(n+1), α=2 arctan(1/3)=θ, and derives it from ⟨1,K^(n−1)1⟩ with an even resolvent. Thus (5/4)V_(m−1) is exactly the wheel even-lattice sum."
+        ],
+        "reasoning": "The constant probe is orthogonal to every odd eigenfunction. The π/2+2πk branch is absent from the fan formula; the closed chain sees it even though both objects have the same leading pole. No same-day ordering or priority assumption is needed.",
+        "searches": [
+          "Resultary: wheel Lipschitz dual volumes, cycle trace, and indicator-kernel spectrum",
+          "Resultary 4165cc2a1f44, §§1–2 of proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Theorem 4.24 supplies the exact normalized primal wheel sequence. a1cf1bcec8eb evaluates primal and dual volumes for weighted cycles, not wheels with a hub. 39d62ea47ea0 computes a Löwner ellipsoid for the wheel primal, not its polar volumes."
+        ],
+        "reasoning": "The primal sequence is already known and reused with attribution. Neither weighted-cycle tables nor ellipsoid parameters are the exact hub-anchored polar volume sequence. No exact prior all-wheel polar table or formula was identified in the inspected material.",
+        "searches": [
+          "Resultary: polar wheel volumes 4, 6, 55/6, 283/20 and Mahler product",
+          "Resultary a1cf1bcec8eb and 39d62ea47ea0, original statements",
+          "D’Alì–Delucchi–Michałek, arXiv:1910.05193, Theorem 4.24"
+        ]
+      },
+      "rationale": "The repaired statement is unchanged. The same-day fan calculation materially overlaps: it uses precisely the same kernel and gives exactly the wheel's even reciprocal lattice (the even trace contribution is 5/4 times the fan volume one dimension lower). It does not include the odd lattice, which contributes to the wheel trace and changes its exact volumes and generating function. The leading even pole and growth constant already occur for fans, and the primal wheel volume is known. The supported contribution is the closed-chain trace incorporating both parities, and hence the exact wheel-polar and wheel-product law, not the kernel, even poles, or primal formula in isolation.",
+      "residual_risks": [
+        "An equivalent full spectrum under another transfer-operator name, or a previously evaluated cyclic lattice-point enumeration, may exist. Search results are not evidence of absence. The known even poles and the same-day material overlap are not claimed as independently new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves the equivalent even-lattice contribution for the open chain, not the odd branch or closed-chain trace",
+          "evidence": "V_n=⟨1,K^(n−1)1⟩=(4/5)∑_k (2 arctan(1/3)+2πk)^−(n+1); reflection makes the resolvent explicitly even.",
+          "identifier_or_url": "Resultary 4165cc2a1f44 (2026-10-18)",
+          "material_read": "RESULT.md, Finding and proof §§1–2 at offsets 2150–5427",
+          "method": "Lawful local mirror text",
+          "title": "Exact fan-graph Lipschitz dual volumes and alternating spectral ratios",
+          "trigger": "Strongest same-day match: exact same transfer kernel and pole parameter"
+        },
+        {
+          "assessment": "Different metric family, not the hubbed cycle",
+          "evidence": "Exact primal and dual formulas for weighted cycle metrics rather than the additional spoke constraints of the wheel.",
+          "identifier_or_url": "Resultary a1cf1bcec8eb (2026-10-18)",
+          "material_read": "RESULT.md, Finding",
+          "method": "Lawful local mirror text",
+          "title": "Exact Mahler volumes of arbitrary weighted cycle Lipschitz-free spaces",
+          "trigger": "Possible exact polar volume formula by interpreting a wheel as a cycle"
+        },
+        {
+          "assessment": "Same graph but different invariant",
+          "evidence": "Computes a primal Löwner ellipsoid, not the wheel's polar volume sequence.",
+          "identifier_or_url": "Resultary 39d62ea47ea0 (2026-10-11)",
+          "material_read": "RESULT.md, Finding",
+          "method": "Lawful local mirror text",
+          "title": "The exact Löwner ellipsoid and exponential edge-weight stabilization",
+          "trigger": "Earlier exact invariant of the same wheel primal"
+        },
+        {
+          "assessment": "Exact prior primal volume with normalized lattice convention; verified prerequisite",
+          "evidence": "The signed edge-root hull for K₁*C_m has normalized volume (1+√3)^m+(1−√3)^m for odd m, minus 2 for even m.",
+          "identifier_or_url": "arXiv:1910.05193",
+          "material_read": "§2.1, p. 3 offset near 6300; p. 7 offset near 25000; §4.3 Theorem 4.24, pp. 26–27 offsets near 92500–96380",
+          "method": "Lawful OA PDF passages",
+          "title": "Many faces of symmetric edge polytopes",
+          "trigger": "Primary prerequisite and possible coverage of wheel volumes"
+        },
+        {
+          "assessment": "Different constraint system; no wheel formula established by the inspected passage",
+          "evidence": "On a directed cover a<b the allowed difference satisfies 0≤f(b)−f(a)≤1.",
+          "identifier_or_url": "Sanyal–Stump, Lipschitz Polytopes of Posets and Permutation Statistics",
+          "material_read": "Definition and directed inequalities, p. 1, offset near 3650",
+          "method": "Lawful OA passages",
+          "title": "Lipschitz Polytopes of Posets and Permutation Statistics",
+          "trigger": "Possible equivalent order-polytope evaluation"
+        },
+        {
+          "assessment": "Related framework, not this all-dimension evaluation",
+          "evidence": "Four-point volume product result; does not evaluate all unit wheels.",
+          "identifier_or_url": "arXiv:1911.10642",
+          "material_read": "Theorem 5.14, p. 19, offset near 95850",
+          "method": "Lawful OA passages",
+          "title": "Geometry and volume product of finite dimensional Lipschitz-free spaces",
+          "trigger": "Primary volume-product framework and small metric spaces"
+        },
+        {
+          "assessment": "Generic combinatorial correspondence, not the spectral evaluation",
+          "evidence": "Polar lattice points correspond to the specified cut data; no wheel-polar formula follows without evaluation.",
+          "identifier_or_url": "arXiv:2307.04933",
+          "material_read": "Proposition 5.1, p. 13, offset near 44900",
+          "method": "Lawful OA passages",
+          "title": "On a generalization of symmetric edge polytopes to regular matroids",
+          "trigger": "Potential exact evaluations from polar lattice-point methods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repair preserves an exact invariant for a natural family in every dimension, not just a tiny-instance gain. Closing the chain exposes the odd part invisible in the open-chain volume, and the exact dual volumes with the known primal sequence quantify exponential separation from the Hanner scale. The base is proved strictly greater than one without reliance on rounded numerics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

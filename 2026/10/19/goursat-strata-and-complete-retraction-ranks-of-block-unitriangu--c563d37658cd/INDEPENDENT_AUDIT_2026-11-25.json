@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:54:32.693466Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For field-linear multiplicative maps only, A^2=kz is invariant and F(v+sz)=Tv+(phi(v)+cs)z. Multiplicativity is B(Tv,Tw)=cB(v,w) for the ordered product B((u,w),(u',w'))=uw'; idempotence adds T^2=T, c^2=c and phi T+c phi=phi. If c=1 and v lies in ker T, the pairing equation in both orders puts v in the intersection of the two radicals of B. These radicals are complementary coordinate spaces, so T is invertible even though B is degenerate; idempotence forces T=I, then phi=0. For c=0 proper maps are exactly projections T onto subspaces S with B(S,S)=0 and lifts phi=eta T. For each S of dimension r there are q^r distinct graph images and q^(r(2n-r)) complementary kernels per image. For coordinate projection dimensions a,b, zero product says the projected spaces pair trivially; they have [n choose a]_q [n-a choose b]_q choices. Goursat kernels leave t-dimensional quotients matched by an isomorphism; their choices give [a choose t]_q[b choose t]_q|GL_t(q)| and r=a+b-t. This proves the complete map count including the identity. At r=n, t=0 and a+b=n; for rank one, counting nonzero (u,w) with uw=0 and dividing by q-1 gives the reported coefficient. The submitted checker was inspected but not run. A separately written bounded enumeration of all q^9 maps on the 3-dimensional algebra, testing the ordered multiplication on basis pairs and idempotence, gave rank-1 multiplicities 8,18,32 over q=2,3,4 (one zero and one identity each). Independently extending binary subspaces and testing zero products on bases gave dimensions 0 through 3 counts 1,35,77,16 at n=3. Direct enumeration of the 2^16 quotient matrices at q=n=2, retaining idempotent zero-product projections and counting graph functionals, gave ranks 0,1,2,5 with multiplicities 1,144,320,1. These replay procedures test bounded cases; the algebraic proof covers arbitrary q,n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mainellis Theorem 3.1.2 includes the underlying algebra among central sums of J2 blocks but classifies algebras and treats multipliers, not counts of retractions.",
+          "The split-bilinear theorem excludes lambda=0 and explicitly uses nondegeneracy.",
+          "The Lie version uses the symplectic form associated to the commutator and accepts all q+1 lines at n=1 in place of the two product-zero lines."
+        ],
+        "reasoning": "Neither a classification of the objects, enumeration for a nondegenerate split family, nor enumeration with the weaker Lie multiplication constraint is a dominating theorem on the specified associative maps.",
+        "searches": [
+          "Mainellis arXiv:2212.01425, finite-dimensional associative algebras with one-dimensional derived ideal",
+          "Resultary 7bb1168c556c, split bilinear-product spectra",
+          "Resultary 3dde01a4dc7f, Heisenberg Lie algebra retractions"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f8fe08d488f3",
+        "Resultary 7bb1168c556c",
+        "Resultary 3dde01a4dc7f",
+        "Mainellis arXiv:2212.01425",
+        "Jespers et al. arXiv:1905.05886",
+        "Cedó–Smoktunowicz–Vendramin arXiv:1806.01127 p. 4",
+        "Caranti–Stefanello arXiv:2104.01582 p. 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The subalgebra count does not say which of the subalgebras containing A^2 admit proper algebra retractions or count complementary kernels. The nondegenerate theorem uses injectivity of a form similitude in its center-surviving case.",
+          "Solution retraction in the brace-factorization paper acts on Yang–Baxter solutions, not as an idempotent algebra endomorphism in this census."
+        ],
+        "reasoning": "In the degenerate case the bijective conclusion uses both radicals, not the nondegenerate theorem applied by setting lambda=0. This additional argument excludes all proper retractions retaining A^2, after which a canonical projection/functional parametrization converts the exact subalgebra counts into map counts. The extension is short but not a formal specialization.",
+        "searches": [
+          "f8fe08d488f3 first finding on subalgebras not containing A^2",
+          "7bb1168c556c normal form and generic isotropy proof",
+          "Jespers et al. arXiv:1905.05886, brace and solution retractions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same (1,n,1) associative algebra in f8fe08d488f3 has a published exact count of subalgebras avoiding A^2; its second summand is q^r H_(n,r)(q) in the frozen notation.",
+          "The generic phase in 7bb1168c556c has the identical rank-count polynomial, but its product contains a reverse term lambda y·x' with lambda nonzero. The one-sided algebra has lambda=0."
+        ],
+        "reasoning": "Map enumeration is not image enumeration. The same output polynomial for different products is not equivalence of the underlying classification: the left and right radicals of the pairing distinguish the excluded one-sided case from a nondegenerate pairing. For q=2 and 3 there is not even a nonzero generic lambda with lambda^2 unequal to one.",
+        "searches": [
+          "Resultary: associative retraction ranks, three-block nilpotent radical, Goursat zero-product strata",
+          "Resultary theorem statements f8fe08d488f3 and 7bb1168c556c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Gaussian–Goursat table of central-avoiding subspaces is an exact match. The other exact table matches the numeric formula only for a different multiplication family. A web lead on algebras with a bilinear form and idempotent endomorphisms was not available in full text."
+        ],
+        "reasoning": "The exact entry to compare is a count of actual multiplicative idempotents in a specified algebra, not the number of image subspaces or a rank profile of a commutator algebra. These reviewed matches do not establish exact same-family map coverage.",
+        "searches": [
+          "Resultary exact subalgebra spectra f8fe08d488f3",
+          "Resultary exact retraction spectra 7bb1168c556c",
+          "focused literature query on retraction-rank counts for these nilpotent block algebras"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the complete retraction-map classification of this one-sided, degenerate pairing, not for the Gaussian–Goursat image census by itself. There is exact same-algebra coverage of proper image counts and very close coverage of the map-count formula for a different, nondegenerate multiplication; neither theorem as stated covers idempotent maps for the one-sided product. This is a narrow distinction, and the two matching ingredients should not be treated as independent discoveries.",
+      "residual_risks": [
+        "A general theorem on retractions for bilinear multiplications whose left and right radicals intersect trivially would be a close alternative route; this was not established by the inspected sources.",
+        "The search lead 'Algebras with a bilinear form, and idempotent endomorphisms' appeared to concern maps with image k1, but primary full text was unavailable, leaving its scope uncertain.",
+        "Catalogue dates are not evidence of derivation or adjudication of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT IMAGE COUNT OVERLAP",
+          "evidence": [
+            "Counts exactly the same central-avoiding square-zero subalgebras; not an enumeration of maps, embeddings or generators."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-associative-subalgebra-spectra-in-three-block-nilpotent-ra--f8fe08d488f3",
+          "material_read": "Finding and scope, offsets 0–2845",
+          "method": "Local catalogue mirror",
+          "title": "Exact associative-subalgebra spectra in three-block nilpotent radicals",
+          "trigger": "Same algebra and Gaussian–Goursat sum"
+        },
+        {
+          "assessment": "SAME GENERIC POLYNOMIAL; EXCLUDES ONE-SIDED CASE",
+          "evidence": [
+            "Assumes lambda nonzero and uses nondegeneracy to exclude nonidentity center-preserving maps. Generic two-sided isotropy gives the same Goursat sum."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-complete-retraction-rank-spectra-of-split-bilinear-product-algeb--7bb1168c556c",
+          "material_read": "Finding, scope, normal-form proof, and generic phase proof, offsets 0–3669 and 3850–6849",
+          "method": "Local catalogue mirror, comparison of form equations",
+          "title": "Complete retraction-rank spectra of split bilinear-product algebras over finite fields",
+          "trigger": "Closest rank-count theorem for two summands with scalar reverse pairing"
+        },
+        {
+          "assessment": "DIFFERENT RETRACTION CONDITION",
+          "evidence": [
+            "Symplectic-isotropic images are not equivalent to images on which the ordered associative product vanishes."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-orbit-strata-and-exact-rank-counts-for-heisenberg-lie-algebra-re--3dde01a4dc7f",
+          "material_read": "Finding at offset 0",
+          "method": "Local catalogue mirror",
+          "title": "Orbit strata and exact rank counts for Heisenberg Lie algebra retractions",
+          "trigger": "Lie analogue of the same underlying commutator"
+        },
+        {
+          "assessment": "STRUCTURAL CLASSIFICATION ONLY IN COMPARED PASSAGES",
+          "evidence": [
+            "The central-sum description identifies the objects but not their composition-idempotents."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2212.01425",
+          "material_read": "J_n description p. 1 around offset 2700 and Theorem 3.1.2 p. 3 around offset 10538",
+          "method": "OA primary passage inspection",
+          "title": "Associative Algebras with Small Derived Ideal",
+          "trigger": "One-dimensional derived ideal and same family of central sums"
+        },
+        {
+          "assessment": "SOLUTION RETRACTION, NOT MAP CENSUS",
+          "evidence": [
+            "Studies brace factorizations and retractions of solutions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1905.05886",
+          "material_read": "pp. 1 and 8, offsets 0 and 24150",
+          "method": "OA primary passage inspection",
+          "title": "Factorizations of skew braces",
+          "trigger": "Possible overlap under the term brace retraction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The map problem is natural for the basic noncommutative three-block nilpotent radical: classify all the direct multiplicative splittings and their ranks. The answer distinguishes associative retractions from Lie ones and excludes an entire interval of intermediate ranks, while giving a projection/kernel description of every proper retraction including all field extensions. This is more than recomputing a subspace table, although the complementary-kernel factor by itself is standard.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

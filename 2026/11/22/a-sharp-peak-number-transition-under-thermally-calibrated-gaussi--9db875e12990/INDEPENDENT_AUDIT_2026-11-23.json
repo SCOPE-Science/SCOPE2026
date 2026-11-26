@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:39:53.515327Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, §§1–6",
+        "Frozen VERIFICATION.md and checker.py (inspected, not executed)",
+        "Independent computation of the positive root of exp(t)=1+2t"
+      ],
+      "rationale": "The last-reset age A is exponential, and first reset couples any initial distributions, giving a unique stationary law. At age A the damped reset noise and subsequent OU noise have total variance V exp(−2κA)+V(1−exp(−2κA))=V; the resulting Gaussian is independent in distribution of age and sign. exp(−κA) has density a u^(a−1) on (0,1), giving the stated dimensionless convolution. For 0<a≤1 a layer-cake decomposition into centered uniforms gives a strictly negative derivative on the positive half-line after Gaussian convolution. For a>1 the derivative of the input has an interior signed power and jumps of magnitude a/2 at the endpoints. Convolving gives the stated positive prefactor times H_{a,t}(w)−1. The ratio sinh(uw)/sinh(w) strictly decreases in w for 0<u<1 by monotonicity of z coth z, and goes from u to zero. This gives exactly the claimed derivative signs at all positive positions. H_a(0)=1−1/a, H'_a(t)>0, and H_a tends to infinity as t increases, so the unique critical t exists and strictly separates the modes. At t_c the Taylor coefficient in w² is −H'_a(t_c)/6, and the positive prefactor vanishes linearly in w: the stationary density has zero second and negative fourth derivative at the center. The positive root approaches zero by monotonicity and continuity of the sign kernel; its equation expanded in w² yields w²=6(t−t_c)+o(t−t_c). Since w is dimensionless position divided by s, m²=3(s_c−s)+o(s_c−s). H_2(t)=(exp(t)−1)/(2t) gives the numerical root (independently checked). The bound H_a(t)≤(a−1)exp(t)/a proves divergence of t_c as a decreases to one; for U~Beta(a,1), E[1−U²]=2/(a+2) and E[(1−U²)²]=8/((a+2)(a+4)), giving a(H_a(t)−1)→2t−1 locally uniformly and t_c→1/2. Finite quadratures are only corroboration.",
+      "residual_risks": [
+        "Quoted finite quadrature and exact-relation root differ by about 1.36×10^-9, within the supporting numerical tolerances. Gaussian variance must equal D/κ and weights must be equal; replacing packets with atoms changes the result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Olsen's last-reset formula permits distributed resetting and therefore supplies the starting representation as a specialization. Indexed symmetric gapped and two-point reset results have a gap or atomic reset law and a critical plateau, not this full-support reset distribution. Frydel describes a related trapped telegraph Beta–Gaussian convolution."
+        ],
+        "reasoning": "The renewal integral is not itself a mode theorem. A shape conclusion assuming the reset distribution has a gap cannot be applied to a full-support Gaussian mixture; a general argument that Gaussian smoothing suppresses modes does not determine the bandwidth at which the two modes merge for this input.",
+        "searches": [
+          "Olsen, arXiv:2310.04840, eq. (3)",
+          "Resultary: symmetric gapped reset distributions and unequal two-site OU reset mode diagrams",
+          "Frydel, arXiv:2207.08695, eq. (15)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2310.04840, 2404.02480 and 2207.08695 as located above",
+        "Resultary suffixes a6b2a5417eeb, b0e38008c01b, 6d553895bf81 and 74aa462f03c1; target 9db875e12990 excluded as a duplicate of itself"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The renewal formula plus equality of Gaussian variances gives the stationary convolution. A materially close earlier finding proves quartic flatness and the same coefficient 3 for continuous telegraph drive with weight (1−u²)^(b−1)."
+        ],
+        "reasoning": "The stationary representation is a straightforward specialization and the coefficient 3 is a generic Gaussian heat-flow consequence once a nondegenerate quartic transition is established: ∂_s p''=p''''/2, while the cubic position term in p' is p''''x³/6. Neither is credited on its own. Exhaustive control of positive zeros via the endpoint jump and interior signed power kernel, the unique H_a threshold and its quantitative limits are not supplied by those statements.",
+        "searches": [
+          "Olsen, eq. (3)",
+          "Sabhapandit–Majumdar, eqs. (94)–(96)",
+          "Resultary November 2 run-and-tumble mode-boundary rigidity and exact peak opening, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mathematical formulation is the Gaussian smoothing of a symmetric compact power density. Sabhapandit–Majumdar smooth (1−u²)^(ν−1), which is positive at zero for all admissible ν; the reset input for a>1 vanishes there. The assigned Resultary record itself is not a distinct hit."
+        ],
+        "reasoning": "The power-smoothing formulation is a true equivalent and needs the same prior-art test. After normalization to the common support [-1,1], these two compact densities differ on neighborhoods of the center, not just at a single density version point; Gaussian smoothing is injective at the same variance by its nonvanishing Fourier multiplier. Thus the prior active-particle threshold is not the same family in another notation.",
+        "searches": [
+          "Resultary: symmetric thermally calibrated Gaussian-packet OU resetting",
+          "Resultary: Gaussian smoothing of truncated |u|^(a−1), critical bandwidth",
+          "Sabhapandit–Majumdar, arXiv:2404.02480, §4.1.1, eqs. (94)–(96)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved exact boundaries and computed mode diagrams are for a compact telegraph Beta input or for point resets. Related thermal run-and-tumble records include an exact transition condition and opening coefficient."
+        ],
+        "reasoning": "Those tables and equations apply to different profiles. No exact table for the present power family was identified among the compared sources; the mere existence of a critical-bandwidth analogue does not give H_a or its limits.",
+        "searches": [
+          "Resultary: Gaussian smoothing of compact power profiles and exact mode thresholds",
+          "Sabhapandit–Majumdar, eq. (96)",
+          "Resultary run-and-tumble thermal unimodality boundary and thermal-mode rigidity"
+        ]
+      },
+      "rationale": "Last-reset renewal, one-dimensional Gaussian smoothing, curvature-zero mode boundaries in related models, and coefficient 3 in the analogous run-and-tumble bifurcation are established. The distinct result is the global mode classification and explicit threshold for complete equal thermal-packet resets: its compact input is the symmetric truncated power |u|^(a−1), not the compact telegraph Beta profile or an age-dependent-width point-reset law. The checked primary run-and-tumble work is an important additional comparison beyond the cited resetting papers.",
+      "residual_risks": [
+        "A prior equivalent classification under critical bandwidth or Gaussian smoothing of monotone compact power profiles is not exhaustively excluded. The inspected evidence supports the specific threshold and complete mode count, not priority for renewal, generic quartic heat-flow expansions or the coefficient 3 alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General stationary formula, not a modality classification",
+          "evidence": [
+            "Gives the last-reset renewal equation for the stationary density."
+          ],
+          "identifier_or_url": "arXiv:2310.04840",
+          "material_read": "Eq. (3), PDF p. 2, OA offset 14319",
+          "method": "OA primary passage",
+          "title": "Steady-state moments under resetting to a distribution",
+          "trigger": "Broader distributed resetting in a harmonic trap"
+        },
+        {
+          "assessment": "Strong structural analogue, distinct compact input and phase boundary",
+          "evidence": [
+            "Eq. (95) is Gaussian smoothing of a weight proportional to (1−z²)^(ν−1). Eq. (96) is the curvature-zero boundary for that family."
+          ],
+          "identifier_or_url": "arXiv:2404.02480",
+          "material_read": "§4.1.1, eqs. (94)–(96), pp. 21–22, OA offset around 68000; telegraphic drive identification in §4",
+          "method": "OA primary PDF passages",
+          "title": "Noninteracting particles in a harmonic trap with a stochastically driven center",
+          "trigger": "Closely related compact-density Gaussian smoothing and exact change of modes"
+        },
+        {
+          "assessment": "Different driving process and compact input",
+          "evidence": [
+            "Gives a Beta–Gaussian convolution and discusses bimodality."
+          ],
+          "identifier_or_url": "arXiv:2207.08695",
+          "material_read": "PDF p. 2 and eq. (15), p. 3, OA offsets 14590 and 20400",
+          "method": "OA primary passages",
+          "title": "Positing the problem of stationary distributions of active particles as third-order differential equation",
+          "trigger": "Thermally smoothed bimodal compact parent density"
+        },
+        {
+          "assessment": "Exact coefficient and bifurcation form are known in a distinct input family; threshold not the same",
+          "evidence": [
+            "Proves quartic flatness and m²~3(B_*−B) for a stationary telegraph drive; the power input is (1−u²)^(b−1), not |u|^(a−1)."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-rigidity-of-the-thermal-mode-boundary-and-exact-peak-opening-in--74aa462f03c1",
+          "material_read": "Finding, assumptions and stationary representation, local mirror offset 0–2799",
+          "method": "Resultary local mirror original RESULT.md",
+          "title": "Rigidity of the thermal-mode boundary and exact peak opening in a harmonic run-and-tumble model",
+          "trigger": "Exact same opening coefficient and closely parallel classification"
+        },
+        {
+          "assessment": "Different reset support and different transition condition",
+          "evidence": [
+            "The bimodal point-target result has a rate-only transition at r=κ and a flat critical plateau."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-separation-independent-modal-transition-for-harmonically-confine--a6b2a5417eeb",
+          "material_read": "Statement for symmetric gapped reset law and two point targets",
+          "method": "Resultary local mirror original RESULT.md",
+          "title": "Separation-independent modal transition for harmonically confined resetting",
+          "trigger": "Symmetric OU resets with one-versus-two modes"
+        },
+        {
+          "assessment": "Different reset law; no date-based inference",
+          "evidence": [
+            "The resets are atoms and the symmetric transition includes a plateau at r=κ; the full-support thermal-packet law is not covered."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-unequal-two-site-resetting-an-exact-stationary-mode-diagram-in-a--b0e38008c01b",
+          "material_read": "Finding for point targets, including the symmetric case",
+          "method": "Resultary local mirror original RESULT.md",
+          "title": "Unequal two-site resetting: an exact stationary mode diagram in a harmonic trap",
+          "trigger": "Same-day exact OU mode diagram with resets to two sites"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and §§1–6",
+        "Olsen arXiv:2310.04840, eq. (3)",
+        "Resultary point-reset and run-and-tumble comparisons"
+      ],
+      "rationale": "Thermal-width packet resetting is a natural parameter calibration that retains a diffusive bath while making the smearing exact. The result shows that rate alone is insufficient above a=1, gives the precise thermal variance at which distinct maxima disappear, and rules out further peaks globally. This matters when interpreting a reset-induced change in the stationary density, and distinguishes it from the flat transition of idealized point targets, rather than just evaluating a known moment or a generic local coefficient.",
+      "residual_risks": [
+        "No extension to unequal packets, age-dependent post-reset variance, transient modes, or the physical cost of preparation is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:18:52.313421Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Inverting the killed two-state generator gives h(c+qu)/(u²+Su+P), h=sd, S=c+e+h, P=ch. The two decay rates are positive and distinct, with λ−<min(c,h) and λ+>max(c,h), by evaluation of the quadratic at c and h. For q=0 the reduced transform fixes S and P exactly; the complete positive fiber is h=P/c, e=S−c−P/c on (λ−,λ+), and AM–GM gives the attained maximum of e. For known q>0, cancellation occurs exactly at the single admissible root λ−/h of c−qS+hq²; the larger root λ+/h is above 1. Cancellation leaves Exp(qh), and at fixed q and exponential rate r, h=r/q and e=(1−q)(c−r)/q with c>r describe the whole positive alias family. Outside cancellation the density initial derivatives follow from f(t)=(1−q,q)e^(tQ)(0,h)^T and Cayley–Hamilton, giving the asserted jet inverse. The cancellation expressions at distinct efforts differ by d(s₂−s₁)q(q−1), so at least one is nonzero for interior q; q=1 is never exceptional. For q=0, differentiating at u=0 gives m_s=1/c+(c+e)/(scd) and v_s=m_s²−2/(scd); the two means recover U,V and the variance recovers K=cd, with the positivity inequalities both necessary and sufficient. The proof is structural, assumes exact population summaries and identical known initialization across groups, and provides neither finite-sample robustness nor an unknown-q identification theorem. Supplementary code was inspected but not used as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The MAP article distinguishes two-state MMPPs and phase-type renewals within MAPs. Pautrel et al. use continuous event times and a matrix-exponential at-least-one-detection probability, and explicitly favor using every detection rather than first detection alone."
+        ],
+        "reasoning": "The broader frameworks justify the absorption calculation and qualitative aliasing but do not provide the stipulated first-detection parameter classes under known initial mixture, or a coupled model comparison at two effort values.",
+        "searches": [
+          "Ramírez-Cobo–Lillo–Wiper, general MAP2 nonidentifiability, introduction",
+          "Pautrel et al., doi:10.1101/2023.11.17.567350 v2, preprint pp. 5 and 11"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1239/jap/1285335400",
+        "doi:10.1101/2023.11.17.567350 v2 (bounded passages)",
+        "Resultary: 6f263b7cbb4c and 64050a1b9ecf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known quasi-stationary mechanism explains why a single exponential may appear. The frozen argument compares the exact cancellations at s₁,s₂ and inverts the q=0 first two effort means and one variance."
+        ],
+        "reasoning": "Exponential survival for a special initialization does not on its own supply the complete positive parameter family at fixed q or exclude simultaneous cancellation at distinct efforts. General equality of stationary processes or ordering of first-interarrival laws does not imply the positive-rate realizability criterion for the three population summaries.",
+        "searches": [
+          "Pautrel et al. preprint, discussion of what times are retained",
+          "Ramírez-Cobo et al., stationary MAP2 observational equivalence",
+          "Resultary mirror 64050a1b9ecf, finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The observation is an absorption/first-arrival law of a two-state killed chain; the positive-q cancellation point is its quasi-stationary initialization. Ramírez-Cobo et al. compare stationary observable arrival-process laws, not a first time from an independently specified q."
+        ],
+        "reasoning": "An equivalence or identifiability statement for all stationary interarrivals is not equivalent to a statement about one marginal at fixed q, and the quasi-stationary interpretation does not give the effect of changing the killing rate while holding that q fixed.",
+        "searches": [
+          "Resultary: first-detection identifiability, interrupted Poisson and two-state modulation, stationary versus event-stationary initializations",
+          "doi:10.1239/jap/1285335400, pp. 630–631"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6f263b7cbb4c is the identical finding. The distinct mirrored record 64050a1b9ecf obtains stochastic ordering between time-stationary and event-stationary first-interarrival laws in reversible modulation."
+        ],
+        "reasoning": "The exact entry is not independent coverage. The distinct entry varies the initialization convention for a fixed process rather than holding q fixed and varying calibrated effort to identify rates.",
+        "searches": [
+          "Local Resultary and mirror: first-detection blind spot, efforts, and interarrival-law comparisons"
+        ]
+      },
+      "rationale": "Phase-type waiting times, general Markovian arrival nonidentifiability, and exponential survival under quasi-stationarity are prior and not credited as discoveries. The surviving result is the fixed-known-initialization classification together with identifiability under any two distinct calibrated efforts and the explicit three-summary inverse at zero initial availability. The inspected sources do not give this experiment-dependent claim.",
+      "residual_risks": [
+        "Priyadarshani et al. doi:10.1111/2041-210X.14307 was inaccessible in the checked route; no claim about its full contents is made.",
+        "Pautrel preprint surrounding pages were unavailable on follow-up. Prior exact multiple-experiment results could exist outside the inspected set."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stationary observable-process equivalence and general representation context; different observation law and no calibrated change in these statements.",
+          "evidence": [
+            "Identifies MMPP and phase-type special cases; distinguishes MMPP identifiability up to state permutation from general phase-type nonidentifiability."
+          ],
+          "identifier_or_url": "https://doi.org/10.1239/jap/1285335400",
+          "material_read": "Cambridge PDF opening pp. 1–2 of article, offsets 1861–2081 and 4776–4996",
+          "method": "OA PDF passage inspection",
+          "title": "Nonidentifiability of the two-state Markovian arrival process",
+          "trigger": "Prior exact nonidentifiability for related two-state arrival representations"
+        },
+        {
+          "assessment": "Passages directly identify all-detection-time modeling and a first-event probability calculation; no whole-document noncoverage inferred from these passages alone.",
+          "evidence": [
+            "First-detection-only data are explicitly discussed as discarded information relative to using all event times; the at-least-one probability is described via a matrix exponential."
+          ],
+          "identifier_or_url": "https://doi.org/10.1101/2023.11.17.567350",
+          "material_read": "Preprint v2 located passages on pp. 5 and 11, offsets 17021 and 41016; longer reads blocked",
+          "method": "OA PDF literal passage retrieval, with rate-limited follow-up",
+          "title": "Analysing biodiversity observation data collected in continuous time: Should we use discrete- or continuous-time occupancy models?",
+          "trigger": "Primary ecological two-state continuous detection model and at-least-one-detection law"
+        },
+        {
+          "assessment": "A stochastic-order result for reversible processes, not structural recovery at multiple efforts.",
+          "evidence": [
+            "Compares time-stationary and event-stationary first-interarrival laws using hyperexponential survival and stochastic ordering."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-reversible-modulation-resolves-the-stationary-interarrival-order--64050a1b9ecf",
+          "material_read": "Mirrored RESULT.md, main finding",
+          "method": "Local Resultary and mirror",
+          "title": "Reversible modulation resolves the stationary interarrival order",
+          "trigger": "Closest distinct catalog record on first interarrival distributions under modulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Separates exact structural ambiguity from statistical uncertainty in a natural first-detection design. The full-law aliases show why collecting more replicates at a single effort can fundamentally fail; the exact threshold and the two-effort guarantee tell an investigator what intervention changes identifiability. The three-summary inverse and its positivity region are usable population-level criteria without observing recurrent detections. No operational finite-sample guarantee or general summary-minimality claim is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

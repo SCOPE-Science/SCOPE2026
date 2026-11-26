@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 checker.py` using a standard Python 3 interpreter. No packages beyond its standard library are needed. The file `checker_output.txt` records the successful check; the final line is `CHECK_PASS 330 quartets, four affine orbits, eight exact quartic profiles and root-separation certificates`.
+## correctness
 
-The checker constructs the genuine 11-dimensional harmonic isometries for both quintic-character classes and compares 242 gauged Gram blocks to the proposed expression using a floating-point tolerance of \(5\times10^{-14}\). This is an independent *diagnostic* of the input normalization, not an exact proof.
+PASS
 
-The decisive spectral computation is exact: every coefficient of every orbit representative's \(8\times8\) characteristic polynomial is obtained from integer cyclotomic arithmetic and Newton identities. All 330 quartets are partitioned into disjoint affine orbits by exhaustive enumeration; no assumptions about generic quartets are used. The root-separation stage works in \(\mathbb Q(\sqrt5)\) with rational sign comparisons, never floating-point approximations. A negative lower-end polynomial value and strict positivity of all upper-shift polynomial coefficients isolate the largest real root sufficiently to distinguish the unique extremal orbit for each class.
+From the specified harmonic isometries, summing the Fourier terms for a nonzero difference gives diagonal entries ±1/10 and upper-right (3/10)(τ_k/√11)χ_k(b−a). For the nontrivial multiplicative character, squaring the Gauss-sum modulus and grouping pairs by their ratio gives 11: the inner additive sum is 10 at ratio one and −1 elsewhere. A common diagonal gauge therefore removes the phase. The blocks are Hermitian because χ_k is even, and their squares before division by 10 are 10I₂. Affine translation preserves differences and dilation supplies only one common removable phase. Acting on each block by J followed by conjugation negates every traceless Hermitian block and pairs real eigenvalues of B with their negatives, so its polynomial is Q(X²) with nonnegative squared roots. Independent exact subset determinants over Z[ω] verified the four rows, and disjoint affine orbits of sizes 55,110,110,55 exhaust 330 selections. Galois substitution in the sole real generator ω²+ω³ gives t₋ for k=1,4 and t₊ for k=2,3. Exact negative evaluations at L and positivity of every upper-shift coefficient exclude all larger roots outside the certified intervals. In class one the largest root is >77 and all other orbit maxima are <57 or <52 or <43; in class two it is >67.9 and the other maxima are <63, <67.3 and <66. The strict separation gives exactly the two claimed equality orbits. Since the winning upper brackets are <100, all Grams are positive definite. The sharp minimum is 1−δ and worst spectral Gram condition is (1+δ)/(1−δ); numerical re-evaluation gives δ≈0.8807235348056768 and 0.8242260805290105 and reproduces the displayed condition numbers.
 
-Limits: the exhaustive computation applies only to the finite 11-point field. The source-dependent Gauss-sum identity and the antiunitary spectral symmetry are proved in the accompanying mathematical text; numerical samples are not used to infer an infinite-family theorem. This is self-review, not independent audit.
+## originality
+
+PASS
+
+Credit the original harmonic construction and the existing real q=13 spectral census. The supported distinct claim is the complete q=11 quintic complex two-plane four-block profile, two different character-class sharp constants, and two different optimizing affine orbits. The strongest inspected catalogued matches do not cover this family and invariant together.
+
+## value
+
+PASS
+
+Four-block Gram stability is a motivated erasure invariant not captured by pairwise angles. Entire finite spectral and equality data for a natural harmonic family quantify a nontrivial split even between Galois-related choices and change which affine configurations are worst. The optimal min-eigenvalues and spectral condition numbers describe concrete conditioning for every four-plane selection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

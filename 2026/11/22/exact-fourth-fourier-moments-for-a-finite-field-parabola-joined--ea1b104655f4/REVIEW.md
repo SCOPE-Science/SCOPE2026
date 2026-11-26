@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The convolution representation functions and their explicit six-term energy expansions cover every affine line in every finite field of odd characteristic. The quadratic-character sum \(\sum_t\chi(t^2+a)\) handles all boundaries, and direct exact arithmetic confirms 236 affine line configurations over prime and degree-two extension fields. The proof, rather than the finite test collection, establishes the uniform statement.
+PASS
 
-## Originality
+Completing the square by the affine parabola-preserving shear sends a nonvertical line to height Delta/4, and parabolic translation sends a vertical line to x=0; affine bijections preserve equality of two-term sums. Reconstructed the horizontal convolution by subtracting the shared points: it is N-2C+D, where C is the sum of translates of the parabola by the intersection points and D is supported on v=2c. The key mixed character sum over (u,v) equals q chi(c), by the two-root character identity after comparing v=c and v=u^2/2. At secant height 1, the C curves meet once, and the D weights at u=0, +2, -2 are q-2, q-3, q-3; these points remain distinct even in characteristic three. For a vertical line the mixed parabola/line convolution is identically one, and both intersection corrections at the origin give the listed vertical tuple. Expanding the six terms recovers the four polynomials. Orthogonality with the stated unitary normalization gives q^-2 E. For extension with output counting measure, the fourth-power expansion is bounded by q^2 E/|S|^4 on the unit input ball and input 1 attains equality. Separate exact difference-multiplicity counts for 342 configurations reproduced all polynomial evaluations (all lines for q=3,5,7,9 and samples in eleven larger fields, including q=27 and 81).
 
-**PASS relative to the inspected statements.** Iosevich–Li–Yu, arXiv:2609.25404, Section 8.2 and Theorem 9.1 give the general energy/Fourier and extension-norm correspondences, not the mixed curve-line energy values. González-Riquelme–Oliveira e Silva, arXiv:2405.16647, address complete quadratic supports. Lewko, arXiv:2606.22882, and Iosevich–Koh–Lewko, arXiv:1712.05549, address restriction estimates and energy bounds on other supports. Indexed related records on a minimal parabolic Kakeya set and two opposite parabolas concern different sets; their complete texts were not available, leaving a nonzero bibliographic risk. Neither titles nor failed searches are treated as proof of uniqueness.
+## originality
 
-## Value
+PASS
 
-**PASS.** This gives the natural complete four-case invariant for the union of a full parabola and a line, distinguishes vertical and tangent lines even though each has one intersection, and exposes \(\chi(-1)\)-dependent arithmetic phenomena. The exact moment determines the sharp constant-input Fourier extension norm in a natural mixed-support design.
+The supported distinct result is the exact four-case ordered-energy evaluation for a full parabola and an arbitrary affine line. The generic Fourier and extension identities are prior; neither those identities nor a parabola-only bound supplies the mixed terms, especially the dependence on intersection correction and chi(-1).
 
-## Boundaries and risks
+## value
 
-The theorem concerns indicator fourth moments and \(\ell^\infty\to\ell^4\) extension, not sharp \(\ell^2\to\ell^4\) norms or Fourier projection \(\ell^\infty\) norms. Linked full text for some indexed related records was inaccessible; older equivalent evaluations may exist. Computer checks are finite and do not replace the proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full parabola plus one line is a natural mixed support, and its fourth moment gives an exact baseline across all affine placements. In particular, vertical and tangent lines contribute differently despite equal intersection size, and the tangent, secant and exterior expressions retain quadratic-character dependence. The explicit evaluations determine a sharp extension norm rather than merely reasserting its known reduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

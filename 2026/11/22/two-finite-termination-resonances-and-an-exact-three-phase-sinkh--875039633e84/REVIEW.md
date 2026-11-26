@@ -1,15 +1,21 @@
-# Scientific review of the hub–clique Sinkhorn theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact eigenvalue decomposition, scalar scaling equation, derivative calculation, and two crossover equalities together prove the three-regime formula and its globally unique optimum. The row–column normalization residual factorization yields exactly two finite-completion parameters. The remaining claim that no later finite completion is possible uses the published general theorem of Cohen and Nathanson, which was inspected at its full-text statement and proof. The bundled finite checker passes 5605 assertions, including exact rational equalities and numerical derivative agreement. Its finite testing is not mistaken for a proof of universal quantifiers. The weakest assumption is exact arithmetic for finite termination; numerical floating-point implementations are not asserted to finish exactly.
+PASS
 
-## Originality — PASS, subject to residual literature risk
+For the symmetric balanced scaling DAD with hub and leaf factors x,y, the row equations are x²=1−mc and y²=(1−c)/(m+1), c=txy. The equation for t² increases strictly from zero to infinity, supplying existence and uniqueness. On the nonconstant subspace the balanced eigenvalues are (1−c)/(m+1) with multiplicity m−1 and 1−(m+1)c with multiplicity one. The log-factor derivative is the product of the two negative balanced half-step matrices, so squaring these eigenvalues gives the full projective factor. The equations b=a and b=−a give c=1/(m+2) and c=(m+2)/(m²+2m+2); strict decrease followed by strict increase proves the optimum, with the claimed value. Independently, every half-step on this initialized orbit replaces the active hub/leaf ratio r by R(r)=(tr+m+1)/(r+mt), starting at r=1. Away from mt²=m+1, R is injective, so if an iterate attains the balanced ratio (a fixed point), then 1 was already that ratio. R(1)=1 gives t=m/(m−1), and the symmetric initial matrix then has common row sums. When mt²=m+1, R is the constant t>1 and fixes both factor ratios in exactly two half-steps, not one. Substituting c=1/(m+1) at this resonance gives the stated rate ratio. The ordering after squaring separates by (m−2)(m³+2m²+m−2), with equality only at m=2. Symbolic factoring independently matched the frozen two-step residual.
 
-Knight's general singular-value convergence factor and Cohen–Nathanson's universal at-most-two-scalings result are prior work, not new results. The full texts of those papers were inspected, as were related explicit-scalings studies by Nathanson and accelerated-balancing work by Knight and Ruiz. The inspected articles do not give the family-specific three-mode parameter switch, globally optimal hub affinity, or simultaneous exact resonance-and-rate comparison. The nearest indexed contemporary mathematical results concern binary scaling, unbalanced multi-block variants, or diagonal condition-number optimization on different matrices and cannot imply the family-specific result without an additional analysis. Search incompleteness and related unindexed work remain risks; this is a self-review, not publication-priority certification.
+## originality
 
-## Value — PASS
+PASS
 
-There is a practical and structural optimization question: how to select one relative affinity for fastest local worst-case balancing of an exchangeable hub–clique kernel without restricting perturbations to the symmetry subspace. The answer identifies three successive spectral mechanisms and a unique optimal parameter, and it separates worst-case asymptotic rate from exact completion for the original initialization. The precisely quantified near-optimality of the two-step resonance gives a genuine performance trade-off, not just a restatement of a known convergence-rate formula. The narrow kernel family and exact-arithmetic dependency are transparent limits.
+The general local-rate formula, at-most-two-steps theorem, and certain small-instance scaling limits are already covered. No distinct retrieved statement covers the full family-specific competition of the leaf and hub modes, its exact optimizer, and the classification and comparison of initialized resonances. Credit is limited to that classification, not to the general matrix-scaling methods.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A symmetric but non-block-constant natural test family exposes two distinct nonconstant mechanisms; the complete tuning classification shows when a fully symmetric orbit hides the worst perturbation and why exact termination can be suboptimal in the projective criterion. This is a useful distinction beyond producing a single scaling limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

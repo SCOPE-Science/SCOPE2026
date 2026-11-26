@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For an increasing partial injection, square-zero is equivalent to disjoint domain and image. Pairwise parity and adjacency-gap equivalence are the published characterization of this inverse monoid. The complete run-pair and at-most-one-hole split proves the three exact saturated-stratum formulas. The two odd-sized parity classes for sizes congruent to two modulo four force the sharp one-rank deficit; constructive examples attain every asserted maximum rank. Literal finite enumeration through 13 points and independent composition-sum computations agree. The numerical checks are not substituted for the proof.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-Sareeto–Koppitz (arXiv:2208.03202 and arXiv:2403.06957) already identify the underlying monoid, characterize its maps and investigate generators and ideals. Their results are reused, not reclaimed. The closest published whole-monoid generating function counts every rank without the disjointness restriction; a multipartite partial-isometry square-zero census counts a different, much less ordered map class. The new implication is the synchronized-run enumeration at saturated square-zero rank. Searches using disjointness, nilpotency index two, parity, rank gaps and alternative monoid names did not find the same statement.
+PASS
 
-## Value — PASS
-The result identifies an infinite congruence-class obstruction to attaining the universal square-zero rank limit, and supplies exact exponential cardinalities of the natural top-rank stratum in the other three classes. It distinguishes nilpotent structure in this order-and-fence constrained inverse monoid from the enclosing symmetric inverse monoid and from arbitrary graph partial-isometry families.
+Increasingness pairs the sorted domain and image uniquely. The height-two fence compares exactly adjacent distinct integers, with the direction determined by parity; hence forward and inverse preservation are precisely synchrony of the gaps of length one given pointwise parity. The square has empty domain exactly when the domain and image are disjoint. Each parity class contributes at most half its points rounded down to the rank, which forces the deficit at n=4m+2. Paired contiguous blocks of length 2m, a terminal hole at size 4m+1, an internal hole between odd blocks at size 4m+3, and restriction to the initial 4m points at size 4m+2 attain the bounds (the empty-map boundaries are correct). At saturation, gap synchrony matches ordered run-length lists. For equal numbers of each color and at most one dot, any same-color consecutive run types must straddle the sole dot and occur between whole pairs: before the repeated type the alternating prefix has even length, since after a flip at an odd prefix the two segment imbalances have the same nonzero sign. Once paired, the within-pair distance between matched points is the common run length, plus one only for an internal dot. Thus no dot gives an even composition with two orientations; a dot between pairs yields h+1 nonreversing and h-1 reversing placements for h even-length pairs; an internal dot requires the unique odd part. Summing the positive-composition counts gives 2^m, (m+1)2^m and (m+2)2^m in the stated classes.
 
-## Literature and limitations
-Most relevant public sources: Sareeto–Koppitz (2022, 2024), the accessible complete-result text on this monoid's algebraic cardinality series, the complete multipartite graph square-zero census, and the maximal-index nilpotent contraction census (bibliographic details in RESULT.md). The count of top-rank square-zero maps in sizes congruent to two modulo four is not determined by the theorem. General unindexed prior coverage remains a scientific priority risk, and no independent mathematical audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known gap criterion and universal disjointness bound are starting points, not novel. The parity obstruction is elementary; the new substance assessed is the sharp attaining constructions and the explicit saturation enumeration, including the single-hole run reversal. No implication-equivalent source was located in the bounded comparison.
+
+## value
+
+PASS
+
+Square-zero is the first nontrivial bounded-nilpotency level, and the largest possible domain at that level is a natural statistic of a submonoid with both chain and fence constraints. The residue obstruction recurs indefinitely; the exact maximum-rank multiplicities describe how the local fence rule couples otherwise independent parity packings. The one-hole classification supplies more than the parity upper bound or a small-rank census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

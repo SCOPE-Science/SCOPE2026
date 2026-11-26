@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T18:05:18.571076Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the weighted quadratic loss written with a factor 1/2, b=-M^{-1}C^T 1 gives strict positive KKT multipliers at the zero affine fit. Since C has kernel span(1,x) and full row rank, small perturbations leave the fit in this affine subspace with a linear formula and positive multipliers. The weighted normal equations express its slope as a positive linear combination of the nodal increments with coefficients c_j. A unit step maximizes the resulting l1 gain L max c_j, and is realizable near b. The gap-weighted average of L c_j equals one by testing v=x. All c_j agree precisely if each interior knot equals the centroid, impossible with at least two distinct interior knots, and at three knots equivalent to m_1 h_1=m_3 h_2. The three-site projector has only the identity and affine pieces; four uniform sites have exactly four candidate piece operators. Integrating along a finite partition of an input segment yields the upper bound (boundaries use continuity). Independent exact arithmetic recovered the face norms (1,7/6,7/6,6/5), both positive multiplier vectors and input/output variations 1 and 6/5 for the explicit witness. Also checked 1,600 rational three-site cases, an irregular-grid gain of 902/769, and the uniform-grid formula through n=39; the affine slope summation proves the general lower bound, not the finite checks. Frozen verifier inspected, not executed. Independent replay: python3 /workspace/evidence/convex_bv_exact.py.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guntuboyina–Sen establish squared-error risk and use the nodal projection; the loss in their equation (2) is squared Euclidean error.",
+          "Search also retrieved arXiv:1509.08165, which constrains the Lipschitz norm of the fitted function rather than giving a two-input variation norm for the unconstrained convex LSE."
+        ],
+        "reasoning": "Neither Hilbert-norm projection estimates nor statistical error rates prove this deterministic two-input norm bound. Affine behavior alone does not compute the step-response gain or show sharpness over other active faces.",
+        "searches": [
+          "arXiv:1305.1648v1, Introduction and model misspecification",
+          "arXiv:1706.01852v3, Section 2",
+          "convex least squares regression projection total variation seminorm Lipschitz nonexpansive finite sequence four points active faces weighted"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1305.1648v1",
+        "arXiv:1706.01852v3",
+        "Resultary 45dce1453393",
+        "Resultary 24c0d23f4c42"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The affine image has output variation equal to its endpoint range, while solitary active constraints can change signs of output increments; the submitted four norms use absolute column sums of D P_A E, not row sums of P_A."
+        ],
+        "reasoning": "A known affine region provides a way to seek a counterexample but does not state the centroid rigidity or the column inequality. The exact upper bound requires the variation geometry of both one-active faces.",
+        "searches": [
+          "arXiv:1706.01852v3, Theorem 1",
+          "arXiv:1305.1648v1, convex least-squares formulation",
+          "Resultary 45dce1453393 and 24c0d23f4c42"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yang–Barber, arXiv:1706.01852v3, Section 2, Theorem 1 (NUNA) treats first-difference isotonic least squares.",
+          "Resultary 24c0d23f4c42 measures weighted variation for the greatest convex minorant, not the least-squares estimate."
+        ],
+        "reasoning": "Treating slopes as monotone is geometrically correct, but the inherited quotient quadratic loss on slopes is not the diagonal isotonic loss. Convex minorants and convex least squares are different operators.",
+        "searches": [
+          "convex least squares regression projection total variation seminorm Lipschitz nonexpansive finite sequence four points active faces weighted",
+          "convex regression total variation contraction projection deterministic nonexpansive unweighted slope adjacent differences",
+          "Resultary: convex functions total variation stability second derivative measures four knots three atom moment rigidity Wasserstein"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Apart from the frozen record, the close indexed finite convex-projector record 45dce1453393 gives a four-site coordinate maximum-norm constant of 7/5, not the variation constant 6/5."
+        ],
+        "reasoning": "A sharp norm in another geometry does not give the exact variation norm; no other matching table was identified in the bounded lookup.",
+        "searches": [
+          "Resultary semantic search for convex least-squares regression total variation and four knots",
+          "convex regression total variation contraction projection deterministic nonexpansive unweighted slope adjacent differences"
+        ]
+      },
+      "rationale": "Best of available evidence: the result concerns the deterministic two-input Lipschitz norm on the quotient by constants, using unweighted adjacent variations of nodal values. Neither the documented affine-fit ingredient, standard convex projection machinery, isotonic contractivity, nor nearby coordinate-norm constants supplies the strict all-mesh obstruction together with the sharp initial coefficient. No equivalent or dominating theorem was identified in inspected sources.",
+      "residual_risks": [
+        "Historical Hildreth and Dykstra papers were not read in full in this review; an equivalent earlier stability statement might be unindexed.",
+        "Indexed comparisons do not establish universal priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same estimator in the equal-mass case, different loss and estimand",
+          "evidence": [
+            "Equation (2) is squared nodal error and Theorem 2.1 bounds its expectation under a noise model."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1305.1648v1",
+          "material_read": "Full-text introduction, definitions, risk statements and model-misspecification scope",
+          "method": "Primary arXiv HTML",
+          "title": "Global risk bounds and adaptation in univariate convex regression",
+          "trigger": "Same nodal least-squares estimator and affine fits"
+        },
+        {
+          "assessment": "First-difference isotonic constraints and ordinary Euclidean fitting, not the stated convex regression problem",
+          "evidence": [
+            "Theorem 1 equates contractivity with nonincrease under neighbor averaging for the isotonic projection."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1706.01852v3",
+          "material_read": "Full-text introduction and Section 2 through Theorem 1",
+          "method": "Primary arXiv HTML",
+          "title": "Contraction and uniform convergence of isotonic regression",
+          "trigger": "Necessary and sufficient contraction criteria for a closely related cone projection"
+        },
+        {
+          "assessment": "Indexed result measures coordinate supremum norm, not variation; no whole-text exclusion inferred from the summary",
+          "evidence": [
+            "Four-site entry 7/5 in the sequence of coordinate supremum constants."
+          ],
+          "identifier_or_url": "Resultary 2026/11/1, 45dce1453393",
+          "material_read": "Indexed detailed theorem summary",
+          "method": "Resultary semantic search",
+          "title": "Five-point nonlocal instability and a persistent lower bound for convex least-squares projection",
+          "trigger": "Same projector on uniform grids, exact small-size stability constants"
+        },
+        {
+          "assessment": "Different convexification operator",
+          "evidence": [
+            "Sharp interval-average-to-minimum edge-weight ratio for greatest convex minorants."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, 24c0d23f4c42",
+          "material_read": "Indexed theorem summary",
+          "method": "Resultary semantic search",
+          "title": "Exact weighted variation sensitivity and anisotropy rigidity of finite greatest convex minorants",
+          "trigger": "Same variation question with a related convexification map"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The deterministically relevant quantity is variation of a change in the estimate, not mean-square error or variation of a single fit. A sharp mass-balance exception at three sites, universal failure for every positive mass profile and mesh from four sites on, and an attained first failure of 6/5 give a usable shape-constrained stability boundary. The limit 3/2 applies to the constructive lower bound only; no exact longer-grid or arbitrary four-site norm is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

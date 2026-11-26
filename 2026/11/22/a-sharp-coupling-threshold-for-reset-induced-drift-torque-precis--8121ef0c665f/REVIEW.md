@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof fixes all stochastic hypotheses and analyzes the stationary finite drift-torque observable, which has a nonzero mean when the coupling and temperature contrast are nonzero. Stationary generator identities close exactly for the relevant second and fourth moments. The computed derivative has a strictly positive denominator and a quartic numerator whose coefficient signs imply the complete root-count classification by Descartes' rule. A separate semigroup eigenfunction identity establishes the exact lag covariance. The included verification script passed exact symbolic equalities, five independent Gaussian-age fourth-moment quadratures, and a numerical optimum check. Finite tests corroborate but do not replace the all-parameter proof.
+PASS
 
-## Originality — PASS (best-knowledge, with residual risk)
+Independently derive the fourth moment from the stationary exponential reset age s: conditional on s, U,V are centered Gaussian with variances S(1−exp(−2(1±u)s))/(1±u) and cross covariance H(1−exp(−2s)). Wick's identity and E exp(−λs)=r/(r+λ) give E(UV)=2H/(r+2) and E(U²V²)=8S²(r+2)/[(r+4)((r+2)²−4w)]+16H²/[(r+2)(r+4)]. Subtracting the square of the mean and normalizing verifies the CV formula. With z=r+2 and D=z²−4w, the sign of the derivative is that of 2+k(z²/D²)(z²−4wz−12w). The final polynomial factor is strictly increasing for z≥2; z²/D² is positive strictly decreasing. Their product increases strictly wherever the polynomial is negative, and once it is nonnegative the derivative sign is strictly positive. The sign at zero is the sign of k(1−5w)+2(1−w)², strictly decreasing in w with a unique zero in (1/5,1), equal to the stated w_c. This independently verifies all cases, including no positive critical point at equality and a unique global minimum above threshold. Applying the generator to the centered UV gives eigenvalue −(r+2), verifying the stationary autocovariance, and C(0⁺)=1+k/(1−w) diverges at fixed k while C(1) stays bounded. Independent bisection at k=4,u=0.8 gave r*=1.570592394486 and C(r*)=7.980004791317. Inspected the supplied symbolic/quadrature checker without executing it. These claims apply to the state observable only, for complete origin resets, unequal positive temperatures, and 0<|u|<1.
 
-The directly motivating arXiv:2611.06322 (full article and Appendix A inspected) derives stationary positions, mean rotation and finite-step full angular-momentum statistics but does not state the reset-rate minimization of the squared coefficient of variation for the **noise-conditional drift torque**. ArXiv:2307.05248 (full text inspected) treats the unreset noisy finite-step angular momentum and its growing variance, not this origin-reset drift-torque threshold. The closest indexed result on sampled gyrator turns optimizes coupling without Poisson resets; the inertial gyrator and coordinate-selective reset results have different generators or parameters. Earlier own records contain related gyrator covariance and reset-mark classification, but no inspected claim yields this unique threshold or the covariance eigenfunction conclusion. Unindexed work may still imply the result. A non-Markovian torque-generating-function paper was accessible at abstract level only and uses different dynamics.
+## originality
 
-## Value — PASS
+PASS
 
-Single-snapshot reliability of the deterministic conditional rotational drift is a motivated quantity distinct from the ultraviolet-divergent white-noise angular momentum emphasized in prior performance studies. The theorem identifies the exact physical regime in which reset frequency first improves this reliability and proves a unique optimum over *all* positive rates, not only a sample parameter. Near the weakly confined coupling limit, the relative improvement can become arbitrarily large, providing a structural design/interpretation distinction. This is a precise stationary-model statement, not an experimental guarantee.
+The reset generator, renewal age mixture and the mean of the drift term are established ingredients; the strongest inspected overlaps do not optimize the snapshot squared CV of that term. The sharp global regime switch and uniqueness claim go beyond those ingredients. This is a best-of-knowledge assessment, not a claim of priority over every resetting result.
 
-## Closest literature and scope
+## value
 
-See arXiv:2611.06322 (same reset-to-point model; positional moments and angular momentum), arXiv:2307.05248 (unreset sampled-angle noise), and DOI 10.1088/1742-5468/abd027 (non-Markovian torque generating function, abstract only). Results exclude reset-chord angular momentum, full angular momentum including the diffusion term, and engine efficiency. No external scientific audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The physically specified finite conditional torque admits a well-posed precision comparison even when instantaneous white-noise-inclusive angular momentum does not. The result decides for all allowed temperatures and couplings when full resetting improves that precision, whether the optimum is interior, and why potential gain can be large near loss of confinement. It does not claim performance gains for integrated currents or thermodynamic efficiency.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

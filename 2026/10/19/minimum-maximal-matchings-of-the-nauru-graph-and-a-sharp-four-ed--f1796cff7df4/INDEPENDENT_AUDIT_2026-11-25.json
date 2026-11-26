@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:50:01.279720Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, certificate.json, matchings_cpp.txt, and the three sources and recorded summaries",
+        "Independent replay: python3 /tmp/opencode/frozen_audit_graphs.py 2; certificate SHA-256 4fdad93ab72e812b23de4ffe5e1b1bf818cd8b849b96c19d79f88112306c5a6b; full mathematical contents checked, not just the hash."
+      ],
+      "rationale": "An edge of the cubic host can dominate at most five edges, itself included; a maximal matching dominates all 36, so it needs at least eight. Independent increasing-edge recursion enumerated 293436 eight-edge matchings and tested maximality by exhaustion of all nonconflicting edges, including lower-numbered ones. Exactly 90 survive. Separate independent-set recursion gives 2964 possible omitted eight-sets, and the matching census has 90 distinct omissions with one completion each. All canonical states, all transitions, component lists, eccentricities and the two symmetry actions match the supplied certificate. Rotation acts as [1,2,0] and reflection as [0,2,1] on the three 30-state components, each four-regular and self-centered at five. The respective transition counts are 0,180,180,522. At four the graph is connected with degree profile 11:72,14:18 and eccentricity profile 3:18,4:72, proving the threshold and the stated radius and diameter.",
+      "residual_risks": [
+        "The state graph requires optimal maximal matchings at step endpoints and permits simultaneous substitutions; no conclusion for sequential one-edge moves through nonoptimal states or other graph families."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 permits a one-unit size deficit for general matching transformations; it does not impose maximality and optimality at every endpoint.",
+          "68d0d1e90545 treats the Möbius–Kantor graph; c2babc0f2d15 treats Pappus. Their cardinalities and exact thresholds/components are different."
+        ],
+        "reasoning": "General bounded-size transformations and computations on other cubic host graphs do not cover the no-slack Nauru threshold.",
+        "searches": [
+          "Solomon–Solomon, DOI 10.4230/LIPIcs.ITCS.2021.57, Theorem 1",
+          "Resultary: minimum-maximal exchange in cubic symmetric graphs; Nauru perfect matching flips"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1204.2727; DOI 10.4230/LIPIcs.ITCS.2021.57; Joffard thesis ch. 6; DOI 10.1137/0138030 bibliographic identification only",
+        "Resultary 7dd6a167fbed, 2d60187cbe8d, 68d0d1e90545, c2babc0f2d15"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The eight-edge witness plus the five-edges-per-matching-edge bound proves the scalar minimum, already credited.",
+          "The periodic alternating-cycle flips of perfect matchings and the independent anti-forcing deletion sets are not general substitutions between minimum maximal matchings."
+        ],
+        "reasoning": "None of these statements selects the exact maximal-matching state family or gives the profiles at budgets two and four. The comparison excludes novelty for the scalar eight, not for the computed exchange threshold.",
+        "searches": [
+          "arXiv:1204.2727, Proposition 8 proof",
+          "Solomon–Solomon Theorem 1; Nauru Resultary 7dd6a167fbed and 2d60187cbe8d Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Maximal matchings are independent dominating sets in the line graph, not arbitrary dominating edge sets. A value equality for minimum edge domination does not identify the minimizing configurations.",
+          "Joffard's read line-graph passages allow all edge-dominating sets under token slides."
+        ],
+        "reasoning": "The line-graph alias preserves this claim only with the independence restriction and the stated replacement threshold. The broader edge-domination rule allows nonmatching states and need not preserve components or distances.",
+        "searches": [
+          "Nauru GP(12,5): minimum maximal matchings, independent unmatched sets, edge domination and line-graph exchange",
+          "Yannakakis–Gavril DOI 10.1137/0138030; Joffard thesis ch. 6 §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Figure 5 supplies an eight-edge maximal Nauru matching, not a list of optima.",
+          "Related Nauru entries 7dd6a167fbed and 2d60187cbe8d tabulate 120 perfect matchings or their associated deletion/flip data, not the 90 states."
+        ],
+        "reasoning": "The ranked exact-data searches identified readable nearest entries but no exact state table for this matching class. A size-eight witness is a scalar upper bound, not a classification.",
+        "searches": [
+          "Resultary: exact title, 90 size-eight optima, t=2/3 components, t=4 edges/radius/diameter, four-edge threshold",
+          "Brazil et al., arXiv:1204.2727, Proposition 8 and Figure 5"
+        ]
+      },
+      "rationale": "The independent assessment credits the earlier eight-edge witness and the elementary lower bound, and accepts only the 90-state classification and exact replacement geometry, especially the sharp four-edge threshold with no slack. The strongest same-host indexed results use perfect matchings; the strongest same-state-class analogues use different hosts. Read comparison passages do not imply this exact Nauru claim.",
+      "residual_risks": [
+        "Ranked searches and read passages cannot rule out unindexed tables or supplementary counts. The Yannakakis–Gavril full text was unavailable in the attempted lawful routes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known eight-edge witness; different weighted-ratio objective",
+          "evidence": "Proposition 8 uses an eight-edge maximal matching to prove eta(N)<=1/2.",
+          "identifier_or_url": "https://arxiv.org/abs/1204.2727",
+          "material_read": "OA PDF pp. 1–3 and p. 9 Proposition 8 proof and Fig. 5, offsets 28228–29021",
+          "method": "Primary statement and witness comparison",
+          "title": "The Cost of Perfection for Matchings in Graphs",
+          "trigger": "Prior Nauru witness"
+        },
+        {
+          "assessment": "Primary exact coverage not verified; feasible-state distinction follows directly from definitions",
+          "evidence": "The cited optimization-value equivalence does not make every minimum edge-dominating set a matching.",
+          "identifier_or_url": "https://doi.org/10.1137/0138030",
+          "material_read": "Bibliographic identity and value-equivalence citation in frozen record; no readable full text",
+          "method": "Direct and publisher routes returned 403; alternate repository lookup unsuccessful",
+          "title": "Edge Dominating Sets in Graphs",
+          "trigger": "Possible line-graph or minimum edge-domination result"
+        },
+        {
+          "assessment": "Different admissible intermediates",
+          "evidence": "Three operations per phase with size allowed below the smaller endpoint by one.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ITCS.2021.57",
+          "material_read": "OA abstract and pp. 57:3–4, Theorem 1",
+          "method": "Primary theorem and hypothesis comparison",
+          "title": "A Generalized Matching Reconfiguration Problem",
+          "trigger": "General theorem might dominate Nauru threshold"
+        },
+        {
+          "assessment": "Different feasible sets and move rule",
+          "evidence": "Line-graph slides are defined for edge-dominating sets without the matching restriction; Theorem 6.5 concerns complexity.",
+          "identifier_or_url": "https://perso.liris.cnrs.fr/ajoffard/manuscript.pdf",
+          "material_read": "PDF pp. 86 and 99, ch. 6 §4 and Theorem 6.5",
+          "method": "Primary definitions and theorem comparison",
+          "title": "Reconfiguration of Dominating Sets under the Token Sliding Rule",
+          "trigger": "Edge dominating and line-graph alias"
+        },
+        {
+          "assessment": "Same host, different matching families",
+          "evidence": "Both concern 120 perfect matchings; the latter's octagon graph has 414 edges and diameter six.",
+          "identifier_or_url": "Resultary 7dd6a167fbed and 2d60187cbe8d",
+          "material_read": "Local RESULT.md Findings and exact stated spectra/threshold",
+          "method": "Read indexed statements; compare matching sizes and transitions",
+          "title": "Nauru anti-forcing spectrum; Octagon-flip threshold for Nauru perfect matchings",
+          "trigger": "Same named graph and exact matching geometry"
+        },
+        {
+          "assessment": "Related exact results on different hosts",
+          "evidence": "Möbius–Kantor has 176 size-six optima; Pappus has 36 size-six optima and a three-edge threshold.",
+          "identifier_or_url": "Resultary 68d0d1e90545 and c2babc0f2d15",
+          "material_read": "Local RESULT.md Findings",
+          "method": "Statement comparison with host and budget",
+          "title": "Möbius–Kantor minimum-maximal exchange; affine triangles and Pappus three-edge exchange",
+          "trigger": "Same exact optimization and similar moves"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Independent Nauru state and transition census",
+        "Frozen RESULT.md; cited earlier witness and different-slack reconfiguration theorems"
+      ],
+      "rationale": "On a standard cubic symmetric graph, the least simultaneous update budget for traversing every optimal matching answers a natural no-slack reconfiguration question. The exact obstruction is stronger than one-move freezing: two exchanges give three symmetric components, a third does not add a single edge, and four restore connectivity and bound travel. The complete state and transition data form an independently useful finite benchmark for minimum edge domination with the matching restriction.",
+      "residual_risks": [
+        "No inference to general matching algorithms or to connectivity through nonoptimal states."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

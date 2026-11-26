@@ -1,19 +1,21 @@
-# Scientific review: exact q-Ricker survival interval
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalization is an identity for every positive physical parameter realizing the stated \((\alpha,k)\) sector. The derivative \(G'(t)=\alpha e^{-t}(1-t)/(1-kte^{-t})^2\) proves global one-step trapping, and the ratio \(G(t)/t\) has exactly one positive maximum. These two facts prove the full global basin classification, not only local stability. Implicit inverse-branch differentiation gives the exact upper preimage and fold opening. The inverse-displacement argument derives the critical \(1/n\) coefficient. Invariant-measure classification follows by dominated convergence since every orbit converges. The standalone script passes its diagnostics; finite checks are not substitutes for the proof.
+PASS
 
-## Originality — PASS within inspected evidence
+The stated scaling gives the normalized map and is realizable by positive physical parameters. Its denominator is ≥1−k/e>0 (the first > in proof line 51 should be ≥ at t=1). The maximum image α/(e−k) lies below 1, and the map is increasing on the image. The factor G(t)/t=α/(e^t−kt) has its unique peak at c, where the denominator equals α_c; its endpoint values at 0 and 1 are below one. This yields the three regimes, both Lambert-W roots and increasing-branch stability. In the two nonextinction regimes, the right-hand preimage of the basin endpoint is uniquely forced by equality of t exp(−t) on the two branches, with the larger root >1. Monotone iteration after the first step gives exactly the stated endpoint and exterior behavior; below the fold each step contracts t by at most α/α_c. Expanding e^t−kt around c gives G(c+u)−c=u−cu²/[2(1−c)]+O(u³); telescoping reciprocal increments yields the asserted 1/n law away from both fold endpoints. The square-root fixed-point displacement is −sqrt(2δ/k)+O_k(δ) for the lower root; the implicit upper-end derivative b'(c)=−b_c(1−c)/[c(b_c−1)] then gives exactly the length coefficient. Monotone convergence precludes nonconstant cycles; invariance and bounded continuous test functions reduce invariant probabilities to mixtures of the finite set of fixed points.
 
-The 2022 originating article and substantially overlapping full thesis chapter supply the map, fixed-point Lambert-\(W\) formulas, fold location, multipliers, numerical bistability and bifurcation diagrams. Those are acknowledged. The inspected chapter does not supply the exact all-initial-data extinction/survival boundaries, the nonstationary fold time constant, or the explicit first basin-length opening coefficient. A 2014 lambda-Ricker Allee study uses a different unimodal family; published generalizations for cubic Allee and symmetric Ricker competition are not statements for this rational deformation. Independent equivalence or priority verification remains open, particularly because the complete original publisher article was inaccessible and only its associated full thesis chapter was inspected.
+## originality
 
-## Value — PASS
+PASS
 
-The complete survival set is a nontrivial natural invariant of the population model: small and excessively large densities both die out, with an analytically determined finite interval of persistence. Its sudden positive-length onset at a fold, exact upper crowding threshold, and critical relaxation amplitude go beyond enumerating local fixed points or redrawing bifurcation curves. The statement covers an open two-parameter domain, every nonnegative starting state, and all invariant probabilities in that domain. The analysis does not claim novelty of monotone-map methods or of the original fixed-point formula.
+This is a bounded pass for the model-specific global classification and quantified fold opening, not for the known map, its Lambert-W equilibria, the saddle-node mechanism, or parabolic convergence in general. The strongest readable precise analogues concern different Allee recurrences and do not give the normalized q-Ricker cutoff or its length coefficient. The publisher's accessible record establishes overlap on local bifurcations and equilibria but cannot resolve whether additional global results appear in the inaccessible article or thesis; that risk remains material and explicit.
 
-## Limitations and provenance
+## value
 
-Only the stated trapping sector is covered; the period-doubling and chaotic regions remain unclassified. The source's publisher full text could not be obtained, but the source authors' full thesis chapter was read. The 2014 comparator was read at abstract level only. A further general theorem might subsume parts of the basin proof. The included numerical tests do not independently validate infinite-time or novelty assertions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a previously studied model, the result supplies a concrete global answer not obtainable just from its local equilibria: initial density can be too high as well as too low, with an explicit upper cutoff and an interval of nonextinction already at the fold. Critical relaxation and the exact one-sided change of that interval quantify time to recovery and basin size. Classifying the full half-line in a sector where all states land on the increasing branch also gives a clean exclusion of cycles and a tractable invariant-measure benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

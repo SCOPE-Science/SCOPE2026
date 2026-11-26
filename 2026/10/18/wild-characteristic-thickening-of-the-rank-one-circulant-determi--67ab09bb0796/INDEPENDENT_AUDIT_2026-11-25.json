@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:21:04.118219Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–37",
+        "VERIFICATION.md",
+        "verify.py"
+      ],
+      "rationale": "With cyclic subscripts the minor on rows i+j,j and columns j,0 gives x_i x_j = x_0 x_{i+j} for i,j nonzero; if a subscript is zero the relation is tautological. Conversely all minors equate products with the same subscript sum. In degree d>0 the resulting n normal forms x_0^(d−1)x_s have independent images t^d z^s in Z[t,z]/(z^n−1), so span and are independent integrally. In particular x_i^n=x_0^n covers Proj by D_+(x_0); degree-zero localization is exactly Z[z]/(z^n−1), which is finite free of rank n and gives the given morphism. Over an algebraically closed positive-characteristic field, factorization through (z^m−1)^(p^a) and Chinese remaindering give exactly the proposed Artin factors and no other associated support. This includes a=0 and m=1. Over a field x_0 is regular, and the Artinian reduction is k⊕W where W has dimension n−1 in degree one and square zero. The minimal resolution reduces along x_0, and the Koszul complex on W has in homological degree i>0 homology only in internal degree i+1: its scalar-to-linear differential is injective as each nonempty wedge expands into a disjoint nonzero set of monomials. The resulting rank is (n−1) binom(n−1,i)−binom(n−1,i+1)=i binom(n,i+1). This gives the characteristic-independent Betti numbers and the stated Hilbert series. The supplied script and verification note were inspected statically, not replayed; the integral calculation supplies the general check.",
+      "residual_risks": [
+        "Only the ideal of all two-by-two minors of this one circulant block is assessed, not higher rank or arbitrary blocks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2008 primary account attributes pluri-circulant minor studies to the 2002 article and reports certain arbitrary-characteristic Gröbner basis cases for b=2 and t=n,n−1.",
+          "Beelen–Ghorpade–Hasan use generic matrix entries and address codes over finite fields."
+        ],
+        "reasoning": "A broader matrix family need not cover the integral local structure with the relevant specialization, and a result on generic entries does not compute the local scheme of this linear section. The 2002 full text was not confirmed, so stronger coverage there remains possible.",
+        "searches": [
+          "DOI 10.1081/AGB-120005829",
+          "DOI 10.1016/j.jpaa.2003.10.026",
+          "arXiv:0809.1163v1 pp. 2, 8",
+          "arXiv:1503.02207v1 pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0809.1163v1",
+        "arXiv:1503.02207v1",
+        "DOIs 10.1081/AGB-120005829 and 10.1016/j.jpaa.2003.10.026 (partial access)",
+        "Resultary targeted matches 0290eba11adf and 056390b4aedb (summary comparison)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2008 Theorem 2.1 constructs the monomial-ideal resolution; Proposition 2.4 computes its Betti numbers. The introduction attributes related Hilbert-series and resolution constructions to the 2004 paper.",
+          "The linear change of variables relating the circulant and monomial ideals is explicitly conditional on non-wild characteristic."
+        ],
+        "reasoning": "Ordinary resolutions and fieldwise non-wild diagonalization do not force the scheme-theoretic cyclic law after projective localization over Z. The latter supplies the missing integral comparison; the subsequent fiber decomposition is standard and not a standalone novelty claim.",
+        "searches": [
+          "arXiv:0809.1163v1 Proposition 2.4 and pp. 2, 8",
+          "DOI 10.1016/j.jpaa.2003.10.026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "D(Z/n)=Spec Z[C_n] is the standard group scheme of characters and gives the target's fiber algebra by Frobenius.",
+          "Zaare-Nahandi 2008 pp. 2, 8 diagonalizes the pluri-circulant only with roots of unity and char not dividing n."
+        ],
+        "reasoning": "The character functor gives an equivalent target, not an existing identification of the projective all-minor equations with it. Split Fourier coordinates account for the transverse reduced points but cannot specialize as an invertible change in wild characteristic.",
+        "searches": [
+          "Cyclic group ring/character scheme and rank-one circulant minor comparison",
+          "Resultary integral rank-one circulant scheme and wild fibers",
+          "arXiv:0809.1163v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed summaries concern complex 3×3 Fourier submatrix ranks and determinant values of normalized symmetric circulants, respectively.",
+          "The primary Betti formula for the transversal monomial ideal specializes to the contextual non-wild Betti table."
+        ],
+        "reasoning": "These summaries are not used as primary no-coverage evidence; their described observables are different. The matching homological numbers do not tabulate the scheme or its local lengths.",
+        "searches": [
+          "Resultary rank-one circulant scheme and bad-characteristic fibers; nearest hits 0290eba11adf and 056390b4aedb",
+          "arXiv:0809.1163v1 Proposition 2.4"
+        ]
+      },
+      "rationale": "The supported contribution is the integral determinantal identification and hence the exact wild fibers. The target is the classical diagonalizable group D(Z/n), whose local fibers are immediate once that target is recognized, but the assertion that the all-minor projective scheme realizes it integrally is the distinctive comparison. The inspected pluri-circulant Fourier diagonalization identifies the split non-wild case and confirms contextual Betti numbers there. Its hypotheses exclude the new fiber regime. Neither that reduction nor Cohen–Macaulayness or constant Betti numbers can identify the wild completed local rings. No matching integral identification was established in the accessible material; this pass does not credit a new homological formula or establish priority.",
+      "residual_risks": [
+        "The full 2002 and 2004 papers could not be inspected; the former in particular could contain special-case or equivalent integral statements not recovered here.",
+        "A different literature on determinantal character schemes or lattice ideals may include the same realization. The bounded searches do not establish historical uniqueness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verifies characteristic-restricted homological overlap, not the assigned integral local formula",
+          "evidence": "Monomial reduction requires the roots of unity and characteristic prime to n; for one block and t=2 the quotient Betti ranks agree.",
+          "identifier_or_url": "https://arxiv.org/pdf/0809.1163",
+          "material_read": "pp. 2, 5, 6, 8: diagonalization hypothesis, Theorem 2.1, Proposition 2.4 and characteristic comments",
+          "method": "Primary OA PDF, offsets 3080, 9300, 13000 and 18650",
+          "title": "Betti Numbers of Transversal Monomial Ideals",
+          "trigger": "Closest readable primary theorem on pluri-circulant minors and Betti numbers"
+        },
+        {
+          "assessment": "Unresolved full-text risk, not a negative coverage assertion",
+          "evidence": "2008 reports the pluri-circulant minor setting and a limited arbitrary-characteristic Gröbner basis case.",
+          "identifier_or_url": "https://doi.org/10.1081/AGB-120005829",
+          "material_read": "Bibliographic citation and author's account in 2008 pp. 2, 8; not the 2002 full text",
+          "method": "Publisher and identified alternate ResearchGate routes returned 403; used accessible 2008 primary account",
+          "title": "On the Ideals of Minors of Pluri-Circulant Matrices",
+          "trigger": "Earlier work with the closest matrix family"
+        },
+        {
+          "assessment": "Known homological context; inaccessible full text not counted as surveyed",
+          "evidence": "Later preprint states that the prior work computed Hilbert series and constructed the monomial-ideal resolution.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jpaa.2003.10.026",
+          "material_read": "DOI landing information and attribution in 2008 pp. 2, 5; not the 2004 full text",
+          "method": "DOI followed and identified Academia copy attempted; later OA preprint passages read",
+          "title": "The Minimal Free Resolution of a Class of Square-Free Monomial Ideals",
+          "trigger": "Earlier homological comparison"
+        },
+        {
+          "assessment": "Generic rather than circulant rank-one locus",
+          "evidence": "Finite-field linear codes from minors of a generic matrix; no integral cyclic coordinate identification in the inspected passage.",
+          "identifier_or_url": "https://arxiv.org/pdf/1503.02207",
+          "material_read": "pp. 1–2, offset 4700",
+          "method": "Primary OA PDF",
+          "title": "Linear Codes associated to Determinantal Varieties",
+          "trigger": "Rank-one determinantal varieties"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof",
+        "arXiv:0809.1163v1 pp. 2, 8"
+      ],
+      "rationale": "For the natural rank-one circulant section, invertible Fourier diagonalization loses its force exactly in wild characteristic. The result gives the actual integral family and precise nilpotent thickness at each wild point, distinguishing geometric support from scheme length and supplying a model usable under base change. These facts are not supplied by dimension or Hilbert data alone. The standard calculations about the target and the Betti numbers are context, not the reason for acceptance.",
+      "residual_risks": [
+        "The value claim is restricted to the integral rank-one section, not arbitrary circulant strata."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

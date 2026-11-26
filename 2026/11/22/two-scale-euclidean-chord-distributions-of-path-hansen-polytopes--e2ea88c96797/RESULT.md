@@ -2,7 +2,7 @@
 
 ## Finding
 
-For a path on \(n\) graph vertices, all squared Euclidean distances between distinct vertices of its Hansen polytope are determined by two rational generating functions. Unlike typical distances in an ordinary Fibonacci cube, the complete Hansen vertex set exhibits two distinct macroscopic distance populations. Within each population, the fluctuations are Gaussian with different explicit variances.
+The squared Euclidean chord lengths of a path Hansen polytope split into two positive-mass populations with different linear centers and different Gaussian fluctuation variances. These populations arise from sampling a pair of vertices with the same or opposite signs in the canonical Hansen realization. We state the finite enumerators as inputs to the limit theorem: both are specializations of a known endpoint-weight/Hamming enumerator, not new counting formulas.
 
 Let \(F_0=0,F_1=1,F_{m+2}=F_{m+1}+F_m\). For \(n\ge0\), write \(\mathcal I_n\) for the independent subsets of the path on \(n\) vertices, and set
 \[H_n=\operatorname{conv}\{\pm(1,\mathbf1_I):I\in\mathcal I_n\}\subset\mathbb R^{n+1}.\]
@@ -15,7 +15,7 @@ Put \(A_n(q)\) and \(B_n(q)\) for the coefficients in
 \end{aligned}\]
 Then the exact chord census, in every dimension, is
 \[\boxed{D_n(q)=A_n(q)-F_{n+2}+q^4B_n(q).}\]
-The same-sign polynomial \(A_n\) is already known as the ordered Fibonacci-cube Hosoya polynomial [3]; the opposite-sign polynomial \(B_n\), its coupling through the Hansen lift, and the following two-scale Euclidean limit are the contributions.
+Here \(A_n\) is the ordered Fibonacci-cube Hosoya polynomial [3]. Both \(A_n\) and \(B_n\) follow from Khan's endpoint-weight refinement [5] by the substitutions given in the proof. The finite census fixes the normalizations for the two conditional laws below; the contribution is the asymptotic separation and its fluctuation constants in the Hansen realization.
 
 Let \(Q_n\) be the squared Euclidean distance between two distinct Hansen vertices chosen uniformly without replacement. Then
 \[\boxed{\frac{Q_n}{n}\Longrightarrow \frac12\delta_{2/5}+\frac12\delta_{(8-2\sqrt5)/5}.}\]
@@ -36,16 +36,26 @@ The path has \(n\) labeled vertices in their natural order. A permitted indicato
 \[A_n(q)=\sum_{I,J\in\mathcal I_n}q^{|I\triangle J|},\quad B_n(q)=\sum_{I,J\in\mathcal I_n}q^{|I\triangle J|+4|I\cap J|},\]
 the two sign copies contribute \(A_n-F_{n+2}\) distinct unordered same-sign pairs, and the cross-sign pairs contribute \(q^4B_n\). This proves the displayed expression for \(D_n\) once the generating functions are established. In particular \(D_n(1)=2F_{n+2}^2-F_{n+2}=\binom{2F_{n+2}}2\).
 
-**Exact four-state transfer.** At each coordinate the pair \((X_i,Y_i)\) belongs to the four states \(S=\{00,10,01,11\}\). State \((a,b)\) may precede \((c,d)\) exactly when \(ac=bd=0\). Give the successor state weight \(q^{c\oplus d}\) for \(A_n\), and \(q^{(c\oplus d)+4cd}\) for \(B_n\), where \(\oplus\) is exclusive or. With
+**Specialization of the known pair enumerator.** Let
+\[
+P_n(a,b,x)=\sum_{I,J\in\mathcal I_n}a^{|I|}b^{|J|}x^{|I\triangle J|}.
+\]
+Theorem 7.1 of [5] gives
+\[
+\sum_{n\ge0}P_n(a,b,x)t^n=
+\frac{1+(ax+bx+ab)t+abx^2t^2-a^2b^2x^2t^3}
+     {1-t-(abx^2+ab+ax+bx)t^2-abx^2t^3+a^2b^2x^2t^4}.
+\]
+Thus \(A_n(q)=P_n(1,1,q)\) and \(B_n(q)=P_n(q^2,q^2,q^{-1})\), using \(2|I|+2|J|-|I\triangle J|=|I\triangle J|+4|I\cap J|\). In either case numerator and denominator have a common factor \(1+qt\); cancellation gives the displayed rational formulas. The second substitution is taken formally for nonzero \(q\), and the paired word weights are polynomials in \(q\), so the result includes evaluation at \(q=0\).
+
+**Transfer matrix for the limit laws.** At each coordinate the pair \((X_i,Y_i)\) belongs to the four states \(S=\{00,10,01,11\}\). State \((a,b)\) may precede \((c,d)\) exactly when \(ac=bd=0\). Give the successor state weight \(q^{c\oplus d}\) for \(A_n\), and \(q^{(c\oplus d)+4cd}\) for \(B_n\), where \(\oplus\) is exclusive or. With
 \[T_w(q)_{(a,b),(c,d)}=\mathbf1_{ac=bd=0}\,q^{w(c,d)},\qquad v_w(q)_{(a,b)}=q^{w(a,b)},\]
-we have \(P_0=1\) and \(P_n=v_w(q)^\mathsf T T_w(q)^{n-1}\mathbf1\) for \(n\ge1\). Direct elimination of four linear state equations gives
-\[\sum_{n\ge0}P_n t^n=1+t\,v_w(q)^\mathsf T(I-tT_w(q))^{-1}\mathbf1.\]
-For \(w(c,d)=c\oplus d\), its reduced numerator and denominator are \(1+(1+q)t-qt^2\) and \(1-(1+q)t-(1+q)t^2+qt^3\). For \(w(c,d)=c\oplus d+4cd\), they are \(1+(q+q^4)t-q^5t^2\) and \(1-(1+q)t-(q+q^4)t^2+q^5t^3\). The cubic recurrences derived by clearing these denominators establish both identities for all \(n\), without relying on finite enumeration.
+the corresponding one-variable enumerator \(A_n(q)\) or \(B_n(q)\) is \(v_w(q)^\mathsf T T_w(q)^{n-1}\mathbf1\) for \(n\ge1\). At \(q=1\), \(T_w\) is the product of the two identical Fibonacci transfer matrices and is primitive: every state can reach every other state in two steps through \(00\).
 
 **Two Gaussian populations.** A uniformly chosen independent-set word of length \(n\) is the zero-one hard-core model of activity one on a path. In the infinite-volume stationary limit its occupancy probability, occupancy covariance and correlation ratio are
 \[p=\frac{5-\sqrt5}{10},\quad v=p(1-p)=\frac15,\quad \rho=\frac{\sqrt5-3}{2}=-\varphi^{-2},\qquad \varphi=\frac{1+\sqrt5}{2},\]
 \[\operatorname{Cov}(X_0,X_k)=v\rho^{|k|}.\]
-These follow by diagonalizing the positive primitive Fibonacci transfer matrix \(\left(\begin{smallmatrix}1&1\\1&0\end{smallmatrix}\right)\): its Perron eigenvalue is \(\varphi\) and its subleading eigenvalue is \(-\varphi^{-1}\), giving \(\rho=-\varphi^{-2}\). Two independent path words converge in every fixed interior window to independent copies of this chain.
+These follow by diagonalizing the primitive Fibonacci transfer matrix \(\left(\begin{smallmatrix}1&1\\1&0\end{smallmatrix}\right)\): its Perron eigenvalue is \(\varphi\) and its subleading eigenvalue is \(-\varphi^{-1}\), giving \(\rho=-\varphi^{-2}\). Two independent path words converge in every fixed interior window, with distance to both boundaries tending to infinity, to independent copies of this chain.
 
 For each position, write centered variables \(u_i=X_i-p\), \(v_i=Y_i-p\), and \(s\in\{-1,+1\}\). The local squared-distance costs are
 \[W_{s,i}=(X_i-Y_i)^2\ (s=-1),\qquad W_{s,i}=(X_i+Y_i)^2\ (s=+1).\]
@@ -55,7 +65,7 @@ Independence between the two words therefore gives, for every integer \(k\),
 \[\operatorname{Cov}(W_{s,0},W_{s,k})=\frac25(1+2sp)^2\rho^{|k|}+\frac4{25}\rho^{2|k|}.\]
 The local means are \(\mu_-=2p-2p^2=2/5\) and \(\mu_+=2p+2p^2=(8-2\sqrt5)/5\). The two absolutely convergent covariance sums, using \((1+\rho)/(1-\rho)=1/\sqrt5\) and \((1+\rho^2)/(1-\rho^2)=3/\sqrt5\), are
 \[\sigma_-^2=\frac{14}{25\sqrt5},\qquad \sigma_+^2=\frac{54-8\sqrt5}{25\sqrt5}.\]
-For completeness, the finite-length distribution is a fixed-boundary nonnegative transfer product with a positive primitive matrix at \(q=1\). Its normalized moment generating function has, near zero, the analytic Perron form \(c_s(\theta)[\lambda_s(e^\theta)/\lambda_s(1)]^n(1+O(r^n))\), with \(c_s(0)=1\) and \(0<r<1\). Taylor expansion of the logarithm at \(\theta=0\), with the first two derivatives equal to \(\mu_s\) and \(\sigma_s^2\), proves the two central limit theorems by characteristic functions. The opposite-sign constant \(4\) is negligible after centering and dividing by \(\sqrt n\). The same-sign diagonal exclusion changes the law by exponentially vanishing total variation because \(|\mathcal I_n|=F_{n+2}\) grows exponentially. There are \(F_{n+2}(F_{n+2}-1)\) same-sign and \(F_{n+2}^2\) opposite-sign unordered pairs. Consequently both probabilities tend to \(1/2\), proving the two-atom limit and the conditional Gaussian laws.
+The finite-word moment generating function from the transfer matrix has, near zero, the analytic Perron form \(c_s(\theta)[\lambda_s(e^\theta)/\lambda_s(1)]^n(1+O(r^n))\), with \(c_s(0)=1\) and \(0<r<1\), uniformly in a sufficiently small complex neighborhood of zero. This follows from the simple separated Perron eigenvalue and positivity of its weight at zero. The stationary pair chain has the same limiting log moment generating function per coordinate: tilting its transitions by \(e^{\theta w}\) gives a matrix diagonally similar to \(T_w(e^\theta)/\lambda_s(1)\), using the positive right Perron vector of \(T_w(1)\). Only the boundary vectors differ. Differentiating the analytic Perron form for this stationary chain gives the limiting first two cumulants per coordinate, which equal \(\mu_s\) and the absolutely summable covariance rate \(\sigma_s^2\) computed above. Taylor expansion at \(\theta=0\) then proves the two finite-word central limit theorems by characteristic functions. The opposite-sign constant \(4\) is negligible after centering and dividing by \(\sqrt n\). The same-sign diagonal exclusion changes the law by exponentially vanishing total variation because \(|\mathcal I_n|=F_{n+2}\) grows exponentially. There are \(F_{n+2}(F_{n+2}-1)\) same-sign and \(F_{n+2}^2\) opposite-sign unordered pairs. Consequently both probabilities tend to \(1/2\), proving the two-atom limit and the conditional Gaussian laws.
 
 ## Verification
 
@@ -63,11 +73,11 @@ The accompanying portable \(check_hansen.py\) independently constructs the verte
 
 ## Relationship to prior work
 
-Hansen polytopes were introduced in 1977; Freij–Henze–Schmitt–Ziegler [1] supply the canonical twisted-prism vertex description. The 2017 daisy-cube metric paper [2] treats the Fibonacci cube as a graph and counts induced cubes at given graph distances, rather than squared Euclidean chords in its Hansen lift. Klavžar–Mollard [3], Theorem 4.1, **already proves exactly the \(A_n\) generating function** as the ordered Hosoya polynomial of the Fibonacci cube; no originality is claimed for that part or for its mean \(2/5\). Aliniaeifard and coauthors [4] characterize stable-set-polytope one-skeleton distances, which again are not the full cross-sign chord distribution. The difference is mathematical: an opposite-sign chord weights simultaneous occupancy by four, creating a second rational polynomial and a macroscopically separated Gaussian branch. Related calculations for complete-bipartite Hansen polytopes concern a different graph class and their **polytope edges**, not all pairs of path Hansen vertices.
+Freij–Henze–Schmitt–Ziegler [1] supply the canonical twisted-prism vertex description. The daisy-cube metric paper [2] studies graph distance, and Aliniaeifard and coauthors [4] study the one-skeleton of stable-set polytopes. Klavžar–Mollard [3], Theorem 4.1, gives the exact same-sign generating function. Khan [5], Theorem 7.1, also gives the stronger finite enumerator from which the opposite-sign formula and full finite census follow by substitution. Accordingly the present result does not claim a new finite enumeration, nor novelty for ordinary Fibonacci-cube distance moments. Its focus is the Euclidean sign mixture and the explicitly separated conditional fluctuations in the Hansen lift: same-sign chords measure disagreement, while opposite-sign chords give four units of squared distance to simultaneous occupancy.
 
 ## Limitations
 
-All results concern the exact canonical coordinates specified above; arbitrary affine images do not preserve the Euclidean conclusions. The result does not classify polytope edges, intrinsic volumes, or graph families beyond paths. The two Gaussian limits are conditional, not a single globally centered Gaussian law. The existing Fibonacci-cube Hosoya result is explicitly excluded from the novelty claim. Priority searches cannot rule out every unindexed equivalent formula for the weighted opposite-sign transfer; no independent mathematical audit is asserted.
+All results concern the exact canonical coordinates specified above; arbitrary affine images do not preserve the Euclidean conclusions. The result does not classify polytope edges, intrinsic volumes, or graph families beyond paths. The two Gaussian limits are conditional, not a single globally centered Gaussian law. The finite enumerator and its two specializations are credited above. Historical priority for the asymptotic result is not asserted exhaustively; asymptotic analyses of weighted Fibonacci-word pair enumerators could yield related constants.
 
 ## References
 
@@ -75,3 +85,4 @@ All results concern the exact canonical coordinates specified above; arbitrary a
 2. S. Klavžar and M. Mollard, *Daisy cubes and distance cube polynomial*, arXiv:1705.08674 (first posted 2017-05-24), Sections 2–3.
 3. S. Klavžar and M. Mollard, *Wiener index and Hosoya polynomial of Fibonacci and Lucas cubes*, MATCH Commun. Math. Comput. Chem. **68** (2012), 311–324, especially Theorem 4.1; https://users.fmf.uni-lj.si/klavzar/preprints/MATCH68%281%29_311-324.pdf.
 4. F. Aliniaeifard, C. Benedetti, N. Bergeron, S. X. Li, F. Saliola, *Stable set polytopes and their 1-skeleta*, arXiv:1804.00360 (first posted 2018-04-02).
+5. Ali Ejaz Khan, *Fixed-Weight Hamming Distance Distributions of Fibonacci Strings*, Mathematical Reflections 6 (2026), Theorem 7.1 and Proposition 7.4, https://www.awesomemath.org/wp-pdf-files/math-reflections/mr-2026-06/mr_6_2026_hamming_distance_fibonacci_distributions.pdf.

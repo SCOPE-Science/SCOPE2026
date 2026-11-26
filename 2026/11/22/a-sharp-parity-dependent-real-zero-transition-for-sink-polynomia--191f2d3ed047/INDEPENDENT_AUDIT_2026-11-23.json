@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:59:07.224598Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two central-edge orientations contribute (1+z)^2[(1+z)^b+z-1] and the swapped expression. With u=1+z and d=b-2, the residual factor is F_b(u)=2u^b+(u-2)(1+u^d); F_b(0)≠0 and F'_b(1)=b+4, giving the stipulated multiplicities. Comparing u^b to u^d and (2-u)(1+u^d) to 2u^d settles signs on (0,1) and (1,2); u≥2 is positive. For even b the negative-u polynomial has a single sign change, including b=2, and its sign at t=-u=1 is negative. For odd b the roots must be in 1<t<ρ, where H_d(t)=t^d(-2t²+t+2)-(t+2) increases with d. Independently recomputed the d=11 certificate: the coefficients through degree four of -H_11(1+x) are 2,-7,-20,22,275 and all higher ones are positive; its quartic on [0,1/4] has Bernstein coefficients 2,25/16,11/12,19/128,107/256, and at 1/4 its value, first and second derivatives are positive with second derivative increasing thereafter. The exact d=13 value at t=6/5 is 6829302128/30517578125>0. With negative endpoint signs and the two-sign-change bound, this gives exactly two simple zeros above the odd threshold. Pointwise eventual positivity inside (1,ρ) forces the two t-roots to the interval endpoints; z=-1-t reverses their order. Degree b+2 then gives real-rootedness only at b=2. Inspected the finite verifier and its documentation but did not execute the uploaded program. The exact certificate can be replayed via binomial expansion and the Bernstein basis conversion in RESULT.md lines 52–65.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former root theorem assumes chordal claw-free graphs; each of these double-star trees contains a claw. The latter provides a deletion–contraction identity for the acyclic orientation polynomial."
+        ],
+        "reasoning": "The root theorem cannot be specialized to this tree. The recurrence covers enumeration, but the real-zero classification requires analysis of the residual factor and, for odd parameters, the hump threshold.",
+        "searches": [
+          "Alexandersson–Maia Leite Theorem 3.1 and Proposition 5.1",
+          "Hwang et al. Theorem 2.3"
+        ]
+      },
+      "checked_sources": [
+        "Alexandersson–Maia Leite arXiv:2610.41502v1",
+        "Hwang et al. arXiv:1910.10920",
+        "Local Resultary matches 191f2d3ed047, dc10569b3cdd, 4c497236087f",
+        "Frozen proof and verification files"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General enumeration yields techniques for computing the polynomial, and Descartes' rule limits the odd residual family to at most two relevant roots. Neither determines whether the residual function is ever positive in (1,ρ) at the boundary odd powers 11 and 13."
+        ],
+        "reasoning": "The inequality certificates at the two consecutive odd powers are extra mathematics; together with monotonicity they are what force the transition rather than just count possible signs. No broader inspected theorem settles them by specialization.",
+        "searches": [
+          "arXiv:1910.10920 Theorem 2.3 versus frozen Eqs. (1)–(3)",
+          "arXiv:2610.41502v1 Section 5.1 versus D_{2,b}"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hwang et al.'s acyclic orientation polynomial specializes to this sink count, since every tree orientation is acyclic. Alexandersson–Maia Leite's Proposition 5.1 is on L(D_{p,q}), not D_{p,q}."
+        ],
+        "reasoning": "Forest sink polynomials and the acyclic sink specialization are valid aliases; line-graph sink and matching polynomials are not. For example the line graph has one vertex per edge and each pendant star becomes a clique around the line-graph vertex of the central edge.",
+        "searches": [
+          "Local Resultary double-star tree sink polynomial real zeros and parity transition",
+          "arXiv:2610.41502v1 Proposition 5.1",
+          "arXiv:1910.10920 Definition 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact title and threshold hit 191f2d3ed047 is the frozen record itself. Distinct hits dc10569b3cdd (central hub with length-two arms) and 4c497236087f (K_{2,n}) give different polynomial families."
+        ],
+        "reasoning": "The self-hit is not independent evidence. Neither distinct family gives the polynomial census for joined hubs each having at least two direct leaves. No independently matching all-b threshold entry was established.",
+        "searches": [
+          "Local Resultary: parity-dependent double-star acyclic sink zeros and nearby exact real-root censuses"
+        ]
+      },
+      "rationale": "The supported distinct claim is the all-b real-root census on the actual double-star tree, especially the exact last-failing odd b=13 and first-succeeding b=15. The known sink enumerator and elementary polynomial evaluation are not the novelty claim. The most similar line-graph theorem has different graph and hypotheses, and the nearest distinct Resultary records have different graph families. This is a bounded assessment, not a priority certificate.",
+      "residual_risks": [
+        "A bounded search, including one unhelpful external lookup, does not exclude an unindexed equivalent root result.",
+        "No classification for all D_{a,b} is implied."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not cover the relevant double-star tree root census",
+          "evidence": "Theorem 3.1 is chordal claw-free; Proposition 5.1 concerns the line graph, and D_{2,b} itself has an induced claw.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.41502v1",
+          "material_read": "Theorem 3.1 p. 7 (offset 19000); §5.1 Proposition 5.1 pp. 21–22 (offset 59700)",
+          "method": "Lawful OA PDF passage comparison",
+          "title": "Sink polynomials of line graphs and weighted matching polynomials",
+          "trigger": "Same double-star notation and a real-root theorem"
+        },
+        {
+          "assessment": "Covers the underlying enumerative object, not the exact threshold in the inspected results",
+          "evidence": "The specialization counts sinks; the recurrence gives deletion–contraction, not a real-root count.",
+          "identifier_or_url": "https://arxiv.org/pdf/1910.10920",
+          "material_read": "Definition 2.1 p. 3 (offset 10600); Theorem 2.3 p. 4 (offset 13944)",
+          "method": "Lawful OA PDF passages",
+          "title": "Acyclic orientation polynomials and the sink theorem for chromatic symmetric functions",
+          "trigger": "General sink enumerator and evaluation method"
+        },
+        {
+          "assessment": "One self-hit; distinct graph families in the other hits",
+          "evidence": "The distinct hits classify central length-two arms and complete bipartite K_{2,n}, not the double-star tree here.",
+          "identifier_or_url": "Resultary 191f2d3ed047; dc10569b3cdd; 4c497236087f",
+          "material_read": "Matching theorem statements; frozen duplicate's threshold at mirrored RESULT.md offset 3650",
+          "method": "Local Resultary search and matched statements",
+          "title": "Resultary double-star and neighboring parity censuses",
+          "trigger": "Direct hit and nearby exact root counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The family gives a simple branching-tree boundary case for sink-polynomial real-rootedness outside the known claw-free scope. The result is not just a small-parameter list: it fixes both parities for every b, exhibits a finite creation threshold with simple roots, and determines limiting positions. The threshold requires genuinely more than obtaining the polynomial or bounding its possible real zeros.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

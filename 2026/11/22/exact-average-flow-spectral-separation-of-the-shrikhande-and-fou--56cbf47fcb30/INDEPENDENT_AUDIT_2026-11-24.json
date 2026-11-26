@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:57:26.082922Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–75",
+        "Frozen VERIFICATION.md, verify.py and verify.cpp, inspected but not executed",
+        "Replay: python3 /workspace/reproductions/4.py; exact output /workspace/reproductions/4.txt"
+      ],
+      "rationale": "Both coordinate graphs are vertex-transitive. Independent exact neighbor checks give degree six, two common neighbors per distinct pair, and local 2-regular graphs with two and zero triangles respectively, distinguishing the isomorphism types. Thus A²=4I+2J, so A has eigenvalues 6, 2, −2 of multiplicities 1, 6, 9, and D=2(J−I)−A gives 24, −4, 0 with the same multiplicities. I independently computed rooted simple paths by the reverse recurrence f(U,w)=sum of f(U minus w,j) over j adjacent to w in U minus w, with f({0},0)=1 and no other path ending at its own start. Deleting the last edge is a bijection, so this exhausts the ordered nonempty simple paths at all lengths 1–15. All 30 entries match RESULT.md, including 34452 and 34320 at the first differing length seven. (Total paths, total lengths) are (13991682,177310488) and (14029326,177724236); the exact reduced quotient difference is 24601265726/5452607446287. Vertex transitivity gives F=cI−D, yielding the stated eigenvalues; the distinct traces alone prove separation.",
+      "residual_risks": [
+        "Counts depend on excluding the zero-edge path and distinguishing paths as ordered from a fixed root, as in the stated definition. No other graph pair is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Waheed–Azam prove the flow-stable spectral shift generally; the tables enumerate graphs through order ten at their specified numerical precision, not these two order-sixteen graphs.",
+          "PAIN states the path-multiset distinction on this same pair, and a smaller path length under additional neighbor marking."
+        ],
+        "reasoning": "A general shift formula reduces the question to the pair's two means but supplies neither mean; enumeration through ten does not cover sixteen.",
+        "searches": [
+          "Waheed and Azam arXiv:2611.18344v1, §4 equations (1)–(2), Proposition 1 and Corollary 1; §6 Table 4 and §7",
+          "Graziani et al., No PAIN no Gain, p. 8 Figure 5"
+        ]
+      },
+      "checked_sources": [
+        "Waheed–Azam arXiv:2611.18344v1",
+        "Graziani et al., PAIN PDF, p. 8 Figure 5",
+        "Resultary exact hit 56cbf47fcb30 and ranked searches for full path tables"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The shift formula and length-seven path distinction are expressly acknowledged in the record. Its mirror repeats this same record, not independent coverage."
+        ],
+        "reasoning": "A change in one or more coefficients of P(t)=sum p_k t^k does not force a change in P′(1)/P(1); the zero/nonzero difference of these two aggregate ratios requires a separate check. No novelty is ascribed to the earlier seven-step distinction.",
+        "searches": [
+          "Waheed–Azam §4 Proposition 1 and Corollary 1",
+          "PAIN Figure 5 same-pair result",
+          "Mirror RESULT.md for 56cbf47fcb30, offset 5501"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary catalogue hit 56cbf47fcb30 is the bound record itself, as checked in its mirror.",
+          "Same-pair PAIN Figure 5 uses path multisets through length seven; the literature query did not supply a better match."
+        ],
+        "reasoning": "Weighted mean of nonempty rooted simple-path length, the scalar flow diagonal, and the scalar spectral shift on a vertex-transitive graph are equivalent ways to detect this difference. A discrepancy in some path multiset is a different assertion.",
+        "searches": [
+          "Resultary: Shrikhande rook graph average flow rooted simple path exact weighted average all lengths",
+          "Resultary: exact rooted simple path counts rook graph Shrikhande all lengths",
+          "Literature: \"Shrikhande\" \"average flow\" simple paths exact path table"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct complete rooted path polynomial surfaced in the bounded catalogue results. Waheed–Azam's table has a smaller order cutoff; the inspected PAIN passage reports separation, not the exact full histograms."
+        ],
+        "reasoning": "A table giving all rooted coefficients at lengths 1–15 (or full aggregate counts, since each graph is vertex-transitive) for both graphs would mechanically give the two exact rational averages; it would be prior coverage even without the average-flow name.",
+        "searches": [
+          "Resultary: whole path polynomial table Shrikhande rook graph",
+          "Resultary: path census polynomial Shrikhande rook exact table",
+          "Waheed–Azam Table 4; PAIN p. 8 Figure 5"
+        ]
+      },
+      "rationale": "The novel claim supported here is the exact all-length weighted mean difference for this pair and the resulting average-flow spectral separation. Prior work has the scalar shift, the graph pair, and a path-multiset separation through length seven. Those do not establish that the weighted mean survives cancellation across lengths. No complete prior table or stronger covering result was established in the inspected material.",
+      "residual_risks": [
+        "Unindexed rooted-path tables or an equivalent all-length aggregation remain possible, and a later rediscovery must check such evidence. The literature query was not informative; its irrelevant results are not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers definitions and shift, not the two means in the inspected data",
+          "evidence": "Average flow is the ratio of total lengths of simple paths from the vertex to their number; the enumeration stops at order ten.",
+          "identifier_or_url": "https://arxiv.org/html/2611.18344v1",
+          "material_read": "§4 equations (1)–(2) (offsets 27000–31400), Proposition 1 and Corollary 1 (31524–33575), §6 Table 4 and §7 (around 43800)",
+          "method": "Original OA HTML passage inspection",
+          "title": "Enumeration of Cospectral Graphs with Respect to the Average Flow Matrix",
+          "trigger": "Primary definition, general spectral shift, and relevant exact/enumerative scope"
+        },
+        {
+          "assessment": "Material partial overlap; not an all-length mean comparison",
+          "evidence": "Path multisets through length seven distinguish the same pair (through length four with neighbor marking).",
+          "identifier_or_url": "https://repositum.tuwien.at/bitstream/20.500.12708/193616/1/2023-No%20PAIN%20no%20Gain%20More%20Expressive%20GNNs%20with%20Paths-vor.pdf",
+          "material_read": "Page 8, Figure 5 and discussion",
+          "method": "Original OA PDF passage",
+          "title": "No PAIN no Gain: More Expressive GNNs with Paths",
+          "trigger": "Same canonical strongly regular pair and path distinction"
+        },
+        {
+          "assessment": "Identical bound record, not a distinct priority source",
+          "evidence": "Same pair and scope, same distinction from both Waheed–Azam and PAIN.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-average-flow-spectral-separation-of-the-shrikhande-and-fou--56cbf47fcb30",
+          "material_read": "RESULT.md at offset 5501, local snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror passage inspection",
+          "title": "Exact average-flow spectral separation of the Shrikhande and four-by-four rook graphs",
+          "trigger": "Exact Resultary match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–32 and 62–87",
+        "Waheed–Azam §4 and enumeration scope",
+        "PAIN Figure 5"
+      ],
+      "rationale": "The rook and Shrikhande graphs are a canonical test of graph invariants: both are vertex-transitive and have identical adjacency and distance spectra. It is worthwhile to know whether the single scalar contributed by the new average-flow matrix actually distinguishes this pair after summing all lengths, since known path-based distinctions need not survive that aggregation. The exact nonzero shift is a counterexample to sameness of average-flow spectra for distance-cospectral graphs and provides a reproducible numerical benchmark. The finite count is motivated by that question, not by a randomly chosen pair or the numerical size of the gap.",
+      "residual_risks": [
+        "This demonstrates a particular direction of separation on one distinguished pair, not general injectivity or a classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

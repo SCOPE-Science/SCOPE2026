@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:07:57.962601Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding and steps 1–4",
+        "VERIFICATION.md and checker_progressions.py (read only)",
+        "/workspace/review-evidence/frozen_math_replay.py 1"
+      ],
+      "rationale": "Off a marginal-null set, write x=t+jr with 0<t<r and let S be the levels j=k-1 mod k. Every successful tuple has exactly one coordinate in S, so its probability is at most E[sum_a 1_S(U_a)]=k|S|, without assuming exchangeability. The fibers have N(t)=m+1 for t<s and m for t>s, so |S|=s floor((m+1)/k)+(r-s)floor(m/k). Rotating a uniform seed by a-1 within every complete disjoint k-block and fixing leftovers gives a measurable Lebesgue-preserving map for coordinate a; precisely the complete-block seeds succeed. This attains the bound and reduces to the stated formula. The deficit is the integral of N(t) mod k and vanishes iff s=0 and k divides m (ell>=2 in the open range). The three k=3 examples check exactly. Separate finite replay: 70 labelled-marginal LPs on rational grids, allowing every label permutation of each progression and diagonal failures, match to 1e-8. The analytic certificate treats all real gaps.",
+      "residual_risks": [
+        "The finite LP checks are corroboration only; no tolerance version or classification of all optimal couplings is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vögler concerns finite-state multi-marginal polytopes and repulsive costs; the frozen citation describes a general framework. The frozen comparison locates Omladič–Vuk–Zalar's finite CDF interpolation in its opening sections and Chaudhary–Khandelwal's two-uniform atomic sum laws in Theorem 4.3 and Corollary 6.1(i); primary texts could not be independently recovered in this review."
+        ],
+        "reasoning": "A finite copula feasibility criterion or finite cost formulation does not by itself evaluate the continuum fixed-spacing event; the bivariate sum law does not fix a k-tuple law. No verified stronger theorem giving the needed specialization was found.",
+        "searches": [
+          "Focused literature search for the multi-marginal exact-progression capacity and residue matching",
+          "arXiv:1901.04568 (Theorem 2.1 lookup attempted)",
+          "arXiv:2611.14008; arXiv:2610.24197 (lawful full-text retrieval attempted)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e7089247f5b7, e7fa2648f14a, 3c501b829a9e",
+        "RESULT.md and AUDIT.json prior-work sections",
+        "arXiv:2610.24197, 2611.14008, 1901.04568 (retrieval limitations above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest k-variable comparison maximizes pairwise separation at least r, with exact-AP rigidity in a critical interval. Its subcritical capacity is 1; the present exact-equality event has strict deficits at generic subcritical gaps."
+        ],
+        "reasoning": "A sharp bound of 1 on the larger event gives no matching bound on the smaller equality event, and critical-regime rigidity does not classify subcritical optimizers.",
+        "searches": [
+          "Resultary hard-core separation and rigidity e7089247f5b7; local-mirror decisive retrieval attempted",
+          "RESULT.md lines 43–47 and frozen AUDIT.json cited comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact-distance parity-cusp summary e7fa2648f14a gives mr for even m and 2-(m+1)r for odd m, exactly the k=2 specialization. Two-distance summary 3c501b829a9e concerns pairs at r or 2r and similar residue classes."
+        ],
+        "reasoning": "Weights on k-consecutive chain blocks are a fractional interval-packing formulation. The closest pair formulations do not enforce the joint occurrence of k points in one progression and do not imply the k>=3 formula. The elementary floor packing is not itself the originality claim.",
+        "searches": [
+          "Resultary: exact prescribed-gap progression capacity; multi-marginal residue matching; fractional matching",
+          "Resultary e7fa2648f14a and 3c501b829a9e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned the identical frozen record, the k=2 exact pair formulas e7fa2648f14a and the same-day hard-core record e7089247f5b7; no separate summary with the same k>=3 subcritical formula was located."
+        ],
+        "reasoning": "The target match is not corroboration; the explicit pair table does not tabulate the stated domain. Same-day dating establishes no priority ordering.",
+        "searches": [
+          "Resultary exact event, hard-core separation and residue/fractional matching"
+        ]
+      },
+      "rationale": "The distinct claim is the all-k attained subcritical exact-progression capacity for k>=3, not pair displacement, minimum separation or the general chain integrality argument. No statement inspected supplies this claim. The nearest comparisons provide substantial precedents in objective or method, and priority is provisional.",
+      "residual_risks": [
+        "The most relevant catalogue records were available only as summaries; exact same-day priority is unresolved.",
+        "An uninspected equivalent in older chain-matching or dependence-uncertainty work is possible; failed retrieval is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Larger separation event and different rigidity regime in available evidence; no whole-text exclusion",
+          "evidence": [
+            "Event is pairwise distance at least r; subcritical capacity one."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22 e7089247f5b7",
+          "material_read": "Catalogue statement; frozen RESULT.md lines 43–47",
+          "method": "Resultary search; decisive local-mirror retrieval did not return usable text",
+          "title": "Sharp hard-core separation capacity and rigidity for uniform marginals",
+          "trigger": "Same marginals, k-way geometry and equality on success in one regime"
+        },
+        {
+          "assessment": "Exactly matches k=2 only",
+          "evidence": [
+            "Even m: mr; odd m: 2-(m+1)r."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22 e7fa2648f14a",
+          "material_read": "Catalogue formula summary",
+          "method": "Resultary statement comparison",
+          "title": "Sharp parity cusps for exact-distance copula capacity",
+          "trigger": "Exact displacement capacity and matching formula"
+        },
+        {
+          "assessment": "Available scope evidence is bivariate sum laws, finite CDF interpolation, and finite-state cost geometry; primary-text coverage remains uncertain",
+          "evidence": [
+            "Frozen citations: Chaudhary–Khandelwal Theorem 4.3 and Corollary 6.1(i); Omladič–Vuk–Zalar sections 1–2; Vögler abstract scope."
+          ],
+          "identifier_or_url": "arXiv:2610.24197; arXiv:2611.14008; arXiv:1901.04568",
+          "material_read": "Frozen statement comparisons and citations; no decisive primary text retrieved independently",
+          "method": "Frozen AUDIT.json comparison and lawful OA passage attempts",
+          "title": "Sums of two dependent uniform random variables; A linear programming approach to finite copula interpolation; Geometry of Kantorovich polytopes and support of optimizers",
+          "trigger": "Potential broader coupling results and transport formulations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof"
+      ],
+      "rationale": "Exact spacing is a natural sharp dependence-uncertainty event that neither independence (zero) nor subcritical hard-core separation (capacity one) resolves. An attained expression for arbitrary real gaps shows full-capacity resonances and intervening strict deficits, and makes the qualitative nonmonotonicity precise.",
+      "residual_risks": [
+        "Value is in the exact event; there is no claimed implication for noisy gaps or general transport costs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

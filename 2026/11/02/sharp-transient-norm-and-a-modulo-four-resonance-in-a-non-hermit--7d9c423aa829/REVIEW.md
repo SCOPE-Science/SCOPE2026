@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** In the exact clean source Hamiltonian, Fourier decomposition yields a three-mode block with cubic identity \(B^3=4J^2B\). A chiral involution forces the propagator singular values into \(g,1,g^{-1}\). The full-time Frobenius identity \(F=3+8us+4u(u-v)s^2\) has a strictly optimal time \(s=1\) and optimal momentum given by the minimum discrete \(v\). This proves the displayed closed global norm and all boundary cases. The standard-library checker passed 35,620 finite tests; it does not replace the analytical proof.
+## correctness
 
-**Originality — PASS, qualified.** Liu et al. (arXiv:2311.03166, Eqs. (1),(12),(25),(40),(48), Appendices A/B) already prove the clean pi-flux band spectrum and compact localization, which are expressly credited. Zhang, Xu and Jin (arXiv:2308.11968, Secs. III–IV) treat selected-site dynamics of a different two-band non-Hermitian cage. Leykam, Flach and Chong (arXiv:1704.00896, Sec. III) establish non-Hermitian flat-band/exceptional-point amplification in another geometry; Martínez-Strasser et al. (arXiv:2307.08754) and Li, Liu and Liu (arXiv:2403.07459) address related diamond/AB-cage properties. No covering exact all-input, all-time norm or modulo-four sharp classification was found in the inspected literature and targeted mathematical research index. Residual risk: a more general nonnormal similarity-norm theorem, unindexed specialized source, or uninspected source detail may implicitly cover the result.
+PASS
 
-**Mathematical value — PASS.** The precise operator-norm problem answers an experimentally motivated worst-case coherent-amplification question that cannot be resolved from flat eigenenergies alone. The all-size closed formula and strict arithmetic resonance are structural rather than a list of sample calculations, with a sharp strong-nonreciprocity law and physical finite-size implications.
+For the stated periodic site-space operator the Fourier transform is unitary, and the full norm is the maximum of the block norms. Writing a block as [[0,r],[ell,0]], one obtains ell r=4J² and squared factor norms 4J²(cosh²h∓sinh(h)cos(k)). Hence the cubic identity and the Frobenius trace follow: with u=sinh²h, v=cos²k and s=sin²(Jt), the trace of E*E is 3+8us+4u(u−v)s². Chiral conjugation intertwines E with E inverse, so its three singular values are g,1,1/g and g is the stated increasing function of the trace. For u>0 the time derivative in the variable s is bounded below by 8u min(1,u)>0, and at s=1 the trace decreases strictly in v. The distance of the N-point grid to pi/2 modulo pi is 0, pi/(2N) or pi/N in the three stated cases, including N=2. At h=0 unitarity removes the time and momentum strictness. At fixed h≠0 the derivative with respect to v is finite and strictly negative at v=0, giving the quadratic deficit; at fixed N, Q_N is asymptotic to exp(2|h|)/4, giving the large-bias formula.
 
-**Scientific limitations.** The result concerns only clean, uniform, zero-potential, flux-\(\pi\) periodic chains and the standard Euclidean norm. A non-Hermitian amplitude propagator is not a trace-preserving quantum channel. The current proof is self-contained, but independent audit and publication-priority verification are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The retrieved primary model paper establishes the identical Hamiltonian and its real flat spectrum. Neither that spectrum and cage decomposition nor the closest inspected indexed claims give the sharp physical Euclidean gain with the maximizing times and finite-size resonance. Pass is for that model-specific norm result, not the original bands, caging, or general singular-value methods.
+
+## value
+
+PASS
+
+Peak physical-site amplification is a natural quantitative question for a nonnormal flat-band system: real flat spectrum and cage dynamics alone leave the strength of coherent transients undetermined. The closed gain and all optimal times quantify a genuine dynamical effect, and the ring-size result distinguishes exact attainment from a controlled finite-size deficit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

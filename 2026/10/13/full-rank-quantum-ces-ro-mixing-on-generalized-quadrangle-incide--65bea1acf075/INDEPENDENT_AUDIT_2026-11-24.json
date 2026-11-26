@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:23:57.802771Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The GQ axiom yields the point-collinearity strongly regular parameters and the incidence distance array used in the proof; no automorphism hypothesis is needed. Squared singular values of the incidence block are q+1 plus the three collinearity eigenvalues, giving the five adjacency spaces and the stated dimensions. Independent analytic replay: at ±(q+1) the distance-polynomial values are the valencies with the bipartite signs; at ±sqrt(2q) the row is (1, ±sqrt(2q), q−1, ∓sqrt(2q), −q); at 0 it is (1,0,−(q+1),0,q). Write u=1/N, w=q(q+1)/(4(q²+1)), z=q/(2(q+1)). Projector entries are the corresponding row times u, w or z divided by the distance valency. Their squared sums give c0=2u²+2w²+z², c1=2u²+4qw²/(q+1)², c2=2u²+2w²(q−1)²/[q²(q+1)²]+z²/q², c3=2u²+4qw²/[q⁴(q+1)²], c4=2u²+2w²/q⁴+z²/q⁴. Pairing these with the same eigenvalue rows gives the frozen spectrum. The negative radical branch is positive by the displayed sum of squares, the others by their factors. The positive-entry stochastic matrix has simple eigenvalue 1; the two other rational branches differ by (q+3)(q−1)/(8q(q+1)). If sqrt(2q) is irrational the radical branches cannot collide with those. Otherwise q=2r², and at common denominator 8q(q+1)(q²+1) the rational-branch differences from the radical midpoint have numerators 3 and 2 modulo 4, respectively, whereas the radical offset has numerator divisible by 4. At q=1 the spectrum is 1, 1/4 (three), and 0 (four), also following from the cycle formula. Replay is the distance-polynomial and trace proof in RESULT.md; VERIFICATION.md records the optional symbolic and finite-graph replay. The frozen verify.py was inspected, not executed. The uniform claim is only for existing balanced-order geometries.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The survey's primitive distance-regular rank problem excludes bipartite incidence graphs. The main existing general criteria checked use simple adjacency eigenvalues or automorphism conditions.",
+          "The primitive strongly regular catalogue theorem is confined to diameter two; the later GQ radial-kernel criteria characterize arbitrary coefficient inputs rather than computing the walk."
+        ],
+        "reasoning": "The general methods cover calculation on the graph, but the tested criteria and graph-family theorems do not assert rank for every thick balanced GQ.",
+        "searches": [
+          "Coutinho–Guo arXiv:2404.02236, Lemma 3.1 and Open Problem 4.1",
+          "Coutinho–Godsil–Guo–Zhan arXiv:1709.03591, pp. 8–9",
+          "Resultary eb4cf76e53eb and 9535d19cf47d"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:1103.2578",
+        "arXiv:2404.02236",
+        "arXiv:1709.03591",
+        "arXiv:2208.08971",
+        "Resultary eb4cf76e53eb and 9535d19cf47d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The equal-energy term in the general eigenmatrix expansion is exactly the projector formula used here. The general exact-entry algorithm takes the graph as input. These methods compute examples but do not assert positivity as q varies.",
+          "A comparison between orders requires the parameterized distance-projector calculation, not just substitution into a known explicit thick-GQ mixing table or a rank theorem. A known radial-kernel test would likewise require the computed input and a separate strictness check."
+        ],
+        "reasoning": "The exact normalization, evaluation in a nontrivial family, and uniform branch signs supply the distinction; all general methods and the thin result are credited.",
+        "searches": [
+          "Godsil arXiv:1103.2578 Lemma 1.1 and §6",
+          "Coutinho–Guo arXiv:2404.02236 Lemma 3.1 and §4",
+          "Coutinho et al. arXiv:2208.08971 p. 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Projector Schur squares and association-scheme eigenmatrices express the same continuous-time Cesàro matrix. Exchanging points and lines leaves the incidence parameters unchanged.",
+          "Godsil's even-cycle formula directly gives the C8 boundary rank and profile. The later catalogue radial-kernel result takes the kernel coefficients as inputs."
+        ],
+        "reasoning": "The change of representation does not itself provide the thick GQ profile or sign conclusion; the boundary is already established.",
+        "searches": [
+          "Godsil arXiv:1103.2578, Lemmas 1.1 and 6.1",
+          "Coutinho–Guo arXiv:2404.02236, Lemma 3.1",
+          "Resultary GQ distance-radial kernels 9535d19cf47d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matched table gave the five thick-family mixing coefficients and eigenvalues. The primitive SRG table addresses a different family. The GQ positivity-cone record does not tabulate the walk's coefficients.",
+          "The C8 invariant follows exactly from the published cycle formula: spectrum 1, 1/4 (three), 0 (four)."
+        ],
+        "reasoning": "Accept the thick-family invariant only; do not count the tabulated/general-cycle boundary as novel.",
+        "searches": [
+          "Resultary primitive SRG mixing eb4cf76e53eb",
+          "Resultary GQ radial positivity cone 9535d19cf47d",
+          "Godsil arXiv:1103.2578 §6 cycle tables"
+        ]
+      },
+      "rationale": "Credit the Schur-square identity, association-scheme computations, and the thin-cycle rank to prior work. The supported distinction is the explicit thick-family profile and spectrum and the uniform positive-definiteness classification, not a new general average-mixing formula or a solution of the primitive distance-regular problem.",
+      "residual_risks": [
+        "A less-indexed specialization of the general eigenmatrix formulas could contain the same thick GQ spectrum or a rank criterion for this family. The search was bounded and does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General method; directly covers the thin boundary.",
+          "evidence": "Mhat is the sum of the projector Schur squares; the even-cycle formula specializes to 6J/64+(I+P^4)/8 for C8.",
+          "identifier_or_url": "https://arxiv.org/abs/1103.2578",
+          "material_read": "Lemma 1.1 p. 3 (around offset 4440); Lemma 6.1 p. 13 (around 30750)",
+          "method": "OA paper PDF, bounded passages",
+          "title": "Average mixing of continuous quantum walks",
+          "trigger": "Foundational projector identity and exact cycle coverage"
+        },
+        {
+          "assessment": "General computational framework, not the asserted rank classification.",
+          "evidence": "The P,Q mixing expression gives the Cesàro terms; the open rank problem is explicitly for primitive distance-regular graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.02236",
+          "material_read": "Lemma 3.1 pp. 8–9 (offsets near 48500 and 51629); Open Problem 4.1 p. 12 (near 60950)",
+          "method": "OA paper PDF, bounded passages",
+          "title": "Selected open problems in continuous-time quantum walks",
+          "trigger": "Potential general distance-regular spectrum and rank coverage"
+        },
+        {
+          "assessment": "Criteria inspected do not establish the uniform thick GQ claim.",
+          "evidence": "The simple-spectrum assumptions cannot apply to the repeated adjacency eigenspaces here; the automorphism route does not handle arbitrary GQs.",
+          "identifier_or_url": "https://arxiv.org/abs/1709.03591",
+          "material_read": "Rank discussion pp. 8–9 (around offset 15200)",
+          "method": "OA paper PDF, bounded passages",
+          "title": "A New Perspective on the Average Mixing Matrix",
+          "trigger": "Potential general rank or symmetry criterion"
+        },
+        {
+          "assessment": "General algorithm, no inspected exact family evaluation.",
+          "evidence": "An exact formula for entries from a specified input graph is not the thick-GQ uniform rank theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.08971",
+          "material_read": "Projector-square and exact-arithmetic calculation discussion on p. 4 (around offset 9800)",
+          "method": "OA paper PDF, bounded passage",
+          "title": "Irrational quantum walks",
+          "trigger": "Potential exact average-mixing computation covering this invariant"
+        },
+        {
+          "assessment": "Different family.",
+          "evidence": "Primitive SRGs only; the bound incidence graphs are imprimitive and have diameter four.",
+          "identifier_or_url": "2026/10/12/SCOPE-full-rank-of-long-time-quantum-mixing-on-primitive-strongly-regu--eb4cf76e53eb",
+          "material_read": "Finding and scope at offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Full rank of long-time quantum mixing on primitive strongly regular graphs",
+          "trigger": "Closest published catalogue mixing claim"
+        },
+        {
+          "assessment": "Later and conditional on given radial coefficients; not the exact average-mixing result.",
+          "evidence": "Scalar and two-by-two tests for arbitrary kernels do not identify the five entries of this walk or give their uniform sign evaluated at those entries.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-positivity-cone-of-distance-radial-kernels-on-finite-gener--9535d19cf47d",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Exact positivity cone of distance-radial kernels on finite generalized quadrangles",
+          "trigger": "Potential dominating spectral theorem on the same geometries"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact walk invariant for a natural incidence family resolves a rank question across all realizations of a fixed order without transitivity. Users can read off rank and the full spectrum rather than diagonalizing particular graphs, and can see precisely the contrast with the already known thin case. The result neither addresses primitive graphs nor asserts existence of GQs at arbitrary integer order.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

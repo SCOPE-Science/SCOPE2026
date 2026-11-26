@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For a tree-covering walk with endpoints fixed, the unique endpoint path contributes one crossing per edge and every remaining edge contributes two; a depth-first detour tour attains this lower bound. Green classes allow respectively neither, one, or both tree roots to vary, giving the four exact minima. Prefix-group equality and reduced-subword distances are computable in logspace for any fixed rank by the established graph-group normalization theorem; serial index scans count distinct prefixes and maximize pairwise distances with logarithmically many working bits. The checker independently confirms all four formulas against shortest class representatives among 5461 words over the two-generator symmetric alphabet.
+## correctness
 
-## Originality — PASS, with disclosed risk
-Bodart–Carvalho–Monteiro (2026), Sections 4 and 11, provide the geometric conditions and explicitly ask for the context-sensitive status. Diekert–Kausch–Lohrey (2012), Theorem 5.1, give logspace free-group normal forms. No inspected source supplies the explicit logspace computation of all Green-class minima. The contribution is their synthesis via pairwise prefix enumeration; it may be implicit or regarded as an immediate corollary of the antecedents, and equivalent unindexed observations remain a residual risk. The Munn-tree geometric facts and the earlier logspace normal forms are not claimed as new.
+PASS
 
-## Value — PASS
-The precise recent open question about context-sensitive status receives a stronger positive answer: deterministic logspace, together with computation of all four length invariants for every fixed rank. This is a natural algorithmic classification of languages already known to be neither context-free nor co-context-free, not an arbitrary numerical specialization.
+For fixed endpoints a,b on a finite tree, deleting any edge gives a cut. A covering walk must traverse an off-path edge at least twice and each a-to-b path edge at least once; performing subtree tours along that path attains 2e-d(a,b). In the Munn model (P,g), the range and domain idempotents are (P,1) and (g^(-1)P,1), so R fixes the initial-rooted tree, L the terminal-rooted tree, and H both endpoints. D allows translations: if Q=kP and h belongs to Q, the representative (P,k^(-1)h) links (P,g) by R to (Q,h) by L. Conversely such a link forces the translated-tree condition. For a covering walk starting at a nonidentity vertex a, the resulting Munn tree placed at identity is a^(-1)P and its terminal vertex is a^(-1)b; translation preserves distances. Thus maximizing d(a,b) gives the four displayed minima with the fixed endpoints, the initial or terminal eccentricity, or the diameter. For fixed rank, the verified graph-group shortlex theorem applies to the free group (no commutations); the reduced length of w[i+1..j] equals the Cayley-tree distance between the corresponding prefixes. Because the connected Munn subtree lies in a tree, this is also its internal distance. Simulating the logspace transducer on a virtual substring, counting output letters as emitted, and reusing its workspace makes each equality or distance query logarithmic space. Nested scans of prefix indices count first occurrences for e and maximize distances for the eccentricities and diameter, using only logarithmic counters. The final length comparisons, including the empty input, follow. The finite checker was inspected, not rerun; the logspace bound is analytic.
 
-## Limits and source comparison
-The main finding applies only to a fixed rank and the standard symmetric alphabet. It does not prove indexedness, lower bounds for logspace, or uniform results for variable presentations or nonstandard generators. Relevant material was inspected in arXiv:2609.35251v2 §§2–7,11; arXiv:1201.3174v1 Introduction and Theorem 5.1; and arXiv:2608.10379v1 Introduction. Prior mathematical-record searches and their actual comparisons are documented in AUDIT.json. Computational checks are finite and no independent assessment has been made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is simultaneous deterministic logarithmic-space computation of the class minima from the input word, including the consequent logarithmic-space recognition; it is not the geometric minima themselves or the first context-sensitive upper bound. The exact earlier indexed geometry and linear-space recognition are credited. A later indexed statement of logspace recognition overlaps for R/L/D with a different argument; the text comparison demonstrates overlap but does not establish independent discovery or provenance.
+
+## value
+
+PASS
+
+The improvement from explicit deterministic linear space to logarithmic workspace for these natural languages is substantive. The method outputs exact class minima without storing the Munn tree, not just testing acceptance, and applies even to the classes with neither context-free nor co-context-free geodesic languages. Its value is the stronger resource bound and uniform method over the four classes at each fixed rank, not rederiving the known geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

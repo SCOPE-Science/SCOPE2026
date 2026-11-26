@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact joint probability-generating function follows from independent Bernoulli detections conditional on Poisson abundance and independent Poisson false counts. Its first three distinct-index mixed derivatives yield the claimed means, pair covariances and third centered cross-moment. The inverse substitutions and strict/weak feasibility inequalities are algebraically necessary and sufficient. The two-visit counterexample has identical full probability-generating functions; the scaling transformation preserves all first- and second-order moments. Rational shock-decomposition checks reproduce the algebra over 3456 parameter configurations. The finite checks are independent diagnostics, not the universal proof.
+## correctness
 
-## Originality
-PASS on the accessible evidence, with residual risk. The closest primary sources are Royle (2004), Dennis–Morgan–Ridout (2015), Corcoran–Denman–Hamilton (2020), Clement–Royle–Mixan (2022), and a published theorem on two-visit identification without false-positive contamination. Dennis discusses a Poisson shock representation and moment estimation, but does not introduce independent visit-specific additive false-count intensities or prove this model's full seven-moment feasibility image and sharp visit threshold. Clement studies a different Poisson-encounter observation family. Equivalence to a known general multivariate-Poisson parameterization is a material remaining bibliographic risk. The foundational Royle paper's full text was not obtained; its accessible abstract and the detailed 2015 successor were examined. An accessible statement comparison does not establish global novelty.
+PASS
 
-## Value
-PASS. Independently fluctuating spurious count intensities arise naturally with automated environmental monitoring. The exact three-visit versus two-visit boundary, the necessity of a third cross-moment even with many visits, and the explicit feasible region tell an investigator precisely what population summaries can and cannot distinguish latent abundance from false detections in this model. This is a natural complete classification of a constrained ecological observation problem, rather than an arbitrary numerical special case. The result gives structural identification only, not reliable finite-sample estimation or model robustness.
+Split the latent Poisson population into independent Poisson counts for detection subsets. A joint cumulant on distinct visits is the total rate of subsets containing those visits; singleton cumulants also include false detections. Thus mu_i=lambda*p_i+phi_i, C_ij=lambda*p_i*p_j and T=lambda*p_1*p_2*p_3. The third joint cumulant is the centered cross-moment, not the raw product moment. Dividing gives p_i=T/C_jk and lambda=C_12*C_13*C_23/T^2; subtracting lambda*p_i gives phi_i. The strict inequalities give precisely the positive interior detection and abundance parameters, and the three weak inequalities give precisely phi_i>=0, including zero false counts. Substitution in the Poisson construction realizes every feasible seven-tuple. For the two-visit pair the exact singleton-only and shared Poisson rates are (7/10,5/4,1/2) under both parameter sets, hence the whole joint law coincides. For every finite visit count, s>1 with s*max p_i<1 preserves all means and off-diagonal covariances under the stated scaling; the marginal variances equal the means, so all moments through order two agree. The analytic argument, not the 3456 finite checks recorded in the certificate, proves the full claim.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit the classical Poisson subset decomposition and uncontaminated N-mixture moment analysis. The supported distinction is the parameter and moment-image characterization with unknown visit-specific Poisson backgrounds and fixed independent Bernoulli detection, including the sharp visit and moment-order obstructions. No available source statement compared establishes that combination.
+
+## value
+
+PASS
+
+The extra Poisson singleton sources create a real latent abundance/background ambiguity. The exact feasible region gives a population-level check of the model and the sharp contrast tells investigators both why adding a third survey works and why collecting only pair summaries of many surveys cannot help. This is a natural complete identification result, not a claim of improved fitting or statistical power.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

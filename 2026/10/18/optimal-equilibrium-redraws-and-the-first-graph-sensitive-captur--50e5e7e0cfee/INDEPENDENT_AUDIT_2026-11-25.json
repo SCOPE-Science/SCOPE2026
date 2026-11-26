@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:49:46.587819Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The killed operator H=K-Q is self-adjoint in L²(π), strictly positive by irreducibility and nonzero killing. Equilibrium survival is the Laplace transform of the spectral law of H at the unit vector 1. The tilted log curvature is the eigenvalue variance; equality occurs exactly if H1=k is a multiple of 1. A successful live redraw regenerates the starting law, hence survival is the product and strict Jensen gives the unique equal spacing for nonconstant k (q=1 has only one schedule). Splitting any positive segment strictly improves survival; spectral Jensen gives the strict lower bound exp(-t k̄). The first derivative gives its infinite-budget limit. Self-adjointness gives spectral moments k̄, Eπ[k²] and Eπ[k³]+<k,-Qk>π; the centered log cumulants give the stated coefficient including the factor 1/6 and negative sign. The fourth-order segment Taylor error is O(q^-3) after multiplying by q at fixed t,Q,k. Constant killing makes every inequality an equality and all schedules equivalent. The three-site path has variance 8/3, zero centered third moment, energy 8r/3. Independent replay `cd /workspace && python audit_checks/check_frozen.py 2` computes exact formal log coefficients in three rational networks and high-precision survival from their matrix exponentials, including nonuniform π with nonzero skewness and a constant killing case. The proof, not the finite checks, supplies the general quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first paper optimizes a mean first-passage objective over stochastic restart choices; Eule–Metzger handle general resetting-time distributions, and Lorenz describes finite-deadline equi-hazard conditions."
+        ],
+        "reasoning": "The more general renewal and critical-point frameworks do not evaluate the finite killed generator's third moment or give the corresponding graph-dependent fixed-deadline law.",
+        "searches": [
+          "Pal–Reuveni arXiv:1607.06048, Eq. (4)",
+          "Eule–Metzger arXiv:1510.07876 p. 2",
+          "Lorenz doi:10.1371/journal.pone.0164605"
+        ]
+      },
+      "checked_sources": [
+        "Lorenz doi:10.1371/journal.pone.0164605",
+        "van Moorsel–Wolter via Lorenz; doi:10.1049/ip-sen:20041090 access attempt",
+        "arXiv:1607.06048",
+        "arXiv:1510.07876",
+        "Resultary 2970227b7395, b31ffe3779db, b14ecd398861"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Reported equi-hazard stationarity is consistent with equal spacing. The derivative m₃=<H1,H H1>π adds <k,-Qk>π to the uncentered cubic killing moment; none of the compared passages identifies that decomposition."
+        ],
+        "reasoning": "An exact renewal product or equi-hazard condition is compatible with many segment laws, hence alone does not determine the coefficient. Treat the strict schedule result as a natural application; the material distinct content is the explicit graph correction with the exact equality boundary.",
+        "searches": [
+          "Lorenz pp. 2,7, attributed van Moorsel–Wolter condition",
+          "doi:10.1049/ip-sen:20041090 (access attempt)",
+          "arXiv:1607.06048 p. 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fixed deadline success is one minus a product of survival probabilities. Lorenz reports the constant hazard f/(1-F) condition across segments; here the hazard is the negative derivative of the log Laplace transform of the killed-chain spectral measure."
+        ],
+        "reasoning": "Equal spacing as a strict global minimum follows from known convexity principles in this form; the graph correction is the centered spectral third cumulant, which reduces to the local skewness plus energy, not just restart stationarity.",
+        "searches": [
+          "Resultary: equilibrium redraws, fixed-deadline spacing, graph-energy correction",
+          "Lorenz, doi:10.1371/journal.pone.0164605 pp. 2,7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved analogues optimize long-time growth via reset destinations, separations of seasonal visits, and long-time mortality under production clocks. Their objective functions and time limits differ."
+        ],
+        "reasoning": "The lookup did not identify an indexed formula for the same cubic coefficient or fixed-deadline chain theorem; it does not establish absence.",
+        "searches": [
+          "Resultary: fixed-deadline equilibrium schedule and graph Dirichlet correction; records 2970227b7395, b31ffe3779db, b14ecd398861"
+        ]
+      },
+      "rationale": "Best-knowledge pass for the explicit cubic Dirichlet-energy correction and its placement in the strict finite-budget equilibrium-redraw result. Restart factorization, generic equi-hazard stationarity and log-convexity of the spectral mixture are familiar mechanisms, not claims of priority. No examined result supplied the stated network coefficient.",
+      "residual_risks": [
+        "Older reliability literature, including the inaccessible van Moorsel–Wolter article, and work on stationary killed-semigroup cumulants may contain related results. No categorical priority claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Important prior stationarity principle, not the spatial correction.",
+          "evidence": [
+            "States the constant-hazard necessary condition and credits the single-processor result to van Moorsel and Wolter."
+          ],
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0164605",
+          "material_read": "PDF pp. 2 and 7, offsets 8496 and 47008",
+          "method": "OA paper PDF passages",
+          "title": "Completion Probabilities and Parallel Restart Strategies under an Imposed Deadline",
+          "trigger": "Same finite-deadline optimization framework"
+        },
+        {
+          "assessment": "Primary comparison limited by HTTP 403; no repository copy recovered.",
+          "evidence": [
+            "Lorenz attributes the single-processor equi-hazard stationarity condition to this work."
+          ],
+          "identifier_or_url": "https://doi.org/10.1049/ip-sen:20041090",
+          "material_read": "No primary full text; Lorenz's account only",
+          "method": "DOI access attempt and lawful repository lookup",
+          "title": "Optimal restart times for moments of completion time",
+          "trigger": "Original cited equi-hazard result"
+        },
+        {
+          "assessment": "Sharp restart optimality with a mean-completion-time criterion, not this fixed deadline theorem.",
+          "evidence": [
+            "Compares deterministic and random restart laws in expected completion time."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1607.06048",
+          "material_read": "p. 3, Eq. (4), text offset 22866",
+          "method": "OA PDF passage",
+          "title": "First Passage Under Restart",
+          "trigger": "Optimal deterministic restart"
+        },
+        {
+          "assessment": "General timing framework, no spatial killing moment coefficient in the inspected material.",
+          "evidence": [
+            "Develops master equations for general resetting-time distributions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1510.07876",
+          "material_read": "p. 2, text offset 9405",
+          "method": "OA PDF passage",
+          "title": "Non-equilibrium steady states of stochastic processes with intermittent resetting",
+          "trigger": "Renewal description for reset timing"
+        },
+        {
+          "assessment": "Different decision variable and horizon; same index date says nothing about priority.",
+          "evidence": [
+            "Changes reset destination spread and measures the long-run growth of a reproducing population in a lethal interval."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-universal-survival-reversal-threshold-for-spatially-distribute--2970227b7395/RESULT.md",
+          "material_read": "Finding",
+          "method": "Resultary local mirror",
+          "title": "A universal survival reversal threshold for spatially distributed resets",
+          "trigger": "Same-day spatial reset and survival optimization analogue"
+        },
+        {
+          "assessment": "Distinct calendar problem with endpoint effects.",
+          "evidence": [
+            "Equal interior gaps with unequal endpoint gaps optimize expected discoveries in the stated separated regimes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-separation-threshold-and-endpoint-offset-law-for-carcass--b31ffe3779db/RESULT.md",
+          "material_read": "Finding",
+          "method": "Resultary local mirror",
+          "title": "A sharp separation threshold and endpoint-offset law for carcass discoveries",
+          "trigger": "Finite-time event-discovery timing optimization"
+        },
+        {
+          "assessment": "Long-time survival under production timing is not finite-horizon equilibrium redrawing.",
+          "evidence": [
+            "At fixed mean interbirth time deterministic production maximizes a decay exponent."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-renewal-production-clocks-govern-the-long-time-survival-of-morta--b14ecd398861/RESULT.md",
+          "material_read": "Finding",
+          "method": "Resultary local mirror",
+          "title": "Renewal production clocks govern the long-time survival of mortal populations",
+          "trigger": "Deterministic timing under mortality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a canonical zero-cost stationary redraw protocol, the theorem separates the first penalty (equilibrium killing heterogeneity) from the first graph-dependent correction (transport energy). The three-site example distinguishes networks with identical equilibrium hazard statistics. The strict finite-budget statement and constant-rate degeneracy make the asymptotic quantitatively interpretable rather than a generic renewal expansion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

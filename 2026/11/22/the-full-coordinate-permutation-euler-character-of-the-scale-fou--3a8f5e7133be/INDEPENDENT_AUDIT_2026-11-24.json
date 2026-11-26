@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:22:26.645426Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A geometrically fixed point has barycentric weights constant on each vertex orbit. Normalizing by the total orbit weights identifies the fixed set with the independence complex of admissible orbits, with incompatibility precisely a pair at distance >4. On augmented oriented simplicial chains, a setwise invariant face on s vertices in k orbits has permutation sign (−1)^(s−k) and ordinary Euler contribution (−1)^(s−1); the product is (−1)^(k−1). Including the augmentation and negating the reduced alternating trace gives exactly I(−1) as claimed. I reconstructed all eleven orbit graphs and signed sums, using isolated-vertex and leaf reductions and component factorization as well as vertex deletion. The orbit counts and all traces match, including 253 at the identity (2,238 cached states in this implementation). I computed irreducible characters independently of rim-hook enumeration, extracting coefficients of the Vandermonde determinant times the product of power sums in the Frobenius formula. The full class-weighted orthogonality check and all multiplicities (7,4,5,1,4,4,1,4,5,2,2) agree. By barycentric subdivision, an invariant simplex is pointwise fixed and flags have invariant orientations. The Euler characteristic of the true quotient is the average of the geometric fixed-space Euler characteristics by ordinary orbit counting on flags. It is thus 1−7=−6, with reduced value −7; connectedness follows from the cube edges, so higher rational homology is nonzero. Replay: python /workspace/checks/cube.py (output /workspace/checks/cube.txt). The finite result says nothing about a separate graded decomposition or quotient torsion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Galetto–Montaño–Wellner, arXiv:2606.20784v1, abstract p. 1, explicitly give full hyperoctahedral decompositions for r≤3 and r=n−1.",
+          "Bendersky–Elia–Grbić, arXiv:2605.00705v2, p. 1, give connectivity/coconnectivity bounds and cohomology-class constructions with the same inclusive distance convention."
+        ],
+        "reasoning": "A hyperoctahedral representation at (6,4) would settle this character by restriction to S6 and taking the alternating sum, but their complete ranges exclude r=4 when n=6. Results about cohomology classes or connectivity alone do not yield this representation.",
+        "searches": [
+          "arXiv:2606.20784",
+          "arXiv:2605.00705",
+          "Resultary 5f926e544668"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.20784v1 p. 1; arXiv:2605.00705v2 p. 1",
+        "Resultary be304e2c20fb, f9f58b2a8627, fd4c27c1c02d and 5f926e544668 (catalog statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The translation subgroup and the subgroup fixing the zero word meet trivially; the respective nonidentity character data concern different actions.",
+          "A representation inflated from S6 to the full signed-coordinate group is trivial on translations, so restrictions to translations can agree even when coordinate characters differ."
+        ],
+        "reasoning": "The identity dimension is established precedent, but it and the translation restriction cannot logically imply the nonidentity coordinate traces. Similarly the global fixed locus cannot compute the orbit-space Euler characteristic by a group average without the elementwise data.",
+        "searches": [
+          "arXiv:2606.20784v1, advertised representation ranges",
+          "Resultary be304e2c20fb, f9f58b2a8627, fd4c27c1c02d, 5f926e544668"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary f9f58b2a8627 and fd4c27c1c02d discuss the simultaneous fixed locus of the full coordinate group, giving S¹ at the present dimension and scale; the current claim uses eleven individual fixed loci and the orbit quotient."
+        ],
+        "reasoning": "The character can be stated as a table of negatives of reduced geometric fixed-locus Euler characteristics. The simultaneous fixed locus is the intersection of elementwise fixed sets and does not determine that table. Inclusive Hamming diameter ≤4 and the clique prescription are equivalent.",
+        "searches": [
+          "Resultary: scale-four six-cube S6 coordinate permutation Lefschetz and Euler character",
+          "Resultary: SCOPE complement-refined symmetric-group homology of the six-coordinate cube Rips six cube scale four coordinate permutation Specht 5f926e544668"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "be304e2c20fb gives (253,9,9,53,53,1,1) on translations by Hamming weight, with identity 253 as here.",
+          "5f926e544668 gives scale-four top homology with trivial coordinate action on the subspace of only the two- and four-subsets; the matching whole-cube S6 entry 3a8f5e7133be is the record under review."
+        ],
+        "reasoning": "Neither the translation table nor the S6 action on the 30-vertex two-rank subspace is the eleven-class table for the full 64-vertex cube.",
+        "searches": [
+          "Resultary: full coordinate Euler and translation character of the scale-four six-cube",
+          "Resultary: complement-refined symmetric-group homology of the six-coordinate two-rank Rips space"
+        ]
+      },
+      "rationale": "The fixed-locus and Lefschetz tools are standard; the distinct data are the ten nonidentity coordinate-class values on the full six-cube at scale four, the complete coordinate virtual character, and its trivial multiplicity/quotient Euler consequence. The same-object translation result already covers the identity value. The strongest broader representation theorem advertises ranges excluding (6,4); the closest same-scale coordinate result uses a different vertex set.",
+      "residual_risks": [
+        "Extended primary and local mirror passages were unavailable through the passage reader; conclusions are limited to the statements inspected and do not exclude unindexed references or additional calculations.",
+        "The virtual coordinate character is not the full hyperoctahedral character or a graded homology classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The expressly asserted complete decomposition ranges do not contain (6,4); not a whole-document exclusion.",
+          "evidence": "Abstract: complete decomposition into irreducible hyperoctahedral representations at r≤3 and r=n−1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.20784",
+          "material_read": "v1 p. 1 abstract and opening setup",
+          "method": "OA passage attempt and open primary PDF text preview",
+          "title": "Homology of Vietoris–Rips complexes of hypercube graphs via group actions",
+          "trigger": "Applicable full-isometry representation would imply the claim by restriction"
+        },
+        {
+          "assessment": "Advertised objects are connectivity and cohomology constructions, not a character table.",
+          "evidence": "Uses diameter at most r and studies connectivity, coconnectivity and classes from cross-polytopes.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.00705",
+          "material_read": "v2 p. 1 abstract and definition",
+          "method": "OA passage attempt and open primary PDF text preview",
+          "title": "Cohomological properties of the Vietoris–Rips complex of a hypercube graph",
+          "trigger": "Same metric and broader scale range"
+        },
+        {
+          "assessment": "Exact identity overlap and distinct other actions, fixed spaces or vertex sets.",
+          "evidence": "Translation traces by Hamming weight; global fixed spheres; scale-four homology of only the weight-two and weight-four words.",
+          "identifier_or_url": "Resultary be304e2c20fb, f9f58b2a8627, fd4c27c1c02d, 5f926e544668",
+          "material_read": "Returned catalogue statements; closest mirror passages were not retrieved",
+          "method": "Resultary lookup and bounded mirror attempt",
+          "title": "The rational translation character of the scale-four six-cube Vietoris–Rips complex; coordinate-symmetric fixed spheres; complement-refined symmetric-group homology of the six-coordinate two-rank Rips space",
+          "trigger": "Same cube, scale, homology degrees or coordinate action"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The six-cube at scale four is a natural first intermediate symmetry case beyond the established low and terminal scales. The full class data refine the known dimension and the translation restriction, giving specific test data for wider equivariant approaches. The trivial multiplicity detects nonzero positive-degree rational homology of the coordinate quotient despite the small simultaneous fixed locus. The computation's modest size is not itself the novelty or the motivation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

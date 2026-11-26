@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:26:04.628335Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 2<=b<=2p, s_b(2p)<2p since a nonzero digit occupies some positive radix position; the only admissible sums are therefore 1, 2 and p. Sum 1 forces 2p to be a power of b, so squarefreeness gives b=2p. Sum p forces b-1 to divide p via the radix congruence; b=2 fails because s_2(2p)=s_2(p)<p, while b=p+1 has digits 1,p-1. For sum 2, a single digit 2 gives b=p, and two digits 1 give 2p=b^i+b^j with i>j. If j>0 then b divides 2p, and b>=p is too large, so b=2 and the 2-adic valuation forces j=1. Hence p=2^{i-1}+1, prime only if i-1 is a power of two, by factoring x^h+1 at any odd h>1. If j=0, b^i=2p-1; i=1 gives the baseline. For i>1, b is odd and an odd factor h>1 of i would split p into the nonunit factors (b^{i/h}+1)/2 and (b^i+1)/(b^{i/h}+1). Conversely each listed root produces the two ones, and each Fermat prime gives two binary ones. Root bases lie between 3 and sqrt(2p-1)<p, and distinct exponents give distinct bases. Unary completes the list. Prime factorization gives the 2-adic gcd formula, and the exceptional primes up to X are bounded by the number of square roots up to sqrt(2X) plus O(log log X) Fermat indices. Division by pi(X) proves the density-one statement. Independent bounded replay for the witness: test p=21523361 modulo every d=2 through 4639 (no divisor), and for b=1 through 43046722 sum the repeated radix remainders of 43046722 (unary sum is the number itself), retaining b if the sum divides 43046722. This gave exactly the nine listed bases with digit sums 43046722,2,2,2,2,2,21523361,2,1, respectively. It checks this witness only; the bundled checker was inspected, not run, and the universal result rests on the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A080221 has general compute-by-digit-sum code and a finite table link; Adams-Watters gives constructions excluding several non-2p families from low counts.",
+          "1572b8a80172 gives tau(p-1)+1 bases in its prime-square two-digit interval."
+        ],
+        "reasoning": "Neither an algorithm that separately tests all bases for a given n nor constructions giving lower bounds for other n establish the uniform exhaustiveness theorem or its exceptional-prime bound. No stronger symbolic coverage was identified in the examined sources.",
+        "searches": [
+          "OEIS A080221 low-count structural comments and general enumeration",
+          "Resultary earlier two-digit prime-square Harshad/Moran spectrum 1572b8a80172"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "OEIS A080221, A100263, A271311 and A271313",
+        "Resultary 1572b8a80172"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The A080221 comments concern the direction fixed low count implies a restriction on n. Adams-Watters uses extra digit patterns on other composite families to rule out low counts there.",
+          "The known count-six/seven examples exhibit several additional bases but are not a proof that any further bases at 2p must be binary or higher 2-power roots."
+        ],
+        "reasoning": "The frozen proof proves the converse kind of information: starting with any 2p, restrict each possible digit sum and each exponent, without assuming a count. Binary and power-root examples alone do not exclude all other exponents; the prime-factorization obstruction does. Once that exhaustion is proved, the gcd and density formulas are straightforward consequences and are not standalone originality claims.",
+        "searches": [
+          "A080221 Layman (2004) and Adams-Watters (2006) comments compared with the divisor exhaustion",
+          "A100263, A271311 and A271313 comments compared with the root-exponent and density claims"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A080221 counts bases from 1 to n, the same normalization as H, and explicitly treats unary; its 2004 and 2006 comments discuss the prominence of twice-prime values in the five- and six-base regimes.",
+          "Resultary 1572b8a80172 concerns Harshad/Moran bases of p^2 in the two-digit interval p<B<=p^2, not of 2p across all allowed bases."
+        ],
+        "reasoning": "Niven and Harshad name the same digit-sum divisibility condition. Matching the all-base statistic and noticing that low counts are primarily supported on 2p is not a rule for the full base set at every 2p. The fixed two-digit window on a different integer family excludes the long power-root expansions needed here.",
+        "searches": [
+          "Harshad/Niven number bases, all-base counts for twice an odd prime; OEIS A080221 COMMENTS",
+          "Resultary all-base and digital-sum spectra of semiprimes and prime powers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A100263 records count-five numbers and the familiar n/2, n/2+1, n-1 bases. A271311 records count-six patterns with binary or square-root bases. A271313 includes the square- and fourth-root pattern, for instance roots 3 and 9 at n=82.",
+          "A080221 reports a table of numerical counts through 10000 and gives all bases for n=6."
+        ],
+        "reasoning": "These are exact coverage of finite examples and several earlier patterns. They do not enumerate all exceptional bases for arbitrary power exponents or determine a density among primes. The independent 9-base check establishes correctness, not priority of the example.",
+        "searches": [
+          "OEIS A080221",
+          "OEIS A100263",
+          "OEIS A271311",
+          "OEIS A271313",
+          "Resultary Harshad-prime family searches"
+        ]
+      },
+      "rationale": "The distinct supported claim is the exhaustive base classification for every odd-prime 2p, including the general root multiplicity and quantitative density-one consequence. The standard counting function, five baseline bases, and the binary, square-root and fourth-root patterns and sample counts are prior evidence, not new. The strongest earlier OEIS discussion restricts which integers can have counts five or six; that implication does not classify the bases of every 2p. The targeted evidence did not establish equivalent coverage of the universal statement.",
+      "residual_risks": [
+        "Catalogue and literature inspection was bounded; the low-count OEIS comments and examples show earlier work on precisely this family, and an unindexed universal classification is not ruled out.",
+        "No conclusion about infinitude of exceptional primes, arbitrarily many root bases, or historical priority of the specific numerical witness follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact statistic, patterns and low-count necessary restrictions; not the universal base set in the passage read",
+          "evidence": "The example for n=6 explicitly includes unary. Adams-Watters uses digit patterns on other composite families and says similar considerations leave 2p as possible low-count values, not that every 2p has a described complete list.",
+          "identifier_or_url": "https://oeis.org/A080221",
+          "material_read": "Definition, COMMENTS, table-link description and EXAMPLE, public page offset 0",
+          "method": "Public entry passage comparison",
+          "title": "Number of bases in which an integer is a Harshad number",
+          "trigger": "Exact all-base statistic and prior recognition of twice-prime low counts"
+        },
+        {
+          "assessment": "Earlier baseline patterns and count-five data",
+          "evidence": "The entry records n/2, n/2+1 and n-1 together with 1 and n for the relevant five-base pattern.",
+          "identifier_or_url": "https://oeis.org/A100263",
+          "material_read": "Entry and comments, offset 0",
+          "method": "Public entry passage comparison",
+          "title": "Exactly five Harshad bases",
+          "trigger": "Exact five-base table and baseline formulas"
+        },
+        {
+          "assessment": "Earlier examples and patterns for six bases",
+          "evidence": "The extra base patterns include the square root of n-1 or base 2.",
+          "identifier_or_url": "https://oeis.org/A271311",
+          "material_read": "COMMENTS, opened at offset 209",
+          "method": "Public entry passage comparison",
+          "title": "Exactly six Harshad bases",
+          "trigger": "Possible complete prior description of exceptions at 2p"
+        },
+        {
+          "assessment": "Earlier square- and fourth-root patterns, not inspected universal all-exponents coverage",
+          "evidence": "The example 82 has the two power-root bases 3 and 9.",
+          "identifier_or_url": "https://oeis.org/A271313",
+          "material_read": "Entry and comments, offset 0",
+          "method": "Public entry passage comparison",
+          "title": "Exactly seven Harshad bases",
+          "trigger": "Earlier higher-root examples"
+        },
+        {
+          "assessment": "Different integers and radix interval, no implication of the 2p classification",
+          "evidence": "Its tau(p-1)+1 Harshad-base count pertains to p^2 restricted to the two-digit interval.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-two-digit-prime-square-base-spectrum-for-harshad-and-moran-numbe--1572b8a80172",
+          "material_read": "RESULT.md Finding, local-mirror offset 0",
+          "method": "Mirror statement and parameter comparison",
+          "title": "Two-digit prime-square base spectrum for Harshad and Moran numbers",
+          "trigger": "Closest indexed exact digital-base classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "There is a natural question behind the tabulated low counts: which twice-prime integers retain just the familiar five bases, and which acquire further ones? The complete classification turns the observed binary and root patterns into all and only the exceptions and shows their frequency is negligible among primes. The arithmetic witness illustrates multiple distinct higher-degree roots, but the value rests on the universal exhaustion and its quantitative consequence, not the large example alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

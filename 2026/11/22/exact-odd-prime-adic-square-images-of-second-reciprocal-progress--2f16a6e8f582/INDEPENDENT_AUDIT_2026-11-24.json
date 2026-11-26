@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:18:02.535549Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–68; VERIFICATION.md and check_reciprocal_e2.py, inspected but not executed",
+        "Independent replay: python /workspace/branches/independent_finite_checks.py 2. Used sums of reciprocals and their squares, two full blocks of index values and the unique odd-sized fiber to infer the candidate center. Checked all target counts and observed periods at (p,c,d,k)=(3,2,3,4),(3,4,9,3),(5,2,5,3),(7,3,14,2); support sizes 31, 11, 53, 22."
+      ],
+      "rationale": "The sum of i^m for 0≤i<n is interpolated by expanding i^m in falling factorials and summing them, with coefficients of denominator at most p^floor(log_p(m+1)) in p-adic valuation. Each m≥1 term of the geometric/binomial expansion for H_s, s=1,2, therefore has coefficient valuations at least m−floor(log_p(m+1))≥1, tending to infinity, including at p=3. This proves actual restricted-series convergence with H_s=x/c^s modulo p on coefficients. Newton's identity gives F=x(x−1)/(2c²)+pR. By density this is the unique continuous, hence unique analytic, interpolation. The map x−c²F′(x) is a contraction since R′ is integral restricted, giving the unique critical point α reducing to 1/2; substituting gives the stated unit critical value modulo p. Translating by α makes the difference from A into z² times a restricted analytic unit congruent to (2c²)⁻¹ on coefficients. The binomial square root of that unit after scaling by 2c² is in 1+p times the restricted algebra, since 1/2 is p-adic integral. Thus the normalized critical coordinate is z+pV(z), an isometry onto by contraction. This preserves uniform residue classes and gives the exact root counts, attainable residues and shell measure. For a nonzero shift t with v_p(t)<k the first factor in the difference of the squares has valuation v_p(t); modulo p the sum factor is 2(x−α)+t and can be made a unit by choosing an integer x. This proves the exact p^k period and the asserted densities.",
+      "residual_risks": [
+        "The finite replay checks the distribution's shape about the observed center, not the analytic construction or the critical center at unlimited precision. Those follow from the restricted-series proof. There is no assertion when p divides a denominator or p=2."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang–Hong treat general elementary symmetric order for arithmetic progressions and prove nonintegrality. The reciprocal polynomial paper treats polynomial sequences of degree at least two, with integrality the question. Boyd and Jiang–Hong were attempted but no decisive full-text passage was obtained in this review."
+        ],
+        "reasoning": "Broader symmetric order or polynomial domain does not imply a local image theorem with unit denominators. A general local Morse method does not alone ensure that the interpolation has the required coefficientwise quadratic reduction on all of Z_p.",
+        "searches": [
+          "Wang–Hong arXiv:1311.1389, Theorem 1.1",
+          "The elementary symmetric functions of a reciprocal polynomial sequence, DOI 10.1016/j.crma.2014.02.002, Theorem 1.1",
+          "Boyd DOI 10.1080/10586458.1994.10504298 and Jiang–Hong DOI 10.1017/S0004972721001234"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact and related-profile searches; distinct Findings on the local mirror",
+        "Wang–Hong arXiv:1311.1389, definition and Theorem 1.1",
+        "Reciprocal polynomial sequence, Theorem 1.1",
+        "Boyd and Jiang–Hong access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The integrality theorem does not require the coefficientwise odd-prime perturbation used here. The neighboring indexed results have polynomial inputs and obtain maps on particular residue classes. The frozen proof establishes restricted-series bounds for both reciprocal power sums and uses them to get a global square coordinate."
+        ],
+        "reasoning": "Once the global normal form is obtained, the finite fiber counts and measure are standard consequences, and the period follows from the unit linear reduction. The inspected prior statements do not supply that normal form or the uniform bounds from which it follows.",
+        "searches": [
+          "Wang–Hong arXiv:1311.1389 Theorem 1.1 against frozen Proof §§1–4",
+          "Indexed consecutive power sums and five-adic differences, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same sequence in Wang–Hong is S_(a,b)(n,k) with (a,b,k)=(d,c,2). The equivalent expression in the frozen proof is (H_1²−H_2)/2, not H_1 itself. The dyadic distance law is for a first harmonic sum and p=2."
+        ],
+        "reasoning": "The sequence match is exact, but integrality over the ordinary integers is a different assertion, and a first-harmonic difference law cannot be substituted for the second symmetric statistic studied here.",
+        "searches": [
+          "Resultary searches for reciprocal progression second elementary symmetric sums, square images and fibers",
+          "Wang–Hong arXiv:1311.1389, definition of S_(a,b)(n,k) and Theorem 1.1",
+          "Indexed exact dyadic squared-distance law for odd harmonic sums"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching indexed result is the frozen entry itself. Distinct indexed profiles supply square branches for x^(2p^s)+(x+1)^(2p^s) and (x+1)^5−x^5, and a dyadic square-distance law for first odd harmonic sums. The strongest passages inspected are their Findings."
+        ],
+        "reasoning": "None of these exact profiles gives a prior lookup for the image or fibers of E_n. The polynomial examples are structurally comparable but have multiple branches rather than the single global reciprocal normal form.",
+        "searches": [
+          "Resultary exact sequence and square-image queries",
+          "2026/11/22/SCOPE-exact-odd-prime-fibers-of-consecutive-even-prime-power-sums--8ba022218fce",
+          "2026/11/22/SCOPE-exact-five-adic-image-and-fiber-distribution-of-consecutive-fift--f539e1fa82a3",
+          "2026/11/22/SCOPE-exact-dyadic-squared-distance-law-for-odd-harmonic-sums--7a1c64d44ff1"
+        ]
+      },
+      "rationale": "The underlying elementary symmetric sums are known. The supported distinct claim is the global isometric square normal form for the regular primes dividing the progression step, with all modular fibers, periods and density. The strongest inspected exact-sequence literature treats integrality, and the strongest indexed square-image analogues concern different functions. General Morse normal forms and quadratic residue counts are not credited as new. This is a bounded evidence judgment, not a claim of demonstrated priority.",
+      "residual_risks": [
+        "Priority against unindexed specializations of nonarchimedean normal forms or inaccessible related work has not been settled. No noncoverage finding is inferred from access failures."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact object match, different theorem",
+          "evidence": "S_(a,b)(n,k) gives E_n when a=d,b=c,k=2. Theorem 1.1 addresses nonintegrality rather than value sets at p dividing d.",
+          "identifier_or_url": "https://arxiv.org/html/1311.1389",
+          "material_read": "Introduction, definition and Theorem 1.1, approximately offsets 2743–3274",
+          "method": "OA HTML passages",
+          "title": "The elementary symmetric functions of reciprocals of the elements of arithmetic progressions",
+          "trigger": "Same progression, same elementary symmetric function"
+        },
+        {
+          "assessment": "Related integrality theorem, no linear-progression square model",
+          "evidence": "Applies to reciprocals of polynomial values, for degree at least two.",
+          "identifier_or_url": "https://www.numdam.org/item/10.1016/j.crma.2014.02.002.pdf",
+          "material_read": "Theorem 1.1, p. 2, at offset 5753",
+          "method": "OA PDF passage",
+          "title": "The elementary symmetric functions of a reciprocal polynomial sequence",
+          "trigger": "Plausible extension of the reciprocal progression literature"
+        },
+        {
+          "assessment": "Structural analogue with different function",
+          "evidence": "Gives regular balls and one scaled-square branch for x^(2p^s)+(x+1)^(2p^s).",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-odd-prime-fibers-of-consecutive-even-prime-power-sums--8ba022218fce",
+          "material_read": "Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact odd-prime fibers of consecutive even prime-power sums",
+          "trigger": "Exact odd-prime image and square normal form"
+        },
+        {
+          "assessment": "Different function and fixed prime",
+          "evidence": "Gives a three-component five-adic image for (x+1)^5−x^5, including square branches.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-five-adic-image-and-fiber-distribution-of-consecutive-fift--f539e1fa82a3",
+          "material_read": "Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact five-adic image and fiber distribution of consecutive fifth-power differences",
+          "trigger": "Exact p-adic fiber profile with square components"
+        },
+        {
+          "assessment": "Different symmetric order and excluded prime",
+          "evidence": "Proves v_2(O_b−O_a)=v_2(b²−a²) for first odd-denominator harmonic sums.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-dyadic-squared-distance-law-for-odd-harmonic-sums--7a1c64d44ff1",
+          "material_read": "Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Dyadic squared-distance law for odd harmonic sums",
+          "trigger": "Reciprocal progression plus a square-distance law"
+        },
+        {
+          "assessment": "Possible method-level overlap unresolved",
+          "evidence": "No statement-level claim of noncoverage is made from failed retrieval.",
+          "identifier_or_url": "https://doi.org/10.1080/10586458.1994.10504298",
+          "material_read": "No decisive primary passage obtained",
+          "method": "DOI/publisher routes returned 403",
+          "title": "A p-adic Study of the Partial Sums of the Harmonic Series",
+          "trigger": "Related harmonic sums in p-adic analysis"
+        },
+        {
+          "assessment": "Exact scope not independently verified",
+          "evidence": "The original describes it as an integrality comparison; the present review could not verify that characterization at theorem level.",
+          "identifier_or_url": "https://doi.org/10.1017/S0004972721001234",
+          "material_read": "DOI metadata; no full-text passage obtained",
+          "method": "DOI and identified OA retrieval attempt",
+          "title": "A Generalisation of a Theorem of Erdős and Niven",
+          "trigger": "Later work on related reciprocal symmetric sums"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof §§1–4; Wang–Hong definition and nonintegrality theorem"
+      ],
+      "rationale": "The theorem describes the entire local distribution of a known arithmetic sequence in the unit-denominator regime where integrality results do not resolve it. The global analytic square coordinate is useful on its own: it gives one explicit obstruction at every precision, with exact densities, and the proof works uniformly even at the smallest odd prime. The square-root counts alone are routine, but obtaining the uniform global analytic shape from reciprocal progression sums is substantive.",
+      "residual_risks": [
+        "The critical value is given analytically and need not have a simple rational expression. The result is not an integrality theorem outside the unit-denominator regime."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

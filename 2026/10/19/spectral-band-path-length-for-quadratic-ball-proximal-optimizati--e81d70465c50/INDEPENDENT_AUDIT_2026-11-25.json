@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:55:05.373307Z",
+  "axes": {
+    "correctness": {
+      "rationale": "KKT gives 0 for a ball containing 0 and otherwise the unique active step y=(I+sH)⁻¹x at distance h. For a dyadic eigenspace the maximal fractional decrement is less than twice the minimal one, so the projected step is bounded by twice the projected radial decrement; telescoping gives 2 times the sum of initial projected norms. Cauchy–Schwarz counts only occupied bands m, hence proves the stated bound with m≤p=1+floor(log₂κ), which counts the entire grid including empty bands. Coordinatewise signed monotonicity proves the independent ℓ₁ and √d bounds, also for summable radii. All nonterminal constant-radius steps have length h, so finite length forces termination with the stated bound. For the geometric family, each disjoint-interior time window [2⁻ʲ⁻¹,2⁻ʲ] contributes at least (e⁻¹ᐟ²−e⁻¹)/√p in coordinate j. On a fixed compact nonzero subarc the normalized flow is smooth in a tube and the implicit-step residual is O(h²). The local implicit solution in that tube is the exact ball minimizer by KKT; a tube-exit induction with Lipschitz stability gives O(h) error through floor(a₀/h) active steps for all sufficiently small h. Taking a₀ up to the arclength at t=1 proves the lower bound. The lower limit is at fixed H and fixed radius within each run, not an arbitrary-radii count. Independently solved scalar multipliers with Brent's method for p=2,4,8 and three fixed radii, plus separate flow quadrature; the h=.001 call lengths were 1.046, 1.166 and 1.413. Replay: OPENBLAS_NUM_THREADS=1 python /workspace/independent_checks.py (NumPy and SciPy). The finite diagnostics do not establish the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two sources have arbitrary-radius convergence/finite-length geometry or squared-distance control for general convex objectives, and known fixed-radius termination bounds.",
+          "Theorem 10 and Remark 11 of Gupta et al. give genuine finer spectral-spacing dependence for continuous flow via adjacent eigenvalue ratios, not just a dimension bound."
+        ],
+        "reasoning": "The general ball-orbit results do not give this quantitative occupied-band length, and the spectral-spacing theorem quantifies a different trajectory. The lower example relies on discrete time at a fixed radius, independently of the already known flow example.",
+        "searches": [
+          "Richtárik–Li arXiv:2609.35147, Theorems 4.6 and 4.8",
+          "Gruntkowska et al. arXiv:2502.02002, Theorem 8.1",
+          "Gupta–Balakrishnan–Ramdas arXiv:1908.01089, Theorem 10 and Remark 11"
+        ]
+      },
+      "checked_sources": [
+        "Richtárik–Li arXiv:2609.35147",
+        "Gruntkowska et al. arXiv:2502.02002",
+        "Gupta–Balakrishnan–Ramdas arXiv:1908.01089, Theorems 10, 18 and Appendix F.2",
+        "Resultary 90396b375e46"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An additional upper-bound transfer is possible: write each (I+sH)⁻¹ as the average of e^(−uH) over independent exponential times of mean s. Using cumulative, increasing times, Jensen bounds the sum of distances of the mean iterates by the full gradient-flow arclength. This is a separate trajectory comparison, not stated by Theorem 10.",
+          "For the lower bound, a long limiting flow arc is not itself a discrete call-count lower bound without a finite-subarc approximation and exclusion of early stopping."
+        ],
+        "reasoning": "The prior flow bounds are strong inputs, and can yield spectral-order bounds for the implicit algorithm once a discrete-to-flow comparison is proved (one can also apply the comparison bandwise). They are not bounds for the ball iterates by direct identification or by substitution. Here the bandwise resolvent decrement supplies the missing arbitrary-radius argument directly, and the normalized implicit convergence supplies the opposite, small-radius transfer. The ℓ₁ call bound is not the new spectral result.",
+        "searches": [
+          "arXiv:1908.01089 Theorem 10 and Appendix F.2 versus arXiv:2502.02002 normalized implicit update",
+          "Resultary 90396b375e46 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Broximal article identifies both the normalized gradient at the new iterate and an envelope reformulation.",
+          "On a quadratic this is the variable resolvent (I+sH)⁻¹, not the factor I−ηH of fixed-step explicit gradient descent."
+        ],
+        "reasoning": "The KKT and normalized implicit formulations describe the same known method. The forward-Euler and implicit orbits generally differ already with two occupied unequal eigenvalues; equality would require one scalar η to match s/(1+sλ) in both modes.",
+        "searches": [
+          "Resultary: exact ball-proximal path length, Broximal normalized implicit trajectories",
+          "arXiv:2502.02002, Table 1 and §3",
+          "arXiv:2609.35147, §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 90396b375e46 gives separable radius-order comparison and the ℓ₁ call bound, with a smooth diagonal quadratic witness attaining d calls; it is later-dated and does not state the occupied-band bound.",
+          "Theorem 18 supplies the continuous quadratic lower-bound mechanism; the separate fixed-step explicit GD argument is in Appendix F.2."
+        ],
+        "reasoning": "These are exact antecedents/comparators for parts of the geometry; neither evaluated claim addresses the band-resolved arbitrary-radius implicit orbit and its associated sharp fixed-radius asymptotics.",
+        "searches": [
+          "Resultary: quadratic spectral bands and exact-ball call counts",
+          "arXiv:1908.01089, Theorems 10, 18 and Appendix F.2"
+        ]
+      },
+      "rationale": "The supported distinction is the explicit arbitrary-radius bound for the exact variable-resolvent orbit, refined by the number of occupied bands, and the use of that discrete geometry to establish sharp order for fixed-radius oracle counts. The ball algorithm, general finite-length and fixed-dimensional call laws, and the spectral √logκ order and geometric lower-bound mechanism for ordinary quadratic flow are credited prior work. The new scope is the exact implicit iteration, not discovery of the continuous spectral phenomenon.",
+      "residual_risks": [
+        "A published variable-resolvent/semigroup path-length comparison or specialized trust-region result could already supply the algorithmic transfer.",
+        "The number in the printed p-bound counts empty bands too; the occupied-band refinement comes directly from the inspected proof. No claim of optimal constants or of priority for the continuous-flow spectral exponent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers general ball-proximal trajectory geometry and fixed-dimensional counts, not the quadratic band bound in the inspected material",
+          "evidence": [
+            "Theorem 4.6 concerns universal termination and the sum of radii, and Theorem 4.8 finite length; the general constant-radius count carries a dimension-dependent constant."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.35147",
+          "material_read": "Introduction pp. 1–2, §4 p. 20 and surrounding termination, Theorems 4.6/4.8",
+          "method": "OA PDF passage comparison",
+          "title": "A Sharper Theory of Ball-Proximal Optimization: Convergence and Radius Selection",
+          "trigger": "Most directly comparable exact-ball oracle and finite termination theory"
+        },
+        {
+          "assessment": "Prior normalized implicit rule and distance-decrease/finite termination results",
+          "evidence": [
+            "The gradient is evaluated at the new iterate; Theorem 8.1 includes arbitrary-radius distance decrease."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2502.02002",
+          "material_read": "Definition on p. 1, Table 1 pp. 1–2, §3 and Theorem 8.1",
+          "method": "OA PDF passage inspection",
+          "title": "The Ball-Proximal (=‘Broximal’) Point Method",
+          "trigger": "Equivalent algorithm and possible already quantified length"
+        },
+        {
+          "assessment": "Continuous path bounds and fixed explicit GD, including the sharp order for the geometric-spectrum mechanism; no exact ball-rule result in these passages",
+          "evidence": [
+            "Theorem 10 treats d₊, adjacent ratios σⱼ/σⱼ₊₁ and total κ; its GD statement assumes a fixed explicit step.",
+            "Theorem 18 as printed states the GF lower bound; the GD lower-bound proof is in Appendix F.2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1908.01089",
+          "material_read": "p. 2 update distinction, p. 9 Theorem 10 and Remark 11, pp. 13–14 Theorem 18 and construction, Appendix F.2 pp. 51–52",
+          "method": "OA PDF passage comparison, including adjacent ratios and the lower-bound proof",
+          "title": "Path Length Bounds for Gradient Descent and Flow",
+          "trigger": "Closest potentially dominating spectral-order theorem"
+        },
+        {
+          "assessment": "Later-dated related ℓ₁/radius-order result, not equivalent to the occupied-band theorem",
+          "evidence": [
+            "Coordinatewise radius order and constant-radius ℓ₁ call bound sharp at d calls for a smooth diagonal example."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-radius-order-comparison-and-smooth-sharpness-for-exact-ball-prox--90396b375e46",
+          "material_read": "Finding on radius order, separability and exact call counts",
+          "method": "Local Resultary semantic search and mirror passage inspection",
+          "title": "Radius-order comparison and smooth sharpness for exact ball-proximal optimization",
+          "trigger": "Closest indexed exact ball-proximal quadratic comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Spectral occupancy is a natural instance measure for exact quadratic minimization. A dimension-independent length estimate also for nonterminating and adaptive-radius runs answers a trajectory question that finite-call estimates alone do not. The all-band example certifies a sharp obstruction in the small-radius oracle count; it measures actual motion rather than just objective decrease. The value is the explicit discrete guarantee and the transfer in both directions, not the already known continuous-flow order.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

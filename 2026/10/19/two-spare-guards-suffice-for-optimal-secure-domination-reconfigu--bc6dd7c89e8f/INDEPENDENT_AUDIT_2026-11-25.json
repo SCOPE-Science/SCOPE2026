@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:16:22.524612Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, definition, finite proof and TAR argument",
+        "Frozen VERIFICATION.md and checks/verify_incidence.py, verify_petersen.cpp, crosscheck.py, certificate.json and recorded outputs",
+        "Independent /workspace/branches/reproduce_desargues.py"
+      ],
+      "rationale": "I wrote and ran an exact independent enumeration in complement-pair labels: join opposite 2-subsets when disjoint, which is the stated incidence graph after complementing the right side. For each mask I tracked vertices covered once or more than once. A chosen neighbor can defend an unoccupied vertex u exactly when each vertex uniquely covered by that neighbor belongs to N[u]. This checks ordinary domination after defense, not security after defense. Exhausting all masks of sizes at most 10 gave counts zero through 7, then 155, 5700, 37746. All 155 minimum masks have four per side and, after relabeling, match the frozen minimum-mask list exactly. Pair enumeration gave zero one-exchange edges and 750 two-exchange edges. The permutation/side-swap action gave orbit size:degree pairs 5:24, 30:6, 120:10. Independent breadth-first searches gave eccentricity 4 for every optimum in X. Direct TAR searches from one representative of each orbit reached only its starting optimum at capacity 9 and all 155 at capacity 10, with maximum optimum-pair distance 16. The theoretical bounds also hold: upward closure permits four moves per X edge at capacity 10, capacity 9 can only connect optima by a chain of forbidden one-exchanges, and disjoint optimum masks 983055 and 31440 in incidence order require at least 16 moves. The frozen programs and output excerpts were read, not executed. Replay the new check from /workspace with python3 branches/reproduce_desargues.py followed by the assigned source path to checks/certificate.json.",
+      "residual_risks": [
+        "TAR distances are between minimum sets only. Neither these traversals nor the analytical bounds certify all-secure-set connectivity at capacity ten."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Burger et al. (2013), §7 scope summarized in its conclusion, reports computations for small planar grids, toroidal grids and connected circulants, and supplies generic algorithms for the secure number.",
+          "Haddadan et al. treats ordinary dominating sets under size-bounded add/delete moves."
+        ],
+        "reasoning": "A minimum search algorithm can produce the scalar invariant but is not a theorem of this graph's optimum orbits or secure TAR distances. An ordinary-dominating TAR path need not consist of secure states.",
+        "searches": [
+          "\"Two Algorithms for Secure Graph Domination\" Burger de Villiers van Vuuren full text table circulant graphs author PDF",
+          "arXiv:1503.00833, §1.2 and p. 4",
+          "Resultary: two spare guards suffices optimal secure domination reconfiguration"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d4faf2202a7f and 8eb5edc1f78b",
+        "Haddadan et al., arXiv:1503.00833",
+        "Burger et al. 2013 author copy",
+        "Burger et al. 2004 attempted OA",
+        "MathWorld graph entries; House of Graphs access attempted",
+        "Merouane–Chellali 2015 and Klostermeyer–Mynhardt 2008 full-text access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two catalogue entries have different minimum-state spaces (1475 locating minima and 100 semitotal minima). Ordinary domination reconfiguration and generic threshold-free computation of the secure minimum do not give the absence of one-exchanges among these 155 minima or their distance 16 with secure intermediates."
+        ],
+        "reasoning": "The secure TAR result requires the exact computed exchange obstruction and a connection construction, plus a lower-bound witness; it is not a parameter substitution into the inspected work.",
+        "searches": [
+          "arXiv:1503.00833, §1.2 and p. 4",
+          "Resultary d4faf2202a7f and 8eb5edc1f78b, mirrored Findings",
+          "Burger et al. (2013), author-copy conclusion around offset 52310"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Graph references give the aliases Desargues, GP(10,3), and bipartite Kneser; the 2/3-subset incidence model is equivalent to opposite disjoint 2-subsets by complementation.",
+          "The shared-graph Resultary entries use locating domination or semitotal domination rather than the defender-swap definition."
+        ],
+        "reasoning": "Aliases were treated as the same graph, whereas a different domination predicate is not a change of labels. One-vertex replacement at fixed size is also not the variable-size TAR move.",
+        "searches": [
+          "\"Desargues graph\" \"secure domination\" OR \"secure dominating\" H(5,2) P(10,3)",
+          "Resultary: H(5,2) secure dominating sets reconfiguration",
+          "MathWorld: Desargues Graph; Bipartite Kneser Graph; Generalized Petersen Graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary d4faf2202a7f gives locating-domination number 8 and 1475 minimum locating sets, not the secure classification. Resultary 8eb5edc1f78b gives 100 minimum six-element semitotal sets and their 570-edge fixed-size exchange graph.",
+          "The read graph-reference passages establish names, not secure counts. House of Graphs did not return a usable entry in this check, and the 2004 PDF tables were not inspected."
+        ],
+        "reasoning": "The shared number 8 and a shared radius/diameter 4 on different configuration graphs are not exact matches for the invariant or its move system. The cited incomplete table coverage leaves historical risk, especially for the minimum value alone.",
+        "searches": [
+          "Resultary: Desargues graph secure domination",
+          "Resultary: 155 minimum secure dominating sets Desargues",
+          "Resultary: Desargues secure domination gamma_s 8 155 optimal sets",
+          "MathWorld and House of Graphs, Desargues/GP(10,3)",
+          "Burger et al. (2013), §7 scope and conclusions; Burger et al. (2004), attempted OA PDF"
+        ]
+      },
+      "rationale": "The verified distinct claim is the exact secure-state optimum geometry and the sharp TAR threshold and optimum distance on the Desargues graph, together with the minimum classification. Same-graph catalogue results use different predicates; a general secure-domination algorithm and ordinary domination TAR methods do not give the configuration and distance data without an additional computation or theorem. A bounded search did not establish priority for the scalar invariant in isolation; possible older coverage is recorded, not treated as disproved.",
+      "residual_risks": [
+        "The 2004 tables and the detailed House of Graphs entry were not verified. The 2015 and 2008 secure-domination papers were not available in usable full text in this check. A prior scalar value or unindexed instance-specific study remains possible; nonmatching search results do not settle priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Algorithmic background and named grid and circulant classes; no claim-specific figure was established by this inspection",
+          "evidence": [
+            "The conclusion specifies planar grid, toroidal grid and small connected circulant test families and separately proposes constructing a database of secure numbers for additional graph classes."
+          ],
+          "identifier_or_url": "https://www.vuuren.co.za/papers/twoalgorithms.pdf",
+          "material_read": "Conclusion, author-copy PDF p. 15, offset 52310, identifying §7 instance classes",
+          "method": "Lawful OA author-copy inspection after publisher PDF text extraction yielded no usable passages",
+          "title": "Two Algorithms for Secure Graph Domination",
+          "trigger": "General secure-number algorithms and finite graph tables"
+        },
+        {
+          "assessment": "Possible overlap unverified, not a finding of no coverage",
+          "evidence": [
+            "The available route did not return extractable text for table comparison."
+          ],
+          "identifier_or_url": "https://combinatorialpress.com/article/jcmcc/Volume%20049/vol-049-paper%2011.pdf",
+          "material_read": "No usable full-text passage or table retrieved",
+          "method": "Lawful OA PDF retrieval and text-extraction attempt",
+          "title": "Finite Order Domination in Graphs",
+          "trigger": "Foundational secure domination source and possible finite cases"
+        },
+        {
+          "assessment": "Ordinary rather than secure domination",
+          "evidence": [
+            "The state predicate in the bounded addition/removal problem is ordinary domination."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1503.00833",
+          "material_read": "p. 2 §1.2 and p. 4, offsets about 5278 and 10179",
+          "method": "Lawful OA full-text passage inspection",
+          "title": "The Complexity of Dominating Set Reconfiguration",
+          "trigger": "TAR move model and capacity"
+        },
+        {
+          "assessment": "Different locating predicate",
+          "evidence": [
+            "1475 minimum locating-dominating sets in 13 orbits."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-all-1-475-minimum-locating-dominating-sets-of-the-desargues-grap--d4faf2202a7f",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Local Resultary search and mirrored statement inspection",
+          "title": "All 1,475 minimum locating-dominating sets of the Desargues graph",
+          "trigger": "Same graph and the numerical minimum eight"
+        },
+        {
+          "assessment": "Different predicate and fixed-size move model",
+          "evidence": [
+            "100 size-six semitotal minima and 570 two-replacement edges, versus 155 size-eight secure minima and 750 edges here."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-two-replacement-threshold-among-the-one-hundred-optimal--8eb5edc1f78b",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Local Resultary search and mirrored statement inspection",
+          "title": "A sharp two-replacement threshold among the one hundred optimal semitotal dominating sets",
+          "trigger": "Same graph and related optimum exchange geometry"
+        },
+        {
+          "assessment": "Identifies aliases; passages do not give secure configuration results",
+          "evidence": [
+            "Desargues graph is both a bipartite Kneser graph and the generalized Petersen graph GP(10,3)."
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/DesarguesGraph.html",
+          "material_read": "Desargues and bipartite Kneser entries at offset 0; bipartite reference near 2250; generalized Petersen special cases near 3550",
+          "method": "OA public graph-reference passage inspection",
+          "title": "Desargues Graph; Bipartite Kneser Graph; Generalized Petersen Graph",
+          "trigger": "Graph database and equivalent naming conventions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, local exchange gap and sharp capacity proof",
+        "Independent exact enumeration and TAR distances in branches/reproduce_desargues.py"
+      ],
+      "rationale": "For a canonical symmetric graph with a natural secure defense predicate, the calculation exposes a qualitative obstruction not captured by the optimum number: every optimum is isolated under a single exchange and remains isolated from other optima with one extra guard, yet two spare guards give full optimum connectivity with a sharp distance bound. The complete orbit and exchange data explain and make reusable this finite example; the work is more than checking a minimum number on an arbitrary graph.",
+      "residual_risks": [
+        "No general bound for larger bipartite Kneser graphs or all-secure-set components follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

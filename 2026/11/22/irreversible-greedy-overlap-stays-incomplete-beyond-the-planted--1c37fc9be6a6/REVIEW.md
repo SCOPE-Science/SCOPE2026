@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The underlying process is an exact three-state-count Markov chain: the four transition classes exhaust all available edges. The normalized predictable drifts follow by direct division by the corresponding edge rates. Bounded jumps and bounded total rates yield finite-horizon martingale concentration; Lipschitz drift and Gronwall prove the fluid limit. The tail step uses at most one accepted new edge per remaining left vertex, and \(x(T)\le(1+T)^{-1}\). The positive limiting deficit follows from \((x+z)'=-x^2\) and \(x(t)\ge e^{-(1+c)t}\), with all initial conditions and boundary limits explicit. The independent labelled and reduced rational recurrences agree in 24 finite cases; this verification supports, but is not used as, the proof of the limit. Main risk: computational decimals are approximate, not certified enclosures.
+## correctness
 
-## Originality — PASS, subject to historical priority
-Bennett–Bohman (arXiv:1210.3581) studies uniform random greedy matchings in regular hypergraphs, not the biased planted-overlap observable; the work supplies methodological context rather than this conclusion. Moharrami–Moore–Xu (arXiv:1912.08880) addresses the same exponential planted edge laws, but explicitly optimizes *total edge cost* and obtains near-perfect recovery for rates at least four. Its statement neither bounds nor computes greedy-first-acceptance overlap. Arnosti (DOI:10.1287/stsy.2021.0082) analyzes graph-averaged matching cardinality under uniform random edge order, not planted overlap with unequal exponential rates. Pippenger (DOI:10.1137/0402034) is foundational adsorption background. Searches of related published mathematical research records found matching-deleted and tripartite adsorption results, but no implication of this theorem. An unlocated weighted random greedy matching calculation remains possible; novelty is not proved merely by a failed search.
+PASS
 
-## Value — PASS
-The precise object is a canonical planted-dimer system with an irreversible kinetic selection rule, while the optimization benchmark uses exactly the same disorder. The theorem shows that a rigorous near-perfect-recovery threshold for global optimization does not carry over to greedy dynamics at any fixed finite rate, and supplies a positive quantitative macroscopic loss bound. This is a motivated physical/algorithmic boundary rather than a single small-instance enumeration or an incidental change of notation. The result does not assert a general approximation factor, fluctuations or growing-rate phase diagram.
+Reconstructed the continuous-time chain from exponential residual clocks. An edge whose two endpoints are still free cannot have arrived earlier, so conditional on the history its residual clock has the original rate. With k free vertices per side and j intact planted pairs, the four available-edge populations are j planted and j(j-1), 2j(k-j), (k-j)^2 unplanted, of which the last three destroy respectively two, one and zero intact pairs. This gives the exact scaled drift in RESULT.md: (-x²-cy+y/n, -2xy-cy+2y/n, cy). Componentwise jump size is at most 2/n and total rate at most (1+c)n, giving O(1/n) quadratic variation for each fixed horizon and uniform convergence by Doob and Gronwall. More precisely, the limiting path stays in 0≤y≤x, z≥0, x+z≤1, not the full cube for arbitrary initial conditions: y=0 is invariant, (x-y)'=x² on y=x, and (x+z)'=-x². This compact region suffices for the Lipschitz estimate. Finite-time convergence extends to final overlap since at most X_n(T) further planted edges can be accepted and x(T)≤1/(1+T); the same bound controls the limiting z tail. Integrating (x+z)'=-x² and comparing x'≥-(1+c)x gives loss at least 1/[2(1+c)], in particular 1/10 at c=4. Read verification.py without executing it; a separate RK4 calculation at steps .01 and .005 to T=100 corroborated the quoted f(1) and f(4) to six decimals, not a certified numerical enclosure. The equal-weight-distribution comparison was independently checked in Moharrami–Moore–Xu, Theorem 1, including the endpoint: c=λ with no scaling, and expected overlap tending to one implies convergence in probability by bounded nonnegative deficit. The benchmark is fractional, not exact recovery, and c must be fixed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The same-disorder optimal threshold is prior and is credited. The inspected primary and catalogue statements do not cover the biased irreversible greedy overlap curve and its strictly positive deficit for every fixed finite c.
+
+## value
+
+PASS
+
+This isolates the effect of irrevocability on a natural planted inference model while holding the entire weight distribution fixed. Both outputs can be perfect matchings, so cardinality misses the macroscopic gap. The exact overlap curve and quantitative obstruction persist at all fixed finite rates and make a concrete benchmark even at the optimal threshold, without requiring a stronger exact-recovery or growing-rate theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

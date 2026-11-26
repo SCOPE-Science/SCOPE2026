@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:25:54.954146Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–12, 16–92; VERIFICATION.md and check_endpoint_ranks.py (inspected only)",
+        "Complete corrected /workspace/repairs/4/RESULT.md, with independent symbolic check of the final wording and all-horizon proof"
+      ],
+      "rationale": "The frozen Finding's blanket wording that neither endpoint is uniformly ranked has a counterexample within its stated range: for m=1 the two ranks are (1,2) or (2,1), each with probability 1/2. The complete repaired RESULT.md fixes the marginal wording and retains all moment formulas and m≥1. For m≥2 the proven variance m(m+1)/8 differs from m(m+2)/12 for a uniform rank; the arcsine marginal is classical. For the moment proof, each nonempty increment block is atomless and symmetric, so there are no tied levels and both rank means are 1+m/2. The centered initial count is minus half the prefix sign sum, and the centered final count is plus half the suffix sign sum. Disjoint pairs have zero expected sign product. For overlapping pairs split increments into X_a,Y_b,Z_c, with the overlap Y_b and a+b+c=m. Conditional on the magnitudes, the nonzero signs are independent fair signs, and each pairwise sum has the sign of the larger block in magnitude. The expected product for the prefix and suffix is therefore the probability that |Y_b| is dominant; the otherwise distinct signs average to zero, including zero-length blocks by declaring sign(0)=0. The three possible dominant-block probabilities sum to one (no nonzero ties). Cyclic reindexing of all nonnegative block-length compositions gives a total of binom(m+2,2)/3 for the middle-block probability; b=0 contributes zero. Multiplying by −1/4 gives the covariance. For nested prefixes, the product average is the probability the common block dominates its complement; exchanging their lengths gives complementary probabilities. Thus the variance is [m+sum_{k=2}^m(k−1)]/4=m(m+1)/8, also for the final rank by reversal. Division gives the correlation, including −1 at m=1, and strict increase to −1/3. All random variables used for these moments are bounded signs or ranks, not step heights.",
+      "residual_risks": [
+        "The analysis is for symmetric atomless i.i.d. real steps; no extension to tied or asymmetric walks or a full joint rank law. The frozen sign-permutation computation is a finite consistency test, not a proof for continuous i.i.d. increments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ivanovs compares passage/extremum functionals in distribution.",
+          "Pitman–Tang arrange the levels as M_{k,n} and establish joint convergence near the minimum, not the covariance of the indices occupied by S_0 and S_m.",
+          "Zhu–Xie use separate independent walks and Brownian limit theory."
+        ],
+        "reasoning": "The rank index of a fixed time is not the order-statistic value at a fixed order. Separate marginals and asymptotic independent-walk results do not fix this finite same-walk mixed moment.",
+        "searches": [
+          "Ivanovs arXiv:1501.04542, eq. (2), Proposition 1.2",
+          "Pitman–Tang arXiv:2007.13991v2, p. 1, eq. (1.1) and introduction",
+          "Zhu–Xie arXiv:2611.16614, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary/local mirror: target, ...fae1d8f4b84c, ...b957b39ee421, ...176d4a3e769a",
+        "arXiv:1501.04542, arXiv:2007.13991v2, arXiv:2611.16614",
+        "Aneja–Sen DOI 10.1137/0123029, indexed abstract and full-text attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proved mixed moment needs the composition average of the dominant overlapping block; the marginal variance uses a different, nested-block sum.",
+          "The occupation-versus-height catalogue comparison explicitly permits different covariances despite identical occupation marginals."
+        ],
+        "reasoning": "The arcsine law implies the marginal moments but no exact joint cross-moment. None of the inspected prior statements supplies the missing same-walk overlap calculation; no claim is made to have excluded implications of the uninspected Aneja–Sen joint laws.",
+        "searches": [
+          "Ivanovs arXiv:1501.04542 pp. 1–2; Pitman–Tang arXiv:2007.13991v2 p. 1; matching Resultary Findings ...fae1d8f4b84c and ...b957b39ee421"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "R_0−1 is negative prefix occupation; R_m−1 is positive occupation for reversed suffix sums. They are coupled on the same increments.",
+          "The abstract of Aneja–Sen mentions joint laws of rank order statistics via Dwass, without identifying these coupled occupation counts."
+        ],
+        "reasoning": "The prefix and reversed-suffix interpretation is an exact alias. A rank-order statement requires inspecting what is ranked and which processes share increments; the abstract alone does not establish this.",
+        "searches": [
+          "Resultary: joint endpoint-rank covariance; prefix/suffix overlapping sojourn signs; rank-order laws of a single random walk",
+          "Aneja–Sen DOI 10.1137/0123029; title plus lawful repository/technical-report search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact endpoint-rank hit is the frozen record itself. ...fae1d8f4b84c has a three-step record-count/occupation covariance depending on a tail probability. ...b957b39ee421 deals with occupation and terminal height. Same-day ...176d4a3e769a compares concordance for independent drifted walks."
+        ],
+        "reasoning": "Even when the word endpoint or the marginal arcsine law agrees, those different variables and formulas are not entries for the claimed two-rank cross-moment.",
+        "searches": [
+          "Local Resultary for endpoint-rank covariance, record/occupation covariance and joint sojourn laws"
+        ]
+      },
+      "rationale": "The corrected marginal statement is classical, not an originality claim. The supported distinct claim is the exact within-walk covariance and correlation of the fixed-time endpoint rank indices. Accessible near matches use a different pair of variables, an order-statistic value rather than a rank index, or only one marginal. The possible broad 1972 rank-order result remains a concrete access risk, with no established exact coverage in the available evidence.",
+      "residual_risks": [
+        "Aneja–Sen's precise joint-law statements were not accessible; an implication for these endpoints remains possible. Unindexed fluctuation theory results are not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Potential overlap unresolved, not established coverage",
+          "evidence": "The abstract describes joint distributions by Dwass's method without specifying these endpoint ranks; no lawful full text was retrieved.",
+          "identifier_or_url": "https://doi.org/10.1137/0123029",
+          "material_read": "Indexed abstract only",
+          "method": "DOI and known full-text access attempts; exact-title lawful repository search; attempted indexed alternate landing page",
+          "title": "Random Walk and Distributions of Rank Order Statistics",
+          "trigger": "Plausible older general joint rank law"
+        },
+        {
+          "assessment": "Distributional identities for other specified functionals, not this joint rank moment",
+          "evidence": "The statements concern passage/extremum functionals and equality in distribution.",
+          "identifier_or_url": "https://arxiv.org/pdf/1501.04542",
+          "material_read": "PDF pp. 1–2, eq. (2) and Proposition 1.2",
+          "method": "OA PDF offsets 0 and 5800",
+          "title": "Sparre-Andersen identity and the last passage time",
+          "trigger": "Time reversal, occupation and extrema"
+        },
+        {
+          "assessment": "Studies ordered values and convergence near the minimum, not fixed-time rank indices",
+          "evidence": "M_{k,n} is the kth ordered level value; the main limit concerns joint convergence described by Feller chains.",
+          "identifier_or_url": "https://arxiv.org/pdf/2007.13991",
+          "material_read": "Abstract, §1 and eq. (1.1), p. 1",
+          "method": "OA arXiv v2, offset 0",
+          "title": "Extreme order statistics of random walks",
+          "trigger": "Possible stronger order-statistics theorem and exchangeable increments"
+        },
+        {
+          "assessment": "Different statistics and independent samples",
+          "evidence": "Distance correlation of independent walks and a finite-variance Brownian occupation-measure limit.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.16614",
+          "material_read": "PDF p. 1",
+          "method": "OA PDF offset 443",
+          "title": "Nonsense nonlinear correlations between independent random walks",
+          "trigger": "Nearby rank/correlation motivation"
+        },
+        {
+          "assessment": "Different pair of statistics",
+          "evidence": "At three steps the new upper record count and positive occupation have covariance 109/96−Pr(B_1>B_2+B_3)/8.",
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-record-occupation-covariance-range-at-the-first-nonunivers--fae1d8f4b84c",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Sharp record–occupation covariance range at the first nonuniversal horizon",
+          "trigger": "Related within-walk covariance under similar step hypotheses"
+        },
+        {
+          "assessment": "Endpoint height, not its rank",
+          "evidence": "Compares different walk models with coincident occupation marginals but different occupation–terminal-height covariances.",
+          "identifier_or_url": "2026/11/2/SCOPE-identical-arcsine-occupation-laws-conceal-a-strict-endpoint-cova--b957b39ee421",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Identical arcsine occupation laws conceal a strict endpoint covariance difference",
+          "trigger": "Closest endpoint and arcsine covariance wording"
+        },
+        {
+          "assessment": "Different two-walk statistics",
+          "evidence": "Spearman and Kendall saturation rates for independent drifted walks, not endpoint ranks within one walk.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-distinct-rank-concordance-saturation-rates-for-independent-d--176d4a3e769a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Two distinct rank-concordance saturation rates for independent drifted walks",
+          "trigger": "Same-day potentially related rank-correlation claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md, Finding and Proof",
+        "Classical marginal context and distinct occupation/height comparison ...b957b39ee421"
+      ],
+      "rationale": "Knowing the arcsine marginals leaves the strength of within-walk endpoint rank dependence open. The exact finite-horizon coefficient and limit −1/3 give a usable baseline for ordinal dependence even when steps have no finite moments. The overlap identity explains the invariance structurally rather than just approximating a correlation by a large-sample calculation. Correcting the trivial uniform m=1 marginal does not change this value.",
+      "residual_risks": [
+        "A second-order law, not a characterization of all joint endpoint rank probabilities."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

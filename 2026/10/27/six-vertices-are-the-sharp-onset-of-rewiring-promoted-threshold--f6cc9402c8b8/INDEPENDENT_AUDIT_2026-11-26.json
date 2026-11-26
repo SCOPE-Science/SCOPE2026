@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:00:25.479735Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–49; VERIFICATION.md lines 19–27 and verify.py inspected, not executed",
+        "Independent set-based replay script and output: /workspace/branches/f90330b6-b7bb-49d8-8505-8e51a4f07f26/replay_record2.py and /workspace/branches/f90330b6-b7bb-49d8-8505-8e51a4f07f26/replay-full.log"
+      ],
+      "rationale": "Independent obstruction: let A be the original closure. If the altered process first adopts a vertex outside A, only w can be that vertex; for states inside A the original closure rules exclude untouched vertices, and v replaces the permanent seed a by at most one adopter. Also v must already have adopted before w, otherwise the extra neighbor only dilutes w’s fraction. Thus a and v belong to A. Stop before this first escape: v cannot have adopted with A={a,v}, since the a-edge is gone and no other available adopter could trigger it. Hence |A|≥3. Initial connectedness gives w positive degree, and w must have a neighbor outside A (otherwise it would adopt originally at θ<1). On at most five vertices, A therefore has exactly three vertices, and its complement is {w,t} with wt an edge. Let k be the number of w-neighbors in A originally. Necessarily k/(k+1)≤θ<(k+1)/(k+2); here all k original A-neighbors are retained and v is added. If k=0 then θ<1/2, so t cannot have any neighbor in A either (one or more would give at least 1/2 at the original stable state), contradicting connectedness. If k≥1 then θ≥1/2. But before escape v has at most one available adopter (the third member of A) and at least one nonadopter neighbor w, so the strict rule prevents its adoption. This proves even closure inclusion at orders ≤5. At six vertices 1 adopts before 0 in the altered tree, enabling 0 at fraction 1/2, then leaves 4 and 5. In the original tree vertex 0 has fraction 1/3 until it or its leaves adopt, so all three stay out on exactly the required interval, including its lower endpoint. Both graphs have five edges and are connected. Appending leaves at unchanged permanent seed 3 gives sizes n−3 and n. A separate exact finite replay agrees with the source counts and the witness.",
+      "residual_risks": [
+        "Independent run: 771 connected graphs, 288834 graph–seed–threshold cases, 213990 nontrivial comparisons, and four exact witness tests in [1/3,1/2). All predicates are constant between k/d breakpoints with d≤n−1 for order n; the exact tests and the analytical argument have no floating-point dependency. The original checker advertises Python 3.8+, but uses int.bit_count(), so that replay requires Python 3.10+.",
+        "The proof of the frozen first-round observation needs unchanged fractions only for untouched nonseeds; the seed a retains its adopted status, not necessarily its neighbor fraction. Neither the closure bound nor the witness depends on the fraction at a."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published coevolution study reports cascade promotion in some parameter regions; noisy long-tie work compares spread times; indexed bounded-degree tree construction has unbounded possible gain."
+        ],
+        "reasoning": "Broader qualitative promotion, altered objectives and greater achievable gains neither dominate nor cover the quantified exclusion for every connected order at most five. The conclusion permits a disconnected altered graph.",
+        "searches": [
+          "Min–San Miguel DOI 10.3390/e25060929",
+          "Eckles–Mossel–Rahimian–Sen arXiv:1810.03579v5",
+          "Resultary 1ab5a16fb31f"
+        ]
+      },
+      "checked_sources": [
+        "Min–San Miguel arXiv:2305.13965 and DOI 10.3390/e25060929",
+        "Eckles et al. arXiv:1810.03579v5",
+        "Resultary 1ab5a16fb31f (mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Indexed m+6 tree witness on [1/4,1/3) gives an alternate existence bound at order six but no lower bound; reviewed witness attains gain on [1/3,1/2). Min–San Miguel concerns repeated updates on random networks."
+        ],
+        "reasoning": "An existence result at n=6 cannot show failure at all n≤5; allowing stochastic repeated rewiring also does not imply deterministic one-shot extremality. No order of priority is inferred from dates alone.",
+        "searches": [
+          "Resultary 1ab5a16fb31f, RESULT.md offsets 0 and 4543",
+          "Min–San Miguel model and promotion passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Min–San Miguel arXiv:2305.13965, PDF pp. 2 and 4–5; Resultary 1ab5a16fb31f finding"
+        ],
+        "reasoning": "Representing the dynamics as irreversible closure specifies a common strict fractional predicate and removes all further rewiring. The random coevolution effect is not an equivalent deterministic closure comparison. The indexed tree result does use a one-shot move but gives a different interval and probabilistic construction.",
+        "searches": [
+          "Resultary: six-vertex sharp threshold cascade rewiring promote adoption connected graphs order five",
+          "Primary literature on one-step homophilic rewiring and threshold cascades"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact small-order table or theorem was identified in the inspected matches; 1ab5a16fb31f starts from m+6 and tabulates probabilities for the construction, not all graphs below that size."
+        ],
+        "reasoning": "Unseeded connected-graph adjacency listings or a table of averaged cascade sizes cannot answer this invariant without all seed sets, allowed moves and fractional-threshold cells. The independent replay was for correctness, not evidence of priority.",
+        "searches": [
+          "Indexed search for exact small-order rewiring cutoff, connected graphs and order five",
+          "Inspected closest indexed construction 1ab5a16fb31f"
+        ]
+      },
+      "rationale": "The sharp connected-network order threshold for one specified deterministic edge move, under strict homogeneous fractional adoption, is the supported distinct finding. Promotion of adoption by rewiring and the existence of other tree witnesses are not by themselves credited as new. Neither the closely related indexed tree construction nor the inspected literature gives the lower-order obstruction in this model.",
+      "residual_risks": [
+        "Bounded search, not a priority determination or exhaustive rejection of other equivalent finite analyses. Relationship to the indexed distinct tree-promotion construction is not inferred from its catalogue date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known qualitative mechanism, not the sharp cutoff",
+          "evidence": "Persistent adoption is coupled to rewiring until active edges disappear; regime-dependent gains arise in random-network cascades.",
+          "identifier_or_url": "https://arxiv.org/pdf/2305.13965",
+          "material_read": "PDF p. 2 at OA offset 9854 and pp. 4–5 at offset 29830",
+          "method": "Primary full-text passage inspection",
+          "title": "Threshold cascade dynamics on coevolving networks",
+          "trigger": "Closest published threshold-rewiring model and promotion mechanism"
+        },
+        {
+          "assessment": "Different threshold/update model and objective",
+          "evidence": "Random long ties on cycle-derived graphs and noisy spread times, not deterministic closure by a single prescribed move.",
+          "identifier_or_url": "https://arxiv.org/abs/1810.03579v5",
+          "material_read": "PDF p. 1 offset 0 and pp. 3–4 offset 10496",
+          "method": "Primary full-text passage inspection",
+          "title": "Long ties accelerate noisy threshold-based contagions",
+          "trigger": "Rewiring and threshold diffusion"
+        },
+        {
+          "assessment": "Real overlap in attainable promotions, not coverage of minimality",
+          "evidence": "Order m+6, θ in [1/4,1/3), baseline 3, two-thirds chance of full adoption for the specified random rewire and no gain otherwise; no all-graphs lower-order exclusion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-single-homophilic-rewiring-gives-an-unbounded-cascade-on-bound--1ab5a16fb31f",
+          "material_read": "Mirror RESULT.md offsets 0 and 4543, finding, construction and scope",
+          "method": "Indexed search followed by statement and proof comparison",
+          "title": "A single homophilic rewiring gives an unbounded cascade on bounded-degree trees",
+          "trigger": "Strongest indexed same-operation result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–49",
+        "Min–San Miguel arXiv:2305.13965, model and results",
+        "Independent exact replay and analytical obstruction above"
+      ],
+      "rationale": "This isolates the minimum number of vertices needed for an initially adverse single homophilic move to improve the eventual cascade, a question left open by large-network ensemble behavior. Tree-to-tree sharpness and a nonzero interval of strict thresholds show the gain is not a cyclic-graph or tie-breaking accident. The exact small-order obstruction is independently useful for testing purported mechanisms, not an arbitrary sample-size computation.",
+      "residual_risks": [
+        "The result is not a comparison of expectations under repeated stochastic rewiring or a theorem about other threshold conventions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

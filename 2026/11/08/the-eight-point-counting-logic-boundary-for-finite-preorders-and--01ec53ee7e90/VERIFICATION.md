@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python verify_preorders.py` in a standard Python 3 environment, without third-party dependencies. The checker constructs every poset on up to eight points, generates all positive-weight quotient expansions of each relevant total order, groups binary relational color-refinement signatures, and tests graph isomorphism by complete backtracking.
+## correctness
 
-The recorded execution output is in `verify_output.txt`. Expected terminal line: `VERIFY_OK preorders_8=35979 c2_classes_8=35977`. The eight-point line reports `40877` weighted descriptions, `35979` nonisomorphic preorders, `35977` \(C^2\) equivalence classes and two two-member exceptions; each pair has only weight-one quotient points. The published preorder and poset counts provide independent enumeration cross-checks but not independent logical certification.
+PASS
 
-Two exact witnesses are printed as strict-relation bitmask tuples with all class weights one. The first pair differs in connected components of the comparability graph, and the second in the number of covering relations. These are finite checked certificates of nonisomorphism; shared global color signatures establish the counting-logic equivalence.
+The mutual-comparability relation is an equivalence relation, with a well-defined quotient poset and positive integer class sizes; expansion and weighted quotient preserve exactly isomorphism types. Independently enumerated quotient posets by entire minimal-antichain removal/reinsertion, expanded the positive weights by cut positions, and refined with full atomic pair types including equality and mutual comparability. Exact isomorphism within each joint-profile class gives totals 1,3,9,33,139,718,4535,35979, the same class totals through seven, and 35977 classes at eight, consisting of 35975 singleton classes and two doubletons without any distinct mutually comparable elements. Refinement computes unary counting types inductively: all two-name binary formulas combine atomic pair data and unary or nullary quantified subformulas. Every n-element local partition stabilizes after at most n−1 rounds; one more shared round records the per-class type counts needed to match stable cells across two structures. Thus the bounded rounds suffice for unrestricted C², even if the entire global palette has not stabilized. The two pairs of frozen codes have the stated different component and cover counts. Specialization translates finite topologies exactly to preorders; T₀ corresponds to antisymmetry, and cardinality sentences rule out collisions at different orders.
 
-No claims are made about orders greater than eight. No independent audit has been performed.
+## originality
+
+PASS
+
+The two antisymmetric exceptions and T₀ restriction overlap exactly with the distinct indexed poset census; no separate originality is credited for that restriction. The supported distinct result is the full preorder census, specifically the absence of additional equivalences among all positive-weight expansions through eight, fixing the total of 35977 classes. The comparisons inspected do not already supply this conclusion.
+
+## value
+
+PASS
+
+The finite-topology/preorder correspondence motivates counting equivalence classes of a natural logic on a natural class, with no arbitrary sampling. It is useful to know that the first loss of identification creates exactly the two known T₀ obstructions and that none of the 18980 non-T₀ eight-point types participates. This is a complete first-layer census and a sharp distinction between the topological and antisymmetric domains, not merely a new computation of the known isomorphism table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific assessment: sharp stiff-damping versus negative-coefficient frontier
+# Independent mathematical audit
 
-## Correctness — PASS (self-review)
-The claim quantifies over exactly two real stages, strictly positive weights, the four classical order-three conditions, algebraic stability and stage abscissas inside the unit interval. The positive-semidefinite matrix has zero row-sum vector by the order-two identity, forcing a one-dimensional nonnegative form. This yields a complete two-parameter tableau family, not only a construction. The resulting stability function depends solely on its algebraic-stability parameter, and the stiff-limit constraint gives an explicit interval for that parameter. A particular off-diagonal entry gives a universal lower bound; strict monotonicity in the stability parameter proves the lower bound is attained only at the damping boundary. A strictly monotone derivative then proves the exact weight transition at damping budget \(1/2\), with unique optimizers. Both closed boundaries and limiting behavior are handled. The standalone standard-library checker passed 27,683 supplementary checks, including exact fraction tests of every classical order condition and direct stability-function inversion. Finite tests are not used as proof of continuum claims.
+## correctness
 
-## Originality — PASS (best-knowledge comparison, residual risk)
-Gottlieb et al., arXiv:2611.07981v1, Section 5, prove the qualitative obstruction to entrywise nonnegative coefficients at third order. Weng–Yu–Zhu, arXiv:2610.37425v1, optimize the SSP radius within a different sign/feasibility class. The published November 8 record titled *Sharp unavoidable negative Butcher coefficient for two-stage algebraically stable third-order Runge–Kutta rules* is particularly close: its unrestricted lower bound, uniqueness and symplectic endpoint are **already known**, and are expressly excluded from the new contribution. That record's complete theorem and proof were read: the constrained stiff-limit radius and every intermediate sharp profile, including the \(1/2\) regime change, are not its results and do not directly follow as stated from the unrestricted minimum alone. Actual mathematical-record searches under damping, negative Butcher entries, L-stability, Radau and tableau equivalences located no stronger covering theorem. This is a best-knowledge assessment, not a uniqueness certification for all literature. Earlier RK coefficient-parameter studies may imply the result without matching its statement.
+PASS
 
-## Value — PASS
-Stiff-limit damping is a standard objective for implicit time integrators, and negative Butcher entries obstruct monotonicity/SSP analyses. Their precise tradeoff is an actionable design question rather than an arbitrary numerical slice. The theorem gives a sharp all-budget classification in the minimal two-stage order-three setting, discovers a change in optimal stage geometry at an explicit damping budget, and identifies the classical Radau IIA optimizer at full L-stability. The constrained frontier is not merely a routine restatement of the published unconstrained minimum.
+The first three order conditions give mean 1/2 and variance 1/12 at two distinct sorted nodes, and c in [0,1] gives u in [1/6,1/2]. Independently, in the B-orthonormal basis (1, sqrt(12)(c-1/2)), the matrix A has first column (1/2,1/sqrt(12)) and upper-right entry -1/sqrt(12) by the remaining order condition. In that basis the algebraic-stability form is diagonal with entries 0 and twice the lower-right entry of A, so that entry is t/6 for arbitrary t>=0. This is reversible and verifies exhaustiveness. The scalar test function in this basis gives the stated numerator and denominator, and residual |1-t|/(1+t) without a degenerate leading denominator. The upper-right Butcher-entry depth is strictly positive and strictly increasing in t at every u; at the least feasible t=(1-rho)/(1+rho) the other entries are positive. The derivative of the remaining depth function in u is strictly increasing for u>1/6, and its boundary signs are (3t-1)/8 and (5+t)/8. This proves attainment, the change at rho=1/2, the root characterization, and uniqueness including the equality case at the transition. Independently checked the exact Radau IIA tableau and sampled depths 1/12, 1/18, 0.04503467712462134 at rho=0,1/2,3/4, and the limit 0.03563906993888331.
 
-## Scope and residual limits
-There is no claim for more than two stages, negative weights, stage times beyond \([0,1]\), nonlinear monotonicity, or finite-step error optimality. The public mathematical record from November 8 remains prior art for the unrestricted endpoint; older unindexed parameterizations create a residual originality risk. Independent expert validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the profile with 0<=rho<1 and residual constraint sigma<=rho, including saturation and the boundary-to-interior transition. The earlier unconstrained minimum, uniqueness at that endpoint, and the classical Radau tableau are credited rather than counted as new. The closest indexed statements and available comparisons do not exhibit a dominating result for the strict-budget profile. Primary-source access was incomplete.
+
+## value
+
+PASS
+
+Stiff-limit damping and the size of negative Butcher entries are natural, distinct design constraints. The exact Pareto profile supplies a uniquely determined tableau for each budget and a nonobvious change from an endpoint node to two interior nodes at rho=1/2. This information is useful even knowing both the classical zero-residual tableau and the old unconstrained minimum; it is not an SSP or finite-step optimality theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

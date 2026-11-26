@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The theorem is entirely analytic. Reproduce its central checks in this order:
+## correctness
 
-1. Use Zak unitarity to write the synthesis inequality as equation (1) of RESULT.md. The Fourier multiplier is \((1+|k|^2)^{1/2}[\log(e+|k|)]^\beta\), and the deleted character is the constant mode after a lattice shift.
-2. Check the Riesz-representation duality: modulo the deleted constant Fourier mode, any representing function must be \((\psi-d)/\phi\). A nonzero \(\psi(p)-d\) leaves an uncancelled two-dimensional \(r^{-2}\) singularity, forcing \(d=\psi(p)\). This proves equivalence to the point-remainder estimate (2).
-3. On a dyadic Fourier square shell with \(O(2^{2j})\) modes, Cauchy–Schwarz gives \(\|\psi_j\|_\infty\lesssim2^j\|\psi_j\|_2\), and differentiation adds a factor \(2^j\). Sum over spatial annuli. Apply the adjoint Hardy inequality \(\sum_i(\sum_{j>i}a_j)^2\le4\sum_jj^2a_j^2\), proving the \(\beta=1\) endpoint.
-4. For each \(N\), the explicitly displayed \(\psi_N\) uses \(N\) disjoint positive-quadrant Dirichlet blocks. Check that each has point value \(1\), Fourier weighted squared norm \(\asymp(1+j)^{2\beta}\), and uniformly small modulus whenever its frequency greatly exceeds inverse distance to \(p\). On order \(N\) disjoint spatial annuli this gives a cumulative \(N^3\) lower bound, contradicting the Hardy bound when \(\beta<1\).
-5. Independently verify the sourced Gaussian theta expansion and unique simple zero (Hart et al., 2025, Section 4.3). All estimates are uniform in the deleted atom by unitary lattice displacement.
+PASS
 
-No numerical enumeration or external software is required. The proof is an infinite-dimensional argument; its exactness cannot be established by a finite checker. The material Lyubarskii–Seip (1999) full-text overlap risk remains, and independent assessment is not performed.
+The lattice shift reduces deletion to index zero, and Zak unitarity turns synthesis into multiplication of a mean-zero polynomial by φ. The weighted negative Fourier norm dualizes to a point remainder: any representing function h satisfies φ̄h=ψ−d, and square integrability forces d=ψ(p) by the nonintegrable two-dimensional r^−2 singularity. Conversely subtract that constant and apply Cauchy–Schwarz to recover the synthesis inequality. In a spatial annulus of radius 2^−i the contribution of shell j is at most min(2^(j−i),1) times a_j=2^j‖ψ_j‖_2. The low-frequency part is bounded by convolution with a summable kernel; the high-frequency tail is the adjoint discrete Hardy inequality, giving the square cost Σ(1+j)^2 a_j^2. Monotonicity yields all β≥1. For β<1 the disjoint normalized frequency blocks all equal one at p, have real point remainders of the same sign, and lie in modulus below 1/2 on the relevant outer annuli once j≥i+K. Their weighted norm squared is o(N^3) while the annular remainder norm squared is bounded below by a constant times N^3, excluding the inequality. Completeness after deletion follows since an annihilator multiplied by φ̄ must be constant and 1/φ is not square integrable. The displayed point remainders divided by φ̄ give biorthogonals. For this complete minimal family, Riesz–Fischer is equivalent to Besselness of the biorthogonals; that Bessel bound gives the lower analysis bound by synthesis and completeness, and conversely the lower analysis bound applied to finite sums of biorthogonals gives their Bessel bound. The Gaussian expansion also checks directly by the Jacobi product: with q=e^−π and z=πξ−iπx only 1+q exp(2iz) vanishes in the cell; its derivative factor at p is −2π(u+iv), and the remaining prefactor is q^(1/4) times ∏_(ℓ≥1)(1−q^(2ℓ))^3, yielding the frozen coefficient.
+
+## originality
+
+PASS
+
+Credit exactness and the simple-zero geometry, the existence of some positive weights, and sufficiency for β>1 in the Gaussian case to the verified antecedents and their combination. The distinctive result is the endpoint β=1 and matching necessity below it, with the sharp threshold extending to all windows with a quantitatively simple single Zak zero. The strongest inspected statements do not entail this distinction; overlap with equivalent critical logarithmic inequalities or uninspected portions of the Nyquist summability paper remains a qualified risk.
+
+## value
+
+PASS
+
+This is a sharp endpoint left undecided by the available individual-biorthogonal summability criterion. It distinguishes the harmonic divergence of that sufficient test from failure of a lower semi-frame, settles the converse with an explicit counterfamily, and identifies a transferable mechanism for every window with a single quantitatively simple Zak zero.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

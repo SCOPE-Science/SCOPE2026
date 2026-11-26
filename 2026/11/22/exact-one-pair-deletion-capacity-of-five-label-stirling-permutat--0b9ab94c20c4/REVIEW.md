@@ -1,19 +1,21 @@
-# Review of exact five-label Stirling pair-deletion capacity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source language and unknown whole-label-pair deletion channel are defined explicitly. The insertion construction generates the full family of \(945\) sources and \(105\) possible outputs. The checker independently regenerates all sources by exhaustive balanced-word enumeration, compares the two families, computes every distinct output set, and verifies both halves of the finite proof: \(33\) pairwise-disjoint output shadows, and \(105\) nonnegative integer shadow weights with total \(339636\) on a scale of \(10000\). It evaluates every one of the \(945\) covering inequalities exactly. Consequently any zero-error code has fewer than \(34\) members, and the explicit lower witness has \(33\). The method is a complete finite proof, not a claim based on a search program's success status. The embedded standalone checker replayed successfully.
+PASS
 
-## Originality — PASS, with a specifically identified access risk
+The two maximum labels must be adjacent, so inserting the new largest pair in all gaps gives the complete source and target families with counts 945 and 105. Nested matching-label intervals give an independent enumeration as preorder-labelled plane forests below a root, with labels increasing along paths. Erasing a label removes that node while splicing its ordered children into its old place; relabelling the survivors by increasing rank gives the required standardized output, whether the erased node is a leaf or not. All possible outputs for each source were independently formed and deduplicated. The certificate's 33 indices have disjoint shadows using 104 different targets. Its 105 nonnegative integer weights sum to 339636, and all 945 distinct-target sums are at least 10000. Thus any code uses weight at least 10000 per source without double counting a target, and 34 sources would require at least 340000. The exact optimum is 33 without any optimality assumption about the certificate's search method.
 
-Janson's foundational tree/Stirling permutation paper and Janson–Kuba–Panholzer establish the insertion family and tree correspondence, not a pair-erasure code capacity. Gabrys et al. study ordinary single-occurrence permutations, so their deletion-correction bounds do not supply this exact constrained-multiset capacity. Brualdi and Dahl analyze Stirling multipermutations and deletion of the **largest** adjacent pair in a structural characterization; that deterministic operation does not decide a code correcting the unknown deletion of **any** label pair. The closest inaccessible item is Sala–Gabrys–Dolecek (2014), *Deletions in Multipermutations*, DOI:10.1109/ISIT.2014.6875338: its accessible abstract gives broad coding constructions but not this 33-word special-case count. Full text could not be inspected, so the possibility of overlooked implied coverage in it is a residual priority risk. No inspected full text or located exact table implies the present 33/34 separation; lack of a database match alone has not been treated as proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A matched label appears twice in each Stirling permutation, so erasing it models an unknown edge contraction in a plane recursive increasing tree rather than an arbitrary pair of coordinate deletions. Exact zero-error capacity is a natural invariant for that information-loss mechanism. The explicit lower and fractional upper certificate settle the natural five-label instance sharply, improving on the mere existence of such tree encodings. The claim is restricted to one exact nontrivial finite case and does not assert a general-order formula.
+The checked same-channel indexed result describes coincidences among deletions of a single source, not packing disjoint shadows across sources. Tree encodings, the largest-label deletion operation and standardized deletion of an ordinary permutation are prior but do not give the stated order-five optimum. The distinct claim supported here is the exact 33/34 separation for unknown arbitrary whole-label deletion in the Stirling class, not the channel terminology, representation or fractional-packing method.
 
-## Limits and verification status
+## value
 
-The result is finite, with a \(105\)-entry upper-bound table; its certificate is checked exhaustively. Earlier literature may contain an equivalent enumeration, especially the unavailable full 2014 multipermutation paper, and the historical priority assessment is qualified accordingly. Only a self-review was conducted; this is not independent validation or publication certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The question is an exact zero-error capacity for natural labelled tree descriptions under a single unknown contraction. It is a genuine finite packing problem across 945 sources, not a trivial consequence of output-space size or the sizes of individual shadows. The witnesses give a near-cover of the available smaller trees and a strict upper threshold, answering exactly how many distinct five-edge structures can be encoded against this deletion. The finite answer is usable as a benchmark or base case without claiming a general-order theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

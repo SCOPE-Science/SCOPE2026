@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The derivation reconstructs the joint action/opinion best response from the quadratic payoff and establishes uniqueness of the conditional opinion solution. On a complete multipartite graph, reversibility and the one-positive-eigenvalue property imply a nonpositive covariance between centered actions and neighbor opinions, while unilateral Nash inequalities force the opposite sign. Equality gives both a complete indifference condition and a kernel condition. The kernel is translated into balanced cooperation counts, yielding an if-and-only-if theorem and exact enumeration. The rational example and 1,416 direct finite tests provide reproducible cross-checks, not an infinite proof.
+## correctness
 
-## Originality
-PASS with priority qualifications. Davidson et al. (arXiv:2604.08840v1, Sections II–IV) give the public-goods game and individual response formulas but not the complete multipartite mixed-equilibrium classification or the greatest-common-divisor law; their conclusion identifies mixed equilibria and positive prejudice as future work. Aghbolagh et al. (arXiv:2206.07242v2, Sections III and V) analyze a different coordination-payoff game and give sufficient polarized-equilibrium criteria, not this necessity/sufficiency classification. The one-positive-eigenvalue spectral statement itself is classical and not claimed. A nearby signed-action coevolutionary study by Liang et al. was available only at abstract level; more general threshold-game theory may also contain implications not identified here.
+PASS
 
-## Mathematical value
-PASS. The source paper makes mixed action equilibria a motivated unresolved structural question. The theorem gives a complete all-size classification for a natural connected network family, a sharp arithmetic obstruction for any part-size gcd of one, and exact counts at the exceptional indifferent parameter surface. The example with four mixed equilibria shows why recognizing payoff ties is essential. This is substantially more than a numerical equilibrium list or an arbitrary parameter slice.
+Completing the strictly concave conditional opinion square gives y_i^(s)=(β(1−γ)M_i+βγu+λs)/(β+λ) in [0,1]. The optimized payoff difference is −α(1−r/n)+κ((1−γ)M_i+γu−1/2). At any given x the opinion map contracts with factor t=β(1−γ)/(β+λ)<1. On the degree-weighted mean-zero space the eigenvalues of W are nonpositive: A=11ᵀ−Σ1_a1_aᵀ has nonpositive form ON the plane orthogonal to 1, and diagonal congruence transfers inertia. The frozen proof's word 'outside' in this sentence should read 'on'; the identity and downstream inequality are correct. The payoff sign constraints make the degree-weighted covariance between centered x and Wy nonnegative, while the resolvent has nonpositive eigenvalues μ/(1−tμ) transversely. Equality forces every player to tie and Wx=p1. Summing (k−k_a)=p(n−n_a) over parts yields k=pn and k_a=pn_a. Conversely equal fractions give y=m(p)1+(λ/(β+λ))(x−p1) and the common discriminant F(p). The positive slope of F gives at most one interior j/g, with both unanimous profiles Nash whenever an interior one is; the boundary inequalities are weak because ties are allowed. A cooperator would revise to defection in any universally indifferent mixed equilibrium, so the tie-to-defect fixed-point claim follows. Independent exact part-mean elimination and payoff comparisons checked 1,842 part-count/parameter combinations, including 14 mixed tie combinations, without a graph eigenvalue calculation. Replay: python -B /workspace/branches/frozen_recheck.py 3.
 
-## Limitations
-Only common-prejudice homogeneous-parameter public-goods opinion games on loopless unweighted complete multipartite networks are covered. Nothing is proved about heterogeneous agent parameters, generic network structures, arbitrary nonlinear games, or dynamics away from equilibrium. Independent historical priority and external mathematical audit remain unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same game's joint best responses and zero-prejudice consensus results are prior. The supported increment is the multipartite no-strict-mixing obstruction and complete weak-tie census, including common positive prejudice, exact balanced fractions and their labeled multiplicities. None of the strongest inspected comparators supplies this classification.
+
+## value
+
+PASS
+
+The result answers the model's mixed-equilibrium question for a natural class of networks rather than merely recalculating a consensus threshold. It separates weak Nash equilibria from deterministic stationary outcomes, showing both why mixed Nash profiles are exceptional and exactly how many occur at resonance. The gcd obstruction sharply distinguishes unequal part-size patterns.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

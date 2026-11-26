@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-## Proof checks
+# Independent mathematical audit
 
-The incidence equations use exactly sixteen blocks, six appearances of each chosen point, and two appearances of every chosen point-pair. Under pairwise distinct nonempty traces, \(r_1\le5\); solving the resulting moment constraints forces \(r_5=1\) and the stated trace profile. The converse is checked from the symmetric design axioms: each pair in the distinguished block determines exactly one additional block, and other blocks meet it in two points.
+## correctness
 
-## Reproduction
+PASS
 
-Run `python3 verify.py` with Python 3 and no nonstandard libraries. The script constructs an explicit \(2\text{-}(16,6,2)\) example, checks all pair-incidence and block-intersection axioms, enumerates all \(4368\) possible five-point subsets, checks the exact \(96\) minimum codes, and checks all edges and components of their exchange graph. It exits with a nonzero status upon any failed assertion and otherwise prints `VERIFY_OK`.
+There are only 15 nonempty subsets of four selected points, so at least five are required. For exactly five, counting blocks, selected incidences and selected pairs in blocks gives sums 16,30,20 for the trace-size weights 1,j,binom(j,2). Nonempty distinct traces force r1≤5. Eliminating yields r1=8−r4−3r5 and r3=6−3r4−6r5; r1≤5 and r3≥0 then give r5≥1, and r5≤1 by uniqueness of the full trace. Thus r5=1 and r4=r3=0. Conversely for C=B∖{p}, the second block on each of the 15 pairs in B is distinct because each other block meets B in exactly two points. These pairs give exactly five singleton and ten doubleton traces, and B gives C. Thus each of the 16 blocks supplies six distinct codes, and the same block never shares a 5-subset with another block. Same-block punctures intersect in four points; different-block punctures intersect in at most two. Thus the exchange graph is 16K6 with 240 edges. The proof uses the design axioms uniformly and does not require the classification of realizations or an exhaustive program.
 
-## Scope and limits
+## originality
 
-The universal classification follows from the written proof rather than from a finite census of biplane isomorphism types. The checker establishes agreement in one explicitly defined design. The nonempty-trace requirement is essential: a weaker semi-resolving set can have an empty trace, and additional five-point sets then occur in the explicit example. No independent external audit has been performed.
+PASS
+
+Bailey's versioned Proposition 14 proves the punctured-block separation construction in any biplane, and nonemptiness follows at once from two-point block intersections. This already implies the minimum size and a known family of 96 candidates at these parameters, using the elementary information bound. The supported distinct claim is the converse for nonempty traces, hence the exhaustive count and exchange decomposition, not the construction. The closest Resultary match also counts 96 size-five codes but uses closed neighborhoods of the Shrikhande graph and has 16 cycles instead of 16 cliques. The available statements do not establish an equivalent classification. Earlier inaccessible design-catalogue literature remains a named bounded risk.
+
+## value
+
+PASS
+
+The parameter set is a natural small biplane family and the minimal code model is independently defined by nonempty distinct incidence signatures. The converse resolves the full equality structure for every realization, ruling out any optimal single-point reconfiguration between block families. That exact structural information is useful beyond a numerical census or the prior construction, even without a theorem for larger biplanes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

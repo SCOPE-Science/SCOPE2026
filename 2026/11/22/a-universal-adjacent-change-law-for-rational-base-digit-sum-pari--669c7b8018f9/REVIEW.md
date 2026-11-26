@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The conventional rational-base digit recurrence is stated with the numerator \(b\) as divisor and the denominator \(a\) as multiplier. At each block of \(b\) output edges, the floor increments \(\lfloor a(r+1)/b\rfloor-\lfloor ar/b\rfloor\) are exactly \(a\) jumps of size one and the remaining zero, and their source edges concatenate without omissions or repetition. Parity of \(a-b\delta\) gives the two distinct cases, and exactly implies the identity for every \(N\). The discrepancy recursion contracts by \(a/b\), so the logarithmic error is proved rather than inferred from examples. The all-odd case follows by strict descent. Direct digit computations and the independent recurrence agree in the attached checker. No symbolic-frequency assumptions or unsupported numerical extrapolation enter the proof.
+## correctness
 
-## Originality — PASS on checked evidence
-The closest primary sources concern rational-base automata and the special base-\(3/2\) parity word. In that special case its numerically reported two-letter frequencies anticipate \(C(N)/N\to2/5\); this covered instance is credited and does not form the claimed original contribution. The new general quantified statement applies simultaneously to every reduced \(b/a>1\), including different parity regimes and exact \(b\)-versus-\(a\) finite-length equations, which do not follow from the single-base results or the cited automaton characterization alone. Targeted semantic database and literature searches did not locate a universal law. That is evidence of noncoverage in checked materials, not proof of global uniqueness; an uncatalogued equivalent identity is a residual risk.
+PASS
 
-## Value — PASS
-Adjacent digit-sum parity changes are a canonical two-point arithmetic statistic. An exact law for all rational radices answers the natural extension from the unusually difficult base-\(3/2\) word and yields the surprising dependence on only the even numerator/denominator and their sum; opposite parity parameter regimes behave differently and both-odd parameters degenerate to alternation. The finite two-scale identity controls every prefix up to logarithmic error without assuming existence of symbol frequencies. The result is structural across an infinite family and not a one-off numerical curiosity.
+The Euclidean digit recursion gives the last-digit parity plus the bit at q(n)=floor(an/b). As n runs from 0 to M−1, q(n) stays still or rises by one, with its rising edges covering exactly the q(M) input edges. The last-digit difference is a−b[q(n+1)−q(n)]. For even a, a stationary edge contributes zero and a rising edge contributes the complement of its input change. For even b, a stationary edge contributes one and a rising edge contributes the complement. This directly proves C(M)+C(q(M))=q(M) for even a, or =M for even b, a check also valid off the block grid and at M=0. At M=bN this gives the claimed identity. With β=t/(a+b), the all-prefix relation gives E(M)=−E(q(M))+O(1), and q contracts geometrically to zero, yielding the claimed logarithmic discrepancy. The difference between counts of 01 and 10 telescopes to the endpoint bit difference. For odd a,b, induction through the same recursion proves x(n)=n mod 2. No separate mixed-parity equal-pair frequencies follow from this argument.
 
-## Closest work and limitations
-Rigo–Stipulanti (arXiv:2102.10828), Dekking (arXiv:2301.13563), and Cassaigne et al. (arXiv:2602.21895) were compared at the level of the objects and claimed implications. The last source is newer and covers the base-\(3/2\) special case; it explicitly frames other rational bases as further questions. This result does not determine separate \(00\)/\(11\) frequencies, and indexing of obscure existing results may be incomplete.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the all-coprime-radix identity and its parity-controlled discrepancy and densities, not a new numerical observation or a new isolated 3/2 theorem. Cassaigne et al.'s published sliding-pair substitution already implies the exact standard 3/2 instance. The closest separate Resultary record treats a genuinely different 3/2 sequence under a different digit normalization.
+
+## value
+
+PASS
+
+Exact transition statistics are natural in rational-base parity words, for which full pattern-frequency questions are nontrivial. The identity determines every radix's leading transition frequency with an effective sublinear error without relying on separate single-bit or equal-pair frequencies, and classifies the radically different both-odd case. The useful new benchmark is universal, not its already implied isolated 3/2 value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

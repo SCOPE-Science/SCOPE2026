@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:08:39.704715Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen proof makes a false inference at RESULT.md line 50: all zeros seeing ones in the current phase does not persist, e.g. all ones vacuously satisfy it and then reach all resting in two updates. The recorded capped checker tests that predicate on the sixth image and computes projected periods, but does not explicitly verify the three-phase lifting of recurrent capped states. The replacement corrects the proof without changing the displayed law. Hub colors and the two nonempty masks of present nonhub colors determine the next projected state. For a resting nonhub, the same-color class has no effect on its excitation, and for a resting hub only its own nonhub set and the other hub matter. At a phase, the test evolve(s)=rotate(s) is equivalent to every actual vertex rotating: a blocked hub is detected in its coordinate and a blocked resting nonhub class is detected because its next mask lacks color 1. The new bounded certificate, run as `python3 /workspace/repairs/3/support_certificate.py`, followed all 441 mask orbits, checked fixed all-resting states and every phase of every recurrent three-cycle, and proved lifted periodicity no later than time six (five for extinction). An earlier labelled periodic state would project to an earlier periodic mask state, so entry times are exact. For each shore with mask S, the labelled count is the EGF (exp(z)-1)^|S|. Exact polynomial equality in E=exp(z), F=exp(w), clearing denominators by six, verifies all 13 layer formulas: E-1, 2(E^2-1), 3(E^3-1) give 1, 2^a, 3^a at positive nonhub sizes. This is a finite exhaustive proof of all-size identities, not graph-size interpolation. It verifies the period-three witness (h,k,S,T)=(0,2,{1},{0,1}), realizable for a>=2, b>=3 and mirrored when appropriate, and the singleton-mask restriction and time-five witness for (2,2). For recurrent configurations, the all-three-colors shore is self-supporting; a shore with a missing color has all nonhubs one phase behind its hub and needs the hub successor color across the bridge. Both shores cannot have the latter form; inclusion–exclusion and the hub phase choices give 9AB+3(A+B), with one orbit per three recurrent states. The extinction counts sum to 9(X-1)(Y-1), giving the stated probability. The run reported PASS for the 441 states, recurrent lifting, all thirteen identities and sharpness. The two original supplementary code paths and their recorded outputs were inspected, not executed. This is not Lean verification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gravner–Lyu–Sivakoff treat arbitrary finite connected graphs. Doba identifies every vertex's eventual excitation frequency with maximal initial cycle density. Durrett–Griffeath prove local periodicity in the threshold-one lattice setting via a rotating clock and eventual entrainment of neighbors. Durrett–Steif's inspected theorems concern the one-dimensional excitation probability and topological entropy."
+        ],
+        "reasoning": "A rainbow triangle attains maximum density 1/3 and hence all excited vertices have rate 1/3 in the eventual cycle; the three-step minimum gap makes them rotate every round. The possible period list is therefore prior by specialization. The broad results inspected do not count barbell orbits or give the sharp finite surviving entry bound and exact layer weights.",
+        "searches": [
+          "Gravner–Lyu–Sivakoff Theorem 3 and Corollary 4",
+          "Doba §§6–7, maximum cycle density and excitation rate",
+          "Durrett–Griffeath, author copy, Theorem 1.1 and clock proof outline",
+          "Durrett–Steif, author copy, Theorems 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, finite_certificate.py, independent_direct.cpp, both recorded outputs and VERIFICATION.md",
+        "Repaired RESULT.md, VERIFICATION.md and support_certificate.py",
+        "arXiv:1610.07320",
+        "DOI 10.25088/ComplexSystems.27.2.101",
+        "Duke author copies of Durrett–Griffeath and Durrett–Steif",
+        "Resultary 86c3801557a2, e79c2691fb75, 41763c4e3744, 5f4b0c36707a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Diameter three and agreement by that time yield at most two further steps to all resting. Nonzero clique integral implies survival, with excitation rate forcing period three. Nearby exact censuses have distinct projected dynamics."
+        ],
+        "reasoning": "The aggregate survival/extinction split and the extinction upper bound are mechanically implied; they are not the originality basis. Exact entries additionally require the full projected transition and lifted period test. Maximal surviving entry, thirteen counts (including matching pairs of transients), and the bridge-supported rotating configurations are not given by knowing a cycle's density or eventual fate.",
+        "searches": [
+          "arXiv:1610.07320, Theorem 3",
+          "Doba §§6–7",
+          "Durrett–Griffeath Theorem 1.1 proof outline",
+          "Resultary 86c3801557a2 and e79c2691fb75 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Synchronization is equivalent to irrotational initial coloring, and all vertices agree from the diameter bound if irrotational.",
+          "Doba gives extinction versus persistent excitation through circuit phase difference, then ties excitation rates to maximum cycle density."
+        ],
+        "reasoning": "All graph cycles are confined to the two cliques. A clique with all three colors has a rainbow triangle and a nonzero oriented integral. With at most two colors, an edge integral is the difference of a lift on that clique and every cycle integral vanishes. This gives exactly the aggregate fixed basin, but does not distinguish first-entry times among its members. Bridge-induced phases are needed to count recurrent configurations of the whole graph.",
+        "searches": [
+          "Primary literature search for Greenberg–Hastings bridged cliques / barbell graph / transient first entry",
+          "Gravner–Lyu–Sivakoff arXiv:1610.07320, cycle integrals and Theorem 3",
+          "Doba DOI 10.25088/ComplexSystems.27.2.101, §§6–7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The complete-split Finding gives an exact layer census with a four-step bound and periods one and three. The friendship Finding gives GHM layer counts and 3^n-1 rotating orbits on triangles sharing a center. Indexed multipartite results concern different families, including possible period four in the bipartite case."
+        ],
+        "reasoning": "These Findings provide closest exact tables for related topologies, not the bridged-clique table with a two-endpoint bridge. Even when small graphs overlap, the families and large-parameter transitions differ; neither the split/friendship orbit count nor the multipartite layer counts cover the present all-size statement. Shared dates do not establish priority.",
+        "searches": [
+          "Resultary search for exact GHM entry-time / bridge clique / first-periodic-entry layer counts",
+          "Resultary 86c3801557a2 complete split graphs",
+          "Resultary e79c2691fb75 friendship graphs",
+          "Resultary 41763c4e3744 complete bipartite and 5f4b0c36707a complete tripartite censuses"
+        ]
+      },
+      "rationale": "The replacement gives priority credit for the aggregate extinction law, the general period dichotomy specialized to these cliques and the five-step extinction upper bound. The distinct claim is the exact first-entry census, its palindromic transient period-three layers, the sharp six-step surviving cutoff, and the graph-specific recurrent orbit count and description.",
+      "residual_risks": [
+        "No exhaustive priority claim: an unindexed graph-specific dynamical census or an alternative exact phase analysis could recover the layers.",
+        "The supplied Durrett–Griffeath arXiv PDF was unavailable; the relevant theorem and proof outline were inspected in the author copy. Comparisons apply to the actual passages read, not the entire lattice literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implies extinction criterion, total basin and extinction bound after specialization",
+          "evidence": [
+            "For a finite connected graph the GHM trajectory synchronizes iff the initial coloring is irrotational; when irrotational, agreement holds from graph diameter. The corollary treats synchronization of every coloring on a tree."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1610.07320",
+          "material_read": "Cycle integral definition PDF p. 3 offset around 12006; Theorem 3 and Corollary 4 p. 4 offsets 14600–15750",
+          "method": "OA full-text passage inspection",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "General extinction and synchronization bound covering these graphs"
+        },
+        {
+          "assessment": "Implies eventual period classification here, not the refined entry distribution",
+          "evidence": [
+            "The circuit phase test separates quiescence from persistence, and the excitation rate is d_M=max w(0)/(3|w|). A rainbow triangle gives d_M=1/3 in this family."
+          ],
+          "identifier_or_url": "https://wpmedia.wolfram.com/sites/13/2018/09/27-2-1.pdf",
+          "material_read": "§6 Theorem 1, printed p. 114 offset near 23400; §7 pp. 116–117 offsets 27800–30500",
+          "method": "Publisher OA full-text passage inspection",
+          "title": "The Time Evolution of a Greenberg–Hastings Cellular Automaton on a Finite Graph",
+          "trigger": "Broader deterministic Greenberg–Hastings asymptotics"
+        },
+        {
+          "assessment": "Prior rotating-clock mechanism in lattice dynamics, not the finite barbell census",
+          "evidence": [
+            "A cyclically colored clock advances at every time and eventually entrains lattice neighbors. The inspected local-periodicity theorem is a random-initial-state lattice result, not a table of labelled initial states."
+          ],
+          "identifier_or_url": "https://sites.math.duke.edu/~rtd/reprints/paper79.pdf",
+          "material_read": "PDF p. 5, Theorem 1.1 and proof outline, offsets 13960–16353; author copy after cited arXiv PDF failed",
+          "method": "Primary literature search to identify the lawful author copy; OA full-text passage inspection",
+          "title": "Asymptotic Behavior of Excitable Cellular Automata",
+          "trigger": "Classical source cited for excitable cellular automata; potential broad clock implication"
+        },
+        {
+          "assessment": "The inspected results target other observables and graph geometry",
+          "evidence": [
+            "One-dimensional transient excitation probability and topological entropy, not a bridged-clique first-periodic-entry law."
+          ],
+          "identifier_or_url": "https://sites.math.duke.edu/~rtd/reprints/paper66.pdf",
+          "material_read": "Theorem 1 and Theorem 2 passages, PDF pp. 2–3",
+          "method": "OA primary-text literal theorem inspection",
+          "title": "Some rigorous results for the Greenberg-Hastings Model",
+          "trigger": "Next relevant primary hit in barbell/excitation search"
+        },
+        {
+          "assessment": "Same statistic and rule, different graph family and cutoff",
+          "evidence": [
+            "K_m joined to an independent set has a four-step bound and its own exact layers for periods one and three."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-four-phase-entrance-statistics-for-three-state-excitation-on-com--86c3801557a2",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local Resultary mirror at commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Four-phase entrance statistics for three-state excitation on complete split graphs",
+          "trigger": "Closest indexed same-rule exact entrance census"
+        },
+        {
+          "assessment": "Distinct topology and counts; also credits the aggregate extinction criterion to GLS",
+          "evidence": [
+            "Its triangles share a central vertex; its primitive orbit count is 3^n-1, not a formula for two cliques connected by a bridge."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-shared-three-cycle-skeleton-and-unequal-stopping-time-laws-for-e--e79c2691fb75",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local Resultary mirror full-text passage",
+          "title": "Shared three-cycle skeleton and unequal stopping-time laws for excitation on friendship graphs",
+          "trigger": "Same-day exact layer and orbit counts with clique-based geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A single edge bottlenecks excitation between internally complete neighborhoods. The first-entry law quantifies how that bottleneck affects both extinction and surviving rotating states, at a precision the prior synchronization and excitation-rate results cannot distinguish. A size-independent sharp cutoff, full labelled entrance layers with a non-obvious period-three symmetry, and recurrent counts provide a useful exact benchmark for finite-graph excitable dynamics. The value does not depend on repackaging the already implied aggregate extinction probability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

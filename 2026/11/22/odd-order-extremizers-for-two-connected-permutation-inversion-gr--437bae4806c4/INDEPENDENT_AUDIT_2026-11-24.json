@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:15:50.113309Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–56; frozen VERIFICATION.md and verify.py",
+        "/workspace/repairs/5/RESULT.md, complete amended proof",
+        "Verkama, arXiv:2611.17237v1, Proposition 2.8, Lemmas 3.3 and 3.5, Corollary 2.7 and Remark 3.6",
+        "/workspace/branches/46971864-6d8d-4a5f-9ffd-fd3a51cd78b5/record5_independent_check.py and record5_independent_check.log"
+      ],
+      "rationale": "Passes for the repaired claim, not as printed. Frozen RESULT.md lines 44–51 incorrectly identify (1,2) with (2,1). At L_6 their words are 4261735 and 4612735, respectively, with different 321 counts. The correct pair is (2,1) with (3,2); unrestricted iteration over all cells is not repetition-free. The complete repaired RESULT.md derives the table from the prefix rank formula, proves the deletion-run criterion, and lists one representative per class. Its four duplicate pairs are disjoint and none deletes a triangular cell; the length-four base has two triple classes and two singleton classes. The checked 4-chordal bound gives the odd lower bound by integrality, while a degree-two insertion into the even ladder preserves two-connectivity and attains it. Anchored greedy ears have increments (1, at least 2) or (2, 3); equality allows no singleton step after a triangle and exactly one after a square. Hence a final singleton step comes from the unique even ladder, while a final two-vertex step is the forced operation F on a smaller odd minimizer. Both exceptional commutations were verified by explicit word identities, and F(321)=42513 handles the first triangle start. The exact cell and neighbor counts then yield 3m−2 distinct minimizers, of which m have one triangle.",
+      "residual_risks": [
+        "The independent replay exhausts odd orders 3,5,7,9 and even uniqueness at 4,6,8, and checks the insertion and commutation data through even order 50; the unbounded conclusion is analytic, using the cited anchored-ear results. No formal verification or expert attestation is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Verkama supplies the 4-chordal edge bound, existence of anchored ears, forced two-vertex placement and unique even extremizer.",
+          "The same-day general insertion theorem bounds the named degree-two type count by 3(r−1), with zigzag equality cases, not the ladder's distinct degree-two outcomes. Tenner–Vatter's inspected abstract is about cycle-space dimension and related statistics."
+        ],
+        "reasoning": "The known edge and structure results give the ingredients, not the reduction of all odd minimizers to one-point ladder insertions nor their refined count. Neither the general named-gap bound nor the other statistic gives that census.",
+        "searches": [
+          "Verkama arXiv:2611.17237v1, Proposition 2.8 and Lemmas 3.3, 3.5; Remark 3.6",
+          "Resultary sharp two-disagreement insertion-type bound and zigzag rigidity",
+          "Tenner–Vatter arXiv:2607.06198, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Repaired RESULT.md, odd structural induction, exact census and scope",
+        "Verkama preprint at cited propositions, lemmas and remark",
+        "Resultary same-day two-disagreement and high-connectivity-tail statements",
+        "Tenner–Vatter abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known edge bound and a rank-three insertion at the start of the known even ladder give the exact minimum, so that value alone is not credited as distinct.",
+          "Transferring an odd extremal two-vertex ear extension back to a single degree-two insertion takes the commutations, including two boundary cases; counting outputs takes identifying equal standardized words and triangle-producing cells. These conclusions are not supplied by the cited lemmas or either same-day comparison."
+        ],
+        "reasoning": "The repaired claim retains the all-order generation and exact refined census, not a restatement of the even-order theorem or the known bound. The shared date of the indexed neighbors does not establish priority.",
+        "searches": [
+          "Verkama PDF pp. 8–10, offsets 18759, 21665 and 25194",
+          "Resultary insertion-type bound RESULT.md offset 0–2855 and high-connectivity-tail RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The insertion degree is exactly the symmetric difference between the left-of-gap parameters in the position order and those below the rank gap in the value order.",
+          "The same-day insertion-type theorem counts placements of a new point relative to individually named old points: two cells remain two types even when their standardized enlarged permutations coincide."
+        ],
+        "reasoning": "The statistic is equivalent, but a count of named types is not a count of distinct permutations in the minimum two-connectivity layer. The repaired duplicate classes are essential to the latter.",
+        "searches": [
+          "Resultary: minimum-inversion two-connected odd permutation graphs, ladder insertion and disagreement types",
+          "Resultary 2026/11/22/SCOPE-sharp-two-disagreement-insertion-type-bound-and-zigzag-rigidity--30d779ca875c, RESULT.md offset 0–2855"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Verkama's finite table counts by connectivity, not the all-order minimum-inversion stratum.",
+          "For order five the same-day high-connectivity-tail record has threshold κ≥2 and coefficient [z^5 q^4]=4, where q counts noninversions. This is an exact overlap for six inversions at order five. At n≥7 its threshold κ≥n−3 is strictly stronger than κ≥2; its generating function does not refine the layer by 321."
+        ],
+        "reasoning": "The exact order-five match must be credited, but it is a finite special case of the odd census, not a dominating enumeration.",
+        "searches": [
+          "Verkama, Table 1 and Remark 3.6",
+          "Resultary 2026/11/22/SCOPE-high-connectivity-tails-of-inversion-graph-enumerators-via-path--e0242b5323a9, connectivity threshold and noninversion generating function",
+          "Frozen verify.py and independent order 3,5,7,9 replay"
+        ]
+      },
+      "rationale": "For the repaired result, credit the edge bound, even ladder, and anchored-ear machinery to Verkama. The numerical odd minimum is a direct consequence once a two-neighbor insertion is used. The distinct contribution is the all-odd-order characterization by distinct insertions and the exact extremizer census refined by 321. The closest same-day comparisons count either named insertion types or a different connectivity stratum at orders beyond five, not this classification.",
+      "residual_risks": [
+        "Unindexed or differently formulated historical work could contain the odd extremizer classification. Tenner–Vatter was checked at abstract level only. The exact order-five match does not settle within-day ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the lower-bound foundation and the even-order ladder; provides forced odd-decomposition steps, not an odd census",
+          "evidence": "For an anchored two-vertex addition only option (i) in Lemma 3.5 is possible. Remark 3.6 gives the unique even ladder and explicitly lists 3412, 351624, 35172846.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.17237",
+          "material_read": "Proposition 2.8 p. 8 (offset 18759), Lemmas 3.3 and 3.5 with the Corollary 2.7 application pp. 9–10 (offsets 21665–26222), and Remark 3.6 p. 10 (offset 25194); finite table scope checked",
+          "method": "Lawful OA preprint PDF passages",
+          "title": "Permutation patterns and higher connectivity in inversion graphs",
+          "trigger": "Decisive external edge bound, even equality and anchored-ear lemmas"
+        },
+        {
+          "assessment": "Close same-day method and statistic; not the distinct-extremizer count",
+          "evidence": "Sharp bound c₂≤3(r−1) is on pairs of gaps with individually named parameters; equality is indexed by zigzag orientations, not by this extremal two-connectivity problem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-two-disagreement-insertion-type-bound-and-zigzag-rigidity--30d779ca875c/RESULT.md",
+          "material_read": "Finding, scope and proof Step 1, offsets 0–2855, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary and local mirror",
+          "title": "Sharp two-disagreement insertion-type bound and zigzag rigidity in the homogeneous two-order structure",
+          "trigger": "Same insertion degree as symmetric difference of two prefixes"
+        },
+        {
+          "assessment": "Exact order-five count overlap; no dominating all-order enumeration",
+          "evidence": "κ≥n−3 equals κ≥2 at order five, giving four permutations with four noninversions; for odd orders at least seven the connectivity threshold differs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-high-connectivity-tails-of-inversion-graph-enumerators-via-path--e0242b5323a9/RESULT.md",
+          "material_read": "Finding and noninversion generating-function statement, including the n−3 connectivity threshold, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary and local mirror",
+          "title": "High-connectivity tails of inversion-graph enumerators",
+          "trigger": "Indexed refined graph-connectivity enumerator could contain the exact small-order layer"
+        },
+        {
+          "assessment": "Inspected abstract concerns a different statistic; not a whole-paper exclusion",
+          "evidence": "Relates the cycle-space dimension to reduced words and other permutation statistics; no odd two-connectivity minimum-layer count in the inspected passage.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.06198",
+          "material_read": "Abstract, PDF p. 1, offsets 465–1310",
+          "method": "Lawful OA preprint PDF passage",
+          "title": "Cyclomatic numbers and permutations",
+          "trigger": "Inversion-graph enumeration by a related graph invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding and exact census",
+        "Verkama edge bound and even-order extremal case"
+      ],
+      "rationale": "The repaired result classifies the natural first nonempty inversion stratum of two-connected permutations at every odd order. The explicit generation, duplicate rules and 321 split distinguish structurally different extremizers; they are not a finite scan or simply an application of the known edge bound.",
+      "residual_risks": [
+        "The classification is restricted to the odd minimum layer, not other connectivity thresholds or inversion counts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

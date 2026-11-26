@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Exact certificate replay
+# Independent mathematical audit
 
-Run `python3 certificates/verify_duals.py` from this directory. The verifier uses only Python standard-library exact rational arithmetic, reconstructing all 1,364 dual identities for the universal at-most-six-goods theorem and enumerating all 64 seven-good sign allocations. It checks sign-code coverage and nonnegative rational multipliers, including boundary cases. No numerical optimizer is used in this verification. A successful check prints two PASS lines.
+## correctness
 
-The linear-programming reduction in RESULT.md supplies the mathematical link from these finite dual identities to all real nonincreasing input weights. The verifier checks the finite identities and example, not the literature priority question or any larger population/general-arrival conjecture. The work has not received independent external audit.
+PASS
+
+Agent interchange fixes the first sign, and the greedy absolute discrepancy obeys d_t=|d_{t−1}−w_t| including ties. If w₁=0 every cost is zero; otherwise positive homogeneity fixes w₁=1. Each feasible choice of greedy branch signs correctly gives the absolute discrepancies, and such branches cover the entire ordered nonnegative cone, including its faces. For a competitor, the epigraph cost is equal to its actual cost at y_t=|S_t|, which is a feasible choice. Thus the dual identity F=−zᵀAx+ηw₁ with z,η≥0 proves the desired pointwise inequality. Independent exact evaluation of both linear forms on each basis vector verified all 1364 distinct branch and competitor pairs for m=2,…,6, checking the signs and full coverage. The one-good case is immediate. An independent dynamic program over current absolute discrepancy (next state d+w or |d−w|) computes optimum 18 and greedy 20 at (6,5,5,4,4,1,1). Appending zeros preserves the strict failure at longer horizons.
+
+## originality
+
+PASS
+
+The objective, rule and general fixed-order optimization precede this finding. No inspected prior statement determines the universal short-horizon cutoff for arbitrary nonnegative real values in a fixed descending order. The strong reported overlaps concern other value alphabets, order models, or objectives.
+
+## value
+
+PASS
+
+Least-loaded allocation is a natural baseline, and restricting arrivals to a fixed descending order is a common scheduling regime, not a choice of isolated input values. The theorem specifies exactly when myopic decisions can cease to be uniformly optimal against a planner with foreknowledge, including a small reproducible witness. The exact dual method proves a real-valued uniform result rather than an empirical threshold over integer inputs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,24 +1,21 @@
-# Scientific review: simultaneous avoidance of binary two- and three-step squares
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The definition uses bi-infinite periodic extensions, so short circumferences are not exempt from the six-window test. The 32-state local transition predicate is explicit, and the complete recurrent component has 16 states. Complementary pairing yields two eight-state matrices whose exact determinants are written out in the proof. Matrix-trace and Möbius inversion give all marked- and primitive-orbit counts. The absent periods are proved from exact low-degree counts, and the unbounded existence assertion from three explicit, simple rooted return loops and primitive return-length itineraries. The graph has cycles of coprime lengths four and five, ensuring primitive Perron behavior. Both packaged verification programs ran successfully. The finite checks alone are not presented as proofs of infinitely many periods.
+PASS
 
-## Originality
+Closed five-bit overlap paths are in bijection with indexed words tested in their two-sided periodic extensions, even when n<6. Although the frozen rule checks the first two length-four windows of each edge rather than all three, every position is tested along a closed path; it would be misleading to read the prose as a claim about checking the last length-four window of an isolated edge. Independently rebuilding with all three windows gave the same 16-state cyclic component and the same signed quotient determinants by integer Newton identities. The traces match all 18 stated counts and direct word enumeration agrees through n=14. Möbius inversion counts least-period indexed points, divided by n for primitive rotation orbits. Counts exclude 1,2,3,7; distinct least-period-4 and least-period-6 points account for all counted points at 8 (only period 4) and 12 (both). The three displayed 4-, 5- and 6-loops are simple returns to 10001. A smaller period of a concatenation would rotate its marker occurrences and periodically repeat the cyclic itinerary. A single length-5 loop for odd n≥9, a single length-6 loop for n≡2 mod 4 with n≥10, or a single block of two length-6 loops for n≡0 mod 4 with n≥16 gives an itinerary with no nontrivial rotation. These constructions cover the entire positive support. Strong connectivity and the coprime loops of lengths 4 and 5 give primitivity, the Parry measure is unique, and the Perron root lies in the unsigned factor by complement symmetry. Its reproduced decimal is 1.4012683679398549151…, and the trace asymptotic has leading coefficient one.
 
-**PASS, with historical-priority risk.** Richard and Grimm's 2003/2004 full text concerns ternary words avoiding **all** squares through a prescribed half-length, including half-length one. Grimm and Heuer's 2008 article reviews finite-forbidden-language transfer methods and different binary cubefree/ternary squarefree families. Mousavi and Shallit's 2012 full-text exposition treats an exponent threshold applied to circularizations of all factors, not this pair of forbidden fixed square lengths. A previously registered result for length-six squares alone does not imply the intersection language: excluding additional four-letter squares changes the admissible graph and exact orbit counts. Registered studies of antisquare or other pseudo-period shifts likewise use different local predicates. The numerical Perron root is present as a ratio in OEIS A225490, but the entry records an unrelated rational coefficient series, not these periodic orbits or their primitive-period support. Web and mathematical-record queries found no direct implication or covering table. These searches cannot rule out unindexed older computations.
+## originality
 
-## Value
+PASS
 
-**PASS.** This is not merely a finite numerical evaluation: a concrete first coupled fixed-square-period system admits an all-circumference rational zeta identity and a complete least-period classification, including the nonobvious lack of primitive cycles at circumferences eight and twelve despite admissible circles of those lengths. The compact complement-signed determinant quotient explains the two sextic factors, and the explicit return-loop argument independently explains eventual period abundance. These are natural symbolic-dynamics invariants of a repetition-avoidance language that is different from the existing single-period restriction. Standard transfer-matrix technology is not claimed as novel; the actual restricted system, complete factorization and period boundary are the specific contributions.
+The distinct supported result is the joint-avoidance zeta function with its exact primitive-period support. The nearest indexed distinct record forbids only half-length-three squares with a different periodic-point sequence. General finite-type tools and the growth algebraic number are not claimed as new.
 
-## Closest literature and limitations
+## value
 
-- C. Richard and U. Grimm, *On the Entropy and Letter Frequencies of Ternary Square-Free Words* (arXiv:math/0302302, 2003; 2004 publication): inspected introduction and generating-function section; different alphabet and includes half-length-one exclusion.
-- U. Grimm and M. Heuer, *On the Entropy and Letter Frequencies of Powerfree Words* (2008): inspected transfer-matrix and finite-forbidden-language discussion; no exact coupled binary periodic-orbit formula.
-- H. Mousavi and J. Shallit, *Repetition Avoidance in Circular Factors* (2012): inspected definition and binary-case theorem; its circularization-of-every-factor restriction is not equivalent.
-- OEIS A225490: the same algebraic growth ratio occurs without an identification of the binary square-avoidance language.
+PASS
 
-The scope does not concern squares of half-length one, complete square avoidance or any larger alphabet. External unindexed tables and equivalent automata remain a historical-priority risk. The review is not an independent audit.
+For a natural finite forbidden-pattern shift, the exact zeta function determines every marked count, while the primitive-period theorem distinguishes true orbit gaps from repetitions at circumferences 8 and 12 and closes the unbounded range constructively. The split into complement parities explains how periodic information goes beyond knowing an entropy or a few counts.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

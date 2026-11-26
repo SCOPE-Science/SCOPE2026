@@ -2,100 +2,79 @@
 
 ## Finding
 
-For an involution \(\pi\in S_n\), let \(D_1(\pi)\) be the set of distinct standardized permutations produced by deleting exactly one entry, and define its one-deletion *deficit* \(L_n(\pi)=n-|D_1(\pi)|\). Let \(f=f_n\) satisfy \(0\le f\le n\), \(n-f\) even, and \(f/\sqrt n\to\alpha\in[0,\infty)\). Draw \(\pi\) uniformly among involutions with precisely \(f\) fixed points.
+For an involution \(\pi\in S_n\), let \(D_1(\pi)\) be the set of distinct standardized permutations produced by deleting exactly one entry, and put \(L_n(\pi)=n-|D_1(\pi)|\). Let \(0\le f=f_n\le n\), with \(n-f\) even and \(f/\sqrt n\to\alpha\in[0,\infty)\), and draw \(\pi\) uniformly from involutions with exactly \(f\) fixed points.
 
-Four explicitly defined rare local motif counts \((A_n,B_n,C_n^+,C_n^-)\) converge jointly to independent Poisson random variables with respective means \((\alpha^2,1,1/2,1/2)\). The remaining motif count \(E_n\) tends to zero in probability, and the *exact identity* is
-
+The motif counts \((A_n,B_n,C_n^+,C_n^-)\) defined below converge jointly to independent Poisson variables with respective means \((\alpha^2,1,1/2,1/2)\), and \(E_n\to0\) in probability. The exact identity is
 \[
 L_n=A_n+B_n+2(C_n^++C_n^-+E_n).
 \]
-
-Consequently
-
+Consequently \(L_n\Rightarrow X_\alpha+2Y\), where \(X_\alpha\sim\operatorname{Pois}(1+\alpha^2)\) and \(Y\sim\operatorname{Pois}(1)\) are independent. In particular, \(\Pr(|D_1(\pi)|=n)\to e^{-(2+\alpha^2)}\). For \(n\ge2\) the exact conditional mean is
 \[
-L_n\xrightarrow{d}X_\alpha+2Y,\qquad
-X_\alpha\sim\operatorname{Pois}(1+\alpha^2),\quad
-Y\sim\operatorname{Pois}(1),\quad X_\alpha\perp Y.
+\mathbb E L_n=\frac{f(f-1)}n+\frac{n-f}{n}+\frac{2(n-f)(n-2)}{n(n-1)}.
 \]
+For an unrestricted uniform involution the law is \(L_n\Rightarrow\operatorname{Pois}(2)+2\operatorname{Pois}(1)\), again with independent variables, so the probability of \(n\) distinct standardized outputs tends to \(e^{-3}\).
 
-In particular, \(\Pr(|D_1(\pi)|=n)\to e^{-(2+\alpha^2)}\). The exact finite-size expectation is
+## Assumptions and motifs
 
-\[
-\mathbb E L_n=\frac{f(f-1)}n+\frac{n-f}{n}
- +\frac{2(n-f)(n-2)}{n(n-1)}\qquad(n\ge2).
-\]
+Positions and values are labeled \(1,\dots,n\). Standardizing a deletion replaces each surviving value by its rank among those that survive. Only distinct outputs are counted. Let \(m=n-f\).
 
-For an **unrestricted** uniform involution (with its fixed-point count random), \(L_n\Rightarrow\operatorname{Pois}(2)+2\operatorname{Pois}(1)\), with the two variables independent. Thus the limiting chance of the maximum possible \(n\) distinct standardized deletion outputs is \(e^{-3}\).
-
-## Assumptions and scope
-
-Positions and values are labeled by \(\{1,\ldots,n\}\); an involution satisfies \(\pi(\pi(i))=i\). Each deletion is standardized by replacing its surviving values by their ranks. The observed set contains *distinct* outputs, not multiplicities. Let \(m=n-f\) denote the number of nonfixed positions.
-
-For every adjacent index pair \((i,i+1)\), define \(A_n\) as the number with \(\pi(i)=i\) and \(\pi(i+1)=i+1\), and \(B_n\) as the number with \(\pi(i)=i+1\), \(\pi(i+1)=i\). For each \(1\le i<j-1\le n-2\) (equivalently \(1\le i\le n-3\), \(i+2\le j\le n-1\)), count one \(C_n^+\) motif when \(\pi(i)=j,\ \pi(i+1)=j+1\), or one \(C_n^-\) motif when \(\pi(i)=j+1,\ \pi(i+1)=j\). In each case involutivity specifies the reverse partners. Let \(E_n\) count \(1\le i\le n-2\) such that \(\pi(i)=i+2\), \(\pi(i+1)=i+1\), \(\pi(i+2)=i\). The symbols \(C_n^\pm\) indicate the two pairings, not a sign on their counts.
-
-The conditional limit assumes fixed \(\alpha\) and parity-compatible integers \(f_n\). It does not assert convergence for \(f_n\) larger than order \(\sqrt n\), or a Poisson law at every finite length.
+- \(A_n\) counts intervals \((i,i+1)\) with both sites fixed; \(B_n\) counts intervals on which \(\pi\) exchanges the two sites.
+- For \(1\le i\le n-3\) and \(i+2\le j\le n-1\), a \(C^+\) motif pairs \(i\) with \(j\) and \(i+1\) with \(j+1\); a \(C^-\) motif pairs \(i\) with \(j+1\) and \(i+1\) with \(j\). Each pair of intervals is counted once in its applicable count \(C_n^+\) or \(C_n^-\).
+- \(E_n\) counts triples \((i,i+1,i+2)\) with the outer sites paired and the midpoint fixed.
 
 ## Proof
 
-**1. Deletion collisions and the motif identity.** For any permutation, deletions at consecutive positions yield the same standardized word if and only if those two adjacent values are consecutive integers. Across all deletion positions, equality classes are exactly the maximal runs linked by these *bonds*. Consequently \(|D_1(\pi)|=n-b(\pi)\), where \(b\) is the number of adjacent-position consecutive-value bonds (see Homberger, Theorem 6). This is an identity for each permutation, not a probabilistic approximation.
+**1. Bonds and the motif identity.** A bond is a pair of neighboring positions whose values are consecutive. By Homberger's Lemma 5 and Theorem 6, one-deletion output classes are exactly the maximal runs linked by bonds, so \(L_n\) is the number of bonds. In an involution a bond between two fixed sites contributes to \(A_n\); a bond between paired neighboring sites contributes to \(B_n\). If both sites are nonfixed and not paired to one another, their neighboring image sites form a disjoint adjacent interval. The two intervals make one \(C^+\) or \(C^-\) motif and contribute one bond each. With one fixed site, the other site must pair to the other neighbor of that fixed site, making one \(E\) motif and two bonds. These cases account for every bond exactly once, even when selected motifs share vertices.
 
-For an involution, inspect the positions \(i,i+1\) of one bond. If both are fixed, it is an \(A\) bond. If they are each other's partner, it is a \(B\) bond. Otherwise, if both are nonfixed and their distinct partners are adjacent, the four vertices form two disjoint adjacent intervals with either parallel or crossed pairings, one \(C^+\) or \(C^-\) motif. That motif contributes two bonds because the partner interval also has consecutive images. The only remaining possibility is exactly one fixed vertex: it must be the midpoint of two positions paired to one another, forming an \(E\) motif that likewise contributes two bonds. These cases partition every bond, proving the displayed identity.
-
-**2. Exact finite means.** A uniformly chosen fixed-site subset of size \(f\), with a uniformly chosen matching of its \(m\) other sites, gives
-
+**2. Exact finite means.** A uniform involution with \(f\) fixed points can be generated by choosing a uniform fixed subset and then uniformly matching the other \(m\) labels. For prescriptions of \(s\) distinct fixed sites and \(r\) disjoint specified edges on other sites, the probability is
 \[
-\begin{aligned}
-\mathbb E A_n&=f(f-1)/n,\\
-\mathbb E B_n&=m/n,\\
-\mathbb E C_n^+&=\mathbb E C_n^-=m(m-2)/(2n(n-1)),\\
-\mathbb E E_n&=fm/(n(n-1)).
-\end{aligned}
+p_{s,r}=\frac{(f)_{\underline s}}{(n)_{\underline{s+2r}}}\prod_{j=0}^{r-1}(m-2j),
 \]
+when the prescription is possible, and zero otherwise. Indeed the fixed and matched sets contribute \((f)_{\underline s}(m)_{\underline{2r}}/(n)_{\underline{s+2r}}\); the probability of containing the specified edges in the uniform matching cancels the descending odd factors of \((m)_{\underline{2r}}\). Empty products are one.
 
-To derive these, prescribe respectively two fixed vertices, one specific matched pair, two specified matched pairs, or one fixed midpoint plus an outer matched pair; count their eligible embeddings, and use the uniform fixed-subset/matching law. Summing the resulting expectations with multiplicities \(1,1,2,2,2\) simplifies to the stated expectation. Terms with impossible motifs are zero, also at the small boundaries \(m=0,2\).
-
-**3. Joint factorial moments.** For a prescribed collection of \(s\) distinct fixed vertices and \(r\) disjoint specified transposition edges on other vertices, the exact probability of occurrence is
-
+There are \(n-1\) candidate intervals each for \(A,B\), \((n-2)(n-3)/2\) interval pairs for each \(C\) sign when \(n\ge4\), and \(n-2\) candidate triples for \(E\) when \(n\ge3\). Thus for \(n\ge2\)
 \[
-\frac{(f)_{\underline s}}{(n)_{\underline s}}
-\frac{(m)_{\underline{2r}}}{(n-s)_{\underline{2r}}}
-\frac{(m-2r-1)!!}{(m-1)!!},
+\mathbb E A_n=\frac{f(f-1)}n,\quad \mathbb E B_n=\frac{m}n,\quad
+\mathbb E C_n^+=\mathbb E C_n^-=\frac{m(m-2)}{2n(n-1)},\quad
+\mathbb E E_n=\frac{fm}{n(n-1)}.
 \]
+At \(n=2,3\) the \(C\)-means are zero by parity and impossibility; at \(n=2\) the \(E\)-mean is similarly zero. Impossible motifs contribute zero also at fixed-count boundaries. The weighted sum gives the claimed mean; at \(n=1\) the sole deletion has deficit zero.
 
-where falling factorials and double factorials are interpreted by their counting meaning, and impossible prescriptions have probability zero. For fixed \(s,r\) and \(f/\sqrt n\to\alpha\), this is asymptotic to \(\alpha^s n^{-s/2-r}\) when \(\alpha>0\); the uniform upper bound of the same order with \(\alpha\) replaced by a finite constant also covers \(\alpha=0\).
+**3. Mixed factorial moments: disjoint tuples.** For fixed \(s,r\), if \(f/\sqrt n\to\alpha>0\), then \(p_{s,r}\sim\alpha^s n^{-s/2-r}\). For \(f=O(\sqrt n)\) the bound \(p_{s,r}=O(n^{-s/2-r})\) holds uniformly. If \(\alpha=0\), the rescaled quantity \(n^{s/2+r}p_{s,r}\) tends to zero for \(s>0\), and to one for \(s=0\), directly from the falling factorial formula.
 
-Fix four nonnegative integers \((a,b,c,d)\), and expand \(\mathbb E[(A_n)_{\underline a}(B_n)_{\underline b}(C_n^+)_{\underline c}(C_n^-)_{\underline d}]\). For mutually vertex-disjoint motifs the number of choices is
-
+For fixed nonnegative \(a,b,c,d\), expand the factorial moment \(\mathbb E[(A_n)_{\underline a}(B_n)_{\underline b}(C_n^+)_{\underline c}(C_n^-)_{\underline d}]\) into selections with distinct occurrences ordered within each type. The number of mutually vertex-disjoint selections is
 \[
-(1+o(1))\frac{n^{a+b+2c+2d}}{2^{c+d}},
+(1+o(1))\, n^{a+b+2c+2d}/2^{c+d}.
 \]
+Before imposing disjointness, each single interval has \(n+O(1)\) choices and each pair has \(n^2/2+O(n)\). A specified intersection between two motifs forces an equality of two interval starts up to an offset in \(\{-1,0,1\}\), losing at least one power of \(n\); only finitely many such equalities are possible here. A disjoint selection has \(s=2a\) and \(r=b+2c+2d\), so its total contribution tends to \((\alpha^2)^a (1/2)^{c+d}\), interpreting the zeroth power as one.
 
-with labels *ordered within each factorial moment*. Such a selection prescribes \(2a\) fixed sites and \(b+2c+2d\) matching edges; its probability tends after multiplication to \((\alpha^2)^a(1)^b(1/2)^{c+d}\).
+**4. Mixed factorial moments: overlapping tuples.** Group the selected motifs into components under shared vertices and discard incompatible constraints. For fixed factorial orders there are finitely many patterns of equalities among their vertex slots, and each determines the number of distinct fixed sites and transpositions in each component. The components are vertex-disjoint, so the probability bound for the entire prescription is \(O(n^{-s/2-r})\) with the component sizes added. It remains to bound the number of placements per component.
 
-All overlapping selections contribute \(o(1)\): two compatible overlapping \(A\) motifs require a three-or-more-site consecutive fixed run and its total expected number is \(O(n(f/n)^3)=O(n^{-1/2})\); incompatible fixed/matched requirements contribute zero. Distinct \(B\) motifs sharing a vertex are incompatible. Distinct \(C\) motifs sharing a vertex can coexist only as overlapping length-two windows in a run of at least three parallel partner edges. Each connected run of \(q\ge3\) specified partner edges has only \(O(n^2)\) placements and probability \(O(n^{-q})\), hence vanishes; any longer connected cluster vanishes more strongly. All other overlaps of these motifs force incompatible partners. With a fixed number of selected motifs, there are only finitely many cluster types, so the same bounds apply to mixed overlaps. Therefore every joint factorial moment tends to that of independent Poisson variables of parameters \((\alpha^2,1,1/2,1/2)\), proving their joint distributional convergence. Also \(\mathbb E E_n=fm/[n(n-1)]=O(n^{-1/2})\), so Markov's inequality gives \(E_n\to0\) in probability. The decomposition and continuous mapping theorem prove the compound-Poisson law and zero-deficit probability.
+- An \(A\) motif cannot share a site with a compatible matching motif. A connected component consisting of \(A\)'s is a run of \(q\) consecutive prescribed fixed sites, with \(O(n)\) placements and probability exponent \(-q/2\). One motif has \(q=2\); more than one has \(q\ge3\), contributing at most \(O(n^{-1/2})\) after combining placement and probability exponents.
+- In a compatible component of matching motifs, sharing a vertex forces sharing its entire transposition. Make a graph whose vertices are the distinct prescribed transpositions and whose edges are the selected \(C\) motifs joining their two transpositions. A selected \(B\) marks a transposition with adjacent endpoints. This graph is connected, including the singleton case. Once the endpoints of a transposition are fixed, the endpoints of a neighbor are determined up to finitely many choices: a \(C\) motif matches one endpoint from each transposition in each of two adjacent intervals, so each new endpoint is at an offset of \(+1\) or \(-1\) from a distinct old endpoint. Propagation along a spanning tree bounds placements by \(O(n^2)\); if a \(B\) occurs, start at its marked transposition and the bound improves to \(O(n)\).
+- The two distinct transpositions of a \(C\) motif determine at most one such occurrence: their four distinct sorted endpoints have only one possible partition into two disjoint adjacent intervals (the lower two and the upper two), and their pairing then fixes the sign. Hence a component with multiple \(C\)'s and no \(B\) has at least three distinct transpositions, and its placement exponent minus its number of transpositions is at most \(2-3=-1\). Distinct \(B\)'s alone cannot overlap compatibly. A component that mixes \(B\) and \(C\) has at least two transpositions, so the corresponding exponent is at most \(1-2=-1\). Such overlaps can occur: \((1\ 4)(2\ 3)\) contains both a \(C^-\) and the \(B\) on \((2,3)\). Their extra constraint is captured by the improved placement bound. A single \(B\) or single \(C\) has nonpositive total exponent (indeed zero).
 
-**4. Unrestricted involutions.** Let \(F_n\) be the fixed-point count of an unrestricted uniform involution, and \(w_n(f)=\binom nf(m-1)!!\) for compatible \(f\). The exact ratio
+Multiplying the component placement bounds and applying the joint prescription probability once to their disjoint union shows that any compatible selection pattern with a nontrivial component contributes \(o(1)\). Thus all mixed factorial moments tend to those of the stated independent Poisson vector. The Poisson vector is moment-determinate (it has a finite moment generating function in a neighborhood of zero); factorial moments determine ordinary moments, and the multivariate method of moments gives the joint convergence. Markov's inequality and \(\mathbb E E_n=O(n^{-1/2})\) give the vanishing of \(E_n\). The exact decomposition yields the compound-Poisson limit. For the probability of zero, use the continuity interval \((-1/2,1/2)\) for these integer-valued laws.
 
+**5. Unrestricted involutions.** The number with fixed count \(f\) of the parity of \(n\) is \(w_n(f)=\binom nf(n-f-1)!!\) (with \((-1)!!=1\)). Successive weights satisfy
 \[
-\frac{w_n(f+2)}{w_n(f)}=\frac{n-f}{(f+1)(f+2)}
+\frac{w_n(f+2)}{w_n(f)}=\frac{n-f}{(f+1)(f+2)}.
 \]
+For any \(0<\varepsilon<1\), the ratios are uniformly greater than \(1+\delta\) below \((1-\varepsilon/2)\sqrt n\) and uniformly less than \(1-\delta\) above \((1+\varepsilon/2)\sqrt n\), for some \(\delta>0\) and all large \(n\). Comparing a tail weight outside \([(1-\varepsilon)\sqrt n,(1+\varepsilon)\sqrt n]\) with a parity-compatible weight at the corresponding inner boundary traverses order \(\sqrt n\) such ratios. Thus the total tail probability is bounded by \((n+1)e^{-c_\varepsilon\sqrt n}\). Writing \(F_n\) for the unrestricted fixed count, this gives \(F_n/\sqrt n\to1\) in probability.
 
-is greater than one below the scale \(\sqrt n\) and less than one above it. For every fixed \(\varepsilon>0\), successive ratios are uniformly bounded away from one outside \([(1-\varepsilon)\sqrt n,(1+\varepsilon)\sqrt n]\), up to an \(o(\sqrt n)\) boundary band, making both tails geometrically negligible compared with the total mass. Thus \(F_n/\sqrt n\to1\) in probability. The factorial-moment estimates above are uniform on compact ranges of \(f/\sqrt n\). Conditional mixing therefore yields the asserted unrestricted limit with \(\alpha=1\).
+The conditional limit at \(\alpha=1\) applies to every deterministic parity-compatible sequence \(f_n/\sqrt n\to1\). Choose a deterministic \(\delta_n\downarrow0\) slowly enough that the random fixed count is within \(\delta_n\sqrt n\) of \(\sqrt n\) with probability tending to one. For any bounded continuous test function of \(L_n\), the conditional expectations converge uniformly to the limiting expectation over the counts in this band: otherwise choosing a maximizing counterexample on a subsequence and extending to parity-compatible counts near \(\sqrt n\) off that subsequence would contradict the conditional result. Averaging proves the unrestricted limit and hence the \(e^{-3}\) probability.
 
-## Verification
+## Verification and scope
 
-The included `verify.py` generates every involution on \(n\le11\) labels, constructs the *actual* set of standardized one-deletion outputs, counts all five motif types independently, and tests the per-word identity. It then groups all involutions by fixed-point number and compares the empirical exact rational mean with the derived closed formula. The result is `VERIFY_OK` on 48,927 generated involutions across all sizes one through eleven (the full per-length totals are in `verification_output.txt`). These finite calculations are checks of boundary and combinatorial definitions; the all-length and distributional statements follow from the proof, not from enumeration.
+The accompanying finite verifier `verify.py` and its `verification_output.txt` are unchanged: they test the actual standardized deletion sets against the motif identity and the exact conditional mean for all 48,927 involutions of sizes one through eleven. Those finite checks do not establish the mixed factorial-moment or concentration arguments. The conditioned theorem is restricted to \(f/\sqrt n\) with a finite limit. No quantitative convergence rate, higher-deletion law, or reconstruction of the source permutation is claimed.
 
 ## Relationship to prior work
 
-Homberger (2012, Theorem 6) supplies the general bond/deletion identity, which is explicitly treated as prior work. Baril (2016, Lemma 2) enumerates an increasing-succession marginal in fixed-point-free involutions. Biane, Hampikian, Kirgizov and Nurligareev (first public preprint 2024; published 2024/2025), Sections 2.2–2.4, derive marginal Poisson-\(1/2\) limits for each two-edge endhered pattern in a uniform perfect matching. These are not new marginal claims here. Their joint symmetry/equidistribution does not imply joint *independence*. The contributions assessed here are a four-component joint independence theorem, its fixed-point \(\sqrt n\) phase, and the induced *compound-Poisson deletion-deficit law*, including the unrestricted-involution consequence. Relevant prior indexed results on involution descents and random chord counts use different observables, not the exact deletion deficit.
-
-## Limitations
-
-Independent mathematical validation has not been performed. The proof does not provide quantitative total-variation error rates. Rare-event estimates assume the indicated fixed-point scaling. Although relevant full texts and indexed claims were compared, an unindexed equivalent joint-limit formulation remains a residual originality risk. This result concerns one deletion from permutations with involution source restriction, not two deletions, general permutations, or arbitrary fixed-point densities.
+Homberger supplies the general bond/deletion identity. Baril enumerates positive successions in fixed-point-free involutions. Biane, Hampikian, Kirgizov and Nurligareev give the separate Poisson-\(1/2\) endhered-pattern marginals for two matched-interval types in uniform perfect matchings; a joint swap symmetry does not establish independence. The closest adjacent-swap observable counts \(A_n+B_n\) only: swapping adjacent positions of an involution preserves involutivity exactly when the associated transposition commutes with the involution, i.e. when the two sites are fixed or paired with one another. The reported unrestricted Poisson law for that swap count does not include the joint limit with \(C_n^+,C_n^-\) or the conditional fixed-count phase. The contribution here is the joint theorem across the fixed-count scale and the consequent compound-Poisson deletion deficit. Historical priority remains best-of-knowledge.
 
 ## References
 
-1. C. Homberger, *Counting Fixed-Length Permutation Patterns* (2012), Theorem 6, first posted November 29, 2012, https://arxiv.org/abs/1211.7117.
-2. J.-L. Baril, *Avoiding patterns in irreducible permutations*, Discrete Mathematics & Theoretical Computer Science 17 (2016), Lemma 2, https://dmtcs.episciences.org/articles/2158.
-3. C. Biane, G. Hampikian, S. Kirgizov and K. Nurligareev, *Endhered Patterns in Matchings and RNA*, Journal of Computational Biology 32 (2025), first published online December 23, 2024, Sections 2.2–2.4, https://doi.org/10.1089/cmb.2024.0658.
+1. C. Homberger, *Counting Fixed-Length Permutation Patterns* (2012), Lemma 5 and Theorem 6. https://arxiv.org/abs/1211.7117.
+2. J.-L. Baril, *Avoiding patterns in irreducible permutations*, Discrete Mathematics & Theoretical Computer Science 17 (2016), Lemma 2. https://dmtcs.episciences.org/articles/2158.
+3. C. Biane, G. Hampikian, S. Kirgizov and K. Nurligareev, *Endhered Patterns in Matchings and RNA*, Journal of Computational Biology 32 (2025), 28–46; first published online December 23, 2024. https://doi.org/10.1089/cmb.2024.0658.
+4. *Fibonacci-cube components and a Poisson mobility law for involutions in the permutahedron* (2026), indexed statement of the unrestricted adjacent-swap law. https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-fibonacci-cube-components-and-a-poisson-mobility-law-for-involut--0fcd57a359c9.

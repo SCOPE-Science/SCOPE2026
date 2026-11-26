@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The single claim is a complete two-channel equatorial sampling spectrum for complex pure-degree spherical harmonics on the unit two-sphere, with probability-area normalization and the meridional derivative divided by \(\sqrt{\ell(\ell+1)}\). Associated-Legendre parity gives one nonzero observation channel per azimuthal order, and explicit equatorial double-factorial values give the rational squared column amplitudes. Discrete Fourier orthogonality partitions the Gram matrix into rank-one blocks labeled by residue modulo \(M\) and channel parity. Counting occupied blocks proves the odd/even rank and sharp injectivity criterion for every positive degree and node count. Factorial-ratio monotonicities, together with equality of the central two weights, prove the exact sharp upper and lower Gram eigenvalues and condition number. The standalone checker reproduced 22,848 exact arithmetic assertions and 176 independently formed spherical-harmonic matrices (largest eigenvalue error \(1.47\times10^{-14}\)); all-degree conclusions rely on the analytic argument, not the finite tests.
+## correctness
 
-## Originality — PASS, bounded comparison
-A semantic database search for equatorial value-plus-normal-derivative sampling, first-jet aliasing, parity-sharp rank, Fourier/Hermite grids and related harmonic spectra found no statement that directly implies this combined exact-rank and sharp-conditioning result. The closest examined published findings cover (i) value-only two-angle Hopf-torus grids in the three-sphere, (ii) value-only sampling on two meridians, and (iii) value-only quartic harmonic sampling on a latitude circle. Their geometries and observation maps are different, and neither contains the equatorial first-jet operator as a special case. Full primary texts on gradient-augmented sparse reconstruction, randomized value-only spherical harmonic reconstruction, multi-latitude transforms and regular-grid Wigner sensing also do not give this result. General separation of variables and Fourier orthogonality are acknowledged prior mathematical ingredients. An unindexed equivalent under Hermite sampling or Cauchy-data terminology remains a genuine priority risk.
+PASS
 
-## Mathematical value — PASS
-The problem is a natural compressed equatorial Cauchy-data measurement problem for a fixed Laplace–Beltrami eigenspace. Its injectivity threshold is nearly half the number of sites needed for direct value-only Fourier resolution, with a sharp parity obstruction. The block spectrum gives the precise failure modes below the threshold, and the \(M\)-independent sharp condition number \((\ell+1)/2\) gives a quantitative noise-amplification benchmark. These are not consequences of the dimension bound alone or of the previously compared value-only sampling theorems.
+For the probability-area orthonormal basis, the associated Legendre amplitude factor squared is (2ℓ+1)(ℓ−|m|)!/(ℓ+|m|)!. Equatorial reflection separates the two channels; extracting the constant or linear term from Rodrigues' polynomial gives the two positive factorial weights with the recorded derivative scaling. DFT orthogonality groups columns by (m mod M, parity of ℓ+m); each block has one nonzero eigenvalue equal to its squared column norms summed, with multiplicities counted by blocks. For odd M the two step-two runs give min(M,ℓ+1)+min(M,ℓ) blocks; for even M congruence already fixes parity so the rank is min(M,2ℓ+1). This includes M=1,2 and yields the stated minimum within regular grids. The value weights grow strictly with |m| in steps of two while derivative weights decrease; the central pair is equal by the Legendre equation and the endpoint ratio is (ℓ+1)/2. For ℓ=1 both extrema are 3/2. This is the squared, not unsquared, operator condition number. An irregular-grid minimum is not asserted: ℓ+1 sites distinct modulo π give two Vandermonde systems, even for odd ℓ. The recorded Python check was inspected, not executed; the analytic checks do not depend on its finite output. An independent residue count at M=ℓ+1 for ℓ=1 through 5 gave ranks 2,5,4,9,6.
 
-## Scope and remaining risks
-Only a fixed known harmonic degree, one regular equator and the specified two channels and normalization are covered. Full spectral claims do not extend to low-pass bands, arbitrary circles or arbitrary irregular configurations. Historical priority is limited to accessible, materially examined texts and semantic search results; it is not a uniqueness proof. No independent mathematical or literature audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the complete finite-grid alias spectrum and sharp normalized conditioning of this particular scalar first-jet observation map. Legendre parity and DFT aliasing are established ingredients, not new claims. The closest available statements have different measured channels, eigenspaces or sites and do not establish the combined theorem. The conclusion is bounded by the accessible evidence, not a priority guarantee.
+
+## value
+
+PASS
+
+The pure degree is a natural eigenspace and the two observations form its equatorial Cauchy data. A sharp site threshold distinguishes near-dimension-optimal odd grids from even grids with twice as many required sites asymptotically; the full spectrum identifies exactly what a smaller grid loses. The exact lower frame bound and its normalization quantify noise amplification and explain why oversampling on a full-rank regular grid does not improve the condition number. This goes beyond checking dimensions or evaluating a single harmonic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

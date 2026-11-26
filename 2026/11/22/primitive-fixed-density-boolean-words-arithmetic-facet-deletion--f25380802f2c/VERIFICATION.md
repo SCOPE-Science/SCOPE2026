@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Scientific verification
+# Independent mathematical audit
 
-The proof establishes aperiodic-word shattering and the homotopy type for every \(n\ge2\) and \(1\le k<n\). Its nonstandard critical obstruction is the first complex cyclic moment: all periodic subsets have moment zero, while a one-swap change moves the moment by two distinct roots of unity. Every non-forced trace fiber contains a pair related by a one-swap, and every missing rank-\(r\) face can be filled along its boundary by the remaining faces of a single rank-\((r+1)\) simplex. These are exact all-order arguments, not computational extrapolations.
+## correctness
 
-The independently written pure-Python `checker.py` was executed successfully from the actual scientific package source. It exhaustively enumerated all \((n,k)\) with \(2\le n\le12\), tested every support for shattering, and checked all Möbius counts and forbidden Johnson adjacencies. It additionally checked the mod-two top boundary ranks for all \(2\le n\le10\). Reported totals: 81,924 support decisions, 680 periodic-pair checks, and 45 homology-rank instances; all passed. These finite ranges do not constitute an infinite proof, nor do mod-two ranks alone certify integral homotopy. The integral homotopy claim is justified by the explicit nullhomotopic cell attachments and connectivity in the written proof.
+PASS
 
-The result is not independently validated, and no formal proof assistant or external mathematical certification is asserted.
+The nontrivial-stabilizer coset sum vanishes at a primitive nth root, whereas a single swap changes the sum by a nonzero difference of distinct roots. Thus the forbidden sets are Johnson-independent. Any trace fiber with nonextreme free weight contains an edge, so it has a primitive extension. At |S|=r the only singleton fibers are the relevant extreme trace(s), and their sets are S or its complement, whose stabilizers agree; this includes the balanced case. Larger supports exceed a weight constraint. Primitive cyclic blocks guarantee attainment. The fixed-density Möbius sum counts labeled words, not rotation classes. The Johnson separation gives purity and fills every missing simplex boundary by the other facets through an outside vertex, all present in the complex. Hence restoring missing cells wedges on top-dimensional spheres. The full skeleton is a wedge of binom(n−1,r) such spheres (collapse the contractible star of one vertex), so the original complex is a retract up to homotopy, is (r−2)-connected, and has the claimed top Betti number. The connected graph case and the discrete r=1 case agree separately. This is an integral homotopy argument; the finite mod-two rank tests are only corroboration.
+
+## originality
+
+PASS
+
+The fixed-density necklace enumerator is classical, and the topology is an application of known sparse-paving/independence-complex structure once the Johnson separation and trace classification are identified. What is distinct on the checked evidence is the determination of all indexed shattered supports for this cyclic primitive class, including the arithmetic description of the missing facets. Neither the topology theorem in isolation nor the necklace count is credited as new. This is a bounded comparison, not proof of priority.
+
+## value
+
+PASS
+
+The motivation is to determine how passing from the uniform Boolean layer to primitive words changes indexed membership-query expressivity. The answer identifies every obstruction, shows the VC dimension is unchanged while top supports are removed in an arithmetic pattern, and gives the exact resulting homotopy invariant. The full trace criterion is stronger than the single VC number and is not furnished by enumerating necklaces or by the generic matroid topology theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

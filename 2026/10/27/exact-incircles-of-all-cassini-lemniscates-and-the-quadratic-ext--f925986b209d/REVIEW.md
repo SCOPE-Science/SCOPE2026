@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The claim is a continuum theorem, not an extrapolation from computer samples. Equation (1) is an exact polynomial identity. Its two regimes give explicit horizontal-strip upper bounds for **any** candidate disk center. The centered disk attains the first bound by the triangle inequality. The displaced disk attains the second by an exact boundary factorization and the maximum-modulus principle. Equality conditions in the strip identities exclude every unlisted maximizing center. Similarity reduction from arbitrary quadratic roots is exact and preserves radii. The normalized extremal characterization uses the equality case in the unit-disk diameter bound. The critical coefficient follows by differentiating the squared center separation. The self-contained checker provides additional rational-identity controls. Risks are restricted to the stated historical-priority questions and to higher-degree extensions; there is no numerical premise in the proof.
+## correctness
 
-## Originality (O): PASS, qualified
-Closest overlap: the published note *Exact finite-degree inradius of the roots-of-unity lemniscate* already gives the endpoint \(\rho(z^2-1)=1/2\), which is **not** claimed as independently new. Geng–Qiu's asymptotic bound and the model note do not quantify arbitrary quadratic root separation, prove the universal quadratic lower bound, or classify all optimal inball centers across every Cassini topology. Rabinowitz's 2025 survey gives classic Cassini shape transitions and a double-tangency circle construction, but does not establish the claimed global inradius formula or the exact maximizing-center set. MathWorld lists geometric equations but not the optimal inball problem. Searches explicitly included inradius, largest inscribed circle, Cassini, Bernoulli lemniscate, equivalent quadratic sublevel formulations, and published-finding corpus findings. Risk: an older unindexed Cassini-geometry source might derive the same incircle formula; a relevant 2024 symmetry article was not accessible in full. Those access limits are not passed off as noncoverage.
+PASS
 
-## Value (V): PASS
-The exact invariant is the classical unrestricted Euclidean inradius of the canonical two-focus Cassini family, not an arbitrary parameter slice. The result is a complete classification over all focus separations, with a sharp one-to-two optimizer bifurcation at the classical convexity transition, explicit center locations, and a square-root onset. It also settles the entire finite-degree-two instance of the unit-root polynomial lemniscate extremal problem by an exact universal coefficient and equality rigidity. These descriptions aid geometric benchmarks for higher-degree conjectures even though they do not solve those conjectures.
+Expanding gives |z²−s²|²=(x²+y²−s²)²+4s²y². If s²≤1/2 and y²≥1−s², then y²≥s², so minimizing the first square over x gives at least (y²+s²)²≥1 overall. Equality at the top latitude requires x=0, even at the junction. For s²≥1/2 the second term alone bounds the height by r=1/(2s); equality requires x²=s²−r². Any disk attaining the strip bound must have real center, and its top point lies in the closed sublevel set, fixing all possible centers. The centered branch attains its bound by the triangle inequality. On the other branch take c²=s²−r²: the boundary modulus squared is 4r²(c²+r² sin² t)≤1, and strict interior inclusion follows by maximum modulus. At s=0 this gives the unit disk; at s=1/sqrt(2) the two formulas coincide, and the pinched s=1 and disjoint regimes cause no new cases. The derivative of c² at the junction is 2sqrt(2), giving the claimed onset. Rigid normalization of a monic quadratic preserves radii (with no rotation needed for coincident roots); strict decrease with separation gives the sharp unit-root bound and exactly the antipodal equality case. Read the rational checker and recorded run notes without executing the frozen code; the continuum proof is decisive.
 
-## Limits and closest work
-The model endpoint was previously obtained; all novelty is asserted for the **full separation-dependent inradius and center classification** and the resulting universal quadratic optimization. No statement is made for arbitrary degree greater than two, and no independent audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified to the complete unrestricted inradius and maximizing-center theorem and its arbitrary-quadratic extremal consequence. Prior work already has the antipodal model radius and displayed maximizing disks, the classical convexity threshold, and a Cassini double-tangent construction that includes the high-branch candidate. The retrieved statements do not supply the entire two-branch profile, strict containment and exhaustion of all optimal centers, or sharp minimization among all unit-disk quadratics.
+
+## value
+
+PASS
+
+Largest contained disks are a natural sharp invariant of the full Cassini family, and the center classification is stronger than a radius or a tangent-circle construction. The exact bifurcation and rigidity hold over connected, pinched, and disconnected shapes and settle the unrestricted quadratic unit-root minimum with equality classification. This gives a precise finite-degree benchmark without claiming a higher-degree theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:48:19.512740Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The main threshold and escape laws are proved, but the last sentence of the Finding literally calls the entire diagonal a bounded invariant set. It is an unbounded invariant set on which every individual orbit is bounded (all diagonal points enter the bounded diagonal segment with coordinate at most M in absolute value in one step). Independently, the mean is bounded after one step, the negative endpoint has strictly inward drift at large transverse magnitude, and the positive endpoint has strictly outward drift there. At the latter endpoint the mean contracts geometrically, and a finite transverse limit would give nonzero limiting drift. The transverse magnitude grows at most linearly, so |uv| tends to zero; this controls the Gaussian ratio at v±u. For s=v² this gives Δs∼2a s² exp(−s), hence Δ[exp(s)/(2a s²)]→1 and both stated asymptotics. In the expanding regime the bounded-forcing variation-of-constants sum converges absolutely, and the geometric lower bound after threshold crossing makes its normalized limit nonzero. The verification note and Python source were inspected, not executed; their finite tests are not needed for these deductions.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The mirrored result gives a common compact absorbing set in the bounded regime, stronger than individual orbit boundedness, and explicit escaping initial states in both exceptional regimes.",
+          "The 2023 Introduction displays the distinct Ding–Yang predecessor with nonlinear output coupling."
+        ],
+        "reasoning": "Common absorption implies the included direction of the frozen theorem, and the actual escaping orbits in each excluded regime imply the other direction. The cited older nonlinear coupling does not furnish a same-model extension by substitution.",
+        "searches": [
+          "Resultary f463338d3c52, Finding and Proof §§2–5",
+          "Soula et al. 2023 DOI 10.3390/math11061517, Introduction and Conclusions"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–99, VERIFICATION.md, verify.py",
+        "Resultary f463338d3c52",
+        "DOI 10.3390/math11061517",
+        "DOI 10.1103/PhysRevE.54.2486 (indirect model comparison; full text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mirrored proof gives |mean|≤M after one step, bounded nonlinear error, and |d_{n+k}|−M/(q−1)≥q^k(|d_n|−M/(q−1)) after crossing for q=2|b|>1.",
+          "The 2023 conclusions mention an attractor at infinity qualitatively, without an exact clock in that passage."
+        ],
+        "reasoning": "Every unbounded orbit crosses the mirrored threshold since the mean is bounded. Divide the transverse recurrence by (−2b)^n and sum its absolutely summable errors; the displayed lower bound prevents limit zero, and decay of f_a implies mean zero in the limit. Thus the unstated normalized-amplitude clause does not give an independent substantive remainder.",
+        "searches": [
+          "Resultary f463338d3c52, Proof §§1 and 4",
+          "Soula et al. 2023, equations (2)–(3) and Conclusions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same f_a, linear diffusive coupling, half-difference convention, and discrete time; same half-open interval and same log n + 2 log log n + log(2a) + o(1) for every unbounded orbit at b=1/2."
+        ],
+        "reasoning": "In the mirrored expansion s/log n→1, so exponentiating shows exp(s)/(2a n s²)→1; the ratio statement is equivalent at this precision, not an additional invariant.",
+        "searches": [
+          "Resultary semantic search for the exact coupled Gaussian-cubic map, boundedness threshold and logarithmic escape law",
+          "Resultary f463338d3c52, Finding and Proof §§1–6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact interval and clock occur in the indexed Finding, not merely in a title or abstract."
+        ],
+        "reasoning": "No numerical table comparison is applicable to this quantified real-parameter theorem; the relevant exact-record comparison is affirmative.",
+        "searches": [
+          "Resultary local semantic query on the exact coupled-map threshold and clock; mirrored entry f463338d3c52"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record gives the identical map, all-orbit boundedness threshold, and universal positive-endpoint clock including the constant. It has a later displayed path date than the frozen record; the finding here is current mathematical coverage, not an inference about historical priority, authorship, or provenance. The supercritical normalized amplitude is not explicitly stated there but is a direct summation of its bounded recurrence and geometric lower bound. The older model paper itself is not evidence for the exact theorem.",
+      "residual_risks": [
+        "The relative dates in paths do not establish historical priority or the relationship between the records.",
+        "Some earlier related primary full texts were not obtained, and a broad web lookup did not return usable evidence; neither limitation is used to infer noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct and stronger coverage of the headline; elementary implication of the supercritical normalization",
+          "evidence": [
+            "Finding: absorbing set iff −1/2≤b<1/2; identical endpoint expansion with log(2a). Proof §4: explicit geometric lower bound."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-global-boundedness-interval-and-logarithmic-critical-esc--f463338d3c52/RESULT.md",
+          "material_read": "Finding, assumptions, and Proof §§1–6; Finding and §§1–5 directly cross-checked",
+          "method": "Resultary semantic retrieval and local mirrored statement/proof inspection, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp global boundedness interval and logarithmic critical escape in a coupled Gaussian map",
+          "trigger": "Strongest indexed same-map, same-clock hit"
+        },
+        {
+          "assessment": "Exact-model antecedent; inspected passages do not give the exact threshold or quantitative clock",
+          "evidence": [
+            "Equations (2)–(3) coincide with the frozen dynamics; Conclusions describes an attractor at infinity as common and suggests further study."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math11061517",
+          "material_read": "OA PDF introduction p. 1, equations (2)–(3) p. 2, Conclusions p. 11",
+          "method": "Targeted primary-text passages",
+          "title": "Dynamics and Global Bifurcations in Two Symmetrically Coupled Non-Invertible Maps",
+          "trigger": "Exact model and cited infinity discussion"
+        },
+        {
+          "assessment": "Different coupling in the description; no whole-paper exclusion",
+          "evidence": [
+            "The described predecessor has nonlinear output coupling and is discussed on [−1,1]²."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.54.2486",
+          "material_read": "2023 primary paper's description of the predecessor; original full text not obtained",
+          "method": "Targeted primary citation cross-check and lawful access attempt",
+          "title": "Observation of Intermingled Basins in Coupled Oscillators Exhibiting Synchronized Chaos",
+          "trigger": "Earlier related coupled-map dynamics"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The asymmetric endpoint and two-log law are worthwhile dynamical facts, but they are already explicitly covered. After that overlap, the only proposed increment is the normalized expanding-orbit amplitude, a direct geometric-series deduction from the known bounded-error recurrence. It supplies no separate substantive mathematical gap to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

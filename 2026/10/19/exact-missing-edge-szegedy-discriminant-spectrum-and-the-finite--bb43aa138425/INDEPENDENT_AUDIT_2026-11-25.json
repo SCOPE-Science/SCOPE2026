@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:11:33.152592Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Absorbing marked columns give I_m and no marked-to-unmarked reciprocal entries. For uniform redistribution the distinct ordinary pairs have entry p and ordinary-defect pairs have a. The defect antisymmetric vector has eigenvalue zero, ordinary contrasts have eigenvalue -p with dimension b-1, and the remaining two orthonormal indicator vectors yield the compression with off-diagonal sqrt(2b)*a and ordinary diagonal (b-1)p, exhausting all dimensions. Its characteristic polynomial at L=(b+1)p is 2m/[(n-1)^2(n-2)], and L-lambda_- is positive. This proves the shift including m=0; the denominator tends to 1 for fixed m and to 1-alpha for proportional marking. Independently summing entries on the old uniform vector gives D_R=[2p+4b(p-a)]/k, equivalent to the claimed square-root formula. Since the ordinary and defect row sums differ for every b>=1 (use sqrt(1+1/(n-2))<1+1/[2(n-2)]), the Rayleigh inequality is strict. The square-root difference squared is asymptotic to 1/(4n), giving the extra 1/2 in the fixed-m coefficient. At k=2 the unmarked block vanishes and no strict comparison is claimed. Read frozen RESULT.md, VERIFICATION.md and verify.py; not a fresh execution. The recorded finite NumPy comparisons corroborate, but do not prove, the exact argument. No quantum search probability is established.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Equitable decomposition of any compatible matrix by a basic automorphism covers the ordinary-vertex contrasts and quotient reduction.",
+          "Proposition 5 of the missing-link paper expands the quotient deficit. Its Eq. (40) includes a second-order-in-norm remainder in the eigenvalue perturbation relation."
+        ],
+        "reasoning": "The decomposition is known, but it takes this model's quotient and evaluation of the two roots to resolve the cancellation and the actual fixed-m leading coefficient. A broad perturbation estimate with an uncontrolled remainder at this scale does not imply it.",
+        "searches": [
+          "arXiv:1510.04366v2 Theorem 4.4 equitable decompositions",
+          "arXiv:2607.19129v1 §§4.1, 4.3 perturbation and eigenphase",
+          "Resultary: equitable-quotient normalization and non-completeness obstruction to symmetric Markov mixing"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2607.19129v1 and 1510.04366v2",
+        "Resultary ff7170cd1514 and 2fb26b95916e; targeted indexed same-model comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For fixed m the quotient deficit has an extra leading 1/(2n^3); at m=0 the actual Perron eigenvalue stays exactly one while the old-vector deficit is nonzero.",
+          "For fixed positive m the angle-input shift arccos(lambda_+)-arccos(L) has leading coefficient sqrt(2m) at order n^(-5/2), not (2m+1/2)/sqrt(2m) obtained by inserting the quotient deficit."
+        ],
+        "reasoning": "The actual sign for m>0 agrees with the first-order sign, and the proportional-marked leading shift also agrees, but neither agreement implies an exact shift or the fixed-m coefficient. No stronger prior formula was found that already settles the discrepancy.",
+        "searches": [
+          "arXiv:2607.19129v1 Eqs. (39), (40), (42), (103) and §4.3",
+          "arXiv:1510.04366v2 Theorem 4.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper's uniform weight redistribution over marked and unmarked targets exactly matches the frozen kernel. Equation (103) explicitly computes k^(-1) 1_U^T E 1_U.",
+          "An indexed continuous-time adjacency transfer record uses adjacency evolution and a T^(-2) infidelity between endpoints, not this normalized absorbing-chain discriminant."
+        ],
+        "reasoning": "The quotient deficit is the same prior quantity. Neither the adjacency problem nor exact evaluation of the old-vector expectation is equivalent to finding the largest shifted eigenvalue of the unmarked block.",
+        "searches": [
+          "arXiv:2607.19129v1 §4.1, Eq. (42), and Appendix C, Eqs. (102)–(108)",
+          "Resultary: missing-edge Szegedy absorbing complete discriminant; missing-edge adjacency transfer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact formula in the same-model paper is for the old-vector quotient; no matching actual full spectrum emerged from the bounded indexed comparisons.",
+          "The indexed complete-graph-minus-link adjacency transfer and optimized SLEM findings have different matrices/objectives."
+        ],
+        "reasoning": "Do not treat the exact quotient formula as a tabulation of the actual shift. Same-date coverage was checked on returned results, not assumed impossible by date.",
+        "searches": [
+          "Resultary exact-model, prior shift/phase, equitable quotient, and same-date Szegedy findings",
+          "arXiv:2607.19129v1 Proposition 4/Eq. (42) and Proposition 5"
+        ]
+      },
+      "rationale": "The missing-link model, old-vector deficit and its asymptotic are already in Giordano–Martin-Delgado. The symmetric decomposition is a standard quotient technique. The record's supported distinct conclusion is the exact actual discriminant shift and its sharp fixed-marked discrepancy from the quoted perturbative expression. The original paper mixes qualified first-order wording with a Proposition 4 heading and an all-orders inference; its exactly evaluated quantity is a Rayleigh quotient. Do not characterize every statement in that paper as an assertion of exact eigenvalue equality.",
+      "residual_risks": [
+        "A separate prior computation of this concrete equitable quotient might not have surfaced in the bounded search. No uniqueness claim for the matrix reduction method.",
+        "The phase discussion is spectral only and does not verify a change in search success probability or hitting time."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the model and exact Rayleigh deficit, not the actual all-orders spectral correction.",
+          "evidence": [
+            "The heading is 'Exact shift of the gap eigenvalue'; the body calls it first-order but also says it confirms the conjecture to all orders. Appendix C Eq. (103) defines the reported shift as k^(-1) 1_U^T E 1_U.",
+            "Eq. (40) retains an O(||E||^2) error term for the eigenvalue perturbation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.19129v1",
+          "material_read": "PDF §4.1 pp. 5–6 (Eqs. 39–42 and Propositions 4–5, extraction around 41500), §4.3 pp. 7–8 (50100, 54000), Appendix C p. 15 (107600 onward).",
+          "method": "Traced the exact expression to its definition and discriminated the first-order estimate, the all-orders wording and the actual root.",
+          "title": "Single Link Removal Perturbation in Szegedy Quantum Walk: from Graph Completeness Testing to Integrity Monitoring",
+          "trigger": "Exact same kernel and a purported exact shift."
+        },
+        {
+          "assessment": "Covers method and structure, not a claimed fixed-m quotient-versus-root distinction.",
+          "evidence": [
+            "The full-spectrum decomposition has the divisor matrix as a block for a basic automorphism."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1510.04366v2",
+          "material_read": "Theorem 4.4, p. 13 (extraction around 49900).",
+          "method": "Applied it to cycling ordinary vertices; identified the contrast modes and what remains to evaluate.",
+          "title": "Equitable Decompositions of Graphs with Symmetries",
+          "trigger": "Broader prior spectral reduction for symmetry-compatible matrices."
+        },
+        {
+          "assessment": "Different spectral problem.",
+          "evidence": [
+            "Uses continuous-time adjacency evolution and transfer infidelity; no absorbing Szegedy normalization."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-sharp-quadratic-waiting-time-law-for-quantum-transfer-across-a-m--ff7170cd1514",
+          "material_read": "Local mirror finding and model.",
+          "method": "Compared evolution operators, marking and target quantity.",
+          "title": "Sharp quadratic waiting-time law for quantum transfer across a missing edge",
+          "trigger": "Closest indexed missing-edge quantum comparison."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The simple exact reduction resolves a concrete interpretive problem in a published perturbative model. At fixed marked count the usual old-vector estimate is wrong at leading order, even though it gives the right power for positive marked count; without marks it spuriously predicts a shift at all. This changes the phase coefficient and provides an exact benchmark for that physically motivated kernel, rather than merely restating a quotient principle.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The single claim is the exact universal norm \(H_{n,k}(\varepsilon)\), its fundamental temporal period and initial time profile. The free-space operator norm equals the Lipschitz constant by normalized molecules. A permutation's action on unordered pairs has precisely the stated allowable periods. The complementary forward path of length \(\ell-(k\bmod\ell)\) bounds the \(k\)-step distance expansion; division by the initial distance (at least one) and the diameter bound (at most two) yields the upper envelope. An explicit assignment of distances along a maximizing pair orbit, with all other distances equal to one, is a genuine metric and attains equality at every \(n\ge3\), \(k\ge0\), and \(\varepsilon\ge0\). The residue zero set establishes the least positive temporal period, and a two-case comparison proves the initial linear profile. For two points only one unordered pair exists. A standard-library finite checker returned `MULTISTEP_FREE_PERMUTATION_DIAGNOSTIC_OK 5536379`; it is not the infinite proof.
+PASS
 
-## Originality — PASS (literature-qualified)
+The canonical free-space operator has norm equal to the Lipschitz constant: the universal property gives the upper bound and normalized molecules attain the pairwise ratios. On unordered pairs, distinct-cycle return times are lcm(a,b), and same-cycle return times divide a cycle length. All periods 3 through n are realized by neighboring vertices of a cycle, 2 by a transposition plus a fixed point, and 1 by the identity. On an orbit of length ell, the complementary forward path of length (-k) mod ell bounds the distance gain by that length times epsilon, independently of the defect of f^k. The capped descending ramp after the tested jump attains the bound with denominator 1 and satisfies all one-step inequalities; every symmetric off-diagonal assignment in [1,2] is a metric. The only pair for n=2 is fixed. For epsilon>0, the times with norm envelope 1 are exactly multiples of lcm(1,...,n), proving minimal period even after saturation. Epsilon=0 instead gives the constant profile. The initial linear range follows by separating orbit lengths above k from those at most k, whose residues are at most k-1. POWER_CHECK.py was inspected, not executed; the recorded finite diagnostic is supplementary, and the proof does not depend on it.
 
-The most decisive comparator is Kadets–Zavarzina, *Plastic pairs of metric spaces* (2023), Section 2.2, Theorems 2.6–2.7 and Lemma 2.5 (https://arxiv.org/abs/2301.06589): the maximal pair-orbit length and the sharp **single-step** defect modulus are previously known. Those results are credited. The current theorem fixes a defect budget for \(f\) yet optimizes every \(k\)-th induced operator norm and classifies its full time-periodic envelope. Applying the published one-step result to \(f^k\) generally gives a weaker bound, because the contraction defect of \(f^k\) is not the original one-step defect. No checked comparator establishes the exact residue profile, the sharp constructions for every time, or the fundamental \(\operatorname{lcm}(1,\ldots,n)\) envelope period. Duzer's 2026 compact plasticity theorem is qualitative, and Cúth–Doucha–Titkos and Cobollo–Peris give different isometric/dynamical statements. Searches and relevant research-record comparison cannot exclude unpublished or differently indexed equivalent work.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This supplies a complete, exact time-dependent operator-norm stability invariant of finite Lipschitz-free permutation dynamics under a natural additive one-step near-rigidity constraint. Its time profile has an unexpectedly large **least** period equal to the least common multiple of all cardinalities from one to \(n\), although any fixed permutation can have a much shorter period, and its first half-cycle worst-case amplification decays with a sharp linear law. Every bound is attained by explicit normalized metrics. The theorem quantifies how one-step almost-noncontraction does (and does not) propagate through all powers; it is not a mere renaming of the already-known one-step result.
+The checked prior work covers the sharp one-step coefficient and maximal pair period, both credited. It does not establish the all-time sharp envelope under the unchanged one-step defect, its saturation and minimal period. The indexed exact match is the assigned record itself. This is a statement-level, best-of-knowledge distinction, not an assertion of priority from search absence.
 
-## Closest literature and limits
+## value
 
-The sharp single-step plasticity theorem is credited to Kadets and Zavarzina (2023). Duzer (2026) treats the zero-defect rigidity phenomenon on compact quasi-metric spaces; Cúth, Doucha and Titkos (2024) classify isometries of Lipschitz-free spaces; Cobollo and Peris (2025) provide the induced-operator norm identity in a dynamics context. The claim applies only to bijections of symmetric finite metrics with off-diagonal distances in \([1,2]\). It is not asserted for arbitrary quasi-metrics, noninjective maps, or general Banach operators. Unindexed exact multistep results remain an originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp finite-space plasticity gives a natural reason to ask how norm gains accumulate when only the original map's defect is controlled. The result quantifies when all admissible powers are isometric, when saturation is possible, and how gains recur instead of growing with an iterated Lipschitz bound. The exact least period can be much larger than any individual pair period; this is useful information not supplied by the one-step constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:11:06.765363Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Verified the scope and reconstructed the proof. Row changes induce the faithful five-point PGL(2,4) action of order 60, hence A5; ordinary monomial changes remove each nonzero column scalar and permute columns, and leave the number of zero columns invariant. Each nonzero scalar has Hermitian norm 1. The five Hermitian outer products sum to zero (zero off-diagonals by 1+omega+omega^2=0, and even diagonal counts); two distinct projective representatives form an invertible two-column matrix, so their two outer products sum to a rank-two Hermitian matrix. Complementing parity subsets therefore gives Gram ranks 0,1,2 for odd-count sectors {0,5},{1,4},{2,3}. Nullity on the two-dimensional row space gives the hull dimension. Directly from the A5 cycles, a length-L fixed cycle contributes (1+x^L*y^L)/(1-x^(2L)); excluding empty or single-point supports gives the stated two corrections and independent zero padding gives 1/(1-x). Inspected RESULT.md, VERIFICATION.md, verify.py and inequality_certificate.json without executing the supplied script. Independently replayed with `python3 /tmp/opencode/frozen_math_replay_1_2_4.py 4`: a dynamic program counts sorted five-multisets, adding a second orbit exactly when all five entries differ. It reproduces all listed triples, reconstructs both period numerators through degree 358 (an exact degree bound from the denominators) and matches the bundled certificate. Every residue has a nonempty numerator subsequence and U<=5; the smallest coefficient after the shift, multiplied by 120, is 4,050,000 for D01 and 3,240,000 for D12. All pre-shift cases with n>=4 pass. This proves the unbounded inequalities by the exact polynomial representation, not by inferring a trend from finite tests. It is for rank two with zero columns allowed; neither a semilinear nor a full-support ordering is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The mass/ratio theorem counts codes rather than monomial orbits; updated Proposition 23 addresses k=1,n-1 with full support.",
+          "Araya–Harada classify Hermitian LCD codes, with dimension-two data up to length 70 and a dual-distance restriction in Proposition 3.6."
+        ],
+        "reasoning": "A raw count weights orbits by their (nonuniform) sizes. LCD classifications address only hull zero and cannot give hull-one/hull-two coefficients or comparisons. Neither stronger-looking premise covers the claimed scope.",
+        "searches": [
+          "arXiv:2605.29204v1 Theorem 9 and concluding remarks",
+          "arXiv:2605.29204 Proposition 23",
+          "DOI:10.1007/s40314-026-03875-2, Introduction and Proposition 3.6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.29204v1 and updated full text at arXiv:2605.29204",
+        "DOI:10.1007/s40314-026-03875-2",
+        "Local Resultary searches and both identified catalogue records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The v1 concluding remarks explicitly call the BBO-style problem at the level of inequivalent F4 codes an open direction; this is not a theorem claiming a result in either exact equivalence convention.",
+          "The later finite no-zero counts even give hull-one greater than hull-zero at lengths 7 and 9; the present inequality includes zero coordinates and does not assert the same for full support."
+        ],
+        "reasoning": "Known projective multiplicities and hull-rank tests are reusable starting points, not the parity-refined all-n orbit count and positive residue-class comparison. No inspected theorem or table entails the complete claim.",
+        "searches": [
+          "arXiv:2605.29204v1 §6 (offset 48290)",
+          "arXiv:2605.29204 §6 and concluding remarks",
+          "DOI:10.1007/s40314-026-03875-2 Proposition 3.6",
+          "Resultary: all-length hull-refined cycle index for quaternary dimension two"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition 1 in the updated paper adds a global field automorphism to monomial transformations. The same section explicitly excludes zero coordinates.",
+          "Frobenius on the projective line swaps omega and omega^2 while fixing the other three points, so it merges the two A5 orbits of a five-distinct multiplicity vector. Independent zero padding instead takes cumulative sums over length."
+        ],
+        "reasoning": "These transformations explain exactly why overlapping finite entries can agree while the broader enumerations differ. The semilinear, full-support problem is not the requested monomial, zeros-allowed problem.",
+        "searches": [
+          "arXiv:2605.29204v1 §6 p. 20",
+          "arXiv:2605.29204 §6 Definition 1 and Table 4",
+          "Resultary: quaternary [n,2] rank-two Hermitian hull by parity, monomial vs semilinear equivalence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Removing the zero-padding factor gives reviewed full-support monomial counts (5,2,2),(5,6,1),(9,4,4),(9,11,2),(17,7,6),(17,17,3) at lengths 6–11. The semilinear table agrees for 6–9 and has (16,7,6),(16,17,3) at 10–11; the all-distinct profiles (0,1,2,3,4) and (0,1,2,3,5) respectively lie in hull zero and each loses one orbit.",
+          "The same-day catalogue record computes automorphism orders of four LCD families, and the later parity record counts Hamming-isospectral phenomena, not these hull tables."
+        ],
+        "reasoning": "The exact data supply finite consistency checks under a known change of equivalence, not an all-length table in the required class. Distinct catalogue records were compared by their findings, without inferring priority from date.",
+        "searches": [
+          "arXiv:2605.29204 Table 4 pp. 27–28 (k=2, n=6–11)",
+          "Resultary:2026/10/13/SCOPE-closed-automorphism-orders-for-four-infinite-quaternary-hermitia--6a5b2423e895",
+          "Resultary:2026/11/8/SCOPE-the-parity-split-in-quaternary-rank-two-code-distortion--c2ab438c2c3e"
+        ]
+      },
+      "rationale": "Ishizuka's cited v1 actually does identify the Hermitian analogue on inequivalent quaternary codes as an open direction (§6 p. 20); the later version instead includes finite semilinear full-support counts. Neither the raw-code theorem nor these finite counts proves the all-length result in the specified monomial equivalence. Araya–Harada cover closely related LCD families and use the projective multiplicity model, but the supported contribution here is the all-length hull-refined orbit formula and strict ordering, not those ingredients or the overlapping LCD entries.",
+      "residual_risks": [
+        "A poorly indexed all-length five-point hull-refined enumeration could have been missed. Finite semilinear counts and LCD-only classifications are acknowledged overlaps, not evidence of absence in other sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior raw-code monotonicity, and explicit motivation for the inequivalent-code question",
+          "evidence": [
+            "Several natural questions remain open; the BBO-style monotonicity analysis at the level of inequivalent codes admits a Hermitian analogue over F4."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.29204v1",
+          "material_read": "Abstract; adjacent Corollary 20 and §6 p. 20 (offset 48290)",
+          "method": "Targeted OA PDF passages",
+          "title": "Comparative monotonicity of linear codes by Hermitian and symplectic hull dimensions",
+          "trigger": "Cited open direction and rank-graded counting theorem"
+        },
+        {
+          "assessment": "Real finite overlap under explicitly different assumptions",
+          "evidence": [
+            "The table includes global field automorphisms and no zero coordinates; the k=2 rows reproduce the stated finite comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.29204",
+          "material_read": "§6 Definition 1 p. 26; Table 4 pp. 27–28; Proposition 23 p. 28; conclusion p. 29",
+          "method": "Targeted OA PDF passages",
+          "title": "Comparative monotonicity of linear codes by Hermitian and symplectic hull dimensions (updated version)",
+          "trigger": "Finite prior table of inequivalent quaternary codes"
+        },
+        {
+          "assessment": "LCD-only overlap, not the hull-refined unconstrained enumeration",
+          "evidence": [
+            "Dimension-two LCD classification through length 70 and Proposition 3.6's LCD and dual-distance constraints."
+          ],
+          "identifier_or_url": "doi:10.1007/s40314-026-03875-2",
+          "material_read": "Introduction p. 2 offset around 3622; Proposition 3.6 p. 6 offset around 16528",
+          "method": "Targeted OA full-text passages",
+          "title": "On the classification of quaternary Hermitian LCD codes",
+          "trigger": "Closely related dimension-two enumeration and projective model"
+        },
+        {
+          "assessment": "Shares projective model, computes a different invariant",
+          "evidence": [
+            "Four LCD families of parameters [5s+3,2,4s+1]_4, s>=6, with dual distance at least two; their monomial automorphism orders are computed."
+          ],
+          "identifier_or_url": "Resultary:2026/10/13/SCOPE-closed-automorphism-orders-for-four-infinite-quaternary-hermitia--6a5b2423e895",
+          "material_read": "RESULT.md Finding and scope at offset 0",
+          "method": "Local mirror",
+          "title": "Closed automorphism orders for four infinite quaternary Hermitian LCD families",
+          "trigger": "Same-day, dimension-two LCD projective multiplicity match"
+        },
+        {
+          "assessment": "Different invariant and classification target",
+          "evidence": [
+            "Classifies Hamming-isospectral rank-two code pairs and their distortion, not the Hermitian hull distributions."
+          ],
+          "identifier_or_url": "Resultary:2026/11/8/SCOPE-the-parity-split-in-quaternary-rank-two-code-distortion--c2ab438c2c3e",
+          "material_read": "RESULT.md at offsets 0 and 3080",
+          "method": "Local mirror",
+          "title": "The parity split in quaternary rank-two code distortion",
+          "trigger": "Same monomial equivalence, A5 parity split, and zero padding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Dimension two is the natural projective-line case of the named inequivalent-code monotonicity problem. The generating functions cover every length and all hull dimensions and distinguish the two equivalence conventions. They also explain why allowing zero coordinates is material: full-support hull-zero need not dominate hull-one even at the small available lengths. The exact rank-two benchmark and strict ordering are useful independently of extending the method to higher rank.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

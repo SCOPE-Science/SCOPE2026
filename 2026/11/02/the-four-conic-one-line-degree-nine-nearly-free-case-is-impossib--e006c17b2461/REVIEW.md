@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The degree-nine exponent and Tjurina computations force \(\tau=47\); Bézout and Gałecka's inequality force \((n_2,t,n_3)=(0,13,2)\). All possible placements of the two ordinary triple points on the only line are exhausted: zero or two. The line–conic and conic–conic contact bounds, together with Dimca–Pokora's common-tangent Lemma 5.1, give respectively \(t\le10\) and \(t\le12\), contradicting \(t=13\). The included incidence verifier passes. The geometric lemma is independently reconstructed with conic duality and documented as a published premise, not a new invention.
+## correctness
 
-**Originality — PASS (bounded scientific comparison).** Gałecka explicitly leaves degree nine unsettled, and her necessary inequality permits the candidate type at equality. Dimca–Pokora classifies free arrangements and supplies the known common-tangent ingredient, but does not state this nearly-free four-conic one-line exclusion. A degree-eight near-free construction in available mathematical research records does not imply this degree-nine nonexistence. Equivalences, broader coverage, and prior implications were compared rather than only title strings. Risk: a 2026 related article was inspectable only via abstract, and unindexed or inaccessible previous work may exist.
+PASS
 
-**Mathematical value — PASS.** This eliminates a complete component type from a specifically identified published degree-nine existence gap. The obstruction is incidence-theoretic, not an unmotivated finite parameter census. It does not settle the other degree-nine cases.
+The cited inequalities apply to degree 9 with these singularities. Nearly-free exponents must be (4,5), so τ=47. The pairwise intersection degree 32 and the Tjurina sum imply t+n3=15 and n2+n3=2. The published inequality then reads 134+ n2 ≥134+10n2 after multiplying by four, so only (0,13,2) remains. Independently, a conic transverse to the line has two distinct transverse contacts, and without nodes these must be the two triple points. With no triple on the line, all four conics are tangent to it. With two triples on it, exactly the same two conics go through both triples, and the other two are tangent to the line. One triple on the line is impossible. For two conics with two tacnodes, their dual conics meet with at least order two at each corresponding tangent (dual tangents encode the common original point); Bézout exhausts the common tangent lines. Using one as an arrangement line gives a forbidden three-branch contact. Therefore in the zero-triple case the total tacnodes are at most 4+6=10, and in the two-triple case they are at most 2+1+1+4·2=12 (the pair through the triples and the line-tangent pair each contribute at most one). Neither attains thirteen.
 
-No independent external mathematical audit or validation has been performed.
+## originality
 
-Closest primary references: Gałecka, arXiv:2204.13969 and DOI:10.1007/s40590-022-00461-4; Dimca–Pokora, DOI:10.1007/s10801-022-01116-3, Lemma 5.1 and free-classification theorems.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Credit the exclusion of the specific geometric basket (1,4;0,13,2) and thus the four-conic/one-line near-free class, not the earlier necessary inequalities or the common-tangent lemma. The closest sources supply those ingredients, not the incidence exclusion at this component split.
+
+## value
+
+PASS
+
+This resolves a component class of the degree-nine near-free existence problem left open by numerical conditions. The argument also gives a freeness-independent obstruction for a geometrically natural extremal basket that saturates the published inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

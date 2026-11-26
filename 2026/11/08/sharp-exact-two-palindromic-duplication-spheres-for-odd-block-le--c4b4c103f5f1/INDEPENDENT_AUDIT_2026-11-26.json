@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:32:31.460757Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–30 and 38–39",
+        "Frozen VERIFICATION.md, lines 19–27; checker.py, lines 8–56",
+        "/workspace/audit_evidence/reproduce.py, ordinal 3"
+      ],
+      "rationale": "The H=(n-k+1)(n+1) histories contain disjoint pairs (a,b+k),(b,a) for disjoint original starts a<b. Counting those pairs by shifting b by k-1 gives the stated binomial subtraction and a universal upper bound even when more collisions occur. On a distinct-letter source no insertion can precede the first occurrence of a copied symbol, so the originals and occupied gaps are recovered from the output. For two gaps, fixing the execution order fixes the insertion endpoints and hence both operations. If their original endpoints differ by d<k, the first d symbols of the right-gap reversed block agree across orders but the next symbol is x_a versus x_(a-k+1); if d>=k the operations commute. Within one gap, t=0 gives RR without an equal adjacent pair inside the gap; for t>0 the first such pair is at positions t,t+1, determining the second insertion. This proves there are no further collisions for k>=2. Checked the empty-disjoint-pair boundary and the k=1 exclusion. The separate Python replay `python3 /workspace/audit_evidence/reproduce.py 3` passed 25 exact distinct-letter cases including lengths near 2k and odd k up to 21; the original checker was inspected, not executed.",
+      "residual_risks": [
+        "Finite replay is corroboration only. No claim for fixed small alphabets across all odd k or for three or more steps."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.1 covers even k on alphabets as small as binary, not odd k; the later ternary result improves the alphabet bound only for k=3; Sun–Ge addresses code constructions including long disjoint duplications."
+        ],
+        "reasoning": "Neither small-alphabet comparator covers all odd k. Proofs about disjoint duplication codes do not count sequential overlapping or within-insertion histories.",
+        "searches": [
+          "Primary search for an exact-two odd palindromic/reversal duplication sphere on distinct symbols",
+          "arXiv:2609.00779 Theorem 5.1 and Lemma 5.3",
+          "Resultary 076a87310131",
+          "arXiv:2602.01151"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a03a87770ec6, 98b3f3e1cf47, 076a87310131",
+        "arXiv:2609.00779",
+        "arXiv:1707.00052",
+        "arXiv:2602.01151",
+        "arXiv:2112.11811, PDF p. 1 (odd reverse-complement code scope)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Disjoint commutation implies H-P as an upper bound for both parities; sharpness in the primary theorem uses an alternating source for even k. One-step collision criteria concern two copies made from the same untouched source, not two histories after one insertion."
+        ],
+        "reasoning": "The prior upper bound does not show that it is attained. Recovering the order at overlapping gaps and the offset inside one gap rules out additional collisions in a regime not implied by the earlier equal-even or unequal-length proof.",
+        "searches": [
+          "Zabokritskiy arXiv:2609.00779, Theorem 5.1 proof and Lemma 5.3",
+          "Lenz–Wachter-Zeh–Yaakobi arXiv:1707.00052 §3.3 and Appendix 0.A",
+          "Resultary 98b3f3e1cf47"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day a03a87770ec6 result requires a fixed-point-free complement, and its extremizer is constant; 98b3f3e1cf47 explicitly assumes unequal lengths."
+        ],
+        "reasoning": "A fixed-point-free involution is not the identity, and a naive alternating position relabeling is not a conjugacy for odd block lengths because the suffix moves by an odd number of positions. Same counts and disjoint commuting pairs therefore do not establish equivalence. The mixed-length construction excludes the case in which history collisions are counted here.",
+        "searches": [
+          "Resultary searches for Theorem 5.1 and the distinct-symbol collision claim",
+          "arXiv:2609.00779",
+          "Resultary a03a87770ec6 and 98b3f3e1cf47"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact formula appears in a theorem for even k, in a reverse-complement record and in a later k=3 result; the exact match of the number is not a match of both the operation and all parameters."
+        ],
+        "reasoning": "A finite sphere table could only check particular parameters; the claim has two unbounded integer parameters and a full structural fiber assertion. The scoped comparisons above were more probative than a finite table lookup.",
+        "searches": [
+          "Resultary formula and distinct-letter fiber queries",
+          "Zabokritskiy Theorem 5.1",
+          "Resultary a03a87770ec6, 98b3f3e1cf47 and 076a87310131"
+        ]
+      },
+      "rationale": "The universal subtraction, numerical formula in the even case, and disjoint commutation are prior. The supported increment is sharpness and the exact collision fibers for odd equal lengths in ordinary palindromic duplication over q>=n. The strongest same-date records change the duplication operation or exclude equal lengths; neither was discarded because of its date, and neither establishes the claimed case.",
+      "residual_risks": [
+        "Same-day order is not established. Shared formula and upper-bound mechanism are not claimed new. Bounded retrieval does not exclude unindexed equivalent word-combinatorics theorems."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material prior coverage of the count in even k and upper-bound mechanism, not odd attainment",
+          "evidence": "The even-k theorem attains the bound with an alternating binary source; commuting disjoint histories also give the upper bound used here.",
+          "identifier_or_url": "https://arxiv.org/html/2609.00779",
+          "material_read": "Abstract; Theorem 5.1 and adjacent proof, including Lemma 5.3 (theorem at HTML text offset 46645)",
+          "method": "OA full-text passage inspection",
+          "title": "Coding for Multiple Reverse-Complement and Palindromic Duplications",
+          "trigger": "Same formula and exactly two steps"
+        },
+        {
+          "assessment": "Related one-step analysis",
+          "evidence": "The inspected collision condition compares positions of one duplication on the same starting word.",
+          "identifier_or_url": "https://arxiv.org/html/1707.00052",
+          "material_read": "§3.3 and Appendix 0.A, offsets 18459 and 37510",
+          "method": "OA full-text passage inspection",
+          "title": "Bounds on Codes Correcting Tandem and Palindromic Duplications",
+          "trigger": "Palindromic sphere collision conditions"
+        },
+        {
+          "assessment": "Adjacent, not a document-wide negative check",
+          "evidence": "The abstract describes code construction and bounds including sufficiently long disjoint duplications, rather than an exact two-step descendant census.",
+          "identifier_or_url": "https://arxiv.org/html/2602.01151",
+          "material_read": "Abstract, offset 546",
+          "method": "OA HTML abstract",
+          "title": "On the Palindromic/Reverse-Complement Duplication Correcting Codes",
+          "trigger": "Palindromic duplicates of long blocks"
+        },
+        {
+          "assessment": "Strong numerical and mechanism overlap for a different operation",
+          "evidence": "The involution has no fixed points and a constant source attains the bound.",
+          "identifier_or_url": "Resultary a03a87770ec6",
+          "material_read": "Finding and proof vicinity, mirror offsets 0 and 4485",
+          "method": "Local published-record mirror",
+          "title": "Sharp two-step sphere maximum for odd-length reverse-complement duplication",
+          "trigger": "Same-date matched formula and commuting-only fibers"
+        },
+        {
+          "assessment": "Related but distinct scope",
+          "evidence": "Requires two unequal prescribed lengths and obtains no collisions.",
+          "identifier_or_url": "Resultary 98b3f3e1cf47",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact mixed-length palindromic duplication spheres over distinct symbols",
+          "trigger": "Same-date match in operation and pairwise-distinct extremizer"
+        },
+        {
+          "assessment": "Later overlap for k=3, not all odd k",
+          "evidence": "A periodic ternary source yields the count for q>=3.",
+          "identifier_or_url": "Resultary 076a87310131",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Local published-record mirror",
+          "title": "Sharp two-step length-three palindromic duplication spheres",
+          "trigger": "Broader alphabet at a special odd length"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–30 and 35–39",
+        "arXiv:2609.00779 Theorem 5.1"
+      ],
+      "rationale": "The theorem closes the odd-parity gap for an unbounded and natural large-alphabet regime. The structural statement is useful beyond the count: it identifies exactly which two-step error histories remain ambiguous even when every original symbol has a distinct identity, including the overlapping and inserted-copy cases that the commuting bound alone leaves open.",
+      "residual_risks": [
+        "Does not resolve the small-alphabet odd-k maximum in general or give an optimal code."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

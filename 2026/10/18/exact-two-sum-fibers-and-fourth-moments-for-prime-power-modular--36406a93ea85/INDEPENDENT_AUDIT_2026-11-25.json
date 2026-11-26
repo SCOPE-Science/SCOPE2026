@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:12:30.857104Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions, and Steps 1–5",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)"
+      ],
+      "rationale": "Counting ordered pairs means choosing x and then y=s−x. For s=0 every unit x gives z=0. For v_p(s)=a with 1≤a<k, z=s/(xy) has valuation a and the equation reduces after dividing by p^a to x(s−x)=s₀/z₀ modulo p^(k−a). Its mod-p roots are unit square roots of −s₀/z₀; simple lifting gives two roots for exactly half the unit z₀, and each root has p^a lifts. For unit s, the discriminant s²−4s/z ranges bijectively over residues outside one nonzero mod-p class, and every root gives a unit pair since the product s/z is a unit. A nonzero discriminant of even valuation 2j with square unit part has 2p^j roots: after dividing the root by p^j there are two simple roots mod p^(k−2j), each with p^j free lifts. The zero discriminant has p^floor(k/2) roots, and the omitted class subtracts p^(k−1) unit-square discriminants. This also covers p=3, where the unit-square stratum is empty. Squaring and counting gives m² at s=0, 2m² per nonunit valuation layer, and p^(k−1)[(k+1)(p−1)−3] per unit s (use the two parities of k). Adding these gives the stated E(H). Two-coordinate character orthogonality supplies exactly N²; division by m⁴ gives the displayed normalized expression under counting measure.",
+      "residual_risks": [
+        "Analytic conclusion for ordered pairs at odd prime powers k≥2. No assertion for even moduli, arbitrary input weights, or the sharp extension operator norm. Finite archived diagnostics do not establish the unrestricted result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Inspected geometric sources study modular point distribution, lines, and Euclidean distances, not an ordered pair-sum representation spectrum.",
+          "Gong–Veys–Wan's result covers power moments with one coefficient fixed to 1. At n=4 it implies the aggregate after conductor separation but does not give the individual r(s,z)."
+        ],
+        "reasoning": "An aggregate second moment of the fibers does not determine their row histograms; a broad moment theorem and geometric studies are not direct coverage of the complete census.",
+        "searches": [
+          "Shparlinski arXiv:1103.2879",
+          "Khan–Magner–Senger–Winterhof arXiv:1304.6943v2",
+          "Gong–Veys–Wan, Power moments of Kloosterman sums, §2 and Theorem 13",
+          "Odd-prime-power modular-hyperbola additive energy and exact fiber literature query"
+        ]
+      },
+      "checked_sources": [
+        "Gong–Veys–Wan §2 and Thm. 13",
+        "Resultary:3a54fa4977e0 and f8283f67d6a5",
+        "Frozen METADATA.json, publication_date",
+        "arXiv:1212.2930v1, 1103.2879 and 1304.6943v2",
+        "DOI 10.1186/1687-1847-2014-103",
+        "Zhang DOI 10.1016/j.jnt.2016.05.018 and 10.1016/j.jnt.2010.08.008 (access limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For ℓ≥2 the theorem gives S₄(p^ℓ)=3 φ(p^ℓ) p^(2ℓ) for odd p. At ℓ=2 the correction sum excludes i=0 and 1 and i=2 is not congruent to either modulo an odd prime. K(1,b) is real by x↦−x, so fourth powers are absolute fourth powers.",
+          "For the two-parameter moment M_k, summing rows with unit first coefficient gives φ(p^k)S₄(p^k) by variable scaling. A nonunit first coefficient and unit second coefficient give zero by swapping and summing over last-digit shifts of x (the phase derivative is a unit). When both coefficients are divisible by p, each reduced unit x has p lifts and yields p⁴ M_(k−1). Over F_p the zero row has size p−1, and each unit row has one discriminant-zero fiber of size 1 and (p−3)/2 of size 2. This gives M₁=3(p−1)(p−2)p² and the recurrence yields the displayed M_k exactly."
+        ],
+        "reasoning": "Credit prior coverage of the entire aggregate, not just its unit-u part. The recurrence does not yield the complete distribution across z at fixed s; the valuation and discriminant enumeration supplies that distinct content.",
+        "searches": [
+          "Gong–Veys–Wan §2 p. 4 and Theorem 13 p. 17, n=4; scaling to the common conductor"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A coordinate sumset takes x+x⁻¹ within a single inverse-graph point and does not recover counts of sums of two such points in the plane.",
+          "The odd-modulus inverse graph is centrally symmetric. Replacing y by −y in D₁(s,z), the mixed-energy record's ordered difference fiber, gives precisely r(s,z). Its proof includes the origin, unit discriminant formula and nonunit Legendre-symbol formula."
+        ],
+        "reasoning": "Treat the later difference-fiber statement as an exact overlap, not merely a related statistic. The coordinate sumset literature addresses a genuinely different object.",
+        "searches": [
+          "Bower–Evans–Luo–Miller arXiv:1212.2930v1 introduction",
+          "Resultary:3a54fa4977e0 Finding; f8283f67d6a5 Proof",
+          "Ordered inverse-graph sum convolution versus difference convolution and coordinate sumsets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3a54fa4977e0, Finding, explicitly gives the full pointwise and stratified ordered two-sum classification for finite commutative chain rings of odd residue size. Taking the ring Z/p^kZ yields this census, energy and fourth moment. Mirrored metadata records publication date 2026-11-01; the frozen package records 2026-10-18.",
+          "f8283f67d6a5, Proof, also yields the full census when λ=1 after replacing a summand by its negative; its catalogue entry is dated 2026-11-08."
+        ],
+        "reasoning": "Both overlaps were actually compared, including the proof of the mixed-energy result. Their mathematical coverage is clear; the documented catalogue chronology does not give either an earlier publication against the frozen one, nor does it prove priority beyond these records.",
+        "searches": [
+          "Local Resultary exact modular hyperbola additive multiplicities, chain rings and mixed energies"
+        ]
+      },
+      "rationale": "Pass is for the complete valuation-stratified ordered representation census at the frozen publication date, not for the aggregate fourth moment or the root-counting machinery. The total fourth moment is mechanically recoverable from an earlier one-coefficient moment theorem by a conductor decomposition. Two distinct later catalogue records give exact coverage of the census, one directly and one after sum/difference conversion; this is evidence of overlap, not a claim about first discovery or dependence.",
+      "residual_risks": [
+        "An earlier exact reformulation of the whole census in inaccessible or differently indexed literature cannot be excluded. Later full coverage is documented but independent discovery or earliest priority is not established. The frozen prior-work comparison should acknowledge that the Gong–Veys–Wan aggregate implication extends to the full two-coefficient fourth moment after recursion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically covers the aggregate fourth moment; does not give the full ordered fiber census.",
+          "evidence": [
+            "S_n(q) sums K(1,λ;q)^n over λ modulo q; the prime-power theorem yields the n=4 coefficient 3(p−1)p^(3ℓ−1)."
+          ],
+          "identifier_or_url": "https://lirias.kuleuven.be/retrieve/23ae295e-1e5b-4b38-9eb6-d038e8c14ee1",
+          "material_read": "PDF pp. 4–5, §2 definition of S_n (offsets 9000–12860); p. 17 Thm. 13 and correction term (offsets 43440–44760)",
+          "method": "Primary PDF formula comparison, n=4 substitution and conductor recurrence",
+          "title": "Power moments of Kloosterman sums",
+          "trigger": "Potential exact earlier fourth-moment implication"
+        },
+        {
+          "assessment": "Covers the entire census and both consequences; documented later catalogue publication.",
+          "evidence": [
+            "Ordered pointwise classification over odd finite commutative chain rings, with zero fibers and valuation/discriminant strata."
+          ],
+          "identifier_or_url": "Resultary:3a54fa4977e0",
+          "material_read": "Mirrored RESULT.md Finding at offset 0 and publication metadata",
+          "method": "Specialization of ring, valuations and residue-field size",
+          "title": "Complete additive two-sum multiplicities of modular hyperbolas over odd chain rings",
+          "trigger": "Stronger exact indexed coverage"
+        },
+        {
+          "assessment": "The proof yields the exact census, though the main finding emphasizes mixed energy; later catalogue date.",
+          "evidence": [
+            "Nonunit difference fiber p^a[1+χ_p(−s₀/t₀)], origin count, and unit square-root formulation."
+          ],
+          "identifier_or_url": "Resultary:f8283f67d6a5",
+          "material_read": "Mirrored RESULT.md Finding and Proof, including difference-fiber formulas",
+          "method": "Summand negation and specialization λ=1",
+          "title": "Exact mixed additive energy of modular hyperbolas over odd residue rings",
+          "trigger": "Potential full fiber coverage beyond its moment theorem"
+        },
+        {
+          "assessment": "The inspected statements concern coordinate sums, geometry or point distribution, not the exact two-point convolution.",
+          "evidence": [
+            "Coordinate sums add the two coordinates of one point; other passages treat lines or Euclidean distances."
+          ],
+          "identifier_or_url": "arXiv:1212.2930v1; arXiv:1103.2879; arXiv:1304.6943v2",
+          "material_read": "Bower et al. introduction (HTML offsets 1441–5741); Shparlinski PDF p. 1 (offsets 587–3031); Khan et al. PDF pp. 1 and 10 (offsets 0–2981 and 19000–20734)",
+          "method": "Primary passage comparison of the mathematical objects",
+          "title": "Coordinate sum and difference sets of d-dimensional modular hyperbolas; Modular Hyperbolas; Two Combinatorial Geometric Problems Involving Modular Hyperbolas",
+          "trigger": "Similar geometric and representation terminology"
+        },
+        {
+          "assessment": "Aggregate in a different family, not pointwise fibers.",
+          "evidence": [
+            "Averages over additive m and Dirichlet characters with n fixed."
+          ],
+          "identifier_or_url": "https://doi.org/10.1186/1687-1847-2014-103",
+          "material_read": "PDF p. 1, offsets 68–4996, definition and stated averaging scheme",
+          "method": "Primary PDF comparison",
+          "title": "On the fourth power mean of the general kth Kloosterman sums",
+          "trigger": "Earlier fourth-moment covering candidate"
+        },
+        {
+          "assessment": "Precise coverage unresolved; not used as negative evidence.",
+          "evidence": [
+            "The visible material concerns Kloosterman moments, but does not resolve whether the proofs give a fiber census."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jnt.2016.05.018; https://doi.org/10.1016/j.jnt.2010.08.008",
+          "material_read": "Landing and abstract material only; no readable decisive full-text passages",
+          "method": "Bounded lawful OA and repository retrieval attempts",
+          "title": "On the fourth power mean of the general Kloosterman sums; The fourth and sixth power mean of classical Kloosterman sums",
+          "trigger": "Possible older equivalent derivations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Steps 1–4",
+        "Gong–Veys–Wan §2 and Thm. 13"
+      ],
+      "rationale": "The full representation spectrum records how collision multiplicities change between unit sums, each nonunit valuation and the zero sum. It contains information lost by summing squared counts, including the singular zero-discriminant fiber and the absence of ordinary unit-square fibers at p=3. This gives exact benchmarks for additive questions on a standard modular curve. The value is the census, not re-evaluating a covered aggregate or asserting a general restriction norm.",
+      "residual_risks": [
+        "No asserted improvement in arbitrary-input estimates or extension to even residue characteristic."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

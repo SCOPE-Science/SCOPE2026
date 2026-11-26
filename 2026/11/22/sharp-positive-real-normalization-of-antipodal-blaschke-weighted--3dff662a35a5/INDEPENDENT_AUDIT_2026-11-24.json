@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:50:52.508678Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–36 and 39–72; VERIFICATION.md; static inspection of CHECK.py",
+        "Independent replay: python3 /workspace/review-evidence/reproduce.py 1, exact SymPy inversion of the evaluation Gram matrix and independent unit-torus conjugate product factorization."
+      ],
+      "rationale": "For area dA/π the ordinary kernel is (1−zη)^−2. Multiplication by B_a is isometric and onto the closed vanishing subspace at ±a (divide by B_a and remove its simple zeros). In this subspace the kernel is the ordinary one minus the projection of its evaluations onto the two removed evaluation vectors. Those vectors are independent and the 2-by-2 Gram subtraction gives exactly normalized formula (1) after dividing by B_a(z)B_a(η); analyticity removes the apparent zeros in this division. Clearing (1+t²)D, D=(1−tz²)(1−tη²), gives exactly (2). On the torus let p=zη=e^(iθ), u=cos θ and c=cos(arg z−arg η). Divide both the numerator and denominator of T_t=(S_t−1)(1+t²)/(2(1−t²)) by p. Their real parts are (1−t²)(u−1) and (1+t²)u−2tc, and their imaginary parts −(1+t²)sin θ and −(1−t²)sin θ. The real part after multiplying by the conjugate factors as (1−t²)(1−u)(1+t²+2tc), divided by |D|². For fixed 0<t<1 the coefficients are strictly positive except for the factor 1−u; there is no pole on the closed bidisk. Separate harmonic minimum principles give nonnegativity everywhere and strict positivity inside (a zero forces first one whole slice and then the whole bidisk to vanish, contradicting T_t(0,0)=1). On a face with just one boundary coordinate the same principle gives strictness because the boundary slice is positive away from its one torus zero. Thus Re S_t has sharp lower bound 1 at zη=1 on the torus, and these values are approached from inside. Independently |S_t|≥1 and |1−tz²|,|1−tη²|≥1−t. Equality in |P_t| requires z²=η²=1 from the last two bounds plus S_t=1; precisely the same-sign pairs qualify. The stated t→1 asymptotic then follows directly.",
+      "residual_risks": [
+        "The replay certifies the key algebra, not the infinite sign theorem; the latter uses the harmonic argument. CHECK.py's banner says eight checks although there are nine assert lines, a reporting count rather than a mathematical issue. Boundary continuity is for fixed t<1, not a pole-free assertion at t=1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Miña-Díaz arXiv:2212.08118, PDF p. 1 abstract and opening §1 (extracted lines 15–44): a canonical representation for Blaschke-product weights in terms of kernel values and derivatives, and a contractive zero-divisor formula.",
+          "Frozen RESULT.md lines 74–75 and AUDIT.json identify Miña-Díaz Theorem 1.1 and (1.11) and Hansbo Proposition 2.1 and Theorem 2.3 as representation/zero-free antecedents. Those exact full passages were not retrieved in the independent check."
+        ],
+        "reasoning": "A general representation contains the kernel identity after specialization; it does not assert the inequalities without a further sign argument. Likewise nonvanishing of a normalized kernel is weaker than membership in the half-plane Re>1 and gives neither a sharp constant nor the exact polynomial minimizers. A general quantitative two-point bound remains a retrieval risk.",
+        "searches": [
+          "Resultary: Hansbo reproducing kernels contractive divisors Bergman spaces two-point weighted Bergman kernel zero-free normalized kernel",
+          "Hansbo MathNet original PDF and Miña-Díaz arXiv:2212.08118 kernel representation lookup"
+        ]
+      },
+      "checked_sources": [
+        "Miña-Díaz arXiv:2212.08118 PDF p. 1 abstract and §1 opening",
+        "Resultary summaries 19710ce10193, adaa23898597 and the assigned self-hit",
+        "Frozen RESULT.md lines 71–83 and AUDIT.json (reported, not independently verified full-text evidence)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Frozen RESULT.md lines 52–69 exhibits the separate torus nonnegative factorization and all extremizers; representation alone only supplies the rational expression. The product lower bound for |P_t| is then an immediate consequence of the new real-part bound at these parameters, not a separate representation discovery.",
+          "Miña-Díaz’s inspected opening gives representation/divisor objectives. Exact Hansbo statements and the older MacGregor–Stessin weighted-kernel results were not independently read."
+        ],
+        "reasoning": "The key extra step is a sign certificate simultaneous in the two phases, not evaluation at a point nor substitution into a known estimate. Once that joint estimate holds, denominator factors prove exactness at the two antipodal pairs. The inspected source material does not supply that estimate; no whole-document negative claim is made about unretrieved work.",
+        "searches": [
+          "Primary search: \"Reproducing kernels and contractive divisors in Bergman spaces\" Hansbo two point weighted kernel positivity normalized kernel (unavailable)",
+          "Resultary: two-variable half-plane containment weighted Bergman kernel antipodal zeros sharp constant",
+          "Miña-Díaz arXiv:2212.08118 PDF; Hansbo MathNet PDF decisive two-point sections; MacGregor–Stessin doi:10.1307/MMJ/1029005077 via frozen related-work comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "19710ce10193 indexes a ≥1 positive-real normalization for the power-deficit radial weight 1−q|z|^(2γ).",
+          "The present inequality is for a full analytic/anti-analytic kernel with a finite Blaschke product weight, not a radial scalar-product kernel. Under a simultaneous disk automorphism both the weighted and ordinary kernels transform by the same Jacobian factors when the weight is transported, so their ratio is invariant."
+        ],
+        "reasoning": "The radial result has related threshold and terminology but the radial weight has neither the two isolated antipodal zeros nor a transported equivalent with those zeros. A general two-simple-zero theorem for the same normalized ratio would specialize to the present inequality; no such bound was verified in the accessible statements. The exact polynomial minimum is tied to the frozen antipodal coordinates.",
+        "searches": [
+          "Resultary: antipodal Blaschke weighted Bergman kernel sharp positive real normalization Re[(1-z conjugate(w))^2 K] > 1 polynomial margin (1-t)^2(1+t^2)",
+          "Resultary: weighted Bergman kernel Re[(1-z w)^2 K] >=1 half-plane estimate two variables"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3dff662a35a5 is the assigned exact hit, not an independent source. adaa23898597 concerns a planar weighted harmonic Bergman kernel, not this analytic two-variable polynomial or its minimum.",
+          "19710ce10193 concerns a distinct radial family, as in the indexed summary."
+        ],
+        "reasoning": "The exact function of t and equality pairs require the frozen numerator/denominator. Neither the harmonic nor the radial analogue provides an exact table for this invariant. Lack of a distinct exact indexed hit is not a priority argument by itself.",
+        "searches": [
+          "Resultary: sharp minimum modulus bivariate polynomial Bergman kernel closed bidisk equality boundary points",
+          "Resultary: two-point Blaschke zeros analytic Bergman kernel polynomial numerator exact lower bound"
+        ]
+      },
+      "rationale": "The kernel representation is prior and qualitative nonvanishing is credited. Best-of-knowledge distinct content is the sharp joint half-plane bound, its boundary extremals and the exact attained modulus margin of the specified antipodal polynomial. A related quantitative radial-weight estimate is genuine overlap in kind but not in the weight or the exact polynomial. Some older exact two-point passages could not be verified; no priority is claimed from an inaccessible source.",
+      "residual_risks": [
+        "Hansbo’s decisive full passages, the matching radial record's full text, the exact later representation passage, and the complete MacGregor–Stessin treatment were not accessible or independently inspected. A general sharp two-point estimate can subsume the half-plane result. The verdict is limited to verified source distinctions, not an historical priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Representation is credited; excerpt does not establish the sharp real-part or margin assertion",
+          "evidence": "The abstract/opening describes representation by values and derivatives of the kernel at the origin and a formula for the contractive zero divisor.",
+          "identifier_or_url": "https://arxiv.org/abs/2212.08118",
+          "material_read": "PDF p. 1 abstract and opening of §1 (extraction lines 15–44); Thm. 1.1 and (1.11) identified by the frozen record, not independently read",
+          "method": "Lawful arXiv PDF retrieval and targeted passage attempt",
+          "title": "A representation for the reproducing kernel of a weighted Bergman space",
+          "trigger": "Broader representation covering the weights in the finding"
+        },
+        {
+          "assessment": "Reported representation and qualitative zero-freeness credited; no direct whole-text coverage assessment",
+          "evidence": "Frozen comparison reports the explicit two-point kernel and qualitative zero-freeness, not the sharp inequality.",
+          "identifier_or_url": "https://www.mathnet.ru/links/bc70d4ee2f64790e8861d64e243d85a6/znsl3685.pdf",
+          "material_read": "Frozen source's comparison (RESULT.md lines 74–81; AUDIT.json points to Proposition 2.1 and Theorem 2.3); direct passage unavailable",
+          "method": "MathNet OA targeted and direct text attempts failed; compared the stated weaker property",
+          "title": "Reproducing kernels and contractive divisors in Bergman spaces",
+          "trigger": "Strongest older same-object two-point formula and zero-freeness candidate"
+        },
+        {
+          "assessment": "Quantitative analogue for radial weights, not an implication for two isolated Blaschke zeros",
+          "evidence": "Indexed statement gives a ≥1 half-plane bound for scalar-product kernels with weight 1−q|z|^(2γ).",
+          "identifier_or_url": "2026/10/11/SCOPE-zero-free-power-deficit-radial-bergman-kernels--19710ce10193",
+          "material_read": "Indexed statement only; local-mirror text unavailable",
+          "method": "Semantic Resultary query and targeted local-mirror read attempt; compared weight classes",
+          "title": "Zero-free power-deficit radial Bergman kernels",
+          "trigger": "Closest indexed quantitative positive-real Bergman bound"
+        },
+        {
+          "assessment": "Exact quantitative coverage not determined",
+          "evidence": "Frozen source identifies MacGregor–Stessin (1994), with equations (7), (13) referenced for general kernel representations in its Miña-Díaz comparison.",
+          "identifier_or_url": "https://doi.org/10.1307/MMJ/1029005077",
+          "material_read": "Frozen citation and AUDIT.json comparison to Miña-Díaz; not the original text",
+          "method": "Compared the reported formulas as representation rather than inequality evidence",
+          "title": "Weighted reproducing kernels in Bergman spaces",
+          "trigger": "Earlier weighted-kernel literature with potentially relevant general formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–36 and 52–78"
+      ],
+      "rationale": "The natural ordinary Bergman normalization removes the common kernel denominator and measures more than nonvanishing: its real part is uniformly bounded away from zero at every pair, with an exact sharp boundary constant. The torus sign factorization and the attained bivariate minimum give an exact stability threshold for the resulting polynomial and quantify its deterioration as the zeros approach the boundary. This is useful quantitative information for a canonical finite Blaschke weight, not a rearrangement of its explicit formula alone.",
+      "residual_risks": [
+        "No assertion of a bound for other multiplicities, exponents or multi-zero configurations, or of a downstream stability theorem beyond the specified margin."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:16:09.728984Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a fixed drive trajectory, each odd binomial coefficient contributes a factor (1−2p_{m,k}) to the row mean. Over F_2, (1+x)^s is a product of (1+x^{2^j}) over the one-bits of s, giving 2^{pop(s)} distinct monomials. The squared mean is thus bounded by rho^{2^{pop(s)+1}}, with rho=1−2epsilon, and is identically zero when rho=0. For s=S_m, the probability of pop(s)<r is bounded by O(m^−1/2) times the number of such binary strings, a fixed-degree polynomial in log m for fixed r. First taking m to infinity, then r to infinity, gives convergence of the bias in L^2 of the drive. Viewed as random elements over the environment in this Hilbert space, the independent rows minus their means have norm at most two, so the martingale of their 1/m-weighted sums is L^2 bounded and converges almost surely. Hilbert-space Kronecker and Cesàro averaging remove the centered fluctuation and bias. On the resulting common environment event, fixed t is obtained by using floor(Nt) terms; a finite mesh and |zeta_m|=1 give the uniform-on-compacts probability conclusion. The conditional martingale increment has unit diagonal covariance and off-diagonal zeta_{j−1}; bounded rescaled jumps satisfy the martingale FCLT and covariance tI gives independence. The recorded parity, finite-mean and binomial bound checks were inspected, not re-executed; they do not establish the almost-sure environment assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hamza–Tournier's Corollary 9 handles the same independent-time one-factor model only annealed; v1 explicitly leaves the corresponding quenched result open there. The LIL record proves limsup and liminf +1 and −1 after normalization by sqrt(2N log log N), almost surely in the driving signs for almost every environment."
+        ],
+        "reasoning": "The original motivating paper does not subsume the target. The distinct indexed theorem, however, controls the same bracket at a sharper scale, supplies a stronger almost-sure mode, and explicitly states the same quenched FCLT.",
+        "searches": [
+          "Hamza–Tournier v1 Proposition 8, Corollary 9, model table and appendices",
+          "Resultary 00b4222393d7, Finding and Proof steps 1–4"
+        ]
+      },
+      "checked_sources": [
+        "Hamza–Tournier arXiv:2610.01658v1 pp. 4, 9, 12 and appendices",
+        "Resultary 00b4222393d7, 3f4699511d3e and 366d80019b89",
+        "Frozen RESULT.md, VERIFICATION.md, verification.py and verification_output.txt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The LIL proof centers independent variables conditional on the drive, uses the subpolynomial total drift and variance sum asymptotic to N, then applies the bounded-variable LIL and Fubini. It yields A_k/k -> 0 almost surely in the drive on a full-environment event, where A_k=sum_{j=0}^{k−1}zeta_j."
+        ],
+        "reasoning": "Fix such an environment. For each fixed t, A_floor(Nt)/N -> 0 almost surely and its absolute value is bounded by t, so it converges in conditional L^2. The pathwise sequence A_k=o(k) also implies max_{k<=floor(NT)}|A_k|/N -> 0 for any finite T by separating an initial finite segment. This supplies the frozen uniform bracket conclusion and the same J1 FCLT for arbitrary finite horizons, not just the displayed unit horizon of the LIL record.",
+        "searches": [
+          "Resultary 00b4222393d7, Proof steps 3–4, offsets 4517–8394",
+          "Hamza–Tournier arXiv:2610.01658v1 Corollary 9 and adjoining remark"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both catalog statements use independent Bernoulli bits indexed by time and cardinality, tied across equal-size subsets within each row. With eta_j=zeta_{j−1}xi_j the LIL uses sum xi_j eta_j=sum zeta_{j−1}, exactly the frozen predictable cross-bracket.",
+          "The upper summation index S_n instead of n removes only zero binomial terms; the LIL assumption epsilon<1/2 still covers the endpoint p_{n,k}=1/2 by choosing any strictly smaller separation constant."
+        ],
+        "reasoning": "These are the same probability model and statistic under renaming; the static-cardinality, sparse-dyadic and independent-subset formulations cannot be identified with the fully elliptic tied rows.",
+        "searches": [
+          "Resultary searches for independently resampled cardinality-grouped inclusion bootstrap walks and quenched Brownian limits",
+          "Hamza–Tournier arXiv:2610.01658v1 pp. 4, 9, 12",
+          "Resultary 00b4222393d7, Assumptions and scope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "00b4222393d7 is an exact model and quenched-limit match. The earlier dyadic-sparsity finding activates only k=2^j and zeros other cardinality coefficients. The static-cardinality finding reuses one beta_k across rows. The published model table lists the same independent time–cardinality case as annealed."
+        ],
+        "reasoning": "The LIL record matches the full heterogeneous elliptic array rather than a special case; the other catalog entries and annealed table do not themselves supply this coverage.",
+        "searches": [
+          "Resultary 2026/11/1/00b4222393d7, exact parameter and finding passages",
+          "Resultary 2026/10/25/3f4699511d3e and 2026/11/2/366d80019b89, Finding passages",
+          "Hamza–Tournier v1 p. 4 table"
+        ]
+      },
+      "rationale": "The frozen conclusion is fully covered by a distinct indexed stronger result on the identical array and walk: Resultary 00b4222393d7 proves a quenched sharp two-sided law of the iterated logarithm for the same cross-bracket. That gives all held-out bracket and Brownian claims, including conditional L^2, by bounded convergence and the bracket FCLT. This is demonstrated existing coverage, not a finding about who first proved the quenched limit. The covering record carries a later catalog date, and Hamza–Tournier v1 itself gives only the annealed result for this model. The frozen proof is valid and differs in method, but no distinct mathematical conclusion survives the comparison.",
+      "residual_risks": [
+        "Catalog dates do not establish priority or common derivation. The exact implication from the inspected LIL is sufficient for coverage of the frozen claim; no attribution of historical precedence is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Annealed only for this exact model in inspected v1",
+          "evidence": "The p. 4 table and p. 12 remark distinguish the quenched question; the unversioned PDF header also identifies v1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.01658v1",
+          "material_read": "pp. 4, 9, 12: table, one-factor assumption, Proposition 8 and Corollary 9 with remark; appendices A and B relevant passages; unversioned PDF header",
+          "method": "OA PDF bounded passages",
+          "title": "Are random random walks normal?",
+          "trigger": "Same tied coefficient model and alleged unresolved quenched assertion"
+        },
+        {
+          "assessment": "Demonstrably covers the full frozen mathematics; not the identical record",
+          "evidence": "The sharp LIL and quenched weak convergence use the same signs, coefficients and bracket; pathwise Cesàro decay plus deterministic boundedness implies the frozen L^2 claim.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-quenched-law-of-the-iterated-logarithm-for-cardinality-grouped--00b4222393d7/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, proof steps 1–4, relation to prior work",
+          "method": "Resultary local mirror, offsets 0 and 4517",
+          "title": "A quenched law of the iterated logarithm for cardinality-grouped bootstrap walks",
+          "trigger": "Same parameters and stronger quenched bracket limit"
+        },
+        {
+          "assessment": "Adjacent model, not direct coverage",
+          "evidence": "Only O(log n) power-of-two cardinality indices are active, and its Brownian covariance is governed by the Cesàro average of an explicit product.",
+          "identifier_or_url": "Resultary 2026/10/25/3f4699511d3e",
+          "material_read": "Finding and scope",
+          "method": "Resultary local mirror, offset 0",
+          "title": "A sharp dyadic-sparsity criterion for quenched Brownian independence in random bootstrap walks",
+          "trigger": "Earlier quenched result for time-dependent Bernoulli coefficients in the inclusion basis"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The quenched upgrade for tied-cardinality rows is a substantive probability question in its own right: it controls covariance after conditioning on almost every environment, which annealed weak convergence does not provide. The short Hilbert-space proof exposes useful separation of row independence and binary-popcount bias. This intrinsic interest does not remove the decisive overlap with the stronger catalog result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

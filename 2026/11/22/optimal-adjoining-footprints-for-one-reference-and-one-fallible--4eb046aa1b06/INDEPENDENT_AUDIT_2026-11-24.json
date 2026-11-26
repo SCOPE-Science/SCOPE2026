@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:14:15.701844Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For exactly two equal hard intervals and a perfect reference, the true alarm probability is reference mass plus q times secondary-only mass. If partially overlapping, push the secondary outward on its extending side until it touches: its old uncovered segment is a strict subset of the new one up to endpoints. For identical footprints, adjoining the reference adds strictly positive secondary mass. For a gap, contract both centers toward zero by a common positive factor until their distance is 2r; the entire move stays disjoint up to endpoint measure zero. Evenness and strict log-concavity imply that a fixed-width interval loses mass strictly with increasing absolute center, so this strictly improves at least one positive-weight term. These direct improvements justify optimizing over touching layouts on the unbounded line without assuming an optimizer exists in advance. In the reference-left layout, division by positive f(c) makes the sign equation a strictly decreasing function of c: log f has strictly decreasing derivative, so the left shift ratio increases and the right shift ratio decreases. The raw derivative has signs + at zero and - at r. The unique root therefore gives the global optimum in that orientation, with exactly one reflected optimum. At each interior candidate the divided derivative decreases strictly with q, giving strict root motion; continuity on the compact [0,r] and the unique endpoint roots give the limits r and 0. Independently transformed the Gaussian equation with z=exp(2rc/sigma^2), recovered the positive quadratic root, and directly evaluated the example (c,H(c),H(0))=(0.6708104538187869,0.7806302476373099,0.7158748020777312). Inspected checker.py and the recorded 26,979 assertions; their finite Gaussian/logistic checks are supplementary and were not rerun. RESULT.md's isolated phrase 'strong log-concavity' in Limitations is imprecise terminology; the theorem and proof consistently use strict log-concavity, not a uniform curvature bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Litvak gives a sufficient non-overlap test for two equally sensitive sensors on [0,2]. Wettergren–Costa numerically optimize the modal weights of spatial sensor densities for moving targets. Palencia et al. compare the precision of detections per unit effort for clustered versus single and fixed versus rotating camera designs."
+        ],
+        "reasoning": "The Litvak ratio criterion neither allows this unequal response pair as a restriction nor proves the uniqueness/offset and quality law on the entire real line. A general numerical framework covering sensors in larger models does not give the claimed exact optimizer. The field-design precision objective is not the single-target probability of at least one true alarm.",
+        "searches": [
+          "Litvak et al., §5.2.1, Eq. (5.1) and Lemma 5.2.1",
+          "Wettergren–Costa DOI 10.1155/2013/145496, Eq. (13) and following text via SAGE alternate",
+          "Palencia et al. DOI 10.1111/1365-2664.14690, lawful CSIC copy"
+        ]
+      },
+      "checked_sources": [
+        "https://miis.maths.ox.ac.uk/268/2/thales-report.pdf",
+        "DOI:10.1111/1365-2664.14690",
+        "DOI:10.1155/2013/145496",
+        "Resultary:2026/11/22/ce1cdc3b4725",
+        "Resultary:2026/11/22/152086be2c2c",
+        "Resultary:2026/11/22/b1e8a3b75a1e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Litvak test requires 1-p <= f(x)/f(x+1) <= 1/(1-p) for x in [0,1] for common sensor sensitivity p. Palencia measures precision by variation of detection rates; Wettergren–Costa explicitly use a genetic algorithm for a fixed iteration budget."
+        ],
+        "reasoning": "Putting p=1 in an equal-sensitivity model makes both detectors perfect, not only the reference, and cannot produce the monotone q-dependent asymmetry. A sufficient no-overlap criterion alone does not rule out gaps or give the unique translating contact point. The other inspected formulations neither imply the structural law nor a dominant theorem that specializes to it.",
+        "searches": [
+          "Litvak et al. pp. 88–89, Lemma 5.2.1 and examples",
+          "Palencia et al. abstract points 1–3",
+          "Wettergren–Costa Eq. (13) and implementation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact indexed hit is the bound record itself. Distinct same-day hits include bounded uniform transect exponential-distance sensors, three equally fallible symmetric hard-threshold smoke monitors, and two identical soft half-normal sensors under planar Gaussian uncertainty."
+        ],
+        "reasoning": "Soft-distance coverage cannot be identified with the affine weighting of a hard secondary-only footprint. Three equal monitors restricted to symmetric placements do not optimize the unconstrained translations of a labeled perfect/fallible pair. The related exact results are genuine analogues but not equivalent formulations.",
+        "searches": [
+          "Resultary: one reference/one fallible wildlife sensor, two-detector coverage and touching hard footprints",
+          "Resultary 2026/11/22/ce1cdc3b4725, 152086be2c2c, b1e8a3b75a1e Findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact catalogue outputs are co-location thresholds in other signal models and the present self-hit; no exact offset/reliability law for this same model was independently identified."
+        ],
+        "reasoning": "The claim is a continuum design law rather than an isolated number. A catalogue threshold for changing the soft detection width or an optimum under imposed symmetry would not determine this law or its Gaussian specialization. The date shared by distinct entries provides no priority ordering.",
+        "searches": [
+          "Resultary: exact detection placement, Gaussian prior, hard footprints and co-location thresholds",
+          "Resultary 2026/11/22/ce1cdc3b4725 and b1e8a3b75a1e Findings"
+        ]
+      },
+      "rationale": "The established two-sensor coverage objective and earlier sufficient non-overlap principle are not claimed as new. The supported distinct result is the complete globally adjoining design, uniqueness up to reflection, translation and strict quality law for the stated perfect/fallible model on the real line, with the exact normal formula. None of the closest inspected statements implies this classification.",
+      "residual_risks": [
+        "A stronger sensor-location or interval-placement theorem outside the bounded evidence could cover this exact pair; historical priority is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong predecessor to non-overlap in a different, equal-sensitivity bounded model",
+          "evidence": [
+            "For S=[0,2] and common p, the bounded density-ratio condition suffices; the report discusses uniform and linear-density examples, with the rule inconclusive for the latter."
+          ],
+          "identifier_or_url": "https://miis.maths.ox.ac.uk/268/2/thales-report.pdf",
+          "material_read": "§5.2.1, pp. 88–89, Eq. (5.1) and Lemma 5.2.1, text offsets 10800 and 13200",
+          "method": "Primary OA report PDF",
+          "title": "Increasing Detection Performance of Surveillance Sensor Networks",
+          "trigger": "Two equal-length footprints and a no-overlap result"
+        },
+        {
+          "assessment": "Empirical and simulated detection-rate precision comparison, not a theorem for the true-alarm objective",
+          "evidence": [
+            "Detection rate is detections per unit effort. Simulations and field data compare clustered/single and fixed/rotating designs; precision is quantified by variation, including CV reductions."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/1365-2664.14690",
+          "material_read": "Published PDF abstract points 1–3, p. 1, text offsets 1550–4633",
+          "method": "Same-paper OA copy at https://digital.csic.es/bitstream/10261/373428/1/Clustered_rotation_Palencia.pdf",
+          "title": "Clustered and rotating designs as a strategy to obtain precise detection rates in camera trapping studies",
+          "trigger": "Camera placement with clustered and spread-out layouts"
+        },
+        {
+          "assessment": "Numerical modal-weight optimization, not exact two-footprint classification",
+          "evidence": [
+            "Surveillance of moving targets over extended areas; evaluates a genetic algorithm for optimizing weights of Gaussian modes, without general convergence to the exact optimizer."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2013/145496",
+          "material_read": "Abstract, end of introduction and numerical optimization Eq. (13), HTML text offsets 272, 9554 and 30186–31786",
+          "method": "Same-paper SAGE OA HTML at https://sage.cnpereading.com/doi/10.1155/2013/145496",
+          "title": "Optimal Planning of Distributed Sensor Layouts for Collaborative Surveillance",
+          "trigger": "General distributed sensor placement optimization"
+        },
+        {
+          "assessment": "Different sensor response and target domain",
+          "evidence": [
+            "Equally reliable exponential-distance sensors on a bounded uniform transect, with a midpoint co-location to separation transition."
+          ],
+          "identifier_or_url": "Resultary:2026/11/22/ce1cdc3b4725",
+          "material_read": "RESULT.md Finding and assumptions",
+          "method": "Local published-record mirror",
+          "title": "Sharp co-location threshold for two distance-decaying ecological detectors",
+          "trigger": "Same two-detector placement objective"
+        },
+        {
+          "assessment": "Different number, reliability and symmetry constraints",
+          "evidence": [
+            "Three equal fallible monitors with symmetric spacing under Gaussian center uncertainty."
+          ],
+          "identifier_or_url": "Resultary:2026/11/22/152086be2c2c",
+          "material_read": "RESULT.md Finding and assumptions",
+          "method": "Local published-record mirror",
+          "title": "Four sharp spacing regimes for a symmetric three-monitor smoke placement",
+          "trigger": "Hard footprints and true-alarm design"
+        },
+        {
+          "assessment": "Different soft-sensor model and symmetric planar design",
+          "evidence": [
+            "Identical soft half-normal detectors under planar Gaussian uncertainty, not a reference/fallible pair on a line."
+          ],
+          "identifier_or_url": "Resultary:2026/11/22/b1e8a3b75a1e",
+          "material_read": "RESULT.md Finding and assumptions",
+          "method": "Local published-record mirror",
+          "title": "A sharp co-location transition and a unique best detection range",
+          "trigger": "Two-detector exact Gaussian placement law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The perfect reference makes a clean benchmark for when to spread rather than cluster a supplemental detector. The claim rules out both overlap and inefficient gaps and then determines the unique placement, not just a stationary offset. Its reliability law is uniform over even strictly log-concave location priors and resolves a real design tradeoff in the idealized model. This does not validate camera performance or imply that overlap is suboptimal for two fallible detectors; as q tends to zero the placement benefit itself can be small.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

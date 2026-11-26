@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:48:33.081336Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For exact masses the diagonal Gram entries equal γ and the off-diagonal modulus is |Z|/(2π); the cross term is 2 Re(conj(a)b Z)/(2π). Trimming surplus mass by nonatomicity lowers the integral strictly for nonzero coefficients if positive mass was removed. For the moment problem use independent upper level sets of cos(t−φ); cosine level sets have measure zero, giving uniqueness at fixed phase. Complementation negates Z. For l≤L/2 reduce by grid symmetry to 0≤φ≤L/2. The last cell is optimized at its right endpoint; in the second cell the two endpoint caps for φ≤l/2 have lengths l/2+φ and l/2−φ because their interior boundaries have equal cosine, and the first cell then takes [0,l]. For φ≥l/2 only the left cap survives and the first interval is centered. The sine boundary terms give 2sin(L+l/2)+2(sin l−sin L)cos φ in the first branch, and 2sin(l/2)[1+2cos((L+l)/2)cos(φ−L/2)] in the second. These increase strictly toward L/2 below half occupancy and are identically 1 at half occupancy. In the flat case each phase realizes the global modulus bound with that exact phase, so the masks are distinct up to null sets; their intervals vary continuously in measure. The explicit maximizer gives attainment; its Gram matrix is positive definite because a nonzero two-mode polynomial cannot vanish on positive measure. The eigenvector in the Finding has the correct phase. A separate cosine-sorting midpoint grid reproduced 427 bounded support tests (`python3 /workspace/frozen_review_replay.py 5`); this is numerical corroboration only. The frozen checker was read, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Saucedo–Tikhonov's inspected Theorem 1.1 concerns real-line thickness and spectral support, not fixed-cell masks on the circle.",
+          "Abreu–Speckbacher's circle theorem compares measurable sets to intervals of the same total mass.",
+          "a288ba0aa91c addresses perfect conditioning and an endpoint Jacobian for arc unions."
+        ],
+        "reasoning": "The total-mass interval comparison only yields an upper moment bound on a larger family; even for small γ a single arc of length 2πγ cannot have positive occupancy in all three cells. Neither a real-line inequality nor a local Jacobian for well-conditioned masks provides the sharp least eigenvalue over the stated constraints.",
+        "searches": [
+          "Resultary: cellwise density sharp two-mode Fourier observability on circle exact constant",
+          "arXiv:2603.21950v1, Theorem 1.1",
+          "arXiv:2607.19192v1, circle Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "b942ce42e79b (assigned entry)",
+        "1d3091d9c873",
+        "a288ba0aa91c",
+        "421f4178227e",
+        "arXiv:2603.21950v1",
+        "arXiv:2607.19192v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier stability result gives a deficit for exchanges from a phase-centered arc under fixed total mass; the inspected concentration theorem optimizes an unrestricted single-interval comparator."
+        ],
+        "reasoning": "Those statements do not optimize the deficit under three independent cell-mass constraints or force the two cosine-support regimes. In particular they do not give the constant support function and one mask per moment direction at γ=1/2.",
+        "searches": [
+          "1d3091d9c873, RESULT.md, Finding and assumptions",
+          "Abreu–Speckbacher, arXiv:2607.19192v1, Theorem 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact indexed hit b942ce42e79b is this frozen item, not separate coverage.",
+          "The Finding and scope of 1d3091d9c873 reduce the two-mode problem to the first Fourier moment under fixed total mass, with central-arc and two-cap geometry for its stability statements."
+        ],
+        "reasoning": "The Gram/moment and fixed-phase support formulations are equivalent for exact cell masses. Prior use of that first reduction with one global mass constraint does not compute the support function of the cellwise moment set.",
+        "searches": [
+          "Resultary: three fixed equal cells adjacent Fourier frequencies sharp moment cell occupancy",
+          "Resultary: stratified Fourier first moment fixed equal cells prescribed local masses rearrangement"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact formula and full phase locus occur in the assigned catalogue entry itself; distinct hits inspected include 421f4178227e, a five-mode problem with two equal arcs."
+        ],
+        "reasoning": "The searchable invariant is a continuous parameter law plus an exact equality classification, rather than an isolated tabulated constant. The five-mode arc-placement optimizer is not the cellwise moment maximum at any asserted parameter.",
+        "searches": [
+          "Resultary: half occupancy continuum circle of maximizing masks three-cell Fourier cosine bathtub",
+          "Resultary: cellwise density sharp two-mode Fourier observability on circle exact constant"
+        ]
+      },
+      "rationale": "The supported distinction is the exact three-fixed-cell first-moment envelope and the full change in its maximizing masks at half occupancy, together with the equivalent sharp two-frequency lower bound. The Gram reduction, one-phase bathtub principle and total-mass concentration are established tools, not claimed original. The strongest inspected related statements change the constraints or the modes and do not give the three-cell support computation or equality set.",
+      "residual_risks": [
+        "Bounded catalogue searches and cited primary passages do not exclude an older equivalent stratified rearrangement or constrained Fourier-moment calculation under another formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related fixed-total-mass stability; no exact cellwise extremum in the compared claim",
+          "evidence": [
+            "Central arc and two-cap equality figures under mass exchange, not an independent mass in each cell."
+          ],
+          "identifier_or_url": "SCOPE-sharp-phase-centred-stability-and-bang-bang-rigidity-for-two-mod--1d3091d9c873",
+          "material_read": "RESULT.md Finding and assumptions, from offset 0",
+          "method": "Local mirror",
+          "title": "Sharp phase-centred stability and bang–bang rigidity for two-mode circle concentration",
+          "trigger": "Same first Fourier moment and two-mode concentration"
+        },
+        {
+          "assessment": "Different optimization and mask family",
+          "evidence": [
+            "Perfect conditioning and local endpoint Jacobian for arc unions."
+          ],
+          "identifier_or_url": "SCOPE-rigidity-and-exact-inverse-conditioning-for-perfectly-balanced-f--a288ba0aa91c",
+          "material_read": "RESULT.md Finding, from offset 0",
+          "method": "Local mirror",
+          "title": "Rigidity and exact inverse conditioning for perfectly balanced Fourier sampling on circular arc unions",
+          "trigger": "Potential equivalent spectral question on the circle"
+        },
+        {
+          "assessment": "No equivalent coverage in the stated theorem",
+          "evidence": [
+            "Antipodal optimum for placements of two equal arcs and five characters."
+          ],
+          "identifier_or_url": "SCOPE-exact-five-mode-fourier-observability-on-two-equal-circle-arcs--421f4178227e",
+          "material_read": "RESULT.md Finding, from offset 0",
+          "method": "Local mirror",
+          "title": "Exact five-mode Fourier observability on two equal circle arcs",
+          "trigger": "Distinct same-day exact observability hit"
+        },
+        {
+          "assessment": "Related qualitative framework; different domain and constraints",
+          "evidence": [
+            "Thick sets on the line with the stated spectral support conditions."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.21950v1",
+          "material_read": "§1 Theorem 1.1, passage at offset 2740",
+          "method": "OA located passage",
+          "title": "A Logvinenko–Sereda theorem for lacunary spectra",
+          "trigger": "Thick-set Fourier lower bounds"
+        },
+        {
+          "assessment": "Different total-mass circle extremum",
+          "evidence": [
+            "The maximal concentration eigenvalue for the stated band is bounded by that of an interval of the same total measure."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2607.19192v1",
+          "material_read": "§2 Theorem 2.1, passage at offset 10685",
+          "method": "OA located passage",
+          "title": "Optimal concentration in the Paley–Wiener space",
+          "trigger": "Sharp circle Fourier concentration for measurable masks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Independent local occupancy rather than just total occupancy is a natural observation constraint. The exact worst conditioning and the nontrivial transition from three masks to a full circle of optimal masks are useful features of the smallest odd three-cell case, not just a numerical example or a qualitative rearrangement bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

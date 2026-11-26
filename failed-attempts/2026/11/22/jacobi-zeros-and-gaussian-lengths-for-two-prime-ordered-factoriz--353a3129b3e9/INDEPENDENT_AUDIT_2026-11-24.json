@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:12:21.743748Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–91; VERIFICATION.md lines 19–23; verify.py lines 31–69",
+        "Brändén–Ferroni–Jochemko arXiv:2408.12386v1 §4, Eqs. (4.1)–(4.3), providing an additional exact cross-check"
+      ],
+      "rationale": "A length-k factorization corresponds to a word in a copies of p and b copies of q, cut into k weakly increasing nonempty blocks by sorting the prime labels within each factor. Every descent forces a cut, and other gaps may be cut independently. A word with j descents contributes t^(j+1)(1+t)^(a+b−1−j); its descending corners in the lattice-word path select j distinct abscissas and j distinct ordinates, giving binom(a,j)binom(b,j) words. The resulting finite sum is exactly the standard shifted Jacobi binomial formula times t(1+t)^(M−1). At t=0 the Jacobi factor is 1; at t=−1 it is (−1)^m binom(M,m), so no extra endpoint multiplicities occur. Orthogonality gives m simple roots x_j in (−1,1), then t_j=(x_j−1)/2. Newton's inequalities apply to P/t of degree a+b−1, giving the stated normalization. The normalized generating function has independent Bernoulli factors with success probabilities 1/2 and 1/(1−t_j)=2/(3−x_j); the shift is one. The variance is at least (M−1)/4 and M tends to infinity whenever a+b does, so bounded centered summands meet the triangular-array Lindeberg condition. For a=b=1 this gives t(1+2t) and no −1 root. Frozen code was inspected, not run; exact proof covers its test range and all larger exponents.",
+      "residual_risks": [
+        "Does not assert mean/variance equivalent, error term or local limit in the uniform fixed-integer ensemble."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huxley–Lettington–Schmidt already define the length polynomial up to a factor t. For f_a(u)=binom(u+a,a) and f_b(u)=binom(u+b,b), the binomial-basis operator E in §4 has E(f_a)=(1+t)^a by Vandermonde. The displayed general product rule E(f_af_b)=E(f_a)⋄E(f_b) then gives E(f_af_b)=(1+t)^(a+b) sum_j binom(a,j)binom(b,j)[t/(1+t)]^j."
+        ],
+        "reasoning": "A weak factorization of length u+1 includes factors 1, so f_a(u)f_b(u)=sum_k c_k binom(u+1,k). By Pascal's rule E(f_af_b)=(1+t)P(t)/t. This puts the assigned object itself inside the general product rule and recovers all its coefficients, not only real-rootedness or the evaluation at t=1.",
+        "searches": [
+          "Primary: Wagner Segre product, Ehrhart h-polynomial of products of simplices and binomial transforms",
+          "arXiv:2408.12386v1 §4 Eqs. (4.2)–(4.3), citing Wagner (1992), Theorem 2.3",
+          "arXiv:2610.13864v1, definition and Theorems 3.4, 4.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2408.12386v1 §4; arXiv:2407.12076v2 Eq. (1); arXiv:1610.04826; arXiv:2610.13864v1",
+        "Kinder Theorem 4; DOI 10.61091/um125-03",
+        "Resultary 353a3129b3e9 (self-hit), 96b90f910a77 and c4a2908783c7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taking the derivatives of (1+t)^a,(1+t)^b in the prior product rule and multiplying by t/(1+t) gives the claimed sum term for term. Its inner polynomial is exactly the textbook binomial expansion of P_m^(0,M−m)(1+2t), so orthogonality and endpoint evaluations give the full census. Normalizing yields the success probabilities directly; the visible (1+t)^(M−1) factor alone ensures diverging variance."
+        ],
+        "reasoning": "The Jacobi name and the fixed-integer rather than average-over-integers sampling are legitimate distinctions of presentation, but all the new-phrased claims are direct deductions from the known identities, standard facts about Jacobi polynomials and bounded-array CLT. Earlier average-order CLTs are not the basis of failure.",
+        "searches": [
+          "arXiv:2408.12386v1 §4, offsets 37200–39843",
+          "arXiv:2407.12076v2 Eq. (1)",
+          "Frozen RESULT.md lines 69–91, standard Jacobi expansion and orthogonality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "MacMahon's multiset descent generating-function identity gives the numerator A_{a,b}(z)=sum_j binom(a,j)binom(b,j)z^j for the generating series of binom(u+a,a)binom(u+b,b). Permitting cuts at all optional gaps gives precisely P(t)=t(1+t)^(a+b−1)A_{a,b}(t/(1+t)). Eqs. (4.1)–(4.3) make the same translation at the level of binomial-basis and Eulerian polynomials.",
+          "The balanced Resultary polynomial 96b90f910a77 is A_{m,m}(z)−mz: real overlap of the core, but a different enumerator and not the decisive prior."
+        ],
+        "reasoning": "The multiset descent and order/chain formulations encode the identical polynomial up to the standard change of basis and the factor t/(1+t), not merely the same length totals.",
+        "searches": [
+          "Resultary: two-prime Jacobi and factorization CLT; Eulerian/Segre and multiset descents; complete-homogeneous factorization; real-rootedness",
+          "Primary: multiset Eulerian polynomial, product-of-chains strict chains, subdivision and Jacobi",
+          "arXiv:2407.12076v2 p. 1 Eq. (1); arXiv:2408.12386v1 §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only exact catalogue hit inspected is the frozen finding itself. Sprittulla's MacMahon formula already gives every individual fixed-k coefficient. Kinder identifies the total t=1 at a fixed Jacobi evaluation, not a table of roots or the parameterized law."
+        ],
+        "reasoning": "Do not equate a total count, or a self-match, with prior statement of the full result. The known coefficient formula is exact coverage of the numbers, while the binomial-basis product rule supplies the stronger closed form.",
+        "searches": [
+          "Resultary exact self-hit 353a3129b3e9 and distinct records 96b90f910a77, c4a2908783c7",
+          "Sprittulla arXiv:1610.04826 p. 2 Eq. (1.1); Kinder 2012 Theorem 4"
+        ]
+      },
+      "rationale": "The full coefficient identity is an explicit evaluation of Wagner's pre-existing binomial-basis product rule, not merely analogous to a different real-rooted polynomial. The classical Jacobi binomial expansion gives its closed form without any new identity for special functions. The exact endpoint zeros are the known degree gap in the same transform, interior zeros follow from Jacobi orthogonality, and the stated distributional conclusions then follow from normalized real linear factors and their divergent variance. This is mathematical coverage by prior implication, not a claim that an earlier source used identical wording or announced the same CLT.",
+      "residual_risks": [
+        "No claim of identifying the earliest source of the exact reformulation or the explicitly phrased fixed-shape limit. The negative verdict rests on a checked general theorem that implies the exact formula, not on absence of exact search hits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Conclusive prior implication of the exact two-prime formula",
+          "evidence": "E(binomial(u,j))=t^j, E(fg)=E(f)⋄E(g), explicit derivative expression for ⋄, and the f/h Möbius substitution.",
+          "identifier_or_url": "https://arxiv.org/html/2408.12386v1",
+          "material_read": "§4 offsets 37200–39843, Eqs. (4.1)–(4.3), including Wagner Theorem 2.3 attribution",
+          "method": "Lawful OA HTML passage review",
+          "title": "Preservation of inequalities under Hadamard products",
+          "trigger": "Explicit binomial-basis product rule for the same polynomial transform"
+        },
+        {
+          "assessment": "Equivalent coefficient-generating-series antecedent",
+          "evidence": "MacMahon's multiset descent numerator over (1−z)^(a+b+1) equals the series of the product of the two binomial polynomials in the two-letter case.",
+          "identifier_or_url": "https://arxiv.org/pdf/2407.12076",
+          "material_read": "Version 2, PDF p. 1 Eq. (1), offsets 5840–6979",
+          "method": "Lawful OA PDF passage review",
+          "title": "Colored multiset Eulerian polynomials",
+          "trigger": "Known multiset descents alias"
+        },
+        {
+          "assessment": "Pre-existing exact fixed-length counts; not confused with the fixed-shape CLT",
+          "evidence": "Inclusion–exclusion over trivial factors, product of binomial counts by exponent.",
+          "identifier_or_url": "https://arxiv.org/abs/1610.04826",
+          "material_read": "PDF p. 2 Eq. (1.1), offset 3842",
+          "method": "Lawful OA PDF passage review",
+          "title": "Ordered Factorizations with k Factors",
+          "trigger": "Exact coefficient formula for the stated object"
+        },
+        {
+          "assessment": "One-point total-count specialization, not a full variable-marker theorem",
+          "evidence": "Theorem 4 gives a fixed argument for Jacobi evaluation; extracted subscripts were not relied upon.",
+          "identifier_or_url": "https://s.science-education.ru/pdf/2012/5/98.pdf",
+          "material_read": "Abstract offset 1626 and Theorem 4 offset 13380",
+          "method": "Lawful OA PDF passage review",
+          "title": "On perfect partitions of integers",
+          "trigger": "Earlier explicit two-prime Jacobi result"
+        },
+        {
+          "assessment": "Definition already known; compared separate Dirichlet and squarefree statements",
+          "evidence": "P(n,x) is the marker polynomial divided by x; Theorems 3.4 and 4.2 give the Dirichlet series and squarefree specialization.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.13864",
+          "material_read": "PDF pp. 5, 6, 10, offsets 12548, 15330, 29135",
+          "method": "Lawful OA PDF passage review",
+          "title": "On Divisor Function Polynomials and Dirichlet Series",
+          "trigger": "Earlier definition and specialization of the same polynomial"
+        },
+        {
+          "assessment": "Joint factor counts and sums, not the decisive prior",
+          "evidence": "Counts ordered multifactorizations and aggregates ordinary length counts.",
+          "identifier_or_url": "https://doi.org/10.61091/um125-03",
+          "material_read": "Theorems 1.5 and 1.6, offsets 11075 and 12267",
+          "method": "Lawful OA PDF passage review",
+          "title": "Multifactorisations and divisor functions",
+          "trigger": "Related fixed-integer enumerations"
+        },
+        {
+          "assessment": "Distinct support enumerator; not a counterexample or evidence of priority",
+          "evidence": "Uses the balanced binomial sum with a nonzero linear subtraction, and finds the first failure at m=12 in that other family.",
+          "identifier_or_url": "Resultary 2026/11/22 record 96b90f910a77",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "A sharp first real-rootedness failure in support enumerators",
+          "trigger": "Balanced binomial polynomial overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md exact formula, normalization, and limit scope",
+        "arXiv:2408.12386v1 §4, applied as described in originality"
+      ],
+      "rationale": "The natural length statistic is mathematically coherent, but this record's contributions reduce to a standard binomial-basis product, a textbook Jacobi evaluation, and standard real-rooted PGF and bounded-summand consequences. It adds no new asymptotic estimates for the mean and variance, new scope, or independently motivated surviving invariant beyond those deductions. This fails as a research contribution, not as an expository formula or proof.",
+      "residual_risks": [
+        "No genuine surviving repaired claim is submitted; no verdict on possible stronger asymptotics not in this record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

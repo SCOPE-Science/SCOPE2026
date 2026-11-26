@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:39:59.220265Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–85",
+        "Frozen VERIFICATION.md and verify.py (read only)",
+        "Replay: python3 /workspace/branches/reproduce_frozen.py 1"
+      ],
+      "rationale": "For x=3u, f(x)=9(3u³−u); the divided difference of 3u³−u is a unit, so the branch bijects after reducing precision by two, and the original fiber has three lifts. On x=±(1+3u), the factorization f(x)+2=(x−1)²(x+2) and oddness give the reflected outputs ±(−2+27u²(u+1)). At k≤3 each signed branch collapses to its corresponding target. For k≥4 the quotient has precision m=k−3, leaving nine lifts. Modulo three the u=1 and u=−1 balls give the two simple branches onto t=2 and 0 respectively. On u=3v the output quotient is 9v²(1+3v); the unique square root s(v)≡1 mod 3 has s(v)−s(w) divisible by 3(v−w), so v↦vs(v) preserves every congruence distance and thus permutes each residue ring. This yields three lifts per square root after reducing from precision m−1 to m−2, and literal collapse for m=1,2. Dividing a nonzero square target of valuation 2j by 3^(2j) gives two simple unit roots and 3^j lifts each; zero has 3^floor(r/2) roots. For even r=k−5 the unique square-root maximizer is zero; for odd r it is 3^(r−1), translating back to the two stated shifted targets. The image check follows because each signed branch has exactly the two simple target classes modulo three and the critical image adds none. Independently enumerated all 265,719 targets through k=11, comparing the direct polynomial histogram with the square-normal form and checking the displayed peak locations and counts at both parities.",
+      "residual_risks": [
+        "Finite enumeration stops at k=11; the claimed arbitrary precision and zero-fiber cases are justified analytically."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed prime-index fiber result explicitly requires p≥5 and gives a p=3 failure example for its value-set formula. Shang bounds image size of nonpermutation polynomial functions; Brazelton et al. treat finite-field sizes/characteristic residue sums. The older Galois-ring article was not available in the checked routes."
+        ],
+        "reasoning": "A finite-field statement cannot specify the high-precision singular lifts. The stated prime-index hypotheses exclude the prime in this theorem. No claim about coverage of the unavailable Galois-ring full text is inferred from the access failure.",
+        "searches": [
+          "Resultary 6a065e0bd9a3",
+          "arXiv:2310.20226v1 Theorem 1.1",
+          "arXiv:2103.09119v1",
+          "Web: \"Value sets of Dickson polynomials over Galois rings\" \"Bremser\" \"Gomez-Calderon\" theorem 5 exceptional discriminant"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a4218d5c4f84 (identical), 8ac73addd4cb, 24093f02440f, a5c1df557fdd and 6a065e0bd9a3",
+        "Shang arXiv:2310.20226v1; Brazelton et al. arXiv:2103.09119v1",
+        "Bremser–Gomez-Calderon DOI 10.1016/0022-314X(91)90087-R (attempted, theorem not accessed)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior indexed output and depth summaries do not give critical-root multiplicities. The frozen comparison reports a nonexceptional discriminant hypothesis in Theorem 5 and estimates in the divisible-degree case, but that account was not independently verified in the primary text."
+        ],
+        "reasoning": "If the reported condition is correct, y²≠4 mod 3 removes precisely both singular output classes under review. The square-normal-form calculation supplies exact information absent from the inspected summaries. The cited theorem gap is conditional on the inaccessible original, not a verified exclusion.",
+        "searches": [
+          "Resultary 8ac73addd4cb and 24093f02440f, findings and scope",
+          "Bremser–Gomez-Calderon, DOI 10.1016/0022-314X(91)90087-R; frozen RESULT.md lines 92–98"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The identical ranked record a4218d5c4f84 is the frozen record, not independent prior coverage. Related a5c1df557fdd handles ternary nonunit Dickson parameters and a unit-case image formula, not this fiber census."
+        ],
+        "reasoning": "D_3(X,1), the Frobenius-minus-linear expression X³−3X at p=3, and the cubic Dickson map describe the same operation; counting distinct output classes or times to a fixed point does not determine the number of inputs mapping to each target.",
+        "searches": [
+          "Resultary: cubic Dickson polynomial x^3-3x modulo powers of 3 exact fiber counts maximizers",
+          "Resultary: Dickson polynomials Galois rings fibers discriminant exceptional output y^2 equals 4a^d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The established thirteen classes modulo 81 and counts 13·3^(k−4) coincide exactly with the image corollary; the first-hit tables classify iteration depths rather than target multiplicities."
+        ],
+        "reasoning": "These exact indexed data do not specify the distribution within attained targets, much less the parity-dependent unique maximizing target on each sign branch. Credit the coincident image census as known.",
+        "searches": [
+          "Resultary: first-hit depth cubic Dickson map powers of three exact value sets thirteen classes",
+          "Resultary 8ac73addd4cb, 24093f02440f and a5c1df557fdd"
+        ]
+      },
+      "rationale": "The supported distinct result is the exceptional ternary, target-by-target one-step fiber law and its exact sharp maximizers. The thirteen-class image is established coverage, and the same map's depth census is a different invariant. An older primary Galois-ring paper remains a material unverified priority risk, not evidence of either equivalence or absence.",
+      "residual_risks": [
+        "The Galois-ring full text was not accessible; an equivalent exceptional-fiber theorem there or in unindexed work remains possible. No historical priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact image coverage, not full fibers",
+          "evidence": "Thirteen classes modulo 81 for p=3; full fiber distribution outside scope.",
+          "identifier_or_url": "Resultary 8ac73addd4cb",
+          "material_read": "Finding and limitations, offsets 0 and 4700",
+          "method": "Local mirror",
+          "title": "Exact prime-power value sets of a Frobenius-minus-linear polynomial",
+          "trigger": "Same polynomial and image sizes"
+        },
+        {
+          "assessment": "Iteration-depth invariant, not one-step target census",
+          "evidence": "Classifies first-hit times, using factorization relative to fixed points.",
+          "identifier_or_url": "Resultary 24093f02440f",
+          "material_read": "Finding and comparison, offsets 0 and 4550",
+          "method": "Local mirror",
+          "title": "Exact first-hit depth distribution for the cubic Dickson map modulo powers of three",
+          "trigger": "Same map and exact finite-ring census"
+        },
+        {
+          "assessment": "Counts outputs, not fibers",
+          "evidence": "Nonunit main scope and a unit image formula for parameter congruent to 1 mod 3.",
+          "identifier_or_url": "Resultary a5c1df557fdd",
+          "material_read": "Finding and later unit formula, offsets 0 and 5000",
+          "method": "Local mirror",
+          "title": "Exact ternary image and density phases of nonunit cubic Dickson maps",
+          "trigger": "Same prime, cubic Dickson images"
+        },
+        {
+          "assessment": "Excludes p=3",
+          "evidence": "Scope p≥5; the attempted p=3 extension would give 15 values rather than 13 at k=4.",
+          "identifier_or_url": "Resultary 6a065e0bd9a3",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact prime-power value sets of prime-index Dickson polynomials",
+          "trigger": "Closest general fiber law"
+        },
+        {
+          "assessment": "Bounds image sizes, not ring fiber tables",
+          "evidence": "Upper bound for the image-set cardinality of a nonpermutation polynomial function.",
+          "identifier_or_url": "https://arxiv.org/html/2310.20226v1",
+          "material_read": "Theorem 1.1, offset 3450",
+          "method": "Open primary HTML",
+          "title": "Value sets of non-permutation polynomials over the residue class rings of integers",
+          "trigger": "General result over rings"
+        },
+        {
+          "assessment": "Finite fields only in inspected passages",
+          "evidence": "Dickson residue sums and image cardinalities, not congruence-level singular multiplicities.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.09119",
+          "material_read": "Abstract and image statements, offsets 0 and 10000",
+          "method": "Open primary PDF",
+          "title": "Residue sums of Dickson polynomials over finite fields",
+          "trigger": "General Dickson value-set comparison"
+        },
+        {
+          "assessment": "Unresolved access limitation",
+          "evidence": "Search returned only a broad abstract snippet; publisher linking page had no theorem and the cited transcription was denied. The hypothesis quoted in frozen lines 92–98 is not independently confirmed.",
+          "identifier_or_url": "https://doi.org/10.1016/0022-314X(91)90087-R",
+          "material_read": "Only search abstract material; no theorem text was retrieved",
+          "method": "DOI/publisher, Academia transcription and ResearchGate attempts",
+          "title": "Value sets of Dickson polynomials over Galois rings",
+          "trigger": "Direct ring precedent with plausible theorem on fibers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–55, 65–85",
+        "Resultary 8ac73addd4cb and 6a065e0bd9a3"
+      ],
+      "rationale": "The prime equals the degree and both nonzero classes are singular; image-size bounds and the simple branch do not control concentration. The formula gives exact local preimage counts at every precision, including peak sizes of order 3^(k/2) and the alternating locations of those peaks. This is a usable invariant for counting solutions of a natural exceptional congruence or analyzing the pushforward of uniform measure, beyond recomputing a known image size.",
+      "residual_risks": [
+        "Utility is for this exceptional cubic and base prime, not a general theorem about Dickson polynomials."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

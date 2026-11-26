@@ -1,19 +1,21 @@
-# Scientific review: five-letter complete transposition metric
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The distance formula follows from the cycle-count length. The six central Fourier multipliers are reconstructed independently from standard, two-subset, exterior-square, and sign-twisted permutation characters and checked by orthogonality. Exact rational power intervals certify the sign endpoint and the strict elementary bounds for every other block; rational logarithm-series intervals certify the obstruction's strict monotonicity. The unique threshold, strictness, endpoint embedding-rank drop, and every-bandwidth Gaussian equivalence follow. The reproducibility script passes. The argument makes no inference from finite numerical sampling to an infinite real-exponent statement.
+PASS
 
-## Originality — PASS under bounded inspection
+For the ten-transposition word metric, a move changes cycle count by one and each length-l cycle factors into l−1 transpositions. The central powered-distance matrix has the stated nontrivial block coefficients and multiplicities. I independently formed the four exact 120×120 distance-layer matrices: integer-scaled Lagrange projections for the distinct transposition adjacency eigenvalues 10, 5, 2, 0, −2, −5, −10 sum to the identity after unscaling, have ranks 1,16,25,36,25,16,1, and give the stated four layer scalars on each block. The −10 block is the sign direction. Six-term rational logarithm bounds make g(0), g′(0) and the comparison coefficient in g″ strictly positive for g=2^(−p)F′; the independent rational endpoint bound gives F(8/25)>13773/500000 and 2^(8/25)<5/4. Thus F crosses once, and the five other multipliers are strictly negative up to that crossing by the inequalities in RESULT.md:68–78. Double centering gives ranks 119 and 118; the Gaussian on the resulting distinct Euclidean points is strictly positive definite. Beyond the cutoff the sign-vector quadratic form has a negative first-order term as t decreases to zero, while 119e^(−t)<1 suffices for large-t strict positive definiteness. Replay: python /workspace/checks/5.py (NumPy; checks exact integer/rational identities and reports optional sampled spectra). Frozen check.py was read, not executed. No single-bandwidth cutoff above p* is asserted.
 
-Sánchez (arXiv:1108.0451v1) supplies a general finite-metric negative-type method, not the exact five-letter transposition threshold. Ganesan (arXiv:1404.7363v1) studies the same graph's automorphisms, not its powered-distance central Fourier signs. Lafont–Prassidis (arXiv:math/0412219v1) study group/Cayley roundness more broadly. Related published symmetric-group Fourier sampling results concern observation ranks, not negative type of the transposition word metric; a previous geometric-angle metric on the cube rotation group is a different distance. No inspected statement directly implies the explicit threshold, one-dimensional endpoint nullspace and sharp embedding rank together. Residual risk: unindexed exact calculations or a more specialized source not located here.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first five-letter symmetric-group Cayley metric has \(120\) points, and its complete p-negative-type interval is an intrinsic, non-arbitrary metric invariant. The computation identifies the unexpected controlling sign representation, gives the exact nonalgebraically parametrized threshold, exhibits a one-dimensional collapse in optimal squared-Euclidean embeddings, and settles the all-bandwidth stationary Gaussian covariance criterion on this natural finite homogeneous space. This is a full natural finite classification, not a claim about arbitrary larger groups.
+The combination of the exact all-positive-exponent S5 threshold and its simple sign nullspace was not covered by the strongest inspected matches. The proof uses known Fourier and negative-type machinery; the classification, not those tools, is the distinct contribution. This is a bounded decision, not a priority certification.
 
-## Scope and validation
+## value
 
-Proof covers all real \(p>0\) on this one complete transposition metric. The supercritical individual-bandwidth transition location is not classified, and broader symmetric groups are outside scope. No global literature-priority certification is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+All transpositions give the canonical conjugation-invariant word metric on S5. The first spectral crossing and its multiplicity are needed for exact squared-Euclidean embedding ranks and describe which metric powers permit Gaussian kernels at every bandwidth. Determining the controlling sign direction rather than merely bounding one block gives a complete and usable invariant of this natural finite metric.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

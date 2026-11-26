@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:04:10.754495Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For nonconstant X in [a,b], a>0, fix common C50 and p and put t=(lambda/C50)^p, Z=X^p, v=(EX)^p. The bias has the sign of K(t)=E[(v-Z)(1+tv)/(1+tZ)]; K'(t)=E[(v-Z)^2/(1+tZ)^2]>0. This independently verifies strict single crossing. Its endpoint values are v-EZ and v(vE[1/Z]-1); strict power Jensen gives the three p-regimes at zero and the strict positive limit. Strict concavity/convexity up to/from the inflection endpoint bounds the positive root even when the endpoint is an atom. For two equal weights and p=3, I independently cleared the three positive denominators and obtained delta^2 t[t(6mu^4-3mu^2 delta^2+delta^4)-3mu]. In q=delta/mu the denominator 6-3q^2+q^4 decreases strictly from 6 to 4; both sharp limiting bounds are unattained. Replay: python3 /workspace/branches/independent_checks.py 5; it checks the symbolic identities and the numerical example, not the universal sign claims. The frozen checker is numerical, not a proof or an independent audit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For t2>t1 the kernel ratio (1+t1 Z)/(1+t2 Z) decreases strictly in Z, giving the general one-crossing comparison of the positive/negative pieces on either side of v.",
+          "The sign at zero is decided by power Jensen and the sign at infinity by reciprocal-power Jensen. Thus general kernel coverage plus standard endpoint arguments does supply the qualitative classification."
+        ],
+        "reasoning": "The general sign argument is credited, not used to claim a new transform theorem. It does not supply the cubic threshold or determine its exact monotonicity and sharp dimensionless bounds as contrast varies.",
+        "searches": [
+          "https://doi.org/10.1016/j.jmaa.2015.03.002",
+          "RESULT.md lines 94–102",
+          "Resultary hits 4ea127307d38, d4063f7964bc"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md and AUDIT.json",
+        "Resultary c953416f86af (identical), 4ea127307d38 and d4063f7964bc (distinct summaries)",
+        "P1295.pdf; doi:10.1061/(ASCE)IR.1943-4774.0000587; doi:10.1371/journal.pone.0151782 (frozen comparisons and attempted primary inspection)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The required exact statement is lambda_*mu/C50=[3/(6-3q^2+q^4)]^(1/3), q=delta/mu, and the strict endpoint limits; one-crossing count alone cannot determine any of these quantities.",
+          "The accessible distinct catalogue summaries assert different spatial averaging effects; the exact fitted salinity law and general variation-diminishing principle are acknowledged antecedents."
+        ],
+        "reasoning": "The evidence supports the exact model-specific quantitative result, not historical priority for Jensen-bias sign changes in general. Same-day distinct records were compared for explanatory scope, not excluded by date.",
+        "searches": [
+          "Resultary 4ea127307d38 and d4063f7964bc",
+          "doi:10.1061/(ASCE)IR.1943-4774.0000587",
+          "doi:10.1371/journal.pone.0151782 / PMC4824533",
+          "Frozen RESULT.md lines 94–110 and AUDIT.json"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sign problem is equivalently the moving comparison of a reciprocal transform of X^p to that of (EX)^p. A theorem on this transform can imply the qualitative result even without salinity language.",
+          "The Resultary hits on composite runoff bias and van Genuchten–Mualem conductivity concern a different modeled input-output law; their summaries give no equality of their averaging problems with this model."
+        ],
+        "reasoning": "Changing units absorbs C50 but preserves the threshold as a function of salinity contrast. An empirical local response fit is not this spatial Jensen-difference calculation.",
+        "searches": [
+          "Resultary: exact Jensen aggregation-bias reversal for salinity Hill yield",
+          "RESULT.md lines 41–87: reciprocal kernel and equal-area cubic specialization",
+          "van Genuchten–Gupta 1993, P1295.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching index entry c953416f86af is the assigned record itself. The distinct catalogue summaries concern runoff or conductivity and give no salinity contrast formula. The frozen comparison describes calibrated response parameters, not an exact bias table."
+        ],
+        "reasoning": "A calibration of C50 or p does not give a crossover law across all symmetric contrasts 0<delta/mu<1. Lack of accessible indexing is not evidence of exhaustive absence.",
+        "searches": [
+          "Resultary: salinity Jensen bias unique crossing and equal-area cubic threshold",
+          "van Genuchten–Gupta 1993 cited response fit",
+          "Alzraiee–Gates–Garcia doi:10.1061/(ASCE)IR.1943-4774.0000587"
+        ]
+      },
+      "rationale": "Best-knowledge pass for the model-specific synthesis and the exact cubic contrast-dependent switch. The Hill response itself and the general variation-diminishing mechanism are not distinct contributions. The latter, together with the two endpoint Jensen signs, already yields the qualitative crossover under the stated assumptions. Neither the closest available catalogue statements nor the accessible evidence for the primary literature supplies the symmetric cubic salinity threshold with its sharp contrast dependence. Priority is bounded by the access limitations below.",
+      "residual_risks": [
+        "Independent OA retrieval did not yield primary passages for the foundational and closest applied papers, especially Alzraiee et al. A prior formula in applied literature is not excluded.",
+        "An indexed or unindexed general reciprocal-transform or averaging result might cover more than the already credited qualitative mechanism. Same-day index dates do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit the crop response and cubic choice; whole-document noncoverage not asserted",
+          "evidence": [
+            "Frozen comparison identifies local relative yield G_p(c)=1/(1+(c/C50)^p) and p=3 as a useful common exponent."
+          ],
+          "identifier_or_url": "https://www.ars.usda.gov/arsuserfiles/20361500/pdf_pubs/P1295.pdf",
+          "material_read": "Frozen RESULT.md 94–106 and source package's account; no newly read primary page",
+          "method": "Author-hosted OA PDF query; bounded retrieval timed out",
+          "title": "A Reassessment of the Crop Tolerance Response Function",
+          "trigger": "Foundational shared response law and cubic exponent"
+        },
+        {
+          "assessment": "Material overlap is possible; no full-body inference",
+          "evidence": [
+            "The frozen account identifies stochastic hydrosalinity and field yield modeling, not a quoted exact multiplier/contrast threshold."
+          ],
+          "identifier_or_url": "https://doi.org/10.1061/(ASCE)IR.1943-4774.0000587",
+          "material_read": "Frozen RESULT.md 94–107 and frozen review's abstract-level characterization only",
+          "method": "DOI OA retrieval attempted; timed out",
+          "title": "Modeling Subsurface Heterogeneity of Irrigated and Drained Fields. II",
+          "trigger": "Closest cited application: heterogeneous root-zone salinity and crop yield"
+        },
+        {
+          "assessment": "Cited application context; no independently inspected primary theorem",
+          "evidence": [
+            "Frozen RESULT.md 96 describes crop-model aggregation studies, distinct from the analytic Hill multiplier model."
+          ],
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0151782",
+          "material_read": "Frozen cited comparison only",
+          "method": "OA PLOS and identified PMC4824533 alternate attempted; timed out",
+          "title": "Impact of Spatial Soil and Climate Input Data Aggregation on Regional Yield Simulations",
+          "trigger": "Observed spatial crop-model aggregation errors"
+        },
+        {
+          "assessment": "Strong structural analogue, no direct coverage shown",
+          "evidence": [
+            "The summary varies storm depth in classical soil curve-number runoff, not salinity scale in a crop Hill response."
+          ],
+          "identifier_or_url": "Resultary 4ea127307d38",
+          "material_read": "Indexed finding summary",
+          "method": "Local Resultary search; exact mirrored Finding request timed out",
+          "title": "A universal monotonicity theorem and unique composite-bias reversal",
+          "trigger": "Same structure of aggregation-bias reversal"
+        },
+        {
+          "assessment": "Distinct modeled variable and response, not shown to imply the cubic salinity formula",
+          "evidence": [
+            "The summary concerns averaging soil conductivity, not crop relative yield as a function of salinity."
+          ],
+          "identifier_or_url": "Resultary d4063f7964bc",
+          "material_read": "Indexed finding summary",
+          "method": "Local Resultary search and attempted mirrored full text",
+          "title": "One-switch finite-amplitude averaging law for van Genuchten–Mualem conductivity",
+          "trigger": "Related van Genuchten averaging problem with one switch"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a common calibrated response, the comparison decides whether a mean-input prediction overestimates or underestimates spatial mean yield. The precise cubic threshold gives a usable contrast-dependent rule, not just the qualitative possibility of reversal, and the strict limiting bounds quantify how far spread can move the switch. This does not establish field effects for nonproportional scaling, variable crop response, unequal potential yield, or coupled salinity transport.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

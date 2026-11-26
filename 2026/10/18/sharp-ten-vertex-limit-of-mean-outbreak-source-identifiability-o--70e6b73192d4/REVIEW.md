@@ -1,11 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The unique-path identity reconstructs the mean as the classical distance-profile polynomial with exact quantifiers. The inductive rooted-tree canonical representation covers every rooted tree on at most ten vertices, and minimizing over roots gives complete free-tree and source-orbit classes; 719 rooted and 106 unrooted tree types occur at order ten. All nonautomorphic equal-profile pairs are exhaustively found, and direct 512-mask enumeration proves both variance differences. Exact replayable code and certificate are embedded. The finite proof makes no assertion above order ten.
+## correctness
 
-**Originality — PASS, subject to literature risk.** The mean/decay-centrality identity and the epidemic/percolation mapping are credited, not claimed as new. The specified novelty is the smallest within-one-known-tree nonautomorphic source collision, enumeration of the only two minimal collisions, and the single fixed-parameter variance measurement separating them. Full technical treatment of 2018 decay centrality was read and concerns ranking stability and distance-degree regularity, not this classification. Huilgol's survey discusses other distance-degree reconstruction and nonisomorphic-tree questions; Newman's outbreak work and Shah–Zaman's rumor-source work have different conclusions. The full 2026 decay-unstable-tree paper was inaccessible, so overlapping unpublished or differently phrased classifications remain a risk and independent bibliographic review is needed.
+PASS
 
-**Value — PASS.** Source inferability from a whole mean outbreak curve is a natural epidemiological information question, with vertex symmetry treated exactly. The sharp first failure is nontrivial because the full continuum of transmissibilities contains every distance profile coefficient; a single variance measurement then restores identification in the entire smallest ambiguous range. The finite cutoff and the precise two exceptions are structurally motivated, not a random narrow parameter slice. It is not a claim of general network identifiability or a promise of finite-noise statistical performance.
+In a tree each target is reached precisely when its unique source-to-target path is open. Summing the path probabilities including the empty path gives the stated distance-histogram polynomial, even at p=0 and p=1. Polynomial identity on the interval is equivalent to matching all coefficients. Rooted isomorphism of two markings in one tree is exactly membership in one automorphism orbit. The supplied rooted-code construction is exhaustive by the multiset decomposition at the root, and minimizing that code over roots gives a complete free-tree invariant. The independent calculation uses leaf extensions (deleting a leaf gives a predecessor of every nontrivial tree), canonical one- or two-center decompositions, and rooted shapes for the orbits. It reproduces all order totals, no colliding orbit pairs up to nine, and exactly two at ten in different free-tree classes. Independently of the package's mask enumeration, multiplying integer component-size polynomials over child branches reproduces both exact laws and moments: first-moment numerators 1488 and 1920, respectively, and second-moment numerators (6032,6116) and (9120,9088) in the labelled witness order, all over 512. Equal means leave signed variance gaps -21/128 and +1/16 in that order. One variance measurement therefore separates exactly the cases not already separated by the curve.
 
-**Restrictions.** Known simple trees with at most ten vertices; homogeneous independently retained undirected contacts, exact observation, no statement for larger trees, heterogeneous models or general correlated SIR.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distance-polynomial identity and exponential attenuation notion are known. The supported distinct contribution is the first within-tree collision order, its complete two-pair classification, and their separation by the single second statistic, not the underlying invariant. The strongest available comparisons establish related but different statements; this is a bounded best-of-knowledge assessment, not historical-priority certification.
+
+## value
+
+PASS
+
+The problem asks what a standard graph invariant can recover up to unavoidable symmetry in a fixed graph. The least failure order, complete list there and exact rescue by one second-moment statistic give reusable minimal obstructions and benchmarks for comparing graph invariants. The coalescence is equality of the whole polynomial, not a single accidental numeric tie or a repeat of tree-count tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

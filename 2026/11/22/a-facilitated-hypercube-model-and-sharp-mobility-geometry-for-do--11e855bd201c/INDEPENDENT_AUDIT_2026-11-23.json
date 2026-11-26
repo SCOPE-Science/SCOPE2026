@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:53:34.056550Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For first value k, every smaller value must precede every larger value to avoid 231 and the smaller values must be increasing to avoid 321. This proves the direct-sum decomposition with blocks (a,1,...,a-1); cross-block triples cannot realize the two forbidden patterns because later blocks have larger values. If one swaps the first two positions of a nonsingleton block, the result is the split [1,a-1]; a swap later in a block creates a descent under the block maximum, hence 321. At a block boundary, a left singleton gives the inverse merge, and otherwise the maxima of the two blocks plus the left block's moved last value exhibit 231. Thus precisely those cut bits immediately after a previous cut (with the artificial cut x_0=1) can change. The degree is 1+the number of ones before the last bit, giving the stated multiplicities, edge count and leaf words, including n=2. From any x to y, set the first m-1 bits to one from left to right, set the last bit to target, then restore predecessors in reverse order. This costs at most 2m-1. Between the two leaves, to flip the final bit every predecessor must have been one, so each of these initially and finally zero bits costs two flips. The reflected list has a legal bridge because its prior-level end word has a final one, and the leaves forbid a Hamilton cycle when n>=3. Independent finite replay through n=8 rejected a permutation if any third entry in a triple was below both earlier entries. Generated all legal adjacent permutations directly and extracted prefix cuts by max(p[:i])=i, comparing every adjacency. BFS in these permutation graphs gave vertex counts (2,4,8,16,32,64,128), edge counts (1,3,8,20,48,112,256), diameters (1,3,5,7,9,11,13), and the expected binomial degree rows. Also checked the reflected words as i XOR (i>>1), least significant bit first, for m=1,...,13. The frozen verifier was inspected as text; the all-n justification is the direct proof, not these checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The composition representation is prior. Barcucci et al. give a broader size-bounded block family, an inversion-array representation, and the adjacent-position transition at joins in the particular listing; choose k>=n to make the extra length-(k+1) pattern restriction vacuous.",
+          "Reversible pebbling sources include uncapped topological pebb ling/cleanup giving a linear upper bound for the empty-to-sink traversal of a tree; other results optimize time at minimum space. The configuration objective in the latter is not the diameter of the uncapped graph."
+        ],
+        "reasoning": "An all-words representation or a spanning path does not specify all edges. The standard pebbling traversal is closely related to the distance witness, but an empty-to-sink bound or space-optimal growth exponent is not an all-pairs diameter bound on this graph.",
+        "searches": [
+          "Janson arXiv:1804.06071, Section 6, Proposition 6.1 as identified in the source",
+          "Barcucci–Bernini–Pinzani arXiv:2204.10069, §§4–5",
+          "arXiv:1604.05510, reversible pebble game definition and linear-time traversal argument",
+          "arXiv:2609.15062v1, space-optimal reversible pebbling on chains"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2204.10069 §§4–5",
+        "arXiv:1804.06071",
+        "Chung–Diaconis–Graham, Combinatorics for the East model",
+        "arXiv:1604.05510",
+        "arXiv:2609.15062v1 (targeted chain-pebbling comparison)",
+        "Resultary related reconfiguration results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 5.2 with k>=n and reverse-complement already proves the existence of the Hamilton path. With only two leaves its endpoints are then forced. Reflected Gray code itself is standard.",
+          "The prior block construction is sufficient to derive the move lemma by a separate split/merge analysis. The binomial degree law is immediate once the East rule is identified; neither novelty of the abstract East move nor an independent new binomial identity is claimed.",
+          "The diameter additionally needs a uniform bound between arbitrary endpoints and a tight pair. Neither a spanning Gray code nor a duration/space bound for the specific pebble-from-empty task supplies that conclusion by parameter substitution."
+        ],
+        "reasoning": "Credit the directly transported prior result, and credit only the all-adjacency identification and sharp reconfiguration calculation for the target permutation graph. In the inspected works the latter requires the additional move and metric arguments.",
+        "searches": [
+          "Barcucci et al. Proposition 5.1, block description and Proposition 5.2",
+          "Combinatorics for the East model, abstract and §1",
+          "Pebbling meets coloring: Reversible pebble game on trees, definitions and linear-time case"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The bit graph is precisely the bounded-length East configuration graph with a permanently occupied predecessor and no particle-number cap. It is also the uncapped reversible pebble configuration graph of a line DAG (source can toggle freely).",
+          "For rho(p)_i=n+1-p_{n+1-i}, the forbidden set {321,312} becomes {321,231}; a swap of positions j,j+1 becomes a swap of positions n-j,n-j+1. Thus the earlier adjacent-position Gray code is for an isomorphic graph, not merely a value-swap relative.",
+          "Chung–Diaconis–Graham already use the same transition constraint under an occupancy cap but study bounded-resource reachability and counts."
+        ],
+        "reasoning": "The correct models and symmetries separate known inputs and a known Hamiltonicity corollary from the all-edges permutation-to-East correspondence and the diameter and degree calculations. Occupancy-capped reachability is not the uncapped all-pairs metric.",
+        "searches": [
+          "Resultary: East model facilitated hypercube diameter degree distribution adjacent swaps 231 321 avoiding permutations",
+          "Web: East model configuration graph exact graph distance diameter 2L-1 fixed boundary spin flip 231 321 avoiding permutations adjacent transpositions Gray code position",
+          "Web: reversible pebbling line unlimited pebbles minimum number of moves 2n-1 East model shortest path diameter configuration graph finite interval"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching Resultary hit is the frozen record; related records concern other swap or reconfiguration graphs. Chung et al.'s tabulated |V(n)| is indexed by allowed occupied-site count on the half-line, not the length and degree distribution of the uncapped finite graph.",
+          "Barcucci et al.'s listing of permutations constructs a spanning path, not a table of degree multiplicities or all-pairs distances."
+        ],
+        "reasoning": "An enumerative coincidence or a Gray list does not establish the asserted graph invariants. No independently inspected table matched the whole induced graph geometry.",
+        "searches": [
+          "Resultary exact geometry and East graph query",
+          "Web: 231 321 Gray code adjacent transposition reconfiguration permutation graph cut composition / East model graph shortest paths diameter",
+          "Chung–Diaconis–Graham §1 and Table of |V(n)|"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for identifying all legal adjacencies of the permutation graph with one-sided facilitation and computing its full local degree law and sharp all-pairs diameter. The permutations' composition decomposition, the East configuration rule itself, and existence of an adjacent-position Hamilton path are prior. In particular, the frozen prior-work note is incomplete: reverse-complement, unlike inversion, preserves position adjacency and transports Barcucci–Bernini–Pinzani's Hamilton path to this graph. That corollary is not credited as original here; it is not the basis of the frozen originality assessment, which rests on the full mobility geometry.",
+      "residual_risks": [
+        "The diameter or degree law may have appeared in an unindexed unrestricted reversible pebbling or East metric treatment; the cited capped treatments do not settle that priority.",
+        "The priority correction for Hamilton path existence should accompany any future description; neither the block decomposition nor reflected binary Gray code is new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of Hamilton path existence after reverse-complement, as well as a known block representation; no all-pairs metric theorem in the inspected passages",
+          "evidence": [
+            "Prop. 5.2 explicitly swaps the block-boundary consecutive entries 1,j to j,1.",
+            "The third forbidden pattern is vacuous when its length exceeds n."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2204.10069",
+          "material_read": "Introduction and §§4–5, including (15)–(18) and Propositions 5.1 and 5.2 with the positional join proof",
+          "method": "Open arXiv PDF extraction and ar5iv converted text",
+          "title": "Strings from linear recurrences and permutations: a Gray code",
+          "trigger": "A closely related avoidance class and exact adjacent-position Gray code"
+        },
+        {
+          "assessment": "The block model is credited as established, not used as originality evidence",
+          "evidence": [
+            "§2 distinguishes inversion, reversal and complement and defines unique decomposition into indecomposable blocks."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1804.06071",
+          "material_read": "Opening definitions, symmetry and direct-sum conventions; the attribution to §6 Proposition 6.1 agrees with the frozen package",
+          "method": "Open arXiv PDF text inspection and frozen source attribution",
+          "title": "Patterns in random permutations avoiding some sets of multiple patterns",
+          "trigger": "Same avoidance set and block model"
+        },
+        {
+          "assessment": "Exact prior local facilitation rule; studied resource-constrained quantities differ from full finite-length all-pairs geometry",
+          "evidence": [
+            "A site can change iff its predecessor is occupied, with site zero occupied permanently.",
+            "G(n) is defined with at most n occupied sites on the positive integers."
+          ],
+          "identifier_or_url": "https://cseweb.ucsd.edu/~fan/research/papers/east_model.pdf",
+          "material_read": "Abstract, §1 graph definition and §2 reachability facts",
+          "method": "Open author-hosted PDF text inspection",
+          "title": "Combinatorics for the East model",
+          "trigger": "Equivalent one-sided constraint and graph in another field"
+        },
+        {
+          "assessment": "Closely related linear traversal from empty to a sink; no exact all-pairs formula found in those passages",
+          "evidence": [
+            "Predecessors must all be occupied for insertion and deletion; the unrestricted traversal pebbles and unpebbles each node at most once."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1604.05510",
+          "material_read": "Reversible pebbling definition and targeted unrestricted linear-time strategy within the time-space tradeoff proof",
+          "method": "Open ar5iv text inspection",
+          "title": "Pebbling meets coloring: Reversible pebble game on trees",
+          "trigger": "Potential stronger generalization in DAG terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The mobility law concerns the full natural induced graph on a classical doubly restricted class. It gives direct legal-move recognition, the exact distribution of available moves, and a worst-case optimal route length, with the two least-mobile states furnishing a tight pair. A prior adjacent-position enumeration by Hamilton path cannot answer these shortest-path or local-mobility questions. This is an exact structural reconfiguration result, not a stochastic East mixing claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

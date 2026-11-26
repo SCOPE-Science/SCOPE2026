@@ -1,19 +1,21 @@
-# Review of the circular Bessel covariance locking theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact shifted ratio reduces to two logarithmic increments. The inequalities for the leading coordinate follow from the sign of \(2n^2-2\lambda-1\), and those for coordinate sums follow from the exact rational derivative of \(F(\sqrt y)\), the polynomial \(295-140\lambda-30\lambda^2\), and two-coordinate exponential comparison. Both endpoint cases are included. Maximality uses distinct large-\(s\) and small-\(s\) mechanisms; it is a claim about all positive orders, not just continuous covariance orders. The compact-group Fourier criterion and a consecutive-frequency Vandermonde argument establish the covariance statement and boundary strictness. The accompanying checker supplies only bounded corroboration (9,329 assertions).
+PASS
 
-## Originality
+Reconstructed RESULT.md lines 47–109. Set u_n=log[(lambda+n^2)/(lambda+(n-1)^2)] and F_n=exp(u_n-u_{n+1}). For two exponential terms with one positive and one negative exponent, increasing both the positive exponent and the sum of exponents gives domination for every s>0: any lost negative-branch increment is compensated over an interval where the derivative is strictly larger. On the stated interval F_1<=1<F_2, F_n>1 for n>=2, and F(y)=(lambda+y)^2/[(lambda+y+1)^2-4y] decreases for y>=9 (derivative sign 3lambda+1-y). Its n=2 versus n=3 comparison has numerator 295-140lambda-30lambda^2. This gives the required two inequalities and strictness even at both endpoints: the F inequality is strict against mode 1 at lambda=1/2 and the positive exponent is strict against mode 3 at lambda=lambda_*. AM–GM gives R_2>1>R_0. The leading exponential for lambda<1/2 and the derivative at s=0 for lambda>lambda_* prove necessity. For s>1/2, absolute summability and Fourier positivity give w_n=a_|n|(1+bR_|n|) and hence the sharp cutoff, -2/3 at lambda=s=1. At the boundary the consecutive frequencies starting at 3 give an invertible Vandermonde system for any finite set of distinct points, while the missing second harmonic precludes uniform density of the RKHS. With strictly positive weights the trigonometric polynomials are in the RKHS. This does not assert maximality on the restricted order range s>1/2. CHECK.py was inspected, not executed; its bounded numerical and rational tests are not an infinite certificate. VERIFICATION.md records no independent, expert or Lean verification in the frozen evidence.
 
-PASS on a bounded best-knowledge comparison, not independent certification. The 2019 Bachmayr–Graham–Nguyen–Scheichl article addresses periodization and sampling of Matérn spectra, while Borovitskiy–Terenin–Mostowsky–Deisenroth (2020) supplies the manifold Matérn spectral model (Theorem 5). Their inspected arguments do not give a signed cosine modulation cutoff or a maximal all-smoothness mode-locking interval. A closest published 2026 circle-modulation theorem was examined in full: it concerns a *geodesic exponential* whose Fourier spectrum has parity factors, and provides a different active-mode staircase, not the stated Bessel-power interval. Existing Poisson and fractional exponential analogues use different spectral sequences; their formulas do not imply this result by a parameter substitution. The possibility of a classical unpublished or unindexed equivalent remains.
+## originality
 
-## Value
+PASS
 
-PASS. For a natural family of periodic Matérn/Bessel covariances, the theorem identifies an entire sharp parameter interval in which one **interior** harmonic is the unique positivity bottleneck for every smoothness order. The two ends have different mechanisms (large-order first-harmonic competition and small-order third-harmonic competition); this is structural frequency selection, not a numerical threshold at one arbitrarily chosen parameter. Its consequence is a closed-form admissible range for signed covariance modulation and an exactly characterized spectral notch. The interval's maximality is not asserted if only \(s>1/2\) is allowed.
+The generic Fourier positivity reduction and the Matérn spectral family are known. The supported distinct result is the exact all-positive-orders parameter interval and unique active mode for the Bessel-power shifted-ratio family, with its corresponding threshold in the continuous-kernel regime. Neither the closest circle modulation records nor the inspected Matérn theorems imply that comparison of all modes and both endpoint obstructions.
 
-## Closest literature and limitations
+## value
 
-Primary sources: arXiv:1905.13522 (first posted 2019-05-31), arXiv:2006.10160 (first posted 2020-06-17); a published 2026 circle exponential modulation theorem. The proof is complete for the stated analytical claims, but there is no exhaustive search of older books and inaccessible literature. No continuous kernel is asserted when \(s\le1/2\); no full outside-interval mode diagram is claimed. The result has not undergone independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The mode selection has a concrete use: it determines the largest admissible negative cosine modulation and the exact spectral defect in a standard circle covariance family. The exact interval simultaneously valid for all positive orders, with distinct failure mechanisms on its two sides, is an informative classification not supplied by the generic Fourier test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

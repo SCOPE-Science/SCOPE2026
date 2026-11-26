@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:36:42.905477Z",
+  "axes": {
+    "correctness": {
+      "rationale": "One triangle has probability 1/4 of being cyclic even conditional on the direction of any one of its edges. Distinct triangles share at most one edge, so all pairs are independent. Among three triangles, if one shares at most one edge with the union of the other two, it is independent of their pair by the same conditioning, giving the full joint law. Otherwise each pair shares a different edge. Starting with abc and abd, the third must contain ac and ad or bc and bd, hence is acd or bcd. The three shared edges are spokes at one vertex. Simultaneous cyclicity would require each pair of spokes to have opposite directions at that vertex, which is impossible. This gives centered mixed moment -1/64 in the exceptional case by pair independence. The all-equal term is 3/32, the two-equal terms vanish, and each exceptional unordered triple contributes six times -1/64. There are exactly four such triples per K4 and they determine the clique uniquely. Mean, variance and inversion for the clique count follow with the stated coefficients. Empty and short families and arbitrary fixed signed weights are covered; no assumption of biased or dependent edge sampling is used. The accompanying finite checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SCOPE-exact-orthogonal-decomposition-of-three-and-four-cycle-counts-in--3b4b1b16fef5 gives complete-tournament triangle mean/variance and an orthogonal decomposition for four-cycle counts.",
+          "Reiher–Rödl–Schacht Example 1.4 says four tournament vertices span at most two cyclic triangles."
+        ],
+        "reasoning": "The local obstruction indeed covers the exceptional all-one probability. It does not account for arbitrary nonexceptional overlaps. A complete-host result with arbitrary deterministic triangle weights would restrict to a subgraph by zeroing weights, but the inspected complete-host statements are aggregate or lower-order results and do not give such a result.",
+        "searches": [
+          "Resultary: orthogonal decomposition of three- and four-cycle counts in random tournaments and arbitrary-host motif dependence",
+          "Reiher–Rödl–Schacht Example 1.4; Moon Chapter 6"
+        ]
+      },
+      "checked_sources": [
+        "Moon, Topics on Tournaments, Chapter 6 (Moran credit)",
+        "Reiher–Rödl–Schacht, Example 1.4",
+        "Resultary mirror: 6837d93345ce, db02bd6fe986, 3b4b1b16fef5 and identical e4a9fc29fb2b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen law evaluates to the historical expression on K_n since 4 binom(n,4)=(n−3) binom(n,3). A single complete-host aggregate is not a pointwise weighted tensor. The known tetrahedral obstruction covers only triples of faces; the remaining independence is established by conditioning on their shared edges and ruling out every other possible incidence exception."
+        ],
+        "reasoning": "Credit the historical coefficient and exceptional obstruction. The proof of the converse support statement is substantive: it identifies every joint law of three distinct indicators, not merely another expression for the already known complete-host sum.",
+        "searches": [
+          "Moon Chapter 6 Exercise 3 vs arbitrary-host weighted specialization; Reiher–Rödl–Schacht Example 1.4 vs all-triple independence criterion",
+          "Resultary mirror statements 6837d93345ce and db02bd6fe986"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Moon Chapter 6 Exercise 3 gives the aggregate complete-tournament moment -3 binom(n,3)(n−4)/32. SCOPE-four-cliques-from-the-fourth-fluctuation-of-balanced-triangles-u--6837d93345ce gives a tetrahedral four-face rule for balanced edge-sign triangles and a fourth cumulant, not the third cyclic-orientation moment.",
+          "SCOPE-four-cycle-orientation-dependence-is-controlled-by-two-graph-mot--db02bd6fe986 treats covariance support for directed four-cycles and gives a three-wise-dependence example on the cube."
+        ],
+        "reasoning": "The aggregate tournament moment is a specialization of the target; sign balance is a different polynomial statistic and changes the parity condition. The four-cycle dependence rule neither restricts nor specializes to triangle triples.",
+        "searches": [
+          "Resultary: cyclic triangle three-wise independence; tetrahedral third cumulant and clique recovery in random orientations",
+          "Primary-literature search: random orientations and the mixed third cyclic-triangle moment"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact indexed SCOPE-a-tetrahedral-third-cumulant-law-for-cyclic-triangles-under-rand--e4a9fc29fb2b, theorem at character offset 196, is the identical frozen record. The distinct same-day 6837d93345ce record uses signed triangle balance and fourth order."
+        ],
+        "reasoning": "A finite graph-orientation table would not cover the theorem for every finite simple host and arbitrary weights. The meaningful exact-record comparison identified the assigned record itself and separate motif laws, not an independent exact occurrence of the stated theorem.",
+        "searches": [
+          "Resultary: exact tetrahedral third-cumulant law for cyclic triangles; four-clique recovery from triangle fluctuations"
+        ]
+      },
+      "rationale": "Pass is limited to the arbitrary-host classification of three cyclic-triangle indicators and its weighted third-cumulant consequence. The complete-tournament moment and the local four-vertex obstruction are prior, and are not credited as originality. Neither supplies the independent law for every nonexceptional triple or the arbitrary-weight formula. Related same-day findings were compared as distinct records without assuming ordering.",
+      "residual_risks": [
+        "Bounded comparison, not exhaustive historical priority: an older orientation-statistics or dependency-graph formulation could state the same mixed law. The date shared by neighboring published records does not establish their relative priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the complete-graph aggregate and credits Moran (1947); does not state the arbitrary-host weighted or joint-indicator law.",
+          "evidence": [
+            "The complete-tournament third centered moment is −3 binom(n,3)(n−4)/32."
+          ],
+          "identifier_or_url": "https://ftp.gwdg.de/pub/misc/gutenberg/4/2/8/3/42833/42833-pdf.pdf",
+          "material_read": "PDF p. 18, Chapter 6 Exercise 3; extracted passage at offset 39000",
+          "method": "Open digital-edition primary PDF, bounded passage",
+          "title": "Topics on Tournaments",
+          "trigger": "Historical exact third centered moment for the same random orientation model on a complete host"
+        },
+        {
+          "assessment": "Covers the exceptional four-vertex obstruction, not random full joint laws outside it.",
+          "evidence": [
+            "Any four tournament vertices span at most two cyclic triangles."
+          ],
+          "identifier_or_url": "https://www.math.uni-hamburg.de/personen/reiher/artikel/3edges.pdf",
+          "material_read": "Example 1.4, PDF p. 4, extracted passage at offset 9140",
+          "method": "Open primary PDF, bounded relevant passage",
+          "title": "On a generalisation of Mantel’s theorem to uniformly dense hypergraphs",
+          "trigger": "Directly relevant cyclic-triangle construction from tournaments"
+        },
+        {
+          "assessment": "Distinct observables or orders; none of these stated laws covers the asserted mixed-triple support for cyclic triangle indicators on an arbitrary host.",
+          "evidence": [
+            "Signed triangle balance at order four; directed four-cycle covariance on K4 and K2,3; complete tournament mean and variance plus four-cycle decomposition."
+          ],
+          "identifier_or_url": "SCOPE-four-cliques-from-the-fourth-fluctuation-of-balanced-triangles-u--6837d93345ce; SCOPE-four-cycle-orientation-dependence-is-controlled-by-two-graph-mot--db02bd6fe986; SCOPE-exact-orthogonal-decomposition-of-three-and-four-cycle-counts-in--3b4b1b16fef5",
+          "material_read": "Match findings and hypotheses, mirror offsets 258, 524 and 0 respectively",
+          "method": "Resultary discovery and local published record mirror",
+          "title": "Four-clique recovery from balanced-triangle fluctuations; four-cycle orientation dependence; orthogonal tournament cycle counts",
+          "trigger": "Strongest indexed structural and model overlaps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives a complete structural explanation of where three-way dependence first appears in a natural family of pairwise independent indicators. The same local obstruction has a quantitative weighted law and recovers K4 count from two scalar cumulants, with no host regularity or asymptotic hypothesis. It is not a claim about inference from a bounded sample or about higher joint laws.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

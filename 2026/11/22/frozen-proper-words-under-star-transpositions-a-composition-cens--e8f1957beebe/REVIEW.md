@@ -1,12 +1,21 @@
-# Scientific review: frozen proper words under star transpositions
+# Independent mathematical audit
 
-## Correctness — PASS
-For a proper word whose first two letters are distinct \(a,b\), a swap of positions zero and one is legal exactly when the third letter is not \(a\). Once the necessary prefix \(aba\) is fixed, every other star swap has a three-condition local test. That test yields a unique, exhaustive grammar with complete inter-\(a\) blocks of lengths two, three or four and a tail of at most two positions. The product and geometric-series enumeration is exact at each composition; specializing all weights proves the cubic rational series. The bound \(n\le4k-3\) follows from the maximum complete-block length and terminal-tail length and has a matching explicit construction. For equal compositions, the length inequality rules out four or more symbols, while a ternary all-length construction proves the remaining positive cases. Exact coefficient extraction reduces the balanced ternary count to \(6\binom{2m-3}{m}\). The included checker directly tests the graph condition against the grammar's complete composition histogram in 26 alphabet/length cases, plus the recurrence and balanced examples. It is corroboration rather than an all-length proof.
+## correctness
 
-## Originality — PASS, qualified
-The relevant star-transposition literature of Gregor–Merino–Mütze, arXiv:2108.07465, addresses fixed-composition words without an adjacent-inequality condition. Its Gray-code and graph results cannot determine isolated vertices introduced by this induced constraint. Fuchs et al., arXiv:2511.06473, analyze proper colorings but permit exchanges at adjacent positions on a path, a different reconfiguration graph. A related existing exact degree spectrum for proper words also uses adjacent swaps; explicit examples distinguish its zero-degree condition from the present star-swap condition. Searches of the published indexed findings and relevant literature did not reveal an all-composition star-frozen census, the cubic rational series, or the sharp balanced alphabet cutoff. Non-detection is not proof of universal novelty; an equivalent result elsewhere or under different terminology remains possible. The public source comparisons are detailed in AUDIT.json.
+PASS
 
-## Value — PASS
-This is a natural obstruction to Gray-code generation of fixed-content, proper words. It supplies the *complete composition-dependent population* of immovable vertices, a simple weighted-tribonacci law across alphabet sizes, a sharp frequency bound, and a nontrivial balanced transition: every ternary equal-multiplicity class from three copies onward has exactly \(6\binom{2m-3}{m}\) isolated configurations, whereas all equal-multiplicity classes with at least four symbols have none. These are concrete necessary-condition and counting results for constrained generation, not merely a reformulation of unrestricted star-swap connectivity. Their limitations are genuine: no full component census, Hamiltonicity implication for the four-symbol case, or external independent validation is claimed.
+With initial letters a,b, the position-1 swap is legal exactly when position 2 is not a, so a frozen word starts aba. At any other position only changing the first position and inserting a at its destination can break properness. A letter different from a,b is therefore immovable exactly when it touches an a, including at the right boundary where only one neighbor exists. Between consecutive a's only the two boundary letters can avoid this constraint; interior letters must all be b. This yields blocks of one or two proper non-a letters or a length-three c-b-d block with c,d outside {a,b}; the only length-two tail is c-b and any longer tail would force adjacent b's. Cutting at the a's is unique, so the prefix, geometric block series and tail multiply without overcounting. On equal indeterminates, their weights give the quartic denominator and the common factor (1+z); the cubic recurrence is primitive and its characteristic polynomial evaluates negatively at 1 and positively at q−1 (there it equals (q−2)^3). Thus the positive growth root is strictly below the unrestricted proper-word growth. For k occurrences of a, the maximum length is 3+4(k−2)+2, achieved by aba(cbca)^(k−2)cb. This excludes equal frequencies for q≥4 and the ternary m≤2 cases. Independently, a balanced ternary word with m≥2 needs m−1 further b's after aba; hence every one of its m−2 blocks and its tail contains exactly one b. Each block has two independent optional c slots around its b and the tail has one before its b. Choosing m of these 2m−3 slots and the six ordered initial letter pairs gives exactly 6 binomial(2m−3,m), positive iff m≥3. This verifies the threshold without finite extrapolation. The supplied script was inspected, not executed; the all-length proof is analytic.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The distinct result is the composition-refined frozen census for the combination of a proper linear word domain and first-position star swaps, including the exact balanced ternary count. The nearest indexed records and literature cover a different move, a different domain, or both.
+
+## value
+
+PASS
+
+Isolated vertices obstruct any spanning Gray code on a nontrivial proper-word composition class, so the exact population by content is a natural invariant of the constrained generation problem. The all-composition grammar explains the sharp frequency barrier and the difference between balanced ternary and balanced larger alphabets; it gives actual counts, not just examples of failure. Absence of isolated vertices alone implies neither connectivity nor a Gray code.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

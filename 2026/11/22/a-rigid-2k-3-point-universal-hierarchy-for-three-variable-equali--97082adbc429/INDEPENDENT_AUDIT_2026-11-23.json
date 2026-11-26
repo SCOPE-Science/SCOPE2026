@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:25:02.852978Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, §§1–5 of proof, including the scope of the pure signature; supplied VERIFY.py inspected, not executed",
+        "Independent recursive multiset enumeration of unlabelled height-h class trees and ordered leaf triples: python3 /tmp/opencode/frozen_review_replays.py 2"
+      ],
+      "rationale": "Adjoin equality at level 0 and the total relation at level h=K+1. The three pairwise merger levels determine every pure atom, with level 0 recognizing repetitions. For distinct entries the largest level occurs at least twice by transitivity and nesting. The ordered count is thus 1 all-equal, 3h one-repeated-pair, h equilateral, and 3·binom(h,2) one-closer-pair types. All are realized on the proposed comb: at level j its two new leaves and an older leaf give an equilateral triple, and the older cluster supplies a pair with any earlier merger i. Every universal class tree has at least one node with three children at each of the h levels, each contributing at least two to leaves minus one. Equality forces exactly one ternary branch at every level and no other branching. A type (i,j,j) then places the unique level-i branching node strictly below the unique level-j branching node. This is the extra restriction that forces the spine, not just the equality of branch counts. It fixes the labelled-level hierarchy up to isomorphism, including h=1, where the three leaves form the whole structure. A quantifier-free formula depends only on its complete atomic type, proving the stated single existential-block test.",
+      "residual_risks": [
+        "Replay exhausted 3, 18, 220, and 5,545 unlabelled hosts through the proposed minimum order at h=1,2,3,4, respectively. It found type totals 5,12,22,35 and exactly one winner at orders 3,5,7,9. This corroborates only those depths; the proof gives the unrestricted result.",
+        "The pure signature and fixed single existential block are essential to the stated consequence; no test for additional free relations or quantifier alternation is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The parity-game proof gives an intermediate bound g(ℓ,h)=Σ_{δ=1}^{ℓ} g(⌊ℓ/δ⌋,h−1) based on pruning by degrees, with g(ℓ,1)=ℓ and g(1,h)=1. At ℓ=3 the intermediate bound is exactly 2h+1. The two cited logic papers concern per-sentence satisfiability/complexity, not a least common host for all triple profiles."
+        ],
+        "reasoning": "The published pruning proof works without order because appending δ children and inducing an embedding after pruning uses injective child maps, not their ordering. This yields the numerical lower bound for the unordered form as well; the weaker headline binomial bound should not be used for the comparison. The source's bound is not an equality classification. Broader logical signatures also do not imply simultaneous completeness or its equality cases.",
+        "searches": [
+          "arXiv:1807.10546v2, §2.4 proof of Theorem 2.3",
+          "arXiv:2512.09508v1 abstract and setting; arXiv:2605.15072v1 abstract and setting",
+          "Local Resultary: guarded theories and canonical sizes for two nested equivalences"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1807.10546v2 §§2, 2.4",
+        "arXiv:2512.09508v1",
+        "arXiv:2605.15072v1",
+        "arXiv:1503.00667v3",
+        "Local Resultary comparisons: transverse equivalence universality, rank-three theories, nested-equivalence counting reconstruction, guarded canonical sizes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known degree-based recurrence immediately gives 2h+1 at ℓ=3. At this cardinality the branch-count constraints tell how many ternary nodes there are and where their levels lie, but do not alone tell which vertices are ancestors. Pure FO²/guarded satisfiability and bounded-counting reconstruction results do not determine this equality case."
+        ],
+        "reasoning": "The antecedent's numerical result and a universal construction do not classify the unordered minimizers. For example, at h=3 one may place a level-1 ternary branch in a side branch of the level-3 root disjoint from the level-2 ternary branch. It has seven leaves and all equilateral profiles, but not a closer pair at level 1 in a triple merging at level 2. The frozen theorem excludes all such competitors using the mixed merger levels. This is the part not supplied by the inspected size, existence and logic results. Once the type realization theorem is given, the existential-QF consequence is immediate and carries no separate priority claim.",
+        "searches": [
+          "arXiv:1807.10546v2, §2 definition and Theorem 2.3 proof recurrence/pruning",
+          "arXiv:1503.00667v3, §8",
+          "Local Resultary: QF three-variable universal types in nested and transverse equivalences"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The hierarchy is equivalently an ultrametric with merger levels as distances, or a depth-preserving unordered class tree. Embedding every unordered depth-h tree with at most three leaves is equivalent to profile universality. Directed orders of tuple coordinates do not add an order on the class-tree children. Ordering the comb's children side/spine/side gives an ordered (3,h)-universal tree, but the ordered requirement tests more embeddings. Bilet et al.'s three-point universality results concern inclusion-minimal real metric spaces."
+        ],
+        "reasoning": "The ultrametric and unordered tree aliases state the same question. A minimum ordered universal host can supply an unordered witness after forgetting order, but ordered minima or ordered rigidity alone make no assertion about all optimal hosts in the weaker unordered problem. Inclusion-minimality inside an ambient Euclidean space is not the least cardinality of a finite hierarchy.",
+        "searches": [
+          "Local Resultary: rigid 2K+3 universal hierarchy / ordered QF three-variable equality profiles",
+          "Primary lookup: fixed-height three-leaf universal trees in the parity-game literature",
+          "arXiv:1807.10546v2, §2 ordered embeddings; arXiv:1503.00667v3, Definition 1.2 and §8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact same-title mirror is the frozen result itself. The closest local QF profile census is for two transverse equivalences with E∩F equal to identity, with 25 types and sharp sizes 6 or 9 under different commutation hypotheses. Other local records tabulate bounded first-order theories or study counting-logic reconstruction."
+        ],
+        "reasoning": "A transverse pair lacks the nested merge-level constraint and has different profiles and hosts. The other tables do not concern zero-quantifier ordered triples all occurring in one host, or optimal host rigidity. The broad universal-tree comparison is more informative than absence of a table.",
+        "searches": [
+          "Local Resultary: exact triple-profile universality and nested equivalence class-tree reconstruction",
+          "Local Resultary: A sharp six-versus-nine universality gap for transverse equivalences; Twenty-one rank-three theories of finite equivalence relations"
+        ]
+      },
+      "rationale": "The genuine overlap with parity-game universal trees is substantial: the degree-threshold recurrence inside the proof of Czerwiński et al.'s Theorem 2.3 gives the numerical lower bound at three leaves, and the argument uses only properties valid also without order. Thus the numerical lower bound is not a new independent contribution, and the small universal comb is closely analogous to an ordered universal tree. The contribution surviving comparison is the equality classification of the weaker, unordered profile-universal problem: every minimum host is forced to have its branching vertices on one chain. The known size bounds and ordered universality results do not give this characterization of all unordered hosts. Simple profile counting and the logical rephrasing are not by themselves credited as new structural results.",
+      "residual_risks": [
+        "The strongest overlap is the ordered-tree tradition and its degree-based bound, not the two logic papers. A standalone rigidity statement in the broader ordered/unordered universal-tree literature was not identified; priority for the equality classification remains provisional. No absence claim relies on a search miss."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Degree pruning covers the sharp numerical lower bound for the unordered problem as well; no classification of its equality hosts is supplied by the inspected result",
+          "evidence": [
+            "The proof bounds the leaves by g(ℓ,h) before weakening that bound to the headline binomial. At ℓ=3 it adds g(1,h−1) twice to g(3,h−1). Ordered embeddings retain child order, unlike the target."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1807.10546v2",
+          "material_read": "§2 definition (p. 4, OA offset 27400); §2.4 Theorem 2.3 and proof, especially recurrence and pruning (pp. 5–6, offsets 30800–39978)",
+          "method": "OA PDF bounded passages and specialization of the proof",
+          "title": "Universal trees grow inside separating automata: Quasi-polynomial lower bounds for parity games",
+          "trigger": "Potentially dominating universal-tree theorem under an alternate formulation"
+        },
+        {
+          "assessment": "Different satisfiability question; no full-document exclusion based on abstract alone",
+          "evidence": [
+            "Addresses finite satisfiability for FO², including orders and preorders."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2512.09508v1",
+          "material_read": "Abstract and scope (p. 1, offset 0)",
+          "method": "OA PDF passage",
+          "title": "Two-Variable Logic for Hierarchically Partitioned and Ordered Data",
+          "trigger": "Same nested-equivalence language"
+        },
+        {
+          "assessment": "Guarded-fragment satisfiability/finite-model results rather than minimum common profile host",
+          "evidence": [
+            "The main positive results treat an equality-free guarded fragment; equality is discussed in the undecidability comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.15072v1",
+          "material_read": "Abstract and scope (p. 1, offset 0)",
+          "method": "OA PDF passage",
+          "title": "The Guarded Fragment with Nested Equivalences",
+          "trigger": "Potentially stronger guarded model theorem in a related language"
+        },
+        {
+          "assessment": "Different universality class and notion of minimality",
+          "evidence": [
+            "The construction is of inclusion-minimal Euclidean subsets universal for arbitrary metric spaces with at most three points, not least finite hosts for a fixed ultrametric alphabet."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1503.00667v3",
+          "material_read": "Definition 1.2 (p. 2, offset 5800) and §8 (pp. 52–53, offset 111400)",
+          "method": "OA PDF bounded passages",
+          "title": "Minimal universal metric spaces",
+          "trigger": "Three-point metric universality alias"
+        },
+        {
+          "assessment": "Transverse rather than nested equivalences; not a dominating result",
+          "evidence": [
+            "The 25 profiles and optimal host sizes use distinct class constraints and commutation assumptions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-six-versus-nine-universality-gap-for-transverse-equivale--82e860292d66/RESULT.md",
+          "material_read": "Mirrored RESULT.md, Finding and Assumptions, offset 0",
+          "method": "Local Resultary search and mirror",
+          "title": "A sharp six-versus-nine universality gap for transverse equivalences",
+          "trigger": "Local near-match in purpose, signature and number of variables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, mixed triple profiles and equality classification",
+        "Czerwiński et al., arXiv:1807.10546v2, §2.4"
+      ],
+      "rationale": "For fixed merger levels one can ask which smallest hierarchies serve as a common fixture for every pure three-point test. The exact classification of all minimizers is a useful structural answer: having the necessary equilateral triples at every depth does not fix the fixture, whereas the mixed profiles force the spine. This is a uniform equality case for a motivated small-tree universality problem, not a sample census or just the specialization of the prior size recurrence.",
+      "residual_risks": [
+        "The surviving contribution is a small structural rigidity lemma, not progress on general parity-game universal-tree bounds or on logical fragments with more variables. Profile counting and the existential reformulation alone would not establish value."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

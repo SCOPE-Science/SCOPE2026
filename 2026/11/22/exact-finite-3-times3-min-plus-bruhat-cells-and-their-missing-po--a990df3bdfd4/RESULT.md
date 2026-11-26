@@ -1,4 +1,4 @@
-# Exact finite \(3\times3\) min-plus Bruhat cells and their missing polyhedral chamber
+# Boundary completion of the finite \(3\times3\) min-plus Bruhat cell classification
 
 ## Finding
 
@@ -34,14 +34,19 @@ Here \(321\) means \((p(1),p(2),p(3))=(3,2,1)\), and similarly for \(231\). No o
 \]
 The product criterion in the last display is an ordinary product of real numbers: \(d_1d_2d_3=0\) means that at least one of the three defects vanishes. All conditions are invariant under independently adding constants to target rows and columns.
 
-In the four-dimensional space of independent defects, the entire finite decomposable locus is the full-dimensional polyhedral region \(d_1,d_2,d_3,d_4,d_5\geq0\), together with three lower-dimensional boundary wings given by \(d_1=0\), \(d_2=0\), or \(d_3=0\) inside \(d_1,d_2,d_3,d_4\geq0\). The fifth inequality cuts out a genuine full-dimensional open region excluded from the longest cell, even when all four source defects are strictly positive; the three wings recover selected boundary points outside the fifth-inequality halfspace.
+In the four-dimensional space of independent defects, the entire finite decomposable locus consists of the five-inequality region \(d_1,d_2,d_3,d_4,d_5\geq0\) and three additional parts on its exterior side \(d_5<0\): the parts with \(d_1=0\), \(d_2=0\), or \(d_3=0\) inside \(d_1,d_2,d_3,d_4\geq0\). In particular, the finite targets that lie in the \(231\) cell but not the \(321\) cell are exactly those with \(d_1=0\), \(d_2,d_3>0\), and \(0\leq d_4<d_2+d_3\). This distinction, on the four-defect orthant's face \(d_1=0\), is not decided by the five-inequality sufficient condition for the longest cell.
 
 For example,
 \[
 A_*=\begin{pmatrix}0&-3&-1\\0&-2&-3\\0&0&0\end{pmatrix}
 \quad\text{has}\quad(d_1,d_2,d_3,d_4,d_5)=(2,3,3,1,-3).
 \]
-Although \(d_1,d_2,d_3,d_4>0\), this matrix has **no** min-plus Bruhat decomposition. In particular, the sufficiency assertion of Theorem 1.2(i) of Grigoriev's arXiv:2611.03896v1, as literally printed with the condition \(k+s=4\), has this counterexample already in size three. The restricted four-inequality test is not sufficient even at strictly positive interior points.
+Although \(d_1,d_2,d_3,d_4>0\), this matrix has no min-plus Bruhat decomposition. It illustrates why retaining only the four defects involving \(a_{31}\) is insufficient. By contrast,
+\[
+ A_{231}=\begin{pmatrix}0&-3&0\\0&0&-3\\0&0&0\end{pmatrix}
+ \quad\text{has}\quad(d_1,d_2,d_3,d_4,d_5)=(0,3,3,0,-6).
+\]
+This second matrix admits a decomposition, but only via \(231\).
 
 ## Assumptions and scope
 
@@ -102,7 +107,7 @@ x=a_{12},\quad y=a_{13},\quad z=a_{23},\quad b=a_{13}-a_{23}.
 \]
 Then all nine entries of \(U\odot P_{231}\odot V\) equal the target entries. This proves the second equivalence. Union with the longest cell gives the final criterion.
 
-**Step 5: strictness and the counterexample.** The matrix \(A_*\) above has \(d_1,d_2,d_3,d_4>0\), \(d_5<0\), so Step 2 excludes its longest-cell membership; its \(d_1>0\) excludes its \(231\)-cell membership. Its first four defects are all strictly positive. This directly tests the printed hypotheses of the source theorem, not merely an apparent numerical discrepancy in a particular proposed factorization.
+**Step 5: boundary distinction and examples.** Substituting \(d_1=0\) into the criterion for \(321\) shows that a member of \(231\) can fail to belong to \(321\) only if \(d_2,d_3>0\) and \(d_5=d_4-d_2-d_3<0\), and these conditions suffice. This gives the displayed exclusive membership of \(A_{231}\). The matrix \(A_*\) fails \(321\) because \(d_2,d_3>0\) and \(d_5<0\), and it fails \(231\) because \(d_1>0\).
 
 ## Verification
 
@@ -112,13 +117,13 @@ Run with `python3 verify.py` from the same directory. Only the Python standard l
 
 ## Relationship to prior work
 
-Grigoriev, arXiv:2611.03896v1, proves the dimension of general min-plus Bruhat cells and describes generic longest-cell membership, noting the relevance of lower-dimensional boundary exceptions. Its Theorem 1.2(i), as printed, asserts sufficiency of four nonnegative selected \(2\times2\) defects for the three-dimensional longest cell, even though the missing fifth inequality can fail with those four defects strictly positive. The explicit \(A_*\) shows the printed sufficiency claim does not hold without a further interior inequality and precise boundary exceptions. The current exact test gives the full-dimensional missing condition, explicit reconstruction on all boundaries, and the distinct \(231\) cell.
+Grigoriev, arXiv:2611.03896v1, proves the dimension of general min-plus Bruhat cells and describes longest-cell membership up to lower-dimensional exceptions. At size three, the condition \(k+s=4\) of Theorem 1.2(i) selects exactly the five minors defining \(d_1,\ldots,d_5\): four with \(k=1,s=3\), and one with \(k=2,s=2,q=1,m=3\). Thus the five-inequality sufficient region is already covered by that theorem; \(A_*\) fails its hypothesis and is not a counterexample. Example 3.1 already exhibits a longest-cell member with \(d_5<0\). What the exact criteria above add is a description of *all* those longest-cell exceptions in size three, with reconstruction, as well as exact membership in the other finite cell \(231\) and the distinction between their boundary loci. Proposition 4.1 of Grigoriev identifies the only possible permutation for a tropically nonsingular target if a factorization exists, rather than giving these membership criteria for arbitrary finite targets.
 
 Niv's *Factorization of Tropical Matrices* (arXiv:1202.3615, published 2014) classifies three-dimensional **elementary** tropical matrix factorizability. That permits arbitrary sequences of elementary factors, not the fixed two upper-triangular factors separated by one permutation required here. Thus that broader factorization theorem does not give this exact two-sided Bruhat membership test. This is a comparison of definitions and implications, not a claim that the 2014 result is weaker in its own setting.
 
 ## Limitations
 
-The classification is for finite real \(3\times3\) targets only. It does not classify matrices with infinite target entries or higher dimensions. The discrepancy identified concerns the statements exactly as printed in arXiv:2611.03896v1; a subsequent amendment could change the bibliographic comparison. An equivalent unindexed classification of the same double-cosets cannot be ruled out absolutely. Independent mathematical verification has not been performed.
+The classification is for finite real \(3\times3\) targets only. It does not classify matrices with infinite target entries or higher dimensions. An equivalent unindexed classification of the same double-cosets cannot be ruled out.
 
 ## References
 

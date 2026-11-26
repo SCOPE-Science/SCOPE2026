@@ -1,11 +1,21 @@
-# Review: finite tournament prime-count dynamics
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The theorem is finite and precisely quantified. Lexicographically encoded arc orientations enumerate every labeled tournament on at most seven vertices, and each full Boolean transition table enumerates all states. Two independent algorithms (path/cycle marking versus indegree peeling) agree on every graph-maximum least-period count. Reverse topological peeling computes exact minimum entry depths, and a third checker counts relabeling orbits. Exact witness traces independently establish lower-bound attainment. The sources and algorithms are included for reproducibility; the work is not an infinite-order theorem.
+## correctness
 
-**Originality (O): PASS within inspected material.** The nearest paper, Methawisal (2026), introduces the prime-count rule and gives periods for unrestricted digraphs through five vertices plus results on bidirected complete digraphs. Its complete accessible article does not provide a tournament-specific period spectrum or depth/isomorphism census. The classical Goles–Olivos symmetric-threshold period-at-most-two result does not imply anything here because both the update law and directed adjacency violate its hypotheses. Comparisons with published results on tournaments (but other invariants) and on Greenberg–Hastings graph dynamics (but a different state alphabet and rule) likewise do not cover this exact census. Priority risk: older unindexed computational data or equivalences may exist; novelty is not proved by failed searches.
+PASS
 
-**Mathematical value (V): PASS.** The motivating paper explicitly asks how graph structure determines period spectra, and one-orientation-per-pair tournaments form an intrinsically natural and substantially restrictive contrast with bidirected complete graphs. The result gives the first sharp onset, an unexpected full interval of periods at seven vertices, and exact symmetry classification of maximal-period and maximal-transient realizations. The finite cutoff is natural because seven is the first tournament order with the complete nine-period interval. This is useful as a benchmark for conjectures and structural approaches, despite lacking a theorem for larger orders.
+Lexicographic bits give exactly one encoding per labeled loopless tournament, and the transition table includes all 2^n Boolean states using precisely incoming counts 2,3,5. Indegree-zero peeling removes exactly noncycle states; reverse peel order computes exact first entry depths since each removed state points either to a later removal or a cycle. An independently authored and completed enumeration gave spectra {1} for n=1–5, {1,3} for n=6, and {1,…,9} for n=7; depths were (1,1,2,2,4,9,23). The order-seven maximum-period histogram matched (1633632,30240,329840,25200,30240,21840,11040,5040,10080). Explicit relabeling of the whole extrema sets produced two size-5040 graph orbits for period nine, represented by 9393 and 9514, and one size-5040 graph–state orbit for depth 23, represented by (1721,86). Label and state transformations preserve the update by equivariance. These outputs distinguish a tournament’s maximum period from all periods coexisting in it, and distinguish graph counts from graph–state counts.
 
-**Scientific limits and comparator scope.** There is no claim about the unrestricted-digraph maximum \(L(n)\), all tournament orders, or all orbit basin sizes. The nearest source was read in full through its available article text; the 1980 comparator was accessible as an authoritative abstract only. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The map itself and small unrestricted-digraph maxima are prior. The exact spectrum, sharp depth, and two types of extremal orbit count for strict tournaments were not covered by the inspected prime-rule paper or a distinct exact catalogue record. In particular, the complete-directed-graph result uses arcs in both directions and cannot be specialized to one arc per pair.
+
+## value
+
+PASS
+
+Tournaments isolate asymmetry while fixing a single direction per pair, a natural graph restriction for the prime activation rule. The exhaustive spectra locate the first failure of fixed-point-only behavior and show that at the next order all periods up to the maximum appear. Observed sharp slowdown and the orbit counts distinguish genuinely different extremal examples from many label copies. They are useful exact benchmarks for a broader theory of attractors and transients, even without its general solution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

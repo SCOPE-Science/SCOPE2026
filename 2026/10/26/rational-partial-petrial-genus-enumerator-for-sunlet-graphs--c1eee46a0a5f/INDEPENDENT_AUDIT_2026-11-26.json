@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:08:35.772231Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–112 and 124",
+        "Frozen VERIFICATION.md, verify.py and verify_output.txt (recorded evidence; uploaded code not executed)",
+        "/workspace/branches/1bd04d49-3824-457b-9c5b-b2ec3db58387/record4_independent.py and record4_independent_output.txt",
+        "Feng–Guo–Yan, arXiv:2606.03166 §2.1"
+      ],
+      "rationale": "For each leaf with bit zero, its 2-by-2 block with the core vertex has inverse with zero core diagonal, so Schur elimination preserves nullity without changing other entries. A leaf with bit one instead flips the retained core diagonal. The retained-set sum thus weights a deleted site by 2 and either diagonal at a retained site by 1. The path kernel recurrence bounds nullity by one; adjacent leading determinants cannot both vanish, giving J_l=2^(l−1)−J_(l−1) with J_0=0 and the stated path series. For proper nonempty retained sets, marking one of k retained/deleted boundaries counts every labeled configuration k times even with rotational periodicity and gives t∂_tH/(1−H). With all core sites retained, the recurrence monodromy is in GL(2,F₂); the three conjugacy types have fixed dimensions 2,1,0. In the real two-dimensional representation the reflection-plus-rotation matrix has trace −1 and determinant zero, so its n-th-power trace is (−1)^n. Together with the sign-parity count this gives the displayed cycle contribution. Empty retention contributes 2^n. There are at most floor(n/2) path runs, and an independent retained set with zero effective diagonal attains that nullity; the all-retained triangle with ones on the diagonal instead has nullity two. Rank is 2n minus nullity and u=1 sums to 4^n. For the topological interpretation a suitable orientable bouquet exists: on 2n cyclic positions, chords with endpoints 2i and 2i+3 modulo 2n interlace precisely their two neighbors; insert the two endpoints of each leaf chord immediately around a distinct core endpoint. Use the established genus/rank identity for this bouquet, not a claim about arbitrary embeddings of the abstract sunlet.",
+      "residual_risks": [
+        "The new direct binary elimination and independent coefficient expansion agree for all 87,360 masks over n=3 through 8, including the minimum ranks and totals; this tests a finite range, not the general theorem. Orders one and two are excluded. No formal verification or expert attestation is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general edge recurrence reduces arbitrary simple graphs by local complementation and pivots. The rooted-attachment identity applies to copies of a rooted graph joined at a new hub under its corank hypothesis. The tree classification gives exact profiles of T- and H-shaped tree families."
+        ],
+        "reasoning": "A recurrence computes each finite instance, but does not state or immediately specialize to a closed uniform cycle-length series. Neither the tree theorem nor the specified single-hub operation applies to a leaf attached at each of the distinct vertices of a cycle.",
+        "searches": [
+          "arXiv:2606.03166, introduction and recurrence",
+          "arXiv:2611.07503v1, Corollary 3",
+          "arXiv:2608.01748v1, Theorem 14"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2501.04186v1",
+        "arXiv:2608.01748v1",
+        "arXiv:2606.03166",
+        "arXiv:2611.07503v1",
+        "Resultary 2e6cc2673cc1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact path formula supplies the retained path block. The unrestricted general recurrence supplies a method but no evaluation of labeled cyclic placement or the all-retained monodromy contribution. The hub formula is not a cyclic attachment formula."
+        ],
+        "reasoning": "The prior path result covers a true subcase/ingredient, not the theorem. Combining it with cyclic run marking and the transfer trace is substantive work: the fully retained case is not a sum of path terms and in particular matters for the exceptional triangle minimum.",
+        "searches": [
+          "arXiv:2501.04186v1, Theorem 18",
+          "arXiv:2606.03166, general pivot recurrence and §2.1",
+          "arXiv:2611.07503v1, Corollary 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary bouquet treatment identifies the partial Petrial by Euler genus with a binary diagonal-rank polynomial. Pendant elimination here identifies the target with a weighted cycle nullity sum over three states per site: omission of weight 2 and retained diagonal 0 or 1 of weight 1. The inspected attachment-position result concerns trees made by joining rooted paths to a hub."
+        ],
+        "reasoning": "Rank, nullity, and admissible bouquet genus formulations are mathematically equivalent for the same sunlet. An unweighted three-state cycle sum or a family with all branches joined to one hub is not that weighted specialization without a further identity.",
+        "searches": [
+          "Exact sunlet/helm rank-nullity and interlace/partial-Petrial literature search",
+          "arXiv:2606.03166 §2.1",
+          "Resultary partial Petrial attachment position 2e6cc2673cc1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected catalogue entry gives complete coefficients for two rooted path-attachment tree families, not for sunlets. The primary exact evaluations concern paths or classified trees."
+        ],
+        "reasoning": "These are close exact-invariant entries, but they have different input graphs; matching an ingredient such as the Jacobsthal path counts is not a match of the sunlet profile. A search miss or unavailable lookup is not used as proof of absence.",
+        "searches": [
+          "Resultary sunlet diagonal-rank/partial-Petrial profile and attachment-position polynomial; matched 2e6cc2673cc1",
+          "Primary exact path tables/formula: arXiv:2501.04186v1 §4 and arXiv:2608.01748v1 §3.2"
+        ]
+      },
+      "rationale": "The supported contribution is the complete evaluated all-orders distribution for this specified cycle corona. The matrix/genus formulation, basic recurrence, path polynomial, and pivot operations are prior. The tested alternatives do not give a closed formula for the weighted cyclic state sum needed here.",
+      "residual_risks": [
+        "One focused sunlet/helm lookup was unavailable. Equivalent weighted interlace/cyclic transfer formulas in unlocated literature or unindexed exact tables remain a priority risk; the negative search result is not evidence that none exists."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes path ingredient only",
+          "evidence": "Jacobs­thal-number formula for paths.",
+          "identifier_or_url": "https://arxiv.org/html/2501.04186v1",
+          "material_read": "§4, Theorem 18, offsets 24200–28672",
+          "method": "Primary OA HTML text",
+          "title": "Partial Petrial polynomials for complete graphs and paths",
+          "trigger": "Exact path profile used in the proof"
+        },
+        {
+          "assessment": "No implication from its tree formulas to sunlets",
+          "evidence": "T- and H-shaped trees fall under hypotheses not satisfied by the cycle corona.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.01748v1",
+          "material_read": "Abstract and §3.2, Theorem 14, p. 6",
+          "method": "Primary OA PDF text",
+          "title": "A Characterization of Trees with Trinomial Partial Petrial Polynomials",
+          "trigger": "Complete neighboring graph-family counts"
+        },
+        {
+          "assessment": "General framework and genus identity; not an explicit family evaluation",
+          "evidence": "Arbitrary-edge recurrence with pivot and local complement; bouquet polynomial equals the graft polynomial using the binary diagonal-rank formula.",
+          "identifier_or_url": "https://arxiv.org/html/2606.03166",
+          "material_read": "Introduction offsets 3131–3465; §2.1 around offset 7400",
+          "method": "Primary OA HTML text",
+          "title": "Recurrence and coefficient inequality for the partial Petrial polynomial of graphs",
+          "trigger": "General recurrence and matrix/genus equivalence"
+        },
+        {
+          "assessment": "Hub attachment rather than distributed cyclic attachment",
+          "evidence": "A common new vertex is joined to copies of a rooted graph under a corank bound.",
+          "identifier_or_url": "https://arxiv.org/html/2611.07503v1",
+          "material_read": "Corollary 3, from offset 14500",
+          "method": "Primary OA HTML text",
+          "title": "Feng–Yan rooted-attachment partial Petrial formulas",
+          "trigger": "Plausible general attachment construction"
+        },
+        {
+          "assessment": "Same invariant, different graph family",
+          "evidence": "Complete formulas for two hub-attachment families formed from P4 copies, with a log-concavity comparison.",
+          "identifier_or_url": "Resultary 2e6cc2673cc1",
+          "material_read": "Finding of local mirror RESULT.md",
+          "method": "Resultary search and local mirror",
+          "title": "A sharp attachment-position log-concavity transition for partial Petrial polynomials",
+          "trigger": "Closest exact family in catalogue search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof parts 1–5",
+        "Primary exact path and tree results arXiv:2501.04186v1 and arXiv:2608.01748v1"
+      ],
+      "rationale": "Sunlets are a natural cycle corona, and the exact diagonal-rank profile supplies every coefficient and the genus or rank support uniformly, rather than computing isolated orders. The separation of the Jacobsthal runs from cyclic monodromy gives a tractable evaluated family beyond the tree cases; it also identifies the exceptional triangle and explains the general minimum rank.",
+      "residual_risks": [
+        "No extension to general unicyclic graphs, other coronas, or other fields is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

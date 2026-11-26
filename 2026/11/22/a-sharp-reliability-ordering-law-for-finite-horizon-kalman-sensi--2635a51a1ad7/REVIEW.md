@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an all-finite-horizon stochastic-order statement, not a numerical guess. The exact rational identity for \(T\circ U-U\circ T\) shows the commutator is nonnegative at every positive covariance exactly under \(g+\lambda q\ge1\). The four packet-arrival cases yield the adjacent-swap identity. Monotonicity of every subsequent Kalman map transfers the comparison through arbitrary random suffixes, while conditioning handles arbitrary prefixes. Repeated adjacent swaps prove optimal sorting. Outside the frontier with positive process noise, one positive zero of a concave quadratic gives the unique order reversal. The accompanying verifier replayed 14884 exact-rational assertions, including full enumeration of representative five-observation schedules, without purporting to replace the universal proof. No unproved lemma is used for an essential step.
+PASS
 
-## Originality — PASS, with residual historical risk
+Subtracting T(U(x)) and U(T(x)) with U(x)=x/(1+λx), T(x)=gx+q gives the reported positive denominator and the numerator λ[q²+(λq²+2gq)x+g(g+λq−1)x²]. This is nonnegative for all admissible entering x iff g+λq≥1, by the sign of the quadratic coefficient at large x in the converse. In the local interchange of p<r, the two same-outcome events cancel in law, and the probability difference for first-only delivery is p−r (second-only gives its negative). Testing an increasing function proves the conditional stochastic order for every entering x. Conditioning on an independent prefix, then composing with the independent suffix of increasing covariance maps, preserves that order. Adjacent interchanges therefore yield the global claim for fixed permutations, including ties and rates 0 and 1. For q>0 below the frontier the quadratic has one positive and one negative root, giving the stated positive x* and strict reversal in expected covariance for distinct probabilities, with a tie at x*. The rational example checks directly: local differences T(U(x))−U(T(x)) are 4/245 and −19/210 at the two priors. For q=0 and 0<g<1 the commutator is strictly negative, giving the reverse sort if all forecasts are of that kind; at q=0,g=1 it vanishes. The sharpness is a uniform two-slot obstruction, not a necessity claim for every fixed longer schedule and prior.
 
-Actual literature comparisons include primary full-text sections of Wu–Ding–Cheng–Shi (2018), Marelli–Sui–Rohr–Fu (2018), Leong–Dey–Quevedo (2015/2016 preprint), and the available Singh–Kamath–Kumar (2019) full text. The former address different combinations of multiple processes, long-run policy monotonicity, stochastic-filter stability, state-adaptive communication and time-stamped fixed-gain packet priority. Closest published related results on deterministic two-sensor **precision** order and infinite-horizon **precision** allocation have different control variables and cannot imply the stochastic dominance of permuted **packet-receipt probabilities**. No previously inspected claim states the general finite-horizon Bernoulli-reliability rearrangement and sharp local frontier. Missing older equivalent rearrangements in the substantial filtering and stochastic-order literature remain possible; two particularly relevant published related full texts could not be fetched, so this is not a priority certification.
+## originality
 
-## Value — PASS
+PASS
 
-The result replaces factorial enumeration of fixed sensor assignments with a single sorting operation for all finite horizons, all inhomogeneous noncontractive/enough-noise prediction schedules, and all increasing terminal-risk criteria. The sharp inequality separates a uniform reliability-order policy from a regime with a provable prior-dependent order reversal, providing design guidance about how process innovation and attenuation affect channel sequencing. Equal-precision lossy sensing is a natural communications-limited Kalman problem; the theorem is not a mere relabeling of a deterministic precision-scheduling result.
+The closest scalar ordering comparison varies the measurement precision under certain delivery and is limited to two observations, while the closest packet scheduling papers optimize policies or study stability in different models. The supported distinct claim is a forecast-dependent test that yields all-horizon FOSD for nonadaptive reliability permutations, with a sharp local reversal. It is not credit for Kalman covariance monotonicity or the general adjacent-interchange technique.
 
-## Scientific limits
+## value
 
-No claims for adaptive policies, correlated channels, unequal precisions, vector filters, or time-average covariance. Historical priority is provisional; separate expert appraisal could discover an earlier equivalent theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This supplies an explicit check on known forecast and measurement parameters that collapses a finite channel-permutation problem to sorting. Because the effect is distributional it covers tail and other increasing losses rather than just one mean criterion. The same sign computation yields exact conditions where the intuitive use of better channels later must fail, including sensitivity to the entering covariance. This is a useful structural design result in the scalar case, not a recomputation of ordinary Kalman filter risk.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

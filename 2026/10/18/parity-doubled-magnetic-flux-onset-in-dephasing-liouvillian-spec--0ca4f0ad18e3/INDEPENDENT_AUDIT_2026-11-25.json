@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:41:30.953639Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–41, assumptions and proof",
+        "CHECK.py; VERIFICATION.md and RESULT.md line 44 (reported tests, uploaded checker not executed)",
+        "Independent replay: /workspace/branches/54be0858-eadc-4946-8e2e-ce90c7bdb60a/independent_moments.py lines 7–48; 72 configurations for N=3–8 including exceptional fluxes, zero and mixed/nonuniform rates; max normalized discrepancy 2.937e-15"
+      ],
+      "rationale": "In the E_xy basis, site-projector dephasing is a diagonal waiting weight, so a trace term of flux harmonic ℓ needs at least N|ℓ| actual hops. The transpose-and-coordinate-swap identity maps the commutator to its negative without changing the symmetric diagonal dissipator. On odd rings, −H is gauge equivalent to H at flux shifted by π; hence both full and coherent moments have only even harmonics. At the respective first allowed orders N and 2N, nonconstant harmonics cannot use any waits. For the coherent trace, the left/right binomial expansion yields two endpoint terms at even order N. At odd order 2N, only indices 0, N, 2N can contribute: a one-winding Hamiltonian trace at odd order greater than N multiplies a zero odd trace below N. The h_N squared term and two h_(2N) terms produce precisely the binomial-minus-two factor with a negative sign. This verifies the unnormalized trace, the flux zeros, and independence from arbitrary fixed nonuniform or zero dephasing rates. The odd π shift relates isospectral generators through sign reversal plus gauge, not by identifying H_π with H_0 alone.",
+      "residual_risks": [
+        "The exact proof uses pure site-projector dephasing and no diagonal Hamiltonian energies; the numerical corroboration is finite."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Klausen–Werner's inspected local-dephasing theorem treats the infinite line, translation-invariant dynamics, and untwisted H=−Δ.",
+          "The earlier EPR-like model has odd-cycle removable phases and an even order-m alternating-flux moment."
+        ],
+        "reasoning": "Neither the inspected infinite-line theorem nor the different many-body cycle model covers the finite twisted operator with arbitrary diagonal site-dephasing rates. The inaccessible Esposito–Gaspard full text is not negative evidence.",
+        "searches": [
+          "Klausen–Werner arXiv:2206.09879, §5.1 and Theorem 5.1",
+          "Esposito–Gaspard DOI:10.1103/PhysRevB.71.214302 (lawful access attempt)",
+          "Resultary: cycle parity first spectral moment flux phase shifted EPR-like Hamiltonian"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 46–54",
+        "Resultary local mirror records 1a830d153d21, 4e59b6ed7525, e30e8e6b40fd",
+        "arXiv:2206.09879 and OA attempt for DOI:10.1103/PhysRevB.71.214302"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier EPR-like result has coefficient 2m!s^m cosΦ in an even many-body cycle and no odd-cycle flux response.",
+          "The weighted directed-cycle result takes even Schatten moments of a weighted shift plus its adjoint direction, not ordinary trace powers of a dephased commutator; the same-day seven-cycle result concerns minimizers."
+        ],
+        "reasoning": "A winding bound or parity match does not imply exact cancellation of single harmonics on the dephased doubled ring or the odd binomial coefficient. This judgment is based on stated mathematical scope, not same-day priority conjectures.",
+        "searches": [
+          "Resultary 1a830d153d21, 4e59b6ed7525 and e30e8e6b40fd, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The coherent part can be expressed as a tensor difference, and the trace moments are those of a doubled magnetic walk with diagonal waits.",
+          "Focused Resultary results did not substantiate a match for the doubled site-dephasing generator."
+        ],
+        "reasoning": "Compare full unnormalized power sums, equivalently the first responding characteristic coefficient via Newton identities, rather than just the lattice dynamics or a relaxation branch.",
+        "searches": [
+          "Resultary: magnetic flux spectral moments dephasing Liouvillian N-cycle parity onset",
+          "Resultary: Liouvillian trace moments site-dependent dephasing magnetic cycle flux"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed Findings 4e59b6ed7525 and e30e8e6b40fd concern weighted-cycle Schatten moments and a weighted seven-cycle minimization respectively."
+        ],
+        "reasoning": "The parity orders alone are not an exact match; the catalogue comparisons track the operator, observable, coefficient and dephasing hypotheses. An exact entry covering the claim was not identified.",
+        "searches": [
+          "Resultary: first flux-sensitive spectral moments weighted directed cycle odd even threshold",
+          "Resultary: magnetic flux spectral moments dephasing Liouvillian N-cycle parity onset"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact doubled-operator moment threshold and coefficient uniform in site rates. A prior cycle parity moment result is a strong analogy, but odd-cycle magnetic phases there are gauge removable, unlike the nonzero second harmonic here. The later weighted directed-cycle result has matching thresholds in a different moment problem and does not mathematically cover the site-dephasing statement. Standard closed-walk and vectorization methods are not claimed new.",
+      "residual_risks": [
+        "Esposito–Gaspard full text not independently retrieved. An alternative doubled-walk or finite-volume spectral-moment formulation outside the bounded search could cover the claim; no guarantee of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Genuine parity/moment analogue, different Hamiltonian and response",
+          "evidence": "Odd cycles are fully gauge removable; even cycles respond to an alternating flux at order m.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-cycle-parity-gauge-law-for-phase-shifted-epr-like-hamiltonians--1a830d153d21/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror primary text",
+          "title": "Cycle-parity gauge law for phase-shifted EPR-like Hamiltonians",
+          "trigger": "Earlier cycle parity and first responding spectral moment"
+        },
+        {
+          "assessment": "Close analogous threshold in later, different problem",
+          "evidence": "Even Schatten moments of a weighted directional shift expression, with thresholds n and 2n, not arbitrary dephasing on an operator space.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-first-flux-sensitive-schatten-moments-of-weighted-directed-cycle--4e59b6ed7525/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror primary text",
+          "title": "First flux-sensitive Schatten moments of weighted directed cycles",
+          "trigger": "Matches parity-dependent threshold numbers"
+        },
+        {
+          "assessment": "Not a duplicate or coverage",
+          "evidence": "Weighted seven-cycle Schatten-fourth radius minimization rather than flux onset of the full Liouvillian spectrum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-two-spectral-thresholds-and-all-minimizers-of-the-seven-cycle-we--e30e8e6b40fd/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror primary text",
+          "title": "Two spectral thresholds and all minimizers of the seven-cycle weighted problem",
+          "trigger": "Same-day indexed spectral cycle threshold hit"
+        },
+        {
+          "assessment": "Model/method precedent; inspected theorem does not cover the finite twisted moments",
+          "evidence": "Translation-invariant Markovian evolution and a local-dephasing spectrum on the infinite line with H=−Δ.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.09879",
+          "material_read": "PDF p. 1, offset 0; §5.1 and Theorem 5.1, offset 51825",
+          "method": "OA primary PDF text",
+          "title": "Spectra of generators of Markovian evolution in the thermodynamic limit: From non-Hermitian to full evolution via tridiagonal Laurent matrices",
+          "trigger": "Closest cited site-dephasing spectral framework"
+        },
+        {
+          "assessment": "Unresolved full-text comparison, not evidence of absence or coverage",
+          "evidence": "Frozen RESULT.md reports untwisted hoppings; that passage could not be independently confirmed in the available copy.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevB.71.214302",
+          "material_read": "No full-text passage independently retrieved",
+          "method": "Lawful OA access attempted at publisher and repository alternate; no successful retrieval",
+          "title": "Emergence of diffusion in finite quantum systems",
+          "trigger": "Closely related finite cyclic tight-binding spectral analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–14 and 24–41; independent direct-basis reproduction"
+      ],
+      "rationale": "The full trace moments give a basis-independent test of when a spectrum can begin to see magnetic holonomy. Odd parity doubles the minimum order notwithstanding single-coordinate windings at order N, and attaining the sharp order rules out all influence from arbitrary sitewise dephasing on the exact first response. This is a structural parity threshold and closed quantitative invariant, not a calculation for a hand-selected rate profile.",
+      "residual_risks": [
+        "Spectral statement only, not a bound on relaxation or a flux measurement protocol."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

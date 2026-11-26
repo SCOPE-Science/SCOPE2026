@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:40:30.716373Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 3–66; independent root-pair and normal-cover derivation",
+        "Laurent–Mascarin–Telen, arXiv:2605.02484v1, Corollary 3.7",
+        "VERIFICATION.md; CERTIFICATE.txt lines 1–18; verify.py lines 9–56, inspected only"
+      ],
+      "rationale": "For m=n−1, the size-d root set is the sign group modulo simultaneous reversal. In the discriminant, unordered root pairs with fixed sign-class difference form a matching of d/2 pairs. The difference determines an unordered nontrivial bipartition S,T; local sign classes on S and T independently parametrize the matching. The squared difference is 4(1−r_S²)(1−r_T²), e.g. by expanding Laurent cosines. Each local S-class occurs 2^(|T|−1) times, and the scalar is 4^(d(d−1)/2). The singleton product is 1−x_i²; pairing opposite remaining phases for a fixed coordinate gives (x_i²−r²)², hence (x_i²−x_j²)² for a pair and (Γ_S Γ_S^−)² for larger S by the monic root formula. Only proper subsets contribute. This checks the exact scalar and multiplicities, including 4 and no pair component at n=3, and 4096 at n=4. Lower-cycle factors are irreducible by the transitive sign action on their distinct Laurent roots; each uses all of its variables, and freezing the others at 1 distinguishes the two odd-sign classes by (X−1)^d_S and (X+1)^d_S. Parity of linear-factor valuations gives the asserted square criterion. The radicals x_i²−1 are independent by valuations at x_i=1; the root stabilizer is precisely simultaneous inversion by independence of Laurent monomials. Taking the torus ring invariants by simultaneous inversion yields a finite normal ring in the monogenic model's fraction field and thus its normalization. The image of each one-coordinate inertia subgroup has order two in the quotient since m≥2; off those hyperplanes the multiquadratic cover and its quotient are étale. Thus all other discriminant divisors record collisions without divisorial ramification.",
+      "residual_risks": [
+        "The recorded 35 root-discriminant samples and 30 lower-factor samples are over one finite field, with sampled Laurent parameters; they are not evidence of universal ramification or irreducibility. Uploaded code was not executed; the characteristic-zero checks are algebraic.",
+        "No claim about the conductor scheme, real branch geometry, or formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.2 gives a general projection model; Proposition 5.8 gives a singular-locus containment in cosine images of affine subspaces, not the coordinate discriminant with valuations.",
+          "Theorem 3.12 gives a resultant of two cycle polynomials over a common edge, producing a larger-cycle polynomial with n=p+q−2, not the resultant with the derivative in the projected coordinate."
+        ],
+        "reasoning": "Neither a singular-locus containment nor a common-edge elimination theorem covers the explicit divisor calculation and its comparison with normalized-cover ramification. The geometric overlap is strongest at the setup level.",
+        "searches": [
+          "arXiv:2401.12140v1 Theorem 5.2 and Proposition 5.8",
+          "arXiv:2605.02484v1 Theorem 3.12",
+          "Resultary three-variable generic singular curves, Chebyshev conductor grids, affine Chebyshev ramification"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.02484v1, §3.1 and §3.2",
+        "arXiv:2401.12140v1, §5",
+        "Resultary exact self-match and the three distinct comparison records identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known root formula implies the raw product of differences directly, and the torus model makes the inversion quotient natural.",
+          "Neither identifies how a given subset recurs among sign-class differences, the resultant signed-cycle factors with their powers, or their difference from the divisors of nontrivial inertia in this projection."
+        ],
+        "reasoning": "The explicit subset-collision organization and factor/multiplicity identification are the surviving distinct calculation. The prior setup supplies the ingredients, not a stronger theorem already evaluating the product for this family.",
+        "searches": [
+          "Corollary 3.7 and Theorem 3.12 of arXiv:2605.02484v1; Theorem 5.2 of arXiv:2401.12140v1; Resultary phase-dependent normalization claim"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Corollary 3.7 provides exactly the roots of the monic coordinate-projection polynomial.",
+          "Chebyshev Varieties Theorem 5.2 uses y_j²−2x_j y_j+1=0, the same coordinatewise torus-to-cosine change used here."
+        ],
+        "reasoning": "Translating to the torus exposes the substantial common parametrization. It does not identify all irreducible loci of coincidences between two cycle roots, or give their discriminant valuations.",
+        "searches": [
+          "arXiv:2605.02484v1 §3.1, monic cycle polynomial/sign-class roots",
+          "arXiv:2401.12140v1 §5, cosine varieties and toric presentation",
+          "Resultary: cycle-polynomial discriminant, normalized monodromy and Chebyshev/Lissajous normalization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact indexed hit 2026/11/8/SCOPE-exact-discriminant-factors-and-normalized-monodromy-of-cycle-pol--8daac29faad4, RESULT.md offsets 789–1888, is the frozen finding itself.",
+          "Distinct 2026/11/22/SCOPE-exact-generic-singular-curve-census-and-phase-dependent-normaliz--14d802ee1053, offsets 58–1772, concerns torus-coset Lissajous singular curves with phase-dependent normalization.",
+          "Distinct same-date 2026/11/8/SCOPE-simple-affine-ramification-and-a-cuspidal-dual-infinity-for-copr--29dda6286b6e, offsets 277–1430, treats the Chebyshev plane curve's dual and Wronskian ramification.",
+          "2026/11/22/SCOPE-one-cayley-normalization-infinitely-many-chebyshev-conductor-gri--0cc6c19a9898, offsets 407–791, gives a Cayley normalization and conductor for a different surface family."
+        ],
+        "reasoning": "The identity of the exact hit is not independent prior coverage. The same-date curve statement was compared on its mathematics, not dated-order assumptions. None of the distinct statements gives this multivariable exact discriminant or specializes to all its factors.",
+        "searches": [
+          "Resultary, cycle-polynomial discriminant/monodromy/ramification and related Chebyshev normalization"
+        ]
+      },
+      "rationale": "The supported distinction is the explicit monic discriminant with all proper signed-cycle factors, scalar and multiplicities, together with an exact comparison against the normalized branch divisor. The known root parametrization and general toric model are premises; neither the radical construction alone nor the general idea of normalization by inversion is credited as novel. No inspected distinct result covers the joint explicit calculation.",
+      "residual_risks": [
+        "Non-exhaustive priority check. Related discriminants may be expressed using signed trigonometric relations, Chebyshev polynomials, or cycle Gram/elliptope elimination. The overlap of the toric method with the broader literature is real."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact root representation antecedent, not the stated discriminant or branch comparison",
+          "evidence": "Degree 2^(n−2) and product over one fixed sign; common-edge resultant gives Γ_(p+q−2).",
+          "identifier_or_url": "https://arxiv.org/html/2605.02484v1",
+          "material_read": "§3.1 Corollary 3.7 around offset 60800; §3.2 Theorem 3.12 around offsets 70000–72900",
+          "method": "OA full-text passages",
+          "title": "The Algebraic Boundary of Graph Elliptopes",
+          "trigger": "Exact same cycle polynomial and smaller-cycle relation"
+        },
+        {
+          "assessment": "Shared torus setup but not exact coordinate discriminant",
+          "evidence": "Quadratic cosine equations in Theorem 5.2; singular-locus containment in Proposition 5.8.",
+          "identifier_or_url": "arXiv:2401.12140v1",
+          "material_read": "Theorem 5.2 around offset 58800 and Proposition 5.8 around offset 70900",
+          "method": "OA full-text passages",
+          "title": "Chebyshev Varieties",
+          "trigger": "Broader cosine-variety model and singularities"
+        },
+        {
+          "assessment": "Shared inversion quotient in a symmetric phase; different claim on three-variable torus-coset hypersurfaces",
+          "evidence": "Phase-dependent normalization and census of singular curves, without the all-cycle projection discriminant.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-generic-singular-curve-census-and-phase-dependent-normaliz--14d802ee1053",
+          "material_read": "Finding, offsets 58–1772",
+          "method": "Resultary mirror full-text passage",
+          "title": "Exact generic singular-curve census and phase-dependent normalization",
+          "trigger": "Closest distinct normalization and singularity hit"
+        },
+        {
+          "assessment": "Different ramification and object",
+          "evidence": "Wronskian/inflection ramification of T_b(x)−T_a(y)=0; explicitly distinct from normalization-map branching.",
+          "identifier_or_url": "2026/11/8/SCOPE-simple-affine-ramification-and-a-cuspidal-dual-infinity-for-copr--29dda6286b6e",
+          "material_read": "Finding, offsets 277–1430",
+          "method": "Resultary mirror full-text passage",
+          "title": "Simple affine ramification and a cuspidal dual infinity for coprime Chebyshev curves",
+          "trigger": "Same-date distinct Chebyshev ramification hit"
+        },
+        {
+          "assessment": "Different surface family and conductor invariant",
+          "evidence": "A common Cayley cubic normalization and grids of conductor components.",
+          "identifier_or_url": "2026/11/22/SCOPE-one-cayley-normalization-infinitely-many-chebyshev-conductor-gri--0cc6c19a9898",
+          "material_read": "Finding, offsets 407–791",
+          "method": "Resultary mirror full-text passage",
+          "title": "One Cayley normalization, infinitely many Chebyshev conductor grids",
+          "trigger": "Nearby normalization versus nonnormality comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–17 and 32–66",
+        "arXiv:2605.02484v1, cycle root representation and elimination context"
+      ],
+      "rationale": "The cycle hypersurface is a natural graph-elliptope boundary model, and its forget-one-coordinate discriminant controls collisions in a common elimination representation. The all-size list of components and multiplicities distinguishes two different geometric phenomena: collisions of specialized monogenic roots and actual index-two branching. Knowing their difference is useful for computations and geometric analysis of this projection; the content is not just a small-instance scalar check.",
+      "residual_risks": [
+        "Projection-specific and over the complex numbers; not a computation of arbitrary graph-elliptope discriminants or full singular schemes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

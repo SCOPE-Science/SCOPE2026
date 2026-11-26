@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:06:59.256585Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the frozen symmetric model (RESULT.md lines 7–43, 47–68), B=I−hA is real symmetric with spectral radius <1. The stationary Gaussian innovation series has covariance 2qh(I−B²)^−1, so the precision is A/q−hA²/(2q). At known q the symmetric roots of I−2hqC^−1 exist exactly at C≽2qhI; their eigenvalues are in (−1,1), so all produce stable SPD drifts. Each positive spectral block of the squared matrix splits by an arbitrary orthogonal projector, giving two signs on a simple block and Grassmannians on repeated blocks; a zero block has only the zero symmetric root. At two distinct steps the affine intercept and twice negative slope are U=A/q and V=A²/q. Hence VU^−1=A and VU^−2=qI; conversely U positive definite, V=qU² and the stated strict stability give exactly the two input precisions. The known-q perturbation bound is sharp for opposite scalar precision errors (small enough to preserve positive definiteness if required); it is a bound for the displayed estimator, not a lower bound for every constrained estimator. In continuous time C*=qA^−1 has a common scaling ambiguity. In the nonsymmetric witness the two transitions are scaled orthogonal matrices with identical scalar B B^T=(1−hκ)²+h²ω², giving (6) for precisely its stated stable range. The known-q one-grid fiber is not a claim to classify unknown-q data without allowing q to vary. VERIFICATION.md and check_stationary_ou.py supply recorded finite checks only and were not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tran–Tran–Nguyen use conditional transitions and an empirical Gram matrix; the intervention paper uses steady states under interventions and leaves common scaling.",
+          "Wang–Wu approximate invariant measures forward; Hellmuth–Li–Yang compare adjoints and discrete gradients."
+        ],
+        "reasoning": "More general drift or stochastic models in those works come with different data or different objectives and do not subsume inference from exactly two Euler covariance marginals.",
+        "searches": [
+          "arXiv:2601.20268 Theorem 3",
+          "arXiv:2609.19955v1 Theorem 3.1",
+          "arXiv:2604.14543 pp. 10–11",
+          "arXiv:2609.02072v1 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f885032bc16e",
+        "arXiv:2604.14543",
+        "Higham DOI 10.1137/S0036144500378302 (access attempt)",
+        "arXiv:2601.20268",
+        "arXiv:2609.02072v1 (abstract)",
+        "arXiv:2610.31310v1",
+        "arXiv:2609.19955v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Applying the mirror's intercept construction without knowing q gives A/q, not A. The joint inverse also uses the slope and enforces V=qU²; neither inference is a specialization with supplied q.",
+          "Static continuous-time covariance cannot break the joint scale ambiguity in the symmetric unknown-q model, while the controlled changes in numerical h do."
+        ],
+        "reasoning": "The affine forward covariance law is a shared ingredient, but retaining its slope as a second independent matrix constraint gives identification and consistency for a different inverse problem. The mirror is later dated; these overlap observations are mathematical, not a priority inference.",
+        "searches": [
+          "Resultary f885032bc16e theorem and covariance proof",
+          "arXiv:2610.31310v1 pp. 3–4",
+          "arXiv:2609.19955v1 Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fixed-noise mirror gives the same orthogonal projector fiber after replacing C by C/q, as well as the same drift reconstruction with q supplied.",
+          "Vicente–Salehkaleybar instead use stationary continuous-time covariance with known diagonal diffusion and graph support."
+        ],
+        "reasoning": "Dividing observed C by unknown q is not an available transformation of the data. The continuous-time identification uses distinct known inputs and does not test the Euler precision slope.",
+        "searches": [
+          "Resultary: stationary Euler covariance inverse fibers, Grassmann sign choices, two-step reconstruction",
+          "Resultary f885032bc16e theorem parts 1 and 3",
+          "arXiv:2610.31310v1 model and main results"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirror lists the exact fixed-noise threshold C≽2hI, all projector fibers, and the precision-intercept formula for two steps. It specifies noise coefficient √(2h) and has no unknown-q data test or formula."
+        ],
+        "reasoning": "The exact indexed match is for known noise; this is a closed-form matrix theorem rather than a numerical table.",
+        "searches": [
+          "Resultary: OU Euler covariance-only two-grid drift and diffusion recovery",
+          "Resultary f885032bc16e Finding and Assumptions"
+        ]
+      },
+      "rationale": "The complete known-noise one-grid fiber and known-noise two-step recovery have exact overlap in another indexed record, including for arbitrary specified q by rescaling C. The distinct central result here is identification and data consistency for jointly unknown (A,q) from two stationary numerical marginals, with the contrast to exact-time sampling and a nonreversible boundary. Neither fixed-noise result nor the inspected steady-state and trajectory inference literature gives this joint identification as stated. This is not a claim of priority for the overlapping parts.",
+      "residual_risks": [
+        "Targeted search does not establish historical priority for the joint inverse formula; equivalent numerical invariant-measure treatments can be unindexed.",
+        "Higham full text unavailable. An Oct. 29 search hit concerning stationary-law inference with unobserved OU forcing was not accessible beyond its summary; no noncoverage conclusion is drawn from it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact known-noise overlap with additional fixed-noise optimal-step results; no recovery of unknown q",
+          "evidence": [
+            "Noise level fixed as √(2h), projector Grassmann fiber, and two-precision intercept directly recovers A in that model."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-optimal-step-covariance-blindness-in-euler-thermodynamic-matrix--f885032bc16e/RESULT.md",
+          "material_read": "Theorem parts 1–3, assumptions and covariance/fiber proofs at offset 0",
+          "method": "Local mirror full-text excerpt",
+          "title": "Optimal-step covariance blindness in Euler thermodynamic matrix inversion",
+          "trigger": "Closest indexed matching fiber and two Euler steps"
+        },
+        {
+          "assessment": "Forward approximation rather than this inverse problem",
+          "evidence": [
+            "Compares numerical invariant laws with their exact-process counterparts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2604.14543",
+          "material_read": "Wasserstein convergence, pp. 10–11, offset 30100",
+          "method": "OA PDF passage",
+          "title": "The Euler-Maruyama method for invariant measures of McKean-Vlasov stochastic differential equations",
+          "trigger": "Cited numerical invariant measures"
+        },
+        {
+          "assessment": "Access limitation; no claim about absence in unread text",
+          "evidence": [
+            "The cited numerical-method and stability sections could not be inspected."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S0036144500378302",
+          "material_read": "Citation only; full text not inspected",
+          "method": "OA/publisher routes returned 403; no accessible alternate located",
+          "title": "An Algorithmic Introduction to Numerical Simulation of Stochastic Differential Equations",
+          "trigger": "Cited standard Euler and stability background"
+        },
+        {
+          "assessment": "Different observation model",
+          "evidence": [
+            "Uses an Euler trajectory, conditional transitions and an invertible empirical Gram matrix."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2601.20268",
+          "material_read": "Theorem 3, p. 3, offset 20071",
+          "method": "OA PDF passage",
+          "title": "Robust SDE Parameter Estimation Under Missing Time Information Setting",
+          "trigger": "Identification of both drift and diffusion"
+        },
+        {
+          "assessment": "Inspected abstract identifies a different objective, not evidence about all sections",
+          "evidence": [
+            "Focuses on microscopic/macroscopic adjoints and convergence of gradients."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.02072v1",
+          "material_read": "Abstract, p. 1, offset 0 only",
+          "method": "OA PDF passage",
+          "title": "Two Adjoint Perspectives on Fokker-Planck Optimization",
+          "trigger": "Cited numerical-versus-continuum comparison"
+        },
+        {
+          "assessment": "Different known inputs and continuous-time model",
+          "evidence": [
+            "Known positive diagonal diffusion and drift-graph support give generic inference under graph conditions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.31310v1",
+          "material_read": "Abstract and model/results, pp. 1, 3–4, offsets 0, 18269, 20098, 23890",
+          "method": "OA PDF passages",
+          "title": "Continuous-time linear SDE identifiability from stationary covariance (Vicente and Salehkaleybar)",
+          "trigger": "Stationary-only linear drift inference"
+        },
+        {
+          "assessment": "Uses interventions, with a scale ambiguity",
+          "evidence": [
+            "Observational and interventional steady states identify parameters generically up to common scaling under graph and nondegeneracy assumptions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.19955v1",
+          "material_read": "Abstract and Theorem 3.1, pp. 1, 3, offsets 0 and 15698",
+          "method": "OA PDF passages",
+          "title": "One Intervention per Component is Enough",
+          "trigger": "Steady-state OU parameter identification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A plausible identification failure from stationary data is resolved by changing a controlled numerical resolution rather than observing trajectories. The theorem specifies when this works, gives an exact consistency test and unique joint recovery, and exhibits both continuous-time and rotational failures outside the informative model. The known-noise root classification is useful context; the substantial increment is the unknown-scale inverse result and its limits.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

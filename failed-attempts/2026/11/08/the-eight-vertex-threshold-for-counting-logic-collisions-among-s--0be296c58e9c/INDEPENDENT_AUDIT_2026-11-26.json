@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:11:11.273458Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–38; VERIFICATION.md lines 19–36; split_threshold_verify.py lines 10–84 and 87–123 (inspected, not executed)",
+        "Independent replay: python3 /workspace/independent_orders.py split"
+      ],
+      "rationale": "Independent small-order enumeration takes each possible clique size and each multiset of neighborhood subsets for the independent vertices, exhausting all unlabeled presentations up to reordering that independent set. Full atomic-pair color refinement with a shared palette and exact color-preserving isomorphism within each group reproduces 1,2,4,9,21,56,164 groups at orders 1–7, with no group containing nonisomorphic graphs; order zero is unique. Equal C² theories imply equality in every computed refinement round. At order eight the clique and independent set have degrees 5 and 2 and equitable quotient [[3,2],[2,0]], with four vertices per cell. The cross-incidence graphs are C₈ and 2C₄, so the pairs are equivalent but not isomorphic: any isomorphism must preserve the degree cells and hence the cross-incidence graph. The clique spans a connected component containing every independent vertex, making the graphs connected. After a join with K_t the degrees of the new, old-clique and old-independent vertices are respectively t+7, t+5 and t+2; the resulting equitable three-cell profiles agree and deleting the canonically identified new vertices recovers the original nonisomorphic pair. Counting cardinality handles different orders.",
+      "residual_risks": [
+        "The frozen result concerns pairs inside the uncolored split class and does not enumerate all split collision classes at larger orders. The finite join tests do not prove the infinite claim; the degree and equitable-partition arguments do."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The chordal census claims no collisions for every chordal graph on 1–7 vertices and locates two doubletons at eight including the split pair.",
+          "The literature characterizes global amenability through constraints on stable cells and their bipartite blocks; it is not quoted as stating the same split cutoff explicitly."
+        ],
+        "reasoning": "Every split graph is chordal: an induced cycle of length at least four needs at least two clique vertices, and two clique vertices that are nonconsecutive or three clique vertices force a chord; two consecutive ones alone cannot make such a cycle through the independent set. Thus the broader finite separation includes split graphs.",
+        "searches": [
+          "Resultary chordal census 300ae62db8ad, Finding and Assumptions",
+          "Arvind–Köbler–Rattan–Verbitsky arXiv:1502.01255, Lemmas 3 and 5 and Theorem 9"
+        ]
+      },
+      "checked_sources": [
+        "Resultary chordal record 300ae62db8ad and poset record fe3ab073af88; Royle Table 1; Arvind–Köbler–Rattan–Verbitsky arXiv:1502.01255"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The chordal pair is already connected and nonisomorphic with maximum degree 5 on eight points.",
+          "Adding common universal vertices preserves splitness, and refines the common equitable partition by a new universal cell."
+        ],
+        "reasoning": "Common universal joins add an immediately recognizable set (the base pair has no universal vertex). Deleting it recovers the old graphs, and their common equitable partition implies equivalence after the join. This proves the exact all-orders quantifier as a direct consequence. The empty graph is vacuous.",
+        "searches": [
+          "Indexed chordal record 300ae62db8ad, theorem and graph6 table; frozen RESULT.md lines 29–33"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed chordal result 300ae62db8ad prints graph6 codes G}r`HG and G}VSGg for its split pair with coarsest degree quotient ((0,2),(2,3)), degree order increasing.",
+          "Indexed poset record fe3ab073af88 gives the same two cross-incidence patterns in the order signature."
+        ],
+        "reasoning": "The quotient forces equal cells of size four, the higher-degree cell a clique and the lower-degree cell independent. The cross-incidence graph is 2-regular bipartite on eight vertices and can only be C₈ or 2C₄. Therefore the chordal record's nonisomorphic pair is exactly the frozen pair. The poset match explains the construction but is not by itself a graph-signature theorem. The general search did not return decisive evidence and does not establish absence.",
+        "searches": [
+          "Resultary: eight-vertex C²/color-refinement collisions among split and chordal graphs",
+          "Primary literature search on split graphs, color refinement and the minimum collision order"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Royle gives the split isomorphism totals 1,2,4,9,21,56,164 through seven.",
+          "The chordal table supplies the two exact order-eight split witnesses, 14 edges, and their shared quotient."
+        ],
+        "reasoning": "Royle's counts alone cannot distinguish refinement classes. The chordal theorem plus its exact table supplies the lower bound and sharp split witnesses, not only matching parameters.",
+        "searches": [
+          "Royle, Counting Set Covers and Split Graphs, Table 1",
+          "Resultary chordal census 300ae62db8ad, exact graph6 table"
+        ]
+      },
+      "rationale": "The distinct indexed chordal census already shows that there are no collisions through seven in the larger chordal class and explicitly gives the same connected order-eight split pair, with a 4-by-4 incidence block of degree two. The extension by universal vertices is not stated in that record, but follows mechanically from those very witnesses. No dates are used to infer priority.",
+      "residual_risks": [
+        "The exact historical order among same-day indexed results and any earlier explicit proof of the threshold remain unresolved. The coverage comparison does not depend on that chronology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the cutoff and the very same split pair; common joins yield the rest",
+          "evidence": [
+            "No chordal collisions on 1–7; at eight one of two doubletons is a connected 14-edge split pair, with the displayed graph6 encodings and 2-by-2 degree quotient."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exactly-two-first-c-2-collisions-among-chordal-graphs-at-eight-v--300ae62db8ad/RESULT.md",
+          "material_read": "Finding, exact witness table, Assumptions and beginning of proof, mirror offsets 0–2976",
+          "method": "Exact local-mirror statement, domain and quotient comparison",
+          "title": "Exactly two first C²-collisions among chordal graphs at eight vertices",
+          "trigger": "Strongest distinct indexed result in a containing class"
+        },
+        {
+          "assessment": "General structural and refinement tools; not required for the decisive indexed coverage",
+          "evidence": [
+            "Amenability compares against every graph; the classification imposes criteria on stable cells, biregular blocks and the anisotropic cell graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1502.01255",
+          "material_read": "PDF pp. 2, 5–6 and 10–11; Lemmas 3 and 5 and Theorem 9",
+          "method": "OA theorem and defining-passage inspection",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "Potential stronger global amenability characterization"
+        },
+        {
+          "assessment": "Independent isomorphism counts, not a logical collision census",
+          "evidence": [
+            "Counts at orders 1–7 are 1,2,4,9,21,56,164."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL3/ROYLE/royle.pdf",
+          "material_read": "PDF pp. 1–2, Table 1, offsets 1065 and 3292",
+          "method": "OA tabulated-isomorphism-count comparison",
+          "title": "Counting Set Covers and Split Graphs",
+          "trigger": "Exact enumeration of the same graph class"
+        },
+        {
+          "assessment": "Structural overlap, not a standalone implication in the graph signature",
+          "evidence": [
+            "First pair has comparability graphs C₈ and 2C₄; adding clique edges to one side gives exactly these split witnesses."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-eight-element-threshold-for-two-variable-counting-equivalenc--fe3ab073af88",
+          "material_read": "RESULT.md witness codes and explanation of first pair",
+          "method": "Compare bipartite comparability cuts",
+          "title": "The eight-element threshold for two-variable counting equivalence of posets",
+          "trigger": "Same incidence pattern in indexed strict orders"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–38 and 40–44; indexed chordal result 300ae62db8ad Finding and witness table"
+      ],
+      "rationale": "A first counting-logic collision in an established graph class is a worthwhile target, but the larger chordal result already settles the bound and gives the same split witnesses. The only remaining operation is routine padding by universal vertices, with no independently useful unsolved claim left in this formulation.",
+      "residual_risks": [
+        "This is not a judgment against a full higher-order split-graph collision classification, which was not asserted."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The state splits orthogonally into the constant Neumann mode and its heat-evolving complement. On a hypothetical finite accumulation tail, all hold intervals are shorter than one, so the constant-mode amplitude is bounded and nonincreasing. The nonzero high-mode component remains nonzero at every finite time and is smooth with bounded derivative on a compact interval away from zero. These facts give a positive lower bound on the state norm and a linear upper bound on the state increment, contradicting event intervals tending to zero. The pure constant mode has the explicit repeated interval \(\varepsilon/(1+\varepsilon)\); the zero state has no events. For each high eigenmode, direct solution of the trigger equation gives \(\log(1+\varepsilon)/(n^2\pi^2)\).
+PASS
 
-## Originality — PASS
+On a held interval the mean is (1−τ)a_k and the mean-zero component is the free heat solution. At a purported positive finite accumulation time T, the shrinking gaps are eventually less than one, so the sampled means are bounded. A nonzero mean-zero component has strictly positive norm at T by injectivity, and its derivative is bounded on [T/2,T] by 2||h_0||/(eT). Consequently the state increment is at most C times the interval length, while at a finite event continuity and the strict-trigger infimum imply it is at least ε||h(T)||. This contradicts gaps tending to zero. Strong continuity gives a positive first event time for nonzero initial data; zero has no events; pure nonzero mean repeats gaps ε/(1+ε), before the mean can hit zero. On a nonconstant eigenmode the feedback vanishes and the trigger ratio is exp(n²π²τ)−1, so each gap equals log(1+ε)/(n²π²). This rules out a lower bound uniform in the initial state, not a bound along any particular orbit. Checked RESULT.md:17–47 and VERIFICATION.md:19 analytically, without finite-dimensional truncation.
 
-The closest primary source is Wakaiki and Sano, *Event-triggered Control of Infinite-dimensional Systems*, arXiv:1801.05521, Section 3, Example 3.2. It proves that the infimum of the first event time over initial states is zero and derives the high-mode formula, but that result is not a pointwise no-Zeno theorem for arbitrary fixed initial states. The present claim adds the latter conclusion for the same specified heat model. Wang and Krstic (arXiv:2110.05680) prove a positive dwell-time result for a different PDE–ODE controller with a different dynamic trigger and an explicit maximum dwell time; it does not imply this claim. No exact equivalent was identified in the inspected literature. The search is not exhaustive, so unindexed prior work remains a risk.
+## originality
 
-## Value — PASS
+PASS
 
-The result separates two distinct properties that are often conflated in infinite-dimensional event-triggering: the lack of a uniform first-event lower bound over the entire state space, and actual finite-time accumulation along one fixed trajectory. It gives an exact counterexample family for the former and a rigorous pointwise exclusion for the latter in the self-review, which is directly relevant to interpreting event-trigger feasibility.
+Credit Wakaiki–Sano for precisely the same eigenmode calculation and the resulting zero infimum for first-event time. The surviving distinct contribution, already distinguished and credited in the frozen record, is non-accumulation for every fixed L² initial state under the same full-state trigger, including arbitrary mixtures of Neumann modes. The source's finite-dimensional and feedback-error theorems do not supply it.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Settles the missing trajectory-level question in a specific published example often used to show a failure of uniform event-time analysis. It gives a rigorous separation between arbitrarily fast sampling across initial states and impossible finite-time accumulation on any one orbit. The trajectory-wise lower norm and finite-time smoothing argument is needed precisely where the published high-frequency witness provides no such guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

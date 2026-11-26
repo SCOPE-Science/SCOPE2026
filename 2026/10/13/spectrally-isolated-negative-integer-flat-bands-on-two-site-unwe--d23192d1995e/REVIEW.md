@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Distinct signed differences and mixed differences guarantee genuinely unweighted simple edges and exact regular degree. The Laurent adjacency matrix is a Hermitian rank-one update, with a compact Laurent eigenvector. The key nonstandard separation lemma is proved: roots of unity are neutralized by an order multiple, and all other common-power coincidences exclude only finitely many exponents. Compactness then gives a strictly positive spectral gap for every prescribed negative-integer band. For the explicit 15-regular example a full trigonometric nonnegativity identity proves an exact gap of two. The proof addresses all integer \(r\ge3\), while finite tests support but do not establish the general claim.
+## correctness
 
-**Originality — PASS, with remaining indexing risk.** Two-orbit negative-integer flat bands without guaranteed isolation are already constructible and are **not** claimed as original. Sabri–Youssef (arXiv:2304.06465) establish general constraints on two-site unweighted bands, not the every-negative-integer isolated classification or the displayed spectrum. Toikka–Andreanov (arXiv:1810.01076) establish a broader algebraic criterion for tight-binding flat bands but do not derive the unweighted, no-potential, connected two-site all-integer *gap* construction. Generic absence theorems do not cover these specially tuned graphs. Exact source equivalence under alternate formulations remains a risk; title searches alone cannot certify uniqueness.
+PASS
 
-**Value — PASS.** Spectral isolation is mathematically and physically distinct from merely having a flat eigenvalue at the spectral bottom: it prevents band touching and supplies a defined positive separation from the continuum. The construction settles isolation for every negative integer below \(-2\) in the smallest nontrivial periodic-cell size, with an explicit complete spectral interval and exact gap in a simple low-order case. It makes no claim about stability of exact flatness under arbitrary perturbations or an optimal universal gap.
+Unique ordered differences give r(r−1) within-layer neighbors, and zero and unit shifts give connectivity; the r² mixed shifts are distinct because M exceeds the diameter of X. The base-4 difference argument separates powers of 4 from differences of powers by their odd unit modulo 4, and recovers both indices. With the stipulated edge signs and Fourier convention the fiber plus rI is (P,Q)(P,Q)*, with the stated cofactor null vector (2r actual sites). For a root of unity zero α, a multiple of its order maps α to 1, not a zero; for other α each equation α^M=β forbids at most one integer. The finite set of forbidden integers can be avoided on the common multiples, and the constant term 1 rules out a zero at 0. Thus the rank is exactly one on the circle, with strictly positive minimum nonzero fiber eigenvalue. At z=1 the dispersive band attains the degree; at all other z the terms 1 and z give a strict triangle inequality in P. Continuity gives a full interval. In the stated r=3 example the product-to-sum identity gives λdisp+1≥0 with equality at π, while zero momentum gives 15, confirming precisely the claimed isolation gap and spectrum.
 
-The primary sources and their limitations are documented in RESULT.md and the accompanying structured review. No external verification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Positive isolation for each r and the exact isolated interval of the r=3 witness are the supported distinct contributions. The same-date indexed all-negative bottom-flat-band result materially covers the construction without isolation, degree, uniqueness and compact support, and is not being dismissed on date or terminology. Its fixed dilation and rank-at-most-one proof impose no no-common-root condition. The arbitrary-dilation avoidance argument proves an additional property, and the inspected exact witness is different.
+
+## value
+
+PASS
+
+A compactly supported bottom flat mode can otherwise touch the dispersive spectrum. Strict separation under the two-site unit-weight constraints is a specific extra property relevant to spectral projections and to explicit test graphs. Selectable-dilation root avoidance resolves it uniformly across the integer family, and the exact gap-two example supplies a simple benchmark with the entire adjacency spectrum certified without sampling. Neither an optimal gap nor arbitrary perturbation stability is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

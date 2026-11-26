@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,8 +21,6 @@
 
 # Verification
 
-The theorem is verified analytically in `RESULT.md` by the exact bipartite depolarizing expansion, Schmidt-basis block diagonalization, a sum-of-rank-one-vectors Gram identity, and the Ky Fan eigenvalue inequalities, including physical negative depolarization coefficients. These implications are dimension-uniform and apply to all bipartite states. The finite tests below cannot prove the theorem's universal quantifiers.
+The proof in `RESULT.md` gives all Ky Fan inequalities on the completely positive negative-coefficient branch in dimension at least three. It uses an exact Schmidt block decomposition, a positive Gram identity, and matching upper- and lower-end spectral partial-sum bounds before extending to mixed states by convexity.
 
-The standalone file `verify.py` requires NumPy and runs `python3 verify.py`. Its execution passed exact rational Gram identity checks in dimensions 2, 3 and 4, and 1050 randomly sampled input/parameter numerical majorization examples for dimensions 2, 3, 4, 5 and 7 (including the extreme physical parameter). The maximal observed numerical Lorenz-defect residual was approximately \(1.78\times10^{-15}\), consistent with floating-point rounding. Such experiments do not certify arbitrary dimension, all inputs, or exact identities; the written proof supplies those assertions.
-
-Limitations: two identical finite-dimensional depolarizing channels, not unequal channels or three and more uses. No independent audit or independent numerical validation is represented as performed.
+The unchanged ancillary verifier `verify.py` requires NumPy and can be run with `python3 verify.py`. Its finite Gram and pure-input spectrum checks include regimes outside the finding; the tests for physical parameters above one at local dimension at least three are relevant here. The proof, not the finite samples or floating-point checks, establishes the universal quantifiers. The theorem does not treat unequal channels or three or more uses.

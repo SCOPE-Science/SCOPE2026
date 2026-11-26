@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact two-function normal form follows by moving all tuples selected by the first functional dependency to one side, leaving a single-output-per-intermediate-value requirement on the other side. Every mixed intermediate fibre forces one of the three input values to select it; four mixed fibres therefore give a universal failing eight-row subteam. In minimal failures there are no nonmixed fibres and no more than four mixed fibres. The complete remaining two- and three-fibre problem has 49 local states per fibre and is decided by the exhaustive `verify.py` certificate. It checks 292824 canonical configurations, gives a 4/6/7/8-size census, and independently checks 400 bounded direct partitions. The argument relies on exact finite reduction, not extrapolation from random tests.
+PASS
 
-## Originality
+Under lax splitting the two downward-closed witnesses can be made disjoint. The first side selects at most one y per x, and moving all matching rows there cannot create a violation on either side. Satisfiability is therefore exactly the existence of a selection that leaves at most one z-value per y unselected. An unmixed fibre is irrelevant, and four mixed fibres already give a failing subteam by taking one row of each output from each: the three x-values cannot cover the four fibres. Thus every minimal failure has at most four used fibres, and if four then exactly eight rows. The independently reproduced finite census exhausts multisets of the 49 mixed Boolean states (49, 1225, 20825, 270725 candidates), up to renaming only y. It confirmed the size distributions: k=1 empty; k=2 {4:3,6:6,7:12}; k=3 {6:36,7:12,8:102}; k=4 {8:135}. Testing all single deletions is sufficient by downward closure; explicit witnesses of each allowed size were separately verified by direct split enumeration. Zero or one mixed fibre cannot fail. This proves the spectrum, the count 306 and sharpness of eight for unbounded finite Y.
 
-PASS within the checked record. The closest published paper (Fröhlich, Kolaitis and Meier, Theorem 25 of the 2026 CSL paper / arXiv:2508.16146) proves *unrestricted* incoherence and gives no sharp bound for three input values and two output values. Barlag et al. (arXiv:2605.31269, Sections 3 and 5) study general coherence, rewritability and decision complexity, not this finite-domain spectrum. The closest published restricted-alphabet research record handles only two first-coordinate values with arbitrary output values and proves sizes 4 and 6 with a six-row cutoff; that theorem does not imply the ternary-input Boolean-output 4/6/7/8 spectrum. Searches for chained dependencies, finite-domain coherence, ternary determinants and eight-tuple obstructions did not identify an equivalent or stronger result. The remaining risk is older literature on database repair or forbidden-subteam patterns using different terminology.
+## originality
 
-## Value
+PASS
 
-PASS. This supplies a sharp non-binary determinant case for a natural chained dependence split despite the unrestricted formula being incoherent. The exact threshold eight is a data-validation certificate size, the missing size five and present size seven distinguish the three-input case from the known two-input theorem, and the 306 canonical forbidden patterns furnish a finite obstruction basis for bounded-domain checking. The conclusion is a natural complete finite classification, not a routine numerical increment.
+The same chained dependence formula and the binary-determinant obstruction problem are prior work. The inspected sources do not cover the ternary/Boolean domain slice, its two additional obstruction sizes, or the complete 306-pattern census.
 
-## Limitations
+## value
 
-The result applies only to finite sets of distinct triples with at most three first-coordinate values and two output values, under ordinary lax team disjunction. Exhaustive state enumeration is computer-assisted and has not received independent verification. The record comparison cannot exclude uncatalogued older equivalent results.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The chained functional-dependency split is a canonical incoherent two-atom formula; the ternary/Boolean promise is a natural finite-domain step beyond the sharp binary-determinant theorem. Eight is an explicit sharp local witness bound independent of the intermediate-domain size, and the complete catalogue gives usable obstruction information beyond a decision procedure or a nonsharp bound, including the unexpected exclusion of size five and the emergence of sizes seven and eight.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** With exactly \(k\) particles, the complete-graph exclusion generator closes on first and second occupation moments. The explicit generator identities yield unique stationary means and pair products, and subtracting their products gives the three covariance fractions. Denominators are positive, so the asserted one-time sign thresholds follow directly from their numerators. All boundary cases \(k=1\), \(k=2\), \(N-k=1\), and \(N-k=2\) were included. Independent unreduced generator computations agreed in 2,766 covariance comparisons; symbolic factorization and exact-rational boundary checks corroborated the proof.
+## correctness
 
-## Originality
-**PASS within checked coverage, with residual risk.** Borcea–Brändén–Liggett establish negative association for fixed-time symmetric exclusion, whereas stochastic resetting mixes observation ages and is not an assumption of that theorem. Evans–Majumdar's renewal scheme is a general technique, not an evaluated complete-graph pair-correlation/sign theorem. The full accessible 2019 single-configuration SSEP-reset paper studies a nearest-neighbor ring, density profiles, and currents; the full 2020 dichotomous-reset ring paper studies correlations in a different symmetric two-reset ensemble. Neither examined primary document implies the all-size single-reset complete-graph formula or sharp integer filling thresholds without additional work. Relevant published-result searches did not locate a matching statement. An unindexed equivalent Bernoulli–Laplace resetting specialization remains possible.
+PASS
 
-## Value
-**PASS.** The finding answers a natural statistical-mechanics question raised by negative dependence of conservative exclusion systems: global Poisson resets can reverse stationary correlation signs even while particle number is fixed. It identifies the exact minimal particle/vacancy requirements and thresholds, while proving that mixed pairs cannot reverse. This complete finite-volume classification provides a benchmark for nonequilibrium resetting models and distinguishes strong temporal mixing from instantaneous exclusion repulsion.
+Unit-rate exchanges connect all size-k subsets; reset preserves that space, so there is a unique stationary law. Summing the exchange increments at i gives k−Nη_i; adding reset gives the mean m_i=(k+r b_i)/(N+r). For distinct sites apply the Markov generator product rule. The only exchange contributing to the product of increments is {i,j}, contributing −(η_i−η_j)^2, while reset contributes r(b_i−η_i)(b_j−η_j). Stationarity therefore gives [2(N−1)+r]Cov = −m_i−m_j+2m_i m_j+r(b_i−m_i)(b_j−m_j). This checks the second-moment closure and isolates the source of positive same-class covariance. Substituting the means gives the stated three numerators over the common positive denominator. The same-class numerators have intercept −2kℓ and slopes k(k−2) or ℓ(ℓ−2); mixed pairs have a strictly negative quadratic numerator. This verifies uniqueness, strict signs, the existence conditions of each pair class, and the N≥5 interior-filling consequence. The uniform r↓0 limiting covariance and the large-r orders agree. Positive covariance contradicts negative association by testing the increasing single-site occupations, but the converse was not used. Exact unreduced generator checks using python /workspace/branches/independent_checks.py give 00 covariances −3/704, 0 and 3/1300 at (N,k)=(5,3), r=3,4,5, plus both homogeneous zeros and mixed covariance −1/16 at (6,3,6). Independently counted 2,766 cases in the reported finite grid; these are corroboration, not the general proof.
 
-## Closest literature and limitations
-The closest primary sources are arXiv:0707.2340 (fixed-time strong Rayleigh property), arXiv:1906.11801 (single-reset SSEP on a ring), and arXiv:2004.00951 (two-reset ring correlations); arXiv:1102.2704 supplies the general resetting mechanism. This theorem does not generalize to arbitrary graph geometries and does not prove negative association when all pair covariances are nonpositive. A first-pass bibliographic originality assessment cannot rule out inaccessible or unindexed equivalent formulas.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Global renewal and deterministic-time exclusion dependence are established. The distinct result supported here is the explicit finite-volume, complete-graph, fixed-particle all-pair sign classification and its exact unique cutoffs. The closest graph-general indexed global-reset result partially covers reversal existence but not the exact complete-graph cutoffs.
+
+## value
+
+PASS
+
+An exact controlled instance separates negative dependence under ordinary conservative exchange from stationarity under a common reset age. The result identifies when particle conservation permits positive covariance, when reversal is impossible, and where it occurs, for all system sizes and fillings. These provide useful sign and finite-volume benchmarks without overclaiming higher-order negative dependence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

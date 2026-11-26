@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Cauchy normalization is checked from exact simplex facet volumes. All extrema and their multiplicities follow from the zero-sum orthant decomposition. Around each minimizer an explicit tangent chart has determinant \(m/2\) and local \(\ell_1\) growth, giving the sharp \(t^{m-2}\) law with its normalization. Every balanced orthant has a unique smooth maximizer, and explicit bounds on all orthant boundaries and unbalanced sign patterns make the upper spherical-cap formula exact. Uniform local Taylor bounds give the upper \(t^{(m-2)/2}\) asymptotic. The packaged checker corroborates selected dimensions; the proof is analytical.
+## correctness
 
-## Originality — PASS (with priority limits)
-Published extremizers and the Cauchy brightness formula are acknowledged as known. Full-text comparison with Pandis (arXiv:2601.18436) finds the direction-wise formula and extrema, but not either probability endpoint expansion or an exact near-top cap probability window. The full Kabluchko–Litvak–Zaporozhets paper (arXiv:1511.08479) concerns one-dimensional widths and their distributional limits, not the codimension-one volume tails of this claim. Other relevant prior work treats projected face numbers. Searches under zero-sum \(\ell_1\) sphere, simplex brightness, random-projection tails and spherical cap aliases did not identify a dominating theorem. Full access to Filliman (1990) was unavailable; novelty is not represented as definitively certified.
+PASS
 
-## Mathematical value — PASS
-An exact angular rarity law is natural for precision of randomized views of a canonical convex body. The different lower and upper endpoint exponents cannot be read from a table of extreme values and expose a genuine polyhedral-versus-smooth local geometry asymmetry. The cap-window formula has explicit all-dimensional validity rather than merely a numerical approximation, and the exact three-vertex case gives an unconditional distributional benchmark.
+The facet area times the absolute normal component gives sqrt(m)/(m-2)! times |u_i|, before the factor 1/2 in Cauchy's formula. At a minimum, positive and negative coordinates each have total magnitude 1/sqrt(2), with exactly one coordinate of each sign. In the k=m-2 free tangent coordinates y, the Gram determinant is 1+k/2=m/2 and Z-sqrt(2)=||y||_1+O(||y||_1^2). The area of each near-minimum component is therefore sqrt(m/2) times the volume of a k-dimensional cross-polytope of radius t, with O(t^(k+1)) error. There are m(m-1) components. Within a sign chamber with r positive coordinates, the projected sign vector has norm 2 sqrt(r(m-r)/m); the largest norm is L_m and only the stated N_m chambers attain it. On any coordinate wall the value is at most D_m, and unbalanced chambers are bounded by E_m. Both bounds are strictly less than L_m for m>=3. A cap above these two bounds cannot leave its chamber: at a first wall crossing along a shortest geodesic the chamber's linear functional still agrees with Z. Area integration gives (3), and sigma_(k-1)/k=kappa_k gives the leading coefficient of (2). At m=3 the six caps meet only on boundaries at the minimum and the derivative of the exact circle law there agrees with (1). The analytical reconstruction does not rely on the inspected seeded simulation. The supplied replay path is check_brightness.py; it was not executed.
 
-## Limits and competing literature
-Historical priority remains provisional; earlier equivalent results might occur in older projection-body or constrained-spherical-norm analyses. Statements apply only to fixed \(m\ge3\), Haar directions in the simplex's affine span, and the stated normalization. No full-density closed formula is claimed above dimension two.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the simplex projection normalization, extrema and equality directions to prior work; credit only the fixed-dimensional probability laws with constants and explicit upper cap window here. The spherical cap integral is standard. The lower tangent sublevel volume and the explicit upper window require geometry beyond the prior extremal values. The closest indexed probability results concern a different polytope or a different projection statistic.
+
+## value
+
+PASS
+
+The two endpoint probabilities quantify how often Haar viewing directions nearly attain extreme projected volume. The differing exponents distinguish nonsmooth nearly sparse directions from smooth cap neighborhoods of balanced signs. The constants and explicit exact-law window make that distinction quantitative for every fixed simplex dimension, not simply another proof of the extremizers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

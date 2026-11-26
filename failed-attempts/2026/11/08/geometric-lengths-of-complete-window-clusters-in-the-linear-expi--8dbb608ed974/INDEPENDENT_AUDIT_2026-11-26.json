@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:19:29.489716Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–102",
+        "VERIFICATION.md and checker.py, inspected only",
+        "Long, Proposition 2.1, Theorem 3.1 and Appendix A",
+        "Independent exact n=3,M=4 check: 18 entrance-supported windows, immediate exit 2/9 and mean 3"
+      ],
+      "rationale": "The theorem and exact formulas hold. At entrance, the middle m=M−1 letters are uniformly onto N=n−1 colors other than the new color, which is absent from both the middle block and the outgoing draw. Prescribing r singleton positions leaves (N−r)! S(m−r,N−r) words for each ordered choice of their distinct colors, so the count ratio is S(m−r,N−r)/S(m,N). The generating-function identity gives (N)_r/(m)_r times [τ/(exp(τ)−1)]^r times the ratio of the two zero-truncated-Poisson local masses. The numerator and denominator departures from their respective means are both bounded: they are (r+1)(a−1)−{an} and (a−1)−{an}. This corrects the incidental r(a−1)+o(1) expression in line 60; boundedness is what the span-one local limit uses. Thus the ratio tends to one, and the joint singleton probabilities tend to exp(−rτ). For the collision bound, the supremum local mass for a sum of N−1 copies is O(N^{−1/2}) by Fourier inversion, and the conditioning denominator is Θ(N^{−1/2}). The conditional second factorial moment is therefore bounded by a constant times the unconditional one, giving an O(1/n) fixed-pair collision probability. A rescue of any of the first k departing singleton colors costs at most k²/n. With neither event, survival through k is exactly absence of singletons in the first k positions. The immediate-exit formula is the r=1 singleton probability multiplied by (n−1)/n. Stationarity partitions onto time into runs, which have finite start and end almost surely by independence of disjoint windows and the positive chance of a monochromatic window. Summing over the time elapsed from the last entry gives onto mass = entrance flux × conditional mean. Their exact counts give the finite mean and their Stirling ratio tends to a(exp(τ)−1)/τ=exp(τ) by the same local limit. The finite boundary M=n=2 uses S(0,0)=1; k=0 is automatic.",
+      "residual_risks": [
+        "The supplied finite checks were not replayed. The floor-offset slip does not affect the claim; weak convergence alone would not justify the limit of the mean."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Long's ZTP sum estimate covers a compact subset of positive parameters, including τ_{N,m}→τ_a. The earlier record's conditional uniform K-subset formula and first-loss sandwich hold before inserting the logarithmic-window scale. Its Poisson-process conclusion, by contrast, assumes n^α scaling and singleton density tending to zero."
+        ],
+        "reasoning": "The earlier limit theorem alone does not specialize by setting α=a/log n. The finite-n identities in its proof and the local occupancy bound do apply directly at fixed a and reduce to a simpler fixed-horizon limit.",
+        "searches": [
+          "Long arXiv:2604.26298v1, Theorem 3.1 and Appendix A, Lemma A.1",
+          "Resultary singleton-clock result e716b5cd75a1, Proof steps 3–7 (offset 4940 onward)"
+        ]
+      },
+      "checked_sources": [
+        "Long arXiv:2604.26298v1",
+        "Resultary e716b5cd75a1 and 889bd5e002da, mirrored originals",
+        "Targeted primary-literature search for linear-window run lengths"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With the previous proof's mean-matching τ_{N,m}, its binomial singleton count before conditioning has mean Np1 with p1=τ/(exp(τ)−1) and Np1/m=exp(−τ). At fixed density a>1, Np1 is Θ(n); Chernoff's exp(−cn) divided by Long's Θ(n^{−1/2}) still vanishes. Thus K/m→q_a. The earlier exact conditional uniform K-subset formula gives avoidance probability (m−K)_k/(m)_k→(1−q_a)^k for fixed k. In the earlier first-loss sandwich with t=k, the non-singleton obstruction is O(N(k/m)^2)=O(1/n) even without an occupancy moment bound, since each multiplicity r≥2 gives probability at most (k/m)^r. Its rescue bound k E[R_k]/n is O(k²/n) because R_k≤k. The sandwich gives the submitted limit unchanged. The earlier stationary exit-flux identity expresses the reciprocal mean as (1−1/n) times expected singleton fraction in a typical complete window; applying the same binomial-conditioning concentration directly to that window gives its limit q_a."
+        ],
+        "reasoning": "This is a direct implication of earlier proof statements with weaker estimates than those used in the logarithmic regime, not an inference from a similarity in titles or from the exponential rare-entry law. The prescribed-singletons Stirling ratio is an alternate routine count for the already controlled hypergeometric probabilities.",
+        "searches": [
+          "Resultary e716b5cd75a1, steps 4–7, mirrored passage offsets 4940–9343",
+          "Long arXiv:2604.26298v1, Proposition 2.1, Theorem 3.1 and Appendix A, Lemma A.1 (offset 60520 onward)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Long Theorem 6.1 treats first completion in the same linear regime, not episode duration. The indexed singleton-clock record treats the same stationary entrance and consecutive-complete episode (its stated limit is in a logarithmic regime)."
+        ],
+        "reasoning": "A run duration from a stationary entrance is determined by the first loss after that entrance, not the first arrival from an unconditioned start, nor a length-biased duration seen at an onto window. The comparable object is the indexed singleton-clock first loss.",
+        "searches": [
+          "Resultary: expiring coupon collector sliding-window surjection flux rare-entry laws cluster length stationary entrance geometric run length",
+          "Resultary: stationary entrance-conditioned geometric run length of complete sliding windows linear expiring coupon collector exact mean",
+          "expiring coupon collector linear window coverage episode duration stationary entrance consecutive surjections run length geometric singleton cluster scan statistic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both older logarithmic-regime entries already state the exact nS(M,n)/[(n−1)S(M−1,n−1)] mean for all M≥n, not just their asymptotic regime. Neither compared finding explicitly states the fixed-a geometric limit."
+        ],
+        "reasoning": "Exact mean coverage is literal. A numerical table of a few Stirling values would not identify an entrance-conditioned process limit; the import of the indexed match is its exact formulas and proof, not a numerical coincidence.",
+        "searches": [
+          "Resultary semantic queries for entrance-conditioned geometric run length and exact mean",
+          "Read mirrored RESULT.md entries 889bd5e002da and e716b5cd75a1"
+        ]
+      },
+      "rationale": "The exact fixed-a geometric wording was not found as a stated theorem in the compared sources. Nevertheless the prior indexed singleton-clock proof already gives the exact entrance law, conditional exchangeability of singleton locations given their number, and a finite-horizon sandwich for the first loss, not just a logarithmic-window exponential limit. Applying these existing, finite-n steps with Long's local bound at fixed density mechanically yields the geometric law. The mean is already covered by the earlier exact flux formula and its asymptotics, and the immediate-exit expression is the singleton calculation at the first position followed by a nonmatching replacement. The failure is lack of a materially distinct result, not a claim that Long's first-hitting theorem has the same statement.",
+      "residual_risks": [
+        "No exact earlier statement of the fixed-a geometric law was verified. The additional web query did not supply a relevant comparison; the decision rests on a constructive implication from read passages, not the success or failure of search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "First arrival distinct, but exact entry counts and local bound directly applicable",
+          "evidence": [
+            "Theorem 3.1 gives the middle block and entrance flux; Theorem 6.1 is a first-arrival law; Lemma A.1 yields the needed central mass in the fixed-τ range."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.26298v1",
+          "material_read": "Introduction; Proposition 2.1 and Theorem 3.1; Theorems 4.1 and 6.1; Lemma 5.2 and Appendix A Lemma A.1 (especially offsets 60520–66314)",
+          "method": "Bounded OA HTML passage reads",
+          "title": "The Expiring Coupon Collector: Sliding-Window Surjection Flux and Rare-Entry Laws",
+          "trigger": "Same model, exact entrance law, linear regime and ZTP local estimates"
+        },
+        {
+          "assessment": "The stated Poisson limit uses a different regime, but the finite conditional sampling and loss inequalities mechanically give the fixed-density conclusion with Long's local estimate",
+          "evidence": [
+            "The proof gives K/(Np1) concentration after conditioning, uniform K-subset singleton positions, the R_t first-loss sandwich, and the finite mean and exit-flux formula."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-poisson-singleton-clocks-and-exponential-coverage-episodes-in-ex--e716b5cd75a1",
+          "material_read": "Original Finding and Proof steps 4–7 (mirror offsets 4940–9343)",
+          "method": "Resultary semantic lookup and bounded local mirror read",
+          "title": "Poisson singleton clocks and exponential coverage episodes in expiring coupon collection",
+          "trigger": "Same entrance-conditioned cluster statistic and singleton mechanism"
+        },
+        {
+          "assessment": "Exact mean already stated; scaled limit in a different regime",
+          "evidence": [
+            "The window is floor(α n log n), with L_n/n^α converging to Exp(1); the finite mean uses the same Stirling ratio."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exponential-lifetime-of-complete-sliding-windows-in-a-subcritica--889bd5e002da",
+          "material_read": "Original mirrored Finding",
+          "method": "Resultary semantic lookup and bounded local mirror read",
+          "title": "Exponential lifetime of complete sliding windows in a subcritical regime",
+          "trigger": "Same entrance-conditioned run length and exact mean"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof",
+        "Resultary e716b5cd75a1, steps 4–7",
+        "Long, Appendix A"
+      ],
+      "rationale": "Entrance-conditioned duration at linear density is a natural quantity and the reported limit is correct. But this record adds no nonroutine argument or exact invariant beyond the established singleton-clock mechanism at fixed horizon: conditional singleton positions are already a uniform subset, and fixed positive density makes the geometric consequence immediate with existing occupancy bounds. The finite mean is old, and the first-step exact probability is a direct singleton count. No substantive surviving extension (for example, a new uniform range of horizons or parameters) is established here.",
+      "residual_risks": [
+        "The different regime is of genuine conceptual interest; this assessment is of the incremental content in this record, not the overall importance of cluster-duration analysis."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

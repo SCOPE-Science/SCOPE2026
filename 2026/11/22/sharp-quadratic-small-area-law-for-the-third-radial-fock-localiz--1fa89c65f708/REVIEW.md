@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The radial Fock eigenvalue formula is exact. The dual envelope has precisely two contacts; modes of degree at least three stay uniformly below the sharp level. The second-order upper bound follows from the first moment at the origin and the two-contact concentration argument. The explicit disk-plus-annulus family matches the coefficient, and a bathtub stability inequality proves stronger central-disk filling. The 1636 finite assertions support but do not replace these analytical steps.
+## correctness
 
-## Originality — PASS, with bibliographic risk
-Nicola–Riccardi–Tilli's 2025 Theorem 1.3 and Remark 4.1 cover the second eigenvalue and the qualitative third-eigenvalue disk-plus-annulus improvement. The 2026 two-band vacuum/excited Fock theorem already proves the identical *first-order* coefficient and the weak two-point concentration; those are not new. The precise signed quadratic coefficient and rescaled interval-filling law are not covered by its stated first-order asymptotics or accessible proof. A keyword search cannot exclude an older differently formulated calculation.
+PASS
 
-## Mathematical value — PASS
-This provides the sharp next coefficient and shape rigidity for an intrinsic third ordered spectral extremal problem, rather than a new isolated numerical special case. The correction records the unavoidable linear boundary cost of the central disk, while the excited annulus has a quadratically flat leading profile. No stronger global geometric optimization claim is made.
+The coordinate t=pi|z|^2 converts area to length and radiality diagonalizes the localization operator with weights f_j=e^(-t)t^j/j!. The j>=3 peaks decrease, with maximum 9/(2e^3)<c, so above that times s the ordered third eigenvalue is the minimum of L_0,L_1,L_2. The dual h=cf_0+(1-c)f_2 attains c only at 0 and tau; this follows from the signs of h' around the two roots 2-tau and tau. To justify strictness for the supremum (not just individual masks), set g=c-h. Its tail limit is positive and its zero set has measure zero, so for each fixed s choose eta>0 with |{g<eta}|<s/2. Every mask then has integral_E g>=eta s/2, and combining this with the high-mode cutoff gives M_3(s)<cs. In the two-band construction the central piece loses p^2 s^2/2 in L_0, L_2 has no central term at that order, and the annulus has no first-moment term about tau. The adjustment p_s=p+p^2 s/[2(1-A+B)] balances both to cs-cp^2s^2/2+O(s^3), while L_1/s tends to 2c/tau>c. Conversely the dual deficit of near maximizers gives two-point concentration and the L_2 mass fixes the central fraction p. Since g(t)/t tends to c at zero, bathtub rearrangement forces at least cp^2s^2/2+o(s^2) loss. For F near zero of measure m, moving the missing length d=|F triangle [0,m]|/2 to the right of m costs at least d^2 in first moment. Saturation of the coefficient, followed by taking the small neighborhood smaller and using o(s) mass in the intervening fixed annulus, yields the scaled central-disk assertion. Independent high-precision values tau=1.59362426004004009, c=0.24460180302352822, p=0.05197452634475800 give the stated coefficient.
 
-## Closest sources and scientific limits
-- Nicola, Riccardi, Tilli, arXiv:2503.07069 (2025), Section 4 and Remark 4.1.
-- A two-band concentration law for vacuum and excited Gaussian Fock modes (published mathematical record, 2026-11-02).
-- Abreu, arXiv:2607.28376 (2026), Ky Fan sums; only abstract inspected.
+## originality
 
-No claim is made about exact positive-area optimizers, nonradial third-eigenvalue maxima, or independently verified priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The dual peak certificate, leading slope, two-radius split, disk-plus-ring geometry and weak concentration are prior. The supported distinct contribution is the sharp second-order deficit for the ordered third radial eigenvalue, with a balancing adjustment and central filling at the rescaled area level. This is not merely the m=2 substitution of the prior first-order two-mode theorem.
+
+## value
+
+PASS
+
+The prior third-eigenvalue example demonstrates only that an annulus loses. This gives a sharp accuracy benchmark for the optimized ordered eigenvalue and explains why weak two-radius concentration is insufficient for comparably accurate masks: a nonzero fraction must nearly fill the central disk on its natural area scale. The positive correction comes from a boundary first-moment constraint and has matching explicit masks; it is not merely extra numerical precision in a known constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

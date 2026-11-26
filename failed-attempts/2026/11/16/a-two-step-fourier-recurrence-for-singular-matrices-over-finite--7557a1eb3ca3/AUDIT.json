@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Primitive rank-one decomposition with a |R^×| quotient and generating-character orthogonality give an exact integral P_m. The radical-divisible complement is handled by a q^4 lift and a two-level induction. Bases at m=0,1, complete m=3 Smith table, multiplicities and norm are directly computed; all coefficients have independent cyclic-ring and dual-number transform checks. No extrapolation is used for the universal claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Watanabe 2026, arXiv:2607.21913, introduction and §4 explicitly restrict matrix scheme to GR(p^2,r), with a two-parameter eigenmatrix.",
+        "Cao 2011, DOI 10.1080/00927870903390652, introduction: association schemes on right-invertible k-by-n matrices, rather than the full additive 2-by-2 matrix algebra."
+      ],
+      "reasoning": "The closest stronger explicit character table is confined to length two. No inspected source provided a formula for the determinant-zero Fourier transform for every nilpotency index; arbitrary-size fixed-determinant counts are weaker for this purpose.",
+      "searches": [
+        "\"generalized bilinear forms schemes over chain rings character tables arbitrary nilpotency index\"",
+        "\"translation association scheme finite chain ring matrices Smith types eigenmatrix Fourier\"",
+        "\"association scheme Mat matrices GR(p^3) eigenmatrix Smith type character sums\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1605.06826",
+      "https://arxiv.org/abs/2607.21913",
+      "https://doi.org/10.1080/00927870903390652",
+      "https://arxiv.org/abs/1310.5359"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Choosuwan et al., arXiv:1605.06826, §3.8 and §3.11 are unweighted determinant-class cardinality statements.",
+        "Watanabe, arXiv:2607.21913, §4 fixed ring GR(p^2,r), general first eigenmatrix on that ring.",
+        "Cao, DOI 10.1080/00927870903390652, abstract and introduction specify right-invertible k-by-n matrix-space orbital relations."
+      ],
+      "reasoning": "Determinant class sizes yield only the zero-frequency coefficient, not Fourier signs/absolute values. The length-two Smith table implies a strict earlier specialization but cannot imply the all-length radical recursion or length-three evaluated norm as stated. Cao studies a different action. No decisive stronger all-length coverage was located; literature priority remains uncertain.",
+      "searches": [
+        "\"Determinants of Matrices over Commutative Finite Principal Ideal Rings\" 2016 theorem 3.8",
+        "\"Bivariate Affine q-Krawtchouk Polynomials and Association Schemes over Galois Rings\" 2026 theorem 4.2",
+        "\"Association Schemes and Directed Graphs Determined by Orbitals of General Linear Groups Over Finite Chain Rings\" 2011"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2607.21913 §4 Theorem 4.2 and Example 4.3: first eigenmatrix of Smith-type association scheme for GR(p^2,r), including Mat2(Z4).",
+        "arXiv:1605.06826 §3: fixed determinant counts, not Fourier-weighted sums."
+      ],
+      "reasoning": "An exact first eigenmatrix for length two implies the corresponding length-two singular-set Fourier transform after adding type-class columns. However its parameter assumption R=GR(p^2,r) prevents direct application to length three and arbitrary chain-ring length; the present radical-lift recursion proves those new cases.",
+      "searches": [
+        "\"Fourier transform determinant zero singular 2x2 matrices over finite chain rings length two Smith normal form spectrum projection norm\"",
+        "\"singular matrix Cayley graph over Z p^2 spectrum adjacency eigenvalues\"",
+        "\"Fourier determinant zero matrices modulo p^3 eigenvalues projection norm\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Watanabe arXiv:2607.21913, Example 4.3 explicitly tabulates the 2-by-2 length-two Z4 character table.",
+        "No retrieved exact table for length-three matrices or the resulting endpoint norm; independently checked numerical cases appear in CHECK.py."
+      ],
+      "reasoning": "The Z4 instance is already tabulated and is treated as covered. The exact length-three ten-class coefficient list and sign/multiplicity sum are outside that table; a search miss is not asserted as uniqueness.",
+      "searches": [
+        "\"matrix rank association scheme over Z p squared determinant zero Fourier coefficients sharp endpoint norms\"",
+        "\"singular determinantal hypersurface finite chain rings Fourier spectrum all nilpotency indices\"",
+        "\"Bivariate Affine q-Krawtchouk association schemes over Galois rings Mat 2 Z4\""
+      ]
+    },
+    "rationale": "The new all-length two-step character-sum recurrence, including arbitrary chain-ring characteristic, and the length-three sign/norm specialization were compared against Cao 2011, Choosuwan et al. 2016, Watanabe 2026, relevant recorded research, and targeted literature searches. Watanabe explicitly subsumes the length-two Galois-ring case; its stated theorem is for nilpotency length two and does not imply the all-length statement without the new induction. No verified source evaluated the length-three sharp norm. Residual risk: unlocated earlier higher-length association-scheme spectral tables.",
+    "residual_risks": [
+      "Some higher-nilpotency generalized Krawtchouk or matrix association-scheme literature may implicitly supply the same recursion.",
+      "The ring-independent full-spectrum theorem has not been independently verified by a specialist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COUNTS_ONLY_NOT_FOURIER",
+        "evidence": "The abstract and Sections 3-4 enumerate matrices by fixed determinant, with no character frequency dependence.",
+        "identifier_or_url": "https://arxiv.org/abs/1605.06826",
+        "material_read": "Full abstract and introduction, preliminaries, Section 3 determinant-zero count proof and Theorems 3.8/3.11, with visual review of PDF pages 1 and 10",
+        "method": "Open-access arXiv PDF, parsed text and rendered page checks",
+        "title": "Determinants of Matrices over Commutative Finite Principal Ideal Rings",
+        "trigger": "Direct determinant-zero matrix counts over arbitrary finite chain rings"
+      },
+      {
+        "assessment": "COVERS_LENGTH_TWO_GALOIS_SPECIALIZATION_NOT_ALL_LENGTHS",
+        "evidence": "§4 fixes GR(p^2,r) and includes Mat2(Z4) as Example 4.3; no arbitrary nilpotency length theorem stated.",
+        "identifier_or_url": "https://arxiv.org/abs/2607.21913",
+        "material_read": "Full online introduction, §4 Proposition 4.1/Theorem 4.2 and Example 4.3, §5 counting framework and appendix",
+        "method": "Open-access arXiv HTML full-text reading",
+        "title": "Bivariate Affine q-Krawtchouk Polynomials and Association Schemes over Galois Rings",
+        "trigger": "Possible dominating Smith-type character table"
+      },
+      {
+        "assessment": "DIFFERENT_RIGHT_INVERTIBLE_SPACE",
+        "evidence": "The scheme acts on right-invertible k-by-n matrices via GL_n orbitals, not all additive 2-by-2 matrices.",
+        "identifier_or_url": "https://doi.org/10.1080/00927870903390652",
+        "material_read": "Abstract, introduction, opening definitions and orbit question from available authorized full-text HTML",
+        "method": "ResearchGate author-uploaded readable HTML text",
+        "title": "Association Schemes and Directed Graphs Determined by Orbitals of General Linear Groups Over Finite Chain Rings",
+        "trigger": "Association scheme over chain rings might cover character values"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7557a1eb-3ca3-44db-a1d3-9a4951ddf5ee",
+  "value": {
+    "rationale": "The determinant-zero locus is the canonical 2-by-2 singular matrix hypersurface. A characteristic-independent Fourier recurrence for all finite chain-ring lengths provides structural spectral information not given by determinant cardinalities or length-two scheme tables. The evaluated length-three sign classes and exact sharp l1/linfty projection norm supply a natural, nontrivial harmonic invariant.",
+    "status": "PASS"
+  }
+}

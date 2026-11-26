@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reconstructs \(e^{-tL^2}\) from all four spectral projectors for the unnormalized complete-bipartite Laplacian. Critical derivatives prove unique within-part recovery times. A monotone parameter lemma orders the two recoveries; a separate exponential-difference sign argument establishes dominance of the larger vertex part for the sharp \(\ell^\infty\) row norm. The exact peak time and amplitude then follow from a single exponential derivative, and controlled limits give the three asymmetric time scales and vanishing amplification. The standalone checker verifies the spectral identities and independent numerical matrix powers (41930 assertions). These finite checks do not establish the infinite-family statements on their own.
+## correctness
 
-## Originality — PASS within examined evidence
-The initial 2015 Daners–Glück–Kennedy work supplies eventual positivity theory rather than these graph-specific sharp formulas. The public three-spectral-value theorem on positivity-time sets was inspected in full: it does not determine the biclique norm or threshold, and the generic unbalanced biclique has four spectral levels. Earlier local calculations on rook-graph squared heat and ordinary biclique heat have different matrix kernels and are not mathematically covering. An exact prior derivation under alternate graph-filter terminology remains possible; the priority assessment is provisional.
+PASS
 
-## Value — PASS
-For fourth-order network smoothing the largest possible bounded-coordinate output error and the time of recovery of nonnegative data are natural stability quantities. The result gives exact values and an unexpected strict two-stage spatial recovery, with the larger part governing every worst-case row. As asymmetry grows, its within-small-part recovery is on a \(b^{-2}\) scale, the transient peak on a \(b^{-2}\log b\) scale, and final recovery on a \(b^{-1}\) scale, yet its worst amplification approaches one. This is structural rather than a routine particular numerical example.
+Audited the narrowed repair and its retained formulas. Decomposing into constants, zero-mean vectors on each part, and the part-constant contrast gives exponents 0, b^2, a^2, N^2; when a=b the two zero-mean subspaces simply share an eigenvalue. Diagonal and cross-part entries cannot be negative, and the rows sum to one. For each H the derivative has exactly one change from negative to positive and the limit is positive. The strictly decreasing u(x) of the directly checked prior multipartite theorem gives tau_A<tau_B for a<b and equality when a=b. For unequal sizes the signed negative mass difference D=V-U has D(0)=0, D'(0)=b-a>0 and a negative limit. In G'=d(e^(a^2 t)D')/dt the positive-to-negative magnitude ratio is a strictly decreasing exponential. Thus G first possibly rises and then strictly falls; its positive initial value and negative limit give exactly one sign change for D'. The unique positive zero of D lies beyond tau_A because D(tau_A)=V(tau_A)>0. On (0,tau_A) this makes V>U>0, from tau_A up to tau_B only V has positive part, and at t=0 or after final recovery both row norms are one. The induced norm formula and strictness follow, with equality of row types by symmetry in the balanced case. At the unique minimum of H_B, the ratio of its exponentials is exp(-(N^2-a^2)*theta_B)=a/N, giving the claimed peak time and value. The sign extremizer is correct by equality in the absolute row sum and also works on complex input. An independent small direct matrix replay checked balanced, moderately unbalanced and more unbalanced pairs. Corrections do not alter the original support script or its frozen record.
 
-## Closest literature and limits
-See arXiv:1511.05294 (2015), the public three-spectral-value positivity-time theorem (2026), and Gazzola–Grunau (2008). The 2008 continuum article was reviewed only at abstract level. No generalization is claimed beyond unweighted bicliques, \(L^2\), and the vertex maximum norm. Independent scientific and historical-priority examinations have not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+This PASS is for the repaired statement only, not the original package presented as a new exact recovery and scale result. The earlier multipartite record mechanically covers the full positivity horizon, ordered within-part cutoffs, both recovery scales (by its proof of the endpoint limits of u), and the norm as a maximum over two explicit terms. A distinct same-day result already gives the same exact unique peak for b>=32a and three of the four frozen scale limits, more generally as b/a tends to infinity. The repair makes these overlaps explicit, removes the misdescription of the linked three-level semigroup example, and narrows the contribution to strict larger-row dominance at every transient time for all size ratios, including the consequent resolved all-ratio peak. The intrinsic sign comparison is not supplied by a maximum formula or by the earlier large-imbalance peak comparison. No priority is inferred within the shared date.
+
+## value
+
+PASS
+
+The repaired comparison identifies, at every time and without a size-ratio hypothesis, which vertex class controls worst-case coordinatewise amplification and hence where to construct the maximizing sign input. It converts a two-candidate temporal optimization into one explicit unique peak for all bicliques. This is a structural answer not contained in the known positivity scales or generic maximum formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

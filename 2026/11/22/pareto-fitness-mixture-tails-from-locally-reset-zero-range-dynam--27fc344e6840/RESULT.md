@@ -17,13 +17,13 @@ where the **universal**, nondegenerate positive random variable \(Y\) is specifi
 
 and \(E_1(z)=\int_z^\infty e^{-s}\,ds/s\). In particular, \(\mathbb E Y=1\), \(\mathbb E Y^2=3\), \(\mathbb E Y^3=19\). Hence the **exact** Pareto coefficients are \(3/C^2\) at \(\nu=1/2\) and \(19/C^3\) at \(\nu=1/3\). More generally, \(\mathbb E[N^p]<\infty\) precisely for \(0<p<1/\nu\); moments at equality also diverge.
 
-A high-fitness **conditional** universality law accompanies the mixed tail: if \(N_x\) is the critical-limit occupation of level \(1-x\), then
+The conditional high-fitness law determines the coefficient. If \(N_x\) is the critical-limit occupation of level \(1-x\), then
 
 \[
 Cx^\nu N_x\ \Longrightarrow\ Y\qquad (x\downarrow0).
 \]
 
-Thus the finite-mean regime \(\nu<1\) may contain very heavy population-level fluctuations; the full tail law is stronger information than a second-factorial-moment threshold.
+This conditional limit is used as a lemma and also follows from the related Bessel jump-intensity cutoff [4], as explained below. The claim here is the exact **unconditional uniform-fitness survival equivalent**, its coefficient and its complete moment frontier, not the conditional compound-Poisson law or cutoff.
 
 ## Assumptions and scope
 
@@ -120,14 +120,19 @@ A standalone Python script `checker.py` checks the integral and exponential-inte
 
 ## Relationship to prior work
 
-Grange (2023 preprint; 2024 journal article) specifies the fitness-dependent local-reset zero-range dynamics, derives its full mean-field single-state generating-function evolution, and classifies the **mean-density** condensation threshold at \(\nu=1\). Grange (2019 preprint; 2020 journal article) studies global resetting. An independently published 2026 result on the *same* local-resetting model establishes a distinct \(\nu=1/2\) **within-site pair-crowding** threshold; its available summary states a second-factorial-moment law. The present claim concerns instead the **complete uniform-fitness mixture distribution**, its universal positive scaling law, and its sharp Pareto survival coefficient (including cross-microstate contributions). A second-moment asymptotic alone neither determines the positive limit law nor implies a regularly varying full tail. Full-text overlap with the 2026 work could not be conclusively excluded and remains a priority risk.
+Grange (2023 preprint; 2024 journal article) specifies the fitness-dependent local-reset zero-range dynamics, derives its mean-field single-state generating-function evolution, and classifies the **mean-density** condensation threshold at \(\nu=1\). Grange (2019 preprint; 2020 journal article) studies global resetting. The co-occupation result [3] on the same local-reset model establishes a distinct \(\nu=1/2\) threshold for the integrated **within-site** ordered-pair intensity. This is not the factorial moment of the total occupation across all sites, and a second-moment asymptotic does not imply a regularly varying survival law.
+
+The closely related Bessel-cutoff record [4] gives the exact fixed-level compound-Poisson law and the limit \(n\Lambda_n\to g(s)=2\sqrt{s}K_1(2\sqrt{s})\) when \(nr\to s>0\). This implies the conditional limit used here. In its one-founder integral for \(\Lambda_n\), dropping the resetting survival factor \(e^{-rt}\) and integrating the geometric mass in time gives \(n\Lambda_n\le (A_0(l)/l)l^n\) at criticality. Indeed, the derivative of the geometric ratio \(b_t=l(1-e^{-xt})/(1-le^{-xt})\) is \(l\) times the prefactor of \(b_t^{n-1}\) in the one-founder mass. The rescaled Laplace exponent therefore has contribution \(O(\varepsilon)\) from \(nr\le\varepsilon\), using \(1-e^{-urn}\le urn\), and contribution \(O(M^{-1})\) from \(nr>M\), using \(r\sum_n n\Lambda_n=rA_0(l)/(x+r)\). On compact subintervals of \((0,\infty)\), the joint cutoff limit gives a Riemann sum with density \(g(s)/s\), the same Lévy density as that of \(Y\). Equivalently, \(\int_0^\infty(1-e^{-us})g(s)\,ds/s=\int_0^\infty e^{-t}\log(1+ut)\,dt\). Step 4 above gives a direct proof without invoking this cutoff result. The two records have the same date; this overlap does not establish temporal priority.
+
+The conditional cutoff concerns individual jump sizes at high fitness and does not give an unconditional survival equivalent for the sum sampled uniformly over fitness levels. The mixed-tail argument uses uniform bounds on **full occupations** and identifies the amplitude through the full limiting law. Neither the cutoff statement alone nor a collection of critical moment thresholds asserts this survival asymptotic.
 
 ## Limitations
 
-The result is a sequential, infinite-microstate, mean-field critical-limit theorem, not a statement at a finite system's exactly critical unreset maximum-fitness site. It assumes uniform sampling of fitness **levels**, not size-biased sampling of individual microstates or particles, and uses \(q(l)=(\alpha+1)(1-l)^\alpha\). It does not establish finite-system scaling with microstate count, an explicit elementary constant for every noninteger \(1/\nu\), or any assertion about models with common (global) resets. This is self-review only; no independent scientific audit has occurred.
+The result is a sequential, infinite-microstate, mean-field critical-limit theorem, not a statement at a finite system's exactly critical unreset maximum-fitness site. It assumes uniform sampling of fitness **levels**, not size-biased sampling of individual microstates or particles, and uses \(q(l)=(\alpha+1)(1-l)^\alpha\). It does not establish finite-system scaling with microstate count, an explicit elementary constant for every noninteger \(1/\nu\), or any assertion about models with common (global) resets. Historical priority remains limited by the accessible literature.
 
 ## References
 
 1. P. Grange, *Local resetting in non-conserving zero-range processes with extensive rates*, arXiv:2311.12414, first posted 2023-11-21, Journal of Physics Communications 8 (2024) 045004. https://arxiv.org/abs/2311.12414
 2. P. Grange, *Non-conserving zero-range processes with extensive rates under resetting*, arXiv:1910.05991, first posted 2019-10-14, Journal of Physics Communications 4 (2020) 045006. https://arxiv.org/abs/1910.05991
-3. *A hidden co-occupation threshold below fitness condensation*, published 2026-11-08, https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-hidden-co-occupation-threshold-below-fitness-condensation--b88c55090541 (indexed summary available; full text inaccessible during comparison).
+3. *A hidden co-occupation threshold below fitness condensation*, dated 2026-11-08, https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-hidden-co-occupation-threshold-below-fitness-condensation--b88c55090541 .
+4. *A universal Bessel cutoff for immigrant clans under fitness-dependent local clearing*, dated 2026-11-22, https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-universal-bessel-cutoff-for-immigrant-clans-under-fitness-depe--ea7ce4494856 .

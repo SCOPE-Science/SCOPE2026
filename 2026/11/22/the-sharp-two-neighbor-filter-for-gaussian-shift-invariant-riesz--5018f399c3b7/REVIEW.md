@@ -1,15 +1,21 @@
-# Scientific review: Gaussian two-neighbor Riesz optimization
+# Independent mathematical audit
 
-## Correctness — PASS
-The Gaussian inner-product identity fixes the multiplier and all normalization factors. The Jacobi triple product makes its logarithm strictly concave in the cosine frequency variable, so only two endpoints compete for the minimum, with exactly one interior maximizer at the equality parameter. The normalized endpoint comparison is strictly monotone on both sides and handles all negative and reciprocal real parameters. The small-nome expansion is uniform over the interval and gives the sharp constant 4. The standalone checker passed 145 numerical assertions, including an independently computed Poisson-summation identity and small-nome coefficient; this is supportive, not the basis of the proof.
+## correctness
 
-## Originality — PASS, best-knowledge
-Grohs–Liehr (2023 online, Section 2) establishes the general periodized-Fourier Riesz criterion and the Gaussian theta symbol: those facts are explicitly credited and by themselves do not decide the optimal two-neighbor coefficient. Romero–Ulanovskii–Zlotnikov (2023 preprint) studies Gaussian shift-invariant-space sampling and Gabor systems, not the generator-filter conditioning minimax. Kiselev–Minin–Novikov–Sitnik (2014), Section 2, gives the unfiltered Gaussian Riesz constants and nodal (infinite-coefficient) generator bounds, not the sharp real two-neighbor minimax. Faulhuber (2017 online) optimizes different Gaussian Gabor lattice geometries, not a fixed-space nearest-neighbor generator. Closest public indexed results concern Gaussian–first-Hermite (same-center polynomial) generators and finite cyclic two-tap Gabor operators, neither of which implies the displayed real two-neighbor Gaussian theta extremum or sharp improved conditioning rate. Searches covered the coefficient formula, theta endpoints, phase-equivalent filter, reciprocal scaling, alternative descriptions and stronger minimax coverage. No exact covering claim was found. Earlier signal-processing and approximate-inverse filter literature might contain an equivalent theorem under different notation and remains a historical-priority risk; the finding has not received independent review.
+PASS
 
-## Value — PASS
-Gaussian integer translates are a canonical stable representation of Gaussian shift-invariant spaces. Choosing a generator from only two adjacent Gaussian shifts is the shortest nontrivial finite-stencil change of basis. The result determines the unique optimal real stencil (modulo scalar/reciprocal normalization), both extremal frequency classes and a strict exponential improvement of the sharp Riesz-condition-number excess, while keeping the same space and not assuming a longer filter. This supplies a concrete, analytically reproducible basis-conditioning benchmark rather than a generic restatement of the theta multiplier. It does not assert a broader reconstruction-rate theorem.
+Completing the square in the Gaussian correlation gives (2s)^(-1/2) exp(−πs(j−k)²/2); Fourier series on the coefficient circle then give the theta multiplier, multiplied by |1−t exp(−2πiξ)|² after filtering. The sharp bounds are its continuous extrema, and bounded invertibility of the filter for t≠±1 gives the same closed span. The Jacobi product has positive increasing affine factors in u=cos(2πξ); the sum of their logarithms has negative second derivative. The logarithm of the positive affine filter factor is concave, so minima are at endpoints and the maximum is unique. At endpoint equality the maximum is interior and both endpoints are strictly below every interior value. Endpoint equality yields the stated t_s; the interior derivative equation follows with convergence for fixed 0<q<1. For t between 0 and t_s normalization by the left endpoint yields a strict pointwise decrease away from that endpoint because t/(1+t)² is increasing. After t_s normalization by the right endpoint gives a strict increase away from it because t/(1−t)² is increasing. Comparing at a maximizer away from the minimizing endpoint gives strictness for the max/min ratio. Negative t in (−1,0) increases the unfiltered endpoint ratio; F_t=t²F_(1/t) covers |t|>1. For small q, (H−J)/(sqrt(H)+sqrt(J))² expands to q+q³+O(q⁵). The q and q³ terms in the multiplier cancel, giving uniformly 1+q²−4q²u²+O(q⁴); the value at zero and the upper envelope pin down the maximum, yielding 1+4q²+O(q⁴) after division by the endpoint minimum. This is the squared bound ratio, not its square root.
 
-## Closest literature and remaining limitations
-Sources: arXiv:2306.13619, DOI:10.1007/s00365-023-09629-1, DOI:10.1134/S0001434614070244, DOI:10.1007/s00041-017-9526-x. General Riesz and theta identities are prior facts. The new theorem is scoped to real adjacent two-tap filters for fixed width; complex/multitap optimality remains unproved. Independent historical-priority and mathematical review remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the exact fixed-width global minimax for a real filter with two adjacent taps, with reciprocal minimizers, extremal-frequency information, and sharp weak-overlap excess. The periodized Riesz criterion, Gaussian theta multiplier and unfiltered bounds are prior work.
+
+## value
+
+PASS
+
+An invertible filter with only one neighboring translate is a minimal local modification of the representation of the same space. The exact optimal coefficient and worst-frequency equation specify the best such preconditioner at every width. The drop in excess from order q to order q² is a genuine rate improvement for this restricted family, not just a numerical gain at one width; the proof shows it need not trade away the shift-invariant subspace.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

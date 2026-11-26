@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,4 @@
 
 # Verification
 
-The local-corner proof in RESULT.md is the mathematical evidence. The standalone `CHECK.py` (Python 3, `mpmath`) replays 23 finite corroborating assertions for the exact reflection identity, four projected singular coefficients at several parameters, the logarithmic increment at the critical exponent, and the inverse geometric formulas. Execute `python CHECK.py` from the same directory.
-
-No simulation establishes the infinite-parameter theorem by itself. All claims require strictly positive rates, athermal stationary dynamics, and the generic projection assumption; reconstructing physical rates separately from the ratio requires an independent calibration of the trap relaxation rate. External audit has not been performed.
+The proof in `RESULT.md` checks the physical-speed normalization, including the factor of \(1/\sqrt2\) in the half-width of each orthonormally rotated coordinate. For a finite replay, run `python3 CHECK.py` with `mpmath`: it compares the inferred geometric scales with projections computed directly from the four cardinal vertices, and tests the beta ratio, both sides of each inner caustic, the two outer caustics, and critical increments and endpoint limits. The finite comparisons supplement the analytic proof rather than certify its full parameter range. Reconstructing the physical rates separately requires independent calibration of the trap relaxation rate.

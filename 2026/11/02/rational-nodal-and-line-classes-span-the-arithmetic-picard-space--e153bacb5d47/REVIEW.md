@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact Hessian determinant identity, four affine singular-locus Gröbner bases of length nine, nondegenerate local Hessians, and exhaustive normalized finite-field counts establish the smooth K3 resolution and its complete Frobenius multiplicities. Enumerating all \(130\) reduced-row-echelon lines over \(\mathbb F_3\) yields exactly twenty contained lines. The nodal and line-incidence matrix gives the correct K3 intersection pairing. An explicit nonsingular \(21\times21\) minor has determinant \(1536\). Frobenius affords only \(21\) normalized positive eigenvalues, so the rational curve classes exhaust the arithmetic Picard space. Finite calculations are used only for genuinely finite statements; extension-field consequences use the Weil theorem.
+PASS
 
-## Originality — PASS, qualified
+For F=e1 e3−e4 each gradient entry in characteristic three is P(x_i), with P(X)=X³+(e2−e1²)X+e1 e2. This also gives a geometric completeness check independent of the finite-point search: for three distinct coordinate values the three roots sum to zero. If a is repeated, then e1=a and the pairwise sum of the roots is e2, forcing a=0 from P, hence the remaining coordinates are opposite. For two distinct values of multiplicity 2+2 the root equations give a²+b²=0 and a²(b−a)=0, a contradiction. For multiplicities 3+1, P(X)=X(X²−b²) where b is the single value, so the repeated value is 0 or −b. The all-equal case is one point. These classes all satisfy F=0 and give exactly the four rational orbits. Their nonsingular quadratic terms were verified, agreeing with the reported chart quotient lengths and showing ordinary double points. Finiteness of the geometric singular locus implies geometric integrality; adjunction and the crepant nodal resolution give the K3. The independently enumerated projective planes give all 20 rational lines by testing the restriction polynomial, not just rational point evaluations. On the resolution, adjunction gives self-intersection −2, a line through a node meets the exceptional conic transversely once, distinct lines through one node separate by their distinct tangent directions, and smooth line intersections are transverse. The independent incidence matrix has rational rank 21 and reproduces the indexed principal determinant 1536. The same replay gets quartic counts (25,145) and resolution counts (70,280), adding q points per rational node over each field. Purity and equality in the F_9 bound force squared eigenvalues 9, and the F_3 trace 60 gives multiplicities 21 and 1 for +3 and −3. Injectivity of the étale divisor class map bounds the fixed rational space by 21; the minor and rationality give the opposite inequality and spanning. No Tate assumption is needed for spanning, while the geometric complementary direction uses the established K3 Tate theorem over F_9.
 
-Dolgachev (2003) establishes the classic \((15_4,20_3)\) incidence and Dolgachev (2019) studies the integral Picard lattice of a *moduli-general complex* 15-nodal quartic. Neither source determines arithmetic Néron–Severi generators for this characteristic-three special fiber. Dardanelli–van Geemen (2004) and Rosenberg (1999) concern characteristic-zero Hessian K3 geometry. Prior descriptions of this characteristic-three quartic, including its nodes and zeta polynomial, are acknowledged as established background and are not claimed as novel. The new implication requires the exact characteristic-three intersection matrix and its rank-21 nonzero minor; it is not obtained from the zeta or the generic configuration alone. Targeted record and literature comparisons found no equivalent generator statement, but inaccessible or unindexed computations remain a historical-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This supplies an explicit arithmetic-divisor description of a naturally distinguished supersingular K3 model: thirty-five visible rational curves account for *every* Frobenius-fixed Picard class rationally, identifying precisely the single complementary non-rational direction. It resolves a natural gap between knowing an arithmetic Picard rank and identifying concrete divisors that realize it; it does not depend on a claimed new zeta function or mere rediscovery of classical line counts.
+The supported distinct claim is generation by this explicit list of 35 geometric classes defined over F_3, certified by their rank-21 intersection pairing. The characteristic-three model, singularities, zeta function, and the arithmetic dimension 21 already have material same-model coverage; none of those, on its own, is credited here as new.
 
-## Limits and relationship to the closest literature
+## value
 
-The comparison with Dolgachev's general 15-nodal quartic, whose moduli-general Picard rank is \(16\), does not imply the present special arithmetic rank-21 span. The finite \(\mathbb F_3\) line census is not an assertion about all geometric lines, and integral index/Artin invariant are unproved. Independent historical-priority review remains appropriate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The arithmetic rank alone or a Tate-theoretic existence result leaves arithmetic divisors abstract. Exhibiting a geometrically motivated complete rational spanning set on this special fibre, together with an explicit nonsingular intersection minor, makes divisor classes and intersections available for further work. It answers a natural generation question rather than merely recomputing the known point counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

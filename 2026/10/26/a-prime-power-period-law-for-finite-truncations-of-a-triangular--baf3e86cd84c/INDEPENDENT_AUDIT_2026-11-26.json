@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:57:07.504953Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the cyclic shift module F_p[z]/(z^L-1) the map is triangular with diagonal 1,z,...,z. For L=dq, q=p^a, extension to a splitting field yields local z=lambda+b with b^q=0 at each dth root. The presence of every dth root for m>=1 gives prime-to-p order exactly d by the semisimple/unipotent decomposition. At lambda=1 put N=A-I. For k=p^e, N^k on column zero has coefficient (-1)^j binom(k-1,j-1)b^(k-j) in row j<=k: the first step must leave coordinate zero. The binomial coefficients are all units modulo p by Lucas, so row min(k,m) shows nonzero for k<m+q. For k>=m+q all such terms vanish; in positive columns Frobenius on bI-J kills all entries. On lambda!=1, B-I for the positive-index block is invertible, so the column coupling splits off and B^(dp^e)=I for k>=m+q. Raising a nontrivial p-group element to d coprime to p cannot erase the lower-bound obstruction. Thus the exact cutoff holds also when p divides L, including L=1, with m=0 identity. Compatible triangular inverses give the inverse-limit map, and finite order would bound all quotient orders. An independent direct iteration of every unit input (`python3 /workspace/reproduce.py`) verified the first identity time in 72 parameter triples, including m=0, mixed d and q, and powers of p. The frozen CHECK_OUTPUT.txt is recorded evidence only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General finite-field matrix order reduces to eigenvalue orders and largest Jordan blocks. The inspected control paper formulates controllability, not a cutoff for the audited operator. Aso's full text was not available in the attempted retrieval."
+        ],
+        "reasoning": "The generic linear algebra supplies a method but not the cutoff m+q, which needs the interaction of the first-column cascade and the multiplicity of z=1. No inference of noncoverage is made from inaccessible papers.",
+        "searches": [
+          "Linear cellular automata dynamical order, invariant factors and reversibility; Aso DOI 10.1016/0022-0000(85)90048-0; arXiv:2604.10076"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CHECK.py and CHECK_OUTPUT.txt",
+        "arXiv:2606.22740, arXiv:2608.20600, arXiv:2604.10076",
+        "Resultary 697227159c26, 86220c55033f and 68d26b2851c0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The background sources prove different infinite-group statements for the rule. A shift block has prime-to-p order d, but order p^e on the unipotent part depends on whether the specific path coefficient in row min(m,p^e) survives the ring relation b^q=0."
+        ],
+        "reasoning": "No inspected prior theorem gives that lower bound for this coupled operator. The inverse-limit infinite-order assertion is a consequence of unbounded finite quotient orders, not a separate originality claim.",
+        "searches": [
+          "Yang §3 Lemma 3.2 Eqs. (5)–(6); Castillo-Ramirez §4 Theorem 4.1; cyclic shift primary decomposition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yang's Eq. (6) gives the countable-coordinate rule; Castillo-Ramirez treats the product-alphabet extension. Neither inspected construction gives the finite spatial cycle order at finite m."
+        ],
+        "reasoning": "Passing to a cyclic shift ring and asking the order of the associated linear permutation is an equivalent formulation of the target, not a new update rule. Closed image and non-reversibility statements do not determine this invariant.",
+        "searches": [
+          "Exact triangular shift-difference cellular automaton period, cyclic spatial ring, finite field, prime-power order and invariant factors",
+          "arXiv:2606.22740 and arXiv:2608.20600"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Three ranked searches surfaced 697227159c26 on toroidal Laplacian extinction, 86220c55033f on honeycomb parity transients and 68d26b2851c0 on Rule 62 exact period-three orbit census, not an order table for this bidiagonal automaton."
+        ],
+        "reasoning": "Extinction, transient lengths and per-orbit counts for different maps do not imply the whole-state permutation order here.",
+        "searches": [
+          "Resultary: triangular cellular automaton finite-truncation least order, prime-power torus, Jordan ladders and temporal periods"
+        ]
+      },
+      "rationale": "The triangular rule and general finite-linear-map order machinery are prior. The claim credited is the explicit least whole-configuration order in every finite spatial and coefficient truncation, with its inseparable-shift threshold. The inspected source statements do not give that threshold or make it a direct specialization without a rule-specific nilpotence calculation.",
+      "residual_risks": [
+        "Aso (1985) was not available in full; another reversibility paper returned HTTP 403. Older exact linear-CA order statements may be missed.",
+        "No absolute priority claim from the bounded ranked searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior rule, not the finite temporal order.",
+          "evidence": "Fixed zeroth coordinate and shifted-difference higher coordinates in a countable-coordinate closed-image construction.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.22740",
+          "material_read": "§3 Lemma 3.2, Eqs. (5)–(6), printed p.7, offset 17300",
+          "method": "Bounded OA PDF passage",
+          "title": "A Closed Image Characterization of Locally Finite Groups via Linear Cellular Automata",
+          "trigger": "Source of exactly the triangular rule"
+        },
+        {
+          "assessment": "Bijectivity/non-reversibility result has different scope.",
+          "evidence": "Product coordinate alphabet on non-locally-finite groups, without the exact finite cyclic truncation formula in the checked passages.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.20600",
+          "material_read": "§4 Theorem 4.1, pp.7–8, offsets 21300 and 23400",
+          "method": "Bounded OA PDF passage",
+          "title": "A characterization of the reversibility of linear cellular automata",
+          "trigger": "Product-space extension of the identical construction"
+        },
+        {
+          "assessment": "The inspected criterion is about controllability, not the present temporal order.",
+          "evidence": "Controllability formulated through a controllability-matrix criterion.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.10076",
+          "material_read": "p.1, offset 1900",
+          "method": "Bounded OA PDF passage",
+          "title": "General control of linear cellular automata",
+          "trigger": "Potential finite dynamic invariant on cyclic domains"
+        },
+        {
+          "assessment": "Possible coverage unresolved; no negative inference.",
+          "evidence": "The bibliographic topic is relevant; no theorem from this source was verified.",
+          "identifier_or_url": "https://doi.org/10.1016/0022-0000(85)90048-0",
+          "material_read": "Bibliographic identification only; no full text retrieved",
+          "method": "DOI/lawful copy attempt",
+          "title": "Dynamical characteristics of linear cellular automata",
+          "trigger": "Plausible older general temporal-order coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The least identity time is a natural invariant for finite reversible truncations of an existing rule. The exact threshold explains the extra p-power needed when spatial shift multiplicity and coefficient depth interact, gives usable finite recurrence times and separates finite quotient periodicity from infinite order on the product limit.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

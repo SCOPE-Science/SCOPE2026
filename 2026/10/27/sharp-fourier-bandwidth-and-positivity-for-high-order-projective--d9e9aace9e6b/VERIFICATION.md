@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Verification record
-The analytic all-degree proof is in `RESULT.md`. The embedded `verify_harmonic_smeary.py` uses SymPy exact symbolic polynomial arithmetic to check the coefficient expansions, the degree-preserving inversion, the positive-density critical point, and its exact minimum for integers \(m=2,\ldots,12\). The script was executed from its actual source path and reported `Verified 121 symbolic identities through degree 12`. Reproduce with `python verify_harmonic_smeary.py` after installing SymPy, for example from `requirements.txt`.
+# Independent mathematical audit
 
-These are finite identity checks, not an exhaustive verification over all integers. The theorem uses a direct symbolic argument valid for every integer \(m\ge2\). The asymptotic empirical-limit step invokes an established published circular Fréchet-mean result; it is not independently certified here. The review is self-review only.
+## correctness
+
+PASS
+
+The geodesic-square convolution has constant term π²/12 and nonzero multipliers (−1)^j/(2j²) on density coefficients in the stated normalization. With z=e^(2it), a nonconstant degree-d loss shifted to vanish at its minimum becomes a polynomial of degree at most 2d after multiplication by z^d. A root of order 2m implies d≥m. At d=m the polynomial is proportional to (z−z0)^(2m); the proportionality before removing the Laurent factor may have a phase/sign, and (z−z0)^2/(zz0)=−2(1−cos(2(t−t0))) makes the resulting positive real amplitude explicit. Inversion can also be checked from πψ(t)=1−F''(t+π/2)/2, by differentiating the geodesic-square kernel across its antipodal cusp. For F=constant+ε(1−cos2t)^m this is exactly 1+εR_m(cos2t). R_m' has the sign of m²c−m²+3m−1 on (−1,1), and its minimum at c=1−3/m+1/m² is −1/ε_m. Since the loss requires ε>0, the strict positivity interval follows. Angular averaging gives the stated F(0); the loss vanishes only at the centered point and starts at order 2m. The optional empirical limit agrees with the circular statement after doubling and rescaling angles; the relevant Hotz–Huckemann pointer is Theorem 4.2(ii) in the accessed arXiv text, rather than the source's ‘Theorem 3’. The frozen symbolic script was inspected, not executed; the above identities are all-degree arguments.
+
+## originality
+
+PASS
+
+Credit the exact quartic family and the circular higher-order limit mechanism as prior. The supported distinct result is the combined sharp harmonic-degree, equality-family and positivity classification for every order on the projective circle.
+
+## value
+
+PASS
+
+In a familiar class of circular distributions, the theorem gives the exact harmonic complexity needed to realize prescribed-order degeneracy, rules out additional nonsymmetric examples at equality, and characterizes when the extremal construction stays a strictly positive probability density. This is a useful all-order classification beyond another example of an already known slow limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

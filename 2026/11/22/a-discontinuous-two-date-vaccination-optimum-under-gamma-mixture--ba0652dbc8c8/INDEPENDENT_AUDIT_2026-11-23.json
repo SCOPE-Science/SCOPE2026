@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:49:08.903049Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Integrating the dose-adjusted first-infection hazard gives survival exp(−ε[A/400+16−J_A(t)]), with J_A=AU+V the stated positive sum. For ε>0 stationarity and comparisons are identical to those of J_A. Its derivative F= A exp(−20t)(1/441−20t/21)+exp(−t/4)(16/25−t/5) has signs +,−,+,− at 0,1/20,1,4. The middle inequalities follow from −2000/(441·3)+63/100<0 and −500/2^20+11/50>0. For the independent root-count bound, (exp(20t)F)'' is exp(79t/4) times an affine polynomial of nonzero slope −(79/4)^2/5. Two Rolle steps counting multiplicity bound total multiplicity by three; the three distinct bracketed roots must all be simple. The hazard's own derivative has the same affine plus exponential-affine structure after scaling, and signs +,−,+,− at 0,1/10,1,5 (at 1/10 bound by −100/9+1; at 1 bound below by −9500/2^20+3/8); this independently confirms two waves. Time zero is not a global maximum because F(0)>0, and the positive J_A vanishes at infinity. U peaks at 1/420 and its minimum on [0,1/20] is 1/441 because U(1/20)=22/(441e)>1/441, whereas U(1)=22 exp(−20)/441<1/441. This gives D'(A)>0 along the continuous simple-root branches. At A=100 the early value is <5/21+17/25<0.92 and the late maximum is ≥J_100(16/5)>(16/5)/3>1. At 500 the early value is >500/441+16/25>1.77; every t≥1 is bounded above by 11000/(441·2^20)+80/53<1.61, using exp(4/5)>1+4/5+(4/5)^2/2. This proves the sole tie, strict uniqueness on either side and jump >19/20. A bounded independent replay by 50-digit Decimal bisection of exp(20t)F on the three analytic brackets and of D on [100,500] gave A_c≈350.48017998995181 and dates approximately 0.004472463253515 and 3.2. These are orientation only. I inspected, did not execute, the frozen diagnostic script. This is a prescribed-hazard individual prevention model, not a clinical or population result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xiao–Moghadas explicitly deploy vaccines before the season and vary class coverage. Chao–Dimitrov optimize season-length-dependent coverage efficiency. Glinka et al. describe a naturally two-peaked surveillance season and compare early and late vaccination bins observationally; their Discussion describes Werker's clinical serologic Markov-cohort optimization."
+        ],
+        "reasoning": "None of the inspected parts gives a continuously variable dose date against a fixed pair of gamma waves, much less proves uniqueness of an intensity at which separated analytic maxima tie. Broad results about an optimum date or season-dependent impact don't imply this event.",
+        "searches": [
+          "optimal vaccination date timing waning vaccine two epidemic waves vaccine delay Werker Xiao Moghadas optimal vaccination time fixed external hazard",
+          "optimal vaccination timing waning one dose epidemic curve dose too early bimodal two peaks vaccination timing maximize individual avoid influenza Markov cohort Werker"
+        ]
+      },
+      "checked_sources": [
+        "All assigned frozen files",
+        "Resultary target and closest periodic pulse/phase and feedback control findings",
+        "Xiao–Moghadas (2013), DOI 10.1186/1471-2334-13-589",
+        "Chao–Dimitrov (2016), DOI 10.3934/mbe.2015001 (abstract)",
+        "Werker et al. (2014), DOI 10.1016/j.vaccine.2013.11.103 (bibliography only)",
+        "Glinka et al. (2016), PMC4960000"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Xiao–Moghadas's objective varies pre-season doses among host classes in an interacting model; it is not first-event survival under J_A. Werker's title states empirically derived HAI titers and a Markov cohort, and the independent 2016 discussion places its timing result in a particular clinical cohort."
+        ],
+        "reasoning": "Neither a coverage-control implication nor a timing contrast under fitted serologic transitions establishes the required signs and strict envelope monotonicity. The exponential-polynomial zero bound can be used as a standard lemma, but the exact switch still depends on the separately certified height comparison over the given interval.",
+        "searches": [
+          "https://bmcinfectdis.biomedcentral.com/articles/10.1186/1471-2334-13-589 methods and model",
+          "https://www.aimspress.com/article/doi/10.3934/mbe.2015001",
+          "https://doi.org/10.1016/j.vaccine.2013.11.103",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC4960000/ Discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mathematical object after first-event survival reduction is the global mode of AU(t)+V(t) on the half-line, with each term an exponential times a shifted affine polynomial; differentiating gives a two-rate exponential polynomial. Resultary's exact match was the assigned record itself; the closest other records concern periodic pulses, SEIRS invasion, or SIR state-dependent controls. The broad gamma-modality query returned no relevant evidence and is not a priority exclusion."
+        ],
+        "reasoning": "A generic two-rate zero ceiling gives at most three roots but does not give exactly three on the amplitude interval, their locations, the ordering of global heights, or the single crossing. A mixture theorem on a different component class would need to match the discounted-tail functions rather than just the hazard's gamma labels.",
+        "searches": [
+          "Resultary: optimal timing single waning vaccine two epidemic waves prescribed infection hazard gamma mixture global maxima switch",
+          "two component gamma mixture modality two local maxima equal heights mixture weights discontinuous global mode Erlang mixtures exponential polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Glinka's Table 1 groups early and late vaccinations and observations, not stationary dates or a varying wave amplitude. Resultary's exact two-season threshold is in a periodic replenishing-susceptible model with pulse mass; the SEIRS pulse-phase result is small amplitude under sinusoidal forcing."
+        ],
+        "reasoning": "The inspected table and public formulas do not encode an arbitrary positive ε or the exact three-root amplitude interval and tie. A tabulated optimum location alone would not establish the classification.",
+        "searches": [
+          "Resultary seasonal timing query above: published entries 0337dc4fc3b6 and 64e12f2bbae0",
+          "Glinka et al., PMC4960000 Table 1 and Methods"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the explicit continuous one-dose example with an exhaustive stationary-point classification, opposite global height ordering at two amplitude bounds, and a uniquely located jump for all positive hazard scales. Waning protection, competing incidence peaks and the integration and root-count tools are not claimed as new. The inspected timing/adaptive-policy literature does not entail the model-specific classification; historical full-text coverage for Werker remains incomplete.",
+      "residual_risks": [
+        "Werker's full primary manuscript was not inspected; no claim about its complete contents.",
+        "A broader unimodality or mode-switch theorem for discounted mixtures may have been missed; the generic search did not provide a readable decisive comparison.",
+        "No empirical interpretation or guarantee of priority against unindexed work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Population-level final-size and coverage problem, not the frozen dose-date theorem",
+          "evidence": "Methods explicitly place all doses before each season; outcome is total simulated infections and controls are the fractions vaccinated across classes.",
+          "identifier_or_url": "https://doi.org/10.1186/1471-2334-13-589",
+          "material_read": "Primary article abstract, Methods (model, within- and between-season dynamics, computational objective), Optimal vaccine distribution and limitations",
+          "method": "Open publisher HTML",
+          "title": "Impact of viral drift on vaccination dynamics and patterns of seasonal influenza",
+          "trigger": "Same seasonal prevention optimization and waning motivation"
+        },
+        {
+          "assessment": "The abstract compares coverage efficiency and season length; no claim about uninspected text",
+          "evidence": "Outcome is infections prevented per vaccine administered at high versus low coverage over seasons of different lengths.",
+          "identifier_or_url": "https://www.aimspress.com/article/doi/10.3934/mbe.2015001",
+          "material_read": "Publisher metadata and abstract",
+          "method": "Publisher article page",
+          "title": "Seasonality and the effectiveness of mass vaccination",
+          "trigger": "Seasonal vaccination optimization"
+        },
+        {
+          "assessment": "Clinical Markov cohort is evidently a different formulation; full-paper priority not settled",
+          "evidence": "Title identifies serial participant HAI titers and Markov cohort; Glinka compares it to their own observational two-bin study.",
+          "identifier_or_url": "https://doi.org/10.1016/j.vaccine.2013.11.103",
+          "material_read": "Bibliographic title and methods named therein; the full primary paper did not load, PubMed returned an access interstitial; read Glinka's Discussion as secondary comparison",
+          "method": "DOI citation, attempted PubMed access, lawful open secondary article",
+          "title": "Optimal timing of influenza vaccination in patients with human immunodeficiency virus",
+          "trigger": "Closest direct within-season waning-vaccine timing model"
+        },
+        {
+          "assessment": "Data-based timing contrast, not a switch theorem or prescribed-dose hazard model",
+          "evidence": "Methods collect a retrospective cohort and classify observed doses as early versus late, using a single date threshold rather than optimizing continuously over time.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4960000/",
+          "material_read": "Abstract, observational dates and cohorts, Table 1 and Discussion",
+          "method": "Open PMC full text",
+          "title": "Administering Influenza Vaccine to HIV Patients: Does Timing Matter?",
+          "trigger": "Actual early and late peaks and waning protection in a timing comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural benchmark for scheduling one waning preventive intervention under separated exposure peaks: the calculation shows that unimodality and smooth motion of the global optimizer can both fail within a simple explicit hazard family. An exhaustive certificate, an isolated crossing and a uniform strict jump are more useful than a sampled bimodal plot. The coefficients and interval are designed as a theoretical witness, not a disease calibration or a recommendation about when anyone should be vaccinated.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

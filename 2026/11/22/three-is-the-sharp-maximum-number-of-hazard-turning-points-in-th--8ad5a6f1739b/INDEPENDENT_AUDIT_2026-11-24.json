@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:36:36.471776Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct differentiation gives positive derivatives for theta>=1. For a=theta in (0,1), the Chen derivative before x0=((1-a)/a)^(1/a) is -beta G; after and at x0 the total derivative is positive. G diverges at zero and Q stays finite, giving the initial negative sign. For K=Q/G, (log K)'=R-lambda*tanh(log(u)/2), with R=-G'/G>0 since xR>2-a-a*x^a>1. Independently, let A=1-a, w=1-a*x^a/A and T=x^(a-1)/(A*w). Applying the Euler derivative E=x*d/dx gives ET/T=-1+a/w, Ew=-a*(1-w), and x^2*T''/T=2-(3a+a^2)/w+2a^2/w^2. Its numerator quadratic has discriminant a^2*(a-1)*(a+7)<0; the remaining part of R'' is (2-a)*(2-a*A*x^a)/x^3>0. Thus (log K)' is positive for u<=1 and strictly convex on u>=1 because the second derivative of -lambda*tanh(log(u)/2) is nonnegative there. It has at most two zeros. Rolle bounds intersections K=beta by three even with tangencies, and if there are three, none is multiple (otherwise an extra zero of (log K)' would be forced). For fixed a, centering Q at x0/3 sends its height to infinity and its value at 2*x0/3 to zero as lambda grows, while G at both points is fixed positive. The four strict checkpoint signs force three roots and persist on a nonempty open set. Independent exact range-reduced rational Taylor inequalities (python3 /workspace/chen_perks_rational_replay.py) gave -,+,-,+ at x=y^5 for y=1,7/2,19/5,399/100 at the stated rational parameters. That replay certifies those signs, not the general root bound or the optional decimal root locations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The additive Chen model is a sum of two Chen hazards; the pure Chen slope has only the usual bathtub or increasing structure.",
+          "The adjacent discrete phase diagrams d75bb3879263 and c56eaf093042 concern distinct discrete hazard sequences and at most two strict changes."
+        ],
+        "reasoning": "None supplies the convexity-based bound for the slope ratio of a logistic derivative and the negative-slope Chen branch. General flexibility of additive hazards does not bound stationary ages in this particular sum.",
+        "searches": [
+          "Local Resultary Chen-plus-logistic and hazard phase diagram comparisons",
+          "10.3390/axioms12020118 Section 2 and 10.3390/math10050674 pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "DOIs 10.3390/math11133001, 10.3390/axioms12020118, 10.3390/math10050674",
+        "Local Resultary 8ad5a6f1739b (self), 2e6ca0a2ca4a, d75bb3879263, c56eaf093042",
+        "Targeted literature web search for the exact hazard root bound"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary Chen–Perks paper defines the same model and discusses monotone and nonmonotone flexibility; the compared passages do not bound how many derivative zeros can occur.",
+          "The positive Perks derivative can exceed, then fall below, the Chen slope magnitude inside the negative-slope interval, so the pure Chen one-minimum result does not transfer."
+        ],
+        "reasoning": "Neither component's separate shape settles the slope-ratio intersections. In particular, examples at a displayed shape would not imply attainment for every fixed theta in (0,1).",
+        "searches": [
+          "10.3390/math11133001 Section 2 Eq. (1) and Section 10; 10.3390/axioms12020118 additive model definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The defining Chen–Perks paper, DOI 10.3390/math11133001, Eq. (1), gives the exact additive hazard and graphical configurations.",
+          "The exact match 8ad5a6f1739b in Resultary is this record itself. The nearby 2e6ca0a2ca4a treats a different continuous Marshall–Olkin power half-logistic quotient hazard."
+        ],
+        "reasoning": "Matching the distribution formula or the label nonmonotone is not the same as counting all distinct positive zeros of its derivative. The nearby continuous hazard is not a reparameterization of this additive model.",
+        "searches": [
+          "Local Resultary: Chen–Perks exact bound, Chen–Perks derivative zeros, Chen-plus-logistic root counts, three-reversal/W-shaped hazards",
+          "Chen–Perks hazard turning points stationary three nonmonotone sharp maximum Chen Perks additive hazard"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary exact hit is the record being reviewed; the graphical Chen–Perks displays give examples, not a certified all-parameter stationary-age maximum."
+        ],
+        "reasoning": "There is no finite tabulation that could establish an upper bound over this continuous parameter domain; relevant graphical examples were compared for exact coverage rather than treated as proof or exhaustive tables.",
+        "searches": [
+          "Local Resultary sharp bound and three-reversal/W-shape searches",
+          "Defining paper 10.3390/math11133001 Section 2 hazard displays and Section 10 conclusion"
+        ]
+      },
+      "rationale": "The four-parameter distribution and graphical hazard flexibility are prior. The supported distinct result is the sharp stationary-age bound for its exact hazard, counting even degenerate stationary ages, and attainability at every fixed subunit theta. The inspected earlier results do not give that bound or attainment. This is a bounded literature comparison, not a priority guarantee.",
+      "residual_risks": [
+        "No exhaustive priority claim; an unindexed Chen–Perks analysis or a more general slope-ratio theorem could overlap.",
+        "The comparison addresses hazard-derivative zeros, not density modes or other additive lifetime laws."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model, not the sharp root-count statement in the compared material",
+          "evidence": "Additive Chen and Perks hazard; graphical shapes and case studies rather than a uniform stationary-age bound.",
+          "identifier_or_url": "https://doi.org/10.3390/math11133001",
+          "material_read": "Section 2 p. 3 Eq. (1) and graphical discussion (text offset 14500); Section 10 p. 17 (offset 120500)",
+          "method": "Lawful OA PDF passages",
+          "title": "The Chen–Perks Distribution: Properties and Reliability Applications",
+          "trigger": "Exact family and published hazard displays"
+        },
+        {
+          "assessment": "Distinct model rather than a covering class result",
+          "evidence": "The hazard is composed of two Chen components.",
+          "identifier_or_url": "https://doi.org/10.3390/axioms12020118",
+          "material_read": "Section 2 pp. 2–3, offset 10300",
+          "method": "Lawful OA PDF passages",
+          "title": "An Additive Chen Distribution with Applications to Lifetime Data",
+          "trigger": "Potentially wider additive Chen class"
+        },
+        {
+          "assessment": "Prior single-component behavior only",
+          "evidence": "The Chen hazard is bathtub-shaped or increasing, without a Perks term.",
+          "identifier_or_url": "https://doi.org/10.3390/math10050674",
+          "material_read": "pp. 1–2, offset 3500",
+          "method": "Lawful OA PDF passages",
+          "title": "Statistical Analysis of the Lifetime Distribution with Bathtub-Shaped Hazard Function under Lagged-Effect Step-Stress Model",
+          "trigger": "Earlier Chen hazard shape"
+        },
+        {
+          "assessment": "Different continuous family",
+          "evidence": "Marshall–Olkin power half-logistic quotient hazard with at most two derivative zeros, not the Chen–Perks sum.",
+          "identifier_or_url": "Resultary 2026/10/12/2e6ca0a2ca4a",
+          "material_read": "Finding and formula, local RESULT.md offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact MOPHL hazard phase diagram contradicts Theorem 1",
+          "trigger": "Closest catalogue continuous half-logistic hazard classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves a natural shape question for an existing reliability law that was illustrated by plots, not settled by them. It tells users which numbers of stationary ages can or cannot occur, proves a genuinely present but bounded three-turn mechanism at each eligible shape, and handles tangencies without equating them with density modes. The curvature bound is structural rather than a fit to test cases.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

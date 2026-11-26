@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:28:43.575251Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the four ones the counts of preceding zeros are a, a+b, N-a-b, N-a. Reversal gives D_100=D_001=H and D_110=D_011; D_011=6a+3b+c=N+t for t=4a+b, and the count of 101 is 6b+4c=4N-2t. Each one contributes z_i(N-z_i) to 010, giving 2N(N-1)-2H. The 000 and 111 counts are fixed, including N<3. Summing binom(z_i,2) gives the stated quadratic in a at fixed N,t, so the only possible distinct partner is its reflected root, a'=a+(b-c)/5. Then b'=b-4(b-c)/5 and c'=c+6(b-c)/5. Orient by b>c, since b'-c'=-(b-c); the divisibility condition gives d>=1 and all partner gaps are then nonnegative. This proves all in-class fibers, including empty gaps. The unique parametrization gives N=2a+3c+10d and the generating series, the distinct-deck count, and the exact attainable lengths (subtract 10 and use the semigroup of 2 and 3). For fixed d the count from 2a+3c=N-10d is (N-10d)/6+O(1); summation gives N^2/120+O(N) compared to N^2/8+O(N) words, hence 2/15. Independently enumerating triples of positions in the length-14 pair gives (120,65,50,15,65,30,15,4) in both cases. The exact replay is the algebra in RESULT.md lines 31–69; verify.py and verify_output.txt were inspected as bounded corroboration. No unrestricted fiber-size claim follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier Resultary moment criterion applies to every fixed-content binary word, including all four-one palindromes. Its §3 already uses restriction to a line and constancy of a quadratic on a fiber in the case of three ones; its unrestricted weight-four unboundedness is an additional result, not used to deduce the present fiber bound.",
+          "Angal et al.'s fixed-weight theorem has a different weight regime; the inspected Nilforoushan–Parvaresh abstract concerns global bounds on distinct k-decks rather than this restricted family."
+        ],
+        "reasoning": "The applicable broader result is the exact moment description, not the unrestricted unbounded-fiber statement or a global bound. This restricted case has only one free coordinate after the first two moment constraints.",
+        "searches": [
+          "Resultary: exact gaps, unrestricted four-one three-deck ambiguity",
+          "arXiv:2610.41110v1 Theorem 1.1 and §3.1",
+          "arXiv:2609.23106v1 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Published Resultary records ending --ef95cc2ffb13, --35ca5b457056 and the self-match --c4ca3d49873e",
+        "arXiv:2610.41110v1",
+        "arXiv:2609.23106v1 (abstract)",
+        "Chrisnata et al., doi:10.3934/amc.2021032 (full-text retrieval did not succeed)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Using S_1 fixes t, so b=t-4a, c=N+6a-2t. The remaining equality in S_2 reduces directly to (a-a')(10(a+a')+2N-6t)=0. Its distinct root shifts a by (b-c)/5. Integrality is equivalent to b-c being a multiple of 5; choosing b>c makes nonnegativity automatic for both words.",
+          "The resulting free parameters a,c>=0, d>=1 obey N=2a+3c+10d. Multiplying their three geometric series and taking the leading count give the claimed series and 2/15 with no extra deck-combinatorial argument."
+        ],
+        "reasoning": "This is concrete stronger-result coverage, not just a broadly useful method: its complete invariant already solves which equalities to impose, and on the two palindrome gaps the equations are linear plus a univariate quadratic. The displayed conclusions require only routine elimination, integrality, and coefficient enumeration.",
+        "searches": [
+          "Resultary 2026/10/27 record ending --ef95cc2ffb13, §2 and start of §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier record ending --ef95cc2ffb13, §2, gives the entire fixed-weight three-deck in terms of S_0=sum z_i, S_1=sum i*z_i, S_2=sum z_i^2, and proves the converse.",
+          "For the palindrome insert z=(a,a+b,N-a-b,N-a), giving S_0=2N, S_1=7N-(4a+b), S_2=2H+2N.",
+          "Angal et al. give the same length-14 pair in four-deck equivalence notation. Equal four-decks imply equal three-decks at length 14 by counting extensions of each occurrence."
+        ],
+        "reasoning": "Equality of the purported palindrome-specific complete invariants t,H is exactly equality in the published full moment criterion with one coordinate held constant. The initial witness is a special case of a stronger known equality.",
+        "searches": [
+          "Resultary: four-one three-deck collisions, palindromic three-binomial equivalence, fixed-weight moment description",
+          "arXiv:2610.41110v1, §3.1 and Remark 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit ending --c4ca3d49873e is this finding itself.",
+          "The distinct same-day record ending --35ca5b457056 gives a finite result for binary palindromes through length 14, including the known length-14 pair. It does not give the fixed-content all-length census.",
+          "The inspected sources do not print an independent table or the particular generating function or limit."
+        ],
+        "reasoning": "Neither self-match nor same-day finite overlap is the basis for failure; the missing explicit census does not prevent derivation from the older exact criterion.",
+        "searches": [
+          "Resultary: fixed four-one palindromes, length-14 third-order collisions and exact counts"
+        ]
+      },
+      "rationale": "The statements are correct, but the full classification and the numerical census are a direct specialization of the earlier published fixed-weight three-deck moment theorem, followed by solving a one-variable quadratic and counting its admissible gap parameters. The prior result does not print these palindrome counts; coverage here is by implication, not a purported identical table. The first witness itself is already known, even for the four-deck.",
+      "residual_risks": [
+        "Additional overlap in the incompletely inspected distinct-deck literature is possible. The negative disposition rests on inspected prior mathematical coverage, not on the inaccessible Chrisnata et al. text or any no-match search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger exact description; direct corollary",
+          "evidence": "All eight counts are explicit functions of S_0,S_1,S_2, recovered from the deck. The subsequent line/quadratic argument exhibits the same one-free-variable mechanism in a different small-weight case.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-four-ones-suffice-for-unbounded-binary-three-deck-ambiguity--ef95cc2ffb13/RESULT.md",
+          "material_read": "RESULT.md §2 Moment description of a sparse word, and start of §3, text offsets 1740–3540",
+          "method": "Published mirror primary statement and proof-passage inspection; symbolic specialization",
+          "title": "Four ones suffice for unbounded binary three-deck ambiguity",
+          "trigger": "Same fixed weight and same deck with a claimed general exact characterization"
+        },
+        {
+          "assessment": "Exact witness covered, not an all-length census in these passages",
+          "evidence": "The same length-14 pair is 4-deck equivalent. The stated general fixed-weight bound for s>=5 is not a four-one classification.",
+          "identifier_or_url": "https://arxiv.org/html/2610.41110v1",
+          "material_read": "Deck equivalence definition around offset 2730; Theorem 1.1 around 6500; §3.1 Remark 3.2 around 22511",
+          "method": "Primary passage inspection",
+          "title": "Deck Reconstruction for Restricted Word Classes",
+          "trigger": "Prior witness on the identical palindrome pair"
+        },
+        {
+          "assessment": "Distinct finite result with a shared first witness; no within-day priority inferred",
+          "evidence": "Identity through length 13 and six length-14 two-word classes for palindromes without fixing content, not a four-one all-length result.",
+          "identifier_or_url": "2026/11/22/SCOPE-first-third-order-binomial-ambiguity-among-binary-palindromes--35ca5b457056",
+          "material_read": "Published RESULT.md opening finding",
+          "method": "Mirror statement inspection",
+          "title": "First third-order binomial ambiguity among binary palindromes",
+          "trigger": "Same family symmetry and exact first collision"
+        },
+        {
+          "assessment": "Global counting rather than a demonstrated source of the exact restricted law",
+          "evidence": "States asymptotic bounds without the fixed-content palindrome restriction.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.23106v1",
+          "material_read": "Abstract only",
+          "method": "Primary abstract comparison, not full-text exclusion",
+          "title": "Improved upper bound on the number of distinct k-decks for any k and alphabet size by counting the independent parameters",
+          "trigger": "Potential general coverage of exact numbers of attained decks"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Fixed-content symmetric reconstruction is a natural question and the formulas make a useful corollary. Under the exact-invariant value standard, however, the known complete moment criterion and routine one-dimensional elimination already determine the purported new classification and census. The rational series, census and limiting fraction do not survive as independently valuable unknown facts under that standard; neither does the credited first witness. No stand-alone repair is supported.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

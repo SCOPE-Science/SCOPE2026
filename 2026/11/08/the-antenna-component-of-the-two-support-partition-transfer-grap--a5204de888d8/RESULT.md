@@ -48,12 +48,18 @@ For odd \(n=2b+1\geq7\), the extra vertex \((b,b,1)\) is adjacent to \((b+1,b)\i
 | Starting family | Possible destination families within \(G_n^{[2]}\) |
 | --- | --- |
 | \(H_n\): \((a,1^q)\), \(a\geq2,q\geq1\) | \(H_n\), \(T_n\), or \(U_n\) |
-| \(T_n\): \((a,b)\), \(a>b\geq1\) | \(T_n\), \(H_n\), or the extra vertex \((b,b,1)\) when \(a=b+1\) |
-| \(U_n\): \((2^p,1^q)\), \(p,q\geq1\) | \(U_n\), \(H_n\), or the extra vertex \((3,2^p)\) when \(q=1\) |
+| \(T_n\): \((a,b)\), \(a>b\geq1\) | \(T_n\), \(H_n\), or \((b,b,1)\) when \(a=b+1\) and \(b\geq2\) |
+| \(U_n\): \((2^p,1^q)\), \(p,q\geq1\) | \(U_n\), \(H_n\), or \((3,2^{p-1})\) when \(q=1\) and \(p\geq2\) |
 | \((b,b,1)\), \(b\geq3\) | \((b+1,b)\in T_n\), and also \((3,2,2)\) if \(b=3\) |
 | \((3,2^p)\), \(p\geq2\) | \((2^{p+1},1)\in U_n\), and also \((3,3,1)\) if \(p=2\) |
 
-For completeness, the first three rows can be checked directly without any implicit assumption about multiplicities. From \((a,1^q)\), transfers toward a new row or toward its size-\(a\) part stay in the hook family; moving between two ones can give \(U_n\) (if \(a=2\)) or \(T_n\) (if \(q=2\)); moving from \(a\) into a one can give \(U_n\) (if \(a=3\)) or \(T_n\) (if \(q=1\)). All other nontrivial outcomes have at least three positive part sizes. From \((a,b)\), inward and outward transfers between its two existing rows stay in \(T_n\) when they retain two sizes; creating a new one gives \(H_n\) when \(b\in\{1,2\}\), or \((b,b,1)\) precisely when \(a=b+1\). From \((2^p,1^q)\), moving a two into a new row, or moving between two ones, stays in \(U_n\) when the resulting support is two; moving between two twos can give a hook only when \(p=2\); moving a one into a two yields \((3,2^p)\) only when \(q=1\). The fourth and fifth rows follow from the same six donor–recipient choices with sizes \(b,1\) and \(3,2\), respectively. All boundary cases losing a support size are excluded because the graph is induced on support exactly two.
+To verify the table, write \(x\to y\) for the donor and recipient sizes. In the following cases an outcome identical to the starting partition or having support other than two is discarded.
+
+- In \((a,1^q)\), \(1\to0\) returns the starting partition and \(a\to a\) is unavailable. The moves \(a\to0\) and \(1\to a\) give hooks if retained. For \(1\to1\) (requiring \(q\geq2\)), the result is \((a,2,1^{q-2})\): a retained outcome is in \(U_n\) if \(a=2\), or in \(T_n\) if \(q=2\). The move \(a\to1\) gives \((a-1,2,1^{q-1})\) before sorting. If \(a=2\) it returns the starting partition, and otherwise it is retained only when \(a=3\) and \(q\geq2\) (in \(U_n\)), or when \(a>3\) and \(q=1\) (in \(T_n\)).
+- In \((a,b)\), the moves between the two existing rows stay in \(T_n\) if retained. The move \(b\to0\) returns the starting partition for \(b=1\), gives a hook for \(b=2\), and otherwise has three sizes. The move \(a\to0\) gives \((a-1,b,1)\); for \(b=1\) any retained outcome is a hook, and for \(b\geq2\) the only retained case is \(a-1=b\). Same-size transfers are unavailable.
+- In \((2^p,1^q)\), \(2\to1\) and \(1\to0\) return the starting partition. The moves \(2\to0\) and \(1\to1\) give \((2^{p-1},1^{q+2})\) and \((2^{p+1},1^{q-2})\), respectively, with the latter available only if \(q\geq2\). When retained, both are in \(U_n\). The move \(2\to2\) requires \(p\geq2\) and gives \((3,2^{p-2},1^{q+1})\); it is retained only at \(p=2\), giving a hook. The move \(1\to2\) gives \((3,2^{p-1},1^{q-1})\). This is a hook if \(p=1,q\geq2\), and an odd-size shape \((3,2^{p-1})\) if \(q=1,p\geq2\); in the other cases its support is one or three.
+- In \((b,b,1)\) with \(b\geq3\), \(1\to b\) gives \((b+1,b)\). The move \(b\to1\) gives \((b,b-1,2)\), which has two sizes exactly if \(b=3\). The moves \(b\to0\) and \(b\to b\) give three sizes. The move \(1\to0\) is a loop and \(1\to1\) is unavailable.
+- In \((3,2^p)\) with \(p\geq2\), \(3\to0\) gives \((2^{p+1},1)\); \(2\to2\) gives \((3,3,2^{p-2},1)\), retained exactly if \(p=2\). The moves \(2\to3\) and \(2\to0\) give three sizes, \(3\to2\) is a loop, and \(3\to3\) is unavailable.
 
 For odd \(n\geq7\), the two exceptional shapes appearing in the first three rows belong to the displayed set, and the final two rows show they introduce no further destinations. For even \(n\), the exceptional odd-size shapes cannot arise; for \(n=5\) the two would-be exceptional partitions are already in \(U_5\) and \(T_5\); and \(n=3\) is checked directly. Hence the displayed connected set is closed under all edges of \(G_n^{[2]}\). It is therefore exactly the component containing \((n-1,1)\).
 
@@ -63,7 +69,7 @@ For \(n\geq8\), the partition \((n-4,2,2)\) has support exactly two but is not o
 
 ## Verification
 
-The standalone file `artifacts/verify.py` independently generates all integer partitions for \(3\leq n\leq22\), calculates adjacency from *indexed donor and recipient rows*, and compares it with a distinct-size transfer implementation. It checks the explicit proposed component by breadth-first search, equality with the closed-form shape family, component size, and the disconnection witness. For \(23\leq n\leq150\), it enumerates two-support partitions by the independent integer equation \(pa+qb=n\), checks closure under all allowed transfers, and repeats the component and size checks. The replay prints `VERIFY_OK`. These are finite consistency checks, not a substitute for Step 2 of the general proof.
+The standalone `artifacts/verify.py` in the source package independently generates all integer partitions for \(3\leq n\leq22\), calculates adjacency from *indexed donor and recipient rows* for every two-support vertex, and compares it with a distinct-size transfer implementation. It computes the component by breadth-first search and checks equality with the closed-form shape family, component size, and the disconnection witness. For \(23\leq n\leq150\), it enumerates two-support partitions by the independent integer equation \(pa+qb=n\), checks closure under all allowed transfers, and repeats the component and size checks. Its success marker is `VERIFY_OK`. These are finite consistency checks, not a substitute for Step 2 of the general proof.
 
 ## Relationship to prior work
 
@@ -73,7 +79,7 @@ The motivating *Support and Support Jumps in the Partition Graph* (arXiv:2604.11
 
 ## Limitations
 
-The classification is only of the component containing \((n-1,1)\), *not* of every component or every connected path in \(G_n^{[2]}\). It establishes connectedness of the complete stratum only for the finite small cases and disconnection for larger \(n\); it does not count the other components. It does not concern other support levels, directed transfers, or the connectivity of the unrestricted partition graph. Priority assessment against non-indexed historical work remains provisional, and no independent mathematical audit has occurred.
+The classification is only of the component containing \((n-1,1)\), *not* of every component or every connected path in \(G_n^{[2]}\). It establishes connectedness of the complete stratum only for the finite small cases and disconnection for larger \(n\); it does not count the other components. It does not concern other support levels, directed transfers, or the connectivity of the unrestricted partition graph. Priority assessment against non-indexed historical work remains provisional.
 
 ## References
 

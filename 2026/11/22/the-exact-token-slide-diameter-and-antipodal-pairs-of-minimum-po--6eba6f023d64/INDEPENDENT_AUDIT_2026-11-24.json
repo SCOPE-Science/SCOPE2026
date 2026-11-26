@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:36:15.854991Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–56",
+        "Frozen VERIFICATION.md and both checker sources (read only)",
+        "Independent replay: python3 /workspace/branches/reproduce_frozen.py 4"
+      ],
+      "rationale": "After domination the unobserved rectangle is the product of empty rows and columns. With both sides at least two no force starts; if one side is a singleton the appropriate row or column neighbors each have a unique unobserved neighbor. Thus the minimum states are exactly the two coordinate near-transversal families. Their internal degrees are n(n−1) each, their overlap has degree 2(n−1), and an exclusive-to-exclusive edge is impossible because a slide retains the set of coordinates of one type. This yields the stated edge and vertex counts. Within a family, move the hole once if necessary, then align at most n−1 entries, giving strictly less than 2(n−1) even at n=3. Across families an arbitrary matching of source rows to target columns gives a two-phase path of length at most 2(n−1); any shared row or column can be matched to save a slide. If neither coordinate is shared, the only possible endpoints are the complementary column and row stars. Tracking individual tokens proves that each must change both coordinates there, irrespective of temporary moves, and gives the lower bound and exactly n² unordered pairs. An independent calculation enumerated minimum sets by actual propagation, built edges via common deletion subsets, and tested all source orbits under row/column permutations and transposition at n=3,4,5. Sorted occupied-column multiplicities classify distinct-row states up to this action, so these 2, 3, and 5 representatives test every pair up to symmetry. Counts were (36,126), (416,2784), and (5650,60100), with precisely the stated extremal type.",
+      "residual_risks": [
+        "Finite reproduction covers orders three through five; the proof establishes all n≥3. The audit does not classify all distances."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bjorkman et al. distinguish token slide, jump and add/remove, and their all-size TAR diameter is |V(G)|. The rook TAR record gives a connected graph at budget n, and isolated minimum placements at budget n−1."
+        ],
+        "reasoning": "A diameter in the all-size TAR model and a connectivity result at a larger budget do not bound the restricted adjacent-slide paths sharply, and do not determine the extremal pairs.",
+        "searches": [
+          "arXiv:2201.01798v1, §1 and §3.1 Proposition 3.6",
+          "Resultary 99dbf6bd21a3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 48ce98e1f82f, e4946fa80078, 99dbf6bd21a3, 7446c83c72a6, 438257c07ae7, 3c90c2bdbd9b",
+        "Bjorkman et al., arXiv:2201.01798v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior row-or-column classification specifies the vertices; the adjacent slide definition specifies candidate moves. The prior result on TAR distances has paths that may leave minimum cardinality."
+        ],
+        "reasoning": "Neither supplies the two-family edge-intersection count nor the overlap-saving routing argument and token-tracking lower bound. An explicit new metric analysis is needed rather than a substitution in a known distance formula.",
+        "searches": [
+          "Resultary 48ce98e1f82f and e4946fa80078, minimum-set classification",
+          "arXiv:2201.01798v1, definitions and Proposition 3.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Nauru and once-subdivided complete graph records use adjacent minimum-PDS slides but on different base graphs. The square-rook orientation-islands record uses minimum zero forcing, not power domination."
+        ],
+        "reasoning": "Neither using the same move rule on another graph nor the same rook graph with a different feasible state space gives the claimed metrics. Representing the rook graph as the line graph of K_{n,n} just recasts the moves as exchanging selected edges through a common endpoint.",
+        "searches": [
+          "Resultary local search for rook-graph sliding, minimum power domination and reconfiguration",
+          "2026/11/22 slide records 7446c83c72a6, 438257c07ae7 and 3c90c2bdbd9b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching square-rook count 2n^n−n²(n−1)! is already supplied by the two enumeration records and appears as the number of isolated TAR components at minimum budget. The exact slide numbers in the related slide records describe other graphs or minimum zero forcing."
+        ],
+        "reasoning": "Credit the identical vertex count as known; no checked table or indexed exact statement matches the three slide-specific quantities on the stated family.",
+        "searches": [
+          "Resultary 48ce98e1f82f, e4946fa80078, 99dbf6bd21a3 and the three inspected slide records"
+        ]
+      },
+      "rationale": "The state structure and vertex count are established prior coverage. The distinct supported claim is the number of legal minimum-set slides and the sharp adjacent-slide distance with all extremizers. Checked reconfiguration results concern either a different move rule, a different graph, or a different domination/forcing parameter.",
+      "residual_risks": [
+        "Bounded comparison: an unindexed equivalent treatment in line-graph language or in other reconfiguration literature could have escaped detection. Same-day index dates were not used as priority evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers feasibility and vertex census",
+          "evidence": "At least p−1 rows or q−1 columns; square count 2p^p−p²(p−1)!.",
+          "identifier_or_url": "Resultary 48ce98e1f82f",
+          "material_read": "Finding, offset 168",
+          "method": "Local mirror",
+          "title": "Complete power-domination-set classification and polynomial of rectangular rook graphs",
+          "trigger": "Identical base family and minimum states"
+        },
+        {
+          "assessment": "Covers feasible-state census, not slide metrics",
+          "evidence": "N_{q,q}=2q^q−q²(q−1)!; the connected polynomial is about connectivity of the induced rook placement.",
+          "identifier_or_url": "Resultary e4946fa80078",
+          "material_read": "Finding offset 6 and counting proof offset 7491",
+          "method": "Local mirror",
+          "title": "Complete ordinary and connected power-domination enumerators of rook graphs",
+          "trigger": "Same minimum enumeration; possible meaning of connected"
+        },
+        {
+          "assessment": "Different move rule and budgets",
+          "evidence": "Single addition/removal; at square minimum budget components are singletons, and at n the TAR graph is connected.",
+          "identifier_or_url": "Resultary 99dbf6bd21a3",
+          "material_read": "Finding and assumptions, offset 11",
+          "method": "Local mirror",
+          "title": "Exact reconfiguration components of power-dominating sets in rook graphs",
+          "trigger": "Same family and reconfiguration terminology"
+        },
+        {
+          "assessment": "Defines TS but the cited framework and diameter concern TAR/TJ, not minimum TS on rook graphs",
+          "evidence": "The all-size TAR diameter is the order of the graph; TS requires the inserted and deleted vertices to be adjacent.",
+          "identifier_or_url": "https://arxiv.org/html/2201.01798v1",
+          "material_read": "§1 offsets 3032 and 3594; §3.1 Proposition 3.6 offset 33476",
+          "method": "Open primary preprint",
+          "title": "Power domination reconfiguration",
+          "trigger": "General theory of the same reconfiguration parameter"
+        },
+        {
+          "assessment": "Different base graph",
+          "evidence": "GP(12,5), 1,152 edges, diameter 10, 72 diametral pairs.",
+          "identifier_or_url": "Resultary 7446c83c72a6",
+          "material_read": "Finding offset 0",
+          "method": "Local mirror",
+          "title": "A single diametral orbit in minimum sensor-slide reconfiguration",
+          "trigger": "Close metric and antipode analogy"
+        },
+        {
+          "assessment": "Different base graph",
+          "evidence": "For once-subdivided K_n the slide graph is Sub(J(n,2)) and the diameter is min(n,6).",
+          "identifier_or_url": "Resultary 438257c07ae7",
+          "material_read": "Finding offset 0",
+          "method": "Local mirror",
+          "title": "Minimum power domination token slides subdivide the triangular graph",
+          "trigger": "Similar parametric metric claim"
+        },
+        {
+          "assessment": "Different forcing parameter",
+          "evidence": "Minimum zero forcing slide graph has two components, not the minimum power domination graph considered here.",
+          "identifier_or_url": "Resultary 3c90c2bdbd9b",
+          "material_read": "Finding offset 178",
+          "method": "Local mirror",
+          "title": "Two orientation islands for minimum zero forcing slides on square rook graphs",
+          "trigger": "Same rook graph and slide moves"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–23 and 34–56",
+        "Bjorkman et al., definitions of TAR, TJ and TS"
+      ],
+      "rationale": "The slide metric measures relocation effort when the monitoring budget stays optimal and a sensor can move only along an edge. General connectivity or the number of optimal placements does not give that worst-case effort. The sharp linear bound and complete description of its witnesses isolate a genuine obstruction (both coordinates must change for all tokens); the edge census further quantifies the legal choices on this basic graph family.",
+      "residual_risks": [
+        "Scope is the square rook family with optimal cardinality, not rectangular boards or other move models."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:43:58.736624Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Any two vertices in a layer share a neighbor, and all vertices have degree four, so the graph is connected with a unique bipartition up to swap. Common-neighbor counts recover the rook graph within a layer, and opposite-layer neighbor sets distinguish all nine cells. The 72 rook symmetries lift simultaneously to both layers; the layer flip commutes with them. Proposition 25 supplies reduced homology concentrated in degree 3 with dimension 14. An independent exact calculation (not execution of the supplied checker) enumerated all nonempty bitmasks on the lexicographic 18 triples, discarding masks containing any pair differing in all three coordinates. The face counts by degree were 18,117,348,504,378,192,72,18,2. For each of 144 permutations (independent coordinate permutations, optional coordinate swap, optional layer flip), keep setwise-fixed faces, give each orientation sign by inversion parity on the image list, and subtract their degree-alternating signed sum from 1. Traces at identity, layer flip, coordinate swap and their product were 14,4,-4,-2. Taking the character inner products on the no-swap subgroup confirmed exactly the seven multiplicity-one constituents, and diagonal component exchange traces -1,-2,-1 force minus flips, with the remaining pairs exchanged. Thus the only no-swap invariant line is killed by the swap. For quotient homology, pass to barycentric subdivision so simplex stabilizers fix their simplices pointwise; rational coinvariants compute quotient chains, are exact, and identify with invariants by averaging. The conclusion is about the topological quotient over Q, not its integral homology.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 25 gives generally a nonequivariant wedge of 3-spheres. The indexed general S_m × S_n character gives a one-dimensional invariant space and expressly does not compute the full automorphism action."
+        ],
+        "reasoning": "Neither specializing the homotopy type nor restricting to the subgroup produces the factor-exchange signs: either sign of the tensor flip extends an identical diagonal restriction.",
+        "searches": [
+          "arXiv:2307.12401v2 §4 Proposition 25",
+          "SCOPE-complete-coordinate-symmetry-homology-of-three-factor-categorica--f78c991a500c"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_triple_product.py (read only)",
+        "arXiv:2307.12401v2",
+        "Resultary records f78c991a500c and 325e8a339640"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known 14-dimensional homology and the earlier layer-flip trace 4 agree with the submitted computation; the computed coordinate-swap and combined traces -4 and -2 and diagonal projection signs are additional data."
+        ],
+        "reasoning": "Rational transfer is standard, but it cannot decide whether the full quotient loses its degree-3 homology without knowing the actual exchange sign.",
+        "searches": [
+          "arXiv:2307.12401v2 Proposition 25",
+          "f78c991a500c and 325e8a339640, local mirrored RESULT.md findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest indexed coordinate-symmetry result treats separate permutations, not the exchanged-coordinate action. The focused literature lookup did not retrieve relevant equivariant statements."
+        ],
+        "reasoning": "Whether described as a signed Lefschetz character, rational wreath-product module or rational orbit homology, the material difference is exchange acting by -1 on the separately invariant line.",
+        "searches": [
+          "Ind(K2 × K3 × K3) full graph automorphism group C2 × (S3 wr C2) rational H3 character factor-exchange signs quotient acyclicity (Resultary)",
+          "\"Ind(K2 × K3 × K3)\" equivariant homology character coordinate swap wreath product Proposition 25 (literature)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact-size hits yield rank 14 and parities 9,5 or the separate-coordinate character. Neither supplies the joint 144-element character or exchange projector traces."
+        ],
+        "reasoning": "Matching the size and homology dimension is not a matching tabulation of the natural representation; an exact full-character match was not found in the inspected sources.",
+        "searches": [
+          "Ind(K2 × K3 × K3) full graph automorphism group C2 × (S3 wr C2) rational H3 character factor-exchange signs quotient acyclicity (Resultary)",
+          "SCOPE-layer-swap-fixed-spaces-and-rational-homology-of-complete-graph--325e8a339640"
+        ]
+      },
+      "rationale": "The accepted distinction is the combined full automorphism action on H3, notably the separate diagonal exchange signs and the loss of the invariant line in the full quotient. The homotopy type, layer involution trace and dimensions are not distinct contributions. The broader separately permuted coordinate result, even taken without an assumption about historical priority, does not determine the exchange extensions.",
+      "residual_risks": [
+        "A narrowly formulated, unindexed equivariant calculation or general theorem for the exchanged-coordinate action may exist; the focused web lookup was not substantively informative."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known underlying homotopy type; not the natural action",
+          "evidence": "Ind(K2 × K_n × K_m) is a wedge of f(2,n,m) three-spheres, where f(l,n,m)=(l-1)(n-1)(m-1)(lnm-4)/4.",
+          "identifier_or_url": "https://arxiv.org/html/2307.12401v2",
+          "material_read": "Section 4, Proposition 25, HTML offset 65294",
+          "method": "OA full-text passage",
+          "title": "Homotopy type of the independence complex of some categorical products of graphs",
+          "trigger": "Exact graph family and homology input"
+        },
+        {
+          "assessment": "Substantial separate-coordinate overlap, not full action",
+          "evidence": "General S_m × S_n character with exactly one invariant dimension; full graph automorphisms are outside scope.",
+          "identifier_or_url": "2026/11/17/SCOPE-complete-coordinate-symmetry-homology-of-three-factor-categorica--f78c991a500c/RESULT.md",
+          "material_read": "Finding and scope at offset 0",
+          "method": "Resultary search and local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Complete coordinate-symmetry homology of three-factor categorical products",
+          "trigger": "Broadest coordinate-symmetry match"
+        },
+        {
+          "assessment": "Prior partial coverage",
+          "evidence": "For the 3 by 3 case the layer swap has trace 4 and eigenspace dimensions 9,5; this does not determine the outer swap action.",
+          "identifier_or_url": "2026/10/25/SCOPE-layer-swap-fixed-spaces-and-rational-homology-of-complete-graph--325e8a339640/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary search and local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Layer-swap fixed spaces and rational homology of complete graph products",
+          "trigger": "Exact layer-swap overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the first symmetric case of this three-factor family in which the two non-bipartition coordinates are equal and interchangeable. The full action distinguishes two natural orbit spaces that the known nonequivariant rank and separate-coordinate invariants cannot distinguish: the one invariant class survives without exchange and disappears with it. The explicit full module makes that distinction reusable beyond the quotient Betti number.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

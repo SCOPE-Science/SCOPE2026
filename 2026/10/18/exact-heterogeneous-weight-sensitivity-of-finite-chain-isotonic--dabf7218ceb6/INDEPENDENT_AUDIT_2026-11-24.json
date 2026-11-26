@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:34:05.604666Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md (1)–(6) for a fixed positive diagonal quadratic objective and ordinary data/output ℓ_p norms. At each input, stationary variation of each strictly separated maximal fitted level gives its weighted average. The continuous fit is a selection of finitely many linear partition maps; restricted to a segment their affine traces can cross only at finitely many points except for identical traces. The slope bound thus gives the global upper bound. For any chosen block, strictly decreasing block data give strictly positive weighted prefix residual sums relative to the full mean; strictly increasing and separated outside coordinates give strict fitted gaps. The KKT conditions then realize that partition throughout a neighborhood. A Hölder extremizer attains the block operator norm there, including a maximum-weight coordinate at p=1 and the constant direction at p=∞. Singletons and n=1 give 1; every unequal adjacent pair gives strict amplification for finite p. For fixed block size, the derivative with respect to one weight has sign B t^(q−1)−A, so an endpoint maximizer exists; for p=1 the optimum has one maximal weight and the largest allowable block. For interior p the endpoint profiles reduce to the fraction r/k. The nested grids become dense, and the affine derivative sign gives the stated unique scalar maximizer and value. This also verifies the κ=1 cases in the finite formulas. The supplied floating-point witness and envelope script was inspected, not rerun; it is not a universal certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The common-block minimizer of a sum of coordinate losses gives the weighted block mean for quadratic losses. Yang–Barber’s theorem gives contractivity of the unweighted Euclidean fit in norms nonincreasing under adjacent equal averaging; its proof composes two-coordinate fit steps."
+        ],
+        "reasoning": "The first result gives the linear selections, not their global sharp unweighted operator modulus and attainability. Replacing the averages in the second proof by noncontractive weighted averages does not preserve its proof of contraction or give a sharp single-factor bound.",
+        "searches": [
+          "Luss–Rosset, arXiv:1104.1779",
+          "Yang–Barber, arXiv:1706.01852, Theorem 1, Lemma 1 and §6"
+        ]
+      },
+      "checked_sources": [
+        "Luss–Rosset arXiv:1104.1779",
+        "Yang–Barber arXiv:1706.01852",
+        "Local Resultary and inspected published SCOPE findings on finite-poset, best-line and edge-variation stability",
+        "Frozen RESULT.md, VERIFICATION.md and verify_weighted_iso.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known averaging norm on one block is |B|^(1/p)‖w_B‖_q/W_B. To turn it into an exact global modulus one must bound slopes across pooled-fit chambers and construct an open chamber realizing each candidate interval, including nonuniform weights. The endpoint-coordinate reduction then yields the finite grid maximum."
+        ],
+        "reasoning": "The exact finite result is not obtained by substituting weights into an existing contraction theorem or a continuous scalar envelope. The chamber realization links the rank-one constants to an attained perturbation of the nonlinear map.",
+        "searches": [
+          "Luss–Rosset arXiv:1104.1779, pp. 4 and 7",
+          "Yang–Barber arXiv:1706.01852, Theorem 1 and proof",
+          "Frozen RESULT.md, lines 64–96"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The finite-poset stability record varies its loss exponent with p and explicitly excludes weighted coordinates. The weighted-variation record has the same weighted quadratic fit but uses an edge-total-variation seminorm and a concave-majorant ratio."
+        ],
+        "reasoning": "Changing the loss changes the map. Changing to the edge seminorm changes the norm problem (the edge seminorm even annihilates constants). Diagonal rescaling can unweight the quadratic objective but changes both the constraint and the metric, so the ordinary unweighted isotonic theorem is not equivalent.",
+        "searches": [
+          "Resultary: sharp ℓ_p isotonic regression stability on finite partial orders",
+          "Resultary: sharp weighted-variation Lipschitz constant of finite-chain isotonic regression"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day weighted best-line result concerns a line and an ℓ_p nearest-point objective. The inspected reverse-Hölder hit concerns centered log-concave variables. The κ-dependent p=2 limit (κ+1)/(2√κ) is the classical Kantorovich factor."
+        ],
+        "reasoning": "Even an exact scalar continuous moment bound does not encode which consecutive blocks are realized by the fit or which mass fractions r/k fit in a fixed dimension. For example n=2, p=2 and κ=4 give √34/5 rather than the limiting 5/4. No exact table for the frozen full invariant was confirmed.",
+        "searches": [
+          "Resultary: weighted best-line projections in real ℓ_p",
+          "Resultary: sharp reverse-Hölder constant and bounded weight contrast",
+          "Frozen RESULT.md (3)–(6), scalar comparison"
+        ]
+      },
+      "rationale": "The distinct supported claim is the exact heterogeneous fixed-objective global sensitivity and its sharp finite contrast envelope. Block means and scalar reverse-Hölder/Kantorovich bounds are not new. The strongest inspected sources do not yield the matching upper bound and all-block realization for this fixed heterogeneous map in ordinary ℓ_p, or its discrete contrast envelope; the argument uses both facts. This is a best-of-knowledge comparison, not a claim of priority for the scalar limit in isolation.",
+      "residual_risks": [
+        "The searches were bounded; the unhelpful literature search is not negative evidence. An equivalent weighted chain or general polyhedral-projection sensitivity theorem under other terminology could narrow priority. The bounded-weight scalar inequality in the limit is not asserted new independently of realization by isotonic fits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the weighted common-block formula but not the claimed sharp stability",
+          "evidence": [
+            "A block fit minimizes the sum of its coordinate losses; quadratic losses give the correct weighted average."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1104.1779",
+          "material_read": "Common group fit, p. 4 (OA offset 8500); least-squares partition and block means, p. 7 (offset 14300)",
+          "method": "Primary PDF passage comparison",
+          "title": "Generalized Isotonic Regression",
+          "trigger": "General block optimality for coordinate-specific convex losses"
+        },
+        {
+          "assessment": "Equal-weight contractivity and neighbor-averaging witnesses; not the heterogeneous global formula",
+          "evidence": [
+            "Theorem 1 is an iff for contraction under equal neighbor averaging. Case 2 in its proof uses the arithmetic mean and the converse realizes an adjacent pair."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1706.01852",
+          "material_read": "Definition, p. 1; Theorem 1 and Lemma 1, p. 4 (offset 13300); §6 proof, pp. 13–15 (offset 167196)",
+          "method": "Primary PDF theorem and proof comparison",
+          "title": "Contraction and uniform convergence of isotonic regression",
+          "trigger": "Sharp isotonic stability in general norms for the unweighted fit"
+        },
+        {
+          "assessment": "Different objective; not coverage",
+          "evidence": [
+            "It projects by minimizing the sum of absolute residuals to power p and excludes weighted coordinates."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-ell-p-isotonic-regression-stability-on-every-finite-partia--7bfc7f16ca62",
+          "material_read": "Mirrored RESULT.md Finding and limitations, offsets 0 and 7312",
+          "method": "Local Resultary lookup and mirror passage comparison",
+          "title": "Sharp ℓ_p isotonic regression stability on every finite partial order",
+          "trigger": "Closest earlier indexed stability theorem"
+        },
+        {
+          "assessment": "Different norm and formula, not coverage",
+          "evidence": [
+            "Its metric is a weighted edge-total-variation seminorm."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-weighted-variation-lipschitz-constant-of-finite-chain-isot--77de1978bb36",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary lookup and mirror passage comparison",
+          "title": "Sharp weighted-variation Lipschitz constant of finite-chain isotonic regression",
+          "trigger": "Same fitted map with an exact different stability invariant"
+        },
+        {
+          "assessment": "Different constraint and loss, regardless of intra-day order",
+          "evidence": [
+            "The nearest-point problem is onto a line in an ℓ_p objective, not onto the order cone in a weighted quadratic objective."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-lipschitz-moduli-of-weighted-best-line-projections-in-real--9f22a877e345",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary lookup and mirror passage comparison",
+          "title": "Sharp Lipschitz moduli of weighted best-line projections in real ℓ_p^n",
+          "trigger": "Same-day indexed exact weighted-projection moduli"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact finite modulus directly quantifies how heteroscedastic objective weights can amplify an ordinary data perturbation despite Hilbert-space nonexpansiveness in the weighted norm. It identifies realizable worst blocks, separates ℓ∞ from all finite p, and gives sharp finite-size design bounds from contrast alone rather than only a norm-equivalence bound or an asymptotic inequality. The finite fraction restriction can change the exact guarantee.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

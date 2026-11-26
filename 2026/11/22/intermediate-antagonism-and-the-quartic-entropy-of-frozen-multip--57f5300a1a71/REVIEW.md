@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The absorbing states are completely characterized for two identical connected simple regular layers, strictly within \(d-2<a<d\). Any aligned site forces both layer-neighbor signs to align, propagating through graph connectedness. If no aligned site exists, the opposed sitewise signs reduce both stability inequalities to exactly the no-singleton-color condition. An explicit bijective 16-state overlap transfer gives the cubic-prism count; the complete integer characteristic polynomial is verified from the matrix definition, and Rouché's theorem isolates its Perron root. The standalone checker tests finite examples but the infinite-family result follows from the transfer identity and analytic proof, not a sample extrapolation.
+PASS
 
-## Originality — PASS, bounded historical confidence
+For the repaired RESULT.md. Absorption requires each signed field to be strictly positive because ties may change spins. At an aligned site, the cutoff above d−2 forces all d neighbors to agree in each layer; identical adjacency and connectedness propagate the same aligned pair globally. Those two configurations are stable since d−a>0. In the remaining sector B=−A, the two signed fields coincide and equal d−2r_i+a, positive exactly if the number r_i of unlike neighbors is less than d. Both implications hold uniformly in the strict window; the repair makes explicit that (1,3) is the cubic case only. On a prism each rung with different spins requires a horizontal match in each row; a monochromatic rung supplies both matches vertically. The overlap matrix therefore counts labeled cyclic rung words by rooted closed walks without a division by n, also for n=3. Independent exact replay: python3 /workspace/branches/b5974770-8b31-4e59-b98c-19cdbacf146e/reproduce_transfer.py 12. Using integer trace identities it yields coefficients [1,−4,5,−10,7,−6,4,−4,4,0,0,0,0,0,0,0,0], verifying the factorization; totals n=3..12 are 36,120,366,1166,3828,12464,40392,131188,426498,1386006; direct cyclic-word enumeration agrees for n=3..6. On |z|=2, |z³(z−3)|≥8 and |z²−2|≤6, so the quartic has exactly one exterior root, simple and real in (3,4); every other root is smaller than 2 in modulus. Power trace counts algebraic multiplicities without assuming diagonalizability, so the leading coefficient is one and the entropy normalization is by 2n in one layer. The frozen verifier was inspected, not run; numerical and finite checks do not replace the graph-general proof.
 
-The originating Hughes et al. article gives the sign rule and two opposite homogeneous absorbing states without the complete intermediate-range classification. A published strong-coupling involution theorem covers only \(a>d\), and an all-size prism Lucas census concerns an uncoupled single-layer majority map. Equivalent no-singleton partitions, more general Ising metastability and classical period-two statements were considered; no inspected statement implies the specific theorem or evaluated quartic. Unindexed combinatorial counts and uninspected portions of older threshold literature remain possible prior-art risks. Search silence alone is not evidence of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-A motivated gap in interpreting spatially patchy non-consensus configurations is resolved by a complete structural characterization for a parameter window and an exact natural cubic-family absorbing-state entropy. The result distinguishes persistent frozen heterogeneity from transient metastability and two-cycles. It does not claim the typical initial-condition probability or attraction basin of these states.
+The repaired scope credits prior enumeration of the degree-two coloring slice and compares the cubic result with a directly inspected one-layer circular-ladder census. The distinct claims are the exact absorbing-state reduction for intermediate inhibition and its evaluated cubic-prism transfer; neither the local neighbor predicate by itself nor the binary cycle census is counted as new.
 
-## Verification and limitations
+## value
 
-The exact finite matrix certificate and exhaustive finite-graph corroboration reproduce with `python3 verify.py`. The same contact graph is required on both layers; endpoints, unequal-layer graphs, noise, basin volumes, and nonfixed periodic orbits are outside scope. Historical-priority limitations are recorded in `AUDIT.json`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The local-field theorem resolves which mixed states can genuinely remain frozen, rather than merely linger in metastability, in an entire natural coupling interval. Exact counts on the natural cubic family quantify the size of that sector, with a growth rate measurably distinct from one-layer majority. It shows extensive possible heterogeneity without overclaiming its dynamical likelihood or attraction basins.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

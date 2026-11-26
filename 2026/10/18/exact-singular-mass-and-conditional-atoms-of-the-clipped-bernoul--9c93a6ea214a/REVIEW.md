@@ -1,15 +1,21 @@
-# Review of the singular-mass decomposition
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The copula is fixed explicitly, with parameter and endpoint domains stated. For positive interior parameter, algebra gives the two exact clipping curves. The conditional CDF obtained by differentiating the joint CDF in its first coordinate jumps at each curve; its one-sided values yield the two displayed atom weights. The interior mixed derivative is nonnegative (a quantitative lower bound is proved) and integrates with those atoms to one. Uniformity of the first marginal allows exact integration of the two graph masses, proving a genuine Lebesgue decomposition rather than a merely formal density calculation. Reflection handles negative parameters, and the Fréchet/independence endpoint laws are explicit. The 20,814 reproducibility checks passed; the analytic proof, not finite sampling, establishes the universal claim.
+PASS
 
-## Originality — PASS, with residual priority uncertainty
+For 0<r<1 the lower Fréchet clipping is inactive, and the upper clipping cuts at L<u<H: the boundary equations are r√[u(1−u)v(1−v)]=(1−u)v and r√[u(1−u)v(1−v)]=u(1−v), respectively. For each fixed v, C(u,v) is absolutely continuous in u; its a.e. derivative gives a version of the conditional CDF (take a common full-measure set at rational v and use right continuity). For fixed u the derivative is 0, ∂uG, and 1 in the three open regions, with the right-continuous boundary values. Substituting the two boundary equations into the interior derivative gives jumps L/(2u) and (1−H)/(2(1−u)). The remaining conditional mass is smooth between the curves with the stated positive mixed partial: for a=√[u/(1−u)]<1<b=√[v/(1−v)], its negative correction is bounded using (1−a²)(b²−1)≤(b−a)² and b/a<1/r; same-sign factors give density at least one. Uniform U then gives two graph measures with zero planar Lebesgue support, each of mass −s log(s)/[2(1−s)], s=r²; there is no remaining singular-continuous or edge mass. Reflection, the product and Fréchet endpoint copulas, and −log(s)>1−s verify the sign symmetry, endpoint limits and strict monotonicity. The proof is replayable from RESULT.md lines 53–122; the supplied finite grid/quadrature verifier was inspected, not rerun.
 
-The 2022 primary conference paper gives the copula and its clipping. The 2023 full copula-proof paper supplies the interior mixed derivative and boundary analysis, but the inspected text does not state a measure decomposition, conditional jump masses, or an integrated singular-mass formula. The 2017 transformed-copula study explicitly concerns singular components but has diagonal, not these two distinct non-diagonal, singular supports. General characterizations of bivariate copulas do not imply the model-specific integrated fraction without new calculation. Dedicated searches of research records under correlated Boolean operators, Lucas copula, clipped Fréchet bounds, Lebesgue decomposition, logistic support, and exact logarithmic mass identified no stronger covering theorem. Residual risk remains from uncatalogued or differently named earlier derivations; lack of matches is not a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The measure's singular mass is not a negligible exceptional set: for \(|\rho|=1/2\), it is \(\frac23\log2\), over 46%. Any likelihood, simulation, or integration method that assumes a purely planar Lebesgue density loses this portion of probability. The exact conditional atoms, two support curves, and parameter-dependent mass split supply the missing information for rigorous distributional treatment of a natural previously published copula. This result does not claim a new copula or invalidate the original construction.
+Credit only the explicit measure-level result: the right-continuous conditional law with two atom weights and the exact aggregate singular fraction. The clipping construction, boundary curves, and regular density are already known. The strongest inspected source verifies copula positivity at a clipping boundary by bounding a first derivative; it does not identify the conditional CDF jumps, establish that they exhaust the singular part, or integrate their mass. The new measure calculation uses those known ingredients but is not a restatement of their results.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+For a previously proposed uncertainty copula, the fraction of observations on deterministic conditional branches is a motivated, directly usable invariant. For example at |ρ|=1/2 the Lebesgue density accounts for only about 54% of the joint probability. Knowing the two conditional atoms and their weights distinguishes the genuine law from a density-only treatment and gives the full conditional sampling distribution. No novelty or value credit is assigned to the already known clipping geometry or interior formula in isolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

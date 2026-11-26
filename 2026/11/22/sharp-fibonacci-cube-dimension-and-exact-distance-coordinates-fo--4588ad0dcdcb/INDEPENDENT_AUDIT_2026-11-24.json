@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:21:41.252689Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–32; VERIFICATION.md, lines 19–23; verify.py (inspection only)",
+        "Iršič–Klavžar–Tan, arXiv:2307.13317v2, p. 4 definitions"
+      ],
+      "rationale": "The original paper's monomer/dimer definition agrees with the frozen even-run parsing and legal moves. Each move changes one effective level by one or toggles just one dimer start. Dissolve source-only dimers, keep the common dimers (their endpoints already have target effective levels), adjust the remaining monomers monotonically, and insert target-only dimers. Target dimers are disjoint and each insertion is then legal, so the coordinate distance is attained. A list of moves and the label can be produced in O(kn) time; this does not count printing a full word per move. Threshold bits turn level differences into Hamming distance. For k=2r, consecutive bits inside a site block are a low test h<j<=r and a high test h>=j'>r, so cannot both be one. A dimer bit of one forces both neighbouring low tests to vanish. This permits precisely kn−1 positions, including at n=1. In an isometric hypercube encoding the metric cross-sums of two edges differ iff their bit directions coincide. The frozen witnesses use all kn−1 directions, hence require that many in any isometric encoding; every Fibonacci cube has its Hamming metric by dropping nonshared ones and then adding target ones. Distance one also proves that the image is induced.",
+      "residual_risks": [
+        "The supplied finite BFS and label checks were inspected, not rerun; replay with python3 verify.py in the source directory. The proof does not assume those checks or settle arbitrary nonisometric embeddings."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general formula is fdim(G)=idim(G)+p(X(G))−1, with p the minimum number of coordinating paths. Proposition 5.8 gives a subgraph map using (2k−2)n−1 positions.",
+          "Problem 5.10 explicitly asks if the dimension can be reduced."
+        ],
+        "reasoning": "The general formula requires both a hypercube dimension and a coordinating path certificate for this family; it does not evaluate those quantities. The prior subgraph map has (k−2)n more positions and does not give the isometric minimum.",
+        "searches": [
+          "Cabello–Eppstein–Klavžar, EJC 18 #P55, Lemma 3.2 and Theorem 3.3",
+          "Iršič–Klavžar–Tan, Proposition 5.8 and Problem 5.10"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and matching self-record",
+        "arXiv:2307.13317v2",
+        "EJC 18 (2011) #P55",
+        "arXiv:2307.14054v1",
+        "Munarini DOI (access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reversed bit tests and order in the frozen proof give one semicube per coordinate, with successive selected semicubes disjoint, hence one coordinating path.",
+          "The prior k=2 embedding in dimension 2n−1 concerns only the original Pell graphs, outside the claimed even k>=4 improvement."
+        ],
+        "reasoning": "The semicube theorem supplies the interpretation but not the family-specific path; the previous Pell embedding does not transport that certificate to even k>=4. The n=1 path case alone is not the novelty.",
+        "searches": [
+          "EJC 18 #P55, semicube disjointness proof of Lemma 3.2",
+          "arXiv:2307.13317v2, pp. 3–4, 19–21, including the k=2 specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The generalized Pell letter kk is a two-site tile; reading an even run in pairs gives the very same object and edge rule.",
+          "Metallic cubes instead use single-letter moves under a different highest-symbol rule; the generalized Pell paper p. 20 gives differing diameters for n>=3."
+        ],
+        "reasoning": "Retile the generalized Pell words without changing their graph; do not identify the metallic cubes from their equal order and size. No equivalent statement of the claimed optimum appeared in the inspected material.",
+        "searches": [
+          "Resultary comparison for exact generalized Pell isometric Fibonacci dimension and effective site/dimer coordinates",
+          "arXiv:2307.13317v2, monomer/kk definitions and Proposition 5.8",
+          "arXiv:2307.14054v1, metallic word and adjacency definitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-sharp-fibonacci-cube-dimension-and-exact-distance-coordinates-fo--4588ad0dcdcb matches the frozen title and claim exactly; it is the assigned record itself. No distinct close indexed match surfaced."
+        ],
+        "reasoning": "Self-matching does not establish independent coverage. The exact family formula and isometric optimality, rather than a numerical sequence of word counts, are what need comparison.",
+        "searches": [
+          "Local Resultary ranked lookup for kn−1 generalized Pell Fibonacci dimension and distance formula"
+        ]
+      },
+      "rationale": "The explicit even-alphabet construction at the hypercube lower bound is distinct from the longer embedding in the original paper, the general semicube characterization, and results on similarly named but nonidentical cubes. The published problem asks about arbitrary subgraph embeddings, so the shorter construction answers the reduction question on this family, but exact minimality is only among isometric embeddings.",
+      "residual_risks": [
+        "The bounded primary-literature web lookup did not complete and the Munarini primary full text was unavailable. Neither is evidence of absence. Unindexed solutions or later results may have been missed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same graph; prior longer subgraph embedding, no asserted even-alphabet optimum in these passages",
+          "evidence": [
+            "Moves i↔i+1 and (k−1)(k−1)↔kk",
+            "Proposition 5.8 embeds into Γ_((2k−2)n−1); Problem 5.10 asks whether this can be reduced."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.13317v2",
+          "material_read": "Definition, p. 4 (offset ~8480); Proposition 5.8, p. 19 (~54550); comparison p. 20 and Problem 5.10, p. 21 (~57750)",
+          "method": "Targeted primary open-access PDF",
+          "title": "Generalized Pell graphs",
+          "trigger": "Same family and explicit dimension-reduction problem"
+        },
+        {
+          "assessment": "Framework and generic construction; requires evaluating the parameters for this graph",
+          "evidence": [
+            "One representative per complementary semicube pair; successive disjoint representatives form coordinating paths. fdim(G)=idim(G)+p(X(G))−1."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/542",
+          "material_read": "p. 1 definition; §3.1 Lemma 3.2 and Theorem 3.3, pp. 6–7 (OA offsets 15076–17946)",
+          "method": "Primary EJC open-access PDF, targeted passages",
+          "title": "The Fibonacci dimension of a graph",
+          "trigger": "General theorem that could imply the result"
+        },
+        {
+          "assessment": "Different graphs in general",
+          "evidence": [
+            "Adjacency is by a single-letter change under the modified Hamming rule, not the Pell dimer transition."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.14054v1",
+          "material_read": "pp. 2–3, special symbol and adjacency definitions (offsets 6000–11923)",
+          "method": "Primary open-access PDF",
+          "title": "Metallic cubes",
+          "trigger": "Same order and size as the Pell family"
+        },
+        {
+          "assessment": "The documented specialization does not cover the claimed alphabets",
+          "evidence": [
+            "The later paper attributes Π_n⊆Γ_(2n−1) to the earlier k=2 work."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2019.05.008",
+          "material_read": "Primary full text unavailable; k=2 result read in the later generalized Pell paper, pp. 3–4, 19",
+          "method": "Bounded open-access attempt and secondary attribution",
+          "title": "Pell graphs",
+          "trigger": "Earlier Fibonacci embedding for k=2"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Generalized Pell graphs, Proposition 5.8 and Problem 5.10"
+      ],
+      "rationale": "The construction reduces the dimension in an explicit published problem by (k−2)n and meets a metric lower bound for an infinite natural subfamily. The level/dimer coordinates additionally give exact distances and a constructive geodesic, not just an improved numerical bound.",
+      "residual_risks": [
+        "It neither settles the odd-alphabet isometric dimension nor excludes further savings in nonisometric subgraph embeddings."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:34:03.888990Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§1–4",
+        "Frozen VERIFICATION.md, opa_sector_checks.txt and opa_sector_verifier.py, inspected without executing the supplied code",
+        "Independent high-precision root evaluation: 2.0888430156130439+7.4614892856542546i, angle 74.3604165744980 degrees, residual below 2.8×10^−61 before rounding"
+      ],
+      "rationale": "The residual polynomial has m coefficients with sum one, so its squared coefficient norm is minimized uniquely by the constant coefficient vector 1/m. Division gives q_n(1)=(m−1)/2 and the stated trinomial identity. For w=z−1 nonzero in the cone, write a=Re w, r²=|w|²; then a>0 and 2a²≥r². In (1+2a+r²)^m dropping the terms past degree two is strict since m≥3. The retained terms are at least 1+2ma+mr²+2m(m−1)a²≥|1+mw|². This excludes even the boundary rays. After rescaling, the series coefficients of the numerator divided by w² are bounded by 1/k! for powers w^{k−2}, and converge to 1/k!, giving compact-uniform convergence even at zero. Boundary nonvanishing and Rouché give the full bounded-domain counts. The derivative of the limiting numerator at a nonzero root is w_0; expansion of m log(1+w/m) gives the numerator correction −e^{w_0}w_0²/(2m), hence the stated positive-sign displacement w_0(1+w_0)/(2m). As an analytic check of the example's existence, taking y=Im w in (2π,5π/2) reduces the root equation to y cot y−1−log(y/sin y)=0. It decreases strictly from positive infinity to a negative value: its derivative is −[(y cot y−1)²+y²]/y. Independent high-precision evaluation agrees with the displayed root and limiting angle. When encoding roots with Lambert W, exclude the value W=−1 at the branch point, which yields w=0 and is not a zero of F.",
+      "residual_risks": [
+        "The 45-degree sector is not proved maximal; bounded-scale convergence says nothing about zeros whose scaled distances diverge."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader exact family includes (1−z)^a in H². The 2025 text gives an electrostatic description and weak asymptotics toward the unit circle from outside. The displayed §6 example of the earlier paper treats other Dirichlet weights."
+        ],
+        "reasoning": "Exterior-circle localization and weak accumulation do not bound translated angles or identify individual bounded-scale zeros. The broader closed form alone does not supply those estimates.",
+        "searches": [
+          "Bénéteau et al. §6 Jentzsch-type localization and §7 explicit family",
+          "Orive–Sánchez-Lara–Seco §3.1, pp. 7–9"
+        ]
+      },
+      "checked_sources": [
+        "Bénéteau–Centner Example 2.2 and Open Question 2",
+        "Bénéteau et al. §§6–7",
+        "Orive–Sánchez-Lara–Seco §3.1",
+        "Indexed logarithmic boundary-layer record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sector question is stated generally; the exact polynomial identity makes the leading exponential limit natural, but the cone boundary requires a separate strict comparison and the correction requires resolving a simple moving root."
+        ],
+        "reasoning": "The claimed all-degree inequality and quantitative branch tracking add statements beyond the displayed formulas, qualitative zero gaps, or global asymptotics; this does not resolve the general survey question.",
+        "searches": [
+          "Bénéteau–Centner Open Question 2",
+          "Exact-family and asymptotic passages in arXiv:1606.08615v1 and arXiv:2507.15488v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The formula with coefficients (n+1−j)/(n+2) is exactly the frozen family. Multiplication by m(1−z)^2 gives the same trinomial, and the 2025 work handles the reversed Jacobi/OPUC description at a=1."
+        ],
+        "reasoning": "Changing basis or removing the double root at one does not create a novel family. Neither inspected reformulation gives the stated cone or first zero correction.",
+        "searches": [
+          "Bénéteau–Centner arXiv:2102.01725v1 Example 2.2 and Open Question 2",
+          "Bénéteau et al. arXiv:1606.08615v1 §7 Theorem 7.1",
+          "Orive–Sánchez-Lara–Seco arXiv:2507.15488v1 §3.1 Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/18/SCOPE-a-logarithmic-boundary-layer-for-linear-optimal-polynomial-appro--3911c0a6fb2a treats degree-at-most-one H^p approximants for 1−z as p→∞; the real root approaches −1 logarithmically."
+        ],
+        "reasoning": "Same generator, different limiting variable, point, and root law; it does not cover the growing-degree H² claims. The public search produced no usable additional comparison, not evidence of absence.",
+        "searches": [
+          "Resultary query for Hardy optimal approximant translated cone and Lambert-W boundary layer",
+          "Local mirror of the strongest indexed boundary-layer hit"
+        ]
+      },
+      "rationale": "The exact Hardy polynomial family is known, including equivalent reversed orthogonal-polynomial descriptions. The supported contribution is the uniform translated cone plus the bounded-scale zero census and explicit first correction, not the coefficient formula or the Lambert inversion by itself. No dominating statement was found in the inspected passages.",
+      "residual_risks": [
+        "Older varying-Jacobi or Cesàro zero results under other nomenclature may contain an equivalent local law; this is a bounded best-of-knowledge comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact polynomial covered; particular cone not supplied in those passages",
+          "evidence": "Example 2.2 gives coefficients (n+1−j)/(n+2); Open Question 2 asks for a sector based at a unit-circle point.",
+          "identifier_or_url": "https://arxiv.org/html/2102.01725v1",
+          "material_read": "Example 2.2 and §4.1 Open Question 2, text offsets near 9800 and 48600",
+          "method": "Lawful OA primary text",
+          "title": "A Survey of optimal polynomial approximants, applications to digital filter design, and related open problems",
+          "trigger": "Same polynomial and stated sector question"
+        },
+        {
+          "assessment": "Covers exact family, not stated angle or branch law in those passages",
+          "evidence": "Explicit family for f=(1−z)^a in D_0=H²; §6 offers global accumulation and an example at other weights.",
+          "identifier_or_url": "https://arxiv.org/pdf/1606.08615",
+          "material_read": "§6 and §7 Theorem 7.1, PDF pp. 27–28",
+          "method": "Lawful OA primary PDF text",
+          "title": "Zeros of optimal polynomial approximants: Jacobi matrices and Jentzsch-type theorems",
+          "trigger": "Broader explicit family and localization"
+        },
+        {
+          "assessment": "Exact description and weak asymptotics, no dominating local-angle or branch estimate found",
+          "evidence": "Reversed OPUC/Jacobi description for powers of 1−z, with zeros approaching the unit circle from outside in the weak asymptotics.",
+          "identifier_or_url": "https://arxiv.org/pdf/2507.15488",
+          "material_read": "§3.1 Theorem 3.1 and surrounding zero-asymptotic discussion, PDF pp. 7–9",
+          "method": "Lawful OA primary PDF text",
+          "title": "Optimal polynomial approximants and orthogonal polynomials on the unit circle: An electrostatic approach",
+          "trigger": "Same a=1 family in a different representation"
+        },
+        {
+          "assessment": "Different limit and zero geometry",
+          "evidence": "Degree at most one, p→∞, logarithmic approach of a real root to −1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-logarithmic-boundary-layer-for-linear-optimal-polynomial-appro--3911c0a6fb2a",
+          "material_read": "RESULT.md, finding and scaling description at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror",
+          "title": "A logarithmic boundary layer for linear optimal polynomial approximants",
+          "trigger": "Strongest indexed boundary-layer overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof §§2–4",
+        "Bénéteau–Centner Open Question 2"
+      ],
+      "rationale": "The simplest canonical Hardy boundary-zero model is directly motivated by the survey's sector question. Uniform clearance of a closed nontrivial cone at every degree is complementary to the scale-resolved description of which zeros do approach the vertex, including a quantitative limit on possible universal widening. Neither an optimal aperture nor a global root asymptotic is needed for those results to be useful.",
+      "residual_risks": [
+        "The result is restricted to one canonical generator and does not solve the general question."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

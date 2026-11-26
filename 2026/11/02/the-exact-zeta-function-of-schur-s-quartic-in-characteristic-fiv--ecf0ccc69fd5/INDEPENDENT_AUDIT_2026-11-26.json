@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:05:37.823164Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two gradient entries for either binary quartic force both coordinates to vanish in characteristic five, so the displayed projective quartic is smooth and is a K3 surface. Independent enumeration of the projective charts gave 36 and 1176 points over F5 and F25. Subtracting H^0 and H^4 yields H^2 traces 10 and 550. Purity gives 22 eigenvalues of modulus 5, so the latter trace is equality in the bound on the sum of their squares; each square must be +25. The first trace then gives twelve eigenvalues +5 and ten −5. The signed characteristic polynomial, all extension counts and the zeta factors follow; semisimplicity need not be assumed for this argument. The cited odd-characteristic Tate theorem over F25 implies geometric Picard number 22, but this does not compute the Artin invariant.",
+      "reproduction": {
+        "evidence": "Independent exact enumeration, using first-nonzero-coordinate normalization and u^2=2 over F25. Counts 36, 1176. This checks only the two base counts, not the cohomology theorems. Frozen verifier and its captured output were inspected, not executed.",
+        "replay": "python3 /workspace/branches/a2ab88f1-0a39-47f5-b9db-c27e4bf67064/direct_count.py 5; python3 /workspace/branches/a2ab88f1-0a39-47f5-b9db-c27e4bf67064/direct_count.py 25"
+      },
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The explicit 1176 count concerns Km(E×E) over F25, not the displayed Schur equation with an arithmetic isomorphism supplied.",
+          "General K3 purity/Tate results apply but do not determine the two point counts. A transcendental Frobenius factor alone would not give the eigenvalues on the divisor classes for the specified prime-field model."
+        ],
+        "reasoning": "Known geometric results and theorems about general K3 surfaces are ingredients, not a complete signed Frobenius computation for this model.",
+        "searches": [
+          "arXiv:1212.3511 §1: smooth quartics and lines",
+          "arXiv:1312.0687 §§7–8: Picard and Artin-invariant-one K3 models in characteristic five",
+          "arXiv:0804.1558: modularity of singular K3 surfaces (comparison identified in the frozen record)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_schur.py and verification_output.txt",
+        "arXiv:1212.3511",
+        "arXiv:1312.0687",
+        "arXiv:2607.07898",
+        "Resultary 27ba7fecf3d0, 92cfa7a5781b and 66bdd9ebf3ac"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "All 64 lines are defined over F25 and have cycle type 1^8 2^28, but this is a permutation representation on lines, with relations among their divisor classes, not the action on the 22-dimensional H^2.",
+          "The Kummer count alone cannot imply the F5 sign distribution even if an F25 isomorphism were supplied."
+        ],
+        "reasoning": "To deduce the claim from these sources would require determining the action on all of H^2 or establishing sufficient model-specific point counts; neither is supplied by the closest prior statements.",
+        "searches": [
+          "27ba7fecf3d0, Finding on Frobenius of the 64 lines, and search of full mirrored text for Picard",
+          "arXiv:1312.0687 §§7–8, exact object counted"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rams–Schütt give the exact Schur equation and its 64 lines; the stated Fermat identification is in characteristic 3, not 5.",
+          "The split Fermat quartic over F5 has no F5-points, since the sum of one to four nonzero fourth powers cannot be zero. It cannot be the 36-point F5 model.",
+          "Naskręcki–Pokora's ruled-line configuration is on the complex Schur quartic; in particular their Q(sqrt(−3)) line arrangement is not a characteristic-five surface point count."
+        ],
+        "reasoning": "A geometric equivalence or an equation with the same name would not alone resolve arithmetic descent. Neither the exact F5 model nor a twist with the required Frobenius action was identified by these comparisons.",
+        "searches": [
+          "arXiv:1212.3511 §1, Schur/Fermat comparison",
+          "arXiv:2607.07898 pp. 2–3, equation and fields of definition",
+          "arXiv:1312.0687 §§7–8, characteristic-five Kummer model"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "27ba7fecf3d0 covers the very same equation but reports line-scheme and four-line-plane zeta functions.",
+          "92cfa7a5781b (Sylvester–Hessian) and 66bdd9ebf3ac (M20) have 96 and 1176 points and sign multiplicities 18/4, not 36 and 1176 with multiplicities 12/10."
+        ],
+        "reasoning": "Neither a finite configuration zeta nor maximality at the same quadratic extension is equality of surface zeta functions. The same-day comparison is about distinct claims, not priority.",
+        "searches": [
+          "Resultary: characteristic-five Schur quartic surface zeta, Frobenius descent and model variants",
+          "Resultary 2026/10/25/…27ba7fecf3d0; 2026/11/2/…92cfa7a5781b; 2026/10/26/…66bdd9ebf3ac"
+        ]
+      },
+      "rationale": "The supported distinct claim is the full surface zeta function of the specified F5 model, particularly the two Frobenius sign multiplicities. The Schur equation, 64 lines, arithmetic of its line configuration, and the maximal count 1176 on a different Kummer model are not credited as new. No equivalent surface formula or decisive arithmetic-model implication was found in the comparisons below.",
+      "residual_risks": [
+        "Unindexed surface-zeta computations or arithmetic model equivalences, including consequences of a detailed modular or divisor-class calculation, are not ruled out.",
+        "The comparisons do not establish a geometric or arithmetic isomorphism to an Artin-invariant-one model."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same equation and line count, not equivalent arithmetic claim",
+          "evidence": [
+            "64 lines in characteristic different from 2 and 3; 112 and the Fermat identification in characteristic 3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1212.3511",
+          "material_read": "§1, PDF p. 2",
+          "method": "OA PDF bounded passage",
+          "title": "64 lines on smooth quartic surfaces",
+          "trigger": "Exact equation; possible reduction to Fermat"
+        },
+        {
+          "assessment": "Count on a Kummer model",
+          "evidence": [
+            "#Km(E×E)(F25)=1176; §8 identifies that model with the paper's Artin-invariant-one surface."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1312.0687",
+          "material_read": "§7 p. 24 and §8 identification (extracted offsets 82000–87415 for the point-count material)",
+          "method": "OA PDF bounded passages",
+          "title": "On the supersingular K3 surface in characteristic 5 with Artin invariant 1",
+          "trigger": "Matching F25 count"
+        },
+        {
+          "assessment": "Complex configuration comparison accessible; no model-specific arithmetic stated in these passages",
+          "evidence": [
+            "Same equation up to coordinate labels and rearrangement; 24-line arrangement over Q(sqrt(−3))."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.07898",
+          "material_read": "Introduction, pp. 2–3, extracted offsets 4180–7522",
+          "method": "OA PDF bounded passages",
+          "title": "A (24_4,32_3)-configuration on the Schur quartic with logarithmic Chern slope 14/5",
+          "trigger": "Very close Schur line-configuration paper, previously flagged as not fully accessible"
+        },
+        {
+          "assessment": "Same surface, different enumerated schemes",
+          "evidence": [
+            "Eight rational lines and twenty-eight conjugate pairs; zeta functions for finite configurations, not for the surface."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-characteristic-five-frobenius-descent-of-the-schur-quartic-line--27ba7fecf3d0/RESULT.md",
+          "material_read": "Finding and arithmetic comparison, mirrored offsets 0–7783",
+          "method": "Resultary lookup and local-mirror passages",
+          "title": "Characteristic-five Frobenius descent of the Schur quartic line configuration",
+          "trigger": "Same arithmetic model, Frobenius, and zeta terminology"
+        },
+        {
+          "assessment": "Nonidentical arithmetic invariant",
+          "evidence": [
+            "Resolution of an 11-node quartic; 96 F5-points and sign multiplicities 18/4."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-maximal-characteristic-five-sylvester-hessian-k3-and-its-frobeni--92cfa7a5781b",
+          "material_read": "Finding: surface model, counts, and Frobenius polynomial",
+          "method": "Resultary lookup and local mirror",
+          "title": "Maximal characteristic-five Sylvester–Hessian K3 and its Frobenius",
+          "trigger": "Same day; same maximal F25 count and claimed explicit zeta"
+        },
+        {
+          "assessment": "Nonidentical arithmetic invariant",
+          "evidence": [
+            "F5 count 96 and sign multiplicities 18/4."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-characteristic-five-zeta-function-of-a-distinguished-m-20-k3-mod--66bdd9ebf3ac",
+          "material_read": "Finding: point counts and Frobenius multiplicities",
+          "method": "Resultary lookup and local mirror",
+          "title": "Characteristic-five zeta function of a distinguished M20 K3 model",
+          "trigger": "Same F25 count on a characteristic-five K3 with a computed zeta"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Schur quartic is a naturally distinguished quartic with known line geometry. Computing the precise Frobenius descent of its whole cohomology, rather than an invariant of a line configuration or a single common maximal count, distinguishes its arithmetic form and gives the exact counts over every extension. The sign split records genuine arithmetic information not apparent from geometric supersingularity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

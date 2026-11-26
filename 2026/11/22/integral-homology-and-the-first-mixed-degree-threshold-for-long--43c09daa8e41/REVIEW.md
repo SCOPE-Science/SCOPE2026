@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns the complete augmented cellular complexes for five finite alphabets, not a statistically sampled or infinite computation. The canonical original-cell bases are exhaustive lists of distinct ordered subsequences of all one-cycle permutations; signed deletion gives exact integer differentials. Each pivot is a unit, so every elimination preserves the full integral chain homotopy type. All remaining differentials are *identically zero*, yielding free residual homology ranks, including the unique degree-three class and 88 degree-four classes at six letters. The replay checks all boundary squares and uses independent finite-field reductions as cross-checks. The result does not assert a homotopy type or general formula for bigger alphabets.
+## correctness
 
-## Originality — PASS, with residual risk
-The source defining permutation complexes and proving the general cellular formula treats two generating permutations and the full injective-word complex, not the conjugacy class consisting of every full cycle. Govc's 2026 theorem about fundamental groups cannot imply these higher homology ranks. Pattern-avoidance shellability results govern other subcomplexes. The closest indexed records concern alternating groups, dihedral rotations of a fixed word, and an exceptional six-point group, not all one-cycle permutations. Search queries included full-cycle, long-cycle, conjugacy-class and Hamiltonian permutation aliases. A matching unindexed or privately circulated computation remains possible; database absence alone is not a proof of priority.
+PASS
 
-## Mathematical value — PASS
-The full-cycle conjugacy class is a canonical, symmetry-motivated stratum of the symmetric group, rather than an arbitrary chosen list of generators. Identifying its first mixed-degree integral homology is a natural diagnostic for proposed shellability or top-degree-concentration principles for structured permutation complexes. The six-letter result exhibits both a lower-dimensional positive class and a large higher-degree group in a pure finite complex; a complete exact cutoff, rather than a few illustrative examples, establishes precisely where one-degree concentration first fails in this family.
+Each facet is the one-line successor map of a cyclic listing, not the listing itself; the cellular basis consists of distinct ordered subwords with augmented signed deletion. An independent run, python3 /workspace/branches/reproduce_1_2.py 2, generated cycles by permuting the tail of a cycle rooted at 0, converted each to successor form, and closed downward by single deletions. This is different from scanning all permutations and choosing positions as in the frozen code. It checked B_(k-1)B_k=0 for each pair and separately reduced each original boundary by integer unit pivots, giving only unit nonzero Smith factors and zero residual blocks for every boundary. Thus every H_k is torsion-free, since its torsion equals the cokernel torsion of the incoming boundary (the cokernel modulo H_k is the free image of the outgoing boundary). In degree order starting at -1 the resulting free-rank vectors for n=2,3,4,5,6 are (0,0,0), (0,0,1,0), (0,0,0,3,0), (0,0,0,0,15,0), and (0,0,0,0,1,88,0). This checks the complete box, including the interval n=2 and the first possible mixed-degree occurrence among all smaller allowed n. Inspected the frozen checker and output; no uploaded code was executed. This establishes no homotopy wedge type and makes no n>=7 claim.
 
-## Closest work and limitations
-Chachólski–Levi–Meshulam (2019, arXiv:1908.03394), Govc (2026, arXiv:2611.11362), and Elizalde–Hanlon–Hersh (2026, arXiv:2610.07303) provide the closest foundational and contemporary frameworks. The computation is finite and fully reproducible, but yields no formula for larger alphabet sizes or explicit full homotopy type; independently validated publication priority is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Mixed-degree permutation complexes are already known, but the original claim is the threshold and exact integral homology for the full conjugacy class of single n-cycles. No inspected distinct prior result computes this subcomplex or implies the threshold. In particular, the closest six-letter derangement result concerns a larger facet set with different upper homology.
+
+## value
+
+PASS
+
+The single-cycle class is a natural conjugacy-class generator family independent of the observed homology. The first threshold is determined by an exhaustive lower range, and the size-six exact result is a useful witness that concentration in one degree does not persist in this family. The integer groups, including absence of torsion, distinguish it quantitatively from neighboring cycle classes and the derangement superset; the cutoff is motivated by determining the threshold, not by extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

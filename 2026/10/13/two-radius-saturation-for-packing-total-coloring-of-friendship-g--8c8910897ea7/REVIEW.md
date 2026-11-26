@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The total-graph distance cases are computed from the endpoint formulas; an \(n+1\) upper bound for color \(1\) follows from a partition into explicit cliques, and the distance-greater-than-two packing bound is \(n\) for \(n\ge2\). When at least two color labels have radius threshold \(2\), an explicit distance-at-most-two clique gives the stronger \(3n+1\) lower bound. Constructions attain all bounds including the \(n=1\) boundary. The standalone program independently compares total distances, checks the constructions through order \(14\), and exhaustively computes the relevant packing maxima through order \(6\). Finite tests support but do not replace the all-orders proof.
+## correctness
 
-**Originality — PASS, with disclosed source-access risk.** The motivating 2026 article introduces this invariant and describes complete bipartite graphs, paths and cycles as its exact graph families; this result treats a windmill family and a three-regime sequence parameter. The 2025 origin paper treats a different prescribed sequence. Specific published-record and mathematical-literature queries revealed no theorem stating or implying this exact family formula. The full original 2026 preprint text was unavailable, so general estimates hidden in that text could still imply parts of the result; that unresolved risk remains and precludes any assertion of exhaustive novelty certification.
+PASS
 
-**Value — PASS.** The result solves a natural infinite-family case outside the explicit families in the motivating paper, and it gives a sharp discrete transition in the number of repeatable colors. The first additional threshold-two label saves \(n-1\) colors, the second saves precisely one, and all later such labels have zero effect. This mechanism is explained by two extremal packings and the clique structure of the total graph, rather than numerical experimentation alone.
+In T(F_n), hub and spokes form a clique and are all within two steps of every element. The three peripheral elements of each triangle are a clique. Across distinct triangles, peripheral vertices are distance 2, while each rim edge is distance 3 from the other triangle's peripheral vertices and rim edge (via the endpoint formulas). Hence diameter is 2 at n=1 and 3 otherwise; maximum color-1 packing has n+1 elements, attained by hub plus all rims, and any radius-2 packing has at most n elements, attained by all rims. For n=1 only color 1 can repeat, giving 5. For n>=2, at q=0 count at most n+1 in color 1 and one in each other label, and realize equality. At q=1 the additional cap of n in color 2 gives 3n+2, realized by color 1 on s_1 and all b_i and color 2 on all rims. For q>=2, the 4n+1 hub, spokes and peripheral vertices are pairwise within two steps, so only color 1 can repeat on them and at least 3n+1 labels are needed. Keeping the q=1 color-1 set and using {a_1,r_2,...,r_n} and {a_2,r_1} for colors 2 and 3 attains that bound with the remaining labels singleton; this also works at n=2. The savings statement is for n>=2; all labels beyond 1 remain singleton at n=1. The frozen verify_friendship.py and verification_output.txt were inspected, not executed; they report finite BFS, construction checks, and packing-size search, ending ALL_CHECKS_PASS. The analytic argument proves all n,q, and the original attestation/audit/Lean fields were not_performed.
 
-**Limitations.** Only sequences \(S^{(q)}\) and friendship graphs are classified. Finite checks have the stated parameter cutoffs; independent literature review and independent proof audit remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general notion, its total-graph formulation, and the ordinary packing-total regime are established. The supported distinction is the exact friendship-graph classification, including the second radius-2 class giving exactly one additional saving and the obstruction to any further saving. The directly relevant founding preprint was accessible and its strongest related statements were checked.
+
+## value
+
+PASS
+
+Friendship graphs are a natural diameter-three total-graph family, where the distinction between radius 2 and radius 3 has an exact operational effect. The theorem gives the full tradeoff: a first reusable radius-2 label saves n-1, a second saves only one, and an intrinsic diameter-two obstruction shows why no later label helps. The exact boundary and explicit optimal allocations provide a benchmark beyond the ordinary or no-reuse cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

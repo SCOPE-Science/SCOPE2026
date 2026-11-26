@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,4 +21,4 @@
 
 # Verification
 
-Run `python3 verify.py` in the directory containing this file. The exact-integer enumerator loops through all nonempty frequency subsets for moduli \(2,4,8,3,9,5\), all required-level profiles, verifies the cyclotomic equal-child test, and compares the counted minimum-size masks with the predicted exponent. It also tests each minimizing frequency set's translation stabilizer and orbit count. The unbounded case is established by the proof, not the finite tests. The independent audit remains unperformed.
+Run `python3 verify.py` in the directory containing this file. For \(N=2,4,8,16,3,9,5,7\), the verifier computes exact cyclotomic polynomial remainders for every nonempty frequency subset. For every required-level profile it finds all actual minimum-size valid subsets, counts them, checks their tree branching and stabilizers, and counts the lexicographically canonical representatives modulo translation. Each successful modulus prints one `PASS` line. The finite computation is a diagnostic; the proof in `RESULT.md` gives the general result.

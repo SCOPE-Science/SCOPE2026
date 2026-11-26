@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The automorphism group is exhaustively parametrized by an invertible action on the three-dimensional generator space and an arbitrary nine-parameter central shear. The central action is the exterior square. Its fixed-space dimension equals the eigenspace dimension of the generator action for its own determinant, and the restriction/quotient map for shears is surjective with fibers of uniform size. The joint eigenspace-count table is derived from first and second Gaussian-binomial moments and the two possible conjugacy classes possessing both distinct eigenvalues. This yields every fixed-space coefficient for every prime power. Direct exhaustive checks over fields of orders two, three, and four and a complete six-dimensional binary automorphism census agree with the symbolic formulas. The computations do not replace the proof.
+PASS
 
-## Originality
+For the free class-two Lie algebra with three generators, every automorphism is determined by its invertible quotient map g and an arbitrary central shear f; its central block is the exterior square of g. Restriction and projection of f onto the map from ker(g-I) to coker(exterior-square(g)-I) are surjective, giving q^(9-ac) lifts per map and fixed dimension a+c-t for rank t. Exterior duality identifies c with the eigenspace dimension at det(g). At fixed determinant, prescribing a scalar action on a line or plane leaves respectively q^2|SL_2(q)| or q^2 block choices. The only exceptional nonunit determinant (meaning determinant different from 1) for a scalar block contributing c=3 is -1 in odd characteristic. For determinant different from 1, coexistence of the two eigenvalues forces a double eigenvalue 1 and simple eigenvalue det(g); the split and Jordan cases have the two class sizes in the proof. This verifies the joint table and its rank refinement. An irreducible cubic block, a regular unipotent block, and the identity with shears realize respectively dimension 0, dimensions 1 and 2, and dimensions 3 through 6. Burnside normalization follows from the three element orbits. A fresh direct binary check enumerating all 86,016 six-dimensional automorphisms by minors and bitwise rank reproduced (24576,25088,29120,6216,966,49,1). Replay: python /tmp/opencode/frozen_review_reproduce.py fixedspace.
 
-**PASS, with bibliographic risk.** Kofinas–Metaftsis–Papistas (2009) address relatively free nilpotent groups and characteristic-zero Lie algebra constructions. Kofinas–Papistas (2010) study generators of Lie automorphism groups over the rationals; its full text was not available in this examination. Benito–Roldán-López (2019) explicitly parametrize the general automorphism group, but the inspected theory and examples are in characteristic zero and do not give finite-field fixed-space coefficients. The published three-dimensional Heisenberg fixed-point-free count is for an inequivalent, smaller Lie algebra; published fixed-tensor spectra for two-dimensional general linear groups do not imply the exterior-square/central-shear six-dimensional distribution. No equivalent rank-three, all-characteristic distribution was identified in targeted searches, but an earlier derivation from classical conjugacy classes cannot be excluded.
+## originality
 
-## Value
+PASS
 
-**PASS.** The formula determines all seven fixed-space cardinality strata in a canonical six-dimensional free Lie algebra, including the count of fixed-point-free automorphisms, a characteristic-parity correction, and an independent three-orbit Burnside check. Fixed-subspace distributions encode the action of an automorphism group on its defining algebra and are more informative than its order. The exact arithmetic distribution is not implied by the underlying structural parametrization alone; its explicit mixed-eigenspace enumeration is the substantive contribution.
+The supported distinct contribution is the full joint fixed-space census and all seven coefficients for this rank-three finite-field algebra. The constant coefficient by itself is not creditable as distinct from the exact matching indexed result; the later date of that record does not resolve provenance or priority. The general automorphism coordinates are also not an originality claim.
 
-## Scope and risk
+## value
 
-The result is restricted to the free two-step Lie algebra of generator rank three, and the centralizer/class tables still derive from standard finite linear algebra. Residual bibliographic risk: other names for the natural exterior-square representation and an inaccessible full text of the 2010 automorphism article. Only same-document review and the stated finite computations have been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Rank three is the first free two-step case in which the exterior-square block has the same dimension as the generating space but can have a different fixed-space dimension. The full distribution, including the characteristic-dependent scalar stratum and the change in fixed dimension caused by shears, provides an exact baseline for fixed-vector statistics beyond a mere orbit average or single exceptional count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

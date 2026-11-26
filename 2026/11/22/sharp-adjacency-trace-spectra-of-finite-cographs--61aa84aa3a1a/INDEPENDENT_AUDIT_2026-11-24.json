@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:28:52.141232Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen proof is correct. Augmenting by empty and full traces permits an induction on the binary union/join decomposition. With both marked child sets nonempty the two augmented families lose one overlap (empty at a union, full at a join) and gain at most one opposite extreme. An unmarked child adds only an extreme, and the singleton has augmented size two. The threshold witness creates t-m chosen prefix traces of sizes different from m-1 alongside the m distinct marked clique traces. The repair uses the same constructions at their exact orders: for t<=m the edgeless graph, star, or (t-1)-clique plus isolates on m marked vertices work; for t>=m one adds t-m witnesses to the marked clique, with the marked singleton and marked edge handling m=1. To see the prefix graph is threshold, add clique vertices as dominating vertices in descending index and each prefix witness as an isolate just before its largest indexed neighbor (length 0 goes last). Each constructed graph has max(m,t) vertices, the trivial lower bound from one trace per vertex and the need for m markings. To increase order without changing t, substitute an independent set for a single vertex, mark no new copies, and observe its open trace and the old traces are unchanged. The graph remains a cograph by replacing the corresponding cotree leaf. The complement map transfers the theorem to closed traces at each fixed order, not within one fixed graph. The original VC dimension result follows at m=3 and m=2. Replay: repairs/3/RESULT.md; a separate standard-library enumeration in /workspace/branches/independent_checks.py checked both augmented bounds on 535 labeled cographs and 15475 nonempty marked pairs through five vertices. The uploaded verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bonnet et al.'s all-vertex twin-width upper bound gives 4m at width zero, and Dreier et al.'s general all-vertex neighborhood-complexity statement is almost-linear.",
+          "Bonamy–Geniet count outside witnesses in their merge-width theorem, whereas the other Dreier et al. polynomial bound addresses whole bounded-rank types over parameters.",
+          "The inspected open-separating code formulation adds domination and addresses properties of those codes, not the fixed-order cograph spectrum."
+        ],
+        "reasoning": "Neither these broad bounds nor the associated identification formulation supply tight realizations under the all-vertex order constraint. The exact bound from the companion is used as known in the repair.",
+        "searches": [
+          "arXiv:2301.04217v2 §3 Theorem 1; arXiv:2607.10941v1 §2 Theorem 2",
+          "arXiv:2504.08266 §1.3 Theorem 1.5; arXiv:2611.08143 Theorem 2.2",
+          "arXiv:2402.03015v3, open-separating dominating codes, abstract and threshold lookup"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 911f048f6a8a (original) and bd9f724b9520 (summary)",
+        "arXiv:2301.04217, 2607.10941, 2504.08266, 2611.08143, 2402.03015v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The companion asserts |T_ext|<=|T|<=2m and builds witnesses with m marked leaves, m twin witnesses, m-1 unmarked apex vertices, and one unmarked isolate. The marked vertices in that construction all have empty trace on A.",
+          "A t-order graph for t>=m must have all t vertices distinguishable on A, so simply pruning external witnesses from that construction cannot produce the required m distinct marked traces when m>=2. The repaired clique-plus-prefix witness does produce them; padding fake copies is not needed to attain the minimum and false twins are used only for lifting to larger orders."
+        ],
+        "reasoning": "The exact all-vertex coefficient and a no-gap class-wide result can follow from the known bound and deleting witnesses along with simple small-count examples. Conditioning on graph order forces a new extremal construction, so the repair claims that order constraint rather than a new coefficient, complement trick, or VC bound.",
+        "searches": [
+          "Resultary 911f048f6a8a RESULT.md original Finding and proof (offsets 0–2713 and 3380–6491)",
+          "arXiv:2301.04217 §3 Theorem 1 versus bound and order claims"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact companion bound is on T={N(v)∩A:v∈V(G)}, with the option to restrict to exterior vertices for an additional result. Its potential t+(1-e)+(1-f) equals the frozen augmented family cardinality.",
+          "At N=t the repaired witness problem is precisely open-neighborhood separation with marked set A; unlike an open-separating dominating code it does not require domination, and one vertex can have empty trace."
+        ],
+        "reasoning": "There is verified alias coverage of the frozen upper bound and sharpness. The fixed-order spectrum additionally asks which witnesses are realizable within N, and open separation with no domination cannot be identified with a theorem on dominating codes.",
+        "searches": [
+          "Resultary: cographs P4-free, one-point adjacency trace, two per parameter, cotree",
+          "threshold graphs minimum open separating code graph all vertices distinct open neighborhood traces identifying open separating sets m of 2m cograph extremal doubling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Companion RESULT.md independently gives the bound and extremizers at order 3m under the exterior condition, whereas the exact all-vertex package hit at 61aa84aa3a1a is the assigned record itself.",
+          "The broader rank-width-one record summary concerns four marked vertices (up to 12 traces) and VC dimension 3 for that larger class."
+        ],
+        "reasoning": "No observed table decides the repaired all-size and fixed-order problem. The strongest exact database match is credited where it agrees; the external minimum cannot be transferred to the all-vertex minimum. The rank-width item is not being excluded on its entire text from a summary alone.",
+        "searches": [
+          "Resultary 911f048f6a8a and bd9f724b9520",
+          "Resultary exact cograph adjacency trace spectrum and minimum witness order"
+        ]
+      },
+      "rationale": "Fresh assessment only of the repaired order-dependent result, not a PASS for the frozen claim of a new sharp augmented 2m bound or its already implied VC dimension. The matching same-day original states the identical all-vertex bound and proves the identical augmented inequality, but its witness-order theorem requires all witnesses to be external and obtains 3m. In the repair the exact minimum max(m,t) for every attainable count, equivalently the spectrum conditioned on total order, uses different witnesses with the marked vertices contributing distinct traces. That stronger control of order does not follow from the matched external construction or the class-wide bound. Chronological priority between the same-day records is not asserted.",
+      "residual_risks": [
+        "Specialized older cograph, threshold-graph, or graph separation literature could use a different name for the fixed-order invariant. Bounded retrieval does not establish historical uniqueness.",
+        "Equal publication dates do not determine priority for the exactly covered augmented bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the identical augmented bound and 2m sharpness. Exact order 3m is for external-only traces, not order for all-vertex traces.",
+          "evidence": [
+            "The stated potential is t+(1-e)+(1-f)<=2|A|. The construction of external witnesses is by full binary tree leaf clusters with a twin per parameter and an external isolate."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-two-per-parameter-bound-for-one-point-adjacency-types-of--911f048f6a8a/RESULT.md",
+          "material_read": "Finding, assumptions and inequality (1) proof opening, offsets 0–2713; sharp extremizers and minimum size, verification and related work, offsets 3380–6491",
+          "method": "Local mirror exact original passages; checked against the all-vertex and external definitions",
+          "title": "A sharp two-per-parameter bound for one-point adjacency types of finite cographs",
+          "trigger": "Exact strongest same-day overlap with frozen sharp coefficient and induction"
+        },
+        {
+          "assessment": "Contains the all-vertex pattern count notion but not exact cograph fixed-order spectrum.",
+          "evidence": [
+            "Its bound (d+2)2^(d+1)|A| specializes to 4m at d=0."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.04217v2",
+          "material_read": "§3, Theorem 1, PDF p. 3, OA offset 14253",
+          "method": "OA primary theorem passage",
+          "title": "Neighbourhood complexity of graphs of bounded twin-width",
+          "trigger": "Prior all-vertex coefficient at twin-width zero"
+        },
+        {
+          "assessment": "Writes a broader almost-linear bound, not order-sensitive exact realizations.",
+          "evidence": [
+            "Uses exponent 1+o(1) for monadically dependent graph classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.10941v1",
+          "material_read": "§2, Theorem 2, PDF p. 2, OA around offset 8000",
+          "method": "OA primary theorem passage",
+          "title": "Neighborhood Complexity and Radius-1 Merge-Width in Monadically Dependent Graph Classes",
+          "trigger": "General all-vertex neighborhood bound"
+        },
+        {
+          "assessment": "Exterior-witness count and general linear inequality; not the repaired all-vertex result.",
+          "evidence": [
+            "Defines the neighborhood-complexity witnesses outside the marked parameter set."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2504.08266",
+          "material_read": "§1.3 Theorem 1.5, PDF p. 4, OA around offset 9980",
+          "method": "OA primary theorem and definition passage",
+          "title": "χ-Boundedness and Merge-Width",
+          "trigger": "Linear neighborhood complexity for a broader bounded-width class"
+        },
+        {
+          "assessment": "Polynomial bound on bounded-rank type counts does not imply the repaired tight order formula.",
+          "evidence": [
+            "Counts rank-q types of k-tuples, not just adjacency traces of a vertex."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.08143",
+          "material_read": "Theorem 2.2, OA around offset 31796",
+          "method": "OA primary theorem passage",
+          "title": "First-Order Model Checking on Monadically Dependent Graph Classes",
+          "trigger": "Potential broader parameter-type counting theorem"
+        },
+        {
+          "assessment": "Related open separation, but with an added domination condition. No whole-document noncoverage inferred.",
+          "evidence": [
+            "It defines OD-codes as dominating sets that use open neighborhoods to separate vertices."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2402.03015v3",
+          "material_read": "Abstract, offsets 0–2772; additional literal threshold lookup yielded no matches",
+          "method": "OA primary abstract passage and bounded literal lookup",
+          "title": "On open-separating dominating codes in graphs",
+          "trigger": "Potential equivalent theory of separating every vertex using adjacency to a code"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Graph order is a genuine resource constraint when vertices both name parameters and witness traces. The repair determines how many vertices are needed for every achievable count and how much reuse of marked vertices is possible, in contrast to the larger external-only witness requirement. A researcher with a graph-order cap can use the complete interval immediately; this is not a new claim about general first-order types or a relabeling of the sharp coefficient.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

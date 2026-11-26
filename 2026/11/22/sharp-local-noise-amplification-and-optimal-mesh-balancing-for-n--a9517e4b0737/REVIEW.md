@@ -1,19 +1,21 @@
-# Scientific review — sharp local nonuniform PCHIP noise amplification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a global two-input Lipschitz coefficient for monotone data, not an interpolation error estimate. The proof starts from the four-node cubic Hermite formula and weighted harmonic-mean interior derivatives. The four data Jacobian signs are respectively negative, positive, positive, negative, their sum is one by translation equivariance, and the two negative magnitudes are uniformly bounded by the displayed rational functions of consecutive knot lengths. Sending both *outer* secants to zero at a fixed positive central secant makes both upper bounds sharp in the same limiting configuration; a sign-matched perturbation stays inside the nondecreasing cone. Strict convexity of the mesh coefficient, plus the midpoint lower bound, establishes unique optimal balancing at fixed outer-length sum. The uniform and graded examples and small-neighbor asymptotic follow algebraically. The standalone exact-fraction verifier passes 1,200 two-input bounds, 1,000 Jacobian bounds, three sharpness witnesses and 300 balancing checks. The finite tests do not replace any universal proof.
+PASS
 
-## Originality — PASS (historical priority provisional)
+The weighted harmonic mean has partials rv²/(rv+su)² and su²/(rv+su)². On strict monotone data the Hermite gradient has nonpositive outer entries and nonnegative inner entries: the latter are bounded below by 1−S−3U=(1−t)³ and S−3V=t³, since the central-secant slope derivatives are less than 3. Translation equivariance gives sum 1, so its maximum norm dual is 1 plus twice the magnitudes of the outer entries. Their derivative bounds are approached simultaneously as the two positive outer secants tend to zero with fixed positive central secant. Taking the directional quotient with (−1,+1,+1,−1) before letting the outer secants vanish realizes this supremum within the strict cone. Segment integration proves the upper bound there; approaching any closed-cone endpoints by adding the same tiny strictly increasing ramp extends by continuity. At t=0,1 the map is a nodal coordinate. For u=q(a,b), v=q(c,b)>0 the derivative of t(1−t)[u(1−t)+vt] is a quadratic with opposite strict signs at 0 and 1 (linear for u=v), hence exactly one interior root. The midpoint lower bound and strict convexity of q in the outer spacing prove unique balancing, attained at t=1/2; direct substitution gives 2 and 14/5. As a→0 with b,c fixed, dividing the profile increment by q(a,b) gives uniform convergence to 2t(1−t)², with maximum 8/27, and q(a,b)∼3b/(2a).
 
-Fritsch and Butland (1984), SciPy's documented PCHIP formula, and Aràndiga, Baeza and Yáñez (2021) cover the harmonic-mean slope and monotone interpolation, so neither is claimed new. Aràndiga, Donat and Santágueda (2016) study stability of the iterated *uniform-grid subdivision scheme*, rather than this exact single-cell nonuniform, two-input pointwise amplification or minimax balancing. Baeza, Donat and Martínez-Gavara (2024), available as full HTML, use monotonicity-preserving interpolation for multilevel balance laws but do not give this coefficient. Two closely related mathematical records give sharp *total variation* constants for, respectively, uniform harmonic-mean Hermite and nonuniform **Steffen** Hermite; their conclusions do not imply the claimed nonuniform PCHIP maximum-norm coefficient. Original 2013 nonuniform monotone Hermite work and the full 2016 subdivision article remain historical-priority risks (abstracts and secondary descriptions inspected; full articles not inspected). Searching for aliases and result-level implications did not reveal a stronger published theorem, but this is not a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The mathematical gap is material to placing sensors or interpolation knots for monotonicity-preserving multilevel numerics: preservation of each signal's range does not bound the *sensitivity of the difference* between two signals. The exact pointwise profile identifies where noise amplification is largest, while the unique balanced-neighbor design is a natural minimax choice when the total neighboring mesh length is fixed. Unbounded gain under neighbor collapse is a structural mesh-conditioning obstruction rather than an arbitrary computed constant.
+The distinct contribution is the exact pointwise maximum-norm coefficient on unequal stencils and its minimax mesh balance. The harmonic selector, its derivative bounds, the same mesh-ratio function in variation stability, and closely related uniform-grid stability techniques are existing coverage. The leading coefficient from a single shrinking neighbor also appears in the variation calculation, but there it describes a different gain.
 
-## Scope and outstanding limits
+## value
 
-Only four consecutive knots and the middle cell of the standard nonuniform PCHIP interior rule are covered; endpoint cells, moving knots, oscillatory data and distributional noise were not analyzed. Independent mathematical validation and definitive historical-priority review have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a standard shape-preserving algorithm, the exact amplification of bounded nodal perturbations is an operationally natural invariant. Dependence on relative position and unequal adjacent spacings matters: the optimal balance under a fixed length budget is unique, while the same monotonicity-preserving rule has unbounded amplification under mesh grading. The sharp coefficient and balance quantify a limitation that range preservation for individual data does not address.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

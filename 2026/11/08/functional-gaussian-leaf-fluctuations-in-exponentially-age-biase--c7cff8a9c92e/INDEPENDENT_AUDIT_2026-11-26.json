@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:33:53.622581Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–39 and 47–99",
+        "Frozen VERIFICATION.md and verify.py (inspected only)",
+        "Corrected /workspace/repairs/3/RESULT.md, in particular Proof §§3–5"
+      ],
+      "rationale": "The corrected RESULT.md preserves the claim and repairs its variance proof. In the frozen conditioning at multiples of three only B_t is exposed; if B_t=0 a longer lag can still hit t-1 from a future selected time, so the frozen measurability assertion does not follow. The corrected proof additionally exposes H_t when B_t=0. The remaining choices are independent Bernoulli switches on disjoint pairs; future switches cannot hit t-1, so the event E_t is now measurable. When H_{t-1}=1 and no future edge hits t-1, one pair contributes conditional variance r/(1+r)^2. Independence across times gives P(E_t)=(1-r^2)(1-r)*mu_r/r and density 1/3 of switch sites gives exactly the claimed lower bound. Independently, the one- and two-point products follow by avoiding respectively one and two possible parents at each independent arrival; the product defect is bounded by r^{-2} sum_h p_h p_{h+d}, summably in d. Deleting long crossings from future times gives exponential strong mixing and the bounded strongly mixing invariance principle applies. The exact finite-tree coupling changes only a summable number of parents and has a uniform exponential-moment bound on the number of future edges across each cut; it gives O(log(n+2)) almost-sure maximal error and bounded single-time L^2 error. These transfer the functional law, almost-sure density, bounded mean error and normalized variance. For r approaching one, the aggregate denominator and product-linearization errors are O(1-r), using sum_{h,d>=1}p_hp_{h+d}=r/(1+r) and max_d sum_h p_hp_{h+d}=O(1-r). Uniform attachment has the usual one-leaf Bernoulli recursion giving density 1/2 and normalized variance 1/12; at fixed finite n its moments are continuous up to r=1. For r approaching zero, 0< v_r<=mu_r(1-mu_r) and mu_r<=r. Independent finite-product diagnostics, not the frozen checker, give at r=1/2 mu about 0.2887881, R_1 about 0.6270959 and v about 0.0892541, above the lower bound about 0.0160438. This is corroboration rather than an asymptotic proof.",
+      "residual_risks": [
+        "The uniform-error coupling and mixing bounds are for fixed r; they do not justify a joint crossover limit as r depends on n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aguech et al. §4 analyzes outdegree of a single vertex under the exact weights.",
+          "Hartle–Krapivsky gives a normalized leaf-count variance of 1/9 for degree-driven attachment, not a birth-label FCLT.",
+          "The general strong-mixing invariance principle requires establishing mixing and identifies the variance only through the covariance sum."
+        ],
+        "reasoning": "Single-node asymptotics contain no joint or trajectory variance information; degree feedback is a different parent law. The mixing theorem alone supplies neither the stationary representation, the finite-tree transfer, the strict positivity bound nor the explicit coefficient and ordered limit.",
+        "searches": [
+          "Aguech et al., HAL preprint §4",
+          "Hartle–Krapivsky arXiv:2602.01021v1 §IV.A",
+          "Herrndorf DOI 10.1007/BF00532665 as invoked in corrected Proof §2"
+        ]
+      },
+      "checked_sources": [
+        "Aguech et al., DOI 10.1017/nws.2025.3 (open preprint §§2.3, 4)",
+        "arXiv:2602.01021v1",
+        "Resultary 6159d5756a10, 77d623e02a17 and f15c3ff5e404",
+        "Corrected /workspace/repairs/3/RESULT.md Finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary model paper's inspected limit theorems concern node-wise outdegree.",
+          "The polynomial process is a time-inhomogeneous triangular array with a nonstationary Gaussian diffusion; here a stationary leaf-field approximation yields Brownian motion and strict negative spatial covariances."
+        ],
+        "reasoning": "Neither the exact-model outdegree results nor the other ensemble's path limit provides the uniform truncation coupling, positive covariance-sum formula or cancellation yielding the discontinuity at uniform attachment. The proof correction does not alter these comparisons.",
+        "searches": [
+          "Aguech et al. abstract and §4 versus corrected Finding 1–4",
+          "Resultary 6159d5756a10 Finding versus corrected Finding 3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary model chooses parent i with weight a^i; shift the labels and set a=1/r to get the identical finite tree.",
+          "Resultary c7cff8a9c92e is the assigned record itself, not prior evidence. No distinct exact-model alias was located in the bounded searches."
+        ],
+        "reasoning": "Birth weight and conditioned geometric lag are the same model; the claimed novelty is not the relabeling but the full zero-child count fluctuation theorem.",
+        "searches": [
+          "Targeted primary lookup for exponentially preferential trees total leaves variance CLT",
+          "Resultary semantic searches for exponential age- or birth-label-biased leaf FCLT",
+          "Aguech et al., Exponentially preferential trees, preprint §2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6159d5756a10 has a polynomial aggregation diffusion; beta=1 has exactly the pair (exp(-1),exp(-1)-2 exp(-2)).",
+          "77d623e02a17 counts vertices with zero leaf neighbors in a uniform recursive tree.",
+          "The f15c3ff5e404 catalogue summary describes leaf-neighbor-driven preferential attachment; its file was unavailable."
+        ],
+        "reasoning": "The exact pair at a point of a different family is not coverage of this ordered limit, let alone the coefficient for fixed r. Zero leaf neighbors is also a different statistic from zero children.",
+        "searches": [
+          "Resultary exact local source lookup for 6159d5756a10 and 77d623e02a17; catalogue/mirror query for f15c3ff5e404"
+        ]
+      },
+      "rationale": "The correction changes the proof, not the claim. The exponential birth-label model and general mixing tools are prior work; the distinct result is their use to identify the full leaf-count trajectory limit with a signed, explicit nondegenerate variance and noncommuting ordered boundary. The closest inspected primary statements and distinct catalogue records do not imply that combination for these weights.",
+      "residual_risks": [
+        "The journal version of the model paper was not accessible in the bounded retrieval; the statement-level comparison uses its open preprint.",
+        "The f15c3ff5e404 body was unavailable; no priority is inferred from same-date catalogue records, and the searches are not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model covered, inspected results concern individual outdegree rather than the growing leaf-count law; journal-version differences unchecked",
+          "evidence": [
+            "The HAL front matter identifies a 2023 submission; the 2025 journal paper is cited by DOI.",
+            "The parent has weight a^i as here; §4 concerns asymptotics of individual outdegree."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/nws.2025.3",
+          "material_read": "Lawful HAL preprint front matter, abstract, §2.3 p. 2 (around offset 5170) and §4 p. 7 (around offset 16900); published-version retrieval timed out",
+          "method": "Targeted primary literature search and open preprint passage inspection",
+          "title": "Exponentially preferential trees",
+          "trigger": "Exact published model and plausible direct antecedent"
+        },
+        {
+          "assessment": "No implication for exponential birth-label weights",
+          "evidence": [
+            "The driving variables are degrees, and §IV.A gives the leaf-count normalized variance 1/9 with Gaussian behavior discussed there."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2602.01021v1",
+          "material_read": "Abstract p. 1 and §IV.A pp. 8–9, equations 67–80",
+          "method": "Lawful OA passage inspection",
+          "title": "Leaves of preferential attachment trees",
+          "trigger": "Directly related global leaf statistic in another model"
+        },
+        {
+          "assessment": "Cross-model analogy, not equivalent coverage",
+          "evidence": [
+            "Parent is predecessor or uniform based on (j/n)^beta; the variance pair matches at beta=1 but not by the same limiting operation."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-functional-leaf-count-fluctuations-in-polynomial-aggregation-tre--6159d5756a10",
+          "material_read": "Local mirror RESULT.md, Finding, offset 0 onward",
+          "method": "Configured Resultary search and exact local passage read",
+          "title": "Functional leaf-count fluctuations in polynomial aggregation trees",
+          "trigger": "Closest functional leaf-count overlap and exact numerical pair"
+        },
+        {
+          "assessment": "Different statistic and ensemble",
+          "evidence": [
+            "It counts vertices with no leaf neighbors, not the number of leaves."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-zero-leaf-degree-variance-in-random-recursive-trees--77d623e02a17",
+          "material_read": "Local mirror RESULT.md, Finding, offset 0 onward",
+          "method": "Configured Resultary search and exact local mirror lookup",
+          "title": "Exact zero leaf degree variance in random recursive trees",
+          "trigger": "Potential alias for zero-child vertices"
+        },
+        {
+          "assessment": "Catalogue indicates a different model; no full-text inference",
+          "evidence": [
+            "The reported attachment mechanism is leaf-neighbor driven."
+          ],
+          "identifier_or_url": "Resultary f15c3ff5e404",
+          "material_read": "Catalogue summary; exact mirror body unavailable",
+          "method": "Configured Resultary search and exact mirror attempt",
+          "title": "Gaussian leaf-count fluctuations and a sharp dispersion maximum",
+          "trigger": "Nearby scalar leaf variance result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected /workspace/repairs/3/RESULT.md Finding and Proof §§1–5",
+        "Aguech et al., open preprint §4"
+      ],
+      "rationale": "For a natural weighted recursive tree, the result gives a usable functional variance, a rigorous positive lower bound despite strictly negative spatial correlations, and a concrete discontinuity between weak label preference and exact uniform attachment. This explains a fluctuation feature invisible to single-vertex degrees. The repair retains these conclusions and supplies the conditioning needed to establish the variance lower bound.",
+      "residual_risks": [
+        "Neither a joint finite-size crossover nor a full empirical outdegree profile is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

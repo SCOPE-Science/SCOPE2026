@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Reproducibility and limitations
-The attached `verify.py` is a standalone Python 3 script using the standard library only. In the directory containing the file, run `python3 verify.py` (no downloads or external files). It prints `VERIFY_OK coefficient_profiles= 850 direct_determinants= 29250 exact_tuned= 15` when all assertions pass.
+# Independent mathematical audit
 
-The program derives the determinant as a six-term permutation expansion, independently of the claimed three Laurent coefficients. It tests 450 general asymmetric/symmetric parameter configurations at 13 Bloch phases each, 200 analytically tuned cases with unequal side potentials at 13 phases each, and 200 balanced-product cases at 13 phases for each of three caging energies plus 13 phases for each of five flux choices in the protected flat band. It also verifies 15 parameter identities with exact rational arithmetic. The pseudorandom seed is fixed for reproducibility.
+## correctness
 
-These checks are finite corroboration only. The infinite-chain claims rely on the exact Laurent identity, exhaustive case distinction and explicit polynomial eigenvectors in `RESULT.md`; no exhaustive computer census or independent certification is asserted. The code uses floating-point tolerances solely in sampled complex determinant evaluations; exact rational identities are separate.
+PASS
+
+For the stated cell convention, write the determinant as (u-E)(v-E)(w-E)-(w-E)|a+bz|^2-(v-E)|c+d exp(i phi) z|^2. Its three Laurent coefficients must separately vanish. For equal side potentials the nonconstant term factors as -(v-E)(ab+cd exp(i phi)); it cancels identically in E exactly at balanced products and half flux. The remaining quadratic then has two distinct roots different from v. For unequal side potentials E cannot be either side energy, the nonconstant coefficient enforces exp(i phi)=±1, and its linear equation has either the single stated candidate or no solution when ab±cd=0. The constant coefficient gives exactly the stated onsite tuning. The explicit eigenvectors are nonzero Laurent polynomials with exponents in two consecutive cells. After translating any proposed one-cell state to cell zero, its Bloch vector is constant; the lower-row z^-1 terms force its central component to vanish, and the upper row forces both side components nonzero and ad exp(i phi)=bc. Under positivity this is exactly the stated zero-flux proportionality. An independent symbolic determinant and kernel calculation and exact tuned zero- and half-flux examples were run (python3 /workspace/branches/recompute_frozen.py); the coefficient argument, not tests, establishes completeness.
+
+## originality
+
+PASS
+
+The supported distinct claim is the simultaneous weighted magnetic phase diagram with arbitrary periodic potentials, in particular the unequal-side tuned branch and sharp support criterion. General Laurent methods and equal-hopping symmetric caging are prior work; related finite caging and differently connected periodic graphs do not give this classification.
+
+## value
+
+PASS
+
+A complete phase diagram of an established lattice is useful for choosing periodic magnetic couplings and site energies. It distinguishes the protected flat band, full caging, and tuned unequal-side flatness; it excludes two flat energies and supplies a sharp minimum compact support rather than only a dispersionless eigenvalue. The conclusions test all positive hoppings and real periodic onsite energies, not a fixed sampled profile.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

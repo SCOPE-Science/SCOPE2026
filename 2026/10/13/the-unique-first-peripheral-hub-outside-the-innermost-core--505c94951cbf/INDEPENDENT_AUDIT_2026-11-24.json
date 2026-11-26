@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:35:52.478431Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_degree_coreness_boundary.py (inspected, not executed)",
+        "/workspace/review-evidence/02-05-small-checks.js (connected-graph recurrence)",
+        "/workspace/branches/5bfbc997-c955-4411-9144-78107d8fb76d/independent_core_boundary.py (independent exhaustive computation)"
+      ],
+      "rationale": "For a failure, the top core C has k≥2, at least k+1 vertices, and an edge to its complement. The endpoint of that edge in C has total degree at least k+1, so the unique leader h has degree at least k+2. But h has at most k−1 neighbors in C (otherwise C together with h has minimum degree k), and at most |V\\C|−1 outside. Hence deg(h)≤|V|−3. Together these force |V|≥7 and at equality k=2, deg(h)=4 and |C|=3. Thus C is a triangle and h hits exactly one triangle vertex and all three other outside vertices. Any additional edge would make a cycle through h, contradicting its absence from the 2-core. The displayed graph realizes this bound; its automorphisms are exactly permutations of the three leaves and a swap of the two unmarked triangle vertices. Its orbit has size 7!/12=420. Independently derived the connected denominator 1,866,256 by decomposing a labeled graph according to the size of the component of vertex 0. An independent simultaneous-pruning enumeration of all labeled edge subsets through order 7 also returned no failures below 7 and exactly the 420 relabelings at 7, with the stated representative vectors. The size-one connected graph causes no failure (its lone vertex has core number 0).",
+      "residual_risks": [
+        "The 420/1,866,256 denominator counts all labeled connected graphs, not just graphs with a unique degree leader. No classification beyond the boundary order is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The eigenvector comparison has five first-conflict classes at order 7, the betweenness comparison one at order 6. Both ask about different vertex functionals."
+        ],
+        "reasoning": "The fact that local degree can disagree with several ranking measures does not yield a universal finite-order bound for any particular alternative measure.",
+        "searches": [
+          "Bickle, Cores and shells of graphs, abstract, Definition 1.2 and maximum-degree passages",
+          "Kitsak et al., arXiv:1001.5285, pp. 2–3",
+          "Resultary 0a32f57959a5 and b452e5477117, Findings"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0a32f57959a5 and b452e5477117",
+        "Kitsak et al. arXiv:1001.5285",
+        "Bickle, DML-CZ 143229",
+        "Seidman DOI landing page"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The eigenvector record requires distinct unique maximizers of two centrality scores. The frozen coreness criterion tests nonmembership of the degree leader in a possibly non-singleton maximum core (a triangle for the witness)."
+        ],
+        "reasoning": "The former enumeration does not exclude a degree-versus-core failure in graphs where eigenvector leadership agrees with degree or is not unique, so it cannot imply this threshold or exhaust the coreness first-failures.",
+        "searches": [
+          "0a32f57959a5 and b452e5477117, assumptions and predicates in their Findings",
+          "Kitsak et al., pp. 2–3, branch hub example and k-shell discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kitsak et al. discuss peripheral high-degree hubs and core nodes. Bickle defines maximum core and core number; the relevant degree/shell theorem is about edge coloring."
+        ],
+        "reasoning": "Deepest k-core, maximum core and innermost shell membership yield the same test here. A phenomenon about peripheral position or spreading does not assert exclusion through order 6 or the exact classification at 7.",
+        "searches": [
+          "Resultary: unique degree leader outside the innermost core; minimal peripheral degree leader; six/seven-vertex census",
+          "Literature: smallest connected graph unique maximum-degree vertex outside deepest k-core innermost core coreness seven vertices peripheral hub triangle leaves"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "That record's first class (edges 01,12,13,14,25,26,56) is the same graph, with orbit size 420. The connected-graph denominator is an ordinary labeled graph count."
+        ],
+        "reasoning": "A table containing the graph or its orbit is not a table of graphs selected by this coreness predicate; the prior orbit size is not claimed as distinct in isolation.",
+        "searches": [
+          "Resultary: seven-vertex 420-graph hub, and unique-leader six/seven-vertex census",
+          "0a32f57959a5 RESULT.md Finding and representative list"
+        ]
+      },
+      "rationale": "The same triangle–hub–three-leaf graph and its 420-member labeled orbit are indexed in work on the degree/eigenvector-leader split. That is real witness-level overlap, but the exact coreness threshold and the assertion that this is the only first-failure class are not established by that different criterion. The broad core literature inspected provides the structural terminology and peripheral-hub phenomenon, not the finite boundary.",
+      "residual_risks": [
+        "An unindexed graph atlas annotation, teaching example, source not available in full text, or prior census could contain the coreness-filtered boundary. No priority conclusion about the common witness is drawn from directory dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact witness-level overlap; not a coreness classification",
+          "evidence": "The first class is the triangle joined to a four-degree hub and three leaves, with orbit size 420. The conflict condition is eigenvector, not coreness.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-seven-vertices-are-the-sharp-unique-leader-split-for-degree-and--0a32f57959a5/RESULT.md",
+          "material_read": "Finding at offset 0, including five classes and first representative",
+          "method": "Bounded local-mirror passage, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Seven vertices are the sharp unique-leader split for degree and eigenvector centrality",
+          "trigger": "Same order, unique leader, witness graph and orbit size"
+        },
+        {
+          "assessment": "Different graph predicate",
+          "evidence": "Freeman betweenness versus degree has a six-vertex boundary with one class of 720 labeled graphs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-six-vertices-are-the-sharp-unique-maximizer-split-for-degree-and--b452e5477117/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Bounded local-mirror passage",
+          "title": "Six vertices are the sharp unique-maximizer split for degree and betweenness",
+          "trigger": "Adjacent exact boundary for disagreement of graph leadership"
+        },
+        {
+          "assessment": "Mechanism and motivation, not the minimal-graph result in the inspected material",
+          "evidence": "Contrasts a high-degree peripheral hub on a branch with a less connected core vertex in a spreading analysis.",
+          "identifier_or_url": "https://arxiv.org/abs/1001.5285",
+          "material_read": "PDF pp. 2–3, extracted offset 2760 and context",
+          "method": "Lawful OA PDF passages",
+          "title": "Identification of influential spreaders in complex networks",
+          "trigger": "High-degree peripheral hubs and k-shells"
+        },
+        {
+          "assessment": "General core theory; inspected results do not impose the unique hub condition or classify the finite boundary",
+          "evidence": "Theorem 3.3 uses shell degree to obtain an edge-coloring bound; the spectral comparison uses global maximum degree rather than membership of its maximizers.",
+          "identifier_or_url": "https://dml.cz/dmlcz/143229",
+          "material_read": "Introduction definitions; Theorem 3.3 on maximum degree in the 1-shell; Theorem 5.3 on spectral radius versus max degree",
+          "method": "Lawful DML full-text PDF passages",
+          "title": "Cores and shells of graphs",
+          "trigger": "Literature hit for exact core-number alias and degree"
+        },
+        {
+          "assessment": "Terminological and historical antecedent; exact coverage not assessed from full text",
+          "evidence": "Minimum degree is used to distinguish cohesive network regions; the abstract did not establish a small-order boundary.",
+          "identifier_or_url": "https://doi.org/10.1016/0378-8733(83)90028-X",
+          "material_read": "Landing-page abstract only; no full text obtained",
+          "method": "Bounded OA lookup, no repository copy identified",
+          "title": "Network structure and minimum degree",
+          "trigger": "Foundational core citation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen structural proof and representative",
+        "Kitsak et al., peripheral branch-hub discussion",
+        "Resultary 0a32f57959a5 witness comparison"
+      ],
+      "rationale": "The threshold answers when a conspicuous local hub can first be excluded from the densest core in a simple connected example. The proof characterizes all minimum counterexamples by a triangle plus a uniquely attached hub with three leaves; the exact orbit verifies that there is no other mechanism at the first order. This value is structural, not a claim about influence or spreading performance.",
+      "residual_risks": [
+        "Does not rank real networks or generalize beyond finite connected simple graphs with a unique degree maximizer."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

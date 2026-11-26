@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Theorem quantifiers explicitly require integers \(e\ge2\), \(m\ge1\), \(N=2^{em}\), a full dyadic input grid, a common infinite block-affine binary scramble with independent unrestricted off-diagonal rows and shifts, and \(f(x)=x\). The proof directly derives the independent rare-event digit law by uniformity of random binary linear functionals and complete prefix cancellation. Independently summing second/fourth moments gives exact rational constants; geometric activation waiting times plus a uniform deterministic dyadic tail bound prove the exponential logarithmic law. For the comparator, independent nested-permutation subtrees give iid uniform stratification jitter. The standalone exact-rational program passed 96 assertions. Computation does not establish the infinite limiting statements, which follow analytically.
+PASS
 
-## Originality — PASS (historical priority qualified)
+For the corrected statement, invertibility balances the full prefix and independence of unrestricted restricted rows gives independent signed activations of probability 1/N. The geometric first activation divided by N tends to Exp(1); unless the next two positions activate (probability O(1/N)), the remaining tail changes the magnitude by at most one quarter of its first term. Exact cancellation would require an infinite maximal opposite-sign tail and has probability zero. Quantile convergence gives the stated absolute median scale. Independent uniforms within disjoint nested-scramble strata give variance 1/(12N³), a Gaussian standardized limit and zero limit on the scaled logarithmic axis. The supplied verify.py was inspected, not executed; the recorded VERIFY_OK 96 supports finite digit distributions and moments only.
 
-Suzuki's primary paper defines block-affine scrambling and proves gain-coefficient and variance results; it does not state the exact independent-activation series, \(3(N+2)/5\) kurtosis, or exponential logarithmic error scale. Liu's accessible preprint reports heavy-tailed empirical affine-scramble errors and explicitly highlights formal analysis as an open problem, but qualitative rare-event phenomena are acknowledged as prior work, not relabeled as novel. Yue–Hickernell's gain formulas address second moments. Mathematical-record queries for block-affine, linear, one-dimensional Bernoulli-digit laws and kurtosis returned no equivalent claim; closest indexed records concern other quadrature randomizations and their different stochastic structures. Unindexed exact calculations and historical special cases remain risks, so this is not a certified priority determination.
+## originality
 
-## Value — PASS
+PASS
 
-One-dimensional integration of the coordinate function is a natural calibration benchmark for randomized digital-net quadrature. The exact calculation reveals a high-impact statistical limitation invisible to the identical mean-square errors: affine and fully nested scrambling have diverging versus bounded kurtosis and exponentially small typical versus asymptotically normal RMS-scaled errors. These distinctions matter to interpretation of replicated randomization error and to benchmarking randomization methods, without claiming one method wins on every loss or function.
+Passes only for the repaired logarithmic limit and typical-scale comparison, not for the supporting series, direct moments, rare-outlier mechanism, or prior variance comparisons. The closest full-text exact expansion covers the distributional input, but its generic probability and median bounds do not give the two-sided limit at scale N; the repair analyzes the first active singleton and cancellation on that scale.
 
-## Scope and verification limits
+## value
 
-Only the explicitly stated one-dimensional complete-grid case is classified. The result assumes infinitely randomized suffix bits and does not quantify an implementable finite-precision law, replication requirements, or higher-dimensional performance. The source literature includes a subsequently withdrawn preprint, used solely for contextual comparison. The mathematical proof is self-reviewed only; no independent audit is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At matched exact RMS the benchmark distinguishes an exponential-in-N median magnitude from the ordinary polynomial nested-scrambling scale. This is a concrete and reproducible statement about typical replication error, for which a high-probability upper bound or a fourth moment alone does not determine even the median scale. The repair does not count a standard moment calculation as a new contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

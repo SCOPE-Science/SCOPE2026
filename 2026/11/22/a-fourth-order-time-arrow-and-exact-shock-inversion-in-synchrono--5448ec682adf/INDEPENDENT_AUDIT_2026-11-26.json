@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:49:03.606317Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–39 and 41–73; VERIFICATION.md, lines 19–21; verify.py, lines 9–88 (inspected, not executed)",
+        "Independent bounded replay: python3 /workspace/branches/frozen_claim_checks.py (shocks)"
+      ],
+      "rationale": "Positive harmonic drifts and contracting jumps make the infinite-past convolution well-defined; synchronous coupling is exponentially contracting, so its stationary law is unique. The Brownian coordinates are conditionally independent centered Gaussians even across distinct times when conditioned on the relevant entire clock history; hence positional cross-covariance vanishes. The variance bound D_h/a_h controls all needed moments. As a separate check on the moment-generator calculation, the two backward clock horizons x,y overlap over min(x,y). Multiplying their q-squared factors and averaging the Poisson counts gives the mixed conditional-variance integral 4D_iD_j times the integral of exp[-L_i x-L_j y+delta*u*min(x,y)]. Splitting at x=y gives E[X_i^2 X_j^2]=4D_iD_j(1/L_i+1/L_j)/B. Subtracting m_i*m_j gives the stated strictly positive C0. The conditional second moment over a future lag has initial-value factor exp(-L_j t), and additive noise contributes its remaining stationary mean term independently of the initial state; this gives the stated ordered covariance. The ratio cancels delta; for L_i!=L_j the difference of exponentials vanishes at both ends and its derivative vanishes at exactly the stated positive lag. One exact observation at known t>0 gives L_j=-log(C_forward(t)/C0)/t. Now delta>0, and the identity H=delta*u/(L_i+L_j-delta*u) gives a unique u in (0,1] and hence q and r. The q=0 case is valid with q^0=1 for zero clock events. Equal traps erase this lag-direction witness but leave the inversion intact. Independent exact rational replay checks the clock-overlap result and inverse including complete reset, finite partial reset and equal drift.",
+      "residual_risks": [
+        "Identification uses exact stationary moments and a known lag and trap strengths, not noisy or finite-sample inference. The sign restriction q>=0 and exclusions r=0 and q=1 are essential to the stated inverse."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Galla, Supp. S2 (PDF p. 14), Eqs. S22–S23 defines the common proportional Poisson jumps. Supp. S2.2, PDF pp. 14–15, Eqs. S24–S37 instead uses a Gaussian common-noise approximation with equal linear relaxation and computes equal-time energy covariance. Resultary 8f425ebe8d3d Finding and Proof Steps 1–2 give exact transient moments in the original Poisson system, but for equal drift and diffusion and equal-time covariance."
+        ],
+        "reasoning": "Galla has the jump model as an input, but the Gaussian approximate covariance is not an exact formula for arbitrary contraction. For gamma=-a<0, the earlier transient moment ODE in 8f425ebe8d3d does give the homogeneous stationary amplitude by taking its stable limit. It does not give unequal L_i,L_j or the ordered cross-lag data, which are the discriminator.",
+        "searches": [
+          "Web: A diffusion approximation for systems with frequent weak resetting Galla multi-particle common resetting exact Poisson jumps supplement S2.2; OA queries particle-particle correlations and rate λ/s",
+          "Web: simultaneous resetting harmonic Brownian particles common clock exact cross-correlation squared position Ornstein-Uhlenbeck"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5448ec682adf (same record); exact comparative passages in 8f425ebe8d3d, 248b082bc822 and 581ff25262aa",
+        "Galla arXiv:2602.21635v1, Supp. S2 and S2.2",
+        "Biroli et al. arXiv:2211.00563 and arXiv:2406.08387",
+        "De Mauro et al. arXiv:2509.06658"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "248b082bc822 gives an explicit symmetric two-time energy correlation and an arrow in a three-time cumulant. 581ff25262aa supplies the exact pair amplitude but only at complete reset. 8f425ebe8d3d gives the homogeneous clock-state equations m1'=-a1*m1+2D and m2'=-a2^P*m2+4D*m1 for equal-time quantities."
+        ],
+        "reasoning": "The moment method transfers naturally, and the inversion is algebraic once the amplitude and lag exponents are known. But using the exact homogeneous moment theorem cannot produce two different rates, and complete resetting cannot establish dependence on the unknown contraction. The additional closure across different drift rates and finite jumps, together with ordered lag propagation, is required for the specific asymmetric statistic and two-parameter recovery.",
+        "searches": [
+          "Resultary matched mirror openings for 248b082bc822, 581ff25262aa and 8f425ebe8d3d; also 8f425ebe8d3d Assumptions and Proof Steps 1–2",
+          "Web: simultaneous resetting harmonic Brownian particles common clock exact cross-correlation squared position Ornstein-Uhlenbeck"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "5448ec682adf is the same finding. The 248b082bc822 Finding gives V_2 exp(-A|h|) for *identical* traps; rescaling energy by kappa/D and time by 2*kappa matches that slice. The 581ff25262aa Finding gives the unequal-trap complete-reset pair covariance; multiplying the current squared-position formula by lambda_i*lambda_j/4 at q=0 matches it."
+        ],
+        "reasoning": "The energy and squared-position formulas differ only by known factors in these slices. The homogeneous result has no pair-order asymmetry, while at complete reset the contraction is fixed. Neither equivalent slice is the finite-partial, heterogeneous two-time result. No order is inferred between same-date records.",
+        "searches": [
+          "Resultary: synchronously Poisson reset harmonic coordinates mixed squared-position covariance time lag asymmetry shock inversion unequal trap strengths",
+          "Resultary: exact synchronized Poisson partial resetting harmonic Brownian particles shared reset clock energy covariance unequal trap rates"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Biroli et al., 10.1103/PhysRevLett.130.207101, Eqs. 4 and 6, gives an exact joint law and equal-time energy covariance for complete resets of free Brownian particles. De Mauro et al., arXiv:2509.06658, Eqs. 15, 18–20 and 36 give exact time-dependent/equal-time laws in free complete-reset models."
+        ],
+        "reasoning": "Exact-law sources are the pertinent lookup for this continuously parameterized process. Free or single-particle reset laws do not tabulate the ordered two-coordinate moment functions with heterogeneous drifts and a shared finite contraction. No applicable exact table was identified; finite covariance values could not establish all-parameter identifiability.",
+        "searches": [
+          "Resultary: exact synchronized Poisson partial resetting harmonic Brownian particles shared reset clock energy covariance unequal trap rates",
+          "Web: Extreme statistics and spacing distribution in a Brownian gas correlated by resetting arXiv Biroli 2023; OA stationary state; Web: conditionally independent and identically distributed full resetting multi-particle system common reset clock particles exact result; OA joint distribution"
+        ]
+      },
+      "rationale": "The supported distinction is the exact finite-jump, unequal-trap two-time squared-position law, its asymmetric peak and the joint recovery of rate and contraction from the stated moment/lag data. Common-clock positional decorrelation with correlated energies, the homogeneous partial-jump slice, and the heterogeneous complete-reset equal-time amplitude all have substantive prior/parallel coverage. They are not credited as new here. No inspected statement supplied the joint finite-partial and unequal-strength two-lag result or the specified inversion.",
+      "residual_risks": [
+        "An exact multi-rate common-partial-reset polynomial moment or full transition theorem not recovered by these searches could cover the distinct result. Nearby matched statements were inspected, not an exhaustive priority survey.",
+        "No order is inferred among the same-day records; their demonstrable slice overlap is credited regardless."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same reset mechanism in original model; approximate rather than exact heterogeneous two-time correlation calculation",
+          "evidence": [
+            "S22–S23 give rate lambda/s and reset x_i→x_i-s*g(x_i); S24–S37 give equal-time squares for the Gaussian approximation at one shared linear relaxation parameter."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2602.21635",
+          "material_read": "PDF p. 1 and Supp. S2/S2.2, PDF pp. 14–15 (S6–S7), Eqs. S22–S37",
+          "method": "Targeted literature lookup and OA passage inspection",
+          "title": "A diffusion approximation for systems with frequent weak resetting",
+          "trigger": "Original shared partial-jump model and related covariance calculation"
+        },
+        {
+          "assessment": "Homogeneous amplitude follows from the stated exact moment ODEs; not an unequal-trap ordered lag result",
+          "evidence": [
+            "Assumptions explicitly say equal drift and diffusion; C_P(t) is Cov(X_1(t)^2,X_2(t)^2) from zero initial positions."
+          ],
+          "identifier_or_url": "8f425ebe8d3d",
+          "material_read": "Mirror RESULT.md, offsets 0–6088, Finding, Assumptions and Proof Steps 1–2, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Targeted Resultary lookup and exact local-mirror passage read",
+          "title": "A critical time-resolved correlation crossover under synchronized weak resetting",
+          "trigger": "Earlier exact common finite-amplitude Poisson correlation result"
+        },
+        {
+          "assessment": "Exact same-model homogeneous lag and amplitude coverage, but asymmetry is on a different observable",
+          "evidence": [
+            "One kappa and D for every coordinate, explicit two-time covariance V_2 exp(-A|h|), and antisymmetry of the ordered three-time cumulant under unequal gaps."
+          ],
+          "identifier_or_url": "248b082bc822",
+          "material_read": "Mirror RESULT.md Finding, offsets 0–2032, same snapshot commit",
+          "method": "Targeted Resultary lookup and exact local-mirror passage read",
+          "title": "A strict three-time energy arrow and a unique lag reversal under common partial resetting",
+          "trigger": "Common finite-amplitude harmonic resetting and time asymmetry"
+        },
+        {
+          "assessment": "Exact overlap for the heterogeneous q=0 stationary pair amplitude, after normalization",
+          "evidence": [
+            "All coordinates reset to zero; pair energy covariance is theta_i*theta_j*r*omega_i*omega_j/[(r+omega_i)(r+omega_j)(r+omega_i+omega_j)]."
+          ],
+          "identifier_or_url": "581ff25262aa",
+          "material_read": "Mirror RESULT.md Finding and opening of Assumptions, offsets 0–2804, same snapshot commit",
+          "method": "Targeted Resultary lookup and exact local-mirror passage read",
+          "title": "A unique three-energy sign crossover under heterogeneous global resetting",
+          "trigger": "Unequal harmonic drifts and exact stationary pair energy covariance"
+        },
+        {
+          "assessment": "Covers the qualitative covariance separation, in a different free complete-reset system",
+          "evidence": [
+            "Stationary joint law mixed over common reset age; zero positional and positive squared-position cross-covariance 4D^2/r^2."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevLett.130.207101",
+          "material_read": "arXiv:2211.00563 open text, Eqs. 4 and 6 (ar5iv offset near 8417)",
+          "method": "Primary literature search and bounded OA passage lookup",
+          "title": "Extreme statistics and spacing distribution in a Brownian gas correlated by resetting",
+          "trigger": "Exact multi-coordinate common-clock pair energy law"
+        },
+        {
+          "assessment": "Exact law for free coordinates reset to zero, not an unequal-harmonic finite-contraction result",
+          "evidence": [
+            "Joint density and squared-position dependence are obtained for Brownian coordinates with simultaneous returns to the origin."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.06658",
+          "material_read": "PDF pp. 5, 6 and 9, Eqs. 15, 18–20 and 36",
+          "method": "Targeted primary literature search and OA passage inspection",
+          "title": "Dynamically emergent correlations in Brownian particles subject to simultaneous non-Poissonian resetting protocols",
+          "trigger": "Exact common-reset time-dependent law might imply covariance formula"
+        },
+        {
+          "assessment": "Provides an exact marginal for one free particle, not joint unequal harmonic correlations",
+          "evidence": [
+            "Eq. 17 gives the stationary single-coordinate law under rescaling."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.110.044142",
+          "material_read": "arXiv:2406.08387, PDF p. 5, Eq. 17",
+          "method": "Targeted OA inspection of related reference",
+          "title": "Resetting by rescaling: exact results for a diffusing particle in one dimension",
+          "trigger": "Exact Poisson rescaling law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 13–39 and 65–81",
+        "248b082bc822 Finding, homogeneous pair symmetry"
+      ],
+      "rationale": "The result pinpoints why zero positional cross-covariance is uninformative about a shared clock and when a pair-level fourth-order statistic detects a time arrow. Unlike the homogeneous case, simply exchanging the later-trap label produces a nonzero effect with a calculable optimum lag. The same low-order stationary and lag quantities separate reset frequency from contraction strength without needing the diffusivities. This is an exact diagnostic and identification result, not merely a covariance evaluated at particular parameter values.",
+      "residual_risks": [
+        "No estimator precision, robustness to model misspecification, or statement about reversibility at equal trap strengths is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

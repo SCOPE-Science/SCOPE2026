@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:09:15.107562Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof; frozen VERIFICATION.md and verify.py (read, not run)"
+      ],
+      "rationale": "The infimum, optimizer, and strict comparison are correct, but the explicit claim that the optimizer is interior exactly when (1-alpha)|ab|<=s is false. The Gaussian residual vector (X2-aX1,X3-bX1) is independent of X1, with covariance d=c-ab and variances 1-a²,1-b². Positive semidefiniteness is |d|<=s. Expanding the conditional product and using the tilted normal second and fourth moments 1-alpha and (1-alpha)(3-alpha) gives B+4ab(1-alpha)d+2d². The optimizer is the projection of -(1-alpha)ab onto [-s,s]. Strict interior requires (1-alpha)|ab|<s. For example, alpha=1/2 and a=b=sqrt(2/3) give s=(1-alpha)|ab|=1/3 and c*=1/3, the lower endpoint. At s=0 the feasible set is already a singular singleton. Subtracting s² from the unconstrained minimum gives (1-alpha)[a²+b²-(1-alpha)a²b²], strictly positive off the origin; the correction for projection is nonnegative. The stated 51/64 example is correct.",
+      "residual_risks": [
+        "The finite rational grid checks algebra at sample parameters, not the literal interior claim at equality or the general proof. The objection is to the boundary statement, not to the envelope formula."
+      ],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhou et al. give the product of residual variances, yielding (1-a²)(1-b²), but the stated theorem does not optimize c.",
+          "Lan et al. treat higher-dimensional mixed-sign moments with Schur-complement bounds. Their convex-function upper bound does not apply to x2²x3², whose Hessian is indefinite away from the axes.",
+          "The accessible Ogasawara abstract describes structured correlation families, not an arbitrary fixed incident pair; the full text was unavailable."
+        ],
+        "reasoning": "The broader inequality statements do not by themselves give the fixed-edge optimizer. Coverage is instead established by the indexed exact moment and constraint formulas.",
+        "searches": [
+          "Zhou–Zhao–Hu–Song, arXiv:2308.13740v1, Theorem 1.1",
+          "Lan–Ouimet–Sun, arXiv:2505.09976v2, eqs. (3)–(4), Theorems 1–2",
+          "Ogasawara doi:10.1080/03610926.2025.2560040, indexed abstract"
+        ]
+      },
+      "checked_sources": [
+        "2026/10/12/SCOPE-sharp-blockwise-opposite-gaussian-product-deficit-with-two-quadr--e4514be65dca",
+        "2026/10/13/SCOPE-sharp-squared-correlation-envelope-for-the-three-dimensional-gau--433a1dfefb6b",
+        "arXiv:2308.13740v1",
+        "arXiv:2505.09976v2",
+        "doi:10.1080/03610926.2025.2560040 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Adding 1+2c² to the indexed deficit yields R(c)=L0+2(c-alpha ab)², where L0=1-alpha(a²+b²)+alpha(2-alpha)a²b². Indexed eq. (8) becomes c in [ab-s,ab+s]; at ab=0 the Schur formula is immediate from the indexed residual covariance. The squared distance from alpha ab to this interval is ((1-alpha)|ab|-s)_+². Subtracting the old product from L0 gives the displayed strict-gain identity."
+        ],
+        "reasoning": "This directly recovers the sharp value, optimizer, endpoint switch and strict gain without a new inequality or an independent optimization argument; the different objective of the earlier headline theorem does not prevent implication.",
+        "searches": [
+          "Indexed blockwise opposite Gaussian product deficit, RESULT.md Proof equations (6)–(8), local-mirror offset 2100"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed result gives the normalized moment minus E[X2²X3²] as -alpha[a²+b²+4abc-(2+alpha)a²b²] on the same exponent and correlation domain. Its Proof gives E[X2²X3²]=1+2c² and the full PSD interval, in coordinates with the sign of ab removed."
+        ],
+        "reasoning": "Adding back the stated unweighted moment translates the deficit formulation into the exact frozen objective at every admissible triple; changing variables back gives the same interval.",
+        "searches": [
+          "Local Resultary/published SCOPE lookup: mixed-sign Gaussian square moment, fixed incident correlations, sharp envelope/deficit",
+          "2026/10/12/SCOPE-sharp-blockwise-opposite-gaussian-product-deficit-with-two-quadr--e4514be65dca, RESULT.md equations (1), (6)–(8)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No discrete table could certify the continuous real-parameter envelope. The relevant exact catalogue hit is the blockwise deficit identity; the squared-correlation envelope hit is an all-positive moment at fixed total squared correlation, a different optimization."
+        ],
+        "reasoning": "Finite grids do not establish an exact answer for this continuum. The exact-formula catalogue evidence, not a grid, supplies the decisive coverage.",
+        "searches": [
+          "Local Resultary/published SCOPE searches for the fixed-edge envelope and the related exact moment",
+          "2026/10/13/SCOPE-sharp-squared-correlation-envelope-for-the-three-dimensional-gau--433a1dfefb6b"
+        ]
+      },
+      "rationale": "A different indexed result already gives both the exact unoptimized moment polynomial and the entire admissible interval for the very same Gaussian model, including singular cases. The claimed envelope and phase regimes, once the boundary wording is corrected, are mechanically implied by completing the square and clipping its center to that published interval. The indexed result's headline deficit extremum is different; the decisive overlap is in its exact formulas, not its headline or date.",
+      "residual_risks": [
+        "Whether the exact envelope is also explicitly stated in the broader literature was not established. This does not detract from the checked mechanical implication, and no priority inference is drawn from catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct mechanical coverage despite different optimized headline quantity",
+          "evidence": [
+            "Exact conditional moment and gamma normalization, exact subtraction of 1+2c², and necessary-and-sufficient admissible interval with singular endpoints."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-blockwise-opposite-gaussian-product-deficit-with-two-quadr--e4514be65dca",
+          "material_read": "RESULT.md Finding identity and Proof, eqs. (6)–(8) and surrounding discussion at offset 2100",
+          "method": "Local Resultary statement and mirror passage inspection",
+          "title": "Sharp blockwise opposite Gaussian product deficit with two quadratic factors",
+          "trigger": "Same mixed-sign trivariate moment and all correlations"
+        },
+        {
+          "assessment": "The inspected theorem is weaker for the fixed-edge objective",
+          "evidence": [
+            "Product of conditional marginal variances when one exponent is negative and the others are quadratic."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2308.13740v1",
+          "material_read": "p. 3, Theorem 1.1, offset 7700",
+          "method": "OA PDF passage inspection",
+          "title": "Some New Results on Gaussian Product Inequalities",
+          "trigger": "Earlier residual-variance factor"
+        },
+        {
+          "assessment": "Broader bounds, not this exact constrained minimization",
+          "evidence": [
+            "Schur-complement marginal bounds and a convex-function upper bound under positive definiteness."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2505.09976v2",
+          "material_read": "pp. 2–3, equations (3)–(4), Theorems 1–2",
+          "method": "OA PDF passage inspection",
+          "title": "Results related to the Gaussian product inequality conjecture for mixed-sign exponents in arbitrary dimension",
+          "trigger": "Possible general mixed-sign envelope"
+        },
+        {
+          "assessment": "Abstract describes structured families; no full-text judgment",
+          "evidence": [
+            "Compound-symmetric and autoregressive structures described; full-text request denied and no repository copy surfaced."
+          ],
+          "identifier_or_url": "doi:10.1080/03610926.2025.2560040",
+          "material_read": "Indexed abstract only",
+          "method": "Literature search and lawful OA retrieval attempt",
+          "title": "Gaussian product inequalities for absolute moments of mixed-sign orders using a series formula",
+          "trigger": "Potential exact mixed-sign moment formula"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Indexed blockwise deficit RESULT.md, eqs. (1), (6)–(8)"
+      ],
+      "rationale": "A fixed-correlation envelope is a natural sharpness question, but here the entire corrected answer is a one-variable square completion on the already stated interval for the already stated exact objective. The example and the phase description add no independently useful unknown result. Changing the weak boundary inequality to a strict one would not leave a qualifying repair.",
+      "residual_risks": [
+        "The judgment is limited to this quadratic triple; an analogous optimization for other exponents is not addressed."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

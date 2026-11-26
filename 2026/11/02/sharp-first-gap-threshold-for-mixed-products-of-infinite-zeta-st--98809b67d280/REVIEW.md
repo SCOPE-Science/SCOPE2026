@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated source gap formulas are reconstructed from the prefix/split description and the explicit product-tail identity, including the exceptional \(q=2\) case. The two endpoint inequalities follow from independently stated Euler-product, sum--integral, and tail-weight estimates. The final gap inference uses set endpoints on both sides, not just a disjoint interval; no finite computation is treated as an infinite proof. The range is all integer \(q\ge2\) and \(p\ge q+2\).
+## correctness
 
-## Originality — PASS, qualified
-The two directly relevant full-text works by Li and Yang distinguish mixed **sums**, self-**products**, and mixed **products**. Their October 2026 introduction expressly identifies the mixed-product case as a future direction, and its proof addresses an additive diameter inequality rather than the multiplicative ratio developed here. Semantic research-record searches for mixed restricted zeta-star products and analogous gap ratios found no covering theorem among the closest returned records. No priority certificate follows from a negative search; unindexed or implicit coverage remains a risk.
+PASS
 
-## Mathematical value — PASS
-This proves noninterval behavior for the entire natural half-plane \(p\ge q+2\) of an open mixed-product problem, with explicitly located missing intervals. It additionally identifies the exact switch of the canonical gap obstruction between two neighboring lower-index bounds, using uniform estimates rather than isolated examples. The result is deliberately narrower than a complete classification: the products at \(p\le q+1\) may have other gaps.
+The natural-gap construction gives the stated endpoints in D_q, including the split after (2) for q=2. At q=2 the tail product telescopes to 2m/(m+1); expanding the remaining double sum gives 4 zeta(3)-2. For q>=3, put t=2^(-q) and c=(zeta(2)-1)/zeta(2)>3/8. The gap ratio is at least 1+ct/(1-t), while A_(q+2) <= (1-3t/8)^(-1). In the other direction, the normalized zeta(2) tail W_n has n W_n <= 2c < 26/33, and S_q=sum_(n>=2) n^(-q) < 7/33. Expanding each finite product gives F_m-1 <= sum_(2<=n<=m) n^(-q)/(1-S_q); summing against m^-2 and switching the nonnegative sums bounds the ratio minus one strictly below S_(q+1) <= A_(q+1)-1. The separate rational chain 48/43 < 8/7 < R_2/L_2 < 108/91 supplies the needed q=2 bounds. Monotonicity of A_p and the verified endpoint membership yield precisely the claimed nonempty omitted interval for p>=q+2. For p<=q+1 only this diameter obstruction disappears; no assertion about residual gaps follows. The packaged finite rational/numerical checks were inspected as corroboration, not run or used for the universal proof.
 
-## Closest works and limitations
-Li--Yang (2026, arXiv:2610.29100v1): gap construction and mixed-sum classification, not mixed products. Li--Yang (2026, arXiv:2603.26399v1): self-sums/self-products, not these mixed products. Novelty is based on accessible primary material and search; independent priority and mathematical audit are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the consecutive-product bracket and resulting mixed-product noninterval range. The natural gap and endpoint constructions themselves are credited to prior work. No material overlap with the bracket or its mixed-product consequence was found in the checked primary or indexed comparisons.
+
+## value
+
+PASS
+
+This resolves a uniform noninterval range of a motivated mixed-product problem and identifies the exact threshold for one naturally selected gap. The independent comparison with two successive endpoint products is substantive; the finding does not purport to classify all mixed products.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

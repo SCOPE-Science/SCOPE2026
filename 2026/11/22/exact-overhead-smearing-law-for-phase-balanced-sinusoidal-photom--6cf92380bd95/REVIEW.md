@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. In a balanced three-parameter harmonic regression, integration multiplies each quadrature by the exact sinc factor and leaves the columns orthogonal; the Fisher information rate reduces to a single variable. The proof identifies a unique first-lobe stationary point, excludes later lobes by a strict global bound, and handles zero overhead and asymptotic boundaries. The asymptotic prefactors and dimensions were separately reconstructed and numerically checked. The checker supplements rather than substitutes for the proof.
+PASS
 
-## Originality
+A centered boxcar multiplies each harmonic design column by sinc(x). The phase grid kills the first and second nontrivial harmonic sums for N>=3, so the Gaussian Fisher diagonal is (Nt/nu)(1,sinc(x)^2/2,sinc(x)^2/2), even with unknown baseline and both quadratures. Dividing by N(t+h) and by the limiting rate 1/(2 nu) gives sin²(x)/(x(x+a)). On (0,pi/2), its log derivative g=2 cot(x)-1/x-1/(x+a) strictly decreases since sin(x)<x; it starts positive and ends negative. It stays negative from pi/2 to pi. All x>=pi have objective at most 1/[pi(pi+a)], strictly below the value at pi/2, so later lobes cannot tie. Increasing a raises g pointwise; the roots increase and tend to the root of 2 cot(x)-1/x=0 in (0,pi/2). For a going to zero the root must tend to zero since at any fixed positive x below pi/2, the limiting g is 2(cot(x)-1/x)<0. At the root, a/(x+a)=2(1-x cot(x))~2x²/3; this implies a/x goes to zero and x³~3a/2. Substitution gives loss ~a/x+x²/3~x² and the dimensional constant (6h/omega²)^(1/3). At large a, a j_a tends to sin²(x_infty)/x_infty at the optimizer. At h=0, strict sinc²<1 at all positive times proves the claimed nonattainment. Phase waiting is excluded as stated; the proof is not an optimization over actual observing calendars.
 
-PASS, provisionally. Watson–Dhillon (2001) establish velocity-smearing motivation; Price–Rogers (2014) already link finite integrations, photon noise and readout time to information; Morello et al. (2022) already give the exact sinusoidal sinc attenuation. The proposed result is not any of those ingredients, but the all-duration unique optimum with its monotone root, exact ceiling, and cube-root overhead law. Searches and mathematical comparisons did not identify that full theorem, although its elementary source ingredients make historical priority uncertain. An unindexed equivalent or a one-line reduction from a broader general optimization theorem remains possible.
+## originality
 
-## Value
+PASS
 
-PASS within the idealized scope. The result supplies a closed scalar rule for selecting exposure length and a universal maximum fraction of an orbital period, while the fractional-power law quantifies the cost of small nonzero instrument overhead. These concrete benchmarks are relevant to phase-curve survey design, for which cadence, smearing and overhead are coupled. Unlike merely calculating a sinc attenuation, the result optimizes a specified information-per-charged-time objective over all positive exposures and explicitly excludes alias lobes. It is not an empirical scheduling prescription.
+The sinc response, independent Gaussian information calculation and duty-cycle accounting are prior or elementary ingredients. Best of the inspected evidence, the supported distinct result is the exact global one-harmonic overhead optimizer with its sharp ceiling and small/large overhead laws. The identical indexed record is not independent evidence; the two same-day spectral-smearing records share the tradeoff and even a cube-root scaling, but not the profile, rate, or ceiling.
 
-## Limitations and closest prior work
+## value
 
-The model assumes a single known frequency, phase-balanced opportunities, independent Gaussian shot noise and known overhead, excluding calendar waiting, read noise and real instrument constraints. Morello et al. (2022), Price and Rogers (2014), Watson and Dhillon (2001), and Kipping (2010) are the principal related literature. Existing generic optimization theory may cover the scalar root under a change of variables; that residual historical uncertainty is not removed by unsuccessful searches.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exposure smearing competes directly with fixed per-exposure charges in phase-balanced scheduling. The result gives a usable exact optimizer at every overhead, rules out longer-exposure lobes rather than just giving a local optimum, and quantifies both a sharp upper ceiling and the leading efficiency loss. That is a reproducible design benchmark for a natural single-harmonic experiment, not a claim about arbitrary photometry or finite-calendar observing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

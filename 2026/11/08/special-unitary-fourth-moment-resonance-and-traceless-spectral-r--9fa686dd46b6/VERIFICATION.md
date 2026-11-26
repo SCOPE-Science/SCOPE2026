@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,9 @@
   "schema_version": 1
 }
 ---
+
 # Verification and scope
 
-Execute `python su4_fourth_checker.py` with Python 3, SymPy and NumPy installed. This script computes the two-pair unitary Weingarten inverse from its Gram matrix, checks the determinant contraction using the alternating tensor, checks 12,000 exact rational diagonal parameter profiles, including the tracezero Hermitian reduction, and generates 48,000 numerical Haar samples on \(\mathrm{SU}(4)\) by unitary QR decomposition with determinant-one normalization. It checks the unrestricted rank-one and full-rank endpoints, both traceless-Hermitian endpoints, and a negative-determinant intermediate profile.
+Run `python su4_fourth_checker.py` with Python 3, SymPy and NumPy installed. The script checks the two-pair unitary Weingarten inverse and alternating-tensor contractions, tests rational diagonal profiles and exact examples of the extrema, and generates 48,000 numerical Haar samples on \(\mathrm{SU}(4)\) by QR decomposition with determinant-one normalization. It also retains diagnostics on trace-zero Hermitian examples, which are not an independent novelty claim. The expected final line is `ALL_SU4_FOURTH_MOMENT_CHECKS_PASSED`; the numerical tolerance for the fourth-moment ratios is 0.20.
 
-The expected final line is `ALL_SU4_FOURTH_MOMENT_CHECKS_PASSED`. The numerical tolerance is \(0.20\) for fourth-moment ratios because of Monte Carlo fluctuations. These calculations do not certify the universal inequalities or historical novelty. The universal proof is the invariant-theory reduction followed by AM--GM and the exact eigenvalue-parameter optimization in `RESULT.md`.
-
-Status: self-reviewed; independent mathematical audit not performed.
+The all-matrix theorem rests on the moment reduction and sharp singular-value and determinant bounds in `RESULT.md`. The sampled and finite checks do not establish parameter-uniform inequalities, equality classes or literature priority.

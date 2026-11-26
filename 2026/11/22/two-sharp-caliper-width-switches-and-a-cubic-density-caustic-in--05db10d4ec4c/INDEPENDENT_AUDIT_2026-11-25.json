@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:58:12.980055Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the two supports, including the horizontal limit and chord; folding uniform unoriented angles gives exactly 2/pi. The derivative factors as (t+2a)(t²−2at+2)/[4(1+t²)^(3/2)], with stationary slopes a±sqrt(a²−2) for a>sqrt(2), both in the first branch. Only the vertical endpoint and the larger stationary slope can minimize. At a stationary root with x=t², a=(x+2)/(2 sqrt(x)); comparison with a² reduces to the sign of −x³+8x²+24x+16, unique positive root above x=2. Reducing that cubic modulo x²−4(a²−1)x+4 and multiplying the two residues reproduces the claimed polynomial in a². At a=sqrt(2), integrating the quadratic zero of the derivative and converting dt/dtheta=3 gives angular coefficient 3 sqrt(6)/4; a unique local inverse fixes both density and band mass. Scaling t−sqrt(2) by sqrt(delta) and integrating the limiting parabola gives 4·2^(3/4)/(3 sqrt(3)). The repaired RESULT.md gives a replayable analytic derivation. The frozen VERIFICATION.md, code and CHECKS.txt are supplementary recorded diagnostics; the uploaded code was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Finch treats regular polygonal/polyhedral examples; Abas's identified density theorem is for full-dimensional three-dimensional polytopes.",
+          "Cauchy's identity gives the angular mean from perimeter."
+        ],
+        "reasoning": "Neither the polytope density coverage nor knowledge of the first moment implies a curved planar global minimum or local cubic pushforward constants.",
+        "searches": [
+          "arXiv:1110.0671 abstract and planar examples",
+          "arXiv:2609.26202 abstract and §1.2, Thm 3.4",
+          "Cauchy planar mean-width identity"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary: assigned record (identity excluded) and 2e6c3c85982f (distinct)",
+        "arXiv:1110.0671",
+        "MathWorld Parabolic Segment",
+        "DOI:10.1061/JPLEAZ.0000062 (bibliography only)",
+        "arXiv:2609.26202"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact endpoint and endpoint–interior diametral pairs at a*=sqrt((11+5 sqrt(5))/8) yield maximizing caliper normals parallel to the corresponding displacements.",
+          "Long-chord tails for two independently sampled points (2e6c3c85982f) are a different observable and sampling measure from the density at an interior angular stationary point."
+        ],
+        "reasoning": "The known maximum switch is omitted from the repaired Finding, while the retained switch compares two minima and the singularity is an angular pushforward, neither implied by the comparison.",
+        "searches": [
+          "Resultary 2e6c3c85982f Finding, local mirror, extracted offset 88",
+          "Finch §§1–2",
+          "Abas Thm 3.4 scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The arc in 2e6c3c85982f has the segment as convex hull; diameter equals maximum caliper width, so this is equivalent coverage for the original maximum-width component.",
+          "MathWorld describes the same chord-and-parabola region, with area, arc length, centroid and inscribed-triangle formulas."
+        ],
+        "reasoning": "The diameter equivalence does not turn the minimum or a Haar-angle width law into the arc-point distance law. Reflection of the parabolic segment preserves the angular width law, but the classical geometric quantities inspected do not determine it.",
+        "searches": [
+          "Resultary search: parabolic segment directional width, minimum width and diameter bifurcation",
+          "Resultary 2e6c3c85982f Finding",
+          "MathWorld Parabolic Segment"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct indexed record gives the exact same maximum-width threshold after diameter reduction.",
+          "1964 length/curvature paper was identified by Crossref but its full text was unavailable; MathWorld supplies other exact segment quantities, not a minimum-width table."
+        ],
+        "reasoning": "Database overlap was credited for maximum width. Accessible exact quantities do not cover the retained minimum threshold and density law; inaccessible contents are not negative evidence.",
+        "searches": [
+          "Local Resultary parabolic widths and diameter comparison",
+          "DOI:10.1061/JPLEAZ.0000062",
+          "MathWorld Parabolic Segment"
+        ]
+      },
+      "rationale": "For the narrowed finding only: the diameter switch is explicitly credited and no longer claimed. The exact minimum-width switch, angular CDF and cubic singularity with its amplitudes are distinct from the strongest same-object comparison and the relevant available angular-width sources, to best current knowledge.",
+      "residual_risks": [
+        "The 1964 article could not be inspected in full; unindexed parabolic caliper results were not ruled out.",
+        "The same-day diameter match establishes coverage, not order or priority. No claim of exhaustive historical priority for the retained result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly implies the original maximum switch and equality-direction families but not the retained minimum or angular density",
+          "evidence": [
+            "Threshold sqrt((11+5 sqrt(5))/8), both types of diametral pairs at equality, two-point random variable L_a."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-golden-ratio-diameter-bifurcation-and-sharp-long-chord-tails-on--2e6c3c85982f/RESULT.md",
+          "material_read": "Finding at offset 88: diametral-pair cases and beginning of tail statements",
+          "method": "Local mirror, located heading and opened decisive passage",
+          "title": "Golden-ratio diameter bifurcation and sharp long-chord tails on a truncated parabola",
+          "trigger": "Matching object and exact switch under the diameter/max-width equivalence"
+        },
+        {
+          "assessment": "Same directional-width observable but different bodies; inspected examples do not give the retained statements",
+          "evidence": [
+            "Equilateral triangle and square planar examples; abstract discusses regular tetrahedron and cube and mean-square widths."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1110.0671",
+          "material_read": "v2 PDF abstract, p. 3 §§1–2 planar examples",
+          "method": "OA primary PDF passages",
+          "title": "Width Distributions for Convex Regular Polyhedra",
+          "trigger": "Historical angular-width distribution work"
+        },
+        {
+          "assessment": "Classical exact geometry, not the claimed minimum-width classification or angular law",
+          "evidence": [
+            "Arc length, area, centroid and inscribed-triangle quantities."
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/ParabolicSegment.html",
+          "material_read": "Definition and listed geometric calculations near text offset 266",
+          "method": "Public reference page",
+          "title": "Parabolic Segment",
+          "trigger": "Exact standard geometry of the same region"
+        },
+        {
+          "assessment": "No whole-paper exclusion is possible",
+          "evidence": [
+            "Journal of the Pipeline Division 90(1), pp. 1–6 (January 1964); publisher access denied."
+          ],
+          "identifier_or_url": "https://doi.org/10.1061/JPLEAZ.0000062",
+          "material_read": "Crossref bibliographic data; no independently recovered article text",
+          "method": "Bibliographic record and bounded lawful retrieval attempts",
+          "title": "Arc Lengths and Curvature of Parabolic Segments",
+          "trigger": "Older work on the same geometric object"
+        },
+        {
+          "assessment": "Inspected scope is full-dimensional 3D polytopes, not this curved planar body",
+          "evidence": [
+            "The dimension and polytope hypotheses of the stated density theory do not match K_a."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.26202",
+          "material_read": "PDF abstract and §1.2 summary of Thm 3.4",
+          "method": "OA primary PDF passages",
+          "title": "Random Width and Brightness: Polyhedral Density Theory, Reconstruction, and Gaussian Identifiability",
+          "trigger": "Potentially encompassing directional-width density framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimum is the narrowest Euclidean strip containing a classical curved segment and the repaired theorem identifies all attaining directions at an exact shape threshold. The separately retained angular law and the non-endpoint density blow-up quantify what uniformly sampled calipers observe, with exact exponents and amplitudes. These are substantive distinctions from a diameter restatement or mean-width calculation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

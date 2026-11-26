@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:28:21.907166Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Gaussian cross-entropy at fixed positive variance is uniquely minimized at the true mean, after which optimizing the variance gives the true variance; both moments and differential entropy are finite for a>0. Strict positivity of forward KL follows from unequal laws (bounded beta support). Beta logarithmic moments, derivative of log B(a,a), and trigamma duplication give J'=-1/(2a+1)+(a-1)Delta(a), with Delta(a)=psi_1(a)-psi_1(a+1/2)>0. This is negative for 0<a<=1. For a>1, the trigamma difference integral is the Laplace transform of t/(1+exp(-t/2)). Strict AM–GM bounds Delta by 1/[2(a-1/4)^2]=2/(2a-1/2)^2; (2a-1/2)^2-2(a-1)(2a+1)=9/4, proving strict negativity. Independently, the kernel factor 1/(1+exp(-t/2))=1/2+t/8+O(t^3) near zero, giving Delta=1/(2a^2)+1/(4a^3)+O(a^(-5)) by Laplace integration, with exponentially small tails away from zero. Then J'=-3/(8a^3)+O(a^(-4)). To see J(infinity)=0, use Y=2X-1: its entropy is log B(1/2,a)-(a-1)[psi(a)-psi(a+1/2)]=(1/2)log(pi e/a)+O(1/a), by the gamma ratio and digamma expansions. The moment-matched Gaussian for Y has variance 1/(2a+1) and the same leading entropy. Integrating J' from infinity gives a^2 J(a) -> 3/16. The odd Uniform sample median has shape a=(n+1)/2, so the variance is 1/[4(n+2)], strict decrease holds for successive odd sizes including n=1 to 3, and n^2 K_n -> 3/4. Inspected requirements.txt, verify.py and VERIFICATION.md; the mpmath tests are diagnostics, not universal evidence, and the uploaded code was not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The preprint gives a more general entropic CLT under regularity hypotheses and an exact entropy formula for Uniform order statistics, with an O(n^-2) symmetric entropy-remainder observation. Neither is an inequality for the derivative of the optimal Gaussian entropy deficit.",
+          "The published DOI and IEEE page did not yield an inspectable text; the precise journal monotonicity statement has not been verified."
+        ],
+        "reasoning": "The broad CLT and entropy asymptotics do not give global strict ordering or imply its extension to small noninteger shape. The possible overlap with the expanded journal version cannot be excluded from the preprint alone.",
+        "searches": [
+          "arXiv:2205.04621v1, Theorem 1 and equations (15)–(17)",
+          "Literature: \"Entropic Central Limit Theorem for Order Statistics\" \"10.1109/TIT.2022.3219344\" monotonicity relative entropy",
+          "Resultary: Cardone Dytso Rush Entropic Central Limit Theorem Order Statistics Gaussian relative entropy monotonicity"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2205.04621v1 targeted passages",
+        "IEEE DOI 10.1109/TIT.2022.3219344 attempted, journal text not inspected",
+        "Resultary indexed symmetric-beta moment, median covariance and binomial quantization comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the same odd Uniform median law, comparing with the asymptotic Gaussian variance 1/(4n) instead of the optimal 1/[4(n+2)] increases the KL by (log((n+2)/n)+n/(n+2)-1)/2, which is 1/n^2+O(n^-3). The change of reference affects the leading constant itself.",
+          "The known exact entropy formula can be expanded to get constants; a rate or exact identity does not give the all-real sign without an inequality such as the trigamma bound."
+        ],
+        "reasoning": "The preprint does not mechanically give the strict derivative theorem. A monotone sequence of divergences for a different Gaussian would not even force discrete monotonicity of the matched one by subtraction; an actual journal statement is needed to compare that potential overlap.",
+        "searches": [
+          "arXiv:2205.04621v1, equations (7)–(8), (15)–(17)",
+          "IEEE DOI 10.1109/TIT.2022.3219344 / document 9934924"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Forward KL to the matched Gaussian is Gaussian entropy minus beta entropy or the entropy deficit of the variance-standardized beta. Odd Uniform medians pick out the positive integer shapes. The preprint uses asymptotic quantile variance, not the optimal finite-sample Gaussian variance."
+        ],
+        "reasoning": "Affine standardization preserves this KL; a theorem about unstandardized beta entropy, beta moments or another Gaussian reference is not equivalent. Discrete median monotonicity, even if established for the same Gaussian projection, would not give the strict derivative for every real a>0.",
+        "searches": [
+          "Resultary: symmetric beta law moment-matched Gaussian forward KL negentropy strictly decreasing shape parameter all positive real a",
+          "Resultary: beta symmetric density Gaussian relative entropy monotonicity trigamma shape parameter",
+          "Resultary: sample median Beta(m,m) entropy divergence Gaussian moment-matched",
+          "arXiv:2205.04621v1, equations (7)–(8), Lemma 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed moment-deficit entry concerns polynomial moments/correlation compatibility; the same-day order-statistic coupling entry concerns covariance with sample variance; the quantization entry concerns a discrete binomial law. The exact entropy formula is published in the order-statistic preprint."
+        ],
+        "reasoning": "None of those distinct indexed statements is an exact negentropy monotonicity result. The preprint's entropy formula is exact prior coverage for an input, not a tabulation of the normalized entropy deficit or its global derivative sign.",
+        "searches": [
+          "Resultary: strict gaussian negentropy monotonicity symmetric beta laws J'(a) 3/16",
+          "Resultary: symmetric beta Gaussian negentropy",
+          "Resultary: 2026/10/13 strict-gaussian-negentropy-monotonicity-for-symmetric-beta-laws 9da4d6d4433c",
+          "arXiv:2205.04621v1, Lemma 2 and equations (15)–(17)"
+        ]
+      },
+      "rationale": "The supported distinct core is the global strict derivative sign over the continuous symmetric-beta shape family for the optimal forward Gaussian KL projection. Exact beta entropy, Gaussian optimization, and the order-statistic entropy expansion are prior ingredients. The leading constant is a sharp consequence of known special-function asymptotic tools, not the main novelty. The published Cardone–Dytso–Rush discussion is a material remaining access risk, not evidence of equivalence or noncoverage.",
+      "residual_risks": [
+        "The final journal monotonicity discussion is directly relevant but not lawfully accessible through the tested routes. Its exact claim could affect priority, particularly the odd-median specialization.",
+        "Bounded negative lookups are not absence evidence. The classical exact entropy and asymptotic tools should be credited regardless of priority of the all-real strict derivative result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact entropy input and broader asymptotic approximation; does not establish the matched all-real strict derivative",
+          "evidence": "Gaussian uses asymptotic quantile variance; the symmetric entropy approximation has O(n^-2) remainder.",
+          "identifier_or_url": "https://arxiv.org/pdf/2205.04621v1",
+          "material_read": "§II, PDF p. 2, Theorem 1 and Eqs. (7)–(8); p. 3, Lemma 2 and Eqs. (15)–(17) including the symmetric-case remark",
+          "method": "Targeted OA PDF reading",
+          "title": "Entropic CLT for Order Statistics",
+          "trigger": "Same Uniform order statistics and entropy-to-Gaussian problem"
+        },
+        {
+          "assessment": "Leading priority risk, not classified as noncovering",
+          "evidence": "IEEE Transactions on Information Theory 69 (2023), 2193–2205; do not substitute the v1 preprint for the journal version's scientific claims.",
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2022.3219344",
+          "material_read": "Bibliographic identity only for this version; the reported abstract phrase and exact full-text theorem were not independently accessible",
+          "method": "DOI and IEEE document 9934924 retrieval did not yield explanatory text; exact title/DOI lookup for a lawful alternate did not identify one",
+          "title": "Entropic Central Limit Theorem for Order Statistics",
+          "trigger": "Frozen bibliography reports journal abstract mentioning relative-entropy monotonicity"
+        },
+        {
+          "assessment": "Reported claim concerns moments and correlations rather than KL; not a whole-document determination",
+          "evidence": "The summary identifies standardized symmetric-beta moment deficits and a correlation-matrix compatibility problem.",
+          "identifier_or_url": "2026/9/17/SCOPE-gaussian-moment-deficit-correlation-obstruction--31c741d42df0",
+          "material_read": "Indexed mathematical summary; local full finding unavailable",
+          "method": "Resultary summary comparison",
+          "title": "Gaussian moment deficit correlation obstruction",
+          "trigger": "Closest indexed symmetric-beta Gaussian comparison"
+        },
+        {
+          "assessment": "Different observable and result",
+          "evidence": "Reports covariance of order statistics with sample variance and a rank sign change, not Gaussian KL.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-order-statistic-coupling-profile-with-sample-variance-under--59495db55ed7",
+          "material_read": "Indexed mathematical claim",
+          "method": "Resultary statement comparison",
+          "title": "Exact order-statistic coupling profile with sample variance",
+          "trigger": "Distinct same-day indexed median/order-statistic entry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This settles a natural strict-order question for a canonical bounded family under an optimal information-theoretic approximation, across all positive shape parameters, not just the asymptotically normal regime. The global sign requires a uniform special-function inequality, and its exact sharp rate and consequence for the best Gaussian at every odd median sample size are independently interpretable. No reverse-KL, asymmetric-beta, or general order-statistic monotonicity is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:55:47.508399Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 19–106",
+        "VERIFICATION.md",
+        "verify.py lines 11–75",
+        "arXiv:2303.08158 p. 4, equations (6)–(7) and parameters",
+        "Independent fractions.Fraction evaluation of the three printed rates at each witness and of the squared predator-edge inequality at ξ=9/10"
+      ],
+      "rationale": "The original equations (6)–(7) preserve coordinate faces; all free-space benefit terms vanish at p+q+r=1. The remaining inward flux is (1−α)p+εβq+ξr+(1−ε)pq−(1−η)pr−(δ−εγ)qr. At (1,0,0) this forces α≤1. For fixed r the flux is concave in p, including the affine case ε=1, so a global minimum lies on p=0 or q=0. On either edge, writing u for the non-parasite fraction, the two mortality contributions divided by u(1−u) are d_i/(1−u)+ξ/u. Their infimum is (√d_i+√ξ)² by Cauchy–Schwarz, with the endpoint limit included when d_i=0. The edge endpoints are already inward or tangent, and strict violation yields negative flux at an interior edge point. The polytope tangent-cone criterion applies to this locally Lipschitz field, and compactness supplies global existence; a strictly negative flux gives immediate exit from the boundary. At the source parameters d_P=0, e_P=9/10 and the other edge satisfies the threshold at ξ=9/10 since (129/100−2/25−9/10)²=961/10000≤36/125=4(2/25)(9/10). Monotonicity and the prey edge establish the cutoff. Independent exact rational substitution directly into the three species equations returned ds/dt=−39/1000 and −1529/50000 at the two printed witnesses. The frozen verifier was inspected, not run. Contrary to the ancillary description in RESULT.md, it asserts only the first witness and computes an equivalent reduced flux rather than independently summing the original three equations. Its finite tests cannot certify the real-parameter theorem; the analytical proof and independent witness checks do not depend on that description.",
+      "residual_risks": [
+        "Invariance is not trajectory convergence, persistence, or stability. The edge proof specifically needs ε≤1. A failure of the global test does not imply exit by an arbitrary selected trajectory."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Roy et al. equations (2.3)–(2.6) use a skew-symmetric payoff matrix, eliminating those pair interactions from the total-density equation at full occupancy. The balance/carrying-simplex references concern invariant surfaces; their cited full texts were unavailable for decisive comparison."
+        ],
+        "reasoning": "The skew-symmetric case does not dominate a model with unequal pair gains and losses. Existence of a carrying surface also does not characterize whether this predetermined unit simplex is invariant. This is a bounded comparison, not a full-text exclusion for the inaccessible references.",
+        "searches": [
+          "Roy et al. strategic species, doi:10.1098/rspa.2024.0127 §2",
+          "Baigent–Ching balance simplex 10.1080/17513758.2020.1736656; Zeeman–Zeeman carrying simplex 10.1088/0951-7715/15/6/312"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2303.08158",
+        "doi:10.1098/rspa.2024.0127",
+        "Resultary records f98c5bacf17f and debfca23230e (limited returned material)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original Figure 2 uses (0.3,0.3,0.3) and reports a range of bounded simulated trajectories. The tangent-cone criterion only reduces all-start invariance to a sign test over an entire face; it does not evaluate the minimum or determine the parameter threshold."
+        ],
+        "reasoning": "The record solves the sign test exactly by exploiting ε≤1 to reduce the full triangle to two edges, then solves the edge quadratics including zero prey mortality. Applying a general tangent-cone theorem alone or reinterpreting the numerical boundedness plots does not give the explicit sharp parameter conditions.",
+        "searches": [
+          "arXiv:2303.08158 Figures 1, 2 and 3; Roy et al. (2024) §2 equations (2.3)–(2.6)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equations (6)–(7) are the same model under s=1−p−q−r. Source Figures 1–2 report bounded total density for selected initial values, not inward pointing for every admissible composition."
+        ],
+        "reasoning": "Bounded trajectories, nonnegative individual species coordinates, and all-initial-data forward invariance of the fixed unit simplex are distinct properties. No equivalent viability criterion was stated in the decisive original passages.",
+        "searches": [
+          "Resultary: full occupancy flux and positive simplex invariance in a free-space predator–prey–parasite model",
+          "arXiv:2303.08158 equations (6)–(7) in fitness and expanded form"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed structural result f98c5bacf17f describes a refuge model with an invariant strip condition δ≤e/K+q₂E/r₂; same-day debfca23230e gives selection and neutrality in a two-prey replicator model. These judgments are based on the returned summary or finding excerpt; full mirror text did not return.",
+          "The motivating paper's displayed ξ=0.42 and numerical ξ∈[0.4160,1] are not an exact all-start threshold; its 0.9 near Figure 3 is an initial-density sum constraint."
+        ],
+        "reasoning": "No ranked match supplied the exact theorem. The nearest inspected results do not identify the same governing model, physical domain, or all-start cutoff. Unavailable full text is not evidence of global noncoverage.",
+        "searches": [
+          "Resultary: exact global viability square-root thresholds and ξ=0.9 cutoff for free-space three-species ecology",
+          "Resultary: sharp biological domain invariance and eco-evolutionary selection"
+        ]
+      },
+      "rationale": "The same model, numerical examples, and general mathematical tools are prior. The inspected original article describes physically meaningful starting states and boundedness of selected trajectories, not an all-start equivalent parameter test. Other inspected ecological models and indexed findings differ in their interaction coefficients or domain. The edge reduction, two sharp thresholds, and source-specific all-start cutoff distinguish the claim.",
+      "residual_risks": [
+        "Specialized prior work or a more general exact positivity criterion not found by these comparisons could overlap. The two closest indexed mirror texts and the cited balance/carrying-simplex full texts were not available in this inspection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model, selected-trajectory boundedness, not the invariant simplex iff test",
+          "evidence": [
+            "p. 4 lists ξ=0.42 and the biologically meaningful initial-sum restriction. Figures 1–2 use a selected initial composition. The 0.9 quantity near Figure 3 refers to an initial-sum constraint, not an all-start mortality cutoff."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2303.08158; doi:10.1016/j.jtbi.2023.111446",
+          "material_read": "Preprint p. 4 equations (6)–(7) and baseline parameters (OA offset 20864); Figure 1 p. 5 (24459); §3.1/Figure 2 p. 6 (28049); Figure 3 context (30987)",
+          "method": "Primary open PDF bounded passages",
+          "title": "Eco-evolutionary cyclic dominance among predators, prey, and parasites",
+          "trigger": "Original equations, parameter regime and apparent boundedness overlap"
+        },
+        {
+          "assessment": "Different payoff coefficients; not a covering generalization",
+          "evidence": [
+            "Antisymmetric payoffs cancel in the occupancy sum, unlike the unequal conversions here."
+          ],
+          "identifier_or_url": "https://www.matjazperc.com/publications/ProcRSocA_480_20240127.pdf; doi:10.1098/rspa.2024.0127",
+          "material_read": "§2, equations (2.3)–(2.6), pp. 4–5, OA offsets about 35000–46000",
+          "method": "Primary open journal PDF passages",
+          "title": "The eco-evolutionary dynamics of strategic species",
+          "trigger": "Three strategic species with free-space terms"
+        },
+        {
+          "assessment": "Summary describes different domain and parameter dependence; not asserted as a full-text exclusion",
+          "evidence": [
+            "Predator-dependent refuge model; invariant strip with linear inequality involving δ, e, K, q₂, E and r₂."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-a-sharp-biological-domain-invariance-criterion-for-the-predator--f98c5bacf17f",
+          "material_read": "Resultary summary only; exact mirror attempt timed out",
+          "method": "Local semantic search and attempted mirror read",
+          "title": "A sharp biological-domain invariance criterion for a predator-dependent refuge model",
+          "trigger": "Closest indexed domain invariance hit"
+        },
+        {
+          "assessment": "Different two-prey replicator dynamics and motivation",
+          "evidence": [
+            "The reported result is selection and neutrality, not viability of the three-species habitat simplex."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-eco-evolutionary-selection-and-neutral-memory-foliation-un--debfca23230e",
+          "material_read": "Returned finding excerpt; exact mirror attempt timed out",
+          "method": "Local semantic search and attempted mirror read",
+          "title": "Exact eco-evolutionary selection and neutral memory foliation",
+          "trigger": "Same-day eco-evolutionary indexed match"
+        },
+        {
+          "assessment": "Residual access risk, not evidence of noncoverage",
+          "evidence": [
+            "The cited topic is an invariant balance or carrying surface, conceptually distinct from preservation of the fixed full-space polytope."
+          ],
+          "identifier_or_url": "doi:10.1080/17513758.2020.1736656; doi:10.1088/0951-7715/15/6/312",
+          "material_read": "Bibliographic subject and frozen discussion only; complete primary copies not retrieved",
+          "method": "Attempted lawful open access, blocked by access restrictions",
+          "title": "Balance simplices of 3-species May–Leonard systems; An n-dimensional competitive Lotka–Volterra system is generically determined by the edges of its carrying simplex",
+          "trigger": "Cited broader balance/carrying-simplex theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Limitations",
+        "arXiv:2303.08158 p. 4 and Figures 1–2"
+      ],
+      "rationale": "For a published ecological model, a sharp all-start threshold tests whether the physical domain assumed by the model is actually respected. The source's standard parameter choice fails it, even at a strictly positive three-species boundary point. The exact reduction to two edges makes the criterion practical and explains why no interior full-occupancy minimization is needed. This is a domain-of-validity result, not a restatement of coordinate positivity or simulated boundedness.",
+      "residual_risks": [
+        "Results concern a mathematical population model and do not by themselves predict biological trajectories, coexistence, or establishment."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

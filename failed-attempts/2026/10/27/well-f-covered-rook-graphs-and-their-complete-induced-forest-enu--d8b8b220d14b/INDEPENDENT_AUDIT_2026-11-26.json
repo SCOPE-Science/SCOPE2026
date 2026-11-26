@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:35:22.965922Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The selected rook vertices are edges of K_{p,q}; their induced line graph is a forest exactly when the selected edges form a linear forest. Opposite-shore unsaturated vertices in different components could be joined; if an A vertex is unsaturated, a B vertex must also be unsaturated because 2q exceeds the forest bound, and all components have an unsaturated vertex. This forces a spanning path and hence p=q. Otherwise A is saturated and has 2p selected incidences, which gives maximality in the unbalanced case. Counting alternating labeled paths gives the stated exponential series: equal positive shore sizes give one orientation choice from the A end, and unequal sizes require division by two. For maximal unbalanced forests c paths use p+c B vertices and the ordered positive compositions of p supply the binomial coefficient, with c! for unordered paths. Complements give the feedback-vertex-set claim. Independent rook-adjacency enumeration of all 64 subsets of the 2-by-3 board and all 32,768 of the 3-by-5 board confirms the counts and maximality, including the latter's 360 one-component and 180 two-component maxima. Replay: /workspace/branches/8b663860-6b9a-46da-9225-c6481a8d838e/independent_rook_enumeration.py; adjacent independent_rook_enumeration_output.txt. This finite check does not prove the general statements. Frozen verification script and output inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October 12 Finding displays the two-sort exponential series with a component marker w multiplying the nontrivial path series, including the same labeled graph and size variable."
+        ],
+        "reasoning": "At w=1 the prior enumerator has exactly the submitted coefficient formula; the prior actually covers more than all-size counts.",
+        "searches": [
+          "Resultary: complete induced-forest polynomial and component-refined rook enumeration",
+          "2026/10/12/SCOPE-induced-forest-enumerator-and-extremal-component-spectrum-of-rec--1546c7e42908/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding and Proof; VERIFICATION.md, verify.py, verification_output.txt",
+        "Resultary 1546c7e42908 and 63c5479b7a8c, both RESULT.md",
+        "Resultary e058d46fd335, balanced case only; same catalogue date as the frozen record",
+        "arXiv:2105.14339 and arXiv:2108.09146",
+        "Novotná et al., Algorithmica 83 (2021), Lemma 3",
+        "Chappell–Pelsmajer, Maximum Induced Forests of Graphs of Bounded Treewidth, abstract",
+        "ScienceDirect PII S0166218X25002872, indexed summary only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Identify (a,b,k)=(p,q,c) in the October 12 formula and specialize w=1; October 18 identifies inclusion-maximal and maximum, with size min(2p,2q,p+q−1).",
+          "The lexicographic product theorem is not a Cartesian product theorem."
+        ],
+        "reasoning": "Taking complements transfers equality of maximal and maximum forests to equality of minimal and minimum feedback vertex sets, leaving no novelty in that corollary. The exact coverage comes from the earlier catalogue records, not merely generic published methods.",
+        "searches": [
+          "Both October Findings at mirror offset 0; compare with frozen Finding and proof steps 2–4",
+          "arXiv:2108.09146v1 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 18 Finding works in both board-cell and line-graph representations and gives the same balanced Hamiltonian path and unbalanced degree-two conditions.",
+          "Novotná et al. establish the generic transfer to vertex-disjoint paths; Jafarpour-Golzari Theorem 6.15 and Corollary 6.16 concern the underlying K_{p,q}, not its line graph."
+        ],
+        "reasoning": "The reformulation introduces no new class of sets relative to October 18; it also explains why the complete-bipartite purity theorem alone is not equivalent.",
+        "searches": [
+          "Resultary: rectangular rook graph well-f-coveredness; maximal linear forests of complete bipartite graphs; line graphs and feedback vertex sets",
+          "arXiv:2105.14339",
+          "Novotná et al., Subexponential-Time Algorithms for Finding Large Induced Sparse Subgraphs, Lemma 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "October 12 gives the exact balanced (p!)² and unbalanced p!q! binomial quotient, the same allowed c values and zero otherwise. October 18 explicitly gives purity and the same common size."
+        ],
+        "reasoning": "The indexed formulas cover the exact labeled profile for all parameters, not just coinciding finite examples.",
+        "searches": [
+          "Resultary: rook graph component spectrum and extremal labeled counts",
+          "2026/10/12/SCOPE-induced-forest-enumerator-and-extremal-component-spectrum-of-rec--1546c7e42908/RESULT.md",
+          "2026/10/18/SCOPE-purity-and-complete-forest-enumeration-of-rectangular-rook-graph--63c5479b7a8c/RESULT.md"
+        ]
+      },
+      "rationale": "The 2026-10-12 catalogue record gives a stronger enumerator and the identical extremal profile on the same labeled graphs; the 2026-10-18 record explicitly covers the identical maximality classification and size. These are distinct records and verified statement-level overlaps, not title hits or a claim about order within a shared date. No substantive claim remains outside their joint coverage.",
+      "residual_risks": [
+        "Fu–Huang, The Linear 2-arboricity of Complete Bipartite Graphs (1994), could not be text-extracted; related treatment is unresolved.",
+        "Full text of the balanced bipartite maximum-forest paper was not obtained; that does not affect the documented exact coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage and stronger component refinement",
+          "evidence": "Full EGF has w marking components; Finding gives identical N_{a,b,k}, allowed k, and balanced count.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-induced-forest-enumerator-and-extremal-component-spectrum-of-rec--1546c7e42908/RESULT.md",
+          "material_read": "Finding, assumptions and initial transfer; mirror offset 0, plus component derivation around offset 5700",
+          "method": "Bounded local mirror reads, specialization and parameter comparison",
+          "title": "Induced-forest enumerator and extremal component spectrum of rectangular rook graphs",
+          "trigger": "Component-marked enumerator and matching extremal profile"
+        },
+        {
+          "assessment": "Direct coverage of purity, characterization and enumerator",
+          "evidence": "Explicitly says every inclusion-maximal induced forest is maximum; balanced Hamilton paths, degree two at each small-shore vertex otherwise.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-purity-and-complete-forest-enumeration-of-rectangular-rook-graph--63c5479b7a8c/RESULT.md",
+          "material_read": "Finding, assumptions and exact translation at offset 0; proof around offset 4700",
+          "method": "Bounded local mirror reads, direct formula comparison",
+          "title": "Purity and complete forest enumeration of rectangular rook graphs",
+          "trigger": "Purity and exact forest polynomial"
+        },
+        {
+          "assessment": "Different graph in cited result",
+          "evidence": "The cited theorem classifies K_{r,s}, not L(K_{r,s}).",
+          "identifier_or_url": "https://arxiv.org/abs/2105.14339",
+          "material_read": "Theorem 6.15 and Corollary 6.16, p. 15, offset about 33250; abstract",
+          "method": "OA original passage",
+          "title": "Graphs whose all maximal induced forests are of the same order",
+          "trigger": "Cited well-f-covered classification"
+        },
+        {
+          "assessment": "Covers translation; not the specialized counts in the inspected lemma",
+          "evidence": "Induced forests in line graphs correspond to vertex-disjoint path collections.",
+          "identifier_or_url": "Novotná et al., Algorithmica 83 (2021), Lemma 3",
+          "material_read": "Lemma 3 and proof, p. 11, offset about 32700",
+          "method": "OA original passage",
+          "title": "Subexponential-Time Algorithms for Finding Large Induced Sparse Subgraphs",
+          "trigger": "General induced-forest correspondence for line graphs"
+        },
+        {
+          "assessment": "Different product in inspected statement",
+          "evidence": "Lexicographic rather than Cartesian products.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.09146",
+          "material_read": "Abstract, p. 1",
+          "method": "OA bounded read",
+          "title": "On well-f-coveredness of lexicographic product of graphs",
+          "trigger": "Cited product result"
+        },
+        {
+          "assessment": "Unresolved; not used to establish novelty or coverage",
+          "evidence": "Summary concerns balanced bipartite graphs generally; access attempt returned HTTP 403.",
+          "identifier_or_url": "ScienceDirect PII S0166218X25002872",
+          "material_read": "Indexed summary only, full text not available in attempted read",
+          "method": "Websearch and access attempt",
+          "title": "On maximum induced forests of the balanced bipartite graphs",
+          "trigger": "Focused published literature search for neighboring maximum forest problems"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Purity and the size/component data would be useful for the natural rook-graph feedback problem, but the submission adds no scientific content beyond the already available classification and stronger component enumerator. The bounded reproduction corroborates their common result and is not a separate finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

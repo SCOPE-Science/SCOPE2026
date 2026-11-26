@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:40:53.580680Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A nonempty induced vertex set is connected iff it is a singleton or hits multiple parts. Subtract the empty set and, disjointly, nonsingleton subsets of each part from the full Boolean cube. For a frequency S the sum over the subsets of part i factors as a product of 1+(-1)^{1_{v in S}}, so it is 2^{n_i} for a missed part and zero otherwise. Subtracting the singleton and empty contributions gives the claimed multiplier, with the full cube term 2^N only at S=0. Orthonormal Walsh characters diagonalize the operator after unit normalization; eigenvalue magnitudes are singular values. Their common parity is N+r-1 mod 2. If N+r is odd, an all-parts-hit frequency of weight (N+r-1)/2 is feasible in [r,N] and has multiplier zero. If N+r is even, an all-parts-hit frequency of weight (N+r)/2 in [r,N] has multiplier -1, also in the complete graph edge case N=r. The zero-frequency cardinality is maximal by the triangle inequality. Each proper missed-part set defines a disjoint class, counted by the stated coefficient, and the empty character has positive multiplier. Comparing nullity with the relevant binomial layer costs at most twice the union bound sum_i 2^{N-n_i}; Stirling at a bounded offset from N/2 gives the stated relative O_r(1/N) error. Finite independent replay used graph search on each induced subset then direct integer character sums; 479 assertions for 136 nondecreasing shapes (2<=r<=6, each size <=6, N<=11) corroborated parity and the minimum invertible singular value. For (2,2), (2,3), (3,4), respectively, (nullity, maximum absolute eigenvalue) equals (0,13), (12,26), (34,112). Replay details: /workspace/reviews/evidence/5-walsh-replay.md. The frozen verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The corpus comparison also obtains a smallest positive singular value of 2 in the singular parity. Tittmann–Averbouch–Makowsky treat joins and bipartite subgraph component polynomials; Liao–Hou treat Q-uniqueness."
+        ],
+        "reasoning": "The same-operator result strictly subsumes the gap/conditioning claims; the ordinary graph polynomials chiefly supply the underlying connected-set count and do not alone prove the signed spectrum.",
+        "searches": [
+          "Resultary 9d3a9242b352, Finding and proof Steps 3–5",
+          "arXiv:0812.4147 Theorem 18 and Corollary 19; arXiv:1311.6856 Theorem 4.5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9d3a9242b352 complete result and metadata",
+        "Tittmann–Averbouch–Makowsky arXiv:0812.4147",
+        "Liao–Hou arXiv:1311.6856"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Step 5 explicitly bounds |nullity-binomial(N,(N+r-1)/2)| by 2 sum_i 2^{N-n_i}, without a balance hypothesis, though its displayed asymptotic in the Finding uses n_i=N/r+O(1)."
+        ],
+        "reasoning": "Dividing that bound by 2^N and assuming each n_i>=cN gives at most 2r·2^{-cN}. Standard fixed-offset Stirling gives exactly the other recorded error term. Replacing near-equal part sizes by linear lower bounds does not leave a substantive uncovered remainder.",
+        "searches": [
+          "Resultary 9d3a9242b352 complete RESULT.md, Step 5 general error bound and asymptotics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full public RESULT.md for 9d3a9242b352 studies the identical connected-vertex-set indicator and unnormalized XOR convolution. Its t is r, w is K, and J is Z. N-r and N+r have the same parity."
+        ],
+        "reasoning": "The single multiplier expression in the companion record reduces to both branches of the assigned formula, with multiplicities at the exact same vertex frequencies. Hence this is the same spectral problem, not a related adjacency eigenvalue theorem.",
+        "searches": [
+          "Resultary: complete multipartite connected vertex subsets Walsh XOR convolution multipliers parity nullity",
+          "Web: complete multipartite connected vertex sets Walsh XOR convolution Boolean Fourier spectrum nullity multivariate node reliability connected set polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9d3a9242b352 has exactly the polynomial coefficient formula over proper missed-part sets, not just small examples. It also records rank 16 for (2,2) and rank 20 with nullity 12 for (2,3)."
+        ],
+        "reasoning": "Its formula evaluates every shape, including the assigned additional example (3,4); a different example does not add an independent exact invariant.",
+        "searches": [
+          "Resultary: complete multipartite connected vertex subsets Walsh XOR convolution multipliers parity nullity",
+          "Resultary 9d3a9242b352 exact nullity and Examples"
+        ]
+      },
+      "rationale": "The separately indexed same-date record 9d3a9242b352 covers the same operator, every multiplier, the equivalent parity, the exact same coefficient formula and more spectral information. Its proof already gives the quantitative error bound for all part sizes; the apparent broader asymptotic is obtained from that displayed inequality by inserting the different part-size bound and applying the standard Stirling estimate. This is direct corpus overlap, not a claim as to which authors or same-date records have historical priority.",
+      "residual_risks": [
+        "The shared publication date does not by itself establish chronological priority within that day. The decision is based on mathematical coverage and duplication, not a claim of copying or historical first authorship."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full record; stronger gap theorem and same all-shape error bound",
+          "evidence": [
+            "Same unified multiplier and zero-count generating product; Step 5 has the unconditional union bound used by the assigned asymptotic; recorded publication date is the same UTC date 2026-11-22."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-parity-rigid-walsh-recovery-from-connected-vertex-sets-of-comple--9d3a9242b352/RESULT.md",
+          "material_read": "Complete Finding and Steps 1–5, examples and limitations; companion METADATA publication date",
+          "method": "Published repository mirror",
+          "title": "Parity-rigid Walsh recovery from connected vertex sets of complete multipartite graphs",
+          "trigger": "Direct equivalent/stronger indexed claim"
+        },
+        {
+          "assessment": "Underlying combinatorial enumeration, not the identical operator",
+          "evidence": [
+            "The cross-part term in Theorem 18 counts all subsets meeting both joins and weights them as connected; it is a scalar size-indexed polynomial."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0812.4147",
+          "material_read": "Join decomposition, Theorem 18 and Corollary 19",
+          "method": "Public PDF text",
+          "title": "The Enumeration of Vertex Induced Subgraphs with respect to the Number of Components",
+          "trigger": "Foundational connected-set formula for graph joins"
+        },
+        {
+          "assessment": "Q-uniqueness, not XOR nullity",
+          "evidence": [
+            "Theorem 4.5 characterizes complete bipartite graphs by Q, not frequencies or singular values."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1311.6856",
+          "material_read": "Section 4.1 and Theorem 4.5",
+          "method": "Public PDF text",
+          "title": "Note on the subgraph component polynomial",
+          "trigger": "Bipartite subgraph-polynomial comparator"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The parity transition and exact convolution kernel would be meaningful as a standalone result, but here they duplicate the same operator's published spectrum/nullity. The only apparent extra range for the asymptotic is a routine substitution into the companion's explicit error bound; no independently useful new invariant or nonmechanical remainder is demonstrated. No repaired claim is proposed as accepted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

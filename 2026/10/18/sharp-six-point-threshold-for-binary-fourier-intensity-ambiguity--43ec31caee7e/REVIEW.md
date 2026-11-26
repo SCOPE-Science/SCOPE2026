@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reconstructs the exact Fourier normalization through integer autocorrelation and Walsh inversion. The independent-support case follows from the line-graph clique lemma, while dependent support geometries of cardinalities four, five, and six are exhausted by the affine dimension and the unique relation for rank-four six-sets. Exceptional circuits have all fifteen differences exactly once, yielding their exact intensity profile. Five-point independent-tuples and orbit–stabilizer give the \(28\cdot2^d\) fiber count. Integer exhaustive enumeration of all translation classes through size six in the five-dimensional Boolean cube corroborates the classification. No finite experiment substitutes for the all-dimension proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The full-text primary sources on finite-alphabet phase retrieval [1] and general cyclic/higher-dimensional crystallographic phase retrieval [2] supply the autocorrelation–homometry connection but do not establish the small-support Boolean-cube threshold or classify all six-point power-spectrum fibers. Earlier difference-set/bent-function theory already includes the exceptional \((16,6,2)\) construction; its mere existence and flat magnitudes are explicitly prior, not a discovery. The exact implication chain that remains unaccounted for is unique binary support recovery for every cardinality through five, classification of all ambiguities at six across every dimension, and the exact fiber count. A specialized older enumeration of Boolean homometric sets might subsume this claim; a historical homometric-set paper [3] was inspected only through its abstract, so that risk is explicit and not dismissed by title or search failure.
+PASS
 
-## Value — PASS
-A sharp recoverability threshold and a complete exceptional reconstruction fiber are mathematically natural invariants of binary Fourier phase retrieval. The result supplies an exact obstruction and enumerates every indistinguishable support rather than giving a single counterexample or recomputing a known design table. The distinction matters whenever identical diffraction powers cannot distinguish sparse supports in exponent-two finite groups.
+Walsh inversion recovers autocorrelation, with each nonzero value twice its unordered-pair count; its support spans the direction space. For affinely independent sets the distinct differences form the edge labels of a complete graph, and two labels sum to another label exactly for intersecting edges (disjoint edges would give a nonempty even relation). A normalized competing set gives a clique, normally a star; at size four the triangle option repeats pair differences and is impossible. The dependent size-four set is a plane, and the dependent size-five set consists of a plane and a point, whose coset is read off from the counts. At size six the direction rank lies in 3–5. In rank three, the two omitted points in the flat are determined up to translation by their difference, the sole nonzero shift with intersection size six. In rank four the unique relation has weight four or six. For weight four the counts recover the plane and the two full outer cosets, plus a singleton coset entry fixing the outer representatives' sum. Thus the representatives can only change by a common plane shift. For weight six all 15 pair differences are distinct and exhaust H minus zero; the correlation is 4δ₀+2·1_H, giving 36 on H⊥ and 4 elsewhere. Conversely that correlation fixes H and rules out every four-point relation, hence characterizes precisely these circuits. In a fixed four-flat the independent five-sets number 16·15·14·12·8/5!=2688. Their xor-sums extend each to a circuit and each circuit is counted six times, giving 448 circuits per coset. A nonzero stabilizer would have correlation six, so every orbit has 2^d members and there are 28 orbits. The displayed examples have rank four and xor zero; none of the six translates of A that contain zero is B.
 
-## Sources and limitations
-[1] Bendory–Edidin–Gonzalez, *Finite alphabet phase retrieval*, arXiv:2301.10647, full HTML Sections 2, 3, 6.1 inspected.
+## originality
 
-[2] Bendory–Edidin, *Toward a mathematical theory of the crystallographic phase retrieval problem*, arXiv:2002.10081, full HTML Section 4.1.2 and Appendix E inspected.
+PASS
 
-[3] Rosenblatt–Seymour, *The structure of homometric sets*, doi:10.1137/0603035; accessible abstract only.
+The supported distinction is the translation reconstruction threshold and the full indexed homometry-fiber classification. The six-point affine types, the flat spectrum of the classical difference sets, and counting consequences of that known difference-set structure should not be mistaken for independently novel ingredients.
 
-[4] Bent Boolean Functions research wiki, classical difference-set characterization inspected. The result excludes weighted signals, noise, and supports larger than six.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The result fixes the first nontrivial sparsity boundary for indexed binary phase retrieval and describes exactly what goes wrong there: the lost information is translation class inside one recoverable four-dimensional direction space. The complete all-dimension treatment is useful beyond the already known individual bent supports or a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

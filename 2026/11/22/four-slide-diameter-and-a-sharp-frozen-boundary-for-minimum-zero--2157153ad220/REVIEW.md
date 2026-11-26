@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact three-white characterization follows from the first force and the final two-whites propagation; the count of legal slide edges follows from the retained-two-whites intersection cliques and an explicit count of forbidden adjacent-cycle swaps. The infinite family connectivity and four-step upper bound are certified by **all** cyclic gap types for unions of two configurations, with a valid lifting lemma for gaps at least seven. The independent verifier checks all 10,713 paths through literal forcing on the complement graph, and separate enumeration checks all orders 6–18 including all-pairs shortest paths. The disjoint-example 36-sequence obstruction proves the matching four-move lower bound. No extrapolation from small orders is used.
+## correctness
 
-**Originality — PASS, qualified.** The exact minimum zero-forcing counts and unrestricted exchange metrics were already published and are explicitly credited. The presently claimed adjacency-constrained slide edge polynomial, sharp connectedness threshold, and constant sharp diameter are not implied by those unrestricted results. The inspected primary reconfiguration paper discusses a different replacement rule; the inspected graph-complement paper determines the scalar zero-forcing number. Indexed source, alias, reduction and parameter searches did not identify a covering local-slide theorem. Risk remains from unindexed literature and potential implicit stronger unpublished results; no absolute uniqueness or priority is claimed.
+PASS
 
-**Value — PASS.** Restricting transitions to actual graph edges is the natural physically local version of minimum-sensor reconfiguration. The exact family distinguishes a six-vertex frozen boundary from globally accessible optima at all larger orders; removal of quadratically many unrestricted exchanges still permits sharp constant-depth local relocation. The finite gap certificate is a reproducible general-parameter method, rather than an arbitrary finite list or a routine numeric refinement.
+With four or more whites no blue vertex has exactly one white neighbor. With three, a first force needs a cycle-distance-two pair of whites with a blue midpoint. With two whites their open cycle neighborhoods differ on a blue site: for adjacent whites use an external cycle neighbor; for nonadjacent whites the cycle neighborhoods are unequal and contain neither white. The last white has a blue neighbor. For n≥7 this gives exactly the stated predicate. Counting incidences of distance-two pairs gives n(n−3); n triples of the form {i−2,i,i+2} are counted twice and there are no triple incidences, giving n(n−4). Each slide has a unique retained pair. For cyclic distances 1,2,3,4,≥5 the eligible third-site counts are 2,n−3,4,3,4 for n≥9; the prohibited consecutive third-site pairs contribute n(n−4) from distance two, n from distance three and n from the gap of length five (at n=9 from long gaps of distance-four pairs; at n=10 twice per antipode). Subtracting n(n−2) from the unrestricted count gives the claimed edge formula. For lifting, a capped long gap of length seven retains the first two sites at each end, leaving a segment of length at least three between these neighborhoods. Every arc of length one or two among marked sites and any allowed auxiliary is consequently preserved under expansion, and no long segment becomes short. This suffices for the white-triple predicate and the complement adjacency of every swap. Independently regenerated all 23,659 profiles and all 10,713 eligible pairs and validated each of the provided paths by literal forcing and slide checks, including the auxiliary restriction. This certifies existence of short paths, not a description of all shortest paths. For the disjoint lower-bound witnesses, a three-move path would have to follow one of the 36 monotone insertion/removal schedules; none does at n=7 or n=8, and the marked cyclic distances one and two at the n=8 witness are unchanged thereafter. Separate literal enumeration gave 14 vertices, 18 edges and components 12,1,1 at n=6; (21,42,4) and (32,92,4) at n=7,8, and agreed with the formulas through n=18.
 
-**Scientific limits.** The theorem does not cover other graph-complement families or all-pairs distance distributions; the historical novelty search is not exhaustive. The included certificate and checkers support the stated science but are not external independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The verified distinct content is the constrained slide edge count, exact metric and disconnected boundary. The scalar zero-forcing number, configuration count and associated unrestricted jump geometry are prior results, not credited as original here.
+
+## value
+
+PASS
+
+This asks whether natural locally constrained moves suffice between optimal forcing sets, where unrestricted exchange can hide unreachable configurations or extra moves. It gives a sharp obstruction at six and an order-uniform sharp transition budget above it, with an exact measure of how many jumps the local constraint removes. These are structural facts about the stricter reconfiguration graph, not a recomputation of its known state count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

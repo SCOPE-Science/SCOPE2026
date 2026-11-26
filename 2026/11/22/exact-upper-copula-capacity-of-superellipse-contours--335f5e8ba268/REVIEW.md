@@ -1,24 +1,21 @@
-# Scientific review: exact upper copula capacity of superellipse contours
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The event is the equality contour, not a filled region. For every admissible center and pair of positive semiaxes, the folded first-coordinate density of the contour restriction is bounded above by \(2\) because the underlying one-dimensional marginal is Lebesgue uniform. The folded second-coordinate domination, pulled back by the strictly decreasing graph, independently bounds it by \(2|g'|\). These restrictions yield a global upper bound for every copula, without assuming it has a density. A four-sign graph submeasure with the pointwise minimum density attains this bound; the residual marginals are absolutely continuous and permit an explicit product coupling off the zero-area contour. The unique-slope-crossing computation evaluates the integral in the subunit, unit and superunit exponent regimes. The endpoints of the graph have zero mass and do not invalidate the change of variables, including for \(0<p<1\). A same-model replay of the embedded numerical diagnostic checks finite specializations and quadratures but is not used to prove infinite-parameter claims.
+PASS
 
-## Originality — PASS against inspected evidence
+Restrict any coupling to the equality contour and fold each coordinate. The supported folded graph is v=g(u), with endpoints having no marginal atoms. Its first marginal is dominated both by 2 du and by 2|g'(u)| du (pulling back the second marginal constraint through the interior graph bijection). These inequalities hold also for singular couplings. Taking the pointwise minimum saturates the mass bound. Independent fair signs split each folded density among two symmetric preimages and produce dominated unfurled marginals; the product of residual marginals divided by their common mass completes a copula, with no extra mass on the area-zero contour, or no residual needed at mass one. At any maximum the first folded contour submeasure must equal the pointwise minimum, since its difference is nonnegative with integral zero. For p≠1 the monotone absolute slope crosses one at u=a^q/(a^q+b^q)^(1/p), v=b^q/(a^q+b^q)^(1/p), with u+v=(a^q+b^q)^(1/q). For p>1 the integrated minimum is a+b-u-v; for p<1 it is u+v. With the factor two these are exactly the given branches. The p=1 constant slope gives 2 min(a,b), including the unequal-axis case. The strict comparison follows from the signed powers; substituting equal axes and differentiating gives the circle, diamond and one-sided slopes. An independent quadrature using the contour parameter t=(u/a)^p matches 18 cases: `python /workspace/audit-replay.py 3`.
 
-The eligible motivating paper by Trutschnig and Úbeda-Flores (arXiv:2610.33646v1, October 24, 2026, Theorem 4.11) bounds the mass that convex combinations of **associative** copulas assign to positive-slope chains off the diagonal. It does not evaluate maximization over **all** copulas of probability on a closed, nonlinear superellipse contour. Omladič, Vuk and Zalar (arXiv:2611.14008v1, November 10, 2026) derive compatibility tests for finite copula interpolation, not an explicit continuum contour capacity. Subsequent general capacity work by Côté and Wang (arXiv:2611.25237v1, November 18, 2026, §4.2 Proposition 6) credits Kellerer's universal closed-set covering duality; it gives an implicit optimization for *all* closed events, but does not evaluate the superellipse contour capacity as an explicit function of both axes and all positive exponents. Its §4.3 Theorem 2 concerns *convex filled* sets: their capacity is \(2\min(a,b)\) in our axes, while the **boundary** has strictly less capacity for \(p>1\). Perlman and Wellner (2011, full text) study centered circular/elliptical distributions on filled supports, not maximization of mass on an exact contour. Other mathematical-record summaries about \(L^p\)-spherical copula estimators, finite-support sum laws and elliptical geometries did not reveal an implying result; inaccessible full texts were not called not-covering based on summaries alone. Residual risk: a general graph-coupling result may already evaluate this particular curve family.
+## originality
 
-## Value — PASS
+PASS
 
-This evaluates a natural, parameterized **exact-contour** event under arbitrary dependence, where a naively appealing convex-hull projection bound gives the wrong answer for every \(p>1\). A single theorem provides the entire exponent transition, including cusp slopes at the diamond, arbitrary semiaxes, the circle/ellipse case, the maximizing submeasure and uniqueness of its folded radial distribution. Distinguishing boundary concentration from filled-region concentration is a structurally motivated statistical-dependence question, not an arbitrary numerical slice of a known table. The result is a natural complete family classification, without claiming a general arbitrary-set capacity formula.
+The supported distinct claim is the explicit arbitrary-axis all-exponent boundary evaluation, the strict diamond transition and the optimizer description for this contour family. The general capacity problem, closed-set duality and measure-overlap principle are not new. This is a bounded originality finding, not a historical-priority certification.
 
-## Closest literature and limitations
+## value
 
-- Trutschnig and Úbeda-Flores (2026), arXiv:2610.33646v1, Theorem 4.11: positive-slope chain mass within the convex hull of associative copulas; different coupling class and event geometry.
-- Omladič, Vuk and Zalar (2026), arXiv:2611.14008v1: finite-grid copula interpolation feasibility; no nonlinear continuum equality-contour formula.
-- Côté and Wang (2026), arXiv:2611.25237v1 (subsequent source): abstract closed-set cover duality and filled-convex-set capacity, not the evaluated contour formula.
-- Perlman and Wellner (2011), doi:10.3390/sym3030574: circular and elliptical copulas with filled geometric supports, not arbitrary-copula mass maximization on exact boundaries.
-- General closed-set marginal compatibility and Hall/Kellerer duality remain prior work, not claimed new.
-- Not proved: unrestricted curve capacities, entire maximizing-copula uniqueness, or multivariate higher-dimensional analogues. Independent validation and exhaustive historical-priority certification remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The optimal equality-event mass is not obtained by considering the projection lengths of the filled set. This explicit family shows exactly when that tempting bound succeeds, with a quantitative gap for every other exponent, and gives both an attaining construction and a forced distribution for its contour mass. That is a meaningful contour-specific dependence result, not just application of a numerical capacity test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

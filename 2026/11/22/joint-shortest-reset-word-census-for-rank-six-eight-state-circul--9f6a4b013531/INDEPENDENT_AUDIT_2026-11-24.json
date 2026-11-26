@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:43:20.268065Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–60; VERIFICATION.md lines 19–31",
+        "Frozen src/forward_census.cpp lines 34–56, src/reverse_census.cpp lines 39–69, and src/check_outputs.py lines 13–57 (inspected, not executed)",
+        "Frozen data/joint_histogram.csv, data/word_histogram.csv and data/summary.json",
+        "Private replay: from /workspace/branches run python3 independent_reset.py START END on each of the six specified ranges and feed the six CSVs to python3 compare_reset.py ABSOLUTE_FROZEN_DATA_DIR CSV1 ... CSV6",
+        "repairs/4/RESULT.md, corrected proof/verification description"
+      ],
+      "rationale": "I reproduced the full table independently using Python integers, not the frozen executables. The generator enumerates the 266 partitions of eight inputs into six nonempty fibers and all 8P6 injective output assignments; lexicographic cyclic conjugation gives one map per orbit. Breadth-first distances from the full subset define a shortest-path DAG. Backward suffix counting in that DAG sums each letter separately, including coincident image edges. I timed 8 fiber patterns, then exhausted contiguous ranges [0,8), [8,72), [72,136), [136,200), [200,264), [264,266), saving each range. All 5,362,560 maps yielded 670,608 representatives (576 size-four orbits, as by Burnside), and every one of the 648 joint entries and 121 word-marginal entries matched the frozen CSVs. This includes 6,928 nonsynchronizing, 663,680 synchronizing, 388,869 with one shortest word, the unique (30,110592) and (36,8) cells, both representative maps and quoted reset words, and the 1–32 range at length 10. The frozen prose incorrectly says both packaged algorithms guard overflow: the reverse guards its additions; the forward uses unchecked 64-bit arithmetic. The repair corrects that description; the claims and tables are unchanged and the independent exact computation does not rely on either arithmetic implementation.",
+      "residual_risks": [
+        "The enumeration proves only the stated fixed eight-state rank-six slice. No claim about other sizes, ranks or relabeling conventions is supported.",
+        "The two uploaded C++ programs were inspected, not executed; the independent arbitrary-precision run and comparison covered the entire census."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Szykuła–Zyzik provide shortest-reset algorithms and length experiments on much larger state sizes; not a table of shortest words.",
+          "The inspected Don–Zantema–de Bondt census and nearby literature concern length data or selected critical automata, not exhaustively this rank-six subclass.",
+          "The older circular eight-state census d2476f0a726f has rank seven, disjoint from rank six, and records thresholds."
+        ],
+        "reasoning": "Neither dominance in the state-count parameter for length experiments nor completeness over the rank-seven class covers this exact rank-six multiplicity statistic. Algorithms provide a means to compute it, not an established result for the full family.",
+        "searches": [
+          "Primary circular-automata census search (one query wave)",
+          "Szykuła–Zyzik arXiv:2207.05495, abstract and experimental section",
+          "Don–Zantema–de Bondt arXiv:1609.06853, pp. 2, 4 and 17",
+          "Resultary rank-seven defect-one census d2476f0a726f"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–29 and 62–74",
+        "repairs/4/RESULT.md, corrected literature comparison",
+        "Resultary 9f6a4b013531 (self), c9814c09eaa0 and d2476f0a726f",
+        "arXiv:2011.14404, arXiv:2207.05495 and arXiv:1609.06853"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pre-existing comparison record gives lengths only, and literal shortest-word counts in the present data vary from 1 to 32 even within length 10.",
+          "The maximum multiplicity occurs at length 30; the known threshold extremizer of length 36 has multiplicity 8."
+        ],
+        "reasoning": "The multiplicity is not determined by the threshold. A labelled shortest-path sum per map and a family-level aggregation are needed, even though the underlying shortest-path counting technique is elementary.",
+        "searches": [
+          "Resultary c9814c09eaa0, Finding and first-singleton BFS proof",
+          "Frozen RESULT.md lines 21–23 and 37–44, independent comparison of length-10 cells"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The joint invariant is the minimal accepted length of the reset language together with its literal word count at that length, with both alphabet symbols distinguished.",
+          "Hoffmann's inspected work treats state complexity of the language and complete reachability, including rank-(n-1) restrictions, rather than these accepted-word counts."
+        ],
+        "reasoning": "State complexity does not specify the reset language or the number of words of minimum length. Relabelings that preserve the distinguished 8-cycle are its centralizer, the rotations used in the census; allowing arbitrary relabeling in a representation with the cycle normalized does not yield any extra identifications of second-letter maps. Swapping the distinct letters is not the claimed equivalence.",
+        "searches": [
+          "Resultary: circular automata rank-six shortest-reset-word multiplicity census eight states joint distribution",
+          "Hoffmann arXiv:2011.14404, abstract and Proposition 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local search returns the assigned record itself, 9f6a4b013531, and the distinct same-day same-family threshold census c9814c09eaa0.",
+          "The latter documents 670,608 rotations, 6,928 nonsynchronizing classes, and the unique threshold 36, but its breadth-first computation stops at the first singleton and its output classifies lengths, not all shortest labelled paths."
+        ],
+        "reasoning": "The matching database covers the exact length marginal; it was inspected instead of dismissed on date. It does not provide the 648 joint cells, 121 multiplicity values or the unique multiplicity maximum. No priority order within the shared date is established.",
+        "searches": [
+          "Resultary: circular automata rank-six shortest-reset-word multiplicity census eight states joint distribution",
+          "Mirrored rank-six threshold spectrum c9814c09eaa0, Finding/Proof at offset 0 and comparison at offset 6997"
+        ]
+      },
+      "rationale": "Only the joint shortest literal word multiplicities and their new extremal information are credited. The same-day same-family threshold spectrum, orbit count, and threshold extremizer are explicitly cited and excluded from the distinct contribution. No order within that date is inferred.",
+      "residual_risks": [
+        "Same-day comparison establishes overlap in the length marginal, not timestamps or priority.",
+        "An unindexed earlier multiplicity table remains possible; the ScienceDirect full text was unavailable and no negative claim is based on the snippet."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact length-marginal match; no literal shortest-word multiplicity table in the inspected census.",
+          "evidence": [
+            "The BFS finds the first singleton; 670608 orbits, 6928 nonsynchronizing, unique length 36."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-exact-reset-threshold-spectrum-of-eight-state-circular-rank--c9814c09eaa0",
+          "material_read": "Mirrored RESULT.md Finding and Proof (offset 0), Relationship to prior work and Limitations (offset 6997)",
+          "method": "Local Resultary mirror",
+          "title": "The exact reset-threshold spectrum of eight-state circular rank-six automata",
+          "trigger": "Exact same objects, rank and orbit counts"
+        },
+        {
+          "assessment": "Reachability and language state complexity, not exact minimal-length word counts by rank-six class.",
+          "evidence": [
+            "Proposition 3 addresses a rank-(n-1) letter and reachability of (n-1)-subsets."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2011.14404",
+          "material_read": "Abstract p. 1 and Proposition 3 p. 5 (offsets 703 and 14935)",
+          "method": "Open-access PDF",
+          "title": "State Complexity of the Set of Synchronizing Words for Circular Automata and Automata over Binary Alphabets",
+          "trigger": "Potential equivalent formulation via reset language"
+        },
+        {
+          "assessment": "Computational method and length experiments, not this exact table.",
+          "evidence": [
+            "Random binary automata up to 570 states in the length experiments."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2207.05495",
+          "material_read": "Abstract p. 1 and experimental p. 4 (offset 15402)",
+          "method": "Open-access PDF",
+          "title": "An Improved Algorithm for Finding the Shortest Synchronizing Words",
+          "trigger": "Possible general algorithm and reported rank-six data"
+        },
+        {
+          "assessment": "The inspected passages report lengths, small-state data and individual critical examples, not the full rank-six joint census.",
+          "evidence": [
+            "Discussion of eight-, nine- and ten-state two-letter results focuses on critical examples."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1609.06853",
+          "material_read": "pp. 2, 4 and 17; offsets 5928, 10077, 42153 and 44017",
+          "method": "Open-access PDF",
+          "title": "Slowly Synchronizing Automata with More Than One Letter",
+          "trigger": "Adjacent small-state exhaustive and critical-family results"
+        },
+        {
+          "assessment": "Different rank and length-only.",
+          "evidence": [
+            "Rank-seven defect-one second letters."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-complete-reset-threshold-spectrum-for-eight-state-circular-defec--d2476f0a726f",
+          "material_read": "Mirrored RESULT.md scope and finding",
+          "method": "Local Resultary mirror",
+          "title": "Complete reset-threshold spectrum for eight-state circular defect-one automata",
+          "trigger": "Older adjacent circular census"
+        },
+        {
+          "assessment": "Not used as evidence that the full paper lacks the table.",
+          "evidence": [
+            "Reported topic is language state complexity; exact coverage remains unverified."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0890540123000792",
+          "material_read": "Search description only; full-text access returned HTTP 403",
+          "method": "Lawful open-access attempt",
+          "title": "Binary/circular automata state-complexity source",
+          "trigger": "Primary search returned a plausible related source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "repairs/4/RESULT.md, Finding and scope",
+        "Frozen data/joint_histogram.csv and data/word_histogram.csv, replicated exactly",
+        "Resultary same-family threshold census c9814c09eaa0"
+      ],
+      "rationale": "This is the complete multiplicity classification of the same eight-state defect-two circular stratum whose length distribution was already a studied finite census, not an arbitrary small instance. Literal shortest words distinguish automata with the same threshold and measure how many minimal control sequences are available. The complete table and sharp witness show that the longest-threshold automaton is not the multiplicity extremizer, and give exact benchmark counts for independent algorithms or later structural work. No new shortest-path algorithm or extrapolation is credited.",
+      "residual_risks": [
+        "Finite classification only, and shortest-word counts are not a model of robustness to arbitrary errors in a control sequence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

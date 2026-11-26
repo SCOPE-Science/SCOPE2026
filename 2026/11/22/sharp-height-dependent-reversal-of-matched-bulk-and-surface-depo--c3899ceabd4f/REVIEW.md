@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The Robin Green profile satisfies the homogeneous differential equation away from the center, the two endpoint flux laws, and the exact derivative jump at the emitting sheet. Positivity of the Robin energy gives uniqueness. Two strict hyperbolic-function inequalities establish that the local/global ratio starts below one, crosses it exactly once on each half-slab, and peaks above one at the midplane. Direct integration establishes the strict height-mean excess. The semigroup argument proves the limited long-exposure dose implication. The standalone supplementary checker passed the exact elementary case and 504 positive-parameter numerical configurations; numerical checks are not substituted for the infinite-parameter proof.
+PASS
 
-## Originality (PASS, bounded by inspected literature)
+The proof concerns a symmetric one-dimensional passive-scalar slab with a midplane sheet source of strength per unit horizontal area, not a three-dimensional point emitter. On either half the hyperbolic profile obeys the homogeneous ODE, with the Robin slope at the boundary and inward-coordinate slope Q/(2D) at the midplane, giving the correct source jump. Uniqueness follows from the homogeneous energy identity with positive bulk and boundary terms. The matched bulk value is Q/[2Dk(a+t)] in the paper's variables. Its ratio comparison uses a strictly increasing half-profile F with F(0)=1; (a+t)(B-1)=sinh(a)-a+t(cosh(a)-1)>0 and (a+t)(F(L/2)-B)=a cosh(a)-sinh(a)+t(a+t)sinh(a)>0. Hence there is exactly one crossing per half; the quadratic in exp(kz) is negative at 1 and increases through its larger root above 1, which is the displayed root. The exact mean sign follows independently by subtracting the two steady balances: rL times the mean difference equals 2Dkappa times the uniform value minus the wall value, strictly positive. The stated explicit mean follows by integrating the profile. For the switch-on claim in the proof, the passive Robin semigroup is sub-Markovian with the bulk factor exp(-rT), so the time integrals equal their steady values times T up to bounded remainders. Strict ordering is for each fixed height off the crossings, common positive breathing and a strictly increasing response, not a uniform exposure time or a claim at the crossings. The supplied finite checker was inspected, not executed.
 
-Bansal, Kaouri and Woolley, *Extending indoor airborne infection risk modelling to 3D, with local surface deposition* (arXiv:2611.13372; first public 9 November 2026), motivates this comparison and states model equations and numerical risk comparisons. Its inspected Sections 1–4 and Appendix B do not give the exact surface-to-volume-calibrated planar-source threshold, its all-positive-parameter sign pattern, or the strict mean bias. Xue et al. (arXiv:2408.11772) study the globally removed original VIRIS model. Pretty et al. (arXiv:2309.16332; DOI 10.1017/S0956792526100485) do report locations where a global ventilation approximation over- or underpredicts local ventilation, so generic sign reversal is explicitly **not** claimed as new. Aquino (DOI 10.1017/jfm.2024.294) develops Robin-wall channel-transport profiles but not this point-driven stationary model-pair comparison. Broad historical Robin Green-function methods remain prior art. Equivalent unpublished or unindexed formulas remain a priority risk.
+## originality
 
-## Value (PASS)
+PASS
 
-The numerical epidemiological comparison asks whether replacing local wall deposition by a global sink consistently underestimates infection risk. The exact minimal-slab result gives a structural answer that differs by receiver height: the same globally calibrated replacement overestimates near reactive surfaces, underestimates at the emitting plane, and underestimates even the spatial mean. The explicit height threshold exists for every positive transport and deposition choice, with an exact rational-exponential example. It is a benchmark for where a height-averaged approximation can or cannot be conservative, not a disease-outbreak prediction. Its simultaneous mean/local sign pattern and exact threshold are the motivated contribution, not the classical Green formula alone.
+The models and the possibility of spatial sign reversals are not new. The inspected precedents do not supply the exact two-level crossing classification and simultaneously strict mean bias for every positive parameter in the stated matched symmetric slab.
 
-## Closest work and remaining risks
+## value
 
-The closest scientific source is Bansal et al. (2026), whose full-text numerical study is more realistic spatially but lacks the claimed universal analytic threshold on this reduced geometry. Pretty et al. (2023/2026) already investigate a different local-versus-global removal phenomenon. Aquino (2024) and standard reaction–diffusion theory make the Robin solution technique familiar and leave a credible risk of older equivalent textbook or applied mathematical statements. The actual calibration and horizontal-sheet emitter restrict direct transfer to clinical buildings. These limitations do not alter the stated theorem's quantified domain.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The model pair is motivated by whether replacing boundary losses with a matched volume loss preserves concentration ordering. The exact all-parameter result gives a concrete counterexample to a one-sided approximation: the model underestimates the mean while overestimating near both boundaries, with exactly determined sign regions. The simultaneous signs and exact count add usable information beyond the standard Green function or a numerical sign-reversal example. The value is limited to this passive, symmetric idealization, not a prediction for real rooms or a validation of an empirical calibration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

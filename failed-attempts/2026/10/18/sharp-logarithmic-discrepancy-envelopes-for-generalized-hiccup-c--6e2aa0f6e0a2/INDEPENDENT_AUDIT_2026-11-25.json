@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:40:28.295683Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write w_i=1 for membership in the range. Since g(j)>j, the segment after g(j−1) through g(j) is σ(w_j), where σ(0)=0^k1 and σ(1)=1. The initial segment is 0^(x−1)1, so dropping the first zero yields z=0^q1 σ(z). Iterating proves the exact word and confirms the indexing T_h. Give 0 weight 1 and 1 weight −(k−1). The W_h block has total 1, minimum prefix weight 0 with empty prefix allowed, and maximum 1+h(k−1) obtained by always choosing the last child in W_{h+1}=W_h^k1. At stage h the base is 1+h(q−k+1), the peak is this base plus (q−1)+1+h(k−1), and only the final root can take the stage below its base. This gives both exact extrema; endpoints and last-child prefixes attain them. Uniformly in the stage log_k n=h+O(1) for fixed k≥2 and x≥3, giving both slopes and density. The checker was inspected, not run; finite tests are not used for the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ruskey–Deugau gives exact inverse positions and leading density for meta-Fibonacci sequences, including the specialization x=k+1 identified in Cloitre Prop. 4.2.",
+          "The Gaussian record uses the full k≥2, x≥3 family, with its parameter t=x−2, not just x=k+1."
+        ],
+        "reasoning": "The older special-case inverse formulas are not by themselves evidence of general coverage. The full parameter range is covered by the deterministic proof data in the indexed Gaussian result.",
+        "searches": [
+          "Ruskey–Deugau, The Combinatorics of Certain k-ary Meta-Fibonacci Sequences, Thms. 25, 27, 28 and 31",
+          "Resultary SCOPE-gaussian-fluctuations-of-generalized-hiccup-complements--315f0e428cca, §§1–4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen result and supporting verification files",
+        "Cloitre, Props. 4.2–4.3",
+        "Fokkink–Joshi, Lemma 5",
+        "Ruskey–Deugau, Thms. 25, 27, 28, 31",
+        "OEIS A045412",
+        "Resultary Gaussian-fluctuations record 315f0e428cca"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq. (1) bounds nonempty W_h prefix weights between 1 and 1+h(k−1); its preceding-copy formula attains the upper bound by the last copy at every level followed by W_0, with no further extremal estimate.",
+          "§3 states that earlier full stages contribute h(q−k+1) plus the initial 1, and previous W_h copies contribute unit increments. Applying Eq. (1) with copy index q−1 yields the exact top; no interior nonempty prefix can beat the minimum of the stage endpoints. The common logarithmic scale turns these sharp bounds into the slopes."
+        ],
+        "reasoning": "This is direct substitution into the deterministic formulas and a choice of maximal digits, not an inference from a central limit theorem or from density. No chronological priority is assigned between the same-day records.",
+        "searches": [
+          "Gaussian-fluctuations RESULT.md §1 Eq. (1) and its proof, §3 preceding-sibling formula and offsets",
+          "Cloitre Prop. 4.3 / Eq. (4.5)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cloitre Prop. 4.3 identifies missing integers with the zeros of 0∏(W_h^q1); weighted prefix discrepancy is precisely D. Fokkink–Joshi Lemma 5 supplies the related morphic construction.",
+          "The Resultary Gaussian record §1 uses exactly the same D and prefix increments; §3 gives the additive full-stage and within-branch offsets."
+        ],
+        "reasoning": "These are descriptions of the same deterministic statistic; the distributional theorem and the stage extrema are not equivalent, but the proof of the former supplies explicit deterministic data for the latter.",
+        "searches": [
+          "Generalized Cloitre hiccup complements, weighted postorder tree prefixes and meta-Fibonacci inverse positions (literature and Resultary)",
+          "Cloitre arXiv:2610.13908v1 Props. 4.2–4.3",
+          "Fokkink–Joshi arXiv:2507.16956v4 Lemma 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A045412 gives the particular recurrence, not a two-parameter stage-extrema theorem.",
+          "The local index exposes the separate Gaussian-fluctuations record with full proof, not merely a shared title or numerical instances."
+        ],
+        "reasoning": "No single-parameter table settles the all-stage law. The indexed proof is the material overlap.",
+        "searches": [
+          "OEIS A045412 (k=2,x=3)",
+          "Resultary same-family discrepancy and fluctuation lookup"
+        ]
+      },
+      "rationale": "A distinct contribution is not established against the indexed Gaussian-fluctuations record on the same model. Its displayed prefix bound, exact preceding-sibling increments, full-stage offsets, and explicit postorder word give both extrema and the extremizing prefixes by a direct readout. Its main Gaussian limit by itself would not imply either extremum. The two records are dated the same day; this comparison establishes mathematical coverage by the published proof, not priority or order of discovery.",
+      "residual_risks": [
+        "Same catalog date does not identify which analysis came first.",
+        "An older account may explicitly work out some or all of the digit-extremal consequences; the correctness decision does not depend on locating one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The Gaussian statement is different, but the proof gives all deterministic data and exact recursive increments needed for immediate attainment and both stage extrema.",
+          "evidence": [
+            "A prefix in child c has discrepancy c+Δ(v).",
+            "Earlier full stages contribute j(t−(k−1)) and the initial letter contributes 1; each earlier sibling contributes its unit total."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-gaussian-fluctuations-of-generalized-hiccup-complements--315f0e428cca",
+          "material_read": "RESULT.md Finding; §1 Eq. (1) and proof (offset about 2200); §§2–4 including preceding siblings and full-stage offsets (through about offset 6863)",
+          "method": "Configured local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Gaussian fluctuations of generalized hiccup complements",
+          "trigger": "Same two-parameter D, hierarchical stages and prefix height"
+        },
+        {
+          "assessment": "Exact sequence structure already covered, stage-extrema statement not identified in the inspected propositions.",
+          "evidence": [
+            "Eq. (4.5) gives the full word; Prop. 4.2 includes a nested recurrence and identifies the meta-Fibonacci specialization."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.13908v1",
+          "material_read": "Props. 4.2–4.3, HTML offsets about 21224 and 24575",
+          "method": "OA HTML passage inspection",
+          "title": "Counting with Hiccup Sequences",
+          "trigger": "Original source for the exact word"
+        },
+        {
+          "assessment": "Covers the morphic description, not an explicit discrepancy-extrema assertion.",
+          "evidence": [
+            "Lemma 5 represents hiccup sequences by a parameterized morphism."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2507.16956v4",
+          "material_read": "Lemma 5, HTML offset about 16755",
+          "method": "OA HTML passage inspection",
+          "title": "On Cloitre’s hiccup sequences",
+          "trigger": "Upstream morphic description"
+        },
+        {
+          "assessment": "Exact formulas and leading density in the relevant family, with the special x=k+1 overlap; no two-parameter stage law identified there.",
+          "evidence": [
+            "Thm. 31 connects the Cloitre–Sloane case; Thms. 25 and 27 give positions, Thm. 28 the leading asymptotic."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL12/Ruskey/ruskey6.pdf",
+          "material_read": "Thms. 25, 27, 28, 31; PDF pp. 25–30",
+          "method": "OA PDF passage inspection",
+          "title": "The Combinatorics of Certain k-ary Meta-Fibonacci Sequences",
+          "trigger": "Exact inverse-position formulas may subsume a parameter slice"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Sharp deterministic bounds for all indices are a natural question distinct from typical fluctuations. Here the contribution beyond the available prefix decomposition and bounds is the mechanical choice of the last child at each level and a stage offset. The exact restatement is useful exposition but no independent extremal phenomenon beyond that readout is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

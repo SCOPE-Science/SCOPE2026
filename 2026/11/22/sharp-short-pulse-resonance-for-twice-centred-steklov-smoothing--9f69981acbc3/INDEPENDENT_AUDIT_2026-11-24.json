@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:41:31.026869Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–80",
+        "VERIFICATION.md and check.py (inspected, not executed)",
+        "branches/frozen_review_checks.py"
+      ],
+      "rationale": "Normalize the two Jordan parts of the circular derivative by V/2, and pair them to express the function modulo constants as a probability average of oriented arc indicators times V/2. Equality can be checked by the Hilbert-space variance identity: the residuals must all equal one maximizing residual. The multiplier 1−sinc²(πka) is nonzero for k≠0, so equality of residuals identifies the arc modulo constants. For the arc energy F(L), expansion of (I−T_a)^2 gives F(L)=L+2∫₀ᴸ(L−x)(K_a*K_a−2K_a)(x)dx, using circular kernels. The unwrapped four-box spline gives F(az)=aΦ(z) for z≤1; no translate contributes even at a=1/3 and z=1. The quartic is strictly convex with opposite endpoint signs and has exactly one root on (0,1). Beyond a, F''≥0 all the way to 1/2 even with wrapping, so F'≤0 by symmetry. The strict decrease from ar to a rules out every other length except the complementary one. For a≤1/4 integration of the outer spline gives the a/5 plateau; V=2 for a unit arc gives the claimed squared-norm factor 1/4. Exact independent spline-integral, root-enclosure and plateau checks passed; replay from /workspace with python3 -I -B branches/frozen_review_checks.py.",
+      "residual_risks": [
+        "The finite checks supplement the exact proof. Nothing is established for a>1/3, a forward-shifted residual, or another norm."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The available Mejía–Silvestre abstract concerns higher p-variation and continuity moduli; the frozen comparison specifies iteration of a forward mean.",
+          "The recorded comparisons identify Lipschitz/Orlicz approximation rates for Costarelli–Vinti and variation convergence for Angeloni et al., both for sampling-Kantorovich schemes."
+        ],
+        "reasoning": "A rate for a reconstruction scheme with a related B-spline window does not give the exact operator norm or equality rigidity for the continuous convolution residual. No stronger applicable statement was identified in the available evidence.",
+        "searches": [
+          "Focused literature search: sharp Steklov BV inequalities, convolution residuals and translation moduli",
+          "arXiv:1411.2261",
+          "DOI:10.1515/math-2022-0573"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md and AUDIT.json prior comparisons",
+        "DOI:10.1155/2015/253636 (abstract excerpt)",
+        "Resultary 6487b872031e, 7a0bf76b866b, 7bee99d6a8aa, c40138cba6b6 (summaries)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strongest qualitative analogue has an interacting pair of jumps for fractional heat of orders between one and two in the short-time regime. The assigned quartic comes instead from the compactly supported fourfold box spline and exact circle wrapping control."
+        ],
+        "reasoning": "An asymptotic pulse theorem for the exponential fractional-heat multipliers does not give an exact all-bandwidth result for sinc², which has spectral zeros for rational widths and a different, compactly supported kernel. The analogues credit the mechanism but do not supply the new quantitative classification.",
+        "searches": [
+          "Resultary 7a0bf76b866b (fractional heat two-jump pulse)",
+          "Resultary 7bee99d6a8aa (Gaussian heat jump extrema)",
+          "Resultary c40138cba6b6 (Fejér mean-square error)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 6487b872031e describes the forward boxcar residual and semicircle extremizers; it is not the assigned centered double average.",
+          "RESULT.md lines 27–34, 38–56 give the equivalent triangular B-spline convolution and periodic arc-energy formulations."
+        ],
+        "reasoning": "Translation of the smoothing operator is not translation of its error relative to the identity. In particular, a phase inside 1−m(k) alters its modulus; neither forward boxcar nor forward repeated averaging is the same residual.",
+        "searches": [
+          "Resultary: sharp circular BV-to-L2 residuals and pulse extrema",
+          "Mejía–Silvestre, DOI:10.1155/2015/253636"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record itself was returned; this is not a distinct overlap. Indexed 6487b872031e, 7a0bf76b866b, 7bee99d6a8aa and c40138cba6b6 concern forward boxcars, fractional heat, Gaussian heat and Fejér means respectively."
+        ],
+        "reasoning": "The available indexed claims do not identify the exact quartic root and constant for this entire triangular bandwidth interval. Same-day dating does not settle priority and table or index nonappearance does not prove novelty.",
+        "searches": [
+          "Resultary: centered triangular Steklov norm and exact short-pulse maximizers"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact centered triangular-convolution norm throughout 0<a≤1/3 and its rigid pulse equality class. The general BV reduction and the phenomenon of interacting jump layers in other smoothers are not independently new claims. The closest available statements have different operators or conclusion strength; the comparison is provisional where only indexed summaries or frozen source inspections were available.",
+      "residual_risks": [
+        "The closest indexed records and plausible historical Steklov literature could not all be independently read in full. A kernel-general sharp inequality or earlier exact equivalent remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Available statement concerns generalized variation and continuity modulus, not the stated centered sharp norm",
+          "evidence": [
+            "Abstract describes a scale between generalized bounded variation and Sobolev spaces; frozen comparison identifies iterated forward averages."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2015/253636",
+          "material_read": "Literature-search abstract excerpt; frozen RESULT.md lines 86–98",
+          "method": "Indexed abstract and recorded comparison; OA retrieval unsuccessful",
+          "title": "Functions of Bounded kth p-Variation and Continuity Modulus",
+          "trigger": "Possible exact Steklov or BV approximation bound"
+        },
+        {
+          "assessment": "The recounted objects are discrete sampling reconstruction, not sharp residuals for centered triangular convolution",
+          "evidence": [
+            "The recorded scopes are Lipschitz/Orlicz approximation rates and convergence in variation, respectively."
+          ],
+          "identifier_or_url": "arXiv:1411.2261; DOI:10.1515/math-2022-0573",
+          "material_read": "Frozen RESULT.md lines 86–98 and its recorded distinctions, not primary text",
+          "method": "Recorded source comparison; attempted OA passage retrieval",
+          "title": "Rate of approximation for multivariate sampling Kantorovich operators on some functions spaces; Multidimensional sampling-Kantorovich operators in BV-spaces",
+          "trigger": "B-spline-window and BV estimates as potential stronger results"
+        },
+        {
+          "assessment": "Shared problem class and, for heat, pulse mechanism, but no coverage of the centered triangular exact claim in the inspected statements",
+          "evidence": [
+            "Forward boxcar flat a/6 regime and semicircle extremizers; fractional heat short-time two-jump result and α↓1 boundary law."
+          ],
+          "identifier_or_url": "Resultary 6487b872031e; 7a0bf76b866b",
+          "material_read": "Indexed statement summaries; no mirror full text obtained",
+          "method": "Resultary comparison and attempted mirror passage retrieval",
+          "title": "Forward boxcar flat-to-rigid transition; fractional heat short-pulse resonance",
+          "trigger": "Closest indexed norm and closest indexed extremizer geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 15–25, 74–92",
+        "Indexed forward-boxcar and fractional-heat comparisons"
+      ],
+      "rationale": "Twice-centered moving averages are a natural smoothing operation for periodic jump data. The separation between the worst short pulse and a pair of isolated jumps is structural: the exact squared residual is about 23.17% larger than the separated plateau where that plateau exists. The complete extremizer geometry and endpoint-valid bandwidth law give a sharp benchmark not supplied by a convergence rate.",
+      "residual_risks": [
+        "No value claim is made for predicting the large-bandwidth phase diagram or for other smoothers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

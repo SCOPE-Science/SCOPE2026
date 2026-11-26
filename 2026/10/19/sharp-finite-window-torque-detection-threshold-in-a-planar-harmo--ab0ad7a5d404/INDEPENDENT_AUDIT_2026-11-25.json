@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:19:46.204287Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a positively oriented drift eigenbasis the torque is (λ1−λ2) Z1 Z2. Stationarity gives Sii=Dii/λi and S12=2D12/k in that basis. Independently, the centered product Z1 Z2−S12 is an eigenfunction of the OU generator with eigenvalue −k, so its full stationary covariance is its variance times exp(−k|t|). Gaussian fourth moments give the instantaneous squared mean/variance ratio r/(1+r), where r=S12²/(S11 S22)=α² D12²/(D11 D22). Time averaging multiplies the variance by F(kT); strict positive definiteness bounds r strictly below α², and correlations approaching ±1 realize the supremum in the limit. The integral F(z)=2∫₀¹(1−s)e^(−zs)ds decreases strictly from 1 to 0 and is asymptotic to 2/z, proving the exact strict threshold, nonattainment at equality, and the soft-mode limit. In the Cartesian two-bath example the eigenbasis correlation has absolute value |Tx−Ty|/(Tx+Ty), so the same supremum is approached with one cold bath. The threshold time is an infimum, not an attained least time. The recorded 455 tests and verify.py were inspected, not independently executed; they are finite cross-checks, not the proof. The distinct-eigenvalue assumption excludes zero torque and an undefined ratio.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "du Buisson–Touchette equations (48)–(50) yield long-time variance for quadratic linear-diffusion observables; this is not a formula for the entire finite window or the supremum with strictly positive-definite diffusion.",
+          "The distinct October 25 Resultary finding gives a general exponential stationary drift-torque covariance and exact variance of the centered integral; after division by window squared this gives F(kT). Its date is later than the frozen record's; it does not state the optimized α-prefactor or time boundary."
+        ],
+        "reasoning": "Grant the overlap in covariance and variance, including the direct reduction of the integrated variance. The long-time formula lacks the finite-window correction; even the later exact-variance result must be combined with the bath optimization to get the audited boundary.",
+        "searches": [
+          "arXiv:2212.12022, §III.2",
+          "Resultary 0a8215d48adf, Finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2307.05248",
+        "arXiv:2201.04903",
+        "arXiv:2212.12022",
+        "arXiv:2203.07573",
+        "Resultary 0a8215d48adf",
+        "Resultary catalogue hit 8121ef0c665f (resetting, comparison limited to catalogue evidence)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cerasoli et al. equations (B1)–(B4) supply coordinate covariance information from which combining Gaussian pairing and time integration can produce a drift-torque variance in the corresponding model.",
+          "The new boundary uses the sharp inequality r<α² and attainability in the limit of correlations approaching unity, followed by inversion of F. The inspected long-time results alone would replace F by 2/z and would not give the exact finite-time boundary."
+        ],
+        "reasoning": "Credit the prior coordinate and asymptotic fluctuation results and the later broad overlap; the specific all-bath extremal statement and its strict equality behavior were not established by the inspected earlier statements.",
+        "searches": [
+          "arXiv:2201.04903, Appendix B",
+          "arXiv:2212.12022, §III.2",
+          "Resultary 0a8215d48adf, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Viot et al., equations (3)–(4) and (10), analyze noise-containing angular momentum/velocity measured from increments.",
+          "Movilla Miangolarra et al. introduce inertial flywheel dynamics and mechanical averaging, not the OU drift-only quadratic observable optimized here."
+        ],
+        "reasoning": "Neither stochastic angular momentum nor a driven flywheel is equivalent to the average of the deterministic force cross product at stationarity. Average torque and integrated centered torque differ by deterministic normalization, which was accounted for in comparing the later Resultary result.",
+        "searches": [
+          "Resultary semantic comparisons for drift torque and finite-window precision",
+          "arXiv:2307.05248",
+          "arXiv:2203.07573"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The focused ranked retrieval (up to 300 hits) surfaced the October 25 drift-orbital memory finding and a November 22 snapshot-precision result under resetting, not a matching distinct October 19 finding.",
+          "There is no parameter-table lookup needed here: the target is a functional supremum for every anisotropy and a uniquely defined transcendental root."
+        ],
+        "reasoning": "Ranked retrieval is not an exhaustive census. Both identified catalogue matches were distinguished by actual observable, scope or date, rather than by title alone.",
+        "searches": [
+          "Resultary focused semantic lookup for stationary Brownian gyrator drift-torque covariance and finite-window SNR or detection threshold"
+        ]
+      },
+      "rationale": "The supported distinction is the exact sharp diffusion-optimized finite-window SNR and its necessary-and-sufficient observation-time boundary for drift torque. The OU and Gaussian moment ingredients, and the ability to calculate a finite-window variance, are not independently claimed as novel. No earlier coverage of the optimized boundary was found in the focused catalogue and source comparison.",
+      "residual_risks": [
+        "Focused local-catalogue and cited-primary comparison, not an exhaustive external literature search; other finite-window quadratic-OU or correlation-bound work may state equivalent formulas.",
+        "Catalogue dates distinguish the identified later overlap, but do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related, different observable",
+          "evidence": [
+            "Increment-based angular momentum and angular velocity have discretization-dependent fluctuations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.05248",
+          "material_read": "pp. 2–3, equations (3)–(4), (10)",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Destructive effect of fluctuations on the performance of a Brownian gyrator",
+          "trigger": "Same physical model and torque-related fluctuations"
+        },
+        {
+          "assessment": "Coordinate covariance premise, not the sharp boundary",
+          "evidence": [
+            "The displayed two-time formulas concern voltages, not diffusion-optimized torque SNR."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2201.04903",
+          "material_read": "Appendix B, pp. 15–16, equations (B1)–(B4)",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Spectral fingerprints of non-equilibrium dynamics: the case of a Brownian gyrator",
+          "trigger": "Possible exact finite-lag covariance premise"
+        },
+        {
+          "assessment": "Covers long-time quadratic-observable variance, not finite-window optimum",
+          "evidence": [
+            "The equations characterize the asymptotic variance via the linear-diffusion calculation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2212.12022",
+          "material_read": "p. 4 equation (8), p. 10 equations (48)–(50)",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Dynamical large deviations of linear diffusions",
+          "trigger": "Broader quadratic-observable theorem"
+        },
+        {
+          "assessment": "Different dynamics and objective",
+          "evidence": [
+            "A flywheel mechanically averages fluctuations while driving an engine."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2203.07573",
+          "material_read": "p. 1, model and motivation",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Thermodynamic engine powered by anisotropic fluctuations",
+          "trigger": "Torque averaged by a mechanical device"
+        },
+        {
+          "assessment": "Later broader covariance and finite-window variance overlap; not earlier coverage of the optimized boundary",
+          "evidence": [
+            "Gives V exp(−k|t|) and variance 2V[L/k−(1−exp(−kL))/k²] for the centered torque integral."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-universal-drift-orbital-memory-and-the-node-focus-sign-boundary--0a8215d48adf",
+          "material_read": "RESULT.md Finding near offset 1694",
+          "method": "Resultary local mirror passage inspection",
+          "title": "Universal drift-orbital memory and the node–focus sign boundary in planar Gaussian transport",
+          "trigger": "Strongest distinct catalogue overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result gives an exact feasibility limit for resolving a natural stationary mechanical observable even with optimally chosen baths, rather than an asymptotic variance or a calculation at one diffusion matrix. The strict boundary and soft-mode divergence despite unchanged normalized correlation time distinguish a limitation of the signal amplitude from a limitation of temporal averaging. This is a moment-based ratio, not a confidence level, a claim about stochastic angular-velocity noise, or a guarantee for experimentally constrained baths.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

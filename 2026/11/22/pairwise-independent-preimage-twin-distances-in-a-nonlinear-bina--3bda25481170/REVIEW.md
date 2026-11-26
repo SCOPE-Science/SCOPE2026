@@ -1,19 +1,21 @@
-# Review of the preimage-twin Hamming-distance distribution
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The cyclic Boolean factorization \(F=D\sigma K\), the involution \(K^2=\mathrm{id}\), and the two-to-one fiber structure hold for every length. A uniform input to \(K\) makes each attainable output equally likely. Exact three-input truth tables establish one-coordinate conditional balance, and the three-offset supports of distinct local distance indicators have at most one shared input for all \(n\ge7\); the pairwise-independence proof is therefore exact. The consecutive-triple probability \(7/16\) differs from the independent value \(27/64\). The cyclic de Bruijn trace counts every indexed input exactly once. The polynomial factorization follows from a bounded-degree interpolation certificate. A separated-block argument proves the Gaussian limit, with only constantly many cyclic boundary terms. `verify.py` passes all stated checks after extraction. Finite enumeration alone is not the proof of the unbounded claims.
+PASS
 
-## Originality
+A trigger of K precludes triggers at each of its three guard sites; hence every old trigger persists after the simultaneous toggle. A new trigger would have a toggled guard site where an old, still present trigger precludes it. This proves involutivity even with repeated cyclic indices. Expansion gives DσK, with even-parity image and each fiber parameterized by u and its complement. Uniform u weights each fiber twice. Its distance indicators are w, whose zeros are exactly a=c≠b. For n≥7 the six directed differences of the three input offsets are distinct residues, so distinct windows share at most one bit; the probability of zero is 1/4 for either value of that bit. Three consecutive zero events would require the shared bits u_(i+1), u_(i+2), u_(i+3) to be pairwise unequal. Inclusion–exclusion therefore gives 1−3/4+3/16=7/16 for all ones. Means and variances follow. Closed walks with a specified initial step are in bijection with indexed cyclic words, for all n including n<3. An independent exact sparse-polynomial determinant expansion (/workspace/branches/6f5f3a6d-c8ab-4eac-ab99-1c807d3e5abd/charpoly_check.py) agrees coefficientwise with both quartics multiplied together. Direct fiber enumeration with /workspace/review_replay.py checks n=1–7 (n=7: 64 fibers, 28 triple successes). The CLT follows by independent length-floor(n^(1/3)) blocks separated by three indices: discarded variance is O(n^(2/3)), and at most three boundary summands change in passing to the ring. The frozen verifier evaluates the histogram/trace comparison at four z values, not coefficientwise as its verification prose might suggest; the all-length PGF identity is proved by the closed-walk argument, not those evaluations.
 
-**PASS within inspected sources.** The 2026 Appendix B paper already introduces the nonlinear rule and its two-to-one property. The closest published 2026 record gives the **minimum** preimage-twin Hamming distance for every ring length, and an implicit weighted-graph procedure from which the distribution could be extracted computationally. The new point is an explicit pairwise-independent but not three-wise-independent local law, exact variance, and Gaussian behavior for typical fibers, rather than the minimum or an original transfer-matrix counting principle. Another published record handles the first and third open rules, not the probability law of this second rule. The 2024 general almost-lifting work supplies background, not the same probabilistic theorem. There remains a historical-equivalence risk in older Boolean-lifting and cellular-automaton literature, and an uninspected complete-text risk for the earlier almost-lifting paper.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The minimum inter-preimage Hamming distance can be much smaller than the separation of a randomly selected fiber. The exact \(3/4\) density and \(3/16\) variance quantify that gap, while the failure of triple independence exposes a structural constraint not visible from covariances. The full eight-state law, uniform-length variance theorem, and Gaussian scaling provide a natural probabilistic complement to the prior extremal classification. They do not automatically imply cryptographic security or a result about iterative dynamics.
+Pass for the explicitly reduced eight-state distribution calculation and the exact dependence and fluctuation laws, not for discovery of the CA or two-point fibers, and not for existence of an implicit complete distance enumerator. The strongest identified predecessor actually implies a 64-state PGF on the same ring ensemble. It does not give the reduced formula or the joint indicator and limit laws. The best-of-knowledge judgment does not settle absolute priority.
 
-## Unresolved limitations
+## value
 
-The result is specific to the second displayed two-to-one five-site automaton; only its single-step cyclic fibers are considered. Pairwise-independence statements require rings with at least seven sites. A potential earlier implicit or explicit equivalent distribution law would affect the originality assessment. Independent audit: not yet performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The distance observable is natural for the already studied fibers. The result replaces a minimum-distance answer by a tractable reduced exact law and identifies a concrete mechanism making all pairs behave independently while triples do not. The exact linear variance and scaled limiting law distinguish typical pairs from the extremizers; the contribution is not merely a small enumeration or a fresh execution of the old collision graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

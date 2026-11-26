@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:44:49.490715Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use the continuous density-quotient version of conditioning at T (not an arbitrary version of a regular conditional law on singleton points). On histories up to t<T its density is the remaining explosion-time density for N_t independent lineages divided by E′(T); the branching property makes these restrictions consistent. The power-form solution of the branching ODE gives the defective PGF and E(t); the conditional PGF is zF′_t(z(1−w))/F′_t(1−w). Normalization, the coefficient of z, the derivative at z=1 and the square-root mixture follow by substitution. For bounded s, put d=D(e^{−sw})/w. The first factor z d^{−α} is g(s)(1+j(s)w+O(w²)), while the second is [1+c(e^{bu}−1)(d^b−1)]^{α/b}. Its Taylor expansion gives the stated analytic coefficients with error O(u³+uw). Since w∼b^{1/b}u^{1/b}=o(u), mixed terms are o(u²), and comparison of w with u² gives all three regimes. At equality the two terms add and may cancel at individual (s,T); the claim is the stated locally uniform expansion, not a nonvanishing coefficient at every s. The normalized first coefficient is a difference of two gamma transforms above 1/2 and an atom-minus-gamma at equality; below 1/2 it is unbounded and cannot represent a finite signed measure. This makes no claim of a total-variation derivative. A separate 70-digit check at T=1.4 and s=0.8 verified the PGF, atom and mean identities for α=0.3,0.5,0.7. At u=0.001 the rescaled next residual divided by its predicted coefficient was respectively 0.998387, 1.000049, 1.000159, approaching 1 from u=0.01 and 0.003. The frozen verification.py and reported 453 finite checks were inspected, not rerun; the bounded computations corroborate rather than prove the expansions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former includes Sibuya with L(x)=1−x^{1−α} and gives the general conditional PGF and leading gamma limit. The latter studies generation-time explosion asymptotics and non-absorption conditioning, as well as continuous-time embeddings."
+        ],
+        "reasoning": "The leading asymptotic and exact conditional identity are covered by a stronger theorem; the inspected results do not provide the next two competing orders or a signed-measure representation boundary for the fixed-time conditioned coefficient.",
+        "searches": [
+          "Harris–Johnston–Pardo arXiv:2610.01810v1, assumption (1.1), equation (3.11), Proposition 3.3",
+          "Sagitov–Lindo arXiv:1502.07538v2, §§5–7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verification.py",
+        "arXiv:2610.01810v1",
+        "arXiv:1502.07538v2",
+        "Available local Resultary mirror"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Inserting the Case 5 semigroup into equation (3.11) gives the finite-time PGF by substitution; it is not a new conditioning theorem. The two-scale expansion requires separating d−(1+s), of order u^{1/b}, from e^{bu}−1, of order u, and identifying the resulting signed-measure obstruction."
+        ],
+        "reasoning": "Credit the direct substitution to prior coverage. The first and next finite-time terms, the α=1/2 competition, and the measure interpretation are not obtained by simply evaluating the prior leading limit.",
+        "searches": [
+          "arXiv:2610.01810v1, equation (3.11) and Proposition 3.3",
+          "arXiv:1502.07538v2, Case 5 and §7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Case 5 has exactly the same semigroup at θ=−b, q=0 and a=e^{−b}; in the continuous-time embedding the time-scaled generator agrees with the unit-rate Sibuya generator. The available local wording searches returned no distinct candidate."
+        ],
+        "reasoning": "The change of clock/offspring representation does not make the semigroup new; it does not by itself establish the fixed-T coefficient expansion.",
+        "searches": [
+          "Sagitov–Lindo arXiv:1502.07538v2, Definition 2, Case 5 and §7",
+          "Available local Resultary mirror: exact pre-explosion transform and critical correction crossover"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local search surfaced the same frozen record rather than a distinct analogue. The primary sources give exact leading laws and power-form semigroups, not a table of the finite-time Taylor coefficients and their measure threshold."
+        ],
+        "reasoning": "Exact laws and coefficients are compared as formulas, not by parameter or numerical coincidence; a wording nonhit is not exhaustive evidence.",
+        "searches": [
+          "Available local Resultary mirror: conditioning-time-dependent correction, critical correction crossover, signed-measure wording",
+          "arXiv:2610.01810v1, Proposition 3.3; arXiv:1502.07538v2, Case 5"
+        ]
+      },
+      "rationale": "The general conditional PGF and its leading gamma limit are prior results, and the Sibuya semigroup and explosion marginal are covered by a prior theta-process representation. The supported distinct claim is the explicit conditioning-time-dependent correction, its interaction with the lattice scale, and the finite signed-measure threshold for that coefficient.",
+      "residual_risks": [
+        "The literature review is bounded to the decisive primary sources and the available local mirror; an equivalent finite-time expansion under a theta-branching formulation could exist elsewhere."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior conditional identity and leading limit; no subleading coefficients in inspected passages",
+          "evidence": "The assumption includes this Sibuya law, and (3.11) is the density-conditioned PGF used here.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.01810v1",
+          "material_read": "Assumption (1.1), p. 3; equation (3.11) and Proposition 3.3, pp. 19–20 (text offset about 57511)",
+          "method": "Open-access original full text",
+          "title": "Behaviour near explosion in continuous-time Galton–Watson trees",
+          "trigger": "Same fixed-time conditioning problem and general gamma limit"
+        },
+        {
+          "assessment": "Exact semigroup under reparametrization, distinct asymptotic question",
+          "evidence": "The Case 5 embedding has λ=b and λ(h(z)−z)=(1−z)−(1−z)^α. The inspected absorption and non-absorption results do not give the fixed-continuous-T local correction.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.07538v2",
+          "material_read": "Definition 2, p. 3 (offset 9283); Case 5, pp. 5–6 (offset 15750); §§5–7, including the continuous embedding at pp. 10–12 (offset 35016 onward)",
+          "method": "Open-access original full text",
+          "title": "A special family of Galton–Watson processes with explosions",
+          "trigger": "Possible exact overlap in explosive power-form processes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The leading gamma limit erases T, whereas the first correction records it. The next term separates the scale of the lattice spacing from the analytic time scale, exposing a genuine exponent crossover. The finite-measure boundary also pinpoints where a transform correction can be interpreted as a signed measure despite mutual singularity of the finite-time and limiting laws. These refinements, rather than the explicit substitution into a known PGF, carry the value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

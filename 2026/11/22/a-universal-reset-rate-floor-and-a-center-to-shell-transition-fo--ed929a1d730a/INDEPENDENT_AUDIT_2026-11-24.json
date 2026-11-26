@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:08:54.991709Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With complete independent Poisson resets, the stationary weak equation forces the probability measure q to have density p_a-r⁻¹L*p_a; smoothness excludes singular alternatives. Radial differentiation gives L*p_a/(κp_a)=d-2ν+2ν(1+bλ)s-4λν(ν+1)s². The drift flux at radius R is O(R^{d-2ν}), the diffusion flux decays faster, and both vanish at zero, so the forced source has mass one. For sufficiency p_a is in the L¹ forward OU generator domain: smoothly truncate at radius R and pass in graph norm using p_a, ∇p_a and L*p_a in L¹ and uniformly bounded x·∇χ_R. The forward resolvent then gives p_a=r∫₀∞e^{-rt}P_t* q_r dt, the unique invariant law by the first-reset coupling. No finite moment is needed. The strictly concave f is maximized at s₀=min(1,s_*), s_*=(1+bλ)/(4λ(ν+1)). Positivity of the maximum follows from its zero mean and nonconstant values on an interval of full support. At the rate boundary the density factor is κ[f(s₀)-f(s)]/r; RESULT.md §3's introductory reference to f(s_*) is only valid for the interior and critical regimes, and its subsequent subcritical computation correctly uses f(1). Since 1-s is quadratic in radius at zero and s has nonzero radial derivative at a positive radius, the three vanishing orders follow from the one-sided derivative or the exact quadratic vertex difference. The two rate branches meet at λ_c; the first decreases and the second has derivative ν(b²-λ⁻²)/(4(ν+1)) in κ units. The unique minimizer 1/b lies above λ_c, and direct substitution gives the minimum d/(ν+1) and squared zero radius dD/κ. In d=1 the nonzero sphere is two points. Replay: RESULT.md §§1–5; CHECK.py was inspected but not executed. It provides finite arithmetic support, not general positivity or semigroup sufficiency.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Gaussian inverse OU record has sharp feasibility but Gaussian targets. The separate nodal-sphere record uses a Gaussian target and quartic trapping. The variance-gamma and renewal-clock inversions use respectively multiplicative spatial resets and resets to zero at non-Poisson renewal times."
+        ],
+        "reasoning": "Neither the change in target tail nor the change in reset operator is a parameter substitution within those statements. In particular a constraint on an age mixture is not nonnegativity of the forced spatial density.",
+        "searches": [
+          "Resultary 08050fc52754, b2597dcfbf63, 7cea38ad1d45 and 571c4b455373"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "arXiv:2310.04840 and arXiv:2301.12304",
+        "Resultary ed929a1d730a, 08050fc52754, b2597dcfbf63, 7cea38ad1d45, 571c4b455373"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general balance gives the abstract rate test r≥sup L*p_a/p_a, not the switch at λ_c or the universal shell at the optimal scale. Similar nodal geometry occurs under the different Gaussian/quartic law."
+        ],
+        "reasoning": "It takes the Pearson–VII radial quadratic and its constrained maximum to derive the switch, and varying λ on the correct branch to derive κd/(ν+1). The cited method and geometry are credited without treating them as the same result.",
+        "searches": [
+          "arXiv:2310.04840, Eqs. (17)–(19)",
+          "Resultary 08050fc52754 and b2597dcfbf63, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Olsen gives the gain r p_R for resets to a distribution; Trajanovski et al. give point resetting with gain rδ. In Student notation the present degrees of freedom equal 2ν-d, not ν."
+        ],
+        "reasoning": "Reversing the distributed-reset balance forces q, but forward calculation for a chosen reset law does not optimize or identify where the forced density becomes negative. Point resetting cannot produce this target since the forced source is absolutely continuous.",
+        "searches": [
+          "Focused primary search: inverse OU resetting for Student or Pearson–VII stationary laws",
+          "arXiv:2310.04840, Eq. (17)",
+          "arXiv:2301.12304, Eq. (11)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match is the assigned record. The checked separate entries do not supply a Pearson–VII rate/scale formula."
+        ],
+        "reasoning": "The classification varies continuous ν and a; no finite lookup table would supply the claimed sharp global floor. The self-match is not an independent antecedent.",
+        "searches": [
+          "Resultary exact record ed929a1d730a and inverse-reset neighbors 08050fc52754, b2597dcfbf63, 7cea38ad1d45, 571c4b455373"
+        ]
+      },
+      "rationale": "Both forward reset renewal theory and the inverse-source identity are antecedents. The checked sources do not give the sharp Pearson–VII feasibility branches, optimized floor and zero geometry for complete Poisson OU resetting. The distinct claim is the classification in this family, not the inverse recipe.",
+      "residual_risks": [
+        "Bounded search cannot exclude an unindexed or differently parameterized Student inverse result. The source balance itself is standard and not credited as novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Forward equation and moments, not the Student feasibility classification",
+          "evidence": "Gain r p_R paired with loss -r p; subsequent steady-state moment relation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.04840",
+          "material_read": "Abstract and §II, pp. 3–4, Eqs. (17), (19), offset 19500",
+          "method": "Open original PDF",
+          "title": "Steady-state moments under resetting to a distribution",
+          "trigger": "Distributed OU reset antecedent"
+        },
+        {
+          "assessment": "Fixed-location forward resetting, different source class",
+          "evidence": "Gain rδ(x-x₀) and loss -rP_r.",
+          "identifier_or_url": "https://arxiv.org/pdf/2301.12304",
+          "material_read": "Resetting subsection, p. 3, Eq. (11), offset 20850",
+          "method": "Open original PDF",
+          "title": "Ornstein-Uhlenbeck process and generalizations: Particle dynamics under comb constraints and stochastic resetting",
+          "trigger": "Primary search hit for OU resetting"
+        },
+        {
+          "assessment": "Substantial method overlap; prescribed Gaussian only",
+          "evidence": "Sharp feasibility and unique source for nondegenerate Gaussian targets, with a mean-displacement transition.",
+          "identifier_or_url": "Resultary 08050fc52754",
+          "material_read": "RESULT.md at offset 0, Finding and scope",
+          "method": "Local mirror",
+          "title": "Exact Gaussian stationary-state engineering by non-Gaussian stochastic resets",
+          "trigger": "Closest inverse source method with OU drift"
+        },
+        {
+          "assessment": "Different target and drift; same date does not establish priority",
+          "evidence": "Exact rate and source zeros for a Gaussian target with quadratic-plus-quartic trapping.",
+          "identifier_or_url": "Resultary b2597dcfbf63",
+          "material_read": "RESULT.md offsets 0–6083",
+          "method": "Local mirror",
+          "title": "A sharp Gaussian design rate and nodal sphere transition for a quartic trap",
+          "trigger": "Same-day overlap in rate and zero geometry"
+        },
+        {
+          "assessment": "Different target and operator",
+          "evidence": "Brownian motion with multiplicative x↦Ux reset, not independent draws under OU drift.",
+          "identifier_or_url": "Resultary 7cea38ad1d45",
+          "material_read": "RESULT.md at offset 0, Finding",
+          "method": "Local mirror",
+          "title": "Inverse design of multivariate variance-gamma equilibria by random resetting",
+          "trigger": "Nearby heavy-tailed inverse reset problem"
+        },
+        {
+          "assessment": "Different inverse input and feasibility test",
+          "evidence": "Recovers a renewal reset-time distribution for resets to zero using age-mixture admissibility.",
+          "identifier_or_url": "Resultary 571c4b455373",
+          "material_read": "RESULT.md at offset 0, Finding",
+          "method": "Local mirror",
+          "title": "Stationary marginal inversion for renewal-reset Ornstein–Uhlenbeck dynamics",
+          "trigger": "Equivalent inverse wording might refer to the reset clock"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The rate threshold is a necessary and attainable design constraint for a standard multivariate heavy-tailed family, including targets with infinite variance. It describes the actual limiting reset law and supplies a unique optimal target width and exponent-independent physical zero radius. These answer a motivated feasibility/optimization question beyond simply writing the forward or inverse equation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

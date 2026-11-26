@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,8 +21,8 @@
 
 # Reproducible checks and limitations
 
-Run `python check.py` with Python 3 and its standard library. It prints `PASS 1896 numerical assertions` when all checks pass. This is a reproducible finite diagnostic, not an exhaustive proof for all odd integers.
+The supplied `check.py` uses Python 3 and its standard library. Its expected output is `PASS 1896 numerical assertions`. This is a reproducible finite diagnostic, not an exhaustive proof for all odd integers.
 
-The numerical tests cover \(N\in\{3,5,7,9,11,17,31\}\) and nine noncolliding displacement parameters (including \(\delta=1/2\)), evaluate Fourier moments for every mode in the band, check all quadrature weight signs, check the two-point Gram spectral identity, and compare the exact optimal bounded-sample amplification. The collision-layer tests use \(N\in\{51,101,501,1001\}\) and three fixed positive scales. The proof in `RESULT.md` supplies infinite-domain validity by cardinal interpolation, circular-distance sine comparisons, a two-dimensional Gram decomposition, and small-angle limits. Neither the numerical checks nor this review constitute independent validation.
+The numerical tests cover \(N\in\{3,5,7,9,11,17,31\}\) and nine noncolliding displacement parameters (including \(\delta=1/2\)), evaluate Fourier moments for every mode in the band, check all quadrature weight signs and the two-dimensional Gram reduction, and compare the exact bounded-sample amplification. The collision-layer tests use \(N\in\{51,101,501,1001\}\) and three fixed positive scales. The all-integer proof in `RESULT.md` uses cardinal interpolation, circular-distance sine comparisons, the Gram decomposition and small-angle limits.
 
-The singular collision \(\delta=1\) is excluded. The joint limit has fixed positive \(t\) and odd \(N\to\infty\). The complete manuscript of one closely relevant 2026 source was not available, so priority remains unconfirmed.
+At the excluded endpoint \(\delta=1\), the Dirichlet kernel vanishes at every sample location but has normalized integral one, so no exact quadrature rule using these samples exists. The joint limit has fixed positive \(t\) and odd \(N\to\infty\). The comparison with Chen, Lin and Zhang in `RESULT.md` uses the accessible v4; publication priority remains unconfirmed.

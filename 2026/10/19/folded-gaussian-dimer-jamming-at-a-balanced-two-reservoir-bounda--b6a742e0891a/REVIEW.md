@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact four-transition jump chain follows from independent edge priorities, and its fluid equations have the displayed scalar solution. The stopped-martingale central limit theorem is not inferred from simulations: the proof supplies a uniform terminal cutoff, with a generator-bound Lyapunov argument and a parity-based identification of terminal vacancies. The variance is the explicitly evaluated martingale bracket. The small-instance exact graph and count-chain calculations, generator inequalities, and numerical integral pass using `verify.py`. The only asymptotic normalization is \(\sqrt N\), with class densities tending to fixed positive limits.
+## correctness
 
-## Originality — PASS, with limitations
-The closest directly examined full primary text is Gamarnik–Goldberg (arXiv:0807.1277v1), whose theorems concern bounded-degree and/or large-girth graphs; these cannot establish the present dense, three-type, balanced-terminal folded Gaussian law. Dyer–Frieze (1991) and Pippenger (1989) provide classical greedy-matching/adsorption context, but their full text was unavailable. An earlier complete-split calculation yields a positive limiting vacancy density and an ordinary Gaussian about its nonzero mean. An earlier complete multipartite law with a *fixed* number of parts yields a zero limiting density under tied maxima, but neither its asserted statement nor the fixed-part quantifiers determine the \(\sqrt N\)-scale distribution here. An undiscovered special dense-graph central limit theorem could overlap; the lack of a matching search result is not proof of uniqueness.
+PASS
 
-## Mathematical value — PASS
-A physically natural substrate has two competing adsorption reservoirs and a third reservoir permitting within-class dimers. Perfect matching is possible for every finite even graph; nevertheless, a random irreversible process has a diverging jammed population of order \(\sqrt N\), whose law is folded normal. This is a finite-size critical fluctuation theorem at a zero-density boundary, not a small numerical correction or a change of notation in a macroscopic law.
+This is a pass for the repaired claim, not for the frozen formula interpreted literally. The frozen disjoint-union symbol deletes all A–B edges, contradicts its prose and rate AB/N, and for α>1/4 would leave at least 4m_N−N unmatched vertices deterministically, disproving the stated scaling under that reading. The complete corrected RESULT.md in /workspace/repairs/5/ replaces the disjoint union by the complete bipartite graph and preserves the adjacency actually used by the proof and verifier. It explicitly states the rescaled time, makes the stopping/localization argument precise, and describes the finite verifier as labeled-subset recursion rather than full permutation enumeration. On the corrected graph, exponential memorylessness gives the four rates, parity and maximality give U=|D_jam|, and A–B matching plus clique pairing gives a perfect matching. I substituted each jump into both scaled generator ratios and checked the deficits with AB≤L²/4 and C≤L, including C=0. The D² compensator bound uses the actual cross-to-clique count (at most C₀); stopping bounds imbalance exits by O(N^(−1/3)). The 2C/L estimate controls both the ratio exit and the tail integral of c, and the NC/L² supermartingale with its integrating factor gives C at L≈N^(2/3) of order O_P(N^(1/3)). The cutoff time bound follows from summing 9N/L² over remaining levels; a failed cutoff has vanishing probability. Hence later D changes are o_P(√N). The squared integrating factor is tight, and the tail of the unweighted bracket has expectation ≤E C_T/N, which vanishes in the successive limits. With the stated localization, the jumps vanish uniformly and the martingale CLT yields the claimed normal for D and folded normal for U. Evaluating the positive fluid bracket gives the displayed variance; E D_jam²≤C₀ gives uniform integrability for the mean. Independent bounded calculation agrees with the recorded three nontrivial exact probabilities and variance values.
 
-## Limitations
-Independent audit has not been performed. The theorem requires equally sized independent reservoirs and a fixed positive clique fraction. There is no generalization here to unequal reservoirs on the critical \(\sqrt N\) scale. The inaccessible older source is an unresolved bibliographic risk, not a claim of noncoverage. Finite exact checks and simulations do not prove the infinite-volume theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the corrected graph, the credited result is the terminal centered √N fluctuation with the explicit variance and uniform-integrability conclusion under balanced, macroscopic reservoirs and a macroscopic clique. The greedy algorithm and density-dependent finite-time framework are known. The strongest earlier indexed split-graph result has the same scale for fluctuations but about positive density in a different graph. The closest folded-normal analogue concerns a rare independent third part and is later. No checked prior passage covers the corrected finding.
+
+## value
+
+PASS
+
+On the corrected dense graph, a perfect matching is immediate while irreversible uniform greedy matching leaves a diverging terminal defect despite its limiting fraction being zero. The explicit folded-normal law and mean identify the finite-size amount of jamming and its dependence on composition; a fixed-time or density approximation cannot supply that information. The terminal cutoff matters mathematically because the observable lives at absorption rather than at a fixed fluid time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

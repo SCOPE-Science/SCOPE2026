@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-This statement has a fully specified overlapping LZ longest-previous-factor definition. The proof is the three-regime greedy-parse case analysis in `RESULT.md`, followed by exact inequality partitions and the independent-uniform-pair limit derivation.
+## correctness
 
-The two standalone Python 3 programs have no third-party dependencies. In the directory containing these files, run `python3 verify_lz.py` and `python3 verify_counts.py`. Their recorded deterministic standard outputs are in `verify_lz.out` and `verify_counts.out`.
+PASS
 
-`verify_lz.py` compares the literal-greedy parse of \(0^a1^b0^c1^d\) and its reversal with both closed forms for all positive integer run lengths 1 through 13, a total of 28561 quadruples. The copy source may overlap the phrase. `verify_counts.py` enumerates all positive compositions of each length 4 through 30 and checks symmetry and the first \(|\Delta|=3\) instances; it also verifies the seven rational limiting probabilities and the expectation \(13/9\).
+The earlier-start, overlap-permitted longest-factor convention and no sentinel are essential. Each of the first two runs needs a literal and one additional phrase precisely when its length exceeds one; an overlapping source within that run cannot cross its terminal change of symbol at the same time as the target. In the third run the first zero phrase is limited by a if c>a. At its next phrase a same-run source still has strictly more zeros left than the target and cannot copy across the terminal boundary; a first-run source can cross precisely when the remaining zeros are at most a. A copied zero-to-one boundary then matches at most b ones, with one later overlapping phrase needed precisely for d>b, which proves the three stated regimes including equality. Symbol exchange yields the reversed formula. The two separated defect components attain only the stated endpoints, giving the exact extreme conditions and both minimum-length witnesses. Uniform lattice compositions converge to the uniform simplex law; the disjoint-pair ratios of independent exponentials are independent uniforms, giving the stated convolution and expectation 13/9. A separately written parser checked both orientations on all 6,561 run quadruples with parts 1–9; the first extrema also checked against the formulas through total length 24.
 
-Finite execution does not certify the universal all-length claim or historical priority. These rely respectively on the supplied case-analysis proof and the literature comparison. No independent audit has been performed.
+## originality
+
+PASS
+
+Best of inspected evidence, the exact four-run phrase formula and its induced extremal and limiting classification are distinct. Existing overlapping-LZ reversal results concern arbitrary-string worst cases; neighboring exact four-run entries measure different invariants. The exact catalogue hit is the frozen record itself.
+
+## value
+
+PASS
+
+Four alternating runs are the first structure in which both letters have a return run, so both parsing directions can encounter competing old boundary matches and overlapping copies. The formula identifies exactly which length ratios trigger new phrases, gives the first and all sharp witnesses for this regime, and supplies a quantitative average-case benchmark distinct from a global worst-case bound. No claim about compressed bit length or arbitrary input distributions is needed for that use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

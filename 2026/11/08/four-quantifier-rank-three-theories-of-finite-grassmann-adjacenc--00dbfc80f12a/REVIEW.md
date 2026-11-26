@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The final theorem concerns exactly the four rank-three equivalence classes of the finite Grassmann adjacency graphs for every prime power. The proof supplies a common complement to every pair, explicit adjacency/nonadjacency witnesses at Grassmann distances one and two, the obstruction to a common neighbor at distance at least three, and the complete three-round Ehrenfeucht–Fraïssé strategy. The boundary at \(k=2,n=4\) is handled separately; omitting it would invalidate a generic-vector-outside-the-sum construction. Orthogonal-complement duality handles \(k>n/2\). Exhaustive genuine-subspace tests passed for binary examples at dimensions \((2,1),(3,2),(4,2),(5,2),(6,3)\) and the ternary \((4,2)\) case; these tests supplement the proof rather than extrapolate from finite samples.
+## correctness
 
-## Originality — PASS within inspected sources
-The closest 2026 primary source (Benediktsson, Macpherson and Adler, arXiv:2610.40054v1, Section 6) explicitly proposes mathematical-logic investigation of the finite-field Grassmann graph \(\operatorname{PGJ}\), but establishes results for set Johnson graphs, not rank-three equivalence classes of finite Grassmann graphs. Gavrilyuk and Koolen (arXiv:1806.02652v1, Sections 1–2) develop the Grassmann intersection parameters and distance-regular characterization, but do not formulate the four logical classes, the Rado rank-three threshold or the sharp minimal representatives. The 2014 Grassmann endomorphism paper concerns graph endomorphisms. Current semantic mathematical-record searches for Grassmann rank-three equivalence, two-point extension and Rado comparisons did not reveal direct published coverage. As with any classification using a known intersection array, a prior general translation of that array into bounded-rank logical types would pose a genuine originality risk.
+PASS
 
-## Mathematical value — PASS
-The authors of arXiv:2610.40054v1 explicitly name first-order Grassmann-graph theory as a natural next question. The result supplies a complete, field-independent low-rank classification with a sharp diameter/Rado separation, a detailed two-point witness profile, and optimal family-internal finite representatives. This is a natural bounded-depth classification, not an arbitrary isolated count. It does not claim to solve the substantially harder full limit-theory or stability problem.
+Orthogonal duality preserves d and reduces nonsingletons to k≤n/2. If U=I⊕A and V=I⊕B, pair corresponding basis vectors in A and B, and add dim(I) independent directions outside U+V. The resulting graph-of-isomorphism subspace is disjoint from each and supplies 00. At d=1 a third line over the common hyperplane gives 11, while a different hyperplane in U plus a vector outside U+V gives 10 and, symmetrically, 01. At d=2 a direct sum of I and one basis vector from each side gives 11; for 10 use an outside vector when k≥3 or span(u,u'+v) when k=2, including n=4. Beyond d=2, a common neighbor violates the triangle inequality and every neighbor of one endpoint misses the other. All distance categories used in the EF strategy occur around each first vertex; compare equality and the distinct extension masks in the third round. This proves the same-class games, all four separations and the Rado statement. The Gaussian minima follow by duality, embedding at fixed k from ambient 2k, monotonicity in q, and [2k choose k]_2≤[2k+2 choose k+1]_2 by adjoining a fixed independent line. They are 35 and 1395. The independent replay branches/replay_02.py generated actual vector spans and checked every distinct pair (including all three masks at distance 3) in binary dimensions (2,2),(2,1),(4,2),(6,3) and ternary (4,2); this was corroboration only. The frozen code was read, not run.
 
-## Remaining scientific and access limitations
-Past-week historical records were not completely available for deduplication; only accessible history and actual mathematical searches were used. The 2014 endomorphism study was examined at abstract level rather than as full text, because its topic has no close claim-level bearing. Unindexed bounded-rank schemes literature remains an originality risk. No general claim of priority or independent mathematical validation is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the complete cross-parameter rank-three classification including the uniform larger-diameter type, full pair profiles and family minima. The positive Rado-equivalence subcase alone is independently covered by the distinct same-day rank-two Grassmann record; no order or priority is inferred from that date. The profiles are obtainable from classical intersection counts with standard back-and-forth, but the inspected classical and comparable logical results do not already give the whole four-stratum classification or the uniform larger-diameter result.
+
+## value
+
+PASS
+
+This classifies all finite-field Grassmann adjacency graphs at a natural fixed logical depth. In particular one local extension description explains why all larger diameters, over all finite fields, have one rank-three theory even though they fail the random-graph test. This is useful beyond one-instance checking and is not a claim about full limit theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

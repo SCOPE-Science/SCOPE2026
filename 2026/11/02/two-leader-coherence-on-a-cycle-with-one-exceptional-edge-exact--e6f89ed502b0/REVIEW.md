@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Green diagonal formula \(s(T-s)/T\) follows from two resistive paths to pinned endpoints. The two cycle arcs separate after grounding two leaders. Summing their exactly known diagonals yields the complete pair objective, including adjacent leaders and triangles. Fixed-separation optimization reduces to the product \(AB\), and the remaining strong-edge separation follows from strict convexity and neighboring-integer sign checks. The weak-edge case uses an exhaustive \(n-1\)-term analytical scalar argmin. Exact grounded-matrix calculations (1,476 pair comparisons) separately corroborate the formulas but do not replace the proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+The grounded arcs decouple. On a chain, unit current at an interior vertex sees its two resistance-to-ground paths in parallel, giving the diagonal s(T-s)/T. On the exceptional arc the two sets of distances measured from their respective leaders are 1,...,A and 1,...,B. Summing s-s²/(m-1+x), using A+B=m-1, gives (1), even for an empty arc. The sign of the AB coefficient forces endpoint incidence of one leader at x<1, a floor/ceiling split at x>1, and no within-separation preference at x=1. For an independent sign proof of the strong case, write t=n-ell-1 and R(t)=t(2t+1)/(t+x); the strong-branch correction to the uniform objective is -(1-x)R(t)/6. R is strictly increasing. Thus Q strictly increases to the right of floor(n/2), even across the uniform odd-n tie. For a step to its left, the uniform cost falls by at least 2/6 as ell increases. At the new t>=1, the correction rises by (1-x)[2-x(2x-1)/((t+x)(t+x+1))]/6, strictly less than 2/6: for x>=1/2 this is immediate, and for x<1/2 the bracket is at most 2+x/2. This proves the claimed unique separation for all real 0<x<1 including n=3. Substitution gives (3). The weak scalar scan is exhaustive and can emit all ties using two passes with constant extra workspace, counting arithmetic evaluations. Independently written exact matrix inversions corroborated 833 traces (n=3–9, seven rational x) and all corresponding optimizer sets; this finite check is not the general proof.
 
-Fitch–Leonard (arXiv:1407.1569) explicitly treats the unweighted cycle and path leader cases. Patterson–McGlohon–Dyagilev (arXiv:1412.6595, arXiv:1604.07094) solves general weighted-ring leader selection by a dynamic-programming construction. The additional asserted structural information is a complete one-defect finite-weight classification, a sharp location transition at the unit edge, and an \(O(n)\) scalar rule, none stated in the inspected sections, results, or appendices. General-purpose numerical solvability is not an explicit closed location theorem. It remains possible that a separate specialized paper has an equivalent result.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The one-edge defect is a natural robustness model for imperfect ring communication. The result identifies exactly when optimal leaders sit at the reinforced edge versus balance around a weakened edge, including a second separation transition at larger defect resistance. It replaces generic weighted-ring polynomial-time search by a constant-work-per-separation method for this structured family and connects two known, qualitatively different limiting designs. This is a complete all-parameter structural classification, not merely recomputation of a known table.
+The distinct contribution is the one-defect classification for x≠1, especially the exact strong-edge separation and strict reversal of the location preference at fixed separation. The uniform case, chain Green function, and general weighted-ring algorithm are existing coverage and are not credited as novel.
 
-## Limits
+## value
 
-The noise is independent and homogeneous, the selected leaders are noise-free, and all nonexceptional edges have unit conductance. The formula does not extend automatically to noisy leaders or arbitrary edge disorder. Priority cannot be certified from finite literature retrieval.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A single altered edge is a natural minimal perturbation of equally spaced optimal leaders on a homogeneous ring. The exact endpoint-to-centered switch answers a robust design question for every defect strength, and supplies an explicit strong optimum plus a full tie-aware linear scan for weak edges. It is neither a one-size example nor a speedup claimed without a structural explanation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof explicitly handles the all-positive feasibility bound, all remaining labelings, and the parity-switch boundary for a support with one missing matching edge. The two-sign extension lemma is proved by a 6-vertex base (including the all-forbidden-matching case) followed by Pfaffian-sign-preserving induction. The exact top-count formula follows by uniquely marking an isolated chord, and the \(n^2\) signed difference follows from a proved Pfaffian sum-one identity. Direct independent enumeration checked 18,556 support/parity instances through five matching pairs and 76 six-vertex forbidden sets. The checks are corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+All-positive labels require a matching, and a full matching fails a single-edge flip. Fixing any positive submatching multiplies the crossing sign of a completion by a constant: for each fixed chord, its crossings with free chords have parity equal to the number of free endpoints on one arc. Thus the local four-endpoint signs are +,−,+ even in the presence of fixed edges. For the six-endpoint avoidance lemma the two class sizes are 8 and 7 (their signed sum is 1 by the all-ones-upper-triangle Pfaffian). Inclusion–exclusion leaves at least 10 avoiders for one or two forbidden edges (15 for zero), and 8 for three; in the last case at least one positive matching is excluded because each forbidden chord extends to a positive matching on six endpoints. Fixing an allowed edge then inducts to more endpoints. This handles every labeling leaving at least six endpoints; with four and no forbiddens both signs occur. For size n−1 supports, all-positive forces the completion and each single-label flip reduces to the four-point switch: there is a sign-preserving alternative exactly when the omitted edge does not cross the flipped edge. The omitted edge is uniquely determined and must divide the remaining endpoints into even arcs. For each such chord the unsigned count is the product of the two double factorials and the signed count is 1 (the arc Pfaffian expansion alternates to 1 on each arc). Summing over odd endpoint differences gives the stated L_n and n² difference. A polygon side can be omitted in a matching of either sign for n≥3, while the only negative matching at n=2 has no shattered singleton. The resulting dimensions and the example coefficients agree.
 
-Dedicated searches compared parity-signed chord matchings, generic matching shattering, noncrossing matching face activity, and Pfaffian-sign counting. The most relevant accessible published full text counts geometric crossing numbers rather than binary traces or parity-filtered supports; the highly relevant published-finding corpus noncrossing matching theorem concerns zero crossings and has different support criteria. No inspected result contains or directly implies the parity-specific criterion and exact \(n^2\) top-degree gap. Not all older papers using alternate Pfaffian terminology were inspected; priority is therefore provisional.
+## originality
 
-## Value — PASS
+PASS
 
-A natural half-sized parity refinement of complete matchings preserves the entire lower shattering spectrum yet creates a sharp, exactly quadratic top-face distinction. The theorem provides a complete all-order support characterization and exact coefficients rather than only a scalar VC bound, with a structural identification of the single-edge obstruction as chord crossing. The exact signed difference is a useful test for parity-constrained incidence and Pfaffian-learning constructions.
+The parity-constrained trace problem is distinct from noncrossing matching shattering, ordinary crossing-count enumeration, and shattering on a host with deleted edges. The full two-class criterion and its top-coefficient difference survive those comparisons. Neither the Pfaffian sign nor the positive-class lower bound supplied by the noncrossing subclass is new.
 
-## Scope and limitations
+## value
 
-The result requires labeled convex-position endpoints, crossing parity and edge-membership queries; it does not assert an adaptive dimension, exact crossing-number slices, or independent validation. The checked public primary sources do not exhaust possible equivalent terminology.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives a complete trace classification for two natural sign classes, not only a common dimension. It locates the obstruction exactly at one missing pair and measures the imbalance at that degree, while showing that parity cannot distinguish their lower-dimensional face counts. The exact signed count is useful for comparing the two classes and is not determined by their unrestricted class sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

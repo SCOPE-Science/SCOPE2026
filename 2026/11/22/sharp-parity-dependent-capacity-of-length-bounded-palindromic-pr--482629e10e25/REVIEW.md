@@ -1,11 +1,21 @@
-# Review of length-bounded palindromic prefix-code capacity
+# Independent mathematical audit
 
-**Correctness: PASS.** The prefix-poset terminal antichain bound is proved by a disjoint-descendant injection. The critical equivalence between palindrome extensions and short periods is proved in both directions, including the special short-length case. Inclusion–exclusion with exact symbol-equality components and the fixed-alphabet orbit bound yield the formula and even/odd asymptotic. Two independent standalone programs passed; they verify finite examples only.
+## correctness
 
-**Originality: PASS (with historical qualifications).** The directly relevant 2010 Abedini–Khatri–Savari article was read in full; its symmetric fix-free existence test takes a prescribed length multiset and its Table 3 counts dominant length sequences at fixed codebook cardinality. The 1996 reversible-code patent constructs probability-driven symmetric codes using codeword-length vectors. The full 2003 Tseng–Chang construction study uses symmetric-child expansion in the prefix tree with a source-probability objective. None supplies the specific period-exclusion capacity formula or parity-dependent growth under a length ceiling. The openly available 2003 Tseng–Chang backtracking paper was inspected through its main method and symmetric-child prefix-tree construction, which concerns probability-weighted codebooks. Its experimental remainder was not fully inspected, and an unrecognized earlier implication is an explicit risk. No claimed novelty follows merely from absence of search matches.
+PASS
 
-**Value: PASS.** Instantaneous two-direction decoding under bounded maximum codeword length is a concrete coding-theory design objective. The sharp leading constants quantify how variable lengths enlarge a palindrome-constrained dictionary compared with using only the longest available palindromes; the binary gain tends to factors four and three, depending on parity. The exact period-based formula also gives a constructive canonical optimum for every finite alphabet and ceiling.
+Every allowable word has a terminal descendant in the finite prefix order; incomparable words have disjoint descendant sets, so choosing one leaf for each injects any code into the set of all leaves. For m≤N/2 a palindrome can be doubled and is never a leaf. For m>N/2 an extension by t≤N−m must have its original palindrome as both prefix and suffix and hence must overlap consistently at offset t. Conversely, gluing two copies with this overlap gives a unique compatible word; reversal interchanges the covering copies and fixes the word. Thus the exclusions are precisely periods 1 through N−m. The connected components of the reflected/shifted position graph are the exact equality classes for simultaneous periods, so inclusion–exclusion gives the count including N=1. For each period t, reflection on residue classes has at most two fixed points and hence at most floor(t/2)+1 orbits. Summing the resulting geometric upper bound for exclusions over t and m costs O_q(h q^(h/2+1)). Summing all candidate palindrome counts q^ceil(m/2) gives the displayed leading constants, including the unpaired final layer for odd N. Independent `python3 /workspace/reproduce_reviews.py` deletes word-prefix ancestors directly and compares to graph counting through N=18,11,9 for q=2,3,4 respectively. Its finite agreement is supplementary; the suffix-overlap equivalence and group count prove the arbitrary-N result.
 
-**Scientific limitations:** The inclusion–exclusion formula need not be efficient for large inputs; it does not count every maximum codebook. The theorem is purely noiseless and assumes fixed alphabet size for its asymptotic. Unindexed historical equivalences remain a genuine priority risk; a closely related 2003 paper was read and its tree-based framework acknowledged.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the all-q,N exact period-exclusion count and its sharp parity gains for cardinality under a maximum length, not the already known bidirectionally decodable palindrome constraint, prefix tree, or feasibility of prescribed lengths. The strongest available comparisons either use prescribed lengths and an average-length-style optimization or impose genuinely different combinatorial constraints. A generic existence algorithm might be iterated to compute particular finite optima, but does not supply this exact expression or asymptotic.
+
+## value
+
+PASS
+
+With a hard maximum decoding length this gives the entire allowable noiseless dictionary size and a canonical maximizing codebook, as well as actual sharp relative gains versus using only the maximum length (binary four versus three). The result uses the overlap structure of palindromes and is not a Kraft-bound restatement. It does not promise efficient arbitrary-size computation, unique optimal codes, or noise correction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

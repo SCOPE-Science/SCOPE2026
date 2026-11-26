@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The log barrier inherent in the negative Shannon entropy guarantees interior predictions. A direct implicit derivative calculation gives a weighted centering Jacobian. Its cross-norm reduces to signed quadratic forms by positive semidefiniteness; Jensen optimization over the two sign blocks gives the exact coefficient, and a balanced sign perturbation makes the bound sharp. A separate second-variation argument confirms the same sharp reciprocal modulus for strong convexity. Uniqueness of extremal probabilities and continuity along score segments establish finite-secant nonattainment. A standalone rational checker supports but cannot replace the proof.
+PASS
 
-## Originality
+For positive tau, the infinite negative one-sided penalty derivative at zero forces full support; the interior stationarity equation also realizes every positive probability by a finite score. Write H=diag(tau/p_i+kappa), J the inverse of its constrained tangent system. For tangent u, weighted Cauchy gives sum(u_i²/p_i)≥||u||_1², with equality only if |u_i| is proportional to p_i. If k,h count the positive and negative coordinates, sum u_i²≥||u||_1²(1/k+1/h)/4≥n||u||_1²/(4 floor(n/2)ceil(n/2)); equality forces full balanced supports and equal magnitudes within each. Thus the sharp Hessian bound is mu=tau+kappa n/(4 floor(n/2)ceil(n/2)), with equality exactly at the two-block shapes and directions in the finding. Integrating gives the closed-simplex strong-convexity bound (boundary by continuity); small interior segments prove sharpness. For a score direction s and u=Js, u^T H u=u^T s, giving ||J||≤1/mu, and any local equality forces the same Hessian equality. Conversely at an extremizing p take u=±p on the two blocks and s=sign u: H u differs from mu s by a scalar all-ones vector. Hence Js=u/mu, yielding sharpness and every stated local extremizer. On a segment between distinct output probabilities, the weighted Cauchy equality for the fixed nonzero difference would require p along the segment to be the same fixed |u|/||u||_1; the integrated strong-monotonicity inequality is therefore strict. Applied to the stationarity equations and Holder, this gives a strict finite-score secant bound, also strict when scores differ but outputs agree. The separate replay python3 /workspace/branches/independent_checks.py 3 tests direct exact output 1-norms on 102 profiles in dimensions 2–7; it supplements rather than proves this argument.
 
-**PASS, with historical-priority caveat.** The cited Fenchel–Young and generalized-entropy papers establish the regularization framework and general smoothness, not the displayed sharp mixed coefficient, finite-dimensional odd-parity gap and extremal geometry. Related pure-quadratic and Tsallis sharp coefficients are closer than a title comparison might suggest: they recover limiting regimes but do not assert the exact mixed penalty or its finite-score nonattainment. Targeted database queries and full-text inspection did not reveal a dominating formula. An exact strong-convexity inequality in older, differently indexed convex analysis literature remains a material possibility.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The result supplies the exact global robustness budget for a natural combination of Shannon entropy and quadratic concentration penalties, including a dimension-parity correction that the usual dimension-only norm bound misses. It identifies the unique worst-conditioned probability shape (up to permutation) and a qualitative difference between local sharpness and finite-score attainment, quantities relevant to smooth probability prediction and regularization design. It is not merely an endpoint reparameterization: the mixed regularizer's exact constant and attainment classification require simultaneous optimization of two different curvature terms.
+Best-knowledge pass for the exact mixed curvature/norm constant with all local extremizers and finite-score nonattainment, not for simplex-duality construction or balanced partition methods themselves. The prior exact pure-penalty and bounded Gibbs results give important neighboring cases and ingredients, not a displayed theorem for strictly positive Shannon and quadratic coefficients. Full-text limits are explicit.
 
-## Scope and limitations
+## value
 
-The result is finite-dimensional and concerns strictly positive parameters and unweighted norms. No algorithmic convergence, statistical performance, weighted variants, or independent mathematical certification is claimed. Relevant inspected full texts are arXiv:1805.09717, arXiv:1901.02324 and arXiv:2108.01988; additional historical coverage remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A tight sensitivity budget and its obstruction to finite attainment matter for the commonly used cross norm that bounds total probability change from coordinatewise score errors. The finite odd-dimensional correction and the full balanced extremizer shape identify why the standard dimension-only bound can be loose and where its substitute is sharp. The contribution is not general duality, nor a claim of improved generalization or training convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -20,7 +20,7 @@ It is attained by exactly one rotation class, represented in state order \(0,1,\
 
 and its shortest reset words have length \(30\). In contrast, the unique class with the largest reset length \(36\) has only eight shortest reset words, represented by \((0,1,2,3,4,0,1,7)\). Already among the classes of reset length \(10\), shortest-word multiplicities vary from \(1\) to \(32\), so reset length alone does not determine control-sequence redundancy.
 
-The reset-length marginal, the number of rotation classes, and the length-36 extremizer were previously established; they are included for calibration and are **not claimed as new**. The new assertion is the complete shortest-word multiplicity distribution jointly with length, including the exact unique maximum and uniqueness-of-shortest counts.
+The reset-length marginal, the number of rotation classes, and the length-36 extremizer also appear in the separate threshold census [3]; they are included for calibration and are **not claimed as new**. The contribution is the complete shortest-word multiplicity distribution jointly with length, including the exact unique maximum and the counts of classes with a unique shortest word.
 
 ## Assumptions and scope
 
@@ -41,7 +41,7 @@ eligible labelled maps (the braces denote a Stirling number of the second kind).
 
 **Exact shortest-word recurrence.** Represent a nonempty subset \(S\subseteq Q\) by an eight-bit mask. The letters induce directed edges from \(S\) to \(a(S)\) and \(b(S)\) in the 255-vertex nonempty-subset automaton, retaining both alphabet-labelled edges if their endpoints coincide. A word resets precisely if its path from \(Q\) reaches a singleton. Breadth-first search computes the shortest distance \(d(S)\) from \(Q\); the number \(c(S)\) of shortest labelled paths from \(Q\) to \(S\) obeys \(c(Q)=1\) and, for every letter-edge \(S\to T\) with \(d(T)=d(S)+1\), the update \(c(T)\leftarrow c(T)+c(S)\). Summing \(c(T)\) over singleton states at the minimum possible depth gives exactly \(W(b)\). A shortest word cannot have hit a singleton earlier, since all later images remain singleton, so there is neither premature-acceptance overcounting nor omission. This is a finite exhaustive proof, not sampling.
 
-The `src/forward_census.cpp` program implements that recurrence on every canonical rank-six map and accumulates the joint histogram. The independent `src/reverse_census.cpp` builds both reversed subset-transition edge lists, starts breadth-first search from **all eight singletons**, and counts shortest paths **backward** to the full state mask. The two programs use different search directions and different recurrences and produce identical counts for all \(648\) populated joint cells. Their outputs therefore establish the claimed table and sharp maximum. Both programs check for integer overflow rather than permitting silent arithmetic wraparound.
+The `src/forward_census.cpp` program implements that recurrence on every canonical rank-six map and accumulates the joint histogram. The `src/reverse_census.cpp` program builds both reversed subset-transition edge lists, starts breadth-first search from **all eight singletons**, and counts shortest paths **backward** to the full state mask. The two recurrences produce identical counts for all \(648\) populated joint cells. The reverse program explicitly checks overflow on path-count additions; the forward program uses unchecked unsigned accumulators, so the forward output alone is not the arithmetic check. In the reverse program the class counters are bounded by the number of eligible maps.
 
 ## Verification
 
@@ -55,20 +55,20 @@ g++ -O2 -std=c++17 src/reverse_census.cpp -o reverse
 python3 src/check_outputs.py forward.json reverse.txt data/joint_histogram.csv data/word_histogram.csv
 ```
 
-The checker compares each of the \(648\) joint cells across the two independently generated outputs and the embedded table, reconstructs the 121-entry shortest-word marginal, verifies the total number of classes, and checks the unique maximum and critical individual cells. It prints `VERIFY_OK` on success. The exact finite certificate is the source code plus the full machine-readable table; the previously published reset-length marginal alone would not determine these entries.
+The checker compares each of the \(648\) joint cells across the separately generated outputs and the embedded table, reconstructs the 121-entry shortest-word marginal, verifies the total number of classes, and checks the unique maximum and critical individual cells. It prints `VERIFY_OK` on success. The exact finite certificate is the source code plus the full machine-readable table; the reset-length marginal alone would not determine these entries.
 
 For the unique maximal-multiplicity representative, one actual length-30 reset word is `baaaabaaabaaaaabaaaabaaaabaaab`, which maps the whole state set to \(\{1\}\). The number of distinct shortest words for that automaton is \(110{,}592\), not merely the existence of this example. For the largest-length representative, `baaaaabaaaabaaaaaabaaaaabaaaaabaaaab` is a shortest reset word of length \(36\).
 
 ## Relationship to prior work
 
-Hoffmann's work on the synchronizing-word language of circular automata (arXiv:2011.14404) studies complete reachability and maximal state complexity, particularly rank-\(n-1\) letters, rather than the number of shortest words for every rank-six map. Szykuła and Zyzik (arXiv:2207.05495) develop exact shortest-length algorithms and study reset-length experiments, without this joint multiplicity classification. Prior exact enumeration of eight-state circular rank-six maps already supplies the **reset-length marginal** and the longest threshold; neither is an originality claim here. Other shortest-word enumeration results for individual named automata or rank-seven families do not imply this 670,608-class rank-six joint census.
+Hoffmann's work on the synchronizing-word language of circular automata [1] studies complete reachability and maximal state complexity, particularly rank-\(n-1\) letters, rather than the number of shortest words for every rank-six map. Szykuła and Zyzik [2] develop exact shortest-length algorithms and report reset-length experiments, without this joint multiplicity classification. The separate exact enumeration [3] for the same rank-six family supplies the **reset-length marginal** and the longest threshold, not the counts of shortest literal words. Its date alone does not establish an order of publication. Neither the length marginal nor the known results about individual critical automata or rank-seven families determine this 670,608-class joint census.
 
 ## Limitations
 
-This is a computer-assisted *finite* proof, and the full-breadth algorithms deliberately inspect every eligible eight-state map. It does not prove an infinite-family formula or a complexity bound for larger state sets. Originality comparisons cover the cited accessible literature and indexed related claims; an unindexed prior table with the identical multiplicity distribution cannot be excluded. Independent external audit has not been performed.
+This is a computer-assisted *finite* proof, and the full-breadth algorithms deliberately inspect every eligible eight-state map. It does not prove an infinite-family formula or a complexity bound for larger state sets. Originality comparisons cover the cited accessible literature and indexed related claims; an unindexed prior table with the identical multiplicity distribution cannot be excluded.
 
 ## References
 
 1. S. Hoffmann, “State Complexity of the Set of Synchronizing Words for Circular Automata and Automata over Binary Alphabets,” arXiv:2011.14404, first publicly available 2020-11-29, https://arxiv.org/abs/2011.14404.
 2. M. Szykuła and A. Zyzik, “An Improved Algorithm for Finding the Shortest Synchronizing Words,” arXiv:2207.05495, first publicly available 2022-07-03, https://arxiv.org/abs/2207.05495.
-3. Previously established exact reset-length marginal for eight-state circular rank-six automata; invoked only as an independent consistency check, not claimed as new.
+3. *The exact reset-threshold spectrum of eight-state circular rank-six automata*, https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-exact-reset-threshold-spectrum-of-eight-state-circular-rank--c9814c09eaa0/RESULT.md.

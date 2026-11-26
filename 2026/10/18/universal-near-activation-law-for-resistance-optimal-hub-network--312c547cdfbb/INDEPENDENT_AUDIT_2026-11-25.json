@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:34:50.849975Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–27 and 31–77",
+        "Frozen VERIFICATION.md lines 19–23 and verify.py lines 19–101 (inspected, not executed)"
+      ],
+      "rationale": "On connected conductance supports the trace-inverse Hessian is strictly positive for a nonzero Laplacian perturbation (diagonalize L+J and sum positive multiples of squared entries). Simplicity gives injectivity in the edge weights; the compact price simplex contains a finite star and the objective diverges at disconnected limits. Thus the unrestricted optimizer is unique and invariant on each spoke and peripheral orbit. The hub cannot be isolated. At the uniform star the spoke derivative is −N/a² and the peripheral derivative is −2(N+1)/a². Under the budget constraint any feasible infinitesimal addition of peripheral weight has derivative proportional to Nt−2(N+1); the convex supporting inequality, with strict convexity including at equality, gives exactly t≥t_c. For the symmetric optimum the hub mode has eigenvalue (N+1)a, and peripheral mean-zero modes have eigenvalues a+bλ, including extra zero modes of H. With q=td/2 and f=B𝒦/N, expand (1+qx)[1+(N+1)∑(1+λx)⁻¹]. The first three peripheral moments are Nd, Nd(d+1) and Nd³+3Nd²−6T. Consequently f_x=−pδ+hx+gδx+jx²+O(δx²+x³), with p=N²d/2, h=2(N+1)d(N−d)>0, g=(N+1)Nd², j=3(N+1)[d³+(1−2N)d²+6T]. The analytic stationary solution is positive just below threshold, with C=p/h and D=−(gC+jC²)/h, which simplifies to the displayed formula. The strictly increasing change from x to feasible b identifies this branch with the global minimizer by convexity in the original weights, without needing global convexity in x. The optimized gain is (N/B)p²δ²/(2h), exactly the stated coefficient. This includes d=N−1 and disconnected H as the formulas require only N−d>0 and the positive hub spokes.",
+      "residual_risks": [
+        "The verifier's expected 120 identities are finite supporting checks, not a reproduced run or an unrestricted existence proof. The asymptotic errors are for fixed H, N and B."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghosh–Boyd–Saberi give necessary and sufficient gradient/complementary slackness conditions for the general problem. Johnson–Chertkov develop a cost-aware network design method including sparsity-promoting costs.",
+          "The bouquet accommodates heterogeneous clique sizes and prices but requires clique peripherals. The pineapple includes a clique plus isolates, generally not even regular."
+        ],
+        "reasoning": "Generality of an optimization method is not an evaluated critical expansion. Conversely the exact clique results can handle some heterogeneous graphs but do not contain all transitive peripheries, for example a six-cycle.",
+        "searches": [
+          "Ghosh–Boyd–Saberi 2006 equations (27)–(28) and 2008 equations (28)–(30); Johnson–Chertkov arXiv:1004.2285; Resultary eaa2b980f9e3 and 623da493ba70"
+        ]
+      },
+      "checked_sources": [
+        "Ghosh–Boyd–Saberi (2006 and 2008); Johnson–Chertkov arXiv:1004.2285",
+        "Resultary eaa2b980f9e3, 623da493ba70, 4d675b14a64b and 2fd993460ba7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Evaluating the known optimizer conditions on a star in price-weighted variables yields the activation threshold. Taylor expansion of the exact bouquet formulas yields the ratio and gain expansions for H=mK_q.",
+          "For H=mK_q the triangle count is fixed by N,d, while C₆ and K₃⊔K₃ share N=6,d=2 but have respectively zero and two triangles."
+        ],
+        "reasoning": "Generic first-order conditions entail the cutoff; exact block formulas entail both low-order coefficients on their overlap. Neither implication resolves the general class or isolates its triangle sensitivity, which here follows from the third Laplacian moment and the stationary-branch expansion.",
+        "searches": [
+          "Ghosh–Boyd–Saberi KKT equations (28)–(30); eaa2b980f9e3 Finding offsets 0–4358; 623da493ba70 Finding offsets 0–4910; frozen RESULT.md lines 48–77"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normalized price cutoff in clique-bouquet notation 2n/(n−1) is 2(N+1)/N with n=N+1 total vertices. The clique-union ratio in eaa2b980f9e3 is x=(y−1)/q when the cliques all have size q.",
+          "The 2008 wheel uses the unit-price budget n(α+β)=1, not an expansion in the variable chord price at activation."
+        ],
+        "reasoning": "The cutoff is an equivalent known activation fact after vertex-count normalization. An exact ratio specialized to clique blocks and a unit-price wheel calculation are not equivalent formulations of the three coefficient laws for arbitrary transitive H.",
+        "searches": [
+          "Resultary: effective resistance/Kirchhoff index conductance activation, priced chords, hub joins, clique bouquets, windmills and pineapples; eaa2b980f9e3, 623da493ba70, 4d675b14a64b and 2fd993460ba7",
+          "Ghosh–Boyd–Saberi 2008, equations (28)–(30) and wheel equation (38)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact clique-bouquet all-price expressions include the conductance ratio and K_min=S². The pineapple record gives exact optimizer and objective in its own family. Indexed clique frontier and windmill records are also family-specific."
+        ],
+        "reasoning": "Any exact value on the overlapping clique-union subfamily is covered by those expressions. The assessed claim is a symbolic all-H law, not novelty of a sample value. No inspected exact catalog entry evaluated that general law.",
+        "searches": [
+          "Resultary eaa2b980f9e3 Finding; 623da493ba70 Finding; later clique records 4d675b14a64b and 2fd993460ba7; 2008 wheel equation (38)"
+        ]
+      },
+      "rationale": "No novelty credit is assigned to the trace-inverse design framework, star-chord screening threshold, or exact clique-bouquet specializations. The supported distinction is the degree-only slope and resistance curvature together with the triangle-sensitive second ratio coefficient for the full vertex- and edge-transitive class, including disconnected H. The strongest catalog match gives exact all-price formulas on unions of cliques, hence covers a genuine subfamily, but cannot express the same-order/same-degree triangle variation of the full result.",
+      "residual_risks": [
+        "Bounded source comparison does not establish historical priority or exclude unpublished or specialized expansions. An unproductive literature query is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General framework and known screening; no general priced onset law in these passages",
+          "evidence": "Conductance optimality conditions with complementary slackness; wheel calculation imposes a unit-price total budget.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "2008 PDF pp. 15–16 (printed pp. 51–52), equations (28)–(30); printed pp. 59–60, equation (38), offset around 76500",
+          "method": "Bounded open primary PDF text inspection",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Direct general optimizer and wheel comparison"
+        },
+        {
+          "assessment": "Supports prior derivability of screening",
+          "evidence": "Necessary and sufficient gradient conditions under a conductance budget.",
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+          "material_read": "PDF pp. 7–8, equations (27)–(28)",
+          "method": "Bounded open primary PDF text inspection",
+          "title": "Minimizing Effective Resistance of a Graph (MTNS)",
+          "trigger": "Earlier formulation of the claimed threshold mechanism"
+        },
+        {
+          "assessment": "Genuine exact subfamily coverage, not all H",
+          "evidence": "Equal clique blocks give x=(y−1)/q from explicit y and exact K_min=S², implying the special-case onset coefficients.",
+          "identifier_or_url": "Resultary 2026/10/12 eaa2b980f9e3",
+          "material_read": "RESULT.md Finding, offsets 0–4358",
+          "method": "Bounded local-mirror text inspection",
+          "title": "Universal internal-edge price threshold for resistance-optimal clique bouquets",
+          "trigger": "Exact all-price coverage of some disconnected transitive H"
+        },
+        {
+          "assessment": "Same cutoff, specific optimizer and objective; no inference about ordering from dates",
+          "evidence": "A clique-plus-isolates periphery is generally outside transitive H; exact formulas are pineapple-specific.",
+          "identifier_or_url": "Resultary 2026/10/18 623da493ba70",
+          "material_read": "RESULT.md Finding, offsets 0–4910",
+          "method": "Bounded local-mirror text inspection",
+          "title": "A universal chord-price cutoff for resistance-optimal pineapple networks",
+          "trigger": "Same-day cutoff and exact solution on a hub network"
+        },
+        {
+          "assessment": "Additional exact family-specific overlap",
+          "evidence": "Cutoff and closed forms are for clique architectures. Later catalog dates are not evidence of mathematical priority.",
+          "identifier_or_url": "Resultary 4d675b14a64b and 2fd993460ba7",
+          "material_read": "Catalog comparison of findings on heterogeneous clique bouquets and equal-clique windmills",
+          "method": "Local catalog comparison",
+          "title": "Universal internal-edge cost frontier for resistance-optimal clique bouquets; Universal price cutoff for resistance-optimal clique windmills",
+          "trigger": "Additional exact-cost aliases with matching threshold"
+        },
+        {
+          "assessment": "Different objective emphasis; relevant methodology, not a matching onset statement",
+          "evidence": "Structure selection, sparsity-promoting costs and a design algorithm based on effective-resistance optimization.",
+          "identifier_or_url": "https://arxiv.org/pdf/1004.2285",
+          "material_read": "PDF pp. 1–2, offsets 0–8150",
+          "method": "Bounded open primary PDF text inspection",
+          "title": "A Majorization-Minimization Approach to Design of Power Transmission Networks",
+          "trigger": "Broader price-sensitive electrical design framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–23, 50–71 and 77–87"
+      ],
+      "rationale": "The threshold alone says when an edge is worth using; the ratio slope and exact objective curvature quantify how much is deployed and how much resistance is saved near that threshold. The first graph discriminator is the triangle count, demonstrably separating models with equal size and degree, even when disconnected peripheries are allowed. This is a useful local design principle rather than a repetition of the binary screening test or a special-case numerical optimum.",
+      "residual_risks": [
+        "Local result for the unweighted pair-sum effective resistance with priced conductances, not a mixing-rate law or a full nontransitive optimizer classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:28:59.532616Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–98; bound VERIFICATION.md and verify.py inspected as evidence, not executed.",
+        "Independent integer Euclidean row/column reduction: /workspace/branches/2b796705-aa62-42d6-97f5-8f6848f901fd/independent_snf_check.py, with snf-n1-to-7.json in the same directory. Direct exact checks for n=1–7 included (1^3,0), (1^13,2^2,0), and (1^21,2,0^3) for n=1,3,4 respectively."
+      ],
+      "rationale": "Independent finite extension of the two linear orders realizes every pair of insertion gaps. When both gaps differ, their differences force each orientation; when a gap is shared the two new points can be put in either order within it. Thus the formula includes equality and diagonal ones. For the integral presentation, take successive differences on both axes of the column relations. The mixed difference is -e_{k-1,l-1}-e_{kl}; the two boundary difference lists are the row/column tail sums, and the corner relation may be taken at (n,0), where it is the total sum. The change is reversible by summation. The mixed differences eliminate all interior variables with unit pivots, leaving alternating signs on each diagonal. Consecutive tail-sum differences then identify v_{n-k}=(-1)^k u_k for 1<=k<n; the other list yields (1-(-1)^n)u_k=0. One last row sum eliminates the shared diagonal variable u_0 and the total sum eliminates v_n, leaving u_n free. The last opposite tail sum imposes sum_{1<=k<n} [(-1)^n-(-1)^k]u_k=0. This is redundant modulo 2u_k for odd n and is twice a primitive linear form for even n, since then n>=2 and u_1 has coefficient 2. At n=1 the inner lists are empty and just one generator remains free. The stated cokernels, unit counts, and field ranks follow without using a rank comparison to infer the integral torsion exponent.",
+      "residual_risks": [
+        "The separate reduction verifies only the stated finite sample; the reversible presentation establishes all n. No higher-type or probabilistic statement is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cameron describes arbitrary pairs of total orders and their independent amalgamation; Linman–Pinsker identifies the Fraïssé limit.",
+          "Catalogue 2dde5ec61aa2 describes three-order feasibility SMFs for at most three named parameters; c27b81bb9218 describes interval feasibility over a named chain in the random poset."
+        ],
+        "reasoning": "The homogeneous-permutation results supply the extension principle but not the integer invariant. The inspected summaries of the other objects do not give an all-size two-order theorem. In particular, a matrix restriction to two orders would not in general inherit a Smith form from its ambient matrix.",
+        "searches": [
+          "Cameron, Homogeneous Permutations, p. 3",
+          "Linman–Pinsker, arXiv:1405.4297, p. 1",
+          "Resultary: three-order incomparability feasibility and named-chain random-poset type incomparability"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 645c02410c82 (self), 2dde5ec61aa2, c27b81bb9218, f6af0a8c3805",
+        "Cameron DOI 10.37236/1674; arXiv:1405.4297 and arXiv:1602.00166"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The incidence-precision catalogue summary concerns covariance and precision of actual pairwise inversion indicators of a uniform finite permutation. The present indices are pairs of gaps and entries are Boolean extension feasibility.",
+          "The cited classical machinery gives the matrix definition and explains what a computed Smith form means, not the integral diagonal recurrence and residual parity relations."
+        ],
+        "reasoning": "A formula for the covariance of pair-indexed random variables would require a separate matrix equivalence to imply the Smith factors of the gap kernel; none is evidenced. Nor does knowing the extension property or only the characteristic-two rank determine the torsion exponent.",
+        "searches": [
+          "Resultary: incidence precision law for all inversion indicators (f6af0a8c3805)",
+          "Cameron, p. 3; Stanley, arXiv:1602.00166, p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reversing the second coordinate takes the kernel to inclusive comparability of the product of two chains, including its diagonal. With Z the chain zeta matrix it is Z⊗Z+(Z⊗Z)^T-I.",
+          "Stanley, arXiv:1602.00166, p. 1 (offsets 2400–5054), describes the general Smith-form framework and other structured matrix families."
+        ],
+        "reasoning": "The chain zeta matrix alone is unimodular, but this sum with its transpose minus identity need not be. A theorem about the summands or ordinary Smith divisors does not give the parity count, and the inspected comparisons supplied no matching formula for the sum.",
+        "searches": [
+          "Resultary: dominance/comparability matrices on products of two chains; triangular Kronecker-product grid kernels; two-order insertion-gap inversion feasibility",
+          "Literature search for the exact grid Smith formula under dominance and Kronecker formulations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 645c02410c82 is the exact assigned record, not an independent prior. The closest distinct summary 2dde5ec61aa2 includes 2- and 3-torsion for three orders; no matching all-n two-order table was inspected."
+        ],
+        "reasoning": "The finite three-order table in the summary is not this classification by dimension parity; the exact target self-match adds no independent evidence.",
+        "searches": [
+          "Resultary: exact inversion-feasibility/Smith statement and grid-kernel variants"
+        ]
+      },
+      "rationale": "The reviewed advance is the all-order integer Smith classification of a natural grid kernel, not the classical existence of the homogeneous permutation or the finite-extension derivation of its entries. Comparison under coordinate reversal and the grid-zeta formulation found no demonstrated prior coverage. Distinct catalogue analogues with unavailable full passages are retained as bounded comparison risks.",
+      "residual_risks": [
+        "The three distinct catalogue comparisons with missing full passages are summary-limited. An equivalent formula under another name for symmetrized product-of-chains zeta matrices remains possible; the bounded searches do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the model; not the claimed classification in the inspected passage",
+          "evidence": "The class is universal for finite permutations with arbitrary total orders, which can be amalgamated independently.",
+          "identifier_or_url": "https://doi.org/10.37236/1674",
+          "material_read": "p. 3, offsets 8000–9753",
+          "method": "Open-access article PDF passage",
+          "title": "Homogeneous Permutations",
+          "trigger": "Primary source for extension in two orders"
+        },
+        {
+          "assessment": "Model background",
+          "evidence": "Identifies the random permutation as the Fraïssé limit of finite two-order structures.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.4297",
+          "material_read": "p. 1, offsets 0–3037",
+          "method": "Open-access primary text passage",
+          "title": "Permutations on the Random Permutation",
+          "trigger": "Candidate broader result for types in two orders"
+        },
+        {
+          "assessment": "General theory; no matching statement established",
+          "evidence": "The inspected passage discusses combinatorial Smith-form examples including chip-firing and Varchenko matrices.",
+          "identifier_or_url": "https://arxiv.org/abs/1602.00166",
+          "material_read": "p. 1, offsets 2400–5054",
+          "method": "Open-access survey passage and bounded lookup",
+          "title": "Smith Normal Form in Combinatorics",
+          "trigger": "Structured integer matrices and potential dominance-kernel formulas"
+        },
+        {
+          "assessment": "Related finite three-order analogue; full comparison access-limited",
+          "evidence": "The indexed scope uses three independent orders, at most three named parameters, and includes factors 2 and 3.",
+          "identifier_or_url": "Resultary 2dde5ec61aa2",
+          "material_read": "Indexed scientific summary only; RESULT.md was unavailable in the local mirror",
+          "method": "Resultary search and attempted local-mirror retrieval",
+          "title": "The first odd Smith torsion in three-order incomparability feasibility",
+          "trigger": "Closest distinct indexed theorem on the same type of invariant"
+        },
+        {
+          "assessment": "Different model on available evidence; full comparison access-limited",
+          "evidence": "The summary describes interval-intersection feasibility over a named chain and unit nonzero factors.",
+          "identifier_or_url": "Resultary c27b81bb9218",
+          "material_read": "Indexed scientific summary only; RESULT.md was unavailable in the local mirror",
+          "method": "Resultary search and attempted local-mirror retrieval",
+          "title": "Integral hyperbolic decomposition of random-poset type incomparability over named chains",
+          "trigger": "Potential comparison for two-index gap kernels and integral invariants"
+        },
+        {
+          "assessment": "Different matrix according to the available statement",
+          "evidence": "Covariance and precision for indicators in a uniform finite permutation, not possible inversions between logical gap types.",
+          "identifier_or_url": "Resultary f6af0a8c3805",
+          "material_read": "Indexed scientific summary only; RESULT.md was unavailable in the local mirror",
+          "method": "Resultary search and attempted local-mirror retrieval",
+          "title": "Incidence precision law for all inversion indicators of a random permutation",
+          "trigger": "Similar inversion terminology but potentially different indexing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–29, 31–98"
+      ],
+      "rationale": "The matrix is motivated by extension feasibility, and independently is a natural comparability matrix of a square grid. A complete integral presentation distinguishes parity-dependent free rank from genuine 2-torsion and rules out higher prime powers, neither of which follows from a characteristic-two rank table. The result gives exact working invariants for related gap-kernel and order-feasibility calculations, not merely a few small spectra.",
+      "residual_risks": [
+        "No implication is claimed for higher-point types or additional orders."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

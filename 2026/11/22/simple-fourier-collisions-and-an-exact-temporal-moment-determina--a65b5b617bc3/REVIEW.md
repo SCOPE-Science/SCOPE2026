@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The factorization \(\lambda_j-\lambda_\ell=(\zeta^j-\zeta^\ell)(a+b(\zeta^j+\zeta^\ell))\), the conjugate-or-antipodal dichotomy for a real sum of two unit-circle points, and monotonicity of cosine rigorously classify all collisions. Fourier diagonalization gives \(OF=V\), and products indexed by cyclic differences prove the exact determinant including even-cycle antipodal contributions. Algebraic-integrality proves the rational-bias exception. A standalone test corroborates exact rational determinants through twelve vertices. No finite sample substitutes for the proof.
+## correctness
 
-## Originality — PASS, bounded literature comparison
-The full arXiv preprint of Finucane–Tamuz–Yaari was inspected, including its Theorem 5.1: it contains one irrational \(n=7\) two-step collision and general reconstruction criteria, not the all-length simple-collision census or exact temporal-moment determinant. The 2006 Matzinger–Lember paper studies precisely the same two-step walk, and its accessible abstract establishes a reconstruction statement; its full text was unavailable, so a possible overlooked weighted Fourier-product statement remains a priority risk. The 2010 Parlangeli–Notarstefano work treats symmetric cycle Laplacian observability, not the asymmetric one-or-two-step transition. Published mathematical-index searches did not reveal an exact dominating result, but nonappearance is not a proof of novelty.
+PASS
 
-## Value — PASS
-The exact determinant is a natural quantitative volume measure for time-sampled harmonic identifiability, not merely a rephrasing of a Boolean rank test. The count of isolated collision parameters, sharp universal bias interval, density of possible resonances below its boundary, and identification of the lost sine mode give a complete structural interpretation relevant to cyclic inverse problems and time-series Fourier recovery. This does not imply a full noise-conditioned inverse or a probabilistic reconstruction theorem.
+For distinct roots u,v on the unit circle the multiplier difference is (u−v)(a+b(u+v)). At a collision u+v is real nonzero; conjugation gives u+v=(u+v)/(uv), so v=u^{-1}. The smaller positive index k lies strictly between n/4 and n/2, and −2cos(2πk/n) increases strictly there, yielding exactly one colliding pair at each bias and the floor count. Rational ratios a/b make u+v a rational algebraic integer in (−2,0), hence −1, equivalent to a primitive third root. Density and the endpoint 2/3 follow from fractions k/n dense in (1/4,1/2) and the strictly increasing continuous bias map onto (0,2/3). With F_{x,j}=ζ^{xj}, the zero observation row has Fourier coefficients all one and OF=V. The ordered Vandermonde quotient is exactly the product of a+b(ζ^j+ζ^ℓ) over unordered pairs, without an undetermined sign. For each cyclic distance d<n/2 there are n pairs indexed by j; their product is a^n−(−b(1+ζ^d))^n and (1+ζ^d)^n=(−1)^d(2cos(πd/n))^n. Even antipodal pairs produce a^{n/2}. The product is a symmetric polynomial in the integral roots and hence has integer coefficients, with one linear degree per pair; FF*=nI gives |det V|²=n^n Q_n². A unique vanishing linear factor along b=1−a has strictly positive derivative, so every interior zero is simple. The remaining Vandermonde columns are independent and the sole complex relation is a frequency difference, giving the real sine kernel after Fourier inversion of the coordinates. At k=n/3 the pair has sum −1 and distance √3, and all other gaps stay separated locally for fixed n. The n=2 antipodal formula gives a; direct one-site rows at n=3 give det O=a³−b³. The frozen checker was inspected, not run.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit the Fourier-distinctness criterion in scenery reconstruction, the credited irrational two-step collision at n=7, and the standard Fourier/Vandermonde framework. The supported distinct result is the complete positive-bias single-defect locus together with the factored signed determinant for the exact one-site time block and its lost-mode description. The original same-walk article remains a material priority risk, not negative evidence.
+
+## value
+
+PASS
+
+The determinant is a natural exact volume for recovery of Fourier modes from time samples at one site. The result identifies precisely how much information is lost (one real sine mode), where it is lost for every cycle length and positive bias, and how the resonant pair opens near equal weights. This is an all-parameter structural answer rather than an arbitrarily selected determinant value or reconstruction claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

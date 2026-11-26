@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:21:01.045809Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With peak counts (a,b,c), exactly the a left-peak voters prefer L to C and exactly the c right-peak voters prefer R to C. Hence C is the Condorcet winner precisely when both a,c≤r=(n−1)/2; outside that region the majority extreme wins IRV outright. When C is the Condorcet winner, eliminating either extreme first elects C in the two-candidate majority contest. Thus failure under every legal elimination requires C to be the unique first-round minimum, b<a and b<c; ties with an extreme cannot qualify. The independent peak probabilities (1/4,1/2,1/4) now give the exact multinomial sum. For a separate derivation of the sharp asymptotic, set u=a−b≥1, v=c−b≥1, d=u+v; then b=(n−d)/3, and the exact ratio of its peak mass to the multinomial with uniform peak probabilities is (27/32)^(n/3)·2^(−d/3). For each fixed u,v compatible with the residue, the count vector is at fixed offsets from n/3 and eventually satisfies both majority restrictions. Stirling shows that its uniform-peak mass times n tends to 3√3/(2π). A uniform bound on n times this mass follows since transferring a unit from a count exceeding another by at least two increases the multinomial mass; hence a maximizer has all counts differing by at most one, where the bound follows from Stirling. Summability of (d−1)2^(−d/3) proves dominated convergence along each residue. Summing (d−1)2^(−d/3) for d≥2 and d≡s mod 3 gives 5, 6·2^(−1/3), and 8·2^(−2/3), establishing the claimed sharp prefactor and logarithmic rate. Independently enumerating all 4^n ordered profiles, checking every pairwise majority and every legal first-round minimum, then comparing to the multinomial gave counts 0, 0, 60, 280, 11340 at n=1,3,5,7,9. The furnished code and certificate were inspected, not run; they only cover prescribed finite sizes and truncated coefficient sums. No claim for other ballot cultures or arbitrary tie-breaking probabilities follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Walsh model is exactly the fixed-axis ranking law when there are three alternatives, but the inspected analyses concern positional scoring rules. The Euclidean IRV study derives winner-position distributions, including at three alternatives. Lackner–Lackner assess single-peakedness under culture models allowing an unknown axis."
+        ],
+        "reasoning": "Broader voting or culture results do not specialize to a sharp odd-electorate probability for the strict IRV event. Three candidates in the Euclidean model do not produce the stipulated iid equiprobable rankings from a fixed axis and need not have the same failure statistic.",
+        "searches": [
+          "Mousseau–Surugue–Wilczynski DOI 10.3233/FAIA251226 (HAL version)",
+          "Tomlinson–Ugander–Kleinberg arXiv:2303.09734",
+          "Lackner–Lackner DOI 10.1007/s00355-017-1033-0 (public arXiv preprint)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_center_squeeze.py and verification_certificate.json",
+        "Correa-Lopera DOI 10.1007/s40505-025-00297-x",
+        "Mousseau–Surugue–Wilczynski DOI 10.3233/FAIA251226 (HAL)",
+        "arXiv:2303.09734",
+        "Lackner–Lackner DOI 10.1007/s00355-017-1033-0 (preprint)",
+        "Resultary 0130077fb831 and 297e69065897"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known deterministic inequalities plus the Walsh peak law give the finite multinomial sum once the strict tie convention is fixed. None of those ingredients gives the sharp lattice probability equivalence without evaluating the weighted fluctuations at the equal-count point."
+        ],
+        "reasoning": "The significant remainder is the sharp asymptotic rather than the finite encoding or the center-elimination mechanism. A bare large-deviation exponent would not give the prefactor: the admissible positive offsets lie on three different congruence lattices, and their total geometric weights must be computed.",
+        "searches": [
+          "Correa-Lopera Proposition 3, footnote 6 and appendix; Mousseau–Surugue–Wilczynski Walsh distribution; Resultary 0130077fb831 exact risk"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 3 gives elimination of the Condorcet center when its first-place share is the smallest in a polarized electorate; the appendix explains the surviving L/R runoff. The paper works with type shares and treats tie probability as negligible.",
+          "The same-culture plurality–Borda match 0130077fb831 counts different unique winners under those two rules."
+        ],
+        "reasoning": "The prior deterministic region agrees with strict squeezing in peak coordinates but is not the iid election probability. The two exact events are not equivalent: the profile with counts (2,1,2) is unavoidable center squeeze, yet neither extreme is a unique plurality winner.",
+        "searches": [
+          "Correa-Lopera DOI 10.1007/s40505-025-00297-x, Proposition 3 and appendix proof",
+          "Resultary search: Walsh culture, center squeeze, strict first-round ties and Condorcet failure"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0130077fb831 provides exact finite and sharp asymptotic results under the same culture for unique plurality–Borda disagreement. 297e69065897 treats a posterior IRV risk with a Dirichlet prior over 15 partial-ballot types."
+        ],
+        "reasoning": "The exact tables/expressions are for different events or input laws. Neither encodes the strict center-minimum failure event and its three residue constants in the inspected finding.",
+        "searches": [
+          "Resultary exact finite/asymptotic probability search for three-candidate Walsh elections and IRV risk; matched 0130077fb831 and 297e69065897"
+        ]
+      },
+      "rationale": "The strict center-squeeze mechanism and the uniform fixed-axis culture are both prior. The finite sum is the direct probabilistic translation of that mechanism and is not credited as a substantial standalone novelty. The supported distinct result is the sharp large-electorate risk of unavoidable failure, including its residue-dependent prefactors, within the stated culture.",
+      "residual_risks": [
+        "The close same-culture and IRV comparisons are not an exhaustive census of voting-paradox or exact lattice-tail literature. An empty targeted public query is not evidence of absence. The assessment credits only the distinct sharp probability result supported by the inspected comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the elimination mechanism; no sharp iid Walsh probability in the inspected passages",
+          "evidence": "The center is removed when it is the first-place minimum; fixed shares and negligible ties, not the strict finite-population tie event.",
+          "identifier_or_url": "https://doi.org/10.1007/s40505-025-00297-x",
+          "material_read": "Proposition 3 and footnote 6 (p. 325), appendix proof (p. 329), OA offsets 16000 and 25913",
+          "method": "OA primary PDF",
+          "title": "Ranked-choice voting versus first-past-the-post: how polarization shapes their performance",
+          "trigger": "Direct deterministic three-candidate center-squeeze precursor"
+        },
+        {
+          "assessment": "Covers model and positional rules, not strict IRV failure",
+          "evidence": "Uniform distribution over rankings single-peaked on the prescribed axis.",
+          "identifier_or_url": "https://doi.org/10.3233/FAIA251226",
+          "material_read": "Submitted full-text PDF, p. 3, OA offset 8500, model and stated scoring-rule results",
+          "method": "Lawful HAL version after DOI landing page lacked text",
+          "title": "Agreement Among Voting Rules Under Single-Peaked Preference Distributions",
+          "trigger": "Same iid fixed-axis Walsh ballot culture"
+        },
+        {
+          "assessment": "Different model and target statistic",
+          "evidence": "Uniform voters and candidates on [0,1]; finite-k winner-position distributions rather than Condorcet failure under Walsh ballots.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.09734",
+          "material_read": "Primary PDF p. 3 and finite-k discussion, OA offset 11900",
+          "method": "OA primary PDF",
+          "title": "The Moderating Effect of Instant Runoff Voting",
+          "trigger": "IRV in one dimension, including three candidates"
+        },
+        {
+          "assessment": "Different sampling and counted event",
+          "evidence": "The target is existence of a single-peaked axis under several culture models, not IRV on an already fixed axis.",
+          "identifier_or_url": "https://doi.org/10.1007/s00355-017-1033-0",
+          "material_read": "Public preprint pp. 2 and 5, OA offsets 5350 and 13400",
+          "method": "OA arXiv preprint of the paper",
+          "title": "On the likelihood of single-peaked preferences",
+          "trigger": "Exact counts and distributions for single-peaked preferences"
+        },
+        {
+          "assessment": "Material overlap in culture and type of result, different voting event",
+          "evidence": "Exact and sharp probability for different unique plurality and Borda winners; it does not model IRV elimination ties.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-plurality-borda-disagreement-and-its-sharp-decay-under-thr--0130077fb831",
+          "material_read": "RESULT.md, Finding in local mirror",
+          "method": "OA local mirror",
+          "title": "Exact plurality–Borda disagreement and its sharp decay under three-alternative single-peaked preferences",
+          "trigger": "Same Walsh ballot model and exact/sharp asymptotic probability"
+        },
+        {
+          "assessment": "Different posterior model and loss event",
+          "evidence": "Flat Dirichlet prior over 15 partial-ballot types and posterior winner risk, not iid single-peaked strict rankings and universal Condorcet failure.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-an-exact-quartic-residual-risk-law-for-first-choice-only-instant--297e69065897",
+          "material_read": "RESULT.md, Finding in local mirror",
+          "method": "OA local mirror",
+          "title": "An exact quartic residual risk law for first-choice-only instant-runoff voting",
+          "trigger": "Exact IRV probability in a small-alternative model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The known center-squeeze mechanism by itself does not say how its unavoidable risk scales with electorate size. This fixed-axis benchmark yields not just exponential rarity but a sharp 1/n prefactor and a genuine three-class dependence from strict ties and integer counts. It allows precise checks of finite voting-risk approximations without relying on arbitrary tie resolution. Its scope is not a claim about real electorate frequencies or other cultures.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

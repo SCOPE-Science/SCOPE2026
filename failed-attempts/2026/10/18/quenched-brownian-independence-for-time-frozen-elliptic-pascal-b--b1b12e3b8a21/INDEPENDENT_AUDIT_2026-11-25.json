@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:10:49.373519Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The signs reuse beta_k across time, so the conditional pair expectation is the Bernoulli character on the symmetric difference of two Pascal supports, not a product over independent rows. For s<t the highest differing digit produces at least 2^(popcount(t)-1) support elements absent at s. The no-increase event has probability 2^-(n-m). Fourier inversion for the fair count modulo 2^ell, ell=floor(log_2(n)/4), gives exponentially small distance to uniform in sqrt(n); Hoeffding controls fewer than ell/4 ones by exp(-ell/8). This yields the claimed power delta=1/(32 log 2) for the absolute pair bound and then the normalized bracket second moment (with the j=0 term treated separately). Along ceil(j^32) the squared estimates are summable because 32 delta>1; bounded increments interpolate, and Fubini gives the almost-sure quenched limit. The bounded martingale differences and local uniform bracket convergence then give the quenched FCLT. The finite checks in verify_pascal.py were inspected, not run, and are not a substitute for these steps.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hamza–Tournier Proposition 11 and Corollary 12 give annealed, not quenched, independence in the reused-coefficient model. Collevecchio et al. give a bracket criterion. The same-model rate record gives spatial maximal second moments and an almost-sure rate via geometric holding lengths."
+        ],
+        "reasoning": "The primary annealed conclusion alone is not a pathwise limit. The later rate record explicitly controls the same pathwise bracket and its proof has the joint moment ingredients as well.",
+        "searches": [
+          "arXiv:2610.01658v1 §§4.2–4.3; arXiv:2010.16000 Theorem 6; Resultary 3302a561a43a proof steps 1–5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–101 and 103–124; VERIFICATION.md and verify_pascal.py",
+        "arXiv:2610.01658v1 and arXiv:2010.16000",
+        "Resultary 3302a561a43a, 366d80019b89, 7435461eecaa and 00b4222393d7, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For s<t the source bounds |E_beta f(s)f(t)| by g(t). At time N the occupation counts L_s of all levels visited are bounded by the corresponding independent completed geometric holding lengths H_s; no level beyond N can occur. H_s is independent of the environment, E H_s^2=6 and E H_s H_t=4 for s != t."
+        ],
+        "reasoning": "Expanding conditional on occupation, the diagonal is bounded by 6(N+1) and the off-diagonal by 8 sum_{t<=N} t g(t). Use the inspected G_L bound with L=ceil(log_2(N+1)): E Q_N^2 is O_epsilon(N exp(C_epsilon (log log(N+constant))^2)), after an O(1) first-sign perturbation handled by a squared-sum inequality. Dividing by N^2 gives a strictly stronger order than N^-delta. The same source's pathwise estimate implies quenched bracket vanishing and the FCLT. No inference from an a.s. rate alone to a moment bound is used.",
+        "searches": [
+          "Resultary 3302a561a43a §§ proof steps 1–4, offset 3100, especially eq. (3) and renewal occupation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "366d80019b89 and 3302a561a43a both use precisely beta_k independent by cardinality, fixed through time, without common probabilities; their scenery signs f(s) are the same Pascal transform. They obtain the same quenched Brownian conclusion. Same-day 7435461eecaa handles only fair scenery and independently gives variance-three fluctuations."
+        ],
+        "reasoning": "For all j>=1 the record's zeta_j is exactly f(S_j); enforcing zeta_0=1 changes each bracket prefix by at most 2. Independent-row 00b4222393d7 is not equivalent because it uses distinct coefficient rows.",
+        "searches": [
+          "Resultary static/frozen elliptic Pascal cardinality quenched Brownian independence; 366d80019b89, 3302a561a43a, 7435461eecaa and 00b4222393d7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact analytic comparison (not a numerical table) is G_L=sum over t<2^L of g(t), g(t)=rho^(2^(popcount(t)-1)) for t>0. The rate record bounds G_L by exp(C(log(L+2))^2) and gives the associated spatial maximal second-moment bound."
+        ],
+        "reasoning": "The other static record's quoted exponent is for spatial averages, not literally the frozen record's time average. The stronger G_L bound, transferred to time as below, is decisive.",
+        "searches": [
+          "Resultary 3302a561a43a, eqs. (3)–(4); 366d80019b89 second-moment proof, offset 3100"
+        ]
+      },
+      "rationale": "Both the static heterogeneous quenched theorem and the quantitative annealed bound are covered at the statement level. The later same-model rate record gives sufficiently strong pair-envelope estimates to imply the advertised annealed second moment, not just a stronger almost-sure statement. No scientific remainder survives; this finding of coverage does not determine priority.",
+      "residual_risks": [
+        "The catalogue dates are not a priority finding. The alternative proof route does not negate correctness of the record's modular-mixing proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the quenched conclusion and implies a stronger joint second moment via the supplied pair envelope",
+          "evidence": "Uniform elliptic static biases, pair envelope g, subpower bound on G_L, independent geometric holds.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-near-square-root-quenched-bracket-rate-for-elliptic-pascal-sig--3302a561a43a",
+          "material_read": "RESULT.md Finding and proof steps 1–5, offsets 3100–7694 including eqs. (3)–(4)",
+          "method": "Resultary local mirror passage",
+          "title": "A near-square-root quenched bracket rate for elliptic Pascal signs",
+          "trigger": "Stronger rate for exactly the same bracket"
+        },
+        {
+          "assessment": "Full quenched overlap; separately computes a spatial moment estimate",
+          "evidence": "Static arbitrary elliptic biases; spatial bracket convergence, geometric occupation transfer and FCLT.",
+          "identifier_or_url": "2026/11/2/SCOPE-quenched-brownian-normality-for-static-cardinality-driven-bootst--366d80019b89",
+          "material_read": "RESULT.md Finding and proof at offsets 0 and 3100–6021",
+          "method": "Resultary local mirror passage",
+          "title": "Quenched Brownian normality for static cardinality-driven bootstrap walks",
+          "trigger": "Full-model quenched overlap"
+        },
+        {
+          "assessment": "Exact model at fair biases only",
+          "evidence": "Static fair scenery plus annealed variance-three fluctuation result.",
+          "identifier_or_url": "2026/10/18/SCOPE-hidden-independent-scenery-quenched-normality-and-variance-three--7435461eecaa",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror passage",
+          "title": "Hidden independent scenery, quenched normality and variance three",
+          "trigger": "Same-day quenched Pascal scenery"
+        },
+        {
+          "assessment": "Corollary 12 covers annealed static result; Corollary 9 is distinct independent-row regime",
+          "evidence": "§4.3 sets beta_(n,k)=beta_k and explicitly gives the annealed limit under static ellipticity.",
+          "identifier_or_url": "https://arxiv.org/html/2610.01658v1",
+          "material_read": "Introduction offset 13100; §§4.2–4.3 offsets 47600 and 60000–61100",
+          "method": "OA HTML passages",
+          "title": "Are random random walks normal?",
+          "trigger": "Baseline for the static model and quenched question"
+        },
+        {
+          "assessment": "Bracket-to-limit criterion only",
+          "evidence": "Identifies predictable bracket and averaged sign moments, without proving static-environment decay.",
+          "identifier_or_url": "https://arxiv.org/html/2010.16000",
+          "material_read": "§3.1 Theorem 6, offset 20200",
+          "method": "OA HTML passage",
+          "title": "Limit theorems and ergodicity for general bootstrap random walks",
+          "trigger": "General criterion might cover quenched claim"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A quantitative pathwise upgrade in the static environment answers an explicit annealed-to-quenched gap. It addresses the persistent dependence created by coefficient reuse and arbitrary biases; the modular proof explains a uniform quantitative mechanism. Value of the question and method does not overcome duplicated statement coverage.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

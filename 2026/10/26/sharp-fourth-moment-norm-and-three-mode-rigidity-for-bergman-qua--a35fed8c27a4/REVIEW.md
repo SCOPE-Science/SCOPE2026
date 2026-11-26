@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The global bound follows from the exact monomial moment identity, alignment of the single phase-interference term, a unique maximizer in the middle coefficient's squared modulus, and an explicit one-dimensional rational function with cubic-factor derivative. The constant-coefficient-zero boundary is maximized independently at \(99/43\). All three possible two-term supports are exhausted. Equality requires the unique positive cubic root and the aligned phases; there are no boundary optimizers. The standalone exact-arithmetic checker verifies the rational identities, derivative factorization, and resultant, while finite complex trials only corroborate the result.
+PASS
 
-## Originality — PASS, subject to historical priority
+Reconstructed the exact moments from disk orthogonality, applying it to f and f². The only phase interaction is |b²+2ac|², so when all coefficients are nonzero the stated congruence is necessary. For nonzero a, fixing s=|c/a| and parametrizing by the linear-mode fraction of L² energy makes the phase-aligned ratio a quadratic with positive slope at fraction 0 and negative slope at 1. Its sole maximum reproduces the stated rational envelope; its derivative changes sign exactly once by the factored cubic and Descartes' rule. Substitution at the root gives |b/a|²=s+3. Independently reoptimized every two-mode face, yielding 8/5, 11/6 and 99/43. These are strictly below the interior envelope maximum. The resultant gives the claimed polynomial for K; its derivative has strictly positive coefficients after shifting K by 5/2, and the envelope at s=3 is already greater than 5/2, so the value is the largest real root. This proves the sharp constant and all equality cases rather than inferring them from samples.
 
-Melentijević (2022, arXiv:2211.03655), whose accessible full text was examined, proves dilation hypercontractivity and a separate change-of-weight estimate rather than an exact undilated quadratic restriction. Wang and Zhang (2025, arXiv:2505.12760), PDF Theorem 1.2 examined, give a valid but nonsharp fixed-degree bound \(\|f\|_4/\|f\|_2\le2\), whereas this claim has sharp factor \(1.279453789\ldots\). The nearest searchable analytic-quadratic endpoint norm calculation is for an \(L^6\) circle objective; its full text was inaccessible and its mathematical implication remains a residual priority risk. Database absence cannot certify novelty.
+## originality
 
-## Value — PASS
+PASS
 
-This exact natural finite-band multiplication norm is the first complex polynomial degree in which the fourth moment contains a genuine three-coefficient phase interaction. Its rigidity theorem and strict sharp improvement over all two-term supports give a quantitative spectral-concentration benchmark, rather than a mere renaming of an existing infinite-dimensional estimate. A paper-sized generalization is not claimed.
+Pass applies to the exact finite unweighted norm, the uniquely determined magnitudes with a complete equality family, and the exact two-mode benchmark. Generic three-mode support and phase alignment are not distinct contributions: stronger weighted results already imply them. The strongest retrieved weighted record provides the exact unoptimized quartic and face exclusion but does not solve the finite unweighted maximization or give the sharp two-mode constant. Its unsupported reference to a previously known unweighted calculation is a real residual risk, not demonstrated equivalent coverage.
 
-## Limitations
+## value
 
-The setting is probability unweighted disk area and degree at most two; no arbitrary-degree or arbitrary-radial-weight result follows. Hidden equivalent computations in older literature cannot be excluded without further independent examination. No independent validation occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural first disk-area Bergman space with phase interference gets an exact sharp embedding norm and a complete optimizer classification. The quantified best two-mode value distinguishes how much is gained by the third mode, beyond qualitative support persistence. These precise quantities are useful benchmarks for weighted extensions and for testing candidate extremizers, not just a recomputation of a general upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

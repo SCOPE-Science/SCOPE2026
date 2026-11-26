@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:18:57.727704Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The claimed optimum, uniqueness and fixed-r asymptotics are correct. Strict convexity on positive Laplacians restricted to the constants' orthogonal complement justifies averaging over the two edge orbits; irreducibility holds under averaging and strict inequality holds for a non-invariant input. Independently, for N=n(r+1), each pendant bridge contributes its inverse conductance to exactly N−1 unordered resistances, and each core pair's resistance appears (r+1)² times. Dividing total resistance by N gives K=(r+1)C_H/a + nr(N−1)/(Nb), the same A/b as the block proof, including r=1 and n=2. Monotonicity saturates the core row constraint, and minimizing R/u+S/(1−u) over 0<u<1 proves the interior positive solution and rules out disconnected endpoints. Substituting the cycle and complete-core trace constants yields the stated finite comparator formula and limits, without any aperiodicity assumption. The rational checker and its limits were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier reversible framework allows arbitrary prescribed stationary distributions and graph supports. The resistance-optimization paper already uses strict convexity, edge orbit invariance and a square-root allocation of separable inverse weights; its own budget is a global conductance budget, not this row budget.",
+          "The one-leaf result uses the identical stochastic row-budget setup and the weighted bridge resistance count as an explicit proof step."
+        ],
+        "reasoning": "Neither the general convex program nor a global resource budget may simply be substituted for the corona theorem. The decisive comparison is the exact same-class one-leaf calculation along with its cluster/bridge mechanism, which extends without new structural estimates.",
+        "searches": [
+          "Agharkar–Patel–Bullo §I.C, Problem 3/Theorem 4 and Problem 5",
+          "Ghosh–Boyd–Saberi §§5.1, 5.3, Eqs. (36)–(37)",
+          "Durastante–Gnazzo–Meini DOI:10.1007/s10543-026-01152-6",
+          "Resultary be6e5140bd15 and 9e788ca7bde4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_corona.py",
+        "Resultary be6e5140bd15 and 9e788ca7bde4",
+        "Agharkar–Patel–Bullo; Ghosh–Boyd–Saberi; Carmona–Jiménez–Martín; Durastante–Gnazzo–Meini",
+        "Boyd–Diaconis–Xiao, https://web.stanford.edu/~boyd/papers/fmmc.html"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-leaf proof counts four copies of each core-pair resistance, and 2n−1 contributions per pendant bridge; divide by 2n. Repeating these very same counts with a cluster of r+1 vertices simply replaces four by (r+1)², 2n−1 by N−1, and the pendant sum by the sum over nr edges. In particular the complete weighted identity is tr(L_G⁺)=(r+1)tr(L_core⁺)+(1−1/N) Σ_pendant 1/w_e.",
+          "After the identical orbit averaging, the only constraint change is da+b≤1 to da+rb≤1 and the same inverse-cost minimization applies. Substituting C_H=(n−1)/n into the existing one-leaf formula gives the one-leaf clique penalty, and the all-r cycle/clique limits follow by leading-term substitution in the same weighted identity."
+        ],
+        "reasoning": "This compares implications rather than titles. Extending the weighted bridge count and changing the row-budget multiplicity recover every claimed expression, including extra pendant numbers. No narrower nonmechanical claim is supported by the frozen record.",
+        "searches": [
+          "be6e5140bd15 weighted-corona proof Steps 1–5",
+          "Ghosh–Boyd–Saberi §§5.1 and edge-symmetry passage",
+          "Maximum-degree comparator by substitution into the indexed one-leaf formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The zero-target Kemeny objective is total pair resistance divided by the vertex count in the conductance graph with Laplacian I−P. This is the weighted Kirchhoff index formulation, not the SLEM objective.",
+          "The separate exact Kemeny entry be6e5140bd15 uses B=2d tr(L_H⁺) and C=n−1/2, which are S and R at r=1, respectively."
+        ],
+        "reasoning": "The inverse-sum, Kirchhoff formulation and one-leaf result are exact matches under normalization/relabeling; the SLEM result is not.",
+        "searches": [
+          "Resultary transitive leaf coronas, unique Kemeny optimum, maximum-degree regret and effective-resistance formulation",
+          "Carmona–Jiménez–Martín, Corollary 4.2 and Proposition 4.3",
+          "Ghosh–Boyd–Saberi, Minimizing Effective Resistance of a Graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A distinct indexed exact result gives the same optimizer and minimum at r=1 and explicitly states the same √(3/n) pendant scaling and 3/2 sunlet cost ratio."
+        ],
+        "reasoning": "Catalogue formula comparison is the relevant exact lookup, not a sequence table: the claimed whole parameter family already includes a substantial exact match, including the named one-leaf limit.",
+        "searches": [
+          "Resultary exact and ranked Kemeny leaf-corona formula, sunlet penalty and transitive-core optimum (50 ranked returns)",
+          "Local mirror be6e5140bd15, Finding and proof"
+        ]
+      },
+      "rationale": "Substantial exact catalogue coverage plus a mechanical extension. The distinct one-leaf Kemeny record states the same unrestricted uniqueness, optimizer, minimum and cycle penalty at r=1 (n≥3); its general formula also gives the r=1 clique limit. For r≥2 the proof changes only the multiplicities in its weighted resistance-counting principle. No new allocation principle, strict-convexity argument or asymptotic mechanism survives that comparison. This is not a claim about posting order between same-day records, nor a claim that an earlier source was found printing the full formula for r≥2.",
+      "residual_risks": [
+        "The same-day record's priority relative to the assigned record is unresolved. The positive coverage decision concerns the actual matched theorem and the lack of a nonmechanical extension, not inferred ordering.",
+        "The cited 2020 IAENG corona resistance paper and full text of Wang–Dubbeldam–Van Mieghem (2017) were not accessible via attempted routes; the decision does not rest on either.",
+        "The dated primary general methods are not claimed to state the exact arbitrary-r law verbatim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_R1_COVERAGE_AND_MECHANICAL_MULTIPLICITY_EXTENSION",
+          "evidence": "It gives unrestricted uniqueness and (√B+√C)² on one-leaf coronas, and the cycle penalty. Its stated core domain n≥3 omits K₂; its counting principle, not its domain restriction, is what mechanically extends.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-kemeny-regret-and-optimal-stochastic-walks-on-transitive-l--be6e5140bd15/RESULT.md",
+          "material_read": "Local mirror RESULT.md, offsets 0–9367, Finding, scope and proof Steps 1–5; independently reread weighted reduction near offsets 2000–5300",
+          "method": "Matched conventions and coefficients, then applied explicit pendant and core-pair resistance counts",
+          "title": "Sharp Kemeny regret and optimal stochastic walks on transitive leaf coronas",
+          "trigger": "Distinct catalogue result with same network objective and formulas"
+        },
+        {
+          "assessment": "GENERAL_METHOD_DIFFERENT_BUDGET",
+          "evidence": "Eqs. (36)–(37) give weights proportional to square roots of numbers of pair paths through each edge under a global edge budget; section on symmetry forces orbit-wise equality.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "Primary PDF §§5.1 and 5.3, pp. 21, 23 of PDF; offsets 69100, 75500",
+          "method": "Opened tree inverse-cost formula and conductance orbit argument",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Equivalent resistance optimization and square-root conductance allocation"
+        },
+        {
+          "assessment": "GENERAL_CONVEX_FRAMEWORK",
+          "evidence": "Fixed-stationary-law convex and SDP formulations; their additive +1 convention does not affect the optimizer.",
+          "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-apb-conference.pdf",
+          "material_read": "Primary pp. 1, 3, §I.C and Problem 3/Theorem 4, Problem 5",
+          "method": "Compared convex optimization hypotheses and normalization",
+          "title": "Robotic surveillance and Markov chains with minimal first passage time",
+          "trigger": "General reversible Kemeny design with prescribed graph and stationarity"
+        },
+        {
+          "assessment": "COVERS_RESISTANCE_CONNECTION",
+          "evidence": "Trace and Kirchhoff-index identities establish the equivalent objective, not the row-constrained allocation.",
+          "identifier_or_url": "https://upcommons.upc.edu/bitstreams/3f688ae6-b3b6-4a54-816c-57c7bc0b01a7/download",
+          "material_read": "Primary p. 11, Corollary 4.2 and Proposition 4.3 near offset 34975",
+          "method": "Compared normalization with the conductance Laplacian I−P",
+          "title": "Mean first passage time and Kemeny's constant using generalized inverses of the combinatorial Laplacian",
+          "trigger": "Resistance and Laplacian pseudoinverse alias"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECTIVE",
+          "evidence": "It optimizes the second largest eigenvalue magnitude, not a sum of reciprocal Laplacian eigenvalues.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-fastest-mixing-and-pendant-edge-rigidity-on-vertex-and--9e788ca7bde4",
+          "material_read": "Mirrored RESULT.md offsets 588–4874; compared Boyd–Diaconis–Xiao author-page objective",
+          "method": "Read objective and graph class",
+          "title": "Universal fastest mixing and pendant-edge rigidity on vertex- and edge-transitive leaf coronas",
+          "trigger": "Same corona class and stochastic symmetry"
+        },
+        {
+          "assessment": "RELATED_ALGORITHMIC_SCOPE",
+          "evidence": "Studies reversible structure-preserving perturbations and sparse feasible designs; no corona law was read in the inspected abstract.",
+          "identifier_or_url": "https://doi.org/10.1007/s10543-026-01152-6",
+          "material_read": "Abstract, p. 1 near offset 249",
+          "method": "Bounded abstract scope comparison",
+          "title": "Kemeny's constant minimization for reversible Markov chains via structure-preserving perturbations",
+          "trigger": "Recent reversible chain optimization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Optimizing Kemeny rather than SLEM is well motivated, and the reported allocations are usable. However, the exact benchmark law and cycle comparison already have a substantive exact one-leaf counterpart. The remaining identical bridge multiplicity change and complete-core substitution give no distinct mathematical mechanism or nonmechanical benchmark beyond that proof. The frozen collection does not support a separately valuable surviving claim to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

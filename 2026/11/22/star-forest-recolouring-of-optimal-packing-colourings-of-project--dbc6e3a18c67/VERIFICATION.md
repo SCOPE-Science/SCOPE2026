@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run from the extracted package root (Python 3, standard library only):
+## correctness
 
-```sh
-python verification/check_fano.py
-python verification/check_pg3.py
-```
+PASS
 
-The first program constructs the fourteen-vertex Fano incidence graph and computes its distance matrix; exhaustively enumerates all independent sets of size six or seven; finds the 70 feasible colour-1/colour-2 class pairs; assigns every one of the 720 permutations of the higher named colours; checks 50,400 resulting colourings; and tests every potentially valid one-vertex recolouring into colours 1 and 2 in the eight-name palette. Moves into a different higher colour are excluded a priori, since all higher colours are occupied and the graph has diameter three. It verifies 40,320 edges, 10,080 degree-four centres and 40,320 degree-one leaves.
+Incidence geometry gives distance two within a shore and distances one or three across shores. Hence higher names are singletons and a double occurrence of 2 must be a nonincident point-line pair. For a mixed independent set, the selected t lines avoid a selected point, giving 1<=t<=q^2. The incidence moments are (q+1)t and t(t+q), since every ordered pair of distinct lines meets once. Cauchy–Schwarz gives at least (q+1)^2 t/(t+q) covered points. Subtracting t gives at least q because the remaining numerator is (t-1)(q^2-t). This yields the sharp mixed bound v-q (a single line and all nonincident points attain it) and confines any independent set of size v-1 or v to one shore. Counting capacities first gives k>=v, then excludes k=v since a full color-1 shore would force the two color-2 vertices onto the same other shore. The exhibited type I uses v+1. At this optimum a missing higher name would force the same excluded sizes (v,2), so all higher names are used and the only low-class sizes are (v,1) and (v-1,2). These give types I and II exactly. The high-name vertices cannot move to 1 (each has at least q neighbors of color 1) or 2 (the incumbent 2 on their shore already blocks it). A move to another higher name duplicates a singleton. Type I therefore has just the q^2 choices of a nonincident 1 turning into 2; in type II, only the missing same-shore element can return to 1. The opposite-shore 2 cannot turn to 1 since it has color-1 neighbors. Thus every leaf has a unique parent and the counting factors 2v, (v-1)!, and 1+q^2 are exact. The Fano and order-three counts have the stated values.
 
-The second constructs the 26-vertex order-three projective-plane incidence graph by homogeneous coordinates modulo three, exhaustively enumerates its near-maximum independent sets and all 260 feasible reduced low-colour configurations, then tests both directions of every possible 1-to-2 or 2-to-1 move. It verifies 26 degree-nine centres, 234 degree-one leaves and 234 edges. Its reduced state space ignores permutations of higher singleton colour names, and the general proof justifies that reduction.
+## originality
 
-These finite tests reproduce the stated small-order checks but do not constitute an independent all-parameter proof. The infinite-family assertion depends on the exact incidence argument in RESULT.md. The inspection of accessible literature is not an absolute guarantee of novelty.
+PASS
+
+Pass for the exact classification and enumeration of all optimal packing colourings and their full named optimal single-vertex recolouring graph. The bound v+1 and the maximum independent sets are prior. The incidence estimate used to obtain the near-maximum gap is standard in form; the comparison does not assert priority for incidence mixing or the estimate in an equivalent form.
+
+## value
+
+PASS
+
+The exact forest shows how individually movable 1/2-label choices coexist with global freezing of every higher name. It gives reachability, full counts and component diameters for a standard family, including planes without coordinates over a field. This is information not present in the chromatic number, an independence bound, or a census of two small planes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

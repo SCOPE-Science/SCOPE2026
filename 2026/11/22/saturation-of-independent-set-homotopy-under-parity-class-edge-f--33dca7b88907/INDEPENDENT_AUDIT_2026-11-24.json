@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:57:08.579752Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent replay (/workspace/review-evidence/3-replay.py, passing the frozen certificate.json path as its sole argument) regenerated each independence complex by enumerating all vertex masks against explicit Hamming-distance-one edges. It recovered 742/785/837/901/981 nonempty faces and verified the 367 pivot pairs, all 2816 Hasse incidences by DFS acyclicity, and exactly one vertex and seven 3-face critical cells. Thus the intact complex has a CW model of seven 3-cells attached to a point. The first fault fills e*L with intersection (∂e)*L; the replay verified all eight strict free coface pairs taking L onto the three-edge matching independence sphere. The attached S³ is the four-edge octahedral sphere. The replay checked its signed integral boundary vanishes and {0,6,11,13} occurs with coefficient one and has no proper coface. Its dual cochain is closed and evaluates to one, yielding a primitive element. Hurewicz for the two-connected wedge and the unimodular change of basis on that wedge show the cofiber removes exactly one sphere (and the natural homology map is split onto). The replay verified the frozen collapse pairs for K₂→K₁, K₃→K₂, K₄→K₃, counts 26, 32, 40, by checking the unique strict coface and exact end complex. The 24 actions realizing S₄ carry a flag A⊆B to the canonical flag of sizes |A|,|B|; translations and coordinate permutations carry the canonical matching to all eight classes. This proves actual relative collapses for the claimed inclusions, including equal sets by the empty sequence. No extension to arbitrary matchings, larger cubes, or equivariant homotopy type is inferred. The supplied checker was inspected, not executed; no field Betti number is used to establish the integral result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adamaszek gives ΣInd(G−N[e])→Ind(G)→Ind(G−e) and the contractible-residue equivalence as Lemma 2.1(c), along with graph folds in Lemma 2.3.",
+          "Jonsson's cross-cycle criterion is precisely an induced matching together with a maximal independent transversal; this covers the cycle detection mechanism, not the effects of successive deletions."
+        ],
+        "reasoning": "These tools apply here only after establishing the particular first link and later residual collapsibility. For instance, the next-fault residual on the eight vertices consists of two adjacent centers with three leaves on each, with some of the three leaf-to-leaf matched edges missing. A missing matched edge gives a pendant on each side; their neighborhoods are contained in those of all the other same-side leaves. Folding those leaves gives a path P₄ whose independence complex collapses to a point, and lifting the link collapse along the new edge gives a relative collapse. The general theorems alone do not specify this matched geometry or the killed class.",
+        "searches": [
+          "Adamaszek arXiv:1202.1655v2 §2, edge removals",
+          "Jonsson DOI 10.1007/s00454-009-9224-9, cross-cycles, Proposition 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, certificate.json and verify.py",
+        "Resultary 33dca7b88907, 9947aaad144c, 1740b146ec04 and abc849afd4fb",
+        "arXiv:1202.1655v2 and arXiv:2203.16391v2; Jonsson DOI 10.1007/s00454-009-9224-9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Any seven intact octahedral generators are already known to form an integral basis. A finite link collapse identifies the first map with the appropriate generator; this is additional to its known primitivity. The later relative certificates remove only new faces and reach the exact embedded target."
+        ],
+        "reasoning": "An intact basis does not say which class is killed by a graph operation, and equal homology groups do not entail that an inclusion is elementary collapsible. The specified links and maps, not another computation of the intact wedge, are the distinct content.",
+        "searches": [
+          "Resultary 1740b146ec04 Finding: integral octahedral generators",
+          "arXiv:1202.1655v2 §2: cofibration, Lemmas 2.1 and 2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Q₄ is C₄×C₄, but Matsushita–Wakatsuki define their finite rectangular grids as P_n×P_k and explicitly distinguish cyclic factors.",
+          "The other one-missing-edge hypercube record abc849afd4fb defines a face by a common neighbor; that is the open-neighborhood complex, not the ordinary independence complex."
+        ],
+        "reasoning": "The fully periodic grid is an alias for the intact graph, but neither open boundaries nor common-neighbor simplices give an equivalent formulation of this faulted complex. The latter deletion naturally induces the inclusion in the reverse direction.",
+        "searches": [
+          "Q4 four cube hypercube edge deletion faults parallel parity class independence complex six three spheres relative collapses primitive octahedron",
+          "Matsushita–Wakatsuki arXiv:2203.16391v2 Theorem 1.1",
+          "Resultary abc849afd4fb"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "33dca7b88907 is the frozen record, not independent corroboration. 9947aaad144c gives the intact seven-sphere wedge, and 1740b146ec04 gives the eight integral classes for the intact graph. abc849afd4fb uses the open-neighborhood complex."
+        ],
+        "reasoning": "These entries give exact background but no precomputed six-sphere wedge and continuation maps for these deletion flags. The bounded external query returned general references, not independent exact evidence of the fault classification.",
+        "searches": [
+          "Resultary: Q4 four cube hypercube edge deletion faults parallel parity class independence complex six three spheres relative collapses primitive octahedron",
+          "external literature: four-cube parity-class fault independence-complex comparison"
+        ]
+      },
+      "rationale": "The intact wedge, its specific primitive octahedral carriers and generic edge cofibration are all known. The distinct result is the action of the first deletion on integral homology and actual stabilization by relative collapses under all subsequent deletions in the same parity class. No inspected existing result supplies that relative classification.",
+      "residual_risks": [
+        "Inspected primary passages settle these particular comparisons, not all historical priority. Unindexed computations of faulted periodic grids may use other graph terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General mechanism known; not the parity-class fault computation",
+          "evidence": "Edge-removal sequence with attaching suspension of the residual independence complex; contractible residues and domination give equivalences.",
+          "identifier_or_url": "https://arxiv.org/html/1202.1655v2",
+          "material_read": "§2 through Lemmas 2.1–2.3, OA offsets 12270–15185",
+          "method": "OA primary article bounded passage",
+          "title": "Hard squares on cylinders revisited",
+          "trigger": "Edge cofibration and residue reductions"
+        },
+        {
+          "assessment": "Open grid, not the faulted periodic graph",
+          "evidence": "The theorem's grid is a Cartesian product of paths, explicitly contrasted with cyclic variants.",
+          "identifier_or_url": "https://arxiv.org/html/2203.16391v2",
+          "material_read": "Introduction and Theorem 1.1, OA offsets 3540–5477",
+          "method": "OA primary article bounded passage",
+          "title": "Independence complexes of (n×4) and (n×5)-grid graphs",
+          "trigger": "Q₄ has a 4×4 toroidal formulation"
+        },
+        {
+          "assessment": "Covers cross-cycle criterion; inspected statements do not track these fault inclusions",
+          "evidence": "The proposition characterizes cross-cycles by an induced matching and a maximal independent transversal; the abstract concerns periodic quotients and degree/density ranges.",
+          "identifier_or_url": "https://doi.org/10.1007/s00454-009-9224-9",
+          "material_read": "Abstract p.927 and Proposition 3.1 passage around offset 15950",
+          "method": "OA publisher PDF",
+          "title": "Certain Homology Cycles of the Independence Complex of Grids",
+          "trigger": "Octahedral cross-cycles on periodic graphs"
+        },
+        {
+          "assessment": "Exact overlap for intact type and primitivity only",
+          "evidence": "The first states the intact wedge of seven 3-spheres (also periodic 4×4); the second identifies all eight sphere classes and states any seven form an integral basis.",
+          "identifier_or_url": "Resultary 9947aaad144c; 1740b146ec04",
+          "material_read": "Both original Findings at local-mirror offset 0",
+          "method": "Original mirrored text",
+          "title": "The four-cube independence complex is a wedge of seven three-spheres; Eight minimum-support octahedral spheres give the integral hyperoctahedral module of the four-cube independence complex",
+          "trigger": "Exact intact graph and attaching-cycle class"
+        },
+        {
+          "assessment": "Different complex and inclusion",
+          "evidence": "The statement treats common-neighbor simplices, with the smaller graph's complex included into the larger graph's neighborhood complex.",
+          "identifier_or_url": "Resultary abc849afd4fb",
+          "material_read": "Finding, local mirror offsets 0–1392",
+          "method": "Original mirrored text",
+          "title": "Integral two-sphere loss under one missing Boolean-cube edge",
+          "trigger": "Exact edge deletion on a hypercube"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural symmetry orbit of parallel faults on the smallest hypercube supporting these nontrivial octahedral classes. It distinguishes the first deletion from every later inclusion by identifying the exact primitive integral class lost and by showing elementary relative collapses rather than just Betti number stability. These are independently useful facts about the diagram of fault complexes, not further counts of the intact complex.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

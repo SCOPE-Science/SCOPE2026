@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:25:07.349066Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–94",
+        "Frozen VERIFICATION.md, verify.py and verify-output.txt, inspected without execution",
+        "Independent replay: python3 /workspace/review_checks/finite_checks.py, series-tail consistency check of the two normalized integrals"
+      ],
+      "rationale": "At stationarity an episode with entry position V and holding time T contributes occupation at age t with factor P(T>t), independently of V. Normalization yields the exact independent age Exp(ελ_j) and the additive entry shift −ε log D_j. Translating Exp(λ_j/b) by u changes TV by 1−exp(−λ_j|u|/b). On entrance to +, |log D_+| is dominated by h(t)+log 2 up to log 2/b and by 2e^(−bt) thereafter, with ∫h=π²/(6b). On entrance to 0, D_0=|1−exp(−b(t−t_*))| after reflection, and its negative log is bounded by h(|t−t_*|) of integral at most π²/(3b). These bounds times the previous episode's rate give both quadratic TV constants for all ε>0. For the running mean, the preceding run-end position tends to an equiprobable ±1, leading to half the integral of log(1−e^(−2bt)). For the tumble mean the previous running entry tends to 0 and t_* tends to 0. Write its integrand as h(|t−t_*|)−b(t_*−t)_+; L¹ continuity of translations of h(|·|) and the vanishing integral of the second term justify convergence near the moving logarithmic singularity. The uniform integral bound handles rare entry positions away from zero. Integration gives cπ²/(24b) and aπ²/(6b) with positive signs in the means, and the unscaled limiting mixture and calibrated rate identification follow from the exact age law and state weights.",
+      "residual_risks": [
+        "The series replay does not validate distributional convergence or finite-sample performance; the occupation and log-integrability arguments are decisive."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The projected Basu chain is the equal-total-rate special case: ±→0 at γ and 0→each sign at γ/2.",
+          "Earlier finite-tumble moment methods and same-model catalogue reconstructions apply at arbitrary rates. The closest catalogue reconstruction gives all three densities and conditional polynomial moments; the Beta–Bernoulli result distinguishes run/rest without the running sign."
+        ],
+        "reasoning": "Credit coverage of the same stationary law, without assuming priority from same-day identifiers. None of these theorem statements is a quantitative two-rate conditional log limit. The exact two-moment inverse fold concerns different observables and is not a calibrated log-peak measurement theorem.",
+        "searches": [
+          "arXiv:2409.00578v2 §§II.1–III",
+          "arXiv:1910.10083 pp. 4–5, (7a)–(8c)",
+          "Published Resultary records 49ef86730472, 18a2152addfb, 432388eb4847"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.24961v1",
+        "arXiv:2409.00578v2",
+        "arXiv:1910.10083",
+        "arXiv:2602.08436",
+        "Resultary 49ef86730472, 18a2152addfb and 432388eb4847"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact state densities determine conditional log means via integration and TV via the transformed law.",
+          "An ordinary stationary weak limit and exponential age formula supply no control of the unbounded logarithm near the state attractor."
+        ],
+        "reasoning": "The required step is to control shrinking layers and moving singularities, not simply substitute the two rates in a previously evaluated bound. Even if means were derived from exact densities, the two-rate uniform TV estimate is a separately evaluated contribution.",
+        "searches": [
+          "arXiv:2610.24961v1 Appendix C",
+          "Resultary 18a2152addfb Finding and 432388eb4847 Finding",
+          "arXiv:2409.00578v2 finite-rate moments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun–Ye–Chen use the same independent total run/tumble exit rates and give signed stationary densities.",
+          "The age method is equivalently multiplicative exponential damping of an entry distance; instantaneous redraw stick-breaking does not have the alternating finite rest state."
+        ],
+        "reasoning": "Mode-resolved densities can be pushed forward by y↦−ε log|y−s_j|. Equality of available finite-rate laws does not evaluate their comparison with a rate-dependent boundary-layer reference, including the small but nonzero entry shift.",
+        "searches": [
+          "Published Resultary searches for conditional logarithmic localization and rare-switching finite-tumble peak laws",
+          "arXiv:2610.24961v1 §IV and Appendix C",
+          "arXiv:2602.08436 §III.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact equations specify stationary densities; the catalogue provides state-resolved polynomial moments. The resulting log means are non-polynomial integrals, not entries in those moment families."
+        ],
+        "reasoning": "Neither a matching pair of evaluated second-order coefficients nor an evaluated TV formula or bound was located in the inspected exact results.",
+        "searches": [
+          "Published Resultary searches for exact two-rate log coefficients and TV bounds",
+          "arXiv:2610.24961v1 Appendix C equations (55)–(58)",
+          "Resultary 18a2152addfb state-resolved moment formulas"
+        ]
+      },
+      "rationale": "The finite-duration model, state-resolved stationary laws and exponential holding-age ingredient are prior. Credit only the two-rate conditional log-distance limit with explicit uniform quadratic TV control and the evaluated first nonzero mean corrections. Same-model densities determine these quantities in principle, but the inspected formulas do not evaluate the singular small-rate limits or furnish the estimates; the cancellation leading to a second-order bound and the two constants require separate analysis.",
+      "residual_risks": [
+        "Previously derived log asymptotics could exist outside inspected passages; same-day catalogue dating does not establish priority. Literature search results beyond the matched sources were not diagnostic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and state densities; no evaluated quantitative log comparison in passages",
+          "evidence": "Independent exponential lifetimes with rates γ_R and γ_T and signed p_± plus run, tumble and total densities.",
+          "identifier_or_url": "https://arxiv.org/html/2610.24961v1",
+          "material_read": "§IV near offset 33000 and Appendix C near offset 64100, equations (55)–(58)",
+          "method": "Bounded OA HTML",
+          "title": "Run-and-tumble particles in a harmonic external field: constructing the solution of the Fokker-Planck equation from the equations of motion",
+          "trigger": "Closest arbitrary-rate signed density formulas"
+        },
+        {
+          "assessment": "Same-model law/moment overlap",
+          "evidence": "Independent run/tumble times and sign choice; exact 1D law for arbitrary rates and arbitrary-order polynomial moments.",
+          "identifier_or_url": "https://arxiv.org/html/2409.00578v2",
+          "material_read": "§II.1 near offsets 7300–12300 and description of §III",
+          "method": "Bounded OA HTML",
+          "title": "Exact moments for a run-and-tumble particle with a finite tumble time in a harmonic trap",
+          "trigger": "Earlier finite-tumble law and moments"
+        },
+        {
+          "assessment": "Exact special case on the equal-total-rate diagonal",
+          "evidence": "Each sign exits to 0 at γ, and 0 exits at total rate γ, with equal probabilities of the two signs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1910.10083",
+          "material_read": "Abstract; PDF pp. 4–5, offset 13820–19013, effective 1D projection and equations (7a)–(8c)",
+          "method": "OA PDF by offset after HTML timeout",
+          "title": "Exact stationary state of a run-and-tumble particle with three internal states in a harmonic trap",
+          "trigger": "Check equal-rate transition graph against frozen two-rate model"
+        },
+        {
+          "assessment": "Different reset/tumble mechanism",
+          "evidence": "Velocity redraw stick-breaking law, not finite rest episodes with the given internal-state graph.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.08436",
+          "material_read": "Abstract and §III.2 near offset 30800, equations (41)–(42)",
+          "method": "Bounded OA primary text",
+          "title": "Exact Stationary State of a d-dimensional Run-and-Tumble Particle in a Harmonic Potential",
+          "trigger": "Equivalent product and stick-breaking formulations"
+        },
+        {
+          "assessment": "Exact run/rest flag and wall behavior, no signed log-peak constants",
+          "evidence": "Running sign is expressly not reconstructed by the flag law.",
+          "identifier_or_url": "Resultary 49ef86730472",
+          "material_read": "Finding: Beta-product coupling and conditional flag law",
+          "method": "Local published-record mirror",
+          "title": "Beta–Bernoulli stationary coupling and universal near-wall motility in a run-and-tumble trap",
+          "trigger": "Same-model near-wall overlap"
+        },
+        {
+          "assessment": "Exact stationary law coverage, not the log-distance quantitative analysis",
+          "evidence": "Reconstructs the three state densities for all positive pairs of rates from the positional density.",
+          "identifier_or_url": "Resultary 18a2152addfb",
+          "material_read": "Finding: reconstruction and all state-resolved polynomial moments",
+          "method": "Local published-record mirror",
+          "title": "State-resolved stationary reconstruction and a unique beta–binomial sector in a three-state active oscillator",
+          "trigger": "Exact same-model state reconstruction"
+        },
+        {
+          "assessment": "Different observables in the same dynamical model",
+          "evidence": "Exact inverse fold for two unscaled positional moments; no state-conditioned log-law control.",
+          "identifier_or_url": "Resultary 432388eb4847",
+          "material_read": "Finding: Beta-product law and second/fourth moment inverse fold",
+          "method": "Local published-record mirror",
+          "title": "An exact two-moment inverse fold in a trapped run-and-tumble particle",
+          "trigger": "Same-model identifiability comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–33, 68–94 and 99–105",
+        "arXiv:2610.24961v1, same-model density context",
+        "Resultary 432388eb4847, alternative exact inverse observables"
+      ],
+      "rationale": "The conditioned rare-switching peaks retain two separately identifiable rates that the trimodal unscaled weak limit loses. Quadratic TV quantifies the error of that recovery mechanism at the law level, and the different first mean coefficients quantify the bias for two physically distinct state classes. These facts go beyond reprinting a stationary density or estimating peaks by first-order weak convergence.",
+      "residual_risks": [
+        "Rate identification is at the law/limit level with calibration; no estimator efficiency or robustness to observation noise or transient effects is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

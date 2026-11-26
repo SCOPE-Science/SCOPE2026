@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:55:04.137717Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any forced set J, its internal edges form a matching; every unmatched vertex in J independently chooses an outside neighbor (choices may coincide), and outside edges are arbitrary. Expanding the product of 1−2 times the degree-one indicators gives the probability-normalized Walsh formula, including J empty and J=[n]. Independent replay /workspace/replay/audit_3.py, run with Python 3, counts graphs by extending the joint degree-zero/degree-one bitsets one vertex at a time and directly sums the profile characters. All weight vectors through n=8 agree, including exactly rank two at 2 and 3, minima at weights 2,3 for n=4 and weight 4 for n=5, and strict decrease for n=6,7,8. Read the binomial multiplicity as the contribution of a weight layer; equal eigenvalues from different layers have summed multiplicity, as in the stated ten at n=4. For n≥8, twice the expected number of leaves bounds the eigenvalue deficit and is below one. For n≥9, conditional on a specified vertex being a leaf, the probability of any second specified leaf is [1+(n−2)^2]/[(n−1)2^(n−2)], separating the cases where the first leaf does or does not choose the second. The consecutive spectral difference is twice the first leaf probability times a conditional parity expectation bounded below by 1−2(n−1)q_n>0; the subtracted quantity is 100/128 at nine and decreasing. The maximum eigenvalue is one, and the n≥9 reciprocal bound is at most 16/7, so eight is attained only at n=4. At weight n the difference between odd-count probability and mean count is bounded by twice the second factorial binomial moment; that moment and the squared first moment are both O(n^4/4^n), proving the reciprocal expansion. The finite replay is not used as an all-order certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lin–Reinert approximate joint degree counts in more general inhomogeneous models; Ghosh–Goldstein–Raič give concentration for isolated-vertex counts. The bipartite degree-one covariance finding fa66bee654d9 uses a fixed-edge model."
+        ],
+        "reasoning": "Greater generality of random graph model does not give a dominating exact law or the sharp parity bounds. Exact total-count distributions at each order would in principle determine all weight layers by exchangeability; approximate count distributions do not do so.",
+        "searches": [
+          "arXiv:0912.4812 Introduction and preview of Theorem 3.1",
+          "arXiv:1106.0048 Introduction and Theorem 1.1",
+          "Resultary: fixed degree set distribution random graphs exact degree count Fourier transform"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, and verify.py",
+        "Resultary record 6d3abc0b4de9 (self-match)",
+        "Resultary 7bf298b20571, ea8a2d73bd66 and fa66bee654d9",
+        "arXiv:0912.4812 and arXiv:1106.0048"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither inspected approximation/concentration result supplies the finite signed conditional gap; the matching-covered theorem gives different signs for its different incidence law."
+        ],
+        "reasoning": "The subset sign expansion and one-/two-vertex counts are elementary background. The uniform strict difference after conditioning, its exact finite exceptions, and the sharp condition number are not implications of the inspected sources.",
+        "searches": [
+          "arXiv:0912.4812",
+          "arXiv:1106.0048",
+          "Resultary local mirror 7bf298b20571 and ea8a2d73bd66, RESULT.md opening findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 6d3abc0b4de9 hit is the identical finding. Distinct fixed-point and matching-covered-mask findings 7bf298b20571 and ea8a2d73bd66 also have exceptional singular orders 2 and 3 but study different measures; matching-covered masks have sign alternation rather than positivity."
+        ],
+        "reasoning": "For any fixed weight k the multiplier is the parity expectation on a specified k-subset, not just the parity of the total number of leaves. At k=n the latter formulation is equivalent to the last multiplier only; it does not by itself give its extremality.",
+        "searches": [
+          "Resultary: degree-one vertex set exact Walsh Fourier spectrum random graph convolution",
+          "Resultary: signed joint moments of exact degree-one indicators in G(n,1/2)",
+          "Resultary: parity of number of degree-one vertices random graph G(n,1/2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ranked results identified the identical catalogue entry and nonidentical profile or count results; the primary query was weak (mostly documentation or encyclopedic hits) and found no usable exact table."
+        ],
+        "reasoning": "A known table of exact leaf counts for small n could reproduce the small spectra by exchangeability but would not settle the all-order ordering and condition bound. No distinct covering table was established.",
+        "searches": [
+          "Resultary: degree-one vertex set exact Walsh Fourier spectrum random graph convolution",
+          "Primary web query: \"degree-one\" vertex set Walsh Fourier spectrum random graphs exact joint degree moments parity degree count fixed-degree set"
+        ]
+      },
+      "rationale": "The checked count/concentration papers and related profile convolutions do not cover the all-order positive spectrum, extremal weights and sharp conditioning of the labeled degree-one set in unconditioned simple G(n,1/2). Common methods and the coincident small-order singularity pattern are not credited as new.",
+      "residual_risks": [
+        "The ranked catalogue queries and targeted OA sections were not an exhaustive priority survey.",
+        "An unindexed exact labeled degree-one law or exact total-count formula could cover the multiplier formula; no covering result for the all-order extremizers and sharp conditioning was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant but no exact target spectrum in inspected passages",
+          "evidence": "The described results approximate joint counts of prescribed degrees by multivariate normal and Poisson-process laws.",
+          "identifier_or_url": "https://arxiv.org/html/0912.4812v1",
+          "material_read": "Introduction offsets 0–5993 and 8750–12019, including description of Theorem 3.1",
+          "method": "Bounded OA HTML reading",
+          "title": "Joint Vertex Degrees in an Inhomogeneous Random Graph Model",
+          "trigger": "Most relevant cited general joint-degree result"
+        },
+        {
+          "assessment": "Different invariant and conclusion",
+          "evidence": "Introduces the scalar fixed-degree count and Theorem 1.1 bounds fluctuations of the isolated-vertex count.",
+          "identifier_or_url": "https://arxiv.org/abs/1106.0048",
+          "material_read": "Introduction at offset 2863 and Theorem 1.1 at offset 6773",
+          "method": "Bounded OA HTML reading",
+          "title": "Concentration of measure for the number of isolated vertices in the Erdős–Rényi random graph by size bias couplings",
+          "trigger": "Fixed-degree indicator and concentration background"
+        },
+        {
+          "assessment": "Substantial analogy, not equivalent coverage; date does not give priority",
+          "evidence": "Multiplicity-counting involution fixed-point indicators, exact spectrum and central gap, ranks two at orders 2 and 3.",
+          "identifier_or_url": "Resultary 7bf298b20571",
+          "material_read": "RESULT.md opening finding",
+          "method": "Local mirror",
+          "title": "Fourier sign rigidity and sharp recovery gaps for involution fixed-point masks",
+          "trigger": "Same-day Fourier theorem with same singular orders"
+        },
+        {
+          "assessment": "Different incidence law and different sign theorem",
+          "evidence": "Matching-covered sets give signs alternating by min(k,n−k) for n≥4, not the positive spectrum under review.",
+          "identifier_or_url": "Resultary ea8a2d73bd66",
+          "material_read": "RESULT.md opening finding",
+          "method": "Local mirror",
+          "title": "Gaussian sign rigidity and exact inertia of matching-covered vertex masks",
+          "trigger": "Same-day spectrum with same singular orders"
+        },
+        {
+          "assessment": "Different graph model and statistic",
+          "evidence": "Studies two degree-one counts in fixed-edge bipartite sampling.",
+          "identifier_or_url": "Resultary fa66bee654d9",
+          "material_read": "RESULT.md at offset 250",
+          "method": "Local mirror",
+          "title": "A narrow positive covariance window for degree-one counts",
+          "trigger": "Ranked hit on exact degree one"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The profile is a natural label-sensitive graph statistic. The collapse at n=2,3 does not anticipate the exact recovery threshold at n=4, the two exceptional minimum-weight layers, or the global change to a unique least-stable all-vertex mode. The exact sharp uniform stability and the decay of the conditioning deficit answer substantive recovery questions beyond the elementary expectation that degree-one vertices become rare.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

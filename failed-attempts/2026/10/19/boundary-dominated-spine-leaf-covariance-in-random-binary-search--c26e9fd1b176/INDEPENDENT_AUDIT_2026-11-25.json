@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:01:56.577461Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 31–80",
+        "Frozen VERIFICATION.md and verify.py",
+        "/workspace/branches/ee0c63c1-82f0-42bb-922c-e89660b57748/bst_repro.py"
+      ],
+      "rationale": "The left spine is exactly the prefix priority-record minima, and an internal leaf is a local maximum of priority over its neighboring ranks (one neighbor at each endpoint). Relative orders are independent of the next insertion rank, so an interior leaf has covariance only with the three adjacent record indicators. Conditioning on the first of these records uses E[min(U_1,...,U_{j-1})^2]=2/[j(j+1)]; the middle record excludes the leaf, and at the last record the other two priorities are exchangeable. The three terms give the stated negative profile and the two endpoint formulas telescope with it to the stated aggregate, including n=2. For spine length 2, the split conditional on left size s has weight proportional to 1/s, s=1,...,n-1. Its leaf mean is the single-spine conditional mean in the left subtree plus the marginal leaf mean in the right; keeping the singleton contributions and the size-two left subtree gives the displayed harmonic-number term. Length one and length n follow from the empty left subtree and decreasing insertion order, respectively. The middle conditional mean exceeds both end values, which are equal at n=3. An independent exact-rational reproduction built actual BSTs for all 46,232 permutations of orders 2 through 8 and matched the covariances and conditional means. The frozen verifier was inspected, not executed.",
+      "residual_risks": [
+        "The reproduction is a bounded check, not the all-n proof; the regression comparison is at three spine lengths, not a characterization of the entire regression."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Holmgren–Janson §8.1 pp. 45–46 studies outdegree-zero vertices and gives their marginal moments, not a joint law with the spine in the inspected section.",
+          "29e7eead2a91 adds stochastic ordering of minimum depth conditional on each individual leaf event and separately supplies the exact covariances.",
+          "Ji p. 9 defines interior peaks and gives a peak-count generating function; the claimed closer joint generating function cited by a catalogue entry was not verified."
+        ],
+        "reasoning": "The broader stochastic-order comparison and the covariance formulas cover the rankwise headline; they do not provide the reverse conditioning on total leaves given spine length. The marginal fringe statistics alone do not determine the mixed covariance or this regression.",
+        "searches": [
+          "Holmgren–Janson, arXiv:1406.6883 §8.1 and Remark 8.5",
+          "Resultary 29e7eead2a91, rank-resolved stochastic ordering",
+          "Ji, arXiv:2310.01053, peak generating functions"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 29e7eead2a91, 3e3926193ad6, 9c70121babad",
+        "arXiv:1406.6883",
+        "arXiv:2310.01053"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Adding one to depth leaves covariance unchanged and reflects no change to the leaf indicators. Reflection of the ranks preserves the joint distribution with total leaves. Conditional depth given a single leaf is not total-leaf regression at three depth values."
+        ],
+        "reasoning": "The covariance theorems require no new deductions beyond these exact identifications. The conditional-mean formulas are not inferred from the cited covariances or from the inspected marginal moments and are recorded here as unmatched, not as a separately passed theorem.",
+        "searches": [
+          "29e7eead2a91, Finding and Assumptions",
+          "3e3926193ad6, Finding and Assumptions",
+          "Holmgren–Janson §8.1, leaf definition and moments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "29e7eead2a91, Finding, offsets 0–2730: identical insertion model and internal leaf indicator B_i; D_n counts edges on the root-to-minimum path; the displayed rankwise formula agrees for n>=3, with the i=2 entry written separately as -1/9.",
+          "3e3926193ad6, Finding, offsets 0–1622: the maximum-key vertex-count search cost has exactly the frozen total covariance for every n>=2."
+        ],
+        "reasoning": "T_n=D_n+1 gives identical covariance with each leaf indicator. Key reversal swaps the two extreme spines, preserves the count of childless vertices, and preserves uniform insertion. Both comparisons are exact rather than just sign or limiting-constant matches. The n=2 rankwise case is a direct two-permutation boundary calculation.",
+        "searches": [
+          "Resultary: minimum-key depth and leaf indicators, extreme-key search cost and internal-leaf covariance",
+          "Resultary 29e7eead2a91 and 3e3926193ad6, exact Finding passages"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first entry gives values for every key rank in the required range and the second gives the exact aggregate expression. The kernel entry concerns upper records and interior peaks and also reports the aggregate covariance."
+        ],
+        "reasoning": "These are indexed all-size identities rather than isolated table values. The upper-record/interior-peak kernel is a related permutation statistic, not by itself the same rank-resolved law for lower records versus BST leaves.",
+        "searches": [
+          "Resultary exact rank-resolved profile 29e7eead2a91",
+          "Resultary exact extreme-search total covariance 3e3926193ad6",
+          "Resultary record/peak kernel 9c70121babad"
+        ]
+      },
+      "rationale": "The main covariance finding is covered. The earlier catalogue record 3e3926193ad6 gives the entire aggregate formula under key reversal; the separate record 29e7eead2a91 displays the same full rankwise profile for minimum-key depth, which differs only by subtracting one from the frozen spine length. The latter has a later catalogue date; exact overlap is established, not historical priority. The conditional mean of total leaf count given spine length is a distinct question from the comparators’ conditioning on one key being a leaf. Its exact three-point result was not matched in the checked sources, but that does not clear the submitted covariance theorem as original. No narrower replacement is certified here.",
+      "residual_risks": [
+        "These statement-level comparisons do not establish historical priority for the rankwise identity or exhaustive novelty of the conditional means. The general primary-literature search added no decisive source and is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact rankwise covariance overlap; additional conditional law is a different claim",
+          "evidence": [
+            "Displays the complete rankwise and aggregate formulas and defines D_n as an edge count."
+          ],
+          "identifier_or_url": "29e7eead2a91",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–2730",
+          "method": "Read local mirror and identified observables by the one-vertex offset",
+          "title": "Rank-resolved stochastic ordering of minimum-key depth by leaves in uniform binary search trees",
+          "trigger": "Exact rankwise covariance under a depth convention"
+        },
+        {
+          "assessment": "Earlier catalogue coverage of aggregate covariance",
+          "evidence": [
+            "Gives (n-2)(n+1)/(12n(n-1)) for occupied-node cost to the maximum and count of childless vertices."
+          ],
+          "identifier_or_url": "3e3926193ad6",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–1622",
+          "method": "Read local mirror and applied key-reversal symmetry",
+          "title": "A boundary-localized covariance of extreme search cost and leaf count in random binary search trees",
+          "trigger": "Prior exact aggregate formula for the opposite extreme key"
+        },
+        {
+          "assessment": "Related kernel and same aggregate; not relied upon for rankwise identity",
+          "evidence": [
+            "Its peak and record events are not the frozen local maxima versus prefix minima without a further identification."
+          ],
+          "identifier_or_url": "9c70121babad",
+          "material_read": "RESULT.md Finding and relationship passage near offset 4350",
+          "method": "Local mirror comparison of the events and claimed statistics",
+          "title": "A three-diagonal record–peak covariance kernel in uniform random permutations",
+          "trigger": "Possible equivalent under the priority representation"
+        },
+        {
+          "assessment": "Covered marginal leaf statistic, not a spine regression in the inspected passages",
+          "evidence": [
+            "Leaves are outdegree-zero vertices; section gives their mean and variance."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1406.6883",
+          "material_read": "§8.1 pp. 45–46 and Remark 8.5, p. 47",
+          "method": "Read primary PDF around the leaf passages",
+          "title": "Limit Laws for Functions of Fringe Trees for Binary Search Trees and Recursive Trees",
+          "trigger": "Standard literature for internal-leaf moments"
+        },
+        {
+          "assessment": "Interior peak definition and count formula verified; relevant joint coverage unverified",
+          "evidence": [
+            "Inspected passage calculates a marginal peak generating function."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.01053",
+          "material_read": "p. 9, around offset 27400",
+          "method": "Read targeted primary-PDF passage",
+          "title": "Ji's peak generating-function treatment",
+          "trigger": "Secondary mention of a possible relevant record/peak generating function"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–29 and 67–80",
+        "Resultary 29e7eead2a91 and 3e3926193ad6"
+      ],
+      "rationale": "The observables are natural BST search and occupancy statistics, and the result explains why their positive aggregate covariance does not reflect rankwise positive dependence or monotone conditional mean. The exact regression gives that distinction at every size n>=3, rather than relying on an isolated small counterexample. This scientific motivation does not make the already covered covariance findings distinct contributions.",
+      "residual_risks": [
+        "No monotonicity characterization at the other spine lengths or limit theorem for the dependence is supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

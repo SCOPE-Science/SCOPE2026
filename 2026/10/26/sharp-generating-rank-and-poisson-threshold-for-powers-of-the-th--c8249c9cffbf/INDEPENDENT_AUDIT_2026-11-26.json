@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:46:08.372144Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–65",
+        "Frozen VERIFICATION.md, lines 3–25, and checker.py, lines 7–83",
+        "Arratia–Goldstein–Gordon, dependency-neighborhood Chen–Stein bound, DOI 10.1214/aop/1176991491"
+      ],
+      "rationale": "Reconstructed RESULT.md lines 39–65 for constants 0,1 only. Strong-Kleene operations preserve the information order; two words with a common Boolean completion cannot receive opposite definite outputs from a term, and a Boolean word cannot receive u. Conversely, choose for each ordered pair a literal that is 1 on the first word and 0 on the second, take meets to make coordinate selectors, and gate an undefined variable by each selector to generate isolated u. The empty meet and join are the named constants and handle m=1 as well. Packing cubes of size at least two gives m≤2^(k−1), parallel edges attain it, and equality forces a perfect matching; labelling its edges multiplies the count by m!. In the random model the single-coordinate compatibility counts are 7 and 4+4+9=17 for one pair and for two pairs sharing a word. Disjoint index-pair events are independent. The dependency-neighborhood Poisson errors at scale m≈λ(9/7)^(k/2) decay with bases sqrt(7/9) and 17/7^(3/2)<1. The mean tends to λ²/2 and the all-Boolean obstruction is bounded on this scale by O((2/sqrt(7))^k). A union bound below the scale and restriction to a critical-sized subfamily above it prove the outer limits. The packaged checker and verification notes were inspected, not executed; their finite scope is not used in the proof.",
+      "residual_risks": [
+        "Uses the standard Chen–Stein theorem; the cited paper's full text was not retrieved in this review. The result does not address biased letters, a named u, or random-graph convergence beyond the edge count."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior binomial-subcube clique theorem includes the first-edge exponential threshold but not the asserted critical count law in the inspected passages.",
+          "The indexed ADA result includes a unary downarrow operation; its distinctness/undefined-letter criterion gives a pure-ternary threshold at (3/2)^k, not (9/7)^(k/2).",
+          "The free Kleene algebra paper was identified, but its full text was unavailable."
+        ],
+        "reasoning": "Generation in the expanded signature cannot be specialized by dropping the extra operation. The general clique scale specializes to the already credited scale, but gives no critical-window generation theorem.",
+        "searches": [
+          "Primary literature: Kleene powers, generators and random partial assignment compatibility",
+          "Falgas-Ravry–Markström arXiv:1309.7375, Theorem 1 and Corollary 2",
+          "Berman–Mukaidono DOI 10.1016/0898-1221(84)90083-X",
+          "Resultary: 2026/10/25/SCOPE-two-scale-poisson-law-for-random-generation-of-finite-algebras-o--389ab31e8b37"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1309.7375",
+        "arXiv:2607.24623",
+        "Resultary record 389ab31e8b37",
+        "DOI 10.1016/0898-1221(84)90083-X (access check only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The graph threshold outside its critical window does not identify the law at fixed λ; the dependency calculation and control of all-Boolean words give that law and its generation interpretation.",
+          "The ADA criterion requires only distinctness of indefinite words, which does not force incompatible Boolean completions."
+        ],
+        "reasoning": "Standard Chen–Stein machinery is not new; concrete compatibility counts plus the algebraic characterization are needed to apply it here. The present claim is not just a different notation for the inspected prior threshold or ADA theorem.",
+        "searches": [
+          "Falgas-Ravry–Markström, Theorem 1 and Corollary 2",
+          "Arratia–Goldstein–Gordon DOI 10.1214/aop/1176991491",
+          "Resultary record 389ab31e8b37, Finding and Proof §§2 and 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform ternary words are binomial subcubes with free-coordinate probability 1/3; compatible words are exactly edges in the prior intersection graph.",
+          "Partial two-valued functions give the same strong-Kleene algebraic setting, but the cited examples do not characterize generating tuples."
+        ],
+        "reasoning": "Translation to the prior graph model is exact for overlaps, not by itself for generation: generation also requires each subcube to have a free coordinate and depends on the term operations.",
+        "searches": [
+          "Resultary: random generation of finite three-valued algebras, powers and Poisson thresholds",
+          "Falgas-Ravry–Markström arXiv:1309.7375, Definitions 2–4 and Remark 1",
+          "Abou El Wafa–Platzer arXiv:2607.24623, Examples 12–13"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The formula uses the existing cube perfect-matching count as an input; it does not claim new matching counts. The indexed comparison is a different theorem, not a table of these ordered strong-Kleene tuples."
+        ],
+        "reasoning": "Numerical perfect-matching tables do not identify the bijection or encode the random critical window; no new tabulation is credited.",
+        "searches": [
+          "Resultary random generation and exact algebraic ranks; closest indexed Poisson-generation record 389ab31e8b37",
+          "Frozen RESULT.md lines 17–20 and 52"
+        ]
+      },
+      "rationale": "The supported distinct claim is the precise strong-Kleene product-generation characterization together with its extremal and critical-window consequences. The same overlap-graph model and the exponential scale of the first edge are prior; neither is credited as a new result. The checked graph theorem does not supply the finite product-generation equivalence or the critical Poisson law. The closest indexed Poisson-generation result is for a different algebra signature and has a different obstruction.",
+      "residual_risks": [
+        "The broad primary search did not yield usable results; finite Kleene duality or older term-interpolation descriptions may encode the deterministic criterion.",
+        "Other work on critical edge counts in random subcube graphs could overlap with the Poisson subclaim. No priority guarantee is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material partial coverage",
+          "evidence": "Same model at p=1/3 and first-edge scale; inspected threshold statements do not give the critical Poisson count or the Kleene interpretation.",
+          "identifier_or_url": "https://arxiv.org/abs/1309.7375",
+          "material_read": "§1.1, Definitions 2–4 and Remark 1, p. 3; Theorem 1 and Corollary 2, p. 11",
+          "method": "OA full-text passage comparison",
+          "title": "Random Subcube Intersection Graphs I: Cliques and Covering",
+          "trigger": "Exact overlap graph under the uniform ternary law"
+        },
+        {
+          "assessment": "Prior definitions",
+          "evidence": "Gives the Kleene semialgebra and partial-function setting, not a criterion for generating its labelled powers in those examples.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.24623",
+          "material_read": "Examples 12–13, pp. 7–8",
+          "method": "OA full-text passage comparison",
+          "title": "Subreflexive Logic: Completeness without Identity",
+          "trigger": "Same semialgebra and partial-function interpretation"
+        },
+        {
+          "assessment": "Material overlap with different assumptions and conclusion",
+          "evidence": "The ADA signature includes downarrow; undefined letters and distinct words control generation, and the pure ternary critical scale is (3/2)^k.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-two-scale-poisson-law-for-random-generation-of-finite-algebras-o--389ab31e8b37",
+          "material_read": "RESULT.md, Finding and Proof §§2 and 5",
+          "method": "Local Resultary search and mirror passage comparison",
+          "title": "Two-scale Poisson law for random generation of finite algebras",
+          "trigger": "Closest indexed random-generation result for three-valued factors"
+        },
+        {
+          "assessment": "Coverage not determined from available material",
+          "evidence": "Full text was unavailable; no negative inference from access.",
+          "identifier_or_url": "https://doi.org/10.1016/0898-1221(84)90083-X",
+          "material_read": "No full text read; bibliographic identification only",
+          "method": "Lawful OA retrieval and DOI repository check",
+          "title": "Enumerating fuzzy switching functions and free Kleene algebras",
+          "trigger": "Potential prior term-function interpolation or finite generator criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof steps 1–4",
+        "Falgas-Ravry–Markström, Corollary 2",
+        "Resultary record 389ab31e8b37, Finding"
+      ],
+      "rationale": "The theorem turns the concrete problem of expressing every coordinate vector using a short list of generators into a geometric criterion. It solves both optimal deterministic generation and the probability of generation exactly in the critical window, which cannot be inferred from an exponential scale alone. The hypercube matching correspondence explains what optimal generator tuples look like rather than merely counting small examples.",
+      "residual_risks": [
+        "The scientific scope is the strong-Kleene signature and iid uniform sampling; no new general Poisson technique or matching enumeration is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

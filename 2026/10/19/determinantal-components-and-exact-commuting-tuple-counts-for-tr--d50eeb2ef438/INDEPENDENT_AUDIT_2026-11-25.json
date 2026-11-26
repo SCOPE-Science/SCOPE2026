@@ -1,0 +1,173 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:21:48.621935Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–61",
+        "VERIFICATION.md",
+        "verify.py: modular bracket, ranks and small pair/triple checks (read-only)",
+        "Independent finite-field test at n=4,s=2,q=7 by expanding D_a(D_b(t))−D_b(D_a(t)) in degrees 1–4"
+      ],
+      "rationale": "The relation (n+1)t^nD(t)=0 forces D(t) into (t) and allows every such image, giving precisely the stated n derivation basis elements. The bracket computed on t has coefficient j−i at degree i+j in that basis until truncation. For f of leading index i<m, the adjoint columns indexed by j<n−i, j≠i have distinct nonzero leading positions; the column at i is dependent by [f,f]=0 and higher columns vanish. This gives C(f)=kf⊕F_{n−i}. A tuple of minimum index i<m therefore has proportional images in F_i/F_{n−i}; conversely such proportional images lift to a common line plus a tail commuting with all of F_i and with itself. The remaining tuples in F_m^s lie in Z_{m−1}: the indicated quotient of F_m has dimension one for even n and zero for odd n. The rank-one locus is geometrically integral by the outer-product parameterization and its nonzero charts, of dimension s+n−2i−1, plus si free tail coordinates. For a comparison Z_i versus Z_j with j>i, the single-entry e_i tuple witnesses noncontainment; when j<i the e_i,e_{n−i} tuple has two independent quotient images, both indices below n−j, so again there is noncontainment. The union of the geometrically reduced pieces gives the reduced bracket variety (geometric-set equality and contraction of the radical ideals); it makes no assertion about the original bracket scheme being reduced. In the finite count the minimum-index column can be any of q^s−1 nonzero vectors, the remaining n−2i−1 quotient columns have q choices each and the si tail coefficients are free. The F_m^s stratum contributes q^{s(n−m)}. Independent enumeration over F_7[t]/(t^5), composing derivations on t for 2401² ordered pairs, gave 35,329 commuting pairs, with 16,464 each at minimum indices 0 and 1 and 2,401 in the all-tail stratum, agreeing with the formula.",
+      "residual_risks": [
+        "The finite reproduction is a pair sanity check, not a certification over all arities; the proof uses the displayed characteristic bound and reduced structure."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2013 paper establishes graded Witt centralizer results and nilpotent pair components for the full modular Witt nilpotent locus and the Borel nilradical. The other identified works concern nilpotent tuples or commuting tuples in Witt algebras by available metadata; their full texts were not available for verification."
+        ],
+        "reasoning": "Credit substantial antecedent to the proof mechanism; the inspected theorem is not a broader theorem on commuting tuples in quotients of arbitrary truncation length. No inference about uninspected sections of inaccessible papers is made.",
+        "searches": [
+          "Yao–Chang arXiv:1301.5667v1, Lemma 2.3 and Theorems 3.6, 4.3",
+          "Yao 2015 DOI 10.1016/j.jpaa.2015.02.005; Yao–Chang 2018 DOI 10.1007/s11464-018-0725-9; Yao–Zhang 2021 full-Witt tuples"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 63–78",
+        "arXiv:1301.5667v1 primary sections",
+        "Resultary 4fde8cddc8d0, 9efd53206c29, 5f78aed8961c and a210a44aa91b",
+        "Bibliographic/access checks for the cited 2015, 2018 and 2021 papers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In L_n with n≥3 the pair (e_1,e_{n−1}) commutes. Every lift to B^+ has bracket with degree-n term (n−2)e_n, nonzero in the stated range; the lift corrections start in higher degrees. Both original entries have positive degree, so this also obstructs passage from the Borel nilradical pair theorem."
+        ],
+        "reasoning": "Reduction of commuting tuples from the longer Borel is not surjective; counting upstairs or describing its reduced components does not mechanically yield the downstairs count or geometry. The shorter centralizer/truncation calculation is necessary.",
+        "searches": [
+          "Yao–Chang arXiv:1301.5667v1 §4",
+          "Resultary 9efd53206c29, scopes of full Witt and H_a tail formulas",
+          "Resultary shorter quotient lookup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For p>n+1 the shorter L_n is B^+/⟨e_n,…,e_{p−2}⟩, not the full dimension-p Witt algebra or a tail subalgebra. In characteristic zero the modular W_p has no direct parameter substitution.",
+          "The checked Theorem 4.3 concerns nilpotent pairs in the positive-degree Borel nilradical; the frozen theorem is unrestricted and includes e_0."
+        ],
+        "reasoning": "Shared Witt nomenclature and filtration do not identify the algebra, nilpotence domain, or arity of the claim.",
+        "searches": [
+          "Resultary: all-arity shorter truncated Witt derivation commuting varieties and components",
+          "Yao–Chang arXiv:1301.5667v1 §2 and §4: graded modular Witt and positive Borel"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier 4fde8cddc8d0 gives centralizer dimensions and commuting-pair counts for W_p. Later 9efd53206c29 counts all arities for W_p and its tails, 5f78aed8961c counts full W_p triples, and a210a44aa91b counts restricted-nilpotent tuples in W_5 without component claims."
+        ],
+        "reasoning": "None is an exact count table or formula for the shorter full-derivation algebras in the stated large-characteristic range; shorter dimension in a tail is not the same bracket algebra.",
+        "searches": [
+          "Resultary: exact truncated Witt commuting tuple counts, shorter quotients, full modular Witt and Borel",
+          "Resultary 4fde8cddc8d0, 9efd53206c29, 5f78aed8961c, a210a44aa91b"
+        ]
+      },
+      "rationale": "Pass for the all-arity shorter truncated full-derivation components and finite-field formula, not for the Witt filtration, leading-term centralizer method, or prior modular Witt counts. The most closely checked published theorem uses nilpotent pairs in the full modular algebra or its Borel nilradical. Indexed counts are for the longer full modular algebra or tail subalgebras. The quotient reduction is not an implication because even commuting pairs downstairs need not lift to commuting pairs upstairs. No checked true statement gives the asserted geometry and count at the dominating shorter truncation parameters; unavailable neighboring papers impose a bounded residual risk.",
+      "residual_risks": [
+        "The 2015, 2018 and 2021 full texts were not available; a direct shorter-quotient result in one or an unindexed source could alter the comparison.",
+        "Local indexed and literature searches are bounded, not proof of publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct structural antecedent in a different algebra and domain",
+          "evidence": [
+            "Lemma 2.3 gives centralizers in the W_1 filtration; Theorem 3.6 concerns full-W_1 nilpotent pairs; Theorem 4.3 concerns pairs in the Borel nilradical g_1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1301.5667",
+          "material_read": "v1 §2, pp. 2–3, offsets 5339, 8464; Theorem 3.6, pp. 5–6, offset 14014; §4, pp. 8–9, offsets 20776 and 22400–23833",
+          "method": "OA primary PDF passages",
+          "title": "Nilpotent commuting varieties of the Witt algebra",
+          "trigger": "Very similar filtration and valuation methods; possible Borel implication"
+        },
+        {
+          "assessment": "Earlier methodological/census overlap, not shorter-truncation coverage",
+          "evidence": [
+            "Full modular W_p, p>3, valuation-stratified centralizers and pair count."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-exact-centralizer-spectrum-and-commutativity-degree-of-the-finit--4fde8cddc8d0",
+          "material_read": "RESULT.md offset 0",
+          "method": "Local mirrored primary record",
+          "title": "Exact centralizer spectrum and commutativity degree",
+          "trigger": "Earlier indexed exact Witt count and centralizers"
+        },
+        {
+          "assessment": "Counts W_p and tails H_a, not shorter Borel quotients",
+          "evidence": [
+            "The ambient full derivation algebra is Der(F_q[t]/(t^p)), and the additional domains are subalgebras, not the truncated quotients."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-all-arity-finite-field-commuting-counts-for-the-one-variable-wit--9efd53206c29",
+          "material_read": "RESULT.md offsets 0 and 3000",
+          "method": "Local mirrored primary record",
+          "title": "All-arity finite-field commuting counts for the one-variable Witt algebra",
+          "trigger": "Potential dominating all-arity count"
+        },
+        {
+          "assessment": "Full modular W_p and s=3 only",
+          "evidence": [
+            "The record's truncation length is the characteristic, not n+1 strictly less than the characteristic."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-commuting-triple-counts-for-truncated-witt-lie-algebras--5f78aed8961c",
+          "material_read": "RESULT.md offsets 0 and 2850",
+          "method": "Local mirrored primary record",
+          "title": "Exact commuting-triple counts for truncated Witt Lie algebras",
+          "trigger": "Almost identical truncation terminology and finite count"
+        },
+        {
+          "assessment": "Different bracket algebra and restricted-nilpotent domain",
+          "evidence": [
+            "The finite-field result concerns the restricted nilpotent locus of W_5 in characteristic five and does not claim component geometry."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-finite-field-commuting-nilpotent-tuple-census-for-the-five-dimen--a210a44aa91b",
+          "material_read": "RESULT.md offsets 0 and 3000",
+          "method": "Local mirrored primary record",
+          "title": "Finite-field commuting nilpotent tuple census for the five-dimensional Witt algebra",
+          "trigger": "Exact all-arity formula for small Witt dimension"
+        },
+        {
+          "assessment": "Possible stronger implication unresolved, not excluded",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1016/j.jpaa.2015.02.005",
+          "material_read": "Bibliographic evidence only; no primary theorem obtained",
+          "method": "DOI and lawful OA lookup, publisher returned HTTP 403",
+          "title": "On nilpotent commuting varieties of r-tuples in the Witt algebra",
+          "trigger": "Potential all-arity nilpotent generalization with subalgebras"
+        },
+        {
+          "assessment": "Full-Witt comparison by scope only; further results unresolved",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1007/s11464-018-0725-9",
+          "material_read": "Bibliographic evidence only; no primary theorem obtained",
+          "method": "DOI and lawful OA lookup, redirect/access failure",
+          "title": "Commuting variety of Witt algebra",
+          "trigger": "Unrestricted pair geometry could intersect the shorter quotient problem"
+        },
+        {
+          "assessment": "Possible stronger quotient theorem not assessed from metadata",
+          "evidence": [],
+          "identifier_or_url": "Journal of East China Normal University (Natural Science) 2021(3), 1–7, Yao and Zhang",
+          "material_read": "Bibliographic evidence only; no primary theorem obtained",
+          "method": "Journal/DOI and alternate OA lookup",
+          "title": "Commuting variety of r-tuples over the Witt algebra",
+          "trigger": "Closest all-arity unrestricted literature title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof steps 2–6",
+        "Yao–Chang arXiv:1301.5667v1",
+        "Resultary 9efd53206c29 and 4fde8cddc8d0"
+      ],
+      "rationale": "The full derivations of a shortened polynomial algebra are a natural filtered Lie family in both characteristic zero and large characteristic. Pair commuting varieties hide a distinction: in arity at least three, the same components acquire genuinely different dimensions. The theorem simultaneously resolves which rank-one strata close to components and counts rational tuples without overcounting their intersections, including commuting tuples created by truncation and absent as lifts from the longer algebra. This extends known Witt centralizer methods to a distinct, useful exact invariant rather than re-evaluating a full-Witt census.",
+      "residual_risks": [
+        "No conclusion about the primary decomposition of unreduced bracket equations, or about excluded smaller characteristics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

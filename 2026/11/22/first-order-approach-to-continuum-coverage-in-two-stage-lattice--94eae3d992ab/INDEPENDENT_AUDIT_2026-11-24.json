@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:11:46.608220Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 21–112 and checks.py (inspected)",
+        "Pinsky arXiv:2608.04730v1, Theorems 1, 2, 4, 6",
+        "/workspace/branches/replay_5.py (independent numerical diagnostics)"
+      ],
+      "rationale": "The first accepted short rod splits an interval into two smaller ones with uniform feasible starts. The resulting first-placement recurrence gives B_s(z)=A_s(z)/(1−z)^2 with A_s entire, A_s(1)=p_s and A_s′(1)=s−(s−1)p_s. Subtracting the poles gives b_s(n)=p_s n−s(1−p_s) plus an absolutely summable error. Conditional on the first-stage gaps, expectation is additive even though the global short-rod sampling interleaves gaps: conditional on selecting a gap, its feasible starts are uniform. The zero-gap-inclusive sum identities give counts p_k/k and empty length 1−p_k per site. Splitting the integral for the maximal gap density at 1−1/k bounds it by O(log k/k²), so the summable remainder gives exactly the stronger stated intermediate estimate. For p_k, the change t=e^(−x/k) and trapezoid expansion on x≤L=k^(1/4) leave first-order integrand (1−e^(−x))W(x); the integrated remainder multiplied by k is O(L/k) using W=O((1+x)^−2), and integration by parts gives p∞/2. On x≥L the harmonic prefactor and geometric-logarithm approximations have scaled integrated error tending to zero (the prefactor alone contributes O(1/L), and the remaining tails are exponentially small in L). After scaling x=ky, the difference e^(−y)/(1−e^(−y))²−1/y² has integral −1/2, so the tail contributes −exp(−2γ)/2. This produces the stated p_k coefficient and, after substitution, the positive defect for each fixed s≥2. In fact the single-site gap density is positive, so 1−p_s>0. Independent quadrature gives p∞=0.7475979202534115 and the s=2 coefficient 0.1730958919649851; the scaled defect at k=4096 is about 0.17308409. The quadrature is a diagnostic, not the asymptotic proof.",
+      "residual_risks": [
+        "Infinite-substrate limit first, fixed s thereafter; no uniformity in s, finite-k monotonicity, or simultaneous-deposition result is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cadilhe–Araújo–Privman discuss inverse-length approach of one-stage jamming coverage; the related Resultary record 177574474bc5 studies a simultaneous length scaling k,K→∞ at fixed ratio with derivative jumps."
+        ],
+        "reasoning": "Neither is broader in the direction needed here. One stage does not include the finite-short-rod gap loss, and a law at fixed ratio does not control the lattice correction with s fixed and the ratio divergent.",
+        "searches": [
+          "Local Resultary two-stage lattice RSA continuum corrections and integer-ratio limits",
+          "lattice parking jamming coverage 0.216 random sequential adsorption k-mer lattice continuum 0.7476 1/k Evans convergence correction",
+          "Cadilhe–Araújo–Privman arXiv:cond-mat/0611413 Eq. (6)"
+        ]
+      },
+      "checked_sources": [
+        "Pinsky Model I, arXiv:2608.04730v1",
+        "Local Resultary 177574474bc5; self-hit 94eae3d992ab discounted",
+        "Cadilhe–Araújo–Privman Eq. (6); primary-literature two-stage and one-stage searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pinsky's stage identity uses the finite-interval short-rod mean under a gap distribution. The latter is not a uniform large-gap limit, so an asymptotic short-rod loss per gap must be justified and the contribution of small gaps controlled."
+        ],
+        "reasoning": "Even granting the exact one-stage asymptotic, it cannot produce the staged coefficient by substitution into the zeroth-order formula: that misses the term −s(1−p_s)p_k/k and would have the wrong side of approach. The finite-interval pole and summable-error gap estimate provide the distinct mathematical step.",
+        "searches": [
+          "Pinsky Theorems 1, 2, 4, 6; Cadilhe–Araújo–Privman p. 5 Eq. (6); Resultary 177574474bc5 RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The identification k1=s, k2=k in Pinsky gives precisely the long-first, short-second protocol on the infinite lattice, including the same exact two-stage formula and same limiting value."
+        ],
+        "reasoning": "Equivalent notation and protocol establish overlap for the exact identities and zeroth-order result, not for a coefficient of convergence. A growing-ratio continuum law where the short length is already macroscopic is not equivalent to holding s fixed on the lattice.",
+        "searches": [
+          "one dimensional lattice random sequential adsorption k mers continuum parking 1/k correction Euler gamma 0.21618 two stage sequential long short Pinsky asymptotic correction coverage",
+          "Pinsky arXiv:2608.04730v1 Model I"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact match 94eae3d992ab is the assigned entry itself. Pinsky's exact integral and previously known one-stage rates are relevant existing evidence, but not a table or formula for this two-stage coefficient."
+        ],
+        "reasoning": "Evaluation of the leading density or a finite collection of exact integrals at particular rod lengths does not classify the first derivative in inverse long-rod length. No distinct exact two-stage coefficient entry was identified.",
+        "searches": [
+          "Local Resultary fixed-short-length staged correction",
+          "Pinsky Theorems 4 and 6; classic RSA one-stage inverse-length literature"
+        ]
+      },
+      "rationale": "Credit Pinsky for the exact Model I equations and the limiting density, and credit the classical one-stage literature for the lattice-to-continuum law and known inverse-length scale. The supported distinct claim is the exact two-stage inverse-length defect and short-rod boundary penalty for fixed s. The closest distinct Resultary item takes both rod lengths to infinity at fixed ratio; it does not retain this finite-short-length correction. No priority claim is needed for the intermediate one-stage coefficient.",
+      "residual_risks": [
+        "The exact classical one-stage coefficient may predate the audited proof; the one-stage result is not the basis for the originality verdict.",
+        "Reasonably accessible matching literature and catalogue records were checked; absence of an exact staged match here does not establish global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established model, exact density and gap formulas and limit; inspected claims do not give the staged coefficient",
+          "evidence": "Eqs. (1.1), (1.3)–(1.4), (1.11), and (1.15) give the exact one-stage coverage, gaps, exact staged density and limiting staged density respectively.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.04730v1",
+          "material_read": "Printed pp. 2–11, Theorems 1, 2, 4, 6 and Model I specification; OA offsets 4700, 10800, 19800, 22800, 30700",
+          "method": "OA PDF full-text passages",
+          "title": "A New Look at Some Aspects of One-Dimensional Random Sequential Adsorption and Its Continuum Limit",
+          "trigger": "Exact same model and limiting density"
+        },
+        {
+          "assessment": "Material model overlap, different scaling and output",
+          "evidence": "Both lengths grow at fixed ratio, producing continuum coverage and integer-ratio derivative jumps, not the fixed short-length inverse-long-length defect.",
+          "identifier_or_url": "2026/11/22/SCOPE-integer-ratio-smoothness-thresholds-in-two-stage-random-sequenti--177574474bc5",
+          "material_read": "RESULT.md Finding, limits and scaling",
+          "method": "Local Resultary mirror",
+          "title": "Integer-ratio smoothness thresholds in two-stage random sequential adsorption",
+          "trigger": "Identical two-stage order and related continuum limit"
+        },
+        {
+          "assessment": "Prior evidence for the inverse-length scale of one-stage coverage; not staged formula",
+          "evidence": "Distinguishes the k-dependent jammed coverage from late-time rates; cites exact 1D and numerical 2D results for an inverse-length correction, with no exact 1D constant in that displayed estimate.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0611413",
+          "material_read": "p. 5, Eq. (6), offset 15800; reference [42], offset 41400",
+          "method": "OA PDF passages",
+          "title": "Random sequential adsorption: from continuum to lattice and pre-patterned substrates",
+          "trigger": "One-stage jamming approach as lattice is refined"
+        },
+        {
+          "assessment": "Potential prior evidence for the one-stage intermediate; priority for its constant is not asserted",
+          "evidence": "Cadilhe et al. cite it for exact one-dimensional work in the paragraph discussing the one-stage inverse-length approach.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/0301010474800637",
+          "material_read": "No full-text passage accessible; bibliographic reference in arXiv:cond-mat/0611413 inspected",
+          "method": "OA direct and VPN attempts returned HTTP 403",
+          "title": "Cooperative effects in random sequential polymer reactions",
+          "trigger": "1974 reference [42] of Cadilhe et al. for exact one-dimensional results"
+        },
+        {
+          "assessment": "No claim about uninspected content; abstract concerns late-time asymptotics",
+          "evidence": "The abstract emphasizes a crossover from exponential time dependence to power-law continuum kinetics, whereas the audited defect is evaluated at jamming and depends on the two-stage protocol.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevB.43.3366",
+          "material_read": "Publication abstract indexed by search; no full-text passage accessible",
+          "method": "OA publisher and identified alternate PDF attempts both returned HTTP 403",
+          "title": "Continuum limit in random sequential adsorption",
+          "trigger": "Possibly related lattice-to-continuum asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof §§1–4; Pinsky Theorems 4 and 6"
+      ],
+      "rationale": "The signed rate refines an established limiting model and answers a concrete approach question not answered by convergence alone. It quantifies the competition between a positive first-stage lattice correction and a larger negative finite-gap short-rod penalty. This supplies a reusable boundary estimate and shows eventual approach from below for each fixed short rod, without claiming monotonicity.",
+      "residual_risks": [
+        "The coefficient does not resolve the stronger all-k monotonicity question or the crossover when both lengths grow."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

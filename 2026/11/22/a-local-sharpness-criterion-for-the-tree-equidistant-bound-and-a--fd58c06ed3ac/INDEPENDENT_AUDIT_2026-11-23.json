@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:18:21.642435Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a connected bipartite graph, omitted opposite-side vertices have opposite distance parity from every vertex, so an equalizer contains a whole class. For two omitted vertices in the same class of a tree, the projection of a candidate witness to their path must be its midpoint. If this midpoint is in the selected class it is itself a witness; if not, any third branch gives a neighbor in the selected class. The only remaining obstruction is a degree-two midpoint in the unselected class. Its distance to either endpoint is at least two by parity, so neither neighbor is a leaf. Conversely, a degree-two vertex of the unselected class with two nonleaf neighbors is the unique equalizer of the two vertices obtained by continuing one step out each way, so the selected class fails. This covers both a singleton complement and equal part sizes. Parity determines all size-minimizers when the bound is attained, and upward closure plus inclusion–exclusion gives exactly the stated all-set family and polynomial when both classes work. Independently enumerating subsets on P4, P5, and K_{1,3} confirmed the two directions, including P5 (dimension 3 versus bound 2; the midpoint of the endpoints is the unique witness). On P4 the exact counts are 2z²+4z³+z⁴. Replay: /workspace/branches/95c11748-460e-41a7-b023-f3cc976a380f/independent_tree_equalizer_check.py. The frozen checker sources were inspected, not executed; the universal result is proved by the midpoint argument rather than by finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The foundational connected-bipartite proposition is general but is only necessary for sets; its path/bistar cases have specialized shapes. Its tree discussion explicitly leaves general tree dimension open.",
+          "The nearest corpus result computes more about a particular spider outside the sharpness regime, not an arbitrary-tree classification."
+        ],
+        "reasoning": "The general parity theorem does not tell whether either class suffices; the new converse detects precisely when the obstruction survives arbitrary branching.",
+        "searches": [
+          "Resultary: tree equidistant dimension equalizer bipartition sharp lower bound degree two midpoint leaf neighbor reduced tree all sets polynomial",
+          "arXiv:2107.10805v1, §4 and §6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2107.10805v1",
+        "Resultary balanced three-edge spiders, October 12 2026",
+        "Resultary semantic and literature queries as listed; MathDB 351395 attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior parity yields the dichotomy S contains A or B; spider proof uses a length-four path with a degree-two midpoint.",
+          "The MathDB discussion was not independently accessible (HTTP 403); its claimed one-way observation is not relied on as originality evidence."
+        ],
+        "reasoning": "The polynomial itself is immediate after both classes are known to work. The substantive step not supplied by parity or the earlier special-family argument is that every failure of a whole class has a degree-two midpoint with two nonleaf neighbors, and that any such midpoint obstructs that class.",
+        "searches": [
+          "arXiv:2107.10805v1 Proposition 2; published balanced-spider proof; MathDB tree conjecture discussion lookup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2107.10805v1, Proposition 2; §4.2 diagonal dominating sets for paths",
+          "Balanced three-edge spider RESULT.md, obstruction and off-arm arguments"
+        ],
+        "reasoning": "Expressing the condition as existence of a witness in the opposite parity class at each omitted-pair midpoint does not make it a corollary of path (3-AP/diagonal domination) results: on a general tree an off-path witness can exist and is decisive. The spider proof recognizes this on its particular arms, not for all tree shapes.",
+        "searches": [
+          "Web: equidistant dimension trees bipartition equality degree two vertices leaf neighbor class sharpness distance equalizer sets midpoint González Hernando Mora",
+          "Web: equidistant dimension / degree two / midpoint / tree equidistant dimension conjecture"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 2 lists dimensions for particular families, not the arbitrary-tree criterion or all-size coefficient sequences. The retrieved spider record gives the number of minimum sets on one family."
+        ],
+        "reasoning": "A minimum count on a fixed family, even when tests agree, is not a table or formula for every set size in every leaf-guarded tree.",
+        "searches": [
+          "Resultary equalizer/leaf/midpoint/polynomial search",
+          "arXiv:2107.10805v1, Table 2"
+        ]
+      },
+      "rationale": "The bipartite bound and simple midpoint obstruction are prior. The all-tree local converse and consequent simultaneous all-cardinality characterization were not found in the inspected statements. This is qualified, not absolute priority.",
+      "residual_risks": [
+        "Unindexed equalizer literature and the inaccessible MathDB discussion could contain an equivalent general argument.",
+        "The cited lexicographic-products paper was not retrieved as primary text in this audit; the originality decision does not rely on a whole-document exclusion of that source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior for parity and path/bistar specializations, not the arbitrary-tree iff",
+          "evidence": "Proposition 2 states A⊆S or B⊆S and eqdim≥min; §4.2 reduces paths to diagonal dominating sets and says the general tree value is not known.",
+          "identifier_or_url": "https://arxiv.org/pdf/2107.10805",
+          "material_read": "Definition, Proposition 2, path subsection including tree conjecture, conclusions and table scope",
+          "method": "Open primary PDF, decisive passages",
+          "title": "The Equidistant Dimension of Graphs",
+          "trigger": "Foundational same invariant; possible broader lower-bound/equality theorem"
+        },
+        {
+          "assessment": "Non-dominating special family",
+          "evidence": "For q≥3, B is an equalizer by a third arm; A alone fails by the unique midpoint of u_{i'}–c–u_i–v_i–w_i. It computes 2q and q+1 bases on that family.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-equidistant-dimension-and-all-bases-of-balanced-three-edge-spide--fe03141beba1/RESULT.md",
+          "material_read": "Claim, setup, lower and upper bound arguments and complete optimum list",
+          "method": "Published primary text via local mirror",
+          "title": "Equidistant dimension and all bases of balanced three-edge spiders",
+          "trigger": "Prior identical invariant and midpoint mechanism on trees"
+        },
+        {
+          "assessment": "Unresolved access; not used to exclude coverage",
+          "evidence": "The frozen bibliography attributes a degree-two midpoint obstruction to the discussion.",
+          "identifier_or_url": "https://mathdb.com/p/351395/tree-equidistant-dimension-conjecture",
+          "material_read": "No primary passage retrieved",
+          "method": "Lawful open-source lookup (HTTP 403)",
+          "title": "Tree equidistant dimension conjecture",
+          "trigger": "Potential same degree-two obstruction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Distinguishes exactly which tree classes achieve a foundational lower bound by a local test implementable in linear time. On a broad unbounded tree family (including every reduced tree), the answer classifies every equalizer by inclusion and cardinality using only the part sizes. This is useful structural information even though it does not compute the dimension for arbitrary trees outside the sharpness regime.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

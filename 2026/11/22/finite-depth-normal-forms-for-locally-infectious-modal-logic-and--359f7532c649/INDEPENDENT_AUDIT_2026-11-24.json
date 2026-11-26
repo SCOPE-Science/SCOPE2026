@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:40:51.827260Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–64",
+        "Frozen VERIFICATION.md, lines 19–31",
+        "Frozen verify.py, lines 12–29 (closure), 31–62 (cycle shift and modality), 63–86 (support and prefix checks)"
+      ],
+      "rationale": "Induction on syntax gives the root undefinedness support: negation and the locally infectious box preserve it, disjunction unions it, J_2 erases it, and constants have empty support. Distinct supports are distinguished by setting just a letter in their symmetric difference to u at a chosen root. The depth signatures truncate recursively by truncating every type in the successor set. Hence the depth-d signature fixes the previous-depth signature at the root and all previous-depth successor types, which suffices to evaluate a boxed operand, including at a dead end. For the converse, all three atomic colors have Boolean tests. A characteristic formula conjoins the root color test with box of the disjunction of the required successor-type tests and diamond of each required test, where diamond is negation-box-negation on Boolean-valued formulas. Empty conjunction and disjunction work at dead ends. These tests give arbitrary Boolean decisions on realized types; multiplying by the weak-Kleene conjunction of p_i or not p_i over the chosen support exactly inserts the prescribed u values. Thus the sum counts term functions with no overcount. On a cycle the recursive singleton successor signatures read the entire prefix of length min(d+1,n), after which they just repeat previous colors; every such prefix occurs. The exponents, small counts, and strict growth for k>=1 before saturation follow, including the trivial n=1 cutoff. For k=0 the cycle gives two functions at all depths, although nonserial frames can have nontrivial uncolored types. As a separate finite check, direct evaluation of the characteristic tests on a root with two terminal successors, with one letter and depth one, distinguished all 21 types (14 classical at the root) across all 81 world/valuation pairs.",
+      "residual_risks": [
+        "The proof counts output equivalence on a fixed finite nonempty frame over unrestricted valuations. It does not transfer the depth census to a different primitive modality or to provability equivalence across frames.",
+        "The frozen script was inspected, not executed; its reported cycle closures are finite corroboration and do not check all frames or the depth-two large count by saturation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 paper characterizes Bochvar and Halldén algebraic semantics and representation, and cites the 2024 relational-semantics work",
+          "The indexed Boolean results impose different semantics and frame classes; the 2024 full text returned 403 on the attempted routes."
+        ],
+        "reasoning": "General representation and the truth tables establish the setting but give neither generation at a prescribed depth nor the support-indexed count. A broader theorem about Boolean formula evaluation cannot cover formulas that output u, even though it can help to distinguish colored types.",
+        "searches": [
+          "Bonzio–Vergottini–Zamperlin arXiv:2611.09566v1, introduction and language",
+          "Bonzio–Zamperlin DOI:10.1093/logcom/exae046",
+          "Resultary 24fe4ca0d82d and 2b2a0efb09d5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.09566v1 cited passages; DOI:10.1093/logcom/exae046 access attempt",
+        "Resultary 359f7532c649 (identical), 24fe4ca0d82d and 2b2a0efb09d5, inspected exact statements"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first source supplies the same semantic clause; the two catalogued size formulas exhibit related Boolean characteristic-type arguments."
+        ],
+        "reasoning": "The definition of box alone does not state how undefinedness behaves through all primitive compositions, and separation of Boolean types does not imply the independent realization of the Boolean restrictions for every nonempty support. One needs the syntactic invariant, the same-depth Boolean construction, and a factor that introduces exactly the support and preserves depth. No checked prior result supplies these jointly for the stated frame class.",
+        "searches": [
+          "arXiv:2611.09566v1 introduction and truth tables",
+          "Resultary 24fe4ca0d82d and 2b2a0efb09d5, original findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2611.09566v1 introduction, pp. 1–2: local infectious semantics and term-equivalence of modal algebra classes",
+          "Resultary 24fe4ca0d82d Finding: Boolean free-algebra size and depth-two normal form over partial-functional weakly transitive frames",
+          "Resultary 2b2a0efb09d5 Finding: Boolean term functions on a fixed reflexive star"
+        ],
+        "reasoning": "Term-equivalence of algebraic signatures is not fixed-frame enumeration and need not preserve the primitive depth grading. Classical type-separation uses the same general Boolean construction, but counts only the Boolean layer and does not impose or distinguish the nonempty root undefinedness supports.",
+        "searches": [
+          "Resultary: Bochvar weak Kleene modal Kripke formula functions undefinedness support depth",
+          "Resultary: finite-depth modal term algebra normal form exact number of term functions three-valued logic",
+          "Web: Bochvar modal logic finite-depth term functions normal forms exact cycle census locally infectious necessity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match is the assigned record itself, 359f7532c649",
+          "24fe4ca0d82d gives 2^(3q^2) from its own Boolean types; 2b2a0efb09d5 yields one-letter counts 4, 16, 64 on reflexive stars."
+        ],
+        "reasoning": "The actual formula-function tables for the distinct indexed examples use different value spaces or frames; they do not tabulate the target's values 12, 576, 134479872, or 656 for the stated cycle/depth cases. No independent matching table was established in these checks.",
+        "searches": [
+          "Resultary: Bochvar modal locally infectious necessity finite-depth normal forms term functions exact directed-cycle census",
+          "Resultary 359f7532c649, 24fe4ca0d82d, 2b2a0efb09d5"
+        ]
+      },
+      "rationale": "The Bochvar semantics and classical characteristic-formula method are antecedents. The supported distinct claim combines the indecomposable root undefinedness supports with a full, depth-preserving Boolean decision algebra on each support's classical locus; it also supplies the exact cycle census and its sharp stabilization. The closest available papers and catalogue analogues do not supply that result.",
+      "residual_risks": [
+        "The 2024 work's full text was not available on the attempted routes; bounded search does not certify priority.",
+        "Nonmodal Bochvar term theory and other formulations of free-algebra normal forms may contain further depth-zero precedents; no separate novelty credit is assigned for the nonmodal specialization alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SEMANTIC AND ALGEBRAIC PRECEDENT",
+          "evidence": "Box undefinedness is local; modal-algebra representation and term-equivalence do not state fixed-frame depth-bounded function counts in the inspected passages.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.09566",
+          "material_read": "Introduction pp. 1–2, OA offsets about 4300–9452; language and truth tables p. 3; citation [8] p. 30",
+          "method": "OA PDF passages",
+          "title": "Modal weak Kleene logics: algebraic semantics and Jónsson–Tarski representation",
+          "trigger": "Same Bochvar clause, plausible broader term-algebra result"
+        },
+        {
+          "assessment": "PRIOR SEMANTICS ATTRIBUTED; FULL COMPARISON UNRESOLVED",
+          "evidence": "The accessible 2026 paper attributes the original relational setting to it; no claim about the absence of a census from the inaccessible paper is drawn.",
+          "identifier_or_url": "https://doi.org/10.1093/logcom/exae046",
+          "material_read": "Citation and description in 2611.09566v1; direct full text not recovered",
+          "method": "Lawful DOI OA attempts returned HTTP 403",
+          "title": "Modal weak Kleene logics: axiomatizations and relational semantics",
+          "trigger": "Cited earlier work on same logic"
+        },
+        {
+          "assessment": "CLOSE METHOD, DISTINCT SEMANTICS",
+          "evidence": "Classical logic on partial-functional weakly transitive frames, with 3q^2 pointed types and exact free-algebra size 2^(3q^2).",
+          "identifier_or_url": "Resultary 24fe4ca0d82d",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Depth-two normal form and exact free algebra size for deterministic modal logic",
+          "trigger": "Ordinary modal signature method and exact census"
+        },
+        {
+          "assessment": "MATERIAL ANALOGUE, DIFFERENT VALUES AND FRAME",
+          "evidence": "Boolean reflexive-star model, sharp depth-two cutoff and different exact operation counts; no priority inferred from its date.",
+          "identifier_or_url": "Resultary 2b2a0efb09d5",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact modal formula algebras and the last-leaf depth gap on reflexive rooted stars",
+          "trigger": "Same-day fixed-frame algebra and depth-cutoff analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–27 and 48–64",
+        "Resultary 24fe4ca0d82d and 2b2a0efb09d5, analogous Boolean invariants"
+      ],
+      "rationale": "This explains structurally how local infection and finite modal observations interact: exactly one support controls the third value while modal types are freely selectable on the rest. The fixed-frame formula applies even with branching or dead ends; the directed-cycle case gives a complete census and exact point at which added modal depth is useless. Both are natural invariants of formula-function algebras and provide useful checks on depth-bounded expressivity, rather than simply counts of small syntactic examples.",
+      "residual_risks": [
+        "No efficient formula-size bound or all-frames equational census follows, and the cycle hierarchy concerns the stated Bochvar primitive language only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

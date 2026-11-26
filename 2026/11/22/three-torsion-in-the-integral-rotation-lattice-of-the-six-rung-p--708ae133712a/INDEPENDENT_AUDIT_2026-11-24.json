@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:22:26.227873Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof §§1–4; VERIFICATION.md; check_integral_rotation.py, especially lines 42–158; check_output.txt",
+        "Independent replay: python /tmp/opencode/frozen_2_check.py (NumPy object integers and SymPy integer Smith form)"
+      ],
+      "rationale": "Independently generated all six-edge subsets with twelve distinct endpoints and all their faces: 20 matchings and face counts (18,117,276,270,120,20). Using exact integers and a different reduction order, I first split off the image of the signed degree-three boundary using 170 unit pivots (zero residual), then computed the kernel of the induced degree-two boundary on the 106 free quotient coordinates using 100 unit pivots (zero residual). The projection and section checks and zero boundary composition leave an integral H2 basis of rank six, not just a rational rank. The one-column rotation, including reordering signs, acts in this independent basis with order six, characteristic polynomial x^6−1, and Smith diagonal (1,1,1,1,3,0) for R−I. This verifies the regular rational character and coinvariants Z ⊕ Z/3. In the frozen displayed basis, column relations 1 and 3 give e4=e6 and e1+e3=−e6; columns 6 and 5 give e2=−2e6 and e5=−e6; column 2 gives 3e6=0 and column 4 duplicates e4=e6. The asserted obstruction to an integral regular lattice follows.",
+      "residual_risks": [
+        "The calculation is for this exact 18-edge graph and one rotation only; it gives neither full dihedral-module structure nor quotient-space homology."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2608.30601v2, Main Theorem 2 covers the graph and gives the nonequivariant wedge; Resultary 1a6ec2654f11, Finding and assumptions, covers rational lower homology for 6k columns only when k≥2."
+        ],
+        "reasoning": "The former genuinely covers the absolute homology claim but is not a rotation-module calculation. The latter excludes six columns and in any case is rational.",
+        "searches": [
+          "Resultary: circular ladder perfect matching complex equivariant homology cyclic rotation C6 integer lattice",
+          "Literature: \"The Homotopy Types of the Independence and Perfect Matching Complexes of Möbius and Circular Ladder Graphs\" Agarwal Basak circular ladders arXiv"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.30601v2",
+        "Resultary 1a6ec2654f11 and 71e9ef356cdb",
+        "Frozen RESULT.md and AUDIT.json as comparison leads"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitution at n=6 gives six 2-spheres. Rational characters cannot distinguish the regular integer lattice, whose coinvariants are Z, from a rationally isomorphic lattice with a nontrivial integral Smith factor."
+        ],
+        "reasoning": "Existing statements mechanically imply the nonequivariant rank six, but not the essential integral obstruction.",
+        "searches": [
+          "arXiv:2608.30601v2, Main Theorem 2",
+          "Resultary 1a6ec2654f11, Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Distinct same-graph Resultary 71e9ef356cdb, Finding: ordinary matching complex, twelve 3-spheres and rational H3 action, not the extendible-matching complex."
+        ],
+        "reasoning": "Searching both the graph aliases and the equivalent obstruction to an integral regular lattice reveals no overlapping integral action on the specified complex. Arbitrary disjoint edge sets and extendible faces are different predicates.",
+        "searches": [
+          "Resultary: perfect-matching complex C6 square K2 six-rung prism integral H2 rotation coinvariants Z/3",
+          "Resultary: regular rational representation nonregular integral lattice cyclic homology coinvariants torsion matching complex"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ranked hits include the identical frozen target. The strongest distinct circular-ladder passage (1a6ec2654f11) specifies dimension four and k≥2, not a six-column Smith table; Main Theorem 2 supplies sphere multiplicities, not a rotation matrix."
+        ],
+        "reasoning": "No distinct inspected table or action matrix gives these integral Smith factors; the ranked search is bounded.",
+        "searches": [
+          "Resultary: six-rung prism perfect matching complex H2 rotation matrix Smith normal form",
+          "arXiv:2608.30601v2, Main Theorem 2"
+        ]
+      },
+      "rationale": "Credit the known nonequivariant wedge and H2 rank to Agarwal–Basak. The distinct supported result is the integral rotation-coinvariant torsion despite a regular rational action. Neither a nonequivariant wedge of spheres nor an out-of-range rational equivariant theorem gives that torsion. The identical indexed record is the claim under review, not separate coverage.",
+      "residual_risks": [
+        "Four ranked Resultary queries and one targeted primary-literature query do not establish global priority. The revised primary paper's relevant theorem was accessible; comparison concerns actual claims read, not an assertion about every passage or unindexed work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers nonequivariant rank but does not establish the action.",
+          "evidence": [
+            "At n=6=3(2·1) the formula specializes to a wedge of six 2-spheres."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2608.30601v2",
+          "material_read": "Main Theorem 2 and its circular-ladder formula, HTML character offsets 9950–14543",
+          "method": "Direct open full-text HTML, relevant passage read",
+          "title": "The Homotopy Types of the Independence and Perfect Matching Complexes of Möbius and Circular Ladder Graphs",
+          "trigger": "Same complex for all circular ladder sizes"
+        },
+        {
+          "assessment": "Different parameter range and coefficients.",
+          "evidence": [
+            "n=6k with k≥2; rational lower-degree representation of dimension four."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-dihedral-and-layer-exchange-modules-in-lower-homology-of-circula--1a6ec2654f11/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Open local Resultary mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Dihedral and layer-exchange modules in lower homology of circular-ladder perfect-matching complexes",
+          "trigger": "Closest distinct indexed equivariant result"
+        },
+        {
+          "assessment": "Different simplicial complex and homology degree.",
+          "evidence": [
+            "Ordinary matching complex; wedge of twelve 3-spheres and rational H3 character."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-the-hexagonal-prism-matching-complex-and-its-full-dihedral-layer--71e9ef356cdb/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Open local Resultary mirror",
+          "title": "The hexagonal prism matching complex and its full dihedral/layer action",
+          "trigger": "Same graph and symmetry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Agarwal–Basak, Main Theorem 2; Resultary 1a6ec2654f11; frozen RESULT.md, Finding and Proof §4"
+      ],
+      "rationale": "Six columns is the first collision of the sphere degrees in the circular-ladder classification, not a randomly selected width. A nonzero integral Smith factor in this first coincident case detects information invisible both to known nonequivariant homotopy and the rational rotation character. It supplies a concrete obstruction that an integral equivariant classification must reproduce.",
+      "residual_risks": [
+        "This is an exact local invariant, not a general integral classification or a prediction at other widths."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

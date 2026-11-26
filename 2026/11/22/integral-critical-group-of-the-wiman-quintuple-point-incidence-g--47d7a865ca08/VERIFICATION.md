@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact reproducibility
+# Independent mathematical audit
 
-Run `python3 wiman_quintuple_critical_verify.py` with Python 3.8 or later; no external packages are required. Expected first line: `WIMAN_QUINTUPLE_LEVI_CRITICAL_GROUP_OK`.
+## correctness
 
-The script constructs \(A_6\) as all \(360\) even permutations on six letters, enumerates its \(45\) involutions and \(36\) cyclic subgroups of order five, and compares two independent normalizer tests for every one of the \(1620\) possible incidences. It checks degrees, Gram-matrix entries, connectedness, an annihilating polynomial and traces, then processes the reduced graph Laplacian at two different sinks using exact modular Smith elimination.
+PASS
 
-A unit pivot over \(\mathbb Z/p^E\mathbb Z\) permits invertible row and column clearing. When no unit remains, every residual entry is divisible by \(p\); division records one valuation level. The precision chosen is \(E=v_p(\tau)+1\), so no nonzero invariant factor can disappear through modular truncation. The resulting prime-local exponent sums match the tree number obtained independently from the Gram spectrum.
+The geometric sources give the transitive 36-point orbit, dihedral order-ten stabilizers, reflection axes, and faithful stabilizer action on the five incident lines. The unique order-five subgroup of each stabilizer bijects the orbit with the 36 such subgroups; the stabilizer is its normalizer. A stabilizing involution cannot have the point as isolated center because then it fixes the pencil pointwise; hence its axis is incident. The five such involutions exhaust the incidences at that point. I constructed the matrix independently: cycle each five-element subset and enumerate its reflections j↦k−j, deduplicating the reflection sets. This gives 81 vertices, 180 edges and the two stated degrees. The cofactor determinant and Laplacian characteristic polynomial confirm connectivity, the claimed spectrum products and 2^56·3^24·5^25 trees. Exact integer Smith form gives 1(52), 2(8), 4(3), 20, 60(8), 1800(8), with multiplicities in parentheses. The finite graph proof neither assumes sampled geometry nor uses the other Wiman strata.
 
-This check covers the exact finite group and integer matrices. The identification with the Wiman configuration additionally relies on the quoted classical reflection arrangement and stabilizer descriptions, as explained in `RESULT.md`. No independent audit is claimed.
+## originality
+
+PASS
+
+The Wiman geometry and the full-strata arithmetic result are real overlaps; the specific integral group of the quintuple-only Levi graph remains distinct on the checked evidence. This is not a priority certificate.
+
+## value
+
+PASS
+
+The highest-multiplicity points form a distinguished orbit of this complex reflection arrangement, so the graph is motivated independently of its output. Its full integral divisor class group is a reusable exact invariant, substantially more informative than its incidence counts or tree number. The all-strata group does not substitute for the distinguished-stratum invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

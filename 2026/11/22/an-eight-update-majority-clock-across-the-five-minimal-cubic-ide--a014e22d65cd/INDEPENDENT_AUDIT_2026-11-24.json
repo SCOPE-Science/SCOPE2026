@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:39:55.114520Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, graph scope, update and proof, lines 27–74",
+        "Frozen graph_catalog.json, census.json, VERIFICATION.md and verifier scripts inspected but not executed",
+        "/workspace/branches/186720c8-d58c-4485-89c6-17bc8e0b9006/independent_check.py and full_recomputed.json",
+        "/workspace/branches/186720c8-d58c-4485-89c6-17bc8e0b9006/classify_cubic_order.py and cubic_order_recomputed.txt"
+      ],
+      "rationale": "The graph inputs are connected, simple, cubic, asymmetric and pairwise nonisomorphic. The degree-three open-neighbor update uses the threshold two, so there are no ties. An independent computation reconstructed the LCF edges, matched the supplied edge catalogue, enumerated all 20,480 states across the five graphs and reproduced every field of the full census, including the individual basin-size histograms, entry histograms, and witnesses. The proof counts time from the initial configuration, and F^(t+2)(x)=F^t(x) holds exactly when the state at t is recurrent of period dividing two. All states satisfy this at t=8; maximal depths are 7,7,7,7,8 and the only states at depth eight are G5 integers 486 and 3609. Completeness of the graph class was also checked independently: by processing vertices in BFS discovery order and assigning each new neighbor the next available label, the generator covers at least one labeling of every connected simple cubic graph. At each step it considers all compatible old-neighbor choices and all feasible numbers of new neighbors. Exact distance-preserving bijection search (which preserves adjacency exactly at distance one) classified orders 4,6,8,10,12 into 1,2,5,19,85 classes and found 0,0,0,0,5 asymmetric ones. The five at order 12 match G1–G5 one-to-one. Odd orders are impossible by degree parity and orders below four are impossible for a nonempty simple cubic graph; a disconnected asymmetric cubic graph would require every component to be asymmetric, so it cannot contribute at or below this minimum.",
+      "residual_risks": [
+        "Exact finite computational verification, not formal or expert attestation. The clock does not assert an eight-round upper bound for larger cubic graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Goles–Olivos theorem as stated by Benjamini et al. guarantees eventual period dividing two, not exact entry times. Kaaser et al. give upper bounds, including Corollary 24, which gives 1+18−12/2=13 here. The other five-graph order-12 record concerns the cubic bipartite class and asserts sharp entry two there."
+        ],
+        "reasoning": "The qualitative recurrence part is already known. General upper bounds and a census for a different graph class are not coverage of the asserted sharp time and basin counts.",
+        "searches": [
+          "arXiv:1405.2486, Goles–Olivos period-two theorem",
+          "DOI:10.4230/LIPIcs.MFCS.2016.55, deterministic majority voting-time bounds",
+          "Resultary lookup for exact majority censuses on order-12 cubic graph classes"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact and neighboring record searches",
+        "Primary literature on the graph class and majority bounds",
+        "Full-text comparisons above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier nineteen-map Frucht study already has the identity F_e^10=F_e^8, sharp over its edge-deletion systems; its original graph has depth seven. The order-12 cubic identity theorem supplies the graph-theoretic minimum and counts two planar cases, not dynamics for the complete class."
+        ],
+        "reasoning": "The syntactically identical uniform power equality across different systems is not coverage of this class. Neither minimum-order classification, a period bound, nor one graph's previous census implies the new four rows or which original asymmetric graph maximizes the entry depth.",
+        "searches": [
+          "Frucht edge-deletion RESULT.md, uniform power identity and baseline row",
+          "Balaban et al., DOI:10.1017/S144678870000639X, Theorem 1",
+          "Benjamini et al., Theorem 1.1 as quoted from Goles–Olivos; Kaaser et al., Corollary 24"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An adjacency-preserving bijection identifies G3 with the earlier Frucht baseline. On the undeleted cubic graph no tie is possible, so incumbent tie retention does not change the map. The Frucht baseline's depth seven is equivalently the sharp exponent for F^(t+2)=F^t there."
+        ],
+        "reasoning": "Different labelings and nominal tie conventions do not distinguish the undeleted dynamics; G3's baseline timing and recurrent counts must be credited. The edge-deletion systems have different graph inputs and do not reproduce the class result.",
+        "searches": [
+          "Resultary lookup on cubic identity/asymmetric order-12 graphs, exact majority timing, and attraction basins",
+          "Frucht graph open-neighbor majority baseline, 2026/11/17/SCOPE-every-edge-of-the-asymmetric-frucht-graph-both-creates-and-destr--4c0365926b8e",
+          "Primary-literature search for minimum-order asymmetric cubic graphs and exact majority dynamics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier unmodified Frucht row gives 12 fixed points, 268 states on two-cycles, 2 inputs at depth seven, and entry histogram [280,1286,1238,770,422,86,12,2]. Its labeled all-zero and all-one basins each have size 620, and its unanimous population 1240 is not the complete eventually-fixed population 1458. The Bidiakis and Tietze exact clocks are six and five, respectively, and concern distinct graphs. The top exact five-identity-graph hit is the assigned original."
+        ],
+        "reasoning": "There is exact prior table overlap for part of G3, not for the reported basin census of the full identity class or the G5 time-eight witnesses. Dates alone were not used to exclude distinct comparison records.",
+        "searches": [
+          "Frucht record, unmodified row in forward.json",
+          "Resultary exact clock and basin tables for Bidiakis cube, Tietze and the order-12 cubic bipartite class",
+          "Resultary exact title match for the assigned five-graph record"
+        ]
+      },
+      "rationale": "Credit the earlier same-update Frucht baseline for much of G3 and the classical result for eventual period at most two. The supported distinct claim is the complete five-member class comparison, its sharp uniform eight-step entry time with two witnesses on G5, and the exact class basin and clock census. The inspected prior results do not give or imply that claim.",
+      "residual_risks": [
+        "Historical priority for the remaining data is not certified. The secondary simple-cubic graph table cited by the frozen record could not be inspected through the OA reader; that is not evidence of absence, and class completeness was separately reproduced. The November 17 Frucht overlap is substantive regardless of any missing citation in the frozen text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material prior coverage of G3 baseline; does not supply the current complete class census",
+          "evidence": [
+            "Undeleted graph: 12 fixed configurations, 134 primitive two-cycles, depth seven attained twice, same entry histogram, 1240 eventual unanimity inputs.",
+            "Uniform depth eight in the earlier record is attained on some edge-deleted graphs, not on its baseline."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-every-edge-of-the-asymmetric-frucht-graph-both-creates-and-destr--4c0365926b8e",
+          "material_read": "RESULT.md Finding, offsets 0–2619; forward.json undeleted row at offset 0",
+          "method": "Resultary local mirror plus independent labeled graph isomorphism check",
+          "title": "Every edge of the asymmetric Frucht graph both creates and destroys majority-consensus initial states",
+          "trigger": "Same dynamics on an isomorphic member of the class and same power identity on a different class"
+        },
+        {
+          "assessment": "Prior minimum-order theorem; the quoted count is for planar graphs only",
+          "evidence": [
+            "Smallest nontrivial cubic identity graphs have order 12; exactly two planar examples at that order."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S144678870000639X",
+          "material_read": "Theorem 1, PDF p. 2, OA offset near 3653",
+          "method": "Open-access primary PDF",
+          "title": "Cubic identity graphs and planar graphs derived from trees",
+          "trigger": "Exact minimum-order claim"
+        },
+        {
+          "assessment": "Covers the qualitative period bound, not the sharp times or census",
+          "evidence": [
+            "For every finite graph and initial state, X_(t+2)=X_t eventually (attributed to Goles and Olivos)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+          "material_read": "PDF p. 2 Theorem 1.1 and update convention, OA offsets 4090–5239",
+          "method": "Open-access paper PDF",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "General result on the same synchronous binary rule"
+        },
+        {
+          "assessment": "Includes a general upper bound, not a sharp value or finite census for these graphs",
+          "evidence": [
+            "Voting time ≤1+|E|−|Vodd|/2; this upper bound is 13 for all five cubic graphs at order 12."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2016.55",
+          "material_read": "PDF p. 10, Corollary 24 and preceding argument, OA offsets 36540–38006",
+          "method": "Open-access primary PDF",
+          "title": "On the Voting Time of the Deterministic Majority Process",
+          "trigger": "Stronger quantitative majority bounds potentially covering the clock"
+        },
+        {
+          "assessment": "Different graph, not a census of the asymmetric class",
+          "evidence": [
+            "Bidiakis cube: maximum depth six, 20 fixed states, and 103 primitive two-cycles."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-six-update-majority-clock-and-complete-basin-census-on-t--a364b0d2169d",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "A sharp six-update majority clock and complete basin census on the Bidiakis cube",
+          "trigger": "Distinct same-day order-scale exact majority census"
+        },
+        {
+          "assessment": "Different graph, not a census of the asymmetric class",
+          "evidence": [
+            "Tietze graph: maximum depth five, 16 fixed states, and 137 primitive two-cycles."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-five-update-majority-clock-and-complete-attraction-basin--b3a0f5aeae0d",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "A sharp five-update majority clock and complete attraction basin census on the Tietze graph",
+          "trigger": "Distinct same-day exact majority census"
+        },
+        {
+          "assessment": "Matches graph count and order but selects the bipartite class, not the asymmetric class",
+          "evidence": [
+            "Identifies the five connected cubic bipartite graphs and a sharp global entry bound of two."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-majority-attraction-spectra-of-all-five-cubic-bipartite-gr--4f7c0bf360a7",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact majority attraction spectra of all five cubic bipartite graphs of order twelve",
+          "trigger": "Distinct same-day five-graph exact majority census at the same order"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, class scope and full census",
+        "Independent minimum-class reconstruction",
+        "Earlier Frucht majority baseline and general voting-time results"
+      ],
+      "rationale": "The study is of the canonical smallest asymmetric cubic class, rather than five arbitrary inputs, with a standard dynamics and invariants. The complete class comparison resolves its worst-case clock, exhibits the unusually small sharp-witness set, and shows that a ranking by number of recurrent oscillating orbits does not rank the size of their attraction populations (notably G3 versus G2). The full basin and entry data are useful exact benchmarks for these minimal graphs, beyond the already known qualitative period bound and the earlier single-graph baseline.",
+      "residual_risks": [
+        "The comparison is finite and should not be read as a general bound or ranking theorem for all asymmetric cubic graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

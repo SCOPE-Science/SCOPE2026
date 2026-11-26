@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:04:21.468633Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof §§1–5 (lines 19–61), independently rederived",
+        "Frozen VERIFICATION.md, checker.py, checker.out, inspected without executing uploaded code"
+      ],
+      "rationale": "At the cube roots, the cyclic moments are H0=|a|²+|b|²+|c|², H1=b conj(a)+c conj(b)+a conj(c), K0=|b|²+4|c|², K1=2c conj(b). Nonzero K1 forces b,c nonzero for every competitor, including those initially allowed to have lower degree. After fixing c>0, the roots of 4s²−K0 s+|K1|²/4 are c² and |b|²/4. In each branch K1 fixes b, so H1 fixes a by a real-linear equation of determinant c_branch²−|b_branch|². The excluded ratios 1,2,4 account exactly for vanishing determinants or a repeated root here. The other branch has (c',b')=(|b|/2,2cb/|b|), so the changed a is homogeneous real-linear in a, and its energy gap at a=0 is 3(4c²−|b|²)/4, nonzero on the stated locus. The zero set of that nonzero polynomial in the two real coordinates of a is null for every allowed (b,c); Fubini lifts this to coefficient space, including the phase coordinate. For M=1,2, maximal Jacobian rank of the polynomial measurement map on the five-real-dimensional gauge chart is at most four and is locally constant off a proper algebraic set; its local fibers there have positive dimension. This is a pointwise obstruction to almost-everywhere recovery, not just dimension counting. For the integer ambiguity witness the moments are (89,68,52,24), giving the claimed intensity triples; the coefficient triples are not proportional.",
+      "residual_risks": [
+        "No completeness claim on excluded strata or numerical conditioning bound; finite recorded trials do not prove the measure-zero assertion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang et al. Theorem 1.2 gives generic complex measurement ensembles at N≥2d; Theorem 1.4 gives existence for general Hermitian ensembles at 2d−1.",
+          "Jaming–Rathmair gives five roots per channel for uniform quadratic recovery and a four-point uniform counterexample."
+        ],
+        "reasoning": "Genericity of the operator ensemble does not certify this particular rank-one measurement array. A uniform upper bound at five and uniform failure at four do not decide almost-everywhere recovery at three.",
+        "searches": [
+          "Huang–Rong–Wang–Xu arXiv:1909.08874v1 §1.3",
+          "Jaming–Rathmair arXiv:2205.08753v1 Proposition 3.2 and Proposition 3.4"
+        ]
+      },
+      "checked_sources": [
+        "Jaming–Rathmair 2205.08753v1 §3.1",
+        "Huang–Rong–Wang–Xu 1909.08874v1 §1.3",
+        "Resultary semantic search; distinct published findings 0e882b9f0b96 and 5eacb0f56b82"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The five- and six-root data do not reduce to the three-root data: the three-point value autocorrelation aliases the cyclic coefficient differences.",
+          "For degree two the shifted Euler result uses five value samples plus three shifted-derivative samples, not three plus three unshifted observations."
+        ],
+        "reasoning": "Restriction to degree two in the cubic result keeps six sample sites. None of these statements proves energy consistency for the false branch of the aliased three-point reconstruction.",
+        "searches": [
+          "Jaming–Rathmair Question 3.5 and Proposition 3.2",
+          "Resultary local published records 0e882b9f0b96 and 5eacb0f56b82"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jaming–Rathmair Question 3.5 asks about almost-everywhere uniqueness from M evenly spaced value and derivative samples; its real-variable derivative channel equals the complex polynomial derivative channel in magnitude up to 2π.",
+          "Distinct Resultary records concern six samples for cubic polynomials and a shifted Euler derivative with unequal channel sizes."
+        ],
+        "reasoning": "Passing between analytic trigonometric polynomials and their unit-circle polynomial representations does not remove this gap. The shifted Euler and six-point data are not equivalent to the proposed three-plus-three data.",
+        "searches": [
+          "Resultary semantic lookups for quadratic derivative Fourier phase retrieval and cube-root value/derivative samples",
+          "Jaming–Rathmair arXiv:2205.08753v1 §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact result in the bounded ranked returns; both nearby published records were inspected by statement and differ in degree, grid or derivative channel.",
+          "The central assertion is over a continuum of coefficient triples; there is no finite table of signals in the compared sources that could establish it."
+        ],
+        "reasoning": "Neither a table match nor an exact published-record match was found. The finite ambiguity witness is not the originality basis.",
+        "searches": [
+          "Three Resultary semantic searches (ranked limits 50, 30 and 30) for the fixed-grid quadratic threshold and associated derivative Fourier reconstruction and ambiguity",
+          "Resultary records 0e882b9f0b96, 5eacb0f56b82"
+        ]
+      },
+      "rationale": "The closest primary source poses the actual structured almost-everywhere sampling question rather than answering the quadratic case at three points. The closest different published records use more and/or materially different measurements and do not imply this fixed-design threshold. No covering result was found in the comparison below.",
+      "residual_risks": [
+        "Bounded ranked results and inspected source passages cannot exclude later, unindexed or unpublished equivalent results. No priority inferred from same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct open-question motivation; no coverage at three",
+          "evidence": "Uniform recovery at 2N−1 nodes; four-point quadratic uniform counterexample; expressly asks almost-everywhere uniqueness in this design.",
+          "identifier_or_url": "https://arxiv.org/html/2205.08753v1",
+          "material_read": "§3.1 around HTML offset 49000, Propositions 3.2 and 3.4, Lemma 3.3, Question 3.5",
+          "method": "Bounded arXiv full-text inspection",
+          "title": "Uniqueness of phase retrieval from three measurements",
+          "trigger": "Same value/derivative/Fourier sampling problem"
+        },
+        {
+          "assessment": "Abstract generic/existential coverage, not fixed-grid coverage",
+          "evidence": "Quantifiers are over the measurement operators; the cube-root derivative array is not singled out.",
+          "identifier_or_url": "https://arxiv.org/html/1909.08874v1",
+          "material_read": "§1.3 around HTML offset 10700, Theorems 1.2 and 1.4",
+          "method": "Bounded arXiv full-text inspection",
+          "title": "Almost Everywhere Generalized Phase Retrieval",
+          "trigger": "Possible domination by general six-measurement theorem"
+        },
+        {
+          "assessment": "Close, not covering; same date does not order priority",
+          "evidence": "Degree at most three, six sixth roots per channel, fourteen exceptional planes.",
+          "identifier_or_url": "Resultary 0e882b9f0b96, RESULT.md",
+          "material_read": "Finding and design assumptions, offset 0",
+          "method": "Published-record local mirror",
+          "title": "Fourteen ambiguity planes for six-sample cubic Fourier phase retrieval",
+          "trigger": "Same derivative/intensity design with larger degree"
+        },
+        {
+          "assessment": "Different operator, grid and budget",
+          "evidence": "2d+1 value samples and 2d−1 samples of zP'−αP on unit-circle points; a resonance classification.",
+          "identifier_or_url": "Resultary 5eacb0f56b82, RESULT.md",
+          "material_read": "Finding and design assumptions, offset 0",
+          "method": "Published-record local mirror",
+          "title": "Resonance walls and two-point fibers in shifted Euler derivative phase retrieval",
+          "trigger": "Potential equivalent derivative plus two-point-fiber result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and §§2–5",
+        "Jaming–Rathmair Question 3.5"
+      ],
+      "rationale": "A sharp answer in the first genuinely quadratic case of a published sampling question, with a deterministic two-branch inverse and an exact counterexample separating almost-everywhere recovery from all-signal recovery. Generic frames or ordinary dimension counting do not supply the constructive structured sufficiency.",
+      "residual_risks": [
+        "No higher-degree or stability implication is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

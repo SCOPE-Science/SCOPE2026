@@ -1,21 +1,21 @@
-# Review of cycle-incidence shattering on ladders
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(n\ge2\), the precise class comprises the edge sets of all simple cycles in the labelled two-row open ladder \(P_2\square P_n\). Each cycle is uniquely \(C_{i,j}\), the rectangle between two distinct rungs. Membership in a rung is endpoint equality; membership in either physical rail edge in a gap is interval containment. These predicates give all and only the stated nonshattered pairs; no triple is shattered by the rung-count and consecutive-interval obstructions. Summing over actual, distinct physical edges yields the claimed coefficient \(n(9n-17)/2\), with separate small cases. The adaptive upper bound follows from \(\binom n2\) concepts, the lower bound from two independent threshold searches, and the exact dyadic formula from equality of the bounds. A full depth-three tree is provided at five columns.
+PASS
 
-The standalone checker enumerated simple graph cycles independently for lengths two through nine, confirmed 6,910 complete support comparisons through triples, calculated exact adaptive ranks for lengths two through twelve, and verified eight distinct leaves of the five-column tree. Finite checking corroborates, rather than replaces, the universal proof.
+The frozen proof asserted that the top and bottom portions of a cycle each form a single path; its appeal to revisiting a row does not justify this central step. The complete corrected /workspace/repairs/3/RESULT.md proves the unchanged theorem: take the extreme columns of a simple cycle; every intermediate two-rail cut must be crossed by connectedness and crossed evenly by the cycle degree sum. Both rails therefore occur across every intermediate gap. Degree two excludes interior rungs and forces the two extreme ones. From this representation, any two distinct rung queries admit all traces for n>=4. For tracks in different gaps, two columns in one of the three complementary blocks realize the zero trace (by pigeonhole), and the single-gap and full rectangles realize the other traces. A mixed pair admits both singletons exactly when the selected rung's side of the gap has a second column; removing that rung's column leaves two columns on some side for the zero trace. This excludes the same-gap twins and the four extreme mixed pairs and gives the stated coefficient. With three rungs the all-positive trace fails; two rungs force one rectangle, one rung makes two distinct rail answers nested or exclusive conditional on that rung, and three distinct rail gaps cannot give a 101 trace. The cases n=2 and 3 follow from cycle count and singleton variation. Distinct concepts per adaptive leaf give the information bound; two independent threshold searches on disjoint blocks of m=floor(n/2) endpoints prove the lower bound, which equals the upper bound at dyadic n. The checked depth-three tree at n=5 embeds at all larger n. Reviewer-authored `python3 /workspace/independent_reproduction.py ladder` enumerated graph cycles for n=2..9, checked 6,910 supports through triples, reproduced all ranks through n=12 by finite adaptive recursion, and checked the actual certificate's eight leaves. This corroborates, not replaces, the all-order proof in the repaired file.
 
-## Originality — PASS, with limitations
+## originality
 
-Published cycle-hypergraph results of Mofidi supply general cycle-VC context and wheel examples, but the inspected primary sections do not give this physical-edge support count or adaptive law for two-row open ladders. The published published-finding corpus cycle-hypergraph results for wheels and \(K_{3,b}\), the result for three-column directed monotone paths, and the result on two-row order-ideal online ranks were compared from their complete scientific statements. Their concept objects or query coordinates differ, so neither their VC/online dimensions nor their coefficient formulas imply the present theorem. Earlier threshold-search methods and the finite-class information bound are not claimed as original. Search coverage does not prove historical uniqueness, and one plausible second Mofidi full text remained inaccessible.
+PASS
 
-## Value — PASS
+For the unchanged repaired statement, checked earlier wheel and complete-bipartite results establish analogous edge-cycle rank phenomena, and finite-interval methods already explain the rail-only online lower bounds. The full physical-edge ladder support classification, including endpoints and duplicate gap predicates, was not found as a covered result. The online conclusions are credited as applications of classical threshold and counting arguments; the combined ladder classification is the distinct claim.
 
-The full coefficient-level support classification is natural for the classical graph-cycle hypergraph and distinguishes paired physical rail edges from distinct rung queries. Its two-dimensional VC boundary, sharp first adaptive gap at five rungs, and an unbounded online/static separation with maximum graph degree three and two-vertex-connectivity are substantive structural consequences, not a restated hypothesis count. The infinite exact dyadic sequence resolves more than a finite census, though it does not claim every online rank.
+## value
 
-## Limitations and related literature
+PASS
 
-The second 2022 cycle-hypergraph article was not fully inspected; its possible implications remain a documented historical-priority risk. Unindexed equivalent interval-classification literature may exist. The all-order proof is distinct from the finite checks, and independent validation remains outstanding.
+The corrected proof establishes a complete shattering census on distinct physical edges of a standard connected subcubic planar graph, and gives exact infinite dyadic adaptive ranks as well as the first strict-gap boundary. The count detects duplicate and extreme coordinate effects hidden by VC dimension alone. The bounded-degree planar example complements, rather than restates, wheel-based separations and is not a claim about all non-dyadic ranks.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

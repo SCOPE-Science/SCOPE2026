@@ -1,0 +1,180 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:06:28.373480Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use the bit convention indexed by 4a+2b+c. An n-letter path in the labeled radius-t de Bruijn graph corresponds to an input block of length n+2t, and any such block extends to the full bilateral shift. The subset DFA counts distinct output words, not paths in the nondeterministic presentation. Closing the one-step product gave 15 reachable pairs with no acceptance mismatch in either direction; equality of languages implies equality of the compact image subshifts. At time two the product reached mismatches at 10111101 (only Rule 22) and 1010111 (only Rule 104). Independently reconstructing the reachable automata gives 360 and 418 states, and SCC sizes 350 plus ten singletons for Rule 22 and one component of 418 for Rule 104. Every state is reachable and accepting, so eA^n1 has exponential rate equal to the largest SCC spectral radius; singleton SCCs here have radius at most one. Both strict integer inequalities at each of the 768 vector coordinates in spectral_witnesses.json were checked against the reconstructed components. The resulting intervals (1.86746,1.86748) and (1.83426,1.83428) are disjoint. Direct finite-block enumeration checked the full first-loss sets as well as length-11 counts 1788 and 1770, and truth-table complementation gives Rules 151 and 233. Replay: the frozen verify.py and spectral_witnesses.json are in the same package directory. The script was inspected, not executed; the separate computation built the automata from length-3 and length-5 truth tables, explored the synchronized products, used Kosaraju SCCs, and read the bundled vectors only as data. The infinite conclusions use the finite automata and Perron argument, not extrapolation from word counts through length 11.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible process-graph abstract describes graph construction and node/edge complexity at finite time, not a comparison of Perron roots.",
+          "Koller–Hudcová count initial configurations converging to short temporal attractors, not words in a finite-time spatial image.",
+          "The exact nineteen-value catalog computes one-update spatial entropy and explicitly does not classify iterated-image entropy."
+        ],
+        "reasoning": "Finite-time graph methods apply to the rules but are not already evaluated output-growth inequalities. A known graph-state count is not its spectral radius; a deterministic output presentation and a positive-vector check give genuinely additional exact information. No full-text negative claim is made about the partly inaccessible process-graph or limit-behavior literature.",
+        "searches": [
+          "10.1002/cplx.21686",
+          "Extensions on the Analysis of Elementary Cellular Automata with Process Graphs (publisher abstract, OA literal locator: process graphs)",
+          "10.1142/S0218127417300282",
+          "arXiv:2508.09768",
+          "Resultary: Rule 104 Rule 22 second spatial image Perron entropy language"
+        ]
+      },
+      "checked_sources": [
+        "Published Rule 22 second-image record 66161a322c8d",
+        "First-loss census 5742d176c6e4 and its classification.csv",
+        "Cyclic image equality record 192521493abb and its classes.json",
+        "First-image entropy catalog d4f1725c3486",
+        "Kassardjian–Balbi–Ruivo publisher abstract",
+        "Koller–Hudcová arXiv:2508.09768 abstract",
+        "Attempted access to DOI 10.1002/cplx.21686 and DOI 10.1142/S0218127417300282"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Common one-step language and d_22=7<d_104=8 already imply Rule 104's second language is not contained in Rule 22's; 1010111 is allowed by the former.",
+          "The new strict entropy order yields the reverse noncontainment by monotonicity, separately from the direct witness 10111101.",
+          "A separate estimate for Rule 104 at time two, not its first-loss length or the shared first-image entropy, is needed to obtain this entropy order."
+        ],
+        "reasoning": "The full incomparability partly follows from prior results and partly follows from the evaluated entropy comparison. The cross-language calculation supplies an explicit witness for the other direction and a short-versus-asymptotic reversal. The scientific advance is the evaluated separation, not assembling unrelated catalogs or rederiving the Rule 22 rate.",
+        "searches": [
+          "Cyclic image equality RESULT.md and classes.json",
+          "First-loss census RESULT.md and classification.csv",
+          "Rule 22 exact second-image companion RESULT.md, Finding and limits",
+          "Resultary: second image entropy split Rule 22 Rule 104 elementary cellular automata"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The one-update cyclic classification puts [22,104] in a single all-length cyclic-language class.",
+          "The spatial language of the bilateral full-shift image is exactly the set of factors of periodically repeated cyclic outputs: a finite input neighborhood extends periodically on a sufficiently large ring, and periodic ring inputs lift to bilateral inputs.",
+          "Complementation conjugacies give the same results for 151 and 233, not independent cases."
+        ],
+        "reasoning": "The all-period cyclic result already implies the one-step bilateral equality; this is more than matching one-step entropy. It does not provide equality of two-step images, which depend on how the two local maps act on the common image. The asserted two-step comparison is unchanged by spatial or symbol symmetries when these conjugate the dynamics.",
+        "searches": [
+          "Resultary: second image entropy split Rule 22 Rule 104 elementary cellular automata",
+          "Resultary: Rule 104 Rule 22 second spatial image Perron entropy language",
+          "Web: elementary cellular automata second image spatial entropy Rule 22 Rule 104",
+          "Cyclic image classification, classes.json, offset 210"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier first-loss table lists 22,0,7,1010111,85 and 104,0,8,10111101,122. It already contains both selected strings as losses relative to the respective first images.",
+          "The Rule 22 companion's Finding gives exactly (186746/100000,186748/100000) for the second-image Perron base; its order-273 matrix is an alternative presentation of the same language growth.",
+          "The inspected records do not give the Rule 104 second-image band or an earlier strict spectral comparison with Rule 22."
+        ],
+        "reasoning": "Neither the short-loss data nor the separately known Rule 22 value is new. The table alone does not test whether the length-eight loss of Rule 104 occurs in Rule 22's second image, and it does not evaluate Rule 104's second-image rate. Bounded ranked and keyword searches are not evidence of absence.",
+        "searches": [
+          "Resultary: Rule 104 Rule 22 second spatial image Perron entropy language",
+          "First-loss census classification.csv, rows for 22 and 104",
+          "Exact second-image spatial entropy and first image-language loss for elementary Rule 22, RESULT.md at offset 0"
+        ]
+      },
+      "rationale": "One-step equality, the per-rule loss timings, the selected words as individual first-to-second losses, and the Rule 22 entropy are all covered or implied by identified prior/companion results. The claim worth evaluating is the cross-rule separation, principally the strict upper bound for Rule 104 below the known Rule 22 value, with explicit two-sided cross witnesses. That comparison was not found or implied by the inspected sources. The separate Rule 22 calculation supplies the identical rational band and should be explicitly cited alongside the prior art in the finding, not merely acknowledged in its supporting review. It is not part of the claimed novelty. This assessment does not resolve historical priority of all finite-time graph calculations.",
+      "residual_risks": [
+        "Full process-graph and limit-behavior texts were not independently cleared; a graph or numerical table could yield an equivalent Rule 104 computation.",
+        "The separately archived Rule 22 result is direct content overlap; archive metadata alone do not establish the exact chronology of the public versions.",
+        "A bounded literature search and a verification of the Perron certificates are not a priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers Rule 22's value and first-loss words; no Rule 104 comparison in the claim",
+          "evidence": [
+            "Identical second-image rational band and the two Rule 22 length-seven losses; a deterministic spectral presentation of order 273"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-second-image-spatial-entropy-and-first-image-language-loss--66161a322c8d/RESULT.md",
+          "material_read": "Finding and opening proof, offsets 0–3221; related work at 7531–9552 and final limitations from 9577",
+          "method": "Published record, local mirror",
+          "title": "Exact second-image spatial entropy and first image-language loss for elementary Rule 22",
+          "trigger": "Direct overlap with the same bilateral rule at time two"
+        },
+        {
+          "assessment": "Covers both displayed minimum lengths and individual first-loss witnesses; not a second-image entropy comparison",
+          "evidence": [
+            "d_22=7, witness 1010111; d_104=8, witness 10111101"
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-a-sharp-twelve-symbol-threshold-for-second-update-image-loss-in--5742d176c6e4/",
+          "material_read": "RESULT.md finding/proof offsets 0–4455 and limitations at 7392; classification.csv header and the exact rule rows at offsets 0–492 and 1510–1710",
+          "method": "Published record and table, local mirror",
+          "title": "A sharp twelve-symbol threshold for second-update image loss in elementary cellular automata",
+          "trigger": "Same first-to-second image language losses for all rules"
+        },
+        {
+          "assessment": "Implies bilateral first-image equality, not the second-image comparison",
+          "evidence": [
+            "All ring lengths, class [22,104]"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-eight-cell-test-for-equality-of-cyclic-image-languages-o--192521493abb/",
+          "material_read": "RESULT.md finding and cyclic convention, offsets 0–2581; classes.json offsets 210–310",
+          "method": "Published record and class data, local mirror",
+          "title": "A sharp eight-cell test for equality of cyclic image languages of elementary cellular automata",
+          "trigger": "Equivalent first-image statement after taking factors of periodic words"
+        },
+        {
+          "assessment": "One step only",
+          "evidence": [
+            "Explicit exclusion of time-iterated images"
+          ],
+          "identifier_or_url": "2026/10/27/SCOPE-exact-nineteen-value-spatial-image-entropy-spectrum-of-elementar--d4f1725c3486/RESULT.md",
+          "material_read": "Limitations from offset 8405",
+          "method": "Published record, local mirror",
+          "title": "Exact nineteen-value spatial image entropy spectrum of elementary cellular automata",
+          "trigger": "First-image entropy maximizers include the two rules"
+        },
+        {
+          "assessment": "Prior relevant method; full contents unresolved",
+          "evidence": [
+            "Abstract describes finite-time process-graph construction, node/edge complexity, and some limit behavior"
+          ],
+          "identifier_or_url": "https://www.oldcitypublishing.com/journals/jca-home/jca-issue-contents/jca-volume-18-number-2-3-2024/jca-18-2-3-p-127-155/",
+          "material_read": "Publisher abstract at offset 773; no full-text access",
+          "method": "Publisher page, bounded abstract reading",
+          "title": "Extensions on the Analysis of Elementary Cellular Automata with Process Graphs",
+          "trigger": "Finite-time language comparison or tabulated data might cover the requested rules"
+        },
+        {
+          "assessment": "Coverage not cleared by this audit",
+          "evidence": [
+            "Record supplies bibliographic citation; access failure is not evidence of noncoverage"
+          ],
+          "identifier_or_url": "10.1002/cplx.21686",
+          "material_read": "No primary passage obtained",
+          "method": "DOI and publisher OA routes returned HTTP 403",
+          "title": "Advances in the Study of Elementary Cellular Automata Regular Language Complexity",
+          "trigger": "Likely precursor for finite-time graph construction and Rule 22 data"
+        },
+        {
+          "assessment": "Full-text coverage unresolved",
+          "evidence": [
+            "No comparison asserted on unavailable text"
+          ],
+          "identifier_or_url": "10.1142/S0218127417300282",
+          "material_read": "No primary passage obtained",
+          "method": "DOI and publisher OA routes returned HTTP 403",
+          "title": "Inferring the Limit Behavior of Some Elementary Cellular Automata",
+          "trigger": "Could contain finite-time comparisons in addition to limit results"
+        },
+        {
+          "assessment": "Different counted object",
+          "evidence": [
+            "Counts initial configurations converging to short attractors, not distinct spatial output blocks"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2508.09768",
+          "material_read": "PDF p. 1, abstract, offset 0",
+          "method": "Open primary PDF",
+          "title": "Counting Short Trajectories in Elementary Cellular Automata using the Transfer Matrix Method",
+          "trigger": "Finite-time entropy with transfer matrices might be equivalent under another convention"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The rules are a naturally singled-out class with an identical first-image language, not an arbitrary pair selected for a small numerical inequality. The certified second-step order shows that even within this class an earlier obstruction can coexist with strictly greater asymptotic spatial block growth. The extra quantitative bound and opposing cross-language witnesses make this a useful exact benchmark for finite-time image invariants, independent of the already known horizons and Rule 22 rate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

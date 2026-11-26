@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:29:43.222883Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The energy generator equations follow from the uniform split and the independent exponential refresh. For existence, the fixed-block affine update has linear part of l1 norm at most one, strictly below one on a positive-probability refresh–exchange–refresh sequence. Its additive term is bounded in l1 by a finite-block compound-Poisson sum with every finite moment. The backward affine series thus converges in Lp for fixed p by independence of blocks and summable geometric Lp bounds on the linear products. The same block contraction gives uniqueness, and invariance under the full semigroup follows from uniqueness for the block chain. For an independent moment derivation, use the product-exponential mixture: the edge product Laplace transform for means a,b equals the integral of (1+s(ua+(1−u)b))^−2 over uniform u, and uniform re-splitting of that conditional gamma sum gives two independent exponentials with the common new mean. Let q=1+2r and center hidden temperatures at T in units of Δ for Δ≠0. Their hub mean is zero and leaf means are σ_i A for A=2r/q. Balanced sign reflection makes their hub-square Z, common leaf-square L and hub–leaf product H label-symmetric. Edge averaging gives 2Z=L+H and the leaf refresh gives L=(Z+r)/(1+r). For i≠j the leaf product is H/q+A²σ_iσ_j; hence the hub–leaf equation gives Z=[1+r+(N−1)r/q]H+A²/2. These solve to H=1/[q(N+q)], Z=r/q+(r+1)/[q²(N+q)] and L=A+1/[q²(N+q)]. This derivation is valid at N=2 as well. Distinct energy covariances equal hidden covariances and each energy variance is its mean squared plus twice its hidden variance. This gives every displayed moment and the fixed-r limit. At Δ=0 the independent product exponentials are invariant. The frozen scripts were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected general-graph theorem describes mixtures and the absorbed discrete-KMP dual; its worked two-particle equations and hydrostatic limit are for a path."
+        ],
+        "reasoning": "A theorem applicable to the stationary law of a whole class of graphs is not an evaluated moment formula for every graph. Computing the two-particle result on a path does not subsume the star's rates, equal distinct-label products and degree limit.",
+        "searches": [
+          "De Masi–Ferrari–Gabrielli arXiv:2310.01672v1, finite-graph Theorem 3 and Lemma 6; path system (64), Prop. 8",
+          "Franco and Gilbert chain context in frozen references"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, symbolic_check.py and verify.py",
+        "De Masi–Ferrari–Gabrielli arXiv:2310.01672 v1 and v2 passages",
+        "Resultary complete, bipartite and reservoir-edge graph comparisons (mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior duality gives a linear boundary system and positivity methods; it does not identify a common hub–leaf covariance across both labels or the exact retained hub variance. The star calculation uses balance to replace a signed sum over other leaves by −1 independently of label."
+        ],
+        "reasoning": "Graph specialization is necessary and produces a nontrivial exact cancellation: the residual signed term in the leaf cross moment is exactly the product of the means. Dropping it without solving the system would not recover the result.",
+        "searches": [
+          "De Masi–Ferrari–Gabrielli v1 Lemma 6 and Eq. (64); v2 p. 5 remark on Eq. (2.4)",
+          "Resultary reservoir-edge and local-refresh covariance studies"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The stationary energy law is represented as a product-exponential mixture; cross-covariance of energies is the covariance of hidden means. The v2 alternative boundary generator separates edge updates from site refresh at rate one."
+        ],
+        "reasoning": "The same result could be written as an exact two-point covariance and a one-site variance of the corresponding averaging opinion model. Structural equivalence, including the rate-one subcase, supplies the model reduction, not the pair-label cancellation and finite-size denominator.",
+        "searches": [
+          "Resultary: label-blind KMP star covariances and hidden-temperature moments",
+          "De Masi–Ferrari–Gabrielli arXiv:2310.01672, v1 Thms. 2–3, v2 Eq. (2.4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed star match is the bound record. Distinct indexed comparisons give exact signs or covariances on impurity-driven complete/bipartite graphs and on a complete graph with reservoir-edge baths."
+        ],
+        "reasoning": "Those exact formulae use different symmetries or reservoir mechanisms, and are not tabulations of the balanced star. The bound listing is not independent evidence.",
+        "searches": [
+          "Resultary: finite-rate star KMP, exact covariances, hub variance, distinct bath labels"
+        ]
+      },
+      "rationale": "The hidden-temperature mixture, dual methods, and polynomial moment system as an available method are prior. The inspected sources do not solve the balanced finite-rate star class system for the common covariance or give this explicit residual hub variance. Related complete and bipartite graph calculations concern different boundaries or bath assignments; they are scientifically close but not dominating cases.",
+      "residual_risks": [
+        "Bounded graph-specific comparisons cannot rule out earlier star calculations using an equivalent dual or averaging convention.",
+        "The foundational 1982 article was not independently available in full here; no priority is claimed for the KMP model, the mixture representation, or its general duality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior mixture and dual equations, with a separate-refresh convention explicitly discussed in v2. Path calculation, not the exact arbitrary-r star covariance.",
+          "evidence": [
+            "v1 Eqs. (31)–(33) give the product-exponential mixture; v2 Eq. (2.4) and the nearby remark allow separate rate-one refresh; v1 Eq. (64) supplies a path harmonic system."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.01672",
+          "material_read": "v1 PDF pp. 4, 7, 9, 14, 16 and 18: generator, Thms. 2–3, Lemma 6, Eq. (64), Prop. 8; v2 p. 5 remark around Eq. (2.4)",
+          "method": "Bounded OA passages from both versions",
+          "title": "Hidden temperature in the KMP model",
+          "trigger": "Strongest primary broader-coverage candidate and boundary-mechanism equivalence"
+        },
+        {
+          "assessment": "Adjacent exact finite-rate result with a different graph and bath pattern.",
+          "evidence": [
+            "The calculation is on K_(n,n), all sites refreshed with one hot impurity, and allies a specified cold–cold covariance to a sign transition."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-cold-cold-anticorrelation-from-a-single-thermal-impurity-on-a-bi--39db3e082c10",
+          "material_read": "Mirrored Finding and model hypotheses",
+          "method": "Local Resultary search and record passage",
+          "title": "Cold–cold anticorrelation from a single thermal impurity on a bipartite graph",
+          "trigger": "Same-day indexed exact KMP covariance under local thermalization"
+        },
+        {
+          "assessment": "Complete graph and single hot site, not balanced leaves and unrefreshed hub.",
+          "evidence": [
+            "Hot–cold covariance changes sign while cold–cold covariances stay positive in the stated complete-graph system."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-unique-covariance-sign-reversal-under-local-thermalization-on--5335f0c33eec",
+          "material_read": "Mirrored Finding and setup",
+          "method": "Local Resultary search and bounded mirror reading",
+          "title": "A unique covariance sign reversal under local thermalization",
+          "trigger": "Potential broader result for local-refresh graphs and bath classes"
+        },
+        {
+          "assessment": "Explicit result on a complete graph with reservoir-edge baths, not separate leaf refresh.",
+          "evidence": [
+            "The boundary update is an edge rule; the model does not implement a rate-r independent refresh at every leaf of an unbathed hub."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-current-neutral-internal-exchange-creates-exact-long-range-kmp-e--065f172b2ea0",
+          "material_read": "Mirrored Finding and reservoir dynamics",
+          "method": "Focused published-record search and bounded mirror reading",
+          "title": "Current-neutral internal exchange creates exact long-range KMP energy correlations",
+          "trigger": "Exact distinct-site covariance and alternative bath convention"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The star is a natural high-degree non-equilibrium network with both like-bath and opposite-bath pairs. The exact identity shows their covariances coincide despite unequal stationary means; those covariances disappear with degree while the hub retains a nonthermal variance. This distinguishes decorrelation from convergence of local statistics to equilibrium and supplies an explicit benchmark for finite-rate exchange, without claiming a full limiting distribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

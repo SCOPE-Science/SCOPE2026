@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:04:04.060877Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions and Proof steps 1–4",
+        "Frozen VERIFICATION.md and verify_matrix_logistic.py, inspected without execution"
+      ],
+      "rationale": "With C=B^{-1}, a positive fixed point obeys CHC=H-H^2. The right side is positive semidefinite and has the same rank as H, excluding eigenvalue 1; its range is then ran(H). The left side has range C ran(H), so C preserves the support and its orthogonal complement. On the support, H^(1/2) C H^(1/2) is the unique positive square root of H^2(I-H), so C=(I-H)^(1/2) there. This gives exactly the projector classification and its Grassmannian components, and substitution proves sufficiency. The differentiated map on a joint eigenbasis is diagonal on the real Hermitian matrix-unit basis: one real direction per diagonal entry and two per off-diagonal pair. With selected and omitted gains all in (1,3), the omitted block contributes m^2 expanding dimensions, mixed pairs have multiplier sqrt(a_omitted/a_selected), and selected-selected multipliers (a+b-ab)/sqrt(ab) decrease in either gain from the limiting value +1 at (1,1) to -1 at (3,3). Simplicity excludes a mixed unit multiplier. For the general candidate sink, omitted gains below 1 are strictly contracting in both omitted-omitted and mixed modes, including repeated gains. Omitting any gain above 1 gives an expanding diagonal mode; gain 1 forces +1, and gain at least 3 gives either an omitted expanding mode or an active multiplier at most -1. This proves the full local, hyperbolic criterion, not global convergence or stability at neutral gains. The extra bound B^2<=4I is only needed for invariance of the interval.",
+      "residual_risks": [
+        "Finite rational witnesses in the supplied verifier do not certify the all-size theorem; the support argument and complete derivative eigensystem supply the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The larger model is explicit in Eq. (6); Appendix C considers N=2 spectral invariant measures, using scalar fixed points to explain singularities. The exact Navickas paper is identified but its full text was unavailable in the routes checked."
+        ],
+        "reasoning": "A broader definition and invariant-measure computations are not a broader theorem implying the stated stationary classification and all-N index. The related earlier matrix-logistic paper remains an access risk rather than evidence against originality.",
+        "searches": [
+          "Pawela–Życzkowski arXiv:2303.06176v2 §V, Eq. (6), and Appendix C",
+          "Navickas et al., DOI 10.3934/dcdsb.2011.16.927; official AIMS page and DOI recovery"
+        ]
+      },
+      "checked_sources": [
+        "Resultary record 64fbe7e6d3f6, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "Pawela–Życzkowski arXiv:2303.06176v2",
+        "Navickas et al. DOI 10.3934/dcdsb.2011.16.927, access attempt",
+        "Frozen RESULT.md, proof and prior-work comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The comparable later Resultary spectrum allows the count after separating active-active, mixed and inactive-inactive modes. Scalar coupling preserves eigenvectors but eliminates ordering inversions between distinct gains. The rigidity reduction itself uses the standard uniqueness of a positive square root."
+        ],
+        "reasoning": "The exact count is mathematically recoverable from the coincident derivative spectrum on the common domain, so it is not independent of that later overlap. The inspected earlier sources do not give that spectrum and all-types fixed-point classification. A general positive matrix equation identity explains a step, not the rank-stratified logistic classification plus census.",
+        "searches": [
+          "Resultary 64fbe7e6d3f6 derivative and stability passage",
+          "Pawela–Życzkowski §§III, V and Appendix C",
+          "Frozen RESULT.md Steps 1 and 3, positive congruence and instability count"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 64fbe7e6d3f6 uses positive Hermitian B bounded by 2I, has the same fixed-point projectors, and displays the same real multipliers. Pawela–Życzkowski Eq. (6) uses B and its adjoint, with the scalar-coupling case in §III."
+        ],
+        "reasoning": "The B-adjoint model specializes to the frozen map only after imposing B=B*>0; positivity of BB* is not a substitute. In the common invariant domain, equilibrium rigidity and all-mode linearization in the two Resultary statements coincide.",
+        "searches": [
+          "Resultary: equilibrium rigidity and sharp stability boundary in a Hermitian matrix logistic map, record 64fbe7e6d3f6",
+          "Pawela–Życzkowski, arXiv:2303.06176v2 §§III and V"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The available indexed record has the same boundary b in (0,1) or (1,sqrt(3)) on the common domain, but does not state the formula m^2 plus twice the selected/omitted inversions."
+        ],
+        "reasoning": "The matching threshold and partial-selection instability are not themselves a full index census. The two records have different catalogue dates; the later-date overlap is recorded without treating it as earlier coverage or establishing priority.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-equilibrium-rigidity-and-a-sharp-stability-boundary-in-a-hermiti--64fbe7e6d3f6/RESULT.md, Finding and stability proof"
+        ]
+      },
+      "rationale": "The strongest verified comparison is a later-dated Resultary record on the forward-invariant domain with the same commutation, Grassmannian classification, linearization and sink boundary. It does not state the full simple-spectrum inversion census, and its domain for the classification is narrower. The inspected primary coupled-map paper sets up the larger matrix map and studies spectral/chaotic dynamics, not the exact positive fixed-point classification and all-real-directions unstable census. The scientific case rests on that combined classification and census, not on claiming novelty for the scalar fixed point, the positive-square-root equation, or linearization methods. This is a bounded best-of-knowledge decision, not a priority certification.",
+      "residual_risks": [
+        "Navickas et al. full text was unavailable for a theorem-level check.",
+        "A matrix-equation classification or a specialized earlier matrix-logistic treatment might imply more of the result than the primary passages inspected. No absolute priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close overlap on a narrower domain; later-dated record, not earlier priority evidence",
+          "evidence": "Same support-square-root method, Grassmannians, real off-diagonal doubling, and sink threshold; no explicit inversion census in the inspected record.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/22/SCOPE-equilibrium-rigidity-and-a-sharp-stability-boundary-in-a-hermiti--64fbe7e6d3f6/RESULT.md",
+          "material_read": "Finding at offset 0, derivative and sink proof including offsets 4800–7300",
+          "method": "Indexed search, local-mirror statement and proof passages",
+          "title": "Equilibrium rigidity and a sharp stability boundary in a Hermitian matrix logistic map",
+          "trigger": "Same positive coupling, fixed-point and sink claims"
+        },
+        {
+          "assessment": "Introduces the model and analyses invariant distributions and coupled chaos, not the exact equilibrium theorem in the passages checked",
+          "evidence": "The scalar map preserves its eigenbasis; the coupled map is BH(I-H)B-adjoint; the two-dimensional appendix describes invariant-measure singularities.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.06176v2",
+          "material_read": "Introduction offset 3921; §III offset 5967; §V Eq. (6) offset 17954; Appendix C offset 34739",
+          "method": "Targeted primary PDF passages",
+          "title": "Matrix logistic map: fractal spectral distributions and transfer of chaos",
+          "trigger": "Primary source for the matrix logistic model"
+        },
+        {
+          "assessment": "Full-text coverage unresolved",
+          "evidence": "Identified as DCDS-B 16 (2011), 927–944 by the later model paper; a landing page cannot establish the assumptions or scope of its theorems.",
+          "identifier_or_url": "https://doi.org/10.3934/dcdsb.2011.16.927",
+          "material_read": "Bibliographic citation and official landing information; no full-text theorem accessed",
+          "method": "Official AIMS page and DOI recovery attempted; compared the later primary paper's introductory citation",
+          "title": "The logistic map of matrices",
+          "trigger": "Earlier matrix-logistic work cited as the scalar-gain case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, theorem parts 1–4 and limitations",
+        "Pawela–Życzkowski arXiv:2303.06176v2, coupled-map setup"
+      ],
+      "rationale": "Although the dynamics allows states that do not commute with B, every positive equilibrium commutes with B, and the theorem classifies them even on rank-deficient supports. Counting all real modes gives information invisible to the scalar or diagonal model: for two ordered gains in (1,3), selecting only the smaller gain gives index 3, while selecting only the larger gives index 1. The classification and exact local criterion thus resolve a natural stability question, without extrapolating to basins or chaotic dynamics.",
+      "residual_risks": [
+        "The index formula applies to simple squared gains in (1,3), and the sink test does not decide nonlinear stability at neutral gains."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

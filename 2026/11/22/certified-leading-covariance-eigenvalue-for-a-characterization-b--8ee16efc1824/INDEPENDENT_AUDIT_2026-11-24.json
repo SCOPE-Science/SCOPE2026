@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:25:51.621412Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 19–94",
+        "verify_bounds.py, lines 10–109",
+        "VERIFICATION.md, lines 19–25",
+        "Independent rational recomputation of integrals, power iterates and strict comparisons",
+        "arXiv:2108.06391 Theorem 2.1 and §6"
+      ],
+      "rationale": "Under the fully specified continuous null the probability integral transform gives i.i.d. uniform observations. The centered L² summand has the published covariance: integrating its product above max(s,t) gives the cubic term and subtracting the outer product of the means gives −s(1−s)t(1−t). Its finite mean-square norm gives positive trace class. Fubini gives the stated rational-polynomial action. An independently written Fraction calculation, without executing the supplied verifier, reproduced the three Hilbert–Schmidt ingredients, H=109/8100, the q and r² of f=K^5 1, and all strict rational comparisons. In particular λ₁≥q and λ₂²≤H−q²<10^−4, so q>0.01 proves simplicity. On the spectral support the product (λ−λ₁)(λ−0.01) is nonnegative, including at λ=0; averaging gives (λ₁−q)(q−0.01)≤r² and the stated Temple enclosure. The single largest Gaussian-square term gives the log-tail lower bound; positivity and trace class give the finite exponential moment for 0<h<1/(2λ₁) and thus the matching Chernoff upper bound. The reciprocal constant in the finding is consistent with the certified interval.",
+      "residual_risks": [
+        "No result for a fitted or composite null, finite-sample calibration, or alternative-specific Bahadur slope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary work calculates the first four cumulants, with the top eigenvalue left open in §6. Its general Bahadur references supply use of a largest weight, not its numerical value for this test.",
+          "The other Resultary work covers all finite n≥2 for cross-statistic covariances and variances."
+        ],
+        "reasoning": "Broader sample-size coverage of finite-sample scalar covariances is not broader spectral coverage. No located general theorem was shown to enclose this eigenvalue to the stated accuracy.",
+        "searches": [
+          "arXiv:2108.06391 §6 and references on Bahadur theory",
+          "Bounded literature lookup for same-kernel spectral/Bahadur calculations",
+          "Resultary cd8665ffc3df, same test and simple null"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2108.06391",
+        "Resultary cd8665ffc3df",
+        "Identical Resultary entry 8ee16efc1824"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The existing spectral problem and trace/cumulant information do not give the Rayleigh quotient and residual of the specific iterated polynomial. Those exact quantities in the frozen proof yield the spectral gap and small Temple correction.",
+          "Once λ₁ is known, the null logarithmic tail exponent is a standard consequence for a positive trace-class Gaussian-square sum."
+        ],
+        "reasoning": "Credit the prior setup and standard tail theorem. Neither one implies the narrow interval without a substantive model-specific exact computation.",
+        "searches": [
+          "arXiv:2108.06391 Theorem 2.1 and §6 versus certified interval in frozen RESULT.md",
+          "Resultary cd8665ffc3df, exact statistics' dependence and variance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper gives the identical K_Z and the Fredholm equation for the eigenvalues in the weighted-chi-square limit. Section 6 states that the explicit largest eigenvalue was not calculated.",
+          "Differentiation gives a fourth-order ODE, but it still needs the Fredholm-induced constraints and an eigenvalue enclosure; this re-expression alone does not supply one."
+        ],
+        "reasoning": "The largest Fredholm eigenvalue, the norm of the positive covariance operator and the leading weight of the limiting chi-square sum are the same invariant, so the distinct contribution is certification of its value, not a reformulation.",
+        "searches": [
+          "Ebner–Liebenberg–Visagie arXiv:2108.06391 Theorem 2.1 and §6, Fredholm eigenvalue equation and local Bahadur slope",
+          "Resultary query on characterization-based uniformity covariance leading eigenvalue and asymptotic tail"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8ee16efc1824 is the frozen record itself. cd8665ffc3df gives exact rational cross-covariances and Var(T_n)=(218n−49)/(8100n), agreeing in the limit with 2 tr(K²).",
+          "The inspected original eigenvalue discussion contains no table enclosing the leading weight, even though it gives cumulants."
+        ],
+        "reasoning": "An exact variance determines the sum of squared eigenvalues, not their maximum to this accuracy. Same-day catalogue dating is not used to infer priority.",
+        "searches": [
+          "Resultary meaning search and matching records 8ee16efc1824 and cd8665ffc3df",
+          "Primary paper §6, cumulants and weighted-chi-square discussion"
+        ]
+      },
+      "rationale": "The Gaussian covariance limit, eigenvalue formulation, and role of the largest eigenvalue in Bahadur analysis are prior work. The generic log-tail relationship and Rayleigh–Temple machinery are not new. The scientifically distinct claim is the narrow certified enclosure of the largest eigenvalue of this particular covariance, left unevaluated in the original paper. The separate exact same-statistic Resultary result computes mixed covariances and variances, not this spectral invariant.",
+      "residual_risks": [
+        "The bounded supplementary literature search did not produce another full-text same-kernel calculation; unindexed or separately circulated computations are not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes covariance, spectral limit and cumulants; does not evaluate the largest eigenvalue.",
+          "evidence": "The Fredholm equation uses the identical K_Z; §6 identifies the largest eigenvalue in local Bahadur analysis and notes its explicit value was not calculated.",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.06391",
+          "material_read": "Theorem 2.1 p. 3, offset 13671; §6 pp. 9–10, offsets 47500 and 53200; relevant references pp. 12–14",
+          "method": "Bounded primary PDF passage reading",
+          "title": "A new omnibus test of fit based on a characterisation of the uniform distribution",
+          "trigger": "Precisely the same null statistic, covariance operator and Bahadur issue"
+        },
+        {
+          "assessment": "Finite-sample covariances of squared-norm statistics, not the limiting covariance-operator eigenvalue.",
+          "evidence": "The reported rank-one dependence concerns the empirical-mean statistic M_n; the exact Var(T_n) supplies the limiting variance already obtained from the trace-square, not λ₁.",
+          "identifier_or_url": "Resultary 2026/11/22, cd8665ffc3df",
+          "material_read": "RESULT.md Finding and beginning of Proof, offsets 0–2920",
+          "method": "Local mirror full-text passage",
+          "title": "Exact rank-one decomposition of a uniformity test's dependence on Cramér–von Mises and Watson statistics",
+          "trigger": "Exact same-model covariance result that could overlap a spectral calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2108.06391 §6",
+        "Frozen RESULT.md, Finding, Proof and Limitations"
+      ],
+      "rationale": "The statistic and its missing leading spectral weight are independently motivated by §6 of the original paper. Certifying the model-specific weight quantifies the null logarithmic tail and supplies the constant required for local Bahadur comparisons, with rigorous error control and without treating a finite-dimensional discretization as the infinite operator.",
+      "residual_risks": [
+        "The tail exponent is asymptotic and does not replace the full null spectrum, finite-sample quantiles, or an alternative's population discrepancy."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

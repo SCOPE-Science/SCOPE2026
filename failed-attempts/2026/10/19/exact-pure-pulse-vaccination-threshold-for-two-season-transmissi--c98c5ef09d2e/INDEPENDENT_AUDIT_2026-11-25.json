@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:12:38.007066Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–30 and 32–90",
+        "Frozen VERIFICATION.md and verify.py, inspected but not executed",
+        "Independent measure-functional and endpoint-sign reconstruction and numerical spot checks"
+      ],
+      "rationale": "The explicit inclusive theorem in the Finding is correct for fixed log-dose mass q and jump multiplier exp(-q). The opening prose 'below' and 'At that threshold there is a sharp loss' is misleading: if read strictly it is incorrect, since equality remains uniquely optimal. For fixed q the periodic susceptible integral has a constant denominator and a strictly convex exponential in the measure of each arc. If two equal-mass measures differ, their periodic signed cumulative difference is nonconstant almost everywhere and their arc masses differ on a positive-measure set of phase pairs; hence strict convexity holds even for singular measures. Differentiating ordered past-future kernels yields the marginal G=S v; at a dose atom the forward and backward jump factors give the same product on both sides. The directional derivative for a same-mass competitor nu is q G(0)-integral G dnu. At the pure pulse, z=exp(-q), and the endpoint inequalities are z>=B/[H(1-r)] and z>=L(1-r)/B. Since L<B/(1-r)<H, both budget cutoffs are positive. The high-season adjoint is strictly below H/delta, giving G''<0 there. On the low season G' is a sum of a nonnegative decaying exponential and a signed growing one; when the growing coefficient is negative G' decreases, so its nonnegative terminal value suffices. Thus both weak inequalities give the global maximum at zero including equality. Violating either inequality gives a beneficial same-mass transfer just to the corresponding side. The zero-budget case has only one feasible measure. Independent evaluation of the formulas gives 0.390979957597113 and 1.554930191458201 for the motivating example; these are numerical checks only.",
+      "residual_risks": [
+        "Reading the opening prose in place of the displayed theorem would incorrectly exclude q=q_*.",
+        "The theorem concerns a disease-free linear invasion functional with multiplicative log-dose; it does not predict clinical coverage or nonlinear epidemic burden."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Optimal Regulation supplies strict convexity, uniqueness and first-order theory for a broader positive-measure model.",
+          "Optimal Vaccination Theorem 10 assumes positive rate on both sides for the discontinuity result; its square-wave pure-pulse transition is numerical.",
+          "0337dc4fc3b6 also states a later pulse-plus-continuous phase for part of the parameter range."
+        ],
+        "reasoning": "The general optimization framework is prior methodology, not by itself an explicit cutoff. The indexed result expressly contains the full pure-pulse regime and goes further in part of parameter space.",
+        "searches": [
+          "DOI 10.1007/s00245-025-10374-z, Thm. 1/Lemma 1 and §4.1",
+          "DOI 10.1007/s11538-026-01741-0, §7 and Theorem 10",
+          "Local Resultary 0337dc4fc3b6"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary 0337dc4fc3b6",
+        "Gavish and Katriel primary articles at the two DOI references above",
+        "Frozen RESULT.md, Finding and prior-work section"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched proof gives Q'(0+)=(1-r)(x-Hz)/(1-zr) and Q'(T-)=(1-r)(xz-L)/(1-zr), and expressly states that violating either condition gives beneficial infinitesimal redistribution."
+        ],
+        "reasoning": "These are the same phase derivatives. The first failure occurs after the jump when x^2>HL, before it when x^2<HL, and on both sides when equal. This is precisely the B^2 comparison; neither that comparison nor the example is a noncovered remainder.",
+        "searches": [
+          "0337dc4fc3b6, pulse proof offsets 4863–6356",
+          "Optimal Vaccination, §7, Theorem 10 and Eq. (29)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matched finding gives M_0=log min{H/x,x/L}, with x=H(1-c a_0)/(1-b a_0), and uniqueness including M=M_0 over periodic measures."
+        ],
+        "reasoning": "Set a_0=s, b=r/s, and Hc=H-L(1-b). Then x=[H(1-s)+L(s-r)]/(1-r)=B/(1-r). The masses M and q use the same multiplicative convention, so the bounds agree exactly.",
+        "searches": [
+          "Local Resultary: exact two-season vaccination, pure/single pulse, seasonal log-dose threshold",
+          "Mirror record 0337dc4fc3b6, Finding and pulse proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The index contains a symbolic fixed-budget threshold for all parameters. Fig. 9 motivates the half-year square wave but only estimates the transition near 0.4."
+        ],
+        "reasoning": "The indexed formula, not a rounded numerical table/figure, is exact. Substituting the published example parameters into it also yields 0.390979957597... .",
+        "searches": [
+          "Local Resultary mathematical-result database, two-season pulse threshold, 0337dc4fc3b6",
+          "Optimal Vaccination, Eq. (29) and Fig. 9"
+        ]
+      },
+      "rationale": "The exact arbitrary-parameter threshold, uniqueness at equality over the same measure class, and the two one-sided ways to lose optimality are covered by the distinct indexed finding 0337dc4fc3b6. The motivating journal article's numerical observation alone would not establish coverage. The indexed match establishes scientific equivalence, not historical priority.",
+      "residual_risks": [
+        "Chronology of derivation and provenance across the two equivalent records were not established.",
+        "The bounded prior comparison is not an exhaustive history of the problem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent threshold and mechanisms",
+          "evidence": "Identical formula after normalizing by 1-r, inclusive uniqueness, and identical one-sided derivative tests.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-two-season-vaccination-thresholds-and-the-intermediate-pul--0337dc4fc3b6/RESULT.md",
+          "material_read": "Finding around offsets 243–1000 and proof offsets 4863–6356, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror locator and bounded reading",
+          "title": "Exact two-season vaccination thresholds and the intermediate pulse regime",
+          "trigger": "Same control convention, seasons and sharp pulse threshold"
+        },
+        {
+          "assessment": "Identical example and numerical transition, not the exact cutoff",
+          "evidence": "Theorem 10's positive-rate hypotheses do not cover the pure pulse; the numerical regime near 0.4 is described with remaining behavior unresolved.",
+          "identifier_or_url": "https://doi.org/10.1007/s11538-026-01741-0",
+          "material_read": "§7, Theorem 10, Eq. (29), Fig. 9; OA PDF pp. 21–23, text offsets about 63500–68200",
+          "method": "Targeted primary OA PDF passage inspection",
+          "title": "Optimal Vaccination for Contagious Diseases with Seasonal Transmission",
+          "trigger": "Frozen motivating paper on the identical square wave"
+        },
+        {
+          "assessment": "General methodology, not the exact seasonal threshold",
+          "evidence": "Prior strict convexity, uniqueness and first-order criteria; the inspected statements do not give the scalar two-season bound.",
+          "identifier_or_url": "https://doi.org/10.1007/s00245-025-10374-z",
+          "material_read": "Theorem 1/Lemma 1 and §4.1; OA text offsets 27000–33449 and 83200–90163",
+          "method": "Targeted primary OA PDF passage inspection",
+          "title": "Optimal Regulation in a Time-Periodic Environment: Insights from a Simple Model",
+          "trigger": "Frozen citation for the general optimization over periodic measures"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, limitations and motivating example",
+        "0337dc4fc3b6, threshold statement and proof",
+        "Optimal Vaccination §7 and Fig. 9"
+      ],
+      "rationale": "The exact phase boundary, attained equality and which season first admits beneficial reallocation are scientifically useful compared with the journal's approximate example. The assessed record does not supply that gain as a distinct finding: the indexed result already contains the boundary and derivative mechanisms, and the numerical example is direct substitution. Clarifying the wording at equality would not create a surviving contribution.",
+      "residual_risks": [
+        "This is an assessment of incremental value of this record, not a rejection of the mathematical or defensive-public-health motivation."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:50:24.295217Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof and assumptions",
+        "te Winkel et al., arXiv:2610.08166v1, equation (6)",
+        "Frozen VERIFICATION.md and checker.py (read, not executed)",
+        "Decimal interval replay: python3 /workspace/audit_replay/1.py (same bounds independently evaluated by integer cross-products)"
+      ],
+      "rationale": "For the scalar application of Eq. (6), put z=-x, b=(1-theta)z and a=1+theta*z/2. The intermediate stages are a, a(1+b), a(1+b/2+b^2/4). Inserting them into the stiffly accurate last row gives a(1+b+b^2/2+b^3/6)/(1-theta*z/2); its denominator is strictly positive on x≥0. On s≥0 the cubic derivative is -[(s-1)^2+1]/2, so its positive zero is unique and simple. The rational factor also decreases strictly when theta>0. Until the first zero both factors are in [0,1]. At distinct zeros the first sign change immediately violates the requirement; at theta=0 or 1 the absent zero is at infinity and the same argument applies. At the unique coincidence, x=alpha+2, both factors change sign with nonzero derivative. Afterward their absolute values strictly increase, the cubic without bound and the rational factor to 1, so the product crosses 1 once. This also verifies that the other blends have a supremal limiting radius alpha+2, strictly below the attained maximum. Substituting y=alpha*x/(alpha+2) into R=1 and removing y=0 yields exactly the reported cubic. Exact rational interval checks independently confirm the stated decimal roundings.",
+      "residual_risks": [
+        "The frozen checker tests finite rational stage inputs and sign intervals, not the all-parameter argument. Constant theta, exact scalar stages and the contiguous interval from x=0 are essential; no nonlinear, matrix, or adaptive transport positivity is verified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "AdHImEx tests 401 Fourier phases in its spatial Fourier study, rather than classifying the scalar real-axis sign. The related DSRK study treats unconditional contractivity for a different method class. Eq. (6)'s discussion traces the method to Ullrich–Jablonowski and a tableau by Weller et al."
+        ],
+        "reasoning": "No inspected broader theorem covers the all-blend endpoint-sign optimization. A standard factor-by-factor sufficient interval reaches the first zero but misses the exceptional interval when the two factors cease to be individually positive together.",
+        "searches": [
+          "AdHImEx §2.4; splitting lineage immediately after Eq. (6)",
+          "Macdonald–Gottlieb–Ruuth, A Numerical Study of Diagonally Split Runge–Kutta Methods for PDEs with Discontinuities, introduction and conclusion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.08166v1, Eq. (6), constant-blend specialization and §2.4",
+        "Resultary Fourier certificate identified above",
+        "Macdonald–Gottlieb–Ruuth open PDF, stated passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing individual-factor sign bounds recover a nonexceptional first-zero cutoff, but at coincident zeros the product becomes positive again immediately and never changes sign. One then needs the distinct monotone crossing of +1 to obtain the sharp endpoint."
+        ],
+        "reasoning": "Knowing the product enables the proof; the checked Fourier certificate and general contractivity claims do not give the special-blend global optimization as an instance. The new content is the sign classification and isolated gain, not the algebraic elimination itself.",
+        "searches": [
+          "Resultary all-Courant Fourier certificate, Finding",
+          "te Winkel et al., arXiv:2610.08166v1, Eq. (6) and §2.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The five-stage tableau gives exactly the product of CN at theta*z and SSPRK3 at (1-theta)*z. The same product appears explicitly in Resultary's all-Courant Fourier stability record (below)."
+        ],
+        "reasoning": "The composed scalar representation is an equivalent method description, not an equivalent result. A modulus bound does not rule out negative real amplification or identify continuity of the interval of nonnegative steps.",
+        "searches": [
+          "Resultary: exact AdHImEx scalar factorization, SSPRK3 × Crank–Nicolson, positivity radius",
+          "arXiv:2610.08166v1, Eq. (6) and §2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed result states the factorization and an all-Courant Fourier stability certificate with a nearby calibration failure. The inspected calibration material studies mesh-wave-number and Courant parameters, not a table of constant-blend sharp sign radii."
+        ],
+        "reasoning": "The matching factorization is verified existing coverage, regardless of unresolved within-day order. Neither compared entry tabulates or states the exceptional root or the radius jump; the bounded comparison is not a uniqueness search over all literature.",
+        "searches": [
+          "Resultary: exact positivity/contractivity optimum and adjacent Fourier result, 2026/11/2/SCOPE-an-all-courant-fourier-stability-certificate-and-nearby-calibrat--0b8c589f2c60",
+          "AdHImEx §2.4 calibration material"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact positive-contractive scalar radius over all constant blends and its isolated, discontinuous maximizer. The tableau and scalar factorization are not credited as new. The strongest checked equivalent-method source uses the factorization for a different, Fourier-modulus question; the checked works do not establish the sign-coincidence extension or optimum.",
+      "residual_risks": [
+        "The antecedent 2012 full text was inaccessible in the bounded lookup, and the 2013 antecedent was not independently retrieved. Broader composition/positivity priority is not established. Same-date factorization coverage does not determine within-day ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the exact tableau, not the scalar radius optimization in the inspected sections",
+          "evidence": "The stage and weight rows yield the stated factorization; the study uses von Neumann amplification over sampled phases and Courant numbers.",
+          "identifier_or_url": "https://arxiv.org/html/2610.08166v1",
+          "material_read": "Eq. (6) and adjacent lineage paragraph (offset 12600); §2.4 Fourier study (offset 23300)",
+          "method": "OA primary HTML and independent scalar elimination",
+          "title": "AdHImEx: Adaptively High-Order Implicit-Explicit Transport for Large Time Steps",
+          "trigger": "Original cited five-stage scheme"
+        },
+        {
+          "assessment": "Covers factorization; does not cover the exceptional scalar sign radius",
+          "evidence": "The same CN × SSPRK3 product is presented for a Fourier modulus-stability claim.",
+          "identifier_or_url": "2026/11/2/SCOPE-an-all-courant-fourier-stability-certificate-and-nearby-calibrat--0b8c589f2c60",
+          "material_read": "Local-mirror RESULT.md, opening Finding, offset 0",
+          "method": "Statement-level Resultary comparison",
+          "title": "An all-Courant Fourier stability certificate and nearby calibration failure",
+          "trigger": "Exact method and algebraic-factor overlap"
+        },
+        {
+          "assessment": "Inspected passages treat a different DSRK class",
+          "evidence": "The methods are compared with CN and classical explicit SSPRK, not the constant-blend coincident-zero optimization.",
+          "identifier_or_url": "https://www.cfm.brown.edu/people/sg/dsrk.pdf",
+          "material_read": "PDF pp. 1–2 (offsets 0–4180), conclusion p. 27 (offset 73600)",
+          "method": "Compare method family and contractivity statements",
+          "title": "A Numerical Study of Diagonally Split Runge–Kutta Methods for PDEs with Discontinuities",
+          "trigger": "Related splitting and contractivity"
+        },
+        {
+          "assessment": "Unresolved coverage; no negative inference",
+          "evidence": "AdHImEx describes a Strang-split antecedent and an antecedent tableau.",
+          "identifier_or_url": "AdHImEx arXiv:2610.08166v1, paragraph following Eq. (6)",
+          "material_read": "AdHImEx lineage paragraph only; respective original full texts not inspected",
+          "method": "Cited-method comparison and bounded retrieval attempt for the 2012 paper",
+          "title": "Ullrich–Jablonowski (2012) and Weller et al. (2013), cited splitting lineage",
+          "trigger": "Earlier splitting/tableau may permit the same scalar representation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Limitations",
+        "arXiv:2610.08166v1, Eq. (6)"
+      ],
+      "rationale": "The radius is a natural scalar diagnostic for the published scheme. The computation exposes a non-robust optimizer where two sign switches cancel, giving a contiguous positive-contractive range of about 7.45 versus at most about 3.60 for every other blend. The sharp, discontinuous boundary matters more than an incremental estimate or a re-evaluation of the amplification factors.",
+      "residual_risks": [
+        "This does not turn a spatial or adaptive scheme into a monotone method and is not a robust practical tuning guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

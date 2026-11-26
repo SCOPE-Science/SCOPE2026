@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:09:12.964724Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–87, VERIFICATION.md, requirements.txt and verify.py (read, not executed)",
+        "Independent replay: python3 /tmp/opencode/recheck_frozen_five.py, section 3; invert (1+rt)^2 modulo (6t^2-6t+1)^2 and symbolically compare the linear remainder. High-precision quadrature and zero-finding give r_c=0.5145685488949442243, R_G=4.928704239327396712, R_U=4.033610469357736307 and gain 22.19088275304344 percent."
+      ],
+      "rationale": "On the real scalar decay test the implicit stage gives Y/(1+rT); multiplying the resulting scalar update over independent fractions makes the mean-square factor F_mu(r)^N. The Gauss nodes satisfy g(t)=t^2-t+1/6=0; equal weights and reduction by g give exactly the four moments. Inverting the rational denominator modulo g^2 reconstructs the cubic contact polynomial and the exact affine-in-t factor C+B t of its remainder. The denominator is strictly positive, C(1/2)=9/8, and C and C+B are strictly increasing on r>0; (C+B)(1/2)=-5/8 and (C+B)(3/5)>0. Thus the remainder is nonnegative exactly above the proposed certificate threshold, where its zero set is the two nodes, with possible extra t=1 at the boundary. The matched moment E g=0 excludes mass at that extra point. To show necessity rather than just a failure of certification, add epsilon mass at 1 and solve the four moment equations by varying both Gauss weights and both interior nodes. The weighted confluent Vandermonde is nonsingular: its transpose tests whether a cubic can have two distinct double zeros. At zero epsilon the variation of the residual at the two original nodes vanishes to first order, leaving f_r(1)-H_r(1)<0. The perturbation is genuinely admissible and improving. The Gaussian amplification minus 1 has sign of r^3-2r^2-12r-12 for r>0, which changes sign only once; R_G>r_c. For all other laws strict inequality at R_G persists immediately to its left by continuity, so even the initial stability interval is strictly shorter. The uniform integral gives r^2/(1+r)-2 log(1+r), with derivative (r^2-2)/(1+r)^2, one positive zero and the claimed gain.",
+      "residual_risks": [
+        "The interval is initial and scalar real-axis only, not complex mean-square A-stability. The argument below r_c proves failure of Gauss optimality but does not solve for the minimizers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen checker and independently differentiating the rational objective give f_r^(4)(t)=24r^5(5r-2-2rt)/(1+rt)^6. Nonnegativity throughout [0,1] holds iff r>=2/3. Its Gaussian Hermite remainder yields strict optimality away from the nodes there (the endpoint derivative zero at equality does not change the interior remainder sign). A four-moment support-size extremum only reduces the search to at most four atoms."
+        ],
+        "reasoning": "The standard sign argument covers the large-r regime and hence the stability-radius optimization given the two-point radius, but it cannot give the smaller r_c. The indexed all-moment amplification record studies moments of solution amplification, not the first three moments of the stage law; the mean-stage obstruction for A-stability does not optimize finite r.",
+        "searches": [
+          "Trefethen doi:10.1137/20M1389522; classical Gaussian Hermite-error and moment principal representation comparison",
+          "SCOPE-sharp-mean-stage-obstruction-and-two-point-a-stability-frontier--3d7701908c6c",
+          "SCOPE-all-moment-stability-frontiers-for-randomized-implicit-two-stage--3342f4e645f9"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, AUDIT.json and verification materials",
+        "Resultary the target and records 3d7701908c6c, b50d9b3e1e32, 3342f4e645f9 summary comparisons",
+        "Primary preprint and journal text retrieval attempted; Trefethen quadrature reference and actual fourth-derivative comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Gaussian cubic and the general fourth-derivative interval imply the optimal radius, independent of proving r_c. The exact fixed-r criterion depends on evaluating the contact remainder at the endpoints, and necessity on existence of a moment-matched law that samples its negative endpoint to first order."
+        ],
+        "reasoning": "Do not claim an independently novel radius optimization. Credit its derivability by the classical inequality and the known two-point calculation. The genuinely distinct part supported here is the optimized change at the smaller contact threshold over arbitrary support; a generic quadrature error or four-atom principle does not supply that evaluated threshold by its own hypotheses.",
+        "searches": [
+          "arXiv:2404.19059v1 and doi:10.1007/s10543-024-01050-9 (uniform baseline)",
+          "SCOPE-sharp-mean-square-a-stability-for-two-point-randomized-theta-int--b50d9b3e1e32",
+          "Frozen RESULT.md equations (1)–(4)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same objective is a degree-three moment problem for a rational test function and a two-point Gaussian representation. The 11/8 theta record is credited by the frozen RESULT.md lines 93–97 with implying the symmetric two-point stability cubic; the 10/12 record constrains centered laws for complex A-stability."
+        ],
+        "reasoning": "Independent theta or stage notation does not distinguish identical scalar factors. Distinguish the structural optimization at a fixed finite r over all supported laws from a two-point evaluation and from entire-half-plane stability.",
+        "searches": [
+          "Resultary: first-three-moment-constrained Gauss stage design, arbitrary-support principal representation for randomized implicit RK",
+          "Bochacik–Przybyłowicz arXiv:2404.19059 and randomized theta coefficient stability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The co-located exact entry is the target. The known two-point cubic gives the same R_G; uniform comparator is attributed to the primary uniform-stage RK work. The checked summaries do not give the sharp pointwise r_c across general moment-matched laws."
+        ],
+        "reasoning": "Matching radius numbers or a two-point amplification table is coverage of those quantities only. The review does not assert a comprehensive search for tabulated extremal moment values.",
+        "searches": [
+          "Resultary exact target 9447b66be7eb; randomized-theta frontier b50d9b3e1e32; randomized implicit RK2 negative-axis radius"
+        ]
+      },
+      "rationale": "Pass for the exact all-law transition where the Gaussian principal representation becomes uniquely optimal, including necessity below the sign threshold. Not for Gauss moment exactness, the uniform RK analysis, the Gaussian stability cubic, or a large-r optimum in isolation. Indeed the usual fourth-derivative condition already gives sharp Gaussian optimality for r>=2/3 and, combined with the known Gaussian cubic, gives the maximal radius as a corollary. The extra optimality band [r_c,2/3) and the sharp converse are not obtained from that broader sufficient condition.",
+      "residual_risks": [
+        "Underlying primary/corpus full texts were unavailable in attempted retrievals. Other principal-representation or generalized moment literature might already evaluate this rational contact threshold; access failure is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit uniform baseline; no independent whole-document exclusion",
+          "evidence": [
+            "The frozen comparison identifies independently uniform stages and their scalar stability analysis, a different optimization scope."
+          ],
+          "identifier_or_url": "arXiv:2404.19059v1; doi:10.1007/s10543-024-01050-9",
+          "material_read": "Frozen comparison at RESULT.md lines 93–95, references; primary passages not obtained",
+          "method": "Primary search, OA attempts on arXiv and journal alternate",
+          "title": "Convergence and stability of randomized implicit two-stage Runge–Kutta schemes",
+          "trigger": "Primary uniform-stage RK stability baseline"
+        },
+        {
+          "assessment": "Credit symmetric-case Gaussian cubic; arbitrary-support sharp contact threshold not established by the available two-point statement",
+          "evidence": [
+            "Two-point coefficient frontier and mean-stage obstruction; the frozen attribution explicitly excludes cubic (4) from the novelty claim."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-mean-square-a-stability-for-two-point-randomized-theta-int--b50d9b3e1e32",
+          "material_read": "Indexed summary and frozen §Prior work, lines 95–97; original body unavailable",
+          "method": "Resultary and attempted local source passage",
+          "title": "Sharp mean-square A-stability for two-point randomized theta integration",
+          "trigger": "Same scalar family; potentially dominating two-point stability result"
+        },
+        {
+          "assessment": "Substantive arbitrary-law overlap in mean obstruction; different criterion",
+          "evidence": [
+            "No nonconstant centered law is mean-square A-stable; the stated exact law criterion is for two points on {a,1}. This does not identify finite negative-axis optima under additional variance and cubic moment constraints."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-mean-stage-obstruction-and-two-point-a-stability-frontier--3d7701908c6c",
+          "material_read": "Indexed summary, original body not obtained",
+          "method": "Resultary and attempted original passage retrieval",
+          "title": "Sharp mean-stage obstruction and two-point A-stability frontier",
+          "trigger": "Distinct earlier result involving arbitrary mean-1/2 stage laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof §§1–4; prior-quadrature comparison in this review"
+      ],
+      "rationale": "The first three uniform moments are the natural Gaussian-exact calibration class, not an arbitrary parameter slice. The exact loss of optimality for the canonical design (demonstrated by a feasible improving law) and the extra range below the textbook sign cutoff are substantive information about stage design. The numerical stability gain is useful context, not the basis for accepting a previously implied radius statement.",
+      "residual_risks": [
+        "Does not establish a nonlinear accuracy or complex-plane benefit and need not change practical stiff-solver recommendations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

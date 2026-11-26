@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:39:33.047663Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The literal biconditional in RESULT.md line 7, also repeated in SLOGAN.txt, omits a necessary restriction. Orient every edge of K_{2,2} from A to B. There are exactly two source layers, A and B, so all strictly interior layers are vacuously singletons. But its Hasse graph is K_{2,2}; the three-dimensional normal cone has four facets, so it is neither simplicial nor smooth. The following sentence about at least four layers does not follow from the stated singleton condition. The proof and verifier actually exclude the two-layer case. With at least three layers, a nonsingleton interior layer yields a four-cycle with the two neighbors, and singleton interiors yield a tree. Three layers with singleton interior would leave the middle color class of size one, excluded here. Thus the correct test is at least four layers AND singleton interiors. Tree edge differences are a basis of the root lattice, with the dual basis giving rays of the normal cone. The count and EGF for this corrected class check out: even lengths have one endpoint of each color; odd lengths force the entire non-endpoint color into ordered singleton blocks and split the residual endpoint color into two nonempty blocks. In the EGF the even part starts with xy and the odd parts start with xy times x or y. The frozen output for six pairs is consistent with the corrected counts; the verifier uses len(blocks)>=3 and does not verify the literal unqualified condition. Frozen code inspected, not executed.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Resultary degree-spectrum result gives the whole degree enumerator and also explicitly isolates the least possible degree a+b-1.",
+          "Ardila supplies the block representation, Postnikov–Reiner–Williams supply the general tree/simplicial criterion, and Grujić and Carballosa–Khera–Reyes give total face or orientation counts, not the filtered coefficient in the inspected passages."
+        ],
+        "reasoning": "The degree spectrum is stronger coverage of the actual count; ordinary all-vertex counts are not.",
+        "searches": [
+          "Matched Resultary degree-spectrum Finding and proof",
+          "arXiv:math/0404287 §2",
+          "arXiv:math/0609184 Proposition 3.5, Corollaries 3.6–3.7, and Proposition 5.2",
+          "arXiv:1604.06931 Theorem 1.1",
+          "arXiv:2303.09021 §3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, SLOGAN.txt, VERIFICATION.md, verify_graphical_zonotope.py, verify_graphical_zonotope_output.txt",
+        "Resultary record 57511bb89831 (mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+        "arXiv:math/0404287",
+        "arXiv:math/0609184",
+        "arXiv:1604.06931",
+        "arXiv:2303.09021"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general Hasse/tree result plus the integral tree basis identifies the geometric invariant. The indexed all-parameter sum directly yields the EGF by expanding the exponentials and summing the interior-pair geometric series; the balanced limit is the limit of the indexed partial sums."
+        ],
+        "reasoning": "Neither the new phrasing in toric terms nor the generating-function presentation supplies an independent remaining mathematical claim at this scope.",
+        "searches": [
+          "Mirrored degree-spectrum Finding and simple-vertex derivation (offsets 0–5000)",
+          "arXiv:math/0609184 Prop. 3.5(9), arXiv:math/0404287 §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matched Finding gives exactly the number of degree-(a+b-1) vertices, with the same balanced formula. Its proof excludes two layers and counts singleton interiors.",
+          "For a connected graphical zonotope, the normal-cone facets are the Hasse covers. With a tree these differences give an integral root-lattice basis, so simple vertex and smooth fixed point select the same vertices."
+        ],
+        "reasoning": "Changing from the zonotope degree condition to toric smoothness does not change the enumerated subset under the frozen lattice assumptions.",
+        "searches": [
+          "Resultary semantic comparison for complete bipartite graphical zonotope simple vertices / smooth torus-fixed points; matched record 2026/11/2/SCOPE-degree-spectrum-and-isolated-simple-vertices-of-complete-biparti--57511bb89831",
+          "arXiv:math/0609184, Proposition 3.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirrored Finding, offsets 0–1030, has both odd-side corrections and the same falling-factorial sum after j=r-1. Its finite checks also include the exact simple counts 8, 90, and 1472 for the balanced sizes 2, 3, and 4.",
+          "The arXiv comparator counts all acyclic orientations, not simple vertices."
+        ],
+        "reasoning": "The match is an exact symbolic enumeration over all a,b>=2, not an inference from matching sample rows or from a title.",
+        "searches": [
+          "Configured Resultary index and its mirrored RESULT.md for 57511bb89831",
+          "arXiv:2303.09021 Proposition 3.1"
+        ]
+      },
+      "rationale": "A distinct catalogue record explicitly supplies the corrected layer characterization and the same central all-parameter count, in simple-vertex language, as part of a stronger degree-spectrum result. Simplicity is equivalent to the claimed toric smoothness in this graph and lattice: a simple vertex has the tree cover graph, whose primitive edge differences give a basis. Reindexing j=r-1 identifies the finite sum and both odd-endpoint terms verbatim in mathematical content. The EGF and normalized balanced limit are elementary transforms of those exact coefficients, not a surviving independent result. This is a statement-level finding of equivalent coverage, not a finding about historical priority.",
+      "residual_risks": [
+        "The catalogue dates differ, but coverage does not establish a priority, dependence, or authorship claim.",
+        "A later targeted offset reread of the matching proof timed out; the initial mirror inspection and the independently available exact Finding formula establish the material overlap. The inspected primary passages are not exhaustive historical research."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent central enumeration in a stronger graph-degree result",
+          "evidence": [
+            "The same even and odd terms, corrected simple-vertex characterization, and balanced formula. The result adds nonadjacency, not a requirement in the frozen claim."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-degree-spectrum-and-isolated-simple-vertices-of-complete-biparti--57511bb89831/RESULT.md",
+          "material_read": "Finding and simple-vertex proof, offsets 0–5000; verification passage; exact Finding formula cross-checked at offsets 43–1035",
+          "method": "Configured Resultary search and OA local-mirror reading",
+          "title": "Degree spectrum and isolated simple vertices of complete-bipartite graphical zonotopes",
+          "trigger": "Strong distinct catalogue hit on the exact filtered count"
+        },
+        {
+          "assessment": "Block model and total-region enumeration, not the filtered count in the passage",
+          "evidence": [
+            "Arrangements regions are represented by ordered partitions having no mixed block."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0404287",
+          "material_read": "§2, PDF p. 6, around extracted offset 14400",
+          "method": "OA primary PDF passage",
+          "title": "A tropical morphism related to the hyperplane arrangement of the complete bipartite graph",
+          "trigger": "Same arrangement and source-layer representation"
+        },
+        {
+          "assessment": "Existing tree criterion and global simplicity criterion; no K_{a,b} simple-vertex count in those passages",
+          "evidence": [
+            "Simplicial full-dimensional poset cones are precisely those with tree Hasse diagram. Global simplicity of graphical zonotopes requires complete biconnected components."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0609184",
+          "material_read": "Prop. 3.5(9), Cor. 3.6–3.7, PDF pp. 12–13; Prop. 5.2, p. 16",
+          "method": "OA primary PDF passages",
+          "title": "Faces of generalized permutohedra",
+          "trigger": "General criterion potentially covering smooth cones"
+        },
+        {
+          "assessment": "Total f-polynomial, not the vertex-degree filter",
+          "evidence": [
+            "Face numbers from the chromatic polynomial do not identify how many individual vertices have minimum degree."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1604.06931",
+          "material_read": "Thm. 1.1, PDF p. 2, around extracted offset 3600",
+          "method": "OA primary PDF passage",
+          "title": "Counting faces of graphical zonotopes",
+          "trigger": "Potential general enumerator"
+        },
+        {
+          "assessment": "Counts all acyclic orientations rather than just the tree-cover ones",
+          "evidence": [
+            "Complete bipartite acyclic-orientation count has no simplicial restriction in the inspected proposition."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2303.09021",
+          "material_read": "§3, Prop. 3.1, PDF p. 10, around extracted offset 30000",
+          "method": "OA primary PDF passage",
+          "title": "Encoding and Enumerating Acyclic Orientations of Graphs",
+          "trigger": "Same labeled graph family, possible exact orientation enumeration"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The smooth locus at fixed points is a natural invariant, but the corrected census is already exactly available for simple vertices, and the EGF and balanced normalization are routine encodings of it. At this scope there is no separate valuable new mathematical remainder to repair; in particular the record gives no classification away from fixed points.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

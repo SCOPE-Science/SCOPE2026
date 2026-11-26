@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:32:32.662301Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–65, VERIFICATION.md, verify.py and cycles.csv",
+        "/workspace/replays/debruijn5.py"
+      ],
+      "rationale": "For a 32-bit periodic word the 2-adic series is -S/(2^32-1); reducing that rational gives the stated positive connection denominator. Rotation multiplies S by a unit modulo 2^32-1 and complement sends S to 2^32-1-S. The unique cyclic occurrence of 00000 fixes rotation but not reversal or complement. I independently generated every canonical word by extending the fixed zero prefix one bit at a time, rejecting repeated length-five factors, and explicitly checking the four wraparound factors. Each admissible word follows one path, and any pruned path cannot be completed. Exact rational reduction reproduced all 2048 CSV rows, all ten (g,q) cells and sixteen unordered reversal cells with counts per cycle, the 632 changed cycles (316 two-element orbits), and the sharp ratio 1285 at {3,3855}. For binary linear complexity, the period denominator over GF(2) is (1+X)^32, and taking the reciprocal preserves the multiplicity at X=1. I independently calculated this multiplicity from the coefficients after substituting X=1+Y using binomial parity. Both g=3855 cycles have linear complexity 31 including the stated witness. This proves only the finite order-five classification and the indicated elementary invariances.",
+      "replay": "Run python /workspace/replays/debruijn5.py with the assigned RESULT.md and cycles.csv as its two arguments. The replay reads those files as data; it does not execute the submitted verifier.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ren–Winterhof gives a general reversal-l-sequence case and a period-18 example with complexities log2(19) and log2(171). The Zhao et al. article concerns 2-adic complexity of general prime-power-period sequences, but its full text could not be recovered."
+        ],
+        "reasoning": "An unrestricted prime-power period count would include non-de-Bruijn words and would not by itself count the restricted marginal or paired distribution. No inspected result gives the additional restriction or paired statistic. Potential extra results in the inaccessible paper remain unassessed.",
+        "searches": [
+          "DOI:10.1587/transfun.E95.A.367 (publisher/DOI recovery and lawful alternate-copy attempt)",
+          "arXiv:2603.23166 §2.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local search and phase-retrieval finding 132a86d69a57",
+        "Ren–Winterhof arXiv:2603.23166",
+        "Etzion–Lempel (1984)",
+        "Etzion (1999)",
+        "Zhao et al. DOI:10.1587/transfun.E95.A.367 (full text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ordinary binary linear complexity is reversal-invariant; the audited arithmetic statistic changes on 632 cycles. Ren–Winterhof establishes that changes can occur, not their number or maximum within the order-five family."
+        ],
+        "reasoning": "Ordinary linear-complexity distributions and autocorrelation-fiber statements do not determine the arithmetic joint frequencies; the new count and the constrained maximum require the exact order-five classification.",
+        "searches": [
+          "arXiv:2603.23166, pp. 7–8",
+          "Etzion–Lempel (1984) pp. 1–2",
+          "Resultary phase-retrieval Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary phase-retrieval result, Finding, uses the same 2048 cycles and reversal/complement operations but classifies autocorrelation fibers, not rational 2-adic denominators.",
+          "Ren–Winterhof §2.1 items 5–6 concerns reversal of periodic 2-adic complexity, including a period-18 example."
+        ],
+        "reasoning": "Replacing each reported gcd by its complementary divisor of 2^32-1 gives exactly the same census in denominator language. Neither the autocorrelation fiber counts nor a reversal example over general periodic words is an equivalent expression of that census.",
+        "searches": [
+          "Resultary: binary order-five de Bruijn cycles, FCSR/2-adic denominator, reversal and allied phase retrieval",
+          "arXiv:2603.23166"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed census tabulates autocorrelation fibers, including exceptional homometric pairs, on the same domain. Etzion–Lempel pp. 1–2 defines and studies y(c,n) for ordinary binary linear complexity."
+        ],
+        "reasoning": "No matching exact table was identified; the positive table matches in the compared work have different statistics. No priority conclusion follows from retrieval misses.",
+        "searches": [
+          "Resultary: order-five binary de Bruijn denominator and reversal census",
+          "Targeted public literature lookup on order-five de Bruijn FCSR/2-adic denominators and reversal",
+          "Etzion–Lempel 1984 and Etzion 1999"
+        ]
+      },
+      "rationale": "Pass for the exact restricted marginal and joint census and its extremal consequences, not for the classical 2-adic representation or the already known failure of general reversal invariance. No inspected statement supplies the census or a dominating conditional result.",
+      "residual_risks": [
+        "Uninspected Zhao et al. full text leaves a bounded priority risk; an inaccessible paper is not evidence of coverage or absence.",
+        "Exact unindexed tables or other equivalent statements may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers reversal noninvariance in general, not the restricted tables",
+          "evidence": "Reversal-l-sequence statement and period-18 example with log2(19) and log2(171).",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.23166",
+          "material_read": "Section 2.1, items 5–6, pp. 7–8",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Symmetric measures of pseudorandomness for binary sequences",
+          "trigger": "Same 2-adic reversal phenomenon"
+        },
+        {
+          "assessment": "Not an FCSR denominator distribution",
+          "evidence": "y(c,n) counts by ordinary binary linear complexity.",
+          "identifier_or_url": "https://etzion.net.technion.ac.il/files/2016/02/P3.pdf",
+          "material_read": "Definition and distribution passages, pp. 1–2",
+          "method": "Primary OA PDF passage inspection",
+          "title": "On the Distribution of de Bruijn Sequences of Given Complexity",
+          "trigger": "Same de Bruijn domain and complexity distribution terminology"
+        },
+        {
+          "assessment": "Ordinary linear complexity, not the 2-adic census",
+          "evidence": "Linear-complexity bounds and existence for de Bruijn sequences.",
+          "identifier_or_url": "https://etzion.net.technion.ac.il/files/2016/02/P51.pdf",
+          "material_read": "Opening result and scope, p. 1",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Linear Complexity of de Bruijn Sequences—Old and New Results",
+          "trigger": "Potential broader de Bruijn complexity coverage"
+        },
+        {
+          "assessment": "Full-text overlap unresolved",
+          "evidence": "The available description concerns bounds and counting for general prime-power periods, not an explicit de Bruijn-restricted joint table.",
+          "identifier_or_url": "https://doi.org/10.1587/transfun.E95.A.367",
+          "material_read": "Frozen description of publisher abstract; no full text independently retrieved",
+          "method": "DOI recovery and publisher retrieval attempt; no lawful alternate copy recovered",
+          "title": "On the 2-Adic Complexity of Periodic Binary Sequences",
+          "trigger": "Same arithmetic statistic and general prime-power period"
+        },
+        {
+          "assessment": "Same objects, different classified statistic",
+          "evidence": "Autocorrelation fibers for reversal/complement orbits, with two exceptional homometric pairs; not a marginal or joint gcd spectrum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-almost-complete-cyclic-phase-retrieval-for-binary-order-five-de--132a86d69a57",
+          "material_read": "RESULT.md Finding, around offset 596",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "Almost-complete cyclic phase retrieval for binary order-five de Bruijn cycles",
+          "trigger": "Strongest indexed same-order exact census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md marginal and joint tables and witness",
+        "Independent exhaustive replay",
+        "Ren–Winterhof §2.1"
+      ],
+      "rationale": "Order five gives a natural complete universe of universal binary cycles, not a sample selected for an extreme example. FCSR denominator and reversal are established invariants and operations of independent interest. The marginal and joint data provide a reusable exact benchmark showing the prevalence and sharp size of the arithmetic asymmetry even though binary linear complexity cannot detect it.",
+      "residual_risks": [
+        "Finite order-five result only; no higher-order law or security claim follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

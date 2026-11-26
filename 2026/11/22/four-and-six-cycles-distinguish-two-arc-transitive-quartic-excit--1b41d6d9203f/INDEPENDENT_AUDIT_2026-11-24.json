@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:59:50.145768Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Cube vertex translations and permutations of bit coordinates act transitively on ordered incident edge pairs; on the circulant the translations and multipliers -1 and 5 give arc transitivity. The circulant's neighborhoods are exactly the two neighboring residue classes of i modulo 6, each with two lifts. The states were checked with an independent exact NumPy census (python3 /workspace/audit_excitable.py <source>/kahn_census.txt), writing neither source nor evidence files. Both complete successor maps were built from the labelled graphs and the synchronous rule, then iterated images were taken until stable, not by the supplied trajectory or indegree algorithms and not with a cutoff. The stable image is precisely the periodic states (restriction is surjective on a finite set, and all periodic points belong to every image). The iterated image sizes were (531441,104156,8781,621,121,37,25) and (531441,97154,8345,973,285,183,147). Least period and smallest phase label were computed by returns on the stable image; first entry and ultimate orbit were tallied from every input. All entry/period and per-orbit basin multiplicities agreed exactly, including depth-six populations 72 and 8592 and circulant period-four and period-six basins 32 times 180 and 2 times 12810. Thus the circulant oscillates from 31386 states and the cuboctahedron from 24, with the stated exact uniform probabilities. For the quotient check, independent swaps of the false twins are automorphisms, act transitively on the fibre of a histogram signature, and commute with the map. A quotient-periodic signature recurs on a finite fibre that is mapped onto itself by the return map (equivariance and transitivity), so quotient first-entry time is also labelled first-entry time. The equivariance justifies the canonical-lift period check and explains why quotient period alone is insufficient. The frozen C++ sources and their outputs were inspected, not executed; the independent census supplies full coverage.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Durrett–Griffeath discusses excitable cellular automata primarily on lattices. Gravner–Lyu–Sivakoff's arbitrary-graph GHM activates on one contact, not two.",
+          "Resultary 5bef754e247f, f93d052f0961 and eeb5b69b720b provide exact threshold-two family statements on bicliques, complete tripartite and crown graphs, respectively."
+        ],
+        "reasoning": "Neither target is in the cited family results. In particular the bipartite circulant has six vertices per part and degree four, whereas the 12-vertex crown K_{6,6} minus a matching has degree five, and a connected quartic biclique is K_{4,4}. The occurrence of periods four and six in the crown family is credited but does not give the claimed populations.",
+        "searches": [
+          "Durrett–Griffeath Duke text pp. 1–2",
+          "arXiv:1610.07320 pp. 1–3",
+          "Resultary same-rule biclique, tripartite and crown-graph exact classifications"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9fc22e4e5964 and its two output files",
+        "Resultary c4fb511b080a",
+        "Resultary 7c3fe196f42d",
+        "Resultary 5bef754e247f",
+        "Resultary f93d052f0961",
+        "Resultary eeb5b69b720b",
+        "Resultary 316346bac093",
+        "arXiv:1610.07320",
+        "Durrett–Griffeath author PDF"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tait and half-degree results characterize the immediate primitive-three states: proper cube edge colorings and balanced proper vertex colorings, respectively. The latter applies to the circulant as well.",
+          "The distinct same-day record yields the entire GHM cuboctahedral census as one half of a CCA/GHM comparison."
+        ],
+        "reasoning": "A structure theorem for period three alone neither controls circulant periods four and six nor enumerates transient entrances and individual basins. A full cuboctahedral census gives no such numbers for a nonisomorphic graph. Thus the two quartic graphs' different eventual dynamics and shared sharp six-update bound are not implied by the covered component alone.",
+        "searches": [
+          "Resultary c4fb511b080a and 7c3fe196f42d Findings",
+          "Same-day 9fc22e4e5964 complete cuboctahedral comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The blow-up by pairs of independent vertices of C_6 is the same graph as C_12(1,5), via residue classes modulo six.",
+          "No distinct exact circulant census was returned under those aliases; this is a bounded search only."
+        ],
+        "reasoning": "A quotient six-cycle of histograms is not the ordinary three-color dynamics on C_6; the updates use excited multiplicities in pairs and even a primitive period two on histograms may lift to period four. Hence the alias must be checked at the same labelled rule.",
+        "searches": [
+          "Resultary: C_12(1,5), false twins, C_6[2K_1], threshold-two GHM finite state census"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 9fc22e4e5964 reports precisely the same cuboctahedral GHM orbits, basins and sharp depth, and its verification_output.txt and verification_direct.txt give every matching GHM entry-time/period row.",
+          "Resultary 316346bac093 is a 12-site exhaustive census of a different, 5-regular graph."
+        ],
+        "reasoning": "The cuboctahedral portion is a complete overlap, not just a primitive-three overlap. Neither the matching file nor the other exact 12-site calculation covers the circulant or the two-graph contrast.",
+        "searches": [
+          "Resultary: cuboctahedron threshold two exact period/basin/depth",
+          "Same-day 9fc22e4e5964 RESULT and its direct/vectorized output files",
+          "Same-day 316346bac093 icosahedral comparison"
+        ]
+      },
+      "rationale": "Pass for the stated comparison of the two quartic arc-transitive graphs and the complete circulant census, not for either any standalone cuboctahedral count or the generic occurrence of periods four or six. The cuboctahedral census is an independently corroborated comparator: a distinct same-day record and its published attachments already state exactly that entire part. No temporal priority for either record is inferred from the common date. The materially distinct result is the labelled dynamics of C_12(1,5) and its quantitative contrast with that comparator.",
+      "residual_risks": [
+        "The indexed same-day cuboctahedral overlap does not establish priority. No novelty is assigned to that half regardless of ordering.",
+        "Specialized unindexed circulant or blow-up tables remain possible; this is a bounded best-of-knowledge judgment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Complete coverage of the cuboctahedral GHM component; no evidence of order or circulant coverage",
+          "evidence": "One fixed basin 531417, eight basins of size three, sharp depth six, and identical entry rows 1,4095,106767,315390,102176,2916,72 for p=1 plus 24 at (0,3).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-mixed-period-cyclic-dominance-on-the-cuboctahedron-at-critical-t--9fc22e4e5964",
+          "material_read": "RESULT Finding, VERIFICATION, verification_output.txt GHM near offset 797, verification_direct.txt GHM near offset 383",
+          "method": "Local Resultary mirror",
+          "title": "Mixed-period cyclic dominance on the cuboctahedron at critical two-contact threshold",
+          "trigger": "Exact same-day graph and rule overlap"
+        },
+        {
+          "assessment": "Covers initial primitive-three states, not higher periods/basins",
+          "evidence": "Three-periodic excitation on a cubic line graph corresponds to a proper three-edge colouring of the cubic graph.",
+          "identifier_or_url": "Resultary c4fb511b080a",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Tait colourings as primitive-three excitation on cubic line graphs, with a constant-six seam law",
+          "trigger": "Prior period-three theorem for the cube line graph"
+        },
+        {
+          "assessment": "General primitive-three component is covered",
+          "evidence": "At threshold r on connected 2r-regular graphs the primitive-three initial states are balanced proper three-colourings.",
+          "identifier_or_url": "Resultary 7c3fe196f42d",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Half-degree rigidity and a sharp contact-threshold collapse on squared cycles",
+          "trigger": "Broader exact period-three rule on regular graphs"
+        },
+        {
+          "assessment": "Different graph classes",
+          "evidence": "Complete bipartite and complete tripartite graphs have exact entry counts; crown graphs already show both periods four and six.",
+          "identifier_or_url": "Resultary 5bef754e247f, f93d052f0961, eeb5b69b720b",
+          "material_read": "Each RESULT Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact threshold-two biclique, tripartite and crown-graph classifications",
+          "trigger": "Stronger family computations with the same update"
+        },
+        {
+          "assessment": "Analogue on the icosahedral graph only",
+          "evidence": "It treats the 5-regular graph with periods one and three and maximum entry time eight.",
+          "identifier_or_url": "Resultary 316346bac093",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Seven residual wave geometries and an eight-step extinction clock",
+          "trigger": "Distinct same-day 12-site exhaustive census"
+        },
+        {
+          "assessment": "Different threshold",
+          "evidence": "A resting vertex activates on contact with a single successor-coloured neighbor.",
+          "identifier_or_url": "https://arxiv.org/abs/1610.07320",
+          "material_read": "PDF p. 1 and pp. 2–3, offsets 0 and 8036",
+          "method": "Primary OA PDF",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Arbitrary graph GHM framework"
+        },
+        {
+          "assessment": "Classical parameterized lattice model, not inspected small-graph census",
+          "evidence": "The model and main setting concern the behavior of lattice excitable media as update parameters vary.",
+          "identifier_or_url": "https://sites.math.duke.edu/~rtd/reprints/paper79.pdf",
+          "material_read": "Abstract and model discussion, pp. 1–2, offsets 0 and 6773",
+          "method": "Author-hosted primary OA PDF",
+          "title": "Asymptotic Behavior of Excitable Cellular Automata",
+          "trigger": "Primary threshold-model literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical comparison holds small global graph statistics fixed while isolating stark differences in recurrence. The exact labelled circulant result matters beyond example periods: the cycle-lift effect yields 32 primitive four-orbits with exact basin sizes, and the relative rarity of recurrent phases versus mass in basins would not follow from merely finding period witnesses. Matching the sharp entry bound but not the attractor structure makes the known cuboctahedral census a good control. This is a finite benchmark, not an arbitrary-graph or causal geometry theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

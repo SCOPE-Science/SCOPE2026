@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The local closed-neighborhood inequality is exactly the stated cubic selected/unselected neighbor rule. An edge-crossing bound excludes seven or fewer selected vertices. The projective-plane cap argument classifies all remaining eight-vertex solutions by nonconcurrent triples of lines and a two-of-three private-point choice, giving 84. The ordered-edge map to noncollinear disjoint Fano triples is a bijection. The one-vertex-replacement adjacency agrees with shared endpoints of edges in the Coxeter bipartite double. The 84-vertex distance calculation is replayable from two standalone programs; the symbolic structural identification does not depend on the distance calculation.
+## correctness
 
-## Originality — PASS
-The 2008/2009 powerful-alliance literature gives the basic definition and a global lower bound, not this exact optimizer geometry. The later alliance-reconfiguration literature develops general algorithms and hardness, not this explicit configuration graph. The Coxeter graph's model by noncollinear Fano triples is classical and is used as input, not newly attributed. Relevant indexed results about 84 Heawood induced-matching placements give a six-regular exchange graph, whereas the present one is four-regular; indexed 84-state Coxeter maximum-induced-matching results give a line graph of the different, nonbipartite cubic Klein graph. Neither statement implies the alliance result. The checked record contains no equivalent Heawood global-powerful-alliance classification. Residual risk: unindexed or inaccessible historical enumerations could predate this result.
+PASS
 
-## Value — PASS
-This connects the optimal placements of a recognized local-majority domination invariant on the smallest cubic girth-six cage with the edge geometry of the Coxeter graph, two classical Fano-plane constructions. The exact bijection explains the count 84, all optimum exchange moves, the connected-versus-frozen mobility distinction, and a concrete nontrivial small-graph test case for alliance reconfiguration. This structural interpretation is stronger and more reusable than a bare minimum or a subset-enumeration table.
+In the cubic graph the four-element closed-neighborhood inequality is precisely at least two selected per closed neighborhood. Every selected vertex has ≤2 outside neighbors and every omitted vertex has ≥2 selected neighbors. Counting crossing edges gives |S|≥7; equality would give a perfect matching on the selected seven vertices and is impossible. If |S|=8, its six omitted vertices cannot contain a collinear point triple or a concurrent line triple: the witness line or point would violate the same closed-neighborhood inequality whether selected or omitted. A cap has size ≤4, and a four-point cap is the complement of a line, since its six secants account for its twelve incidences. At most one line can meet it in ≤1 point, so the omission splits as three points and three lines. For three nonconcurrent lines, the omitted points cannot include a pairwise intersection; they must be the single point off the three lines and two private points, since the three private points are collinear in binary coordinates. These choices satisfy the inequality on both shores: within the omission every vertex has ≤1 omitted neighbor, and the cap conditions forbid a selected vertex from having three omitted neighbors. Thus there are 28×3=84 optima. The intersection triangle Q has exactly the three omitted lines as its side lines; the omitted point triangle P is disjoint from Q. For fixed Q the allowed point triples differ by one point; for fixed P the dual private-point argument gives three line triples differing by one line. A jump preserves exactly one coordinate, yielding the line graph of the bipartite Coxeter double; shore balance rules out all slides. Binary linear changes of basis permute any chosen triangle of independent line equations and its private-point positions, giving transitivity. An independent binary-vector Fano construction and closed-neighborhood scan of every subset of size at most eight in /workspace/reviews/evidence/heawood.py verified the optimum count, the ordered-pair bijection and every jump/slide comparison. All 84 BFS layer vectors were (1,4,8,16,28,22,4,1), confirming connectedness and diameter seven; the same checker produced 168 jump edges and a single collineation orbit under 168 maps.
 
-## Boundaries
-The scope is the Fano incidence graph and cardinality-minimum global powerful alliances; no universal classification for arbitrary cubic graphs is asserted. The diameter and distance profile are finite complete checks, not estimates. The archived half-order bound and named Coxeter construction remain prior results.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the alliance-specific extremal membership criterion and reconfiguration identification, not for constructing the Coxeter double or taking its line graph. The strongest distinct match is a same-day three-vertex-path cover result with exactly the same ordered triangle pairs as edges of its mobile component. It supplies the graph framework but not the correspondence with minimum closed-neighborhood majority sets or their moves.
+
+## value
+
+PASS
+
+A complete minimum double-domination/limited-packing classification on the canonical cubic incidence cage connects a natural local feasibility predicate to Fano triangle geometry. The bijection explains every optimizer and why jumping connects them while sliding cannot even start. The reusable contribution is this structural explanation and exact small-graph benchmark, rather than the bare lower bound or a new name for a known graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

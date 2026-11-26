@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:09:23.174497Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The m+5 edges form a connected tree on m+6 vertices; the gate v has degree four. Initially u adopts but v sees 1/4, so the original closure stops at three. Removing au or bu leaves u with one seed out of two neighbors. After u adopts, all admissible targets are enabled: v with exposure 2/5, x or y with 1/2, and internal/terminal path targets with 1/3 or 1/2, respectively. Propagation back to v gives 2/4 unless v was the target, and then onward to every other susceptible vertex. Removing bv leaves v with at most one adopter among four even after u adopts, so no path or leaf can be reached. The outcome is constant conditional on each of the three sampled edges, so the differing number of eligible targets per edge does not bias 2/3 versus 1/3; the mean is 5+2m/3. Independent finite replay: label a,b,u,v,x,y,w1,... by 0,1,2,3,4,5,6,...; enumerate edges (0,2),(1,2),(1,3), and all nonadjacent target labels >=2 other than the susceptible endpoint; after replacement repeatedly add the first enabled vertex using the exact integer test denominator(theta)*adopting_neighbors > numerator(theta)*degree. This checked 3000 rewiring/threshold combinations, m=1..20 at 1/4,3/10,333/1000,1/3; at 1/3 an internal path target fails, and static closure at 1/5 fills every test tree. Strictness and m=1 are handled analytically. Source code was inspected, not executed. Editorial: the stated quotient is mean/baseline; the phrase 'baseline-to-mean' inverts its label. The numerical quotient and mathematical amplification claim are correct. The degree-four and connectivity hypotheses apply to the original graph.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Min and San Miguel Eqs. (1)–(3) use degree-distribution/tree-like mean-field recursions for random graphs; their Fig. 2 studies large Erdős–Rényi ensembles. Eckles et al. study noisy threshold spreading time on circular lattices plus random edges."
+        ],
+        "reasoning": "Ensemble saturation or acceleration does not imply exact outcomes under every legal recipient on a finite prescribed tree; the noisy model lacks this strict fractional blockade.",
+        "searches": [
+          "arXiv:2305.13965 §§II–III (model, mean-field, simulated ER graphs)",
+          "arXiv:1810.03579 (long-tie threshold models)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2305.13965v2 §§II–III",
+        "arXiv:1810.03579v5 abstract",
+        "Resultary related tree/cascade records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Repeated homophilic rewiring can alter mean final adoption; earlier noisy long-tie interventions can shorten time to spread."
+        ],
+        "reasoning": "Neither fact gives the conditional success on both u-incidences and failure on the v-incidence independent of recipient, which is the property forcing the exact universal 2/3 and linear mean.",
+        "searches": [
+          "arXiv:2305.13965 §§II–III",
+          "arXiv:1810.03579v5 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Min and San Miguel cut adopter–nonadopter contacts and let the nonadopter reattach to a nonadopter. Their evolution interleaves adoption and multiple such moves with plasticity p."
+        ],
+        "reasoning": "The closest transition is the same local move, not the same probability experiment; their p is not the probability of the frozen one-shot resulting complete closure.",
+        "searches": [
+          "Resultary: one shot homophilic rewiring strict fractional threshold complete cascade two seeds bounded-degree tree exact probability 2/3",
+          "arXiv:2305.13965 §II and Fig. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned same record and related static seed-set/activation distributions, including the two bridge-linked triangles, branching trees, and three-seed Heawood graph; Fig. 2 averages over random-network runs as a function of plasticity."
+        ],
+        "reasoning": "These are different sample spaces (seed variation or multiple rewiring actions), not an enumeration of one legal replacement under the fixed two seeds. No exact table with covering entries was identified in the examined evidence.",
+        "searches": [
+          "Resultary: one shot homophilic rewiring strict fractional threshold complete cascade two seeds bounded-degree tree exact probability 2/3",
+          "arXiv:2305.13965 Fig. 2"
+        ]
+      },
+      "rationale": "Best of knowledge: the closest inspected work already gives the elementary move and qualitative enhancement; it does not give the exact edge-conditioned law, unbounded one-replacement comparison, or universal target property on this tree family.",
+      "residual_risks": [
+        "Web query transport unavailable, not a zero-result search. Unindexed extremal Watts-threshold examples may overlap; claim priority only for the scoped finite law on the inspected evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior for local mechanism and aggregate effects, not the frozen one-shot theorem",
+          "evidence": [
+            "§II schedules ongoing rewiring and adoption until no active links remain; §III examines random networks, with Fig. 2 averages over 10^4 runs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2305.13965",
+          "material_read": "Abstract, Introduction, model §II and Fig. 1, §III A–B incl. Eqs. (1)–(3) and Fig. 2",
+          "method": "arXiv v2 full paper, read model and relevant results",
+          "title": "Threshold cascade dynamics on coevolving networks",
+          "trigger": "Same strict fractional threshold and homophilic contact rewiring"
+        },
+        {
+          "assessment": "The advertised noisy spreading-time result is not the one-shot tree conclusion; no whole-paper exclusion inferred from the abstract",
+          "evidence": [
+            "Advertised theorem uses circular lattices plus random edges and subthreshold noise."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1810.03579",
+          "material_read": "v5 abstract, version history",
+          "method": "arXiv abstract (limited comparison)",
+          "title": "Long ties accelerate noisy threshold-based contagions",
+          "trigger": "Threshold-cascade enhancement by rewired ties"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Shows a fixed-degree originally connected family where just one locally homophilic replacement before adoption changes the scale of final adoption with probability bounded away from zero, irrespective of which admissible recipient is sampled in the successful cases. The quantitative separation between local suppression and global possible amplification is useful as a worst-case check on interpretation of random-network averages. This is not a statement about ordinary ongoing rewiring or realistic spread predictions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

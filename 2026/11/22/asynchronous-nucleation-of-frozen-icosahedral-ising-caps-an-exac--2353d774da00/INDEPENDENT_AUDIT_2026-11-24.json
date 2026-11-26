@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:29:47.726914Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof and Verification",
+        "Frozen VERIFICATION.md, check_rational.py and check_independent.py (inspected, not executed)",
+        "/workspace/review-evidence/reproduce.py (ordinal 3)"
+      ],
+      "rationale": "A successful flip at a vertex with d≥3 disagreeing neighbors changes the cut size by 5−2d<0. In a nonabsorbing state at least one flippable clock is active, giving a finite exponential wait and equal next-flip probabilities among the eligible vertices. At most 30 flips can occur, giving almost-sure absorption, with no update-order or stationarity assumption beyond the stated clocks. I independently formed the icosahedral graph from the golden-ratio coordinates, using exact squared distances, and exhausted all 4096 states. The only fixed masks were the two constant states and the twelve closed neighborhoods, with complementary caps. The simultaneous majority map has exactly one incoming mask per cap, its own. For asynchronous dynamics I propagated 13 channels of initial mass forward on the cut-decreasing graph in exact fractions, confirming the full size-resolved vector and every polynomial coefficient, and checked all 220 three-spin starts by a local exact path sum (160 zero and 60 with 1/30). In the supplied labels, the displayed path adds 0, 3, then 5, each with at least three positive neighbors; the successful seed is therefore among the 60. The one-half value is 10067037913/87091200000 and the ratio to 12/4096 is 10067037913/255150000. The polynomial has positive coefficients in q and is at least 2q³, strictly exceeding 12q⁶ for 0<q≤1/4, with the maximum unique at p=1/2. Replay: `python /workspace/review-evidence/reproduce.py 3`, using only the standard library on Python 3.10 or newer.",
+      "residual_risks": [
+        "The bundled check_rational.py uses int.bit_count(), so its Python 3.8+ claim in the notes is too broad; that method is available starting in Python 3.10. This does not affect the proof or the independently reproduced results.",
+        "Exhaustion is for the stated finite graph and update law only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Newman–Stein's opening analyzes infinite Ising systems and includes blocking on the hexagonal lattice. Spirin–Krapivsky–Redner p. 2 studies hypercubic systems and explicitly passes over odd coordination.",
+          "The Petersen and Fano-incidence records give exact zero-temperature laws for other odd-degree graphs; the four-cube seed record allows energy-neutral ties."
+        ],
+        "reasoning": "Energy descent and general fixation explain absorption, not the probability of which terminal state is hit. Different adjacency and tie rules change eligible vertices and harmonic equations, so the analogous results do not imply the icosahedral kernel.",
+        "searches": [
+          "arXiv:cond-mat/9904208v1",
+          "arXiv:cond-mat/0105037v1",
+          "Resultary: zero-temperature Ising freezing on finite graphs"
+        ]
+      },
+      "checked_sources": [
+        "November 17 icosahedral synchronous record",
+        "Distinct same-day icosahedral synchronous, Heawood, Petersen and four-cube records",
+        "arXiv:cond-mat/9904208v1",
+        "arXiv:cond-mat/0105037v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier icosahedral proof expressly makes a cap its own sole simultaneous predecessor. The icosahedral asynchronous process can enter a cap by sequential additions from a three-spin start.",
+          "The closest asynchronous Bernoulli laws concern ten degree-three vertices (Petersen), fourteen degree-three vertices (Heawood), or tie-permitting degree four (four-cube)."
+        ],
+        "reasoning": "The older synchronous result supplies the exact baseline 12q⁶ after a Bernoulli substitution, not the schedule contrast or its magnitude; the strict contrast requires the independently verified asynchronous law. Known recursion methods do not mechanically supply graph-specific coefficients without the census.",
+        "searches": [
+          "Earlier icosahedral RESULT.md, Finding and proof offsets 5383–6710",
+          "Resultary Fano-incidence, four-cube and Petersen records, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The November 17 Finding and proof give exactly the twelve closed-neighborhood caps and a singleton synchronous basin for each.",
+          "The asynchronous law is equivalent to the size-resolved sums of the hitting kernel (the degree-12 Bernstein coefficients), and the seed assertion is a separate three-spin marginal of the full kernel."
+        ],
+        "reasoning": "The two schedules have the same equilibria, but a synchronous predecessor map is not the asynchronous single-flip transition kernel. A synchronous basin enumeration therefore does not yield the stochastic marginal.",
+        "searches": [
+          "Resultary: asynchronous icosahedral cap hitting, rational Bernoulli polynomial and three-seed probabilities",
+          "SCOPE-the-icosahedral-majority-landscape-isolated-caps-and-seven-oscil--4b6d7cb731ad"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-day icosahedral record gives 14 synchronous fixed points and singleton mixed basins. The Fano-incidence record instead gives 56 out of 364 successful three-spin starts with probability 1/15 each on Heawood; the Petersen record gives a different graph-specific polynomial."
+        ],
+        "reasoning": "The verified exact matches are static or synchronous, not stochastic asynchronous hitting data on the icosahedron. The other numerical tables apply to specified nonisomorphic state graphs, not to this one. Bounded catalogue lookups cannot prove historical absence.",
+        "searches": [
+          "Resultary: asynchronous icosahedron majority polynomial; synchronous cap predecessors; three-positive-spin cap seeds; exact Petersen/icosahedral trapping",
+          "SCOPE-isolated-hemispherical-equilibria-and-seven-oscillatory-symmetry--23ef4d4118df"
+        ]
+      },
+      "rationale": "The icosahedral equilibrium census and synchronous singleton cap basins are exact prior coverage and already credited. The distinct checked contribution is the asynchronous, rate-one icosahedral absorption polynomial and three-seed law, hence its quantitative contrast with those synchronous basins. Exact asynchronous analogues on other graphs are credited for the method and theme, but do not give these numbers or the fixed-graph comparison.",
+      "residual_risks": [
+        "The bounded scholarly search did not locate decisive additional passages; an unindexed asynchronous icosahedral calculation could exist.",
+        "Same-day entries establish comparison evidence only, not a publication order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of static caps and synchronous singleton basins",
+          "evidence": "The twelve closed neighborhoods are fixed caps and a cap's only synchronous predecessor is itself.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-the-icosahedral-majority-landscape-isolated-caps-and-seven-oscil--4b6d7cb731ad",
+          "material_read": "RESULT.md, Finding offset 0 and proof offsets 5383–6710",
+          "method": "Resultary and local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The icosahedral majority landscape: isolated caps and seven oscillation symmetries",
+          "trigger": "Same graph and exact equilibrium/synchronous overlap"
+        },
+        {
+          "assessment": "Corroborating overlap in synchronous dynamics; chronology not inferred",
+          "evidence": "14 fixed masks including the 12 closed neighborhoods, with singleton nonunanimous basins.",
+          "identifier_or_url": "2026/11/22/SCOPE-isolated-hemispherical-equilibria-and-seven-oscillatory-symmetry--23ef4d4118df",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Isolated hemispherical equilibria and seven oscillatory symmetry classes",
+          "trigger": "Same-day same-icosahedron matching equilibrium claims"
+        },
+        {
+          "assessment": "Different graph and different exact hitting data",
+          "evidence": "Degree-three Heawood graph, 56 mixed equilibria and 56 of 364 three-seed sets succeeding with probability 1/15.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-freezing-and-rare-three-seed-nucleation-on-the-fano-incide--5034f6ad5fe4",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Exact freezing and rare three-seed nucleation on the Fano incidence graph",
+          "trigger": "Exact asynchronous polynomial and three-seed nucleation analogue"
+        },
+        {
+          "assessment": "Different graph and rates at ties",
+          "evidence": "Tabulates 560 three-spin placements on degree-four Q4 with fair tie flips allowed.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-three-seed-freezing-and-geometric-nucleation-on-the-four-c--3a52330a77cf",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Exact three-seed freezing and geometric nucleation on the four-cube",
+          "trigger": "Same small-seed phenomenon"
+        },
+        {
+          "assessment": "Method and theme shared; not equivalent data",
+          "evidence": "Ten vertices, degree three and twelve mixed terminal patterns based on complementary five-cycles, not six-site icosahedral caps.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-zero-temperature-trapping-law-for-the-petersen-ising-ferro--08f9fbc10858",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Exact zero-temperature trapping law for the Petersen Ising ferromagnet",
+          "trigger": "Same stochastic rule and exact polynomial on another graph"
+        },
+        {
+          "assessment": "General context in inspected passages",
+          "evidence": "Infinite-system setting with blocking examples including the hexagonal lattice.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/9904208v1",
+          "material_read": "pp. 1–2, OA offsets 0 and 4950",
+          "method": "Lawful arXiv PDF, targeted opening and blocking passages",
+          "title": "Blocking and Persistence in the Zero-Temperature Dynamics of Homogeneous and Disordered Ising Models",
+          "trigger": "Prior odd-degree zero-temperature fixation"
+        },
+        {
+          "assessment": "Different lattice setting",
+          "evidence": "Focuses on finite hypercubic lattices and avoids odd-coordinated lattices.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0105037v1",
+          "material_read": "p. 2, OA offset 13145",
+          "method": "Lawful arXiv PDF, targeted model passage",
+          "title": "Freezing in Ising Ferromagnets",
+          "trigger": "Prior exact and numerical freezing studies"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "/workspace/review-evidence/reproduce.py (ordinal 3)",
+        "Earlier icosahedral synchronous baseline"
+      ],
+      "rationale": "The finite graph and invariant are natural: the same two scheduling protocols share all equilibria, yet one forbids cap nucleation while the other can grow a six-spin cap from three positives. The full initial-density law, the exact seed probabilities, and the more than 39-fold difference at the unbiased start quantify that mechanism on a canonical graph. This is more than recounting static fixed points and is a useful benchmark for stochastic majority calculations.",
+      "residual_risks": [
+        "The magnitude is specific to this finite graph, unbiased start and stated update law; it does not support an all-graph or positive-temperature extrapolation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

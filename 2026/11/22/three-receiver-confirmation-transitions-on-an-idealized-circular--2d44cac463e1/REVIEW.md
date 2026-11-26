@@ -1,15 +1,21 @@
-# Review of the circular three-receiver confirmation theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The binomial conditional success probabilities \(f_1,f_2,f_3\) are exact for \(0<p<1\). The covered-multiplicity identity and equal-interval middle-coverage lemma establish the global constraint \(m_2+m_3\le\ell\), including the wraparound and full-circle boundary cases. All three extremal multiplicity vertices are feasible when \(3\ell\le C\); a linear objective therefore yields a sharp global maximum and complete equality classifications. Explicit subtraction proves both transition fractions. The independently constructed endpoint-integrating checker passes 18,000 random geometry tests and 14 analytical boundary cases. Finite tests are not substitutes for this proof.
+PASS
 
-## Originality — PASS on inspected evidence; priority provisional
+Conditional on coverage by j sensors the number of timely reports is Binomial(j,p), giving the stated f_j. Write m_j for the length with multiplicity exactly j. Counting all sensor arclength yields m_1+2m_2+3m_3=3ell and the objective C P=3ell f_1+a m_2+b m_3, where a=f_2-2f_1 and b=f_3-3f_1. If the union fills the circle up to null sets, 3ell<=C forces m_2=m_3=0. Otherwise an uncovered point cuts the circle into a line at which none of the footprints wraps. Order the equal-length intervals by starts. Any double or triple coverage belongs to the middle interval, because its endpoints lie between the outside endpoints of the other two. Thus m_2+m_3<=ell, and disjoint, two coincident plus one disjoint, and all coincident attain all three vertices. The linear maximization over that triangle is therefore exact even though not all interior points need be attained. The coefficients satisfy a=p^2(2theta-1), b-a=p^2((4-3p)theta-(2-p)). For 0<p<1 the latter vanishes at theta_c strictly between 1/2 and 1; at 1/2 b=-p^3/2. The maximizing triangle faces are respectively the disjoint vertex, the m_3=0 edge, the double-only vertex, the m_2+m_3=ell edge, and the triple vertex as theta increases through the two ties. Since the equality conditions refer only to feasible footprints, this gives the stated iff assertions; m_3=ell implies all three arcs coincide up to endpoints. Half-length successive shifts also attain the double-only vertex with three distinct positions. With two receivers there is just one overlap coefficient and no intermediate phase. For the stated example p=4/5, theta=5/8, ell/C=1/4 the three exact vertex values are 0.225, 0.265 and 0.233. The uploaded endpoint-sorting checker was inspected but not run; the analytic comparison covers the sparse boundary 3ell=C and the full parameter domain. Correlated signals or real source and propagation models are outside scope.
 
-The motivating 2023 full-text seismic paper establishes station-density/alert-mode tradeoffs, not the stated mixed three-receiver optimization. Litvak et al. explicitly analyze two overlapping sensors and grouped co-located sensors; the novelty is neither binomial counting nor the two-sensor nonoverlap principle. Asano–Brass–Sasahara optimize exactly-one interval coverage from a prescribed family; Shan–Xu–Cheng handle probabilistic target coverage and minimum sensor counts; Ammari gives general planar multi-coverage density constructions. All are relevant precedents but do not directly state or dominate the sharp three-arc mixed-confirmation phase diagram with its intermediate regime and all equality cases. A broad field of classical interval-covering and reliability optimization remains a historical-priority risk; exhaustive priority cannot be certified.
+## originality
 
-## Value — PASS
+PASS
 
-The source literature identifies a concrete tension between single-station fast alerts and network-confirmed alerts. The result fully classifies the smallest receiver count that allows a strictly optimal *intermediate* amount of redundancy, including a constructive non-colocated design, and identifies a sharp threshold depending only on receiver reliability. This is more informative than a routine numerical station-search or an arbitrary parameter slice, yet deliberately an idealized benchmark rather than field guidance. Independent instrument failures at one site, perfectly uniform events, hard detection footprints and exclusion of false alarms are strong restrictions; empirical calibration would be necessary for application.
+Best-of-knowledge pass for the exact global three-arc phase diagram and complete tie conditions. Overlap algebra, co-location and confirmation thresholds are known; the inspected closest results do not provide the sharp three-footprint multiplicity restriction or the intermediate all-placement optimum for this objective.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The strictly optimal double-only phase is qualitatively different from both no overlap and complete co-location, and disappears with only two receivers. The exact maximum and all placement tie criteria give a useful baseline beyond a comparison of a few hand-picked layouts; distinct instruments can achieve the intermediate optimum without co-location. It is a bounded idealized design classification, not an earthquake-station deployment recommendation or an actual false-alarm optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

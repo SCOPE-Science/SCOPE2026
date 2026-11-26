@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:09:59.169302Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the positive-rate constant-parameter Caputo model with R(0)=0, write S and I as local Volterra integral equations. The continuous solution differs from its initial data by O(t^alpha). Polynomial substitution and I^alpha t^(k alpha)=[Gamma(1+k alpha)/Gamma(1+(k+1)alpha)]t^((k+1)alpha) inductively give every finite expansion: a bounded O(t^q) error integrates to O(t^(q+alpha)). This includes the ordinary-order endpoint. In the normalized basis s1=-x0 and i1=x0-gamma B; the leading incidence coefficient is x0[c(A-B)-gamma], with c=beta/N, A=S(0), B=I(0), x0=cAB. At cancellation gamma=c(A-B)>0, i1=cB^2, s2=0 and i2=-gamma i1. Multiplying the two expansions gives x2=-c i1(gamma A+H2 x0) and x3=c gamma i1 x0(H3-H2): the A gamma^2 i1 terms cancel. Strict midpoint log-convexity of Gamma proves H3/H2>1 for all alpha>0. When both candidates are generic, or both critical, the first nonzero exponent alone fixes their common order. In the mixed pairing equality would force generic order 2alpha (only feasible for alpha<=1/2); after the common first term the generic remainder is O(t^(4alpha)), incompatible with the nonzero t^(3alpha) term. This covers alpha=1/2 versus ordinary SIR and the critical order-one case. Independently expanded the raw-power Volterra products symbolically, including the positive exact t^(3/2) coefficient (12*pi-32)/(3*pi^(3/2)) in the frozen example; replay python3 -B /workspace/branches/independent_replay.py 4. This does not test fitting or stability. Frozen check.py and recorded output were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu–Yamamoto use a point trace of a solution of a linear time-fractional diffusion PDE.",
+          "Kharazmi et al. infer fractional orders using PINN fits on epidemiological data, in particular considering time-dependent orders."
+        ],
+        "reasoning": "These give prior short-time inference or epidemic-order inference context, but neither applies a nonvanishing criterion to the nonlinear SIR incidence under exact cancellation.",
+        "searches": [
+          "arXiv:2206.02108v2, Problem 1.1, short-time fractional order inference",
+          "DOI 10.1038/s43588-021-00158-0, epidemic model inference from data",
+          "Resultary: Caputo SIR exact incidence structural identifiability"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.25440v1",
+        "arXiv:2206.02108v2",
+        "DOI:10.1038/s43588-021-00158-0",
+        "Resultary critical SIR searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior SIR expansion stops at x1 plus O(t^(2alpha)), and its exponent inference uses x1 != 0. That remainder has no implication of a nonzero t^(3alpha) term at x1=0."
+        ],
+        "reasoning": "Volterra expansions and short-time exponent comparisons are established methods, but the requisite coefficient cancellation and strict Gamma-ratio difference must be proved for this observable. Prior generic inference is not a dominating all-parameter theorem.",
+        "searches": [
+          "arXiv:2611.25440v1 §4 Proposition 4.1 and immediately following critical-condition paragraph; arXiv:2206.02108v2 Problem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hossain–Alam arXiv:2611.25440v1, model (2.1), Eq. (4.1), Proposition 4.1 and subsequent paragraph, uses the identical incidence observable and explicitly identifies the zero-first-coefficient hypersurface.",
+          "A search for critical flatness and cancellation retrieves the assigned record, not a distinct corroborating statement."
+        ],
+        "reasoning": "The outputs agree in meaning, not just in nomenclature; what distinguishes the frozen finding is the explicit pair of higher coefficients and the critical-versus-generic exclusion. A leading-order law by itself is observationally compatible with a different order 2alpha when feasible.",
+        "searches": [
+          "Resultary: Caputo SIR incidence identifiability fractional order exact data critical flat initial incidence",
+          "Resultary: critical cancellation two exponents Caputo SIR incidence order recovery",
+          "Web: \"Fractional Order or False Memory\" \"Proposition 4.1\" Caputo SIR incidence identifiability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned results included the frozen record 5693974d54d3 itself; no distinct matching critical coefficient pair was found in the returned top results. The directly matching primary formula supplies x1 and its critical zero, not x2 and x3 there."
+        ],
+        "reasoning": "This is an analytic continuum claim, not an enumerated parameter table; exact coefficient formulas and matching published claims are the relevant exact comparisons. The numerical half-order instance alone would not distinguish priority for the continuum result.",
+        "searches": [
+          "Resultary: critical initial flatness Caputo SIR structural identifiability incidence; fractional order identification critical SIR incidence exponents; SIR fractional order initial incidence coefficient cancellation",
+          "arXiv:2611.25440v1 §4 coefficient formula"
+        ]
+      },
+      "rationale": "Pass only the critical-case calculation and exclusion of a different order across the generic/critical comparison as the distinct increment. The same model, first incidence coefficient, cancellation condition, leading-exponent technique and generic inference are already present in prior work. The inspected primary result does not resolve the missing third-power comparison at cancellation.",
+      "residual_risks": [
+        "Priority remains bounded by the inspected publications and catalogue results; an unindexed nonlinear inverse result or an equivalent critical-coefficient calculation may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct material overlap with the generic case; critical order recovery not established by the inspected proposition",
+          "evidence": [
+            "Prop. 4.1 uses x1 != 0 and the next text expressly names beta(N-2I0)=gamma N as its failure locus."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.25440 (v1)",
+          "material_read": "Primary PDF model (2.1), p. 3, offset 13391; §4 Eq. (4.1) and Proposition 4.1, p. 5, offsets 20500–21200; critical-condition paragraph p. 6, offset 21736",
+          "method": "Lawful OA primary PDF text, bounded passages",
+          "title": "Fractional Order or False Memory: Identifiability of Caputo SIR Models from Incidence Data",
+          "trigger": "Identical model, observable and generic inverse problem"
+        },
+        {
+          "assessment": "Different equations and observation; does not yield the SIR coefficients",
+          "evidence": [
+            "Spatial point measurement of time-fractional diffusion solution."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.02108 (v2)",
+          "material_read": "Primary PDF p. 3, Problem 1.1, offset 10400",
+          "method": "Lawful OA primary PDF text",
+          "title": "Uniqueness of orders and parameters in multi-term time-fractional diffusion equations by short-time behavior",
+          "trigger": "Short-time power strategy in a more general inverse setting"
+        },
+        {
+          "assessment": "Numerical inference, not exact critical incidence identifiability",
+          "evidence": [
+            "Studies fitting to reported data and inference of time-dependent derivative orders in modified SIR models."
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/s43588-021-00158-0",
+          "material_read": "PDF abstract and pp. 1–2, offsets 0 and 13600–14871",
+          "method": "Lawful OA primary PDF text",
+          "title": "Identifiability and predictability of integer- and fractional-order epidemiological models using physics-informed neural networks",
+          "trigger": "Directly relevant epidemiological fractional-order inference"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The critical surface is forced by a physically admissible cancellation in the observable, and is an explicit exception to a published leading-order criterion. The nonzero next coefficient resolves a real ambiguity in the leading exponent, including apparent ordinary-time behavior at order 1/2, and completes the exact-data identification in the stated class. It is not claimed to recover the other parameters, handle time-varying rates or give a stable statistical method.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

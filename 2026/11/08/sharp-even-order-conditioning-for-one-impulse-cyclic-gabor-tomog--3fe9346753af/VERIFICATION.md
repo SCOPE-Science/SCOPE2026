@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 CHECK.py` using only the Python standard library. It constructs the finite self-ambiguity transform by direct complex summation, checks the branch formula and sharp optimizer in eight even orders, and tests 1,280 other amplitude/phase configurations. The observed output was:
+## correctness
 
-```
-CHECK_OK even_orders=8 direct_cases=48 random_phase_radius_cases=1280
-```
+PASS
 
-These are floating-point consistency tests, not an exact computer-assisted proof and not a replacement for the all-order angular argument. Equality, positivity, uniqueness, normalization, and the excluded small orders are established in RESULT.md. No independent external audit has been performed.
+In the normalized Weyl matrix basis, analysis of each basis matrix on the projector orbit is a character of the two orbit indices times its value at the unshifted projector. Character orthogonality gives singular values sqrt(N) times ambiguity moduli on the full complex matrix space, including the maximum sqrt(N) at the identity. Expanding the constant and impulse terms gives the two axis branches and the mixed branch (up to phase and conjugation conventions). All residues occur as mixed products, including zero from 2 times N/2. Writing z=rho exp(i theta), AM–GM optimizes the mixed ratio at rho=sqrt(N); even N gives the zero grid pi Z/N, hence numerator sin(d) with d the distance to that grid and denominator at least sqrt(N)-cos(d). The ratio is strictly increasing for d between 0 and eta=pi/(2N). At equality theta must be at distance eta from pi, giving precisely the two claimed impulses. Both axis numerators at these points are N-2sqrt(N)cos(eta), at least 2sqrt(N)sin(eta) by equality at N=6 and monotonicity in N thereafter. Thus axes do not spoil attainment, the lifting is invertible, and applying it to xx* yields phase retrieval. A separate full-lifting check of Weyl column norms and orthogonality at N=6,8,12 for both optimizers passed (`python3 /workspace/audit_evidence/reproduce.py 2`).
+
+## originality
+
+PASS
+
+The Weyl frame spectrum, rank characterization and chirp shear are prior ingredients. The exact sharp even-order condition number, equality set and attainment are distinct from the strongest inspected statements. In prime order the mixed phase grid lacks the residue zero, so even-order optimization is not a substitution into the prime formula. Nearby exact same-date results concern different windows or orders.
+
+## value
+
+PASS
+
+This natural two-real-parameter perturbation gives a usable exact conditioning ceiling rather than just an invertible window. The result gives the only window parameters attaining it, explains the parity-sensitive obstruction and threshold where the axis branches become harmless, and quantifies the deterioration of the best attainable stability with dimension. The linear-lifting objective makes this useful for choosing and benchmarking a simple window even though it makes no unrestricted window claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

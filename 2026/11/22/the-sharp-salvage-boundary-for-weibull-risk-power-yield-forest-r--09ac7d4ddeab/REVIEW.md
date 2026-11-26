@@ -1,11 +1,21 @@
-# Review of the sharp salvage boundary for Weibull-risk power-yield forest rotations
+# Independent mathematical audit
 
-**Correctness — PASS.** The assumptions define i.i.d. renewal cycles with Weibull survival and harvested value at the first of planned cutting or catastrophe. Direct differentiation gives \(N'_s=Sg_s\), \(I'=S\), \(H_s'=Ig'_s\). The single-peaked derivative \(g_s\), strict endpoint signs, and implicit comparative-statics calculation prove the unique finite optimum for every \(s<1\), the exceptional complete-salvage policy, and the asymptotic. The packaged checker passed 10795 finite diagnostics; its computation is not an infinite proof.
+## correctness
 
-**Originality — PASS relative to material inspected.** Routledge (1980) and Reed (1984) are foundational catastrophe-rotation studies, while Amacher, Malik and Haight (2005) explicitly model age-varying hazard and salvage in a broader economic program and Loisel (2013 public preprint) studies thinning and catastrophic risk. The classic renewal quotient is not new. The narrower target is the *complete global classification and sharp singular salvage correction for a Weibull age hazard and superlinear power value under long-run mean physical yield*, not their general Faustmann setup. The 2005 and 2013 accessible full texts did not state or imply this explicit all-shape classification without additional analysis. Older primary full texts remain a priority risk, not proof of novelty.
+PASS
 
-**Value — PASS.** Fire risk, imperfect salvage and stand age are motivated forestry variables. The exact salvage boundary isolates an important model sensitivity: making disaster recovery arbitrarily close to complete produces arbitrarily late planned cutting under the stated idealized power-value model. The theorem gives an analytical benchmark and an explicit warning about extrapolating juvenile power-law value; it is not an empirically justified management recommendation.
+Reviewed RESULT.md:3–65, VERIFICATION.md and checker.py. With immediate independent fresh rotations, the mean time is I=integral_0^T S and the reward is T^p S(T) plus the salvage-weighted integral against the event density hS. Renewal reward gives N_s/I, including its finite limit s η^(p−1) C_(p,m) as T tends to infinity. Differentiation gives R_s'=S H_s/I², H_s=Ig_s−N_s and H_s'=Ig_s', with g_s=T^(p−1)[p−(1−s)m(T/η)^m]. For s<1, g_s' changes sign from positive to negative precisely at T_peak, H_s is asymptotic to (p−1)T^p at zero, and H_s(T_0)=−N_s(T_0)<0. This establishes a single root in the stated bracket and a strict global maximum, also beating the limit at infinity. The partial derivative of H_s in s is the S-weighted integral of h(T)T^p−h(t)t^p>0; H_s'<0 at the root, so T_* increases strictly, including from s=0. At s=1 the strictly increasing g_1 makes H_1 positive for every finite age: T=infinity is the unique extended maximizer. For δ=1−s tending to zero the lower bracket already forces x=T_*/η to infinity; the scaled reward/time converges to C, and x^(p−1)[p−δmx^m] tends to C. Therefore x/X tends to one and writing x=X(1−ε) gives mp ε ~ C X^(1−p), including p<2, p=2, and p>2. For p=m=2 the correction is 1/(2 sqrt(pi)). Independent bounded replay: python3 /workspace/branches/replay_frozen_review.py 3 solved in the scaled gap variable at 65 decimal digits for four (p,m) pairs spanning these regimes and δ=10^−5,10^−12,10^−24; relative coefficient errors decreased to below 10^−5. No all-parameter inference is made from those numerical checks.
 
-The 1980 Routledge and 1984 Reed full texts were not available for direct theorem-level comparison; the Routledge full text was not accessible for a direct theorem-level comparison. This residual risk limits historical priority. Realistic bounded-age yield, carbon benefits, discounting and management interventions fall outside the theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The renewal-reward objective and its derivative, age-dependent catastrophe risk, and salvage are prior ingredients. The supported distinction is the full stationary policy classification and explicit near-complete-salvage correction in the zero-discount, all-shape Weibull and superlinear power-value model. Located primary passages and closest Resultary comparisons do not establish that combined result. Older full-text access gaps leave priority provisional.
+
+## value
+
+PASS
+
+The finite/infinite policy switch is a meaningful boundary of an age-replacement model with salvage; the full theorem says which side is finite for every Weibull shape and gives the scale and first correction of the diverging age. It isolates an actual sensitivity of the unbounded convex value assumption. It is an analytical benchmark for that assumption, not empirical advice to delay forest harvesting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

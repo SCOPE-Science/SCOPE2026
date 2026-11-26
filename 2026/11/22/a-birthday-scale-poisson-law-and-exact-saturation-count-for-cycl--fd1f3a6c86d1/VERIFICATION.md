@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility of the finite checks
+# Independent mathematical audit
 
-The included `verify.py` uses only the Python 3 standard library; run `python3 verify.py` from the directory containing the file. A run on the unmodified standalone script returned:
+## correctness
 
-```
-PASS: 36 exact independent multinomial enumeration instances; 1556964 assertions and arithmetic conditions checked.
-PASS: deterministic roughness identity, pair-collision upper coupling, Poisson parameter, triple-error bound, independent-set zero coefficient.
-LIMIT: finite checks do not establish asymptotics or the Chen-Stein theorem.
-```
+PASS
 
-For \(3\le n\le8\) and \(1\le N\le6\), every labelled category sequence is enumerated (at most \(262{,}144\) possible per case). The script verifies the identity \(D_{n,N}=2N-2T_{n,N}\), the order \(0\le T_{n,N}\le U_{n,N}\), the finite Stirling/independent-set saturation formula, the exact mean \(\mathbb E U_{n,N}=N(N-1)/n\), and the upper bounds on mismatch probability and expected proxy gap. It also checks the formal Poisson error bound is nonnegative. Exact rational comparisons are used for numerical probability checks.
+Summing |a−b|=a+b−2min(a,b) over the simple cycle gives the deficit. Its zero event is independent support; counting a marked occupied vertex with positive cyclic gaps gives n/k times binom(n−k−1,k−1), and labelled surjections give k! S(N,k). In the common-sample coupling, U counts adjacent sample-index pairs. A mismatch T<U requires a specific doubled pair and a third observation at either cycle neighbor, with probability 2/n² per choice, and a union bound gives (N)_3/n². For a given pair, the dependency neighborhood contains itself and 2(N−2) other pairs; the latter each have joint success (2/n)^2 by conditioning on the common draw. All outside indicators collectively use disjoint draws, so b3=0. The local-dependence Chen–Stein bound in the sup-over-events convention is at most b1+b2; together the bound is N(N−1)(9N−16)/n². N=1 has zero deficit and mean; N=2 reduces to one adjacency indicator. This also holds for the triangle, where each vertex still has two distinct neighbors. The growing-mean Poisson normal limit is carried by TV under centering and scaling; the all-supercritical zero-event result follows by truncation at floor(n^(7/12)) and monotonicity, not by applying the bound outside its vanishing-error range.
 
-The infinite Poisson and Gaussian limits rely on the full proof in RESULT.md and on Arratia–Goldstein–Gordon Theorem 1, rather than on enumeration. In particular, the theorem's norm is twice the standard total-variation distance used in the statement; this normalization is explicitly accounted for.
+## originality
+
+PASS
+
+Best of current knowledge: the statistic, gap and surjection counts, and pair-proxy Poisson method are prior or standard. The increment is an explicit transfer to the nonlinear cyclic occupancy deficit with a quantitative whole-law error, together with the exact wrapped saturation coefficient. The accessible histogram work covers moments or the open-chain distribution, not that increment.
+
+## value
+
+PASS
+
+The event of attaining maximal irregularity has a natural role in null calibration of an order-sensitive histogram statistic. The whole deficit law, explicit finite zero-event formula and change from a Poisson birthday law to Gaussian fluctuations give substantially more information than moments, and the closed coefficient can be used without simulating labelled samples. The novelty and value lie in the finite-to-sparse calibration, not in a new general approximation theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

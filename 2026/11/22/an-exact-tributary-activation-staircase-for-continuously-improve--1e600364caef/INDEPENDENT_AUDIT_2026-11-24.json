@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:53:25.813901Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write G for the weighted sum of branch passabilities. On the positive-payoff region log F is strictly concave: log(1-exp(-x0)) is strict in x0 and log G is strict in the branch coordinates. At a common branch marginal tau the efforts are [log(w_i/tau)]_+, G=tau sum_i(w_i/tau-1)_+, and trunk marginal equality gives exp(x0)=1+G/tau. Thus total effort as a function of tau is continuous and strictly decreasing on (0,w_1), ranging from infinity to zero. Setting tau=w_j verifies the thresholds and that equality still gives zero effort to j. Exponentiating the budget yields the stated polynomial, and exp(x0)-exp(x1)=sum_{i>1}(w_i/tau-1)_+ verifies strict trunk dominance only after the second activation. For geometric weights the candidate has finite support. The concavity tangent inequality bounds the log-payoff difference of any positive-payoff competitor by the common budget multiplier times the total effort difference: all omitted-coordinate marginals are no larger, and the inequality extends by finite truncation and summability. Strict concavity gives uniqueness. The geometric-sum factor at j is q^(-(j-1))/(1-q) times [1-q^(j-1)(1+(j-2)(1-q))]; adding the log ratios gives the stated expansion and inversion. For m=1 the limiting trunk advantage is zero, consistent with the one-active-branch case; the positive large-budget advantage in Proof 4 is in its k>=2 case. RESULT.md Proofs 1–5 and checker.py were inspected; the finite random-allocation tests are not the global certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fish-passage model covers more general barrier trees but its budget is over discrete actions.",
+          "The submitted inactive-branch threshold must also pay log(1+G/tau) at the shared barrier; it is not the standard separable branch budget."
+        ],
+        "reasoning": "The more general topology does not give a theorem for the divisible-effort optimizer; standard concavity and KKT certify the new formula but are not themselves claimed contributions.",
+        "searches": [
+          "King and O’Hanley, §2 and §2.1, equations (1)–(5)",
+          "Kettelle, DOI 10.1287/opre.10.2.249, pp. 261–262 cited in RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and checker.py",
+        "King and O’Hanley accepted manuscript, §2.1",
+        "Kettelle DOI and publisher PDF access attempts",
+        "Local Resultary exact and related records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cumulative habitat passability is prior. The tracer objective is unweighted and has no shared-passability trunk; the patch optimizer has no trunk and its square roots occur in an allocation formula, not in an active-count law in B."
+        ],
+        "reasoning": "Neither analogue implies strict downstream effort priority or the square-root law obtained by inverting the actual budget thresholds.",
+        "searches": [
+          "King and O’Hanley accepted manuscript, eqs. (1)–(5)",
+          "Both Resultary staircase records listed above, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The King–O’Hanley route-product weighted sum specializes to the same objective structure, with binary mitigation choices rather than the exponential response to continuous effort.",
+          "The cited Kettelle comparison concerns a serial reliability problem; primary full text was not independently accessible."
+        ],
+        "reasoning": "The branch problem alone is water filling. In the submitted problem the log passability of the trunk couples that branch solution to total budget; a serial sum of unreliabilities does not supply this coupling.",
+        "searches": [
+          "King and O’Hanley, accepted manuscript, §2.1, eqs. (1)–(5)",
+          "Kettelle, DOI 10.1287/opre.10.2.249"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-title hit is the same finding, not a distinct comparator.",
+          "The decaying-tracer record has equal active allocations and switches in a decay parameter; the patch record optimizes a Perron root and switches support with emigration."
+        ],
+        "reasoning": "Neither distinct record tabulates the coupled B_j or geometric-weight active count. The same-day record was compared on its actual objective, not discounted by date.",
+        "searches": [
+          "Resultary local search, exact frozen title and related active-support staircases",
+          "Resultary 2026/11/22/SCOPE-sharp-active-branch-staircase-for-decaying-environmental-dna-tra--cb9ebfc51ac6",
+          "Resultary 2026/11/2/SCOPE-sharp-resource-allocation-staircases-under-uniform-patch-dispers--5d8b1181bd2f"
+        ]
+      },
+      "rationale": "The product of route passabilities and additive accessible habitat are established, as is marginal equalization. The supported distinct claim is the coupled continuous-budget staircase, its strict common-barrier advantage once branching is active, and the geometric-weight support asymptotic. None of the strongest inspected comparators supplies this combination or a theorem that gives the coupled thresholds directly.",
+      "residual_risks": [
+        "Kettelle full text and the cited King et al. (2017) DOI copy were not accessible in this review.",
+        "An equivalent allocation result under reliability or generic resource-allocation terminology could remain unindexed; the inspected comparison does not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Objective structure covered; continuous budget theorem not supplied",
+          "evidence": [
+            "Route passabilities are multiplied, weighted habitats are summed, and budget-constrained actions are binary."
+          ],
+          "identifier_or_url": "https://kar.kent.ac.uk/46452/1/FPBRP%20Revisited%20R1.pdf",
+          "material_read": "Accepted manuscript §2 and §2.1, eqs. (1)–(5), printed pp. 5–6",
+          "method": "Lawful open PDF, bounded passage near text offset 16000",
+          "title": "Optimal Fish Passage Barrier Removal—Revisited",
+          "trigger": "Same accessibility objective in a barrier network"
+        },
+        {
+          "assessment": "Access limitation, not evidence of noncoverage",
+          "evidence": [
+            "Both routes returned HTTP 403. The source description of the serial-stage objective was not taken as independent full-text evidence."
+          ],
+          "identifier_or_url": "https://doi.org/10.1287/opre.10.2.249",
+          "material_read": "Full text not independently inspected; pp. 261–262 identified by the frozen record",
+          "method": "DOI landing and identified publisher PDF open-access attempts",
+          "title": "Least-Cost Allocations of Reliability Investment",
+          "trigger": "Exponential effort in reliability allocation"
+        },
+        {
+          "assessment": "Different objective, constraint role, and switching parameter",
+          "evidence": [
+            "Support switches at log((j+1)/j) in the decay parameter, with equal active flows."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-active-branch-staircase-for-decaying-environmental-dna-tra--cb9ebfc51ac6",
+          "material_read": "RESULT.md Finding and proof, offset 0 through 4486",
+          "method": "Local Resultary mirror",
+          "title": "Sharp active-branch staircase for decaying environmental-DNA transport",
+          "trigger": "Same-day active-branch staircase"
+        },
+        {
+          "assessment": "Analogous support cutoff, not implication-equivalent",
+          "evidence": [
+            "The criterion is a recruitment-matrix spectral radius and the support switches with dispersal, not budget."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-resource-allocation-staircases-under-uniform-patch-dispers--5d8b1181bd2f",
+          "material_read": "RESULT.md Finding and proof, offset 0 through 4948",
+          "method": "Local Resultary mirror",
+          "title": "Sharp resource-allocation staircases under uniform patch dispersal",
+          "trigger": "Sparse optimization of an ecological allocation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A common downstream bottleneck and ranked habitats are natural features of the ecological model. Full budget thresholds and the direction of the trunk-versus-branch effort inequality are usable structural benchmarks beyond numerical optimization at a few budgets. The geometric sequence isolates a precise law for diversification across many small tributaries. This is an idealized mathematical benchmark, not an empirical prescription.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

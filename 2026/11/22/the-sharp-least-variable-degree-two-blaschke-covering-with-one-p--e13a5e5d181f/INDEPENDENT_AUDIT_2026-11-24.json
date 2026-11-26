@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:17:05.291379Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each Blaschke factor has strictly positive boundary argument derivative P_a, the Poisson kernel with mean one; thus |B'|=P_a+P_b and the speed has mean two, also for repeated or zero zeros. Fourier pairing gives the pair integral ∫P_a P_b dθ/(2π)=(1−|a conjugate(b)|²)/|1−a conjugate(b)|², yielding the frozen variance formula. After rotation and interchange write a=r, |b|=t≤r. At fixed t>0 the pair integral uniquely minimizes when its denominator is greatest, i.e. b=−t. The resulting objective is F_r(t)=2[r²/(1−r²)+t²/(1−t²)−2rt/(1+rt)]. Its second derivative is 4[(1+3t²)/(1−t²)³+2r²/(1+rt)³]>0; its first derivative is negative at 0 and positive at r. Thus both endpoints are excluded and the unique global minimum is at the stated root. Comparing s/(1−s²)², strictly increasing in s, to r/(1+rs)², strictly increasing in r at fixed s, verifies strict monotonicity. The root equation has nonzero s-derivative at (0,0) and is invariant under simultaneous sign reversal, so the local branch is analytic and odd. The r³ and r⁵ coefficients follow from A+2=−2 and C+4A+1=1−4A, hence A=−4 and C=32. At r→1 the monotone limit solves L=(1−L)², since 1+L is positive, giving (3−sqrt(5))/2. This verifies the sharp value and all equality cases without running the supplied diagnostic script.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary f37fec836ddf studies the same outermost-radius constraint and the same variance in degrees d≥3 for sufficiently small radii; it does not state the degree-two all-r problem. f101e09ba9b4 and a712e5339c70 concern local angular stability or stiffness with all moduli fixed equal.",
+          "The checked Kovalev–Yang statements give the m,M feasible region and pointwise extremizers. Gluchoff–Hartmann's exact Chapter 9 results could not be inspected; only their landing information and the frozen paper's description of common-radius Hardy means were available."
+        ],
+        "reasoning": "A pointwise extremal theorem has neither the fixed outermost-radius family nor its squared integrated value, and local angular optima for equiradial products do not optimize the inner radius. The higher-degree small-radius result is not a case covering d=2 or r approaching 1.",
+        "searches": [
+          "Resultary: higher-degree Blaschke covering variance under outermost modulus, and equiradial harmonic energy minimization",
+          "Kovalev–Yang arXiv:2007.09760, Theorems 1.2, 1.4",
+          "Gluchoff–Hartmann Hardy Means of a Finite Blaschke Product and Its Derivative, Chapter 9"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e13a5e5d181f (self), 7656437a2785, f37fec836ddf, f101e09ba9b4, a712e5339c70",
+        "arXiv:2007.09760",
+        "Springer Chapter 9 DOI 10.1007/978-1-4614-5341-3_9 (landing information only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixing a+b does not describe the circles of possible second zeros at fixed t with one zero pinned to r, and does not compare points across 0≤t≤r. The local polygon theorem works in another degree/range.",
+          "Kovalev–Yang keep M fixed when maximizing m in the nearly-constant direction, not r fixed while minimizing integrated variance."
+        ],
+        "reasoning": "The standard Fourier identity fixes the energy representation, not the optimization constraint. The strict antipodal phase and interior scalar optimum over the full interval, including its nonzero limiting inner radius, are not implied by the checked broader results.",
+        "searches": [
+          "Compare the Finding passages of Resultary 7656437a2785 and f37fec836ddf and arXiv:2007.09760 Theorems 1.2, 1.4 with frozen equation (1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The objective is ||B'||² in boundary H² minus 4, or 2 times the H² norm squared of the analytic positive-frequency sum of the two Poisson kernels. This is not the usual interior Dirichlet energy or the Hardy norm of B itself.",
+          "Resultary 7656437a2785 gives the same power-sum variance objective but constrains the complex sum of the zeros. Kovalev–Yang Theorems 1.2 and 1.4 use the pointwise infimum and supremum of speed instead."
+        ],
+        "reasoning": "The H² and Poisson aliases preserve the objective and the controlling parameter remains the largest zero modulus. Neither a centroid constraint nor pointwise speed extrema is an equivalent constraint/objective pair.",
+        "searches": [
+          "Resultary: fixed outermost zero modulus degree-two Blaschke variance, Hardy means, Poisson-kernel pair energy, Dirichlet terminology",
+          "Literature: constrained degree-two Blaschke |B'| L² norm and boundary Poisson-kernel pair energy extremizers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e13a5e5d181f is the identical bound finding and is not another coverage source; the related same-day 7656437a2785 and f37fec836ddf have the different families specified above.",
+          "The focused literature query did not surface an exact formula beyond the related pointwise work."
+        ],
+        "reasoning": "The claim is an analytic function of r rather than a tabulated number. The exact classification was checked in the finding catalogue, with statement-level comparison of the same-day hits; a date match alone says nothing about priority.",
+        "searches": [
+          "Resultary: least-variable degree-two Blaschke covering with one outermost zero, sharp radial equation, variance optimizer"
+        ]
+      },
+      "rationale": "The Fourier and Poisson identities and the same variance in other parameter families are known. The supported distinct result is the complete degree-two, fixed maximum modulus L² optimum, including strict inward relaxation and the full-r endpoint law. The available comparisons do not prescribe this optimizer or imply it by changing coordinates in a covered problem.",
+      "residual_risks": [
+        "No lawful full text was found for Gluchoff–Hartmann Chapter 9. An unindexed equivalent under Poisson energy or derivative-norm terminology is not excluded by the bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related pointwise extremal problem, not the L² fixed-radius minimization",
+          "evidence": "The feasible pair is infimum and supremum of |B'|, with extremizers in terms of hypergeometric polynomials. One optimality statement maximizes the infimum at fixed supremum.",
+          "identifier_or_url": "https://arxiv.org/pdf/2007.09760",
+          "material_read": "Theorem 1.2, p. 2, text from offset 4700; Theorem 1.4, p. 3, text from offset 6200",
+          "method": "OA PDF theorem comparison",
+          "title": "Extreme values of the derivative of Blaschke products and hypergeometric polynomials",
+          "trigger": "Closest primary literature on making boundary speed nearly constant"
+        },
+        {
+          "assessment": "Residual access risk, not a full-text noncoverage finding",
+          "evidence": "The exact theorem statements could not be obtained; the frozen record attributes common-radius interior Hardy mean results to the chapter.",
+          "identifier_or_url": "https://doi.org/10.1007/978-1-4614-5341-3_9",
+          "material_read": "Official landing information only; cited Chapter 9 Theorems 7–10 not available in lawful OA from the checked routes",
+          "method": "Springer/DOI attempt and repository recovery; no verified lawful open alternate used",
+          "title": "Hardy Means of a Finite Blaschke Product and Its Derivative",
+          "trigger": "Potential H² interpretation and common-radius derivative extremal theorems"
+        },
+        {
+          "assessment": "Related same-day results, but not the same claimed optimization",
+          "evidence": "The first fixes the centroid for small nonzero sum, the second fixes largest modulus but treats d≥3 and sufficiently small radii.",
+          "identifier_or_url": "Resultary 7656437a2785 and f37fec836ddf",
+          "material_read": "Both local-mirror RESULT.md Findings, offset 0",
+          "method": "Exact published-statement comparison through local mirror",
+          "title": "Fixed-centroid Blaschke speed variance; Sharp inward relaxation of small-radius Blaschke zero polygons",
+          "trigger": "Closest published findings with the identical variance and either degree overlap or constraint overlap"
+        },
+        {
+          "assessment": "Different degree and fixed equal radii; no optimization of inward displacement",
+          "evidence": "The first treats angular stability for n≥5 and the second degree-four local angular-Hessian crossover.",
+          "identifier_or_url": "Resultary f101e09ba9b4 and a712e5339c70",
+          "material_read": "Indexed findings for common-radius local angular results",
+          "method": "Catalogue statement-level comparison",
+          "title": "Strict angular stability and universal soft-mode reversal for equiradial Blaschke configurations; A unique angular stiffness crossover for four equiradial Blaschke zeros",
+          "trigger": "Possible exact angular minimization covering the candidate phase"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Degree two is the first covering with a choice of how two Poisson-kernel speed contributions can balance. Fixing the outermost radius prevents the constant-speed z² map and fixes how close a zero may come to the boundary. The answer gives a sharp global comparison against the natural equiradial antipodal baseline: that baseline always loses, and the optimum inner zero approaches a precise radius strictly inside the disk even as the prescribed outer zero tends to the boundary. This is a complete, motivated extremal classification and boundary law, rather than just a restatement of Parseval or a one-parameter numerical gain.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

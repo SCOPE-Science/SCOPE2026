@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:44:09.477072Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For d=2k, parity of k coordinates yields k neighbors of each color, while one color is excluded by positive degree. Two colors cannot meet the floor-half cap in odd degree. In Q3 every pair on the same parity side shares a neighbor, so that side needs four colors. In Q5 a hypothetical three-coloring forces multiplicities (2,2,1) at each vertex. On one parity side a color class of size s then has 5s=16+t where t even-side neighborhoods have two members; every distance-two pair contributes two such incidences and distance-four pairs contribute none, hence t=2e_2 and s is 4 or 6. For six members, exactly eight pairs would be at distance four. This induced graph is triangle-free with codegrees at most two, since the distance-four generators are the all-ones vector with one coordinate removed, and sums of two different generators are distance-two vectors with two ordered representations. On six vertices a triangle-free nonbipartite graph has a chordless five-cycle and at most two further edges; the bipartite splits with capacity for eight edges are 2:4 and 3:3, both requiring codegree at least three. Thus all three classes would have size four, not totaling sixteen. A separate exhaustive local-incidence check (`python3 /workspace/branches/independent_checks.py 2`) found 40 admissible individual classes, all of size four, among the 65,536 subsets of the odd half of Q5. Two-bit syndrome maps realize four colors for d=3,5; seven distinct nonzero three-bit changes realize the claimed 3,3,2 construction on Q7 (also checked with a different partition). In the two-coordinate lift, flipping the first new coordinate preserves the color and flipping the second changes it; at most one neighbor of any color is added, which exactly matches the increased cap. This proves the classification for all integers d>=2, not just the finite checks. The frozen checker uses int.bit_count(), requiring Python 3.10+, despite the 3.8+ reproducibility note; this does not affect the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The vertex paper treats cycles, complete graphs and general bounds. Resultary e7314efe9837 classifies the same invariant on complete multipartite graphs (Finding). Krotov–Valyuzhenich Theorem 3 is a census of 1-correlation-immune perfect three-colorings of the 5-cube."
+        ],
+        "reasoning": "A Q5 is not a complete multipartite graph (it is connected and bipartite, but not complete bipartite), and a perfect-coloring census does not cover arbitrary local frequency caps. The general bounds do not settle the exact values claimed across dimensions.",
+        "searches": [
+          "arXiv:2605.23828 §2",
+          "arXiv:2311.05566 §§4.1, 4.3.1",
+          "Resultary e7314efe9837"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.23828",
+        "arXiv:2311.05566",
+        "Resultary e7314efe9837 and 8d01eafa829f",
+        "Frozen RESULT.md, VERIFICATION.md and verify_cube_majority.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A (3,3,2) multifold Hamming-code partition gives precisely those cell sizes in every closed neighborhood. Theorem 3 requires perfect coloring and correlation immunity."
+        ],
+        "reasoning": "Deleting the center only reduces the closed-neighborhood multiplicities, so the Q7 existence statement follows directly and is not original. At Q5 the open count bound does not require equitable transition counts or correlation immunity, so the restricted census does not exclude a hypothetical nonperfect coloring; the six-vertex obstruction does. The full result also proves the all-odd lift.",
+        "searches": [
+          "arXiv:2311.05566 §4.3.1 Theorem 6; §4.1 Theorem 3",
+          "Resultary: strong-majority of Boolean cubes and perturbations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kalinowski et al. use the same open per-color half-neighbor cap; Resultary 8d01eafa829f uses strong-majority edge coloring on the cube. A local coupon pattern (3,1,1) in degree five meets coverage but violates the cap."
+        ],
+        "reasoning": "The earlier vertex definition is the same but not a solved Boolean-cube classification in the inspected section. Edge incidences and coupon coverage are not equivalent to open-neighborhood counts of vertex colors.",
+        "searches": [
+          "Strong majority colorings of graphs, arXiv:2605.23828, pp. 1, 3–5",
+          "Resultary: strong-majority vertex colouring Boolean hypercube Q5 Q7",
+          "Coupon coloring of hypercubes and neighborhood multiplicities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Theorem 3 counts nine equivalence classes of restricted Q5 perfect colorings. Theorem 6 gives 69 equivalence classes of (3,3,2) partitions of Q7. Checked corpus hits concern complete multipartite vertices or hypercube edges."
+        ],
+        "reasoning": "The Q7 census supplies an exact matching existence witness; the perfect Q5 count is not a table of feasibility of arbitrary strong-majority colorings, and the corpus comparators do not tabulate the vertex invariant across cubes.",
+        "searches": [
+          "Resultary: hypercube strong-majority coloring vertex and edge invariants",
+          "arXiv:2311.05566 Theorems 3, 6"
+        ]
+      },
+      "rationale": "The Q7 existence claim is covered and correctly credited. The case distinctions in the full vertex-invariant classification, notably no unconstrained three-coloring of Q5, survive the checked perfect-coloring, coupon-coloring and same-invariant corpus comparisons.",
+      "residual_risks": [
+        "The targeted coupon-coloring lookup did not yield a primary passage; the mathematical distinction between coverage and a cap is independent of that search.",
+        "An earlier exact treatment via regular cube packings or an unindexed equivalent formulation cannot be ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same invariant; bounds and other families, no cube classification in the inspected section",
+          "evidence": "Open per-color threshold, cycles, complete graphs and general constructions.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.23828",
+          "material_read": "PDF definition p. 1 and §2 pp. 3–5",
+          "method": "OA primary full-text sections",
+          "title": "Strong majority colorings of graphs",
+          "trigger": "Original invariant and possible Boolean-cube applications"
+        },
+        {
+          "assessment": "Q7 existence covered, unrestricted Q5 lower bound not covered by these theorems",
+          "evidence": "Perfect Q5 colorings have extra hypotheses; Q7 multifold (3,3,2) closed-ball partitions are explicit.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.05566",
+          "material_read": "§4.1 p. 17 Theorem 3, §4.3.1 pp. 19–21 including Theorem 6",
+          "method": "OA primary full-text passages",
+          "title": "On degree-3 and (n-4)-correlation-immune perfect colorings of n-cubes",
+          "trigger": "Q5 restricted census and Q7 direct prior upper bound"
+        },
+        {
+          "assessment": "Different graph family; no priority inference from date",
+          "evidence": "Classifies complete multipartite graphs by part sizes and evenness, not cubes of dimension at least three.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-strong-majority-vertex-colouring-numbers-of-complete-multipartit--e7314efe9837/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary indexed search and mirrored primary statement",
+          "title": "Strong-majority vertex-colouring numbers of complete multipartite graphs",
+          "trigger": "Same-day exact classification using the same invariant"
+        },
+        {
+          "assessment": "Edge invariant, not vertex invariant",
+          "evidence": "The relevant predicate is Maj' rather than Maj.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-walsh-rigidity-of-optimal-strong-majority-edge-colourings-of-hyp--8d01eafa829f/RESULT.md",
+          "material_read": "Matching record's invariant and claim",
+          "method": "Resultary indexed candidate comparison",
+          "title": "Walsh rigidity of optimal strong-majority edge colourings of hypercubes",
+          "trigger": "Same cubes and similarly named exact invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives the exact invariant for a canonical infinite graph family. In dimension five the need for a fourth color persists even without any symmetry or equitability assumption; the link to the extremal six-vertex distance-four subgraph explains why, rather than just providing a solver count. The parity and lifting constructions identify the stable regime, incorporating rather than reinventing the known Q7 existence result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

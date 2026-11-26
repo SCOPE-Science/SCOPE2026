@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:54:43.958045Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct substitution in the specified stages gives aI+ρpJ and aI+ρuJ+ρ²vJ², with u=p²/z, v=p(1−p/z), u+v=p and a+p=1. These coefficients are nonnegative for z>0, and their row and column sums are bounded by a+ρp and a+ρu+ρ²v, respectively, both strictly below 1. The Euclidean norm estimate follows and the dissipativity bound follows from ||J||₂≤1, including d=1 (the scalar, normal boundary case). With h>0 and k fixed, the exact power is exp(−kz) times a polynomial in z and J, while the two numerical powers converge to (ρJ)^k and (ρ²J²)^k. Each surviving shift has norm one. At ceil(d/2)≤k<d, an a-free ETD2 monomial with t linear factors in J has degree 2k−t and order z^(−t), so the first surviving degree is d−1 with t=m=2k−d+1, 1≤m≤k. After scaling by z^m, the sole leading shift is binom(k,m)ρ^(d−1)J^(d−1); terms containing a and the exact power are exponentially small. When k≥d all a-free monomials vanish and the stated algebraic limit is not asserted. At z→0, p=z−z²/2+O(z³), u=z−z²+O(z³), and v=z²/2+O(z³), giving the stated local orders against the exact exponential. Inspected the frozen tests as corroboration, without executing the verifier.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hochbruck–Ostermann control the residual nonlinearity and regularity data for stiff-order estimates on a fixed time interval.",
+          "The Zoto–Bowman treatment of the transformed remainder as nonstiff is not a uniform-in-κ estimate for this specific family.",
+          "Petkov's paper concerns computation of the matrix exponential by its title; the full text was not accessible."
+        ],
+        "reasoning": "Here the explicit Jacobian grows like κρ for d≥2. Order bounds with constants depending on that residual do not resolve the fixed-step singular limit. This family is not shown to be a specialization of a broader result giving the exact defect constants.",
+        "searches": [
+          "DOI 10.1137/040611434, Assumptions 1–3 and Theorem 4.7",
+          "arXiv:2305.12488v1, pp. 15–16",
+          "DOI 10.1155/2023/4908185"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2305.12488v1",
+        "arXiv:2208.14292v2",
+        "DOI 10.1137/040611434",
+        "DOI 10.1155/2023/4908185 (bibliographic only)",
+        "Resultary 211259f4d566 and 6b820ebadcca"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier method formulas permit construction of the test updates; the prior example shows a qualitative error, and the stiff-order theorem does not analyze the joint scaling of the explicit residual.",
+          "The new comparison uses repeated diagonal damping, one versus two limiting shift edges, and survival of exactly the first admissible inverse-power term after shift truncation."
+        ],
+        "reasoning": "The coefficient and its applicable interval are not consequences stated or mechanically specialized from earlier error estimates. They require tracking the nilpotent-degree truncation and the suppressed first-superdiagonal term in powers of the known method.",
+        "searches": [
+          "arXiv:2305.12488v1, diagonal-only example pp. 16–17",
+          "arXiv:2208.14292v2, ETD2RK update pp. 2–3",
+          "DOI 10.1137/040611434, Theorem 4.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zoto–Bowman split T=D+S, with exact D and numerical treatment of S, and demonstrate an added error in a diagonal-only ERK4 computation.",
+          "Permyakova–Goldobin use the same ETD2RK stage formula with an arbitrary linear part."
+        ],
+        "reasoning": "The methods themselves are not new. The ERK4 example has distinct diagonal entries and a different scheme. Putting all of the test generator in the linear part of ETD2RK would yield the exact step and remove the defect rather than give an equivalent test of the diagonal split.",
+        "searches": [
+          "arXiv:2305.12488v1, Schur splitting pp. 14–17",
+          "arXiv:2208.14292v2, ETD2RK pp. 2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Finding of 211259f4d566 gives dimension-sharp mixing for a directed quantum-jump cycle, including a different large-step constant.",
+          "The distinct same-day Finding of 6b820ebadcca gives a nonzero fixed-step regularization limit for a port-Hamiltonian DAE with Strang splitting."
+        ],
+        "reasoning": "Both are exact singular-limit results, but neither is a table or formula for the nilpotent chain or the ETD2 cutoff/residue; the maps, norms or limiting families differ. Same-day dating is not treated as an ordering.",
+        "searches": [
+          "Resultary focused searches for diagonal-Schur nilpotent stiff-limit defect and ETD2 coefficient; nearest records 211259f4d566 and 6b820ebadcca"
+        ]
+      },
+      "rationale": "The diagonal Schur split, qualitative splitting errors, and the ETD2 scheme predate the record. The supported distinct result is the exact fixed-positive-step, fixed-iterate defect and sharp post-cutoff ETD2 residue for the strongly dissipative repeated-diagonal Jordan family. The closest inspected method and theory do not supply the dimension/iterate thresholds with these norm constants.",
+      "residual_risks": [
+        "Petkov full text not recovered. Ranked indexed searches and the compared passages do not certify priority or exclude other analyses of split stiff test families."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior split and qualitative numerical error; different matrix and integrator",
+          "evidence": "T=D+S with exact diagonal treatment; comparison of diagonal-only and full-matrix ERK4 with distinct diagonal eigenvalues.",
+          "identifier_or_url": "arXiv:2305.12488v1",
+          "material_read": "PDF pp. 14–17, diagonal split and numerical example",
+          "method": "OA full-text passage inspection",
+          "title": "Schur Decomposition for Stiff Differential Equations",
+          "trigger": "Closest diagonal-only method and error discussion"
+        },
+        {
+          "assessment": "Controls step-size error under different uniformity assumptions",
+          "evidence": "Regularity and local Lipschitz controls enter stiff convergence; no fixed-h error law for an explicit Jacobian unbounded in κ.",
+          "identifier_or_url": "https://doi.org/10.1137/040611434",
+          "material_read": "OA author PDF pp. 5–6 and 12, Assumptions 1–3 and Theorem 4.7",
+          "method": "OA full-text passage inspection",
+          "title": "Explicit Exponential Runge–Kutta Methods for Semilinear Parabolic Problems",
+          "trigger": "Potential broader stiff-order coverage"
+        },
+        {
+          "assessment": "Prior stages, not a repeated-diagonal chain analysis",
+          "evidence": "ETD2RK step for Lu+f uses full exponential of its chosen L.",
+          "identifier_or_url": "arXiv:2208.14292v2",
+          "material_read": "PDF pp. 2–3",
+          "method": "OA full-text passage inspection",
+          "title": "High-Order Schemes of Exponential Time Differencing for Stiff Systems with Nondiagonal Linear Part",
+          "trigger": "Equivalent ETD2 formulation and contrasting split"
+        },
+        {
+          "assessment": "Different family and observable",
+          "evidence": "Directed quantum-jump cyclic dynamics, Hilbert–Schmidt mixing factors and large-step trace-error limit 2(1−1/n).",
+          "identifier_or_url": "2026/10/18/SCOPE-dimension-sharp-mixing-slowdown-in-a-trace-preserving-exponentia--211259f4d566",
+          "material_read": "RESULT.md Finding",
+          "method": "Local index and mirror",
+          "title": "Dimension-sharp mixing slowdown in a trace-preserving exponential-Euler setting",
+          "trigger": "Large-step sharp exponential Euler comparison"
+        },
+        {
+          "assessment": "Distinct and not equivalent",
+          "evidence": "Strang splitting of a regularized DAE and an error limit in a regularized energy norm.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-noncommuting-regularization-splitting-limit-for-a-port-h--6b820ebadcca",
+          "material_read": "RESULT.md Finding",
+          "method": "Local index and mirror",
+          "title": "A sharp noncommuting regularization splitting limit for a port-Hamiltonian system",
+          "trigger": "Same-day fixed-step singular splitting limit"
+        },
+        {
+          "assessment": "Text not compared; no negative full-text claim",
+          "evidence": "The title concerns full matrix exponentiation, a different operation from explicitly stepping the triangular couplings.",
+          "identifier_or_url": "https://doi.org/10.1155/2023/4908185",
+          "material_read": "Bibliographic identification only; full-text access returned 403 and no OA copy was recovered",
+          "method": "Bounded full-text and alternate-copy lookup",
+          "title": "Jordan–Schur Algorithms for Computing the Matrix Exponential",
+          "trigger": "Possible coverage via another Jordan–Schur use"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This exact test family separates positivity and strict Euclidean contraction from correct elimination of fast dynamics, in a diagonal split used for exponential methods. The differing depth thresholds and the sharp algebraic residual despite a zero limiting error give a practical mathematical distinction that a scalar stability or conventional local-order check would miss. The result is appropriately limited to two steppers, fixed iterates, and this family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

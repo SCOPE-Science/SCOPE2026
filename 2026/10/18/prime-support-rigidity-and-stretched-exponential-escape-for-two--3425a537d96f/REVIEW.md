@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact odd-return identity \(y_{r+1}=k_ry_r\) and \(\gcd(k_r,y_r)=1\) force pairwise disjoint new prime factors. The elementary factorial lower bound converts this to \(\log y_r\ge(1+o(1))r\log r\); bounding each intervening \(2\)-adic waiting time and inverting that relation proves the full-clock constant \(\sqrt{(\log2)/2}\). The proof treats both signs, any escaping initial state, boundary terminal factors, and all ordinary iterate times. The executable finite checks agree with the algebra but are not used as infinite proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Ye's October 2026 paper [1] establishes the orbit classification and exact odd-return identity, not a lower escape rate in ordinary time or the pairwise-prime-support theorem. Sedaghat [2] gives the same identity and only a geometric bound indexed by odd returns. Sedaghat [3] examines the related recursion without the asserted rate. Targeted prior-result and primary literature comparisons found no stronger result implying the stated quantitative theorem. The conclusion is derived from those known identities, so it may have been noticed elsewhere without being stated.
+PASS
 
-**Value — PASS.** The exact mechanism of one genuinely new prime support at each odd return upgrades a qualitative escape classification into quantitative information about arithmetic complexity and a universal stretched-exponential growth floor in the original dynamical time. The ordinary-time estimate does not follow simply from the previously published geometric odd-return lower bound, since the number of intervening halvings is unbounded. This addresses a natural unresolved quantitative aspect of the classified maps.
+For either sign, the next odd term is y_i k_i after j_i steps. Escape excludes k_i=1 (a repeated odd term), y_i=1, and zero. Since k_i divides y_i+epsilon and all earlier multipliers divide y_i, induction gives precisely the pairwise coprimality and the additive formula for omega. The resulting odd-prime product is at least (r+2)!/2; monotone inversion of r log r gives r <= (1+o(1)) L_r/log L_r for L_r=log y_r, even when L_r is much larger. At T_r <= t < T_{r+1}, x_t >= y_r, and bounding each j_i for i<=r by log(y_r+1)/log 2 gives t <= (1/log 2+o(1)) L_r^2/log L_r. Thus t log t <= (2/log 2+o(1))L_r^2, giving the exact stated constant in the ordinary iteration clock. Proof line 33 means additivity, not multiplicativity, of omega on coprime arguments; the displayed formula is correct. The attached Python test and its recorded output check finite return blocks and prime products, not the rate; the infinite proof was reconstructed without running the archived code.
 
-**Scientific limitations.** No optimality of the constant, upper growth rate, or analogue for the distinct symmetric map is proved. Independent validation has not been performed.
+## originality
 
-**Closest literature.** [1] Xuda Ye, arXiv:2610.10660v1; [2] H. Sedaghat, arXiv:2004.07357v1; [3] H. Sedaghat, arXiv:2005.10712v1.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge pass for the prime-support refinement and full-clock bound, not for the known return formulas or escape classification. The closest inspected papers supply the return multiplications and return-count growth, but not the factorial prime-support step and its conversion to ordinary time.
+
+## value
+
+PASS
+
+This quantifies escape in the natural iteration clock for every escaping orbit of both signed maps, where long halving runs prevent an odd-return rate from being read directly as a time rate. New prime support gives the substantive sqrt(log t) gain over the analogous estimate based only on geometric growth at the odd returns. It complements the known qualitative classification and does not depend on a distribution of seeds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:36:33.584156Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof (lines 3–42)",
+        "Frozen VERIFICATION.md, lines 18–22, checker.py and checker_output.json",
+        "Independent bounded replay: /workspace/branches/71559d41-1ad6-451c-8712-963953e7b58c/reproduce.py and reproduction-output.txt; command python reproduce.py 6"
+      ],
+      "rationale": "In the subdivision-incidence graph, distinct selected originals witness each other at distance two, a selected original and inserted vertex witness one another only if incident, and distinct inserted vertices witness one another exactly when their parent edges share an endpoint. For a fixed set B of omitted originals, all pairs inside B must be selected to dominate their inserted vertices. A crossing edge is required to dominate a lone omitted original (b=1), to witness the sole forced B-edge (b=2), or to witness a lone selected original (a=1). For b≥3 all forced inserted vertices already have witnesses, and every optional inserted vertex has a selected original endpoint. Thus the free within-A choices and the cross-edge exclusion give exactly the two cases of Q and the displayed polynomial. The minimum-size contributions from b=0,1,2 are 1, n(n−1), and n(n−1)(n−2); from b=3 it is binom(n,3), except when n=4 and the lone selected original needs an extra cross edge. For b≥4 the forced size bound is n+b(b−3)/2>n. This includes n=3 with b=3 and no selected originals. A separate definition-level enumeration matched every coefficient for n=3,4,5,6, with minima 14,37,91,171 at degrees 3,4,5,6.",
+      "residual_risks": [
+        "The uploaded checker was inspected, not executed. The independent replay tests only n≤6; the general proof is the classification by omitted originals. No claim extends to other base graphs or partial subdivisions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.1 gives γ_t2(S(G))=i_t2(S(G))=n−p_3(G), which recovers the least degree since K_n has no induced P_3.",
+          "The polynomial article gives formulas for other families including stars, complete bipartite graphs and friendship graphs in the inspected passages. The closest subdivision census concerns minimum sets on S(K_{p,q}), p,q≥2, not all sizes on subdivided complete graphs."
+        ],
+        "reasoning": "A general optimum-size theorem does not count attaining configurations. The prior enumerative families do not include S(K_n) for the claimed parameter range under the same invariant.",
+        "searches": [
+          "arXiv:2609.33932v1, definition of p_3 and Theorem 2.1",
+          "arXiv:2107.01424v1, §3, semitotal-domination polynomial families",
+          "SCOPE-39e3bfc786d4, Finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.33932v1",
+        "arXiv:2107.01424v1",
+        "DOI:10.1002/num.22746 (access attempt)",
+        "Local published Resultary index and SCOPE-0f19715c7567, SCOPE-39e3bfc786d4, SCOPE-5479a781148f and SCOPE-eae46f0c6567"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The optimum theorem accounts for n but not its multiplicity. Independence forbids all edges with a selected original endpoint, so the previous independent count cannot evaluate the effect of allowing both endpoints' incident selections, in particular compulsory crossing edges at b=1,2."
+        ],
+        "reasoning": "The exact cross-edge restrictions yield additional information at both the minimum and every larger degree; the minimum multiplicity is derived from this enumerator rather than claimed as independent of it.",
+        "searches": [
+          "arXiv:2609.33932v1, Theorem 2.1",
+          "SCOPE-0f19715c7567, independent-set polynomial",
+          "arXiv:2107.01424v1, §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The central graph C(K_n) is exactly S(K_n), since the extra connections between originals of the central graph apply only to nonedges of the complete base graph. The inspected record's generating function is for independent semitotal sets, not all semitotal sets.",
+          "Its minimum-size coefficient is 1+binom(n,3)−4·1_{n=4}; the omitted b=1,2 cases are necessarily non-independent and contribute n(n−1)^2 to the full coefficient."
+        ],
+        "reasoning": "The graph alias is exact, but the set classes are not equivalent. Ordinary domination likewise drops the witness condition, e.g. when b=2 and the forced inserted vertex has no crossing witness.",
+        "searches": [
+          "Local Resultary semantic checks for subdivision of complete graphs, central complete graphs, and incidence/inserted-vertex semitotal sets",
+          "SCOPE-0f19715c7567, RESULT.md offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-0f19715c7567 counts the independent subclass on the identical graph. SCOPE-39e3bfc786d4 counts minima on subdivided complete bipartite graphs. SCOPE-5479a781148f counts double domination in that bipartite family. SCOPE-eae46f0c6567 counts ordered total-domination sequences on the same subdivided complete graph."
+        ],
+        "reasoning": "No inspected exact table or catalogue statement supplies this cardinality polynomial or full minimum coefficient. The nearest database hits have mathematically different feasibility rules, base graphs, or counted objects, not just different titles.",
+        "searches": [
+          "Local Resultary four-key searches for full polynomial, cardinality distribution, minimum multiplicities, and inserted-vertex encoding"
+        ]
+      },
+      "rationale": "The entire cardinality enumerator and resulting full minimum-set multiplicity are supported as distinct by the inspected comparisons. The least degree n is known from a general theorem in the earlier Cabrera-Martínez et al. preprint; journal publication was not established here. Neither that parameter theorem nor the independent semitotal polynomial on the identical graph gives the missing sets that contain adjacent selected vertices.",
+      "residual_risks": [
+        "The graph-operations paper was not available in full text. No primary-literature search hit or miss is inferred from the deferred requests; comparisons use the source passages listed above. Unindexed exact counts may exist, so this is a bounded originality decision, not a guarantee of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive coverage of the minimum number, not the claimed enumerator",
+          "evidence": [
+            "γ_t2(S(G))=i_t2(S(G))=n−p_3(G)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.33932v1",
+          "material_read": "p. 3, p_3 definition near offset 7000; p. 4, Theorem 2.1 near offset 10800",
+          "method": "lawful OA PDF passages",
+          "title": "On the (independent) semitotal domination in subdivision, middle, and central graphs",
+          "trigger": "Direct stronger parameter theorem for subdivisions"
+        },
+        {
+          "assessment": "Same invariant for other families in the inspected text",
+          "evidence": [
+            "Gives polynomial formulas for stars, complete bipartite and friendship graphs, with additional special families."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2107.01424v1",
+          "material_read": "§3, pp. 4–5, offsets 11800 and 15350",
+          "method": "lawful OA PDF passages",
+          "title": "On the semitotal dominating sets of graphs",
+          "trigger": "Prior semitotal cardinality polynomials"
+        },
+        {
+          "assessment": "Not used to imply absence of coverage",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1002/num.22746",
+          "material_read": "Bibliographic identification only; full text not obtained",
+          "method": "Bounded lawful DOI and repository access attempts; publisher HTTP 403 and no identified repository copy",
+          "title": "Semitotal domination number of some graph operations",
+          "trigger": "Plausible overlap for graph operations and the minimum"
+        },
+        {
+          "assessment": "Relevant prior subclass enumeration; does not give the full polynomial",
+          "evidence": [
+            "Its exact polynomial is z^m+1_{m≥3}z^binom(m,2)+∑_{t=2}^{m−3} binom(m,t)z^{t+binom(m−t,2)} for independent semitotal sets."
+          ],
+          "identifier_or_url": "Resultary 2026/10/12/SCOPE-independent-semitotal-domination-polynomial-of-central-complete--0f19715c7567",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "local Resultary lookup and published-record mirror",
+          "title": "Independent semitotal domination polynomial of central complete graphs",
+          "trigger": "Strongest exact same-graph enumerative hit through the central graph alias"
+        },
+        {
+          "assessment": "Counts minima on a different base family",
+          "evidence": [
+            "Uses S(K_{p,q}) with p,q≥2 and a separate C_4-base case, not S(K_n)."
+          ],
+          "identifier_or_url": "Resultary 2026/10/25/SCOPE-star-complement-rigidity-and-the-exact-minimum-semitotal-census--39e3bfc786d4",
+          "material_read": "RESULT.md, Finding near offset 600",
+          "method": "local Resultary lookup and published-record mirror",
+          "title": "Star-complement rigidity and the exact minimum semitotal census",
+          "trigger": "Closest separate minimum-set enumerator on subdivided complete-family graphs"
+        },
+        {
+          "assessment": "Neither counts the claimed set class",
+          "evidence": [
+            "First counts double domination in S(K_{p,q}); second counts ordered legal total dominating sequences on S(K_n)."
+          ],
+          "identifier_or_url": "Resultary SCOPE-5479a781148f and SCOPE-eae46f0c6567",
+          "material_read": "Both RESULT.md Findings at offset 0",
+          "method": "local Resultary lookup and published-record mirror",
+          "title": "Related double-domination and total-domination sequence enumerators",
+          "trigger": "Nearby exact-enumeration matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof and stated enumerative scope",
+        "arXiv:2609.33932v1, Theorem 2.1",
+        "SCOPE-0f19715c7567, Finding"
+      ],
+      "rationale": "The cardinality polynomial of a natural infinite subdivision family strengthens both the known optimum value and the independent-set counts. The formula gives all coefficients and resolves the exact prevalence of minimum sets, including the n=4 exception and the large contribution of adjacent selected vertices. The small enumeration is not the contribution; the structural characterization supports uniform exact counting.",
+      "residual_risks": [
+        "No use in root-location or unimodality theory is established or needed for this assessment."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

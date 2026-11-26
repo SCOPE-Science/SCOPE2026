@@ -25,7 +25,7 @@ For \(t\ge0\), \(u\in\mathbb R\), and \(q=\sqrt{6t}/2\), their joint Laplace–F
 \]
 with continuous interpretation at \(q=0\).
 
-There are also **exact finite-sample identities**, valid at every \(n\ge4\):
+For comparison with the limit, the known exact depth variance and its single-deletion consequence, valid at every \(n\ge4\), are
 \[
 \operatorname{Var}(D_n)=\frac{3}{8(n-1)(n-2)},\qquad
 \mathbb E(D_n-D_{n,-1})^2=\frac{3}{4(n-1)(n-2)(n-3)}.
@@ -76,7 +76,7 @@ J_n=\frac6{\sqrt n}\sum_{j=2}^{n}h_2(X_1,X_j)+o_{\mathbb P}(1).
 \]
 In a joint finite-frequency Gaussian limit, the cosine–sine pairs can be rotated through the (independent) random angle \(mX_1\). Their joint standard-Gaussian law is unchanged by this rotation, so the linear limit becomes \(6\sqrt2\sum_{m\ \mathrm{odd}}\lambda_m\xi_m\), using the *same* \(\xi_m,\eta_m\) as in the quadratic limit. The Fourier tails vanish in \(L^2\), because \(\sum_m\lambda_m^2<\infty\); this upgrades finite-frequency convergence to the full joint claim. Standard bounded-kernel degeneracy moment bounds, or direct enumeration of index overlaps in these expansions, give uniform fixed higher moments, justifying the mixed-moment limit involving \(J_n^2\).
 
-**4. Transform and nonindependence.** Integrating one Gaussian pair at a time gives
+**4. Transform and nonindependence.** The finite truncations of \(Z\) are bounded above by \(-6\sum_{m\ \mathrm{odd}}\lambda_m=3/4\). Thus their Laplace–Fourier transforms converge to the transform of the \(L^2\) limit for \(t\ge0\). Integrating one Gaussian pair at a time gives
 \[
 \mathbb E\,e^{tZ+iuJ}=
  e^{3t/4}\prod_{m\ \mathrm{odd}}\left(1+\frac{6t}{\pi^2m^2}\right)^{-1}
@@ -96,11 +96,13 @@ Run `python checker.py` using Python 3 and the standard library. The checker ver
 
 ## Relationship to prior work
 
-Liu introduced simplicial depth as a multivariate statistical depth measure. Dyckerhoff, Ley and Paindaveine developed a different bivariate depth-based runs statistic for symmetry testing. Afshani, Sheehy and Stein studied computation and sample-instability scenarios for simplicial depth, motivating sensitivity under deletion. The *marginal* central-degenerate depth law and its Fourier spectrum are already known, including in prior work on moving-query circular depth; neither that marginal law nor a general degenerate \(U\)-statistic theorem by itself states the *joint* central-depth/single-deletion limit, its nonzero mixed dependence, and the exact finite jackknife ratio. The comparison with Killeen and Hettmansperger's later bivariate test paper remains limited by unavailable full text: its accessible description says it derives the one-statistic null law and tabulates finite distributions, but that does not establish what every section contains.
+Liu introduced simplicial depth as a multivariate statistical depth measure. Dyckerhoff, Ley and Paindaveine developed a different bivariate depth-based runs statistic for symmetry testing. Afshani, Sheehy and Stein studied computation and sample-instability scenarios for simplicial depth, motivating sensitivity under deletion. Reference [7] gives the exact central variance for the unnormalized triangle count; dividing by \(\binom n3^2\) gives the variance in this note. The deletion second moment and jackknife expectation are direct consequences of that variance by deletion averaging, not new variance principles.
+
+The marginal central second-chaos law and its odd Fourier spectrum are also covered, including by the \(c=0\) case of the moving-query result [8]. In that result the critical displacement shifts only the first cosine coordinate. By contrast, the deletion studied here couples the central depth to a linear response involving every odd frequency. Generic degenerate \(U\)-statistic theory accounts for the types of limits, but not this explicit shared-coordinate coupling, its joint transform or the mixed moment \(\operatorname{Cov}(Z,J^2)=-9/20\). These are the contribution. A same-date deletion result for chord crossings [9] concerns a different kernel and is not a depth theorem. The full texts of Dümbgen and of Killeen and Hettmansperger were not available for checking closer overlap.
 
 ## Limitations
 
-This is a one-observation, exactly angular-uniform theorem; it does not cover arbitrary asymmetric distributions. The Gaussian deletion marginal does *not* make the deletion statistic independent of the global depth. The exact expected jackknife inflation does not imply that the realized jackknife estimator converges to twice a nonrandom variance for every sample. Independent validation has not been carried out. Historical priority is provisional, especially against the inaccessible full text of the 2020 bivariate test paper and older general jackknife asymptotics.
+This is a one-observation, exactly angular-uniform theorem; it does not cover arbitrary asymmetric distributions. The Gaussian deletion marginal does *not* make the deletion statistic independent of the global depth. The exact expected jackknife inflation does not imply that the realized jackknife estimator converges to twice a nonrandom variance for every sample. Historical priority is provisional given the full-text limitations above and the possibility of older general jackknife results.
 
 ## References
 
@@ -109,4 +111,7 @@ This is a one-observation, exactly angular-uniform theorem; it does not cover ar
 - P. Afshani, D. R. Sheehy, and Y. Stein, “Approximating the Simplicial Depth,” first posted 2015-12-15. https://arxiv.org/abs/1512.04856
 - L. Dümbgen, “Limit theorems for the simplicial depth,” *Statistics & Probability Letters* 14 (1992), 119–128. https://doi.org/10.1016/0167-7152(92)90075-G
 - T. J. Killeen and T. P. Hettmansperger, “A bivariate test for location based on simplicial depth,” published online 2020-03-02. https://doi.org/10.1080/03610926.2019.1710205
-- C. Jentsch, S. Nagy, and M. Wendler, “Resampling simplicial depth,” posted 2026-08-11. https://arxiv.org/abs/2608.11131
+- S. Nagy, M. Wendler, and C. Jentsch, “Resampling simplicial depth.” https://arxiv.org/abs/2608.11131
+- [7] “Sharp covariance and angular cutoff for central simplicial depth.” https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-covariance-and-angular-cutoff-for-central-simplicial-depth--c891d8b1a570/RESULT.md
+- [8] “A noncentral-to-Gaussian transition for simplicial depth near the center.” https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-noncentral-to-gaussian-transition-for-simplicial-depth-near-th--c1bb34e0d615/RESULT.md
+- [9] “Conditional Gaussian deletion noise for crossings of random circular chords.” https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-conditional-gaussian-deletion-noise-for-crossings-of-random-circ--d7315075b295/RESULT.md

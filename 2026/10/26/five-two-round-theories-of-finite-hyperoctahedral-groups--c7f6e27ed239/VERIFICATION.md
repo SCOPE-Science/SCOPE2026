@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Direct computational verification
 
-The standalone file `verify_hyperoctahedral.cpp` implements signed permutations as signed images of the positive coordinates; a direct multiplication computes product signed permutations. The program enumerates every signed permutation of degree one through six and constructs one representative of each exact signed-cycle conjugacy type. For each representative it enumerates **all** choices of the second group element, computes the complete atomic diagram on the identity and both chosen elements (including both product orders), and stores the set of possible diagrams. It separately checks the signed-cycle square-root criterion by brute force, across all cycle types through degree six.
+# Independent mathematical audit
 
-Build and run, in the same directory:
+## correctness
 
-```sh
-g++ -O3 -std=c++17 verify_hyperoctahedral.cpp -o verify_hyperoctahedral
-./verify_hyperoctahedral
-```
+PASS
 
-The exact recorded output is embedded as `verify_hyperoctahedral.out`. It reports pointed-profile counts \(2,4,6,7,8,8\) at degrees \(1,2,3,4,5,6\), exact identity between the full sets for degrees five and six, and eight categories determined solely by element order class and square existence from degree five onward. It ends in `VERIFY_OK`.
+In {e,R}, cancellation reduces nontrivial atoms on e,x,y to equality, x²=e, y²=e, x²=y, y²=x, or xy=e (equivalently yx=e). A two-round back-and-forth therefore compares sets of achievable second-move signatures at each first move, and then the sets of those profiles. The special second values e,x,x^{-1},x² depend on the stated order categories. For n>=5 the coordinate flips and positive three-cycles provide the two generic nonsquare-root signatures outside all special values; an order-three x has a nonspecial root -I x^{-1}, and all roots of other nonidentity orders lie outside the special values. Square status is visible by the existence of y²=x. Squaring negative cycles of odd length removes their sign; doubling a cycle of even length splits it into two equal signed types, and interlacing pairs reverses that operation (cycle signs can first be normalized by diagonal conjugation). Thus an order-four square needs two negative 2-cycles or two positive 4-cycles; in degree at most four the only exceptional paired types fitting are length-one negative pairs and length-two pairs, with remaining positive odd cycles of length at most three, so no square has order at least five there. The witnesses in the table attain all eight signatures by degree five and persist upon adding positive fixed coordinates. The four separating sentences have rank at most two even when there are two independently bound inner variables, so all five classes are distinct. An independent NumPy replay on the full action on signed letters, with every ordered pair of elements at n<=5 and no conjugacy reduction, found distinct profile-set sizes 2,4,6,7,8 and the stated categories at five. The all-degree argument is structural.
 
-**Limits:** Finite enumeration through degree six alone cannot establish the theorem for arbitrary \(n\). The infinite classification depends on the generic involution and three-cycle constructions, the square-root decomposition lemma, and the four distinguishing rank-two sentences proved in `RESULT.md`. No independent formal or external scientific audit was performed.
+## originality
+
+PASS
+
+Credit the signed-cycle square criterion as known: Kundu–Mondal Proposition 4.3 for prime powers in G wreath S_n yields it verbatim at G=C_2 and exponent 2. Related work also gives the same eight candidate profile types for symmetric groups. The distinct supported result is their exact realization and resulting five-class threshold in B_n with the stated signature; no inspected result covers that family theorem.
+
+## value
+
+PASS
+
+The family is a classical Weyl-group series. The result gives the exact low-rank logical stabilization and tells which sharply different relabeling-invariant element types a two-move game detects. The signed order-four square is a concrete reason the threshold differs from symmetric groups, rather than a restatement of the known signed-cycle square lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

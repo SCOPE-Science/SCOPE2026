@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The forcing condition plus compatibility symmetry makes modal successor rows constant on compatibility components; each component has precisely \(2^n\) row choices. For equivalence modal accessibility, equality of rows is equality of equivalence classes, so forcing is exactly \(Q\subseteq M\). This gives both exact counts. A spanning-forest bound proves identity compatibility overwhelmingly dominates the unrestricted count. A large-block versus no-large-block partition argument proves universal accessibility overwhelmingly dominates the equivalence-modal count; conditioning on universal accessibility gives a fair random graph and hence connectivity with high probability. Both total-variation approximations follow from conditioning on events whose probabilities approach one. The supplied finite checker directly compares the forcing semantics against the formulas through three worlds and separately computes exact counts through six worlds.
+PASS
 
-## Originality — PASS, qualified
+A compatibility edge forces equal successor rows in its two directions; thus an unrestricted graph with c components admits (2^n)^c modal relations. For equivalence accessibility, row equality is class membership, so each partition allows exactly the graphs with edges inside blocks. The weighted labelled-set formula is formal and distinguishing the block of world 1 gives the recurrence. For A_n a spanning forest of rank k=n-c has at most nk/2 within-component edges available, so the nonidentity relative mass is at most (1+2^{-n/2})^{binom(n,2)}-1. For B_n, a largest block of n-k>n/2 loses at least nk/2 available edges and there are at most n^{2k} such partitions; if all blocks are at most n/2, loss is at least n^2/4 against at most n^n partitions. All bounds vanish. The approximating law in each case is precisely the original law conditioned on its dominant event, so TV is the discarded probability; in the equivalence case a cut union bound yields connectivity for the conditional G(n,1/2). Independent replay (python3 -B /workspace/branches/independent_replay.py 1) counted unrestricted pairs by injectively naming row classes and equivalence pairs by recurrence through n=6, and separately enumerated row assignments through n=3; it matched all listed values. The finite checks are not the asymptotic proof. The operative measure is unambiguously the uniform admissible ordered pair, equivalently conditioning a uniform independent pair on admissibility; the first sentence on sampling in the scope note is awkward but the finding and its next sentence specify that same measure.
 
-The 2026 component-invariance theorem and the original forcing semantics are acknowledged and used. Neither inspected full primary article provides the two labelled ensemble sums, opposite asymptotic dominating configurations, or their random-graph interpretation. Actual mathematical-record and web searches were compared for equivalents, weighted-partition formulations, stronger graph-enumeration results, and numeric tables. None of the retrieved closest records covers this complete pair of asymptotic laws. An unknown earlier weighted graph-partition enumeration might imply parts of the calculation. Absence from search results is not evidence of unconditional priority.
+## originality
 
-## Value — PASS
+PASS
 
-The same structural forcing law exhibits an entropy-driven reversal under one standard semantic restriction: unrestricted-modal finite frames select almost surely *disconnected* (indeed discrete) compatibility, whereas equivalence-modal frames select almost surely *connected* compatibility. Exact counts and the total-variation descriptions make this a concrete finite-model sampling warning, beyond restating component invariance. The distinction is specific and mathematically motivated: finite-model generators should not use one ensemble's typical geometry as a proxy for the other.
+Credit the quantitative comparison of the two finite labelled-pair measures and their opposite total-variation limits. The forcing framework, component-row lemma and general partition-function constructions are prior or standard. A later indexed finding substantially overlaps and strengthens the defect analysis; it is not evidence of earlier coverage on the dates available. No absolute priority claim is made.
 
-## Limitations and review status
+## value
 
-Counting concerns labelled relation pairs without valuation assignments, not physical representability. The dominant event is asymptotic rather than guaranteed at small sizes. A historical general graph-pair counting theorem remains a conceivable source of subsumption. Finite checks cannot establish the infinite theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two measures differ by a natural accessibility axiom, yet that change reverses the typical compatibility geometry from the completely disconnected graph to a dense, high-probability connected random graph. The TV result describes the joint relation pair, not just a scalar count or a connectivity probability, and identifies actual sampling laws for a concrete finite-frame question. The value rests on this contrast, not on the standard exponential formula alone or on a claim about physical realizability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

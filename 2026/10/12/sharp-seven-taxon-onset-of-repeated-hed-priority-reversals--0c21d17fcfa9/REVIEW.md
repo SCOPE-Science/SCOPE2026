@@ -1,19 +1,21 @@
-# Scientific review: repeated HED priority reversals
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The statement is quantified over all rooted, fully binary, positive-length ultrametric phylogenies with at most six taxa, and gives a seven-tip constructive equality case and extension to all larger sizes. The known HED edge identity is independently derived from indicator events. At a pair's lowest common ancestor, equal root-to-tip lengths force the HED difference to factor as \((q-1)P(q)\). The complete small-tree child-size split analysis proves at most one interior sign change through six tips and at most two through seven. The twelve exact rational edge lengths produce height four at each tip and the factorization \((q-1)(q-3/10)(q-4/5)\). Adding a binary root retains the two crossings for larger taxa counts. Independent exact survivor-state expectation calculations corroborate the constructive identities. No finite census is used as an infinite proof.
+PASS
 
-## Originality (O): PASS with residual risk
+Independence gives edge weight ℓq^(m−1) for a focal edge with m descendant tips. The common ancestral path cancels, and ultrametricity ensures the remaining coefficient sum is zero, so the difference factors as (q−1) times a sum of truncated geometric series. For at most six tips singleton splits have fixed sign and the other splits are (2,2), (2,3), (3,3) with degree at most one, or (4,2) with strictly positive derivative a₄(1+2q)+a₃. The new seven-tip splits (1,6), (2,5), (3,4) give fixed sign, monotonicity, and degree at most two respectively. Identical score polynomials and the tie at q=1 do not count. The witness is fully binary with positive lengths and all heights 4; its two marginal polynomials differ by (q−1)(q−3/10)(q−4/5). An independent enumeration of all 64 survivor subsets for each focal tip gives differences −63/500, 3/100, −3/500 at q=1/10, 1/2, 9/10. Attaching a new root above the old tree with one new sister tip adds the same tq^(n−1) to both scores, preserving both crossings.
 
-Steel, Mimoto and Mooers (2007, Theorem III.1) already provide the general HED calculation; it is foundational input, not a newly asserted formula. Martyn et al. (2012) identify sensitivity of scores and taxon rankings to extinction assumptions but do not establish the first possible *two* crossings along the uniform-risk path. Fischer et al. (2021) and Manson's thesis address rankings of other indices following realized leaf deletions, rather than two sign changes of HED for fixed leaves as risk is varied continuously. Relevant original full-text sections and appendices were inspected. Searches for risk-parameter crossing counts and their equivalents did not reveal stronger direct coverage. This comparison cannot exclude a broader unindexed or unpublished theorem, and no assertion of absolute novelty follows from unsuccessful searches.
+## originality
 
-## Value (V): PASS
+PASS
 
-HED is used to prioritize evolutionary biodiversity. A single rank switch under changing risks might be expected, but two switches of the same pair invalidate any general one-threshold interpretation even when risks vary *homogeneously*. The theorem identifies the exact first possible number of taxa and a structural reason: a four-versus-three LCA split allows a quadratic residual, while all smaller splits yield a linear or monotone polynomial. It offers a precise benchmark for ranking stability analyses without claiming empirical prevalence or policy efficacy.
+Credit the exact ultrametric seven-tip onset for two sign reversals of a fixed HED pair. Expected marginal PD and its edge identity are known; the closest equivalent protection-gain formulation has a five-tip threshold without the ultrametric constraint. Its five-tip counterexample cannot decide the restricted threshold. No inspected result settles that precise restriction.
 
-## Scope and residual limitations
+## value
 
-Independent identical extinction risks, a fixed rooted binary ultrametric phylogeny, strictly positive edges and HED conditional marginal value are necessary to the precise formulation. This is not a result about HEDGE, weighted indices, extinction-conditioned recomputed Fair Proportion rankings, complete taxon ranking reversal, or real-system behavior. Literature coverage remains finite.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first possible repeated change of a fixed priority comparison is a meaningful robustness boundary for an established conservation score. Both the impossibility below the boundary and a rational tree attaining it matter. The comparison with the non-ultrametric five-tip threshold isolates the mathematical effect of imposing equal heights. This does not establish that such crossings are frequent in data or quantify the maximum for larger trees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

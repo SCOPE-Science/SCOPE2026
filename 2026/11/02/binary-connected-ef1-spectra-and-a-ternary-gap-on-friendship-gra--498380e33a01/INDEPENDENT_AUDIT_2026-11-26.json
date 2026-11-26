@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:01:13.310449Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a connected partition each nonhub bundle lies within a petal. The binary lower witness gives it at most one mark and forces the hub bundle to have at least k−n+2≥3. At k bundles, writing W=k+b+r₂−r₀ verifies all feasibility inequalities: W<k gives 0≤r₀−r₂−1≤r₀; otherwise r₂≥r₀−b. With k≤W<2k the source uses no splits when r₀=0, r₀−1 splits when b=1 and r₀>0, and gains the required r₀ extra nonhub bundles from two-mark petals when b=0 (including the half-petal at the hub if r₁=0). Each construction totals k connected nonempty bundles with balanced marks, and W=2k or 2k+1 gives all twos or a single three. For refinement that only three splits into a hub singleton and its petal; subsequently a tree edge on the path between the two marks in a two-mark bundle separates them, preserving values in {1,2} until all values are at most one. Further connected splits then preserve EF1. For the ternary assignment, keeping the two weight-two vertices together forces total value ≥2k+2>k+4. Separating the two leaves either the hub with one weight-two vertex and at least one ordinary unit petal vertex, or the hub without them but with at least two unit petal vertices. In both cases its one-deletion value is at least two and there is a nonhub ordinary bundle worth at most one (k−3≥1 in the last case). The proof covers exactly k≥4 for this ternary witness and ordinary EF1 with no connectivity requirement on the deletion. The supplied exhaustive checks for small k were inspected, not executed; the proof is the all-k evidence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The high-agent results give EF1_outer for n≥|V|−1, and at n=|V|−2 when no degree-one vertices share a neighbor. F_k has none, so n≥2k−1 is prior even under stronger fairness and wider valuations.",
+          "Bousquet et al. Theorem 7 is for trees with common additive binary valuations; Definition 6 uses the maximum size τ(T) of a bad set. Their double-sun theorem and Igarashi–Zwicker's tangle results have other structural hypotheses."
+        ],
+        "reasoning": "An EF1_outer guarantee transfers to ordinary EF1, and a guarantee on a spanning tree would also transfer; it is thus not enough to note that F_k itself is not a tree. But in every spanning tree, deleting the hub and all vertices except three full petals leaves at least three components whose only neighbor in the deleted set is the hub. After exempting one component there are still two that cannot match injectively into the boundary, so τ(T)≥2k−5 and Theorem 7 cannot directly yield n=k for k≥4.",
+        "searches": [
+          "Chen–Zwicker arXiv:2402.05884v1 §3 Theorem 1 and §5 Observation 2/Theorem 5",
+          "Bousquet et al. arXiv:2608.29902v1 §§3–4 Theorems 5 and 7",
+          "Igarashi–Zwicker arXiv:2102.08560v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_friendship.py",
+        "Chen–Zwicker arXiv:2402.05884v1",
+        "Bousquet et al. arXiv:2608.29902v1",
+        "Igarashi–Zwicker arXiv:2102.08560v1",
+        "Resultary a444bb42185d, 018091c6bd7b, cf4e9c55c026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1 requires n<|H| for an independent partition H of the surviving vertices. For any deletion in F_k the surviving part is connected if the hub remains and has at most k nonempty components otherwise. Independent partition blocks cannot split a component, so |H|≤k regardless of the valence.",
+          "Neither the cutset's strict upper endpoint nor the cited high-agent sufficient range reaches n=k≥4. The ternary proof uses a petal with two weight-two vertices and exactly k bundles, not an extension of the binary low-agent construction."
+        ],
+        "reasoning": "The prior theorems cover substantial pieces, but do not mechanically yield the two-sided threshold contrast on this family. There was no retrieved direct theorem with the same graph, valuations, fairness and critical n.",
+        "searches": [
+          "Chen–Zwicker Definition 5 and Theorem 1 at n=k",
+          "Tree bad-set threshold via spanning trees of F_k",
+          "Ternary witness values and exact agent count versus the high-agent theorems"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The elementary cutset consisting of the hub has valence 1, gap k−1, and k witness components. Giving the hub and one distinguished vertex in each component weight one reproduces exactly the record's low-agent witness.",
+          "Chen–Zwicker §5 Lemma 3 treats the 5-pointed star, friendly diamond and Lips graph, not the repeated triangle windmill. The friendly diamond is not an equivalent name for these F_k."
+        ],
+        "reasoning": "The cutset interval is 1<n<k and the construction has exactly the same binary valuation. The result is not creditable as a new obstruction in that range; it does not address the threshold n=k.",
+        "searches": [
+          "Friendship graphs F_k, triangular windmills, friendship cactus and common binary connected EF1 spectra",
+          "Chen–Zwicker arXiv:2402.05884v1 §3 elementary cutsets and §5 graph-specific spectra"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct same-day a444bb42185d gives an exact ordinary-EF1 spectrum for all monotone profiles on complete bipartite K_{a,b}, not on friendship graphs.",
+          "018091c6bd7b gives binary EF1_outer spectra on complete bipartite graphs. cf4e9c55c026 studies the ordinary-EF1 spectrum for individual fixed common additive valuations on weighted stars."
+        ],
+        "reasoning": "The comparators are genuinely about spectra and include related constructions, but triangle friendship graphs are neither complete bipartite nor weighted stars. Deleting the petal edges does not preserve the possible connected bundles or transfer a star nonexistence result to the denser graph.",
+        "searches": [
+          "Resultary semantic searches for friendship/windmill connected EF1 and binary versus three-level threshold",
+          "Exact local records a444bb42185d, 018091c6bd7b, cf4e9c55c026"
+        ]
+      },
+      "rationale": "The supported contribution is the sharp identical-binary threshold at n=k uniformly in k and the explicit three-level obstruction there. The low-agent obstruction is an exact specialization of Chen–Zwicker; their high-agent theorems already give part of the positive range. Neither gives the threshold phenomenon reviewed here.",
+      "residual_risks": [
+        "The bounded searches do not exclude an equivalent all-k result under another cactus/windmill terminology or a wider structural theorem.",
+        "No priority is claimed for the exact lower obstruction or known high-agent tail."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior low-agent witness and a prior stronger positive tail; no threshold via its cutset inequality",
+          "evidence": "Type-I hub contributes one; distinguished vertices of independent surviving components each contribute one; strict n<valence+gap. Positive high-agent range uses EF1_outer.",
+          "identifier_or_url": "https://arxiv.org/html/2402.05884v1",
+          "material_read": "§3 Definitions 3 and 5, Observation 1, Theorem 1 and construction; §5 Observation 2, Theorem 5, Lemma 3; offsets around 35750–46635, 77096, 85096",
+          "method": "OA full-text targeted passage inspection and specialization",
+          "title": "Cutsets and EF1 Fair Division of Graphs",
+          "trigger": "Potential dominating cutset, high-agent and example spectra"
+        },
+        {
+          "assessment": "Different families; tree reduction does not settle n=k for k≥4",
+          "evidence": "Double-sun theorem and common-binary sufficient/necessary threshold τ(T)+2 for EF1_outer on a tree.",
+          "identifier_or_url": "https://arxiv.org/html/2608.29902v1",
+          "material_read": "§3 Theorem 5 and §4 good/bad sets, Definition 6 and Theorem 7, offsets around 21252 and 44600–48789",
+          "method": "OA theorem/definition inspection and comparison with all friendship spanning trees",
+          "title": "Fair Division of Graphs: Beyond Traceability",
+          "trigger": "Closest common-binary graph-family theorem and possible spanning-tree reduction"
+        },
+        {
+          "assessment": "Different scope in material read; not a whole-paper exclusion",
+          "evidence": "Tangle/connected division and outer-EF1 existence questions, not a stated identical-binary friendship spectrum.",
+          "identifier_or_url": "https://arxiv.org/html/2102.08560v1",
+          "material_read": "Abstract, offset 0",
+          "method": "OA scope inspection",
+          "title": "Fair division of graphs and of tangled cakes",
+          "trigger": "Known graph and tangle existence comparators"
+        },
+        {
+          "assessment": "Different graph family and valuation scope",
+          "evidence": "Gives agent range {1,…,a}∪{b,…,a+b} for ordinary connected EF1 for all normalized nonnegative monotone profiles on K_{a,b}.",
+          "identifier_or_url": "2026/11/2/…--a444bb42185d/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact connected EF1 spectrum of complete bipartite graphs",
+          "trigger": "Strongest same-day catalogue exact-spectrum comparator"
+        },
+        {
+          "assessment": "Different graph family and stronger fairness notion",
+          "evidence": "Spectrum n≤b or n≥a on K_{a,b} for common additive binary valuations.",
+          "identifier_or_url": "2026/11/1/…--018091c6bd7b/RESULT.md",
+          "material_read": "Finding: assumptions and spectrum",
+          "method": "Local Resultary mirror",
+          "title": "Exact binary EF1_outer spectrum of complete bipartite graphs",
+          "trigger": "Common binary exact spectrum"
+        },
+        {
+          "assessment": "Different allowed bundles and quantification over valuations",
+          "evidence": "Ordinary EF1 for fixed star valuations, versus a uniform guarantee over binary valuations on triangular windmills.",
+          "identifier_or_url": "2026/11/8/…--cf4e9c55c026/RESULT.md",
+          "material_read": "Finding: weighted-star scope and individual spectra",
+          "method": "Local Resultary mirror",
+          "title": "Arbitrary instance-level EF1 spectra on weighted stars",
+          "trigger": "Star with a shared hub and fixed common weights"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The threshold asks how many agents are needed to divide a graph built from paired resources around one hub. At the first universally feasible agent count for identical binary weights, allowing one additional weight level already destroys the guarantee. The constructive all-k threshold and the matched failure at that same boundary clarify the role of binary weights and the cutset, rather than merely testing a few small graphs or restating the known lower obstruction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

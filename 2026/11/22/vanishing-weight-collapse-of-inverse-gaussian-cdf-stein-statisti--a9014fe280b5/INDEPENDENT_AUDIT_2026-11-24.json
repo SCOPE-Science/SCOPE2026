@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:23:38.647868Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Above the normalized sample maximum, the average of Y is 1 and the indicator average is 1, so G_n=C_n=(1−φ̂(u−1))/2 exactly. It is zero for ML and equals (v−u)/(2(v−1)) for MO. The real-analytic numerator on the positive normalized simplex is not identically zero: using coordinates 1±δ and the rest 1 gives v−u=−2δ⁴/[n(1−δ²)]. The fixed-sample conclusions follow by splitting at the maximum. For the joint limit normalize μ=1 and use s=bar(X)t. Subtracting the plateau leaves the four functions 1{x>s}, (x−s)_+, (x−s)_+/x and (x−s)_+/x², with squared unweighted norms x, x³/3, x/3 and 1/(3x). For the IG density f, −f'/f=(φ+3/x−φ/x²)/2; integration by parts against (x−s)_+ proves population cancellation of their specified linear combination. Each empirical mean is root-n tight in unweighted L² by its finite second moment; the fitted coefficients are root-n tight around their population values, so n∫(G_n−C_n)²=O_P(1) after changing variables. Thus multiplying by a_n or √a_n makes the weighted remainder negligible at any rate, with the mixed term controlled by Cauchy–Schwarz. Differentiating v−u as bar(X²)/bar(X)²−bar(X)·bar(X⁻¹) gives the stated influence function H. The density reciprocity f(1/x)/x²=x f(x) and integration by parts give M_j=M_{j−2}+(2j−3)M_{j−1}/φ and the displayed moments. Substitution in E[H²] gives 6/φ³; dividing by 4(v−1)² asymptotically gives 3/(2φ), and the Gaussian weight contributes its mass √π/2 after scaling. Checked both estimators and both weights against the original definitions. Inspected check.py and recorded 50-check report without running the uploaded script; its seeded simulation checks the plateau fluctuation, not triangular-array convergence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both versions of the original test study a weighted L² statistic with an integrability condition; the published null theorem gives a Gaussian squared norm in the space for that weight, and Theorem 3 treats contiguous alternatives.",
+          "Nik–Weiß embeds MO/MM and ML IG estimation in an estimator theory but does not analyze these CDF–Stein statistic limits in the inspected section."
+        ],
+        "reasoning": "The unweighted w≡1 does not satisfy the published weight condition, and the fixed-weight conclusion is not uniform as the weight vanishes. Local alternatives or triangular samples with a fixed weight do not imply the arbitrary deterministic diagonal claim.",
+        "searches": [
+          "arXiv:1910.14119 §3 Theorem 3.4",
+          "DOI:10.3390/math10030350 §3 Theorems 2–3 and weight condition (4)",
+          "DOI:10.1007/s44199-024-00081-z §3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "arXiv:1910.14119",
+        "Published Mathematics 10 (2022), 350 via KIT institutional repository",
+        "DOI:10.1007/s44199-024-00081-z",
+        "Resultary:a9014fe280b5, 328293f15bd9 and bfbdea882dfb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Setting t past the sample maximum in the known definitions already gives both plateaus by direct substitution.",
+          "The journal Theorem 2 and preprint Theorem 3.4 do not bound the unweighted L² remainder after subtracting the random plateau in a way that supplies the claimed diagonal limit."
+        ],
+        "reasoning": "The endpoint algebra is an immediate corollary of prior definitions. The full statement additionally needs the uniform-in-weight residual bound and the normalized moment difference CLT with exact variance; taking a second limit of a fixed-weight Gaussian law would not justify convergence for every sequence.",
+        "searches": [
+          "arXiv:1910.14119 §§1–3",
+          "DOI:10.3390/math10030350 §§1–3",
+          "Resultary:328293f15bd9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The weights e^(−at) and e^(−at²) correspond to effective bandwidths 1/a and 1/√a. The associated original formulas immediately give the plateau.",
+          "328293f15bd9 treats ML at a→∞, fixed sample followed by a null limit; bfbdea882dfb treats a logistic Fourier–Stein statistic."
+        ],
+        "reasoning": "A high-bandwidth naming convention can describe a↓0, but large decay parameter a samples the opposite, small-threshold endpoint. A Fourier–Stein statistic for a different distribution is not a dual reformulation of this IG CDF discrepancy.",
+        "searches": [
+          "Resultary: IG CDF–Stein vanishing weight, high bandwidth, and plateau",
+          "arXiv:1910.14119",
+          "Resultary:328293f15bd9 and bfbdea882dfb"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a9014fe280b5 is the exact self-match. The nearest distinct endpoint record 328293f15bd9 gives an ML expansion at the opposite endpoint and in a different limit order.",
+          "The original preprint numerical comparisons examine fixed positive a=0.1,1,10, not arbitrary sequences or the exact small-a constants."
+        ],
+        "reasoning": "No independent exact entry for the four displayed diagonal limits is identified from the inspected catalogue and primary sources. The self-match and benchmark parameter values are not priority evidence.",
+        "searches": [
+          "Resultary: inverse Gaussian CDF–Stein joint limit constants and endpoint laws",
+          "Resultary:a9014fe280b5 and 328293f15bd9",
+          "arXiv:1910.14119 §7"
+        ]
+      },
+      "rationale": "The original estimator and statistic formulas directly imply the samplewise plateau and exact ML cancellation; these algebraic observations are not credited as independent novel theorems. The supported distinct contribution is the joint, unrestricted-rate null limit for the original four statistics, with exact constants, obtained by an unweighted remainder bound. The same-statistic preprint and journal version have fixed-weight Gaussian-element theory, not this diagonal limit in the inspected sections.",
+      "residual_risks": [
+        "The bounded search does not rule out an unindexed or differently formulated uniform vanishing-weight limit; priority is judged only for the distinct joint theorem from inspected material.",
+        "No null-calibration, power or conditional bootstrap assertion is made for data-dependent weight choices, alternatives or drifting shapes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original formulas imply plateaus; inspected null theory does not provide the diagonal result",
+          "evidence": "Introduces the CDF–Stein statistic, both fits and weights, and gives a fixed-weight Gaussian limit and fixed positive tuning comparisons.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.14119",
+          "material_read": "§1 PDF p. 2 (offset 8200), §2 p. 3 (17100), §3 Theorem 3.4 pp. 4–5 (24400), §7 p. 12 (67500)",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "New weighted L²-type tests for the inverse Gaussian distribution",
+          "trigger": "Exact statistic, fits and existing weight asymptotic theorem"
+        },
+        {
+          "assessment": "Confirms same statistic and fixed-weight null limit under its weight hypotheses",
+          "evidence": "Equation (4) excludes constant weight; the same two positive-a weights and both fits are present. Theorem 2 gives the Gaussian squared norm and Theorem 3 adds a shift under contiguous alternatives.",
+          "identifier_or_url": "https://publikationen.bibliothek.kit.edu/1000142847/144980445",
+          "material_read": "Published §1 statistic, weights and Eq. (4) (text offset 9200); §2 ML and MO fits (offsets 17000, 19800); §3 Theorems 2–3, article pp. 5–6 (offsets 30100, 32750)",
+          "method": "Publisher routes returned 403 in bounded attempts; institutional OA copy of the same published paper located and read",
+          "title": "On Testing the Adequacy of the Inverse Gaussian Distribution",
+          "trigger": "Journal version may add unweighted limits to the preprint; DOI:10.3390/math10030350"
+        },
+        {
+          "assessment": "Broader estimation context, not GOF vanishing-weight limits",
+          "evidence": "Recognizes ordinary IG MM and ML as special cases of Stein moment estimators.",
+          "identifier_or_url": "https://doi.org/10.1007/s44199-024-00081-z",
+          "material_read": "§3, printed pp. 247–248, OA offset 23200",
+          "method": "Lawful OA Springer PDF passage inspection",
+          "title": "Generalized Moment Estimators Based on Stein Identities",
+          "trigger": "Possible broader IG method-of-moments and ML result"
+        },
+        {
+          "assessment": "Identical finding, not independent evidence",
+          "evidence": "Same MO/ML plateaus and all four vanishing-weight laws.",
+          "identifier_or_url": "Resultary:a9014fe280b5",
+          "material_read": "Mirrored RESULT.md Finding compared with frozen finding",
+          "method": "Local Resultary and mirror inspection",
+          "title": "Vanishing-weight collapse of inverse-Gaussian CDF–Stein statistics",
+          "trigger": "Strongest exact indexed match"
+        },
+        {
+          "assessment": "Different estimator scope, endpoint and order of limits; no date-based priority inference",
+          "evidence": "ML only, a→∞ with fixed sample (small thresholds), followed by a separate null limit.",
+          "identifier_or_url": "Resultary:328293f15bd9",
+          "material_read": "Mirrored RESULT.md at offset 0",
+          "method": "Local Resultary and mirror passage inspection",
+          "title": "Sharp large-weight rank-one collapse and an exact cancellation",
+          "trigger": "Same-day same-statistic endpoint and cancellation"
+        },
+        {
+          "assessment": "Different statistic and distribution; not regarded as a theorem about the IG test",
+          "evidence": "Logistic Fourier–Stein rather than inverse-Gaussian CDF–Stein.",
+          "identifier_or_url": "Resultary:bfbdea882dfb",
+          "material_read": "Indexed finding comparison",
+          "method": "Local Resultary lookup",
+          "title": "Estimator-dependent high-bandwidth collapse for logistic Stein goodness of fit",
+          "trigger": "High-bandwidth alias and MO/ML sequence limits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The boundary of the positive tuning range matters for interpreting these established goodness-of-fit statistics. It exposes a qualitative estimator dependence that is not described by fixed-positive-weight theory: a root-n moment mismatch controls the scaled MO statistic over the whole vanishing-rate regime, while ML removes the effect exactly. The joint limit with explicit constants resolves a specific stability question about the original statistics, without inferring failure of a separately recalibrated test.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

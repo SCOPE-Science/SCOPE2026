@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:16:10.759708Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–67, VERIFICATION.md and check.py (author evidence inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/exact_reproduction.py 5"
+      ],
+      "rationale": "Given the middle Bernoulli X_j, the two path segments are independent. Conditional means are affine in X_j with slopes Cov(X_i,X_j)/Var(X_j) and Cov(X_j,X_k)/Var(X_j); their product times the third central moment of X_j yields the stated factorization. Forward transition means are a_t(1-X_t), 0<a_t<1, so the two covariances are nonzero and alternate with distance. Splitting at j gives the odds equation, and the path recurrence gives the displayed closed form under z=x/(1-x)^2. For odd n, j and b=n+1-j have the same parity: two even factors give odds below one, while two odd factors give positive derivative and limits zero and infinity. For even n reflect to odd j and even b. The numerator of odds minus one is -(1-x)(1+x^(n+2))+2(x^(j+1)-x^(b+1)); it is negative for b<=j. For b>j, pair the powers in the sum after factoring 1-x. Writing x=exp(-u), each ratio cosh(alpha u)/cosh(beta u) for 0<=alpha<beta has strictly negative derivative in u, because alpha*tanh(alpha u)<beta*tanh(beta u). This checks the derivative needed for transversality, not only strict monotonicity. The critical ratio goes from zero to b-j, crossing one at a unique simple root exactly when b-j>1, equivalent to 2j<n, and reflection gives 2j>n+2. Counting triples through j gives (j-1)(n-j). P3 and P4 have no exceptional internal sites; at j=3 on P5 the polynomial z(1+z)^2-(1+2z)^2 is the stated cubic, negative at 3 and positive at 4. My exact checks agree on 840 triples and independently confirm the odds algebra through length 60.",
+      "residual_risks": [
+        "The statement for j outside E_n concerns internal middle sites, not endpoints. The count is of triples, not distinct thresholds. No infinite-volume transition is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The tree result gives at most one sign change for every triple through 12 vertices, and a 13-vertex tree with two changes.",
+          "The cycle result treats (0,m,2m) on C_(3m+1) and gives a unique local crossing near z=2 for sufficiently large m, not a global uniqueness result for every cycle.",
+          "Cheong–Henley use a quantum ground-state Hamiltonian, not the classical finite-volume Gibbs ensemble."
+        ],
+        "reasoning": "The broader graph class in the tree record covers the at-most-once subclaim only up to its size limit. Neither that subclaim nor a local cycle theorem implies the unrestricted finite-open-path exceptional set and uniqueness/existence dichotomy.",
+        "searches": [
+          "Resultary tree reentrance a2db7c68ea54, finite-ring three-point boundary 81a9cffd6370",
+          "Scott–Sokal abstract and §1.1; Cheong–Henley abstract and §II"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a2db7c68ea54, 81a9cffd6370, 736bfbff4534, 2ba6fd783632 and assigned self-hit 138d25c33369",
+        "arXiv:cond-mat/0309352 and arXiv:0907.4228",
+        "DOI 10.1143/PTPS.87.214 (access limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The tree proof shares median conditioning; its small-tree census controls possible repetitions of a sign change, not which path sites attain half occupancy at any positive z.",
+          "The cycle proof uses periodic boundary conditions and only one type of triple.",
+          "Tanaka et al. full text was unavailable; its scope as described in the frozen RESULT.md is direct and total two-point correlations, not independently verified from full text."
+        ],
+        "reasoning": "The exact alternating-parity and even-path boundary cutoff, including the limiting-equality case b-j=1, require the marked-site odds monotonicity argument and are not a specialization of the inspected statements. Equal-date comparisons do not determine chronological priority.",
+        "searches": [
+          "Tree a2db7c68ea54 proof and Finding; cycle 81a9cffd6370 Finding; Scott–Sokal §1.1; Tanaka–Morita–Hiroike DOI 10.1143/PTPS.87.214"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The half-occupancy and third-cumulant queries each surfaced the assigned record 138d25c33369; this is self-coverage only.",
+          "The same-day tree record a2db7c68ea54 uses the same Bernoulli median factor after conditioning.",
+          "Scott–Sokal §1.1 gives the independent-set partition function underlying the equivalent marked-fugacity formulations."
+        ],
+        "reasoning": "The root classification for a marked-site half-occupancy odds ratio is exactly the zero classification of the distinct-site cumulant once the nonzero parity prefactor is factored out. A generic Ursell/partition-function framework or median factor leaves those roots undetermined.",
+        "searches": [
+          "Resultary searches for uniform-open-path marginals and half occupancy, distinct-site third-cumulant sign, and parity-position threshold",
+          "Primary search for hard-core path third cumulant / half-occupancy threshold",
+          "Scott–Sokal arXiv:cond-mat/0309352, §1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target is itself returned by the threshold and five-site queries.",
+          "Fan record 736bfbff4534 finds a five-vertex minimum for reversal of a two-site covariance in a general finite simple graph, attained on a fan.",
+          "Canonical-path record 2ba6fd783632 computes Cov(X_1,X_3) at fixed particle number and contrasts it with the positive grand-canonical pair covariance."
+        ],
+        "reasoning": "Neither a five-vertex minimum for pair covariances nor an exact canonical two-point formula tabulates the marked middle-site thresholds for grand-canonical third cumulants.",
+        "searches": [
+          "Resultary queries for the all-length parity-position classification and five-site onset",
+          "Resultary fan graph 736bfbff4534 and canonical path/cycle 2ba6fd783632"
+        ]
+      },
+      "rationale": "The shared middle-site factorization and standard partition polynomial are not distinct contributions. A same-day Resultary tree theorem uses the same factor and includes paths through length 12, but gives only an at-most-once assertion there, not an all-length criterion for when a reversal exists or the exact crossing equation and sharp path onset. The same-day cycle and five-site covariance records are on different geometries or observables. No inspected stronger result supplies the exact all-length open-path parity and position classification.",
+      "residual_risks": [
+        "The older Tanaka–Morita–Hiroike full text was not accessible; no whole-paper exclusion is inferred.",
+        "Equivalent unindexed finite open-chain or matching-edge occupancy results may exist. Same-day records have no established ordering from publication dates alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial structural and small-size coverage only",
+          "evidence": [
+            "At most one change through 12 sites; a 13-vertex witness for two changes; median-site Bernoulli factor p_o(1-p_o)(1-2p_o)."
+          ],
+          "identifier_or_url": "Resultary a2db7c68ea54 (2026-11-22)",
+          "material_read": "RESULT.md Finding and median-factor proof passage",
+          "method": "Published catalogue and corresponding source passages",
+          "title": "Thirteen sites are necessary for reentrant three-point hard-core correlations on trees",
+          "trigger": "Same observable and median conditioning; all trees include paths"
+        },
+        {
+          "assessment": "Restricted periodic family, no open-path coverage",
+          "evidence": [
+            "Triple (0,m,2m) on C_(3m+1); only local uniqueness near fugacity 2 for sufficiently large m."
+          ],
+          "identifier_or_url": "Resultary 81a9cffd6370 (2026-11-22)",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Published catalogue and source comparison",
+          "title": "An alternating finite-ring three-point correlation boundary near fugacity two",
+          "trigger": "Same observable, even/odd behavior and a unique root in another one-dimensional geometry"
+        },
+        {
+          "assessment": "Different observable and example graph",
+          "evidence": [
+            "Two-site covariance, with a fan witness on five vertices."
+          ],
+          "identifier_or_url": "Resultary 736bfbff4534 (2026-11-22)",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Published catalogue and source comparison",
+          "title": "A sharp five-site covariance reversal and a parity threshold on hard-core fan graphs",
+          "trigger": "Precisely five sites and hard-core sign reversal"
+        },
+        {
+          "assessment": "Fixed-size pair covariance, not grand-canonical triple classification",
+          "evidence": [
+            "Formula for canonical Cov(X_1,X_3) and its grand-canonical positivity comparison."
+          ],
+          "identifier_or_url": "Resultary 2ba6fd783632 (2026-10-25)",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Published catalogue and source comparison",
+          "title": "Canonical hard-core path and cycle correlations have distinct square-root thresholds",
+          "trigger": "Same open-path setting and correlation thresholds"
+        },
+        {
+          "assessment": "Classical setup, no target classification in inspected passages",
+          "evidence": [
+            "The hard-core/independent-set polynomial framework permits marginal identities, but a marked open-path odds root theorem is not stated there."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0309352",
+          "material_read": "Abstract PDF p. 1; §1.1 PDF p. 3",
+          "method": "Primary OA PDF passages",
+          "title": "The repulsive lattice gas, the independent-set polynomial, and the Lovász local lemma",
+          "trigger": "Same equilibrium partition function in a general graph theorem"
+        },
+        {
+          "assessment": "Quantum ground-state rather than classical Gibbs measure",
+          "evidence": [
+            "Uses Hamiltonian mappings and nearest-neighbor repulsion in a quantum system."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0907.4228",
+          "material_read": "Abstract PDF p. 1; §II PDF p. 2",
+          "method": "Primary OA PDF passages",
+          "title": "Exact ground states and correlation functions of chain and ladder models of interacting hardcore bosons or spinless fermions",
+          "trigger": "Hard-core chain correlation functions"
+        },
+        {
+          "assessment": "No demonstrated coverage; full text unresolved",
+          "evidence": [
+            "Frozen RESULT.md identifies it as a study of two-point correlations at fixed half density with longer-range interactions; the inaccessible full text was not used as negative evidence."
+          ],
+          "identifier_or_url": "https://doi.org/10.1143/PTPS.87.214",
+          "material_read": "Lawful DOI/publisher and PDF attempts returned 403; bibliographic scope and frozen author's description only",
+          "method": "Bounded legal OA access attempts; secondary comparison only",
+          "title": "Correlation Functions of a One-Dimensional Lattice Gas with Interactions Up to Third-Nearest Neighbors",
+          "trigger": "Older finite-range one-dimensional correlation work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and exact root classification; same-observable comparison with Resultary a2db7c68ea54 and 81a9cffd6370"
+      ],
+      "rationale": "The connected three-point function is a natural nonlinear equilibrium observable. Unlike the standard fixed parity of pair signs, its complete finite-size sign diagram separates genuinely reversing triples from the rest and identifies their sharp onset and boundary dependence. The marked-site odds criterion is useful independently as a classification of which internal occupations can cross half density. No macroscopic phase transition is claimed.",
+      "residual_risks": [
+        "No result for arbitrary inhomogeneous activities, fixed particle number, periodic boundaries or higher cumulants."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:28:46.686134Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–85",
+        "VERIFICATION.md; checker.py inspected as finite diagnostic evidence, not executed"
+      ],
+      "rationale": "Under the specified continuous simple null, the probability-integral transforms are iid uniform. The maximum's density is n t^(n-1); conditional on its value t, the other unordered observations are iid uniform on (0,t). Below t, the conditional squared empirical error is the binomial variance divided by n² plus the squared bias; above t the empirical CDF is 1. Integration against 1/[u(1-u)] gives exactly the three terms in the frozen formula. For the continuous conditional version, scale all order statistics by t: their normalized law is t-independent and the last normalized value is 1. The ordered-log formula then has a -n log(t) term and a positive weighted sum of expectations of -log(1-tV). The former is strictly convex and diverges at zero; the term for V=1 diverges at one. This proves existence and uniqueness of the interior minimum. For covariance, each log U_(j) contributes Cov(log M,M)=1/(n+1)² by independence after scaling. Given U_(j)=u, E[M|u]=1-(1-u)/(n-j+1), also valid at j=n. Differentiating the beta first moment in its first shape parameter gives Cov(Y,log Y)=b/(a+b)²; with Y=1-U_(j), this gives the negative upper-log contribution -j/[(n-j+1)(n+1)²]. Reindexing in the log statistic and summing gives the exact harmonic formula. It is zero at n=1, -1/36 at n=2, and H_n-2n/(n+1) is increasing. Harmonic asymptotics yield the stated order and constant. The proof covers n=1, including g_1=-1-log[t(1-t)].",
+      "residual_risks": [
+        "The pointwise formula is for the natural continuous version of the conditional mean, not for arbitrary changes on conditioning-null sets.",
+        "No fitted null or formal verification is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lockhart (2012) conditions on complete sufficient statistics in exponential families and says in Remark 6 that AD is not covered by the proof owing to the endpoint weight.",
+          "The Tolikas–Heravi paper's full text was not retrieved; its title concerns the three-parameter lognormal model."
+        ],
+        "reasoning": "An asymptotic conditional law for a different conditioning statistic does not yield this exact all-n regression or covariance. The inaccessible paper is not counted as negative evidence.",
+        "searches": [
+          "arXiv:1207.5967, abstract and Remark 6",
+          "DOI:10.1080/03610920802101571"
+        ]
+      },
+      "checked_sources": [
+        "Stephens (1974)",
+        "Lockhart (2012)",
+        "Resultary 6e915b815835, 2814be50ba91, 6967a739df45",
+        "Tolikas–Heravi (2008) and Anderson–Darling (1954), access attempts only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard rank-log formulas describe the same A_n², but the maximum regression requires the independent scaling law conditional on M; the mixed moment also requires the conditional maximum above each rank.",
+          "The catalog covariance is an expectation against a different, quadratic empirical-process statistic."
+        ],
+        "reasoning": "The inspected results supply tools or analogous invariants, not a direct specialization that determines the claimed regression, shape or harmonic moment.",
+        "searches": [
+          "Stephens (1974), p. 38",
+          "Lockhart (2012), Remark 6",
+          "Resultary 6e915b815835, frozen finding in mirrored RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stephens (1974), p. 38, partitions the AD and Watson statistics for component properties and power.",
+          "Under uniform reflection the maximum becomes one minus the minimum and the AD statistic is invariant."
+        ],
+        "reasoning": "A minimum-conditioned formula under reflection, or a joint statistic with the top uniform order statistic, would cover the maximum formulation; a component decomposition or the marginal AD law does not. The targeted lookup did not establish such equivalent coverage.",
+        "searches": [
+          "Resultary: Anderson-Darling statistic conditional on uniform sample maximum exact conditional mean strict convexity harmonic covariance",
+          "Primary literature: \"Anderson-Darling\" statistic \"sample maximum\" conditional uniform order statistics covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day record 6e915b815835 gives Cov(U_n²,A_n²)=(n-1)/(36n) with the Watson statistic. Related findings concern CvM–AD or multiscale Watson–AD covariance."
+        ],
+        "reasoning": "Matching statistic, null and finite-sample setting do not identify the other variable in a covariance. None of these exact formulas evaluates a maximum-conditioned mean or its covariance with the maximum. The same date does not settle priority.",
+        "searches": [
+          "Resultary semantic query above; strongest same-day hit 6e915b815835 and related hits 2814be50ba91, 6967a739df45",
+          "Primary-literature query above"
+        ]
+      },
+      "rationale": "Credit the classical ordered-log statistic and uniform-order-statistic tools. The supported distinct contribution is the joint simple-null calculation with the upper order statistic: exact regression, global shape and exact mixed moment. Neither the strongest same-day catalog neighbor nor the relevant conditional or component work inspected establishes or subsumes this combination. This is a bounded comparison, not a priority or literature-exhaustion claim.",
+      "residual_risks": [
+        "An unlocated joint-order-statistic formula or equivalent minimum result could provide implicit coverage.",
+        "The two cited journal articles without retrieved full text were not used as exclusion evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related component and power analysis",
+          "evidence": "Partitions Watson U² and AD A² into components.",
+          "identifier_or_url": "https://www.numdam.org/item/AIHPB_1974__10_1_37_0.pdf",
+          "material_read": "p. 38, description of scope and component method",
+          "method": "Open PDF, passage inspection",
+          "title": "Components of goodness-of-fit statistics",
+          "trigger": "Classical AD decomposition"
+        },
+        {
+          "assessment": "Different conditioning and asymptotic regime; AD exclusion explicit",
+          "evidence": "Conditions on complete sufficient statistics; Remark 6 states 'One important case not covered by our proof is the Anderson–Darling test.'",
+          "identifier_or_url": "https://arxiv.org/pdf/1207.5967",
+          "material_read": "p. 1 abstract and p. 17 Remark 6",
+          "method": "Open PDF, passage inspection",
+          "title": "Conditional limit laws for goodness-of-fit tests",
+          "trigger": "Closest cited conditional-law method"
+        },
+        {
+          "assessment": "Distinct pairing, not equivalent coverage",
+          "evidence": "Cov(U_n²,A_n²)=(n-1)/(36n), with U_n² the Watson statistic.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-exact-finite-sample-covariance-of-watson-and-anderson-darling-go--6e915b815835",
+          "material_read": "Mirrored RESULT.md opening finding",
+          "method": "Local catalog search and mirror passage",
+          "title": "Exact finite-sample covariance of Watson and Anderson–Darling goodness-of-fit statistics",
+          "trigger": "Strongest same-day catalog overlap"
+        },
+        {
+          "assessment": "Unresolved text-level coverage",
+          "evidence": "The named model is three-parameter lognormal; availability is not evidence about its theorems.",
+          "identifier_or_url": "https://doi.org/10.1080/03610920802101571",
+          "material_read": "Title/bibliographic record only",
+          "method": "DOI and lawful copy lookup; no readable full text retrieved",
+          "title": "The Anderson–Darling Goodness-of-Fit Test Statistic for the Three-Parameter Lognormal Distribution",
+          "trigger": "Cited AD study with parametric model"
+        },
+        {
+          "assessment": "Foundational credit; text-level comparison limited",
+          "evidence": "No full-text passage relied on for an exclusion.",
+          "identifier_or_url": "https://doi.org/10.1080/01621459.1954.10501232",
+          "material_read": "Citation only",
+          "method": "DOI and lawful copy lookup; no readable full text retrieved",
+          "title": "A Test of Goodness of Fit",
+          "trigger": "Foundational AD source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–23, 41–85"
+      ],
+      "rationale": "The statistic and upper order statistic are natural tail diagnostics under a common null. The exact regression shows that larger maxima do not affect conditional AD severity monotonically, despite a strictly negative mixed moment for n≥2. That distinction, with a finite-sample calibration and quantitative covariance decay, is substantively more informative than a marginal AD calculation or a numerical sign check.",
+      "residual_risks": [
+        "Does not establish conditional test sizes, fitted-null behavior or behavior under alternatives."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

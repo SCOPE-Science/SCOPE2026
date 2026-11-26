@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:04:29.605075Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–7",
+        "Frozen VERIFICATION.md and verify.py, inspected as evidence; not executed"
+      ],
+      "rationale": "The logistic unitary makes H_1 convolution with the causal exponential of rate 1/2; its multiplier (1/2+iξ)⁻¹ has closed essential range ∂D, no positive-measure level sets, and essential supremum in modulus 2. On the nonatomic multiplier space this is also the essential norm, and every point of the range closure is non-Fredholm. The logarithmic coordinate at γ=0 instead gives the adjoint of causal convolution on the positive half-line; Laplace and Cayley transforms identify H_0 with I−S*, with index +1 inside D and no exterior spectrum. Squaring the difference kernel and integrating first over x gives, in u=1−t, (u^(1−2γ)−2u^(1−γ)+u)/(1−u). The cancellation at u=1 and the power at u=0 give the Hilbert–Schmidt threshold; the digamma differences and the pole at 2−2γ=0 give the stated formula and leading coefficient. Compact perturbation gives the subcritical essential spectrum, essential norm and indices. For λ≠0 the eigenfunction equation reduces to x^(1/λ−1) times a factor bounded and bounded away from zero, since the remaining exponent integral converges at both ends for γ<1. Its L² criterion is Re(1/λ)>1/2. The boundary flux at zero vanishes in that region and recovers the integral equation; λ=0 is injective by differentiation. The Fredholm index then gives surjectivity inside and invertibility outside. Positive-kernel domination bounds both H_γ and H_1−H_γ by the norm 2. The latter difference, on weakly null profiles concentrating at the right end, rescales to h↦∫_s^1 h(u)du/u=H_0*h, giving essential norm at least 2; on smooth profiles the same scaling gives a divergent factor δ^(1−γ) for γ>1. Dominated convergence on functions supported away from 1 and the uniform bound imply strong convergence from below.",
+      "residual_risks": [
+        "Numerical quadrature can check individual identities but cannot prove the spectra, Fredholm indices, or endpoint norm bounds; these are supported by the reconstructed analytic argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fractional Cesàro–Hardy family uses the power of x−t, not of 1−t. The Jacobi-weighted theorem varies the measure and gives two Fredholm circles for the fixed singular Cesàro kernel."
+        ],
+        "reasoning": "Neither broader family as stated contains this kernel interpolation on unweighted L². Equating the endpoint-weight names does not equate the operators or their relative norm.",
+        "searches": [
+          "arXiv:2604.20408 §1, fractional and ordinary Cesàro–Hardy kernels",
+          "Resultary 0a58860d98f4, Finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.19691v2",
+        "arXiv:2606.08600v1",
+        "arXiv:2604.20408",
+        "Resultary 0a58860d98f4, 9175a17bfc0c and 3c84886d6b6e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Critical endpoint spectrum, norm and normality are already established; H_0 is the ordinary Hardy average, and compact perturbation gives transfer once the weighted difference is shown to be Hilbert–Schmidt."
+        ],
+        "reasoning": "The separate endpoint norms and spectra do not give the distance or relate it to a strong limit. The right-end rescaling gives a Hardy adjoint as a limit model for the actual difference, whereas the Hilbert–Schmidt reduction transfers the subcritical index from the left-end Hardy model. This is the distinct part of the claim.",
+        "searches": [
+          "arXiv:2604.19691v2 Thms. 2.12–2.13 and Prop. 2.15",
+          "arXiv:2606.08600v1 Thm. 1.3",
+          "arXiv:2604.20408 §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The real-variable Cesàro operator of Belli et al. at p=2 is exactly H_1; their crescents vary p for the same fixed kernel 1/(1−t)."
+        ],
+        "reasoning": "The critical spectrum and normality are covered. Varying the ambient norm while fixing the integral does not yield the stated strong convergence or distance of operators on a common L² space as the kernel varies.",
+        "searches": [
+          "Literature lookup on weighted Cesàro essential-norm and Fredholm transitions",
+          "arXiv:2604.19691v2 Eq. (1.2), §§1–2; arXiv:2606.08600v1 §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 0a58860d98f4 varies Jacobi space weights; 9175a17bfc0c varies L^p for the fixed real-variable kernel; 3c84886d6b6e studies discrete Cesàro commutators with diagonal weights."
+        ],
+        "reasoning": "The inspected analytical records have different inputs and do not encode the critical-to-subcritical norm difference; an exact tabulation is not a natural separate source for this continuous family.",
+        "searches": [
+          "Local Resultary comparison of endpoint-weighted Cesàro results, Fredholm crescents and Hilbert–Schmidt cusps"
+        ]
+      },
+      "rationale": "Pass on the fixed-L² kernel-power deformation and its combined sharp distance, strong limit, and index transition. The classical Hardy endpoint, critical normal model, and general compact-perturbation principles are prior ingredients, not separate original claims.",
+      "residual_risks": [
+        "The Springer chapter Fredholm Theory for the Cesàro Operator was not retrievable by OA; available metadata concerns the classical sequence operator. Erovenko's earlier essential-spectrum result was not inspected directly.",
+        "An equivalent endpoint localization theorem under other Hardy-operator terminology may exist. This is not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage for the critical model, not the relative distance theorem",
+          "evidence": "Norm 2, spectrum the circle centered at 1 of radius 1, normality, and no eigenvalues.",
+          "identifier_or_url": "https://arxiv.org/html/2604.19691v2",
+          "material_read": "Eq. (1.2); §2 Thms. 2.12–2.13 and Prop. 2.15, OA offsets 18400–22997",
+          "method": "Targeted OA theorem inspection",
+          "title": "The Cesàro operator on L²(0,1)",
+          "trigger": "Identical critical integral operator"
+        },
+        {
+          "assessment": "Different parameter and family",
+          "evidence": "Varies p for a fixed 1/(1−t) kernel and recovers the circle at p=2.",
+          "identifier_or_url": "https://arxiv.org/html/2606.08600v1",
+          "material_read": "§1 Thm. 1.3, OA offsets 0–7499",
+          "method": "Targeted OA theorem inspection",
+          "title": "Crescents and the Real Variable Cesàro Operator",
+          "trigger": "Spectral transition under a parameter near the critical circle"
+        },
+        {
+          "assessment": "Classical average overlaps; fractional family differs",
+          "evidence": "The fractional power is (x−t)^(α−1), with prefactor α x^(−α).",
+          "identifier_or_url": "https://arxiv.org/html/2604.20408",
+          "material_read": "§1, operator definitions around OA offset 2000",
+          "method": "Compare kernels in OA text",
+          "title": "Cesàro–Hardy operators on L^p[0,1]",
+          "trigger": "Possible fractional-power alias"
+        },
+        {
+          "assessment": "Related but no coverage of the combined claim",
+          "evidence": "Measure weighting, ambient-p crescents, and ℓ² diagonal commutators, respectively.",
+          "identifier_or_url": "Resultary 0a58860d98f4, 9175a17bfc0c, 3c84886d6b6e",
+          "material_read": "Locally mirrored findings, including 0a58860d98f4 offsets 0–3582",
+          "method": "Compare the actual operators, weights and conclusions from local mirror passages",
+          "title": "Jacobi-weighted and Fredholm-crescent Cesàro results; discrete diagonal commutator result",
+          "trigger": "Strongest nearby indexed findings, including the same-date commutator result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, assumptions, and boundary layer calculation in proof §6",
+        "Belli et al. critical model and variable-p comparisons"
+      ],
+      "rationale": "For a natural one-parameter deformation connecting two classical models, the result separates strong convergence, essential-norm continuity, and stability of Fredholm spectral sets versus indices. The exact distance 2, not just a discontinuity, and the change from a filled eigenvalue disk to a normal spectral circle explain the role of the singular endpoint. The qualitative conclusion is not obtained by repeating the known endpoint classifications.",
+      "residual_risks": [
+        "Value is specific to the fixed-space endpoint-power problem; there is no general classification for other spaces or weights here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

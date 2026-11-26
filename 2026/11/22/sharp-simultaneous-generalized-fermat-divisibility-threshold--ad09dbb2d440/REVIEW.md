@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof establishes the factorization producing a witness, enumerates every low representative in the negative-power orbit modulo the larger divisor, rules out the fourth residue branch by a strict magnitude bound, and contradicts each surviving branch modulo the smaller divisor. The small-modulus and equality boundary cases are included in the inequalities. No analytic assumption or unproved primality statement is needed. A direct, independent modular-inverse census checks 300 parameter triples, plus bounded direct searches.
+## correctness
 
-**Originality — PASS (best-knowledge, with residual risk).** The relevant full-text primary literature treats Carmichael-number existence, individual Fermat factors and even-base prime-factor dependence. The strongest close single-factor theorem proves \(q<2k\) but cannot supply the exact coefficient for a prescribed *pair* of moduli. The closest indexed mathematical records were compared at the level of their actual reported claims; none covers the exact pairwise theorem. General CRT/cyclotomic literature is extensive, and unindexed or implicitly equivalent antecedents remain possible. An independent literature audit is still warranted.
+PASS
 
-**Mathematical value — PASS.** The invariant is the first coefficient permitting two independently specified cyclotomic plus-one factors in an exponential sequence. It has a direct motivating use in screening candidate Carmichael families: the complete coefficient interval below \(b^d+b^c+1\) cannot contain both designated factors. The bound is attained, uniform in infinitely many nested exponent pairs and all even bases, and requires no primality assumptions; it is stronger information than individual-factor bounds. This does not assert new Carmichael numbers or solve the general multi-factor classification.
+Let C=b^c+1 and B=b^d+1. Then B=2 mod C, C is odd, and B,C are coprime. The proposed coefficient attains the product divisibility by (B+b^c)b^(d-c)+1=B(b^(d-c)+1). Independently, reducing n modulo 2d gives k=±b^j+sB (0≤j<d), with n+j divisible by d, hence by 2c. Multiplying kb^n+1 by b^j shows that the C congruence is s=0 mod C on the minus branch, and s=−b^j mod C on the plus branch. The minus branch needs s≥C and already exceeds B+b^c; the plus branch needs s≥1, and j<c requires s≥2 because 1≤b^j<b^c=C−1. For j≥c the plus branch is at least B+b^c. This independently excludes all smaller positive k even when either factor is composite. The observed verification metadata does not represent an independent audit; verify.py was inspected rather than executed, and its finite parameter range is not needed for the proof.
 
-Closest literature: Cilleruelo–Luca–Pizarro-Madariaga (2013/2016), Lemma 2; Luca (2026), Sections 1–2; Tiebekabe (2026), Theorem 1.3; subsequent Randrianantenaina–Uncu (2026), Theorem 3. Dates distinguish the qualifying primary sources from the subsequent November 18 manuscript. A possible hidden exact congruence antecedent is the chief residual priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Supported distinct claim is the uniform two-designated-factor least positive coefficient under the stated nested even-ratio hypothesis. The strongest exact catalogue hit is the frozen item itself. The primary abstracts support the distinction from sharp single-Fermat-prime bounds and Carmichael classifications; no distinct equivalent pair minimum was substantiated in the inspected evidence.
+
+## value
+
+PASS
+
+This gives the exact first coefficient forcing two prescribed plus-one factors to coexist, a natural strengthening of single-factor restrictions in the sequence k b^n+1. It distinguishes an exact joint threshold and explicit attaining exponent from separate size obstructions, and treats composite factors as well. Solving the simultaneous signed-residue optimization is more than restating CRT or substituting an exponent into a single-factor bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific assessment: two-window risk-contingent cooperation
+# Independent mathematical audit
 
-## Correctness — PASS
-For fixed finite counts and one incumbent risk cutoff, the pivotal-event probability is constant on each side of that cutoff, so the focal's exact conditional payoff difference is \(bp_\pm r-c\). Its affine signs prove the necessary-and-sufficient two-window criterion. The unrestricted policy maximizes payoff pointwise; optimizing a single upper-tail rule reduces to the two zero-crossing candidates and produces the exact deficit \(\min(E_-,E_+)\). The 21-person construction is verified by exact counting of all \(190\) unordered peer pairs and exact integration. The independent-of-grid analytic argument establishes the continuum optimization. Unproved cases are explicitly excluded: strategic endogenous responses and evolutionary dynamics.
+## correctness
 
-## Originality — PASS, bounded literature conclusion
-The source paper (Zhou et al., arXiv:2611.07627v1, 2026-11-05) specifies shared-risk uncertainty and a monotone tolerance strategy, but the examined game-model and evolutionary analyses do not classify arbitrary unilateral risk-conditioned best responses. Fernández Domingos et al. (arXiv:2610.33895v1, §3.2) **already prove the generic pivotality and informed-choice principles**, but for random quorum and fixed risk; these are acknowledged rather than claimed. The exact shared-risk two-window criterion and hypergeometric example with optimized monotone-policy regret are not present in the relevant examined primary sections. Huynh et al. (arXiv:2610.22882v1) study empirical, multiround responsiveness, and the earlier collective-action paper of Shadmehr and Bernhardt describes nonmonotone strategies in a different strategic-information setting. Related published-result searches yielded risk-cost and collective-action classification results, but none implying the present exact finite-population claim. Residual risk: a broader paper in Bayesian threshold-game theory or an inaccessible historical game result could cover the derived special case; independent priority verification remains necessary.
+PASS
 
-## Value — PASS
-A newly used behavioral assumption—cooperating for every risk above one tolerance—can exclude the strictly optimal action despite full knowledge of risk. The result gives a sharp exact population-state criterion for this failure, a one-cutoff upper bound on the number of optimal cooperation windows, and a completely checkable witness in which replacing one tolerance by a two-window policy increases gross contribution-decision gain over always defecting by a factor of five, before any common observation charge. It identifies a strategic-substitution mechanism: when incumbent adaptive co-players switch on together, the focal becomes less pivotal even as environmental danger increases. This is a structural characterization motivated by the source model, not an arbitrary parameter recomputation.
+Conditional on risk r, the focal action saves expected endowment br only when exactly m-1 peers contribute; cost c is paid in every contributing state. Shared risk gives one switch in the hypergeometric pivotal probability, hence the two affine payoff differences. The pointwise positive rule is optimal uniquely a.e. because zeros are isolated (a zero-probability piece is the constant -c). Below tau, a positive-length cooperation segment exists iff alpha<tau; a positive-length gap after tau and a nonempty high segment require tau<gamma<1. A tie at gamma=tau is not a positive-measure gap. Each piece contributes at most one strict cooperation component. In the two-window regime the threshold value U(t)=integral_t^1 Delta(r) dr increases, decreases, increases and decreases across the three boundaries alpha, tau, gamma; the only maximizing candidates are alpha and gamma. Their gains are H+E_-−E_+ and H, with H the high positive area, E_- the low positive area and E_+ the absolute gap loss. The unrestricted gain is H+E_-, giving regret min(E_-, E_+). Independent exact enumeration of the 190 peer pairs found 100 and 36 pivotal pairs in the two regimes, alpha=3/10 and gamma=5/6, E_-=E_+=b/95 and H=b/380; the unrestricted and restricted gains are b/76 and b/380, and both cutoffs tie.
 
-## Scientific limits and closest sources
-Only one-shot conditional best responses are proved; no Nash equilibrium, finite-evolutionary fixation, welfare or worth of information is established. The relative-payoff convention, uniform shared risk, sampling without replacement and fixed peer actions are essential. Directly relevant sources: Zhou et al. (2026), arXiv:2611.07627v1; Fernández Domingos et al. (2026), arXiv:2610.33895v1; Huynh et al. (2026), arXiv:2610.22882v1; Shadmehr and Bernhardt (2011), doi:10.1017/S0003055411000359; Hilbe et al. (2013), doi:10.1371/journal.pone.0066490. Historical originality is bounded by the available material, not certified globally.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Zhou et al. already supply the shared uniform risk setting and tolerance strategies; Fernández Domingos et al. already give pivotal marginal payoff and pointwise informed optimization in a different uncertain-quota problem. The defensible distinction is the exact boundary for two separated windows, optimal upper-tail regret and its attainable finite witness in the fixed-composition shared-risk setting. Neither the underlying game principles nor general nonmonotonicity are credited as new. A close same-day group-level result was compared on content.
+
+## value
+
+PASS
+
+The theorem supplies a sharp, feasible counterexample to treating threshold rules as a best-response class when a shared signal changes co-player actions. Its exact class-restriction loss and the finite tie with a factor-five gross decision gain show a genuine effect and give a quantitative test for a policy-space assumption used in the existing setting. The sign rule alone would not have this value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

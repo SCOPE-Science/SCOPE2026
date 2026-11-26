@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:54:18.057981Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof and example; VERIFICATION.md; verify.py inspected, not run",
+        "Replacement RESULT.md, including all-candidates feasibility and exact gcd",
+        "Independent integer quotient/remainder enumeration and rational bound check; independent finite full-profile replay",
+        "Jaffe Propositions 5.1–5.2 and Theorem 4.3"
+      ],
+      "rationale": "The original obstruction and ratio calculation are correct, and the replacement determines the full profile rather than merely excluding primitive representations. For even L the product is 1 mod a, so the defining residue of b forces y=aj−1. The strict lower bound b>N/(aL) excludes all j>L. For L=2, b=a−1 and the second candidate is feasible even at x=0. For L≥4, N≥a³L²: the first four factors give at least (880/81)a⁴, which exceeds 16a³, and every later factor grows faster than the ratio of successive squared indices. Therefore N/(aL−1)−N/(aL)≥a, enough to accommodate the upward rounding of b. This makes every j≤L feasible. Each candidate y divides N and is coprime to a, so y divides x and gcd(x,y)=y exactly. The estimate on b proves the displayed lower bound and both needed divergences for fixed a. I independently reproduced all original 77 pairs and 616 nonprimitive representations, and then explicitly swept every feasible y for 253 pairs with 3≤a≤25 and even L from 2 through 22; all 3036 representations had the full stated profile. Jaffe's boundary formulas apply with the same gcd convention, with g(2,1)=0 by exchange of the generators.",
+      "residual_risks": [
+        "Finite enumeration is corroboration; general feasibility and exactness follow from the arithmetic proof. This determines an obstruction, not the largest missing value."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary proof obtains q≫_a log b on b≡−1 mod a. The earlier-indexed primorial construction requires min(a,b) above a growing primorial. The later-indexed fixed-generator construction gives liminf g(a,b)/(b log b)≥1 over all coprime b and uses a CRT witness divisible by primes up to a cutoff."
+        ],
+        "reasoning": "The logarithmic bound dominates the frozen asymptotic finding; the fixed-generator case cannot be imported from a both-growing min(a,b) hypothesis. Neither the uniform bound nor divisibility by each of a selected set of individual primes specifies the exact gcd of every representation in the repaired witness. The later index date establishes no authorship or priority by itself.",
+        "searches": [
+          "arXiv:2509.08599v1 §4 proof of Theorem 1.7; Resultary 0eee43f23b58 and d4c334da51d4 primorial constructions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2509.08599v1 Theorem 1.7 and §4; arXiv:2610.17267v1 Propositions 5.1–5.2",
+        "Resultary 0eee43f23b58, d4c334da51d4, 435c14e82144"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior proof selects a prime q and solves congruences for b to block the representations of a value tied to b. The replacement chooses N first to be divisible by every candidate coefficient and sets b by one floor; the extra feasibility argument ensures all L candidates occur, not just at most L."
+        ],
+        "reasoning": "Knowing a larger obstruction exists, or even that q selected candidates have some shared prime in each representation, supplies neither an arbitrary even candidate count with this full gcd list nor the arithmetic expression that produces it. The simple qualitative alternative proof is secondary, not an originality claim for the old growth statement.",
+        "searches": [
+          "Ding–Wang–Zhang §4 pp. 10–11, (4.3)–(4.5); Resultary 0eee43f23b58 exact finite construction; d4c334da51d4 finite obstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ding–Wang–Zhang's nonnegative-coprime convention is identical. Their proof takes b≡−1 mod a and obstructs qab+1 using a suitable prime q, with y_j=ja−1 for j=1,…,q.",
+          "Jaffe gives g(1,b)=b−1 except b=2, and g(2,b)=4b−2 for odd b>1."
+        ],
+        "reasoning": "The published lower and boundary behavior, using identical primitives and including the required progression, already implies the original dichotomy. Its CRT construction arranges divisibility by selected primes for its q candidates; it does not assert y_j divides x_j for the prescribed even-L product witnesses.",
+        "searches": [
+          "Resultary primitive Frobenius / coprime coefficients / fixed generator −1 residue",
+          "Ding–Wang–Zhang arXiv:2509.08599v1 Theorem 1.7, §4 (4.3)–(4.5); Jaffe arXiv:2610.17267v1 Propositions 5.1–5.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day 435c14e82144 concerns exact diagonal multiples mab; the replacement value is 1 mod a and hence not a diagonal multiple. The investigated primorial entries specify different selected values and guarantee common prime factors rather than the same product profile.",
+          "Jaffe gives exact a=1,2 formulas, not a table of the proposed profiles at a≥3."
+        ],
+        "reasoning": "The repaired invariant is the exact ordinary representation and gcd profile of an explicit symbolic witness, not an exact table of g(a,b). The potentially relevant exact indexed records were checked; their model or specific witness does not supply this profile.",
+        "searches": [
+          "Resultary fixed-generator primitive gap and exact obstruction matches: 435c14e82144, d4c334da51d4, 0eee43f23b58"
+        ]
+      },
+      "rationale": "The original dichotomy and even its exact congruence-class unboundedness fail originality: Ding–Wang–Zhang already give a stronger subsequential logarithmic bound in that class, while the small-generator formulas are known. The replacement credits these and passes only for the exact constructive profile: a direct product and rounding, with any prescribed even number of candidates and their full gcd list, rather than a construction guaranteeing some common prime at each candidate. This profile is not a specialization of the inspected stronger gap bounds or of their witness families.",
+      "residual_risks": [
+        "Bounded comparisons establish the prior status of the growth theorem, not exhaustive priority for all product arguments. The pass does not assert novelty for congruence reduction or single-prime obstructions in general."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier proof covers and strengthens the original conclusion on the exact progression; different witness construction",
+          "evidence": "Uses a suitable prime q, b≡−1 mod a, target qab+1, and CRT for at least one common prime divisor per candidate, with q≫_a log b.",
+          "identifier_or_url": "https://arxiv.org/pdf/2509.08599v1",
+          "material_read": "Theorem 1.7, p. 3; §4 proof pp. 9–11, offsets 31500–40119, including (4.3)–(4.5)",
+          "method": "Bounded primary full-text/PDF passage inspection",
+          "title": "The Diophantine Frobenius Problem revisited",
+          "trigger": "Same primitive gaps and a stronger fixed-generator lower bound"
+        },
+        {
+          "assessment": "Same invariant and direct coverage of boundary formulas",
+          "evidence": "Nonnegative coefficients of gcd one; g(1,b)=b−1 with the stated b=2 exception and g(2,b)=4b−2 for odd b>1.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.17267",
+          "material_read": "Definition p. 5, offset 13250; Propositions 5.1–5.2 pp. 10–11, offsets 29859 and 30102; Theorem 4.3 cited for finiteness",
+          "method": "Bounded primary full-text passage inspection",
+          "title": "Denominators in the Farey Sequence, the Stern Sequence, and the Frobenius Problem with Relatively Prime Multipliers",
+          "trigger": "Definition, finiteness and boundary formulas"
+        },
+        {
+          "assessment": "Different size hypotheses, witness and gcd conclusions",
+          "evidence": "For min(a,b)>M_k forms N=kab−ac−bd by CRT; uses a selected prime p_t to block each candidate.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-uniform-primorial-obstructions-for-primitive-two-generator-frobe--0eee43f23b58",
+          "material_read": "Opening theorem and exact finite proof, RESULT.md offsets 0–3508",
+          "method": "Bounded local archived text inspection",
+          "title": "Uniform primorial obstructions for primitive two-generator Frobenius numbers",
+          "trigger": "Earlier-indexed explicit simultaneous divisibility obstruction"
+        },
+        {
+          "assessment": "Later-indexed stronger general growth bound, not the exact repaired profile",
+          "evidence": "An N in (Kb−aP_a(K),Kb] is divisible by the chosen primorial and congruent to −b mod a; each candidate gcd contains a prime factor of the primorial.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-primorial-obstructions-force-b-log-b-growth-for-primitive-froben--d4c334da51d4",
+          "material_read": "Finding and bounded passages on CRT, candidate divisibility and the asymptotic estimate",
+          "method": "Bounded local archived text inspection",
+          "title": "Primorial obstructions force b log b growth for primitive Frobenius numbers",
+          "trigger": "Uniform fixed-generator bound and related finite construction"
+        },
+        {
+          "assessment": "Different exact family",
+          "evidence": "Deals with multiples mab rather than N≡1 mod a or fixed-a gap growth.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-the-first-missing-nontrivial-diagonal-multiple-in-a-primitive-fr--435c14e82144",
+          "material_read": "Finding, including form of the selected integers",
+          "method": "Bounded local archived text inspection",
+          "title": "The first missing nontrivial diagonal multiple in a primitive Frobenius problem",
+          "trigger": "Same-day exact primitive-obstruction record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Replacement RESULT.md statement, full-profile proof and worked example",
+        "Ding–Wang–Zhang §4 and the primorial construction comparisons that guarantee a common prime rather than full gcds"
+      ],
+      "rationale": "The repaired claim is a motivated witness family with an exact parameter-controlled ordinary representation count and all gcds, not another looser estimate of the known largest-gap growth. It shows precisely how a target with arbitrarily many ordinary representations can have none primitive, and supplies reproducible examples for testing representation or sieve criteria without prime selection or searching for b. The qualitative elementary corollary is useful context but is not the value basis on its own.",
+      "residual_risks": [
+        "The family uses selected b in one residue class and does not determine exact gaps, optimal growth, or profiles at arbitrary prescribed b."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

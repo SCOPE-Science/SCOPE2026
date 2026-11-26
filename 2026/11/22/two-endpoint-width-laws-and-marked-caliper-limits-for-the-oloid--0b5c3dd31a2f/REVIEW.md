@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact support identity is proved from the generating circles and the standard support-hull maximum property; it is verified independently against sampled generator points. Lower and upper extrema follow from explicit global inequalities, with all equality directions identified. In local spherical charts the lower deficit is the maximum of two transverse absolute-linear terms plus a uniform quadratic remainder; a tight square scaling follows from coercivity. The upper deficit is a smooth radial quadratic with a uniform quartic correction, giving a disk scaling and a rigorously derived second coefficient. The spherical Jacobians and factors for four minimal and two maximal oriented directions are explicit. The executable diagnostic checks the exact formula, support comparisons, and convergence of independently integrated probabilities. These finite tests are not the proof.
+PASS
 
-## Originality — PASS, with residual historical-priority risk
+For the repaired claim the exact support maximum localizes the high-width event to the two poles, entirely on the two-circle contact branch. In squared radial coordinate s the deficit is s+c(phi)s²+O(s³) uniformly, with average c=7/32; inversion and normalized spherical integration give 1/8−7/64=1/64. Uniform convergence of the scaled radial boundaries and planar densities gives total-variation convergence, with the two weights exactly equal by reflection. The original lower calculation was also checked: dσ=dθdy and four square charts give 2√2/π and a half-area switching mark. No uploaded code was executed.
 
-The oloid, its classical width-support machinery, and its mean width are not new. Finch (arXiv:1211.4514, related topics), Bäsel–Dirnböck (arXiv:1503.07399, contacting quadrics), and Bäsel (arXiv:1604.07245, §§3–4) were examined in accessible full text; Bäsel calculates the directional mean, not the endpoint distribution. Nash–Pir–Sottile–Ying (arXiv:1612.09382, §§1,4) classifies convex hull geometry and faces without a width-tail theorem. Published mathematical-result index comparisons considered orthogonal hyperdisk hull width laws, regular-simplex minimum-width tangent polytopes, and two-circle convex hull structures: none has the oloid's translated, interlocking two-circle support identity or implies the claimed probability coefficients and marked conditional measures. The 1997 original geometric treatment was accessible through excerpts rather than all its pages; unindexed priority remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-Mean width is a classical intrinsic measurement of this mechanical and convex-geometric object. A mean hides how rarely near-minimum and near-maximum orientations occur, and whether supporting planes touch one or both generators. The theorem resolves those naturally motivated endpoint distributions in different exponents (quadratic versus linear), a nonzero exact second upper coefficient, and square versus disk conditional contact geometry. These are quantitative geometric invariants beyond an arbitrary parameter sample, not a recomputation of known mean width.
+Pass applies only to the repaired two-term upper tail and polar contact law, not the original combined novelty framing. The two near-minimum crossover records cover material parts of the original: the extrema and leading lower-tail law specialize at unit separation, and the folded fixed-separation conditional rectangle, unfolded by symmetry, recovers the square shape and switch split. Neither inspected comparison supplies the upper second coefficient or the associated polar contact law. The elementary support formula and the maximum are credited prerequisites, not new results.
 
-## Scope and limitations
+## value
 
-The proof covers the classical congruent-circle, perpendicular-plane, center-on-other-circle oloid with uniform spherical normal sampling. It does not compute the whole distribution function, variable radius/offset transitions, nonisotropic sampling, or independently certify historical priority. Numerical convergence alone is not asserted to prove the asymptotics.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a classical body whose mean width has already been studied, the two-term upper-tail law quantifies the prevalence of near-maximal caliper readings and separates the first shape-sensitive correction from a generic polar-cap leading law. The conditional angular scale and circle-of-contact labels relate the exact probability to identifiable supporting geometry. This is a motivated distributional increment, not a recomputation of the known maximum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

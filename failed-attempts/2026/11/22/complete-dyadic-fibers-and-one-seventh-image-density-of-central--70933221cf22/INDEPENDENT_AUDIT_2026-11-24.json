@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:00:40.194834Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The binomial interpolation converges uniformly, and the squared-binomial generating-function identity at z=2 gives F(−x−1)=−F(x). In the first-shift calculation, grouping the symmetric single-positive Vandermonde terms gives an extra factor 2; the two double-positive exceptions at shift valuation 2 have equal residues 16 modulo 32 and cancel. This gives valuation shift +2 in the regular branches. The resulting period is 2^(k−2); k=4 has four distinct values, and for k≥5 its half fails at n=1. At the singular branch the formal dilogarithm relation at z=2 is legitimate by 2-adic convergence and log(−1)=0, and removes the quadratic term exactly. I independently checked the bounded coefficient exceptions by multiplying the factors of P_j with exact rational arithmetic: exactly the two odd nonconstant contributions at (j,m)=(4,2),(8,2) cancel in parity, and the constant term is odd. Above the finite range the stated B(j) is bounded below by (j−3)/2−2 floor(log2 j), giving uniform convergence. An integral restricted power series with nonconstant coefficients even gives the required Lipschitz bound. For indices of valuation r≥2 the leading cubic difference has valuation 2r+ν₂(x−y), strictly smaller than the error, giving bijections on the normalized odd-unit quotients. Reflection gives the other center. Counting one period then yields the stated regular, shell, center and unattained fibers; the two real Haar shell measures sum with 1/8 to 1/7 (the 2-adic convergence convention concerns the interpolation series, not this real measure sum). Independent lattice-path dynamic programming checks every target and the period witnesses at k=4 through 11. Replay: python3 /workspace/branches/independent_checks_2_5.py. The frozen checker was inspected, not run; the bounded checks are not the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sharp dyadic index shifts states the uniform first-shift phase and all dyadic least periods; Resolution of the sharp binary valuation conjecture establishes the +1-center law ν₂(D_n−1)=3ν₂(n) when 4 divides n.",
+          "The inspected ternary valuation theorem and Delannoy sum congruences do not give all-target dyadic counts."
+        ],
+        "reasoning": "The older phase and valuation statements alone do not imply all shell fibers. The decisive stronger evidence is the same-day record's actual shellwise isometry, not just its set-theoretic formulation.",
+        "searches": [
+          "Resultary: 2026/11/2 records 3f433f15bf17 and 2170cbfaeec0",
+          "Mikić arXiv:2311.14623v1 Theorem 5; Guo–Zeng (2010) Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, delannoy_new_verifier.py",
+        "Local Resultary entries 5aae90e5b7de, 3f433f15bf17, 2170cbfaeec0",
+        "Lengyel INTEGERS 21 (2021) A86",
+        "arXiv:2311.14623v1",
+        "Guo–Zeng (2010), Theorem 1.2, OA PDF p. 2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The normalized regular maps u→u+2V_b(u) biject each finite quotient; the normalized singular map w→w³U(2^tw) is a bijective isometry of odd units and reflection handles the other branch.",
+          "In a known least period the valuation-r input shell has 2^(k−r−3) representatives. Their normalized odd indices distribute equally modulo 2^(k−3r), yielding 2^(2r−2) per target. The input ball of valuation at least ceil(k/3) has 2^(k−2−ceil(k/3)) representatives, giving the center fiber; reflection doubles the classification and the regular branches are singleton."
+        ],
+        "reasoning": "This derives every entry of the claimed table, including zero outside the image, without an additional lemma beyond the companion proof and previously known period. The image-set formula alone would not have implied frequency; the checked proof does. No timing is inferred from the displayed dates.",
+        "searches": [
+          "5aae90e5b7de Proof Steps 1–3, local-mirror offsets 2170–4558",
+          "3f433f15bf17 Finding: least period"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed record 5aae90e5b7de states the identical two regular balls, the two centers, both cubic-valuation towers, and Haar measure 1/7.",
+          "Lengyel writes ν₂(D_(4m+3)+1)=3(ν₂(m+1)+2), exactly the restricted complement in the frozen record after reindexing; he states it as a conjecture, not a theorem."
+        ],
+        "reasoning": "The same-day claim is of an equivalent closed value set, not just the same numerical measure. The older conjecture matches one branch but does not prove it.",
+        "searches": [
+          "Resultary local index: central Delannoy 2-adic image and measure one seventh",
+          "Literature: \"central Delannoy\" 2-adic image fibers modulo powers of 2 Haar measure",
+          "Lengyel (2021), Conjecture 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5aae90e5b7de explicitly gives I_k=2^(k−3)+2+Σ 2^(k−3r) with the identical range, as well as the value set and measure. Its limitations distinguish the value set from frequencies of individual values.",
+          "Neither the older period and valuation records nor the same-day finding states the entire per-target multiplicity table verbatim."
+        ],
+        "reasoning": "A difference in what is tabulated is real but not by itself scientific novelty; the methods and exact implications were checked separately.",
+        "searches": [
+          "Resultary central Delannoy indices 5aae90e5b7de, 3f433f15bf17, 2170cbfaeec0"
+        ]
+      },
+      "rationale": "A separate indexed record with the same displayed date states the identical complete 2-adic image, image cardinalities and Haar measure, and proves the very same regular and normalized critical-shell isometries and reflection. Its proof, together with the independently prior least period, mechanically implies every extra finite multiplicity here. Thus a materially distinct original contribution beyond the overlapping result is not established. The evidence establishes equivalent mathematical coverage, not which same-day record was first; it neither proves the frozen theorem false nor establishes historical preemption by one of the pair.",
+      "residual_risks": [
+        "No trusted intraday ordering of the two distinct 2026/11/22 records was established.",
+        "The literature search is bounded; an earlier equivalent argument may exist. The decision turns on positive mathematical evidence of overlap, not on a search miss."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical image and measure; its proof implies the otherwise unstated per-target fibers together with the known period",
+          "evidence": "F(4u)=1+64u³U(u), U∈1+2Z₂⟨u⟩; normalized odd-shell maps are bijective isometries; both regular maps also induce permutations at every precision; F(−x−1)=−F(x).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-exact-2-adic-image-of-the-central-delannoy-numbers-has-measu--5aae90e5b7de/RESULT.md",
+          "material_read": "Finding; proof regular maps, cubic branch and reflection; Limitations. Decisive isometries at mirror offsets 2170–4245",
+          "method": "Local indexed-record mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The exact 2-adic image of the central Delannoy numbers has measure one seventh",
+          "trigger": "Distinct same-day source with identical natural object, closure and measure"
+        },
+        {
+          "assessment": "Establishes the period before the frozen record",
+          "evidence": "P₁=1, P₂=2, P₃=4, and P_k=2^(k−2) for k≥4.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-dyadic-index-shifts-and-least-periods-of-central-delannoy--3f433f15bf17",
+          "material_read": "Finding: first-shift congruence and periods",
+          "method": "Local indexed-record mirror",
+          "title": "Sharp dyadic index shifts and least periods of central Delannoy numbers",
+          "trigger": "Least period and phase already used by the frozen proof"
+        },
+        {
+          "assessment": "Covers valuation at the +1 center, not an all-target law by itself",
+          "evidence": "ν₂(D_n−1)=3ν₂(n) for positive n divisible by four.",
+          "identifier_or_url": "2026/11/2/SCOPE-resolution-of-the-sharp-binary-valuation-conjecture-for-central--2170cbfaeec0",
+          "material_read": "Finding and valuation statement",
+          "method": "Local indexed-record mirror",
+          "title": "Resolution of the sharp binary valuation conjecture for central Delannoy numbers",
+          "trigger": "One branch of the sharp valuation result"
+        },
+        {
+          "assessment": "Conjectures but does not establish the complementary valuation statement",
+          "evidence": "ν₂(D_(4m+3)+1)=3(ν₂(m+1)+2) for m≥0.",
+          "identifier_or_url": "https://math.colgate.edu/~integers/v86/v86.pdf",
+          "material_read": "Conjecture 2, PDF p. 4, OA offset 9500",
+          "method": "OA PDF passage",
+          "title": "On Some p-adic Properties and Supercongruences of Delannoy and Schröder Numbers",
+          "trigger": "Exact earlier formulation of the complementary law"
+        },
+        {
+          "assessment": "Inspected result is for a different prime",
+          "evidence": "The stated valuations concern p=3, not the dyadic image.",
+          "identifier_or_url": "https://arxiv.org/pdf/2311.14623",
+          "material_read": "Theorem 5, PDF p. 6, OA offset 17000",
+          "method": "OA PDF passage",
+          "title": "On new divisibility properties of generalized central trinomial coefficients and Legendre polynomials",
+          "trigger": "Delannoy p-adic valuations"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The all-level image and index distribution of this standard combinatorial sequence are natural exact invariants. The proof identifies a genuine cubic degeneration and contrasting regular branches, explaining both the fractal pattern of missing targets and the measure 1/7. This is scientific value for the underlying theorem, not a claim that re-counting the quotient fibers from the companion isometries would be a valuable standalone repair.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

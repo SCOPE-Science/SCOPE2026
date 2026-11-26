@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:26:59.429143Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verification_output.txt and verify.py (inspected, not executed)",
+        "/workspace/review-replays/4.py and 4.out"
+      ],
+      "rationale": "For a fresh point, exactly the triangle-free neighbor sets are admissible in the Henson K4-free limit. Homogeneity makes each adjacency pattern one complete type; adding independent fresh points with that pattern gives arbitrarily many realizations. Chordality identifies the polynomial with the induced-forest polynomial. I filtered all labeled (2n-3)-edge graphs by simplicial degree-two peeling to an edge, quotiented by all permutations, and computed polynomials by triangle-union inclusion–exclusion. This independently reproduces 1,1,1,2,5 classes and the unique order-six collision with the given triangle lists and polynomial. At the specified edge the two restricted polynomials are z^2(1+z)^2. A fan vertex is allowed iff the old subset omits at least one edge endpoint, giving the all-t formula; the degree-three vertices of B_t distinguish it from A_t. The coefficient of z distinguishes different orders.",
+      "residual_risks": [
+        "The complete census ends at six vertices. The infinite family is not a classification of later collisions. Equality of graded counts does not identify labeled types."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The AJC introduction defines the invariant on all finite undirected graphs; the frozen comparison identifies a general-graph counterexample result in Section 1.",
+          "Conant's abstract concerns dividing and forking in Henson theories.",
+          "The crown-graph and rook-graph records treat distinct graph families and induced-forest statistics."
+        ],
+        "reasoning": "Existence of collisions among arbitrary graphs does not establish a collision within one subclass (any two forests with the same order already give a trivial collision). Crown graphs are bipartite; the cited rook-graph enumeration concerns Cartesian products, and does not establish the restricted uniqueness or rooted family.",
+        "searches": [
+          "arXiv:2011.01735 and the published AJC article; targeted search for general acyclic polynomial collisions",
+          "arXiv:1401.1570",
+          "Resultary 6c5358dc2696 and 933b550f71fe"
+        ]
+      },
+      "checked_sources": [
+        "Barton–Brown–Pike, AJC 82(2) pp.146–147 and arXiv:2011.01735 opening",
+        "Conant arXiv:1401.1570 abstract",
+        "Resultary 6c5358dc2696, 933b550f71fe",
+        "Frozen prior-work section"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The target uses equality both of the ordinary polynomial and of the restricted polynomial for subsets containing a given edge.",
+          "A general collision for the ordinary polynomial makes no assertion that two chosen edge-restricted polynomials agree."
+        ],
+        "reasoning": "The propagation identity is elementary given the rooted equality, but the presence of a suitable minimum-order distinct pair, its uniqueness within 2-trees, and the rooted equality are not consequences of the inspected broad statements.",
+        "searches": [
+          "Acyclic Polynomials of Graphs, p.147 and attempted collision-theorem passage; Resultary 6c5358dc2696, 933b550f71fe"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Barton–Brown–Pike define coefficients by acyclic subsets of the vertex set (p.147).",
+          "In a chordal graph triangle-free induced subgraphs are precisely forests; triangle hypergraph independence gives another equivalent formulation."
+        ],
+        "reasoning": "This is exact equivalence of invariants, and gets no novelty credit. One must look for known coincidences within the same graph class, not just for papers using the type-polynomial name.",
+        "searches": [
+          "Barton–Brown–Pike, Acyclic Polynomials of Graphs, published pp.146–147",
+          "Resultary: triangle-avoiding subset polynomials, induced-forest collisions and 2-trees"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalog hits included the exact assigned record and related crown/rook polynomial results; the latter's indexed statements do not supply a 2-tree reconstruction table.",
+          "The primary accessible extract from pp.146–147 supplies the definition, not labeled examples or full tables."
+        ],
+        "reasoning": "The identical record is not independent evidence. No inspected table specifies the matching six-vertex shapes and uniqueness; full tables/internal examples were not checked because the decisive passage retrieval failed.",
+        "searches": [
+          "Resultary: exact 2-tree collision and acyclic polynomial census",
+          "Primary search: Barton–Brown–Pike Theorem 1.2, graphs sharing the same acyclic polynomial, targeted passage retrieval"
+        ]
+      },
+      "rationale": "The polynomial is not new on 2-trees as an invariant: it is the prior acyclic polynomial by chordality. The supported distinct result is its sharp and unique first collision restricted to 2-trees, and a rooted-edge construction preserving collisions at every higher order.",
+      "residual_risks": [
+        "Uninspected internal examples, tables or earlier computations of the acyclic polynomial may give the same 2-tree pair or its rooted family. The pass concerns distinct claims supported by the available statement-level comparisons, not absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verifies prior invariant, not the claimed restricted pair in the passages obtained",
+          "evidence": "p.147 defines a_i as the number of i-subsets whose induced graph is acyclic.",
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/82/ajc_v82_p146.pdf; https://arxiv.org/pdf/2011.01735",
+          "material_read": "Published abstract and start of Section 1 through the formal definition on p.147; preprint abstract. Theorem 1.2, internal examples and tables could not be inspected.",
+          "method": "Primary and lawful alternate PDF text previews; attempted bounded passage retrieval",
+          "title": "Acyclic polynomials of graphs",
+          "trigger": "Exact invariant under the induced-forest formulation; plausible table of collisions"
+        },
+        {
+          "assessment": "Model-theoretic background; different stated result",
+          "evidence": "Abstract characterizes dividing graph-theoretically and compares forking with dividing over complete types.",
+          "identifier_or_url": "https://arxiv.org/pdf/1401.1570",
+          "material_read": "Abstract and introduction opening",
+          "method": "Primary PDF text preview",
+          "title": "Forking and Dividing in Henson Graphs",
+          "trigger": "Same homogeneous ambient graphs"
+        },
+        {
+          "assessment": "Different graph families; no inspected statement of the 2-tree collision or rooted propagation",
+          "evidence": "The entries count or analyze induced forests in crown graphs and rook graphs respectively.",
+          "identifier_or_url": "Resultary 6c5358dc2696; 933b550f71fe",
+          "material_read": "Catalogued statements only; mirror bodies not retrieved",
+          "method": "Local Resultary search and attempted mirror retrieval",
+          "title": "Acyclic and maximal-forest polynomials of crown graphs; Acyclic polynomials and extremal induced forests of rook graphs",
+          "trigger": "Closest indexed exact induced-forest enumerations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen first-collision and fan theorems",
+        "Independent restricted-class census and rooted count"
+      ],
+      "rationale": "The failure of reconstruction on arbitrary graphs leaves open whether it fails on rigid, sparsely triangulated bases. The unique first 2-tree witness answers that inverse problem and the rooted statistic explains how to preserve a collision without leaving the connected 2-tree class.",
+      "residual_risks": [
+        "Value does not rest on claiming the invariant itself or general-graph collisions are new."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

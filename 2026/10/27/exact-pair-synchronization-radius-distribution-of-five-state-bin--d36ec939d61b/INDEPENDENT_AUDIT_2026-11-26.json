@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:35:55.599434Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–58; VERIFICATION.md",
+        "Frozen forward_levels.cpp, reverse_bfs.cpp, pair_radius_counts.csv, reproduce.sh, check_witness.py (read, not executed)",
+        "Independent enumeration: python3 /workspace/branches/f8764956-054c-4464-820b-e2540ff5a7cd/independent_radius.py; observed full independent_output.txt in the same directory"
+      ],
+      "rationale": "In the ten-vertex graph of unordered nonmerged pairs plus a merged sink, the distance from a pair to the sink is its shortest merging word length. A shortest path cannot repeat a nonmerged pair, so its length is at most ten if finite. If all pairs can merge, successively merging any pair in the current image strictly reduces its size until a reset word has been built; the converse is immediate. A separately authored computation exhausted all 9,765,625 ordered map pairs with forward shortest-distance layers. It reproduced counts 31225, 1852520, 3544680, 1798320, 613920, 175440, 38160, 7440, 1440, 240 at radii 1 through 10, respectively; 1702240 infinite; and weighted finite sum 26027825 over 8063385, giving mean 5205565/1612677. The entire set of 240 radius-ten transition pairs equals the orbit generated from the displayed Černý representative by all state relabelings and both letter orders. Its ten pair distances and the ten-step word agree with the frozen proof.",
+      "residual_risks": [
+        "This is exhaustive for complete deterministic automata with five labeled states and two distinguished letters only. The radius does not measure the shortest word resetting all five states simultaneously."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Szykuła gives the tight general prescribed-pair bound and the pair criterion for synchronizability. Resultary fe81919abba1 gives all prescribed-pair lengths in the Černý family. The avoid-or-compress paper uses short-pair graphs for a statistic of reachable images."
+        ],
+        "reasoning": "The bound only delimits the histogram's support and the Černý calculation proves an extremizer exists, not that none outside its orbit exists. The reachable-image guarantee evaluates a different compression problem.",
+        "searches": [
+          "Szykuła, arXiv:2608.24245, sections 2.4 and 2.6",
+          "arXiv:2610.39833v2, Avoid-or-Compress Words, abstract and section 1",
+          "Resultary fe81919abba1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0ed29a47b807 (including open census implementation and report), c176f0fc06e0, fe81919abba1",
+        "arXiv:2608.24245, 1609.06853v5, 2610.39833v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The automata with A=(0,0,0,0,4) and B=(3,4,2,1,4) or B=(4,0,0,0,1) both have shortest reset length four but pair radii four and three, respectively. The first has max–min radius one, as does any automaton with a constant letter, for which the max-pair radius is one as well."
+        ],
+        "reasoning": "Either prior statistic can agree in two automata with different prescribed-pair radii. The equal synchronizing total is shared background; neither earlier census nor the known Černý witness determines the full radius histogram or unique extremal orbit.",
+        "searches": [
+          "Resultary 0ed29a47b807 and fe81919abba1, Findings and relevant comparison code",
+          "Frozen RESULT.md line 64, checked by forward BFS on subset images"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 0ed29a47b807 covers the identical set of labeled automata, but takes max over q of min over p≠q of d(p,q). Its maximum is five with 9120 labels in 38 symmetry classes. Resultary c176f0fc06e0 has a unique extremal orbit of 240 labels for triple-merging only."
+        ],
+        "reasoning": "The max–min distance lets each state choose a convenient partner; the radius tests every prescribed pair. The triple-merging record concerns a third statistic, with maximum seven and a different rank-four letter structure, so the identical orbit cardinality does not identify the same automata.",
+        "searches": [
+          "Resultary comparisons for five-state binary pair radius, pair-merging distances and extremal orbit",
+          "Focused literature lookup for the five-state pair-radius distribution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published reset-length table counts basic machines up to symmetry and only lengths at least 11 in the relevant comparison. The related labeled census prints the automaton and state max–min statistics and orbit representatives for its own extremizers, not pair-distance vectors or a max-pair histogram. Its implementation computes d in a local array and discards it after the min aggregation."
+        ],
+        "reasoning": "Neither table suffices as data to obtain the claimed counts. The related implementation could be adapted by changing the statistic and rerunning the complete census, which is not the same as an existing result or a lookup from published data.",
+        "searches": [
+          "De Bondt–Don–Zantema, arXiv:1609.06853v5, section 4.4",
+          "Resultary 0ed29a47b807: census.cpp from offset 875 and census_report.txt"
+        ]
+      },
+      "rationale": "The closest enumerations count a different pair statistic or a different notion of compression. The known prescribed-pair bound and the Černý witness are not the contribution. Within the compared sources, the full labeled histogram of the worst prescribed-pair distance and the extremal set equality remain distinct.",
+      "residual_risks": [
+        "Bounded search cannot rule out an unindexed historical histogram or a separate exact per-automaton distance dataset. The inspected adjacent code is easily adaptable but did not report the new statistic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same population and synchronizing total, but different reported distributions; no published per-automaton distance data in the inspected census artifacts",
+          "evidence": "maxcomp takes minima over possible partners before aggregating; the report prints automaton_tau and state_tau counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-compress-with-another-spectrum-of-binary-five-state-automa--0ed29a47b807",
+          "material_read": "RESULT.md Finding at offset 0; census.cpp offsets 875–2996; census_report.txt",
+          "method": "Local mirror, statement and computation-output inspection",
+          "title": "Exact compress-with-another spectrum of binary five-state automata",
+          "trigger": "Same transition space and an exhaustive computation of pair distances"
+        },
+        {
+          "assessment": "Different metric and different representative",
+          "evidence": "Shortest triple-merging time seven; rank-four letter with a two-cycle rather than the Černý letter with four fixed points.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-the-five-state-binary-triple-rendezvous-extremal-is-unique--c176f0fc06e0/RESULT.md",
+          "material_read": "Offsets 0–1367",
+          "method": "Local mirror passage inspection",
+          "title": "The five-state binary triple-rendezvous extremal is unique",
+          "trigger": "Same size and exactly 240 labelled extremizers"
+        },
+        {
+          "assessment": "Explicit distances for the Černý family only",
+          "evidence": "The family exhibits all lengths through the pair bound, not uniqueness outside the family or a population census.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-single-geodesic-orders-every-pair-of-the-ern-automaton--fe81919abba1/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "A single geodesic orders every pair of the Černý automaton",
+          "trigger": "Exact prescribed-pair times and attainment of ten on the representative"
+        },
+        {
+          "assessment": "Covers the upper bound and synchronizability criterion",
+          "evidence": "The pair bound is the number of unordered distinct pairs; Černý attains the bound. Compressibility of every pair characterizes synchronizability.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.24245",
+          "material_read": "Sections 2.4 and 2.6, PDF text near offsets 14999 and 21393",
+          "method": "Original open text passages",
+          "title": "Synchronizing Automata: Open Problems",
+          "trigger": "General prescribed-pair upper bound and the classical witness"
+        },
+        {
+          "assessment": "Different statistic, counting convention and supported range",
+          "evidence": "Counts basic automata by shortest reset-word length up to symmetry, not all ordered map pairs by worst prescribed-pair distance.",
+          "identifier_or_url": "https://arxiv.org/abs/1609.06853v5",
+          "material_read": "Section 4.4, pp. 15–16, OA offsets 37500–45012; basic automaton definition near offset 5518",
+          "method": "Original open text passages and table-scale distinction",
+          "title": "Slowly synchronizing automata with fixed alphabet size",
+          "trigger": "Published tables of binary five-state automata"
+        },
+        {
+          "assessment": "Different target in inspected material",
+          "evidence": "Avoidance or compression of reachable images, not this census.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.39833v2",
+          "material_read": "Abstract and section 1, offsets 0–2483",
+          "method": "Original open text passages",
+          "title": "Avoid-or-Compress Words for Reachable Images Missing Four or Five States",
+          "trigger": "Primary focused search hit for short-pair compression statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Independent enumeration and orbit equality",
+        "Szykuła section 2.4 and comparator censuses"
+      ],
+      "rationale": "The distance of the hardest prescribed pair is a natural measure of pair compression, finer in a different direction than the available reset-length or max–min censuses. The complete five-state binary distribution quantifies how rare slow pairs are, and the exact orbit equality gives the sharp statement that attainment of the general bound is confined to the classical example at this order. This addresses that concrete finite classification, not merely a rediscovery of the upper bound or witness.",
+      "residual_risks": [
+        "No larger-order uniqueness conjecture, reset-time law, or general census algorithm improvement is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

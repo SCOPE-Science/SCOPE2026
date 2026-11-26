@@ -1,0 +1,186 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:47:45.416765Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–38,42–88",
+        "VERIFICATION.md:19–39",
+        "verify.py:9–118",
+        "Godsil arXiv:1103.2578, Lemmas 4.3 and 6.1"
+      ],
+      "rationale": "The Cesàro mean is the sum of the Schur squares of the projectors onto distinct eigenspaces. For g≠1, the two endpoint values determine an eigenvector by the interior three-term recurrence. An eigenspace of dimension two would make both linear endpoint constraints identically zero; their coefficients include 1+g u_(n−2) and u_(n−2)+g, so g²=1, impossible also at g=0. Thus simple eigenvectors have definite reversal parity and their squared amplitudes lie in the q-dimensional symmetric subspace. The diagonal moments lie in their span. Independently checked the determinant on the lifted integer line: 2k<n forces zero winding, so the unit-coupling baseline is binom(2k,k). From representative r the distances to cross a lift of the distinguished bond on the two routes are r+1 and n−r. A 2k-step return cannot use it when k≤r. For r≤q−2 and k=r+1 the shorter route is unique and the only such walk immediately retraces, contributing g² instead of 1. This proves the same triangular defect identity even at g=0 (those walks have weight zero) and g=1. Subtracting the binomial multiples of the ones column and expanding in the last row gives the signed power. Its invertibility for g≠1 saturates the upper bound, giving the full reversal-antisymmetric kernel. At g=1 the verified Godsil formulas give positive definiteness at odd order and exactly the antipodal-antisymmetric kernel at even order; the all-ones summand annihilates that subspace. The frozen Fraction and NumPy verification code was inspected, not executed; its finite tolerance tests do not prove ranks for arbitrarily small |g−1|.",
+      "residual_risks": [
+        "The simple-spectrum part uses real g≥0; at g=1 one must use spectral projectors, not arbitrary individual eigenvectors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier weighted-path theorem is for exactly one diagonal endpoint potential and arbitrary positive path couplings. General mixing results supply commutant and spectral-projector machinery, not this moment identity."
+        ],
+        "reasoning": "For odd order, restricting H_g to the positive reflection sector gives a path with endpoint potential g, final edge sqrt(2), and all other off-diagonal weights 1. For g>0, g≠1 the earlier theorem gives full rank in that sector, and lifting squared amplitudes back to the orbits merely rescales coordinates by positive constants. Full-spectrum simplicity then makes that a lower bound on the ring rank, so the odd positive-weight rank and kernel are substantially implied. At even order the folded positive sector has two diagonal endpoint potentials g and 1, outside that theorem's hypotheses. Neither reduction supplies the specified determinant for all g and n.",
+        "searches": [
+          "Resultary: weighted path endpoint potentials and marked-site mixing rank",
+          "arXiv:1709.03591 and arXiv:2208.08971, general average-mixing methods"
+        ]
+      },
+      "checked_sources": [
+        "Four 2026-10-12 Resultary defect and reachability records",
+        "Six primary papers cited in RESULT.md",
+        "Grudsky et al., arXiv:2205.12457v1 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same weighted-cycle geometry in the reachability record uses a signed weighted Laplacian and a Kalman determinant. Grudsky et al. study weighted Laplacian eigenvalues; Godsil et al. study edge/endpoint perturbations for state transfer."
+        ],
+        "reasoning": "The weighted Laplacian is not a scalar shift of this adjacency Hamiltonian because the defective endpoints have different degrees. Eigenvalues alone do not determine squared eigenvector coordinates. The Gram/rank and commutant identities do not themselves force rank saturation. The independent bond-walk determinant and the even-order conclusion retain distinct content even after crediting the boundary and folded-path implications.",
+        "searches": [
+          "Resultary: one weighted edge in a cycle, reachability-volume factorization",
+          "arXiv:2205.12457v1 and arXiv:1710.02181 by related geometry and edge perturbation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026-10-12 marked-vertex cycle RESULT, Finding and proof steps 3–4, uses a stay at a marked vertex to obtain an odd-moment triangular certificate with diagonal τ."
+        ],
+        "reasoning": "The same local-walk strategy is prior. The site and bond Hamiltonians differ, including in their spectra and perturbation ranks; the even-order site reflection fixes vertices whereas the even-order bond reflection fixes none. The site theorem gives rank n/2+1 at even order, not the bond's n/2, and its odd-moment monomial does not identify this even-moment determinant.",
+        "searches": [
+          "Resultary: weighted cycle, average mixing, one defect; marked vertex and edge perturbations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Verified the exact formulas at g=0 and g=1; the closest indexed same-geometry determinant is for Laplacian controllability, not quantum mixing."
+        ],
+        "reasoning": "A finite table of graphs or spectra is not decisive for an identity across a continuous bond parameter and unbounded n. Exact published endpoint formulas do cover the fixed path and cycle values; no matching continuous-parameter formula for the stated moment determinant was found in the inspections.",
+        "searches": [
+          "Resultary: exact weighted-cycle rank or determinant",
+          "Godsil arXiv:1103.2578, path and cycle formulas"
+        ]
+      },
+      "rationale": "The distinct result is the one-bond even-moment determinant and the resulting all-weight classification, particularly even-order nonunit cycles. Credit the known unweighted cycle and path cases. For odd cycles a prior endpoint-potential theorem also implies the nonunit positive-weight rank lower bound after reflection folding and establishing simplicity; the present determinant is a different certificate and covers both parities. The closest previous cycle certificate uses a site potential and odd moments, not a changed edge.",
+      "residual_risks": [
+        "General results for two-endpoint Jacobi matrices or other exact weighted quantum-walk analyses not located by the targeted local search could overlap; coverage is best-of-knowledge, not a priority guarantee.",
+        "External web search was not run for this record; the comparison used the local index and directly identified open sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong methodological precedent, different perturbation and moment identity",
+          "evidence": "One diagonal stay gives moments of lengths 1,3,… and determinant (−1)^m τ^m for the vertex reflection.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-a-marked-vertex-produces-opposite-parity-rank-jumps-in-quantum-c--e2e9ee9d4aea/RESULT.md",
+          "material_read": "Finding, assumptions and proof steps 1–4, including offsets 0 and 4830",
+          "method": "Local mirror at 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A marked vertex produces opposite parity rank jumps in quantum cycles",
+          "trigger": "Same graph, observable and moment proof method"
+        },
+        {
+          "assessment": "Implies part of the odd-ring result, not even-ring classification or the even-moment determinant",
+          "evidence": "One nonzero diagonal endpoint entry makes mixing full rank for any positive path couplings; all other diagonal entries must be zero.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-endpoint-potentials-and-the-exact-determinant-of-quantum-average--0c2d29d0e12a/RESULT.md",
+          "material_read": "Finding, assumptions and proof steps 1–2, offset 0",
+          "method": "Local mirror",
+          "title": "Endpoint potentials and the exact determinant of quantum average mixing on weighted paths",
+          "trigger": "Reflection-folded Jacobi matrix"
+        },
+        {
+          "assessment": "Different claim",
+          "evidence": "One marked diagonal site on a path, with gcd-dependent rank.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-arithmetic-rank-law-for-quantum-average-mixing-on-paths-with-a-s--ffcd7daa8532",
+          "material_read": "RESULT Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Arithmetic rank law for quantum average mixing on paths with a single marked site",
+          "trigger": "Exact one-defect average-mixing rank law"
+        },
+        {
+          "assessment": "Different observable and generator",
+          "evidence": "Signed Laplacian Kalman controllability determinant, not a determinant of diagonal moments or a quantum mixing kernel.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-reachability-volume-factorization-for-a-cycle-with-one-wei--1ddd581661b4",
+          "material_read": "RESULT Finding and relationship discussion, offsets 0 and 6000",
+          "method": "Local mirror",
+          "title": "Exact reachability-volume factorization for a cycle with one weighted edge",
+          "trigger": "Identical bond geometry and exact determinant"
+        },
+        {
+          "assessment": "Exact known boundary cases",
+          "evidence": "Explicit adjacency-path and unweighted-cycle matrices imply the boundary ranks and kernels.",
+          "identifier_or_url": "arXiv:1103.2578",
+          "material_read": "Lemmas 4.3 and 6.1, pp. 8 and 13, offsets 18700 and 31477",
+          "method": "Open primary PDF passages",
+          "title": "Average Mixing of Continuous Quantum Walks",
+          "trigger": "Exact path and cycle boundaries"
+        },
+        {
+          "assessment": "Prior general method, not a bond-rank theorem in inspected passages",
+          "evidence": "Gram representation, commutant and rank results.",
+          "identifier_or_url": "arXiv:1709.03591",
+          "material_read": "Theorem 3.1, Corollary 3.2 and Lemma 4.1, pp. 6–7, offset 11600",
+          "method": "Open primary PDF passages",
+          "title": "A New Perspective on the Average Mixing Matrix",
+          "trigger": "General rank machinery"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "Average distribution from a fixed initial state and nearness to uniformity, not rank of the one-bond mixing matrix.",
+          "identifier_or_url": "arXiv:0708.2096",
+          "material_read": "Definition p. 4 and Theorem 12 p. 10; offsets 14000 and 34878",
+          "method": "Open primary PDF passages",
+          "title": "Non-uniform mixing of quantum walk on cycles",
+          "trigger": "Quantum cycle average mixing"
+        },
+        {
+          "assessment": "Different scope in abstract",
+          "evidence": "Modifies an edge and endpoint loops for state transfer in strongly regular graphs.",
+          "identifier_or_url": "arXiv:1710.02181",
+          "material_read": "Abstract, offset 1000",
+          "method": "Open preprint",
+          "title": "State transfer in strongly regular graphs with an edge perturbation",
+          "trigger": "Quantum edge perturbations"
+        },
+        {
+          "assessment": "Different geometry, model and conclusion",
+          "evidence": "Infinite line with one site or its adjacent transitions perturbed; defect eigenstates and localization.",
+          "identifier_or_url": "arXiv:1502.04289",
+          "material_read": "Model, p. 2, offset 10000",
+          "method": "Open primary PDF passage",
+          "title": "Single-point position and transition defects in continuous time quantum walks",
+          "trigger": "Single weight defect in a quantum walk"
+        },
+        {
+          "assessment": "Method precedent",
+          "evidence": "Exact computation of average-mixing entries, not the bond-specific determinant or rank classification in the inspected passage.",
+          "identifier_or_url": "arXiv:2208.08971",
+          "material_read": "Spectral-projector formula and algorithm, p. 4, offset 9780",
+          "method": "Open primary PDF passage",
+          "title": "Irrational quantum walks",
+          "trigger": "Exact quantum averages"
+        },
+        {
+          "assessment": "Related geometry, distinct observable in abstract; no whole-paper inference",
+          "evidence": "Eigenvalues, localization and asymptotics for Laplacian cycles.",
+          "identifier_or_url": "arXiv:2205.12457v1",
+          "material_read": "Abstract, p. 1, offset 0",
+          "method": "Open preprint",
+          "title": "Eigenvalues of Laplacian matrices of cycles with one weighted edge",
+          "trigger": "Same weighted-cycle geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:5–32,42–88",
+        "Godsil arXiv:1103.2578, unperturbed formulas",
+        "Earlier weighted-path endpoint theorem"
+      ],
+      "rationale": "A single edge variation is a natural symmetry-breaking experiment for average mixing. Rank alone would miss the even-order switch from antipodal to bond-reflection antisymmetry. The exact moment determinant certifies rank even for arbitrarily weak defects, where numerical rank and degeneracy grouping become unreliable, and identifies the algebraic vanishing order at the unperturbed cycle. This remains useful beyond rederiving the known path and cycle cases or the folded odd-rank lower bound.",
+      "residual_risks": [
+        "No implication for mixing time, finite-time probabilities, or multiple defects."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

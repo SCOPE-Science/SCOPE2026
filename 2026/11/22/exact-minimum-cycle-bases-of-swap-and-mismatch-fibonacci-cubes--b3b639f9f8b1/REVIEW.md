@@ -1,11 +1,21 @@
-# Scientific review of the minimum cycle-basis theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof isolates one private swap edge per triangle, proves that every cycle in the classical Fibonacci cube decomposes into four-cycles via a strictly descending potential, and gives a direct cycle-space decomposition. The lower bound \(3T_n+4B_n\) comes from the exact dimension and exhaustive characterization of all triangles, so equality forces all triangles into every optimal basis. Fibonacci convolution counts establish the closed form. The standalone independent enumerator checks unique triangles, ranks and formulas for all lengths 1 through 11. A finite check is not offered as an all-length proof.
+## correctness
 
-**Originality — PASS with residual priority risk.** The original 2023 graph paper gives swap/mismatch structure and edge enumeration. The full-text 2025 follow-up gives edge counts, recursion and radius/diameter, not the cycle-space classification or optimal cycle bases. Existing median Fibonacci-cube results explain the square sub-basis and are treated as background, not a new result. Existing generic minimum-cycle-basis theory defines the optimization problem but does not by itself supply the compulsory-triangle classification or the Fibonacci formula for this graph. Equivalent general graph augmentation arguments and unindexed sources remain possible and independent literature validation is still needed.
+PASS
 
-**Value — PASS.** Minimum cycle bases are a natural nontrivial graph-network invariant, used in cycle-space computations and network structure. This all-size result replaces a generic optimization search with an explicit optimal construction, determines the optimal weight exactly, and establishes that every optimum has compulsory triangles. It goes beyond merely reexpressing an already-known edge count.
+Independently reconstructed the all-length proof over F_2. Bit changes toggle Hamming-weight parity; adjacent swaps toggle the parity of the sum of occupied positions and preserve weight. Hence a triangle has exactly one swap. Its endpoints differ in two adjacent bits, so the only valid common one-bit neighbor zeros both (the alternative creates 11). Thus the triangle vectors have private swap-edge coordinates. In the pure-replacement graph take a highest-weight incident vertex of any nonempty even edge set and cancel two downward edges with the square given by deleting both bits. In the potential summing endpoint weights over occupied edges, deleting these two edges and possibly adding the two lower ones decreases the potential by at least four. The squares therefore span, and eliminating swap edges by their triangles leaves a replacement cycle. Connectivity by deletion gives the claimed ranks. Every basis has T_n+B_n members and at most T_n triangles; the weight lower bound is sharp exactly if all triangles are used and every other cycle has length four. Recounting edges by the available positions produces the Fibonacci convolutions. For example, expanding the swap convolution by Binet gives 5 sum_{i=1}^{n-1} F_i F_{n-i}=(n+1)(2F_{n+1}-F_n)-2F_{n+1}; the replacement convolution is the same sum at n+1. Substituting in 3T_n+4B_n gives L_n. For n=1 both ranks and L_n are zero. No finite run is needed for the theorem.
 
-**Scope and limitations.** Only binary `11`-avoiding words, one-bit changes, adjacent unequal-bit swaps, unweighted undirected graphs, and \(\mathbb F_2\) simple-cycle bases are covered. Counts of distinct optimal bases and other avoidance patterns remain open here. The 2025 source derives the total-edge count but does not present the minimum cycle basis; the latter comparison is based on full Section 6 inspection. The present review is not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The graph, vertices and edge enumeration are prior, and the conjunction of those counts with the triangle correspondence yields the stipulated numerical triangle count. The supported distinct result is the exact minimum basis length and the obligatory length profile, together with an optimal construction using replacement squares. No checked source establishes that structure in the augmented graph.
+
+## value
+
+PASS
+
+Adding swap edges to a standard constrained-word cube naturally changes the short generators of its cycle space. The exact optimal cost and the necessity of every swap triangle decide how the two move types participate in an optimal basis for all lengths, rather than supplying a finite edge count or only a sampled solution. The constructive decomposition also gives a useful direct method of finding an optimum without searching longer cycles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

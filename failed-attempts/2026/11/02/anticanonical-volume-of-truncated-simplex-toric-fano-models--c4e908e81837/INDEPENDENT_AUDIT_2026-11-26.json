@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:45:16.786071Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof; VERIFICATION.md and verify_volume.py (inspection, not execution)",
+        "Independent exact facet determinant calculation above"
+      ],
+      "rationale": "The volume and Q-Fano assertions are correct. At a vertex of Q_n, n independent coordinate bounds must be active. Two lower bounds are infeasible and n upper bounds force the remaining coordinate to be -2n; the complete vertex list thus has one coordinate i at -(2n-1), one free coordinate j at 1 and all others at 2. The list has n(n+1) primitive vertices; zero is interior. The negative polar is the anticanonical polytope, with normal fan the stated face fan (using the inward-normal convention). Independently of the proposed cap argument, the facet of the polar corresponding to (i,j) consists of -u_i/(2n-1) and u_k/2 for k distinct from i,j. Coning each such facet to zero gives a simplex of normalized volume 1/[(2n-1)2^(n-1)] because the unscaled vectors, up to one sign, are exactly the coordinate-function basis omitting u_j. Their interiors are disjoint and they exhaust the polar. This gives the formula, the three low-dimensional degrees, and asymptotic n/2^n, including n=2. The cap proof can also be justified: every pairwise barycentric sum is positive on the polar generators, so an edge from the single apex outside facet i intersects its supporting plane within that simplex facet.",
+      "residual_risks": [
+        "The supplied numerical hull checker uses floating-point volume and tests dimensions 2–6 only. No part of the all-dimensional conclusion depends on it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu–Zhu supply the primitive vertices in all dimensions, the polar and its identification as the anticanonical polytope, as well as Q-Fano and stronger K-polystability/alpha claims."
+        ],
+        "reasoning": "The prior construction covers the toric hypotheses in every dimension here. It supplies the complete data for the volume computation, not just a bound or a parallel special case.",
+        "searches": [
+          "Liu–Zhu arXiv:2607.04005v1, Propositions 2.1 and 3.1, and §4",
+          "Toric top intersection versus lattice volume (Fulton; Cox–Little–Schenck references in the frozen record)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.04005v1, §§2–4",
+        "Resultary same-family automorphism and local class-group matches listed above",
+        "Kasprzyk–Nill, Fano polytopes, Table 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For each previously listed primitive vertex, the tight inequalities in its published coordinate model pick n polar vertices; they are the coordinate-function basis omitting one index, scaled by 1/(2n-1) once and 1/2 the other n-1 times. There are n(n+1) such facets."
+        ],
+        "reasoning": "The origin-cone volume formula reduces the prior data to a count of equal elementary determinants. No new geometric classification, estimate, or nonstandard identity is required; multiplying that single determinant by the number of prior vertices gives the exact finding.",
+        "searches": [
+          "arXiv:2607.04005v1, §§2–3, exact primitive-vertex and polar descriptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cyclic difference map [c] ↦ (c_{i+1}-c_i)_i has constant-vector kernel before quotienting; summing cyclic differences gives zero, and any integral zero-sum vector can be integrated cyclically, so this is an integral isomorphism. The inequalities become exactly -(2n-1) ≤ d_i ≤ 2.",
+          "The Resultary automorphism and local divisor-class-group entries address this same Liu–Zhu family but different invariants."
+        ],
+        "reasoning": "The dual polar and face-fan descriptions match without a change of lattice index, so the anticanonical degree is an invariant of the very same object. Neither neighboring Resultary invariant is itself evidence of a previously stated volume.",
+        "searches": [
+          "Resultary: Liu–Zhu small-alpha toric Fano family and coordinate bounds",
+          "Liu–Zhu arXiv:2607.04005v1, §2, Proposition 2.1(2), equation (2.5)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact degree expression surfaced in the compared entries. Table 1 summarizes restricted classes; Q_n is not canonical since (1,-1,0,…,0) is a nonzero interior lattice point for every n≥2."
+        ],
+        "reasoning": "The inspected table does not cover the all-dimensional family. Absence of a tabulated or printed formula does not overcome the explicit prior-data implication.",
+        "searches": [
+          "Resultary: same-family exact anticanonical degree and nearby invariants",
+          "Kasprzyk and Nill, Fano polytopes, Table 1"
+        ]
+      },
+      "rationale": "The numerical expression was not located verbatim, but it follows mechanically from the prior construction's explicit primitive ray and polar vertex data, using the standard toric degree identity and equal basis determinants. This is not merely a related family: the explicit lattice isomorphism below identifies the exact variety. The rejection is for direct implication, not for locating a prior verbatim formula or inferring priority from a search miss.",
+      "residual_risks": [
+        "The comparisons do not establish the earliest printed occurrence of the degree; a direct formula in an uninspected source remains possible. The decision rests on the explicit prior construction and immediate computation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING by direct standard implication, not a located statement of the degree",
+          "evidence": "Cyclic differences give the exact slice; primitive vertices and anticanonical polar are both supplied.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.04005v1",
+          "material_read": "PDF pp. 3–5, §§2–3 (Propositions 2.1 and 3.1, equation (2.5)); §4 alpha/stability comparison",
+          "method": "Bounded primary full-text inspection and lattice-map/determinant comparison",
+          "title": "K-polystable toric Fano varieties with small alpha invariants",
+          "trigger": "Cited construction with exactly the same dimension and coordinate constants"
+        },
+        {
+          "assessment": "Exact family, different invariant",
+          "evidence": "Same bounded zero-sum polytope; indexed claim is about its automorphism group.",
+          "identifier_or_url": "2026/10/18/SCOPE-full-automorphism-group-of-the-liu-zhu-small-alpha-toric-fano-va--905966f8658b",
+          "material_read": "Indexed finding and coordinate description",
+          "method": "Resultary comparison",
+          "title": "Full automorphism group of the Liu–Zhu small-alpha toric Fano varieties",
+          "trigger": "Indexed exact-family match"
+        },
+        {
+          "assessment": "Exact family, different invariant",
+          "evidence": "The groups are the claimed invariant in the indexed result, not the anticanonical degree.",
+          "identifier_or_url": "2026/10/4/SCOPE-local-divisor-class-groups-at-the-torus-fixed-points-of-the-liu--06b390f22d0b",
+          "material_read": "Indexed finding about the local groups",
+          "method": "Resultary comparison",
+          "title": "Local divisor class groups at the torus fixed points of the Liu–Zhu family",
+          "trigger": "Indexed exact-family match"
+        },
+        {
+          "assessment": "Does not supply the family formula",
+          "evidence": "The exhibited nonzero interior lattice point excludes the family from the canonical class.",
+          "identifier_or_url": "Kasprzyk–Nill, Table 1, p. 2",
+          "material_read": "Table 1 and its restricted classes",
+          "method": "Table scope versus interior lattice point test",
+          "title": "Fano polytopes",
+          "trigger": "Potential exact classification table"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Relationship to prior work",
+        "Liu–Zhu arXiv:2607.04005v1, §§2–4"
+      ],
+      "rationale": "The family is naturally motivated by its small alpha invariant, and its exact degree can be a useful datum. But here the exact degree is already a routine determinant calculation from the published polar and facet data. The exponential decay is a direct restatement of that calculation, not a separate estimate or obstruction, and the record gives no distinct volume question that the calculation resolves. No genuine surviving non-routine claim is isolated by relabeling this family or by improving the cap proof.",
+      "residual_risks": [
+        "No claim is made that anticanonical volumes or their use in future comparisons are generally unimportant."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

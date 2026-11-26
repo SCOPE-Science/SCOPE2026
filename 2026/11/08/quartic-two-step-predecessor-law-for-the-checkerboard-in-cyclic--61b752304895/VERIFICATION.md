@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-From the directory containing this file, run `python3 check.py` with Python 3 and no third-party modules. The expected final line is `VERIFY_OK: all transfer rows, 4x4 determinant, 40 recurrence terms, 12 graph traces, exhaustive even rings 2..18`.
+## correctness
 
-The checker constructs the two-iteration radius-two local rule directly from the Rule 50 rule table, builds both 16-state transition matrices, checks every nonzero entry of their two-letter product against the proof's table, computes the characteristic determinant by the 24-term permutation definition (not an external symbolic package), and compares transfer counts with the four-state quotient. It directly enumerates every binary initial condition on each even indexed ring of lengths 2, 4, ..., 18, independently simulates two updates, and compares the counts for all-zero, all-one, and both checkerboard targets.
+PASS
 
-These finite runs are not proofs of the infinite-length recurrence. The proof rests on the exact finite transfer-table identity, unique lifting of class walks, and Cayley–Hamilton / determinant trace identities valid for all positive integer half-lengths. No computational assertion establishes optimizer status among arbitrary output configurations.
+On a mixed word some zero borders a one, so precisely the two constant words map to all zero, and no word maps to all one. For a checkerboard the two-step local filter is a radius-two de Bruijn edge label; overlapping states on a closed walk identify exactly one cyclic indexed input, with repeated sites forced consistently even at n=2. The seven recurrent states give the four stated classes: each allowed pair of source and destination classes determines the individual destination, making every closed class-walk lift uniquely. All directed simple cycles in K contain the loop vertex: one length-one loop, two 2-cycles, two 3-cycles and one 4-cycle, giving det(I−zK)=1−z−2z²−2z³−z⁴. Its logarithmic derivative gives the numerator z+4z²+6z³+4z⁴, the recurrence and initial terms. Primitivity (irreducibility and a loop) gives one leading eigenvalue, so tr(K^m)~ρ^m. Independent replay: /workspace/branches/c73fdfd5-57cd-47d7-9e0c-e1ef6a594cbd/independent_check.py, recoded window/row/class tests, permutation determinant, traces through m=20, recurrence through m=30, direct indexed exhaustive tests to n=12 (both phases 1,5,13,29,66,155). Finite checks corroborate but do not prove the growth statement.
+
+## originality
+
+PASS
+
+Best-of-knowledge pass for the evaluated two-step checkerboard fiber law on growing indexed even rings, not for general preimage or de Bruijn machinery.
+
+## value
+
+PASS
+
+The checkerboard is the natural nonconstant spatial period-two target (and oscillates under the rule). The law answers how often exactly two updates select a given indexed phase from uniform input at increasing size; stating a generic de Bruijn method does not give that probability or the unexpectedly small quartic. No broader maximum-fiber or all-target claim is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

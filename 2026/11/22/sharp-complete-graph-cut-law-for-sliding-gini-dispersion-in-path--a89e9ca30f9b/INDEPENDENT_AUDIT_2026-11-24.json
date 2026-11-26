@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:40:50.596967Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Work modulo constants and telescope along steps in x-y, whose jump magnitudes sum to V(x-y). For a step of height t at a cut, a crossing pair (a,b) counted outward from the cut contributes a single response of magnitude at most |t|, present for left occupancy a through m-b inclusive. Under variation sign duality each response is multiplied by the difference of signs at transitions a-1 and m-b. These pairs of transition indices run through exactly the edges of K_m. Thus the total is at most |t| times twice the maximum cut, divided by binom(m,2). An endpoint can only truncate the packet of window increments and cannot increase its variation; n=m gives zero output variation. At a cut after m sites, take x_i=i and add a unit step to get y. Both are strictly increasing, V(x-y)=1, and the full packet is ell(m-ell)/binom(m,2), rising from zero and returning to zero when n≥2m. This attains the bound; the parity simplifications follow directly. The argument proves an envelope for difference kernels, not sharpness for every kernel or for all shorter lengths. Frozen verification and checker inspected; computations are corroborative only and the uploaded script was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:1611.04158 pp. 2, 29 uses the Lipschitz pair kernel in change-point and asymptotic analysis",
+          "c718bc284c19 Finding and proof §§2–3 cover coordinatewise scalar superposition in an anchored graph variation norm"
+        ],
+        "reasoning": "Neither general setting supplies the overlapping pair-incidence operator or its unanchored adjacent-TV coefficient. The complete-graph cut describes differences between entry and exit transitions, not an application of the anchored superposition formula to the signal coordinates.",
+        "searches": [
+          "Resultary: even one-Lipschitz pair kernels; complete-graph cut formulations",
+          "arXiv:1611.04158"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1405.5027",
+        "arXiv:1611.04158",
+        "Resultary ed9e6f4e0ade, c85e115b79b9, c718bc284c19, de0f8eaa224c, 562007a36887, 4ad37e5b5ca9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "c85e115b79b9 §3 uses sign duality and counts opposite-sign indices, but optimizes responses of form R_b-L_a with site values in [0,1]",
+          "ed9e6f4e0ade applies to triples; 562007a36887 treats moving MAD"
+        ],
+        "reasoning": "The close variance proof uses algebra of additive site responses for a quadratic statistic on a bounded box, not arbitrary bounded secants attached to crossing pairs. Its coefficient and sharpness do not transfer by normalization or specialization to Gini and general Lipschitz kernels. The novelty is the all-width operator law, not the max-cut value for K_m or the abstract sign-duality technique.",
+        "searches": [
+          "Resultary: parity-law bounded variation stability sliding population variance c85e115b79b9; local-window dispersion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1405.5027 p. 2 uses the same pair normalization for one sample",
+          "de0f8eaa224c uses complete-pair Gini variation to measure a running maximum, not adjacent TV of running Gini values"
+        ],
+        "reasoning": "Reversing the roles of the statistic and the seminorm is not an equivalent formulation, and the classical normalized statistic alone specifies no overlapping-window coefficient.",
+        "searches": [
+          "Resultary: moving Gini/path variation; local-window dispersion",
+          "Gerstenberger–Vogel arXiv:1405.5027",
+          "Resultary: cyclic running-maximum filters de0f8eaa224c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ed9e6f4e0ade has unnormalized p=1 triple coefficients 0,2,4,4 at n=3,4,5,≥6: these divide by three to give exactly the corresponding Gini coefficients"
+        ],
+        "reasoning": "The n≥6 width-three value is already covered by that record, which also handles shorter lengths for that width. It is not a table across arbitrary widths and does not settle the generic kernel statement. Same-day publication does not determine priority; its relationship section may point to the assigned record itself.",
+        "searches": [
+          "Resultary: moving Gini/path variation; local-window dispersion; three-site pairwise distances"
+        ]
+      },
+      "rationale": "The all-width two-input coefficient and kernel envelope are distinct on the evidence checked. There is real m=3 overlap and a close variance proof analogue, but neither gives the general statement. This is not a finding of historical priority.",
+      "residual_risks": [
+        "Primary web searches yielded irrelevant hits; this is not negative evidence of priority.",
+        "Zenga–Polisicchio–Greselin full text not inspected.",
+        "Same-day ordering and possible unindexed equivalents remain open."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "same normalization, different question",
+          "evidence": "2/[n(n-1)] times the sum of absolute pairwise distances; efficiency/robustness",
+          "identifier_or_url": "https://arxiv.org/pdf/1405.5027",
+          "material_read": "p. 2, formula and purpose",
+          "method": "OA PDF",
+          "title": "On the efficiency of Gini’s mean difference",
+          "trigger": "exact sample statistic"
+        },
+        {
+          "assessment": "not the deterministic TV coefficient",
+          "evidence": "g(x,y)=|x-y| is Lipschitz and satisfies the paper's variation condition for asymptotic analysis",
+          "identifier_or_url": "https://arxiv.org/pdf/1611.04158",
+          "material_read": "pp. 2, 29",
+          "method": "OA PDF",
+          "title": "Tests for scale changes based on pairwise differences",
+          "trigger": "Lipschitz pair kernel for a time series"
+        },
+        {
+          "assessment": "exact special-case coverage",
+          "evidence": "p=1, unnormalized coefficient 4 at n≥6; relationship text cites a matching-looking record ID",
+          "identifier_or_url": "Resultary ed9e6f4e0ade",
+          "material_read": "Finding and relationship paragraph near mirror offset 6800",
+          "method": "local mirror",
+          "title": "Sharp path-variation sensitivity of sliding triple pairwise distances",
+          "trigger": "matching statistic at m=3"
+        },
+        {
+          "assessment": "structural analogue, restricted response family",
+          "evidence": "opposite-sign count for linear R and L site variables on the unit box, with limiting quadratic witnesses",
+          "identifier_or_url": "Resultary c85e115b79b9",
+          "material_read": "Finding and §§3–4 of proof, mirror offset 3300 onward",
+          "method": "local mirror",
+          "title": "A sharp parity law for bounded variation stability of sliding population variance",
+          "trigger": "same windows, same cut count"
+        },
+        {
+          "assessment": "does not cover sliding pairwise distances",
+          "evidence": "anchored graph variation of coordinatewise scalar superposition",
+          "identifier_or_url": "Resultary c718bc284c19",
+          "material_read": "Finding and proof §§2–3",
+          "method": "local mirror",
+          "title": "Sharp graph-cut formula for the anchored variation Lipschitz modulus",
+          "trigger": "candidate general cut result"
+        },
+        {
+          "assessment": "different operator and metric",
+          "evidence": "running maximum and complete-pair output variation; coefficient w(n-w)/(n-1)",
+          "identifier_or_url": "Resultary de0f8eaa224c",
+          "material_read": "Finding",
+          "method": "local mirror",
+          "title": "Sharp Gini stability of cyclic running maximum filters",
+          "trigger": "cyclic Gini alias"
+        },
+        {
+          "assessment": "unresolved access; no noncoverage conclusion",
+          "evidence": "no full-text evidence used",
+          "identifier_or_url": "https://doi.org/10.6092/issn.1973-2201/50",
+          "material_read": "citation, no full-text passage retrieved",
+          "method": "lawful DOI retrieval attempt",
+          "title": "The variance of Gini’s mean difference and its estimators",
+          "trigger": "same underlying statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact sensitivity in a standard seminorm for a natural nonlinear sliding statistic resolves a meaningful operator question. The transition-to-cut reduction explains the parity constant and supplies a nondifferentiable kernel envelope and finite attainment, beyond the known three-point coefficient and the variance analogue.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

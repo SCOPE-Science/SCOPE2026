@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:38:27.164429Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent closure uses G=diag(ξ₁,1,ξ₂) and σ=GρG. Between flips the Hamiltonian of σ is the fixed hopping matrix; a flip conjugates σ by the deterministic diagonal reflection on the corresponding endpoint. Since each flip intensity is λ independently of the state, averaging gives the fixed commutator plus λ times each reflection-conjugation minus identity. The diagonal is unchanged, and the damping is 2λ for each imaginary nearest-neighbor coherence and 4λ for the real end-to-end coherence. This yields the closed real system with c_jk=−Im σ_jk, D=Re σ₁₃, and the two reflection-sector factors. Both factors are Hurwitz for all λ>0. The two shifts in RESULT.md lines 48–57 give strictly positive cubic Routh–Hurwitz margins 8a²λ and 4λ(6λ−5δ_Q)(2λ−δ_Q). Endpoints excite the slower quadratic: its transform is proportional to (z+2λ)/Qλ(z), with no cancellation. At the center this sector is absent, and Pλ(z)=z[(z+2λ)(z+4λ)+2a²]+6a²(z+4λ), which excludes a common root with the center numerator. A noncancelled multiple pole produces the polynomial prefactor; the limsup yields the real-part exponent even with oscillatory zeros. Below the unique discriminant crossing the real root is −u with 3λ<u<4λ (evaluate Pλ at these two endpoints). Writing w=u/λ−3 gives t²=8w/[(3+w)(1−w²)], increasing on (0,1), and normalized cubic gap t(3−w)/2. The derivative of its square with respect to w has sign 9(1−w)+7w²+9w³. Above the crossing the depressed cubic has two positive y roots and one negative y root. The largest z root −g therefore has 0<g<2λ. Its simple-root derivative has the sign of −g(3g²−16λg+24λ²)/(3λ−g), strictly negative. At the crossing the positive double y root is the slow root, with a genuine double pole proving defectiveness. Independent bisection of 32+t²(−21+t²(24−4t²)) on [2,3], then evaluation of 2t−sqrt((4t²−8)/3), gives t≈2.3008118172002835, gap≈2.505998025926741, versus √2≈1.4142135623730951. No finite-grid inference is used. The supplied verifier was inspected, not run; its counter of 100 includes 90 population comparisons and ten spectral checks (its printed label overstates the number of population comparisons).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generalized Liouville passages explain a standard conditional evolution method, not the preparation-specific sector or optimum.",
+          "Giusteri–Celardo–Borgonovi pp. 1–3 use Haken–Strobl dephasing and transfer efficiency in a disordered trimer.",
+          "The broader fluctuating-link lattice model gives the physical model and numerical averages rather than an observed closed all-rate comparison of the two trimer sectors."
+        ],
+        "reasoning": "The model class and solution technique are broader precedents. Specializing either to three sites does not mechanically locate the slow visible modes, prove their strict ordering, and establish the two unique maxima.",
+        "searches": [
+          "Generalized stochastic Liouville arXiv:2004.05561",
+          "Trimer dephasing optimization arXiv:1603.01373",
+          "Benedetti arXiv:1510.08652"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–99; requirements.txt; VERIFICATION.md; verify.py",
+        "arXiv:1510.08652, 1707.01441, 1909.00167, 2004.05561, 1603.01373",
+        "Ranked Resultary searches and bounded local mirror comparisons, IDs above plus 2026/10/25 suffix 05e5507224ba and 2026/10/13 suffix 9ed48c9c902e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The bound problem conserves total population and relaxes to 1/3; the indexed analogues use mean time to a sink. The independent-link lattice precedent does not identify this population's projected odd and even sectors."
+        ],
+        "reasoning": "No trivial parameter substitution converts mean absorption or frequency-spectrum peaks into this no-sink, long-time exponent. It is specifically the full all-rate ordering, visibility and strict branch monotonicity that supply the new optimization conclusion.",
+        "searches": [
+          "Benedetti arXiv:1510.08652 model and averaging passages",
+          "Local mirror indexed lossy-star/coherence and detuned-middle-prepared trimer findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Benedetti pp. 1–4: independent fluctuating tunneling amplitudes, link correlations and Monte Carlo ensemble averaging.",
+          "Rossi p. 1 uses correlated hopping links; Kurt pp. 1, 7 uses site-energy noise in multisite transport with quantum baths."
+        ],
+        "reasoning": "Independent telegraph signs may be eliminated from the Hamiltonian by a time-dependent diagonal gauge, but their flips become endpoint reflection jumps with fixed relative coherence damping. That is not an arbitrary correlated-bond model or a detuned noisy site Hamiltonian with baths. The population exponent is also not a full Liouvillian gap for every initial state.",
+        "searches": [
+          "Resultary: three-site telegraph hopping population gap, initial vertex and exceptional point",
+          "Benedetti et al. arXiv:1510.08652",
+          "Rossi et al. arXiv:1707.01441",
+          "Kurt et al. arXiv:1909.00167"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day records with suffixes 0248fe9e0e67 and 1bb5a4022ca4 optimize site dephasing for absorption on a lossy star or complete bipartite network.",
+          "Later trimer record aa0054715e49 is for center-initialized detuned transport with a sink; later telegraph record 05e5507224ba treats frequency-noise spectral peak mergers.",
+          "Earlier trimer record 9ed48c9c902e optimizes couplings and sink rate at a fixed budget for mean absorption."
+        ],
+        "reasoning": "None of the inspected indexed findings gives the two exact switching rates and population exponents for the same independent-bond Hamiltonian, localization preparations and no-sink objective. Matching trimer size, noise optimization or a merged pair of peaks is insufficient. No ordering of same-day records is assumed.",
+        "searches": [
+          "Resultary: optimal noise strength, endpoint/center preparation, trimer population relaxation",
+          "Resultary: telegraph peak merger and cubic/discriminant optimization"
+        ]
+      },
+      "rationale": "The supported distinct claim is the combined exact observable-sector result: localized endpoint versus center on the equal-hop, independently switching, stationary telegraph chain, with distinct unique optimizers of the logarithmic ensemble population exponent and a center slow-root collision. The noise model, stochastic Liouville method and the broad principle that noise optima can depend on preparation are not claimed as new. Closest indexed analogues optimize a different observable or channel. No equivalent or implying theorem was found in the inspected material; this is not a historical priority guarantee.",
+      "residual_risks": [
+        "Ranked indexing and bounded OA reading cannot rule out a general exact population-sector result in uninspected or unindexed literature.",
+        "Correlated signs, unequal bonds, finite-time mixing, other preparations and other observables are not validated here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial model overlap; specific theorem not seen in inspected passages",
+          "evidence": [
+            "Time-varying tunneling amplitudes and independent random-telegraph links; numerical ensemble averages by Monte Carlo."
+          ],
+          "identifier_or_url": "arXiv:1510.08652",
+          "material_read": "pp. 1–4, model, correlations and numerical averaging (offsets 2200, 9500, 17100, 30047)",
+          "method": "Bounded OA PDF passages",
+          "title": "Non-Markovian continuous-time quantum walks on lattices with dynamical noise",
+          "trigger": "Closest physical model with independent telegraph-modulated links"
+        },
+        {
+          "assessment": "Different noise correlations",
+          "evidence": [
+            "Adjacent links can share one noise driver."
+          ],
+          "identifier_or_url": "arXiv:1707.01441",
+          "material_read": "p. 1, offsets 1200 and 5800",
+          "method": "Bounded OA PDF passages",
+          "title": "Continuous-time quantum walks on spatially correlated noisy lattices",
+          "trigger": "Same hopping observable class under telegraph signs"
+        },
+        {
+          "assessment": "Different coupling to noise and baths",
+          "evidence": [
+            "Collective site-energy fluctuations and population averages, not separate hopping signs."
+          ],
+          "identifier_or_url": "arXiv:1909.00167",
+          "material_read": "pp. 1, 7, offsets 1450 and 23200",
+          "method": "Bounded OA PDF passages",
+          "title": "Efficient quantum transport in a multi-site system combining classical noise and quantum baths",
+          "trigger": "Three sites with telegraph noise"
+        },
+        {
+          "assessment": "Method precedent, not this finite-chain result",
+          "evidence": [
+            "Generalized equation and the memoryless stationary Kubo limit."
+          ],
+          "identifier_or_url": "arXiv:2004.05561",
+          "material_read": "pp. 1–2, offsets 599 and 10078",
+          "method": "Bounded OA PDF passages",
+          "title": "Stochastic-Liouville precedent for noisy molecular coherence",
+          "trigger": "Broader stochastic Liouville approach"
+        },
+        {
+          "assessment": "Different objective and dephasing model",
+          "evidence": [
+            "Transfer efficiency with static disorder and Haken–Strobl dephasing."
+          ],
+          "identifier_or_url": "arXiv:1603.01373",
+          "material_read": "pp. 1–3, offsets 0, 12500 and 16200",
+          "method": "Bounded OA PDF passages",
+          "title": "Giusteri, Celardo and Borgonovi: disordered-trimer transfer optimization",
+          "trigger": "Exact/small-network transport optimization analogue"
+        },
+        {
+          "assessment": "Conceptual analogue, not equivalent",
+          "evidence": [
+            "Site dephasing optimum for mean absorption on a lossy star."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-coherence-dependent-optimal-dephasing-for-lossy-star-quantum-wal--0248fe9e0e67/RESULT.md",
+          "material_read": "Finding",
+          "method": "Bounded local mirror passage",
+          "title": "Coherence-dependent optimal dephasing for lossy-star quantum walks",
+          "trigger": "Same-day indexed preparation-dependent noise optimization"
+        },
+        {
+          "assessment": "Different graph, noise and objective",
+          "evidence": [
+            "Site-dephasing optimization of mean absorption on a complete bipartite network."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-dephasing-induced-switching-threshold-for-bright-state-absorptio--1bb5a4022ca4/RESULT.md",
+          "material_read": "Finding",
+          "method": "Bounded local mirror passage",
+          "title": "Dephasing-induced switching threshold for bright-state absorption",
+          "trigger": "Same-day indexed switching/absorption claim"
+        },
+        {
+          "assessment": "Not the conserved telegraph problem",
+          "evidence": [
+            "Center initialization, sink and detuning with mean capture time under site dephasing."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-strict-convexity-and-a-detuning-monotone-noise-optimum-for-a-mid--aa0054715e49/RESULT.md",
+          "material_read": "Finding",
+          "method": "Bounded local mirror passage",
+          "title": "Strict convexity and a detuning-monotone noise optimum for a middle-prepared trimer",
+          "trigger": "Center preparation and noise optimum on three sites"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The same physical generator has different optimal observable relaxation rates when localized preparation suppresses its slower reflection sector. The two strict global optima and their exact values, and the center exceptional point visible without relying on numerics, supply a concrete benchmark for when a generator-gap optimization mispredicts an experiment that measures populations. This is a distinct, motivated exact result even for three sites.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

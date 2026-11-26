@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,26 +19,24 @@
 }
 ---
 
-# Verification of the cyclic-king shattering theorem
+# Independent mathematical audit
 
-Run `python3 VERIFY.py` with standard Python 3. The program uses only `collections` and `itertools` from the standard library. It constructs actual closed neighborhoods and all Boolean trace masks, enumerates every candidate support contained in an actual neighborhood, and checks shattering, translation orbits, maximal pairs and the three motif families. Its exhaustiveness is mathematically grounded by the all-one trace reduction.
+## correctness
 
-The seven complete base coefficients by size were:
+PASS
 
-| Side lengths | Coefficients |
-|---|---|
-| \(3,3\) | \(1\) |
-| \(3,4\) | \(1,12\) |
-| \(3,5\) | \(1,15,45\) |
-| \(3,6\) | \(1,18,108\) |
-| \(4,4\) | \(1,16,120,288\) |
-| \(4,5\) | \(1,20,190,420\) |
-| \(5,5\) | \(1,25,300,300\) |
+All-one realizes a nonempty shattered support inside a translate of the nine-position box, so the 512 anchored masks are complete. Product overlap masks come from the two one-dimensional intersections with {0,1,2}; after period five the nonempty overlaps are fixed, and only the empty overlap can be acquired. The finite test found no template with all nonempty traces but missing the empty trace at the stable bases (3,6), (4,5), (5,5). Larger periods retain the base empty trace if it existed, since they retain both the nonempty overlap types and any empty overlap already possible at the base. For the distinct orbit issue, given two anchored templates, fix a point p of the first; a translating equivalence must send it to some point q of the second. Equality of the two relative-difference sets modulo the periods then decides equivalence. In every long coordinate the differences are in [−2,2], where reduction mod any period ≥5 is injective; short coordinates keep their modulus. This proves that equivalences and stabilizer orders, also tested by setting the two templates equal, do not change within a regime. It likewise transports pair/triple incidence by comparing pairs to the two-point subsets of anchored triples. The motif assertion is read as embedding the planar signed coordinate permutations, not requiring a quarter-turn automorphism of a rectangular torus. All 12 locally possible unoriented pair differences are shattered, since the verified pair count is 12mn and each difference gives a full orbit. The motifs use axial size two, diagonals of size (1,1), and mixed sizes (1,2) and (2,1) when reflected and swapped; the four unused difference classes are exactly as claimed. The archived verifier explicitly checks the total maximal-pair count, not those classes as a set; the preceding difference argument and the separate census verify the stronger claim. The independent replay, /workspace/branches/c3f5e63f-800d-48ed-af68-75bdb42cc374/independent_check.py and independent_check_notes.txt, matched all seven coefficient lists, checked 512 masks per boundary and enlargement, and matched the 588 triples and all four maximal-pair classes at 7×7 (also the pair classes at 5×5). The all-period proof combines the finite certificate with the overlap and difference arguments; finite samples alone do not prove it. The uploaded VERIFY.py was inspected and not executed.
 
-Seven enlargement pairs were checked for agreement of all nonempty trace sets and shattering judgments across all 512 anchored templates each. The 512-template missing-empty checks at \((3,6),(4,5),(5,5)\) returned no critical template. On \(7\times7\), precisely 588 shattered triples were exactly the dihedral-translation images of the three displayed motifs, and 196 shattered pairs were inclusion-maximal. Additional direct censuses matched formulas for grids \((3,7),(3,8),(4,6),(4,7),(5,6),(5,7),(6,6),(6,7),(7,7)\). The complete observed final output marker was:
+## originality
 
-```
-ALL_CYCLIC_KING_SHATTERING_CHECKS_PASS
-```
+PASS
 
-The universal statement follows from the rigorous local overlap classification and translation orbit-stabilizer arguments in `RESULT.md` combined with these finite exhaustive computations; the finite samples alone do not prove an all-parameter result. No independent third-party or proof-assistant validation has been performed. Historical priority under alternative terminology remains a limitation.
+The supported distinct claim is the exact support spectrum and facet structure of the cyclically translated fixed-width neighborhood family. Broader box results, including a same-day theorem for arbitrary factor subsets of fixed cardinality, do not determine these traces or their counts. The conclusion is based on the checked statements, not a claim of universal bibliographic exclusivity.
+
+## value
+
+PASS
+
+The natural nearest-neighbor concept family is a strict fixed-width version of a familiar shattering problem. Its full classification accounts for the short-period trace losses and gives an all-period invariant rather than counts on a few boards. The motif and maximal-pair results show concretely why even the stable shattering complex is nonpure, a fact not captured by the VC dimension or by a general box bound. The small template is a justified finite proof cutoff and not an arbitrary sampling choice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

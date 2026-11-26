@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:36:49.346841Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and Proof 1–5",
+        "Frozen VERIFICATION.md and verify.py, inspected, not executed"
+      ],
+      "rationale": "The transform follows by applying the driftless harmonic-oscillator semigroup to exp(ν·), times exp(−νa−ν²S/2), and doing its Gaussian integral. In inversion the exponent with extensive derivatives is λy−S√(2λ)/2+ν²/(2√(2λ)); stationarity and its positive real second derivative give exactly ℓ_S and S v_S. The leading transform replacement is uniform on the contour: |g|≤√2 Re g and the tanh error is O(exp(−2S Re g)), which absorbs the unbounded |g| multiplier; the sech term is bounded with ν²=O(S). After normalization the absolute contour integrand is bounded by a constant times exp[−S(Re g−g_S)/2], with a quadratic gap locally and sqrt(|u|) growth at infinity. Thus the local Gaussian integral gives the factor √2/(ℓ_S√(2πSv_S)), not just an exponential rate. For a fixed prefix, changing S and y by fixed amounts leaves a bounded first-derivative mismatch at the old saddle and does not change the leading Gaussian prefactor. Keeping the exact exponent change cancels both drift terms in the prefix Girsanov density. The limiting OU exponential is a true martingale on every bounded window: the explicit Itô form is bounded above there by exp[γ(t+x²)/2]. Scheffé gives path-space TV on that window. The positive saddle is unique, varies continuously with μ_T²/T and tends to 1/(2θ) when c=0. Local weak convergence on infinite path space is interpreted with extensions beyond T, e.g. constant continuation; tightness on each integer window yields tightness in the compact-open topology.",
+      "residual_risks": [
+        "The proof uses bounded initial points and bounded ν_S²/S in the equivalent, and fixed observation windows in the TV conclusion. Finite checks are algebraic consistency checks, not contour or path-law verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schmidt's fixed-potential theorem provides fixed-window TV and a sharp conditioning-probability estimate but has no stated horizon-growing terminal tilt.",
+          "Bercu–Gamboa–Lavielle address sharp large deviations of stationary Gaussian quadratic forms; the §3 passage itself could not be retrieved."
+        ],
+        "reasoning": "Neither inspected statement implies the joint critical-rate, prefactor and hard-conditioned path law for this nonstationary moving mean. General saddlepoint methodology is not claimed as new.",
+        "searches": [
+          "Schmidt arXiv:2608.19744, Assumptions and Theorem 1.2",
+          "Bercu–Gamboa–Lavielle, sharp large deviations for Gaussian quadratic forms"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.12354v1",
+        "arXiv:2608.19744",
+        "arXiv:2312.12982",
+        "Resultary 05f81d57961d",
+        "Bercu–Gamboa–Lavielle (2000), partial inspection"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The directly prior μ²≤M T^β with β<1/2 gives only μ²/T→0 and does not exhaust even that regime.",
+          "The driftless theorem and fixed-drift Resultary result yield rate 1/(2θ); they cannot produce the strict increase when c>0."
+        ],
+        "reasoning": "An exact transform valid at all drifts is a starting identity, not a critical probability equivalent. At order √T both the saddle and curvature move at leading order, and the hard-budget probability ratio needs that exact tilt.",
+        "searches": [
+          "arXiv:2610.12354v1, Theorems 1–2 and §1.1",
+          "arXiv:2312.12982, Theorem 2",
+          "Resultary 05f81d57961d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-model paper gives the exact Laplace transform and identifies μ of order √T in its open direction.",
+          "Schmidt treats hard/canonical ensemble equivalence for fixed confining potentials with Brownian base law."
+        ],
+        "reasoning": "Girsanov maps drift to a terminal tilt exp(μ_T W_T), not to a fixed potential. The terminal factor gives ν²/(2g), of extensive order at critical drift; dropping it loses the new cubic saddle.",
+        "searches": [
+          "Aurzada–Dutta–Wiegand arXiv:2610.12354v1",
+          "Schmidt arXiv:2608.19744",
+          "Resultary: Brownian hard quadratic conditioning and critical square-root drift"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day record 05f81d57961d fixes μ and gives joint initial/terminal boundary laws with initial rate 1/(2θ); no exact critical-cubic match surfaced in the returned ranked records."
+        ],
+        "reasoning": "There is no relevant finite table for this moving-horizon path theorem. The closest indexed theorem shares the constraint but fixes drift, so it is a different limit rather than an exact indexed equivalent.",
+        "searches": [
+          "Resultary: Brownian hard quadratic budget, OU boundary layers and critical moving saddle"
+        ]
+      },
+      "rationale": "The distinct contribution is the drift-dependent critical saddle, associated sharp probability equivalent and resulting hard-budget OU limit for μ_T²/T with a positive limit. The driftless limit, the exact transform, and local ensemble equivalence methods are prior ingredients. The exact same-model prior theorem has a strictly smaller drift range and explicitly asks about the critical scale. The same-day two-endpoint result overlaps the initial-window limit at fixed drift but does not cover the critical scale; no priority inference is made from date alone.",
+      "residual_risks": [
+        "The cited general quadratic-form paper was not read at the theorem level; a broader sharp-deviation theorem applicable to a moving noncentral functional is not excluded.",
+        "Ranked searches do not rule out uncataloged work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Subcritical prior result; explicitly leaves critical drift open",
+          "evidence": "Theorems assume β<1/2; §1.1 names μ∼c√T as a direction.",
+          "identifier_or_url": "https://arxiv.org/html/2610.12354v1",
+          "material_read": "Theorems 1–2, offsets 4214 and 6269; §1.1, offsets 11800–18232",
+          "method": "OA HTML",
+          "title": "Brownian motion with drift conditioned to have restricted L²-norm",
+          "trigger": "Same model, exact transform and near-critical range"
+        },
+        {
+          "assessment": "Driftless scope and general method overlap, not the moving drift",
+          "evidence": "Fixed potential and Brownian base law in the inspected theorem; no critically growing terminal tilt.",
+          "identifier_or_url": "https://arxiv.org/html/2608.19744",
+          "material_read": "Introduction, assumptions on Q, Theorem 1.2, at offsets 2600, 7300 and 12861",
+          "method": "OA HTML",
+          "title": "Conditioned Brownian motion and local equivalence of path ensembles",
+          "trigger": "Plausible broader TV and sharp-probability theorem"
+        },
+        {
+          "assessment": "Baseline case covered",
+          "evidence": "Weak OU limit with rate 1/(2θ) for no drift.",
+          "identifier_or_url": "https://arxiv.org/html/2312.12982",
+          "material_read": "Theorem 2, offset 2100",
+          "method": "OA HTML",
+          "title": "Brownian motion conditioned to have restricted L₂-norm",
+          "trigger": "Same constraint without drift"
+        },
+        {
+          "assessment": "Overlap at fixed drift, not equivalent critical theorem",
+          "evidence": "Fixed μ; initial rate 1/(2θ), terminal start N(2θμ,2θ).",
+          "identifier_or_url": "Resultary 05f81d57961d",
+          "material_read": "Finding and assumptions on fixed drift and initial/terminal windows",
+          "method": "Local mirror",
+          "title": "Independent Ornstein–Uhlenbeck boundary layers under hard quadratic conditioning",
+          "trigger": "Closest same-day indexed record"
+        },
+        {
+          "assessment": "Relevant methodology; precise theorem coverage not determined from this read",
+          "evidence": "Abstract states stationary Gaussian quadratic-form setting.",
+          "identifier_or_url": "https://www.numdam.org/item/PS_2000__4__1_0.pdf",
+          "material_read": "Abstract p. 1 and §3 heading p. 5; theorem passage not retrieved",
+          "method": "OA PDF text",
+          "title": "Sharp Large Deviations for Gaussian Quadratic Forms with Applications",
+          "trigger": "Potential general Gaussian sharp-deviation coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and §Proof 2–4",
+        "arXiv:2610.12354v1, §1.1"
+      ],
+      "rationale": "This resolves the named critical-scale question for the hard budget, showing that strong imposed drift changes the local confinement rate even though the growing linear drift cancels from the limit. The sharp prefactor and controlled finite-prefix probability ratios are quantitatively useful and establish more than a formal ground-state or exponential-order argument.",
+      "residual_risks": [
+        "No conclusion for growing observation windows or faster drift is credited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

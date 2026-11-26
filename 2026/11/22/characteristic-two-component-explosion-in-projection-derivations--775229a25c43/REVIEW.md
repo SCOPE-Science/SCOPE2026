@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The proof derives the entire four-parameter derivation normal form from the rectangular-band multiplication and differentiates every defining product. The condition \(D^2=D\) reduces to two ordinary projections, two image-membership constraints, and \(2T\otimes S=0\). The pure-tensor obstruction is sufficient as well as necessary; rank is additive on the filtered pieces of a projection and the finite-field counts follow from complementary image/kernel decompositions. Exhaustive small cases and an independent 65,536-map direct test corroborate the algebraic proof. The general theorem does not rely on those finite tests.
+## correctness
 
-## Originality
-The Munn normal form and representation-theoretic motivation are from Drozd–Plakosh (2022). Yu–Luo–Li (2024) concern idempotent algebra elements and zero-product properties, not idempotent derivations. The closest same-algebra commutator census and the closest same-sandwich idempotent-pair census have been materially read; their quantified objects and rank invariants differ. The triangular-matrix derivation projection result was also materially read, but its unital triangular algebra and inner derivations are not a covering statement for this nonunital rank-one Munn algebra. Novelty remains relative to inspected evidence; unexamined historical semigroup-ring literature may contain an equivalent formulation.
+PASS
 
-## Mathematical value
-This solves a natural full-family structural operator classification and determines exact labeled rank counts over every finite field. The characteristic-two phenomenon is geometric, not merely an isolated numerical exception: \(mn\) irreducible components occur instead of \(m+n-1\), and mixed projection ranks become possible only there. The class includes arbitrarily large algebras with independent one-sided dimensions.
+The final repaired statement makes the split relative to a chosen band idempotent and defines the two intrinsic ranks on the quotients of the one-sided annihilators by their intersection. The original word 'intrinsic' could assert a canonical splitting: in the 2-by-2 case choosing e_11 versus e_21 changes B from k(e_12−e_11) to k(e_22−e_21), and B and C themselves are generally not one-sided ideals. The numerical and geometric conclusions survive unchanged. In the corrected tensor proof every derivation has form P⊗I+I⊗Q with image of each factor map in its augmentation kernel. Projection and fixed-vector conditions give P²=P, Q²=Q, and then D²−D=2P⊗Q. Eigenvalue sums give the full-operator rank; counting ordered complements and fixed vectors gives the weights. The complementary-subspace varieties are smooth irreducible open subsets of products of Grassmannians; ranks of projections are locally constant and the chosen vectors form tautological bundles. This proves the component statement for the reduced locus, including zero ranks.
 
-## Scope and limitations
-The result covers rank-one Munn/sandwich algebras arising from rectangular bands, not higher-rank Munn products. The component count concerns the reduced locus. Small characteristic checks are finite corroboration, and no global bibliographic priority or independent scientific validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected statements do not establish the claimed operator classification and rank/component laws on the rectangular-band algebra. The repaired definition of the ranks clarifies which invariant is counted; it does not change the comparison set. Credit the existing Munn structure and projection formalism, not as original claims.
+
+## value
+
+PASS
+
+Rectangular bands give a natural rank-one sandwich family with two independent augmentation directions. The count quantifies exactly how characteristic two permits both induced projections and changes the rank histogram and the number of irreducible components. These exact invariants provide a useful comparison point for other sandwich algebras, without requiring a speculative generalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

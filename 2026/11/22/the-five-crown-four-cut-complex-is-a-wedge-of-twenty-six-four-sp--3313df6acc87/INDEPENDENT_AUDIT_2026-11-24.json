@@ -1,0 +1,172 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:12:48.535617Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–29",
+        "verify.py lines 9–84 (inspected, not executed)",
+        "verify-output.json",
+        "VERIFICATION.md",
+        "/workspace/reproduce_reviews.py, ordinal 5"
+      ],
+      "rationale": "For the matching-deleted K5,5 (not a five-cycle), four vertices on one shore are disconnected (10); a 3+1 split is disconnected exactly when the minority index occurs in the majority (60); a 2+2 split is disconnected exactly when both diagonal pairs are absent, leaving two disjoint edges (10). Thus all 80 complementary six-sets are distinct facets. Membership in the cut complex is equivalent to being disjoint from a disconnected quartet, so the Alexander dual consists of sets containing no disconnected quartet. I independently generated both complexes by bit masks with an induced reachability test and constructed and topologically sorted the complete oriented nonempty-face Hasse graphs. With the two shores swapped in the pivot order, the original had f=(10,45,120,210,232,80), 697 faces, 335 matches, 2930 oriented covers, and critical counts {0:1,4:26}; the dual had f=(10,45,120,130,20), 325 faces, 149 matches, 1070 oriented covers, and critical counts {0:1,3:26}. All vertices of both directed graphs were sorted, establishing acyclicity rather than just computing counts. The discrete Morse CW theorem gives one vertex and 26 cells of dimension 4 (respectively 3), attached to a point. This proves the two full wedges and consequently the free integral homology in the stated degrees. Pure shellability of the original pure 5-complex would give zero reduced H4, so it is not shellable. Replay: python3 /workspace/reproduce_reviews.py 5.",
+      "residual_risks": [
+        "This establishes only the specified ten-vertex graph; the matching or topological conclusion is not extrapolated across crown orders or cut parameters."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general pentagonal boundary statement requires at least nine vertices and girth at least five; the crown contains the induced four-cycle on a0,a1,b2,b3.",
+          "The sequel treats squared paths and rectangular grids (for example, the 2-by-5 grid four-cut gives 52 five-spheres); these are not the crown."
+        ],
+        "reasoning": "The closest verified broader theorems exclude this graph by a concrete hypothesis, despite the shared cut parameter or total vertex count.",
+        "searches": [
+          "Resultary 94b36fd5471f, homotopy classification at the pentagonal girth boundary",
+          "Bayer et al. arXiv:2407.08158v1 §§4–5, Theorem 4.4 and Proposition 5.13/Theorem 5.14"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2304.13675",
+        "arXiv:2407.08158v1",
+        "Resultary e19e23ee7a6b, 9ac5fb7f228c, d93d5f89968c, a8682d81c341 and 94b36fd5471f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the same ten-vertex crown at k=3 the inspected statements give integral homology Z in degree 4 and Z^5 in degree 6; the later account adds rational characters. Neither gives a comparison theorem producing k=4 from k=3.",
+          "For a larger crown the smaller dual is an induced subcomplex of subsets avoiding disconnected quartets. Homotopy type of the ambient dual alone does not determine that induced subcomplex. The six-crown source expressly does not claim an all-order theorem."
+        ],
+        "reasoning": "Changing the cut parameter changes the forbidden subsets, and changing the order changes the full face set. Neither operation is controlled by just the provided neighboring result. Moreover, homology or Alexander duality alone would not provide the claimed two homotopy wedges.",
+        "searches": [
+          "Resultary 9ac5fb7f228c and d93d5f89968c (crown three-cut homology)",
+          "Resultary a8682d81c341 Relationship to prior work and Limitations",
+          "Compare exact dual definitions and restrictions to induced subgraphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 7.1 on intact K5,5 gives 16 two-spheres at k=4, a different graph and result.",
+          "Theorem 7.18 on K5 Cartesian K2 gives four four-spheres at k=4. This graph is the complement of the crown, whereas Alexander duality is vertex-set complementation of nonfaces of the cut complex, not graph complementation."
+        ],
+        "reasoning": "Neither replacing the graph by the intact biclique nor complementing its edges preserves the connectivity test on induced quartets. No transfer in the inspected statements identifies either result with the submitted original or dual wedge.",
+        "searches": [
+          "Resultary: ordinary four-cut of K5,5 minus a perfect matching / ten-vertex crown / Alexander dual avoiding disconnected quartets",
+          "Bayer et al. arXiv:2304.13675 Theorems 7.1 and 7.18"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The eight-vertex cube entry gives three two-spheres. The distinct twelve-vertex crown entry gives the dual S4 wedge 66 S3 and mixed homology of the original. Its Relationship to prior work mentions a separately recorded five-crown computation with a single sphere degree, and its Limitations restrict its own result to the six-crown.",
+          "The closest explicit academic dimension/count formulas refer to the intact biclique, clique prism and rectangular grids."
+        ],
+        "reasoning": "None of these exact entries tabulates both requested ten-vertex wedges. A contextual cross-reference to the five-crown single-degree result is not another independent answer or evidence of precedence.",
+        "searches": [
+          "Resultary e19e23ee7a6b and a8682d81c341, adjacent crown orders at ordinary k=4",
+          "arXiv:2304.13675 Theorems 7.1 and 7.18; arXiv:2407.08158v1 Proposition 5.13"
+        ]
+      },
+      "rationale": "Exact ordinary four-cut homotopy of the ten-vertex crown and its dual is distinct from the closest inspected statements. In particular, the primary clique-prism theorem concerns the graph complement, not the Alexander dual, and the strongest nearby indexed four-cut computations are for the eight-vertex and twelve-vertex crowns. The six-crown record references a five-crown one-degree calculation without separately proving or tabulating this homotopy type. No priority order follows from same-day labels.",
+      "residual_risks": [
+        "The compared sources do not constitute a comprehensive bibliographic search. An unindexed equivalent of the finite ten-vertex calculation remains possible.",
+        "The same-day six-crown citation does not establish a separately authored five-crown equivalent or a discovery order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Both exact formulas have different graph hypotheses",
+          "evidence": [
+            "Intact K5,5 gives 16 spheres of dimension 2; clique prism K5 Cartesian K2 gives binom(4,3)=4 spheres of dimension 4."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.13675",
+          "material_read": "OA PDF Theorem 7.1 p. 23 at offset 98284 and definition and Theorem 7.18 p. 29 near offset 127693",
+          "method": "Read theorem hypotheses, specialize k=4 and compare edges to the five-crown",
+          "title": "Topology of Cut Complexes of Graphs",
+          "trigger": "Foundational ordinary cut definitions and the intact and complement graphs"
+        },
+        {
+          "assessment": "Squared paths and rectangular grids do not cover the crown",
+          "evidence": [
+            "Theorem 5.14 and Proposition 5.13 give the four-cut grid wedge in dimension mn-5."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2407.08158v1",
+          "material_read": "OA §4 Theorem 4.4 offset 55272; §5 definition offset 74000, Proposition 5.13 offset 88085, Theorem 5.14 offset 102301",
+          "method": "Check graph definitions, dimensions and Betti formula",
+          "title": "Topology of Cut Complexes II",
+          "trigger": "General four-cut calculations on other families"
+        },
+        {
+          "assessment": "Crown of order four, not five",
+          "evidence": [
+            "Ordinary four-cut of Q3 is a wedge of three two-spheres."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-upper-cut-complex-transition-of-the-three-cube--e19e23ee7a6b",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Compare orders and exact homotopy types",
+          "title": "Upper cut-complex transition of the three-cube",
+          "trigger": "Previous order in the same crown family and same cut parameter"
+        },
+        {
+          "assessment": "Three-cut homology theorem does not determine four-cut homotopy",
+          "evidence": [
+            "At n=5 the original three-cut has Z in degree 4 and Z^5 in degree 6."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-two-degree-integral-homology-of-crown-graph-three-cut-complexes--9ac5fb7f228c",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Compare cut parameter, degree, and strength of conclusion",
+          "title": "Two-degree integral homology of crown-graph three-cut complexes",
+          "trigger": "Same family and adjacent cut threshold"
+        },
+        {
+          "assessment": "Refines the k=3 calculation, not a four-cut statement",
+          "evidence": [
+            "Equivariant homology adds rational S_n x C2 characters to three-cut ranks."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-integral-and-equivariant-homology-of-three-cut-complexes-of-crow--d93d5f89968c",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Compare integral ranks and rational representation statements to k=4",
+          "title": "Integral and equivariant homology of three-cut complexes of crowns",
+          "trigger": "Possible broader refinement for the same graph family"
+        },
+        {
+          "assessment": "Different-order result; mentions the five-crown computation but gives no stronger theorem containing it",
+          "evidence": [
+            "Dual of the six-crown is S4 wedge 66 S3. The text refers to a separately recorded five-crown calculation with a single sphere degree and disclaims an all-crown theorem."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-adjacent-homology-degrees-in-the-six-crown-ordinary-four-cut--a8682d81c341/RESULT.md",
+          "material_read": "Mirrored Finding at offset 0; Relationship to prior work and Limitations at offset 5843 in snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Compare exact order and implications of the scope and cross-reference",
+          "title": "Two adjacent homology degrees in the six-crown ordinary four-cut complex",
+          "trigger": "Same cut parameter and family, plausible all-order extension or cross-reference"
+        },
+        {
+          "assessment": "Fails the girth hypothesis, despite having at least nine vertices",
+          "evidence": [
+            "Girth at least five is required; the crown has an induced four-cycle."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-homotopy-classification-of-four-cut-complexes-at-the-pentagonal--94b36fd5471f",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Test exact girth hypothesis on the five-crown",
+          "title": "Homotopy classification of four-cut complexes at the pentagonal girth boundary",
+          "trigger": "Potentially dominating general four-cut classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Resultary e19e23ee7a6b eight-vertex comparison",
+        "Resultary a8682d81c341 twelve-vertex comparison",
+        "Independent acyclic matchings"
+      ],
+      "rationale": "The first crown larger than the cube is a natural next instance at the same cut parameter. The exact homotopy type of both complexes, rather than just Betti counts, gives a pure nonshellable five-complex and distinguishes this order from both the cube and the adjacent six-crown's mixed-degree behavior. The case is useful as a concrete comparison point for graph-order and cut-parameter classification, without claiming an all-order formula.",
+      "residual_risks": [
+        "No assertion of eventual stability, maps across cut parameters, or full six-crown homotopy is needed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

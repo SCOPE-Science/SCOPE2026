@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:14:02.425542Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I independently constructed the incidence triples {a,b,a XOR b} on the seven nonzero binary vectors, computed all graph distances by Floyd–Warshall, and tested all four- and five-subsets for distinct vertex signatures. No four-subset works, so monotonicity excludes smaller sets, and exactly 168 five-subsets work. The basis classification follows because a collinear point triple produces three duplicate pairs of line signatures, which cannot all be broken by removing two selected lines from the unselected-line comparison. For a noncollinear triple all line signatures differ; the two selected lines distinguish the four other points precisely when both are tangents, each meeting two of those points with one point common. The dual argument applies to line-majority bases. In the separate replay I joined bases through their shared four-subsets and used Floyd–Warshall again: all degrees are 5, exactly 56 triangles occur with the stated majority-triple partition, every row has shells (1,5,18,49,71,24), unordered pair totals are (420,1512,4116,5964,2016), and the excess over 5−|B∩C| is 0 for 9660 pairs and 1 for 4368. These checks also give both radius and diameter 5. The replay is /workspace/branches/heawood_exact_replay.py. For transitivity, GL(3,2) acts transitively on the noncollinear triples (unordered vector bases). The stabilizer permutes the three tangents, one per point of the triple, and swaps any two tangent choices; a point-line polarity switches the majority types. Part-preserving automorphisms are determined by the images of a vector basis, since each third point on a line is the sum of the other two. There are exactly 168 preserving the parts and a dual coset of equal size. Both frozen checkers were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Héger–Takáts state the minimum five, with a lower bound and a resolving set in Fig. 1. Symmetric-design metric-basis work is same-object relevant; no primary full text was available in the inspection. Morentin's colloquium abstract concerns the general reconfiguration framework, not a specified Heawood calculation in that text."
+        ],
+        "reasoning": "A metric-dimension theorem does not cover distances between optimal solutions under token jumping; metric bases of symmetric designs might cover the state-space classification. The plausible thesis remains unresolved, not a negative finding.",
+        "searches": [
+          "Héger–Takáts arXiv:1207.5469 introduction and §2",
+          "Tang–Zhou–Chen–Zhang DOI 10.1016/j.dam.2020.12.001",
+          "Morentin Reconfigurations of Metric Bases, thesis listing and 2022 colloquium abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d4a919fbecfd",
+        "Resultary 15f94095f8d3",
+        "arXiv:1207.5469",
+        "DOI 10.1016/j.dam.2020.12.001",
+        "Morentin thesis listing and 2022 colloquium abstract; ScholarWorks pv63g4914 access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier accessible Fano passage concerns minimum resolving sets, not optimal reconfiguration. The related later record with the identical family specifies exchange adjacency and some graph invariants. The known diameter five does not constrain every pair to at most one more than its particular set-difference distance."
+        ],
+        "reasoning": "A specification of the state space permits a subsequent exact computation, but neither the earlier minimum-size result nor the compared coarse properties supply the joint overlap-and-distance analysis. The later overlap does not establish priority over this frozen finding.",
+        "searches": [
+          "arXiv:1207.5469 §2 Fano example",
+          "Resultary d4a919fbecfd exchange-graph passage offsets 3500–5267",
+          "Cal Poly Pomona Morentin colloquium abstract and student-research thesis listing"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The edge-metric record d4a919fbecfd describes the very same 168 subsets by noncollinear point triples and pairs of tangents or their duals, with the same single-token exchange rule. The maximum induced-matching exchange problem 15f94095f8d3 instead has 84 states, degree six and 84 triangles."
+        ],
+        "reasoning": "The first is mathematically the same graph with the same ambient set-overlap lower bound, not a merely analogous problem. Its accessible statements overlap on order, size, regularity, radius and diameter; its cited later indexing date neither establishes an earlier result nor makes the overlap irrelevant. The second record is a genuinely different configuration space.",
+        "searches": [
+          "Resultary catalogue: Heawood/Fano metric basis or resolving set exchange graph and token jumps",
+          "Resultary d4a919fbecfd Finding and exchange-graph passage",
+          "Resultary 15f94095f8d3 Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local edge-metric passages give 168 vertices, 420 edges, degree five and radius/diameter five for the identical graph but do not give the shell histogram or numbers attaining the detour bound in those passages. The ScholarWorks item could not be read."
+        ],
+        "reasoning": "Coarse graph parameters are not a table of all distances or excesses above Johnson distance. No matching fine census was established in the bounded comparison; inaccessible sources could contain one.",
+        "searches": [
+          "Resultary catalogue: Heawood edge and vertex metric bases, distances and triangles",
+          "Morentin Reconfigurations of Metric Bases; ScholarWorks pv63g4914"
+        ]
+      },
+      "rationale": "The minimum size five is known, and independent priority for the basis classification is not established. The closest related Resultary record, on edge-metric bases, actually realizes the identical token-jump graph by the same subset family despite its different resolving condition; it also gives some of the same coarse graph invariants. It is indexed later, and the finer all-pairs shell and relative-detour census is not established by the compared passages. The supported distinct contribution is the detailed metric and partition of this exact exchange graph, not generic reconfiguration or metric dimension, subject to the recorded access risks.",
+      "residual_risks": [
+        "Neither the full Tang–Zhou–Chen–Zhang paper nor Morentin's thesis was read; the former might duplicate the basis classification and the latter might contain a Heawood reconfiguration computation. Additional older or differently formulated exact tables cannot be ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The same actual token-jump graph; overlapping coarse invariants but finer partition and metric not established in compared passages; catalogue path dated 2026-11-08",
+          "evidence": [
+            "Identical basis families, same exchange rule, 168 vertices, 420 edges, degree five and radius/diameter five."
+          ],
+          "identifier_or_url": "Resultary d4a919fbecfd",
+          "material_read": "RESULT.md Finding, offsets 0–1994; exchange-graph passage, offsets 3500–5267",
+          "method": "Local Resultary catalogue and mirror inspection",
+          "title": "Edge-metric bases of the Heawood graph and octagonal slide reconfiguration",
+          "trigger": "Strongest possible equivalent exchange-graph statement via edge-resolving subsets"
+        },
+        {
+          "assessment": "Different graph and invariant; same-day indexing is not used to infer priority",
+          "evidence": [
+            "84 maximum induced matchings as states, degree six and 84 triangles."
+          ],
+          "identifier_or_url": "Resultary 15f94095f8d3",
+          "material_read": "RESULT.md Finding, offsets 0–2062",
+          "method": "Local Resultary catalogue and mirror inspection",
+          "title": "The Fano induced-matching exchange graph",
+          "trigger": "Same Heawood setting and triangular exchange geometry"
+        },
+        {
+          "assessment": "Covers minimum five, does not give exchange census in the Fano passage; arXiv remark numbering differs from the frozen citation",
+          "evidence": [
+            "The remark gives the Fano plane's metric dimension five; its figure exhibits a five-set."
+          ],
+          "identifier_or_url": "arXiv:1207.5469; DOI 10.37236/2582",
+          "material_read": "Introduction p. 1; §2 p. 5, Remark 2.6 in inspected arXiv version near offset 15400 and Fig. 1",
+          "method": "Bounded OA primary PDF text inspection",
+          "title": "Resolving sets and semi-resolving sets in finite projective planes",
+          "trigger": "Prior metric dimension of the same incidence graph"
+        },
+        {
+          "assessment": "Not assessed at full-text level; possible overlap remains",
+          "evidence": [
+            "No repository copy surfaced in the OA lookup; publisher page returned HTTP 403. Its stated topic includes metric dimension and bases of design incidence graphs."
+          ],
+          "identifier_or_url": "DOI 10.1016/j.dam.2020.12.001",
+          "material_read": "Bibliographic identification; no full text obtained",
+          "method": "Lawful OA lookup and attempt at publisher page",
+          "title": "Metric dimension and metric independence number of incidence graphs of symmetric designs",
+          "trigger": "May cover Heawood basis classification"
+        },
+        {
+          "assessment": "Confirms related work; not evidence for or against thesis coverage of Heawood",
+          "evidence": [
+            "The 2026 thesis is listed under the matching title. The accessible 2022 abstract discusses reconfiguration of resolving sets and an algebraic framework but names no Heawood example. The similar repository item was inaccessible."
+          ],
+          "identifier_or_url": "https://www.cpp.edu/faculty/brianaf/student-research.shtml ; https://www.cpp.edu/sci/mathematics-statistics/docs/colloquium/2021_2022_jimmy_morentin.pdf ; https://scholarworks.calstate.edu/concern/theses/pv63g4914",
+          "material_read": "2026 thesis listing and 2022 colloquium abstract; full thesis not retrieved, authorship and contents of similar 2021 item unconfirmed",
+          "method": "Lawful university page/PDF inspection and identified repository lookup",
+          "title": "Reconfigurations of Metric Bases and related work by Jimmy Morentin",
+          "trigger": "Plausible coverage of the same reconfiguration framework or example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Heawood graph is a canonical symmetric instance for testing how optimum landmark sets can be transformed without losing resolution. The ambient overlap bound is natural before enumeration. Showing that departures from it are uniformly at most one but occur for exactly 4368 pairs identifies a precise obstruction that basis count and diameter do not encode. The triangular decomposition and exact pair metric make this a useful complete finite benchmark, not an arbitrary choice of sample sizes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

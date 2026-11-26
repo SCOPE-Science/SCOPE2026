@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:46:38.869549Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–67",
+        "VERIFICATION.md, CERTIFICATE.json and verify.py, inspected as frozen evidence",
+        "Independent reproduction: python3 /workspace/branches/audit_exact_replay.py (superstring section)"
+      ],
+      "rationale": "One occurrence per required equal-length word, sorted by start position, gives a lower bound by overlap costs; appending with those maximal overlaps attains that length for a given order. Within a rotation class the least positive shift d gives overlap 5p−d, irrespective of p≥2. Between different classes every overlap has length at most four, determined by the root boundaries. An order using B cross-class edges has length at least 5p+31+5(p−1)B, with B≥7; if B≥8 the lower bound 45p−9 exceeds 40p+2 throughout p≥3. An independent reproduction at p=3 built literal suffix/prefix costs and used a root-level remaining-set recurrence: from a current root, if any unvisited root in its class remains, the next root must be one of these; otherwise any remaining root is allowed. This recurrence enumerates exactly the grouped permutations and yielded minimum 122 over 61696 memoized states. The literal 122-bit witness contains all 32 cubes. A grouped route has length increment 40 per exponent because its seven cross-class edges and initial length each increase by five; thus both the all-exponent optimum and the restriction on all optimal orders follow.",
+      "residual_risks": [
+        "This verifies the finite linear-word optimization, not an analogous circular or general root-length problem. The certificate histogram lists only the seven nonterminal layers; 32 terminal endpoints bring the total from 4064 to 4096."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 14 gives general lower bound 40p−8 here. Theorem 15 gives an upper bound of 40p−8 plus the conjugate cover length; 1111010000 is a length-ten cover."
+        ],
+        "reasoning": "The general bounds alone do not prove the length optimum, since they leave a ten-symbol gap. The upper bound and the stronger lower bound when B≥8 do exclude every ungrouped order for p≥3.",
+        "searches": [
+          "Au arXiv:0904.3997v5 Proposition 14 and Theorem 15, specialize alphabet 2 and root length 5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary power/square exact value and necklace DP searches",
+        "Indexed record b1c706b65373",
+        "Au arXiv:0904.3997v5",
+        "OEIS A372435"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact square minimum is 82 over all permutations, attained at seven class switches. Every permutation has B≥7, and its length at exponent p is its length at exponent 2 plus 5(p−2)(B+1)."
+        ],
+        "reasoning": "Every order costs at least 82+40(p−2)=40p+2, and a grouped square minimizer realizes equality at every p≥3. Since p−2>0, any B>7 forces strict inequality. Both frozen conclusions therefore follow without solving the cubic DP. Au alone also implies grouping: at B≥8 the cost is at least 45p−9, above his available upper bound.",
+        "searches": [
+          "Indexed square RESULT.md, Finding, Necklace bound and Seven/Eight crossings subsections",
+          "Au Proposition 14 and Theorem 15"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record b1c706b65373 finds the square optimum 82 and also finds minimum 82 within grouped square orders.",
+          "Au Proposition 14 gives the no-five-symbol cross-class overlap condition and Theorem 15 gives a conjugate-cover construction."
+        ],
+        "reasoning": "The square problem uses exactly the same linear overlap Hamiltonian paths on 32 roots. For any such path, including a non-grouped one, increasing the exponent from 2 to p preserves internal costs and increases each cross-class cost by 5(p−2).",
+        "searches": [
+          "Resultary: binary length-five powers, cube/power shortest linear superstrings, necklace block DP",
+          "Au arXiv:0904.3997v5 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A372435 lists 4,12,24,48 for squares at base lengths 1–4, not the frozen regime.",
+          "Resultary record b1c706b65373 explicitly proves 82 for all binary five-bit squares, with a grouped minimum 82 under its Seven crossings proof."
+        ],
+        "reasoning": "The catalogue theorem, unlike the OEIS entries, fixes the optimization constant at the correct root length. The common four-symbol cap for cross-class overlaps makes that constant transferable to every p≥3.",
+        "searches": [
+          "OEIS A372435",
+          "Resultary: five-bit square superstring, cubic optimum and arbitrary exponents"
+        ]
+      },
+      "rationale": "The distinct indexed exact square result implies the entire exponent-at-least-three optimum by an affine overlap-cost lift, even though it only states p=2. Independently, Au's existing overlap bound and attainable upper bound imply the necklace rigidity. This is demonstrable coverage against the available corpus, not an inference of historical priority from index dates.",
+      "residual_risks": [
+        "The square record is catalogued later than the assigned record; coverage by that available theorem does not establish which work obtained its result first.",
+        "The focused external discovery query was unavailable; the concrete mathematical implication does not rely on an unsuccessful search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known overlap restriction and lower/upper bounds; upper bound sharp but not proved exact there",
+          "evidence": "Different cyclic classes cannot overlap by n symbols; lower bound 2^5+5(p−1)·8, upper bound adding the conjugate cover length.",
+          "identifier_or_url": "https://arxiv.org/abs/0904.3997",
+          "material_read": "v5 §3, Proposition 14 (PDF p. 13) and Theorem 15 (PDF p. 15)",
+          "method": "Open arXiv PDF passage inspection",
+          "title": "Generalized de Bruijn words for Primitive words and Powers",
+          "trigger": "Same power-superstring optimization and rotation classes"
+        },
+        {
+          "assessment": "Square-only, and visible entries stop at root length four",
+          "evidence": "Values 4,12,24,48 for root lengths 1–4.",
+          "identifier_or_url": "https://oeis.org/A372435",
+          "material_read": "Definition and data entries, offset 421",
+          "method": "Public OEIS page passage inspection",
+          "title": "Length of the shortest binary string that contains all blocks of the form xx",
+          "trigger": "Exact sequence for the same root family at exponent two"
+        },
+        {
+          "assessment": "The unrestricted and grouped square optima both equal 82; these jointly imply the frozen result",
+          "evidence": "The seven-switch DP gives 82; nine or more switches cost at least 86; the eight-switch length-81 equality case is excluded by split-necklace reachability.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-minimum-linear-superstring-length-for-all-binary-five-bit--b1c706b65373",
+          "material_read": "Finding and overlap, necklace, seven-crossings and eight-crossings proof, including mirror offsets 0–4500",
+          "method": "Local mirror passage inspection",
+          "title": "Exact minimum linear superstring length for all binary five-bit squares",
+          "trigger": "Determines a potentially dominating exponent-two base case"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 25–67",
+        "Indexed record b1c706b65373",
+        "Au §3"
+      ],
+      "rationale": "This is a natural exact optimization problem, but its numerical constant and all-optima block restriction are already determined by the square comparison and elementary cost lift. Reproducing the same invariant by a cubic DP or giving a cubic witness does not leave a distinct exact fact or structural claim at the stated scope.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

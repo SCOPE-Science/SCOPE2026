@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:30:31.066974Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the prescribed normalization each factor equals 1 at z=1 and has Poisson-kernel angular derivative, so the lift F is odd and increases by 2πN per turn, with F(π)=Nπ. The summed speed is strictly decreasing on (0,π) as soon as a zero is positive. Thus the inverse speed is even, periodic and strictly increasing with circular distance from 0 up to Nπ. At c±π, 0<c<Nπ, the plus endpoint is farther from 0 even on the wrapped branch (compare 2Nπ−c−π with c−π); hence J′(c)>0. The interval centers form the coset φ+π modulo 2π in the phase circle. The least distance to 0 is π−d(φ,0); the greatest distance is Nπ minus the least distance to Nπ, giving (N−1)π+d(φ,Nπ). Strict monotonicity proves both unique optima and the parity rule; substitution gives the two gap sizes and Taylor expansion at the interior optimizing radii gives the positive cusp constants. This covers wraparound, repeated roots and N=2, and explains the all-zero exception. In the prediction example, reversed polynomials reduce optimality to matching moments through N−1 for evaluation at a. Orthogonality of the monic node polynomial to z,…,z^(N−1) under Poisson measure at a gives Q=z^(N−1)(z−a)−η(1−az), and its Lagrange interpolation weights at a simplify to the stated masses. An independently written inverse-phase checker evaluates the Blaschke product at the computed roots, checks both gap profiles in 390 list/phase cases, and checks both cusp sides for five lists including repeated positive zeros. Replay: python3 /workspace/reproductions/frozen_math_checks.py 2; output /workspace/reproductions/record-2.txt. The theorem is for co-radial zeros in the stated normalization, not arbitrary or signed-real arrays.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kovalev–Yang's Poisson sum holds beyond co-radial arrays, and their derivative bounds compare products; the inspected results do not order moving finite gaps within one fixed product.",
+          "The prediction papers' extremal-growth characterization and limiting measure results concern measure optimality under polynomial evaluation, not min/max spacing within the set of eligible measures."
+        ],
+        "reasoning": "The general speed identity supplies an input; strict circular monotonicity of the inverse-speed interval integral and its evaluation on the moving center coset are needed to establish the target result. Having a broad prediction theorem does not decide these distinct objectives on its exact fibres.",
+        "searches": [
+          "Primary literature on phase-dependent spacing of paraorthogonal zeros and derivative extrema of finite Blaschke products",
+          "Bos–Levenberg–Ortega-Cerdà arXiv:1912.12462 Theorem 2.2",
+          "Charpentier–Levenberg–Wielonsky arXiv:2207.04662 Theorems 1.1 and 3.2"
+        ]
+      },
+      "checked_sources": [
+        "Breuer–Seelig arXiv:1908.06737",
+        "Kovalev–Yang arXiv:2007.09760",
+        "Bos–Levenberg–Ortega-Cerdà arXiv:1912.12462",
+        "Charpentier–Levenberg–Wielonsky arXiv:2207.04662",
+        "Distinct Resultary f101e09ba9b4 and a712e5339c70"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An existing Poisson-kernel decomposition plus common-ray zeros yields even monotone speed, but derivative-extremum bounds do not establish the ordering of all consecutive fibre gaps or locate their extremizing phase lattice cosets.",
+          "The frozen proof uses the strict geodesic distance comparison for interval endpoints and then translates the nearest/farthest centers to two distinct phase distances. Those exact moving-interval comparisons are not contained in the inspected prior statements."
+        ],
+        "reasoning": "Known node families and speed formulas do not mechanistically supply the exact optimization profiles. The extra finite-geometric step orders all intervals of phase mass 2π, anchors the two extrema at different centers, and gives strict cusp coefficients by local differentiation; it is not just a prior formula with different notation.",
+        "searches": [
+          "Compare the phase and spacing quantifiers of Breuer–Seelig Theorem 1.1, Kovalev–Yang Theorems 1.2 and 4.4 and Lemma 4.3, and the disk prediction characterization against the frozen Proof §§2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The zero-angle problem also has a paraorthogonal phase-parameter interpretation. Breuer–Seelig study spacing for such zeros, with asymptotic local and measure hypotheses.",
+          "The frozen proof expresses a finite gap as a fixed-phase-mass interval of the inverse speed. Kovalev–Yang instead optimize pointwise boundary derivatives, with a phase-defined derivative extremum for a particular product."
+        ],
+        "reasoning": "The same boundary phase can parameterize both problems, but pointwise minima/maxima of the speed are not finite-length differences of its inverse, and local/asymptotic spacings do not decide uniform finite-degree gap extrema across the target phase.",
+        "searches": [
+          "Resultary: aligned finite Blaschke fibre target phase packing and covering via successive circular gaps",
+          "Breuer–Seelig arXiv:1908.06737, paraorthogonal definition and Theorem 1.1, pp. 1–4",
+          "Kovalev–Yang arXiv:2007.09760, Lemma 4.3 and Theorem 4.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching ranked record is the same frozen statement, not independent coverage.",
+          "f101e09ba9b4 treats local angular stability/soft modes at equally spaced equal-modulus zeros for n≥5; a712e5339c70 treats the degree-four crossover. Both calculate local angular Hessians of boundary-speed variance, not exact gap/phase profiles."
+        ],
+        "reasoning": "Neither distinct exact same-day result tabulates or proves the two profiles for a fixed product. Relative priority cannot be inferred from the dates of these records, and the bounded exact-record check is not a proof of absence.",
+        "searches": [
+          "Resultary: exact smallest/largest circular gap profiles, parity of locked phases, and sharp cusps for co-radial zeros",
+          "Distinct same-day Resultary f101e09ba9b4 and a712e5339c70, original RESULT.md Findings"
+        ]
+      },
+      "rationale": "The supported distinct claim is the complete finite-degree ordering of the smallest and largest successive angular gaps with target phase for one fixed co-radial product, including their unique phases and exact cusps. The Poisson derivative, paraorthogonal fibre formulation and prediction optimization framework are prior tools. Known angular-speed extrema, asymptotic spacing and node/measure characterization are not this finite-degree optimization. Distinct same-day indexed records concern changing the zeros and optimizing variance of the angular speed, not changing the target phase of a fixed product. The conclusion is bounded by the inspected statements and is not a historical priority certificate.",
+      "residual_risks": [
+        "An unindexed paraorthogonal, quadrature, or circular interval-ordering theorem could give an equivalent phase-ordering law; this bounded inspection cannot eliminate that risk.",
+        "The speed identity and prediction node/weight framework are not credited as new, and no novelty for arbitrary zero arrays is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Local/asymptotic spacing with measure hypotheses, not optimization of a fixed finite fibre family",
+          "evidence": [
+            "The unit parameter β_n is part of the paraorthogonal formulation; the inspected theorem concerns asymptotic local zero spacing."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1908.06737",
+          "material_read": "Original pp. 1–4, paraorthogonal definition and Theorem 1.1, extracted offsets 0 and 7999",
+          "method": "Lawful original arXiv full-text passages",
+          "title": "On the spacing of zeros of paraorthogonal polynomials for singular measures",
+          "trigger": "Phase-parameterized angular zero gaps"
+        },
+        {
+          "assessment": "Supplies a speed formula and derivative extremals, not min/max finite successive phase gaps",
+          "evidence": [
+            "The quantities m(B),M(B) there are extrema of |B′|. Theorem 4.4 relates derivative extrema for a particular hypergeometric product to zB(z)=1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2007.09760",
+          "material_read": "Original pp. 2–3, 10–11 and 18–19, extracted offsets 3450, 24438 and 43019; Lemma 4.3, Theorem 4.4 and zero-placement discussion",
+          "method": "Lawful original arXiv full-text passages",
+          "title": "Extreme values of the derivative of Blaschke products and hypergeometric polynomials",
+          "trigger": "Same finite Blaschke speed and phase-defined derivative extrema"
+        },
+        {
+          "assessment": "Prediction optimum, not packing or covering phases",
+          "evidence": [
+            "Characterizes optimal prediction measures via an extremal-growth polynomial."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1912.12462",
+          "material_read": "Theorem 2.2, original pp. 7–9, extracted offset 14300",
+          "method": "Lawful original arXiv full-text passage",
+          "title": "Optimal Polynomial Prediction Measures and Extremal Polynomial Growth",
+          "trigger": "Prior polynomial extrapolation variational characterization"
+        },
+        {
+          "assessment": "Weak-* limits and disk limiting maximizer, not finite-N gap extremizers",
+          "evidence": [
+            "The disc limit maximizes λ∞, not the smallest or largest successive angular gap of N nodes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2207.04662",
+          "material_read": "Theorems 1.1 (p. 3) and 3.2 (p. 5), extracted offsets 7330 and 15300",
+          "method": "Lawful original arXiv full-text passages",
+          "title": "An extremal problem for the Bergman kernel of orthogonal polynomials",
+          "trigger": "Disk prediction measures and their limiting theory"
+        },
+        {
+          "assessment": "Variation of zero angles, not target phase of a fixed product",
+          "evidence": [
+            "Computes an angular Hessian of speed variance for n≥5 around equally spaced zeros."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-strict-angular-stability-and-universal-soft-mode-reversal-for-eq--f101e09ba9b4",
+          "material_read": "Original RESULT.md Finding and scope",
+          "method": "Resultary lookup and local mirror",
+          "title": "Strict angular stability and universal soft-mode reversal for equiradial Blaschke products",
+          "trigger": "Distinct same-day angular-stability result"
+        },
+        {
+          "assessment": "Local crossover for the variance of the speed, not the finite gap profile",
+          "evidence": [
+            "The varying parameters are the zero angles, not η in a fibre."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-unique-angular-stiffness-crossover-for-four-equiradial-blaschk--a712e5339c70",
+          "material_read": "Original RESULT.md Finding and scope",
+          "method": "Resultary lookup and local mirror",
+          "title": "A unique angular stiffness crossover for four equiradial Blaschke zeros",
+          "trigger": "Distinct same-day degree-four angular crossover"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Minimum separation and largest unsampled arc are distinct and natural design criteria. Giving their entire finite-degree profiles identifies exactly when the best packing and covering phases agree and quantifies phase sensitivity with explicit strict linear coefficients. The result applies to a meaningful design family with continuous zero parameters, not an arbitrary isolated data point or a claim about known weights.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

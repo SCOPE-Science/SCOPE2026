@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:05:07.815337Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a last missing path atom i, any adjacent pair in its prefix would force i, and filling the suffix cannot force an earlier atom. Maximal omission of i is therefore exactly maximal independence of the prefix with the suffix filled. The independent-domination recurrence with initial polynomials 1,u,2u gives the stated weighted prefix series; substituting u=1/q and summing over the last omission gives the path denominator and numerator. On a ring an adjacent pair forces the full set. A proper independent set has one cover if it is maximal (the full set), or exactly as many covers as one-vertex independent extensions otherwise. In a gap of g zeros the number of extensions is max(g-2,0); the empty set is excluded for n>=3. With f=qt^2+q^2t^3, labelled pointing of ordinary gaps gives t d/dt[-log(1-f)], and pointing by the unique length-four block gives t d/dt[q^3t^4/(1-f)]. Removing 2qt^2 gives the claimed ring series. In particular the first three ring polynomials are 3q^2, 2q^2+4q^3, and 5q^3. At q=1 the dominant pole tau solves tau^2+tau^3=1 and is unique on its modulus by equality in the triangle inequality and gcd(2,3)=1. The simple-pole path constant is tau(1+tau+tau^2)/[(1-tau)(2tau^2+3tau^3)] = 2.945975616525679; the double-pole ring coefficient is tau^4/(2tau^2+3tau^3) = 1/(2rho^2+3rho). Fibonacci closed-set counts follow from independent prefixes and independent cycle sets respectively. The phrase 'zero-adjacent-free prefix' in Step 6 is a slip for 'prefix with no adjacent ones'; the earlier normal form, count and checker all use the latter.",
+      "replay": "RESULT.md lines 44–69 give the universal proof; frozen verify.py lines 9–29 and 61–136 describe finite checks through order 11. I inspected the code and the run report in VERIFICATION.md; I did not execute the supplied checker.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Babin gives the finite-closure-system maximal-omitter criterion",
+          "Defrain–Ohana–Vilmin give bounded-degree acyclic enumeration, not a count formula"
+        ],
+        "reasoning": "The generic criterion applies to both systems but does not identify their maximal omitters. The enumeration theorem for acyclic bases neither gives their size-refined formula nor covers the cyclic basis by that hypothesis.",
+        "searches": [
+          "arXiv:2607.18534, Lemma 2.3",
+          "arXiv:2506.24052, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Local Resultary and mirror entries 5321d37794e9 and e2c176b7a833",
+        "Dod arXiv:1602.08250",
+        "Babin arXiv:2607.18534",
+        "Defrain–Ohana–Vilmin arXiv:2506.24052"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The path polynomial becomes the sum over known path polynomials after establishing the last-omission bijection",
+          "The known cycle polynomial gives the simple-pole part, not the pointed-gap term and its double pole"
+        ],
+        "reasoning": "Credit the two known graph-polynomial components. The Horn normal forms and the restricted pointing step are necessary additional arguments; no inspected prior formula mechanically yields the complete ring polynomial and n-factor.",
+        "searches": [
+          "Dod, arXiv:1602.08250, Theorems 4.2 and 4.4",
+          "Babin, arXiv:2607.18534, Lemma 2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dod, Theorems 4.2 and 4.4: weighted path maximal independent sets and weighted cycle independent domination",
+          "Same-date tree-Horn record e2c176b7a833 uses all-children antecedents on rooted trees and complements of ancestor-to-leaf paths"
+        ],
+        "reasoning": "The path prefix polynomial and the ring's zero-undominated family are equivalent to known independent-domination polynomials under omission weighting. The ring's one-undominated family is equivalent instead to maximal independent sets with a marked selected vertex flanked by two single-zero gaps: deleting the mark gives the unique undominated vertex. Ordinary size counts do not encode that local statistic. The tree-rule system does not give the consecutive-rule model families.",
+        "searches": [
+          "arXiv:1602.08250, independent domination polynomial",
+          "Resultary: consecutive-Horn path and ring classification and the tree-Horn near match"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact hit 5321d37794e9 is the frozen result itself; distinct nearby hit e2c176b7a833 has the different conjunctive tree rule"
+        ],
+        "reasoning": "The self-match is not separate coverage. The different same-date result was compared on its rule and shape theorem, not excluded by date; it supplies no exact table or generating series for the consecutive-rule models.",
+        "searches": [
+          "Local Resultary: consecutive-Horn characteristic models on paths and rings"
+        ]
+      },
+      "rationale": "Pass for the exact Horn classification and the resulting size-refined path/ring contrast, especially the ring term with one undominated vertex. Neither the generic maximal-omitter lemma nor the already-known weighted maximal-independent-set polynomials is itself a new result.",
+      "residual_risks": [
+        "Bisdorff–Marichal full text was not recovered; more refined cycle-domination enumerators under other terminology may give the pointed term.",
+        "No exhaustive priority claim is warranted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage",
+          "evidence": "Defines D_i by selected-set size; gives the exact weighted path recurrence and cycle independent-domination enumeration, not the local marked-gap refinement in those formulas.",
+          "identifier_or_url": "https://arxiv.org/abs/1602.08250",
+          "material_read": "Definition p. 2, path and cycle Theorems 4.2 and 4.4 p. 9",
+          "method": "Original OA full-text passages",
+          "title": "The Independent Domination Polynomial",
+          "trigger": "Equivalent maximal-independent-set counts"
+        },
+        {
+          "assessment": "General criterion used by the proof",
+          "evidence": "Proper irreducibles are maximal closed omitters; nothing in that criterion specifies consecutive-rule omitters.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.18534",
+          "material_read": "p. 5, Lemma 2.3 Maximal omitters",
+          "method": "Original OA full-text passage",
+          "title": "Completeness of Canonical Closure Representations Is coNP-Complete",
+          "trigger": "Broader Horn lattice theorem"
+        },
+        {
+          "assessment": "Algorithmic background, not the weighted formulas",
+          "evidence": "Acyclic bounded-degree hypotheses and incremental-polynomial enumeration; the cyclic system is outside the acyclic hypothesis.",
+          "identifier_or_url": "https://arxiv.org/abs/2506.24052",
+          "material_read": "p. 3, Theorem 1.1",
+          "method": "Original OA full-text passage",
+          "title": "Translating between the representations of an acyclic convex geometry of bounded degree",
+          "trigger": "General irreducible-closure enumeration"
+        },
+        {
+          "assessment": "Identical frozen record plus distinct result on another basis",
+          "evidence": "The gap term matches the frozen result; the other theorem concerns ch(v) -> v, not consecutive implications.",
+          "identifier_or_url": "5321d37794e9; e2c176b7a833",
+          "material_read": "Mirrored RESULT.md one-gap contribution (offset 6767) and tree-Horn finding (offset 0)",
+          "method": "Local Resultary search and mirror passages",
+          "title": "Consecutive-Horn characteristic-model record and conjunctive tree-Horn comparison",
+          "trigger": "Exact or equivalent indexed finding"
+        },
+        {
+          "assessment": "Unresolved access risk, not negative evidence",
+          "evidence": "Cannot assess whether the paper explicitly tracks the pointed short-gap statistic; Dod covers the ordinary weighted family independently.",
+          "identifier_or_url": "https://orbilu.uni.lu/handle/10993/387",
+          "material_read": "No full-text passage retrieved",
+          "method": "OA route and alternate retrieval attempted",
+          "title": "Counting non-isomorphic maximal independent sets of the n-cycle graph",
+          "trigger": "Possible stronger coverage of cyclic gap statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Closing a single local rule system into a ring changes its irreducible-model growth by a factor of order n even though the leading exponential rate is unchanged. The classification locates the cause exactly in the unique undominated vertex and gives the size distribution of the canonical representation, not just a growth estimate or a renamed Padovan/Perrin count. This is useful for comparing representation sizes in these two explicit systems; it is not a general Horn tractability result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

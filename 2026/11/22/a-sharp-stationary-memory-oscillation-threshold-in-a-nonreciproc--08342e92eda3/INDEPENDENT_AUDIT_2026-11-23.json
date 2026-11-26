@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:19:24.414085Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The local fields have magnitudes at most max(e,g)<1. The symmetric rates satisfy Gibbs detailed balance; the antisymmetric part acts only when the neighbors disagree, so reversing that spin leaves the Gibbs weight unchanged, and its incoming-minus-outgoing sum telescopes as the difference of neighboring bond sums on a ring. Taking the local infinite-chain limit gives the stated stationary Gibbs law. The closed one-spin generator propagates z^|n| by convolution, giving the Fourier formula; its coefficients are nonnegative for g≤e and at g=e give the one-way Poisson series with exponent 1−ez. For g>e the Laurent Bessel series yields the weights q^n+p^n with qp=−z², and q crosses 1 exactly at g=2z/(1−z²)>e. When q>1 subtract the full Bessel generating function at q; the remainder has weights p^n−(−1/q)^n. To justify the geometric-series asymptotics without assuming a fixed-order estimate is uniform in n, insert the integral J_n(x)=(2π)⁻¹∫exp(i x sin θ−i nθ)dθ. The geometric weights sum to a smooth periodic amplitude and stationary phase at ±π/2 gives O(x^−1/2). Thus the exact exponential contribution, of rate g/g_*, dominates with unit prefactor. At q=1 the weighted alternating Bessel sum is (1−J_0(x)−∫_0^x J_0)/2 (differentiate using the recurrence and compare at zero); the ordinary improper integral is 1, so e^t C(t)→1. At q<1 the same smooth-amplitude stationary phase gives the conjugate saddle values including H=1/(1+iq)+1/(1+ip)−1 with numerator 1−z² nonzero. This establishes the stated phase, leading coefficient, alternating strict signs on unbounded sequences and distinct zeros by continuity. The threshold lies in the physical open range g<1 precisely at z<√2−1; no all-time positivity is inferred in the intermediate or critical sector. Supplied code was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Weiderpass–Sharma–Sethi cover g>e at the propagator level, and their Section 5 treats a quench and a low-energy continuum equilibrium limit. Neither establishes the exact lattice sign phase diagram.",
+          "Godrèche's stochastic influence probability p is in [0,1], yielding |V|≤1 and g≤e. The indexed same-day dissipation result uses the same rates but studies a lag-zero slope difference and entropy production."
+        ],
+        "reasoning": "An exact space-time kernel covers the dynamics from which this result is derived, but not its sign classification as a separate theorem. The continuum treatment and the weak-direction stationary subfamily do not cover the needed lattice wave parameter regime.",
+        "searches": [
+          "arXiv:2410.23615v1 Eqs. (3.13), (3.15), (5.21), (5.27)–(5.30)",
+          "arXiv:1102.0141v2 Sections 2.1 and 5.2, restricted probability parameter",
+          "Resultary exact dissipation in strongly nonreciprocal Glauber dynamics and oscillation-threshold near-matches"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_stationary_memory.py",
+        "arXiv:2410.23615v1",
+        "arXiv:1102.0141v2",
+        "Distinct Resultary dissipation, resetting covariance and three-bath mode records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Godrèche explicitly finds a real pole giving |V|√(1−e²) as a decay rate and a propagator rate 1−e√(1−V²). Formal continuation of the pole rate equals g/g_*; the continued propagator branch then has real decay rate 1.",
+          "The Bessel propagator itself changes type at g=e, whereas the Gibbs-weighted lag correlation still has a positive dominant contribution for e<g≤g_*."
+        ],
+        "reasoning": "The prior singularities foreshadow the competition: comparing the real parts of the formally continued rates suggests g_*. Such continuation of an exponential-order asymptotic outside |V|≤1 does not determine which singular terms survive, their coefficients, or the sign when the real parts coincide. The present weighted Bessel analysis establishes these rather than renaming the known rate crossover.",
+        "searches": [
+          "Read Godrèche Section 5.2 Eqs. (5.16)–(5.20) and compare its singularities directly; compare with Weiderpass–Sharma–Sethi's lattice Bessel propagator"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Parameters γ_e,γ_o of Weiderpass–Sharma–Sethi map exactly to e,η. Their Eqs. (2.15), (3.13), (3.19)–(3.21) supply the two-time propagation, Bessel kernel and Gibbs stationary spatial input.",
+          "With γ=e, g=e|V|, Godrèche Eq. (5.13) is already the Fourier formula since √(1−e²)/(1−e cos k)=(1−z²)/(1−2z cos k+z²). Its Eq. (5.15) gives the one-way exact law."
+        ],
+        "reasoning": "The kernel and one-way case are direct prior coverage. Neither the response at g>e nor a two-time correlation initialized with independent spins is equivalent to the large-lag sign of the stationary Gibbs-initialized autocorrelation.",
+        "searches": [
+          "arXiv:2410.23615v1 Sections 3 and 5, stationary two-time correlation versus quench and propagator",
+          "arXiv:1102.0141v2 Section 5.2, directed Glauber stationary autocorrelation",
+          "Resultary stationary memory oscillation, directed Glauber and nonreciprocal Ising"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical frozen result appears as its own indexed match, not an independent prior. Distinct indexed candidates concern slope-based dissipation, a global-reset macroscopic covariance, or periodically varying bath modes.",
+          "The closest prior exact formula is Godrèche's transform with exponential-order rates in the weak-direction regime, not a sign table through the stronger-direction threshold."
+        ],
+        "reasoning": "The parameters are continuous; a known exact rate diagram in the same lattice stationary regime would still be material. The retrieved diagrams use another rate domain or observable.",
+        "searches": [
+          "Resultary indexed stationary oscillation, Pareto resetting and three-bath oscillation results",
+          "arXiv:1102.0141v2 Eqs. (5.13)–(5.20), exact transform and rates"
+        ]
+      },
+      "rationale": "The model, Bessel propagator, Gibbs spatial correlation and resulting stationary two-time kernel are known, as is a relaxation-rate crossover in the positive-influence subfamily. The distinct result supported here is the exact eventual-sign transition of the lattice stationary on-site autocorrelation in the stronger directional sector, including the critical prefactor and the nonvanishing oscillatory leading term, not the existence of propagating or oscillatory one-spin modes.",
+      "residual_risks": [
+        "The frozen verification note mentions an inaccessible related alternating-bath study without a bibliographic identity; its content was not evaluated. Uninspected lattice asymptotic treatments may contain an equivalent result; no priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact kernel ingredients and wave onset; no inspected lattice Gibbs autocorrelation sign threshold",
+          "evidence": "One-point wave onset at |γ_o|=γ_e; Eq. (5.21) uses uncorrelated initial spins and the later equilibrium expressions use a low-energy continuum limit.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.23615v1",
+          "material_read": "Eqs. (2.15), (3.2)–(3.5), (3.13), (3.15), (3.19)–(3.21), (5.21), (5.27)–(5.30), PDF pp. 9, 17–19, 23, 47, 49–50",
+          "method": "Lawful open-access PDF, bounded relevant passages",
+          "title": "Solving the Kinetic Ising Model with Non-Reciprocity",
+          "trigger": "Same exact lattice rates and oscillatory propagator"
+        },
+        {
+          "assessment": "Direct stationary Fourier and rate antecedent for g≤e; continuation suggests but does not establish the eventual-sign theorem for g>e",
+          "evidence": "V=2p−1 with p a probability; the two exponential rates are 1−γ√(1−V²) and |V|√(1−γ²) in the regimes discussed there.",
+          "identifier_or_url": "https://arxiv.org/abs/1102.0141v2",
+          "material_read": "Section 2.1 PDF pp. 5–6 and Section 5.2 pp. 17–18, Eqs. (5.13), (5.15)–(5.20), text locators 12400 and 53200",
+          "method": "Lawful open-access PDF, bounded relevant passages",
+          "title": "Dynamics of the directed Ising chain",
+          "trigger": "Exact stationary on-site autocorrelation and competing decay rates"
+        },
+        {
+          "assessment": "Same model, different temporal statistic; no priority inferred from shared date",
+          "evidence": "Entropy production is related to the difference of initial stationary correlation slopes, not to large-lag sign alternation.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-dissipation-and-a-unique-thermal-optimum-in-a-strongly-non--b1d4ea7587cf",
+          "material_read": "Published result statement and model assumptions",
+          "method": "Resultary search and local mirror result text",
+          "title": "Exact dissipation and a unique thermal optimum in a strongly nonreciprocal kinetic Ising chain",
+          "trigger": "Exact same strongly nonreciprocal rate family and stationary spin memory"
+        },
+        {
+          "assessment": "Different observables and dynamics",
+          "evidence": "One is for Pareto global resets and age-conditioned macroscopic magnetization; the other is for one-spin modes of a period-three chain with several baths.",
+          "identifier_or_url": "2026/11/22/SCOPE-four-alternating-signs-of-temporal-magnetization-covariance-unde--e3c6160c9468; 2026/11/22/SCOPE-a-sharp-three-bath-oscillation-threshold-and-third-order-excepti--79b8554fa9c0",
+          "material_read": "Published finding statements and model scopes",
+          "method": "Resultary search and local mirror result texts",
+          "title": "Four alternating signs of temporal magnetization covariance under resetting; A sharp three-bath oscillation threshold and third-order exceptional point",
+          "trigger": "Indexed exact temporal sign and oscillation thresholds for Ising variants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The local stationary autocorrelation is an intrinsic observable and its sign cannot be read off from the propagator classification. The result distinguishes a wave regime where stationary memory is eventually positive from a regime with infinitely many sign reversals, with explicit critical and above-threshold asymptotics and a physical accessibility condition. This is a useful distinction for the homogeneous infinite chain, not a claim about transient zeros or finite-ring spectra.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Review: infinite hyperelliptic spin-spectrum collision
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The canonical theta subset parametrization gives exactly one class for each eligible subset modulo complement, with parity \((g+1-|S|)/2\) for the smaller representative. For odd Frobenius powers, the two branch types give respectively alternating complement pairs and fixed subsets; both yield exactly \(2^{\gcd(8r,n)}\) even classes and no odd classes. For even powers, their branch cycles themselves agree. Irreducible polynomials realize both geometric branch types over any odd finite field. Direct enumeration of all theta classes in genera four and eight and a separate cycle-index check through genus forty reproduced the predictions. The infinite claim rests on the uniform parity proof.
+PASS
 
-## Originality — PASS, qualified
+The subset model and section formula can be verified directly. Over the algebraic closure choose an unramified infinity and write y²=f(x) of degree 2g+2. The difference of two eligible subset classes is the even symmetric difference R, minus |R|H/2. If principal, a defining function has hyperelliptic-involution-invariant divisor, hence is an eigenfunction A(x) or yB(x). Its branch valuations are respectively all even or all odd, forcing R empty or full. Counting the resulting 2^(2g) classes proves exhaustiveness. For s=|S|≤g+1 and m=(g-1-s)/2, split sections of D_S into invariant and anti-invariant parts. The invariant part consists of polynomials of degree at most m; the anti-invariant part has the form y b(x)/∏_{P∈S}(x-x(P)), whose pole order at infinity for nonzero polynomial b is at least g+1-s>m. Thus h⁰=(g+1-s)/2, including zero at s=g+1. The classes and parities are equivariant because H is the hyperelliptic fiber class. For n odd, set d=gcd(8r,n) and e=8r/d; d is odd and 8 divides e. Type (8r,2) has only alternating complement-swappers among fixed classes, giving 2^d central-size even classes. Type (8r,1,1) has only literal fixed subsets as representatives of fixed classes; the shorter representative selects one fixed point and j≤(d-1)/2 long cycles, giving 2^d classes with even h⁰=e(d-2j)/4. At even powers the branch permutations are conjugate. Möbius inversion in each parity gives the same orbit multiset. Squarefree monic degree 8r+2 models using an irreducible degree-8r factor and either an irreducible quadratic or two distinct linear factors exist over every odd F_q; the two branch rational-point counts are 0 and 2. Replay: frozen RESULT.md §§1–4 with the divisor argument above. The supporting script and CSV were inspected, not executed; the finite spectra are not used for the universal conclusion.
 
-The genus-four collision \((8,2)\) versus \((8,1,1)\) is pre-existing and is explicitly excluded from the novelty claim. The new claim quantifies over every genus \(4r\), with a proof that combines the divisibility \(8\mid 8r/\gcd(8r,n)\), subset parity, and Frobenius complement pairing. Braden–Disney-Hogg (arXiv:2404.09890v1, examined in full-text HTML) studies automorphisms on fixed curves and does not state the all-genus arithmetic two-branch-partition equivalence. The 2026 Misme algorithm addresses individual curves and does not supply this universal theorem. Relevant mathematical search and exact-database comparison found no stronger covering statement; a hidden prior character calculation remains a residual priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem exhibits a structural information-loss mechanism in two canonical arithmetic spin schemes for infinitely many genera, not just an isolated finite permutation coincidence. It shows that even infinite extension-field point-count data, when kept separately for both parities, cannot reconstruct the branch Frobenius type, despite both types being realized over every odd finite field. This is a natural inverse-arithmetic obstruction and delineates the limits of genus-by-genus reconstruction results.
+Best of the checked evidence, the distinct fact is the single uniform family in all genera 4r, realized over every odd finite field. The exact r=1 match is explicitly excluded from credit. The established spin-action machinery supplies the action but not the power-by-power parity agreement for these two different branch types as r varies.
 
-## Limits and source proximity
+## value
 
-The theorem says nothing about curve isomorphisms, theta incidence structures or full Jacobian representations. The known genus-four case and the classical subset model remain prior art; searches cannot prove absolute historical uniqueness.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a systematic arithmetic reconstruction obstruction: even the joint counts on the two spin parities over every extension lose branch-splitting information, over every odd base field and at arbitrarily large genus. The all-genus mechanism distinguishes genuinely different ways of fixing a spin class rather than recomputing a fixed-genus table. No assertion is needed about curve zeta functions, Jacobians, or incidence-preserving spin identifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

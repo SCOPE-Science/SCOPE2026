@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:52:58.173753Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS for the repaired product-sampling model in /workspace/repairs/1, not for the literal frozen assumptions. Mutual independence of types does not imply independence of the type vector from R. For N=2 take two iid fair type indicators, set R=3/4 on odd parity and R=1/4 otherwise, and use tau=1/2 and independently generated fair auxiliary draws. Each type individually is independent of R, s=1/2, h=3/4 and expected contribution costs match. At quorum 2, shared achievement and saved risk are both zero (high risk occurs only with one adaptive agent), but independent-randomization achievement is 1/16 and its saved risk is 1/64. Thus even the upper endpoint ranking can fail under the frozen wording. The repair explicitly makes the type vector independent of risk and the auxiliary draws independent of both. The conditional binomial and saved-loss factorizations then follow, with both costs cancelling. Positive-count likelihood ratios have common step multiplier (1-sx)/(s(1-x))>1, so dropping the first term of the conditional tail average strictly increases L_m. Strict convexity of (1-xz)^N gives L_1<1 and L_N=s^(1-N)>1; the welfare cutoff is well defined and no later (it can start at quorum 1). On the Nq+z sqrt(N) scale the shared Bin(N,x) tail tends to one because q<x; the independent tail tends to the Gaussian upper tail. Bracketing each first crossing on both sides of its limiting quantile establishes the o(sqrt(N)) expansions; strict-versus-weak endpoints affect only O(1) indices and full quorum is outside the band eventually. Independent exact replay with python3 -B /workspace/repairs/1/checker.py gave 240 quorum comparisons, the rational witness -85/4096 and +827/8192 per unit b, and the parity counterexample. These are checks on finite identities, not on the CLT theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The initiating game has finite-population hypergeometric group sampling and independently of this comparison analyzes adaptive and unconditional strategies; its risk mechanism is genuinely prior.",
+          "Fernández Domingos et al. make the collective quota itself uncertain and study buying or propagating quota information, rather than holding the quota fixed and observing the severity R.",
+          "The general Bernoulli-mixture comparison in the frozen bibliography was not independently inspected in full; likelihood-ratio tail averaging is a standard ingredient."
+        ],
+        "reasoning": "General mixture and Gaussian quantile ingredients do not by themselves identify the independent benchmark's risk independence or the two distinct weights s and h for this concrete protocol. The available sources are not exhaustive; the timed-out lookup gives no exclusion evidence.",
+        "searches": [
+          "arXiv:2611.07627v1 §§II.1, II.3 and II.4",
+          "arXiv:2610.33895v1 abstract, introduction and Related Work",
+          "DOI 10.1155/2014/838625 (direct full-text lookup timed out)"
+        ]
+      },
+      "checked_sources": [
+        "Zhou et al. arXiv:2611.07627v1",
+        "Fernández Domingos et al. arXiv:2610.33895v1",
+        "Resultary local index",
+        "Frozen record and checker reviewed as supporting evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither evolutionary model supplies a jointly matched independent Bernoulli count and risk-independent risk-weighted saving at the same contributions and cost.",
+          "The distinct quantiles are obtained by determining the two exact crossing levels and comparing them under the same finite-binomial tail law."
+        ],
+        "reasoning": "The public protocol's payoff and contribution mechanism are prior, but computing them alone yields neither this cross-protocol contrast nor the interval of opposite rankings. This is a focused application of standard stochastic-order and CLT tools, not a claim of priority for them.",
+        "searches": [
+          "arXiv:2611.07627v1 eqs. (5), (12)–(17), (22)–(23)",
+          "arXiv:2610.33895v1 introduction on uncertainty and fixed-cost information"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact local-index hit is the frozen result; the closest Gaussian testimony hit concerns BK disjoint witnesses and independent testimony, not saved endowment with risk-weighted success.",
+          "Zhou et al. equations (1)–(5), (12)–(14), (22)–(23) use common risk and adaptive threshold actions but compare population strategies, not a fixed-composition-law, same-frequency uninformed randomization benchmark."
+        ],
+        "reasoning": "Compared both the shared-shock vs product count formulation and the success-frequency vs risk-weighted objective formulation. No separately reported equivalent comparison found in those inspected sources.",
+        "searches": [
+          "Resultary: Gaussian quorum risk threshold shared signal independent randomization achievement welfare binomial tail single crossing",
+          "Web: shared public signal collective risk threshold social dilemma common risk random independent contributions binomial mixture threshold achievement welfare arXiv Zhou Han Chen Szolnoki quorum reversal stochastic ordering"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related local-index results include Gaussian quorum passage times and a binomial threshold window for a utility estimator; neither matches the two outcomes or matched protocols.",
+          "Zhou et al.'s figures address adaptive-type frequency, group achievement and cooperation under mutation and costs, not this matched comparison or its exact reversal interval."
+        ],
+        "reasoning": "The novelty claimed is a parameterized cutoff law, not the six-agent numerical instance. Separately indexed Gaussian windows do not tabulate this law.",
+        "searches": [
+          "Resultary: Gaussian quorum risk threshold shared signal independent randomization achievement welfare binomial tail single crossing",
+          "Zhou et al. arXiv:2611.07627v1 §§II.4–III, achievement and cooperation quantities"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the repaired joint comparison and its explicit two-cutoff Gaussian width, not for shared threshold response, finite binomial mixtures, likelihood-ratio ordering techniques or the binomial CLT. The repair restricts the sampling hypotheses to the actual law used in the proofs.",
+      "residual_risks": [
+        "Unindexed order comparisons or general information-design results could contain an equivalent application.",
+        "Direct Bernoulli-mixtures full text not inspected; no globally exhaustive priority conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage: same shared protocol ingredients, different population-evolution comparator and conclusions.",
+          "evidence": [
+            "Equations (1)–(5), (12)–(17), (22)–(23); hypergeometric sampling and aggregate evolutionary comparisons."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.07627v1",
+          "material_read": "Original main-text abstract and §§II.1–II.4, and the displayed evolutionary results for cooperation and achievement.",
+          "method": "Compare risk law, adaptive types, costs, achievement and expected-payoff equations, and group composition laws.",
+          "title": "Evolutionary dynamics of collective-risk social dilemma game with risk uncertainty and adaptive strategy",
+          "trigger": "Same common loss risk and adaptive contribution mechanism."
+        },
+        {
+          "assessment": "The inspected claims concern resolving uncertain quotas and evolution of information use, not shared observed R relative to an uninformed fixed-frequency benchmark.",
+          "evidence": [
+            "Abstract: individuals pay to observe the threshold's true value; introduction: four exogenous threshold priors and four strategies."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.33895v1",
+          "material_read": "Accessible original abstract, introduction and Related Work passages describing the uncertainty, strategy types and results.",
+          "method": "Identify the observed quantity and comparison mechanisms and compare them with the repaired fixed-quota setting.",
+          "title": "The Conditional Value of Costly Information in Collective-Risk Dilemmas",
+          "trigger": "Close comparison involving costly information and group achievement."
+        },
+        {
+          "assessment": "Full-document coverage unresolved; no negative finding based on the failed lookup.",
+          "evidence": [
+            "Frozen bibliography identifies mixture background; no independently read theorem from this paper is used."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2014/838625",
+          "material_read": "Bibliographic citation and frozen audit's account only; direct full-text attempt timed out.",
+          "method": "Recognize the model as a two-level mixture and separate the known probability tools from the paired objective calculation.",
+          "title": "Sum of Bernoulli Mixtures: Beyond Conditional Independence",
+          "trigger": "Potential general shared-shock coverage of count laws."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Success frequency and risk-weighted protected endowment are distinct, independently useful measures of a threshold public-good protocol. The repaired result proves their exact ordered crossings and a growing positive-width band of strict disagreement despite equal expected charges, not an isolated payoff recomputation. It deliberately does not identify a pure correlation effect, compare equally informative signals, infer equilibria, or claim policy impacts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

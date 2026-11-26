@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:25:02.156482Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With a nonzero hub, k zero rim sites force at least 2k−n zero-zero edges, and an odd wheel is not properly three-colorable. Thus U≥max(n mod 2,2k−n); for 0<x<2 its field-shifted bound is minimized uniquely at k=ceil(n/2), attained with strict alternation (even) or one forced zero-zero edge (odd). Equality leaves no hub-color rim site and yields exactly 4 or 2n labeled configurations. At x=2 equality requires no adjacent nonzero rim sites and no hub-color rim site; conversely every independent set of rim nonzeros realizes −n, giving 2L_n. For x>2 the nonzero-hub optimum is uniquely all-zero on the rim for each hub color. For a zero hub with k≥1 the exact edge cost is k+max(0,2k−n): place zeros optimally and alternate the two other colors in each remaining run. At k=0 the rim costs n mod 2. Minimizing these costs less x(k+1) and subtracting the nonzero-hub optimum gives, on successive field ranges (0,1], [1,2], [2,3], [3,∞), the differences (m−1)x, m−x, (m−1)x−m, n−x for n=2m, and (m−1)x, m−1, (m−1)(x−1), n−x for n=2m+1. The restrictions m≥3 even and m≥2 odd give strict positivity below n, and the zero-hub minimizer for x>3 is uniquely all zero. This gives exactly three states at n and one above, with no extra ground-state change at the internal hub-sector breakpoints 1 and 3. Fibonacci path counts give L_n=F_(n−1)+F_(n+1), the entropy density log φ at x=2, and the adjacent regime counts show the claimed density jump. Independently ran /workspace/branches/replay_2.py: integer transfer statistics by hub, last rim color, U and K for n=5..15; checked the full optimal statistics with multiplicities at 2,871 exact rational field points covering all positive intersections and one witness in each open field cell for those sizes. This is finite corroboration only; the analytic argument proves all n≥5. Uploaded code was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The p-wheel weighted-set chromatic formula includes ordinary wheels but remains a proper-coloring formula.",
+          "The arbitrary-graph field partition formula in principle yields the problem after evaluation and an extremal limit. The inspected paper passage gives the general spanning-subgraph representation, not that evaluated extremal limit over this wheel family. The other inspected transfer calculations concern square/triangular strips."
+        ],
+        "reasoning": "A generic sum encoding the energies is not an evaluated ground-state diagram or a stronger explicit theorem entailing one without solving the optimization. The broader proper-coloring topology does not include ground states with frustrated edges.",
+        "searches": [
+          "Shrock–Xu arXiv:1009.1182, Section VII p-wheel formulas",
+          "Chang–Shrock arXiv:0907.0777, arbitrary graph magnetic Potts formula; arXiv:1506.07392, generalized-field strip scope"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py; independent /workspace/branches/replay_2.py",
+        "Chang–Shrock arXiv:0907.0777, 0908.2375, 1506.07392; Shrock–Xu arXiv:1009.1182 (specified passages)",
+        "Resultary c2a2bf28f112 exact entry; mirrored c3fe616689b5 and a9d59ac1a17e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Lucas count of independent cycle sets is standard. What requires proof is precisely which finite-J ground states are in bijection with two copies of these sets at h=2J and why the competing hub sector is strictly above until h=nJ.",
+          "The known coloring energies rule out all monochromatic edges by definition; the states at 2J include an all-zero rim, which has n such edges."
+        ],
+        "reasoning": "Neither the known hard-core count nor the weighted proper-coloring result identifies the threshold or excludes a zero hub. The actual edge/field competition is what implies the exhaustion of ground states.",
+        "searches": [
+          "Chang–Shrock and Shrock–Xu explicit wheel proper-coloring formulas; Chang–Shrock arbitrary-graph field partition representation; exact Ising local-minimum and spin-one ground-state table Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Changing from the Potts field sign convention to a weight on a favored spin does not turn a finite match penalty into a hard proper-coloring constraint. Odd wheels are an immediate separation: their 3-color proper count is zero while the asserted ground-state count is not.",
+          "c3fe616689b5 uses two ±1 spins and weak single-flip local minima, including Lucas terms at h/J=1; a9d59ac1a17e uses σ_uσ_v and a single-ion term Dσ_v² at zero magnetic field."
+        ],
+        "reasoning": "Similar thresholds, parity and independent-set entropy do not imply equivalent statements. With three spins, the spin-one pair cost distinguishes unlike pairs (e.g. 1 with −1 versus 1 with 0), whereas the Potts penalty is equal for all unlike pairs. The Ising count concerns local stability in a different state space.",
+        "searches": [
+          "Resultary for antiferromagnetic wheel magnetic thresholds and Lucas degeneracy",
+          "Chang–Shrock arXiv:0908.2375, AF proper-coloring limit and wheel section",
+          "c3fe616689b5 and a9d59ac1a17e, exact mirrored Findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c2a2bf28f112 is the exact self-match. The available exact same-date tables c3fe616689b5 and a9d59ac1a17e concern, respectively, Ising weak single-flip minima and spin-one vacancy ground states, not the Potts table."
+        ],
+        "reasoning": "A hit reporting wheel entropy, thresholds, or a degeneracy table is not an exact match without agreement of the Hamiltonian and optimized configuration set. The date alone gives no ordering or priority.",
+        "searches": [
+          "Resultary exact lookup for three-state Potts wheel thresholds and Lucas ground-state counting; related exact wheel table hits"
+        ]
+      },
+      "rationale": "Wheel weighted proper-coloring formulas and general field Potts partition representations are known. The exact finite-coupling ground states in this claim include monochromatic edges, unlike proper colorings, and the strongest exact same-day wheel results use different spin interactions or optimize single-spin stability instead of global energy. The distinct supported claim is the full parity-sensitive finite-J ground-state diagram, including the threshold degeneracies and the exact Lucas correspondence.",
+      "residual_risks": [
+        "Older finite-coupling wheel transfer formulas or differently indexed extremal results could explicitly imply the table; the evidence checked is not an exhaustive historical priority search.",
+        "Distinct same-day results were compared by available exact statements, without inferring within-day priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit weighted proper-coloring wheel formulas; no finite-J diagram in these passages",
+          "evidence": [
+            "AF K→−∞ enforces different adjacent colors, so odd-rim q=3 ground configurations with a defect are not counted."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0908.2375",
+          "material_read": "p. 4 (OA offset 9280), p. 19 onward (offset 50400), wheel Eqs. (3.30)–(3.42)",
+          "method": "Open-access paper, bounded primary passages",
+          "title": "Weighted Graph Colorings",
+          "trigger": "Explicit wheel result from an antiferromagnetic magnetic model"
+        },
+        {
+          "assessment": "p-wheel generalization of weighted-set proper colorings, not the finite-J optimization",
+          "evidence": [
+            "K_p ∨ C_(n−p) specializes to ordinary wheels at p=1; the indicated formulas are weighted-set chromatic."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1009.1182",
+          "material_read": "Section VII pp. 19–20, Eqs. (7.4)–(7.8), OA offsets 54835 and 58587",
+          "method": "Open-access paper, bounded primary passages",
+          "title": "Potts Model Partition Function in a Generalized External Field and Weighted-Set Graph Colorings",
+          "trigger": "More general exact formulas containing ordinary wheels"
+        },
+        {
+          "assessment": "General partition representation; not an explicit wheel energy/degeneracy classification in the material checked",
+          "evidence": [
+            "Spanning-subgraph formulation for arbitrary graph in a magnetic field."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0907.0777",
+          "material_read": "pp. 1–3, OA offset 750",
+          "method": "Open-access paper, bounded primary passage",
+          "title": "Some Exact Results on the Potts Model Partition Function in a Magnetic Field",
+          "trigger": "Stronger general exact Potts framework"
+        },
+        {
+          "assessment": "The inspected explicit evaluation scope is lattice strips",
+          "evidence": [
+            "Cyclic square- and triangular-lattice strip partition functions in a generalized field."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1506.07392",
+          "material_read": "p. 4, OA offset 11900",
+          "method": "Open-access paper, bounded primary passage",
+          "title": "Exact Results on the Potts Model Partition Function with a Generalized Magnetic Field on Lattice Strip Graphs",
+          "trigger": "Potential exact transfer-matrix coverage"
+        },
+        {
+          "assessment": "Local minima of an Ising model rather than global Potts minima",
+          "evidence": [
+            "Spins ±1, interaction Jσ_uσ_v, count B_n of weak single-flip minima. At h/J=1 the formula contains L_n plus Q_n and a parity offset, not 2L_n at h/J=2."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-magnetic-field-collapse-and-critical-enhancement-of-single-spin--c3fe616689b5",
+          "material_read": "Exact RESULT.md Finding and Hamiltonian, offset 0, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Open-access local mirror, commit-addressed original file",
+          "title": "Magnetic-field collapse and critical enhancement of single-spin stability on antiferromagnetic wheels",
+          "trigger": "Distinct same-date wheel threshold and Lucas entropy overlap"
+        },
+        {
+          "assessment": "Different Hamiltonian, parameters and coexistence counts",
+          "evidence": [
+            "The single-ion parameter is δ=D/J and the pair cost Jσ_uσ_v with σ∈{−1,0,1}; for odd rims the thresholds are 1/2 and (n−2)/(n−1), with vacancy rather than color-field optimization."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-parity-controlled-vacancy-condensation-in-antiferromagnetic-spin--a9d59ac1a17e",
+          "material_read": "Exact RESULT.md Finding, Hamiltonian and parity tables, offset 0, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Open-access local mirror, commit-addressed original file",
+          "title": "Parity-controlled vacancy condensation in antiferromagnetic spin-one wheel graphs",
+          "trigger": "Distinct same-date three-spin exact ground-state wheel table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The wheel separates competition on a frustrated cycle from a hub with extensive degree. The theorem fully resolves both mechanisms and their degeneracies at all positive fields, yielding one fixed-field transition with genuine extensive entropy and a second size-dependent hub transition. This makes the hard-core independent-set structure at the first threshold an identifiable ground-state mechanism rather than an incidental enumeration; the odd cases also test behavior outside hard proper-coloring. No finite-temperature phase transition is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

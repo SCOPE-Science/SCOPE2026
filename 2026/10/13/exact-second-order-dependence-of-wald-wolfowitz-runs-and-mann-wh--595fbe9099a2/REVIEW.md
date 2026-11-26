@@ -1,14 +1,21 @@
-# Self-review
-## Correctness
-PASS. The common continuous null reduces exactly to a uniform binary word with fixed symbol counts. Reversal proves \(\operatorname{Cov}(R,U)=0\). The squared cross-moment is reconstructed from transition indicators and exact without-replacement inclusion moments, with all boundary cases covered. The fourth centered Mann–Whitney moment is independently derived from the Gaussian-binomial cumulant generating function. Exhaustive exact enumeration through pooled size \(14\) verifies all displayed finite formulas.
+# Independent mathematical audit
 
-## Originality
-PASS. The complete Baringhaus–Henze paper treats the same Wald–Wolfowitz statistic but gives only its own moments and fixed-alternative behavior. The Biswas–Mukhopadhyay–Ghosh paper discusses Wald–Wolfowitz and Wilcoxon–Mann–Whitney side by side without a joint moment. The full Mahonian-word source gives the inversion marginal but no run-count variable. Statistical and binary-word alias searches found no formula implying the claimed covariance. A superficially close 2009 control-chart paper remains a bounded residual risk because its full text was not successfully obtained.
+## correctness
 
-## Value
-PASS. The result distinguishes exact first-order orthogonality from nontrivial second-order dependence between two canonical two-sample rank procedures. The compact formula \(\operatorname{Cov}(R,Z^2)=-4(mn-1)/[N(N+1)]\), its nonzero proportional-sample limit, and the universal \(-\sqrt{2/N}\) correlation decay quantify how two-sided rank-sum evidence aligns with unusually small run counts.
+PASS
 
-## Closest literature and limitations
-The closest exact runs paper is Baringhaus–Henze (2016); the closest inversion-word source is Canfield–Janson–Zeilberger (2009). Neither contains both statistics. The result assumes a common continuous null and no ties. An unindexed historical inversion/run generating function remains the principal residual originality risk.
+The common continuous null gives a uniform word with m ones and n zeros. Reversal preserves R and negates Q=U−mn/2, giving E[Q]=Cov(R,Q)=0. For each adjacency condition T_i=1, one position in the pair is chosen symmetrically and the remaining m−1 positions form a uniform subset of the N−2 other positions. The two choices are independent. With a_j=j−(N+1)/2, their pair sum s_i=2i−N has sum of squares N(N−1)(N−2)/3. Applying the first and second subset-inclusion probabilities to the remaining rank sum gives the mean over i of E[Q²|T_i=1]−E[Q²] as −(mn−1)/6. Multiplying by (N−1)P(T_i=1)=2mn/N gives the claimed covariance. At N=2, R=2 and Q²=1/4 are constant; at N=3, the singleton at an end gives (R,Q²)=(2,1) twice and in the middle gives (3,0) once, yielding −2/9. The Gaussian-binomial expansion using log(sinh(x/2)/(x/2)) supplies κ₂ and κ₄, and Var(Q²)=κ₄+2κ₂². Combining with Var(R), the correlation is negative for mn>1, undefined at m=n=1, and has the stated proportional-sample asymptotic. Separate exact finite corroboration propagated counts of states (m,n,last symbol,runs,inversions): appending a 0 adds m inversions and appending either symbol adds one run exactly when different from the previous symbol or when starting. The resulting moments agreed through N=21 for all 210 sample-size pairs, including both degenerate boundaries. The frozen checker and recorded 818 comparisons were inspected, not executed; the analytic argument, not the finite bound, establishes the full domain.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The distinct finite mixed moment under the tie-free two-sample null is supported relative to earlier checked sources. The exact central identity also appears in a distinct later catalogue record. The sign-convention comparison establishes mathematical equivalence; its later displayed date and inspected prior-work section do not establish earlier coverage or independent discovery. Novelty is not assigned to either marginal law or to the reversal symmetry alone.
+
+## value
+
+PASS
+
+The first-order covariance vanishes by reflection, but the squared statistic is a natural two-sided measure and gives a nonzero exact dependence with pooled runs for every nontrivial composition. The formula and distinct limits of standardized covariance and correlation identify a real feature of two canonical statistics that is not available from their exact marginals. It does not establish joint rejection probabilities, a combined-test guarantee, or dependence under ties or alternatives.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

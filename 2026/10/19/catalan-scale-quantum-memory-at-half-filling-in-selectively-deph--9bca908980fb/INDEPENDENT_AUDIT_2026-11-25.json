@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:16:11.708404Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–70, VERIFICATION.md, verify_johnson.py and requirements.txt (package inspected, not run)",
+        "Independent replay: /workspace/evidence/independent_checks.py (check_record2), output /workspace/evidence/independent_checks.log"
+      ],
+      "rationale": "The monitored-to-unmonitored adjacency block B is the Boolean inclusion matrix, so B*B=kI+A_U and H equals −k on the unmonitored ker B. The up/down commutator at level l is (n−1−2l)I, giving injectivity of the up map below the middle level; complementing sets supplies the other side. This covers the central square matrix and endpoint levels, giving d=max(0,u−v). The real part of the Hilbert–Schmidt generator form is −1/2 times the positively weighted sum of squared monitored commutators. Every imaginary-axis eigenoperator is therefore block diagonal with diagonal monitored block. At zero frequency the adjacency of the monitored Johnson graph makes that block scalar; the two cross-block equations then make the remainder supported on ker B on both sides. At nonzero imaginary frequency the monitored diagonal instead vanishes, and the same cross-block equations leave only ker B, on which the Hamiltonian commutator vanishes. Contractivity rules out Jordan blocks at zero or elsewhere on the imaginary axis. The dark compression remains constant and trace preservation fixes the scalar on its complement, proving ordinary convergence. Permutation transitivity gives local dark weight d/u, and evaluating the limiting diagonal gives the two return formulas. At n=2k there is no dark component; at n=2k+1 the central binomial difference equals C_k and the bright dimension is 2k C_k, giving the exact return and k²R→1. Independent numerical incidence and small unequal-rate generator tests, including coherent initial states, and exact finite Catalan identities agree with the proof.",
+      "residual_risks": [
+        "The finite numerical tests do not prove the peripheral-spectrum conclusion at large n or very small rates; the dissipativity proof does. No mixing-time bound or collective-dephasing result follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baumgartner–Narnhofer give general collecting/decaying subspaces and a stationary/asymptotic decomposition that can contain unitary factors.",
+          "Filmus gives the harmonic dimension binom(m,k)−binom(m,k−1) in the relevant lower-half range."
+        ],
+        "reasoning": "General asymptotics could include undamped rotations, and the harmonic dimension only identifies a combinatorial input. These results do not classify the residual bright block or preclude rotating modes for the specified dephasings.",
+        "searches": [
+          "arXiv:0806.3164 Theorem 2, pp. 3–4",
+          "arXiv:1406.0142 Lemma 2.1, p. 3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1601.04212, 1406.0142, 0806.3164",
+        "Resultary e785fe81a13a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Filmus's dimension yields the Catalan binomial identity at the adjacent central rank; the general Lindblad theorem does not identify H|ker B or the bright fixed algebra for the specified monitoring.",
+          "The later exact dark projector collision leaves different bright dynamics."
+        ],
+        "reasoning": "The bare Catalan dimension identity is not credited as new in isolation. The model-specific cross-block and peripheral analysis is needed to turn it into the exact ordinary-limit and local-return boundary, not a direct application of an existing model-specific result.",
+        "searches": [
+          "Comparison of arXiv:0806.3164 Theorem 2 and arXiv:1406.0142 Lemma 2.1 with Resultary e785fe81a13a Theorem A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wong, arXiv:1601.04212, PDF p. 2: coherent oracle Hamiltonian H=−γA−|w⟩⟨w|.",
+          "Resultary e785fe81a13a, Theorem A: same distinguished-element geometry and dark projector for absorbers, with eventual capture."
+        ],
+        "reasoning": "Coherent oracle search, irreversible absorption and independent site dephasing are not interchangeable: the last is unital and the bright weight is redistributed, not removed. Sharing the same dark projection with an absorption model does not give the bright stationary state or the post-relaxation return.",
+        "searches": [
+          "Johnson-graph quantum-walk literature search with site-selective monitoring/dephasing and dark subspace",
+          "Resultary: Johnson/Kneser distinguished-element monitoring and Catalan dark subspace"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary e785fe81a13a, dated 2026-11-08, RESULT.md Theorem A: binom(n−1,k)−binom(n−1,k−1) and Catalan at n=2k+1 for absorptive dynamics."
+        ],
+        "reasoning": "This is an exact rank match, but it is later than the frozen finding and is not an exact table or formula for the dephasing return or fixed algebra.",
+        "searches": [
+          "Resultary: Catalan dark dimension, stationary algebra and local return for Johnson walks"
+        ]
+      },
+      "rationale": "Bounded pass for the exact stationary algebra, actual Lindblad limit and local-return comparison for this monitor geometry. The Johnson harmonic multiplicity and general Lindblad asymptotic framework are prior ingredients. The closest indexed overlap has the same dark projector and Catalan rank for absorbers but is later and has a capture law, not the dephasing limit stated here.",
+      "residual_risks": [
+        "Equivalent dynamics may be described in other dephasing or quantum-network terminology; a broad literature query without a direct match is not exclusion evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different dynamics and marking",
+          "evidence": "A single marked-vertex oracle in Schrödinger dynamics, not individually dephased sites.",
+          "identifier_or_url": "https://arxiv.org/pdf/1601.04212",
+          "material_read": "PDF p. 2, Hamiltonian and evolution",
+          "method": "Primary PDF passage comparison",
+          "title": "Quantum Walk Search on Johnson Graphs",
+          "trigger": "Same coherent Johnson walk geometry"
+        },
+        {
+          "assessment": "Covers harmonic input, not the quantum evolution",
+          "evidence": "Harmonic dimension is the difference of adjacent binomial coefficients.",
+          "identifier_or_url": "https://arxiv.org/pdf/1406.0142",
+          "material_read": "PDF pp. 1 and 3, Lemma 2.1",
+          "method": "Primary PDF passage comparison",
+          "title": "Orthogonal basis for functions over a slice of the Boolean hypercube",
+          "trigger": "Johnson harmonic dimensions underlying the dark multiplicity"
+        },
+        {
+          "assessment": "General framework, not the model-specific computation",
+          "evidence": "The decomposition permits effective unitary factors; it does not identify the dark projector or bright sector of this model.",
+          "identifier_or_url": "https://arxiv.org/pdf/0806.3164",
+          "material_read": "PDF pp. 3–4, Theorem 2",
+          "method": "Primary PDF passage comparison",
+          "title": "Analysis of quantum semigroups with GKS–Lindblad generators II. General",
+          "trigger": "General stationary and asymptotic decomposition"
+        },
+        {
+          "assessment": "Exact overlap in projection geometry, but later and a different evolution and observable",
+          "evidence": "Distinguished-point absorbers yield the same Johnson dark projector and an eventual-capture law.",
+          "identifier_or_url": "2026/11/8/SCOPE-catalan-dark-subspaces-and-a-distance-two-trapping-resonance-on--e785fe81a13a",
+          "material_read": "Mirrored RESULT.md, Theorem A, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Original indexed passage comparison",
+          "title": "Catalan dark subspaces and a distance-two trapping resonance",
+          "trigger": "Strongest indexed overlap: same graph, same distinguished-element geometry and same Catalan dark rank"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–41 and 60–70",
+        "Filmus and the later absorption comparison listed under originality"
+      ],
+      "rationale": "A natural site selection on a standard graph family gives an exact memory algebra for arbitrary positive rates, and the comparison across adjacent central ranks changes an experimentally meaningful model observable, local return, from exponential to quadratic inverse decay. The statement explains why and when coherences are preserved, rather than just supplying a single dimension or a numerical asymptote.",
+      "residual_risks": [
+        "The return asymptotic takes long time first and gives no assurance of experimentally practical relaxation times or robustness to Hamiltonian perturbations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

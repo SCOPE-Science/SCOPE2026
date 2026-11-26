@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:11:29.391492Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cohomology coefficients are counted by the affine Schubert cell decomposition in complex dimensions, and the selection uses the identity Kazhdan–Lusztig polynomial, not ordinary Betti ranks. The reduced-word subword theorem gives the stated interval recurrence; the right-descent KL recurrence uses zero for incomparable lower indices and integral correction exponents only. An original exact replay using permutations of the 48 roots, bitset intervals and integer polynomials covered all 1,152 Weyl elements and 396,809 comparable pairs, checked word lengths by root inversions and matched all three KL profile counts and all eleven triples (maximum, multiplicity, eligibility). It matched the ambient length distribution and [2]_q[6]_q[8]_q[12]_q coefficients; the general coefficient inequality applies in the stated normalization. The selected maximum length is 23, confirming no eligible degree >=12. A supplemental extraction confirms the same four winners of length 14 in degrees 4–5, the same two of length 20 in degrees 6–9, and the same two of length 23 in degrees 10–11. Replay: /workspace/branches/02db693c-f8a8-46fc-8394-7ce127f57885/replay_root_actions.py, output replay_output.txt there. The independent replay uses one direction of the standard recursion; the frozen two-direction checker was inspected rather than run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 3.3 for P_{e,w}=1+q^h bounds the kth difference by the coefficient of degree k-h in the longest-element length polynomial, then by degree k-1 in the relevant range; it includes the displayed ambient comparison. The inspected sharp families are types A and B.",
+          "The weak Lehmer code calculates F4 interval ranks and identifies palindromic cases. The factoriality paper connects first opposite dimensions to divisorial properties."
+        ],
+        "reasoning": "The stronger h-dependent bound still leaves the conditioned maxima and counts undetermined, including strictness for k>=4 in the common bound. An interval-rank method does not select the KL-conditioned stratum or establish its exact spectrum.",
+        "searches": [
+          "Burrull–Li–Zeng–Zhang arXiv:2611.24751v1 Corollary 3.3 and Theorems 4.1–4.2",
+          "Sentinelli–Zatti arXiv:2509.20981v2 weak Lehmer code and rational smoothness",
+          "Li–Rietsch–Yang arXiv:2506.18388v1 Theorems A and B"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "Resultary d36c8eeee3f8 and be43ed9053c9",
+        "arXiv:2611.24751v1, arXiv:2509.20981v2, arXiv:2506.18388v1",
+        "Goresky index (attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general bound gives 16 at k=4, while sharpness on the frozen stratum is 15, and the maximizing height h there is 1 so the sharper bound does not explain the one-unit gap.",
+          "The separate global F4 total-defect extrema are outside the selected stratum."
+        ],
+        "reasoning": "Computability from classical KL and Bruhat algorithms is not a prior extremal result. Separate exact integer enumeration and coefficientwise optimization on the selected locus are needed.",
+        "searches": [
+          "arXiv:2611.24751v1 Corollary 3.3 compared with the independently replayed eleven rows",
+          "arXiv:2509.20981v2 rank-polynomial algorithm versus the KL selection",
+          "Resultary d36c8eeee3f8 original extremal statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching assigned search hit is not separate evidence. The distinct F4 record d36c8eeee3f8 gives an unconditioned maximum of 252 for the sum of lower-half opposite-Betti differences, attained at length 18. The two winners have P_{e,w}(1)=30 in the exact replay, not 2.",
+          "Burrull et al. use precisely the opposite-rank difference as a coefficient of their asymmetry polynomial. The other Resultary F4 quotient-strata record studies a different invariant."
+        ],
+        "reasoning": "A maximum of the sum over all w neither identifies maxima of individual coefficients nor specifies their values or multiplicities on the KL-selected set. Relabeling generators or passing to the asymmetry-polynomial notation leaves those distinctions unchanged.",
+        "searches": [
+          "Resultary: type F4 Schubert opposite Betti difference, asymmetry, Kazhdan–Lusztig polynomial at identity",
+          "Resultary d36c8eeee3f8 exact global defect; be43ed9053c9 quotient strata",
+          "arXiv:2611.24751v1 asymmetry definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected weak-code results supply lower-interval rank methods and palindromic cases, not the identity KL-at-one-two cohort. The global-defect RESULT supplies unconditional statistics rather than jointly indexed KL selection and rank maxima.",
+          "The Goresky index returned no readable text in the direct or alternate retrieval attempt; the frozen citation reports no F4 table there, but that report was not independently confirmed."
+        ],
+        "reasoning": "A jointly indexed exact F4 KL and rank table could materially reduce the computation to a mechanical join. No inspected table gives that join or the conditioned result, and inaccessible material is not treated as negative evidence.",
+        "searches": [
+          "F4 weak Lehmer code rank and rationally smooth tables, arXiv:2509.20981v2",
+          "Goresky Tables of Kazhdan–Lusztig Polynomials index",
+          "Resultary d36c8eeee3f8 exact finite F4 census"
+        ]
+      },
+      "rationale": "The ordinary rank calculation and the ambient inequality are credited to prior theory. The inspected results do not give the 217-element KL-conditioned finite spectrum or exact maximizing multiplicities; the closest exact F4 records address different statistics and cohorts.",
+      "residual_risks": [
+        "The additional general search returned irrelevant hits, not evidence of absence. Uninspected or unindexed tables with both KL and rank data remain a risk.",
+        "The same-day distinct Resultary comparison is not a chronological priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the ambient bound but not the F4 sharp conditioned spectrum",
+          "evidence": "The bound uses the degree k-h coefficient when P_{e,w}=1+q^h; the inspected sharp families are types A and B.",
+          "identifier_or_url": "https://arxiv.org/html/2611.24751v1",
+          "material_read": "Definition near offset 2891, Corollary 3.3 near 26309, Theorems 4.1–4.2 near 31457 and 40201",
+          "method": "Bounded reading of exact-version OA full text",
+          "title": "On the asymmetry polynomial of Schubert varieties",
+          "trigger": "Strongest general theorem for the same opposite-rank coefficient and the same KL form"
+        },
+        {
+          "assessment": "Rank generation and smoothness, not this KL cohort or exact maxima",
+          "evidence": "Computes rank-generating functions of lower Bruhat intervals and lists palindromic Schubert Poincare polynomials.",
+          "identifier_or_url": "https://arxiv.org/html/2509.20981v2",
+          "material_read": "Weak-code and rank results near offsets 12620 and 21854; rationally smooth list near 29429",
+          "method": "Bounded OA full-text reading",
+          "title": "A weak Lehmer code for type F4",
+          "trigger": "Potential exact F4 rank census or transfer theorem"
+        },
+        {
+          "assessment": "Distinct objective and unconditioned domain",
+          "evidence": "Maximum total defect 252, with two length-18 winners and defect-vector (0,4,17,35,49,53,46,32,16); their KL-at-one value is 30 by independent replay.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-total-poincar-duality-defect-among-type-f-4-schubert-varie--d36c8eeee3f8",
+          "material_read": "Mirrored RESULT Finding, offsets 0–1091",
+          "method": "Bounded local mirror read plus comparison against exact KL replay",
+          "title": "Sharp total Poincare-duality defect among type-F4 Schubert varieties",
+          "trigger": "Strongest distinct Resultary F4 extremal statistic"
+        },
+        {
+          "assessment": "Geometric and root-theoretic criteria, no conditioned spectrum in inspected results",
+          "evidence": "Theorem A treats simply-laced types; Theorem B gives a root-combinatorial criterion in arbitrary type.",
+          "identifier_or_url": "https://arxiv.org/html/2506.18388v1",
+          "material_read": "Theorems A and B near offsets 7328 and 9989",
+          "method": "Bounded exact-version OA reading",
+          "title": "An anticanonical perspective on G/P Schubert varieties",
+          "trigger": "Prior use of opposite Betti differences in Schubert geometry"
+        },
+        {
+          "assessment": "Access risk, no definitive inference from attempt",
+          "evidence": "Direct and alternate routes returned HTTP 403.",
+          "identifier_or_url": "https://www.math.ias.edu/~goresky/tables.html",
+          "material_read": "Frozen bibliographic note only; no primary index text recovered",
+          "method": "Website-mode retrieval attempts",
+          "title": "Tables of Kazhdan–Lusztig Polynomials",
+          "trigger": "Potential already-tabulated F4 KL data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The conditioning is intrinsic: evaluate KL at the identity and select the first nontrivial integer value, then measure ordinary duality defect rather than KL itself. The data decide exactly when the known universal inequality is sharp in exceptional type F4 on that stratum, including the first failure and changes in which lengths and KL profiles maximize. An unconditioned table or a single largest defect cannot answer these questions. This is a useful finite exceptional-type benchmark, without implying new general Weyl-group bounds.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

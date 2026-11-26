@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:19:42.221637Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the full profile map. In a run of length a, 111 contributes max(0,a−2), giving m−2p+u across the up-runs; 110 counts nonsingleton up-runs, 011 excludes the first up-run, and 010 counts all singleton up-runs except the first. Interchanging 0 and 1 and reversing gives the remaining triple formulas. The 10 bigram gives p even at m=1, where all triple counts are zero. The profile and parameter tuple therefore determine each other at a fixed m (which the one-letter counts already give). If p=m there is only alternation. Otherwise each side has at least one nonsingleton, and the totals imply u,v≥2p−m. An initial single up-step forces a complete initial 10; a final single down-step forces a terminal 10, since the preceding up-run starts at nonnegative height and must reach height 1 before that down-step. These singletons are disjoint except for the one-peak alternating case, already separated. Conversely removing t=α+β boundary peaks leaves M=m−t>r=p−t≥1 and prescribed singleton counts u−t,v−t in [0,r−1] with M≥2r−(u−t),2r−(v−t). Thus both compositions exist with a nonsingleton; decreasing up lengths and increasing down lengths give completed-peak heights nonnegative by comparison with jM/r. The first up-run and last down-run of the core are nonsingletons, so adjoining boundary peaks realizes the flags exactly. Counting for fixed t, substitute r=p−t: the number of options for each singleton count is min(r,m−t−r) for r≥1. Writing F_n=Σ_{r=1}^{n−1}min(r,n−r)^2, total P_m=1+F_m+2F_{m−1}+F_{m−2} (empty sums zero). Since a square of a minimum contributes 2k−1 for every k≤r,n−r, Σ F_n z^n = Σ_{k≥1}(2k−1)z^{2k}/(1−z)^2. Multiplication by (1+z)^2 and addition of z/(1−z) give z(1−2z+3z²)/(1−z)^4 and extraction gives exactly the cubic. One word per attained profile is both an upper bound and achievable code size. Independent replay `python3 /workspace/reviews/5-check.py` uses a prefix DP on counts of up/down steps, suffix up to length two and the accumulated full 14-count vector. All possible legal extensions update the vector locally and merge only identical states. At semilengths 1–18 the attainable parameter sets and profile cardinalities were exactly as stated (1650 for 18). This check is bounded, not a replacement for the construction or summation. Frozen scripts were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general k-Abelian paper proves growth for unrestricted finite words and studies factors of infinite words. The 2015 paper classifies position-equivalences in Dyck and ballot paths for a fixed factor. The 2011 abstract studies count and by-height occurrence statistics for a fixed factor."
+        ],
+        "reasoning": "An unrestricted-word result cannot determine which classes intersect the Dyck language. Individual-factor statistics cannot enforce joint compatibility, notably the simultaneous bounds involving both boundary flags and singleton multiplicities. The 2011 whole text is not concluded noncovering from only the abstract.",
+        "searches": [
+          "arXiv:1301.5104 abstract and definition",
+          "arXiv:1510.01952 Introduction and Tables 1–2",
+          "DOI:10.37236/561 journal page"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1510.01952, 1301.5104, 2603.17287, 2607.20750",
+        "OEIS A116731 and DOI:10.37236/561",
+        "Resultary results scoped to titles and summaries",
+        "Frozen RESULT.md, AUDIT.json, REVIEW.md, METADATA.json, SLOGAN.txt, VERIFICATION.md, check_constructive.py, check_enumeration.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-pattern representatives of Manes et al. need not preserve other pattern counts. Projection from a height-two four-factor profile still restricts height and cannot establish attainability in the unrestricted Dyck language. Already at m=3 the profile of 111000 contains 111, impossible at height two."
+        ],
+        "reasoning": "None of these reductions gives membership of all tuples or rules out the impossible ones. The new step is simultaneous control of the flags and both singleton totals under the Dyck barrier, including the majorization construction. The reconstruction-code interpretation then follows immediately and is not an independent originality claim.",
+        "searches": [
+          "arXiv:1510.01952 Proposition 1.1 and introduction; arXiv:1301.5104; OEIS A116731; Resultary height-two four-factor Dyck hit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Karhumäki–Saarela–Zamboni's definition is exactly the same count equivalence. Manes et al. 2015 instead fix one pattern and record positions, not even the joint histogram of all patterns. The semantic query returned the assigned result and a four-factor height-two Dyck record, among other distinct invariants."
+        ],
+        "reasoning": "An equivalence stated as a 3-Abelian quotient, simultaneous short-factor spectrum, or exact zero-error profile count should be compared on the same language and observation. Changing height, wraparound, observation length, or position-vs-count equivalence changes the feasible-profile problem. The unavailable web query is not negative evidence.",
+        "searches": [
+          "Resultary: Dyck words 3-Abelian equivalence profiles all overlapping factor counts cubic A116731",
+          "Web: Dyck words 3-Abelian equivalence number of distinct length three factor multiplicity profiles trigram Dyck language A116731 (unavailable)",
+          "arXiv:1510.01952 definition; arXiv:1301.5104 definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A116731 directly gives both (n³−3n²+5n)/3 and its exact ordinary generating function; it counts pattern-avoiding permutations and records other interpretations, e.g. a lattice-point region. Its formula is dated 2006-09-13. The linked preprints' abstracts study forest webs and restricted rotations of permutations. Manes et al.'s Dyck table instead counts one pattern's position classes.",
+          "For example, the 2015 table has 14 at semilength 4 for the ud-position quotient, versus 12 for the joint 3-Abelian profile quotient."
+        ],
+        "reasoning": "The sequence match is total, not just initial terms: numerical priority is excluded. Neither the table nor the independent counted objects supply an identification of feasible Dyck profiles or a representative construction.",
+        "searches": [
+          "OEIS A116731",
+          "OEIS-linked arXiv:2603.17287 and arXiv:2607.20750",
+          "arXiv:1510.01952, Table 2"
+        ]
+      },
+      "rationale": "Best of knowledge, originality is the necessary-and-sufficient Dyck profile support and explicit realization, not the cubic polynomial or generating function as numerical invariants. The known 3-Abelian equivalence and Dyck pattern enumerations do not provide the simultaneous support in the inspected statements.",
+      "residual_risks": [
+        "Unindexed joint Dyck-equivalence work may exist. A broader web query was unavailable.",
+        "The 2011 article comparison uses its public description only; the 2026 OEIS-linked preprints were inspected at abstract scope, not for whole-text noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same paths but a different observation and quotient.",
+          "evidence": [
+            "The equivalence displayed in the Introduction fixes τ and equates all positions of τ; Table 2 lists each choice separately."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1510.01952",
+          "material_read": "Primary PDF text, abstract, Introduction, Proposition 1.1, Tables 1–2.",
+          "method": "Compared equivalence definitions, representative invariant and table parameters.",
+          "title": "Equivalence classes of ballot paths modulo strings of length 2 and 3",
+          "trigger": "Same path language and short factors."
+        },
+        {
+          "assessment": "Defines the equivalence and gives general growth, not the claimed restricted formula in the material read.",
+          "evidence": [
+            "The abstract distinguishes all n-letter words from length-n factors of a chosen infinite word."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1301.5104",
+          "material_read": "Primary abstract with definition and scope of unrestricted growth and infinite-word results.",
+          "method": "Compared the universe of representatives and count being estimated.",
+          "title": "On a generalization of Abelian equivalence and complexity of infinite words",
+          "trigger": "Exact equivalence terminology and candidate general growth theorem."
+        },
+        {
+          "assessment": "The stated results are single-pattern distributions; no whole-document exclusion claimed.",
+          "evidence": [
+            "The abstract fixes τ and treats number of occurrences and occurrences above a given height."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/561",
+          "material_read": "Electronic Journal of Combinatorics article page, abstract.",
+          "method": "Compared the fixed τ statistics and the simultaneous joint profile.",
+          "title": "General Results on the Enumeration of Strings in Dyck Paths",
+          "trigger": "Dyck factor-occurrence counts rather than positions."
+        },
+        {
+          "assessment": "Prior numerical coverage, not an inspected Dyck support theorem.",
+          "evidence": [
+            "Offset 1; formulas match; the primary interpretation concerns simultaneous permutation pattern avoidance."
+          ],
+          "identifier_or_url": "https://oeis.org/A116731",
+          "material_read": "Database description, terms, formulas, dated credit, comments and links; abstracts of two 2026 links read separately.",
+          "method": "Matched offset and formula algebraically and compared counted objects.",
+          "title": "OEIS A116731",
+          "trigger": "Exact match of terms, polynomial and generating function."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an all-length exact classification of the possible outputs of a natural short-factor readout on a globally constrained language. It gives an explicit inverse representative for every feasible output, not just a known cubic with a changed name, and determines the exact largest code distinguishable by that readout. The richness is in the support theorem; the same enumerative formula elsewhere does not undermine its usefulness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

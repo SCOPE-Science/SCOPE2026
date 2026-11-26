@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed series follows from an explicit bijection between periodic preimages and length-matched closed paths in a four-pair de Bruijn graph, including ring sizes one and two. A saturated-at-two product correctly preserves whether a closed-path count is zero, one, or greater than one. The certificate checks all coordinates of an exact integer vector identity at exponent 21, establishing the recurrence at every subsequent exponent, and separately checks the initial polynomial numerator. Exhaustive direct enumeration for rings of lengths 1–16 independently agrees. Critical assumptions (labelled sites, the cyclic majority convention, one-step update) are explicit. Computation is used as a finite exact certificate and not as an unsupported extrapolation.
+PASS
 
-## Originality — PASS, with residual uncertainty
+The ordered pair at step i is (x_{i-1},x_i); overlap with the next pair reconstructs the indexed input from a closed path with specified starting site. Closing the path enforces the repeated slots even for 1 and 2 sites; no rotation multiplier enters. The trace therefore counts the full fiber. Capping each nonnegative entry at two commutes with capped multiplication and preserves whether the sum on the diagonal is one. In a separate endpoint-set encoding I generated all 476 states, with 136 accepting, and checked the denominator product, the recurrence vector at exponent 21 in every state, and the full numerator through degree 20. Multiplication by further powers of the transition matrix yields the recurrence for every n>=21; it is not inferred from the observed sequence. Exhaustive direct counts at n=1,...,12 also agreed, as did the transfer counts through n=16.
 
-Jen (1989), especially pp. 441–442 and the appendix, establishes general predecessor-count methods for finite blocks with free boundaries. That is substantive prior foundation but does not give the all-target, periodic-ring singleton-count series. Powley–Stepney (2010) focuses on homogeneous target preimages. Turau (2023) addresses fixed points and two-cycles. The closest published cyclic Rule-232 enumeration counts all attainable targets, not the subset having exactly one predecessor; a published singleton enumeration concerns a different rule, Rule 54. The separate majority temporal-entry enumeration addresses a different invariant. Source and equivalence searches did not identify a dominating all-length singleton formula, but negative searches cannot prove universal priority. An unindexed equivalent theorem or a non-obvious consequence of earlier predecessor formulas remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The number of output configurations having a unique possible source is a natural finite-size exact reconstruction invariant for a classical nonlinear cellular automaton. Counting reachable outputs alone does not measure which ones can be inverted without extra information. The complete rational series gives every ring size in one theorem; the recurrence and its exact certificate also provide a reproducible benchmark for periodic preimage enumeration. It is more specific than a general classification theorem, but the precise all-length singleton output count is intrinsically meaningful rather than an arbitrary finite slice.
+The distinct claim is the evaluated all-length series for unrestricted indexed periodic singleton fibers of Rule 232. Available predecessor formulas, image counts, and related singleton enumerations do not give it. Neither the shared finite-state method nor the common denominator factor with the open-boundary series is claimed as independent novelty.
 
-## Limitations
+## value
 
-The work does not enumerate all preimage-fiber multiplicities, prove a general theorem for other elementary rules, or claim independent validation. The strongest primary comparison is the classical Rule-232 predecessor formula, whose boundary convention differs. Related published results were examined at the relevant sections; one historical homogeneous-preimage comparison was available chiefly through its detailed abstract and public excerpt. Priority remains subject to further literature examination.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Unique reconstruction from one observed cyclic configuration is a natural refinement of image enumeration for this classical majority rule. The exact rational series resolves every indexed ring size, and distinguishes the count of outputs that carry enough information to recover the input even when the total image count alone is known. The exact recurrence makes the refinement usable at lengths beyond direct enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

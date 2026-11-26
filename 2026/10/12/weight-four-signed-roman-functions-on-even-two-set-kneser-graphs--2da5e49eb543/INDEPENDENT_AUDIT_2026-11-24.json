@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:13:54.256535Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 2–76",
+        "Frozen VERIFICATION.md, verify.py and verify_output.txt (read only)",
+        "python3 /workspace/review_work/definition_replays.py 3"
+      ],
+      "rationale": "With |A|=a and |B|=a+2 the all-crossing-negative baseline has weight 1−a; a cycle on A and three disjoint edges on B are available already at a=4 and add a+3. With s_i the incident label sum, the disjointness neighborhood contributes w−s_i−s_j+f(ij), and closing it adds f(ij) once more. In the construction s_i=−1 on A and s_j=1+ε_j on B, with ε_j in {0,1}; the crossing, A-internal and B-internal sums are at least 1, 8 and 2, respectively. A crossing pair avoids a−2 promoted cycle edges. For any signing in the stipulated class the number of promoted internal pairs is a−1+w, while the largest degrees p,q of the two promotion graphs satisfy p+q≤w−1 from the crossing inequalities. The handshake bound excludes w≤2, and at w=3 only (p,q)=(0,2) can supply a+2 edges, forcing a spanning 2-regular graph on B. An unpromoted B-pair then has closed sum 3−3−3+2=−1. This proves optimality only for the stipulated partition class. A fresh literal-neighborhood enumeration for a fixed 4+6 partition found no valid labels at weights −3 through 3 and 45 at weight 4.",
+      "residual_risks": [
+        "The saved output and independent finite replay do not prove arbitrary-order statements or exclude other sign patterns. The uploaded checker prints VERIFY_OK before running assertions; its first line alone is not confirmation of successful completion.",
+        "No unrestricted lower bound of 4 is part of this review."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published general result is 2≤γ_sR(K(n,2))≤5 for even n≥12, not a dominating bound.",
+          "Record 4d41d54bb2a8 claims unrestricted γ_sR=4 at even n≥10, which if correct implies the restricted minimum together with its same witness. Record 7200d03258f0 states 3≤γ_sR≤4 for even n≥12, giving a stronger lower bound than the published baseline but not the claimed unrestricted equality of the other catalogue record."
+        ],
+        "reasoning": "The strongest potential coverage is from the unrestricted equality plus the witness, not from domination theorems for different graphs. The later catalogue statements are distinguished by actual content without adopting or certifying their additional lower bounds.",
+        "searches": [
+          "Zec–Grbić arXiv:2204.05664 Theorem 3 and conclusion",
+          "Resultary 4d41d54bb2a8 and 7200d03258f0, Findings"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2204.05664 / DOI 10.46298/dmtcs.10506",
+        "Resultary 4d41d54bb2a8, 02563d788f89, 7200d03258f0",
+        "DOI 10.1080/09728600.2025.2598772 (access limitation)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older construction already supplies the two-block idea, not the uniform choice of degrees that saves one unit. The 10/25 degree-criterion entry proves the same restricted optimum at even n≥12 and supplies other labeled witnesses as well.",
+          "The 10/18 entry supplies the identical witness and claims the stronger unrestricted lower bound."
+        ],
+        "reasoning": "A weight-five witness and an unrestricted lower bound of 2 do not imply either target conclusion. Later overlapping results were explicitly compared on the same sizes and conditions; no earlier proof implying the uniform improvement was established in the inspected evidence.",
+        "searches": [
+          "arXiv:2204.05664 §2.2 Tables 2 and 4",
+          "Resultary 02563d788f89 Finding and degree criterion; 4d41d54bb2a8 Finding and §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published proof uses the same a,a+2 split and weight-five cases, with an exceptional crossing label +1 in Table 2 and all crossings −1 but different internal promotions in Table 4.",
+          "Catalogue entries 4d41d54bb2a8 and 7200d03258f0 give the identical even cycle-plus-three-disjoint-edges construction, not merely the same bound."
+        ],
+        "reasoning": "Neither exchanging the block names nor rewriting the row sums turns the published weight-five witnesses into weight-four ones. The two later-dated catalogue constructions really do match the claim; this is recorded as equivalent content, not assumed independent priority or treated as evidence of earlier public availability.",
+        "searches": [
+          "Zec–Grbić arXiv:2204.05664 §2.2, even case, Tables 2 and 4",
+          "Resultary 4d41d54bb2a8 §4; 7200d03258f0 even construction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Remark 3 explicitly gives γ_sR(K(10,2))=4 and γ_sR(K(8,2))=5. The published even-case tables check their weight-five witnesses, not a uniform weight-four classification.",
+          "The exact later catalogue Finding spans all even orders in scope; the later degree-criterion record covers restricted exactness. The 2025 review's full text was not readable."
+        ],
+        "reasoning": "The n=10 value is already known; agreement there is not novelty. Finite checks of selected witnesses are not general lower bounds or an unrestricted table.",
+        "searches": [
+          "Zec–Grbić arXiv:2204.05664 Remark 3 and proof Tables 2–5",
+          "Resultary weight-four and exact even-order comparisons: 4d41d54bb2a8, 02563d788f89",
+          "Review DOI 10.1080/09728600.2025.2598772"
+        ]
+      },
+      "rationale": "The published primary comparison covers weight 4 at n=10 and uses the same general partition strategy, but its even-order constructions have weight 5. The supported contribution is the uniform weight-four construction improving the published bound for even n≥12, together with optimality for fixed blocks of sizes a and a+2 with all crossing labels negative. Distinct later-dated catalogue entries materially reproduce or strengthen these statements; they establish non-uniqueness of the mathematical content across catalogue records, but the inspected evidence does not establish earlier coverage of this frozen finding by those entries. The search is not a priority certification.",
+      "residual_risks": [
+        "The bounded search does not establish absolute originality or resolve the provenance relationship among the overlapping catalogue records.",
+        "No certification of the later unrestricted equality or of the inaccessible review text is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Published direct precursor; covers n=10, not the uniform bound of 4",
+          "evidence": "Theorem 3 gives 2≤γ_sR≤5 for even n≥12; both even proof tables give weight 5; Remark 3 gives value 4 at n=10.",
+          "identifier_or_url": "https://arxiv.org/pdf/2204.05664",
+          "material_read": "§2.2 Theorem 3 (PDF p. 6), even proof Tables 2 and 4 (pp. 9 and 11, text offsets 28342, 40440), Remark 3 (p. 13), conclusion",
+          "method": "OA primary PDF, located and read bounded passages",
+          "title": "Several Roman domination graph invariants on Kneser graphs",
+          "trigger": "Published result for the identical graph and parameter"
+        },
+        {
+          "assessment": "Materially overlapping later-dated catalogue record",
+          "evidence": "Same fixed block sizes and same Hamiltonian cycle and three-edge matching, plus claimed unrestricted γ_sR=4 for even n≥10.",
+          "identifier_or_url": "Resultary 4d41d54bb2a8",
+          "material_read": "RESULT.md Finding (offset 196) and §4 (near 6185)",
+          "method": "Local Resultary mirror",
+          "title": "Exact signed Roman domination and extremal rigidity in two-subset Kneser graphs",
+          "trigger": "Identical even witness and stronger unrestricted exact-value claim"
+        },
+        {
+          "assessment": "Materially overlapping later-dated restricted optimum",
+          "evidence": "Gives the same restricted optimum for even n≥12 and alternative constructions at larger orders.",
+          "identifier_or_url": "Resultary 02563d788f89",
+          "material_read": "RESULT.md Finding and criterion (offsets 282, 3316)",
+          "method": "Local Resultary mirror",
+          "title": "A degree criterion and weight-four signed Roman patterns in even two-set Kneser graphs",
+          "trigger": "Same two-block optimization"
+        },
+        {
+          "assessment": "Later-dated matching upper bound and witness",
+          "evidence": "Uses the cycle plus three matching edges, and asserts 3≤γ_sR≤4 for even n≥12.",
+          "identifier_or_url": "Resultary 7200d03258f0",
+          "material_read": "RESULT.md Finding and even construction (near 2500)",
+          "method": "Local Resultary mirror",
+          "title": "A sharp signed Roman lower bound and an even-order Kneser construction",
+          "trigger": "Same witness plus stronger lower bound"
+        },
+        {
+          "assessment": "Unresolved summary comparison; not negative evidence",
+          "evidence": "The frozen result reports a restatement of bound 5 in §2.1; this passage was not independently read.",
+          "identifier_or_url": "https://doi.org/10.1080/09728600.2025.2598772",
+          "material_read": "Bibliographic identification only; no readable full text",
+          "method": "DOI/publisher OA attempts returned HTTP 403 or no readable text",
+          "title": "Varieties of Roman domination IV",
+          "trigger": "Plausible more recent survey of bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 31–84",
+        "Zec–Grbić Theorem 3, Remark 3 and conclusion"
+      ],
+      "rationale": "Reducing the best inspected published general even bound from 5 to 4 is mathematically motivated: it reduces the possible exact values uniformly on a standard Kneser family, using one construction for both even congruence classes. The degree-capacity obstruction explains why the standard fixed-cut strategy cannot realize a still lower weight, so further unrestricted improvement would require another signing pattern. This is more than reproducing the n=10 table entry.",
+      "residual_risks": [
+        "The obstruction is specific to the two block sizes and all-crossings-negative template; it does not address arbitrary distributions of negative labels."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

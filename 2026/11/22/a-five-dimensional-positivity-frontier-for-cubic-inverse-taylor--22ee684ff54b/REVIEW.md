@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The cube's Walsh characters diagonalize the combinatorial Laplacian with exact eigenvalues \(2|S|\). All six dimension-five distance classes have one verified positive denominator; the numerators of the first five have strictly positive coefficients, and the sixth is proved positive on the whole half-line by two exact positive-coefficient substitutions. Lifting functions constant in additional coordinates transports this positivity to every smaller cube. The six-cube negative rational witness and its early/late positive signs follow from one exact finite spectral sum. `CHECKER.py` rebuilds the certificate with exact arithmetic. Risk: the exact symbolic certificate requires correct execution of SymPy; it is not a separate human proof of the expanded coefficients.
+## correctness
 
-**Originality — PASS with publication-priority limitations.** The strongest closely matching result for the *same* cubic rational heat step proves positivity for all connected graphs with at most six vertices and a first negative path at seven vertices. It does not provide a cube-specific all-step statement at \(32\) vertices or a six-cube witness at \(64\) vertices; neither theorem implies the other. Subdiagonal Padé convergence is not an entrywise positivity theorem. The 2010 positive-systems Padé paper concerns a different setting/conditions, and its inspected material does not establish this dimension frontier. Comparisons used actual repository full text and mathematical sources, rather than a title-only search. Residual risk: independent unindexed or otherwise uninspected specialized positivity literature may already contain an equivalent cube statement.
+PASS
 
-**Value — PASS.** Entrywise nonnegativity is essential for preserving probabilistic and maximum-principle meaning of graph heat diffusion; spectral stability alone is insufficient. A sharp graph-family threshold distinguishes robust positivity through cube dimension five from an explicitly verified dimension-six failure, while identifying reentrant sign behavior. The exact dimension-five certificate closes a natural structured family far beyond the known six-vertex general-graph guarantee, not an arbitrary numerical instance.
+A coordinate flip acts on a Walsh character by -1 precisely for coordinates of its support. Orthonormalization and grouping characters by support size therefore give eigenvalues 2k and the stated signed binomial sums with normalization 2^-d. The Q5 denominator is strictly positive. The two transformed antipodal numerators cover [0,1/6) and [1/6,infinity) without a gap, so all six distance classes are strictly positive at every h>0. Coordinate-constant lifting intertwines the Laplacians and hence their invertible polynomial updates; summing over extensions passes strict positivity to lower dimensions. The Q6 fraction and its two positive regimes concern a single distance class, not a global positivity window. At zero the matrix is the identity; the large-step limit is the constant-mode projector.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The sharp unconditional cube-dimension frontier and the exact six-cube witness are distinct from the known finite graph-order threshold and from general Padé convergence or diagonal positivity conditions, on the evidence inspected. This is best-of-knowledge, not priority certification.
+
+## value
+
+PASS
+
+The Boolean cube is a natural family of growing product graphs. All-step positivity preserves the discrete maximum principle for this mass-preserving update, whereas spectral contractivity is insufficient. The verified threshold goes well beyond the graph-order sufficient range and the exact witness distinguishes loss and recovery of one transition coefficient from a small-step instability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

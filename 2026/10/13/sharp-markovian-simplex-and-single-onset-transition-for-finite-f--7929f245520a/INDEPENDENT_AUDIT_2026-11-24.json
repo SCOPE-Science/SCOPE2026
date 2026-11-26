@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:36:28.620557Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Scope is the q+1 F_q-linear lines in F_q², not every maximal isotropic additive subgroup in composite prime-power dimension. Each line is its own field symplectic perpendicular; for a Weyl label off the line the symplectic pairing runs through F_q, so the nontrivial trace character averages to zero. This yields the stated T_j eigenspaces and positive finite-time λ_j=x_j+(1−x_j)y with y=e^(−ct), including zero weights. Independently invert the generator in T_j−Id: its coefficient b_j must satisfy Σ_i b_i−b_j=g_j=−(d/dt)log λ_j on sector j. Summing gives Σ_i b_i=Σ_i g_i/q, and T_j−Id is the sum of the q−1 nonidentity Weyl conjugation differences divided by q. Hence γ_j=(Σ_i g_i−qg_j)/q². Nonnegative Weyl coefficients yield a GKLS generator; a negative one has a negative first-order Choi expectation along its orthogonal nonidentity Bell vector for a short propagator. Finite-time invertibility makes this propagator the unique intermediate map. In the simplex interior a least rate always corresponds to m=max_j a_j. Its exact expression is cyF(y)/[q²(1+my)], where F is the displayed root function. (Dividing by cyφ_y(m)/q² gives F/m, not F itself; the proof only uses the sign.) F(0)=A−qm and F(1)=q; F is nondecreasing, with strictly positive derivative unless all a_j=m. Thus A≥qm is necessary and sufficient, and A<qm gives exactly one crossing in (0,1) and local CP-indivisibility at every later time, with inclusive endpoint on the initial interval. At equality A=qm the leading term is c(qm²−Σ_j a_j²)y²/q², positive because all a_j>0 and not all equal. On a proper face with 2≤s≤q active weights, each active g_j<c(1−x_j) for t>0 and each absent g_j=c, so γ_k<0 in every absent direction; a vertex is the original semigroup. Substitution of qutrit weights (1/10,3/10,3/10,3/10) gives exactly y*=11/21. Inspected, did not run, the frozen finite numerical diagnostic. Its reported 182400 counts nonidentity-label units over the main test cases; the actual rate assertions there are made for one representative per direction, not 182400 distinct rate-to-formula comparisons. The continuous proof and all prime powers do not depend on that reporting convention.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Equation (108) gives the same rate sign in arbitrary complete-MUB dimension: Σ_j f_j−d f_k with f_j=(1−x_j)/(1+(e^(dt)−1)x_j). Here f_j is g_j up to the positive common rate after time rescaling. The paper explicitly recognizes complete MUBs in prime-power dimensions (PDF p. 2).",
+          "Xu–Jagadish Eq. (30) gives the qutrit pointwise rate (write g_j=c−f(x_j)), as well as positive and negative examples; Thm. 2 / Eq. (29) already cover sparse supports in the prime-dimensional line setting, including qutrit supports two and three.",
+          "The three-Pauli simplex work treats q=2, not the positive-weight vector of arbitrary dimension considered here."
+        ],
+        "reasoning": "These statements cover the starting instantaneous formula and portions of the boundary classification, not the evaluated positive-weight simplex and full trajectory sign pattern in the arbitrary-q problem. A lower-dimensional exact simplex alone cannot classify all the remaining weights/dimensions.",
+        "searches": [
+          "Siudzińska–Chruściński arXiv:1706.10041 Eqs. (6)–(7) and (106)–(108)",
+          "Xu–Jagadish arXiv:2605.23852 Theorem 2 and Eqs. (28)–(30)",
+          "Jagadish–Srikanth–Petruccione arXiv:1910.04114 §§II–IV"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and source self-review",
+        "arXiv:1706.10041 complete-MUB setup and §6.3",
+        "arXiv:2605.23852 §§IV–V",
+        "arXiv:1910.04114 §§II–IV",
+        "arXiv:2309.04903 Theorem 1/Proposition 3",
+        "Resultary ranked formula and phase-diagram searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pointwise evaluation of (108) requires a time parameter and does not itself assert where in weight space sign holds for every time, or that an initially positive minimum never becomes positive again after a crossing.",
+          "The evaluated result uses the same minimizing index for every time and normalizes by that index's denominator, so each summand in F is monotone with derivative proportional to m−a_j. This proves single crossing and reduces the infinite-time test to the exact A−qm endpoint, including A=qm.",
+          "The previous prime-dimensional face examples and the MUB rate identity are explicitly excluded from standalone novelty credit."
+        ],
+        "reasoning": "The exact rate formula is strong input, but evaluating its least-rate sign over the entire trajectory requires a comparison and monotonicity argument, not just substituting d=q, recognizing a family alias, or taking the late-time necessary condition. The global result that this endpoint is sufficient and that failure has a unique permanent onset is the distinct structural claim.",
+        "searches": [
+          "arXiv:1706.10041 §6.3 through conclusion; arXiv:2605.23852 §IV Thm. 2 and §V qutrit rates; arXiv:2309.04903 stationary semigroup criteria"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A field-line span is a q-dimensional abelian diagonal algebra; the q−1 traceless directions of distinct line algebras are orthogonal. Their common eigenbases therefore form a complete set of mutually unbiased bases, since rank-one projectors in distinct algebras have trace overlap 1/q. The MUB pinchings are exactly these T_j.",
+          "Time rescaling makes the generalized Pauli decays e^(−dt) and e^(−ct) equivalent, and line coefficients and individual Weyl rates differ only by a positive normalization.",
+          "The similarly shaped Σ c_j≥d max c_j in the semigroup paper tests stationary semigroup spectra with a different meaning of c_j."
+        ],
+        "reasoning": "The finite-field parametrization is not a novelty argument by itself, because the same complete MUB pinching model covers it. A weight-only CP-divisibility test over all positive times is not a condition for time-homogeneity or for the mixed evolution to be a semigroup.",
+        "searches": [
+          "Resultary: sharp weight criterion for CP-divisibility of equal-rate generalized Pauli mixtures; qutrit Weyl simplex; support faces",
+          "arXiv:1706.10041 complete-MUB definition and §6.3",
+          "arXiv:2309.04903 Theorem 1 / Proposition 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No returned ranked record stated a materially matching weight criterion plus unique-onset theorem. The known exact qubit simplex was compared as a published analytic special dimension, not a finite data table."
+        ],
+        "reasoning": "No finite exact-data table naturally covers all real weights and all prime powers here. Ranked checks sought exact classifications and equivalent formulae rather than relying on absence of the title; the strongest actual overlap remains the primary rate formula.",
+        "searches": [
+          "Resultary ranked searches: sharp Weyl weight condition, qutrit Weyl mixtures, proper support faces (up to 50 returned each)"
+        ]
+      },
+      "rationale": "The evaluated interior simplex condition together with the exact global single-onset structure is the supported distinction. Existing generalized-Pauli formulas already give the same mixture and pointwise rate sign test, even in the complete-MUB prime-power setting, and substantial proper-face behavior was known; neither derivation of the instantaneous rates nor mere extension using prime powers is the new result. The inspected sources do not evaluate the general all-time sign problem into the stated weight-only condition and monotone crossing classification.",
+      "residual_risks": [
+        "The earlier general rate identity is exact; a separately published earlier evaluation or equivalent normalized crossing argument may remain. The current assessment credits the evaluated global interior classification only on the evidence inspected.",
+        "Indexed searches and bounded primary passages do not exhaust generalized Pauli or open-system divisibility literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of instantaneous mixture spectra and rate sign, not the evaluated global weight and onset theorem.",
+          "evidence": [
+            "The definition starts with a complete set of d+1 MUBs and identifies their availability for d=p^r.",
+            "Eq. (107) gives λ_j=x_j+(1−x_j)e^(−dt); Eq. (108) gives the same rates up to normalization.",
+            "The ensuing discussion includes a restricted qubit example and higher-dimensional equal weights; no all-weight single onset is asserted in the inspected passages."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1706.10041",
+          "material_read": "PDF p. 2 relation to complete MUBs near offset 9850; §6.3 Eqs. (106)–(108), offsets 53700–58970; ensuing example and conclusions offsets 58970–63389",
+          "method": "OA primary PDF reading and direct comparison to the field-line pinching algebras",
+          "title": "Memory kernel approach to generalized Pauli channels: Markovian, semi-Markov, and beyond",
+          "trigger": "Same complete-MUB semigroup mixture, including prime powers, and same pointwise rate test"
+        },
+        {
+          "assessment": "Same qutrit pointwise test and earlier proper-support behavior in its phase-space setting. Does not give the all-weight iff and onset evaluation in the inspected passages.",
+          "evidence": [
+            "Four-way qutrit rate (30), with uniform and neighborhood observations; support sizes two or three are eternally non-Markovian.",
+            "Its subgroup approach uses Z_d×Z_d; that subgroup argument is not identical to the F_{p^r} line proof."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.23852",
+          "material_read": "§IV Thm. 2 and Eq. (28), PDF p. 7 offsets 42200–46283; §V Eqs. (29)–(30), PDF p. 8 offsets 50173–54646",
+          "method": "OA primary PDF passage reading",
+          "title": "Convexity and non-Markovianity of Weyl Maps",
+          "trigger": "Exact Weyl rate at q=3 and eternal non-Markovianity on relevant faces"
+        },
+        {
+          "assessment": "Qubit case already studied, outside frozen q≥3.",
+          "evidence": [
+            "The simplex has three Pauli semigroup directions, not q+1 in arbitrary prime-power dimension."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.04114",
+          "material_read": "§§II–IV, OA offsets 9852–18357",
+          "method": "OA primary PDF passage reading",
+          "title": "Convex Combinations of Pauli Semigroups: Geometry, Measure and an Application",
+          "trigger": "Exact Pauli mixing simplex baseline"
+        },
+        {
+          "assessment": "Criterion for stationary semigroup spectra, not evaluated CP-divisibility of this generally non-semigroup mixture.",
+          "evidence": [
+            "The compared c_j are parameters of stationary exponential spectra, not the odds a_j=(1−x_j)/x_j used for nonstationary mixture weights."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2309.04903",
+          "material_read": "Theorem 1 / Proposition 3, PDF pp. 4–5, offsets 29021–37628",
+          "method": "OA primary PDF passage reading",
+          "title": "Beyond the mixture of generalized Pauli dephasing channels",
+          "trigger": "Visually matching sum versus dimension times maximum condition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural equal-rate mixture of mutually unbiased pinchings, a weight-only rule is useful in place of testing every time instance. The evaluated classification establishes a sharp distinction between immediate, delayed and absent loss of CP-divisibility, including a permanent-onset theorem and the critical tail behavior. The contribution is not the existing pointwise generator formula or a one-weight example; scope remains fixed weights, a common decay rate and the complete field-line family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

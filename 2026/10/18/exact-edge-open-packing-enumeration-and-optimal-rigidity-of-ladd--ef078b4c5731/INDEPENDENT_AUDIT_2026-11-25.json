@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:58:09.554810Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the repaired size enumerator, testing against a third edge gives the single same-column pair (p,q), exactly five offset-one and four offset-two types, and no more distant conflicts. Therefore the last two masks suffice, with (0,0) padding and a final mask in {0,1}. The repair groups the 17 state equations into five by row reflection and identical successor classes; both the list of states and the right sides match the original transfer. The cleared polynomial identities in the repair agree with the exact integer certificate and have unique formal solution since every recursive term has a factor t and D(0,z)=1. Independent replay in /workspace/branches/ba3e0b65-af74-42c3-bc08-198803ecc6d2/literal_edge_open_check.py and symbolic_transfer_check.py built conflicts from actual third edges, matched 74,898 exhaustive small subsets through n=6, and verified the exact symbolic resolvent, not merely a finite prefix. The z=1 numerator is 2t+7t²+8t³+t⁴, so the order-four recurrence starts at n=5. The original optimum and classification were not rejected as false: the original potential bound telescopes; at equality a singleton-rung branch can only finish, a same-row successive single rail stalls, and a row-double is followed by zero, after which either the string finishes or the opposite row must start. This gives its indicated triples and boundaries (right piece opposite to the preceding piece). The original script checks arcs from 17 states, not 17 arcs. The repaired Finding does not rely on that extremal argument. Frozen scripts were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "8c3bbc4f388f gives the same polynomial by a five-state recursion on all finite acyclic graphs, whereas every ladder with n≥2 has a 4-cycle. The forest theorem has no general ladder specialization.",
+          "Brešar–Samadi give an optimization algorithm for trees. The later Algorithms for the Maximum Edge Open Packing Problem also addresses optimization, not the complete coefficient vector of the ladder family."
+        ],
+        "reasoning": "A graph-class optimization algorithm or a recursion restricted to acyclic inputs does not supply the repaired enumerator.",
+        "searches": [
+          "Resultary: edge-open-packing all-cardinality polynomial forests tree algorithm motivation",
+          "arXiv:2403.00750",
+          "arXiv:2606.28599v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, rational_certificate.json and verification_output.txt",
+        "Resultary d9bdf15b2f02, 8c3bbc4f388f and 43a6aee37b6e",
+        "arXiv:2403.00750",
+        "arXiv:2606.28599v1",
+        "doi:10.1051/ro/2022171 (access attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even the coloring fact described in the frozen record yields at most an existence lower bound from a largest color class; it does not count packings by size.",
+          "The frozen and repaired generating function has non-leading coefficients and a fixed rung recurrence with polynomial activity weights; neither the optimal census nor the forest and rook formulas determine that family."
+        ],
+        "reasoning": "The explicit rational function is not claimed as a novel transfer-matrix method. The distinct result is the evaluated all-cardinality distribution on the specified cyclic graph family with open ends.",
+        "searches": [
+          "Resultary d9bdf15b2f02 Finding and Assumptions",
+          "Resultary 8c3bbc4f388f Finding and Assumptions",
+          "Resultary 43a6aee37b6e Finding and Assumptions",
+          "DOI 10.2298/FIL2312959C and frozen account of χ′_i(L_n)=3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "d9bdf15b2f02 uses endpoint-induced nontrivial stars with all induced edges selected, equivalent to the third-edge condition. In the ladder, a third edge either joins two selected components or violates the induced star condition; conversely a selected path of length three or an extra edge between endpoints makes a conflict.",
+          "In d9bdf15b2f02 an interior interval is a full three-edge star, yielding a triple (2,3,0) or (4,5,0); the first/last two-column intervals yield the boundary pieces. Consecutive centers are three rungs apart, so the common checkerboard class for centers forces the same row alternation. This is exact overlap for all optima, not just the same leading count."
+        ],
+        "reasoning": "The covered classification describes precisely the optimal sets. It gives no coefficients for nonoptimal sizes and is not equivalent to the repaired bivariate series.",
+        "searches": [
+          "Resultary: Exact edge-open-packing size enumerator for ladder graphs P2 square Pn, rational generating function and classification/count of all maximum packings",
+          "Resultary: edge-open-packing ladder checkerboard star-pattern maximum classification",
+          "Primary search: \"edge-open packing\" ladder generating function size enumerator maximum packings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d9bdf15b2f02 explicitly gives n and the same 4/2 leading coefficients for n≥2.",
+          "The distinct same-day 43a6aee37b6e gives a complete polynomial for K_m square K_n, which meets the two-row ladder family at the four-cycle but does not cover the longer ladders.",
+          "No all-size open-ladder bivariate formula was located among the inspected hits."
+        ],
+        "reasoning": "The exact leading-coefficient match removes the original extremal novelty; the table/catalogue comparison does not reduce the repaired infinite family to either the known leading term or the shared four-cycle.",
+        "searches": [
+          "Resultary: exact full edge-open-packing polynomial rational generating function open ladder P2 x Pn",
+          "Resultary: maximum edge-open-packing counts modulo 3 ladder 1 4 2"
+        ]
+      },
+      "rationale": "The original could not pass unchanged: its optimal size, count and complete rigidity classification occur in distinct catalogue record d9bdf15b2f02. The repair drops those as contributions, credits the exact overlap, and retains only the supported distinct rational all-size enumerator and its counting specialization. No corresponding all-size ladder formula or implying theorem was found in the inspected material. This is an assessment of the narrower repaired claim; no priority ordering is inferred just from catalogue dates.",
+      "residual_risks": [
+        "The 2022 original full text could not be read via the attempted routes; older or unindexed exact enumerations cannot be excluded.",
+        "A general fixed-width transfer argument would imply rationality abstractly, not necessarily identify this particular numerator and denominator. The priority comparison is for the explicit formula only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full equivalent coverage of dropped original extremal claims, not all cardinalities",
+          "evidence": [
+            "The checkerboard choice and partition into centered two- and three-index intervals classify precisely all maxima."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-three-periodic-rigidity-of-maximum-edge-open-packings-in-ladder--d9bdf15b2f02",
+          "material_read": "Finding and Assumptions, offset 0; start of proof",
+          "method": "Published-record local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Three-periodic rigidity of maximum edge open packings in ladder graphs",
+          "trigger": "Exact same-family optimal size, multiplicity and rigidity"
+        },
+        {
+          "assessment": "Acyclicity excludes nontrivial ladders",
+          "evidence": [
+            "The text explicitly restricts the input to finite undirected simple acyclic graphs."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-an-exact-five-state-edge-open-packing-polynomial-recursion-for-f--8c3bbc4f388f",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Published-record local mirror",
+          "title": "An exact five-state edge-open-packing polynomial recursion for forests",
+          "trigger": "Same size polynomial, possible broader graph theorem"
+        },
+        {
+          "assessment": "Cross-family overlap only at the four-cycle",
+          "evidence": [
+            "The product is K_m square K_n, not P_2 square P_n in general."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-complete-edge-open-packing-polynomial-and-odd-square-rigidity-of--43a6aee37b6e",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Published-record local mirror",
+          "title": "Complete edge-open-packing polynomial and odd-square rigidity of rook graphs",
+          "trigger": "Same-day exact size polynomial and rigidity in product graphs"
+        },
+        {
+          "assessment": "Tree maximum algorithm, not ladder size enumerator",
+          "evidence": [
+            "The stated algorithm determines the edge-open-packing number of a tree."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.00750",
+          "material_read": "p.1, relevant optimization statements",
+          "method": "Lawful OA PDF extracted passage",
+          "title": "Edge open packing: complexity, algorithmic aspects, and bounds",
+          "trigger": "Established graph-class algorithms for this invariant"
+        },
+        {
+          "assessment": "Optimization results in the inspected statement do not imply enumerating all sizes",
+          "evidence": [
+            "The algorithms solve maximum edge open packing on specified graph classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.28599v1",
+          "material_read": "p.1 and abstract passage",
+          "method": "Lawful OA PDF extracted passage",
+          "title": "Algorithms for the Maximum Edge Open Packing Problem",
+          "trigger": "More general maximum-packing algorithms might cover the family"
+        },
+        {
+          "assessment": "Historical coverage unresolved in this source",
+          "evidence": [
+            "The frozen record cites the definition and scalar results; no whole-paper exclusion is inferred from inaccessible text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1051/ro/2022171",
+          "material_read": "Bibliographic identity; no decisive full-text passages retrieved",
+          "method": "Lawful DOI, RAIRO PDF and identified alternate access attempts",
+          "title": "Edge open packing sets in graphs",
+          "trigger": "Foundational exact calculations for natural graph families"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two-row ladder is a basic product-graph test family and the edge-open-packing constraint distinguishes this count from matching, independent-edge or coloring counts. The repaired formula resolves the full activity-weighted size distribution, which an optimum-only result cannot give, and allows exact size-specific and total enumeration with a fixed rung recurrence. Its utility does not come from re-proving the published census or from a few small values.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The finite tests use only the explicit formulas and objects in `RESULT.md` and are not substitutes for the all-field mathematical proof.
+## correctness
 
-From the containing directory, run `python CHECK_PRIME.py` with Python 3 and NumPy installed. The code generates nonzero isotropic decomposable bivectors from ordered vector pairs, computes Fourier transforms directly, constructs every alternating-frequency pencil in three small cases, evaluates its modular ranks, and asserts agreement with the derived exact integer multipliers. Complete comparisons cover \(64\), \(729\), and \(32768\) Fourier frequencies respectively in the binary four-dimensional, ternary four-dimensional, and binary six-dimensional settings. It also directly checks \(27\) frequencies in symplectic dimension six over \(\mathbb F_3\), including the nilpotent-Jordan minimum witness.
+PASS
 
-Run `python CHECK_GF4.py` using Python 3 (no third-party packages required). It implements the extension field \(\mathbb F_4\), enumerates the isotropic Plücker cone, and compares \(50\) directly evaluated trace-character sums with independent alternating-matrix-pencil rank formulas. This supplies a finite check beyond prime fields.
+For the unweighted full isotropic cone, the characters indexed by B are a basis (a nonzero F_q-linear bivector functional is surjective, even for a nonprime field). Each nonzero wedge has exactly q(q²−1) ordered presentations of determinant one. Independently, for each u!=0 sum the character over v in u^(perp_Omega): it totals q^(n−1) precisely when B(u,.) is proportional to Omega(u,.), and otherwise zero. Subtract the q multiples of u for every u!=0. The nonzero proportional vectors are a disjoint union of the nonzero radicals of B+tOmega. This gives lambda_B=[q^(n−2)(sum_t q^(2s_t)−q(q+1))+1]/(q²−1), as in the original proof. Alternating rank is even also in characteristic two, hence the formula is q^(n−2)(J−1)−delta with integer J>=0. Since 0<2delta<q^(n−2), only J=1 attains the smallest permitted magnitude, and J=1 is exactly one corank-two pencil member with all others invertible. An m-by-m nilpotent single Jordan block N yields an alternating off-diagonal pencil with blocks N^T+tI and −(N+tI); its lone singular member has corank two, in every characteristic. The positive row sum (q^n−1)delta is attained at B=0 and is a norm upper bound by the triangle inequality. Unitary Fourier diagonalization gives positive least singular value and condition number q^n−1. A fresh direct proportional-vector tally through all 4095 nonzero vectors for the Jordan witness at (q,n)=(4,6) found 15 proportional vectors, giving −17 against row sum 69615 by the per-vector count; this is finite corroboration in a nonprime field within scope.
 
-Observed successful terminal markers: `PASS p= 2 n= 4`, `PASS p= 3 n= 4`, `PASS p= 2 n= 6`, `PASS_BIG p= 3 n= 6`, and `GF4_ISOTROPIC_BIVECTOR_PASS support=255 checks=50`. The theorem begins in symplectic dimension six; four-dimensional tests check conventions only. The dimension-six ternary and four-dimensional extension-field checks sample frequencies rather than enumerate all of them. No numerical experiment is asserted to prove all dimensions or all field orders.
+## originality
 
-Scientific proof critical steps checked: exact \(\mathrm{SL}_2(\mathbb F_q)\) wedge-presentation multiplicity, subtraction of dependent pairs, alternating-form rank parity, integer spectral lattice, inequality for the least spectral endpoint, and Jordan-pencil attainment. The literature check compared direct and stronger potentially covering statements. The present status is self-review only; independent mathematical validation is not performed.
+PASS
+
+Credit is limited to the sharp all-field nearest-zero endpoint, including its attainment and least-stable frequency characterization (and their conditioning interpretation), as distinguished in the frozen prior-work section. The per-frequency sliced multiplier itself is already implicit in two inspected sources; neither the isotropic point count, the arithmetic step, nor the row sum carries separate originality credit. The actual older theorems give a different extremum or do not give realizability at the nearest-to-zero level.
+
+## value
+
+PASS
+
+Once the entire nonzero isotropic Plücker cone is used, the natural question for inversion is how close its additive Fourier multipliers come to zero, not how large the projective section can be. Sharp all-field attainment quantifies stability on counting l² exactly, including characteristic two, and identifies the pencil profile of the least stable components. This adds an extremal fact not supplied by the exact but profile-conditional count or by code minimum distance; the standard counting argument alone is not the value claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

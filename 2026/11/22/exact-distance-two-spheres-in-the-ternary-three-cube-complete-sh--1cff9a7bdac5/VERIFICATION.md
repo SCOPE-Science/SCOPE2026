@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Finite verification of distance-two ternary Hamming sphere shattering
+# Independent mathematical audit
 
-The proof relies on complete exact trace enumeration over the 27 possible sphere centers, plus exact binary Gaussian elimination. No statistical sampling, external service or randomized algorithm is used. Two independently implemented standard-library checkers are included:
+## correctness
 
-```
-python3 verify_python.py
+PASS
 
-g++ -O2 -std=c++17 -Wall -Wextra -pedantic verify_cpp.cpp -o verify_cpp
-./verify_cpp
-```
+Each center has binomial(3,2)·2²=12 points at exact distance two, and the independent replay found 27 distinct incidence rows. A support is shattered exactly when its restrictions among the 27 rows exhibit all 2^j Boolean traces. The replay enumerated every support through size four and found (1,27,351,2808,3402); at size five the required 32 traces exceed the number of centers, so there are no omitted higher faces. Of the 2808 triples, 2268 extend to a four-face. The sentence about smaller faces in the frozen facet argument needs the fact that every pair extends, not merely that all pairs are faces; the replay verified 351 of 351 pairs lie in a shattered triple. Equivalently the listed four-face representatives contain a pair of each possible mutual distance, and the action is transitive on pairs of each distance. Thus there are only 3402 four-facets and 540 three-facets. Enumeration of all 1296 actions reproduced six disjoint orbits with the displayed representatives and multiplicities, including the two distinct size-1296 orbits. The replay rebuilt the binary boundary columns and obtained ranks (26,325,1913). For the augmented complex on a nonempty vertex set these give zero reduced degree zero and degree one, degree two 2808-325-1913=570, and degree three 3402-1913=1489; all other degrees vanish. The frozen scripts were inspected without execution. The fresh finite replay is complete for this universe, not a formal certificate or an integral homology test.
 
-Both print exactly `expected_output.txt`. The Python program indexes ternary words as tuples and explicitly enumerates all 1296 automorphisms. The C++17 program uses arithmetic base-three decoding and an eight-generator group traversal; the programs use separate face-generation, orbit and elimination implementations. Both iterate every support through cardinality four, with the upper bound at five established separately from the fact there are only 27 concepts. The rank-one boundary value is 26 because the one-skeleton is complete, and the higher boundary ranks 325 and 1913 are computed from the entire 2- and 3-face lists.
+## originality
 
-The checks establish only this finite model and homology over \(\mathbb F_2\). They do not establish integral homology, a homotopy equivalence, general parameter formulas, exhaustive discovery of historical literature, or external independent certification.
+PASS
+
+The strongest inspected comparisons share either the ternary universe or the exact-distance-two predicate, but not both in the same shattering-complex definition. No inspected result covers the ternary distance-two census, six orbit representatives and binary boundary ranks as a whole. The matching Resultary entry is the frozen record itself, not independent coverage. Same-day distance-three comparison establishes a contrast, not relative chronology.
+
+## value
+
+PASS
+
+The first three-symbol three-coordinate cube supports a natural comparison of the three nonzero Hamming relations within one small symmetric space. Exact-distance-two shattering behaves differently from ordinary Hamming adjacency and the antipodal sphere: it reaches dimension four and has maximal faces of two dimensions. The six types specify exactly which supports can occur by symmetry, and the binary homology distinguishes additional structure that the face polynomial and Euler characteristic alone cannot fix. This is a complete, reusable finite reference for the trace relation, rather than a numerical approximation or an arbitrary size cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

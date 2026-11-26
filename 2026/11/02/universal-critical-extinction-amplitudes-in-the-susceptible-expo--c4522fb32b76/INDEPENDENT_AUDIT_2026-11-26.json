@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:06:13.198309Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stated nonnegative feasible domain is invariant by the coordinate boundary derivatives and N′=r(S+E)(1−N)−μI for N=S+E+I. F stays bounded, and S(0)>0 implies S(t)>0. With u=1−S and W=E+I+(β_f/ω)F, direct differentiation at criticality gives W′=−uΛ, where Λ=β₁I+β_f F. The bound Λ≤CW gives strict finite-time W>0 for every seed. The only forward trajectories remaining in uΛ=0 have E=I=F=0: at u=0, feasibility gives E=I=0 and any F>0 immediately decreases S; at u>0, sustaining Λ=0 implies successively F=I=E=0 on a neighborhood. LaSalle on the bounded trajectory then gives W→0, and late logistic lower bounds with carrying capacities arbitrarily close to 1 give S→1. The infection block has positive left and right null vectors ℓ,v with ℓᵀv=D. Its irreducible Metzler structure, through the E,I,F cycle even at β₁=0, gives a simple zero and a stable complement. Since |(log W)′|≤Cu→0, W(s)/W(t)≤exp(ε(t−s)) at late times, and each fixed-lag ratio tends to one. The stable complement forced by O(uW)=o(W) is o(W) by convolution and exponential domination. Thus Λ/W→μ/D and (E,I,F)/W→v/D. Expanding u′ gives stable linear decay −ru, source r(E+I)+Λ, and remainder o(u+W). Comparison first gives u=O(W), then the fixed-lag ratio and dominated convergence in its stable convolution give u/W→K/D. Hence (1/W)′→μK/D², and integration yields the four limits in original time. The argument does not assume prior algebraic decay or restrict the initial seed to a neighborhood. Frozen RESULT.md lines 28–76 are the infinite proof. The uploaded script was inspected, not executed: its three positive-β₁ cases check numerical I and S amplitudes, not all four coordinates or β₁=0. An independent finite diagnostic integrated the stated ODE with DOP853, rtol=10⁻¹⁰, atol=10⁻¹² to T=200000, (r,γ,μ,ρ,ω,β_f,β₁)=(1,2,1,1,1,1,0) and seeds (.8,0,0,.1) and (.1,.3,.1,.2). Both scaled vectors were within 0.00052 in max norm of (2.5,0.5,1,1); this checks implementation at the endpoint, not the global theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The readable stage-structured catalogue proof states t(E,L,N,A)→Qr in a different ODE. The metapopulation catalogue summary mentions a positive-vector inverse-time limit under density-suppressed dispersal, but its theorem text was not available. The incomplete bibliographic citation did not resolve to a checked primary passage"
+        ],
+        "reasoning": "Even a usable general local center-manifold result would need a model-specific quadratic reduction and a demonstration that all the indicated seeds converge and follow the slow positive mode. No checked theorem supplies those results at the stated SEIF boundary.",
+        "searches": [
+          "Resultary ...--ba3881dcd4ec and ...--79a070fc4da7, critical stage and metapopulation profiles",
+          "Global Dynamics of a General Class of Multistage Models for Infectious Diseases (cited as SIAM J. Appl. Math., 2012)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_seif.py",
+        "arXiv:2407.09587",
+        "Resultary ...--ba3881dcd4ec and catalogue summary ...--79a070fc4da7",
+        "10.1103/PhysRevE.102.052309 (access attempt)",
+        "10.3390/math7111039 (access attempt)",
+        "Frozen reference [3] (citation lookup)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact-model passages identify the transcritical line and regimes but give no all-seeded t-scaled vector. The candidate SIR paper and the different-model direct/indirect transmission reference did not yield accessible theorem passages"
+        ],
+        "reasoning": "The rate and coefficients require control of the projected slow-mode force −uΛ, with both normalized limits u/W and Λ/W, and positivity for every seed in the critical basin. They are not determined by the linearization or a threshold classification, and no inspected prior statement mechanically supplies those limits in the same model.",
+        "searches": [
+          "Compare González–Laguna–Abramson's stability and bifurcation passages with the explicit slow amplitude",
+          "Phys. Rev. E 102, 052309, Epidemic plateau in critical susceptible-infected-removed population models",
+          "DOI 10.3390/math7111039"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original article sets R₀=β₁/μ and Φ=β_fρ/ω, with transcritical line Φ=μ(1−R₀). This is the exact critical condition of the frozen record"
+        ],
+        "reasoning": "This checks the model and threshold after changing notation without changing time units. A threshold and equilibrium extinction statement do not give tI(t), the susceptible deficit, or the other critical amplitudes.",
+        "searches": [
+          "arXiv:2407.09587, Eqs. (4)–(8) and threshold discussion",
+          "critical epidemic ODE universal inverse-time amplitude t I(t) limit all initial conditions environmental transmission fomite exposed compartment"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/4/SCOPE-critical-date-palm-mite-extinction-is-globally-stable-with-a-uni--ba3881dcd4ec, mirror offset 0",
+          "2026/11/2/SCOPE-universal-critical-extinction-profile-in-density-dependent-metapopulations--79a070fc4da7, catalogue summary only; mirror lookup failed"
+        ],
+        "reasoning": "Neither the stage-model amplitude Qr nor the catalogue description of a metapopulation Perron profile identifies the SEIF model or the factors D and K. A same-day date does not determine order; the metapopulation full-text comparison remains open. There is no finite tabular test for this continuum of parameters and initial states.",
+        "searches": [
+          "Configured local Resultary mathematical catalogue, critical SEIF vector amplitudes, universal inverse-time extinction and density-dependent stage models"
+        ]
+      },
+      "rationale": "The distinct claim is the explicit four-coordinate critical amplitude and convergence for every feasible seeded trajectory with S(0)>0 in the exact stated model, including β₁=0. The original model and transcritical threshold are established prior work. The general t⁻¹ mechanism and projection onto a nonhyperbolic positive eigenvector are not claimed as new. Neither the same-model threshold analysis nor the available different-model profile results establish these coefficients and basin. No equivalent or stronger covering result was established in the bounded comparison.",
+      "residual_risks": [
+        "The indicated inaccessible sources, including the indexed metapopulation theorem text and unresolved multistage citation, were not ruled out on the strength of failed retrieval. An unindexed or inaccessible equivalent reduction and basin theorem could overlap.",
+        "The independent computation tested a finite horizon and one normalized parameter set; correctness of the unrestricted limit rests on the proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same ODE and threshold, no amplitude in the inspected passages",
+          "evidence": "Eqs. (4)–(7) are the stated equations; Eq. (8) gives Φ=μ(1−R₀). The checked stability and numerical-regime passages do not establish t-scaled asymptotic coefficients.",
+          "identifier_or_url": "https://arxiv.org/pdf/2407.09587",
+          "material_read": "PDF pp. 2–3, Eqs. (4)–(8), offsets about 8000, 14195 and 18000; conclusion p. 6, offset about 45100",
+          "method": "Open primary PDF passages",
+          "title": "A mean field analysis of the role of indirect transmission in emergent infection events",
+          "trigger": "Original equations and exact reproduction threshold"
+        },
+        {
+          "assessment": "Different stage ODE and amplitude",
+          "evidence": "States t(E,L,N,A)→Qr at unit threshold for its nonzero initial states, not the SEIF equations or amplitude.",
+          "identifier_or_url": "2026/10/4/SCOPE-critical-date-palm-mite-extinction-is-globally-stable-with-a-uni--ba3881dcd4ec",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Local mirror primary text",
+          "title": "Critical date palm mite extinction is globally stable with a universal asymptotic profile",
+          "trigger": "Indexed global inverse-time stage profile"
+        },
+        {
+          "assessment": "Analogous profile in summary; full applicability not established",
+          "evidence": "Summary describes density-suppressed dispersal and x_i(t)∼v_i/(κt); mirror returned no file.",
+          "identifier_or_url": "2026/11/2/SCOPE-universal-critical-extinction-profile-in-density-dependent-metapopulations--79a070fc4da7",
+          "material_read": "Catalogue summary; no primary theorem passage retrieved",
+          "method": "Local catalogue and mirror retrieval attempt",
+          "title": "Universal critical extinction profile in density-dependent metapopulations",
+          "trigger": "Potentially broader indexed Perron-threshold profile"
+        },
+        {
+          "assessment": "Unresolved, not negative evidence",
+          "evidence": "HTTP 403 on DOI retrieval; alternate retrieval timed out.",
+          "identifier_or_url": "10.1103/PhysRevE.102.052309",
+          "material_read": "Search title only; no theorem text",
+          "method": "Open DOI attempt and identified arXiv recovery attempt",
+          "title": "Epidemic plateau in critical susceptible-infected-removed population models",
+          "trigger": "Closest literature-search lead on critical dynamics"
+        },
+        {
+          "assessment": "Full equations and theorem not checked",
+          "evidence": "The accessible material did not yield a primary equation or asymptotic result.",
+          "identifier_or_url": "10.3390/math7111039",
+          "material_read": "Landing material only",
+          "method": "Lawful OA retrieval attempts",
+          "title": "Comparing Direct and Indirect Transmission in a Simple Model of Veterinary Disease",
+          "trigger": "Cited environmental-model comparison"
+        },
+        {
+          "assessment": "Primary source not resolved",
+          "evidence": "Citation lacks author, DOI, volume and pages; no theorem passage was retrieved.",
+          "identifier_or_url": "Frozen RESULT.md reference [3], listed as SIAM J. Appl. Math. (2012)",
+          "material_read": "Cited title and journal/year only",
+          "method": "Citation lookup attempt",
+          "title": "Global Dynamics of a General Class of Multistage Models for Infectious Diseases",
+          "trigger": "Cited possible general critical threshold theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the exact threshold the linearization predicts no strict exponential decay, while threshold and stability classifications leave the decay coefficient unknown. The explicit slow profile shows how the four components share the critical mode and separates the roles of the stable susceptible response and the infection-mode normalization. Proving it for the full seeded basin rather than only on a local center manifold gives precise information the original critical equilibrium result does not supply.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The decrement identity is exact for every permitted index and was independently checked from the floor definition. The generic density follows from a Jordan-measurable two-torus region of area \(\alpha(1-2\alpha)\) and rational independence of the two rotation frequencies. For \(\alpha=\sqrt2-1\), the quadratic relation collapses the two frequencies and excludes the decrement region exactly. The initial index and positivity of nested arguments are treated explicitly. Numerical tests are not substituted for the proof.
+## correctness
 
-## Originality — PASS on inspected evidence
-The original 2023 Deane--Gentile paper introduces the recursion and the follow-up 2025 paper's Lemma 2.7 establishes slow forcing for parameters at least one half. The new contribution is an explicit positive decrement density for all rationally independent parameters below that threshold and an algebraic resonant exception with zero decrements. It is not a paraphrase of the known sufficient range. Search did not identify a stronger equivalent statement. Residual risk: a nonindexed equivalent Beatty-floor correlation theorem might imply the density without matching terminology.
+PASS
 
-## Value — PASS
-This gives a quantitative phase distinction for a natural one-parameter family of exact solutions to a nested sequence: generic inputs below a known sufficient-slowness threshold are non-slow with a computable frequency, yet a distinguished quadratic input remains slow. The contrast exhibits why any universal sharp-threshold converse fails and singles out a meaningful arithmetic resonance. The result is structurally stronger than an isolated finite example.
+For 0<α<1, q(1)=1 and 1≤q(n)≤n, so all nested arguments are defined and strictly earlier. The forcing gives the recursion by construction. With s_j=q(j)−q(j−1)∈{0,1} and t_n=n−q(n−1), t_(n+1)−t_n=1−s_n, giving Δf(n)=s_(n+1)−(1−s_n)s_(t_n+1) for n≥2; the n=1 step is floor(2α). For α<1/2 the first two increments being zero means u={α(n−1)}<1−2α, with this upper boundary excluded. Because t_n=(1−α)(n−1)+u, a decrement then occurs exactly when {v+αu}≥1−α, with v={α(1−α)(n−1)}. Rational independence of 1,α,α² is equivalent to that of 1,α,α(1−α); the two-dimensional Weyl criterion applies since every nonzero integer-frequency dot product is nonintegral. The polygonal/modular test region has null boundary and v-section length α at every eligible u, so its density is α(1−2α); the index shift does not affect the limit. At α=√2−1, α²=1−2α and v≡3u modulo one. In the only possible decrement strip, (3+α)u<(3+α)α²=1−α<1, so the fractional-part test fails strictly, even at boundary-sensitive indices. All successive differences are consequently 0 or 1 at that parameter.
 
-## Limitations
-The generic law excludes rational/quadratic dependence, and the resonance theorem is one explicit exception rather than a complete exceptional set classification. The proof uses a standard equidistribution theorem. A search cannot certify publication priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior work establishes the same nested recursion, Beatty-derived forcing, and upper-range slowness. The audited addition is the exact lower-range decrement density under rational independence together with a strictly below-half quadratic resonance. Neither the inspected results for this model nor analogous floor-iteration results cover that pair of assertions.
+
+## value
+
+PASS
+
+The established upper half supports slow forcing throughout. Below it, the exact decrement rate shows a positive-density obstruction for almost every parameter, while the silver-ratio parameter shows that the cutoff is not a necessary condition for slowness. Together these settle a natural question about the threshold and locate an explicit arithmetic exception rather than reporting isolated counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

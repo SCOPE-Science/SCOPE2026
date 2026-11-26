@@ -1,0 +1,181 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:01:03.983172Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–44, 47–99",
+        "Frozen VERIFICATION.md lines 18–24 and CHECK.py lines 11–83, inspected only",
+        "/workspace/review-replays/2.py (independent ratio-and-orientation quadrature); tail at 1 is 0.2031351044076766, giving atom 0.7968648955923234; at r=1.999 the scaled tail is 0.05071128620572594 versus 1/(2π²)≈0.05066059"
+      ],
+      "rationale": "Only the Schur complement s=y₂−t y₁ can create growth because the input max M already counts all original entries. The nonreinforcing signs give |s|≤M and the reinforcing signs have independent probability 1/2. Folding the two independent standard Gaussian columns gives angle densities 4/π and 2/π and independent Rayleigh radii R,S. For r≥1 the inequalities against the two second-column entries are exactly the stated arctangent interval; it is nonempty iff tan α>r−1 up to null boundaries. The remaining inequality is S/R>r cos²α/sin(α+φ), with tail 1/(1+x²) at x≥0. Differentiating the continuous arctangent angle gives the advertised primitive derivative sin²z/(sin²z+c²), including through z=π/2. The integral is continuous for interior r, input counting forces ρ≥1, and |t|<1 almost surely gives ρ<2. Independent endpoint check: put u and v equal to the within-column minor/max absolute ratios, each with density 4/[π(1+u²)] on [0,1]. With reinforcing signs the two equally likely orientations of the second column give |s|/max(|y₁|,|y₂|)=1+uv or u+v. At r=2−δ the domains uv>1−δ and u+v>2−δ each have (u,v)-area δ²/2+O(δ³). Over them the two density factors are 2/π+O(δ) and the conditional remaining max-ratio probability is 1/2+O(δ). Multiplying orientation and sign probabilities gives δ²/(2π²)+O(δ³), independently of the folded-angle expansion. The exact complement of the strict tail at one gives the atom; the reported decimal is a numerical evaluation, not a certified interval.",
+      "residual_risks": [
+        "Numerical quadrature does not certify rounding or prove the endpoint limit. The proof applies to iid real Gaussian entries in 2×2 exact partial pivoting with step zero counted, not floating-point, column pivots, other ensembles, or higher dimensions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Spielman–Yu prove a Gaussian lower tail-probability bound for n≥122, not equality at n=2",
+          "Peca-Medlin–Trogdon derive exact product growth laws for structured Haar-butterfly inputs with truncated Cauchy variables",
+          "Trefethen's note expressly distinguishes u_nn from the full growth factor",
+          "Later 0f4ba5c4f2a0 gives a broader even continuous input tail law at size two"
+        ],
+        "reasoning": "The first three works are broader in dimension or nearby in subject but do not dominate the frozen assumptions and conclusion. The broader later indexed law is genuine distributional overlap, not verified earlier coverage.",
+        "searches": [
+          "arXiv:2610.08701 §2.2 Theorem 2.2",
+          "arXiv:2203.15921 Theorem 2.3",
+          "arXiv:2610.04761 abstract and §3",
+          "Resultary 0f4ba5c4f2a0 Finding"
+        ]
+      },
+      "checked_sources": [
+        "Trefethen–Schreiber 1990, pp. 336, 338, 348–350, 360",
+        "arXiv:2610.08701",
+        "arXiv:2610.04761",
+        "arXiv:2203.15921",
+        "DOI:10.1137/0610012 and DOI:10.1145/74650.74653 for the MacLeod citation",
+        "Resultary entries 0f4ba5c4f2a0 and 465b1636c184"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The accessible Trefethen–Schreiber §1 discussion describes empirical statistics up to size 100, sample size 10,000, not a derivation of the exact n=2 law",
+          "The indexed later endpoint limit agrees exactly with the leading constant; 0f4ba5c4f2a0 states an o(δ²) remainder there rather than the frozen O(δ³) remainder",
+          "The older report is bibliographically confirmed, but no examined passage attributes a finite-dimensional exact law or this near-cap asymptotic to it"
+        ],
+        "reasoning": "Earlier statements actually read do not mechanically give the complete law or the endpoint coefficient. Crediting the later mathematical overlap does not imply that the frozen claim was already covered at its recorded date; no absolute priority claim is made.",
+        "searches": [
+          "Trefethen–Schreiber §1 p. 338 and p. 360 reference [21]",
+          "Higham–Higham (1989) reference to MacLeod, DOI:10.1137/0610012",
+          "MacLeod (1989) DOI:10.1145/74650.74653",
+          "465b1636c184 and 0f4ba5c4f2a0 mirrored findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At size two the frozen numerator is max(M,|s|), not simply the maximum of U when the input max disappears in elimination",
+          "Later indexed 0f4ba5c4f2a0 includes input and triangular factor, matching this convention, and gives the Gaussian tail as a two-variable integral",
+          "Later indexed 465b1636c184 uses the input-inclusive convention and the same endpoint constant"
+        ],
+        "reasoning": "The later tail integral need not use the same integration coordinates to cover the same probability; it also determines the atom by a right limit. Definitions that omit M can disagree at and below one and must not be conflated with this complete law.",
+        "searches": [
+          "Resultary: exact Gaussian 2×2 GEPP growth law, point mass at one, quadratic near-max tail",
+          "Trefethen–Schreiber Eq. (0.2) and §6",
+          "Spielman–Yu arXiv:2610.08701 Definition 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The n=2 standard-normal partial-pivoting averages in Trefethen–Schreiber's table are about 1.04 with raw-max and 1.52 with standard-deviation normalization; these are not distribution data",
+          "The two material indexed matches are later entries; neither inspected Finding gives the numerical atom",
+          "The MacLeod title search obtained citations, not the report or an exact table"
+        ],
+        "reasoning": "No exact prior CDF or atom table is evidenced by the accessible material; an average does not determine an atom, and an inaccessible technical report cannot be described as not covering the claim.",
+        "searches": [
+          "Trefethen–Schreiber (1990) §6 Tables 6.1–6.2 and Fig. 6.1",
+          "Resultary exact growth-law, atom and endpoint lookups",
+          "Web: exact title 'The distribution of the growth factor in Gaussian elimination with partial pivoting', A. J. MacLeod, Paisley College"
+        ]
+      },
+      "rationale": "Pass for the exact step-zero-inclusive iid real-Gaussian 2×2 distribution and endpoint expansion at the frozen record's date. Earlier sources inspected supply either empirical averages, different matrix ensembles, a different growth statistic, or large-n probability bounds. Strong later indexed overlaps are real: the later even-entry tail formula specializes to the Gaussian strict tail on (1,2), and its right limit at 1 determines the atom, although the inspected statement does not evaluate it. The dated overlaps do not establish earlier coverage. MacLeod's 1988 unpublished report is an identified and substantive open priority risk, not affirmative evidence of coverage.",
+      "residual_risks": [
+        "The 1988 MacLeod report and the ACM companion full text were unavailable; either could contain a relevant earlier exact special case. Later indexed results establish current overlap, not lineage or definitive publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Experiments and averages, not the exact CDF or endpoint coefficient in the inspected material",
+          "evidence": [
+            "Fig. 6.1, Tables 6.1–6.2; MacLeod report citation"
+          ],
+          "identifier_or_url": "https://people.maths.ox.ac.uk/~trefethen/publication/PDF/1990_44.pdf",
+          "material_read": "Eq. (0.2) p. 336, §1 p. 338, §6 pp. 348–350, p. 360 ref. [21] (OA offset 84000–85550)",
+          "method": "Compared normalization, the reported Gaussian statistics and the older report citation",
+          "title": "Average-Case Stability of Gaussian Elimination",
+          "trigger": "Same partial-pivoting growth definition and numerical size-two results"
+        },
+        {
+          "assessment": "Relevant high-dimensional result, excludes size two",
+          "evidence": [
+            "Gaussian tail-probability lower bound for n≥122"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.08701",
+          "material_read": "Def. 2.1 and §2.2 Thm. 2.2, PDF p. 5",
+          "method": "Compared the allowed dimensions and inequality with a fixed-dimension distributional identity",
+          "title": "Large Growth Happens: Gaussian Elimination with Partial Pivoting on Random Matrices",
+          "trigger": "Gaussian GEPP tail result"
+        },
+        {
+          "assessment": "Exact distribution but a different input ensemble",
+          "evidence": [
+            "Structured Haar-butterfly factors; products with truncated Cauchy variables"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2203.15921",
+          "material_read": "Theorem 2.3 and proof, pp. 9–10",
+          "method": "Compared ensemble and where maximal growth is attained",
+          "title": "Growth factors of random butterfly matrices and stability of avoiding pivoting",
+          "trigger": "Exact GEPP growth distributions in a random ensemble"
+        },
+        {
+          "assessment": "The inspected result distinguishes the corner entry from full growth",
+          "evidence": [
+            "Explicit distinction between u_nn and the maximum involving all U entries"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.04761",
+          "material_read": "Abstract p. 1 and §3",
+          "method": "Compared u_nn with the maximum over all elements",
+          "title": "Trefethen's preliminary Gaussian-elimination note",
+          "trigger": "Potential exact corner-entry law"
+        },
+        {
+          "assessment": "Unresolved priority risk, not evidence of the report's mathematical contents",
+          "evidence": [
+            "Citations identify an unpublished Paisley technical report; indexed companion article refers to availability from author"
+          ],
+          "identifier_or_url": "A. J. MacLeod, unpublished Paisley College of Technology Technical Report (1988); Trefethen–Schreiber ref. [21]; DOI:10.1137/0610012 bibliography",
+          "material_read": "Bibliographic citations and Trefethen–Schreiber §1 characterization; report not recovered",
+          "method": "Exact title search and lawful attempts to recover the 1989 ACM companion article DOI:10.1145/74650.74653; no full text recovered",
+          "title": "The distribution of the growth factor in Gaussian elimination with partial pivoting",
+          "trigger": "Nearly exact title and older random-matrix statistical work"
+        },
+        {
+          "assessment": "Material overlap, broader iid even input law; later indexed date",
+          "evidence": [
+            "Exact strict tail at t>1 and Gaussian coefficient 1/(2π²); atom recoverable by right limit"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-quadratic-rare-growth-boundary-for-gaussian-partial-pivoting-i--0f4ba5c4f2a0/RESULT.md",
+          "material_read": "Mirrored Finding and proof opening, offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Matched pivoting and growth normalization, input law and Gaussian specialization",
+          "title": "A quadratic rare-growth boundary for Gaussian partial pivoting in size two",
+          "trigger": "Broad indexed exact tail and same Gaussian coefficient"
+        },
+        {
+          "assessment": "Same endpoint limit; later indexed date and not a full law",
+          "evidence": [
+            "Original entries counted and same 1/(2π²) endpoint limit"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-sharp-gaussian-edge-law-for-two-by-two-partial-pivoting-grow--465b1636c184/RESULT.md",
+          "material_read": "Mirrored Finding and proof opening, offset 0",
+          "method": "Matched input ensemble, growth definition, and endpoint normalization",
+          "title": "The sharp Gaussian edge law for two-by-two partial-pivoting growth",
+          "trigger": "Exact two-by-two endpoint duplicate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–44 and 96–105",
+        "Trefethen–Schreiber §6",
+        "arXiv:2610.08701 §2.2"
+      ],
+      "rationale": "Large-growth probability for a Gaussian matrix is a motivated object in numerical analysis. The smallest nontrivial elimination size has an exact law that quantifies both the mass at no growth under the input-inclusive convention and the rare near-worst-case tail; neither the deterministic cap nor published averages answer those questions. This is a precise baseline for interpreting higher-dimensional probabilistic estimates, without asserting that the endpoint exponent extrapolates.",
+      "residual_risks": [
+        "Scientific value is as an exact two-dimensional benchmark; no broader algorithmic or finite-precision benefit is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The finite-domain check uses two standalone sources included in the same package. `verify_kneser.py` generates proper set partitions on the disjointness graph of the ten two-element subsets of a five-element set, checks the neighborhood condition, verifies all four group orbit equalities, and applies four breadth-first searches. `verify_gp.cpp` independently builds the ordinary generalized Petersen graph with ten vertices, enumerates named proper assignments, and applies breadth-first search from all 5760 valid four-colourings. Both programs were run on their embedded sources and their stdout compared byte-for-byte with the included expected output files.
+# Independent mathematical audit
 
-Exhaustive scope: all proper three- and four-palette assignments; all valid four-palette recolouring adjacencies; every starting state via four verified symmetry classes in one implementation and every single starting state in the other. In particular, absence of a three-colour solution comes from exhaustive testing of all 120 proper named three-colourings, not an unsupported computational timeout. The full pair-distance histogram has total \(\binom{5760}{2}\).
+## correctness
 
-Limits: computations establish a finite theorem about the ten-vertex Petersen graph only. The historical-priority comparison relies on accessible published sources and record searches; inaccessible full texts and unindexed historical findings may exist. No external scholarly audit or independent certification is represented as completed.
+PASS
+
+Reconstructed the finite proof and independently reproduced the whole table with python3 /workspace/branches/petersen_reproduction.py (requires NumPy). It filters all 4^10 words by the fifteen edges and the ten distinct-neighbor-color tests; excluding one fixed label checks the three-palette case by symmetry (120 proper and zero dynamic), and the odd cycle excludes smaller palettes. All 5,760 valid states use four names. Recolouring edges were built by grouping on the other nine coordinates, so every edge differs at exactly one coordinate and no move is missed. Direct orbit-set equalities verify completeness of the four profiles. Exact successive neighbor-set layers from a representative of each orbit reached all 5,760 states; orbit-weighting and division by two at positive distances apply because both actions preserve legal moves and every unordered pair has two orientations. Reproduced degrees 9,9,6,6 and eccentricities 15,15,16,16 in the stated profile order, and matched all sixteen histogram entries, summing to 16,585,920 unordered pairs with 20,160 at distance one and 12,960 at distance sixteen. The computation is exhaustive for this named-palette, open-neighborhood, single-vertex graph only. Inspected, but did not execute, the two frozen implementations and their reference outputs.
+
+## originality
+
+PASS
+
+The valid-state populations follow by testing the four already tabulated ordinary-coloring orbit representatives, and the same-day Kneser conflict-free theorem covers the minimum palette at n=5. These facts do not carry novelty credit. The surviving exact result is the metric of the legal induced recolouring graph, including the singleton/eccentricity equivalence. The closest earlier computation is for the full graph and gives different eccentricities and diameters; it does not give an induced distance table. The inspected dynamic and conflict-free sources contain no equivalent metric result. Best-of-knowledge assessment, not a publication-priority guarantee.
+
+## value
+
+PASS
+
+The Petersen graph is a canonical cubic benchmark, and reconfiguring minimum-palette assignments subject to the natural local nonmonochromatic-neighborhood constraint can destroy connectivity or change shortest paths. The exact result says it stays connected but its diameter grows from 14 to 16, and a singleton class characterizes the entire radius-15 center of the constrained graph. That structural criterion, and the exact shell counts when needed for testing constrained recolouring methods, are useful on this graph without claiming a general cubic-graph theorem. Recomputing the published ordinary orbit table alone would not meet this value test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

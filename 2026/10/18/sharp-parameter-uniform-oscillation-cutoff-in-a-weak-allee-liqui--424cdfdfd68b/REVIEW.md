@@ -1,15 +1,21 @@
-# Scientific review of the sharp parameter-uniform oscillation cutoff
+# Independent mathematical audit
 
-## Correctness — PASS
-The explicit Dulac divergence is \((Mx/(x+M)^2-r)/(xy^2)\), with a nonpositive numerator for all positive states whenever \(r\ge1/4\). Equality at the threshold occurs only on a vertical line, so Green's theorem still gives a strict flux contradiction for every enclosed open region. At \(M=1/2\), the positive equilibrium has imaginary frequency \(1/4\), transverse trace \(1/4-r\), and first Lyapunov coefficient \(-1/2\) in the stated eigenvector convention. These hypotheses satisfy the nondegenerate supercritical Hopf theorem and place stable cycles on the lower-rate side. The standalone symbolic program reconstructs all critical identities. No finite test is interpreted as an exhaustive proof.
+## correctness
 
-## Originality — PASS, subject to a documented literature risk
-The motivating 2026 paper's Section 5 obtains the local Hopf curve, but the local result does not imply global absence of remote cycles or a sharp cutoff uniform in \(M\). Related weak-Allee predator–prey papers study different vector fields. Full-text access to Zhang and Yan's broader 2017 generalized-Dulac article was unavailable, so a theorem in that source might subsume the proposed exact cutoff; the existence of that potential overlap is not concealed. Published research and relevant semantic records were compared using the exact model, parameter boundary, aliases, and logical implication, not mere title matching. The claim is model-specific and does not assert novelty of the Dulac theorem or of Hopf theory.
+PASS
 
-## Mathematical value — PASS
-The 2026 source's economic interpretation makes recurrent liquidity–profit cycles a motivating mathematical object. A universal, equality-inclusive no-oscillation criterion removes all possible periodic regimes at fast enough adaptation, including cycles that local linearization cannot rule out. The explicit sharpness example proves the constant cannot be globally improved rather than merely giving a convenient sufficient bound. This is a natural threshold classification, not an arbitrary special-case numerical fact.
+With D=1/(xy^2), the weighted components are (x/(x+M)-y)/y^2 and (r/x)(1/y-1/x). Their divergence is [Mx/(x+M)^2-r]/(xy^2). The numerator is bounded above by 1/4-r by the identity (x+M)^2-4Mx=(x-M)^2. At r=1/4 it is negative off one line; an interior periodic Jordan curve, whose enclosed region lies in the positive quadrant, would have zero flux and strictly negative integrated divergence. At M=1/2 the trace is 1/4-r and the critical determinant is 1/16; the real parts cross with slope -1/2. Independent exact replay `python3 /workspace/review-evidence/4.py` checks the critical linear part after u=x-1/2 and v=2(y-1/2)-u and gives cubic radial coefficient -1/32 in these real coordinates and original time. This corroborates the sign and is consistent with the different complex-amplitude and time normalization in the frozen formula. The smooth supercritical Hopf theorem gives a small attracting positive cycle for r just below 1/4, enough to rule out any smaller uniform cutoff. No conclusion is drawn about global convergence, the boundary, or existence of cycles for arbitrary r<1/4. Frozen SymPy checker inspected, not executed.
 
-## Limitations and closest prior literature
-The proof excludes only strictly positive periodic orbits and makes no global-attractor assertion. Relevant references are Demetrian–Zimka (arXiv:2607.19422v1, full Section 5), Zhang–Yan (DOI 10.1016/j.aml.2017.03.008, abstract accessible only), and González-Olivares et al. (DOI 10.15388/NA.2017.3.5, abstract and model description). The lack of complete 2017 generalized-Dulac full text is a residual originality risk and independent review remains desirable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the global, equality-inclusive, all-M no-cycle boundary. The same-model Hopf result already gives the sharpness witness; neither that witness nor Bendixson–Dulac is claimed as new. Checked statements do not establish the global bound; a plausible broader 2017 theorem remains an explicit access risk.
+
+## value
+
+PASS
+
+The equality-inclusive boundary rules out even remote cycles in the exact motivated subsystem, filling a question not resolved by the local phase portrait. Maximizing the local Hopf curve alone would not provide this result. Sharpness is uniform over M, not a claim of optimality for each M.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

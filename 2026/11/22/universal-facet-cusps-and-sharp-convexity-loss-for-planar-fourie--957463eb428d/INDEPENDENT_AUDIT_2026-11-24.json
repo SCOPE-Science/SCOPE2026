@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:44:14.588496Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the stated no-2pi Fourier convention, the divergence theorem gives i/r times the edge sum. Its uniform O(min(1,1/r)) transform bound gives a positive continuous finite radius for 0<p<2. In the cusp calculation, the nonparallel-edge sum is O(1/r) after factoring out i/r; its angular derivative is O(1), while the parallel-edge sum and derivative are O(1) and O(r). Thus the nonparallel terms change by O(|theta|) against r^(p-3). Opposite parallel edges have distinct support heights. Their unattenuated oscillatory integral is locally C^1 in the nonzero phase frequency by integration by parts; after subtracting its value the attenuation rescales to an L^1 kernel at frequency tending to infinity. Extending that kernel from its moving lower bound to zero introduces a lower-order term, so Riemann–Lebesgue eliminates the cross-edge cusp. The self-edge calculation with beta=2-p uses the triangular sinc-squared kernel and integrates to pi*2^beta/[Gamma(3+beta)sin(pi beta/2)]; rescaling by ell/2 and multiplying by p/A gives the stated additive coefficient. Taylor expansion gives the reciprocal radius, whose exponent below one is incompatible with a Lipschitz polar support function. At p>=2 the nonoscillatory positive sum of squared facet lengths produces a divergent diagonal radial integral at each facet normal; the oscillatory cross and the O(r^-2) Fourier remainder have lower growth order. The conclusion there is unboundedness, not a blanket nonconvexity claim. LMZ Theorem 9 supplies the p<=1 result in the same convention. Frozen VERIFICATION.md and check.py were inspected, not executed; their triangle/square/trapezoid checks are corroborative, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "LMZ Theorem 9 covers arbitrary convex bodies for 0<p<=1; Theorem 11 covers cubes for 1<p<2",
+          "The all-polygon horn record has the same edge sum in the 2<p<4 boundary layer and a logarithm at p=2"
+        ],
+        "reasoning": "Neither the theorem with broader shape class in the low exponent range nor the theorem with narrower shape class in the cusp range settles the all-polygon cusp. The p>2 law has a different leading object (divergence, not subtraction at a finite directional value).",
+        "searches": [
+          "Langharst–Manui–Zvavitch arXiv:2601.20117v3 Theorems 9 and 11",
+          "Resultary cde2081838e2 Finding and Proof §3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md proof §§1–4, VERIFICATION.md and check.py",
+        "arXiv:2601.20117v3, passages above",
+        "Resultary cde2081838e2, a7d140566df1 and identical bound record 957463eb428d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The square proof uses its special radial expression and does not imply the local law for arbitrary edge configurations",
+          "The horn proof uses the same sinc boundary layer and oscillatory averaging above p=2; its unattenuated rescaled kernels are not integrable at zero below p=2",
+          "The frozen lower-side proof requires subtracting the finite baseline, controlling the angular variation of the complementary terms, then using the integrable sinc-product-minus-one kernel"
+        ],
+        "reasoning": "The overlapping boundary-layer method is substantive but the stated upper-range consequence cannot be substituted below p=2. The separate subtraction and remainder argument establishes the low-range coefficient. The earlier-work remark in the same-day entry names no separate source that covers that conclusion; no order is inferred from the date.",
+        "searches": [
+          "LMZ arXiv:2601.20117v3 §7.2 negative-curvature argument",
+          "Resultary cde2081838e2 Proof §3 and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "LMZ uses the same p/Vol ray-integral normalization and no-2pi Fourier phase",
+          "For the square [-1,1]^2 their normalized radial function has leading loss |theta|^(2-p); undoing their normalization gives p*pi*2^(3-p)/[Gamma(5-p)sin(pi p/2)], the same coefficient as two edges of length 2 here",
+          "Resultary cde2081838e2 gives an infinite-radius facet horn for 2<p<4 and a log horn at p=2, rather than a finite-radius defect below p=2"
+        ],
+        "reasoning": "Changing normalizations does not distinguish the square case; it is already covered. In the general formula the feature is the exact sum from any one or two parallel edges, including a single edge and unequal opposite edges.",
+        "searches": [
+          "Resultary semantic lookup for polygon Fourier mean cusp, facet-normal radial loss and sharp convexity threshold",
+          "arXiv:2601.20117v3 Definition 2 Eq. (9), Eq. (26), §7.2 Eqs. (116)–(121)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed cube-residue result a7d140566df1 has sharp directional finiteness threshold p<2k by coordinate support",
+          "LMZ square exact formula matches the special-case cusp, while the indexed all-polygon horn formula applies for p>=2",
+          "The assignment itself was indexed under 957463eb428d and is not independent corroboration"
+        ],
+        "reasoning": "An integer sequence/table is not appropriate for a continuum of polygons and exponents. The relevant exact geometric formulas were compared directly in the indexed records and primary text.",
+        "searches": [
+          "Resultary exact facet/asymptotic formula search: cde2081838e2 and a7d140566df1",
+          "LMZ §7.2 explicit square radial formula"
+        ]
+      },
+      "rationale": "The supported distinct claim is the finite-radius facet-normal defect for all planar convex polygons for fixed 1<p<2, with exact additive length coefficient, implying nonconvexity for all such polygons. The square formula, the p<=1 convexity theorem, and known square/cube directional divergence are not credited as new. The neighboring same-day Resultary entry has materially overlapping methods and boundary geometry but its stated horn laws cover different exponents; its unattributed remark about earlier cusp work does not establish a separate equivalent source or priority.",
+      "residual_risks": [
+        "The unnamed earlier-work remark and within-day provenance of the adjacent entry remain unresolved; there is no independent separate matching statement established",
+        "Bounded external lookup does not exclude a non-indexed equivalent result; the verdict does not assert historical priority",
+        "The result assumes fixed p in the open cusp range and maximal edges, without endpoint-uniform or higher-dimensional claims"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers same normalization, general low-p convexity and the special square cusp/cube nonconvexity; not the all-polygon lower-range law",
+          "evidence": [
+            "p/Vol normalization and Fourier phase exp(-i<x,y>)",
+            "Exact square radial formula gives matching coefficient after gamma reflection"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2601.20117v3",
+          "material_read": "Def. 2 Eq. (9), Eq. (26), Theorems 9 and 11, §7.2 Lemma 44/Proposition 45 and Eqs. (116)–(121)",
+          "method": "Primary OA HTML at offsets 11551, 33400, 19306, 20564, and about 180500–190500",
+          "title": "On the Fourier Mean Bodies of a Convex Body",
+          "trigger": "Same geometric construction and established convexity/nonconvexity cases"
+        },
+        {
+          "assessment": "Material overlap in polygon edge decomposition, length coefficient and cross-term method; upper-side horns rather than the lower-side cusp",
+          "evidence": [
+            "The positive transverse power horn is for 2<p<4 and the logarithmic horn for p=2",
+            "The comparison passage explicitly excludes the lower-side cusp from its claim and calls it earlier work, without identifying another source"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-three-fourier-mean-area-phases-and-universal-polygonal-facet-hor--cde2081838e2",
+          "material_read": "Finding, Proof §3 at offsets 5640–8087, Relationship to prior work at offset 9000",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Three Fourier-mean area phases and universal polygonal facet horns",
+          "trigger": "Strongest all-polygon indexed overlap"
+        },
+        {
+          "assessment": "Relevant cube-specific endpoint result, not a polygon angular defect",
+          "evidence": [
+            "Finiteness threshold at p=2k for k nonzero coordinates"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-coordinate-stratified-divergence-and-sharp-resonance-residues-of--a7d140566df1",
+          "material_read": "Finding on directional finiteness by coordinate support",
+          "method": "Resultary local mirror",
+          "title": "Coordinate-stratified divergence and sharp resonance residues of Fourier mean bodies of cubes",
+          "trigger": "Exact directional threshold and resonance residue for a subclass"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem turns the earlier square counterexample into a universal obstruction for polygons and supplies a reusable local invariant: the leading reciprocal-radius defect at any given facet normal is determined by a precise sum of the facet lengths to a specific power. The computation handles unequal opposite edges without assuming symmetry and gives a regularity-based reason for failure of convexity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

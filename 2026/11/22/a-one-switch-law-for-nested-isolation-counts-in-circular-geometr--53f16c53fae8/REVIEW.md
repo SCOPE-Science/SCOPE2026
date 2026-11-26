@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The circle's ordered gap vector has the exact uniform-simplex distribution. Enumerating equal, neighboring, and nonneighboring ordered vertex pairs gives the three term covariance formula, independently rechecked by the standalone exact-rational checker. Dividing by the positive two-gap probability produces a strictly decreasing, eventually constant sign function. The terminal value yields the exact threshold and zero plateau; the finite-radius variance is positive by exhibiting positive-probability configurations with distinct isolate counts. A first-order expansion of the exact formula gives the claimed sparse kernel and its single strictly linear crossing. Restrictions to fixed-size independent uniform points and \(n\ge3\) are essential.
+## correctness
 
-## Originality — PASS, with priority risk
-The original soft-graph literature has a different Poisson/soft model and establishes one-radius moments or limits; it does not provide a fixed-\(n\), two-radius isolation covariance classification. Public one-switch laws for circular uncovered-gap counts and interval graph component counts apply to a one-gap indicator, whereas isolation requires adjacent *pairs* of gaps and generates a four-gap mixed term. Existing edge–isolate results concern cross-observable dependence at one radius. The exact one-switch formula is not an immediate numerical substitution from those statements. Earlier broad geometric probability or spacing literature may still contain an equivalent result; inspection was not exhaustive.
+PASS
 
-## Value — PASS
-Multiscale isolated-vertex counts are natural diagnostics of near-connectivity in spatial networks and of changing geometric resolution. Their pathwise nested nature conceals potentially negative cross-radius dependence. The exact threshold is a meaningful finite-sample classification: the mean number of isolates equals one at the transition, and an entire zero-covariance plateau appears there. The sparse dependence frontier quantifies multiscale behavior without Poisson approximation. This is a structural dependence theorem, not a promise of improved test power.
+The unchanged covariance, phase diagram and sparse root hold with the repaired proof in /workspace/repairs/2/RESULT.md. Anchor the cyclic order at a sampled label, rotate it to zero, and use the spacings of the other n−1 iid uniforms with endpoints 0 and 1. The Dirichlet premise is generally not true with the wrap gap distinguished by a fixed spatial origin; the cyclic count is independent of indexing. The ordered-pair classes are n (same vertex; bound 2s), 2n (adjacent; bound t+2s), and n(n−3) (disjoint; bound 2t+2s). The last class vanishes exactly when n=3. Translation in the simplex proves the mixed moment; subtracting the product of the means yields Eq. (1), including −63/1250 at n=3,t=1/10,s=2/5. At s=t there is nonzero variance: all points can lie in a sufficiently short arc, or one can lie separated from a cluster by more than t in both directions. With the positive factor nP_n(2s) removed, the result decreases strictly up to z=t/(1−2s)=1 and is then constant at 1−nP_n(2t). This gives all three sign regimes and the stated plateau. The exponent expansion in 1/n gives the disjoint-minus-product coefficient −3−4xy; the other two contributions give e^(2x)+2e^x in the same normalization. The original shortcut to y_c(x)>x drops the term 2e^x−3, which can be negative. The revision proves h=e^(2x)+2e^x−3−4x² is positive using h(0)=0 and h′≥4−2x+4x²>0, then brackets the finite root at fixed arguments on either side of the limit root. This proves the same claims without numerics. Independent derivation notes: /workspace/branches/1acfebe7-fa85-4c7f-b875-03de8a4f304d/ordinal2-evidence-status.txt. The frozen verifier was inspected, not run. Corrected three malformed reference URLs in the replacement. No claims about Poisson or soft graphs, n<3, or independence follow.
 
-## Closest literature and limits
-Wilsher–Dettmann–Ganesh (2022), arXiv:2202.08044; Wilsher–Dettmann–Ganesh (2020), arXiv:2007.06301; Dłotko et al. (2022), arXiv:2210.14965; public published-finding corpus results on circular gap counts, interval components, and edge–isolate covariance. No extensions are claimed for nonuniform, soft, or higher-dimensional graphs. Independent priority and proof validation remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the exact cross-scale isolation covariance and sharp fixed-count sign classification. The corrected proof does not change the claim. The Dirichlet survival calculation and the general one-switch method are not new. The prior one-gap law even shares the expected-count-one condition after rescaling the thresholds, but it does not give the adjacent-pair observable, its covariance or its sparse crossover.
+
+## value
+
+PASS
+
+Isolation is a natural connectivity diagnostic across radii. Besides exhibiting negative covariance despite nested counts, the theorem gives the sharp expected-one boundary, exact finite-region signs with a plateau, and a nontrivial sparse calibration. These specify when the multiscale dependence changes, not just that it can. No joint-law, independence, or testing-power improvement is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

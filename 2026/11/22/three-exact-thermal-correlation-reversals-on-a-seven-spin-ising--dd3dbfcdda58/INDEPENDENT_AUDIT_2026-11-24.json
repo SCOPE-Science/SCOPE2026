@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:27:35.194119Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–52; VERIFICATION.md; verify.py (inspected, not executed)",
+        "Independent exact replay: python3 /workspace/reviews/evidence/ising_cycle.py (SymPy and exact rational spin weights)"
+      ],
+      "rationale": "In the high-temperature spin expansion, the partition sum keeps the empty and full cycles; the numerator for the (0,3) pair keeps exactly the two arcs, which have opposite signs. Thus the normalized correlation is (A−B)/(1−AB), with positive denominator at finite beta>0. I independently used q=exp(2 beta) and represented each positive arc factor as (q^j−1)/(q^j+1). After crossing the positive denominator, the numerator at q=1+y is a degree-51 integer polynomial with exactly three coefficient sign variations. Exact enumeration of 128 spin configurations reproduces the ratios and the strict signs +,−,+,− at q=21/19,11/9,7/5,2. The disjoint intervals therefore contain at least three distinct zeros, and Descartes bounds total multiplicity by three on y>0. All are simple, and there are no further zeros; neither beta=0 nor beta=infinity belongs to the domain. Inserting any fixed number of arbitrarily strong positive bonds in series preserves the four signs when the strength is finite but sufficiently large. Analyticity and the alternating signs ensure at least three isolated reversals on each resulting longer cycle.",
+      "residual_risks": [
+        "No upper bound is claimed on reversals for arbitrary couplings or longer cycles, and the witness does not prove minimal cycle order."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general binary-Gibbs result varies one local field. The hierarchical primary paper studies diamond lattices, and the reentrant primary paper gives phase boundaries on a mixed-spin model with multisite interactions.",
+          "The Prog. Theor. Phys. paper is relevant by topic but its publisher text was inaccessible; a search excerpt cannot determine its scope."
+        ],
+        "reasoning": "A bound for varying one field does not imply a root count when scaling every bond with inverse temperature, and phase-transition reentrance is not three pair-covariance zeros on a fixed finite ring. No dominating theorem was established in the passages read.",
+        "searches": [
+          "Resultary 339216ab2e7c; arXiv:0901.3181 and arXiv:1604.03576",
+          "Spin Correlation Functions on Frustrated Lattices, Prog. Theor. Phys. 69(3), 714"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md prior-work section",
+        "Resultary 5f20f141402e, 339216ab2e7c, 736bfbff4534",
+        "arXiv:1003.0200, 0901.3181, 1604.03576",
+        "Prog. Theor. Phys. 69(3), 714 (excerpt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published five-path witness and the reported earlier signed-cycle witness each give at most the cited existence of two reversals; Tanaka–Miyashita exhibit one.",
+          "Thermal reversal examples do not bound the multiplicities of unobserved roots for new couplings."
+        ],
+        "reasoning": "Splitting an edge and preserving witness signs extends an existing lower bound to longer cycles; it does not increase that bound from two to three. Likewise, competing arc products alone do not supply the exact root count for this coupling tuple.",
+        "searches": [
+          "Frozen RESULT.md prior-work section; Resultary 5f20f141402e; arXiv:1003.0200 §II.A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The five-path record eliminates path interiors and sums effective couplings as signed arctanh(t^length) terms. The two-arc expression is the two-effective-coupling instance of the addition formula for tanh.",
+          "Tanaka–Miyashita study competition of a direct antiferromagnetic interaction against decoration-mediated ferromagnetism."
+        ],
+        "reasoning": "The reduction itself is equivalent to effective-coupling/addition formulas, but the five-path, equal-magnitude construction is not a re-encoding of the nonuniform two-arc C7 witness with three zeros. The decorated precedent in the inspected passage has one crossing.",
+        "searches": [
+          "Resultary: signed Ising cycle thermal reversals; competing-path thermal correlation (5f20f141402e)",
+          "Tanaka–Miyashita arXiv:1003.0200 §II.A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The explicit 25-vertex five-path witness has two reversals, and the similarly titled same-day five-site result is a hard-core fan example with one reversal.",
+          "The frozen text gives no identifier for the cited earlier five-site signed-cycle record, and the targeted searches did not resolve it."
+        ],
+        "reasoning": "There is no finite census of unrestricted signed couplings required here; an existing exact witness or zero-count table for the seven-vertex cycle would cover the construction. Neither inspected explicit comparator does so, and missing search hits do not establish absence.",
+        "searches": [
+          "Resultary: five-site signed-cycle correlation reversal; thermal zero counts; inspected 5f20f141402e and 736bfbff4534"
+        ]
+      },
+      "rationale": "The two-arc reduction and thermal reversals themselves are known ideas. The supported distinction is the seven-vertex simple cycle with three rigorously counted simple temperature zeros and its at-least-three extension. The closest inspected zero-count comparator uses five parallel paths and equal bond magnitudes, with two reversals. The primary single-reversal, hierarchical and reentrant examples do not cover the claim. The frozen text cites an unidentified five-site two-reversal result: its stated conclusion alone does not imply three, but a possible broader statement could not be checked.",
+      "residual_risks": [
+        "The earlier five-site signed-cycle citation could not be identified; no inference about its full scope or chronology is made.",
+        "The broader frustrated-lattice paper could not be read in full; a general theorem covering this example is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial overlap in mechanism, not the seven-cycle result.",
+          "evidence": [
+            "An equal-absolute-bond 25-vertex five-path construction has exactly two reversals; the effective coupling is a signed arctanh path sum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-two-thermal-correlation-reversals-in-a-frustrated-five-path-isin--5f20f141402e/RESULT.md",
+          "material_read": "Finding and Proof, offsets 0–8820",
+          "method": "Resultary lookup and bounded local-mirror text",
+          "title": "Two thermal correlation reversals in a frustrated five-path Ising network",
+          "trigger": "Closest exact competing-path zero-count result"
+        },
+        {
+          "assessment": "One reversal in a distinct decorated bond.",
+          "evidence": [
+            "One antiferromagnetic direct bond and ferromagnetic decorations compete; the observed correlation changes sign once at the stated parameters."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1003.0200",
+          "material_read": "§II.A pp. 4–6, Eqs. (1)–(4), offsets approximately 8100–14562",
+          "method": "Bounded OA PDF reads",
+          "title": "Non-monotonic Dynamics in Frustrated Ising Model with Time-Dependent Transverse Field",
+          "trigger": "Primary precedent for frustrated thermal pair reversal"
+        },
+        {
+          "assessment": "The inspected thermal correlations concern a hierarchical lattice rather than a signed simple cycle.",
+          "evidence": [
+            "§4.4 treats ferromagnetic correlations on the diamond hierarchy."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0901.3181",
+          "material_read": "Abstract and §4.4, offset approximately 41601",
+          "method": "Bounded OA PDF reads",
+          "title": "Frustrated diamond hierarchical Ising model",
+          "trigger": "Possible frustrated-lattice generalization"
+        },
+        {
+          "assessment": "A different invariant on a different graph class.",
+          "evidence": [
+            "The reentrance is in phase boundaries of a mixed-spin model with multisite interactions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1604.03576",
+          "material_read": "Abstract and §4.1, offset approximately 25300",
+          "method": "Bounded OA PDF reads",
+          "title": "Reentrant behavior in a decorated mixed-spin model",
+          "trigger": "Possible equivalence with multiple temperature reversals"
+        },
+        {
+          "assessment": "Does not bound the thermal variation.",
+          "evidence": [
+            "The varied parameter is one local field, with the rest fixed."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-single-field-sign-reversal-bound-and-reentrant-pair-correl--339216ab2e7c/RESULT.md",
+          "material_read": "Finding and assumptions at offset 0",
+          "method": "Resultary lookup and bounded local-mirror text",
+          "title": "Sharp single-field sign-reversal bound and reentrant pair correlations",
+          "trigger": "General binary-Gibbs reversal theorem"
+        },
+        {
+          "assessment": "Not the unidentified earlier result or a same-day duplicate.",
+          "evidence": [
+            "A hard-core-gas covariance on a fan has one reversal."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-five-site-covariance-reversal-and-a-parity-threshold-on--736bfbff4534/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary lookup and bounded local-mirror text",
+          "title": "A sharp five-site covariance reversal and a parity threshold on fan graphs",
+          "trigger": "Candidate for the earlier five-site cycle citation"
+        },
+        {
+          "assessment": "Scope unresolved; no noncoverage conclusion drawn.",
+          "evidence": [
+            "The accessible description concerns temperature-dependent frustrated spin correlations but does not resolve signed-cycle zero counts."
+          ],
+          "identifier_or_url": "Progress of Theoretical Physics 69(3), 714",
+          "material_read": "Search excerpt only; publisher full text returned HTTP 403",
+          "method": "Primary search and lawful OA retrieval attempts",
+          "title": "Spin Correlation Functions on Frustrated Lattices",
+          "trigger": "Possible wider theorem for frustrated thermal correlations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof; exact polynomial and spin-trace reproduction; five-path comparison"
+      ],
+      "rationale": "A nearest-neighbor graph with only two competing arcs and one negative edge might appear to allow only a single change in which arc dominates. A fixed seven-spin example with three changes shows that removing network complexity does not enforce a two-reversal bound. The all-temperature exact count and simplicity distinguish it from a numerical sign plot, and the extension separates the small witness from a size-specific effect. This is a finite frustration example, not a thermodynamic phase-transition result.",
+      "residual_risks": [
+        "The minimum cycle order and any uniform upper bound remain open in this review."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

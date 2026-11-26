@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:02:00.966616Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On a four-periodic trajectory any vertex that fires consumes all four steps of its cycle in the forced excursion, so cannot wait at zero. A neighbor that is identically zero would be excited by this vertex, and connectivity propagates this to all vertices. Thus every nonzero four-step return is a global phase advance, has least period four, and is characterized by every vertex having a successor-colored neighbor. At its unique resting time that neighbor provides exactly the required excitation. The 256-state transfer takes overlapping pairs of rungs; a length-n closed walk with an indexed start specifies one labelled word of rungs, even for a spatially repeated word. For n=3 the left and right neighbors are distinct as required. Only temporal translation gives the divisor four. Replay: python /workspace/audit-evidence/frozen1.py independently computes the exact full 256-state characteristic polynomial, checks the SCC sizes and four twisted determinants, and scans all microscopic states at n=3,4,5, finding respectively (1,1,121), (1,1,265), (1,1,2121) fixed by iterates (1,2,4). Subtracting the all-rest state gives the reported short counts. The determinant's nonzero spectrum has multiplicities 8 each at ±1 and ±i, twice the roots of each reciprocal-sign quadratic, and one copy of each cubic. The power sums give the displayed recurrences and the computationally checked values n=3–12. The first cubic has its only real root λ in (4,5) and a conjugate pair of modulus sqrt(4/λ)<1. The second is strictly increasing on the real line and has a real root ρ>1/4 and <1, so its pair has modulus sqrt(4/ρ)<4. Remaining moduli are at most sqrt(2), so λ is simple and strictly dominant and the stated fraction follows. The frozen scripts were inspected, not executed; the finite microscopic scan corroborates the transfer but does not prove the general law. Nothing here counts eventual basins.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gravner–Lyu–Sivakoff p. 1 states arbitrary-graph three-color dynamics and limiting-behavior results, not the four-state census.",
+          "Complete-bipartite --14573b2e63f6 gives orbit counts on K_{a,b}; the circular-prism family is not complete bipartite.",
+          "Open-ladder --c343292238f3 counts primitive period three for three states with free ends."
+        ],
+        "reasoning": "General language for excitable media or broader coverage in one parameter does not dominate the claim without the four-state palette and closed two-rail adjacency. The route from the local phase rule to the exact characteristic factors is a separate calculation.",
+        "searches": [
+          "Gravner–Lyu–Sivakoff arXiv:1610.07320",
+          "Fisch–Gravner–Griffeath, Threshold-range scaling of excitable cellular automata",
+          "Resultary: exact excitation orbits on complete bipartite graphs and open ladders"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_transfer.py and direct_check.cpp",
+        "Five distinct Resultary comparison records and four primary literature/access checks listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wheel work supplies a full four-wave generating function for a different graph family; the open ladder changes both boundary and palette.",
+          "Neither a finite count nor the general existence of a transfer determines the two cubics and the additional quadratic and residue terms."
+        ],
+        "reasoning": "These sources explain why phases and transfer matrices are useful and cover a genuine special case, but no inspected result entails the all-n census or the growth law with its exact coefficient.",
+        "searches": [
+          "Pentagonal-prism --b5fce197f102 Finding and Assumptions",
+          "Wheel --63930d989f46 and open-ladder --c343292238f3 Findings",
+          "Excitable-media arXiv:1610.07320 and arXiv:patt-sol/9303002"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Four-color cyclic-successor-contact ring --947b2a9e90ed gives counts for C_n with a rule that tests a successor neighbor in every color; GH only makes 0→1 conditional.",
+          "The same-day wheel census --63930d989f46 uses threshold-one four-state GH, but on K_1∨C_n.",
+          "The frozen phase criterion imposes an existential next-color constraint at every vertex, not proper coloring or a winding condition alone."
+        ],
+        "reasoning": "Related phase descriptions may share a proof idea. The cycle and wheel have different adjacency, hence different constraints and transfer, and are not equivalent formulations of the two-rail circular-ladder count.",
+        "searches": [
+          "Resultary: four-phase successor-neighbor assignments on circular ladders and prisms",
+          "Resultary: primitive Greenberg–Hastings four-cycle recurrence and cubic spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Pentagonal-prism --b5fce197f102 Finding reports exactly 530 primitive four-cycles on the identical labelled C_5□K_2 with the same update rule and temporal quotient.",
+          "The exact all-length title hit is the assigned record itself, not a distinct prior table."
+        ],
+        "reasoning": "The n=5 specialization is directly covered and credited, independent of unresolved same-day priority. One exact specialization or an arbitrary finite prefix does not determine the characteristic polynomial, recurrence, or leading constant.",
+        "searches": [
+          "Resultary: four-state pentagonal-prism excitation",
+          "Resultary: two-cubic ladder sequence and primitive-four orbit counts"
+        ]
+      },
+      "rationale": "The distinct supported contribution is the all-n labelled four-cycle census with explicit low-degree spectral terms and exact exponential growth, not the GH rule, successor-phase principle as a general framework, or generic use of a cyclic transfer. The pentagonal-prism computation exactly covers n=5; the order of the two same-day records is unknown. The best inspected related all-length results differ in their graph, dynamics or boundary conditions. Older-source access limits remain.",
+      "residual_risks": [
+        "No publication order is established for the same-day pentagonal-prism and wheel records.",
+        "Durrett–Griffeath 1993 and Fisch 1990 were not fully accessible. Bounded catalogue and primary searches cannot exclude an older equivalent coloring enumeration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact subcase; same-day priority unresolved",
+          "evidence": "530 primitive temporal four-cycles, with additional results on basins and five-cycles of the single pentagonal prism.",
+          "identifier_or_url": "2026/11/22/SCOPE-eight-step-relaxation-and-unequal-five-wave-basins-in-four-state--b5fce197f102",
+          "material_read": "RESULT.md Finding offset 330 and Assumptions offset 2024",
+          "method": "Local published-record mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Eight-step relaxation and unequal five-wave basins in four-state pentagonal-prism excitation",
+          "trigger": "Same dynamics and exact n=5 graph"
+        },
+        {
+          "assessment": "Related method; distinct graph family",
+          "evidence": "Primitive-four generating function for the wheel K_1∨C_n, not the prism.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-quintic-four-wave-census-and-an-absolute-versus-relative-growt--63930d989f46",
+          "material_read": "RESULT.md Finding offset 300",
+          "method": "Local published-record mirror",
+          "title": "A quintic four-wave census and an absolute-versus-relative growth comparison on wheels",
+          "trigger": "Same model and all-length four-orbit enumeration"
+        },
+        {
+          "assessment": "Different adjacency",
+          "evidence": "Four-wave classification on K_{a,b}.",
+          "identifier_or_url": "2026/11/1/SCOPE-exact-four-state-excitation-orbits-and-basins-on-complete-bipart--14573b2e63f6",
+          "material_read": "RESULT.md Finding offset 239",
+          "method": "Local published-record mirror",
+          "title": "Exact four-state excitation orbits and basins on complete bipartite graphs",
+          "trigger": "Same palette/period under another regular graph model"
+        },
+        {
+          "assessment": "Different palette, period and end conditions",
+          "evidence": "Primitive three-waves on P_n□K_2 under the three-state rule.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-primitive-three-wave-census-on-open-ladders--c343292238f3",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact primitive-three wave census on open ladders",
+          "trigger": "Same strip geometry"
+        },
+        {
+          "assessment": "Distinct conditional rule and one rail",
+          "evidence": "Every color is conditionally advanced by successor contact on C_n; no circular-ladder census.",
+          "identifier_or_url": "2026/11/17/SCOPE-complete-temporal-orbit-census-for-the-four-color-cyclic-cellula--947b2a9e90ed",
+          "material_read": "RESULT.md Finding offset 240 and prior-work passage offset 7750",
+          "method": "Local published-record mirror",
+          "title": "Complete temporal orbit census for the four-color cyclic cellular automaton on rings",
+          "trigger": "Alternative terminology for phase counting"
+        },
+        {
+          "assessment": "Three colors and limiting behavior; no covering theorem in the stated scope",
+          "evidence": "Defines three-color GH and CCA on arbitrary connected graphs and studies limiting behavior.",
+          "identifier_or_url": "https://arxiv.org/pdf/1610.07320",
+          "material_read": "PDF p. 1 opening statement/definitions, offset 0",
+          "method": "Open primary PDF, relevant passage",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "General excitable-media coverage"
+        },
+        {
+          "assessment": "Waves and scaling on two-dimensional lattices; no whole-document absence claim",
+          "evidence": "Opening statement distinguishes GH and CCA and discusses self-organization on lattices.",
+          "identifier_or_url": "https://www.math.ucdavis.edu/~gravner/papers/fgg.pdf",
+          "material_read": "PDF p. 1 abstract, offset 0",
+          "method": "Author-hosted open PDF",
+          "title": "Threshold-range scaling of excitable cellular automata",
+          "trigger": "Classical GH waves and alternative definitions"
+        },
+        {
+          "assessment": "Potential older context not fully resolved",
+          "evidence": "PDF attempt returned HTTP 404; this is not evidence that it lacks related results.",
+          "identifier_or_url": "https://arxiv.org/abs/patt-sol/9303002",
+          "material_read": "Frozen record's account of its abstract inspection; no independent full-text access",
+          "method": "Bounded PDF retrieval attempt",
+          "title": "Asymptotic Behavior of Excitable Cellular Automata",
+          "trigger": "Cited foundational precedent"
+        },
+        {
+          "assessment": "Unresolved source-level scope",
+          "evidence": "No readable alternate copy located; secondary context concerns a ring automaton.",
+          "identifier_or_url": "Fisch (1990), title; discussed in Resultary --947b2a9e90ed",
+          "material_read": "Secondary prior-work passage of ring record, offset 7750; primary full text unavailable",
+          "method": "Publisher redirect and lawful DOI recovery attempts",
+          "title": "The one-dimensional cyclic cellular automaton",
+          "trigger": "Potential alternate terminology or precursor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The family is a canonical periodic width-two graph, where time-periodic phase waves and the normalization against all states are natural invariants. The exact finite transfer spectrum condenses the infinitely many counts into two cubics and explicit parity corrections, distinguishes absolute from fractional growth, and provides reproducible benchmarks beyond the already counted pentagonal instance. It does not purport to quantify attraction to those waves.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

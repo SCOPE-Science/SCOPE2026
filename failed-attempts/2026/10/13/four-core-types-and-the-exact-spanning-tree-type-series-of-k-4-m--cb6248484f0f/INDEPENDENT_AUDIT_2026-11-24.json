@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:33:53.392449Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–54; VERIFICATION.md; verify_k4_tree_types.py and its .out log inspected, not executed",
+        "Own replay: python /workspace/review_evidence/tree_types_independent.py"
+      ],
+      "rationale": "For m>4 every abstract isomorphism preserves the four-vertex shore. Deleting just the larger-shore leaves preserves connectivity and retains every hub. The larger-shore excess degree is three, whose partitions give one degree-four center, a degree-three and degree-two pair sharing exactly one hub, or three degree-two vertices whose suppression gives the star or path on four hubs. The corresponding full hub actions are S4, a single swap, S3 and a double swap. Two leaf attachments yield isomorphic trees precisely when their multiplicity vectors lie in the same orbit. The four cycle-index contributions give the stated rational series; their fourth-order pole factor at 1 is 29/24 and the poles elsewhere have smaller order and orders dividing 12 as roots of unity. The independent replay generates all unlabelled trees up to order 14 by adjoining a leaf and canonicalizing by the minimal rooted encoding over all roots. Every tree is produced because deleting any leaf yields a smaller tree; equal minimal rooted codes characterize isomorphism. Filtering by shore size gives 28,45,73,105,152,204 with the predicted four core counts separately, and exact algebra confirms the rational form and leading coefficient 29/144. The independent finite replay is a cross-check, not the all-order proof.",
+      "residual_risks": [
+        "No inference is made about balanced shores, in which an uncoloured isomorphism can interchange them."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "b5a027c78a65 states the exact sum over all bipartition-preserving cores with k∈{1,…,d−1} of [z^(m−k)] of the hub cycle-index substitution. It expressly concludes degree d−1 and period dividing lcm(1,…,d). Yan–Zhang cover the bounded cores and leading constant asymptotically."
+        ],
+        "reasoning": "The Resultary assumptions specialize to every claimed m≥5 at d=4 and count all stabilizers; the asymptotic source alone would not cover all coefficients.",
+        "searches": [
+          "Resultary 2026/10/04 record b5a027c78a65, Finding and Proof",
+          "Yan–Zhang arXiv:2609.30201v1, §5.1, Proposition 5.1 and proof"
+        ]
+      },
+      "checked_sources": [
+        "Resultary focused published searches and b5a027c78a65 exact theorem",
+        "arXiv:2602.06867v2",
+        "arXiv:2609.30201v1",
+        "van den Boomen 2009 thesis reference (secondary only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier proof recovers cores by the same leaf deletion and identifies expansions with hub-automorphism orbits. At d=4 the excess patterns (3), (2,1), (1,1,1) leave the same four cores, with swap cycle type 2+1+1 in the degree-3/degree-2 core and 2+2 for the path."
+        ],
+        "reasoning": "Evaluating the earlier finite cycle-index sum on these four small cores yields the four summands term for term; algebraic simplification, truncation, and the computed sample values are then mechanical. The structural orbit bijection is itself already in the prior result.",
+        "searches": [
+          "Exact formula and proof in b5a027c78a65, RESULT.md, offset 0 onward",
+          "Specialization to d=4 by the degree-excess partitions and hub cycle lengths"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier Resultary theorem explicitly uses abstract unrooted isomorphism and m>d. The two-sort rooted recurrences R_A=x exp(Σ R_B(x^j,y^j)/j) and R_B=y exp(Σ R_A(x^j,y^j)/j), with tree dissymmetry U=R_A+R_B−R_A R_B, also give the unrooted colour-preserving count."
+        ],
+        "reasoning": "For unequal shores colour-preserving and abstract unrooted isomorphism agree after choosing the size-d shore first, and every such bipartite tree embeds as a spanning tree of K_{d,m}. The bivariate coefficient [x^4 y^m] is therefore the same invariant, not a labelled or rooted substitute.",
+        "searches": [
+          "Resultary: non-isomorphic spanning trees of complete bipartite graphs, fixed shore, exact core and Burnside formula",
+          "Unlabelled bicoloured trees by two class sizes; Johnson–Nochumson arXiv:2602.06867v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier exact theorem's verification passage already prints 28,45,73,105,152 at m=5,…,9. Its literature discussion reports a closed K_{4,t} formula in van den Boomen's 2009 thesis, Non-isomorphic spanning trees of graphs; that thesis's formula was not directly inspected."
+        ],
+        "reasoning": "The table overlaps five of the six claimed values; the exact theorem, not extrapolation from its table, also determines the sixth and the entire series. No exact-expression or priority claim is made on the strength of the thesis reference alone.",
+        "searches": [
+          "Resultary: K4,m exact tree-type series and sequence 28,45,73,105,152; record b5a027c78a65 Verification and Relationship to prior work",
+          "Public-literature lookup for earlier exact four-shore count and thesis reference"
+        ]
+      },
+      "rationale": "A distinct earlier Resultary finding proves the exact finite-core Burnside coefficient formula on the identical abstract tree invariant for all fixed d≥2 and m>d. Substitution d=4 specializes its very same core and orbit classification, giving the four contributions by the elementary partitions of three, hence the exact rational series and period bound even though the earlier source did not print the reduced fraction. This is verified general-theorem coverage, not an inference from an inaccessible thesis or from a title match.",
+      "residual_risks": [
+        "The thesis may settle the earlier history of the explicit four-shore expression, but is not needed to demonstrate existing exact theorem coverage. No claim that the printed reduced fraction was located in an earlier text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exact coefficients, quasipolynomial bound and orbit encoding by specialization",
+          "evidence": "States the exact coefficient sum for m>d and abstract unrooted isomorphism, and already verifies the d=4 sequence through m=9.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-quasipolynomial-spanning-tree-type-counts-for-fixed-side-complet--b5a027c78a65/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, Proof (opening and orbit argument), verification cases and prior-work discussion",
+          "method": "Local published mirror, bounded passages; directly confirmed decisive theorem",
+          "title": "Quasipolynomial spanning-tree type counts for fixed-side complete bipartite graphs",
+          "trigger": "Same invariant and exact finite-core formula for arbitrary fixed small shore"
+        },
+        {
+          "assessment": "Compared passages give general bounds, not the decisive exact theorem",
+          "evidence": "Compares the number of abstract isomorphism classes to partition counts.",
+          "identifier_or_url": "https://arxiv.org/html/2602.06867v2",
+          "material_read": "Abstract and Introduction, offsets 584 and 1542",
+          "method": "OA HTML",
+          "title": "Counting Isomorphism Classes of Spanning Trees of Complete Bipartite Graphs",
+          "trigger": "Same isomorphism-class invariant"
+        },
+        {
+          "assessment": "Prior bounded-core method and leading term; inspected formula is asymptotic",
+          "evidence": "Specializing its asymptotic constant to four hubs gives 29/144.",
+          "identifier_or_url": "https://arxiv.org/html/2609.30201v1",
+          "material_read": "§5.1, Proposition 5.1 and proof, offsets 61900–63539",
+          "method": "OA HTML",
+          "title": "An extremal theorem for non-isomorphic spanning trees",
+          "trigger": "Same fixed-shore structural and asymptotic count"
+        },
+        {
+          "assessment": "Possible earlier specialized coverage; not used to decide the verdict",
+          "evidence": "The prior-work passage of b5a027c78a65 reports a closed formula for this shore size; exact normalization and range are unverified.",
+          "identifier_or_url": "van den Boomen, 2009 thesis, as referenced by b5a027c78a65",
+          "material_read": "Secondary reference only; thesis formula not retrieved",
+          "method": "Bounded literature lookup and inspected citation in local published mirror",
+          "title": "Non-isomorphic spanning trees of graphs",
+          "trigger": "The earlier exact Resultary record attributes a specialized closed K_{4,t} formula to this thesis"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof; b5a027c78a65 Finding, core-orbit proof, and d=4 verification examples"
+      ],
+      "rationale": "The invariant is natural and the four-term calculation is a useful worked example. As a standalone finding, however, the result is the routine evaluation of an existing exact formula on its already classified core-orbit framework, not a previously unavailable count or a new structural step. The canonical core encoding and period bound also specialize directly. No independently valuable surviving mathematical claim was established beyond that evaluation.",
+      "residual_risks": [
+        "The explicit expression may be convenient expository material; this does not change the scientific value judgment for the submitted claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:10:20.184617Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–22 and 26–78; VERIFICATION.md lines 19–23; verify_cyclic_cumulant.py inspected, not executed",
+        "Independent symbolic replay in Z[t,r]: set q=1-tr^3, B=t-tr^3, C=t+r, D=t-tr, E=t-tr^2, F=t+r^2. The common-denominator numerator is q^2 C^2 D-q B(2CE+DF)+2B^3. Multiply the frozen factorization as a separate sparse polynomial; every coefficient of the difference is zero. Differentiating each monomial t^a r^b after r=(-t)^m contributes (a+bm)(-1)^(bm) times its coefficient at t=1."
+      ],
+      "rationale": "For the two transfer eigenvalues alpha and -t alpha, the occupied diagonal projector weights are t/(1+t) and 1/(1+t). Inserting one, two, or three projectors in the trace gives the products of occupied matrix elements at the corresponding cyclic gaps, divided by the same ring partition function. Expanding the centered moment with these probabilities reproduces its exact numerator factorization. In the open interval (0,1) its sign is the opposite of H_m. H_m starts at -1 and ends at 0 with slope 4-6m for even m and 2-2m for odd m; this gives a positive-to-negative crossing in fugacity. At one half, with a=2^-m, even m gives H_m/a at least 1/4-1/8-1/32-3/512>0; for odd m, the negative constant and negative quadratic-in-a contribution to H_m dominate its positive cubic term. Uniform C^1 convergence to 2t-1 on [2/5,3/5] gives eventual uniqueness and simplicity on that interval. The midpoint residual first bounds the root displacement by O(2^-m); there |((-t)^m)'|=O(m 2^-m), so the mean-value formula gives t_m=1/2-(-1)^m 2^-m/8+O(m 4^-m). The fugacity map has derivative 12 there, yielding the stated amplitude, sign and error.",
+      "residual_risks": [
+        "Uniqueness is eventual and local (on the image interval [10/9,15/4]); no global root census for all m, or phase transition, is inferred.",
+        "The supporting exact grid is finite; the uniform derivative and endpoint arguments establish the all-size and asymptotic claims."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Scott–Sokal's transfer matrix establishes the cycle partition framework. Tokar–Dreyssé treat canonical contiguous-cluster size distributions, not marked occupancies on this finite ring. Quitmann's exponential disjoint-set bound does not resolve root cancellation. The Tanaka et al. primary text was not available through the inspected DOI and OUP routes."
+        ],
+        "reasoning": "No inspected broader theorem classifies the cancellation among one-, two- and three-site moments at the relevant fugacity. Verified prior inputs are not claimed as new.",
+        "searches": [
+          "Scott–Sokal Example 3.3 equations (3.22)–(3.29); Tokar–Dreyssé arXiv:cond-mat/0210582 Eqs. (1)–(5); Quitmann Theorem 2.1; Tanaka–Morita–Hiroike DOI 10.1143/PTPS.87.214"
+        ]
+      },
+      "checked_sources": [
+        "Published Resultary records and primary sources in source_inspections, with exact frozen match excluded as prior art"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The path sign reduction factors through the occupation of the middle vertex, and certain triples reverse at a path-polynomial zero. Removing the middle vertex from a cycle leaves an alternate arc joining the other marked vertices. The transfer spectrum permits a marked-projector calculation but does not by itself give the parity or location of its resulting zero."
+        ],
+        "reasoning": "Conditional decoupling of the two ends via the middle vertex is specific to the path argument. In the cycle one must include both paths and show their finite-size cancellation, including the coefficient of the leading displacement. The path and cycle results are distinct, regardless of same-day indexing.",
+        "searches": [
+          "138d25c33369 original Finding and proof in Resultary mirror; Scott–Sokal Example 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "L(C_n)=C_n converts matchings to independent sets with dimers on the marked cycle edges. With monomer activity rho and unit dimer weight the effective common fugacity is rho^-2. Scott–Sokal give the cycle partition polynomial; Quitmann gives dimer covariance and disjoint-set decay bounds, not a signed third cumulant or fugacity zero."
+        ],
+        "reasoning": "These are the same Gibbs weights after the stated normalization when restricted to a cycle; a partition polynomial without marked derivatives or a covariance bound does not determine the sign reversal claimed here.",
+        "searches": [
+          "Resultary finite hard-core ring third cumulant and cyclic monomer–dimer correlations",
+          "Scott–Sokal arXiv:cond-mat/0309352 Example 3.3; Quitmann arXiv:2309.13632v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact result 81a9cffd6370 is the frozen self-match. The distinct same-day record 138d25c33369 gives exact sign and crossing results on finite open paths. Tree record a2db7c68ea54 surfaced as a related summary; its original text was not available in the mirror."
+        ],
+        "reasoning": "An exact open-path root law is material overlap in problem and methods, but not the same labelled geometry, parameter boundary or asymptotic. Neither dating nor an uninspected index hit resolves priority.",
+        "searches": [
+          "Resultary three-point connected hard-core correlations, sign transitions and finite cycle fugacity two"
+        ]
+      },
+      "rationale": "The independent-set/matching correspondence and cycle transfer framework are known. The distinct supported claim is the connected three-site sign crossing and the exact parity-dependent displacement for the specified nearly equispaced marked cycle. The closest distinct inspected corpus work concerns open paths, whose conditional structure at the middle site does not carry over to a cycle. None of the inspected available statements supplies or implies this finite-ring sign and root asymptotic.",
+      "residual_risks": [
+        "Tanaka et al. full text and the tree-record original could not be checked. An older general or equivalent cyclic cumulant analysis may be unindexed. The verdict is bounded to the evidence and distinct result described here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact results on finite open paths, not cycle coverage",
+          "evidence": "The sign factors through the middle-site occupation; some triples have an explicit root of a path polynomial.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-third-cumulant-sign-transitions-in-finite-hard-core-paths--138d25c33369",
+          "material_read": "Original RESULT.md Finding and middle-site factorization in the proof",
+          "method": "Resultary and local mirror passages",
+          "title": "Exact third-cumulant sign transitions in finite hard-core paths",
+          "trigger": "Distinct same-day exact result for the same model and three-site statistic"
+        },
+        {
+          "assessment": "Covers known partition-function framework and model equivalence",
+          "evidence": "Cycle transfer expression and L(C_n)=C_n; no marked three-point sign theorem in these results.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0309352",
+          "material_read": "Example 3.3 pp. 39–40, especially Eqs. (3.22)–(3.29), and matching remark p. 39",
+          "method": "OA PDF passages",
+          "title": "The repulsive lattice gas, the independent-set polynomial, and the Lovász local lemma",
+          "trigger": "Cycle transfer derivation and monomer–dimer equivalence"
+        },
+        {
+          "assessment": "Matched equivalent normalization; correlation bound does not imply sign/root result",
+          "evidence": "Exponential decay for correlations between disjoint sets, with no sign or zero location for this cumulant.",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.13632",
+          "material_read": "Monomer activity and dimer covariance pp. 1,3, offsets 680 and 9900; Theorem 2.1 p. 4 offset 11400",
+          "method": "OA PDF passages",
+          "title": "Decay of correlations in the monomer-dimer model",
+          "trigger": "Equivalent matching model and general correlation theorem"
+        },
+        {
+          "assessment": "Distinct model/output in the inspected results",
+          "evidence": "Canonical atomic-chain size distributions under contiguous-cluster interactions, not a finite-ring three-site threshold.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0210582",
+          "material_read": "Abstract p. 1 offset 0 and model Eqs. (1)–(5) p. 2 offset 3200",
+          "method": "OA PDF passages",
+          "title": "Analytical solution of 1D lattice gas model with infinite number of multiatom interactions",
+          "trigger": "Potentially broader exact one-dimensional lattice-gas formulas"
+        },
+        {
+          "assessment": "Inaccessible; no positive or negative implication asserted",
+          "evidence": "Full text unavailable on the attempted routes; two-point characterization in frozen note not independently verified.",
+          "identifier_or_url": "https://doi.org/10.1143/PTPS.87.214",
+          "material_read": "No verified primary passage",
+          "method": "Attempted lawful DOI and OUP article/abstract retrieval",
+          "title": "Correlation Functions of a One-Dimensional Lattice Gas with Interactions Up to Third-Nearest Neighbors",
+          "trigger": "Plausible finite-distance correlation precedent cited in the frozen note"
+        },
+        {
+          "assessment": "Unresolved secondary lead, not evidence against priority",
+          "evidence": "Summary concerns reentry on trees; original source absent in mirror.",
+          "identifier_or_url": "2026/11/22/SCOPE-thirteen-sites-are-necessary-for-reentrant-three-point-hard-core-correlations-on-trees--a2db7c68ea54",
+          "material_read": "Resultary index summary only, not original text",
+          "method": "Resultary and attempted local-mirror read",
+          "title": "Thirteen sites are necessary for reentrant three-point hard-core correlations on trees",
+          "trigger": "Same-day tree correlation lead"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and exact factor/nearby-root analysis; open-path Finding 138d25c33369 as baseline"
+      ],
+      "rationale": "The triple has the closest possible evenly spaced gaps for these ring sizes, a natural finite-size comparison. Its low-to-high fugacity reversal, alternating correction at fixed fugacity, and explicit opposite-side root law quantify a genuine cyclic effect of a third connected statistic beyond the partition or pair functions. Knowing the coefficient and error resolves which side of two the boundary lies on, rather than just exhibiting a decaying correlation.",
+      "residual_risks": [
+        "The invariant is about this nearest-neighbor finite ring and marked triple, not a macroscopic nonanalyticity or a classification for all triples."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

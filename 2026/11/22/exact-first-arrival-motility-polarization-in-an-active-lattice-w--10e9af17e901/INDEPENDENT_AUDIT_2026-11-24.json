@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:35:22.896783Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Stopping the centered martingale X_t+(epsilon/gamma)*sigma_t at the first hit of either -L or N is valid: the stopped process is bounded, and the finite strip has paths to absorption from every state, including at epsilon=D because flips remain possible. The far-left exit probability is at most (N+2epsilon/gamma)/(N+L) from 0, so contact is almost sure and bounded harmonic solutions are unique. Independently, at spatial jump times the interjump spin transition Q has eigenvalues 1 and c=D/(D+gamma); the right/left substochastic jump kernels A_+, A_- multiply Q's columns by the respective directional probabilities. Skip-free first passage and the strong Markov property give H=A_+ + A_- H^2 for passage through one level, with H^N for N levels. Direct exact symbolic substitution (python /workspace/review-work/check-arrival.py) verifies the candidate stochastic H with first column (K+(1-K)rho,K(1-rho)), invariant mark law (K,1-K), and eigenvalues 1,rho. Its powers give the bounded Dirichlet solution, hence the stated fair-start law. The b=1 contact must have plus mark, and at b=0 the mark at a spatial hitting time is fair under the fair initialization; the displayed formulas agree. The strictly increasing geometric approach holds only in the stated strict-bias range. On any fixed horizon the spatial clock is independent Poisson of rate 2D and conditional on its finitely many positive gaps, spins at jump times tend jointly to independent fair signs as gamma tends to infinity. The unmarked walk therefore converges to the symmetric walk while the marked contact law tends to (1+b)/2 for N>=1. At zero flip rate and positive bias the two initial signs have different contact probabilities, so the separate defective-hitting calculation does not contradict the theorem. The frozen reflected-left checker is a finite diagnostic, not the infinite-domain proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The model paper treats position statistics; the same-model first-passage paper presents scalar renewal/time transforms. The correlated-walk paper genuinely gives matrix target-state first passage, but its direction is defined by the last spatial displacement.",
+          "The two indexed continuum studies use orientation at first visits, including a joint two-level law or an integrated paint transform, but their underlying process is a continuum run-and-tumble diffusion."
+        ],
+        "reasoning": "Generic state-resolved renewal is applicable as a method, but the inspected explicit kernels either lack the independently switching mark or have different spatial dynamics. None of those formulas specializes directly to the exact one-level lattice eigenvalue and invariant mark.",
+        "searches": [
+          "Jose–Mandal–Barma–Ramola arXiv:2202.02995 model and discussion",
+          "Jose arXiv:2206.04562 §§4 and 4.2",
+          "Marris–Giuggioli arXiv:2404.13360 Eqs. (27)–(30)",
+          "Resultary 4f4532266895 and b0dd6dbabb6a"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2202.02995, 2206.04562 and 2404.13360",
+        "Resultary 4f4532266895, b0dd6dbabb6a and 10e9af17e901 (self-match)",
+        "Larralde DOI citation and lawful access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jose's scalar transform F(x,s) gives a sum of + and - first-hit transforms, while the target is one of these at s=0. Its displayed first-passage result does not identify their split. Even knowing the jump generator requires a state-resolved calculation.",
+          "The target-state renewal matrices in Marris–Giuggioli apply to their correlated displacement process. They cannot give a nontrivial internal mark here by an entry-direction substitution."
+        ],
+        "reasoning": "The common renewal framework does not itself determine a closed form for this kernel, and the most directly comparable formula for first passage in the same dynamics is unmarked. Larralde's scope is unresolved beyond the available citation; the access gap is not evidence of noncoverage.",
+        "searches": [
+          "Jose arXiv:2206.04562 §4 pp. 13–14 and §4.2 p. 18",
+          "Marris–Giuggioli arXiv:2404.13360 pp. 2, 12–14",
+          "Larralde DOI and APS page retrieval"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target is the plus component of the spin-resolved first-hit kernel for a transverse internal state. Its incoming displacement, in contrast, is always rightward for the stated target.",
+          "In the same model the signs of successive steps have lag-k correlation b^2 c^k. A stationary symmetric one-step Markov sign chain would have lag-two correlation equal to the square of lag one; the difference here is b^2(1-b^2)c^2>0 for 0<b<1."
+        ],
+        "reasoning": "A persistent model whose state is the previous step cannot be identified with this walker merely by fitting its lag-one correlation. A scalar time law also sums out the mark and is not an equivalent formula.",
+        "searches": [
+          "Resultary: internal motility mark, first-arrival polarization, directional first passage",
+          "Jose arXiv:2206.04562 §4",
+          "Marris–Giuggioli arXiv:2404.13360 Eqs. (27)–(30)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed lattice-law hit 10e9af17e901 is the assigned record itself. The two distinct nearest Resultary hits give continuum marked quantities, not the exact lattice law. The Larralde title query yielded a secondary citation page without accessible scientific passages."
+        ],
+        "reasoning": "The exact-catalogue comparison, rather than a numerical sequence table, is appropriate for this continuous-rate parametric probability. A self-match and an inaccessible citation establish no distinct coverage.",
+        "searches": [
+          "Resultary exact first-arrival motility polarization and active first-contact search",
+          "Exact-title secondary lookup for Larralde, DOI 10.1103/PhysRevE.102.062129"
+        ]
+      },
+      "rationale": "The existing exact lattice-model and scalar first-passage-time results do not give this state-resolved hitting law, and examined directional or continuum first-passage results use a different state or process. This best-of-knowledge judgment concerns the displayed lattice law and fast-tumbling contact bias, not the origin of the model or renewal method.",
+      "residual_risks": [
+        "Larralde (2020) could not be substantively inspected; full-text overlap remains unresolved.",
+        "The searches do not certify historical priority or rule out unindexed spin-resolved lattice calculations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model overlap",
+          "evidence": "Same flipping-bias walker; results address occupation and position, and discussion identifies first passage as a subject for further work.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.02995",
+          "material_read": "Model p. 2, offset 11000, and discussion p. 14, offset 124600",
+          "method": "OA PDF",
+          "title": "Active Random Walks in One and Two Dimensions",
+          "trigger": "Same model and possible explicit occupation/marked passage formula"
+        },
+        {
+          "assessment": "Same dynamics, scalar observable",
+          "evidence": "Position-only Laplace transforms for first return and first passage to arbitrary sites; these do not give a contact-mark component.",
+          "identifier_or_url": "https://arxiv.org/pdf/2206.04562",
+          "material_read": "§4 p. 13, offset 41200; scalar return equation and limits pp. 13–14 at offset 41900; §4.2 p. 18 at offset 54800",
+          "method": "OA PDF and statement-level comparison",
+          "title": "First passage statistics of active random walks on one and two dimensional lattices",
+          "trigger": "Exact first passage for the same model"
+        },
+        {
+          "assessment": "Different state mechanism and directional observable",
+          "evidence": "Direction derives from last step and prescribed entry, not a Poisson-tumbling internal mark.",
+          "identifier_or_url": "https://arxiv.org/pdf/2404.13360",
+          "material_read": "Model p. 2 offset 8500, Eqs. (27)–(30) p. 12 offset 63500, directional passage pp. 13–14 offsets 73700 and 75750",
+          "method": "OA PDF",
+          "title": "Persistent and anti-Persistent Motion in Bounded and Unbounded Space: Resolution of the First-Passage Problem",
+          "trigger": "Genuine target-state first-hit matrices"
+        },
+        {
+          "assessment": "Unresolved access risk",
+          "evidence": "No mathematical passage was available; no full-text claim of noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.102.062129",
+          "material_read": "Citation/title only; paper and substantive abstract not accessible",
+          "method": "Direct and VPN OA DOI/APS attempts; exact-title retrieval for an alternate yielded a citation-only secondary page",
+          "title": "First-passage probabilities and mean number of sites visited by a persistent random walker in one- and two-dimensional lattices",
+          "trigger": "Earlier closely titled lattice first-passage paper"
+        },
+        {
+          "assessment": "Related continuum observable",
+          "evidence": "A Brownian run-and-tumble process with an integrated paint-excess transform, not the lattice law.",
+          "identifier_or_url": "Resultary 4f4532266895",
+          "material_read": "Finding and orientation-hitting backward calculation at offset 2700",
+          "method": "Local mirror",
+          "title": "Positive polar paint accumulation and an algebraic active tail",
+          "trigger": "Uses polarity at first visits"
+        },
+        {
+          "assessment": "Different continuum model",
+          "evidence": "Joint orientation at two continuum levels, not the given nearest-neighbor lattice kernel.",
+          "identifier_or_url": "Resultary b0dd6dbabb6a",
+          "material_read": "Finding and proof context, offsets 0 and 2650",
+          "method": "Local mirror",
+          "title": "Conditional independence and a sharp sign reversal for opposite first visits",
+          "trigger": "Exact polarity at target contact"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The arrival spin is a natural capture statistic that cannot be replaced by the known time-to-hit or the deterministic incoming direction. The exact law gives its whole distance dependence and shows a residual directional sampling bias even in a symmetric unmarked fast-flip limit. This exact distinction can matter for mark-dependent boundary reactions and is not a recomputation of a scalar position observable.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

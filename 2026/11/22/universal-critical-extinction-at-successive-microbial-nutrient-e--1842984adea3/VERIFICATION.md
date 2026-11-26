@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,8 @@
 }
 ---
 
-# Verification of exact critical extinction law
+# Reproducible checks
 
-The proof is self-contained in `RESULT.md`, including its exact entropy dissipation identity, positivity assumptions, coercive level-set argument, characterization of the invariant zero-dissipation set, simple marginal eigenvector, stable complementary spectrum, and nonzero quadratic center coefficient.
+The analytical proof in `RESULT.md` uses an exact entropy identity and the invariant subset of its zero-dissipation set, then a stable linear ratio equation along each approaching positive trajectory. This verifies the convergence and asymptotic amplitudes at the nonhyperbolic boundary, without assuming the initial state lies on a center manifold.
 
-The independently executable `check.py` performs exact SymPy simplification of the transfer identity and center coefficient, rational equilibrium checks for five exchange rates, and SciPy integrations on both critical boundaries and three noncritical regimes. Its prescribed parameter family has \(\beta_3=2/3\), \(\beta_2=3\), and the exact critical biomass amplitudes \(7/81\) and \(3/7\). The script passed all assertions when executed from the package. The finite-time integrations do not prove convergence at infinity: equations (7)–(11) and the cited invariant-manifold argument supply that step.
-
-Only self-review has been performed. Historical-priority comparisons remain bounded by accessible full text and abstracts, and an independent scientific audit has not been performed.
+The accompanying `check.py` requires Python 3.10+, NumPy, SciPy, and SymPy. It checks the transfer identity and critical curvature algebra symbolically, constructs rational equilibria and illustrates the model at five exchange rates. For \(\alpha_i=1,\ (k_1,k_2,k_3)=(1,2,3),\ R_0=5,\ \gamma=2\), the two stationary thresholds are \(2/3\) and \(3\); substitution into the critical coefficient gives biomass amplitudes \(7/81\) and \(3/7\). The finite integrations illustrate, but do not certify, the infinite-time conclusions.

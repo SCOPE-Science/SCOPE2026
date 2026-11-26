@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:01:32.708905Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 29–114 and 126–335",
+        "Frozen VERIFICATION.md and verify.py"
+      ],
+      "rationale": "The update is invariant under rescaling s. For unit s put q=sᵀHs and m=||Hs−qs||. When m>0 the only nonidentity block has diagonal q, 1+m²/q and off-diagonal m; it has positive determinant q and det(I−block)=−m²/q, so its eigenvalues straddle the extra ones and are the full spectral extremes. The spectral inequality H²≤(κ+1)H−κI yields m²≤(q−1)(κ−q), sharp at fixed q by endpoint spectral weights. The block's eigenvalue ratio is monotone in trace/√q, and the sharp envelope (κ+2−κ/q)/√q has derivative [3κ−(κ+2)q]/(2q^(5/2)). Its unique maximum for κ>1 is at q*=3κ/(κ+2) in the open interval, realized by weight 2/(κ+2) on the upper endpoint. Its value 2(κ+2)^(3/2)/(3√(3κ)) equals √Γ+1/√Γ and gives the stated Γ using (κ+2)^3−27κ=(κ−1)^2(κ+8). The value at q=κ corresponds to condition κ, so the strict interior maximum exceeds κ. The case m=0 cannot beat κ, and κ=1 gives B₁=I. Expanding the numerator gives the stated 4κ²/27 leading term. The κ=4 witness has trace 4 and determinant 2, giving 2±√2. The extremizer extends by identity blocks and is realizable under exact line search from gradient −s because only the direction matters. The proof, not the supplied finite rational/decimal checks, establishes all dimensions; uploaded code was inspected without execution.",
+      "residual_risks": [
+        "No assertion for other relative scales of B₀ and H or for subsequent updates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jin et al. Lemma 2.1 requires A≼G to give one-step decrease of Tr(A⁻¹G)−d; the quadratic algorithm sets G₀=LI.",
+          "Here A=H and G=I yield A≽G; the distinction is strict in at least one eigenspace when κ>1.",
+          "Erway et al. treat general initialization and PD preservation, not maximal spectral spread at the given scale."
+        ],
+        "reasoning": "The most closely related accessible general one-step criterion cannot be specialized directly: its order hypothesis fails and its potential is not a two-sided condition-number measure. Swapping the two arguments without a new valid transformation changes the update.",
+        "searches": [
+          "arXiv:2202.10538v2, pp. 5–7, eqs. (6)–(10) and quadratic algorithm",
+          "arXiv:1209.5141 §2",
+          "DOI:10.1007/BF01582161 and DOI:10.1137/0730067 (retrieval attempts)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "arXiv:1209.5141 and arXiv:2202.10538v2",
+        "Resultary 7b775acd2004 and 6a2886658444",
+        "DOI:10.1090/S0025-5718-1970-0274029-X, DOI:10.1137/0730067 and DOI:10.1007/BF01582161 (retrieval only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical secant rank and scalar-initialization formulas determine a block for a given pair but not the sharp set of realizable block spectra for a fixed κ.",
+          "Endpoint spectral support saturates the variance constraint, but the realizable optimum still requires finding the interior mean q*=3κ/(κ+2), not taking the largest Rayleigh quotient."
+        ],
+        "reasoning": "No accessible statement yielded the required maximizer and value by direct specialization. The spectral-moment reduction and optimization of the attainable trace at fixed determinant supply the additional sharp result; the classical update and variance inequality individually are not new.",
+        "searches": [
+          "arXiv:1209.5141 eq. (8)",
+          "arXiv:2202.10538v2 Lemma 2.1",
+          "Frozen RESULT.md variance envelope and maximization, lines 170–291"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inverse of the direct updated matrix has the same spectral condition number, so the inverse-update formulation would count as equivalent, not as a new result.",
+          "Erway et al. give the direct rank-two update and scalar initialization without the extremum; Jin et al. measure a trace potential relative to a target Hessian."
+        ],
+        "reasoning": "Inverting an approximation preserves the objective under review, but changing the secant assignment, choosing the scale optimally for each pair, or replacing the objective by relative trace changes the claim. The available passages do not give the required spectral extremum in either orientation.",
+        "searches": [
+          "Focused BFGS one-update conditioning and sizing literature lookup",
+          "arXiv:1209.5141 §2 eq. (8)",
+          "arXiv:2202.10538v2 §2.2, Lemma 2.1",
+          "DOI:10.1090/S0025-5718-1970-0274029-X; DOI:10.1137/0730067 (retrieval attempts)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact-Hessian-recovery result at 7b775acd2004 shows ||B_k−I||op→0 along a specific exact-line-search trajectory.",
+          "Same-day record 6a2886658444 identifies a componentwise positivity frontier for CG on positive diagonal systems and mentions shared exact-line-search BFGS iterates.",
+          "Neither indexed statement is a table or formula for Γ, and the finite verifier merely checks consequences at selected κ."
+        ],
+        "reasoning": "An asymptotic claim about a selected trajectory or an iterate-level positivity condition does not determine the spectrum of the first matrix update over every eligible secant. The same-day date is not a basis for excluding a match.",
+        "searches": [
+          "Resultary nearest BFGS and conditioning records, exact source IDs 7b775acd2004 and 6a2886658444"
+        ]
+      },
+      "rationale": "The exact maximization for the ordinary direct update with the initial scalar fixed at the lower curvature is distinct from the checked classical formula, conditioning-based choices of update, and the accessible one-step trace-potential criterion. The supported claim is the attained worst spectral condition number at a prescribed curvature ratio, not BFGS positivity or the idea that poorly sized updates can hurt conditioning.",
+      "residual_risks": [
+        "Classical quasi-Newton conditioning and sizing literature could encode the same fixed-scale spectral extremum. Several highly relevant older papers could not be inspected in full text; the judgment is based on the comparisons actually available."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Standard direct update and positivity, not sharp condition law",
+          "evidence": "B_{i+1}=B_i−B_i s_i s_iᵀ B_i/(s_iᵀ B_i s_i)+y_i y_iᵀ/(y_iᵀ s_i); B₀ scalar identity.",
+          "identifier_or_url": "https://arxiv.org/pdf/1209.5141",
+          "material_read": "§2, printed p. 4, eq. (8), around offset 9000",
+          "method": "Lawful OA PDF, bounded passage",
+          "title": "Shifted L-BFGS Systems",
+          "trigger": "Direct BFGS and scalar initialization"
+        },
+        {
+          "assessment": "Different potential and initialization/order regime",
+          "evidence": "For A≼G, Lemma 2.1 gives σ(A,G)−σ(A,G₊)≥uᵀGu/(uᵀAu)−1, with σ(A,G)=Tr(A⁻¹G)−d; the quadratic algorithm initializes G₀=LI.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.10538",
+          "material_read": "§2.2, printed pp. 5–7, eqs. (6)–(10), Lemma 2.1, and start of quadratic algorithm",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Sharpened Quasi-Newton Methods: Faster Superlinear Rate and Larger Local Convergence Neighborhood",
+          "trigger": "General one-step BFGS inequalities might dominate the frozen comparison"
+        },
+        {
+          "assessment": "Unresolved access, no negative inference",
+          "evidence": "HTTP 403; no accessible repository copy found in the bounded lookup.",
+          "identifier_or_url": "DOI:10.1090/S0025-5718-1970-0274029-X",
+          "material_read": "No full-text passage obtained",
+          "method": "Lawful OA and repository retrieval attempts",
+          "title": "Conditioning of Quasi-Newton Methods for Function Minimization",
+          "trigger": "Classical condition-number analysis could cover the claim"
+        },
+        {
+          "assessment": "Material residual overlap risk",
+          "evidence": "HTTP 403; no accessible repository copy found in the bounded lookup.",
+          "identifier_or_url": "DOI:10.1137/0730067",
+          "material_read": "No full-text passage obtained",
+          "method": "Lawful OA and repository retrieval attempts",
+          "title": "Sizing and Least-Change Secant Methods",
+          "trigger": "Sizing and general secant spectral formulas might encode the normalized unsized case"
+        },
+        {
+          "assessment": "Cannot independently confirm the narrower scope described by the record",
+          "evidence": "No accessible full text or repository copy recovered.",
+          "identifier_or_url": "DOI:10.1007/BF01582161",
+          "material_read": "No full-text passage obtained",
+          "method": "Lawful OA and repository retrieval attempts",
+          "title": "How Bad Are the BFGS and DFP Methods When the Objective Function Is Quadratic?",
+          "trigger": "Two-dimensional quadratic pathologies and approximate-Hessian spectra"
+        },
+        {
+          "assessment": "Different, asymptotic predicate",
+          "evidence": "On one exact-line-search trajectory ||B_k−I||op→0.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-hessian-recovery-inside-a-q-order-one-bfgs-trajectory--7b775acd2004",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary and local mirror",
+          "title": "Exact Hessian recovery inside a Q-order-one BFGS trajectory",
+          "trigger": "Closest indexed BFGS-matrix overlap"
+        },
+        {
+          "assessment": "Iterate positivity is not matrix conditioning",
+          "evidence": "Componentwise positivity frontier for CG with positive diagonal coefficients; BFGS equivalence concerns the iterates.",
+          "identifier_or_url": "2026/10/13/SCOPE-condition-two-is-the-sharp-positivity-frontier-for-conjugate-gra--6a2886658444",
+          "material_read": "RESULT.md Finding and BFGS relation",
+          "method": "Resultary and local mirror",
+          "title": "Condition two is the sharp positivity frontier for conjugate gradients",
+          "trigger": "Same-day indexed sharp condition frontier with an exact-line-search BFGS connection"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope and extremal proof",
+        "arXiv:1209.5141 §2"
+      ],
+      "rationale": "The scale choice and condition-number comparison are natural in a secant update, and the extremum reveals a specific pathology rather than just positivity or an arbitrary example: a perfectly conditioned estimate can overshoot the target curvature ratio on the very first exact-line-search-compatible step, and the sharp growth is quadratic, not linear. The endpoint eigenspace characterization gives a reproducible adversarial case even in two dimensions.",
+      "residual_risks": [
+        "Matrix conditioning is not a direct claim about objective decrease, convergence, or the benefit of any particular alternative scaling."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

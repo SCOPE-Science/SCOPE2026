@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The bundled checker `verify_wed_matching_deleted.py` builds \(K_{a,b}-M_t\) directly from the definition and performs two independent finite stress tests.
+# Independent mathematical audit
 
-First, for every \(1\le a\le b\le4\) and every \(0\le t\le a\), it enumerates every edge subset, tests edge domination, tests inclusion-minimality by deleting each chosen edge, records all cardinalities of minimal edge dominating sets, and compares well-edge-domination with the theorem.
+## correctness
 
-Second, for every theorem-negative parameter triple with \(2\le a\le12\) and \(a\le b\le15\), it constructs two explicit minimal edge dominating sets of different sizes using the witnesses from the analytic case proof and verifies both domination and minimality from scratch.
+PASS
 
-Replayed output:
+With uncovered row/column sets I,J, domination is exactly I×J contained in the deleted matching. If exactly one side is fully covered, every selected edge must be private on that side; if both sides are covered, each edge must be private on both sides or deletion preserves full coverage of one side. If the only missed row and column are the same hole index, deletion is obstructed exactly when it reveals a new missing row or column; this is the minimal edge-cover condition on the reduced board. This includes edgeless K_{1,1}-M_1 and disconnected K_{2,2}-M_2. For balanced deletions, the full and reduced cyclic shifts give different sizes except when the reduced 1×1 board is empty. For a<b the unmatched column gives size a, and the two-row column cover for a≥4 misses at least two rows, so its b edges are essential. With a=3 and t<3 the full third row supplies size b; with t=3 the two-row column cover cannot be minimal: the edge in the omitted row's diagonal column must be private in its used row, leaving the other used row to cover its own missing diagonal. A reduced 2×(b−1) full two-hole board has no doubled selected column in a minimal cover (both chosen edges would need row privacy), so the other size is b−1. With a=2,t=1 the reduced row gives b−1, and a full-column star with the holed row omitted is not minimal; with t=2 no such star exists and the reduced board has an isolated column. These cases give precisely the five clauses. Independent bounded check: number line-graph vertices by surviving edges, compute closed-neighborhood unions for each mask, and retain whole-cover masks for which deleting any set bit destroys coverage. This agreed on all 39 triples with 1≤a≤4, a≤b≤5 and ab≤16, including all small exceptions. This finite check does not certify the theorem; the case proof above supplies the infinite quantifiers. The bundled script was inspected, not executed.
 
-`ALL CHECKS PASSED; exhaustive_cases=30; subset_candidates=136249; negative_witness_cases=655; negative_witness_sets=1310; exhaustive_range=1<=a<=b<=4; witness_range=2<=a<=12,a<=b<=15`
+## originality
 
-These checks test finite instances and proof witnesses only. They do not certify the infinite theorem; the infinite quantifiers are discharged by the analytic support-pattern proof in `RESULT.md`.
+PASS
+
+The undeleted and star clauses are known, the disconnected two-edge boundary is immediate, and most balanced exclusions follow from the connected perfect-matching theorem. The supported distinct claim is the complete matching-deletion classification, in particular the unbalanced positive regimes together with the exclusion of all other unbalanced parameters. The strongest related Resultary edge-domination census located covers only a balanced subfamily and is later; the distinct same-day records inspected measure other invariants.
+
+## value
+
+PASS
+
+A natural dense bipartite graph family has a complete WED classification with an infinite unbalanced positive subfamily and two isolated unbalanced exceptions. The support reduction explains these cases via minimal edge covers, rather than reporting a small census or restating the perfect-matching case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review: sharp real-window Gabor tomography rank
+# Independent mathematical audit
 
-## Correctness — PASS
-The single claim is an all-finite-abelian-group sharp maximum for real windows with an arbitrary prescribed nonempty support. The Weyl conjugation characters diagonalize the operator-valued measurement map, reducing rank to ambiguity nonvanishing. Every missing support difference forces an entire modulation row to vanish. For each nonzero two-torsion difference, precisely half the characters cancel on real-valued antipodal pairs. The explicit window with entries \((2|G|+1)^{2^i}\) has a unique largest base-power term at every other ambiguity location, proving simultaneous nonvanishing. Counting these forced zeros gives the claimed rank; nonzero-polynomial arguments prove genericity. The proof covers all \(N\ge2\), full and proper support, and character orders without cyclicity assumptions. The included exact cyclotomic checker passed all 1410 nonempty support masks in ten sample finite groups. These finite tests are not used as infinite proofs.
+## correctness
 
-## Originality — PASS, subject to identified risk
-The foundational Weyl/ambiguity diagonalization of Feichtinger–Kozek–Luef, Bojarovska–Flinth, and Goldberger–Kang–Okoudjou is prior art and **not** claimed as new. Published positive-rational prime-group rank rigidity already covers a stronger but only odd-prime arithmetic subcase, and published cyclic boxcar ranks cover a different restricted window family. Their exact implications were compared against the proposed all-support/all-finite-abelian optimal real-window theorem; neither contains its general two-torsion rank formula and simultaneous construction. Complete text was inspected for these closest relevant results and the primary Gabor/POVM literature. Residual risk: an equivalent maximal real-window rank theorem might be implicit in earlier real Gabor tomography or finite Heisenberg representation literature. Search failure alone is not treated as proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The support difference set and group two-torsion give a complete, sharp, constructive phase-space count for complex-matrix observability under real-probe constraints. For equal group order eight, the optimal full-support ranks vary sharply by group structure: 60, 52, and 36. The theorem distinguishes the unavoidable complex-operator loss from the achievable full rank on the real-symmetric subspace for elementary two-groups. This is a natural classification of probe design and support restrictions, not a one-off numerical example or a normalization identity.
+The trace on a Weyl basis element factors as χ(u) conjugate(η(a)) A_g(a,χ). These are distinct characters of the orbit index group, so the nonzero columns are independent, and the zero columns give the exact kernel for the trace pairing. That pairing is nondegenerate, so the measurement-map rank equals the projector-span dimension. For a outside D an overlap is impossible; for nonzero involution a the two ordered contributions of a pair cancel exactly when χ(a)=−1, which occurs for N/2 characters. For the integer window, at a=0 the doubled powers have distinct exponents; at fixed a≠0 only reversal can repeat an unordered-pair exponent, and that happens only at an involution. After combining the reversals, each surviving coefficient has modulus 1 or 2, with at most N distinct exponents. The sum of terms below the top exponent E is bounded by 2N B^{E−1}<B^E, so every nonforced coefficient is simultaneously nonzero. Finite polynomial zero loci then give the claimed positive-orthant genericity. For prescribed S, informational completeness is equivalent to D=G and odd N; the stated existence over all real windows uses full support for the odd direction. I independently row-reduced the full projector orbit after a roots-of-unity specialization modulo 1009 on eight cases: ranks 49,21,52,12 for the specified proper supports and 60,52,36,81 for the full supports on Z_8, Z_4×Z_2, (Z_2)^3, and (Z_3)^2. Nonzero minors modulo the prime give exact complex-rank lower bounds and the analytic result supplies the upper bounds.
 
-## Limitations
-Linear operator tomography is stricter than nonlinear phase retrieval, and no phase-retrieval obstruction is inferred from a rank defect. The explicit integer witness is not a well-conditioned practical design. The maximum rank statement is an optimization over real windows, not a statement that every nonnegative window attains the maximum. An independent mathematics review has not yet been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the all-group, all-prescribed-support maximum over real amplitudes, including the exact support-dependent involution loss and one simultaneous integer witness. The Weyl rank equivalence, prime-rational proper supports, and fixed-window cyclic boxcar ranks are prior coverage. The distinct same-day records give exact ranks or kernels on specific supports/windows, including an actual binary-Sidon real special case, but not the all-support optimization. No equivalent general statement was substantiated in the bounded comparison; no priority is inferred merely from a date.
+
+## value
+
+PASS
+
+For a natural structured measurement ensemble, the theorem gives both the exact best operator rank under arbitrary missing-site constraints and the directions that no real taper can observe. The different capacities at order eight distinguish group structure rather than only size; the odd-order criterion and sparse difference-cover case directly inform support design. The constructive witness validates the uniform boundary, even though its magnitudes make it unsuitable as a practical taper.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

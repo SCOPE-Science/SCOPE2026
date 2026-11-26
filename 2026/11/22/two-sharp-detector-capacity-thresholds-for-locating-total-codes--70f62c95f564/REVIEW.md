@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns a single finite, explicitly labelled eighteen-vertex graph. The included Python and C++ source independently enumerate every one of the 262,144 vertex subsets with equivalent direct signature predicates and independently compute all valid one-bit transitions (BFS versus disjoint-set union). Their output tables agree on every cardinality coefficient, component size, minimum occupancy, and budget-nine distance profile. This is a complete finite exhaustive proof when executed as specified, not inference from partial sampling. A separate thirteen-mask witness exhibits one extremal shortest path. No conclusion is made for other graph orders.
+## correctness
 
-## Originality — PASS, subject to historical priority
-The closest primary paper (Xing and Sohn, 2014) determines the scalar minimum \(\gamma_t^L(C_3\square C_n)\), including the known value six here. Its inspected argument forces paired periodic minima but contains no capacity-bounded add/delete reconfiguration census. The prior public result on triangular tori instead treats \(n=3,4\) and token slide/jump transitions only among optimum codes. General domination reconfiguration studies a weaker predicate than locating-total domination. Searches included alternate names, exact cardinalities, component types, and stronger coverage; none returned the current threshold result. These searches do not prove global novelty; overlooked publications or independently computed tables remain priority risks.
+PASS
 
-## Value — PASS
-The first nontrivial saturated triangular torus, with the known tight six-detector minimum, is a naturally motivated benchmark for maintenance of fault-detection codes. Its complete reconfiguration phase diagram distinguishes the budget sufficient to migrate between *optimal* placements (nine) from the larger budget needed to avoid trapped *nonoptimal* feasible placements (ten). The sixty isolated size-nine codes establish a genuine sharp boundary and show why simply knowing the optimum count is insufficient. The statement is deliberately a motivated exact finite classification, not a generic minor improvement or unsupported infinite generalization.
+The graph has four distinct open neighbors at each of its eighteen labelled vertices. I independently represented a valid code as a hitting set for the eighteen open neighborhoods and, for every distinct pair i,j, the clause {i,j} union (N(i) symmetric difference N(j)). The latter is vacuous if either vertex is selected and otherwise is equivalent to unequal signatures. This gives a different exact exhaustive predicate from the supplied programs. A row-major implementation filters all 262,144 subsets, then constructs every legal single-bit edge by removing one bit of the upper set, retaining it if the lower set passes and the upper size meets the budget. Sparse component and unweighted-distance calculations reproduce the entire degree-6-through-18 polynomial (total 103,056), the twelve alternating-column minima, and all component profiles for B=6 through 18. At B=8 there are two distinct components with six minima each; even smaller budgets cannot merge them. At B=9 there is a 22,415-state component with all minima and exactly sixty singleton states; at B=10 the 48,620 states form a single component. The clauses also show the predicate is upward closed; the independent census verifies that no inclusion-minimal code exceeds size nine. Thus a larger code can descend to size ten within the larger budget, in agreement with the explicit connectivity checks through B=18. At B=9 a state of size below nine can add a vertex, so isolates must have size nine. A size-nine isolate has no one-step deletion and, by upward closure, no valid proper subset. From each optimum the independent shortest paths give multiplicities 1,3,2,6 at distances 0,4,6,12. Same-parity minima differ by a transposition or three-cycle of omitted rows, so their symmetric difference has size four or six and a Hamming-length path through their union fits budget nine by upward closure. Opposite parities are disjoint and require at least twelve flips; the exhaustive distances attain that bound for every pair. I separately checked the provided thirteen masks for legality, capacity, the encoding, and opposite optimum endpoints; the witness alone would not prove the full profile.
 
-## Verification and limitations
-The state space consists of exactly eighteen binary vertex indicators; both complete enumerators use the full \(2^{18}\) space and report matching results. The tests are finite and do not prove an infinite-family claim. The source date is anchored by the dated 2013 conference programme, not a journal revision date. The historical search may have missed earlier or inaccessible research.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Accept the distinct exact add/delete capacity classification and metric on C3 square C6, not the previously known scalar minimum or any part of the alternating construction already implied by the literature. The examined close matches either change the feasible predicate, graph or move rule, or concern only a scalar optimum. The possible extent of prior coverage of the twelve-minimum structure is left open rather than being used to establish novelty.
+
+## value
+
+PASS
+
+The first period-six tight torus in the known scalar family is a natural benchmark for incremental detector placement, not an arbitrary small graph chosen only to compute a count. The gap between universal mobility of minimum placements and full feasible-state connectivity answers two practically and mathematically different reconfiguration questions. The sixty inclusion-minimal traps witness the distinction, and the shortest-path census sharpens what is achievable at the smaller threshold. It is a useful exact finite benchmark even without an extension to larger tori.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

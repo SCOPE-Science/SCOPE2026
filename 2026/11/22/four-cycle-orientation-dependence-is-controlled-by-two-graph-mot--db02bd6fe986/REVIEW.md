@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof classifies the only edge-overlap sizes of distinct four-cycles: zero/one shared edge gives exact independence, a shared two-edge path gives joint probability 1/32, and shared opposite edges give zero joint probability. Every pair of cycles sharing two edges determines one copy of either K4 or K2,3; this supports the exact counting coefficients. A direct local parity obstruction proves the cube triple claim. All assertions in the standalone exact enumerator passed, including full four- and five-vertex graph classes and the complete graph on six vertices. The conclusion is all finite simple graphs, not an extrapolation from enumeration.
+## correctness
 
-## Originality — PASS, with priority risk
-Actual indexed research searches covered oriented four-cycle covariance, K4/K2,3 motif variance, cycle-indicator independence, the cube triple obstruction, and related terms. The closest published tournament decomposition states the complete-graph variance (already known and explicitly excluded as a novelty claim), but it does not imply classification for arbitrary underlying graphs. The two inspected arXiv primary papers treat orientation types and extremal/quasirandom counts, not this joint-dependence law. The 1998 tournament paper's abstract was accessible but the complete full text was unavailable. Historical overlap not found in the accessible corpus remains possible; literature search is not proof of uniqueness.
+PASS
 
-## Value — PASS
-The main object is the entire natural family of directed four-cycle events under independent orientation of an arbitrary network. The result exactly classifies when pairwise independence holds by two forbidden graph motifs, provides both positive and negative local covariances, and gives a variance formula whose correction counts higher-order underlying motifs. The cube establishes a sharp conceptual boundary: complete pairwise independence can coexist with an impossible natural triple event. This goes beyond a numerical small-graph enumeration or mere restatement of known tournament moments.
+A cycle succeeds in 2 of 16 orientations, giving variance 7/64. Distinct four-cycles cannot share three edges because the three-edge path determines the closing edge. With no common edge, the events depend on disjoint variables. With one common edge, conditioning on it gives independent completions with constant probability 1/8 each. With two adjacent common edges, the distinct closing paths have different intermediate vertices, so the union is exactly a K2,3 edge-subgraph. The common path must orient consistently (probability 1/2), then the two completions have probability 1/4 each, giving 1/32 jointly. If the common edges are opposite, write the cycles as abcd and abdc with shared ab and cd. Matching the direction on ab forces contrary directions on cd. The union is K4, and the joint probability is zero. Each motif has three unordered pairs of constituent four-cycles with that union, and a pair determines its unique edge-subgraph union. Thus the covariance corrections are +6b₂,₃/64 and −6k₄/64; nonzero pair covariance detects either motif, and zero covariance implies independence for Bernoulli variables. In Q3 the graph is bipartite and distinct vertices share at most two neighbors. At any vertex, its three incident squares would require every pair of its three incident edge directions to differ, which is impossible. Independent exact enumeration reproduced the two motif probabilities and, for the cube's 4096 orientations, 512 occurrences per selected face, 64 per pair and none for the triple.
 
-## Limitations
-The result assumes equiprobable independent orientations; it does not characterize all higher-order dependencies or quantify limit laws. Complete-graph marginal moments are prior work, not claimed. A plausible archival tournament paper was inaccessible in full. Self-review does not constitute independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the sharp two-motif classification and covariance/variance law for a fixed arbitrary underlying graph, with the cube as a higher-dependence witness. Neither the single-cycle baseline nor the complete-graph variance is credited as new.
+
+## value
+
+PASS
+
+For a basic fixed-graph random model, the theorem decides pairwise independence by exact local obstructions and shows how the two obstructions affect variance with opposite signs. This distinguishes positive and negative dependence even where their contributions cancel in the total, and the cube establishes a genuine boundary between pairwise and three-wise independence without a tournament assumption.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

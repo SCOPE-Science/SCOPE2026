@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:17:36.564211Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, statements and proof §§1–5",
+        "Frozen VERIFICATION.md and verify_mixed_power_values.py, particularly lines 30–40",
+        "Independent bounded direct modular-value enumerations"
+      ],
+      "rationale": "Odd exponentiation is bijective on dyadic units (the group has 2-power order), and reduction to the needed precision after taking out a power of two is surjective. This gives precisely the exponent-multiple valuation shells plus zero. At target valuation v, two lower equal shells give exactly one complementary partner per element, and an unequal-shell pair must have minimum valuation v; zero summands and the zero target give the stated extra terms. Squaring and summing by shell gives the energy. The |B_k| cap is attained at zero for k≤d and throughout shell d for k>d: subtraction of an odd b leaves an odd value; subtraction of an even b or zero preserves valuation d. Zero attains the cap exactly when B_k⊆A_k, equivalently k≤e or d divides e. Odd targets have exactly the sum of the two even-part sizes, bounded above by 2+2^k/7, strictly below the common odd-plus-odd contribution 2^(k−1) for even targets when k≥3. All odd targets already come from an odd and zero; every even target for k≥1 comes from two odd values. k=0 is the singleton case. Independent bounded enumeration corroborated all fibers, energy and extremal statements on seven exponent pairs and depths through 10; local replay: python3 /workspace/branches/review_replay.py 3. The frozen checker was inspected, not executed. Its 14,637 marker increments for two conditional assertions even when skipped, so it is an accounting marker, not a literal assertion count; the general proof does not use it.",
+      "residual_risks": [
+        "The enumeration is finite; the all-depth claim uses the shell proof. The stated result identifies a maximizing shell and classifies zero, not a complete list of maximizing targets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gu gives valuation shells for a power set and a character coefficient formula for fixed-size subsets of one set.",
+          "Broughan and Arias–Borja–Anaya treat support of diagonal sums, not the mixed fiber sizes."
+        ],
+        "reasoning": "Shell convolution and its energy identity are direct computations once the shells are known. The inspected general statements do not supply the mixed maximum, attainment away from zero, or its exact depth criterion.",
+        "searches": [
+          "Gu arXiv:2610.28837v1 Proposition 1 and eq. (17)",
+          "Broughan, Characterizing the Sum of Two Cubes",
+          "Arias, Borja and Anaya, JIS 23.8.1 Theorem 18"
+        ]
+      },
+      "checked_sources": [
+        "Gu arXiv:2610.28837v1",
+        "Resultary 7a4111089730, acd9600cfc42, 36f7d50cd6e9 and 173644eb9f6e",
+        "Broughan JIS 03.4.6",
+        "Arias, Borja and Anaya JIS 23.8.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The elementary mixed cap is always |B_k| by fixing b; attainment is the translate containment t−B_k⊆A_k.",
+          "Support results only assert that a representation exists, and setting up a general Fourier product does not give the required attaining translate. Shell d keeps all complements in allowed odd or valuation-d shells even when zero translation fails."
+        ],
+        "reasoning": "The independently supported addition is the sharp attainment and exact threshold at which zero translation fails, not the Fourier/shell method or the formal energy sum in isolation.",
+        "searches": [
+          "Gu arXiv:2610.28837v1 §5 eq. (17)",
+          "Resultary 7a4111089730, Finding",
+          "Arias, Borja and Anaya, Theorem 18"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target is the cross-correlation of the two distinct power-image indicator functions (each is invariant under negation).",
+          "The strongest exact pair analogue counts unordered distinct pairs within one image; the dyadic equal-exponent analogues count input roots and hence weight output values by their multiplicities."
+        ],
+        "reasoning": "Ordering/diagonal corrections could convert same-image distinct-pair counts to same-image ordered convolution but do not change one image into two different ones. Root multiplicities change the counting measure, so a direct identification with representation-density formulas is invalid.",
+        "searches": [
+          "Resultary 7a4111089730, acd9600cfc42, 36f7d50cd6e9",
+          "Gu, arXiv:2610.28837v1 §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier exact Galois-ring pair result gives counts by valuation for two distinct elements of one image and a coverage threshold.",
+          "The distinct same-day 173644eb9f6e concerns triples of square values from one image, with maximal fibers at 3 mod 8."
+        ],
+        "reasoning": "The same-day formula uses an even exponent and three summands, while the earlier pair and density records have the same-image or input-multiplicity differences. No date ordering was inferred from same-day indexing, and none of these statements gives this mixed binary displacement.",
+        "searches": [
+          "Resultary 7a4111089730, acd9600cfc42, 36f7d50cd6e9, 173644eb9f6e"
+        ]
+      },
+      "rationale": "Known unit-shell structure and general convolution/character methods are not new. The supported distinct result concerns mixed unweighted ordered values and the sharp maximizing-fiber displacement with depth, particularly attainment of the cardinality cap when the two images are not nested.",
+      "residual_risks": [
+        "A general radial cross-correlation formula may specialize to the count or energy. No exact prior sharp mixed displacement was identified in the bounded source comparison, which is not an exhaustive historical priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong overlap in shells and pair enumeration, not the mixed ordered count",
+          "evidence": "Counts unordered two-element subsets of distinct members of a single P and gives a distinct-summand coverage threshold.",
+          "identifier_or_url": "Resultary 7a4111089730",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact pair counts and sharp additive coverage for power values in Galois rings",
+          "trigger": "Earlier exact valuation-indexed power-value pairs"
+        },
+        {
+          "assessment": "Root-weighted single-exponent results",
+          "evidence": "Counts original input pairs (x,y) rather than distinct image elements.",
+          "identifier_or_url": "Resultary acd9600cfc42 and 36f7d50cd6e9",
+          "material_read": "Mirrored RESULT.md defining counts in both records",
+          "method": "Local Resultary mirror",
+          "title": "Dyadic representation-density moments and exact dyadic fibre laws for sums of two odd powers",
+          "trigger": "Same modulus and odd powers, exact dyadic fibers"
+        },
+        {
+          "assessment": "Same-style invariant for a different number of summands and power set",
+          "evidence": "Ordered triples from the square image with repetitions allowed and maximum at 3 mod 8.",
+          "identifier_or_url": "Resultary 173644eb9f6e",
+          "material_read": "Mirrored RESULT.md, stated count and maximizer",
+          "method": "Local Resultary mirror",
+          "title": "Exact ternary convolution of distinct dyadic square values",
+          "trigger": "Same-day exact unweighted dyadic convolution and maximum"
+        },
+        {
+          "assessment": "Prior shell and character machinery, not the mixed structural maximum",
+          "evidence": "The character coefficient extracts fixed-size subsets of a single power set P.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.28837v1",
+          "material_read": "Proposition 1 offset 8150; §5 equation (17) offset 22098",
+          "method": "OA primary text, bounded passages",
+          "title": "Subset sums of power values over Galois rings",
+          "trigger": "General theorem potentially covering specialized dyadic value counts"
+        },
+        {
+          "assessment": "Equal cubes and support only",
+          "evidence": "Decides representability, not the multiplicity of mixed values.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL6/Broughan/broughan25.pdf",
+          "material_read": "p. 1, modular support statement",
+          "method": "OA primary PDF, bounded passage",
+          "title": "Characterizing the Sum of Two Cubes",
+          "trigger": "Modular sums of two odd powers"
+        },
+        {
+          "assessment": "Output support, not mixed fibers",
+          "evidence": "Counts representable residue classes; the recurrence concerns same-exponent sums.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Borja/borja4.pdf",
+          "material_read": "p. 1 and Theorem 18, p. 9",
+          "method": "OA primary PDF, bounded passages",
+          "title": "Counting Integers Representable as Sums of k-th Powers Modulo n",
+          "trigger": "Power sum support and prime-power recurrences"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§2–5"
+      ],
+      "rationale": "Ordered convolution of the two natural dyadic power-value images measures concentration beyond mere coverage. The sharp cap being attained even without nesting, and the exact transition at which zero permanently loses optimality, are structural facts useful for diagnosing the concentration of these arithmetic sets. The shell formula provides depth-based computation of an arbitrary fiber and energy without residue enumeration; the value is not in a finite checker or reformulating energy alone.",
+      "residual_risks": [
+        "No claim is made about even exponents, root-weighted counts or odd-prime moduli."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

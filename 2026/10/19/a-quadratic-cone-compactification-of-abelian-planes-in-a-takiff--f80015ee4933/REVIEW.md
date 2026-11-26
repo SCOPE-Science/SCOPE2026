@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof is scheme-theoretic rather than just set-theoretic. The Lie bracket is an invertible linear transform of the exterior product \(\bigwedge^2\mathfrak{sl}_2\) for characteristic not \(2\), enabling explicit Grassmannian-chart elimination. The exact resulting ideal is \((a_1^2+a_2c_1)\) in five independent coordinates at every boundary point. This proves the claimed hypersurface local structure and, by the Jacobian criterion plus Serre's conditions, normality and the precise singular locus. All boundary planes deform into the open stratum. The projective-bundle map is globally well defined, birational, proper and smooth at the source. Finite-field counts are derived from an actual rank-two vector bundle over \(\mathbb P^2\), not inferred from finite tests. Exact symbolic elimination and independent finite-plane census corroborate the mathematics at \(q=3,5\).
+PASS
 
-## Originality — PASS with documented residual risk
+In the frozen RESULT.md lines 5–22 the bracket map on Λ²sl₂ is invertible over any field of characteristic different from 2 (its determinant in the displayed bases is a signed power of 2). Thus the rank≤1 equation is the full minors ideal of the projected tautological map. On a rank-one chart a unit pivot makes both its kernel and image line bundles; the remaining mixed wedge equation identifies their lines in the two copies of the three-space. The lift modulo this line is a map ℓ→g/ℓ, giving the total space of the tangent bundle over P(g), as schemes. The boundary charts are obtained by inverting any nonzero vertical minor, without requiring the point to be rational. Elimination on such a chart uniquely solves c_2=−a_1, a_3=a_2b_2+b_1a_1, c_3=b_1c_1−a_1b_2; the residual ideal is exactly (a_1²+a_2c_1). Direct 2×2 commutator Gröbner reduction also checked this over Q (python3 /tmp/opencode/frozen_math_reproduction.py). Over every extension the hypersurface is integral with singular ideal (a_1,a_2,c_1) from its Jacobian and is Cohen–Macaulay and regular in codimension one; this and the smooth open give geometric normality. The boundary is in the closure of the integral open by the displayed one-parameter deformation, and the regular open plus integral charts ensure no extra or nonreduced components. The resolution map is regular via local Plücker wedges of τa+εb and εa: these are never zero on a fiber, glue projectively, and satisfy the bracket equations. The open τ≠0 recovers the tangent bundle; at infinity the map identifies with the incidence flag map (ℓ ⊂ plane) to Gr(2,g), as a scheme, giving P¹ fibers and the stated exceptional divisor. A rank-two vector bundle and the vertical Gr(2,3) give (Q²+Q+1)(Q²+1) independent of extension degree; the zeta exponents are its monomial coefficients. The symbolic finite check is limited to one rational coefficient chart; the supplied finite census was inspected, not run, and neither proves generality or finite-field counts in extensions.
 
-The closest inspected foundational works are Panyushev's *Semi-direct products of Lie algebras and their invariants* (arXiv:math/0506579v1) and *Periodic automorphisms of Takiff algebras, contractions, and theta-groups* (arXiv:0710.2113v1). They study the same general Takiff construction but their results concern invariants, generic stabilizers, null cones, contractions and periodic automorphisms. The six-dimensional Lie algebra underlies our moduli problem, but those results do not state or formally imply the singular abelian-plane Grassmannian classification as given. The affine commuting-variety and null-cone constructions use other spaces; no identification supplying the whole new moduli statement was found. The nearest located mathematical records concerning plane subalgebras in three-dimensional algebras are not results for this six-dimensional Grassmannian. Queries involving dual-numbers current algebras, Grassmannian abelian-plane schemes, singular strata, and projective resolutions returned no identical or stronger treatment. Remaining risk: a specialized abelian-subalgebra-variety treatment not indexed in the accessed sources might contain an equivalent or dominating statement. Lack of a search hit alone was not used as novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-A scheme classifying abelian Lie subalgebras is a natural object in Lie-algebra geometry. The result determines its global open part, exact singular boundary, normal local singularity type, explicit smooth projective resolution, and arithmetic of all finite extensions. The fact that the boundary has transverse \(A_1\) singularities, yet the whole moduli space is irreducible and normal, is substantive structural information not provided by generic invariant-ring descriptions. This is useful both for studying flat degenerations of abelian planes and for tests of related finite-field moduli invariants.
+The distinct supported claim is the scheme-theoretic compactification and its explicit resolution in odd characteristic, not originality of tangent bundles, generic Takiff invariant theory, the A1 cone, or the abstract counting polynomial. The closest exact arithmetic match is a different scheme in a different characteristic; inspected related Lie and invariant-theoretic results do not supply this compactification.
 
-## Risks and limits
+## value
 
-The classification is not asserted in characteristic \(2\); finite enumerations are not a substitute for the all-field proof; there is no assertion of independence or absolute novelty. Unlocated stronger specialized abelian-subalgebra literature remains a real originality risk. The citation date refers to a verified historical public background source, not the date of the new calculation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The abelian-plane Grassmannian is a natural subalgebra moduli scheme in the first Takiff extension of sl₂. Identifying its exact singular ideal and explicit contraction, rather than only enumerating planes or giving the dense open, determines how the tangent-bundle moduli compactifies, with control under field extension. The arithmetic is a useful check and consequence, not the main novelty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

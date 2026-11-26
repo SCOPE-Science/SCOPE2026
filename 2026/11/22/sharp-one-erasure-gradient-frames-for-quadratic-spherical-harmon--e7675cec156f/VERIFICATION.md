@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and scope of verification
+# Independent mathematical audit
 
-`check.py` is a standalone NumPy program. Run `python check.py`. It builds an orthonormal trace-free symmetric matrix basis, constructs regular simplex coordinates from the symmetric projector, and assembles intrinsic tangent gradients at every retained vertex. Complete numerical Gram spectra were matched for intact and one-vertex-deleted frames in every dimension from \(d=3\) through \(d=9\). For every one of those dimensions, all numbers of retained vertices \(1\le k<d\) were separately tested for the predicted nullity \((d-k)(d-k+1)/2\). The recorded output contains seven successive `PASS` lines.
+## correctness
 
-The separate reproducible `symbolic_check.py` uses SymPy to verify the paired-block trace, determinant and discriminant against their factored rational formulas in the theorem; run `python symbolic_check.py` and expect `SYMBOLIC_IDENTITIES_PASS`. These finite evaluations and algebraic checks corroborate the written all-dimensional proof; neither finite numerical testing nor symbolic simplification alone establishes the nullity classification or the spectral theorem. The proof's nonstandard steps are the cross-sector projection identity and the exact paired-plane decomposition, both derived explicitly in `RESULT.md`.
+PASS
 
-No outside expert or independent mathematical audit was performed.
+The fourth-moment normalization and Laplace eigenvalue 2d give Dirichlet norm squared 4||A||_F^2/(d+2), while each intrinsic gradient is 2(I-uu^T)Au. A vanishing sampled gradient forces u to be an eigenvector of the complex symmetric A; nonzero pairwise bilinear products force a common eigenvalue. The real simplex span through k<=d vertices has positive definite Gram matrix, so its complexification splits orthogonally from the complementary symmetric block. The trace condition determines the common eigenvalue, giving exactly (d-k)(d-k+1)/2 free parameters, and the full simplex is injective by restriction. For one deletion, the full-frame rescaling and rank-(d-1) downdate have coefficient (d+2)/(2d). For the normalized symmetrized tensor at the deleted vertex, the squared norm of its full evaluation vector is 2(d+1)/d^3 by simplex isotropy; dividing by the low-sector evaluation Gram level (d^2-1)/d^2 gives overlap 2/[d(d-1)]. Polarizing yields orthogonal paired planes. The trace and determinant in the resulting two-by-two block produce both radical branches; the secular polynomial is negative at L_d, the upper root is strictly below H_d, and positivity follows from the kernel calculation. Unpaired dimensions are 1 and d(d-3)/2, so the d=3 condition number uses the upper paired root rather than H_d. The determinant divided by the upper root gives lower-root asymptotic 1/d. An independent rational ambient-hyperplane matrix construction confirmed every retained-cardinality rank and the full and erased characteristic polynomials for d=3,4,5,6; this is corroboration, not the all-dimensional proof.
+
+## originality
+
+PASS
+
+The intact two-level spectrum is already implied by the cited full-configuration Hessian proof and receives no novelty credit. The additional projected overlap with the deleted tangent subspace, the complete downdated spectrum and the exact subset-nullity law were not supplied by the strongest inspected matches. The verdict concerns these erasure results only and is best-of-knowledge, not a priority certificate.
+
+## value
+
+PASS
+
+Node loss is a natural stability question for a minimal spherical-design configuration. The exact nullity law separates injectivity after one loss from unavoidable information loss after two, and the sharp surviving constants distinguish injectivity from an inverse whose squared condition number grows like d. This is substantive additional information beyond the intact two-level spectrum, even without optimizing reweighting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

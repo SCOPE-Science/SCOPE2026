@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:03:31.021464Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Summing the product of the two birth-parent laws over matching ordered parent-label choices gives r^2/b+r(1-r)/(ab)+(1-r)/b^2; restricting to off-diagonal parent labels gives (1-r)^2(a-1)/(ab^2). At j the sibling event already avoids i; the independent remaining births contribute the products of one- and two-label avoidance probabilities on exactly the ranges given. At r=1 the products telescope to give single-tree pair probability a/[(n-1)(n-2)]; squaring it at r=0 gives n/[12(n-2)], and summing it at r=1 gives n/6. With D=(n-1)(n-2) the products are at most ab/D. Using step functions on the scaled label triangle, this gives uniformly bounded summands after scaling by n/b for the normalized leading sum, and n^2/b^2 for the accidental and different-parent sums. At interior points the logarithmic expansions give x^(2-r)y^(2-r) along any sequence tending to r. The middle term contributes at most r/2; the integrals give 1/[(3-r)(5-2r)] and 1/[(3-r)(4-2r)] before the prefactors. For r_n tending to zero the first and last coefficients tend to 1/15 and 1/12 separately, not with a single additive o(1) error when n r_n^2 diverges. At n=3 the exact probability is (1+r)/4 with no mismatched parents. Inspected the supplied checker without executing it; the proof does not depend on its finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former models the same correlated growth and treats detection; the latter counts leaves and terminal-sibling pairs and their covariance in one tree."
+        ],
+        "reasoning": "An unlabeled test and a covariance of one-tree aggregates do not supply the probability that exactly the same labeled pair is terminal and shares a parent separately in each tree. The model specifies the raw variables, but a separate two-birth incidence and survival calculation is needed.",
+        "searches": [
+          "arXiv:2606.02472 PDF §1, p. 3",
+          "Resultary one-tree terminal-sibling clustering covariance, d3480f1053f7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.02472 §1, including the defining model and Theorem 1.1",
+        "Resultary 261fc92cae7c",
+        "Resultary d3480f1053f7",
+        "Resultary 7c54cb0460c0 (identical record, not an antecedent)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact one-tree probability is (i-1)/[(n-1)(n-2)]. It gives the r=1 endpoint directly and the r=0 endpoint by independence and squaring."
+        ],
+        "reasoning": "Credit both endpoint means and use neither as an originality basis. The one-tree law cannot separate common from different parents under intermediate coupling or fix the survival weights under a sequence of positive r_n. The crossover is for aligned-label expectations and is not the preprint's detection threshold.",
+        "searches": [
+          "Resultary 261fc92cae7c, Finding and proof of the terminal-sibling pair law",
+          "arXiv:2606.02472, model and Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The arXiv source has the same independent stepwise parent mixing after shifting labels by one, but its Theorem 1.1 concerns detection using an unlabeled tree pair.",
+          "Resultary 261fc92cae7c gives a one-tree labeled sibling-incidence law."
+        ],
+        "reasoning": "Recasting the statistic as a product of binary cherry-incidence entries still requires cross-tree labeled pair information, and the mismatched-parent refinement also requires the two associated parent labels. Neither is the single-tree incidence probability or an unlabeled detection statement.",
+        "searches": [
+          "Resultary: common terminal siblings / same-label cherry overlap in correlated recursive trees",
+          "arXiv:2606.02472 §1 and Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching index entry is 7c54cb0460c0, the same theorem and same record, not a distinct source. Closest distinct exact entries were 261fc92cae7c and d3480f1053f7, giving one-tree probabilities or moments."
+        ],
+        "reasoning": "The earlier exact one-tree entries do not tabulate either two-tree overlap kernel at intermediate r.",
+        "searches": [
+          "Resultary: labeled terminal-sibling persistence and mismatched parents in correlated recursive trees"
+        ]
+      },
+      "rationale": "The credited coupling and the endpoint expectations are antecedent. The distinct claim is the exact intermediate-coupling terminal-sibling overlap resolving mismatched parents, and its expectation crossover for vanishing alignment. No inspected distinct result gives or implies that combined claim.",
+      "residual_risks": [
+        "The comparison with arXiv:2606.02472 is to the identified model and theorem, not an exhaustive claim about every appendix or related preprint.",
+        "A broader two-tree motif law under another name or an unindexed treatment could imply part of the result; priority is assessed to the best of the checked evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the parent coupling after relabeling; inspected detection theorem does not cover the claimed labeled overlap or its mean crossover.",
+          "evidence": [
+            "At each step the same uniform parent is drawn with probability alpha, otherwise two independent uniform parents are drawn; Theorem 1.1 is formulated for inference from unlabeled trees."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.02472",
+          "material_read": "PDF §1, p. 3, model and Theorem 1.1 (text offsets 9700–11642).",
+          "method": "Lawful OA primary PDF passage comparison.",
+          "title": "Correlated uniform attachment trees",
+          "trigger": "Same underlying coupling, closest potential probabilistic coverage."
+        },
+        {
+          "assessment": "Covers the one-tree law and implies both recited endpoint means.",
+          "evidence": [
+            "The displayed one-tree pair probability is (i-1)/[(n-1)(n-2)], and the expected number is n/6."
+          ],
+          "identifier_or_url": "Resultary 261fc92cae7c",
+          "material_read": "Finding and main pair derivation, RESULT.md offsets 0–3288 and 3900–5800.",
+          "method": "Local mirrored primary result and proof.",
+          "title": "Exact terminal-sibling covariance and a constant regression slope in random recursive trees",
+          "trigger": "Earlier exact probability of a pair being terminal siblings."
+        },
+        {
+          "assessment": "One-tree moment result; no labeled cross-tree incidence in the theorem.",
+          "evidence": [
+            "The displayed covariance matrix is for terminal-vertex and terminal-sibling pair counts in a single tree."
+          ],
+          "identifier_or_url": "Resultary d3480f1053f7",
+          "material_read": "Finding, RESULT.md offsets 0–2300.",
+          "method": "Local mirrored primary statement comparison.",
+          "title": "Exact terminal-sibling clustering covariance in uniform recursive trees",
+          "trigger": "Potentially stronger joint sibling and leaf moment result."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The overlap is a natural genealogy-sensitive statistic for the aligned pair of trees; degree and leaf totals cannot resolve it. The exact kernel separates a linear-order shared-parent contribution from bounded parent mismatches, and the two constants describe the competition of copied and accidental incidence at small alignment. This is useful as an exact expectation benchmark and does not assert concentration or detectability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

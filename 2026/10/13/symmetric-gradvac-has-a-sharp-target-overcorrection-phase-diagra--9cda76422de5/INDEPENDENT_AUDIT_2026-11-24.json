@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:26:30.202899Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 18–135 and 140–245",
+        "VERIFICATION.md and verify.py",
+        "Wang et al. arXiv:2010.05874 Eq. (2)"
+      ],
+      "rationale": "For normalized gradients on angles 0 and θ, the published coefficient after removing the original norm ratio is λ=sin(θ−γ)/sin γ>0, where γ=arccos τ lies in (0,θ). The normalized-coordinate sum e₁+λe₂ is the vector on angle θ−γ multiplied by sin θ/sin γ>0; swapping gradients reflects it to angle γ. The final separation |θ−2γ| lies in [0,θ) and gives the claimed cosine formula by the double-angle identities. As τ increases, γ decreases, so the separation has a unique minimum at γ=θ/2, with the claimed strict monotonicity of the cosine on the two sides. The endpoint γ→0 swaps directions and gives C→c, not a defined update at τ=1. Equating |θ−2γ| with γ gives only γ=θ/3 in the active range and the inactive γ=θ at its boundary. For the inequality signs use C−τ=−2 sin((θ−γ)/2) sin((θ−3γ)/2), with these arguments in ranges where the signs are as stated. An independent rational spot check with orthogonal originals found that τ=3/5 and τ=4/5, on opposite sides of the peak, both give C=24/25. The bundled random and deterministic checker was inspected, not run; it is a numerical transcription guard, not a proof.",
+      "residual_risks": [
+        "Exact arithmetic for the source law only; regularization, varying directed EMA targets, asymmetric activity and later corrections in more than two tasks can change the result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Appendix E.3 analyzes the combined step for two tasks under a positive initial cosine and a target at least as large; it does not supply the two-output cosine phase diagram there.",
+          "TorchJD v0.18.2 uses original partner rows, directed EMA values, and a regularized denominator. The thesis search exposed a matching one-sided derivation in a snippet, but no full-text comparison was possible."
+        ],
+        "reasoning": "A convergence statement about an aggregate is not a theorem about relative directions of the two summands. The implementation convention corroborates the comparison semantics but does not provide the analytical thresholds, and the thesis access gap is not negative evidence.",
+        "searches": [
+          "Wang et al. Appendix E.3 two-task convergence",
+          "TorchJD GradVac original-partner update and modified-row aggregation",
+          "Wang thesis Gradient Vaccine chapter lead"
+        ]
+      },
+      "checked_sources": [
+        "Wang et al. arXiv:2010.05874 Eq. (2) and Appendix E.3",
+        "TorchJD documentation and v0.18.2 implementation",
+        "Resultary fc2e1936c0cb",
+        "Wang institutional thesis lead, full text unavailable"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source gives each one-sided rotation and the aggregate construction; composing the two rotations gives the new relative angle θ−2γ.",
+          "The checked two-sided implication is nonmonotone, with a peak at γ=θ/2 and target equality at γ=θ/3, different conditions from either one-sided guarantee or CAGrad's progress thresholds."
+        ],
+        "reasoning": "The law supplies the inputs to a short geometric calculation, but neither the original single-correction guarantee nor the accessed convergence result asserts the target ordering for the mutual cosine. The compared sources do not supply a stronger result yielding that ordering as a restriction.",
+        "searches": [
+          "arXiv:2010.05874 §3 Eq. (2) and Appendix E.3",
+          "TorchJD v0.18.2 GradVacWeighting",
+          "Resultary fc2e1936c0cb Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang et al. Eq. (2) sets the cosine between one modified vector and its original partner, not the two-output cosine.",
+          "Resultary fc2e1936c0cb analyzes two-task CAGrad common descent and equalized progress, via a minimax direction, not a pair of law-of-sines updates."
+        ],
+        "reasoning": "The two comparisons refer to different vectors or a different algorithm. A one-sided target guarantee does not guarantee that the mutual alignment of both outputs equals or even increases with the target.",
+        "searches": [
+          "Resultary: symmetric GradVac two-task final modified-gradient cosine, target overshoot and bisector",
+          "Web: Gradient Vaccine GradVac symmetric two task final mutual cosine both modified gradients nonmonotone half angle target overcorrection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The surfaced exact threshold catalogue entry fc2e1936c0cb is for CAGrad's common-descent/equalization geometry.",
+          "The accessed GradVac primary passages and documentation do not contain a lookup table or exact theorem for these two-output thresholds."
+        ],
+        "reasoning": "The named thresholds are closed geometric functions of c, not a known numerical sequence or a regression table; the substantive exact-result check is for the same two-output observable under the same source update.",
+        "searches": [
+          "Resultary: GradVac symmetric output cosine, half-angle parallelism and one-third-angle target equality",
+          "Resultary: two-task optimization gradient-angle phase boundaries"
+        ]
+      },
+      "rationale": "The defining one-sided law and the two-task use of both ordered updates are prior work. The distinct result computes the mutual alignment of their two outputs, and resolves its monotonicity and its comparison with the target on the full active interval. Actual source comparisons did not establish coverage of that phase diagram by a prior theorem. The closest catalogue threshold comparison concerns CAGrad, not GradVac.",
+      "residual_risks": [
+        "The old v1 paper version and plausible expanded thesis chapter were not independently inspected, and an equivalent short derivation could exist in unindexed notes. No absence claim is made from those access limitations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the one-sided correction and a distinct aggregate-convergence result",
+          "evidence": [
+            "The target is relative to the original partner. Appendix E.3 changes both gradients but examines the update and convergence rather than the cosine between the corrected gradients."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2010.05874",
+          "material_read": "§3 Eq. (2), p. 5 near offset 20650; Appendix E.3 pp. 18–20 near offsets 62500 and 64300",
+          "method": "OA primary PDF passages; versioned v1 request timed out and the unversioned text was used",
+          "title": "Gradient Vaccine: Investigating and Improving Multi-task Optimization in Massively Multilingual Models",
+          "trigger": "Defining update and plausible two-task prior coverage"
+        },
+        {
+          "assessment": "Partner convention confirmed; implementation is not an exact fixed-common-target theorem",
+          "evidence": [
+            "Adds a scaled original partner row G[j]; uses ordered EMA targets and denominator regularization."
+          ],
+          "identifier_or_url": "https://github.com/SimplexLab/TorchJD/blob/v0.18.2/src/torchjd/aggregation/_gradvac.py",
+          "material_read": "GradVacWeighting, lines 17–129, relevant update near text offset 3900; documentation of ordered pairs and aggregation",
+          "method": "Pinned public source and documentation passages",
+          "title": "TorchJD GradVac implementation",
+          "trigger": "Check whether reverse correction uses the original partner and whether the source uses exactly symmetric targets"
+        },
+        {
+          "assessment": "Different algorithm and observables",
+          "evidence": [
+            "One CAGrad minimax direction, an optimization ball around the mean, and common-descent/equalized-progress thresholds, not two GradVac-corrected vectors."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-two-task-cagrad-has-sharp-common-descent-and-equalization-thresh--fc2e1936c0cb",
+          "material_read": "Local mirrored Finding, offset 0",
+          "method": "Lawful local mirror, actual statement comparison",
+          "title": "Two-task CAGrad has sharp common-descent and equalization thresholds",
+          "trigger": "Closest catalogue match by two-task gradient thresholds"
+        },
+        {
+          "assessment": "Unresolved full-text coverage; not used as negative evidence",
+          "evidence": [
+            "The excerpt describes the same one-sided target and law-of-sines geometry; it cannot resolve the contents of the chapter elsewhere."
+          ],
+          "identifier_or_url": "https://lti.cmu.edu/people/alumni/alumni-thesis/wang-zirui-edward-thesis.pdf",
+          "material_read": "Search excerpt around Figure 6.8(b) only; no full-text passage retrieved",
+          "method": "Lawful institutional PDF direct and alternate-route retrieval attempts timed out",
+          "title": "Zirui Wang thesis, Graduate Language Technologies Institute, GradVac chapter",
+          "trigger": "Same author and same method; possible expanded two-task analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and limitations",
+        "Wang et al. §3 and Appendix E.3",
+        "TorchJD ordered-pair semantics"
+      ],
+      "rationale": "The target cosine is central to what GradVac controls, but the two corrected gradients are what enters aggregation. The exact distinction between the peak and target-equality boundary shows that larger targets can already reduce actual final alignment even while it remains above the target, and that near the singular endpoint alignment returns to its original value. This is a concrete diagnostic for interpreting the idealized update, not a claimed training failure or empirical tuning optimum.",
+      "residual_risks": [
+        "How often the regime occurs for adaptive targets, and whether training outcomes change, are not established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

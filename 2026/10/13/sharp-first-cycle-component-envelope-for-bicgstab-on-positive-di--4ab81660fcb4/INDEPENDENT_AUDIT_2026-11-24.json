@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:23:35.169566Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope, proof and exact witness; frozen VERIFICATION.md and verify.py inspected as supporting evidence."
+      ],
+      "rationale": "With the stated shadow and zero start, the first residual is (I−A/n)(I−A/m)b, with m the b_i²-weighted spectral mean and n the mean with weights b_i² λ_i(λ_i−m)². Hence an active coordinate has ratio η=1−(1−λ/m)(1−λ/n). Both means lie in [μ,L]. Completing the square in λ and maximizing the ratio of the means gives the upper constant. Concavity in λ reduces the lower bound to the endpoints: at L the ratio is nondecreasing in both means, at μ nonincreasing in both; the lower of the resulting bounds is κ(2−κ). For sharpness scale μ=1. In the lower family the squared residual-mean weights of the two low modes are of order δ² while the positive high-mode weight is o(δ²), so both means tend to 1. In the upper family the high-mode contribution to the second mean is of order ε and the other two are O(ε²), giving m→1, n→κ at an active midpoint. With two distinct active eigenvalues a<c and normalized squared weights p,q, m+n−c=a+pq(c−a)²/(qa+pc)>0. This proves class-wide nonnegativity through κ=2 and actual sign loss for each κ>2. The two-mode positivity is strict on the active coordinates; inactive coordinates remain zero. κ=1 and a single active spectral value terminate at the half-step and do not furnish a nontrivial completed cycle. Independent exact witness replay: 106s=(19,−34,−22), 106As=(19,−68,−88), giving ω=4609/12729 and x_{1,3}=−7955/14842014.",
+      "residual_risks": [
+        "The bounds are infimum/supremum statements for κ>1; this does not classify later cycles, other shadow choices or nondiagonal systems. No uploaded script or formal certificate was run."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The mirrored result gives positivity for CG through κ=2, two-dimensional CG safety, and a three-dimensional second-CG-iterate failure above κ=2. It uses orthogonal-polynomial Ritz roots, not the BiCGSTAB stabilizer mean."
+        ],
+        "reasoning": "An all-CG-iterate guarantee is not a dominating theorem for first-cycle BiCGSTAB. The coincident date does not resolve priority, and the coincident threshold does not establish coverage across algorithms.",
+        "searches": [
+          "Resultary: spectral-interval positivity of diagonal Krylov iterates, κ=2, and two-mode safety",
+          "Mirrored SCOPE-condition-two-is-the-sharp-positivity-frontier-for-conjugate-gra--6a2886658444, Finding and proof"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search and mirrored SCOPE record 6a2886658444",
+        "Netlib Templates, Fig. 2.10 and §2.3.8",
+        "van der Vorst DOI 10.1137/0913035 (retrieval attempts only)",
+        "Frozen RESULT.md and verification support"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Multiplying factors with roots in [μ,L] immediately yields nonnegativity for κ≤2, as the CG record does with its own roots. Neither that implication nor the BiCGSTAB pseudocode establishes which pairs of BiCGSTAB means can approach opposite or identical interval extremes while keeping the test coordinate active."
+        ],
+        "reasoning": "Sharpness needs the two different correlated-weight limit constructions and the two-mode identity for the stabilizing mean. The classic product recurrence and the inspected CG result do not provide those facts.",
+        "searches": [
+          "Templates §§2.3.8, Fig. 2.10; van der Vorst DOI 10.1137/0913035; mirrored CG residual-polynomial proof at 6a2886658444"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Templates supplies the product Q_i(A)P_i(A)r_0 and the GMRES(1) stabilizer, which give the coordinate identity by diagonal substitution, not extremal values over active weights."
+        ],
+        "reasoning": "The coordinate formula is an equivalent form of the standard first-cycle recurrence and is not an originality basis in isolation. No equivalent extremal ratio theorem surfaced in the targeted comparisons.",
+        "searches": [
+          "Resultary: BiCGSTAB first-cycle component ratio, diagonal positivity, sharp envelope and active eigenvalue protection",
+          "Templates for the Solution of Linear Systems, §2.3.8 and Fig. 2.10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected catalog record is the CG result at 6a2886658444, not a table or result giving the BiCGSTAB endpoints."
+        ],
+        "reasoning": "The exact constants are extrema on continuous spectral and weight families; no applicable numerical table was identified. The bounded catalog comparison is not a claim of exhaustive absence.",
+        "searches": [
+          "Resultary: first-cycle BiCGSTAB κ(2−κ), Kantorovich component upper envelope, diagonal counterexample and minimum active modes"
+        ]
+      },
+      "rationale": "The first-cycle polynomial and the bounded-root mechanism for the sufficient κ≤2 guarantee are standard or close to the catalogued CG argument. The supported distinct claim is the joint sharp component envelope for the two BiCGSTAB means, with its necessary frontier and two-distinct-active-mode protection. The closest indexed CG record treats a different polynomial and cannot transfer its extremizers or two-mode behavior to the residual-minimizing BiCGSTAB stabilizer.",
+      "residual_risks": [
+        "The original paper was not independently available on the lawful routes tried. Older Krylov or orthogonal-polynomial work could express an equivalent sharp optimization in other notation; no exhaustive priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material analogy and shared sufficient-bound argument, not implication-equivalent coverage",
+          "evidence": "CG residual polynomial is orthogonal to the first k powers of λ against the b_i² measure; positivity follows by bounding each Ritz-root factor. This does not apply the CG polynomial to the BiCGSTAB residual-minimization step.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/13/SCOPE-condition-two-is-the-sharp-positivity-frontier-for-conjugate-gra--6a2886658444/RESULT.md",
+          "material_read": "Finding near offset 339; orthogonal-polynomial and positivity proof at offsets 1940–3453",
+          "method": "Local mirror, statement and proof passages",
+          "title": "Condition two is the sharp positivity frontier for conjugate gradients on positive diagonal systems",
+          "trigger": "Closest catalog result: same positivity threshold and neighboring Krylov method"
+        },
+        {
+          "assessment": "Supplies the algorithmic input and its residual product interpretation, not the componentwise optimization in those passages",
+          "evidence": "p^(1)=r^(0), s=r−αv, ω=(tᵀs)/(tᵀt), followed by the stabilized update; the text describes the product of BiCG and local GMRES(1).",
+          "identifier_or_url": "https://www.netlib.org/templates/templates.html",
+          "material_read": "Fig. 2.10 pseudocode and §2.3.8 description, offsets 71350–74150",
+          "method": "Open full-text passage, literal locate and bounded read",
+          "title": "Templates for the Solution of Linear Systems: Building Blocks for Iterative Methods",
+          "trigger": "Verify the standard recurrence and residual-minimizing step against an accessible source"
+        },
+        {
+          "assessment": "Unresolved access, not negative coverage evidence",
+          "evidence": "The accessible standard algorithm comparison is with Templates above, not a substitute claim about unread pages of this paper.",
+          "identifier_or_url": "https://doi.org/10.1137/0913035",
+          "material_read": "No primary full-text passage independently read",
+          "method": "Lawful DOI, publisher article and PDF routes attempted; access denied and no repository copy recovered on those routes",
+          "title": "Bi-CGSTAB: A Fast and Smoothly Converging Variant of Bi-CG for the Solution of Nonsymmetric Linear Systems",
+          "trigger": "Original algorithm paper and possible polynomial implications"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, spectral-weight sharpness families, active-mode proof and three-coordinate witness; Netlib Templates §2.3.8 for the different residual-smoothness objective."
+      ],
+      "rationale": "Residual-norm decrease does not certify the sign or relative size of individual solution components. The exact dimension-free interval, the sharp sign boundary, and the minimal number of active spectral values for loss of sign give complementary usable limits in a natural positive diagonal test class. The simultaneous sharpness is more informative than quoting a bound on each weighted mean separately.",
+      "residual_risks": [
+        "A first-cycle sign or ratio guarantee is not a convergence or finite-precision stability guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

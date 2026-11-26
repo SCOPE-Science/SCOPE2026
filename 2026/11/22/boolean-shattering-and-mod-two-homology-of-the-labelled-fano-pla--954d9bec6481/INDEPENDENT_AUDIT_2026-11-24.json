@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:41:34.922728Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The membership-query ground set is the 35 triples; the concepts are the 30 labelled line sets. The binary projective plane and its order-168 automorphism group give 30 concepts. Incidence counts and relabelling give six planes per triple and two per compatible pair (intersection exactly one). Of the 945 pairwise compatible three-supports, 105 are concurrent and 840 triangular; each plane contains 7 and 28 respectively. Transitivity gives two completions for every concurrent support and one for each triangle. Concurrent supports miss a trace with exactly two positives, whereas triangular supports have trace counts 17 for none, 3 per singleton, and 1 per pair and for the full set. A shattered four-support would require both the unique plane containing a specified triangle and another plane containing that triangle but missing the fourth triple, a contradiction. All compatible edges extend to a triangle, and the six-used-label triangles form one orbit. An online depth-four tree would need eight distinct planes in the positive branch of the first query, but each query belongs to six; a shattered triangle realizes depth three. Independently constructing the edge and triangular-face boundary over F₂ yields ranks 34 and 281, and hence reduced Betti numbers 0, 0, 559 in degrees 0, 1, 2 and zero elsewhere. The rank replay relies on the face classification proved above, not on an independent trace enumeration: /workspace/branches/53aab6c5-0b4a-4030-b048-01f2c6cc7cc4/rank_fano_repro.py, with rank_fano_repro.out in the same directory. Inspected both frozen checkers without executing them. No integral homology or homotopy equivalence is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mészáros defines Sh(F) but studies shattering-extremal systems of VC dimension at most two. Yang's homological dimension uses an associated space of functions and does not state the boundary rank of this shattered-support complex.",
+          "Heinlein–Östergård give the Fano generating-point sets and configuration counting algorithms inside Steiner systems, not all independent traces across labelled realizations."
+        ],
+        "reasoning": "The general frameworks are pertinent but their object or scope does not contain the asserted Fano invariant as a stated special case.",
+        "searches": [
+          "Mészáros, Shattering-extremal set systems of VC dimension at most 2",
+          "Yang, arXiv:1701.02302v3",
+          "Heinlein–Östergård, arXiv:2110.00320"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_fano.py and check_fano.cpp",
+        "Saniga arXiv:1509.06009v1",
+        "Heinlein–Östergård arXiv:2110.00320",
+        "Mészáros and Yang general shattering/homology comparators",
+        "Resultary 9dd6a60ec3a0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical incidence counts determine the pair frequencies and, with the triangular/concurrent split, the trace calculation. Known plane multiplicity and point generators are not rank statements about the 315-by-840 boundary matrix.",
+          "Independent elimination gives rank 281, saturating the cycle-space dimension after the 34 independent vertex-boundary constraints."
+        ],
+        "reasoning": "Credit the input enumeration and the close relation of the face classification to standard Fano facts. The linear dependencies specific to the triangular shatter faces and their resulting 559-dimensional top homology are not supplied by those facts without an additional exact boundary analysis.",
+        "searches": [
+          "Saniga, arXiv:1509.06009v1, labelled overlaps and line frequencies",
+          "Heinlein–Östergård, arXiv:2110.00320, Fano example pp. 12–13"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The compatibility graph on the 35 triples is the intersection-one graph; exactly its nonconcurrent 3-cliques are faces. Its 105 concurrent 3-cliques are not faces.",
+          "The distinct same-day graph shattering record 9dd6a60ec3a0 concerns maximal intersecting families of pairs of K_n; it has the same static and online dimensions but retains the entire 2-skeleton of a different clique complex."
+        ],
+        "reasoning": "Neither the full clique complex nor the complex of all three-block partial systems extendible to a Fano plane is the target. The target's own indexed entry is not independent coverage.",
+        "searches": [
+          "Resultary labelled Fano plane shatter complex homology and equivalent graph-incidence formulations",
+          "Saniga, arXiv:1509.06009v1",
+          "Heinlein–Östergård, arXiv:2110.00320"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Saniga explicitly lists A_1–A_15 and B_1–B_15, the complete incidence data up to relabelling 1–7 as 0–6; the tables categorize labelled planes by point and line types.",
+          "The identical Resultary row is this frozen record. The distinct graph example does not list these Fano traces or Betti numbers."
+        ],
+        "reasoning": "A full list of the input concepts enables independent trace enumeration but is not a table of shattered supports or homology ranks. The exact rank of the nonconcurrent triangle boundaries still needs a calculation.",
+        "searches": [
+          "Saniga, arXiv:1509.06009v1, p. 1 and Tables 1–4",
+          "Resultary 954d9bec6481 and 9dd6a60ec3a0"
+        ]
+      },
+      "rationale": "The thirty labelled planes, their one-line frequencies, and relevant incidence geometry are prior. The supported distinct result is the Fano membership shatter complex, in particular the deletion of precisely the concurrent triangles from the compatible-triple graph in dimension two and the resulting mod-two homology. The inspected table gives the concepts, not that invariant. Neither the most relevant general shattering framework nor the analogous graph-based catalogue theorem provides the Fano boundary rank.",
+      "residual_risks": [
+        "The classical explicit concept table makes independent historical derivation plausible. The bounded inspections do not establish historical priority or exclude unindexed exact computation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Complete input table and incidence statistics, not shatter homology.",
+          "evidence": "Lists all thirty planes, states six appearances per line and possible overlaps of zero, one or three lines. Different labelled-type tables classify ordinary/defective lines.",
+          "identifier_or_url": "https://arxiv.org/abs/1509.06009v1",
+          "material_read": "p. 1 A/B incidence lists (offsets 1800–5999); table captions pp. 2–3",
+          "method": "Primary OA PDF passages",
+          "title": "Combinatorial Intricacies of Labeled Fano Planes",
+          "trigger": "Exact concept class and possible preexisting enumeration"
+        },
+        {
+          "assessment": "Counts/configures Fano copies using generating sets of points, not Boolean traces or the homology here.",
+          "evidence": "Names 28 noncollinear three-point minimum generating sets and the order-168 group. The generation problem is embedding the given line list in a Steiner system.",
+          "identifier_or_url": "https://arxiv.org/abs/2110.00320",
+          "material_read": "Fano example, pp. 12–13, extraction offsets 28950–30645",
+          "method": "Identified primary OA preprint of DOI 10.1002/jcd.21839; article route returned 403",
+          "title": "Algorithms and Complexity for Counting Configurations in Steiner Triple Systems",
+          "trigger": "Potential stronger configuration counts or triangular characterization"
+        },
+        {
+          "assessment": "General theory of Sh(F), different hypotheses.",
+          "evidence": "Defines the same family of shattered subsets; the stated VC-at-most-two domain cannot contain this VC-three class.",
+          "identifier_or_url": "Mészáros, exact title",
+          "material_read": "p. 2, extraction offset 2554",
+          "method": "OA PDF passage",
+          "title": "Shattering-extremal set systems of VC dimension at most 2",
+          "trigger": "Equivalent general notion of shattered support complex"
+        },
+        {
+          "assessment": "Related framework, not an exact calculation of this complex.",
+          "evidence": "Relates VC dimension to homological dimension of a space of functions; not the Fano triangular boundary calculation.",
+          "identifier_or_url": "https://arxiv.org/abs/1701.02302v3",
+          "material_read": "§1, p. 3, extraction offset 7093",
+          "method": "OA PDF passage",
+          "title": "A Homological Theory of Functions",
+          "trigger": "Possible earlier homological interpretation of the same invariant"
+        },
+        {
+          "assessment": "Structural analogue, not Fano coverage; no same-day priority inferred.",
+          "evidence": "Shattered supports form the 2-skeleton of the clique complex of L(K_n), on two-subsets rather than the 35 triplets.",
+          "identifier_or_url": "2026/11/22/SCOPE-maximal-intersecting-pairs-have-a-truncated-line-graph-shatterin--9dd6a60ec3a0",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Maximal intersecting pairs have a truncated line-graph shattering complex",
+          "trigger": "Strongest distinct graph-formulation catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The labelled projective plane gives a canonical design class, with exact query complexity and a natural shatter complex. The criterion distinguishes the otherwise indistinguishable compatible triangles by incidence type, and the boundary rank gives the first mod-two cycle structure not specified by the face vector alone. The result is useful as an exact small design benchmark independently of any larger Steiner-system claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

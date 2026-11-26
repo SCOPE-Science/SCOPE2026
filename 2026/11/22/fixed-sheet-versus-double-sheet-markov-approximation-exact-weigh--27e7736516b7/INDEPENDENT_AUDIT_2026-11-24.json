@@ -1,0 +1,177 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:41:46.255154Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen and repaired RESULT.md, Finding and proof steps 1–5",
+        "arXiv:2610.35575v1 Theorems 1.1–1.2 and Lemmas 4.2 and 5.2",
+        "Frozen verify.py and VERIFICATION.md, inspected, not executed",
+        "Independent replay python3 /tmp/opencode/frozen_math_rechecks.py: exhausted all nonnegative three-site occupancies totaling m-1 for every 2<=m<=54; matched the claimed finite integer-deficit bounds."
+      ],
+      "rationale": "For a difference of probability measures the variation norm is twice the positive mass, here the sum of the three target deficits even when some approximating atoms go off fiber. A map from the connected base has a single target component. In the mixed case the identity component contributes at least |w-1/3|, which absorbs the scaling mismatch when taking 2/3 times the norm error of the normalized double-cover approximant. Its error is at least 2/n for n maps: the heaviest normalized coefficient is at least 1/n and its map must leave the fiber somewhere. This lower bound is attained by balanced equal atoms on the double cover via single-atom exchanges. Consequently reserving a 1/3 identity section and using n=m-1 double-cover maps gives 4/[3(m-1)]. If all mass goes to the identity sheet the error is at least 4/3; if all goes to the double cover the missed identity point costs 2/3, and at m<=2 a nonsection miss also leaves a double-cover fiber point empty. For one map the identity section attains 4/3. For equal weights a nonsection miss leaves at most m-1 on-fiber atoms, and discrete balancing gives half-errors 1/m, 1/m and 4/(3m) at residues 0,1 and 2. The proposed identity counts k,k,k+1 give stationary double-cover counts respectively (k-1,k),(k,k),(k,k) during exchanges. For even double allocation, swap two labels by successive opposite moves from a balanced configuration; for odd allocation, alternate majority-to-minority moves, allowing either a swap by two moves or reversal of which site has the larger count. Thus arbitrary required label configurations at edge endpoints can be joined. Trivialize over each closed edge interval, keep stationary labels on their lifts, and realize each moving label on a disjoint subinterval by a path in connected Y_2 between the prescribed lifted endpoints; this also works on loop edges. Matching vertex assignments give continuous global maps. Off-fiber movement cannot increase the deficit beyond that of stationary atoms alone. This independently checks the inputs of the cited transport lemmas and proves attainment; the repairs change attribution, not the theorem.",
+      "residual_risks": [
+        "The bounded integer check does not test the graph gluing or replace the all-budget proof. The theorem depends on constant mixing coefficients, the one-plus-two connected-component structure and the supremum norm on real continuous functions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The connected-cover formulas require connected total space; the zero-error remark requires sections exhausting the whole fiber. The present single section does not exhaust it.",
+          "Kim's sequential uniform and Hilbert–Schmidt/L2 results and Brown's qualitative measure-space results do not give fixed-budget C-space errors. Kim 1968 Theorem 2.4 requires a doubly stochastic measure absolutely continuous relative to product Lebesgue measure, unlike this fiber-supported kernel."
+        ],
+        "reasoning": "The larger classical theories either impose incompatible hypotheses or address topology/closure rather than a matching positive finite-budget error.",
+        "searches": [
+          "arXiv:2610.35575v1 Remark 6.7 and Theorems 1.1–1.2",
+          "Brown 1966, MSP primary PDF",
+          "Kim 1968, MSP primary PDF; Kim 1972, DOI 10.1007/BF00538394, Theorems 3–4"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary exact matches and distinct related records cited above",
+        "arXiv:2610.35575v1",
+        "Brown (1966); Kim (1968, 1972) primary passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The degree-two connected formula gives 2/n, hence an upper bound after reserving the identity coefficient. The equal-weight transport lemmas supply the moves, not the split-budget lower bound. The two exact disconnected records prove the small-budget values independently."
+        ],
+        "reasoning": "Sharpness beyond the known budgets requires a componentwise lower bound accounting for both the missing component case and the number of double-cover maps, and a separate sharp equal-weight occupancy argument. Neither matching connected degree-three numbers nor enlarging a known finite budget gives an equality for the new budgets.",
+        "searches": [
+          "arXiv:2610.35575v1 Theorems 1.1–1.2, Lemmas 4.2 and 5.2",
+          "Resultary 25459b8578e0 and db5f5672882f, findings and attained formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The componentwise weighted disconnected-cover problem specializes here at component masses 1/3 and 2/3; for three maps, d=2 and w=2/3 give the same target and exact weights (1/3,1/3,1/3).",
+          "Related same-date circle results use Lipschitz tests with Wasserstein or metric dependent norms, not the variation norm on all continuous tests."
+        ],
+        "reasoning": "The two- and three-map specializations are mathematically identical at their budgets, not mere matches of numbers. Changing to Lipschitz/Hölder tests changes the evaluation errors and does not yield this result.",
+        "searches": [
+          "Local Resultary covering Markov fiber averaging and reducible 1+2 monodromy; 25459b8578e0, db5f5672882f, 6c9dc6cb1bf9 and e15c97ce9596",
+          "arXiv:2610.35575v1 Theorems 1.1–1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact two-map record gives 4/3 for both coefficient choices; the exact three-map record gives 2/3 for both. The connected degree-three equal-weight formula is identical numerically for every budget."
+        ],
+        "reasoning": "The known numerical formula is counted as verified numerical overlap; it does not cover the reducible operator or its different unrestricted sequence. The matched split-cover records only cover their specified budgets.",
+        "searches": [
+          "Local Resultary exact distance by budget: 25459b8578e0 and db5f5672882f",
+          "arXiv:2610.35575v1 connected-cover formula"
+        ]
+      },
+      "rationale": "The repaired interpretation credits both prior budget specializations rather than claiming the split-cover result at m=3 as a new case. The earlier three-map weighted optimum is attained by three equal coefficients, so it covers both axes of the formula at m=3. The m>=4 extension and asymptotic contrast survive. The equal-weight numerical sequence already occurs for a connected three-sheet cover; it is not credited as a new sequence. The proof for this disconnected cover and its distinct free-weight law are the surviving claim in scope.",
+      "residual_risks": [
+        "The bounded comparison does not establish global priority; other work on uniform Markov approximation or disconnected component allocation may remain unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the connected subproblem and transport method, plus the matching connected equal-weight sequence, not the reducible law.",
+          "evidence": [
+            "Specializing at d=2 gives 2/n for both weight choices. Lemma 4.2 realizes single-map moves and Lemma 5.2 supplies balanced permutations."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.35575v1",
+          "material_read": "Theorems 1.1–1.2, Lemmas 4.2 and 5.2, Remark 6.7; HTML offsets 6044, 19403, 25974 and 33739",
+          "method": "OA primary text",
+          "title": "Sharp Norm Approximation of Covering Markov Operators",
+          "trigger": "Prior exact norms and proof inputs"
+        },
+        {
+          "assessment": "Covers the two-map value exactly.",
+          "evidence": [
+            "Largest two trivial masses are 1/3 and 0, and nontrivial per-sheet mass is 1/3; exact error is 4/3."
+          ],
+          "identifier_or_url": "Resultary:25459b8578e0",
+          "material_read": "Mirrored RESULT.md, Finding offset 0",
+          "method": "Local catalogue and mirror",
+          "title": "Exact two-map approximation of componentwise-weighted disconnected covering averages",
+          "trigger": "Exact split-cover overlap"
+        },
+        {
+          "assessment": "Exact overlapping three-map result for both classes of coefficients; explicitly credited in repair.",
+          "evidence": [
+            "At d=2, w=2/3, the attained error is 2/3 with all three coefficients equal to 1/3."
+          ],
+          "identifier_or_url": "Resultary:db5f5672882f",
+          "material_read": "Mirrored RESULT.md Finding and construction, offsets 0 and 4476",
+          "method": "Local catalogue and mirror",
+          "title": "Three-map phase transition for weighted disconnected graph covers",
+          "trigger": "Same split cover and three-map optimum"
+        },
+        {
+          "assessment": "Different test norm and connected twofold circle.",
+          "evidence": [
+            "Equal-weight Lipschitz-to-C error is 1/(2m) for odd m and 1/m for even m."
+          ],
+          "identifier_or_url": "Resultary:6c9dc6cb1bf9",
+          "material_read": "Mirrored Finding and comparison, offsets 0 and 7438",
+          "method": "Local catalogue and mirror",
+          "title": "A sharp parity law for Lipschitz approximation of a twofold circle cover",
+          "trigger": "Distinct same-date covering approximation"
+        },
+        {
+          "assessment": "Different test metric and approximation norm.",
+          "evidence": [
+            "Equal-weight bounds for concavely transformed circle metrics, not sup-to-sup graph-cover distances."
+          ],
+          "identifier_or_url": "Resultary:e15c97ce9596",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "Local catalogue and mirror",
+          "title": "Sharp Hölder approximation of the antipodal covering average",
+          "trigger": "Distinct same-date covering approximation"
+        },
+        {
+          "assessment": "Different spaces and qualitative objectives.",
+          "evidence": [
+            "Weak/strong approximation on measure spaces and uniform closure of a single-transformation class, not the finite-budget norm law here."
+          ],
+          "identifier_or_url": "https://msp.org/pjm/1966/16-1/pjm-v16-n1-p03-s.pdf",
+          "material_read": "Introduction and approximation results; offsets 3756 and 19888",
+          "method": "OA primary PDF",
+          "title": "Approximation theorems for Markov operators (Brown, 1966)",
+          "trigger": "Classical approximation antecedent"
+        },
+        {
+          "assessment": "Different operator classes and sequential approximation, not exact finite-term laws.",
+          "evidence": [
+            "Theorem 3 concerns mu-continuous operators and Theorem 4 gives L2 operator-norm approximation for Hilbert–Schmidt operators."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF00538394",
+          "material_read": "Definitions and Theorems 3–4, PDF text offsets 0, 15823 and 17526",
+          "method": "Primary full-text PDF passage comparison",
+          "title": "Approximation theorems for Markov operators (Kim, 1972)",
+          "trigger": "Previously incompletely inspected older source"
+        },
+        {
+          "assessment": "Not applicable to this singular graph-supported kernel; no finite budget equality stated.",
+          "evidence": [
+            "Theorem 2.4 assumes absolute continuity of the doubly stochastic measure relative to product Lebesgue measure."
+          ],
+          "identifier_or_url": "https://msp.org/pjm/1968/26-3/pjm-v26-n3-p11-s.pdf",
+          "material_read": "Definitions and Theorem 2.4, PDF text offsets 0 and 18987",
+          "method": "OA primary PDF",
+          "title": "Markov operator approximation (Kim, 1968)",
+          "trigger": "Older uniform-approximation theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and Relationship to prior work",
+        "Resultary:25459b8578e0 and Resultary:db5f5672882f"
+      ],
+      "rationale": "The smallest graph cover combining a global section and genuine monodromy gives two different sharp finite-budget laws, with attainment and unequal asymptotic penalties along congruence classes. Extending from the known two and three terms to every larger budget changes the kind of result: it quantifies the loss from equal weights and shows that one section never makes exact finite representation possible.",
+      "residual_risks": [
+        "The exact progression and ratios do not classify other disconnected monodromies or nonuniform target masses."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:55:55.406314Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The local inverse of the consistent P1 mass is (2/ℓ_i) times the 2-by-2 matrix with diagonal 2 and off-diagonal −1; its true multiplicity averaging inserts 1/k independently on each hub row and column. With S=Σℓ_i, T=Σ1/ℓ_i, h=(ℓ_i), a=(1/ℓ_i), this gives the displayed assembled matrices. Substitution into BM fixes (0,a) and (1,−2e+(2S/k)a); off the equal-length case the joint kernel of eᵀ,hᵀ on leaf coordinates has dimension k−2 and eigenvalue 4/3. The trace gives the last root μ=4ST/(3k²); equal lengths give the same characteristic polynomial by continuity and μ=4/3. Both mass and BRAS matrices are positive definite by assembly with full-column-rank injection. Hence BM is similar to the symmetric-preconditioned matrix, and μ≥4/3 by Cauchy–Schwarz gives the condition number, not a singular-value claim on BM. The Jacobi scaling is identity plus the rank-two off-diagonal unit-vector update with eigenvalues ±1/2. The inequalities ℓ_i+mM/ℓ_i≤m+M and AM–GM give μ≤(R+1)²/(3R), attained by two arms at each endpoint for k=4. Solving against the Jacobi value 3 gives the stated sharp all-star threshold and strict comparison on either side in the claimed senses. Positive lengths, free hub and leaves, and k≥3 are all respected. Checker inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary source supplies the general positive-semidefinite correction and spectral-projector norm theorem. The seminar includes a general unit-eigenvalue rank result and graded three-element examples."
+        ],
+        "reasoning": "On a star the rank bound already accounts for at least two unit eigenvalues, but does not give the other levels or the exact top eigenvalue as a function of the arm lengths.",
+        "searches": [
+          "arXiv:2607.12138 pp. 4, 6–7, Eqs. (2.3)–(2.4a), Lemma 2.1, Corollary 2.2 and Theorem 2.3",
+          "Southworth FEM@LLNL seminar slides pp. 8, 15"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_star.py (inspection)",
+        "arXiv:2607.12138 and Southworth seminar PDF",
+        "Resultary b1da109e39bf (identity only), 073ddd6b1292 and 47488341b41e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original source explains eigenvalues at one and the norm mechanism; exact remaining eigenvalues need star assembly, the leaf kernel and trace (or a separate evaluation of the projector). Kantorovich bounds ST/k² only after that expression has been found; the equal endpoint split attains it within genuinely branched stars."
+        ],
+        "reasoning": "Neither the generic projector formula nor Kantorovich alone evaluates this spectrum. The threshold is a supported application of the new evaluation, not a newly asserted scalar inequality.",
+        "searches": [
+          "arXiv:2607.12138 general projector identity and extreme-eigenvalue theorem versus RESULT.md lines 32–58",
+          "Classical scalar Kantorovich bound versus the frozen sharpness calculation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Catalogue b1da109e39bf is the identical audited record, not independent coverage. The closest distinct match 073ddd6b1292 gives a periodic two-length Bloch calculation and crossover 1+4/√3, not the arbitrary-length hub formula. Record 47488341b41e gives a two-interval weight/exponent classification."
+        ],
+        "reasoning": "The degree-two periodic chain and two-element weighted comparison are not equivalent under parameter changes to one hub of arbitrary degree k≥3 with retained leaves and multiplicity BRAS. Same-day dates imply no ordering.",
+        "searches": [
+          "Resultary semantic search for BRAS/star graph mass matrices, exact spectrum and Jacobi contrast reversal",
+          "Focused primary literature query for original multiplicity BRAS and analytic P1 mesh spectra"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest exact entries concern the periodic crossover or two-interval arbitrary weighting, and the seminar examples give numerical graded cases rather than an analytic all-star list."
+        ],
+        "reasoning": "The invariant is a continuously parameterized spectrum in arbitrary finite degree, not a finite table entry; exact catalog matches and explicit graded examples were nevertheless compared.",
+        "searches": [
+          "Resultary BRAS exact spectra/contrast reversals, 073ddd6b1292 and 47488341b41e",
+          "Southworth slides, graded numerical examples p. 8"
+        ]
+      },
+      "rationale": "Credit the original BRAS definition, general projector spectrum/rank mechanism and the classical Kantorovich inequality. The distinct claim is the star-specific evaluation of the full spectrum and the sharp Jacobi comparison over all branched one-element-per-arm stars. General rank and norm results require an additional star calculation to reveal the repeated 4/3 modes and the arithmetic–harmonic outlier. Known adjacent threshold records change the geometry or the weighting and do not specialize to this claim.",
+      "residual_risks": [
+        "Only the relevant retrieved passages were examined; other work or presentations may contain an equivalent star specialization.",
+        "The focused literature lookup was citation-only; the comparisons rely on actual retrieved primary and catalogue passages, not on negative search evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General projector and rank mechanism, not complete evaluated star spectrum",
+          "evidence": "The general correction is PSD and the extreme-eigenvalue expression is a projector norm; this supports the unit-eigenvalue observation but leaves the geometry-specific calculation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.12138",
+          "material_read": "p. 4 Eqs. (2.3)–(2.4a); p. 6 Lemma 2.1/Corollary 2.2; p. 7 Theorem 2.3",
+          "method": "Lawful OA PDF bounded passage inspection",
+          "title": "Broken-space Additive Schwarz Mass Inverse Approximations and (Block) Preconditioning",
+          "trigger": "Original method; plausible general spectral theorem implying the claim"
+        },
+        {
+          "assessment": "Prior numerical grading effect and general rank bound, not the metric-star formula",
+          "evidence": "The graded examples use three P1 elements; the rank slide gives a general unit-eigenvalue statement.",
+          "identifier_or_url": "https://mfem.org/pdf/seminar/southworth2.pdf",
+          "material_read": "Slides 8 and 15",
+          "method": "Lawful seminar PDF inspection",
+          "title": "BRoken-Space Additive Schwarz (BRAS) for Mass Matrix Preconditioning",
+          "trigger": "Closely related graded-mesh comparisons and possible stronger examples"
+        },
+        {
+          "assessment": "Exact result on a different degree-two periodic geometry",
+          "evidence": "Alternating two-length periodic P1 mesh, with sharp crossover at 1+4/√3. No arbitrary-branch star formula.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-an-exact-mesh-contrast-reversal-for-bras-mass-preconditioning--073ddd6b1292",
+          "material_read": "RESULT.md offsets 0–8811, Finding and Bloch computation",
+          "method": "Configured local mirror passage inspection",
+          "title": "An exact mesh contrast reversal for BRAS mass preconditioning",
+          "trigger": "Strongest distinct catalogue match for an exact Jacobi/BRAS reversal"
+        },
+        {
+          "assessment": "Different weights and two-interval regime",
+          "evidence": "Classifies arbitrary positive weights on two intervals; does not evaluate original multiplicity BRAS on a k≥3 metric star.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-square-root-weighting-threshold-for-two-cell-broken-spac--47488341b41e",
+          "material_read": "Finding, weighting and number-of-elements assumptions",
+          "method": "Configured local Resultary/mirror inspection",
+          "title": "A sharp square-root weighting threshold for two-cell broken-space preconditioning",
+          "trigger": "Related same-method exact threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact evaluation isolates the one mode sensitive to arm-length imbalance and quantifies when the original approximate inverse reverses the comparison with diagonal scaling. A genuinely branched balanced endpoint construction proves sharpness, making this a useful stress test for graph mass preconditioners beyond a numerical example. No solver-time claim or extension to subdivided stars is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

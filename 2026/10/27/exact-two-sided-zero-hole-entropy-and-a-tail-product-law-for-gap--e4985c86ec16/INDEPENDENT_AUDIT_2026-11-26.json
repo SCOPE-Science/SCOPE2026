@@ -1,0 +1,80 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:29:44.612762Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A hit centered at an internal marker is precisely a gap transition g to h with g>=r and h>=s. Tracking only the old bit g>=r gives a two-state weighted graph. With a=A_r, b=A_s, c=A_max(r,s), the rows are (T-a,a) and (T-a-b+c,a-c), so its trace is T-c and its determinant is ab-Tc<=0. Thus the scalar determinant equation picks out only the Perron crossing. The zero-gap loop and the positive short-to-long and long-to-short weights give strict Perron monotonicity; the radius diverges as z approaches 1 from above and vanishes at infinity. Removing positive weight from the unrestricted irreducible matrix gives strict loss. For the lower entropy bound, in finite truncations expand each edge to length g+1: loops from a fixed gap boundary inject into binary words by reading successive 0^g1 blocks, so the Perron growth is realized by words that extend to valid sequences. The finite roots increase to the full root by entrywise convergence and strict monotonicity. For the upper bound discard end restrictions, bound the two terminal zero runs by geometric series, and sum the internal complete gaps by the matrix resolvent above the root. Words with at most one 1 contribute only polynomial growth. Both tails and their derivatives vanish locally uniformly when min(r,s) grows; at the old root the determinant is exactly ab, and its derivative at the intermediate root tends to -T'(lambda)=mu/lambda. The mean-value and logarithm expansions give the relative asymptotic without a threshold-rate assumption. The powers-of-two example has non-eventually-periodic allowed gaps and the unchanged-tail plateaus follow directly. Frozen verify.py and VERIFICATION.md were inspected, not executed: the reported 288 finite-model checks corroborate reduction and orbit counts but do not prove the infinite-alphabet or asymptotic steps.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.3 excludes 0u0 with a 1 in u, and Theorem 4.1 treats one-ended-zero words; the general finite-type determinant calculation does not apply directly to arbitrary nonsofic S. Corollary 4.3 is genuine special-case coverage only."
+        ],
+        "reasoning": "Neither the finite-type method nor the d-gap hypothesis dominates the arbitrary infinite S quantifier, including sparse nonsofic alphabets. The limited literature search did not identify a stronger theorem establishing both outputs.",
+        "searches": [
+          "arXiv:2506.20750v1, Theorems 1.3 and 4.1, Section 4.1 and Corollary 4.3",
+          "Resultary search for S-gap entropy/perturbed renewal results"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2506.20750v1",
+        "Resultary semantic index (nearby records 3864c4fc374f, 0881e8e9b148 and 20b1e7951921)",
+        "Bounded primary-literature search on S-gap entropy, word holes and renewal/escape-rate comparisons (adjacent arXiv:2501.08438 surfaced, not used as full-text negative evidence)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The SFT perturbation determinant could recover finite truncations in principle, but it does not supply uniform two-threshold asymptotics for the full infinite system. Under the unrestricted renewal law the occurrence intensity is A_r A_s/mu; that observation alone does not justify identifying it with the entropy loss, or establish the exact root."
+        ],
+        "reasoning": "The gap-state reduction, finite-to-infinite entropy argument and local derivative control provide the missing implications. No broader inspected source yields the same general result without those steps.",
+        "searches": [
+          "arXiv:2506.20750v1, pp. 2, 4, 9, 11–12",
+          "Literature query for open renewal/escape-rate results and two-sided S-gap holes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Centering at the marker converts 0^r10^s to deletion of a rectangular set of consecutive gap transitions. Cheriyath's general one-sided conditions delete a different set; its d-gap case does include the present hole on that restricted alphabet."
+        ],
+        "reasoning": "Comparison in gap coordinates, not merely as binary words, isolates exactly where the earlier symbolic perturbation formulas overlap. Viewing the entropy loss as a pressure change or a leading rare-hole intensity does not itself establish the full scalar equation.",
+        "searches": [
+          "Resultary semantic search for exact S-gap two-sided one-marker hole entropy and tail-product law, top 100",
+          "Literature search for S-gap holes, renewal escape rates and two-ended zero words",
+          "arXiv:2506.20750v1, Introduction and Section 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved exact symbolic-entropy comparisons involved balanced words 0^k1^k and (01)^k, decorated gap zeta/soficity results, or escape for negative doubling, not the consecutive-gap exclusion here."
+        ],
+        "reasoning": "The relevant record-index check produced no same formula on the same shift. A finite numerical entropy table would in any event not cover a functional law for arbitrary infinite S and both thresholds.",
+        "searches": [
+          "Published Resultary top-100 semantic lookup for the exact two-tailed entropy equation and asymptotic"
+        ]
+      },
+      "rationale": "The closest primary result covers one-ended holes in general and the special d-gap family for two-ended holes. The supported distinction is the exact two-ended formula across arbitrary infinite S containing 0 and its two-threshold relative asymptotic. No equivalent or dominating prior result was established in the inspected literature and bounded published-record search; this is not a priority guarantee.",
+      "residual_risks": [
+        "Equivalent renewal or escape-rate treatments outside the inspected material remain possible; the bounded search was not exhaustive.",
+        "The finite-state d-gap specialization is prior coverage and should not be presented as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial overlap; general two-ended one-marker case not covered by the compared theorems",
+          "evidence": "The introduction singles out two-ended zero holes outside d-gap systems, while Corollary 4.3 treats those holes in the d-gap family.",
+          "identifier_or_url": "https://arxiv.org/pdf/2506.20750",
+          "material_read": "v1 p. 2 (Introduction and Theorem 1.3), p. 4 (SFT determinant), p. 9 (Theorem 4.1), pp. 11–12 (Section 4.1 and Corollary 4.3)",
+          "method": "OA primary PDF passages, offsets about 7560, 15634, 35700 and 45200",
+          "title": "A note on the perturbations of subshifts",
+          "trigger": "Exact word-hole entropy in the same shift family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves a natural missing class of perturbations in the gap-shift problem. The exact scalar equation works without a finite presentation, and the relative leading loss remains informative for sparse alphabets and uneven thresholds, where threshold sizes alone ignore plateaus and the sizes of the permitted tails. It does not claim a formula for general multi-marker holes or a general escape-rate theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

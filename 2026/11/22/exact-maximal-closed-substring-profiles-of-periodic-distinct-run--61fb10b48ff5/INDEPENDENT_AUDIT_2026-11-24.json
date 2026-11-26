@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:16:44.201314Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 10–46; VERIFICATION.md lines 19–25; verify_prefix_mcs.cpp and verify_prefix_mcs.txt (inspected frozen evidence)",
+        "Independent replay: python3 /workspace/branches/independent_checks.py 2"
+      ],
+      "rationale": "The explicit domain is n >= p, with pairwise distinct run letters, positive lengths and q >= 3; the introductory wording does not extend it to n < p. A witnessing border is necessarily the longest border: a longer border would supply an intervening occurrence of any shorter border. Each mixed factor determines its start phase by the first directed transition it contains. Therefore a mixed witnessing border must return after exactly p symbols, and any available one-character extension still has a mixed complete-return border. A nonconstant unary return must connect successive copies of its run type and have equal endpoint fragments of length h: any longer fragment or intervening run gives a third occurrence. For h < r_i a one-letter extension destroys the unary witness; a mixed witness would have length |X|+1-p = 2h-r_i+1 <= h and hence cannot reach a boundary at the extended prefix. At h = r_i any available extension has a mixed border one period apart. Whole runs are maximal. In the whole prefix p <= n < p+r_0, any mixed border would have length at most n-p < r_0, impossible; every unary border has a third occurrence in the first run. At equality the full first-run return witnesses closure, and above it the length n-p mixed border does. Counting runs, partial returns, and the whole prefix gives the stated formula, including the increments at the wrap to the next cycle and the density limit. An independent longest-border/first-return checker passed exact endpoints and cardinalities on 1,172 periodic prefixes; the proof, not this sample, establishes the quantifiers.",
+      "residual_risks": [
+        "No claim about shorter prefixes or letters shared between distinct run types; the computations are finite corroboration, not formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Umezaki et al., pp. 2–3 and Thm. 1, use consecutive longest-border occurrence pairs with left/right maximality and give compact RLE enumeration",
+          "Fischer–Köppl and Faro–Marino–Pavone abstracts describe general enumeration and substring queries, respectively"
+        ],
+        "reasoning": "General occurrence algorithms can evaluate instances, but the inspected structural results leave the periodic phase analysis and uniform count across all partial cutoffs to be done.",
+        "searches": [
+          "Resultary longest-border/RLE search",
+          "arXiv:2607.02838, arXiv:2610.38114, arXiv:2611.11552"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 61fb10b48ff5, 803721df3753, 86be57deefbe, be455d83c34c",
+        "arXiv:2607.02838, 2610.38114, 2611.11552"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The RLE result reduces to maximal pairs; the binary result covers q=2 without partial prefixes; the distinct-value theorem does not do positional extension tests"
+        ],
+        "reasoning": "Phase rigidity for mixed returns and exact saturation for unary returns at the moving cutoff are substantive steps, not an index renaming, parameter substitution, or simple deduction from a reported total.",
+        "searches": [
+          "arXiv:2607.02838 pp. 2–3, Thm. 1; Resultary 803721df3753 and be455d83c34c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "be455d83c34c, Finding and Assumptions: exact distinct closed factor values for the same complete distinct-run powers, deduplicating equal strings",
+          "803721df3753, Finding: positional runs, bridges and whole word for binary powers (0^a1^b)^k, k >= 3"
+        ],
+        "reasoning": "Neither deduplicated factor counts nor the binary complete-power interval formula gives the requested positional prefix statistic for q >= 3. The binary source was compared despite its same displayed date; no chronology inferred.",
+        "searches": [
+          "Resultary semantic searches for periodic distinct-run prefix MCS counts, periodic MCS intervals and cyclic distinct-run closed-factor spectra"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "61fb10b48ff5 is the identical bound record, not a distinct counterpart",
+          "86be57deefbe gives four-run counts, in particular exactly four run intervals when all four letters differ"
+        ],
+        "reasoning": "The inspected indexed family covers q=4, k=1, t=0, not a table or formula for repeated cycles and partial prefixes.",
+        "searches": [
+          "Resultary searches for exact periodic MCS counts and four-run spectra"
+        ]
+      },
+      "rationale": "Supported distinct contribution: the explicit interval families and phase-sensitive count for all prefixes of length at least one period in the stated q >= 3 family. General consecutive-border-pair/RLE methods, the initial-period distinct-run count, and binary complete-power analogues are not new. The available comparisons do not supply the periodic all-prefix profile without additional classification and counting.",
+      "residual_risks": [
+        "Bounded literature search, not historical priority certification; uninspected portions of general enumeration papers may contain a closer specialization.",
+        "Minor bibliographic correction: arXiv:2607.02838 title page gives Haruki Umezaki and Hiroki Shibata."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General structural and algorithmic overlap",
+          "evidence": "Valid consecutive longest-border pairs with left/right maximality; compact representation for arbitrary run encodings.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.02838",
+          "material_read": "Title page; pp. 2–3 characterization; Theorem 1",
+          "method": "OA paper bounded primary-text inspection",
+          "title": "Compact Enumeration of Maximal Closed Substrings in Run-Length Encoded Strings",
+          "trigger": "Strongest general RLE characterization"
+        },
+        {
+          "assessment": "General enumeration, not evidence of an exact periodic profile in inspected text",
+          "evidence": "Output-sensitive algorithm for arbitrary static text.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.38114",
+          "material_read": "Abstract p. 1",
+          "method": "OA paper bounded primary-text inspection",
+          "title": "Output-Sensitive Enumeration of Maximal Closed Substrings in Linear Space",
+          "trigger": "General enumeration comparator"
+        },
+        {
+          "assessment": "General query comparator; abstract alone does not exclude other overlap",
+          "evidence": "Count/report/longest queries and boundary/interior distinction for selected substrings.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.11552",
+          "material_read": "Abstract p. 1",
+          "method": "OA paper bounded primary-text inspection",
+          "title": "Internal Queries for Maximal Closed Substrings",
+          "trigger": "Closest boundary-sensitive query framework"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "Deduplicated closed strings in complete powers, not maximal occurrence intervals.",
+          "identifier_or_url": "be455d83c34c",
+          "material_read": "Finding and Assumptions",
+          "method": "Resultary mirror",
+          "title": "Closed-factor spectrum of cyclic distinct-run powers",
+          "trigger": "Same periodic inputs"
+        },
+        {
+          "assessment": "Analogous complete powers over two run letters; different domain",
+          "evidence": "Count (k−1)(a+b)+3 for binary powers, k >= 3, with intervals and cut counts.",
+          "identifier_or_url": "803721df3753",
+          "material_read": "Finding and Assumptions",
+          "method": "Resultary mirror",
+          "title": "Exact maximal closed occurrences and cut density in binary block powers",
+          "trigger": "Closest positional analogue"
+        },
+        {
+          "assessment": "Covers initial four-run subcase only",
+          "evidence": "Four distinct run letters give the four runs as the MCS list.",
+          "identifier_or_url": "86be57deefbe",
+          "material_read": "Finding and distinct-letter proof case",
+          "method": "Resultary mirror",
+          "title": "The exact maximal closed-substring spectrum of four-run words over arbitrary alphabets",
+          "trigger": "Exact small-run overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof; Umezaki et al., Theorem 1"
+      ],
+      "rationale": "Periodic run encodings are a natural benchmark for maximal-closed-substring output size. The phase-specific intervals and exact changes in total count locate where output turns over inside a period, not just its asymptotic density or its size at complete powers. This gives a usable exact benchmark for positional enumeration at moving cutoffs.",
+      "residual_risks": [
+        "A family-specific benchmark, not a new general enumeration algorithm. Increments are net count changes, not claims about set inclusion under extension."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:07:21.525378Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A positive increment needs opposite signs, and their two largest magnitudes are attained at distinct compartments when both are positive. Thus the adaptive increment is min(M_+,M_−). The Skellam series follows by summing the Poisson difference probabilities, and independent compartments and disjoint positive/negative categories give the exact tail by inclusion–exclusion for every k≥1. The probability of A=k,B=0 and the upper tail of A give log p_k=−k log k+O_λ(k), so thresholds (1±ε)log C/log log C have Cp_k tending to infinity or zero respectively. For the expectation, the lower threshold gives the lower bound, and the Poisson mass ratio bounds the sum of upper tails past the upper threshold by a geometric series with first term tending to zero after multiplying by C. The centered Skellam mgf rescaled by sqrt(2λ) converges to the normal mgf, and the optimizer is continuous, which gives the stated fixed-C limit in law including its atom at zero. With standard normal norming, C(1−Φ(u_C+x/a_C))→exp(−x), and substituting this into the same inclusion–exclusion formula gives the displayed minimum-of-two-Gumbels CDF. The proof needs no uploaded computations; the reported finite checks were not independently replayed. Neither a joint limit nor growth at fixed total inventory is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two-group formula holds for arbitrary grouping. The prior full-fusion supplement differs in both the objective and total-loading convention. Briggs–Song–Prellberg give the classical two-point focusing and describe Kimber's log n/log log n scale for the Poisson maximum; Gasull–Jolis–Utzet record the identical normal centering and reciprocal scale up to equivalence."
+        ],
+        "reasoning": "The relevant broader coverage is the pair identity plus general extremes, not the fixed-total complete-fusion expectation. For a positive maximum, use A_i restricted to B_i=0 as a lower envelope and the unrestricted A_i maximum as an upper envelope; conditionally the lower envelope has an independent Poisson sample of binomial size asymptotic to exp(−λ)C. The negative maximum has the same squeeze with A and B interchanged, so the minimum has the same probability scale by a union bound. A standard Poisson tail-ratio bound gives the matching mean. In the sequential regime, the prior Gaussian limit and classical normal tail entail the Gumbel-min law via the same independent occupancy calculation.",
+        "searches": [
+          "arXiv:2607.03549, Eq. (6) and Eqs. (9)–(11); supplement Eqs. (S42)–(S50)",
+          "arXiv:0903.4373, Poisson maximum concentration",
+          "arXiv:1308.5541, standard normal maximum norming"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and recorded verification evidence",
+        "arXiv:2607.03549",
+        "arXiv:0903.4373",
+        "arXiv:1308.5541",
+        "Resultary records 918e94e78ac2 and e990596a9b02"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior two-group identity gives the statistic; the exact law then uses two disjoint one-compartment categories. At fixed λ the leading scale and mean transfer from Poisson maxima by thinning and the elementary upper-tail sum. At high loading the sole two-sided step is substituting C times the Gaussian tail into the same occupancy law."
+        ],
+        "reasoning": "Even though the previous fusion paper does not state the adaptive question, no new interaction estimate or extreme-value mechanism is needed for the frozen answer. The two separate limit orders give a useful illustration, but no crossover or sharper adaptive phenomenon beyond these standard transfers is established.",
+        "searches": [
+          "arXiv:2607.03549, Eqs. (6), (9)–(11) and (S3)",
+          "arXiv:0903.4373, pp. 2–3",
+          "arXiv:1308.5541, p. 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rubinovich–Polak Eqs. (9)–(11) give the deterministic two-group capacity increment as half the difference between the sum of absolute values and the absolute sum. Their Supplement Eq. (S3) gives the iid Poisson-difference model used here."
+        ],
+        "reasoning": "The existing increment is zero for like signs and the smaller magnitude for opposite signs, so independently maximizing each sign is exact. Every tail query for the optimum is therefore just a two-category occupancy query under the given iid model; inclusion–exclusion gives the frozen law directly.",
+        "searches": [
+          "arXiv 2607.03549 \"Intrinsic Matching Frustration in Fluctuating Finite Systems\" adaptive selection",
+          "Resultary: Given C independent symmetric Skellam compartment imbalances, choose the most positive and most negative compartments for one fusion; exact law of minimum of their absolute extrema, and its C asymptotics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed record 918e94e78ac2 treats min and max of exactly two iid Poisson variables, not both signs over a pool. Record e990596a9b02 treats bilateral extremes for a resetting diffusion, not compartment fusion. Neither gives this particular finite-pool table or law."
+        ],
+        "reasoning": "The coverage judgment is by implication, not by a matching indexed table. The indexed analogues with other random variables and processes do not themselves imply the answer.",
+        "searches": [
+          "Resultary: adaptive selection of one pair of compartments with complementary positive and negative residual imbalances; exact finite-pool survival law and extreme-value limits",
+          "Resultary: Skellam Poisson fluctuations matching fusion residual compartments pair selection"
+        ]
+      },
+      "rationale": "The adaptive wording was not found verbatim, but the frozen contribution is mechanically obtained by optimizing the prior pair-capacity identity on the prior iid Skellam model, then applying standard extrema in the two separately ordered regimes. In particular, the classical fixed-mean Poisson maximum scale transfers unchanged by constant-probability thinning. The review does not claim prior verbatim publication of the three formulas together.",
+      "residual_risks": [
+        "Some broader keyword locates in the primary fusion paper did not return; no absence inference rests on those lookups.",
+        "The reviewed sources demonstrate implication, not exact publication priority for the reformulated adaptive claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Immediate source of the pair optimizer and loading law; full-fusion statistic is distinct",
+          "evidence": "The exact pathwise two-group increment works for the selected pair regardless of how it was selected. The discussion supplies standardized Gaussian imbalance. The full-fusion supplement concerns a different objective; secondary capture uses a third constituent.",
+          "identifier_or_url": "https://arxiv.org/html/2607.03549",
+          "material_read": "Main Eqs. (6), (9)–(11), around offsets 7342 and 14000; supplement Eqs. (S3), (S42)–(S50), (S73)–(S76), around offsets 17373, 26600–27700 and 35953",
+          "method": "Bounded OA full-text passage inspection",
+          "title": "Intrinsic Matching Frustration in Fluctuating Finite Systems",
+          "trigger": "Identical reaction capacity and Poisson loading"
+        },
+        {
+          "assessment": "Direct probability-scale input via a simple thinning squeeze",
+          "evidence": "For fixed positive mean the Poisson maximum concentrates on two adjacent integers whose leading location is log n/log log n.",
+          "identifier_or_url": "https://arxiv.org/pdf/0903.4373",
+          "material_read": "pp. 2–3, text offset 9830 onward, focusing and Kimber's leading asymptotic",
+          "method": "OA PDF passage inspection",
+          "title": "A note on the distribution of the maximum of a set of Poisson random variables",
+          "trigger": "Classical Poisson maximum scale underlying the fixed-loading regime"
+        },
+        {
+          "assessment": "Same normal maximum norming; bilateral transform follows by the already available two-category formula",
+          "evidence": "The usual centering subtracts log(4π log n)/(2 sqrt(2 log n)); n-independent reciprocal conventions give the stated scaling by sqrt(2 log n).",
+          "identifier_or_url": "https://arxiv.org/pdf/1308.5541",
+          "material_read": "p. 2, text offset 7680 onward, explicit standard equivalents",
+          "method": "OA PDF passage inspection",
+          "title": "On the norming constants for normal maxima",
+          "trigger": "Normal extreme limit and exact choice of centering and scale"
+        },
+        {
+          "assessment": "Different sample and statistic",
+          "evidence": "Two iid Poisson variables and Fano limits, not minima of the two sign maxima of Skellam counts.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-moments-and-the-universal-fano-limit-for-two-sample-poisso--918e94e78ac2",
+          "material_read": "Mirrored RESULT.md, Finding from offset 0",
+          "method": "Local mirror statement inspection",
+          "title": "Exact moments and the universal Fano limit for two-sample Poisson order statistics",
+          "trigger": "Indexed minima and maxima in Poisson loading"
+        },
+        {
+          "assessment": "Different process",
+          "evidence": "Bilateral extrema of a resetting diffusion, not the compartment-pool law.",
+          "identifier_or_url": "2026/11/2/SCOPE-joint-bilateral-excursion-extremes-and-logistic-spatial-imbalanc--e990596a9b02",
+          "material_read": "Mirrored RESULT.md, Finding from offset 0",
+          "method": "Local mirror statement inspection",
+          "title": "Joint bilateral excursion extremes and logistic spatial imbalance",
+          "trigger": "Indexed bilateral Gumbel result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The adaptive objective is natural and the formulas are useful as a worked application. The finite law, however, is an elementary consequence of the known capacity formula, and the asymptotics are routine transfers of Poisson and normal maxima. No nontrivial joint-loading transition, sharper discrete adaptive fluctuation law, or other independently useful unknown invariant is established in the frozen claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

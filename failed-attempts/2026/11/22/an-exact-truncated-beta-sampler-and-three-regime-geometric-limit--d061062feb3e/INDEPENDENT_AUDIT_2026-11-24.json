@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:59:40.399920Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent construction is to draw n=N−1 independent Uniform(−1,1) labeled coordinates, then condition on the p−1 lower labels preceding all q upper labels and on the p-th order statistic being nonnegative. This is precisely uniform coordinate volume on the given polytope. Ranks are independent of sorted values, so the probability of the label event is (p−1)!q!/n!, and the transformed p-th order statistic has Beta(p,q) law. The conditioning yields the asserted volume and first sampler; conditioning on H negative draws instead gives H∼Bin(n,1/2) conditioned on H≤p−1, with k=p−1−H and the printed weights and label permutations. This includes p=1 or q=1. The chain count follows because fixing the signs and strict total ranking splits the slice into chambers of coordinate volume 1/n!. For the asymptotics the log kernel has derivative [(p−q)−(N−2)t]/(1−t²) and second derivative at most −(q−1). The boundary scaling t=z/N gives the stated exponential kernel by dominated convergence. The critical scaling t=z/√N gives exp(λz−z²/2) with integrable Gaussian domination on z≥0. In the interior, expand at t_N with t=t_N+z/√N; the normalized curvature tends to −1/[4α(1−α)] and the same curvature bound dominates globally. The volume constants follow by integrating the kernels, including the q prefactor and the value of the kernel at its interior mode. RESULT.md §§1–6 and verification.py were inspected, not executed; the numerical sampler and quadrature are not the basis of this decision.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The DLMF expansion is uniform for x in (0,1) and shapes with both proportions bounded away from zero. Let ρ=q/N, x=(1−t)/2 and J(x)=ρ log(ρ/x)+(1−ρ) log((1−ρ)/(1−x)). The expansion uses η=sgn(x−ρ)√(2J(x)), a leading normal CDF Φ(√N η), and explicit correction terms, with c0 in Eq. 8.18.11.",
+          "The tail P(T>t)=I_x(q,p)/I_{1/2}(q,p) and the volume V=q 2^(N−1) B(p,q) I_{1/2}(q,p) apply identically in all three regimes. For x below and bounded away from ρ, the normal-tail leading coefficient (−1/η) combines with c0 to give I_x(q,p)∼exp(−NJ(x))√[ρ(1−ρ)]/[(ρ−x)√(2πN)]. This controls relative error even in the boundary regime, where a normal CLT alone is insufficient."
+        ],
+        "reasoning": "The earlier uniform incomplete-beta expansion is stronger than these three leading-order conditional limits, and its shape-proportion hypotheses include all three stated regimes. Access to the triangulation article's full proof is not required for this implication.",
+        "searches": [
+          "NIST DLMF §8.18(ii), symmetric case, Eqs. 8.18.8–8.18.12; Temme (1996), §11.3.3.2 as cited there",
+          "García-Segador and Miranda, DOI 10.1016/j.fss.2023.108655"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification.py",
+        "NIST DLMF §§8.17(i) and 8.18(ii)",
+        "García-Segador and Miranda DOI landing/abstract",
+        "Local Resultary exact-title, related beta and signed-chain matches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Boundary substitution x=(1−z/N)/2 gives N[J(x)−J(1/2)]→(1−2α)z and a prefactor ratio tending to 1, hence the stated conditional exponential survival. Stirling times the left-tail coefficient gives V∼q/[2N(ρ−1/2)].",
+          "Critical substitution x=(1−z/√N)/2 gives √Nη→λ−z and I_{1/2}→Φ(λ), hence survival Φ(λ−z)/Φ(λ). Stirling gives q 2^(N−1)B(p,q)/√N→√(π/2)exp(λ²/2).",
+          "In the interior I_{1/2}→1, and x=(1−t_N−z/√N)/2 gives √Nη→−z/[2√(α(1−α))]. Stirling supplies the exponential volume rate α log(2α)+(1−α) log(2(1−α))."
+        ],
+        "reasoning": "The prior formulas imply the actual normalized limits, moving centering, and volume constants; the comparison is not merely that asymptotic methods or distribution names are classical.",
+        "searches": [
+          "NIST DLMF §8.17(i), §8.18(ii) symmetric case, Eqs. 8.18.8–8.18.12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The conditioning events are exactly fixed labeling of the first p−1 ranks and a bound at zero on the p-th rank among n uniform draws. Fixed ranks do not bias sorted values; given the p-th value, the two groups are independent sorted uniforms on the two intervals, with random within-group labels.",
+          "The sign-pattern mixture is exactly a truncated binomial on the number H of negative values: w_k=[(p−1)!q!/(N−1)!] binom(N−1,p−1−k). Conditional on H it is ordinary uniform ranking of the positive draws and independent uniform negative draws.",
+          "DLMF 8.17.5 gives the integer incomplete-beta binomial tail; beta symmetry converts its tail direction as needed."
+        ],
+        "reasoning": "No triangulation algorithm or geometric identity beyond identifying rank and sign events is needed to obtain the finite probability law, the exact count, or either sampler.",
+        "searches": [
+          "NIST DLMF §8.17(i), Eqs. 8.17.4–8.17.5",
+          "Resultary conditioned-beta query and standard-example beta-sampling record"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact title hit is the same assigned finding, not an antecedent. The standard-example sampler omits diagonal cross-inequalities; the signed-chain record is a different full-dimensional absolute-value body.",
+          "The DLMF supplies the exact binomial-tail formula and the stronger general asymptotic expansion, not a database of volumes for this poset family."
+        ],
+        "reasoning": "No independent table for precisely this pinned polytope was established. The relevant coverage comes from evaluating general prior formulas at the supplied rank and threshold, rather than from a duplicate listing.",
+        "searches": [
+          "Local Resultary exact-title and conditioned-beta searches",
+          "Resultary 2026/11/8/SCOPE-exact-covariance-spectrum-and-beta-sampling-of-the-standard-exam--0347995a0f72",
+          "Resultary 2026/10/11/SCOPE-exact-volume-and-strict-imbalance-law-for-two-level-signed-chain--84c1d3d87a65",
+          "NIST DLMF 8.17.5 and 8.18.9–11"
+        ]
+      },
+      "rationale": "The general pointed-polytope triangulation is not by itself a coverage argument, and the related Resultary geometries do not cover this pinned slice. The decisive prior implication instead comes from the exact labeled-order-statistic reduction and classical incomplete-beta formulas, including a stronger uniform transition expansion. The rank/positivity conditioning gives both samplers and the volume directly, and taking a ratio of the same prior beta tails produces all three stated limits with their constants. No separate geometric limit theorem survives this reduction. This is a direct-corollary determination, not a claim that the same title or pinned-slice application was published earlier.",
+      "residual_risks": [
+        "Direct application to this particular pinned poset may not previously have been written down. That is not an independent step beyond the rank conditioning and prior formulas.",
+        "The triangulation theorem and historical monograph were not inspected in full. Neither access limitation supplies the basis for FAIL."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct finite-formula coverage after rank conditioning",
+          "evidence": [
+            "I_x(m,n−m+1) is the binomial survival sum from j=m to n; use x=1/2, m=p, n=N−1 and complement."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/8.17#E5",
+          "material_read": "§8.17(i), Eq. 8.17.5 and preceding symmetry context, bounded locator near text offset 2973",
+          "method": "Open public formula reference",
+          "title": "NIST DLMF: Incomplete Beta Functions",
+          "trigger": "Exact beta-binomial tail for the rank threshold"
+        },
+        {
+          "assessment": "Stronger published expansion implies all three scaled conditional limits and associated volume asymptotics",
+          "evidence": [
+            "Normal error-function term indexed by the signed relative-entropy variable; explicit first correction c0 gives the noncentral prefactor after combining the two terms.",
+            "This formula is attributed there to Temme (1996), §11.3.3.2; the monograph itself was not independently read."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/8.18#ii",
+          "material_read": "§8.18(ii), symmetric case, Eqs. 8.18.8–8.18.12 and uniformity conditions, text offsets 5060–7903",
+          "method": "Bounded public formula reference passage; comparison by substitution and Stirling",
+          "title": "NIST DLMF: Asymptotic Expansions of I_x(a,b)",
+          "trigger": "Uniform beta tail asymptotics across mean and in large-deviation regime"
+        },
+        {
+          "assessment": "Not relied upon for coverage verdict",
+          "evidence": [
+            "No full theorem passage was available on the retrieved route; this limitation is immaterial to the explicit beta-function implication."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.fss.2023.108655",
+          "material_read": "Landing/abstract only; theorem and algorithm numbers reported by frozen source, not independently inspected",
+          "method": "Open DOI route",
+          "title": "A triangulation for pointed order polytopes",
+          "trigger": "General triangulation and generic sampler on the same type of polytope"
+        },
+        {
+          "assessment": "Different constraint pattern; not the reason for coverage",
+          "evidence": [
+            "The cross-inequalities are a_i≤b_j for i≠j, without a pinned lower coordinate."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-covariance-spectrum-and-beta-sampling-of-the-standard-exam--0347995a0f72",
+          "material_read": "RESULT.md bounded passages at offsets 0 and 3000",
+          "method": "Local Resultary mirror",
+          "title": "Exact covariance spectrum and Beta sampling of the standard example",
+          "trigger": "Beta-factorized sampler on a closely related two-rank order polytope"
+        },
+        {
+          "assessment": "Different body, not a duplicate result",
+          "evidence": [
+            "Coordinates obey two-sided bounds including |x_i+y_j|≤1, not the pinned ordinal inequalities."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-exact-volume-and-strict-imbalance-law-for-two-level-signed-chain--84c1d3d87a65",
+          "material_read": "RESULT.md opening, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact volume and strict imbalance law for two-level signed-chain polytopes",
+          "trigger": "Two-level signed polytope exact volume"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The formulas are correct and useful as a worked example of volume sampling. Under the natural rank representation, however, the chain count and samplers are standard ordering and binomial conditioning, and the three limits are evaluations of a stronger uniform beta expansion. The claimed package offers no independent geometric invariant beyond these mechanical consequences. No supported remainder warrants a substantive repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

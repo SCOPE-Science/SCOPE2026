@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:33:49.708932Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 21–107; VERIFICATION.md and checker.py",
+        "Replay: python3 /workspace/branches/independent_3.py; output /workspace/branches/independent_3.txt"
+      ],
+      "rationale": "With zero or one mark, an extension type specifies only a color, since no distinct ordered triple is yet present. With at least two marks, it specifies an oriented gap and a color (already at two marks, C distinguishes the two gaps). For rank at least s+1, each challenged gap must offer a pivot of each color with two child gaps of linear rank at least s; other gaps keep their ranks. Induction thus gives the minimum-of-gaps formula, then the two small-mark formulas. Challenging a fixed color recursively in a linear gap of rank s forces 2^s−1 occurrences; challenging the same color for each of the first two circular points forces 2^(t−1) including those points. In a cycle of 2^(t−1) permutations, the second point chosen in the period starting q·2^(t−2) positions beyond the first leaves at least q(2^(t−2)−1) positions in each open arc; induction by a central period gives each arc the requisite rank. Adding points preserves the induced witnesses, including when nq⁻¹ is not an exact power of two. Rank two reduces to each color appearing twice. An independent game keyed by actual ternary-relation values confirmed that of all 70 balanced eight-position words exactly the eight rotations of 00001111 fail rank three; the other orbit sizes are 2,4,8,8,8,8,8,8,8. A same-color second challenge on the excluded word always leaves an arc without both colors. The finite census confirms the explicit certificate; the universal law uses the proof, not numerical extrapolation.",
+      "residual_risks": [
+        "Named, exhaustive colors and the strict oriented ternary language are essential. No census for larger parameters or arbitrary cyclic signatures is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 6.4 and Prop. 6.5 are uncolored finite linear order results; 097b0c0d5178 gives the colored linear extremum q(2^t−1).",
+          "Resultary bbc8aff0939e concerns uncolored unoriented circles in a quaternary separation language."
+        ],
+        "reasoning": "The order signature and early move types differ, so those thresholds do not dominate the colored oriented ternary case.",
+        "searches": [
+          "arXiv:2604.14461v1 §6",
+          "Resultary: cyclic rank and point-pair separation"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.14461v1; doi:10.1007/s11083-018-9458-3",
+        "Resultary 097b0c0d5178, bbc8aff0939e, 5fa0dcc54b96 and the target as indexed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The uncolored cyclic EF cutoff 2^(r−1) has the same scale but compares two unequal hosts, not every extension of a marked set within one colored host.",
+          "Mwesigye–Truss use two-host EF equivalence for colored linear orders."
+        ],
+        "reasoning": "Neither EF result nor the exact linear-gap rule states or automatically implies the cyclic colored two-arc response, opposite-period witnesses, and orbit census.",
+        "searches": [
+          "Resultary 5fa0dcc54b96, Finding",
+          "Mwesigye–Truss abstract and §1",
+          "Resultary 097b0c0d5178"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fixed-host extension game is the published rank definition.",
+          "Resultary 097b0c0d5178 has exactly the colored linear-word min–max recursion used in the cyclic proof."
+        ],
+        "reasoning": "Cutting at named marks reduces the multi-gap part to known linear ranks. Cutting an empty or singleton marked circle does not preserve the types: the second choice is only a color but its placement creates two arcs.",
+        "searches": [
+          "Resultary: colored cyclic one-point-extension rank, colored linear gaps, finite cyclic quantifier rank",
+          "López-Callejas–Navarro-Castillo Def. 2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target is returned as itself; the closest linear record gives 128 minimum two-color linear hosts on 14 points at rank three, not the eight-position circular census."
+        ],
+        "reasoning": "There is no independent matching table in the inspected results. The linear table's different host size and marked geometry preclude reusing its counts.",
+        "searches": [
+          "Resultary: two-color eight-point cycle, rank three, 62 balanced words and 9 rotation classes"
+        ]
+      },
+      "rationale": "The defining rank and the linear-gap recursion are existing ingredients. The supported distinct claim is the colored ternary circular rank computation with its low-mark exceptions, sharp cyclic size law, and binary extremal classification. Neither the earlier-comparison linear result nor the related circular results cover this combination.",
+      "residual_risks": [
+        "No within-day priority for the linear recursion overlap. The public web query returned no useful evidence; an unindexed equivalent cyclic result cannot be ruled out. Snowden's contextual source was unavailable and is not used to exclude coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General definition and uncolored linear case",
+          "evidence": "Rank floor(log₂(|Y|+1)) and minimum over linear interval ranks.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.14461v1",
+          "material_read": "§2 Definition 2.3 (offset 6905), §6 Theorem 6.4 and Prop. 6.5 (offsets 76954–79236)",
+          "method": "OA original",
+          "title": "A rank function for Fraïssé classes and the rank property",
+          "trigger": "Rank definition and finite-order solution"
+        },
+        {
+          "assessment": "Same linear ingredient; distinct cyclic conclusion; within-day priority not determined",
+          "evidence": "Colorwise 2^t−1 in the linear class; two-color rank-three 14-point census.",
+          "identifier_or_url": "2026/11/22/SCOPE-permutation-block-bases-for-one-point-extension-rank-in-coloured--097b0c0d5178",
+          "material_read": "RESULT.md, linear rank and extremal statements",
+          "method": "Resultary local mirror",
+          "title": "Permutation block bases for one-point extension rank in coloured linear orders",
+          "trigger": "Exact colored gap recursion and neighboring census"
+        },
+        {
+          "assessment": "Different cyclic language and move types",
+          "evidence": "Uncolored, unoriented circles with quaternary separation.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-three-anchor-rank-law-for-finite-point-pair-separation-circl--bbc8aff0939e",
+          "material_read": "RESULT.md, signature and Finding",
+          "method": "Resultary local mirror",
+          "title": "The three-anchor rank law for finite point-pair separation circles",
+          "trigger": "Possible circular-rank equivalent"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Two-host r-round EF cutoff 2^(r−1) for r≥3 and three-variable completeness.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-quantifier-rank-cutoff-and-three-variable-completeness-for--5fa0dcc54b96",
+          "material_read": "RESULT.md, Finding and game setup",
+          "method": "Resultary local mirror",
+          "title": "Sharp quantifier-rank cutoff and three-variable completeness for finite cyclic orders",
+          "trigger": "Same uncolored exponential scale"
+        },
+        {
+          "assessment": "Different invariant and host class",
+          "evidence": "Defines n-equivalence via a game on two colored linear orders.",
+          "identifier_or_url": "https://doi.org/10.1007/s11083-018-9458-3",
+          "material_read": "Abstract and §1, pp. 107–108",
+          "method": "Primary PDF",
+          "title": "On Optimal Representatives of Finite Coloured Linear Orders",
+          "trigger": "Colored finite-order equivalence"
+        },
+        {
+          "assessment": "Context claim not independently verified",
+          "evidence": "No primary passage retrieved; no exclusion inferred.",
+          "identifier_or_url": "https://doi.org/10.1137/25M1806223",
+          "material_read": "Full text unavailable, DOI request rejected",
+          "method": "OA lookup",
+          "title": "Oligomorphic Groups and Tensor Categories: A Summary",
+          "trigger": "Cited background on classes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen rank theorem and extremal certificate",
+        "Independent game census and periodic checks",
+        "Linear and separation-language comparisons above"
+      ],
+      "rationale": "This is an exact answer for a natural extension-game age with no named cut: separating the early cyclic choices leads to a different sharp per-color scale from the linear problem. The optimal eight-point case shows concretely where color balance is insufficient, rather than just reproducing the exponential order of magnitude from an uncolored two-host comparison.",
+      "residual_risks": [
+        "The result does not enumerate larger minimal host types or claim an optimized rank algorithm."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

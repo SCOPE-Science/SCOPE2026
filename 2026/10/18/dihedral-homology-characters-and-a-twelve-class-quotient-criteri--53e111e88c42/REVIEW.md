@@ -1,14 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim has a complete proof for every integer \(n\ge3\). The established sphere-or-wedge classification fixes the unique relevant homology degree and rank. The signed augmented Hopf trace identity reduces each dihedral character to a finite, explicitly determined fixed-face sum. The rotation quotient has one forbidden orbit in the transitive case and otherwise an edge or cycle; reflection quotients are three explicit paths. Their independence polynomials at \(-1\) yield the stated six-periodic recurrences. These formulas identify the unique rational representation and the invariant rational homology of the quotient by standard rational transfer. Boundary and normalization cases include \(n=3\), \(n=4\), both even reflection classes, \(\gcd(n,j)=1\), and the identity rotation.
+## correctness
 
-A face-enumeration checker has passed for 414 dihedral elements with \(3\le n\le20\). A separately implemented boundary-space homology-trace checker has passed for all elements at \(3\le n\le12\). The finite checks do not stand in for the infinite proof. No integral quotient-torsion or equivariant homotopy claim is made.
+PASS
 
-## Originality — PASS, with residual risk
-The original nonequivariant cycle homotopy classification is already recorded by Babson--Kozlov (arXiv:math/0402395v1, Proposition 4.1). Their Proposition 4.4 goes further for reflection actions and \(\mathbb Z_2\) orbit spaces of odd cycles. Živaljević (arXiv:math/0405419v1, Proposition 43) determines the reflection-equivariant sphere type for cycles of length \(6p-1\); these are **direct partial coverage**, not novelty. Adamaszek (arXiv:1106.6250v1) supplies ordinary homotopy recurrences for cycle powers. The inspected primary statements do not determine the complete full-dihedral rotation/reflection character or the rational homology of the quotient by all dihedral symmetries. Searches for equivalent formulations, stronger theorems, exact tables, and recorded claims found no covering statement. The limits of indexing and possible unpublished treatments remain.
+The finding is read as the displayed reduced-homology statement at RESULT.md line 18; its introductory sentence should say ‘reduced rational homology’ since ordinary H_0 never vanishes for these nonempty quotients. The established cycle homotopy types place reduced homology in d_n=floor((n−2)/3), rank two exactly when 3 divides n. In the augmented signed chain trace, a permutation orbit of length l contributes (−1)^l(−1)^(l−1)=−1 when selected. For rotations the quotient of permissible orbits is C_a for a=gcd(n,j)≥3, a single edge for a=2, and has no permissible orbit for a=1. Evaluating the path recurrence p_k=p_(k−1)−p_(k−2) and the cycle decomposition by omitting or selecting vertex zero gives the six-periodic cycle trace 2 cos(πa/3). For reflections folding the cycle gives a path of length (n−1)/2, n/2+1, or n/2−2; discard precisely the paired adjacent endpoints, including both pairs at n=4 for the edge axis. Direct residues in p_k=(1,0,−1,−1,0,1) periodically yield the four line characters. For rank two the generator trace ±1 forces determinant +1 (determinant −1 would force eigenvalues ±1 and zero trace), hence the primitive third or sixth roots. A reflection exchanges these eigenlines, giving trace zero. Equivariant subdivision and rational chain averaging give the quotient from invariant homology, nonzero only for the two trivial-line residues; averaging applies to reduced H_0 as well. Independent replay: python3 /workspace/review-evidence/reproduce.py 2, log /workspace/review-evidence/2.txt; 336 direct signed characters for n=3..18 and independent mod-two rank checks through n=13. These are corroboration, not the all-length proof. Supplied scripts were inspected, not run.
 
-## Value — PASS
-The dihedral group is the full intrinsic symmetry of each cycle, and the complete representation distinguishes two-dimensional rationally irreducible behavior from four one-dimensional character types, despite the simple previously known sphere-wedge homotopy classification. The sharp twelve-residue criterion identifies precisely when full dihedral symmetry destroys all rational reduced homology of the orbit space. This is a natural, exact invariant of a classical infinite family, not a restatement of Betti numbers or merely a special numerical instance. No more general equivariant homotopy classification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the complete combined character, in particular the two even-cycle reflection classes in the one-dimensional families. Credit prior odd-cycle reflections, full rotational quotient support, partial integral-module and quotient-homotopy coverage. The reduced full-quotient arithmetic criterion is a consequence rather than an independent novelty: combine odd-cycle reflection data with the vanishing or survival of rotation invariants. No verified primary or exact indexed statement settles the remaining even one-dimensional reflection sign for all lengths; two plausible matching-character record identifiers from the frozen evidence could not be resolved and remain a material access risk, not evidence of noncoverage.
+
+## value
+
+PASS
+
+The surviving distinction is a natural axis-sensitive representation invariant for a standard complex. For example, in the even rank-one families it specifies which of two geometrically different reflection subgroups preserves the homology line, information invisible to ranks and to full-group vanishing. The uniform assignment matters independently of the quotient residue criterion, which is already accessible from combined results. No significance is claimed for an integral-lattice classification or unseen quotient topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

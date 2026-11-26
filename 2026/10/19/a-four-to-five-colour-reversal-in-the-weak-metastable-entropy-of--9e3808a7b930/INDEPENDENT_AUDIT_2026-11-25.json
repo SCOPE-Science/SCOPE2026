@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:58:56.926021Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For q=4 the cosine interaction is exactly the sum of two Ising interactions with coupling J/2. All single-component flips are available, and flipping both costs the sum, so weak blocking factors. Ising wall patterns are cyclic independent sets of even size; the two choices of initial spin cancel the factor 1/2 in the parity projection. The matrices at weights ±1 have the claimed eigenvalues. For q=5 each middle spin must maximize the projection on the sum of its neighbours: equal neighbours force their common spin, neighbouring colours permit either endpoint, and two-step neighbours force their short-arc midpoint. Thus in (0,+1,−1) coordinates only the two adjacent opposite nonzero increments are disallowed. Closure requires the increment sum to be zero mod 5, and the five initial spins cancel the character projection factor 1/5. The trace counts labelled cycles, not necklaces. No nontrivial twist attains the Perron radius: equality in the triangle inequality for a Perron-modulus eigenvector would force a common phase on all three self-loops, which is impossible. Both leading coefficients are one, giving the stated ratio. An independent spin-pair transfer with exact local scores in Z[sqrt(5)] was run for n=3..16 using /workspace/independent_checks/clock_local_scores.py; it gave the five reported small-n pairs and, for example, (4866436,1332585) at n=16. The finite run corroborates, rather than proves, the all-n formulas.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baek and Minnhagen work with the same cosine interaction but investigate finite-temperature equilibrium on the 2D square lattice",
+          "Resultary 34d442d501a3 uses adjacent-spin exchanges in a second-neighbour Ising chain"
+        ],
+        "reasoning": "Neither the equilibrium crossover nor a different local move set supplies the one-site five-colour admissibility matrix.",
+        "searches": [
+          "Baek and Minnhagen arXiv:1009.0356v1, model and conclusion",
+          "Spirin, Krapivsky and Redner cond-mat/0105037v1, introduction and update rule",
+          "Resultary: second-neighbour weak blocking and exchange"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 0f8914252c1b and 34d442d501a3",
+        "arXiv:1009.0356v1",
+        "arXiv:cond-mat/0105037v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Squaring the known P_n after the four-colour identification recovers B_{n,4}",
+          "The reversal also needs the five-colour three-state constraint and its Perron rate, not supplied by these sources"
+        ],
+        "reasoning": "Prior results account for the comparator, not the winding-filtered count or strict exponential reversal.",
+        "searches": [
+          "Resultary 0f8914252c1b verified against the recorded four- and five-colour reductions",
+          "arXiv:1009.0356v1 and cond-mat/0105037v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "ANNNI record 0f8914252c1b gives exactly the same one-component cyclic P_n for 0<κ<1",
+          "Spirin et al. separately allow neutral moves dynamically and address dynamically frozen states"
+        ],
+        "reasoning": "The Ising overlap is exact at the factor level. Dynamic absorbing states with allowed neutral moves are not the same objects as energetic minima with nonnegative recolouring costs.",
+        "searches": [
+          "Resultary: weakly blocked spin chains, Ising parity and clock-chain winding",
+          "Primary comparison: arXiv:1009.0356v1 and cond-mat/0105037v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ranked catalog results led to the ANNNI and weak exchange records, but no checked result gives the exact q=5 periodic count"
+        ],
+        "reasoning": "An open-chain count or an untwisted matrix trace would not give the finite periodic count; the inspected exact count is for the prior Ising factor.",
+        "searches": [
+          "Resultary: finite periodic clock blocking, five-colour winding and entropy"
+        ]
+      },
+      "rationale": "Credit the exact prior overlap for the Ising factor and the standard four-clock-to-two-Ising reduction; those are not original contributions. The supported distinct claim is the exact five-colour periodic weak-blocking enumeration with closure, and the resulting comparison to four colours. The checked sources cover neighbouring models, not this content.",
+      "residual_risks": [
+        "A specialized older enumeration under a different name was not ruled out. Ranked searches and inspected passages do not establish priority or uniqueness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior factor P_n, not the five-colour claim",
+          "evidence": "The branch gives φ^n+(-φ^{-1})^n+2cos(nπ/3).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-marginal-entropy-spike-for-weakly-blocked-annni-spin-chains--0f8914252c1b",
+          "material_read": "Mirrored RESULT.md opening, 0<κ<1 finding branch",
+          "method": "Local mirror passage comparison",
+          "title": "A marginal entropy spike for weakly blocked ANNNI spin chains",
+          "trigger": "Exact weak Ising count in a cyclic system"
+        },
+        {
+          "assessment": "Different observable and dimension",
+          "evidence": "Equilibrium square lattice study with helicity modulus, not static one-dimensional blocking.",
+          "identifier_or_url": "https://arxiv.org/pdf/1009.0356",
+          "material_read": "Abstract p. 1, model p. 3, conclusion p. 9",
+          "method": "OA primary PDF passages",
+          "title": "Non-Kosterlitz-Thouless transitions for the q-state clock models",
+          "trigger": "Same cosine model and q=4,5 contrast"
+        },
+        {
+          "assessment": "Different dynamical notion",
+          "evidence": "Zero-energy flips occur with probability 1/2; final one-dimensional states are dynamical endpoints.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0105037",
+          "material_read": "Introduction §I.1 and zero-temperature update rule, offsets 0–4499 and 6944–11242",
+          "method": "OA primary text passages",
+          "title": "Freezing in Ising Ferromagnets",
+          "trigger": "Plausible blocking or metastable-state comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a concrete nonmonotonicity witness for the growth of the weakly blocked state space as clock resolution increases, on the same natural Hamiltonian and labelled ring. The finite periodic count identifies the winding restriction, and the exact unequal rates quantify the effect. The value is not the known Ising count or a claim about dynamical freezing.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

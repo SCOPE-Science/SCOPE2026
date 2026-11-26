@@ -2,7 +2,7 @@
 
 ## Correctness — PASS
 
-The Poisson-damped fourth moment on a \(B_2\) spectrum is the phase-independent exact quadratic expression in the squared coefficient magnitudes. The compactness argument guarantees an optimizer even on a countable infinite spectrum, and coordinate stationarity yields one uniquely solvable scalar waterline and a forced finite active set. This uniqueness among every possible global optimizer is enough for global sharpness without assuming global concavity. Every threshold is an explicit strictly monotone root, strictly interlaces the next, and the endpoint nonattainment uses the exact \(\rho=1\) B2 identity. The local onset is obtained by a nonzero derivative, not extrapolated from numerics. The extracted diagnostic checker reports 1,148 exact rational assertions, without purporting to certify the infinite theorem.
+The Poisson-damped fourth moment on a \(B_2\) spectrum is the phase-independent exact quadratic expression in the squared coefficient magnitudes. The compactness argument guarantees an optimizer even on a countable infinite spectrum, and coordinate stationarity yields one uniquely solvable scalar waterline and a forced finite active set. This uniqueness among every possible global optimizer is enough for global sharpness without assuming global concavity. The thresholds are strictly ordered, and the endpoint nonattainment uses the exact \(\rho=1\) \(B_2\) identity. The local onset is obtained by a nonzero derivative, not extrapolated from numerics. The diagnostic checker reports 1,148 assertions, including floating-point threshold tests, without purporting to certify the infinite theorem.
 
 ## Originality — PASS (best-knowledge)
 
@@ -16,4 +16,4 @@ The question is naturally motivated by frequency selection under analytic smooth
 
 The hypothesis of unique unordered pair sums is essential, and the proof does not cover general resonant spectra, nonlinear weights or higher moments. The published all-length lacunary theorem addresses the undamped endpoint; the earlier three-tone Poisson result provides only two finite transitions. Historical priority against unnamed older multiplier theory remains unsettled. Tests are supporting diagnostics, not an infinite certificate.
 
-Self-review: passed. Independent audit: not yet performed.
+This file records the source self-review; it is not the independent review.

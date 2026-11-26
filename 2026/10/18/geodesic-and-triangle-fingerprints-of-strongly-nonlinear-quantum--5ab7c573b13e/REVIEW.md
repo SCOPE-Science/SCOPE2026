@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The claim uses the finite graph Kerr flow with hopping coefficient one, an initial unit mass at one vertex, and fixed-graph large-coupling limits. Polynomial ODE analytic dependence on the inverse coupling provides uniform finite-rescaled-time expansions. Graph distance makes the first nonzero amplitude coefficient appear at precisely the graph-distance order, and the predecessor recursion gives the geodesic count. The second-order neighbor coefficient equals the number of length-two walks; summing over neighbors returns \((A^3)_{oo}=2T_o\). The leakage correction follows from mass conservation. For the global statement, energy conservation precludes escape mass one-half at sufficiently large coupling and gives a uniform escape estimate at all observation times, matching the explicit short-time lower construction. The normalized leading coefficient, triangle coefficient and remainder orders were reviewed algebraically. The independently replayable finite-graph test suite has 117 passing assertions; it supplements rather than substitutes for the proof.
+## correctness
 
-## Originality (O): PASS, qualified
-The 2026 starting paper by Shi–Wong already establishes self-trapping via conserved energy, and its bound implies a related upper estimate at leading high-coupling order for paths and cycles. The isolated two-site limit is covered by classical dimer theory. Neither is presented as new. The claim assessed here is the **integrated structural package**: geodesic counts for all sites and distances, the exact starting-triangle correction to leakage, and matching all-time sharpness for every fixed finite graph. The full Shi–Wong preprint, accessible full Perakis–Tsironis article, and accessible full Bustamante–Molina article were materially inspected, while dimer work was checked at abstract level. No exact combined result was located. A general anti-continuum expansion, dynamical perturbation theorem, or additional treatment not inspected could imply part or all of the claimed advance. Such implicit coverage is a residual uncertainty; independent review has not occurred.
+PASS
 
-## Value (V): PASS
-Localization bounds alone suppress mass escape but do not quantify the distinct geodesic channels, the first network motif observable, and the sharp observation-time independent leakage ceiling. This theorem turns high-nonlinearity dynamics into a recoverable fingerprint for shortest-path multiplicities and local triangle count, and relates the fingerprints to a degree-controlled localization limit. It is a motivated infinite-family structural statement, not a one-off finite computation. The result does not claim a universal theorem for unbounded graph sequences or new physical experiments.
+With ε=1/g, the mass-preserving real polynomial flow is smooth in ε on compact s=gt intervals and its ε=0 solution is e^{is} at the root and zero elsewhere. In the Taylor coefficient recursion the hopping term at order k uses order k−1; the off-root cubic uses lower orders because each factor has vanishing order zero. Induction gives zero coefficients below the distance h, and at order h only predecessor edges contribute. The leading coefficient therefore integrates the geodesic-count recursion with R_h′=iR_{h−1} for h≥2. The root's first variation is homogeneous and vanishes; hence a neighbor's second coefficient is (A²)_{vo}R_2. In the squared-amplitude cross term Re(conj(R_1)R_2)=2(1−cos s)−s sin s, and the sum of (A²)_{vo} over neighbors is (A³)_{oo}=2T_o. Distance-two and farther sites contribute only from order g^−4, giving the stated sign and the coefficient 16T_o at s=π. Separately, mass and energy conservation give gq(1−q)≤2√(d_o q(1−q))+||B||q for leakage q and root-deleted adjacency B. For g>4||A||, q=1/2 is impossible, and continuity from q=0 confines the flow below it. Absorbing ||B||q with q≤1/2 gives q≤8d_o/(g−2||B||)² uniformly for large g; substituting this into the divided inequality gives the sharp limsup 4d_o. Evaluation at π/g gives the matching liminf. Only the supremum result is global in physical time; the expansions are compact in s with a fixed graph.
 
-## Closest literature and limitations
-Shi–Wong (arXiv:2605.20464) provide conserved-energy localization bounds, Perakis–Tsironis (arXiv:0909.3172) numerical network self-trapping, and Bustamante–Molina (DOI:10.1103/PhysRevB.62.15287) coordination effects. The dimer work (DOI:10.1103/PhysRevB.34.4959) gives a special-case precedent. The main residual originality risk is that nonlinear perturbation theory not identified in this search already implies the new coefficients. Fixed graph, bounded scaled time, and unity hopping are essential assumptions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct result is a time-resolved, distance-by-distance geodesic count and next-order root-triangle signal for arbitrary fixed finite connected simple graphs, together with a matching sharp leading all-time supremum. The upper localization estimate and its leading scale are not distinct on paths and cycles and use an established energy argument.
+
+## value
+
+PASS
+
+The theorem ties a natural localized evolution to three different rooted graph invariants: onset order gives distance, amplitude gives geodesic multiplicity, and the first correction to leakage gives triangles. It also shows a leading global bound is attained on the short time scale, beyond simply proving confinement. These are useful fixed-graph asymptotics; they do not establish growing-network uniformity, stability of inverse motif recovery, or an all-time higher-order expansion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

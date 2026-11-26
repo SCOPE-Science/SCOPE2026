@@ -1,19 +1,21 @@
-# Scientific review: induced-odd colorings of clique coronas
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite simple graph domain, named colors and empty-color conventions are explicit. In a rooted complete clique, any non-root color must appear an even number of times to give its private vertices odd monochromatic degree; the root color must be absent or appear an odd number of times. Total private-clique parity therefore forces exactly one case for each parity of the clique size. This is equivalent, root by root, to even-colored or odd-colored induced base neighborhoods, with independent choices counted by the stated factorial coefficient. The chromatic-number consequences follow from positivity of those factors, Gallai's two-even-partition theorem, and the impossibility of a single color on an odd-order clique. The \(\mathbf F_2\) equation for binary even coloring is proved and its solution number obtained by elementary orthogonality. This reconstructs the infinite proof without extrapolating from tests. The supplied direct verifier checks 4,467,792 complete assignments over 99 small corona instances and 1,099 base graphs for one- and two-color boundaries. No unproved combinatorial lemma is silently inferred from those samples.
+PASS
 
-## Originality — PASS
+Fix the root color c. A positive clique color block different from c must have even size, because its vertices see exactly the other vertices in the block. A nonempty c block must be odd, since each of its vertices also sees the root. Thus odd r forces an odd c block and even same-color degree in the base; even r forces c absent and odd same-color degree in the base. Labeled multinomials over the allowed multiplicities give the stated exponential coefficients, and distinct cliques extend independently. The q=1 boundaries follow from these blocks (even r>0 is impossible); q>=2 always supplies a non-root color for even r. With two named colors, even base colorings are solutions of Lx=d over F_2. For y in ker L, y^Td=y^TLy=0 (off-diagonal terms cancel), so the system is consistent and has 2^nullity solutions. Exactly half the 2^r private binary assignments have an odd root-color multiplicity, proving the exponent. For the subdivided K_m, every subdivision vertex must match exactly one endpoint, so the m original vertices must use distinct colors; orienting K_m by a cyclic regular tournament lets each subdivision vertex match its head, giving odd indegree (m-1)/2 for m=3 mod 4. The base degrees are all even. Inspected the frozen verification script/log without executing the upload; independently reproduced 116 direct small-case corona counts versus parity-state dynamic programming (local replay: /tmp/opencode/frozen_independent_checks.py 5), including even r and q=1. The finite counts supplement the proof and do not establish the all-graphs result.
 
-Belmonte and Sau (arXiv:2002.06078, first posted 14 February 2020) already prove a general binary-equations approach to deciding whether a graph has an odd induced two-color partition. Gallai already supplies two even parts, and Scott's large subdivided-clique examples are established. These pieces are acknowledged; the claimed addition is the fully enumerated arbitrary-palette clique-corona transfer for both parity regimes. The original papers inspected do not give this coefficient identity, including for even clique attachments when arbitrary base graphs have unbounded odd chromatic number. The nearest same-title corona article (Mounisha et al., 2026) concerns the different proper neighborhood-parity odd chromatic number, so its corona values do not imply the statement here. The nearest indexed same-sounding records also concern proper neighborhood-parity coloring or other graph parameters. Residual risk: unindexed theses, adjacent enumerative formulations or later papers not retrieved might contain equivalent information. No absence claim is treated as a proof of global novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The complete counting identity transfers the entire feasible labeled coloring distribution on every clique corona to intrinsic even/odd coloring functions on the arbitrary base graph. It determines the chromatic number exactly for all base graphs, disconnected cases included, and gives an exact two-color count involving binary Laplacian nullity for odd clique sizes. Its parity switch is substantive: for a family of subdivided cliques of unbounded original induced-odd chromatic number, switching the parity of the attached clique changes the new invariant between a constant and that unbounded value. This addresses natural behavior under a standard graph product, not an arbitrarily selected small example or a restatement of a single earlier scalar bound.
+The distinct claim is the arbitrary-base, named-palette enumerator with its parity-dependent transfer. The known odd-partition invariant, Gallai-type binary even feasibility and Scott's subdivided cliques are premises, not new contributions. The closest title match in the literature is for a different coloring invariant.
 
-## Closest literature and limits
+## value
 
-The 2020 paper's \(\mathbf F_2\) approach and Gallai's even-partition theorem supply prior conceptual tools. The 2023 preprint/2025 journal study describes high-chromatic subdivided cliques and general graph classes. The 2026 corona paper is excluded by a different invariant, not merely by a name mismatch. No proof of efficient unrestricted computation of the two base enumerators is asserted. Numerical tests are supplementary evidence. The research does not claim to have completed an external audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact all-palette transfer applies to any base, including disconnected, non-colorable and isolated cases. It exposes a sharp distinction: changing only attachment parity can collapse an unbounded invariant to one or preserve it exactly. It also gives an exact labeled two-color count for odd attachments, not merely a repeat of binary feasibility. These are useful quantitative and structural consequences even though counting on a general base remains unsolved by the formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

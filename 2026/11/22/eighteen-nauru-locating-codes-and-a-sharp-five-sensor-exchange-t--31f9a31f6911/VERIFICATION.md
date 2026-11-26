@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The complete 24-vertex adjacency list is reconstructed in both bundled standalone checkers from the outer cycle, spokes, and inner step-five edges. `check_all_masks.cpp` enumerates all 1,271,626 subsets of cardinality at most eight and checks every omitted vertex trace without heuristic pruning; output: `VERIFY_FULL_OK tested=1271626 minima=18`. `verify_nauru.py` independently searches all 245,025 outer-four/inner-four subsets, checks the two explicit families, the 153 pairwise intersections, the reconfiguration edge rules, all 18 breadth-first-search eccentricities, and the incidence-cycle decomposition; output: `VERIFY_OK 245025_BALANCED_CANDIDATES 18_MINIMUM_CODES 3C6_THRESHOLD4 CONNECTED_THRESHOLD5_DIAMETER2`.
+# Independent mathematical audit
 
-The elementary counting argument proves the lower bound of eight before enumeration. Enumeration proves exactness on the fixed finite graph, not on any infinite family. The two search implementations use different source languages and enumerate different candidate universes. Their agreement is a reproducibility cross-check, not independent external validation. The included programs require only a C++17 compiler and Python 3 standard library. Scientific publication priority has not received independent certification.
+## correctness
+
+PASS
+
+For a locating-dominating k-set in this cubic graph, at most k omitted vertices can have singleton traces. Thus there are at least 2(24-k)-k selected-to-omitted incidences and at most 3k; k is at least eight. Equality forces independence and eight traces of each of sizes one and two. The independent reconstruction in /workspace/branches/04d64270-7057-441c-acf6-b444e60cb810/independent_nauru_check.py tested all 1,271,626 subsets of size at most eight and recovered exactly the eighteen displayed sets. It checked shore balance, the two double-cover incidence 8-cycles, and the permutation taking A_0 to B_{0,1}; rotations and reflections are transitive within each family. Direct comparison recovered intersection multiplicities 27, 36, 72, 18 at 0, 2, 3, 4. For distinct codes the exchange cost is exactly eight minus the intersection size. The resulting graphs are edgeless through budget three, three six-cycles at four, and 10-regular with 90 edges and every eccentricity two at five. The search is exhaustive for this one graph, not evidence for a generalized Petersen family. Supplied scripts were inspected, not executed.
+
+## originality
+
+PASS
+
+The general lower bound is known. No independent earlier statement or stronger result furnishing the exact eighteen ordinary optima, their structure or their batch-exchange graphs was established in the inspected evidence. Credit the finite classification and sharp transition, not the lower bound or general move rule.
+
+## value
+
+PASS
+
+This natural cubic graph provides a concrete exact benchmark for minimum locating-domination mobility: all optima are frozen under single moves, budget four retains three cyclic components, and adding one replacement gives diameter two. The complete census, automorphism orbit and overlap data explain rather than merely report the threshold, and are useful for testing structural or algorithmic predictions about constrained reconfiguration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

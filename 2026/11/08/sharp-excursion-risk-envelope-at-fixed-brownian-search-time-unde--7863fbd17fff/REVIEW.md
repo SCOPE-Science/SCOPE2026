@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is fully quantified for Brownian diffusivity and Poisson rate strictly positive, an arbitrary fixed positive initial point, and iid reset locations in a compact interval strictly to the right of the target. The proof first recovers the mean absorption time, then independently solves the doubly killed interval exit problem and sums regenerative cycles to obtain the exact rational exceedance formula. The derivative in the positive exponential moment is strictly positive for every threshold strictly larger than the support and initial point. Jensen's inequality and a strict chord inequality characterize the only extremal laws and continuity of mixtures supplies every intermediate value. The inversion of the second exponential moment and the large-threshold limit follow by exact algebra. Boundary cases where the fixed mean forces a point mass are handled explicitly. The standalone checker was replayed successfully with 8,276 counted diagnostic assertions; no finite test is substituted for the universal proof.
+PASS
 
-## Originality — PASS (subject to independent literature verification)
+With k=sqrt(r/D), a reset cycle started at x hits zero before the reset with probability e^(-kx), and has mean duration (1-e^(-kx))/r. The subsequent iid reset cycles have success probability s>=e^(-kb)>0, giving finite MFPT (1-s0)/(rs). For m>max{x0,b}, a jump cannot cross m. The two-boundary Brownian exit probability q satisfies Dq''+r(c-q)=0, q(0)=0, q(m)=1, c=E[q(Z)]. Independently, q(x)=c+A exp(kx)+B exp(-kx), and averaging gives Au+Bs=0, while q(0)=0 sets c=-A-B. Using q(m)=1 gives precisely the frozen formula. After a Brownian hit on m, the path exceeds m immediately almost surely before the next reset or absorption, so there is no atom at an admissible m. The derivative in u is positive since t<s0. Strict Jensen and the strict secant inequality for 1/y on [ell,h] give the unique point-mass and endpoint-mixture extremizers at fixed E[y]=s; mixing those laws fills the entire u interval, and the same strict ordering works for each threshold. At the feasible endpoints there is only one law. Solving the fractional-linear formula identifies u, not the law, and t->0 gives the stated tail coefficient. An independent exact rational ODE comparison passed 63 threshold/interpolation cases (`python3 /workspace/audit_evidence/reproduce.py 5`).
 
-The closest published primary sources are Evans–Majumdar (2011, arXiv:1107.4225: spatial reset distributions and mean time), Guo–Yan–Chen (2023, arXiv:2306.15929: maximum for one fixed reset location), Julián-Salgado–Dagdug–Boyer (2023, arXiv:2311.11897: two-point optimal-rate phase diagrams), and Méndez–Flaquer-Galmés–Campos (2024, arXiv:2401.01125: random reset locations, absorption-time laws and effective reset points). Their accessible relevant full-text sections do not establish the fixed-mean complete simultaneous envelope for the path maximum. A separate previously available result on the same search model gives fixed-mean absorption-time Laplace/variance envelopes; this is acknowledged and compared by implication, because it does not establish above-support path maxima or their sharp bounds. published-finding corpus searches on the maximum, fixed mean absorption time, stochastic order, and distributed spatial resets returned unrelated general bounded-moment and maxima results, not the claim. Related general renewal and convex-order principles remain potential stronger antecedents, as does unindexed literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural performance observable of a resetting search is its absorption-time mean; a distinct experimentally and operationally relevant observable is the largest outward excursion before success. The theorem answers a complete optimization question under exactly the same search-efficiency constraint, giving a global risk ordering for *all* thresholds outside the allowed reset region, not just one selected cutoff. It identifies both unique extreme designs and all intermediate attainable risks, and shows that one extreme-event measurement reveals a hidden exponential reset-location moment. In the explicit example two designs with the identical mean time have excursion risks approximately 0.34445 and 0.5 at the same threshold. No claim is made concerning the full path law or thresholds within the reset support.
+The MFPT constraint and the point-reset two-boundary maximum are established premises. The closest same-date record gives fixed-mean envelopes for absorption-time transforms and variance and has essentially the same extremizing measures, but concerns a different observable and uses a random initial position drawn from the reset law. The substantive distinct claim is the exact above-support maximum law and its complete attainable, simultaneously ordered range under arbitrary iid spatial resets at fixed MFPT from x0.
 
-## Literature and remaining uncertainty
+## value
 
-The primary papers focus respectively on mean first passage, optimal resetting rates, first-passage distributions, or maximum statistics with a single reset site. The available prior fixed-mean Laplace envelope has overlapping extremizers but a different observable and is not a logical covering theorem. Extending a general killed-process convex-order theorem could potentially cover this result without identical wording; independently checking specialized literature remains necessary. No assertion of formal priority or external certification is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A mean search time alone does not measure excursions. The result gives sharp differences in excursion risk at precisely equal mean, with unique designs, no threshold-dependent change of the extremizers on the specified domain, a complete one-parameter attainable family and a measurable second moment. The useful content is this exact reduction of the path statistic to two moments and the resulting stochastic order, not the textbook convexity bound by itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

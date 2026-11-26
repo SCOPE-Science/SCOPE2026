@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The global bound is obtained directly from the relation \(y_{n+1}+r y_n=cx_n\) with \(r=5/4\), a triangle inequality and the product expansion. Every parity then satisfies a divergent quadratic lower recurrence, proving actual infinite-time escape, not just sampled growth. An invariant-probability argument follows using compactly supported test functions. At \(a=r\) the explicitly invariant cone has an exact two-step factorization for its vertical coordinate, and both the boundary quadratic recurrence and the interior Fibonacci recurrence have analytic positive finite normalized logarithmic limits. The separate exact rational checker passed 472 cases; it corroborates identities but does not replace the analytic proof.
+PASS
 
-## Originality (PASS, within inspected evidence)
+The exact identity y_(n+1)+r y_n=c x_n gives |y_n|+|y_(n+1)|≥|c||x_n|/r since r>1. Multiplying the two positive x-update factors gives the stated quadratic lower bound with equality when y_n=cx_n/r and y_(n+1)=0. For a≥1 and x_0≠0 each parity subsequence is bounded below by iteration of Z↦Z+qZ² with q=ab|c|/r>0, so it diverges. Eventually qZ>1, after which log(qZ) at least doubles per two steps, giving a common positive lower constant for the √2 base. When x_0=0, |y_n|=r^n|y_0|. Escape leaves every compact set, so stationarity and dominated convergence for compactly supported test functions force an invariant Borel probability to be supported at zero. For 0<a<1 the two points with |y|=(1−a)/b and x=(1+r)y/c are nonzero fixed points, proving sharpness. At a=r, b,c>0 the update gives x'≥rx and 0≤y'≤cx≤cx'/r, strictly in the cone interior, with the two boundary rays exchanged. Substitution yields y_(n+2)=(r²+bc x_n)y_n there. On the zero-ray subsequence the x return map is r²z+rbc z²; t=rbc z has t' = t²+r²t. The normalized log(t)/2^m has positive summable increments 2^(−m−1)log(1+r²/t_m) and is eventually positive, giving a finite positive limit. In the interior both parity sequences of y diverge, so x_n/x_(n−1)→∞; the previous y is at most cx_(n−2), making y_n/(cx_(n−1))→1. Hence log(bc x_n) obeys a Fibonacci recurrence with a bounded forcing tending to zero. Dividing the exact Fibonacci convolution by φ^n gives termwise limits dominated by a summable geometric sequence in forcing index; a lower homogeneous comparison for log((bc/2)x_n) from two eventually positive consecutive terms makes the limit positive. At odd times on the boundary x is r times the previous zero-ray value once that subsequence starts, so the √2 base is genuinely sharp in original time.
 
-The full accessible text of Zhou et al. (2021), equation (1), sections 2–6, establishes the model, fixed-point formulas, numerical dynamics and amplitude control, but does not present the sharp all-orbit escape theorem or either asymptotic clock. The source's fixed-point existence condition alone is weaker than an all-initial-state escape classification. The positive-feedback parameters printed in Figure 10(b) provide a concrete motivation for distinguishing the formula-defined map from numerical illustrations; the theorem does not infer what implementation generated that figure. The published published-finding corpus records found under the actual searches concern other planar absolute-value maps, even-degree secant models, and different escape thresholds; none imply this exact two-clock statement. Silverman's algebraic canonical-height framework is a general conceptual comparator, not a statement giving these real nonsmooth boundary and interior dynamics. An unindexed or uninspected stronger general orbit-growth theorem remains a publication-priority risk.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The problem is natural for the original family: the sign of the multiplicative feedback determines whether nonzero fixed points can coexist with unbounded growth, while the linear gain equality \(a=r\) produces invariant boundary rays. The theorem identifies the sharp global escape boundary, a quantitative universal growth floor, and two rigorously different superexponential orbital scales in one parameter regime. It therefore gives structural information unavailable from finite Lyapunov or bifurcation plots, without claiming a general negative-feedback classification.
+Zhou et al. give the exact recurrence and fixed points, so neither is new. The sharp all-state positive-feedback escape (including the resonant equality cases) and two distinct positive finite normalized logarithmic limits do not follow from their fixed-point or numerical analysis. The polynomial branch's golden-ratio degree growth is a meaningful general-dynamics antecedent, not a real-orbit limit theorem.
 
-## Limits and literature
+## value
 
-The theorem is real, forward-time, and exact on the stated parameter region; cone-specific asymptotics do not extend automatically to arbitrary initial points. Primary-source full text was inspected and the closest indexed records compared by implication. General orbit-height work may require a later independent priority assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The positive-feedback chamber in an existing map has a sharp global escape criterion that matters for interpreting attractor diagrams and excludes all nontrivial invariant probabilities there. At one set of resonant parameters the generic cone interior and exceptional rays have incompatible superexponential clocks; an algebraic degree alone would miss the ray growth. The exact lower growth base and its sharp witness are structural, not a finite simulation or an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

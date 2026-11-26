@@ -2,103 +2,52 @@
 
 ## Finding
 
-Let \(D_{p,q}\) be the diameter-three tree obtained by joining two hubs, with \(p\ge1\) leaves at the first and \(q\ge1\) at the second. Orient edges away from any chosen root. On \(\ell^2(V(D_{p,q});\mathbb C)\), define the weighted shift \(S_a e_u=\sum_{u\to v}a_{uv}e_v\), with freely variable complex edge weights \(a\). The edge-space norm is \(N(a)=w(S_a)\), where \(w(T)=\sup_{\|h\|_2=1}|\langle Th,h\rangle|\).
-
-For each real \(\beta\ge0\), let
+Let \(D_{p,q}\) have two adjacent hubs with \(p\) and \(q\) pendant leaves respectively, where \(p,q\ge1\) are integers. Orient edges away from any chosen root and let \(S_a e_u=\sum_{u\to v}a_{uv} e_v\), with freely variable complex edge weights. Put \(N(a)=w(S_a)\), where \(w(T)=\sup_{\|h\|_2=1}|\langle Th,h\rangle|\). For \(\beta\ge0\), define \(L_\beta(a)=\sum_{e\text{ pendant}}a_e+\beta a_{e_0}\), where \(e_0\) joins the hubs. Then
 \[
-L_\beta(a)=\sum_{e\ \mathrm{pendant}} a_e+\beta a_{e_0},
-\]
-where \(e_0\) is the bridge joining the hubs. The exact dual norm is
-\[
-\boxed{\|L_\beta\|_{N^*}=\begin{cases}
-2(\sqrt p+\sqrt q),&0\le\beta\le(pq)^{1/4},\\[3pt]
+\sup_{N(a)\le1}|L_\beta(a)|=
+\begin{cases}
+2(\sqrt p+\sqrt q), & 0\le\beta\le(pq)^{1/4},\\
 2\sqrt{p+q+\beta^2+pq/\beta^2},&\beta>(pq)^{1/4}.
-\end{cases}}
+\end{cases}
 \]
-The bound is attained. Among weights constant on the two leaf orbits, the bridge weight in every maximizer vanishes up to and including the critical threshold, and is strictly positive above it. This is an exact activation threshold for an entire family of dual functionals rather than a single path evaluation.
+The supremum is attained. In every maximizer the **modulus** of the bridge coefficient vanishes through the critical value, including equality, and is strictly positive above it. With the phase convention \(L_\beta(a)>0\) real, all nonzero coefficients are positive real, so the active bridge coefficient is strictly positive in that convention. Arbitrary common complex phases are allowed when maximizing the absolute value.
 
 ## Assumptions and scope
 
-The field is complex; \(p,q\) are arbitrary positive integers, and \(\beta\in[0,\infty)\). All \(p+q+1\) edge coordinates are independent. The orientation may be any orientation rooted at a vertex; the numerical-radius norm and the stated dual-functional value are invariant under such a choice. No positivity constraint is imposed on admissible complex edge vectors: positivity is established as an allowable reduction for this particular positive-coefficient functional. All suprema are over the full closed numerical-radius unit ball; finite dimensionality ensures attainment. The bridge and pendant sums each count edges exactly once.
+The field is complex and the norm of a functional is the supremum of its absolute value on the full closed unit ball. There is no stipulated positivity or symmetry on the admissible weights. The norm and value are independent of the root. Pendant weights are summed once each and the bridge has independent multiplier \(\beta\).
 
 ## Proof
 
-**1. Numerical radius as a tree adjacency norm.** Write \(A_{|a|}\) for the real symmetric weighted adjacency matrix of the undirected tree, with weight \(|a_e|\) on each edge. Unique root-to-vertex paths permit a diagonal unitary gauge that makes all nonzero tree-shift coefficients nonnegative. Further, the depth grading satisfies \(e^{i\theta}S_a\) unitarily similar to \(S_a\). Hence the standard numerical-radius formula gives
+**Norm reduction.** The unique paths of a rooted tree allow a diagonal unitary change of phases taking the shift weights to their moduli. Also the depth grading makes \(e^{i\theta}S_a\) unitarily similar to \(S_a\). Taking the top eigenvalue of \(\operatorname{Re}(e^{i\theta}S_a)\) and optimizing in \(\theta\) thus gives
 \[
-N(a)=\max_{\theta\in\mathbb R}\lambda_{\max}\!\left(\operatorname{Re}(e^{i\theta}S_a)\right)
-=\frac12\lambda_{\max}(A_{|a|})=\frac12\rho(A_{|a|}).
+N(a)=\tfrac12\rho(A_{|a|}),
 \]
-The last equality is Perron–Frobenius for a symmetric nonnegative matrix. The formula shows \(N\) is an absolute, permutation-invariant norm on the edge coordinates (positivity and the norm axioms also follow from the numerical-radius norm on operators).
+where \(A_{|a|}\) is the undirected weighted adjacency matrix. Its top eigenvalue equals its spectral radius by nonnegativity. In particular the norm is absolute and is invariant under the graph automorphisms that permute leaves within each hub's orbit. No invariance under arbitrary permutations of edges is needed.
 
-**2. Symmetrization without loss.** For any complex weight vector with \(N(a)\le1\), triangle inequality and the preceding formula yield \(|L_\beta(a)|\le L_\beta(|a|)\) and \(N(|a|)=N(a)\). Average \(|a|\) over independent permutations of the \(p\) and \(q\) pendant edges. Convexity of \(N\) preserves feasibility, and the functional value stays unchanged. Thus there is an optimal nonnegative vector with a common weight \(x\) on the first pendant orbit, a common weight \(y\) on the second, and bridge weight \(c\ge0\). The objective becomes \(p x+q y+\beta c\).
+Triangle inequality gives \(|L_\beta(a)|\le L_\beta(|a|)\), and \(|a|\) remains feasible. Averaging \(|a|\) over the independent pendant permutations preserves feasibility by convexity and preserves the nonnegative objective and the bridge modulus. Thus it suffices to optimize over nonnegative weights \(x,y\) on the two pendant orbits and \(c\) on the bridge; for any complex maximizer, the averaged vector is itself optimal and has \(c=|a_{e_0}|\).
 
-**3. Four-vertex reduction and exact feasible region.** The adjacency matrix vanishes on all leaf-difference subspaces. On the orthogonal complement spanned by the two normalized leaf sums and the two hubs, it becomes the weighted four-vertex path whose consecutive weights are
+**Feasible region.** The leaf-difference subspaces vanish under the symmetric weighted adjacency. On the two normalized leaf sums and two hubs it restricts to the weighted four-vertex path with consecutive weights \(u=\sqrt p\,x,c,v=\sqrt q\,y\). Its bipartite off-diagonal block is \(M=\left(\begin{smallmatrix}u&0\\c&v\end{smallmatrix}\right)\), so \(N(a)\le1\) is equivalent to \(\|M\|_{2\to2}\le2\). Testing \(4I-M^{\mathsf T}M\) for positive semidefiniteness gives
 \[
-u=\sqrt p\,x,\qquad c,\qquad v=\sqrt q\,y.
+0\le u,v\le2,\qquad 4c^2\le(4-u^2)(4-v^2).
 \]
-Under its bipartition, the positive eigenvalue bound reduces to the largest singular value of
-\[
-M=\begin{pmatrix}u&0\\c&v\end{pmatrix}.
-\]
-Consequently \(N(a)\le1\) is equivalent to \(\|M\|_{2\to2}\le2\). For nonnegative \(u,v,c\), the exact semidefinite criterion \(4I-M^{\mathsf T}M\succeq0\) is
-\[
-0\le u\le2,\quad0\le v\le2,\quad
-4c^2\le(4-u^2)(4-v^2).
-\]
-(The determinant condition and the first principal-minor condition imply the remaining diagonal condition for \(0\le u,v\le2\); all boundary cases are included.) Since \(\beta\ge0\), take the maximum admissible \(c=\tfrac12\sqrt{(4-u^2)(4-v^2)}\) whenever it is useful. Put \(u=2\cos\theta\), \(v=2\cos\phi\), where \(\theta,\phi\in[0,\pi/2]\). Then the resulting objective is
-\[
-2\left(\sqrt p\cos\theta+\sqrt q\cos\phi+
-\beta\sin\theta\sin\phi\right).
-\]
+Indeed the determinant is \((4-u^2)(4-v^2)-4c^2\); these conditions imply \(u^2+c^2\le4\) as well. They include the cases \(u=2\) or \(v=2\), with \(c=0\).
 
-**4. One-variable maximization.** For fixed \(\theta\), maximizing over \(\phi\) gives
+**Optimization and activation.** Write \(u=2\cos\theta,v=2\cos\phi\), for angles in \([0,\pi/2]\). The largest allowed \(c\) is \(2\sin\theta\sin\phi\), and taking this value never decreases the objective. Maximizing the objective over \(\phi\) by Cauchy–Schwarz gives
 \[
-2\left(\sqrt p\cos\theta+
-\sqrt{q+\beta^2\sin^2\theta}\right).
+2\left(\sqrt p\cos\theta+\sqrt{q+\beta^2\sin^2\theta}\right)=2F(z),\qquad
+F(z)=\sqrt{p(1-z)}+\sqrt{q+\beta^2 z},\quad z=\sin^2\theta.
 \]
-Set \(z=\sin^2\theta\in[0,1]\). The desired norm is precisely twice the maximum of
+The optimizing \(\phi\) is unique, with \((\cos\phi,\sin\phi)=(\sqrt q,\beta\sqrt z)/\sqrt{q+\beta^2z}\). The function \(F\) is strictly concave and \(2F'(0)=\beta^2/\sqrt q-\sqrt p\). If \(\beta^2\le\sqrt{pq}\) the only maximizing \(z\) is zero, so \(u=v=2\) and feasibility forces \(c=0\), even at \(\beta=0\) where the objective ignores \(c\). If \(\beta^2>\sqrt{pq}\), the derivative tends to \(-\infty\) at 1 and the unique maximizer is
 \[
-F(z)=\sqrt p\sqrt{1-z}+\sqrt{q+\beta^2 z}.
-\]
-This continuous function is strictly concave in \(z\) (the first summand already is), with
-\[
-F'(0)=\frac12\left(\frac{\beta^2}{\sqrt q}-\sqrt p\right).
-\]
-If \(\beta^2\le\sqrt{pq}\), concavity forces its unique maximum to occur at \(z=0\), of value \(\sqrt p+\sqrt q\). If \(\beta^2>\sqrt{pq}\), the unique interior critical point is
-\[
-z_* =\frac{\beta^4-pq}{\beta^2(\beta^2+p)}\in(0,1).
-\]
-The derivative equation \(\beta^4(1-z_*)=p(q+\beta^2 z_*)\) yields
-\[
+z_* = \frac{\beta^4-pq}{\beta^2(\beta^2+p)}\in(0,1),\qquad
 F(z_*)=\frac{\sqrt{(\beta^2+p)(\beta^2+q)}}{\beta}.
 \]
-Multiplying by two gives the two advertised branches, which meet continuously at \(\beta=(pq)^{1/4}\). No finite-grid argument is used in this maximization.
-
-**5. Sharpness and activation.** Below and at the threshold choose \(u=v=2\), \(c=0\); equivalently, set \(x=2/\sqrt p\), \(y=2/\sqrt q\). This gives \(N(a)=1\) and objective \(2(\sqrt p+\sqrt q)\). Above threshold, take \(z=z_*\), \(\sin\theta=\sqrt{z_*}\), and select
-\[
-\cos\phi=\frac{\sqrt q}{\sqrt{q+\beta^2z_*}},\qquad
-\sin\phi=\frac{\beta\sqrt{z_*}}{\sqrt{q+\beta^2z_*}}.
-\]
-Choose \(x=2\cos\theta/\sqrt p\), \(y=2\cos\phi/\sqrt q\), \(c=2\sin\theta\sin\phi\). These coefficients satisfy the singular-value constraint with equality and attain the second branch. Moreover \(c>0\) there, whereas strict concavity forces \(\theta=\phi=0\) and thus \(c=0\) for any orbit-symmetric optimal triple at or below the threshold (at \(\beta=0\), \(c\) is still forced to zero by \(u=v=2\)). This proves the stated activation law and completes the argument.
+The equality follows from \(\beta^4(1-z_*)=p(q+\beta^2z_*)\). Both optimizing sines are then positive and, as \(\beta>0\), any maximizer must take the largest allowed \(c\). These choices furnish feasible witnesses, prove both formulas, and give the asserted strict positivity of the optimized bridge modulus after averaging. Equality in the original triangle inequality requires all nonzero terms contributing to \(L_\beta\) to lie on the same complex ray. If \(\beta=0\) the bridge is already known to be zero, so in every case this condition applies to all nonzero coefficients. It proves the statement about phase normalization.
 
 ## Verification
 
-The standalone Python 3 standard-library program `verify_double_star.py` evaluates the exact formula, checks the optimizing witness against the two-by-two spectral feasibility condition, verifies the stationary identity with exact rational arithmetic, checks rational equality certificates at small dimensions, and compares to an independently enumerated finite grid. The program should print `VERIFY_OK`. Its floating-point tests confirm specific examples only: the proof for all \(p,q,\beta\) is entirely analytic and appears above.
+At \(p=q=1,\beta=2\) the pendant weights \(1,1\) and bridge \(3/2\) yield \(N(a)=1\) by the determinant criterion and objective \(5\), as predicted. Multiplying all three weights by \(-1\) keeps the norm and absolute objective unchanged, illustrating why the unnormalized bridge need not be positive real. At \(p=q=1,\beta=1\), the threshold witness has pendant weights \(2,2\) and bridge zero. Independently, the support calculation in the two-by-two reduction can be checked by minimizing the nuclear norm of \(\left(\begin{smallmatrix}\sqrt p&t\\\beta&\sqrt q\end{smallmatrix}\right)\) over real \(t\), using operator/nuclear norm duality on a subspace. Its squared nuclear norm is \(p+q+\beta^2+t^2+2|\sqrt{pq}-\beta t|\), minimized at \(t=\beta\) on the plateau and \(t=\sqrt{pq}/\beta\) above it. In this check one can optimize over all real lower-triangular matrices since entrywise moduli preserve their operator norm by diagonal sign changes. The supplied `verify_double_star.py` is a finite numerical diagnostic for the unchanged real nonnegative optimization, not a check of the complex equality case or a proof of the all-parameter formula.
 
-For a simple exact witness, at \(p=q=1\) and \(\beta=2\), assign pendant weights \(1\) on each side and bridge weight \(3/2\). The corresponding two-by-two matrix has largest singular value exactly \(2\) because \((4-1)(4-1)=4(3/2)^2\), and the functional value is \(1+1+2(3/2)=5\), matching the second branch.
+## Relationship to prior work and limitations
 
-## Relationship to prior work
-
-Budzynski–Dymek–Planeta–Ptak (2017) develop the Hilbert-space weighted-shift framework on directed trees, including multiplier algebra, reflexivity, and Wold-type decompositions; their inspected text does not evaluate these finite double-star numerical-radius dual functionals. Sharif (2023) studies numerical radius as a norm of unilateral weighted-shift coefficients and its relation to Banach limits. His finite block calculations concern path shifts; the double-star branching and independent bridge multiplier are different parameters.
-
-A publicly indexed graph-edge numerical-radius result establishes strict convexity exactly for stars and triangles and classifies smooth points for general graphs; its complete publicly accessible result concerns geometry of the **primal** norm rather than the **dual support value** of the sum-of-pendant-edges functional on a double star. The already-known special case of a three-link uniform path agrees with \(p=q=1,\beta=1\) and is not claimed anew. The contribution here is the all-branching exact dual norm and its sharp bridge-activation transition.
-
-## Limitations
-
-The result treats only free complex edge coefficients on finite double stars with positive pendant counts and a nonnegative, uniform bridge multiplier. It does not classify arbitrary signed or unequal coefficients in the dual or numerical-radius support functionals on general trees. The equality description concerns orbit-symmetric representatives, not uniqueness among all nonsymmetric optimal weight vectors. The proof is self-contained but no independent mathematical audit has been performed. An equivalent expression may exist in unindexed literature under Perron-root support-function or weighted-path language.
-
-## References
-
-1. P. Budzynski, P. Dymek, A. Planeta, M. Ptak, *Weighted shifts on directed trees. Their multiplier algebras, reflexivity and decompositions*, arXiv:1702.00765v1, first public 2017-02-02, https://arxiv.org/abs/1702.00765, especially §§1–4,6; primary MSC 47B37.
-2. A. Sharif, *On the numerical radius of weighted shifts on \(\ell^2\) as a norm on \(\ell^\infty\) and connections to Banach limits*, arXiv:2303.00876v1, first public 2023-03-02, https://arxiv.org/abs/2303.00876, especially §§1–2 and 4.
-3. *Strict convexity and the full smooth locus of graph-edge numerical-radius norms*, publicly accessible RESULT.md, record identifier ending `12716bf88722`, https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-strict-convexity-and-the-full-smooth-locus-of-graph-edge-numeric--12716bf88722, especially Finding and Proof.
+Budzynski, Dymek, Planeta and Ptak, *Weighted shifts on directed trees. Their multiplier algebras, reflexivity and decompositions* (arXiv:1702.00765), develop the directed-tree shift framework. Sharif, *On the numerical radius of weighted shifts on \(\ell^2\) as a norm on \(\ell^\infty\) and connections to Banach limits* (arXiv:2303.00876), studies the numerical-radius norm of unilateral path shifts. The graph-edge numerical-radius study *Strict convexity and the full smooth locus of graph-edge numerical-radius norms* (record `12716bf88722`) supplies the general primal adjacency norm and its Rayleigh representation. Its convexity and smoothness classification does not give the double-star dual support value; here the independent bridge multiplier is varied and its transition determined. The uniform three-edge path case \(p=q=\beta=1\) is not claimed anew. An equivalent closed formula under different support-function terminology cannot be ruled out by the comparisons made here. The result does not compute arbitrary edge-functional norms on other trees or classify all their maximizers.

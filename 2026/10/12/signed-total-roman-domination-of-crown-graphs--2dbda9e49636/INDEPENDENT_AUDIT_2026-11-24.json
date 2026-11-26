@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:53:36.304966Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–85",
+        "VERIFICATION.md; VERIFY.py (inspected, not executed)",
+        "Replay: python3 /workspace/branches/865f75d1-1f4b-43b8-912c-89c9175cbf4b/replay.py; replay-output.txt in the same directory"
+      ],
+      "rationale": "For any shore z with sum Z, the opposite open sums are Z−z_i. An all-negative shore is infeasible, so each sum is ≥2 and is ≥3 if the shore has a 2. A sum 2 means no 2, an even shore size n≥4, and at least one −1. Its opponent needs a 2 to defend this −1 and cannot itself contain −1; its sum is then ≥n+1, so the two sums cannot total ≤6. Hence total weight ≥6 and equality requires sums (3,3). At sums (3,3) every open sum is automatically ≥1. Two 2s per shore at odd n, or a shared unique 2 index at even n, give the stated feasible constructions. The two linear equations give a,b in terms of c. For odd n≥5, c is even and c=0 would leave at least one −1 on that shore; the opponent then must have no −1, impossible at sum 3 on n>3 vertices. At n=3, both all-1 or both with two 2s yield 1+3² configurations, and mixed cases fail. For even n, c is odd; if both c≥3 there are S_n² pairs. If one c=1, a fixed index of its 2 must avoid the other shore's negatives, giving the T_n(c)(n−a_n(c))/n factor and both orientations. If each has one 2, fix the first shore. The second 2 is at the same index with C(n−1,a_1) choices of negatives, or at one of the first shore's b_1 label-1 positions, in which case two indices are forbidden to second-shore negatives and there are C(n−2,a_1) choices. This establishes the entire count without relying on finite extension. Separate exhaustive replay through n=8 agrees with each of the six counts and finds only (3,3) among minimizing shore-sum pairs.",
+      "residual_risks": [
+        "Independent finite exhaustion stops at n=8. Larger n, classification and exact counts depend on the symbolic argument, not on the frozen formula evaluations through n=40."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 covers cubic graphs, including Cr_4; the discussion near Corollary 6 cites Volkmann for all cycle values, which cover Cr_3",
+          "Proposition D recites complete bipartite values and Theorem 9 addresses complete multipartite graphs with at least three parts",
+          "Full text of the edge-modification paper was not retrieved"
+        ],
+        "reasoning": "For n≥5 a crown has degree n−1≥4 and is not complete multipartite: a_i and b_i are nonadjacent, as are a_i and a_j for i≠j, but b_i and a_j are adjacent. Nonadjacency therefore cannot identify a common part. None of the inspected stronger statements applies to those orders.",
+        "searches": [
+          "Koster–Volkmann–Wehrmann arXiv:2606.27175 Theorem 1, Proposition D, Theorem 9 and cycle references",
+          "Guo–Volkmann–Wang edge-modification paper, DOI 10.1016/j.amc.2024.129074 (OA retrieval)"
+        ]
+      },
+      "checked_sources": [
+        "Koster et al. arXiv:2606.27175 full-text passages",
+        "Volkmann abstract and cited cycle examples",
+        "Zhao–Miao and Guo et al. retrieval paths",
+        "Resultary ec56691004a8 and 4abf4c82d791",
+        "Focused matching-deletion literature lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cubic proof shows equality corresponds to a maximum open packing of −1 labels and precisely one defending 2 chosen per packed vertex. In Cr_4 the packing has one vertex in each shore since same-shore neighborhoods intersect; for their indices equal versus unequal, the numbers of independent defender choices are 3² and 2². This implies 4·9+12·4=84 as well as minimum 6",
+          "The noncubic matching-deleted case needs the actual open sums Z−z_i and exclusion of a matched sole defender"
+        ],
+        "reasoning": "The cubic proof already supplies the small-order cubic specialization even without an explicit table. The parity census and both-shores-at-3 argument on the general crown family are not mechanical corollaries of the cited cycle, cubic, or complete multipartite theorems.",
+        "searches": [
+          "Koster–Volkmann–Wehrmann Theorem 1 and proof, p.4; Proposition D p.3; Theorem 9 pp.7–8",
+          "Comparison with related Resultary census records ec56691004a8 and 4abf4c82d791"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary ec56691004a8 concerns the same crown graph and also has minimum 6 but uses ordinary total Roman functions with labels {0,1,2} and the positive-induced-subgraph requirement",
+          "Volkmann's abstract confirms the signed labels {−1,1,2}, open sum ≥1, and rescue by a 2"
+        ],
+        "reasoning": "The same graph under different names is not a novelty distinction; the different invariant is. Shifting or relabeling ordinary total Roman functions does not preserve the open-sum condition or the rescue rule. The count at n=3 is already different, 31 versus 10.",
+        "searches": [
+          "Resultary: crown graph Cr_n; K_{n,n} minus a perfect matching; bipartite Kneser H(n,1); signed total Roman minima and compatibility",
+          "Primary literature query for the signed total Roman parameter on matching-deleted complete bipartite graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ec56691004a8 gives counts 31 at n=3 and n²(n−1) thereafter for unsigned total Roman functions",
+          "4abf4c82d791 gives an enumerator for the same signed invariant on connected complete multipartite graphs",
+          "Zhao–Miao complete-bipartite values are stated in Koster et al., Proposition D"
+        ],
+        "reasoning": "The unsigned table is a different labeling count; the signed enumerator excludes the crown graph class. Complete K_{n,n} values do not directly transfer after a matching is removed. No inspected table gives the general signed crown census.",
+        "searches": [
+          "Resultary: minimum counts and weight enumerators for crowns and complete multipartite graphs",
+          "Known cycle and complete-bipartite determinations referenced in arXiv:2606.27175"
+        ]
+      },
+      "rationale": "The uniformly quantified crown result and parity census are distinct from the inspected general graph results; no standalone novelty is credited for small cases those results cover. The cycle determination cited by Koster et al. covers Cr_3=C6. For Cr_4, their cubic theorem gives weight 8−2=6 and their equality proof also gives the count 84 by choosing a maximum open packing and its defenders. The cubic and cycle results do not cover n≥5. Complete bipartite and ≥3-part complete multipartite formulas do not apply after deleting the matching. The same-day ordinary total Roman census has different labels and constraints. The broader crown theorem and census pass subject to the stated retrieval limits.",
+      "residual_risks": [
+        "The edge-modification paper and the Zhao–Miao full text were unavailable in the inspected routes. Some broader equivalent result may be unindexed or stated differently; search is not proof of priority.",
+        "The inspected Volkmann abstract does not display the actual cycle examples; cycle coverage is supported by the explicit citation in Koster et al."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanical coverage of cubic Cr_4 and secondary evidence of cycle-family coverage of Cr_3; no implication of the uniform n≥5 theorem in the compared statements",
+          "evidence": "Theorem 1 is γ_stR(G)+ρ_o(G)=|V(G)| for cubic graphs; Theorem 9 assumes ≥3 parts; Prop. D states K_{n,n} values.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.27175",
+          "material_read": "Proposition D p.3 offset about 10850; Theorem 1 and proof p.4 offsets 12135–14638; Corollary 6 context p.6 offset about 19914; Theorem 9 pp.7–8 offset about 22100; reference [24] p.27",
+          "method": "Bounded primary OA PDF passage inspection",
+          "title": "Signed Total Roman Domination and Domatic Numbers: Degree Three and Complete Multipartite Graphs",
+          "trigger": "Same invariant; cubic and dense-family exact results plausibly subsume some crowns"
+        },
+        {
+          "assessment": "Prior cycle value classification covers C6, not the all-order crown family",
+          "evidence": "Abstract defines the same two conditions; Koster et al. state that Examples 5–6 determine all paths and cycles.",
+          "identifier_or_url": "https://doi.org/10.1007/s10878-015-9906-6",
+          "material_read": "Author abstract, RePEc offsets 600–2180; secondary citation to Examples 5–6 in arXiv:2606.27175 p.6",
+          "method": "Lawful public abstract and inspectable secondary passage; not original full text",
+          "title": "Signed total Roman domination in graphs",
+          "trigger": "Original same-invariant source and prior cycle determination"
+        },
+        {
+          "assessment": "Unmodified complete bipartite graph, not the crown",
+          "evidence": "Cited balanced value is 2 except n=3 when it is 4; no primary-text claim beyond accessible evidence.",
+          "identifier_or_url": "https://doi.org/10.13447/j.1674-5647.2017.04.04",
+          "material_read": "Publisher metadata and secondary cited proposition (arXiv:2606.27175 Proposition D)",
+          "method": "Direct OA and publisher retrieval attempts; secondary comparison",
+          "title": "Signed Roman (Total) Domination Numbers of Complete Bipartite Graphs and Wheels",
+          "trigger": "Exact complete bipartite signed total Roman values"
+        },
+        {
+          "assessment": "Unresolved stronger coverage risk, not evidence of absence or of an exact overlap",
+          "evidence": "Accessible description concerns edge modification, without an inspected theorem for a whole deleted matching.",
+          "identifier_or_url": "https://doi.org/10.1016/j.amc.2024.129074",
+          "material_read": "Accessible metadata and abstract description; no full text retrieved",
+          "method": "Lawful direct/VPN/OA retrieval attempt",
+          "title": "Signed total Roman domination and domatic numbers in graphs",
+          "trigger": "Graph modification by deletion or subdivision of an edge may bear on matching deletion"
+        },
+        {
+          "assessment": "Different invariant and census, irrespective of priority",
+          "evidence": "Uses labels {0,1,2} and gives 31 minima at n=3 and n²(n−1) thereafter.",
+          "identifier_or_url": "2026/10/12/SCOPE-total-roman-weight-enumerator-of-crown-graphs--ec56691004a8",
+          "material_read": "RESULT.md Finding and definition, mirror opening passage",
+          "method": "Bounded local-mirror passage",
+          "title": "Total Roman weight enumerator of crown graphs",
+          "trigger": "Same crown family and numerical minimum in a distinct same-day record"
+        },
+        {
+          "assessment": "Complete multipartite assumption excludes crowns of the assigned sizes",
+          "evidence": "Counts the same signed functions on connected complete multipartite graphs, without matching deletion.",
+          "identifier_or_url": "2026/10/13/SCOPE-weight-enumerator-of-signed-total-roman-dominating-functions-on--4abf4c82d791",
+          "material_read": "Finding and scope of mirrored RESULT.md",
+          "method": "Bounded local-mirror passage",
+          "title": "Weight enumerator of signed total Roman dominating functions on complete multipartite graphs",
+          "trigger": "Same invariant and a full enumerator in a related dense graph class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof",
+        "Complete bipartite, cycle, and cubic comparisons above"
+      ],
+      "rationale": "The crown is a canonical single-perfect-matching modification of complete bipartite graphs. The uniform law compares its exact domination weight to the very different unmodified case, while the all-order extremizer structure and count quantify how the missing matching affects optimal labelings. The parity split and the interaction of unique defenders provide meaningful census information beyond the already implied small-order values.",
+      "residual_risks": [
+        "Does not treat arbitrary matching deletions or enumerate nonminimum signed total Roman functions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

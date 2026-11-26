@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** The cumulative mass–volume model is normalized to unit source masses; strict concavity on both sides of the delayed activation proves at most one interior diagonal crossing on each side. One-sided endpoint derivatives and the value at activation yield three necessary and sufficient inequalities; their strict feasibility follows by setting the mixture weight to the lower boundary and using strict concavity. The unique upper-bound switch follows from strict monotonicity of the late-source endpoint density. Two explicit Taylor expansions establish different short-delay and terminal-delay window scalings. The delivered checker independently passed 894 numerical assertions. Numerical tests are not substituted for the analytic proof.
+## correctness
 
-**Originality — PASS relative to inspected evidence, provisionally.** The closest primary published literature develops and applies the cumulative \(M(V)\) diagnostic and observes temporal variability and early/late flushing, but the inspected full-text material does not show the exact delayed-two-source double-crossing classification, crossover in limiting constraints, or the two scaling exponents. Distinct published runoff-routing peak, stage-ordering, and wash-off serial-dynamics results concern other mathematical objects and do not imply the present criterion. An inaccessible 2014 empirical first/end flushing paper remains a priority risk; searches do not prove global novelty.
+PASS
 
-**Value — PASS.** A single fitted power-law first-flush curve remains entirely on one side of the diagonal; a delayed subcatchment can produce two strict changes of sign even when each source individually washes off monotonically. The exact admissible source-share interval and its degenerating width quantify when an event-level one-shape classification loses sign information, a relevant issue in interpreting mass–volume curves and designing sampling protocols. The theorem is a stylized structural benchmark, not a field-calibrated prediction or treatment recommendation.
+Both normalized densities integrate to one on their active intervals. For H=F−v, the continuous curve has H(0)=H(1)=0 and is strictly concave on each side of activation. Thus if H(d)≥0 there is no sign-changing interior zero; H(d)=0 makes a contact with H>0 on both sides. If H(d)<0, the strictly monotone secant slopes from each anchored endpoint give at most one interior zero per side, with existence exactly when the respective slope H′(0+)>0 or H′(1−)<0. Substitution gives w>L, w<U0 and w<U1. At w=L concavity at both anchored segments makes both slope inequalities strict, proving nonemptiness; L>0 follows from strict concavity of F1 and U0<1. U1 falls strictly from +∞ to 0 as d ranges from 0 to 1, and solving z=c+(1−c)/U0 gives the unique switch. Independent symbolic limits give (1−exp(−a))/2 for width/d at the initial end and a/2 for width/(1−d)^2 at the terminal end; the matched linear terms cancel at the latter. Replayed the example with H(d)=−1/18 and roots 0.312578367542804 and 0.638317443294359. Replay: `python3 /workspace/branches/independent_certificates.py 3`. This is not validation of a field model.
 
-**Limitations and closest literature.** Bertrand-Krajewski, Chebbo and Saget (1998) introduce the empirical mass–volume analysis and power-function approximation; Alias et al. (2014) analyze runoff sectors; Di Modugno et al. (2015) analyze stormwater monitoring and calibrated wash-off curves. Wang et al. (2014) report both early and end flush but its full primary text was not available for confirmation. The sharp activation and common exponential rate are idealizations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the exact all-parameter delayed equal-rate mixture window, its switch, and its different boundary-layer scalings, not the cumulative mass–volume framework or discovery of mixed flushing shapes. Checked literature establishes the framework and empirical variation, and the closest indexed mathematical model treats a different mechanism and a single crossing; inaccessible full text remains a named risk.
+
+## value
+
+PASS
+
+This is a motivated mechanism for nonmonotone cumulative mass surplus despite decreasing release within each source. The exact feasible weight window quantifies when a second crossing can occur and shows why estimation of the effect becomes far more sensitive as activation approaches the event end. Those are informative comparisons within a natural idealized model, not a prescription for capture-system design or a rediscovery of observed mixed curves.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

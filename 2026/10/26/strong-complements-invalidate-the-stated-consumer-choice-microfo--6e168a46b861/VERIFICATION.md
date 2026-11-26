@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-The standalone `verify_model_domain.py` uses exact rational arithmetic. It verifies a representative point of the disputed branch and a point in the strict-concavity domain. The universal conclusion follows from the displayed eigenvalue decomposition and the equal-consumption ray proof in `RESULT.md`, not from finite sampling.
+# Independent mathematical audit
 
-Verified algebraic identities:
-- \(B=(1-\gamma)I+\gamma\mathbf1\mathbf1^\top\).
-- The eigenvalue along \(\mathbf1\) is \(1+(n-1)\gamma\).
-- \(2+(n-1)\gamma<0\Rightarrow1+(n-1)\gamma<-1\).
-- Along \(q=t\mathbf1\), the coefficient of \(t^2\) in the consumer objective is \(-\frac n2(1+(n-1)\gamma)>0\) on that branch.
+## correctness
 
-Limits: the check does not certify the source’s unrelated equilibrium or stability formulas, and no independent audit or independent validation has been performed.
+PASS
+
+On the choice set expressly stipulated in the frozen assumptions, the all-goods ray t1 is feasible for all t≥0. The price-adjusted utility along it is t times the sum of α_i−p_i minus (n/2)(1+(n−1)γ)t². On 2+(n−1)γ<0 the quadratic coefficient is strictly positive for every finite price vector, proving unboundedness and therefore no global optimum. The branch is nonempty under |γ|<1 precisely for some γ when n≥4. The other n−1 eigenvalues are 1−γ>0, so strict concavity holds exactly when 1+(n−1)γ>0. The proof invalidates this unconstrained optimization interpretation, not an algebraic model with inverse demand taken as primitive. The source package identifies §2 for the first-order conditions and §3.1 for the branch; these reported locations were not independently recovered, and the verdict does not certify that the actual article rules out budget constraints.
+
+## originality
+
+PASS
+
+The distinct contribution on the available evidence is the diagnosis for the particular differentiated-oligopoly branch as specified in the frozen record. The spectrum and ordinary concavity criterion are standard and not credited as new. The frozen claim is already explicitly limited to the unconstrained interpretation; an erratum about the paper's literal model or an unrestricted-prices demand theorem is not established.
+
+## value
+
+PASS
+
+This distinguishes a formally analyzable firm's best-response branch from a branch implementable by the specified representative consumer. It rules out an open parameter region, not a degenerate test point. The result helps prevent interpreting a dynamical stability calculation as a consumer-founded equilibrium without checking demand's admissible domain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

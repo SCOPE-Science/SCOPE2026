@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns the two subdensities for width and a central-section vertex count, not merely a width marginal. For the four vertices \((1,1,1),(1,-1,-1),(-1,1,-1),(-1,-1,1)\), direct support calculations give normalized width \((x+y)/\sqrt2\) in the signed-permutation chamber \(x\ge y\ge z\ge0\). There, a quadrilateral section is equivalent to \(x>y+z\). The global sphere measure is reduced to exactly 48 chambers, and the latitude parametrization has Jacobian \(d\sigma=dw\,d\phi\). The angular inequality has one interval until \(w=\sqrt{2/3}\), two intervals until \(w=\sqrt3/2\), and the full quarter-circle thereafter. This proves both subdensity formulas for every admissible width and excludes additional cases. The independent edge-crossing expectation yields the exact marginal probabilities, and the verifier checks total mass, two known width moments and direct simulations. Boundary orientations form a surface-null set. Numerical checks are supplementary, not the basis of proof.
+PASS
 
-## Originality — PASS, provisional historical assessment
+In the signed-permutation chamber x>=y>=z>=0 the extreme projections differ by 2(x+y), so the unit-edge width is (x+y)/sqrt(2). There are two positive vertex projections exactly when x>y+z, hence four edge crossings then and three otherwise. Around the width axis, area in latitude-height and azimuth coordinates is dw dphi. The chamber imposes w/sqrt(1-w^2)>=sqrt(3) cos(phi-delta); the section-type separator is phi=delta. The smaller-azimuth interval starts when the left side reaches 1, the larger-azimuth interval starts at sqrt(2), and the full azimuth range is allowed at sqrt(3). These give the stated thresholds and both interval lengths, with factor 48/(4pi). The level sets and projection-zero boundaries have area zero, so there are no omitted atoms. The upper-tail ratio is constant; in the intermediate interval the ratio has positive derivative in the decreasing angle theta. Independently, the opposite-sign probability for each edge is arccos(-1/3)/pi, confirming the two total masses. The calculation is exact and not based on a Monte Carlo fit.
 
-Finch (arXiv:1110.0671, 2011) establishes mean width and second moment, but not the joint law. Abas (arXiv:2609.26202, 2026) explicitly provides the **marginal width density**, so the width marginal is credited and excluded from the contribution. Its accessible abstract has no result on central-section polygon type conditional on width, but the 92-page full text was not accessible; this is the chief outstanding priority risk. Feldman–Klain (arXiv:0809.3459, 2008) prove probability formulas for vertices of planar *projections*, not for the bivariate law of a perpendicular centroidal *section* and directional width. Voss (1982) derives some polygon-count frequencies for affine sections, but its full text was inaccessible and its accessible abstract does not assert any joint width/central-section distribution. Semantic checks against available geometry research ledger claims and published scientific-record searches found no same joint law; absence from retrieval is not a uniqueness proof. The precise contribution is the coupled distribution and its two sharp transitions, including independence on the high-width tail.
+## originality
 
-## Value — PASS
+PASS
 
-Directional width and central-section polygon type are classical but distinct ways to probe a convex solid. Marginal laws do not determine their correlation. The formula identifies a sharp *forbidden triangle-section width interval*, a strictly decreasing conditional quadrilateral probability over an intermediate interval, and exact conditional independence throughout an upper interval carrying over 80% of the total orientation mass. The joint law thus provides a complete and geometrically interpretable stereological relation, not an arbitrary numerical refinement or a repeated calculation of the already-known width marginal. Its high-tail independence is a structural consequence of the sphere normal-fan geometry.
+Pass on the width-and-central-section-type coupling and its consequences, not on the marginal width density or the isolated section-count marginal. The closest verified width theorem has a scalar output; the closest section or projection results retrieved do not assert this coupling. This is a best-of-knowledge comparison, not a priority certification.
 
-## Remaining risks
+## value
 
-A 2026 broad polyhedral width-density paper could contain uninspected material beyond its abstract; its accessible title and abstract cover the width marginal but do not establish this new joint law. No independent historical priority check or independent proof audit has been conducted. The result assumes exact Haar orientations and does not make a statistical estimation claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The pairing of a support measurement with the combinatorial type of a cut is intrinsic to a single orientation of a canonical solid. The joint result gives a sharp forbidden interval for triangular sections and a non-null interval of exact independence (width-tail mass 6(1-sqrt(3)/2)), separated by a strictly varying type probability. Those facts are usable even when the two separate distributions are already known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Finite computational verification
+# Independent mathematical audit
 
-The certificate fixes the lexicographic order of ten two-subsets followed by ten three-subsets of the point set \([5]\). It contains all 155 minimum secure dominating masks, all 750 two-exchange pairs, explicit automorphism-orbit representatives, a 154-edge spanning tree, and a disjoint pair witnessing the lower bound on move count. No data are sampled.
+## correctness
 
-Reproduce from the extracted directory:
+PASS
 
-```sh
-python3 checks/verify_incidence.py checks/certificate.json > incidence-replay.out
-diff -u checks/verify_incidence.output.txt incidence-replay.out
-c++ -O2 -std=c++17 checks/verify_petersen.cpp -o verify_petersen
-./verify_petersen > petersen-replay.out
-diff -u checks/verify_petersen.output.txt petersen-replay.out
-python3 checks/crosscheck.py checks/certificate.json petersen-replay.out
-```
+I wrote and ran an exact independent enumeration in complement-pair labels: join opposite 2-subsets when disjoint, which is the stated incidence graph after complementing the right side. For each mask I tracked vertices covered once or more than once. A chosen neighbor can defend an unoccupied vertex u exactly when each vertex uniquely covered by that neighbor belongs to N[u]. This checks ordinary domination after defense, not security after defense. Exhausting all masks of sizes at most 10 gave counts zero through 7, then 155, 5700, 37746. All 155 minimum masks have four per side and, after relabeling, match the frozen minimum-mask list exactly. Pair enumeration gave zero one-exchange edges and 750 two-exchange edges. The permutation/side-swap action gave orbit size:degree pairs 5:24, 30:6, 120:10. Independent breadth-first searches gave eccentricity 4 for every optimum in X. Direct TAR searches from one representative of each orbit reached only its starting optimum at capacity 9 and all 155 at capacity 10, with maximum optimum-pair distance 16. The theoretical bounds also hold: upward closure permits four moves per X edge at capacity 10, capacity 9 can only connect optima by a chain of forbidden one-exchanges, and disjoint optimum masks 983055 and 31440 in incidence order require at least 16 moves. The frozen programs and output excerpts were read, not executed. Replay the new check from /workspace with python3 branches/reproduce_desargues.py followed by the assigned source path to checks/certificate.json.
 
-The first checker constructs the two/three-subset incidence graph, exhausts all \(\binom{20}{k}\) masks for \(0\le k\le8\), checks the 240 explicit automorphisms and the entire 155-state exchange graph, and matches the complete certificate exactly. The second checker constructs \(P(10,3)\), exhausts all subsets of size at most eight from scratch using a separately coded secure predicate, validates an explicit graph isomorphism, and computes all exchange distances independently. The cross-check verifies that the 155 resulting minimum masks coincide exactly after transporting along the isomorphism.
+## originality
 
-The original run produced exact outputs in the two included output files. Replaying from the embedded source is necessary if stronger assurance is desired. The finite checks establish only the asserted results for this fixed 20-vertex graph. Neither these files nor their execution provide an external independent scientific audit.
+PASS
+
+The verified distinct claim is the exact secure-state optimum geometry and the sharp TAR threshold and optimum distance on the Desargues graph, together with the minimum classification. Same-graph catalogue results use different predicates; a general secure-domination algorithm and ordinary domination TAR methods do not give the configuration and distance data without an additional computation or theorem. A bounded search did not establish priority for the scalar invariant in isolation; possible older coverage is recorded, not treated as disproved.
+
+## value
+
+PASS
+
+For a canonical symmetric graph with a natural secure defense predicate, the calculation exposes a qualitative obstruction not captured by the optimum number: every optimum is isolated under a single exchange and remains isolated from other optima with one extra guard, yet two spare guards give full optimum connectivity with a sharp distance bound. The complete orbit and exchange data explain and make reusable this finite example; the work is more than checking a minimum number on an arbitrary graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

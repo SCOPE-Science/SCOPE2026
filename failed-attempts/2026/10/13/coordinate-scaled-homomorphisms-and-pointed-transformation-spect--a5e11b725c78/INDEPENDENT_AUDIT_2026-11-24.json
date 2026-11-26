@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:45:19.037587Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–104",
+        "Dietzel–Menchón–Vendramin §2.3, Defs. 5.6–5.7 and Thm. 5.9",
+        "VERIFICATION.md and verify.py inspected, not executed"
+      ],
+      "rationale": "Dietzel–Menchón–Vendramin Thm. 5.9 uses the coordinatewise ordered direct sum of integer chains; sign reversal and deletion of inactive coordinates give the asserted finite downsets, including the singleton. A coordinate h of a homomorphism satisfies h(0)=0, and for distinct active indices e_i•e_j=e_j makes h(e_i) and h(e_j) unable to be simultaneously positive. If a_i>0, the two ordered differences between a and a-e_i force h(a)-h(a-e_i)=h(e_i), so telescoping proves the normal form. Each such coordinate map preserves the operation, is monotone, and lands in the target exactly when all maximal source images do. For a full box target the choices are independent, with floor(t_j/r_i) nonzero scales for source i; active unit vectors distinguish the choices. For equal positive side length r, all nonzero scales equal 1. Writing coordinate-copy maps by a pointed function τ gives reversed composition; bijections are exactly coordinate permutations. With k nonzero selected inputs, independent values give image cardinality (r+1)^k. Pointed fibers partition m+1 labels into k+1 blocks with the zero block distinguished. Choosing k nonzero input labels and assigning them to the other blocks gives the stated unrestricted count. An idempotent fixes exactly its used indices, hence choose k fixed nonzero labels and map each remaining index to one of those or zero. Its embedded image sees only the partition: the zero block is forced to zero and other blocks have independent values. Every partition arises by choosing a fixed representative per nonzero block; distinct partitions give distinct sets since r≥1. The three formulas reproduce 64, 23 and 15 at m=3.",
+      "residual_risks": [
+        "The representation is by a direct sum of ordered integer chains, not a claim that the ambient group is free on m generators in the category of lattice-ordered groups. The concrete representation and proofs use the correct coordinatewise order.",
+        "Counts for a non-box target require the joint maximal-vector test."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prop. 2.4: every L-algebra morphism is monotone and preserves any defined partial product. §3 states the inclusion of self-similar algebras has a left adjoint and that the unit components are inclusions. Thm. 3.3: A is the self-similar closure of a subalgebra X iff X generates the monoid A.",
+          "An additive map N^m→N^s has a nonnegative integer matrix. Applying positive difference to two distinct basis vectors shows that a row has at most one nonzero entry."
+        ],
+        "reasoning": "The normal form is a direct coordinate specialization of the existing considerably more general morphism machinery. In fact Prop. 2.4 alone gives additivity along any path in the downset: the partial product of a-e_i and e_i is defined there and equals a. Passage to the full cone is not needed for that deduction.",
+        "searches": [
+          "Rump L-algebras self-similar closure homomorphism extends l-group morphisms commutative BCK Young diagrams regular L algebras truncated difference homomorphism finite product chains",
+          "https://tac.mta.ca/tac/volumes/39/21/39-21.pdf, Prop. 2.4 and §3",
+          "DOI 10.1016/j.jalgebra.2008.05.033"
+        ]
+      },
+      "checked_sources": [
+        "Rump (2023), pp. 602–603",
+        "Dietzel–Menchón–Vendramin (2023), §2.3 and §5",
+        "Rump (2008) abstract and lawful access attempts",
+        "Local Resultary f22954900492, 5ce12a321daf, 1b27ff42b16c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The adjunction gives the extension on every morphism, not just on isomorphisms. Admissibility in a downset reduces to maximal vectors by monotonicity, and the box imposes the separate constraints kr_i≤t_j.",
+          "Identical side lengths force k=1. Pointed kernel partitions are exactly the zero/equal-coordinate descriptions of embedded images of idempotents, every partition being realized by fixed representatives."
+        ],
+        "reasoning": "The distinction in the record between prior classification of isomorphism types and a new classification of general morphisms does not account for Rump's functorial closure/partial-product theorem. The further consequences are direct counting and translation of that specialization. No distinct nonroutine remainder was established.",
+        "searches": [
+          "Rump (2023) Prop. 2.4, reflector paragraph and Thm. 3.3; Dietzel–Menchón–Vendramin Thm. 5.9 and the uniqueness paragraph after its proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The representation is in the negative cone of the coordinatewise integer group; all active unit vectors are present after sign reversal.",
+          "Rump's reflector has the inclusions into the self-similar closure as its unit."
+        ],
+        "reasoning": "The sign-reversed cone is the additive monoid N^m with positive difference. Each downset contains its active standard basis and generates that cone, so its self-similar closure is the full cone by Thm. 3.3. Reflector naturality identifies a diagram homomorphism with an extended cone morphism whose restriction lands in the target.",
+        "searches": [
+          "Dietzel–Menchón–Vendramin arXiv:2206.04955v4, §2.3 and Thm. 5.9",
+          "Rump, The Category of L-Algebras, Prop. 2.4, §3 and Thm. 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Dietzel–Menchón–Vendramin Thm. 5.9 counts/classifies regular objects up to isomorphism, not embedded retracts of a fixed box.",
+          "Resultary f22954900492 reports different disjoint-block maps of a divisibility semiring; 5ce12a321daf and 1b27ff42b16c address retraction spectra for other structures.",
+          "Pointed functions on m+1 labels with k used nonzero labels have k+1 fibers, counted by set partitions with the zero-containing block fixed as the zero fiber."
+        ],
+        "reasoning": "No exact matching L-algebra table was established by the catalog. But the rank coefficients are the elementary onto-function, fixed-image idempotent and fiber-partition counts for a pointed set. The absence of a printed table for Q_(r,m) does not supply originality once the morphism classification is implied.",
+        "searches": [
+          "Local Resultary searches for coordinate-scaled L-algebra homomorphisms, rectangular counts and rank/retract spectra; closest f22954900492, 5ce12a321daf, 1b27ff42b16c"
+        ]
+      },
+      "rationale": "There is affirmative broader coverage: Rump's The Category of L-Algebras (2023), Prop. 2.4 and §3 before Thm. 3.3, give preservation of partial multiplication and the self-similar reflector; Thm. 3.3 identifies its value on a monoid-generating subalgebra. Specializing to the Dietzel–Menchón–Vendramin diagrams makes every map a restriction of a cone morphism preserving additive monoid multiplication. The one-sparse coordinate rows are then forced by a relation on pairs of basis vectors. The remaining assertions are the coordinatewise admissibility test and ordinary pointed-function/fiber counts under that specialization. This is direct implication, not an inference from a similar title, and does not depend on access to Rump's earlier 2008 paper.",
+      "residual_risks": [
+        "The 2008 full text was not read; it could contain even more direct antecedents. The failure rests on established 2023 prior implication, not on that uncertainty.",
+        "No assertion that the exact displayed formulas previously appeared verbatim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader existing coverage; positive evidence",
+          "evidence": "Prop. 2.4 gives preservation of defined products. The inclusion of self-similar algebras has left adjoint S; Thm. 3.3 identifies S(X) with a self-similar monoid generated by X.",
+          "identifier_or_url": "https://tac.mta.ca/tac/volumes/39/21/39-21.pdf",
+          "material_read": "p. 602 Prop. 2.4; p. 603 §3, Prop. 3.2, reflector paragraph and Thm. 3.3 (PDF text offsets 14350 and 15150 onward)",
+          "method": "Open primary PDF passages",
+          "title": "The Category of L-Algebras",
+          "trigger": "Plausible general theorem governing arbitrary homomorphisms, including noninjective ones"
+        },
+        {
+          "assessment": "Supplies the identification needed to specialize Rump's morphism theorem",
+          "evidence": "The ambient group is a cardinal sum of copies of Z; Thm. 5.9 proves upward closure in its negative cone and uniqueness up to coordinate permutations.",
+          "identifier_or_url": "https://arxiv.org/html/2206.04955v4",
+          "material_read": "§2.3; Thm. 5.5; Defs. 5.6–5.7, Thm. 5.9 and final uniqueness argument",
+          "method": "Primary HTML bounded passages",
+          "title": "On the enumeration of finite L-algebras",
+          "trigger": "Exact diagram representation of the audited algebras"
+        },
+        {
+          "assessment": "Not used as direct proof of coverage",
+          "evidence": "Abstract describes a self-similar closure; the precise later published statements above supply the needed implication without this text.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jalgebra.2008.05.033",
+          "material_read": "Landing-page abstract only",
+          "method": "DOI and identified lawful CORE PDF retrieval; no readable full text obtained",
+          "title": "L-algebras, self-similarity, and ℓ-groups",
+          "trigger": "Earlier structural source cited by the frozen record"
+        },
+        {
+          "assessment": "Different algebra and map normal form",
+          "evidence": "Disjoint-block maps and letter-deletion retractions for a divisibility semiring, not scaled coordinate maps of regular L-algebras.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-complete-homomorphism-and-retraction-census-for-linear-word-divi--f22954900492",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local catalog and mirror passage",
+          "title": "Complete homomorphism and retraction census for linear-word divisibility semirings",
+          "trigger": "Closest catalog homomorphism/rank/retraction analogue"
+        },
+        {
+          "assessment": "Different structures and retract object",
+          "evidence": "Boolean-algebra image sizes and retraction supports; expressly not an embedded retract-subalgebra census.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-minimum-cluster-nuclei-and-complete-retraction-rank-spectra-of-f--5ce12a321daf",
+          "material_read": "Mirrored RESULT.md, Finding and embedded-image scope",
+          "method": "Local catalog and mirror passage",
+          "title": "Minimum-cluster nuclei and complete retraction-rank spectra of finite S5 modal algebras",
+          "trigger": "Same-day rank-spectrum analogue"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 11–41, 78–96",
+        "Rump (2023), Prop. 2.4 and Thm. 3.3",
+        "Dietzel–Menchón–Vendramin (2023), Thm. 5.9"
+      ],
+      "rationale": "The explicit coordinate description can be useful exposition. As an independent finding, however, after applying the known theorem on L-algebra morphisms to the known representation, the additional checks and formulas are separate coordinate bounds and standard pointed-set partition counts. The record identifies no nonroutine restriction, counting problem for nonrectangular targets, or additional structural inference that would give the remaining exact counts independent research value.",
+      "residual_risks": [
+        "This is not a claim that concrete descriptions of these hom-sets lack pedagogical or computational convenience."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

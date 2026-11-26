@@ -1,21 +1,21 @@
-# Scientific review: sharp positivity frontier on Markov cycles
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof fixes the column-generator convention, proves invertibility of the Padé denominator from its right-half-plane roots, and uses exact rational formulas for every coefficient of the two-, three- and four-state cyclic matrices. All denominators are positive on the claimed range. The only sign-changing four-state coefficient is proportional to the negative of a polynomial with exactly one positive root (Descartes' rule plus its endpoint signs). The group-inverse coefficients are verified algebraically from the cyclic shift relation and establish the large-step expansion in each fixed dimension via finite Fourier diagonalization. The asserted limits apply at fixed dimension; no infinite-dimensional uniform bound is claimed. The packaged verifier checks 118 finite exact identities and rational cases, but the general quantifiers are supported by the written proof rather than by finite experimentation.
+PASS
 
-## Originality — PASS with residual publication-priority risk
+The poles 3±i√3 do not meet h(ω−1); the column-sum identity follows from r(0)=1. I independently inverted the denominator modulo X^n−1 over Q(h) and multiplied by the numerator for n=2,3,4; all nine factorizations agree. The two- and three-state coefficients are positive for h>0. In dimension four the only sign-changing coefficient is the first neighbor, with numerator −3hF(h) and a strictly positive denominator. Descartes and the sign at zero and infinity give exactly one positive root; F(6135/1000)=−642270159/1600000000 and F(6136/1000)=38072521/244140625 isolate it. All other entries remain positive at and beyond the crossing, and the h=0 map is the identity. For the asymptotic law solve (P−I)G=I−U and impose GU=0: the coefficient difference g_(j−1)−g_j=−1/n for j≥1 and the zero coefficient sum give g_j=(2j−n+1)/(2n), with the wraparound equation giving (n−1)/n. On the nonstationary Fourier modes r(hλ)=1+12/(hλ)+O(h^−2), while on the stationary mode r(0)=1 exactly. Reading off the first column gives the asserted coefficients and the strict eventual first-neighbor negativity for n≥4.
 
-The most relevant 2024 source by Blanes, Kopylov and Seydaoğlu provides Padé/scaling-and-squaring algorithms and structure preservation, not an entrywise Markov positivity classification. Zappavigna et al. (2012) already demonstrate failure of positivity for a diagonal Padé map, especially an eight-dimensional nilpotent shift; they do not supply an exact four-cycle horizon or the large-step group-inverse sign profile. The inspected previously published eight-state pure-birth Markov result resolves a complementary *small-step* obstruction, not this *large-step* directed-cycle result. General absolute-monotonicity statements alone also do not imply the exact four-cycle formula. A 2026 Fokker–Planck rational-positivity paper is relevant but only its abstract was accessible; its stated criteria treat large-step limits strictly below one or negative, whereas the present map has limit one. Specialized prior treatments of cyclic rational Markov approximants remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-Directed cycles are elementary conservative irreducible Markov models, and the two-stage fourth-order Gauss–Legendre step is a standard rational exponential approximation. The result resolves an exact and natural question: which smallest cycle loses positivity under large steps, and at what unique four-state threshold? The root-defined cutoff of about 6.13572 and the universal first-neighbor group-inverse sign law distinguish mass preservation, true-semigroup positivity, and numerical map positivity. The classification is more informative than merely computing one negative matrix entry, and gives a sufficient positivity check for four-cycle scaling-and-squaring. It is restricted to this precise method and generator family.
+The exact four-cycle cutoff and its minimality within the directed cycle family are distinct from the accessible earlier statements checked. The asymptotic mechanism itself has direct precedents (in particular on undirected cycles); the relevant specialization here is to the directed generator at the critical value r(∞)=1, combined with an exact all-step small-dimension classification. A distinct later Nov. 8 Resultary record has demonstrably equivalent coverage of both quantitative claims, under transposition, and extends the dimension range. It is not evidence that an earlier result covered the Nov. 2 finding; this pass is a best-of-knowledge comparison at the frozen finding, not a claim of present-day exclusivity or of the later record's dependence.
 
-## Evidence and remaining limits
+## value
 
-The four-state factorization and all-dimension group inverse are rederived in `RESULT.md` and reproduced in `artifacts/verify_cycle_pade.py`; `VERIFICATION.md` specifies exactly which finite checks ran. Primary material inspected: Blanes et al., arXiv:2404.12789v1 (HTML sections on Padé, scaling-and-squaring and preserved structure); Zappavigna et al. (2012), full PDF section on positivity counterexamples; previously published eight-state pure-birth published-finding corpus `RESULT.md` (complete theorem/proof). Itkin and Kazbek, arXiv:2608.22703, was compared at the accessible abstract level only; full-text fetch was unsuccessful, so this is explicitly not a whole-document noncoverage finding.
+PASS
 
-The theorem does not assert that a fixed numerical implementation remains nonnegative under floating point, that all larger directed cycles have a single positivity interval, or that internal Gauss–Legendre stages preserve positivity. Independent scientific validation has not been performed.
+Probability mass can be conserved exactly while the update ceases to be a transition matrix. The exact root gives the safe substep range on the smallest failing cycle, e.g. a sufficient positivity condition for scaling and squaring, and the fixed-n asymptotics explain why convergence back to the identity does not imply eventual positivity. The four-cycle horizon is a substantive sharp boundary, not just a negative example at a chosen step.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:22:07.109951Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–103",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Replay: python3 /workspace/reproductions/4.py (SciPy; finite diagnostics only)"
+      ],
+      "rationale": "With alpha>0 and arbitrary fixed beta, a hypothesized |z|≤R on a finite horizon bounds both lower coordinates by O(1+R), so the cubic damping at ±R dominates even the xy term. A first-contact barrier followed by compact continuation proves all-data forward existence for gamma<0. For gamma>0, w=sigma*z grows at least as gamma*w^3/2 on the proposed bounded x,y strip. The integrals of dt/dw and w*dt/dw are small for large M and preclude exit through the strip faces, giving finite escape time and finite x,y limits for both signs. At gamma=0 the logarithmic strip is propagated by |dy/dw|≤2/(alpha*w), while integrating (1+log(w/M))/w² prevents x exit. For a separate check of the expansions set v=1/w and G=xy−x−y−beta. In backward remaining time tau, dv/dtau=gamma/v−sigma*alpha−v+sigma*G*v². On the cubic tails this gives v²=2*gamma*tau+(4/3)*sigma*alpha*sqrt(2*gamma)*tau^(3/2)+O(tau²); inversion gives alpha/(3*gamma) in z for either sign. At the quadratic boundary G=O(log(1/v)) and sigma=−1, giving v=alpha*tau−alpha*tau²/2+O(tau³*|log tau|) and the stated negative pole and constant in z. Integrating the resulting z expansions gives the stated velocity and position formulas, including the finite renormalized velocity at gamma=0. Independent regularized-time diagnostics at reciprocal initial curvatures 10^−5 and 10^−6 reproduce convergence to the first clock corrections for both cubic signs and the quadratic tail.",
+      "residual_risks": [
+        "The escape claims are for large signed z with x,y initially bounded by fixed K, not all initial states when gamma≥0. The proof gives no uniform absorbing ball or all-basin classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Liénard Finding treats the planar equations x'=y−F(x), y'=−x; the absolute-value result has a different vector field and no matching escape-clock terms."
+        ],
+        "reasoning": "The comparisons share completeness or escape mechanisms, but neither contains this coupled three-coordinate family as a stated case, nor gives a transformation yielding the claimed signs and constants.",
+        "searches": [
+          "Resultary: Sharp forward-completeness and two-coordinate escape laws for polynomial Liénard oscillators",
+          "Resultary: A sharp forward-completeness transition in an absolute-value Linz system"
+        ]
+      },
+      "checked_sources": [
+        "Four Resultary Findings identified above",
+        "Frozen RESULT.md prior-work section and the two MDPI article/PDF access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Positive-cubic finite memory is proved by integrability of w times the curvature clock. In the critical case a coupled logarithmic growth bound is needed before the quadratic reciprocal expansion is valid.",
+          "Reported unbounded trajectories need not have finite escape time."
+        ],
+        "reasoning": "Scalar dominant balances alone predict exponents but do not control the xy coupling or prove that an open set attains those balances. The inspected results give no such control for this flow or the complementary all-data damping argument.",
+        "searches": [
+          "Same-equation Hopf Finding; Liénard Finding; the two same-day Findings listed in source_inspections",
+          "DOIs 10.3390/math11122623 and 10.3390/math9243217"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inspected Hopf Finding uses the same equation and fixes beta=0 for its local bifurcation calculation.",
+          "The same-day bounded-orbit convergence result assumes an already bounded trajectory of a different quadratic jerk equation."
+        ],
+        "reasoning": "Local stability/Hopf information is unchanged by remote escape behavior and cannot decide the universal continuation quantifier. Conditional convergence of bounded solutions is not an equivalent formulation of all-data completeness or finite-time blow-up.",
+        "searches": [
+          "Resultary: Explicit Hopf criticality surface for a cubic jerk flow",
+          "Literature references 1–2 in frozen RESULT.md; exact cubic and quadratic jerk families"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The supplied record describes published numerical parameter/attractor scans and unbounded trajectories; the attached diagnostics are finite curvature-interval runs."
+        ],
+        "reasoning": "Exact table lookup is not a route to this continuous all-initial-state theorem: finite parameter/trajectory data cannot establish finite maximal time, asymptotic coefficients, or continuation for every negative gamma. The external numerical findings were not independently available in full text.",
+        "searches": [
+          "Frozen RESULT.md lines 108–119 on published jerk-system parameter scans",
+          "Frozen VERIFICATION.md lines 19–25"
+        ]
+      },
+      "rationale": "The distinct contribution is the global iff completeness threshold with two rigorously realized escape clocks, including their first corrections, for this exact three-dimensional flow. Known local results on the same equation and global results on different equations do not cover this assertion. This is a best-of-knowledge comparison, not a priority certification.",
+      "residual_risks": [
+        "Primary full texts for the original jerk equation and its quadratic precursor were unavailable. A prior explicit escape theorem in those texts or a more general theorem with hypotheses covering this exact coupling remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known same-equation local result, not the global theorem",
+          "evidence": "Local equilibrium stability and Hopf coefficient at beta=0; no global continuation or escape statement.",
+          "identifier_or_url": "2026/10/4/SCOPE-explicit-hopf-criticality-surface-for-a-cubic-jerk-flow--7db06e4ebef1",
+          "material_read": "Finding and Assumptions, offset 0–4436",
+          "method": "Resultary and local full-text mirror",
+          "title": "Explicit Hopf criticality surface for a cubic jerk flow",
+          "trigger": "Identical polynomial vector field"
+        },
+        {
+          "assessment": "Related planar result but not dominating coverage",
+          "evidence": "Model is x'=y−F(x), y'=−x, not the three-dimensional jerk system with xy coupling.",
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-forward-completeness-and-two-coordinate-escape-laws-for-po--00fdc9b6d181",
+          "material_read": "Finding and Assumptions, offset 0–4882",
+          "method": "Resultary and local full-text mirror",
+          "title": "Sharp forward-completeness and two-coordinate escape laws for polynomial Liénard oscillators",
+          "trigger": "Similar degree threshold and pole/log escape laws"
+        },
+        {
+          "assessment": "Distinct equation and conditional theorem",
+          "evidence": "Convergence is conditioned on boundedness; it does not decide whether all initial conditions admit complete forward solutions.",
+          "identifier_or_url": "2026/11/22/SCOPE-global-bounded-orbit-convergence-on-the-equilibrium-line-boundar--d08f5f126f77",
+          "material_read": "Finding and Assumptions, offset 0–3536",
+          "method": "Resultary and local full-text mirror",
+          "title": "Global bounded-orbit convergence on the equilibrium-line boundary",
+          "trigger": "Same-day jerk-system global result"
+        },
+        {
+          "assessment": "Different vector field; no matching escape coefficients",
+          "evidence": "Absolute-value nonlinearity and a separate threshold; neither cubic nor critical clock here is stated.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-forward-completeness-transition-in-an-absolute-value-lin--fae59fd4767a",
+          "material_read": "Finding and Assumptions, offset 0–3324",
+          "method": "Resultary and local full-text mirror",
+          "title": "A sharp forward-completeness transition in an absolute-value Linz system",
+          "trigger": "Same-day iff completeness and open escape"
+        },
+        {
+          "assessment": "Material unresolved comparison; not negative evidence",
+          "evidence": "Frozen RESULT.md lines 108–109 attribute the model and attractor scans to this paper; the extent of its actual analysis could not be checked in full.",
+          "identifier_or_url": "https://doi.org/10.3390/math11122623",
+          "material_read": "Frozen citation and description only; no primary passages accessible",
+          "method": "Lawful MDPI article/PDF retrieval attempts returned 403; alternate MDPI-hosted PDF request timed out",
+          "title": "Bifurcation Analysis, Synchronization and FPGA Implementation of a New 3-D Jerk System with a Stable Equilibrium",
+          "trigger": "Primary source for the identical equation"
+        },
+        {
+          "assessment": "Reported precursor evidence only",
+          "evidence": "Frozen RESULT.md line 111 attributes numerical unboundedness to this paper, not a proved finite-time clock; that description was not independently confirmed.",
+          "identifier_or_url": "https://doi.org/10.3390/math9243217",
+          "material_read": "Frozen citation and description only",
+          "method": "Lawful MDPI article/PDF retrieval attempts returned 403",
+          "title": "Dynamical Behavior of a New Chaotic System with One Stable Equilibrium",
+          "trigger": "Quadratic precursor and unbounded numerical trajectories"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof",
+        "Same-equation Hopf Finding and planar Liénard Finding"
+      ],
+      "rationale": "The theorem separates forward existence from numerically observed bounded attractors in an established model. It answers exactly when one can assume global forward continuation and quantifies a real qualitative change at the boundary: velocity is integrable up to blow-up on either cubic tail but diverges logarithmically on the quadratic tail. The open-set estimates and first corrections make this more than scalar dominant-balance heuristics.",
+      "residual_risks": [
+        "No claim about hardware, numerical stability near escape, or the extent of bounded-attractor basins."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

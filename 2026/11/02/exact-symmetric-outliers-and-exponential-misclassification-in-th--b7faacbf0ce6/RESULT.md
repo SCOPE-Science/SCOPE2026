@@ -1,69 +1,50 @@
-# Exact symmetric outliers and exponential misclassification in three-class flip voting games
+# The exact small-class cutoff in weighted approximation of three-class flip games
 
 ## Finding
-For each integer \(m\geq5\), partition \(3m\) voters into three labeled classes \(A,B,C\), each of size \(m\). For a coalition \(S\), write \((a,b,c)\) for its numbers of members of the three classes, and declare it winning precisely when
-\[
-20a+15b+12c=59\quad\text{or}\quad20a+15b+12c\geq61.
-\]
-A weighted-majority surrogate assigns nonnegative voter weights and a real quota, and calls a coalition winning when its total weight is at least the quota. Let \(\delta_m\) be the minimum fraction of the \(2^{3m}\) coalitions whose status is misclassified, without restricting individual weights. Let \(\delta_m^{\mathrm{sym}}\) be the corresponding minimum subject to equal weights within each of the three classes.
 
-Then the exact class-symmetric optimum is
-\[
-\boxed{\displaystyle\delta_m^{\mathrm{sym}}=
-\frac{\min\{\binom m3,\binom m5\}}{2^{3m}}.}
-\]
-For \(5\leq m\leq7\), an optimal symmetric classifier sacrifices only coalitions with profile \((0,0,5)\); for \(m\geq9\), one sacrifices only profile \((3,0,0)\); both constructions are optimal at \(m=8\). Furthermore, for *unrestricted* weighted-majority surrogates,
-\[
-\boxed{\displaystyle 2^{-3m}\leq\delta_m\leq
-\frac{\min\{\binom m3,\binom m5\}}{2^{3m}},\qquad
-\delta_m=2^{-3m+O(\log m)}.}
-\]
-At the first case \(m=5\), the unrestricted optimum is **exactly** \(\delta_5=2^{-15}=1/32768\): just one coalition of the \(32768\) need be mislabeled.
+Consider the three-class flip game of Einy and Haimanko [1]. There are three classes \(A,B,C\), each of \(m\ge5\) labelled voters. A coalition with counts \((a,b,c)\) wins if \(H=20a+15b+12c\) equals \(59\) or is at least \(61\). A weighted surrogate has nonnegative voter weights and a real quota, with ties at quota called winning. Count errors over all \(2^{3m}\) labelled coalitions. In a class-symmetric surrogate the weights are constant within each class.
 
-## Assumptions and scope
-The electorate is finite and its three classes each contain exactly \(m\geq5\) distinguishable voters. There are no constraints on coalition size. In both optimization problems, a classifier consists of a real quota and nonnegative real weights (all-zero weights are permitted), with the weak quota convention \(\text{winning}\Leftrightarrow\text{weight}\geq\text{quota}\). Error is counted **per labeled coalition** under the uniform distribution on all subsets, not per distinct class-count profile. The symmetric restriction concerns surrogate weights, not the original game, which is already class-anonymous. No assertion that \(\delta_m=\delta_m^{\mathrm{sym}}\) for \(m\geq6\) is made.
+The previously enumerated large-class regime [2] starts at \(m=9\), with exact class-symmetric error count \(\binom m3\). The remaining regime is:
+
+| Voters per class \(m\) | Minimum symmetric error count | Misclassified profile in an optimal symmetric rule |
+| --- | ---: | --- |
+| 5 | 1 | \((0,0,5)\) |
+| 6 | 6 | \((0,0,5)\) |
+| 7 | 21 | \((0,0,5)\) |
+| 8 | 56 | Either \((0,0,5)\) or \((3,0,0)\), but not both |
+
+In each row the listed choices exhaust the error profiles of optimal symmetric surrogates. Dividing the counts by \(2^{3m}\) gives the corresponding optimal fractions. In particular \(m=8\) is the tie at the switch between sacrifices of \(C\)-only and \(A\)-only coalitions, and the minimum symmetric count over the entire family is \(\min\{\binom m3,\binom m5\}\). At \(m=5\), even if the weights need not be class-symmetric, the minimum is **exactly one** error among \(32768\) coalitions.
 
 ## Proof
-**1. Four indispensable profiles.** If the class-symmetric weights are \((u,v,w)\), the profile \(P=(1,1,2)\) is winning, while the three profiles \(Q_1=(3,0,0)\), \(Q_2=(0,4,0)\) and \(Q_3=(0,0,5)\) are losing. Suppose a quota \(q\) correctly classifies all four. Since each \(Q_i\) is losing and weights are nonnegative, \(q>0\), and
+
+**Four-profile obstruction.** The profile \(P=(1,1,2)\) wins; \(Q_A=(3,0,0),Q_B=(0,4,0),Q_C=(0,0,5)\) lose. For class weights \(u,v,w\) and quota \(q\), correct classification of the three losing profiles gives \(3u<q,4v<q,5w<q\), hence \(q>0\) and
 \[
-3u<q,\qquad4v<q,\qquad5w<q,\qquad u+v+2w\geq q.
+u+v+2w < (1/3+1/4+2/5)q=59q/60<q.
 \]
-But the first three inequalities imply
-\[
-u+v+2w<\left(\tfrac13+\tfrac14+\tfrac25\right)q
-=\tfrac{59}{60}q<q,
-\]
-a contradiction. Thus at least one of these four entire profiles must be misclassified by every symmetric surrogate. The four profile multiplicities are respectively
-\[
-m^2\binom m2,\quad\binom m3,\quad\binom m4,\quad\binom m5.
-\]
-For every \(m\geq5\), their minimum is \(\min\{\binom m3,\binom m5\}\). This establishes the lower bound for \(\delta_m^{\mathrm{sym}}\).
+This would misclassify \(P\), so every symmetric rule errs on at least one of the four profiles. The four error multiplicities are \(m^2\binom m2,\binom m3,\binom m4,\binom m5\), respectively. For \(5\le m\le8\), \(\binom m4>\binom m5\) and \(m^2\binom m2>\binom m3\). Moreover \(\binom m5/\binom m3=(m-3)(m-4)/20\), which is less than one for \(m<8\) and equals one at \(m=8\). Thus at least \(\binom m5\) errors are necessary, and if the bound is attained all errors must be from one of the minimum-size obstruction profiles.
 
-**2. Explicit surrogates with exactly one incorrect profile.** For the first surrogate take weights \((24,18,16)\) on \((A,B,C)\) and quota \(73\). For the second take weights \((30,20,16)\) and quota \(81\). We prove that the only misclassified profiles are \((0,0,5)\) and \((3,0,0)\), respectively, uniformly in \(m\).
+**Sacrificing exactly \(Q_C\).** Use weights \((24,18,16)\) and quota \(73\). When \(H\ge62\) the new score is at least \(6H/5>73\). For \(H\le58\), \(0\le a\le2\); for each feasible \((a,b)\), test the largest \(c=\lfloor(58-20a-15b)/12\rfloor\). The resulting maxima for \(a=0,1,2\) are \(70,72,66\), below quota. The remaining profiles are completely enumerated because \(H\le61\) implies \(a\le3,b\le4,c\le5\):
 
-Write \(H=20a+15b+12c\). For every profile with \(H\geq62\), the first surrogate's score is at least \(\frac65H\geq\frac{372}{5}>73\); the second's is at least \(\frac43H\geq\frac{248}{3}>81\). All such coalitions are correctly called winning.
+| \(H\) | Profile | New score |
+| ---: | --- | ---: |
+| 59 | \((1,1,2)\) | 74 |
+| 60 | \((3,0,0)\) | 72 |
+| 60 | \((0,4,0)\) | 72 |
+| 60 | \((0,0,5)\) | 80 |
+| 61 | None | — |
 
-For \(H\leq58\), we necessarily have \(0\leq a\leq2\), \(0\leq b\leq3\), and \(0\leq c\leq4\). For each fixed \((a,b)\), the largest allowable \(c\) is \(\lfloor(58-20a-15b)/12\rfloor\); pairs with negative numerator are omitted. Maximizing the two new scores over this complete short list gives, by fixed \(a=0,1,2\), respective upper bounds \((70,72,66)\) and \((76,78,80)\). Each is below its quota. All such coalitions are correctly called losing.
+Thus precisely the \(\binom m5\) coalitions with profile \(Q_C\) are mislabeled, for every \(m\ge5\). To attain the other tie at \(m=8\) one may use the \(Q_A\)-only surrogate of [2], whose proof works for all \(m\ge5\). Alternatively the weights \((30,20,16)\) at quota \(81\) do so: the same maximum test below \(59\) gives \(76,78,80\), the successive four attainable rows in the table give \(82,90,80,80\), and \(H\ge62\) gives at least \(4H/3>81\). This proves both sides of the tie and the stated exclusion of other optimal error profiles in the displayed range. For \(m\ge9\), use the established optimum [2]; among the four obstruction profiles only \(Q_A\) has that minimum multiplicity.
 
-Direct enumeration of the remaining attainable integer values yields exactly one profile at \(H=59\), namely \((1,1,2)\), and exactly three at \(H=60\), namely \((3,0,0),(0,4,0),(0,0,5)\); no profile has \(H=61\). The score of the \(H=59\) profile is \(74\) for the first classifier and \(82\) for the second, so it is correctly called winning. The scores at the three \(H=60\) profiles are \((72,72,80)\) under the first classifier and \((90,80,80)\) under the second. Thus the first errs **only** at profile \((0,0,5)\), and the second errs **only** at profile \((3,0,0)\). Their exact numbers of labeled errors are \(\binom m5\) and \(\binom m3\). Together with Step 1, this proves the exact symmetric minimum and the switch at \(m=8\).
-
-**3. Unrestricted lower bound and exponential rate.** If an unrestricted weighted-majority surrogate were perfect, average its weights over permutations within each class. Because every coalition of a given profile has the same true status, the average score of every winning profile remains at least \(q\), and the average score of every losing profile remains strictly below \(q\). The averaged weights are nonnegative and constant on each class. They would classify \(P,Q_1,Q_2,Q_3\) perfectly, contradicting Step 1. Therefore the game is not weighted at any \(m\geq5\), even without a symmetry restriction. Every surrogate makes at least one labeled error, so \(\delta_m\geq2^{-3m}\), while Step 2 gives \(\delta_m\leq\delta_m^{\mathrm{sym}}\). Since \(\min\{\binom m3,\binom m5\}=\binom m3\sim m^3/6\) for \(m\geq9\), the claimed exponential order follows. For \(m=5\), the first surrogate makes exactly one error, proving equality for unrestricted \(\delta_5\).
+**Unrestricted first case.** If any unrestricted rule classified every coalition correctly, average its voter weights over the within-class permutations, retaining its quota. The status of a coalition is unchanged by those permutations; finitely many scores at least the quota still average to at least the quota, and finitely many strictly smaller scores still average to strictly below it. The averaged symmetric rule would therefore be perfect, contradicting the four-profile obstruction. At \(m=5\) there is just one instance of \(Q_C\): the entire \(C\) class. The \(Q_C\)-only surrogate thus proves that the integer lower bound of one error is sharp even without the symmetry restriction.
 
 ## Verification
-The standalone standard-library script `verify.py` checks the complete finite exceptional-weight table, both all-size score-ratio certificates, both one-profile error claims, the binomial-count identity for \(5\leq m\leq44\), and independently exhausts all \(2^{15}=32768\) labeled coalitions for \(m=5\). Its verified output is:
 
-`VERIFY_OK low_profiles=120 parameter_sizes=40 exhaustive_m5=32768 errors_m5=1`
+The accompanying `verify.py` checks both complete low-score classifications and the high-score separation, and exhausts all \(32768\) labelled coalitions at \(m=5\). It uses Python 3.10 or newer (for `int.bit_count`). The optimum and the tie follow from the obstruction and exact constructions, not from optimizing over a finite sample of weight vectors.
 
-The infinite statements follow from the analytical proof, not the finite exhaustive checks. The formula for \(\delta_m^{\mathrm{sym}}\) is exact for every integer \(m\geq5\). The unrestricted inequality is exact only at \(m=5\); the unrestricted multiplicative prefactor is not determined for larger \(m\).
+## Relationship to prior work and limitations
 
-## Relationship to prior work
-Einy and Haimanko (2026, arXiv:2610.08968, Definition 17 and Proposition 18) introduced precisely these three-class flip games to show the sharp \(\varepsilon^*=1/(47m)\) excess-weight convergence rate for \(C\)-complete games. Their Definition 26 and Section 6 study the minimal coalition-misclassification fraction generally, proving an \(O(m^{-1/2})\) upper bound in the bounded-class setting. The result proved here instead resolves the exact **class-symmetric** misclassification minimum for their concrete three-class family, identifies the optimal exceptional profile as a function of class size, and proves an exponential decay rate for the unrestricted error. The worst-case excess-weight and coalition-count losses therefore follow very different scales within the same natural examples.
+Einy and Haimanko [1, Definition 17, Proposition 18] introduce this precise game and determine its normalized excess-weight deficit. Their Section 6 defines and bounds a different quantity, the minimum misclassification fraction, for general games. The misclassification objective is equivalent up to normalization to the outlier count discussed there and in [3]. The same-family treatment [2, Finding and Proof §2] already gives the large-\(m\) class-symmetric result and the stronger unrestricted asymptotic order \(\Theta(m^3/8^m)\). That coverage is not a contribution here. The exact small-class regime needs the other surrogate (sacrificing \(Q_C\), not \(Q_A\)), and its orbit multiplicity determines the finite crossover and certifies the unrestricted first case. This resolves how the large-class formula starts; it does not determine the unrestricted optimum at general \(m>5\) or assert historical priority.
 
-Albareda-Sambola, Molinero and Roura (2025) introduced optimization-based measures including an outlier count and report a census through six players; no result about this subsequently introduced \(3m\)-voter family is established by that earlier census. Classical linear-threshold representability is the background rather than a claim of priority. No source inspected supplies the precise binomial symmetric minimum or the stated exponential classification for this family.
-
-## Limitations
-The exact formula concerns weighted surrogates which treat equivalent voters equally. Permitting unequal weights may improve the optimum for \(m\geq6\), and no exact general expression for unrestricted \(\delta_m\) is proved. The exponential bound is specific to the published flip family and does not improve the general bound for arbitrary \(C\)-complete games. Published source and database searches are not an exhaustive guarantee of priority; equivalent unindexed outlier calculations remain possible. The related 2025 outlier-study article was available only through bibliographic information and abstract in the inspected access routes.
-
-## References
-1. Ezra Einy and Ori Haimanko, *Large player classes and approximately weighted voting*, arXiv:2610.08968, first submitted 2026-10-06, revised version 2026-10-12. https://arxiv.org/abs/2610.08968 ; https://arxiv.org/html/2610.08968
-2. Maria Albareda-Sambola, Xavier Molinero and Salvador Roura, *Weightedness measures from inequality systems*, International Journal of Approximate Reasoning 182 (2025), 109418. https://doi.org/10.1016/j.ijar.2025.109418
+1. E. Einy and O. Haimanko, *Large player classes and approximately weighted voting*, [arXiv:2610.08968](https://arxiv.org/abs/2610.08968).
+2. *Exponentially rare optimal voting misclassification in a three-class flip game*, [Resultary dfb016c86552](https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exponentially-rare-optimal-voting-misclassification-in-a-three-c--dfb016c86552/RESULT.md), Finding and Proof §§1–3.
+3. M. Albareda-Sambola, X. Molinero and S. Roura, *Weightedness measures from inequality systems*, *International Journal of Approximate Reasoning* 182 (2025), 109418, [doi:10.1016/j.ijar.2025.109418](https://doi.org/10.1016/j.ijar.2025.109418).

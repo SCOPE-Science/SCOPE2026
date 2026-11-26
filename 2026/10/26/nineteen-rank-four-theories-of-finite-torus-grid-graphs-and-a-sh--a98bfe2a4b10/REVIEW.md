@@ -1,11 +1,21 @@
-# Scientific review of the rank-four torus-grid classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The four-round cycle cutoff is taken from Brown and Hoshino (2007, Theorem 4.9). A coordinatewise Ehrenfeucht–Fraïssé strategy is given explicitly for the Cartesian product, reducing every integer dimension to at most 11. The atomic-diagram type recurrence is proved complete for bounded quantifier rank. Two independently encoded exhaustive classifiers agree on all 45 canonical graphs, on the 19 classes, and on their least sizes. `classification.json` provides the exact finite partition, and `verify.py` reconstructs it. Sharpness follows from the representative table and the fact that dimension truncation never enlarges a graph.
+## correctness
 
-**Originality — PASS, with residual risk.** Brown and Hoshino classify games between individual cycles but neither classify their Cartesian products nor imply the sharpened product stabilization at dimension eight. The MathWorld torus-grid entry describes the graph family and its graph-theoretic properties, not first-order theories. Related published work on toroidal-grid topology or marked-vertex color refinement concerns different structures/invariants and does not imply an unmarked rank-four classification. No exact equivalent was found in the examined sources; unindexed historical treatments remain a genuine possibility. Absence of a search result is not considered proof of novelty.
+PASS
 
-**Value — PASS.** The classification is a complete finite-rank invariant of a natural, infinite two-parameter graph family. The reduction of the factorwise known cutoff 11 to the product cutoff eight is mathematically nontrivial and yields the sharp finite testing bound of 64 vertices. The exact separation of 19 classes is not supplied by the known cycle classification alone.
+Independently verified without needing the cited sharp cutoff for cycles. After the first move on cycles of size at least 16, use a private cyclic orientation to maintain that each gap between consecutive pebbled sites is either equal on the two cycles or is at least 2^(r+1) on each, where r rounds remain. A repeat is matched exactly; a new vertex splits a gap. Equal gaps may be split identically, and for a large gap one matches a side shorter than 2^r if there is one, or splits into two gaps of at least 2^r. With no moves left the gap-1 incidences and equality are preserved, including the two-pebble wraparound case. Coordinatewise replies preserve equality and Cartesian adjacency in the products, so 105 unordered pairs with dimensions 3 through 16 suffice. The independent computation fixes the first move using transitivity and uses three disjoint vertex bitsets per pebble (equal, adjacent, otherwise). It records all nonempty intersections for fourth-move patterns, retaining sets of rooted extension types at ranks up the game tree without multiplicities. This is precisely the back-and-forth criterion, not a heuristic invariant. It found the asserted 19-class partition and largest least representative (64, 8, 8), and also distinguished C8 from C11. Any noncanonical smaller representative would truncate to one no larger, so sharpness holds throughout the family.
 
-**Limits.** The theorem concerns simple undirected two-factor torus grids at quantifier rank four, without named coordinates or counting operators. Historical coverage cannot be ruled out absolutely. The review checks only the present claim, not independent scientific certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Supported distinct claim: the exact rank-four partition of the unmarked two-cycle Cartesian-product family, including its sharp least-representative ceiling of 64. The plausible indexed comparisons change the rank or graph family; the cycle cutoff and coordinatewise preservation provide an upper reduction but do not determine the strict quotient partition. No equivalent exact table or dominating implication was found in the bounded review.
+
+## value
+
+PASS
+
+The natural class of toroidal grids has an exact finite set of logical theories at a specified rank. In particular the merger threshold 8 for the large product class, despite rank-four distinctions between some factor cycles of those sizes, shows why the exact table is not just the known factor cutoff. The table gives a precise sharp representative-size result useful for testing rank-four statements in this family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

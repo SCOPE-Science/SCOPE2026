@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses the unique factorization of height-two Dyck words into \(B_p=1(10)^{p-1}0\), exhaustively classifies every possible four-letter factor by interior, one-boundary and two-boundary occurrences, and derives ten explicit count identities. These identities recover the feasible tuple \((n,b,c,d,f,g)\) from the full oriented histogram; the endpoint triples recover all smaller-factor counts. Sharp unit-run and long-component feasibility constraints are both necessary and constructively sufficient. Counting the feasible tuples by a sum of four geometric terms yields the stated reduced rational generating function. Its order-four pole at one and primitive-third/fourth-root poles yield cubic growth and exact quasiperiod twelve. Direct exhaustive verification through semilength 17 and a separate series/occurrence calculation through semilength 55 provide finite corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS (qualified)
+The height bound forces a unique sequence of primitive components 1(10)^(p−1)0. A length-four window is internal, crosses one boundary, or crosses two around a unit component. The stated table follows by counting the four adjacency types and interior unit components; in particular 1100, 1101 and 0011 recover b, c and d, and 0110 and 1001 separately recover the two endpoint bits. The endpoint bits determine the terminal length-three words, so successively summing over one-symbol extensions and adding a terminal indicator recovers all shorter counts. The all-unit word has no 1100 or 1101; n=1 only has this case. With k=L−d runs there are k−1 required nonempty separating groups, plus the specified endpoint groups. An extended component absorbs all surplus when c>0; otherwise surplus must go into an existing unit group, with none available precisely in the forced-all-long case. Independently summing the common tail first via the geometric factor (1−z^L)/(1−z), then subtracting z^3/((1−z)(1−z²)) for the exceptional surplus, gives the boxed numerator and all initial values. The numerator at 1 is 4, giving 1/[3(1−z)^4] as leading pole; primitive third and fourth poles survive (remainders 1 and −2z), and the possible polynomial part is constant, irrelevant for n≥1. Thus the least period is twelve and the leading term is n³/18. The observation capacity follows by taking one witness per attainable vector.
 
-Karhumäki–Saarela–Zamboni (arXiv:1301.5104v1, 2013) give the general \(k\)-Abelian equivalence framework and a growth-order theorem for full shift languages, not a sharp joint feasible profile characterization on height-two Dyck paths. Sapounakis–Tasoulas–Tsikouras (2009) and Manes–Sapounakis–Tasoulas–Tsikouras (2011) enumerate particular factor-occurrence statistics in Dyck paths, not the entire simultaneous vector image. Previously recorded all-height three-Abelian Dyck profiles are strictly coarser: \((1,1,2)\) and \((1,3)\) have equal three-Abelian but different four-Abelian observations. Cyclic four-factor reconstructions with forbidden adjacent `11` concern neither the same source nor the same boundary model. Searches for exact height-two four-Abelian profiles and the integer sequence gave no clearly equivalent result. Residual risk: an unindexed prior joint enumeration or a derivation hidden within related enumerations might exist.
+## originality
 
-## Value — PASS
+PASS
 
-Height two is the first nontrivial stack-height restriction on Dyck streams: it still contains \(2^{n-1}\) distinct length-\(2n\) sources. The theorem completely characterizes which four-factor histograms occur and proves their sharp error-free code capacity, \(R_n=n^3/18+O(n^2)\), with an exact period-twelve enumerator. In particular an exponential source language collapses to a cubic number of distinguishable local observations. This is a motivated global realizability result, not just a table of small cases, a renaming of a standard recurrence, or a claim of noisy-channel coding performance.
+The exact feasibility and count for linear four-Abelian profiles on height-at-most-two Dyck words are distinct from the strongest inspected nearby findings: a strictly coarser unrestricted-Dyck profile, cyclic restricted binary profiles, single-pattern Dyck statistics, and general k-Abelian or sequence-profile machinery. Priority of statements actually shared with related records is not inferred from their dates.
 
-## Closest sources and limits
+## value
 
-The inspected primary sources concern general finite-word \(k\)-Abelian equivalence and individual Dyck factor statistics. The classification and construction here concern *joint* oriented factor multiplicities for *height-two* Dyck words. Earlier unpublished or unindexed equivalent work remains possible. The proof does not supply the distribution of all fiber sizes or extend to greater path height.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Height two is the first nontrivial bounded Dyck language. Joint four-factor observations already collapse an exponentially large family to cubic growth; unlike individual pattern averages, the tuple constraints tell which observation vectors are possible and construct witnesses. The exact period and zero-error code size are usable as benchmarks in structured reconstruction or in testing general constrained sequence-profile methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

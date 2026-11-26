@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:48:14.884728Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md: lines 5–156",
+        "VERIFICATION.md: lines 19–25",
+        "verify_rank_one.py: moments, defect, actual_section_area and check"
+      ],
+      "rationale": "The quantity is a relative squared residual in the stated product probability measure, not its square root or a residual on direction-dependent intervals. The section pulls back via Q^(1/2) to a ball section of squared radius 1−t²/(uᵀQu); the area multiplier is det(Q^(1/2))/||Q^(1/2)u|| by the plane cofactor formula, and continuity gives the possible tangent endpoints. The normalized kernel is f(u)−s²g(u) with f=q^(−1/2), g=q^(−3/2). In the orthonormal offset basis 1, (s²−1/3)/√(4/45), its two columns are f−g/3 and −√(4/45)g. Their Gram matrix has trace S=||F||²>0 and determinant (4/45)D. The best rank-one fit captures the top eigenvalue by maximizing over the offset factor of unit norm; arbitrary offset factors outside the two-dimensional span cannot improve it. Hence the smaller root divided by S is the claimed error, and Cauchy–Schwarz makes D zero only for q constant; continuity and polarization give Q scalar. For the local expansion use D=m_1² Var_w(q^(−1)), where w is probability density q^(−1)/m_1 relative to spherical measure. Uniformly q=1+ε(uᵀBu−c)+O(ε²), with c the least eigenvalue of B for ε>0 and greatest for ε<0. Since the variance removes the constant c and w converges uniformly to 1, D=ε² Var(uᵀBu)+o(ε²). The fourth moments yield variance (2/15)||B−tr(B)I/3||_F²; S→8/15 and the smaller-root expansion has coefficient (4/45)/(8/15)²=5/16 multiplying D, giving 1/24. For both axial families q(z)=A+Bz² and z is uniform on [0,1] after folding. Integration of (z q^(1−j))' gives (3−2j)m_{j−1}+2(j−1)A m_j=q(1)^(1−j), establishing both recurrences for j=2,3; direct integration gives the arctan and arcosh first moments. The prolate rescaling y=Lz is dominated, for L≥√2, by (1+y²/2)^(−j); the limits of Lm_j are π/2, π/4, 3π/16. Thus LS→89π/240 and L²D→π²/32. For the oblate family the recurrences give L²m_1∼log(2L), L²m_2→1/2 and L²m_3→1/4; the leading term of D is log(2L)/(4L⁴). This yields both the positive prolate limit and the oblate 1/(45 log L) asymptotic. The latter invalidates any bound on eccentricity based on uniformly small defect in this sampling model.",
+      "residual_risks": [
+        "Packaged checker inspected, not executed. Its geometry loop enumerates 4×69=276 area comparisons, not the 280 reported in VERIFICATION.md. This is a count discrepancy, not a defect in the analytic proof.",
+        "Exact check replay: for the prolate ratio L=√2 integrate (1+z²)^(−j) over [0,1]; one gets (π/4, π/8+1/4, 3π/32+1/4). Insert these into the trace and determinant of the orthonormal-offset Gram matrix above. The asymptotic proof uses the uniform expansion and dominated convergence, not this finite example.",
+        "The phrase positive derivative near the end of the near-ball proof refers to the quadratic response. The ordinary first derivative at the ball is zero. The claimed coefficient and null-space for the quadratic term are correct; scalar first-order perturbations can still have anisotropic higher-order terms."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first theorem classifies odd-dimensional convex bodies with locally separable section functions near the origin. The second uses an integrated slab/isotropic-volume functional V_{K,H}(t) on symmetric smooth bodies.",
+          "Agranovsky characterizes ellipsoids via algebraic/polynomial conditions on powers of section functions and notes polynomiality for odd-dimensional ellipsoids."
+        ],
+        "reasoning": "These theorems have wider shape or dimension scope but are qualitative or use different data. None gives the normalized singular-value sizes, hence none dominates the quantitative near-sphere or high-eccentricity conclusions.",
+        "searches": [
+          "arXiv:2610.10229 Theorem 4.2",
+          "arXiv:2306.17127 Theorem 2.2",
+          "arXiv:2409.19373 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.10229, arXiv:2306.17127, arXiv:2409.19373",
+        "Resultary c8bf8fc6ec2a and e3183756e2e2",
+        "Schmidt (1907), attempted full-text access only",
+        "Focused primary literature search for the exact quantitative profile"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known affine section formula and the classical low-rank approximation rule directly reduce the specified error to a 2×2 Gram problem. That reduction alone is not a new approximation theorem.",
+          "The coefficient and degeneration comparison require the probability normalizations, a traceless variance expansion, and analysis of different axial integrals. Equal axis ratio does not fix these angular moments."
+        ],
+        "reasoning": "Credit polynomiality and qualitative separability as already covered; even the moment formula is a short explicit use of the classical rank-two method. The substantive local/global diagnostic is not determined by the checked qualitative statements or by an earlier evaluated moment table.",
+        "searches": [
+          "arXiv:2610.10229 p. 14; arXiv:2409.19373 §1.2; Resultary c8bf8fc6ec2a Finding and proof; standard singular-system literature"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fish et al. consider exact local separated representations, not relative squared approximation error with fixed uniform offsets.",
+          "Same-day e3183756e2e2 studies a central-section to matching-projection area ratio and recovery up to scaling and polarity; there are no offset samples or separable approximation there.",
+          "The focused primary search surfaced generic SVD and rank-one approximation material, not an inspected geometric formula for this profile."
+        ],
+        "reasoning": "The equivalent operator invariant is the squared smaller singular value divided by the squared Hilbert–Schmidt norm of the supported kernel. Knowing its exact rank, or sampling a scalar function of central sections and shadows, does not determine this ratio.",
+        "searches": [
+          "Resultary parallel-section separation rank, ellipsoid defect and paired sections/shadows",
+          "Primary search: ellipsoid parallel section functions rank-one approximation singular values least squares separability profile ellipsoids section area",
+          "arXiv:2610.10229 p. 3 and Theorem 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Later c8bf8fc6ec2a gives exact local separation rank two for centered nonspherical ellipsoids and derives the offset-quadratic profile. Its wider classification includes an off-center focal-spheroid exception.",
+          "The checked exact classification does not give the three-moment residual, coefficient, or contrasting axial limits."
+        ],
+        "reasoning": "The local discrete rank fact is covered, as is the algebraic structure of the kernel, but a rank table is not a table of the optimal residual. The later date is not evidence of earlier priority for the overlap, and the same-date tomography finding has a different observable independently of priority.",
+        "searches": [
+          "Resultary exact separability rank and ellipsoid section results: c8bf8fc6ec2a, e3183756e2e2",
+          "Primary rank-one quantitative profile search as above"
+        ]
+      },
+      "rationale": "The supported distinct content is the geometric defect in the fixed common-offset probability model, its sharp local traceless coefficient, and its contrasting limits at equal large axis ratio. The polynomial section kernel, finite separability, and the best-rank-one singular-value principle are not new. The closest exact rank classification and the primary qualitative rigidity results determine finite separability but not the normalized tail value or its two regime limits. The bounded best-of-knowledge comparison does not certify priority.",
+      "residual_risks": [
+        "The historical Schmidt text could not be checked directly; the method is treated as established, not claimed new. Unindexed equivalent quantitative results or equivalent normalizations may remain. No absence or priority inference is drawn from generic search hits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative local separability theorem, no evaluated defect",
+          "evidence": [
+            "In odd dimension local separability of the section function near the origin implies an ellipsoid."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.10229",
+          "material_read": "Definition p. 3 and Theorem 4.2 p. 14, PDF offsets 7770 and 46125",
+          "method": "OA primary-text passages",
+          "title": "On determination of convex bodies by their section functions",
+          "trigger": "Finite-rank section profile rigidity"
+        },
+        {
+          "assessment": "Different integrated functional and qualitative result",
+          "evidence": [
+            "Local separation is imposed on slab/integrated isotropic-volume data V_{K,H}(t), not optimal rank-one section-area approximation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.17127",
+          "material_read": "Definition and Theorem 2.2, p. 3, offsets 9827 and 12361",
+          "method": "OA primary-text passages",
+          "title": "On separably integrable symmetric convex bodies",
+          "trigger": "Separability and exact shape classification"
+        },
+        {
+          "assessment": "Polynomiality and algebraic rigidity, not a singular-value estimate",
+          "evidence": [
+            "Ellipsoid section functions in odd dimension are polynomial in offset; algebraic criterion on powers is a different invariant."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2409.19373",
+          "material_read": "§1.2, Theorem 1.1 and surrounding p. 2 passage, offset near 4300",
+          "method": "OA primary-text passage",
+          "title": "Convex bodies with algebraic section volume functions",
+          "trigger": "Polynomial section profiles and general ellipsoid characterization"
+        },
+        {
+          "assessment": "Methodological citation; no direct passage-level assessment",
+          "evidence": [
+            "No repository copy returned and publisher route did not resolve to a readable text. The needed two-dimensional variational argument was checked independently."
+          ],
+          "identifier_or_url": "E. Schmidt (1907), frozen reference 4",
+          "material_read": "Citation only; no full text in attempted OA routes",
+          "method": "Repository and publisher OA retrieval attempts",
+          "title": "Zur Theorie der linearen und nichtlinearen Integralgleichungen",
+          "trigger": "Singular-system approximation method"
+        },
+        {
+          "assessment": "Later exact structural overlap, no quantitative error",
+          "evidence": [
+            "Centered nonspherical ellipsoid has an offset-quadratic rank-two profile; no squared best rank-one defect or its asymptotics."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-a-four-stratum-separability-rank-classification-for-spatial-para--c8bf8fc6ec2a",
+          "material_read": "RESULT.md Finding and proof, offsets 0 and 4837",
+          "method": "Resultary and mirror primary passage",
+          "title": "A four-stratum separability rank classification for spatial parallel section functions",
+          "trigger": "Same ellipsoid kernel and exact separation rank"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": [
+            "Uses distributional statistics of the squared central-section/projection area ratio to recover shape, not offsets and L² approximation."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-endpoint-tomography-from-paired-sections-and-shadows-of-triaxial--e3183756e2e2",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and mirror primary passage",
+          "title": "Endpoint tomography from paired sections and shadows of triaxial ellipsoids",
+          "trigger": "Same-day normalized ellipsoid section observable and anisotropy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md: lines 17–51 and 84–156",
+        "arXiv:2610.10229 Theorem 4.2",
+        "Resultary c8bf8fc6ec2a"
+      ],
+      "rationale": "Finite separability prompts a natural quantitative question: how informative is one separated fit for a nonspherical ellipsoid? The answer distinguishes exact rigidity, local sensitivity, and a sharp obstruction to reading eccentricity from fit quality. The same axis ratio can produce a defect bounded away from zero or an error asymptotically vanishing at a quantified logarithmic rate. This is a meaningful contrast for interpreting a separability statistic and is not a reformulation of rank two or of the customary ellipsoid-section formula.",
+      "residual_risks": [
+        "The interpretation depends on the stated relative squared L² norm and common-offset sampling; no geometric stability for arbitrary bodies or arbitrary anisotropic degenerations follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

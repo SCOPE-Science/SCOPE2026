@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:28:07.250799Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original n=4 proof incorrectly says no matching gives exactly two positives on the path ab,bc,cd: matching ad,bc gives 101. The complete replacement proves the right obstruction: the first and last omissions ab and cd are complementary, so their labels always agree on four vertices, and 110 is impossible. It also clarifies that the four positive omissions are a cycle with the matching edges as diagonals, and that three cycle edges identify those diagonals via the path's bipartition. Every unmatched vertex must be included and exactly one endpoint of each matched edge must be omitted, so an all-positive support has a common omission size. This gives the singleton and pair counts (on four vertices only three complementary two-omission pairs fail; for n>=5 a spare vertex allows either individual positive label). Only two-edge hypotheses have three or more positives and three of their four transversal pairs form a P4. All eight trace witnesses with a fifth vertex check directly; any three positives from a full cycle force the fourth. For the online upper bound, a second distinct two-omission query sharing one vertex with the first leaves, in the joint-positive fiber, a fixed edge and a second edge with a single varying endpoint; any further query is constant or true for at most one endpoint. A disjoint second two-omission query leaves at most two hypotheses. Thus no root-positive class can support depth three; zero- and one-omission cases are smaller, and >2 omissions have no positives. For n<=4 no root-positive class can support depth two; the stated small static lower bounds then suffice. Independent bounded check `python3 /tmp/opencode/argument-review.py` used all 2^n queries, endpoint-first matching enumeration and each framework's conflict-free attack-union test, then direct restriction traces and exact bounded splitting for n=1..5. It reproduced the profiles and depths, including exactly 000,010,101,111 for the n=4 path and (1,16,55,60) with depth 3 at n=5. Frozen verify.py was inspected, not executed. The all-order result rests on the repaired argument, not finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen relationship section attributes broad quadratic and sparsity-sensitive VC bounds to Malmqvist and reports abstract-only access; no primary pages were recovered in the current bounded search and access attempts.",
+          "Niskanen et al. primary PDF p.1 frames AF synthesis from positive/negative semantic examples, including approximate realization when exact realization is impossible."
+        ],
+        "reasoning": "The stated general bounds and synthesis scope do not establish this exact shattering polynomial, P4 classification, exceptional cutoff, or adaptive bound. Lack of full-text access cannot rule out an exact restricted result or a theorem implying it.",
+        "searches": [
+          "DOI 10.1093/logcom/exag049; Malmqvist learning attack relations from extension examples, stable semantics sparsity matching VC dimension",
+          "DOI 10.1613/jair.1.11758"
+        ]
+      },
+      "checked_sources": [
+        "Malmqvist 10.1093/logcom/exag049 (primary access limited)",
+        "Niskanen et al. 10.1613/jair.1.11758",
+        "Resultary a08fbaca201d (self), fa7b2e080582, 507cf5e0d7fc, 3d211752e469"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Definitions of stability and synthesis context specify realizability of extension data, not the closed form for this matching restriction. The supplied exact contribution needs the spare-vertex P4 traces and the structure of double-positive fibers."
+        ],
+        "reasoning": "The positive support of a single two-edge framework being a cycle does not by itself guarantee eight traces over varying frameworks or rule out depth-four adaptive trees. No inspected broader statement supplies those facts or the exact count.",
+        "searches": [
+          "Dung stable semantics, DOI 10.1016/0004-3702(94)00041-X (frozen definition and citation)",
+          "Niskanen et al. DOI 10.1613/jair.1.11758",
+          "Malmqvist DOI 10.1093/logcom/exag049"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A stable query here corresponds to a transversal omission, so the positive two-omission queries form C4; shattered triples are P4s in the query graph, not three-edge attack hypotheses.",
+          "The degree-one diversity result optimizes three stable extensions of a fixed framework. Uniform functional attacks concern all functions (with loops allowed) and multiplicities of stable extensions."
+        ],
+        "reasoning": "Equivalence with a transversal/cycle classifier is the right change of coordinates. Neither optimizing extensions of a fixed framework nor counting total positive labels in different random frameworks counts which collections of query labels can be jointly realized by the varying hypotheses.",
+        "searches": [
+          "Local Resultary search on stable-extension classifier shattering, matching attacks and positive-query paths",
+          "2026/10/26/SCOPE-exact-three-viewpoint-stable-extension-diversity-for-degree-one--507cf5e0d7fc",
+          "2026/11/22/SCOPE-exact-stable-extension-multiplicities-in-uniform-functional-atta--fa7b2e080582"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching classifier indexed exact hit is the assigned record itself. The other same-day record gives stable-extension counts in functional digraphs. The bidirected-cycle result counts complete extensions in a fixed graph."
+        ],
+        "reasoning": "Neither adjacent table catalogs shattered queries, and the same-day record is distinct by exact statement, not dismissed based on date. No independent equivalent exact table was seen in the checked records.",
+        "searches": [
+          "2026/11/22/SCOPE-exact-static-and-online-learning-complexity-of-two-attack-matchi--a08fbaca201d",
+          "2026/11/22/SCOPE-exact-stable-extension-multiplicities-in-uniform-functional-atta--fa7b2e080582",
+          "2026/10/25/SCOPE-cyclic-gap-classification-and-exact-complete-extension-polynomia--3d211752e469"
+        ]
+      },
+      "rationale": "The distinct contribution is the exact labeled support enumeration and adaptive dimension for the varying symmetric at-most-two-edge framework class. The same-day functional-attack record counts extension multiplicities, not restriction traces as the framework varies. The closest learning paper is credited and remains a specific access risk; the evidence supports a best-of-current-knowledge verdict for the exact claim rather than a blanket statement about stable-semantics learnability. The repair changes only the validity of the n=4 argument and explanation, not the priority comparison.",
+      "residual_risks": [
+        "The strongest potentially overlapping full paper, Malmqvist, was unavailable; an uninspected exact sparse-class result is possible.",
+        "Unindexed equivalent C4 classifier results and exact relative ordering of same-day work were not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Access risk; no whole-paper determination. Credit reported broader VC bounds without treating them as exact matching-class coverage.",
+          "evidence": "Frozen RESULT.md lines 48–54; publisher listing /logcom/article-abstract/37/7/exag049/8965212.",
+          "identifier_or_url": "https://doi.org/10.1093/logcom/exag049",
+          "material_read": "Frozen Result and Verification access note and publisher search citation only; no primary pages retrieved",
+          "method": "Lawful DOI and identified publisher abstract-URL retrieval, both direct/VPN routes HTTP 403; focused search did not identify an open copy",
+          "title": "Learning attack relations in abstract argumentation from extension examples",
+          "trigger": "Strongest literature lead: learning in sparse stable-semantics hypothesis classes"
+        },
+        {
+          "assessment": "Relevant semantic examples and synthesis, but the inspected statement is not the exact enumeration and dimensions",
+          "evidence": "Frameworks semantically close to extension examples, including when exact realization is impossible; complexity and algorithmic results.",
+          "identifier_or_url": "10.1613/jair.1.11758",
+          "material_read": "Primary PDF p.1, abstract near text offset 600",
+          "method": "Open primary PDF excerpt",
+          "title": "Synthesizing Argumentation Frameworks from Examples",
+          "trigger": "Can stable-semantic synthesis give a broader exact shattering theorem?"
+        },
+        {
+          "assessment": "Different hypotheses and counted object",
+          "evidence": "All functions allowing self-attacks; counts stable-extension multiplicities and their limiting distribution.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-stable-extension-multiplicities-in-uniform-functional-atta--fa7b2e080582",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact stable-extension multiplicities in uniform functional attacks",
+          "trigger": "Meaningful distinct same-day stable-extension counting overlap"
+        },
+        {
+          "assessment": "Fixed-framework extension geometry, not a varying-framework learning class",
+          "evidence": "Symmetric-difference diversity among three extensions of a degree-one framework; gap description and generating function for a bidirected cycle.",
+          "identifier_or_url": "Resultary 507cf5e0d7fc and 3d211752e469",
+          "material_read": "Both RESULT.md Findings",
+          "method": "Local Resultary mirror",
+          "title": "Exact three-viewpoint stable extension diversity for degree-one frameworks; Cyclic gap classification and exact complete-extension polynomials",
+          "trigger": "Degree-one frameworks and bidirected graphs with exact extension results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two disjoint symmetric attacks give the first matching class with interacting omitted-pair queries and static triples. The exact P4 characterization and the four-versus-five-vertex threshold reveal why the size-three traces appear; the positive-fiber obstruction also bounds a genuinely adaptive learner, which static enumeration alone cannot do. This is a useful sharp structural baseline for synthesis or learning with sparse symmetric attacks, not a restatement of the stable-extension definition or a one-instance count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

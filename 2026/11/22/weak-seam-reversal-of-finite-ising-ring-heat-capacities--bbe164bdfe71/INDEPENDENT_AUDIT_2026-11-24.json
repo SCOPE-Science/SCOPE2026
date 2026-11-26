@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:20:42.576916Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–96",
+        "Frozen VERIFICATION.md and verification.py, inspected only"
+      ],
+      "rationale": "The empty edge set and full cycle are the only even subgraphs of this zero-field ring. The partition-function ratio therefore yields (C_+−C_−)/k_B=2K² f'' at fixed r, n, with f=atanh(tanh(K)^(n−1) tanh(rK)). For r=1, direct differentiation yields the stated numerator polynomial; multiplying the quadratic-in-j summand by (1−y)^3 cancels interior terms and gives the four endpoint coefficients. The resulting strictly positive factorization applies for every 0<t<1. At K→0, f starts with rK^n. At fixed 0<r<1 write q=e^(−2K), w=e^(−2rK). The even wall sum is 1+O(qw+q²), and the odd sum divided by w is 1+(n−1)q/w+O(q²+q³/w); all the displayed higher orders are o(q/w) and retain that order under the required K derivatives. Hence f'' is asymptotic to −2(n−1)(1−r)² q/w. Continuity gives a crossing. In the crossover scaling q=εe^(−2s), a=w/q→1 uniformly on compact s, analytic even/odd expansion gives the q² coefficient B_n(1)=(n²−1)/6. The logarithmic odd prefactor contributes −2ε²(n−1)a/(n−1+a)^2 to f'', while 16q² B_n(1) is the leading even-order contribution. Differentiation of the analytic remainder and a'=2εa give compact C¹ convergence of ε^−2 f'' to the stated strictly decreasing function; its simple zero gives the constant and local uniqueness. Independent replay: python3 /workspace/branches/independent_replay.py 1, using centered excitation-energy variances in the even and odd wall ensembles; 48 high-temperature, low-temperature, uniform and crossover values matched. This bounded check does not prove the two asymptotic statements.",
+      "residual_risks": [
+        "No global count of crossings for a fixed weak seam follows; convergence in the singular window is at fixed n and on bounded s-intervals. No applied-field or thermodynamic criticality claim follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 theorem and the book chapter allow arbitrary signed seam coupling. The 2026 asymptotic analysis treats large N, not r↑1 at fixed n.",
+          "Minami's abstract and title identify a much wider family of specific-heat calculations; the relevant full text was inaccessible."
+        ],
+        "reasoning": "Substitution in the general partition formula reproduces the thermodynamic input, which is covered. It does not supply sign control of its second derivative, and fixed-n weak-defect crossover requires comparing two vanishing curvature terms, not the large-N scaling.",
+        "searches": [
+          "DOI 10.3390/math14040741, §5 Theorem 1 Eq. (23) and Corollary 1",
+          "DOI 10.1143/JPSJ.67.2255, general Ising-type chain specific heat",
+          "arXiv:2403.17109v1, Eqs. (13), (19)–(20)"
+        ]
+      },
+      "checked_sources": [
+        "DOIs 10.3390/condmat9040053, 10.3390/math14040741, 10.1143/JPSJ.67.2255 (abstract only)",
+        "arXiv:2403.17109v1",
+        "Resultary bbe164bdfe71 and 93e279e3f77c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier exact ring formula yields f by taking the partition ratio. Its sign is straightforward as a free-energy comparison; there is no general implication for the sign of f''.",
+          "No inspected passage classifies the weak-seam heat-capacity reversal or gives the fixed-n logarithmic constant."
+        ],
+        "reasoning": "The uniform positivity factorization and the opposite low-temperature sign are additional evaluated consequences, not positivity of the undifferentiated free energy. Near uniformity the limiting −2(n−1)/n² term and the decaying e^(−4s) term must both be retained; the equality constant and persistence of a simple zero do not follow from a single-parameter regular limit or a known evaluated thermodynamic comparison.",
+        "searches": [
+          "DOI 10.3390/condmat9040053, §6 and Eq. (87)",
+          "DOI 10.3390/math14040741, §5 and large-N analysis",
+          "arXiv:2403.17109v1, §§2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2024 paper uses J_BC=±J and evaluates heat capacities; the comparison in Fig. 4 is for N=100 and nonzero field h=0.4.",
+          "The chapter treats arbitrary signed J_a, so K_a=±rK compares precisely the present systems at zero field."
+        ],
+        "reasoning": "In zero field one may move the negative bond by spin flips; the invariant distinction is the parity of negative bonds. Only at r=1 are these literally uniformly coupled periodic/antiperiodic systems. Prior transfer formulas coincide with the even/odd wall partition sums, but neither that identity nor a plot at finite field is an all-size heat-capacity ordering.",
+        "searches": [
+          "Periodic/antiperiodic finite Ising specific heat: DOI 10.3390/condmat9040053, Eqs. (1)–(10), §6 Eq. (87) and Fig. 4",
+          "Signed one-defect finite ring: arXiv:2403.17109v1, §§2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "bbe164bdfe71 is the assigned record itself. The distinct 93e279e3f77c record gives defect thresholds for circular confinement of complex-field Lee–Yang zeros and credits the earlier partition function."
+        ],
+        "reasoning": "A table of zero-confinement thresholds concerns a different variable and observable. The indexed identity match provides no independent priority evidence. Numerical heat-capacity graphs, including Fig. 4 of the 2024 primary source, do not tabulate or imply the fixed-n singular limit.",
+        "searches": [
+          "Resultary: weak-seam heat-capacity reversal, frustrated finite Ising ring, all-temperature periodic/antiperiodic ordering; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "Resultary bbe164bdfe71 and 93e279e3f77c"
+        ]
+      },
+      "rationale": "The finite defective-ring partition function and the periodic/antiperiodic heat-capacity framework are prior. The supported distinction is the exact all-size sign at zero field for equal-strength bonds, the high/low-temperature order reversal at any fixed weaker nonzero seam, and especially the evaluated logarithmic crossing window with its constant and local uniqueness. The inspected exact formulas supply the starting point, not a comparison theorem for these derivatives or a result in the joint asymptotic regime.",
+      "residual_risks": [
+        "Minami's inaccessible full text could cover additional sign or finite-chain comparisons. An inaccessible magnetic-impurity susceptibility item was also surfaced, but its available description does not identify this bond-seam heat-capacity comparison. The literature judgment is bounded, not an absolute priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies uniform partition and heat-capacity formulas, not the claimed zero-field strict sign theorem",
+          "evidence": [
+            "J_BC=±J; comparison plot at N=100 and h=0.4 observes Schottky anomalies for both."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/condmat9040053",
+          "material_read": "pp. 2–3, Eqs. (1)–(10); pp. 13–14, §6, Eq. (87) and Fig. 4",
+          "method": "Open-access primary PDF",
+          "title": "Chebyshev Polynomials in the Physics of the One-Dimensional Finite-Size Ising Model: An Alternative View and Some New Results",
+          "trigger": "Same periodic/antiperiodic pair and heat-capacity observable"
+        },
+        {
+          "assessment": "Covers defective-ring partition-function input",
+          "evidence": [
+            "Arbitrary signed boundary coupling J_a and exact finite partition function; passages center on free energy and forces."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.17109",
+          "material_read": "pp. 5–7, §§2–3, Eqs. (8), (13), (19)–(20)",
+          "method": "Open-access copy of DOI 10.1007/978-3-031-96311-7_5",
+          "title": "A Brief Survey of Fluctuation-induced Interactions in Micro- and Nano-systems and One Exactly Solvable Model as Example",
+          "trigger": "Earlier exact single signed bond treatment"
+        },
+        {
+          "assessment": "Covers both seam signs at fixed magnitude but not the evaluated curvature crossover in the inspected passages",
+          "evidence": [
+            "Eq. (23) gives general K_a, Eqs. (32)–(33) specialize it to ±K."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math14040741",
+          "material_read": "pp. 7–10, §5 Eqs. (19)–(34), especially Theorem 1 and Corollary 1; large-N regime comparison",
+          "method": "Open-access published PDF",
+          "title": "The Algebra of Chebyshev Polynomials and the Transfer-Matrix Approach for the One-Dimensional Ising Model with a Defect",
+          "trigger": "Closest general partition-function theorem"
+        },
+        {
+          "assessment": "General coverage acknowledged, exact comparison unresolved",
+          "evidence": [
+            "Metadata and abstract concern specific heats of finite or general Ising-type chains of different structures; they cannot settle theorem-level overlap."
+          ],
+          "identifier_or_url": "https://doi.org/10.1143/JPSJ.67.2255",
+          "material_read": "J-STAGE landing-page abstract only; no full-text passage inspection",
+          "method": "Lawful DOI and JPSJ attempted; no accessible identified repository copy recovered",
+          "title": "The Susceptibility in Arbitrary Directions and the Specific Heat in General Ising-Type Chains of Uniform, Periodic and Random Structures",
+          "trigger": "General prior specific-heat calculation that plausibly overlaps"
+        },
+        {
+          "assessment": "Shared system and partition-function input, but complex-field zero confinement is a different question",
+          "evidence": [
+            "Parity-dependent defect thresholds for Lee–Yang zero confinement; credits the published one-defect formula."
+          ],
+          "identifier_or_url": "Resultary 2026/10/13/93e279e3f77c",
+          "material_read": "Finding and Relationship section at offset 7907",
+          "method": "Local published mirror",
+          "title": "Parity-sharp Lee–Yang circle boundary for a single frustrated bond",
+          "trigger": "Closest distinct local single-bond comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, sign and crossover theorem",
+        "Published periodic/antiperiodic and single-defect partition-function comparisons"
+      ],
+      "rationale": "Changing frustration at fixed seam magnitude is a direct comparison of thermal fluctuations in a standard finite model. The result identifies an actual boundary between rigid ordering and reversal and gives an explicit singular scale for approaching that boundary. This resolves information not available from simply giving partition functions or plotting specific heat, and the sharp coefficient and local uniqueness are usable benchmarks for finite-ring analyses.",
+      "residual_risks": [
+        "Its value is a finite-size, zero-field result; no assertion about singularities of the thermodynamic limit is needed or supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

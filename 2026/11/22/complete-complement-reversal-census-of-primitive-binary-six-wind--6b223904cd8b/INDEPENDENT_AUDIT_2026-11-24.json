@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:51:53.299928Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A cyclic host has 54 starts and one occurrence of each primitive window; overlap identifies it with an Euler tour on the 5-bit prefix/suffix graph. Rotating a window one bit bijects incoming and outgoing edges, and the edge 000001 fixes the rotation uniquely. An independent rebuild via equality to nontrivial cyclic rotations and exact rational Gaussian elimination obtained the rooted cofactors 389120 and 320, degree counts (10,22) and (5,11) at degrees one and two, and 13 quotient edges with odd voltage. Positive cofactors and balance ensure Eulerian connectivity; the BEST factorials are all one. Complement acts freely on edges and vertices. A complement-fixed host must be complemented by the half-turn: two applications give a period, forbidden at any nonzero shift by window uniqueness. Its first half traverses the 27 distinct edge classes exactly once. Conversely every quotient Euler tour has odd total voltage, so its lift starting at 000001 reaches the complement sheet and its second lap is the complementary first lap; this is a bijection with the complement-fixed classes. The independent list contains four palindromes and six reverse-complement palindromes. Either reflected operation acts on window starts by i -> s−i−5 modulo 54 for some s, and hence has at most two fixed starts; every relevant symmetric window would require one since windows are unique. Burnside then gives 97360 orbits; exactly 160 have size two and 97200 size four. The frozen scripts were inspected but not executed. The computation is exact for this window set, not an all-length census.",
+      "replay": "python3 /workspace/branches/reproduction/primitive6.py",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5 addresses existence for words with a repeated letter; this predicate does not distinguish primitive from imprimitive binary six-bit words.",
+          "Corollary 6 is a weighted FKM construction, not an enumeration of all cycles.",
+          "The deficit record omits exactly three words (length 61 at n=6); the weight-three record seeks minimum length with weight-two auxiliary windows."
+        ],
+        "reasoning": "Neither a general existence criterion for someone else's word set nor the length-61 or weight-three counts provide the primitive set's count or the complement quotient. The classical matrix-tree and BEST theorems give the framework, leaving the nontrivial graph-specific fixed-point calculation.",
+        "searches": [
+          "Champlin–Godbole–Tomlinson, arXiv:1303.3323v1, Theorem 5",
+          "Sawada–Williams–Wong preprint, Corollary 6",
+          "Resultary:0692287bae41 and Resultary:553d8b8b24e9"
+        ]
+      },
+      "checked_sources": [
+        "Sawada–Williams–Wong minimum-weight preprint",
+        "arXiv:1303.3323v1",
+        "Resultary:6b223904cd8b",
+        "Resultary:13bf742c111c",
+        "Resultary:0692287bae41",
+        "Resultary:553d8b8b24e9",
+        "DOI:10.1137/100808782 (bibliographic identification only)",
+        "Library and Archives Canada thesis (indexed listing only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest support restrictions differ even at n=6, and no inspected statement gives a count of self-complementary primitive-window tours.",
+          "Having a rotation-rooted universal cycle or a total count does not imply the fixed-point counts for reversal and reverse-complement."
+        ],
+        "reasoning": "The symmetry split uses odd total quotient voltage and more symmetric required windows than a reflection can fix. Those facts must be established for this edge set; they are not consequences of the compared existence and count statements.",
+        "searches": [
+          "arXiv:1303.3323v1 Theorem 5 and abstract",
+          "Minimum-weight preprint pp. 5, 7–8",
+          "Resultary:13bf742c111c, Resultary:0692287bae41"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The alternate object is a cyclic Euler tour in the overlap graph of all non-proper-power words, not a tour ordered by aperiodic necklace representatives.",
+          "The weighted construction explicitly includes 010101 for n=6 and minimum weight 3. Its aperiodic prefix of length 2 does not make the window primitive.",
+          "Resultary:13bf742c111c counts linear orientable words with distinct nonpalindromic factors up to reversal, whereas the assigned cycles contain primitive palindromes and both directions of nonpalindromic windows."
+        ],
+        "reasoning": "The overlapping terms aperiodic, orientable and universal do not give interchangeable predicates. The two closest alternate formulations explicitly admit a forbidden window or omit required ones.",
+        "searches": [
+          "Resultary and literature: all primitive/aperiodic binary six-bit windows, universal cycles, de Bruijn/Euler tours excluding proper powers",
+          "Sawada–Williams–Wong, minimum-weight preprint, Section 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary:6b223904cd8b is the very same assigned finding.",
+          "The distinct inspected records count 22 linear length-26 orientable words, 59768832 circular length-61 deficit-three words, and optimize a weight-restricted cover to length 26 respectively."
+        ],
+        "reasoning": "None of those counts is a table of length-54 circles with exactly the primitive-window support or a table of their symmetry classes. No distinct exact match surfaced in the bounded comparison.",
+        "searches": [
+          "Resultary: primitive order-six binary six-mer cycles, total 389120 and complement-fixed 320",
+          "Indexed length-six orientable, three-window deficit and weight-three exact records"
+        ]
+      },
+      "rationale": "The result uses classical Euler-tour counting; its distinct part is the exact whole primitive-window census with all complement and reflection stabilizers. The nearest inspected constructions use different window predicates, and the nearby length-six orientable and deficit records count different hosts. No inspected theorem determines the four fixed-point numbers without the primitive-graph, quotient-voltage and reflection analysis. Full texts of two plausible secondary sources were inaccessible, so historical priority is not certified.",
+      "residual_risks": [
+        "The cited 2012 paper and the identified thesis could not be inspected in full.",
+        "Earlier differently indexed or unpublished direct enumerations are not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different word set and construction goal",
+          "evidence": "Includes 010101 as a weighted necklace, with aperiodic prefix length 2.",
+          "identifier_or_url": "https://www.socs.uoguelph.ca/~sawada/papers/min.pdf",
+          "material_read": "Abstract p. 1; Section 3 pp. 5, 7; Corollary 6 p. 8",
+          "method": "OA preprint PDF targeted passages, offsets 477, 14500, 20795, 24400",
+          "title": "The lexicographically smallest universal cycle for binary strings with minimum specified weight",
+          "trigger": "Aperiodic necklace and similar universal-cycle terminology"
+        },
+        {
+          "assessment": "Different support; existence is not the stated symmetry census",
+          "evidence": "Theorem 5 concerns words with a repeated letter. Complementary classes here do not assert bit-complement stabilizers.",
+          "identifier_or_url": "https://arxiv.org/pdf/1303.3323",
+          "material_read": "Abstract p. 1; Theorem 5 p. 3 around offset 9220",
+          "method": "OA PDF targeted passages",
+          "title": "Universal Cycles of Complementary Classes",
+          "trigger": "Potential broader universal-cycle theorem and overlapping complement terminology"
+        },
+        {
+          "assessment": "Different equivalence and coverage conditions",
+          "evidence": "22 linear length-26 words with distinct nonpalindromic length-six factors up to reversal.",
+          "identifier_or_url": "Resultary:13bf742c111c",
+          "material_read": "Finding, offset 0 of local mirrored record",
+          "method": "Resultary comparison and mirror at 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Complete census of maximum binary aperiodic orientable order-six words",
+          "trigger": "Nearest distinct order and aperiodicity match"
+        },
+        {
+          "assessment": "Different fixed deficit and host length",
+          "evidence": "For n=6 covers length-61 circles, with some omitted triples forming period-three rotations.",
+          "identifier_or_url": "Resultary:0692287bae41",
+          "material_read": "Finding, offset 0 of local mirrored record",
+          "method": "Resultary comparison and mirrored text",
+          "title": "Exact three-window deficit count for binary de Bruijn cycles",
+          "trigger": "Similar counting of cycles with some periodic windows removed"
+        },
+        {
+          "assessment": "Different support and minimum-length problem",
+          "evidence": "Weight-three windows once, with weight-two auxiliaries, minimum circumference 26 at n=6.",
+          "identifier_or_url": "Resultary:553d8b8b24e9",
+          "material_read": "Finding, offset 0 of local mirrored record",
+          "method": "Resultary comparison and mirrored text",
+          "title": "Sharp parity augmentation of weight-three binary universal covers",
+          "trigger": "Similar exact six-window universal-cycle result"
+        },
+        {
+          "assessment": "Identical record, not separate priority evidence",
+          "evidence": "Same primitive support, 389120 total, 320 complement-fixed and 97360 symmetry orbits.",
+          "identifier_or_url": "Resultary:6b223904cd8b",
+          "material_read": "Matching Finding",
+          "method": "Resultary comparison with frozen record",
+          "title": "Complete complement–reversal census of primitive binary six-window universal cycles",
+          "trigger": "Highest-ranked exact hit"
+        },
+        {
+          "assessment": "No whole-document comparison possible",
+          "evidence": "The title identifies a fixed-weight problem; nothing more is inferred from the failed retrieval.",
+          "identifier_or_url": "https://doi.org/10.1137/100808782",
+          "material_read": "Bibliographic identification; no primary full text accessed",
+          "method": "Lawful retrieval returned HTTP 403",
+          "title": "De Bruijn Sequences for Fixed-Weight Binary Strings",
+          "trigger": "Cited nearby de Bruijn construction"
+        },
+        {
+          "assessment": "Scope unresolved",
+          "evidence": "No inspected mathematical passage; not used as negative evidence.",
+          "identifier_or_url": "Library and Archives Canada thesis hit",
+          "material_read": "Search listing only, not the thesis",
+          "method": "Linked PDF retrieval returned HTTP 403",
+          "title": "Novel universal cycle constructions for a variety of… (indexed title truncated)",
+          "trigger": "Potential wider treatment of similar universal cycles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Six is the first binary window length at which two distinct proper nontrivial divisor periods must both be excluded. The exact test case quantifies the effect of that mixed restriction and separates the nonempty complement-fixed stratum from the two impossible reflections. The quotient-lifting argument explains the symmetry count, so this is more than a raw enumeration of a convenient small graph.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

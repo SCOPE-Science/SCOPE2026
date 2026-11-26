@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:04:18.461441Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For odd k≥3 and equal-parity inputs the odd-base difference has valuation s=ν₂(x−y) by the odd sum of monomials; the even-base difference has valuation at least s+k−1. This gives two bijective parity branches onto 1+2Z₂. The linear k=1 case is a single branch. For k=2, f₂=1+4T with T(x)−T(y)=(x−y)(x+y+1)/2, yielding two parity branches after normalization. For even k≥4, set t=ν₂(k); the odd unit power is 1 mod 2^(t+2), and k≥t+2 kills the even-base term at that precision. On one input class modulo four the odd bases have sum of valuation one, giving a power difference of valuation s+t by binary lifting, strictly below the even-base valuation s+k−1 or higher. Thus the four normalized maps are isometries. In all cases an isometry induces finite permutations and hence a compatible inverse and normalized Haar preservation. Above depth h, each of the 2^b branches modulo 2^b contributes 2^(h−b) preimages per attained target; at or below depth h everything reduces to 1. This also distinguishes finite residue multiplicities from the exact numbers of 2-adic roots. Independently computed all target counts at n=1 through 9 for 64 exponents, including powers of two through 1024, using exact integer powers (python3 /workspace/branches/independent_checks_2_5.py). The frozen checker was read, not run; the valuation proof, not the finite range, establishes the quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The JIS image-cardinality theorem counts outputs for independently chosen variables, including x^4+y^4.",
+          "The general 2-adic theorems characterize compatible Haar-preserving maps through finite permutations or van der Put coefficients."
+        ],
+        "reasoning": "A total over all pairs does not determine a particular affine line in the input. The general criteria do not identify the depth or the partition into normalized permutation branches for this family.",
+        "searches": [
+          "Arias–Borja–Anaya JIS Article 23.8.1, definition and Theorem 24",
+          "Anashin arXiv:math/0209407, Theorem 1.1",
+          "Anashin–Khrennikov–Yurova arXiv:1111.3093, Theorem 6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "JIS 26 (2023) Article 23.8.1",
+        "10.1007/s40993-016-0068-0",
+        "arXiv:math/0209407 and 1111.3093",
+        "Resultary b9f75246cb36, 8ba022218fce, 931f3cf16632, 28273bb8be35, 4a65caa0042e, acd9600cfc42"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even unrestricted representation laws distribute over all differences y−x; none of the aggregate counts singles out difference one.",
+          "The frozen proof needs parity branches at k=2 and branches modulo four for even k≥4, with a strict dominance inequality and a different normalization depth. These are not conclusions of the general isometry criterion."
+        ],
+        "reasoning": "The known general tools explain how to turn a proved branch valuation identity into uniformity. Proving the identity and selecting the branch partitions for all exponents are the map-specific content.",
+        "searches": [
+          "Compare the two-variable Resultary fiber laws 4a65caa0042e and acd9600cfc42 with y=x+1",
+          "Compare Anashin's permutation criterion with the frozen odd, quadratic and even ≥4 proof cases"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Patel–Siksek include the adjacent two-term polynomial at step 1 and length 2, but ask about perfect powers of integer sums and prove a density-zero result for lengths, not an output distribution modulo powers of two.",
+          "The wording ‘consecutive fifth-power sums’ in 931f3cf16632 denotes a cumulative sum of j^5, a different polynomial."
+        ],
+        "reasoning": "The exact affine restriction y=x+1 and the exact number of solutions at each output residue are essential. Similar names or the same expression within an integer perfect-power question do not give those counts.",
+        "searches": [
+          "Resultary: consecutive like powers and dyadic fibers",
+          "Focused literature lookup: consecutive-power polynomial, dyadic fibers, T-function and power images",
+          "Patel–Siksek, Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching all-exponent dyadic hit is the assigned record itself (d8a06bef751c). The same-day b9f75246cb36 gives the exact same fourth-power polynomial over Z₃, and 8ba022218fce gives odd-prime results for exponents 2p^s.",
+          "Same-day entries 931f3cf16632 and 28273bb8be35 count cumulative sums, and the inspected earlier dyadic even- and odd-power tables count independent ordered pairs."
+        ],
+        "reasoning": "The close same-day records were inspected, not excluded by date. Neither the odd primes nor cumulative sums specialize to this dyadic all-exponent law. The bounded search did not yield a distinct matching table.",
+        "searches": [
+          "Resultary formula searches for x^k+(x+1)^k, consecutive like powers and dyadic fibers",
+          "Opened Resultary entries b9f75246cb36, 8ba022218fce, 931f3cf16632, 28273bb8be35, 4a65caa0042e, acd9600cfc42"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the complete dyadic fiber law and exact 2-adic multiplicities for the constrained polynomial across all exponents. Its lifting and isometry techniques are standard. None of the compared dependent-input, independent-input or general-map results supplies the exponent-dependent dyadic branches and valuation offsets without map-specific analysis.",
+      "residual_risks": [
+        "A differently formulated polynomial-permutation special case may be uncatalogued; the focused searches are not complete bibliographic clearance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Independent variables; not the constrained image or multiplicities",
+          "evidence": "Theorem 24 counts representable residues for x⁴+y⁴, with both variables free.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Borja/borja4.pdf",
+          "material_read": "PDF p. 1 and Theorem 24 p. 11, OA offsets 0 and 27600",
+          "method": "OA PDF passages",
+          "title": "Counting Integers Representable as Sums of k-th Powers Modulo n",
+          "trigger": "Exact modular power-sum image results"
+        },
+        {
+          "assessment": "Different equation and invariant",
+          "evidence": "For fixed even k and nonzero step, lengths giving an integer perfect-power solution have natural density zero.",
+          "identifier_or_url": "https://doi.org/10.1007/s40993-016-0068-0",
+          "material_read": "Abstract and Theorem 1, PDF pp. 1–2, OA offsets 400 and 4350",
+          "method": "OA publisher PDF passages",
+          "title": "On powers that are sums of consecutive like powers",
+          "trigger": "Actual consecutive-input expression appears"
+        },
+        {
+          "assessment": "Supplies generic isometry/permutation implications, not the normalization or branches",
+          "evidence": "A compatible Haar-preserving map permutes the finite quotients and is an isometry.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0209407",
+          "material_read": "Theorem 1.1, pp. 7–8, OA offset 27500",
+          "method": "OA PDF passage",
+          "title": "Uniformly Distributed Sequences of p-Adic Integers, II",
+          "trigger": "Potential general permutation/isometry theorem"
+        },
+        {
+          "assessment": "General criterion requiring map-specific input",
+          "evidence": "Characterizes measure-preserving T-functions by conditions on van der Put coefficients.",
+          "identifier_or_url": "https://arxiv.org/pdf/1111.3093",
+          "material_read": "Theorem 6, pp. 15–16, OA offset 52100",
+          "method": "OA PDF passage",
+          "title": "Anashin–Khrennikov–Yurova, van der Put criteria for T-functions",
+          "trigger": "General 2-adic measure-preservation classification"
+        },
+        {
+          "assessment": "Different prime, not a specialization",
+          "evidence": "An image component 1+3Z₃ and a scaled-square component over Z₃.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-ternary-image-and-fibers-of-two-consecutive-fourth-powers--b9f75246cb36",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact ternary image and fibers of two consecutive fourth powers",
+          "trigger": "Same-day, identical k=4 input polynomial"
+        },
+        {
+          "assessment": "Different domain and exponent family",
+          "evidence": "Treats odd p and exponents 2p^s.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-odd-prime-fibers-of-consecutive-even-prime-power-sums--8ba022218fce",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact odd-prime fibers of consecutive even prime-power sums",
+          "trigger": "Same-day adjacent-input local fiber theorem"
+        },
+        {
+          "assessment": "Independent ordered pairs, not the adjacent-input restriction",
+          "evidence": "Count representations by x^k+y^k with independently variable x and y.",
+          "identifier_or_url": "2026/11/2/4a65caa0042e; 2026/10/18/acd9600cfc42",
+          "material_read": "Both RESULT.md Findings, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Full 2-adic representation laws for sums of two even powers; Dyadic representation density moments for sums of two odd powers",
+          "trigger": "Earlier direct dyadic fiber precedents for all even or odd exponents"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Adjacent powers impose the natural one-variable dependence missing from unrestricted power-sum representation laws. The uniform theorem gives exact solvability and congruence counts for every exponent and precision, identifies the quadratic exception, and shows why a finite residue count can differ from the number of genuine 2-adic roots. This supplies a usable local obstruction and inverse-branch structure, not an isolated elementary modulus computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

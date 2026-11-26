@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The four-periodic Jacobi compression is identified with half the spectral norm of a two-by-two nonnegative matrix by Floquet domination and periodic Weyl vectors. Fixing the entrywise mean and variance fixes the entrywise sum and squared Frobenius norm. The mean Rayleigh quotient, the nuclear-norm/entrywise-sum inequality, and the complete equality conditions yield both sharp branches. The endpoints and strict-positivity nonattainment are addressed. The proof is analytic; the small exact examples are independent checks, not substitutes for it.
+## correctness
 
-## Originality — PASS (qualified)
-The motivating 2023 paper by Sharif gives the generic periodic mean lower bound and exact equality for two-periodic weights. The 1983 Stout/Ridge machinery reduces the numerical radius to a finite periodic Jacobi problem. The published three-period mean–variance analysis provides a closely related but period-specific envelope; its reported conclusion does not determine the four-period nonnegative optimization. The exact four-period plateau-to-square-root transition, equality classification and boundary attainment are not consequences of the listed claims. Searches over alternative phrases and a semantic mathematical findings index yielded no matching four-period result. Residual risk: a general matrix-norm optimization theorem or unindexed spectral calculation may subsume the result. The three-period published primary full text could not be retrieved; only its precise title and summary were inspected, so this comparison is conditional on those claims and not asserted as whole-document clearance.
+PASS
 
-## Mathematical value — PASS
-The exact equality threshold differentiates even-cycle spectral geometry from the known strict three-period variance gap. It completely solves a natural fixed-mean, fixed-dispersion optimization of a canonical operator norm and classifies every extremizer and the boundary of strict positivity; the transition is governed by a structural nuclear-norm obstruction, not numerical experimentation. No generic all-period result is claimed.
+For any half-line unit vector, grouping the coordinates into the four residue classes and applying Cauchy–Schwarz bounds the numerical-range modulus by the weighted cyclic quadratic form of their four norms. Conversely, take a long constant repetition of a nonnegative maximizing vector of the four-cycle form, normalized in the half-line space; the fractional endpoint loss tends to zero. This verifies the reduction including zero weights, without requiring an irreducible Perron eigenvector. The bipartition gives w(T)=s/2 for s=||B||, B=[[a,d],[b,c]]. With mean one, sum 4 and squared sum Q=4(1+v), uniform test vectors give s>=2; equality forces both row sums and both column sums to be 2. Thus the only first-branch minimizers are alternating 1±sqrt(v). For the second branch, each entry is at most s and 2<=s<=4; maximizing the sum of squares of four entries in [0,s] of sum 4 gives Q<=s²+(4-s)². Indeed a maximum is at an extreme point of the capped simplex, with at most one entry not at an endpoint, and strict convexity excludes non-extreme equality. When two entries are positive at equality one equals s, and they cannot share a row or column (the row or column Euclidean norm would exceed s). Opposite edges therefore give all equality cases, and the diagonal examples realize the bound. Sum and square-sum bounds force 0<=v<=3 and the two families realize the entire interval. For 1<=v<3 set (a,b,c,d)=(2-e+D,e,2-e-D,e) with D²=2(v-1)+4e-2e². For sufficiently small e>0 this is positive, preserves both moments, and converges to the extremizer; v=3 itself permits only one positive entry. Thus the claim about positive weights is an infimum on the feasible range v<3, and both endpoints are accounted for. RESULT.md lines 17–36 and VERIFICATION.md lines 19–27 are consistent with this reconstruction; finite-section approximations or numerical replay are not needed.
 
-## Limits and status
-The result is confined to period four and nonnegative weight magnitudes. The result has not been independently validated, and historical-priority uncertainty persists.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The established periodic numerical-radius formula and the two-period value are not new. The supported distinct claim is the exact constrained four-period minimum, including the change from alternating full support to opposite-edge support and its positive-weight nonattainment. The strongest inspected comparisons either evaluate the norm for a specified sequence without optimizing the two moments, optimize a different period, or optimize a different functional.
+
+## value
+
+PASS
+
+This gives the exact two-moment envelope in the first even period where an arbitrary sequence is not necessarily alternating. It determines when the mean alone stays sharp, when increasing variance strictly raises the optimum, and when positive weights can only approach it. The distinction between attainable equality and a boundary infimum is useful information not supplied by the norm formula alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

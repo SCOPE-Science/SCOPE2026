@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-`verify.py` independently derives the exact covariance rational functions by a first-pattern absorption model and by a separate finite Markov reward model that tracks both occurrence flags. It compares all sixteen complement-orbit representatives symbolically, all twenty-eight distinct unordered pairs at three exact rational coin biases, validates positive-denominator factor identities, and applies exact Sturm counting to the sixteen numerator sign polynomials. It checks that the polynomials have no multiple roots or boundary zeros.
+# Independent mathematical audit
 
-Run `python verify.py` after installing `requirements.txt`. The observed output was:
+## correctness
 
-```
-VERIFY_OK pair_orbits=16 all_pairs=28 symbolic_cross_checks=16 rational_cross_checks=84 representative_interior_zeros=13 sturm_certificates=16
-```
+PASS
 
-The root counts and covariance identities use exact symbolic operations. The decimals in RESULT.md are nonbinding approximations; numerical probing or finite sample enumeration is not used as a proof. The scope does not extend to word lengths other than three, dependence between tosses, or degenerate bias endpoints. General joint waiting-time generating functions are established in earlier literature; independent originality and mathematical audit remain unperformed.
+The same-stream first-hit indices are finite with geometric-tail domination by disjoint blocks of three tosses, and distinct equal-length words cannot tie. The race matrix is transient. Its first-step recurrences give m=N1, s=N(1+2Qm)=(2N−I)m, w_a=Nr_a and h_a=Nw_a; the tail search starts at the longest retained proper prefix of the losing word. On the event of an a-win, T_a=τ, T_b=τ+additional time and the conditional mean of the future time depends only on the winning word, so the displayed mixed-moment equations follow. Independently derived all 28 rational covariances via a four-state last-two-letter chain after the first two tosses (branches/reproduction/covariance.py): the mixed moment obeys M=1+P_a E_a+P_b E_b+P_ab M, where each masked transition matrix drops just the designated hits. Averaging over the initial two tosses and subtracting the product of means reproduced the factored representative formulas and the supplied signs. Exact polynomial gcd and Sturm counts after excluding endpoint poles gave no nonsimple interior roots and classes 7,3,14,4. Complementation acts by p↦1−p and gives the stated 16 orbits. The highlighted cubic and approximate roots 0.307978528369904 and 0.643104132107791 reproduce. The frozen verification script was inspected, not replayed.
+
+## originality
+
+PASS
+
+The distinct claim is the complete bias-dependent qualitative sign and root classification of the same-stream first-hit covariance, not the joint generating function or a new method for joint waiting times. The strongest prior joint-PGF result covers the distributions and permits exact moment extraction; its theorem and examples do not classify these root patterns. Related exact crossover analyses and indexed covariance results use different observables or sampling laws.
+
+## value
+
+PASS
+
+The eight words form a complete natural family within the first short length showing these double reversals, not an arbitrarily selected list of examples. The phase diagram answers a dependence question missed by both race-odds tables and fixed-bias covariances: even the sign need not vary monotonically with bias. Simple-root certification distinguishes genuine switches from zero contacts and makes the classification usable without generating or numerically scanning a separate covariance for each pair. No value is attributed to rediscovering the general finite-state method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

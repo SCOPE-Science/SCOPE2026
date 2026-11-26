@@ -1,70 +1,46 @@
-# The Catalan quotient reflects idempotent commutation, with rational higher-tuple counts
+# The Catalan quotient reflects commutation of 0-Hecke idempotents
 
 ## Finding
-Let \(H_n\) be the 0-Hecke monoid of type \(A_n\), with idempotent generators \(\pi_1,\ldots,\pi_n\) and Demazure multiplication. Let \(C_{n+1}\) denote the monoid of order-preserving, order-decreasing maps on \(\{1,\ldots,n+1\}\). The natural surjective homomorphism \(\Phi_n:H_n\to C_{n+1}\) sends \(\pi_i\) to the map lowering \(i+1\) to \(i\) and fixing all other points.
 
-**Commutation reflection theorem.** For every \(n\ge0\), the restriction of \(\Phi_n\) to idempotents is bijective and reflects, as well as preserves, commutation:
+Let \(H_n\) be the type-\(A_n\) 0-Hecke monoid, with simple idempotent generators \(\pi_1,\ldots,\pi_n\). Let \(C_{n+1}\) be the monoid of nondecreasing, regressive maps on \([n+1]\), and let \(\Phi:H_n\to C_{n+1}\) be the homomorphism sending \(\pi_i\) to the map lowering \(i+1\) to \(i\) and fixing the other points. Then \(\Phi\) restricts to a bijection of idempotents and **reflects commutation on them**:
 \[
- e,f\in E(H_n),\qquad ef=fe\ \Longleftrightarrow\ \Phi_n(e)\Phi_n(f)=\Phi_n(f)\Phi_n(e).
+\pi_I\pi_J=\pi_J\pi_I\quad\Longleftrightarrow\quad
+\Phi(\pi_I)\Phi(\pi_J)=\Phi(\pi_J)\Phi(\pi_I).
 \]
-For every finite pairwise-commuting family of idempotents, the quotient also preserves its entire product diagram. Consequently the idempotent commuting graphs, all their clique complexes, and the partial semilattice operations defined on commuting families are canonically isomorphic. The monoids themselves are not asserted to be isomorphic.
-
-For \(r\ge1\), let \(t_r(n)\) count **ordered, pairwise-commuting \(r\)-tuples of idempotents** of \(H_n\), equivalently of \(C_{n+1}\). For every fixed \(r\), the ordinary generating series \(T_r(z)=\sum_{n\ge0}t_r(n)z^n\) is rational, with an explicit finite transfer construction described below. In particular, the first genuinely higher-arity case has the closed form
-\[
- \boxed{T_3(z)=\frac{1-2z^2+2z^3}{1-8z+16z^2-12z^3+2z^4}.}
-\]
-Its coefficients for \(0\le n\le11\) are
-\[
- 1,\ 8,\ 46,\ 254,\ 1390,\ 7592,\ 41452,\ 226316,\ 1235620,\ 6746144,\ 36832120,\ 201093464.
-\]
-For comparison, the pair counts \(t_2(n)\) have the previously tabulated series \(1/(1-4z+2z^2)\); these pair counts are not claimed as new.
+Here \(\pi_I\) denotes the idempotent indexed by \(I\subseteq[n]\), namely the longest element of the standard parabolic subgroup, with the 0-Hecke multiplication. A pair commutes precisely when each consecutive run of \(I\cup J\) is wholly contained in \(I\) or wholly contained in \(J\); its product is then \(\pi_{I\cup J}\). The quotient thus identifies the idempotent commuting graphs and their clique complexes, with the partial product operations on commuting families. In particular, every fixed-arity ordered commuting-tuple count in the Catalan monoid transfers unchanged to \(H_n\). A finite transfer matrix for those counts is given below.
 
 ## Assumptions and scope
-The index \(n\) counts simple Coxeter generators, so \(H_0\) and \(C_1\) are one-element monoids. Every idempotent of \(H_n\) is \(\pi_I\), the Demazure element of the longest permutation of the standard parabolic subgroup corresponding to \(I\subseteq\{1,\ldots,n\}\). Products are associative and ordered as written; function composition applies the rightmost factor first. For a subset \(I\), set
-\[
- F_I=\{1\}\cup\{i+1:1\le i\le n,\ i\notin I\},\qquad e_{F_I}(j)=\max\{h\in F_I:h\le j\}.
-\]
-The quotient satisfies \(\Phi_n(\pi_I)=e_{F_I}\). The statements are combinatorial over integers, without a ground-field restriction. The \(r\)-tuple condition means **all pairs** commute, not merely that their total products are independent of one chosen ordering.
+
+The integer \(n\ge 0\) counts simple generators, not chain points. At \(n=0\) both monoids are trivial. Function products apply the rightmost map first. Tuple entries may repeat and all pairs of entries must commute. The result is about idempotents and their partially defined commuting products, not commutation reflection for arbitrary elements or an isomorphism of the two monoids.
 
 ## Proof
-**1. Two idempotent commutation criteria.** For \(I,J\subseteq\{1,\ldots,n\}\), let \(U=I\cup J\), viewed as a subset of the path graph on the Coxeter generators. Then
+
+**Idempotents and images.** The idempotents of \(H_n\) are exactly the parabolic longest elements \(\pi_I\) [1]. Write \(\alpha_i=\Phi(\pi_i)\) and \(F_I=\{1\}\cup\{i+1:i\notin I\}\). Every point of \(F_I\) is fixed by all generators in \(I\), hence by \(\Phi(\pi_I)\). For \(i\in I\), left parabolic absorption \(\pi_i\pi_I=\pi_I\) implies that every image point of \(\Phi(\pi_I)\) is fixed by \(\alpha_i\), so \(i+1\) is not an image point. Thus its fixed set is exactly \(F_I\). If \(e\) is a nondecreasing, regressive idempotent, then its image is its fixed set \(F\), which contains 1. For every \(j\), the greatest \(f\in F\) with \(f\le j\) has \(f=e(f)\le e(j)\le j\), and \(e(j)\in F\); therefore \(e(j)=f\). Conversely, that formula defines such an idempotent for every \(F\ni1\). This proves the bijection and the image formula.
+
+**Gate for commutation in the quotient.** Put \(D=F\cap G\). On a gap following a common fixed point \(d\), before the next common fixed point or at the end of the chain, if one of \(F\setminus G\) and \(G\setminus F\) is absent, the corresponding retraction is constant \(d\) there and both compositions send the entire gap to \(d\). Conversely, if both exclusive colors occur, take the first exclusive point of each color and assume the first \(F\)-exclusive point precedes the first \(G\)-exclusive point \(g\). Then \(e_F e_G(g)=e_F(g)>d\), whereas \(e_G e_F(g)=d\) since there is no exclusive \(G\) point before \(g\) in that gap. The reverse order is symmetric. This rederives the known Catalan pair criterion [2].
+
+**Lifting commutation.** In the special case \(F=F_I,G=F_J\), the common fixed points after 1 correspond to indices outside \(I\cup J\). Each nonempty following gap corresponds to one run of \(I\cup J\). The two exclusive colors correspond to membership in exactly one of \(I,J\), with the roles interchanged under the complement convention. Thus when the images commute each run \(B\) of \(I\cup J\) lies in one of \(I,J\). Elements supported on different runs commute, because every generator in one run commutes with every generator in another. On each run, one of the two parabolic factors is the full longest idempotent \(\pi_B\), which absorbs the other on either side. The absorption follows by multiplying along words in the generators of \(B\): all these generators are left and right descents of the longest element. Hence \(\pi_I\pi_J=\pi_J\pi_I=\pi_{I\cup J}\). Preservation of commutation is automatic for the homomorphism. For a pairwise-commuting family, the product of any subfamily is again idempotent and commutes with every remaining entry. Induction shows that products of subfamilies are indexed by the corresponding unions of supports; all their images and all such partial product relations are transported bijectively.
+
+**Constructive consequence for ordered tuples.** For a fixed \(r\ge1\), process the support sets in columns of \(r\) bits, one column per generator. For each unordered pair of entries keep one of three states: no exclusive bit has occurred since the last joint zero, or an exclusive bit has occurred on a specified side. Two zeros reset the state; two ones leave it unchanged. Exactly one one sets or maintains the corresponding side, unless the opposite side was recorded, which rejects the column. The run criterion proves that exactly the ordered pairwise-commuting tuples are accepted. The all-zero state is initial, every reachable state accepts, and there are at most \(3^{\binom r2}\) states. If \(M\) counts accepted symbols per transition, the generating function is \(\mathbf e(I-zM)^{-1}\mathbf1\), where \(\mathbf e\) selects the initial state. Thus it is rational for every fixed \(r\) in both monoids.
+
+For comparison, the Catalan pair series is \(1/(1-4z+2z^2)\) [2]. The exact Catalan triple series, with index shifted to the number of simple generators, is also recorded in rank-refined form in [3]. The support transfer recovers its unweighted specialization: for three entries, record each exclusive-side memory as a directed arc from that side to the other. Up to permuting the entries, the reachable arc configurations are empty, a two-out star, a two-in star and a transitive triangle. The numbers of allowable columns into each of these four orbit types form the matrix
 \[
- \boxed{\pi_I\pi_J=\pi_J\pi_I\quad\Longleftrightarrow\quad
- \text{for each connected component }B\text{ of }U,\ B\subseteq I\text{ or }B\subseteq J.}
+B=\begin{pmatrix}2&3&3&0\\1&2&0&2\\1&2&2&0\\1&1&0&2\end{pmatrix}.
 \]
-Indeed, if every component is wholly in one factor, standard parabolic absorption \(\pi_A\pi_B=\pi_B\) for \(A\subseteq B\), together with commutation between different components, gives \(\pi_I\pi_J=\pi_U=\pi_J\pi_I\). Conversely, a commuting product is idempotent and has support \(U\). The standard classification of idempotents in the 0-Hecke monoid therefore forces it to equal \(\pi_U\). Suppose that a connected component \(B=[a,b]\) of \(U\) is contained in neither \(I\) nor \(J\). Choose \(i\in B\setminus I\) and \(j\in B\setminus J\); they cannot coincide. If \(i<j\), every ordinary product \(uv\) with \(u\in W_I\), \(v\in W_J\) maps the rightmost point \(b+1\) of the interval \([a,b+1]\) to a position greater than \(i\), because \(v\) preserves the cut \(j\) and \(u\) preserves the cut \(i\). The reversal \(w_B\) instead maps \(b+1\) to \(a\le i\). If \(i>j\), the same reasoning applied to the leftmost point \(a\) shows that every \(uv\) maps \(a\) to a position at most \(i\), whereas \(w_B(a)=b+1>i\). Thus \(w_U\notin W_IW_J\). The Demazure product of parabolic longest elements is an ordinary product of elements belonging to these two parabolic subgroups (He's Bruhat-maximal-product lemma), so it cannot be \(w_U\), contradiction. The criterion follows.
-
-For Catalan idempotents \(e_F,e_G\), put \(D=F\cap G\). A direct evaluation on consecutive common-fixed-point intervals shows that they commute exactly when, between any two consecutive elements of \(D\) and after the last such element, at least one of \(F\setminus G\) and \(G\setminus F\) has no point. Sufficiency follows because, on an interval containing exclusively fixed points of one map, the other map sends everything to the preceding common fixed point; both compositions agree. For necessity, take the first exclusive point of each color in a single common gap, say \(f<g\), with \(f\in F\setminus G\), \(g\in G\setminus F\). Then \(e_F(e_G(g))=e_F(g)>d\), while \(e_G(e_F(g))=d\), where \(d\) is the preceding common fixed point, contradicting commutation.
-
-**2. The quotient reflects commutation and products.** Under \(I\mapsto F_I\), common fixed points correspond to the vertices absent from both \(I\) and \(J\), and their intervening integer gaps correspond precisely to connected components of \(I\cup J\). Points fixed exclusively by the two Catalan idempotents correspond to positions lying in only one of \(I,J\). Hence the two criteria in Step 1 are equivalent. Moreover every commuting pair satisfies
-\[
- \pi_I\pi_J=\pi_{I\cup J},\qquad e_{F_I}e_{F_J}=e_{F_I\cap F_J}=e_{F_{I\cup J}}.
-\]
-Induction supplies the product statement for every pairwise-commuting finite family, and the bijection of all commuting clique configurations follows.
-
-**3. Finite-state enumerator for arbitrary arity.** Represent an ordered \(r\)-tuple by an \(n\)-column binary word, with the \(i\)-th bit of a column indicating membership in \(I_i\). For each unordered pair \(\{i,j\}\), keep one memory value in \(\{0,i,j\}\): zero means no exclusive membership has occurred since the latest column where both bits were zero; the other values remember which side, if any, has occurred exclusively. On reading a new column, reset to zero when both bits are zero; retain the state when both are one; when exactly one is one, record that side, rejecting the column if the opposite side is already recorded. Step 1 proves that an \(n\)-column word is accepted if and only if all \(r\) idempotents commute pairwise. The starting state is all zero and every reachable state is accepting. Thus \(T_r(z)\) is obtained from a finite integer transition matrix with at most \(3^{\binom r2}\) states, proving rationality for every fixed \(r\).
-
-**4. Exact triple formula, with finite algebraic certificate.** For \(r=3\) there are exactly thirteen states reachable from the all-zero state. Let \(M\) be their transition matrix, with entry \(M_{uv}\) equal to the number of the eight binary columns carrying state \(u\) to state \(v\), and put \(\mathbf e\) for the starting row and \(\mathbf1\) for the all-ones column. Then \(t_3(n)=\mathbf e M^n\mathbf1\). The included exact-integer checker constructs all thirteen reachable states and their transitions and verifies the first four coefficients and the thirteen identities
-\[
- \mathbf e M^j(M^4-8M^3+16M^2-12M+2I)\mathbf1=0,
- \qquad 0\le j\le12.
-\]
-By the Cayley–Hamilton theorem for the thirteen-dimensional matrix \(M\), these identities hold for every \(j\ge0\). Consequently the coefficients satisfy the fourth-order recurrence for every \(n\ge4\), with initial values \(1,8,46,254\). Multiplication by the recurrence polynomial yields exactly the displayed rational generating function. This is an exact finite matrix certificate for the infinite identity, not inference from finitely many coefficients.
+These rows follow by testing the eight sets of ones: delete arcs whose two endpoints are zeros and insert arcs from each one to each zero, rejecting if an inserted arc has a remembered opposite. The orbit sizes are \(1,3,3,6\). The empty state's generating function from \((I-zB)^{-1}\mathbf 1\) is \((1-2z^2+2z^3)/(1-8z+16z^2-12z^3+2z^4)\). This equality is a consistency check and an application of the reflection result, not a claim of distinctness for the standalone Catalan triple formula.
 
 ## Verification
-The standalone `verify.py` uses only the Python standard library. It independently constructs Demazure products of parabolic longest permutations in \(S_{n+1}\), tests the corresponding Catalan transformations and all pairwise commutation relations for \(0\le n\le6\), and exhausts ordered commuting triples for \(0\le n\le5\). Separately it constructs the thirteen-state integer transition system and verifies the Cayley–Hamilton recurrence certificate, the first twelve triple counts, and consistency checks for other arities. Run `python3 verify.py` to obtain `VERIFY_OK`. Finite Coxeter checks are corroboration; Steps 1–3 and the finite matrix certificate establish the stated infinite claims.
 
-## Relationship to prior work
-Xuhua He [1] gives a fundamental Bruhat-product lemma for 0-Hecke multiplication and studies a **different** commutative monoid on parabolic data. Denton, Hivert, Schilling and Thiéry [2] establish the 0-Hecke idempotent classification and explain the quotient to nondecreasing parking-function monoids. Ganyushkin and Mazorchuk [3] prove that a directed type-A Hecke–Kiselman quotient is the Catalan monoid and that the relevant monoids have one idempotent for each generator subset. Those antecedents do not, as stated in the inspected passages, assert that the noninjective monoid quotient **reflects idempotent commutation**. The pairwise Catalan idempotent gap criterion and pair counts have already been studied; no novelty is claimed for the pair totals. The new assessment concerns reflection of all commuting idempotent configurations, plus the higher-arity rational construction and explicit first triple series. Denton’s 2013 study of the 0-Hecke/Catalan quotient and pattern avoidance [4] is closely related; its full original text could not be retrieved, so its possible implications remain an explicit risk. The literature search does not prove global uniqueness.
+The finite transfer and its four-state quotient both give initial triple counts \(1,8,46,254,1390,7592\). The accompanying standard-library `verify.py` checks Catalan/0-Hecke commutation and product matching through six generators, triple counts through five generators by explicit enumeration, and a finite recurrence certificate on the thirteen-state unweighted system. The general reflection and transfer claims are proved above independently of those finite checks.
 
-## Limitations
-The reflection property concerns idempotents, not all elements of the two monoids. The explicit rational function is for ordered triples; other fixed arities have a constructive matrix formula but no uniform small-degree closed denominator. The proof does not classify maximal pairwise-commuting families. The strongest adjacent primary source on idempotents is accessible, but equivalent statements might exist elsewhere. Independent validation has not been performed.
+## Relationship to prior work and limitations
+
+The 0-Hecke/Catalan quotient, the classifications of idempotents, and the pair criterion in the Catalan monoid are established [1,2,4,5]. The Catalan triple specialization appears identically in [3], which gives substantially finer rank information. The finite-automaton argument is a constructive consequence of the pair language. The structural contribution here is the lifting of that language across a noninjective quotient, identifying *all* commuting idempotent configurations and their product operations. The known bijection on idempotents alone does not give that lifting because products of noncommuting idempotents need not be idempotent. The listed sources do not establish historical priority for any of the overlapping exact counts. No claim is made about maximal cliques or small closed-form denominators in higher arity.
 
 ## References
-[1] Xuhua He, *A Subalgebra of 0-Hecke Algebra*, arXiv:0904.1786v1 (11 April 2009), particularly §1 and Lemma 1.
 
-[2] T. Denton, F. Hivert, A. Schilling, N. M. Thiéry, *On the Representation Theory of Finite \(\mathcal J\)-Trivial Monoids*, arXiv:1010.3455 (2010), §§2.4–2.5 and §3.6.
-
-[3] O. Ganyushkin and V. Mazorchuk, *On Kiselman Quotients of 0-Hecke Monoids*, arXiv:1006.0316 (2010), Theorem 1 and §2.
-
-[4] T. Denton, *Algebraic and Affine Pattern Avoidance*, arXiv:1303.3767 (2013), abstract inspected; full text not obtained.
+1. T. Denton, F. Hivert, A. Schilling and N. M. Thiéry, *On the Representation Theory of Finite J-Trivial Monoids*, [arXiv:1010.3455](https://arxiv.org/abs/1010.3455), §2.5 and Example 3.9.
+2. *Common-fixed-point compatibility and product-fiber factorization for Catalan monoid idempotents*, [record 06ff39bf0d33](https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-common-fixed-point-compatibility-and-product-fiber-factorization--06ff39bf0d33/RESULT.md), Finding.
+3. *Quartic triple-commutation law and joint-rank transfer for Catalan monoids*, [record 494cdd8f9928](https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-quartic-triple-commutation-law-and-joint-rank-transfer-for-catal--494cdd8f9928/RESULT.md), Finding.
+4. O. Ganyushkin and V. Mazorchuk, *On Kiselman Quotients of 0-Hecke Monoids*, [arXiv:1006.0316](https://arxiv.org/abs/1006.0316), Theorem 1.
+5. T. Denton, *Algebraic and Affine Pattern Avoidance*, [arXiv:1303.3767](https://arxiv.org/abs/1303.3767), introduction and Theorem 4.2.

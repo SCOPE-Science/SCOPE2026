@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and mathematical limits
+# Independent mathematical audit
 
-Use Python 3.11 or later. Extract the files without changing their relative paths, then execute `python3 code/verify_direct.py` and `python3 code/verify_boxes.py` from the package directory. Only the Python standard library is required. Compare complete stdout to `evidence/direct-output.txt` and `evidence/boxes-output.txt` respectively. Both enumerators perform exhaustive rather than sampled searches.
+## correctness
 
-The direct verifier generates every subset up to the minimum successful cardinality and iterates the two-neighbour infection rule synchronously to stabilization. It constructs both complete adjacency lists and partitions the state families into cube-isometry orbits via generators before breadth-first distance calculations. The alternative verifier uses internally spanned coordinate-subcube mergers instead of simulation, enumerates all complete coordinate-permutation/translation images of orbit representatives, and reconstructs distances from its own adjacency dictionary. Each program supplies its own count, edge total, eccentricity histogram and complete orbit-representative distance-layer data. The canonical accepted-seed list digest must match between programs.
+PASS
 
-The shared accepted-seed list hashes are `98038473d31775e85da42f0cba78cc0d8515c900edcc89fdd7fffffe07f6b99c` for \(Q_4\) and `359127dfbab8d1227813648543501eece0f7a72a546b826ff26e81f65ea2ce10` for \(Q_5\). In \(Q_5\), the exact slide graph has 120000 undirected edges, with eccentricity counts 960 at nine, 11200 at ten and 4800 at eleven. All 16960 vertices belong to one component.
+I independently enumerated each seed size up to the first percolating size, using asynchronous activation by precomputed neighbour pairs (the same least closed superset as synchronous activation). Exchanges were built by bucketing states on a common (k-1)-subset, then retaining Hamming-distance-one changes for sliding. Full translation and coordinate-permutation orbits and BFS on the full graphs reproduced 144 and 16960 states, orbit counts 2 and 18, all four edge totals, connectivity, and all eccentricities. The complete seed-list hashes match both frozen certificates. In Q5 the unique central slide orbit has 960 members, represented by {0,3,13,30}; eccentricity 10 and 11 counts are 11200 and 4800, and BFS also gives distance 11 for the exhibited endpoints. Replay: python3 branches/independent_cube.py. The proof is finite and does not cover d>=6 or inclusion-minimal states of larger cardinality.
 
-The orbit argument is sound because binary translations and coordinate permutations preserve Hamming adjacency and therefore preserve both the two-neighbour update rule and the allowed exchange moves. Breadth-first search from one representative of each fully enumerated orbit determines the eccentricity of every vertex in that orbit. The calculation does not make claims for \(Q_d\) with \(d\ge6\); no independent external scientific audit has been performed.
+## originality
+
+PASS
+
+Pass for the optimum jump/slide graphs, their exact metrics, and the Q5 central orbit. Minimum sizes already follow from the Morrison–Noel lower bound and matching seeds. The Q4 optimum census of 144 sets in two orbits also occurs in a distinct indexed record; its publication dates do not decide priority. Neither the matching census nor the inspected closure framework gives reachability, edge totals or the distance profiles without additional analysis.
+
+## value
+
+PASS
+
+Minimum seed counts do not show whether one can relocate seeds without losing percolation, or what a worst-case relocation costs. The two first nontrivial cubes here separate the effects of jumping and sliding, and distinguish self-centered Q4 from a Q5 slide graph with a single central orbit and distinct radius and diameter. The exact finite graphs give a benchmark for minimum-budget reconfiguration, not a general-dimension claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,21 +1,21 @@
-# Scientific review: Random arcsine clouds and Gaussian averaged transport under independent linear phase kicks
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is the infinite tight-binding lattice, a delta-site launch, independent Gaussian linear-slope kicks of strictly finite positive noise parameter, and fixed positive hopping strength and step duration. The exact Fourier propagator is a unit-modulus cosine with a random complex phasor amplitude. Jacobi–Anger and standard Bessel sums give the entire conditional site distribution and the exact conditional spatial variance. The exact finite-step phasor correlation sum yields the stated averaged variance. A bounded martingale difference decomposition, the ergodicity of a wrapped Gaussian walk, and the vector martingale central limit theorem give a circular Gaussian phasor limit with explicitly calibrated covariance. Conditional characteristic functions converge to random arcsine measures, and integrating out the Rayleigh radius gives the Gaussian measured-position limit. Uniform fourth moment bounds justify the non-self-averaging relative variance. The supplied independent numerical lattice evolution and seeded simulations check formulas, not the infinite-limit proof.
+PASS
 
-## Originality — PASS, qualified
+With the stated order of the free step and kick, Fourier evolution multiplies by exp(2ih cos(k+q_j)) after shifting the previous state to k+q_j. Iterating from the constant transform gives the suffix phasor S_n. The inverse transform gives J_m(2h|S_n|)^2; symmetry gives conditional mean zero, and Fourier derivative Parseval gives variance 2h^2|S_n|^2. Summing the phasor correlations r^|j−k| yields exactly the finite-time variance including the negative transient. The forward phasor martingale differences have squared norm conditional mean 1−r² and pseudovariance (r^4−r²)U_(j−1)^2. The positive wrapped-Gaussian density makes the circle walk uniformly ergodic, so the average pseudovariance vanishes and the real covariance limit is isotropic. The telescope divides the limit by 1−r, giving variance alpha/2 in each coordinate. The reversal is only used in distribution; equivalently the radius equals that of the forward sum from U_0 to U_(n−1), pathwise. Rayleigh radius and exponential normalized variance follow. For any deterministic radii s_n→s, the characteristic functions J_0(4h sqrt(n) s_n sin(k/(2 sqrt(n)))) tend to J_0(2hsk), so the corresponding measures converge weakly (including s=0). Applying this to any Skorokhod coupling of the convergent random radii proves convergence in distribution of the conditional measures. A uniform angle independent of the Rayleigh radius yields the first coordinate of a circular Gaussian, proving the claimed annealed variance 2h² alpha. Bounded differences give uniform scaled higher moments, justifying the reported variance-fluctuation moment limit.
 
-Wang, arXiv:2605.06701, derives the noise-averaged second-moment growth rate and the phasor representation for the very same linear phase-kick model. These are explicitly treated as **prior** results. The claim here is the random limiting conditional measure, the exponential distribution of single-history cloud width, and their relation to the averaged Gaussian position law. The directly related full text was inspected, including its model and the transport discussion, and did not state those conditional-profile or width laws. Di Molfetta–Debbasch, arXiv:1409.2122, studies an annealed Gaussian limit of a different *coined* quantum walk with random gauge fields; its statement does not imply the Bessel-square conditional law of this model. Publicly indexed related results on two-periodic quantum walks, stochastic translations in coined walks, and quantum-Lindblad dephasing address different dynamics. The search and implication comparisons support a novel synthesis, not a claim of exhaustive priority. Unindexed equivalent literature and any unavailable versions of plausible papers remain risks.
+## originality
 
-## Value — PASS
+PASS
 
-A mean diffusion coefficient cannot distinguish typical and averaged spreading; here sample-to-sample fluctuations remain order one even as the averaged measured particle law becomes Gaussian. The theorem gives two observables of direct interest to random-force quantum transport—conditional spatial shape and single-history width—not merely a coefficient recomputation. The random arcsine versus Gaussian mixture mechanism makes ensemble diffusion and lack of typical-wavepacket self-averaging mathematically compatible and experimentally distinguishable. The result does not assert extensions to temporally correlated kicks or finite rings.
+The same Gaussian-slope kick protocol, phasor and asymptotic averaged width are already in Wang; coherent Bessel propagation and generic annealed quantum-walk CLTs are also prior. The supported distinct result is the joint distributional description for the delta launch: a random weak arcsine profile with Rayleigh radius and non-self-averaging exponential width, together with the exact annealed Gaussian limit. The inspected results do not supply that description or its implications at this scope.
 
-## Closest sources and limits
+## value
 
-- P. Wang, *Diffusive transport from spatially correlated random phase kicks*, arXiv:2605.06701 (first public version 2026-05-11). Model and averaged spreading are credited.
-- G. Di Molfetta and F. Debbasch, *Discrete-time quantum walks in random artificial gauge fields*, arXiv:1409.2122. The random gauge-field setting is related, but its coined one-step unitary is not this phase-kicked continuous-time tight-binding step.
-- A. M. Childs, *Random and quantum walks in one dimension*, lecture notes. Standard coherent Bessel spreading, not the random conditional limit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A single diffusive width or an ensemble Gaussian could suggest an individual run has a similar cloud. The result gives instead an order-one distribution of widths and the exact shape of a conditional profile on the same spatial scale, and explains how their mixture produces a Gaussian. These are quantitatively useful for deciding whether averaging over histories is essential in this model, rather than an additional fit of the known variance slope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

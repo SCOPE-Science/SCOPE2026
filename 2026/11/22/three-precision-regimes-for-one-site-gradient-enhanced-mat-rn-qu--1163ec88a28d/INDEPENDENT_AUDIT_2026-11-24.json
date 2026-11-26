@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:26:51.193416Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–28 and 30–84",
+        "VERIFICATION.md lines 19–23",
+        "verify.py (inspected, not executed)",
+        "Independent rational evaluation of the two witness margins and high-precision evaluation of the three gains"
+      ],
+      "rationale": "Integrating the stationary covariance gives a=Cov(J,X(x)) and a'=b=Cov(J,X'(x)); the observation block is diagonal with entries 1+1/p and λ²+1/q because the same-site cross covariance and noise cross covariance vanish. This gives the two-term reduction, including omitted channels by continuity. On the left half, b>0 away from the midpoint, b'<0, and a+b'/λ²=2(2−K(x,0)−K(x,1))/λ>0, so noiseless a²+b²/λ² increases strictly. To justify finite-budget uniqueness rather than just a limit, set h=a_c²−a². With y=1/2−x and d=λ²e^(−λ/2), b∼dy and h∼a_c d y². Thus b²/(λ²h) extends to the midpoint with value d/(λ²a_c)<1, and its maximum ρ on the half interval is less than 1. The off-center gain is at most a²P/(1+P)+b²/λ², strictly below midpoint value-only gain when P>ρ/(1−ρ). For λ=8 at small P, the normalized objective in (x,p/P) converges uniformly to a convex combination of a² and b²; b(0)>a_c gives a unique maximizing corner on the left half. Both inward partials there are strictly negative and stay negative in a small rectangle, so compactness confines every maximizer to that rectangle and the corner is attained exactly. At P=1/20 the global pure maxima are a_c²/21 and b(0)²/84 from monotonicity. Independent rational arithmetic verifies the lower bounds 5507441/3688388100096 for mixed witness minus best gradient and 491/1835008 for best gradient minus best value. Strictness and continuity preserve the witness in an open parameter neighborhood. Reflection and compactness supply all quantifiers in the statement.",
+      "residual_risks": [
+        "No assertion of a large-budget threshold uniform in λ, precise phase boundaries, or location of the mixed optima."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wu–Aoi–Pillow have derivative GP conditioning and active Bayesian quadrature, with empirical comparisons to Hessian-enhanced BQ.",
+          "Karvonen et al. treat positivity and magnitude of BQ weights for function values. De Roos et al. study scalable derivative GP inference.",
+          "The closest co-located budget theorem in the catalog uses integrated Brownian motion and has derivative-only interior sensing then mixed endpoint sensing, not this stationary Matérn set of regimes."
+        ],
+        "reasoning": "General conditioning formulas recover the objective but do not imply global site and allocation inequalities. Neither a weight bound nor a different nonstationary covariance model specializes to this claim.",
+        "searches": [
+          "arXiv:1704.00060 §3 p. 3 and §5.2 pp. 13–14",
+          "arXiv:1812.08509v2 p. 1",
+          "PMLR 139 de Roos et al. p. 1",
+          "Resultary co-located value/derivative precision switch 8499b026e52d"
+        ]
+      },
+      "checked_sources": [
+        "Bound RESULT.md and VERIFICATION.md",
+        "Resultary exact entry and both closest distinct Findings",
+        "arXiv:1704.00060",
+        "arXiv:1812.08509v2",
+        "de Roos et al., PMLR 139"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same objective and budget architecture in the integrated Brownian motion setting, but a different kernel and different allocation/site regimes.",
+          "The Matérn two-site theorem gives a separated-site to midpoint replication switch for symmetric value measurements with equal noise. It does not allow replacing one value reading with a derivative channel; a difference of the two readings would have a separation-dependent noise variance and is not this budget model.",
+          "Wu–Aoi–Pillow demonstrate derivative-enhanced BQ, not the dominance of a shared-site mixed witness over both best pure designs or the finite-budget eventual unique midpoint."
+        ],
+        "reasoning": "The strongest same-architecture and same-kernel overlaps each miss hypotheses essential to the result. The dates of the two distinct same-day entries do not resolve historical order.",
+        "searches": [
+          "Resultary 8499b026e52d Finding",
+          "Resultary ca4d80c46fdc Finding",
+          "arXiv:1704.00060 §§3, 5.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact-title result 1163ec88a28d is the bound finding itself. The criterion is posterior variance (equivalently squared-error Bayes risk or explained variance).",
+          "For unit-variance derivative readout X'/λ the standardized noise precision is λ²q; under such a variable change the same cost law would be p+(standardized derivative precision)/λ²=P, not an equal standardized precision sum."
+        ],
+        "reasoning": "Different noise units, equal noise constraints and distinct measurement sites are not equivalent designs. A change of variables preserves the claim only if the costs are transformed as well.",
+        "searches": [
+          "Resultary exact finding title and semantic one-site value/derivative precision allocation searches",
+          "Single-site Matérn-3/2 Bayesian quadrature and value/derivative precision allocation literature query"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact entry is the bound result; the distinct entries concern integrated Brownian motion or two same-noise value readings. No independent exact regime table for (λ,P)=(8,1/20) was located; focused web results were unrelated."
+        ],
+        "reasoning": "No identified numerical or exact table settles the witness's comparison with both globally optimal pure-channel designs; a search miss is not a novelty proof.",
+        "searches": [
+          "Resultary exact and semantic lookup for the λ=8 one-site Matérn-3/2 precision transition",
+          "Focused primary literature lookup for a single-site Matérn-3/2 value/gradient budget solution"
+        ]
+      },
+      "rationale": "The closest co-located absolute-budget result changes the process to integrated Brownian motion, and the closest Matérn transition changes the observations to two values at symmetric sites with equal noise. Published derivative-enhanced Gaussian quadrature provides the conditioning framework but not this regime theorem. No statement-level coverage was found among the inspected sources.",
+      "residual_risks": [
+        "A bounded search cannot exclude an unindexed equivalent using a transformed channel cost or an exact optimal-design calculation in other terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same architecture, different prior and regimes",
+          "evidence": "Integrated Brownian motion yields derivative-only interior sensing up to a threshold and mixed endpoint sensing beyond it.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-precision-budget-switch-for-co-located-value-derivative--8499b026e52d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local repository mirror",
+          "title": "A sharp precision-budget switch for co-located value–derivative observations",
+          "trigger": "Closest one-site absolute-precision architecture"
+        },
+        {
+          "assessment": "Different sensing design",
+          "evidence": "Two symmetry-constrained function values with equal independent noise change from separated to midpoint replication.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-finite-noise-collision-transition-for-symmetric-two-site-m--ca4d80c46fdc",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local repository mirror",
+          "title": "Sharp finite-noise collision transition for symmetric two-site Matérn quadrature",
+          "trigger": "Same Matérn covariance and a midpoint transition"
+        },
+        {
+          "assessment": "Relevant methods, not the stated absolute-budget classification",
+          "evidence": "Derivative GP conditioning and active quadrature with a Hessian-enhanced comparison.",
+          "identifier_or_url": "https://arxiv.org/abs/1704.00060",
+          "material_read": "§3 p. 3, offset 8342; §5.2 pp. 13–14, offset 83100",
+          "method": "OA PDF passages",
+          "title": "Exploiting gradients and Hessians in Bayesian optimization and Bayesian quadrature",
+          "trigger": "Direct derivative-enhanced BQ precedent"
+        },
+        {
+          "assessment": "Studies function-value weights rather than channel allocation",
+          "evidence": "Positivity and magnitude bounds for BQ weights.",
+          "identifier_or_url": "https://arxiv.org/abs/1812.08509v2",
+          "material_read": "p. 1, offset 45",
+          "method": "OA PDF passage",
+          "title": "On the Positivity and Magnitudes of Bayesian Quadrature Weights",
+          "trigger": "Univariate Bayesian quadrature precedent"
+        },
+        {
+          "assessment": "Different question",
+          "evidence": "Scalable inference with derivative observations, not optimization of co-located quadrature channels.",
+          "identifier_or_url": "https://proceedings.mlr.press/v139/de-roos21a.html",
+          "material_read": "p. 1, offset 3421",
+          "method": "OA PDF passage",
+          "title": "High-Dimensional Gaussian Process Inference with Derivatives",
+          "trigger": "Derivative GP inference background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding, §Assumptions and proof",
+        "Derivative-enhanced quadrature and neighboring budget/sensor design comparisons"
+      ],
+      "rationale": "Even for a single predetermined common site, the global design needs different kinds of measurements at different budgets: derivative only, strictly mixed, and eventually value only. The mixed witness eliminates a pure-channel rule over all locations and holds on an open set, rather than winning at one handpicked site against a weak baseline. The eventual uniqueness proof addresses finite budgets, not merely noiseless convergence. These are useful sharp qualitative tests of budgeted derivative-enhanced design under the stated channel cost model.",
+      "residual_risks": [
+        "Absolute noise precision is unit-dependent. No empirical advantage or full phase diagram, or transfer to standardized costs, is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

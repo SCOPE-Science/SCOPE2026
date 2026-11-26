@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:32:53.238065Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The letter counts require at least pn of each symbol, and with exactly those counts the opposite terminal-letter requirements are incompatible. At length 2pn+1 a supersequence with pn+1 zeros ends in zero; removing it leaves a balanced word ending in one that must have an opposite symbol between occurrences kp and kp+1 of each letter for 1<=k<n. These conditions also suffice, because each heavy-letter group then has its own separator. The immediate successor of every such boundary is a distinct forced position and cannot be the last position, since another occurrence of the boundary letter follows it. Deleting these positions leaves h copies of each letter and a final one. In greedy expansion, each boundary forces exactly one opposite symbol, including cascades. If fewer than n-1 events fire for at least one letter, let m be the smaller event count: that letter has at least h+m occurrences, reaching p(m+1) and contradicting the missing next event. Before the final base symbol the same argument works with h-1+m, since (p-1)(n-m-1)-1>=0 for p>=2 and m<=n-2. Thus the expansion terminates with the required counts and final one and inverts deletion. Complementation makes the two terminal-letter classes disjoint and equal, giving 2*binom(2h-1,h)=binom(2h,h), demonstrating length attainment and giving LCS length 2n-1. The counts are distinct words, not embeddings, and do not extend to arbitrary longer deletion-minimal outputs. The supplied script was inspected, not rerun; verification_output.txt records 84 DP parameter pairs, 14706 bridge checks and 5960 short-word tests, which are finite corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two sources give the general upper bound. The third gives a general minimal-supersequence path bijection and enumeration procedure."
+        ],
+        "reasoning": "An upper bound and a generic algorithm to enumerate outputs for fixed inputs do not show that every balanced schedule survives the periodic constraints at all p,n.",
+        "searches": [
+          "arXiv:2609.26650, Lemma 3.1",
+          "arXiv:2209.11882, Theorem 3",
+          "arXiv:2603.22591, section 5.1 and Theorems 5.3–5.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2209.11882",
+        "arXiv:2609.26650",
+        "arXiv:2603.22591",
+        "Resultary and published records 5df86cdf4ed9, 980cf845dba3 and 89bd9a68a8d3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Previously exhibited nonempty-LCS extremizers can realize the entire tuple of numerical parameters. The permutation-power result has a binary schedule bijection for strings whose block letters are distinct, and its binary specialization corresponds to p=1, not p>=2."
+        ],
+        "reasoning": "These implications exhaust the parameter-level extremality but not the repeated-run equality. The latter requires analyzing when opposite separators are forced by consecutive heavy-letter blocks, and the termination and terminal-letter checks for all candidate schedules.",
+        "searches": [
+          "arXiv:2209.11882, Appendix equality construction",
+          "arXiv:2603.22591, Theorem 5.3",
+          "Resultary 980cf845dba3, forced-match/solo-step schedule"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equality count is also an intersection size of the equal-input insertion balls at the shortest admissible length. The Alon et al. Appendix obtains the same count and distance by appending a common suffix to 0^h,1^h; using suffix 0^(2n-1) gives the same lengths and LCS size but not these repeated-run words."
+        ],
+        "reasoning": "Extremality of some pair with those parameters is known. Exact equality for both specified words is a different assertion; they have opposite final letters and are not the common-suffix construction.",
+        "searches": [
+          "arXiv:2209.11882, Theorem 3 and Appendix",
+          "arXiv:2609.26650, Lemma 3.1",
+          "Resultary searches for SCS binomial saturation, repeated complementary runs and forced-path descriptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day opposite-block entry treats two runs with a shortest branch of two words; record 89bd9a68a8d3 classifies opposing two-run inputs; the two-letter case of 980cf845dba3 uses an alternating base permutation."
+        ],
+        "reasoning": "The named target has 2n runs, with p>=2. Exact formulas or numerical coincidences in the other input classes do not establish its counts.",
+        "searches": [
+          "Resultary exact and semantic SCS comparisons, inspected 5df86cdf4ed9, 980cf845dba3 and 89bd9a68a8d3"
+        ]
+      },
+      "rationale": "The supported distinct claim is the closed form and explicit balanced-word bijection for the specified complemented periodic inputs with p,n>=2. The general binomial bound and even equality with exactly the same input lengths and nonzero LCS length are already known for other pairs. Neither that numerical extremality nor its existence is credited as new.",
+      "residual_risks": [
+        "A focused literature search did not complete; the accessible primary papers and inspected catalogue records provide the stated comparison, not an exhaustive priority check. Unindexed family-level coverage remains possible. No priority within a shared catalogue date is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the upper bound and earlier examples at the same numerical parameters, not the repeated-run pair",
+          "evidence": [
+            "Appendix starts with complementary constant inputs and preserves equality by appending a common word."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.11882",
+          "material_read": "Theorem 3, p. 2, text offset 8000; Appendix, p. 8, offset 31900",
+          "method": "Targeted original OA PDF inspection",
+          "title": "Logarithmically larger deletion codes of all distances",
+          "trigger": "Earlier equal-length bound and potential saturation cases"
+        },
+        {
+          "assessment": "Covers the upper bound, without a criterion giving these equality inputs",
+          "evidence": [
+            "At excess r=0 over the shortest length, the equal-deficit bound is binom(2h,h)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.26650",
+          "material_read": "Lemma 3.1, p. 4, text offset 11580",
+          "method": "Targeted original OA PDF inspection",
+          "title": "Lower Bounds for all List-Decodable Deletion Codes",
+          "trigger": "Cited general multiplicity bound"
+        },
+        {
+          "assessment": "Algorithmic path framework, not a closed-form specialization to these inputs",
+          "evidence": [
+            "Graph paths encode minimal common supersequences and support enumeration."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.22591",
+          "material_read": "Section 5.1, Theorem 5.3, p. 12, offset 34250; Theorem 5.4, p. 16, offset 44200",
+          "method": "Targeted original OA PDF inspection",
+          "title": "Computing and Enumerating Minimal Common Supersequences Between Two Strings",
+          "trigger": "Generic geometric and enumerative reformulation"
+        },
+        {
+          "assessment": "Distinct input class, not an equivalent result",
+          "evidence": [
+            "Uses 0^m1^m and 1^m0^m, with two outputs at the shortest length."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-complete-length-spectrum-of-minimal-common-supersequences-for-op--5df86cdf4ed9/RESULT.md",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Resultary search and local published mirror inspection",
+          "title": "Complete length spectrum of minimal common supersequences for opposite binary blocks",
+          "trigger": "Closest same-day binary-block comparison"
+        },
+        {
+          "assessment": "Similar combinatorial mechanism in a different class, with no coverage at p>=2",
+          "evidence": [
+            "Uses permutation powers and reverse-permutation powers; the binary blocks of length two alternate."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-binomial-law-for-shortest-common-supersequences-of-opposite-pe--980cf845dba3/RESULT.md",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Resultary search and local published mirror inspection",
+          "title": "A binomial law for shortest common supersequences of opposite permutation powers",
+          "trigger": "Closest periodic schedule-bijection comparison"
+        },
+        {
+          "assessment": "Exact within the two-run class only",
+          "evidence": [
+            "The input form is 0^a1^b against 1^c0^d, unlike the 2n-run target."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-shortest-common-supersequence-counts-and-all-extremizers-f--89bd9a68a8d3/RESULT.md",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Resultary search and local published mirror inspection",
+          "title": "Exact shortest-common-supersequence counts and all extremizers for opposing two-run binary inputs",
+          "trigger": "Exact catalogue extremizer classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The useful new structure is a nontrivial periodic extremal family in which the letters interact throughout the inputs; it is not obtained by adding a common terminal word to the trivial complementary constant pair. The all-parameter bijection gives explicit factorizable choices for every shortest output and explains why interspersed matching requirements need not reduce the extremal count. This is a natural supplement to the general bound even though existence of nonempty-LCS extremizers was already known.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:20:05.164665Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 6–48",
+        "Frozen VERIFICATION.md and quantized_adoption_checker.py (inspected, not executed)",
+        "Independent exact rational substitution for both extremal initializations and prior scalar threshold"
+      ],
+      "rationale": "Robustness makes the reduced outsider map exact for every admissible initial state. Nondecreasing quantizers and nonnegative weights make it isotone on the invariant cube. Iterating from its bottom and top gives nested bounds; both extreme initializations are themselves admissible. Once both extreme actions equal a, their opposite monotonicities and their ordering keep both there. Conversely, if every admissible initialization adopts permanently, the two extreme ones do so; the later of their times is the sharp uniform time. During a constant action stage the geometric update holds through the first change, including all simultaneous changes. For an upward crossing the limit must be strictly above an unreached cut, with equality at a finite iterate allowed; for a downward crossing both the limit and the crossing iterate must be strictly below the cut. These rules and the monotone sum of level distances prove termination within the claimed number of changes. Independent exact substitution yields T_3=4 and T_4=3 in the example: the upper private state at time 3 is (67/200,121/200), with actions (9/10,0), and at time 4 is (67/400,229/400), with actions (0,0). The lower actions are (0,0) from time 3. Both scalar admission thresholds are max(1/5,7/10)=7/10, above the actual seed weight 2/5. At time 1 the exact ties at -4/5 and 4/5 take the higher action as stipulated.",
+      "residual_risks": [
+        "The claim is about event counts and exact parameter comparisons, not bit complexity or algorithms for arbitrary represented real inputs. The supplied bounded checker is corroboration only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 1 gives isotonicity of the model; Theorem 1 treats preservation of an already robust cluster; Lemma 3 and Proposition 1 give sufficient admissions and sufficient time bounds.",
+          "The related Resultary theorem is confined to three actions and a middle target."
+        ],
+        "reasoning": "Isotonicity is a prior ingredient and readily gives extremal sandwiching; neither prior supplies exact synchronous event timing with asymmetric threshold ties and a horizon-independent level-change bound in the claimed regime.",
+        "searches": [
+          "arXiv:2611.21446v1, Lemma 1, Theorem 1, Lemma 3 and Proposition 1",
+          "Resultary 4ce4c378e96e, Finding and theorem"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.21446v1",
+        "Resultary record 4ce4c378e96e",
+        "Frozen RESULT.md, including credited prior scope"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary scalar rule admits i only when w_i(R)>max(kappa_i^-,kappa_i^+); in the submitted certificate w_i(S)=2/5 and both maxima are 7/10. Neither outsider is admitted.",
+          "The exact three-action set characterization does not recover exact times under changes to inertia, or cover the four-level example, where the upper trajectory visits an intermediate positive action."
+        ],
+        "reasoning": "Limit the novelty assessment to the finite-event exact-clock theorem at the frozen scope. The related exact guarantee and counterexample are material antecedent coverage of ideas, not a full implication; no ordering of the two same-date records is assumed.",
+        "searches": [
+          "arXiv:2611.21446v1, §V-A Eq. (9) and §V-B Eq. (10), Proposition 1",
+          "Resultary 4ce4c378e96e, RESULT.md Finding and theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The three-action Resultary record describes the universal adopter set by two one-sided closures and gives a four-agent scalar-cascade separation.",
+          "Munif et al. explicitly distinguish two-action completeness from a sufficient-only scalar cascade for larger alphabets."
+        ],
+        "reasoning": "The two-sided closures encode eventual membership for the three-action middle target; they do not describe the two extremal trajectories' exact times for arbitrary finite ordered alphabets. The scalar rule does not give an equivalent characterization in this regime.",
+        "searches": [
+          "Resultary: exact two-sided bootstrap certification of middle-action adoption (4ce4c378e96e)",
+          "Munif et al., arXiv:2611.21446v1, §§III–V"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirror's RESULT.md gives exact eventual sets and a similar four-agent witness for a different action alphabet, not the least-time invariant or a table of exact clocks."
+        ],
+        "reasoning": "The relevant exact-invariant catalogue was checked. A generic numerical table is not a meaningful lookup for a theorem over arbitrary heterogeneous parameters; the importance of the time-four number is as an exact witness, not a table entry.",
+        "searches": [
+          "Local Resultary, strongest distinct match: 2026/11/22/SCOPE-exact-two-sided-bootstrap-certification-of-middle-action-adoptio--4ce4c378e96e"
+        ]
+      },
+      "rationale": "The inspected prior results supply monotonicity, robust-cluster tests, and significant overlap in exact two-sided adopter sets and scalar-rule counterexamples. The supported distinction is the joint least-uniform clocks and finite event-skipping bound for general finite ordered alphabets in the stated regime, not the idea of two-sided comparison or the existence of a scalar-rule counterexample by itself.",
+      "residual_risks": [
+        "Bounded literature comparison, not historical-priority certification. The July strategic-communication paper's full text was not checked for an additional implication here. Related same-date coverage is credited without inferring priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material ingredients but not equivalent exact clocks",
+          "evidence": "Introduction (text offsets 5464–5684) calls the scalar cascade sufficient only above two actions; Eqs. (9)–(10) and Proposition 1 control sufficient admissions rather than least times.",
+          "identifier_or_url": "https://arxiv.org/html/2611.21446v1",
+          "material_read": "Introduction, §III Lemma 1, §IV Definition 3 and Theorem 1, §V Lemma 3, Definition 4 and Proposition 1",
+          "method": "OA full-text passages",
+          "title": "Robust Action Clusters and Cascades in Opinion Dynamics with Heterogeneous Action Thresholds",
+          "trigger": "Same model and strongest scalar-adoption theorem"
+        },
+        {
+          "assessment": "Material coverage of the three-action set problem and a related cascade failure; not least-time/event-count coverage",
+          "evidence": "Intersection of two one-sided bootstrap closures is exact for the middle of three actions; four-agent consensus despite scalar-cascade stalling.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-two-sided-bootstrap-certification-of-middle-action-adoptio--4ce4c378e96e",
+          "material_read": "Mirrored RESULT.md Finding and theorem",
+          "method": "Local Resultary lookup and mirror passage reading",
+          "title": "Exact two-sided bootstrap certification of middle-action adoption",
+          "trigger": "Distinct indexed record with exact two-sided guarantees and related example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, theorem, event rule and rational example",
+        "Munif et al., arXiv:2611.21446v1, §V"
+      ],
+      "rationale": "The exact clock is a stronger and practically different invariant than a sufficient cascade or an eventual consensus claim. Fast-forwarding through constant action stages addresses arbitrarily long silent waits while detecting truly nonadopting outsiders; the exact tie-sensitive example shows why a sufficient scalar rule cannot stand in for this procedure. The bound is on scientifically relevant action events, not computational running time.",
+      "residual_risks": [
+        "No noise robustness, seed-discovery guarantee or general bit-complexity improvement is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

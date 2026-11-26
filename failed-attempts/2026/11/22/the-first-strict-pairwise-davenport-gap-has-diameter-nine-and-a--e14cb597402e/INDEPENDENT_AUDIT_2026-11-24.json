@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:00:15.347504Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–39; verify.py, lines 9–74; VERIFICATION.md, lines 19–21",
+        "Fresh reproduction: python3 /workspace/branches/e4fe9506-5fb7-46fb-89a6-609681c3df49/check_gap.py 9; full_run.txt in the same directory",
+        "Independent prior-table projection: python3 /workspace/evidence/1/filter_ppi.py /workspace/evidence/1/ppi17.dat; /workspace/evidence/1/projection.txt"
+      ],
+      "rationale": "Greedily alternating against the sign of each nonzero partial sum keeps the initial and nonfinal sums in [1−m,M]; minimality makes them distinct, bounding length by m+M. For span at most d every mixed-sign term lies between 1−d and d−1. Comparing the length to χ on its own support is a necessary test for strictness on any containing support. The subset-sum test on all but the last term is exact, since a proper zero-sum subset containing that term has a nonempty zero-sum complement. The fresh bounded run gives candidate counts 1,3,9,25,79,245,809,2703 and only the two sign-related strict sequences at nine. The five listed atoms on X*=(-6,-1,2,3) are reproduced. A containing support of diameter nine lies within [-6,3]. Adjoining −5,−4,−3,−2,1 produces respectively an opposite-sign pair of primitive length 7,7,5,5,7 (pair with 2,3,2,3,−6, respectively), so none can preserve strictness for the only candidate witness, of length five. Zero only adds its singleton atom. This confirms the mathematical theorem, including the exact rigidity statement.",
+      "residual_risks": [
+        "Exact finite proof for the stated cutoff and support, not a classification for larger diameters. No proof-assistant or expert attestation is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The journal version explicitly gives χ≤D≤diam and credits W. Schmid with an unnamed example of χ<D; this differs from the earlier arXiv text. The frozen attribution to the journal version is correct.",
+          "Sissokho lists 2,2,3,5,−6,−6 in M₆. Combining 5 and −6 into −1 is a permitted bounded derivation by Proposition 3.1(i), giving precisely the critical atom.",
+          "The Köppe table explicitly covers all primitive identities with largest part at most 17."
+        ],
+        "reasoning": "The general bounds alone do not give the cutoff. Sissokho already implies the witness, not by itself exclusion across the full relevant span regime. But every mixed-sign atom of span at most nine has largest absolute term at most eight. The prior table strictly dominates that whole range, with no endpoint or support cases missing.",
+        "searches": [
+          "Plagne–Tringali, Acta Arith. 171 (2015), DOI 10.4064/aa171-3-1, §2 Theorem 1 and ensuing discussion",
+          "Sissokho arXiv:1401.0715v3 §3, Propositions 3.1–3.2 and M₆",
+          "Köppe primitive partition identity tables, order 17"
+        ]
+      },
+      "checked_sources": [
+        "Köppe PPI page and ppi17.dat",
+        "Plagne–Tringali DOI 10.4064/aa171-3-1 and arXiv:1405.4363v2",
+        "Sissokho arXiv:1401.0715v3",
+        "OEIS A007343",
+        "Resultary e14cb597402e and 54940d5a0af9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Filtering by span and the pair-length inequality yields row 9321 only. Filtering by support up to sign yields the full five-vector list, including the length-five maximum.",
+          "Any larger support containing this witness at span nine can only add points within [-6,3]. Every extra nonzero point raises χ to at least five; adjoining zero does not change it."
+        ],
+        "reasoning": "If any support is strict, a witnessing atom must also beat χ on its own support. Thus every strict support in the target domain comes from the single projected row and its reversal, followed by the immediate five extra-point checks and optional zero. These yield the entire claimed theorem from prior data rather than a substantive surviving remainder.",
+        "searches": [
+          "Köppe ppi17.dat, row-by-row span and support projection",
+          "Sissokho arXiv:1401.0715v3, Proposition 3.1(i) and M₆ list"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sissokho §3 identifies signed integer atoms with primitive equal-sum partition identities, up to side interchange, for length at least three.",
+          "Köppe's vectors encode signed multiplicity by part size, keeping the orientation in which the last nonzero coordinate is positive."
+        ],
+        "reasoning": "Any atom of length above two cannot contain both a and −a, which would be a proper zero-sum pair. Its positive and negative parts therefore translate bijectively to a nonzero primitive identity vector up to reversal. Length is its ℓ¹ norm, span is the sum of the two largest opposite-side parts and χ is the maximum gcd-based primitive length across sides. The omitted singleton zero and equal-magnitude pairs cannot be strict, and no such pair occurs on X*.",
+        "searches": [
+          "Sissokho arXiv:1401.0715v3 §3, primitive partition identities and Graver bases",
+          "Web query: Diaconis Graham Sturmfels Primitive partition identities 1995 full text catalog table Graver basis n=8 primitive identities enumeration",
+          "Köppe, https://www.math.ucdavis.edu/~mkoeppe/art/ppi/"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source documents 181514 signed 17-byte vectors following a one-byte order field. The retrieved binary matches that size and has SHA-256 521e88ae33d53f5dd6e6e9c4919cafd4cba2015be78e19bbb6afa4db6ec4aced. Its HTTP Last-Modified header is 2002-08-07 10:19:10 UTC.",
+          "Row 9321, counting the first vector as row 1, is (1,−2,−1,0,0,1,0,…,0), the sole row of span ≤9 with ℓ¹ norm above χ; span=9, length=5 and χ=4. The rows supported on X* up to orientation are 9321, 13211, 155602, 159369 and 172502, giving exactly the frozen multiplicities.",
+          "The distinct Resultary hit 54940d5a0af9 is a radius-two lattice disk in Z², not coverage here. e14cb597402e is the exact catalogue self-match."
+        ],
+        "reasoning": "The actual table covers both components of the claimed census, not merely cardinalities or an algorithm capable of generating atoms. Direct filtering validates the original numerical conclusion while defeating priority for it as a previously unknown exact invariant.",
+        "searches": [
+          "Köppe: https://www.math.ucdavis.edu/~mkoeppe/art/ppi/ppi17.dat",
+          "Resultary e14cb597402e and 54940d5a0af9",
+          "OEIS A007343 (homogeneous identity count, different aggregate)"
+        ]
+      },
+      "rationale": "The complete mathematical finding is a routine projection of Matthias Köppe's public precomputed primitive-partition-identity table ppi17.dat. Inspection of the actual binary rows, not just the table description, recovers the only strict atom up to sign at span at most nine and exactly the five claimed nonzero atoms on X*. The supporting restrictions on additional points and zero are immediate pair checks. The exact cutoff need not have been printed in Davenport terminology for this prior table to cover it. This is demonstrated coverage, not a failure to establish priority because a paper was unavailable.",
+      "residual_risks": [
+        "This establishes coverage by extant exact data, not that the exact English theorem was published separately. Schmid's specific set and the historical first person to formulate the cutoff remain unidentified. The scanned Diaconis–Graham–Sturmfels paper was not read in full; the extracted exact table establishes coverage independently."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the entire substantive finite claim by direct projection",
+          "evidence": "Unique strict row 9321 at span nine; exactly five rows supported on X* up to orientation. See projection.txt.",
+          "identifier_or_url": "https://www.math.ucdavis.edu/~mkoeppe/art/ppi/ (data: https://www.math.ucdavis.edu/~mkoeppe/art/ppi/ppi17.dat)",
+          "material_read": "Page offsets 0–1881 (scope, signed byte format and row counts); actual order-17 data, filtered all 181514 rows",
+          "method": "OA website passage comparison and exact custom signed-byte extraction, saved in /workspace/evidence/1",
+          "title": "Primitive Partition Identities: pre-computed tables",
+          "trigger": "Exact prior data with dominating maximum part, reached via the primitive-identity equivalence"
+        },
+        {
+          "assessment": "General bounds and prior strictness, not a printed first-gap classification in the passages read",
+          "evidence": "The journal text says W. Schmid supplied a strict example; unlike the earlier text it does not report no known example. It does not identify Schmid's example.",
+          "identifier_or_url": "https://doi.org/10.4064/aa171-3-1",
+          "material_read": "Version of record, §2, printed pp.199–201, OA offsets 7280–10989, especially Theorem 1 and following paragraph on p.200; arXiv v2 §2 was also compared",
+          "method": "OA publisher PDF passage comparison with preprint",
+          "title": "The Davenport constant of a box",
+          "trigger": "Original χ reference and apparent Schmid-attribution conflict with arXiv v2"
+        },
+        {
+          "assessment": "The witness is already implied; the prior-table comparison supplies the rest",
+          "evidence": "Merging 5 and −6 in the listed atom 2,2,3,5,−6,−6 produces the exact five-term gap witness and preserves minimality.",
+          "identifier_or_url": "https://arxiv.org/pdf/1401.0715v3",
+          "material_read": "§3, PDF pp.5–6, OA offsets 16400–22368, especially Proposition 3.1 and the M₆ list",
+          "method": "OA PDF plus explicit bounded derivation",
+          "title": "A note on minimal zero-sum sequences over Z",
+          "trigger": "Exact atom structure and an earlier implicit witness"
+        },
+        {
+          "assessment": "Related objective, different ambient set",
+          "evidence": "The radius-two disk in Z² has D=5 and 47 atoms; this is not the one-dimensional span-nine question.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-davenport-constant-and-all-primitive-zero-sums-in-the-thir--54940d5a0af9/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact Davenport constant and all primitive zero sums in the thirteen-point lattice disk",
+          "trigger": "Closest distinct local Resultary exact Davenport and atom census"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and finite proof",
+        "Köppe ppi17.dat and /workspace/evidence/1/projection.txt",
+        "Plagne–Tringali, Theorem 1 and following discussion"
+      ],
+      "rationale": "Comparing the primitive two-value bound with arbitrary integer atoms is mathematically motivated, and a first-gap classification could be valuable in the absence of coverage. Here the cutoff, witness, rigidity and small atom list require only a mechanical projection of a prior complete table and elementary extra-point checks. The fresh enumeration is useful corroboration, not a distinct substantive invariant or structural explanation. No surviving valuable new claim was identified for repair.",
+      "residual_risks": [
+        "The decision concerns the submitted finite extraction, not the value of a broader new structural result on Davenport gaps."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

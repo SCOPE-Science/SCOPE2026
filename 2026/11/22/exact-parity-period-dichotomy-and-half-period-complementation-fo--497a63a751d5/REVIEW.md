@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The reduced generating function identifies the true least recurrence period; the characteristic-polynomial derivative separates simple and double \(x+1\) factors with no other repeated roots. Coprime finite-field factors have odd unit orders, while the isolated double factor has order two. The shift-operator calculation makes the half-period difference a nonzero constant; it must be one. Edge order \(k=2\) is included with \(Q_k=1\). Exact finite checks validate the predicted factor gcd pattern for \(2\le k\le500\) and full cycles for \(2\le k\le18\).
+## correctness
 
-## Originality — PASS, with residual risk
-The actual comparison is to parity of the full \(k\)-step Pell recurrence, not merely similar titles. Deveci–Karaduman (2015) formulates arbitrary-order modular periods and gives \(k=2\) binary-period examples and general matrix period techniques; Deveci–Avcı–Karaduman (2018) uses the order-dependent binary period \(hP_k(2)\) as an input to finite-group period formulas without evaluating its dyadic valuation for all \(k\). Kaggwa (2026) studies a different Diophantine property. Prior indexed findings about two-step Pell states and the \(k\)-step Fibonacci sequence do not dominate this order-parametric binary Pell anti-period theorem. No equivalent statement emerged from the compared literature/searches. An unpublished or unindexed parity corollary of classical recurrence theory remains possible; the 2018 PDF visual review was limited by access and parsed mathematical text was used.
+PASS
 
-## Mathematical value — PASS
-The previously studied sequence has highly variable least binary periods, but the complete two-primary period spectrum is governed exactly by one congruence class of the order. The stronger all-indices anti-period involution gives exact odd/even density and its converse, distinguishing the new infinite family from generic recurrence periodicity or isolated small-order observations. These properties are usable when published finite-group formulas retain the binary period as an unevaluated input. The result does not purport to solve the odd factor or all-modulus period problem.
+With the impulse at index one, the binary recurrence gives F(z)=z/(1+z²+⋯+z^k) for n≥0 with coprime numerator and denominator. The state transition is invertible because the oldest bit has coefficient one. A scalar period T holds exactly when the reduced denominator divides 1+z^T: in the converse direction the numerator after clearing that denominator has degree 1+T−k<T. Reciprocation gives the unit order modulo C_k=x^k+sum_{i=0}^{k−2}x^i, and the scalar sequence equality extends to negative indices by invertibility. The derivative of (x+1)C_k=x^{k+1}+x^k+x^{k−1}+1 is x^{k−1} for odd k, and x^{k−2}(x+1)² for even k. The product has nonzero constant term, so in even order only x+1 can repeat. C_k(1)=0 and C'_k(1)=(k−2)/2 mod 2 for even k, giving a simple root if 4|k. Otherwise the product has multiplicity at least three, and cannot have multiplicity four or more because its derivative vanishes to exactly order two there. Thus C_k has exactly a square factor (x+1)² in that case, with squarefree part Q_k coprime to it. All orders in the squarefree quotient are odd; the squared factor contributes exact order two, including k=2 when Q_k=1. The divisibility C_k|(x+1)(x^{L_k}+1) says the difference of the sequence and its half-period shift is constant, and minimality excludes zero. Hence the flip holds on every index and gives exact balance only in this class.
 
-## Closest literature and limitations
-[1] Kaggwa (2026), arXiv:2611.01170, for the underlying recurrence. [2] Deveci and Karaduman (2015) for modular periodicity and binary classical Pell case. [3] Deveci, Avcı and Karaduman (2018) for finite-group periods involving \(hP_k(2)\). The present result identifies the dyadic part and exact parity flip, not an explicit odd period.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the all-k residue-class classification of the scalar binary impulse least period's 2-primary part and the exact complement action of its odd half-period. The recurrence, ordinary periodicity, polynomial-order framework and finite-group Pell period theory are antecedents. The checked statements either concern a different recurrence, a fixed order, another modulus/invariant, or finite-group rather than scalar periods. Older articles' uninspected interior tables leave a real risk, not evidence of coverage or demonstrated absence.
+
+## value
+
+PASS
+
+This classifies the exact 2-primary period of a standard recurrence uniformly in its order without computing its variable odd part. It explains why perfect binary balance occurs despite very different periods: there is an explicit involution on positions pairing every occurrence with its complement. This makes the result a structural statement on the impulse orbit rather than a finite table or parity spot check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:30:42.015064Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Finding's inequalities, equality classes and rigidity are mathematically correct. For f=h_K² the intersection norm squared is the frame sum. The columns are exchangeable and orthogonal, not independent (correct the word 'independent' in RESULT.md:32); the proof uses their correct conditional law. Projection removes degrees zero and two, since these are exactly the restricted quadratics. For each even surviving degree 2m the covariance identity and equatorial average give multiplier d[1+(d−1)p_{d,2m}(0)]. The product ratio (2m+1)/(d+2m−1) is strictly less than one for d≥3. The extreme positive and negative equatorial eigenvalues on the residual space are at degrees four and six respectively, giving the constants and the equality spaces. Separately generating the normalized zonal polynomials via their differential equation (python /workspace/independent_checks.py 3) recovers the critical multipliers in symbolic dimension; this is a check, not the proof for every degree. The perturbations sqrt(1+εY) are support functions by positive definiteness of the spherical curvature operator for sufficiently small ε, and K is an ellipsoid iff the defect vanishes. No uploaded verifier was executed. There is also a false ancillary limitation in RESULT.md:56 (not needed for the Finding): the least-squares Q is globally positive definite here. Indeed for F(x)=h_K(x)^2 extended homogeneously and standard Gaussian G, the projection formula gives 2Q=E[F(G)(GGᵀ−I)]=E[D²F(G)], in the distributional integration-by-parts sense. F is convex and F(x)≥r²||x||² for an inscribed origin-centered ball of radius r>0. On any line its second derivative measure is positive and nonzero (the quadratic lower growth precludes an affine function); integration against the strictly positive Gaussian density gives vᵀQv>0 for every v≠0. Thus the warning about a nonpositive nearest quadratic does not describe an actual obstruction under the stated assumptions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3 gives the equatorial operator and spectrum ((1.3.4)–(1.3.5)); §2.2 gives the actual harmonic eigenspace decomposition (2.2.33)–(2.2.40) and strictly decreasing magnitude ratio (2.2.41), for the real setting. This is full spectral data, not the coarser variance bound alone.",
+          "The prior displayed theorem starts at d≥4. For d=3 the same classical spherical Funk multipliers are P_{2m}(0)=(-1)^m binom(2m,m)/4^m, with the same comparison; no limiting-in-d argument or unproved low-dimensional extension is needed.",
+          "Moretti–Pastorello's inspected abstract concerns exact frame-function representation on a complex Hilbert space, not these quantitative constants. It is not the decisive prior."
+        ],
+        "reasoning": "The earlier arbitrary L² spectral calculation covers a larger class than squared supports. The remaining low-dimensional case is an immediate specialization of the classical Legendre evaluation.",
+        "searches": [
+          "arXiv:1406.2576v2 §1.3 Theorem 3 and §2.2 real proof; arXiv:1205.4504v2 opening abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, AUDIT.json, VERIFICATION.md and verify.py",
+        "Goldstein–Lebowitz–Tumulka–Zanghì arXiv:1406.2576v2 §§1.3, 2.1, 2.2 with exact locators above",
+        "Moretti–Pastorello arXiv:1205.4504 first-page abstract",
+        "Resultary records de945db939bf, 4466ecc35eeb and b305c94868af"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For centered φ, the prior identifies pair covariance with ⟨φ,Tφ⟩. Consequently the exact quadratic form for the frame sum is d(I+(d−1)T) on mean-zero functions. Degree two is its kernel; on the orthogonal complement in the even subspace, the prior signed spectrum and strict ratio give degree six first on the negative side and degree four first on the positive side. Each equality space follows immediately from the spectral decomposition.",
+          "Taking a nonzero harmonic in each extreme eigenspace and replacing 1 by 1+εY in the squared support works because positive spherical curvature of the ball is open in C². This is a direct geometric realization of the inherited eigenspaces, not a new stability estimate. Rigidity is classical and follows immediately here by positivity and the kernel."
+        ],
+        "reasoning": "The precise constants and equality spectra follow by a direct spectral restriction with no new inequality. It is immaterial that the earlier motivating application was concentration rather than convex-body support planes.",
+        "searches": [
+          "Exact comparison to Goldstein et al. §2.1 Eq. (2.1.8) and Eqs. (2.1.14)–(2.1.16), with §2.2 Eqs. (2.2.35)–(2.2.41)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With f=h_K² the proposed observation is exactly the sum of f over a Haar real orthonormal basis. Multiply the prior variance of the frame average by d² (arXiv:1406.2576v2 Eqs. (2.1.5)–(2.1.8)).",
+          "The degree-zero-plus-two space is precisely the spherical restriction of quadratic forms, and degree two contributes exactly zero to the variance (trace identity)."
+        ],
+        "reasoning": "The support-plane interpretation and squared defect recast the same even frame-sum problem on the orthogonal complement of quadratic forms; no different operator or probability law is involved.",
+        "searches": [
+          "Resultary: orthogonal-frame sums Gleason frame functions quantitative variance stability; Funk transform eigenvalues spherical harmonics random orthogonal basis variance sharp bounds; support-function ellipsoid rigidity orthogonal tangent support variance",
+          "Literature: Goldstein Lebowitz Tumulka Zanghi Any Orthogonal Basis Uniformly Distributed sphere arXiv equator operator eigenvalues Theorem 2 variance random orthogonal basis"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed two-constant record ending de945db939bf is the assigned item, not precedent. The cubic finite-difference entry 4466ecc35eeb and finite Gabor erasure entry b305c94868af use different observables and no comparable spectral table in the indexed statements.",
+          "Prior exact spectrum: degree four 3/[(d−1)(d+1)]; degree six −15/[(d−1)(d+1)(d+3)], by substitution into (1.3.5)."
+        ],
+        "reasoning": "No distinct exact database hit was needed: the earlier explicit spectrum is already an exact table in formula form, including the decisive entries; the frozen constants are affine transforms of them.",
+        "searches": [
+          "Resultary: sharp constants degree 4 degree 6 spectral equality squared support function quadratic defect",
+          "arXiv:1406.2576v2 Theorem 3 spectrum and §2.2 exact multipliers"
+        ]
+      },
+      "rationale": "Direct prior implication, not an access-based rejection. Goldstein–Lebowitz–Tumulka–Zanghì, arXiv:1406.2576v2, analyze the same Haar frame sum for arbitrary real L² functions and give both its exact covariance reduction and the full real equatorial spectrum with harmonic degree labels. Removing constants and quadratics and taking the extreme remaining eigenvalues gives exactly the claimed numbers and equality spaces. Taking f=h_K² gives the geometric inequality immediately. The only further ingredients are the classical dimension-three form of the same spectrum and routine small-harmonic support-function realizability; no independent quantitative mechanism or separate novel result survives in the frozen Finding.",
+      "residual_risks": [
+        "Not a determination of the earliest historical statement of each spectral fact or of geometrical interpretations elsewhere.",
+        "Inaccessible text for the qualitative Gleason source and indexed mirrors does not enter the rejection; verified prior formulas already suffice."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger spectral coverage for d≥4 and direct implication of both bounds and equality descriptions after projecting off quadratics; d=3 comes from classical spherical Funk evaluation",
+          "evidence": "(1.3.4)–(1.3.5), (2.1.7)–(2.1.8), (2.1.15)–(2.1.16), (2.2.35)–(2.2.41): exact Haar variance reduction, covariance as equatorial form, labelled even spectrum and strict spectral ratio",
+          "identifier_or_url": "https://arxiv.org/html/1406.2576v2; DOI 10.1214/15-AIHP732; institutional PDF https://cmsr.sas.rutgers.edu/images/people/lebowitz_joel/publications-archived/592_15-AIHP732.pdf",
+          "material_read": "Published PDF title and abstract for identity; arXiv v2 §1.3 Theorem 3, §2.1 exact variance/covariance equations and §2.2 real-case eigenspace and eigenvalue proof",
+          "method": "Focused literature query, targeted OA queries on preprint and lawful institutional copies, then bounded direct reading of the identified lawful arXiv HTML passages and formula markup when the OA reader timed out",
+          "title": "Any orthonormal basis in high dimension is uniformly distributed over the sphere",
+          "trigger": "Same random orthonormal basis observable and plausible exact signed spectral coverage"
+        },
+        {
+          "assessment": "Qualitative complex frame representation; not the source of the sharp real variance bounds",
+          "evidence": "Complex L² frame functions have operator representation f(u)=⟨u,Au⟩.",
+          "identifier_or_url": "https://arxiv.org/pdf/1205.4504",
+          "material_read": "First-page abstract, extracted lines 19–24",
+          "method": "Lawful OA PDF text",
+          "title": "Generalized Complex Spherical Harmonics, Frame Functions, and Gleason Theorem",
+          "trigger": "Cited Gleason background and plausible frame-function implication"
+        },
+        {
+          "assessment": "No independent claim about full contents; not used to decide spectral priority",
+          "evidence": "Frozen RESULT.md:50–62 credits classical constant-frame-sum characterization.",
+          "identifier_or_url": "https://rogermcooke.net/rogermcooke_files/Elementary%20Proof%20of%20Gleasons%20Theorem.pdf",
+          "material_read": "Bibliographic attribution and frozen comparison only; PDF not retrievable",
+          "method": "Targeted lawful OA retrieval attempted",
+          "title": "An elementary proof of Gleason’s theorem",
+          "trigger": "Cited qualitative real rigidity background"
+        },
+        {
+          "assessment": "Different estimators and spaces in the visible statements; not the decisive prior",
+          "evidence": "Haar central-difference cubic/rank-one setting and finite cyclic Gabor erasure setting respectively",
+          "identifier_or_url": "2026/10/26/SCOPE-harmonic-cubic-rigidity-and-a-sharp-localization-crossover-for-o--4466ecc35eeb; 2026/11/22/SCOPE-random-erasure-fourier-frame-fluctuations-and-ambiguity-flatness--b305c94868af",
+          "material_read": "Resultary claim summaries; mirror retrieval unsuccessful",
+          "method": "Local Resultary and targeted mirror attempts",
+          "title": "Harmonic cubic rigidity and a sharp localization crossover for orthogonal …; Random erasure Fourier frame fluctuations and ambiguity flatness …",
+          "trigger": "Closest distinct indexed orientation-variance and frame-fluctuation hits"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The supporting-hyperplane observable is well motivated and the two-sided estimate is useful as exposition. However, the asserted new content is a mechanical restriction of an exact published frame-variance spectrum and routine realization by smooth perturbations of a ball. No independent sharp geometric invariant beyond that corollary, nor new stability in a separate metric, is established in the frozen Finding. Narrowing to the realization or the classical d=3 numbers would not leave a genuine distinct valuable result. No repaired claim is submitted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

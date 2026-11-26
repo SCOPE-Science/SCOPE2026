@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:48:57.006087Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4 and scope, verify_direct.py, verify_characterization.py, and recorded outputs",
+        "Independent replay: python3 /tmp/opencode/frozen_audit_graphs.py 3 (landmark-neighborhood tests, explicit families, all basis pairs and all-root distance layers)."
+      ],
+      "rationale": "Independently reconstructed both labeled graphs and tested every common-neighbor count and degree, hence their shared strongly regular parameters and spectrum. For diameter two, unselected vertices are distinguished exactly by their selected-neighbor subsets; selected vertices are distinguished by their own zero distances. Enumerated all subsets through size four and matched the explicit rook cross families and all three disjoint Shrikhande translation families. Formed every pairwise basis overlap. In the rook case the one-exchange adjacency agrees with equality of the central row/column and variation of exactly one excluded coordinate; all 288 moves slide. Shrikhande has no overlap of size three. For exact two exchanges both graphs are connected, with 1872 and 240 edges, degrees 26 and 10, and eccentricity three at every basis. At capacity five consecutive size-four states along any path are identical or share three landmarks, so different one-exchange components cannot join. At six, each exact-two step uses the union of the two bases and costs four add/delete moves; the diameter-three paths therefore give the claimed twelve-step upper bound, not optimality of twelve.",
+      "residual_risks": [
+        "Only the two graphs and the specified ordinary resolving-set conventions; the capacity result connects all metric bases, not necessarily all feasible states at a given capacity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 6.2 is a general static resolving-set criterion for Cartesian products of complete graphs.",
+          "16191b2fe1ea concerns maximum independent sets; 7b3432c6fd0d concerns minimum identifying codes of sizes five and six."
+        ],
+        "reasoning": "The stronger rook criterion yields its explicit static family and hence the one-coordinate rook exchanges. It does not apply to Shrikhande; the other optimization families' transitions do not restrict to ordinary metric bases.",
+        "searches": [
+          "Cáceres et al., arXiv:math/0507527, Lemma 6.2 and Theorem 6.1",
+          "Resultary: rook/Shrikhande minimum identifying codes and maximum independent sets"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0507527, arXiv:1312.4973, Morentin institutional page and OA colloquium abstract",
+        "Resultary 951f99af2afa, 16191b2fe1ea, 7b3432c6fd0d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The static rook criterion implies the known 144 rook bases and gives the ordinary rook one-move component formula by inspecting the two excluded coordinates.",
+          "Fault-tolerant, independent-set and identifying-code findings do not exhibit the ordinary Shrikhande translation families or the ordinary exact-two exchange graphs.",
+          "Morentin's accessible passages address the general subject without quantitative coverage of the claimed pair; full thesis unavailable."
+        ],
+        "reasoning": "Do not claim the elementary rook-side consequence standalone as novel. The joint ordinary resolution failure at one exchange and restoration at exactly two depends on the demonstrated ordinary Shrikhande and paired distance calculations.",
+        "searches": [
+          "Cáceres et al., Lemma 6.2, actual criterion at four landmarks",
+          "Resultary 951f99af2afa, 16191b2fe1ea and 7b3432c6fd0d, Findings",
+          "Morentin colloquium abstract and thesis metadata"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 951f99af2afa has six-landmark fault-tolerant bases (448 Shrikhande, 1600 rook); its rook one-exchange graph is connected, unlike the ordinary four-basis graph.",
+          "The colloquium abstract describes resolving-set reconfiguration without a rook/Shrikhande calculation."
+        ],
+        "reasoning": "Fault tolerance changes the feasible states and minimum size; this is not an equivalent formulation. At capacity five the ordinary add/delete paths compress to one-landmark exchanges, and the claimed capacity six uses the ordinary basis family.",
+        "searches": [
+          "Resultary: ordinary resolving-set or metric-basis exchanges, rook H(2,4) and Shrikhande; one- and two-landmark exchange",
+          "Morentin, Reconfigurations of Metric Bases"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bailey Table 1 gives ordinary metric dimension four for both H(2,4) and Shrikhande, not exchange graph data.",
+          "The closest distinct indexed result 951f99af2afa lists different sizes, counts, and one-exchange structure for fault-tolerant bases."
+        ],
+        "reasoning": "Exact scalar agreement at dimension four does not fix the family or transitions; the exact ordinary paired profile is not supplied by the compared table or nearby indexed claims.",
+        "searches": [
+          "Bailey, arXiv:1312.4973, Table 1",
+          "Resultary exact graph pair, basis counts and reconfiguration profile"
+        ]
+      },
+      "rationale": "Pass for the ordinary four-landmark mobility contrast and the exact two-replacement restoration and capacity threshold, not for the metric dimensions, rook basis count or its underlying shape. Neither the confirmed prior static characterization nor the close indexed reconfiguration comparisons supplies the Shrikhande ordinary-basis obstruction and paired two-exchange connectivity and distances. Thesis coverage remains an access risk, not evidence of overlap.",
+      "residual_risks": [
+        "Full Morentin thesis unavailable in the tried lawful routes; no claim about unread portions. Other unindexed computations are not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers rook basis shape and implies the rook count; routine one-move implication on that side",
+          "evidence": "Empty-row/column and lonely-site conditions specialize to the cross with its center absent.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0507527",
+          "material_read": "OA PDF pp. 8–9, Lemma 6.2 and its Cartesian-product criterion",
+          "method": "Open-primary-text comparison",
+          "title": "On the Metric Dimension of Cartesian Products of Graphs",
+          "trigger": "General theorem could imply exact rook result"
+        },
+        {
+          "assessment": "Covers both scalar minima",
+          "evidence": "Entries for H(2,4) and Shrikhande each have dimension four, with no exchange graph in the table.",
+          "identifier_or_url": "https://arxiv.org/abs/1312.4973",
+          "material_read": "OA PDF p. 6, Table 1",
+          "method": "Primary table comparison",
+          "title": "The metric dimension of small distance-regular and strongly regular graphs",
+          "trigger": "Named graphs' exact data"
+        },
+        {
+          "assessment": "General reconfiguration precedent; exact thesis overlap unresolved",
+          "evidence": "Project entries mention general metric-basis reconfiguration and prism graphs; abstract describes relating resolving sets without the asserted comparison.",
+          "identifier_or_url": "https://scholarworks.calstate.edu/concern/theses/pv63g4914; https://www.cpp.edu/faculty/brianaf/student-research.shtml; https://www.cpp.edu/sci/mathematics-statistics/docs/colloquium/2021_2022_jimmy_morentin.pdf",
+          "material_read": "Institutional student-research descriptions, offsets 641 and 1136, and one-page colloquium abstract; full thesis not read",
+          "method": "Official institutional pages and lawful alternate retrieval attempts (thesis 403)",
+          "title": "Reconfigurations of Metric Bases; Morentin colloquium abstract and project record",
+          "trigger": "Closely aligned thesis might contain exact ordinary results"
+        },
+        {
+          "assessment": "Different feasibility constraint and different counts",
+          "evidence": "Six-landmark fault-tolerant bases and connected rook one-exchange graph, not the ordinary four-landmark result.",
+          "identifier_or_url": "Resultary 2026/11/22, 951f99af2afa",
+          "material_read": "Local RESULT.md Finding, offset 0",
+          "method": "Exact definition and statement comparison",
+          "title": "Frozen and mobile fault-tolerant metric bases in two strongly regular graphs",
+          "trigger": "Closest same-host-graph mobility comparison"
+        },
+        {
+          "assessment": "Related but not equivalent",
+          "evidence": "The former uses independent sets; the latter size-five and size-six identifying codes. Neither determines ordinary four-basis mobility.",
+          "identifier_or_url": "Resultary 16191b2fe1ea and 7b3432c6fd0d",
+          "material_read": "Local RESULT.md Findings, offset 0",
+          "method": "Configuration-family and transition comparison",
+          "title": "Sharp two-site maximum-independent-set exchange; optimal identifying-code exchange geometry",
+          "trigger": "Possible equivalent exchanges on the same pair"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen pairwise mobility and capacity claims; independent exact reconstruction",
+        "Cáceres and Bailey static baselines; contrasting indexed families described above"
+      ],
+      "rationale": "The graph pair is a canonical test of what strong regularity and shared metric dimension do not determine. The ordinary basis spaces genuinely differ in local mobility, and the exact two-exchange calculation gives a sharp, comparable resolution-preserving capacity boundary rather than a bare census. These are usable finite benchmarks for landmark reconfiguration; no general bound for strongly regular graphs is claimed.",
+      "residual_risks": [
+        "The result does not prove the same threshold for other hosts, for fault-tolerant resolution, or for all resolving configurations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

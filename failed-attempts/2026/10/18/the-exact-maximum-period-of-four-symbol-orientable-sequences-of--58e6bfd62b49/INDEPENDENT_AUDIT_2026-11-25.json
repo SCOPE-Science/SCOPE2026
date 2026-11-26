@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:55:01.498016Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof",
+        "Frozen WITNESS.txt and CHECK_OUTPUT.txt",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent witness replay: append s[:3], count the 106 four-letter slices with a string counter and check the reverse of each has multiplicity zero."
+      ],
+      "rationale": "Reconstructed the upper bound in the directed triple graph. There are 120 nonpalindromic reversal pairs. A cyclic word and its reverse give balanced disjoint circuits, so their union is balanced, and its indegree at each constant vertex is twice the indegree of the original circuit. The ambient indegree at each constant vertex is three, forcing at least u=4 omissions of the constant-triple type (more precisely, u>=4). For the twelve triples aab with a!=b, the ambient outdegree minus indegree is one at each triple, so missing arcs satisfy O_T-I_T=12. Each of the u omissions enters T once and never leaves T. Every other missing pair gives at most one outgoing arc except for the six pairs aabb/bbaa: both directions can start with a nonconstant repeated-leading triple only when both ends of the word are doubled. With r omitted pairs, this gives 12+u<=O_T<=r-u+6, hence r>=14 and m<=106. Independently read the supplied line and checked all 106 length-four slices of the word with its first three symbols appended: each occurs once and its reversal occurs zero times, also excluding palindromes. There are 14 unused classes, agreeing with the recorded list. The window check establishes the lower bound, not the upper bound.",
+      "residual_risks": [
+        "This proves the maximum only for the four-symbol, order-four, ordinary-reversal problem, not negative orientability or a classification of optimum words."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mitchell–Wild give (k^4-2k^2)/2 for n=4 and k even, hence 112 at k=4. Gabrić–Sawada's general construction gives length 60 in this case and its table is labeled a lower bound on maximum length."
+        ],
+        "reasoning": "Neither the dominating general upper bound nor the asymptotically optimal construction alone supplies the missing sharp upper bound at this parameter.",
+        "searches": [
+          "Mitchell–Wild arXiv:2507.02526 Theorem 2.22",
+          "Gabrić–Sawada arXiv:2407.07029 Theorem 11 and Table 2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2507.02526",
+        "arXiv:2603.18646 (14 August 2026 version)",
+        "arXiv:2407.07029",
+        "Resultary 341177c7af0a and c2f06fe02eed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The October witness together with the literature bound leaves 106<=M_4(4)<=112. The November record reports a zero-gap integer upper bound plus an attaining word and states M_4(4)=106. The frozen record instead bounds the omission count analytically."
+        ],
+        "reasoning": "The analytical upper bound fills a gap left by the witness and the older general theorem. But no additional invariant, theorem, or parameter range beyond the now indexed sharp capacity is asserted in the frozen Finding. A different method is not grounds to pass the overlapping frozen claim.",
+        "searches": [
+          "Resultary 341177c7af0a, Finding and limitation",
+          "Resultary c2f06fe02eed, Finding and integer-model proof description",
+          "Mitchell–Wild arXiv:2507.02526, conclusion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The papers' orientable sequence convention is that length-n windows occur at most once in either direction. The indexed exact-capacity record uses length four, four symbols, ordinary reversal and explicit exclusion of palindromes."
+        ],
+        "reasoning": "The claims respectively maximize period and unique windows of a cyclic sequence; under the common no-repeat rule these are the same. No extra balance, negated reversal, or alphabet convention distinguishes the statements.",
+        "searches": [
+          "Resultary: ordinary-reversal OS_4(4), exact quaternary orientable four-gram capacity 106",
+          "Mitchell–Wild arXiv:2603.18646, definition on PDF p. 1",
+          "Resultary c2f06fe02eed, Finding and scope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected Mitchell–Wild tables list period 88 and upper bound 112. The October 12 index entry improves the construction to 106 but disclaims maximality. The November 22 index entry gives the exact maximum 106."
+        ],
+        "reasoning": "The older tables and the lower-bound entry are partial coverage. The distinct exact entry covers the whole invariant, regardless of the different record date.",
+        "searches": [
+          "Mitchell–Wild arXiv:2507.02526 Table 7 in the inspected PDF version and arXiv:2603.18646 Table 4",
+          "Resultary 341177c7af0a and c2f06fe02eed"
+        ]
+      },
+      "rationale": "A distinct indexed result states the identical maximum under the identical definitions. It uses an integer-optimization proof route rather than the frozen counting argument and is dated later than the frozen record. This shows equivalent coverage at review time, not that the other record has historical priority. There is also an older distinct indexed lower-bound construction attaining 106 that explicitly leaves optimality open.",
+      "residual_risks": [
+        "The relationship and historical priority between the exact records are not established; no independent solver replay is represented by the literature comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage; open gap in that source",
+          "evidence": "For k=n=4 the table gives 88 versus 112 and the conclusion flags the even-k order-four gap.",
+          "identifier_or_url": "https://arxiv.org/abs/2507.02526",
+          "material_read": "Theorem 2.22, PDF p. 13 offset 30123; Table 7 in inspected version pp. 28–29 offset 65045; conclusion p. 29 offset 68493",
+          "method": "Primary OA PDF",
+          "title": "New orientable sequences",
+          "trigger": "General bound and exact-parameter table"
+        },
+        {
+          "assessment": "Same convention and partial bounds, not exact 106",
+          "evidence": "Table 4 retains 88 and 112 for ordinary reversal at this parameter.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.18646",
+          "material_read": "OS definition, PDF p. 1; 14 August 2026 version Table 4, p. 30 offset 71945",
+          "method": "Primary OA PDF",
+          "title": "Constructing orientable and negative orientable sequences with asymptotically optimal period",
+          "trigger": "Follow-up with the same exact table entry and related conventions"
+        },
+        {
+          "assessment": "Construction only",
+          "evidence": "The n=k=4 entry is 60; the table describes the figures as lower bounds on maximum length.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.07029",
+          "material_read": "PDF p. 1 definition and Theorem 11/Table 2, p. 11 offset 44190",
+          "method": "Primary OA PDF",
+          "title": "Constructing k-ary Orientable Sequences with Asymptotically Optimal Length",
+          "trigger": "General lower-bound construction"
+        },
+        {
+          "assessment": "Earlier lower-bound coverage only",
+          "evidence": "Proves M_4(4)>=106, retains upper bound 112 and explicitly disclaims maximality.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-a-106-symbol-quaternary-orientable-cycle-of-order-four--341177c7af0a/RESULT.md",
+          "material_read": "Mirrored RESULT.md, Finding and scope at offset 0",
+          "method": "Local mirror",
+          "title": "A 106-symbol quaternary orientable cycle of order four",
+          "trigger": "Explicit attaining length under the exact parameters"
+        },
+        {
+          "assessment": "Full overlap of the mathematical invariant",
+          "evidence": "States M_4(4)=106 for ordinary reversal with no palindromes and describes an optimal integer-solver bound with zero reported gap and an attaining cyclic word.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-sharp-106-window-capacity-of-quaternary-orientable-four-gram--c2f06fe02eed/RESULT.md",
+          "material_read": "Mirrored RESULT.md at offset 0: claim, assumptions and upper-bound method description",
+          "method": "Local mirror, statement-level comparison",
+          "title": "The sharp 106-window capacity of quaternary orientable four-grams",
+          "trigger": "Distinct exact indexed match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Resultary 341177c7af0a and c2f06fe02eed, relevant statements"
+      ],
+      "rationale": "The natural invariant and the self-contained counting argument are mathematically useful, especially in explaining why the earlier witness is optimal. As a claimed new exact invariant, however, this finding has the same scope and value as the distinct exact indexed result. It does not establish a separate structural theorem or broader bound beyond what is needed for that covered fact.",
+      "residual_risks": [
+        "No assessment is made of a generalized counting lemma as a separately stated and audited claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

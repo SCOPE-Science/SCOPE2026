@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each positive dimension exponent, the proof computes the exact independent-failure probability, transforms its negative logarithm into a sum of per-material terms, and proves the unique maximum of \(h_d(z)=z^d[-\log(1-e^{-z})]\) by a derivative sign argument valid on the whole positive real line. This establishes the universal arbitrary-partition bound and its sharp equality condition. A separate strict unimodality argument controls all equal-size integer counts. The dimension monotonicity follows from the root equation. The bundled verifier passed 43,789 finite supplementary assertions; the symbolic proof, not the experiments, covers all admissible partitions and real positive exponents.
+PASS
 
-## Originality — PASS on inspected evidence
+Independence turns negative log all-failure probability into sum L(z_i); this is exactly a volume-weighted sum of z_i^d L(z_i)/b^d. To check the nonstandard step, write h'(z)=z^(d-1)Q(z), Q=d L(z)-z/(exp(z)-1). The series for L is strictly less than the geometric series 1/(exp(z)-1), so Q(z)<0 for z>=d. On (0,d), Q' has the sign of z/(1-exp(-z))-(d+1), which is negative because the first expression before subtraction increases to d/(1-exp(-d))<d+1. At zero Q diverges positively. Hence there is one root and a strict global maximizer, even for noninteger d>0; h tends to zero at both endpoints. A positive-volume weighted average attains the bound exactly when all pieces have that one maximizing size. For equal pieces the real count maps monotonically to z, so the integer optimum lies at one or both clipped bracketing integers; this is not a claim about unequal pieces. Increasing d adds a strictly positive multiple of L to Q, moving the root strictly right. At d=1, z=log 2 solves the equation. My direct recalculation at d=b+1=2 with b=V=1 gives P_3=0.442398109933, P_4=0.441026845693 and bound 0.443195608693. The frozen script was inspected, not executed. Its bisection and enumeration are supplemental for the tested ranges, not proof at all d or all counts.
 
-Full relevant text of Schlecker et al. (2022), Knapp et al. (2022), Pichugin et al. (2017) and Pichugin and Traulsen (2020) was inspected, including experimental methods/results or theoretical fragmentation objectives. The coral work quantifies size effects without this functional; the evolutionary fragmentation work uses population growth rate rather than a fixed-budget probability of retaining any independent fragment. Semantic and formula-variant literature/database searches returned no covering theorem. This is not proof of first historical discovery; generic ratio-per-resource reasoning is classical, and a 2021 coral size-survival study was available principally as abstract/bibliographic text.
+## originality
 
-## Value — PASS
+PASS
 
-The probability of retaining at least one fragment from a donor lineage is a natural, distinct conservation goal from maximizing coral growth or surviving area. The result is a sharp budget-independent scale law in general dimension, characterizes exactly when any uneven cutting scheme can reach the global envelope, and reduces the practical equal-cut decision to two counts. The dimension-one closed form and planar numerical constant clarify the geometry of the assumed edge-exposure mechanism. It is a motivated mathematical benchmark, not an empirically calibrated intervention rule.
+Provisional novelty is the strict global preferred-size law for the specified inverse-length probability at every d>0, with exact attainment and a discrete consequence. The generic per-resource inequality, independence factorization and unimodal integer rounding are not new.
 
-## Risks and limitations
+## value
 
-Survival independence, geometric similarity, and inverse characteristic-length hazard are model assumptions; the cited studies demonstrate substantial site-, species- and genotype-level differences and do not validate this exact law. Unrestricted unequal-partition global optimization below the envelope is not classified for nonintegral material ratios. Broad general allocation theorems might imply the envelope after specialization, but no inspected source gives the full strict root/equality/dimensional result. An independent priority and field-evidence review is still needed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The material-limited reliability objective is distinct from surviving biomass and is meaningful when one surviving lineage suffices. The strict optimum and equality rule give a sharp performance ceiling for arbitrary cutting, and the exact two-count rule yields a practical equal-size benchmark for the stipulated model. This is model-level value only: genotype, site, dependence and actual size-response data limit any field interpretation; the record does not overpromise a field optimum or a solution for unequal pieces at generic budgets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

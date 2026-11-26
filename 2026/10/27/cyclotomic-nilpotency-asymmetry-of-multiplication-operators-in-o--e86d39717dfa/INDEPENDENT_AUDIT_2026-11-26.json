@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:47:32.669469Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the basis identification e_i↔X^i mod X^n−1, the product is σ_{−1}(f)σ_2(g). The two substitutions are F_q-algebra automorphisms since n is odd. Composition with an automorphism on the right and conjugation of an ordinary multiplication operator preserve rank, so both ranks equal rank M_a pointwise. With J=(X^m−1) in the quotient, its p^s-th power is zero and B/J is the product of residue fields from the distinct factors. For T=M_bσ, T^h=M_{∏_{t<h}σ^t(b)}σ^h. On a quotient cycle with no zero b-coordinate T is bijective there, so T cannot be nilpotent. If each cycle has a zero, take h the order of the factor permutation; the product then lies in J despite possible nontrivial automorphisms inside the fields. Repeating the exact product p^s times puts its multiplier in J^(p^s)=0. This works even if m=1 or p divides h; no division by a cycle length is needed. On each cycle the choices are precisely all tuples minus the all-nonzero tuples, followed by the uniform radical fiber of size q^(n−m). The bijections a↦σ_{−1}(a), σ_2(a) give the two counts. At (n,q)=(5,11), nontrivial split factors form one 4-cycle under doubling and two 2-cycles under inversion, giving 4641 and 441. At (7,2) squaring acts trivially on the three Frobenius classes and inversion swaps the two cubic factors, giving 1 and 15. Independently enumerated all 128 and 27 coefficient vectors at (7,2) and the modular (3,3), respectively: form columns by the basis product, apply each matrix n times to all basis vectors, and independently row-reduce over the prime field. Nilpotent counts were (1,15) and (9,9), with no rank mismatch; e_0+e_1+e_2+e_4 at (7,2) has both ranks 3 and only R_a nilpotent. These checks are finite corroboration. Read the frozen verifier sources but did not run them. checker_output.txt is the rank transcript, and the nil_output.txt referenced in VERIFICATION.md was not present; the recorded claim about the latter is not used as evidence of a run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary ed116a5096e4 treats rank/zero-product laws for characteristic coprime to the order; 9b7bd8f34375 allows the modular odd dihedral case via cyclic p-Sylow structure. No relevant primary statement of the all-cycle zero criterion was identified by the bounded general-algebra search."
+        ],
+        "reasoning": "The larger classes of quandles in those indexed papers do not make the rank statistic a stronger spectral statistic. Even equal pointwise rank does not imply equal nilpotency behavior. The limited primary search does not rule out an older skew multiplication lemma.",
+        "searches": [
+          "Local Resultary: modular multiplication-rank distributions and Frobenius-orbit rank spectra",
+          "Targeted primary search for twisted multiplier nilpotence over finite commutative algebras"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, nil_checker.py, verify.py, and checker_output.txt",
+        "Resultary ed116a5096e4, 9b7bd8f34375 and 57a121d9f066",
+        "arXiv:2610.08204 and arXiv:2608.09149"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The nonmodular rank record is dated the same day and its structural overlap remains relevant regardless of unknown order; the modular rank record is dated earlier. Rank moments do not distinguish when the positive rank part is moved into a zero coordinate under iteration."
+        ],
+        "reasoning": "Use the known transport without claiming its consequences for rank are new. Distinguishing the exact left and right nil counts requires applying the differing induced permutations on factors, proving the radical-product argument, and counting cycle-hitting zero patterns; the known distributions and independent-product probabilities do not supply that classification.",
+        "searches": [
+          "Zhang Proposition 2.1, Theorem 5.5 and Corollary 5.6",
+          "Local Resultary ed116a5096e4, 9b7bd8f34375, and 57a121d9f066 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhang Proposition 2.1 supplies f⋆g=α(f)β(g). Its complex Peirce results concern right multiplication by idempotents. arXiv:2608.09149 treats nilpotent elements, not the two linear operators."
+        ],
+        "reasoning": "Transport to M_bσ preserves the operator question but does not turn it into ordinary nilpotency of b; the same residue field can receive a factor from a different field on the next iteration.",
+        "searches": [
+          "arXiv:2610.08204, Alexander group-ring transport and Peirce spectrum",
+          "arXiv:2608.09149, nilpotent elements in quandle rings",
+          "Local Resultary: finite-ring nilpotent products and Alexander operator ranks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ed116a5096e4 and 9b7bd8f34375 give exact rank spectra and ordered zero products, not the two operator-nilpotency frequencies. 57a121d9f066 gives product-nilpotency probabilities for independent factors, not the paired counts at (5,11) or (7,2)."
+        ],
+        "reasoning": "None of the inspected exact tables encodes which residue coordinates vanish on every cycle of the same fixed substitution.",
+        "searches": [
+          "Local Resultary: exact quandle multiplication spectra and finite-ring nilpotency count"
+        ]
+      },
+      "rationale": "Credit attaches to the left/right operator-nilpotency counts, modular lift, and two directions of the disparity. The Alexander product transport is prior work and pointwise equal rank is a direct consequence of it in this case; neither is credited as an original contribution. Indexed rank spectra and product-nilpotency results overlap in language or method but do not determine the factor-cycle condition for operator powers.",
+      "residual_risks": [
+        "The bounded general-algebra search does not exclude earlier equivalent orbit-norm or skew-multiplier enumeration results.",
+        "Same-day catalog dating of the related rank record does not determine relative priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Transport covered; spectral statement restricted to a different coefficient/element setting",
+          "evidence": "The transport is u⋆v=α(u)β(v); the right Peirce spectrum for a nonzero complex idempotent in the odd dihedral case is {0,1,−1}.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.08204",
+          "material_read": "Proposition 2.1 (PDF p. 3, offset 8828), Theorem 5.5 and Corollary 5.6 (pp. 9–10, offset 28457)",
+          "method": "Lawful OA PDF",
+          "title": "Group-ring methods for Alexander quandle rings",
+          "trigger": "Prior transport and spectral work on the same algebra"
+        },
+        {
+          "assessment": "Same-day distinct record; covers rank distribution, not nilpotency",
+          "evidence": "Its rank polynomials and ordered zero-product count apply for p not dividing the quandle order; for Latin quandles the distributions agree.",
+          "identifier_or_url": "2026/10/27/SCOPE-frobenius-orbit-rank-spectra-of-finite-alexander-quandle-algebra--ed116a5096e4",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Frobenius-orbit rank spectra of finite Alexander quandle algebras",
+          "trigger": "Closest structural overlap in semisimple fields"
+        },
+        {
+          "assessment": "Covers modular rank statistics, not the operator power criterion",
+          "evidence": "Nontrivial cyclic p-Sylow subgroup of the displacement subgroup is in scope; the modular odd dihedral group fits.",
+          "identifier_or_url": "2026/10/26/SCOPE-modular-multiplication-rank-distributions-in-finite-alexander-qu--9b7bd8f34375",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Modular multiplication-rank distributions in finite Alexander quandle algebras",
+          "trigger": "Closest modular indexed match"
+        },
+        {
+          "assessment": "Different notion of nilpotency event",
+          "evidence": "P_k(R)=∏_i[1−(1−q_i^(−n_i))^k] for products of independently sampled ring elements; iterates of M_bσ use correlated transforms of a fixed b.",
+          "identifier_or_url": "2026/10/26/SCOPE-complete-nilpotent-product-probability-profiles-of-finite-rings--57a121d9f066",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Complete nilpotent-product probability profiles of finite rings",
+          "trigger": "Potential equivalent finite-ring exact count"
+        },
+        {
+          "assessment": "Element nilpotency, not operator frequency",
+          "evidence": "Defines nilpotent elements by a^n=0 and includes trivial quandle ring examples.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.09149",
+          "material_read": "Nilpotent-elements discussion, PDF pp. 4–5, offset 14299",
+          "method": "Lawful OA PDF",
+          "title": "A further study of quandles and quandle rings",
+          "trigger": "Prior quandle nilpotency result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Operator nilpotence is a natural invariant not recoverable from the known ranks. The exact orbit formula accounts for all odd orders and all finite fields, shows explicitly what modular reduction does and does not change, and produces witnesses that reverse which operator is more often nilpotent. This is more informative than a small rank-versus-nilpotence counterexample alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

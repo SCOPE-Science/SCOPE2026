@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:37:25.303522Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, definition and assumptions, lines 5–32; proof, equations (1)–(5), lines 36–94",
+        "VERIFICATION.md, verify.py and verify_alt.cpp, inspected without execution",
+        "Fresh exhaustive ideal/rowmotion enumeration for n=3, 4, 5 and 6 using minimal complement and downward closure"
+      ],
+      "rationale": "An ideal has a selected vertex set A and an edge set B⊆K(A). If F=K(A)∖B, the minimal complement consists of the vertices outside A and the edges F; its ideal has vertex set (V∖A)∪supp(F) and edge set F. To check eventual return to full vertex sets, write C=V∖A and T=supp(F). If each vertex in A lies in T, the next state is full. If C and T are nonempty and completion is still needed, the next missing edges include every C–T edge, so the second state is full. For T empty the first image is (C,∅), followed by a full state unless |C|=1; in that case (A,∅) is followed by a full state using n≥3. From a full state, an isolated vertex yields a complementary full state with a universal vertex. Full graphs with neither type are paired with their complements, and the complete graph belongs to the unique length-3 orbit. For a nonempty proper universal set X, the residual graph H on Y=V∖X has no universals and |Y|≥2. Reapplying the recurrence gives exact lengths 6 when H has no isolates, 8 when it has isolates and edges, 5 when H is empty and |X|=1, and 8 when H is empty and |X|≥2. In the eight-cycle with nonempty H, the full states four steps apart have different universal sets (X and the isolates of H); in the empty case they switch X and Y. Thus no period-four collapse occurs. Each six- or eight-cycle has two full states with universals; each five-cycle has one. Inclusion–exclusion for graphs without isolates, together with complementation and incompatibility of isolated and universal vertices, yields the stated a_m and b_m and the full census. The 3-, 5- and 8-cycles exist for n≥4, giving order 120; for n=3 only lengths 3 and 5 occur. A spanning cycle on n≥4 vertices has neither isolates nor universals, and the same construction on n−1≥4 vertices supplies the six-cycle. A fresh finite check used the minimal-complement definition directly, enumerating each ideal and following successors. Its complete counts for n=3,4,5,6 in the order (2,3,5,6,8) were (0,1,3,0,0), (9,1,4,0,9), (256,1,5,45,80), and (11065,1,6,1671,985), respectively.",
+      "residual_risks": [
+        "The enumeration corroborates only the four specified sizes; completeness for arbitrary n follows from the symbolic return argument and exact orbit traces.",
+        "The poset excludes the empty set and ranks three and higher; adding them, or identifying ideals up to relabeling, changes the action being counted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The toggle/promotional passages provide general rowmotion machinery, not a period bound for arbitrary incidence posets.",
+          "The indexed complete-bipartite theorem is for K_{2,m}, with lengths 2,3,4,6,8,24 subject to existence and permutation order 24; the star theorem is for K_{1,m}, with lengths 2,3,8."
+        ],
+        "reasoning": "These results do not contain the complete graphs K_n for n≥3 as their underlying graph instances. Merely being a rank-two incidence poset does not transfer cycle lengths: the minimal-complement rule depends on which edges are present.",
+        "searches": [
+          "arXiv:1108.1172, Definition 1.1 and promotion scope",
+          "arXiv:1601.03710, p. 1, generalized toggle setting",
+          "Resultary graph-incidence comparisons bf8f95bb5e4d, 59671d53d950 and 6803de11ff95"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary searches and compared entries 285b64708dc0, bf8f95bb5e4d, 59671d53d950, 6803de11ff95 and 1c4b87cdd918",
+        "arXiv:1108.1172, Definition 1.1",
+        "arXiv:1308.2471, p. 1",
+        "arXiv:1709.09331, §2.2",
+        "arXiv:1601.03710, p. 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known minimal-complement rule yields the one-step recurrence once the state is encoded by a graph and its chosen vertex set.",
+          "Bipartite and star classifications have different exact orbits, and the general definitions impose no uniform return theorem for these full-singleton states."
+        ],
+        "reasoning": "The recurrence itself is a direct specialization and is not the originality claim. The classification rests on proving that every orbit enters a full state, then tracing the exact orbit types and counting their full states using universal-vertex and isolated-vertex configurations. The inspected prior statements do not supply those steps for K_n.",
+        "searches": [
+          "Striker–Williams, arXiv:1108.1172, p. 1 Definition 1.1",
+          "Joseph, arXiv:1709.09331, p. 4 §2.2",
+          "Resultary bf8f95bb5e4d, exact bipartite census at local RESULT.md offset 613"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Joseph's antichain minimal-complement action is conjugate via the maximal elements of an ideal to ordinary rowmotion; Trotter–Wang define the graph-incidence poset.",
+          "Resultary 285b64708dc0 gives S_m cycle polynomial (2^m−2m−2)t²+t³+mt⁵: at m=3, S_3 is the K_3 incidence poset and the two exact censuses coincide."
+        ],
+        "reasoning": "The conjugacy really does make an antichain formulation an equivalent claim. The standard-example overlap at n=3 is genuine and is credited; at n≥4 the maximal-element counts m and binom(m,2) differ, so the standard-example family does not supply the requested complete-graph census.",
+        "searches": [
+          "Resultary semantic searches for classical rowmotion on the singleton/pair Boolean ranks, complete graph incidence, antichain complement and the exact 2,3,5,6,8 spectrum",
+          "arXiv:1709.09331, §2.2 Definition 2.4",
+          "arXiv:1308.2471, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The standard-example polynomial exactly supplies the n=3 value but not n≥4.",
+          "The indexed PG(2,3) point–line incidence result tabulates 38730 ideals with lengths 2,3,5,6,7,9,11 and order 6930; the K_{2,m} entry tabulates a different family."
+        ],
+        "reasoning": "Shared lengths in a published table do not certify the same action. The other tabulations have different incidence relations or object sizes, and none inspected gives the all-n complete-graph cycle counts.",
+        "searches": [
+          "Resultary exact cycle-length and orbit-census queries for the complete-graph incidence and Boolean-rank descriptions",
+          "Local records 285b64708dc0, bf8f95bb5e4d and 1c4b87cdd918"
+        ]
+      },
+      "rationale": "The prior literature supplies the classical action, its toggle and antichain formulations, and the graph-incidence poset definition. The strongest indexed related exact results concern other families, with an exact n=3 overlap with the standard example. No inspected statement covers the remaining complete-graph incidence family, its uniform bound or its census. This comparison is limited to the inspected sources and does not certify historical priority.",
+      "residual_risks": [
+        "The exact n=3 census is covered by the indexed standard-example result; date alone is not a priority determination.",
+        "The literature inspections are bounded and do not rule out an equivalent theorem under another rank-selected-poset or antichain-action formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Standard action, not the inspected census",
+          "evidence": "Rowmotion sends an ideal to the ideal generated by the minimal elements of its complement.",
+          "identifier_or_url": "https://arxiv.org/abs/1108.1172",
+          "material_read": "p. 1, Definition 1.1 and promotion context, offset 2201",
+          "method": "Original open-access paper, targeted passage",
+          "title": "Promotion and Rowmotion",
+          "trigger": "Classical rowmotion and its general structural results"
+        },
+        {
+          "assessment": "Formulation credit",
+          "evidence": "The action on antichains uses the minimal elements outside the generated ideal.",
+          "identifier_or_url": "https://arxiv.org/abs/1709.09331",
+          "material_read": "p. 4, §2.2, Definition 2.4, offset 14561",
+          "method": "Original open-access paper, targeted passage",
+          "title": "Antichain Toggling and Rowmotion",
+          "trigger": "Equivalent antichain formulation"
+        },
+        {
+          "assessment": "Same general poset construction, different invariant",
+          "evidence": "The inspected discussion concerns poset dimension, not orbit enumeration.",
+          "identifier_or_url": "https://arxiv.org/abs/1308.2471",
+          "material_read": "p. 1, graph-incidence definition and discussion, offset 1979",
+          "method": "Original open-access paper, targeted passage",
+          "title": "Incidence Posets and Cover Graphs",
+          "trigger": "Graph-incidence family terminology"
+        },
+        {
+          "assessment": "Framework credit only from the inspected material",
+          "evidence": "The general toggle construction does not state the exact complete-graph incidence spectrum in the inspected passage.",
+          "identifier_or_url": "https://arxiv.org/abs/1601.03710",
+          "material_read": "p. 1, broader toggle-group context",
+          "method": "Original open-access paper, targeted passage",
+          "title": "Rowmotion and generalized toggle groups",
+          "trigger": "Possible general framework implying the orbit bound"
+        },
+        {
+          "assessment": "Exact coverage of n=3 only",
+          "evidence": "The polynomial has one 3-cycle and m 5-cycles, and the even-length term vanishes for S_3; the larger posets have different maximal-element counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-uniform-rowmotion-orbits-and-a-sharp-rank-average-split-on-stand--285b64708dc0",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Uniform rowmotion orbits and a sharp rank-average split on standard examples",
+          "trigger": "Indexed exact cycle enumerator and isomorphic size-three poset"
+        },
+        {
+          "assessment": "Parallel result for a different family",
+          "evidence": "K_{2,m} is bipartite and the proved spectrum allows 4 and 24; it does not cover K_n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-order-twenty-four-rowmotion-on-complete-bipartite-incidence-pose--bf8f95bb5e4d",
+          "material_read": "RESULT.md, exact census, offset 613",
+          "method": "Local Resultary mirror",
+          "title": "Order-twenty-four rowmotion on complete bipartite incidence posets",
+          "trigger": "Strongest exact indexed comparison in a complete graph-incidence construction; also indexed at 59671d53d950"
+        },
+        {
+          "assessment": "Different family",
+          "evidence": "The graphs are K_{1,m}, with a different spectrum and order.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-complete-rowmotion-cycle-profile-for-star-incidence-posets--6803de11ff95",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Complete rowmotion cycle profile for star incidence posets",
+          "trigger": "Graph-incidence exact cycle census"
+        },
+        {
+          "assessment": "Distinct finite poset",
+          "evidence": "It is a point–line computation for PG(2,3), with order 6930.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-rowmotion-on-the-ternary-projective-plane-incidence-poset-6-202--1c4b87cdd918",
+          "material_read": "RESULT.md, offsets 249 and 637",
+          "method": "Local Resultary mirror",
+          "title": "Rowmotion on the ternary projective plane incidence poset",
+          "trigger": "Exact incidence-poset cycle table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, full-singleton return lemma, orbit traces and count",
+        "Resultary exact standard-example and other incidence-poset comparisons"
+      ],
+      "rationale": "This is a natural Boolean rank selection and a complete exact invariant of its classical rowmotion. The uniform orbit bound of eight, despite the rapidly increasing set of ideals, exposes a structural restriction through the full-singleton return mechanism. The result gives exact multiplicities and resolves all exceptional sizes, not just a small-instance table or a constant-order estimate.",
+      "residual_risks": [
+        "No uniform bound is inferred for arbitrary graph incidences, higher Boolean truncations, or lifted versions of rowmotion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:18:22.731239Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a Haar direction in dimension three, |u_z| is uniform on [0,1]. Taking the forward and reverse supports of the filled-base cone yields W/r=√(1−z²)+max(√(1−z²),tz), split at z=(1+t²)^(−1/2). Integrating on the two intervals gives exactly a/2 and b/3 for the first and second normalized moments. I independently differentiated 4b/(3a²)−1 and the reduced T symbolically; the positive-factor derivative and the P,Q radical identity in equations (4) and (5) both hold. On 0<t≤3 the numerator is strictly negative, bounded by P−Q when P≤0 and by 4P−Q otherwise. For t≥3 the stated root and Bernoulli bounds yield T<π/2+3/2<π: the required polynomial t³+t²−19t/2−4 is positive at 3 and strictly increasing thereafter. At the other end T~16/(5t). Thus the derivative sign changes exactly once, from negative to positive. At √3, T=π/3+6√3/5<π, putting the unique root strictly below √3. The width extremes themselves follow by testing the branch junction, the endpoint values t and 2, and the concave second branch maximum √(1+t²) if its stationary point lies on the branch: they give the stated two-piece worst-ratio profile and unique minimizer √3. Continuity on the sphere identifies extrema with essential extrema. Independent 70-digit arithmetic gave t*=1.70901306660551564276 and squared CV 0.00168696607831620408958. The frozen finite checker was inspected but not run; only the analytic inequalities justify global uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abas expresses zonoid width variance via a kernel and a harmonic decomposition. The width-density record gives a stronger forward statistic for each cone. The tree result solves a different variance optimization."
+        ],
+        "reasoning": "General moment machinery and the forward width law do not give the extremum of the mean-normalized objective over cone shapes. The tree family is not the right-cone family.",
+        "searches": [
+          "Abas arXiv:2609.26202v1 Theorems 6.7 and 6.12 and examples",
+          "Resultary tree graphical zonotope variance and tetrahedron–octahedron isotropy searches"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.26202v1",
+        "Resultary 30a3b32d19eb, 482983ab9269, 8668b85712f7",
+        "DOI 10.1017/CBO9781139003858 (landing page only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Integrating the prior cone-width density supplies the moment objective; its extrema of support already give the worst ratio. The present stationary-root reduction and strict global sign estimates compare the objective across aspect ratios, rather than recovering another fixed-t statistic."
+        ],
+        "reasoning": "Averaging and optimizing are different steps. The exact root, the absence of further crossings including the unbounded tail, and the strict comparison with √3 are not mechanically furnished by the earlier density.",
+        "searches": [
+          "Compare RESULT.md equations (4)–(7) with Resultary 30a3b32d19eb and 8668b85712f7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier density result uses the same projection widths, the same solid cone model, and the same t=h/r. It explicitly gives the worst ratio bound 2/√3 and optimizer √3."
+        ],
+        "reasoning": "Minimizing CV, its square, or the ratio of second moment to mean squared is equivalent; minimizing the ratio of upper and lower support endpoints is not. No equivalent claim about the CV minimizer appeared in the inspected earlier density statement.",
+        "searches": [
+          "Resultary random cone widths / normalized width variation / anisotropy comparisons",
+          "Resultary 30a3b32d19eb Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day record 8668b85712f7 has exactly the squared-CV objective and an interior optimizer ≈0.195313965 for regular tetrahedron–octahedron truncations. Record 30a3b32d19eb gives the exact cone density and √3 for the worst-width objective."
+        ],
+        "reasoning": "The same-day hit is a material match of objective and theorem type, not of body family, and the common date is not evidence of order. The prior exact cone optimum is for a distinct objective.",
+        "searches": [
+          "Resultary cone width density and exact random-width isotropy minima"
+        ]
+      },
+      "rationale": "The retained distinct claim is the exact global cone CV optimization and its strict separation from the known worst-width optimum. The earlier full cone-width density is stronger for distributional questions, so the elementary moment formulas and the worst-ratio result do not receive independent originality credit. Neither that prior nor the same-day squared-CV optimization for another family supplies the cone minimizer or its global uniqueness reasoning in the inspected evidence.",
+      "residual_risks": [
+        "An earlier calculation may be unindexed or included under other width-anisotropy terminology. The checked density already makes the numerical objective derivable.",
+        "The cited Schneider full text was not available; unrelated results from a broader query are not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related variance machinery, no cone optimization in inspected passages",
+          "evidence": "Zonoid variance kernel and harmonics; octahedral and tetrahedral examples.",
+          "identifier_or_url": "arXiv:2609.26202v1",
+          "material_read": "PDF pp.45,50,68; Theorems 6.7 and 6.12 and examples",
+          "method": "OA PDF passages",
+          "title": "Random Width and Brightness",
+          "trigger": "General exact directional-width variance"
+        },
+        {
+          "assessment": "Direct prior coverage of density and worst-ratio result, not the new optimizer",
+          "evidence": "Exact cone width density; U/L≥2/√3, equality at h/r=√3.",
+          "identifier_or_url": "Resultary 30a3b32d19eb",
+          "material_read": "RESULT.md Finding and width endpoints, from offset 0",
+          "method": "Resultary local mirror",
+          "title": "Unlabeled directional widths determine a right circular cone",
+          "trigger": "Same cone and exact width distribution"
+        },
+        {
+          "assessment": "Different family and objective",
+          "evidence": "Paths minimize and stars maximize variance among tree graphical zonotopes.",
+          "identifier_or_url": "Resultary 482983ab9269",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp width-variance extremizers among tree graphical zonotopes",
+          "trigger": "Related exact directional-variance optimization"
+        },
+        {
+          "assessment": "Same loss, materially different family",
+          "evidence": "An interior minimizer ≈0.195313965 for equal-edge regular tetrahedron truncations, not cones.",
+          "identifier_or_url": "Resultary 8668b85712f7",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Resultary local mirror",
+          "title": "An interior optimum for random-width isotropy in the tetrahedron–octahedron truncation family",
+          "trigger": "Same-date exact squared-CV minimization"
+        },
+        {
+          "assessment": "Full-text comparison unavailable",
+          "evidence": "No claim about its full-text coverage is inferred from access failure.",
+          "identifier_or_url": "https://doi.org/10.1017/CBO9781139003858",
+          "material_read": "Landing page only",
+          "method": "Lawful OA probes including identified alternate routes",
+          "title": "Convex Bodies: The Brunn–Minkowski Theory",
+          "trigger": "Cited support-function and width background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Squared relative variation is an intrinsic scale-free loss for uniform directions. Finding the exact unique aspect ratio over the whole natural solid-cone family, and showing it differs strictly from the cone minimizing worst-direction variation, reveals an objective-dependent choice of shape that cannot be inferred merely from the old width-range optimum. The global comparison rather than the decimal approximation is the substantial content.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

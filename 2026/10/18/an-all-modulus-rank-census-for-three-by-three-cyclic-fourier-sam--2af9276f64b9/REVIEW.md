@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Dephasing reduces the determinant of a unimodular three-by-three matrix to \((a-1)(d-1)=(b-1)(c-1)\). Conjugation and the unit-circle identity establish row/column proportionality, including the zero-factor cases. Bézout converts proportionality to residue collision, and divisor-lattice Möbius inversion counts the exact difference-gcd strata. Rank-one, rank-three and rank-two formulas are disjoint and exhaustive. Independent cyclotomic-polynomial enumeration confirms every minor through cyclic order eighteen in the specified test set.
+## correctness
 
-**Originality — PASS, best knowledge.** The inspected 2024 principal-minor paper proves statements about \(R=C\); the inspected 2019 Fourier Hadamard submatrix paper classifies orthogonality rather than the complete rank distribution. Related previously available calculations for cyclic prime squares, prime powers and even semiprime orders are strict special cases and are explicitly excluded from any novelty claim. The new complete arbitrary-modulus divisor formulas apply at mixed-prime-power orders and give an exact factorization threshold for rank-one nonprincipal minors. Searches on all-modulus minor rank counts and equivalent gcd/primitive-set descriptions did not identify a dominating published theorem. A differently indexed or older derivation remains possible; one relevant published special-case record was accessible only as its abstract.
+PASS
 
-**Mathematical value — PASS.** Three-by-three Fourier sampling is the smallest nontrivial submatrix size in which singularity and rank-one collapse are distinct. The theorem gives a complete arithmetic distribution over all cyclic moduli, avoids exhaustive choice of \(\binom N3^2\) pairs, and connects exact rank defects to congruence geometry and divisor structure. It resolves how rank-one defects can appear at squarefree composite moduli without contradicting known principal-minor nonsingularity.
+Dephasing any unimodular 3×3 matrix puts ones in the first row and column, with last square a,b;c,d. The zero-determinant equation is (a-1)(d-1)=(b-1)(c-1). If its product is zero, the chosen two factors equal to zero force an equal row or column in each of the four cases. Otherwise conjugation, using conj(z-1)=-(z-1)/z, gives ad=bc; expansion gives a+d=b+c, hence equality of the unordered pairs {a,d} and {b,c}. This again forces a proportional pair. For Fourier entries, a restricted row ratio is constant iff all its exponent differences vanish modulo N, equivalent by Bezout to N dividing (r-r')g_C; applying this to every row pair yields N|g_Rg_C. The equations for rank three and the residual rank two follow since all entries are nonzero. The term A_N(e,d) counts a chosen mod-e class, three distinct compatible mod-d classes, and one representative in each; their intersection sizes are N/lcm(e,d). Inverting e|g_R gives the exact strata T_N, so the two independent choices really multiply, with neither an ordering nor a stabilizer factor on an individual triple. For rank-one existence, N/g_R and N/g_C must each be at least three and have product dividing N; the stated progressions realize those gcds. The proof applies to all N≥3 over C and does not require squarefreeness or R=C.
 
-**Limits.** No claim is made for higher-dimensional minors or beyond the cyclic complex Fourier transform. The correctness proof is algebraic; finite exact computations are corroboration. Independent verification is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact earlier finite and restricted-modulus overlaps and a later materially equivalent full census are verified. The latter has a later catalogue path, not evidence of earlier priority. On the evidence checked, the distinct contribution at the frozen record is the unrestricted cyclic-modulus census with an explicit per-pair criterion and divisor-stratum counts. None of the identified earlier principal, Hadamard or restricted-modulus results provides that full coverage.
+
+## value
+
+PASS
+
+A complete rank census is a natural invariant of the cyclic Fourier sampling family, for which principal-minor or prime-specific facts are insufficient. The dephasing rigidity and gcd strata turn complex determinant enumeration into a reusable local decision test and exact divisor-only evaluation, including a sharp criterion for the existence of rank one.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

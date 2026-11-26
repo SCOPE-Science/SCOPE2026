@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:14:17.973858Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the stated real full-line BV class, Df is a finite signed measure and f is a constant plus the L²(γ) integral of the unit jumps H_t against Df. Thus the projection error norm per unit variation equals the supremum over jumps. For a jump the coefficient in mode k≥1 is φ(t)He_{k−1}(t)/√(k!), by integrating the Gaussian-weighted Hermite primitive. Differentiating the resulting finite Pythagoras formula gives E′_n=−2φ²(G−Q_n), with G′−tG=1. In (d/dt−t)(He_{k−1}He_k/k!), the two terms remaining by the Hermite recurrence are He_{k−1}²/(k−1)!−He_k²/k!. Telescoping gives E″_n+tE′_n=−2φ²He_n²/n!, also for n=0, and E′_n(0)=0. The integrating factor and the nonzero polynomial square give E′_n(t)<0 for every t>0; reflection gives the unique maximum at 0. The variation measure of an extremizer must be supported at 0, since otherwise integrating the strictly lower jump norms against variation loses strictly. The center coefficients vanish in even positive degrees and in degree 2j+1 have square (2π)⁻¹ binom(2j,j)/(4^j(2j+1)); this gives C₀=1/2 and strictly decreasing successive odd–even plateaus. The arcsine tail and Stirling give C²_{2m}∼1/(2π^{3/2}√m), hence the displayed limit with n∼2m. Inspected the frozen finite checker without executing it. Replay: python3 -B /workspace/review_evidence/independent_checks.py 4; 45 numerical comparisons of the squared jump residual by quadrature in x, degrees 0–8 and thresholds 0, 0.25, 0.5, 1, 2, with strict ordering at these thresholds. This is diagnostic, not a proof of strictness or the asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2d530e589157 Finding includes ν=δ₀, which is exactly Π₀ and gives its norm and extremizers. Its remaining operators have multipliers ∫r^k dν(r) for probabilities on [0,1].",
+          "The inspected Jaming papers concern Hermite-function approximation for time/band concentration. The visible Davis–Hagelstein material concerns pointwise overshoot."
+        ],
+        "reasoning": "For a cutoff n≥1 the first multiplier must be 1, forcing r=1 almost surely and therefore all multipliers 1, which contradicts cutoff in degree n+1. Even convergence of the first multiplier to 1 forces every fixed multiplier to 1. Thus the Mehler theorem is material partial overlap, not a covering positive-degree theorem; no priority inferred from the common date. Neither concentration estimates nor pointwise overshoot determines the sharp BV residual operator norm.",
+        "searches": [
+          "Positive Mehler mixture Resultary record 2d530e589157; arXiv:1407.1293; arXiv:1501.03655; DOI 10.1016/j.jmaa.2021.125574"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1cf206db791f",
+        "Resultary 2d530e589157",
+        "NIST DLMF §§18.3, 18.18",
+        "arXiv:1407.1293",
+        "arXiv:1501.03655",
+        "DOI 10.1016/j.jmaa.2021.125574 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-mode sharp claim does not show the sum of the remaining modes is largest at zero; the positive mixture strict-median result lacks the finite cutoff multiplier.",
+          "Frozen proof uses a square of the single endpoint-degree polynomial He_n to show strict monotonicity of the entire tail."
+        ],
+        "reasoning": "The exact plateau and sharp asymptotic are consequences of the new positive-degree maximization, not standalone originality claims for Hermite parity or binomial tail evaluation.",
+        "searches": [
+          "1cf206db791f Finding and three-mode comparison; 2d530e589157 Finding and strict-median argument; arXiv:1407.1293 and arXiv:1501.03655 introductory statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "1cf206db791f gives a sharp two-consecutive-coefficient bound and off-center maximizing jumps for a starting even index, whereas (I−Π_n) is the entire discarded tail."
+        ],
+        "reasoning": "An exact norm of one or two coordinates is not the norm of the squared sum over all k>n; adding separate suprema need not preserve a common extremizer.",
+        "searches": [
+          "Resultary search for sharp Gaussian BV Hermite projection residual, half-line threshold maximization and adjacent coefficients; matching records 1cf206db791f and 2d530e589157"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "DLMF gives orthogonality, normalizations and L² expansions; the closest catalogued constants concern coefficient pairs and Mehler mixtures, respectively."
+        ],
+        "reasoning": "Classical tables determine the numerical residual at t=0; turning that value into the exact norm requires global threshold dominance. No inspected table supplied the positive-degree sharp norms as such.",
+        "searches": [
+          "Resultary matches 1cf206db791f and 2d530e589157; NIST DLMF §18.3 Table 18.3.1 and §18.18(i); primary-literature search for sharp BV Hermite tail errors"
+        ]
+      },
+      "rationale": "The supported distinct claim is the strict all-degree threshold maximum for the full finite-degree projection residual, and its exact positive-degree norms and extremizers. The degree-zero case and general jump-reduction method are not novelty grounds. No exact or stronger covering positive-degree claim was established in the inspected material.",
+      "residual_risks": [
+        "Record 0b869f234dbe cited by the frozen item could not be independently located in the mirror; its exact scope was not inferred from the title.",
+        "The Gibbs paper was not read beyond accessible material; an unindexed or unread full-tail result remains possible. No guarantee of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Coefficient-block overlap; does not cover the full tail",
+          "evidence": [
+            "Sharp for (a_n,a_{n+1}); even starting index has off-center extremizers; three-mode increase discussed."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-a-no-cost-adjacent-hermite-coefficient-theorem-for-bounded-varia--1cf206db791f/RESULT.md",
+          "material_read": "Finding at offset 0 and proof passage at offset 3859",
+          "method": "Resultary search and local mirror read",
+          "title": "A no-cost adjacent Hermite coefficient theorem for bounded variation",
+          "trigger": "Same BV seminorm and Gaussian basis; potential combined-mode domination"
+        },
+        {
+          "assessment": "Covers degree-zero projection; not any positive-degree cutoff",
+          "evidence": [
+            "Allows atom δ₀ and arbitrary Borel probabilities on [0,1] other than δ₁; the mode multipliers are moments in r."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-gaussian-variation-error-for-positive-mixtures-of-mehler-o--2d530e589157/RESULT.md",
+          "material_read": "Finding, assumptions and first proof paragraph (offset 0); strict-median proof passage at offset 3829",
+          "method": "Resultary local mirror, offset reads",
+          "title": "Sharp Gaussian variation error for positive mixtures of Mehler operators",
+          "trigger": "Closest same-day sharp Gaussian BV operator norm and strict median extremizer"
+        },
+        {
+          "assessment": "Classical inputs, not the extremal norm",
+          "evidence": [
+            "Hermite normalizations and orthogonal-series convergence."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/18.3 ; https://dlmf.nist.gov/18.18",
+          "material_read": "§18.3 Table 18.3.1 and §18.18(i) L² expansions",
+          "method": "Lawful open-access text reads",
+          "title": "NIST DLMF Chapter 18",
+          "trigger": "Exact basis conventions and expansion tables"
+        },
+        {
+          "assessment": "Different stated input and objective",
+          "evidence": [
+            "Time/band-concentrated data and Hermite-function approximation, not the stated Gaussian weighted BV operator norm."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1407.1293 ; https://arxiv.org/abs/1501.03655",
+          "material_read": "OA versions, page 1 and introductory scope",
+          "method": "Lawful open-access reads",
+          "title": "Approximation of almost time and band limited functions I and II",
+          "trigger": "Hermite approximation literature"
+        },
+        {
+          "assessment": "Visible claim concerns pointwise overshoot; no whole-paper exclusion",
+          "evidence": [
+            "Gibbs behavior is a local pointwise quantity rather than the global L² projection error."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2021.125574",
+          "material_read": "Landing page and abstract only",
+          "method": "OA landing-page attempt",
+          "title": "Gibbs phenomena for some classical orthogonal polynomials",
+          "trigger": "Hermite approximation to jump discontinuities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact worst error for all degrees and all real Gaussian BV input is a natural approximation benchmark. The question is not which coefficient is largest: simultaneously controlling a whole tail gives a universal and unique median jump despite off-center optima for some individual modes. The formula, parity plateaus and sharp rate make the extremizer theorem quantitatively useful without claiming a new parity or asymptotic tool.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

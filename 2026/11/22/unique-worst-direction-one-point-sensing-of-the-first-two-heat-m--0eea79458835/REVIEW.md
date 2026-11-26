@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The information Gramian follows exactly from the two sine gains and a symmetric positive-definite temporal Gram matrix. Its inverse has a sign-conjugate, entrywise nonnegative representation. Under the logit parameter each nonzero matrix entry has strictly positive logarithmic second derivative, with a common margin on compact intervals. The nonnegative Rayleigh quotient, Hölder inequality and Perron eigenvector give a globally strict log-convex spectral radius; its divergent tails establish uniqueness. Reflection accounts for precisely two spatial minimizers of worst-direction inverse energy. The heat limits follow from uniform convergence of the finite-horizon eigenvalue objectives, and the limiting cubic follows from the characteristic-polynomial stationarity equations. The symbolic and numerical checks are supplementary, not a substitute for this continuum argument.
+## correctness
 
-## Originality — PASS with priority risk
-The inspected published mathematical objectives differ materially from the proposed conclusion. Geshkovski and Zuazua (arXiv:2108.05629, Sections 1–3 and conclusion) study scalar actuator direction through a Brunovský change of coordinates rather than the two-sine constrained point sensor. Privat, Trélat and Zuazua (arXiv:1403.6445, Introduction and Section 2) study prescribed positive-measure domains and random-initial-data averaging, where cross terms are removed. Wolf, Moura and Krstić (CDC 2012, Section III) use the largest eigenfunction magnitudes as modal observability rather than the continuous-time information Gramian's smallest eigenvalue. Kang and Xu (NOLCOS 2013, first two sections) establish partial-observability criteria without the stated exact optimization. Burns and Herdman's 2021 paper was accessible only at abstract level and may cover relevant spatial placement examples. No inspected full-text statement or directly stronger theorem was found that implies exactly the general logit uniqueness theorem and both heat limits. Classic log-convex Perron-root theory remains an important possible route to an unrecognized equivalent result.
+PASS
 
-## Value — PASS
-First-two-mode temperature reconstruction is the smallest nontrivial point-observation problem in which two unknown modal amplitudes compete and cross terms matter. This result makes the worst-direction placement globally solvable by a strictly convex one-variable optimization for every positive-definite temporal profile pair, rather than relying on nonconvex location searches. The heat equation exhibits distinct short- and long-horizon optimal positions, while determinant-optimal placement remains fixed at \(\cos^2(\pi x)=1/3\). The exact design law is relevant as a modal benchmark, not a claim about higher-dimensional PDE sensing performance.
+Reassessed the repaired heat claim. The decays are e^(-t) and e^(-4t) at the specified diffusivity and Euclidean amplitude normalization. Their energy Gram is positive definite for all T>0; the reflected objective vanishes at the endpoints and midpoint and is positive in each open half. The repaired background argument correctly factors 1+exp(z) out of the sign-conjugated inverse; the residual matrix has log-convex nonzero entries (positive irreducible for b≠0, diagonal otherwise). Convexity of its log spectral radius plus the strict scalar factor and divergent inverse tails gives precisely one optimum on each half. Independently, the squared area identity for the Gram determinant gives Delta_T/T⁴ -> 3/4 by integrating 9(r-q)²/2 over the unit square. The stable trace/determinant formula then gives uniform convergence of T^(-3) Lambda_T to 3u(1-u)/(1+4u), whose unique maximizer is (sqrt(5)-1)/4. At infinity the uniform eigenvalue limit has positive gap for 0<u<1 due to its off-diagonal entry, so interior stationarity gives a characteristic-polynomial resultant of -9(1-u)²(50u³+19u²+4u-9)/10000. The cubic is strictly increasing on [0,1] with opposite endpoint signs; its unique interior zero must be the limiting optimizer. Uniform convergence on the compact design interval justifies both argmax limits. Independently reproduced the sites 0.3123764311071713 and 0.2737605526096953. The determinant comparator has unique u=1/3 independently of T, as stated in the repair. Replay: python /workspace/independent_checks.py 5 (SymPy). Original verification and program were inspected, not executed; no claim about monotonicity, measurement noise or higher modes is made.
 
-## Limitations and closest literature
-The result concerns two Fourier sine gains and continuous observation at one fixed spatial location. It proves neither time-monotonicity of the optimal location nor higher-mode, discrete-time, or noise-aware placement. Prior art may contain the exact corollary in a different notation; the unavailable full article by Burns and Herdman requires further priority scrutiny. No independent mathematical or publication-priority assessment has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the repaired claim, credit only the exact short- and long-horizon optimizers for the specified single-point, two-heat-mode worst-direction design. The general convexity/uniqueness assertion is treated as classical machinery applied to these gains. None of the strongest checked spatial or spectral design results gives the two exact horizon endpoints under this criterion and admissible set. This is a best-of-knowledge judgment, not absolute priority.
+
+## value
+
+PASS
+
+A one-point, two-amplitude experiment is the simplest heat model in which weak observability arises from nearly indistinguishable temporal modes. The endpoints show a precise horizon-dependent change in worst-direction design, contrasting with determinant design whose optimizer is horizon invariant. The short-time rank loss is reflected in cubic-in-time information; the late optimal point is instead determined by the integrated modal Gram. These exact limits are useful benchmarks for sensor design and numerical methods near temporal degeneracy, without claiming a temporal monotonicity theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,25 +19,24 @@
 }
 ---
 
-# Reproducible exact verification
+# Independent mathematical audit
 
-The two source files are standalone and are fully included with this result. Their standard-library-only tests reproduce the complete finite census for dimensions \(2\) through \(5\). They test every vertex subset at cardinalities \(d-1\) and \(d\), and separately exclude edge-resolving sets with \(d-2\) vertices for \(d=4,5\). They compare the entire accepted-set collection with the independently generated geometric families.
+## correctness
 
-```sh
-python3 verify_independent.py
-g++ -std=c++17 -O2 verify_masks.cpp -o verify_masks
-./verify_masks
-```
+PASS
 
-The recorded successful runs returned the following values in both implementations:
+For each edge I computed the minimum of two Hamming distances, packed the resulting distance signatures without collisions, and separately unioned the covered edges. The exact replay checks all required cardinalities against lower counts (resolving, covering, joint) (0,4,0), (0,16,0), (64,112,0), (1280,80,0) at d−1 and finds (4,32,176,160) joint sets at d. Monotonicity excludes all smaller subsets. The checks at d−2 establish ordinary minima 3 and 4 in dimensions 4 and 5. Full translation/coordinate-permutation orbits of the representative shapes give set equality, with sizes 4; 8 and 24; 16, 64 and 96; and 160. The repaired claim compares minimum cardinalities, not the possibility of augmenting every ordinary basis. Indeed, in Q5 only 160 of 1280 ordinary 4-bases are single deletions from an optimal joint set; {0,3,5,14} in binary-integer notation is a checked nonextendible ordinary basis. The complete replacement RESULT.md is under /workspace/repairs/5/. Replay: python3 /workspace/checks/5.py. No higher-dimensional conclusion follows from these tests.
 
-| Dimension | Edge-resolving sets of size \(d-1\) | Vertex-edge-dominating sets of size \(d-1\) | Joint sets of size \(d-1\) | Joint sets of size \(d\) |
-|---|---:|---:|---:|---:|
-| 2 | 0 | 4 | 0 | 4 |
-| 3 | 0 | 16 | 0 | 32 |
-| 4 | 64 | 112 | 0 | 176 |
-| 5 | 1280 | 80 | 0 | 160 |
+## originality
 
-They returned `family_equal=True` / `family_equal=true` at all four dimensions and the respective tokens `CUBE_VE_EDGE_PY_OK` and `CUBE_VE_EDGE_CPP_OK`. All set comparisons are exact; no randomized or approximate calculation is used.
+PASS
 
-The results do not cover higher dimensions. No independent audit or external certification is claimed.
+Pass is for the repaired, credited scope. The joint minimum sizes in Q2 and Q3 follow exactly from earlier product theorems, and the whole labelled Q2 row from the earlier complete-prism classification. These are now attributed rather than offered as new. The inspected statements do not cover the joint minima or the complete geometric optima in Q4 and Q5. The Q3 classification is retained as a supplementary complete census; ordinary edge dimensions and unrelated measures are not the basis for originality.
+
+## value
+
+PASS
+
+Q4 and Q5 are successive standard cubes where adding a local coverage constraint provably changes the optimal size relative to pure edge identification. The complete basis geometry identifies exact placements, not merely a cheap extra case of a scalar table: three distinct four-dimensional orbits collapse to one rigid five-dimensional shape. This is a natural benchmark for the published joint parameter and for studying when and how an identification set can meet a local coverage constraint. It does not rest on the known Q2/Q3 minima or on a claim of arbitrary augmentation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

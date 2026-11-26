@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof treats \(p>1\), \(-1<N,D<1\), every integer moment index and every positive Schur exponent. For \(N>D\) the weights decrease and exclude subnormality; for \(N=D\) the shift is unweighted. For \(N<D\), moment infinite divisibility implies complete monotonicity of \(h_n=-\log\alpha_n^2\) via the small-positive-exponent limit of Hausdorff differences. The finite signed logarithmic representing measure has masses \(c_k=(-1)^{k-1}(D^k-N^k)/k\) at distinct atoms \(p^{-k}\). Hausdorff measure uniqueness forces all masses positive, already constraining the region via \(c_2\). In the admissible region all \(c_k\) are nonnegative; finite-total-intensity Poisson measures reproduce the moments of **every** powered shift. All convergence estimates are uniform in the discrete moment index. The supplied checker passed 1,081 finite assertions, not an infinite proof.
+## correctness
 
-## Originality — PASS, with historical-priority risk
-The original 2023 article proves MID in Sectors I and II, but its Conjecture 1.3(2) explicitly leaves complete non-MID exclusion for Sector III unresolved. The broad logarithmic sequence criterion is from 2017/2020 and is not claimed here. The new necessity follows from **uniqueness of the signed logarithmic Hausdorff measure**, and the explicit compound-Poisson Berger laws are stronger quantitative information than membership alone. The 2024 safe-quotient study and 2025 signed-charge follow-up address different operators/positive-measure conditions and do not assert this pair of results in the material inspected. A same-object published similarity result discusses conditioning, not MID. The bibliography and structured originality comparisons specify searchable statements, closest sources, and inspection limits. Unindexed equivalent specializations could exist.
+PASS
 
-## Mathematical value — PASS
-A sharp and natural all-parameter classification resolves a specific conjectured boundary within an established test family of weighted shifts. The Poisson description produces each Schur power's entire Berger measure, including the atom at one and the parity-degenerate boundary. This is not a routine numerical test or arbitrary parameter restriction, and it may facilitate quantitative analyses of powered shifts and moments. It does not claim a classification of ordinary subnormality, other operator classes, or safe quotients.
+If N>D, the squared weights decrease strictly to one, violating the weighted-shift hyponormality necessary for subnormality. The diagonal has Berger measure delta_1. For N<D, contractive subnormal Schur powers have Hausdorff moment sequence gamma_n^s, where gamma_n is the product of squared weights. Divide the order-r+1 Hausdorff inequality by s and let s decrease to zero: the constant term vanishes and Delta log gamma_n=-h_n, yielding (-1)^r Delta^r h_n>=0. The log series gives h_n as moments of the finite signed measure sum c_k delta_(q^k), with |c_k|<=2rho^k/k for rho=max(|N|,|D|)<1. Polynomials are dense on [0,1], so this finite signed measure is the unique one with those moments and must be positive. For any real q=1/p in (0,1) its atoms are distinct, so c_2=(N^2-D^2)/2>=0 forces N<0 and N<D<=-N. There all even coefficients are nonnegative by absolute-value comparison, all odd ones positive by order of the parameters; at equality precisely the even coefficients vanish. The b_k=c_k/(1-q^k) are summable by 1-q^k>=1-q, and summing h_j over j<n gives log gamma_n=-sum b_k(1-q^(kn)). Independent Poisson counts of means sb_k have finite total count almost surely; evaluating their generating function at z=q^n gives exactly gamma_n^s. The Berger criterion and Hausdorff determinacy prove existence and uniqueness, and the constant coefficient is e^(-sB). Independent replay: python3 -I -B /workspace/reproduce.py 2 tested three rational bases, 84 fractional-power moments from a generating-function coefficient recursion with a bounded numerical truncation used as corroboration, and six exact nonpositivity certificates by rational tail bounds on t^30(t-q)^2. The uploaded checker was inspected only. The arguments above, not these examples, handle the real parameter range.
 
-## Sources and limitations
-Benhida, Curto and Exner, *Geometrically regular weighted shifts*, arXiv:2309.05888 (Theorem 1.2, Conjecture 1.3 and Section 2.1); *Moment infinitely divisible weighted shifts*, arXiv:1710.10683; *Moment Infinite Divisibility of Weighted Shifts: Sequence Conditions*, arXiv:2009.07797 (Theorems 3.1 and 3.4); *MID and subnormal safe quotients for geometrically regular weighted shifts*, JMAA 538 (2024), article 128443, arXiv:2312.06390; and *Signed Representing Measures...*, Results Math 81 (2026), article 17, published online December 2025. The 2024 paper's relevant extracted passages were read, but page images could not be retrieved; its geometrical diagrams are not needed for the comparison. The checks do not guarantee global bibliographic uniqueness or independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general logarithmic criterion, MID sufficiency in Sectors I and II, ordinary subnormality in Sector III and the ordinary (s=1) Berger measure are prior coverage. The remaining result gives the conjectured full nontrivial MID boundary for individual shifts and an explicit compound-Poisson description for all positive Schur exponents. In particular the entire forbidden portion is excluded without restrictions on p. Inspected later quotient and signed-charge passages treat different criteria and do not settle those statements. This is a bounded comparison, not a historical priority guarantee.
+
+## value
+
+PASS
+
+The theorem settles an explicit boundary question within a standard weighted-shift family: ordinary subnormality and divisibility of the moment sequence separate throughout the full adjoining sector. A single signed logarithmic atom detects the separation uniformly in the base. The constructive all-power law supplies normalized masses, the atom at one and the boundary jump parity, rather than just an existence statement or a finite positivity test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

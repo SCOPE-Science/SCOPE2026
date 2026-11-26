@@ -1,48 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. A generic diagonal one-parameter subgroup has matrix-unit coordinate points as the only fixed points in each projective matrix factor. For
-\[
-X=E_{ji},
-\qquad
-Y=E_{\ell k},
-\]
-the two circular-complex equations hold exactly when
-\[
-\ell\ne i
-\qquad\text{and}\qquad
-k\ne j.
-\]
-This gives
-\[
-a(a-1)b(b-1)
-\]
-fixed points.
+## correctness
 
-Every surviving coordinate pair has rank one in both factors. Hence the same fixed locus occurs in every nontrivial rank closure
-\[
-Z_{a,b}^{(c)},
-\qquad
-1\le c\le a-1.
-\]
-Euler localization applies to projective complex algebraic varieties even when singular or reducible.
+PASS
 
-The bundled checker independently enumerates all coordinate pairs on a finite grid and verifies the rank-independence. Finite computation is regression evidence only.
+Both arrows are separately projectivized. The generic integral diagonal cocharacter has distinct weights within each factor, so the fixed points are exactly the coordinate matrix-unit pairs. For X=E_{ji}, Y=E_{ℓk}, vanishing of the two compositions requires ℓ≠i and k≠j, regardless of the rank bounds. All surviving pairs have ranks (1,1), belong to every stated closure, and number a(a−1)b(b−1). Localization of compactly supported Euler characteristic is valid for singular varieties; here projectivity identifies it with ordinary Euler characteristic. An independent calculation stratifies by positive ranks (p,q): choose im Y⊆ker X in C^a and im X⊆ker Y in C^b, then choose the two quotient-to-image isomorphisms modulo their individual scalars. These are Zariski-locally trivial PGL_p×PGL_q bundles over products of partial flag varieties. PGL_d has zero compactly supported Euler characteristic for d>1 by free left multiplication by a one-dimensional subtorus, so only (1,1) contributes. The Euler number of the line-in-hyperplane flag variety in dimension d≥2 is d(d−1) by projection to the space of lines. This gives the same Euler number for each rank bound and the full space. The a=1 space is empty since a nonzero X from a one-dimensional space is injective, so XY=0 would force Y=0. The ambient Euler number is (ab)², giving the stated ratio. Frozen verification and checker were inspected, not executed; the checker only confirms finite fixed-point combinatorics.
 
-## Originality
-PASS. The archival literature defines the exact circular-complex variety and studies its orbit closures, affine-Schubert models, normality, Cohen--Macaulayness, and rational singularities. The inspected open full text contains no located Euler, Poincaré, Betti, topology, or fixed-point calculation.
+## originality
 
-Targeted semantic and web searches for the exact equations, separate projectivization, Euler characteristic, topology aliases, and matrix-unit fixed points found no covering statement. The closest prior result for a linear multiprojective chain complex is not a superset: cyclic closure adds a second composition equation and changes the endpoint conditions.
+PASS
 
-Residual risk remains because the localization argument is short and may be folklore.
+The affine orbit geometry and Euler localization are established. The supported distinct claim is the computed ordinary Euler number of the separately projectivized two-arrow cyclic locus and its independence of the component rank, not a new affine structure theorem or localization principle.
 
-## Value
-PASS. The result gives an exact topological invariant for a classical family and reveals that every nontrivial circular-complex component closure has the same Euler characteristic despite different dense rank splits and geometric dimensions.
+## value
 
-The common value has the simple ambient ratio
-\[
-\left(1-\frac1a\right)\left(1-\frac1b\right),
-\]
-and the formula detects the exact one-dimensional emptiness boundary.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Biprojectivization is the natural compact parameter space of pairs of nonzero arrows up to independent scalars. The equality across geometrically different component closures and their union identifies precisely what ordinary Euler characteristic cannot distinguish, and localizes the entire invariant to the minimal positive rank stratum. The quotient and cyclic incidence count are essential; this is not an affine component count or a numerical substitution into a chain formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem uses the exact reflecting mean-field equation of Cao and Gong for every integer \(k\ge1\). The proof separately verifies that the cumulative-coordinate system is cooperative, that reflection forces the mean to remain nonpositive, and that the initially nonpositive distribution is dominated by its unbiased reflecting counterpart. The neutral chain's explicit first eigenfunction has a strictly positive projection from every permitted nontrivial initial distribution, giving eventual strict stochastic domination by the uniform equilibrium. An all-\(k\) discrete-parabola subsolution then prevents that domination from collapsing. The exact positive-coefficient polynomial in the geometric frozen-chain comparison excludes any negative limiting mean other than \(-k\). This is an analytic proof; the independent verification script checks finite instances but is not used to infer the infinite statement.
+PASS
 
-## Originality — PASS, provisional historical priority
+In cut coordinates the probability simplex is convex, and averaging the cut-field Jacobian along a segment between feasible distributions gives a Metzler matrix by the off-diagonal formula. The resulting comparison preserves cumulative order, so reflection gives m≤0. For comparison against a frozen-rate chain at bias v, the nonlinear cut field minus the frozen cut field at the nonlinear law equals (v−m)(p_j+p_(j+1))/(2k), nonnegative when m≤v. In particular the unbiased chain is an upper comparator in stochastic order. Its Neumann cosine modes have eigenvalues −(1−cos(sπ/(2k+1))); the one-sided initial law has strictly positive first coefficient and every nonterminal first-mode prefix sum is positive. The faster remaining modes therefore leave every cut strictly above its uniform cumulative mass after some finite time. In these centered cut coordinates the discrete parabola i(2k+1−i) has centered second difference −1 and sum (2k+1)·2k(k+1)/3, so its small feasible multiple is a strict constant subsolution with first-order cut drift (2k−1)/3>0, also at k=1. Comparison yields a persistent negative mean gap. For fixed r=(k+v)/(k−v), the numerator of the stationary-mean difference has coefficients 2d−2k−1 at r^d for 1≤d≤2k and factors as in (6), strictly negative on (0,1). If the limiting upper mean L exceeded −k, freezing successively at v>L and taking v down to L would give L≤f(L)<L. Mean saturation gives convergence to the endpoint, and reflection gives the other endpoint; δ₀ remains unbiased and converges to uniform. The motivating equation and precise support class match. Bibliographic correction only: the expectation is in the last remark before §4, not in §4 itself. The supplied verifier was inspected, not executed.
 
-Cao and Gong (arXiv:2605.28984v1, May 27, 2026) explicitly pose the proved one-sided-support conclusion as an expectation requiring proof, while their stated attraction theorem requires an initial mean close to an extreme. The present conclusion covers all distributions supported on one side of zero, including those with average arbitrarily close to zero. Discrete Incremental Voting (arXiv:2606.06381) uses direction-of-difference interactions instead of probability-biased steps, and the earlier Cao–Reed persuasion/repulsion paper has different update rules. Earlier related statements about local uniform-state eigenvalues or relaxation *conditional on a selected extreme* do not imply which extreme is selected. A search of mathematical records and relevant literature revealed no equivalent or dominating basin theorem. This search does not prove uniqueness; monotone mean-field birth–death comparison results elsewhere remain a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result resolves a specific, explicitly proposed conjecture on basin selection in a new opinion-dynamics system, for an infinite sequence of opinion-space sizes and an infinite-dimensional family of initial distributions across them. It replaces a near-extreme mean threshold with a sharp qualitative initial-support criterion, distinguishes exactly the exceptional all-zero initial datum, and provides an all-\(k\) method using order, spectral positivity, and a strictly improving frozen-chain stationary mean. The full mixed-sign initial-data basin remains outside the claim.
+The originating paper states the exact support-class result as an expectation, not a theorem. Earlier same-model work proves convergence to a trichotomy and gives a sufficient entropy barrier but does not select the limit for all one-sided laws. A later strict stochastic-order criterion overlaps, but one-sided support by itself does not give that initial order. The proof establishes eventual strict order and persistence, and selects the extreme for every k≥1. No inspected earlier statement entails the full conclusion without substantive additional comparison.
 
-## Sources and limitations
+## value
 
-Primary inspected source: Cao and Gong, arXiv:2605.28984v1, equations (1.1), (2.1), Section 3.2 and Section 4. Related complete accessible model description: Berenbrink et al., arXiv:2606.06381, introduction and formal protocol. Cao and Reed, doi:10.1137/24M1700661, abstract and MSC classification were accessible, but the publisher's full text was restricted. The verification script checks exact identities for finitely many \(k\) and illustrative numerical trajectories; it does not replace the general proof. Historical priority and proof are not independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem solves the source's concrete all-k basin question on a natural class that includes means arbitrarily near zero, outside the strict extreme-mean threshold. It controls long-time selection rather than just identifying stationary points or citing unstable linear modes. It makes no finite-agent fixation claim and leaves mixed-sign support open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

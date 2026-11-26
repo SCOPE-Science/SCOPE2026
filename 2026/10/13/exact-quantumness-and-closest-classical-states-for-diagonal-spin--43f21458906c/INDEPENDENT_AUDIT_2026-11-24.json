@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:03:25.859998Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent spin-moment and convex projection checks"
+      ],
+      "rationale": "An independent check of the classical region uses the first two moments of t=cos(theta): after azimuthal twirling a coherent mixture has x=E[t] and 1-2b=E[t^2]. At fixed x the second moment ranges over [x^2,1], realized by interpolating between a point mass at x and a mixture of the two poles with mean x. This confirms the frozen PPT computation. Dephasing over rotations about the spin axis preserves the compact classical convex hull and is an orthogonal projection for the Hilbert–Schmidt inner product, so the unique metric projection of a diagonal target is diagonal. Its squared distance to (y,b') is (x-y)^2/2+3(b-b')^2/2. Feasibility is 0≤b'≤h(y)=(1-y^2)/2. For b>h(x), the minimizing section at y is the clamp of b to this interval; if b≤h(y), moving horizontally to the endpoint nearest x of {y:h(y)≥b} reaches the boundary without increasing distance. This reduces minimization to b'=h(y). The derivative there is (3y^3+(6b-1)y-2x)/2. Because |x|≤1-b and b>0, it has strict opposite signs at ±1; it is strictly increasing for b≥1/6. For smaller positive b, the Cardano radicand x^2/9-(1-6b)^3/729 is positive since x^2>1-2b>2/3. Thus there is exactly one real root and the closest state has parameter -1<y<1 on the boundary of the classical region. Substitution of x-y=3y(b-h(y)) gives the second distance formula. Three equally spaced phases cancel coherences of phase order one and two; the resulting diagonal state has rank three, giving a sharp lower bound on ensemble length. Supplemental frozen replay: verify.py in the package (not used to infer the continuum result). Its conditional low-b radicand test is not exercised by its listed numerical cases; the exact proof covers that regime, e.g. (a,b,c)=(9/10,1/10,0) has x^2+2b=101/100 and radicand 9/100-(2/5)^3/729>0.",
+      "residual_risks": [
+        "The claim is for the coherent-state hull and the Hilbert–Schmidt norm. A numerical scan is not a proof of the cubic minimizer or of root uniqueness. The projection is on the upper classical boundary, not interior to that hull."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general exact pure spin-1 analysis covers |1,0>, not the mixed off-axis states. The cited mixed-state work reports numerical optimization and an unproved general bound, except on special segments.",
+          "General two-qubit closest-separable or closest-PPT results optimize over a larger set; the spin-1 source explicitly notes that the full optimizer need not be symmetric."
+        ],
+        "reasoning": "General characterization of the feasible set, pure-state formulas, and optimization over all separable two-qubit states do not supply the off-axis metric projection onto the spin-coherent hull.",
+        "searches": [
+          "arXiv:1510.07848 §§III–IV, general pure and mixed spin-1 quantumness",
+          "arXiv:quant-ph/0107155, closest PPT states and Hilbert–Schmidt geometry",
+          "arXiv:2308.06245v1, minimum Hilbert–Schmidt distance to separable states"
+        ]
+      },
+      "checked_sources": [
+        "Giraud–Braun–Braun (arXiv:1002.2158, arXiv:1110.0325)",
+        "Bohnet-Waldraff–Braun–Giraud (arXiv:1510.07848)",
+        "Verstraete–Dehaene–De Moor and Pandya–Wieśniak scope statements",
+        "Matched local Resultary findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known Queen, feasible-set characterization and pure-to-nearest-classical mixtures cover the pure case, the inequality, and the axial formula respectively.",
+          "Using the general classicality description to solve a diagonal mixed-state projection still requires the weighted boundary minimization and the physical-regime uniqueness proof; those determine y and its coherent decomposition, rather than merely evaluating a prior projection formula."
+        ],
+        "reasoning": "The exact off-axis minimizer is not a relabeling of the covered segments or a special case of the cited analytic pure-state result. Uniqueness by convexity is standard and not claimed as an independent novelty.",
+        "searches": [
+          "arXiv:1002.2158, spin-1 Queen",
+          "arXiv:1110.0325 §III, full classicality characterization",
+          "arXiv:1510.07848 Eq. (42), mixed states on the normal segment"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier full spin-1 geometry and the positivity criterion X≥0 already imply the diagonal classicality inequality.",
+          "For diagonal states the zero-dipole condition is exactly x=0. The indexed zero-dipole result gives the quantumness, unique projection and length three on that slice; Eq. (42) likewise covers the central ray as the segment from |1,0> to diag(1/4,1/2,1/4)."
+        ],
+        "reasoning": "The normalization and comparison set agree on the central ray, so it is not new here. The off-axis diagonal problem has nonzero dipole and is not equivalent to that ray by a spin rotation. The target's closest point moves along the parabola, determined by a nonconstant cubic root.",
+        "searches": [
+          "arXiv:1110.0325, classicality of spin-1 and symmetric separable two-qubit states",
+          "arXiv:1510.07848, spin-1 Bloch criterion and Eq. (42)",
+          "Resultary SCOPE-exact-quantumness-negativity-identity-for-zero-dipole-spin-one-s--ec7f5fd90fb3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The zero-dipole record is an exact result covering the central ray only within this diagonal family.",
+          "The one-zero Dicke edge record meets the present state space at n=2 and provides a three-term ensemble, but minimizes quantum relative entropy, not Hilbert–Schmidt distance."
+        ],
+        "reasoning": "Neither exact indexed result tabulates or states the Hilbert–Schmidt minimizer for nonzero x in the full diagonal family. A shared state family or ensemble length with a different objective does not imply an identical minimizer.",
+        "searches": [
+          "Local Resultary lookup for exact diagonal spin-one quantumness and nearest symmetric separable states",
+          "2026/10/12/SCOPE-exact-quantumness-negativity-identity-for-zero-dipole-spin-one-s--ec7f5fd90fb3",
+          "2026/10/12/SCOPE-uniqueness-and-minimal-product-length-of-the-closest-separable-s--d3b9c1dc25ce"
+        ]
+      },
+      "rationale": "The classicality boundary, the central ray x=0, and the pure |1,0> case have verified prior coverage. The distinct result is the explicit nearest-state and distance formula on the nonclassical off-axis diagonal region, including the exact three-coherent-projector length there. No inspected result gives or implies that full off-axis projection by specialization.",
+      "residual_risks": [
+        "Checked sources do not rule out a prior exact mixed-state reduction under other terminology. The central-ray and feasible-set overlaps are credited; originality is not attributed to those parts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior pure extremal case",
+          "evidence": "Identifies |1,0> as the spin-1 Queen up to rotations.",
+          "identifier_or_url": "https://arxiv.org/pdf/1002.2158",
+          "material_read": "Spin-1 Queen result, p. 5, offset 13941",
+          "method": "Lawful OA PDF passage",
+          "title": "Quantifying Quantumness and the Quest for Queens of Quantum",
+          "trigger": "Known spin-1 extremizer and the axially symmetric pure case"
+        },
+        {
+          "assessment": "Covers classicality, not the distance minimization in these passages",
+          "evidence": "Identifies the spin-1 classical set with symmetric separable two-qubit states and parametrizes it.",
+          "identifier_or_url": "https://arxiv.org/pdf/1110.0325",
+          "material_read": "Abstract p. 1; §III pp. 2–3, offsets 11800–22795",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Parametrization of spin-1 classical states",
+          "trigger": "Full classical geometry might imply the criterion or projection"
+        },
+        {
+          "assessment": "Exact pure-case and central-ray overlap; no analytic off-axis result in inspected portions",
+          "evidence": "The pure-plus-closest-state mixtures in Eq. (42) give the axial ray. The paper treats more general mixed cases numerically and does not establish its proposed general mixed-state bound.",
+          "identifier_or_url": "https://arxiv.org/pdf/1510.07848",
+          "material_read": "§II (pp. 2–3, offsets 8894 and 15900), §§III–IV (pp. 5–6, including Eq. (42) and mixed-state discussion)",
+          "method": "Lawful OA PDF passages",
+          "title": "Quantumness of spin-1 states",
+          "trigger": "Same objective and convex set; strongest primary coverage of closest states"
+        },
+        {
+          "assessment": "Larger feasible sets, no specialization licensed by those statements",
+          "evidence": "The problems are formulated for all PPT or separable states of the bipartite system, rather than for the spin-coherent hull.",
+          "identifier_or_url": "https://arxiv.org/pdf/quant-ph/0107155; https://arxiv.org/pdf/2308.06245v1",
+          "material_read": "Introductions/abstract passages, p. 1 of each (offsets 332 and 0)",
+          "method": "Lawful OA PDF, scope passages",
+          "title": "On the geometry of entangled states; Minimum Hilbert-Schmidt distance and the Closest Separable state to arbitrary 2×2 and 2×3 states",
+          "trigger": "Potential coverage by unrestricted two-qubit geometry"
+        },
+        {
+          "assessment": "Actual overlap on the central ray; the Dicke-edge result has a different objective",
+          "evidence": "The first gives the axial projection and three terms. The second uses quantum relative entropy rather than the Hilbert–Schmidt norm.",
+          "identifier_or_url": "Resultary findings ending ec7f5fd90fb3 and d3b9c1dc25ce",
+          "material_read": "Mirrored findings, zero-dipole and one-zero Dicke hypotheses and conclusions",
+          "method": "Local Resultary lookup and local mirror inspection",
+          "title": "Exact quantumness–negativity identity for zero-dipole spin-one states; Uniqueness and minimal product length of the closest separable state on the one-zero Dicke edge",
+          "trigger": "Closest indexed quantumness or ensemble-length results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Prior spin-1 mixed-state optimization in arXiv:1510.07848",
+        "Independently checked off-axis projection and ensemble"
+      ],
+      "rationale": "Axially invariant mixed states form a natural full two-parameter class in the spin-1 closest-classical-state problem. The off-axis solution replaces numerical distance optimization with a unique scalar root and a proved minimal coherent-state realization, including states outside the previously solved pure-to-classical ray. This identifies the actual optimizer, not only a bound or test for whether the input is classical.",
+      "residual_risks": [
+        "The result does not solve the general mixed spin-1 problem or the different problem of distance to all two-qubit separable states."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

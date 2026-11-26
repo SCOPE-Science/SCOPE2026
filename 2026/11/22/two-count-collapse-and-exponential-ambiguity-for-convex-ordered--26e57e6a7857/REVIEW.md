@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A complete extension-diagram normal form separates insertions into \(n+k\) order gaps within the \(k\) represented classes from sequences of fresh classes within \(k+1\) quotient gaps. This proves the exact generating function and its all-arity applicability; logarithmic derivatives yield the inverse. Positive ordered compositions prove the exact collision fibres, and triangular polynomial moments plus Newton's identities prove the refined recovery statement. The executable standalone diagram enumerator returns 272 exact comparisons, 5,051 inverse tests, and the stated concrete refined-channel distinction. The general proof, not the finite test, establishes correctness.
+## correctness
 
-**Originality — PASS, provisional.** The closest structural source is Kechris–Pestov–Todorcevic (2003/2005), Section 6, Theorem 6.6, describing the same lexicographic structure and automorphism group. Cameron (2000), Sections 4–5, gives generic oligomorphic group series operations and pointed stabilizers. Dorais et al. (2012) treat Ramsey structure of convex equivalences; Coulson–Dobrinen–Patel (2020), Section 4.1, Example 4.6, explicitly analyze its one-point coding tree. The inspected portions do not furnish a formula for every pointwise-marked base, the arity-two inverse, or the exact exponential classification of numerical collisions. The closest mathematical-record results concern the two-equivalence grid or gap-collapse problems with different objects and no implication establishing this theorem. Historical priority remains a risk: generic orbit enumeration methods could conceivably encode an equivalent statement outside the material inspected.
+PASS
 
-**Value — PASS.** The theorem gives a complete information-loss classification for a natural logical invariant of a classical homogeneous order: two integers capture an infinite sequence, yet the sequence has exponentially large fibres of nonisomorphic marked bases. The independent refined-channel formula pinpoints which positional information is discarded and reconstructs the unordered represented-class sizes in finitely many arities. This is a structural and sharp reconstruction/collision result, not merely a new integer sequence or finite calculation.
+In the repaired theorem, all tuples are ordered, injective and disjoint from the individually named base. Homogeneity identifies their types with finite induced diagrams; different diagrams differ on an atomic formula. In one represented class with m_i old points, r increasing new points form a weak composition among m_i+1 gaps. Its count is binom(m_i+r,r), and distinct entries give r! coordinate labellings. For r>=1, assignment to different represented classes gives disjoint sets of types. Thus C_r is the sum of the monic degree-r polynomials product_{j=1}^r(m_i+j), a triangular transform of the power sums through degree r including p_0=k. The first k counts invert it and Newton's identities recover the degree-k polynomial with the class sizes as its roots. For k=0 all counts are zero and there is no multiset to reconstruct. Direct substitution gives C_2=6+20 versus 12+12 for (1,3) and (2,2); (1,2) versus (2,1) has equal multiset and pooled sequence, but a different ordered base. Their unrefined equality follows from the cited h=1 specialization; independently the n+k internal gaps and k+1 quotient gaps give exactly (1-z)^(1-n)/(1-2z)^(k+1). The original two-count inversion is also correct by logarithmic differentiation; it is removed as a claimed contribution, not as a mathematical error.
 
-**Limitations.** The tuples have distinct new entries and lie outside the named base; the language is precisely order plus convex equivalence. The refined channel does not reconstruct the ordered class-size composition. Searches do not establish absence of all equivalent prior formulas. No independent mathematical validation was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass concerns only the repaired pooled same-class counts and multiset recovery. The distinct same-day nested-equivalence record covers the original unrefined EGF, collision structure and composition fibre at h=1. Its stated inversion assumes known n, but even the joint two-count inversion is a direct algebraic consequence of its displayed formula. The repair credits the overlap and removes those claims as contributions. The repaired channel is not determined by the unrefined data: the exhibited equal-spectrum pair has unequal C_2. The strongest other reconstruction theorems found concern different languages and structures, not the same refinement of the ordered convex-equivalence type spectrum. This is an evidence-limited judgment, not a priority claim.
+
+## value
+
+PASS
+
+The surviving result gives finite identifiability for a natural observable in a classical homogeneous structure: among injective types, count just those satisfying the single common-represented-class condition, without identifying which class. The restricted counts recover a specific, order-invariant part of the base that not even all unrefined arities can supply. The two explicit examples distinguish recovery of a multiset from recovery of the full finite ordered structure. This is a mathematically motivated refinement with a usable reconstruction, not a repackaged unrefined spectrum or a claim of a new inversion method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

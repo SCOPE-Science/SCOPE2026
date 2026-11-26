@@ -1,12 +1,21 @@
-# Assessment of the fixed-mean renewal-reset density envelope
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement assumes a stationary regenerative Brownian reset process, strictly positive independent reset periods of given finite mean, and a nonzero queried spatial position. Equilibrium-age renewal reward gives exactly \(f_S(x)=\mathbb E H_x(S)/\mu\). The Gaussian kernel changes its time derivative's sign once; this proves the unique tangent-from-origin solution and the explicit concave majorant. Jensen proves the sharp universal bound. The equality conditions distinguish the unique deterministic maximizer from the nonattained two-point extremizing limit; a separate two-point escape-to-infinity sequence establishes the infimum. Verified Gaussian integration and tangency numerically, with 430 passing assertions in the companion program. General applicability is analytic, not inferred from finite tests.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Assefa–Keller-Ressel–Palmowski (arXiv:2610.01363v1) study polynomial moments and cross-moments under renewal resetting. Eule–Metzger (arXiv:1510.07876) supply the general stationary renewal framework and particular Gamma/Weibull density examples, and study first-passage optimization. Masoliver–Montero (Phys. Rev. E 100, 042103) present another general stationary-density mixture. These prior formulas do not themselves specify the sharp fixed-mean pointwise optimization, the exact numerical transition, or the attainment structure. Searches for equivalent stationary occupation density optimizations, broader resetting controls, exact tables, and historical claim overlaps did not identify a directly covering mathematical statement. General moment-problem theory may give the convex-envelope argument, so ultimate priority remains provisional pending wider expert review.
+PASS
 
-## Value — PASS
-For a fixed average frequency of resets, spatial occupancy at a chosen target is a natural control objective distinct from mean first passage. The new law identifies a universal dimensionless boundary: regular deterministic resets maximize local occupancy in the near region, while a two-scale renewal clock beats them beyond the boundary. The exact optimizer existence change and sharp positive/zero envelopes resolve a meaningful complete variational classification rather than an arbitrary numerical bound. The theorem assumes \(x\ne0\) and does not address optimizing whole-density distances or first-passage performance.
+For the equilibrium clock the age has density P(S>t)/mu, including lattice and deterministic S. Tonelli gives E[H_x(S)]/mu, the continuous Gaussian-mixture density at nonzero x. With h=p_s(x), R=H_x-sh satisfies R'=-sh', so R decreases from zero until x²/sigma² and then increases strictly to infinity. Thus H_x(s)/s has one strict maximum; the line to the tangency followed by H_x is a concave majorant. Below tangency, strictly positive clocks of mean below tangency must pay a strict majorization loss; clocks on epsilon and the tangent time approach the bound. At tangency, upper equality excludes waits below it and the mean excludes waits above it; above tangency strict concavity gives uniqueness. For the lower bound, H_x(s)>0 and the tail weight on M is O(1/M) while H_x(M)=O(sqrt(M)), so the two-endpoint limit proves the positive-but-unattained infimum zero. Independently quadrature and scalar root finding give s*=2.66988552687754032, threshold 0.61200318096248076, and optimum 0.20245649018802463 versus deterministic 0.16663094117537260 at x=sigma=mu=1. Replay: python3 /workspace/branches/independent_checks.py (brownian_check); finite diagnostics only. The uploaded checker was read, not run.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge pass for the explicit nonzero-position Brownian envelope and its equality/nonattainment classification, not the renewal density formula or the abstract one-moment envelope method. The inspected related models do not determine the Gaussian tangency and its strict-positive equality cases.
+
+## value
+
+PASS
+
+Pointwise stationary density is a natural occupation objective at a specified nonzero location and is inequivalent to first passage. The result decides when timing randomness is useless and when deterministic resetting is strictly suboptimal, quantitatively, and explains why vanishing intervals are needed in the latter regime. This is an exact all-law comparison, not a numerical improvement for one parametric family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

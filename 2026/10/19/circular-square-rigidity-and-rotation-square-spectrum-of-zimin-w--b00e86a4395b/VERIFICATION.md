@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and limits
 
-Use `python3 verify.py` with Python 3 standard library. The verifier defines \(Z_n\) independently by recursive concatenation and by the ruler formula, then checks their equality for levels 1–11. It enumerates **all** cyclic squares by starting positions and all permitted half-lengths for levels 1–11 and compares the exact set of pairs with the theorem. For every such circular square it checks that the following symbol, when available, breaks its period. Independently of the theorem's cyclic-square formula, it constructs and directly scans all 502 distinct rotations through level 8 and compares every rotation's exact linear-square count with the predicted full histogram.
+# Independent mathematical audit
 
-Successful standalone output:
+## correctness
 
-`VERIFY_OK cyclic_square_levels=1..11 cyclic_square_occurrences=55 independently_scanned_conjugates_levels=1..8_count=502 linear_square_histogram_exact=1..8 no_proper_circular_power_above_exponent_2=1..11 recursive_equals_ruler=1..11`
+PASS
 
-The mathematical proof in `RESULT.md`, rather than this finite enumeration, establishes the theorem for unbounded levels. Computational verification does not prove scientific priority. A directly relevant 2013 preprint was available only via its bibliographic metadata and abstract, so historical originality remains uncertain pending wider literature inspection. No independent audit has occurred.
+A square cannot use a letter appearing once in its ambient arc. This gives ordinary squarefreeness by deleting the middle letter and inducting. In the doubled word, a square using the largest letter must use the two listed copies at separation exactly |Z_m|, so it is the whole doubled word; one avoiding that letter must occur in the central doubled Z_{m-1}, since the outer blocks are squarefree. In a circle restricted to one traversal, the largest letter cannot appear twice; the remaining arc is exactly doubled Z_{n-1}. Translating starts gives N_n-(2^k-1). The next symbol is k+1 rather than the first symbol 1; any longer periodic factor would extend its square prefix, so none has exponent >2. For a seam-crossing square of half-length L, exactly the cuts in [L,N_n-L] retain it, including both endpoints. Those intervals are nested, and differ in size by 2^{k+1}; the last interval contains two cuts. The rank-one word and the empty starting-cut class are handled separately. A separate bit-parallel test checked all starts and allowed periods, their extensions, and all cuts through n=13, reproducing the entire histogram.
+
+## originality
+
+PASS
+
+The supported distinct claim is the exact cyclic occurrence inventory and associated finite-conjugate histogram, including absence of extensions within one traversal. Linear Zimin squarefreeness is known. No inspected result states or yields the joint inventory and histogram by direct specialization; the conclusion is limited to the materials compared.
+
+## value
+
+PASS
+
+Finite Zimin words are a canonical recursively defined squarefree family. Closing the seam changes what repetitions occur, and the complete inventory quantifies that change precisely; the cut distribution further tells which linear conjugates are squarefree or have any given square count. This is exact data for arbitrary rank rather than a single rank check, a restatement of squarefreeness, or an extremal bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

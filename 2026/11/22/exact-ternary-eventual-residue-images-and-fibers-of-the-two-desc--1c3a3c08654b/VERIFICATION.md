@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite reproducibility checks and proof limits
+# Independent mathematical audit
 
-`check.py` uses Python 3 and only the standard library; run `python3 check.py` in a directory containing that file. It compares the integer closed form with the Eulerian recurrence for 90 initial indices, computes the \(3\)-adic logarithm and odd critical point by rational series and unique Hensel lifts, and checks all residue multiplicities and complete period values for moduli \(3^k\) with \(1\le k\le8\). The saved checker passed **29,634 exact assertions**.
+## correctness
 
-The full distinct-residue counts at \(k=1,2,3,4,5,6,7,8\) were respectively \(3,7,20,58,173,517,1550,4648\); zero-fiber counts were \(3,5,5,11,11,29,29,83\). The checker verifies the defining branches, critical constants modulo each tested power, period histograms, and the closed-image counts. All calculations are exact integer modular arithmetic, not floating-point approximations.
+PASS
 
-The proof's all-depth inference uses analytic isometries, Hensel lifting, a nondegenerate critical-point coordinate and the exact period argument in `RESULT.md`. Running finitely many cases does not establish those theorems, does not certify historical originality, and does not substitute for independent validation. The closest published valuation-focused source's full text remains uninspected.
+For n≥k, 3^n vanishes modulo 3^k and separating parity gives precisely g_0 and g_1. The restricted power series for 4^t has all its positive-degree coefficients divisible by 3; the first and second derivative reductions of the branches are t−1 and 1. Each noncritical input disc maps isometrically onto the stated residue ball. The simple derivative roots lift uniquely; in the even branch both factors vanish at −1/2 because 4^(−1/2) is the square root of 1/4 congruent to 1. For the odd center g_1(1)=−26≡1 mod 9 and moving to its critical point does not change this residue. At each critical point substitute t=β+3s: after removing 9s² the Taylor quotient is 2 modulo 3 as a restricted series. Dividing by 2 and taking the square root congruent to 1 yields a coordinate congruent coefficientwise to s modulo 3, hence a bijective isometry. The resulting square condition is modulo 3^(k−2) with s modulo 3^(k−1), giving the factor 3, with k=1 checked by the six-term pattern (2,0,0,1,2,0). That pattern forces any eventual period to be a multiple of six; applying a regular isometry forces 3^k to divide the half-period. The even sheet is already contained in the full 0 mod 3 ball. The odd sheet has measure (1/9)(3/8); counting its possible leading valuations yields the stated finite image sizes and zero fibers. Independently, recurrence-based enumeration of two tail blocks agreed on every fiber and the least period at k=1–6 (support sizes 3,7,20,58,173,517).
+
+## originality
+
+PASS
+
+The inspected results supply the sequence identity, different-prime or different-column distributions, or modular behavior of a different statistic. They do not establish the fixed two-descent ternary tail image or all-target multiplicity law. Priority beyond these comparisons is not certified.
+
+## value
+
+PASS
+
+For a classical fixed Eulerian column, the result determines both which ternary residues can persist and how often every target occurs. The distinction between a quadratic sheet hidden inside a full residue ball and one visible in the support is structurally informative: an image-only theorem would miss the extra zero fibers. The exact period, compact value set and measure 17/24 give usable invariants at all depths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

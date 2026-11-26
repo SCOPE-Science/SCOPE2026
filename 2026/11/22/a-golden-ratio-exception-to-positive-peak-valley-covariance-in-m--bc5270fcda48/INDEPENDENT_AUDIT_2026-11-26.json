@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:28:46.449361Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–51, 53–92",
+        "VERIFICATION.md and CHECK.py (inspected, not executed)",
+        "Independent exact polynomial enumeration and certificates: python /workspace/review_checks.py, check mallows"
+      ],
+      "rationale": "Conditioning on the label sets of disjoint consecutive blocks leaves the cross-inversion weight fixed, so each standardized block is Mallows and disjoint blocks are independent. Thus the peak–valley covariance consists of lags 0, 1 and 2 only and is affine in n from n=4 onward. Independently enumerating whole permutations in lengths 3, 4 and 5 as exact inversion polynomials reproduces the three base covariances; the n=5 minus n=4 difference gives qT/(S₃²S₅). The two positive-coefficient certificates in u=(q−1)²/q follow by exact polynomial identity and give strict positivity including q=1. The n=4 factors have positive roots φ in q²−q−1 and φ⁻¹ in q²+q−1, so the displayed sign table is correct; the word 'respectively' in the proof's last sentence of Step 2 swaps their attribution but not the zeros or sign statement. Descent differences telescope to P−V, the endpoint descents are independent for n≥4, and reverse-complement exchanges P and V, yielding the constant variance gap and the fixed-q sharp correlation expansion.",
+      "residual_risks": [
+        "The sign classification excludes q=0 and the limit q→∞ as parameters, and the correlation error is not asserted uniform in q. The finite-size exact enumeration suffices only with the consecutive-block localization argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Crane–DeSalvo–Elizalde's reported consecutive homogeneity and weak dissociation apply directly and collapse the overlap sum, and their compared variance result is for one specified pattern."
+        ],
+        "reasoning": "The local dependence rule alone does not determine the sign of the resulting weighted mixed overlap sum. An all-size deduction requires sign control of both its base value and slope.",
+        "searches": [
+          "arXiv:1609.01370; Mallows consecutive patterns and mixed local covariance",
+          "arXiv:2404.09777"
+        ]
+      },
+      "checked_sources": [
+        "Resultary bc5270fcda48 and 39c7625bf9e2",
+        "10.1016/j.aam.2018.12.002, arXiv:2404.09777 and arXiv:1609.01370 (scope comparisons and lawful retrieval attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The joint enumerator implies mixed moments after extraction. The published peak–double-ascent statement supplies a covariance for a different variable and the reported single-pattern method gives overlap probabilities, not positivity for this pair."
+        ],
+        "reasoning": "The known count constraints do not turn peak–double-ascent covariance into peak–valley covariance: the descent word also has double descents, and their fluctuations are not fixed by P−V. The sign certificates and the independent endpoint descent variance are additional quantitative steps. An unsuccessful primary search is not evidence of absence.",
+        "searches": [
+          "Primary literature search: exact Mallows mixed peak–valley covariance signs and inversion-refined peak–valley enumerator",
+          "Pan–Zeng 10.1016/j.aam.2018.12.002; Dong–Lin–Pan arXiv:2404.09777; Resultary 39c7625bf9e2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same pair can be represented by 0→1 and 1→0 transitions in the descent word. Pan–Zeng's inversion-refined peak/valley enumerator, reproduced according to the frozen record in Dong–Lin–Pan Theorem 1.2, encodes the same mixed moments by differentiation."
+        ],
+        "reasoning": "Neither a new name for the descent-transition pair nor derivability of moments from its existing joint enumerator carries novelty. The latter gives a starting identity, not the all-parameter strict sign theorem.",
+        "searches": [
+          "Resultary: Mallows peaks valleys exact covariance golden-ratio signs and correlation",
+          "10.1016/j.aam.2018.12.002; arXiv:2404.09777 Theorem 1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact indexed bc5270fcda48 is the assigned record itself. Distinct Resultary 39c7625bf9e2 concerns peaks paired with double ascents and reports a different, single q-transition."
+        ],
+        "reasoning": "These are not independent entries for the same sign inequality. A double ascent is a repeat 0→0 in the descent word, rather than the 1→0 transition defining a valley.",
+        "searches": [
+          "Resultary: all-q peak–valley covariance, n=4 golden-ratio zeros, and related Mallows mixed extrema transitions"
+        ]
+      },
+      "rationale": "The inversion-refined joint enumerator and local Mallows dependence properties are prior work, so generic coefficient/moment extraction is not new. The supported distinction is the all-real-q strict sign classification, its four-letter exception, and the explicit first-order correlation loss. Available statements encode or facilitate the moments, but do not give the positive-polynomial inequality or the sharp overlap-plus-endpoint analysis as stated.",
+      "residual_risks": [
+        "The original Pan–Zeng full text and the alternative full-text theorem passage were not independently retrieved, leaving possible overlap with an explicit earlier inequality unresolved. Only the indexed statement of the distinct covariance result was retrieved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Joint encoding credited to prior work; no whole-document finding",
+          "evidence": [
+            "The enumerator refines by inversions and records both peak and valley numbers."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.aam.2018.12.002",
+          "material_read": "Reported joint formula and scope, with reproduction identified in RESULT.md lines 98–112; full source not obtained",
+          "method": "OA attempt plus comparison against reported formula scope",
+          "title": "A q-analogue of generalized Eulerian polynomials with applications",
+          "trigger": "Joint generating function may dominate mixed extrema results"
+        },
+        {
+          "assessment": "Reported stronger enumeration framework, not an available strict sign claim",
+          "evidence": [
+            "Mixed derivatives of the peak and valley variables encode mixed moments; the reviewed proof adds positive-coefficient certificates."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.09777",
+          "material_read": "Theorem locator and described content in RESULT.md; independent primary passage unavailable",
+          "method": "OA attempt timed out",
+          "title": "A q-analog of the Stirling-Eulerian polynomials",
+          "trigger": "Theorem 1.2 reproduces the relevant joint enumerator according to the frozen record"
+        },
+        {
+          "assessment": "Local dependence is prior work; reported overlap-variance result is for a single pattern",
+          "evidence": [
+            "Disjoint consecutive intervals have independent standardized orders, all with local Mallows parameters."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1609.01370",
+          "material_read": "Frozen RESULT.md lines 55–57 and 98–108 describe the pertinent properties; independent primary retrieval unavailable",
+          "method": "OA attempt",
+          "title": "The probability of avoiding consecutive patterns in the Mallows distribution",
+          "trigger": "Mallows local reduction and closest overlap method"
+        },
+        {
+          "assessment": "Different statistic in the inspected statement",
+          "evidence": [
+            "Peak–double-ascent pair and a single q-transition, not peak–valley signs across n."
+          ],
+          "identifier_or_url": "Resultary 39c7625bf9e2",
+          "material_read": "Indexed claim; local mirror unavailable",
+          "method": "Resultary search and mirror attempt",
+          "title": "A unique covariance transition between peaks and double ascents",
+          "trigger": "Closest distinct indexed mixed Mallows covariance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–46, 79–92"
+      ],
+      "rationale": "For two basic local shape counts in the Mallows model, the result gives an exact all-size boundary: a genuinely exceptional four-letter sign profile gives way to uniform positive covariance. It also quantifies the near-perfect dependence rather than merely observing the bounded difference between the counts. This is useful for interpreting finite or asymptotic joint extrema statistics; it is not an arbitrary parameter slice.",
+      "residual_risks": [
+        "Covariance signs are not association results and do not imply independence or a joint distributional approximation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

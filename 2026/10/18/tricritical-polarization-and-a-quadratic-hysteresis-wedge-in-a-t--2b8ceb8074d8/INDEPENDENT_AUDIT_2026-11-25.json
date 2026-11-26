@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:34:51.814988Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–42; VERIFICATION.md; verify.py (inspected only)",
+        "Independent symbolic cross-multiplied Taylor and fold check: python3 /workspace/reproductions/frozen_review.py 4"
+      ],
+      "rationale": "For the normalized two-zealot rule, direct cancellation gives F=sinh(2 gamma x)/(cosh(2 gamma x)+A exp(-gamma x^2))-x, with A=exp(gamma(delta-1)). Setting the linear coefficient to zero gives A=2 gamma-1. Expanding the cross-multiplied numerator and then dividing by the positive denominator gives the critical cubic (4 gamma^2-3)/6 and the printed general critical quintic. The unique positive cubic zero lies inside delta>=0 and has quintic -3/10. The inward fifth-order drift gives d(x^-4)/dt=6/5+o(1) along any sufficiently small nonzero forward solution. With y=x^2, F=xG, the positive root on the critical-gamma slice follows from the simple root after rescaling y=sqrt(mu)z, and is attracting by 2y G_y<0. The fold equations G=G_y=0 after y=nu z and mu=nu^2 s have nonsingular Jacobian, giving the two stated coefficients. For the full wedge, G_yy<0, G_mu>0 near the origin (G(0,mu,nu)=mu), and G at the fold's positive y is therefore positive when mu exceeds the fold value. With both boundary values negative, there are exactly two positive roots in the fixed neighborhood. The slope signs yield the two repellers and the three attractors including zero. This is a local classification, not a count of distant equilibria.",
+      "residual_risks": [
+        "The symbolic replay checks exact coefficients; the state count and long-time limit rest on the analytic argument. No expert attestation or formal verification is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fig. 5(d) counts stable states numerically in a restricted polarized-state family on a 12-node path.",
+          "Franci et al. and Bizyaeva et al., abstracts, cover general opinion bifurcation mechanisms with different governing formulations."
+        ],
+        "reasoning": "Neither the longer-path numerics nor the generic mechanisms supply the coefficients, verified nondegeneracy, or quantitative unfolding of this particular scalar rule.",
+        "searches": [
+          "arXiv:2209.07004v2, §5.1 and Fig. 5(d)",
+          "arXiv:1909.05765",
+          "arXiv:2009.04332"
+        ]
+      },
+      "checked_sources": [
+        "Resultary catalogue",
+        "arXiv:2209.07004v2",
+        "Exact tristability window in a three-agent sigmoidal opinion network",
+        "arXiv:1909.05765",
+        "arXiv:2009.04332"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior equations are starting material for a new nonlinear expansion; the linear theorem leaves the cubic and quintic unspecified, and the previously catalogued fixed-slope fold gives no near-tricritical asymptotic."
+        ],
+        "reasoning": "One must compute and control higher terms and the unfolding to obtain the constants -3/10 and -10/9 and the local five-state wedge; these are not a direct special case of the inspected prior conclusions.",
+        "searches": [
+          "arXiv:2209.07004v2, §2 pp. 4–5, Theorem 5 pp. 16–17, §5.1 pp. 18–19",
+          "Exact tristability window, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brooks–Chodrow–Porter, §2 Eqs. (2.1)–(2.2), uses the same normalized logistic model; Theorem 5 gives linear stability only.",
+          "Exact tristability window in a three-agent sigmoidal opinion network proves five equilibria and three attractors on the same system at gamma=1."
+        ],
+        "reasoning": "The older linear boundary is not new. The gamma=1 slice shares the equilibrium geometry but does not determine the two-parameter singularity at gamma=sqrt(3)/2.",
+        "searches": [
+          "arXiv:2209.07004v2, fixed zealots and harmonic-state linear stability",
+          "Resultary, fixed-zealot sigmoidal confidence, tristability, cubic degeneracy and fold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue window is at gamma=1 and gives a square-root separating branch there; neither this entry nor the older plotted stability counts reports the degenerate-slice constants."
+        ],
+        "reasoning": "The exact same-system entry is related but tabulates a different slice; this is not a sequence/table invariant for which a general numerical catalogue would supply equivalent coverage.",
+        "searches": [
+          "Resultary, exact tristability in the three-agent sigmoid motif; catalogue ID 2026/11/8/SCOPE-exact-tristability-window-in-a-three-agent-sigmoidal-opinion-net--8bfde3a3b93b",
+          "arXiv:2209.07004v2, Theorem 5 and Fig. 5"
+        ]
+      },
+      "rationale": "The same model and its linear stability boundary are prior work; qualitative nonlinear plots and a distinct fixed-gamma exact classification also overlap. The inspected results do not cover the unique cubic degeneracy, critical quintic, or the near-degeneracy fourth-root and quadratic-fold laws.",
+      "residual_risks": [
+        "Bounded search; an unindexed or differently phrased calculation of the same scalar normal form remains possible. No priority inference from catalogue dates; abstract-only readings of tangential models are not whole-paper exclusions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers model, linear boundary and some qualitative nonlinear behavior; not the quantitative tricritical claim in the inspected material.",
+          "evidence": [
+            "Theorem 5 concerns stability of the harmonic state; Fig. 5(d) studies a restricted family on a 12-node path."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2209.07004v2",
+          "material_read": "§2 Eqs. (2.1)–(2.2), pp. 4–5; Theorem 5 pp. 16–17; §5.1 and Fig. 5 pp. 18–19",
+          "method": "Open primary PDF, decisive passages",
+          "title": "Emergence of polarization in a sigmoidal bounded-confidence model of opinion dynamics",
+          "trigger": "Same model and plausible nonlinear coverage"
+        },
+        {
+          "assessment": "Material but not equivalent overlap; fixed gamma=1.",
+          "evidence": [
+            "Exact global tristability interval at gamma=1, with separating equilibrium a~sqrt(3(delta-1)) at onset."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-tristability-window-in-a-three-agent-sigmoidal-opinion-net--8bfde3a3b93b",
+          "material_read": "RESULT.md, model and equilibrium classification, mirrored commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local record mirror",
+          "title": "Exact tristability window in a three-agent sigmoidal opinion network",
+          "trigger": "Strongly overlapping catalogue record"
+        },
+        {
+          "assessment": "Broad framework rather than a matched likelihood of exact coefficient coverage.",
+          "evidence": [
+            "General equivariant multi-agent, multi-option framework."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1909.05765",
+          "material_read": "Abstract, p. 1",
+          "method": "Open primary text",
+          "title": "A model-independent theory of consensus and dissensus decision making",
+          "trigger": "Related bifurcation mechanism"
+        },
+        {
+          "assessment": "Different response formulation.",
+          "evidence": [
+            "Saturating opinion exchanges in a multi-option model, not the two-fixed-zealot logistic-distance rule."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2009.04332",
+          "material_read": "Abstract, p. 1",
+          "method": "Open primary text",
+          "title": "Nonlinear Opinion Dynamics with Tunable Sensitivity",
+          "trigger": "Related nonlinear opinion model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, local bifurcation conclusions; arXiv:2209.07004v2, Theorem 5 and Fig. 5"
+      ],
+      "rationale": "The degeneracy is selected by the model's known stability boundary, not by an arbitrary parameter slice. The calculation separates continuous from hysteretic onset and quantifies the local interval of tristability, the anomalous fourth-root polarization scale and the critical relaxation rate, none of which can be read off a linear stability diagram.",
+      "residual_risks": [
+        "The quantitative conclusions are deterministic and local to this scalar motif."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

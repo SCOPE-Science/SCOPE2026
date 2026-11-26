@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A binary \(k\)-gram is an edge of the order-\((k-1)\) de Bruijn graph. A word with exact set \(S\) corresponds to a directed walk traversing precisely the edges \(S\) at least once; a word without repetitions corresponds to an Euler trail. Breadth-first closure of the finite vertex/seen-edge-mask state space exhaustively enumerates feasible support masks even for arbitrarily long walks. A separately implemented SCC-condensation criterion yields identical complete feasible sets for both window sizes. A second finite-state closure disallowing repeated edges enumerates precisely the trail masks. Counts, cardinality distributions, minimal obstruction support sets, and explicit witnesses are reproduced by the embedded program; additional direct word enumeration independently reproduces all \(121\) binary three-gram supports.
+PASS
 
-## Originality — PASS, with residual risk
+For labeled, linear binary words, the overlap graph identifies words with walks and lossless words with trails. A covering walk must cross SCCs in a single acyclic chain and can use only one intercomponent edge at each crossing. Conversely, internal reachability suffices to cover the edges in each SCC between the specified entry and exit. The frozen finite reachability proof is not limited by word length. An independent per-support enumeration using the SCC-chain criterion and the directed Euler criterion reproduced both tables: 121/121 realizable/lossless at k=3 and 5921/2611 at k=4. It recovered exactly the two stated complement-related minimum supports and reproduced both explicit words. For the first support, the entry and exit edges force the 010→101 edge to be taken before and after the 101→010 return. At k=1 every nonempty support is spelled without repetition. At k=2 any realizable support with no crossing consists of one loop; with crossings, traverse the one or two crossing edges once and any selected loops on the first visit to their vertex. Thus the title's 'first' is also valid for k starting at 1.
 
-Alanko–Pérez-López gives graph-based distinct \(k\)-mer counting, not the count of which subsets of fixed binary \(k\)-grams are realizable spectra or the lossless fraction. Chukhin et al. introduce \(k\)-spectra and the overlap graph in the context of greedy superstring ratios, not the exact complete binary three-/four-gram incidence census. Actual indexed searches on equivalent terminologies and the accessible claim history did not identify these same numbers, sharp threshold, or two minimal obstructions. Search failure is not publication-priority proof; unindexed enumerations remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This exact finite classification resolves the first window length where a feasible distinct-factor presence profile fails to have an Euler-trail realization. It shows a qualitative transition at length four (\(3310\) of \(5921\) feasible supports require repetitions) and gives a pair of smallest constructive obstructions. Separating presence-only from multiplicity-aware reconstruction is directly motivated by de Bruijn assembly and short-superstring problems. The complete reproducible tables provide benchmark inputs for exact-spectrum reconstruction algorithms.
+The walk/trail translation and Euler criterion are standard. The supported distinct contribution is the exact comparison between unconstrained multiplicity and unique traversal for binary supports, particularly the first separation at k=4 and its sharp witnesses. The strongest inspected presence-profile record directly overlaps the three-gram model but gives length-indexed capacities and does not cover the four-gram result. Neither inspected primary result supplies the finite census or obstruction.
 
-## Boundaries
+## value
 
-Fixed binary alphabet and window lengths three and four only. Independent mathematical and exhaustive publication-priority audits have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This answers the natural exact-reconstruction question of when a feasible presence set first forces redundancy. The exhaustive separation turns the lossless/repeated distinction into an exact, testable boundary rather than an arbitrary sample of words. The two minimum witnesses locate the onset and the table makes its scale explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

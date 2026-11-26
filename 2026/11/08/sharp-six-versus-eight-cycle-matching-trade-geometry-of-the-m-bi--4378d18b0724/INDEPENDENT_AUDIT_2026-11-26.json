@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:10:41.590420Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md graph, move definition, census and structure claims",
+        "VERIFICATION.md, verification/verify_gp.py, verification/verify_permutations.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/recompute_4.py (passed exhaustive edge subsets, trade and structure tests, and exact metrics)"
+      ],
+      "rationale": "An independent exhaustive edge-subset check used all 8-subsets of the 24 displayed edges, retaining just the 33 disjoint covers. For each pair of covers the symmetric difference is 2-regular on its support; the move test therefore requires cardinality 6 or 8 and one connected component. Floyd–Warshall then gave component sizes (1,1,1,30), (33), (33); distance counts by increasing positive distance (96,216,120,3), (36,198,54,240), (132,342,54); and eccentricity counts 24 at 3 and 6 at 4 in the nontrivial six-only component, 3 at 3 and 30 at 4 for eight-only, and all 33 at 3 for the union. The exact joint counts by complementary type and degrees agree with the claim, including three (8,8) types of degrees (0,12,12). Every octagon-only neighbor of a nonhub is a hub; each hub has eight leaves and there are exactly two length-two paths, via different degree-two states, for each hub pair. The base graph is bipartite by the displayed parts; counting simple 4-, 6- and 8-edge cycles gave 0,24,30, proving girth six and the connectivity cutoff of eight. The included permutation checker has a human-readable 'THREE_COMPONENTS' marker, but its assertion specifies four components (three isolates and one large component), which is what the independent check obtained.",
+      "residual_risks": [
+        "The metric results refer to actual matchings, not orbit representatives or face-restricted moves. The radius and diameter of six-only trades are for its 30-state connected component."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bonamy et al. define fixed-even-length moves and study their general computational complexity.",
+          "Ito et al. give unrestricted reachability by decomposition of symmetric differences into disjoint cycles and distinguish the four-cycle rule."
+        ],
+        "reasoning": "Unrestricted decomposition need not avoid cycles longer than eight, and general complexity statements do not classify this finite instance.",
+        "searches": [
+          "arXiv:1904.06184 Cor. 5",
+          "DOI 10.4230/LIPIcs.ESA.2019.61 introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4378d18b0724, 77fdbb644648, e12726c83181, 94ffa91349b9 and summary-only 9054ab6ecd47",
+        "Bonamy et al., Ito et al., Bryant–Dean and Balasubramanian"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The marginal two-factor types do not encode which pairs have single-cycle differences of specified length. The eight-only hub/leaf structure and combined distances use actual incidence between configurations."
+        ],
+        "reasoning": "To transfer prior reachability or coloring data one would need a relationship preserving the restricted moves and determining matching-pair adjacency; no such implication was supplied by the inspected statements. The exact matching count and two-factor census are covered, not part of the remaining novelty.",
+        "searches": [
+          "Resultary 77fdbb644648, e12726c83181 and 94ffa91349b9, Findings",
+          "Ito et al. unrestricted reachability and Bonamy et al. fixed-length rule"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bryant–Dean identify F16 and study Hamilton decompositions and perfect one-factorizations.",
+          "The e12726c83181 and 94ffa91349b9 records have 20 coloring states modulo color permutations and Kempe structure G disjoint union K1,3, rather than the 33 matching states.",
+          "Alternating 6/8 trades also amount to single 3/4-cycles of the relative permutation of bipartite matchings, so they are not determined by just a count of matchings."
+        ],
+        "reasoning": "A Kempe graph on colorings can contain related switches, but an abstract unlabelled coloring graph does not specify the two adjacency sets on matchings, their length labels, or the union metrics.",
+        "searches": [
+          "Resultary Möbius–Kantor / GP(8,3) / F16 dimer trades, alternating cycles and edge-Kempe exchanges",
+          "arXiv:1408.5211v3 table and Lemma 6",
+          "arXiv:1904.06184 §1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Balasubramanian's matching-polynomial table and accompanying text give the count 33.",
+          "Resultary 77fdbb644648 gives the same type counts 3,6,24 for complementary two-factors in an anti-forcing study.",
+          "The exact 6/8 metric catalog hit was the assigned record itself, 4378d18b0724."
+        ],
+        "reasoning": "These antecedents explicitly cover marginal counts but not adjacency and distance statistics, nor the structural octagon-only graph.",
+        "searches": [
+          "Möbius–Kantor matching polynomial Symmetry 17 (2025) article 133",
+          "Resultary matching counts and two-factor types for Möbius–Kantor"
+        ]
+      },
+      "rationale": "The number of matchings and counts of complementary two-factor types are covered and not credited as new. The closely related coloring/Kempe graphs use different states and are not statements of the length-sensitive matching-trade geometry. The claim's distinct content is the two single-length graphs, their union's geometry, and the exact threshold.",
+      "residual_risks": [
+        "Focused database and primary comparison only; full text of 9054ab6ecd47 was not available. No exclusion of all unindexed finite computations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior general move model and complexity",
+          "evidence": "Defines fixed even k>4 in the generalization; complexity covers fixed even k≥4.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.06184",
+          "material_read": "§1.1 p.3 offset 8649 and Cor. 5 p.9 offset 33914",
+          "method": "OA PDF passages",
+          "title": "The Perfect Matching Reconfiguration Problem",
+          "trigger": "Same fixed-length trade definition"
+        },
+        {
+          "assessment": "Unrestricted connectivity, not bounded-trade metrics",
+          "evidence": "An unrestricted move can flip any cycle component in the symmetric difference.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ESA.2019.61",
+          "material_read": "Introduction pp.61:2–3, offsets 5150 and 8072",
+          "method": "OA PDF passages",
+          "title": "Shortest Reconfiguration of Perfect Matchings via Alternating Cycles",
+          "trigger": "Could imply matching connectivity"
+        },
+        {
+          "assessment": "Same graph, different invariant",
+          "evidence": "Identifies F16 and discusses Hamilton decompositions of its associated doubled graph.",
+          "identifier_or_url": "https://arxiv.org/abs/1408.5211v3",
+          "material_read": "Table p.3 offset 7799, Lemma 6 p.6 offset 15257, F16 discussion p.8 offset 20172",
+          "method": "OA PDF passages",
+          "title": "Vertex-transitive graphs that have no Hamilton decomposition",
+          "trigger": "F16 alias and related edge decomposition"
+        },
+        {
+          "assessment": "Exact count 33 covered",
+          "evidence": "Reports 33 perfect matchings for Möbius–Kantor, not a graph on those matchings.",
+          "identifier_or_url": "https://doi.org/10.3390/sym17010133",
+          "material_read": "Matching-polynomial table p.8 offset 32321 and text p.11 offset 43500",
+          "method": "OA PDF passages",
+          "title": "Matching Polynomials of Symmetric, Semisymmetric, Double Group Graphs, Polyacenes, Wheels, Fans, and Symmetric Solids in Third and Higher Dimensions",
+          "trigger": "Exact matching tabulation"
+        },
+        {
+          "assessment": "Exact matching and type counts covered",
+          "evidence": "Reports 33 and complementary type counts 3,6,24 in the anti-forcing study.",
+          "identifier_or_url": "Resultary 77fdbb644648",
+          "material_read": "Finding",
+          "method": "Local mirror",
+          "title": "Anti-forcing spectrum and two-factor types of the Möbius–Kantor graph",
+          "trigger": "Same graph's matchings and complements"
+        },
+        {
+          "assessment": "Different state space and quotient",
+          "evidence": "Colorings modulo color permutations give 20 states, with components G and K1,3.",
+          "identifier_or_url": "Resultary e12726c83181 and 94ffa91349b9",
+          "material_read": "Findings of both records",
+          "method": "Local mirror",
+          "title": "The Möbius–Kantor graph recurs as a component of its edge-Kempe graph; A self-reproducing edge-Kempe component in the Möbius–Kantor graph",
+          "trigger": "Potentially equivalent cycle-switching geometry"
+        },
+        {
+          "assessment": "Limited access, not an exclusion",
+          "evidence": "Summary describes 120 named colorings in two sectors, not the single-matching state space.",
+          "identifier_or_url": "Resultary 9054ab6ecd47",
+          "material_read": "Search summary; mirror full text not retrieved",
+          "method": "Catalog search and two mirror retrieval attempts",
+          "title": "Two distinct edge-Kempe sectors of the Möbius–Kantor graph",
+          "trigger": "Related named-coloring reconfiguration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md octagon structure, connectivity threshold and distance results",
+        "Independent exhaustive verification in /workspace/branches/recompute_4.py",
+        "Bonamy et al., fixed-length reconfiguration formulation"
+      ],
+      "rationale": "This is a test case of bounded cycle exchanges where hexagons strand entire matching types, octagons already connect all matchings via an identifiable small core, and both together shorten the diameter and eliminate eccentricity differences. The exact state space and move geometry are useful beyond a recomputation of the known matching census.",
+      "residual_risks": [
+        "The value is a finite exact geometry, not a general reconfiguration, reachability-complexity or mixing theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

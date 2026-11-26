@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:40:14.748775Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The operators act on labelled paths for n≥2, with parity counted in vertices and with no convolution normalization. An interval with endpoints i<j in {0,…,n} has sign ε_iε_j for the prefix signs anchored by ε_0=1. Every assignment of the other signs occurs once, since adjacent sign ratios recover the frequency. Even vertex counts use within-parity endpoint pairs, giving ((a−2j)^2+(b−2k)^2−N)/2; odd counts use cross pairs, giving (a−2j)(b−2k). The binomial factors count independent sign choices in the two classes, with only a−1 free even-index signs. Zero indicators thus give both exact nullities, summing across coincident eigenvalues; the real Walsh basis proves the rank result over either scalar field. In the even case a zero implies a sum of two squares. For the converse, mod-four residues of the squares match the parities of a,b up to swapping (none when N≡3), and each magnitude is at most sqrt(N)≤floor(N/2) for N≥6. For N=4 and 5 use (0,2) and (1,2), respectively. Take nonnegative coordinates so the excluded anchored value −a never occurs. In the odd case an even block allows sum zero, including an even anchored block of size two; both blocks are odd exactly when N≡2 mod 4. The classical sum-of-two-squares theorem gives the prime-exponent equivalence. Independent exact sums reproduced the six ranks 4,10,96,226,312,3466. The frozen code was inspected rather than executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Yan–Yeh multivariate path formula sums products of vertex weights over intervals, so ±1 Walsh weights give the unfiltered sum and global sign reversal separates the parity terms by half-sum and half-difference.",
+          "Polyanskiy's Hamming-sphere Fourier formula gives K_1^(d)(h)=d−2h and K_2^(d)(h)=((d−2h)^2−d)/2. The audited multipliers are the product of two K_1 factors and the sum of two K_2 factors, after the endpoint change of coordinates.",
+          "The reported Székely–Wang antecedent in Yan–Yeh is that the path minimizes ordinary subtree counts, not a two-operator Fourier-rank formula."
+        ],
+        "reasoning": "The signed generating sum and degree-one/two spectral factors are already general results. The inspected broader sources do not supply the specific path parity arithmetic or the unrestricted-representation converse in the anchored prefix blocks.",
+        "searches": [
+          "Yan–Yeh arXiv:math/0609475, path case Corollary 2.4",
+          "Polyanskiy arXiv:1309.3014 §2.2 equations (29)–(34)",
+          "Székely–Wang, doi:10.1016/j.aam.2004.07.002"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary record 0f9b84d8a487",
+        "arXiv:math/0609475; arXiv:1309.3014",
+        "Székely–Wang DOI landing/abstract and Yan–Yeh attribution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known unfiltered multiplier equals ((X+Y)^2−N)/2, while its summands depend on X²+Y² or XY. Knowing only the total block sum does not give these quantities.",
+          "The standard cube spectra after the path-boundary identification give a restricted integer equation for the even branch. Equivalence to unrestricted representability needs the parity assignment and the magnitude and anchored-sign checks (including N=4,5). The odd branch reduces to elementary bipartite hypercube parity and is not claimed as a new hypercube spectral fact."
+        ],
+        "reasoning": "The existing formulas give machinery for computing the filtered spectra and strongly overlap in method. The unfiltered classification does not transfer to the filtered operators by substitution, and the primary general formulas leave the attainable integer resonance and its multiplicities to be resolved. Credit primarily the even-branch arithmetic reduction and the combined path recovery law, not standard factors in isolation.",
+        "searches": [
+          "0f9b84d8a487 Finding and prefix-sign proof, mirror offsets 0–3344",
+          "Yan–Yeh Corollary 2.4",
+          "Polyanskiy §2.2, Hamming-sphere character sum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The adjacent-difference map sends x to (x_1,x_1+x_2,…,x_{n−1}+x_n,x_n) in the even-weight (n+1)-cube. An interval becomes its two endpoint flips. Even intervals yield within-block distance-two moves, i.e. two disjoint copies of a Cartesian product of halved cubes; odd intervals yield one total-even component of the tensor product of hypercubes.",
+          "The distinct indexed unfiltered run record uses the same paths, normalization, and prefix signs, but sums all endpoint pairs and states square, not two-square, resonance."
+        ],
+        "reasoning": "The cube formulation is a true equivalence, not a novel spectrum for ordinary hypercube factors. The unfiltered object is the sum of the two operators and does not identify the two kernels. The primary query surfaced ordinary hypercube/spectral background but no material exact match; this is not absence evidence.",
+        "searches": [
+          "Resultary: parity-restricted path intervals / contiguous runs / Walsh or Fourier-rank resonance",
+          "Local mirror of ...--0f9b84d8a487, Finding and proof",
+          "Primary-literature query: mathematics graph spectrum Cartesian product halved hypercubes singular sum of two squares path interval XOR convolution parity Walsh"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed unfiltered formula gives an exact binomial nullity at n+1=s², not the two constrained binomial sums in this record. The witness N=5 already separates the even branch (singular) from the unfiltered operator (invertible).",
+          "The checked theorem of two squares classifies representable lengths, not the number of anchored path characters at each such length."
+        ],
+        "reasoning": "No relevant table of the paired parity ranks was identified in the checked evidence. The comparison is with the nearest exact symbolic entries, not an inference that the individual numbers have never been listed.",
+        "searches": [
+          "Resultary: exact path Fourier rank, contiguous-run resonances, parity-restricted nullity",
+          "0f9b84d8a487 exact spectrum/nullity entries"
+        ]
+      },
+      "rationale": "The known interval sum, the Krawtchouk factors, and the unfiltered prefix-sign calculation are credited. The distinct claim is the exact paired recovery classification and nullities for the two vertex-parity restrictions. Neither the unfiltered spectrum and rank nor the general weighted-subtree and Hamming-sphere formulas state that every arithmetic resonance is reachable in the constrained blocks; the reduction and converse give the specific two-square versus modulo-four distinction. This conclusion is confined to the inspected comparisons.",
+      "residual_risks": [
+        "Distinct same-day publication dates do not order the unfiltered and filtered claims.",
+        "Székely–Wang full text was not available for comparison; unindexed equivalent hypercube-product or interval-parity rank formulations remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap in framework and method; different operator and exact arithmetic classification",
+          "evidence": [
+            "All nonempty intervals are included; the single prefix sum gives square-length resonance. Same-day indexing does not establish ordering."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-square-length-fourier-rank-resonances-for-contiguous-run-signals--0f9b84d8a487/RESULT.md",
+          "material_read": "Finding, assumptions, spectrum and zeros/rank proof, mirror offsets 0–3344",
+          "method": "Resultary and local GitHub mirror",
+          "title": "Square-length Fourier rank resonances for contiguous-run signals",
+          "trigger": "Same path indicator before filtering and same Fourier resonance method"
+        },
+        {
+          "assessment": "Covers weighted interval sum, not the parity-restricted rank criteria in inspected passages",
+          "evidence": [
+            "Vertex and edge weights are multiplied over each subtree; the path formula sums products over intervals and therefore admits sign weights."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0609475",
+          "material_read": "Definition of weighted subtree sums, p. 2, offset 4190; path Corollary 2.4, p. 5, offset 15500; citation discussion p. 2, offset 7350",
+          "method": "Primary OA text, bounded passages",
+          "title": "Enumeration of subtrees of trees",
+          "trigger": "Weighted interval generating function and path specialization"
+        },
+        {
+          "assessment": "Covers the ordinary component Fourier factors",
+          "evidence": [
+            "Krawtchouk polynomials are expressed as the unnormalized Fourier transforms of spheres and as sums of degree-j characters."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1309.3014",
+          "material_read": "§2.2 equations (29)–(34), OA offsets 24450–26867",
+          "method": "Primary OA HTML, bounded passage",
+          "title": "Hypercontractivity of spherical averages in Hamming space",
+          "trigger": "Known Hamming-scheme spectrum under the endpoint equivalence"
+        },
+        {
+          "assessment": "Full text not retrieved; the specific cited ordinary-count theorem does not cover the Fourier claim",
+          "evidence": [
+            "Yan–Yeh attributes an extremum of total subtree counts to this source."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.aam.2004.07.002",
+          "material_read": "OA landing/abstract only; related characterization in Yan–Yeh p. 2",
+          "method": "Lawful OA attempt and citation comparison",
+          "title": "On subtrees of trees",
+          "trigger": "Cited path subtree-counting precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Vertex parity is a natural filter on connected path subsets. It produces exact, genuinely different recovery diagnostics from the same family: a prime-exponent condition for even orders, a modulus-four condition for odd orders, and neither agrees in general with the unfiltered square criterion. For example, at n=4 the unfiltered operator is invertible while both filtered operators are singular; at n=6 only the odd operator is singular. Exact sizes of the lost Walsh spaces are also available. The value is the complete arithmetic recovery distinction, not rederiving familiar hypercube polynomials or recomputing a few ranks.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The symbolic proof explicitly computes the principal downsets, the entire filtration sequence, the augmentation-tensor chain homology of each join, and the cone factorization killing every reduced inclusion map. It is valid for all layer vectors and roots stated in RESULT.md. The pointwise root-weight stability comparison is proved from the definitions.
+## correctness
 
-Run `python3 verify.py` in the same directory to reproduce an independent finite-checking implementation. It enumerates all strict chains and computes literal downset differences, then reduces filtered boundary matrices with signed face incidence modulo the distinct primes 2, 3 and 101. It checks eleven layered posets, all root levels with two representatives when possible, for 204 root-prime runs. The expected output contains `PASS: 11 layer-size patterns; 204 root-by-prime calculations`. The program is standalone Python 3 without third-party packages.
+PASS
 
-Finite tests cannot certify statements quantified over all layer sizes, cannot prove integral torsion-freeness by themselves, and do not provide independent human or machine-checked mathematical certification. The all-parameter claims rest on the symbolic proof.
+For a root in layer i, its downset contains all earlier layers and the root. The weights are zero there, one on its layer peers, and the sum of m_a for i≤a<j on layer j>i. Thus the initial cone is followed by the joins of the full first j layers; m_i≥2 separates the first two positive thresholds when both exist. The shifted tensor product of the augmented chains of the discrete layers has reduced homology free of rank M_j in degree j−1 only. The inclusion into the next join factors through the cone on any new vertex, killing reduced homology. In degree zero the class of the root splits off naturally, leaving the reduced transient part exactly as stated. For a bottom root the largest degree gives r, the first finite deaths give m_1, the subsequent finite lengths give the intervening sizes, and M_r/M_{r-1}+1 gives m_r, also for r=2. The top births strictly decrease with the layer of the root, down to 1 for the top root. In top degree the equal numbers of essential bars must match to each other, at exact cost D−1. The difference of the two pointwise weights on U_y is the difference of the counts of U_y in the two opposite downset differences, so its absolute value is bounded by the larger mutual furtherness, D for these roots. Fixing r gives (D−1)/D tending to 1 in the prescribed positive degree. This is an all-parameter proof, not a finite extrapolation. The source VERIFICATION.md describes a finite modular boundary-matrix check in verify.py; its uploaded code was not run, and no integral chain-level interval splitting or formal verification is asserted.
+
+## originality
+
+PASS
+
+Credit the published filtration, degree-zero theory and general stability, and credit the same-family static join homology. The supported distinct contribution is the root-dependent all-degree persistence calculation on ordinal sums of antichains and its ordered reconstruction and higher-degree tightness consequences. No separate equivalent result was established in the inspected evidence.
+
+## value
+
+PASS
+
+The family has a natural exact invariant already motivated by the finite-space filtration. Recovering ordered sizes shows what time and degree add to static homology, which sees a symmetric product. The same explicit examples calibrate a general stability inequality in every prescribed positive degree, a use beyond a list of small barcodes. The standard join calculation and general stability bound are ingredients, not the value claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:04:10.256528Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–54",
+        "Frozen VERIFICATION.md and verified_gp.txt, verified_lcf.txt",
+        "Frozen verify_gp.py and verify_lcf.py, inspected, not executed",
+        "Independent replay: python3 /workspace/branches/a8a6c4a7-60c5-4edf-bd27-d18f2a556300/independent_gp83_check.py; output in independent_gp83_results.json beside it"
+      ],
+      "rationale": "Reconstructed the theorem for the specified unweighted GP(8,3). Distance signatures separate all vertices exactly when the indicated subset is resolving; enumeration of sizes 0 through 4 proves minimality and completeness. A legal move is uniquely specified by the removed and inserted vertices of two distinct sets differing in one element, with the extra adjacency predicate for a slide. Exhaustive unweighted shortest-path searches and comparison of the two distance matrices therefore exhaust all 51,040 unordered pairs. A fresh independent program reproduced zero smaller sets, 320 bases, the full degree, eccentricity, distance and penalty distributions, both connected graphs, the two radii and diameters, and the distances (2,10) for the stated witness. It enumerated 96 automorphisms, with orbit sizes 24,24,32,48,96,96. Preservation of adjacency and nonadjacency is a sound pruning condition on partial injections and characterizes automorphisms on completed bijections. The recorded GP and LCF checks corroborate but do not substitute for the fresh run.",
+      "residual_risks": [
+        "The exhaustion is for minimum-cardinality ordinary vertex-resolving sets of this one graph, not minimal sets of arbitrary size, weak-total or edge metric bases, labeled tokens, or intermediate nonbases.",
+        "The proof wording about sixteen-component signatures can be read as a transposition: each of sixteen vertices has a four-component landmark signature. The check uses that correct predicate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen comparison reports a four-vertex resolving set for P(8,3) in Imran et al.; the scanned source passage could not be independently read in this lookup.",
+          "Hakanen et al.'s accessible abstract describes vertices contained in all or in no metric bases.",
+          "The truncated-tetrahedral result gives jump and slide metrics on 156 bases of another graph."
+        ],
+        "reasoning": "A size bound or a construction does not identify the full family of optimizers and their motion. Vertex inclusion results concern a different invariant, and the corresponding finite theorem on the truncated tetrahedron does not encompass GP(8,3).",
+        "searches": [
+          "Imran et al., On Metric Dimension of Generalized Petersen Graphs P(n,3), Ars Combin. 117",
+          "Hakanen et al., arXiv:2103.08911 abstract",
+          "Resultary truncated-tetrahedral metric-basis exchange and slide record ending 2073aedeea3c"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary catalogue and matched RESULT.md entries",
+        "ScholarWorks pv63g4914 (available snippet only)",
+        "Imran et al., Ars Combin. 117 (access limitation above)",
+        "Hakanen et al. arXiv:2103.08911 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither the other-graph 156-state theorem nor the 192-state weak-total theorem specializes to the ordinary GP(8,3) space.",
+          "Enumerating minimal sets generally and computing an optimum size do not express the pairwise shortest-path penalties between minimum sets."
+        ],
+        "reasoning": "Enumeration and shortest-path methods apply in general, but give algorithms rather than a stronger statement implying the orbit split, self-centered slide graph, or sharp eight-move gap. Those require the concrete complete census and distance comparison.",
+        "searches": [
+          "Truncated-tetrahedral exact reconfiguration record, Finding",
+          "Weak-total GP(8,3) record, Finding",
+          "Frozen RESULT.md lines 60–73 for related enumeration and dimension work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day weak-total record ending cfe9401b705a gives 192 minimum five-vertex weak-total sets on GP(8,3) with jump diameter 7; the frozen target uses 320 ordinary four-vertex bases.",
+          "The source's LCF [5,-5]^8 encoding is certified isomorphic by the 16-vertex bijection in verify_lcf.py, so its matching output is another formulation of the target, not a distinct result.",
+          "The thesis indexing snippet describes the metric-basis reconfiguration concept via a triangle example."
+        ],
+        "reasoning": "Changing labels between the two encodings preserves precisely the distance predicates and moves. Changing the resolving predicate does not. A shared definition in the thesis snippet supplies conceptual coverage only, not a comparison of its uninspected exact graph results.",
+        "searches": [
+          "Local Resultary: Möbius–Kantor/GP(8,3) ordinary metric-basis exchange, token jumps and slides",
+          "ScholarWorks thesis pv63g4914, The Reconfigurations of Metric Bases"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The checked catalogue comparators give counts for weak-total resolving sets or another graph. They do not give the target 51,040-pair tables under ordinary resolving sets.",
+          "The thesis item and download were inaccessible; the snippet cannot establish what tables are present."
+        ],
+        "reasoning": "The exact count comparison requires all of the graph identity, ordinary metric-basis predicate, and the two specified adjacencies. The checked count tables differ on at least one of these and the thesis remains unresolved.",
+        "searches": [
+          "Local Resultary matches for GP(8,3)/Möbius–Kantor, 320 bases and jump versus slide distances",
+          "ScholarWorks pv63g4914 search and lawful item/download attempts"
+        ]
+      },
+      "rationale": "The pass is for the complete ordinary metric-basis motion and orbit classification, not for the notion of reconfiguring metric bases or a four-landmark construction. Strong same-day indexed matches were compared as statements: the same graph with a different resolving predicate, and the same motion rules on a different graph. Neither gives the 320-state metrics and sharp penalty for GP(8,3). The strongest plausible thesis match remains an explicit priority risk, not evidence of prior exact coverage.",
+      "residual_risks": [
+        "The inaccessible metric-basis reconfiguration thesis could contain this case or part of it. The access failure neither establishes nor refutes overlap.",
+        "The previous four-landmark construction was not verified from the scanned passage, and there may be other unindexed exact counts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Conceptual overlap; exact GP(8,3) coverage unresolved.",
+          "evidence": [
+            "Describes connecting resolving-set configurations in a reconfiguration graph; accessible material gives no statement of the 320-state theorem."
+          ],
+          "identifier_or_url": "https://scholarworks.calstate.edu/concern/theses/pv63g4914",
+          "material_read": "Public search snippet with triangle example; no full text",
+          "method": "Indexed snippet, item and download routes attempted, both HTTP 403",
+          "title": "The Reconfigurations of Metric Bases",
+          "trigger": "Closest conceptually matching thesis"
+        },
+        {
+          "assessment": "Do not credit novelty for constructing a four-vertex set; full text comparison limited.",
+          "evidence": [
+            "The frozen account identifies a prior four-vertex resolving set for P(8,3). No stronger result is attributed to the source on this basis."
+          ],
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20117/volume-117-paper-10.pdf",
+          "material_read": "Frozen prior-work account; available primary PDF scan did not yield the relevant passage",
+          "method": "Primary PDF lookup, no extractable text for the passage",
+          "title": "On Metric Dimension of Generalized Petersen Graphs P(n,3)",
+          "trigger": "Same graph family and metric dimension"
+        },
+        {
+          "assessment": "A different observable in the available passage; no whole-document exclusion claimed.",
+          "evidence": [
+            "Studies membership of individual vertices in all or no metric bases, not a pairwise path metric in the abstract."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2103.08911",
+          "material_read": "HTML abstract, offset 582",
+          "method": "Targeted OA abstract read",
+          "title": "On Vertices Contained in All or in No Metric Basis",
+          "trigger": "Structural information about all metric bases"
+        },
+        {
+          "assessment": "Distinct state space and different distance claims; same-day ordering not inferred.",
+          "evidence": [
+            "Five landmarks, 192 weak-total sets, jump diameter 7."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-three-geometric-types-and-a-uniform-seven-move-exchange-radius-f--cfe9401b705a",
+          "material_read": "Local RESULT.md Finding, offset 0",
+          "method": "Local mirror passage read",
+          "title": "Three geometric types and a uniform seven-move exchange radius for Möbius–Kantor weak-total resolving sets",
+          "trigger": "Exact same substrate and jump geometry"
+        },
+        {
+          "assessment": "A theorem for a different graph; no ordering inferred from the date.",
+          "evidence": [
+            "Gives jump and slide metrics on 156 bases of the truncated tetrahedron."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-metric-basis-exchange-and-slide-geometry-of-the-truncated--2073aedeea3c",
+          "material_read": "Local RESULT.md Finding, offset 0",
+          "method": "Local mirror passage read",
+          "title": "Exact metric-basis exchange and slide geometry of the truncated tetrahedral graph",
+          "trigger": "Same ordinary reconfiguration metrics and kind of classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding",
+        "Independent pair and orbit results, independent_gp83_results.json",
+        "Same-graph weak-total and other-graph ordinary reconfiguration comparisons above"
+      ],
+      "rationale": "The canonical symmetric cubic graph gives a useful complete example of how local moves alter the geometry of all optimal landmark placements. The two graphs are both connected, yet sliding makes every state have eccentricity 12 while jumping has two eccentricity classes and diameter 5. The exact optimal penalty and explicit witness measure the loss from locality instead of just comparing diameters or exhibiting one feasible route. The complete census includes the orbit classification on which future symmetry-based comparisons can build; it is not merely a recomputation of the metric dimension.",
+      "residual_risks": [
+        "A natural finite benchmark, not an asserted scaling law or reconfiguration theorem for all symmetric cubic graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

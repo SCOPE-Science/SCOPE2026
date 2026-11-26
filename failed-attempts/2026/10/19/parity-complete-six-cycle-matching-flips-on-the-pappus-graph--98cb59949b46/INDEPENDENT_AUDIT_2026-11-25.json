@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:55:09.363844Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent exact exhaustion from the stated incidence triples confirms 42 matchings, 18 simple six-cycles, and 72 undirected transitions. Each sign class induces one connected 21-vertex component of diameter four, with three independent degree-six hubs and a low-degree induced union of three six-cycles using the three distinct alternating hub pairs. Testing every matching-pair symmetric difference against the independently generated cycle edge sets implements the stated edge condition exactly. A flip acts by a three-cycle on the assignment permutation; relabeling the parts can interchange sign names but does not alter the equivalence relation. Both supplied checker sources were inspected but not run. No formal certification is asserted.",
+      "replay_path": "/workspace/review_evidence/2_pappus.py",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mirror b52665049fe7 repeats the three-hub hexagon result and adds octagon connectivity.",
+          "Ito et al., arXiv:1907.01700, p. 1: the alternating move may have arbitrary length."
+        ],
+        "reasoning": "The indexed extension contains the restricted result; unrestricted connectivity in the primary paper, on the other hand, does not imply restricted connectivity or component structure.",
+        "searches": [
+          "Resultary: hexagon parity octagon mobility Pappus; arXiv:1907.01700"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and both supplied Pappus checker sources",
+        "Resultary 157dc0be9f8c and b52665049fe7",
+        "arXiv:1002.1891",
+        "arXiv:1907.01700"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Abreu et al., p. 2 and Theorem 3.1, give Pappus as an irreducible pseudo-2-factor-isomorphic Levi graph.",
+          "The mirror gives T disjoint union T with precisely the two sign classes."
+        ],
+        "reasoning": "Invariant parity of circuit count for complementary 2-factors does not characterize six-cycle reachability, and unrestricted alternating moves do not settle the bounded-length relation. The decisive mirror does not need either inference; it explicitly supplies the same theorem.",
+        "searches": [
+          "Abreu–Labbate–Sheehan arXiv:1002.1891; Ito et al. arXiv:1907.01700; Resultary 157dc0be9f8c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mirror 157dc0be9f8c, Finding, offset 0: T has three nonadjacent hubs and a private alternating six-cycle for each hub pair; F_6(P) is T disjoint union T."
+        ],
+        "reasoning": "The definition of T agrees with H vertex- and edge-wise after renaming. Both use all abstract simple six-cycles, so there is no discrepancy about facial moves or embedded graphs.",
+        "searches": [
+          "Resultary: Pappus perfect matching hexagon flip graph; 157dc0be9f8c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mirror 157dc0be9f8c, Finding: 42 total states, 21 per parity component, 72 edges, degree split 3+18 and diameter four."
+        ],
+        "reasoning": "This is an exact indexed entry for the structural result, stronger than a table match in counts or parameters alone. The 18 support cycles are an ancillary incidence count, not 18 components or 18 cycles of H.",
+        "searches": [
+          "Resultary: Pappus 42 perfect matchings six-cycle parity 21 72 diameter four; record 157dc0be9f8c"
+        ]
+      },
+      "rationale": "A distinct indexed record contains the same structural theorem on the same abstract Pappus graph with unrestricted simple six-cycle moves. Its T is exactly H, not merely a graph with the same statistics; it also states the sign classification and diameter. This is present catalogue coverage, not a claim that the later-dated record has priority or is independent of the frozen one. The auxiliary raw six-cycle tally does not supply a new reconfiguration theorem or a substantial remainder.",
+      "residual_risks": [
+        "Chronology of independent discovery and possible dependence between records are unresolved; no earlier-publication inference is made from the later catalogue dates.",
+        "An earlier cited pseudo-2-factor antecedent was not compared in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same theorem, with radius also given in the indexed result",
+          "evidence": "T's construction, definition of admissible moves and the parity, count and diameter conclusions are explicit in the Finding.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-the-pappus-perfect-matching-hexagon-flip-graph-is-two-alternatin--157dc0be9f8c/RESULT.md",
+          "material_read": "Finding and beginning of incidence assumptions, offset 0",
+          "method": "Local mirrored text, statement-level comparison",
+          "title": "The Pappus perfect-matching hexagon-flip graph is two alternating hexagon triangles",
+          "trigger": "Exact candidate for the abstract length-six reconfiguration theorem"
+        },
+        {
+          "assessment": "Corroborating overlap; the earlier of the two indexed hits supplies the decisive full statement",
+          "evidence": "Three-hub parity components for hexagons, connectivity upon adding octagons.",
+          "identifier_or_url": "2026/11/2/SCOPE-hexagon-parity-and-octagon-mobility-in-pappus-perfect-matchings--b52665049fe7",
+          "material_read": "Matching result and octagon extension described in indexed entry",
+          "method": "Local Resultary catalogue comparison",
+          "title": "Hexagon parity and octagon mobility in Pappus perfect matchings",
+          "trigger": "Candidate extension of the same restricted result"
+        },
+        {
+          "assessment": "Different invariant, no entailed length-six graph structure in the compared theorem",
+          "evidence": "Circuit-count parity of 2-factors, not alternating six-cycle matching transitions.",
+          "identifier_or_url": "https://arxiv.org/abs/1002.1891",
+          "material_read": "p. 2 definition and example; p. 6 Theorem 3.1; p. 9 cited antecedent",
+          "method": "OA passages",
+          "title": "Irreducible pseudo 2-factor isomorphic cubic bipartite graphs",
+          "trigger": "Same Pappus object and a parity invariant"
+        },
+        {
+          "assessment": "Arbitrary-cycle reconfiguration does not establish the restricted Pappus result",
+          "evidence": "The move is a single cycle without the six-edge constraint.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.01700",
+          "material_read": "Abstract and p. 1 move definition",
+          "method": "OA passages",
+          "title": "Shortest Reconfiguration of Perfect Matchings via Alternating Cycles",
+          "trigger": "Broader move definition"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As mathematics, the complete abstract move-graph structure supplies an exact bounded-length reconfiguration benchmark. It identifies the sole obstruction to reachability, all local degrees, and the sharp shortest-path bound, well beyond merely counting matchings. This value does not overcome duplicate catalogue coverage.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,23 +1,21 @@
-# Scientific review: repeated-permutation scattered-palindrome spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns the full \(q\ge3\), \(k\ge1\) family, not a finite table. Every subsequence of \((a_1\cdots a_q)^k\) requires one block plus the number of non-increasing adjacent rank changes. This is both a necessary condition (ranks inside one block strictly increase) and sufficient by an explicit left-to-right greedy embedding. For palindromes, reversal pairs each non-equal adjacency with exactly one weak descent and each equal adjacency with two weak descents; the even central equality gives the remaining descent. This proves the minimum-block test \(1+m+e(h)\le k\). Counting adjacent equalities in the determining halfword proves both length formulas and hence the rational generating function. The maximal length, number of maximal palindromes, contiguous-factor comparison, and exponential growth all follow without extrapolating examples.
+PASS
 
-The standalone checker enumerates all distinct subsequence values in 21 small cases, checks 150 alphabet permutations, and uses a second independent embedding method in bounded ranges. These tests corroborate the proof but are not treated as an infinite certificate.
+A word needs exactly one plus its number of weak rank descents in permutation blocks: each such transition forces a new block and each strict ascent can stay in the current block. In a palindrome each mirrored transition pair contributes one descent if unequal and two if equal; the even center contributes one more. This gives m+e(h)+1 in both parities. For a half of length r and e equal transitions, the count is q times binomial(r−1,e) times (q−1)^(r−1−e), with each word represented once. Summing the odd and even least-block contributions gives qzt(1+zt)/(1−zt²(q−1+z)); summing over every available block count multiplies by 1/(1−z). The specialized recurrence and examples follow. At the extremal odd length 2k−1, the half has no equal transitions; no even length is as large. For q≥3 equality at distances one and two is impossible in the host, excluding longer contiguous palindromes by their centers. The positive dominant pole at t=1 is simple, strictly smaller in modulus than the other poles and not canceled.
 
-## Originality — PASS, with residual uncertainty
+## originality
 
-The first public motivating source is Pandoh’s June 21, 2021 seminar slides; the closest longer primary source is Mahalingam–Pandoh (arXiv:2108.02729), studies general scattered-palindrome bounds, some length-three cases, and extremal counts when the alphabet size is at least half the host-word length. Its statements do not determine the complete by-length spectrum of an arbitrary number of repeated copies of one alphabet permutation. Müllner–Ryzhikov (arXiv:1901.07502) treats lengths of longest palindromic subsequences and circular-word extremal constructions, not this enumerator. Published-record searches under repeated permutation, cyclic alphabet word, palindromic subsequence, and rational generating function formulations did not reveal an implication covering the theorem. The separately known alternating binary case is excluded from the new scope.
+PASS
 
-The general ability to count distinct palindromic subsequences algorithmically at each individual input is not a symbolic closed formula uniformly in both parameters. A prior unindexed formula or an implicit equivalent in another source remains a residual risk; no claim of exhaustive bibliographic uniqueness is made.
+The exact two-copy length-three layer is earlier, and q=2 has the exact analogous enumerator. The whole q≥3, all-k spectrum is directly contained in a broader catalogue record dated after the frozen record, not established as earlier coverage. The prior results inspected do not supply the all-k named claim before the frozen record.
 
-## Mathematical value — PASS
+## value
 
-The classical question of how many different palindromic subsequences a word has is distinct from merely finding its longest one, and the canonical word consisting of repeated complete alphabet sweeps is a natural structured test family. A single uniform theorem resolves **every length coefficient** for an infinite two-parameter family, reveals a second-order generalized-Fibonacci recurrence, and establishes exponential scattered complexity despite constant contiguous palindromic complexity. Its membership criterion explains the phenomenon rather than just tabulating outputs. It makes no unsupported claim of optimality over arbitrary words.
+PASS
 
-## Closest literature and limitations
+Fixed cyclic alphabet order gives a natural family for contrasting scattered and contiguous palindromes. The result identifies which individual palindromes first occur at each block count and gives a uniform exact length distribution for a general labeled alphabet, not just a maximum length or a finite set of new cases. The independence from the order of unequal letters in the halfword is the structural simplification enabling that count.
 
-The June 2021 seminar slides and subsequent scattered-palindrome paper provide the motivating global counting context and two-copy example; the 2019 paper studies different longest-subsequence questions. The result does not cover arbitrary concatenations of different permutations, near-palindromes, counts of embeddings, or global maximum/minimum complexity among all words of a fixed length. External bibliographic indexing is incomplete and independent mathematical validation remains unperformed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

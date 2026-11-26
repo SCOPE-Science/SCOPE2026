@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:18:15.930467Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reassessed repairs/4/RESULT.md. With positive slack, route conservation fixes arc uses to p_j+c, with least nonnegative choice p_j−min p. A cut at a minimum orders the sources and targets with x_i≤y_i. The published comparable-lift descent from y to x reverses to a clockwise route, stays between the coordinate endpoints, and avoids the cut. The direct blocking argument also works: an unfinished token with next gap r forces its successor unfinished by the target constraint, including the lifted wrap, and complete blockage would require n=rk. The distance is thus Σ(y_i−x_i), and each difference is bounded by n−1−r(k−1). Equality forces both endpoint bounds for every i. Conversely the proposed packed pair satisfies x_i≤y_i in the displayed cut, so all prefixes are nonnegative and the cut really does minimize flow; the bound is attained. The unique widened gap in each packed source makes its rotation orbit free, giving exactly n ordered extremal pairs and a unique farthest target for each extremal source. The repair explicitly excludes the isolated n=rk branch from metric and diameter formulas. The counts follow from rooted gap compositions and subtracting one unit ahead of the moving token. Inspected the supplied BFS checker and its recorded 73 cases/1,896,844 ordered pairs; they are not a rerun, do not cover the frozen branch, and do not prove the unbounded result. Independently the (n,r,k)=(7,2,2) packed pair has prefix flow cost 8 and a legal eight-slide route.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The old lower/upper-gap family with a=r and b=n−r(k−1) is exactly the current family, since the upper constraint is automatic; positive slack ensures ak<n<bk. Its frozen lower boundary also covers n=rk.",
+          "The oriented-cycle reconfiguration paper studies reachability (v1 Theorem 8 addresses nonuniformly oriented cycles), and the polytree paper has a shortest-sequence result on a different graph family. For r=2 the clockwise cycle is a standard directed independent-set sliding instance; for r>2 using only base-cycle arcs matters."
+        ],
+        "reasoning": "The prior bounded-gap proof covers the feasible-lift monotonicity used here. Neither that result nor reconfiguration reachability gives an extremal equality characterization for this cost on the uniformly clockwise hard-rod graph.",
+        "searches": [
+          "November 8 Resultary bounded-gap transport theorem and proof Steps 2–4",
+          "Banerjee–Engels–Hoang arXiv:2411.16149v1 §4.1",
+          "Ito et al. arXiv:2203.13435"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, verification_output.txt",
+        "Corrected repairs/4/RESULT.md",
+        "Resultary findings ending edbf2b8cafb9 and f7b2fcae2dd0",
+        "arXiv:2411.16149v1 and arXiv:2203.13435",
+        "doi:10.1007/s10955-024-03312-w",
+        "doi:10.1088/0305-4470/36/8/302 and OSTI 20365177 (abstract/full-text attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Step 3 gives feasible unit decrements for any coordinatewise comparable periodic lifts p≥q, all the way to q. The minimum-prefix cut gives y_i≥x_i, so apply the lemma with p=y,q=x and reverse the path. This realizes exactly the flow with zero use of the cut and gives the frozen clockwise distance with elementary conservation.",
+          "The prior result does not optimize that one-way flow across pairs. For any minimum cut the two packed bounds on each displacement must both saturate for equality, and the proposed endpoints must actually have a minimum cut there; these added arguments produce exactly the rotated packed pairs."
+        ],
+        "reasoning": "The distance is covered as an implication despite no matching directed theorem statement. The repaired contribution is the exact diameter and global equality classification, which require the distinct extremal argument and are not obtained merely by substituting a,b into the earlier theorem.",
+        "searches": [
+          "Resultary November 8 bounded-gap record edbf2b8cafb9, proof Step 3 (mirror offsets 1800–5910)",
+          "Frozen RESULT.md lines 36–50 and 58; repaired RESULT.md lines 22–46"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Clockwise slides are periodic length-r hard-rod hops if a token denotes a rod start. Nonnegative arc transport optimizes over a single constant in the cyclic conservation equation.",
+          "The November 2 record instead has an upper-gap family and median-flow undirected cost. Absolute flow permits negative moves; it is not the minimum nonnegative clockwise flow."
+        ],
+        "reasoning": "The equivalent periodic hard-rod graph is relevant; a model of extended particles or a two-sided transport metric alone does not determine the directed diameter and antipodal locus. The earlier comparable-lift result is stronger evidence about the clockwise metric than the undirected distance formula itself.",
+        "searches": [
+          "Resultary SCOPE-circular-bounded-gap-token-systems-have-transport-optimal-slidin--edbf2b8cafb9",
+          "Resultary SCOPE-gap-slack-isometry-and-exact-token-sliding-distances-for-mutuall--f7b2fcae2dd0",
+          "Lakatos–Chou doi:10.1088/0305-4470/36/8/302 and OSTI 20365177"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct Resultary entries supply two-sided transport metrics, not a directed antipode table. Zhang–Krauth's inspected model definitions attach an active-particle pointer in the lifted asymmetric model, while their symmetric model permits reverse moves.",
+          "The public Lakatos–Chou abstract reports steady-state currents, densities, and phases, including effects of boundaries; it does not report a periodic unaugmented rod diameter or extremal pairs. No lawful full text was recovered."
+        ],
+        "reasoning": "A diameter for an augmented state space or one allowing reverse moves is not a table entry for the labelled clockwise gap graph. No exact matching table for the repaired conclusion was found; the inaccessible article is not evidence of noncoverage.",
+        "searches": [
+          "Resultary periodic bounded-gap sliding / exclusion diameter and antipodal comparison",
+          "Zhang–Krauth doi:10.1007/s10955-024-03312-w",
+          "Lakatos–Chou exact-title alternate full-text search"
+        ]
+      },
+      "rationale": "Pass for the repaired diameter and ordered equality classification only. The frozen novelty distinction for the clockwise distance fails: it says the earlier undirected bounded-gap results do not imply the one-way distance, but the earlier proof's full one-unit descent lemma supplies exactly the monotone route after a cut. The repair credits that concrete implication, moves the metric and connectivity out of the claimed distinct extremal result, and retains the proof of the separate maximum and its equality cases. No verified comparator gives the same directed maximum and full family of ordered antipodes; the unavailable extended-particle full text remains a risk, not a verdict.",
+      "residual_risks": [
+        "Full text of Lakatos–Chou was unavailable; an equivalent periodic hard-rod extremal theorem could also be indexed under exclusion, transport, or reconfiguration terminology.",
+        "Some catalogue/search coverage was bounded or temporarily unavailable; the decision rests on actual inspected arguments, not a claim of exhaustive absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier comparable-lift lemma implies the clockwise distance together with conservation; does not give the directed extremizers",
+          "evidence": "Proof Step 3 constructs decrements from any comparable feasible p≥q, of length Σ(p_i−q_i); choosing the ordered lifts after the minimizing cut and reversing applies it without change.",
+          "identifier_or_url": "2026/11/8/SCOPE-circular-bounded-gap-token-systems-have-transport-optimal-slidin--edbf2b8cafb9",
+          "material_read": "Mirrored RESULT.md Finding, assumptions, proof Steps 1–4 and boundary; decisive excerpt offsets 1800–5910",
+          "method": "Local Resultary lookup and mirror, followed by statement-level reduction",
+          "title": "Circular bounded-gap token systems have transport-optimal sliding distances",
+          "trigger": "Strong earlier match with exactly the same feasible family after automatic upper-gap bound"
+        },
+        {
+          "assessment": "Close transport precedent, different constraints and directionality",
+          "evidence": "Upper-gap-constrained undirected model minimizes absolute flow by a median, rather than using the min-prefix constant for nonnegative clockwise flow.",
+          "identifier_or_url": "2026/11/2/SCOPE-gap-slack-isometry-and-exact-token-sliding-distances-for-mutuall--f7b2fcae2dd0",
+          "material_read": "Mirrored RESULT.md Finding and proof of median flow, from offset 0",
+          "method": "Local catalogue and mirrored record inspection",
+          "title": "Gap-slack isometry and exact token sliding distances for mutually constrained cycle configurations",
+          "trigger": "Exact signed prefix/transport expression on a related cycle state space"
+        },
+        {
+          "assessment": "Related reachability results, no inspected oriented extremum statement",
+          "evidence": "Section 4.1 treats oriented-cycle reachability; Theorem 8 in v1 treats cycles not wholly clockwise or wholly counterclockwise.",
+          "identifier_or_url": "https://arxiv.org/html/2411.16149v1",
+          "material_read": "Abstract, offset 0; §4.1 around offsets 32000–37300",
+          "method": "OA author manuscript HTML inspection",
+          "title": "Directed Token Sliding",
+          "trigger": "Oriented-cycle input class including close directed reachability cases"
+        },
+        {
+          "assessment": "Shortest-sequence result for oriented trees, not periodic rods",
+          "evidence": "The inspected shortest-sequence result is for polytrees.",
+          "identifier_or_url": "https://arxiv.org/html/2203.13435",
+          "material_read": "Primary passage near offsets 1800 and 5500",
+          "method": "OA manuscript HTML inspection",
+          "title": "Independent set reconfiguration on directed graphs",
+          "trigger": "Directed token-sliding and shortest-sequence formulation"
+        },
+        {
+          "assessment": "Different graph for the compared diameters",
+          "evidence": "Symmetric exclusion has reverse slides; the asymmetric diameter model uses an active-particle pointer and is lifted.",
+          "identifier_or_url": "https://doi.org/10.1007/s10955-024-03312-w",
+          "material_read": "Primary PDF abstract and model discussion pp. 1–2, offsets about 329–8152",
+          "method": "OA PDF scope and definitions inspection",
+          "title": "Diameters of Symmetric and Lifted Simple Exclusion Models",
+          "trigger": "Exclusion-process diameter, including asymmetry"
+        },
+        {
+          "assessment": "Confirms model proximity; periodic geometry and priority unresolved for that paper",
+          "evidence": "Abstract describes integer-size d particles, estimates and simulation for steady-state current, density and phases, and boundary-limited phases. It does not establish the scope of any shortest-path claims in the full work.",
+          "identifier_or_url": "https://doi.org/10.1088/0305-4470/36/8/302; https://www.osti.gov/etdeweb/biblio/20365177",
+          "material_read": "OSTI primary abstract record, offsets 250–2042; no full article",
+          "method": "Publisher and identified alternate PDF retrieval attempts failed to give full text; read available abstract",
+          "title": "Totally asymmetric exclusion processes with particles of arbitrary size",
+          "trigger": "Closely related extended-particle asymmetric exclusion dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired claim gives the exact worst-case number of legal one-way hops for a natural exclusion graph and identifies every source and target attaining it. This structural eccentricity and antipode classification remains useful even once metric realizability is known: it describes which configurations force worst-case reconfiguration and proves there is only one farthest target per extremal source. It is not a mixing or stationary-current assertion, nor a rebranding of the transport-path lemma.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

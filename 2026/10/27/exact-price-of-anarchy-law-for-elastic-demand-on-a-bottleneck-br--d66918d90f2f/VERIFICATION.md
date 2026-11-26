@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,11 @@
 }
 ---
 
-The included Python script was executed from the package path and printed `VERIFY_OK representative_B=6/5 equilibrium_CC=18/5 optimum_CC=16/5 PoA=9/8 equilibrium_flow=6/5 optimum_flow=2`. The exact-rational checks confirm the representative parameter point, the path costs, feasibility, combined costs, ratio, and several boundary inequalities. The full interval and uniqueness claims rely on the analytic piecewise proof in `RESULT.md`; the script is not an independent proof, a formal proof, or an external certification. No independent audit or independent validation has been performed.
+Run `python3 verify_braess_benchmark.py` in this directory. This finite exact-rational check compares direct minimum-cost option tests with the equilibrium classification on rational flow grids for benefit levels \(9/8,6/5,3/2,7/4\). It also checks the unique grid optimizer and worst Nash cost at those levels, using grids containing the predicted global optimizer and a worst Nash flow. The continuum claims and the sharp optimizer switch at the irrational value \(4-2\sqrt{2}\) require the analytic proof in `RESULT.md`.
+
+```text
+grid B=9/8: optimum 783/256; worst Nash cost 27/8; ratio 32/29
+grid B=6/5: optimum 16/5; worst Nash cost 18/5; ratio 9/8
+grid B=3/2: optimum 7/2; worst Nash cost 9/2; ratio 9/7
+grid B=7/4: optimum 15/4; worst Nash cost 21/4; ratio 7/5
+```

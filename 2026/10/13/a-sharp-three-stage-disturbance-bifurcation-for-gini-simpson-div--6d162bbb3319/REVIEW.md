@@ -1,21 +1,21 @@
-# Scientific review: three-stage disturbance and diversity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated continuous-time chain has stationary probabilities obtained from the two inflow–outflow identities. Their Gini–Simpson index differentiates to a quartic numerator, whose discriminant is the stated degree-seven polynomial factor. A sign-change certificate, positive Bernstein coefficients, and a positive translated polynomial prove that this factor has precisely one positive zero. Exact root-count witnesses on either side plus the absence of triple roots establish the full local-peak classification. The explicit reflection identity and the derivative at the reflection fixed point prove uniqueness of the global maximum and strict inferiority of the secondary local peak. The two-stage comparator is direct.
+PASS
 
-The bundled exact-arithmetic verification code successfully checked the polynomial certificates, identities and rational test cases. The universal statements rest on the analytic sign and continuity proof, not on finite numerical enumeration.
+Stationary balance gives the reported probabilities for positive rates, and differentiation gives the reported quartic with the stated negative prefactor. Independent symbolic computation recovers both discriminants and the coprimality certificate; an exact Sturm count gives one positive, simple zero of the septic. At r=1/100 the quartic signs at 0, sqrt(r)=1/10, 1/5 and 1 are −,+,−,+; at r=1 Descartes gives one positive root. A root cannot cross 0 or sqrt(r) (the quartic is strictly negative at the former and positive at the latter), or escape at a finite r>0. The two roots above sqrt(r) therefore merge at the discriminant zero into a double root, with the lower root simple; the double zero of D' gives a stationary inflection. The exact r/x reflection dominates every x>sqrt(r), and sqrt(r) itself has nonzero derivative. The single lower maximum is globally unique. The two-stage formula gives one peak. Exact bracket (0.0817033790460166, 0.0817033790460167): the printed decimal is correctly rounded, not a truncation. Applies only to the stated stationary, homogeneous Markov succession and the stage index. Replay: python3 -B /workspace/branches/frozen_math_replay.py (disturbance; SymPy). Frozen verify.py was inspected, not executed.
 
-## Originality — PASS, with residual risks
+## originality
 
-Johst and Huth (2005, DOI 10.1111/j.1366-9516.2005.00133.x) already report two-peaked diversity–disturbance curves in successional models and expressly mention the applicability of Simpson diversity. These observations are not claimed as novel. The closest inspected full-text account did not formulate the exact smallest-stage Gini–Simpson bifurcation, the unique positive degree-seven parameter threshold, or the global ordering of the two local peaks. Horn's 1975 Markovian succession framework and Cadotte's 2007 experimental competition–colonization result provide context but not these specific claims.
+PASS
 
-Residual risk: an older specialized calculation under other terminology could imply the exact parameter criterion, and Horn's original chapter was not inspected in full. The equations of Johst and Huth are partly rendered as images in its HTML edition; the article's prose, model description, results, figures and discussion were examined. Database nonmatches alone do not establish novelty.
+Qualitative bimodality and the long-intermediate-stage mechanism are not credited as new. The exact threshold and minimum stage count are also stated in a distinct, later-dated catalogue record; this is genuine overlap, not evidence that the later record is prior. The all-rate unique global optimizer and strict dominance of the low peak were not found in that comparator. No demonstrated earlier coverage of the exact bifurcation or dominance was found; the decision is limited to this quantitative theorem and is not a priority certification.
 
-## Value — PASS
+## value
 
-Earlier qualitative work asked when intermediate disturbance produces two peaks. Here a natural minimal three-stage landscape model has a sharp, computable residence-time threshold, distinguishing genuine bimodality from a single broad hump. The theorem additionally shows that local bimodality need not yield two globally equivalent management choices: the lower-disturbance peak is always better under this exact diversity objective. The finite polynomial criterion and uniqueness classification remain meaningful without a wider population-persistence theorem.
+PASS
 
-The scope is deliberately limited to stationary successional-stage Gini–Simpson diversity in a homogeneous Markov reset model. It is not an empirical persistence forecast.
+Gives an exact regime boundary for a motivated bimodality mechanism and settles the different optimization question: the apparent high-disturbance peak never offers a competing global optimum. The all-rate reflection and the distinction between local and global peaks are useful within the stated model. No generalization to field outcomes or species-level diversity is inferred.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

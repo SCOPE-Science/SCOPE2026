@@ -1,15 +1,21 @@
-# Review of the three-state finite-ambiguity alphabet threshold
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact domain is trim three-state, adjacent-only singleton-SCC chain NFAs. Three explicit obstruction configurations each create arbitrarily many accepting runs on pumpable words. Consequently every eligible alphabet embeds into one of two concrete 23-type alphabets. The supplied six-coordinate lists give closed integer-matrix sets of 48 elements each, rigorously bounding every word's accepting-run count by four. All 1024 ordered two-letter transition pairs are exhausted and sharp unary, binary, and ternary examples are checked with independent 3-by-3 and six-coordinate implementations. Matrix closure, rather than merely checking words up to a length, establishes the all-word quantifier. Critical packages: `verify.py`, `verify.cpp`, `matrices_X.csv`, `matrices_Y.csv`. No nonstandard external lemma is necessary for the main mathematical proof.
+## correctness
 
-## Originality — PASS, with residual risk
-Weber–Seidl (1991, Section 5 and Table 1) already give the three-letter four-path lower bound and the general IDA theory. Kiefer et al. (2026, Sections 2–5) establish the finite-ambiguity framework and an upper bound of twelve for three-state singleton-component chain automata. Neither inspected text gives the matching sharp bound four for all finite alphabets, the binary maximum three, nor the first-alphabet transition. Literature and relevant indexed research were searched by formulation and implication, not just title; an equivalent unindexed calculation or thesis remains possible. The new claim is the full exact three-state threshold, not the previously published four-run construction in isolation.
+PASS
 
-## Value — PASS
-The recent improvement of the maximal finite ambiguity problem makes exact small-state baselines mathematically natural. The theorem closes an actual nontrivial gap between the previously published lower four and upper twelve at three states, identifies a strict binary-versus-ternary boundary, and provides a complete two-maximal-alphabet structural classification. The exact finite semigroup witness is usable in other small-component ambiguity analyses. This is not asserted to solve the general state-count asymptotics.
+For the stated trim adjacent-only chain, a letter with loops at both ends of an adjacent bridge and the bridge itself gives arbitrarily many crossing times; trim provides the required prefix or suffix. A letter in X followed by one in Y gives an endpoint-loop block with a complete crossing, so repetitions again give unbounded ambiguity. Avoiding these obstructions is exactly containment in T_X or T_Y. A fresh replay with ordinary full integer matrices computed the two 48-element closures from their 23 generators, matched both CSVs, and found maximum entry (1,3) = 4 in each. Reaching a fixed point under every right multiplication certifies arbitrary word lengths. The replay checked 1,024 ordered binary pairs, with exactly 216/28/2 trim finite pairs of degrees 1/2/3 (246 total), and found the four finite trim unary types 10,11,14,26, each of degree 1. It recovered the witnesses aa, aabb and abbc with counts 1,3,4; duplicate letter types extend the last witness without adding products. These conclusions exclude skip edges, other initial/final states and weighted parallel edges.
 
-## Limitations
-The result excludes skip edges, different initial/final conventions, and four or more states. The computer-assisted closure proofs require checking the supplied finite matrix lists, all included and reproducible. Remaining originality uncertainty principally concerns unindexed literature, including theses or unpublished enumerations. The displayed result is not externally validated.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The lower bound of four at three states and the obstruction approach have prior coverage. The matching adjacent-only upper bound, alphabet thresholds, exact binary census and explicit two-family closure classification remain distinct on the inspected evidence.
+
+## value
+
+PASS
+
+This is the first chain size with two compulsory crossings, where the small-alphabet restriction affects maximal ambiguity. The exact 1/3/4 gap and the two finite product families provide a sharp test case for general ambiguity estimates and a reusable way to certify upper bounds over all word lengths; the ordered census gives more than specimens achieving the maxima.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

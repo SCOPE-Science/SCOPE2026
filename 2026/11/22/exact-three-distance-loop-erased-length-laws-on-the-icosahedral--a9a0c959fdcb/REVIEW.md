@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is the unique path between two fixed vertices in a uniform spanning tree of the twelve-vertex unit-weight icosahedral graph, equivalently the loop erasure of simple random walk. For any simple endpoint path, contraction is a bijection between spanning trees containing that path and spanning trees of the quotient multigraph; a principal Laplacian minor counts the latter exactly. The all-path sum is thus an exact integer proof of every table entry, not statistical inference. The included verifier traverses all simple paths for all 66 endpoint pairs, confirms each of the three spectra, verifies that each spectrum sums to \(5{,}184{,}000\), and recomputes the exact means and shortest-path counts. Independently written exact-rational Gaussian elimination checks selected killed-walk Green-function path probabilities. All assertions are finite and the verified domain is specified; there is no extension to other graphs.
+## correctness
 
-## Originality — PASS on examined evidence
-The LERW–UST identity, Kirchhoff's theorem, and the adjacent-edge probability \(11/30\) are prior art. The most relevant full primary texts inspected were Lawler–Schramm–Werner (arXiv:math/0112234, Sections 1.3, 1.5), which proves scaling-limit statements, and Peres–Revelle (arXiv:math/0410430, Section 1 and Theorems 1.1–1.3), which proves asymptotic finite-graph-family results. Kenyon–Wilson (arXiv:1107.3377, introduction and finite-graph methods) gives broad connection formulas, but its examined tables concern infinite planar lattices rather than the icosahedron. A published two-point resistance table includes the adjacent case, not the complete length law. The exact three-distance histogram and nonmonotonic geodesic sequence were not found in inspected sources or relevant public research-record searches. General-purpose determinant methods make these answers computable, but do not state the graph-specific enumerated coefficients. Historical priority remains provisional, particularly because a preexisting unindexed polyhedral enumeration cannot be ruled out.
+PASS
 
-## Mathematical value — PASS
-The uniform spanning tree of a regular Platonic graph is a canonical finite statistical-mechanical object, and the full intrinsic-distance distribution is a natural observable distinct from effective resistance and the tree count. Computing all three endpoint-distance-conditioned distributions gives a complete exact benchmark for loop-erased path statistics on the icosahedron, including their means, tails and rare Hamiltonian paths. The geodesic-probability dip at distance two followed by recovery at antipodal distance three is a motivated and non-obvious comparison: its conclusion is not implied by the increase of electrical resistance with graph distance. This is a finite invariant, not an unsupported claim of a general theorem or universal behavior.
+For any specified simple endpoint path, trees containing its edges are in bijection with spanning trees after contracting it; the cofactor at the contracted vertex is precisely the Laplacian principal minor on the vertices outside the path, with parallel edges counted. Different endpoint paths are mutually exclusive in a tree. An exact separate implementation evaluated the minors and exhaustively summed them for all 66 pairs (30, 30, 6 by distance). Every length entry matched, each row summed to the separately computed cofactor 5,184,000, and the rational means and geodesic masses matched. In particular 7/30 < 26/75 < 11/30 gives the asserted nonmonotonicity. The standard UST path/chronological loop-erasure identity applies to the unweighted walk stopped at the fixed endpoint.
 
-## Closest literature and residual limits
-Relevant sources: Schramm, arXiv:math/9904022; Lawler–Schramm–Werner, arXiv:math/0112234; Peres–Revelle, arXiv:math/0410430; Kenyon–Wilson, arXiv:1107.3377; and published two-point resistance calculations for Archimedean resistor networks, DOI 10.1016/j.rinp.2022.105443. The calculation is exact for this one graph with unweighted, discrete-time dynamics. No independent scientific audit or definitive historical-priority proof has been undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known UST/LERW equivalence, cofactor methods, denominator and adjacent-edge marginal are not distinct contributions. The strongest inspected sources do not give or subsume the graph-specific full length census at the three fixed-pair distances, or its nonmonotone geodesic comparison. This decision is on that combined exact law, not a priority claim about the method or individual known entries.
+
+## value
+
+PASS
+
+The icosahedral graph is a canonical small regular polyhedral graph with exactly three pair distances. The complete distribution is a finite exact test case for UST or LERW length calculations at near, intermediate and antipodal separation. In particular it provides a concrete counterexample to monotone dependence of the geodesic probability on separation: an antipodal pair has more compulsory steps but also more short routes, and the exact comparison is not captured by the adjacent resistance or the total spanning-tree count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:07:41.471287Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–36 and 44–80; VERIFICATION.md and the three bundled checkers inspected, not run",
+        "Own replay: python3 /workspace/review_checks.py 4; /workspace/review-evidence/4.txt; independent forbidden triple counts 12, 90, 375 at n=4,5,6 and signed traces on all 24 permutations for n=4"
+      ],
+      "rationale": "The central integral isomorphism and Pieri decomposition are correct. A simple root path contains any given disjoint pair and third root edge, leaving only clique faces and isolated extra 1-cells. The relative complex is free in degree 1 and the pair sequence gives the signed lattice integrally. The five S4 character values are 3, 1, -1, 0, -1, as for (3,1); Pieri gives interlacing with (3,1), including small n. However, Finding line 26 uses the pointwise stabilizer of an orbit, whereas the true formula (Proof line 72) uses the stabilizer of ONE matching in the orbit. For Q=S5 there is one orbit and its pointwise stabilizer is trivial: a permutation fixing every matching preserves every four-element support and thus fixes every label. The frozen wording then predicts invariant rank one, but a matching has an orientation-reversing stabilizer element and the rank is zero. The distinction matters and is not fixed by passing finite tests.",
+      "residual_risks": [
+        "The finite check concerns faces and pairing traces, not an integral homology certificate; the pair sequence is the integral proof."
+      ],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "All Johnson graphs are strongly 2-monophonic",
+          "The line-graph clique complex is homotopy equivalent to the 2-skeleton of the root graph clique complex"
+        ],
+        "reasoning": "Both results apply uniformly to the triangular graphs in the frozen claim and jointly give exactly the hypotheses of the natural relative H1 isomorphism.",
+        "searches": [
+          "Brešar–Cornet–Dravec arXiv:2509.18784 §3.4 Thm. 20",
+          "Goyal–Shukla–Singh arXiv:2009.12130v2 Lem. 3.2",
+          "Resultary 559a0d730ca9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2509.18784",
+        "arXiv:2009.12130v2",
+        "Resultary 559a0d730ca9 and identical record c08118dfe8cf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Given any third vertex, a nonadjacent pair has an induced path through it; and Cl(L(K_n)) is equivalent to the 2-skeleton of a simplex"
+        ],
+        "reasoning": "The new relative group is just the oriented matching-pair cell module, and the natural exact sequence gives the claimed absolute group immediately because the old H1 vanishes and H0 is unchanged. Pieri and the subgroup stabilizer argument are standard read-offs, not missing implications.",
+        "searches": [
+          "arXiv:2509.18784 Thm. 20 combined with arXiv:2009.12130v2 Lem. 3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The top target-specific indexed match is the identical assigned record, excluded as prior evidence",
+          "Resultary 2026/11/1/SCOPE-an-equivariant-star-collapse-model-for-line-graph-clique-complex--559a0d730ca9, Finding: the second homology of the OLD clique complex, not the first homology of the augmented complex"
+        ],
+        "reasoning": "An ordinary wedge statement alone would not give a symmetry module, and the prior H2 lattice is not an equivalent statement. The relative chain argument below uses more than the ordinary Betti count.",
+        "searches": [
+          "Local Resultary semantic comparison of triangular monophonic-position homology, signed matching-pair lattice, equivariant line-graph model",
+          "arXiv:2509.18784 and arXiv:2009.12130v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The former is the same all-n claim; the latter catalogues a different (second) homology module"
+        ],
+        "reasoning": "A finite table of ranks or small-n traces does not cover the uniform integral module. The relevant exact catalogue search is for a symbolic representation identification, not finite homology numbers.",
+        "searches": [
+          "Local Resultary target-specific catalogue comparison; strongest matching IDs c08118dfe8cf and 559a0d730ca9"
+        ]
+      },
+      "rationale": "No explicit prior statement of the new-looking signed lattice was located, but it is a mechanical corollary of two exact prior theorems. The first identifies all higher faces with those of the clique subcomplex, with exactly the disjoint-pair edges added; the second gives connectedness and H1=0 for that subcomplex. Naturality identifies absolute H1 canonically with the sole relative chain group, with the usual oriented edge signs. Induction and Pieri mechanically read off the additional claims; there is no extension or new topological assertion to establish. This is an implication finding, not an assertion that either paper printed the module formula.",
+      "residual_risks": [
+        "No claim of explicit printed priority for the lattice or comprehensive search; rejection is mathematical implication from the two inspected theorem statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive coverage of the faces used in the relative argument",
+          "evidence": "For nonadjacent x,y, each third vertex u is on an induced x,y path.",
+          "identifier_or_url": "https://arxiv.org/pdf/2509.18784",
+          "material_read": "§3.4, Theorem 20 and proof passage; PDF p. 17, text offset 55800",
+          "method": "Bounded primary OA PDF passage",
+          "title": "Monophonic number of Kneser graphs and strongly 2-monophonic graphs",
+          "trigger": "Direct Johnson-graph face-characterization coverage"
+        },
+        {
+          "assessment": "Gives H1=0 and connectedness in the required specialization",
+          "evidence": "The clique complex of the line graph is homotopy equivalent to the 2-skeleton of the clique complex of the root graph.",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.12130",
+          "material_read": "v2, Lemma 3.2, PDF p. 6, text offset 16350",
+          "method": "Bounded primary OA PDF passage",
+          "title": "Topology of Clique Complexes of Line Graphs",
+          "trigger": "Vanishing of integral H1 of the old subcomplex"
+        },
+        {
+          "assessment": "Direct H2 overlap only; independently supplies the needed vanishing premise for C_n",
+          "evidence": "The C_n second homology is the third exterior power of the augmentation lattice; its other reduced homology vanishes.",
+          "identifier_or_url": "2026/11/1/SCOPE-an-equivariant-star-collapse-model-for-line-graph-clique-complex--559a0d730ca9",
+          "material_read": "RESULT.md Finding offset 0; prior-work comparison offset 4800, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Bounded local mirror reading",
+          "title": "An equivariant star-collapse model for line-graph clique complexes",
+          "trigger": "Closest distinct local Resultary result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 64–80",
+        "Theorem 20 and Lemma 3.2 cited in originality"
+      ],
+      "rationale": "The signed integral invariant is natural and more informative than Betti numbers, but here the already-determined complex adds only 1-cells and the old H1 vanishes. The full action is forced directly by the oriented basis of those cells, and the decomposition is a textbook Pieri multiplication. Correcting the orbit-stabilizer wording would not leave a distinct nonmechanical invariant to repair.",
+      "residual_risks": [
+        "This is a judgment about the exact frozen contribution, not a claim that equivariant homology of position complexes is generally routine."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

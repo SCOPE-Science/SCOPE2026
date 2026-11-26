@@ -1,0 +1,177 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:34:25.085595Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In tangent coordinates at v1 the sphere gradient has differential lambda1 I-A on the tangent space, and normalization differentiates to projection onto that space. The state map is smooth near (v1,v1); the unnormalized vector there is v1. Each independent transverse eigengap Delta gives z^2-[1-(1-p)x]z+px, x=eta Delta. The strict disk test is px<1, x>0, and 2-(1-2p)x>0. Replay by evaluating the polynomial at +/-1 and its root product: for real roots the endpoint inequalities and product bound force both roots inside, and for conjugate roots the product is their squared modulus. The maximal gap L is attained and controls all upper bounds; the flip and product bounds meet at p=1/4. Above the ceiling either the product exceeds one or the value at -1 is negative, which in the latter case forces a real root below -1. At equality the largest-gap block has roots -1 and -2p/(1-2p) if p<1/4, a repeated root -1 with a nonzero rank-one nilpotent part if p=1/4, and a nonreal unit pair if p>1/4. For strict Schur stability use an adapted contracting norm in local coordinates. Conversely a uniform exponential inequality for independent nearby pairs differentiates to ||D(F^t)||<=C r^t at the fixed point, which is impossible for a unit or larger multiplier. For the critical companion matrix N=M+I satisfies N^2=0 and M^k=(-1)^k(I-kN); determinant one and Frobenius norm squared 2+4k^2 give the larger singular value k+sqrt(k^2+1) including k=0. This measures the linearized response, not nonlinear instability at the boundary. The supplied script was inspected but not executed; its sampled root and finite-difference tests do not determine the all-parameter result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Adams construction extends the identical optimized two-step rule to arbitrary step count k with real stability length 2k and includes the general unit-root condition. Its broader global optimality speculation should not be confused with a theorem for all multistep schemes.",
+          "The two asynchronous PCA sources give previous-gradient aggregation and sufficient convergence bounds, not the exact fixed-mixture frontier.",
+          "Loczi gives the general root/Schur–Cohn machinery; his inspected IMEX example is cubic and does not itself state this quadratic optimum."
+        ],
+        "reasoning": "The prior eigensolver theorems alone do not imply the sharp ceiling. What matters is that the critical linear recurrence is exactly the one in the earlier Adams construction, with the application transfer supplied by the standard derivative at the fixed pair.",
+        "searches": [
+          "arXiv:2012.06767v1, Theorem 1 and first-order optimization",
+          "arXiv:2608.04406, Algorithm 1 and Theorem 2",
+          "PMLR 206 wang23j, Algorithm 1 and Theorem 1",
+          "Loczi DOI:10.1007/s11075-019-00775-x"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2012.06767v1",
+        "DOI:10.1007/s11075-019-00775-x",
+        "arXiv:2608.04406",
+        "PMLR 206 wang23j",
+        "DOI:10.1002/0470868279.ch4 (access limited)",
+        "SCOPE-060dbc8e10d0",
+        "SCOPE-7dc18efbbac0",
+        "SCOPE-f5af2b949bb8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the same Adams family the full p-ceiling is obtained from px<1 and 2-(1-2p)x>0, and their intersection at x=4 fixes the unique p=1/4 on the prescribed convex segment.",
+          "At the previously specified coefficients and length, M+I is square zero; the norm formula follows directly from this matrix without using geometry of the eigensolver beyond the tangent identification."
+        ],
+        "reasoning": "Earlier published statement: the optimized coefficients and interval for the identical recurrence. Mechanical implications: endpoint double root and its elementary shear norm, all-mixture disk inequalities and uniqueness in the convex segment. Not shown to be published verbatim: the whole fixed-p eigensolver theorem. That distinction does not establish a separate substantive claim.",
+        "searches": [
+          "arXiv:2012.06767v1, pp. 1–2 and 5",
+          "Loczi pp. 7–10",
+          "Wang–Hu–Wai Algorithm 1 and Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the two-step Adams family rho(z)=z^2-z and sigma(z)=p+(1-p)z. Putting h lambda=-eta Delta yields exactly, coefficient by coefficient, the record's polynomial.",
+          "Repnikov–Faleichik–Moysa give beta_j=(2j+1)/k^2 in oldest-to-newest order; for k=2 this is beta_0=1/4, beta_1=3/4, with real-axis stability interval of length 4."
+        ],
+        "reasoning": "Both the mixture and doubled ceiling are the same linear recurrence, not an analogy or a coincident numerical parameter. At the endpoint z^2+2z+1 is the same polynomial, with the same companion matrix in the current/previous state coordinates.",
+        "searches": [
+          "stabilized Adams-type linear multistep method first order stability interval Faleichik 2-step optimal coefficients 3/4 1/4",
+          "arXiv:2012.06767v1, equations (2)–(4) and Theorem 1",
+          "Loczi DOI:10.1007/s11075-019-00775-x, multistep polynomial formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local matches concern stochastic stale picks/heterogeneous curvature, a different noisy lag recurrence, or Bernoulli stale picks at probability 1/4; none is the deterministic convex blend.",
+          "The decisive exact formula is not a search nonhit: the primary earlier Adams theorem explicitly prescribes the two weights and interval length by its evaluated coefficient sequence."
+        ],
+        "reasoning": "Reject equivalence based on a matching 1/4 in a stochastic model. Credit the actual matching coefficients and interval in the primary Adams theorem; it covers the headline optimum point even without an eigensolver table.",
+        "searches": [
+          "Resultary: deterministic stale-gradient stability versus stochastic stale-read thresholds and two-lag feedback",
+          "SCOPE-060dbc8e10d0",
+          "SCOPE-7dc18efbbac0",
+          "SCOPE-f5af2b949bb8",
+          "arXiv:2012.06767v1 equation (19)"
+        ]
+      },
+      "rationale": "Repnikov–Faleichik–Moysa explicitly give the same 3/4 fresh, 1/4 previous two-step rule and real stability length 4 as the k=2 case of their earlier stabilized Adams-type construction. Substitution gives the identical critical polynomial and companion matrix. The specific application to the normalized sphere map is not shown to have been stated earlier, and the prior theorem is not claimed to print the entire p-frontier or the Euclidean norm. However, the headline stability gain is covered, and the application obtains it by the tangent linearization of an existing cached polar update; the rest is the routine quadratic disk test and powers of its very same critical matrix. The record does not establish a distinct substantive theorem beyond that transfer and calculation.",
+      "residual_risks": [
+        "It is not established whether the full restricted family sweep or polar-map statement has been printed elsewhere. This uncertainty does not undo the demonstrated earlier coverage of the optimized rule.",
+        "The Butcher chapter was not accessed; no negative inference is based on that gap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive earlier equivalent coverage for the headline tuned scalar recurrence and straight-line stability length",
+          "evidence": [
+            "Earlier v1, December 2020. Theorem 1 gives beta_j=(2j+1)/k^2 and real-axis length 2k; (2) orders beta_j from oldest to newest.",
+            "The same characteristic polynomial and simple-unit-root criterion follow from equations (3)–(4) and surrounding text."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2012.06767",
+          "material_read": "pp. 1–2 equations (2)–(4), and p. 5 Theorem 1, equations (19)–(22), text offset 14635 onward",
+          "method": "Primary open PDF, exact parameter and polynomial comparison",
+          "title": "Stabilized explicit Adams-type methods",
+          "trigger": "First-order stabilized two-step Adams rules may have the very same optimized coefficients and interval"
+        },
+        {
+          "assessment": "General polynomial and root-condition machinery, not the specific tuned quadratic",
+          "evidence": [
+            "Uses rho(z)-mu sigma(z); inspected IMEX family is cubic, with different optimization objectives."
+          ],
+          "identifier_or_url": "DOI:10.1007/s11075-019-00775-x",
+          "material_read": "Open PDF pp. 6–10, offsets 15097–16360, 20290, 23500 and 29750",
+          "method": "Primary open PDF passage comparison",
+          "title": "Optimal subsets in the stability regions of multistep methods",
+          "trigger": "Equivalent scalar stability and classification literature"
+        },
+        {
+          "assessment": "Supplies the more general previous-gradient polar update but not the specific sharp local threshold",
+          "evidence": [
+            "Cached gradients with bounded varying staleness, polar updates, sufficient stepsize and initialization restrictions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.04406",
+          "material_read": "Algorithm 1 p. 7 offset 28599 and Theorem 2 p. 13 offset 49884",
+          "method": "Primary open PDF algorithm and theorem passages",
+          "title": "Incremental Aggregation on the Grassmannian for Asynchronous Eigenspace Computation",
+          "trigger": "Prior cached polar eigensolver"
+        },
+        {
+          "assessment": "Related cached-gradient scheme, different bounds",
+          "evidence": [
+            "A delay horizon and sufficient local convergence conditions, not a fixed-p two-state exact frontier."
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v206/wang23j/wang23j.pdf",
+          "material_read": "Algorithm 1 and Theorem 1, pp. 5–6, offsets 31385 and 33860",
+          "method": "Open publisher PDF passages",
+          "title": "Incremental Aggregated Riemannian Gradient Method for Distributed PCA",
+          "trigger": "Earlier delayed eigensolver convergence bounds"
+        },
+        {
+          "assessment": "No claim about chapter-specific coverage; not a basis for rejection",
+          "evidence": [
+            "The chapter is cited for classical multistep theory; the decisive specific recurrence is shown in the open Adams paper instead."
+          ],
+          "identifier_or_url": "DOI:10.1002/0470868279.ch4",
+          "material_read": "Bibliographic identification, primary text not accessed",
+          "method": "Lawful OA attempt returned 403; no copy obtained",
+          "title": "Numerical Methods for Ordinary Differential Equations, Chapter 4",
+          "trigger": "Classical multistep stability reference"
+        },
+        {
+          "assessment": "Different stability concept and random model",
+          "evidence": [
+            "Mean-square condition from random stale selections with random curvature."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-a-sharp-joint-staleness-heterogeneity-threshold-for-scalar-stoch--060dbc8e10d0",
+          "material_read": "Local-mirror RESULT.md, Finding",
+          "method": "Indexed statement comparison",
+          "title": "A sharp joint staleness–heterogeneity threshold for scalar stochastic updates",
+          "trigger": "Nearby exact staleness stability frontier"
+        },
+        {
+          "assessment": "Different polynomial and objective",
+          "evidence": [
+            "Optimizes variance of a noisy recurrence, not the fixed deterministic stable stepsize ceiling."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-exact-noise-optimal-weighting-and-the-negative-feedback-frontier--7dc18efbbac0",
+          "material_read": "Local-mirror RESULT.md, Finding",
+          "method": "Indexed statement comparison",
+          "title": "Exact noise-optimal weighting and the negative-feedback frontier",
+          "trigger": "Two-lag weight optimization"
+        },
+        {
+          "assessment": "Later catalogue entry, no deterministic blend equivalence",
+          "evidence": [
+            "The quarter is fixed as a Bernoulli stale-read probability, not optimized as an averaging weight."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-bernoulli-stale-gradient-stability-and-a-pathwise-versus-m--f5af2b949bb8",
+          "material_read": "Local-mirror RESULT.md, Finding",
+          "method": "Indexed statement comparison",
+          "title": "Sharp Bernoulli stale-gradient stability and a pathwise versus mean-square comparison",
+          "trigger": "Same numerical quarter with a distinct interpretation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Fixed-delay polar dynamics are a motivated model and the transfer is pedagogically useful. But the central gain is the previously computed two-step Adams rule acting on transverse spectral modes. The gap reduction uses only the standard tangent Hessian and normalization derivative; the remaining frontier and exact Euclidean norm are mechanical consequences of quadratic root testing and the power of its fixed two-by-two companion matrix. No distinct boundary dynamics, robustness analysis, changed optimization quantity or other independently needed nonroutine invariant is established. Narrowing to the remaining calculation alone would not meet the value threshold, so no repair is submitted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

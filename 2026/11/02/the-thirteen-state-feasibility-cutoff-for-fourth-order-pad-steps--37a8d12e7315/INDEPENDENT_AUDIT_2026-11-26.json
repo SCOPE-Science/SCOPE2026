@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:03:48.390402Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 28–110; frozen VERIFICATION.md, lines 19–29; verify_gauss_birth.py, lines 20–86 (inspected, not run)",
+        "Fresh reproduction: independent_exact_matrix_check.py in /workspace/branches/5274a7b6-28ac-4ef2-8562-956bc21d4051; solve (I−hQ/2+h²Q²/12)M=I+hQ/2+h²Q²/12 over Q(√3) at the irrational boundary"
+      ],
+      "rationale": "The poles 3±i√3 are excluded by the spectrum {-h,0}, and Q times the all-ones vector is zero, so the endpoint exists and has row sums one. For h>0 substitute the transient shift into R(h(x−1)). With D0=h²+6h+12, rho=h/√D0 and theta=arctan(√3/(h+3)), the denominator is (D0/12)(1−2rho cos(theta)x+rho²x²); its inverse has coefficient a_j=(12/D0)rho^j sin((j+1)theta)/sin(theta). The transient coefficients are c0=((h−3)²+3)/D0 and c_j=h(a_(j−1)−a_j), and the absorption entry in row i is h a_(n−i−1) by telescoping the row sum. Using rho=cos(theta)−√3 sin(theta), the addition formula gives sign(c_j)=sign(sin((j+1)theta−pi/6)) for j≥1. For n≥3 the first-neighbor condition is theta≥pi/12, hence h≤2√3. Simultaneous absorption signs require (n−1)theta≤pi: if this fails the first sampled multiple strictly greater than pi lies below 2pi and has negative sine, even if a previous multiple equals pi. Together the two conditions put every transient angle in [0,5pi/6], so they are sufficient. For positive h, theta decreases strictly from pi/6 to zero. Thus n≤7 (with n≥3) has no positive lower threshold, n=8 through 13 has the stated lower endpoints, at n=13 the two bounds coincide, and n≥14 has none. At n=2 there is no c1 constraint, and h=0 is the identity for all n. Fresh exact matrix solves at n=13 verified all signs and row sums at h=2√3, with entries (1,2) and (1,13) exactly zero (one-based); at h=3 entry (1,13) was −5577374880/23298085122481, and at h=7/2 entry (1,2) was −168/32761. These are checks of selected instances, not the proof of the classification.",
+      "residual_risks": [
+        "The frozen verifier's expected positive-step sign comparisons use floating-point angles with tolerances on its finite rational grid. The analytic inequalities, not those tolerances, cover exact boundaries.",
+        "The isolated step at n=13 is an exact-arithmetic fact; there is no finite-precision robustness or accuracy guarantee."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zappavigna et al. obtain loss of positivity from the nilpotent shift and a Hurwitz Metzler shift in eight dimensions; neither conserves constant vectors as this Markov generator does.",
+          "Lóczi–Ketcheson's theorem applies to the reduced [2/2] rational function with nonconstant denominator and no positive real pole: its unrestricted radius of absolute monotonicity vanishes. It does not bound the positive timesteps of a fixed finite absorbing generator.",
+          "The later Fokker–Planck discussion gives large-step criteria for irreducible conservative, eventually exponentially positive generators and discusses other maps, including Cayley and Padé(0,2). The absorbing family is reducible.",
+          "The Markov positivity barrier's small-step guarantee through seven states is for general finite Markov generators and is already credited; it is not a full timestep-domain theorem for each chain length."
+        ],
+        "reasoning": "A universal step-size obstruction, small-step guarantee, or a criterion for a different generator class cannot be substituted for the complete domain at every dimension in this fixed-rate family.",
+        "searches": [
+          "Zappavigna et al. DOI 10.1016/j.laa.2011.12.021, author manuscript Section 4 and p. 14",
+          "Lóczi–Ketcheson arXiv:1303.6651, Theorem 1.10 and its assumptions",
+          "Itkin–Kazbek arXiv:2608.22703, Section 3, pp. 6–7",
+          "4aad2a3f58ab, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4: 4aad2a3f58ab, 36650df9b045, 50bf05f4d07d",
+        "Open Zappavigna et al. manuscript, arXiv:1303.6651 and arXiv:2608.22703, relevant passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older window proof computes finite derivatives and absorbing remainders up through the seven-transient-state block. It already contains the first-neighbor test; this extends via the very same local upper-triangular block to every n≥3.",
+          "Neither that derivative test nor the eight-state remainders decide how the higher-order absorption entries change sign at longer lengths. The present proof identifies the first sine sign change simultaneously across every row and controls all other transient signs on that feasible angle interval."
+        ],
+        "reasoning": "The n=8 lower/upper tests, the uniform upper bound, and known small-step results are ingredients or separate prior conclusions. The exact all-length necessary-and-sufficient criterion and the sharp cap are not simple parameter substitutions into them.",
+        "searches": [
+          "4aad2a3f58ab proof section 3 at offsets 4050–7160; frozen RESULT.md proof steps 1–4; Lóczi–Ketcheson Theorem 1.10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For n=8 the earlier theorem uses the identical generator and map and gives {0} union [h0,2√3], with h0 the unique positive root of a sextic. This is the same endpoint as sqrt(3)cot(pi/7)−3, since the absorption remainder vanishes there and the positive root is unique.",
+          "The Radau IIA result uses an inequivalent rational function on the same chain; the directed-cycle result uses the same map with a cyclic shift and wraparound rather than an absorbing row."
+        ],
+        "reasoning": "With row sums fixed at one, stochasticity and entrywise nonnegativity are identical here. Only the eight-state window matches under these normalizations; the other adjacent statements change the map or the matrix family.",
+        "searches": [
+          "Resultary unit-rate absorbing pure-birth / [2/2] Padé / two-stage Gauss–Legendre positivity: closest records 4aad2a3f58ab, 36650df9b045, 50bf05f4d07d",
+          "4aad2a3f58ab, Theorem 2 and proof, RESULT.md offsets 760–7160"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4aad2a3f58ab has the exact sextic and positive window at n=8. 36650df9b045 reports an eleven-state cutoff for Radau IIA. 50bf05f4d07d treats directed cycles. No exact all-length table for the same setup was present in those retrieved statements."
+        ],
+        "reasoning": "The n=8 table entry is established prior coverage; a cutoff for a different rational function or a cyclic chain cannot be taken as evidence for the n=13 entry. The bounded search does not establish absence elsewhere.",
+        "searches": [
+          "Local Resultary exact positivity-window matches 4aad2a3f58ab, 36650df9b045 and 50bf05f4d07d"
+        ]
+      },
+      "rationale": "The eight-state window and the general seven-state small-step positivity guarantee are already covered, and the underlying Padé polynomial/derivative mechanism is not new. The distinction supported by the comparisons is the complete simultaneous classification for the unit-rate absorbing chain at every length, including positive recovery for 9≤n≤12, the isolated positive step at n=13, and impossibility at all positive steps for n≥14. No checked statement or immediate specialization supplied those conclusions. This assessment is bounded and not an absolute priority assertion.",
+      "residual_risks": [
+        "The indexed and primary-literature comparisons are bounded; unindexed graph-specific Padé window results are not ruled out.",
+        "Do not attribute the eight-state case, the general small-step seven-state guarantee, or the general loss of positivity to this finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact special-case and broader small-step coverage, not the complete classification",
+          "evidence": "Explicit n=8 Q, sextic root and 2√3 upper end; finite derivative/remainder test; general small-step guarantee at n≤7.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab/RESULT.md",
+          "material_read": "Theorems 1 and 2 and proof passages, RESULT.md offsets 760–7160",
+          "method": "Local mirrored passages",
+          "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+          "trigger": "Exact map, generator at n=8, and window"
+        },
+        {
+          "assessment": "Related nilpotent and Metzler matrices, not the absorbing chain",
+          "evidence": "The coefficient of h^7N^7 is negative for the nilpotent shift, and a diagonal shift yields small-step loss for a Hurwitz Metzler matrix.",
+          "identifier_or_url": "https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf",
+          "material_read": "Section 4, p. 14, OA offset 38747",
+          "method": "Open author manuscript passage",
+          "title": "Essentially Negative News About Positive Systems",
+          "trigger": "Original [2/2] positivity counterexample and criterion"
+        },
+        {
+          "assessment": "Unrestricted absolute monotonicity, not the chain-specific test",
+          "evidence": "For rational functions under the stated assumptions, absence of a positive real pole forces zero absolute-monotonicity radius.",
+          "identifier_or_url": "https://arxiv.org/pdf/1303.6651",
+          "material_read": "Section 1, Theorem 1.10 with preceding pole setting, PDF text offsets 17300–19118, Theorem on p. 5",
+          "method": "Open primary PDF passage",
+          "title": "Rational functions with maximal radius of absolute monotonicity",
+          "trigger": "Zero radius for the [2/2] Padé function"
+        },
+        {
+          "assessment": "Different matrix hypotheses and rational-map criteria in the section inspected",
+          "evidence": "Large-step criteria under irreducibility and eventual exponential positivity; Cayley and Padé(0,2), not the absorbing [2/2] theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.22703",
+          "material_read": "Open text, Section 3, pp. 6–7, OA offset about 24700",
+          "method": "Open primary full-text passage",
+          "title": "Diagonal Frog meets ADI: trading matrix exponentials for rational maps in the Fokker–Planck equation",
+          "trigger": "Apparent later rational-map positivity recovery for conservative generators"
+        },
+        {
+          "assessment": "Different rational step",
+          "evidence": "Radau IIA, not the two-stage Gauss–Legendre [2/2] map.",
+          "identifier_or_url": "2026/11/2/SCOPE-the-eleven-state-feasibility-cutoff-for-radau-iia-on-absorbing-b--36650df9b045",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "The eleven-state feasibility cutoff for Radau IIA on absorbing birth chains",
+          "trigger": "Same chain family and feasibility-cutoff wording"
+        },
+        {
+          "assessment": "Different generator topology",
+          "evidence": "A finite directed cycle has cyclic transitions, not truncation with an absorbing last state.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-pad-positivity-horizons-for-finite-directed-markov-cycles--50bf05f4d07d",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "Exact Padé positivity horizons for finite directed Markov cycles",
+          "trigger": "Same Padé map and exact positivity domain"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, sign proof and limitations; earlier eight-state comparison"
+      ],
+      "rationale": "The natural absorbing chain isolates two opposed sign mechanisms for a standard fourth-order integrator: small steps can lose mass nonnegativity in the absorption column, while steps above 2√3 fail in the transient nearest-neighbor entry. Their competition yields the nontrivial recovered windows and a sharp maximal length with an isolated step; knowing a universal monotonicity radius is zero does not tell a numerical analyst these domains.",
+      "residual_risks": [
+        "No practical accuracy at the recovered steps or extension to arbitrary Markov generators is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

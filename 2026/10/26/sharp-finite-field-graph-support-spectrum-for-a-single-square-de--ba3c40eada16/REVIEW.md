@@ -1,15 +1,21 @@
-# Scientific review: finite-field graph-support spectrum of a single square-dependence pair
+# Independent mathematical audit
 
-## Correctness — PASS
-The full proof derives every natural-basis change directly from the linear independence of all but one squared basis representative. Its two-dimensional block is a nondegenerate symmetric bilinear plane, including characteristic two. Finite-field isotropic-line counts give the exact orthogonal pair count, and the projective-orbit argument distinguishes every exceptional marked pattern from the generic pattern. Explicit witnesses meet the extremal bound. The standalone exact arithmetic verifier checks the predicted formulas in five prime fields and exhaustively tests three-dimensional natural-basis changes over the two smallest prime fields. General correctness rests on the proof rather than the finite calculations.
+## correctness
 
-## Originality — PASS (bounded)
-The orthogonal parameterization itself is prior art: Boudi, Cabrera Casado and Siles Molina, arXiv:2006.14460, Theorem 2.11, Corollary 2.13 and Proposition 2.16. The 2026 survey, arXiv:2610.22248, Questions 14 and 30, specifically identifies natural-basis enumeration and simultaneous graph realization as unsolved broader problems, while acknowledging that the structural block form is known. The July 2026 treatment arXiv:2607.15154, Section 6, introduces a canonical quotient graph and establishes invariance of balance. Those statements do not enumerate possible lifts of its edges into the two-vertex dependence block, supply the exceptional/generic profile criterion, or give the attained sharp \(\min\{n,N\}\) maximum. This is the claimed difference. Finite projective-line geometry is elementary, so unindexed specialized treatments remain a residual priority risk. No global-uniqueness claim is made.
+PASS
 
-## Value — PASS
-A complete answer in the minimal nontrivial square-dependence stratum to a natural finite-field version of the simultaneous graph-realization question is more informative than counting natural bases alone: the same algebra may have many bases but only one graph pattern, while other examples attain the sharp dimension-dependent maximum. The explicit \(\mathbb F_5\) example has three pairwise nonisomorphic ordinary digraphs, and the field-size transition supplies a precise finite cutoff. These distinctions matter to determining when structural graph data depend on the chosen natural basis and to constructing multiple graphical presentations of the same algebra.
+Independence of the n−1 square representatives makes the product of distinct basis vectors vanish coefficientwise. In every singleton coordinate exactly one column is nonzero; the singleton rows must use distinct columns by invertibility. The other two columns span U and are B-orthogonal, so neither is isotropic and the nondegenerate B forces all remaining U-components to vanish. Perpendicularity is an involution of q+1 projective lines with exactly 2 or 0 fixed points in odd characteristic according to −λ, and exactly 1 in even characteristic by bijectivity of squaring. A nonzero v_i receives one target coordinate precisely on its own nonisotropic orbit; hit orbits are separated by their nonempty disjoint one-arrow index sets, while all unhit orbits coincide in support. The two sources in U have identical support and the singleton-target supports are fixed, so the count survives the common swap and is for the whole marked graph. Choosing u_1=e_1 and u_i=e_i+v_i on distinct remaining orbits makes t=min(n−1,N) with independence automatic. This proves the maximum, including N=1; the F5 example has the stated distinct outdegree multisets.
 
-## Limitations and closest results
-The classification applies only to the single-pair dependence stratum, and its general count is for canonically **block-marked** directed graphs; unmarked graph isomorphism classes may coalesce. The finite-field natural-basis orthogonality parameterization is credited to previous work, as is the general canonical quotient graph. The finite verification is not an infinite proof. An inaccessible or unindexed source could contain the same occupancy formula, so originality is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The structural block theorem and orthogonal parametrization are prior results, and the projective basis count follows by a fixed-point calculation. The supported distinct claim is the marked graph-support spectrum for a sole square-dependence pair with independent representatives, and its sharp extremum over realizable algebras. The strongest inspected comparisons do not cover that classification.
+
+## value
+
+PASS
+
+The graph of an evolution algebra depends on its natural basis. On a minimal nontrivial dependence stratum, the invariant specifies exactly which basis moduli genuinely change the graph, including when different moduli collapse to one marked pattern. The attained bound limits simultaneous marked realizations by both dimension and field size, independently of the sizes of the basis-change groups. This is a useful complete classification in the direction of the survey questions, not a solution to unrestricted graph realization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

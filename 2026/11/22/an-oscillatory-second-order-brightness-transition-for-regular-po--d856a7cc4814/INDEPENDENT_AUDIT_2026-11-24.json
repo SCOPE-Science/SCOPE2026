@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:26:52.714783Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Half the cross product of the two sides of a lateral triangle gives horizontal norm h sin(π/n) and positive vertical component s_n. The base vector is minus the lateral sum. Cauchy's formula thus reduces to the larger of the positive and negative lateral dot-product sums, equivalently max_S |u·a_S|. Maximization over u gives max_S ||a_S||, with equality only along ±a_S. At fixed 0<k<n the planar norm is maximized by taking the top k scalar projections in the direction of the sum; these are cyclically consecutive even if the cutoff is tied (the tie is at the ends of the arc). Their geometric sum has norm sin(kπ/n)/sin(π/n). Complementation strictly wins for k<n/2. For k<n, consecutive blocks give n axes; the tilt ratios h sin(kπ/n)/(k s_n) strictly decrease for k≥ceil(n/2), so distinct winning k contribute disjoint orbits. Crossing the vertical intercept gives exactly the stated threshold; at equality the vertical is still a maximizer, but no longer unique. Taking both signs of each extremal vector yields the 2m cap centers; disjointness and exclusion of smaller-norm vectors give the exact terminal formula. In the asymptotic, R'=-2f/sin²(πx), and with y=π(1-x), f' sin²(πx)=sin²y+2(π-y)sin y cos y-2πy+y², whose y-derivative is -4(π-y)sin²y. Thus f decreases from 1/2 to -1 and R has a unique nondegenerate minimum, with R diverging at 1. Comparing to a nearest grid point gives an O(1/n) bound on each minimizing grid point's distance from ξ; upper/lower Taylor bounds then give the d_n² term with O(n^-3) unscaled error. The prefactor is (n²/4)sin²(2π/n). Rational ξ would make cot(πξ) algebraic and nonzero, and the stationary equation would make π algebraic. Density for an irrational rotation then gives the full stated interval, including its endpoints. At ξ the stationary equation gives C/τ=π²-(1-ξ²)^(-2); hence A+C/4<0 exactly, not only numerically. Independent bisection and direct minimization checks agreed with the displayed constants and sampled asymptotics. In the proof the base and first lateral vector share the label a_0, and the oriented cap-center count uses both signs; these are notation issues, not changes to the finding.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abas provides a general cellwise-linear co-area distribution formula and a constant terminal density branch for the tetrahedron. Resultary 07110a88f45f uses the very same upper-tail slope k/(2M) with k the number of oriented extremizers; e735c228c1c2 likewise has an exact linear upper band for the icosahedron."
+        ],
+        "reasoning": "The existence and cap mechanism of a terminal linear law are not new in general. The family-specific slope uses the explicit maximizing-axis classification, not delivered by general co-area theory or exact laws for other solids.",
+        "searches": [
+          "Primary literature: random width/brightness, maximal projected area and regular pyramids; arXiv:2609.26202 Theorem 3.1 and §§5.4–5.5",
+          "Resultary: exact linear endpoint brightness tails, tetrahedra and regular icosahedron"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 19c34891a8b8, fa3f19865cb5, 07110a88f45f, 4d135c65c64a, e735c228c1c2, c7a816d5da40, ef8f8ba8bf3f",
+        "arXiv:2609.26202",
+        "arXiv:1109.0595, p. 1 (average projected area, classical background)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cone Finding specifies a continuum oblique latitude and aspect switch; the vertex-shadow Finding specifies a different event and height optimum; Abas's tetrahedron calculation has no finite-n grid."
+        ],
+        "reasoning": "The cone result fixes the continuum comparison constant but yields neither the discrete finite minimizer nor the irrationality and second-order subsequential errors. Full-vertex visibility does not optimize area. The generic polyhedral representation alone must still be evaluated on regular root-of-unity subsets.",
+        "searches": [
+          "Resultary 19c34891a8b8, fa3f19865cb5, 4d135c65c64a; Abas arXiv:2609.26202"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Records 07110a88f45f and 4d135c65c64a give finite phase and maximizing-axis laws for right rectangular and square pyramids respectively. Record fa3f19865cb5 uses the same regular-pyramid family, but optimizes the probability of retaining all projected vertices."
+        ],
+        "reasoning": "Neither a rectangular/square base nor a full-vertex visibility statistic is equivalent to the brightness maximum for regular polygons with n≥5. The subset-sum representation is general; the explicit consecutive-block extremizers for all n are the specialized output.",
+        "searches": [
+          "Resultary: regular polygonal pyramid maximum orthographic brightness; finite-area-vector envelope, complete maximizing axes and height phases"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The cone entry gives the same limiting numerical threshold, approximately 2.64140255206409; the rectangular-pyramid entry gives finite phases in a different family."
+        ],
+        "reasoning": "The critical sequence and its second-order cluster interval are not a recomputation of the exact cone value or of the rectangular phase boundaries. No matching exact sequence/table was identified in the bounded comparison.",
+        "searches": [
+          "Resultary: finite-side regular-pyramid critical heights, irrational/discrete threshold lattice-grid second-order oscillation",
+          "Resultary 19c34891a8b8 and 07110a88f45f Findings"
+        ]
+      },
+      "rationale": "Credit the known cone threshold and the previously used finite-polytope brightness and cap machinery. The supported distinct contribution is the explicit consecutive-face formula and axis classification at regular n≥5, the exact first crossing, and the irrational-grid second-order correction, with a family-specific tail coefficient. The closest original statements do not cover this combination.",
+      "residual_risks": [
+        "Abas's PDF was accessible for this audit, unlike the earlier review; only the material passages specified were read. The comparison does not exclude older specialized finite-sided results or other applications of the general theory. Do not treat the cap mechanism or cone threshold as original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the limiting cone threshold only",
+          "evidence": [
+            "Axial-to-oblique switch at h/r=2.64140255206409… with continuum oblique latitude; no finite-sided grid."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-a-sharp-global-brightness-direction-switch-for-right-circular-co--19c34891a8b8",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror, compare critical parameter and optimizing latitude",
+          "title": "A sharp global brightness-direction switch for right circular cones",
+          "trigger": "Same limiting brightness transition"
+        },
+        {
+          "assessment": "Different random variable",
+          "evidence": [
+            "Optimizes the probability that all vertices appear on the shadow boundary, not projected area."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-full-vertex-shadows-of-right-regular-polygonal-pyramids--fa3f19865cb5",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror, compare optimized statistics",
+          "title": "Sharp full-vertex shadows of right regular polygonal pyramids",
+          "trigger": "Same bodies and random projections"
+        },
+        {
+          "assessment": "Substantive overlap in method and output type, not the claimed n≥5 family",
+          "evidence": [
+            "Finite height phases and exact tail k/2·(1-t/M), counting oriented maximizers."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-three-phase-brightest-shadow-geometry-and-exact-endpoint-tails-o--07110a88f45f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror, compare body, phases and endpoint laws",
+          "title": "Three-phase brightest-shadow geometry and exact endpoint tails of right rectangular pyramids",
+          "trigger": "Exact phases and same cap-law coefficient"
+        },
+        {
+          "assessment": "Square base has n=4, outside the claimed range",
+          "evidence": [
+            "Treats phase changes, maximizing directions and tails for square pyramids."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-independent-brightness-switches-and-sharp-rare-orientation-l--4d135c65c64a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror, compare assumptions and axis structure",
+          "title": "Two independent brightness switches and sharp rare-orientation laws for square pyramids",
+          "trigger": "Regular pyramid brightness phases"
+        },
+        {
+          "assessment": "General co-area machinery and concrete terminal-density overlap; inspected passages do not give the specialized pyramid conclusions",
+          "evidence": [
+            "Theorem 3.1 treats cellwise-linear functions on finite spherical polyhedral cells. The regular-tetrahedron density has a constant terminal branch."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.26202",
+          "material_read": "Theorem 3.1, §3.1, pp. 10–11; §§5.4–5.5, pp. 32–33",
+          "method": "Lawful primary PDF; locate and read relevant theorem and tetrahedron example",
+          "title": "Random Width and Brightness: Polyhedral Density Theory, Reconstruction, and Gaussian Identifiability",
+          "trigger": "General random polyhedral brightness theory; conceivable stronger formula"
+        },
+        {
+          "assessment": "Overlapping law for different body",
+          "evidence": [
+            "Exact linear upper band for the regular icosahedron."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-an-exact-majority-mass-upper-brightness-law-for-the-regular-icos--e735c228c1c2",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror, compare statistic and body",
+          "title": "An exact majority-mass upper-brightness law for the regular icosahedron",
+          "trigger": "Exact linear upper-brightness tail"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite formula resolves all brightest projections of a natural polygonal approximation of a cone. The nondegenerate interval of scaled errors pinpoints how integer facet counts affect the first shape transition and rules out a single second-order coefficient. This is more informative than the generic tail identity or convergence to a known constant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

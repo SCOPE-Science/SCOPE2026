@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two-dimensional symmetric/antisymmetric hub–leaf decomposition gives exact rational formulas for all five possible off-diagonal entry types. Their signs are determined by two quartics: the hub–hub polynomial has no positive zeros for \(m\le4\) and exactly two for \(m\ge5\), while the hub-to-own-leaf polynomial has one positive zero above 2√3. Strict positivity of the same-side leaf polynomial through step 12, positive coefficients for the remaining two off-diagonal types, and positive-definite diagonal entries close the all-entry argument. The accompanying symbolic checker verifies the decomposed formulas identically for variable parameters and exact full matrices for nine network sizes. The asymptotic expansions and endpoint inequalities were checked independently against the explicit polynomials.
+PASS
 
-## Originality — PASS, with residual risk
+The Laplacian splits into two hub/leaf-mean blocks, symmetric and antisymmetric under hub exchange, and the within-leaf deviations at eigenvalue 1. Independent Cayley–Hamilton reduction of the antisymmetric rational function reproduces all five off-diagonal orbit numerators and positive denominators. The opposite-hub leaf and opposite-leaf entries are positive at positive h. The within-hub leaf numerator has a single positive root beyond 12, since it has one sign variation and is positive at 12. The own-leaf quartic has exactly one positive root in (2√3,12) by Descartes and opposite endpoint signs. For h below 2√3 the hub–hub quartic is bounded below by H_4 when m≤4, with its negative quadratic term dominated by the two positive AM–GM pairs; above 2√3 it is positive for every m. For m≥5 the signs at 0,2,2√3 certify exactly two simple crossings, exhausting the Descartes bound. These entry checks and the strictly positive eigenvalues give the claimed closed intervals, including h=0. Substituting h=c/m, h=2√3−d/m² and h=2√3+c/m and bracketing the sign changes on either side of each limiting simple zero yields all three constants. The m=5 examples agree. Row sums stay one; the frozen parenthetical uses 'row-stochastic' only in this row-sum sense when entries can be negative.
 
-The complete rooted-tree-family classification was compared against the known Padé non-SSP literature, positive-system rational-approximation counterexamples, and related exact graph-family positivity computations. The closest prior eight-state pure-birth result uses a directed, nonreversible absorbing generator; the closest two-row rook-graph result concerns a regular Cartesian-product graph with its first two-window case on 36 vertices. Neither establishes the twelve-vertex balanced-double-star threshold or its all-size rational root classification. Searches cannot exclude equivalent but unindexed specializations; this is explicitly recorded as a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The completed fourth-order Gauss step has a zero radius of universal monotonicity, but the admissible timestep structure on a concrete reversible network is not captured by that fact. The theorem pinpoints a sharp topology-size transition and proves two separated nonnegative timestep windows for an entire family of connected unweighted trees, with sharp root certificates and contrasting window scaling. The change from positivity to nonpositivity back to positivity is structurally meaningful for Markov heat-diffusion discretization; the claim is not only one computed example.
+The supported distinct result is the complete finite-step positivity law on all balanced double stars, with a sharp family cutoff at 12 vertices and separate asymptotic boundary scales. Failure of uniform positivity for the integrator is known; neither that failure nor the inspected graph analogues supplies these windows.
 
-## Scope and uncertainties
+## value
 
-Only the exact completed-step map is classified. Stagewise nonnegativity and stability/accuracy superiority are not established, nor is the minimum graph size among all reversible Markov generators. Potential equivalent formulations in literature not indexed by the searches remain possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The family gives a sharp, natural reversible graph-heat example where positivity vanishes and returns in a fourth-order completed step even while the operator stays positive definite. The full orbit classification establishes both the first family size and the usable recovered window, whose width is asymptotically distinct from the small inner displacement near 2√3. This is more than a witness against uniform positivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:52:28.128783Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The repaired RESULT distinguishes convergence of the expected iterates from L1 convergence and independence of epoch innovations from stage independence. The frozen 'converge in mean' is false in its conventional L1 sense: for v nonzero the trajectories are uniformly bounded by norm contraction and both stationary second moments are strictly positive. The two RR signs inside a pair are dependent. The exact risk theorem itself survives. Inserting the extrapolated state into the same signed field gives M=I-eta J+kappa eta^2 J^2 and d=-eta(I-kappa eta J)v. The two epoch innovations are M d times one sign plus d times another, independent for IID and opposite for RR. Squared norm difference is -2< Md,d >, which in each plane is 2(kappa t^2-1)||d_j||^2. Orthogonal planes and independent centered epoch innovations give the geometric factors; an isolated active violating plane proves necessity at every epoch and at stationarity, but mixtures can favor either method. A convergent past-innovation series and forgetting of initial states justify the stationary laws. An independent exact rational computation re-evaluating both SEG stages gave per-epoch innovations with squared norms in expectation 1476891/390625 and 2313441/390625; the common squared epoch contraction is 119716/390625. Thus the stationary fractions and their ratio 1521/971 are correct. The repaired upper-limit factorization is positive since (kappa-1)(2kappa-1)/kappa^2<2. The supplied checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Emmanouilidis–Vidal–Loizou give affine convergence bounds and the 4:1 affine step ratio.",
+          "Chae–Yun–Kim prove divergence for several SEG samplers with different linear parts; De Sa gives general earlier RR-inferiority counterexamples in other settings."
+        ],
+        "reasoning": "Bounds, instability and the generic counterexample principle do not imply the all-offset frequency classification for strictly contractive components. The rational example uses the published ratio, not a claim of violation of the published sufficient step restrictions.",
+        "searches": [
+          "arXiv:2403.07148 Theorem 2.2 and §2.3",
+          "arXiv:2501.00511 Theorem 4.1",
+          "De Sa NeurIPS 2020 Random Reshuffling is Not Always Better"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, and verify.py",
+        "arXiv:2403.07148, arXiv:2501.00511, NeurIPS 2020 De Sa",
+        "Resultary 402dad3ef2fc, 4354fb22c6bf, 55f14a7583b6, a79434e38772, 1eae25261845"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed all-horizon result assumes H real symmetric positive definite and uses real q=1-eta*lambda, whose sign controls the two-client overshoot; no arbitrary complex-normal update is asserted.",
+          "The published SEG algorithm supplies the stage rule but not the exact skew-modal covariance; the repaired comparison uses both its real part and its modulus."
+        ],
+        "reasoning": "The rotation analogue is accessible by a short covariance calculation, but is not a special case of the stated real symmetric theorem. It identifies a genuine, quantitatively different contractive regime for SEG and does not claim novelty for two-sign variance reversal in general.",
+        "searches": [
+          "4354fb22c6bf Finding, equations (1)–(2)",
+          "402dad3ef2fc Finding",
+          "arXiv:2403.07148 Algorithm 1 and Theorem 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-sample update is the source algorithm's double use of a single component.",
+          "For two equal-linear-part clients, the RR minus IID epoch variance reduces to -2< Md,d >. This is the same sign mechanism as scalar equal-curvature SGD overshoot, but the present modal factor is the real part of a planar similarity with a nonzero imaginary part."
+        ],
+        "reasoning": "The common sign identity is not credited as a new principle. A planar rotation-dilation with nonzero imaginary part is not conjugate over the reals to a common-Hessian gradient step. Replacing a real SGD eigenvalue by the real part of the SEG eigenvalue alone would not give the exact modal penalty or geometric factors.",
+        "searches": [
+          "Resultary: common-Hessian terminal reshuffling overshoot and two-component variance reversal",
+          "arXiv:2403.07148 Algorithm 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "402dad3ef2fc has scalar two-client SGD reversal including equal curvature; 4354fb22c6bf compares all epochs in the common symmetric Hessian setting.",
+          "Same-date 55f14a7583b6 treats GDA without additive offsets, and 1eae25261845 and a79434e38772 change the two stage samples within a step rather than the ordering of stages within an epoch."
+        ],
+        "reasoning": "None of these inspected neighbors is the exact SEG comparison in the repaired finding. The same-date work is considered on its statement, not excluded by an assumed chronology.",
+        "searches": [
+          "Resultary: sharp two-component one-epoch variance reversal; common-Hessian terminal overshoot; strongly convex-concave two-step reversal; SEG sample coupling"
+        ]
+      },
+      "rationale": "For the repaired claim the distinct result is the sharp SEG frequency threshold and modal risk on stable skew-affine games, not the general anti-correlation identity or the idea of reshuffling overshoot. The common-Hessian SGD result is a close mechanistic antecedent and is now acknowledged. Its real scalar update eigenvalues do not cover the complex SEG rotation modes, and the SEG sources do not identify this stable-noise regime or its numerical penalty.",
+      "residual_risks": [
+        "An earlier general covariance theorem for affine iterations with normal linear part could subsume the calculation; bounded comparison is not exhaustive.",
+        "No priority is inferred from same-day indexing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same algorithm and step ratio; convergence bounds rather than exact pair noise threshold",
+          "evidence": "Independent uniform epoch permutations; same component for both stage evaluations, and gamma_2=4 gamma_1 in affine setting.",
+          "identifier_or_url": "https://arxiv.org/pdf/2403.07148",
+          "material_read": "Algorithm 1, PDF pp. 2–3 offsets 12315 and 14332; Theorem 2.2 p. 6 offset 39537; §2.3 offset 45594",
+          "method": "OA PDF bounded passages",
+          "title": "Stochastic Extragradient with Random Reshuffling: Improved Convergence for Variational Inequalities",
+          "trigger": "Source algorithm and affine step ratio"
+        },
+        {
+          "assessment": "Shares common-update covariance mechanism; theorem assumes real symmetric H and a gradient step",
+          "evidence": "G_K(q) multiplies the exact endpoint objective difference, with modal crossover q=1-eta*lambda=0.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-a-sharp-overshoot-boundary-for-terminal-random-reshuffling-on-co--4354fb22c6bf",
+          "material_read": "Finding and assumptions, offset 375–4259, equations (1)–(2)",
+          "method": "Local mirror bounded passages",
+          "title": "A sharp overshoot boundary for terminal random reshuffling on common-Hessian quadratics",
+          "trigger": "Closest all-horizon affine variance comparison"
+        },
+        {
+          "assessment": "Earlier scalar SGD analog",
+          "evidence": "Equal curvature and opposite offsets reverse ordering at eta L=1 within the stable range.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-a-sharp-one-epoch-variance-reversal-threshold-for-two-component--402dad3ef2fc",
+          "material_read": "Finding",
+          "method": "Local mirror bounded reading",
+          "title": "A sharp one-epoch variance-reversal threshold for two-component quadratic SGD",
+          "trigger": "Closest two-sign construction"
+        },
+        {
+          "assessment": "GDA, not SEG; uses heterogeneity of the maps rather than additive offsets",
+          "evidence": "Exhibits a two-step RR disadvantage with contractive components.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-two-step-reshuffling-reversal-for-strongly-convex-concav--55f14a7583b6",
+          "material_read": "Finding",
+          "method": "Local mirror bounded reading",
+          "title": "A sharp two-step reshuffling reversal for strongly convex-concave quadratic games",
+          "trigger": "Distinct same-date stable reshuffling counterexample"
+        },
+        {
+          "assessment": "Generic earlier counterexamples, not this exact risk theorem",
+          "evidence": "Learning-task and SGD examples favor IID.",
+          "identifier_or_url": "https://papers.neurips.cc/paper_files/paper/2020/file/42299f06ee419aa5d9d07798b56779e2-Paper.pdf",
+          "material_read": "Abstract p. 1 offset 116; discussion p. 8 offset 36695",
+          "method": "OA PDF bounded passages",
+          "title": "Random Reshuffling is Not Always Better",
+          "trigger": "Generic claims of RR inferiority"
+        },
+        {
+          "assessment": "Divergence, not stable variance threshold",
+          "evidence": "A monotone quadratic example makes SEG-US, SEG-RR and SEG-FF diverge.",
+          "identifier_or_url": "https://arxiv.org/pdf/2501.00511",
+          "material_read": "Theorem 4.1 p. 6 offset 28794",
+          "method": "OA PDF bounded passage",
+          "title": "Stochastic Extragradient with Flip-Flop Shuffling & Anchoring: Provable Improvements",
+          "trigger": "SEG sampling failures for two components"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The threshold separates an all-offset noise reduction guarantee from a parameter interval in which reshuffling increases exact stationary and finite-horizon error even though every stage contracts. The distinction matters for step choice in a standard SEG model with persistent residual offsets; the source ratio admits a concrete penalty of roughly 57 percent. The value is the sharp stable SEG boundary and risk quantification, not a generic covariance identity or a renaming of the SGD overshoot theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

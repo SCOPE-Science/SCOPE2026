@@ -1,11 +1,21 @@
-# Scientific review: quiet-pattern enumerators of two Petersen families
+# Independent mathematical audit
 
-**Correctness — PASS.** The closed-neighborhood toggle equations are exact, including indices modulo \(n\). Eliminating the inner variables yields two explicitly factorized annihilator polynomials over \(\mathbb F_2\). Their gcds with \(t^n+1\) determine the dimension and period structure for every \(n\ge2k+1\) and \(k\in\{2,3\}\). Unique parameterization of all period words reduces every Hamming-weight distribution to one of six enumerations of at most 256 words. The attached deterministic checker reproduces all base counts, the polynomial identities, and independent full-matrix kernels for 150 graphs, but finite tests are *not* substituted for the all-parameter proof.
+## correctness
 
-**Originality — PASS, with residual risk.** The highly relevant primary paper Torrence–Torrence (2016), *An iterative strategy for Lights Out on Petersen graphs*, was inspected in full. **It already lists exact nullities for \(n\le40\) (Table 1), which are prior art, not claimed as new here.** It proves a singularity criterion, but gives no Hamming-weight enumerators of the quiet-strategy kernels and no all-parameter formulas of the kind proved here. Minevich (2012) provides the general binary-matrix context; Fiorini et al. (2024) address a different two-player restriction, using Nimbers. Three targeted semantic research-record searches included equivalent formulations (closed-neighborhood matrix, quiet code, Lights Out) and identified no covering formula. An unindexed code-enumerator computation or stronger uninspected sigma-automata result remains possible; a failed search is not uniqueness proof.
+PASS
 
-**Value — PASS.** Quiet strategies are precisely the redundant clicks preserving a board state. Their **whole weight distribution** and minimum positive weight quantify practical ambiguity of solving strategies, not merely rank or the existence of some null vector. The result gives all these counts simultaneously over two infinite graph families, with sharp changes at multiples of five and no escalation of computation as \(n\) grows.
+Eliminating the inner ring from the two modulo-n quiet equations and multiplying by T^(k+1) gives F_k as in RESULT.md. Expansion over F_2 gives (t+1)^(2^(k−1)) Φ_5(t), with Φ_5 irreducible since 2 has order four modulo 5. In F_2[t]/(t^n+1) the kernel dimension is the gcd degree; the Φ_5 factor occurs precisely when 5 divides n and the (t+1) multiplicity in t^n+1 is 2^v_2(n). The h- and 5-periodic subspaces are killed by F_k and intersect in the constants; when δ=1 their sum has the full gcd dimension, with unique representatives x_i=a_i+b_i after a_0=0. This proves periodicity and exhausts the quiet strategies, including the smallest admissible graphs. I reconstructed all six base tables by counting rather than executing verify.py. With S=1+T+T^−1, write A=wt(a), C=wt(Sa), B=wt(b), D=wt(Sb). For δ=1 the Chinese remainder bijection gives weight 5(A+C)+h(B+D)−2(AB+CD). On five bits the joint (B,D) pairs (0,0),(5,5) occur once and (1,3),(4,2),(2,2),(2,4),(3,3),(3,1) occur five times each (singletons, adjacent or distance-two pairs, and complements). For h=1 only (A,C)=(0,0) occurs with a_0=0; for h=2 the pairs are (0,0),(1,1); for h=4 they are (0,0),(1,3),(2,2),(3,1) with counts 1,3,3,1 because Sa is the opposite-coordinate word plus the constant parity. These give exactly the three δ=1 rows, including counts 1,55,144,55,1 for h=4. For δ=0 use all h-bit words, with S the identity for h=1,2 and the same parity rule for h=4, giving the other three rows. Each base weight scales by n/m. The minimum weights, affine fiber cardinalities and solvability fractions follow. The shift in the proof rotates the rings simultaneously; no length-2n single-coordinate cyclic shift is needed.
 
-**Scope and limits.** Neither general \(k\) nor two-player Toggle strategy Nimbers are claimed. Finite prior nullities are acknowledged. The six small enumerations are complete only because the polynomial module argument exhausts all possible patterns. Independent scientific audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the uniform six-polynomial homogeneous weight distribution. The nullity formula is already obtainable for arbitrary n from the October 25 conflict-free census, not just from the finite Torrence–Torrence table. Solvability fractions and multiplicities are standard consequences of nullity. No verified source supplies the full two-ring homogeneous weight census.
+
+## value
+
+PASS
+
+The entire quiet-code weight distribution determines the distances from any particular solution to all other solutions in its affine fiber, which nullity alone cannot do. The period reduction and exact census give those distances across two infinite graph families and expose the five-divisibility change in the smallest possible quiet perturbation. This is a natural refinement of the prior Lights Out counts and not a claim about minimum presses needed for arbitrary configurations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

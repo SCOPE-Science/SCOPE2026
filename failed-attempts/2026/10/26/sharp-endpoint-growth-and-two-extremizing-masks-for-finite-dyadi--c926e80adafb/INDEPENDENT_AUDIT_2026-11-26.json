@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:42:04.551043Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–64",
+        "Frozen VERIFICATION.md and check.py (inspected, not executed; check.py is the supplied exact replay path)"
+      ],
+      "rationale": "The conditional-expectation differences are pairwise orthogonal projections. For a fixed row, first mismatch at level k gives kernel S_k−b_k2^k with probability 2^(−k−1), while the diagonal gives S_n with mass 2^(−n). Symmetry identifies endpoint norms, and the sign of any row achieves its row sum. With z_k=S_k/2^k the optimization is terminal z_n plus the sum of |z_k−b_k|/2. The one-step envelope is one and the one-step maximizing bit is one for every reachable state z<1. For longer horizons, evaluating the two branches of the tent envelope gives a crossing at 1/2 and slope magnitude a_{r+1}=(1−a_r)/2. The resulting closed sum is n/3+7/9+(-1)^n/(9·2^(n−1)). Starting at zero forces the first bit one and creates the only possible nonterminal tie at the next state 1/2. Thereafter both update maps send interior states strictly to one side or the other and the optimal middle bits alternate, until the mandatory terminal one. This gives the two masks and the separate n=1,2 cases. Independent integer checks through n=9 constructed an actual conditional-expectation row for every mask and checked its identity with the corresponding modulated Walsh kernel; exact maxima and maximizing lists agreed. Checks are finite corroboration, not proof of the induction.",
+      "residual_risks": [
+        "The assertions reviewed concern level-constant masks on uniform binary products only, not arbitrary node-dependent masks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier q-ary record's Eqs. (4)–(6) give r↦λr+cb and immediate cost c|r−b| with terminal payoff r. Its branch calculation, Eqs. (7)–(10), only needs λ≤c and handles endpoints, so λ=c=1/2 is valid. Its gap δ_t=2c(1−(−λ)^(t−1))/(1+λ) is still positive for t≥2.",
+          "Only the quoted odd-depth unique-mask conclusion needs c>λ. The source explicitly notes that at q=2 this equality classification changes, and that the binary optimization is outside its novelty claim."
+        ],
+        "reasoning": "Formal q≥3 scope is not ignored; the proof is checked at the excluded boundary. The reason for the exclusion concerns rigidity, not the identity or Bellman threshold analysis that recovers the binary statement.",
+        "searches": [
+          "Resultary 1564c6e21e01: regular q-ary endpoint norms and alternating-mask rigidity"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1564c6e21e01 and b891474b0dac",
+        "Fine 1949, Walsh–Paley Lebesgue constants (limited bibliographic access)",
+        "Semenov–Uksusov 2012 (abstract only); full text not assessed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At λ=c=1/2, Eq. (8) gives α₁=β₁=0, α_t=−β_t, β_t=(1−β_{t−1})/2. Evaluating Eq. (6) at the left endpoint on the bit-one branch gives V_t(0)−V_{t−1}(0)=β_t, and V₁(0)=1. Summing gives exactly n/3+7/9+(-1)^n/(9·2^(n−1)).",
+          "Using the same thresholds: from zero take 1, after which r=1/2. If at least two actions remain this is exactly the single threshold and both choices are optimal. Subsequent interior states are sent strictly below 1/2 by 0 or strictly above 1/2 by 1. Hence nonterminal bits alternate, and the one-step rule forces the last bit one. This derives the complete binary equality set, including the exceptions n=1,2, from the earlier rules."
+        ],
+        "reasoning": "No new estimate, search or optimization principle is needed for the full result once the earlier proof's non-strict hypothesis is applied; the single changed equality case follows from the same action rule.",
+        "searches": [
+          "Resultary 1564c6e21e01, Kernel-to-variation identity, Bellman lemma, Equality masks, Eqs. (4)–(11)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On the binary cube, with m=∑ b_k2^k, multiplication by W_m conjugates the Walsh partial projection on {0,…,m−1} to P_b. Indeed the highest differing bit of j<m and m has bit 1 in m, so j XOR m runs over exactly the selected dyadic blocks. Modulation is an isometry at both endpoints. The claimed constant and complete list are therefore exactly the maximum and maximizers of the classical L_m for m<2^n, not a different operator norm merely sharing an asymptotic.",
+          "The related later local signed-multiplier record b891474b0dac has a scalar value giving the same maximum by M_n=(F_n+1)/2; its signed formulation is not needed for this disposition."
+        ],
+        "reasoning": "Exact conjugation identifies all individual norms and maximizers with the Walsh problem. A per-index recurrence alone does not prove an exact finite extremal theorem; the earlier q-ary proof supplies the decisive extremal implication instead.",
+        "searches": [
+          "Walsh–Paley Dirichlet-kernel Lebesgue constants and exact dyadic-block maximum; Fine 1949 and work on Fine's constants",
+          "Resultary: whole-level endpoint norm, regular q-ary Haar filtration, dyadic signed martingale multipliers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 1564c6e21e01 supplies closed sums (1)–(2) and the exact action recursion. Its odd and even candidate masks remain maximizing on substitution q=2.",
+          "The search for a primary Walsh finite-maximum table did not return an inspectable statement with the full equality list. The full texts of Fine and the later work specifically about his constants were not accessible in the attempts made."
+        ],
+        "reasoning": "The positive evidence is the exact closed forms and maximizing-action rules in a catalogue source; the inaccessible primary texts are not treated as absence of coverage or as the basis of failure.",
+        "searches": [
+          "Resultary exact endpoint norm and alternating mask; Walsh–Paley exact finite maxima near powers of two"
+        ]
+      },
+      "rationale": "The prior Resultary q-ary analysis, record 1564c6e21e01, formally states its new theorem for q≥3, but the exact kernel formula and the proved Bellman action thresholds mechanically specialize to q=2. Its proof uses λ≤c, not λ<c, for the two affine branch recurrences, and explicitly allows the boundary equality there. At q=2 both thresholds coincide at 1/2, the slope gap remains strictly positive, and the one extra tie gives exactly the binary equality classification. Thus there is demonstrated prior mathematical coverage of the full substantive claim, not merely an uncited remark or a possible literature overlap. The exact Walsh equivalence points to an earlier literature but Fine's priority is not decided here; it is not the reason for failure.",
+      "residual_risks": [
+        "The identity of the earliest public Walsh or Haar statement with the exact finite equality cases is unresolved. That uncertainty does not affect the demonstrated mathematical implication of record 1564c6e21e01."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically covers the binary finding by specializing the proof, even though formal novelty scope is q≥3",
+          "evidence": "The branch induction explicitly uses λ≤c and allows equality at endpoints, the threshold slope gap is positive at q=2, and only odd-depth rigidity uses λ<c. The source also calls the exact binary optimization pre-existing, without giving a traceable specific citation for that remark.",
+          "identifier_or_url": "Resultary 2026/10/25 record 1564c6e21e01",
+          "material_read": "Finding, Kernel-to-variation identity, Bellman lemma and proof, Equality masks, Closed forms and growth, Relationship to prior work; Eqs. (1)–(11), offsets 0–6971 and relationship at 6971 onward",
+          "method": "Local mirror RESULT.md, decisive proof passages directly inspected",
+          "title": "Exact endpoint norms and alternating-mask rigidity on regular q-ary filtrations",
+          "trigger": "Exactly the same projections with a branching parameter and explicit binary exception"
+        },
+        {
+          "assessment": "Later record with exact related value, not used for priority",
+          "evidence": "Its reported F_n gives M_n=(F_n+1)/2; it does not classify the assigned two masks.",
+          "identifier_or_url": "Resultary 2026/11/8 record b891474b0dac",
+          "material_read": "RESULT.md finding",
+          "method": "Local mirror",
+          "title": "Depth-only endpoint unconditionality and exact dimension spectrum",
+          "trigger": "Related binary depth-dependent signed multiplier optimum"
+        },
+        {
+          "assessment": "Plausibly covering; exact historical scope unresolved",
+          "evidence": "The available bibliographic/search material concerns the dyadic Walsh framework but gives no inspectable exact equality theorem. No negative conclusion about the paper's scope.",
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9947-1949-0032833-2",
+          "material_read": "Bibliographic record and search-result descriptions only; no article theorem read",
+          "method": "Primary literature search; publisher PDF and identified Edinburgh alternate denied access",
+          "title": "On the Walsh functions",
+          "trigger": "Classical Walsh–Paley Lebesgue constants in an exactly equivalent formulation"
+        },
+        {
+          "assessment": "Unresolved, not used as negative evidence",
+          "evidence": "Available description concerns norm-preserving permutations of Walsh–Paley kernels, not an inspectable finite extremal theorem.",
+          "identifier_or_url": "https://www.researchgate.net/publication/304354273_On_fine%27s_results_for_lebesgue_constants_of_the_walsh_system",
+          "material_read": "Search-result description only; no full text",
+          "method": "Public bibliographic lookup; full text not accessible",
+          "title": "On Fine's results for Lebesgue constants of the Walsh system",
+          "trigger": "Potentially exact older bounds/equality cases in the equivalent problem"
+        },
+        {
+          "assessment": "Unresolved source, not ruled out",
+          "evidence": "The abstract discusses Haar-multiplier norms in rearrangement-invariant spaces but is insufficient to assess exact finite optimization.",
+          "identifier_or_url": "https://www.mathnet.ru/eng/smj2313",
+          "material_read": "MathNet abstract; not the cited Theorem 3 text",
+          "method": "Landing-page inspection; PDF timeout and English publisher redirects",
+          "title": "Multipliers of the Haar series",
+          "trigger": "Potentially stronger classical Haar endpoint formula"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 9–26 and 36–64",
+        "Resultary 1564c6e21e01, Eqs. (4)–(11) and Equality masks"
+      ],
+      "rationale": "An exact finite-depth norm and equality classification of a natural projection family has mathematical use in principle, but here both, and the row-norm identity and growth, are direct boundary consequences of the earlier available Bellman analysis. The original supplies no independently useful unknown invariant or structural lemma beyond that specialization. No scientifically distinct remainder warrants repair.",
+      "residual_risks": [
+        "This decision concerns the proposed contribution, not whether the correct binary constant is useful as a reference value."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

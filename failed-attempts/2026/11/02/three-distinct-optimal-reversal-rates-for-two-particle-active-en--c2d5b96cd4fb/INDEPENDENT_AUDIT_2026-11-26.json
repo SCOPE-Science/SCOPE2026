@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:31:11.021843Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof (lines 5–69)",
+        "Frozen VERIFICATION.md and CHECKER.py (read, not executed)",
+        "Independent symbolic transform expansion and root evaluation: python3 /tmp/opencode/frozen_review_calcs.py, section 1"
+      ],
+      "rationale": "For dimensionless separation the velocities are ±2,0,0 and each sign flips at rate r. A length-one block has uniformly positive probability of contact: if moving, require no flip for 1/2; if stalled, require one flip in the first 1/2 and then maintain the moving state to contact. Thus all moments exist and the incoming absorbing conditions apply. I independently solved and expanded the orientation-averaged Laplace transform. With t²=h(h+4r)/4, it is (4r+h)sinh(t/2)/[t((2r+h)cosh(t/2)+2t sinh(t/2))], yielding both stated moments. Exact differentiation reproduces the two quartics; Descartes and the opposite endpoint signs show one positive zero each. The variance derivative numerator at √3 is −72; at the variance minimum the strictly increasing mean makes the CV² derivative negative. The quartic roots agree with the stated decimals. The limits 3, 7/5 and the r=2 test establish the intermediate window; equivalently CV²−1=2(r⁴−30r²+45)/(5(r²+6r+3)²).",
+      "residual_risks": [
+        "Applies only at positive r with the specified independent uniform/fair initialization. No reliance on finite lattice discretization or claim of formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-model transform's proof gives U=F_C+F_O in closed hyperbolic form and (s+2λ)F_S=λU.",
+          "The unequal-rate record gives uniform/fair-start moment formulas with arbitrary individual rates; setting both rates equal reproduces the supplied moment functions."
+        ],
+        "reasoning": "The transform covers more distributional information than two moments. The unequal-rate formulas cover the frozen moment functions but optimize a different direction (allocation at fixed total rate). Other inspected papers use special contact starts, an infinite line, or a single particle with a gated target.",
+        "searches": [
+          "2026/11/2/SCOPE-first-collision-transform-and-rare-reversal-moment-singularity-f--f5ea568543a0",
+          "2026/11/22/SCOPE-simultaneous-mean-variance-and-relative-risk-optimality-of-unequ--43d8e6166a15",
+          "arXiv:1808.03830",
+          "arXiv:1902.06176",
+          "arXiv:2102.11787"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §Relationship to prior work",
+        "Resultary f5ea568543a0 and 43d8e6166a15",
+        "arXiv:1601.00954, 1808.03830, 1902.06176, 2102.11787"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In dimensionless units, the prior proof has U proportional to cosh(t(1/2−y)); its normalization is fixed by F_C(0)=1. The initial mixture is U/4+F_S/2. Integrating that expression on the folded uniform gap gives the exact transform in the correctness check.",
+          "In the unequal-rate formulas the dimensionless total rate and product-rate variable specialize to 2r and r; no different stochastic regime is introduced."
+        ],
+        "reasoning": "Taylor expansion, differentiation, one sign change in each quartic, and testing at √3 and at the variance critical point yield the claimed exact ordering. The sub-unit CV² interval follows immediately by testing r=2 and checking endpoint limits. These operations need no information beyond the available transform. No chronology between same-day entries is assumed.",
+        "searches": [
+          "Resultary f5ea568543a0, mirrored RESULT.md, proof of the backward boundary-value problem (offsets 0–4229)",
+          "Resultary 43d8e6166a15, mirrored RESULT.md, exact moment formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Slowman–Evans–Blythe Appendix B derives conditional mean encounter times. Matching their effective direction flip requires halving the reorientation clock when rerandomization includes an unchanged sign.",
+          "Resultary f5ea568543a0 uses a folded gap on [0,L/2] with closing, opening and stalled velocities and the same independent flip model."
+        ],
+        "reasoning": "With uniform starts the folded gap is uniform on [0,L/2]; fair signs give stable fractions 1/4 closing, 1/4 opening and 1/2 stalled. Folding changes no physical contact time.",
+        "searches": [
+          "Resultary: two equal-speed run-and-tumble particles on a circle collision time variance coefficient of variation optimal reversal rate",
+          "Web: \"two\" \"run-and-tumble\" particles ring first collision Laplace transform encounter time variance",
+          "arXiv:1601.00954"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest hits are records f5ea568543a0 (same model, conditional transform and rare-rate moments) and 43d8e6166a15 (uniform-start exact general moments). Neither inspected Finding prints the three roots as a table."
+        ],
+        "reasoning": "A missing literal table of roots is immaterial where the required transform and its mixture are known. The two hits are distinct records, not the identical frozen item.",
+        "searches": [
+          "Resultary: three distinct optimal reversal rates mean variance squared coefficient variation first meeting two particles circle equal speed Poisson reversals"
+        ]
+      },
+      "rationale": "The moment and optimizer results are correct but are mechanically implied by a distinct matching indexed transform record: despite its closing-state headline, its original proof solves the summed transform of both moving states and explicitly gives the stalled transform in terms of that sum. These are all quantities needed for the requested mixture, so no extension of the boundary-value problem is needed. The resulting derivatives, unique roots and ordering are direct algebraic consequences. This is a coverage finding, not an inference about historical priority from same-day or later dates.",
+      "residual_risks": [
+        "No historical priority claim; the decisive comparison is to available indexed scientific coverage, including a distinct same-day item.",
+        "The primary-paper search was bounded and may miss earlier literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive mechanical coverage, not a stated optimizer comparison",
+          "evidence": [
+            "The proof explicitly solves the sum U of both moving transforms and F_S=λU/(s+2λ); both incoming boundary and antipodal continuity are included."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-first-collision-transform-and-rare-reversal-moment-singularity-f--f5ea568543a0",
+          "material_read": "Finding, Assumptions, Backward boundary-value problem and mean expansion, mirror offsets 0–4229",
+          "method": "Local mirror original RESULT.md",
+          "title": "First-collision transform and rare-reversal moment singularity for a run-and-tumble pair on a ring",
+          "trigger": "Same physical first contact and equal rate"
+        },
+        {
+          "assessment": "General formulas include equal-rate moments; different stated optimization and no priority inference",
+          "evidence": [
+            "Setting the two individual rates equal specializes the dimensionless parameters to 2r and r."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-simultaneous-mean-variance-and-relative-risk-optimality-of-unequ--43d8e6166a15",
+          "material_read": "Finding and moment formulas, mirror offsets 0–4994 and 4900–9544",
+          "method": "Local mirror original RESULT.md",
+          "title": "Simultaneous mean, variance, and relative-risk optimality of unequal reversal rates",
+          "trigger": "Uniform-start moments with separate rates"
+        },
+        {
+          "assessment": "Conditional mean background, not the full risk ordering",
+          "evidence": [
+            "B14–B15 give oriented mean collision/return components."
+          ],
+          "identifier_or_url": "arXiv:1601.00954",
+          "material_read": "Appendix B, B1–B15, printed pp. 7–8",
+          "method": "OA original PDF",
+          "title": "Jamming and Attraction of Interacting Run-and-Tumble Random Walkers",
+          "trigger": "Prior same-geometry contact moments"
+        },
+        {
+          "assessment": "Different initialization and statistic",
+          "evidence": [
+            "Mean return is from a special oriented contact set, not uniform-start first-contact risk."
+          ],
+          "identifier_or_url": "arXiv:1808.03830",
+          "material_read": "§2.2 and §4.2, Lemma 4.5",
+          "method": "OA original PDF",
+          "title": "A Simple Network of Nodes Moving on the Circle",
+          "trigger": "Two moving nodes on a circle and contact time"
+        },
+        {
+          "assessment": "Different geometry",
+          "evidence": [
+            "Infinite-line survival has a power-law tail; no finite-ring risk optimization."
+          ],
+          "identifier_or_url": "arXiv:1902.06176",
+          "material_read": "p. 4, Eq. (9)",
+          "method": "OA original PDF",
+          "title": "Non-crossing run-and-tumble particles on a line",
+          "trigger": "Two-particle first-passage survival"
+        },
+        {
+          "assessment": "Adjacent risk calculation with different generator and geometry",
+          "evidence": [
+            "A single active searcher meets a stochastically gated target, not two independent moving particles on a ring."
+          ],
+          "identifier_or_url": "arXiv:2102.11787",
+          "material_read": "Abstract and §IV, Eqs. (43)–(45)",
+          "method": "OA original PDF",
+          "title": "First hitting times between a run-and-tumble particle and a stochastically-gated target",
+          "trigger": "Run-and-tumble relative fluctuations and optimum"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, risk-optimization proof",
+        "Resultary f5ea568543a0, explicit transform and proof"
+      ],
+      "rationale": "Comparing mean and risk criteria is well motivated and the result can be a useful exposition. For this narrow exact model, however, all three formulas and their extrema reduce to averaging a known transform and routine differentiation and signs. The source establishes no further structural phenomenon beyond that calculation, so the exact roots and sub-unit window do not survive as an independently valuable new invariant.",
+      "residual_risks": [
+        "This value verdict does not dismiss risk comparisons in distinct contact models or broader structural results."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:07:56.017358Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, §§1–4 and full 25-class table",
+        "Frozen VERIFICATION.md, verify.py (inspected) and verification_output.txt",
+        "Dolgachev–Kapranov §0.1, classical geometric input",
+        "audit-checks/skew.py (independently written and run)"
+      ],
+      "rationale": "The marked divisor classes give the 27 vertices and intersection-zero gives geometric disjointness. No seven can be mutually skew: their Gram matrix would be negative definite of rank seven in signature (1,6). I independently enumerated cliques without a size cutoff and computed signed boundary ranks modulo 3 (rather than the supplied mod-two elimination). With augmented face counts 1,27,216,720,1080,648,72 the ranks in ascending face size are 1,26,190,530,550,72. Every rational rank is at least its modular rank, and consecutive sums saturate the chain dimensions through degree three and the last boundary saturates degree five. This forces each displayed rational rank and leaves only degree four, of dimension 26. I regenerated all Weyl permutations using five exceptional swaps and the Cremona reflection in the last rather than first three exceptionals, checking graph preservation, word determinant consistency, size 51840, and complete partition into 25 conjugacy classes. Each generator is an actual Picard root reflection, so its root determinant is -1. To check traces independently, discard non-skew cycles on the 27 lines and construct the compatibility graph of surviving cycles. An invariant simplex consisting of j cycles on m vertices contributes (-1)^(m-1)(-1)^(m-j)=(-1)^(j-1); the empty face contributes -1. The resulting reduced traces over all 25 classes agree exactly with root determinant times (fixed lines minus one); e.g. -14 for the 15-fixed-line reflection and +8 for the nine-fixed-line order-three class. Reduced homology is in even degree four so no further sign appears. Character equality yields the rational module by finite-group semisimplicity and descent of character equality to Q. This is an exhaustive finite certificate, not sampled evidence for an arbitrary surface. Replay: python3 /workspace/audit-checks/skew.py.",
+      "residual_risks": [
+        "The determination is of the rational representation of the configuration group, not the integral lattice or the automorphism group of an individual cubic surface."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "4e8fcf03196e obtains a wedge of 26 four-spheres for exactly the same complex. c3a0678c9dc9 describes all possible Frobenius classes in the same Weyl action on supports and gives their permutations on the face set.",
+          "Rybakov–Trepalin gives class and root-space eigenvalue information. Dolgachev–Kapranov gives the line and blow-up model. Neither geometric/classification input identifies the oriented topological trace."
+        ],
+        "reasoning": "Both strands of overlap are material and are known inputs, but neither the nonequivariant wedge nor the classification of class eigenvalues gives the full oriented chain sum. The same-day unsigned theorem was not excluded on date grounds.",
+        "searches": [
+          "Resultary 4e8fcf03196e and c3a0678c9dc9",
+          "Dolgachev–Kapranov §0.1",
+          "Rybakov–Trepalin arXiv:1611.02475v2 Appendix A, Table 1",
+          "Cioabă–Mim arXiv:2606.27328, Proposition 7.7(2b)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4e8fcf03196e, c3a0678c9dc9, 70136773ee2a",
+        "Dolgachev–Kapranov §0.1",
+        "Cioabă–Mim Proposition 7.7(2b)",
+        "Rybakov–Trepalin Appendix A Table 1",
+        "Sottile–Yahl line splitting types"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The chamber cycle table gives fixed-support totals under powers. Its independent orbit-union check in §5 uses the same admissible unions, specialized to weight +1 regardless of orbit-count parity.",
+          "Equivariant Lefschetz instead weights an invariant support comprising j line cycles by (-1)^(j-1). The unsigned table does not say how its fixed supports divide according to j, and line splitting types give available cycles, not which tuples of cycles are mutually skew.",
+          "The wedge theorem supplies homology concentration but makes no assertion about individual element traces. Given the full vertex action and incidences, one can rerun an altered signed computation, as done here, but obtaining and identifying the signed values is additional work beyond the table's conclusions."
+        ],
+        "reasoning": "The open inference in the compared work is the weighted count and its uniform determinant-times-augmentation identification. A classical Lefschetz formula alone is a method, not a prior determination of its argument or of the resulting character.",
+        "searches": [
+          "c3a0678c9dc9 §§3–5 and Finding; 4e8fcf03196e Finding and limitations; frozen RESULT.md §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The disjointness graph, clique complex of the Schläfli graph, and supports of geometric Zariski chambers in the smooth cubic model use precisely the same pairwise-skew sets.",
+          "Cioabă–Mim's inspected proposition concerns H_1 for the Schläfli graph, not the W(E6)-module H_4. The earlier wedge-of-spheres record proves a stronger ordinary homotopy type but explicitly does not determine the Weyl action."
+        ],
+        "reasoning": "These are genuine same-object comparisons. The property being compared is the complete rational action in top homology, equivalently the character of oriented augmented chains in alternating sum given concentration, not the underlying ordinary homology or an unsigned face orbit count.",
+        "searches": [
+          "Resultary: Weyl E6 homology character of the Schläfli clique complex, skew lines and arithmetic chamber support cycles",
+          "Primary literature: equivariant Schläfli clique homology and Weyl line permutation character",
+          "Cioabă–Mim arXiv:2606.27328, Proposition 7.7(2b)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c3a0678c9dc9, Finding, enumerates all 25 class labels with line and chamber cycles for 2764 supports, with the same face polynomial. Its fixed-support entry for the 15-fixed-line reflection is 648, not the signed homology trace; its proof counts each setwise fixed support positively.",
+          "70136773ee2a concerns critical groups of the line–tritangent incidence graph; Sottile–Yahl reports splitting types on the line set. No independently matched signed H_4 character table was established."
+        ],
+        "reasoning": "An existing table of oriented traces on all classes would cover the claimed representation even without the compact formula. These exact tables record real overlaps, but not that invariant.",
+        "searches": [
+          "Resultary: exact sign-twisted 27-line augmentation on Schläfli homology; all 25 Weyl/Frobenius types",
+          "c3a0678c9dc9, 70136773ee2a, 4e8fcf03196e",
+          "Rybakov–Trepalin Appendix A Table 1; Sottile–Yahl splitting types"
+        ]
+      },
+      "rationale": "Only the full signed rational homology-character identification is credited. The identical complex and stronger nonequivariant homotopy type are already known. The closest same-day equivariant result gives a complete unsigned face permutation census, and its orbit-union algorithm is a useful starting point for an alternate character computation. Its actual output sums the orbit-unions with positive weight, not with the parity of their number of constituent line orbits. The exact compact relation between the resulting signed alternating sum and the reflection determinant times the line augmentation character is not asserted there and does not follow from the unsigned cycle table alone.",
+      "residual_risks": [
+        "A prior unindexed signed equivariant computation is not excluded; the same-day catalog dates establish no within-day order. Existing unsigned chamber machinery overlaps with part of the computation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full ordinary homotopy result, not equivariant",
+          "evidence": [
+            "The same pairwise-disjoint-line complex is a wedge of 26 four-spheres; its stated scope does not determine full Weyl action."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-wedge-of-twenty-six-four-spheres-from-the-27-lines-on-a-cubic--4e8fcf03196e/RESULT.md",
+          "material_read": "Finding and limitations near offsets 0 and 6135",
+          "method": "Read bounded local mirror passages",
+          "title": "A wedge of twenty-six four-spheres from the 27 lines on a cubic surface",
+          "trigger": "Exact complex and homology overlap"
+        },
+        {
+          "assessment": "Complete same-action unsigned support census, not oriented homology",
+          "evidence": [
+            "Theorem tabulates raw cycle partitions and their fixed counts. Proof §4 follows the raw clique permutation; §5 independently counts all compatible orbit-unions without signs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-twenty-five-frobenius-spectra-of-zariski-chambers-on-smooth-cubi--c3a0678c9dc9/RESULT.md",
+          "material_read": "Finding/table offsets 0–3926; Proof §§2–5 offsets 5400–9356; relationship and limitations from 9564",
+          "method": "Read decisive bounded passages in local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Twenty-five Frobenius spectra of Zariski chambers on smooth cubic surfaces",
+          "trigger": "Exact equivariant support set on all Weyl classes"
+        },
+        {
+          "assessment": "Lower-degree overlap",
+          "evidence": [
+            "H_1 of this graph's clique complex vanishes over all fields."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.27328",
+          "material_read": "Proposition 7.7(2b), PDF p. 35 near offset 121151",
+          "method": "Inspect bounded primary theorem passage",
+          "title": "On the homology groups of clique complexes of strongly regular graphs",
+          "trigger": "Same Schläfli clique homology"
+        },
+        {
+          "assessment": "Classical object definition",
+          "evidence": [
+            "Blow-up model and the 27 line classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/alg-geom/9304005v1",
+          "material_read": "§0.1 near OA offset 4930",
+          "method": "Read bounded original passage",
+          "title": "Schur quadrics, cubic surfaces and rank 2 vector bundles over the projective plane",
+          "trigger": "Classical line and Picard lattice description"
+        },
+        {
+          "assessment": "Root eigenvalues and line spectra, no topological trace in these passages",
+          "evidence": [
+            "Orders, Carter types and root-space eigenvalues; line splitting types and their relation to Weyl conjugacy."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1611.02475v2; https://franksottile.github.io/research/stories/27_Frobenius/index.html",
+          "material_read": "Rybakov–Trepalin Appendix A Table 1 near offset 81580; Sottile–Yahl webpage near offset 399",
+          "method": "Inspect bounded original table and website-mode passage",
+          "title": "Minimal cubic surfaces over finite fields; Splitting types of the 27 lines on cubic surfaces",
+          "trigger": "Potential equivalent Weyl class, sign and cycle tables"
+        },
+        {
+          "assessment": "Different graph and invariant",
+          "evidence": [
+            "Reports cycles on lines/planes and fixed critical groups of the line–tritangent incidence graph."
+          ],
+          "identifier_or_url": "Resultary 70136773ee2a",
+          "material_read": "Opening Finding, mirror offset 0",
+          "method": "Read bounded local mirror passage",
+          "title": "All 25 Weyl-type Frobenius-fixed graph Jacobians of cubic surfaces",
+          "trigger": "Highly similar class-by-class cubic-surface equivariant invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and §§3–4",
+        "4e8fcf03196e, Finding/limitations",
+        "c3a0678c9dc9, Finding/Proof §§4–5"
+      ],
+      "rationale": "The topological invariant is the natural homology action of the full Weyl group on a canonical geometric line complex. Knowing there are 26 generators does not identify this action or even the sign of reflection trace. The formula identifies every class trace via an easily accessible fixed-line count and the root sign and hence fixes the rational representation, useful for studying any subgroup action or comparing with the known permutation representations. This is more than the new listing of some unoriented face counts or recomputation of a known Betti number.",
+      "residual_risks": [
+        "This value is equivariant and rational; no integral-module, fixed-locus or arithmetic realizability classification is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

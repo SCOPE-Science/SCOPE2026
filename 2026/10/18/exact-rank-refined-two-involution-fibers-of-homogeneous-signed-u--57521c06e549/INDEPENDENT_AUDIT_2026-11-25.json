@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:53:51.862250Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reassessed /workspace/repairs/5/RESULT.md. The frozen proof used (d+tr(s))/2 to recover an integer multiplicity from a characteristic-p trace; that gives only a congruence in general. Also, the frozen prose's nonconstant even-length coefficients have the m=1 exception (both equal q^k). The replacement explicitly treats that exception and uses exactness of positive eigenspaces on each invariant-filtration short exact sequence: (I+s)/2 lifts positives in the quotient to positives upstairs. Even layers contribute r, odd layers m−r, so their integer sum is km or km+r. The involution sJ acts identically on the graded layers; −sJ swaps signs, giving the second factor's stated dimension. The coefficient formula also checks: s determines t=s gε, and s=Aσ with σ(x)=(1+x)^(-1)−1, Aσ(A)=I. If A≡S+x^jD at a lifting layer, DS+(−1)^j SD=0, so conjugation by I−x^j DS/2 removes that coefficient. The stabilizer of Sσ has constant quotient GL_r×GL_(m−r); averaging gives surjectivity of each truncation of the fixed group, with fixed fibers of dimensions r²+(m−r)² in even degree and 2r(m−r) in odd degree. Dividing the centralizer order by that stabilizer and using the complementary-subspace count yields both exponents, including r=0,m with GL_0 trivial. Independent bounded checks over F_3 via truncated lifts and standard matrices recovered (81,108,81) at n=m=2 and (81,972,81) at n=3,m=2, including the reversed second-factor rank list (4,3,2) for the odd negative product. These are bounded checks, not an extension-field or all-dimension certificate; the general verification is the proof in the replacement. Frozen checker.py was inspected and not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Marques de Sá treats canonical forms for more general products, including the positive and negative unipotent cases; his signature is complete under the product centralizer. The stable-length paper recalls the general two-factor criterion and studies decomposition length."
+        ],
+        "reasoning": "The broader canonical forms include the orbit and rank-support claims. They do not in their inspected statements give the order of each stabilizer or the number of ordered pairs within the orbit. The stable-length question is about existence, not size.",
+        "searches": [
+          "Marques de Sá §5 Theorem 5.15 and Corollary 5.16, §6 Theorems 6.1 and 6.2",
+          "Products of involutions in the stable general linear group, arXiv:1808.01579"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py; corrected replacements at /workspace/repairs/5/RESULT.md",
+        "Marques de Sá preprint 16-04",
+        "arXiv:0809.4412v2",
+        "arXiv:2303.00820",
+        "arXiv:1808.01579",
+        "Resultary indexed jet involution and rank-one nilpotent/involution findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed-product centralizer orbits correspond to simultaneous-similarity orbits when the product similarity class is prescribed. In the homogeneous case the known canonical forms therefore already give m+1 strata and the rank-support picture, even when ordinary ranks coincide. The centralizer order of J is independent of r, but the simultaneous stabilizer order depends on r and the parity filtration."
+        ],
+        "reasoning": "Prior orbit representatives can be used to compute stabilizers, but an orbit count or the centralizer order of J alone does not evaluate the integer coefficients. The additional layer calculation counts the allowed diagonal versus off-diagonal entries of each stabilizer; orbit–stabilizer converts those evaluated orders to the parity-dependent sizes. Novelty is limited to the evaluated sizes and their enumerator.",
+        "searches": [
+          "Marques de Sá preprint 16-04 §5 Theorems 5.14–5.15, §6 Theorems 6.1–6.2",
+          "Gill–Singh Theorem 3.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ordered factorization count is equivalently the count of involutory reversers of a single fixed matrix with the same residue signature, via t=s gε. Gill–Singh count real and strongly real conjugacy classes of the product, not reversers per product. De Seguins Pazzis gives the qualitative similarity-to-inverse criterion."
+        ],
+        "reasoning": "Pointwise reverser counts could be exactly equivalent. Class counts or real/strongly real labels alone concern a different observable and do not determine those counts.",
+        "searches": [
+          "finite general linear group number of reversing involutions prescribed unipotent product Jordan blocks factorisations two involutions centralizer signature Marques de Sá counted",
+          "Marques de Sá preprint 16-04 §§5–6",
+          "Gill–Singh arXiv:0809.4412v2 Theorem 3.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest exact parity and class-size match counts classes of involutions in a finite two-variable jet automorphism group. Another indexed hit, 2026/10/4/SCOPE-exact-rank-one-multiplicities-for-nilpotent-involution-factoriza--a78b15a3d4a1, counts a nilpotent times an involution for rank-one products."
+        ],
+        "reasoning": "Neither table counts two involutions whose product is a prescribed invertible signed-unipotent matrix; no equivalent indexed table was established by the targeted lookups.",
+        "searches": [
+          "Resultary: fixed signed-unipotent two-involution fiber counts, Jordan-block residue signature",
+          "2026/11/2/SCOPE-parity-switching-involution-classes-in-finite-two-variable-jet-a--391410cf76e4, Finding"
+        ]
+      },
+      "rationale": "After repair the contribution remains the evaluated pointwise counts by residual rank for homogeneous signed-unipotent products. Existence, prescribed-product orbit structure and supported pairs of ordinary ranks are credited to prior work. No known exact size evaluation for these fibers was established in the inspected material.",
+      "residual_risks": [
+        "Formulae for simultaneous stabilizers may be available elsewhere under representation-theoretic descriptions of dihedral modules or structure constants. The inspected sources support the orbit/point-count distinction but do not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING centralizer orbits and factor-rank support, not explicit member counts in inspected results",
+          "evidence": "Canonical forms for product similar to M or −M; signature is a complete invariant, and §6 counts orbits for given factor similarity classes.",
+          "identifier_or_url": "https://www.mat.uc.pt/preprints/ps/p1604.pdf",
+          "material_read": "Introduction pp. 1–2; §5 near offset 46420 and Theorem 5.15/Corollary 5.16, pp. 21–22; §6 Theorem 6.1 (p. 24, near 63539) and Theorem 6.2 (p. 26, near 66988)",
+          "method": "OA primary PDF passages",
+          "title": "Canonical Forms for Simultaneous Similarity of Pairs of Involutions",
+          "trigger": "Plausibly subsumes the homogeneous signed-unipotent enumeration via canonical representatives and signatures"
+        },
+        {
+          "assessment": "PARTIAL COVERAGE: strong reality and count of product classes, not pointwise fibers",
+          "evidence": "Theorem 3.8 sums over partition types to count real GL conjugacy classes and states that all real classes in GL are strongly real.",
+          "identifier_or_url": "https://arxiv.org/pdf/0809.4412v2",
+          "material_read": "Abstract and definitions (offset 0); §3 Theorem 3.8 p. 10 (offset 30340)",
+          "method": "OA primary PDF alternate to repository PDF; read bounded passages",
+          "title": "Real and strongly real classes in finite linear groups",
+          "trigger": "Finite GL, reversing involutions and exact enumeration"
+        },
+        {
+          "assessment": "COVERING qualitative criterion only",
+          "evidence": "Bireflectionality is related to similarity to the inverse; does not give the size of the fixed-product finite-field fiber in the inspected passage.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.00820",
+          "material_read": "pp. 1–2, near offset 502",
+          "method": "OA primary PDF passage",
+          "title": "A note on bireflectional elements of an algebra",
+          "trigger": "Motivating two-involution existence result"
+        },
+        {
+          "assessment": "NOT_COVERING in the inspected problem statement and two-factor comparison",
+          "evidence": "Recalls Wonenburger, Djokovic, Hoffmann–Paige two-involution criterion and formulates a stable decomposition length problem.",
+          "identifier_or_url": "https://arxiv.org/pdf/1808.01579",
+          "material_read": "Introduction pp. 2–3, offset 3300",
+          "method": "OA primary arXiv copy after commercial landing page inaccessible",
+          "title": "Products of involutions in the stable general linear group",
+          "trigger": "Exact-title literature hit on near-identical factorization language"
+        },
+        {
+          "assessment": "NOT_COVERING: different group and counting problem",
+          "evidence": "Parity-dependent conjugacy class sizes for involutions of a two-variable truncated-ring automorphism group, not counts for a prescribed matrix product.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-parity-switching-involution-classes-in-finite-two-variable-jet-a--391410cf76e4",
+          "material_read": "RESULT.md Finding",
+          "method": "Configured local mirror, original result",
+          "title": "Parity-switching involution classes in finite two-variable jet automorphism groups",
+          "trigger": "Closest indexed exact parity/class-size hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired claim supplies the number of ordered decompositions in each residual stratum at a fixed target, a natural finite-field refinement of existence and orbit classification. For even block size all ordinary factor ranks coincide, so an ordinary rank table cannot recover the residual population; the alternating stabilizer dimensions give a concrete reason for the parity-dependent counts. Only the stratum sizes and their enumerator are the quantitative increment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

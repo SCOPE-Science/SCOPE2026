@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:00:14.619030Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–63",
+        "VERIFICATION.md and verify_recursive_subtree.py, inspected, not executed",
+        "/workspace/branches/reproduce_discrete.py, tree_check"
+      ],
+      "rationale": "Under the uniform-parent growth rule, conditional on all marked arrivals, a new vertex's parent is uniform among earlier members of its own class, and those parent choices factor. The color-path probability depends only on class counts. Hence after relabeling by arrival order the two induced trees are independent recursive trees even given just S=s. There is precisely one crossing edge, from the parent of k, chosen independently among the first k−1 unmarked labels. Interior leaf status agrees with whole-tree status; that crossing edge removes an outside leaf exactly when its tail was an outside leaf. The unmarked tree of size N≥2 has rank-i leaf probability (i−1)/(N−1); averaging over its first k−1 vertices gives (k−2)/[2(N−1)]. At k=2 the only candidate is the outside root, a leaf iff N=1. Together with the singleton leaf convention this proves both regressions, including k=n and n=3. The beta-binomial S−1 law with urn parameters (1,k−1) gives ES=n/k, P(S=1)=(k−1)/(n−1), and the stated variance; substitution in Cov(S,U) verifies the exact formula. For the global covariance, write I for attachment inside and F for attachment to a nonleaf. Then E[IF|T_t]=(S_t−U_t)/t, and the S_t E[F|T_t] and L_t E[I|T_t] terms cancel their S_t L_t/t parts. Subtracting mean products gives C_{t+1}−C_t=−(k−1)/[2t(t−1)] and C_k=0. The monotone-score sign follows by the two-independent-copies covariance identity: nonconstant monotone scores differ at support endpoints, as do the regressions in the asserted strict cases. Corroborated the formulas for 197 parameter pairs by an independent integer-state Markov enumeration on (S,U,L), using the four attachment-class sizes U, S−U, L−U, and t−S−L+U. Replay: python3 /workspace/branches/reproduce_discrete.py.",
+      "residual_risks": [
+        "The reproduction tests finitely many sizes; exact validity is proved by factorization and telescoping. Conditional mean monotonicity is not stochastic order of the conditional laws."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Leckey–Neininger §3 decomposes at the second inserted vertex, conditionally on that subtree's size; Thm. 2.5 is a marginal Hoppe-tree mean, variance and asymptotic theorem.",
+          "The inspected Altok–Işlak abstract concerns marginal asymptotic leaf normality, runs of leaves and a nonuniform recursive-tree model."
+        ],
+        "reasoning": "The two-tree split covers k=2 when combined with the mean and singleton correction. The cited broader marginal results do not by themselves give the per-label conditional regression. The abstract alone is not evidence about all the contents of the 2017 paper.",
+        "searches": [
+          "Leckey–Neininger arXiv:1202.2439v3 Thm. 2.5 and §3",
+          "Altok–Işlak DOI 10.1016/j.spl.2016.10.007, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Mahmoud–Smythe DOI 10.1214/aoap/1177005874 with documented access limits",
+        "arXiv:1202.2439v3 Thm. 2.5 and §3",
+        "Altok–Işlak RePEc abstract",
+        "Resultary 7e29cb2dc1dd and f5ead0507350"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At k=2 the outside parent is necessarily the root, so the only leaf correction occurs when the outside tree is a singleton. At k≥3 the parent rank ranges over the first k−1 unmarked labels and its rank-dependent residual leaf probability matters at every s.",
+          "For the local law one only needs the induced tree and the subtree-size distribution. Neither the local moments nor a regression on Z_n determines that attachment-parent correction."
+        ],
+        "reasoning": "The full formula requires the all-label conditioned split and averaging over the eligible unmarked ranks. The monotone-covariance identity is standard once that regression is known; novelty is not claimed for the identity or separately for the local covariance.",
+        "searches": [
+          "Leckey–Neininger §3 offset 13031",
+          "Resultary 7e29cb2dc1dd offset 0; f5ead0507350 offsets 0 and 1803"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The potentially equivalent formulation is the mean of global leaves conditioned on a fixed-label rooted fringe subtree size, including the crossing-edge correction. The identified 1991 title concerns leaves inside rooted subtrees.",
+          "Resultary 7e29cb2dc1dd gives E[L_n|Z_n=z]=(n−1+z)/2 for Z_n the number of singleton children of the root, not a fixed-label descendant size."
+        ],
+        "reasoning": "The subtree leaf count U and the total L are mathematically distinct. The earlier statistic Z_n does not determine S or the conditional probability that the outside parent of k is a leaf. The 1991 full content could not be established from its title or abstract.",
+        "searches": [
+          "Resultary meaning search for exact global leaf regression on rooted fringe/descendant subtree size",
+          "random recursive tree whole-tree leaves conditioned on descendant-subtree size vertex exact regression covariance",
+          "Mahmoud–Smythe DOI 10.1214/aoap/1177005874"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f5ead0507350 includes the k=2 conditional law and explicitly gives the two-endpoint piecewise regression and the matching covariance −(n−2)/[2(n−1)].",
+          "The earlier 7e29cb2dc1dd is an exact table/formula for another conditioning statistic."
+        ],
+        "reasoning": "There is no expected finite database for a theorem over all n and k. The closest exact catalogue formulas were inspected and credit is given for the matching k=2 case. It is not evidence of coverage for arbitrary excluded labels.",
+        "searches": [
+          "Resultary 7e29cb2dc1dd and f5ead0507350, exact regression statements"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact global whole-tree leaf regression for arbitrary k≥3 and its covariance and monotonicity consequences. The classical urn and internal subtree law, local leaf moment ingredients, and the k=2 specialization are not new claims. The closest inspected prior recursive-tree split is at vertex 2; an earlier regression on singleton root branches conditions on a different variable. No verified existing theorem was found that fixes the k≥3 outside-leaf correction or covers the full joint comparison. Bounded retrieval does not establish priority.",
+      "residual_risks": [
+        "The 1991 predecessor's full content was not available; an implicit all-label identity or a more general recursive-tree splitting result may exist. Abstract-level comparison of the 2017 paper is limited. None of these issues is itself evidence of coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant to local moments; cannot exclude implicit global formulas from inaccessible full text",
+          "evidence": [
+            "The title concerns rooted-subtree leaves and the frozen record credits its local ingredients. No exact full-text passage was available to verify scope beyond that."
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/aoap/1177005874",
+          "material_read": "DOI landing metadata/abstract only; Project Euclid PDF and the identified ResearchGate alternate returned 403; no readable lawful full text was found",
+          "method": "OA DOI, alternate lookup and public access attempts",
+          "title": "On the Distribution of Leaves in Rooted Subtrees of Recursive Trees",
+          "trigger": "Same random tree, fixed subtree, leaf count and local mixed moments"
+        },
+        {
+          "assessment": "Direct ingredient for k=2, no general-k claim in the inspected passages",
+          "evidence": [
+            "Conditional on the second vertex subtree size the two blocks are independent, one a recursive tree, the other a Hoppe tree; Theorem 2.5 concerns marginal leaves."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1202.2439v3",
+          "material_read": "Theorem 2.5 (offset 9504), §3 two-tree decomposition (offset 13031)",
+          "method": "OA full-text bounded HTML passages",
+          "title": "Asymptotic analysis of Hoppe trees",
+          "trigger": "Same induced split for recursive trees and global leaves"
+        },
+        {
+          "assessment": "Inspected abstract indicates marginal/runs asymptotics and a nonuniform model, not the conditional statement; no whole-paper exclusion",
+          "evidence": [
+            "The abstract uses a permutation bijection for quantitative asymptotic normality of leaf and leaf-run statistics."
+          ],
+          "identifier_or_url": "https://ideas.repec.org/a/eee/stapro/v121y2017icp61-69.html",
+          "material_read": "Bibliographic abstract, offsets 350–2103; publisher full text returned 403 and exact-title lookup found no lawful full-text alternate",
+          "method": "OA public HTML abstract and attempted publisher retrieval",
+          "title": "On leaf related statistics in recursive tree models",
+          "trigger": "General search surfaced a paper on leaf statistics in the same model"
+        },
+        {
+          "assessment": "Different conditioning statistic",
+          "evidence": [
+            "Z_n counts singleton children of the root, not the descendant size at k."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-an-exact-leaf-regression-for-pendant-root-branches-in-random-rec--7e29cb2dc1dd/RESULT.md",
+          "material_read": "Finding, mirror offset 0",
+          "method": "OA reader, local mirror, bounded passage",
+          "title": "An exact leaf regression for pendant root branches in random recursive trees",
+          "trigger": "Closest earlier same-model exact global conditional leaf mean"
+        },
+        {
+          "assessment": "Exact overlap for k=2 only, no demonstrated priority or arbitrary-k coverage",
+          "evidence": [
+            "It conditions on the subtree of vertex 2 and states the covariance −(n−2)/[2(n−1)]."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-arbitrarily-many-leaf-moments-conceal-a-recursive-tree-subtree-s--f5ead0507350/RESULT.md",
+          "material_read": "Finding and conditional decomposition, mirror offsets 0, 1803",
+          "method": "OA reader, local mirror, bounded passages",
+          "title": "Arbitrarily many leaf moments conceal a recursive-tree subtree split",
+          "trigger": "Exact global leaf regression and covariance in a matching subtree split"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and §§1–5",
+        "Independent integer-state reproduction",
+        "Leckey–Neininger §3"
+      ],
+      "rationale": "Conditioning on the size of a fixed branch makes its own leaf count grow in expectation but makes the average global leaf count fall. Computing and explaining the crossing-edge correction resolves this natural distinction, identifies the exceptional label and singleton boundaries, and proves the signs for all monotone scores. This is a useful exact dependence statement, stronger than a lone numerically verified correlation and not just an application of a marginal leaf mean.",
+      "residual_risks": [
+        "No full conditional stochastic order, general preferential-attachment result, or Hoppe-tree extension has been verified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

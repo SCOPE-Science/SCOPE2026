@@ -1,12 +1,21 @@
-# Review of the zero-insertive radical-closure theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof establishes radical containment through the commutative vertex quotient, spans the radical using all positive-length paths, and constructs common zero-product sandwich factors when there is no two-arrow path. A three-vertex triangular-matrix quotient converts every two-arrow path into a rank-two obstruction. The matrix rank bound is proved directly, and the finite-field missing-element count follows from two independent path coefficients. In the extremal three-vertex case, explicit sandwich factors handle both zero-product-coefficient alternatives. The finite binary enumerations reproduce the predicted sets; they do not certify the arbitrary-field argument.
+## correctness
 
-## Originality — PASS
-The full text of Subba and Subedi, arXiv:2609.24439v1, Section 2 (including Example 2.1, Definition 2.2, the path-algebra remarks, and the triangular-matrix discussion), was compared at the statement level. It establishes zero-insertiveness of individual paths and semicommutativity criteria, but not the equivalence of additive closure, radical equality, and the absence of composable arrows, nor the sharp missing-element bound. The previously indexed full-matrix half-rank result only supplies a rank obstruction in one quotient. Searches for additive closure, radical equality, the three-vertex formula, and equivalent upper-triangular formulations did not reveal a dominating statement. Residual risk: an older unindexed ring-theoretic or quiver-algebra formulation could coincide with the theorem.
+PASS
 
-## Mathematical value — PASS
-The zero-insertive locus is a natural multiplicative witness set, but is not generally linear even though it spans an ideal. Determining precisely when it becomes the whole radical is a structural question across every finite acyclic quiver. The sharp, field-size-dependent missing-element fraction quantifies that nonlinear boundary; the three-vertex line supplies a minimal extremal model. These are not consequences of the elementwise path examples alone. No claim is made for cyclic quivers or bound path algebras.
+The commutative semisimple quotient kills each sandwich with ab=0; every positive-length path is a sandwich between distinct vertex idempotents, so the locus spans J. If J²=0, all arrows run from a source set to a disjoint target set, so the two summed vertex idempotents realize any radical element in one sandwich. If two arrows compose, keep the three vertices and those two labeled arrows and kill all others. This is a path-algebra quotient onto T₃, valid also with parallel or shortcut arrows. In M₃, UV=0 forces rank(U)+rank(V)≤3 and hence rank(URV)≤1. Thus every radical element with both chosen arrow coefficients nonzero is excluded. This proves nonadditivity and the count of (q−1)²q^(d−2) excluded coefficient choices. In T₃, if either simple-arrow coordinate is zero, the element is supported in the single corner E₁₁ X(E₂₂+E₃₃) or (E₁₁+E₂₂) X E₃₃, respectively as appropriate, proving sufficiency and equality q(2q−1). The zero or arrowless case is included. Read RESULT.md, VERIFICATION.md and verify.py without executing the supplied script. Fresh binary enumeration, taking the image of r↦arb for each zero-product pair via its values on path basis vectors, gave 6/8 for the line, 4/4 for the fork, and 20/32 for the line with the first arrow doubled; these are checks, not the universal proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit the known zero-insertiveness of individual paths and the prior full-matrix rank criterion. The supported distinct result is the radical-wide additive-closure classification for acyclic ordinary path algebras, with the universal sharp finite-field loss and the internal T₃ witnesses. The closest comparisons do not establish that combined statement.
+
+## value
+
+PASS
+
+This determines when a natural ring-theoretic locus already equals its linear span rather than merely generating it. The classification singles out a minimal branching-in-time obstruction, a composable pair, and turns that obstruction into a sharp loss of finite-field elements. The value is in the uniform classification plus quantitative gap, not in the known rank inequality or a standalone small matrix count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

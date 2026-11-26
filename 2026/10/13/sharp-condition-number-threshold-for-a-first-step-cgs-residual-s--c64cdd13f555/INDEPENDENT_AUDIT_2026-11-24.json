@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:35:22.364455Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In standard CGS the first p and u equal r₀, the auxiliary update is q=u−α₀Ap, and r₁=r₀−α₀A(u+q); this is exactly (I−α₀A)²r₀ with α₀=(r₀ᵀr₀)/(r₀ᵀAr₀). SPD and nonzero r₀ ensure no first-step division by zero. In an eigenbasis with squared normalized residual coefficients as masses, the squared norm ratio is E[(X−EX)^4]/(EX)^4. With fixed mean the secant bound for x↦(x−EX)^4 is attained by the endpoint distribution; choosing its square-root weights as the two residual coordinates realizes the sharp envelope. With t the odds at the upper endpoint, this gives exactly G_κ(t). The equivalent compact probability interval ensures continuous dependence on κ; a maximizing t is positive and finite for κ>1, and each such G_κ(t) increases strictly in κ. At κ=1 the ratio is zero. For u=κt the scaled expression on u≤κ is at most u/(1+u)^4, and the remaining tail is at most 2/κ³; u=1/3 attains the limiting constant 27/256. Thus the continuous maximum crosses one exactly once. The stationarity cubic and cleared level-one equation give the independently recomputed resultant 16κ(κ²+κ+1)P(κ); the reciprocal reduction and one sign change of Q(z+2) prove just one root for κ>1. Independent SymPy/mpmath replay gives κ*=3.4428158692570749535… and t*=0.0869983437269713773… (branches/7c288f66-3721-42ef-ae71-b7b4dede58f9/independent_threshold_check.py). The κ=4 witness has residual (9/100,144/25) and exact squared ratio 331857/170000. Frozen RESULT.md, VERIFICATION.md and verify.py were inspected, not executed. The conclusion is for the exact unpreconditioned SPD first step with the specified shadow residual, not later iterations, alternate shadows, or nonnormal problems.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general CGS discussion in Templates notes irregular behavior without restricting to SPD first-step sharp constants.",
+          "The closest same-day indexed sharp SPD frontier treats one prescribed forward Gauss–Seidel sweep on 2×2 matrices, using a different operator and threshold 5.360767896… ."
+        ],
+        "reasoning": "General applicability of the residual polynomial does not imply the sharp fourth-moment maximum or its condition-number threshold. An analogous exact bound on a Gauss–Seidel sweep, even on the same SPD class, cannot dominate the CGS optimization. No priority is inferred from publication day.",
+        "searches": [
+          "Netlib Templates §2.3.7 convergence discussion",
+          "DOIs 10.1137/0910004, 10.1137/0914029 and 10.1002/nla.2298",
+          "Resultary aaf097f58d30 RESULT.md finding and prior-work section"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Netlib Templates §2.3.7 and MathWorld CGS entry",
+        "Resultary aaf097f58d30",
+        "Independent symbolic/high-precision threshold reproduction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generic CGS identity supplies the left side of the spectral-moment representation. To get the new frontier requires the fixed-mean two-endpoint extremum with attainability, optimization crossing and asymptotic analysis.",
+          "General reports of spikes allow them without determining if the first residual can grow for any given κ in real SPD arithmetic."
+        ],
+        "reasoning": "Credit the algorithm and the secant principle, not as novel. A standard bound at fixed mean neither gives the optimized condition number nor shows that the defining algebraic root controls the actual CGS transition.",
+        "searches": [
+          "Netlib Templates §2.3.7 Eq. (2.14) versus frozen RESULT.md §§Finding and Proof",
+          "Resultary aaf097f58d30 RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Netlib text explicitly applies the BiCG residual polynomial twice and discusses oscillations.",
+          "The frozen envelope optimizes a normalized fourth central moment, not the inverse-moment product in the usual Kantorovich inequality."
+        ],
+        "reasoning": "Recognize the squared-polynomial equivalence at the algorithm level. It is not an equivalence to a published sharp normalized fourth-moment optimization or a threshold in the inspected material.",
+        "searches": [
+          "Focused primary literature queries on squared CGS residual polynomial, sharp first-step SPD condition-number/residual amplification and normalized fourth-moment/Kantorovich expressions",
+          "Resultary: CGS first-step residual amplification and SPD monotonicity frontier",
+          "Netlib Templates §2.3.7 Eq. (2.14)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected closest exact indexed frontier tabulates a different algorithm's invariant; it has a different reciprocal polynomial and root.",
+          "The available CGS passages give algorithmic formulas and qualitative behavior, not a numerical or algebraic table of SPD first-step nonexpansion thresholds."
+        ],
+        "reasoning": "A different method's sharp number does not cover this invariant. No exact table was identified in the bounded searches, which does not exclude older or differently indexed results.",
+        "searches": [
+          "Resultary: sharp condition-number threshold and first-residual spikes for CGS",
+          "Netlib Templates §2.3.7 and MathWorld Conjugate Gradient Squared Method"
+        ]
+      },
+      "rationale": "The squared CGS residual polynomial, qualitative irregularity and convex-secant principle are established ingredients. The distinct claim is the sharp condition-number frontier for the defined SPD first-step experiment, including its algebraic threshold and worst-case asymptote; neither the accessible CGS comparisons nor the closest distinct indexed frontier covers those quantities.",
+      "residual_risks": [
+        "The Sonneveld, Freund and Aihara DOI full texts were not accessible in the attempted OA retrieval. An equivalent older SPD extremal calculation under other terminology remains possible.",
+        "The focused search misses are not used as proof of uniqueness; recorded checks do not constitute expert or formal attestation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Squared polynomial and qualitative irregularity, not SPD frontier",
+          "evidence": "CGS uses BiCG contraction twice via the squared residual polynomial.",
+          "identifier_or_url": "https://www.netlib.org/templates/templates.pdf",
+          "material_read": "§2.3.7 pp. 21–23, text offsets 80864–85763, Eq. (2.14)",
+          "method": "Targeted primary algorithm reference PDF",
+          "title": "Templates for the Solution of Linear Systems: Building Blocks for Iterative Methods",
+          "trigger": "Authoritative available CGS description and convergence discussion"
+        },
+        {
+          "assessment": "Corroborates squared-polynomial identity only",
+          "evidence": "Discusses application of the BiCG residual polynomial twice and irregular convergence.",
+          "identifier_or_url": "https://mathworld.wolfram.com/ConjugateGradientSquaredMethod.html",
+          "material_read": "Method entry, HTML offset 0",
+          "method": "Public secondary reference entry",
+          "title": "Conjugate Gradient Squared Method",
+          "trigger": "Related solver behavior and possible threshold reference"
+        },
+        {
+          "assessment": "Structural analogue, not CGS coverage",
+          "evidence": "Forward Gauss–Seidel sweep on a 2×2 SPD system has a different frontier, a degree-six reciprocal polynomial and threshold 5.360767896… .",
+          "identifier_or_url": "2026/10/13/SCOPE-sharp-residual-monotonicity-frontier-for-a-prescribed-two-coordi--aaf097f58d30",
+          "material_read": "RESULT.md Finding and Relationship to prior work, offsets 0 and 5000",
+          "method": "Resultary index and matching local mirror",
+          "title": "Sharp residual monotonicity frontier for a prescribed two-coordinate sweep",
+          "trigger": "Closest indexed exact condition-number frontier"
+        },
+        {
+          "assessment": "Full-text comparison unresolved, not a negative finding",
+          "evidence": "HTTP 403 with no identified accessible same-paper copy; Netlib independently establishes the relevant algorithm identity.",
+          "identifier_or_url": "https://doi.org/10.1137/0910004",
+          "material_read": "DOI retrieval unsuccessful; no full text read in this review",
+          "method": "Bounded lawful OA retrieval attempt",
+          "title": "CGS, A Fast Lanczos-Type Solver for Nonsymmetric Linear Systems",
+          "trigger": "Founding CGS article; plausible old first-step analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Qualitative CGS irregularity does not tell when even the first residual is safe, nor how bad the first spike can be with normal, positive eigenmodes. This result identifies the precise condition-number cutoff and sharp κ^(3/2) norm growth despite SPD structure, with realizable two-mode tests. These are useful diagnostics and benchmarks for CGS studies without extrapolating to subsequent iterations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

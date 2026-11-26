@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:55:53.208116Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 49–108 and VERIFICATION.md; verify_sextic.py inspected, not executed",
+        "python3 /workspace/reproduce.py 2: weighted unordered-pair enumeration with direct curve point counts, all 15 field sizes in the frozen checker and additionally F_343; examples E(11)=351 and E(121)=57001"
+      ],
+      "rationale": "The nonzero-sum normalization is bijective on ordered pairs and factors the collision equation into z²=w² and the stated quartic. The diagonal contributes 2q−1 and exactly B_q points of overlap; the zero-sum slice contributes 1+g(q−1). On the conic in U=z²,V=w², the unweighted contribution is q−δ, each single character contributes δS3, and grouping by U+V gives the double character contribution −1+δS4. The discriminants of the displayed elliptic polynomials are 968000 and 33000000, nonzero in scope; the monic quartic has two rational points at infinity, so S4=−1−b_q, not −b_q. In characteristic 11 the two nonsingular conics have q−δ points apiece and four intersections; B_q=8 and δ=(−1)^r. The smooth quartic has 2(1+δ) points at infinity and no affine singularities in the generic range: a nonzero affine coordinate pair at a critical point forces z²=w²=−5, and a single nonzero coordinate forces its square to be −15/2, neither giving F=0 in scope. Orthogonality gives energy divided by q² for the fourth moment with counting measure.",
+      "residual_risks": [
+        "Finite reproduction supplements the all-field proof. No sharp arbitrary-input norm or expert/Lean attestation is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general extension theorem controls a norm inequality for plane curves; the split-Jacobian paper constructs genus-three curves isogenous to elliptic products. The material read does not assert this graph's exact energy, whereas Resultary d13eb585e54d covers the full field range p>5, including all powers of 11."
+        ],
+        "reasoning": "The broad primary results alone are not exact evaluations, but the direct comparator requires no parameter exclusion or asymptotic interpretation to cover the finding.",
+        "searches": [
+          "Resultary: Ciani quartic point count / elliptic-product",
+          "Koh–Shen arXiv:1003.4240 Theorem 1.1",
+          "Howe–Leprevost–Poonen arXiv:math/9809210 §4.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d13eb585e54d, 235f10989b3f and f9410cde2e91",
+        "arXiv:1003.4240 and math/9809210"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exceptional formula and normalized Fourier moment coincide verbatim up to variable names. The same collision polynomial, overlap count and nonzero-sum identity give the same N_q; adding the 2(1+δ) points at infinity gives the same generic projective point count."
+        ],
+        "reasoning": "The explicit Hasse bound follows from the same trace formula and the bound for each elliptic curve. Splitting the exceptional quartic as a difference of squares is an alternate derivation of the already covered exception, not an independent new exact-energy result.",
+        "searches": [
+          "Resultary d13eb585e54d Finding and proof (2), (3), (5)–(12)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary d13eb585e54d gives E=1+(q−1)[3q−2+g−2δ+2T1+T2−I] for the same ordered graph and I=B_q. Its equations (6) and (12) compute exactly the same affine collision-quartic count as frozen equations (1) and (4)."
+        ],
+        "reasoning": "Using the same conic point set D, T1=∑_D χ(U)=−δa_q. The comparator writes ∑_D χ(UV)=T2−1−δ, while grouping by U+V in the frozen record gives −1+δ(−1−b_q). Thus T2=−δb_q; equality is proved without requiring an isomorphism of the two displayed elliptic models.",
+        "searches": [
+          "Resultary: sixth power graph additive energy finite field exact formula characteristic eleven",
+          "Resultary: finite-field monomial graph energy and x^d+y^d collisions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue entries 235f10989b3f (quartic) and f9410cde2e91 (fifth power) evaluate different graphs. The exact d13eb585e54d entry instead contains the full sextic energy formula and gives the same characteristic-eleven correction I=8."
+        ],
+        "reasoning": "An independent finite table is not needed to resolve equivalence: the matching catalogue supplies its formula for every field in scope, and the different exponents do not constitute duplicates.",
+        "searches": [
+          "Resultary: exact sextic collision polynomial and characteristic-eleven factorization",
+          "Resultary: exact monomial graph energy / collision counts"
+        ]
+      },
+      "rationale": "The exact ordered energy, exceptional-characteristic formula and limiting jump, and normalized constant-input fourth moment are already covered by a distinct indexed Resultary record. This is a determination of equivalent coverage in the catalogue, not a finding of historical priority, derivation or common provenance based on dates. The alternate elliptic models and short conic-factor calculation support the same invariant; there is no independently valuable uncovered theorem in the frozen finding to retain.",
+      "residual_risks": [
+        "The comparison does not establish historical priority; a deferred literature lookup is not a negative result. The direct overlap is independently decisive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the finding; catalogue date is later than the source path, and does not establish priority",
+          "evidence": [
+            "Same P(r,t), I=B_q and B=q−1−2δ+2T1+T2; identical exceptional and Fourier formulas."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-elliptic-trace-formula-and-a-characteristic-eleven-jump-for-the--d13eb585e54d/RESULT.md",
+          "material_read": "Finding and Assumptions; Proof through (12), then singular case and Fourier normalization; mirrored offsets 0, 1100–3580 and 3400–6674",
+          "method": "Local Resultary mirror, bounded passages",
+          "title": "Elliptic-trace formula and a characteristic-eleven jump for the sextic finite-field graph",
+          "trigger": "Direct exact overlap on object, field range, exceptional prime and invariant"
+        },
+        {
+          "assessment": "Inequality under geometric hypotheses, not this exact moment",
+          "evidence": [
+            "The criterion is stated in terms of linear factors and point-set size for characteristic greater than the degree."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1003.4240",
+          "material_read": "p. 2, Theorem 1.1",
+          "method": "OA PDF passage",
+          "title": "Sharp extension theorems and Falconer distance problems for algebraic curves in two dimensional vector spaces over finite fields",
+          "trigger": "General graph extension theory"
+        },
+        {
+          "assessment": "Geometric context; the named specific invariant is not in the inspected passage",
+          "evidence": [
+            "The construction yields elliptic products up to isogeny over a quadratic extension, rather than a sextic energy formula including a reducible characteristic."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/9809210",
+          "material_read": "§4.1, pp. 19–20",
+          "method": "OA PDF passage",
+          "title": "Large torsion subgroups of split Jacobians of curves of genus two or three",
+          "trigger": "Smooth genus-three trace decomposition"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and §§3–5; Resultary d13eb585e54d Finding and equations (1)–(3), (6), (12)"
+      ],
+      "rationale": "The exact sextic fourth moment and structural jump are worthwhile mathematical invariants, but both are covered. The alternate model for the second trace and a different derivation of the same characteristic-eleven formula leave no independently useful new invariant, structural theorem, or extension of scope in this finding.",
+      "residual_risks": [
+        "This is not a rejection of the utility of the already-covered invariant or a finding that the mathematics is false."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

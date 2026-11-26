@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,4 @@
 
 # Verification
 
-Run `python verify_parity_occupancy.py` using the standard Python library. It enumerates uniform finite allocation spaces, checks exact rational parity-class covariances against the theorem, verifies all predicted finite sign and equality cases on a substantial parameter grid, and separately checks the diffuse nonuniform pair-covariance sign for rational probability vectors. This corroboration is finite; the unrestricted assertions rest on the proof in `RESULT.md`.
-
-The proof uses no unreported experimental cutoff to infer a universal inequality. No independent scientific audit has been performed.
+Run `python3 verify_parity_occupancy.py` with the standard library. The program enumerates weighted allocations for specified unequal box probabilities, checks the ordered-pair covariance formula on these samples, and checks strict signs for qualifying pairs and for the aggregate under the global pair bound. The unrestricted result relies on the analytic proof, not the finite grid.

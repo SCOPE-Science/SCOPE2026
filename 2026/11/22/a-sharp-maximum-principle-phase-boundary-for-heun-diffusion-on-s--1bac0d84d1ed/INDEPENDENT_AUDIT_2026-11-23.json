@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:56:21.315563Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Split into constant, mean-zero part-constant, and within-part mean-zero subspaces (dimension zero for a singleton). The original Laplacian is N on the second subspace and N−n_r on the r-th within-part subspace, so its spectral power gives the stated negative of the missing-edge entry and hence w_r. Homogeneous internal conductances change only the within-part eigenvalues, to Ne_r. The Heun polynomial R(z)=1−z+z²/2 is positive for all real z, so the propagator is positive definite with positive diagonal and, by the constant mode and symmetry, preserves row and column sums. With t=Nh, cross-part entries t(1−t/2)/N force t≤2. A within-part sign on 0<t≤2 equals the sign of (e_r−a_r)−t(e_r²−a_r)/2, positive at t=0 and equal to e_r(1−e_r) at t=2. This gives exactly the stated zero for w_r>1 and none below 2 otherwise. Every entry that becomes negative on its blocking interval stays negative beyond its zero until the cross-part entries alone forbid positivity. Nonnegative row-stochasticity is the maximum principle, and a negative entry gives a basis-vector witness. The derivative numerator for c_α is αa^(α−1)+(1−α)a^α−1>0 by strict weighted AM–GM (the weighted geometric mean is one); 0<c_α<1. Thus the smallest nonsingleton part first crosses w=1 at the stated β_*>1. With all e_r≤1, λ_max=N. With e_max>1, the blocking time for a part attaining e_max is strictly below 2/e_max in scaled time, by a_r(e_max−1)>0, giving a genuine spectral/positivity gap. Spectral stability means nonexpansiveness and includes the limiting eigenmode multiplier one at the ceiling. The complete graph has no internal-edge condition. The numerical K₂,₂ example was independently checked (~0.41018862 versus ~0.44590291). Inspected VERIFY.py and VERIFICATION.md; uploaded tests were not executed, and their scope is finite. No internal-stage positivity claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "690509e7de2b treats general filters but only unweighted complete multipartite Laplacians. The general-filter within-part comparison here is e_rΦ(e_rt)−a_rΦ(t) with Φ(s)=(1−R(s))/s; the unweighted theorem has e_r=a_r.",
+          "c547ef29de73 includes the weighted graph class, but its all-time condition a_i/b≤2+n_i/(N−n_i) is for two-stage fourth-order implicit Gauss, not the Heun polynomial. The windmill result has an unweighted cutoff in a different graph class."
+        ],
+        "reasoning": "The prior with the broader filter class lacks the necessary edge weights; the one with the broader graph class lacks the requisite propagation law. Neither theorem specializes to the claimed diagram.",
+        "searches": [
+          "2026/10/13/SCOPE-an-exact-positivity-criterion-on-complete-multipartite-diffusion--690509e7de2b",
+          "2026/11/8/SCOPE-independent-sharp-positivity-thresholds-for-fourth-order-diffusi--c547ef29de73",
+          "2026/11/8/SCOPE-convex-spectral-filters-on-heterogeneous-clique-windmills-have-a--c55885b0d081"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, and VERIFY.py",
+        "Filippo–Mazza arXiv:2606.10480v1, publisher access attempt",
+        "Resultary 690509e7de2b, 0aa3ec090e79, c547ef29de73, c55885b0d081, 8af258cef8b1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Gauss proof already supplies the common block projectors and hence the way to write any polynomial of the same matrix. This supplies an ingredient, not sign control of the new within-part entry relative to the spectral ceiling. The earlier unweighted criterion cannot test e_r>a_r.",
+          "The fractional regularization paper's eigenvalue estimates are not Heun timestep or maximum-principle criteria. A general entrywise Heun sign test from I−hL+h²L²/2 is elementary, but still must be evaluated for these fractional weights, and does not on its own determine the crossing against 2/λ_max."
+        ],
+        "reasoning": "The substantive distinction is the exact amplification transition on Filippo–Mazza's scaled operator and a strict witness throughout its post-transition regime, not the general projector identity, the polynomial substitution, or the unweighted radius.",
+        "searches": [
+          "c547ef29de73 Proof: block spectrum and entry formulas",
+          "690509e7de2b scalar-filter criterion",
+          "arXiv:2606.10480v1 §4.3 Proposition 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The scaled graph retains every old edge at 1, whereas βL_G^α scales old and new edges together. The unregularized exponential gives no completed Heun boundary. The unweighted Heun theorem applies when internal conductances are zero and agrees with 2/N there."
+        ],
+        "reasoning": "The weighted regularized family changes the internal spectrum without scaling the part-constant mode; it is not an unweighted time rescaling.",
+        "searches": [
+          "arXiv:2606.10480v1 §4.1 Definition 2 Eq. (4)",
+          "2026/10/26/SCOPE-a-sharp-positivity-transition-for-fractional-graph-heat-on-compl--8af258cef8b1",
+          "2026/11/2/SCOPE-exact-positivity-radii-and-an-order-three-reversal-for-taylor-ru--0aa3ec090e79"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected exact-index matches give the unweighted Heun number 2/N, Gauss weight thresholds, or a fractional exponential semigroup; none supplies the amplified Heun radii."
+        ],
+        "reasoning": "This is a symbolic all-parameter boundary rather than a table lookup; the relevant exact candidates are analytic cutoff records.",
+        "searches": [
+          "Resultary 0aa3ec090e79, c547ef29de73, 690509e7de2b, c55885b0d081, 8af258cef8b1"
+        ]
+      },
+      "rationale": "The key inputs are known: the scaled regularization, unweighted Heun plateau and weighted block spectral projectors. The closest prior does not give the exact amplified Heun threshold or the strict departure from spectral stability at the first conductance crossing. The weighted Gauss work is especially close in proof method, but its theorem concerns a different rational propagator. The additive positive-conductance change is not equivalent to scaling the original Laplacian or exponentiating its unregularized fractional power.",
+      "residual_risks": [
+        "Equivalent weighted Heun positivity and stability comparisons could occur outside the examined graph-filter and regularization sources.",
+        "The publisher edition of Filippo–Mazza was not obtained; inspected arXiv statements suffice for the construction and the stated comparison, not an exhaustive priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same construction and spectral context, no sharp Heun result in the relevant passages",
+          "evidence": [
+            "The accessible v1 gives the scaled weights and β≥1. It labels the definition Definition 2 in §4.1; the different frozen locator could not be checked in the publisher edition."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2606.10480v1",
+          "material_read": "§4.1, Definition 2 and Eq. (4), HTML OA offsets 31260–36245; §4.3 Prop. 5, offsets about 40700–45188",
+          "method": "Lawful OA arXiv HTML; publisher full-text attempt did not succeed",
+          "title": "Spectral and computational aspects of a regularized fractional Laplacian for non-local diffusion on graphs",
+          "trigger": "Primary source for the same scaled operator"
+        },
+        {
+          "assessment": "Same block spectrum, different integrator, criterion and time quantifier",
+          "evidence": [
+            "The diagonalization γ=Nb, λ_i=(N−n_i)b+n_i a_i is exactly the underlying weighted form. The proof divides the Gauss entry by a positive quadratic denominator specific to its filter; its all-positive-time condition is not the Heun cutoff."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-independent-sharp-positivity-thresholds-for-fourth-order-diffusi--c547ef29de73",
+          "material_read": "Finding and Proof, especially local mirror offset 1870–3696",
+          "method": "Local mirror statement and derivation",
+          "title": "Independent sharp positivity thresholds for fourth-order diffusion on block-homogeneous complete networks",
+          "trigger": "Strongest weighted same-geometry positivity theorem"
+        },
+        {
+          "assessment": "Unweighted only",
+          "evidence": [
+            "Universally tests 0≤f≤1 and monotonicity of (1−f(s))/s on unweighted complete multipartite Laplacians over scales."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-an-exact-positivity-criterion-on-complete-multipartite-diffusion--690509e7de2b",
+          "material_read": "Finding and projector criterion",
+          "method": "Local mirror",
+          "title": "An exact positivity criterion on complete multipartite diffusion graphs",
+          "trigger": "Plausible covering scalar-filter theorem"
+        },
+        {
+          "assessment": "Covers unweighted boundary case, not the amplified phase",
+          "evidence": [
+            "Within-part entries remain positive until the inter-part cutoff at 2/N."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-positivity-radii-and-an-order-three-reversal-for-taylor-ru--0aa3ec090e79",
+          "material_read": "Finding and degree-two proof",
+          "method": "Local mirror",
+          "title": "Exact positivity radii and an order-three reversal for Taylor Runge–Kutta diffusion on complete multipartite graphs",
+          "trigger": "Exact published Heun cutoff in the same unweighted geometry"
+        },
+        {
+          "assessment": "Unweighted apex–clique windmills, different operator",
+          "evidence": [
+            "The 2/N boundary there does not include independent amplified within-part couplings of this regularized operator."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-convex-spectral-filters-on-heterogeneous-clique-windmills-have-a--c55885b0d081",
+          "material_read": "Finding",
+          "method": "Local mirror",
+          "title": "Convex spectral filters on heterogeneous clique windmills",
+          "trigger": "Indexed degree-two cutoff and filter similarity"
+        },
+        {
+          "assessment": "Unregularized exponential, not the completed Heun endpoint",
+          "evidence": [
+            "The operator is e^(−tL^α), with no scaled preservation of original edges in a new Heun operator."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-a-sharp-positivity-transition-for-fractional-graph-heat-on-compl--8af258cef8b1",
+          "material_read": "Finding",
+          "method": "Local mirror",
+          "title": "A sharp positivity transition for fractional graph heat on complete multipartite networks",
+          "trigger": "Close title and same base graph with fractional power"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives a complete, practical step criterion for a published nonlocal graph construction and explains exactly why a spectral timestep rule ceases to preserve the maximum principle. It identifies the first amplification at which an explicit pair of vertices witnesses the mismatch for every graph in the family, not just a conservative positivity bound or a numerical example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The group-law commutator calculation reduces each fixed-index Engel map to a homomorphism of \(C_m^2\) with image divisor \(d_{i,j,k}\). Kernel sizes give exact fibers. Prime-by-prime valuations establish both sufficiency and necessity of the stabilization formula; monotonicity of the identity-fiber divisor sum proves the cutoff is minimal for distributions. The lcm expansion is a finite indicator-product identity. Independent exhaustive computations validate 32 complete small instances and 1,965 finite modular unit cases. Risks: no external proof audit; the standalone checker cannot prove the unrestricted theorem.
+## correctness
 
-**Originality — PASS (self-review, with residual risk).** Compared actual mathematical statements, not titles: the 2026 word-comparison paper studies universal bounds; the 2026 wreath-product paper concerns a noncyclic base; the 2023 metacyclic \(p\)-group article supplies a relevant homomorphism method and distribution lower bounds, not the mixed-prime sharp terminal profile. A published Frobenius Engel-digraph result and the exact Frobenius Engel probability are acknowledged as covered subfamilies, not novelty. Further coverage in general metabelian word-map theory remains possible, especially as a deduction from a broader unlocated statement. Literature searches are not uniqueness proofs.
+PASS
 
-**Value — PASS.** The first exact common stabilization length is a natural finite cutoff for a whole sequence of word probabilities and individual fibers. The arithmetic terminal profile and its independence of higher prime-power lifts contrast with genuine lift-sensitivity of the cutoff. This distinguishes nilpotent-primary transients from persistent nonnilpotent behavior in mixed-prime split metacyclic groups; it is not merely a changed normalization of an established Frobenius formula.
+Using the specified group law and [x,y]=x⁻¹y⁻¹xy, the first rotation is u⁻ⁱ⁻ʲ[(1−uʲ)a+(uⁱ−1)b]; each further step multiplies it by u⁻ʲ−1. The fixed-(i,j) image is the ideal of the two coefficients, with gcd d_{i,j,k} and kernel size m d_{i,j,k}. All coefficients are multiples of (u−1)^k and i=0,j=1 realizes this ideal if h>1; the h=1 case is trivial. At p^a∥m, a j not divisible by t=ord_p(u) leaves the first coefficient a unit. For t∣j valuation grows by at least s each iteration; when t=1 both coefficients already have valuation ≥s at the first step. This gives the stated ceilings. The bounds are attained prime-locally by i=j=1 when t=1 and s<a; by i=1,j=t when t>1 and s<a (then h>t); and by i=1,j=0 at depth one when t>1 and s=a. The divisors increase by divisibility, so a deficient divisor keeps the identity fiber strictly below its terminal count, proving leastness for the distribution, not just for a sufficient local bound. The terminal divisors give the subset/lcm identity normalization by averaging j modulo h, since all t_p divide h. A primitive unit modulo an odd prime power has t=p−1 and s=1 for exponent a≥2; exponent one is already sharp for the nontrivial action of C₂ on C₃.
 
-Independent verification is not claimed; the mathematical scope and residual literature risks appear in the result document.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the distinct contribution in arbitrary, potentially noncoprime cyclic-by-cyclic actions: the sharp valuation-sensitive least plateau and explicit all-depth distribution beyond coprime-action and identity-locus results. Prior cosetwise homomorphism counting, the fixed-point-free depth-two identity locus, and the coprime terminal law are already covered ingredients or cases. The closest inspected sources do not yield the mixed/lift-dependent sharp cutoff. This is a best-of-knowledge scoped pass, not a priority certification.
+
+## value
+
+PASS
+
+Repeated commutation may keep the same eventual law while changing how long it takes to get there. The exact cutoff identifies which prime-power lift delays stabilization and detects a full extra step from a nontrivial residue action, instead of supplying only qualitative eventual behavior or an upper bound. For example, the two C₂₇ actions with complement C₁₈ have the same terminal law but cutoffs 4 and 3. The formula is an independently useful exact invariant of a broad natural family, with the noncoprime regime providing the value beyond the coprime cases already covered.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

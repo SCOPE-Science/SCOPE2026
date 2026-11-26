@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:53:18.772827Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fourier integration of the unnormalized boxes gives |K̂(n)|=F_n/|n| with F_n=(2/π)|sin(πna)cos(πnb)|. Both signs of n contribute, so the coefficient is twice the mean of F_n. To justify the threshold limit even with atoms, for B=2/π the finite measures t∑_{1≤n≤B/t}δ_{(tn,F_n)} converge to Lebesgue on [0,B] times the limiting empirical measure: on any fixed block in tn, subtract the two initial-segment averages and then approximate a continuous joint test function by blockwise tests. The diagonal boundary F=tn has product measure zero. The limit is the layer-cake integral, hence the mean. To also check the initial existence claim for any admissible b, not just the three evaluated cases, take the orbit closure H of (a,b) in the torus. Each character averages to zero unless it is trivial on H, by the geometric sum, yielding Haar equidistribution on H. The continuous F is positive at n=1 unless b=1/2, in which case use n=2; its Haar mean on H is therefore positive. Independent coordinates give means 2/π for both factors. Rational residue classes give the same sine mean and a numerator permutation of the absolute cosine values. Summing the positive cosines paired about 0 gives cot(π/(2q)) for q even and csc(π/(2q)) for q odd. The normalized ratios x cot x and x csc x sit strictly below and above 1, respectively, and their monotonicity gives the sharp rational extrema q=2 and q=3. Only even q gives zeros and then exactly n≡q/2 mod q. On b=2a, the change of variable v=cos(πu) gives ∫_{−1}^1|2v²−1|dv=(4√2−2)/3, which gives the stated constant after normalization and doubling. Monotone inversion of the strict count gives ks_k→C, and harmonic comparison gives both Schatten and log-sum results. Inspected check.py and VERIFICATION.md; the frozen finite checks were not executed and are not used to establish a limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two-interval result classifies real Fourier zeros and Wiener cyclicity, including the relevant integer null modes. The rational-window spectral boundary-layer result gives a sharp tail and detuning law for one normalized boxcar. The two-interval recovery theorem concerns identification and stability."
+        ],
+        "reasoning": "The broader geometric domain of the Fourier-zero and recovery results does not give a distribution of nonzero multiplier magnitudes. The single-boxcar tail does not provide the coupled product average on the torus.",
+        "searches": [
+          "Resultary 2b9667f7502f and 6167de3a2980",
+          "arXiv:math/0503663v1",
+          "arXiv:2606.19855v1, Theorems 1.2–1.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Resultary 2b9667f7502f and 6167de3a2980",
+        "Johnstone–Raimondo arXiv:math/0503663",
+        "De Canditiis–Pensky DOI 10.1111/j.1467-9469.2006.00463.x",
+        "Xia–Xu arXiv:2606.19855"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A single-window sine average and a classification of exact coherent zeros leave open the nonzero mean of the coupled modulus, particularly on a dependent orbit. The coherent coefficient changes at b=2a even though the Fourier null set remains empty."
+        ],
+        "reasoning": "Neither separate constant or the null obstruction specifies that mean. Standard equidistribution and trigonometry are credited as methods; no inspected stronger result delivered the specific coherent-pair classification.",
+        "searches": [
+          "Resultary 6167de3a2980, Finding",
+          "Resultary 2b9667f7502f, Finding",
+          "arXiv:math/0503663v1, p. 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the coherent sum the multiplier is a single-boxcar multiplier times 1+exp(−2πinb). Two observed channels give a frequencywise vector instead; their Euclidean norm has no destructive interference. Phase retrieval uses magnitudes to identify the interval union, not to rearrange the magnitudes into a spectral tail."
+        ],
+        "reasoning": "Coherent interference with a parity-dependent sampled cosine factor is essential. Neither a separate-channel norm nor inverse recovery from magnitudes gives an equivalent counting problem with the claimed solution.",
+        "searches": [
+          "Resultary 2b9667f7502f and 6167de3a2980",
+          "De Canditiis–Pensky DOI 10.1111/j.1467-9469.2006.00463.x",
+          "arXiv:2606.19855v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed records give, respectively, an exact zero-locus classification and exact one-window spectral constants. Neither statement gives the two-aperture rational cotangent/cosecant law, its rational extrema, or the b=2a contrast."
+        ],
+        "reasoning": "The closed cosine sums themselves are classical. The quantity compared against prior exact results is their occurrence as the sharp ordered singular-value coefficient of the specified operator.",
+        "searches": [
+          "Local Resultary indexed comparisons: 2b9667f7502f and 6167de3a2980"
+        ]
+      },
+      "rationale": "The distinct content is the coherent two-aperture singular-value count with its exact rational denominator-parity laws, rational extrema, and dependent irrational contrast. The Fourier-zero classification is already covered and is not credited; a distinct one-boxcar spectral result gives a close analogue, not these coherent two-boxcar coefficients.",
+      "residual_risks": [
+        "An earlier general rearrangement, translation-operator or jump-convolution result may subsume the explicit tail. The bounded comparison does not prove priority or exhaustion of equivalent statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known zero-set ingredient, not a spectral count",
+          "evidence": [
+            "Classifies real Fourier zero loci and multiplicities and derives translation cyclicity."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-arithmetic-fourier-zero-lattices-and-wiener-cyclicity-for-two-se--2b9667f7502f/RESULT.md",
+          "material_read": "Finding and limitations, offsets 0 and 6000",
+          "method": "Local Resultary mirror statement inspection",
+          "title": "Arithmetic Fourier-zero lattices and Wiener cyclicity for two separated intervals",
+          "trigger": "Same interval geometry and exact zeros"
+        },
+        {
+          "assessment": "Strong one-window analogue, not the coherent-pair law; same-day indexing does not determine priority",
+          "evidence": [
+            "One normalized window has sharp 1/k, rational/irrational coefficients and a detuning law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-rational-window-spectral-boundary-layer-for-periodic-boxcar-av--6167de3a2980/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror statement inspection",
+          "title": "A rational-window spectral boundary layer for periodic boxcar averaging",
+          "trigger": "Closest sharp spectral-tail analogue"
+        },
+        {
+          "assessment": "Single-window multiplier and zeros",
+          "evidence": [
+            "The normalized factor is sin(πka)/(πka), with rational Fourier zero modes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0503663",
+          "material_read": "v1 PDF p. 2, offset 5100",
+          "method": "Bounded OA primary passage",
+          "title": "Periodic boxcar deconvolution and diophantine approximation",
+          "trigger": "Single-window spectral arithmetic"
+        },
+        {
+          "assessment": "Separate observation channels are not a coherent kernel",
+          "evidence": [
+            "The model separately observes M periodic convolutions."
+          ],
+          "identifier_or_url": "https://sciences.ucf.edu/math/mpensky/wp-content/uploads/sites/9/2016/09/ScandJOS-2006.pdf",
+          "material_read": "PDF p. 2, offset 5000",
+          "method": "Bounded OA primary passage",
+          "title": "Simultaneous Wavelet Deconvolution in Periodic Setting",
+          "trigger": "Possible multiple-aperture equivalent"
+        },
+        {
+          "assessment": "Recovery and stability, not the count coefficient",
+          "evidence": [
+            "Results recover two intervals from Fourier magnitude and control recovery stability."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.19855",
+          "material_read": "v1 pp. 3–4, offsets 11800–14326, Theorems 1.2–1.3",
+          "method": "Bounded OA primary passages",
+          "title": "Fourier Phase Retrieval for Finite Unions of Intervals",
+          "trigger": "Same two-interval Fourier magnitudes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an exact spectral-resolution invariant of a natural coherent convolution. It distinguishes operators with no missing modes and separates the two rational parities on opposite sides of the generic irrational density; the rational extrema and b=2a show why neither a nullity count nor irrationality alone suffices. The result quantifies the ordered spectrum and is not credited as a stability guarantee or a complete evaluation for all dependent irrationals.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,34 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The low-rank ADI residual factor after a real shift is the Cayley action
-\[
-(A+\sigma I)(A-\sigma I)^{-1}.
-\]
-For the displayed Jordan family at \(\sigma=1\), that matrix is
-\[
-\begin{pmatrix}
-0&-M/2\\
-0&0
-\end{pmatrix},
-\]
-so it has arbitrarily large norm but square zero. The first residual is therefore amplified by exactly \(M^2/4\), and the second residual is exactly zero. Direct solution of the Lyapunov equation and construction of the ADI columns also prove
-\[
-0\preceq P_1\preceq P_2=P.
-\]
-The scalar case is strictly contractive, so dimension two is minimal. The packaged checker replays the identities in exact arithmetic.
+## correctness
 
-## Originality
-PASS with explicit residual risks. General ADI convergence theory, the low-rank residual-factor formula, nonnormal Lyapunov phenomena, and generic Cayley overshoot are prior work and are not claimed as new.
+PASS
 
-The closest full ADI source was inspected through its residual theorem and recurrence; the closest Cayley strong-stability source was inspected in full. Neither states the combined construction with fixed spectrum, arbitrarily large first Lyapunov residual, exact termination on the next identical shift, monotone positive-semidefinite approximation, and dimension-two minimality. Targeted published-record searches did not expose an implication-equivalent statement.
+For exact real-shift ADI with E=I and P0=0, use Z=sqrt(2 sigma)(A-sigma I)^(-1)b and b_new=b+sqrt(2 sigma)Z; expansion of the Lyapunov residual after the positive update ZZ^T gives b_new b_new^T. At sigma=1, A=-I+MN with N=e1 e2^T and N^2=0 yields C=(A+I)(A-I)^(-1)=-(M/2)N. Thus b0=e2, b1=-(M/2)e1, b2=0, and the spectral and Frobenius residual norm ratios are both M^2/4 (9 at M=6). Direct solves for the two columns give Z1=sqrt(2)(-M/4,-1/2)^T and Z2=sqrt(2)(M/4,0)^T, so P1=Z1Z1^T and P2=P1+(M^2/8)e1e1^T. Substitution gives zero residual at P2; Hurwitz stability gives uniqueness. This verifies the Loewner inequalities and exact termination independently of the supplied verifier. The scalar multiplier (a-sigma)/(a+sigma) has modulus <1 for a,sigma>0, ruling out growth in dimension one. R2 has rank zero, not one; the norm equality still holds for rank at most one. The frozen verification notes and verify.py were inspected, not run; in particular verify.py lines 30–42 check supplied P and P1 by substitution and define P2 from P-P1, rather than independently constructing the ADI columns. The ratio is a multiplicative change, not an additive increase, and exact termination does not assert finite-precision behavior.
 
-A residual risk remains because a broad 2011 ADI convergence paper was accessible only through its publisher record rather than complete body text, and older control literature may contain the same nilpotent-Cayley example in different language.
+## originality
 
-## Value
-PASS. Residual norm is a standard ADI stopping diagnostic. The result gives an exact minimal example in which that diagnostic is maximally misleading: it can spike by any prescribed factor while the approximate Gramian moves monotonically toward the exact solution and the next ADI step terminates exactly. The fixed spectrum shows that eigenvalue information alone cannot exclude the transient.
+PASS
 
-## Closest literature and limitations
-The closest sources are the low-rank ADI residual-factor paper, general ADI/RKSM convergence theory, strong-stability theory for Cayley transforms, and work on nonnormal Lyapunov-solution singular values. The theorem is exact-arithmetic and two-dimensional; it does not bound residual growth under dissipativity, numerical-range, eigenvector-conditioning, or finite-precision restrictions.
+The matrix/right-hand-side family and exact solution are prior, as are the ADI recurrence, residual factorization and nonnormal Cayley overshoot. The supported distinct claim is the sharp, dimension-minimal counterexample for ADI residual norms: arbitrary prescribed first ratio at one fixed spectrum with immediately following exact termination and Loewner improvement. No checked statement gives that consequence as a residual-monotonicity or fixed-spectrum result. The proof is short but needs the choice of a shift matching the Jordan eigenvalue, exploiting the resulting nilpotent map on a specified right-hand side rather than merely restating a norm or convergence bound.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A motivated minimal counterexample to spectrum-only control of the commonly monitored ADI residual, even for shifts that solve exactly after the next step. The exact magnitude and two positive updates separate transient norm growth from deterioration of the Gramian approximation. Its value is that concrete obstruction, not the known matrix family, routine inverse, or new general ADI theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

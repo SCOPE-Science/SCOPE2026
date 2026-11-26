@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:16:59.379671Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–60; VERIFICATION.md; fan_rainbow_verify.py (inspected, not run)",
+        "Independent replay: python3 /workspace/review_evidence/replay_3.py"
+      ],
+      "rationale": "Every four-cycle uses the hub and a three-vertex rim interval. Its middle spoke is incident to every perimeter edge, so properness makes the B and D constraints identical. Fixing the distinct spoke colours gives the stated forbidden list on each rim edge; the only rim-to-rim conflicts are between neighbours. In inclusion-exclusion a subset of adjacent equalities partitions the rim into consecutive blocks, with independent pre-exclusion choices given by the complements of the unions of forbidden intervals. The block signs and last-block recurrence follow, including q<n where the falling factorial vanishes. The triangle, diamond, middle rim edge at n=4, and hub degree give the lower bounds; the explicit rim construction respects the lists for n>=5, and changing the first rim colour to 6 when n>=6 preserves legality and gives an inequivalent colouring. Minor proof-text correction, not a change to the Finding: RESULT.md line 60 says the normalized polynomial equals 1 at n=3. In fact R_{3,2}(5)=2, with the two completions exchanged by swapping the two colours not on spokes. Thus there is indeed one class. The independent replay builds actual four-cycles and five-edge diamonds, enumerates fixed-spoke completions for n=2 through 9 and bounded palettes, and checks the recurrence and the optimum counts with the residual colour permutations removed.",
+      "residual_risks": [
+        "The replay is finite; the all-order and all-palette claims rest on the combinatorial proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cone theorem for bases of maximum degree at most two gives precisely the fan minimum palette on taking a path, but does not enumerate colourings. The indexed cone date is later. Wang's general D-index bounds and the rainbow-C4 outerplanar bound are palette bounds, not enumerators."
+        ],
+        "reasoning": "Minimum-palette overlap is exact and credited separately; it does not subsume the number of maps into a palette of arbitrary size or even the number into a minimum palette.",
+        "searches": [
+          "Resultary: SCOPE-exact-d-chromatic-index-of-cones-over-graphs-of-maximum-degree-t--71928b854626",
+          "arXiv:2606.06831, pp. 1–3; arXiv:2408.09059, Theorem 1.6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.06831",
+        "arXiv:2607.14837",
+        "arXiv:2408.09059",
+        "Resultary wheel, cone and prism records specified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gyárfás–Martin–Ruszinkó–Sárközy give q_B(K4−e)=5, and their four-path-vertex plus hub example gives q_B(F4)=5. The cone theorem supplies the whole fan palette statement; the wheel enumeration uses cyclic constraints on minimum-palette assignments."
+        ],
+        "reasoning": "The small minima and chordal equivalence are covered, and the palette calculation has limited separate originality. None of the inspected counts or bounds determines the family-specific interval-block polynomial, exact fan optimum counts, or rigidity cutoff.",
+        "searches": [
+          "arXiv:2408.09059, Theorem 1.6 and sharpness example; arXiv:2607.14837, p. 2",
+          "Resultary cone and wheel RESULT.md comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hu–Kong–Wang identify B and D colourings on chordal graphs via chords of four-cycles. An equivalent count is the chromatic polynomial of the edge-conflict graph, or a distinct-spoke factor times a rim-path list-colouring count."
+        ],
+        "reasoning": "These equivalences identify the counted configurations; neither the chordal argument nor the generic conflict-polynomial formulation gives the explicit fan-specific list intervals and count.",
+        "searches": [
+          "Resultary semantic comparison: rainbow-square and rainbow-diamond edge colorings, fans and wheels",
+          "arXiv:2607.14837, p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest earlier indexed wheel census is an optimal trace/offset-word count on a cycle rim, not an all-q polynomial on a path rim. The same-date prism record counts proper conflict-free vertex colourings, a different problem. The literature lookup did not yield a matched edge-colouring table."
+        ],
+        "reasoning": "Neither closing nor deleting the rim cycle preserves the relevant conflict graph or its colouring count; the prism comparison has a different state space and condition. The bounded search leaves unindexed tables open.",
+        "searches": [
+          "Resultary: SCOPE-rainbow-square-and-rainbow-diamond-edge-colorings-of-wheels-exac--413440a40139",
+          "Resultary: SCOPE-four-palette-proper-conflict-free-colorings-of-circular-prisms-a--6b811dd47690",
+          "Primary literature search for rainbow C4/diamond fan edge colour enumeration"
+        ]
+      },
+      "rationale": "Pass is for the explicit all-palette fan polynomial and complete optimum enumeration, not for the independently known B/D equivalence or small palette bounds. The strongest compared cone results give other rim structures or only the minimum palette. The all-palette enumeration and its optimal specializations do not follow by specializing those statements.",
+      "residual_risks": [
+        "Bounded literature and index comparison; alternate terminology or an unindexed specialized enumeration is possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundational definitions and D-index bounds",
+          "evidence": "General bounds concern existence with a palette, not counts of assignments.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.06831",
+          "material_read": "PDF pp. 1–3 (offsets 0 and 6000)",
+          "method": "Open-access full-text passage comparison",
+          "title": "Proper Edge Coloring with Rainbow Diamonds",
+          "trigger": "Introduces the D parameter"
+        },
+        {
+          "assessment": "Covers B/D equivalence on fans",
+          "evidence": "Every four-cycle in a chordal graph is chorded; the equivalence supplies no fan enumeration.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.14837",
+          "material_read": "PDF p. 2 (offset 6000)",
+          "method": "Open-access full-text passage comparison",
+          "title": "D-coloring of planar graphs",
+          "trigger": "Stronger chordal equivalence"
+        },
+        {
+          "assessment": "Directly covers two fan minima",
+          "evidence": "The diamond and the hub joined to a four-vertex path both need five colours.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.09059",
+          "material_read": "PDF p. 4 (offset 9500), Theorem 1.6 and sharpness text",
+          "method": "Open-access full-text passage comparison",
+          "title": "Proper edge colorings of planar graphs with rainbow C4-s",
+          "trigger": "Exact fan lower-order overlap"
+        },
+        {
+          "assessment": "Related, different rim and palette scope",
+          "evidence": "K1 joined to a cycle, with a cyclic trace count of minimum-palette colourings.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-rainbow-square-and-rainbow-diamond-edge-colorings-of-wheels-exac--413440a40139",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary full-text mirror",
+          "title": "Rainbow-square and rainbow-diamond edge colorings of wheels",
+          "trigger": "Closest earlier natural cone census"
+        },
+        {
+          "assessment": "Covers the palette subclaim, not the census",
+          "evidence": "Specializing the base to a path gives the same optimal palette in every order.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-d-chromatic-index-of-cones-over-graphs-of-maximum-degree-t--71928b854626",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary full-text mirror",
+          "title": "Exact D-chromatic index of cones over graphs of maximum degree two",
+          "trigger": "Broader theorem on the same family"
+        },
+        {
+          "assessment": "Different count",
+          "evidence": "Prism vertex colourings with a neighbourhood condition, not fan edge colourings.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-four-palette-proper-conflict-free-colorings-of-circular-prisms-a--6b811dd47690",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary full-text mirror",
+          "title": "Four-palette proper conflict-free colorings of circular prisms",
+          "trigger": "Same-date colouring-count hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "Prior palette and wheel-enumeration comparisons in originality"
+      ],
+      "rationale": "The fan is a natural maximal outerplanar family and the full named count at every palette (and exact count modulo colour names at the optimum) is substantially more informative than an index or one construction. It provides an exact family-wide counting benchmark and detects the rigid-to-nonrigid boundary. The value is the interval-sensitive enumeration, not the use of generic inclusion-exclusion or the known existence cases.",
+      "residual_risks": [
+        "The formula concerns only path cones; it provides no enumeration for general outerplanar graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

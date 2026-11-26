@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:55:43.845471Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–59 and static verification package (VERIFICATION.md, verify_partition_lattices.py, verification_output.txt)"
+      ],
+      "rationale": "The pure order EF argument is sound. For a comparable strict pair P<Q, an atom below Q but not P gives (I,L) when P is not bottom; the coatom dual gives (G,I). A pair separated by Q supplies an atom incomparable to both if P is interior and Q is not top. In the incomparable case, meet/join supply the two common strict bounds. The pairs needed for the asymmetric cases come from an atom below exactly one partition or a coatom above exactly one, with strictness controlled by its rank or corank. A pair separated by both exists: otherwise every pair crossing P-blocks would lie in a Q-block, and transitivity would make Q top. Its atom is incomparable to both. This checks the non-chain entries of the extension table. At n≥5 each interior point has an incomparable atom, coatom and middle rank-two point: for an atom pick a triple disjoint from its defining pair, at rank two pick a different rank-two point, and at higher rank merge a triple crossing its blocks. Comparable extension signatures only see clipped height/corank at 3, and the ability to have strict chains of one, two or three steps on each side recovers them; third-point signatures determine the rank-two pointed types by the EF recursion. Since h+c=n−1, the clipped pairs saturate at n=7. The two inner witnesses in the three-step pointed chain test sit in separate branches, so the rank-three separation sentences give all six boundaries and cannot be mistaken for four nested quantifiers. B₇=877 is a minimum within the family only.",
+      "replay": "python3 /workspace/review_checks/independent_checks.py 4 gives exact order-derived finite EF fingerprints at n=1…8 (one first-point representative per ground-set permutation orbit), seven distinct fingerprints through n=7 and identical fingerprints at 7 and 8. The infinite cutoff is proved structurally, not extrapolated from this or the recorded replay.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Idziak's Theorem 4 treats hereditary undecidability for the first-order theory of the class. Jenča–Sarkoci Example 3.5 identifies the lattice on an antichain and treats the proper-part order complex. f002b2043982 recovers the block-size orbit by counting refinement within a lattice."
+        ],
+        "reasoning": "The three comparators use unbounded logical depth, topology, or counting within a structure respectively; none constitutes a stronger bounded-rank cross-lattice theorem. The exact indexed match suffices without any of these.",
+        "searches": [
+          "Finite partition lattices bounded quantifier rank EF stabilization (primary-literature search)",
+          "Idziak 1987, Theorem 4",
+          "arXiv:1112.5782v1 §3",
+          "Resultary f002b2043982"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5c33f5d07b6d and f002b2043982",
+        "arXiv:1112.5782v1",
+        "Idziak 1987 Theorem 4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed theorem directly asserts the final biconditional; the proof clips rank and corank at 3, equivalent to clipping rank at 3 and block count at 4 since c=b−1."
+        ],
+        "reasoning": "No unstated implication or extra specialization is needed for coverage. The historical undecidability theorem independently does not imply this fixed-depth stabilization.",
+        "searches": [
+          "5c33f5d07b6d RESULT.md, Finding, Assumptions, Steps 1–2",
+          "Idziak 1987 Theorem 4 and its historical attribution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mirror finding states Π_n≡₃Π_m iff min(n,7)=min(m,7) for positive n,m in refinement order using only equality and order. SOURCE.md identifies the separately keyed source SCOPE-20261102-5c33f5d07b6d."
+        ],
+        "reasoning": "These are the same structure and quantifier regime, not counting logic, three variables, or an expanded signature. The different title/ID is not a substantive distinction.",
+        "searches": [
+          "Resultary: finite partition/refinement lattices, rank three, EF stabilization",
+          "5c33f5d07b6d RESULT.md and SOURCE.md in the local mirror"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed output is seven classes with stability from 7 and minimum size 877, not just a table of Bell numbers. Its third-point table gives the same incomparable entries and the same rank/corank conditions."
+        ],
+        "reasoning": "The entire cutoff data are covered even without comparing any numerical replays. Standard Bell numbers alone would not give the logical cutoff.",
+        "searches": [
+          "Resultary 5c33f5d07b6d, RESULT.md Finding and Proof, Steps 1–2"
+        ]
+      },
+      "rationale": "A distinct existing indexed record, 5c33f5d07b6d, states the same iff, in the same signature and quantifier-rank regime, with the same seven classes and the same optimal in-family representative size. It also has the same two-point extension table. There is no materially distinct finding in the reviewed claim. This is verified equivalent coverage, not a determination of which record obtained the result first; the matching record has a later listed date.",
+      "residual_risks": [
+        "The mirror does not resolve priority or any historical relationship between the two distinct messages of the same theorem. The 1975 full text was not available; that is not a basis for this decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact material coverage in a distinct source record; priority not established",
+          "evidence": "Same min(n,7) criterion, B₇=877, pure order and equality, and matching two-point extension conditions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-rank-three-stabilization-of-finite-set-partition-refinemen--5c33f5d07b6d/RESULT.md",
+          "material_read": "RESULT.md offset 0–4268 (Finding, Assumptions, extension table and start of Step 2) and SOURCE.md provenance",
+          "method": "Targeted local mirror read",
+          "title": "Sharp rank-three stabilization of finite set-partition refinement lattices",
+          "trigger": "Exact indexed matching claim"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Bidirectional counting refinement recovers block-size orbits within Π_n.",
+          "identifier_or_url": "Resultary f002b2043982",
+          "material_read": "RESULT.md offset 0, Finding and scope",
+          "method": "Local mirror statement inspection",
+          "title": "Three-round orbit recovery for finite partition lattices",
+          "trigger": "Same objects and three rounds"
+        },
+        {
+          "assessment": "Not a logical stabilization result",
+          "evidence": "For the n-element antichain all partitions are order-preserving; the consequence given is homotopy of the proper-part order complex.",
+          "identifier_or_url": "https://arxiv.org/abs/1112.5782v1",
+          "material_read": "§3 Example 3.5, p. 5, OA text around offset 13232",
+          "method": "Targeted OA PDF reading",
+          "title": "Linear extensions and order-preserving poset partitions",
+          "trigger": "Natural encompassing family"
+        },
+        {
+          "assessment": "Unbounded-depth theorem for the class, not rank-three equivalence between individual members",
+          "evidence": "The class of finite partition lattices has hereditarily undecidable first-order theory.",
+          "identifier_or_url": "https://ems.press/journals/prims/articles/3357",
+          "material_read": "Theorem 4, p. 3 (offset about 5700), and bibliographic attribution p. 5",
+          "method": "Targeted OA PDF reading",
+          "title": "Undecidability of Free Pseudo-Complemented Semilattices",
+          "trigger": "Historical theorem on first-order partition-lattice theories"
+        },
+        {
+          "assessment": "No negative coverage conclusion drawn from access limit",
+          "evidence": "Idziak cites it for the undecidability result, not for a rank-three cutoff.",
+          "identifier_or_url": "10.1007/BF02485250",
+          "material_read": "Bibliography and cited description in Idziak; not the full original paper",
+          "method": "Bounded lawful OA attempt; publisher access redirected and no repository copy located",
+          "title": "Lattice-theoretic decision problems in universal algebra",
+          "trigger": "Historical source for the logical theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As mathematics the classification gives an exact, uniform small-model cutoff for all rank-three sentences in a natural infinite family, with explicit splitting sentences and no enrichment of the signature. It provides more than computing small Bell numbers or sampling logical types. This merits value as a result but not a separate acceptance of a materially covered claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

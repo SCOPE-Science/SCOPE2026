@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For any noncomplete \(k\)-regular base graph with least adjacency eigenvalue \(-s\le-2\), the weighted cone has an explicit powered-distance matrix \(B=(2h)^p(J-I)+(1-(2h)^p)A\) on the base. Every zero-sum load decomposes uniquely into a base zero-mean adjacency mode and an apex-versus-uniform-base mode. This gives two necessary **and sufficient** scalar inequalities. Their first roots are explicit/unique; monotonicity places one unique crossover in \((1/2,1)\). Equality kernels have dimensions \(1\), \(m\), or \(m+1\), yielding exactly the claimed minimum affine Hilbert realization dimensions by Schoenberg's finite-distance criterion. Boundary cases \(h=1/2\), \(h=1\), \(s=2\) and the equality weight were examined separately. The companion checker independently builds twelve full finite examples, evaluates 60 endpoint/restricted matrices, and verifies exact rational endpoint ranks where the least eigenvalue is integral. Its finite tests corroborate but cannot prove the universal claim.
+PASS
 
-## Originality — PASS, with residual priority risk
+Anchor the putative Euclidean realization at the apex. With b=h^p and c=(2h)^p, its Gram matrix is bJ minus half of B=c(J-I)+(1-c)A, by polarization. Positive semidefiniteness is equivalent to an embedding and the Gram rank is the minimum affine dimension. On constants the eigenvalue is -[k+(N-1-k)c-2Nb]/2; on a nonconstant adjacency mode theta it is [c+(c-1)theta]/2. The least mode is theta=-s when c>1, and at c=1 all nonconstant modes are strictly positive. F(p,h) in the constant branch strictly increases with p, is negative at p=1, and diverges at every h in [1/2,1]. At a root the coefficient of h^p in k+h^p[(N-1-k)2^p-2N] is negative, so p0 strictly increases with h; p1 strictly decreases from infinity to at most 1. Solving c=s/(s-1) jointly with F=0 gives the stated crossing, and counting zero modes gives the rank drops, also when the base is disconnected. The tensor decomposition for Hamming adjacency verifies the stated least eigenvalue, multiplicity and limits. Independent exact check: for the disconnected base C4 disjoint union C4 the crossing has c=2, b=3/4 and Gram rank 5, certified by three explicit integer null vectors and a rank-5 reduction modulo 101 (node /workspace/independent_checks.js, section 4). This is a single finite check; the diagonalization proves the general result. The uploaded verifier was inspected, not executed.
 
-Sánchez's arXiv:1108.0451 provides general finite-metric root criteria and an explicit complete-bipartite example. Deza–Laurent's 1992 Theorem 4.6 already includes the **unweighted exponent-one** criterion for regular diameter-two cones, which is not claimed new. Robertson's arXiv:2309.16070 treats distorted negative type and the ordinary Hamming cube, and Doust–Weston's arXiv:2404.06684 treats subsets of weighted Hamming cubes; neither inspected treatment gives a continuously weighted regular-graph cone phase diagram. Cardoso–Díaz–Rojo's general graph-join distance-spectrum framework is related but the available inspected portion does not supply variable-power thresholds or endpoint dimension transitions. Relevant public mathematical records concerning graph-cone convex-polytopal radii and linear-extension snowflake thresholds are different invariants. No inspected statement directly covers the continuous hub-weight transition or the simultaneous eigenmode nullities. Earlier equivalent calculations might exist, especially under two-distance-space or graph-cone terminology; this is a genuine residual priority risk, not proof of novelty by silence.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result is an exact all-parameter classification on **every** noncomplete regular graph whose least adjacency eigenvalue is at most \(-2\), rather than a fitted formula for a handful of graphs. It identifies two competing geometric obstructions and a unique closed-form transition in the apex edge weight, with a simultaneous critical kernel of dimension \(m+1\). The q-ary Hamming family shows an unbounded, parameter-dependent loss of endpoint affine dimension and an explicit limit of the crossover weight. These are motivated embedding invariants and structural geometry, not merely a generic determinant computation or restatement of a known unweighted graph condition.
+The basic Schoenberg criterion and two-distance least-eigenvalue branch are not distinct contributions. The supported new claim is the explicit competition with the independent apex constraint across the whole continuous apex-weight interval, including the unique closed-form crossover and exact minimum dimensions on both sides and at coincidence for all admissible regular bases. A same-day weighted triangle barbell exhibits a similar two-obstruction pattern but varies one bridge, not all cone spokes, and does not cover this regular-base family. The exact previously inspected finite-metric criterion supplies a general implicit first singularity; it does not supply the two branches, their opposite monotonicity, or the explicit simultaneous rank defect. The evidence supports this distinction to the best of current knowledge, not historical priority.
 
-## Remaining limitations
+## value
 
-Irregular graph bases, least adjacency eigenvalues greater than \(-2\), nonuniform apex weights, and hub weights outside \([1/2,1]\) are not covered. Equivalence to an earlier treatment under alternative terminology is not independently excluded. The numerical checker cannot certify the universal statement.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Negative type and minimal Euclidean snowflake dimension are natural invariants of weighted graph metrics. The result reduces a whole interval of weighted realizability and rank questions to a scalar branch switch determined by N,k,s,m, and locates the extra loss of dimension at equality. The Hamming family illustrates potentially large multiplicity losses rather than just a small exceptional case. These are usable structural and geometric conclusions beyond recomputing a fixed graph spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:16:37.934589Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the affine chart Z=1 a singularity must have Y=0 and X≠0; eliminating from the equation and the X derivative gives r=-2X² and X⁴=1, equivalent to r²=4. The only point at infinity is smooth by the Z derivative. The smooth plane quintic has genus six. In the superelliptic model all finite branch points have dx of order three and the infinity valuations (-4,-5,-5) for (x,y,dx) show regularity of the six claimed differentials, which are independent by automorphism character in y and powers of x. Raising the denominator to a seventeenth power gives the F_t^(4i) coefficient rule; its parity and degree give the invariant-block structure, with seventeenth roots not affecting invertibility. Independently checked the whole exceptional-locus calculation in the original plane model, replay python3 /workspace/check_quintic.py, returning PLANE_FROBENIUS_OK. The exact sequence for the plane hypersurface identifies H¹(O_C) with H²(O(-5)); in the Čech basis of monomials with negative exponents -u where u>0 and sum(u)=5, Frobenius takes seventeenth powers then multiplies by F^16 (since F^17/F=F^16). The (v,u) entry is the coefficient of exponent 17u-v of F^16, computed exactly by multinomial expansion in F17[r]. There is one invariant 2x2 block of determinant 5(r²-4)^4; the remaining scalar entries are 2(r²-5)(r²-13) twice, 6(r²-5), and 15(r²-4)^4(r²-5). Each block is zero or invertible on the smooth locus, so the semilinear first and stable ranks coincide. The stable Frobenius rank on H¹(O_C) is the p-rank and the dual Cartier kernel has dimension six minus the first rank, giving (2,4), (4,2), (6,0) as claimed, without relying on finite parameter sampling. Ohashi's §3.3 confirms that the squared parameter classifies these models and that the full automorphism group is cyclic of order eight when r≠0 (the r=0 member has order sixteen). Alternatively ±r are isomorphic by scaling X by a square root of -1 and scaling Y, and the two exceptional squared values give different ranks, so they cannot be isomorphic. Both exceptional parameters are nonzero and smooth. No superspecial case can have the positive stable rank obtained here. The uploaded checker was inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The dffe source gives a two-dimensional always-invertible Cartier summand and four singleton summands controlled pairwise by P_h and Q_h in each prime p=8h+1>13. Ohashi studies superspeciality and also gives the model/isomorphism/automorphism results. Badr–Bars' cited classification is characteristic zero."
+        ],
+        "reasoning": "The broader decomposition directly covers p=17, unlike the superspeciality conclusion alone; there is no need to infer positive-characteristic automorphism groups from the characteristic-zero classification.",
+        "searches": [
+          "Resultary dffe580fe6e3 Finding and Proof, offsets 0–4473",
+          "Ohashi arXiv:2605.29624v1 §3.3 Theorem 3.12",
+          "Badr–Bars arXiv:1510.06190 Corollary 7(5)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary dffe580fe6e3",
+        "arXiv:2605.29624v1",
+        "arXiv:1510.06190"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "dffe explicitly identifies the first two groups as (P_h) and diag(Q_h,Q_h), and the third as an isolated scalar proportional to (r²-4)^(2h)P_h plus an invertible 2x2 block. Ohashi gives isomorphism iff the squared parameters agree and Aut=Z/8 for nonzero r on this smooth locus."
+        ],
+        "reasoning": "On the admitted locus the fourth scalar vanishes iff P_h does, and the even block contributes no kernel. Therefore a=2·1_(P_h=0)+2·1_(Q_h=0), immediately 4 at r²=5 and 2 at r²=13. This uses the prior actual invariant decomposition, not an invalid blanket identification of a with genus minus p-rank. The isomorphism classification and nonzero parameters then give exactly the two cyclic-eight classes.",
+        "searches": [
+          "Resultary dffe580fe6e3 Proof, Cartier block and determinant/scalar identities, offsets 2090–4473",
+          "Ohashi §3.3 p. 10 Lemma 3.8 and p. 13 proof of Theorem 3.12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior dffe record takes y^4=x(1+r x²+x⁴), isomorphic to the frozen plane equation by rescaling Y by a fourth root of -1, and has the same r²≠4 restriction and geometric base field. Ohashi's auxiliary parameter λ is the frozen t, with λ+λ^(-1)=r²-2."
+        ],
+        "reasoning": "The superelliptic reparametrization and sign change are isomorphisms; they do not alter Cartier or the intrinsic rank invariants. The loci q(t)=0 and t∈{2,9} become r²=5 and r²=13, respectively.",
+        "searches": [
+          "Resultary semantic comparison, characteristic-17 cyclic-octic p-rank and a-number strata in the plane and y^4=x(x²-1)(x²-t) models",
+          "arXiv:2605.29624v1 §3.3 equations (3.7), (3.8), (3.10)",
+          "Resultary dffe580fe6e3 Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching record explicitly lists P_2=6(r²-5), Q_2=2(r²-5)(r²-13), and p-ranks 2, 4, 6 at the same loci. Ohashi's superspecial enumeration is not a table of these two strata."
+        ],
+        "reasoning": "This is exact catalogue coverage of the full p-rank table, not just a common exceptional parameter or a weaker no-superspeciality assertion. The source does not print an a-number table, so that part is decided by implication.",
+        "searches": [
+          "Resultary exact p-rank matches at r²=5,13 in characteristic 17",
+          "dffe580fe6e3, Finding, offsets 0–1950",
+          "Ohashi §3.3, discussion of Theorem 3.12"
+        ]
+      },
+      "rationale": "Resultary dffe580fe6e3 covers the same family in every prime characteristic p>13 congruent to 1 modulo 8. It explicitly gives the characteristic-17 p-rank strata and supplies an all-parameter invariant Cartier decomposition that mechanically gives both a-numbers, although its scope paragraph does not itself claim a-numbers. The two class and automorphism statements follow from Ohashi's model classification. Recomputing in the reciprocal parameter and giving the a-numbers explicitly do not leave a distinct mathematical remainder.",
+      "residual_risks": [
+        "No assertion about earliest historical priority or coverage by other rank tables. The inspected exact result and its block identities already suffice for the coverage decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit broader p-rank classification and a mechanically sufficient Cartier decomposition",
+          "evidence": [
+            "Same models after rescaling Y; explicit characteristic-17 rank strata and one invertible 2D block plus two P_h and two Q_h scalar slots with nonvanishing smooth-locus proportionality factors."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-p-rank-strata-and-a-universal-cartier-block-for-cyclic-oct--dffe580fe6e3/RESULT.md",
+          "material_read": "Finding, Assumptions, and Proof through Cartier polynomial identities, offsets 0–4473",
+          "method": "Local full-text mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact p-rank strata and a universal Cartier block for cyclic-octic plane quintics",
+          "trigger": "Exact parameter-and-rank overlap, possible a-number implication"
+        },
+        {
+          "assessment": "Establishes model and geometric equivalences and groups; focus is superspeciality",
+          "evidence": [
+            "λ+λ^(-1)=r²-2; isomorphism iff r²=r'², equivalently λ'=λ or λ^(-1). Aut is cyclic of order sixteen for r=0 and eight otherwise on the smooth locus."
+          ],
+          "identifier_or_url": "arXiv:2605.29624v1",
+          "material_read": "§3.3 pp. 10–11, equations (3.7),(3.8),(3.10), Lemma 3.8, Proposition 3.9; proof of Theorem 3.12 p. 13",
+          "method": "Primary v1 OA PDF, offsets 46600–51788 and around 61400",
+          "title": "Superspecial plane quintics with large automorphism groups",
+          "trigger": "Same model and geometric classification in positive characteristic"
+        },
+        {
+          "assessment": "Characteristic-zero model, not a characteristic-17 Cartier stratification",
+          "evidence": [
+            "Identifies the cyclic-eight model in its characteristic-zero setting."
+          ],
+          "identifier_or_url": "arXiv:1510.06190",
+          "material_read": "Corollary 7(5) pp. 4–5, offsets 19300–23127",
+          "method": "Primary OA PDF passage",
+          "title": "Automorphism groups of non-singular plane curves of degree 5",
+          "trigger": "Original cyclic-eight model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The stratifying invariants of this moduli family are worthwhile, but the exact p-ranks were explicitly given, and the a-numbers are immediate kernel counts of the same previously described summands. A second coefficient calculation, a different parameter, or attachment of the already known automorphism classes does not yield a useful independent unknown fact. No validated remainder or repair is proposed.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

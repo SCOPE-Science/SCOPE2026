@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:19:47.416416Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A fresh outer-cycle/spokes/pentagram representation yielded six perfect matchings, each with a complement of two 5-cycles, so three colors cannot work. Dynamic most-constrained-first enumeration constructed exactly 49920 proper assignments with four named colors. Bucketing pairs of proper assignments by their common 14-coordinate signature recovers exactly single-edge steps; an independent flood-fill gave 960 singleton components and two components of order 24480 with 54720 edges apiece (109440 total). Transport to KG(5,2) and evaluation of all named-palette permutations and ground-symbol permutations reproduced both phase actions, the full transitive S5×S4 action on the frozen states, and their edge-class sizes 3,4,4,4. At a cubic edge there are four other incident edges, not three: the prose criterion should mean their colors collectively take all three alternative values. The actual set-size predicate |F_e(c)|=3 is correct and the Finding is unaffected. Replay: python3 /workspace/branches/independent_petersen.py, output independent_petersen.out alongside. No Kempe-chain or other simultaneous changes are counted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The subcubic four-edge Kempe theorem allows changing an entire two-color component; CoRe exhibits a frozen five-color assignment, not four.",
+          "The Resultary exact calculation proves the matching component census and additionally gives the sign classification and mobile radius 24 and diameter 25."
+        ],
+        "reasoning": "The general single-edge/list-recoloring complexity setting and the two published nearby coloring statements do not give this exact finite census. The Resultary theorem is stronger for this very graph and move rule.",
+        "searches": [
+          "arXiv:1005.2248v2 Theorem 3",
+          "CoRe 2019 Open Problems p.5",
+          "arXiv:1609.00109 abstract",
+          "Resultary f42ba7a5e7e8 exact mobile distances and local sign"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f42ba7a5e7e8",
+        "OEIS A159233",
+        "arXiv:1005.2248v2",
+        "CoRe 2019 Open Problems p.5",
+        "arXiv:1307.2348",
+        "arXiv:1609.00109",
+        "Ito–Kamiński–Demaine 2009 related edge-coloring reconfiguration article (lawful full-text retrieval unsuccessful)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A palette permutation multiplies each of ten vertex signs by the same palette sign, hence fixes the product. For a symbol permutation the multiplier on the product is the product of the signs of the induced local incident-edge reorderings, independent of the state. It is a character S5→{±1}. The reported transposition swaps the two mobile sign classes, so the character is the usual sign.",
+          "Thus the two reported frozen A5×S4 orbits lie one in each nonempty sign class, and an odd symbol permutation fuses them into a single S5×S4 orbit. This is not a contradiction with the subgroup orbit count.",
+          "A color missing at k vertices occurs on (10−k)/2 edges. The published missing multiplicity 4,2,2,2 implies sizes 3,4,4,4. An odd symbol permutation switches the two mobile components, so their identical edge counts each equal 109440/2."
+        ],
+        "reasoning": "These are direct consequences of the available statement and proof data for the same labeled object, including the entire frozen and phase symmetry profile, even where the comparison does not spell out the full-group conclusions.",
+        "searches": [
+          "f42ba7a5e7e8 RESULT.md §Finding and proof §§1,2,4, offsets 0, 2300 and 6100"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proper four-edge coloring of P with one-edge steps is proper four-vertex coloring of its line graph with one-vertex steps.",
+          "f42ba7a5e7e8 uses the same KG(5,2), named palette and exact Hamming-distance-one adjacency; it specifically excludes multiedge path swaps."
+        ],
+        "reasoning": "There is no difference of encoding, graph or permitted moves between these Resultary findings. General Kempe equivalence is instead about an enlarged move set, and cannot determine the components of this one.",
+        "searches": [
+          "Resultary: Petersen optimal four-edge recoloring, single-edge flips, two components 24480 and 960 isolates",
+          "arXiv:1609.00109, exact move definition",
+          "arXiv:1005.2248v2, line-graph relation and Kempe move"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A159233 lists 49920 at four colors and does not give transitions. Davtyan's table concerns interval spectra.",
+          "f42ba7a5e7e8 lists 49920 states, 109440 edges, two components of order 24480, 960 isolates, and 480 frozen states of each local sign."
+        ],
+        "reasoning": "The static OEIS match is credited; the exact reconfiguration coverage, not the coloring count or an unrelated table, is decisive.",
+        "searches": [
+          "OEIS A159233",
+          "Resultary: 49920 named colorings 109440 edges 24480 960",
+          "arXiv:1307.2348, Theorem 1 and interval-spectrum definitions"
+        ]
+      },
+      "rationale": "The distinct Resultary result f42ba7a5e7e8 states the exact same single-edge coloring graph and its component counts, and its local-sign and orbit data also imply the palette and ground-symbol action, the frozen size pattern, and full frozen transitivity. It additionally resolves local signs and mobile distances. The matched record has a later displayed date; this is a coverage finding, not a claim of chronological priority or copying. The already-credited OEIS count alone would not warrant failure.",
+      "residual_risks": [
+        "Lawful access attempts to the 2009 Ito–Kamiński–Demaine article did not provide full text; that is not used as evidence of absence.",
+        "The exact mathematical overlap does not resolve publication priority or origin of either calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full coverage by explicit statement and direct implication",
+          "evidence": [
+            "960 isolates, two 24480-state components, full sign partition, exactly two A5×S4 frozen orbits, a symbol transposition switching sectors, and additional metric classification."
+          ],
+          "identifier_or_url": "Resultary f42ba7a5e7e8",
+          "material_read": "RESULT.md Finding and assumptions at offset 0, local-sign and frozen missing-map passages at offset 2300, subgroup orbit and transposition passages at offset 6100",
+          "method": "Configured Resultary search and original local-mirror passages",
+          "title": "Local-sign parity and exact mobile distances in Petersen four-edge recolouring",
+          "trigger": "Exact same graph, number of colors, move and connected-component data"
+        },
+        {
+          "assessment": "Known count correctly credited",
+          "evidence": [
+            "49920 at four colors."
+          ],
+          "identifier_or_url": "https://oeis.org/A159233",
+          "material_read": "Sequence entry around HTML offset 260",
+          "method": "Public page inspection",
+          "title": "Number of edge colorings of the Petersen graph",
+          "trigger": "Claimed static count"
+        },
+        {
+          "assessment": "Different move rule",
+          "evidence": [
+            "Alternating path/cycle color switches, not just one-edge changes."
+          ],
+          "identifier_or_url": "arXiv:1005.2248v2",
+          "material_read": "Move definition and Theorem 3, offsets 3100 and 5249",
+          "method": "OA arXiv HTML passages",
+          "title": "Kempe equivalence of edge-colourings in subcubic and subquartic graphs",
+          "trigger": "Same palette for subcubic graphs, superficially conflicting connectivity"
+        },
+        {
+          "assessment": "Five colors, not the optimum four-color census",
+          "evidence": [
+            "Gives a five-color frozen Petersen assignment."
+          ],
+          "identifier_or_url": "https://hoanganhduc.github.io/events/CoRe2019/CoRe_2019_Open_Problems.pdf",
+          "material_read": "p.5, offset 9400",
+          "method": "OA PDF passage",
+          "title": "CoRe 2019 Open Problems",
+          "trigger": "Same graph and frozen edge coloring"
+        },
+        {
+          "assessment": "Different mathematical invariant",
+          "evidence": [
+            "Extremal parameters for the spectrum of incident colors, not components of a state graph."
+          ],
+          "identifier_or_url": "arXiv:1307.2348",
+          "material_read": "Spectrum definitions and Theorem 1 near offsets 0 and 29008",
+          "method": "OA arXiv full-text HTML passages",
+          "title": "On the μ-parameters of the Petersen graph",
+          "trigger": "Same graph and an earlier edge-coloring classification"
+        },
+        {
+          "assessment": "Abstracted complexity results, not the stated exact census",
+          "evidence": [
+            "The move changes exactly one edge; the results summarized concern complexity."
+          ],
+          "identifier_or_url": "arXiv:1609.00109",
+          "material_read": "Abstract, offset 0",
+          "method": "OA arXiv HTML passage",
+          "title": "The Complexity of (List) Edge-Coloring Reconfiguration Problem",
+          "trigger": "Identical one-edge reconfiguration notion in a general setting"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A fine single-edge reconfiguration census for a canonical snark is a worthwhile mathematical object, but this frozen package adds no distinct classified invariant to the comparison record. Its component and symmetry claims are explicit there or direct consequences of the sign, subgroup orbits, and missing-color data. Correct reproducible enumeration is worthwhile corroboration, not separate new mathematical value under the exact-invariant criterion.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite-sample maximum-likelihood score constraints annihilate the frequency-zero and frequency-first coefficients, and the second coefficient is an explicit odd empirical function. The method-of-moments zero-frequency coefficient has a nonzero influence-function variance. A uniform-on-compact stochastic Taylor bound and a bandwidth-independent polynomial integrated-tail envelope establish the limits without restricting the rate at which the Gaussian precision diverges. Logistic beta-integral identities give the two explicit positive variances. The packaged numerical checker passes 15 assertions; the proof, not the checker, establishes the infinite limit.
+## correctness
 
-**Originality — PASS, with historical-priority qualification.** The originating 2021 preprint and 2023 journal version establish the statistic and fixed-weight Gaussian null process; neither inspected argument supplies the arbitrary-rate diverging-weight collapse and both exact constants. Related Cauchy Stein work uses another score and non-Gaussian frequency weighting; earlier exponential and inverse-Gaussian large-bandwidth laws are on distinct Stein kernels and cannot imply this estimator-specific theorem. Research-record searches did not identify a covering exact statement. Unindexed sources and independently undiscovered results remain possible.
+PASS
 
-**Value — PASS.** The Gaussian-precision bandwidth is a natural tuning parameter in an existing goodness-of-fit test. The theorem proves that different conventional parameter estimators impose two mathematically distinct smoothing orders, including a sharp rate separation and calibration constants. This identifies the appropriate asymptotic normalization of the null statistic at extreme smoothing. No bootstrap size or power conclusion is claimed.
+For the ordinary joint MLE the location and scale score equations kill H(0) and H'(0) exactly, leaving the t^2 coefficient equal to the residual mean of h(y)=y^2 tanh(y/2)/2-y. For moments the leading coefficient is just minus the residual mean of g. Under the null, differentiating the population Stein identity gives centering of the raw frequency derivatives; their second-moment bounds and the one-dimensional Sobolev inequality give O_P(1) Taylor bounds for sqrt(n) H on [-1,1]. Root-n parameter errors times polynomial sample averages preserve these bounds for the fitted process. For |t|>1, the centered raw sum has second moment at most (1+|t|)^2, and the fit perturbation is stochastically bounded by O_P(1)(1+t^2). Integrating these Gaussian tails leaves no factor n, so the reduction is valid along every deterministic a_n tending to infinity. The regular logistic MLE expansion follows from the smooth likelihood, nonsingular information (odd location and even scale scores with positive variances), and concavity in inverse-scale/intercept coordinates; the moment expansion follows by the delta method. Parity removes both scale corrections in the leading means. Location gives influences g-X/3 and h-((pi^2-6)/6)g. The logistic beta integral and Stein identities give the stated positive variances; independent uniform-CDF quadrature reproduced them and the Gaussian-weighted multipliers 0.057086432202785874 and 4.8514073649406617. The scalar CLT, squaring and the zeroth/fourth Gaussian integrals give the two sharp limits, not just sequential limits.
 
-**Scope and limitations.** IID logistic null; deterministic bandwidth tending to infinity; ordinary logistic ML and moment fitting. The result does not address power, estimated critical values or data-adaptive bandwidths, and historical novelty is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the estimator-specific arbitrary-rate joint null limit with sharp powers and explicit constants for the same logistic Fourier–Stein test. Fixed-weight prior theory establishes the statistic and fitted null framework, not the shrinking-frequency regime. The strongest analogous large-weight studies inspected use different test processes or a different order of limits.
+
+## value
+
+PASS
+
+The same established test has two genuinely different rates depending only on how its nuisance parameters are fitted. The exact MLE cancellation explains the difference, and the sharp normalization and constants give a usable null calibration regime without selecting a sample-size-dependent growth window. This does not rest on a tiny numerical gain or on claiming improved test power.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:35:58.637745Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the two consistent kernel coordinates the RHS noise is multiplied by q_j; independence gives terminal variance sigma² a_j by summing h³ q_j^(2k+2). The deterministic step-doubling indicator is positive since (1+lambda_j h/2)²>1+lambda_j h. In u=log(sigma²) the sum of the equal-mean Gaussian distances is half the sum of log cosh((u−log r_j)/2); it is strictly convex, with the two derivative terms cancelling at the midpoint. This proves the unique variance scale and minimum, including zero exactly for matching ratios. The h-leading error is exp(−lambda_j T) lambda_j² T h/4 and the leading variance factor is h²[1−exp(−2lambda_j T)]/(2lambda_j), giving the stated limit. The sign of its logarithmic derivative is that of 5(1−exp(−2x))−2x; strict concavity, positive initial slope and negative tail show one positive root and two distinct rates at each submaximal positive level. Separate high-precision arithmetic reproduced x_*=2.482557115872138151849… and the gap 1.000620761200976286155… for T=1 and rates 1 and 10. The nonzero lower bound is for terminal-marginal distances (or objectives containing them additively); the resonance is at leading order, not asserted to be exact at finite mesh.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Altmann–Moradi (4.2) and §5 supply RHS forcing and componentwise scalar calibration. Conrad et al. give the same general calibration approach and allow a PSD covariance (note 6). Sra gives a stronger matrix theorem covering the abstract finite-grid minimizer."
+        ],
+        "reasoning": "A broader covariance family can remove this obstruction; it does not imply when the scalar-only method retains a nonzero optimized mismatch after refinement. The matrix divergence result addresses minimization at known targets, not the asymptotic spectral dependence of these targets.",
+        "searches": [
+          "arXiv:2406.07220v3 §§4.1, 5",
+          "doi:10.1007/s11222-016-9671-0 §3.1",
+          "arXiv:1110.1773 §4.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_calibration.py (read, not executed)",
+        "Altmann–Moradi arXiv:2406.07220v3",
+        "Conrad et al. doi:10.1007/s11222-016-9671-0",
+        "Sra arXiv:1110.1773",
+        "Resultary 5139658d129b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known recurrence supplies the starting point; the ratio requires comparing the accumulated RHS noise with the leading deterministic step-doubling error at fixed T. The resulting rate function has both algebraic and exponential dependence, and its unimodality is what produces the unequal-rate matching partners."
+        ],
+        "reasoning": "The previously known method and geometric-mean theorem do not by themselves classify positive limiting gaps or resonance. The method-specific ratio and spectral analysis, rather than simply rewriting a log-determinant distance, constitute the distinct result.",
+        "searches": [
+          "Altmann–Moradi Eq. (4.2), Eq. (5.1), Algorithm 3",
+          "Sra Theorem 4.1 Eq. (4.3)",
+          "Conrad et al. §3.1 and note 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After rescaling each variance by a_j, the objective is half the sum of two scalar S-divergences. Sra's Theorem 4.1 gives precisely the geometric-mean minimizer; evaluating the divergence there also gives the abstract log-cosh gap.",
+          "The nearest Resultary hit 5139658d129b matches stationary covariances using two taps for a momentum method, not transient error-indicator Gaussian distributions with one common scale."
+        ],
+        "reasoning": "The finite-dimensional optimization is an existing equivalent problem. Novelty here attaches to the concrete rate-dependent target ratios and their zero-mesh classification, not to the abstract optimization identity.",
+        "searches": [
+          "Resultary: terminal Gaussian shared-scalar two-mode calibration and step-doubling mismatch",
+          "Sra arXiv:1110.1773, geometric mean",
+          "Web: probabilistic implicit Euler Bhattacharyya calibration spectral incompatibility step doubling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The related catalogue entry 5139658d129b gives exact curvature matches in a different recurrence with different controls. The focused literature query chiefly led back to the Altmann–Moradi construction; no checked table encodes the limit here."
+        ],
+        "reasoning": "A table of demonstration distances or optimal scales at fixed rates would not subsume the fine-mesh classification over a continuum of rates. The root and two-rate numerical example are illustrations of the exact law, not independent novelty claims.",
+        "searches": [
+          "Resultary: two-mode exact Gaussian calibration",
+          "Web: probabilistic implicit Euler exact scalar spectral calibration and step doubling"
+        ]
+      },
+      "rationale": "The numerical method, use of a scalar Bhattacharyya calibration objective, and abstract two-target geometric-mean minimization have prior coverage. The supported distinct content is the step-doubling spectral law for this forced solver and its exact classification of persistent gaps and unequal-rate matches. The generic S-divergence theorem does not identify that law, and the examined solver sources do not give it.",
+      "residual_risks": [
+        "The generic optimizer is covered and should not be claimed as new in isolation.",
+        "Bounded searches do not rule out an unindexed analysis of the same rate function for scalar calibration in a linear test equation or an equivalent terminal error criterion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior art for solver and objective; inspected passages do not give this spectral limit",
+          "evidence": [
+            "OA offsets 33583, 60973; sigma times h^(3/2) on dynamic RHS; scalar componentwise calibration"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2406.07220v3",
+          "material_read": "§4.1 Eq. (4.2); §5 Eq. (5.1) and Algorithm 3",
+          "method": "Bounded OA primary HTML",
+          "title": "Probabilistic time integration for semi-explicit PDAEs",
+          "trigger": "Identical discretization and calibration motivation"
+        },
+        {
+          "assessment": "General calibration and anisotropic option, not this rate-specific obstruction",
+          "evidence": [
+            "OA offsets 43000–50884; note 6 allows PSD Q"
+          ],
+          "identifier_or_url": "doi:10.1007/s11222-016-9671-0",
+          "material_read": "§3.1 pp. 1072–1073 and note 6",
+          "method": "Bounded OA publisher PDF",
+          "title": "Statistical analysis of differential equations: introducing probability measures on numerical solutions",
+          "trigger": "Calibration via step-size indicators and alternative covariance"
+        },
+        {
+          "assessment": "Exact stronger coverage of the generic geometric-mean step; no solver spectral content",
+          "evidence": [
+            "p. 10, offset 39500 onward: the sum of two squared S-distances is uniquely minimized at the matrix geometric mean in the positive definite cone; the scalar case is sqrt(r1 r2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1110.1773",
+          "material_read": "§4.1 Theorem 4.1, Eqs. (4.1), (4.3)",
+          "method": "Bounded OA PDF",
+          "title": "Positive definite matrices and the S-divergence",
+          "trigger": "Equivalent two-target minimization in scalar covariance geometry"
+        },
+        {
+          "assessment": "Different noise freedom, recurrence, and stationary covariance target",
+          "evidence": [
+            "Two taps match two quadratic curvatures; does not state the terminal step-doubling rate law or its resonance."
+          ],
+          "identifier_or_url": "Resultary 5139658d129b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Two-mode exact Gaussian calibration by two-tap noise in a momentum recurrence",
+          "trigger": "Closest catalogue match for spectral calibration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives a concrete obstruction for an existing scalar calibration strategy: even optimizing the common scale separately at every resolution does not force both terminal marginal distances to vanish. The explicit spectral law identifies exactly when rates on opposite sides of its maximum evade that obstruction. This is useful for deciding when mode-dependent scales are necessary for these targets, not a claim about accuracy against the true solution law or global calibration over all times.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

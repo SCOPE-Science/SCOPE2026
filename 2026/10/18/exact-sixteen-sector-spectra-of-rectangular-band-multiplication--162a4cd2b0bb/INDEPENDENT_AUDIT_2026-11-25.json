@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:57:39.124795Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–60; VERIFICATION.md lines 19–21; inspected verify.py",
+        "Independent replay: python3 /workspace/branches/independent_frozen_math.py 4; output /workspace/branches/independent_frozen_math.out"
+      ],
+      "rationale": "Direct separation into first-only, second-only, and product-only edges gives three tensor operators. The first has free k and requires l to differ; the second has free j and requires i to differ; the third fixes i,l and requires both j,k to differ. Their sector eigenvalues are w(t-1), (u-1)v and (v-1)(w-1), respectively. Their sum is the stated eigenvalue; constants and sum-zero factors give the stated multiplicities even when a factor has size one. The uniform degree, two connected families of fixed-coordinate moves for a,b>=2, and the direct clique union when one factor is one establish the connectivity claims. Size and degree recover the product and sum of the factor sizes, and reversing the factor order and the two inputs gives the converse graph isomorphism. At (2,2) the five Cayley steps are the images of the coordinate steps of the five-cube modulo the antipodal vector, which gives Clebsch; the exact characteristic polynomial and common-neighbor identity agree. The matrix-tree product follows from regularity and simplicity of the degree eigenvalue for connected graphs. Independent exact characteristic polynomials from the raw adjacency rule matched for all nine pairs 1<=a,b<=3. The juxtaposition XZ and YZ in the frozen proof denotes entrywise intersection of equality indicators, not ordinary matrix multiplication; the separate-edge calculation avoids that notational ambiguity.",
+      "residual_risks": [
+        "The graph convention must be exactly one equal entry. The independent finite checks do not substitute for the tensor proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 5.3 gives the rectangular-band degree counts. Lemma 5.4 asserts a blockwise spectral union; §6 explicitly computes a null-semigroup spectrum (K_n times K_n), and Appendices A–B give degree/regularity checks and enumeration scripts."
+        ],
+        "reasoning": "Neither the degree nor the null law determines the exactly-one rectangular-band spectrum. In the common definition, the (2,2) graph is connected, so the proposed nontrivial independent block partition cannot be a stronger correct statement covering the claimed spectrum.",
+        "searches": [
+          "arXiv:2511.23190v1 Proposition 5.3",
+          "arXiv:2511.23190v2 Proposition 5.3, Lemma 5.4, §6, Appendices A–B"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2511.23190v1 and v2",
+        "Resultary entries 898f75a97d4e, 866e5ef87ff9 and 39044edf691c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior lemma says adjacency requires agreement on the L-coordinate. For example, ((0,0),(0,0),(0,0)) and ((0,0),(1,1),(0,1)) are adjacent by first-only agreement, with product entries in different Green L-classes. First- and second-only moves together imply connectedness when a,b>=2."
+        ],
+        "reasoning": "The qualitative block assertion neither gives the sector numbers and multiplicities nor validly reduces the graph to independent Green-class components. Known regularity gives the single degree eigenvalue and supports factor recovery; these consequences are not the novelty basis.",
+        "searches": [
+          "arXiv:2511.23190v2 Lemma 5.4 (HTML offset 14540 onward) and Definition 3.1",
+          "arXiv:2511.23190v2 §6 around offset 22500"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same exactly-one graph is used in the primary paper. The tensor/association-scheme viewpoint explains why simultaneous diagonalization is available but does not select the edge fusion or evaluate its spectrum until that relation is identified. The Clebsch graph is a known graph, not itself a new object."
+        ],
+        "reasoning": "The claimed identification with the folded cube is for the (2,2) instance only; a known spectrum of that cube does not cover the uniform formula. General tensor diagonalization is a method, not the computed family-specific invariant.",
+        "searches": [
+          "arXiv:2511.23190v2 Definition 3.1, Proposition 5.3 and Lemma 5.4",
+          "Rectangular-band graph as a fusion of equality/difference relations on four factors; compare null-semigroup graph and the folded five-cube case"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected hits are an exact Schur ring classification for rectangular bands, a power-map result in rectangular-band algebras, and a spectrum for a Latin-square intercalate-switch graph."
+        ],
+        "reasoning": "The first two share semigroups but not the graph invariant, and the last shares a graph-spectral theme but not this graph. No exact matching family or table was found in the bounded results.",
+        "searches": [
+          "Resultary: rectangular-band multiplication-table spectra and rectangular-band graph lookalikes",
+          "Published records 898f75a97d4e, 866e5ef87ff9 and 39044edf691c"
+        ]
+      },
+      "rationale": "The exact-one graph definition and rectangular-band degree formula are prior; diagonalizing the complete-graph tensor factors is standard. Pass the explicit full spectrum and the structural conclusions specific to this graph family. The closest primary paper's similarly titled lemma gives no explicit sector spectrum, and its proposed disconnected block picture does not hold for the same adjacency.",
+      "residual_risks": [
+        "An equivalent equality-relation fusion spectrum under other terminology cannot be excluded by bounded searches. No novelty is claimed for the underlying spectral machinery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Degree and regularity precedent",
+          "evidence": "Counts the common-symbol and row/column alternatives to establish rectangular-band regularity.",
+          "identifier_or_url": "https://arxiv.org/html/2511.23190v1",
+          "material_read": "Proposition 5.3, HTML offset about 25850",
+          "method": "Open-access primary HTML",
+          "title": "Generalized Latin Square Graphs of Semigroups: A Counting Framework for Regularity",
+          "trigger": "Original definition and rectangular-band theorem"
+        },
+        {
+          "assessment": "Gives degree, a problematic block assertion, and a numerical spectrum for a different semigroup law",
+          "evidence": "Lemma 5.4 asserts no edges between distinct L-coordinate blocks, but exactly-one adjacency permits cross-class edges. Section 6 treats null semigroups.",
+          "identifier_or_url": "https://arxiv.org/html/2511.23190v2",
+          "material_read": "Definition 3.1 (around 7160), Proposition 5.3 (around 12900), Lemma 5.4 (14540 onward), §6 (around 22500), Appendices A–B (around 30950 onward)",
+          "method": "Open-access primary HTML passages",
+          "title": "Generalized Latin Square Graphs of Semigroups: A Counting Framework for Regularity and Spectra",
+          "trigger": "Same graph and lemma titled Spectrum of Rectangular Bands"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Classifies semigroup Schur partitions, not spectra of table graphs.",
+          "identifier_or_url": "2026/10/26/SCOPE-schur-ring-classification-of-two-row-rectangular-bands--898f75a97d4e",
+          "material_read": "Published statement and scope",
+          "method": "Published-record local mirror",
+          "title": "Schur-ring classification of two-row rectangular bands",
+          "trigger": "Same semigroup family"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Algebraic power maps, not table-graph eigenvalues.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-power-map-fibers-and-the-exceptional-square-only-cone-i--866e5ef87ff9",
+          "material_read": "Published statement and scope",
+          "method": "Published-record local mirror",
+          "title": "Complete power-map fibers and the exceptional square-only cone",
+          "trigger": "Rectangular-band algebra comparison"
+        },
+        {
+          "assessment": "Different graph construction",
+          "evidence": "Spectrum of a 576-vertex intercalate-switch graph, not vertices given by multiplication-table triples.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-spectrum-of-the-order-four-latin-square-intercalate-switch--39044edf691c",
+          "material_read": "Published statement and scope",
+          "method": "Published-record local mirror",
+          "title": "Exact spectrum of the order-four Latin-square intercalate-switch graph",
+          "trigger": "Closely named graph spectral result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–28, 34–60",
+        "Primary Proposition 5.3 and Lemma 5.4; independent characteristic-polynomial checks"
+      ],
+      "rationale": "This is the full exact adjacency invariant of the natural regular rectangular-band family from the motivating paper, not an isolated computed size. It replaces degree-only information by a multiplicity formula valid for all factor sizes and clarifies the misleading disconnected-block picture. It also separates the connected and degenerate cases and puts the Clebsch instance and spanning-tree count into one family. Standard diagonalization alone does not identify the graph's sector eigenvalues.",
+      "residual_risks": [
+        "Restricted to rectangular bands, with no claim of a new invariant for arbitrary semigroups or a new spectral technique."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

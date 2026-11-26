@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Hamiltonian identity and parity constraint reduce all labeled configurations to the two integers describing magnetization and unlike matched pairs. The sign of the matched-bond coefficient forces exactly the asserted endpoint of the feasible interval. The resulting adjacent-energy differences are strictly increasing for positive matched coupling and pairwise coincident only at zero matched coupling. Counting the corresponding pair states proves all finite-size multiplicities. Fixed-field bounded minimizing magnetization and central binomial asymptotics prove the residual entropy. Independent full-Hamiltonian enumeration agrees in 714 exact parameter instances with up to twelve labeled spins. These finite cases do not stand in for the general proof.
+PASS
 
-## Originality — PASS on checked evidence, with residual risk
+Writing k for the number of opposite-spin pairs gives H/J=2s²−n+(K/J−1)(n−2k)−2(h/J)s, because the all-edge interaction depends only on total magnetization 2s. The constraints on pair counts give exactly k=0 or 1 through n−|s| in steps of two, according to the parity of n−|s|. The sign of K−J thus selects the minimum or maximum feasible k, and all k tie at equality. Choosing the pair types and opposite-pair orientations gives every stated multiplicity. Forward sector differences divided by 2J are t_s−t; for 0<K<J the consecutive threshold gaps alternate between 2K/J and 4−2K/J, both positive, and for K≥J the gap is 2. At K=0 the gap of the first type vanishes, giving exactly the listed triple transitions, including s=−1,0,1 at zero field for odd n. Spin reversal supplies all other signed cases. At fixed unscaled couplings and field, |s| is bounded uniformly in n, so the sector counts have exponential rates n log 2 off K=J and 2n log 2 on it; summing the at most three coexisting sectors preserves the rate.
 
-Relevant full-text comparisons include Chakrabarti and Inoue (2005), Chakrabarti, Das and Inoue (2005), Varma (2013), and Dubi and Di Ventra (2009). The first two concern infinite-range bipartite/quantum/random-field treatments, the third finite-degree frustrated ladders and kagome lattices, and the fourth a random-bond lattice spin glass treated through a dimer mean-field approximation. None supplies the exact deterministic complete-graph matching-deformation staircase and labeled ground-state multiplicities. The uniform complete-graph point is standard and is expressly not claimed as a new isolated result. Unknown equivalent formulations remain a material priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The family interpolates naturally between a missing-perfect-matching dense antiferromagnet, the ordinary complete graph, and a matched-bond-dominated antiferromagnet. The theorem gives an all-size, all-field global classification, exact endpoint coexistences and a change in extensive residual entropy at the bond equality. These are motivated combinatorial/physical boundary effects and not isolated recomputations of a chosen finite graph.
+The supported distinct claim is the exact ground-sector classification of the deterministic matching deformation for all couplings and fields in scope, with the triple crossings and residual entropy contrast. The unperturbed complete-graph case is routine and not credited separately. Related exact solutions use different graphs, interaction signs, or spin spaces and do not give this matching deformation.
 
-## Scientific limitations
+## value
 
-The analysis is classical and exactly at zero temperature. All couplings are unscaled, and the residual-entropy statement holds with coupling and field fixed before the thermodynamic limit. The statement does not resolve finite-temperature dynamics or historical priority against every nonindexed formulation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The perturbation continuously connects two standard highly symmetric graph models, rather than selecting an arbitrary field grid. It separates which types of configurations carry the residual entropy: essentially aligned pairs below equal coupling, opposite pairs above it, and both kinds available without a matching-energy penalty on the equality line. The exact field transitions, triple degeneracies at the deleted matching, and quantitative entropy contrast give a usable zero-temperature benchmark across the deformation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

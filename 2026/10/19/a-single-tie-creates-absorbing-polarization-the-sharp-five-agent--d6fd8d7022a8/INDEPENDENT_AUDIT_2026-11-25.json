@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:49:48.665357Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–69",
+        "VERIFICATION.md:19–27",
+        "verify_majority.py",
+        "independent_markov.py",
+        "star_family.py",
+        "Independent record4_repro.py run"
+      ],
+      "rationale": "A genuine flip strictly decreases the cut size, so absorption occurs almost surely with finite mean attempted-update time (each nonabsorbing state has a positive update success rate). With fair initialization, positive polarization probability is equivalent to existence of a nonconstant weak-majority coloring, since each such absorbing state has positive initial mass. A singleton color is impossible in a connected graph. At order four the only connected possibilities with a stable 2+2 cut are P4 and C4; the former has no connected edge-deletion predecessor, and the latter's predecessors are P4 and already support polarization. Fresh exhaustive enumeration at orders 2–5 gave 1,4,38,728 connected labeled graphs and 0,0,0,90 successful marked insertions, split 30/60. An independent rational solve of the full 32-state lazy chains, including unchanged attempts, confirmed the star transition (p,T)=(0,105/16) to (7/48,355/64) and the triangle-with-two-leaves transition (0,713/96) to (31/192,545/96). Replay: python3 /workspace/branches/36868dca-19b5-4e61-bb87-3b7f55bc958b/record4_repro.py. For the star family, while the hub is fixed, ordinary dissent decreases and the linked pair can only remain both dissenting, remain both aligned, or become aligned from mixed. The hub-flip thresholds in these three cases are h−1, h+1, h. If the hub flips it cannot flip again: the disagreeing fraction drops below one half and can only decrease. A flip leads to eventual polarization only from the aligned-pair case. The equal-rate race therefore gives the two telescoping terms and the mixed recurrence; their weights are 1/4,1/4,1/2. Conditionally on J, the probability of a hub attempt before J−(h−1)+1 initially dissenting ordinary leaves align, when J≥h−1, is (J+1−(h−1))/(J+1). This bounds the flip event from above. Using the binomial mean and variance gives the stated O(m^−1/2) bound and the limit 1/4, because in the absence of a hub flip only a pair initially dissenting can stay opposed. Exact finite values through m=8 were reproduced, but the limit is analytic.",
+      "residual_risks": [
+        "Polarization refers to absorbing nonconsensus, not a transient disagreement level. Tie retention and counting inert attempts are essential to the numerical results."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Indexed full terminal law for K_1∨(kK_2); Mohan–Prałat binomial-graph dynamics; Benjamini et al. synchronous tie-retaining dynamics."
+        ],
+        "reasoning": "The all-paired outer vertices of the windmill do not include a star with exactly one paired edge plus m−2 ordinary leaves for m≥4. The ordinary leaves affect the first hub-flip race. Neither random-graph learning with private-signal ties nor a synchronous evolution specializes to the stated finite Markov chain.",
+        "searches": [
+          "Resultary: asynchronous absorption, hub and paired leaves",
+          "Mohan–Prałat asynchronous majority",
+          "Benjamini et al. majority dynamics"
+        ]
+      },
+      "checked_sources": [
+        "Four indexed near matches in the source inspections",
+        "Three primary preprint passages on asynchronous or synchronous majority"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Later two-hub join result gives a quarter limit for a specific consensus outcome from a fixed polarized assignment. Later windmill law uses the same clock-race family of techniques, with a distinct graph and hub-flip asymptotic."
+        ],
+        "reasoning": "Neither quarter-limit equality nor the standard cut-potential characterization implies the finite-sum law or its limiting event. The consensus result has two hubs and a different initial distribution and terminal event; the windmill has different possible dissent trajectories.",
+        "searches": [
+          "Resultary: paired-leaf stars and asymptotic quarter probabilities",
+          "Baek et al., random-network absorption",
+          "Mohan–Prałat, asynchronous random-graph announcements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A nontrivial stable cut is a local minimum of the disagreement potential against single-vertex flips. The five-vertex Friedkin–Johnsen record measures equilibrium polarization; the synchronous edge-deletion record measures basin changes."
+        ],
+        "reasoning": "Under tie retention the potential formulation is equivalent for absorbing states, not for attraction probabilities with different rates, initial distributions or tie rules. Friedkin–Johnsen equilibrium and synchronous edge deletion are genuinely different tasks despite matching graph order.",
+        "searches": [
+          "Resultary: five-vertex edge insertion and weak-majority stable cuts",
+          "Baek et al., zero-temperature Glauber updates"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest five-vertex indexed results inspected: Friedkin–Johnsen insertion and synchronous majority deletion, not an exact table of this transition."
+        ],
+        "reasoning": "A catalogue of unmarked graphs at order five cannot itself supply the marked pairs or their rational absorption and attempted-update observables. No exact matching census was verified in the inspected records.",
+        "searches": [
+          "Resultary: five-vertex majority edge insertion and asymmetric consensus-basin changes"
+        ]
+      },
+      "rationale": "The result is distinct at the level of the exact edge-marked boundary/classification, initial-state-averaged rational p and T values, and the one-linked-pair star probability. Prior cut-potential and random-network majority results do not establish these conclusions. The closest indexed majority results have different graph families or observables and are later than the frozen record's date.",
+      "residual_risks": [
+        "Other stable-partition or Ising local-minimum literature could implicitly contain parts of the finite classification. The targeted comparison is not a claim of comprehensive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Later result on a different family and event",
+          "evidence": "Two hubs of K_2∨independent set win all-one consensus with probability tending to 1/4 from a fixed initial state.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-consensus-selection-and-parity-sensitive-edge-influence-on--292b1ef2d33b/RESULT.md",
+          "material_read": "RESULT offsets 0–3768",
+          "method": "Resultary search and local mirror",
+          "title": "Exact consensus selection and parity-sensitive edge influence",
+          "trigger": "Tie-retaining asynchronous dynamics and exact quarter limit"
+        },
+        {
+          "assessment": "Later close method, not a containing graph family",
+          "evidence": "Windmills K_1∨(kK_2) have k pairs and no ordinary leaves; the hub-flip asymptotic is 1/sqrt(πk).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-absorption-kernel-and-square-root-hub-loyalty-in-asynchron--17d109fd6d43/RESULT.md",
+          "material_read": "RESULT offsets 0–3598",
+          "method": "Resultary search and local mirror",
+          "title": "Exact absorption kernel and square-root hub loyalty",
+          "trigger": "Matched leaves and hub flips under fair labels"
+        },
+        {
+          "assessment": "Different dynamics and observable",
+          "evidence": "Centered Friedkin–Johnsen equilibrium polarization, not Markov absorption.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-five-vertices-are-the-sharp-binary-opinion-edge-insertion-polari--2813b8ffcfee/RESULT.md",
+          "material_read": "RESULT offsets 0–3579",
+          "method": "Resultary search and local mirror",
+          "title": "Five vertices are the sharp binary-opinion edge-insertion polarization boundary",
+          "trigger": "Same minimal order and intervention"
+        },
+        {
+          "assessment": "Different update and direction of intervention",
+          "evidence": "Synchronous edge deletion affecting consensus basins, not appearance of polarized absorbing states after edge addition.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-five-vertices-are-necessary-and-sufficient-for-a-majority-consen--d51e1ee9c675/RESULT.md",
+          "material_read": "RESULT offsets 0–2896",
+          "method": "Resultary search and local mirror",
+          "title": "Five vertices are necessary and sufficient for a majority consensus effect",
+          "trigger": "Five vertices and two majority-transition classes"
+        },
+        {
+          "assessment": "Tie and initialization rules differ",
+          "evidence": "Zero-magnetization initial states, with flips at ties with probability 1/2; random-network absorption is the focus.",
+          "identifier_or_url": "arXiv:1112.5927v2",
+          "material_read": "§II.1, HTML offset 7300",
+          "method": "Open primary passage",
+          "title": "Absorbing states of zero-temperature Glauber dynamics in random networks",
+          "trigger": "Asynchronous absorbing states and nonconsensus"
+        },
+        {
+          "assessment": "Synchronous dynamics",
+          "evidence": "Synchronous tie retention, period-two or convergence behavior and random/infinite graph context.",
+          "identifier_or_url": "arXiv:1405.2486v1",
+          "material_read": "Abstract and §1, HTML offsets 330–2530",
+          "method": "Open primary passages",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "Tie-retaining majority and disagreement"
+        },
+        {
+          "assessment": "Different initial state, tie rule and graph setting",
+          "evidence": "Private initial beliefs are biased; ties use private signals and the graph is binomial, with social learning as the observable.",
+          "identifier_or_url": "arXiv:2309.04691v2",
+          "material_read": "Introduction and §1.1, HTML offsets 2766–5176 and 3757–6514",
+          "method": "Open primary passages",
+          "title": "Asynchronous Majority Dynamics on Binomial Random Graphs",
+          "trigger": "Uniformly sampled asynchronous majority updates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:5–18,26–69",
+        "Independent finite reproduction"
+      ],
+      "rationale": "It is natural to ask whether improving connectivity can stabilize disagreement instead of removing it. The sharp smallest-order boundary and complete edge-marked census show exactly how this first becomes possible. The star-family result shows it is not merely a tiny-graph anomaly: a single leaf–leaf edge leaves a tie-protected pair and creates a nonvanishing limiting probability while the unchanged star always absorbs unanimously. Exact absorption times quantify a separate observable under the same intervention.",
+      "residual_risks": [
+        "Does not generalize to arbitrary graph families or social interpretations without additional model assumptions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

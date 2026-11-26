@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:23:01.131376Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Lemmas 1–4 and Lower bound",
+        "Frozen VERIFICATION.md, verify.py and witnesses.json",
+        "Independent seven-bit witness and 128-center replay"
+      ],
+      "rationale": "After translating a root query to zero, its positive centers are edges. Within that fiber only queries of weights 0, 2 and 4 can be positive. A weight-four positive fiber has at most six edges; a weight-two positive fiber is a two-star. In a two-star, a weight-four or disjoint weight-two query has at most four positives; a pair containing exactly one hub splits it into two near-stars. A near-star query always has one branch of size at most three, which excludes depth three. Thus the edge class has rank at most four and the whole class at most five, also for small dimensions and duplicate concepts. All 32 supplied seven-bit witnesses and, separately, all possible masks over the 128 seven-bit centers were checked by independent code without executing the shipped verifier. Zero padding preserves the lower bound. The finite calculation proves the stated witness only; the edge-fiber argument gives the universal upper bound.",
+      "residual_risks": [
+        "No formal verification is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two records classify all positive dimensions, including the low dimensions omitted by the assigned result.",
+          "The adaptive record's K_{2,m} fiber argument also proves Ldim <= 5 uniformly, not just eventual equality."
+        ],
+        "reasoning": "The two established classifications together dominate every parameter range and bound in the frozen Finding.",
+        "searches": [
+          "Resultary 6e49ec510332, Finding and proof parts A–C",
+          "Resultary aa804f0c6690, Finding and proof"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records aa804f0c6690, 6e49ec510332 and 31d57fbe632c",
+        "arXiv:2007.16042",
+        "Ghazi et al., PMLR 132"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conjoining the two indexed conclusions yields precisely the frozen equality and its uniform upper bound. In fact the earlier indexed adaptive proof also uses the translated weight-two fiber, then the two-star and near-star cardinality obstructions.",
+          "The generic closure bounds are not needed to establish this overlap."
+        ],
+        "reasoning": "Neither the joint statement nor the upper-bound proof supplies a surviving extension; a different five-point lower-bound witness does not change the classification.",
+        "searches": [
+          "aa804f0c6690, sharp witnesses",
+          "6e49ec510332, uniform upper-bound proof",
+          "Ghazi et al., PMLR v132, generic closure bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Membership in S_2(c) and the Boolean predicate dist_H(c,x)=2 describe identical concepts on identical domains.",
+          "The ordinary Hamming graph uses distance one, so its VC dimension 3 is not the duplicated result."
+        ],
+        "reasoning": "Changing shell membership to indicator notation or calling it an exact-distance neighborhood preserves both dimensions. By contrast, ordinary adjacency is a different predicate.",
+        "searches": [
+          "Resultary: exact binary Hamming distance-two spheres VC dimension; aa804f0c6690",
+          "Resultary: exact-distance-two Boolean hypercube neighborhoods Littlestone dimension; 6e49ec510332",
+          "Adler–Benediktsson–Macpherson, arXiv:2007.16042"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two exact-shell records each give 5 at d>=7 in their dimension formulas.",
+          "The nearby closed-ball record gives the different pair (4,5) in its stable regime; it is not the exact match."
+        ],
+        "reasoning": "The exact overlap is grounded in the two matching RESULT.md statements, not similarity scores, nearby radius results, or dates.",
+        "searches": [
+          "2026/10/26/SCOPE-exact-vc-dimension-of-binary-hamming-distance-two-spheres--aa804f0c6690",
+          "2026/10/26/SCOPE-exact-littlestone-dimension-of-distance-two-boolean-hypercube-ne--6e49ec510332",
+          "Resultary closed radius-two comparator 31d57fbe632c"
+        ]
+      },
+      "rationale": "Two distinct indexed records directly cover the frozen claim: aa804f0c6690 gives the exact VC dimension of the same class in every dimension, and 6e49ec510332 gives the exact Littlestone dimension in every dimension. The latter contains the same symbolic two-star and near-star upper-bound mechanism, including the uniform ceiling. This is established coverage, not an inference from a catalogue date or an unresolved web hit.",
+      "residual_risks": [
+        "The indexed records establish mathematical coverage, not a complete reconstruction of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct and stronger coverage",
+          "evidence": "The full binary cube and exact distance-two shell are specified; dimension 5 for every d>=7 is part of a full classification.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-vc-dimension-of-binary-hamming-distance-two-spheres--aa804f0c6690",
+          "material_read": "RESULT.md, offsets 0–5059, Finding, Assumptions and sharp witnesses",
+          "method": "Local mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact VC dimension of binary Hamming distance-two spheres",
+          "trigger": "Same static invariant and exact shell"
+        },
+        {
+          "assessment": "Direct and stronger coverage, including proof overlap",
+          "evidence": "Uniform rank five ceiling follows via K_{2,m}, a near-star with a branch of at most three, and translation of the edge-center restriction. Exact lower bounds cover all dimensions.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-littlestone-dimension-of-distance-two-boolean-hypercube-ne--6e49ec510332",
+          "material_read": "RESULT.md, Finding at offset 0 and proof at offsets 2600–6644",
+          "method": "Local mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact Littlestone dimension of distance-two Boolean hypercube neighborhoods",
+          "trigger": "Same online invariant and exact shell"
+        },
+        {
+          "assessment": "Different adjacency",
+          "evidence": "Adjacency is agreement in all but one position, not in all but two.",
+          "identifier_or_url": "https://arxiv.org/pdf/2007.16042",
+          "material_read": "Theorem 1.1, Definition 2.8, Section 4 (PDF pp. 4, 6, 20)",
+          "method": "Open primary PDF, targeted passages",
+          "title": "Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "Closest ordinary Hamming-graph VC result"
+        },
+        {
+          "assessment": "Distinct concept class",
+          "evidence": "Closed balls use distance <=2 and the stable dimension pair in the record is (4,5).",
+          "identifier_or_url": "2026/11/2/SCOPE-the-first-static-adaptive-shattering-gap-for-boolean-hamming-rad--31d57fbe632c",
+          "material_read": "RESULT.md Finding at offset 0 and comparison at offset 8500",
+          "method": "Local mirror",
+          "title": "The first static–adaptive shattering gap for Boolean Hamming radius-two balls",
+          "trigger": "Nearby radius and two dimensions"
+        },
+        {
+          "assessment": "Generic composition result, not exact shell classification",
+          "evidence": "The bounds treat G(H_1,...,H_k), not the explicit distance-two fiber rank.",
+          "identifier_or_url": "https://proceedings.mlr.press/v132/ghazi21a/ghazi21a.pdf",
+          "material_read": "PDF pp. 1–2, offset 1250",
+          "method": "Open primary PDF, targeted passages",
+          "title": "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions",
+          "trigger": "Whether general upper bounds yield this sharp rank"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Lemmas 1–4",
+        "Indexed records aa804f0c6690 and 6e49ec510332, proofs and classifications"
+      ],
+      "rationale": "The dimension comparison is a worthwhile question, but this package combines already-established classifications using the already-indexed online obstruction and another small witness. It neither extends the range nor adds a distinct structural result or a substantially new proof of the ceiling. As a research contribution it does not advance the covered classification.",
+      "residual_risks": [
+        "The presentation may have expository utility; the failure concerns incremental scientific value."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:56:49.155264Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalize the common nonzero singular value to one. For input/output overlaps c,d the squared singular values have product (1-c²)(1-d²) and trace maximized at 2+2cd by aligning the phases. At fixed product their p/2-power sum increases strictly in trace (differentiate for unequal positive eigenvalues and use continuity or the one-nonzero-eigenvalue formula at the boundary). Real two-dimensional vectors realize every aligned c,d. Setting c=tanh z and d=tanh w reduces the conditional log derivative in w to a positive factor times tanh((p/2)(z+w))-tanh w, so the interior maximum is w=kz; c=0 or 1 can only give an optimum of one. The reduced objective H has H>1 for finite z>0 by strict convexity of log cosh and the exact weighted-mean relation, and tends to one at both ends. Its derivative changes sign where the ratio of integrals of sech²(az) over [1,p] and [p,k] crosses one. The ratio is strictly increasing because the ratio of these integrands at z₂>z₁ strictly decreases with a; its limits are 1/k and infinity by the dominant lower endpoints. This checks existence, uniqueness and all equality conditions in the stated class. With ε=p-1, expand the derivative bracket to 2ε²z sech²(z)(1-z tanh z)+O(ε³) on compact intervals and bracket its root at z₀. The second-order log-objective term is ε²z² sech²(z)/2, yielding (z₀²-1)/2; an independent scalar bisection gave 0.2196144199453. The Hilbert endpoint also follows without tracking z: the aligned squared quotient converges uniformly on [0,1]² to (1+cd)/(1+c²), whose unique maximum is at c=√2-1,d=1. Compactness then gives convergence of both maximizers and the optimal constant. Frozen verification code was inspected, not run; the reported finite tests do not certify the universal optimization. No unrestricted low-p sharp bound follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The distinct indexed result supplies the same trace-norm quadratic coefficient and additionally its cubic correction and next root term.",
+          "Tang–Zhang give the sharp general Frobenius m-summand factor; m=2 gives the frozen Hilbert limit. The other papers treat p≥2 rank-one results, counterexamples below two, or estimates with other moduli.",
+          "Qiu gives a 3×3 pair whose unrestricted quotient exceeds the balanced rank-one maximum at p=6/5."
+        ],
+        "reasoning": "The stronger trace expansion directly subsumes the quadratic law. Unrestricted context does not imply the low-p balanced optimum, while the unrestricted p=2 sharp value agrees with the compact balanced limit. Different denominators or the opposite exponent range cannot be counted as equivalents.",
+        "searches": [
+          "Resultary 954163ae955f trace-endpoint formulas",
+          "Tang–Zhang arXiv:2510.16846v2",
+          "Zeng–Liu–Ratnavelu arXiv:2608.15558v1 Thms. 1.1–1.2",
+          "Pang arXiv:2608.18112v1 early theorem and construction",
+          "T. Zhang arXiv:2603.01046v1 §1.4 and Thms. 1.15–1.16"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_schatten_pair.py",
+        "Resultary 954163ae955f and e934b396deea",
+        "Qiu 2608.17565v1 §5",
+        "Tang–Zhang 2510.16846v2",
+        "Zeng–Liu–Ratnavelu 2608.15558v1",
+        "Pang 2608.18112v1",
+        "T. Zhang 2603.01046v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At p=2 the squared aligned quotient from the indexed proof simplifies to (1+cd)/(1+c²). It is continuous jointly in p,c,d on a closed p-interval ending at 2 and on the full overlap square, with denominator bounded away from zero.",
+          "Its one-dimensional maximum after setting d=1 solves 1-2c-c²=0, and c=0 cannot be globally maximal."
+        ],
+        "reasoning": "Uniform convergence of the compact objectives implies convergence of their maxima; uniqueness of the endpoint maximum implies convergence of every sequence of optimizing overlaps to (√2-1,1). The limiting squared constant is then (1+√2)/2. Thus the unstated Hilbert-side overlap and value are routine consequences, not a surviving independent endpoint theorem.",
+        "searches": [
+          "Resultary 954163ae955f aligned two-overlap formula, Proof §1 (located near offset 3041)",
+          "Tang–Zhang arXiv:2510.16846v2 abstract, sharp Frobenius factor"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In 954163ae955f the variables γ_p,u_p and constant exp(F_p(u_p)) are exactly k,z_p and H_p(z_p)^(1/p). The two overlap formulas and relative-phase condition coincide.",
+          "Qiu derives the same two-overlap reduction and optimizes d at fixed c; his inspected §5 does not contain the subsequent uniqueness statement.",
+          "The same-day Rhaly/Cesàro catalogue item addresses Schatten membership, not this quotient."
+        ],
+        "reasoning": "Taking logarithms and renaming the scalar coordinate identify the complete all-p optimization with the distinct indexed finding. This goes beyond common motivation or shared Schatten exponents.",
+        "searches": [
+          "Resultary balanced rank-one Schatten quasi-reverse Minkowski/equal singular value",
+          "Resultary 954163ae955f Finding",
+          "Qiu arXiv:2608.17565v1 §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct indexed record gives the entire continuous family of exact constants and the same numerical trace coefficient 0.2196144199453225… .",
+          "The primary text and frozen checker include comparisons at selected p, which do not establish uniqueness or a continuous exact envelope."
+        ],
+        "reasoning": "The exact all-p encoded formula establishes the match; the decimal and sampled norm values are corroborating checks only.",
+        "searches": [
+          "Resultary 954163ae955f exact formula and trace coefficient",
+          "Qiu §5 rank-one comparison values",
+          "Frozen verify_schatten_pair.py"
+        ]
+      },
+      "rationale": "A distinct indexed finding explicitly gives the identical balanced rank-one class, sharp constant, unique root and full equality geometry, and strengthens the trace-endpoint expansion. The remaining Hilbert limit and overlap are not stated there in the inspected passages but follow directly from its two-variable quotient including the compact boundary. This finding of current coverage is not a determination of discovery or publication priority from catalogue dates.",
+      "residual_risks": [
+        "The catalogue comparison establishes coverage, not an order of discovery. The Hilbert limit and limiting overlaps are proved implications, not attributed verbatim to the matched indexed record.",
+        "For scoped comparisons of the primary papers only the cited portions were inspected; no precedence claim beyond the demonstrated statement-level match is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent class and optimum, stronger trace endpoint, elementary Hilbert-side consequences",
+          "evidence": "Unique tanh root, same phase/overlap equality cases, and R_p=1+κ(p-1)²-κ(p-1)³+O((p-1)^4).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-equal-singular-value-rank-one-schatten-comparison-below-ex--954163ae955f",
+          "material_read": "RESULT.md Finding and scope, offsets 0–2164; aligned quotient and derivative neighborhoods near offsets 3041 and 3925; relationship and limits 7170–8596; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary retrieval and local mirror passage comparison",
+          "title": "Sharp equal-singular-value rank-one Schatten comparison below exponent two",
+          "trigger": "Exact same restricted sharp constant and root conditions"
+        },
+        {
+          "assessment": "Different operator family and invariant",
+          "evidence": "Studies membership thresholds for Rhaly matrices and shift defects, not sharp two-summand balanced constants.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/27/SCOPE-sharp-quasi-schatten-thresholds-for-polynomial-rhaly-matrices-an--e934b396deea",
+          "material_read": "Opening RESULT.md Finding at offset 0",
+          "method": "Local-mirror comparison",
+          "title": "Sharp quasi-Schatten thresholds for polynomial Rhaly matrices and Cesàro shift defects",
+          "trigger": "Distinct same-day headline with sharp Schatten thresholds"
+        },
+        {
+          "assessment": "Same Gram overlap quotient and conditional optimizer, and unrestricted counterexample comparison",
+          "evidence": "d=tanh((p/(2-p))arctanh(c)) at fixed c; p=6/5 unrestricted constructed value about 1.0073334264 exceeds the rank-one value about 1.0073249658.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.17565v1",
+          "material_read": "§5 PDF pp. 8–9, text offsets 18938–22897",
+          "method": "OA primary PDF passage comparison",
+          "title": "Sharp Quasi-Reverse Minkowski Inequality for Schatten Norms",
+          "trigger": "Direct primary antecedent for the balanced-rank-one scalar reduction"
+        },
+        {
+          "assessment": "Matches numerical endpoint via the general p=2 problem, not the balanced interior theorem",
+          "evidence": "Sharp Frobenius factor sqrt((1+sqrt(m))/2) for m summands.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.16846v2",
+          "material_read": "Abstract, PDF p. 1, text offset 0",
+          "method": "OA primary PDF passage comparison",
+          "title": "Generalizing Lee's Conjecture on the Sum of Absolute Values of Matrices",
+          "trigger": "Unrestricted comparison and Frobenius endpoint"
+        },
+        {
+          "assessment": "Low-p counterexample and different positive theorem for p≥2",
+          "evidence": "Real rank-one 2×2 witness at p=3/2; sharp rank-one theorem at p≥2.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.15558v1",
+          "material_read": "PDF p. 2, Thms. 1.1–1.2, text offset 5828",
+          "method": "OA primary PDF passage comparison",
+          "title": "A Counterexample to the Tang Zhang Schatten Norm Conjecture and Sharp Positive Results",
+          "trigger": "Related rank-one theorem and below-two witness"
+        },
+        {
+          "assessment": "Counterexamples to unrestricted conjectured formula, not the matched restricted optimum in the inspected passage",
+          "evidence": "Uses equiangular input and output families to construct rank-one counterexamples across 1<p<2.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.18112v1",
+          "material_read": "PDF pp. 1–2, abstract and early theorem/construction, text offsets 275–7742",
+          "method": "OA primary PDF passage comparison",
+          "title": "Counterexamples to a Conjectured Schatten Norm Inequality",
+          "trigger": "Related primary below-two comparison with rank-one summands"
+        },
+        {
+          "assessment": "General estimates and inequalities with different moduli, not the exact balanced ordinary-moduli problem",
+          "evidence": "Treats arithmetic and quadratic symmetric moduli and dimension-sensitive bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.01046v1",
+          "material_read": "§1.4 and Thms. 1.15–1.16, PDF pp. 6–7, text offsets 18516–26819",
+          "method": "OA primary PDF passage comparison",
+          "title": "Operator symmetric moduli and sharp triangle inequalities",
+          "trigger": "Adjacent exact norm-inequality work under alternate modulus definitions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The optimization and full equality geometry would be useful as a genuinely uncovered exact restricted result. Here they are already covered with a stronger trace expansion. The residual p↑2 statements follow from a compact two-variable maximization at the known Hilbert endpoint and contain no new rate or other nontrivial invariant there. No valuable independent remainder justifies repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

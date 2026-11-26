@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:00:23.165720Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md: analytic proof at lines 23–38 reconstructed, including all four budgets and the exact distance",
+        "VERIFICATION.md and verify_petersen.py: finite exhaustive verification design inspected; uploaded code was not executed"
+      ],
+      "rationale": "Petersen is triangle-free of diameter two and all edges extend to two-edge geodesics. An overlapping pair of auxiliary edges has exactly one common Petersen neighbor, the complementary pair of unused labels; the 30 maximal geodesics thus correspond to spanning P₃ plus a disjoint K₂ in K₅. If the unselected auxiliary graph has no isolates and contains a matching of size two, the fifth label has a neighbor on the matching and creates that forbidden triple. Otherwise its edges are pairwise intersecting, and only the full star (not a triangle) can avoid isolates on all five labels. This gives precisely star-containing transversals and the five separate six-edge complements themselves. The listed sets are minimal because no star lies in a six-edge complement and removing any edge of one such complement makes it infeasible. Inclusion-exclusion over star centers and addition of the five uncovered complements produce coefficients (5,30,80,90,45,10,1) in degrees four through ten, summing to 261. For b≤6 the branches over different stars are disjoint and have no inclusion edges between them; each truncated star branch is connected and has 1, 7, or 22 states, and a six-edge minimal complement is isolated when b=6. At b=7 two stars meet via their union of size seven, while a six-edge complement missing the v-star attaches by adding uv to complete the u-star. There are 205 states up to budget seven. The lower bound of six toggles between distinct stars is met by the union route.",
+      "residual_risks": [
+        "The proof settles the fixed labeled graph only; an additional execution is not needed to prove its finite counts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The dissociation theorem is on KG(n,2) for all applicable n and includes n=5; it states all maximal sets and their polynomial, not only the maximum size.",
+          "Tu–Li–Du give an extremal theorem for triangle-free graphs, not a Petersen inventory in the inspected passage. The original geodesic-transversal paper gives gt(P)=4."
+        ],
+        "reasoning": "The broad dissociation theorem does specialize directly despite its different vocabulary. The scalar gt(P) alone would not account for the classification.",
+        "searches": [
+          "Resultary 2b36dd2818f0, Finding and Assumptions",
+          "Tu–Li–Du, arXiv:2103.01402, Theorem 1.2",
+          "Manuel–Brešar–Klavžar, arXiv:2101.08042v1 §3"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary search and actual 2b36dd2818f0 RESULT.md",
+        "arXiv:2101.08042v1 §3",
+        "arXiv:2103.01402 Theorem 1.2",
+        "Frozen RESULT.md, including analytic TAR argument"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior families give all ten bases for the feasible upward-closed family after complementing. Two star bases intersect in one edge, while any one-edge addition to a B_v adds an edge uv and makes A_u a subset.",
+          "With those bases known, the state graph consists of truncated Boolean intervals over the stars and the five extra size-six bases. Its first interval overlaps occur at the pairwise union size 7."
+        ],
+        "reasoning": "The static theorem is a direct corollary. The budget numbers follow from summing the first three binomial levels on six free edges, the disconnected singletons from the six-edge bases, and the threshold and distances by adding then deleting the two stars' disjoint differences. This is mechanical implication, not evidence that an identical TAR theorem appears verbatim.",
+        "searches": [
+          "Dissociation finding 2b36dd2818f0 versus frozen RESULT.md Proof Step 4",
+          "Primary lookup for Petersen geodesic-transversal reconfiguration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The maximal geodesics in Petersen are exactly its two-edge simple paths. A complement avoids all of them exactly when it induces maximum degree at most one, the dissociation-set condition.",
+          "The distinct Resultary record 2b36dd2818f0 gives maximal dissociation sets in two families, the full stars and the complete four-label six-edge families, for n≥5."
+        ],
+        "reasoning": "Complementation exchanges avoidance with hitting and reverses containment, so the prior inclusion-maximal families become exactly the present inclusion-minimal families. At n=5 they are five stars and five star complements.",
+        "searches": [
+          "Resultary: Petersen maximal geodesic transversals and maximal dissociation sets in KG(n,2)",
+          "Primary literature: geodesic transversals and dissociation sets on Petersen"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue target is a self-match. The distinct record gives the exact dissociation polynomial, specializing to 1+10x+45x²+90x³+80x⁴+30x⁵+5x⁶.",
+          "Multiplying its value at x=1/z by z^10 gives exactly the target transversal polynomial, including total 261."
+        ],
+        "reasoning": "Exact count coverage follows from degree reversal, even absent an explicitly printed transversal table. No separately tabulated TAR metrics were verified.",
+        "searches": [
+          "Local Resultary catalogue exact target a06407b63dfe and separate 2b36dd2818f0",
+          "Local mirror 2b36dd2818f0 RESULT.md offset 390"
+        ]
+      },
+      "rationale": "The advertised complete classification, nonpurity, and full polynomial are already covered by a distinct earlier Resultary result about dissociation in KG(n,2). The translation is exact, not analogy. Petersen is triangle-free of diameter two, so missing a maximal geodesic is exactly having a complement with an induced vertex of degree at least two. Taking complements swaps the two known maximal dissociation families at n=5 and reverses the polynomial coefficients. No earlier explicit TAR table was established, but the claimed one follows mechanically from the already classified minimal sets and their elementary inclusion relationships.",
+      "residual_risks": [
+        "No claim is made that the exact TAR table was previously printed. The decisive overlap and short implication do not depend on that open historical question."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the static classification, facets and polynomial under complementation",
+          "evidence": [
+            "The full dissociation polynomial is given for KG(n,2) and maximal sets for n≥5 are the n full stars and the binomial(n,4) complete four-label families.",
+            "At n=5 these two types are complementary and have multiplicity five each."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-dissociation-polynomials-and-maximal-set-purity-of-kg-n-2--2b36dd2818f0",
+          "material_read": "Local mirror RESULT.md Finding and Assumptions, offsets 390–1917",
+          "method": "Read the actual formula and maximal-set theorem and specialize n=5",
+          "title": "Dissociation polynomials and maximal set purity of KG(n,2)",
+          "trigger": "Exact overlap under dissociation-set complement alias"
+        },
+        {
+          "assessment": "Explicit scalar baseline, not the full static classification or TAR computation in this passage",
+          "evidence": [
+            "The Petersen example proves a lower bound four and exhibits a transversal of size four."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2101.08042v1",
+          "material_read": "§3, p. 3, OA offset around 9000",
+          "method": "Primary PDF passage",
+          "title": "The geodesic-transversal problem",
+          "trigger": "Earlier Petersen example in this terminology"
+        },
+        {
+          "assessment": "Related extremal bound, not an inventory of Petersen sets in this passage",
+          "evidence": [
+            "Theorem 1.2 gives an extremal bound for triangle-free graphs with equality conditions, not the needed particular ten-set classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2103.01402",
+          "material_read": "pp. 1–2, §1 Theorem 1.2, OA offset around 6200",
+          "method": "Primary PDF passage",
+          "title": "Maximal and Maximum Dissociation Sets in General and Triangle-Free Graphs",
+          "trigger": "Broader theorem under the exact equivalent definition"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Step 4",
+        "Resultary 2b36dd2818f0 actual maximal-basis classification"
+      ],
+      "rationale": "The static classification is intrinsically useful but already available under its equivalent dissociation form. The only potentially distinct remainder is the TAR profile. After the prior bases are supplied, that remainder is a direct truncated Boolean-interval count and a union path in the elementary add/delete model, not a new metric obstruction, structural lemma, or independently nonmechanical invariant. The frozen package has no surviving valuable advance at the stated scope; no repair is asserted.",
+      "residual_risks": [
+        "This judgment concerns the present budgets and optimum distances only, not more general dissociation-set reconfiguration or finer Petersen metrics."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

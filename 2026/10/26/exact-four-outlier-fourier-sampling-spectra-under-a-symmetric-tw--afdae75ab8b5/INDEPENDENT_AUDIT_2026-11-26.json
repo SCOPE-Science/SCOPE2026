@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:13:12.072525Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–78; independent block and Taylor expansion check",
+        "VERIFICATION.md, checker.py and CHECKER_OUTPUT.txt inspected, not executed",
+        "Independent finite replay: directly sum cos(k(x_i−x_j))/N for −n≤k≤n and apply real symmetric Jacobi diagonalization at N=5,7,13,17 and η=0.12,0.43,0.79,0.001; max spectrum error 2.34e−15. At η=0.001, relative deviations from the scaled leading coefficients were below 2.44e−7 for the least singular value and 1.76e−7 for the condition number."
+      ],
+      "rationale": "Right multiplication by the adjoint of the unperturbed unitary matrix leaves two modified rows over an identity block. The upper-left matrix has diagonal a and off-diagonal b, and the full two-row Gram block has diagonal 1 and off-diagonal c. Subtracting the upper-left Gram gives the two row norms squared γ_s=1+sc−(a+sb)² in the parity basis; the projected rows are orthogonal. Consequently there are N−4 unit modes and two 2×2 Gram blocks of trace 2+sc and determinant (a+sb)². In fact each γ_s is positive in the named regime: reflection interchanges retained sites j=2 and j=N−1, where the first modified cardinal row has two negative, unequal entries proportional to −1/sin((2h−δ)/2) and −1/sin((h+δ)/2), respectively. Their parity sum and difference are both nonzero. The roots are positive since a>b>0, and each parity block straddles 1. At collision c=1+O_N(η²), a+b=2d_N+O_N(η²), and the odd difference is −hD'_n(h/2)η/N+O_N(η³)=K_Nη+O_N(η³). The odd large root tends to 1, so dividing the odd determinant by it gives the square of the least singular value. The even top is separated and varies by O_N(η²), yielding the stated condition-number coefficient and remainder. The even collision roots are strictly positive with a nonzero gap, since N sin(π/(2N)) increases with N and is already √2 at N=2. The limit N→∞ of the fixed-N coefficients uses sinc at zero; this is not a uniform joint-limit claim.",
+      "residual_risks": [
+        "The finite replay is floating point and corroborative only; the conclusions and O-terms follow from the fixed-N argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Lin–Zhang give bounds for perturbed square grids, including 1/4≤L<1/2, and near matching examples; Austin–Trefethen prove interpolation and quadrature approximation; Kunis–Potts give equispaced circulant eigenvalues and interlacing for principal submatrices."
+        ],
+        "reasoning": "Bounds on an inverse norm do not specify the large singular value at collision. Equispaced and principal-submatrix formulas do not incorporate the newly inserted rows.",
+        "searches": [
+          "Chen–Lin–Zhang arXiv:2608.21960v4, Theorem 1.4",
+          "Austin–Trefethen arXiv:1612.04018, (1.7) and Theorem 1.1",
+          "Kunis–Potts arXiv:math/0702019, Theorem 4.10"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary search and exact quadrature-record passage",
+        "Kunis–Potts arXiv:math/0702019",
+        "Austin–Trefethen arXiv:1612.04018",
+        "Kunis–Nagel arXiv:1812.08645",
+        "Chen–Lin–Zhang arXiv:2608.21960v4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The limiting top root (3+√(9−16d_N²))/2 is needed for C_N and is not specified by a least-singular-value estimate. The nontrivial exact input for the full answer is the pair of parity determinants (a±b)² together with traces 2±c, computed from the two new cardinal rows."
+        ],
+        "reasoning": "Neither inverse-separation bounds nor knowledge of K_N determine this input. A low-rank argument alone counts potentially changed modes but does not give these quadratics or the coefficients.",
+        "searches": [
+          "Chen–Lin–Zhang Theorem 1.4; Kunis–Nagel Theorem 3.6; Kunis–Potts Theorem 4.10; Resultary 92a65f43a0d4, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary quadrature record 2026/11/16/SCOPE-positive-fourier-quadrature-survives-symmetric-pair-collision-wi--92a65f43a0d4 uses α=δ/h. Its coefficient 2π cos(π/(2N))/(N² sin²(π/(2N))) multiplying 1/2−α is exactly K_Nη, because η=1−2α.",
+          "Kunis–Nagel use M<N and estimate a single close pair subject to separation of the others, rather than the critical square exact spectrum."
+        ],
+        "reasoning": "The later record is an equivalent leading least-singular-value assertion in this configuration, not an equivalent full-spectrum theorem. The oversampled result is not made equivalent by Fourier/Vandermonde normalization.",
+        "searches": [
+          "Local Resultary symmetric pair collision/quadrature and exact singular spectrum searches",
+          "Kunis–Nagel arXiv:1812.08645, §2 and §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The hit's RESULT.md contains exact matching objects and the leading least singular value, with quadratic remainder. The inspected proof also establishes positive quadrature; it does not give the two parity characteristic polynomials or the condition-number coefficient."
+        ],
+        "reasoning": "The catalog evidence is a positive partial match. The comparison does not dismiss it just on date, nor treat it as evidence of earlier priority.",
+        "searches": [
+          "Local Resultary exact pair collision, quadrature and Fourier spectrum searches; strongest hit 2026/11/16/SCOPE-positive-fourier-quadrature-survives-symmetric-pair-collision-wi--92a65f43a0d4"
+        ]
+      },
+      "rationale": "Earlier inspected work supplies unperturbed circulant spectra, perturbation bounds, and the inverse-separation conditioning exponent. It does not mechanically give the full parity-resolved spectrum and the sharp largest-to-smallest singular-value coefficient for this square, symmetrically perturbed grid. The strongest local catalog hit uses the identical configuration and gives exactly the least-singular-value leading coefficient after reparametrization; it is a distinct, later-dated quadrature record, and does not supply the two quadratics, sharp condition coefficient, or the odd cubic remainder. Credit here is for the complete spectrum and sharp conditioning calculation, not for the exponent or for an exclusive claim to the least-singular-value leading term.",
+      "residual_risks": [
+        "No exhaustive priority determination for older exact specialized calculations. The same least-singular-value leading coefficient is demonstrably present in the later catalog record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equispaced spectrum, not exact two-row replacement.",
+          "evidence": [
+            "Fourier alias sums for circulant eigenvalues and principal-submatrix interlacing."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0702019",
+          "material_read": "§4 Theorem 4.10, PDF p. 15, offset 47569",
+          "method": "Primary PDF passage",
+          "title": "Stability Results for Scattered Data Interpolation by Trigonometric Polynomials",
+          "trigger": "Exact equispaced Fourier Gram matrices"
+        },
+        {
+          "assessment": "General approximation results; not equivalent.",
+          "evidence": [
+            "Bounded grid perturbation hypothesis with interpolation/quadrature estimates."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1612.04018",
+          "material_read": "(1.7), Theorem 1.1, PDF pp. 2–3, offsets 7687 and 8792",
+          "method": "Primary PDF passages",
+          "title": "Trigonometric Interpolation and Quadrature in Perturbed Points",
+          "trigger": "Fourier grids with perturbed nodes"
+        },
+        {
+          "assessment": "Covers the scale, not the exact square coefficient.",
+          "evidence": [
+            "M<N; close pair and separation constraints; inverse-separation bounds including cond(A)≤4/τ under the stated separation assumptions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1812.08645",
+          "material_read": "(2.1)–(2.2), Definition 3.1, Theorem 3.6, PDF pp. 2, 4, 7",
+          "method": "Primary PDF passages",
+          "title": "On the condition number of Vandermonde matrices with pairs of nearly-colliding nodes",
+          "trigger": "Conditioning of a single near-colliding pair"
+        },
+        {
+          "assessment": "Gives nonuniform sampling bounds, not these exact spectral constants. The frozen abstract-only limitation is outdated.",
+          "evidence": [
+            "Inverse-norm bounds for the perturbed square grid and a separate near-matching configuration."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.21960",
+          "material_read": "v4 abstract and Theorem 1.4, PDF pp. 1 and 5–6, offsets 0 and 16344",
+          "method": "Primary full-text PDF, bounded passages",
+          "title": "Smallest Singular Value Estimates for Nonuniform Fourier Matrices via Periodic Nonuniform Sampling",
+          "trigger": "Most plausible broader square-grid estimates"
+        },
+        {
+          "assessment": "Exact partial match for K_N, later catalog date, not the full spectral finding.",
+          "evidence": [
+            "The same normalized evaluation matrix satisfies σ_min=2K_N(1/2−α)+O_N((1/2−α)²)."
+          ],
+          "identifier_or_url": "Resultary:2026/11/16/SCOPE-positive-fourier-quadrature-survives-symmetric-pair-collision-wi--92a65f43a0d4",
+          "material_read": "RESULT.md offsets 0–3940 and 3940–8898, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror primary result",
+          "title": "Positive Fourier quadrature survives symmetric pair collision",
+          "trigger": "Identical moved nodes and same Fourier normalization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen exact spectrum and conditioning theorem",
+        "Closest analytic bounds and matching Resultary leading coefficient"
+      ],
+      "rationale": "The square complete-band Fourier grid is a natural interpolation benchmark. Its symmetric pair collision admits an exact answer beyond the known conditioning scale: the four changing modes are resolved, their positivity is explicit, and the sharp numerical blowup coefficient and fixed-size error follow. The distinction between the least singular value and the condition number matters because the top singular value has a non-unit limit.",
+      "residual_risks": [
+        "Restricted to this symmetric pair and the specified consecutive band; not a generic cluster theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The mathematical proof uses the exact zero-rank criterion for a target \(0^i1 0^{n-1-i}\). For a host with \(Z\) zeros, a `1` after \(a\) zeros can serve target index \(i\) precisely if \(a\ge i\) and \(Z-a\ge n-1-i\). Thus a marker covers at most \(Z-n+2\) possible indices. The run bound \(Z\le2(K+1)\) and equality cases are proved in `RESULT.md` and do not depend on computational enumeration.
+## correctness
 
-The standalone checker `verify_onehot_rll.py` uses an independent greedy subsequence predicate and directly generates all words avoiding `000` at every host length from \(n\) through \(\lceil3n/2\rceil\), for every integer \(n\in[4,14]\). It compares the full set of minimizers with the constructive formula and checks that they also avoid `111`.
+PASS
 
-Run:
+For Z zeros, K ones, and surplus s=Z-(n-1), a marker at zero-rank a covers exactly [a-s,a] clipped to [0,n-1]. Covering all offsets requires K(s+1)≥n, and the host restriction gives Z≤2(K+1). For n≥4, s=0 is strictly too expensive; s=1 gives the asserted lower bound; s≥2 can attain it only at s=2 for odd n. At even length, the s=1 intervals must tile the target offsets in pairs. At odd length the s=2 word saturates all zero runs; at s=1 the first and last ranks must lie in {0,1} and {2m,2m+1}, respectively, and each gap is at most two. The feasible endpoint differences 2m and 2m-1 give precisely two end variants and the m single-short-gap variants. Each listed word meets the host constraint, covers the target offsets, has the required length, and in fact avoids 11. The boundary n=4 is included.
 
-```bash
-python3 verify_onehot_rll.py
-```
+## originality
 
-Expected final line:
+PASS
 
-```
-CHECK_OK total_candidate_hosts_examined=1640493
-```
+This pass is for the output-constrained minimum and full equality classification. The strongest indexed comparison already solves the same target family without the output constraint. That is material overlap in the target family and rank method, but the unrestricted optimization is not the same, and its optimum can be strictly smaller (for example, 22 versus 24 at n=16). No equivalent constrained classification or stronger implication was found in the inspected passages.
 
-The checker returned this line on the actual standalone file, with the detailed optimal-host counts \(1,5,1,6,1,7,1,8,1,9,1\) for lengths four through fourteen. This is a finite cross-check, not a proof of the infinite classification. No external formal certification or independent mathematical audit has been performed.
+## value
+
+PASS
+
+A forbidden host factor changes the optimum for the natural all-offset, one-marker test family. The exact equality classification explains the parity effect and distinguishes the saturated zero runs from the near-tiling cases, supplying an explicit benchmark for constrained supersequence theory rather than a small-instance census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

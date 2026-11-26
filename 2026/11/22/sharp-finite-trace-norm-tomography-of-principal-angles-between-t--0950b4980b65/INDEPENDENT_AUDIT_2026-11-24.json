@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:51:24.952246Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–63",
+        "VERIFICATION.md lines 19–25; checks/projection_pencil_check.py inspected, not executed"
+      ],
+      "rationale": "In the principal-angle block, P-tQ has positive trace 1-t and nonpositive determinant -t(1-a), so its trace norm is the eigenvalue difference sqrt((1+t)^2-4ta), including a=0 or 1. For coinciding ranges in zero-angle blocks, the ambient dimension hypothesis supplies the requisite unused zero directions. After division by 1+t, samples measure sums of sqrt(1-qu) with q=4t/(1+t)^2 strictly increasing into (0,1). For two lists of length k, the cumulative difference H has variation at most 2k including its initial and final jumps from and to zero. If it has r sign changes, each alternation of nonzero signed integer values costs at least 2 variation, with at least 1 each to start and end. Thus r<=k-1 even if multiple jumps at one point skip zero. Integration by parts (or integrating sqrt(1-qa)-sqrt(1-q) against the atomic difference) gives orthogonality to g_j=(1-q_j u)^(-1/2), including endpoint atoms. The consecutive Wronskians are positive by the displayed Vandermonde factorization in q_j/(1-q_j u); the functions are smooth across the closed interval. Choosing r separation points and a nonzero combination of the first r+1 functions vanishing there gives exactly r simple zeros by the extended Chebyshev zero bound, so its product with H has one sign and nonzero integral unless the atomic difference is zero. The matched multiset determines the blocks and common zero multiplicity on a fixed ambient space. For m<k, a Chebyshev evaluation minor in the Jacobian is nonsingular everywhere on the strict ordered interior chamber; hence the fibers have positive dimension, and the chamber has no permutation duplicates. For m=0 noninjectivity is immediate. The Hilbert–Schmidt expansion indeed depends only on the sum of the a_i.",
+      "residual_risks": [
+        "The finite diagnostic checks block and Wronskian identities only. Global uniqueness and optimality follow analytically, not from the diagnostic. Equivalence is for pairs on the same ambient dimension; no orientation or stability guarantee."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huybrechs first-page abstract gives Gaussian quadrature at l nodes and adjustable weights for 2l Chebyshev basis functions",
+          "Förster–Ostermeyer §1 equations (1.2)–(1.4) and p. 592 opening distinguish monomial exactness and strict-sense uniqueness",
+          "Doubling-weight literature indexed statement addresses bounds on minimal number of equal-weight nodes for a given weight"
+        ],
+        "reasoning": "Gaussian quadrature uses a different number of conditions and degrees of freedom; existence or node-count bounds for quadrature against a prescribed density do not imply global injectivity for these k fixed nonlinear observations. An abstract equal-weight theorem for derivative Chebyshev systems remains a relevant possible stronger result.",
+        "searches": [
+          "Huybrechs arXiv:1710.11244",
+          "Förster–Ostermeyer Math. Comp. 46 (1986), 591–599",
+          "Chebyshev-type Quadratures for Doubling Weights, lead search"
+        ]
+      },
+      "checked_sources": [
+        "Plevnik–Rani and Huybrechs OA PDF first pages",
+        "Förster–Ostermeyer OA journal PDF pp. 591–592 (opening)",
+        "Resultary records 0950b4980b65, 7e1e7b451f74 and 66a5dfb907bc (summaries)",
+        "Frozen source lines 68–79"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Plevnik–Rani abstract classifies Schatten p-isometries of the entire rank-k Grassmannian",
+          "Frozen source distinguishes the known one-scale distance and classical Jordan planes from finite weighted-pencil injectivity",
+          "The current proof needs equal-weight variation control as well as an all-scale kernel property"
+        ],
+        "reasoning": "Classifying maps preserving all Grassmann distances does not recover a pair from finitely many samples, and a block formula only gives the transform, not injectivity. The m<k failure also follows by a full-rank fiber construction on the strict interior, not from an isometry theorem.",
+        "searches": [
+          "Plevnik–Rani arXiv:2611.19919",
+          "Loring DOI 10.15352/afa/1396833512",
+          "Frozen prior-work lines 68–79 and generalized equal-weight quadrature lead search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The audited pencil formula is equivalent to recovering k unit-weight nodes from sums of sqrt(1-q_j u)",
+          "Förster–Ostermeyer, pp. 591–592, explicitly treats real equal-weight nodes, possibly repeated, but imposes monomial degree of exactness"
+        ],
+        "reasoning": "Equal-weight polynomial moment uniqueness from k nonconstant powers does not identify nodes from k nonpolynomial measurements by a linear change of basis. The functions here are indexed by arbitrary scales and require derivative Chebyshev separation.",
+        "searches": [
+          "Resultary on principal-angle recovery, trace-norm pencil sampling and finite atomic recovery",
+          "Web lookup for Chebyshev-type equal-weight quadrature injectivity and generalized Chebyshev systems"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact hit 0950b4980b65 is the same assigned finding",
+          "7e1e7b451f74 concerns two signed atoms, four polynomial moments and separation; 66a5dfb907bc concerns two complex atoms on a two-torus and eight Fourier moments (indexed statements)"
+        ],
+        "reasoning": "The nearby records have different unknowns, data and separation hypotheses; their count and existence claims supply no table or direct match for all k, arbitrary distinct scales and repeated or endpoint angles.",
+        "searches": [
+          "Resultary for arbitrary fixed trace-norm scales and projection principal-angle recovery",
+          "Catalogue comparisons 7e1e7b451f74, 66a5dfb907bc"
+        ]
+      },
+      "rationale": "The supported distinct claim is optimal exact recovery from arbitrary k distinct scale samples of the trace-norm pencil. The block decomposition, fixed-distance formulas, interpolation theory and ordinary polynomial equal-weight moment inversion are not novel ingredients.",
+      "residual_risks": [
+        "A generalized equal-weight Chebyshev theorem implying the injectivity step may exist under an inverse-moment formulation. Available statements do not establish that implication.",
+        "No full-text exclusion for Plevnik–Rani or related catalogue records; deeper passages were not accessible in the attempted retrievals."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known monomial equal-weight uniqueness is real overlap in the analogous inverse problem, not coverage of nonpolynomial pencil data",
+          "evidence": "The paper defines degree of exactness explicitly with p_i(x)=x^i, and states uniqueness in the strict-sense case where the maximal degree is at least n.",
+          "identifier_or_url": "https://www.ams.org/journals/mcom/1986-46-174/S0025-5718-1986-0829628-2/S0025-5718-1986-0829628-2.pdf",
+          "material_read": "OA PDF pp. 591–592 opening, abstract and §1 through (1.4); extraction lines 11–65",
+          "method": "Literature lead and original journal PDF preview",
+          "title": "On Weighted Chebyshev-Type Quadrature Formulas",
+          "trigger": "Same equal-weight inverse moment issue and explicit uniqueness claims"
+        },
+        {
+          "assessment": "Verified subject is Schatten isometries of fixed-rank projection spaces; the paper's internal formulas are not exhaustively checked",
+          "evidence": "Abstract classifies all, not necessarily surjective, Schatten p-isometries by linear/conjugate-linear isometries and possible orthocomplementation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.19919",
+          "material_read": "First page, abstract and start of §1 (extraction lines 10–40); sought block passage not retrieved",
+          "method": "OA PDF preview and literal passage attempt",
+          "title": "Schatten isometries of Grassmann spaces",
+          "trigger": "Closest domain and metric; possible projection norm-pencil formula"
+        },
+        {
+          "assessment": "Confirms Gaussian rule with weights not constrained to equality and twice as many exactness functions as nodes, not the equal-weight recovery cutoff",
+          "evidence": "2l basis functions are integrated exactly using l points and weights; weights are positive.",
+          "identifier_or_url": "https://arxiv.org/pdf/1710.11244",
+          "material_read": "First-page abstract and opening of §1 (extraction lines 10–38)",
+          "method": "ArXiv OA PDF preview",
+          "title": "On the computation of Gaussian quadrature rules for Chebyshev sets of linearly independent functions",
+          "trigger": "Stronger general Chebyshev-system quadrature comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–13, 31–63 and 68–72",
+        "Schatten Grassmannian geometry in arXiv:2611.19919 abstract"
+      ],
+      "rationale": "Recovering the full invariant of two equal-rank subspaces from scalar trace norms is a concrete inverse problem. The theorem makes every permissible choice of scale informative at the optimal sample count, including pairs with repeated or endpoint angles; fewer samples provably leave residual freedom on the generic chamber. Hilbert–Schmidt data at any number of scales collapse to one sum, so this is an informative distinction between two natural measurement norms.",
+      "residual_risks": [
+        "Injectivity at exact samples is not a numerical reconstruction procedure or a noise-stability theorem; no orientation recovery is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

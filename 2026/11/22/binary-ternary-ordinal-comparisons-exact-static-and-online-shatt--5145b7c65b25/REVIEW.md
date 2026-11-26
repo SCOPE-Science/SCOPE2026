@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact online rank follows from arbitrary-cardinality splitting of every version space and the trivial cardinality upper bound. The static theorem uses a necessary capacity inequality for one- and two-threshold coordinates, a fully explicit comparable perfect matching on nonempty proper Boolean subsets, and a constructive realization of all patterns. The exceptional one-coordinate case and the two-four-valued-coordinate counterexample have separate exact proofs. The `verify.py` program returned `VERIFY_OK 67` on the extracted source, confirming selected combinatorial constructions, complete finite mistake trees, and representative finite VC calculations. Finite checks are corroboration only.
+## correctness
 
-**Originality — PASS within inspected evidence.** The 2026 description-logic fitting paper studies richer concept learning and does not calculate these one-atom dimensions. Gey's exact continuous-domain one-sided VC theorem gives a strictly different finite-alphabet implication, and Leboeuf–LeBlanc–Marchand's ordinal Theorem 9 is an upper bound for two-sided partitioning and explicitly does not establish universal realizability. The exact binary–ternary static/online coincidence, heterogenous palette formula and four-value boundary were not found in the recorded searches. Residual priority risk includes classical chain-decomposition/learning terminology and unavailable exhaustive historical coverage; no formal priority certification is asserted.
+PASS
 
-**Value — PASS.** The result completes the two- and three-symbol one-sided atomic comparison regime uniformly for all mixtures, identifies the exact online mistake budget for any finite ordinal feature landscape, and locates a sharp four-symbol failure. The small alphabet threshold is mathematically motivated: the transition from one to two comparable nontrivial traces per coordinate is paired with an explicit perfect matching of Boolean subsets. This provides exact capacity information for a basic fragment of finite-valued description-logic feature tests, not merely an arbitrary numerical slice. The finite-ordinal capacity differs from the unrestricted continuous one-sided VC theorem already at six ternary coordinates.
+All nontrivial thresholds are distinct on the full product. In an arbitrary version space, a coordinate can make exactly j of its retained thresholds true for every j between zero and its retained threshold count. Independent coordinates fill the entire allowed interval, adjusted by whichever constants are present, so every version space of size at least two admits a balanced split. Induction and the distinct-hypothesis leaf bound give the general finite-palette online formula. Statically, each coordinate supplies at most its available number of nonconstant traces. For s>=3, pair each proper set not containing 1 with its union with {1}, except where this would use the full set. The two uncovered sets {1} and [s] minus {1} can be absorbed by replacing the pair ({2},{1,2}) with ({1},{1,2}) and ({2},[s] minus {1}); strict inclusions hold even for s=3. Choose as many pairs as ternary coordinates permit and assign leftover traces individually to binary coordinates, possible by 2a+b>=2^s-2. The nested traces really do arise from the 0/1/2 assignment; singleton traces ensure distinct sample points. For s=2 two independent coordinates supply opposite singletons, whereas one chain cannot. This also proves the exact one-coordinate exceptions; two quaternary features give Ldim=3 by the eight-hypothesis law but cannot cover three incomparable singletons, so VC=2.
 
-Closest literature and scope limits: Funk–Jung–Voellmer (2026, arXiv:2605.07452v1); Leboeuf–LeBlanc–Marchand (2022, arXiv:2210.10781v1, §5.2 and Appendix B); Gey (arXiv:1203.0193, §3). Only full independent Cartesian-product feature domains, fixed positive comparison polarity, and two Boolean constants are in scope. Literature coverage is incomplete and independent verification has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the exact mixed-palette static threshold-capacity criterion and its sharp equality and separation with the online dimension. The inspected closest statements do not yield this criterion or realize the needed finite trace packing. The balancing argument in isolation is elementary; the distinction is the exact paired classification including its boundary.
+
+## value
+
+PASS
+
+This is an exact capacity law for a natural restricted learning class, not a sampled value or an arbitrary alphabet slice. Mixed binary and ternary features cover all product mixtures of the two smallest nontrivial palettes, and an elementary but nonautomatic trace matching establishes that adaptation gives no advantage in exactly this regime apart from the stated one-coordinate exception. The two-four-valued-feature example gives a minimal palette change that breaks the uniform equality and explains the distinct static obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

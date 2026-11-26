@@ -1,0 +1,183 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:54:26.265096Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–89",
+        "Frozen VERIFICATION.md, verify.py, symbolic_check.py and supplied output logs, inspected not executed",
+        "/workspace/branches/353220c0-2106-4a3d-8d92-250afcc2c9fb/record4_numeric_check.py"
+      ],
+      "rationale": "In the stated independent Gaussian observation-noise model, integration of the fixed Matérn kernel gives prior variance 8/e−2 and equal observation cross-covariances m(s). The observation covariance has eigenvalue 1+η+k(s) on the equal-coordinate direction and remains nonsingular at s=0 with two independent errors. Thus the removed variance is 2m(s)^2/(1+η+k(s)). With m'=−su and k'=−4s exp(−2s), its log derivative is 2su(T−η)/(m(1+η+k)), so sign is decided by one threshold function. Differentiation gives T'=2 exp(−2s)[s−(m/u)(2+u'/u)]. To validate the uniform bounds, the terms in the cosh tail starting with s^4/24 have ratio at most 1/120 on [0,1/2]; thus that tail is below s^4/20 for s>0. With sinh(s)/s>=1+s²/6 this gives u>=139 exp(−1/2)/160; the exact power series gives u<=exp(−1/2). Dropping the positive derivative term in u' gives u'>−2 exp(−1/2)sinh(1/2), with sinh(1/2)<0.522 by its series. This gives u'/u>−1.21. Also m>=2−3/e>0.89, so su/m<0.35 and T'<0. The endpoint values are T(0)=8√e−12>0 and T(1/2)=(1+2e−e²)/(e(e−2))<0. The objective strictly peaks at the unique threshold crossing or, at and above critical noise, at zero, without a tied positive separation. Since m and u are even near zero and k'(0)=0, the right derivative T'(0)=−4m(0)/u(0)=−(16√e−20) verifies the linear inversion. In the separately authored numerical calculation at η=0.1, s=0.234026645898 and posterior variances 0.047354068218 (optimum) and 0.051835871485 (collision) agreed with the finding; independent integration and the explicit matrix inverse corroborate the formulas.",
+      "residual_risks": [
+        "The numerical computation is not the continuum proof. The linear law concerns half-separation and the two-node symmetric class only.",
+        "The Gaussian conditioning calculation uses observation noise independent of the latent process, as in the stated observation-noise model."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cai–Lam–Scarlett pp. 4–5 formulate noisy Matérn quadrature and give query-budget error bounds. Resultary a7be6c7ddb05 proves distinct optimal nodes in an n-sensor exponential-covariance precision-budget model.",
+          "Full text of Pronzato–Zhigljavsky and Mukherjee not obtained through the OA attempts."
+        ],
+        "reasoning": "Query-budget rates and a broad design principle do not resolve this exact two-measurement nugget optimization. The n-sensor exponential theorem has a different covariance, a different budget and no collision. The inaccessible papers are unresolved, not exonerated by title.",
+        "searches": [
+          "arXiv:2202.10615 noisy Matérn problem and Theorem 1",
+          "10.1137/18M1210332",
+          "10.1081/STA-120022249",
+          "Resultary a7be6c7ddb05"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary ca4d80c46fdc, 19a27b2e304d, b27c43c7986c, 15716724ea95, a7be6c7ddb05, d5fbecc13c52",
+        "arXiv:1812.08509 and arXiv:2202.10615, passages specified above",
+        "DOIs 10.1137/18M1210332 and 10.1081/STA-120022249, access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A variance formula fixes the optimization objective but does not establish the sign and strict decrease of the Matérn-specific T or exclude competing optima. The covariance (1+2s)exp(−2s) has a nonzero right cubic term, unlike an analytic even squared-exponential covariance."
+        ],
+        "reasoning": "The exact unique global optimizer within the paired class and linear law need the present one-crossing and boundary analysis. Local weight-positivity and asymptotic error bounds do not imply them, nor does an optimizer for a different kernel, observation budget or integration measure.",
+        "searches": [
+          "Resultary 19a27b2e304d, b27c43c7986c and 15716724ea95 original findings",
+          "Karvonen et al. §3 Corollary 1",
+          "Cai et al. Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equal-noise symmetric objective is also regularized squared kernel-quadrature error. Karvonen et al. studies weight positivity/magnitude; Resultary d5fbecc13c52 concerns a weight-sign threshold for colliding three-node inputs, not a minimizing two-node design.",
+          "Resultary 19a27b2e304d gives a replication/separation switch for a Gaussian-measure squared-exponential quadrature model."
+        ],
+        "reasoning": "Changing from posterior variance to regularized kernel error does not change the design question. A sign change of a weight at prescribed nodes is not a location optimum, and the square-root law of the squared-exponential design does not supply the Matérn half-separation law.",
+        "searches": [
+          "Resultary: two-site Gaussian quadrature, midpoint replication, finite nugget collision",
+          "Resultary: three-node colliding kernel quadrature threshold",
+          "arXiv:1812.08509 §§3–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical target ca4d80c46fdc states the threshold and linear onset. Distinct records b27c43c7986c and 15716724ea95 retain nonzero separation at every finite noise; 19a27b2e304d has a different threshold problem and onset law."
+        ],
+        "reasoning": "The identical entry does not establish separate coverage, and same-day timing provides no ordering. The distinct exact families cannot be relabeled to obtain the claimed threshold: their covariance/measure and collision behavior differ.",
+        "searches": [
+          "Resultary: exact Matérn 3/2 threshold 8√e−12 and linear collision",
+          "Resultary: symmetric Gaussian replication, exponential and bridge two-site noisy quadrature"
+        ]
+      },
+      "rationale": "The distinctive result is the exact finite-noise location switch and its linear onset for the stated Matérn-3/2 geometry, not the usual Bayesian-quadrature variance formula or the general existence of a replication phenomenon. The nearest different collision result uses a squared-exponential kernel, Gaussian integration measure, and a precision budget, with square-root rather than linear onset. The distinct exponential and bridge analogues have no finite noise collision.",
+      "residual_risks": [
+        "Full text of Pronzato–Zhigljavsky and Mukherjee not obtained; those source gaps and other historical design literature leave priority uncertainty.",
+        "An unrelated exact-threshold search result is not evidence of absence; no exhaustive novelty claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record, not an independent comparator",
+          "evidence": "The same threshold, monotonicity, unique replication and linear onset.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-finite-noise-collision-transition-for-symmetric-two-site-m--ca4d80c46fdc",
+          "material_read": "RESULT.md original finding and continuation at offsets 0 and 6494",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp finite-noise collision transition for symmetric two-site Matérn-3/2 quadrature",
+          "trigger": "Exact Resultary match"
+        },
+        {
+          "assessment": "Substantial analogous phenomenon; not an implication for this kernel and measure; shared date gives no chronology",
+          "evidence": "Squared-exponential covariance, Gaussian integration measure and a precision budget; square-root onset.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-replication-to-separation-transition-in-symmetric-gaussian--19a27b2e304d",
+          "material_read": "Original Resultary finding and hypotheses",
+          "method": "Local Resultary mirror",
+          "title": "Sharp replication-to-separation transition in symmetric Gaussian quadrature",
+          "trigger": "Closest structural analogue of the design switch"
+        },
+        {
+          "assessment": "Different kernel and classification",
+          "evidence": "Finite-noise optimizers stay separated and trisection occurs at η=1.",
+          "identifier_or_url": "2026/11/22/SCOPE-noise-universal-trisection-for-two-site-exponential-kernel-quadr--b27c43c7986c",
+          "material_read": "Original Resultary finding",
+          "method": "Local Resultary mirror",
+          "title": "Noise-universal trisection for two-site exponential-kernel quadrature",
+          "trigger": "Two equally noisy sites optimizing a related covariance"
+        },
+        {
+          "assessment": "Different covariance; stronger design-class scope for a different model is not broader coverage here",
+          "evidence": "Global optimum in the Brownian-bridge problem stays distinct at every finite noise.",
+          "identifier_or_url": "2026/11/22/SCOPE-unique-noncolliding-optimal-locations-for-two-noisy-brownian-bri--15716724ea95",
+          "material_read": "Original Resultary finding",
+          "method": "Local Resultary mirror",
+          "title": "Unique noncolliding optimal locations for two noisy Brownian bridge observations",
+          "trigger": "Exact noisy two-node location theorem"
+        },
+        {
+          "assessment": "Different kernel and transition criterion",
+          "evidence": "Exponential covariance, n distinct sensors, equal spacing at P=n, not collision.",
+          "identifier_or_url": "2026/11/22/SCOPE-globally-optimal-precision-budgets-and-observation-meshes-for-or--a7be6c7ddb05",
+          "material_read": "Original Resultary finding",
+          "method": "Local Resultary mirror",
+          "title": "Globally optimal precision budgets and observation meshes for Ornstein–Uhlenbeck quadrature",
+          "trigger": "Broader sensor budget and exact mesh theorem"
+        },
+        {
+          "assessment": "Different optimized or measured quantity",
+          "evidence": "A quadratic spacing scaling for weight sign at three specified nodes, not optimal placement of two sites.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-universal-quadratic-noise-threshold-for-colliding-three-node-k--d5fbecc13c52",
+          "material_read": "Original Resultary finding",
+          "method": "Local Resultary mirror",
+          "title": "A universal quadratic noise threshold for colliding three-node kernel quadrature",
+          "trigger": "Potentially equivalent collision threshold wording"
+        },
+        {
+          "assessment": "Primary passages concern positivity/magnitude and local design conditions, not the stated location threshold",
+          "evidence": "Corollary under smooth totally positive kernels; Matérn discussed in Sobolev/RKHS magnitude setting.",
+          "identifier_or_url": "https://arxiv.org/pdf/1812.08509",
+          "material_read": "pp. 1–3, §3 Corollary 1 (p. 9, offset 69008), §4 (pp. 10–11, around offset 78000)",
+          "method": "OA PDF",
+          "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+          "trigger": "Matérn quadrature and link from design to quadrature weights"
+        },
+        {
+          "assessment": "Query-budget error analysis rather than exact two-site location optimization",
+          "evidence": "Bounds in terms of number of queries and noise; not a collision theorem in those statements.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.10615",
+          "material_read": "Problem setup PDF p. 4 (offset 16993) and Theorem 1 p. 5",
+          "method": "OA PDF",
+          "title": "On Average-Case Error Bounds for Kernel-Based Bayesian Quadrature",
+          "trigger": "Noisy Bayesian quadrature for Matérn covariance"
+        },
+        {
+          "assessment": "No full-text coverage conclusion",
+          "evidence": "Potentially relevant broad framework; exact source statement remains inaccessible through the tried routes.",
+          "identifier_or_url": "https://doi.org/10.1137/18M1210332",
+          "material_read": "Citation; full text not retrieved",
+          "method": "Bounded OA DOI access attempts, HTTP 403",
+          "title": "Bayesian Quadrature, Energy Minimization, and Space-Filling Design",
+          "trigger": "Broad design framework and possible equivalent kernel formulation"
+        },
+        {
+          "assessment": "Historical risk remains; title is not evidence of equivalence",
+          "evidence": "Unable to compare exact noise, kernel and design assumptions from primary text.",
+          "identifier_or_url": "https://doi.org/10.1081/STA-120022249",
+          "material_read": "Citation; full text not retrieved",
+          "method": "Publisher and OA attempts, HTTP 403 on publisher route",
+          "title": "On Sampling Designs for Integral Estimation of a Random Process",
+          "trigger": "Older plausible design result cited by the exponential analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and assumptions, lines 5–41",
+        "Distinct replication and noncolliding Resultary design findings above"
+      ],
+      "rationale": "The replication decision is meaningful for a natural regularized integral design: exactly two noisy evaluations can be spent either at distinct sites or as two independent midpoint observations. Knowing the exact noise boundary and proving a globally unique paired optimizer gives more than a local stability test. The linear collapse distinguishes the particular Matérn covariance from smoother analogues and gives a quantitative law near the switch.",
+      "residual_risks": [
+        "No conclusion for arbitrary asymmetric pairs, other range or smoothness parameters, or more than two observations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

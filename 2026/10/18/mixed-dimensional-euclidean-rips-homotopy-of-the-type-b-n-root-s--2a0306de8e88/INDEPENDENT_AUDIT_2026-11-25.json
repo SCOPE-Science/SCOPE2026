@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:36:49.470471Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–62",
+        "VERIFICATION.md lines 19–27",
+        "verify.py (inspected, not executed)"
+      ],
+      "rationale": "Each long root is the sum of one edge of the short-root crosspolytope graph G; the two summands are its only short neighbors at distance 1 or at squared threshold 2. Distinct short roots are joined at squared distance 2 exactly when they have different supports. The distance-one graph is therefore the once-subdivided G, with rank |E|-|V|+1=2n(n-2)+1; nothing is joined below 1. For long roots, squared distance 2 means exactly one shared coordinate with matching sign. Pairwise-intersecting distinct two-element supports either form a star or the three edges of a triangle. In a star, antipodal choices of the other signed summand cannot be adjacent; the allowed faces form the stated crosspolytope base. The triangles on three supports have matching signs and give precisely 8 binom(n,3) exceptional long triangles. This leaves only the short crosspolytope boundary and the mixed bridge triangles in addition to the short-vertex cones. Each cone collapses relative to its radial edges by pairing nonvertex base faces with their cones, in descending dimension; separate cones meet only at untouched long vertices. Under this collapse, each side of an exceptional triangle retracts to the radial two-edge path in its cone, up to homotopy relative to endpoints. Thus the cones plus exceptional triangles form, up to homotopy, the short boundary's two-skeleton. It is simply connected and its Euler characteristic gives H_2 of rank 8 binom(n,3)-q, with q=2n(n-2)+1. Hurewicz and the simply connected homology Whitehead theorem give a wedge of that many 2-spheres. The bridge triangles give a mapping cylinder between the once-subdivided graph and the short graph, so the final gluing is the homotopy pushout over G. Both graph maps are null because the targets are simply connected, and the additional summand is the suspension of G, a wedge of q two-spheres. This proves the integral wedge with S^{n-1}, including the coincident dimensions giving nine 2-spheres at n=3. Coordinate integrality excludes squared pair distances strictly between 2 and 3, and the endpoints are inclusive as claimed.",
+      "residual_risks": [
+        "The recorded F_2 computations for n=3 to 6 check finite face data and Betti numbers only; the integral and uniform conclusions rest on the verified attaching argument.",
+        "No later scale or equivariant splitting is certified by this review."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bounded matching size at k=2 recovers the clique complex of the line graph of the complete graph, not the signed short-root graph with the added Euclidean constraints.",
+          "The cube work concerns Hamming graph distances; the circle and Platonic-solids works treat point sets distinct from the union of both standard B_n shells."
+        ],
+        "reasoning": "No inspected general theorem supplies both the signed-coordinate clique exclusions and the attaching maps of the extra crosspolytope sphere in arbitrary rank. The line-graph theorem is a strong comparator for the auxiliary model only.",
+        "searches": [
+          "arXiv:2009.12130 Lemma 3.2; arXiv:math/0410345 pp. 2–3",
+          "arXiv:2103.01040 p. 2; arXiv:2302.14388 p. 1; arXiv:1503.03669 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md lines 68–80",
+        "arXiv:2009.12130",
+        "arXiv:math/0410345",
+        "arXiv:1503.03669",
+        "arXiv:2103.01040",
+        "arXiv:2302.14388",
+        "Resultary entries fda6679c7bee, c10ad684de7e, a938e187ebab, 9a1f0048ac18 and 559a0d730ca9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general line-graph lemma returns a two-dimensional model. The full Euclidean gluing has a short-root S^{n-1} summand in addition to the two-dimensional classes.",
+          "The exact eighteen-point theorem has hypothesis n=3, where the dimension n-1 is 2 and the two ranks merge."
+        ],
+        "reasoning": "Neither prior statement implies the distinct-sphere-dimension result for any n>=4; the signed cone collapses and graph pushout through the short-root boundary are a separate argument in the frozen result. No historical priority is inferred from catalogue dates.",
+        "searches": [
+          "arXiv:2009.12130 Lemma 3.2 versus the cones-plus-bridges pushout",
+          "Resultary fda6679c7bee Finding versus RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Goyal–Shukla–Singh prove that the clique complex of the line graph is homotopy equivalent to the two-skeleton of the original clique complex; a related catalogue entry gives a star-collapse model for line graphs.",
+          "Incident edges {e_1,e_2} and {e_1,-e_2} of G correspond to long roots separated by distance 2, so adjacency in the line graph is not adjacency at the target Rips threshold."
+        ],
+        "reasoning": "The prior star/triangle mechanism genuinely matches the auxiliary two-skeleton outcome, but the missing long-root adjacencies and added short vertices and bridges prevent identifying the whole Rips complex with a line-graph clique complex.",
+        "searches": [
+          "Resultary: unrescaled type-B root-system Euclidean Rips homotopy, crosspolytope and long-root line-graph descriptions",
+          "arXiv:2009.12130, Theorem 3.1 and Lemma 3.2",
+          "Resultary ID 559a0d730ca9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "fda6679c7bee states seventeen wedged S^0 (eighteen points), seven circles and nine 2-spheres in exactly the same B_3 ranges; it also classifies later scales.",
+          "c10ad684de7e classifies the twelve long roots alone. The same-day type-A entries concern roots e_i-e_j, not the signed two-shell B_n point cloud."
+        ],
+        "reasoning": "There is exact coverage of the three n=3 cases, independent of publication order. Neither those stages nor long-roots-only Betti data supply the uniform n>=4 mixed-dimensional type.",
+        "searches": [
+          "Resultary: type B_3 eighteen-point integral Rips filtration, cuboctahedron and general root systems",
+          "Resultary IDs fda6679c7bee, c10ad684de7e, a938e187ebab, 9a1f0048ac18"
+        ]
+      },
+      "rationale": "Credit the established line-graph clique/two-skeleton mechanism and the exact B_3 overlap. The distinct supported statement is the uniform all-rank metric result and the short-sphere/bridge gluing that produces genuinely different homology dimensions for every n>=4; neither the known two-skeleton result nor the n=3 classification determines it.",
+      "residual_risks": [
+        "The stated prior type-D subconfiguration work has no specific citation in the frozen comparison and was not substantiated; it does not supply evidence of either priority or lack of coverage.",
+        "The bounded checks do not rule out an unindexed equivalent all-rank calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers auxiliary line-graph mechanism, not the metric complex or final gluing",
+          "evidence": "The good-cover argument identifies Delta(L(G)) up to homotopy with Delta(G)^{(2)} for any graph.",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.12130",
+          "material_read": "Theorem 3.1 and Lemma 3.2, pp. 5–6 (offsets 15778–17517)",
+          "method": "Open-access PDF passage inspection",
+          "title": "Topology of Clique Complexes of Line Graphs",
+          "trigger": "Strongest general star/triangle and two-skeleton comparison"
+        },
+        {
+          "assessment": "Related sphere-wedge theorem with another host",
+          "evidence": "At k=2 every two edges must intersect and the clique complex is that of L(K_n), not the full metric B_n complex.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0410345",
+          "material_read": "Definition and wedge theorem, pp. 2–3",
+          "method": "Open-access PDF passage inspection",
+          "title": "Complexes of Graphs with Bounded Matching Size",
+          "trigger": "Equivalent uncolored edge-clique model in the complete graph"
+        },
+        {
+          "assessment": "Identical initial three stages for n=3, and additional later stages; no arbitrary-rank result",
+          "evidence": "Same eighteen points and inclusive Euclidean convention; the stated wedge of seventeen S^0 is eighteen points, not seventeen.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-integral-euclidean-vietoris-rips-filtration-of-the-eighteen-type--fda6679c7bee/RESULT.md",
+          "material_read": "Finding, assumptions and first proof passage (offsets 0–2521)",
+          "method": "Configured local mirror, exact statement",
+          "title": "Integral Euclidean Vietoris–Rips filtration of the eighteen type-B_3 roots",
+          "trigger": "Exact finite-rank match"
+        },
+        {
+          "assessment": "Graph-metric rather than Euclidean signed roots",
+          "evidence": "Binary strings with Hamming shortest-path distance, not the union of short and long roots.",
+          "identifier_or_url": "https://arxiv.org/pdf/2103.01040",
+          "material_read": "Metric/model discussion, p. 2",
+          "method": "Open-access PDF passage inspection",
+          "title": "On Vietoris–Rips complexes of hypercube graphs",
+          "trigger": "Rips result in cited literature with a different metric"
+        },
+        {
+          "assessment": "Different point configurations",
+          "evidence": "Uses vertex sets of Platonic solids, not the eighteen-point long-and-short root union.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.14388",
+          "material_read": "Abstract and object scope, p. 1",
+          "method": "Open-access PDF passage inspection",
+          "title": "The Vietoris–Rips Complexes of Platonic Solids",
+          "trigger": "Possible exact finite Euclidean polyhedron overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof parts 2–4",
+        "arXiv:2009.12130 Lemma 3.2",
+        "Resultary entry fda6679c7bee"
+      ],
+      "rationale": "The two unequal Euclidean root shells form a canonical metric point cloud, and the first nontrivial thresholds are intrinsic rather than arbitrary. The mixed gluing yields a rank-uniform, torsion-free example with homology in both a fixed degree and a rank-dependent degree; knowing the long roots or a field Betti table would not explain the additional sphere or the integral attaching type.",
+      "residual_risks": [
+        "The certified value is the uniform initial-scale classification, not completion of the whole Rips filtration. The n=3 match is not counted as new value."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

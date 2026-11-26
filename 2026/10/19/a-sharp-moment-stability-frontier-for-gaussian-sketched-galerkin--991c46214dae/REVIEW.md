@@ -1,19 +1,21 @@
-# Scientific review: Gaussian-sketched one-mode decay
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The sketched Galerkin identity reduces to a single scalar rate. Decomposing the noninvariant trial vector's residual into an orthogonal component and using independent Gaussian images of orthogonal vectors gives exactly a standard normal numerator divided by the square root of an independent chi-square denominator. Integration against the chi-square density at zero proves divergence of every positive frozen exact-time moment; this is an infinite-dimensional-in-time analytic integral, not an inference from sampling. Student moments exist exactly below their degree threshold, proving that frozen Euler has a finite squared moment precisely for sketch rows greater than twice the step count. Repeated independent fresh sketches yield a geometric squared-moment factor and its sharp stability interval. The special invariant-vector boundary is explicitly excluded and treated separately. The embedded checker passed its finite diagnostics, without substituting computation for proof.
+PASS
 
-## Originality — PASS, with documented residual risk
+For the stated fixed real trial line, the Gaussian projections on u and (Au-mu*u)/beta are independent. After normalization by ||Su||, the dot product with the second projection has conditional law N(0,1) independent of V=||Su||^2, giving rate mu+beta*Z/sqrt(V) and the shifted Student law. The sign event is Z<0 and V/(V+Z^2)<beta^2/(mu^2+beta^2), which gives the half-beta expression, independently of sign, and V/ell tending to one gives convergence in probability. For p,t>0, conditioning on V and doing the normal integral gives E exp(-pt*Lambda)=exp(-pt*mu) E exp((pt*beta)^2/(2V)); this is infinite at V=0 under any finite chi-square degrees of freedom. A reused Euler multiplier raised to power 2k is comparable to |Z/sqrt(V)|^(2k) in the tails, so the inverse-chi-square integral converges exactly for ell>2k, with logarithmic divergence at equality. The same infinite second moment holds for the error relative to any deterministic finite comparator, by a triangle bound. In the independent case Tonelli factors the nonnegative product; no factor has zero expectation for beta>0 and h>0. For ell>2 the one-step expectation is (1-h*mu)^2+h^2*beta^2/(ell-2), strictly below one exactly on the stated interval and equal to one at the positive endpoint. The diagonal example and deterministic beta=0 exception agree. The uploaded script was read, not executed; finite samples can check scales/quantiles but not moment divergence.
 
-The assessed claim is the combination of unconditional frozen positive-time moment explosion, the exact frozen Euler finite-moment horizon, and the independent-refreshed Euler stability boundary. The Student-ratio representation, Student tail-moment facts, and fixed-vector negative-rate/sign-loss probability are recognized prior ingredients, not independent novelties. The closest inspected 2026 dynamics paper treats oblique and orthogonal sketches under embedding hypotheses and numerical experiments, rather than this unconditional moment frontier; the inspected 2025 sketched Krylov ODE work supplies a projected ODE formula but not the sharp laws. The 2018 Gaussian model-reduction Galerkin source develops high-probability embedding bounds, which do not imply unconditional moments. Targeted published-record searches and recovered local historical claims disclosed no statement implying the whole theorem. An earlier equivalently formulated Gaussian sketched-flow theorem could still exist in unindexed or inaccessible literature.
+## originality
 
-## Value — PASS
+PASS
 
-The result addresses an actual choice in sketched time propagation: freezing a sketch versus independently redrawing it. It proves that finite sketch dimension can give apparently consistent rates in probability while destroying every positive-time expected energy, and identifies the exact finite sketch-size and stepsize boundary for fresh Euler. The sharp distinction holds for a natural fixed-trial Galerkin model of a dissipative positive-definite system, and is relevant as a boundary example when designing numerical time propagators. It does not establish instability of higher-rank, conditioned, stabilized, or application-specific solvers.
+Pass for the explicit dynamical comparison of frozen and independent-refresh Euler, particularly the independent mean-square frontier, not for the Gaussian sign law, the shifted-Student rate, or the sketched projected equation. An earlier same-rate reciprocal calculation is mathematically very close and makes the frozen-law consequences short deductions. A later Resultary exponential record substantively overlaps the exact-time portion, independently of its date, but neither it nor the earlier records give the two Euler reuse conventions and their different boundaries. No inspected source covers the combined Euler stability result.
 
-## Closest sources and limits
+## value
 
-Carrel and Grigori, arXiv:2607.03402v1 (first publicly posted July 3, 2026), especially Sections 4 and 6. Krieger and Schweitzer, arXiv:2510.17538v1 (October 20, 2025), Section 4. Balabanov and Nouy, arXiv:1803.02602 (March 7, 2018), the Galerkin embedding analysis. The published-record comparison with a two-component PAGE mean-square stability law concerns a different stochastic optimization update, not Gaussian projected ODEs. Independent mathematical and bibliographic review remains unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The same unconditional Gaussian sketch at the same finite row count and step size can have a decaying second moment under independent refresh and an infinite one after finitely many steps under reuse. The sharp refreshed stepsize ceiling and the precise reuse cutoff determine where this happens, which neither a high-probability embedding statement nor a negative-rate probability decides. The distinction concerns a fixed rank-one model, not a prescription for higher-rank algorithms or computational cost.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

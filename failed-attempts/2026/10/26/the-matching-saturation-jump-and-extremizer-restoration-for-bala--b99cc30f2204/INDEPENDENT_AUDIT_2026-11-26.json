@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:34:06.715292Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–38,42–124; independent potential derivation and symbolic gap checks",
+        "VERIFICATION.md:19–27 and check.py:25–99 inspected, not executed",
+        "Independent replay: python3 /tmp/opencode/frozen_audit_replay.py 5; exact potentials and Kirchhoff checks for all s=3–9 and t=0,…,s, with both norms, maximizing sets, jumps and disjoint values checked."
+      ],
+      "rationale": "For the unit edge source A_p→B_q, let δ_i=1_{i≤t}, m=δ_p+δ_q and C=sum(Y)−sum(X) for the two shores' potentials. Direct Kirchhoff equations give (s−2δ_i)(X_i−Y_i)=1_{i=p}+1_{i=q}+C. Summing gives C=−(s−2+m)/T, and the current to A_aB_b is (1_{a=p}+1_{b=q}+C+δ_a(X_a−Y_a)+δ_b(X_b−Y_b))/s. This reproduces the disjoint-entry formula, including the strict t=2 onset and the reversed matched pair. The endpoints are strict extrema of the potentials since removal of either terminal leaves the graph connected (for s=3 the crown is a cycle; for s≥4 same-shore vertices retain a common neighbor). Kirchhoff then gives total signed current 1 and incident positive mass 2−r_e. Consequently c_e=3−2r_e+2E_e and p_e=c_e+1−2r_e, with the stated extras. Substitution reproduces all four strict incomplete-matching gap comparisons. In the crown, symmetry and trace rank 2s−1 give r_e=(2s−1)/(s(s−1)), and the reverse edge contributes 1/(s(s−1)). These yield the saturated formulas. The monotonicity, final differences and asymptotics follow by subtraction and t/T=O(1/s) uniformly for t<s. Edge symmetry of the matrices equates induced 1 and infinity norms; no minimization over projections is needed.",
+      "residual_risks": [
+        "Replay bounds do not cover general s; the analytical comparisons do. The result only concerns canonical projections for the described matching deletions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The crown record states the same saturated constants and stronger projection optimality. Rectangular intact and one-erasure results specialize to t=0 and t=1. The primary papers give the general cut/cycle and transfer-current frameworks."
+        ],
+        "reasoning": "Those sources alone do not give the intermediate trajectory; the separate whole-kernel least-squares result does. An optimality result about arbitrary projections at the crown is stronger there, but is not required for this canonical computation.",
+        "searches": [
+          "Resultary 6319a2a73e78, 4fee91105690, a6d084f27adb, 430cc80014f3 and a18a2c603916",
+          "arXiv:2305.12582 and 1312.2946"
+        ]
+      },
+      "checked_sources": [
+        "Resultary be4205de9f5c, 6319a2a73e78, 4fee91105690, a6d084f27adb, 430cc80014f3 and a18a2c603916",
+        "arXiv:2305.12582 and 1312.2946"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For t<s, Eq. (1) gives r_e−r_UU=m[(s−2)²+t−m]/(HT)>0 for a feasible non-UU column with m matched endpoints, since t≥m. For any column, p_e=c_e+1−2r_e. The proof of the least-squares result already sorts entries by endpoint classes and gives the reversed pair numerator s²−4s+2t."
+        ],
+        "reasoning": "The known cut maximizers and strict diagonal minimum force the same strict cycle maximizers and the cycle norm 4−4R. All crown columns are equivalent and its cycle norm is already stated in the crown record. The two deficits follow by taking differences. For disjoint edges a single substitution in the known kernel indexed by numbers of matched endpoints and reciprocal coincidences gives the frozen formula (2); k=1 gives three explicit values, and k=2 is the already inspected reversed marked pair. This is direct implication even where the sign transition is not separately advertised.",
+        "searches": [
+          "be4205de9f5c, Finding, Eq. (1), U/M/B sign classification and Eq. (5)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "be4205de9f5c gives the orthogonal projector onto additive observed-cell data a_i+b_j. Substituting minus the second-shore potential for b_j gives the cut space; its Eq. (1) uses u_e=z_e/s² and is entrywise the same Q."
+        ],
+        "reasoning": "The complement is I−Q in the same real edge geometry. Changing the interpretation of the coordinate set does not change the projection.",
+        "searches": [
+          "Resultary: balanced biclique matching deletion, cut–cycle projections, and two-way additive least squares; matching records be4205de9f5c and 6319a2a73e78"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact cut norm for each s,t, exact final drop and entire indexed kernel for each s,t; both crown norms also explicitly indexed."
+        ],
+        "reasoning": "The match is a family of closed forms, not finite tables or coincident parameters. The result for one erased edge matches both balanced endpoint norms and maximizing-column counts, but is not decisive by itself.",
+        "searches": [
+          "be4205de9f5c, Finding and Eq. (1); 6319a2a73e78, Finding; intact and one-erasure Resultary records"
+        ]
+      },
+      "rationale": "A distinct indexed result, be4205de9f5c, treats the identical cut kernel in additive least-squares notation and states its whole deletion trajectory, maximizing rows, larger saturation drop and classwise sign analysis. The cycle trajectory and precise disjoint signs follow directly from those full entries, not just from endpoint norms. The full-crown endpoint was also independently covered. The later date of the least-squares record is not a claim of earlier priority, but it does not erase demonstrated equivalent indexed scientific coverage. No distinct substantial remainder survives.",
+      "residual_risks": [
+        "The bounded external search does not establish absence of equivalent papers. Record dates are not used to assign priority or infer derivation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full cut trajectory and kernel equivalent; complementary claims follow directly",
+          "evidence": "Identical row maximizers and final cut jump; Eq. (1) is the full transfer-current matrix after identifying cut and additive functions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-matching-deletion-stability-for-two-way-additive-least-squ--be4205de9f5c",
+          "material_read": "Mirrored RESULT.md Finding, Assumptions, Proof Eq. (1) and complete U/M/B sign analysis, offsets 0–6841, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror and direct algebraic identification",
+          "title": "Sharp matching-deletion stability for two-way additive least squares",
+          "trigger": "Same matching-deleted design under an additive-projection alias"
+        },
+        {
+          "assessment": "Saturated constants covered",
+          "evidence": "3−4/s and 2(2s²−6s+3)/(s(s−1)) are exactly the frozen values, with stronger optimality statements.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-cut-and-cycle-complementability-after-deleting-a-perfect-m--6319a2a73e78",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Local mirror and direct formula comparison",
+          "title": "Sharp cut and cycle complementability after deleting a perfect matching",
+          "trigger": "Perfect-matching boundary"
+        },
+        {
+          "assessment": "One-erasure norms and maximizing columns covered",
+          "evidence": "The rectangular formulas specialize to both s-by-s endpoint constants and the (s−1)² maximizing columns.",
+          "identifier_or_url": "Resultary record a6d084f27adb",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Local mirror and balanced specialization",
+          "title": "Exact two-to-one endpoint Hodge norm response to one missing biclique edge",
+          "trigger": "One-erasure boundary"
+        },
+        {
+          "assessment": "Framework rather than matching-deletion interpolation in the inspected passages",
+          "evidence": "General cut/cycle projections and minimal projection context, with discrete tori and Hamming graph examples.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.12582",
+          "material_read": "v1 p. 1 abstract, §§1.1 and 1.6 (pp. 2–3 and 8–9)",
+          "method": "OA primary PDF",
+          "title": "Cycle spaces: invariant projections and applications to transportation cost",
+          "trigger": "Broader graph projection methods"
+        },
+        {
+          "assessment": "General transfer-current machinery only in the inspected passages",
+          "evidence": "Laplacian/Green kernel representation and spanning-tree determinants, not explicit norms or signs for matching deletions.",
+          "identifier_or_url": "https://arxiv.org/abs/1312.2946",
+          "material_read": "v2 pp. 2–3, electrical formulas and determinant theorem",
+          "method": "OA primary PDF",
+          "title": "Transfer current and pattern fields in spanning trees",
+          "trigger": "Electrical kernel theory and signs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:12–32 and 106–130",
+        "Resultary be4205de9f5c and 6319a2a73e78"
+      ],
+      "rationale": "The complete deletion trajectory for complementary projections and the change in both extremizers and asymptotic scale at saturation address natural structural questions. The value is in that family-level description, not in algebraically re-extracting its formulas from a known kernel; the latter does not provide a separate valuable repair.",
+      "residual_risks": [
+        "No scientific inference here about unbalanced bicliques, weighted deletion, arbitrary projections or intermediate p."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

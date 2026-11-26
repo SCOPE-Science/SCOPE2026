@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph has exactly \(s+4k+1\) vertices and diameter six for \(k\ge2\). Anchors with two same-colored leaves never switch. At hub support \(s=k-1\), the blue hub survives if and only if at least one of its \(k\) floating neighbors is blue, yielding the exact geometric escape law with rate \(2^{-k}\). Three successive all-white floating outcomes force total extinction irrespective of prior anchored state, so all-white is the only absorbing communicating class accessible in the anchored invariant subsystem; this supplies the required finite-expectation upper bound and makes the geometric escape a genuine lower bound on stabilization. At support \(s=k+1\), the hub's leaves force it blue and the \(2^k\) floating patterns form a closed complete one-step transition class. The independent exact-kernel code checks \(2\le k\le7\) but does not replace the infinite proof.
+PASS
 
-## Originality — PASS, conditional on the inspected literature
+RESULT.md lines 16–30: each branch has four vertices at distances 1, 2, 3, 3 from the hub, so the tree has 1+s+4k vertices and diameter six for k≥2. The anchor triple stays white by induction, without pinning. With s=k−1, the blue hub and hub leaves keep their colors for one step in U, and U is left exactly when all k fresh ties are white. The constant one-step hazard gives the claimed geometric law, starting with the stated coloring in U. Three consecutive all-white floating updates have conditional probability at least 2^(−3k) from any anchored state: the first forces the hub white at the second update, and the second and third ensure the hub, hub leaves and floats are white at the third. This works even with arbitrary initial hub-leaf colors. Consequently all-white is the only accessible closed class, its mean hitting time is at least the mean exit time and at most 3·2^(3k). With s=k+1 the blue leaves win even against all k white floats, so the hub and leaves stay blue, and the product of independent fair ties gives the entire closed class and its uniform law. The two state counts refer to separate graphs.
 
-Zehmakan (2023; 2024 expanded version) already proves both exponential phenomena for general graphs; that priority is expressly credited. The exponential-time witness there joins multiple random-tie vertices to two common hubs, yielding four-cycles, while the recurrent-class construction has cliques. Neither construction meets the tree claim by logical implication. The deterministic, odd-degree tree results of Benjamini–Zakharov–Zhukovskii (2025/2026) have no random tie vertices, so they do not bound the present process. Closest exact comparisons, synonym searches, and residual priority risks are detailed in `AUDIT.json`. Search absence is not proof of novelty; a prior acyclic random-tie construction may be unindexed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The original general-network exponential examples do not settle whether graph acyclicity or bounded diameter prevents the random-tie metastable bottleneck. The two explicit tree regimes show both obstructions survive on depth-three rooted trees, with simple exact probability laws and a small local support adjustment. This is a structural worst-case boundary for a natural network class, rather than a numerical parameter substitution or isolated small graph.
+The supported distinction is the pair of explicit diameter-six witnesses, including the exact geometric exit law and one-step-uniform exponential class under independent fair ties. General exponential stabilization and recurrent-class size under random majority are prior art. Bounded source and catalogue comparisons did not establish coverage of the tree-specific claim.
 
-## Boundaries
+## value
 
-No general bounded-degree claim, random-initial-condition claim, optimal diameter claim, or deterministic orbit length claim is made. External independent validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Acyclicity and bounded diameter are natural candidates for suppressing the known general-graph behavior. These are exact counterexamples to both restrictions under the same rule, with a useful two-leaf change and controlled stochastic transition laws. They are not bounded-degree examples, typical-initial-state claims, or minimality theorems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

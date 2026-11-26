@@ -1,11 +1,21 @@
-# Scientific review: binary order-three nonnegative matrix atoms
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof isolates the only potentially unbounded step: a nonsingular binary target cannot factor through an entry greater than one, so arbitrary nonnegative integer factors reduce to finite binary factors. A support inequality rules out nonunit factorizations of the two atom orbits. Singular targets admit explicit zero-/duplicate-row or column products. The standalone finite certificate runs exact integer arithmetic over all 512 targets and 506-by-506 nonunit binary factor pairs, independently enumerates the eight nonsingular row/column orbits and confirms the complete count. An unlimited-dimensional statement is neither used nor claimed.
+## correctness
 
-**Originality — PASS with limitations.** Bell, Foster, Reidenbach and Semukhin (2026) work on the same kind of nonnegative-integer prime matrices but their explicit algorithm is dimension two. Baeth et al. (2021/2022) identify general properties and elementary unit-shear examples without the complete three-by-three binary census. Chen (2015) restricts to upper-triangular matrices. The 36 standard shear associates are credited; the claim is the *complete* 42-element classification including six determinant-two complementary permutations and exhaustive composite witnesses. Targeted semantic and bibliographic searches did not identify a theorem implying this classification. A lost or unindexed earlier finite-table computation is the main bibliographic risk; search failure is not a proof of novelty.
+PASS
 
-**Value — PASS.** This is the first full binary order-three boundary of a natural matrix factorization problem, with a second irreducible shape outside the classical elementary-shear family and an exact complete classification rather than another special example. It supplies an independently executable small-case obstruction library for studying weighted incidence-matrix factorizability.
+If a nonsingular binary A=BC over the nonnegative integers, all columns of B and rows of C are nonzero. Any entry ≥2 in either factor then contributes ≥2 to an entry of A, with no cancellation, so the factors are necessarily binary. This is the required reduction to a finite search. Independently, `python3 -B /workspace/reproduce_frozen.py 4` enumerates the three rank-one support rectangles for a possible binary product, requiring pairwise disjointness and rejecting the two unit-selector patterns. Empty rectangles are included, so this also supplies composite witnesses over the integers for every singular binary target. It gives 464 composites and exactly 42 remaining nonunits, split by row and column permutations into 36 shears and six complementary permutation matrices. Independent Leibniz determinants gave 338 singular matrices and precisely the six complementary permutations with absolute determinant two. The proof's support inequality also explains the two obstructions: nonsingular binary nonunits require at least four ones, and disjoint support of PQ, PV and UQ gives w(BC)≥w(B)+w(C)−3. This forbids a four-one shear product and forbids a six-one determinant-two product (one factor would already have six ones). The frozen verifier was inspected, not executed.
 
-**Scope.** No general three-dimensional atom classification for arbitrary entry sizes, no higher-dimensional theorem, and no independent expert validation are asserted. The transparent finite certificate is accompanied by the algebraic reduction justifying quantification over arbitrary nonnegative-integer factors.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the complete two-orbit classification for binary order-three targets in the full integer monoid, not the standard shear family or the definition of an atom. The matching-domain factorization literature examined does not give this census, and nearby Boolean, nonnegative-real and triangular results are not equivalent. This assessment is bounded by the identified full-text access risk.
+
+## value
+
+PASS
+
+Order three is the first dimension permitting the complementary-permutation determinant-two obstruction, absent in the order-two binary problem. The classification does more than give 42: it distinguishes the familiar four-one shears from a second structural obstruction in ordinary integer multiplication and shows that these exhaust all binary targets. It is a sharp finite test case for studying nonnegative-integer square factorizations, not a claim for larger dimensions or for other semirings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

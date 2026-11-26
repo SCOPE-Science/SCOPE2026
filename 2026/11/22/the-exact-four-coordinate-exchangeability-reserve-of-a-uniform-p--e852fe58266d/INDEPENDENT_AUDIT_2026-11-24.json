@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:30:29.817807Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–25 and 31–97",
+        "VERIFICATION.md and checker.py inspected, not executed",
+        "Independent replay: python3 /workspace/branches/0fc28f93-d5e7-4a38-ac2c-f8275bf1fc28/independent_audit.py"
+      ],
+      "rationale": "Fixing r edges gives the claimed all-one moments by counting matchings on the remaining vertices. For an exchangeable extension the difference of the (m-1)- and m-coordinate all-one moments is the expectation of a nonnegative hypergeometric term, zero only at T<=m-2 or T=N. With p_N=q this leaves a triangular system, with p_{m-3}=2q binom(N,m-3)(m+4-N), proving the sharp necessary bound and uniqueness. At N=m+4 the proposed generating polynomial plus q z^N reproduces all binomial moments, including normalization. Coefficient comparison in the formal differential identity and subtraction of the alternating constant transform yield the stated recurrence; the even lower bound b_k=k(k-1)(k+1)/3 supplies 2(k-1)b_{k-1}>=2b_k on the following odd step starting at k=5. This proves all coefficients nonnegative, not just those tested. Marginalization supplies all shorter extensions. For m=1 the only law is all ones; for m=2 the first pair must agree, so exchangeability makes all coordinates agree in any finite or infinite extension. The independent exact replay checked the recurrence through k=100, extremal moments for 3<=m<=35, 165 admissible (m,N) pairs and direct matching moments through m=6; at m=3 the extremal masses are 14/15 and 1/15 at T=1,7.",
+      "residual_risks": [
+        "The proof concerns the complete graph and a uniform matching with a designated perfect matching. The finite replay does not independently establish the all-m recurrence induction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Konstantopoulos–Yuan Theorem 1.2 gives N-extendibility iff the norm of the symmetrization functional is one under its hypotheses. The related infinite Bernoulli envelope concerns count probabilities for infinitely exchangeable laws."
+        ],
+        "reasoning": "The finite exchangeability theorem encompasses the general setting, not the evaluation for this law. The infinite envelope does not classify finite reserves for a marginal which, for m>=3, is not infinitely extendible.",
+        "searches": [
+          "arXiv:1501.06188",
+          "arXiv:1410.1777",
+          "Resultary: exact count envelope under infinite Bernoulli exchangeability"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records in source_inspections",
+        "Konstantopoulos–Yuan, Theorems 1.1–1.2 and Corollary 3.12",
+        "Bounded primary keyword lookup and frozen related-work references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general test can decide individual finite feasibility problems, but leaves the norm or constraints to be evaluated. The matching moments force support collapse and the next two coefficients; the all-order positivity proof is needed to convert the necessary cutoff into sufficiency."
+        ],
+        "reasoning": "The sharp all-parameter ceiling plus unique all-parameter construction is not a direct mechanical substitution into a verified prior evaluated law.",
+        "searches": [
+          "Konstantopoulos–Yuan Theorem 1.2 and Corollary 3.12",
+          "Frozen proof of the support collapse and extremal positivity recurrence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact matching catalogue hit is the assigned record itself.",
+          "The general n-to-N criterion uses the symmetrization functional; in the binary case the urn formulation is feasibility for a total-count mixing law."
+        ],
+        "reasoning": "Both formulations apply to the input, but the general test supplies no specialized answer to the truncated moment problem and does not assert this unique solution.",
+        "searches": [
+          "Resultary: finite extendibility of designated perfect-matching indicators, urn counts and exchangeability reserve",
+          "arXiv:1501.06188, Theorems 1.1–1.2 and Corollary 3.12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact m+4 entry is 2026/11/22/SCOPE-the-exact-four-coordinate-exchangeability-reserve-of-a-uniform-p--e852fe58266d, the same frozen result. The separate count envelope is 2026/10/4/SCOPE-sharp-exact-count-envelope-under-infinite-bernoulli-exchangeabil--276990ec2acf."
+        ],
+        "reasoning": "This is a meaningful exact-law lookup. The only exact indexed hit does not supply separate prior evidence, and the other entry optimizes a different quantity.",
+        "searches": [
+          "Resultary: exact four-coordinate reserve, matching-indicator count distributions",
+          "Bounded primary lookup for matching indicators and finite extendibility"
+        ]
+      },
+      "rationale": "The supported distinct claim is the uniform sharp reserve and explicit unique law for this matching-indicator family, not the matching count, signed representation or urn extendibility criteria. The strongest indexed exact hit is the identical assigned finding and is not independent antecedent coverage. The best verified general theorem characterizes extendibility via an unevaluated norm; it does not give the specialized bound or positivity proof.",
+      "residual_risks": [
+        "Separate full text of arXiv:1410.1777 was not verified in the bounded retrievals. Older or differently formulated specialized binary examples remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general existence criterion and signed representation, not its evaluated matching case",
+          "evidence": "Theorem 1.2 says N-extendible iff the norm is one; Corollary 3.12 expresses it as a universally quantified symmetrization test.",
+          "identifier_or_url": "https://arxiv.org/html/1501.06188",
+          "material_read": "Theorems 1.1–1.2 and Corollary 3.12",
+          "method": "Bounded official arXiv HTML after OA attempts",
+          "title": "On the extendibility of finitely exchangeable probability measures",
+          "trigger": "General criterion applies to binary finite extension"
+        },
+        {
+          "assessment": "Representation method credited; unresolved separate full-text coverage",
+          "evidence": "The follow-up theorem states a signed mixture of product measures; this is not a positive finite N-extension.",
+          "identifier_or_url": "https://arxiv.org/abs/1410.1777",
+          "material_read": "Frozen reference and the later paper's Theorem 1.1 and surrounding attribution; exact separate full-text passage not retrieved",
+          "method": "Lawful OA attempts and checked theorem in follow-up",
+          "title": "On a representation theorem for finitely exchangeable random vectors",
+          "trigger": "General urn and signed-mixture framework"
+        },
+        {
+          "assessment": "Identical record, not separate earlier evidence",
+          "evidence": "Same cutoff through m+4, small m exceptions and unique extremal extension.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-exact-four-coordinate-exchangeability-reserve-of-a-uniform-p--e852fe58266d",
+          "material_read": "Catalogue summary and bound original Finding, lines 5–25",
+          "method": "Resultary and frozen local source",
+          "title": "The exact four-coordinate exchangeability reserve of a uniform perfect matching",
+          "trigger": "Exact title, model, ceiling and law"
+        },
+        {
+          "assessment": "Different admissible family and invariant",
+          "evidence": "Optimizes exact-count probabilities in the infinitely exchangeable class, rather than finding a largest possible length for a specified marginal.",
+          "identifier_or_url": "2026/10/4/SCOPE-sharp-exact-count-envelope-under-infinite-bernoulli-exchangeabil--276990ec2acf",
+          "material_read": "Catalogue summary",
+          "method": "Resultary",
+          "title": "Sharp exact-count envelope under infinite Bernoulli exchangeability",
+          "trigger": "Adjacent exchangeable total-count problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Konstantopoulos–Yuan general criterion for comparison"
+      ],
+      "rationale": "This is a natural sampling marginal with an exact quantitative gap between finite and infinite exchangeability. The same four-coordinate reserve at all m>=3 is sharp and unusually accompanied by a unique extension rather than a range of admissible mixtures; the endpoint law is explicit. The vanishing moment difference supplies interpretable support rigidity, and the all-order positivity is not a small-instance measurement.",
+      "residual_risks": [
+        "No extension result is established for weighted matchings or general Bernoulli inputs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

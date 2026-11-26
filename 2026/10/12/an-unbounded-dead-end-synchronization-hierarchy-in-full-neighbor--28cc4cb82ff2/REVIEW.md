@@ -1,12 +1,21 @@
-# Review of the depth-synchronization theorem
+# Independent mathematical audit
 
-## Correctness: PASS
-The exact product-filter calculation on the union of a horizontal and vertical cylinder proves the general formula without finiteness or principal-filter assumptions. The induction starts from the empty set and supplies all quantifiers. For the independence witness, the strict chain-plus-loop relation and its single added arrow are transitive, their mixed compositions lie in the product relation, and at the root the two coordinate reachability sets become empty at depth \(n\) while the synchronous relation continues through the loop. The accompanying exhaustive and seeded finite checks reproduced these assertions. No experimental observation is used as a proof of the universal claim.
+## correctness
 
-## Originality: PASS
-The closest source is Aghamov, Kudinov, Nguyen and Piribauer (2026), which introduces the same three neighborhood boxes and proves results for the serial cases \(\mathsf D\) and \(\mathsf T\), expressly leaving the nonserial \(\mathsf K\) and \(\mathsf{K4}\) cases open. The full-text bimodal K-product analyses by Kudinov (2014 and 2018) include variable-free interactions but lack the extra synchronous modality and its strict depth hierarchy. Statement/implication searches found no covering formulation. A differently indexed prior statement remains a genuine literature risk.
+PASS
 
-## Value: PASS
-The exact identity gives a reusable structural constraint for all nonserial full neighborhood products; the transitive witnesses demonstrate that the natural hierarchy cannot be reduced to finitely many of its own members over the fusion-plus-mix base. This is a boundary phenomenon invisible in serial products. The theorem does not settle complete axiomatizability, completeness, decidability, or non-finite axiomatizability for the full product logics.
+For E(A,B)=(A×Y)∪(X×B), a generating rectangle U×V lies in E iff U⊆A or V⊆B: otherwise choose one outside point in each coordinate. Upward closure gives the necessary membership in the corresponding factor filter; conversely pair a witnessing factor set with the whole opposite space. This works also for an empty side, for nonprincipal filters and for all A,B. Iterating from E(∅,∅) and computing the coordinate boxes on cylinders proves every closed γₙ. In the Kripke separator, take S the transitive strict order on n points with a disjoint loop, put R₁=R₂=S and R=S plus the arrow from the first chain point to the loop. The extra arrow has no incoming predecessor at its origin, and composes only with the loop on its right, so R is transitive. Both mixed composites lie in S⊆R, the sound direction for mix. A box power of falsity means absence of a path of exactly that length. No path from anywhere other than the root encounters the extra arrow; at the root lengths k<n have paths in all three relations, and at n only the synchronous relation has a path. With n=1 the chain is a singleton and the same witness refutes γ₁. All lower axioms are thus validated globally, so soundness proves strict nonderivability and the finite-subset consequence. Frozen RESULT.md lines 24–56 suffice symbolically; recorded finite checks were inspected, not rerun.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+No inspected distinct result covers the conjunction of synchronous dead-end iteration for arbitrary normal full neighborhood products and depth-by-depth separation over three copies of K4 plus mix. The rectangle/filter infrastructure and mix schema are prior; the serial completeness theorem cannot supply the strict hierarchy, and exact reverse-mix/elimination results use different assumptions or address a different claim. Kudinov's earlier nonserial bimodal work is relevant; the readable 2023 summary shows the older completeness framework's closed formulas in a two-box language. The verdict is on the stated restricted hierarchy, not priority for product semantics, all variable-free principles, or nonfinite axiomatizability of a full product logic.
+
+## value
+
+PASS
+
+The theorem identifies a reusable product invariant that only becomes informative in the nonserial setting and demonstrates with uniformly small witnesses why iterating the dead-end law is not redundant over the natural mix base. This cleanly separates a genuine nonserial obstacle from the known serial picture. The value does not rely on claiming completeness or non-finite axiomatizability of the full logic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

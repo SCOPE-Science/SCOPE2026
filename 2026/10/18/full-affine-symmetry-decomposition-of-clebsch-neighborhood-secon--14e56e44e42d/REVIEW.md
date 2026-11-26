@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The sixteen-vertex folded-cube model explicitly realizes the entire affine group: permutations of the five edge directions describe the full stabilizer of the zero vertex, and the other eleven vertices are determined by unordered pairs of neighbors. Rebuilding all 352 simplices and four integer boundary matrices gives exact characteristic-zero ranks 15, 65, 64, 16, with every consecutive composition zero; hence reduced rational homology is entirely \(31\)-dimensional in degree two. Signed fixed-simplex Hopf traces were computed for every affine automorphism, and character Fourier projections were checked at all stabilizer elements, not sampled. The seven conjugacy-class values for the translation-fixed part match the exterior-square standard module; the weight-two and weight-four inertia-group traces match respectively the complementary-three-letter sign and the signed standard four-letter module. Clifford/little-group theory proves the direct-sum irreducibility. The code is included and replayable with an ordinary Python/SymPy installation.
+## correctness
 
-## Originality — PASS with residual literature risk
-The closest full published results were read and compared by mathematical implication. The exact Clebsch neighborhood-complex result establishes the 31-sphere ordinary homotopy type, not its group representation. The general odd-folded-cube result also gives ordinary homotopy types, not full automorphism representations. More decisively, the odd-folded-cube **translation character** theorem [4] already provides all sixteen \(T\)-weight multiplicities for this case, and explicitly excludes the remaining \(S_5\)-action. Its 6, 1 and 3 multiplicities do **not** determine the six-dimensional \(S_5\) module nor the weight-two and weight-four stabilizer modules. The claimed new content is precisely these three previously undetermined representations and their \(\(6+10+15\)\) full-group induced decomposition. Indexed semantic searches for graph aliases, equivariance, homology characters, stronger family coverage and full affine actions identified no covering claim. An unindexed full-action theorem remains possible; priority is not certified.
+PASS
 
-## Mathematical value — PASS
-The folded five-cube is the canonical 5-regular Clebsch graph, with a natural large transitive symmetry group. Its neighborhood topology is already known, but a \(31\)-dimensional homology space is not an undifferentiated symmetry module: the new calculation determines all full-group invariant subspaces and exhibits a multiplicity-free division into three irreducible, parameter-natural orbit representations. The distinction between translation-fixed dimension six and full-group-fixed dimension zero, together with explicit inertia-group characters, is structural representation-theoretic information not forced by known Betti numbers or Fourier multiplicities. The result is finite and specific to rational homology; it does not assert generalizations or a canonical integral splitting.
+Use the even-weight representatives of T, where direction i is the complement of e_i. The vertices at distance two from zero are the ten distinct sums of two directions; each is identified by its two neighbors in the zero-neighborhood. The vertex stabilizer is therefore faithful on those five neighbors, so the affine subgroup is full. Rebuilt all open-neighborhood faces and reduced their augmented boundaries over Q: 352 nonempty faces, ranks (1,15,65,64,16) including the augmentation, only reduced H2 of dimension 31. Computed reduced Lefschetz traces by invariant unions of simplex vertex cycles. Compared each of the 1,920 exact values directly to the proposed representation's trace: sum over fixed translation-weight labels, with their stabilizer character multiplied by the corresponding translation scalar. All matched, including the claimed full trace histogram. Character equality implies rational isomorphism. For each orbit a rational invariant submodule splits into translation weights; the one weight space is an irreducible stabilizer module and its conjugates exhaust the orbit, proving irreducibility of each summand. The orbit-zero module has dimension six and no S5 invariants. Replay: python3 /workspace/independent/recompute_complexes.py 2.
 
-## Closest sources and limitations
-Matsushita's fundamental-group result concerns a different invariant; an accessible journal abstract and archived arXiv date were compared. The graph catalog confirms the 5-regular object and full group order. The three closest publicly available exact topology and translation-character calculations were inspected in full at their result pages. Additional relevant works under the terms Greenwood–Gleason, projective cube, and antipodal quotient might not be indexed; no unconditional priority or independent scientific audit is claimed. The standalone checker establishes exact rational finite computations but does not by itself replace the standard representation-theoretic deductions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit only the full affine action beyond the nonequivariant Betti number and translation restriction. Three distinct indexed statements give equivalent full actions, in later-dated catalogue entries. The closest equivalent's prior-work passage supplies no evidence of an earlier full action or of a carry-forward. The inspected evidence does not establish earlier full coverage; the chronology is not an assertion of priority or of independent discovery.
+
+## value
+
+PASS
+
+The full affine action is a natural missing invariant of a standard highly symmetric graph complex. It distinguishes six translation-invariant classes from zero full-group invariants and determines the effects of coordinate permutations on each weight orbit, which the rank or translation character cannot answer. This provides an exact test case for equivariant topology of folded cubes rather than a rerun of the ordinary Betti calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification summary
 
-The symbolic argument in `RESULT.md` directly derives the associator and proves the necessary and sufficient conditions for membership in the left, middle, and right nuclei. It computes the full nucleus via the action of the endomorphism on coset sums. The principal subtlety is resolved through support comparison in the proper-subgroup case, a test valid even in modular characteristic.
+# Independent mathematical audit
 
-The standalone Python 3 verifier reconstructs the *original quandle operation* and its associators, rather than using the group-ring formulas as computation input. Modular Gaussian elimination yields the three separate nullities and their common nullity. The program covers all \(346\) specified cyclic and two-dimensional elementary-abelian cases; `VERIFY_OK` indicates that all predictions agree. For \(G=\mathbb Z/4\mathbb Z\) with \(\phi=-1\), it detects the full-nucleus dimensions \(0\) in characteristic \(3\) and \(2\) in characteristic \(2\). These tests are finite checks, not exhaustive verification for arbitrary fields and groups.
+## correctness
 
-No independent audit has been performed. An equivalent older nucleus calculation formulated for twisted group-ring multiplications cannot be excluded absolutely.
+PASS
+
+On the group ring put δ=1−φ and let α and β be induced by φ and δ. Expanding both products yields [u,v,w]=αβ(v)(α²(u)β(w)−α(u)β²(w)). In k[G], the shifts in β(X^g)−β²(X^g) range over δφ(G)=H, and those in α²(X^g)−α(X^g) range over −φδ(G)=H; multiplying by monomial units shows each family generates the same translation ideal. Its annihilator consists exactly of coefficients constant on H-cosets, even in modular characteristic. Substituting the monomial X^0 in the other slots first isolates α(u)=u on the left and β(w)=β²(w) on the right. The left condition then reduces to the annihilator (which α fixes); the middle reduces to β(v) supported on H and lying in the annihilator, hence a multiple of Ω_H; the right needs both that line condition and β-fixity. If H₂ is proper, a coefficient on H minus H₂ makes the latter condition impossible for a nonzero multiple, without dividing by |H|. The induced surjection G/H→H/H₂ sends a coset sum to b times a coset sum on the target, so has rank b or zero as asserted on U_H. This proves the dimensions and jump, including trivial H, connected H=G, and characteristic zero. The unipotent example has a=b=p and verifies the arbitrary jump size.
+
+## originality
+
+PASS
+
+Pass for the stated distinct contribution: simultaneous classification for nonconnected finite abelian Alexander quandles, especially the right-nucleus dichotomy and full-nucleus dimension jump. The transport and connected/Latin specializations are covered or credited, not independent originality claims.
+
+## value
+
+PASS
+
+Determining all slots and the intersection on a natural non-Latin family gives an effective invariant from two subgroup images, not a table of isolated examples. It distinguishes the characteristic-stable individual dimensions from the characteristic-sensitive full dimension, with a four-element demonstration and unbounded jumps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

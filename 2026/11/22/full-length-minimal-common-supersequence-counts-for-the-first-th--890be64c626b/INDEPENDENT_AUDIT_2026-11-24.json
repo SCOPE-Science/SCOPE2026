@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:57:32.758466Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–40, VERIFICATION.md lines 19–25, verification/grid_count.py, verification/exhaustive.cpp and recorded exhaustive.out (read, not executed)",
+        "Independent bounded checks and proof_notes.md"
+      ],
+      "rationale": "Any minimal common supersequence is covered by the union of any chosen pair of embeddings, so its length is at most 2n for these two n-letter inputs. At length 2n, the two embedding images must partition the output, and varying either while holding the other fixed contradicts coverage. Conversely disjoint unique embeddings make every position essential and distinguish successful masks as distinct words. Coordinatewise min/max with a competing embedding gives a comparable one; choosing its first leftward or last rightward difference yields a one-site replacement. Each step's opposite-letter comparisons in the grid test whether its letter could replace either adjacent assigned letter of the opposite input, so together the tests are necessary and sufficient. I independently derived the offset-strip reduction: interior U-step forbidden residues are 0,1 and V-step forbidden residues 1,2; U first is dead because the new unmatched letters agree. A transition below offset −(q−2) is possible only at i=0, but the resulting (0,q−1) is dead. On j=n, any surviving U-step follows the same band edges; i=n is reached only at the endpoint. Thus completed paths correspond exactly to closed walks of 2n steps from the endpoint of the path on q−1 vertices. For q=3 the return walk is unique; for q=4 each nonterminal even depth independently chooses either end, giving 2^(n−1); for q=5 the even-depth pair transforms by (a,b)→(2a+b,a+b), with (1,1) after two steps, so the projected endpoint count is F_(2n−1). These formulas cover k=1 and all later repetitions and are positive, proving 2n is attained. A separate direct check generated actual distinct shuffles, deleted each site and tested the original subsequences; it matches for q=3,4,5 and k=1,2 (including 4,181 out of 45,542 shuffles for q=5,k=2). Replay: python3 /workspace/branches/independent-check/word_checks.py; general argument in proof_notes.md.",
+      "residual_risks": [
+        "The theorem concerns distinct linear words for the one-step phase only, not arbitrary phases, q≥6, or the distribution of shorter minimal lengths. Finite checks are not the general proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sopp et al. enumerate all distinct minimal outputs for arbitrary two inputs. Fraser's DP tracks minimal-supersequence lengths/prefix progress and permits longest-output traceback."
+        ],
+        "reasoning": "These are broader algorithms in input scope and can enumerate and filter any instance. The inspected results do not give this family-wide closed form; the new step is reducing unique full-length embeddings to the specific bounded offset walks.",
+        "searches": [
+          "arXiv:2603.22591v1 abstract and Theorem 5.3",
+          "Fraser thesis §6.3.2, printed pp. 119–121; Irving–Fraser DOI 10.1007/3-540-58094-8_16"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and records 298375de5b88, 980cf845dba3, 658d35d30c24, bcaf0c227997, 20c8a8da2741",
+        "arXiv:2603.22591v1 and Fraser thesis §6.3.2; Irving–Fraser via lawful retrieval attempt and thesis attribution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known algorithms count words via general enumeration, not the three offset-path return formulas. A count of shortest words, shared deletion descendants, embedding multiplicities or distinct remainders does not give this maximum-length-layer count."
+        ],
+        "reasoning": "Recovering formulas uniformly in k requires additional family structure; no inspected stronger periodic closed-form result implies them by specialization.",
+        "searches": [
+          "Resultary 298375de5b88, 980cf845dba3, 658d35d30c24, bcaf0c227997, 20c8a8da2741",
+          "Sopp et al. Theorem 5.3; Fraser §6.3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 5.3 gives a generic output-word/path bijection; the nearby cyclic embedding-multiplicity and complement counts are different observables."
+        ],
+        "reasoning": "Minimality at saturation does turn this into a unique-embedding shuffle problem of two inputs; a single-host embedding spectrum or deletion-complement count is not equivalent to that two-input condition.",
+        "searches": [
+          "Resultary searches for longest minimal common supersequences, cyclic permutation powers and uniquely embedded shuffles",
+          "Sopp–Liyanage–Gong–Zhu arXiv:2603.22591v1 Theorem 5.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match ending 890be64c626b is the assigned record. The distinct 298375de5b88 is a longest-minimal enumeration for two binary opposite-run strings; 980cf845dba3 treats shortest supersequences for reversed permutation powers."
+        ],
+        "reasoning": "Neither record tables the same one-step phased, nonbinary longest-minimal words. The self-hit is not independent prior coverage.",
+        "searches": [
+          "Local Resultary: maximum/longest minimal supersequence counts, shifted powers and iterative alphabet counts"
+        ]
+      },
+      "rationale": "Exact general enumerators can compute the finite instances but the inspected methods do not supply these symbolic counts for a periodic input family. The closest distinct indexed results switch to binary opposite-run inputs, a shortest-length statistic, or different subsequence observables; none contains the three maximum-length-layer formulas for these one-step cyclic shifts. This is a bounded statement-level comparison, not exhaustive priority certification.",
+      "residual_risks": [
+        "The unavailable 1994 full text could contain an unindexed subsidiary example; the accessible thesis covers the pertinent algorithmic method.",
+        "Bounded ranked searches do not settle universal or same-day priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader enumeration, no inspected closed-form periodic counts",
+          "evidence": "Start-to-end paths correspond bijectively to distinct minimal output words for arbitrary two strings.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.22591v1",
+          "material_read": "Abstract, p. 1 offset 0, and Theorem 5.3, p. 13 offset 37072",
+          "method": "OA PDF passages",
+          "title": "Computing and Enumerating Minimal Common Supersequences Between Two Strings",
+          "trigger": "General enumerator with plausible exact output-path representation"
+        },
+        {
+          "assessment": "General DP and traceback are relevant inputs, not a prior exact formula in inspected material",
+          "evidence": "Computes attainable minimal lengths via prefix progress and allows recovery of longest and all minimal supersequences.",
+          "identifier_or_url": "https://theses.gla.ac.uk/74575/1/10992195.pdf",
+          "material_read": "§6.3.2, printed pp. 119–121, offsets 345172–351137; attribution to Irving at offset 41685",
+          "method": "OA thesis passages",
+          "title": "Subsequences and Supersequences of Strings",
+          "trigger": "Earlier general longest-minimal computation and possible family formulas"
+        },
+        {
+          "assessment": "Access risk; not a whole-document noncoverage finding",
+          "evidence": "Fraser describes adapting Irving's algorithm in the inspected section.",
+          "identifier_or_url": "https://doi.org/10.1007/3-540-58094-8_16",
+          "material_read": "Full text not obtained; relevant algorithm attribution in Fraser's thesis",
+          "method": "Bounded lawful DOI/chapter retrieval attempt and thesis inspection",
+          "title": "Maximal Common Subsequences and Minimal Common Supersequences",
+          "trigger": "Earlier conference treatment related to Fraser's general algorithm"
+        },
+        {
+          "assessment": "Exact count in a different input class",
+          "evidence": "Binary words 0^a1^b and 1^c0^d, rather than phased nonbinary permutation powers.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-longest-minimal-common-supersequence-counts-for-four-indep--298375de5b88",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp longest minimal common-supersequence counts for four independent run lengths",
+          "trigger": "Same longest-minimal statistic"
+        },
+        {
+          "assessment": "Different extremum and phase relation",
+          "evidence": "Inputs P^k and reverse(P)^ell; counts shortest rather than longest minimal outputs.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-binomial-law-for-shortest-common-supersequences-of-opposite-pe--980cf845dba3",
+          "material_read": "Relevant Finding in the local mirror",
+          "method": "Local Resultary mirror",
+          "title": "A Binomial Law for Shortest Common Supersequences of Opposite Permutation Powers",
+          "trigger": "Nearby explicit enumeration for repeated permutation inputs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof §§1–4; comparison with general enumerators and the binary opposite-run count"
+      ],
+      "rationale": "The largest achievable length is a natural extremum for minimal, not shortest, supersequences. The first three nonbinary cyclic alphabets exhibit distinct constant, power-of-two and Fibonacci behavior for the same input phase relation, explained by a small offset-walk structure and genuine word counts. Exact formulas for all repetition counts provide more than running a generic enumerator on a few instances.",
+      "residual_risks": [
+        "This is not an enumeration of every length layer or a complexity improvement for general inputs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:36:08.964015Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each row and column sums to zero, so the positive-rate family has the unique uniform invariant law. The limiting weak rate c-t=1-2t is strictly positive for t<1/2; b-t>0 follows from (2-t)^2-h^2=10/3-4t>0, and a-t>0 is evident. The trace is -2(a+b+c), and each principal two-by-two minor is ab+bc+ca+t^2, e.g. (a+c)(a+b)-(a+t)(a-t), so the extra coefficients are 6 and 17/2 using a+b+c=3, ab=5/6+t and c(a+b)=2-t-t^2. The roots are 0,-3±1/sqrt(2), all simple. The phrase 'three nonzero-state modes' is a wording slip: there are two nonzero relaxation modes, as the displayed spectrum and the parenthetical specify. The activity is 2 by the trace, and the exit rates are 2+t, 2-(t+h)/2 and 2+(h-t)/2; the last is at most 2+1/sqrt(6) since h-t decreases. Each oriented stationary edge current equals 2t/3, giving the stated sum of logarithms with unordered-edge normalization. Only c-t vanishes at the excluded endpoint; (2t/3) log(1/(1-2t))=(1/3) log(1/(1-2t))+o(1). Continuity from zero then yields every finite prescribed s>=0 without monotonicity or attainment of infinity. One or two states admit no nonzero steady edge current by conservation. Replay is exact from the cofactor and rate identities; frozen verify.py was inspected, not executed, and its numerical samples do not establish any universal or limiting claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cycle affinity/winding theorem assumes a nonreal eigenpair; the product-matched uniform-cycle frequency theorem assumes positive imaginary part.",
+          "Spectral perturbation estimates relative to detailed balance constrain displacement from above by dissipation, not dissipation from above by eigenvalues.",
+          "The catalogue frequency frontier optimizes oscillation with activity and an entropy-production budget, while the fixed-activity Wasserstein work concerns finite-time changes."
+        ],
+        "reasoning": "These stronger or more general results answer different optimization questions. They do not imply an exact range for steady-state dissipation on a fixed real spectral fiber.",
+        "searches": [
+          "arXiv:2605.15884 Theorem 1",
+          "arXiv:2608.22934v2 Theorem 1",
+          "arXiv:2304.01714 Eqs. (9), (13)",
+          "arXiv:2110.01141 Eqs. (56)–(58)",
+          "Resultary 8d74749dd242 finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8d74749dd242 and 862d45a61789",
+        "arXiv:2605.15884",
+        "arXiv:2304.01714",
+        "arXiv:2609.34352",
+        "arXiv:2608.22934v2",
+        "arXiv:2110.01141"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shiraishi preserves a single complex slow mode while invalidating a proposed lower dissipation bound on a large network.",
+          "In the closest three-state model formula, getting the target requires independently choosing g(t) on the spectral constraint, showing g_i(t)>t for all t<1/2, and taking g_2(t)-t to zero at a positive current."
+        ],
+        "reasoning": "A general formula evaluated on an already constructed witness is not the existence proof for that witness. A lower-bound failure with one complex mode likewise does not imply arbitrarily large dissipation with the full real spectrum fixed. Catalogue path dates do not settle historical priority.",
+        "searches": [
+          "arXiv:2609.34352v1, p. 1",
+          "arXiv:2304.01714, p. 3",
+          "8d74749dd242 RESULT.md, finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In 8d74749dd242 the edge rates are g_i±j and the nonzero eigenvalues are -G±sqrt(Delta^2-3j^2), with G=sum g_i and Delta^2=G^2-3 sum_{i<k}g_i g_k.",
+          "With g=(a,b,c), j=t the frozen family lies on G=3, Delta^2=1/2+3t^2. This is the same spectral invariant written in conductance/circulation coordinates.",
+          "862d45a61789 treats unbounded dissipation at fixed simple real spectrum and invariant Gaussian law for planar Ornstein–Uhlenbeck diffusions, not finite-state jump generators."
+        ],
+        "reasoning": "A spectral-coordinate equivalence does not by itself construct the positive family on that level set, prove its full stationary entropy-production range, or bound its exits. The diffusion analogue has neither this domain nor a jump-activity constraint.",
+        "searches": [
+          "Resultary: uniform three-state cycle with spectrum, activity and entropy production",
+          "8d74749dd242 RESULT.md",
+          "862d45a61789 RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest matched jump-process catalogue entry gives an analytic spectral formula and an oscillatory frontier; the diffusion entry's inverse-spectrum frontier is on Gaussian linear diffusions."
+        ],
+        "reasoning": "There is no finite table to match because the target is a continuous family with an exact range. The appropriate catalogue check was for a parameterized analytic family or range theorem; neither inspected match supplies this fixed-real-spectrum jump-process range.",
+        "searches": [
+          "Resultary: fixed real spectrum, uniform stationarity, three-state entropy production",
+          "8d74749dd242 and 862d45a61789 originals"
+        ]
+      },
+      "rationale": "The supported distinct result is the existence of a strictly positive three-state family spanning every finite nonnegative stationary entropy production with the same entire simple real spectrum, uniform invariant law and fixed activity, and with bounded exits. The general uniform-stationary cycle spectrum and current formulas are not new and are available in the closest catalogue work. Neither that spectral formula nor the checked spectral-thermodynamic inequalities supply the simultaneous isospectral positive-rate trajectory approaching a one-way edge with nonzero current, which is the crucial existence statement here. The conclusion is bounded to the assessed sources, not a claim of chronological priority.",
+      "residual_risks": [
+        "A general finite-state inverse-spectral or cycle-level construction outside the searched sources could subsume the example.",
+        "Ranked catalogue and bounded literature searches are not exhaustive and do not establish dates of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap in general rate and spectral formulas, different range claim",
+          "evidence": "lambda_±=-G±sqrt(Delta^2-3j^2) and the stated focus is the oscillation feasibility/frequency frontier.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-disorder-barriers-and-a-sharp-dissipation-frequency-frontier-on--8d74749dd242",
+          "material_read": "RESULT.md opening finding and assumptions",
+          "method": "Local indexed search and original mirror passage comparison",
+          "title": "Disorder barriers and a sharp dissipation-frequency frontier",
+          "trigger": "Same three-state positive-rate cycle with uniform invariant law"
+        },
+        {
+          "assessment": "Mathematical analogue on a different domain",
+          "evidence": "It fixes a Gaussian invariant law and a real drift spectrum in a planar Ornstein–Uhlenbeck model; not a positive three-state jump process.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-inverse-spectrum-dissipation-and-anisotropy-frontier-for-p--862d45a61789",
+          "material_read": "RESULT.md opening finding",
+          "method": "Local indexed search and original mirror passage comparison",
+          "title": "Exact inverse-spectrum dissipation and anisotropy frontier",
+          "trigger": "Same real-spectrum nonidentifiability question"
+        },
+        {
+          "assessment": "Different eigenvalue regime",
+          "evidence": "The theorem applies to nonreal eigenpairs and their winding data.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.15884",
+          "material_read": "Theorem 1, p. 2, text offsets 10899–13341",
+          "method": "Open-access theorem and hypotheses comparison",
+          "title": "Cycle affinity and winding localize eigenvalues of Markov generators",
+          "trigger": "A spectral constraint on entropy-producing cycles"
+        },
+        {
+          "assessment": "Different direction and extra reference spectrum",
+          "evidence": "The result bounds spectral change relative to detailed balance, giving lower bounds on entropy production from spectral displacement.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.01714",
+          "material_read": "p. 3 Eqs. (9), (13), near offset 21200",
+          "method": "Open-access inequality comparison",
+          "title": "Thermodynamic bounds on spectral perturbations, with applications to oscillations and relaxation dynamics",
+          "trigger": "Potential stronger thermodynamic bound using spectral data"
+        },
+        {
+          "assessment": "Single complex eigenvalue and converse bound direction",
+          "evidence": "The construction refutes a positive lower bound with a persistent oscillatory mode; it does not fix the entire spectrum, invariant law and activity while making entropy production large.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.34352",
+          "material_read": "v1 p. 1, near offset 700",
+          "method": "Open-access original passage comparison",
+          "title": "Second largest eigenvalue does not bound stationary entropy production",
+          "trigger": "Closely related nonidentifiability counterexample"
+        },
+        {
+          "assessment": "Oscillatory modes, not the real spectral fiber",
+          "evidence": "The result bounds a positive imaginary part against that of a product-matched uniform cycle.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.22934",
+          "material_read": "v2 Theorem 1, p. 2, offsets 12778–15086",
+          "method": "Open-access theorem and hypotheses comparison",
+          "title": "Xu–Meng spectral frequency bound for cycles",
+          "trigger": "Same cycle spectral problem and possible stronger bound"
+        },
+        {
+          "assessment": "Finite-time change and minimum dissipation, not the stationary fixed-spectrum range",
+          "evidence": "The optimization concerns state-distribution changes at fixed average transition count/activity.",
+          "identifier_or_url": "https://arxiv.org/abs/2110.01141",
+          "material_read": "p. 9 Eqs. (56)–(58), near offset 53754",
+          "method": "Open-access formula and regime comparison",
+          "title": "Minimum entropy production, detailed balance and Wasserstein distance for continuous-time Markov processes",
+          "trigger": "Thermodynamic constraints at fixed activity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives an exact identifiability boundary for a natural collection of thermodynamic observables, rather than a perturbative discrepancy between two generators. The full set of relaxation rates, stationary populations and overall jump count leave every finite entropy-production value compatible on the smallest possible network, without increasing exit rates. The point is restricted to strictly positive but not uniformly lower-bounded edge rates; observing eigenvectors, edge traffic or full kinetics is a different inverse problem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Review of maximal-matching exchange layers of the Desargues graph
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact domain is the standard simple twenty-vertex graph \(GP(10,3)\); states must be inclusion-maximal matchings of a *fixed* cardinality, and a move replaces exactly one edge. The argument proves that every maximal matching has at least six edges using the independent-unmatched-vertex criterion and equality characterization in connected regular bipartite graphs. A concrete six-edge state was directly checked; ten is the ceiling. The primary exhaustive enumerator explores every compatible edge subset and tests maximality at the leaf. It constructs exactly every one-edge-exchange adjacency and evaluates all component distances by BFS from every vertex. An independent vertex-decision enumerator reconstructs the graph by the Petersen bipartite double-cover model, tests unmatched-vertex independence and independently builds adjacency via common \((k-1)\)-edge subsets. The two distinct programs produce byte-identical invariants and `VERIFY_OK`; all five cardinalities and claimed diameters are corroborated. The separate graph-isomorphism computation agrees with the two definitions. No infinite extrapolation is made.
+## correctness
 
-## Originality — PASS, subject to the stated literature scope
-The closest published full texts inspected are the Desargues ordinary matching-complex homotopy calculation and its mod-two predecessor: they report matching face counts or homotopy, not adjacency of maximal states or exchange graph distances. The 2015 degree-constrained reconfiguration work and the 2018 matching-reconfiguration work allow intermediate solutions not necessarily maximal, so their general results do not imply the restricted-state connectivity classification. A published 2009 local-pooling paper treats maximal matchings of *this* Desargues graph and records a minimum-size ratio \(3/5\) but not layer counts, components or diameters. The 2014 source on unique maximum matchings is a different invariant. Direct exact statement comparisons and targeted mathematical database queries uncovered no covering result. Residual risk: unindexed tables or other unsurveyed mathematical treatments of the Desargues graph may contain equivalent exchange classifications.
+PASS
 
-## Value — PASS
-This exact census captures the full space of feasible inclusion-maximal matchings and its permitted transformations in a canonical symmetric cubic graph. Preservation of maximality creates a sharp, nonmonotone exchange-connectivity phenomenon: frozen minimum states, thirty small cycles, two successive connected layers with exact diameters, then frozen perfect states. Such structure is not implied by knowledge of the saturation number, total number of matchings, or ordinary matching-complex homotopy and supplies a natural benchmark for constrained matching reconfiguration. The finite exact fact is meaningful without a claim of an infinite-family theorem.
+A matching is maximal iff its uncovered set is independent. Independently enumerated all independent uncovered sets of size 20−2k in GP(10,3), then all perfect matchings of their induced complements, for every 0≤k≤10. Pairing the least remaining vertex with each available neighbour finds each such perfect matching once, and distinct uncovered sets cannot duplicate a state. The check used pairwise XOR of edge masks with popcount two for adjacency and bitset breadth-first frontiers from every state for component sizes and diameters. Run: python3 /workspace/independent_checks/desargues_exchange.py. It returned only layers 6–10, with state counts (5,120,1620,1120,60), edge counts (0,120,3360,2160,0), component sizes 5×1, 30×4, 1×1620, 1×1120, 60×1 and corresponding diameters (0,2,14,12,0). Size-seven states all have degree two, establishing the 30 cycles. The state sum is 2925. At size ten a one-edge replacement would have to join the very same two endpoints, impossible with a different edge in this simple graph. Both recorded outputs agree, but the independent enumeration, not the recorded outputs, is the fresh finite check.
 
-## Scope of evidence and limitations
-Both programs are standalone, deterministic Python standard-library computations; exact lengths and edge totals are finite and reproducible. There is no independent third-party scientific audit and no global-priority guarantee. Some potentially relevant unindexed source material is not fully accessible; this was not treated as proof of uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The substantive claim is the maximal-only exchange structure across sizes, particularly the 30 four-cycles and the exact connectivity and diameters of both middle layers. Prior same-graph matching counts and local-pooling evidence, and general matching reconfiguration results, do not supply those facts. The known minimum size, known perfect-matching count and elementary perfect-layer isolation are not credited as original individually.
+
+## value
+
+PASS
+
+On a canonical cubic bipartite graph already used to study maximal matchings, the size-preserving move gives distinct behaviours: rigid saturated minima, small cyclic components, two connected intermediate layers with exact path-length bounds, and rigid perfect states. This supplies an exact benchmark for reconfiguration with maximality imposed, where ordinary matching-complex data or unconstrained reconfiguration are not enough. It is a useful finite invariant, not a generalized Petersen family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:08:37.398480Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The finding is read as the displayed reduced-homology statement at RESULT.md line 18; its introductory sentence should say ‘reduced rational homology’ since ordinary H_0 never vanishes for these nonempty quotients. The established cycle homotopy types place reduced homology in d_n=floor((n−2)/3), rank two exactly when 3 divides n. In the augmented signed chain trace, a permutation orbit of length l contributes (−1)^l(−1)^(l−1)=−1 when selected. For rotations the quotient of permissible orbits is C_a for a=gcd(n,j)≥3, a single edge for a=2, and has no permissible orbit for a=1. Evaluating the path recurrence p_k=p_(k−1)−p_(k−2) and the cycle decomposition by omitting or selecting vertex zero gives the six-periodic cycle trace 2 cos(πa/3). For reflections folding the cycle gives a path of length (n−1)/2, n/2+1, or n/2−2; discard precisely the paired adjacent endpoints, including both pairs at n=4 for the edge axis. Direct residues in p_k=(1,0,−1,−1,0,1) periodically yield the four line characters. For rank two the generator trace ±1 forces determinant +1 (determinant −1 would force eigenvalues ±1 and zero trace), hence the primitive third or sixth roots. A reflection exchanges these eigenlines, giving trace zero. Equivariant subdivision and rational chain averaging give the quotient from invariant homology, nonzero only for the two trivial-line residues; averaging applies to reduced H_0 as well. Independent replay: python3 /workspace/review-evidence/reproduce.py 2, log /workspace/review-evidence/2.txt; 336 direct signed characters for n=3..18 and independent mod-two rank checks through n=13. These are corroboration, not the all-length proof. Supplied scripts were inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Babson–Kozlov Proposition 4.4's proof treats all odd lengths: for n=3k±1 the reflection has k/2 negative coordinates on the sphere, and for n=3k exchanges the two wedge spheres. Živaljević gives the reflection-equivariant sphere type on the subfamily n=6p−1.",
+          "The rotational quotient theorem for n≥8 gives rational survival iff gcd(n,6)=1, plus integral lens-space ring information at odd primes; it does not use either even-axis reflection."
+        ],
+        "reasoning": "Odd reflection data are already covered. Combined with the known rank and cyclic quotient result they give the full quotient criterion, including the small n checks. Neither determines the sign of either reflection on the rank-one representation for even n.",
+        "searches": [
+          "arXiv:math/0402395v1 Propositions 4.1 and 4.4",
+          "arXiv:math/0405419v1 Proposition 43",
+          "Resultary exact arithmetic topology of rotational cycle-matching quotients b17a3be52183"
+        ]
+      },
+      "checked_sources": [
+        "Babson–Kozlov math/0402395v1",
+        "Živaljević math/0405419v1",
+        "Resultary b17a3be52183 exact Finding",
+        "Resultary cc3173e88c15 and 27d0a51a57e9 summaries",
+        "Frozen record 4 AUDIT.json matching-complex references and bounded identifier-resolution attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In odd 3∤n the rotation is trivial by its odd order acting on a rational line; Proposition 4.4 gives sign (−1)^(k/2) for n=3k±1. Its positive sign gives precisely n≡1,11 mod 12. The exact rotational quotient theorem rules out all n≥8 with gcd(n,6)>1; small n follow directly from the rank and transitive-rotation augmented trace.",
+          "In even 3∤n the known nontrivial rotation forces opposite signs on the two reflection classes, but does not say which is positive. The path-folding trace distinguishes them, even where all rotation and full-group invariants vanish."
+        ],
+        "reasoning": "The new supported information is not the prior odd reflection calculation, nor merely counting nonzero full quotient residues. It settles the missing axis assignment uniformly as part of the complete representation.",
+        "searches": [
+          "Babson–Kozlov Proposition 4.4 proof, pp. 13–14, OA offset 36700",
+          "b17a3be52183 RESULT.md rational quotient theorem",
+          "Resultary 27d0a51a57e9 integral three-divisible subfamily"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ordinary matching complex of C_n is exactly Ind(L(C_n)) with L(C_n)=C_n. The indexed rotational quotient source explicitly identifies these complexes.",
+          "With edges e_i={i,i+1}, r sends the edge label i to i+1 and vertex reflection s sends the edge label i to −i−1. A comparison using label reflection i↦−i changes j by one and swaps the even-axis labels; full group quotients are isomorphic."
+        ],
+        "reasoning": "Ordinary cycle matching is not a different object and would fully cover the finding if the character statement were verified under the parity shift. Strong Morse matching complexes and wheel matching complexes do not have these face sets.",
+        "searches": [
+          "ordinary cycle matching complex complete dihedral character reflection traces six periodic rotation primitive roots full dihedral group",
+          "Complete dihedral homology characters of cycle matching complexes 5aa60c866f1d 6d9fbe47cba0",
+          "Resultary b17a3be52183 RESULT.md Finding, mirror offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "cc3173e88c15 reports the same full quotient for n=3..13 up to homotopy: contractible except for S^3 at n=11,13. 27d0a51a57e9 reports integral matrices for Ind(C_3k) and integral coinvariants. These comparisons at indexed-summary level give stronger results within their stated ranges.",
+          "The frozen record 4's AUDIT.json references an indexed ordinary-cycle matching character summary under ID 5aa60c866f1d and also mentions 6d9fbe47cba0. Searches did not resolve the candidates to verifiable statements; this is not proof of absence."
+        ],
+        "reasoning": "The same-object finite quotient, rotational theorem and divisible-by-three lattice substantially overlap but leave the even 3∤n reflection data unaddressed by the compared statements. The exact unresolved title is a stronger residual risk than a generic possibility of unindexed work.",
+        "searches": [
+          "Resultary ordinary cycle independence vs ordinary cycle matching exact dihedral characters",
+          "Resultary cc3173e88c15, b17a3be52183 and 27d0a51a57e9",
+          "matching-character identifier searches 5aa60c866f1d and 6d9fbe47cba0"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the complete combined character, in particular the two even-cycle reflection classes in the one-dimensional families. Credit prior odd-cycle reflections, full rotational quotient support, partial integral-module and quotient-homotopy coverage. The reduced full-quotient arithmetic criterion is a consequence rather than an independent novelty: combine odd-cycle reflection data with the vanishing or survival of rotation invariants. No verified primary or exact indexed statement settles the remaining even one-dimensional reflection sign for all lengths; two plausible matching-character record identifiers from the frozen evidence could not be resolved and remain a material access risk, not evidence of noncoverage.",
+      "residual_risks": [
+        "The two unresolved ordinary matching-character identifiers are materially plausible exact overlaps because ordinary cycle matching is the same complex with relabeled reflection classes. They did not resolve to actual formulas in the retrievals, so mathematical coverage from them was not established.",
+        "Catalogue dates are not a priority determination. The confirmed rotational quotient and partial integral or finite quotient statements are credited for their content."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers all ranks and odd-cycle reflection restrictions, not both even cycles' reflection classes.",
+          "evidence": [
+            "For odd n=3k±1 the reflection fixes half the coordinates and multiplies the other half by −1; for 3|n its model exchanges the wedge spheres."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0402395v1",
+          "material_read": "Proposition 4.1 p. 13 near offset 35150; Proposition 4.4 and proof pp. 13–14 near offset 36700",
+          "method": "Open-access PDF passage comparison and reflection determinant calculation",
+          "title": "Proof of the Lovász Conjecture",
+          "trigger": "Required homotopy types and possible odd reflection coverage"
+        },
+        {
+          "assessment": "Stronger equivariant homotopy information on one odd subfamily and subgroup only.",
+          "evidence": [
+            "Ind(C_(6p−1)) has a reflection sphere model with p fixed and p sign coordinates."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0405419v1",
+          "material_read": "Proposition 43 p. 17 near offset 53700",
+          "method": "Open-access PDF passage comparison",
+          "title": "WI-posets, graph complexes and Z_2-equivalences",
+          "trigger": "An exact reflection-equivariant sphere type"
+        },
+        {
+          "assessment": "Directly covers cyclic invariant dimensions for n≥8, with stronger integral cyclic results, but does not classify the reflections.",
+          "evidence": [
+            "K_n=M(C_n)=Ind(C_n); reduced rational quotient rank one in degree d_n iff gcd(n,6)=1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-arithmetic-topology-of-rotational-cycle-matching-quotients--b17a3be52183/RESULT.md",
+          "material_read": "Finding, assumptions and opening proof at offset 0",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4 and direct equivalence of edge-label actions",
+          "title": "Arithmetic topology of rotational cycle-matching quotients",
+          "trigger": "Same simplicial complex via line graph; broader cyclic orbit-space invariants"
+        },
+        {
+          "assessment": "Strong finite quotient and divisible-by-three subfamily overlaps; no reliance on their uninspected full text for noncoverage.",
+          "evidence": [
+            "S^3 exceptions n=11,13 in the full quotient through n=13; integral rank-two matrices for n divisible by three."
+          ],
+          "identifier_or_url": "cc3173e88c15; 27d0a51a57e9",
+          "material_read": "Resultary scientific summaries",
+          "method": "Statement-level comparison; exact mirror passages were not retrieved in the bounded comparison",
+          "title": "Dihedral quotients of cycle matching complexes through homological dimension three; The integral dihedral homology lattice of the ordinary three-divisible cycle independence complex",
+          "trigger": "Partial stronger quotient or integral representation classifications of the same complex"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The surviving distinction is a natural axis-sensitive representation invariant for a standard complex. For example, in the even rank-one families it specifies which of two geometrically different reflection subgroups preserves the homology line, information invisible to ranks and to full-group vanishing. The uniform assignment matters independently of the quotient residue criterion, which is already accessible from combined results. No significance is claimed for an integral-lattice classification or unseen quotient topology.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

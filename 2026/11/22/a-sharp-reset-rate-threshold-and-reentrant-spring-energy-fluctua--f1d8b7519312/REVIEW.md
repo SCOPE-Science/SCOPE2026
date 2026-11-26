@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim uses the specified two-dimensional thermal SDE and probe-only Poisson reset generator. Degree-two and degree-four stationary moment recurrences are solved exactly, with the reset indicator imposed only when the probe exponent is nonzero. The positive-denominator rational formula, mean signed spring jump, both ordered bath limits, strict quartic threshold and the two-extrema interval follow by exact symbolic elimination and Bernstein-coefficient inequalities. `verify.py` reconstructs the recurrences, endpoint expressions, Descartes certificate and generator substitutions in rational arithmetic. Gaussian inter-reset Monte Carlo is a separate corroboration, not a proof. Risk: the model is idealized; no numerical-to-infinite extrapolation is used.
+PASS
 
-## Originality — PASS, with residual priority risk
+At reset epochs the retained coordinate is an affine recursion with i.i.d. interval/innovation pairs. For T~Exp(r) its multiplier (g+exp[-(1+1/g)T])/(g+1) lies strictly between 0 and 1 almost surely, so its pth-moment contraction factor is <1 for every p>=1. The innovation is Gaussian conditional on T, with variance O(1+T), so the perpetuity exists uniquely with all polynomial moments; interpolation over stationary renewals preserves these moments. Poisson compensation gives the time-stationary law as the law seen just before resets. Independent exact linear solves of the degree-two and degree-four generator equations with the reset term -r M_ij for i>0 reproduced the displayed A/[(g+1)^2 B], the positive mean, and both endpoint laws from RESULT.md 5–20, 33–69. The difference is 2P(r)/(r+4) with P strictly increasing on r>0; exact signs bracket its unique root at 0.49168 and 0.49169. The reduced g-derivative numerator has degree 7 and a positive denominator. On r=1/2+t/10, 0<=t<=1, exact signed Bernstein minima in degrees 7,5,4,3,2,1,0 are 54075/128, 126400338/15625, 131263578/15625, 463806/3125, 2461/2, 1086, 180; the minimum for -N_r(1) is 14591839608/1953125. Thus the g^6 coefficient cannot change the two Descartes sign variations; signs at 0, 1 and infinity give two distinct positive roots, hence both simple, with the claimed extremum order. At r=1/2 the signs at g=0.38,0.39,16.1,16.2 are +,-,-,+. Replay: /workspace/branches/456f1caf-8ee8-49b9-8740-f78b71b7167e/independent_check.py and exact_check_output.txt. VERIFICATION.md, verify.py and simulate.py were read as evidence, not executed. Endpoint ordering does not assert monotonicity, and the turning-point count is proved only on the stated closed rate interval. The stationary laws are taken at finite positive g before limits.
 
-The source model, general mixed-moment recurrence, and one-coordinate kurtosis in Santra and Das (2026) are acknowledged as known; they do not themselves state a signed spring-energy-jump relative-noise crossover or the two-extrema classification. Olsen and Gupta (2024) study a distinct physically implemented partial-reset protocol and mean work; its work observable does not imply the current claim. published-finding corpus searches for aliases, spring energy, mixed fourth moments, resetting work and two extrema found nearby studies of positional kurtosis, memory-induced tails, fourth-order temporal irreversibility and one-coordinate work but no mathematically dominating statement. The key risk is an unindexed treatment of the same observable, not uncertainty about the cited moment method.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The signed potential change is a physically well-defined local quantity at a reset, which can be negative even with a positive mean. Its normalized variance controls reproducibility of reset-event spring exchange. The exact threshold shows that increasing bath memory can change from improving to worsening relative uncertainty as the reset rate passes a natural algebraic boundary; the interval theorem establishes actual nonmonotonic behavior and two separated extrema, rather than a mere endpoint comparison. These are qualitative structural results, not simple restatements of existing positional moments. No physical implementation-cost identity is claimed.
+Best-of-knowledge pass for the signed spring-jump relative-variance crossover and certified two-turning-point interval, not for the probe-only reset model, mixed-moment hierarchy, or routine derivation of the jump mean from known second moments. General moment solvability does not itself classify the stationary points of this particular quotient.
 
-## Closest literature and limitations
+## value
 
-Santra and Das (2026), Sections II–III and Appendix A, provide the same dynamics and general mixed-moment hierarchy, but not the stated energy-fluctuation classification. Olsen and Gupta (2024) provide thermodynamic resetting context for a different protocol. Equivalent but unindexed derivations cannot be excluded by database search alone. The results apply to positive rates and stationary pre-reset events of a single linear bath; long-run cumulative-work fluctuations and complete reset thermodynamics remain unproved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The observable is a specified energetic effect at each reset, distinct from either position fluctuations or the full cost of reset control. A threshold that reverses which memory endpoint has less relative noise, and an exact interval with both a maximum and a minimum between those endpoints, reveal why endpoint comparisons alone cannot identify favorable intermediate memory. No all-rate extremum classification or implemented-work claim is needed for this value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Exact verification
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python 3.9 or later in the extracted directory. The script has no third-party dependencies. It computes \(\det(\mu I+L_S)/\mu\) for all 64 subsets of the six unit candidate edges of the five-vertex path via the complete 120-permutation determinant formula, and constructs every second-difference numerator with exact polynomial arithmetic.
+## correctness
 
-Expected output:
+PASS
 
-```text
-PASS: 64 determinant polynomials and 240 exhaustive elemental inequalities
-PASS: 210 strictly positive shifted certificates, 29 identities, one quartic witness
-PASS: quartic isolating interval (5/4,13/10), unscreened witness 3/70
-```
+The four-term F submodularity slack is J(S)+J(S+ef)−J(S+e)−J(S+f), with common 1/μ terms cancelling and positive product denominator. Independently constructed all 64 characteristic polynomials using traces of Laplacian powers and Newton identities, rather than the supplied Leibniz code. Over all 240 unordered pair/base-set tests, the numerator is the asserted exceptional factorization once, identically zero 29 times, and strictly positive on μ≥5/4 by nonnegative shifted coefficients and positive constant 210 times. The least such constant after multiplying by 4^15 was 2607034601472000. The quartic changes sign between 5/4 and 13/10 and has exactly one positive root by Descartes' rule. Its numerator has the quartic's sign for μ>0, including equality at the root. At zero screening p′(0)/p(0) is the pseudoinverse trace; on the {24} witness the four traces are 8/3, 41/20, 41/20, 146/105, giving slack −3/70. Replay: python3 /workspace/evidence/p5_newton.py. The supplied script was inspected, not run.
 
-The inequality \(F_\mu(S+e)+F_\mu(S+f)-F_\mu(S+e+f)-F_\mu(S)\ge0\) for distinct unchosen edges is checked for all 240 configurations. The program verifies exact nonnegative coefficient expansions in \(v=\mu-5/4\), not approximate signs of individual numerical evaluations. The exceptional polynomial factorization and the two exact rational endpoint values isolate the unique positive threshold. Together these are a finite exact proof for all real \(\mu\ge0\) within the stated graph family.
+## originality
 
-It does not test graphs of other sizes or continuous nonuniform edge weights. The cited source papers and publication priority are not mathematically certified by this program, and no independent audit has been performed.
+PASS
+
+Credit the existing unscreened edge-addition counterexample, not priority for that example. The supported distinct claim is the exact positive-screening iff threshold on all six candidate edges and its strictness classification. Retrieved comparisons concern unscreened edge coherence or a genuinely different vertex-set objective, and do not imply the quartic, its global threshold role, or the equality counts.
+
+## value
+
+PASS
+
+P5 is a named counterexample to an edge-design submodularity guarantee, not an arbitrary tiny graph. The complete lattice restoration threshold answers exactly how much uniform screening repairs that failure, including a different obstruction at μ=0 and exact strictness. A pointwise test or the old counterexample cannot answer this interval question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

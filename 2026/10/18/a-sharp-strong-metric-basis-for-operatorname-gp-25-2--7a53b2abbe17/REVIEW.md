@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is \(\operatorname{sdim}(\operatorname{GP}(25,2))=34\). The vertex-cover reduction for mutually maximally distant pairs is justified by extending geodesics. The exact all-pairs distance table identifies a 175-edge strong resolving graph split into two circulants. Five cliques of the nonneighbors of a fixed outer vertex bound the outer independent number by six, while five disjoint inner five-cycles bound the inner independent number by ten. Both bounds are attained by displayed independent sets, so \(50-(6+10)=34\). Separate breadth-first and Floyd–Warshall programs reconstruct the graph; the former directly checks strong resolution for all 1,225 unordered vertex pairs. The proof is a complete finite classification of this invariant, not a claim about untested orders.
+PASS
 
-## Originality — PASS (with residual risks)
+An MMD pair can only be strongly resolved by one of its endpoints: a geodesic from a third resolving vertex would extend past an endpoint and produce a neighbor farther from the other endpoint. Conversely any shortest path can be extended as a contiguous subpath to a maximal geodesic, whose endpoints are MMD; a cover then resolves the original pair. Thus sdim=50-alpha(R). I independently reconstructed distances by simultaneous shortest-path relaxation from the two layer representatives, recovered the frozen distance rows and checked all 1225 pairs for mutual maximality. R has only the outer steps ±5,±7,±9,±11,±12 and inner steps ±9,±11 (125 and 50 edges). In the outer component rotate a nonempty independent set to contain 0: its 14 other available indices are partitioned into the five exhibited cliques, giving at most six. In the inner component the cycles t+9j for j=0,...,4 and t=0,5,10,15,20 close by an allowed step and partition the vertices (9 is invertible modulo 5); each supplies at most two independent vertices. The displayed witnesses realize both bounds. An independent take-or-skip bitset recurrence also gave independence numbers 6 and 10, and the complement directly resolved all 1225 pairs. Own replay: python3 /workspace/evidence/5/check_dimension.py. Frozen BFS and Floyd programs and outputs were inspected, not executed. The 2015 prediction comparison is correct; the published upper bound is not contradicted. The 2017 formulation is a bibliographic detail with the access limitation below.
 
-The closest full text is Kratica–Kovačević-Vujčić–Čangalović (arXiv:1507.00881v1, 2015; journal version, 2017), which proves only the bound \(\operatorname{sdim}(\operatorname{GP}(4k+1,2))\leq5k+5\), and explicitly predicts equality when \(k\ge5\). Their table of exact small cases stops at \(n=19\). The value 34 for \(n=25\), where their prediction gives 35, contradicts rather than restates their proposal. The known vertex-cover reduction is credited. Search of accessible mathematical records and related published metric-invariant work found no stronger theorem or database entry giving this exact value; incompletely indexed subsequent literature remains a risk. No publication-priority or external certification claim is made.
+## originality
 
-## Value — PASS
+PASS
 
-This is an exact, proof-certified counterexample to a named, long-standing infinite-family prediction at its second eligible parameter, not an arbitrary numerical computation. The explicit clique partition and five odd cycles explain optimality structurally and identify the precise 34-vertex strong resolving basis; they do not merely corroborate a solver output. This changes the status of the proposed formula while leaving the correct full-family replacement open.
+The supported distinct contribution of the October record is the exact 34-versus-35 counterexample with matching structural optimality certificates. The closest primary theorem proves only an upper bound. A distinct November 22 Resultary result exactly covers the numerical value and the counterexample and goes further by classifying the bases; it is expressly credited. Its declared publication date is after the frozen source's October 18 publication date. It is not demonstrated prior coverage of the October finding, and the catalogue chronology does not establish independent discovery or wider priority. No earlier covering exact result was verified.
 
-## Limits
+## value
 
-The result determines one finite generalized Petersen graph only; no claim is made about all residue-class-one orders. Independent external scientific review has not occurred. Potential equivalence in otherwise inaccessible or unindexed literature is a residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This one 50-vertex case directly refutes a named equality for every k>=5 at k=6 rather than extending a table for its own sake. The compact clique and odd-cycle certificates explain why the value is exactly 34 and provide a witness any proposed replacement formula must fit. No full odd-order classification is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

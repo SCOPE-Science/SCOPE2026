@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:57:59.156375Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 20–47",
+        "Independent replay: python3 /workspace/branches/f9bae0b6-625e-4aa5-aade-9fafae8050bd/independent_check_record2.py; adjacency-based partition enumeration for n=2,3,4,5 gives (C₄,P₄,2K₂)=(1,0,0),(6,24,0),(28,288,48),(120,2400,960), respectively; no frozen code executed."
+      ],
+      "rationale": "For n≥2 there is no dominating singleton; in a matching a set dominates exactly when it hits every edge, and the perfect-coalition neighbor restrictions are automatic. Form the support Q of endpoint-class types. The partner edges are exactly the two-element covers of Q, and every class must occur in one. A loop forces all partner edges through its class and an edge avoiding that class then gives at most three classes. In the loopless case a family of edges with no common vertex either contains disjoint edges, bounding all participating labels by four, or contains a triangle, bounding them by three. With four labels Q must be 2K₂, P₄, or C₄; the other supports containing two disjoint edges have isolated partner vertices. Taking two-element covers gives respectively C₄, P₄, and 2K₂. Surjections of labeled edges onto the support, independent endpoint orientations, and division by the 4! free class namings give the three formulas, including n=2 and n=3. Two disjoint types used at least once attain four for all n≥2.",
+      "residual_risks": [
+        "The replay checks only four finite sizes; the support argument provides the unrestricted proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The leaf-corona theorem applies to every n-vertex base with n≥2; it has the four-class bound, the three supports, and the unordered-partition total. Available publisher material for Blázsik describes transversal upper bounds and structure of optimal coalition graphs."
+        ],
+        "reasoning": "The leaf-corona result includes the edgeless case without strengthening its hypotheses. Blázsik is structural context; available material does not establish a matching-specific census.",
+        "searches": [
+          "SCOPE leaf-corona record 032f995812ec",
+          "Blázsik, DOI 10.1016/j.dam.2025.08.019"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 18 and 49–61",
+        "Published Resultary leaf-corona record 032f995812ec, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "Publisher materials for DOI 10.1016/j.dam.2025.08.019"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The assignments to supports 2K₂, P₄, C₄ give 2^(n−2)S(n,2), 3·2^nS(n,3), 3·2^nS(n,4)."
+        ],
+        "reasoning": "The support-to-partner map is 2K₂→C₄, P₄→P₄, C₄→2K₂. Thus both the separate counts and the exact realization orders follow, as does the total. No matching-specific mathematical remainder was identified.",
+        "searches": [
+          "Leaf-corona RESULT.md, enumeration passage at mirror offset 5785"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Leaf-corona RESULT.md, Finding and enumeration passage (mirror offsets 0 and 5785), uses ordinary coalitions and colored incidence supports."
+        ],
+        "reasoning": "Specialize the base G to n isolated labeled vertices. Then G∘K₁ is the matching with individually labeled endpoints. Ordinary and perfect definitions coincide by maximum degree one, and labeled base/leaf pairs likewise distinguish the two endpoints of each edge. The partner graph is obtained from incidence support by taking the two-element covers.",
+        "searches": [
+          "Resultary matching perfect-coalition partitions / incidence-type census lookup; matched SCOPE-coalition-partitions-of-leaf-coronas-and-their-incidence-types--032f995812ec"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched repository record gives total 2^(n−3)(4^n−5·2^n+6) and an enumeration by support via surjections and automorphism groups."
+        ],
+        "reasoning": "This is an all-n exact match under a specialization and a type relabeling, stronger evidence than a match of a finite sequence of totals.",
+        "searches": [
+          "Resultary published record lookup, match 2026/10/12/SCOPE-coalition-partitions-of-leaf-coronas-and-their-incidence-types--032f995812ec"
+        ]
+      },
+      "rationale": "An existing distinct published repository record on leaf coronas implies the entire matching census, not just the four-class ceiling. This is demonstrable coverage, without needing to adjudicate historical priority or infer anything from external access failures.",
+      "residual_risks": [
+        "External publication priority and exact scope of the full Blázsik paper were not determined; neither affects the demonstrated repository coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS",
+          "evidence": [
+            "Four-class ceiling, the three incidence support types, and exact assignment counts specialize and translate to all stated matching formulas."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-coalition-partitions-of-leaf-coronas-and-their-incidence-types--032f995812ec",
+          "material_read": "RESULT.md Finding and enumeration passages, offsets 0 and 5785, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Bounded local mirror reading and specialization to an edgeless base",
+          "title": "Coalition partitions of leaf coronas and their incidence types",
+          "trigger": "Broader exact Resultary match"
+        },
+        {
+          "assessment": "Structural overlap; full statement comparison limited",
+          "evidence": [
+            "Available text concerns bounds and possible optimal coalition graphs, not an inspected matching enumeration."
+          ],
+          "identifier_or_url": "10.1016/j.dam.2025.08.019",
+          "material_read": "Publisher search material describing scope; full text unavailable through attempted lawful routes",
+          "method": "Publisher metadata/snippets; DOI timed out and publisher blocked full-text retrieval",
+          "title": "General sharp upper bounds on the transversal coalition number",
+          "trigger": "Cited structural precedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–18 and 25–44",
+        "Leaf-corona Finding and enumeration, record 032f995812ec"
+      ],
+      "rationale": "An exact optimal-partition census could be useful, but here neither the parameter restriction nor the change from incidence-support names to partner-graph names adds an invariant, new count, or new boundary. The proposed contribution is a direct substitution into the broader census.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

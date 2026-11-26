@@ -1,0 +1,186 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:56:07.327289Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–43 and 45–74",
+        "Frozen VERIFICATION.md and two supporting checkers (inspected, not executed)",
+        "Repaired RESULT.md: Known weights, Modes, Upper tails and normalization, Local law and rarity",
+        "10/25 first-moment formula (3), 11/02 exact rank count"
+      ],
+      "rationale": "Re-audited the narrowed RESULT.md in repairs/4. The known pair weight is valid: the two inverse restrictions pair the ordered images with the opposite kernel intervals; each one-sided marked-kernel count has generating function z^r/(1−z)^{2r}. The first-moment identity in the earlier record gives the same squared weight on multiplication by the number of rank-r maps, and rank one is n² by direct counting. The consecutive square-root weight ratio is (n²−r²)/(2r(2r+1)), crossing one at τ_n, with the single rank at n=1 handled separately. A tie requires norm-one Pell equation (5r+1)²−5n²=1, and the unit 9+4√5 has constant part −1 mod 5; exactly its even powers qualify. At the first even power n=72 and r=32. The uniform interior Stirling prefactor for the squared weight is x/[πn(1−x²)]; the unique saddle is x*=1/√5 with 2h(x*)=4 log φ and (2h)″(x*)=−5√5. The repair bounds endpoints by binomial entropy and intermediate tails by Gaussian domination, justifying the lattice normalization and weak convergence. The cubic error on |r−nx*|≤a_n=o(n^{2/3}) is O(a_n³/n²)=o(1), giving a uniform relative local law after normalization. Both total and product-measure probability constants follow; in particular dividing by |O_n|² multiplies the total by 4πn/16^n asymptotically.",
+      "residual_risks": [
+        "The local formula is relative within the stated window; it does not assert relative accuracy for fixed proportional deviations from x*.",
+        "The recorded finite runs are not proof certificates and no claim of independent execution of the supplied scripts is made."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 10/25 result gives finite moments for partner degree of a rank-fixed map and a fixed-rank Dirichlet limit. The 11/02 extremal item maximizes individual partner degree. The 11/08 CLT is for the logarithm of partner degree at prescribed proportional rank.",
+          "Higgins studies existence of inverse matchings. Retrieved Fibonacci-triangle passages in Wilson and Edgar–Spivey involve generalized Fibonacci-based coefficients and divisibility, not the ordinary-binomial pair-rank weights."
+        ],
+        "reasoning": "A law of the number of neighbors of an already rank-conditioned vertex, an existence matching, and a maximum-degree rank do not classify the rank of a uniform inverse-graph edge. The available broader coverage of exact weights is fully credited.",
+        "searches": [
+          "10/25 Resultary exact inverse-degree moments; 11/02 exact extremal inverse neighborhoods; 11/08 inverse-degree CLT",
+          "Higgins arXiv:2610.01912, DOI 10.1007/s00233-024-10430-0",
+          "Primary-literature query for A078812/Fibonacci triangle row maxima, Pell ties 72 and 161+72√5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary indexed 10/25, 11/02 and 11/08 records listed above",
+        "Higgins arXiv:2610.01912v1; 2024 matching paper; 1993 idempotent discussion (accessible arXiv:2611.15369v1 passage around offset 56630)",
+        "OEIS A078812; Lavers publisher preview and attempted PDF",
+        "Primary-literature search on Pell/row-maxima and squared Fibonacci-triangle weights, including Wilson and Edgar–Spivey introduction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Summing partner degrees over the binom(n−1,r−1)binom(n,r) rank-r maps recovers exactly the ordered-pair count from the first moment, with rank one elementary. The total expression and exact independent-map probability follow from it.",
+          "The logarithmic CLT concerns a different observable and conditions on rank rather than sampling it. The repaired law requires a discrete saddle-point normalization and cubic-error control; the exact plateau sizes require solving the norm-one equation with its congruence restriction."
+        ],
+        "reasoning": "The finite enumeration and immediate identities are fully covered and are no longer novelty claims. They provide raw weights, not an existing limit theorem in this sampling measure or an existing Pell characterization of its ties.",
+        "searches": [
+          "10/25 SCOPE-exact-inverse-degree-moments-and-dirichlet-limits-for-isotone-tr--35b0c2d31193, Eq. (3)",
+          "11/02 exact extremal inverse neighborhoods Finding",
+          "11/08 Gaussian logarithmic fluctuations Finding",
+          "Higgins arXiv:2610.01912v1 §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The crossed-transversal description is prior: kernels and opposite images are paired independently. Reindexing the idempotent array gives E_{n,r}=binom(n+r−1,2r−1). The pair weights E_{n,r}² must be normalized across ranks.",
+          "Maximizers of the idempotent row would be exactly the pair-rank modes, so the search compared row maxima and ties as well as inverse-pair terminology."
+        ],
+        "reasoning": "The idempotent array and crossed relation are not original here. Their entries and the squared entries have the same modes, but normalizing squared rather than unsquared entries changes the fluctuation law. Evidence of a known array alone is not a stated tie classification or a local law for its squared row measure.",
+        "searches": [
+          "Resultary: order-preserving isotone full transformations mutual inverse ordered pairs Pell ties maximizing rank 72 Gaussian local limit rank of a uniformly sampled mutual inverse pair binomial squares",
+          "Higgins arXiv:2610.01912v1 Definition 2.1 and §2",
+          "OEIS A078812"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS gives the exact idempotent array in zero-based indexing; the distinct 11/02 Resultary entry gives exactly the ordered pair count by rank in one-based indexing. Neither inspected entry specifies the Pell ties or the local limit law in question."
+        ],
+        "reasoning": "The known exact table is not offered as a result in the repair. No absence claim is based solely on a keyword miss; priority for equivalent arithmetic treatments is not certified.",
+        "searches": [
+          "OEIS A078812 and classical idempotent row enumeration",
+          "Resultary SCOPE-exact-extremal-inverse-neighborhoods-in-order-preserving-transfo--56b350ea9bb8",
+          "Resultary ranked search including the first tie n=72 and a local Gaussian pair-rank law"
+        ]
+      },
+      "rationale": "The frozen treatment of the ordered finite pair count as a new part of the contribution fails originality: the earlier inverse-degree moment formula implies it, and a distinct same-day record states it outright. The repaired finding credits it and the exact sum as known inputs; the accepted distinction is the classification of ties for the most likely rank of a uniformly drawn valid pair and the sharp normalization/local and global fluctuation laws for that rank. No matching Pell classification or relative local law was found in the inspected comparisons. The residual priority judgment is bounded, especially for applications of the equivalent classical triangle.",
+      "residual_risks": [
+        "Full text of Lavers (1998) and complete implications of the older idempotent literature remain unresolved; the known finite triangle and pair count are credited regardless.",
+        "No public-release priority follows from same-day indexing. No absolute priority is asserted for alternate treatments of the array's exact modes or asymptotics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct implication for the exact pair weight; different limit observable and regime",
+          "evidence": [
+            "The numerator of the first moment is the squared binomial and the denominator is the rank-r map count."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-inverse-degree-moments-and-dirichlet-limits-for-isotone-tr--35b0c2d31193/RESULT.md",
+          "material_read": "Finding from offset 290; equations (1)–(7), especially (3)",
+          "method": "Resultary and local mirror",
+          "title": "Exact inverse-degree moments and Dirichlet limits for isotone transformation monoids",
+          "trigger": "Prior identity for the first moment at rank r"
+        },
+        {
+          "assessment": "Explicit count match; same-day chronology unresolved",
+          "evidence": [
+            "States the same squared binomial at every rank; its extrema are about degrees of individual maps."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-extremal-inverse-neighborhoods-in-order-preserving-transfo--56b350ea9bb8/RESULT.md",
+          "material_read": "Finding, Assumptions and beginning of Proof, offsets 1450–3150",
+          "method": "Resultary and local mirror",
+          "title": "Exact extremal inverse neighborhoods in order-preserving transformation monoids",
+          "trigger": "Identical inverse-graph ordered edge count by rank"
+        },
+        {
+          "assessment": "Different conditioned sampling law and random variable",
+          "evidence": [
+            "Rank is fixed at floor(αn); the random variable is log of the number of partners of one map."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-inverse-partner-degree-law-and-gaussian-logarithmic-fluctuat--f03924d534c3/RESULT.md",
+          "material_read": "Finding and Definitions and boundaries, offsets 0–1905",
+          "method": "Resultary and local mirror",
+          "title": "Gaussian logarithmic fluctuations of inverse-partner degrees at proportional rank",
+          "trigger": "Plausibly overlapping conditional-rank Gaussian claim"
+        },
+        {
+          "assessment": "Prior crossed-transversal characterization and matching existence",
+          "evidence": [
+            "Describes the crossed incidences and relates them to inverse pairs; the matching result asks for existence, not the frequency law of ranks."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.01912v1",
+          "material_read": "Abstract and §2, offsets 5556–7398, Definition 2.1 near 7036",
+          "method": "OA full-text passage inspection",
+          "title": "Balanced weightings and permutation matchings applied to the monoid of order-preserving mappings",
+          "trigger": "Same inverse relation and structural description"
+        },
+        {
+          "assessment": "Existence problem, not pair-rank statistics",
+          "evidence": [
+            "Asks whether the order-preserving monoid has a permutation matching."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00233-024-10430-0",
+          "material_read": "Page 3, offsets around 5904",
+          "method": "OA full-text passage inspection",
+          "title": "Finite regular semigroups with permutations that map elements to inverses",
+          "trigger": "Earlier formulation of the isotone matching problem"
+        },
+        {
+          "assessment": "Exact unsquared triangle coverage",
+          "evidence": [
+            "Entries count idempotent order-preserving full transformations of specified height; reindexing yields E_{n,r}."
+          ],
+          "identifier_or_url": "https://oeis.org/A078812",
+          "material_read": "Zero-based entry formula and idempotent interpretation, offsets 1157 and 5401",
+          "method": "OA public-page passage inspection",
+          "title": "OEIS A078812",
+          "trigger": "Exact classical triangle whose squares are used"
+        },
+        {
+          "assessment": "Plausible exact-array and mode comparison; not cleared through the full text",
+          "evidence": [
+            "Preview identifies a study of idempotents, rank and Catalan degree, not a verified claim about squared-array rank limits."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-94-011-5020-0_28",
+          "material_read": "Publisher and indexed abstract/preview only; no full text",
+          "method": "OA publisher PDF attempted, direct/VPN returned redirect errors; checked identified public metadata",
+          "title": "The Fibonacci Pyramid",
+          "trigger": "Prior combinatorics on the exact idempotent family"
+        },
+        {
+          "assessment": "Different array under the same name",
+          "evidence": [
+            "Defines entries with Fibonacci factorials rather than the ordinary diagonal binomial coefficients here; main results concern reduction modulo p."
+          ],
+          "identifier_or_url": "https://www.fq.math.ca/Scanned/36-3/wilson1.pdf",
+          "material_read": "§1 and start of §2, pp. 194–195",
+          "method": "OA PDF passage inspection",
+          "title": "The Fibonacci Triangle Modulo p",
+          "trigger": "Row-maxima query using the alternative Fibonacci-triangle name"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding, Modes, and asymptotic proof",
+        "Earlier degree moment and individual maximum-degree findings",
+        "Related fixed-rank logarithmic CLT"
+      ],
+      "rationale": "The repaired result answers the distributional question for a natural edge-weighted sample of the inverse relation rather than a fixed-rank vertex sample. It locates all rank ties, including a sparse nontrivial Pell family, quantifies concentration down to individual ranks in a moderate window, and computes the exponential rarity and its prefactor under independent sampling. These two analyses explain finite-size modes and fluctuations that the known enumeration alone does not describe. The ordinary idempotent count and exact sum are useful inputs, not claimed advances.",
+      "residual_risks": [
+        "No conclusion on permutation matchings, general posets, or the distribution of the partner degree itself."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:51:34.498370Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The quadratic intersection B consists of the double point at [1:0:0] tangent to Y=0 and the two simple [0:1:±1]; X^d−Z^d avoids all three support points. The resulting regular sequence is Artinian Gorenstein of socle degree d+1. Direct differentiation annihilates the stated nonzero F_d by all three generators, hence it is the top inverse system and has precisely the given annihilator. For the upper bound, independently of the presented Hilbert–Burch calculation, with N=d+1, the sum of ζ(ζx+z)^N/N over ζ^N=1 equals N x^(N−1)z by root-of-unity orthogonality. The two remaining powers give at most N+2 summands. For the frozen lower bound, if no line contains d points of a proposed set of at most d+2 points, sort the remaining vertices for each P by their lines through P. The largest group has size at most d−2. Pair entries separated in this ordering by M=max(largest group, ceiling(half the number of remaining vertices)), leaving singletons as necessary. Each pair uses a line avoiding P, as do chosen lines for the singletons. At most d−2 lines suffice and their padded products separate all P. Evaluation is then surjective in degree d−2 and the saturated point ideal is generated through d−1 (by a nonvanishing linear form and the bounded Hilbert function of the resulting Artinian reduction). Thus the reduced point set would have to contain the nonreduced finite scheme B, impossible. If a line contains at least d points, the pencil has no common line factor, ruling out just one off the line, and there is no linear annihilator. The only remaining arrangement is d points on L and two off it on M; its conic LM must be one of the two reducible pencil members since the determinant is λμ²/4. Cubics LH_2 show that the off-line pair must be the reduced zeros of the complementary quadric on M. This also forces the degree-d generator coefficient to vanish in a lift of the reduced divisor of d points on L, so the complementary quadric divides that divisor on L. For LM=XY one of the two restrictions has a double zero; for LM=Y²−Z² the restriction on M forces the off-line pair to include L∩M. Both are contradictions. The finite frozen script was inspected but not run; no assertion of machine certification is made.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The low-rank theorem applies when border rank is strictly less than rank and their sum is at most 2N+1; it splits a rank-realizing set and a smoothable border-rank scheme into components on one degree-N rational normal curve in the Veronese plus the same reduced remainder off it. The two quadrics here determine a nonreduced complete intersection, so the narrower reducedness assumptions in the Bhat et al. general results fail."
+        ],
+        "reasoning": "The stronger secant theorem is applicable without requiring the quadratic intersection to be reduced. By contrast, failure of the two sufficient conditions in the cited motivating paper is not evidence of an uncovered family.",
+        "searches": [
+          "Ballico–Bernardi arXiv:1003.5157 p. 2 Theorem 1 (Math. Z. DOI 10.1007/s00209-011-0907-6)",
+          "arXiv:1005.3465 Proposition 7, Lemma 8 and main proof case (II2.1)",
+          "Bhat–Carlini–Masuti–Sebastian arXiv:2610.18346v1 Theorems 3.4 and 3.6"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:1003.5157 Theorem 1",
+        "arXiv:1005.3465 and v1",
+        "arXiv:2610.18346v1",
+        "published Resultary record 624e5fe13b05",
+        "arXiv:2303.06780v1 Theorems 3.1 and 3.8",
+        "arXiv:1112.3474v1 Theorem 3.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In degree N the degree-two catalecticant has rank 4, implying border rank at least 4. B gives border rank at most 4, since it is smoothable and spans F_d after Veronese; equivalently the binary tangent term is a limit of a sum of two powers. The actual rank exceeds 4: a reduced apolar set of four points would have at least the two independent quadrics in its ideal and hence exactly the same two-dimensional space as B, which has only three support points. The displayed binary tangent and two simple powers give rank at most N+2, so the sum of rank and border rank is at most N+6≤2N+1 for N≥6. Apply arXiv:1003.5157 Theorem 1: the double component must be on the line corresponding to the rational normal curve, since the common off-line remainder is reduced and the splitting is as schemes. The only possible line is its tangent Y=0. The two simple points are therefore exactly the common off-line remainder. On the line the combined schemes meet in length at least N+2, with only length two contributed by B, so at least N reduced rank points lie on the line. The total rank is at least N+2 and hence equal to N+2=d+3."
+        ],
+        "reasoning": "This is a direct specialization of an earlier theorem with checked numerical and geometric assumptions, including the boundary N=6. It does not require relying on the inconsistent heading in the fourth-secant paper or an unsupported claim of conventional priority.",
+        "searches": [
+          "arXiv:1003.5157 Theorem 1, full assumptions and split conclusion",
+          "arXiv:1005.3465 main proof (II2.1) versus Proposition 7 and Lemma 8",
+          "Frozen RESULT.md lines 13–33"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reformulate using the degree-N Veronese surface, N=d+1. F_d lies in the span of the curvilinear scheme B of type (2,1,1); the double point is tangent to Y=0 and neither simple point is on that line. No line meets B in length three: the line of the two reduced points misses the double point, and any line through one simple point and the double support is transverse to its tangent. A general conic through B is smooth, since λμ²/4 is the pencil determinant."
+        ],
+        "reasoning": "These are the exact support and smooth-conic assumptions in the matching case of the fourth-secant proof summary (printed p. 19), with their degree parameter equal to N, not the d indexing the ideal.",
+        "searches": [
+          "Resultary searches for (Y²−Z²,XY,X^d−Z^d), its inverse form and rank",
+          "Ballico–Bernardi arXiv:1005.3465 §4.1.2 and proof of Theorem 1, case (II2.1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary record 2026/10/26/SCOPE-exact-waring-rank-8-for-a-nonreduced-base-locus-apolar-complete--624e5fe13b05 states exact rank 8 for this very sextic. Example 6.1 of Bhat et al. states 4<rank≤8, not rank 8. No exact all-d catalogue match appeared among inspected hits."
+        ],
+        "reasoning": "The indexed sextic result is exact but only one instance. The absence of a family listing does not restore originality because the earlier structure theorem determines the whole family.",
+        "searches": [
+          "Resultary searches for rank eight with the exact ideal I_5 and for the uniform rank family",
+          "arXiv:2610.18346v1 Example 6.1"
+        ]
+      },
+      "rationale": "The whole rank formula, not just the sextic value, follows from Ballico–Bernardi's low-rank structure theorem in arXiv:1003.5157, Theorem 1, by verifying its hypotheses and the two off-line points. Their fourth-secant paper also explicitly identifies the relevant case in its main proof, albeit with a conflicting Proposition 7 heading. The conclusion does not depend on silently amending that heading or on obtaining the publisher copy. The special nonreduced-base family is not covered by the particular sufficient conditions cited from Bhat et al., but is covered by this stronger, earlier Veronese result.",
+      "residual_risks": [
+        "The publisher version and any erratum of the fourth-secant paper were not inspected; the OA versions have the noted inconsistency. The separate low-rank theorem and checked application settle coverage without deciding the publisher wording.",
+        "No claim is made about coverage for other apolar complete intersections of multidegree (2,2,d)."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisively covers the lower bound once border rank four and the simple upper bound are established",
+          "evidence": "For border rank less than rank and sum ≤2N+1, the nonreduced scheme and reduced rank set split into parts meeting the degree-N curve with union length at least N+2 and a common reduced off-curve remainder.",
+          "identifier_or_url": "https://arxiv.org/abs/1003.5157 (DOI 10.1007/s00209-011-0907-6)",
+          "material_read": "PDF p. 2 Theorem 1, around text offset 7559, including sum threshold, the rational normal curve and the common off-curve part",
+          "method": "Lawful same-paper OA submitted version recovered by DOI, then full statement read by offset",
+          "title": "Decomposition of homogeneous polynomials with low rank",
+          "trigger": "The theorem cited by the fourth-secant proof's low-rank lemma; supplies a direct applicable implication"
+        },
+        {
+          "assessment": "Main proof explicitly identifies the matching smooth-general-conic, three-support case. The current Proposition 7 heading conflicts with that case and with Lemma 8; the earlier v1 broad smooth-conic statement is not relied on.",
+          "evidence": "The main proof assigns rank N+2 to the smooth-general-conic exception with three support points, whereas Proposition 7's heading says not smooth and Lemma 8 forces one support point in the latter case.",
+          "identifier_or_url": "https://arxiv.org/abs/1005.3465 (DOI 10.1515/apam-2013-0015)",
+          "material_read": "Current OA PDF Lemma 4 around p. 9; §4.1.2 Proposition 7 and Lemma 8 pp. 13–14; main proof case (II2.1) pp. 19–20. Earlier v1 Proposition 9 around text offset 51000.",
+          "method": "Primary OA arXiv versions, decisive passages compared; publisher copy unavailable",
+          "title": "Stratification of the fourth secant variety of Veronese varieties via the symmetric rank",
+          "trigger": "Plausible exact prior classification of rank for a planar scheme of border rank four"
+        },
+        {
+          "assessment": "Exact d=5 example but only bounds; general stated sufficient conditions do not cover the nonreduced base in this family",
+          "evidence": "Example 6.1 distinguishes square-free generators from their nonreduced quadratic base and gives 4<rank≤8.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.18346v1",
+          "material_read": "PDF Theorems 3.4 and 3.6, pp. 5–6, and Example 6.1, pp. 12–13",
+          "method": "Primary OA PDF bounded passages",
+          "title": "Waring rank of certain complete intersection forms",
+          "trigger": "Exact sextic ideal and candidate general theorem cited in the result"
+        },
+        {
+          "assessment": "Exact sextic case, not the full family",
+          "evidence": "Same annihilating ideal with d=5, giving complex rank 8.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-waring-rank-8-for-a-nonreduced-base-locus-apolar-complete--624e5fe13b05/RESULT.md",
+          "material_read": "Indexed RESULT.md Finding",
+          "method": "Local published-record mirror",
+          "title": "Exact Waring rank 8 for a nonreduced-base-locus apolar complete intersection",
+          "trigger": "Closest exact indexed ideal and rank"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The explicit apolar argument is a self-contained reproof for this family, but the sole claimed new exact invariant is already determined uniformly by existing rank theorems. The record does not establish a different invariant or generalize the elementary method to a new class outside that coverage. The motivating nonreduced case is legitimate, but recomputing this already implied formula does not make a separate finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

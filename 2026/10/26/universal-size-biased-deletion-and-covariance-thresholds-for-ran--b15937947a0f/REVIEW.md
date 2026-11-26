@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Expanding a component weight by its vertex set and connected internal edge pattern shows that the remaining induced hypergraph is independently distributed as the same binomial model on the complement. This proves the entire weighted factorial-moment identity, not merely the covariance. The sign follows from a strictly increasing elementary function of the edge probability; threshold ordering follows from a convex logarithm ratio and decreasing averages of binomial-coefficient increments. The sparse and endpoint asymptotics follow by explicit expansions. Exhaustive exact-rational cases independently check the first two mixed factorial moments for 44 component-size/edge-count strata.
+PASS
 
-## Originality
+The final RESULT.md preserves the true finding and fixes the original misleading exclusion of correlation signs: both variables have strictly positive variance (use the empty hypergraph and a positive-weight event for Z_s, and the empty and one-edge hypergraphs for I_n). I reconstructed the weighted deletion proof by conditioning on the joint internal and crossing-edge configuration of each marked S, which is independent of all outside edges. The marked event has no internal isolate because r>=2 and S is a connected component of size >=r. Ordered tuples count exactly the outside complement-edge exponent, including the deterministic edgeless complement. Dividing the covariance by its positive mean factor times n q^M_n gives a strictly increasing function of p with one zero. The average Delta_s/s is nonincreasing by Pascal's identity whereas log(n/(n-s))/s strictly increases. For fixed r,s the q^(-Delta_s) expansion has first correction cs/((r-2)!n), producing exactly the stated normalized limit; at s=n-1 Delta_s=M_n. The independent mathematical check suffices; the frozen exact finite enumerator is supplemental and was not executed.
 
-**PASS on currently inspected evidence, with material priority risk.** The near-critical random-graph work of De Ambroggio and Roberts concerns component-size tails, not exact isolate/component Palm moments. Cooley and coauthors study high-order component sizes, not the claimed deletion identity. Last, Nestmann and Schulte's exact covariance machinery concerns Poisson point-process vertices and does not directly specialize to a fixed set of \(n\) vertices with \(r\)-uniform hyperedges. Pittel's 1990 sparse random-graph census **does** supply limiting joint tree-component covariances, so the ordinary-graph fixed-size limiting covariance is not claimed as a new result. His full text was inaccessible during inspection; the possibility of a general earlier finite combinatorial identity remains a serious historical-priority limitation. No inspected primary source or matched external research-record summary was found to cover the finite, shape-independent hypergraph deletion law together with the all-size strictly monotone crossover hierarchy.
+## originality
 
-## Value
+PASS
 
-**PASS.** Component-type weights distinguish hypertrees, complex components, and prescribed internal edge counts, yet a single finite exact formula determines the sign of their covariance with isolates. The strictly increasing component-size thresholds join two separately significant scales: the branching threshold for fixed-size components and the disappearance of isolated vertices for near-spanning components. This makes the result a substantive finite-size dependence classification and explains how second-order component statistics reorganize across scales; it is not merely a recomputation of one selected small motif.
+The repair acknowledges exact prior coverage of the graph first-moment covariance and threshold hierarchy. The distinct scope is the full weighted isolate deletion law and the finite hierarchy for uniform hypergraphs of rank at least three. The nearest inspected precedents establish neither that combined result nor a stronger statement implying its nonlinear rank-dependent exponents and ordering. The conditioning mechanism is standard; originality is not claimed for the idea of outside-edge independence.
 
-## Closest literature and limitations
+## value
 
-The classical asymptotic ordinary-graph covariance (Pittel) and general Poisson-vertex component covariances (Last–Nestmann–Schulte) are credited. The result excludes fixed-hyperedge-count models and higher-order \(j\)-connectivity, and it supplies no independent certification or new phase-transition theorem. Claims of historical originality await scrutiny of the inaccessible older full text and other possible general moment identities.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact law makes arbitrary shape weighting irrelevant for the full biased distribution, not just a first moment, and the nonlinear finite-size threshold hierarchy for r>=3 relates small and nearly spanning components to two different familiar random-hypergraph scales without treating a covariance zero as a phase transition. That rank-dependent hierarchy is the useful quantitative addition beyond routine edge independence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

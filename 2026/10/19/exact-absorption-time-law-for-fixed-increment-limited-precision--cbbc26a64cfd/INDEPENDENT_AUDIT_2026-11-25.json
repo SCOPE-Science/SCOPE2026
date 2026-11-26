@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:27:15.474208Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 22–62, VERIFICATION.md and verify.py (inspected, not executed)",
+        "Replay: python3 /workspace/review-evidence/4/check_passage.py"
+      ],
+      "rationale": "At each p-grid point in binade k the strict a < u_E <= u_k bound keeps the exact sum below the next grid point, including the last point before a power of two. Deterministic guard truncation keeps exactly floor(a/v_k) guard units. Hence the first binade losing every unit starts at L=E+1+floor(log2(a/v_E)), including exact threshold equality cases. Before L each upward probability q_k is positive, constant over the 2^(p-1) increments in that binade. The independent trial stream regenerates at each first upward passage; geometric waiting times therefore give the stated independent negative-binomial convolution, PGF and moments. In ideal rounding all one-state passage times are finite almost surely, and their countable intersection gives divergence in the stipulated unbounded-exponent model. An independent exact forward propagation on enumerated p- and guard grids matched probability coefficients through t=30 in two three-binade cases (one at a guard threshold); this supplements, not replaces, the proof.",
+      "residual_risks": [
+        "The check is exact but bounded; the theorem is not about rounding with sticky bits, finite exponent ranges or correlated randomness."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Finite-n recursive summation analysis and finite-degree Horner stagnation experiments bound or illustrate errors; they do not evaluate the infinite-horizon stopping law."
+        ],
+        "reasoning": "Results for wider input classes or several rounding modes do not by themselves establish the stated stopping-time law for this special process.",
+        "searches": [
+          "arXiv:2408.03069v3 §4.1",
+          "arXiv:2603.24161v1 §5.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2408.03069v3",
+        "arXiv:2603.24161v1",
+        "arXiv:2603.06060v1",
+        "doi:10.1088/2634-4386/ae01d2 (survey evidence only)",
+        "Resultary 318ffe894a67 and d4febfbf759f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior transition definition supplies the local operator. The exact structure of the reachable grid, the deterministic stop and the decomposition into blocks of independent waits require a separate process calculation."
+        ],
+        "reasoning": "No inspected stronger result evaluates this progression and its law by mere parameter specialization. The ideal-rounding comparison and use of standard geometric laws are not separate claims of novelty.",
+        "searches": [
+          "arXiv:2408.03069v3 Definition 4 and Remark 2",
+          "Resultary records 318ffe894a67 and d4febfbf759f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "El Arar et al. Definition 4 and equation (6) give the guard-mediated probability, including truncation as a mode; the survey describes loss of a small addend shifted past guard bits."
+        ],
+        "reasoning": "A local quantized transition or observation of loss is not the global first-passage distribution or even the complete classification of the traversed binades.",
+        "searches": [
+          "Web literature lookup for limited-precision stochastic rounding, fixed-operand stagnation and absorption time",
+          "arXiv:2408.03069v3",
+          "arXiv:2603.06060v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "318ffe894a67 gives a fused-Horner terminal state and a final predecessor geometric wait; d4febfbf759f gives a full coupon-collector convolution for fixed-point Euler decay."
+        ],
+        "reasoning": "These distinct indexed results were compared at claim level: neither the affine Horner iteration nor the Euler decrement has the equal-success-probability blocks on the advancing floating-point grid used here. No matching law was identified.",
+        "searches": [
+          "Local Resultary/SCOPE search for fixed-increment finite-bit rounding and exact absorption laws"
+        ]
+      },
+      "rationale": "Prior operator definitions, small-addend loss and stagnation are not novel. The inspected results do not give the absorbing exponent together with the full fixed-increment binade passage law in the frozen model.",
+      "residual_risks": [
+        "The application paper doi:10.1088/2634-4386/ae01d2 was not directly accessible; its broader claims could not be checked firsthand.",
+        "No priority conclusion from catalog dates or from search absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Operator and error analysis prior, duration not covered in passages read",
+          "evidence": "The intermediate precision can use different modes; recursive summation result analyzes finite-n error.",
+          "identifier_or_url": "https://arxiv.org/html/2408.03069v3",
+          "material_read": "Introduction; §2 Definition 4, equation (6), Remark 2; §4.1",
+          "method": "Open full-text passages",
+          "title": "Probabilistic Error Analysis of Limited-Precision Stochastic Rounding",
+          "trigger": "Same underlying limited-precision operator"
+        },
+        {
+          "assessment": "Not the fixed-addend stopping law",
+          "evidence": "Finite-degree Horner stagnation experiments; the Horner analysis excludes a fused multiply-add.",
+          "identifier_or_url": "https://arxiv.org/html/2603.24161v1",
+          "material_read": "Remark 3 and §5.1",
+          "method": "Open full-text passages",
+          "title": "Probabilistic Error Analysis of Limited-Precision Stochastic Rounding: Horner’s Algorithm and Pairwise Summation",
+          "trigger": "Limited-bit stagnation"
+        },
+        {
+          "assessment": "Evidence of prior small-addend loss, not primary evidence for the application paper's full scope",
+          "evidence": "Reports the three-guard-bit loss mechanism and proposed stochastic sticky bit.",
+          "identifier_or_url": "arXiv:2603.06060v1",
+          "material_read": "Neuromorphic-computing discussion, text offsets 27400–29376",
+          "method": "Open survey full-text passage",
+          "title": "Limited-Precision Stochastic Rounding",
+          "trigger": "Guard-bit loss in a neuromorphic application"
+        },
+        {
+          "assessment": "Residual access risk",
+          "evidence": "The accessible account gives local small-addend loss, not a statement of this binade law.",
+          "identifier_or_url": "doi:10.1088/2634-4386/ae01d2",
+          "material_read": "Survey account only; primary full text not retrieved",
+          "method": "Open primary and lawful repository retrieval attempted; survey passage read",
+          "title": "Stochastic rounding for memory-efficient digital simulation of synaptic plasticity using 8-bit floating-point",
+          "trigger": "Known guard-bit loss"
+        },
+        {
+          "assessment": "Distinct iteration and law",
+          "evidence": "Final predecessor geometric hold, not a full binade-by-binade negative-binomial convolution.",
+          "identifier_or_url": "Resultary 318ffe894a67",
+          "material_read": "Finding and Proof §§2–5",
+          "method": "Local full-text mirror",
+          "title": "Sharp random-bit barrier for fused Horner evaluation of a geometric polynomial",
+          "trigger": "Same operator and terminal behavior"
+        },
+        {
+          "assessment": "Distinct fixed-point Euler decrement",
+          "evidence": "Shifted coupon-collector waits, not the fixed-increment floating-point sum.",
+          "identifier_or_url": "Resultary d4febfbf759f",
+          "material_read": "Finding and Proof §§1–4",
+          "method": "Local full-text mirror",
+          "title": "Finite-bit stochastic rounding decay as a convolution of coupon-collector laws",
+          "trigger": "Related full absorption law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§1–4",
+        "El Arar et al. arXiv:2408.03069v3 §4.1"
+      ],
+      "rationale": "A fixed increment is a natural recursive-summation stress test, not an arbitrary numerical slice. The result separates an infinite-time failure from the known local bias: it says exactly where the sum stalls and quantifies when, including an exact exponentially large mean delay at the first guard threshold. The law is useful when assessing whether finite-horizon progress masks eventual stagnation.",
+      "residual_risks": [
+        "The value is model-specific, not a guarantee for real formats or all few-bit stochastic-rounding schemes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

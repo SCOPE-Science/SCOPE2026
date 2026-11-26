@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,8 +21,6 @@
 
 # Verification
 
-The proof uses: (i) uniqueness of affine extensions at rank at least two; (ii) extension-multiplicity correction for empty maps and rank-one maps; (iii) forest edge count for translations; (iv) disjoint 2-orbit count for reflections; (v) an independent-bit suppression bound for nonidempotent commuting pairs. These are written and proved in `RESULT.md`.
+The proof of the mixed incidence census in `RESULT.md` uses the idempotent centralizer criterion, distinguishable affine extensions in rank at least two, forest counts for nonzero translations, orbit counts for reflections, and overlap corrections in ranks zero and one.
 
-Run `python check_commutation.py`. The script enumerates every distinct finite-chain partial isometry for sizes \(2\le n\le7\), computes every partial-map composition, counts all commuting pairs and idempotents, and checks the exact idempotent-containing census and known total size. `check_output.txt` is the actual recorded standard output of the run, including all checked values. Finite enumeration does not prove any statement for arbitrary \(n\); the general proof is combinatorial.
-
-No theorem about exact nonidempotent–nonidempotent commuting counts, best exponential rate, or all symmetric inverse monoids is asserted. Independent review has not been conducted.
+Run `python check_commutation.py`. It enumerates distinct finite-chain partial isometries for \(2\le n\le7\), compares both orders of composition as partial maps, and checks the exact mixed census and the known total size. `check_output.txt` is the recorded output and also reports the small-size all-pair totals. These finite totals do not establish a general count; the all-size mixed census follows from the proof.

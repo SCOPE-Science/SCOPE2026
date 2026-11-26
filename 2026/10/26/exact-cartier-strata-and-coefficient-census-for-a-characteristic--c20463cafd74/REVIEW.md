@@ -1,19 +1,21 @@
-# Assessment of the cyclic trigonal Cartier-stratum calculation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated genus, discriminant and smoothness domain are established by a direct derivative/common-root computation and Riemann–Hurwitz. Four regular differentials form a complete basis, and the Cartier operator is determined by exact coefficients of the displayed quintic's third power. Both the instant Cartier rank and the stable semilinear rank are reconstructed, distinguishing superspecial, nilpotent rank-two and invertible stable rank-two cases. For all finite fields of characteristic five, a quadratic-character argument gives the singular count and three exact smooth-stratum counts. The standalone finite-field verifier independently computes polynomial gcds, matrix expansions and semilinear ranks, and exhaustively enumerates all triples over two fields. Finite enumeration is a check, not the proof of the universally quantified formula.
+PASS
 
-## Originality — PASS, with stated material-access risk
+The repaired statement quantifies over q=5^m, m≥1, and counts fixed-coordinate triples. Over an algebraic closure, F'=3ax²+b, and for a≠0 its zeros satisfy t²=3b/a and F(t)=c+4b(a²+b)t/a². Eliminating t gives the stated criterion, including b=0 and b=−a². At a=0 the derivative is the constant b. A squarefree quintic has five finite tame Kummer branch points and one at infinity, giving genus four. A repeated root reduces the number of distinct finite branch points, so the normalization cannot retain genus four. The calculated Cartier images use degrees 4,9,14 in F³ and degree 4 in each of F,xF,x²F. For a≠0 the two nonzero image directions are independent; on the image the square of Cartier is zero in the stable limit if b=−a² (indeed C³=0 on the whole space), and Cartier is bijective there if a(a²+b)≠0. For a=0 the operator vanishes. The arithmetic proof separates b=0,−a² before using the quadratic character: for other b a rational singular c is equivalent to a rational critical point, and the two such values of c are then distinct. Thus for each nonzero a the singular fiber count is q−χ(2a). Summing cancels the character term and yields q² including a=0. The two rank-zero counts are q(q−1) and (q−1)²; subtracting gives (q−1)³. The narrower final claim has been checked against both the fresh proof and the original scope.
 
-Kudo's earlier genus-four superspecial construction establishes the superspecial phenomenon. Özman–Pries–Weir give a broad geometric study of cyclic-cover rank strata including this genus and inertia signature. Obus–Shaska classify characteristic-zero superelliptic automorphisms/CM. Baldwin–Eilbeck–Gibbons–Ônishi treat Abelian functions for the general cyclic trigonal genus-four equation. None of their inspected full texts presents the particular characteristic-five mixed \((f_5,a_J)\) partition together with its exact counts of smooth coefficient-marked triples. Record searches and recoverable earlier claims also revealed no identical arithmetic classification. This is a claim of best-knowledge noncoverage, not a proof of global uniqueness. Sohn's 2025 paper on genus-four superelliptic \(a\)-numbers is strongly relevant, but only its abstract was accessible; full-text overlap remains a nontrivial residual risk, and no priority over its methods or possible partial \(a\)-number formulas is asserted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The family deforms a distinguished automorphism-rich cyclic trigonal curve and sits inside the natural six-branch-point signature \((3,1)\) locus. The classification identifies both components of the rank-zero locus within the specified coefficient slice, distinguishes known superspecial points from the distinct non-superspecial rank-zero stratum, rules out all other rank pairs, and gives exact extension-uniform arithmetic counts without conflating presentations with isomorphism classes. This resolves a natural concrete finite-field stratification beyond the general existence statements; no downstream theorem, full-moduli classification or Newton-polygon assertion is required for that precise mathematical value.
+For the repaired census only. The indexed stronger theorem accounts for the geometric partition completely, including by specializing its rank polynomial. Its arithmetic examples and full-family finite census cannot be restricted to recover the all-m counts of this slice from their published counts alone. The additional simultaneous squarefreeness and character count is an exact result for this fixed family; no inspected statement provides it. This is a best-of-knowledge comparison, not a priority claim.
 
-## Closest literature and limits
+## value
 
-The closest inspected geometric theorem is Özman–Pries–Weir (arXiv:1907.05684, signature \((3,1)\), Proposition 5.8). The closest previously known superspecial examples are in Kudo (arXiv:1804.09063). Obus–Shaska (arXiv:2006.12685) cover characteristic-zero automorphisms, and Baldwin et al. (arXiv:math/0612654) cover general cyclic trigonal Abelian functions. The uninspected full text of Sohn (DOI:10.23091/japm.2025.059), unindexed arithmetic calculations and possible geometric equivalences between marked presentations remain limitations. There has been no independent mathematical audit or independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural parity-restricted quintic slice contains the distinguished curve y³=x⁵−x and supports all three admissible invariant pairs of this family. The exact marked count measures their relative frequencies, distinguishing the two rank-zero types rather than just exhibiting examples. In particular it gives a finite-field distribution valid at every extension degree, with a character-dependent singular count that is not supplied by a geometric dimension or rank bound. These data are useful for sampling equations in a controlled slice without pretending that they count moduli points.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

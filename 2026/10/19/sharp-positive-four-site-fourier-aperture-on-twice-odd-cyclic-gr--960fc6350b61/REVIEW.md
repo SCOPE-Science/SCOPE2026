@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS (self-review).** The lower bound is proved by the explicitly factored cubic dual certificate and the three forced cosine moments. The upper bound uses two positive cosine magnitudes bracketing \(1/\sqrt2\) and yields an explicit normalized weight multiset. For \(N=6\), duplicate indices are added rather than counted as distinct. Both endpoints receive positive weight. The finite checker agrees on all \(N=4q+2\) through 998 but is not used as an infinite proof.
+## correctness
 
-**Originality — PASS (qualified self-review).** Bownik--Yu's 2026 full-text theorem concerns nearly tight discretization of continuous frames, not this exact finite-frame bandwidth. Tan--Zhang's 2026 first-moment diameter obstruction supplies the lower-bound context; the novel assessed assertion is a matching positive quadrature on every order \(4q+2\). The full Tan--Zhang primary text was unavailable: only abstract and a detailed secondary exposition could be examined, so this is a declared historical-priority risk, not a claim that a complete source was inspected. Index comparisons included prior three-site cyclic positive sampling and four-site determinant/projection-norm records, which differ logically from the new upper bound.
+PASS
 
-**Value — PASS (self-review).** Exact positive tight-frame recovery within a shortest consecutive Fourier band is a natural bandwidth question. The difficult arithmetic regime \(N\equiv2\pmod4\) lacks the four equally spaced grid nodes which trivially solve the divisible-by-four case. The explicit eight-entry construction establishes a complete infinite subfamily, not a parameter rename or a single finite-instance census.
+The diagonal equations normalize the weights; the other diagonals mean the first three complex moments vanish, and centering only multiplies each moment by a phase. Below 3N/4 all centered cosines x exceed −s for s=1/√2. The normalized moment equations give E x=E x³=0 and E x²=1/2, so the nonnegative polynomial (x+s)(x−s)² has zero expectation, forcing x=s throughout the positive support, impossible. At the first integer aperture D, each stated index multiset lies in [0,D] and is invariant under reflection and antipodal pairing, so its sine moments and its odd cosine moments vanish. The cosines have absolute values u and v respectively, with 0≤v<s<u, making the displayed α strictly between zero and one and enforcing E x²=1/2. Both endpoints have nonzero weight; for N=6 the stated multisets are (0,5,3,2) and (1,4,4,1), leaving all six frequencies. As an independent attainment check, for m=2q+1 normalize the coefficients of (1+X^m)(2cos(π/m)+X^q+X^(q+1)) at X=1. Odd harmonics vanish by the first factor; at the second harmonic the latter two powers sum to −2cos(π/m). Its degree is D with positive endpoints, independently confirming sharpness. A translation conjugates the identity by a diagonal unitary.
 
-**Limits and residual risk.** Odd orders, minimum sample cardinality, and full historical uniqueness are unresolved. Verification does not claim independent certification. The supporting preprint arXiv:2609.07646v1 should be checked in full when accessible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior Proposition 3.1 expressly covers the whole necessary aperture bound for real nonnegative coefficients. The distinct supported contribution is exact attainment at the first integer window for every twice-odd order, with positive endpoints and explicit sparse weights; the continuous equality case is off-grid and does not imply this. No originality is assigned to the obstruction alone.
+
+## value
+
+PASS
+
+Exact Parseval sampling with the smallest consecutive frequency window is a natural resource restriction, different from sparse unrestricted sampling. Whether the analytic lower bound is achievable at the first integer step is not decided by the off-grid regular square construction. The all-q explicit positive grid rule gives the missing sharp finite-grid guarantee, and covers small and composite orders as well as twice-prime orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

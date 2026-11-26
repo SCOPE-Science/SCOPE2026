@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:48:26.149785Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–72",
+        "Frozen VERIFICATION.md, lines 19–25 and verify.cpp, lines 7–59 (inspected only)",
+        "Independent replay: python3 -B /workspace/review_checks/independent_examples.py; direct elimination of the n-dimensional Fourier blocks yielded the stated unweighted nullities at n=3,5,7,9,15,27 over selected split primes."
+      ],
+      "rationale": "Fourier-transform the actual left action in x and z. For each pair of characters (k,l), the n-dimensional y-space has X diagonal with entries zeta^(k+l*y), and Y a unit cyclic shift. For m the order of zeta^l, Y^m commutes with both and has all (n/m)-th roots as eigenvalues, each on an m-dimensional block. X^m is zeta^(km), with each permitted scalar occurring for m values of k. There are phi(m) choices of l. On each block, the identity and full cyclic shift give the determinant, with sign positive because m is odd; the m=1 block is just scalar. If the shift coefficient is nonzero, the cyclic first-order kernel recurrence takes a solution from a single initial coordinate. If that coefficient is zero and the diagonal generator has nonzero coefficient, distinct diagonal entries imply at most one zero; scalar-only and all-zero operators are covered separately. Hence the displayed singular factors count actual dimensions, not determinant multiplicities alone. In the unweighted case the only cancelling ordered pairs are the two primitive cube roots in either order, and multiplicativity of the resulting divisor sum gives the claimed product.",
+      "residual_risks": [
+        "Modular nullity is corroboration only: for instance the independent check finds extra modular nullities 48 at n=15 over F_31 and 128 at n=27 over F_109. The complex conclusion follows from the proof, not reduction modulo a prime."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "DeDeo et al. provide the prime-power irreducible representation framework and undirected Cayley graph blocks; those spectra have different generators and operators."
+        ],
+        "reasoning": "Those blocks establish the representation background but do not classify the singular weighted directed three-tap blocks or evaluate the odd-composite divisor sum.",
+        "searches": [
+          "DeDeo et al., finite-ring Heisenberg spectra, author PDF Proposition 1",
+          "arXiv:2108.04870v1 Section 3.1"
+        ]
+      },
+      "checked_sources": [
+        "DeDeo et al., author preprint Proposition 1",
+        "Mossinghoff–Pinner arXiv:2108.04870v1 Section 3.1",
+        "Resultary ternary nullity census",
+        "Focused composite-modulus literature search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prime group determinant, prime-power blocks and ternary rank all overlap separate inputs or slices; none contains the composite weighted singular-block count."
+        ],
+        "reasoning": "These inputs do not imply the full claim by substitution or by reading off a table. The cyclic recurrence rank argument and enumeration over nonprimitive central characters are needed; a tensor product reduction of the group alone does not diagonalize the sum of the three tensor-structured taps.",
+        "searches": [
+          "Mossinghoff–Pinner Eq. (9)",
+          "DeDeo et al. Proposition 1",
+          "Resultary ternary nullity census"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mossinghoff–Pinner's binomial-in-one-generator group determinant gives the prime-modulus determinant on substituting the three-term polynomial and matching generator conventions."
+        ],
+        "reasoning": "The prime result is equivalent on that slice, not on moduli with multiple character conductors beyond the prime-order case, and a group determinant by itself does not supply the block kernel dimensions.",
+        "searches": [
+          "arXiv:2108.04870v1, Section 3.1 Eq. (9)",
+          "finite Heisenberg group three-term (three-tap) convolution determinant nullity odd composite modulus ring"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The locally inspected ternary nullity census covers every unweighted three-element support in its extraspecial setting; the present unweighted n=3 support has nullity two there."
+        ],
+        "reasoning": "The database result is stronger by support within the exponent-three slice, but does not cover nontrivial composite-ring conductors or the weighted formula.",
+        "searches": [
+          "Local Resultary: finite Heisenberg three-tap/convolution; exact record 2026/10/11/SCOPE-exact-three-level-convolution-nullity-census-on-ternary-heisenbe--71ee85e08578"
+        ]
+      },
+      "rationale": "Support is for the full odd-composite extension with the exact weighted kernel law and arithmetic unweighted classification. The determinant at prime modulus and the ternary unweighted nullity already have exact prior coverage; the Fourier framework is also known. No inspected prior statement covers the distinct composite extension in this form.",
+      "residual_risks": [
+        "The inspected set is not exhaustive; the composite specialization is elementary given the framework, and an older exact computation may exist. The frozen text supplies no separately identifiable citation for its broad assertion about prior exponent-prime weighted nullity formulas; no originality credit here relies on that attribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant framework; no matching operator formula in the inspected passages.",
+          "evidence": [
+            "Prime-power representation classification and undirected generator sets with inverse taps."
+          ],
+          "identifier_or_url": "https://mathweb.ucsd.edu/~aterras/heis.pdf",
+          "material_read": "Author PDF pp. 4 and 6 including Proposition 1, text offsets about 15750 and 24782",
+          "method": "OA PDF text passages",
+          "title": "Spectra of Heisenberg Graphs over Finite Rings: Histograms, Zeta Functions and Butterflies",
+          "trigger": "Prime-power ring irreducibles and spectral blocks"
+        },
+        {
+          "assessment": "Direct prime-order determinant overlap.",
+          "evidence": [
+            "Factorization M_Hp = M_1 M_2^p and binomial-in-one-generator determinant identity."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2108.04870v1",
+          "material_read": "Section 3.1 Frobenius factorization and Eq. (9), text offsets about 12385 and 17575–17795",
+          "method": "OA HTML text passages",
+          "title": "The Integer group determinants for the Heisenberg group of order p cubed",
+          "trigger": "Potential exact three-term determinant"
+        },
+        {
+          "assessment": "Exact unweighted n=3 specialization only.",
+          "evidence": [
+            "All unweighted three-element supports in the ternary extraspecial group fall in the census."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-exact-three-level-convolution-nullity-census-on-ternary-heisenbe--71ee85e08578",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and mirror",
+          "title": "Exact three-level convolution nullity census on ternary Heisenberg groups",
+          "trigger": "Exact support and kernel-dimension overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–26 and 56–72",
+        "Prime-order determinant and ternary-census comparisons above"
+      ],
+      "rationale": "The canonical generating support combines the identity with both noncommuting unit directions. The exact complex kernel dimension, rather than just invertibility or eigenvalue zeros counted algebraically, is a useful invariant of this natural directed convolution. The conductor census explains the dependence on the full prime-power factorization of n/3 and handles simultaneous singular factors and arbitrary weights; the value is not an isolated recomputation of a prime case.",
+      "residual_risks": [
+        "No condition-number, even-modulus, or more general support conclusion follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

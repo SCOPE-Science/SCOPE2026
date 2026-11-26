@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:26:02.515387Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the basis 1,x,x²,(x−k_ε)_+², the four-node evaluation determinant is εLR(3εL+4εR+2L²+3LR)/4, nonzero for the entire stated positive-length regime. For p_ε=ε I_ε y, use the first difference quotient in place of the second nodal equation; the resulting system is polynomial in ε with a nonzero determinant at zero. Its inverse yields coefficient error O_{L,R}(ε||y||_∞). At the moving knot the polynomials match and their derivatives are uniformly bounded; comparing on the O(ε)-length moving knot and endpoint regions gives the same uniform error for the norms. The limiting operator is (y_2−y_1) times the derivative-one Hermite profile in the frozen proof. Its left positive peak is L(2L+3R)/(4(3L+4R)), greater than the right positive endpoint at the knot; the right trough has absolute size R²/(4(2L+3R)). Their difference has sign −(2r+1)(r²−2r−2), switching once at r=1+sqrt(3). Multiplying by the exact data factor 2 and dividing by ε gives the stated coefficient and the symmetric 5/(14ε) case. At equality both positions maximize the limiting profile; it is not asserted that both are exact norming locations at positive ε. The estimate is for fixed L,R, and merely opposite signs without saturation need not attain the factor 2; the data (−1,1,0,0) do. Independently checked the determinant, confluent solve, peak balance and equal-length coefficient in the truncated-power basis (python /workspace/branches/independent_math_checks.py, section 5). Inspected but did not run the frozen checker.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Greene's full-text introduction distinguishes uniform smooth-data O(h³) convergence from nonuniform conditioning of the data-defined midpoint-knot construction; the uniformly bounded opposite scheme chooses data sites from fixed knots. The matched catalogue theorem goes further than a norm asymptotic: it identifies the limiting scaled operator and the possible limit points of Lebesgue-function maximizers for all fixed S>1."
+        ],
+        "reasoning": "Smooth-data estimates and qualitative unboundedness don't imply the sharp coefficient. The matching four-point operator limit uses the identical divided-difference argument in normalized form. The inaccessible de Boor paper supplies no basis for a coverage verdict.",
+        "searches": [
+          "arXiv:2610.32044v1 §1 and its discussion of Powell §21.2",
+          "2026/11/17/SCOPE-sharp-collision-amplification-and-a-localization-transition-in-f--9e2adc916a5b, rank-one operator limit and proof",
+          "DOI 10.1016/0021-9045(76)90079-4 and lawful CORE copy 82097682"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9e2adc916a5b original finding and proof",
+        "Greene arXiv:2610.32044v1 §1",
+        "Powell §21.2 via Greene and bounded retrieval attempts",
+        "de Boor DOI/CORE and Kammerer–Reddien–Varga DOI access checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "After the indexed row difference, the matrix entries are polynomial in (η,S) and the determinant at η=0 is (S−1)(3S−1)/4. The indexed limiting system has right-hand side (0,y_2−y_1,0,0,0,0) in its displayed equation ordering."
+        ],
+        "reasoning": "At (0,S_0) this inverse is analytic. Along S=S_0−rη the matrix and scaled right-hand side differ from their limits by O_r(η) uniformly on the data unit ball, so the scaled coefficients do also. Moving the knot and interval endpoint by O_r(η) preserves the norm estimate at that order by bounded slope. Hence ηΛ=2||g_{S_0}||+O_r(η), and 1/η=L/ε+1 recovers exactly the claimed bound and the same limiting extrema. Fixed-S convergence alone would not imply a uniform remainder near S_0; it is the already-displayed analytic system that mechanically supplies this estimate. No additional scientific conclusion remains beyond this local consequence.",
+        "searches": [
+          "2026/11/17/SCOPE-sharp-collision-amplification-and-a-localization-transition-in-f--9e2adc916a5b, proof determinant and divided differences, RESULT.md offsets 0–4494 and 4480–7176"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed geometry has nodes 0,η,1,S and knot (1+η)/2. Divide the frozen coordinates by ε+L. Then η=ε/(ε+L), S=1+R/(ε+L)=1+r(1−η), and the knot becomes exactly (1+η)/2. The interpolation operator has the same sup norm under this rescaling.",
+          "At S_0=1+r, the two normalized Hermite pieces and their stationary points are exactly the frozen ones after scaling x by L. The indexed threshold S_*=2+sqrt(3) is r_*=1+sqrt(3)."
+        ],
+        "reasoning": "It is not enough simply to compare formulas for fixed outer parameters: the exact normalization gives a drifting S. The drift is first order, not a different collision or an additional free asymptotic parameter; the comparison below establishes the remainder along that drift.",
+        "searches": [
+          "Resultary: four-site quadratic midpoint-knot spline collision sharp amplification and localization transition",
+          "2026/11/17/SCOPE-sharp-collision-amplification-and-a-localization-transition-in-f--9e2adc916a5b, RESULT.md Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local record gives the all-S coefficient max{(3S−1)/(2(4S−1)),(S−1)²/(2(3S−1))} and the S=2 example 5/14. It also gives the exact two stationary positions and the unique S_*=2+sqrt(3) switch."
+        ],
+        "reasoning": "This is an exact formula over the full range corresponding to r>0, not a single matching tabulated case. The overlap is with a distinct indexed record, not a self-hit. Its recorded dates are not used to establish scientific priority.",
+        "searches": [
+          "2026/11/17/SCOPE-sharp-collision-amplification-and-a-localization-transition-in-f--9e2adc916a5b, displayed coefficient, localization and verification examples"
+        ]
+      },
+      "rationale": "The distinct indexed 9e2adc916a5b finding covers the central four-node rank-one collision law, exact coefficient and localization transition in normalized coordinates. In those coordinates this record follows by allowing the outer endpoint to drift by O(ε) in exactly the already-used nonsingular divided-difference matrix. Its O(1) remainder is a direct local analyticity estimate in that same proof, not a distinct coefficient or new conditioning regime. The indexed comparison is later by its catalogue date than the date on the frozen record: this verdict records demonstrable equivalent coverage in the available corpus, not a finding that the compared record was published before the frozen work or has historical precedence. It does not rest on inaccessible spline papers.",
+      "residual_risks": [
+        "Earlier historical priority is unresolved: neither the full Powell chapter nor the relevant de Boor and 1974 primary papers were obtained.",
+        "The exact overlap with the later-dated public catalogue item does not determine who first obtained the law; the assessment is about existing mathematical coverage and the absence of a distinct surviving increment in the frozen statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Central result is equivalent; drift and bounded remainder follow mechanically from the same proof. No historical priority claim.",
+          "evidence": "Nodes 0,η,1,S; midpoint (1+η)/2; rank-one profile g_S and exact coefficient; nonsingular confluent determinant (S−1)(3S−1)/4; switch at 2+sqrt(3).",
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-collision-amplification-and-a-localization-transition-in-f--9e2adc916a5b",
+          "material_read": "RESULT.md Finding, assumptions, proof and limitations, offset ranges 0–4494 and 4480–7176; catalogue metadata publication date",
+          "method": "Local mirror statement and proof comparison, with explicit rescaling",
+          "title": "Sharp collision amplification and a localization transition in four-site quadratic midpoint-knot splines",
+          "trigger": "Exact-looking match for the four-site coefficient, limiting profile and transition"
+        },
+        {
+          "assessment": "Cubic-order smooth-data estimate and qualitative background, not sharp four-node arbitrary-data asymptotics in the inspected passage",
+          "evidence": "The uniform operator bound is for the opposite fixed-knot midpoint-data construction; the midpoint-knot construction from data can be unbounded on arbitrary meshes.",
+          "identifier_or_url": "https://arxiv.org/html/2610.32044v1",
+          "material_read": "§1 context offsets 450–5440, especially offset 2938 around the Powell discussion",
+          "method": "OA primary HTML passage inspection",
+          "title": "Optimal Convergence of Quadratic Not-a-Knot Spline Interpolation on Arbitrary Partitions",
+          "trigger": "Motivating same interpolation operator; possible prior exact norm"
+        },
+        {
+          "assessment": "Qualitative comparison only; original exact scope unresolved",
+          "evidence": "Greene attributes the construction distinction and qualitative unboundedness to Powell.",
+          "identifier_or_url": "M. J. D. Powell (1981), §21.2, Cambridge University Press",
+          "material_read": "Greene's report on §21.2; no independent full original chapter passage obtained",
+          "method": "Inspected cited report and tried identified lawful book routes",
+          "title": "Approximation Theory and Methods",
+          "trigger": "Classical nonuniform-norm example and potential same collision"
+        },
+        {
+          "assessment": "Unresolved, not negative evidence or a reason for failure",
+          "evidence": "The publisher and repository copy did not yield accessible full text; the title alone does not identify the interpolation geometry or theorem.",
+          "identifier_or_url": "https://doi.org/10.1016/0021-9045(76)90079-4",
+          "material_read": "Bibliographic identification only; no mathematical statements inspected",
+          "method": "Publisher and identified lawful CORE alternate (https://core.ac.uk/download/pdf/82097682.pdf), plus author bibliography lookup",
+          "title": "Quadratic spline interpolation and the sharpness of Lebesgue's inequality",
+          "trigger": "Plausibly same degree and Lebesgue-norm problem"
+        },
+        {
+          "assessment": "Unresolved specialized overlap",
+          "evidence": "The available bibliographic information does not establish an asymptotic Lebesgue coefficient.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01406966",
+          "material_read": "Bibliographic identification only; no relevant primary theorem read",
+          "method": "Identified lawful routes checked",
+          "title": "Quadratic interpolatory splines",
+          "trigger": "Classical quadratic interpolation reference"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A sharp arbitrary-noise coefficient and threshold in the smallest nontrivial midpoint-knot system are mathematically useful. The inspected indexed result already determines both across the full ratio range and gives the limiting operator profile. Varying the normalized outer endpoint by O(η) and obtaining a bounded additive error are immediate from that same finite linear system. The frozen record supplies no distinct unknown conditioning invariant or nonroutine new regime.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

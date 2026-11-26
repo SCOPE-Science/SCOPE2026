@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:42:07.616974Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The fence has only adjacent comparabilities between distinct vertices; in the sorted domain/image these can only occur between consecutive entries. Matching parity makes their directions agree, so the allowed simultaneous gap types are exactly (1,1), even/even >=2, and odd/odd >=3. An increasing injection induces the identity on any finite cyclic component, so nilpotency is exactly exclusion of fixed pairs. Removing the last pair gives the three disjoint predecessor terms and parity-prefix inclusion-exclusion gives P. There are O(n^2) states of O(n) coefficients; to obtain all output polynomials in the same O(n^3) bound, accumulate the new row and column on growing the square one step, rather than resumming every square as the supplied checker does. For defect k the omitted-position sequences a_i=d_i-i and b_i=m_i-i are nondecreasing in [0,k]. At a displacement change both sequences must increase by at least one. After exchanging domain and image if needed, the old displacement is positive: old displacement >=4 forces b_next>=5, and if it is 2, new displacement >=4 forces b_next>=5 while new displacement <=-2 forces a_next>=5. This gives the uniform translation restriction for positive rank at k<=4. Counting its domains gives the stated coefficients; the displayed example has displacements 2 then 4 and simultaneous gaps of 1 after its initial (2,4) gap, for every n>=7. Independent bounded replay: python3 /workspace/reproduction.py 4 checks induced order and literal iterates on every pair of subsets for n=1..10, verifies coefficientwise agreement with direct predecessor scans (e.g. N_7 coefficients 1,18,32,22,10,2,0,0), and finds least nonconstant defect 5 for n=7..10. Those computations corroborate, but do not prove, the infinite claims. The complexity bound is arithmetic, not bit complexity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited Laradji–Umar ambient semigroup article could not be read through publisher or OA routes. Its citation concerns order-preserving or reversing subpermutations; exact filtered formulas could not be compared.",
+          "Local mirror aed5529315d0 treats rank polynomials of subsemigroups satisfying S^k={0} in the symmetric inverse monoid."
+        ],
+        "reasoning": "An ambient enumeration without both induced-fence and parity filters does not determine this subset's counts. A subsemigroup bound involving all k-fold products is different from counting individual nilpotents in this monoid, which contains nonnilpotents.",
+        "searches": [
+          "DOI:10.1080/10236198.2015.1005080",
+          "Resultary: nilpotent partial-injection rank polynomials; local mirror aed5529315d0"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting files",
+        "Resultary/local mirror: 2b5b0d3783a1, cd10259c2cbb, 61c5be3be5af, aed5529315d0",
+        "arXiv:2208.03202",
+        "arXiv:2403.06957",
+        "DOI:10.15826/umj.2023.2.015",
+        "DOI:10.1080/10236198.2015.1005080 (attempted; no primary passage)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 1 supplies the transitions, but the coefficient recurrence uses diagonal exclusion and parity-prefix aggregation. The inspected descriptions of the other same-monoid papers center on Green relations and ideals, or a presentation. The extremal-index record has a different hypothesis."
+        ],
+        "reasoning": "The standard terminal-pair method is not claimed novel. The sharp omitted-position obstruction and its witness are not supplied by the known membership theorem or by rigidity under a different extremal hypothesis. The later related records are statement-level comparisons, not evidence of prior publication.",
+        "searches": [
+          "arXiv:2208.03202 Proposition 1",
+          "arXiv:2403.06957",
+          "DOI:10.15826/umj.2023.2.015",
+          "local mirror 61c5be3be5af"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact gap conditions of Proposition 1 describe all maps in the monoid. The fixed-point-free condition in graph terms deletes diagonal endpoints, not any of the three local gap cases.",
+          "Local mirror record cd10259c2cbb counts all elements by domain rank, not the fixed-point-free subset; record 61c5be3be5af concerns extremal nilpotency index, not positive rank at defect at most four."
+        ],
+        "reasoning": "Inversion exchanges the two signs of a translation but does not convert the rank restriction to a nilpotency-index restriction. For example a (+4) shift on its full possible domain has defect four without attaining the maximum index for n>=5. Neither alternative formulation compared states the pair of results here.",
+        "searches": [
+          "Resultary: finite-fence nilpotent rank polynomials; defect-four displacement rigidity",
+          "arXiv:2208.03202, Proposition 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-monoid generator rank 3n-6 is not the polynomial rank variable here.",
+          "The local records actually inspected enumerate self-inverse fence partial automorphisms by cycle data, or all elements of this monoid by domain rank, respectively."
+        ],
+        "reasoning": "Those counts have different domains or filters; an involution has no nonempty nilpotent restriction if one requires the restriction to remain an involution. No exact matching table was evidenced by the checked comparisons.",
+        "searches": [
+          "Resultary: finite-fence nilpotent rank polynomials and displacement rigidity",
+          "arXiv:2208.03202 abstract and Proposition 1",
+          "local mirror 2b5b0d3783a1 and cd10259c2cbb"
+        ]
+      },
+      "rationale": "The membership characterization is established prior work, and the terminal-pair recurrence builds directly on it. The evidence supports a distinct fixed-point-free rank refinement together with a sharp universal failure threshold for constant displacement, not a claim of novelty for the gap characterization, enumerating the whole monoid, or classifying maximum-index nilpotents.",
+      "residual_risks": [
+        "The Laradji–Umar full article was inaccessible, so coverage by a more refined formula there has not been ruled out.",
+        "Bibliographic checks do not establish priority against unidentified enumerations or structural results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the membership theorem; generator rank is different from domain rank.",
+          "evidence": [
+            "Proposition 1 gives increasing images, paired parity, and simultaneous gaps of one.",
+            "Abstract gives generator rank 3n-6 for n>=4."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2208.03202",
+          "material_read": "PDF abstract and Proposition 1, p. 3",
+          "method": "Lawful OA PDF passages",
+          "title": "The rank of the semigroup of order-, fence-, and parity-preserving partial injections on a finite set",
+          "trigger": "Exact monoid and rank terminology"
+        },
+        {
+          "assessment": "Inspected scope is ideal and subsemigroup structure; not a whole-document exclusion.",
+          "evidence": [
+            "Abstract describes Green's relations, ideals and maximal subsemigroups."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2403.06957",
+          "material_read": "PDF abstract, p. 1",
+          "method": "Lawful OA PDF passage",
+          "title": "The maximal subsemigroups of the ideals on a monoid of partial injections",
+          "trigger": "Same monoid and high-rank ideals"
+        },
+        {
+          "assessment": "The inspected result is a presentation; not a whole-document exclusion.",
+          "evidence": [
+            "Abstract distinguishes its presentation from earlier generator rank."
+          ],
+          "identifier_or_url": "https://doi.org/10.15826/umj.2023.2.015",
+          "material_read": "Publication abstract, p. 175",
+          "method": "Public journal PDF passage",
+          "title": "A Presentation for a Submonoid of the Symmetric Inverse Monoid",
+          "trigger": "Same monoid"
+        },
+        {
+          "assessment": "Exact scope unresolved; no negative inference from access failure.",
+          "evidence": [
+            "The comparison with this work remains limited to its bibliographic scope."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/10236198.2015.1005080",
+          "material_read": "Citation in frozen RESULT.md only; no primary statements retrieved",
+          "method": "Publisher abstract, full-text and PDF routes blocked; no OA repository copy located",
+          "title": "Combinatorial results for semigroups of order-preserving or order-reversing subpermutations",
+          "trigger": "Plausible stronger nilpotent enumeration"
+        },
+        {
+          "assessment": "Self-inverse, all-elements, maximal-index and bounded-subsemigroup variants respectively; none of these inspected findings gives the same joint result.",
+          "evidence": [
+            "61c5be3be5af uses maximum index and shifts +/-2; cd10259c2cbb has no nilpotency restriction."
+          ],
+          "identifier_or_url": "Resultary/local mirror: 2b5b0d3783a1, cd10259c2cbb, 61c5be3be5af, aed5529315d0",
+          "material_read": "RESULT.md findings for these four records",
+          "method": "Resultary search followed by local mirror inspection",
+          "title": "Published finite-fence and partial-injection comparators",
+          "trigger": "Similar objects, rank enumeration and translation rigidity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Domain rank filters this finite inverse monoid by size of a partial bijection, while nilpotency measures eventual extinction under iteration. A full coefficient recurrence avoids exhaustive subset-pair search, but the strongest contribution is structural: omitting up to four points cannot accommodate a change in displacement, and one more omission suffices for all n>=7. It identifies a meaningful boundary and explains the three top nonzero coefficients, not just a table of small cases.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

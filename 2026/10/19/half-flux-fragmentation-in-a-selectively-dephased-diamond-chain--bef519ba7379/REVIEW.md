@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim is defined for every integer \(n\ge3\), all \(0<\phi<2\pi\), and every positive family of site-dephasing rates. The row Gram identity shows rank \(n\) throughout the stated flux interval and exact row orthogonality at half flux. The Hilbert--Schmidt dissipation identity reduces every fixed operator to the commutant of the backbone projectors and Hamiltonian. Connectivity or orthogonality of the row Gram matrix, respectively, determines all stationary bright sectors. An offdiagonal-versus-diagonal block argument excludes nonzero imaginary-axis Lindbladian eigenvalues. The resulting asymptotic channel yields the two initial-site return formulas and the finite discontinuities. Executable small-system superoperators reproduce the stationary-algebra dimensions and long-time density matrices. Finite checks are not the proof of the arbitrary-size theorem.
+PASS
 
-## Originality
+For n≥3, the bridge-to-backbone row Gram matrix has diagonal 4 and cycle off-diagonal 1+exp(−iφ) in the stated gauge. Its Fourier eigenvalues are bounded below by 4−4|cos(φ/2)|>0 in the open flux interval. The dissipative Hilbert–Schmidt identity with all rates positive forces every peripheral operator to commute with all backbone site projectors; it is then backbone-diagonal plus an unrestricted bridge block. The Hamiltonian commutator of such an operator is block off-diagonal, excluding a nonzero imaginary eigenvalue. In the fixed algebra the backbone diagonal must commute with the Gram matrix, hence is constant on the whole connected cycle for φ≠π and arbitrary for φ=π. The bridge action on im Q† is determined by T Q†=Q† A, and there is no mixing with ker Q. Contractivity excludes a Jordan block at zero; the adjoint generator has the same fixed algebra, so the limit is its orthogonal projection, preserving the full dark compression. This yields the stated dimensions, bright weights and exact limiting states. The bridge input has weights 1/4 in each of two distinct half-flux cages and dark weight 1/2, giving 1/4+2(1/4)^2/2=5/16. Away from half flux the weight formula follows from Q†(QQ†)⁻¹Q; continuity at π gives the one-sided-in-flux comparison, and recentering the Fourier integral at φ/2 makes its nonconstant part odd, giving the thermodynamic limit at fixed interior phase. These arguments respect the order t→∞ before n→∞ and exclude endpoint rank resonances. Inspected RESULT.md §§1–4 and verify.py lines 10–108 without executing it; the code's finite numerical tests are not a proof of the rate or size quantifiers. Replay is python verify.py in the source directory with its requirements.txt.
 
-**PASS, with explicit residual risk.** The 1998 Aharonov--Bohm cage construction already establishes the special role of half flux for coherent motion, so that physical mechanism is not claimed as new. General Lindblad fixed-space structure is established by 2008 theory. The 2022 diamond-chain study addresses noisy discrete-time walks, not the displayed continuous-time, backbone-only Lindbladian. The 2026 rhombic-lattice study has reservoirs, generally acts with dephasing across the lattice, and studies stationary current rather than the locally initialized return and the full fixed algebra on a ring. Exact comparisons with related previously recorded half-dephased ring, hypercube and checkerboard results revealed no implication of the distinct cage-sector decomposition. Targeted literature and mathematical-record searches did not reveal the present constant return jumps or stationary-algebra dimensions. The complete 2022 text was unavailable; hidden specialized coverage remains possible, and searches cannot prove novelty.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Magnetic caging converts one ergodic bright population into \(n\) independently conserved bright populations despite positive dephasing at every backbone vertex. That structural fragmentation changes a directly measurable, infinite-time site-return probability by an order-one amount, exactly and for every finite size and positive rate. The theorem identifies the discontinuity and the order-of-limits issue in a canonical flat-band network, not an arbitrary small numerical slice. This adds a noise-resolved stationary-state invariant to the previously known coherent cage picture.
+Best of current evidence: coherent caging and the fixed-algebra technique are established, but the inspected comparisons do not give the specified periodic, selectively dephased model's bright stationary populations or its exact return jumps.
 
-## Scope and validation
+## value
 
-No assertion is made about finite-time flux stability, disorder, interacting particles, or reservoir-driven transport. Equivalence to a specialized unindexed result has not been disproved. The scientific checks here are internal to this manuscript and verification program; they do not constitute independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem separates coherent dark memory, which persists at every interior flux, from a sharp fragmentation of dissipative bright mixing only at π. The rank-two populations and the finite-size and thermodynamic return jumps give quantitative diagnostics even for unequal noise rates, not just an instance of coherent flat bands. The full stationary state also predicts returns from arbitrary inputs and makes the noncommuting limits operationally distinguishable without asserting a mixing rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

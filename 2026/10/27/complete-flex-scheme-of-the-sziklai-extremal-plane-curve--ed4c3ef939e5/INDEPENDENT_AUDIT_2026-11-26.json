@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:34:58.408879Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:4–21, 24–40 (gradient, determinant, scheme multiplicities and arithmetic)",
+        "verify.py:28–72 and VERIFICATION.md:19–22 (inspected, not rerun)",
+        "Independent affine tangent expansion on X=1, with the remaining point handled in Z=1."
+      ],
+      "rationale": "In characteristic p dividing q, F_Y=X^(q−1), so possible singular points have X=0 and hence Y=0, but F_X(P0) is nonzero. In the Hessian the Y row and column have only the X entry −X^(q−2); the Z diagonal is −2XZ^(q−3), yielding the determinant 2X^(2q−3)Z^(q−3). Since p is odd this is nonzero. The divisor of X on the curve is qP0, and Z cuts q simple roots of t^q−t−1, with derivative −1. Their sum with the Hessian exponents gives the stated divisor of degree 3q(q−2), including the absent Z contribution at q=3. Directly, on X=1 the affine equation is 1−z^(q−1)+y−y^q. At a point with z=z0 its tangent has slope dy/dz=−z0^(q−2); the quadratic term on this line is −binom(q−1,2)z0^(q−3), nonzero at z0≠0 since the binomial coefficient is 1 in the field. For z0=0 the tangent is y=t, with exact contact q−1. Homogeneously that line cuts −XZ^(q−1), proving its remaining simple point is P0; the tangent X=0 at P0 has contact q. This also independently excludes any other flex, including in characteristic three. Finally t maps to t+1 under q-power Frobenius, so all q roots have orbit length exactly p and there are q/p orbits.",
+      "residual_risks": [
+        "The sample code checks Hessian polynomials for representative q and comments on the nonrational tangent substitution; the arbitrary-q tangent contacts and Frobenius structure are checked analytically. This is the ordinary Hessian divisor, not a claim about a characteristic-independent Weierstrass divisor."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible §4 discusses generic Frobenius tangent incidence and point bounds, not cycle lengths on a finite set of special geometric points.",
+          "The DOI and publisher PDF retrieval did not yield readable theorem/proof text for the uniqueness article.",
+          "The indexed tangent-pencil classification has degree q−1 and a rational tangent condition."
+        ],
+        "reasoning": "The bounds or uniqueness of an extremal projective class do not state the local geometric multiplicities. The different-degree tangent-pencil theorem does not apply to a degree-q curve by reparametrization at fixed field.",
+        "searches": [
+          "arXiv:0907.1325v2, §4 on Frobenius and §5 on examples",
+          "Homma–Kim, DOI 10.1016/j.ffa.2011.12.002 (degree-q uniqueness)",
+          "Resultary c6df3fd5c558 (smooth degree-q−1 tangent pencils)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0907.1325v2 §§4–5 and addendum",
+        "DOI 10.1016/j.ffa.2011.12.002 (retrieval attempts, not full text)",
+        "Resultary 0f7be3a54c3e and c6df3fd5c558"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier defining equation makes the calculation possible, but neither the number q(q−1)+1 nor the extremal model statement gives the Hessian's two multiplicities, the q=3 boundary or the geometric Artin–Schreier Frobenius orbits.",
+          "A known ordinary Hessian flex criterion alone detects flexes from the determinant but does not determine the scheme multiplicities or their distribution over extension fields."
+        ],
+        "reasoning": "The contribution is not a new extremal curve or general flex criterion. It evaluates the graph of tangent contacts and the intersection divisor in this family and determines fields of definition. No verified prior exact statement or specialization of a stronger inspected result gives those conclusions.",
+        "searches": [
+          "arXiv:0907.1325v2, §§4–5",
+          "DOI 10.1016/j.ffa.2011.12.002 (OA attempts)",
+          "Adjacent Resultary degree-q−1 results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the example G=X^q−XZ^(q−1)+Y^(q−1)Z−Z^q in §5, the frozen F satisfies F(X,Y,Z)=−G(Y,Z,X).",
+          "The coordinate permutation and scalar preserve Hessian-divisor and tangent-contact data via the induced projective isomorphism."
+        ],
+        "reasoning": "The prior curve really is the same mathematical object over the base field and cannot be differentiated from the finding by its equation alone. The inspected older statement is the smooth extremal example and rational-point count, not its flex scheme.",
+        "searches": [
+          "Homma–Kim, arXiv:0907.1325v2, §5, degree-q extremal model",
+          "Resultary: Sziklai extremizer Hessian, geometric flexes, tangent contacts and ramification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0f7be3a54c3e studies finite-étale/zeta information for a union of maximal-flex tangents in degree q−1; c6df3fd5c558 treats rational tangent pencils in degree q−1."
+        ],
+        "reasoning": "Neither matching entry is a table or divisor formula for the odd-characteristic degree-q extremizer. The difference concerns the geometric object as well as the type of invariant; no verified identical indexed scheme or contact data were surfaced.",
+        "searches": [
+          "Resultary: degree-q Sziklai Hessian divisor, ordinary flex scheme, Frobenius orbit decomposition",
+          "Resultary 0f7be3a54c3e and c6df3fd5c558"
+        ]
+      },
+      "rationale": "The degree-q model, smoothness and extremal point count are known; neither is credited here. The distinct claim is the entire weighted geometric Hessian section, exact contacts and arithmetic of its exceptional points for odd q. The inspected same-curve article, adjacent indexed results and accessible comparisons do not supply this package. The inaccessible uniqueness paper limits historical confidence but is not a scientific failure by itself.",
+      "residual_risks": [
+        "The 2012 uniqueness paper’s full proof was not accessible; it could contain tangent or related ramification calculations. Searches and limited inspections do not establish historical priority or exclude other historical treatments."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact curve covered; inspected results address nonsingularity and rational point extremality rather than the geometric Hessian section",
+          "evidence": "§5 gives the permuted model and q(q−1)+1 rational points; §4 is about generic Frobenius tangent incidence.",
+          "identifier_or_url": "https://arxiv.org/html/0907.1325v2",
+          "material_read": "§5, HTML offset 32800; §4, offset 30750 and relevant correction in v2 addendum",
+          "method": "Bounded OA primary-text inspection",
+          "title": "Sziklai’s conjecture on the number of points of a plane curve over a finite field II",
+          "trigger": "Same extremal curve up to projectivity; possible overlap in Frobenius geometry"
+        },
+        {
+          "assessment": "Material unresolved historical comparison; no negative full-text conclusion",
+          "evidence": "DOI returned no substantive text and the ScienceDirect PDF request was denied.",
+          "identifier_or_url": "https://doi.org/10.1016/j.ffa.2011.12.002",
+          "material_read": "Bibliographic identification only; no readable full text",
+          "method": "OA DOI and publisher PDF retrieval attempts",
+          "title": "The uniqueness of a plane curve of degree q attaining Sziklai’s bound over Fq",
+          "trigger": "Exact degree and extremality hypotheses; could include geometric properties in the uniqueness proof"
+        },
+        {
+          "assessment": "Different-degree and different-invariant overlap; no whole-document exclusion asserted",
+          "evidence": "Concerns degree q−1 and a union of maximal-contact tangent lines, not the scheme-theoretic Hessian intersection on this degree-q model.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-finite-tale-class-and-zeta-function-of-maximal-flex-tangent--0f7be3a54c3e",
+          "material_read": "Returned indexed finding description",
+          "method": "Configured Resultary search",
+          "title": "The finite-étale class and zeta function of maximal-flex tangent lines on Sziklai-optimal curves",
+          "trigger": "Closest indexed arithmetic flex comparison"
+        },
+        {
+          "assessment": "Different degree and rational tangent hypothesis",
+          "evidence": "Degree-q−1 curves with rational tangents in a pencil rather than the degree-q geometric flex scheme.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-smooth-degree-q-1-tangent-pencils-and-the-sharp-mathbb-f-5-thres--c6df3fd5c558",
+          "material_read": "Returned indexed finding description",
+          "method": "Configured Resultary search",
+          "title": "Smooth degree-q−1 tangent pencils and a sharp threshold",
+          "trigger": "Indexed Sziklai-related pencil with special tangencies"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:4–21 and 24–40",
+        "Homma–Kim arXiv:0907.1325v2, §5 (extremal-family context)"
+      ],
+      "rationale": "The ordinary Hessian and contact orders are natural projective invariants of a fixed extremal family, and the rational point count conceals its nonrational geometry. Concentration of the entire divisor of degree 3q(q−2) at explicit points, the disappearance of the nonrational flexes at q=3, and their length-p splitting otherwise give exact data usable in extension-field and tangent geometry. The straightforward differentiation is a means to that complete result, not the value claim by itself.",
+      "residual_risks": [
+        "The significance is for this classical Hessian on the odd-q model, not for all Sziklai-optimal degrees or other characteristic-sensitive ramification schemes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

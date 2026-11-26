@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The all-size enumerator follows from the exhaustive classification of intersecting two-subset families into stars and a single triangle, followed by eventwise inclusion–exclusion for missing neighbor colors. The local weight factor correctly accounts separately for the two singleton labels and the double label. For the least exponent, full stars are the unique largest possible empty families for every integer \(n\ge5\). The two-color admissibility condition becomes the absence of any common endpoint within each color class of \(K_{n-1}\). Counting forbidden singleton colorings by the sizes of star subfamilies and using that two stars cannot cover every edge of \(K_m\) for \(m\ge4\) proves the exact coefficient. The full four-label enumeration at \(n=5\) and direct fixed-support checks at \(n=5,6,7\) match the symbolic formula; larger cases rest on proof rather than extrapolation.
+PASS
 
-## Originality — PASS, with residual risk
+A pairwise-intersecting two-set collection is either contained in a star, or exactly a triangle: edges ab and ac together with an edge not using a force bc, after which no fourth edge is possible. This yields the disjoint zero-support counts, taking care that the empty and singleton cases do not have a unique center. For a fixed zero support, inclusion–exclusion imposes absence of each named color in each specified open neighborhood; an outside edge can carry a color exactly when it intersects every zero edge in that color's failure set. A double label has the conjunction and weight 2, so each factor and the weighted sum agree. A minimum can have weight N−(n−1) only with a full zero star and singletons outside. It is attained even at n=5 by using distinct disjoint perfect matchings on four noncentral points, one per color. In any singleton split, a star zero {c,i} sees a color precisely when some edge of that color avoids i. For a fixed bad color the allowed subsets of a single star count as one empty, binom(m,2) singles and m times the at-least-two subsets of m−1 edges, m=n−1. Both colors cannot fail because two star centers leave at least two vertices outside their union of centers. This proves the minimum formula, classifier, counts and full polynomial under the named-color convention.
 
-Mansouri–Mojdeh (2020), Cabrera-Martínez (2022), and Samadi–Soltankhah (2022/2023) give foundational definitions, bounds, product results and certain exact parameters. Their inspected statements do not give this Kneser family's complete weight polynomial or the optimum coloring formula. The published triangular-graph polynomial is for the complementary graph and uses matching empty supports rather than intersecting edge families; complementation does not preserve the feasibility conditions. The published ordinary multi-rainbow Kneser result uses at least three colors without the outer-independence restriction, and its scalar minimum does not imply this polynomial or optimizer census. No covering published-finding corpus or exact-table entry was found in the searches recorded with this finding; this is not a proof of absolute historical priority. Complete inspection of all older literature, especially inaccessible sources and unindexed calculations, has not been possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem determines a full weighted distribution, a sharp minimum and the exact count and geometry of every minimum labeling for a canonical infinite Kneser family. The structure is not a relabeling of the triangular-graph case: complementation exchanges matching empty families for intersecting star/triangle families, and the open-neighborhood rainbow constraints change as well. The all-size formula includes nonminimum functions with double colors, while the optimizer formula isolates the precise obstruction given by monochromatic star subfamilies. These descriptions give exact benchmarks and a tractable structural model for subsequent Kneser and rainbow-domination comparisons.
+Credit the exact named-color count and classification of all optimum labelings and the explicit all-weight census for the disjointness graph, not the standard cardinality lower bound or inclusion–exclusion as methods. Closest same-statistic and same-graph records describe significantly different constraint sets and yield different coefficients.
 
-## Closest work and limits
+## value
 
-The closest published scientific comparison is *Outer-independent two-rainbow weight enumerator of triangular graphs*, 2026-10-26, which does not cover the complement graph. *Exact multi-rainbow domination of two-subset Kneser graphs*, 2026-10-13, addresses a distinct non-outer-independent parameter. The foundational 2020 and 2022 papers do not include the new family-wide census in their accessible material. The result is restricted to two-subset Kneser graphs for \(n\ge5\); no claim is made for general \(\operatorname{KG}(n,r)\). Historical priority is provisional, and no independent validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Kneser family is a natural test of the interaction between a maximum independent zero set and two-color coverage. The classification and exact counts tell considerably more than the immediate lower bound; the complete weight polynomial captures valid suboptimal supports and both-color labels as well.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:23:23.108527Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The four factors of h, f_2, and all 14 ordered five-bit patterns match Appendix A. Its generator row j uses bit c_{j mod 5} of the printed c_0…c_4, so the reconstruction has the correct tail orientation. The first block (bg of degree <85) embeds the message space, proving dimension 21. A fresh census (`python3 /workspace/branches/r4-census.py`) used coefficientwise polynomial division, cyclic shifts and split-message XOR enumeration, not the supplied Gray-code checker. It enumerated exactly 2,097,152 distinct messages including zero, reproduced the frozen weight distribution and gave weight 72 first among the nonzero words, with 9,826 occurrences. The incidence histogram was {2108:1,2346:2,2482:2,2516:3,2550:6,3940:17,3956:17,3958:102,3968:34}, summing with multiplicities to 707,472. Thus every coordinate is both hit and missed by a minimum word. A hit yields punctured weight 71, and every weight decreases by at most one; no unit word is in C, so dimension stays 21. A miss yields shortened weight 72, and restricting to zero there is a codimension-one kernel since the coordinate is hit. Omitting that zero coordinate is weight preserving, giving [183,20,72]. Unequal incidences rule out a 1-design. This is exhaustive only for the specified finite code and single-coordinate operations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original paper lists shortening and puncturing as standard modifications; its puncturing example producing [200,21,77] starts from a different [240,21,104] code.",
+          "2026/10/12/SCOPE-complete-higher-support-profiles-of-the-q-5-punctured-and-shorte--1163e95f3d92 concerns higher subcode support profiles at one chosen coordinate for different quinary codes."
+        ],
+        "reasoning": "The generic operations give lower bounds and conditional equalities, not exact values at every coordinate of this code. Neither a different puncture nor a different code's hierarchy supplies the necessary per-coordinate witnesses.",
+        "searches": [
+          "arXiv:2609.37056 standard-modifications discussion (HTML around offset 9167) and the Table 2 discussion (around offset 29230)",
+          "Resultary ranked lookup for all-coordinate puncturing/shortening"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.37056, Tables 2–3 and Appendix A",
+        "2026/10/13/SCOPE-higher-support-spectra-of-the-binary-95-7-affine-half-partial-sp--ac1dd2c59a8f",
+        "2026/10/12/SCOPE-complete-higher-support-profiles-of-the-q-5-punctured-and-shorte--1163e95f3d92",
+        "2026/11/2/SCOPE-exact-weight-three-counts-and-parity-split-for-norm-one-binary-b--6091ac2d6e5f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The coordinate histogram refines the single identity ∑r_j=72A_72 into 184 incidences. The paper's accompanying material is described as providing generator matrices, weight distributions, derivations and verification scripts.",
+          "2026/10/13/SCOPE-higher-support-spectra-of-the-binary-95-7-affine-half-partial-sp--ac1dd2c59a8f analyzes support minima for two different binary [95,7] codes."
+        ],
+        "reasoning": "The printed generator data determine the statistics in principle, but obtaining the nine distinct counts and the strict inequalities coordinate by coordinate takes a further census. Generic puncture/shorten proofs apply only after those inequalities or equivalent witnesses have been established.",
+        "searches": [
+          "arXiv:2609.37056, Appendix A construction literals and accompanying material description around HTML offset 30468",
+          "Local mirror of the matched support-spectrum records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Appendix A gives a fixed quasi-cyclic code with 14 linear tails. Table 3 gives A_72=9826 but no resolved coordinate counts.",
+          "2026/11/2/SCOPE-exact-weight-three-counts-and-parity-split-for-norm-one-binary-b--6091ac2d6e5f analyzes coordinate replication for weight-three supports in a different BCH family."
+        ],
+        "reasoning": "Coordinate replication and incidence in the minimum-support block family are the same invariant; the conceptual analogue uses different codes and weights. The source's total count forces non-constant replication but does not specify its distribution or whether all coordinates are hit and missed.",
+        "searches": [
+          "Resultary ranked lookups by the exact binary [184,21,72] parameters, minimum-word coordinate incidence, and 1-design/replication terminology",
+          "arXiv:2609.37056, Appendix A and Table 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 2 lists the known construction [184,21,72] and previous value 69; the Table 3 row gives d_new=72, A_d=9826. No exact target-code incidence histogram was identified in the returned catalogue results."
+        ],
+        "reasoning": "The table covers the parent parameters and global minimum multiplicity exactly, not the incidence spectrum or family of coordinate-deletion outcomes. A database optimum or construction with a derived parameter triple cannot establish that every coordinate of this parent realizes it.",
+        "searches": [
+          "arXiv:2609.37056, Table 2 CodeTables comparison and Table 3 row n=184,k=21",
+          "Resultary exact-parameter lookup for binary [184,21,72]"
+        ]
+      },
+      "rationale": "The construction, minimum distance, and count 9,826 are prior work and rechecked here as identity/census controls. The distinct finding is the exact coordinate-incidence histogram with uniform exact distance behavior for all single-coordinate punctures and shortenings. The prior tables checked do not supply that information. The bare non-1-design conclusion is already forced by nonintegral mean incidence 72·9826/184 and is not independent novelty.",
+      "residual_risks": [
+        "The original paper's accompanying files were not inspected for a separate coordinate census; an unindexed supplement or companion analysis could overlap.",
+        "Ranked catalogue lookups and public searches with irrelevant numeric returns are bounded and do not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the object, base parameters and weight-72 multiplicity, but no inspected passage states the coordinate census or universal one-coordinate outcomes.",
+          "evidence": "Appendix A uses m=85 and tail inner products with residue-class sums of message coefficients. Table 3 lists d_new=72 and A_d=9826; the example of puncturing discussed with Table 2 uses a different parent.",
+          "identifier_or_url": "https://arxiv.org/html/2609.37056",
+          "material_read": "Tables 2 and 3; Appendix A [184,21,72] construction including tail definition and patterns (HTML offsets near 43066–47450); accompanying-material description near 30468; standard-modifications discussion.",
+          "method": "Primary OA bounded passages, literal comparison of construction with reconstruction, and statement comparison.",
+          "title": "Evolving Towards Better Codes: LLM-Guided Search for High-Distance Binary Linear Codes",
+          "trigger": "Original construction, standard modifications and exact minimum count."
+        },
+        {
+          "assessment": "Distinct same-day result, not discarded on date and not equivalent.",
+          "evidence": "It counts minima for support spectra of length-95 dimension-7 codes, not coordinate replication in the audited length-184 minimum shell.",
+          "identifier_or_url": "2026/10/13/SCOPE-higher-support-spectra-of-the-binary-95-7-affine-half-partial-sp--ac1dd2c59a8f",
+          "material_read": "Local-mirror finding.",
+          "method": "Compared the underlying codes and invariant.",
+          "title": "Higher support spectra of the binary [95,7] affine-half partial spreads",
+          "trigger": "Same-day match on support census for explicit binary codes."
+        },
+        {
+          "assessment": "Different codes, different invariant and chosen-coordinate scope.",
+          "evidence": "Reports full subcode-support profiles for quinary [23,4,15] and [23,3,16] companions.",
+          "identifier_or_url": "2026/10/12/SCOPE-complete-higher-support-profiles-of-the-q-5-punctured-and-shorte--1163e95f3d92",
+          "material_read": "Local-mirror finding.",
+          "method": "Compared field, codes and operation scope.",
+          "title": "Complete higher-support profiles of the q=5 punctured and shortened companions",
+          "trigger": "Puncturing and shortening combined with exact support analysis."
+        },
+        {
+          "assessment": "Conceptual analogue, not coverage of this census.",
+          "evidence": "Reports replication q or q+1 in a different BCH family for weight three.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-weight-three-counts-and-parity-split-for-norm-one-binary-b--6091ac2d6e5f",
+          "material_read": "Local-mirror finding.",
+          "method": "Compared code family and weight shell.",
+          "title": "Exact weight-three counts and parity split for norm-one binary BCH codes",
+          "trigger": "Exact incidence/replication counts by coordinate."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For this explicit high-distance construction, the relevant question is whether selecting a coordinate for an elementary code modification can affect the resulting exact distance. The census certifies there is no such choice for either one-coordinate operation, despite materially different replication counts. The histogram provides the actual one-point minimum-shell data rather than just rechecking the construction or observing the arithmetic obstruction to a 1-design. It does not imply optimality of the resulting parameters or stability for multiple operations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

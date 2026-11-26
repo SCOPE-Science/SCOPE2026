@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:27:11.378837Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The center c flips only if both neighbors have the same different color b. Given that flip, each neighbor either stays b or copies the old center color c, with a copy exactly when its outer neighbor is c; the center can flip twice only if both copies occur. If the center stays c, a neighbor can only stay put or copy c, so updated agreement of both neighbors away from c would already have forced the center to flip. These exhaust the local possibilities, even when sites in the five-site notation coincide modulo n. Thus triple-AND erosion iterates to an alternating two-color word of length 2t+3. An infinite alternating cyclic word requires even n and produces a true two-cycle; counting ordered first colors gives q(q-1) states. A noncheckerboard odd ring allows at most n alternating letters, and a noncheckerboard even ring at most n-1. A full alternating linear word on an odd ring and a length n-1 alternating run with a third last color on an even ring attain the claimed bounds. For fixed L=2t+3, p=(q-1)/q^(L-1) and the joint event at offsets s=1,...,L-2 costs p q^(-s), because overlap of at least two letters fixes both colors; one-letter overlap gives independent indicators. Hence variance is at most lambda_n(1+O_L(1/q)). For bounded positive means the block argument loses o(1) expected hits at boundaries (including any last partial block), has probability o(1) of any multiple-hit block, and gives independent block-hit indicators of maximal probability o(1). This proves Poisson convergence, with the zero and diverging regimes following by Markov and the variance bound. At adjacent deadlines the expected counts differ by factors q^2, giving concentration on t and t+1, also at t=0 since T>=0. Frozen finite checks and output were inspected, not rerun; the stochastic and infinite-size assertions follow from the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nakar–Ron pp. 3–4 treat binary cycles and their fixed/2-periodic structure; Kaaser–Mallmann-Trenn–Natale p. 1 prove binary graph convergence to a two-periodic state; Lemoy et al. p. 1 study binary noisy majority.",
+          "Gärtner–Zehmakan's indexed summary includes incumbent retention and emphasizes 2D grids/tori; catalogue records identify the article, but no full text was retrieved."
+        ],
+        "reasoning": "The binary structure results do not entail a multicolor change-indicator identity or sharp moving-alphabet stochastic law. The Color War summary is not sufficient to decide broader coverage of these categorical claims.",
+        "searches": [
+          "arXiv:2205.08972, binary radius-r majority on a cycle",
+          "arXiv:1508.03519, deterministic graph majority",
+          "arXiv:1311.4388, binary noisy majority",
+          "Color War: Cellular Automata with Majority-Rule author manuscript preprint PDF theorem neighborhoods number of colors"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f159f830d6e4 (self), d0c0e063c265, ea6170529cae, 387c46a61238, 46f749a8a8bf and ed9b4d3a8cbc",
+        "arXiv:2205.08972",
+        "arXiv:1508.03519",
+        "arXiv:1311.4388",
+        "Gärtner–Zehmakan, doi:10.1007/978-3-319-53733-7_29 (limited access)",
+        "ResearchGate 265844647 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The binary Poisson window keeps q fixed and takes t on order one-half log_2(n); the ternary median also fixes q while the clock grows with n.",
+          "The categorical proof counts windows with two alternating colors and derives the genuine q-dependent cluster probabilities p q^(-s) for s>=1 and overlap length at least two."
+        ],
+        "reasoning": "Replacing 2 with q in the binary theorem is not a valid specialization. In a binary ring a run of adjacent disagreements is automatically alternating; with three or more colors that implication fails. Further, binary adjacent extensions at the extreme scale can cluster with nonvanishing conditional probability, whereas categorical overlapping windows here extend with conditional probability O(1/q). This changes the Poisson analysis, not just a parameter name.",
+        "searches": [
+          "Resultary d0c0e063c265, RESULT.md offsets 1621–4808 and 4593–7183",
+          "Resultary 46f749a8a8bf, RESULT.md offsets 0 and 2268"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Binary Rule 232 describes the q=2 limit of the update; d0c0e063c265 has alternating defect erosion and a binary extreme-time law.",
+          "46f749a8a8bf explicitly uses an ordered ternary median and binary threshold projection. ed9b4d3a8cbc uses a site and its next two clockwise neighbors, retaining the endpoint incumbent on a three-way tie."
+        ],
+        "reasoning": "Three distinct colors separate the ordered median from categorical plurality: if the incumbent is an extreme, the median is a different color while plurality keeps the incumbent. Centering the shifted one-sided rule also changes which of the three distinct colors survives. No such reduction identifies the claimed dynamics.",
+        "searches": [
+          "Resultary: majority-three/Rule 232 alternating-run clocks, multicolor plurality tie retaining, Poisson freezing time and palette size",
+          "Resultary 46f749a8a8bf and ed9b4d3a8cbc, matched Find­ings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact target hit f159f830d6e4 is the assigned record itself. ea6170529cae has the exact binary clock and checkerboard exception; 387c46a61238 has a binary census and a Poisson time window; d0c0e063c265 has the binary periodic-entry and extreme laws."
+        ],
+        "reasoning": "The exact clock formula and checkerboard analysis in the binary subcase are established, but this does not give an exact categorical census or moving-alphabet distribution. A fixed finite q/n table cannot supply the new asymptotic claim.",
+        "searches": [
+          "Resultary exact stabilization times, recurrence census and Poisson critical windows for cyclic majority",
+          "Resultary ea6170529cae, 387c46a61238 and d0c0e063c265"
+        ]
+      },
+      "rationale": "Binary majority ring erosion, clocks and Poisson extremes already occur in the accessible indexed work. The supported distinct claim is the exact criterion for categorical incumbent-preserving plurality with three-way ties and its fixed-deadline, growing-palette Poisson transition. Neither the binary law nor the inspected ternary median and one-sided plurality statements contain this result. Unresolved access to adjacent literature limits priority claims but is not a scientific verdict.",
+      "residual_risks": [
+        "The full Color War chapter and the six-color fixation paper were not accessible through the checked sources. A broader multicolor dynamics theorem could cover the deterministic part or more.",
+        "Historical priority for the growing-palette law is not guaranteed by a bounded search. The closest verified binary clocks and Poisson limits are explicitly credited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial binary overlap but no growing-palette law",
+          "evidence": "Disagreement-edge runs erode in binary majority; the Poisson clock has intensity n*2^(-2t-3) in the binary time window.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-first-periodic-entry-law-and-poisson-extremes-for-majority--d0c0e063c265",
+          "material_read": "Mirrored RESULT.md offsets 1621–4808 and 4593–7183, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local catalogue search and matched mirror passages",
+          "title": "Exact first-periodic-entry law and Poisson extremes for majority-three rings",
+          "trigger": "Closest binary erosion and Poisson clock antecedent"
+        },
+        {
+          "assessment": "Already cover pertinent binary conclusions only",
+          "evidence": "Binary first-fixed-time law and checkerboard exception; binary Poisson critical window in time.",
+          "identifier_or_url": "Resultary ea6170529cae and 387c46a61238",
+          "material_read": "Mirrored Finding passages at offset 0",
+          "method": "Local catalogue search and matched mirror passages",
+          "title": "Exact stabilization-time distribution for the cyclic three-site majority automaton; exact stabilization census and Poisson critical window for cyclic majority automata",
+          "trigger": "Exact finite-clock formula and census matches"
+        },
+        {
+          "assessment": "Different updates; no model identification by equal parameters or date",
+          "evidence": "Median has two binary threshold words at fixed q=3. The one-sided plurality retains the end incumbent and gives fixed/rotating classes and sharp clock n-2.",
+          "identifier_or_url": "Resultary 46f749a8a8bf and ed9b4d3a8cbc",
+          "material_read": "Mirrored RESULT.md at offsets 0 and 2268 for median, offset 0 for one-sided plurality",
+          "method": "Local catalogue search and matched mirror passages",
+          "title": "A coupled-threshold Poisson clock for ternary circular median dynamics; three-color entropy resonance in one-sided tie-retaining plurality",
+          "trigger": "Closest same-date, nonbinary process candidates"
+        },
+        {
+          "assessment": "Binary, radius-r configuration and recurrence theory",
+          "evidence": "Fixed and two-periodic states under the binary radius-r rule, not multicolor iid fixed-time freezing.",
+          "identifier_or_url": "https://arxiv.org/pdf/2205.08972",
+          "material_read": "PDF pp. 3–4, offsets 4850 and 7141",
+          "method": "Open primary PDF passages",
+          "title": "The Structure of Configurations in One-Dimensional Majority Cellular Automata: From Cell Stability to Configuration Periodicity",
+          "trigger": "Possible broader ring majority classification"
+        },
+        {
+          "assessment": "Binary graphs or binary thermal update noise, neither a growing initial palette",
+          "evidence": "First bounds two-periodic entry by O(|E|); second uses thermal noise around binary majority-3.",
+          "identifier_or_url": "arXiv:1508.03519 and arXiv:1311.4388",
+          "material_read": "p. 1 of each PDF, offsets 586 and 1084 respectively",
+          "method": "Open primary PDF passages",
+          "title": "On the Voting Time of the Deterministic Majority Process; transfer matrix analysis of one-dimensional majority cellular automata with thermal noise",
+          "trigger": "Graph and stochastic generalizations of majority dynamics"
+        },
+        {
+          "assessment": "Potential broader coverage unresolved; no whole-document conclusion from summary",
+          "evidence": "Publisher summary emphasizes two-dimensional grids and tori; another indexed excerpt starts with blue-versus-other initial coloring. Neither establishes what the full chapter proves about arbitrary palettes or degree two.",
+          "identifier_or_url": "https://link.springer.com/chapter/10.1007/978-3-319-53733-7_29",
+          "material_read": "Indexed publisher summary and ANU repository metadata, offset 300; not full text",
+          "method": "Publisher direct and VPN timed out; attempted indexed lawful institutional alternatives at ANU bdec9172-6aad-497c-b601-c551e2b3fa37 (metadata only) and ETH 20.500.11850/231130 (unavailable)",
+          "title": "Color War: Cellular Automata with Majority-Rule",
+          "trigger": "Incumbent-retention rule in title/summary search, possible broader theorem"
+        },
+        {
+          "assessment": "Insufficient information about coverage",
+          "evidence": "Available snippet concerns fixation on an integer lattice and six colors; no matching theorem passage was read.",
+          "identifier_or_url": "ResearchGate publication 265844647",
+          "material_read": "Indexed title and snippet only",
+          "method": "Lawful full-text retrieval attempted, HTTP 403",
+          "title": "Behavior of social dynamical models I. Fixation in the symmetric cyclic system with paradoxical effect in the six-color automaton",
+          "trigger": "Multicolor automaton fixation hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The update is a canonical plurality extension in which true three-way ties prevent simply reusing binary disagreement runs. An exact erosion description for the actual multicolor flippers yields sharp deterministic clocks, and the hierarchy of palette scales n^(1/(2t+1)) answers whether any defects persist through a specified deadline. The quantitative two-point fixation distribution gives information beyond a recurrence classification or the known binary growing-time laws.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

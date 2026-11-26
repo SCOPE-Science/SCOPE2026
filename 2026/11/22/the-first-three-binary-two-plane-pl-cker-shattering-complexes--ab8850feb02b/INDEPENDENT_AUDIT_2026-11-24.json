@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:52:39.048710Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–68; checks.txt, lines 1–15; VERIFICATION.md, lines 19–31; verify_plucker_python.py, lines 8–68; verify_plucker_cpp.cpp, lines 13–84",
+        "Fresh reproduction: python3 /workspace/branches/d371e49c-46c0-411e-89e7-9880b8ea296d/independent_plucker_check.py 4 5 6; independent_n4.txt, independent_n5.txt and independent_n6.txt in the same directory"
+      ],
+      "rationale": "The binary determinant is one exactly on two distinct nonzero column symbols. Rank two requires at least two occupied nonzero symbol classes, so the zero concept is excluded, but the empty query support is shattered. The non-isolated complete bipartite or tripartite graph determines its partition up to color permutations, consistently giving 35, 155 and 651 concepts. Fixing the two terminals to different nonzero symbols realizes all four traces at each remaining vertex of K_{2,n−2} independently. The fresh enumeration tests each support's trace count, maximality by its one-edge extensions, and canonical orbit under all vertex permutations. It reproduces all polynomial coefficients, facet-size distributions (8,3), (15,12,10), (96,70,180,15) and the labeled orbits. The explicit edge lists confirm the graph descriptions: for example the seven-edge representative has paths 0–4–1, 0–5–1, 0–3–2–1. The exact augmented boundary ranks reproduce the nonzero reduced Betti numbers β₂=7 at n=4, β₃=5 and β₄=1 at n=5, and β₄=111 and β₅=24 at n=6. The table has 3, 4 and 6 distinct facet orbits on masks of lengths 6, 10 and 15, respectively. Maximum support size and nonpurity follow from these data; only the constructive lower bound extends to general n.",
+      "residual_risks": [
+        "The independent implementation uses the same proved four-symbol normal form; the frozen C++ program instead generates the support masks directly from row-pair minors. The calculation is finite, augmented homology is over F₂ only, and no higher-order VC formula, integral homology or homotopy classification is proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Beelen–Singh construct parity-check families for Grassmann codes; their theorem is not a theorem on all projections of individual plane coordinates.",
+          "Fitzpatrick et al. treat sphere-membership hypotheses and Castillo–Samper matroid-derived complexes.",
+          "9a18c2c0e02d characterizes shattered source–target pairs by linear independence for graphs of invertible maps."
+        ],
+        "reasoning": "These broader finite-field and topology results use different variables and concept classes. In particular, constraints on codewords evaluated over Grassmannian points do not specify every projection of a single point's Plücker vector. No inspected general theorem yields the asserted exact complexes.",
+        "searches": [
+          "arXiv:2001.06278, Theorem 4.4",
+          "arXiv:2108.13231, p.1",
+          "arXiv:1809.00281, p.1",
+          "Resultary 9a18c2c0e02d (point-image shattering)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2001.06278",
+        "arXiv:2108.13231",
+        "arXiv:1809.00281",
+        "DOI 10.1007/s10623-018-0567-1 (bibliographic only)",
+        "Resultary ab8850feb02b, 787364616cde, 9a18c2c0e02d, 69c08503d33f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard coordinate representation gives the exact Boolean relation between column colors, but not the classification of collections of queries on which every trace occurs.",
+          "The K_{2,n−2} construction gives a lower bound only. Even the plane count allows size at least one larger than 2n−4 in the logarithmic upper bound at each of n=4,5,6."
+        ],
+        "reasoning": "Neither the standard representation, its cardinality bound, nor the adjacent published query-class theorems yields the upper VC dimensions, all smaller facets or reduced Betti ranks. The full finite classification is the contribution.",
+        "searches": [
+          "arXiv:2001.06278, Theorem 4.4",
+          "Resultary 787364616cde and 69c08503d33f, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Over F₂ the same concept class consists of nonzero rank-two alternating-minor supports, or complete two- and three-partite graphs with optional isolated vertices and at least two nonempty parts, tested at labeled vertex pairs.",
+          "69c08503d33f uses vertex–color equalities of proper colorings of a fixed complete bipartite graph; 787364616cde queries subspace membership in cliques."
+        ],
+        "reasoning": "In the equivalent graph formulation, shattering requires all binary edge traces, both equal and unequal nonzero colors and possible zero vertices playing a role. For a nonempty positive trace, its endpoints must be nonzero; queried negative edges within those endpoints require equal colors, and contracting them leaves a three-coloring problem with loop obstructions on positive edges. This is not the proper-palette equality query model. Nor are vertex-pair edge queries equivalent to subspace queries in a Grassmann graph.",
+        "searches": [
+          "Web query: binary Grassmannian Gr(2,n) Plücker coordinate shattering VC dimension projection trace complex (n=4,5,6)",
+          "Resultary 69c08503d33f (coloring shattering) and 787364616cde (Grassmann shattering)",
+          "arXiv:2001.06278, Plücker / Grassmann-code formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ab8850feb02b matches the bound record itself, not a distinct earlier table.",
+          "The closest distinct shattering records enumerate different concept/query pairs. The affine Grassmann weight-spectrum paper was not accessible in full."
+        ],
+        "reasoning": "A Grassmann codeword weight table, a maximal-clique shattering table, or a proper-coloring shattering polynomial would not by itself be a table of plane-minor traces and their simplicial boundaries. No matching independent census was established.",
+        "searches": [
+          "Resultary ab8850feb02b, 9a18c2c0e02d, 787364616cde and 69c08503d33f",
+          "DOI 10.1007/s10623-018-0567-1 (potentially confusable finite Grassmann tables)"
+        ]
+      },
+      "rationale": "The classical Plücker representation and plane count are not novelty claims. The exact finite shattering complexes under pair-coordinate queries, including the orbit and reduced homology data, were not found as an independently stated or implied result in the inspected sources. The nearest Grassmann, finite-linear-action and coloring competitors change the Boolean query class in decisive ways.",
+      "residual_risks": [
+        "The full affine Grassmann weight-spectrum paper was not inspected. A graph-theoretic classification under another name or an unindexed finite census remains possible; no within-day priority is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical coordinates and code-theoretic constraints, not the finite trace complexes",
+          "evidence": "Constructs parity-check families for majority-logic decoding.",
+          "identifier_or_url": "https://arxiv.org/pdf/2001.06278",
+          "material_read": "Theorem 4.4, PDF pp.16–17, offset 47313",
+          "method": "OA PDF passage comparison",
+          "title": "Point-line incidence on Grassmannians and majority logic decoding of Grassmann codes",
+          "trigger": "Same Grassmannian point coordinates and potential projection restrictions"
+        },
+        {
+          "assessment": "Different concept and query domains",
+          "evidence": "Hypotheses come from sphere membership, not the Plücker-coordinate vector of a two-plane.",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.13231",
+          "material_read": "Abstract and setup p.1, offset 0",
+          "method": "OA PDF passage comparison",
+          "title": "The VC-dimension and point configurations in finite fields",
+          "trigger": "Broader finite-field VC theorem"
+        },
+        {
+          "assessment": "Different complex construction",
+          "evidence": "Studies finiteness for matroid-derived simplicial complexes.",
+          "identifier_or_url": "https://arxiv.org/pdf/1809.00281",
+          "material_read": "Abstract p.1, offset 0",
+          "method": "OA PDF passage comparison",
+          "title": "Finiteness theorems for matroid complexes with prescribed topology",
+          "trigger": "Possible broader complexes-with-homology theorem"
+        },
+        {
+          "assessment": "Full-statement coverage unresolved; not ruled out on title alone",
+          "evidence": "The advertised subject is affine Grassmann-code weights, not an observed statement about pointwise minor traces.",
+          "identifier_or_url": "https://doi.org/10.1007/s10623-018-0567-1",
+          "material_read": "Bibliographic material only; no readable full text obtained",
+          "method": "Bounded lawful retrieval attempt",
+          "title": "The weight spectrum of certain affine Grassmann codes",
+          "trigger": "Same geometric object and possible tabulated restrictions"
+        },
+        {
+          "assessment": "Different concept and query domains",
+          "evidence": "Maximal cliques are concepts, and subspaces are queries; shattered queries include certain triangles, not arbitrary minor-coordinate supports.",
+          "identifier_or_url": "2026/11/22/SCOPE-shattering-by-maximal-cliques-of-finite-grassmann-graphs--787364616cde/RESULT.md",
+          "material_read": "Finding and query definition",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Shattering by maximal cliques of finite Grassmann graphs",
+          "trigger": "Closest distinct Grassmann shattering match"
+        },
+        {
+          "assessment": "Different query traces",
+          "evidence": "Invertible maps are concepts queried on source–target vector pairs, with independence conditions on the vector lists.",
+          "identifier_or_url": "2026/11/22/SCOPE-point-image-shattering-of-finite-general-linear-groups--9a18c2c0e02d/RESULT.md",
+          "material_read": "Finding and independence criterion",
+          "method": "Local Resultary mirror",
+          "title": "Point-image shattering of finite general linear groups",
+          "trigger": "Finite-linear-action shattering comparison"
+        },
+        {
+          "assessment": "Coloring concepts, but not the equivalent complete multipartite edge class",
+          "evidence": "Uses vertex–color equality queries for proper colorings of K_{m,n}, unlike varying the graph partition and querying edge membership.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-shattering-polynomial-and-palette-transition-for-complete--69c08503d33f/RESULT.md",
+          "material_read": "Finding and query definition",
+          "method": "Local Resultary mirror",
+          "title": "Exact shattering polynomial and palette transition for complete bipartite colorings",
+          "trigger": "Closest distinct color/shattering-polynomial match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and four-symbol normal form",
+        "Fresh polynomial, facet and boundary outputs for n=4,5,6"
+      ],
+      "rationale": "Binary two-plane coordinates provide a canonical finite Boolean class, and n=4 is the first ambient size with four-index Plücker constraints. The next two orders give a meaningful comparison of this same complex: the maximum faces have a uniform bipartite shape, but inclusion-maximal faces can have smaller sizes and different types. The exact reduced homology detects structure not recoverable from VC dimension or the number of concepts alone. These are reusable low-order benchmarks for structural questions, not an all-order pattern inferred from three cases.",
+      "residual_risks": [
+        "No general structural theorem, homology over other coefficients, or continuation of the observed pattern is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

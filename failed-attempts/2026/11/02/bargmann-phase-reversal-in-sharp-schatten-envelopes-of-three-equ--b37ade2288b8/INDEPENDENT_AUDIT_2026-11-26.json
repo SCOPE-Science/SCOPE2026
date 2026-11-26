@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:51:40.696188Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The 2-by-2 leading Gram block is positive definite; its Schur complement has the sign of the determinant, which proves exactly the stated phase cutoff and covers the singular endpoint. With x=λ−1 the characteristic polynomial is x³−3t²x−2t³c. A repeated root must be x=±t and hence c=∓1, so the implicit-root formula is valid in the open interval. The divided-difference integral has the sign of (p−1)(p−2) for positive eigenvalues, and the largest-root derivative is positive. Continuity handles repeated roots and a zero eigenvalue at the endpoints, gives every intermediate value, and, with strict interior monotonicity, gives the exact phase labels. The spectra at both boundaries follow by factoring the cubic; the trace and Hilbert–Schmidt cases, the fourth moment from Newton's identities, and overlaps t=0,1 check out. The finite script is supplementary and was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sakai–Iwata, PDF p. 22, (244)–(246), gives both sharp norms for all dimension n≥2 and distinct positive orders, with ℓ∞ included. The signs are also stated in Lemmas 2–3 (PDF pp. 6 and 15).",
+          "Chen et al. give a phase-unresolved Schatten upper bound; Oszmaniec et al. supply Gram reconstruction; Qiu compares sums with sums of absolute values (for arbitrary numbers of summands in v2, not only two, and tautological for positive projections)."
+        ],
+        "reasoning": "The sharp two-order probability-vector theorem is the dominating prior result. Neither the Gram reconstruction nor the different Schatten comparisons alone would show equivalent coverage.",
+        "searches": [
+          "Sakai–Iwata arXiv:1605.00019, Theorem 1 and Lemmas 2–3",
+          "arXiv:2606.04116 Theorem 1.1; arXiv:2109.10006 Gram/Bargmann setup; arXiv:2608.17565v2 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Sakai–Iwata arXiv:1605.00019",
+        "Oszmaniec et al. arXiv:2109.10006",
+        "Chen et al. arXiv:2606.04116",
+        "Qiu arXiv:2608.17565v2",
+        "Resultary hits ce8451794c8c, 11239821c1c5, d52a19fbce8e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "After multiplication by three, the v₃ extremizer is (1+2t,1−t,1−t). The w₃ extremizer is (1+t,1+t,1−2t) up to t=1/2 and ((3+sqrt(12t²−3))/2,(3−sqrt(12t²−3))/2,0) thereafter; these follow by matching the fixed squared norm in (244).",
+          "(245) puts v₃ below w₃ for 1<p<2 and (246) reverses the order for 0<p<1 and 2<p≤∞. Both spectra are attainable; the continuous Gram phase interval fills the band. The determinant identity gives the phases of these canonical spectra."
+        ],
+        "reasoning": "The prior statement gives exactly A and B and their order, including the support transition and operator-norm limit, not merely a close bound. The strict ordering of interior phases can be derived independently by one differentiation of the cubic and the sign of a second divided difference. I do not infer that Sakai–Iwata explicitly formulate the interior phase order or that their bound alone proves strict uniqueness in phase.",
+        "searches": [
+          "Sakai–Iwata (9)–(12), (244)–(246) specialized to n=3 and α=2",
+          "Frozen RESULT.md endpoints, Gram feasibility and strict phase labeling"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For q=λ/3, q is a three-entry probability vector and sum q_i²=(1+2t²)/3. Conversely, conjugate diag(3q) by the three-point Fourier unitary. The diagonal is 1, and the squared modulus of every off-diagonal entry is (sum λ_i²−e₂)/9=t². Thus the Gram spectra are the entire fixed-purity slice, including zero entries.",
+          "Sakai–Iwata's norm is precisely N_p/3 on this slice; positive-spectrum p=∞ is 3 max q_i for X."
+        ],
+        "reasoning": "This is equivalence of feasible spectra, not a one-way bound that might lose sharpness on the projection problem. Phase is the determinant coordinate on this same slice.",
+        "searches": [
+          "Normalized Gram spectrum, fixed purity/index of coincidence, sharp Rényi or ℓ^p bounds",
+          "Sakai–Iwata, arXiv:1605.00019, definitions (9)–(12) and Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ce8451794c8c is a near hit in the returned summary: fixed-purity qutrit off-diagonal norms at even orders at least six and a triangle-phase branch; its exact mirror text could not be retrieved.",
+          "11239821c1c5 concerns three-column Gram spectra of quadratic-chirp bases; the distinct same-day d52a19fbce8e concerns holonomy of projected transport, not this fixed-overlap norm envelope."
+        ],
+        "reasoning": "The available descriptions give different operators or spectral families. No database/table match is required for the negative originality finding: the explicit prior full-text theorem and reduction are decisive independently of mirror access.",
+        "searches": [
+          "Resultary semantic search: three-projector Bargmann phases, fixed purity and Schatten ordering",
+          "Resultary identifiers ce8451794c8c, 11239821c1c5, d52a19fbce8e"
+        ]
+      },
+      "rationale": "The central sharp attainable Schatten interval—including the reversal in the sharp envelope and both extremal spectral branches—is already a specialization of Sakai–Iwata's sharp ℓ^β bounds at fixed ℓ^α norm. This is direct prior coverage, not merely resemblance. The explicit monotonic phase parametrization is not asserted to be in that paper; it follows here from a cubic and a classical divided-difference identity and does not make the claimed sharp envelope new.",
+      "residual_risks": [
+        "Priority of a separately phrased general strict interior order was not established; this does not alter the exact envelope reduction.",
+        "Closest qutrit Resultary full text was not accessible, so only its returned statement was compared."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Dominating prior theorem directly covers the main sharp envelope",
+          "evidence": "At fixed ℓ^α both canonical probability vectors bound every ℓ^β with the direction changing at 1 and α; formula for w₃ changes support at purity 1/2.",
+          "identifier_or_url": "https://arxiv.org/pdf/1605.00019",
+          "material_read": "PDF pp. 2, 6, 15, 22; definitions (9)–(12), Lemmas 2–3, Theorem 1 (244)–(246); offsets 6400 and 144550 and lemma locators",
+          "method": "Lawful OA full-text statement/definition inspection and direct algebraic specialization",
+          "title": "Sharp Bounds Between Two Rényi Entropies of Distinct Positive Orders",
+          "trigger": "Exact fixed-index-of-coincidence extremizers in probability-vector formulation"
+        },
+        {
+          "assessment": "Supports Gram geometry, not the norm envelope",
+          "evidence": "Pairwise overlaps and cyclic Bargmann products are used as Gram data.",
+          "identifier_or_url": "arXiv:2109.10006",
+          "material_read": "PDF pp. 1–2, offsets 1298 and 5975",
+          "method": "OA full-text passage inspection",
+          "title": "Measuring relational information between quantum states, and applications",
+          "trigger": "Gram-equivalence precedent"
+        },
+        {
+          "assessment": "General upper bound, weaker/different for the phase question",
+          "evidence": "At fixed t the pairwise coefficients are 1 on diagonal and √t off diagonal, and the inequality gives no phase-resolved sharp range.",
+          "identifier_or_url": "arXiv:2606.04116",
+          "material_read": "PDF pp. 2–3, Theorem 1.1, offsets 2500 and 8064",
+          "method": "OA full-text passage inspection",
+          "title": "Carbery's inequality in the Schatten–von Neumann classes",
+          "trigger": "Frozen published near comparison"
+        },
+        {
+          "assessment": "Different comparison, does not resolve phase ordering",
+          "evidence": "Compares the sum of arbitrary matrices with the sum of their absolute values, identical sums here.",
+          "identifier_or_url": "arXiv:2608.17565v2",
+          "material_read": "PDF pp. 1–2, offsets 0 and 3856, Theorem 1.1",
+          "method": "OA full-text passage inspection",
+          "title": "Sharp Quasi-Reverse Minkowski Inequality for Schatten Norms",
+          "trigger": "Potentially relevant general Schatten comparison"
+        },
+        {
+          "assessment": "Different summarized question; proof-level comparison unresolved",
+          "evidence": "Off-diagonal operator and even-order range differ from the positive full Gram spectrum and all p.",
+          "identifier_or_url": "2026/10/11/…--ce8451794c8c",
+          "material_read": "Returned scientific summary only; exact manuscript retrieval unavailable",
+          "method": "Local Resultary search and attempted mirror access",
+          "title": "Sharp qutrit even Schatten off-diagonal bounds and phase holonomy",
+          "trigger": "Closest Resultary phase/purity match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The constrained operator question is natural, but the promised exact answer (branches, exponent reversal, and rank transition) is precisely the prior fixed-purity norm theorem in dimension three. What is left is a direct determinant phase translation and a short classical divided-difference calculation for the interior of the same one-parameter cubic. No independently needed unknown invariant beyond this specialization is established in the frozen finding; the argument may be useful as an exposition but not as the claimed scientific gap. No substantive repair is justified.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

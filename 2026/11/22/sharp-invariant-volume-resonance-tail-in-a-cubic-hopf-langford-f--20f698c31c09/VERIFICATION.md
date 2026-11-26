@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-Analytically differentiate the displayed cubic vector field to confirm zero divergence, and differentiate \(H=q(2z(1-z)-q)\) to confirm the conserved level sets. Express the reduced period as an elliptic integral and verify the complementary-parameter asymptotic gives \(P(h)=2\log(4/h)+o(1)\). The original Euclidean cylindrical volume identity, not a reweighted Hamiltonian area, yields \(V'(h)=-\pi P(h)/2\); direct integration and inversion produce the exact main tail.
+# Independent mathematical audit
 
-Run `python3 check.py` with the Python standard library; expected output is `HOPF_VOLUME_TAIL_VERIFY_OK`. This finite check samples exact identities and sharp asymptotic scales; it does not prove infinite estimates. The accompanying paper gives the analytic quantifiers. The 2023 directly related complete journal text was not accessible; originality is assessed within available evidence only.
+## correctness
+
+PASS
+
+In polar variables q=u²+v², the reduced motion is canonical for H/2 with z'=A−q, q'=(2z−1)q and θ'=β. H is conserved and divergence vanishes in physical coordinates. Each positive regular level inside Ω is a compact oval times the angle circle; the only critical level there is the central circle at H=1/16. This gives both-time invariance and the winding classification, with the rational tori a countable union of null surfaces. The two z branches give P=2∫dz/√(A²−h); factoring around z=1/2 gives 4 K(m)/√(1/4+√h), with strict decrease and limit 2π√2 at the center. DLMF §19.12.1 in modulus convention gives K(m)=log(4/√(1−m))+o(1) in the record's parameter convention; 1−m∼8√h and the prefactor is 8+O(√h), so P=2 log(4/h)+o(1), with the correct additive constant. The physical Jacobian after angle integration is π dq dz and V(0)=π/3. Independently, layer-cake integration of A−√((A²−h)_+) shows V(0)−V(h)=(π/2)∫_0^h P(s)ds, without differentiating a moving endpoint. Thus the normalized lost volume is 3h(log(4/h)+1)+o(h). Inverting the monotone period gives h_R=4e^(−πR/β)(1+o(1)), establishing the displayed tail constant 12π/β. Replay: RESULT.md §§Proof, lines 33–80; check.py was inspected only and finite checks do not establish the tail.
+
+## originality
+
+PASS
+
+The supported distinct result is the sharp pushforward of ordinary 3D physical volume on the specified bounded invariant lobe, not its first integral, closed invariant tori, period quadrature or resonance geometry in isolation. A very close generalized-flow paper remains a material full-text access risk; the checked statements and distinct exact pushforwards do not demonstrate coverage of this volume law.
+
+## value
+
+PASS
+
+Uniform Euclidean volume is a distinguished invariant sampling law because the original flow is divergence-free on a finite invariant region. The exact critical rate and coefficient quantify how rare long reduced periods are in that measure, where uniformly sampling h would give a different prefactor. This is a useful specific volume-statistical invariant, not a purported positive-volume set of resonant tori or novelty of integrability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

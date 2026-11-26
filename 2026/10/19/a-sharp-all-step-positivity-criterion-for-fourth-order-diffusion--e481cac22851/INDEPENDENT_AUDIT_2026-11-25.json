@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:57:00.574458Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For exactly three distinct eigenvalues 0<a<b and E=11^T/n, independently interpolate the step as alpha I+gamma L+(1-alpha)E. Writing Q=(12+6ah+a^2 h^2)(12+6bh+b^2 h^2), substitution at a and b gives gamma=-12h(12-ph^2)/Q and 1-alpha=12hp(6h+sh^2)/Q, where s=a+b and p=ab. This reproduces every off-diagonal bracket F_w=12w+6ph/n+p(s/n-w)h^2. The scalar multiplier is a quotient of strictly positive completed squares, so the symmetric step is positive definite, has positive diagonal, and fixes the all-ones vector. For w<=s/n the bracket is strictly positive at h>0, even on nonedges. For w>s/n it is concave with positive constant and exactly one positive root, the stated H_w. At such a root h>sqrt(12/p), so increasing w makes the bracket strictly smaller. Thus the maximum conductances are exactly the first zero entries and stay negative thereafter; h=0 is the identity, and the horizon itself is nonnegative. In the strongly regular case the common-neighbor relation yields sum s=2k-lambda+mu and product p=v mu. Both distinct positive eigenvalues occur, since one nonzero eigenvalue alone would force a complete weighted support. Substitution gives the stated cutoff, with Petersen 1+sqrt(5), Paley equality in the all-step condition, and s=3m-2 for the triangular graph, exceeding or equaling v exactly for 4<=m<=6. Replay by the affine interpolant or RESULT.md lines 35–83; the frozen exact-rational checker was inspected but not executed. Repeated eigenvalue multiplicities are permitted; directed, more-than-three-spectral-value, and internal-stage claims are excluded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 in the 2010 paper gives the sufficient upper bound 6 min A_ij/|(A^2)_ij| on off-diagonal indices with nonzero denominator under a Metzler/Hurwitz hypothesis. The conservative -L has a zero eigenvalue; also a distance-two nonedge makes that bound zero on connected noncomplete support.",
+          "The expanded paper's Theorem 3 is also sufficient and its negative example uses a shifted directed chain. The earlier eight-state pure-birth catalogue counterexample treats a directed generator."
+        ],
+        "reasoning": "Broader generator classes do not make these results dominating: the conclusions are sufficient tests or counterexamples in different hypotheses, not the weighted three-value sharp interval.",
+        "searches": [
+          "Zappavigna et al. Maynooth eprints 2195 and 3761, general positive-system [2/2] tests",
+          "Resultary 4aad2a3f58ab, directed CTMC Padé positivity"
+        ]
+      },
+      "checked_sources": [
+        "Maynooth eprints 2195 Theorem 2 and 3761 Theorem 3 and directed example",
+        "Bendito et al. author presentation on the M-property, strongly regular statement",
+        "Resultary 690509e7de2b, 4aad2a3f58ab, 2f0ca4adbadc, 2a383c6386f9, 4defdf9c32e5, 894835468c5c Findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The leading large-h off-diagonal term is -12(L^+)_{ij}/h; the M-property is why the static prior condition is relevant rather than coincidentally equal. It does not determine the finite root or ordering of critical edges.",
+          "For unit conductance the November 2 strongly regular theorem has H=3(1+sqrt(1+4(v-s)/(3mu)))/(v-s), exactly the stated H, and its off-diagonal formulas agree. Earlier multipartite results cannot imply the classification for general weights or for primitive strongly regular graphs."
+        ],
+        "reasoning": "Restrict the originality credit to the weighted time-dependent theorem. Neither the earlier sufficient Padé tests, the equivalent static classification, nor an exact restricted family settles that theorem.",
+        "searches": [
+          "Bendito et al. author M-property presentation",
+          "Resultary 4defdf9c32e5 Finding and important prior coverage passage",
+          "Resultary 690509e7de2b and 2f0ca4adbadc Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The spectral identity gives L^+=(s(I-E)-L)/p; its off-diagonal entries are (w_ij-s/n)/p, so the all-step threshold is exactly the nonpositive-off-diagonal M-property on this class.",
+          "The 2011 authors' presentation gives the strongly regular M-property iff mu>=k-k^2/(v-1). Using (v-k-1)mu=k(k-lambda-1), this is equivalent to 2k-lambda+mu>=v."
+        ],
+        "reasoning": "The static strongly regular boundary and its covered graph-family examples are not independent novelties. Static pseudoinverse sign does not give the first crossing or even assure a single time window by itself; the full dynamic result needs the rational interpolation and sign control.",
+        "searches": [
+          "Resultary: three-eigenvalue Gauss/Padé diffusion positivity, maximal conductance, sharp interval",
+          "Bendito et al. DOI:10.1080/03081087.2011.589047, M-property",
+          "Zappavigna et al. eprint 2195 Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 13 multipartite record gives a scalar-filter iff result and establishes the [2/2] all-step case on its unweighted complete multipartite family.",
+          "The three strongly regular records dated October 25, November 2, and November 8 give the same dynamic cutoff on that subclass. The October 25 weighted three-site record gives the same threshold and root with n=3."
+        ],
+        "reasoning": "These are real exact overlaps, not equivalence based on titles. None of these inspected distinct records gives the full weighted three-value dynamical theorem or establishes an earlier source for the whole claim.",
+        "searches": [
+          "Resultary: strongly regular, complete multipartite and weighted three-site Gauss Padé positivity horizons",
+          "Resultary 690509e7de2b, 2a383c6386f9, 4defdf9c32e5, 894835468c5c, 2f0ca4adbadc Findings"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact dynamic end-step classification throughout the connected weighted class with exactly three spectral values, including which entries first vanish, the explicit finite horizon, and the absence of reentry. The strongly regular static boundary has prior coverage through the M-property, and complete multipartite all-step positivity has direct prior coverage. Exact later dynamic overlaps on narrower families are material but not evidence of earlier priority.",
+      "residual_risks": [
+        "The earlier source suggested by the frozen record for known three-vertex criteria was not identified; the later matched record is not treated as that antecedent.",
+        "The journal version of the M-property paper was not independently read; only the corresponding author presentation was directly available. An earlier specialized dynamic result could remain unindexed.",
+        "The result does not establish historical priority for any already covered static or special-family statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sufficient test, not a sharp classification",
+          "evidence": "It assumes Metzler/Hurwitz and the [2/2] bound can reduce to zero when A_ij=0 but (A^2)_ij>0.",
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/2195/1/SK-pade_MTNS10_long.pdf",
+          "material_read": "Introduction p. 1; Theorem 2 p. 3, OA offsets near 955–1553 and 11800",
+          "method": "Compare exact bound, generator assumptions and a distance-two nonedge",
+          "title": "On the preservation of co-positive Lyapunov functions under Padé discretization for positive systems",
+          "trigger": "Same Padé map and general positive-system preservation"
+        },
+        {
+          "assessment": "Does not cover the sharp symmetric three-value interval",
+          "evidence": "The positive lower reach of the sufficient test needs two-step connections to be direct; the shifted chain counterexample is not a symmetric Laplacian.",
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/3761/1/SK_Essentially_Negative.pdf",
+          "material_read": "Theorem 3 p. 17 and example pp. 13–14, OA offsets near 49000 and 37000",
+          "method": "Compare sufficient conditions and directed-example spectrum and support",
+          "title": "Essentially Negative News About Positive Systems",
+          "trigger": "Expanded Padé positivity results and counterexamples"
+        },
+        {
+          "assessment": "Prior coverage of the static strongly regular boundary, not exact finite-step dynamics in the inspected passage",
+          "evidence": "The presentation gives iff mu>=k-k^2/(v-1) for the strongly regular M-property, equivalent to s>=v.",
+          "identifier_or_url": "https://doi.org/10.1080/03081087.2011.589047",
+          "material_read": "Author presentation, strongly regular characterization near OA PDF offset 20201; journal full text not retrieved",
+          "method": "Compare pseudoinverse entry formula and convert the strong-regular parameter inequality",
+          "title": "The M-property for distance-regular graphs (authors' presentation); related article Distance-regular graphs having the M-property",
+          "trigger": "Static spectral-inverse sign classification equivalent to the all-step boundary"
+        },
+        {
+          "assessment": "Exact earlier subfamily coverage",
+          "evidence": "All-step positivity for the [2/2] filter holds for its unweighted connected complete multipartite graphs; it is not a general weighted finite cutoff.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-an-exact-positivity-criterion-on-complete-multipartite-diffusion--690509e7de2b/RESULT.md",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Compare filter type, weights, and graph domain",
+          "title": "An exact positivity criterion on complete multipartite diffusion graphs",
+          "trigger": "Earlier exact graph Padé filter criterion"
+        },
+        {
+          "assessment": "Exact narrower, later coverage",
+          "evidence": "Its interval endpoint, nonedge positivity, and edge zero/negative signs are precisely the frozen corollary; its prior-work passage credits the earlier M-property.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-positivity-intervals-for-fourth-order-pad-diffusion-on-str--4defdf9c32e5/RESULT.md",
+          "material_read": "Finding and prior-work passage, local mirror offsets 0 and 8875",
+          "method": "Set uniform conductance to one and compare the exact roots and edge/nonedge formulas",
+          "title": "Exact positivity intervals for fourth-order Padé diffusion on strongly regular graphs",
+          "trigger": "Same strongly regular parameter horizon and signs"
+        },
+        {
+          "assessment": "Exact narrower, later coverage",
+          "evidence": "Its maximal-edge threshold and finite root specialize the frozen formulas to three vertices.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-sharp-positivity-dichotomy-for-the-fourth-order-gauss-step-on--2f0ca4adbadc",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Specialize n=3 and compare thresholds",
+          "title": "A sharp positivity dichotomy for the fourth-order Gauss step on three sites",
+          "trigger": "Exact unequal-conductance graph with three eigenvalues"
+        },
+        {
+          "assessment": "Exact narrower, later coverage",
+          "evidence": "Both present the all-step versus finite-cutoff classification in the same strongly regular parameters.",
+          "identifier_or_url": "Resultary 2a383c6386f9 and 894835468c5c",
+          "material_read": "Both Findings, local mirror offset 0",
+          "method": "Compare unit-conductance parameter inequalities and sharp endpoints",
+          "title": "Exact Gauss–Legendre diffusion positivity on all strongly regular graphs; A sharp Padé positivity horizon for strongly regular graph diffusion",
+          "trigger": "Two other exact strongly regular dynamic matches"
+        },
+        {
+          "assessment": "Different structural regime",
+          "evidence": "Its directed pure-birth example loses positivity at small steps, unlike the three-eigenvalue weighted undirected family.",
+          "identifier_or_url": "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+          "material_read": "Finding",
+          "method": "Compare signs and generator structure",
+          "title": "Eight-state Padé Markov positivity barrier",
+          "trigger": "Earlier catalogue of positivity for the same map"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives a sharp nonnegativity guarantee for a standard fourth-order end step, not a stability bound or a static graph label. It identifies the first failing edges, computes the exact horizon when finite, and rules out reentrant positivity for the full weighted spectral class. These are useful structural tests on a natural family where generic sufficient estimates can be vacuous. The preexisting static graph classifications need not be counted as new to support that value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

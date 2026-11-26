@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:32:24.668111Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–52 and 60–100",
+        "Frozen check_moments.py lines 119–140 and VERIFICATION.md lines 19–22 (read, not executed)",
+        "repairs/5/RESULT.md §§ Finding, Proof, Verification"
+      ],
+      "rationale": "PASS applies to repairs/5/RESULT.md, not to the frozen iid equivalent. The frozen second-moment diagonal numerator and its residue are false: the bivariate numerator specializes to (1−z)(4−2z−2z²+2z³), and its denominator to (1−z)P₂. The frozen reduction implies a z coefficient of 6, but both length-one sources have S=1, so the sum of S² is 2. The corrected numerator is 2(2−z−z²+z³), giving C₂≈2.217430020 and CV prefactor ≈1.073150221, with the same base ≈1.021673846. The repaired proof rederives the bivariate laws: a shortest absent target has exactly one greedy consumption per complete binary arch and a missing terminal letter in the remainder. For the second moment, both ordered targets must satisfy this constraint using the same arch; writing u=xy and L₀=xy/(1−y), L₁=xy/(1−x), the three pair-state equations sum to F₂=[(1−y)^−1+(1−x)^−1+2(1−u)]/[(1−u)(1−2u)−L₀−L₁]. The one-target equations likewise give F₁. They cover the empty and unary cases with a fixed ambient alphabet. After diagonalization, the two-state transfer has determinant P₂/(1−z) and positive Perron crossing of one at r₂. At other points of the same modulus, strict triangle inequality in an entry with consecutive powers plus Perron comparison gives spectral radius below one. The same scalar argument gives the first-moment pole. Both residues are positive, and 0.406866<2(0.460811)² ensures the squared mean is exponentially negligible. Independent direct enumeration of subsequence sets for all 1024 length-ten sources and rational-coefficient comparison across all 11 weights gave A_{5,5}=1110 and B_{5,5}=10174; rational endpoint-sign checks verified the pole brackets and the numerical residue recalculation was checked against the corrected numerator. The exact bivariate and diagonal transfer calculations in the repair give a replay without depending on finite testing. The frozen checker's bracket checks do not test the false numerator or residues.",
+      "residual_risks": [
+        "The repair asserts divergence of relative mean-square deviation, not failure of convergence in probability on the mean scale. No fixed-composition asymptotic or full distribution is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 6d1b512a35be gives exact second moments for random concatenated permutation arches of minimal length at prescribed universality, and a relative-variance result there.",
+          "Adamson et al. study extremal absent-string counts; Manea et al. study enumeration algorithms."
+        ],
+        "reasoning": "Permutation arches in the binary case force every complete arch to have length two, whereas the repaired law includes an arbitrary run in each arch and a remainder. The previous ensemble does not dominate this one. Extremal and per-word algorithmic results are not broader aggregate formulas.",
+        "searches": [
+          "arXiv:2407.18599 §3",
+          "arXiv:2504.21471v1",
+          "Resultary search for exact shortest-absent second moments and random arches"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2108.13968v6, Definition 2.3 and Theorem 3.4",
+        "arXiv:2407.18599 §3",
+        "arXiv:2504.21471v1 abstract",
+        "Resultary 1a6556f14d28, 729a1bce797c, 6d1b512a35be"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior arch theorem describes one absent target for a given source. The ordered-pair mixed transition is restricted to shared length-two arches; equal-letter states can have long arches. Relative fluctuations require the separate P₂ pole, which is not in the exact first moment."
+        ],
+        "reasoning": "The established arch characterization is a structural input, but squaring a summed first moment would pair different sources; it does not impose shared arch lengths and shared residual constraints. The additional transfer and second pole are needed.",
+        "searches": [
+          "arXiv:2108.13968v6 Theorem 3.4",
+          "Resultary 6d1b512a35be transfer proof",
+          "Resultary 729a1bce797c generating-function statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kosche et al. establish the arch-based SAS characterization, with alphabet relative to source support. The repair fixes the binary alphabet, including for unary sources, and sums distinct target pairs over sources with prescribed content.",
+          "Resultary 729a1bce797c gives H(z,u)=2/[1−z−uz²(3−z)], so u=1 gives precisely the length-only first-moment series used in the repair."
+        ],
+        "reasoning": "The equality on the first-moment diagonal is a genuine overlap, not an originality claim. Its auxiliary marker is universality index, not source composition; no coefficient reindexing of this one-target sum provides an ordered two-target count.",
+        "searches": [
+          "Resultary search for shortest absent subsequence exact moments and their marked generating functions",
+          "arXiv:2108.13968v6, Definition 2.3 and Theorem 3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact matches are Resultary 729a1bce797c for length-only first-moment coefficients and 1a6556f14d28 for Fibonacci maxima at each length. The restricted-ensemble second-moment formula in 6d1b512a35be is not the fixed-composition or all-source coefficient table."
+        ],
+        "reasoning": "Neither the sum of S over all words of one length nor the exact maximum of S specifies the sum of S² by composition. No reviewed exact closed form or table computes that aggregate; the search outcome is not proof of absence.",
+        "searches": [
+          "Resultary exact SAS counts, generating functions and moment entries",
+          "Focused literature lookup for exact second-moment formulas or tables for shortest absent subsequences"
+        ]
+      },
+      "rationale": "For the repaired finding, originality rests on composition-marked moment aggregation, especially the exact second-moment law and its iid relative-variance consequence, not on the single-word SAS characterization, the length-only first moment, or correcting a sign in isolation. The strongest matched exact second-moment result has a restricted source ensemble that does not cover this law.",
+      "residual_risks": [
+        "An uninspected equivalent exact formula could exist. The indexed first-moment and restricted second-moment matches are dated later than the frozen path and do not establish priority. A specific antecedent for the frozen text's claim of prior length-only first-moment availability was not verified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Structural input, not the composition moments",
+          "evidence": "Uses source-support alphabet and describes one chosen position per arch in a shortest absent subsequence.",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.13968v6",
+          "material_read": "Definition 2.3, PDF p. 4, OA offset 12400; Theorem 3.4, p. 6, offset 19990",
+          "method": "Read primary definitions and characterization",
+          "title": "Absent Subsequences in Words",
+          "trigger": "Primary characterization of shortest absent subsequences via arches"
+        },
+        {
+          "assessment": "Different counting question",
+          "evidence": "Studies extrema for counts of absent words at a specified length and fixed universality index.",
+          "identifier_or_url": "https://arxiv.org/pdf/2407.18599",
+          "material_read": "§3, PDF p. 4, OA offset 13600",
+          "method": "Read primary counting regime and objectives",
+          "title": "Tight Bounds for the Number of Absent Subsequences",
+          "trigger": "Natural competing exact or extremal counts"
+        },
+        {
+          "assessment": "Per-source enumeration, not comparative moment evidence beyond the inspected statement",
+          "evidence": "Reports optimal enumeration and related shortest/minimal absent-subsequence algorithms.",
+          "identifier_or_url": "https://arxiv.org/abs/2504.21471v1",
+          "material_read": "Abstract, OA offset 800",
+          "method": "Read algorithmic scope; used for that scope only",
+          "title": "Efficiently Finding All Minimal and Shortest Absent Subsequences in a String",
+          "trigger": "Related exact SAS algorithmic work"
+        },
+        {
+          "assessment": "Maxima, not raw totals or moments",
+          "evidence": "Gives the exact length-indexed Fibonacci maximum.",
+          "identifier_or_url": "Resultary 1a6556f14d28",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Read claims and compare counting statistics",
+          "title": "Fibonacci extremals for shortest absent subsequences of binary words",
+          "trigger": "Exact related counts for the same statistic"
+        },
+        {
+          "assessment": "Exact first-moment diagonal overlap; does not cover the second moment or the composition mark",
+          "evidence": "The length/universality-index series specializes to 2/P₁ and the same C₁.",
+          "identifier_or_url": "Resultary 729a1bce797c",
+          "material_read": "RESULT.md mirror offsets 0 and 5600",
+          "method": "Read matching series and specialize its marker to one",
+          "title": "Exact mean and universality-index distribution of shortest absent subsequences",
+          "trigger": "Nearest exact first-moment hit"
+        },
+        {
+          "assessment": "Restricted ensemble, not the exact moment aggregate of the repair",
+          "evidence": "Samples concatenated permutation arches rather than arbitrary binary compositions and remainders.",
+          "identifier_or_url": "Resultary 6d1b512a35be",
+          "material_read": "RESULT.md mirror Finding offset 0 and transfer at offset 2900",
+          "method": "Read hypotheses and compare the exact source models",
+          "title": "Exact second moments for shortest absent subsequences of random permutation arches",
+          "trigger": "Nearest indexed second-moment and fluctuation claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "repairs/5/RESULT.md §§ Finding and Proof",
+        "Resultary 729a1bce797c and 6d1b512a35be, matching and differing moments"
+      ],
+      "rationale": "The corrected result gives exact compositional variance for a natural, established word statistic where extremal counts and the known summed mean do not quantify typical fluctuations. The second moment uses a common-source ordered-pair count and reveals exponential growth of the relative mean-square deviation in the unrestricted random-source model, something the first moment does not determine. The correction preserves this substantive invariant and gives the right quantitative constants rather than only restating an asymptotic base.",
+      "residual_risks": [
+        "The value claim concerns exact moments and relative mean-square fluctuations only; it neither implies a limiting law nor quantifies concentration in probability."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

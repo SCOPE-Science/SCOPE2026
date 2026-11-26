@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:56:31.184658Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–87",
+        "Frozen VERIFICATION.md and check_ritt.py inspected, not executed",
+        "Replay: python3 -I /workspace/branches/review_reproduction.py 4; /workspace/branches/review_reproduction.txt"
+      ],
+      "rationale": "Unitary Schur form gives rI+aN, a>=0, and the determinant and positive leading pivot of I-T*T give a<=1-r^2. For epsilon=1-r, a=c epsilon, x=n epsilon, the exact defect norm is xr^n h(c|x/r-1|), where h(u)=sqrt(1+u^2/4)+u/2. It is nondecreasing in a at each integer n, so the contraction boundary maximizes the supremum at every r. Compact uniform convergence and the uniform tail xe^(-x)[1+C(2x+1)] justify the mesh limit, including c=2-epsilon, and convergence of every rescaled maximizing index under uniqueness. Reflection x to 2-x raises the scalar factor below x=1 without changing the shear factor. Above one, the log derivative is c/sqrt(4+c^2 y^2)-y/(1+y), strictly decreasing through zero for c>0. At c=0 the unique scalar maximum is e^(-1) at x=1; for c>0 strict shear monotonicity plus the interior maximum proves strict increase of the optimized value. At c=2 the stationary equation gives the stated quartic. The expansion of y is c/2+c^2/4+c^3/8+O(c^4); in log(R(c)/R(0)) the quadratic and cubic terms are c^2/8+c^3/24. The left stationary term is 1/sqrt(y^2+4/c^2), which increases in c and bounds y_c strictly above zero and below the golden ratio; its limit gives y_c increasing to that ratio and the claimed slope. A standalone 60-digit calculation verified the constant and scaled time; discrete recursive matrix calculations corroborated their limits on bounded grids.",
+      "residual_risks": [
+        "The finite-power grids do not certify the infinite supremum or maximizer convergence; those depend on the proved uniform tail and uniqueness."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arnold has power-difference decay characterizations; Borichev–Gomilko–Tomilov provide Ritt characterizations, calculus, and norm-gap criteria.",
+          "Badea treats uniform displacement, resolvents of powers, polynomial/disc algebra displacement estimates and sampling.",
+          "The affine Jordan-pencil finding minimizes ||(1-lambda)I+lambda J_n|| over complex lambda and identifies a spectral-set threshold."
+        ],
+        "reasoning": "None of these general tools or alternative optimizations specifies a sharp contraction-class envelope at a real repeated eigenvalue or the asymptotic rescaled location of its largest defect. Standard Schur and basic shear singular values are not claimed as new.",
+        "searches": [
+          "Arnold arXiv:2606.14323, Theorem 1.1 and §6",
+          "Borichev–Gomilko–Tomilov arXiv:2607.10507, §§2 and 6",
+          "Badea arXiv:2609.27458, Theorems A–D",
+          "Resultary: affine Jordan norm pencil and Ritt power difference"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 89–98",
+        "Published Resultary targeted searches and inspected nonnormal direct-sum and affine-pencil records",
+        "Primary Arnold, Borichev–Gomilko–Tomilov, and Badea PDF passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The direct-sum proof provides pointwise block positivity c<=2-epsilon, the exact block norm, and a fixed-c envelope with vanishing tails.",
+          "The frozen result adds the Schur reduction and pointwise monotonicity over the full class, uses compact uniformity with c=2-epsilon on an integer power mesh, and gives the small-c expansion and large-c slope."
+        ],
+        "reasoning": "The shared block computations are enough raw ingredients for some of the class argument, but the direct-sum theorem itself concerns a fixed coupling and a different optimization. Its direct sum is a contraction only for c<=2-q, not at c=2 for q>0. The uniform moving-boundary and maximizing sequence conclusions and quantitative coupling endpoints are not consequences of applying a published bound for displacement or Ritt resolvents.",
+        "searches": [
+          "Direct-sum RESULT.md offset 2940, proof steps 1–4",
+          "Affine Jordan norm pencil RESULT.md offset 0",
+          "Frozen RESULT.md lines 47–84"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Using T^n-T^(n+1) instead of T^n(I-T) gives identical power defects. The direct-sum source derives the exact same two-site shear norm, continuous F_c and peak from the same right derivative and reflection.",
+          "Badea's sharp universal Theorem A is a bound on the resolvent quantity C_R under a condition on sup_n ||I-T^n||."
+        ],
+        "reasoning": "The block-level continuous optimization is demonstrably shared. Optimizing the long-run sequence over a lacunary set of spectral blocks is a different operation from fixing one spectral gap and choosing both the power and a contraction; a resolvent result is a different invariant.",
+        "searches": [
+          "Published Resultary: nonnormal Ritt power-difference Jordan scaling and optimizing time",
+          "2026/11/17/SCOPE-a-nonnormal-ritt-power-difference-plateau-and-a-four-neighbor-sp--4598a5930ece/RESULT.md, offsets 0 and 2940–7312",
+          "Badea arXiv:2609.27458, §1 and Theorems A–D"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching catalogue record gives M_c=max F_c and the continuous time t_+(c), so the numbers at c=2 can be derived by inserting 2 into that profile; it is not an independent numerical coincidence. No checked entry tabulates the full finite-r contraction-class maximization or limiting maximizing integers for it."
+        ],
+        "reasoning": "Numerical values by themselves would not constitute a distinct result. Here the values are linked by proof to a sharp optimization over an entire contraction class; the later lattice cluster result computes a different extremum using the same continuous building block.",
+        "searches": [
+          "Resultary: 0.6794006077854641 2.395336994467 sharp near identity Ritt two dimensional contractions repeated eigenvalue y^4-2y-1 coupling",
+          "Direct-sum RESULT.md, finding and critical-points passage"
+        ]
+      },
+      "rationale": "The supported contribution is the exact repeated-real-eigenvalue contraction-class optimization, its rescaled maximizing-power limit and quantitative coupling profile. Prior operator characterizations, displacement and resolvent norm-gap theorems do not state that result. A distinct later-dated geometric-direct-sum result has the identical two-site envelope, block contraction criterion, and continuous peak optimization; those pieces are not credited as distinct from that record. It optimizes lattice phases in a single infinite direct sum, not the supremum over powers and all two-dimensional contractions at each fixed r, and it does not state the contraction-class asymptotic with its varying boundary coupling, or the two coupling expansions. This distinction is a comparison of statements, not evidence of provenance from record dates.",
+      "residual_risks": [
+        "The publication or derivation history behind the common direct-sum profile was not established. Earlier equivalent formulations in semigroup or constrained functional-calculus literature remain possible; the bounded search does not establish universal priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact subresult overlap, with different overall extremum",
+          "evidence": "Same block formula and t_+(c), used for limsup of normalized defects of a geometric direct sum; lower endpoint determined by geometric grid phases.",
+          "identifier_or_url": "2026/11/17/SCOPE-a-nonnormal-ritt-power-difference-plateau-and-a-four-neighbor-sp--4598a5930ece/RESULT.md",
+          "material_read": "Finding, proof steps 1–4 (offsets 2940–7312), related work (offset 9400)",
+          "method": "Published Resultary search and local mirror",
+          "title": "A nonnormal Ritt power-difference plateau and a four-neighbor spectral-spacing law",
+          "trigger": "Identical two-site Jordan norm envelope and time optimization"
+        },
+        {
+          "assessment": "Different optimized norm and hypothesis",
+          "evidence": "Theorems A–B address displacement under norm gaps; C treats resolvents, polynomial norm gaps and displacement; D treats sampling. The sharp A asymptotic concerns the resolvent constant under a displacement constraint.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.27458",
+          "material_read": "§1 definitions and Theorems A–D, pp. 1–4; decisive statements at offsets 9200 and 13250",
+          "method": "OA primary PDF, directly accessible",
+          "title": "Iterates of Ritt operators close to the identity",
+          "trigger": "Near-identity terminology and Hilbert-space contractions"
+        },
+        {
+          "assessment": "General rate framework, not the same exact optimization in inspected passages",
+          "evidence": "Characterization/decay statements and multiplication-operator examples rather than a repeated-real-eigenvalue Schur class.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.14323",
+          "material_read": "Introduction, Theorem 1.1, §6 examples pp. 27–28",
+          "method": "OA primary PDF",
+          "title": "Rates of Decay for (alpha,beta)-Ritt-Kreiss Operators",
+          "trigger": "Power-difference norms for Ritt operators"
+        },
+        {
+          "assessment": "General relevant criteria, different result",
+          "evidence": "Ritt characterizations and norm-gap sufficient criteria; not the sharp two-site defect profile in the examined results.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.10507",
+          "material_read": "Abstract, §2 and §6 at pp. 47–48, offsets 0, 16000 and 118000",
+          "method": "OA primary PDF",
+          "title": "Beurling–Kato theory, Hardy–Sobolev calculus and Ritt operators",
+          "trigger": "General Ritt and near-identity criteria"
+        },
+        {
+          "assessment": "Shares singular-value machinery, but solves a different minimization",
+          "evidence": "Unique minimizer lambda=(n+1)/(2n+1) and a spectral-set transition; no time-weighted power-difference maximum in the finding.",
+          "identifier_or_url": "2026/10/11/SCOPE-the-sharp-affine-jordan-norm-pencil-and-its-scaled-q-spectral-se--00a25760cd57/RESULT.md",
+          "material_read": "Finding, assumptions and opening proof, offset 0",
+          "method": "Published Resultary search and local mirror",
+          "title": "The sharp affine Jordan norm pencil and its scaled q-spectral-set transition",
+          "trigger": "Early exact finite Jordan-pencil norm result cited by the direct-sum work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–42 and 47–84",
+        "Direct-sum RESULT.md finding and proof steps 1–4",
+        "Badea Theorems A–D"
+      ],
+      "rationale": "The repeated-real-eigenvalue case isolates the impact of admissible nonnormality on a quantitative Ritt power defect. The maximal shear increases the limiting constant from e^(-1) to about 0.6794 and shifts the concentration of maximizing powers from scale 1 to about 2.3953. The finite-class extremizer and precise time localization make these figures useful as a sharp benchmark, not just a tabulation of a Jordan norm or an example of a Ritt characterization.",
+      "residual_risks": [
+        "No general-dimensional, arbitrary-spectrum, or resolvent-constant conclusion follows; c>2 is outside the near-identity contraction class."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

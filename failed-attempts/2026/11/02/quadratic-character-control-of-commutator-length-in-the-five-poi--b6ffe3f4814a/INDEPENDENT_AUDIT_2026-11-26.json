@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:07:31.953245Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–63",
+        "Frozen VERIFICATION.md and verify.py, inspected without execution",
+        "Independent replay: python3 /workspace/review_checks/finite_checks.py; the raw quandle-table image over F₅ equals the 585 predicted elements including zero"
+      ],
+      "rationale": "The transport f⋆g=f(t⁻¹)g(t²) gives xθ(y)−yθ(x) with θ(t)=t³. In characteristic five the displayed u has derivative one at t=1 and θ(u)=3u. Independently, if p_ij denotes the minor of the effective four input coordinates, the bracket outputs are 2p_01, 3p_02, p_03+p_12, −p_13. The decomposability relation p_01 p_23−p_02 p_13+p_03 p_12=0 solves freely for p_23 when a≠0. If a=0 and b≠0 it is the quadratic z²−cz−(b/3)d=0 in z=p_12, with discriminant c²+3bd. If a=b=0 choose z=0. The four basis elements are attained individually; splitting off b u² proves width at most two and the nonsquare slice proves the exact dichotomy. For fixed nonzero b and arbitrary c, the discriminant is a bijective affine function of d, yielding the stated census including zero as length zero.",
+      "residual_risks": [
+        "The arbitrary-field conclusion uses the algebraic proof, not enumeration; the finite verifier's F₂₅ count is a discriminant count, not an exhaustive bracket enumeration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang identifies the commutator subalgebra via the group-ring ideal on (1−2φ)G, equal here to the whole augmentation ideal.",
+          "Bardakov–Passi–Singh provide a general width bound (at most four here); the separate Resultary record already gives the exact width dichotomy over all characteristic-five fields."
+        ],
+        "reasoning": "The broad primary results alone are weaker on exact lengths, but they cover the subalgebra and the distinct catalogue theorem leaves no additional characteristic-five regime.",
+        "searches": [
+          "arXiv:2610.08204v1 Theorem 2.3",
+          "arXiv:2001.06843v2 Theorem 7.2 and Corollary 7.3",
+          "Resultary 2dece93fb098"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2dece93fb098",
+        "arXiv:2608.01550v2",
+        "arXiv:2610.08204v1",
+        "arXiv:2001.06843v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior Plücker-minor argument eliminates the hidden coordinate to give the same square condition, then establishes width ≤2 and exact extension-field counts."
+        ],
+        "reasoning": "The previously stated claims directly give the entire frozen theorem, not just an analogous theorem or a means of recomputing a small case.",
+        "searches": [
+          "Resultary 2dece93fb098 Finding and Plücker-coordinate proof",
+          "arXiv:2610.08204v1 Theorem 2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier coordinate log X=(X−1)+2(X−1)²+2(X−1)³+(X−1)⁴ expands to 4X+2X²+3X³+X⁴.",
+          "Its B₃²−2B₂B₄ equals c²+3bd in characteristic five."
+        ],
+        "reasoning": "The two pointwise criteria on the same coordinates are identical; when b=0, c² is already a square.",
+        "searches": [
+          "Published Resultary search for R₅ one-commutator classification and quadratic residues",
+          "2026/10/12/SCOPE-quadratic-residue-geometry-of-commutators-in-the-five-element-di--2dece93fb098"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Sangare–Ta find 40 length-two vectors among the 625 augmentation vectors at q=5.",
+          "The prior exact theorem gives q(q−1)²/2 for all q=5^m, including 7200 at q=25."
+        ],
+        "reasoning": "The zero and length-one counts in the frozen finding are the complement of the same length-two count; no new field-size census remains.",
+        "searches": [
+          "arXiv:2608.01550v2 §5 Theorem 5.4 and subsequent GAP census",
+          "Resultary 2dece93fb098 exact finite-field count"
+        ]
+      },
+      "rationale": "The distinct published Resultary record 2dece93fb098 states the same theorem over every characteristic-five field and the same census for every q=5^m. The two parameters are identical after expansion of the truncated logarithm, and the apparent discrepancy between the discriminants and the additional b=0 case is purely notational. The alternate direct quadratic proof does not change the finding.",
+      "residual_risks": [
+        "This establishes existing coverage, not ultimate historical priority or attribution beyond the inspected records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact theorem-level coverage",
+          "evidence": "Same characteristic-five field scope, discriminant in the same local parameter, width dichotomy and all extension-field counts.",
+          "identifier_or_url": "2026/10/12/SCOPE-quadratic-residue-geometry-of-commutators-in-the-five-element-di--2dece93fb098",
+          "material_read": "RESULT.md offsets 0–4432 and 4432–8163; finding, Plücker argument and comparison",
+          "method": "Local published-record mirror",
+          "title": "Quadratic-residue geometry of commutators in the five-element dihedral quandle algebra",
+          "trigger": "Strongest published Resultary overlap"
+        },
+        {
+          "assessment": "Covers q=5, not arbitrary fields",
+          "evidence": "Width two and 40 length-two vectors over F₅.",
+          "identifier_or_url": "https://arxiv.org/html/2608.01550v2",
+          "material_read": "§5, Theorem 5.4 and subsequent discussion, offsets 60550 and 62853",
+          "method": "Bounded OA primary text",
+          "title": "Idempotents, automorphism groups, and commutator widths of quandle algebras",
+          "trigger": "Known finite census"
+        },
+        {
+          "assessment": "Covers subalgebra, not exact length",
+          "evidence": "The commutator subalgebra corresponds to L_((1−2φ)G); here multiplication by 3 is surjective on G=Z/5.",
+          "identifier_or_url": "https://arxiv.org/html/2610.08204v1",
+          "material_read": "§2.1 and §2.3 Theorem 2.3, offsets 6207 and 10447",
+          "method": "Bounded OA primary text",
+          "title": "Group-ring methods for Alexander quandle rings",
+          "trigger": "Broader Alexander commutator theory"
+        },
+        {
+          "assessment": "Does not give the discriminant or exact census",
+          "evidence": "The general augmentation-ideal statement and a width bound specialize to this quandle.",
+          "identifier_or_url": "https://arxiv.org/html/2001.06843v2",
+          "material_read": "§7, Theorem 7.2 and Corollary 7.3, offset 79625",
+          "method": "Bounded OA primary text",
+          "title": "Quandle rings",
+          "trigger": "Earlier general width bound"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 53–75",
+        "Resultary 2dece93fb098, finding and Plücker proof"
+      ],
+      "rationale": "An arbitrary-field classification and extension-field census would address a substantive gap beyond the GAP computation. Here both facts were already available in precisely this scope, and the different elimination proof neither simplifies a hard step materially nor yields a new bound, class, or consequence. The frozen record offers no independently useful new exact fact.",
+      "residual_risks": [
+        "This is a judgment of incremental contribution, not a judgment that the commutator classification itself lacks interest."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

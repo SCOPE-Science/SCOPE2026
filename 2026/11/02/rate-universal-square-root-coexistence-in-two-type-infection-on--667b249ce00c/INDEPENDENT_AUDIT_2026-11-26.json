@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:55:07.869767Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof",
+        "Frozen VERIFICATION.md lines 2–25 and checker.py (read-only inspection)"
+      ],
+      "rationale": "Condition on the first core infection. Memorylessness leaves one independent seed clock of each type for the second core, and n−2 independent two-edge paths that must both transmit at the first type's rate before they can beat the opposing seed. Their joint survival gives the displayed integral, including n=2 (the empty product), its finite sum, and strict monotonicity. One type has only its seed precisely when the core does not split. For u=alpha t, h(u)=log(1+u)−u is at most −u²/4 on [0,1] and at most −(1−log 2)u on [1,infinity). These bounds justify discarding the tail after s=√n u exceeds n^(1/12). On the remaining interval the scaled density exponent is −s²/2+n^(-1/2)(s³/3−(1+beta/alpha)s), with an integrable order-n^(-1) error after expansion. Writing rho=beta/alpha, the weighted leading factors exchange q and 1−q and sum to one; the weighted quadratic factors sum to rho+rho^(-1)−1, yielding the stated second coefficient. The conditional lag is on the n^(-1/2) scale, and conditioning each two-edge path to survive gives first-edge completion probability alpha t/(1+alpha t). Thus only o(n) peripheral vertices are claimed before the split; fresh independent hub races then yield the claimed conditional fractions. Bounded normalized minority size gives moment convergence; the unsplit contribution 1 is negligible for r≥1. This is an analytic proof, not an inference from the frozen checker, which was inspected but not executed.",
+      "residual_risks": [
+        "The expansion and conditional limit take both rates fixed and strictly positive; the error estimate is not asserted uniform as their ratio tends to 0 or infinity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 in arXiv:2204.04125 gives a losing singleton with high probability on an infinite-mean random configuration model; the other configuration-model results have different degree and sampling hypotheses.",
+          "91dba2625947 uses independent territory allocations from the seed path in finite trees."
+        ],
+        "reasoning": "A sequence of deterministic bicliques with two growing-degree hubs and fixed peripheral seeds is not among the stated random-graph models. The biclique is not a tree, so the tree factorization does not subsume this race.",
+        "searches": [
+          "arXiv:2204.04125, arXiv:1711.02902, arXiv:1306.6467",
+          "Resultary 91dba2625947"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2204.04125",
+        "arXiv:1711.02902",
+        "arXiv:1306.6467",
+        "Resultary 7c35c29414d1",
+        "Resultary 090a4be49ef5",
+        "Resultary 8fa90f7eeff7",
+        "Resultary 91dba2625947",
+        "Resultary 9bdd50cdba51"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The singleton limit specifies no rate or conditional size on the complementary event. The §5 conjecture concerns a different regime. The two-core SIR result is a positive limiting cascade probability under size-dependent rates."
+        ],
+        "reasoning": "None of these entails the fixed-rate exponential-versus-two-stage race, the cancellation between its two rate-weighted contributions, the next term, or the limiting size on the rare event. In particular a singleton limit alone does not determine positive moments.",
+        "searches": [
+          "arXiv:2204.04125 Theorem 1.1; arXiv:1711.02902 Theorem 1.1 and §5; Resultary 7c35c29414d1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "7c35c29414d1: same-day two-core SIR result with recovery, initially infectious core and rate scaled as c/√n",
+          "090a4be49ef5 and 8fa90f7eeff7: one-type flooding and last-infected vertex class, respectively",
+          "9bdd50cdba51: source-pinned stationary contact process"
+        ],
+        "reasoning": "The pertinent equivalent observable is the minority exceeding one, which is exactly a split of the two hubs. A single-label arrival time, stationary occupancy, or recovery-driven cascade at a varying rate does not supply the joint types of the hubs under permanent fixed-rate competition. Same-day records are distinguished by their actual content, not presumed ordering.",
+        "searches": [
+          "Resultary: fixed-core/square-root biclique infection, competing irreversible infection and biclique first passage",
+          "Primary literature lookup: deterministic two-type first passage on K_{2,n}"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected matching findings state different processes, observables or graph families, and do not give a table or formula for this split event or minority moments."
+        ],
+        "reasoning": "This is a continuous-rate family, not a finite catalogue invariant; nonetheless the indexed exact-formula matches were compared rather than excluded by title.",
+        "searches": [
+          "Local Resultary search for fixed-width biclique and competing infection records; strongest matches 7c35c29414d1, 090a4be49ef5, 8fa90f7eeff7, 91dba2625947, 9bdd50cdba51"
+        ]
+      },
+      "rationale": "The inspected work does not cover the fixed two-hub, two-peripheral-seed split probability, its two asymptotic terms, or its resulting minority moments. The infection paradigm and winner-takes-all-but-one phenomenon themselves are not new.",
+      "residual_risks": [
+        "No absolute priority claim: an unindexed calculation in competitive first-passage or graph-race literature may cover this example. A broad search did not return a direct match; that is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlaps the qualitative phenomenon, not this model or rates.",
+          "evidence": "Infinite-mean random configuration model, with a singleton loser with high probability.",
+          "identifier_or_url": "https://arxiv.org/pdf/2204.04125",
+          "material_read": "§§1.1–1.2, PDF pp. 3–4, Theorem 1.1",
+          "method": "OA primary PDF passages",
+          "title": "The winner takes it all but one",
+          "trigger": "Matching winner/loser limit"
+        },
+        {
+          "assessment": "Different graph assumptions and conclusions.",
+          "evidence": "Limiting fractions under finite variance; losing-count order is posed as a conjecture.",
+          "identifier_or_url": "https://arxiv.org/pdf/1711.02902",
+          "material_read": "Theorem 1.1, PDF pp. 2–3; §5, pp. 14–15",
+          "method": "OA primary PDF passages",
+          "title": "Competing first passage percolation on random graphs with finite variance degrees",
+          "trigger": "Competing exponential growth and loser size"
+        },
+        {
+          "assessment": "Does not give the fixed biclique race.",
+          "evidence": "Infinite-variance random configuration model and a proper limiting losing count.",
+          "identifier_or_url": "https://arxiv.org/pdf/1306.6467",
+          "material_read": "Model p. 1 and Theorem 1.1 p. 3",
+          "method": "OA primary PDF passages",
+          "title": "The winner takes it all",
+          "trigger": "Closely related competing exponential process"
+        },
+        {
+          "assessment": "Different transmission process and asymptotic parameter.",
+          "evidence": "Single type with recovery and core seed; scaled-rate second-core infection tends to c²/(1+c²).",
+          "identifier_or_url": "7c35c29414d1",
+          "material_read": "RESULT.md Finding/model, opening passage",
+          "method": "Local Resultary mirror",
+          "title": "A square-root cascade law for finite-core SIR epidemics on complete bipartite graphs",
+          "trigger": "Same-day, two-core, square-root scaling"
+        },
+        {
+          "assessment": "Tree-specific, not a split probability for bicliques.",
+          "evidence": "Weighted-binomial allocation and variance extremizers for trees.",
+          "identifier_or_url": "91dba2625947",
+          "material_read": "RESULT.md Finding, opening passage",
+          "method": "Local Resultary mirror",
+          "title": "Sharp variance extremizers for two competing irreversible infections",
+          "trigger": "Competing permanent types and population moments"
+        },
+        {
+          "assessment": "Neither permanent competition nor the terminal split event.",
+          "evidence": "Stationary law with recovery and pinned source.",
+          "identifier_or_url": "9bdd50cdba51",
+          "material_read": "RESULT.md Finding, opening passage",
+          "method": "Local Resultary mirror",
+          "title": "An exact stationary continuum law for the two-hub contact process",
+          "trigger": "Same K_{2,n} geometry and square-root scale"
+        },
+        {
+          "assessment": "One label, completion times rather than type split.",
+          "evidence": "One-colour flooding on a biclique with one part of fixed size.",
+          "identifier_or_url": "090a4be49ef5",
+          "material_read": "RESULT.md Finding, opening passage",
+          "method": "Local Resultary mirror",
+          "title": "Fixed-width biclique flooding: a Gumbel core and an exponential satellite",
+          "trigger": "Same-day fixed-width biclique first passage"
+        },
+        {
+          "assessment": "The terminal class is not a terminal infection type.",
+          "evidence": "Single-root growth and part of the last vertex on a near-balanced biclique.",
+          "identifier_or_url": "8fa90f7eeff7",
+          "material_read": "RESULT.md Finding, opening passage",
+          "method": "Local Resultary mirror",
+          "title": "A logistic terminal-class crossover for exponential first passage",
+          "trigger": "Same-day exponential passage and terminal class on bicliques"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–45, 55–85",
+        "arXiv:2204.04125 Theorem 1.1",
+        "Resultary 7c35c29414d1"
+      ],
+      "rationale": "The deterministic two-hub graph isolates a mechanism for nearly certain singleton loss that nevertheless gives a diverging mean minority size. The universal leading coefficient and the rate-sensitive correction quantify that mechanism, and the conditional limit distinguishes rare macroscopic coexistence from a merely non-singleton loser. This is a useful exact benchmark for competing-growth models, not a new claim of qualitative winner-takes-all behavior.",
+      "residual_risks": [
+        "No universality beyond the specified two-hub graph, initial condition and fixed rates is shown."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:25:05.501098Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the frozen Erlang reversal model, the two-run affine map preserves [0,2], maps it into (0,2), and couples starts by a product of independent factors BC with negative mean logarithm. Equilibrium sampling of either sign has probability 1/2 and biases the current duration only, not the entrance deficit. Checked the critical moment: the bound (U+V)^(-p) ≤ U^(-(p−q))V^(-q), with U=2(1−B) and V=BCZ′, has finite B factor at small durations if p−q<m, and finite B and C factors at large durations if q<β. Starting with any p<m and taking steps of size at most min(m/2,β/2) reaches β with only strictly subcritical intermediate q. Integrating the ordinary Erlang survivor and dividing by m/λ gives the leading equilibrium-age term e^(−λt)(λt)^(m−1)/(m(m−1)!), hence the stated factor β^(m−1)/(2m(m−1)!). The normalized positive-age integral is dominated by a constant times Z^(−β) since Z≤2, and Pr(Z≤ε)=o(ε^β). The ordinary-run survivor gives the analogous end-of-positive-run small-ball asymptotic; negative runs contribute only when their independent equilibrium age is O(ε) and their starting deficit is at most 2ε. Symmetry and the distinct powers m/(κτ) give the left edge and fixed-mean ordering. Audited frozen RESULT.md, metadata, audit/review, verification and checker source; the reported finite checks were not rerun and are not a limit certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Farago–Smith §§II, IV–V set up arbitrary-duration current equations and analyze exponential, semi-Gaussian and half-t examples.",
+          "Frydel's semi-Markov trap has Brownian forcing and switches the stiffness, not the sign of a fixed-speed drive."
+        ],
+        "reasoning": "The first framework includes Erlang as an input, but requires a new endpoint estimate to extract the stated coefficient; the latter is not a dominating result for bounded propulsion-supported edges.",
+        "searches": [
+          "arXiv:2401.01576",
+          "Erlang alternating telegraph harmonic trap stationary distribution phase type harmonic Markov switching filtered telegraph boundary logarithmic stationary PDMP Jordan block",
+          "arXiv:2607.05173"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2401.01576",
+        "arXiv:2306.09453",
+        "arXiv:2607.05173",
+        "Resultary 918a353be34f and semantic search for comparable records",
+        "JSTOR 1428482 (search description only; free alternation)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The heavy-tailed record proves a log-power edge under a regularly varying duration survivor and also records the exact renewal transform before imposing that tail law.",
+          "The Erlang survivor is exponential times a polynomial, so the older long-time tail hypothesis fails."
+        ],
+        "reasoning": "Substitution into the shared identity produces a pointwise candidate, not an integrated equivalent: one needs the critical entrance moment and control of small entrance deficits. The older regular-variation theorem gives neither the resulting Γ-law coefficient nor the fixed-mean hierarchy.",
+        "searches": [
+          "Resultary heavy-tailed edge record 918a353be34f, RESULT.md",
+          "arXiv:2401.01576 §§II, IV–V",
+          "arXiv:2306.09453 Abstract and sections on resetting protocols"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Guéneau–Majumdar–Schehr use affine/Kesten recursions in harmonic confinement, with periodic and Poisson protocols.",
+          "The Resultary exact-title hit is the assigned finding itself; its earlier heavy-tail neighbor states an exact entrance-deficit occupancy transform."
+        ],
+        "reasoning": "Recasting the deficit recursion as a Kesten variable or applying the older transform still leaves the critical inverse moment to control in the light-tailed case. Changing the run law is not a relabeling of exponential telegraph noise.",
+        "searches": [
+          "Resultary: harmonically confined Erlang run and tumble active particle wall edge logarithmic stationary density inverse moment",
+          "harmonic trap non-Markovian run and tumble particle gamma Erlang waiting times stationary boundary density arbitrary run duration renewal telegraph process power logarithm",
+          "arXiv:2306.09453"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search hits included free-space Erlang alternating velocities (JSTOR 1428482) and trap-stiffness switching (arXiv:2607.05173), which are not tables of trapped Erlang endpoint constants.",
+          "The available exponential-run benchmark in Farago–Smith has no phase-count logarithmic multiplier."
+        ],
+        "reasoning": "The constant depends on a stationary entrance-gap negative moment, not just an Erlang integral or the classical beta stationary law. No covering exact entry was identified.",
+        "searches": [
+          "Resultary Erlang stationary edge and inverse moment query",
+          "Web search for phase-type Erlang stationary harmonic edge and logarithms"
+        ]
+      },
+      "rationale": "The renewal framework and even the exact occupancy transform predate this result. In the inspected work neither supplies the critical inverse entrance moment or the sharp light-tailed prefactor and fixed-mean shape comparison. This is a qualified comparison, not a claim of absolute priority.",
+      "residual_risks": [
+        "A specialized phase-type or bounded switching-flow result could contain an equivalent endpoint expansion.",
+        "The inspected exact occupancy transform is antecedent even though the light-tail control is distinct."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Governing equations apply but do not give the sharp Erlang endpoint theorem",
+          "evidence": [
+            "§II equations (17)–(18) are coupled turning-current equations; §V lists exponential, semi-Gaussian and half-t examples."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2401.01576",
+          "material_read": "Abstract; §§II, IV and V, including current equations and edge discussion",
+          "method": "Compared model, duration hypotheses, computed examples and edge conclusions",
+          "title": "Confined run and tumble particles with non-Markovian tumbling statistics",
+          "trigger": "Same sign-reversal setting with general IID durations"
+        },
+        {
+          "assessment": "Prior method, not the Erlang critical moment/tail calculation",
+          "evidence": [
+            "Abstract distinguishes deterministic periodic resets and exponentially timed Poisson resets."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2306.09453",
+          "material_read": "Abstract; protocol descriptions and sampled recursion passages",
+          "method": "Checked what the resets are and how intervals are distributed",
+          "title": "Active particle in a harmonic trap driven by a resetting noise: an approach via Kesten variables",
+          "trigger": "Equivalent affine-recursion language"
+        },
+        {
+          "assessment": "Identity is strong prior overlap; the asymptotic theorem does not cover Erlang",
+          "evidence": [
+            "Assumes Pr(S>t)∼ct^(−β), β>1; coefficient c/[2m(β−1)] scales an inverse power of log(1/ε)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-logarithmic-edge-concentration-in-a-heavy-tailed-harmonically-tr--918a353be34f/RESULT.md",
+          "material_read": "Finding, including tail assumptions, limit and threshold identity",
+          "method": "Compared the exact shared occupancy representation and tail classes",
+          "title": "Logarithmic edge concentration in a heavy-tailed harmonically trapped run-and-tumble particle",
+          "trigger": "Identical flow after time scaling; earlier logarithmic edge claim"
+        },
+        {
+          "assessment": "Different model/observables",
+          "evidence": [
+            "Brownian particle with two stiffnesses; stationary Gaussian mixture in resetting limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2607.05173",
+          "material_read": "Abstract and initial modeling discussion",
+          "method": "Checked stochastic variables and support mechanism",
+          "title": "Semi-Markovian switching in a fluctuating harmonic trap: An age-structured formulation",
+          "trigger": "General semi-Markov harmonic stationary distribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Rare occupancy of the propulsion-supported edge is a natural stationary observable. The exact leading coefficient and logarithmic multiplicity distinguish Erlang phase counts at identical mean times, where a mean-based approximation loses the ordering. Proving critical entrance-gap integrability is substantive, not a substitution of an exponential rate into the known beta distribution. The theorem does not claim uniformity over shapes or thermal robustness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

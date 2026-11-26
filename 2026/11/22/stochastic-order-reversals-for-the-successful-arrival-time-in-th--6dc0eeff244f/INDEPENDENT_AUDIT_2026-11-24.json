@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:19:10.389280Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional on the best arriving at i, the earlier record indicators have independent probabilities 1/j. For i>b, a success with two choices uses either no record in (b,i), or one record j in (b,i) with none in (a,j) or (j,i). This gives the mass ratio in RESULT.md lines 62–67 after separate normalization. Positive mass on (a,b] excludes reverse order. The strictly increasing ratio on the common tail makes the CDF difference decrease and then increase to zero; the sign at N-1 is opposite to the last mass difference, which has the sign of Z. Thus Z=0 is ordered and Z>0 gives exactly one crossing in sign, allowing a zero plateau in discrete time. The largest optimal cutoffs can be justified independently of the cited rounding theorem. In backward record dynamic programming F_m(i) is optimal future success with m choices after i positions, and G_m=F_m−F_{m−1}; a record at i is accepted if i/N>G_m(i). The update F_m(i−1)=F_m(i)+(i/N−G_m(i))_+/i preserves 0≤G_2≤G_1 and makes both marginals nondecreasing backward. The reject-on-ties cutoffs are nested. The increments of N times success as b or a increases by one are S(b+1)−1 and V(a+1)+(S²−T)/2−1, respectively (holding b fixed for the latter). Expanding the two inequalities at consecutive maximizing integers gives the stated floors with O(1/N) perturbations and shifts (1−e^(−1))/2 and (1−e^(−1/2))/2. Direct substitution gives NZ=−1+2u/e^(−1)−v/e^(−3/2)+O(1/N). Lindemann–Weierstrass and Kronecker–Weyl make the shrinking bands around the rounding boundaries and sign line density zero. The subgraph of the straight sign line has the reported area. The relationship-to-prior-work paragraph calls this region curved; the proof and area formula correctly use a straight boundary.",
+      "reproduction": "python3 /workspace/reproductions/03_secretary.py: exact independent record-mask enumeration for all nondegenerate cutoffs through N=10 and exact backward optimal-policy calculations through N=100; confirms Z=268339/705600 at (N,a,b)=(10,2,3) and Z=−1577189/6350400 at (11,2,4). These finite checks do not prove natural density. The frozen verify.py was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The closest threshold/value paper's searchable description and the frozen attribution (RESULT.md lines 71–82 and 129–131) concern rounded optimal cutoffs and success totals. The heuristic article's search hit does not establish an arrival-time theorem."
+        ],
+        "reasoning": "A general theorem on optimal stopping thresholds or success totals can constrain the cutoffs without implying stochastic order after separate rescaling by two different probabilities. Full-text coverage beyond those available statements is unresolved.",
+        "searches": [
+          "Grau Ribas–Sánchez Galán, multiple-stopping threshold and value asymptotics, arXiv:2611.19541v1",
+          "Rapoport–Seale–Spiliopoulos, DOI:10.1007/s11238-022-09881-0"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Resultary secretary timing search and identical entry",
+        "arXiv:2611.19541v1 (search description; primary passage unavailable)",
+        "DOI:10.1007/s11238-022-09881-0 (search hit; appendix unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even granting threshold rounding and joint equidistribution, the sign test uses the normalized last atom and the monotonic mass ratio; the separating line is v=2e^(−1/2)u−e^(−3/2)."
+        ],
+        "reasoning": "Per-position weights can be extracted from suitable winning-event totals at fixed cutoffs, so they are not the key novelty. It takes the terminal atom reduction and a first-order sign expansion to connect the existing inputs to stochastic-order incomparability and its density.",
+        "searches": [
+          "RESULT.md lines 39–69 and 71–121 versus the rounding input attributed to arXiv:2611.19541v1",
+          "DOI:10.1007/s11238-022-09881-0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact Resultary match 2026/11/22/SCOPE-stochastic-order-reversals-for-the-successful-arrival-time-in-th--6dc0eeff244f is the assigned record, not independent coverage.",
+          "The literature results retrieved concern optimal thresholds, value asymptotics or sequential stopping heuristics; none supplies an actual conditional CDF-order statement in the material seen."
+        ],
+        "reasoning": "Winning time conditional on success is equivalent to a normalized success-at-position law, not the distribution of the first acceptance, not the unconditioned winning probability and not a coupling conditional on both policies winning.",
+        "searches": [
+          "Resultary: success-conditioned two-choice secretary arrival-time stochastic order and exact harmonic criterion",
+          "arXiv:2611.19541v1",
+          "DOI:10.1007/s11238-022-09881-0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only retrieved exact criterion/density entry is the assigned Resultary record. The prior rounding frequencies attributed in RESULT.md relate to the fractional threshold shifts, not to CDF sign."
+        ],
+        "reasoning": "Any adequate comparison table would have to encode exact normalized CDF order across horizons or the area of the terminal-mass sign region. Cutoff and total-success tables are different invariants, and finite examples alone do not supply a density.",
+        "searches": [
+          "Resultary: secretary reversals, nested optimal cutoffs, conditional arrival time",
+          "arXiv:2611.19541v1, cited second-order rounding and joint frequencies"
+        ]
+      },
+      "rationale": "The strongest available evidence places optimal policy, totals and integer rounding in prior work. Credit the separate conditional timing order, terminal-mass criterion and resulting arithmetic density, not the policy or rounding shifts. No distinct equivalent or stronger result was established by the searches; primary-text access remains limited.",
+      "residual_risks": [
+        "OA failed to return the exact threshold theorem and two-choice appendix. Neither absence from a result snippet nor failure of retrieval excludes an earlier equivalent conditional-law result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credited input; no conclusion on the full document's coverage.",
+          "evidence": [
+            "Threshold/value corrections appear in the available description. The rounding switches and tie convention used in the audit were derived independently, not certified by that description."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.19541v1",
+          "material_read": "Search-result description; frozen attribution to Theorem 6.2, Corollary 6.4 and §7.1 at RESULT.md lines 71–121 and 129–139; primary passage not retrieved.",
+          "method": "Primary-literature lookup and attempted OA passage retrieval",
+          "title": "Second-Order Threshold and Value Asymptotics in Multiple-Stopping Secretary Problems",
+          "trigger": "Closest optimal-threshold and arithmetic asymptotic input"
+        },
+        {
+          "assessment": "Related winning-event work; coverage unresolved beyond the available evidence.",
+          "evidence": [
+            "The frozen comparison credits winning-event formulas and stopping heuristics, which are not conditional CDF comparisons."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11238-022-09881-0",
+          "material_read": "Search hit and frozen description of the two-choice appendix at RESULT.md lines 129–141; no primary appendix passage retrieved.",
+          "method": "Primary-literature lookup and attempted OA passage retrieval",
+          "title": "Progressive stopping heuristics that excel in individual and competitive sequential search",
+          "trigger": "Two-choice secretary treatment cited by the finding"
+        },
+        {
+          "assessment": "Identical record, not independent prior evidence.",
+          "evidence": [
+            "Matches both Z criterion and 0.4039217492201783… density."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-stochastic-order-reversals-for-the-successful-arrival-time-in-th--6dc0eeff244f",
+          "material_read": "Resultary summary and frozen RESULT.md lines 3–35, 62–121",
+          "method": "Local Resultary search and frozen-text inspection",
+          "title": "Stochastic-order reversals for the successful arrival time in the two-choice secretary problem",
+          "trigger": "Exact catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Separate success conditioning changes the timing question in a way total success and threshold optima cannot answer. The exact criterion covers all nondegenerate cutoffs, exposes a one-crossing mechanism, and shows that comparison fails on a positive limiting proportion of optimal integer horizons even though the continuum leading values coincide at the sign threshold.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

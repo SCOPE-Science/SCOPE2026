@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:01:36.464263Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cut uses principal blocks with unchanged diagonals. An independent factorization puts the root first and writes B for the direct sum of the cut blocks and v for the coupling from the root. The projected Krylov columns follow y₁=v and yₖ₊₁=Byₖ+v xₖ, where xₖ is the root component. Unit triangular column operations reduce the determinant in absolute value to that of [v,Bv,…,B^{n−2}v]. In block eigenbases the Vandermonde over both cut spectra factors into the two within-block Vandermondes and the cross differences, whose absolute product is the resultant. On each block the product of modal coefficients times its own Vandermonde is the absolute endpoint Krylov determinant: ordering away from the cut makes it triangular by distance, with diagonal entries the coupling to the root times successive path weight products. Multiplication gives precisely Eⱼ, including an empty block and zeros from common eigenvalues. For the full Laplacian the simple Jacobi spectrum gives a Gramian equal in the eigenbasis to its exponential Gram matrix sandwiched by diagonal modal weights. Distinct exponentials on a nonempty interval give a strictly positive common determinant factor after dividing by the squared Vandermonde. The Cauchy formula yields the stated ordered-pair denominator at infinite time for μ>0. For five vertices, the right cut-block polynomial at z=a for root 2 is −a²(a−2b); the center cuts are isospectral, and the endpoint factors are a⁵b⁵. The comparison |a−2b| against a gives precisely the three optimal sets, including all ties at b=a and the nonoptimal singular interior pair at a=2b. Independent symbolic and exact rational checks agree.",
+      "replay_paths": [
+        "/workspace/reproductions/1.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu–Shan gives the cut coprimality test and evaluates a central-root cofactor resultant for an even unweighted path in the Aα family. The inspected weighted four-site note credits Dilip for the general modal determinant reduction. The related tree finding e7c04e833fd0 explicitly treats only unit-edge trees and bounded orders."
+        ],
+        "reasoning": "A general determinant reduction does not supply the heterogeneously weighted Jacobi factorization; the available special-path and finite unit-tree statements do not dominate that parameter range.",
+        "searches": [
+          "arXiv:2611.21385v1, Lemma 2.1 and Theorem 3.5; DOI:10.1109/LCSYS.2019.2919278",
+          "Resultary: general weighted tree rooted Krylov walk determinant, pairwise branch characteristic polynomial resultants and edge exponents; arbitrary weights and rooted Jacobi path"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.21385v1",
+        "DOI:10.1109/LCSYS.2019.2919278 (access-limited)",
+        "Resultary 68e9d81bce1e (identical record), 8e5b80a6bdef, 5f5dcc0ba067 and e7c04e833fd0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected prior statements establish generic positivity/cyclicity machinery and narrower weight or size cases. The cofactor identity and monic Jacobi recurrences are classical inputs."
+        ],
+        "reasoning": "The new algebraic step is to split the full cofactor resultant and account for each repeated link weight to extract a two-block invariant, which gives the quantitative design ordering, not just zero versus nonzero. No inspected stronger statement already yields that weighted scale factor or the consequent five-site phase by parameter substitution.",
+        "searches": [
+          "Liu–Shan arXiv:2611.21385v1 Lemmas 2.1, 3.1–3.2 and Theorem 3.5; four-site Resultary 8e5b80a6bdef, Finding and prior-work discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit 68e9d81bce1e is the assigned record. Liu–Shan Lemmas 3.1–3.2 give the full characteristic polynomial/cofactor resultant as the squared walk determinant up to sign."
+        ],
+        "reasoning": "The generic resultant gives a polynomial for the determinant but does not express it as the smaller cross-resultant between the two weighted cut spectra with the explicit edge prefactor. The exact self-match is not separate coverage.",
+        "searches": [
+          "Resultary: weighted path arbitrary positive conductances rooted cofactor resultant Krylov determinant edge exponent formula",
+          "Literature: Jacobi matrix principal cofactor resultant Krylov determinant weighted path controllability Gramian edge weights resultant two cut-block characteristic polynomials"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8e5b80a6bdef contains an explicit four-site polynomial determinant vector and boundary cases. 5f5dcc0ba067 gives gcd(2j−1,n) and equality of positive volumes for unit weights. The exact five-site switch hit is the assigned record."
+        ],
+        "reasoning": "The four-site table does not include the five-site family. The uniform theory applies at a=b for that family but has no information determining which maximizing sites win off the tie.",
+        "searches": [
+          "Resultary 8e5b80a6bdef: complete four-vertex weighted phase diagram; 5f5dcc0ba067: unit-edge all-size D-optimal ties; 68e9d81bce1e: five-site switch"
+        ]
+      },
+      "rationale": "The supported distinct claim is the all-vertex, all-positive-conductance cross-resultant factor with explicit edge exponents and its weighted five-site switch. The general modal Gramian method, the cofactor resultant in the unfactored form, unit-weight classification and four-site classification are antecedents, not credited as new here.",
+      "residual_risks": [
+        "Equivalent arbitrary-weight formula under other Jacobi or orthogonal-polynomial notation could have escaped the bounded comparison.",
+        "Dilip's primary text was unavailable and its exact theorem locator is unverified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of unfactored identity and narrow path cases",
+          "evidence": "Lemma 3.2 expresses the square of the rooted walk determinant using the principal cofactor resultant; Theorem 3.5 is central-root evaluation on the even unweighted path for Aα, not an arbitrary-weight factorization.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.21385",
+          "material_read": "PDF p. 3, Lemma 2.1; pp. 8–9, Lemmas 3.1–3.2 and equations (6)–(7); p. 11, Theorem 3.5",
+          "method": "Locate resultant passages and compare primary statement scopes",
+          "title": "Aα-Wronskian Vertices of Paths and Controllability of Path-Rooted Products",
+          "trigger": "Path cut coprimality and same root/cofactor resultant"
+        },
+        {
+          "assessment": "Subsumes n=4 weighted design, not the all-size formula or five-site transition",
+          "evidence": "The fixed-size determinant vector is proportional to p²q⁴r²(p⁴,A²,B²,r⁴) with explicit phase boundaries.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-complete-d-optimal-sensor-phase-diagram-for-four-vertex-weight--8e5b80a6bdef/RESULT.md",
+          "material_read": "Finding and phase classification, offsets 0–4015; prior-work discussion, offsets 6825–8864",
+          "method": "Compare the stated determinant vector and size restriction",
+          "title": "A complete D-optimal sensor phase diagram for four-vertex weighted diffusion paths",
+          "trigger": "Earlier exact weighted D-optimal classification"
+        },
+        {
+          "assessment": "General method appropriately treated as prior; pinpoint theorem reference not independently verified",
+          "evidence": "The four-site prior-work discussion attributes the modal product and its use for actuator selection to Dilip. The access result is not evidence about other contents of the paper.",
+          "identifier_or_url": "https://doi.org/10.1109/LCSYS.2019.2919278",
+          "material_read": "Bibliographic identity and the attribution in the four-site record; original theorem text unavailable",
+          "method": "Attempted lawful OA retrieval of the DOI and IEEE article; compared secondary attribution",
+          "title": "The Controllability Gramian, the Hadamard Product, and the Optimal Actuator/Leader and Sensor Selection Problem",
+          "trigger": "Attributed general spectral determinant reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The path-specific factorization is a usable algebraic design rule for all locations and all positive conductances: it retains uncontrollable sites, eliminates time integration from optimization, and isolates the role of matching cut spectra and edge magnitudes. The five-site transition exhibits a change in optimal placement that a binary controllability test or the unit-weight result cannot predict.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

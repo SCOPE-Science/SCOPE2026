@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The coefficient identity, the Legendre count for multiples of odd prime powers in an interval of \(2k\) consecutive integers, and the four central integers give the stated universal lower bound for every positive even degree. The degree-two coefficient realizes all but one odd-prime case; degree four realizes the exceptional three-adic exponent. A power-of-two-degree coefficient is provably odd by Lucas's theorem. There are no unproved asymptotic assumptions or missing boundary cases for \(n\ge2\). `CHECK.py` was executed and passed 34,000 exact finite assertions through row 256; the infinite scope rests on the proof.
+PASS
 
-## Originality — PASS, qualified
+For odd p, the p^j summand in the valuation of a(n,k) counts multiples in [n-k+1,n+k] minus floor(k/p^j). It is nonnegative. For k>=2, every p^j hitting the four central integers contributes at least one: for p^j>k this is direct, and for p^j<=k use floor(2k/p^j)-floor(k/p^j)>=1. Only 3 can hit two of the four integers at the same power, precisely at power 3 and n=1 mod 3. Degree two attains every predicted odd-prime minimum except this case. Then degree four exists, its four added factors are all units mod 3, and its factorial denominator removes one factor of 3. For k equal to the largest power of two <=n, k is even, and 2k+(n-k) has no binary carries, so binom(n+k,2k)(2k-1)!! is odd. This settles the gcd for all n>=2, including n=2,3 with only one retained coefficient.
 
-The closest same-object historical source inspected in full text is Han–Seo, arXiv:math/0406378, which establishes inverse and log-concavity properties of Bessel numbers and their coefficient formula, but does not state a parity-filtered coefficient-content theorem. Yang–Zheng (2013) concerns Sheffer and determinant structures. OEIS A001498 tabulates the polynomial coefficients without an infinite even-degree gcd formula. The 2025 Bessel-number divisibility discussion proves a different, weaker *unfiltered* whole-row statement, with no degree-parity restriction or exceptional factor of three. The searched repository's closest general row-content and restricted-gcd results concern other arrays and do not logically specialize to these even-degree Bessel coefficients. The 1957 Carlitz Bessel article and Grosswald monograph were not fully inspected, and an implicit historical equivalent remains a residual priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Taking the even part of a polynomial is a canonical parity projection. Its coefficient content is an exact arithmetic invariant, and the classification is uniform in all orders, not an arbitrary finite example. The four consecutive central factors and the unique congruence obstruction at the prime three explain how this filtered content differs sharply from whole-row divisibility: a natural local-to-global mechanism and a precise boundary phenomenon. An independent paper-sized generalization is not asserted as necessary for this self-contained invariant.
+The distinct supported claim is the exact gcd of the positive even-degree coefficients, not the coefficient formula or general positive-row divisibility. No distinct source was found that states this gcd or establishes a stronger result settling it without the additional minimization over even degrees. This is a bounded comparison, not a priority certificate.
 
-## Limits
+## value
 
-The result concerns classical integral Bessel polynomials for \(n\ge2\), excluding the constant coefficient. The supplied finite checker is supporting diagnostic evidence. An independent mathematical audit has not been performed, and complete historical priority is not certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The even projection is the natural parity component (after removing the unit constant); its primitive integer normalization and prime reductions require its exact content, not just an obvious divisor of the Bessel row. The all-index classification identifies a single exceptional odd-prime loss and supplies an even-degree odd witness in every order. This is a modest but complete arithmetic invariant of a standard family, not a proposed new general theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

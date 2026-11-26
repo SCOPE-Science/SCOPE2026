@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. In the eigenbasis of the symmetric drift, the exact forcing coefficient is the integral of the product of two decaying exponentials. Strict Cauchy–Schwarz and arithmetic–geometric mean inequalities give the exact entrywise ordering of exact, balanced, and symmetrized forcing. The common homogeneous propagator makes the inequality propagate to the full discrete trajectory and establishes the strict Frobenius comparison. The Taylor expansions and Riemann sums prove both sharp global second-order coefficients; the positive-definiteness threshold and strict monotonicity follow from the displayed determinant and logarithmic derivative. `verify.py` reproduces 18,692 finite checks and supports, but does not prove, the universal statements.
+PASS
 
-## Originality
+In the orthogonal drift eigenbasis the exact, balanced and symmetrized forcing weights are the inner product, geometric mean of squared norms, and arithmetic mean of squared norms of the two exponentials on [0,h]. Both inequalities are strict precisely for unequal rates. The shared accumulated propagation weights are positive and the initial term cancels, giving the Frobenius inequality including its strictness, repeated-rate, and commuting cases. Balanced covariance positivity is by congruence (rank preservation refers to the forcing increment). The symmetric defect is half the integral of the squared difference of the exponentials, with leading coefficient (a_i-a_j)^2 h^3/6. For the balanced defect divide the two-function Gram determinant by the sum of the exact and balanced weights: the determinant starts at (a_i-a_j)^2 h^4/12 and the denominator at 2h, giving 1/24. The smooth exponential left Riemann sum has O(h) error, giving the claimed fixed-T expansions, and the limiting defect matrix cannot vanish in the noncommuting case. In two modes the determinant gives exactly the correlation cutoff, with an increasing diagonal-weight ratio from 1 to b/a and thus a decreasing cutoff, including the two endpoint regimes. The exact increment is positive definite by strict Cauchy–Schwarz. The independent high-precision quadrature check brackets the example's crossing in (.28,.31) and gives defect ratio 3.9999000032933 at h=0.00001; it is not the universal proof.
 
-PASS within the inspected literature, with residual bibliographic uncertainty. Shkeir and Grafke introduce the METD1 formula and commutator treatment, not this complete positivity frontier or the balanced forcing-error theorem. Bertram and Faßbender cover the Gramian integral and low-rank quadrature; Behr, Benner and Heiland cover general Sylvester spectral formulas. Such exact formulas already imply the Cauchy–Schwarz ingredients but do not explicitly supply the sharp symmetrized-METD1 failure boundary, the strict all-step balanced-versus-symmetrized comparison, and their universal four-to-one error constants. A full search of all publications is impossible and an equivalent specialized reformulation may exist; the 2024 version of the motivating paper was confirmed by its public submission record while the inspected complete text is a later open revision.
+## originality
 
-## Value
+PASS
 
-PASS. Differential Lyapunov equations propagate covariance and controllability Gramians, so positive-semidefinite output is a mathematical requirement rather than a cosmetic feature. The result simultaneously classifies a sharp failure regime—including rank-one noise at every step—and provides a simple rank-preserving, positivity-preserving second-order alternative whose error improvement is proved uniformly in step size. The spectral threshold can be used to assess a concrete solver without claiming general nonlinear integration properties or computational cost improvement.
+Best-of-knowledge pass for the specific balanced scheme's simultaneous cone preservation, strict all-step comparison and asymptotic constant relative to symmetrized METD1, and the full normalized correlation frontier. Neither original METD1, Gramian positivity, nor the independently overlapping rank-one endpoint is credited as a distinct finding here.
 
-## Closest literature and limitations
+## value
 
-Sources: Shkeir–Grafke arXiv:2406.13761 (METD1 and Lyapunov examples); Bertram–Faßbender arXiv:1903.05383 (factorized Gramian quadrature); Behr–Benner–Heiland arXiv:1811.08327 (exact differential Lyapunov solutions). The claim is restricted to fixed real symmetric stable drift and constant PSD forcing in exact arithmetic. General quadrature algorithms already preserve PSD, and other methods can be cheaper or more accurate. An overlooked equivalent specialized calculation remains a literature-priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The cone requirement is inherent to covariance stepping, not an arbitrary parameter slice. For the symmetrized method the exact frontier decides when an output ceases to be a covariance even in the simplest noncommuting case, and the balanced method preserves the cone while reducing rather than trading away Frobenius accuracy. All-step strictness and the fixed-time 4:1 comparison make the structural contrast quantitative.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

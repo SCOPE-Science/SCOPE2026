@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:55:11.496583Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The removed slit has zero area, so the affine map to the disk preserves the endpoint sampling and finite-segment event. In the line transform the endpoint-coordinate determinant is |t-q|; using the angle modulo pi retains both orders of endpoints without duplicating lines. Straddling a slit point integrates the Jacobian to L_+L_-(L_++L_-), with L_+L_-=1-s^2-h^2 and L_++L_-=2 sqrt(1-p^2). Pairing reflected angles yields strict Jensen improvement when h is moved to zero; the centered-height weight is even, and differentiating its angular integrand gives strictly negative derivative at every s in (0,1). The integral over a shifted interval of length 2a thus decreases strictly with |c|. This proves the global unique center. The half-length in disk coordinates is the Euclidean half-length times ||L^{-1}e||; equality in its singular-value bound identifies the minor axis and the circular tie, and the length restriction ensures admissibility. Integrating the centered weight gives the stated atanh formula; direct expansion gives 2-8s^2/3+O(s^4) at zero and weight ~2(1-s) at one. At a full diameter independent endpoints straddle its line with probability 1/2. An independent finite check using /tmp/opencode/frozen_1_2_3_checks.py integrated over endpoint heights with conditional horizontal coordinates uniform on chords; the two-uniform convolution gave 0.233550048 centered at a=0.3, 0.206012740 for axial displacement 0.3, and 0.189544838 for perpendicular displacement 0.4. This corroborates normalization and finite-segment crossing, not the universal optimization proof. Inspected the frozen checker without running it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Beer defines measurable segment visibility; Balko et al. §1.1 compares the index to convexity ratios and considers higher orders. The distinct eccentric-hole Hessian record gives local centering for positive-area circular holes."
+        ],
+        "reasoning": "General definitions and inequalities do not determine the exact extremum; the local result for a disk hole cannot supply global comparison for a slit, or a fixed physical length in an ellipse.",
+        "searches": [
+          "Beer (1973), The Index of Convexity and the Visibility Function",
+          "arXiv:1412.1769",
+          "Resultary: visibility and Beer-index centering with obstacles"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_slit.py",
+        "Beer (1973)",
+        "arXiv:1412.1769",
+        "Egan, Pick Two Points",
+        "Resultary d18ec453a86a and assigned record f889706e8f38"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Keeping Egan's interior-parameter weight and imposing straddling reconstructs the chord integral. The result in the separate eccentric-hole Finding is a strict local disk-hole minimum with a Hessian and expressly does not assert a global theorem."
+        ],
+        "reasoning": "The prior chord weighting is a method ingredient; it does not order its straddling mass over offsets and orientations. The directionwise strict concavity and interval monotonicity are needed before the singular-value reduction yields the fixed-length optimal orientation.",
+        "searches": [
+          "Egan, area-endpoint chord density and interior parameters",
+          "2026/11/8/SCOPE-eccentric-hole-hessian-for-the-planar-beer-index--d18ec453a86a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Egan's endpoint-angle formula and chord-parameter Jacobian use the right area-uniform endpoint model but give a marginal density for the supporting chord; the Jacobian can be restricted to a straddling subregion to obtain the needed event."
+        ],
+        "reasoning": "Line intersection is not finite-segment obstruction. For a=0.3 the probabilities are about 0.314607 and 0.233550 respectively. The affine equivalence to the disk is exact for fixed vectors but changes physical length by direction; it does not by itself establish centering or the optimum over orientations.",
+        "searches": [
+          "Resultary: ellipse slit Beer index, exact centered slit crossing and fixed-length minor-axis optimizer",
+          "Egan, Pick Two Points, Two Points in a Disk"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-index hit f889706e8f38 is the assigned record itself. The distinct match d18ec453a86a has an exact Hessian, not this probability profile. Egan's density is exact for a different random object."
+        ],
+        "reasoning": "Neither the neighboring exact result nor the chord density is a prior table/formula for this global all-length slit optimization. Same-day dating gives no order and plays no role in the noncoverage comparison.",
+        "searches": [
+          "Resultary: explicit Phi for area-pair slit blocking; minor-axis orientation at fixed Euclidean length; area-endpoint disk chord density"
+        ]
+      },
+      "rationale": "The supported distinct result is the sharp finite-segment blocking probability and global placement/orientation optimum for an interior straight slit. Classical visibility definitions and the area-endpoint chord Jacobian are not new; the closest separate Beer record concerns only local displacement of a positive-area disk hole. No directly covering theorem was found in the inspected comparisons.",
+      "residual_risks": [
+        "Targeted searches and bounded matched passages are not exhaustive. An unindexed geometric-probability treatment of straddling through a movable finite slit could overlap; the empty broad lookup was not used as evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework, not the slit extremum",
+          "evidence": [
+            "Extraction offsets 433 and 1054: segment-defined visibility and normalized index."
+          ],
+          "identifier_or_url": "https://msp.org/pjm/1973/44-1/pjm-v44-n1-p05-s.pdf",
+          "material_read": "Visibility definitions and statements around PDF p. 2",
+          "method": "OA PDF passages",
+          "title": "The Index of Convexity and the Visibility Function",
+          "trigger": "Foundational index theorem"
+        },
+        {
+          "assessment": "Different general bounds",
+          "evidence": [
+            "Offsets 0 and 6258: probability definition and convexity-ratio comparison."
+          ],
+          "identifier_or_url": "arXiv:1412.1769",
+          "material_read": "Abstract and §1.1, PDF pp. 1–2",
+          "method": "OA PDF passages",
+          "title": "On the Beer Index of Convexity and Its Variants",
+          "trigger": "Potential general inequality for measurable sets"
+        },
+        {
+          "assessment": "Supplies a useful chord transform, not the finite-segment optimization",
+          "evidence": [
+            "Offset 27909: boundary angle parameters, interior chord parameters and endpoint-angle marginal; converting gives signed-offset density 8(1-p^2)^(3/2)/(3 pi^2) for unoriented angle in [0,pi)."
+          ],
+          "identifier_or_url": "https://www.gregegan.net/SCIENCE/PickTwoPoints/PickTwoPoints.html",
+          "material_read": "Two Points in a Disk / Random Chords from Pairs of Points",
+          "method": "Bounded public webpage passage",
+          "title": "Pick Two Points",
+          "trigger": "Same endpoint model; exact support-line law"
+        },
+        {
+          "assessment": "Different obstacle and local scope",
+          "evidence": [
+            "Strict local minimum for circular hole, with explicit displacement Hessian; no global claim."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-eccentric-hole-hessian-for-the-planar-beer-index--d18ec453a86a/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror passage",
+          "title": "Eccentric-hole Hessian for the planar Beer index",
+          "trigger": "Closest distinct indexed centering result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Zero removed area does not make visibility trivial because it is a condition on the whole connecting segment. The all-offset strict inequality and explicit length profile resolve a natural obstruction design problem and distinguish direction in the Euclidean metric from affine equivalence. The result gives both the sharp limiting half threshold and the exact finite-length design rather than only a small-slit approximation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

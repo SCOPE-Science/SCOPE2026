@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The type-counting formula is derived from exhaustive disjoint cases on the center's distance and the presence of a distance-one leaf. The exact Turán identity at grade two has sign positive for \(3\le n\le10\) and negative for \(n\ge11\). All other grades are protected by an all-order strict log-concavity inequality for the base binomial sum. The unimodality proof covers both sides of the first-grade transition; the total-variation estimate is an explicit nonnegative-mixture bound. Direct independent Katětov-diagram enumeration agrees with the polynomial for \(n\le7\), and the exact-arithmetic checker reproduces every shape assertion through \(n=300\). Infinite statements are proved analytically, not inferred from tests.
+PASS
 
-## Originality
+A singleton at positive distances has a realizable distance vector exactly when the Katětov inequalities hold. Arbitrarily many copies at mutual distance 1 prove nonalgebraicity, and homogeneity makes the vector determine its type. With center value x and leaves y_i, the leaf-pair condition is y_i+y_k>=4, so a unique value-1 leaf, when allowed, forces the others to be at least 3. Splitting by x=1,2,3,4 gives (1+z)^n+nz, two copies of (2+z)^n+n2^(n-1)z, and (2+z)^n. Only coefficient 1 is raised relative to b_j=binom(n,j)(1+3·2^(n-j)). At internal j the reference inequality is 2(n+1)(1+t)^2>j(n-j)t with t=3·2^(n-j)>n-j. The sole possible failure is consequently grade 2, whose exact Turán bracket is (33-3n)Q²+(136-32n)Q+80-16n, Q=2^n. For n=3–5 its sign is positive directly; for n=6–10 it is at least 3Q²-184Q-80>0; for n>=11 it is negative. There is no internal grade 2 for n=1,2. Unimodality follows from c_0<=c_1, c_2<c_1 and c_3<c_2 when those grades exist for n<=7, and the initial rise followed by a log-concave tail when n>=8. Normalizing the polynomial gives a mixture with Bin(n,1/3) weight 3^(n+1)/F_n(1), proving the total-variation bound. The supplied artifacts/check_star_types.py and VERIFICATION.md were inspected, not executed. A separately written check (branches/50f06070-eb21-4db8-9bb4-e54dddd1d215/independent_star_check.py, check-complete.log) enumerated vectors through n=7 and checked exact coefficients and shape through n=300. At n=11 the grade-2 difference -2788445 was also recomputed from coefficients, not exhaustive distance-vector enumeration. The infinite claim follows from the sign and shape arguments, not the finite observations.
 
-**PASS, with historical-priority limits.** The foundation for types of finite-distance homogeneous metrics and Katětov inequalities appears in Sauer's 2010 work. The closest public representation theorem concerns the \(\{1,2,3\}\) palette and graph-metric bases. The related diameter-four equilateral-base calculations give other invariants, not the star's near-leaf coefficient profile or the sharp log-concavity cutoff. The inspected primary source and published closest-result text do not imply the claimed threshold as a stated special case; the particular new calculation is necessary. Unindexed equivalents or later uninspected papers remain possible.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** This is a natural exact coefficient-shape problem in the smallest nontrivial tree metric at the maximum distance for the four-valued universal metric space. It gives an all-size sharp transition, identifies the only failing grade, and proves that the failure persists despite exponential total-variation convergence to a binomial distribution. This distinction between global probabilistic approximation and pointwise log-concavity is useful when interpreting finite-parameter logical spectra.
+Pass for the full star grading together with its sharp all-order coefficient-shape classification. The Katětov extension theorem and the equilateral-leaf counting subproblem are covered ingredients; the sharp failure at eleven leaves, uniqueness of the offending grade, and coexistence with an exponentially accurate binomial approximation are not established by those ingredients alone.
 
-## Limitations and closest work
+## value
 
-The theorem concerns one fixed metric-star family, positive singleton types and a leaf-distance threshold grade; it does not classify arbitrary finite bases, other palettes or tuple types. Sources are Sauer, *Vertex partitions of metric spaces with finite distance sets* (arXiv:1010.4212, 2010) and the public note *Widom–Rowlinson partition functions as 1-type polynomials of the generic diameter-3 metric space*. All-order deductions rely on the written proof; checks of finitely many sizes are supplementary. Equivalence in unindexed historical literature cannot be excluded by these searches.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The star with leaf distances twice the radius is a natural metric family, and grading by the distances up to that radius is meaningful. The result isolates a low-grade obstruction to log-concavity at a sharp finite threshold, proves it is the only failure at every larger size, and exhibits why an exponentially small total-variation error does not control that local statistic. The value is in this classification and contrast, not just an elementary count of feasible vectors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

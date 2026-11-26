@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:10:40.261178Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–113; VERIFICATION.md and verify.py (read only)",
+        "Independent analytic check of the real-root and oscillatory regimes, low-index estimates and exact Taylor witness"
+      ],
+      "rationale": "The two complementary projectors reduce the recurrence exactly to the unit constant mode and a scalar mode u_k; the entry criterion is −1/(m−1)≤u_k≤1 and both sets of sums are identically one. For 0<s<1/2 the larger real characteristic root lies below e^(−s), because the characteristic polynomial at e^(−s) is positive and e^(−s) exceeds the smaller root. The resulting positive difference of powers decreases from one; the repeated-root formula at s=1/2 is also positive and decreasing. With D=3+2s>4 the oscillatory formula gives |u_k|≤2^(−k)(1+k/4) for s≤1, using |sin(kθ)|≤k sin θ, and |u_k|<√5·5^(−k/2) for s≥1. These are <1/11 from k=5 and k=4 respectively and give the upper barrier for all k≥2. For k=2 the minimum of s+22e^(−s)−4 is log(22)−3>0. The k=3 interval bounds compare D²−44+11(16−D)e^(−s) to positive quantities (at D=√44 the exponential term is positive); the k=4 numerator intervals give bounds uniformly above −1/11. The source's strict intermediate estimate u₄>−1/64 on [8,32] in D should be non-strict at D=8, where u₄=−1/64; the preceding interval includes that endpoint and the desired barrier is strict even there. Thus this local strictness slip does not affect the proof or claim. At s=3 the positive Taylor sum 131/8<e³ gives u₂(3)<−1/12, so the diagonal is negative for every m≥13. No finite sweep is used to establish the universal barrier.",
+      "residual_risks": [
+        "The bound proves the dimension threshold, not the exact minimum of u_k over all s and k. No formal verification or result for other starts or weighted graphs is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The report gives general monotonicity/boundedness stepsize coefficients and includes specified numerical startup methods. The indexed weighted-graph result enlarges graph scope but only gives the overlapping sharp uniform statement for second-step diagonals."
+        ],
+        "reasoning": "Broader graph or evolution scope does not amount to the needed full-entrywise, all-index classification with exact initialization.",
+        "searches": [
+          "Hundsdorfer–Mozartova–Spijker CWI 16707B §§4.3, 6.2",
+          "Resultary d1edebcb808b exact-start positivity failures on weighted graphs"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d1edebcb808b",
+        "Hundsdorfer–Mozartova–Spijker CWI 16707B"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The second-step theorem does not bound subsequent u_k. Generic coefficients conditional on Δt≤γτ₀ cannot exclude a later loss of positivity for arbitrarily large h in this family."
+        ],
+        "reasoning": "The uniform tail and low-index barrier are needed in addition to the prior comparisons; the supported positive assertion is not obtained by substituting a complete graph into an inspected theorem.",
+        "searches": [
+          "Compare weighted-graph second-step theorem and multistep sufficient boundedness conditions with the exact-start modal all-index property"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A shared scalar BDF2 response with s=hλ gives the positivity interval [−1/(m−1),1] for the uniform complete graph. The cited later catalogue comparison uses the same response and gives the same diagonal value (16e^(−3)−1)/39 for its star center and the complete graph at m=13."
+        ],
+        "reasoning": "The modal change of variables does not distinguish the second-stage witness. The universal lower barrier over every subsequent index is the distinct part.",
+        "searches": [
+          "Resultary exact-start BDF2 scalar response, stochastic positivity and 12-versus-13 threshold",
+          "Implicit multistep monotonicity and starting procedures"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d1edebcb808b, Finding and §6, match the k=2 diagonal cutoff and the witness value, but not the all-index complete-graph classification."
+        ],
+        "reasoning": "Distinguish genuine partial exact coverage from identical full coverage; the catalogue date alone is not a priority decision.",
+        "searches": [
+          "Resultary exact zero counts and repeated positivity failures for exact-started BDF2; complete graph sharp state cutoff"
+        ]
+      },
+      "rationale": "Credit the unconditional all-index entrywise classification on the uniform complete graph with exact start. General BDF2 monotonicity and boundedness theory and the elementary projection argument are prior background. There is material overlapping second-step coverage in the wider weighted-graph catalogue result, which includes a sharp diagonal threshold and the same 13-state witness value; it cannot establish positivity of all entries at later indices. The pass does not credit the k=2 obstruction as a distinct discovery in that comparison.",
+      "residual_risks": [
+        "The Hundsdorfer–Ruuth–Spiteri report comparison remains incomplete; a specialized modal theorem under different terminology could exist. No global priority is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap at k=2 for diagonals, not all indices and entries",
+          "evidence": "For weighted connected undirected graphs, finds a sharp second-step diagonal cutoff through 12 states and a failure on the 13-star, giving (16e^(−3)−1)/39 at its center.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-zero-counts-and-repeated-positivity-failures-for-exact-sta--d1edebcb808b",
+          "material_read": "RESULT.md Finding and §6, offsets 0 and 4465",
+          "method": "Local Resultary mirror",
+          "title": "Exact zero counts and repeated positivity failures for exact-start BDF2",
+          "trigger": "Exact same scalar mode and sharp size threshold"
+        },
+        {
+          "assessment": "Different general conditions and prescribed starts, not the all-index graph threshold",
+          "evidence": "Studies coefficients in restrictions Δt≤γτ₀ and specified starting methods.",
+          "identifier_or_url": "https://ir.cwi.nl/pub/16707/16707B.pdf",
+          "material_read": "Abstract, §4.3 p. 10 offset 31100 and §6.2 p. 17 offset 54800",
+          "method": "OA PDF passage inspection",
+          "title": "Stepsize Restrictions for Boundedness and Monotonicity of Multistep Methods",
+          "trigger": "Potentially stronger two-step monotonicity theorem"
+        },
+        {
+          "assessment": "Incomplete comparison, not used as evidence against coverage",
+          "evidence": "No reliable section-level passage on the exact start could be extracted in the attempt.",
+          "identifier_or_url": "https://ir.cwi.nl/pub/4231/04231D.pdf",
+          "material_read": "Report retrieved; decisive body-text extraction not reliably readable",
+          "method": "OA CWI PDF retrieval and extraction attempt",
+          "title": "Monotonicity-preserving linear multistep methods",
+          "trigger": "Cited implicit two-step and startup analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen modal reduction, all-index barrier and dimension witness",
+        "General multistep monotonicity report and related second-step catalogue result"
+      ],
+      "rationale": "An exact semigroup start removes startup discretization error as the explanation for negative probabilities. On the simplest nontrivial complete-graph generator, the sharp finite size boundary specifies when the numerical transition remains genuinely stochastic, even though its row and column sums alone are always one. The positive all-index half is essential: checking the second computed step cannot exclude a later failure. The conclusion is useful as a precise benchmark, not a universal statement about Markov generators.",
+      "residual_risks": [
+        "Scope is uniform rates, exact startup, and constant step; no guarantee for general weighted graphs or later-time positivity of those graphs is supplied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

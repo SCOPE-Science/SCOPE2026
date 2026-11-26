@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:02:51.939067Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The backward age of the last reset is exponential, gives the unique stationary state, and bounds its fourth moment. In units of v/kappa for position and 1/kappa for time, the mixed balances are (1+q+g)E[XS]=1 and (3+q+g)E[X^3S]=3V, since the new sign has zero mean and is independent of reset position, even for asymmetric centered reset laws. Consequently V=(2/(q+g+1)+qx)/(q+2) and F=(12V/(q+g+3)+qy)/(q+4), where x,y are the scaled reset moments. At fixed x, variance is positive and Jensen gives y>=x^2, with equality exactly for equally weighted endpoints (point mass at zero for x=0). Writing V0=2/[(q+2)(q+g+1)] and s=1/V produces the strictly convex quadratic A+Bs+AV0^2s^2 on 0<s<=1/V0, with A=(q+2)^2/[q(q+4)] and B=12/[(q+4)(q+g+3)]-2AV0. With Delta=3-(q-1)(q+g), B has sign -Delta. For Delta>0, its vertex is interior: V_star/V0=(q+2)(q+g+3)/(2 Delta)=1+3q(q+g+1)/(2 Delta), giving x_star=3/Delta and the stated completed-square minimum. For Delta<=0, every positive s gives a value strictly above A, including at equality Delta=0. Only s tending to zero realizes the limit. Fixed-x three-point mixtures realize every larger value when x>0, and Delta=(2q_c+g-1)(q_c-q)-(q_c-q)^2 gives the claimed divergence. Frozen verify.py was inspected, not executed; several reset-balance residuals reuse the tested formulas, while the regenerative sampler is a separate finite diagnostic. No part of the proof needs those checks or a numerical certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Olsen covers arbitrary reset-position distributions and spin reset probabilities, including the fair independent specialization, and already supplies the needed forward moments."
+        ],
+        "reasoning": "This larger model fully covers the moment ingredients, but the inspected hierarchy and examples do not optimize over its admissible moment region, give a threshold for attainment, or imply one via an existing sharp inequality for the normalized ratio.",
+        "searches": [
+          "arXiv:2310.04840v1 Sec. IV equations (28)–(42) and conclusion",
+          "Web: \"Steady-state moments under resetting to a distribution\" Olsen run-and-tumble harmonic potential reset distribution kurtosis optimization"
+        ]
+      },
+      "checked_sources": [
+        "Olsen arXiv:2310.04840v1 / DOI 10.1103/PhysRevE.108.044120",
+        "Resultary --6341a68aa955 and --7b0f19736f42"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published recurrence yields V and F here. Separate use of equality in Jensen and the change of sign of B at q_c proves the all-law optimizer and the open-boundary infimum."
+        ],
+        "reasoning": "The frozen formulas for forward moments are a direct specialization; the admissible-law optimization and proof of its qualitative attainment change are the supported distinct result.",
+        "searches": [
+          "arXiv:2310.04840v1 Sec. IV.2 equations (36)–(42), examples and conclusion; compare frozen Finding and Proof steps 2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The quotient problem is equivalent to minimizing the stationary fourth-moment envelope at each attainable stationary variance, then a quadratic in reciprocal variance with an open endpoint at zero.",
+          "Olsen gives moments as functions of a prescribed law, not a minimum of that quotient."
+        ],
+        "reasoning": "Neither formulation is the same as predicting moments for a given distribution or minimizing kurtosis as a function of the physical reset rate with a fixed reset law.",
+        "searches": [
+          "Resultary: all centered reset-location probability distributions stationary positional kurtosis minimization harmonic trapped run-and-tumble particle (100 ranked hits)",
+          "Resultary: unique symmetric equal-mass two-point reset law minimizing stationary kurtosis of harmonically confined run-and-tumble particle, with critical threshold and infinite-radius nonattainment (200 ranked hits)",
+          "arXiv:2310.04840v1 Sec. IV.1–IV.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-a-unique-kurtosis-trough-and-two-to-one-moment-ambiguity-under-d--6341a68aa955 changes a rate ratio for a free telegraph-accelerated particle reset at the origin.",
+          "SCOPE-sharp-convex-order-bounds-for-brownian-motion-with-randomized-pa--7b0f19736f42 optimizes multiplicative partial resets for freely diffusing Brownian motion at fixed second multiplier moment."
+        ],
+        "reasoning": "Neither ranked match treats the harmonic position trap with additive reset draws and centered reset-law design; the ranked evidence is bounded, not an exhaustive table or priority search.",
+        "searches": [
+          "The two scoped Resultary queries above; matching full statements inspected in the local mirror"
+        ]
+      },
+      "rationale": "Pass applies to the global kurtosis optimization (including attainment and its critical boundary), not to the arbitrary-reset moment hierarchy. No inspected prior result covers the optimization or its threshold; the hierarchy is a starting point and does not by itself decide which admissible distributions attain the quotient minimum.",
+      "residual_risks": [
+        "Bounded targeted comparison; a general reset-design theorem outside the inspected literature could cover the same quotient optimum. The forward hierarchy is not original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers model and recurrences, not the optimization in the inspected passages.",
+          "evidence": [
+            "The general sign probabilities and arbitrary reset distribution occur in Sec. IV; equations (36)–(42) give the hierarchy and subsequent examples include Gaussian laws."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2310.04840v1",
+          "material_read": "Sec. IV.1–IV.2, Eqs. (28)–(42) and conclusion (relevant HTML passages around offsets 23600 and 30599–36498)",
+          "method": "Open full-text passage inspection",
+          "title": "Steady-state moments under resetting to a distribution",
+          "trigger": "Same harmonic RTP with arbitrary distributed resets"
+        },
+        {
+          "assessment": "Different generator, reset, and optimization variable.",
+          "evidence": [
+            "Telegraph acceleration with both position and velocity reset at the origin; the rate ratio, not the distribution of reset locations, is varied."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-unique-kurtosis-trough-and-two-to-one-moment-ambiguity-under-d--6341a68aa955",
+          "material_read": "RESULT.md statement and model assumptions",
+          "method": "Local Resultary mirror",
+          "title": "A unique kurtosis trough and two-to-one moment ambiguity under distributed forcing",
+          "trigger": "Neighboring kurtosis optimization result"
+        },
+        {
+          "assessment": "Distinct multiplicative partial-reset model.",
+          "evidence": [
+            "Unconfined Brownian motion with fixed mean-square multiplier, rather than trap, spin and position redraws."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-convex-order-bounds-for-brownian-motion-with-randomized-pa--7b0f19736f42",
+          "material_read": "RESULT.md statement and model assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Sharp convex-order bounds for Brownian motion with randomized partial resetting",
+          "trigger": "Sharp extremizers over reset distributions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a physically interpretable sharp design boundary, not just a forward calculation of kurtosis: for every allowed trap and switching/reset scale it determines whether finite optimal reset positions exist, identifies the unique admissible law when they do, and quantifies its loss at the threshold. The full range explains what can be achieved beyond the optimum. No claim is made about individual tail probabilities, different reset protocols, or support-constrained designs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

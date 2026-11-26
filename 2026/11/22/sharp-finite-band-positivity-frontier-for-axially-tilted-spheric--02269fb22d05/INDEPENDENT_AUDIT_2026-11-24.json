@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:05:35.713906Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the finite double compression, D^{-1/2} congruence reduces D+epsilon(MD+DM) to I plus epsilon times an azimuthal block matrix. Sphere probability normalization leaves the normalized latitude recurrence unchanged. The (ell,m) edge is a_(ell,m) times sqrt(d_ell/d_(ell+1))+sqrt(d_(ell+1)/d_ell), giving 2 a_(ell,m) cosh(t(ell+1)). Nonzonal blocks are bounded strictly below the zonal top eigenvalue by comparison with proper principal subpaths, including the one-vertex zero blocks. Perron simplicity and sign reversal on alternating vertices give top and bottom eigenvalues plus/minus Lambda_L, each simple; increasing L strictly raises Lambda_L by proper extension. The largest edge alone tends to infinity. For epsilon!=0 infinitely many edges with left endpoints 3j give disjoint negative directions (no interpair coupling); trace-class self-adjointness and min–max yield infinite negative index. Continuous quadrature of a smooth negative form gives a finite negative Gram witness, while an equator diagonal gives a positive form. Pointwise positivity for |epsilon|<1/2 does not contradict this. For q=e^(-t), the half-line operator is compact by norm truncation, with a positive simple extremizing eigenvector by the recurrence. A three-vertex top Rayleigh value sqrt(1+q^2) can be increased by extending towards vertex 3. The inequality 2|u_j u_(j+1)|<=|u_j|^2+|u_(j+1)|^2 gives the row-sum upper bound 1+q strictly at the positive top vector, since e.g. row 0 is smaller. Reverse the finite edges and normalize by w_(L-1): for j<=L/2 the angular ratio differs from 1 by O((j+1)L^-3), by differentiation of (1-1/(4k^2))^(-1/2); the cosh ratio is q^j times 1+O_t(e^(-tL)). All later and omitted edges are O(q^(L/2)). This gives O_t(L^-3) in uniform edge error and in operator norm (at most twice the sup edge error). The largest eigenvalue of the normalized matrix is rho(q)+O_t(L^-3). The reciprocal last edge is sqrt(1-1/(4L^2))/cosh(tL), giving 2e^(-tL) and relative coefficient -1/8. The result fixes t>0, and neither the proof nor numerical samples justify joint small-t scaling. The frozen checker was inspected, not executed. Independent reproduction python3 /workspace/independent_checks.py 4 computes latitude entries by associated-Legendre quadrature for t=0.1,0.45,1.1 and L=1,3,5, and separately compares scaled edge spectra at L=128,256,512: at t=0.15 the scaled correction tends from -0.127010 to -0.125494, and at t=1 from -0.125247 to -0.125061. These are finite floating-point corroborations; the norm proof supplies the error order.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 of arXiv:2105.02586 gives a coefficient-based sufficient positive-definiteness criterion with axial block structure. The same-day f31466c6598c treats full-kernel affine anisotropy for broader multiplier classes and already includes the qualitative heat obstruction.",
+          "The other same-day comparison 4ac7b7fd35c9 involves H_t-lambda x_3 y_3 H_s, compact-operator norm bounds and parity changes, not the latitude-sum anticommutator at one heat time.",
+          "The 2024 space-time covariance paper and the IMA article could not be substantively accessed in this comparison."
+        ],
+        "reasoning": "Credit the general prior block framework and demonstrable overlap for global heat nonpositivity. Neither the inspected block conditions, nor the product perturbation, nor the available full-kernel criterion supplies the reversed heat-band convergence and residual coefficient. Inaccessible papers do not establish noncoverage.",
+        "searches": [
+          "Buhmann–Jäger arXiv:2105.02586, PDF pp. 4 and 9",
+          "Emery–Jäger–Porcu DOI 10.1007/s00477-024-02681-8, lawful DOI/author and publisher routes",
+          "Resultary f31466c6598c and 4ac7b7fd35c9, Finding passages"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20261116-2c30314f81a3",
+        "SCOPE-20261122-f31466c6598c",
+        "SCOPE-20261122-4ac7b7fd35c9",
+        "arXiv:2105.02586",
+        "10.1093/imanum/drab012",
+        "10.1007/s00477-024-02681-8",
+        "arXiv:1301.2125"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Poisson's degree-independent normalized spectral factor leads to a fixed latitude-multiplication compression and Legendre zeros. For heat the factor is 2 cosh(t(ell+1)), so near the outer edge the relative weights are approximately q^j and the relevant norm is compact.",
+          "The singular normalization factor sqrt(1-1/(4L^2)) of the reciprocal last edge contributes the displayed relative correction only after showing that the normalized norm differs from rho(q) by O_t(L^-3), not just by o(1)."
+        ],
+        "reasoning": "A general Jacobi norm test can imply the finite criterion by restriction, and the global criterion subsumes qualitative kernel failure. The norm convergence rate and heat-cutoff correction are additional mathematical content beyond those implications or a substitution into the Poisson law.",
+        "searches": [
+          "Resultary 2c30314f81a3, offset 6749 finite-band proof",
+          "Resultary f31466c6598c, full-kernel norm Finding",
+          "arXiv:1301.2125, pp. 22 and 26"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The finite-band PSD condition is exactly the spectral interval test for a finite antipodally symmetric block form normalized by the diagonal heat multipliers. The broad half-order result gives the adjacent-ratio normalization and a norm threshold for full affine anisotropy and explicitly places heat on the no-nonzero-tilt side.",
+          "The target compresses both input and output degrees; multiplying a truncated heat kernel by the tilt instead would generate new boundary couplings and is not equivalent."
+        ],
+        "reasoning": "After congruence the inverse norm reduction is shared methodology; even where a general ratio formula yields the same finite matrix, it does not evaluate its high-band norm to relative second order. The substantive comparison is of the varying edge weights and their spectral effect.",
+        "searches": [
+          "arXiv:2105.02586, axial harmonic coefficients and Theorem 2",
+          "Resultary: spherical heat covariance sum-coordinate affine tilt, harmonic compression, equivalent Jacobi threshold",
+          "Resultary f31466c6598c, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Poisson full threshold is sqrt(r)/(1+r) and its finite-band zonal threshold uses a Legendre zero, not the heat boundary eigenvalue.",
+          "Štampach–Šťovíček use other geometric-weight Jacobi matrices: a bilateral one with diagonal q^n, and a compact half-line one with diagonal q^(n-1) and a further factor in the offdiagonal. Their inspected propositions do not provide the heat cutoff.",
+          "The standalone constant is naturally a special-function quantity: setting Q=q^2, expanding det(I-z B_q) over disjoint adjacent edges gives sum over k>=0 of (-z^2)^k Q^(k(k-1))/prod_(i=1)^k(1-Q^i). Hence one need not claim novelty for the compact constant itself or its tabulation."
+        ],
+        "reasoning": "An exact formula for the limiting Jacobi eigenvalue alone, whether tabulated or via a special function, would not identify the heat-band sequence and its L^-2 correction. The inspected exact Poisson formula has a different limit because its normalized adjacent multiplier ratio is constant in degree.",
+        "searches": [
+          "Resultary 2c30314f81a3, Finding and finite-band proof",
+          "arXiv:1301.2125, Propositions 24 and 28, geometric Jacobi spectra",
+          "Resultary: compact geometric Jacobi norm in heat-band boundary"
+        ]
+      },
+      "rationale": "The distinct quantitative result is the heat high-band spectral law: the geometrically weighted outer-edge limit, the prefactor in the heat cutoff, and the -1/8 relative correction with controlled remainder. General axial coefficient criteria and the common harmonic reduction are prior machinery. The exact finite threshold as an inverse Jacobi norm is structurally anticipated by that machinery (and by the earlier Poisson threshold); the qualitative full-heat obstruction is explicitly covered by the same-day half-order criterion, with no within-day priority inferred. These overlaps do not establish the heat-specific asymptotic.",
+      "residual_risks": [
+        "The 2024 Emery–Jäger–Porcu and related IMA full texts were not checked; broader coverage there remains possible.",
+        "Other special-function and varying-coefficient Jacobi asymptotics may cover additional parts; no priority claim is made for the operator B_q itself.",
+        "The same-day heat/full-kernel overlap is recorded without inferring ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EARLIER QUANTITATIVE ANALOGUE; different multipliers and boundary law",
+          "evidence": "Poisson geometric degree multipliers give finite-band Legendre zeros and a positive full-kernel admissibility interval.",
+          "identifier_or_url": "SCOPE-20261116-2c30314f81a3",
+          "material_read": "RESULT.md Finding (offset 0) and finite-band proof (offset 6749)",
+          "method": "Local Resultary mirror",
+          "title": "Sharp axial tilts of spherical Poisson covariances: a dimension-free positivity threshold and universal critical kernels",
+          "trigger": "Same latitude-sum tilt and finite-band threshold"
+        },
+        {
+          "assessment": "ACTUAL QUALITATIVE HEAT COVERAGE; no chronology inferred",
+          "evidence": "Full-kernel adjacent-ratio norm criterion and explicit no-nonzero-perturbation heat case. The inspected Finding gives no heat-band rate or second-order correction.",
+          "identifier_or_url": "SCOPE-20261122-f31466c6598c",
+          "material_read": "RESULT.md Finding (offset 0)",
+          "method": "Local Resultary mirror",
+          "title": "The half-order spectral boundary for affine anisotropy of spherical covariances",
+          "trigger": "Potential stronger same-day spherical affine anisotropy theorem"
+        },
+        {
+          "assessment": "DIFFERENT PERTURBATION AND SPECTRAL THRESHOLD",
+          "evidence": "The two-temperature product modulation H_t-lambda x_3y_3 H_s has a different compact-norm and parity problem.",
+          "identifier_or_url": "SCOPE-20261122-4ac7b7fd35c9",
+          "material_read": "RESULT.md Finding (offset 0)",
+          "method": "Local Resultary mirror",
+          "title": "Zonal dominance and two parity reversals for signed axial spherical heat kernels",
+          "trigger": "Same-day heat and zonal spectral dominance"
+        },
+        {
+          "assessment": "STRUCTURAL PRIOR; no heat boundary expansion in these passages",
+          "evidence": "Axial coefficient structure and a coefficient-based sufficient condition for PSD.",
+          "identifier_or_url": "https://arxiv.org/pdf/2105.02586",
+          "material_read": "Abstract; PDF p. 4 axial structure, offset 10100; p. 9 Theorem 2, offset 28642",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Strict positive definiteness of convolutional and axially symmetric kernels on d-dimensional spheres",
+          "trigger": "General axial harmonic positivity framework"
+        },
+        {
+          "assessment": "ACCESS_LIMITED; no whole-paper verdict",
+          "evidence": "The title locates relevant block structure work; it does not by itself establish a quantitative cutoff.",
+          "identifier_or_url": "https://doi.org/10.1093/imanum/drab012",
+          "material_read": "Bibliographic citation only in this review; full text access returned 403",
+          "method": "Lawful access attempt",
+          "title": "Strictly positive definite kernels on the 2-sphere: from radial symmetry to eigenvalue block structure",
+          "trigger": "Related harmonic block characterizations on S^2"
+        },
+        {
+          "assessment": "ACCESS_LIMITED; no whole-paper verdict",
+          "evidence": "Potential overlap on spectrally specified axial covariance; available evidence does not settle the heat asymptotic.",
+          "identifier_or_url": "https://doi.org/10.1007/s00477-024-02681-8",
+          "material_read": "Bibliographic citation only; no substantive passage retrieved during this comparison",
+          "method": "Lawful OA DOI, article and PDF access attempts",
+          "title": "Positive semidefinite kernels that are axially symmetric on the sphere and stationary in time: spectral and semi-spectral theory, and constructive approaches",
+          "trigger": "Plausibly broader exact axial covariance framework"
+        },
+        {
+          "assessment": "RELATED GEOMETRIC OPERATORS; not the same heat boundary problem",
+          "evidence": "The inspected bilateral and half-line spectral examples include nonzero diagonals and different offdiagonal dependence than B_q.",
+          "identifier_or_url": "https://arxiv.org/pdf/1301.2125",
+          "material_read": "Abstract, Proposition 24/Eq. (58) p. 22 offset 74000, Proposition 28/Eq. (67) p. 26 offset 86000",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Special functions and spectrum of Jacobi matrices",
+          "trigger": "Geometrically weighted Jacobi operators and special-function alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The double harmonic compression is a natural finite-band covariance check. The exact cutoff shows how an apparently admissible finite-band model can fail in the full kernel, and the sharp geometric prefactor and next term quantify the resolution at which this happens. Those terms separate the heat case from the qualitatively known obstruction and from the finite Poisson analogue, rather than only evaluating a few matrices numerically.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:40:18.371460Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For prescribed alternating gradients, y_t=v_t/G² obeys y_t=y_(t−1)−s sign(y_(t−1)−1), s=1−β₂>0. Starting at zero it advances by s until it reaches or crosses one. At integer q=1/s it reaches one and sticks; otherwise it visits Ns and (N+1)s in alternating order from N=floor(q), with Ns on parity N. Direct substitution gives m_t=p[(-1)^(t−1)+β₁^t], p=(1−β₁)G/(1+β₁), including m_0=0. The β₁^t contribution is absolutely summable since the reciprocal denominator is bounded by 1/ε. The eventual periodic part of the normalized update has mean p(-1)^(N−1)Δ/2, so multiplication by −η gives the stated slope and bounded remainder. For exact locking or the separate initialization v_0=G², the denominator is eventually constant and the alternating part has zero mean. The exact decimal settings give q=10,100,1000. The argument is analytic; the packaged floating-point transcription guards were read, not executed. This is exact-real, constant-rate, prescribed-input analysis of the algorithm as printed, not a claim about gradients along a fixed objective, bias-corrected implementations, or exact locking in machine arithmetic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zaheer et al. give the general sign-controlled recurrence and ε outside the square root.",
+          "Reddi et al. show Adam's failure under a period-three gradient pattern C,−1,−1 with C>2 on a bounded interval."
+        ],
+        "reasoning": "The recurrence defines the diagnostic but does not evaluate the balanced alternating response. The period-three Adam theorem uses another update and a nonzero gradient sum, and is not a broader theorem giving the Yogi slope.",
+        "searches": [
+          "Resultary: periodic-gradient counterexamples",
+          "Zaheer et al., NeurIPS 2018, Algorithm 2",
+          "Reddi et al., arXiv:1904.09237, §3 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked Yogi and optimizer-diagnostic records",
+        "Yogi exact arithmetic locking record 77d343a3d3ed",
+        "Zaheer et al., NeurIPS 2018",
+        "Reddi et al., arXiv:1904.09237"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For q=N+φ the prior values G²(1−φs) and G²(1+(1−φ)s) equal the frozen L and U exactly.",
+          "The prior numerator is asymptotically constant in sign; the alternating-input numerator tends to opposite values ±p."
+        ],
+        "reasoning": "The known orbit supplies the denominator without a new theorem about v_t. The additional claim concerns rectification: period-two alignment produces the difference, not the sum, of reciprocal denominators in the pair average and gives a parity-dependent nonzero slope although every raw pair sums to zero. The constant-input update-magnitude statement does not have this conclusion as a parameter specialization.",
+        "searches": [
+          "Constant-input predecessor, Finding, scope and proof, local mirror offset 0",
+          "Zaheer et al., Algorithm 2, PDF p. 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/4/SCOPE-yogi-has-an-exact-arithmetic-locking-law-under-constant-magnitud--77d343a3d3ed derives locking or the two-cycle for g_t=G.",
+          "The nearby neutral-accumulator record 2026/10/4/SCOPE-neutral-accumulator-manifold-and-exact-transverse-stability-thre--a2042cdc4be4 concerns equilibria and local stability."
+        ],
+        "reasoning": "Both constant and alternating input have g_t²=G², so the predecessor is exactly equivalent for v_t. Its m_t=(1−β₁^t)G and update magnitudes are not equivalent to the signed alternating-momentum response; identical accumulator dynamics alone do not settle motion under sign-balanced gradients.",
+        "searches": [
+          "Resultary: Yogi alternating-gradient drift and zero-mean adaptive-gradient drift",
+          "Resultary: Algorithm 2 initialization and reciprocal-step resonance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed item already lists β₂=0.9,0.99,0.999 and reciprocal parameters 10,100,1000. No exact balanced-input drift entry appeared in the inspected ranked results."
+        ],
+        "reasoning": "The listed grid classifies accumulator locking, not a catalogued alternating-input drift slope. The target is a continuous parameter law, not a finite table lookup; the grid is a covered special case of locking.",
+        "searches": [
+          "Resultary: exact balanced alternating Yogi drift wording and resonance settings",
+          "Constant-input predecessor, Finding (β₂ grid)"
+        ]
+      },
+      "rationale": "Credit prior coverage for the entire second-moment orbit, its parity as a time index, and the reported reciprocal-step grid. The distinct claim is the nonzero signed parameter drift on exactly balanced alternating input, with its explicit slope and absence on the indicated resonances. The constant-input predecessor does not state that effect: the first moment has a different sign structure, and the new calculation pairs that alternating first moment with the locked denominator. Matching initialization is an immediate fixed point and is not treated as original in isolation.",
+      "residual_risks": [
+        "Additional web queries were deferred; an unindexed treatment of this exact alternating input or a more general signed periodic-input law could cover the drift.",
+        "The originality assessment excludes the known accumulator locking result and does not make a priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unambiguous equivalent coverage of v_t for this input, not of signed drift under balanced alternating input.",
+          "evidence": [
+            "Assumes g_t=G for every t. Lists finite integer locking, a noninteger two-cycle of width sG², and limiting update magnitudes with first moment (1−β₁^t)G."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-yogi-has-an-exact-arithmetic-locking-law-under-constant-magnitud--77d343a3d3ed/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, and proof at offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search followed by bounded original Markdown reading through the local mirror",
+          "title": "Yogi has an exact arithmetic locking law under constant-magnitude gradients",
+          "trigger": "Closest indexed result with exact matching v_t orbit"
+        },
+        {
+          "assessment": "Source-form recurrence confirmed; constant η specializes its η_t. No alternating response in the compared algorithm passage.",
+          "evidence": [
+            "Initializes m_0=v_0=0; uses sign(v_(t−1)−g_t²) times g_t² and denominator sqrt(v_t)+ε."
+          ],
+          "identifier_or_url": "https://proceedings.neurips.cc/paper_files/paper/2018/file/90365351ccc7437a1309dc64e4db32a3-Paper.pdf",
+          "material_read": "Algorithm 2, PDF p. 4, printed p. 3, offset about 12954; adjacent discussion",
+          "method": "Bounded reading of official proceedings PDF",
+          "title": "Adaptive Methods for Nonconvex Optimization",
+          "trigger": "Defining Yogi recurrence and initialization"
+        },
+        {
+          "assessment": "Qualitatively related adaptive weighting, different optimizer, periodic input and conclusion.",
+          "evidence": [
+            "C,−1,−1 with C>2, β₁=0, β₂=1/(1+C²), Adam on [−1,1]; the example moves to the wrong endpoint and has nonzero limiting average regret."
+          ],
+          "identifier_or_url": "arXiv:1904.09237",
+          "material_read": "§3, printed p. 3, offset about 14700, construction and Theorem 1",
+          "method": "Bounded primary PDF reading",
+          "title": "On the Convergence of Adam and Beyond",
+          "trigger": "Published periodic-input adaptive-optimizer counterexample"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exactly zero pair-sum input is a motivated diagnostic of whether adaptive normalization preserves cancellation. The result identifies an exact parameter boundary and phase-controlled direction of steady motion, distinguishing harmless oscillation in a denominator from its effect on a balanced signed signal. It also shows why the paper's exact decimal settings mask the diagnostic and why matched initialization suppresses it. This is a useful counterexample to cancellation at constant learning rate, not a claim of realistic optimization failure or evidence against the paper's stochastic convergence theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Research assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The stationary equation has an explicit unimodal profile. The derivative has negative endpoints, so global maxima reduce to the all-easy boundary or the unique upper stationary branch. On that branch, the difference from the all-easy allocation factors as \(vH(y)\), and \(H'\) is strictly positive for \(y>1/2\). This proves the exact global switch and all its ties. The branch equation also proves the later equal-effort threshold and unique allocation reversal. The self-contained diagnostic script passed 75,621 finite assertions; those tests supplement rather than replace the proof.
+PASS
 
-## Originality
+The two Poisson marginal tails give the stated additive objective, even without joint independence. Its derivative has the sign of vy exp(B−2y)−1; this factor rises then falls, with its maximum at y=1/2 if the full positive half-line is considered. The stationary equation b_v(y)=B has its sole minimum at 1/2; each positive root satisfies B−y=y−log(vy)≥1, so any roots are interior. Up to the first stationary budget the objective strictly decreases except possibly at an isolated stationary point; above it only y=0 and the upper stationary point can maximize. Substituting stationarity into the value difference gives vH(y). Here H(0)=0, H′=(2y−1)e^(−y)(1−e^(−y)), and H(1)=1−3/e+1/e²>0, giving exactly one upper-branch zero u in (1/2,1). The strictly increasing upper branch therefore switches globally at b_v(u), with exactly the stated two allocations at the tie. Since y−B/2=(1/2)log(vy), equal effort occurs precisely at b_v(1/v)=2/v, strictly after the switch for v≤1. For fixed v and large B, the increasing solution has y=B/2+O_v(log B); substituting in the logarithm of the stationary equation gives the displayed next term and error.
 
-PASS, provisional on available evidence. The full text of Cane and Schiffhauer (2003), Stavert et al. (2020), and Wesselingh (2007), together with relevant indexed mathematical findings and their stated claims, was compared by the precise response function, objective, number of target types, and whether a dominating result implied both thresholds. A general sigmoid-allocation article by Alban et al. (2021/2022) was found but its complete text was inaccessible; its broad optimization setting leaves historical-priority risk. Homogeneous Poisson-quorum staircases do not imply a mixed one-versus-two-tail objective, and all-or-nothing pollen-packet optimization addresses a different decision variable. No general claim about the discovery of sigmoid allocation is made.
+## originality
 
-## Value
+PASS
 
-PASS. Whether to concentrate scarce visits on an easy recipient or allocate some to a harder recipient is a motivated pollen-limitation question. The exact, weight-independent activation jump and separate majority-effort reversal specify actionable mathematical boundaries for this idealized allocation benchmark. They are not a trivial parameter substitution into the homogeneous-threshold allocation result. The model is not calibrated to particular crops and does not provide a field management recommendation.
+The supported distinct claim is the complete mixed one-/two-visit Poisson split for all 0<v≤1, especially the exact value-independent positive entry and later effort reversal. Optimization of S-shaped returns and budget-driven support activation are established. Neither the closely related homogeneous quorum problems nor the inspected general sigmoid allocation results yield the two thresholds for this objective.
 
-## Closest literature and limits
+## value
 
-Cane and Schiffhauer (2003), DOI 10.3732/ajb.90.10.1425; Stavert et al. (2020), DOI 10.1038/s41598-020-73637-5; Wesselingh (2007), DOI 10.1111/j.1469-8137.2007.01997.x; Alban et al. (2021/2022), DOI 10.1287/msom.2021.1020 (full text uninspected). Relevant mathematically adjacent records include homogeneous Poisson-quorum allocation and Hill response allocation. No independent priority certification is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two-site problem is a natural minimal model of heterogeneous success thresholds. Its complete global classification isolates two different effects that local stationarity does not resolve: a value-independent positive entry dose while the entry budget varies, followed by the less valuable, harder target receiving the larger share. The exact split and thresholds supply a benchmark for more general resource-allocation models without claiming a field law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

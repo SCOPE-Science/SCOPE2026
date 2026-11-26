@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:51:33.974582Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n=0 or 1 the natural partition works. For n=2, if the merge surplus is nonpositive the singleton partition works; if positive each player's Shapley gain over the singleton is exactly half that surplus. For n=3, independent exact subset-weight calculations (python3 /workspace/checks/check124.py, record 1) gave singleton payoffs (2,2,0), pair payoffs (5/2,5/2), (1,-1), (1,-1), and grand payoffs (19/6,19/6,-1/3). Both fair partitions have a strict gain of 1 from a merge; the other three are unfair. The split phase does nothing at {12,3} and the unique legal merge takes it to {123}, strictly lowering the vector from (0,5) to (-1/3,6). At {123} the residual {12} is fair, so the next composite returns to {123}; in separate split and merge steps this is a two-cycle. No tie or update-order assumption is needed here. Zhu–Han's primary §§3.1–3.3 use this operator and Lemma 3 asserts the disputed conclusion under nonnegative singleton values. Theorem 2 conditions on monotonicity separately and is not refuted. Coalition values here are all nonnegative but not monotone.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Apt–Witzel use one shared transitive strict comparison for both splits and merges in the bounded passage inspected; every move strictly improves it. Zhu–Han's general invariance statement explicitly assumes (A3) Lyapunov monotonicity."
+        ],
+        "reasoning": "Neither the standard shared-comparison convergence argument nor the conditional result entails or supplies the failure under the two distinct criteria here. A strict elementary cycle would be impossible with the shared comparison.",
+        "searches": [
+          "Shapley-fair split-merge Lyapunov claims with nonnegative coalition values",
+          "arXiv:0709.0435 §§2–3 and arXiv:2603.17153 Lemma 3, Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.17153",
+        "arXiv:0709.0435",
+        "Resultary a51699f37bef, 544834ed7b7b, 982a19ad2cdc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 3 states nondecrease for F_M composed with F_S and strict improvement from a partition admitting a profitable merge. The witness admits such a merge and strictly decreases the vector. The conditional invariance result is a different statement."
+        ],
+        "reasoning": "A possible abstract zero-progress cycle is not already this strict-surplus obstruction. The minimality argument and exact failure are not supplied by the passages reviewed.",
+        "searches": [
+          "arXiv:2603.17153 Lemma 3 and Theorem 2",
+          "Resultary and literature searches for the Lyapunov decrease after a strict profitable merge"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source uses ordinary restricted-game Shapley payoffs and admits every strict total-surplus improving pairwise merger, without a post-merger fairness check."
+        ],
+        "reasoning": "Under these exact local criteria, the finite nonexistence statement concerns the same notion; replacing total surplus by individual improvement or requiring fair targets would change the question.",
+        "searches": [
+          "SFMS / Shapley-fair merge-stable partition; unfair merger from a fair partition",
+          "arXiv:2603.17153 §§3.1–3.3, Definition 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected Resultary records a51699f37bef and 544834ed7b7b define graph-theoretic fair coalitions; 982a19ad2cdc uses voluntary Shapley payment flows. Their stated objects do not encode this eight-entry witness or SFMS threshold."
+        ],
+        "reasoning": "The archived records retrieved had different variables and criteria, not an equivalent finite example. This is bounded evidence, not an exhaustive priority clearance.",
+        "searches": [
+          "Resultary: three-player SFMS threshold; all-nonnegative characteristic function; unfair grand coalition and strict merge",
+          "Web search: Shapley-fair merge-stability nonexistence with nonnegative coalition values"
+        ]
+      },
+      "rationale": "The best-supported distinct result is the minimal three-player failure of SFMS, with all coalition values nonnegative, and the consequent explicit refutation of monotonicity for the exact Zhu–Han composite. The definition, operators and proposed potential themselves are prior material.",
+      "residual_risks": [
+        "Historical examples of the same two criteria under another name or later versions of 2603.17153 may contain an earlier or updated obstruction; no such passage was identified in the material checked."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior definition and contradicted claim, not a prior matching witness",
+          "evidence": [
+            "Fairness is checked on residual split blocks, not as a merger precondition; (A3) is separately assumed by Theorem 2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.17153",
+          "material_read": "§§3.1–3.3 (pp. 2–3, offsets near 13000 and 15800), Lemma 3 (p. 4, near 27500), Theorem 2 (p. 5, near 31800)",
+          "method": "Bounded primary PDF inspection",
+          "title": "Split-Merge Dynamics for Shapley-Fair Coalition Formation",
+          "trigger": "Defines the exact SFMS concept and claims monotonicity"
+        },
+        {
+          "assessment": "Different hypotheses on improvement and termination",
+          "evidence": [
+            "Both split and merge compare source and target using the same strict relation; Note 2 uses transitivity for termination."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0709.0435",
+          "material_read": "§§2–3, pp. 3–4 around offsets 9459–12629",
+          "method": "Primary PDF bounded text",
+          "title": "A Generic Approach to Coalition Formation",
+          "trigger": "Potentially broader split–merge stability theorem"
+        },
+        {
+          "assessment": "Different objects and feasibility tests",
+          "evidence": [
+            "Graph domination-based fairness in first two and payment-flow constraints in third, not SFMS existence."
+          ],
+          "identifier_or_url": "Resultary a51699f37bef; 544834ed7b7b; 982a19ad2cdc",
+          "material_read": "Mirrored findings near offsets 2, 81, and 94 respectively",
+          "method": "Statement comparison against archived text",
+          "title": "Fair coalition partitions of complete multipartite graphs; Fair-coalition extremizers and their census in three-clique cluster graphs; A seven-player limited-liability transition for closest voluntary Shapley payment flows",
+          "trigger": "Closest archived semantic matches for fair coalitions or Shapley nonnegativity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a sharp failure boundary for an existing proposed solution concept and a counterexample to a concrete convergence argument, not just a generic cycling example. The all-nonnegative witness isolates the missing control on fairness at a strict surplus merger even with no negative coalition worth.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

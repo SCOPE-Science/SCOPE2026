@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is a convergence-in-probability statement about the first removed fringe-subtree size in a uniform random recursive tree, with *children* as degrees and arbitrary tie-breaking among maximum-degree vertices. Its proof combines two published inputs: every maximizer's label lies between polynomial bounds with exponent \(\mu=1-1/(2\log2)\), and the maximum child count is \((1/\log2+o_{\mathbb P}(1))\log n\). The self-contained conditional generating function of child count given fringe size is checked by the independent Pólya tail formula, and all 210 exact finite joint probabilities for orders 2–8 agree with full enumeration. The analytic Chernoff exponent at the critical size \(a=1/(2\log2)\) is \(I(1/\log2,a)=\mu\). Strict monotonicity of that exponent at smaller size and an exponentially small upper tail yield uniform bounds over all candidate maximizers. Enumeration supports the finite identities, not the asymptotic theorem; the proof supplies the latter.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The authors of *Targeted cutting of random recursive trees*, arXiv:2212.00183 (2022), expressly state in Section 4 that even tracking the number of vertices in the first cut tree remains open. Their 2024 journal version still states that the distribution of the first removed subtree's size is unknown. Lodewijks, arXiv:2110.00522 (2021), Theorem 2.1 and Remark 2.2, proves label localization of degree maximizers but not their fringe sizes. A degree-conditioned subtree can differ substantially from a typical subtree rooted at that label; deriving uniform degree–subtree joint tails is essential. Neither the author's location theorem nor the paper's count-of-cuts estimate implies the new size exponent without this additional argument. A separate fixed-label-2 fringe/leaf calculation addresses a different object and statistic. The available primary sources and a public mathematical research index searches revealed no statement that implies the asserted exponent. The scholarly historical record has not been exhaustively checked, and the publisher's 59-page open-access PDF was inspected directly at the relevant theorem and all-maximizers remark, and its text searched for fringe and descendant claims.
+PASS
 
-## Value — PASS
-This establishes the growth exponent of the size discarded at the *very first* targeted cut, directly addressing a concrete, explicitly identified unresolved observable in a motivated resilience/cutting model. It is a probability law about an extreme, data-selected vertex, not a relabeling of an ordinary fixed-vertex fringe distribution. The sharp polynomial exponent quantifies the initial damage under maximum-degree targeting and is distinct from the previously studied *number of cuts*. This is a meaningful partial resolution, without claiming an exact distribution or subsequent-cut structure.
+At each step, entry into a fixed vertex's fringe has probability given by the fringe size divided by the current tree size; conditional on entry, its parent is uniform within the fringe. Conditioning on the full entry history does not bias these internal parent draws because the entry probabilities depend only on sizes. Thus given final size s the child count is a sum of independent Bernoulli variables with probabilities 1/r for 1<=r<s. The Pólya urn from initial counts (1,j-1) has beta-binomial mass equal to the difference of the two successive products in (2), yielding the stated upper tail. Choose the label tolerance delta positive and smaller than both mu and epsilon. The upper tail excludes sizes at least n^(a+epsilon) uniformly over the candidate labels j>=n^(mu-delta), by n times a stretched-exponential bound. For small fringes, the conditional exponential moment and H_(s-1)<=1+log(s) give a uniform Chernoff bound O(n^(-I(b,a-epsilon))) for the joint event of small fringe and degree >=b log n. At c=1/log 2, a=c/2, I(c,a)=c log 2-c+a=mu; decreasing a strictly increases the rate, so b<c and delta may be chosen with I(b,a-epsilon)>mu+2delta. The union over j<=n^(mu+delta) then vanishes. The root cannot violate the lower size bound; localization excludes it from the maximizers with probability tending to one. The two prior theorems have the required hypotheses at constant weight 1 and one attachment per step, and localization holds for the first and last maximum-degree labels. The intersected high-probability events prove the claim for all tied maxima at once. The finite checker was inspected, not executed; it checks the two finite identities through size eight, not the limiting exponent.
 
-## Limits
-The convergence is logarithmic and in probability only; no asymptotic scaling law beyond the exponent, explicit finite-size distribution of the selected fringe, or later-cut behavior is claimed. The two external inputs are established asymptotic results and are not proved here. Source-priority and independent review remain outside the completed verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the simultaneous fringe-size exponent at the first maximum-child-count cut in the uniform recursive tree. The strongest inspected prior work supplies label and degree limits, and poses the original first-cut size question, but does not give this conclusion. The result addresses its logarithmic-size aspect only.
+
+## value
+
+PASS
+
+This supplies a quantitative answer to a stated gap about the first targeted cut, distinguishing a mesoscopic polynomial-sized deletion from either a logarithmic or linear one. Uniformity over tied maximum-degree vertices makes it intrinsic to the cutting rule; the conditional extreme-degree lower bound is the substantive step beyond a typical-size heuristic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

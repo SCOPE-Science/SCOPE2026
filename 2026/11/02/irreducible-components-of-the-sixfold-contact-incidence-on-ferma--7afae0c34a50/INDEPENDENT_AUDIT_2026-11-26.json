@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:32:18.593313Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–72",
+        "VERIFICATION.md lines 19–23; verify_components.py lines 1–58 (read only)",
+        "Independent partial-partition count: grow blocks in order of their least label, discard singleton blocks and the sole full-support block at completion, then weight by d to the number of pairs"
+      ],
+      "rationale": "Over C with d≥6 the six Taylor coefficients in degrees 0–5 are the power moments of the distinct ratios v_i/p_i, each weighted by the sum of p_i^d on its block. Their first k equations have invertible k-by-k Vandermonde matrix since k≤6. Each resulting block sum is zero, so singleton blocks are impossible, and the one full-support block would give the zero direction modulo p. Conversely the exact restriction is t^d times the sum of w_i^d on the zero-coordinate complement; this proves the contact gap, including d=6. For a fixed partition and size-two root choices, the marked-point base is the open projectivized product of block cones, of dimension |T|-k-1. A block hypersurface of positive dimension in projective space is irreducible here because it is smooth and any distinct positive-degree factors would meet. The direction space is the projectivization of the rank k+|R|-1 bundle obtained by quotienting the allowed vector bundle by the tautological point line. Its dimension k+|R|-2 gives total dimension three. The exact support, pair-root ratios, and generic equality classes of the slopes are intrinsic; if two closures coincided their dense constructible loci of distinct block slopes would meet, contradicting recovery of that data. An independent recursion assigning each label to an existing block, a new block or the complement reproduced the nine shape counts 15,20,15,6,45,60,15,10,15 in the source order. Multiplication by d for each pair block gives 15d³+45d²+90d+51, with 5451 at d=6. These are reduced-locus statements only.",
+      "residual_risks": [
+        "Neither the finite check nor the proof establishes the scheme structure of the nonreduced contact locus."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general expected-dimension result gives 2n-7=3 in P5. The older order-five result gives 2n-6 under its hypotheses and mentions the order-six bound conditionally. The same-date scheme result adds lci/Gorenstein and intersection data, not a census."
+        ],
+        "reasoning": "The broader results cover the dimension part but do not determine irreducible components or identify V6_red with all Vj_red through j=d.",
+        "searches": [
+          "Beheshti–Mukhopadhyay arXiv:2610.28558v1 Theorem 1.2",
+          "Patel–Riedl–Smith–Tseng arXiv:2208.04393v1 Theorem 3.8 and Remark 4.2",
+          "Same-date Resultary 1acfe9e12a0d Finding and Limitations"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1acfe9e12a0d and d1d6db8e5caa",
+        "Beheshti–Mukhopadhyay arXiv:2610.28558v1",
+        "Patel–Riedl–Smith–Tseng arXiv:2208.04393v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The component proof uses saturation of all ratio-block moment equations and then recovers generic support and slope equality, arguments not implied by a known dimension or degree. The separate thickening result concerns scheme multiplicity at a particular contained family, whereas this theorem also identifies noncontained components and every high finite contact order."
+        ],
+        "reasoning": "The earlier dimension and plane counts cannot distinguish multiple three-dimensional components or exclude finite intermediate contact by themselves. No dominating inspected result is shown to imply the census or contact gap.",
+        "searches": [
+          "Compare the cited general dimension and plane-bound arguments against RESULT.md Steps 1–4",
+          "Compare the thickened contained-line family in Resultary d1d6db8e5caa with the full reduced support"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The incidence is on marked lines and contains both lines in the Fermat fourfold and lines of finite contact d. Neither a space of unpointed contained lines nor a count of planes gives these component labels. For example, the (2,2) families have two unused coordinates and a generic direction has the nonzero t^d coefficient of a noncontained line."
+        ],
+        "reasoning": "Passing from a family of contained lines to its universal line accounts only for the contained-line part, not the families that are generically of finite contact.",
+        "searches": [
+          "Published Resultary search for six-contact Fermat fourfold pointed lines; compare 1acfe9e12a0d and d1d6db8e5caa",
+          "Beheshti–Mukhopadhyay arXiv:2610.28558v1 Theorem 1.2 and Corollary 1.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The cited plane count supplies the familiar 15d³ piece; the inspected indexed records give neither the nine-type list nor its lower-order contributions 45d²+90d+51."
+        ],
+        "reasoning": "One entry for maximal linear spaces on the hypersurface is not a table for the components of the pointed contact incidence.",
+        "searches": [
+          "Local Resultary component-census comparison, especially 1acfe9e12a0d and d1d6db8e5caa",
+          "Fermat plane-count discussion in Beheshti–Mukhopadhyay Corollary 1.3 and Patel–Riedl–Smith–Tseng Remark 4.2"
+        ]
+      },
+      "rationale": "The prior dimension-three result and the classical Fermat planes are not credited as novel. The supported contribution is the full reduced pointed-contact block classification and contact gap for this Fermat family. The strongest same-date record treats canonical and degree data for the general six-contact scheme and expressly omits its number of components; the related contained-line thickening is also not the full census.",
+      "residual_risks": [
+        "The broader literature search retrieved no additional comparison; that does not establish priority. Older work specifically on Fermat flex loci or contained-line families may give parts or equivalent formulations outside the passages inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of dimension three and classical planes, not a full pointed census in these passages",
+          "evidence": "Expected dimension 2n-7 and at least 15d³ planes on the Fermat hypersurface in P5.",
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2610.28558v1",
+          "material_read": "Abstract and introduction offsets 0–2686; Theorem 1.2 offsets 2684–4164 and Corollary 1.3 plane discussion",
+          "method": "Lawful accessible HTML version of the primary paper",
+          "title": "Higher-order tangent lines to smooth hypersurfaces",
+          "trigger": "Same V6 and ambient dimension; explicit Fermat example"
+        },
+        {
+          "assessment": "Order-five dimension and discussion of order six, not the Fermat census in these passages",
+          "evidence": "Expected dimension 2n-6 at order five; conditional order-six dimension and Fermat plane number comparison.",
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2208.04393v1",
+          "material_read": "§3 Theorem 3.8 around offset 25047; §4 Remark 4.2 at offsets 34900–36479",
+          "method": "Lawful accessible HTML version of the primary paper",
+          "title": "Lines highly tangent to a hypersurface",
+          "trigger": "Broader high-contact dimension theorem and Fermat example"
+        },
+        {
+          "assessment": "Material overlap in dimension and ambient incidence, not in the Fermat census; no date-only priority inference",
+          "evidence": "Pure three-dimensional lci/Gorenstein scheme with canonical and very-general degree data; explicitly does not determine the number of components.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-canonical-polarization-and-intersection-numbers-of-six-contact-l--1acfe9e12a0d",
+          "material_read": "Mirrored Finding and Limitations",
+          "method": "Local Resultary catalogue and mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Canonical polarization and intersection numbers of six-contact loci",
+          "trigger": "Closest same-date indexed statement on the very same pointed incidence"
+        },
+        {
+          "assessment": "Related contained-line scheme calculation, not a reduced pointed-contact classification",
+          "evidence": "Generic scheme multiplicity six along a particular two-dimensional family of contained lines.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-length-six-generic-thickening-of-fermat-fourfold-line-families--d1d6db8e5caa",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A length-six generic thickening of Fermat fourfold line families",
+          "trigger": "Same Fermat geometry and contained-line families"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 18–72",
+        "Beheshti–Mukhopadhyay Theorem 1.2 and Corollary 1.3",
+        "Resultary 1acfe9e12a0d Finding and Limitations"
+      ],
+      "rationale": "The dimension theorem leaves the geometry of the special Fermat locus open. The partition-and-root classification supplies all topological components, including those generically not contained in the hypersurface, and it detects an actual contact-order gap. These are concrete invariants for comparing general and special contact loci, beyond recounting the classical planes.",
+      "residual_risks": [
+        "No multiplicities or intersection theory for the individual components is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The full SIR(1) model, seed sampling, graph definition, parameter ranges, and endpoint cases are explicit. In a percolated graph, a component of size \(k\) is hit by two uniformly sampled distinct vertices with probability \(1-(N-k)(N-k-1)/(N(N-1))\). This gives the cubic component contribution. The bridge-closed versus bridge-open split exhausts all possibilities, so first-through-third binomial moments yield the exact difference. The sign analysis gives three mutually exclusive cases, and its large-\(n\) limit is a direct leading-coefficient calculation. A separate graph enumeration checked the full symbolic identity for six sizes and \(907{,}792\) graph/seed-pair combinations. The theorem relies on the general proof, not on extrapolating the finite check.
+PASS
 
-## Originality
+For the deterministic one-step rule, preassign an independent open/closed variable for each edge when it is first tested between an infected and susceptible endpoint; no second opposite-direction test can reach a susceptible endpoint after that first attempt. The final set is the union of open components meeting the two seeds. The component hit probability in RESULT.md uses unordered sampling without replacement correctly. Independently, let P sum p^{distance} over unordered vertex pairs and J sum p^{Steiner subtree edge count} over unordered triples. Inclusion–exclusion for connection of each vertex to at least one uniform seed gives U=2+[4(N-2)P-6J]/[N(N-1)] including the cases in which the vertex is itself selected. Counting pairs on the double star gives coefficients (2n+1,n(n+1),n^2) for p,p^2,p^3; counting triples gives (n(n+1),n(n-1)+2n^2+2 binom(n,3),n^2(n-1)) for p^2,p^3,p^4. Symbolic factorization after subtracting U from 2+2np reproduces the precise boxed difference. Q_1=2p; Q_2=6p^2+5p-10 is increasing with sole interior root (sqrt(265)-5)/12; for n>=3, Q_n is increasing and Q_n(1)=2-(n-1)^2<0. The prefactor reverses the sign in (0,1) and enforces endpoint equality. The n^2 coefficient of Q_n is 3p^2-4, yielding the stated fixed-p normalized limit. These counts and the factorization are an analytic replay path independent of the supplied finite enumeration, which was read, not executed. Only expected sizes on the stated homogeneous toy graph are compared.
 
-**PASS with residual risk.** Ódor et al. [1] establish and motivate epidemic-seeding switchover for heterogeneous geometric/random networks. The 2022 overview [2] treats broader qualitative seeding effects. Keliger et al. [3] prove general sufficient conditions, with a strong-switchover conclusion under graph-expansion and seed-size assumptions that the pendant-leaf, fixed-two-seed family here does not satisfy. The exact double-star polynomial, sole six-vertex reversal, and macroscopic dominance gap are neither stated by nor consequences of those inspected claims. Searches for double-star, bistar, two-hub, tree-percolation, and fixed-two-seed aliases found no covering result, but previously unindexed influence-spread computations on trees remain a genuine priority risk. Search absence alone is not evidence of uniqueness.
+## originality
 
-## Value
+PASS
 
-**PASS.** The two-hub bridge network is a minimal deterministic model of two highly connected local communities linked by one bottleneck. The exact classification answers a natural question posed by the prior seeding-switchover literature: how a sparse intercommunity cut and only two initial cases affect whether dispersed seeding can eventually overtake hub seeding. The result does not merely approximate a known inequality: it shows that reversal occurs for exactly one branching size, locates its exact probability, excludes reversal uniformly for every larger size, and quantifies a nonvanishing population-scale discrepancy. These are testable structural benchmarks for epidemiological seeding comparisons, not an assertion of relevance to every real network.
+The open-component representation and general switchover question are prior. Prior endpoint sufficient theorems and the closest tree catalogue statements do not cover the complete double-star fixed-two-seed trichotomy, its unique exact crossing, or its nonzero size-normalized gap.
 
-## Literature and limitations
+## value
 
-References [1]–[3] are listed with accessible links in `RESULT.md`. The SIR/independent-bond equivalence and concept of switchover are prior knowledge. Conclusions apply to the specific double-star SIR(1) family with exactly two seeds and equal edge transmissibilities; they do not transfer automatically to multi-step infectious periods or stochastic contact networks. The closed-form formula is an analytical proof, whereas the standalone exhaustive checker samples only finitely many graph sizes. Independent scientific audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A symmetric two-star tree with one bridge is a natural exact bottleneck benchmark for open-component sampling. The result determines all branching sizes and all probabilities, distinguishes both strict orderings and a unique crossover case, and shows that the large-size comparison is not a vanishing boundary effect. It is a mathematical benchmark for percolation expectations, not a real-world model or a ranking of outbreak distributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

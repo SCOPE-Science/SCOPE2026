@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof deduces disjoint four-, four-, and five-line pencils from the incidence counts and line coverage; establishes noncollinearity by the torsion-free additive sumset bound; then proves that sixteen grid intersections all lie on the third pencil. The at-most-six-singular-points hypothesis forces each of five slopes to contain at least three grid points and hence forces the five-element quotient set of two four-element multiplicative subsets. Kneser's abelian-group addition theorem forces a fifth-root-of-unity coset, and diagonal normalization yields exactly one projective class. The explicit arrangement realizes all asserted multiplicities. Applying the necessary linewise constraints of Dimca--Pokora to both representatives of a putative lattice-equivalent counterexample yields the exclusion. The accompanying arithmetic checker reproduces the model's complete line and point incidence data over three finite fields; the infinitary claim relies on the given proof. Risk: standard Kneser theorem and cited necessary constraints are essential external inputs.
+## correctness
 
-## Originality — PASS
-Dimca--Pokora, arXiv:2609.33584v2, Propositions 5.6 and 5.8 and Section 5.3, explicitly leave the \((8,16,2,1)\) case among eight thirteen-line possibilities. Their results imply the two linewise hypotheses for a hypothetical counterexample, but not the uniqueness of the corresponding geometric realization. Dimca--Ibadula--Măcinic, arXiv:1305.5092v3, cover different pencil-net configurations and Milnor monodromy; no implication to this classification was found. The classical Kneser theorem is a proof ingredient, not an existing arrangement classification. Focused published-finding and literature searches uncovered no covering statement. Residual risk: an older arrangement enumeration might imply this special configuration without using the same language.
+PASS
 
-## Value — PASS
-The result eliminates one of eight explicitly unresolved natural numerical cases in a current thirteen-line generalized Terao problem, by an exact projective classification rather than a numerical approximation or a trivial substitution. It explains how extremal incidence capacity forces cyclotomic multiplicative structure. It leaves the other seven numerical cases open.
+Coverage with pencil sizes 4+4+5=13 forces disjoint pencils and forbids a center-joining arrangement line. Every triple point uses one line from each pencil, so the 16 distinct intersections of the first two pencils must all be covered by the third. If the centers were collinear, put them at infinity; the third parallel pencil would cover a 4-by-4 grid with at most five values of x−λy. A real-linear projection injective on the two summand sets gives at least 4+4−1 distinct sum values (walk through the ordered first set with the least second element, then through the ordered second set with the greatest first element). This contradicts five. For triangular coordinates the quotients B/A lie in C. Each third-pencil line has one center plus eight off-center crossings counted with multiplicity, reduced by one per triple, so its singular-point count is 9−t(c). The six-point bound gives t(c)≥3 and forces quotient support exactly C of size five, with frequencies 4,3,3,3,3. The finite stabilizer of B/A has order dividing five; Kneser's theorem rules out order one since four plus four minus one is seven. Hence the stabilizer is μ₅ and both coordinate sets are four-element subsets of μ₅ cosets. Scale the missing element in each coset to one; their ratios are then μ₅. For this normal form the 16 grid points are triples; the remaining off-center incidences are 8 doubles (one on each first/second pencil line), and the pencil centers have counts 4,4,5. The linewise counts are 6 on the first eight lines, and 5,6,6,6,6 on the third pencil. Dimca–Pokora's exact propositions provide both linewise hypotheses for the lower-r member of the counterexample pair. They transfer by lattice isomorphism, so projective equivalence contradicts the required difference in r (and in ν).
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The open numerical case, linewise constraints and monomial/triangular arrangement framework are prior. The distinct claim is projective uniqueness for every complex realization satisfying the two constraints, and thus exclusion of the numerical type from the cited generalized-Terao counterexample regime. The strongest checked triangular theorem gives a same-combinatorics roots-of-unity representative, not uniqueness; its noncomplete-triangle theorem concerns classical freeness, not equality of ν or r. Searches and comparisons are bounded.
+
+## value
+
+PASS
+
+This is a complete projective classification on a numerical type explicitly left open by a generalized-Terao reduction, and it rules out that type regardless of which admissible lattice is considered. The connection between saturated triple grids and multiplicative small-set structure explains why the moduli collapse rather than merely supplying an example. The incidence constraints are derived in the target application, not arbitrary parameters chosen after observing uniqueness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

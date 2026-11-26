@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:43:42.774605Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof steps 1–4; VERIFICATION.md; check_gamma_ig.py (inspected)",
+        "Independent bisection and CDF evaluations: /workspace/branches/analytic_record_diagnostics.py and .txt"
+      ],
+      "rationale": "Scaling by the common mean gives Gamma shape 1/v and scale v and inverse-Gaussian mean one and shape 1/v. The log density-ratio derivative is (-x²+(2+v)x−1)/(2vx²). It has two distinct positive zeros; thus Rolle's theorem bounds distinct ratio zeros by three. The signs at zero and infinity are opposite as claimed, from the inverse-Gaussian essential small-x decay and the faster Gamma exponential large-x decay. Matching mass, mean and second raw moment forces at least three density sign changes by integration against the sign-matching polynomial of degree at most two. Hence each crossing lies on a strict noncritical branch. The CDF difference is positive at the first and third density zeros and on the outer intervals; its integral is zero by the equal means, so it is negative at the middle density zero. Strict monotonicity gives the two and only two interior CDF zeros. For s=√v and z=(x−1)/s, Stirling/Taylor independently give first-order log density corrections s(z³−3z)/3 and s(z³−3z)/2. On |z|≤s^(−1/12), the log remainders are O(s²(1+|z|⁴)); exponentiating adds O(s²(1+|z|⁶)) times a Gaussian. To check the tail step, the two standardized log MGFs are −u/s−s^(−2)log(1−su) and −u/s+s^(−2)(1−√(1−2su)). Both are O(u²) for |su|≤1/4. Taking |u| a sufficiently small constant times s^(−1/12) gives superpolynomially small tails. Thus integrating gives s(z²−1)φ(z)/6+O(s²) on compact z-sets, with signs bracketing both ±1. Independently evaluated exact CDF formulas and bisection agree with the v=1 examples and illustrate the two limits; these diagnostics were not used to prove the uniform-in-parameter count.",
+      "residual_risks": [
+        "Unshifted positive laws only; no asymptotic uniformity over all standardized times or empirical model validation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Inspected matched-family discussion emphasizes similar densities and contrasting hazards, not a broader crossing rule. Giner–Smyth discusses stable single-family probability evaluations, not a two-family order."
+        ],
+        "reasoning": "Ordinary stochastic order is incompatible with the two CDF sign reversals; ordinary convex dominance of distinct laws with identical finite mean and variance is impossible. Higher-order convex comparison would require checking the same hypotheses and its implications; no inspected result supplied this exact crossing count or limit.",
+        "searches": [
+          "Published comparisons of moment-matched Gamma and inverse Gaussian; higher convex and stochastic order"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 79d9da59cb20 and 8e44a5956c55",
+        "Colonius Fig. 1.2",
+        "McGuire et al. DOI 10.1029/2004WR003657",
+        "Starn and Belitz DOI 10.1029/2017WR021531 (abstract)",
+        "Giner–Smyth DOI 10.32614/RJ-2016-024"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "These sources provide a matched example, application context or numerical evaluation. General moment orthogonality supplies a lower bound on sign changes, not the upper bound for this pair. The first-order Gaussian shape of a single law does not fix the two crossover locations."
+        ],
+        "reasoning": "The pair-specific derivative and sign argument determine the exact all-v statement; the nonzero difference of first-order skewness corrections, rigorous tail integration and root bracketing establish the concentrated limit. These are not established by the earlier example or models as inspected.",
+        "searches": [
+          "Colonius Fig. 1.2; McGuire et al. pp. 5–6; Giner–Smyth CDF discussion; Starn–Belitz accessible abstract; bounded comparison with moment and crossing criteria"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Colonius explicitly compares matched mean and standard deviation for Gamma and inverse Gaussian densities.",
+          "Resultary 8e44a5956c55 compares standardized exponential and normal symmetric-interval masses."
+        ],
+        "reasoning": "The hydrologic dispersion formulation is relevant to identifying the inverse-Gaussian model, not an independent root result. Symmetric-interval masses with a normal comparator are not deadline CDFs between the two stated families even after rescaling.",
+        "searches": [
+          "Resultary comparisons for moment-matched Gamma and inverse Gaussian crossings, residence clocks, and Gaussian crossing counts",
+          "Colonius Fig. 1.2 and its neighboring text; McGuire et al. dispersion RTD model"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 79d9da59cb20 Finding is the identical audited record. The distinct Resultary match 8e44a5956c55 has a different statistic and laws. Fig. 1.2 compares densities for one choice μ=60 ms and standard deviation 35 ms."
+        ],
+        "reasoning": "A matched figure at one choice cannot certify exact counts over the continuous free-variance parameter, much less the small-variance limit.",
+        "searches": [
+          "Resultary mirror 79d9da59cb20 and 8e44a5956c55; Cambridge matched-density example"
+        ]
+      },
+      "rationale": "The distinct contribution at this review's evidence level is the global matched-family crossing classification and the two standardized root limits, not introducing either residence-time law or the use of moment orthogonality. The strongest inspected same-family example matches the two moments for one parameter choice but states no exact crossing theorem. The matching Resultary text with the assignment's own suffix is the same record, not independent evidence of earlier coverage.",
+      "residual_risks": [
+        "Starn–Belitz full text not accessible on the checked avenues; conclusions there are not excluded.",
+        "A differently phrased distribution or higher-order stochastic comparison may not have surfaced. Priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same families and moment matching at one point, no crossing theorem in inspected passage",
+          "evidence": "The caption gives common mean 60 ms and standard deviation 35 ms; discussion singles out hazards as more distinguishable than histograms.",
+          "identifier_or_url": "https://assets.cambridge.org/97811070/29088/excerpt/9781107029088_excerpt.pdf",
+          "material_read": "Figure 1.2, p. 5, and surrounding text, offsets 15450 and 15997",
+          "method": "Publisher OA excerpt",
+          "title": "Selected concepts from probability",
+          "trigger": "Published matched Gamma and inverse Gaussian example"
+        },
+        {
+          "assessment": "Hydrologic motivation, not the exact comparison",
+          "evidence": "Describes Gamma and dispersion RTDs and the latter's 1D advection–dispersion derivation.",
+          "identifier_or_url": "https://doi.org/10.1029/2004WR003657",
+          "material_read": "RTD transfer-function discussion, pp. 5–6/14, offset 36750 onward",
+          "method": "OA original PDF passage",
+          "title": "The role of topography on catchment-scale water residence time",
+          "trigger": "Residence-time model equivalence and comparison"
+        },
+        {
+          "assessment": "Abstract supplies fitting context only; no assessment of unseen full text",
+          "evidence": "Abstract discusses fits with Weibull, Gamma and inverse Gaussian, not a two-crossing theorem.",
+          "identifier_or_url": "https://pubs.usgs.gov/publication/70205666",
+          "material_read": "USGS abstract, offset 0; publisher full text not available by attempted lawful route",
+          "method": "Public USGS record and attempted publisher access",
+          "title": "Regionalization of groundwater residence time using metamodeling",
+          "trigger": "Same two families fitted to groundwater transit times"
+        },
+        {
+          "assessment": "Algorithms for the inverse Gaussian alone",
+          "evidence": "Addresses reliable probability and quantile calculation, not a matched Gamma comparison.",
+          "identifier_or_url": "https://journal.r-project.org/articles/RJ-2016-024/RJ-2016-024.pdf",
+          "material_read": "PDF p. 1, offset 0; p. 4 CDF discussion, offset 17138",
+          "method": "OA PDF passages",
+          "title": "statmod: Probability Calculations for the Inverse Gaussian Distribution",
+          "trigger": "Exact CDF formulas and stable computations"
+        },
+        {
+          "assessment": "Different statistic and distributions",
+          "evidence": "Counts intersections for centered exponential versus normal symmetric-interval mass.",
+          "identifier_or_url": "Resultary 2026/10/13 8e44a5956c55",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Configured local mirror",
+          "title": "Exactly two Gaussian central-mass crossings for the standardized exponential",
+          "trigger": "Strong distinct catalogue analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and limitations; Colonius matched example; McGuire et al. transfer-function discussion; USGS abstract"
+      ],
+      "rationale": "These are established alternative residence-time models and mean/variance matching is a plausible choice when only two moments are known. The exact number, order and concentrated-regime location of deadline preference reversals is a useful distinction that the moments, an example plot, or vague nonordering do not provide. The exact statement is an independently useful parametric boundary, not a claim about which law fits a field site.",
+      "residual_risks": [
+        "Practical relevance depends on application-specific fit and valid positive unshifted travel-time models."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

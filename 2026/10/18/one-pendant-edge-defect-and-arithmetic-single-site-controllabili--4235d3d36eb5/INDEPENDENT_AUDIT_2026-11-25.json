@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:44:26.415378Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:10–52",
+        "VERIFICATION.md:19–25",
+        "verify.py:66–94",
+        "/tmp/opencode/frozen_review_analytic.py sunlet (independent exact check)"
+      ],
+      "rationale": "The cycle-Fourier reduction gives two strictly increasing separated vertical branches, [0,b) and [2b,infinity), of a 2-by-2 block. Within the reflection-even sector each occurs once per frequency magnitude. The positive even modes all overlap w because their nonzero core value at index zero differs from the leaf value (the leaf equation would otherwise force eigenvalue zero). On this positive uniform even subspace the residue at each pole is strictly positive in the expansion as |projection onto w|^2/(lambda-z); the determinant-lemma product therefore does not vanish at any old pole for c!=b. Off the poles F'(z)>0, so secular roots are simple. Connectedness for all c>0 handles the otherwise unperturbed zero eigenvalue. All uniform odd eigenvalues are among the excluded old positive poles. The odd modes vanish at site j precisely when M divides kj for one of the tested k, whose range is 1..M-1 for even n and 1..(M-1)/2 for odd n. If gcd(j,M)>1, the least such k=M/gcd(j,M) lies in range (for odd M the divisor is at least three); if coprime it cannot. Uniform c=b always has a double Fourier eigenvalue for n>=3. For eligible sites, symmetric PBH and the secular eigenvector give the stated vertex-specific exclusions; the first nonzero shortest-path moment from w proves H_s is nonzero (v_0 is immediate). Distances and signs are unaffected by diagonal Laplacian entries at that first moment. Totient counting gives precisely the generic count, not a uniform count at exceptional weights. An independent incidence-matrix exact calculation at n=5, a=b=1 gives characteristic-polynomial gcd with the u_1 principal minor of z^2-3z+1 at c=1/2 and 1 at c=2; both full polynomials are squarefree and the Krylov ranks are 8 and 10, respectively.",
+      "residual_risks": [
+        "The frozen verifier's reported 1100 is a loop counter: in lines 80–88 the c=2 branch is unreachable and rational rank is not calculated for the eligible sites in that loop. Its exact resonance run checks u_1 and u_2 at a=b=2,c=1, not u_1 at a=b=1,c=2. The independent exact reproduction above checks both claimed u_1 cases; the theorem is established by the analytic argument, not that counter.",
+        "No universal list of exceptional weights is asserted; exact algebraic root computation is stated for algebraic baseline conductances."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Poignard–Pereira–Pade prove structural generic simplicity in an edge-weight perturbation space; Hsu gives a controllability transfer for a specified repeated-cell construction."
+        ],
+        "reasoning": "A dense generic property in a multidimensional space need not even meet a prescribed one-dimensional line. An identical-cell transfer cannot be applied without addressing the odd modes left by the one nonidentical spoke.",
+        "searches": [
+          "Fixed single pendant/spoke Laplacian control on sunlets/coronas with arithmetic leader conditions",
+          "arXiv:1704.01677, Theorem 3.1",
+          "arXiv:1808.03022v1, Theorem 3.4"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md:27, 30–52, 57–67",
+        "Resultary 1ddd581661b4, 4620d7539f8a, 0089bd05941e, 2c7e24dd6265, 4b19ad060188",
+        "arXiv:1109.3556v1",
+        "arXiv:1808.03022v1",
+        "arXiv:1704.01677"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The uniform-cycle reachability result uses gcds of cyclic gaps for a set of actuators. The cited uniform-corona result accounts for the baseline uniform Fourier blocks, and the general generic-simplicity result does not specialize to every nonuniform defect weight."
+        ],
+        "reasoning": "None supplies the rank-one residue at every positive reflection-even eigenvector or the exact isolated positive exceptional weights by site; both are needed beyond the uniform spectrum and the standard PBH framework.",
+        "searches": [
+          "arXiv:1109.3556v1, uniform-cycle gap criterion",
+          "DOI:10.1137/050624029, Theorem 3.2 as cited",
+          "arXiv:1704.01677, Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Observation at a vertex and input at that vertex are dual for a symmetric Laplacian. Resultary 4620d7539f8a and 2c7e24dd6265 do give permanent arithmetic obstructions plus isolated sensor resonances, but for a cycle with a reweighted cycle edge. Resultary 4b19ad060188 adds only one pendant vertex and considers one specified input."
+        ],
+        "reasoning": "Switching between control and observation does not make a one-leaf cycle or a reweighted core cycle equivalent to the prescribed defect in a sunlet with a leaf at every site.",
+        "searches": [
+          "Resultary: fixed single-spoke defect and sunlet controllability, one-edge cycle observability resonances",
+          "arXiv:1109.3556v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first exact theorem controls a cycle from the endpoint of the reweighted cycle edge for all positive nonunit weights; its graph has no leaves. The second gives ranks and exact arithmetic placement for all identical path decorations, in particular the uniform-spoke sunlet, with two actuators and single terminal-leaf failure."
+        ],
+        "reasoning": "Neither exact spectral/control entry enumerates vertex-specific resonances or gives the reported arithmetic eligibility and generic count for a single prescribed heterogeneous spoke.",
+        "searches": [
+          "Resultary 1ddd581661b4 (one reweighted cycle edge)",
+          "Resultary 0089bd05941e (arithmetic actuator placement on weighted cyclic combs)"
+        ]
+      },
+      "rationale": "The supported distinct claim is the all-positive nonuniform one-spoke simplicity plus vertex-specific full PBH classification on the sunlet. Fourier blocks, PBH, the rank-one secular equation and arithmetic obstructions on cycles are not themselves new. Closely related indexed one-edge resonance and cyclic-comb statements were compared without treating different dates as evidence of priority.",
+      "residual_risks": [
+        "Barik–Pati–Sarma full text and a less-specific graph-products search hit were not retrieved. No claim of exhaustive absence or priority certification; equivalent unindexed perturbation results remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different graph and leaders",
+          "evidence": "Exception on a core cycle edge and actuator at an endpoint; no attached leaves.",
+          "identifier_or_url": "Resultary 2026/10/12, 1ddd581661b4",
+          "material_read": "RESULT.md theorem and model",
+          "method": "Configured local search and mirror",
+          "title": "Exact reachability-volume factorization for a cycle with one weighted edge",
+          "trigger": "Closest prior single-edge detuning case"
+        },
+        {
+          "assessment": "Methodological overlap, not the same object",
+          "evidence": "Length or reflection-gcd obstructions and finite resonance values when a cycle edge is varied.",
+          "identifier_or_url": "Resultary 4620d7539f8a; 2c7e24dd6265",
+          "material_read": "RESULT.md findings and scopes",
+          "method": "Configured local search and mirror",
+          "title": "Exact single-sensor observability resonances of a singly weighted cycle; Exact all-vertex sensing resonances and a totient placement law on a one-defect diffusion ring",
+          "trigger": "Duality and material resonance analogy"
+        },
+        {
+          "assessment": "Covers baseline, not defect",
+          "evidence": "Identical paths at all cycle sites; one terminal actuator fails and two have a gcd criterion.",
+          "identifier_or_url": "Resultary 0089bd05941e",
+          "material_read": "RESULT.md theorem and model",
+          "method": "Configured local search and mirror",
+          "title": "Exact rank-lifting and arithmetic actuator placement on weighted cyclic combs",
+          "trigger": "Includes uniform sunlets"
+        },
+        {
+          "assessment": "Different graph and actuator quantifier",
+          "evidence": "Only one attached leaf and one specified input.",
+          "identifier_or_url": "Resultary 4b19ad060188",
+          "material_read": "RESULT.md finding and scope",
+          "method": "Configured local search and mirror",
+          "title": "Exact single-input controllability resonances on a one-leaf cycle",
+          "trigger": "Pendant-edge weighted resonance"
+        },
+        {
+          "assessment": "Arithmetic background",
+          "evidence": "Uniform-cycle controllability from a set of vertices via gcd of cyclic gaps.",
+          "identifier_or_url": "arXiv:1109.3556v1",
+          "material_read": "p. 22, OA offsets 67250–70713",
+          "method": "Primary OA PDF",
+          "title": "On the reachability and observability of path and cycle graphs",
+          "trigger": "Cycle arithmetic and observation/control duality"
+        },
+        {
+          "assessment": "Cell transfer, not one-spoke characterization",
+          "evidence": "Specified interconnected repeated-cell construction.",
+          "identifier_or_url": "arXiv:1808.03022v1",
+          "material_read": "p. 9, Theorem 3.4 at OA offset 23076",
+          "method": "Primary OA PDF",
+          "title": "Laplacian Controllability of Interconnected Graphs",
+          "trigger": "Potential stronger product theorem"
+        },
+        {
+          "assessment": "Generic conclusion over a different parameter space",
+          "evidence": "Structural weight perturbations, not a guarantee along a fixed spoke.",
+          "identifier_or_url": "arXiv:1704.01677",
+          "material_read": "p. 4, Theorem 3.1, OA offsets 16700–20099",
+          "method": "Primary OA PDF",
+          "title": "Spectra of Laplacian matrices of weighted graphs: structural genericity properties",
+          "trigger": "Potential implication of simple spectrum"
+        },
+        {
+          "assessment": "Attribution to the uniform result only; no full-text noncoverage claim",
+          "evidence": "Frozen RESULT.md:58 cites the uniform corona formula; baseline was reconstructed directly.",
+          "identifier_or_url": "DOI:10.1137/050624029",
+          "material_read": "Frozen attribution to Theorem 3.2; original text not retrieved",
+          "method": "DOI and SIAM PDF requests returned 403, no identified open repository copy",
+          "title": "The Spectrum of the Corona of Two Graphs",
+          "trigger": "Exact baseline spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:3–27, 38–52"
+      ],
+      "rationale": "This gives an exact minimal-heterogeneity experiment for a natural consensus network: one chosen edge suffices to split the full spectrum for every nonuniform positive value, but simplicity alone does not suffice for single-site control. The arithmetic inventory and an exact isolated failure separate structural from tunable obstructions and can be used to select or reject an actuator without floating-point eigenvector thresholds.",
+      "residual_risks": [
+        "This is a fixed sunlet geometry, not a robustness or multi-input claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The probability vector is nonnegative on the stated interval and sums to one. Exact first and second moments are \(23/10\) and \(67/10\), giving variance \(141/100\). The two best-response differences reduce to the exact signs of \(19/50-(2/5-t)\) and \(19/50-(1/10+3t)\), which prove the three open regimes and both boundary ties.
+PASS
 
-## Originality
+The mass perturbation (-1,3,-3,1) annihilates powers 0, 1 and 2 on the fixed support {1,2,3,4}. The constant moments are 23/10 and 67/10, giving variance 141/100. Nonnegativity includes t=1/10, where the third mass vanishes. The payoff gains divided by L are t-1/50 against conservation and 7/25-3t against extraction, giving the stated regions and exactly one tied comparison at each boundary. Between the crossings, extraction strictly dominates and the symmetric payoff ordering is T>R>P>S: unilateral extraction against conservation gives T>0=R, mutual extraction gives P/L=19/50-(1/2+2t)<0, and P>S follows from strict dominance against extraction. This establishes a strict Prisoner's Dilemma, not just a dominant-strategy outcome.
 
-PASS, with a residual source-access risk. The closest 2017 literature studies uncertain tipping points and discusses coordination and Prisoner’s Dilemma incentives, but the accessible abstract does not establish a fixed-moment family or the exact boundaries \(1/50\) and \(7/75\). The accessible 2015 full text treats threshold uncertainty in a repeated public-goods experiment, including a uniform distribution and an ambiguity treatment; the relevant sections do not imply this exact construction. Searches of a published findings index returned no exact match; nearest records concerned different game structures. The 2017 full text was not available, so novelty is not asserted beyond the specific claim stated here.
+## originality
 
-## Value
+PASS
 
-PASS. In threshold-risk models, the equilibrium regime determines whether conservation is a coordination problem, extraction is dominant, or incentives are anti-coordinating. The exact moment-preserving family shows that mean and variance alone cannot identify that regime, giving a concrete reason to retain action-relevant threshold probabilities when parameterizing uncertainty.
+Pass the explicit fixed-two-moment witness traversing all three strategic classes at the two values claimed, not the already known effect of uncertain tipping points on incentives or the general observation that moments can miss strategic information. No examined source establishes or implies this witness. The closest article is assessable at abstract level only.
 
-## Closest literature and limits
+## value
 
-Maas et al. (2017), DOI 10.1016/j.geb.2017.06.009, is the closest conceptual source; its full text was not obtained. Dannenberg et al. (2015), DOI 10.1007/s10640-014-9796-6, was inspected in open full text through the introduction, experimental design, payoff specification, and equilibrium discussion. The result is a static model-specific theorem, not an empirical prediction. Independent audit and independent validation remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The witness answers an identification question: even knowing both moments exactly, with the same payoff parameters and fixed available cutoff values, does not distinguish three qualitatively different best-response structures. One moment-preserving perturbation crosses both margins, more informative than just showing that collapse probabilities can vary. Four fixed support points are the smallest support on which normalization and the first two moments permit a nonconstant mass perturbation, by Vandermonde rank. The example is a minimal-support construction of the relevant obstruction, not an empirical claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

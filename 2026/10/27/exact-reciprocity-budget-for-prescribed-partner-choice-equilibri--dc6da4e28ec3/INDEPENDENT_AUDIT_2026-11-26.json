@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:00:17.012061Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For raw payoffs and positive gaps, summing the successor-versus-predecessor inequalities on any cycle of length at least three gives the cycle-sum lower bound. An independent sufficiency check uses chosen payoffs x_i: for a nonmutual arrow i→j, setting the reverse entry to x_i−ε requires exactly x_j−x_i≥δ_j−ε. On each long cycle these differences can be assigned by distributing nonnegative slack of total |C|ε−Σ_C δ; on a loop use a freely chosen diagonal, on a two-cycle use equal chosen payoffs, and propagate the inequalities outward over each in-tree. Use a common shift and set other competing entries to a small common positive constant. This realizes any ε at least the greatest long-cycle mean, including ε=0 when no such cycle exists and the vacuous n=1 case. The source's symmetric depth-ranked tree assignment also works; it has no conflict with long-cycle reverse entries. The restricted-map count follows from choosing cyclic labels, an involution, and the specified-root forest, with the k=n term interpreted separately. Lagrange inversion and dominated convergence give the stated known asymptotic. VERIFICATION.md and check.py were inspected; the exact witness enumeration and numerical LP results there are recorded finite evidence, not fresh executions or proofs for arbitrary real gaps.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general no-negative-cycle criterion supplies the obstruction once the problem is reduced to edge differences.",
+          "Indexed one-neighbor public-goods repair minimizes changes of arcs to eliminate odd cycles; the earlier one-out equilibrium result describes point or interval factors."
+        ],
+        "reasoning": "Neither indexed network model has arbitrary positive payoff entries with prescribed row margins and skew constrained on distinct unordered pairs. The classical graph optimization theorem is a mechanism, not an earlier payoff representation theorem.",
+        "searches": [
+          "Karp, A Characterization of the Minimum Cycle Mean in a Digraph, Discrete Mathematics 23 (1978), 309–311",
+          "Resultary: reciprocity repair and one-out networks"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.24792v1",
+        "OEIS A209319 and A246522",
+        "Resultary local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "Frozen RESULT.md, VERIFICATION.md and check.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unrestricted indicator construction gives no lower bound at a fixed reciprocity budget. The count distinguishes which maps have no long cycles, not how much skew a long cycle requires under arbitrary positive margins."
+        ],
+        "reasoning": "The payoff-specific lower bound and realization together sharpen the known zero-budget and unrestricted endpoints. Existing model-specific claims examined do not imply sharp off-zero attainment.",
+        "searches": [
+          "arXiv:2610.24792v1 S2 Prop. 6",
+          "Resultary: one-neighbor reciprocity repair",
+          "OEIS A209319"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Riedl–Smead S2 Proposition 6 realizes any map with indicator entries and no reciprocity bound.",
+          "Eliminating the reverse entry for a nonmutual arrow gives a scalar difference inequality with edge weight δ_j−ε."
+        ],
+        "reasoning": "The cycle-mean formulation is equivalent to the reduced feasibility problem; the transfer back to a positive payoff matrix, treatment of loops and reciprocal choices, and strict margins against every off-cycle competitor are needed to establish the actual realization claim. Two-player symmetric interaction is not entrywise reciprocal payoff.",
+        "searches": [
+          "Resultary: cycle-mean reciprocity and prescribed-partner preference variants",
+          "Primary literature: prescribed partner, approximate symmetric preference and cycle-mean variants",
+          "arXiv:2610.24792v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A209319 lists exactly the no-long-cycle family with the same EGF and asymptotic; A246522 column 2 is the same enumeration.",
+          "The closest identified Resultary entries concern a contribution game and numerical equilibrium degeneracy or combinatorial edge repair, rather than this minimum defect."
+        ],
+        "reasoning": "The count and its asymptotic have exact database coverage and are already explicitly excluded from the novelty claim. No compared table supplies the heterogeneous-margin optimum for an individual f.",
+        "searches": [
+          "Resultary: exact reciprocity budget, heterogeneous margins and cycle means",
+          "OEIS A209319",
+          "OEIS A246522 column 2"
+        ]
+      },
+      "rationale": "Credit the sharp prescribed-map, heterogeneous-margin payoff realization, not the classical cycle-mean method, unconstrained topology realization, or any of the enumeration. The inspected earlier sources and indexed variants do not cover the full quantitative payoff claim.",
+      "residual_risks": [
+        "The primary search yielded no additional relevant exact statement; unindexed approximate symmetric preference representation may contain one.",
+        "Karp full text was not retrieved; the graph-theoretic mechanism is not credited as novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers unrestricted partner map realization only",
+          "evidence": "U_ij is own payoff to strategy i against j; Proposition 6 constructs U_ij=1[j=f(i)] to realize all K^K maps.",
+          "identifier_or_url": "https://arxiv.org/html/2610.24792v1",
+          "material_read": "Materials and Methods and S2 Proposition 6",
+          "method": "OA full text, offsets 55698 and 98819",
+          "title": "Strategic Origins of Network Structure",
+          "trigger": "Original model and unrestricted topology realization"
+        },
+        {
+          "assessment": "Exact coverage of enumeration, not claimed new",
+          "evidence": "Same functional-graph class, exp(T+T²/2), and 2 exp(3/2) n^(n−1) asymptotic; entry dates to 2013.",
+          "identifier_or_url": "https://oeis.org/A209319",
+          "material_read": "Entry and cross-reference to A246522",
+          "method": "OA table entry, offset 0",
+          "title": "Endofunctions whose cycle lengths are at most two",
+          "trigger": "Exact matching sequence"
+        },
+        {
+          "assessment": "Different equilibrium observable",
+          "evidence": "Cycles in a loopless public-goods contribution game determine point or interval factors.",
+          "identifier_or_url": "2026/10/26/SCOPE-generic-equilibrium-uniqueness-and-exact-degeneracy-on-one-out-n--6579ff0ec939",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary and local mirror, offset 0",
+          "title": "Generic equilibrium uniqueness and exact degeneracy on one-out networks",
+          "trigger": "Indexed one-out model with heterogeneous cyclic equilibrium effects"
+        },
+        {
+          "assessment": "Combinatorial rather than payoff repair",
+          "evidence": "Minimum reciprocal arc additions equals the number of odd cycles in the loopless one-neighbor contribution model.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-reciprocity-repair-and-equilibrium-rarity-in-one-neighbor--043bf63c5362",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary and local mirror, offset 0",
+          "title": "Sharp reciprocity repair and equilibrium rarity in one-neighbor networks",
+          "trigger": "Closest indexed reciprocity-budget wording"
+        },
+        {
+          "assessment": "General mathematical comparator, not judged from an unavailable paper",
+          "evidence": "The direct difference-constraint reduction explains the connection independently of the failed fetch.",
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(78)90011-0",
+          "material_read": "Bibliographic information only; no full text retrieved",
+          "method": "OA DOI and publisher attempts",
+          "title": "A Characterization of the Minimum Cycle Mean in a Digraph",
+          "trigger": "Classical cycle-mean mechanism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The invariant measures a natural cost in the partner-choice model, not merely whether representation is possible. It locates all obstructions in long cycles, shows that even large margins in the trees cost no skew, and distinguishes a worst cycle's average from the largest single gap. Exact attainment and the common-gap phase boundary are usable in specifying reciprocal payoff tolerances. No value credit is assigned to the known count or to empirical predictions outside the raw-payoff model.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,12 +1,21 @@
-# Scientific review: geometric-mean threshold for reentrant Monod growth rankings
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact equal-duty-cycle mean is \(M_K(v)=[m(m+K)-v]/[(m+K)^2-v]\). Positivity of all denominators on \(0\leq v\leq m^2\) permits a logarithmic derivative of the Monod-mean ratio. The comparison function \(H(v)\) is strictly increasing for \(K_2>K_1\). The derivative at zero has the sign of \(m^2-K_1K_2\), and the derivative at maximal admissible variance is strictly negative, yielding one interior maximum exactly in the supercritical regime. The explicit witness has two simple roots in the physical interval. The included independent calculation script passes 10,906 exact-rational diagnostic assertions. Limits: the tests are not a proof of the full continuous-parameter statement; the inequalities in RESULT.md provide that proof.
+## correctness
 
-## Originality — PASS relative to inspected material; priority remains provisional
-Hsu (1980, DOI 10.1007/BF00275917) analyzes feedback-coupled, sinusoidally supplied nutrient and coexistence. Grover (1990, DOI 10.1086/285131) treats fluctuating Monod resource competition; the available abstract does not settle whether a related comparison appears in inaccessible full text. Grover (2008, DOI 10.1086/595751) studies spatially heterogeneous nutrient storage. Yamamichi–Letten (2022, DOI 10.1111/1365-2656.13813) treat instantaneous growth-curve crossings and nonconcave responses. Stump et al. (2022, DOI 10.1002/ecm.1493) use sinusoidal nutrient forcing. None of the inspected corresponding statements implies the two-reversal criterion under exogenous equal-mean, equal-duty forcing, common mortality, and both strictly concave Monod functions. A general algebraic fractional-linear ratio theorem, or unexamined passages in the 1990 paper, remain risks. Search absence is not independent priority certification.
+PASS
 
-## Value — PASS
-Nutrient fluctuation intensity can change the ranking of two microbial growth exponents twice even though both Monod uptake curves are concave and nutrient mean and mortality stay fixed. The exact condition \(m>\sqrt{K_1K_2}\) separates single-switch rigidity from possible reentrance, giving an interpretable experimental design constraint and a non-obvious analytic benchmark for ecological fluctuation models. The result does not imply coexistence or competitive exclusion in feedback-coupled chemostats.
+The per-period log growth difference is the difference of the two equally weighted Monod averages; common mortality cancels, and the last incomplete period contributes a bounded error to the log ratio. All four factors in the logarithmic derivative are positive even when the low level is zero. The ratio H of the two quadratic factors is strictly increasing, so R' has at most one zero. Its sign at v=0 is the sign of m^2-K1*K2 and its sign at v=m^2 is strictly negative. Equality in the first test gives strict decrease in the open interval, not a second crossing. The endpoint heights satisfy R(m^2)<R(0); hence in the single-maximum case the two interior sign changes occur exactly for R(0)<a2/a1<R(v*). The lower endpoint does not count as an interior switch, and the maximum gives a tangency. Independent substitution and root calculation reproduce 0.1851993002684 and 0.7405149854459 and the stated sign order; at maximal variance the witness net exponents are 39/110 and 7/15, the minima on the interval. The proof is uniform over the stated domain, with no feedback assumption hidden in the averaging. The supplied check.py was inspected, not executed; the independent algebra and numerical evaluation are distinct from its reported rational tests.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge pass for the sharp variance criterion in the prescribed two-level nutrient model, not for Monod concavity, averaging itself, or fluctuation-driven changes of competitive outcomes in general.
+
+## value
+
+PASS
+
+Concavity makes each mean growth response decline as variance grows, but does not order the declines. The theorem gives a sharp, interpretable boundary for reentrant relative growth, including an exact witness where both species still have positive net exponents. This is a useful benchmark for fluctuation models; it neither predicts coexistence or exclusion in a coupled system nor provides empirical validation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

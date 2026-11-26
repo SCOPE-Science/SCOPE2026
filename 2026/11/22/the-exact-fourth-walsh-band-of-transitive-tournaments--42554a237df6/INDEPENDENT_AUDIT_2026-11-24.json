@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:45:06.015081Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–27 and 29–43",
+        "VERIFICATION.md and verify.py inspected, not executed",
+        "Independent replay: python3 /workspace/branches/3062adb3-93ac-4818-a871-6f7dd2da0766/independent_low_degree_check.py"
+      ],
+      "rationale": "Pass for the magnitude table normalized by n!, and for the rank of the restriction, not the full operator. Relative order on the active vertices is uniform; disconnected internal relative orders are independent. Reversal in an odd-edge component negates its sign, leaving only P3 in degree two and P3 disjoint P3 as the disconnected degree-four survivor. The connected degree-four shapes are exhausted by the two four-vertex graphs and the three five-vertex trees. The last-vertex recurrence signs precisely the new inversions. Independently, representing ranks by iid uniform variables gives the same even moments: P3 and K1,4 integrate (1-2u)^2 and (1-2u)^4; conditioning on two vertices on one side of C4 gives the integral of (1-2|u-v|)^2; for the fork the integrand is (1-2u)^2(1-2|u-v|), and for P5 it is (1-2u)(1-2v)(1-2|u-v|). Their evaluations are respectively 1/3,1/5,1/3,1/15,2/15 under suitable reference orientations. The triangle with pendant edge is zero by swapping the two triangle vertices other than the attachment. A separate exact enumeration of all supports through degree four and orders on n=4,5,6 returned the stated degree counts. Counting the paths, cycles, five-vertex labeled trees and pairs of three-vertex paths gives 3,3,125,90 on their corresponding vertex sets, proving the rank polynomial, including n=3 with binomial convention.",
+      "residual_risks": [
+        "Reference labelings can change signs; the table asserts magnitudes, not those specific canonical signs. Finite replay is not an extrapolation to larger degree."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The dyadic Fourier entry gives a universal 2^(n-s_2(n)) divisor of the very same signed sums and reversal-forced zeros.",
+          "The Chebikin–Postnikov introductory inversion statistic is on rooted labeled trees and its -1 specialization counts alternating permutations; it is not the parity moment on a fixed frequency graph. A thesis with the exact chromatic quasisymmetric q=-1 specialization was located but its contents were not lawfully retrieved in the bounded attempts."
+        ],
+        "reasoning": "Divisibility supplies no distinction between zero and nonzero among even motifs of the same size and does not give their exact magnitudes. The thesis is a substantive possible stronger theorem, not a basis for a whole-document negative assertion.",
+        "searches": [
+          "2026/11/16/SCOPE-exact-dyadic-fourier-gcd-for-transitive-tournaments--b0825d4e36db",
+          "Chromatic quasisymmetric evaluation at q=-1; Yanru Liu thesis",
+          "Chebikin–Postnikov, arXiv:0806.0440v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records in source_inspections and the identical target hit",
+        "Colmenarejo–Klein, Definitions 2.6 and 3.1, Examples 1.3 and 3.2, Table 1 and §4.1",
+        "Chebikin–Postnikov and Margolius (total inversions), bounded primary passages",
+        "Yanru Liu thesis index and repository access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-label chromatic formula gives the star directly from its existing Table 1. For the labeling-summed version, the squarefree coefficient at -1 is (-1)^|S| times the square of the fixed-label signed sum: the sign factors into a product from the two independent vertex rank bijections. Thus a correct aggregate coefficient for a specific motif can imply its magnitude too.",
+          "Neither the verified star formula nor the dyadic divisor evaluates the remaining distinct connected nonstar motifs, establishes the exact nonzero list, or counts the rank."
+        ],
+        "reasoning": "Credit all prior implications available from the evaluated formulas. The general coloring definition is a way to compute a specified motif, not an evaluated result giving a complete degree-four classification without further work. The frozen shape exhaustion and evaluations account for the other graphs and give the global sparse restriction rank.",
+        "searches": [
+          "Colmenarejo–Klein Definition 2.6, Definition 3.1, Table 1 and §4.1",
+          "Earlier dyadic spectrum and incidence summaries",
+          "Frozen complete graph-shape analysis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "By Definition 2.6, [x_1...x_k] of the fixed-label chromatic quasisymmetric function sums q^asc over bijective colorings. Relative ranks give asc=|S|-inv_S, so at q=-1 the coefficient is the signed order sum up to (-1)^|S|.",
+          "The indexed incident-edge covariance for inversion indicators converts to the magnitude 1/3 for their sign product."
+        ],
+        "reasoning": "This is exact equivalence up to sign and factorial normalization, not a different polynomial merely sharing the word inversion. The basic equivalent invariant and degree-two evaluation are covered; the question is whether their evaluated order-four table and rank are already given.",
+        "searches": [
+          "Graphical inversion parity, pairwise comparison sign integral and squarefree chromatic quasisymmetric coefficient at q=-1",
+          "arXiv:2601.23170, Definition 2.6",
+          "Resultary: incidence precision law for all inversion indicators"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary title is the identical assigned record. Table 1 gives the fixed-label five-star squarefree coefficient 24(q^4+q^3+q^2+q+1) for center label 1, so it already gives the magnitude 24, or 1/5 normalized.",
+          "Example 3.2 concerns the four-cycle summed over labelings, not a list of fixed-label motif values. Its available HTML squarefree row totals 572 at q=1, as against (4!)^2=576 from the definition; that literal row was not used as an exact certificate."
+        ],
+        "reasoning": "There is a real earlier motif table hit and it is credited. Neither the specific star table nor the four-cycle example is a table of all degree-four motifs or the restriction ranks.",
+        "searches": [
+          "Resultary: fourth Walsh band, frequency support graph, dyadic Fourier gcd and inversion-indicator incidence law",
+          "Colmenarejo–Klein arXiv:2601.23170v2, Example 1.3/Table 1 and Example 3.2"
+        ]
+      },
+      "rationale": "The supported distinct result is the complete low-degree Walsh support classification, values and restriction-rank polynomial, not the inversion statistic, component factorization, odd-degree zeros, two-edge covariance or isolated star evaluation. The literature has a genuinely equivalent invariant: a fixed-label chromatic quasisymmetric squarefree coefficient at q=-1. One published table already supplies the five-vertex star value, and the indexed incidence law supplies the two-edge value, so these are credited as prior coverage. The inspected general definitions and specific tables do not supply all surviving and vanishing fourth-degree shapes and the resulting rank.",
+      "residual_risks": [
+        "The Liu thesis is the strongest inaccessible specialized source and could contain additional evaluated cases or a stronger formula. Full text for the two earlier catalogue records was not retrieved. An inaccessible source is not evidence of absence; the originality judgment is limited to the complete classification beyond the verified partial coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General equivalent formulation and decisive exact prior star magnitude; examples do not give the audited classification",
+          "evidence": "Definition 2.6 weights proper colorings by labeled edge ascents; the all-ones composition selects proper colorings with bijective ranks. Table 1 gives 24 times the length-five q-integer for the star with center label 1.",
+          "identifier_or_url": "https://arxiv.org/html/2601.23170",
+          "material_read": "Introduction, Example 1.3 and Table 1, Definitions 2.6 and 3.1, four-cycle Example 3.2, and §4.1 through Lemma 4.1",
+          "method": "Bounded official arXiv HTML following OA timeout and PDF preview",
+          "title": "The Total Chromatic Quasisymmetric Functions of a Graph",
+          "trigger": "Equivalent graphical ascent statistic and explicit small graph tables"
+        },
+        {
+          "assessment": "Unresolved potentially important stronger coverage; not a negative full-document determination",
+          "evidence": "The indexed title names the exact q=-1 specialization. The official repository routes returned an access challenge; alternate-copy lookup found no usable copy.",
+          "identifier_or_url": "https://wakespace.lib.wfu.edu/bitstreams/41b765ea-f1f7-4237-9f24-d07ce6d40d36/download",
+          "material_read": "Indexed title and author Yanru Liu only; decisive thesis passages not accessible",
+          "method": "OA literal-query attempt, official repository retrieval and identified public API record, and alternate-copy lookup",
+          "title": "Chromatic Quasisymmetric Function Evaluated at q=-1",
+          "trigger": "Identical specialization of the equivalent graphical ascent invariant"
+        },
+        {
+          "assessment": "Exact overlap on the object and partial overlap on vanishing; available statement differs in invariant",
+          "evidence": "Universal divisor 2^(n-s_2(n)) and reversal zeros, not discriminating among low even frequencies.",
+          "identifier_or_url": "2026/11/16/SCOPE-exact-dyadic-fourier-gcd-for-transitive-tournaments--b0825d4e36db",
+          "material_read": "Catalogue summary and frozen prior-work discussion; exact mirror passage not retrieved",
+          "method": "Resultary and bounded local-mirror attempt",
+          "title": "Exact dyadic Fourier GCD for transitive tournaments",
+          "trigger": "Same Walsh spectrum, earlier indexed work"
+        },
+        {
+          "assessment": "Prior degree-two magnitude; not a fourth-order classification in the statement read",
+          "evidence": "Line-graph covariance and incident comparison correlation magnitude 1/3, yielding the P3 value for centered signs.",
+          "identifier_or_url": "2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805",
+          "material_read": "Catalogue summary; exact full text not retrieved",
+          "method": "Resultary and bounded local-mirror attempt",
+          "title": "Incidence precision law for all inversion indicators of a random order",
+          "trigger": "Covariance of the same inversion indicators equals their degree-two comparison sign moment after normalization"
+        },
+        {
+          "assessment": "Different sample space and inversion statistic",
+          "evidence": "Rooted labeled trees or parking functions, with alternating permutations from evaluation at -1; not all orders on the endpoints of a selected fixed edge set.",
+          "identifier_or_url": "https://arxiv.org/pdf/0806.0440v1",
+          "material_read": "PDF p. 1, abstract and introduction",
+          "method": "Bounded official PDF text via webfetch after OA attempt",
+          "title": "Generalized Parking Functions, Descent Numbers, and Chain Polytopes of Ribbon Posets",
+          "trigger": "Tree inversion enumerator evaluated at -1"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, classification and Counting surviving modes",
+        "Chromatic quasisymmetric and incidence comparisons in originality"
+      ],
+      "rationale": "Degree four is the first even band where connected cycles and several distinct tree shapes can occur, and the first with a nonzero product of two nonconstant components. The precise list and multiplicities identify which four-way order-comparison moments survive and give the dimension retained by low-degree XOR convolution on this natural ranking set. This is a full all-n invariant for the first such band, not an arbitrary set of small ambient n or a recomputation of the known star and covariance alone.",
+      "residual_risks": [
+        "No full Fourier rank, conditioning behavior or higher-degree classification is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

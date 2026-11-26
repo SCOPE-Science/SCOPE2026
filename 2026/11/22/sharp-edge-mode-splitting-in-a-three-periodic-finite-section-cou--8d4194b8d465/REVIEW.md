@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Dirichlet section of size \(3(2k+1)\) has the exact stated three-periodic diagonal word. The zero-energy interior continuants cycle as \((-2)^r,2(-2)^r,0\); palindrome symmetry provides the inverse entries. Their exponential decay is uniform in size, so the interior spectrum has a genuine fixed gap. The two endpoint Schur eigenvalue functions have simple opposite-sign zero crossings at \(\pm(3/5)2^{-(2k+1)}\), with error \(O(k16^{-k})\), while no additional eigenvalues enter that gap. The inverse norm is the reciprocal of the smallest absolute eigenvalue. The standalone exact-rational and decimal checks independently reproduce finite cases but are not infinite proofs.
+## correctness
 
-## Originality — PASS (qualified)
-Gabel–Gallaun–Großmann–Lindner–Ukena (arXiv:2110.09339, Example 4.2) already identify the invertible periodic operator and qualitative finite-section failure. Those facts are not claimed as new. Their inspected example and criteria do not provide the pair of sharp finite-section splitting coefficients or a spectral-separation proof. Lindner–Ukena (arXiv:2208.04015) treats a different integer-valued potential class and qualitative invertibility criteria. Haeming (arXiv:2208.01646) concerns periodic spectral bandwidth, not this Dirichlet edge-mode coupling. Searches of specialized published records, finite-section literature, equivalent boundary-state and transfer-matrix descriptions, and the available findings ledger identified no stronger statement covering the coefficient. General transfer-matrix tunneling formulas and unindexed sources remain plausible historical-priority risks.
+PASS
 
-## Mathematical value — PASS
-Finite-section instability for an invertible periodic operator is already a motivated, canonical problem. The new formula quantifies *how badly* the finite-section inverse fails: a unique paired near-zero edge mode with exponential rate four per added period and exact leading inverse-norm constant \(10/3\). Uniform separation of every other mode distinguishes this mechanism from a mere small-determinant observation and provides a reproducible quantitative benchmark for finite-section spectral pollution.
+For N=3k+1, both endpoints indeed have potential 1/2 and the palindromic interior has M=3q−2, q=2k+1. The continuant recurrence gives d_(3r)=(-2)^r, d_(3r+1)=2(-2)^r and d_(3r+2)=0. Substituting suffix/prefix minors in the inverse gives geometric decay in |i−j| and a q-independent operator norm bound; therefore the interior stays invertible on a fixed interval. The diagonal Green entry is 1/2, the off-diagonal corner is 2^(−q), and directly summing the squared corner column gives (2/3)−(5/3)4^(−q). Thus the Schur diagonal vanishes at zero with derivative −(5/3)(1−4^(−q)), while the off-diagonal is −2^(−q). The Schur derivative is bounded above by −I, forcing one root per reflection channel at distance at most 2^(−q), with opposite signs and no other roots in the fixed interval. Uniform resolvent bounds control the diagonal Taylor remainder; the inverse determinant expression has logarithmic derivative O(q), which controls the off-diagonal on this scale. Both energy errors are O(q4^(−q)), giving ±(3/10)4^(−k)+O(k16^(−k)) and the reciprocal 10/3. Independent integer Sturm inertia checks and tight bisection corroborated the isolation and both scaled constants at k=3,6,12,20,32.
 
-## Limitations and literature
-No perturbation stability or estimates for other boundary residue classes are established. The exact initial counterexample and its qualitative failure belong to the 2021 authors, not this result. Full relevant portions of arXiv:2110.09339 and the finite-section criteria of arXiv:2208.04015 were inspected; the arXiv:2208.01646 comparison is from its abstract only. Historical priority cannot be certified by unsuccessful database searches, and no independent validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The established counterexample and its boundary phases are not original here. The same-model source supplies the monodromy and unstable half-line limits, but does not give the finite-length doublet, a uniform isolation interval, its prefactor and remainder, or the inverse-norm limit. The distinct content is that quantitative refinement.
+
+## value
+
+PASS
+
+The phase and model are motivated by an established failure of finite-section inversion, not arbitrarily tuned. Turning qualitative instability into a sharp inverse-norm law, and identifying precisely two exponentially small eigenvalues of opposite signs rather than a collapsing bulk gap, gives necessary conditioning information about this benchmark. The exact coefficient and remainder distinguish this result from a numerical observation or a monodromy bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

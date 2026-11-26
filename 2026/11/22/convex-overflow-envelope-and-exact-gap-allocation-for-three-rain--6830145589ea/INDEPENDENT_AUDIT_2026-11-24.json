@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:04:20.677476Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–88; corrected RESULT.md at repairs/1/RESULT.md",
+        "Frozen VERIFICATION.md and verify.py inspected; not executed",
+        "Separate exact example evaluation: a=C=1, b=c=9/10, E=1/4 gives endpoint values 21/20 and interior value 4/5 at x=1/2"
+      ],
+      "rationale": "For the repaired claim, let w=ux+b. The recurrence clips the second post-event storage to min(C,w); D−B=(w−C)(1−E/x) has the sign that selects the correct branch on both sides of w=C, including x=E. All four branches are convex in x, and in t the nonconstant parts consist of positive multiples of exp(−kt) and/or exp(kt), so they are also convex in t. At a positive minimum only the nonsmooth breakpoints, the domain endpoints, or D's stationary point can minimize; a positive plateau is impossible because each nonconstant branch meets any given horizontal level in finitely many points. At zero additional spill the two inequalities give exactly the stated interval, whose left endpoint is an admissible candidate. Both later pulses strictly spill at the proposed stationary point exactly under (5), and the dominating D branch then proves global optimality. The unbounded-ratio example reduces to E/(4x) throughout the feasible interval. Simultaneous rainfall at either endpoint is handled by the same clipping recurrence with unit retention over the zero gap.",
+      "residual_risks": [
+        "The frozen 88,156 checks are reported, not a fresh run or a continuum certificate. The proof is for three pulses and exponential drying, not arbitrary pulse trains or kinetics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "McGrath Eq. (14) and Bartlett Eq. (3.1) model stochastic antecedent storage and rainfall/runoff; Hall studies buffered jobs and losses rather than passive exponential drying."
+        ],
+        "reasoning": "These inspected results do not specialize to a minimizer theorem for the present model. Coverage by the inaccessible continuous-storage paper was not determined.",
+        "searches": [
+          "McGrath et al., DOI 10.5194/hess-11-923-2007",
+          "Bartlett et al., DOI 10.1098/rspa.2015.0389",
+          "Hall, Posner & Potts, Scheduling with Finite Capacity Input Buffers",
+          "Continuous filling and emptying of storage systems in constraint-based scheduling, PII S0377221704002577"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d7dd28e86fa3, e537d5c1eb7c, e27dfe4f22cd, 732b2ad4e3a5, dc0a9d01824e, RESULT.md",
+        "McGrath et al. 2007; Bartlett et al. 2015; Hall, Posner & Potts, finite buffers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One prior optimizes integer gaps for two equal storms with periodic state, another minimizes over depth permutations at equal retention, and the hydrology equation specifies event runoff."
+        ],
+        "reasoning": "They supply tools or similar objectives, not the variable-middle-time branch structure, positive optimum uniqueness, or exact equal-gap penalty from a fixed-start model.",
+        "searches": [
+          "e537d5c1eb7c, periodic two-storm maximum-of-three proof",
+          "e27dfe4f22cd, empty-start ordering proof",
+          "McGrath, Eq. (14)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The periodic ordering and cyclic gap findings govern a settled store; the equal-retention ordering finding has an empty start but changes order rather than timing.",
+          "The fixed-endpoint stress-memory finding optimizes an additive pairwise kernel; the Horton finding uses four equal bursts and distinct wet/dry dynamics."
+        ],
+        "reasoning": "Changing from t to retention is merely a reparametrization, but none of those models transforms to this exact fixed-order clipped recurrence and feasible set.",
+        "searches": [
+          "Resultary comparisons: d7dd28e86fa3, e537d5c1eb7c, e27dfe4f22cd, 732b2ad4e3a5, dc0a9d01824e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Each inspected closed form is for different schedule freedoms or initial conditions; none supplies this six-candidate rule or its zero-spill interval."
+        ],
+        "reasoning": "The candidate set is a symbolic all-parameter result, not a lookup of a finite table. These are the relevant exact-result catalogue comparisons.",
+        "searches": [
+          "Resultary d7dd28e86fa3 and e537d5c1eb7c Findings and proofs",
+          "Resultary e27dfe4f22cd Finding and proof"
+        ]
+      },
+      "rationale": "Pass the specific empty-start, fixed-order timing classification and equal-gap counterexample, not the storage recurrence, max-of-convex-functions principle, or the clock-time convexity observation as a separate contribution. Neither changing storm order at fixed gaps nor periodically optimizing a cyclic gap yields the theorem under its finite-horizon constraints. No inspected source states or entails the full classification.",
+      "residual_risks": [
+        "Uninspected continuous-storage scheduling theorems could cover some of the optimizer structure. The search does not establish exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related, not equivalent",
+          "evidence": [
+            "Equal spacing in a periodic state; comparison between orders."
+          ],
+          "identifier_or_url": "Resultary d7dd28e86fa3",
+          "material_read": "RESULT.md Finding/Assumptions/Proof at offset 0 and limitations at 6725",
+          "method": "Local mirror",
+          "title": "A sharp storm-ordering window for saturation runoff in a periodic linear store",
+          "trigger": "Three storms, identical storage mechanism"
+        },
+        {
+          "assessment": "Different gap domain and state",
+          "evidence": [
+            "Maximum-of-three formula for two equal storms and an integer cyclic gap."
+          ],
+          "identifier_or_url": "Resultary e537d5c1eb7c",
+          "material_read": "RESULT.md Finding/Assumptions/Proof at offset 0 and limitations at 6746",
+          "method": "Local mirror",
+          "title": "Exact cyclic-gap law for saturation-excess runoff from two periodic storms",
+          "trigger": "Exact gap rule for saturation runoff"
+        },
+        {
+          "assessment": "Different optimization; same-day date does not establish priority",
+          "evidence": [
+            "Retention fixed and equal; optimization over permutations."
+          ],
+          "identifier_or_url": "Resultary e27dfe4f22cd",
+          "material_read": "RESULT.md Finding/Assumptions/Proof at offset 0 and comparison at 5671",
+          "method": "Local mirror",
+          "title": "The largest-storm-first rule holds through three pulses but fails at four",
+          "trigger": "Empty start and same recurrence"
+        },
+        {
+          "assessment": "Provides runoff ingredients, not an inspected timing theorem",
+          "evidence": [
+            "Focus on intermittent stochastic rainfall and threshold events."
+          ],
+          "identifier_or_url": "https://doi.org/10.5194/hess-11-923-2007",
+          "material_read": "PDF pp. 1–2 and Eq. (14), PDF p. 5",
+          "method": "OA full text, selected passages",
+          "title": "Temporal dynamics of hydrological threshold events",
+          "trigger": "Saturation-threshold stochastic model"
+        },
+        {
+          "assessment": "Different state/threshold objective",
+          "evidence": [
+            "Joint runoff/soil moisture distributions and progressive partition of incoming precipitation."
+          ],
+          "identifier_or_url": "https://doi.org/10.1098/rspa.2015.0389",
+          "material_read": "PDF p. 1 and pp. 7–8, section 3, Eq. (3.1)",
+          "method": "OA alternate PDF",
+          "title": "Stochastic rainfall-runoff model with explicit soil moisture dynamics",
+          "trigger": "Random instantaneous rainfall and storage"
+        },
+        {
+          "assessment": "Problem described is nonpreemptive job scheduling, not this passive store",
+          "evidence": [
+            "Finite input buffers, lost jobs and scheduling complexity."
+          ],
+          "identifier_or_url": "https://bpb-us-w2.wpmucdn.com/u.osu.edu/dist/d/122813/files/2023/05/HallPPOR1998in.pdf",
+          "material_read": "PDF p. 2 abstract",
+          "method": "OA PDF passage",
+          "title": "Scheduling with Finite Capacity Input Buffers",
+          "trigger": "Finite-buffer scheduling implication"
+        },
+        {
+          "assessment": "Coverage unassessed",
+          "evidence": [
+            "No full-text inference used."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/abs/pii/S0377221704002577",
+          "material_read": "Search title only; OA reader returned HTTP 403",
+          "method": "Primary-literature search and OA retrieval attempt",
+          "title": "Continuous filling and emptying of storage systems in constraint-based scheduling",
+          "trigger": "Possible general continuous-storage scheduling theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md equations (2)–(7) and equal-gap example"
+      ],
+      "rationale": "The classification yields the entire no-additional-loss scheduling region and an exact timing choice even when overflow is unavoidable. In the smooth regime it identifies which side of the midpoint matters, and the positive-optimum family rules out a uniform multiplicative guarantee for equal gaps. This is a quantitative benchmark for a natural finite-store timing problem, not just a direct clipping calculation.",
+      "residual_risks": [
+        "The diverging ratio is for modeled volumes, with a shrinking positive optimum; it is not a bound on peak runoff, field performance, or absolute damage."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

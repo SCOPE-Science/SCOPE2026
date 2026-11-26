@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The tree resistance metric reduces the global diameter to the maximum of sums of two hub-to-leaf resistances. Strict convexity of the reciprocal-power expenditure fixes every individual edge resistance once an arm radius is specified. A second strictly convex normalized program over the arm radii is solved by separating the all-radii-at-most-one-half face from the single-radius-over-one-half face; no candidate regimes are omitted. The unique interior critical point exists exactly when one price aggregate is more than half the total. Budget homogeneity then fixes the exact minimum and every edge conductance. The exponent transition follows by a strictly decreasing ratio of powers. The independent numerical matrix checks supplement but do not replace this proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The broad minimax pairwise effective-resistance objective **is not new**: Ghosh–Boyd–Saberi (2006), section VII, explicitly propose its convex semidefinite optimization for a linear budget. Their 2008 article, section 5.1, solves a different **sum** objective on trees, while section 8 repeats the general minimax suggestion. The new claim is limited to closed-form uniqueness, the all-priced spider classification for every positive power exponent, its sharp one-dominant-arm boundary, and the exponent-induced transition. The actual problem statements and algorithm of Chepoi–Noltemeier–Vaxès treat linear shortening of bounded fixed lengths; Hambrusch–Lim is an older tree-diameter edge-reduction framework whose accessible abstract also describes reductions rather than reciprocal-conductance power-law budgets. The latter full text was inaccessible, and equivalent unindexed derivations remain possible. Relevant semantic result searches found polytopal diameter, spider curvature and spider power-domination results rather than the stated physical network design; these negative results are not uniqueness proof.
+PASS
 
-## Value — PASS
-The theorem characterizes all optimal individual conductances for an infinite, heterogeneous network family with adversarial source–sink placement. The one-exception boundary is a structural constraint on **every** optimum, not a numerically selected symmetric candidate. A nontrivial exponent threshold on one fixed topology demonstrates that changes in the budget's nonlinear price rule can switch the optimal geometry even when no edge is removed. Exact extremal cutoffs and uniqueness answer a natural fixed-topology sizing question.
+On a tree the resistance distance is the sum of r_e=1/w_e along the unique path. Positive radii imply that the diameter is the largest sum of two distinct leaf radii. For fixed R_i, Hölder applied to the factors (c_e r_e^{-alpha})^{1/(alpha+1)} and r_e^{alpha/(alpha+1)} gives cost at least S_i^{alpha+1}/R_i^alpha, with equality uniquely at r_e=R_i c_e^{1/(alpha+1)}/S_i. At unit diameter the feasible radii satisfy rho_i+rho_j<=1. The positive-coordinate cost is strictly convex and diverges on zero-coordinate boundaries of the bounded feasible set. If no radius exceeds 1/2, increasing all smaller radii to 1/2 strictly improves cost. If rho_j=x>1/2, the others must be at most 1-x and all can attain this bound, which uniquely minimizes cost at fixed x. The strictly convex one-variable cost has derivative at 1/2 with the sign of C-2C_j, and an interior minimum precisely at strict dominance. Solving its first-order equation gives rho_j=U/(U+V) and the value (U+V)^{alpha+1}; at threshold equality the balanced endpoint alone minimizes it. There cannot be two strict majority indices. Both optimal vectors attain unit diameter. Scaling to diameter d makes the minimum expenditure F/d^alpha, so matching B gives the displayed attained minimum and strict uniqueness, including for concave pricing in w. With unit prices the competing ratio sum (ell_i/L)^{alpha+1} decreases strictly from sum ell_i/L to zero for the unique-longest-arm case; this verifies both boundary regimes and the stated exponent for (3,2,2).
 
-## Remaining scientific limitations
-No results for cyclic graphs, arbitrary branched trees, capacities or disconnected solutions. Prior work could imply the all-parameter formula by specialization; the abstract-only tree-upgrading source could not be fully compared. Numerical experiments are finite, and independent expert audit has not been done.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Do not credit the introduction of minimax resistance design, its linear-budget SDP formulation, or the exact linear-budget weighted star majority transition. The latter is explicitly covered by an earlier Resultary record. The supported advance is the arbitrary-price multi-edge spider law for every positive conductance-cost exponent: unique per-edge and radial allocation, normalized threshold on arm aggregates, and the resulting exponent-driven transition. The inspected general optimization papers do not provide or mechanically yield that classification.
+
+## value
+
+PASS
+
+The optimization depends on every conductance and does not appear convex in the original coordinates for all exponents. Nonetheless an explicit unique design and tight sharp criterion distinguish when all radii coincide and when exactly one can differ, even under heterogeneous prices. The (3,2,2) example shows a genuine change in the geometry of the optimizer caused solely by the exponent. This gives exact benchmark solutions and a structural explanation beyond numerical optimization or redoing the linear weighted-star case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

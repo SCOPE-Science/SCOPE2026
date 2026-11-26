@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:57:37.317487Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For iid observations under a specified continuous null, the probability integral transform gives uniform order statistics. On each affine piece of the deviations, an equality between competing ranks lies on a null hyperplane. The numerator is bounded by one, so any exceedance forces the winning order statistic within 2/t² of an endpoint. Unless it is the first rank at zero or the last rank at one, there must be two observations in that endpoint interval, an O_n(t^-4) event. For a first-rank winner at u<1/(2n), competing ranks each occupy one of the disjoint intervals ((i-1)/n+u,i/n-u). The squared exceedance condition is (1+t²)u²-(t²+2/n)u+1/n²>0; its small root is 1/(n²t²)+O_n(t^-4). The simplex density n! gives n! times the integral of (1/n-2u)^(n-1) up to that root. Reflection doubles its leading coefficient to 2(n-1)!/n^n. Tail integration then gives precisely the q<2 moment range for q>0 and the stated logarithmic truncated second moment. This checks fixed n≥2 only, not a joint n,t limit. Inspected RESULT.md §§1–4, VERIFICATION.md and checker.py; the finite checker was not run and is not part of the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ferger treats the two-sided weak law of sqrt(n)V_n^* and explicitly notes the absence of the exact two-sided law at the time.",
+          "Resultary 28cfdce6a0ee gives a constructive CDF for every fixed n and threshold, by conditioning on the winning rank and its value."
+        ],
+        "reasoning": "The CDF is stronger distributional information and must be credited. It does not by itself exhibit the coefficient or remainder; those require analyzing which rank contributions survive as the threshold grows. A sample-size weak limit does not answer that question.",
+        "searches": [
+          "Ferger arXiv:2207.07947v1, Theorems 2.1 and 2.3",
+          "Resultary 28cfdce6a0ee, RESULT.md Finding, proof and Relationship to prior work"
+        ]
+      },
+      "checked_sources": [
+        "Ferger arXiv:2207.07947v1, pp. 5, 8 and 10",
+        "Resultary 28cfdce6a0ee",
+        "Frozen RESULT.md, VERIFICATION.md and checker.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full-CDF construction represents all tail probabilities in principle; its comparison distinguishes earlier inverse-square far-tail analysis from its own winner-conditioned integration. Ferger's two stated distribution results are not a two-sided fixed-n tail calculation."
+        ],
+        "reasoning": "The explicit coefficient is not read off from a stated CDF value or a mere parameter substitution. Deriving it requires asymptotically resolving the rank-conditioned integration, in particular controlling the off-corner contributions. The moment corollaries themselves are standard consequences, not separate originality claims.",
+        "searches": [
+          "Ferger pp. 5, 8 and 10",
+          "Exact algebraic calibration record 28cfdce6a0ee, Finding and prior-work comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ferger's V_n^* selects the unweighted absolute empirical deviation before division by the variance factor evaluated at its location.",
+          "Same-day Resultary scope record 28cfdce6a0ee uses this identical statistic, while Ferger's one-sided W_n^* uses a different maximizing rule."
+        ],
+        "reasoning": "Neither the maximum of two separately normalized statistics nor the supremum of the pointwise weighted empirical process is an equivalent formulation. The distinct CDF record, unlike those aliases, genuinely concerns this law.",
+        "searches": [
+          "Local Resultary: two-sided argmax-standardized Kolmogorov–Smirnov, exact null distribution and inverse-square fixed-sample tail",
+          "Ferger arXiv:2207.07947v1, p. 5, equations (20)–(23)",
+          "Focused literature search for the two-sided argmax-normalized KS finite-sample tail"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct record reports exact values for n=2,3 at threshold 2 and an n=3 quantile bracket; these are not an all-n tail table. It mentions earlier fixed-sample inverse-square coefficient work without a source identifier."
+        ],
+        "reasoning": "Isolated CDF values do not determine the claimed large-threshold coefficient. The unattributed mention is material overlap evidence, but not affirmative evidence for another record with the explicit expansion, nor evidence of ordering.",
+        "searches": [
+          "Local Resultary results for two-sided argmax KS exact finite-sample calibration",
+          "Resultary 28cfdce6a0ee, finite values and comparison, mirrored RESULT.md offsets 0–6640 and 8200–9965"
+        ]
+      },
+      "rationale": "Pass is for the explicit factorial far-tail coefficient with the O_n(t^-4) error, not for the statistic, a full CDF, or historical priority. Ferger's one-sided exact CDF and two-sided weak limit do not furnish this finite-n expansion. A separate same-day exact-CDF record genuinely covers the same distribution, but its verified statement is a general piecewise algebraic calculation, not an explicit inverse-square expansion; the endpoint-volume and noncorner estimates do additional work. That record mentions an earlier coefficient without identifying an independent source; it could refer to the reviewed finding. No distinct source for the explicit expansion was established.",
+      "residual_risks": [
+        "The same-day CDF record's earlier-tail attribution is unresolved; dates do not establish priority.",
+        "An unlocated exact joint maximum/location law might admit a simpler corollary; no exhaustive priority claim is made.",
+        "The separate CDF proof was not audited end to end."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Background; no inspected statement gives the claimed fixed-n two-sided expansion",
+          "evidence": "The exact CDF is for W_n^*; the two-sided V_n^* appears in a weak limit.",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.07947v1",
+          "material_read": "p. 5, definition and order-statistic normalization; p. 8, Theorem 2.1; p. 10, Theorem 2.3",
+          "method": "Lawful OA PDF, statement and rank-formula comparison",
+          "title": "Exact and asymptotic goodness-of-fit tests based on the maximum and its location of the empirical process",
+          "trigger": "Introduces the same statistic and gives law results"
+        },
+        {
+          "assessment": "Verified statement-level overlap for the distribution; no displayed fixed-n coefficient or independent attribution of its earlier calculation",
+          "evidence": "Winner-conditioned exact CDF at arbitrary thresholds; prior-work paragraph explicitly distinguishes an earlier far-tail coefficient from this full-CDF result.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-algebraic-finite-sample-calibration-of-the-two-sided-argma--28cfdce6a0ee",
+          "material_read": "RESULT.md offsets 0–6640 and 8200–9965; METADATA.json scope and date",
+          "method": "Local Resultary search and bounded local-mirror reads",
+          "title": "Exact algebraic finite-sample calibration of the two-sided argmax-standardized Kolmogorov–Smirnov statistic",
+          "trigger": "Same statistic with apparently stronger exact law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an explicit tail invariant of a published goodness-of-fit statistic. It identifies divergence of the finite-sample variance despite an exponentially small far-tail coefficient as sample size grows, and gives an inexpensive severe-tail asymptotic without evaluating an exact piecewise algebraic CDF. No ordinary test-level accuracy or uniform threshold regime follows.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

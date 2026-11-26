@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-The claim is a finite exact result about expected **rooted** phylogenetic diversity under sampling without replacement on a common, positive-edge ultrametric three-tip tree.
 
-The embedded `verify_pd_double.py` carries out a logically exhaustive check for \(3\le N\le7\), without floating-point tolerances.
+# Independent mathematical audit
 
-First, every strictly positive integer profile \((a,b,c)\) of census \(N\) is generated twice: directly with \(a\le b\) and independently by quotienting all ordered positive integer compositions under interchange of the sister counts. Both methods must return the same complete profile list, with counts \(1,2,4,6,9\).
+## correctness
 
-Second, for each of the \(58\) unordered pairs, the expected PD difference at depth \(m\) is written as \(-H[u_m+(h/H)v_m]/\binom Nm\) using integer coefficients \(u_m,v_m\). Every affine root in the real interval \((0,1)\) is computed exactly. A rational sample in each open root cell and each interior root point is examined. In all, \(116\) exact parameter checks prove that the sign pattern never has two strict changes for \(N\le6\) and yields precisely the three reported open parameter windows at \(N=7\). This test **covers all real branch-length ratios**, not just a rational branch-length grid.
+PASS
 
-Third, the implementation of the edge-coverage formula is independently compared against a literal enumeration of each individual subsample and its subtree edge lengths at \(H=9,h=2\), for every profile and depth through \(N=7\). All \(130\) direct-subset checks pass.
+The four root-anchored edges have lengths H−h,H−h,H,h and abundance coverages a,b,c,a+b; the edge-miss probability for z covered individuals is C(N−z,m)/C(N,m), with the zero convention. Both profiles therefore have PD H at m=1 and 3H−h at m=N. I inspected the proof, notes and checker, and independently enumerated actual individual subsets. A subset's PD divided by H is its represented-taxon count minus t times the indicator that both sisters occur. Enumerating the sorted-sister profiles via cut positions gave sizes 1,2,4,6,9 and 58 unordered pairs. For every pair I used the subset counts as exact affine coefficients and checked all open root cells and interior roots (116 tests), dropping all zero signs. This confirms absence below N=7 and the three open intervals (1/2,13/23), (1/7,3/17), and (1/5,3/13) for the stated pairs in order, including ties at the excluded endpoints. The H=9,h=2 witness gave differences (1/21,−1/35,−1/35,1/7,2/7). Replay: python3 -I /workspace/review_math.py 1. Minor documentation overstatement: the frozen checker explicitly asserts only the third coefficient list, although it checks the sign cells for all pairs. My independent subset check reproduced all three lists; no change to the theorem is needed.
 
-Finally the witness difference sequence at depths \(2\) through \(6\) is checked as
-\[
-\left(\frac1{21},-\frac1{35},-\frac1{35},\frac17,\frac27\right).
-\]
-The same tree gives rooted PD \(9\) after one sampled individual and \(25\) at full census.
+## originality
 
-Run `python3 verify_pd_double.py`. The first output line is `VERIFY_OK`. The computation terminates deterministically and uses only Python standard library exact fractions and combinations.
+PASS
 
-The finite proof does not extend these claims beyond \(N=7\), to other sampling conventions, or to non-ultrametric trees. Independent audit has not been performed.
+The supported distinct claim is the minimum common census and all three profile intervals for two strict depth-order reversals. Exact PD expectation and changes in site rankings under rarefaction were already known. The closest primary and published catalogue comparisons do not settle this specific multiple-crossing boundary.
+
+## value
+
+PASS
+
+A three-tip tree is the first rooted ultrametric shape with a shared internal edge. The result pinpoints when that edge can cause a double reversal even without unequal censuses or missing taxa, contrasting with the closest expected-richness single-crossing result. The sharp finite cutoff, exact windows and endpoint behavior give a sensitive benchmark for sampling-depth comparisons and for any proposed general crossing bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

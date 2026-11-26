@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The group is the full automorphism group: 192 affine symmetries exist and the origin stabilizer injects into the twelve symmetries of its six-cycle neighborhood. Enumerating every independent face and barycentric flag yields 43 quotient cells. The action on flags has no inversions; their orbit structure realizes the ordinary geometric quotient. Each of the 21 supplied pairs is checked as a free face and unique coface, with all surviving cells face-closed. This proves a sequence of elementary collapses, stronger than a homology computation. `verify.py`, `certificate.json` and `verification_output.txt` provide the exact repeatable certificate.
+## correctness
 
-## Originality
-PASS relative to the inspected sources. The closest 2026 Shrikhande symmetry-character results establish only rational acyclicity of the full quotient, and the translation-quotient calculation treats the proper order-sixteen subgroup, giving two two-spheres. Neither entails an integral or simple-homotopy classification of the full quotient; the general 2010 independence-complex methods do not compute its cell attaching structure. Searches explicitly compared equivalent orbit-space names, stronger full-group statements and exact cell tables. An unindexed equivalent result cannot be ruled out by searches alone.
+PASS
 
-## Value
-PASS. The Shrikhande graph is the canonical non-rook strongly regular graph with parameters \((16,6,2,2)\). Its independence complex has 23 sphere classes, while its translation quotient retains two. The full action's rational invariants vanish, leaving precisely the nontrivial integral/torsion/fundamental-group question answered here. The new 21-step collapse resolves those obstructions and gives the simple-homotopy type, rather than a routine restatement of rational acyclicity.
+A separate reconstruction regenerated the explicit 192 automorphisms, the 200 independent faces and 2,680 flags, and matched all 43 canonical orbit cells with dimension counts (8,17,14,4). The bound from the faithful action on the origin-neighbor six-cycle, using the distinct exterior neighborhood fingerprints, shows these are the full group. Within a closed flag simplex any two orbit-equivalent points have supports with the same set of face cardinalities; those supports must coincide and the action fixes each of their vertices, hence the points agree. Thus closed simplex images are embedded, with their boundaries unions of lower orbit cells; no collapse step depends merely on an inversion-free assertion or on homological cancellation. Independent replay checked each of the 21 codimension-one incidences and unique cofaces, closure after deletion, and the final vertex (index 29). Each pair gives the standard simplex/free-facet deformation retraction glued along the remaining boundary. The independent script and output are at /workspace/branches/5932971c-dce7-458b-b0df-356e0ad0a6b7/independent_audit.py and independent_audit_output.txt in that directory; the frozen script was inspected, not run.
 
-## Limits
-The theorem concerns the ordinary geometric quotient of this single graph by all 192 graph automorphisms. Neither arbitrary automorphism subgroups nor larger Doob graphs are classified. Independent literature verification and independent mathematical audit remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected same-graph, same-full-group result gives rational acyclicity only; the closest geometric quotient result takes only the translation subgroup. Neither proves the exact elementary collapse for the ordinary full-group geometric quotient.
+
+## value
+
+PASS
+
+The full natural symmetry quotient of a classical strongly regular graph's independence complex is a motivated exact object. An actual collapse resolves integral and fundamental-group behavior left undetermined by the known rational representation and contrasts meaningfully with the translation quotient. The finite orbit calculation addresses this topology rather than a minor count or a known invariant replay.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

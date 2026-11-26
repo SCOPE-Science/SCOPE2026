@@ -1,15 +1,21 @@
-# Mathematical review: Cassini cross-lobe proximity
+# Independent mathematical audit
 
-## Correctness (PASS)
-The normalized Cassini identity follows by multiplying the two focal-distance squares, giving exactly \((x^2+y^2)^2\le x^2-y^2-q^2\). The lobe area is \(1/2\) at the lemniscate and converges to it in the two-component family. Opposite closed right/left cones have nonpositive dot products, forcing near pairs into a bounded blown-up set. The cone-volume calculation is an exact linear coordinate change yielding \(1/8\); the normalization gives \(1/2\). Omitted polar angular strips have area \(O(\varepsilon^2)\) in each bounded rescaled lobe, providing \(O(\varepsilon^6)\) in the original probability. The critical blow-up yields the hyperbolic region, whose nonnegative depth integration is exactly the stated two-dimensional formula. The near-threshold positive-definite Hessian has eigenvalues \(1/2,1\) and gives \(\pi/(3\sqrt2)\). Each convergence claim is supported by bounded support and dominated convergence. The script checks, rather than proves, the coefficients.
+## correctness
 
-## Originality (PASS, historical priority provisional)
-The two-lobe Cassini and lemniscate bifurcation is classical: Boyadzhiev–Boyadzhiev (arXiv:1303.5876) covers the focal geometry but not independent cross-lobe distance events. Gečiauskas (1966, DOI 10.15388/LMJ.1966.19722) defines an oval as a convex planar figure and develops generic distance distribution theory, without the present two-component, tip-gap critical limit. Lellouche–Souris (DOI 10.3390/stats3010001) supplies a general convolution method but does not evaluate the four-dimensional wedge coefficient, hyperbolic scaling integral or cubic onset. The closest independent semantic research record concerns smoothly tangent convex bodies, for which the exponent is \(7/2\) and the geometry has no opposing transverse corner cones; another Cassini-related record concerns near-circular ellipsoid shadows. Neither dominates this claim. Relevant prior local source records on Cassini hull deficit concern connected shapes and different observables. The searches do not establish exhaustive priority, and earlier inaccessible literature might contain a special case.
+PASS
 
-## Mathematical value (PASS)
-The event concerns two distinct connected components meeting through a singular double-point transition, a natural geometric-probability question not settled by general distance-distribution identities without a nontrivial local evaluation. Its exact quartic coefficient, sharp cubic finite-gap onset and hyperbolic crossover distinguish transverse-corner contact from the smooth tangency \(7/2\) law, and provide a scale-resolved description as a real two-component geometric set reaches a self-intersection. The conditional limiting configurations give a reusable geometric invariant of the contact mechanism.
+For independent area-uniform points in the specified opposite lobes, A_0=1/2 by polar integration and A_q→A_0. The axial quartic gives the exact tip gap: dropping y² from the left and adding it on the right forces x⁴≤x²−q², with the lower axial root attainable at y=0. In the opposite cones the dot product is nonpositive, so a pair at distance <R has both norms <R. At q=0 the missed angular strips on this bounded rescaled domain have width O(ε²); the cone-coordinate integral (1/4)∫_{A,B≥0,A²+B²<2} AB dA dB equals 1/8. This proves the ε⁴/2 coefficient, its O(ε⁶) remainder and conditional TV convergence by normalization of indicator densities. Scaling by q gives x²−y²≥1+q²|(x,y)|⁴, so localized dominated convergence yields 4Φ, including the zero region λ≤2, and TV for λ>2. Integrating horizontal depths gives the claimed triangular-area integral. Near λ=2+δ the depths are O(δ) and transverse coordinates O(√δ). In m=(s+t)/2,d=s−t coordinates the quadratic distance term is m²+d²/2 with unit Jacobian from (s,t); half the integral of its squared positive deficit is πδ³/(3√2). Scaling H± by 1/λ recovers the cone integral for the large-λ tail. The critical limit is for fixed λ; the onset is a subsequent limit, not uniform down to the finite-q tip gap. Bound verification notes and Python verifier were inspected, not executed; the independent reproduction is the exact integrals and localization argument above.
 
-## Boundaries and reproducibility
-The finite-quadrature diagnostics agree with the analytically established exact constants; numerical limits are not presented as exhaustive or independent proofs. The critical theorem is pointwise for fixed scaled distance and its cubic onset is a subsequent limit; no uniform simultaneous-rate assertion is made. Priority assessment is provisional and independent scientific review is not included.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass the distinct Cassini cross-lobe cone and fixed-λ hyperbolic crossover with conditional laws. Credit the cubic edge as an instance of a shared smooth positive-curvature local normal form, not as a separately original contact exponent or constant. The earlier smooth result has a different original scaling, and does not supply the full hyperbolic profile or transverse cone law.
+
+## value
+
+PASS
+
+A natural topology-change geometry gives a quantitative and useful rare-event benchmark: the exact normalization and conditional law at the touching point, and the full q-scale connection from the gap to the cone. These determine more than an exponent or a numerical constant and distinguish transverse from smooth contact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

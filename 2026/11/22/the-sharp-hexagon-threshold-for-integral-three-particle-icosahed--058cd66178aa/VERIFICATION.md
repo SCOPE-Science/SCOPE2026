@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-## Reproduction
+# Independent mathematical audit
 
-With Python 3 and the two co-located files `verify_icosa.py` and `BASIS_CERTIFICATE.json`, run `python3 verify_icosa.py`. It requires only the standard library and processes an explicitly encoded 30-edge graph. Its success marker is `EXACT_ICO_3PARTICLE_TORUS_THRESHOLD_OK`.
+## correctness
 
-## Checks performed
+PASS
 
-The actual check reconstructed a 14,080-column, 31,680-row reduced degree-three differential and found rank 13,970 over the two-element field, using a complete deterministic bitset elimination. It enumerated exactly 700 triple-cycle tori, checked the integral boundary of every one, found 110 integral unit pivots (100 triangle triples and 10 triangle–triangle–hexagon triples), and verified all shorter tori lie integrally in the first 100 span. The resulting unit triangular coordinate minor proves primitivity of the full lattice, not merely rational independence.
+The reduced Świątkowski complex in weight 3 has no degree-4 term; its top homology is the integral kernel, with exactly 14080 columns and 31680 rows in the top differential. A cycle's fundamental chain is the sum of its incoming-to-outgoing half-edge differences. By naturality from the disjoint union of the three circles with one particle per component, the signed tensor product represents the actual geometric torus, not merely an abstract closed vector. Independent exact replay: run python3 /workspace/audit-evidence/1/recompute.py with the co-located frozen BASIS_CERTIFICATE.json as its argument. The replay builds the graph from two pentagons and two poles, checks the frozen edge set, enumerates cycles by subsets and permutations (20,30,72,240 at lengths 3–6), obtains all 700 triples, checks the listed 110-element minor has determinant +1, reduces every short torus against the first 100 rows over the integers, and independently obtains mod-2 rank 13970 using a different local anchor and row order. Mod-2 rank is a lower bound for rational boundary rank, so the kernel has rank at most 110. The unit minor gives a primitive subgroup of the chain group of rank 110, hence all of the kernel. Its first 100 generators are exactly the triangle triples and are saturated already, with quotient Z^10. No cycle in a disjoint triple can exceed length 6 on 12 vertices. Neither the supplied verifier nor a numerical rank result was used as a substitute for this check.
 
-## Scope of the certificate
+## originality
 
-The rank bound uses exact arithmetic in one finite field together with a matching collection of integral unit-pivot cycles. This combination proves the integer top-degree theorem; finite-field rank alone would not. No computation concerning lower-degree homology or a geometric homotopy equivalence is asserted. Independent audit has not been performed.
+PASS
+
+The exact graph-specific integral basis and minimal cycle-length threshold were not found in the inspected coverage. Distinct same-day results treat other graphs; general methods and product-generation results do not supply this rank, saturation and sharp threshold together.
+
+## value
+
+PASS
+
+The icosahedron is a natural highly symmetric graph, and short disjoint cycles give geometrically localized commuting-travel motions for three particles. A Betti number alone cannot say which such motions account for the full integral lattice. The computed threshold and primitive short sublattice distinguish the 100 triangle products from the ten necessarily longer generators and give reusable exact data for comparing graph geometry and product generation. It is a motivated finite cutoff, not a general graph theorem or a table lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

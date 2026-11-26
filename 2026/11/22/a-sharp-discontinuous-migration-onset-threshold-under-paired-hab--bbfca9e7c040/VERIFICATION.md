@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-A standalone standard-library Python checker (`verify.py`) was executed from the exact accompanying source file. It reported `VERIFY_OK 1383 test cases` and recovered the stated approximate tangency for \(a=3,b=1\). It verifies exact rational two-by-two matrix products, trace and determinant identities, a factorized characteristic polynomial, an exact strict-benefit witness, and a separate exact double-root certificate. Additional numerical checks cover three growth-contrast ratios and multiple migrant-survival values.
+## correctness
 
-The complete real-parameter theorem is proved analytically in `RESULT.md`: a matrix square reduction, strict convexity of a cubic, continuity, and strict pointwise Perron-monotonicity. The finite checks do not prove these general statements. Computed numerical roots are approximations, not proofs of exact rational equality; the exact algebraic tangency equations define the threshold.
+PASS
 
-The scientific comparison includes full-text review of accessible primary sources and relevant published mathematical results. An unrecognized earlier equivalent positive-matrix theorem remains a possible priority risk. No independent external scientific audit or validation has been performed.
+For each a>b>0, let u=1−m and v=sm. The habitat swap gives P=(J(MD₊)²)²; the trace of the inner matrix is (a+b)²uv and its determinant is −(ab)²(u²−v²)². Thus the isolation comparison is the sign of the characteristic polynomial at 1 after normalization, exactly mH. The endpoints are R(0)=1 and R(1)=s, including lossless full migration. For s below 1 the cubic is strictly convex, at s→0 it is uniformly positive, and at s=4/c it is negative at small positive m. For each interior m, increasing s strictly increases the positive square-block matrix and Perron root; this gives one open upper interval of strict migration benefit. The threshold is below 4/c, so both H endpoints are strictly positive and compactness forces an interior zero minimum. Strict convexity makes its position unique, and rules out any other interior tie or tangency in the specified ranges. Local positivity of H near m=0 persists for s in a neighborhood of s*, so all maximizers approaching from above stay away from 0 and converge to m* by compactness and uniqueness of the positive tie. R′(0)=(cs−4)/4 gives the claimed interval of local loss with global benefit; above threshold no endpoint can maximize. The submitted text does not claim uniqueness of the positive maximizing fraction for all larger s. Independent matrix and polynomial reconstruction and numerical root replay agree with the stated example.
+
+## originality
+
+PASS
+
+Inspected prior results cover endpoint switches with exactly alternating seasons and interior-optimum existence or fixed-order comparisons in costless four-season models. A distinct same-day record captures the qualitative abrupt-onset and local/global reversal phenomenon, but with another seasonal word, parameter and no mortality. None of these resolves the mortality-dependent paired-block tangency for every contrast.
+
+## value
+
+PASS
+
+The difference between a harmful marginal perturbation and a beneficial finite move changes the decision in a natural periodic population model. The survival dimension is physically meaningful even when the paired habitat schedule is idealized. The cubic contact yields an exact global cutoff and co-optimal fraction for every contrast, supplementing prior endpoint and costless analyses; a local derivative or a grid of optima would miss the sharp onset.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

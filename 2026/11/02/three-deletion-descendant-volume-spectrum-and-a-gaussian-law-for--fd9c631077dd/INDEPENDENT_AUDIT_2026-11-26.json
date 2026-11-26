@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:59:35.235949Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Distinct exact deletion vectors give distinct residual multisets. Counting inputs above d gives B(n−t,q); for ordered pairs d,e the sum of their coordinatewise maximum is t+m for m=||d−e||₁/2, so Theorem 9's pair count gives the second moment, including zero contributions if n−t−m<0. At t=3 the only deletion shapes give counts binom(K,3), H(K−1), J. Once the nested sets of sizes k,h,j are chosen, all surplus above k+h+j goes to the j coordinates already of size at least three; at j=0 the only allowed mass is k+h. This gives precisely the histogram. Independent finite checks matched both moments in 104 cases, the coefficient formula in 80 (q,t,m) cases, and the histogram in 28 (q,n) cases, including the two exact rational examples; the supplied transcripts do not establish the infinite assertions. For the limit, K is hypergeometric with (population, marked, draws)=(n+q−1,q,n); its variance is asymptotic to p²(1−p)q under the stated regime. Nonsquarefree deletion vectors give a deterministic count error O_t(q^(t−1)). Taylor expansion of binom(K,t) at the exact mean has first derivative asymptotic to (pq)^(t−1)/(t−1)!; the remainder is bounded by O_t(q^(t−2)(K−μ)²), of L² norm O_t(q^(t−1)) by the sampling-without-replacement fourth-moment bound. Thus both the CLT and convergence of rescaled variance follow, with coefficient p^(2t)(1−p)/((t−1)!)². Keeping the exact μ avoids assuming a rate for n/q→λ. This is not the multinomial occupancy law, and t is fixed in the Gaussian claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 9 covers all same-level ordered pairs and their distance counts and averages same-level radius balls.",
+          "The arXiv:2601.05636 abstract covers the identical multiset channel but bounds code cardinalities and gives constructions, not a law of uniform-center volumes.",
+          "The --9e557f4728a6 Finding treats fixed-alphabet same-level boundary fluctuations, with exact ternary radius-two volumes."
+        ],
+        "reasoning": "The pair enumerator is broader for the ingredients of the second moment. A joint growing-alphabet occupancy law for one-sided descendants is not a special case of the inspected coding bounds or fixed-alphabet same-level fluctuation statements.",
+        "searches": [
+          "arXiv:2603.18322v1, Theorem 9 and Corollary 10",
+          "arXiv:2601.05636v1, abstract",
+          "Resultary 2026/11/8 --9e557f4728a6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification support",
+        "arXiv:2603.18322v1 Theorem 9 and Corollary 10",
+        "arXiv:2601.05636v1 abstract",
+        "Resultary --1cbd5a76d8bf, --8af4e5cf362e and --9e557f4728a6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A_(t,q)(m)=c_(q,m)B(t−m,q); multiply by the number B(n−t−m,q) of dominating centers and sum to get exactly the frozen second moment. The CLT uses the known hypergeometric law of K plus a uniform fixed-t deletion-volume approximation and an L² error estimate."
+        ],
+        "reasoning": "The moments are explicitly recoverable from prior inputs, so changing the direction of the counting does not make those formulas an independent novel finding. The known occupancy limit alone does not give a law for Z_t without identifying its dominant contribution and proving the required error bound. The histogram uses the full nested-multiplicity distribution, which the inspected average pair-distance table does not state.",
+        "searches": [
+          "arXiv:2603.18322v1 Theorem 9 with n specialized to t",
+          "Resultary --9e557f4728a6 fixed-alphabet comparison",
+          "Resultary --1cbd5a76d8bf growing-alphabet comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 10/25 Finding has n/q→θ but gives a two-scale Poisson deficit for two deletions from iid ordered words.",
+          "The same-day --8af4e5cf362e Finding gives a full two-deletion histogram of ordered subsequences of uniform words."
+        ],
+        "reasoning": "Forgetting order maps a uniform word to nonuniform multiplicities (weights proportional to n!/∏ x_i!) and collapses distinct subsequence outputs. Neither the ordered-word law nor its limiting regimes transfer by a renaming. No same-day priority order is assumed.",
+        "searches": [
+          "Resultary: uniform weak compositions multiset exact deletion descendant volumes fixed t growing alphabet hypergeometric Gaussian central limit law deletion patterns triples histogram",
+          "Resultary 2026/10/25 --1cbd5a76d8bf and 2026/11/2 --8af4e5cf362e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest inspected exact nearby distributions are for two deletions of words and for fixed-alphabet same-level balls. The exact multiset pair table contains aggregate ordered-pair counts, not frequencies of outgoing t=3 descendant volumes."
+        ],
+        "reasoning": "The sampling constraints, descendant objects or radii differ. Two incidence moments from the aggregate pair data do not supply the complete center-by-center histogram. The local ranking is not evidence of exhaustive absence.",
+        "searches": [
+          "Resultary: uniform weak compositions exact deletion descendant volumes triples histogram",
+          "Resultary --8af4e5cf362e and --9e557f4728a6 Findings",
+          "arXiv:2603.18322v1 Thm. 9 pp. 28–29"
+        ]
+      },
+      "rationale": "The distinct supported result is the exact t=3 one-sided histogram and the growing-alphabet fixed-t Gaussian and variance laws for uniform multisets. The mean is routine incidence counting, and the exact second moment is a direct corollary of the prior pair-distance enumerator; neither gets independent originality credit. Inspected same-level and ordered-word results do not cover the histogram or Gaussian law on the stated probability space.",
+      "residual_risks": [
+        "A general occupancy-functional theorem or an earlier exact directed-volume distribution could be indexed differently; the bounded searches are not a priority certification.",
+        "The exact pair coefficients, first moment argument, and directly implied second moment are not counted as independent novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior pair counts; directly imply the frozen second moment with the domination factor",
+          "evidence": "A_(n,q)(m)=c_(q,m)binom(n−m+q−1,q−1); same-level ball average",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.18322v1",
+          "material_read": "Theorem 9 and Corollary 10, pp. 28–30, PDF text offsets 69800–76295",
+          "method": "OA exact equation and theorem passages",
+          "title": "Polynomial Constructions and Deletion-Ball Geometry for Multiset Deletion Codes",
+          "trigger": "Identical multiset model and exact coefficient identity"
+        },
+        {
+          "assessment": "Coding bounds and constructions in the inspected scope, not a complete volume law",
+          "evidence": "Exact optimal code sizes near t=n and explicit constructions",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.05636v1",
+          "material_read": "Abstract, p. 1, offset 1352",
+          "method": "OA literal locator and bounded passage",
+          "title": "Multiset Deletion Codes: Cyclic Constructions, Bounds, and Exact Results",
+          "trigger": "Identical permutation-channel model"
+        },
+        {
+          "assessment": "Different random center and output objects",
+          "evidence": "IID words, two-deletion subsequences, Poisson limits",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-q-ary-two-deletion-variance-and-a-two-scale-poisson-ambigu--1cbd5a76d8bf",
+          "material_read": "Finding and assumptions, mirror offset 0",
+          "method": "Resultary search and local-mirror passage",
+          "title": "Exact q-ary two-deletion variance and a two-scale Poisson ambiguity transition",
+          "trigger": "Close deletion-volume law with the same scaling of alphabet and input size"
+        },
+        {
+          "assessment": "Different t and ordered-word law",
+          "evidence": "Distinct subsequence strings under exactly two deletions",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-size-distribution-of-two-deletion-descendants-over-every-f--8af4e5cf362e",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary search and local-mirror passage",
+          "title": "Exact size distribution of two-deletion descendants over every finite alphabet",
+          "trigger": "Closest same-day finite histogram"
+        },
+        {
+          "assessment": "Distinct same-level volume, fixed alphabet and different limit mechanism",
+          "evidence": "Boundary-layer deficits and ternary radius-two ball sizes",
+          "identifier_or_url": "2026/11/8/SCOPE-boundary-layer-fluctuations-and-the-complete-ternary-radius-two--9e557f4728a6",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary search and local-mirror passage",
+          "title": "Boundary-layer fluctuations and the complete ternary radius-two multiset-ball spectrum",
+          "trigger": "Uniform multisets, complete small-radius histogram and fluctuations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The channel's one-sided volume varies with the center; an average or a fixed-radius metric ball does not describe that variation. The complete t=3 frequencies and the leading Gaussian variance for every fixed t in a genuine growing-alphabet regime supply precise finite and asymptotic benchmarks on the natural uniform multiset model. The value rests on these volume distributions and scales, not on reusing the pair enumerator.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

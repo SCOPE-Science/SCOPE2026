@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:16:46.867831Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an interval centered at a, the trial quadratic P=(t−a)(t−b) is u(u+a−b) in the centered coordinate u. The odd cross term integrates to zero and the two even integrals are ℓ³/12 and ℓ⁵/80; the other interval is identical with a,b exchanged. The full norm D of this monic quadratic is at least 1/180 by shifted Legendre orthogonality. With a,b=1/2+s±h its norm is 1/80+s²/2−h²/6+(s²−h²)². At fixed h²≤1/4 it is minimized at s=0, and the ratio 4z/(z²−z/6+1/80) with z=h² has derivative of sign 1/80−z². Its unique maximum is 30+18√5 at z=1/(4√5), with s=0, giving the stated unique unordered pair. The normalized trial bound and ∑ℓ_i^r≤q^r give the all-q bound with 9/4 on q⁵. For lengths q²,q−q² at the two fixed centers, the shifted orthonormal Legendre Gram matrix compresses to A≽c q² I on the two point-evaluation span: the leading weighted evaluations are independent and symmetric integration changes their compression by O(q³). Its mixed block with the orthogonal unit trial vector is O(q³), and that vector's diagonal quotient d is Cq³+O(q⁴). Since λ_min≤d≪λ_min(A), the Schur correction is bounded by O(q⁶)/Ω(q²)=O(q⁴), yielding the matching lower asymptotic. The unrelaxed upper bound has the product of the center ratio and the fractional cubic-length sum; compactness and uniqueness force the specified unordered centers and min(ℓ_i)/q→0. This is necessity only, not a claim that every vanishing fraction suffices, nor that the short band must lie on a fixed side. The single-band trial gives O(q⁵); rescaling a centered one to a fixed interval and using degree-two norm equivalence also gives a matching Ω(q⁵) for that band. Complex coefficients do not change the real symmetric Gram eigenvalues, and t=|z|² pushes probability area to dt. Reviewed the submitted script and recorded numerical output without executing the script; the decisive checks above are analytic for the claimed regimes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reuter–Schwabe state that their main emphasis is D-optimality and mention A- and E-optimality as extensions; even their quadratic determinant design can use three intervals.",
+          "Huang's abstract studies asymptotic eigenvalue distributions and bandwidth/Shannon-number transitions. Papadopoulos et al. study annulus-adapted polynomial operations and sparse PDE discretizations."
+        ],
+        "reasoning": "More general polynomial degrees, ball geometry or unconstrained design support do not dominate a result with a different optimization criterion or asymptotic variable. None of the available compared statements supplies a stronger upper bound and matching construction for the specific E-design.",
+        "searches": [
+          "Reuter–Schwabe, DOI 10.1007/s00362-023-01425-0, concluding remarks",
+          "Huang arXiv:2308.03543v1, Slepian polynomials on the unit ball",
+          "Papadopoulos et al. arXiv:2310.07541"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and check_output.txt",
+        "Resultary ff4983abdb10 exact mirrored statement and adjacent indexed summaries 9e6964c89fd3, 996a7a7bbc19",
+        "Primary passages from Reuter–Schwabe, Huang, Papadopoulos et al., Ramos-López et al. and the hierarchical subsampling search hit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The maximizing single annulus is squared-radius centered, not supported near the two distinct optimal centers. Discrete Zernike sampling optimizes conditioning of a point-node collocation matrix, not the area-observed energy of unit polynomials.",
+          "In the two-band theorem the quadratic annihilating both evaluation vectors has a nonzero first derivative at each separated center, while the short band can stabilize the evaluation span at order q² and the long band supplies order q³ energy on the remaining line."
+        ],
+        "reasoning": "Neither input gives the normalized separation maximization or establishes that its singular unbalanced limit is achievable. Those require the trial-polynomial bound and the separate spectral-gap/mixed-block argument, not direct specialization or a change of basis.",
+        "searches": [
+          "Compare ff4983abdb10 Finding and Assumptions with frozen RESULT.md lines 28–100",
+          "Ramos-López et al. arXiv:1511.00449v1 abstract and introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The annular maximin quotient on the first three radial modes equals the degree≤2 E-criterion in the shifted Legendre basis under t=|z|². The closest mirror finding ff4983abdb10 explicitly excludes multiple rings.",
+          "The external search surfaced hierarchical information-theoretic subsampling of finite datasets; its abstract describes a numerical partition/SDP algorithm, not a continuous small-area two-interval theorem."
+        ],
+        "reasoning": "With uniform density and a fixed full-domain L² metric, the problem is least-eigenvalue design for the information matrix at fixed mass with a two-component support cap. It is not pointwise interpolation, general design without that cap, nor a determinant criterion.",
+        "searches": [
+          "Resultary: first three radial Zernike modes, annular maximin observation, radial two-annulus concentration",
+          "quadratic polynomial regression bounded density E-optimal subsampling at most two intervals small mass minimum eigenvalue two annuli Zernike optimal small aperture"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirror gives the exact maximizing single-annulus spectrum for every q, with maximin λ_−∼(4/9)q⁵. The thin-annulus summary concerns a single thin annulus; the radial-ball summary concerns different dimension/objective on the available comparison."
+        ],
+        "reasoning": "A table or formula for a single connected band, even exact for every q, cannot determine the two-band optimum with asymptotically vanishing relative short length. This is a continuum extremal problem, not a discrete pattern for which an exhaustive data table would establish the claim.",
+        "searches": [
+          "Resultary: exact fixed-area annular observation and thin-annulus radial concentration",
+          "Mirror finding ff4983abdb10; compare thin-annulus 9e6964c89fd3 and radial-ball 996a7a7bbc19"
+        ]
+      },
+      "rationale": "The closest same-day record has precisely the same space, area normalization in the quotient, and least-energy objective, but explicitly restricts to a single annulus. Its exact maximum behaves as (4/9)q⁵, not as the two-band q³ result. The strongest experimental-design match treats bounded-density D-optimality and explicitly distinguishes E-optimality; the inspected Slepian and Zernike sources address different spectral asymptotics, basis construction or discrete sampling. None of the checked statements gives the two-interval maximin constant, forced asymptotic imbalance, and all-area upper envelope. Pass is bounded to these distinctions and the frozen two-band claim, not general originality for small-aperture design.",
+      "residual_risks": [
+        "An equivalent unindexed E-optimal design or optical mask result could exist; literature review was bounded to material passages, not whole-document exclusion.",
+        "The closer same-day finding was checked in its mirrored statement and assumptions. No priority inference is drawn from its index date, nor are the ancillary parts of other indexed records excluded from containing related arguments."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact single-annulus result; does not include the two-band design",
+          "evidence": "Unique centered maximizer, explicit λ±, strict displacement loss, λ_−∼(4/9)q⁵; scope explicitly excludes multiple rings.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-fixed-area-annular-observation-of-the-first-three-radial-z--ff4983abdb10",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions and scope, offsets 80–2322",
+          "method": "Resultary and bounded local mirror passage retrieval",
+          "title": "Sharp fixed-area annular observation of the first three radial Zernike modes",
+          "trigger": "Same modes, same least-energy objective, same date"
+        },
+        {
+          "assessment": "D-optimal design, different support regime; no E-optimal result in the compared passage",
+          "evidence": "The authors state that the main emphasis was D-optimality and name E-optimality as a possible extension. The quadratic-regression D-optimal support can consist of three intervals.",
+          "identifier_or_url": "https://doi.org/10.1007/s00362-023-01425-0",
+          "material_read": "Publisher PDF concluding remarks, printed pp. 1111–1112, OA offset 51330–53359",
+          "method": "Lawful bounded primary PDF literal query and offset",
+          "title": "Optimal subsampling design for polynomial regression in one covariate",
+          "trigger": "Same quadratic-regression and fixed mass design language"
+        },
+        {
+          "assessment": "Related concentration framework, not the identified shrinking-area constrained minimum",
+          "evidence": "Asymptotically bimodal spectrum of two polynomial-space families, transition/Shannon number and spectral bandwidth.",
+          "identifier_or_url": "https://arxiv.org/html/2308.03543v1",
+          "material_read": "Abstract and beginning of introduction, OA offsets 0–1650",
+          "method": "Bounded HTML primary passage",
+          "title": "Slepian concentration problem for polynomials on the unit Ball",
+          "trigger": "Same polynomial concentration operator family"
+        },
+        {
+          "assessment": "Basis/algorithm construction for fixed annular domains rather than aperture choice",
+          "evidence": "Connection, differentiation, analysis and synthesis algorithms; annular orthogonal polynomials for sparse PDE discretizations.",
+          "identifier_or_url": "https://arxiv.org/html/2310.07541",
+          "material_read": "Abstract, OA offset 629–2313",
+          "method": "Bounded HTML primary passage",
+          "title": "Building hierarchies of semiclassical Jacobi polynomials for spectral methods in annuli",
+          "trigger": "Annular Zernike terminology and conditioned polynomial operators"
+        },
+        {
+          "assessment": "Finite nodes and collocation condition; distinct observation and objective",
+          "evidence": "Unisolvent point interpolation, collocation matrix conditioning and wavefront surface recovery; no continuous-area criterion in the inspected result summary.",
+          "identifier_or_url": "https://arxiv.org/html/1511.00449v1",
+          "material_read": "Abstract and opening introduction, OA offsets 726–2426",
+          "method": "Bounded HTML primary passage",
+          "title": "Optimal sampling patterns for Zernike polynomials",
+          "trigger": "Optimal observation of Zernike modes; plausible alternate design formulation"
+        },
+        {
+          "assessment": "Discrete data selection algorithm, not a competing continuous interval optimum",
+          "evidence": "Hierarchical partitioning and semidefinite numerical selection for finite data, validated on datasets.",
+          "identifier_or_url": "https://researchonline.lse.ac.uk/id/eprint/121641/1/Using_hierarchical_information_theoretic_criteria_to_optimize_subsampling_of_extensive_datasets.pdf",
+          "material_read": "Abstract and opening motivation, PDF page 2, OA offsets 1520–4135",
+          "method": "Bounded OA PDF passage",
+          "title": "Using hierarchical information-theoretic criteria to optimize subsampling of extensive datasets",
+          "trigger": "Primary search hit under E-oriented subsampling query"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The number of allowed annular components is a natural design constraint for retaining worst-direction energy. The exact law distinguishes a change of exponent from the single-band result and forces a vanishing satellite fraction despite separated limiting centers; two comparable bands cannot be optimal at leading order. The sharp coefficient and uniform finite-area upper bound quantify that mechanism without suggesting a solution to the unrestricted or finite-area shape problem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

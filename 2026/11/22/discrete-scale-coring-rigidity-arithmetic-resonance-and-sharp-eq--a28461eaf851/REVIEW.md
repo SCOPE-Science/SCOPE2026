@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness: PASS
-The central disk-washer formula is exact for the specified monotone revolved profile. For each fixed scale, differentiation of the equality of the integral and endpoint product is legitimate even when the profile is merely continuous: the equation first provides differentiability of the product. This proves the exact multiplicative functional equation. The logarithmic substitution gives a continuous periodic function. Two irrationally related periods force constancy by density of integer combinations, and the endpoint determines the coefficient. The explicit counterexample has globally strictly negative squared-profile curvature from a uniform analytic amplitude bound, so the square-root meridian is strictly concave; its boundary is \(C^{1,1}\) yet not twice differentiable at the equator. The one-scale Taylor argument is logically independent of the two-scale argument. The standalone checker was run from its actual path and supports rather than proves these statements.
+## correctness
 
-## Originality: PASS, provisional
-The principal exact historical overlap is Coll and Dodd (2010): their full article's proof already derives the one-scale functional equation in the course of proving rigidity under *all* scales. This step is credited and excluded from the novelty claim. The present claim concerns the finite test-set classification, irrational-logarithm threshold, commensurate counterexamples within strictly convex \(C^{1,1}\) bodies, and the one-scale regularity boundary; none is stated by the inspected article. Searches for the finite-test theorem, log-periodic counterexamples, single-scale coring and arithmetic scales found no covering published mathematical finding. However, the mathematical mechanism is a classical multiplicative functional equation; a historical source could imply the same theorem under another name. The 1996 napkin-ring citation is bibliographic evidence for a dated predecessor only, not independent verification of the column's original text.
+PASS
 
-## Mathematical value: PASS
-The classical full-scale coring criterion is an idealized continuum of experiments. Determining exactly which *two* scales suffice is a natural inverse-geometric minimal-testing question, with an unexpectedly sharp number-theoretic dividing line. The strictly convex counterexamples show that the divide is genuine in the natural regularity class rather than an artifact of pathological curves. The single-scale Taylor threshold gives a complementary structural boundary. No noisy-data robustness theorem is claimed.
+At every common absolute height 2u the washer integrand is s²(q(t/s)−q(u/s)). Equality of complete volume functions is exactly the equation ∫₀ᵘ H_s(t)dt=uH_s(u) for H_s=q−s²q(·/s). Continuity makes the left hand side C¹, so dividing by u>0 legitimates differentiating H_s and yields H_s'=0. The constant from u=0 gives the multiplicative equation, including the t=1 limit. Changing variables gives exact log-periodicity on y≥0. Extending a continuous periodic function to the real line preserves each other positive period (shift any pair sufficiently far right by the first period); the dense additive subgroup for two irrationally related periods forces constancy. The tip condition then fixes the spheroid coefficient. For commensurate scales the sine perturbation has exactly the required common period and q''≤−2+ε hypot(2−ω²,3ω)<0; q'(0)=0 and q(1)=0 give strict decrease and positivity inside. The square-root profile is strictly concave, and its even extension gives a strictly convex solid by the norm triangle inequality. Bounded second derivatives through the equator give C¹,¹ there; smooth inversion of q at the tip, as a function of squared radial distance, gives smooth tip charts. With a second-order Taylor expansion a single period forces the linear coefficient to vanish and gives a limiting value at infinity, so that period already forces constancy.
 
-## Closest literature and limits
-V. Coll and J. Dodd, *Which Surfaces of Revolution Core Like a Sphere?*, Mathematics Magazine 83 (2010), 191–199, DOI 10.4169/002557010X494832. Its proposition concerns all continuous dilations; its intermediate functional equation is the key known premise. Standard textbook napkin-ring calculations give the sphere's volume identity, but not the arithmetic finite-scale classification. Potential older work on multiplicative functional equations remains the priority risk. No independent audit or independent reproduction of the proof has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The washer reduction and all-dilation spheroid conclusion belong to prior work as credited in the frozen record. On the evidence inspected, the supported distinct claim is the finite-scale arithmetic and regularity criterion, including the strictly convex C¹,¹ examples that pass commensurate tests. The general log-periodic functional equation is not itself new.
+
+## value
+
+PASS
+
+This replaces an all-scales idealization by two explicit scale functions (e.g. 2 and 3) and explains exactly when an alternative pair can fail. Strictly convex false positives with a C¹,¹ boundary show the obstruction is not a loss of convexity or an obvious nonsmooth shape. The one-scale Taylor boundary separately identifies how regularity can replace the second test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:59:09.436887Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–90",
+        "Frozen verify.py and VERIFICATION.md, inspected but not executed",
+        "Independent bounded reproduction; to replay, enumerate all binary words of length 2n with n up-steps, retain those with all prefix heights in [0,H], and find the maximum k by testing all length-k binary words for subsequence occurrence. Compare the histograms to coefficients extracted by multiplying each rational series by its denominator and solving for the next coefficient, for H=1,2,3 and n=0,…,8."
+      ],
+      "rationale": "Greedy arches give a universal word up to their number; the sequence of arch-ending symbols followed by a symbol missing from the unfinished suffix witnesses nonuniversality at the next length. Marking each closure in the three-state automaton and decomposing a height-H Dyck word into primitive excursions gives the stated exact matrix recursion. Eliminating the automaton states gives F₂=(1−2x+xt)/((1−x)(1−2x)) and F₃=[1+t(F₂−1)/(1−xF₂)]/(1−x), with x=ut; this simplifies to the stated numerator and denominator. F₂ yields the claimed two-point law, including the degenerate n=1 case. At u=1 the candidate denominator factors are (1−t)²(1−3t+t²), so the simple root r=(3−√5)/2 is separated and uncancelled. Subtracting its simple pole gives an analytic remainder bounded uniformly on a larger fixed circle for u near one; hence the log-mgf is n log(r(1)/r(eˢ)) plus an analytic amplitude and an exponentially small error. The pole equation there is eˢ(2r(eˢ)+r(eˢ)^(3/2))=1. At s=0 put a=2r and b=r^(3/2); a+b=1 and a+3b/2=√5/2. The first log-mgf coefficient per n is 1/(a+3b/2); the second is ab/[4(a+3b/2)³]>0. These equal the claimed constants. Taylor expansion at an imaginary argument of order n⁻¹/² gives the normal limit; the analytic amplitude cancels at s=0 and adds only o(1) at that scale. A separate exhaustive direct-subsequence check matched all coefficients for H=1,2,3 and n≤8; for H=3,n=8 it gives {5:50,6:432,7:127,8:1}.",
+      "residual_risks": [
+        "The bounded exhaustive check confirms small coefficients, not the asymptotics or the all-length identity. The proof applies to words of height at most three, not words of exact height three or unrestricted Dyck words."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The papers give greedy-arch index, regular-language counting, or transfer matrices for bounded walks, and a separate repetition-avoidance height bound. Record 425e8fe1de91 has no height marking and different Gaussian constants."
+        ],
+        "reasoning": "The general algorithms make a marked enumeration possible but are not themselves the same formula; neither unrestricted Dyck sampling nor power avoidance specializes to this sampling law. The direct coverage comes instead from the exact local records.",
+        "searches": [
+          "Schnoebelen–Veron arXiv:2304.11932; Adamson et al. arXiv:2311.10658; Bacher arXiv:1303.2724; Mol–Rampersad–Shallit arXiv:2301.06145",
+          "Resultary 425e8fe1de91, unrestricted Dyck finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 394c67230297, 473e24d50cdb, 358ea144a38d, 425e8fe1de91, 08e80223adbd",
+        "arXiv:2304.11932, 2311.10658, 1303.2724, 2301.06145"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier height-three law explicitly gives mean slope 2/√5, a law of large numbers and variance O(n). Its exact denominator has the same simple isolated root and nonzero amplitude at u=1; direct differentiation yields the positive variance 2−22√5/25 and the same Gaussian limit by quasi-powers."
+        ],
+        "reasoning": "The older height-two coefficients immediately give the decaying Bernoulli variance. The textbook simple-pole expansion of the prior height-three formula yields the contrast, with no extra combinatorial hypothesis; the exact variance and CLT are mechanically implied, not claimed as explicitly printed in the older result.",
+        "searches": [
+          "394c67230297, Finding and Asymptotics",
+          "473e24d50cdb, exact height-two Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 394c67230297 gives the exact same F₃(t,u) for height ≤3; its alternative height/arch transfer has 12 states. Record 473e24d50cdb gives one height-≤2 word at index n and 2^(n−1)−1 at index n−1. Record 358ea144a38d identifies (01)^n, index n, as the only height-one word."
+        ],
+        "reasoning": "The models, length, marking variable and height bound are identical, even though the transfer representation differs.",
+        "searches": [
+          "Resultary search for bounded-height Dyck word subsequence universality, exact height-three law and Gaussian fluctuations",
+          "394c67230297, 473e24d50cdb, 358ea144a38d Findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The database result 394c67230297 contains the entire bivariate coefficient table in rational form and its univariate Fibonacci specialization 1,1,2,5,13,… . The Fibonacci count in 08e80223adbd is a maximum for the number of shortest absent subsequences, not the marked height-three table."
+        ],
+        "reasoning": "An univariate count alone would not cover the marked law, but the identical prior bivariate rational function does.",
+        "searches": [
+          "Resultary exact census and height-three universality law: 394c67230297, 473e24d50cdb, 08e80223adbd"
+        ]
+      },
+      "rationale": "Earlier catalogue records already give the full marked height-three generating function, the exact height-two census, and the deterministic height-one case. The earlier height-three record does not state the positive exact variance or CLT, but its identical bivariate rational function has the same isolated simple moving pole. Standard quasi-powers, with two derivatives of precisely the same denominator, implies the explicit refinement without any new enumeration or structural estimate.",
+      "residual_risks": [
+        "The web search was noisy. The earlier explicit occurrence of the CLT wording is unresolved, but not needed for the demonstrated implication from the exact law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct exact-law coverage and implication of the Gaussian refinement",
+          "evidence": [
+            "Identical F₃; states mean rate and convergence in probability, not the exact variance or explicit CLT."
+          ],
+          "identifier_or_url": "394c67230297",
+          "material_read": "RESULT.md Finding and Asymptotics, mirror offsets 0 and 3400",
+          "method": "Resultary and local mirror statement/proof comparison",
+          "title": "Exact universality-index law for height-three Dyck words",
+          "trigger": "Same bound, statistic and exact formula"
+        },
+        {
+          "assessment": "Exact height-two coverage",
+          "evidence": [
+            "Gives ι≥n−1 iff height ≤2 and the precise two multiplicities."
+          ],
+          "identifier_or_url": "473e24d50cdb",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Dyck height and near-maximal subsequence universality",
+          "trigger": "Height-two census"
+        },
+        {
+          "assessment": "Covers height one",
+          "evidence": [
+            "Unique word (01)^n has index n."
+          ],
+          "identifier_or_url": "358ea144a38d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp nesting-depth tradeoff for subsequence universality of Dyck words",
+          "trigger": "Height-one extremal case"
+        },
+        {
+          "assessment": "Standard underlying lemma",
+          "evidence": [
+            "Universality index equals the number of completed greedy arches."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.11932",
+          "material_read": "p. 4, offset 12137",
+          "method": "Primary OA full-text passage",
+          "title": "On arch factorization and subword universality for words and compressed words",
+          "trigger": "Greedy index definition and possible equivalence"
+        },
+        {
+          "assessment": "General algorithmic coverage",
+          "evidence": [
+            "Algorithms count k-universal words/paths in regular languages; no specific height-three closed formula in the passage."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2311.10658",
+          "material_read": "p. 1, offsets 1410–2425",
+          "method": "Primary OA full-text passage",
+          "title": "k-Universality of Regular Languages",
+          "trigger": "Counting universality in automata-recognized languages"
+        },
+        {
+          "assessment": "General bounded-height method",
+          "evidence": [
+            "Finite-graph walk representation with transfer-matrix generating functions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1303.2724",
+          "material_read": "p. 2, offset 4161",
+          "method": "Primary OA full-text passage",
+          "title": "Bacher, bounded-height excursions and transfer matrices",
+          "trigger": "Univariate counting and walk reduction"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 17–28 and 53–87",
+        "Resultary 394c67230297 and 473e24d50cdb"
+      ],
+      "rationale": "The depth at which linear variance appears is a natural question. In this record the two exact laws that settle it are already known, and the only remaining refinement is the usual curvature and quasi-power limit at an already identified simple dominant pole. No new depth classification, probabilistic mechanism, or nonroutine estimate survives as a separate contribution.",
+      "residual_risks": [
+        "The explicit constant and Gaussian wording may be useful for exposition; this does not show an independently new scientific result."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

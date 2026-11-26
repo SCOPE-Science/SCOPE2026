@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For any finite field and any positive radical dimension, the algebra automorphism group is exactly the general linear group on the radical. The pair \((v,a1+v)\) forces the scalar-independent form of any two-local map. Its homogeneous radical part preserves and reflects projective-line dependence and is necessarily a bijection on the finite projective-point set; conversely each such projective permutation with scalar factors extends pairwise to an invertible linear map. These arguments establish both necessity and sufficiency, so the wreath-product count is exact. Applying three-locality to \((v,w,v+w)\) forces additivity, and explicit nonadditive maps establish the complete exceptional-case boundary. `verify.py` exhaustively reconstructs small-field cases from the original pairwise definition, including the two rigidity cases and two nonlinear cases. Finite tests are corroboration, not an infinite proof.
+## correctness
 
-## Originality — PASS on inspected evidence
-The main motivating source, Arzikulov–Karimjanov–Umrzaqov (2023, arXiv:2305.13720), proves two-local rigidity for different filiform and null-filiform nilpotent associative algebras; its introduction, automorphism descriptions, and Section 4 do not cover this unital algebra. Ayupov–Arzikulov–Umrzaqov–Nuriddinov (2020) studies two-local linear maps under additional matrix constraints, not arbitrary invertible two-local maps on the full finite vector space. Ayupov–Kudaybergenov (2016) concerns Lie algebras. A published description of ordinary automorphisms of truncated coordinate-cross algebras yields \(\operatorname{GL}(V)\), but the two-local group is strictly larger except in the stated exceptional cases. Searches for square-zero, dual-number, projective-permutation, wreath-product and three-local equivalents found no complete prior theorem. Residual risk: a general theorem on two-local invertible linear mappings of finite vector spaces may subsume this elementary-looking classification despite different terminology; this is a priority limit, not a proof gap.
+PASS
 
-## Mathematical value — PASS
-The research literature asks when two-local automorphisms collapse to true automorphisms. The complete natural family of split square-zero local algebras exhibits both outcomes. This theorem supplies the exact group of all nonlinear two-local symmetries, a closed enumeration for every finite field and radical dimension, an isolated binary rank-two rigidity exception, and the sharp jump at three-locality. The projective wreath-product structure distinguishes genuinely nonlinear symmetries from the familiar linear automorphisms and provides a reusable baseline for studying less degenerate local algebras. Although its linear-algebra proof is elementary, the result is an entire classification rather than a single example or a restatement of the ordinary automorphism count.
+Unital K-algebra automorphisms fix K and preserve the unique maximal ideal V. Square-zero multiplication makes every invertible K-linear map on V extend to an automorphism. Interpolating the pair (v,a1+v) forces the radical part of any two-local map to depend only on v. On V, the pair (v,cv) forces homogeneity with the same c, and independent pairs must stay independent. This permutes projective directions over the finite field; every such permutation with an independent nonzero scale on each direction is two-local by extending independent pairs to bases, or by homogeneity for dependent pairs. Composition gives the stated wreath product and order. The triple (v,w,v+w) forces additivity and hence, with homogeneity and injectivity, invertible K-linearity. When n=1 or (n,q)=(2,2) the two-local group is already GL. Else, scaling just one direction for q>2, or swapping x+y with z for three independent vectors when q=2, violates additivity. These arguments do not require the prime-field hypothesis of the frozen finite checker.
 
-## Limits of review
-The proof and finite reproducer have been checked internally. Publication-priority review is bounded by accessible literature and indexed records; independent audit and external mathematical validation have not been performed. No statement about higher radical length is implied.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct supported content is the complete two-local group of unital split square-zero algebras over all finite fields, including the sharp equality cases and collapse to GL at three evaluations. The exact equivalent 2-closure formulation is a real priority risk; no earlier matching computation or theorem implying this full result was verified in the bounded search.
+
+## value
+
+PASS
+
+The square-zero family isolates how much local agreement can fail to enforce linearity over finite fields. It gives the full discrepancy group rather than just examples and pins down the small-field exception and exact two-to-three evaluation boundary. This is a useful classification for the natural first radical-square-zero test family, beyond the elementary identification of the ordinary automorphism group or computation of a tiny example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

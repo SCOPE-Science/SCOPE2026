@@ -1,15 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness
-PASS. A canonical center-rooted parenthesis code enumerates every tree isomorphism class by leaf deletion and regeneration. For each of the 201 unlabelled trees on at most ten vertices, every binary state is evaluated under the exact closed-neighborhood \((1,3)\) rule, and functional-digraph traversal records every primitive orbit. The published schedule-equivalence theorem for trees removes the factorial family of vertex-update permutations. The standard-library checker reproduces the ten period maxima, counts the unique ten-vertex extremizer and its two distinct length-\(22\) cycles, and verifies an explicit length-\(22\) witness. This is complete finite computation supported by a mathematical coverage argument; it does not assert an infinite-range classification.
+## correctness
 
-## Originality
-PASS under bounded available evidence. The 2011 source establishes arbitrary-length cycles using designated tree families while expressly not settling minimality; the 2015 open full text illustrates H/Y/X graphs and invokes schedule equivalence, but does not tabulate global tree maxima through ten vertices or the unique period-\(22\) extremizer. Searches for the threshold pair, graph class, unique ten-vertex maximum and primitive orbit lengths found no stronger equivalent statement. Prior existence for large cycles does not determine sharp minima by vertex count. Residual risk: an unindexed finite census or inaccessible related article could duplicate the table; the search is not a uniqueness proof.
+PASS
 
-## Mathematical value
-PASS. The minimality-of-trees question is specifically motivated in the founding research, and the first sharp all-tree cutoff supplies a complete natural finite invariant rather than a selected-family example. The short witness has a striking period exceeding twice the vertex count, the n=10 extremizer is unique up to isomorphism, and the full finite census provides a benchmark for any proposed global bound or family extremality claim. No downstream general theorem is claimed.
+With old state x_v and s_v active neighbors outside v, the closed-count rule is exactly s_v≥x_v+1. To check the order reduction independently, orient each edge by its endpoint order. Schedules for one orientation are linear extensions and differ by adjacent swaps of incomparable, nonadjacent vertices, whose local updates commute. A source-to-sink flip cyclically shifts an update at the start to the end; writing the two global maps as BA and AB, A intertwines them and is bijective on their periodic states (injectivity from BA being a permutation there, surjectivity via AB on its periodic states and the intertwiner B). All orientations of a tree are connected by such flips and their inverses: delete a leaf, realize the flips on the smaller tree, flipping the leaf first if it blocks its parent's scheduled source flip, and then adjust the final leaf edge. Thus lengths and cycle multiplicities are schedule-independent, not necessarily transient graphs. A fresh exhaustive implementation generates rooted trees by multisets of smaller rooted types and deduplicates free trees by the least complete rooted code over all roots; this covers every class because each free tree has a rooting. It evaluates all 2^n states for each representative and counts each cycle once by marking completed traces. It reproduced 1,1,1,2,3,6,11,23,47,106 free trees; maxima 1,1,1,1,2,3,6,10,14,22; and maximizing-class counts 1,1,1,2,1,1,2,1,1,1. It found exactly two period-22 cycles in the unique extremal class, checked that the displayed labelled tree belongs to that class, and verified all 22 pairwise-distinct witness states and transitions, including 267→2. These maxima are ≤2n for every n<10 and 22>20. Replay: python3 /workspace/branches/fb7bca10-bc85-48da-84d2-b7125e18a1e7/independent_census.py, which printed INDEPENDENT_CENSUS_OK. The frozen verify.py was inspected, not run; contrary to the prose, it prints but does not assert all maximizing-tree counts, and checks its computed cycle rather than explicitly reading the printed tuple in RESULT.md. The fresh calculation checks both directly.
 
-## Scope and prior-literature risks
-Only trees of orders one through ten, common static threshold pair and one fixed permutation sweep per iteration. The accepted result does not classify larger trees or more general graph classes. An inaccessible full-text source cannot be excluded categorically by abstract screening alone.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier literature supplies both the order-equivalence reduction and long-cycle constructions, but the inspected results neither classify all trees of these sizes nor settle the first violation of 2n. The later-dated 9e5a9ef7f73d is a genuine stronger exact overlap: its certificate repeats every stated maximum and maximizer count, and the ten-vertex witness and multiplicity agree. It is not evidence that the census was already known when the frozen record was dated; no claim of priority over every possible source or of novelty relative to that later census is made. The inaccessible 2014 lead is a residual risk, not a ground for either scientific rejection or a finding of noncoverage.
+
+## value
+
+PASS
+
+The order range is motivated by the first strict period-versus-size crossing, not chosen as an arbitrary census cap. The exact maximum 22 on ten vertices and upper bounds for every smaller tree establish a minimal-order witness that long-cycle existence theorems and selected examples do not give. Uniqueness of the witnessing class and the two-cycle multiplicity are useful exact checks for subsequent structural or enumeration work. A later extension corroborates the finite result without making the earlier mathematical gap arbitrary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

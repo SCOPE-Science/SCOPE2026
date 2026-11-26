@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exponential-polynomial zero-count lemma is derived by a twofold differentiation and generalized Rolle induction, giving at most \(2n-1\) zeros of the revenue derivative. The geometric mixture has exactly \(2n-1\) simple derivative zeros from rigorously separated endpoint signs and intervening minimum witnesses; this proves the \(n\) distinct nondegenerate local maxima rather than relying on a numerical root census. Bounding the slower and faster components separately proves an \(n\)-independent near-equality ratio \(1+e\Delta_L\), converging to one. The fixed-case executable check passes 1,693 finite assertions; finite tests are not substituted for the infinite analytic argument.
+PASS
 
-## Originality — PASS, historical priority provisional
+The normalized positive n-rate mixture has R'(0)=1. Multiplying its affine-coefficient exponential derivative by a nonvanishing exponential and differentiating twice removes one mode. Rolle with multiplicities gives the bound 2n-1 by induction, including the affine exception. Between successive strict maxima there is an interior minimum, so there are at most n. For the geometric construction, after division by L^j the slower-rate positive terms at the right endpoint sum to less than 1/(L-1) versus its own negative e^(-3/2)/2; at the left endpoint the faster-rate losses are at most e^(-L/4)/(2(1-e^(-L/4))) versus its own positive e^(-1/2)/2. Signs in the disjoint windows and in the gaps exhaust the 2n-1 zero budget and force simplicity. On each window the own contribution to the unnormalized objective is at most 1/e, and attains 1/e at the center price 1/L^j; geometric slow tails and decreasing exponential fast tails give the stated common upper bound. An independent decimal evaluation gives 1.01021910461827 at L=400 for the ratio bound. Positive normalization cancels in the ratio and does not alter stationary points. The case n=1 is included. Simple roots persist locally; the theorem does not assert that the fixed geometric weights make the peaks exactly equal.
 
-The directly compared public two-exponential price-bifurcation theorem addresses exactly two classes, not the arbitrary-class sharp mode cap or the near-equal construction. The published arbitrary-number-of-local-optima theorem assumes sigmoid logistic purchase probabilities rather than exponential willingness-to-pay tails; its at-least-\(n\) lower bound does not imply this result's exact cap or height guarantee. The materially examined Aksoy-Pierson–Allon–Federgruen, Kunz–Crone and Hetrakul–Cirillo primary articles motivate heterogeneous demand and exponential pricing but do not provide the paired theorem in the material read. General Chebyshev zero bounds themselves are established mathematics and are not presented as novel. Residual risks include unsearched equivalent results in exponential-polynomial pricing and older heterogeneous-demand work; this is not an independent priority certificate.
+## originality
 
-## Value — PASS
+PASS
 
-The sharp peak count tells how many distinct price regimes an exact single-market search must consider when demand is a mixture of \(n\) simple exponential response laws. The construction's near-equal values for all peaks make the distinction practically meaningful *within the idealized model*: local maxima cannot be dismissed as necessarily negligible. No applied price recommendation or numerical-stability guarantee is inferred.
+Credit the classical zero-count principle and the stronger, exactly tied two-component special case. No statement located in the compared sources covers the joint all-n saturation by simple modes with a dimension-uniform near-equal-height construction. This assessment is for that combination, not a priority claim about two-component bimodality or extended Chebyshev bounds.
 
-## Limits
+## value
 
-The mathematical result assumes zero marginal cost, a one-product, one-period deterministic revenue objective, exact exponential valuation tails and no capacity constraint. Geometric rate separation can be extreme and severely ill-conditioned for empirical data. Review is not independent and the strongest broader historical literature was not comprehensively inspected.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A count bound alone would not tell whether the spurious peaks can have comparable economic objective values. Achieving the largest permitted mode count with uniformly comparable heights is a meaningful obstruction to relying on a single local optimization of a natural one-price model, even though the witness is highly dispersed and not an empirical claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

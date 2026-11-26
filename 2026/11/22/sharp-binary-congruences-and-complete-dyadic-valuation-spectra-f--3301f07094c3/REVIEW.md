@@ -1,15 +1,21 @@
-# Review of sharp type-B Eulerian binary congruences
+# Independent mathematical audit
 
-## Correctness — PASS
-The signed Worpitzky identity expands into integral Eulerian-polynomial terms. The binomial identity \(j\binom nj=n\binom{n-1}{j-1}\) supplies a coefficientwise factor of \(2^{1+\nu_2(n)}\); the exact error recurrence boosts odd indices to \(2^{1+\nu_2(n-1)}\). The one-descent coefficient factors as \(2n(n-1)\) times a two-adic unit, establishing sharpness at every index. Lucas's theorem gives the full valuation spectrum at powers of two. The independent recurrence-based checker reports 134479 exact assertions. It is finite corroboration, not a substitute for proof.
+## correctness
 
-## Originality — PASS, qualified
-Semantic searches of an external mathematical findings database and the accessible own findings found classical Eulerian-column studies, an ordinary type-A Eulerian row-gcd classification, and binomial valuation work, but no statement implying the new exact type-B congruence. Published primary literature was compared by scope: Castro–González–Medina (2015) is a p-adic study of classical Eulerian numbers; its abstract was available but full text inaccessible. Santocanale's type-B/type-D preprint (arXiv:2104.12445) was read at the relevant type-B identities and searched for valuation/divisibility statements; no equivalent theorem was recovered. OEIS A060187 is finite data. Historical priority remains provisional because an inaccessible earlier derivation or specialization could exist.
+PASS
 
-## Mathematical value — PASS
-This determines the maximal common power of two in the difference between a natural signed-permutation descent-distribution polynomial and a Pascal row, uniformly for all integers \(n\). As a consequence it gives the complete two-adic histogram, not just parity or one coefficient, at every power-of-two row. Sharpness and exact multiplicities provide structural divisibility information about a classical Coxeter-group enumerator.
+The signed descent at index zero is included. An independent coefficientwise proof follows by comparing the power-series Worpitzky expansion with (1+t)^n=((1-t)+2t)^n. The j=0 and j=1 terms agree exactly. At j=2, the difference is 2n(n-1)t(1-t)^(n-2), since the ordinary Eulerian polynomial at j=2 is 1+t. For j>=3, both expansions have terms divisible by 2^(2+v2(n(n-1))): write binom(n,j)=n(n-1)binom(n-2,j-2)/(j(j-1)) and use v2(j(j-1))<=j-2. This applies even at n=2 when there is no tail. It proves the modulus and proves exactness at coefficient t; the signed Worpitzky formula separately gives B(n,1)=3^n-n-1. For n=2^r the error vanishes modulo 2^(r+1) while every interior Pascal valuation is r-v2(k), by oddness of binom(2^r-1,k-1). Counting indices of each valuation gives 2^(j-1) and the endpoints are 1. Independently ran python3 /workspace/review_evidence/recompute_arithmetic.py: direct Worpitzky coefficient comparison through n=64, signed-word enumeration through n=6, and full interior valuation/multiplicity checks in powers of two through 64. The frozen n<=512 diagnostic is recorded evidence, not a replay or the proof.
 
-## Limits
-The theorem does not classify other primes or all non-dyadic valuation profiles. A later independent audit is needed. Full text of the 2015 Eulerian-valuation paper was unavailable; this is an originality risk, not a reason to invent certainty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of current knowledge: the sharp all-row Pascal comparison and its dyadic application are distinct from the enumerative literature inspected. The same frozen record in the index is not a prior result. The exact one-descent enumeration itself is already implicit in standard Worpitzky formulas and is not credited as novel.
+
+## value
+
+PASS
+
+This answers a natural uniform arithmetic comparison of two standard combinatorial rows: it gives the exact largest power-of-two modulus for the whole row and a witness, rather than merely showing parity. It transfers all valuations to a clean histogram on power-of-two rows. These are independently useful exact data and not merely a reindexing of the familiar Pascal spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

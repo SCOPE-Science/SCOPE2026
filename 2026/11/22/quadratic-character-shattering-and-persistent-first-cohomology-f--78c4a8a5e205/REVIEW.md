@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The classification follows from sharply three-transitive \(\operatorname{PGL}_2(q)\), the index-two square-determinant subgroup, positive inclusion-exclusion trace counts, and the unique-three-image obstruction. A determinant-character edge cochain has zero coboundary on every admitted triangle but evaluates nontrivially on an excluded matching triangle. Exact binary boundary ranks at \(q=5,7\) were reproduced by the two separately implemented standalone programs, including all trace labels in the transformation-based check. No empirical finite result is used to prove the all-field theorem.
+## correctness
 
-## Originality (O): PASS within inspected evidence
-The full published PSL2 intersection-spectrum text (arxiv:2306.07851, 2023) concerns intersecting sets of group elements, and the matching-complex article (arxiv:1906.03328, 2019) treats ordinary flag chessboard complexes. Neither states the character-selected Boolean shattering complex or its cohomology class. Related Johnson/Hamming graph VC literature has a different incidence object. Searches of exact aliases and broader theories did not identify an implicating result; unindexed equivalents are a residual historical-priority risk.
+PASS
 
-## Mathematical value (V): PASS
-The index-two determinant condition is not merely a parameter substitution: it deletes exactly half the three-rook faces while retaining every compatible edge, yielding a universal, explicitly detectable nonzero mod-two first cohomology class. This contrasts with the higher-connected ambient chessboard complex and provides precise test instances at the two smallest odd prime fields. No integral or all-field Betti-rank theorem is asserted.
+A positive trace forces a matching. For an ordered point pair the PGL stabilizer is conjugate to the nonzero scalings, half of which have square determinant, so PSL remains 2-transitive with pair stabilizer (q−1)/2. Sharp triple transitivity of PGL gives a unique potential all-positive witness. On a supported triple, excluding the third positive removes one from the pair stabilizer, leaving a witness iff q≥5. Inclusion–exclusion gives the listed counts for the singleton and empty traces, strictly positive for n=q+1≥6; matching pairs have positive trace counts already at q=3. Four cells would violate uniqueness on three equations. Counting graph triples once gives |PSL| binom(n,3)=3 binom(n,3)², and every matched pair extends along a realizing graph. The edge character is symmetric since interchanging endpoints negates both determinants; for a projectivity the vertex rescalings occur twice around a triangle and the product equals the character of its determinant. Thus it is a cocycle on all selected triangles, and changing representatives adds the coboundary of the product of source and target rescaling characters at each cell. The triangle (∞,∞),(0,0),(1,a) for nonsquare a has a closed edge boundary with evaluation one, proving nonvanishing without any homology approximation. The compatible-pair graph is connected (any two cells have a common compatible cell in a row and column different from their own). For finite data, review_checks/psl.py closes the determinant-one permutation generators x↦x+1 and x↦−1/x, checks their group cardinalities, intersects bit masks for every labeling on every matching of size ≤3, and row-reduces the resulting incidence matrix over F₂. It independently gives (f₀,f₁,f₂; rank ∂₂)=(16,72,0;0),(36,450,1200;414),(64,1568,9408;1504) for q=3,5,7, and (β₁,β₂)=(1,786),(1,7904) for the last two. This tests prime-field claims only; the all-prime-power result is analytic. Here persistent means nonvanishing for each eligible q, not a claim about a filtration or persistence module.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The group action and full matching complex are standard, and a same-day record shares the point-image graph concept construction. The distinct content is the square-determinant half of the projective matching triples and its linked universal mod-two obstruction, with exact small-field ranks. No historical priority beyond the comparisons is claimed.
+
+## value
+
+PASS
+
+The natural index-two subgroup keeps every compatible pair but deletes exactly half the matching triples, and the arithmetic deletion is detectable in first homology, not just in the face count. The complete shattering formula and universally witnessed obstruction are structurally useful; the first eligible finite cases quantify the obstruction without extrapolating a Betti formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

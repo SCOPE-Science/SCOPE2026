@@ -73,4 +73,4 @@ for parts, target in [((2,2,2),sp.Rational(-66473,957799)),((3,3),sp.Rational(19
     T=(120*sp.eye(sum(parts))+60*A+12*A*A+A*A*A).inv()*(120*sp.eye(sum(parts))-60*A+12*A*A-A*A*A)
     assert T[0,0]==target
 assert num_graphs == 87 and num_entries == 14925
-print(f'VERIFY_OK scalar derivative and positivity certificates; {num_graphs} graphs; {num_entries} exact matrix-entry identities; exact stochasticity, smallest-part ordering, and two six-vertex signs')
+print(f'VERIFY_OK scalar derivative and positivity certificates; {num_graphs} graphs; {num_entries} exact matrix-entry identities; symmetry and unit row and column sums, smallest-part ordering, and two six-vertex signs')

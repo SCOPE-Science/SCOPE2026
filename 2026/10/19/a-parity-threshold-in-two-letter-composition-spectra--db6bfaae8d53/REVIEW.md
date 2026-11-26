@@ -1,19 +1,21 @@
-# Review of the adjacent-pair composition spectrum theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The word-to-Euler-trail equivalence handles loops and the zero/two odd-vertex condition exactly. For every alphabet size the parity generating function is a coefficientwise identity: parity is supplied by simple-edge subsets, even multiplicity by geometric series and loops by independent geometric series. Partition-lattice inversion retains precisely connected graphs, without losing unused alphabet letters. Exact integer polynomial arithmetic independently confirms the four explicit rational functions, and direct word enumeration plus a separate Euler-vector census agree with them at the indicated finite lengths. The asymptotic constant follows from an incidence-map rank calculation and pole orders. This proves the infinite claims without extrapolating from data.
+PASS
 
-## Originality — PASS with residual risk
+Words are Euler trails on looped labeled multigraphs of positive edge count. The nonloop multiplicities split uniquely into an even part and a parity bit, and loops change no degree parity. A graph with c components contributes the top-interval partition Möbius sum, equal to one at c=1 and zero otherwise; the coefficient filter then selects zero or two odd vertices. Choosing the active alphabet and subtracting the q empty singleton terms proves the general formula. Separately authored direct multiplicity-category enumeration and integer cross-multiplication verified the quaternary rational expression and its eleven listed coefficients; replay: /workspace/branches/e9fead98-b918-4ce0-aecb-fb93e61ff240/record4_direct_categories.py. This is an exact q=4 algebra check, not an all-q experiment. In the limit, parity profiles have the same leading coefficient from the pole of order r at 1; the pole at −1 has order at most r−q. The incidence map over F2 has image all even vectors (edges from a fixed vertex give a basis). Counting weights zero and two gives the stated fraction; missing a cut edge forces a coordinate zero and costs one order in m. The full-support exception bound suffices also for proper connected active alphabets. For q≥4 an even weight-four obstruction exists; for q=2,3 none does. One representative per observation exactly attains the code size. Frozen verification files inspected, not executed.
 
-The relevant literature treats full substring-composition reconstruction, length-limited reconstruction codes and exact binary observations in related but different channels. The examined full text of Ye–Elishco, Section VIII (arXiv:2208.14963), does not provide the fixed pair-composition-only count; the inspected Acharya et al. paper (arXiv:1403.2439) treats the full rather than the length-two-only composition multiset. The two closest publicly indexed binary results count ordered pair spectra and combined single/pair composition data, respectively. Their statements do not imply the general parity fraction or the new quaternary rational formula. There is residual risk of an unindexed exact Euler-multigraph enumeration and some indexed binary packages could not be inspected beyond their summaries.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact number of distinguishable observations is the optimal zero-error reconstruction-code size for the specified measurement channel. The theorem identifies a nontrivial dimension-dependent obstruction: connectivity becomes asymptotically negligible, but odd-degree parity excludes a fixed positive fraction from the four-letter alphabet onward. The complete finite-length quaternary rational function and universal alphabet-dependent asymptotic proportion characterize the observation capability more sharply than a routine table or one-step alphabet extension.
+The supported distinct result is the explicit all-alphabet pair-only enumeration together with its all-q realizable-fraction law. The distinct indexed quaternary result covers the q=4 series, coefficient sequence, code interpretation and 7/8 density exactly; none of these is credited separately as original. The earlier indexed general result counts joint singleton-plus-pair observations and its formula is not the pair-only law. The bounded primary comparisons support the surviving distinction, not an absolute priority claim.
 
-## Limits
+## value
 
-The result does not provide class sizes, an explicit chosen code with efficient decoding, or error correction. Prior-work comparisons support a qualified originality judgment, not a claim that every possible publication has been ruled out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the natural lossy channel retaining only unordered adjacent pairs, the all-alphabet formula gives exact optimal noiseless code size without enumerating words. Its limiting law identifies when and by how much parity, rather than disconnectedness, persists as an obstruction across alphabets. The general statements make a substantive mathematical distinction from the indexed four-symbol example and from observations retaining singleton data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The theorem is proved by exact additive-character orthogonality, the annihilator of the product-one multiplicative subgroup, and a strict convexity argument for occupation counts. The eigenpolynomial is valid for every finite field, dimension and nonzero product parameter in its stated scope. Finite computations are checks of definitions and implementation, not substitutes for the quantified proof.
+## correctness
 
-Run `python check.py` with NumPy installed (`requirements.txt`) in the directory containing this package. The checker constructs complex Fourier sampling matrices directly from field addition and multiplication, calculates all Hermitian row-Gram eigenvalues, and independently compares them with the occupancy-polynomial formula. It checks every exact frequency shell and every cumulative frequency band in the tested dimensions: \(q=2\), \(2\le d\le6\); \(q=3\), \(2\le d\le5\); \(q=4\), \(2\le d\le4\); \(q=5\), \(2\le d\le4\); and \(q=7\), \(2\le d\le3\). The extension field \(\mathbb F_4\) is implemented as \(\mathbb F_2[t]/(t^2+t+1)\), with its trace additive character. Six additional tests use a nonidentity product parameter. The script also checks full-rank thresholds, identical shell/band ranks, last-band sharp extrema, and endpoint eigenspace multiplicities.
+PASS
 
-The observed output on the actual supplied program is:
+Nontrivial additive-character orthogonality gives the exact polynomial Gram kernel ∏ᵢ(1+z(q·1_{xᵢ=yᵢ}−1)). Under torsor translation it is convolution on H₁. Inserting the product-one constraint by multiplicative-character orthogonality yields the one-site multipliers Q+z (trivial) and qz (nontrivial); averaging over diagonal shifts gives the claimed F_[e], one eigenmode per orbit. The rational coefficients are integral by the integral Gram kernel (or by reducing the numerator mod Q, where each of the Q terms reduces to z^d). Each summand has a positive coefficient at every degree from d−m through d, so shell and band have exactly the same supported character modes. Counting excluded occupancy words and dividing by the free diagonal action proves the rank formula including the empty-sum case; balanced occupancies attain the pigeonhole bound. At k=d−1 subtract the top coefficient from q^d; integer transfers and strict convexity of q^(−m) give concentrated maxima and balanced minima of the omitted coefficient. Counting their orbits proves both spectral edge multiplicities, with Q=1 giving the single 2^d−1 value separately. The proof uses field-character orthogonality, not a prime-field-only argument. Independent direct replay at /workspace/branches/6ee37c19-4ac8-46e6-9d38-3b7adc500732/independent_check.py corroborated the rank-58 case and last-band extrema 156 and 500 in F₅,d=4, and 21 and 48 in F₄,d=3. The submitted checker was inspected, not executed; its broader recorded run is self-review evidence.
 
-```
-PASS spectral_cases=148 nontrivial_coset_cases=6 maximum_absolute_error=1.9327e-12
-```
+## originality
 
-All checks use numerical eigenvalue comparison with a relative threshold of \(5\times10^{-9}\); no inference from finite testing to all fields is made. Each coefficient and rank formula is established symbolically in `RESULT.md`. A rigorous independent audit has not been performed. The generality does not extend to incomplete observation varieties or arbitrary frequency masks.
+PASS
+
+Credit only the weighted additive-frequency multimode spectrum and its sharp last-band spectral consequences, not the diagonal quotient or the previously covered occupancy rank threshold. The closest same-variety and same-checksum results inspected do not already evaluate this weighted operator.
+
+## value
+
+PASS
+
+The all-degree character law gives exact small and large singular levels on a natural finite-field multiplicative observation variety, not just identifiability. At the last proper band it identifies both worst and best stability modes, with exact condition number and extremal multiplicities. These are meaningful sampling invariants across all q and d; the known occupancy threshold is not counted toward this value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

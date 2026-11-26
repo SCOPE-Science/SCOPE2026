@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:16:41.361392Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The first-class event has probability theta_t=tW_A/(tW_A+W_B). Conditional first and neighbor probabilities are individually unchanged by the class scale, so the two conditional edge laws are Q_A,Q_B and the difference of two mixtures is (theta_t-theta_s)(Q_A-Q_B). This yields the exact TV factor. Their equality reduces edgewise to S_i/W_B=S_j/W_A; connectivity propagates one common eta in (0,1], and conversely that condition suffices. A complete bipartite graph gives the product law. For a nonedge ib pick a neighbor j of i. The edge polynomial W_B S_j-W_A S_i has coefficient S_j>0 as a polynomial in the missing neighbor's weight w_b; therefore the common zero locus of all edge polynomials is proper and null. It need not be empty (for example equal weights on a six-cycle). With known within-class proportions one edge with unequal conditional probabilities gives theta and thus the active class-total ratio theta/(1-theta), not arbitrary unknown individual weights. On a complete bipartite graph the conditional product law is constant given the past even under adaptive rescaling, and the same sequence of unordered pairs with the same initial profile gives the same symmetric edge-only trajectory. First-selection labels or a physical-time event rate are not covered. The frozen checker uses bounded rational graph/profile examples and does not verify the unbounded or trajectory results. python3 -B /workspace/reproduce_finite.py 1 directly summed the ordered-pair probabilities for 458 connected graph/profile cases at scales 1, 2, and 3, including 12 invariant cases; all equality and TV comparisons agreed. No frozen script was executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aldous–Fill gives the generic stationary conductance law, not an observational-identifiability result for a rescaled first-class prior.",
+          "Resultary 2026/11/2/...--f18ba4b12079 concerns identifiability from long-run edge-urn weights, with a bipartite ambiguity, not exact one-step unordered edge probabilities in this model."
+        ],
+        "reasoning": "The general stationary theorem provides a way to derive the balance test; the consequences about all positive profiles, exceptional noncomplete profiles and recovery at every other profile require comparing the class-conditional starts to that equilibrium and using the graph's missing neighborhoods. The urn result changes both the process and observation and does not dominate this conclusion.",
+        "searches": [
+          "reversible weighted random walk on undirected graph transition probability vertex weight neighbor weight stationary distribution conductance interaction sampling",
+          "exact unordered edge interaction law scale identifiability weighted neighbor fractions complete bipartite graph"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2206.09490v2",
+        "Aldous–Fill Ch. 3 §3.2",
+        "Resultary 212194135d10 RESULT.md",
+        "Resultary 732562b788a4 RESULT.md",
+        "Resultary f18ba4b12079 RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Li–Porter supplies P_1,P_2 and investigates fixed heterogeneous weight trajectories, not the injectivity question for the unordered mixture in the inspected passages.",
+          "The path result is contained in the complete-bipartite product formula; a path-only cancellation does not settle what changes when an edge between classes is missing.",
+          "The different same-day imitation result uses its own payoff equality and cannot transfer the weighted missing-neighbor polynomial or the TV identity."
+        ],
+        "reasoning": "The product law on complete bipartite graphs is a direct specialization of conditional sampling. The main advance is the converse and the exceptional-set and recovery classification, which together distinguish all-profile nonidentifiability from generic identifiability. The exact TV multiplier and adaptive trajectory corollary use routine arguments and are complementary, not independent priority claims.",
+        "searches": [
+          "arXiv:2206.09490v2 pp. 4 and 18",
+          "Aldous–Fill Reversible Markov Chains Ch. 3 §3.2 pp. 63–64",
+          "Resultary 212194135d10 RESULT.md Finding and baseline cancellation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li–Porter, arXiv:2206.09490v2 p. 4 Eq. (2), specifies exactly this weighted-first and weighted-neighbor protocol.",
+          "Aldous–Fill Ch. 3 §3.2 pp. 63–64 describes the conductance walk and detailed balance. With conductances w_i w_j the neighbor kernel is that walk, but its stationary weights are w_i S_i rather than first-vertex weights w_i."
+        ],
+        "reasoning": "Detailed balance at a start with equal mass on the sides and conditional proportions w_i/W_class is equivalent to Q_A=Q_B. Ordinary reversibility of the neighbor walk is always true, even when the proposed start is not its equilibrium; it must not be confused with loss of the class-scale parameter under unordered observation. The common-fraction boundary and its all-profile versus exceptional-profile quantifiers go beyond the general balance equation itself.",
+        "searches": [
+          "weighted neighbor activity classwise rescaling identifiability bipartite graph interaction edge law",
+          "weighted node activity neighbor selection opinion dynamics Li Porter reversible Markov chain interaction pair sampling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest same-protocol record, Resultary 2026/10/25/...--212194135d10, Finding and baseline cancellation, explicitly gives edge probabilities u/(u+z) and z/(u+z), independent of middle weight, for the three-agent K_{1,2} path.",
+          "The same-day Resultary 2026/10/26/...--732562b788a4 concerns regular bipartite graphs and class-constant factors in a reverse public-goods Fermi comparison, not this event law."
+        ],
+        "reasoning": "The three-agent record is an exact special case, credited rather than claimed new. It neither determines noncomplete graphs nor gives generic identifiability. The same-day record has genuine conceptual overlap, but its incidence-kernel condition acts on payoff-based imitation probabilities, so no equivalence follows from the shared bipartite terminology. No matching table or full classification was seen in these bounded ranked results.",
+        "searches": [
+          "Exact activity-scale identifiability boundary in node-weighted opinion dynamics conditional two-endpoint mixture common weighted neighbor fraction",
+          "exact unordered edge interaction law scale identifiability weighted neighbor fractions complete bipartite graph"
+        ]
+      },
+      "rationale": "The sampling protocol and the three-vertex path cancellation are already documented, and conditioning and detailed balance are standard. The supported distinct claim is the exact boundary for unordered-edge class-scale identifiability on every finite connected bipartite graph, including its positive-weight exceptional locus and the all-profile characterization, not those ingredients or the isolated path example. The strongest inspected comparisons do not give that classification or the accompanying sensitivity statement for this observation model.",
+      "residual_risks": [
+        "Bounded searches and relevant passages, not exhaustive historical priority. A formulation in terms of compatibility of the two conditioned marginals or stationary flows may be indexed differently.",
+        "Publisher PDF access was unavailable for Li–Porter; the relevant original equation and conclusion were read in the OA arXiv copy."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct precedent for the protocol; no boundary theorem in the compared equations and conclusions",
+          "evidence": [
+            "P_1(i)=w_i/sum_k w_k and P_2(j|i)=w_j/sum_{k in N(i)}w_k; conclusion on convergence and fragmentation under heterogeneous activities."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2206.09490v2",
+          "material_read": "PDF p. 4 Eq. (2) around offset 23375 and p. 18 conclusion around offset 105184",
+          "method": "OA arXiv primary copy; publisher copy denied access",
+          "title": "A Bounded-Confidence Model of Opinion Dynamics with Heterogeneous Node-Activity Levels",
+          "trigger": "Identical interaction protocol"
+        },
+        {
+          "assessment": "Conductance-walk stationarity and detailed balance, not identifiability of the initially sampled class mass",
+          "evidence": [
+            "p_ij=c_ij/d_i, d_i=sum_j c_ij; stationarity proportional to d_i and symmetric stationary edge flux."
+          ],
+          "identifier_or_url": "https://www.stat.berkeley.edu/~aldous/RWG/book.html",
+          "material_read": "OA PDF Ch. 3 §3.2 printed pp. 63–64 around offset 134654",
+          "method": "Primary monograph PDF passage inspection",
+          "title": "Reversible Markov Chains and Random Walks on Graphs",
+          "trigger": "Potential equivalent stationary-flow formulation"
+        },
+        {
+          "assessment": "Exact K_{1,2} special-case overlap, not the entire graph classification",
+          "evidence": [
+            "The two edge probabilities depend on outer activities u,z but not on middle activity v."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-reliability-latency-frontier-for-three-agent-activity-weig--212194135d10/RESULT.md",
+          "material_read": "RESULT.md offset 0, Finding and baseline three-path probabilities",
+          "method": "Published-record mirror passage inspection",
+          "title": "Exact reliability–latency frontier for three-agent activity-weighted bounded-confidence averaging",
+          "trigger": "Closest protocol and invariant edge-law comparison"
+        },
+        {
+          "assessment": "Payoff-kernel equivalence under Fermi imitation is not the unordered weighted-neighbor protocol",
+          "evidence": [
+            "On connected regular graphs the incidence-kernel condition allows nonconstant class-constant factors in the bipartite case."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-incidence-kernel-classification-of-heterogeneous-reverse-public--732562b788a4/RESULT.md",
+          "material_read": "RESULT.md Finding passage at offset 189",
+          "method": "Published-record mirror passage inspection",
+          "title": "Incidence-kernel classification of heterogeneous reverse public-goods equivalence",
+          "trigger": "Distinct same-day claim involving classwise bipartite heterogeneity and trajectory equality"
+        },
+        {
+          "assessment": "Different dynamics and observed statistic; no class-scale implication in the compared result",
+          "evidence": [
+            "Long-run edge-urn weights identify rates on nonbipartite graphs and leave a one-dimensional ambiguity on bipartite graphs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-firing-rate-identifiability-and-sharp-spectral-response-in--f18ba4b12079/RESULT.md",
+          "material_read": "RESULT.md Finding passage at offset 91",
+          "method": "Published-record mirror passage inspection",
+          "title": "Exact firing-rate identifiability and sharp spectral response in weakly reinforced urn networks",
+          "trigger": "Potential graph-based rate-identifiability analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In a published heterogeneous-activity model, observing pairs without the initiating vertex raises a meaningful inverse problem even when within-class proportions are known. The classification distinguishes parameters that can never be recovered from exceptions caused by the particular weights, and quantifies the change in the observable distribution when recovery is possible. That structural boundary is useful beyond the elementary mixing identity; it makes no claim about inferring unknown proportions or consensus from opinions alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

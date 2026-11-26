@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:34:38.594781Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The determinant sum gives the unnormalized volume. Uniform conditioning leaves the sine pair kernel g(t)=sqrt(1-t^2)/2-pi/8 and a bounded canonical cubic kernel. Under the row tilt, a two-index overlap in the cubic sum inserts one tilt factor in each conditional projection, and a one-index overlap inserts two; the variance bound O(n^3+n^4 epsilon^2+n^5 epsilon^4) is valid. It is negligible at both stated scales. Independent checks of the normalized Funk–Hecke integral, addition theorem and Parseval give degree-2m eigenvalue -a_m with multiplicity 4m+1, trace sum pi/8 and quadratic sum 1/6-pi^2/64. The degree-two zonal coordinate has exact mean epsilon/sqrt(5), all other positive-degree means vanish, and for every finite set of coordinates the row covariance tends to the identity by uniform convergence of the density and harmonic orthonormality. The infinite spectral tail is canonical under every row since it excludes degrees zero and two, so its scaled L2 norm tends uniformly to zero with the cutoff. The blocks, including the noncentral one, are independent in the limit. Trace summability gives almost-sure and L1 convergence; a finite set of chi-squares can all be small independently of the small-expected nonnegative tail, yielding the exact upper support edge. The degree-two projection under the row law has coefficient -a_1 epsilon; after dividing by n^(5/2)|epsilon| the remaining bounded canonical terms vanish and the one-coordinate triangular CLT gives a_1^2/5=pi^2/20480. Both signs and the exact row centering are consistent. The verifier was inspected, not executed; numerical quadrature is not the proof. No finite-sample support, arbitrary-mode or rate claim is verified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4 allows any trace-summable sequence of Sobolev weights, including infinite even-only weights with first active degree two. Its critical law noncentralizes only that sector. Cutting–Paindaveine–Verdebout separately establish the single Bingham-block noncentral limit. Schneider's full-text Theorem 3 is a fixed-law nondegenerate CLT under Lemma 1's support assumptions, which include the origin and do not apply to unit-vector support."
+        ],
+        "reasoning": "The Sobolev theorem covers much more than the isolated Bingham block, and unlike a fixed-law zonotope CLT it covers the whole critical spectral distribution under this local angular alternative. Its consistency result alone is not the centered supercritical Gaussian statement.",
+        "searches": [
+          "random zonotope volume local alternatives nearly uniform directions angular anisotropy quadrupole degenerate U statistic noncentral chi-square limiting distribution Schneider Jammalamadaka",
+          "arXiv:2108.09874v2 Theorem 4(i)–(iii)",
+          "arXiv:2202.06774 Section 4 and Theorem 3",
+          "arXiv:1910.09391 Theorem 4.2"
+        ]
+      },
+      "checked_sources": [
+        "García-Portugués–Paindaveine–Verdebout arXiv:2108.09874v2",
+        "Cutting–Paindaveine–Verdebout arXiv:1910.09391",
+        "Schneider arXiv:2202.06774",
+        "Resultary isotropic spatial volume, isotropic rank-one intrinsic volumes and planar radial crossover"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Under uniformity the prior cubic residual H_n/n^2 tends to zero in L2. The tilted product likelihood ratio against uniformity has second moment (1+epsilon_n^2/5)^n=O(1) in the critical window, so H_n/n^2 still tends to zero in probability. The canonical cubic mean is O(n^3 |epsilon_n|^3) by expanding the three density factors and using degeneracy in each slot. Exact row centering therefore does not alter this remainder. The pair mean is -binom(n,2)a_1 epsilon_n^2/5, yielding the exact chi-square centering as n grows. The upper edge and variance are direct consequences of the existing weighted independent-block law with these signs and center.",
+          "In the larger-tilt regime, expand the first row projection of h by integrating (1+epsilon P_2) in its two other slots. Its centered linear term is -2a_1 epsilon(P_2- epsilon/5), with uniform O(epsilon^2) remainder, from the already known pair spectrum. Hoeffding orders two and three under the actual row law together have variance O(n^4) for the unnormalized volume sum, since the kernels are bounded and canonical. The bounded independent-sum CLT with binom(n-1,2) multiplicity then gives the stated variance and scale without any new asymptotic device."
+        ],
+        "reasoning": "This explicitly transfers the prior critical law to the claimed volume, not just to a statistic with similar moments. The supercritical Gaussian at the stated zoom is a straightforward bounded-kernel projection consequence, not a literal assertion of the prior Sobolev theorem. The frozen proof checks both regimes correctly; it does not introduce a distinct original critical mechanism.",
+        "searches": [
+          "arXiv:2108.09874v2 Proposition 2, equation (25), Theorem 4 and equation (26)",
+          "Resultary 2026/11/1 isotropic volume, exact Hoeffding decomposition and spherical spectrum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For dimension p=3, the prior Sobolev statistic S_v uses the sum of squared normalized harmonic sample sums. Taking v_(2m)^2=a_m and v_odd=0 gives the frozen pair term exactly: G_n/n=(pi/8-S_v)/2, by the addition theorem. The required summability is exactly the existing trace identity.",
+          "With s=sign(c), take a smooth positive angular function equal to 1+s x^2 near zero and concentration kappa_n=tau n^(-1/4). Its normalized density on S^2 is 1+[2s kappa_n^2/(3+s kappa_n^2)]P_2(u_3). Taking tau^2=3|c|/2 matches the desired tilt up to o(n^(-1/2)); product Hellinger distance tends to zero since both densities are bounded away from zero and the one-vector squared distance is O((epsilon_n-2s kappa_n^2/(3+s kappa_n^2))^2)."
+        ],
+        "reasoning": "The prior angular alternative parameter kappa is quadratic in the density perturbation, so its n^(-1/4) boundary is the present n^(-1/2) boundary in epsilon. The prior noncentrality is the squared degree-two shift, (2s tau^2/(3 sqrt(5)))^2=c^2/5. This works for both signs; Theorem 4(i) includes the local null, also obtained by vanishing product Hellinger distance to uniformity.",
+        "searches": [
+          "sphere uniformity test average sine pairwise angles sine distance inner product squared Gegenbauer uniformity axial sine statistic sum sqrt 1 dot product noncentral Sobolev",
+          "non-null asymptotic distribution Sobolev tests uniformity hypersphere detection thresholds local alternatives Giné Fn sine Garcia Portugues Paindaveine Verdebout arxiv",
+          "arXiv:2108.09874v2, equations (17)–(18), Section 5.2 equation (26)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact title match is the assigned record. The earlier isotropic spatial zonotope record gives the identical a_m, trace, square sum and central chi-square-series law; it also proves the exact volume-to-pair decomposition and the O(n^3) null cubic variance. The isotropic rank-one intrinsic-volume record identifies the same pair mechanism, while the planar radial record has an independent Gaussian at its transition."
+        ],
+        "reasoning": "No earlier identical entry was found in the index, but exact prior null geometry and exact primary local-alternative results can imply the main claim without a database entry. The rank-one and planar findings by themselves are not tilted spatial volume theorems.",
+        "searches": [
+          "Resultary: random three-dimensional unit zonotope volume quadrupolar spherical angular anisotropy local alternative noncentral chi-square critical U-statistic"
+        ]
+      },
+      "rationale": "The main critical-window law is a covered specialization. García-Portugués–Paindaveine–Verdebout's Theorem 4(ii) already gives the entire infinite weighted chi-square law with exactly its first active even sector noncentral. The prior isotropic zonotope record supplies the very same spectral weights and the order-three-to-order-two geometric reduction at the null. The reduction transfers at the critical scale by elementary likelihood-ratio contiguity and deterministic centering; it does not need the stronger moving-law remainder estimate to imply the headline limit. The standardized Gaussian for larger vanishing tilts is not stated by Theorem 4(iii), which gives consistency, but follows by the usual first-projection CLT with the already known degree-two eigenvalue. No mathematical error is inferred from the prior coverage.",
+      "residual_risks": [
+        "Giné's 1975 original was located bibliographically but its open full text was not retrieved independently; no absence claim is made about that paper. The coverage conclusion uses the accessible explicit later theorem.",
+        "No earlier literal statement of the centered supercritical V3 CLT was identified; its rejection as a standalone remainder is based on the routine projection argument, not a claim of identical wording or publication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior theorem for the decisive critical pair statistic; transfers to volume using the existing null comparison and contiguity",
+          "evidence": "Theorem 4(ii) permits summable infinite weights and gives independent chi-square sectors with only the least active degree noncentral at concentration n^(-1/(2 k_v)); here k_v=2. Part (iii) gives consistency, not a centered CLT.",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.09874v2",
+          "material_read": "Null theorem and statistic definitions, model (17)–(18), Proposition 2, equation (25) and the Bingham specialization, Section 5.2 equation (26) and Theorem 4",
+          "method": "OA primary PDF, paginated",
+          "title": "On a class of Sobolev tests for symmetry of directions, their detection thresholds, and asymptotic powers",
+          "trigger": "Same even-harmonic Sobolev series under local rotationally symmetric alternatives"
+        },
+        {
+          "assessment": "Covers the isotropic theorem and supplies the exact volume-to-sine comparison used in the critical implication",
+          "evidence": "The volume equals a deterministic mean plus (n-2) times the pair kernel sum plus a bounded canonical cubic sum. Under uniformity that residual has variance O(n^3).",
+          "identifier_or_url": "2026/11/1/SCOPE-second-order-volume-fluctuations-of-isotropic-three-dimensional--31c1b1c50e42",
+          "material_read": "Finding and proof of the pair projection, canonical cubic bound, spectrum and null law",
+          "method": "Local Resultary mirror",
+          "title": "Second-order volume fluctuations of isotropic three-dimensional random zonotopes",
+          "trigger": "Exact same volume, normalization and kernel when untilted"
+        },
+        {
+          "assessment": "Fixed nondegenerate law only; not the source of critical coverage",
+          "evidence": "Theorem 3 uses a positive first-projection variance via Lemma 1, including the presence of the origin in the distribution's support.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.06774",
+          "material_read": "Definition of the fixed-law model and Section 4, especially first projection, Lemma 1 and Theorem 3",
+          "method": "OA primary PDF",
+          "title": "Random zonotopes and valuations",
+          "trigger": "Plausibly stronger zonotope fluctuation theorem; previously abstract-only in the frozen review"
+        },
+        {
+          "assessment": "Covers the single harmonic sector; infinite-block result furnished by the Sobolev source",
+          "evidence": "The Bingham limit has (p-1)(p+2)/2 degrees of freedom and nonzero local noncentrality; this dimension is five at p=3.",
+          "identifier_or_url": "https://arxiv.org/pdf/1910.09391",
+          "material_read": "Introduction and Theorem 4.2 for the Bingham statistic under contiguous alternatives",
+          "method": "OA primary PDF",
+          "title": "On the power of axial tests of uniformity on spheres",
+          "trigger": "Degree-two noncentrality under signed axial local alternatives"
+        },
+        {
+          "assessment": "Null pair reduction in broader geometric scope but no moving angular theorem",
+          "evidence": "For fixed d and uniform directions, V2 is the sine-kernel sum and higher intrinsic volumes have it as common leading fluctuation.",
+          "identifier_or_url": "2026/11/22/SCOPE-rank-one-intrinsic-volume-fluctuations-of-isotropic-random-zonot--7b69f24d31ab",
+          "material_read": "Finding, scope and exact pair projection and residual formula",
+          "method": "Local Resultary mirror",
+          "title": "Rank-one intrinsic-volume fluctuations of isotropic random zonotopes in every dimension",
+          "trigger": "Geometric reduction to the second intrinsic volume across dimensions"
+        },
+        {
+          "assessment": "Different perturbation and critical law",
+          "evidence": "Independent segment-length noise in two dimensions results in an independent Gaussian plus Fourier second chaos, not an angular noncentral harmonic block.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-critical-radial-noise-crossover-for-areas-of-random-planar-zon--95e0628386f8",
+          "material_read": "Finding and assumptions, especially independence at the transition",
+          "method": "Local Resultary mirror",
+          "title": "A critical radial-noise crossover for areas of random planar zonotopes",
+          "trigger": "Zonotope crossover at the same local scale"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The geometric interpretation and exact constants are informative, but the distinctive critical noncentral law, its scale and support change are obtainable from the prior Sobolev law and the known isotropic projection. The remaining supercritical calculation restores the standard first-order CLT and inserts the prior degree-two eigenvalue. Its overlap bounds justify the exposition but are routine consequences of bounded-kernel degeneracy, and the frozen record does not identify a further geometric obstruction or nontrivial quantitative conclusion that would merit a narrower validation. No repaired claim is supplied.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

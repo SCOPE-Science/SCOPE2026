@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Executable exact checks
+# Independent mathematical audit
 
-The reproducible program `verify_equivalence.py` uses Python's standard library, implementing \(\mathbb F_8\) as \(\mathbb F_2[\alpha]/(\alpha^3+\alpha+1)\). It builds the full length-\(49\) generator matrices using the exact lattice-point lists, confirms dimension six for both, constructs the permutation \(\phi(x,y)=(x^{-1},x^{-3}y)\) and nonzero weight \(x^3\), checks the permutation of all \(49\) coordinates is bijective, and validates the pointwise row identity with reversal of the four polynomial coefficients. Run `python3 verify_equivalence.py` from the extracted package. Its successful recorded stdout appears in `verification_output.txt` with final line `VERIFY_OK`.
+## correctness
 
-These checks are exhaustive for the particular \(49\) torus coordinates; no heuristic or sampled comparison is involved. The main theorem also has a shorter standalone symbolic proof: on \(\mathbb F_8^*\), \(x^7=1\), so \(x^3(x^{-3}y)^{-1}=x^6y^{-1}=x^{-1}y^{-1}\). The row-coefficient reversal is invertible. An exact test for finite field size eight is not a claim about other ground fields. Independent scientific audit has not been performed.
+PASS
+
+The complete lattice-point lists agree with Figure 1.4. Reducing the six exponent pairs modulo seven gives six distinct characters for each code. They are independent: a reduced polynomial of degree at most six in each variable vanishing on the 7×7 grid is zero by univariate interpolation in each variable. The coordinate map phi(x,y)=(x^(-1),x^(-3)y) squares to the identity, and the paired weights x^3 and (x^(-1))^3 multiply to one. The weighted pullback sends (a,b) to (3-a-3b,b): the four horizontal exponents reverse, (0,1) stays fixed, and (0,-1) becomes (6,-1)=(-1,-1) modulo seven. Thus it sends precisely one basis of the evaluation code onto the other. The edge-step gcd sums give four and three boundary lattice points, ruling out integral affine unimodular equivalence. Independent exact replay in /workspace/replays/4.py passed the lattice-point, area, boundary, reduced-exponent and 49-coordinate weight/permutation checks. The frozen checker and recorded output were inspected, not executed.
+
+## originality
+
+PASS
+
+The explicit monomial involution proves the precise F_8 equivalence left open in the original theorem. The prior enumerator equality supplies no equivalence certificate, the known F_7 equivalence is for a different pair, and the closest later theorem located concerns dimension seven. No distinct covering result was established in the inspected evidence.
+
+## value
+
+PASS
+
+This is the exact outstanding equivalence in the dimension-six classification, not an arbitrary small code calculation. The explicit coordinate involution resolves the enumerator ambiguity and shows how finite-field exponent reduction can identify codes from lattice-inequivalent polygons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:46:11.696851Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–6 of Proof",
+        "Frozen VERIFICATION.md and verify_composition.py (inspected, not executed)",
+        "Piene–Shapiro arXiv:2611.16763v1 Theorem 5.3, Proposition 7.3"
+      ],
+      "rationale": "Normalize the inner factor by making it monic and subtracting its constant, absorbing the affine change in the outer factor. Centering the composite forces the next-to-leading inner coefficient to vanish (its coefficient in the composite is the outer degree times that inner coefficient). For inner degree 2 this gives t² and the even coefficient plane. For outer degree 2 the composite is H²+bH with the stated H. Descending from a_{2m−2} to a_{m+1} gives each h_j as half a high coefficient minus an expression in already recovered h's, and a_m then gives b. Every high vector therefore occurs and uniquely determines the low vector F(x). Since m is odd, P(t)→P(−t) acts on (H,b) by (−H(−t),−b); graph uniqueness implies parity equivariance. The shear y→y−F(x) is polynomially invertible and preserves the equations for the even plane because the odd part of F vanishes on even high vectors. The two resulting ideals (u,w) and (v,w) intersect in (w,u_i v_j) and sum to (u,v,w). Fixed graph points are precisely b=0 with H odd, giving H=tW(t²). The coordinate ring is the fiber product of the two polynomial rings over the shared z-ring. Its finite integral closure is their product; multiplying by the component idempotents shows that the conductor consists exactly of pairs with both restrictions zero. Off the intersection there is one regular branch; on it there are two local minimal primes. Translation at any closed intersection point followed by completion gives the stated formal monomial ring. Counting monomials in two 2d-variable rings with their d-variable overlap subtracted proves the series, dimension, embedding dimension and multiplicity. In the fiber-product exact sequence, the middle and last depths are 2d and d; local cohomology vanishes below d+1 for the first term and is nonzero in degree d+1. For prime p≥5 the invariant-Bezoutian criterion in the cited Theorem 5.3 applies in composite degree 2p, with exactly the two listed factorizations and no prime-degree Dickson exception. Non-Cohen–Macaulayness on the intersection also holds at nonclosed points by the same depth argument after localizing along the shared z-plane.",
+      "residual_risks": [
+        "The packaged exact checker treats finite rational examples of graph recovery, tangent ranks and initial Hilbert coefficients only. The all-degree ring and depth statements use the analytic algebraic proof above.",
+        "Affine normalized reduced loci only; no assertion about a nonreduced elimination ideal, projective closure or additional components in composite odd index."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.3 gives the reducibility criterion in general degree, Proposition 5.4 gives smooth normalized components, Corollary 7.2 identifies the reduced singular support, and Proposition 7.3 gives the precise t²W(t²)² intersection set."
+        ],
+        "reasoning": "The prime-index full-locus set identification follows directly from this broader criterion and is not new. The intersection as a reduced set alone does not determine the scheme intersection, conductor or depth of the reduced union; no broader checked theorem gave the simultaneous shear or this gluing model.",
+        "searches": [
+          "Piene–Shapiro arXiv:2611.16763v1, Theorem 5.3, Proposition 5.4, Corollary 7.2, Proposition 7.3",
+          "von zur Gathen–Matera arXiv:1407.0906v2, Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.16763v1",
+        "arXiv:1407.0906v2",
+        "Resultary 53957b6972c5, b2d4fc927b2a, 040480c72ee8 and self-record 09fa1f5e0076"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reduced singular-support proof uses multiple components, not their local coordinate-ring relations. The ordinary node of 53957b6972c5 has one transverse variable per branch and does not address the d≥2 intersection."
+        ],
+        "reasoning": "The branch equations and their scheme-theoretic gluing require the parity-preserving shear. Once that is established the Hilbert series and depth are standard consequences, but they do not follow from just individual smoothness and a smooth set intersection (which may, for example, be tangential).",
+        "searches": [
+          "Piene–Shapiro §§5 and 7, actual statements cited above",
+          "Resultary 53957b6972c5, b2d4fc927b2a and 040480c72ee8, actual Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For degree 2m and outer degree 2 the Newton–Taylor recovery set reduces in the centered slice to a_m,…,a_{2m−2}; the cited theorem gives a polynomial section for factor recovery. Piene–Shapiro gives the normalized embeddings and smooth images."
+        ],
+        "reasoning": "These comparisons identify the same component in equivalent coefficient conventions and materially overlap with the high-coordinate graph ingredient. They do not furnish an ambient automorphism that straightens the graph and the other component together; checking equivariance of the graph is the additional step.",
+        "searches": [
+          "von zur Gathen–Matera arXiv:1407.0906v2, Newton–Taylor coefficient set and Theorem 1.2",
+          "Piene–Shapiro arXiv:2611.16763v1, §5.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "09fa1f5e0076 is the assigned Finding itself. Distinct same-day 53957b6972c5 computes the scheme-theoretic intersection and ordinary node for the normalized sextic; b2d4fc927b2a treats projective cubic-after-cubic tangent geometry in degree nine; 040480c72ee8 treats a single quadratic-in-quartic component's projective boundary."
+        ],
+        "reasoning": "The sextic case m=3 is a genuine local-ring analogue with d=1, outside m≥5; the latter two are different objects or compactifications. Same-day status does not resolve priority and the self-match is not independent evidence.",
+        "searches": [
+          "Local Resultary: simultaneous straightening, intersections, affine composition loci and Cohen–Macaulay depth"
+        ]
+      },
+      "rationale": "Credit prior normalized composition embeddings, high-coefficient recovery (including its direct quadratic-outer specialization), intersection set, and the component list for the reduced invariant-Bezoutian locus. The distinct contribution is simultaneous ambient polynomial straightening and the resulting gluing and depth computation, in this natural all-odd-index family. Smooth individual embeddings and the known reduced set intersection do not identify that gluing. The closely related sextic case does not imply the all-index statement or non-Cohen–Macaulay range.",
+      "residual_risks": [
+        "Earlier Newton–Taylor methods substantially anticipate the graph ingredient; the originality decision does not rely on priority for graph recovery.",
+        "The bounded literature checks do not rule out an earlier unindexed simultaneous straightening or local-ring derivation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the underlying set, components and singular support, not the checked simultaneous coordinate ring",
+          "evidence": [
+            "Proposition 7.3 states the intersection as {t²W(t²)²}; Theorem 5.3 and prime factorization give the full reduced locus set for 2p."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.16763v1",
+          "material_read": "Theorem 5.3 at HTML offset 69464, Proposition 5.4 at 73113, Corollary 7.2 at 103542, Proposition 7.3 at 104530",
+          "method": "Read directly retrieved OA HTML passages",
+          "title": "Composition loci, invariant Bezoutians, and finite-orbit correspondences",
+          "trigger": "Same normalized slice, decomposability locus and intersection"
+        },
+        {
+          "assessment": "Material overlap for polynomial factor recovery/high-coordinate projection; no checked assertion of simultaneous ambient parity straightening",
+          "evidence": [
+            "The Newton–Taylor coefficient list specializes to the same high coordinates after centering. A polynomial section on this list supplies the recovery ingredient, credited regardless of whether the entire graph is stated explicitly."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1407.0906v2",
+          "material_read": "OA PDF pp. 3–4, Newton–Taylor set and Theorem 1.2, offsets 10614 and 12901",
+          "method": "Read bounded OA PDF passages",
+          "title": "Density of real and complex decomposable univariate polynomials",
+          "trigger": "Potential earlier recovery of both factors from a fixed linear coefficient projection"
+        },
+        {
+          "assessment": "Sextic is closest prior-coverage analogue, outside the target degree and homological regime; others treat different loci or boundaries",
+          "evidence": [
+            "The sextic plane–scroll gives ordinary-node completion at m=3, not the d≥2 non-Cohen–Macaulay coordinate union."
+          ],
+          "identifier_or_url": "Resultary 53957b6972c5, b2d4fc927b2a and 040480c72ee8",
+          "material_read": "Mirrored RESULT.md Findings, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and actual text comparison",
+          "title": "Relevant published composition-locus findings",
+          "trigger": "Exact gluing, tangent-space or local-ring analogues in nearby degrees"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding",
+        "Piene–Shapiro arXiv:2611.16763v1, §§5 and 7",
+        "Resultary 53957b6972c5"
+      ],
+      "rationale": "A global affine description of the union of the natural two competing composition types determines the conductor, tangent size, scheme gluing and uniform depth defect along the intersection. The failure of Cohen–Macaulayness for the full reduced prime-index locus persists despite the smoothness of each component and their reduced intersection. This answers a structural question about the reducibility locus, beyond the known embedding of each branch or an isolated low-degree computation.",
+      "residual_risks": [
+        "No inference is made about nonreduced or projective scheme structures."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

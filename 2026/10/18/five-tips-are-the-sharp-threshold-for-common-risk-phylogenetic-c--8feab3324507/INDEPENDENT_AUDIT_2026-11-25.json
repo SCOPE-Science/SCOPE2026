@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:52:25.934172Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With rooted Faith PD (zero on an empty survivor set), the change on an edge of length l subtending m tips on the protected path is l times the probability that all m initially go extinct, l q^m. Divide total gain by the common positive q. A singleton at the root has score H, strictly above a competitor with a positive nonpendant path edge. At n=2 both root children are singleton, so both tie: the uniqueness wording in Proof Step 2 needs this qualification, but the stated fixed-optimum assertion holds. For 2+2 the paired score difference is (b-a)(1-q); for 2+3 the triplet outgroup C strictly dominates D,E by (t-b)(1-q), and C minus either A or B is (1-q)(a-b(1+q)). This gives precisely the open switching region, its tie, and strict constant winners at a=b and a=2b since q=0,1 are excluded. These splits exhaust the binary possibilities through five tips. Independent exact replay /workspace/branches/replay_3.py enumerated actual before-and-after expected PD over all 32 outcomes for the positive ultrametric H=4 witness: at q=1/4,1/2,3/4 the optimizer sets were respectively C, ABC, AB. That replay verifies the witness, not the universal proof. The frozen verifier was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "c84204c65b93 allows arbitrary positive lengths but treats two crossings, proves at most one crossing through four taxa, and gives an interior two-root criterion at order five. Its proof around offset 4200 explicitly allows a monotone or affine difference with one zero at smaller orders.",
+          "687e4009c01e assumes unit edges, with no clock requirement, and finds a threshold at eight taxa in that regime."
+        ],
+        "reasoning": "Allowing more tree lengths while asking for a return to the original winner is not a broader theorem for the number of tips needed for a single switch. Unit-length trees do not cover positive unequal ultrametric edges. Catalogue dates were not used to exclude these from comparison.",
+        "searches": [
+          "Resultary c84204c65b93, re-entrant single-species conservation priority",
+          "Resultary 687e4009c01e, survival-dependent phylogenetic protection",
+          "Steel et al. arXiv:0704.2649, Theorems 3.1 and 4.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0704.2649",
+        "DOI 10.1371/journal.pone.0003700",
+        "arXiv:2107.00748",
+        "Resultary 687e4009c01e",
+        "Resultary c84204c65b93",
+        "Resultary 36a54e0c36c2",
+        "Resultary 37dc5a3e5d96"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known HED formula produces the component path polynomials. The re-entrant proof displays a quadratic after dividing by q at split 2+3 and imposes positivity at both endpoints for two interior roots."
+        ],
+        "reasoning": "Ultrametricity forces the divided score difference to vanish at q=1, outside the parameter domain, so the two-interior-root criterion is silent about the remaining crossing. The sharp single-switch result also requires proving no competing tip spoils the two candidate winners and excluding all clocks through four tips. Those statements are not obtained from the prior two-crossing bound alone. The derivation from the general HED identity is elementary but adds a topology and global dominance analysis.",
+        "searches": [
+          "Steel et al. arXiv:0704.2649, Theorems 3.1 and 4.1(i)",
+          "Resultary c84204c65b93, proof at offsets 4200–6377"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Steel et al. Theorems 3.1 and 4.1(i) identify the rooted HED branch score and extinction-probability-scaled preservation gain.",
+          "Mooers et al. pp. 1–2 and Table 1 compare category-dependent extinction probabilities, not a single common risk. Fischer et al.'s abstract treats recomputation of Fair Proportion after extinction."
+        ],
+        "reasoning": "Using HED rather than expected improvement, or replacing extinction q by survival 1-q, is equivalent for common risk. Neither changing risks by species nor re-ranking Fair Proportion is equivalent.",
+        "searches": [
+          "Resultary: common-risk survival-dependent single-species protection, expected rooted PD and priority switching",
+          "arXiv:0704.2649",
+          "DOI 10.1371/journal.pone.0003700",
+          "arXiv:2107.00748"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The examined threshold records classify a different edge-length family or two crossings, not the length region b<a<2b. The same-date comparators concern plant rescue under persistent richness or curvature of unrooted expected PD. Mooers et al.'s tabulated probabilities differ among threat categories."
+        ],
+        "reasoning": "Neither a threshold table in a different model nor the exact matching leaf count of an unrelated priority change supplies the same continuous-region and tie classification.",
+        "searches": [
+          "Resultary 687e4009c01e, c84204c65b93, 36a54e0c36c2, 37dc5a3e5d96",
+          "Mooers et al., DOI 10.1371/journal.pone.0003700, four-species example and Table 1"
+        ]
+      },
+      "rationale": "The novel claim assessed is the global-optimum boundary for a single change under independent identical risks and ultrametricity, not the HED score, the gain identity, or heterogeneous-risk rank sensitivity. The examined related records about unit edges or two switches do not establish this single-switch global classification. This is a best-of-knowledge comparison of inspected material, not a general priority determination.",
+      "residual_risks": [
+        "A specialized common-risk HED ranking result or broader ultrametric result not located in the bounded search could cover the classification.",
+        "Catalogue path dates do not establish independent publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the score and intervention formulas, not the sharp threshold claim in the inspected theorem passages",
+          "evidence": [
+            "At offsets 12273 and 24717: product of other descendant extinction probabilities per edge; the gain multiplies the focal HED by its own extinction risk."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0704.2649",
+          "material_read": "Theorems 3.1 (p. 7) and 4.1(i) and its gain definition (p. 13)",
+          "method": "Lawful OA, located and read relevant PDF passages",
+          "title": "Hedging our bets: the expected contribution of species to future phylogenetic diversity",
+          "trigger": "Primary source for the same HED objective and preservation gain"
+        },
+        {
+          "assessment": "Different probabilities assigned by category, rather than a common varied q",
+          "evidence": [
+            "Table 1 compares category transformations, with unequal extinction probabilities across categories."
+          ],
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0003700",
+          "material_read": "pp. 1–2 and related table and illustrative comparisons",
+          "method": "Lawful OA PDF passages, offsets 5900, 11900 and 14340",
+          "title": "Converting Endangered Species Categories to Probabilities of Extinction for Phylogenetic Conservation Prioritization",
+          "trigger": "Four-species ranking changes could appear to contradict the minimum"
+        },
+        {
+          "assessment": "The identified claim uses a different ranking functional and changes tree/tip sets",
+          "evidence": [
+            "Recomputes Fair Proportion rankings after deleting extinctions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.00748",
+          "material_read": "Abstract around offset 2200",
+          "method": "Lawful OA PDF passage",
+          "title": "Phylogenetic Diversity Rankings in the Face of Extinctions: the Robustness of the Fair Proportion Index",
+          "trigger": "Adjacent use of extinction and ranking reversal"
+        },
+        {
+          "assessment": "Exact comparison in a different length model",
+          "evidence": [
+            "All edges unit length; the trees need not be clock-like; the stated first change is at eight."
+          ],
+          "identifier_or_url": "Resultary 687e4009c01e",
+          "material_read": "Original Finding and Assumptions",
+          "method": "Resultary local mirrored RESULT.md",
+          "title": "Eight taxa are the sharp threshold for survival-dependent phylogenetic protection",
+          "trigger": "Same expected rooted-PD objective with a sharp protection threshold"
+        },
+        {
+          "assessment": "Two crossings and return to the prior winner; no ultrametric single-crossing boundary in the examined results",
+          "evidence": [
+            "At most one crossing below five; the split (2,3) permits two crossings only with a quadratic positive at both endpoints and two distinct interior roots."
+          ],
+          "identifier_or_url": "Resultary c84204c65b93",
+          "material_read": "Finding and proof, including offsets 4200–6377",
+          "method": "Resultary local mirrored RESULT.md",
+          "title": "Five taxa are sharp for re-entrant single-species conservation priority",
+          "trigger": "Strongest matching objective, risk model and threshold size"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This tests a natural expectation that equal risks and a molecular clock might fix the best conservation priority. The first possible switch, full sharp parameter interval and globally optimal tie sets supply a reusable exact benchmark, not just a crossing between two nonoptimal tips or a new name for HED. It gives no policy prescription for taxa with heterogeneous or dependent risks, uncertain phylogeny, or different intervention costs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

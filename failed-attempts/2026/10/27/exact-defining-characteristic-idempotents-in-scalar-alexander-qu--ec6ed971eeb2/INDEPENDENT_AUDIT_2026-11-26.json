@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:46:40.864483Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the convolution ring R=F_q[(F_q,+)] the scalar maps T_c are algebra automorphisms and on basis elements u⋆v=T_a(u)T_(1−a)(v). Augmentation is multiplicative. The convolution augmentation ideal I is nilpotent by the truncated-polynomial presentation on an F_p-basis of the additive group. An augmentation-zero idempotent consequently lies in I^(2^r) for every r, hence vanishes. In augmentation one, Frobenius gives (1+w)^p=1 for w∈I, so the commuting principal units form an F_p-vector space with convolution as addition. The equation is the kernel of Id−T_a−T_(1−a) on that space. Its filtration by 1+I^r has the same F_p[F_q^×]-graded pieces as I, and both filtrations split because q−1 is prime to p; the kernel sizes on the two modules are equal. The basis [x]−[0] for x≠0 realizes the regular F_q[F_q^×]-module on I. Its eigenvalues for the kernel operator are 1−a^j−(1−a)^j, each with a one-dimensional character line before coincidences of eigenvalues. The dimension count and elementary abelian group assertion follow for all e, including p=2. The distinct Frobenius exponents p^r for 0≤r<e lie in 1..q−2 for q≥3 and give d_q(a)≥e. At q=7 the resonances are {1} for a=2 and {1,4} for a=4, giving 8 and 50. This arithmetic check is not an independent full census. The frozen finite verifier and verification notes were inspected, not executed; no formal verification is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "dd8ab47d1f33 uses a base F of size p^s, scalar alpha∈F∖{0,1}, and coefficient field K of size p^m, with count 1+|K|^d(F,alpha). Its proof treats the nonzero solutions as the kernel on elementary abelian principal units.",
+          "The external transport and augmentation results do not enumerate the modular solutions."
+        ],
+        "reasoning": "The indexed broader theorem specializes by taking F=K and s=m=e, without any added hypothesis on a. The transport identity alone would not provide that enumeration.",
+        "searches": [
+          "Resultary: modular scalar Alexander idempotents over differing base and coefficient fields; dd8ab47d1f33",
+          "arXiv:2610.08204, Prop. 2.1 and Thm. 5.2; arXiv:2610.20306, Thm. 6.7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary dd8ab47d1f33, 5ff8d9016353, 0818795d4878, 06aa9c19e539, 19ae35bdc12d and b444981bf71f",
+        "arXiv:2609.03799, arXiv:2610.08204, arXiv:2610.20306 and arXiv:2001.06843"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source explicitly gives Frobenius exponent p on U, the nonzero-idempotent kernel E on U under ordinary group-algebra multiplication, the semisimple filtration isomorphism U≅I, and characters t↦t^k for 0≤k≤p^s−2. Its Finding states the augmentation and count conclusions."
+        ],
+        "reasoning": "The specialization fixes the same underlying group and coefficient field and has the same resonance indices. The subgroup and augmentation assertions remain unchanged. Frobenius exponent indices give the lower bound by the same argument, and the two q=7 examples are routine evaluations of the matched formula. No noncovered substantive assertion remains.",
+        "searches": [
+          "Local Resultary mirror: dd8ab47d1f33, Finding offset 0, proof Steps 3–5 at offsets 4464–7037"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prime-dihedral records express the count using the order of 2. Setting a=−1 makes a^j+(1−a)^j=1 exactly the condition that j is odd and ord_p(2) divides j−1.",
+          "The integral primary result has a superficially similar character equation but different coefficient characteristic and root-of-unity conditions."
+        ],
+        "reasoning": "The order-of-two formula is an exact alias on the prime-dihedral intersection, not just a similar formula; the integral character condition is not such an alias in defining characteristic.",
+        "searches": [
+          "Resultary: scalar Alexander defining-characteristic idempotents, resonance count and modular unit convolution",
+          "Resultary 5ff8d9016353, 0818795d4878 and dd8ab47d1f33",
+          "arXiv:2609.03799, §6.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5ff8d9016353 and 0818795d4878 classify the prime-dihedral specialization, while 06aa9c19e539 covers the three-element case in characteristic three. Indexed adjacent statements 19ae35bdc12d and b444981bf71f cover all prime-order parameters or prime-field scalars on a higher-dimensional elementary abelian base, respectively.",
+          "dd8ab47d1f33's exact count includes every target parameter, including scalars outside the prime field."
+        ],
+        "reasoning": "The exact equal-field numbers are specializations of a full formula for the same invariant. This assessment does not extrapolate the small-case tables to the target field sizes.",
+        "searches": [
+          "Resultary: modular prime-dihedral and scalar-affine counts; 5ff8d9016353, 0818795d4878, 06aa9c19e539, 19ae35bdc12d, b444981bf71f, dd8ab47d1f33"
+        ]
+      },
+      "rationale": "The distinct indexed result dd8ab47d1f33 proves the count when the base and defining-characteristic coefficient fields can have different sizes. Its equal-field specialization gives exactly the frozen count, augmentation assertions and ordinary-convolution group; the displayed principal-unit kernel proof also matches directly. The prime-dihedral portion independently has older exact indexed precedents. This is verified coverage, not a claim about who first obtained the equal-field result.",
+      "residual_risks": [
+        "Historical priority of the general equal-field count is not settled by the displayed record dates. The decision is based on exact coverage by a distinct indexed result, not on whether it predates this record.",
+        "The named primary comparisons are bounded; other general modular-unit formulations were not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader exact coverage, separate from unresolved temporal priority",
+          "evidence": "Count 1+|K|^d(F,alpha), unique augmentation-zero idempotent, principal-unit kernel with ordinary convolution and exponent p. Equivariant filtration and regular character calculation agree with the equal-size case.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-modular-idempotents-of-scalar-alexander-quandle-algebras-over-fi--dd8ab47d1f33/RESULT.md",
+          "material_read": "Finding offsets 0–4464 and proof Steps 3–5 offsets 4464–7037",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Modular idempotents of scalar Alexander quandle algebras over finite fields",
+          "trigger": "Strongest indexed match, with distinct underlying and coefficient fields"
+        },
+        {
+          "assessment": "Exact prime-dihedral overlap",
+          "evidence": "Classifies all idempotents of K[R_p] in characteristic p using truncated logarithmic coordinates and the order-of-two resonance.",
+          "identifier_or_url": "2026/10/13/SCOPE-modular-dihedral-quandle-idempotents-and-the-order-of-two-dimens--5ff8d9016353",
+          "material_read": "Finding offsets 0–3173",
+          "method": "Local mirror",
+          "title": "Modular dihedral quandle idempotents and the order-of-two dimension count",
+          "trigger": "Equivalent formula at a=−1 and q=p"
+        },
+        {
+          "assessment": "Exact prime-dihedral overlap, not all scalars",
+          "evidence": "Gives the 1+q^κ count and describes the nonzero idempotents' quandle structure.",
+          "identifier_or_url": "2026/10/18/SCOPE-modular-idempotent-resonance-in-prime-dihedral-quandle-algebras--0818795d4878",
+          "material_read": "Finding offsets 0–2146",
+          "method": "Local mirror",
+          "title": "Modular idempotent resonance in prime dihedral quandle algebras",
+          "trigger": "Same count in a distinguished subfamily"
+        },
+        {
+          "assessment": "Integral existence criterion, not defining-characteristic enumeration",
+          "evidence": "Works in Z[Alex(Z/p,a)] with complex-character constraints including chi(−1)=1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.03799",
+          "material_read": "§6.2, Lemma 6.2 and Theorem 6.3, pp. 10–11, offsets 35200–41354",
+          "method": "Lawful OA primary text",
+          "title": "Elhamdadi–Ta–Virgin on character criteria for quandle-ring idempotents",
+          "trigger": "Similar character equation for affine quandles"
+        },
+        {
+          "assessment": "Transport overlap; integral idempotent theorem has different hypotheses",
+          "evidence": "Proposition 2.1 gives the group-ring method. Theorem 5.2 is an integral result, not the finite defining-characteristic kernel count.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.08204",
+          "material_read": "Proposition 2.1 p. 3, offset 9048; Theorem 5.2 p. 8, offset 25171",
+          "method": "Lawful OA primary text",
+          "title": "Group-ring methods for Alexander quandle rings",
+          "trigger": "Same convolution transport"
+        },
+        {
+          "assessment": "Augmentation criterion without exact enumeration",
+          "evidence": "The inspected result gives an augmentation criterion under its domain hypothesis, not the finite-field count.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.20306",
+          "material_read": "Theorem 6.7 p. 12, offset 38950",
+          "method": "Lawful OA primary text",
+          "title": "The zero divisor and augmentation conjectures for medial quandle rings",
+          "trigger": "Augmentation-one assertion"
+        },
+        {
+          "assessment": "Integral case does not cover modular idempotents",
+          "evidence": "Only the basis elements are nonzero idempotents in Z[R_3]; the coefficient ring is not of characteristic three.",
+          "identifier_or_url": "https://arxiv.org/pdf/2001.06843",
+          "material_read": "§4, Proposition 4.3, pp. 11–12, offsets 35900–38174",
+          "method": "Lawful OA primary text",
+          "title": "Bardakov–Passi–Singh on quandle rings",
+          "trigger": "Three-element dihedral example over a different coefficient ring"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The idempotent number and convolution subgroup are natural invariants and legitimately distinguish some same-size quandles. As a distinct contribution, however, the frozen equal-field case is fully supplied by the broader indexed count and kernel result; the two numerical evaluations and Frobenius lower bound do not leave an independent substantive claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

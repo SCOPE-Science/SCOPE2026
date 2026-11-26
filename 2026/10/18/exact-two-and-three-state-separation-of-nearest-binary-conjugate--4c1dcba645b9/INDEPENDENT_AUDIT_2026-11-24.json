@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:05:00.584076Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A two-letter projection preserving one unequal position commutes with rotation, and its separating DFA lifts to the full alphabet. Binary witnesses also give lower bounds on a larger alphabet, since other letters are never read. The inverse shift yields the same unordered pairs. For a one-symbol shift, either a last-bit recorder works or a reset and swap record the parity of trailing equal bits, whose lengths differ by one. For a two-symbol constant prefix, a reset and a 3-cycle distinguish trailing run lengths differing by two. For a mixed prefix, independent saturation from the two written triples reproduced all 12 transformations, their transitions and commuting indices 0, 4 and 10. The closed product with the recognizer for (01)* certifies the full word language, not just a finite length cutoff. Noncommuting actions differ on a selectable initial state and thus admit a distinguishing accepting set. For sharpness at n≥4, the pair 0^(n−2)10 and 0^(n−4)1000 has the same Parikh vector and ends in 0. A constant on 0 makes their actions identical; two permutation actions commute; and with a constant on 1 the trailing counts 1 and 3 act identically under any two-point permutation. This exhausts all two-state transitions. The frozen verifier and recorded output were inspected, not executed. Independent construction checks covered 8,166 one-step and 8,154 two-step distinct binary rotations for lengths 2–12, and checked all 16 two-state transition-map pairs on the lower family for 4≤n≤24. The exact theorems are about maxima, not equality of every individual separation number.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nicol uses complete DFAs and proves the general bound 2 min{k,n−k}+1 together with more general bounds; at the two relevant shift distances this is 3 and 5, not 2 and 3."
+        ],
+        "reasoning": "The general theorem covers the same problem and parameters but is quantitatively insufficient; it has no sharp upper bound at these two distances. Permutation-restricted models cannot supply both necessary bounds for arbitrary complete DFAs.",
+        "searches": [
+          "Primary literature for extremal deterministic separation of conjugates",
+          "Nicol arXiv:2608.30928v1 §3 Proposition 5 and Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–76, VERIFICATION.md, verify.py and verification_output.txt",
+        "Nicol arXiv:2608.30928v1 §3",
+        "Demaine et al. arXiv:1103.4513 §1",
+        "Resultary mirror 539b7b3c53df"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "No upper bound of 3 at shift two follows by substituting k=2 in the earlier general bound. The earlier four-letter obstruction does not by itself provide the all-length upper construction. The later mixed-prefix proof recognizes exactly alternating suffixes for the commuting cases, as does the frozen construction."
+        ],
+        "reasoning": "The needed new step relative to the earlier bounds is uniform separation of all mixed-prefix AB and BA by three-state maps; neither the small exact witness nor general bound implies it. Against the later result the binary sharp bound is already covered, rather than novel by restatement over larger alphabets.",
+        "searches": [
+          "Nicol Proposition 5 and Theorem 2; Demaine et al. §1 example; Resultary 539b7b3c53df mixed-prefix certificate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 539b7b3c53df gives the exact binary shift-two maximum of 3 for n≥4 and an exact census of the pairs needing 3; it uses a mixed-prefix alternating-language certificate built from two endpoint product tables. Its indexed publication is 2026/11/02, later than the frozen 2026/10/18 result. It does not state the one-step classification."
+        ],
+        "reasoning": "The later binary result gives the same full-alphabet shift-two maximum by projection and embedding. The exact certificate methods need not coincide for the separation conclusions to overlap. The relative catalogue dates are evidence about indexed publications, not discovery priority.",
+        "searches": [
+          "Resultary semantic lookup for binary two-step rotations, nearest conjugate separation, and AB versus BA with a length-two prefix",
+          "Nicol arXiv:2608.30928v1 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Demaine et al. give 0010 versus 1000 as a pair needing 3 states, exactly the frozen lower family at n=4. The later indexed record gives the exact binary shift-two census and product certificates, not merely small-length tabulation."
+        ],
+        "reasoning": "The earlier exact witness establishes one length only. The later exact catalogue coverage is real, but does not establish coverage before the frozen finding.",
+        "searches": [
+          "Demaine et al., arXiv:1103.4513 §1, explicit small-pair separation example",
+          "Resultary 539b7b3c53df RESULT.md and certificate.tsv"
+        ]
+      },
+      "rationale": "Earlier inspected conjugate-separation results bound these shifts by three and five states and give a four-letter lower witness, but do not settle the exact sharp all-length profile. The material later binary census is acknowledged as equivalent coverage of shift two through alphabet projection, not discounted as just another parametrization. No evidence was found that this coverage predates the frozen result; no claim of discovery priority is made.",
+      "residual_risks": [
+        "The search does not exclude an unindexed earlier transformation-semigroup result or exact conjugate classification.",
+        "The two mixed-prefix certificates were compared by conclusion, not proved equivalent as constructions; publication dates do not establish first discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General conjugate bounds, not the sharp constants at distances one and two.",
+          "evidence": [
+            "Prop. 5 derives the 2 min{k,n−k}+1 upper bound; §3 treats general R(n,k)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.30928",
+          "material_read": "Conventions in §1 and §3 Proposition 5 and Theorem 2, PDF text offsets 13251–19212",
+          "method": "Lawful OA PDF, bounded primary passages",
+          "title": "Further Remarks on Separating Words",
+          "trigger": "Earlier matching problem and shift parameters"
+        },
+        {
+          "assessment": "Prior exact n=4 witness but not the two all-length classifications.",
+          "evidence": [
+            "0010 and 1000 cannot be separated by a two-state DFA."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1103.4513",
+          "material_read": "§1, PDF text offsets 2551–4977",
+          "method": "Lawful OA PDF, bounded primary passage",
+          "title": "Remarks on separating words",
+          "trigger": "Exact lower witness for binary conjugates"
+        },
+        {
+          "assessment": "Equivalent at shift two and stronger in its census; later indexed coverage. The later certificate was not independently replayed.",
+          "evidence": [
+            "The binary maximum is 3 for n≥4; two 31-state product tables certify conditions for mixed prefixes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-three-state-separation-and-an-exact-census-for-two-step-bi--539b7b3c53df",
+          "material_read": "RESULT.md offsets 0–9211 and certificate.tsv opening passage, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror, matching statement and certificate inspected",
+          "title": "Sharp three-state separation and an exact census for two-step binary rotations",
+          "trigger": "Exact binary shift-two overlap and alternating-word certificates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Nearest shifts are natural cases of the extremal conjugate-separation problem, whose prior bounds are not sharp there. The all-length three-state upper construction with a finite transition closure, paired with an all-length obstruction to two states, improves the upper bound of five and resolves the exact worst-case constant. The finite graph is useful because it certifies arbitrarily long inputs, not because of the number of small cases counted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

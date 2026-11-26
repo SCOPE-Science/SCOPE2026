@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:56:48.996639Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The repaired theorem is for the limiting variance per label and for a joint CLT at fixed interior retention, not a finite-size or moving-window optimizer. Shared leaves are labels vacant in both Prüfer words; single-position avoidance gives the finite factorial and cross-moment identities, with empty products at n=2. In m log a_{n,k} the coefficient of k²/n is c=(1−ρ)−(2−ρ)²/2, so the covariance contribution to the variance density is 2cQ², Q=e^(ρ−2). This gives v=Q−(3−2ρ+ρ²)Q². The positivity bound uses (3−ρ)Q≤2/e; the sign bracket for v' is 1−2(2−ρ+ρ²)Q, strictly decreasing from positive to negative, so exactly one strict maximum. For the Gaussian law, the shared stream count S is binomial in latent retention decisions, not observed coincidences; its conditioning leaves three independent fixed-total allocations. In the conditional characteristic-function integral, positivity of rates bounds the probabilities of Poisson box-count differences e_j away from zero. The independent-copy cosine identity then bounds 1−|φ|² from below by c||θ||²−C/n for small θ, giving Gaussian domination after θ=u/√n; on the complement the unperturbed modulus is uniformly below one and bounded f adds O(n⁻¹ᐟ²). The resulting conditional covariance is a Schur complement; the exact conditional mean differs from Poisson centering by O(1). The correction subtracts q² from each marginal leaf variance, ρq² from their covariance, qQ from marginal/common covariance, and (2−ρ)Q² from common variance. The conditional mean g_n(S) of H has derivative tending to Q at E S and second derivative O(1/n). The binomial fluctuation is asymptotically independent of the conditional limit by bounded conditional characteristic functions converging to a deterministic limit. It adds ρ(1−ρ)Q² to the last variance only; the matrix agrees with separate finite second-moment expansions. Replay: repaired RESULT.md, finite identities and both limit proofs; frozen check.py lines 9–70 (inspected, not executed) separately checks finite moments, not the limiting statements. No field or other tree-coupling result is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "b3d73bd92af7 conditions a Poisson occupancy vector on fixed totals for full-degree agreement across independent Cayley trees and computes the Gaussian Schur complement.",
+          "Hwang–Janson Thm. 2.1 treats count-set occupancy in one stream; Barbour–Gnedin give a joint approximation to frequency counts in one allocation, and Bogachev et al. treat variance of the number of occupied boxes in one infinite-urn allocation.",
+          "Resultary e29f4fd136bb gives a fixed-total variance correction for histogram roughness, not an overlap CLT."
+        ],
+        "reasoning": "Classical conditioning and variance-correction mechanisms are covered as methods. The closest inspected tree CLT does not introduce a binomial shared-stream size, a common-vacancy fluctuation, or a maximization in retention. A sufficiently general multistream theorem could give some conditional Gaussian steps, not settled by these sources.",
+        "searches": [
+          "Resultary: multistream conditional Gaussian laws, Cayley degree agreement, fixed-total variance correction",
+          "Hwang–Janson arXiv:math/0604397 Theorem 2.1; Barbour–Gnedin arXiv:0809.4387 abstract and §2; Bogachev–Gnedin–Yakubovich arXiv:math/0609498 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c552f8b16e6b, b3d73bd92af7, 99a911c57a5d and e29f4fd136bb",
+        "arXiv:math/0604397, arXiv:0809.4387 and arXiv:math/0609498",
+        "Bounded public search for multistream occupancy evidence; low yield is not negative evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The common-only orders (s,0,0) in the vacancy formula give (n)ₛ[1−(1+ε)s/n+εs²/n²]^m, exactly (n)ₛ a_{n,s}^m at ε=1−ρ. Leaf counts are the sums of common and respective only-vacant categories. This also covers the finite cross-moments.",
+          "The coupon theorem assumes m=n log n+cn+o(n) and ε log n→τ for its limit. Those conditions do not become m=n−2 and fixed ρ by an admissible parameter specialization. The independent-tree limit conditions distinct fixed-total streams with no shared size."
+        ],
+        "reasoning": "The finite common-leaf law is literally a corollary and is no longer claimed to be a contribution. The sharp maximum needs the linear-load covariance expansion and sign classification. The joint Gaussian theorem needs separate conditioning on shared/exclusive streams and a binomial centering fluctuation. These are not supplied by the existing asymptotic statements.",
+        "searches": [
+          "c552f8b16e6b RESULT.md Finding and mixed falling-factorial formula, offset 0–3382",
+          "b3d73bd92af7 RESULT.md Finding and Fourier conditioning, offsets 0–3285 and 3285–6923"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "c552f8b16e6b uses original and refreshed boxes with possible coincidental equality on a refresh; with ε=1−ρ and m=n−2 its common-vacant count is exactly H.",
+          "The shared-ancestry result 99a911c57a5d uses independent growth after an initial shared segment in uniform-attachment trees; it yields a cubic marginal leaf-count correlation, not the same coupling or common-leaf statistic."
+        ],
+        "reasoning": "The occupancy alias is a genuine equivalence and precludes originality of the finite assertions. Recoding partial shared growth as a code refresh is not an equivalence; its conclusions compare marginal leaf totals under a different law.",
+        "searches": [
+          "Resultary: retain-or-refresh occupancy, common vacancy and joint factorial moments",
+          "Resultary: coupled Prüfer leaves and correlated-tree leaf CLTs",
+          "Bounded primary literature lookup for coupled occupancy and multistream fixed-total CLTs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact finite formula match c552f8b16e6b was found and inspected; it is not an identity hit of the assigned record. Its highlighted asymptotic is three independent Poisson counts at coupon coverage, rather than linear-load Gaussian fluctuations or a variance optimizer."
+        ],
+        "reasoning": "The appropriate exact-record comparison checks symbolic factorial moments and structural phase or optimizer statements, not agreement of printed decimals. The finite match is affirmative coverage; no exact match for the narrowed limit/optimizer was established.",
+        "searches": [
+          "Resultary: critical resampling noise, joint vacancy factorial law, and exact optimum of shared-leaf variance in coupled Prüfer trees"
+        ]
+      },
+      "rationale": "PASS is for the repaired claim only. The frozen AUDIT.json explicitly counts the noisy coupling and exact common-leaf factorial transform as novel. That component fails: the same-day c552f8b16e6b result gives the identical coupling and strictly stronger finite mixed-moment identity. A direct specialization gives the entire finite common-leaf transform, not just a numeric coincidence; the mixed vacancy counts also recover the joint finite leaf moments. Dates do not establish priority between the records. The repair removes novelty for these identities and uses them as credited premises. The surviving contribution is the uniquely maximizing retention of the limiting common-leaf variance at linear load plus the specified joint fixed-retention Gaussian law. The nearest primary and published limit theorems do not supply this combination or the individual repaired conclusions on inspected evidence.",
+      "residual_risks": [
+        "The two same-day exact-model records establish coverage of the shared finite formulas, not dates of priority.",
+        "Unlocated multistream occupancy literature may subsume the conditional Gaussian argument or some linear-load limit calculations. Known methods are not claimed original.",
+        "No global priority or real-graph applicability is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strict finite coverage; different asymptotic regime",
+          "evidence": "The mixed factorial formula is stated for every finite size; t=u=0 gives H factorial moments. The three-Poisson limit uses coupon coverage.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-critical-resampling-noise-and-a-three-poisson-vacancy-law-at-cou--c552f8b16e6b/RESULT.md",
+          "material_read": "Finding, assumptions and exact mixed moments, offset 0–3382",
+          "method": "Bounded local-mirror read of original statement and proof",
+          "title": "Critical resampling noise and a three-Poisson vacancy law at coupon coverage",
+          "trigger": "Exact same-day noisy occupancy and finite moment match"
+        },
+        {
+          "assessment": "Substantive methodological overlap, distinct statistic and coupling",
+          "evidence": "Full-degree equality across independent Cayley trees uses Poisson conditioning and a Schur complement but no randomly sized common stream.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-gaussian-law-for-degree-agreement-across-independent-cayley-tr--b3d73bd92af7/RESULT.md",
+          "material_read": "Finding and proof, offsets 0–3285 and 3285–6923",
+          "method": "Bounded local-mirror reads",
+          "title": "A Gaussian law for degree agreement across independent Cayley trees",
+          "trigger": "Closest published multistream conditioned Gaussian analogue"
+        },
+        {
+          "assessment": "Different model and coupled statistic",
+          "evidence": "Growth couples an initial segment and gives marginal leaf-count correlation α³, without common-leaf overlap under Prüfer refresh.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-cubic-memory-of-shared-ancestry-in-leaf-counts-of-correlated-uni--99a911c57a5d/RESULT.md",
+          "material_read": "Finding and scope, offset 0–2595",
+          "method": "Bounded local-mirror read",
+          "title": "Cubic memory of shared ancestry in leaf counts of correlated uniform-attachment trees",
+          "trigger": "Correlated-tree leaf-count CLT"
+        },
+        {
+          "assessment": "Single allocation, not paired overlapping absence",
+          "evidence": "Counts boxes whose occupancy lies in a specified set.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0604397",
+          "material_read": "Theorem 2.1, PDF p. 4, offset about 11600",
+          "method": "OA primary PDF passage inspection",
+          "title": "Local limit theorems for finite and infinite urn models",
+          "trigger": "Broader occupancy Gaussian and local limit literature"
+        },
+        {
+          "assessment": "Classical joint approximation and de-Poissonization in a single allocation",
+          "evidence": "The joint counts track occupancy-frequency classes rather than label vacancies shared by two dependent configurations.",
+          "identifier_or_url": "https://arxiv.org/abs/0809.4387",
+          "material_read": "PDF pp. 1–2, statement and §2, offsets 0 and about 5650",
+          "method": "OA primary PDF passage inspection",
+          "title": "Small counts in the infinite occupancy scheme",
+          "trigger": "Potential broader joint occupancy approximation"
+        },
+        {
+          "assessment": "Related variance theory; no claim about full-text exclusion",
+          "evidence": "The stated subject is the variance of one occupied-box count, not its dependence on a refresh probability coupling two allocations.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0609498",
+          "material_read": "PDF p. 1, opening abstract, offset 0",
+          "method": "OA primary PDF opening passage",
+          "title": "On the variance of the number of occupied boxes",
+          "trigger": "Classical occupancy variance baseline"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Even after removing the exact finite transform from the contribution, the result gives a sharp and interpretable nonmonotonicity: limiting noise of a natural common-leaf statistic is worst at a strictly intermediate retain probability, not at either baseline endpoint. The joint Gaussian limit identifies how that overlap covaries with each marginal leaf total, including fluctuation from the randomized shared-stream size. These are meaningful properties of the coupled-tree null model rather than a rebranding of known finite vacancy moments.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

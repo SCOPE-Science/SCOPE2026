@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The infinite equality-symmetry assumptions, pointwise support definition, uniqueness of least support, and \(k=0\) conventions are explicit. Independently tracing the proof, the stabilizer has \(k^2+2k+2\) ordered-pair orbits; deletion-event inclusion-exclusion gives the unrestricted binary count. The fresh-atom equivalence dichotomy gives the exact \(H_k(d)\) strata without omitted cases. Classical Bell-ratio asymptotics and two moment identities yield the logarithmic support-defect concentration and the full-support proportions. The standalone checker separately enumerated all admissible partitions and all relevant binary orbit tables at the stated small sizes and returned `ALL_CHECKS_OK`. These finite checks are not mistaken for general proofs.
+PASS
 
-## Originality — PASS within inspected evidence
+For finite supports S and T, all transpositions fixing S∩T either fix one support pointwise or factor through a fresh atom outside S∪T, so the common intersection also supports. Intersecting supports inside S yields the least one, contained in any other finite support by intersecting that other support with S. For equivalences, the complement of S is either all singleton classes or part of a single infinite class. In the singleton case a named atom may be exchanged with a fresh atom precisely if it is itself a singleton; in the giant case this is true precisely for named atoms in the infinite class. In each case removing all such names still supports the relation and the others are indispensable. Choosing the d removable names gives binom(k,d)(a_{k−d}+B_{k−d}), including k=0. A marked element in a partition accounts for the B_{k+1} giant cases. For arbitrary directed binary relations there are k² named cells, 2k directed mixed cells and two fresh cells (equal/distinct); intersections of deletion events are support on the intersection context. Inclusion–exclusion and Bonferroni then give the exact count and the displayed asymptotic, since the 1- and 2-deletion ratios are 2^{−2k−1} and 2^{−4k}. The giant case has probability 1−o(1); its marked-block deficit has first and second factorial moments kB_k/B_{k+1} and k(k−1)B_{k−1}/B_{k+1}. Bell ratios give mean asymptotic to W(k) and variance o(W(k)^2). The same factorial-moment check for singleton blocks gives a_k/B_k→0; hence full support has probability asymptotic to W(k)/k for equivalences. `python3 /workspace/branches/frozen_replay.py 4` verified complete deficit histograms for k=0,…,4 by enumerating partitions and testing complementary permutation groups for every subcontext.
 
-The nominal support-intersection property and equality-pattern orbit decomposition are classical, already used in published nominal semantics. OEIS A000110/A000296 and the Bell asymptotic are credited as known. The novelty assessment concerns the complete least-support stratification for binary equivalence relations **and** the sharp contrasting support-concentration laws for equivalences versus arbitrary binary predicates. Direct semantic searches of published records, accessible own claims, sequence tables, and the relevant 2026 finite-context paper did not disclose a covering claim. The 2021 paper *Finitely Supported Binary Relations between Infinite Atomic Sets* and the 2026 finite-dependence companion paper were accessible at abstract level only; both are historical-priority risks, not papers declared noncovering.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The full support spectrum is a natural exact invariant of the finite-context semantics of equivalence relations. The contrast is structural: generic unrestricted binary predicates require all names, while a generic supported equivalence omits \(\sim W(k)\) names although its support retains almost every name proportionally. This identifies a precise and unexpected boundary for parameter-essentiality even at fixed binary arity. The result does not imply any general complexity improvement, or the same conclusion for arbitrary data symmetries.
+The supported contribution is the exact least-support stratification for equivalences on equality atoms and the resulting contrast with uniformly sampled supported binary relations. The least-support intersection theorem, partition numbers, the Bell-ratio estimate and the marked-block moments are not claimed as original. The ordered-atom catalogue result has different stabilizer orbits and the opposite equivalence full-support behavior; the equality-atom binary orbit normal form does not state the support-stratified census. The 2021 binary-relations paper was recovered in full via its publisher's PDF CDN; its pertinent theorem proves finiteness for a fixed support, not the least-support laws. The arithmetic of the unrestricted class alone is elementary once the orbit cells are known; the comparison is credited for the support-theoretic equivalence census, not the inclusion–exclusion technique by itself.
 
-## Closest evidence and limits
+## value
 
-The direct motivating source is Ciobanu, arXiv:2609.31917 (first publicly posted 2026-09-25), especially Sections 5 and 10; closely relevant older work is Alexandru–Ciobanu, *Symmetry* 13 (2021), 2028. Standard support theory is represented by Bojańczyk's *Nominal Monoids* (2013), and Bell ratios by Grunwald–Serafin (2024). Complete historical originality is not proved; no independent mathematical audit has occurred. The independently enumerated finite instances do not establish infinite claims.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The least support controls how many names must be retained. For the same infinite carrier, imposing transitivity and symmetry changes exact full support from overwhelmingly typical to rare; the defect is nevertheless only logarithmic. The exact strata and the W(k) scale quantify both effects in two natural finite ensembles and are directly useful for reasoning about context minimization. This is more than counting all binary orbit assignments or restating an isolated Bell-number estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

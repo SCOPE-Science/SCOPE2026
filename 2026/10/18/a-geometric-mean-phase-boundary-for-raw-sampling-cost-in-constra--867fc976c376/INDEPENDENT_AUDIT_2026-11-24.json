@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:13:12.230914Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen and repaired RESULT.md, Finding and Proof",
+        "Frozen VERIFICATION.md and checker.py",
+        "Sun et al. Algorithm 1 and Remark 3.1"
+      ],
+      "rationale": "For pinning i the nullspace projector deletes coordinate i, and the ζ=1 update sets the sampled unsolved coordinate to one without changing another. An unpinned row is accepted exactly on its first appearance, so T is the coupon collector of the fixed norm-squared probes. For two weights w,z the disjoint failure histories at t≥1 have probabilities (w/(w+z))^t and (z/(w+z))^t. Summing with the t=0 term gives 1+w/z+z/w. Both this mean and the stated unconditioned first-step proxy increase with the ratio of larger to smaller remaining singular value. Removing the middle leaves the extreme ratio; comparing s₂/s₃ and s₁/s₂ gives the claimed strict choices and equality. The Frobenius cost simply deletes s_i². The example gives 21/4 for pinning the smallest row. In dimension n the rare-row geometric mean is a lower bound (n−2+ε²)/ε²; after pinning that rare row the conditional chance of a new item is at least 1/(n+2) until completion, giving the upper bound (n−1)(n+2). The F-ratio is at most 1+4/(n−2), so fixed n>2+4/δ proves the quantified near-Frobenius result. The repair changes the claim's emphasis and comparisons, not the formulae or verifier. Packaged code was inspected, not executed.",
+      "residual_risks": [
+        "Fixed independent pre-rejection probes in exact arithmetic only. Not a claim about runtime, adaptive residual-aware sampling, nonorthogonal systems, or accepted-step contraction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun et al. give redraw, projected-norm probabilities and the Frobenius surrogate, but their convergence count is accepted iterations. Lok–Rebrova give the projection framework; Nutini et al. identify residual persistence under orthogonality. The October 13 result gives divergence for legal singleton choices."
+        ],
+        "reasoning": "Those results explain the setting and part of the mechanism; none of the inspected statements classifies the diagonal three-row optimum or its agreement with the nominal contraction ordering.",
+        "searches": [
+          "Sun–Qi–Han–Xie Sections 3.1–3.2",
+          "Lok–Rebrova arXiv:2309.04889",
+          "Nutini et al., PMLR 2016 orthogonality graph",
+          "October 13 Resultary triangular-system example"
+        ]
+      },
+      "checked_sources": [
+        "October 13 Resultary triangular example",
+        "Sun et al.",
+        "Lok–Rebrova",
+        "Nutini et al.",
+        "Weighted coupon-collector formulation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Append k orthogonal unit rows with zero right-hand sides to the October 13 example: F₁ and F₂ each increase by k, and pinning an appended row cannot beat F₁+k. Their ratio tends uniformly to one with k, while the informative-row probability after pinning 1 is t²/(k+1+t²) and the alternative remains bounded away from zero for fixed k as t→0.",
+          "This padding does not make the original initially satisfied equation active and does not determine the sign change s₂²=s₁ s₃ when all unpinned rows are needed."
+        ],
+        "reasoning": "Credit even the unrestricted near-surrogate counterexample as a direct extension of the earlier example; retain the exact comparative optimizer and all-active restriction as the supported remainder.",
+        "searches": [
+          "October 13 record’s projected costs F₁,F₂,F₃ and one-effective-row probabilities",
+          "Sun et al. Frobenius surrogate",
+          "Frozen/repaired diagonal pinning proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fixed raw probes plus orthogonal exact row corrections reduce to weighted coupon collection; two-coupon tail and mean are elementary and credited as such. The October 13 example is instead waiting for one effective row while the other is already satisfied."
+        ],
+        "reasoning": "Classical collection law and rejection mechanisms are not novel; the pinning decision with an exact crossover under the all-active constraint is the unit assessed.",
+        "searches": [
+          "Configured Resultary fixed-distribution constrained Kaczmarz raw proposals / projected Frobenius queries",
+          "Sun et al. arXiv:2605.29304 Algorithm 1, Remark 3.1",
+          "Weighted coupon collector: Boneh–Hofri OA attempt"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact prior work means are (1+t²)/t² versus 2+t² on a triangular family. The parameter, geometry and right-hand side differ; there is no tie boundary or complete three-row choice table in the inspected comparison."
+        ],
+        "reasoning": "Treat the shared broad divergence as overlap, not the exact all-active phase diagram.",
+        "searches": [
+          "Configured Resultary raw-rejection-cost and geometric-mean pinning lookup",
+          "October 13 record Finding and Proof, local mirror"
+        ]
+      },
+      "rationale": "Pass the exact optimal pinning crossover for the all-active three-row diagonal class and the separation within the all-active diagonal family, not the broad unbounded-overhead claim. The October 13 Resultary example already proves an unbounded raw-probe ratio for the same algorithm and surrogate, with one effective update; the relative-gap refinement alone can be obtained by padding that construction. It does not classify the pinning optimizer when every unpinned row is initially unsatisfied. The repaired Finding and prior-work section make this distinction explicit.",
+      "residual_risks": [
+        "Limited ranked search and incomplete classical literature retrieval; no worldwide priority conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers unbounded ratio and a padded near-Frobenius gap; does not state the all-active diagonal crossover.",
+          "evidence": "Triangular A, F₁=1+t², F₂=1+1/(1+t²), W₁=(1+t²)/t², W₂=2+t², one accepted step under either policy.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-unbounded-rejected-draw-cost-of-frobenius-selected-subspace-cons--5c14167b84fb/RESULT.md",
+          "material_read": "Finding, assumptions and proof at offsets 0–4371; bounded comparison through offset 6697",
+          "method": "Configured Resultary and OA local mirror",
+          "title": "Unbounded rejected-draw cost of Frobenius-selected subspace-constrained Kaczmarz",
+          "trigger": "Same algorithm, surrogate and raw-proposal separation"
+        },
+        {
+          "assessment": "Gives method and surrogate but not the exact diagonal raw optimizer.",
+          "evidence": "Redraw until residual nonzero; use squared projected row norms; constrain via projected Frobenius surrogate.",
+          "identifier_or_url": "https://arxiv.org/html/2605.29304",
+          "material_read": "Algorithm 1 Step 2 and Remark 3.1, offsets 36010–40377; Lemma 3.5 vicinity, offset 43152",
+          "method": "Lawful OA primary passages",
+          "title": "On subspace-constrained preconditioning for randomized iterative methods",
+          "trigger": "Original method, sampling and surrogate"
+        },
+        {
+          "assessment": "Constrained projection, not this repeated-rejection phase diagram.",
+          "evidence": "Projected row-norm sampling and subspace update.",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.04889",
+          "material_read": "PDF p. 3, Algorithm 1, offset 10029",
+          "method": "Lawful OA PDF passage",
+          "title": "A subspace constrained randomized Kaczmarz method for structure or external knowledge exploitation",
+          "trigger": "Earlier constrained method"
+        },
+        {
+          "assessment": "Orthogonality observation, not a pinned-row raw-proposal optimizer.",
+          "evidence": "A projection onto an orthogonal row leaves the other residual unchanged.",
+          "identifier_or_url": "https://proceedings.mlr.press/r14/nutini16a.html",
+          "material_read": "Paper §3.1, p. 3 near OA offset 13151",
+          "method": "Lawful OA paper text",
+          "title": "Convergence Rates for Greedy Kaczmarz Algorithms, and Faster Randomized Kaczmarz Rules Using the Orthogonality Graph",
+          "trigger": "Earlier unproductive-selection mechanism"
+        },
+        {
+          "assessment": "No claim of coupon-collection originality; broader exact literature comparison limited.",
+          "evidence": "No full-text evidence from this attempt; weighted collection equivalence established directly.",
+          "identifier_or_url": "Boneh–Hofri, 1997 survey",
+          "material_read": "No usable primary passage obtained",
+          "method": "Identified OA retrieval attempted",
+          "title": "The Coupon-Collector Problem Revisited: A Survey of Engineering Problems and Computational Methods",
+          "trigger": "Classical weighted-coupon formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding and Proof",
+        "Sun et al. methodology and October 13 counterexample"
+      ],
+      "rationale": "The exact boundary tells which constraint to choose in the smallest diagonal case with a genuine choice between two weights after pinning. It shows that equal accepted-step counts conceal an exact and potentially large probe-cost difference even without initially satisfied equations. The comparison is a meaningful sharp witness for a named selection surrogate; the textbook coupon formulas and generic divergence are not the basis for acceptance.",
+      "residual_risks": [
+        "Restricted exact probe-count model; no guidance for generic dense Kaczmarz or total execution time asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

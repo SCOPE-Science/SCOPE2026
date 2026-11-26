@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:51:59.697513Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The minimum size, forbidden tuples, sufficiency of the stated certificate, and enumeration are correct. Each length-one factor forces one selected copy; the start residue of any longer factor is fixed. Nonwrapping short factors cover every copy of their last letter. For a wrapping short factor, missing it requires the right wrap to exceed the suffix length, forcing the three forbidden restrictions from the copies in its occurrence intervals. For length at least q, the occurrence intervals touch or overlap, leaving initial and final gaps each shorter than q; a missing factor must leave the last a_{q-1} in the final gap and the first a_r in the initial gap. The other restricted letters can only be chosen in the first block or the final suffix. The displayed certificate has exactly these restrictions and the count follows by independent choices. But the Finding also calls it the unique distinguishing factor without qualification. For q=2,k=3,r=0, in ababab both ba and baba have the same union of occurrence spans, positions 1 through 4 in zero-based indexing. Either is a sufficient single-factor test, and only neither is hit by the bad selection {0,5}. The frozen finite script checks the displayed test and count, not the claimed uniqueness; its reported run is not an independent replay.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The distinct-run cyclic-bigram Resultary theorem allows arbitrary positive run lengths for complete powers, specializes to the unit-run count k^q-k^{q-2}, and does not handle truncation. Proposition 4 of Mantaci et al. bounds minimum sizes of powers. The other two inspected statements concern other word families."
+        ],
+        "reasoning": "Unit runs reduce the complete-period cyclic-bigram certificate to the wrap bigram because internal bigrams are automatically hit. The complete-period extension is a partial overlap, not the evidence for full truncated-prefix coverage.",
+        "searches": [
+          "Resultary 7fb760d3d179; Mantaci et al. arXiv:1907.04660 Proposition 4; Dvořáková arXiv:2211.01660; Banbara et al. arXiv:2602.16152"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–47, VERIFICATION.md lines 19–25, attractor_certificate.py lines 9–67",
+        "Resultary 0a2ae1aed47f, 7fb760d3d179, fe2566e0098c",
+        "arXiv:1907.04660, 2211.01660, 2602.16152, 1709.05314"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior all-prefix classification forces exactly the same exclusions; multiplying the independent choices per excluded letter gives the same subtraction. The classical singleton bound and size bounds do not by themselves assert the classification."
+        ],
+        "reasoning": "The exact equivalence decides this check without assuming that any broad minimum-size bound subsumes the enumeration.",
+        "searches": [
+          "0a2ae1aed47f, statement and proof; Prezza arXiv:1709.05314, PDF p. 4, offset 16715; Mantaci et al. arXiv:1907.04660, Proposition 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Offsets 0–4882 and 4883–9590 give the same periodic-prefix word, ranges, exceptional tuple and F_r=a_{q-1}a_0…a_r."
+        ],
+        "reasoning": "Replace the comparator's number of complete periods m by k. The selected positions and factors are identical; this is not merely the same alphabet-size lower bound.",
+        "searches": [
+          "Resultary repeated permutation prefixes and all smallest string attractors; local RESULT.md 2026/10/18, 0a2ae1aed47f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0a2ae1aed47f gives both branches of the same exact all-prefix count. fe2566e0098c gives k^2−1 for (01)^k, k≥3, and three for k=2. The public lookup supplied no additional usable evidence."
+        ],
+        "reasoning": "This is direct indexed coverage, not a numerical sequence coincidence; the separate binary record alone would cover only a special case.",
+        "searches": [
+          "Resultary 0a2ae1aed47f and fe2566e0098c; public web lookup for the binary complete-period count"
+        ]
+      },
+      "rationale": "A distinct Resultary record states the full classification and count, with the same one-factor certificate and all truncated-prefix cases. The mathematical coverage is exact, irrespective of historical priority. Removing the uniqueness overstatement would not recover a distinct result.",
+      "residual_risks": [
+        "Indexed path dates are not proof of authorship, conventional publication provenance, or historical priority.",
+        "The bounded literature check was not an exhaustive priority search; the exact distinct indexed match already establishes coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage",
+          "evidence": "Same one-per-letter minimum sets, forbidden tuples, wrap factor, and two-branch enumeration for all stated parameters.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-all-smallest-string-attractors-of-repeated-permutation-prefixes--0a2ae1aed47f/RESULT.md",
+          "material_read": "RESULT offsets 0–4882 and 4883–9590",
+          "method": "Local mirror, bounded statement and proof reading",
+          "title": "All smallest string attractors of repeated permutation prefixes",
+          "trigger": "Same prefix family and certificate"
+        },
+        {
+          "assessment": "Complete powers only; later indexed overlap",
+          "evidence": "The count for q≥3 with unit runs is k^q−k^{q−2}.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-cyclic-bigram-certificates-and-all-minimum-attractors-of-distinc--7fb760d3d179/RESULT.md",
+          "material_read": "RESULT offsets 0–4951",
+          "method": "Local mirror, statement reading",
+          "title": "Cyclic bigram certificates and all minimum attractors of distinct runs",
+          "trigger": "Possible stronger complete-power result"
+        },
+        {
+          "assessment": "Binary complete-period overlap",
+          "evidence": "Explicit minimum-set classification and k^2−1, with k=2 discussed separately.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-all-smallest-attractors-in-two-exceptional-antipalindromic-pseud--fe2566e0098c/RESULT.md",
+          "material_read": "RESULT offsets 0–4386",
+          "method": "Local mirror, statement reading",
+          "title": "All smallest attractors in two exceptional antipalindromic pseudostandard families",
+          "trigger": "Source of the binary special case"
+        },
+        {
+          "assessment": "Related size inequality",
+          "evidence": "gamma*(u) ≤ gamma*(u^n) ≤ gamma*(u)+1, not a count of minimum sets.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.04660",
+          "material_read": "Proposition 4, PDF p. 4, offset 11052 onward",
+          "method": "OA full-text passage",
+          "title": "String Attractors and Combinatorics on Words",
+          "trigger": "General power bound"
+        },
+        {
+          "assessment": "Different word family in the inspected result",
+          "evidence": "Episturmian factors and their minimum attractor size.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.01660",
+          "material_read": "PDF p. 1, offset 221",
+          "method": "OA full-text passage",
+          "title": "String attractors of episturmian sequences",
+          "trigger": "Related finite-word attractor result"
+        },
+        {
+          "assessment": "Different word families in the inspected result",
+          "evidence": "Classifications or results for Fibonacci, period-doubling and Thue–Morse words, not the qualifying prefix theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.16152",
+          "material_read": "PDF p. 1, offset 1563",
+          "method": "OA full-text passage",
+          "title": "The Smallest String Attractors of Fibonacci and Period-Doubling Words",
+          "trigger": "Related all-minima classification"
+        },
+        {
+          "assessment": "Standard lower-bound input",
+          "evidence": "At least one occurrence of every distinct letter must be selected.",
+          "identifier_or_url": "https://arxiv.org/abs/1709.05314",
+          "material_read": "PDF p. 4, offset 16715",
+          "method": "OA full-text passage",
+          "title": "String Attractors",
+          "trigger": "Lower-bound provenance"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The classification would be a useful structural result on its own, but here the certificate and truncated count reproduce an existing indexed theorem; the extra uniqueness wording is false. No independent mathematical gain survives in the frozen contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

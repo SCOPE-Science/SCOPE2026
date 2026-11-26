@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:22:44.301187Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 14–29 and Proof §§1–6",
+        "Frozen VERIFICATION.md and verify.py, inspected rather than executed",
+        "Independent exact joint-law and factorial-moment argument in this review"
+      ],
+      "rationale": "The conditional geometric lag law has normalization 1-r^t. At a cut with right endpoint t=j+1 the first lag is 1 and a birth h steps after t requires lag at most h. Independence and telescoping give b_j=[(1-r)∏_{h=1}^j(1-r^h)]^m. For the stationary K-window indicators the later cut imposes stricter bounds on every overlap, including for neighboring cuts, giving the stated pair law. A separate factorial-moment check can bypass the Poisson approximation citation: for ordered finite-start cut endpoints 0<t_1<...<t_k, set t_0=0. The strictest bound at any birth is the bound of the most recent cut. Multiplying the factors on successive blocks and the final infinite tail, the common denominators from t_1 onward telescope and give the exact joint probability ∏_{i=1}^k b_{t_i-t_{i-1}-1}. Set a_d=b_{d-1} and N=floor(H/ρ). The sum of a_d for d≤K=ceil(β^-2) is O_m(β^m), by bounding factors for h≤floor(β^-1/2) by sqrt(β) and the remaining terms by monotonicity. For d>K, a_d/ρ=1+o(1) uniformly by the geometric tail of log of the product. Therefore ∑_{d≤N}(a_d−ρ)=o(1). The total difference between any fixed-order joint factorial-moment sum on disjoint subintervals of [0,H] and the independent-site sum with probability ρ is at most k![(∑_{d≤N}a_d)^k−(Nρ)^k]=o(1), using nonnegative differences and enlarging the domain to all k-tuples of gaps in [1,N]. This yields the independent Poisson counts and vague convergence on compact sets. The void probability on [0,H] gives the first-index limit. For each fixed β the stationary i.i.d. lag process is ergodic and cuts have positive frequency; the conditional resampling coupling differs from the stationary draws at only finitely many births almost surely since ∑_t mr^t<∞. Finally the eta modular identity gives the product factor sqrt(2π/β)exp(−π²/(6β)+β/24)(1+O(exp(−4π²/β))); the extra (1−r)^m gives the printed prefactor (2πβ)^{m/2} and relative O_m(β) error.",
+      "residual_risks": [
+        "This is for fixed m and independent parent choices, with all future births included. The supplied finite checker does not verify the infinite-horizon convergence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tang–Wang–Wu supplies regeneration for fixed parameters; Aguech et al. define the identical single-parent model after setting a=e^β and shifting labels, with results about degrees.",
+          "The crossover record takes N→∞ at fixed (m,q) and credits the reviewed weak-bias limit separately."
+        ],
+        "reasoning": "Neither a renewal structure by itself nor a fixed-parameter central limit theorem implies a triangular-array Poisson limit; renewal gaps can remain clustered or nearly deterministic under rescaling.",
+        "searches": [
+          "arXiv:2611.02329v1 Theorem 4.1",
+          "DOI:10.1017/nws.2025.3 abstract and §1.3",
+          "Resultary record bc10346da708, Finding and Relationship to prior work"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Local Resultary, distinct record bc10346da708 and self-match eec88f3506ed",
+        "arXiv:2611.02329v1 §4.1",
+        "DOI:10.1017/nws.2025.3 §1.3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-bias prior result provides i.i.d. renewal increments and almost-sure first cut. The frozen proof supplies model-specific estimates on the probability of short spacings and the truncation error. The eta asymptotic and Poisson approximation machinery are classical."
+        ],
+        "reasoning": "The exact rate alone is insufficient. The bound on ∑_{d≤K} b_{d-1} is what rules out residual clusters, so a generic approximation theorem becomes applicable only after the substantive model-specific step.",
+        "searches": [
+          "Tang–Wang–Wu arXiv:2611.02329v1, §4.1 p. 13",
+          "Frozen RESULT.md §§3–5 and reference to Arratia–Goldstein–Gordon (1989)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tang–Wang–Wu's terminal cut is exactly the all-m attachment to the most recent vertex followed by no return to the older set; their recording times are the same cut endpoints.",
+          "The exact Resultary match ends eec88f3506ed and is the reviewed record itself. The later bc10346da708 concerns the same event but fixed-bias normal fluctuations."
+        ],
+        "reasoning": "Using a different term for a terminal cut does not distinguish the event. The actual difference is the parameter limit and full process law. Here ρ is a rescaling factor and the limiting intensity is one.",
+        "searches": [
+          "Local Resultary search for terminal bottleneck, weak age bias, renewal and Poisson scaling",
+          "Web query: \"terminal bottleneck\" \"age-preferential\" recursive graph Poisson point process",
+          "arXiv:2611.02329v1 §4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact weak-bias match is a self-match; the other relevant entry tests a different fluctuation regime. The primary same-event theorem proves renewal and first-cut finiteness, not this scaling limit."
+        ],
+        "reasoning": "This is a parameter-limit theorem, not a finite table lookup. A database entry tabulating rates or describing renewal alone would not give Poisson convergence.",
+        "searches": [
+          "Local Resultary terminal bottleneck and age bias results, records eec88f3506ed and bc10346da708",
+          "arXiv:2611.02329v1 §4.1"
+        ]
+      },
+      "rationale": "The credible distinction is the vanishing-bias limit of the full terminal-cut process, at the specified normalization, not the model, cut criterion, or almost-sure existence. The strongest exact match in primary literature proves fixed-bias renewal, and the closely related later indexed result treats fixed-bias Gaussian fluctuations rather than the vanishing-bias Poisson law. No inspected distinct result gives or directly implies the stated scaling limit without additional rare-gap control.",
+      "residual_risks": [
+        "The web lookup did not return a relevant extra result; this is not proof of absence. A different rare-renewal result might yield the same limit after hypothesis verification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of fixed-parameter cut and renewal facts",
+          "evidence": "Terminal cut definition and i.i.d. increments with finite first recording time; no weak-bias Poisson conclusion in the checked theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.02329",
+          "material_read": "Abstract p. 2; §4.1 p. 13, definition and Theorem 4.1, OA offset 36700",
+          "method": "OA primary PDF text",
+          "title": "Random Walk on age-preferential random growth processes",
+          "trigger": "Same event in the same m-parent model"
+        },
+        {
+          "assessment": "Same attachment rule at m=1, different observable",
+          "evidence": "Weights a^i and age regimes; degree profiles and outdegree limits.",
+          "identifier_or_url": "https://doi.org/10.1017/nws.2025.3",
+          "material_read": "Abstract p. 1; §1.3 p. 2, offsets 0 and 6800",
+          "method": "OA primary PDF text",
+          "title": "Exponentially preferential trees",
+          "trigger": "Original single-parent model"
+        },
+        {
+          "assessment": "Later and different regime",
+          "evidence": "Fixed-bias normal limit and dispersion crossover; explicitly distinguishes the weak-bias scaling.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-unique-dispersion-crossover-for-terminal-bottlenecks-in-age-pr--bc10346da708",
+          "material_read": "Finding offset 0 and prior-work comparison offset 8200",
+          "method": "Resultary local mirror",
+          "title": "A unique dispersion crossover for terminal bottlenecks in age-preferential growth",
+          "trigger": "Same event and count-process fluctuation theorem"
+        },
+        {
+          "assessment": "Self-match",
+          "evidence": "Same rate, process convergence and first cut law.",
+          "identifier_or_url": "2026/11/8/SCOPE-poisson-activation-of-terminal-bottlenecks-in-weakly-age-biased--eec88f3506ed",
+          "material_read": "Opening Finding, offset 0",
+          "method": "Resultary local mirror compared with frozen Finding",
+          "title": "Poisson activation of terminal bottlenecks in weakly age-biased growth",
+          "trigger": "Exact theorem match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§3–6",
+        "arXiv:2611.02329v1 §4.1"
+      ],
+      "rationale": "The result distinguishes eventual occurrence at fixed bias from the scale at which barriers first become visible as bias vanishes. The exact scale is exponentially large in reciprocal bias, and convergence of the point process controls separation and joint counts, not just a single marginal. Ruling out rare-event clustering for cuts defined by the entire future is substantive and useful for questions involving random bottleneck spacings.",
+      "residual_risks": [
+        "The limit is for the environment's cut process and does not establish a random-walk scaling limit or a result for growing m."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

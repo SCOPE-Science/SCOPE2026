@@ -1,19 +1,21 @@
-# Review of the fifth-layer partition congruence
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The formal-series factorization and the exact four-step binomial-basis calculation yield the universal coefficient polynomials displayed in RESULT.md. Their specializations give the claimed \(3^5\) and \(p^4\) divisibility with the exact quotient residue. The determinant-one coefficient matrix, together with the integral-unit property of the partition generating function, proves the *integer gcd*, not only a prime-adic valuation. The included standard-library checker confirms the symbolic polynomial identity independently and performs finite recurrence cross-checks; the infinite proof is not inferred from those checks.
+PASS
 
-## Originality
+Extraction from qB_m gives H_0=q/(1−q). If f_r(n)=[q^n]H_r, the recurrence is f_(r+1)(n)=Σ_(k=1)^(mn) f_r(k), n≥1. Independent expansion in the monomial basis gives f_3(n)=m^6 n^3/6+(m^5+m^4)n^2/4+(m^4+3m^3)n/12. Thus with s=mn the fourth coefficient polynomial is [m^6 s^2(s+1)^2+(m^5+m^4)s(s+1)(2s+1)+(m^4+3m^3)s(s+1)]/24. Converting to rising binomials yields the four frozen coefficients. For p≥5 only the linear-in-n term survives after division by p^4 and reduction modulo p; it is n/8. Convolution with B_p gives the stated normalized digit, nonzero at n=1. At m=3 the four h_j coefficients are −729,21627,−74358,59049, yielding the stated ternary numerator; the first two partition numbers normalize to 23 and 275, which are coprime. For every p, B_p is an integral formal unit with constant term one; the first four coefficient vectors of h_1 through h_4 form a unimodular matrix (determinant one). Content is therefore the gcd of the four h_j coefficients, and the last one p^10 rules out all other prime factors.
 
-**PASS subject to bibliographic uncertainty.** The closest classical result of Rødseth–Sellers (2001), Theorem 1, applies to the same progression (the endpoint \(-p\) is equivalent to \(-1\)) but asserts only the modulus \(p^4\). Żmija (2024), Theorem 1.3, establishes a general lower bound and Section 2 develops the extraction operator reused in this proof; its displayed examples do not state this fifth-layer sharp quotient law. Sun–Zhang (2017) give base-digit enumeration but no equivalent congruence. Targeted mathematical-record searches found no exact match; an earlier unstated specialization of the existing method remains possible.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The fifth layer has a genuine sharp arithmetic bifurcation: the prime three gains one extra power not present at larger odd primes. The full ternary progression has a closed rational factor against its original partition generating function, while the remaining primes admit a first-quotient residue formula for every index. This is a motivated exact modulus classification, not a cosmetic rewriting of an established bound.
+Credit the universal p^4 divisibility and extraction formalism to earlier work. At p≥5 the universal bound and the indexed all-ones residue at n=1 together already determine the exact p-part of the gcd; that archive record is catalogued later, which does not settle priority. The distinct supported contributions are the exact ternary progression factor and series, and the full all-n normalized residue for primes p≥5, with their explicit fourth-extraction calculation. The strongest inspected matches do not give these contributions.
 
-## Scope and limitations
+## value
 
-The classification is restricted to the fifth level and odd primes; the same explicit formula is not asserted for other depths. Its proof is elementary exact algebra based on established extraction identities, and the principal priority risk is that an older unindexed source might already have worked out this specialization. Independent expert validation was not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Depth five is motivated by the exceptional arithmetic at the denominator 24, not just a numerical slice. The precise ternary gain and exact entire progression series explain where the usual power fails to be sharp, while the larger-prime law answers which progression members have an additional factor. These are useful refinements beyond isolated leading units or rechecking the ordinary bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

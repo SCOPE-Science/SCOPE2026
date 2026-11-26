@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,12 +21,10 @@
 
 # Verification
 
-Reproduce the finite exact tests by running `python verify_chebyshev_dual.py` with SymPy installed. The script evaluates all 73 coprime integer pairs with \(2\le a\le12\), \(a<b\le18\). It directly checks polynomial gcds, Wronskian squarefreeness and degree, leading coefficients, endpoint evaluations and numerical infinity weights, with rational/integer symbolic arithmetic. Passing results:
+In this directory, run `python verify_chebyshev_dual.py` with SymPy installed. The exact polynomial calculations check the 73 coprime pairs with \(2\le a\le12\), \(a<b\le18\). They verify derivative coprimality, Wronskian degree and squarefreeness, the derivative ODE identity, endpoint values, and the degree and corrected leading coefficient of the first Gauss coordinate. They also check the degree differences that give the two local orders in the Gauss chart at infinity.
 
 ```
-EXACT_CHEBYSHEV_WRONSKIAN_CHECKS_PASS 73
-FINITE_COMPLEX_RAMIFICATION_SIMPLE_PASS
-DUAL_MAP_DEGREE_AND_INFINITY_WEIGHT_PASS
+Exact Chebyshev Gauss–Wronskian checks passed for 73 pairs.
 ```
 
-These are finite tests; they do not prove the result for unbounded parameters. The general proof uses the Chebyshev ODE and coprime derivative root separation, followed by the base-point-free Gauss map and birationality under biduality in characteristic zero. Independent mathematical audit was not performed.
+This finite regression does not prove the universal claims. The general proof in `RESULT.md` uses the Chebyshev ODE and the coprime derivative root separation, together with the base-point-free Gauss map, characteristic-zero biduality, and local vanishing orders.

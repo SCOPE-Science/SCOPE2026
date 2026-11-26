@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:39:12.789428Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Frozen verify.py inspected (not executed)",
+        "Fairfax–Ball arXiv:2610.01328 Theorem 4.3 and arXiv:2609.37754v1 Theorem 1.1"
+      ],
+      "rationale": "Let N=(p+1)q, x=(p+1)d, y=N−x. Independently of the carry-count verifier, apply the factorial valuation formula to N!, x!, y!. For q<p these arguments are below p², and the contribution at p is q−d−(q−d)=0. For q=p, x and y are still below p²; the p contribution is (p+1)−d−(p−d)=1 and the p² contribution is 1−0−0=1. Higher contributions vanish, also at p=2 where N=6<8. Thus these evaluations hold for every selected coefficient, giving the stated gcd minimum and first occurrence of 2. The universal bound is supported by the prior extrema theorem and, in this case, by the earlier complete congruence-class classification. The proof is uniform, not based on the verifier's sampling cutoff.",
+      "residual_risks": [
+        "The audit uses the usual factorial valuation formula and prime-adic minimum under a nonempty gcd; no empty-row convention is needed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The September congruence-class theorem treats all m≥3, m|N and N>m at primes p≡−1 mod m. The October paper covers the sharp maximum, not the a=1 least row in its higher-power formula. McTague and Wu have different assumptions in their main compared theorems."
+        ],
+        "reasoning": "Since p=(p+1)−1, the September theorem applies with precisely the required modulus and a wider row range. The later exclusion a=1 from a different formula does not remove that coverage.",
+        "searches": [
+          "arXiv:2609.37754v1 Theorem 1.1",
+          "arXiv:2610.01328 Theorems 4.3 and 7.2, Remark 8.3",
+          "arXiv:1510.06696 Theorem Q; arXiv:2606.20940 Theorems 1 and 2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.37754v1, 2610.01328, 1510.06696, 2606.20940",
+        "Resultary 1da8f5b9bad4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For q<p the base-p digits are (q,q) from the units column and the even/odd digit sums are (q,q); for q=p the digits are (0,1,1) and the sums are (1,1). The theorem gives respectively valuation 0 and valuation 2 in these cases, and a universal bound of 2 here."
+        ],
+        "reasoning": "The two direct substitutions give the exact profile and minimality, with the earlier interval empty at p=2. That theorem need not state that every selected coefficient has the same valuation; the frozen finding itself is about the gcd and its least extremal row.",
+        "searches": [
+          "Fairfax–Ball arXiv:2609.37754v1 Theorem 1.1, PDF p. 2, extraction offsets 4500–6066"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Their admissible row N and truncation parameter m are N=(p+1)q, m=p+1; taking interior multiples k=md gives exactly the frozen gcd. The October 12 finding states the same T_p and its proof supplies the pre-target zeros."
+        ],
+        "reasoning": "Changing from row N to multiplier q is one-to-one and preserves the selected binomial coefficients, so the results are on the identical invariant.",
+        "searches": [
+          "Resultary restricted-binomial GCD and omitted a=1 boundary, record 1da8f5b9bad4",
+          "arXiv:2609.37754v1 restricted binomial GCDs at p≡−1 mod m"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "October 12 RESULT.md offsets 0–4523 explicitly give the same least row for odd p, the known p=2 case, and the same gcd valuations in the initial range. McTague records v_2(20)=2 for the unique selected coefficient in row six."
+        ],
+        "reasoning": "The prior symbolic result covers the whole prime range, not merely small entries of a numerical table.",
+        "searches": [
+          "Resultary 2026/10/12 record 1da8f5b9bad4; McTague's remarks under Theorem Q"
+        ]
+      },
+      "rationale": "Fairfax–Ball's earlier complete classification for p≡−1 mod m gives the frozen initial gcd profile immediately at m=p+1. A distinct October 12 Resultary record also states the same first row and proves the same gcd profile. This is demonstrated prior coverage, not absence of novelty evidence.",
+      "residual_risks": [
+        "The cited prior implication and exact overlap suffice without a claim of earliest discovery. The coefficientwise proof is not identical to the exact prior catalogue proof, but that does not distinguish the frozen gcd-level finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger theorem implies the frozen finding",
+          "evidence": "Exact valuation criteria for the even and odd digit sums; (q,q) with q<p gives zero, (1,1) and p=m−1 gives two.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.37754",
+          "material_read": "§1 Theorem 1.1, PDF p. 2, offsets 4500–6066",
+          "method": "OA PDF passage inspection",
+          "title": "Restricted Binomial GCDs at Primes Congruent to −1",
+          "trigger": "Congruence p≡−1 for m=p+1"
+        },
+        {
+          "assessment": "Exact overlap at the gcd level",
+          "evidence": "Computes the target valuation and gives a zero-valuation witness for each earlier q; p=2 is separately recognized as known.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-the-omitted-a-1-boundary-t-p-p-1-p-p-1--1da8f5b9bad4/RESULT.md",
+          "material_read": "Finding, Proof and prior-work comparison, offsets 0–4523",
+          "method": "Local mirror passage inspection",
+          "title": "The omitted a=1 boundary T_p(p+1)=p(p+1)",
+          "trigger": "Exact target row"
+        },
+        {
+          "assessment": "Covers the general upper bound; higher-power least-row theorem excludes a=1",
+          "evidence": "Theorem 7.2 assumes a≥2 and Remark 8.3 explicitly addresses the boundary; this does not negate the separate September theorem.",
+          "identifier_or_url": "arXiv:2610.01328",
+          "material_read": "Theorems 4.3, 7.2 and Remark 8.3",
+          "method": "OA PDF passage inspection",
+          "title": "Sharp p-adic Extrema and Least Extremal Rows for Restricted Binomial GCDs",
+          "trigger": "Cited global bound and excluded exponent"
+        },
+        {
+          "assessment": "Covers p=2 explicitly, not the uniform case in Theorem Q",
+          "evidence": "The theorem has p≡1 mod m and the nearby relaxation needs p>m, whereas the case 20=binom(6,3) is stated explicitly.",
+          "identifier_or_url": "arXiv:1510.06696",
+          "material_read": "Theorem Q and following remarks, PDF pp. 1–2",
+          "method": "OA PDF passage inspection",
+          "title": "On the Greatest Common Divisor of Binomial Coefficients",
+          "trigger": "Cited restricted selection problem"
+        },
+        {
+          "assessment": "Relevant but not uniform coverage from those theorems",
+          "evidence": "Theorem 1 treats the valuation at the prime underlying a prime-power restriction parameter, and Theorem 2 imposes additional prime-factor congruence conditions.",
+          "identifier_or_url": "arXiv:2606.20940",
+          "material_read": "Theorems 1–2, PDF pp. 1–2",
+          "method": "OA PDF passage inspection",
+          "title": "Computing the Greatest Common Divisor of Binomial Coefficients",
+          "trigger": "Same restricted gcd"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof",
+        "Fairfax–Ball arXiv:2609.37754v1 Theorem 1.1",
+        "Resultary 1da8f5b9bad4"
+      ],
+      "rationale": "The first extremal row is a natural boundary, but here its value and the complete initial gcd profile are already known or immediate from a wider theorem for the same modulus. The stronger coefficientwise observation in the proof is an immediate two-column application of Kummer or Legendre, and no separately motivated distinct valuable result survives in this record.",
+      "residual_risks": [
+        "No assessment of unrelated coefficientwise profiles or of broader least-extremal-row problems is made."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

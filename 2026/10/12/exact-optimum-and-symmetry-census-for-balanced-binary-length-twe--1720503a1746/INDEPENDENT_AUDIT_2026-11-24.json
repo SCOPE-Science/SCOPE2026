@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:14:08.632930Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Begin with all 924 weight-six words; imposing self-overlap exclusions leaves 272 unbordered words. For distinct vertices an edge requires both cross-overlap orders to pass for every k=1,...,11 and aligned Hamming distance at least 4. This gives exactly the admissible codes as cliques in a graph with 11,206 edges. The independent enumeration (independent_enum.py, initialized by a 40-vertex measured run) used pivoted Bron–Kerbosch and found 4,887,344 maximal cliques, with counts by size 6–13 of 2648, 40764, 437600, 1883356, 1870068, 584172, 63740 and 4996. In each call P and X contain unvisited and already assigned common neighbors; a maximal extension not already assigned must meet P outside the pivot neighborhood, since otherwise the pivot would extend it. Moving each processed branch vertex to X partitions the extensions, and P=X=empty emits exactly a maximal clique. Hence no larger code can exist and all 4996 optima are included. Reversal and complement preserve the graph and commute; independent checks of all optima give zero fixed codes for each of the three nonidentity maps, 1249 orbits of size four, and distance exactly 4 in every optimum. The newly generated 844324-byte catalogue is byte-for-byte identical to the frozen optimizers.txt, with SHA-256 63a11362c2775f93caebe0a2c00b94afddf3d4e2aab491055efdb9dabf18fdea. The frozen scripts were inspected but not executed. This is exhaustive at length 12 alone; it makes no claim of substitution-robust framing.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Blackburn studies non-overlap without both added restrictions. Levy–Yaakobi's distance-code and balanced-MU results include general constructions and bounds; the balanced-MU cyclic-shift bound gives 77 here. Stanovnik–Moškon–Mraz gives the stronger relaxed bound 72 from its exact polarity-balanced table."
+        ],
+        "reasoning": "The relaxed feasible families contain the distance-constrained codes, but their bounds are not sharp enough and do not imply the 13-word census. Restricting maximum run length or requiring reflection/complement closure is not an equivalent or broader formulation.",
+        "searches": [
+          "arXiv:1303.1026, Theorems 1–2",
+          "arXiv:1804.05371, abstract and §8, balanced MU bound",
+          "DOI 10.1007/s40314-024-03055-0, 0-balanced definition and Table 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1601.08176",
+        "arXiv:1303.1026",
+        "arXiv:1804.05371",
+        "DOI 10.1007/s40314-024-03055-0",
+        "Resultary 098da1e94557, 0c4dd9ba2fde and 74e0afab9676 (local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+        "Frozen RESULT.md, VERIFICATION.md, verify_cpp.cpp, verify_py.py, verify_symmetry.py and optimizers.txt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A general size bound or an explicit construction does not classify all optima. The same-day length-nine record optimizes distance among maximum non-overlapping codes with no balance constraint; the present problem maximizes size with a prescribed distance floor at length 12 and fixed weight."
+        ],
+        "reasoning": "Even knowing the exact relaxed maximum 72 gives no upper bound of 13 by itself: one must account for distance incompatibilities across the candidate balanced words, and there is no reduction from the differently constrained exact tables. The independently reproduced enumeration is the step establishing maximum, equality cases and stabilizers.",
+        "searches": [
+          "arXiv:1601.08176, Theorem 1 and balanced/error-correcting construction context",
+          "arXiv:1804.05371, distance/balance variants and §8",
+          "Stanovnik–Moškon–Mraz, Table 1",
+          "Resultary 0c4dd9ba2fde (same-day distance-extremizer census)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Strict 1-WMU forbids every positive proper overlap, including self-overlap, and is the same synchronization property as mutual uncorrelatedness here. The ranked Resultary matches instead change length, change admissible pairs, or impose other constraints."
+        ],
+        "reasoning": "Weight six is exact binary balance and fixed weight makes distances even, so minimum distance 4 is equivalent here to aligned single-substitution correction. This does not require treating substitutions as synchronization errors or imposing reverse-complement closure.",
+        "searches": [
+          "Resultary: balanced binary length 12 cross-bifix-free mutually uncorrelated minimum Hamming distance 4 maximum size 13 4996 labeled codes 1249 reversal complement orbits",
+          "Resultary: balanced binary mutually uncorrelated cross-bifix-free codes with aligned Hamming distance at least 4 exact finite optimum length 12",
+          "Web: balanced binary error-correcting synchronization codes cross-bifix-free length 12 minimum Hamming distance exact maximum",
+          "arXiv:1601.08176, Definition 1 and Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The length-12 polarity-balanced table entry 72 has no Hamming constraint. The Resultary run-two table gives 11 at length 12 under a cyclic run restriction rather than pair distance. The length-nine distance-extremizer entry has size 14 without balance; the reverse-complement-closed length-12 entry gives size 42 and 1134 labeled optima, without the balance/distance constraints."
+        ],
+        "reasoning": "All these exact entries count different feasible families. None supplies an exact labeled count or orbit count for balanced length-12 distance-four codes. Closure under an action for each codebook is not the same condition as using that action to identify otherwise distinct optimum codebooks.",
+        "searches": [
+          "DOI 10.1007/s40314-024-03055-0, Table 1, OA offset 28833",
+          "Resultary exact-parameter queries; records 098da1e94557, 0c4dd9ba2fde and 74e0afab9676"
+        ]
+      },
+      "rationale": "The inspected closest claims cover the all-overlap definition and related balanced/error-correcting constructions or relaxed exact maxima, but not this simultaneous length-12 distance-constrained optimum and all its equality cases. Neither a prior exact table in a different feasible family nor related older construction literature is credited as deciding this census. Two plausible historical source checks have unresolved access limits, not negative coverage conclusions.",
+      "residual_risks": [
+        "The two older papers represented only by snippets could not be assessed for exact combined coverage; their access limitations are not evidence of absence.",
+        "An unindexed finite catalogue could cover the optimum or census; no priority is inferred from a matching catalog date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same basic property and relevant general background; no combined exact census in the inspected results",
+          "evidence": "Definition 1 forbids lengths at least k and permits self-pairs; the bound is general, not the finite optimizer enumeration.",
+          "identifier_or_url": "https://arxiv.org/pdf/1601.08176",
+          "material_read": "Abstract p. 1, Definition 1 p. 2 (OA offset 14536), Theorem 1 (offset 8662)",
+          "method": "Primary OA PDF passages",
+          "title": "Weakly Mutually Uncorrelated Codes",
+          "trigger": "Same overlap property under k=1 and constructions including balance and error correction"
+        },
+        {
+          "assessment": "Relaxed non-overlap problem",
+          "evidence": "Self-pairs are included; the cardinality bounds do not impose weight six and minimum distance four.",
+          "identifier_or_url": "https://arxiv.org/pdf/1303.1026",
+          "material_read": "Definition p. 1 offset 474; Theorem 1 p. 4 offset 8429 and Theorem 2",
+          "method": "Primary OA PDF passages",
+          "title": "Non-overlapping codes",
+          "trigger": "Equivalent strict overlap definition and general size bounds"
+        },
+        {
+          "assessment": "Related general results but not exact simultaneous finite optimization",
+          "evidence": "The balanced-MU cyclic-shift upper bound at n=12 is 77 without requiring the Hamming floor.",
+          "identifier_or_url": "https://arxiv.org/pdf/1804.05371",
+          "material_read": "Abstract p. 1; §8 pp. 13 onward, OA offset 110364 and Theorem 8.1",
+          "method": "Primary OA PDF passages",
+          "title": "Mutually Uncorrelated Codes for DNA Storage",
+          "trigger": "Distance-constrained and balanced MU variants"
+        },
+        {
+          "assessment": "Exact relaxed comparator, not the joint theorem",
+          "evidence": "The length-12 polarity-balanced maximum is 72 with non-overlap and no minimum Hamming distance constraint.",
+          "identifier_or_url": "https://doi.org/10.1007/s40314-024-03055-0",
+          "material_read": "Definitions p. 3; Table 1 p. 9 (OA offset 28833)",
+          "method": "Primary OA article passages",
+          "title": "On maximal almost balanced non-overlapping codes and non-overlapping codes with restricted run-lengths",
+          "trigger": "Exact polarity-balanced binary maximum at the same length"
+        },
+        {
+          "assessment": "Different additional constraint",
+          "evidence": "11 at length 12 with cyclic runs at most 2; this is not the pair-distance floor.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-run-two-balanced-binary-non-overlapping-code-sizes-through--098da1e94557/RESULT.md",
+          "material_read": "Finding and M(12) table entry",
+          "method": "Local Resultary mirror",
+          "title": "Exact run-two balanced binary non-overlapping code sizes",
+          "trigger": "Same balance, binary non-overlap and exact short-length counts"
+        },
+        {
+          "assessment": "Different length, balance condition and optimization",
+          "evidence": "Length 9 and unrestricted weight; among size-14 optima four have distance 2 and 1148 have distance 1.",
+          "identifier_or_url": "2026/10/12/SCOPE-distance-two-extremizers-among-maximum-binary-length-nine-non-ov--0c4dd9ba2fde/RESULT.md",
+          "material_read": "Finding of size and distance census",
+          "method": "Local Resultary mirror",
+          "title": "Distance-two extremizers among maximum binary length-nine non-overlapping codes",
+          "trigger": "Same-day exact distance census of optimum non-overlap codes"
+        },
+        {
+          "assessment": "Different symmetry requirement and no Hamming floor or balance",
+          "evidence": "Size 42 and 1134 optimal labeled codebooks under within-code reverse-complement closure.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-short-block-capacities-and-extremizer-census-for-reverse-c--74e0afab9676/RESULT.md",
+          "material_read": "Finding at n=12 and closure assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Sharp short-block capacities and extremizer census for reverse-complement closure",
+          "trigger": "Same length with a symmetry constraint and full census"
+        },
+        {
+          "assessment": "Unresolved; no full-text coverage conclusion",
+          "evidence": "Snippet mentions balanced error-correcting families; OA attempt returned HTTP 403.",
+          "identifier_or_url": "1989 bibliographic hit, identified by title and year",
+          "material_read": "Search snippet only",
+          "method": "Web lookup and attempted lawful OA through the located ResearchGate copy",
+          "title": "On Error-Correcting Balanced Codes",
+          "trigger": "Balanced binary error-correcting families"
+        },
+        {
+          "assessment": "Unresolved; no full-text coverage conclusion",
+          "evidence": "The snippet mentions Hamming-distance properties of synchronization codes; the OA attempt returned HTTP 202 without the relevant text.",
+          "identifier_or_url": "1993 IEEE bibliographic hit, identified by title and year",
+          "material_read": "Search snippet only",
+          "method": "Web lookup and attempted lawful OA of the IEEE entry",
+          "title": "On Binary Synchronization Error Correcting Codes",
+          "trigger": "Binary synchronization and Hamming-distance properties"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a useful finite benchmark at a block length already tabulated for the balanced framing problem. The added distance floor is the natural one-aligned-substitution correction requirement at fixed weight, not an arbitrary extra filter. The maximum gives a precise capacity comparison with the balance-only value 72; the full classification lets a researcher select among, or benchmark searches against, all optimal designs up to the two natural global symmetries. Neither the relaxed capacity nor a single construction supplies these facts. No biological application or robustness of boundary detection under errors is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:39:19.375628Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Z_n let m=|Z_{n-1}|. Even starts have predecessor 1 and sort after all odd starts; the extra sentinel start sorts before both groups and also has predecessor 1. For odd starts, replace each parent letter a by (1,a+1) and the terminal marker by (1,0). First differences are preserved including a parent suffix ending earlier. For cyclic rotations that last comparison instead reads the seam (1,1), still smaller than (1,a+1); that comparison fits within a full rotation because the shorter of two distinct parent suffixes has at most m-1 positive letters. Predecessors lift by a↦a+1 off the first start, and the first start has predecessor 0 with a sentinel and 1 without it. Therefore the sentinel recursion prepends 1, relabels the parent last column and appends m ones; the cyclic recursion drops that first 1 and changes the unique 0 to 1. Starting at B_1=10 gives both claimed formulas. C_1=1 and C_2=211, while for n≥3 exactly 2n−1 adjacent-distinct blocks remain. The input alternates 1 and a larger symbol, so it has 2^n−1 runs. Reviewed RESULT.md §§1–5 and the sorting code in verify.py; the recorded level-16 checks are finite corroboration, not the proof, and were not executed for this review.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frosini et al. study asymptotic cyclic run bounds for binary purely morphic words or primitive morphisms; this family has growing alphabet."
+        ],
+        "reasoning": "Neither these hypotheses nor the asymptotic conclusions supply the full last columns or the sentinel comparison.",
+        "searches": [
+          "arXiv:2202.02609 §§1–2",
+          "Targeted literature lookup for Zimin/ruler/period-doubling BWT"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting verification",
+        "Resultary Zimin cyclic and period-doubling records",
+        "Burrows–Wheeler 1994",
+        "Rytter–Shur arXiv:1409.8235",
+        "Frosini et al. arXiv:2202.02609",
+        "Brlek et al. 2019 (indirect evidence only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard transform specifies how to sort rotations but no Zimin block law. The later matching record states the cyclic formula only, and general asymptotic order cannot fix a last column."
+        ],
+        "reasoning": "Insertion of a unique least sentinel can change rotation comparisons in general. The paired claim requires the specific odd-start/seam analysis and is not a consequence of generic BWT inversion or morphic run bounds.",
+        "searches": [
+          "Burrows–Wheeler 1994 p.7",
+          "Matching later Resultary RESULT.md Finding; Frosini et al. §§1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rytter–Shur use the same recursive Zimin words. The parity of the dyadic ruler letters codes the length-(2^n−1) truncation of a period-doubling iterate."
+        ],
+        "reasoning": "The coding is not order-preserving and changes the alphabet; the cited periodic substitution result also uses length 2^n. It is not a transform identity for these words.",
+        "searches": [
+          "Resultary: Zimin/ruler/period-doubling BWT formulas",
+          "arXiv:1409.8235 §1; Resultary 2026/10/18 dyadic period-doubling BWT"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later catalog finding gives the same full cyclic formula and 2n−1 count, plus a suffix-array recurrence, but excludes the appended marker. It points to a possible rank-three abacaba example in Brlek et al. (2019)."
+        ],
+        "reasoning": "Credit the matching cyclic theorem as overlap rather than dismissing it; the later catalog date is not evidence of earlier priority, and a single possible small example does not establish either universal formula.",
+        "searches": [
+          "Resultary exact Zimin BWT search",
+          "2026/11/2/SCOPE-exact-suffix-arrays-and-cyclic-burrows-wheeler-runs-of-finite-zi--3905723126bc RESULT.md"
+        ]
+      },
+      "rationale": "The verified exact catalog overlap is real for the entire cyclic component, including its run count, but is recorded under a later date (2026-11-02 versus 2026-10-19); no earlier derivation of the all-rank pair was established. The later item explicitly excludes the end marker. The period-doubling reduction and fixed-alphabet morphic bounds do not imply the ordered transforms. The assessment is for the paired all-level formulas, not an assertion that every special case is first or that the cyclic formula is unique in the current catalog.",
+      "residual_risks": [
+        "The relationship between the two overlapping Zimin catalog entries is unresolved beyond their stated dates and content.",
+        "Brlek et al. full text was not accessible; the reported n=3 case and possible wider connections remain unverified.",
+        "Inconclusive targeted literature search is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definitions only for this comparison",
+          "evidence": "Sort cyclic shifts and collect last characters.",
+          "identifier_or_url": "https://www.mit.edu/~6.454/www_fall_2002/bwt/burrowswheeler94.pdf",
+          "material_read": "p.7, offset 5479",
+          "method": "OA full-text excerpt",
+          "title": "A Block-sorting Lossless Data Compression Algorithm",
+          "trigger": "Transform convention"
+        },
+        {
+          "assessment": "Family antecedent, not matching formula in inspected statement",
+          "evidence": "Zimin recursion in pattern searching and avoidability.",
+          "identifier_or_url": "https://arxiv.org/abs/1409.8235",
+          "material_read": "§1, p.2, offset 3213",
+          "method": "OA full-text excerpt",
+          "title": "On Searching Zimin Patterns",
+          "trigger": "Same recursive family"
+        },
+        {
+          "assessment": "Equivalent cyclic result; later dated; sentinel formula not stated",
+          "evidence": "Same full cyclic block formula and exact run count, expressly without marker.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-suffix-arrays-and-cyclic-burrows-wheeler-runs-of-finite-zi--3905723126bc",
+          "material_read": "RESULT.md Finding, offset 0; scope on appended end marker",
+          "method": "Local Resultary mirror",
+          "title": "Exact suffix arrays and cyclic Burrows–Wheeler runs of finite Zimin words",
+          "trigger": "Exact catalog match"
+        },
+        {
+          "assessment": "Related but not equivalent",
+          "evidence": "Binary substitution iterates have length 2^m and 2m−2 cyclic output runs for m≥2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-cyclic-burrows-wheeler-transform-of-dyadic-period-doubling--0c35eb394ad7",
+          "material_read": "Finding, word family and exact run theorem",
+          "method": "Local Resultary mirror",
+          "title": "Exact cyclic Burrows–Wheeler transform of dyadic period-doubling words",
+          "trigger": "Ruler parity reduction"
+        },
+        {
+          "assessment": "Asymptotic bounds under different hypotheses",
+          "evidence": "Binary purely morphic and primitive morphism run bounds do not give a last-column formula.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.02609",
+          "material_read": "§§1–2, pp.1–3, offsets 1800 and 7600",
+          "method": "OA full-text excerpts",
+          "title": "Logarithmic Equal-Letter Runs for BWT of Purely Morphic Words",
+          "trigger": "Potential broader theorem"
+        },
+        {
+          "assessment": "Possible earlier special case, not established primary coverage",
+          "evidence": "Indirect report of an abacaba example; no inference about general coverage from access failure.",
+          "identifier_or_url": "Brlek et al. (2019), cited in the 2026-11-02 matching Resultary record",
+          "material_read": "Indirect description only; cited PDF and repository page unavailable",
+          "method": "Two lawful OA attempts plus catalog cross-reference",
+          "title": "Burrows-Wheeler Transform of Words Defined by Morphisms (Brlek et al., 2019)",
+          "trigger": "Possible explicit Z_3 example and morphic overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These are exact transforms of the canonical finite ruler/Zimin hierarchy, not a numerical instance. The odd-start correspondence explains when the sentinel and seam order agree and turns run counting into an exact block law. It exhibits 2n−1 runs after transforming an input with 2^n−1 runs, and supplies reproducible reference transforms under both common conventions. This is a run bound, not an encoded bit-cost bound for a growing alphabet.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

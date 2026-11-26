@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:57:53.114631Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen Brownian-window proof incorrectly attributed tightness to independent binomial increments: in a fixed-size sample, disjoint interval counts are jointly multinomial, not independent. The complete corrected RESULT.md is in repairs/1. It Poissonizes the sample size with mean n (independent of an infinite observation sequence), applies the rate-one Poisson functional CLT at time nF(u/a_n), and couples back. The expected supremum discrepancy on [0,M] is at most F(M/a_n)√n; after scaling by √(a_n/n) this is at most M/√a_n. For s=sample mean of unit-rate observations, the deterministic part of the fitted-scale count identity is n(1−1/s)F(sy). On y=u/a_n it has normalized supremum O_P(a_n^(−1/2)), and continuous-limit time change and the O(a_n^(−1)) integrated centered term preserve the Brownian limit. The pathwise identity for H follows from ΣY_i=n and substitution gives Q=(a/n)∫H_n(u/a)² exp(−u)du. Under the null, simplex shifts give one- and two-coordinate survival r^(n−1) and s_2^(n−1), and conditional first/second moments on each translated simplex give (4), including n=2. Negative indicator covariance and the exact mean of H give the integrable tail uniformly in a/n. For small y the pair-covariance sum is O(ny²), via r²−s_2=y²/n². The integrated centered count has L² norm ≤(2/3)√n y^(3/2); together these justify the repaired moment expansion ny(1+o(1)) and E Q_n→1 for every divergent sequence. Local rare-event convergence with asymptotically unit sample-mean scaling gives the critical Poisson functional, while the supercritical compact count is identically zero with probability tending to one; the same weighted tail handles both. Independent increments and fourth moments give the squared-process covariance 2min(u,v)²/c²+min(u,v)/c, hence mean 1 and variance 1+c/2; Brownian gives variance 1. The same compact-and-tail argument checks both interpolation endpoints. The fixed-n limit follows by integrating H=−ny below the positive sample minimum. The bounded independent algebra check reproduced the Poisson moments and fixed-sample endpoint. The frozen verification.py was inspected, not executed; finite numerical diagnostics do not establish these limits. No statement is made for adaptive tuning or power.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generic Poisson/Gaussian local-process mechanism is known and expressly not claimed as new. The relevant Einmahl full text was not substantively accessible. Ebner proves a fixed-weight Gaussian-process quadratic null limit, not a theorem uniform over diverging weights."
+        ],
+        "reasoning": "Even a generic theorem yielding the unfitted local count limits leaves the sample-mean time change, exponentially weighted tail control for the squared process and finite-n mean analysis. Weak-process convergence by itself cannot imply mean escape.",
+        "searches": [
+          "DOI:10.1016/S0304-4149(97)00055-0, weighted local empirical processes",
+          "DOI:10.1111/1467-842X.00117, weighted fit statistics and high-decay endpoints",
+          "arXiv:2209.05153 §§2–5"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1016/j.spl.2007.09.060 (accepted manuscript)",
+        "arXiv:2209.05153",
+        "DOI:10.1016/S0304-4149(97)00055-0 (limited retrieval)",
+        "DOI:10.1111/1467-842X.00117 (bibliographic only)",
+        "Local Resultary search for the exact fitted statistic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2008 paper gives a sharper minimum-controlled fixed-n a→∞ expansion, from which a³T_(n,a)→2n follows, and identifies the scaled minimum's Beta(1,n−1) null distribution. Ebner's null theorem fixes a; the later discussion leaves data-dependent tuning open."
+        ],
+        "reasoning": "The fixed-n expansion takes y below a positive sample minimum; with n varying, the normalized minimum is of order 1/n, so at a_n comparable to n this range does not contain the whole relevant window. A pointwise Gaussian limit in fixed a likewise does not allow a triangular substitution. The repaired theorem credits the endpoint and defends only the genuine joint result.",
+        "searches": [
+          "Baringhaus–Henze DOI:10.1016/j.spl.2007.09.060 §2, accepted-manuscript PDF offsets 31630–33555",
+          "Ebner arXiv:2209.05153 Remark 1.1, Thm. 2.1 and §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ebner explicitly identifies T_(n,a) with Baringhaus–Henze G_(n,a) for a>−1. The relative-weight law was compared in both of these notations. The admitted primary-literature lookup yielded no relevant source; no negative inference is drawn from it."
+        ],
+        "reasoning": "The two cited definitions are mathematically equivalent, so the fixed-n antecedent transfers exactly. The null theorem here concerns the order of a_n relative to n and is not obtained by renaming the fixed-tuning statistic.",
+        "searches": [
+          "Local Resultary: Baringhaus–Henze / Ebner mean residual life exponentiality test, high or diverging weight, order-n Poisson null window",
+          "Primary-literature query: diverging tuning and asymptotics for the Baringhaus–Henze / Ebner MRL exponentiality statistic",
+          "arXiv:2209.05153 equation (4) and Remark 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching indexed finding was distinguished from its prior sources. Prior exact results in the checked sources include fixed-a null representations and a fixed-n high-weight expansion; none of those statements evaluates the joint-n critical Poisson functional and variance 1+c/2 or the supercritical mean."
+        ],
+        "reasoning": "A fixed-a null distribution or table does not approximate the joint limit without uniformity in n and a. No separate exact table or database supplying that joint law was identified in the bounded check.",
+        "searches": [
+          "Local Resultary: high-weight null law for the exact MRL statistic, compensated Poisson functional and non-uniform integrability",
+          "Baringhaus–Henze (2008) Thm. 1 and §2 high-weight endpoint; Ebner arXiv:2209.05153 Thm. 2.1"
+        ]
+      },
+      "rationale": "The corrected result explicitly credits the already covered fixed-n endpoint. The surviving claim is the joint diverging-weight null transition of the exact fitted statistic, with its weighted functional, Poisson variance and supercritical escape of expectation. Neither fixed-a convergence nor the original stronger fixed-n a→∞ expansion supplies that joint theorem.",
+      "residual_risks": [
+        "Generic weighted-process or older high-decay papers could overlap more than the accessible material shows; limited retrieval does not exclude this.",
+        "Historical priority is bounded by inspected sources. The generic local process transition and fixed-sample endpoint are not claimed as novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers and strengthens the fixed-sample limit; joint regimes not supplied by those statements",
+          "evidence": [
+            "Theorem 1 treats fixed a. The high-weight expression subtracts 2 from a³G_(n,a)/n and multiplies the difference by a^(−2) exp(aU_(1:n)), with a finite limit for fixed n. The scaled minimum U_(1:n) has Beta(1,n−1) null distribution."
+          ],
+          "identifier_or_url": "https://hal.science/hal-00616538v1/file/PEER_stage2_10.1016%252Fj.spl.2007.09.060.pdf",
+          "material_read": "Lawful accepted manuscript, §2 Theorem 1 and high-weight endpoint at printed p. 8 (PDF page 11, offsets 31630–33555)",
+          "method": "Bounded full-text comparison",
+          "title": "A new weighted integral goodness-of-fit statistic for exponentiality",
+          "trigger": "Identical statistic, strongest fixed-n high-weight antecedent"
+        },
+        {
+          "assessment": "Fixed tuning in the relevant theorem",
+          "evidence": [
+            "Remark 1.1 identifies the two statistics; Theorem 2.1 uses a fixed a, while §5 discusses data-dependent selection as future work."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.05153",
+          "material_read": "Printed pp. 2–3, equation (4), Remark 1.1 and Theorem 2.1; relevant passages in §§3–5, including §5 p. 13",
+          "method": "Bounded OA PDF comparison",
+          "title": "The test of exponentiality based on the mean residual life function revisited",
+          "trigger": "Equivalent fitted statistic and potential null-limit implication"
+        },
+        {
+          "assessment": "Relevant generic antecedent; exact implications of its full text remain unverified",
+          "evidence": [
+            "The scope is weighted local empirical processes; the repository extract did not expose the theorem text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0304-4149(97)00055-0",
+          "material_read": "Repository metadata and bibliographic scope; no substantive full text retrieved",
+          "method": "Attempted lawful OA retrieval via journal and repository",
+          "title": "Poisson and Gaussian approximation of weighted local empirical processes",
+          "trigger": "Generic Poisson/Gaussian local-process coverage"
+        },
+        {
+          "assessment": "Residual coverage risk, not classified as non-covering",
+          "evidence": [
+            "Access failure is not evidence of noncoverage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/1467-842X.00117",
+          "material_read": "Bibliographic identification; full text unavailable",
+          "method": "Attempted lawful OA retrieval",
+          "title": "Weighted Integral Test Statistics and Components of Smooth Tests of Fit",
+          "trigger": "Possible high-decay weighted-test antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired result resolves how order-n weighting changes null calibration for a published exponentiality test: the local Gaussian input becomes a compensated-Poisson input with an explicit variance increment c/2. Faster weighting drives the statistic to zero in probability but not in mean, which is not visible from either of the known one-parameter limits. This matters for calibrating highly localized deterministic weights and supplies an analytic check on approximations. It does not give a power-optimal tuning or promise adaptive validity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:20:51.762331Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding and Proof (lines 5–46)",
+        "Frozen VERIFICATION.md, both checker sources and recorded .out files (inspected, not executed)",
+        "/workspace/reviews/check_mathematics.py, check 5"
+      ],
+      "rationale": "For positive a,b,c,d,e and overlapping occurrences, a unique factor of length at least two is minimal iff both one-letter deletions repeat. A pure power can be unique only at a unique longest run of that symbol, and then it is minimal. A one-transition factor is counted by two boundary rectangles of run lengths: a factor with both exponents at least two and both deletions repeated lies in their intersection, so cannot itself be unique. With one exponent one the other must be one above the corresponding minimum; the other deletion is pure and rules out exactly the unique-maximum-zero collision or the unit gap between one-run lengths. A zero–one–zero factor fixes a full one-run length; if the lengths differ, only unit zero flanks around the shorter run can be minimal, and if equal, repeated end deletions force both flanks to fit at both runs even when one deletion removes a flank. A one–zero–one factor fixes the sole internal zero run, so only 10^c1 can be minimal; both deleted factors repeat iff a and e are at least c. Every factor spanning four or five runs properly contains the unique 10^c1. The eight templates give distinct words (where symbol patterns coincide, the longer exponent lies on opposite sides), so realizing all eight forces b+d≥4, a,e≥c+1 and, by the unique maximum without bridge suppression, max(a,e)≥c+2. Hence n≥10. The tuple (2,1,1,3,n−7) satisfies every condition for n≥10; at 10 its eight windows of length three are the eight binary triples. Independent replay: python3 /workspace/reviews/check_mathematics.py 5 compares complete MUS sets computed by pairwise suffix common-prefix tests for every positive composition of 5≤n≤21 into five parts. It found four attaining tuples at n=10 and none earlier. This finite check is supplementary, not the universal proof.",
+      "residual_risks": [
+        "Only the five nonempty linear runs with the specified binary alternation, or their bitwise complements, are covered. No formal proof-assistant verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "MFCS 2016, p. 2 and §4.1 pp. 6–8 including Lemma 8: general bound 2m−1, run-based categories and a criterion for run-contained MUSs.",
+          "arXiv:1905.12854, pp. 2–3: general MUS computation and RLE interval-SUS context."
+        ],
+        "reasoning": "The bound gives nine, not eight; the general algorithm or category structure does not supply the five-run cross-boundary collision analysis or the sharp length-ten attainment.",
+        "searches": [
+          "Resultary: minimal unique substrings run-length encoded strings run-prefix formulation MUS 2r-1 Mieno",
+          "Mieno et al., DOI 10.4230/LIPIcs.MFCS.2016.69; arXiv:1905.12854"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2eedb3c17d7e, 82dd9adea10e, 41aa7a29dd06, aa413e7beacc",
+        "DOI 10.4230/LIPIcs.MFCS.2016.69",
+        "arXiv:1905.12854"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2eedb3c17d7e, RESULT.md Finding and scope: min{|a−c|,|a−e|,|c−e|,|b−d|}≥2; seven mandatory factors, plus 10^c1 iff c<min(a,e); eight-factor length series begins at 13."
+        ],
+        "reasoning": "The unrestricted table reduces exactly to the prior list on its domain, but thresholds and exceptions on the complement must be proved separately. The length-ten witness (2,1,1,3,3) is outside the separated domain.",
+        "searches": [
+          "Resultary: Seven-or-eight minimal unique factors in separated five-run binary words"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 82dd9adea10e, RESULT.md Finding: the same occurrence notion on 0^a1 0^b1 0^c, including zero gaps."
+        ],
+        "reasoning": "For positive outer/middle zero runs this is precisely the specialization with both one-run lengths one, not a reformulation of arbitrary positive lengths. MUSs are not interval-relative shortest unique substrings.",
+        "searches": [
+          "Resultary: five-run binary MUS all positive run lengths equality unit-gap collision cases exact factors",
+          "Resultary: Minimal unique factors of binary words with two marked symbols: exact spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact unrestricted hit aa413e7beacc is the frozen finding itself. Distinct exact tables inspected: separated five-run 2eedb3c17d7e and four-run 41aa7a29dd06."
+        ],
+        "reasoning": "Four runs have a different boundary structure and only five templates in the inspected table. No distinct equivalent unrestricted table was found in these comparisons; no chronology is inferred from same-day indexing.",
+        "searches": [
+          "Resultary: all eight MUS patterns 0^A 01^m0 10^c1 0^a1^b0^c1^d0^e first length ten",
+          "Resultary: minimal unique factors five-run binary words unrestricted collision regime eight length ten November 22 2026"
+        ]
+      },
+      "rationale": "The strongest overlapping exact result is the separated five-run table. The contribution supported here is the unrestricted table, especially the equality and unit-gap cases and the sharp unrestricted length threshold; the separated list and the exactly-two-ones subcase are not new.",
+      "residual_risks": [
+        "Targeted catalogue and open-primary-source comparison; an independently formulated equivalent may not be indexed. No absolute priority assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact under stronger separation only",
+          "evidence": [
+            "Seven templates are mandatory with separated lengths; the eighth depends on the strict middle minimum; first separated attainment at 13."
+          ],
+          "identifier_or_url": "Resultary 2eedb3c17d7e",
+          "material_read": "RESULT.md Finding and scope, offset 284 onward",
+          "method": "Local mirror",
+          "title": "Seven-or-eight minimal unique factors in separated five-run binary words",
+          "trigger": "Closest exact five-run list"
+        },
+        {
+          "assessment": "Covers both one-runs of length one",
+          "evidence": [
+            "Exactly two occurrences of the marked symbol even when there are arbitrarily many zeros."
+          ],
+          "identifier_or_url": "Resultary 82dd9adea10e",
+          "material_read": "RESULT.md offsets 0–4700",
+          "method": "Local mirror",
+          "title": "Minimal unique factors of binary words with two marked symbols: exact spectrum",
+          "trigger": "Potential equal-length specialization"
+        },
+        {
+          "assessment": "Four, not five, positive runs",
+          "evidence": [
+            "Five templates and sharp maximum five for the four-run family."
+          ],
+          "identifier_or_url": "Resultary 41aa7a29dd06",
+          "material_read": "RESULT.md offsets 0–3104",
+          "method": "Local mirror",
+          "title": "Exact minimal-unique-factor spectrum of four-run binary words",
+          "trigger": "Nearby exact spectrum"
+        },
+        {
+          "assessment": "General structural bounds and algorithms; does not give the collision table",
+          "evidence": [
+            "2m−1 bound, partition by run-position character, criterion for run-contained class."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2016.69",
+          "material_read": "PDF p. 2 and §4.1 pp. 6–8, including Lemma 8",
+          "method": "Open-access paper text",
+          "title": "Shortest Unique Substring Queries on Run-Length Encoded Strings",
+          "trigger": "Stronger general RLE theorem risk"
+        },
+        {
+          "assessment": "Algorithmic per-input computation is not the closed positive five-run parameter classification",
+          "evidence": [
+            "General MUS and RLE interval-SUS approaches."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1905.12854",
+          "material_read": "pp. 2–3, offsets 6381–11173",
+          "method": "Open-access paper text",
+          "title": "Space-Efficient Algorithms for Computing Minimal/Shortest Unique Substrings",
+          "trigger": "General MUS characterization/computation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md table and sharp-threshold proof",
+        "Separated five-run Resultary 2eedb3c17d7e",
+        "Mieno et al., MFCS 2016, p. 2"
+      ],
+      "rationale": "Five alternating runs introduce three competing zero runs without losing the two competing one-runs and boundary pairs. The complete symbolic classification resolves the resulting collisions, sharpens a general bound of nine to eight, and lowers the first feasible length for eight from thirteen in the separated regime to ten. An exact factor list, not just a count or an algorithm on a fixed input, supplies a useful small-run benchmark.",
+      "residual_risks": [
+        "Does not give an all-run-count spectrum or a faster general algorithm."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

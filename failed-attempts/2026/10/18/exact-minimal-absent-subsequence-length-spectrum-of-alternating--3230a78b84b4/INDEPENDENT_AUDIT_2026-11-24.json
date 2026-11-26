@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:32:03.368421Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 34–120, VERIFICATION.md and verify.py (inspected only)",
+        "Independent replay: python3 /workspace/branches/independent_checks.py census and permutations; outputs /workspace/branches/parent-census.txt and parent-permutations.txt"
+      ],
+      "rationale": "Greedy matching in the infinite alternating word gives P=m+a+E=2m−R+a for target length m, first bit a, equal-adjacency count E and run count R. Direct endpoint checks, including m=2, give deletion cost 0 at the first position just for 01, 0 internally just for 010 or 101, and last-position cost 1 for a change or 2 for equality; all remaining costs are 2. Minimal absence therefore forces P=2k+1 or 2k+2 with exactly the stated run restrictions. Setting m=k+j gives the four run counts 2j−1,2j,2j−2,2j−1 in the printed order. For R>=2, the minimum allocations are respectively 2R−1, 2R−2, 2R and 2R−1 letters, reproducing the common binomial top k+1−j by stars and bars. At j=1 the two constant targets contribute separately and the zero-run case contributes nothing. Pascal twice combines the rows including zero layers. Summing over k, the j=1 term is z(3−2z)/(1−z)^2 and the j>=2 terms are geometric in z^3/(1−z)^2. This yields the displayed OGF, recurrence and initial values. The characteristic cubic is r(r−1)^2−1; it has only one real root, greater than one, since the maximum of r(r−1)^2 on [0,1] is 4/27. The other two roots are conjugate with modulus rho^(−1/2) by the root product, and the numerator does not cancel the positive dominant pole. Independent complete finite subsequence sets reproduced the length histograms through k=10. An independent pair-transfer inversion also gave the same full length enumerator. Neither check replaces the proof.",
+      "residual_risks": [
+        "The result applies to linear powers of a binary permutation, not cyclic indexing or contiguous factors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kosche et al. prove a qualitative separation with an even alphabet of size at least four; Adamson et al. compare all present fixed-length subsequences rather than a minimal absent set; Manea et al. give a general enumeration representation.",
+          "2ef499428033 and 1986192c4f9a give exact bivariate enumerators for the same binary family."
+        ],
+        "reasoning": "General structural/algorithmic comparators need not mechanically fix the closed form as stated. An explicit bivariate series for the same family already fixes every length layer.",
+        "searches": [
+          "arXiv:2108.13968 §3 Prop. 3.6",
+          "arXiv:2407.18599 Theorem 2",
+          "arXiv:2504.21471 §5 Theorem 13",
+          "Resultary 2ef499428033 and 1986192c4f9a"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 47ef0e5dde29, 2ef499428033, 7389806d175c, 1986192c4f9a",
+        "Frozen ordinal 4",
+        "arXiv:2108.13968, 2407.18599, 2504.21471"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Reindexing the stated 47ef0e5dde29 layer gives the frozen binomial exactly. Setting the length marker to one gives the total OGF and implies the growth law.",
+          "The q=2 inverse of the frozen ternary record's all-q transfer yields xt²(3−2xt+xt²+2x²t³)/((1−xt)²−x³t⁴), agreeing with the indexed bivariate form; substituting x=z/y,t=y marks k and the excess j."
+        ],
+        "reasoning": "These are equivalent length laws; no historical order is assigned. The separate November ternary spectrum restricted to q>=3 is not itself a published binary theorem, unlike ordinal 4's all-q matrix and the explicit binary findings.",
+        "searches": [
+          "Resultary 47ef0e5dde29 and 2ef499428033 Findings; frozen ordinal 4, equations (36–44 by line)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "47ef0e5dde29 counts H_m(m+1+r)=binom(m+2−r,2r+1) for linear (01)^m, with r from 0 through floor((m+1)/3).",
+          "2ef499428033 uses the same endpoint cost F=m+a+E, with the same exclusions and two possible endpoint values."
+        ],
+        "reasoning": "Substitute m=k and r=j−1 into the exact formula. This matches both the boundaries and the object counted. The alternative endpoint and block-index tests both express deletion-minimal failure of the greedy embedding.",
+        "searches": [
+          "Resultary: exact binomial length spectrum and bivariate generating function of binary alternating minimal absent subsequences",
+          "Frozen ordinal 4, all-q transfer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "47ef0e5dde29 gives the exact binomial coefficients and prints the identical rational totals (3z−z²+2z³)/(1−2z+z²−z³).",
+          "7389806d175c matches the total, recurrence, k+2 shortest count and growth gap; 2ef499428033 also prints the same first twelve totals."
+        ],
+        "reasoning": "The catalogue match involves the same combinatorial interpretation and covers all indices; it is not merely agreement of initial table entries or a growth constant.",
+        "searches": [
+          "Resultary exact length spectrum and Padovan enumeration, 47ef0e5dde29, 7389806d175c and 2ef499428033"
+        ]
+      },
+      "rationale": "A distinct indexed record, 47ef0e5dde29, gives the identical full binomial spectrum for the same linear binary hosts after shifting its excess-length index by one. It also states the identical total OGF, recurrence and growth. Another distinct record, 2ef499428033, gives the full bivariate enumerator and the same greedy-endpoint membership test; 7389806d175c covers the totals. These are verified overlaps in available coverage. Their later catalogue dates do not establish historical priority or dependency. The all-alphabet transfer in frozen ordinal 4 also specializes to the complete binary distribution, without requiring any ordering of the two frozen entries.",
+      "residual_risks": [
+        "Bounded literature/catalogue inspection. Exact overlap is verified but independently establishing priority, republication or derivation would require provenance not established here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact match in all layers and consequences",
+          "evidence": [
+            "H_m(m+1+r)=binom(m+2−r,2r+1), identical total OGF and growth constant."
+          ],
+          "identifier_or_url": "Resultary 47ef0e5dde29",
+          "material_read": "RESULT.md Finding and characterization proof, offsets 0–3285",
+          "method": "Local mirror and index substitution",
+          "title": "Exact binomial length spectrum of minimal absent subsequences in alternating binary words",
+          "trigger": "Strongest exact same-family spectrum"
+        },
+        {
+          "assessment": "Full bivariate coverage and the frozen endpoint characterization",
+          "evidence": [
+            "Same F=m+a+E and deletion costs, same length-weighted generating function as the q=2 transfer."
+          ],
+          "identifier_or_url": "Resultary 2ef499428033",
+          "material_read": "Finding and greedy-position/deletion proof, offsets 0–3400",
+          "method": "Local mirror",
+          "title": "Minimal absent subsequences of alternating binary words: an exact bivariate generating function",
+          "trigger": "Closest equivalent enumerator and membership criterion"
+        },
+        {
+          "assessment": "Totals overlap for the former and full bivariate overlap for the latter",
+          "evidence": [
+            "Both concern (01)^k; the latter gives local weak-descents and length marking."
+          ],
+          "identifier_or_url": "Resultary 7389806d175c; 1986192c4f9a",
+          "material_read": "Both RESULT.md Findings, offset 0",
+          "method": "Local mirror",
+          "title": "Padovan enumeration of minimal absent subsequences of alternating binary words; exact minimal absent subsequence spectrum of alternating binary words",
+          "trigger": "Same totals and alternate weak-descent formulation"
+        },
+        {
+          "assessment": "Exact binary coverage through q=2; no same-day priority inferred",
+          "evidence": [
+            "After x=z/y and t=y, the marked series is y z(3−2z+yz+2yz²)/((1−z)^2−yz³), also equal to the binomial-layer sum."
+          ],
+          "identifier_or_url": "Frozen ordinal 4",
+          "material_read": "RESULT.md lines 17–44",
+          "method": "Frozen proof and independent symbolic binary inversion",
+          "title": "Exact minimal-absent-subsequence enumeration for ternary permutation powers",
+          "trigger": "Same-day all-q pair transfer might imply binary layer counts"
+        },
+        {
+          "assessment": "Qualitative precedent for larger even alphabets, not exact binary layers",
+          "evidence": [
+            "Fixed even alphabet size at least four in the exponential construction."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.13968",
+          "material_read": "§3 Proposition 3.6 p. 7, offsets 23252 and 23472",
+          "method": "OA PDF",
+          "title": "Absent Subsequences in Words",
+          "trigger": "Same family and MAS/SAS gap"
+        },
+        {
+          "assessment": "Different counting predicate",
+          "evidence": [
+            "Compares numbers of all present length-k subsequences, not minimal absent words."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.18599",
+          "material_read": "Theorem 2 p. 14, offset 48196",
+          "method": "OA PDF",
+          "title": "Tight Bounds for the Number of Absent Subsequences",
+          "trigger": "Exact extremal counts at fixed length and universality index"
+        },
+        {
+          "assessment": "Algorithmic background; not the binary closed formula in the inspected statements",
+          "evidence": [
+            "General MAS-enumeration representation rather than a rational or binomial sequence for these inputs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2504.21471",
+          "material_read": "Introduction pp. 1–3 and §5 Theorem 13 p. 14, offsets 1290, 7884 and 54198",
+          "method": "OA PDF",
+          "title": "Efficiently Finding All Minimal and Shortest Absent Subsequences in a String",
+          "trigger": "General MAS enumeration"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and run-composition proof",
+        "Resultary 47ef0e5dde29 and 2ef499428033"
+      ],
+      "rationale": "The distinction between shortest and minimal absence in the alternating word is a natural problem and the binomial formula is useful. But the frozen scientific finding, including all layers, extreme lengths, short count and growth, has exact independent catalogue coverage. The run-composition proof of the covered invariant does not by itself establish a distinct result with enough additional mathematical value for a repair.",
+      "residual_risks": [
+        "This concerns incremental content under present coverage, not historical first-discovery credit."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

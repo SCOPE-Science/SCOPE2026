@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-The self-contained standard-library program `verification.py` was executed with `python3 verification.py` and returned `PASS`. It checks the identity \(F_4(x)=(x-1)^2Q(x)\), exact rational values and strict comparisons of two calibrated epidemic thresholds, an interval bracketing the unique crossing, and additional floating-point consistency cases for several trait contrasts.
+## correctness
 
-The witness at \(x=3/4\) has \(R_{\mathrm{same}}=431/416\) and \(R_{\mathrm{mixed}}=1-(3/4)^{16}/13\) for global multiplier \(2/13\). At \(x=1/2\), \(R_{\mathrm{same}}=31/32\) and \(R_{\mathrm{mixed}}=17/16-2^{-20}\) for global multiplier \(1/8\). The root is bracketed in \((13/20,2/3)\).
+PASS
 
-The universal theorem for every real \(r>1\) is **not** inferred from experiments: the proof in `RESULT.md` establishes it analytically using the strict convexity of \(h_r(y)=1-2y+y^{r+1}\). Source Eq. (4.1) is assumed as a published premise. No finite-population stochastic simulations or independent audit were performed. Historical priority is subject to the explicit limitations in `REVIEW.md`.
+The audited quantity is the size-two household branching-process reproduction number, not an individual reproduction number or a comparison of outbreak probabilities. Proportionate global mixing makes the recipient seed-type distribution independent of the sender; with equal population frequencies it is (1,r)/(1+r). Thus the next-generation matrix factors into sender-specific expected external offspring and that common recipient distribution, and its sole nonzero eigenvalue is their weighted mean. The Poisson no-contact probabilities over the fixed infectious period give the stated same-type and mixed-household mean formulas. Their difference is σF_r(x)/2, x=e^(−τ). The derivative F'_r(x)=r²h_r(x^(r−1)) has h_r(y)=1−2y+y^(r+1). Since h_r''>0 in (0,1), h_r(0)=1, h_r(1)=0, and h'_r(1)=r−1>0, there is one interior root of h_r, with signs positive then negative. F_r increases then decreases, starts negative at x=0, and decreases to zero at x=1; hence exactly one interior zero of F_r, with the order of signs reversed in τ. The endpoint τ=0 is not a positive crossing; r=1 is excluded. The fixed-contrast small-τ Taylor coefficient follows from F'_r(1)=0 and F''_r(1)=r²(r−1)². The two exact rational threshold examples check by direct substitution and concern separately specified global multipliers; a ranking crossing need not itself occur at R*=1. Replay: frozen RESULT.md lines 23–66, verification.py lines 30–51 (inspected, not executed), and Ball–Critcher §4.2.1. This is a many-household limit under the given Poisson, equal-frequency, deterministic-duration assumptions, not a field or finite-population finding.
+
+## originality
+
+PASS
+
+The general reproduction number, seed weighting and invasion criterion are established premises. The supported distinct claim is the all-real-contrast, fixed-global-multiplier, exactly-one positive local-intensity crossing between two extreme size-two pairings in the specified reciprocal-trait family. The closest matching theorem varies a different parameter and addresses unequal behavior of two different observables; it does not supply this comparison. This is a best-of-inspected-evidence assessment, not a priority certification.
+
+## value
+
+PASS
+
+The strict universal ranking switch rules out a fixed ranking of extreme household pairings in this reciprocal-trait family, even when type frequencies and individual trait values do not change. A finite example alone could not establish that the switch occurs exactly once for every contrast. This is a structural benchmark for interpreting a household-level invasion metric, not a real-world transmission or policy recommendation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

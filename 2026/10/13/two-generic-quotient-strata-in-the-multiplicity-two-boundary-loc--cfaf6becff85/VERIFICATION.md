@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The initiating source was checked at Theorem 2.16, Definition 5.7, Proposition 5.8, and Proposition 5.9. These give \(\dim\mathcal R(-1,1,1)=3\), the resolution
-\[
-0\to\mathcal O_{\mathbf P^3}(-2)\to\mathcal O_{\mathbf P^3}(-1)^{\oplus3}\to F\to0,
-\]
-the quotient condition \(P_Q(t)=2t\), and the fact that \(\mathcal C(-1,1,1,2)\) is an unresolved part of the non-reflexive boundary.
+# Independent mathematical audit
 
-For a smooth conic \(C\simeq\mathbf P^1\) in a plane avoiding the common zero of the three linear forms, restriction gives
-\[
-0\to\mathcal O_{\mathbf P^1}(-4)\to\mathcal O_{\mathbf P^1}(-2)^{\oplus3}\to F|_C\to0.
-\]
-The three quadratic entries form a basis of \(H^0(\mathbf P^1,\mathcal O(2))\). The quotient has degree \(-2\) and no global section, so the splitting theorem forces \(F|_C\simeq\mathcal O(-1)^{\oplus2}\). Hence the quotient-map space to the unique degree-\(-1\) line bundle is \(\mathbf P^1\), giving dimension \(3+8+1=12\).
+## correctness
 
-For a line \(L\) avoiding the common zero, the three restricted linear forms span \(H^0(L,\mathcal O_L(1))\), so after basis change the presentation is \((x,y,0)\). Therefore
-\[
-F|_L\simeq\mathcal O_L\oplus\mathcal O_L(-1),
-\]
-and \(\operatorname{Hom}(F,\mathcal O_L(-1))\) is one-dimensional. For two disjoint lines, the two nonzero component maps are unique up to the two independent target scalars, so a fixed hull and fixed unordered line pair determine one kernel. The dimension is \(3+8=11\).
+PASS
 
-The supporting full text arXiv:1702.06553v1 was checked at Section 4.1 and Proposition 18: \(\mathcal T(2)\) has exactly two irreducible \(8\)-dimensional components, represented generically by the smooth-conic and disjoint-line-pair quotient types used above.
+Reconstructed the two constructible kernel families over C, not a decomposition of the boundary. On a conic in a plane missing p the three entries of O(-4) -> O(-2)^3 are a basis of binary quadrics. By Serre duality the induced H^1 map is an isomorphism, so the rank-two cokernel has degree -2 and no sections and splits as O(-1)^2 on P^1. Its nonzero maps to the degree -1 target are onto and are parametrized modulo scalars by P^1. On a line missing p the restricted presentation is (x,y,0), giving O + O(-1) and a unique map up to scalar to O_L(-1). Disjoint supports let the two line maps be rescaled independently, giving exactly one kernel for each unordered pair. The hull is determined by the common zero p (different bases of the three linear forms give isomorphic hulls), and the kernel recovers the hull and quotient by double duality and the quotient map up to equivalence; hull automorphisms are scalar by stability. For algebraicity of the conic count one can work over the open 11-dimensional space of parametrized degree-two embeddings of P^1: the degree -1 target then exists in family, and constant rank Hom with vanishing H^1 gives a relative P^1. Adding p off the plane and forgetting the parametrization (fibers PGL2 of dimension 3) gives dimension 12 and an irreducible constructible image. Ordered skew lines and p form an irreducible open parameter base of dimension 11; unordered pairs only remove a finite ordering. In both cases E agrees with the reflexive hull off codimension two, is slope-stable by inclusion with equal slope, and the pure quotient has ch(Q)=2H^2-4H^3 by RR. Subtracting from ch(F) yields c(E)=(-1,3,7). The computation neither needs nor proves that all quotients in the boundary have one of the two displayed types.
 
-For every constructed kernel, slope stability follows from inclusion into the slope-stable hull with the same rank and first Chern class. Riemann--Roch gives \(\operatorname{ch}(Q)=2H^2-4H^3\), and subtraction from the hull Chern character gives \((c_1,c_2,c_3)=(-1,3,7)\). Thus the constructed points lie in the stated boundary locus.
+## originality
 
-No exhaustive classification of special incidence strata or of all irreducible components of \(\mathcal C(-1,1,1,2)\) is claimed.
+PASS
+
+The exact two dimensions and the difference in fibers of the quotient-map construction were not covered by the strongest compared statements. The proof uses existing inputs, but the restriction behavior of the specific non-locally-free hull is essential; neither the dimensions of quotient moduli nor ambient smoothness alone gives the dimensions of these images.
+
+## value
+
+PASS
+
+Gives exact structural dimensions of the families arising over the two generic degree-two target types in a named, unresolved moduli boundary, with a geometric explanation of the difference (a genuine pencil of distinct conic kernels versus a single skew-line kernel). This distinguishes contributions to the boundary that a target dimension count alone would conflate, and supplies reference strata for studying closures and incidence degenerations. It does not claim to settle the full boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:26:03.280517Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–107: pivot event, separator proof, Palm intensity and renewal normalization",
+        "Frozen VERIFICATION.md, lines 2–19; no computation or independent certification there",
+        "Dey–Kim, arXiv:2607.28865, Definition 1.5, Lemma 1.6, Theorem 2.1 and Lemmas 2.3, 2.8, 3.3, for comparison with the ordinary-pivot argument"
+      ],
+      "rationale": "The two cheap nearest-neighbor edges replace any use of the pivot's expensive bypass; a simple geodesic between pivots therefore stays between them. Regeneration at j follows by splitting edges into the left and right closed half-lines and the single bypass B_{j−1}. The pivot conditions factor over these three disjoint groups. A previous candidate i≤j−2 is tested on the left; i=j−1 is automatically ruled out by B_{j−1}>2a. Thus locating the first/next pivot at j does not further condition the right side beyond A_j,B_j<a. Successive distance/reward pairs are iid with the same law as the block to the right of a pivot at 0. The spaced trials give an exponential gap bound. For its block length P≤m=ceil(K log x), take light edges of weight at most x/m. If Q>x they cannot connect the ends; the two cheap edges at each end put both parity chains and the nearest-neighbor chain across the light component boundary. A cut with just one nearest-neighbor transition is a unit cut; any other cut contains at least (2 short,2 long) or (1 short,3 long) heavy edges. Ignoring the pivot conditioning costs at most a fixed factor; a union bound on these fixed-size witnesses in [0,m] is a polynomial in m times (x/m)^{−2−min(γ1,γ2)}, hence o(x^−2). If the component cut is a unit cut but one of its three edges has weight ≤(1−ε)x, use that edge as the sole crossing and nearest-neighbor paths on its two sides. Q>x forces a fourth edge above εx/m, again an o(x^−2) witness. Large blocks have exponentially small probability. For any threshold t>a the expected number of all-high cuts C_u between successive pivots under the pivot-at-0 law is t^−2/p, where p=P(0 pivot): expand the sum over u, shift u to 0 and partition by the last pivot at or before 0. The same identity with the constant mark gives E P=1/p. Every cut with all weights above x forces Q>x; pair overlaps have exponent >2 (adjacent cuts share just one long edge; others are independent), and the expected count discarded for P>m is o(x^−2). The lower and (1−ε)x upper bounds yield P(Q>x)~μ_P x^−2. Centering by vP leaves that tail and an exponentially bounded left tail; the truncated second moment is asymptotic to 2μ_P log x. This gives the iid normal normalization sqrt(m μ_P log m). The dependent renewal index is valid: on a deterministic window of ηn terms around n/μ_P, truncate at b=sqrt(n log n), center and use the maximal variance bound O(ηn log n)/b²; the probability of a removed term and the normalized truncation drift tend to zero. Then let η decrease to zero and use the renewal law. Both end residuals are tight by the stationary exponential gap bound and a nearest-neighbor route in a deterministic finite window with high probability. This yields the claimed variance one with no simulation assumption.",
+      "residual_risks": [
+        "The source compresses the factorization at the next pivot, the uniform logarithmic-truncation bound, and the dependent random-index step; the justifications above use exactly the frozen pivot and length-two geometry. No uniformity as an exponent tends to zero or extension to other tail factors, dependence or graph ranges is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dey–Kim treat arbitrary finite spread ranges with a common iid edge law; the displayed Gaussian and stable regimes do not state equality. Their ordinary range-two pivot does not require the two additional cheap length-two edges used here.",
+          "The classical regenerative approach and finite-second-moment Gaussian regime are antecedents; the centered block reward here has infinite second moment."
+        ],
+        "reasoning": "Greater graph range under the same edge law is broader in geometry, not in anisotropy. The ordinary finite-variance passage-time CLT does not supply the critical logarithmic scaling.",
+        "searches": [
+          "arXiv:2607.28865, pp. 3–5, 11, 15–16 and 24–26",
+          "Ahlberg, Asymptotics of First-Passage Percolation on One-Dimensional Graphs, cited comparison in frozen RESULT.md, line 117"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.28865, Thm. 1.1, Def. 1.5 and Lems. 1.6, 2.3, 2.8, 3.3",
+        "Resultary d0471a44f9d0",
+        "Frozen RESULT.md weighted-separator proof and literature comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "When F̄(x)=x^−2/3, the prior block tail gives μ_P x^−2, so centering, truncation and the renewal count recover exactly the isotropic variance-one CLT.",
+          "In the unequal case a cut's rate is γ1 times its number of short edges plus γ2 times its number of long edges. The parity and endpoint argument verifies that all non-unit cuts have a strict extra exponent."
+        ],
+        "reasoning": "The probabilistic CLT transfer is standard and isotropic coverage is substantive. For unequal exponents the prior homogeneous cut formula cannot be applied without a new separator and uniform block-tail estimate; those are actually verified here.",
+        "searches": [
+          "Dey–Kim arXiv:2607.28865, Lemma 3.3 and regeneration",
+          "Weighted-cut reduction in frozen RESULT.md, lines 45–74"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The square of the infinite path is exactly the range-two spread-out line. Dey–Kim's edge-count cut parameter at ℓ=2 is 3.",
+          "Equal exponents give precisely the common-law Pareto case γ=2/3; unequal ones assign genuinely different laws to the two edge lengths."
+        ],
+        "reasoning": "Renaming the graph contributes nothing. A single mixed marginal or relabeling does not preserve the independent length-specific weight laws and separator exponents.",
+        "searches": [
+          "Dey–Kim arXiv:2607.28865, spread-out line graph at ℓ=2, Thm. 1.1 and Lemma 3.3",
+          "Resultary range-two line/passage-constant comparison d0471a44f9d0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirrored same-graph record uses iid binary weights 1 and 2 and obtains a sqrt(n) Gaussian scale.",
+          "The exact prior tail coefficient μ_P F̄(x)^3 contains the isotropic Pareto specialization; the prior formula has no unequal-law inputs."
+        ],
+        "reasoning": "The exact prior tail asymptotic is credited for its full implication at the isotropic point. No duplicate unequal-exponent critical theorem appeared among the inspected claims; this does not establish exhaustive priority.",
+        "searches": [
+          "Resultary range-two first-passage and critical Pareto matches, strongest same-graph hit d0471a44f9d0",
+          "Dey–Kim Lemma 3.3, exact block tail"
+        ]
+      },
+      "rationale": "Credit Dey–Kim for regeneration and the exact block-tail coefficient with a common edge law. That result and the standard normal-domain-of-attraction argument already imply the isotropic Pareto critical point γ1=γ2=2/3, even though their stated CLT and stable regimes exclude equality. The supported distinct contribution is the variance-one limit along the unequal-exponent critical curve: the separate weighted separator argument is needed and no inspected common-law theorem implies it.",
+      "residual_risks": [
+        "Best-of-knowledge comparison, not exhaustive. The homogeneous critical point is already implied and is not credited as original. The classical regenerative and normal-domain-of-attraction components are not claimed new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implies the isotropic critical point through exact tail and regeneration; no unequal-law coverage",
+          "evidence": [
+            "Common iid edge-law assumption; ℓ=2 gives cut size 3; iid pivot blocks, exponential gaps and tight end residual; exact tail μ_P F̄(x)^3."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.28865",
+          "material_read": "Thm. 1.1 pp. 3–4, Def. 1.5 and Lem. 1.6 p. 5, Thm. 2.1 and Lem. 2.3 p. 11, Lem. 2.8 pp. 15–16, Lem. 3.3 pp. 24–26 (OA decisive offsets 12600, 15350, 38930, 59800, 94100–103833)",
+          "method": "Located and inspected primary PDF passages",
+          "title": "First-Passage Percolation on Spread-out line graphs: Microscopic Regime",
+          "trigger": "Same graph; potentially implies the isotropic or anisotropic critical limit"
+        },
+        {
+          "assessment": "Later same graph, bounded common-law weights rather than Pareto criticality",
+          "evidence": [
+            "Iid binary weights 1 and 2 and sqrt(n) Gaussian fluctuations."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-rational-passage-constants-and-a-sharp-monotone-geodesic-boundar--d0471a44f9d0",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Local Resultary search and mirrored claim",
+          "title": "Rational passage constants and a sharp monotone-geodesic boundary",
+          "trigger": "Closest indexed same-graph passage-time limit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–17 and 45–107",
+        "arXiv:2607.28865, homogeneous regime and tail statements"
+      ],
+      "rationale": "Determines both the borderline scaling and its exact coefficient for a continuum of genuinely unequal edge-tail laws. The law involves the balance of one short and two long edges rather than a single representative exponent, and the unit-cut intensity cancels the artificial pivot density. It fills a distinct critical regime beyond merely obtaining a CLT from an iid finite-variance case.",
+      "residual_risks": [
+        "Not a full anisotropic phase diagram or a functional limit theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

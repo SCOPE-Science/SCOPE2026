@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is restricted to two distinct unit diameters on the unit cycle, with all parameter quantifiers and boundary cases explicit. The proof constructs an explicit cycle dipole potential; exact finite sums determine the two low-rank matrices, and the determinant lemma/Woodbury identity establish both formulas. The displayed strictly positive derivative gives the complete optimum set. The independently constructed exact-rational Laplacian calculations in `check.py` test all distinct separations for \(m=2,\ldots,9\). Numerical tests are not used as an infinite proof.
+PASS
 
-## Originality — PASS on inspected evidence; qualified
+Frozen RESULT.md line 28 labels a matrix U^TPU but incorrectly gives diagonal 1+m/2; that is the diagonal of I+U^TPU. The complete corrected RESULT.md in repairs/1 corrects the identity and supplies its derivation and the Gram-matrix calculation; the original is unchanged. From g=Pb_0 and g_{j+m}=-g_j one obtains b_0^TPb_0=m/2 and b_t^TPb_0=(m-2t)/2. The cross-correlation S_t satisfies 2S_t-S_{t-1}-S_{t+1}=(m-2t)/2 and S_0=-S_m=m(m^2+2)/24, which uniquely gives the displayed cubic. Consequently the determinant factor is m+1+x and the Woodbury trace gives the stated rational gain. The derivative of the gain is strictly positive, so the discrete maximum of t(m-t) gives both optimizer sets including m=2 and both parities. Substitution of x=m-1 and x=m^2/4+O(1) gives the three stated asymptotics. An independently written grounded-Laplacian calculation matched both formulas and both optimizer sets for every admissible t at 2<=m<=9; see branches/625f4f20-8b81-4afa-8ed1-6b8315f4001e/independent_check.py. The finite check does not replace the proof. Frozen check.py and VERIFICATION.md were inspected, not executed.
 
-The closest primary work supplies the general Kirchhoff-index and spanning-tree augmentation criteria, not the present joint two-diameter formula and equality classification in the inspected sections. A targeted literature and record search considered graph-cycle/diameter aliases, general matrix-tree and resistance identities, and the stronger unrestricted-chord alternative. The latter is not proved or claimed here. General methods can be specialized to derive our result, but no consulted statement already supplies its explicit special-case theorem without graph-specific work. Publication-priority risk remains from unindexed graph-polynomial tables or specialized abstracts not materially inspected.
+## originality
 
-## Value — PASS
+PASS
 
-Diametric edges are canonical, maximally long shortcuts on even cycles, and choosing two of them creates a genuinely nontrivial interference parameter. Exact agreement of two competing criteria is a useful benchmark in network augmentation: the theorem identifies the complete optimizer set rather than an ad hoc placement. Balanced placement gives \(m^3/3\) leading resistance reduction versus \(m^3/6\) for adjacent diameters, and the tree-count ratio grows like \(m/8\). This is a structural asymptotic separation within the motivated candidate family, not a claim of a generally optimal network design.
+The repair does not change the claim. Credit the general design objectives and matrix formulas to prior work. The supported distinct contribution is the two explicit laws and complete common equality classification for the restricted even-cycle diameter family. The pertinent circular and two-edge comparison results do not cover that family and both objectives.
 
-## Closest literature, boundaries, and risks
+## value
 
-Ghosh–Boyd–Saberi (2008), doi:10.1137/050645452, provides the resistance framework. Khosoussi–Sukhatme–Huang–Dissanayake (first public version 2016-04-05), arXiv:1604.01116, supplies the discrete spanning-tree network design criterion. An indexed study of two-chord infinitesimal spectral-gap optimization addresses a different objective; a separate prior two-chord A/D study is on paths rather than even cycles. Exact formulas here may be subsumed by specialized graph polynomials that remain uninspected. The result does not treat arbitrary chords or conductance budgets.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Two diameters are natural longest shortcuts on a unit cycle. Their relative separation changes the exact objectives; the result identifies the full set of common optimizers, and the resistance gain has a factor-of-two separation from adjacent diameters in the leading term while the tree-count ratio grows with size. This is a concrete two-objective benchmark, not simply evaluation of the general matrix identities or a claim about unrestricted augmentation. The proof repair leaves that value intact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C) — PASS
+## correctness
 
-The claimed probability law is positive and normalized even for negative transmutation. Direct rational-function factorization gives absolutely summable nonnegative compound-Poisson coefficients on the full parameter domain. The classical discrete self-decomposability theorem reduces the target to monotonicity of a canonical sequence. The first two adjacent comparisons are necessary; a separate induction for nonnegative auxiliary root and a log-convexity argument for the alternating negative-root case prove their sufficiency for every subsequent index. All boundary equalities and the endpoints \(\lambda=0\), \(\alpha=-1\) are included. Exact-rational witnesses and a standalone code replay check independent algebraic consequences, not the unbounded quantifiers.
+PASS
 
-## Originality (O) — PASS, qualified
+Summing the two geometric series gives poles q and q² and numerator factor 1−ρz; the mass is positive even at α=−1. The range −q≤ρ<q² yields nonnegative absolutely summable log coefficients, proving compound Poisson. To check the canonical criterion independently, write L=log G and b(z)=(z−1)L′(z); its coefficients from degree one on are a_k−a_{k+1}. The remainder PGF G(z)/G(1−c+cz) equals 1 at c=1, and its derivative with respect to 1−c there is b, so the differences must be nonnegative. Conversely log of that quotient is the integral from c to 1 of b(1−t+tz)/t; if the differences are nonnegative, b is a compound-Poisson exponent and the integral is another such exponent by binomial expansion. For ρ≥0, after dividing d_k by q^k the positive term m_k satisfies m_{k+1}−q m_k=(1−q)² and ρ/q<q; this propagates d_2≥0. For ρ=−s the odd differences are positive and the even-step comparison follows from increasing ratios of m_j=(1−q)+(1−q²)q^{2j}. The displayed factorization for m_2−m_1² is correct, with strict positivity from min(1−2q+2q³)=1−4/(3√3)>0. Thus m_j≥m_1^j≥(1+s)((s/q)²)^j whenever d_2≥0. Poisson changes only the first difference. Independent exact fractions reproduce both threshold witnesses and the four D_2 signs −,+,−,+ with λ+D_1>0 at q=99/100. Strict signs and continuity suffice for reentrance.
 
-The 2023 Poisson–transmuted-geometric paper defines the count model for positive transmutation, and the 2016 parent-distribution paper treats negative parameters but does not classify Bernoulli-thinning self-decomposability. The known 1979 canonical-sequence theorem is a premise, not an original lemma. Previously established positive-transmutation conclusions are excluded, and the known ordinary infinite-divisibility result for two geometric maxima is strictly weaker than a thinning-decomposition classification. The inspected full text of that closest geometric-maximum result supplies a nonoverlapping endpoint construction; a separate folded-geometric difference classification has different poles and parameters. No prior full negative-transmutation two-comparison phase diagram or reentrance statement was identified. Historical priority remains subject to literature not indexed or unavailable for complete inspection.
+## originality
 
-## Value (V) — PASS
+PASS
 
-The full negative-transmutation range is a natural underdispersed geometric-count extension rather than an arbitrary slice. Ordinary compound-Poisson divisibility holds everywhere but thinning self-decomposability fails or succeeds across exact boundaries, affecting the existence of count-valued thinning/immigration decompositions. The reduction from infinitely many inequalities to two and an explicit three-transition witness make the parameter geometry both exact and nontrivial. An independent Poisson component can restore one failure mechanism but never the second, a useful structural separation.
+The model and the general thinning criterion are not new. The inspected closest results do not establish the finite negative-transmutation criterion or its phase behavior. Same-day records were assessed by their statements without assigning a chronology within the day.
 
-## Closest literature, limitations, and integrity
+## value
 
-The proof relies on Steutel–van Harn (1979), Theorem 2.2, for the canonical sequence criterion, and does not assert that criterion as new. It depends on the published Nandi–Chakraborty–Biswas model and Chakraborty–Bhati parent laws. The two-geometric-maximum compound-Poisson result addresses a strictly weaker property. Historical priority is qualified; the exact number of transition roots is not established. Finite diagnostics are supportive only and no independent mathematical audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The finite sharp test for a previously specified count model replaces infinitely many constraints and also decides exactly whether an independent Poisson addition can rescue the property. The strict alternating witnesses refute an interval hypothesis within a family that remains compound Poisson. The all-index cutoff, not merely the log-coefficient calculation or an isolated rational example, is the substantive result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

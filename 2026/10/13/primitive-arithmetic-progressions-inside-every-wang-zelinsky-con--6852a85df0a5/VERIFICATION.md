@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The infinite proof has three independent components.
+# Independent mathematical audit
 
-1. For \(a=b+t(b+1)\), reduction modulo \(q=2^{b+1}-1\) gives \(p\equiv-2^b\pmod q\), hence \(\gcd(p,q)=1\). This justifies the distinct divisor box used in the representation.
-2. Substituting the definitions into the full divisor-box sum minus the two omitted complementary pairs simplifies identically to \(2N_{b,t}\). This establishes strong pseudoperfectness for all parameters.
-3. The elementary factorization of \(z^r+1\) shows that \(2^m-1\) is never a nontrivial perfect power. Because it is coprime to \(p\), its prime valuations occur unchanged in \(N_{b,t}\), excluding every nontrivial perfect-power presentation and proving primitivity.
+## correctness
 
-The growth estimate \(N_{b,t}=2q\,4^a(1-(2^b+1)/2^{a+1})\) gives the counting law directly.
+PASS
 
-`verify_primitive_rows.py` is a finite regression check. It verifies exact complement closure and sums on \(1\le b,t\le9\), and checks the stronger \(b=1\) row for \(2\le a\le39\). Its output is stored in `verify_primitive_rows.out`. No finite check is used to infer an infinite statement.
+From a+1=(t+1)(b+1), p is congruent to -2^b modulo the odd q, so the two odd factors are coprime and both exceed 1. The four odd parts 1,p,q,pq are distinct; complementation preserves the box and the two omitted pairs are disjoint (their entries have precisely these odd parts). With T=2^(a+1) and B=2^b, the box sum is 2B(T-1)(T-B), the omitted sum is 2B^2+Tp, and (T-1)(T-B)-B=Tp. The remaining sum is Tp(2B-1)=2N. If q=2^(b+1)-1 were a proper power, use a prime exponent r: for r=2, b+1=2 is immediate and b+1>=3 is impossible modulo 8; for odd r, (z^r+1)/(z+1) is odd and greater than 1, impossible for a divisor of a power of 2. The valuations of q survive in N, excluding all proper powers. Both positive factors in 2^a p increase strictly with a; log N=2(b+1)t log 2+O_b(1), and upper and lower cutoffs on t give the stated count. For b=1, p is coprime to 3 for every a>=2, so the same identity applies and v_3(N)=1. The supplied grid and row replay were inspected as finite regression evidence, not rerun or used for the infinite conclusions.
+
+## originality
+
+PASS
+
+Strong pseudoperfectness, the choice of omitted complementary pairs, the definition of primitivity, and infinitude of even primitive examples have prior coverage. The distinct claim is a specified progression guaranteed primitive in every row of Theorem 9, the quantitative count of that subfamily, and removal of the progression restriction in row b=1.
+
+## value
+
+PASS
+
+The progression guarantees a genuine structural property in every row without primality assumptions on either odd factor. Unlike generic infinitude, it supplies explicit primitive examples for an arbitrary prescribed b, and a natural growth law in that parameter row. The b=1 strengthening is a boundary example, not the main value claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

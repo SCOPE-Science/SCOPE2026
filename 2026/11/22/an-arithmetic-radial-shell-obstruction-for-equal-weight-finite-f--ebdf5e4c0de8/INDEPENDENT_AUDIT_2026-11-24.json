@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:11:33.591426Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Testing the normalized monomials up to 2m-1 forces the radial rule sum alpha_j x_j^k=k!, with alpha_j=q_j exp(-x_j)/C and x_j the distinct squared radii. The square of the polynomial vanishing on all nodes excludes fewer than m radii by positivity of e^{-x}dx, also for adjustable weights. At exactly m nodes orthogonality of the monic node polynomial gives an invertible integer-moment Gram system, so the nodes are algebraic; the first m moments give invertible Vandermonde equations and algebraic masses. For each pair of distinct nodes, exp(x_i-x_j)=q_i alpha_j/(q_j alpha_i) would be algebraic, contradicting Hermite–Lindemann. A common external positive factor cancels and angles do not enter the necessity. The monic orthogonal polynomial has m simple positive roots by the sign-change argument. Interpolation modulo that polynomial gives Gaussian exactness, and integrating squared Lagrange polynomials proves positivity of the masses. Regular 2m-gons remove all off-diagonal terms; weights alpha_j exp(x_j)/(2m) give unit diagonals. Thus the positive-weight minimum is m, while m+1 is a lower bound, not an existence assertion, for equal external weights. The restriction m>=2 is essential: at n=1 a single radius with x=1 and two antipodal samples gives equality. Read CHECK.py and VERIFICATION.md; the reported 106 checks only corroborate finite Laguerre identities and the degree-three example, and the supplied script was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gröchenig–Ortega-Cerdà use bounds for polynomial evaluations normalized by the truncated reproducing kernel in Eq. (2), not the exact full-Gaussian frame identity here.",
+          "Bownik–Yu give near-tight uniformly discrete sampling for continuous tight frames; the radial complexity result is a matching-order conditioning statement with variable positive weights."
+        ],
+        "reasoning": "A comparison inequality, a different normalization, or a near-tight frame sequence does not force exactness at fixed m, and cannot supply this impossibility.",
+        "searches": [
+          "arXiv:2109.11825 Eq. (2)",
+          "arXiv:2603.10423v1 abstract",
+          "Resultary 23fa3fb029d8"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2109.11825 Eq. (2)",
+        "arXiv:2603.10423v1 abstract",
+        "Waldschmidt Theorem 2.1",
+        "Resultary ebdf5e4c0de8, 41ad9e016c9b, 0da607ff455a, 23fa3fb029d8 and 72797b836898"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gaussian theory fixes the radial nodes and masses and already underlies the matching variable-weight construction. Hermite–Lindemann addresses exponential values of nonzero algebraic numbers but states no sampling condition."
+        ],
+        "reasoning": "The two ingredients are joined by reducing arbitrary equal-weight angular observations to radial moments and identifying the integer multiplicity ratio. Neither ingredient alone nor a substitution in a known conditioning bound yields this all-angular obstruction.",
+        "searches": [
+          "Laguerre-Gauss quadrature",
+          "Waldschmidt Theorem 2.1",
+          "Resultary 41ad9e016c9b and 23fa3fb029d8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact reformulation is m-node Gaussian quadrature for the exponential measure with masses proportional to integer counts times e^{-x_j}, not an ordinary equal-mass Gaussian rule.",
+          "The two-circle Poisson-mass Gram result restricts the angular designs to regular orbits and studies conditioning."
+        ],
+        "reasoning": "Equal coefficients on the physical observations are not equal masses on radial quadrature nodes. The exact integer multiplicity ratio constraint is the missing element in the inspected comparators.",
+        "searches": [
+          "Equal-coefficient Gaussian cubature and coherent-state moment quadrature",
+          "Waldschmidt Introduction to Diophantine Methods Theorem 2.1",
+          "Resultary 41ad9e016c9b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match ebdf5e4c0de8 is the same record. The six-node cubic construction uses adjustable positive weights on three radii; the two-circle stability result has restricted angles. The distinct same-day E-optimal result concerns value-and-derivative sampling."
+        ],
+        "reasoning": "Neither catalogue entry for cubic sampling has the same weight restriction, observable and arbitrary-angle scope. The older two-circle regime does not contain all of the configurations being ruled out.",
+        "searches": [
+          "Resultary ebdf5e4c0de8",
+          "Resultary 0da607ff455a",
+          "Resultary 41ad9e016c9b",
+          "Resultary 72797b836898"
+        ]
+      },
+      "rationale": "Pass for the equal-external-weight obstruction at the exact radial minimum with arbitrary angles and multiplicities. Classical Gauss–Laguerre quadrature, angular averaging and Hermite–Lindemann are credited ingredients, not separate novel results. None of the inspected comparisons settles the exponential/integer multiplicity constraint at the exact-radial Gaussian threshold; older equivalent cubature statements are not excluded.",
+      "residual_risks": [
+        "Older equal-coefficient Gaussian cubature or coherent-state moment literature might contain an equivalent result; a bounded search does not establish historical priority.",
+        "The cited one-circle conditioning record was not independently retrieved in the local mirror. Its absence from the retrieved passages is not evidence against coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different normalization and objective in relevant statement",
+          "evidence": [
+            "Uses sums of |p(λ)|²/k_n(λ,λ) and two-sided bounds for all sufficiently large n."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2109.11825",
+          "material_read": "p. 1, Eq. (2) and definitions, offset 1750–3594",
+          "method": "OA original PDF passage",
+          "title": "Marcinkiewicz–Zygmund inequalities for polynomials in Fock space",
+          "trigger": "Same polynomial Hilbert spaces and sampling terminology"
+        },
+        {
+          "assessment": "Near-tight, not this exact finite-shell statement",
+          "evidence": [
+            "The ratio of upper to lower bounds is less than 1+ε for a discrete sampling sequence."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.10423v1",
+          "material_read": "Abstract main statement, offset 251–1493",
+          "method": "OA original HTML passage",
+          "title": "Uniform discretization of continuous frames",
+          "trigger": "Tight-frame sampling background"
+        },
+        {
+          "assessment": "Validates a classical input, not a prior sampling theorem",
+          "evidence": [
+            "exp(β) is transcendental for any nonzero algebraic β."
+          ],
+          "identifier_or_url": "https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/IntroductionDiophantineMethods.pdf",
+          "material_read": "Theorem 2.1, p. 45, PDF text offset 118366",
+          "method": "OA original PDF passage",
+          "title": "Introduction to Diophantine Methods: Irrationality and Transcendence",
+          "trigger": "Transcendence input"
+        },
+        {
+          "assessment": "Restricted two-orbit conditioning, not all-angle exact obstruction",
+          "evidence": [
+            "Equal-weight regular orbits, with Poisson-mass Gram spectrum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-exponential-stability-barrier-for-two-circular-fock-sampli--41ad9e016c9b/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror original record",
+          "title": "Sharp exponential stability barrier for two circular Fock sampling orbits",
+          "trigger": "Closest equal-weight radial sampling comparator"
+        },
+        {
+          "assessment": "Variable-weight node-count result",
+          "evidence": [
+            "Positive adjustable weights on three radii, not equal weights with unrestricted site count."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-six-nodes-are-necessary-and-sufficient-for-exact-tight-cubic-foc--0da607ff455a/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror original record",
+          "title": "Six nodes are necessary and sufficient for exact tight cubic Fock sampling",
+          "trigger": "Same exactness objective at n=3"
+        },
+        {
+          "assessment": "Does not give the exact-tightness obstruction",
+          "evidence": [
+            "Order sqrt(n) radial complexity for uniformly conditioned positive sampling."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-optimal-order-radial-complexity-for-positive-sampling-of-gaussia--23fa3fb029d8/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror original record",
+          "title": "Optimal-order radial complexity for positive sampling of Gaussian Fock polynomials",
+          "trigger": "Same radial design parameter"
+        },
+        {
+          "assessment": "Different measurements and objective",
+          "evidence": [
+            "Worst-case gain for value and derivative measurements at two sites, not point-value Parseval sampling."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-e-optimal-two-site-hermite-sampling-of-cubic-bargmann-fock--72797b836898/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror original record",
+          "title": "Sharp E-optimal two-site Hermite sampling of cubic Bargmann–Fock polynomials",
+          "trigger": "Distinct same-day cubic Bargmann–Fock comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The m-shell baseline is not arbitrary: it is the optimal positive radial count forced by exact Gaussian moments at degree 2m-1. The arithmetic obstruction distinguishes identical physical weights from individually adjustable weights at this natural minimum, even if arbitrarily many angular samples are allowed. It is an all-order structural design obstruction, not a claim that the next equal-weight shell count is achievable.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

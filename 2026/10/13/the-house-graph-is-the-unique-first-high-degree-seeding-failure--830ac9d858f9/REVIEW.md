@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The complete connected labeled graph domain through five vertices is exhausted. Connectivity is independently checked by breadth-first search and transitive closure. Every two-seed strict-majority cascade is independently reconstructed by synchronous activation rounds and an incremental queue algorithm, with exact agreement. The lower bound is also transparent structurally: among connected four-vertex graphs, only \(P_4\) and \(K_4-e\) have an unambiguous high-degree pair, and that pair activates all four vertices in both cases. At five vertices, exactly \(60\) failures occur and full permutation canonicalization identifies all of them with the house graph.
+## correctness
 
-Risk: the exhaustive theorem stops at five vertices, as stated.
+PASS
 
-## Originality
-**PASS.** Prior work already establishes high-degree seeding as a standard influence heuristic and strict-majority irreversible diffusion as a standard threshold model; those ingredients are not claimed as new. The inspected primary sources do not state the sharp two-seed boundary, the \(60\)-of-\(728\) labeled count, the conditional \(6/29\) incidence, or the one-class house-graph obstruction. Claim-level searches by standard aliases, exact graph size, the house graph, and the heuristic/model combination did not locate equivalent coverage.
+Progressive strict-majority activation has a unique final closure: the union of all resistant sets disjoint from the seeds stays inactive, where each vertex of such a set has at least ceil(deg(v)/2) neighbors in it; conversely the final inactive set itself satisfies that criterion. An independent exact replay (house in /workspace/audit_evidence/replay.py) tests every labeled edge set on 2–5 vertices for connectivity via cuts, selects the top two only if unique, and obtains final sizes by exhausting resistant subsets rather than either of the frozen closure algorithms. For orders 2,3,4,5 the connected counts are 1,4,38,728 and the eligible counts 1,0,18,290. The only five-vertex eligible spread pairs (heuristic,optimum) are (5,5):230 and (3,5):60. The failure set equals the entire orbit under permutation of {01,03,04,12,14,23}, with orbit size 60 and stabilizer size 2. Its top-degree seed pair {0,1} activates 4 only; the four full-activation pairs are {0,2}, {1,3}, {2,4}, {3,4}. The incidence fractions follow. The order-statistic test d₂>d₃ is for n≥3; at n=2 the only pair qualifies, and n<2 has no eligible pair. The frozen checker compares both closures after its eligibility filter, not on every connected graph as the verification prose suggests; this does not affect the eligible census.
 
-Risk: failed search is not proof of bibliographic uniqueness. An unindexed small-graph table, thesis, or software corpus could contain the same finite observation.
+## originality
 
-## Value
-**PASS.** The high-degree rule is a canonical influence heuristic, while strict-majority thresholds model genuinely reinforcing adoption. A single seed is structurally degenerate in this model because it cannot activate a vertex of degree at least \(2\); two seeds are therefore the first budget at which neighbor reinforcement matters. The sharp first failure is not an arbitrary slice: it completely identifies the smallest network where the standard unambiguous high-degree choice loses to diffusion-aware targeting, and the entire obstruction layer collapses to one familiar graph type. On that graph the heuristic reaches only \(3\) vertices while an optimal pair reaches all \(5\).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The supported distinct claim is the least graph order, unique obstruction class, and exact labeled census for fixed-budget strict-majority degree-pair seeding with no tie at the cutoff. High-degree seeding, strict-majority dynamics, and the existence of failures of degree heuristics in other models are known. The closest indexed census contains the same house orbit but classifies a different predicate.
+
+## value
+
+PASS
+
+Two seeds are the first budget that can initially satisfy a degree-two vertex's strict majority. Minimizing graph order and removing degree cutoff ties give a clear benchmark for failure intrinsic to the degree rule rather than its tie policy. The unique first-layer graph and exact counts sharpen a single counterexample; its 3-versus-5 outcome is a reproducible test case. No claim is made about incidence at larger orders or under other threshold rules.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The state decomposition is exhaustive because any independent set contains at most one clique vertex, and such a vertex excludes only its own private leaf. Original-graph distances prohibit leaf-to-leaf two-hop moves but permit all clique-to-leaf moves. The adjacency classification follows directly. Every exchange of a leaf label requires two moves; an unmatched pure/mixed endpoint contributes one additional move. Constructive paths attain every bound, including the mixed-to-mixed zero- or one-move exceptions. This proves all pairs of distances, the maximum formula, edge counts, degrees and connectivity. Independently rebuilt graphs pass exhaustive BFS comparisons for every parameter pair through eight clique vertices; this does not replace the general proof.
+## correctness
 
-## Originality
-PASS, subject to ordinary historical-priority risk. The primary 2024 bounded-hop study proves reachability on split graphs and explicitly leaves the complexity of shortest two-hop split-graph reconfiguration open. Its inspected Introduction, Section 4 (split-graph cluster lemmas and decision algorithm) and Section 6 (open questions) do not give a clique-corona metric, its exact diameter or its degree/edge census. A 2021 split-graph study treats one-hop token sliding and hence cannot imply these two-hop distances. Related indexed token-sliding and Johnson-metric results involve different base graphs or other reconfiguration rules. Neither searches nor differing names prove universal novelty; a prior equivalent using corona, thin-spider or Johnson-incidence terminology remains possible.
+PASS
 
-## Value
-PASS. The 2024 source identifies shortest two-hop reconfiguration on split graphs as a motivated, unresolved complexity direction. This infinite canonical split-graph family exhibits an exact metric, constructive optimal routing, a sharp three-regime diameter, and a complete two-orbit degree and edge census, stronger than a reachability assertion. The result identifies a nontrivial Johnson-type internal structure and explicitly limits the progress to the family, not the open general case.
+Two different leaves have host distance three, all leaf–clique pairs have distance at most two, and all distinct clique vertices have distance one. A mixed state forbids its own private leaf and any second clique token. These facts give exactly the stated adjacency. Project to the inclusion graph on the two consecutive Boolean ranks k and k−1: each lower-rank vertex is a clique of r−k+1 copies with identical upper-rank neighbors. Different projected endpoints have unchanged distances, by deleting fiber steps on projection and freely lifting inclusion paths with the specified endpoints. Within one mixed fiber the distance is zero or one. In the inclusion graph the Hamming difference gives a lower bound; same-rank paths attain it by replacing each mismatched element with two steps via the other rank (remove then insert in the upper rank; insert then remove in the lower rank). To finish at a lower-rank target T from S in the upper rank, first reach T plus an element of S outside T, then delete that element. These realizations give the three formulas and connectivity. Minimizing intersections for the three pair types gives respective maxima 2 min(k,r−k), 2 min(k−1,r−k)+1, and, for distinct lower labels when k≥2, 2 min(k−1,r−k+1). Comparing these yields the claimed diameter; k=1 is covered by upper pairs and k=r gives the star. Counting upper vertices, the lower fibers and their incident edges gives the stated sizes and degrees.
 
-## Closest literature and limits
-The closest same-rule primary source is arXiv:2407.11768 (2024), particularly Section 4 and the concluding open question. The related one-hop sources are Belmonte et al., *Token Sliding on Split Graphs* (2021), and Hoang et al., *Shortest Reconfiguration Sequence for Sliding Tokens on Spiders* (2019). The latter concerns a tree with one branching center, not a clique with private leaves. An independently verified precedence determination is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the structure and exact geodesic metric for the bounded-hop independent-set graph on the clique corona, not the elementary Johnson metric or bounded-hop reachability. The strongest inspected primary comparison gives reachability on a superclass, not distances. The consecutive-rank inclusion and fiber description is an exact alternate presentation; no accessible theorem identifying this structure for the bounded-hop family or directly covering its full metric was verified.
+
+## value
+
+PASS
+
+A clique with private leaves is a canonical split-graph family separating leaf exchanges, clique moves and mixed states. Its exact two-hop geodesic metric, even at maximum occupancy, gives more than a reachability algorithm and furnishes a concrete benchmark for the shortest variant. The transition to a two-rank incidence graph explains the whole distance and diameter profile; the value is this model-specific identification and complete invariant, not the standard subset distance by itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

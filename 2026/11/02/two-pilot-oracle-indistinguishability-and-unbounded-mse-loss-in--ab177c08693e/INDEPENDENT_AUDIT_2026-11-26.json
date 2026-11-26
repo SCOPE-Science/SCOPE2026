@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:31:07.784212Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In both spectra the first L eigenvalues equal delta, the positive tail energy is delta^2, and the remaining eigenvalues are strictly below delta; the concentrated larger tail exceeds its smaller tail since epsilon^2<1/p. Thus the exact squared pilots are (9k+1)delta^2 and delta^2, at identical n and cost. Commuting exact spectral truncations make the preconditioned log diagonal with leading zeros; independent Gaussian squares give MSE twice the squared log tail divided by the probe count. The diffuse ratio is exactly N(p-h)/p>1 and diverges. For the concentrated member at each k, the one-probe risk tends to zero and the mixed risk has a positive limit. Hence selecting mixed on any such pilot tuple produces unbounded loss as epsilon tends to zero, while selecting one on every tuple produces unbounded loss across the diffuse k sequence. This reasoning also covers independent randomization as described in the record. Both preconditioned matrices use at most three eigenspaces, so Lanczos is exact in at most three exact-arithmetic steps once the oracle projection is provided. The Section 4.3 switching inequality, verified as arXiv eq. (4.4), has left/right ratio (9k+1)/(3k+1)>1; the Wiley equation numbering was not independently confirmed. Equality of costs is nominal and does not include acquiring the best-rank oracle. VERIFICATION.md records 5575 finite checks; verification.py was inspected, not rerun. The conclusion is not about the actual Nyström pilot distributions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier single-crossing theorem uses full ordered spectral log weights and compares one with two probes to test global ideal optimality. Adaptive Hutch++ uses more flexible information and prescribed error/failure tolerances."
+        ],
+        "reasoning": "A stronger decision rule with richer observations does not answer whether the two residual numbers suffice; neither source supplies the pilot-indistinguishable spectra.",
+        "searches": [
+          "Resultary 63138f0a4092, ideal fixed-cost global probe allocation",
+          "arXiv:2109.10659, adaptive trace estimation"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.05778 (OA of doi:10.1002/nla.70106)",
+        "arXiv:2109.10659",
+        "Resultary and published records 63138f0a4092 and 98b88ae517dd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Section 4.3 provides the Frobenius proxy under examination. Record 98b88ae517dd proves unbounded regret of specific exact Frobenius and logarithmic look-ahead rules on a two-plateau spectrum. The full-information criterion in 63138f0a4092 can distinguish preferences once given the true log tails."
+        ],
+        "reasoning": "Even a lower bound for both prescribed heuristics does not imply unbounded worst-case loss of every deterministic or independent randomized selector seeing the Frobenius pilots. The concentrated same-pilot construction and its limiting risk establish that step.",
+        "searches": [
+          "arXiv:2601.05778, section 4.3, eq. (4.4)",
+          "Resultary 98b88ae517dd, rational-beta oracle-look-ahead regret",
+          "Resultary 63138f0a4092, one-vs-two criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Section 2 allocation comparison uses exact logarithmic tails rather than Frobenius residuals at two shorter pilot ranks. Record 98b88ae517dd gives the same diffuse ratio under its general parameters but not two indistinguishable inputs."
+        ],
+        "reasoning": "Showing one proxy makes a bad choice is not equivalent to an information lower bound for all selectors based on that proxy's two inputs. Exact pilot data here do not determine either exact logarithmic tail comparison.",
+        "searches": [
+          "arXiv:2601.05778, sections 2 and 4.3",
+          "Resultary ideal spectral-deflation and budget-switching searches, inspected 63138f0a4092 and 98b88ae517dd"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026-11-22 record gives exactly (4k+1)(1-1/(192k)) on specialization to beta=3/4, probe cost 3 and ell=48k. No supplied catalogue hit gives the matching concentrated spectrum and opposite preference with exact equal pilots."
+        ],
+        "reasoning": "The exact loss ratio is positively accounted for as overlap, not treated as an independent distinguishing feature. The two simultaneous residual equalities across opposite choices are a separate fact.",
+        "searches": [
+          "Resultary published log-determinant regret and probe-allocation comparisons, inspected 98b88ae517dd and 63138f0a4092"
+        ]
+      },
+      "rationale": "The supported distinct claim is the two-spectrum indistinguishability theorem for arbitrary rules using only the exact pilot data. The single diffuse witness and its exact loss ratio also occur as a specialization in the separately dated 2026-11-22 record; they are not a point of distinction from that record. Neither that material overlap nor the earlier optimality rule with full spectral information supplies the identical-pilot pair or the lower bound for every pilot-only selector.",
+      "residual_risks": [
+        "The final Wiley PDF numbering and full text of the Hutchinson background citation were not verified. Bounded comparisons cannot settle broader priority; catalogue dates are reported as labels without inferring authorship or independent discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies ideal risk comparison and approximate proxy test, not the information lower bound; publisher eq. number unconfirmed",
+          "evidence": [
+            "Equation (4.4) chooses one sample if m/((1-beta)beta ell+m) times the squared beta^2 ell Frobenius error is at least the squared beta ell error. The earlier MSE criterion instead uses log residuals."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2601.05778; doi:10.1002/nla.70106",
+          "material_read": "OA preprint section 2 eqs. (2.6)–(2.7), p. 4, text offset 15600; section 4.3 eqs. (4.2)–(4.4), p. 10, offsets 47550–48850",
+          "method": "Targeted original OA PDF inspection after publisher PDF returned HTTP 403",
+          "title": "Detecting when one probe vector is enough for preconditioned log-determinant approximation",
+          "trigger": "Exact motivating rule and estimators"
+        },
+        {
+          "assessment": "Broader decision criterion with more information, not a pilot-only result",
+          "evidence": [
+            "One probe is globally optimal iff it beats two at the ideal budget, using ordered log weights."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-single-crossing-optimality-of-gaussian-probe-allocation-after-id--63138f0a4092",
+          "material_read": "RESULT.md finding and hypotheses",
+          "method": "Local Resultary search and published mirror passage inspection",
+          "title": "Single-crossing optimality of Gaussian probe allocation after ideal spectral deflation",
+          "trigger": "Earlier general allocation theorem"
+        },
+        {
+          "assessment": "Generalizes the diffuse single-rule example; does not include the two-input indistinguishability proof",
+          "evidence": [
+            "Fixed rational beta and probe cost yield unbounded regret of both short-rank proxies, with the identical diffuse ratio at these parameters."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-unbounded-oracle-look-ahead-regret-in-gaussian-log-determinant-b--98b88ae517dd",
+          "material_read": "RESULT.md finding, including the two-plateau construction and general exact ratio",
+          "method": "Local Resultary search and published mirror passage inspection",
+          "title": "Unbounded oracle-look-ahead regret in Gaussian log-determinant budget allocation",
+          "trigger": "Strongest material statement-level overlap"
+        },
+        {
+          "assessment": "Adaptive trace estimation with different information; no equivalent lower bound in compared passages",
+          "evidence": [
+            "Chooses phase budgets under prescribed error and failure tolerances."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2109.10659",
+          "material_read": "pp. 4–5, text offset 11100",
+          "method": "Targeted original OA PDF inspection",
+          "title": "Improved variants of the Hutch++ algorithm for trace estimation",
+          "trigger": "Adaptive allocation antecedent"
+        },
+        {
+          "assessment": "Not used to claim noncoverage; variance identity checked directly and in the OA motivating paper",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1080/03610918908812806",
+          "material_read": "No full text retrieved",
+          "method": "Lawful repository lookup without retrieval",
+          "title": "A stochastic estimator of the trace of the influence matrix for Laplacian smoothing splines",
+          "trigger": "Cited trace variance background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The information obstruction distinguishes a failing switching heuristic from an intrinsically insufficient summary: no retuning of any function of just those two exact residuals can obtain a finite competitive guarantee in this model. Positivity, mild conditioning, and exact finite-step Lanczos isolate the failure from other numerical pathologies. This is a substantive boundary of a motivated budget-allocation model without implying failure of the end-to-end randomized algorithm.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

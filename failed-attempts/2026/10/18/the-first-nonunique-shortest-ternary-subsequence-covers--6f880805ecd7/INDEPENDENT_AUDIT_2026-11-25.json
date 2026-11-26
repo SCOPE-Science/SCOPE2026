@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:34:20.287584Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, proof steps 1–3",
+        "VERIFICATION.md; check.py and check_output.txt",
+        "/workspace/branches/review3_words.py and review3_words.out (run with python3)"
+      ],
+      "rationale": "The greedy feasibility test is exact: prefix and suffix embeddings are in disjoint intervals around a fixed covered position. Composing embeddings proves transitivity, and any shorter cover of a factor extends by the surrounding letters. Thus the primitive-candidate filter is sound and a missing primitive length precludes longer primitive words. Independently, I enumerated every nonempty position subset for each host represented by first-occurrence alphabet normalization. Grouping subsets by their spelled word and OR-ing their position masks directly tests all covers, with no primitive bound or greedy predicate. Weighting one-symbol representatives by 3 and all others by 6 gives the full 3^n texts at each length. This returns zero through 10 and one normalized failure at 11, with the exact two covers of length 6, hence the six labeled failures.",
+      "residual_risks": [
+        "The independent enumeration verifies the finite classification only, not arbitrary-length structure."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The later record gives the compressed form (01)^a2(02)^b(10)^c up to relabeling, a,c≥2, b≥1, and E_11=6.",
+          "The primary article gives a four-symbol length-15 ambiguity, not the ternary extremum."
+        ],
+        "reasoning": "The later classification covers the finite case retrospectively, but does not itself settle priority. The four-letter construction is in a different alphabet regime.",
+        "searches": [
+          "Resultary 2026/11/22 SCOPE-an-all-length-rigidity-theorem-for-shortest-ternary-subsequence--2d5a0c4857ba",
+          "arXiv:2509.05827, Sections 3 and 7"
+        ]
+      },
+      "checked_sources": [
+        "Distinct Resultary records …--19792ff873a4 and …--2d5a0c4857ba",
+        "SPIRE 2022 author manuscript, arXiv:2509.05827 and arXiv:2507.05770"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The bound of eight supplies a finite candidate set but does not specify which words have tied minima.",
+          "The distinct indexed claim states the full finite answer, even though the proof organization is different."
+        ],
+        "reasoning": "The earlier bound alone is not the threshold theorem; the indexed statement is equivalent without any substantive added argument.",
+        "searches": [
+          "arXiv:2507.05770, Problem 126",
+          "SPIRE 2022 §§3.1 and 5",
+          "Resultary …--19792ff873a4, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed match uses the same union-of-subsequence-occurrences definition and compares distinct shortest cover words, not embeddings.",
+          "Its six labeled exceptions are the same one class up to ternary alphabet permutation."
+        ],
+        "reasoning": "The two records classify the same predicate with the same labeled/unlabeled distinction.",
+        "searches": [
+          "Resultary: first ambiguity of shortest ternary subsequence covers",
+          "arXiv:2507.05770, Problem 126",
+          "SPIRE 2022, Subsequence Covers of Words"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirrored Finding gives 11, six texts, 01012021010, and 010210 and 012010.",
+          "The published primitive census's 12 length-eight words counts a different object."
+        ],
+        "reasoning": "The distinct indexed entry is an exact match, whereas the primitive census is not a host ambiguity table.",
+        "searches": [
+          "Resultary 2026/10/18 SCOPE-first-ambiguity-of-shortest-ternary-subsequence-covers--19792ff873a4",
+          "SPIRE 2022, Remark 2"
+        ]
+      },
+      "rationale": "A distinct indexed record states the exact first ternary ambiguity threshold, the six labeled texts and the same representative pair of covers. This establishes equivalent coverage, not which same-date record came first or how the records are related. The inspected earlier papers establish the phenomenon and the primitive bound, but not this exact ternary census.",
+      "residual_risks": [
+        "A targeted public search was non-informative; the literature check is not a priority certification.",
+        "Same-day catalogue dates do not order the records or establish their provenance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage; priority unresolved",
+          "evidence": "First length 11, precisely six texts, representative 01012021010 with shortest covers 010210 and 012010.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-first-ambiguity-of-shortest-ternary-subsequence-covers--19792ff873a4",
+          "material_read": "Mirrored RESULT.md Finding at offset 478, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror, bounded statement inspection",
+          "title": "First ambiguity of shortest ternary subsequence covers",
+          "trigger": "Exact semantic match in the catalogue"
+        },
+        {
+          "assessment": "Broader coverage in a later entry",
+          "evidence": "Run-compressed family (01)^a2(02)^b(10)^c up to relabeling and E_11=6; separately acknowledges extension of a finite October finding.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-an-all-length-rigidity-theorem-for-shortest-ternary-subsequence--2d5a0c4857ba",
+          "material_read": "Mirrored statement of the ambiguity family and E_11",
+          "method": "Local mirror",
+          "title": "An all-length rigidity theorem for shortest ternary subsequence covers",
+          "trigger": "Potential stronger classification"
+        },
+        {
+          "assessment": "Related results do not supply the ternary census",
+          "evidence": "γ(3)=8; 12 length-eight ternary primitives; abc adbcacbdacba (without the space) has four symbols and two length-eight minima.",
+          "identifier_or_url": "https://ir.cwi.nl/pub/32638/32638.pdf; DOI 10.1007/978-3-031-20643-6_1",
+          "material_read": "§3.1 p.6, Remark 2 p.10, §5 pp.11–12",
+          "method": "OA author manuscript passages",
+          "title": "Subsequence Covers of Words",
+          "trigger": "Primary paper on the exact cover definition and nonunique minima"
+        },
+        {
+          "assessment": "Inspected passages give a primitive bound and a four-letter, not ternary, extremal example",
+          "evidence": "Explicit example abcadbcacbdacba is of length 15 with four distinct letters.",
+          "identifier_or_url": "arXiv:2509.05827",
+          "material_read": "Ternary §§2–3 around offsets 18867–24842; §7 around 41317–48779",
+          "method": "OA full-text passage comparison",
+          "title": "Subsequence Covers of Words (expanded)",
+          "trigger": "Expanded primary article may add a ternary example"
+        },
+        {
+          "assessment": "General nonuniqueness and primitive bound only in the inspected result",
+          "evidence": "The problem notes possible distinct shortest covers and gives γ(3)=8 without the least ternary ambiguity length.",
+          "identifier_or_url": "arXiv:2507.05770",
+          "material_read": "Problem 126 p.3, passage at offset 6816",
+          "method": "OA full-text passage comparison",
+          "title": "25 Additional Problems—Extension to the Book 125 Problems in Text Algorithms",
+          "trigger": "Problem 126 discusses shortest covers"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof",
+        "Exact matched Resultary Finding …--19792ff873a4"
+      ],
+      "rationale": "The ternary minimum would be a useful sharp boundary for uniqueness and a regression example for cover algorithms. As submitted, however, the exact boundary and all witnesses are already covered by a distinct available statement, and the record does not establish a separate new algorithm, structural result or extension beyond that finite answer.",
+      "residual_risks": [
+        "No claim is made that the mathematical question is uninteresting or that publication priority is known."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

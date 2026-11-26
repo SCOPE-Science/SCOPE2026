@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is confined to the unit-population invariant simplex and the original paper's Figure 8(a) parameters, with only \(\gamma\in(0,1)\) varied. The equilibrium quadratic has precisely one positive root, the other compartments are strictly positive, and the three-dimensional Jacobian is reconstructed directly. Its characteristic polynomial has positive coefficients, and its Routh determinant is exactly \(Q(x)/[500000(200x+1)]\). Descartes' rule and two rational sign-change brackets establish **exactly two simple positive roots** of the quartic. The strictly decreasing recovery parametrization and cubic Routh count prove the entire stable/unstable partition and two transversal imaginary-axis crossings. Symbolic and floating-point independent checks of the bundled equations returned `VERIFY_OK`. The proof explicitly excludes nonlinear periodic-orbit claims.
+PASS
 
-## Originality — PASS
+The frozen proof's bijection at line 91 is false: G(99/100)=1/199, so the asserted domain loses all equilibria for 0<gamma<=1/199. The repaired RESULT.md uses G(0)=1, G(1)=0 and G'<0 on the full physical interval; the thresholds and Finding are unchanged. Independent exact replay (python /workspace/checks/5.py) derives the characteristic cubic from the simplex ODE, verifies the determinant identity, and obtains quartic evaluations 357701/3125000, -135039/1280000, -45/2 and 52 at the four bracket ends. Two sign changes in the coefficient list and these disjoint sign brackets certify exactly two simple positive roots, in the corrected domain. All three cubic coefficients are positive; the Routh first column gives zero or two right-half-plane roots, and at equality the factorization (lambda+A)(lambda^2+B) and real crossing derivative -(AB-C)'/[2(A^2+B)] give the two directed transverse crossings. These arguments apply for every recovery rate stated, on the conserved simplex only.
 
-The primary paper and its author-hosted version contain the numerical \(n=2\) example and general remarks on recurrent outbreaks, but no all-\(\gamma\) analytic spectral classification, no exact quartic thresholds, and no proof of two oppositely directed transverse crossings. Searches by exact DOI/title, two-stage reinfection, both numerical thresholds, Routh-Hurwitz and stability switches found no matching model-specific published theorem or result record. Broader immune-delay literature establishes oscillations and stability switching in other models; it is not treated as novel phenomenon here. The related two-stage immunity model in Otto et al. has a different infection mechanism for the resident strain and is not an exact reduction that covers this calculation.
+## originality
 
-## Value — PASS
+PASS
 
-The selected parameters are exactly those of a prominently displayed unexplained sustained-outbreak example, not an arbitrary slice. A complete spectral classification quantifies **where the observed regime can arise** and reveals the non-obvious return to equilibrium stability at a larger recovery rate. The two exact thresholds and unstable-dimension count are precise dynamical facts needed to distinguish local instability from long-term nonlinear oscillations; they resolve a natural subproblem in the source's explicitly unfinished analysis of its multi-class model.
+The exact classification for the published Fig. 8(a) model slice is supported as distinct by the sources inspected. In particular, the exact originating model and parameter set are known, and repeated loss and regain of stability is not itself new. Correcting the endemic domain does not change the claim being compared.
 
-## Closest literature, boundaries and residual risks
+## value
 
-The source's own analytic thresholds concern a different, seasonally forced subsystem. Otto, MacPherson and Colijn (2024) examine immune waning and oscillations but not this reinfection-rate specialization. Hethcote–Stech–van den Driessche (1981) and Barbarossa–Polner–Röst (2016) provide broader epidemic stability-switch precedents; abstract-only access for the former and only partial inspection of the latter leave possible hidden equivalent specializations as residual literature risks. The conclusion is local to the population simplex and does not assert nonlinear Hopf criticality or periodic-orbit existence.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The parameter slice is fixed by a published numerical example whose wider analysis was explicitly left open. The exact stability and unstable-dimension intervals distinguish a bounded loss of endemic stability from an instability persisting to the endpoint, and locate the reported run relative to both transitions. This gives useful checks for later nonlinear bifurcation work, without asserting Hopf nondegeneracy, cycles or global behavior. The repaired domain preserves this value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

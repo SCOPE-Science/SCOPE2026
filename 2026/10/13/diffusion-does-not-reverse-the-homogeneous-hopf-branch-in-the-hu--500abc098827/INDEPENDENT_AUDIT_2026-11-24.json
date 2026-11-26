@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:23:23.048527Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–66 and 76–128",
+        "VERIFICATION.md, lines 18–42",
+        "verify.py, lines 4–60",
+        "Frozen AUDIT.json, source_inspections for Miao–He"
+      ],
+      "rationale": "The constant Neumann subspace solves exactly the planar equations for all d1,d2, and its periodic solutions therefore occur at the same a values with or without diffusion. For sigma=1 the positive equilibrium is (1/sqrt(a),(sqrt(a)-1)/a); the kinetic trace 1-2/sqrt(a) gives crossing speed 1/16 at a=4. The Jacobian at (1/2,1/4) has rows (-1/2,-3/2) and (1/2,1/2), and frequency omega=1/sqrt(2). For a direct planar normal-form check set X=V-1/4 and Y=-(U-1/2+V-1/4)/sqrt(2). Then the canonical linear part is (-omega Y,omega X) and the nonlinear terms are F=-X^2-3sqrt(2)XY-4X^3-4sqrt(2)X^2Y and G=(X+sqrt(2)Y)^2/sqrt(2). The planar cubic radial formula gives -24/16+2sqrt(2)/(16omega)=-5/4 in physical time and this real linear amplitude. The convention in the checker has X=2 Re z to first order and scales time by omega, giving 4(-5/4)/omega=-5sqrt(2). The negative coefficient and positive crossing put the small homogeneous cycles at a>4. In the H1 criteria as recorded, the ratio 5/2 lies between 1^2 and 2^2 and substitution gives r1=2<10. For mode 1 the matrix is the kinetic Jacobian minus diag(10,1/5), with trace -51/5 and determinant -12/5. Its positive simple eigenvalue gives a limiting Floquet multiplier >1 and persists by continuity for small homogeneous cycles; modes k>=2 have positive determinants 1/2-(49/10)k^2+2k^4 and negative traces. This independently establishes the branch side, transverse instability, and the contradiction with positive determinants if the primary assertion is as reported. Inspected but did not run the supplied symbolic script. The primary theorem wording is recorded in the frozen package and was not independently retrieved.",
+      "residual_risks": [
+        "The term supercritical is used for the parameter side, not full-space stability. The precise intended wording of Miao–He Theorem 3.2(i) could not be independently checked. The exact witness and the invariant-subspace result do not depend on that wording.",
+        "A broken fraction escape in the duplicated modal formula at RESULT.md line 102 does not affect the actual equation reconstructed directly from the PDE."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen relationship section identifies Wu–Zhao's earlier Hopf and Turing analysis and Ryu–Ko's broader related dynamics. Only bibliographic or landing-level access was obtained in the independent search; no full-text negative claim is warranted.",
+          "The exact subspace restriction generalizes to spatially constant Neumann solutions even without the specified d1,d2, but it alone gives neither an H1 threshold check nor the modal sign."
+        ],
+        "reasoning": "A general statement about diffusion-driven instability or invariance does not by itself give this exact source-regime counterexample with the branch side and unstable transverse mode resolved. Available material does not establish whether Wu–Zhao's detailed conclusions specialize to it.",
+        "searches": [
+          "Wu–Zhao doi:10.1016/j.physa.2018.09.176 (same model Hopf/Turing analysis)",
+          "Ryu–Ko doi:10.3934/dcdsb.2022015 (related hunting-cooperation system)",
+          "Miao–He doi:10.1515/math-2022-0474 (primary source)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 500abc098827 (identical assigned finding) and distinct-result searches",
+        "doi:10.1515/math-2022-0474 (frozen reports and bibliographic record, no independently retrieved primary text)",
+        "doi:10.1016/j.physa.2018.09.176 and doi:10.3934/dcdsb.2022015 (limited access as above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The equality of branch sides follows immediately from invariance and is not itself original. The exact sign reversal in the reported determinant assertion is witnessed by direct linearization, with an independently evaluated planar Lyapunov coefficient confirming which side is actually populated.",
+          "No accessible comparison stated a correction treating both the homogeneous direction and the nonconstant unstable multiplier at this H1 witness."
+        ],
+        "reasoning": "The substantive contribution is correction of a reported branch classification by a counterexample in its intended regime, not rebranding the invariant-space fact as a novel theorem. Taken with the recorded theorem statements, the two sign calculations falsify a direction reversal and the all-positive determinant statement, rather than deriving those statements from a stronger published claim.",
+        "searches": [
+          "Miao–He Theorems 2.1 and 3.2(i), H1 and pre-Theorem 3.2 determinant assertion as reported in RESULT.md and AUDIT.json; exact DOI and theorem conflict searches"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary record 500abc098827 is the identical assigned finding, not independent prior coverage. No distinct matching result was identified in the returned searches.",
+          "The frozen package reports that Theorem 2.1 calls the kinetic Hopf supercritical while Theorem 3.2(i) calls the homogeneous PDE Hopf subcritical under H1. Independently, the restricted vector field and hence its local parameter-side bifurcation agree identically."
+        ],
+        "reasoning": "A claim of an unstable PDE cycle is not equivalent to a change of direction. The computed witness checks both parameter side and nonconstant Floquet instability; no whole-article exclusion is inferred from the bounded searches.",
+        "searches": [
+          "Resultary: model and H1, exact title, theorem-to-theorem conflict, Wu–Zhao/erratum, and exact witness parameters",
+          "Primary literature: exact Miao–He title with subcritical, Theorem 3.2 and full-text terms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The diffusion pair is identified as a source numerical choice in the frozen audit. The computed values at the exact Hopf parameter include r1=2 and D1=-12/5; no separate catalogue witness was identified in the returned records."
+        ],
+        "reasoning": "This is an analytic witness, not a proposed numerical dataset. Knowing a parameter pair does not give its direction or Floquet stability, nor verify the exact corresponding determinant. Primary examples were not independently inspected, so an exact result in those examples has not been ruled out.",
+        "searches": [
+          "Resultary: sigma=1, a=4, d1=10, d2=1/5; Miao–He H1 and theorem correction",
+          "doi:10.1515/math-2022-0474, Theorem 3.2 and modal formula reports in frozen AUDIT.json"
+        ]
+      },
+      "rationale": "Credit the source-specific exact local diagnosis: the recorded H1 parameter conditions are met and the homogeneous cycles are on the supercritical side while a specified spatial mode is unstable. The invariant-subspace principle, general Hopf theory and the model itself are not new. No distinct checked statement covers that simultaneous diagnosis or the indicated modal-sign conflict. The reported wording of the two primary statements remains a material access limitation; this decision credits the independently proved mathematical witness, not an independently authenticated quotation or an exhaustive erratum search.",
+      "residual_risks": [
+        "Primary wording or an unindexed correction could change the literature attribution; full-text Wu–Zhao overlap is unverified. These limitations do not alter the verified direction and transverse instability of the stated model at the witness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The witness is verified but the exact wording is not independently authenticated",
+          "evidence": [
+            "Frozen record reports the two conflicting classifications and a positive determinant assertion. Independently, at the recorded H1 point the homogeneous direction is supercritical and the mode-1 determinant is negative."
+          ],
+          "identifier_or_url": "https://doi.org/10.1515/math-2022-0474",
+          "material_read": "Bibliographic identification and frozen transcriptions/reports at RESULT.md lines 26–66 and 84–108 plus frozen AUDIT.json attribution to Theorems 2.1, 3.1 and 3.2 and Eqs. (3.5)–(3.6). Independent retrieval of the article and any erratum did not succeed.",
+          "method": "Lawful DOI/publisher and OA recovery attempts, including publisher HTML and OA PDF; mathematically checked the reported model and thresholds",
+          "title": "Hopf bifurcation and Turing instability in a diffusive predator-prey model with hunting cooperation",
+          "trigger": "Source of the attributed theorem conflict and H1 regime"
+        },
+        {
+          "assessment": "Exact coverage unresolved, not ruled out",
+          "evidence": [
+            "Citation and frozen comparison identify same-model stability, Hopf and Turing analysis; no full-text evidence on a matching exact claim was obtained."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.physa.2018.09.176",
+          "material_read": "Identification and limited landing-page material; full text not retrieved",
+          "method": "Bounded lawful access and comparison with scope recorded in RESULT.md",
+          "title": "Qualitative analysis for a diffusive predator-prey model with hunting cooperative",
+          "trigger": "Earlier same-model Hopf/Turing analysis"
+        },
+        {
+          "assessment": "Related scope; exact overlap unresolved",
+          "evidence": [
+            "Frozen note identifies a related system, not an exact correction. No document-wide inference is drawn."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/dcdsb.2022015",
+          "material_read": "Bibliographic identification and frozen reference; publisher/OA route did not supply primary full text",
+          "method": "Targeted publisher passage request and repository recovery",
+          "title": "On dynamics and stationary pattern formations of a diffusive predator-prey system with hunting cooperation",
+          "trigger": "Related global dynamics and possible homogeneous Hopf overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 26–74 and 110–128",
+        "Exact kinetic and mode-1 calculations above"
+      ],
+      "rationale": "The parameters are motivated by the stated H1 classification, not a random test slice. A branch-side correction with an exact unstable spatial mode changes how one interprets emergence of homogeneous oscillations in this regime: the supercritical kinetic cycle exists but is not a local PDE attractor. Reporting both instead of just a generic invariant-subspace observation resolves a source-specific distinction at bifurcation onset.",
+      "residual_risks": [
+        "Local result only; it gives neither global pattern selection nor the direction of a spatially inhomogeneous periodic branch. The interpretation as a published correction is qualified by the primary-wording access limitation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

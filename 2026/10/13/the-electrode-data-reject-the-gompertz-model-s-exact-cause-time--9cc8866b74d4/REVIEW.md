@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. With common Gompertz shape, each observed-cause subdensity is a cause-specific scale multiplied by one common function of failure time. Hence the cause probability conditional on time is constant, and under the source's cause-neutral progressive censoring the label assignments are exchangeable conditional on failure times and the cause count. Exact integer dynamic programming on the printed electrode failures gives 44,812 rank allocations at least as extreme as observed among 2,438,362,177,020 possibilities, yielding \(p=1.8377909739\times10^{-8}\). The packaged checker independently verifies both the analytic factorization and the enumeration.
+## correctness
 
-## Originality
-PASS. Common proportional-hazards competing-risks theory already contains the structural label/time-separation ingredient, and a related common-shape Weibull article explicitly states the binomial cause-count law. The accepted result does not claim novelty for that theorem. Its original content is the source-specific implication comparison: the 2026 electrode data reject the restriction by an exact nuisance-free test, while the article separately interprets the two cause-conditioned empirical time distributions. Focused source, alias, parameter, equivalence, and application searches found no covering diagnostic.
+PASS
 
-Residual risk remains that an unindexed recent source has performed the same application-level test, and historical reproductions disagree on one electrode label. The calculation here uses the target source's table exactly as printed.
+The joint subdensity is the cause-specific hazard times the joint survival; dividing by the sum leaves a constant label probability. For independent units and label-neutral observation, removal and stopping, fixing observed times and counts leaves the same likelihood for every placement of the observed labels. Independently recomputed from the frozen Table 8 transcription at verify_gompertz_cause_time.py:21–31 without executing it: order times, assign doubled midranks (two observations at .328 each get 71), and expand the product of (1+x*y^r) over ranks r, retaining degree 19 in x. R_E=219, U=29, doubled mean 874. Grouping the tie with multiplier 2 for selecting one, the coefficients at doubled sums <=438 total 22,633 and those >=1310 total 22,179 (the latter by reflection r→92−r); their sum over choose(45,19) gives 1.837790973889128e−8. The result is a conditional model check, not a test distinguishing all possible alternatives or a check on the latent marginal fits. The published Table 8 layout and the article's printed likelihood could not be independently read; the numerical replay uses the supplied article-specific transcription.
 
-## Value
-PASS. The electrode analysis is offered as evidence for the model's practical adequacy. The exact structural implication \(J\perp T\) is far more strongly contradicted than a conventional significance threshold, and it explains why separate observed-time fits by cause cannot validate the latent common-shape model. This directly changes the scientific interpretation of the application while leaving open heterogeneous alternatives.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the electrode-specific conditional exact rank diagnostic and the resulting observed failure of the common-shape restriction. The hazard-ratio factorization and the permutation method themselves are not novel. No inspected counterpart covered the exact application and result.
+
+## value
+
+PASS
+
+The application matters independently of the standard mark-factorization: cause–time ordering very strongly violates a structural restriction of the fitted model even without estimating parameters. This checks a feature that separate cause-wise curve fits to selected minima cannot validate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Execute `python3 verify.py` from the directory containing the file. The script uses only the Python 3 standard library. It exactly enumerates all 75 surjective weak rank orders of four gap lengths and constructs integer-polynomial common-denominator certificates for each cut-count generating function. It then enumerates every four-one binary necklace at each length 4 through 20. For every necklace and every cut beginning at a one, it independently evaluates all lengths against every contiguous nonwrapping factor, compares to the gap inequality, and checks the resulting frequency against the rational generating function by exact coefficients. No experiments substitute for the unbounded weak-order/Burnside proof in RESULT.md.
+## correctness
 
-Expected closing line: `VERIFY_OK: 75 exhaustive weak orders, exact polynomial identity, and every four-one necklace length 4..20 checked by literal factor inequalities`.
+PASS
 
-Checks do not address historical priority, weights other than four, or infinite periodic variants. The separately claimed limiting fractions follow from rational pole orders, not a finite simulation.
+The shortest nonwrapping spans containing two and three ones give the cut predicate a≤b,c; zero-start cuts fail at length one. A qualifying nonminimum gap forces every smaller gap to be its predecessor. Hence with several minimum gaps only minima qualify; with a unique minimum a rotated first there is exactly one possible extra cut, before b, qualifying if b≤c,d. Subtracting a leaves three positive gaps; their unrestricted series is z³/(1−z)³ and the extra-cut subcase has series z³/((1−z³)(1−z)²). Multiplying the difference by z⁴/(1−z⁴) gives N_1. Exactly three minimum gaps and all equal gaps give N_3 and N_4 directly; Burnside gives the total, including half-turn and quarter-turn ties, and N_2 follows by subtraction. Pole orders yield the stated asymptotics. A fresh exhaustive weak-order polynomial check reproduced the four numerators, and direct literal tests of all physical cuts of all four-one necklaces for lengths 4–32 agreed, including (111,129,4,1) at length 20.
+
+## originality
+
+PASS
+
+Best-of-knowledge support is for the full nonwrapping necklace cut-multiplicity distribution, not for the known linear gap criterion, the total necklace count, or the periodic root problem. The strongest distinct same-day result enumerates weight-four necklaces with no circular prefix-maximal root. Its series B satisfies zB=N_1 here, a genuine exact numerical relationship, but its classification uses a different predicate and does not give the complete distribution by physical finite cuts. The linear-word enumeration supplies only an aggregate and not the per-orbit refinement.
+
+## value
+
+PASS
+
+Valid rotation counts measure the non-uniqueness of linear prefix-normal representatives obtainable by cutting without editing a circle. Four ones is a natural fixed-composition family, with a genuine difference between ordinary and periodic comparisons. A complete distribution, including tied and periodic configurations and the asymptotic two-class law, is a useful exact baseline rather than an arbitrary length cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

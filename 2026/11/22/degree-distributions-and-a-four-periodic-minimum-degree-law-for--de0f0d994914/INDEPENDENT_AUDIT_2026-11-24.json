@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:17:14.851764Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and Proof",
+        "Frozen VERIFICATION.md and verify.py (read as evidence; not executed)"
+      ],
+      "rationale": "Every one can be flipped down, so the degree is n minus the count of zeros completing a triple after a flip. The thirteen legal length-four states and two zero sentinels on each side implement the five-bit blocking rule: each append scores the real position two places before the append, including the final two positions during sentinel appends. This gives the stated rational transfer including the separately handled empty and one-bit words. A double one-run accounts for at most two blocked zeros; those not touching any double run occur only in single-zero gaps between singleton runs, of which there are at most r1−1 when r1>0. Thus the number blocked is at most both the zero count and the one count, with strictness against the one count in the presence of singleton runs. Equality at even n forces only double runs and an exact distinct flank on each side of every double, hence (0110) repeated; this is impossible for n=2 mod 4. The four displayed witnesses attain their bounds, including n=1,2,3. At n≥3 full degree is equivalent to all ones being spaced at least three positions apart; delete two padding zeros between successive ones to obtain the stated binomial count, handling the empty set separately. At n=1,2 all flips are legal.",
+      "residual_risks": [
+        "The reported finite checks were not relied on as a reproduced run. The transfer, sharp bounds and equality cases were checked by proof for all linear lengths.",
+        "There is no conclusion for cyclic words or graph connectivity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Question 5.2 asks whether connectivity equals minimum degree for general forbidden-word cubes and records computations through dimension nine. The accessible 2020 abstract reports weight counts, edges and induced cubes and cube polynomials."
+        ],
+        "reasoning": "An equality with connectivity does not compute the minimum degree in this family. The abstract describes aggregate enumerations, not the ordinary-degree distribution or its minima; the inaccessible body could in principle contain additional results.",
+        "searches": [
+          "Azarija–Klavžar–Lee–Rho (2015), §5 Question 5.2",
+          "Belbachir–Ould-Mohamed (2020), DOI 10.1016/j.disc.2020.111922, available abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact and related searches",
+        "Rho–Vesel Lemma 3.6",
+        "Azarija et al. §5",
+        "Available abstract of Belbachir–Ould-Mohamed",
+        "Local-mirror Findings for q-decreasing words and cubic Walsh record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first lemma plus a spacing count gives the maximum-degree multiplicity. Edge counts are the first moment of degrees, while the transfer weights blocked zeros position by position and the equality proof forces alternating double runs and their distinct flanks."
+        ],
+        "reasoning": "Full-degree characterization alone does not imply either the histogram or rigidity of its opposite extreme. Induced cube counts are not degree-star counts: a set of individually legal flips need not span a legal cube (e.g. all three flips from 000), so the cube polynomial is not the ordinary degree enumerator.",
+        "searches": [
+          "Rho–Vesel Lemma 3.6; Azarija et al. §5; Belbachir–Ould-Mohamed abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rho–Vesel identifies degree below h when one positions are adjacent or at distance two in Q_h(111). The reverse follows because an illegal up-flip completes a triple. The exact matching catalogue entry is the frozen record itself."
+        ],
+        "reasoning": "This is the same object under a standard alias and gives the full-degree test, but a binary deficiency test does not count blocked coordinates or optimize their number. The distinct q-decreasing notion permits an arbitrarily long initial one-run and is not equivalent.",
+        "searches": [
+          "Resultary: generalized Fibonacci or Tribonacci cube Q_n(111), ordinary degree distribution/minimum degree and equality patterns",
+          "Rho–Vesel (2016), §3, Lemma 3.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct cubic Walsh record uses the same legal support but tabulates zeros of its ambient convolution transform. The distinct Fibonacci q-decreasing record states min(n,q) for a different graph and explicitly says it is not the graph of words merely avoiding 1^(q+1)."
+        ],
+        "reasoning": "Neither gives this exact histogram or minimum-degree law; same-day matching terminology or vertex counts are not evidence of matching invariants.",
+        "searches": [
+          "Resultary: exact four-periodic minimum degree and 111-avoiding one-flip histograms",
+          "Same-day distinct Resultary matches, Finding sections"
+        ]
+      },
+      "rationale": "The distinctive claim is the all-length ordinary-degree histogram and exact minimum-degree law including rigidity at multiples of four. The full-degree local criterion has a known formulation, and the spacing count is an elementary consequence, not the basis for the originality decision. The strongest accessible material does not provide the distinctive joint result; the 2020 article's inaccessible body limits historical confidence.",
+      "residual_risks": [
+        "The 2020 Tribonacci enumerative article is a plausible source of an equivalent refinement; only the abstract was inspected, and full historical priority is not established.",
+        "The elementary maximum-degree spacing specialization is not counted as a standalone advance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior local criterion sufficient for maximum-degree spacing interpretation, not the full histogram or sharp minimum",
+          "evidence": [
+            "Existing pairs of ones at distance one or two force degree below h for h≥3."
+          ],
+          "identifier_or_url": "https://doi.org/10.46298/dmtcs.2165",
+          "material_read": "§3 Lemma 3.6, PDF p. 7, extraction around offset 22100",
+          "method": "Targeted OA PDF inspection",
+          "title": "Linear recognition of generalized Fibonacci cubes Q_h(111)",
+          "trigger": "Identical forbidden-word graph and local degree-deficiency criterion"
+        },
+        {
+          "assessment": "The abstract does not report the exact ordinary-degree law; no whole-paper noncoverage finding is made",
+          "evidence": [
+            "Reported enumerations are weight-specific vertices, edges and induced cubes."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2020.111922",
+          "material_read": "Available abstract metadata only; full article not obtained",
+          "method": "DOI/public metadata and lawful OA retrieval attempts, ending at landing page or HTTP 403",
+          "title": "Enumerative properties and cube polynomials of Tribonacci cubes",
+          "trigger": "Plausibly competing enumerative paper for the identical graph"
+        },
+        {
+          "assessment": "General connectivity question and finite checks, not this exact law",
+          "evidence": [
+            "Is κ(Q_d(f))=δ(Q_d(f)) for all f and d? Reported experiments for dimensions 4≤d≤9."
+          ],
+          "identifier_or_url": "https://doi.org/10.46298/dmtcs.2115",
+          "material_read": "§5 Question 5.2 and its discussion, extraction offset 29450, pp. 86–87",
+          "method": "Targeted lawful OA PDF passage",
+          "title": "Connectivity of Fibonacci cubes, Lucas cubes, and generalized cubes",
+          "trigger": "Minimum degree in the context of general forbidden-word cubes"
+        },
+        {
+          "assessment": "Different one-flip graph",
+          "evidence": [
+            "The condition is qa>b on zero-to-one runs, with unrestricted initial one-run. The minimum is min(n,q)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-minimum-degree-and-unique-fragile-vertex-in-graphs-of-fibo--f0c5e9a374c9/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Targeted local-mirror passage",
+          "title": "Sharp minimum degree and unique fragile vertex in graphs of Fibonacci q-decreasing words",
+          "trigger": "Closest same-day hit by type of degree theorem"
+        },
+        {
+          "assessment": "Different operator and invariant",
+          "evidence": [
+            "The degrees are orders of vanishing Walsh characters, not vertex degrees in the induced subgraph."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-first-cubic-walsh-blind-spots-in-the-thirteen-dimensional-genera--d99fa3fae561/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Targeted local-mirror passage",
+          "title": "First cubic Walsh blind spots in the thirteen-dimensional generalized Fibonacci cube",
+          "trigger": "Closest same-day hit by identical graph support"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof of extremal rigidity",
+        "Prior local-deficiency criterion and bibliographic comparison"
+      ],
+      "rationale": "An exact distribution of legal one-coordinate changes and its smallest value are natural local robustness invariants of this established graph family, not captured by its vertex/edge totals. The sharp mod-four defect and the unique tight vertex in the divisible-by-four case answer concrete structural questions; the weighted finite transfer permits exact degree multiplicities at all lengths.",
+      "residual_risks": [
+        "The transfer is a constant-size representation rather than a minimal closed form. No inference to connectivity or to other forbidden factors is made."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

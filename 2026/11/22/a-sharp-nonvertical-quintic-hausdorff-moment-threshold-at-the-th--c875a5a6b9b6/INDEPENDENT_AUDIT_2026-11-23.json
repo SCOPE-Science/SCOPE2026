@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:09:31.939620Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Positive increasing P gives bounded expansive weights; P(n+k)/P(k) has exact degree five in n, giving the strict sixth-difference identity, not the fifth. Cauchy-dual moments telescope to P(0)/P(n). Subtracting the two quadratic Laplace resolvents, then convolving with e^(−at), yields the signed density in RESULT.md; its logarithmic-coordinate absolute value is bounded by a constant times (1+t)e^(−min(a,b)t). The finite signed density is uniquely determined by its Hausdorff moments, so its continuous interior sign is decisive. With y=ct the integrand factors as (2/3)sin(y/2)(1−cos(y/2))(4cos(y/2)+1), with signs +,−,+,− over one period; hence minima only at 0, 2π, 4π. At 2π the sign is that of 5−(8λ²+13)e^(−2πλ), immediately excluding λ≤0. For positive λ the full-period integral is strictly positive, with each new period a positive accumulated offset plus a rescaled first period. The log-equation derivative is positive since 16λ/(8λ²+13)≤√(8/13). At equality the only interior vanishing point is y=2π (the derivative has a strict sign change and F''(2π)=2e^(−2πλ)); hence x=e^(−2π/c). The independent numerical replay /tmp/opencode/frozen_math_samples_a91d.py gives λ*=0.1543920340043247835587; check.py was inspected, not executed. Its printed period and recurrence counts overstate the loops (four positive-λ period evaluations and 84 recurrence comparisons); the diagnostics are not used as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-day detuning record treats every r>1 and b≥a, with exactly the same normalized kernel G_{δ,r} and an implicit closed threshold ray δ≥Δ(r). It gives a near-integer asymptotic at integers m≥2 and explicitly limits its closed-form coverage.",
+          "Reza–Zhang p. 5 lists the quintic with a rightmost real root and two pairs farther left as remaining except for the vertical-line case; Buchała Theorem 3.1 covers the polynomial shift construction."
+        ],
+        "reasoning": "At r=3/2 the broad criterion is identical symbolically to positivity of the integral, not a sufficient or necessary explicit value. Demonstrating that its entire semi-infinite test is resolved by the value at 2π (and that no later zero occurs) is the additional argument; evaluating the local asymptotic at distance 1/2 from r=2 is not valid.",
+        "searches": [
+          "Resultary c4217ab9cf15, Linear detuning law at integer resonances of quintic Hausdorff moments, assumptions, proof §§1–3 and limitations",
+          "arXiv:1903.00116v1 quintic classification; arXiv:2407.17233 Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Reza and Zhang arXiv:1903.00116v1",
+        "Buchała arXiv:2407.17233",
+        "Resultary c4217ab9cf15 and 53a17c5c3699"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The detuning record gives the all-time inequality Q_{δ,r}(t)≤e^(δt), but never reduces it at 3:2 to a single integral minimum. Its monotonicity argument already yields strict positivity above a verified threshold; the explicit boundary and boundary-zero count are not consequences of monotonicity alone."
+        ],
+        "reasoning": "Substitution r=3/2 in the general formula leaves a continuum of constraints. The exact fixed-ratio sign factorization, full-period comparison and equality analysis add a global result rather than plugging a parameter into a stronger evaluated theorem.",
+        "searches": [
+          "arXiv:1903.00116v1 Theorem 1.10 and quintic scope; Resultary c4217ab9cf15 exact beating-phase reduction and limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen positivity test is for the unique signed measure representing P(0)/P(n); multiplying by P(0)>0 preserves the condition for 1/P(n).",
+          "Reza–Zhang Theorem 1.10 uses r=−a=−b with both pairs on one vertical line and gives positivity only for integer frequency ratio greater than one. It therefore rules out the 3:2 slice at b=a, not at the positive critical displacement."
+        ],
+        "reasoning": "Changing operator terminology to rational Hausdorff moments does yield real prior overlap, but the exact threshold is nonvertical; it cannot be obtained by applying the known vertical theorem.",
+        "searches": [
+          "arXiv:1903.00116v1, Introduction and Theorem 1.10",
+          "Resultary: quintic reciprocal Hausdorff moments, Cauchy dual, two distinct frequencies, real-pole displacement"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The adjacent detuning record does not tabulate or solve Δ(3/2); its relationship section distinguishes the fixed-3:2 finding. The repeated-pole threshold record 53a17c5c3699 concerns a squared quadratic and a different kernel."
+        ],
+        "reasoning": "Neither a repeated-pair number nor the implicit general positivity region supplies the exact root or sole interior zero. Same-day dates do not establish priority; catalogue retrieval is bounded.",
+        "searches": [
+          "Resultary: exact three-to-two frequency threshold and equality atom-free Berger density",
+          "Resultary records c4217ab9cf15 and 53a17c5c3699"
+        ]
+      },
+      "rationale": "Substantial same-family overlap is explicitly credited. The general signed-density criterion, existence of a displacement threshold ray, and the isometry construction are not a distinct contribution of this record. The supported unroutinized result is the exact evaluation of the threshold at the first noninteger rational ratio 3:2, with necessity across all a,b,c>0 and the location and uniqueness of the critical interior density zero. Neither the broad implicit threshold nor the near-integer expansion resolves the global positivity test at this ratio.",
+      "residual_risks": [
+        "An unindexed rational complete-monotonicity or positive exponential-spline treatment might explicitly evaluate this commensurate ratio. Search does not establish historical priority.",
+        "The broad threshold framework already includes this slice implicitly; only the evaluated boundary and its critical zero support the pass, not the framework itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material same-family overlap at implicit threshold level, not the explicit fixed-3:2 conclusion",
+          "evidence": [
+            "Defines Δ(r) by nonnegativity of G_{δ,r} for all times; gives a detuning law near integer r and explicitly does not classify arbitrary ratios in closed form."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-linear-detuning-law-at-integer-resonances-of-quintic-hausdorff-m--c4217ab9cf15",
+          "material_read": "RESULT.md assumptions, proof §§1–3 and relationship/limitations; offsets 0–5623 and 10500–11932",
+          "method": "Resultary search and originating text via local mirror",
+          "title": "Linear detuning law at integer resonances of quintic Hausdorff moments",
+          "trigger": "Same quintic family and general displacement threshold"
+        },
+        {
+          "assessment": "Covering the equal-real-part case, not the positive separation boundary",
+          "evidence": [
+            "All roots on one vertical line in Theorem 1.10; integer frequency ratio necessary and sufficient there. Theorem 5.3 is quartic."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1903.00116v1",
+          "material_read": "Introductory degree-five scope and Theorem 1.10 (PDF p. 5; offsets 14800–18326); scope of Theorem 5.3 (p. 17)",
+          "method": "Bounded passages of primary OA PDF",
+          "title": "Hausdorff moment sequences induced by rational functions",
+          "trigger": "Quintic reciprocal-moment classification"
+        },
+        {
+          "assessment": "Covers polynomial moment characterization, not positivity of reciprocals",
+          "evidence": [
+            "Characterizes m-isometry by polynomial orbit moments with degree at most m−1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.17233",
+          "material_read": "Theorem 3.1, PDF p. 5 (offset near 16200)",
+          "method": "Bounded passage of primary OA PDF",
+          "title": "m-isometric weighted shifts with operator weights",
+          "trigger": "Prior general shift construction"
+        },
+        {
+          "assessment": "Different root multiplicities in the indexed theorem; no full-document exclusion claimed",
+          "evidence": [
+            "Has one repeated conjugate pair, not distinct frequencies c and 3c/2."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-damping-threshold-for-cauchy-dual-subnormality-of-repeat--53a17c5c3699",
+          "material_read": "Indexed statement of the repeated-pole classification",
+          "method": "Resultary catalogue comparison",
+          "title": "A sharp damping threshold for Cauchy-dual subnormality of repeated-pole six-isometric shifts",
+          "trigger": "Potential exact-threshold duplicate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first noninteger ratio of two positive integral frequencies in lowest terms is a natural test outside the equal-real-part integer resonance classification. The result exactly resolves when finite positive damping restores an entire representing measure, and identifies the singular boundary location. It is a reusable nonvertical benchmark for positivity tests with competing frequencies, without a claim to classify other ratios.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

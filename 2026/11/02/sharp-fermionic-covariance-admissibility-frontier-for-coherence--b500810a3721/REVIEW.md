@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The full quantifier is over every Hermitian fermionic positive-contraction input of arbitrary positive finite system and bath dimensions. The forward implication follows separately from two explicit positive-semidefinite block congruences, controlling both the output and its Pauli complement. The converse is witnessed by rank-one projectors along the least-occupied and most-occupied bath eigenvectors; their determinant signs are strict beyond the frontier. Thermal optimization is the exact minimax of two affine functions, and the resonant continuous trajectory follows from the stated linear equations and a fully bounded two-eigenvalue spectrum. The included checker tests finite cases but is not treated as a proof of infinite quantification. A full quantum-channel implementation is neither assumed nor concluded.
+## correctness
 
-## Originality — PASS, with identified priority risk
-The April 2026 paper establishes the hard-bath coherence-selective interpolation and studies its fixed-point heat/coherence tradeoff, not a stated exact universal covariance-admissibility frontier. The March 2026 paper supplies the evolving-correlation equations, not the complete resonant initial-occupation admissibility region. Importantly, the October 2026 paper already observes that an arbitrary hard-bath coherence-preserving update can fail to be a physical fermionic state and proposes a different, completely positive attenuation protocol. That **qualitative objection is established prior work**, and the candidate is restricted to the sharp all-input spectral boundary, thermal optimal filling, and complete resonant reachable interval. Targeted mathematical research-index and primary-literature searches did not disclose those joint exact statements, but absence of a search hit is not novelty proof. The October paper's complete technical text could not be inspected, leaving a concrete priority risk.
+PASS
 
-## Value — PASS
-The original physical model uses a coherence-retention parameter throughout a full interval; its covariance validity for arbitrary pre-reset states is a natural mathematical control constraint, not an arbitrary numerical slice. The theorem resolves exactly how the least-filled and most-filled thermal bath modes restrict safe retention, determines the maximizing chemical potential and its exponential low-temperature suppression, and distinguishes a global input guarantee from a genuinely reachable special dynamical orbit. These are physically interpretable decision boundaries for assessing the limitations of hard-reset covariance prescriptions. This is a covariance-validity classification, not a claim that small coherent retention can be realized by a completely positive channel.
+For an admissible input, replacing its bath block B by I in Γ gives a positive block matrix. Congruence by diag(I,ηI), then adding B0−η²I in the bath block, gives output positivity. The same argument on I−Γ yields the upper Pauli bound if I−B0≥η²I. For necessity, a rank-one state on a system vector and a B0 eigenvector with eigenvalue b gives determinants p[b−η²(1−p)] and (1−p)[1−b−η²p]. If either bound fails, choosing p sufficiently close to the appropriate endpoint, but strictly in (0,1), gives a strict obstruction. Thus equality is safe, including singular targets at η=0. The decreasing Fermi occupations give the two edge bounds and the maximum of two affine exponent arguments, with unique minimizer at the midpoint even for a flat band. For an unbounded edge, thermal spectral projections give approximate extremal vectors, enough for the same determinant witnesses. In the stated resonant equations P''=−2g²(P−n), and the zero initial coherence fixes the cosine and its paired imaginary sine. For the matrix K in the proof, det(I±K)=(1±cos θ)²/2 and their diagonals are nonnegative, hence −I≤K≤I; at θ=π, P=2n−p, which together with admissible initial p proves necessity for the full-time window. Read the frozen nested verifier/verify.py and VERIFICATION.md without executing them. They give bounded rational tests and floating-point samples, not the proof or a CPTP claim.
 
-## Closest literature and remaining limitations
-The most relevant comparison is Kumar--Lazarides--Ala-Nissila, *Memory--Transport Competition in Physical Two-Bath Quantum Reset Dynamics* (arXiv:2610.30457, 2026-10-21). Its accessible abstract explicitly recognizes the general physicality obstruction; its full text was inaccessible during comparison and may contain related technical results. The two preceding full texts establish the reset map and continuous equations. Standard block positivity and Fermi--Dirac monotonicity are background facts. The work does not settle complete positivity, general detuned continuous evolution, or the validity of particular previously reported fixed points beyond the all-input guarantee.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The hard reset, its qualitative physicality obstruction and the continuous equations are existing work. The exact inclusive all-input retention threshold with two sharp universal obstructions, and the all-time resonant window, remain distinct on the checked evidence.
+
+## value
+
+PASS
+
+The inclusive sharp bound answers whether an existing reset rule is universally safe, quantifies exactly how temperature and band edges restrict retention, and distinguishes unsupported universal use from admissible particular continuous trajectories. Sharp witnesses and the reachable criterion are useful without claiming a physical implementation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

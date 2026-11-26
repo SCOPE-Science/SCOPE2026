@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:52:03.239998Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 14–74",
+        "VERIFICATION.md and CHECK.py (inspected, not executed)",
+        "Independent numerical replay: python3 /workspace/evidence/record-1.py (NumPy, SciPy, mpmath)"
+      ],
+      "rationale": "Conditioning on the last reset gives a renewal term and a no-reset term of weight exp(-rs). The latter vanishes in trace norm as elapsed time s grows, giving the age mixture as the unique stationary state. Transmissivity has density kt^(k-1), k=r/gamma. Pure loss attenuates both coherent amplitudes by sqrt(t) and multiplies their off-diagonal dyads by the environment overlap exp(-2A(1-t)); the resulting Gaussian terms and cosine fringe give the quoted normalized Wigner formula. After factoring out its positive Gaussian, the remaining function is its origin value plus nonnegative cosh-minus-one and one-minus-cosine averages; each average vanishes only on its own coordinate axis. Pairing t with 1-t fixes the origin sign on either side of k=1 and its negative derivative -h(A) at k=1. Near the threshold the second-order spatial coefficients are a=8AB_x and b=8AB_y, both positive. Away from the origin the cosh increment is uniformly positive outside any fixed x interval, and the one-minus-cosine increment is uniformly positive away from y=0 by compactness and the large-|y| Fourier limit; after t=s² the Fourier weights form a compact L¹ family in k near one. Thus no remote negative components contribute near onset. A positive definite Hessian in a fixed ball gives one convex negative component and bounds it within radius O(sqrt(k-1)). After rescaling, uniform convergence of the signed bracket on bounded sets sandwiches the region between nearby ellipses. Integration of the limiting bowl yields pi h²/(2 sqrt(ab)); with the Wigner prefactor it gives exactly C(A). Independent odd-Fock binomial thinning corroborates the origin sign/zero, and independent Gauss–Legendre and polar quadrature for A=1 gives N/epsilon² tending to 0.1185724728353, with value 0.1185403694 at epsilon=0.00016.",
+      "residual_risks": [
+        "Frozen line 74 gives a slightly less accurate sample value 0.11857243; the exact formula and leading law are unaffected. Quadrature checks are not rigorous error bounds or proofs of the global sign.",
+        "Onset and topology are for fixed nonzero A near k=1, not uniform in A or asserted at arbitrary supercritical rates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The resetting paper's p. 1 abstract gives a general stationary-state construction, not a Wigner-sign criterion. The retrieved arXiv:2604.20303 p. 1 abstract describes a cat-state positivity criterion but does not mention this stationary renewal mixture.",
+          "Resultary 66df55b3ec78 gives a matched-rate threshold for odd Fock inputs; same-day 0f4bc643e42b considers arbitrary renewal clocks with a two-photon input."
+        ],
+        "reasoning": "The reset construction includes this physical model but does not decide its sign or the integrated onset. Generality in clock laws at a fixed different input, or across pure number states at Poisson clocks, is not by itself generality across coherent odd superpositions. A broader channel theorem applicable to such inputs is not excluded.",
+        "searches": [
+          "arXiv:1806.01298",
+          "arXiv:2604.20303",
+          "Resultary 66df55b3ec78 and 0f4bc643e42b"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 36–86",
+        "arXiv:2201.03257, arXiv:1806.01298 and arXiv:2604.20303 p. 1 abstracts",
+        "DOI:10.1364/PRJ.418417 (metadata and attempted primary access)",
+        "Resultary 66df55b3ec78, 0f4bc643e42b and d89672e5fa6b (indexed statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed-loss positivity and reset stationarity are prior inputs. Odd photon-number parity explains the origin cancellation more generally, whereas RESULT.md lines 48–71 additionally gives the nonnegative off-origin increments, control of remote negativity, and the explicit local integral.",
+          "The closest indexed matched-rate result specifies Fock resets; the earlier squarefree-onset result concerns finite-Fock pure input in the deterministic channel."
+        ],
+        "reasoning": "An origin parity formula for odd input, or positivity verified separately on all Fock inputs, does not by itself give positivity for their coherent superpositions at every phase-space point. A fixed-loss local onset does not determine the stationary-mixture derivative, Hessian, or negative mass. No dominating prior implication for the full sign-plus-onset claim was established from the actual statements available.",
+        "searches": [
+          "arXiv:2201.03257 and arXiv:1806.01298 abstracts",
+          "Resultary 66df55b3ec78 and d89672e5fa6b",
+          "arXiv:2604.20303 p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2201.03257 p. 1 abstract states a fixed-efficiency loss threshold at 1/2; arXiv:1806.01298 p. 1 abstract describes stationary states under random resetting in terms of reset-free dynamics.",
+          "RESULT.md lines 37–62 transforms the age law to a continuum of transmissivities straddling 1/2; the 66df55b3ec78 catalog result instead resets to Fock states."
+        ],
+        "reasoning": "The dimensionless reset rate is not a single transmissivity. The average includes both individually positive and individually negative Wigner functions, and a deterministic positivity test alone cannot determine cancellation. A Fock-diagonal reset state cannot be turned into the coherent cat by relabeling; dephasing the cat discards off-diagonal contributions to nonzero phase-space points.",
+        "searches": [
+          "Resultary semantic comparison for Poisson resetting, odd-cat Wigner positivity and negativity onset",
+          "arXiv:2201.03257",
+          "arXiv:1806.01298",
+          "Resultary 66df55b3ec78"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day Fock-result summary reports the matched-rate boundary for odd Fock levels, not an odd-cat coefficient. The two-photon renewal entry reports exponential critical mean 0.6572981061..., not the threshold in this model.",
+          "The earlier d89672e5fa6b summary gives quadratic onset for squarefree states of finite Fock support at a fixed-loss boundary, not a table or formula for reset-mixture C(A)."
+        ],
+        "reasoning": "A matching value of a dimensionless threshold or the same onset exponent is weaker than an equivalent exact result on this input, random-age measure and amplitude-dependent onset prefactor. There was no independently established prior exact formula for C(A) in the comparisons, and no priority is inferred from a same-day date.",
+        "searches": [
+          "Resultary 66df55b3ec78, 0f4bc643e42b and d89672e5fa6b",
+          "arXiv:2201.03257 and arXiv:2604.20303"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the strict whole-plane sign classification and amplitude-dependent negative-volume onset of the stationary odd-cat Poisson mixture. The known fixed-loss threshold and general reset formula are credited. The closest distinct Resultary matches have substantial methodological or threshold overlap but their available statements do not entail the complete coherent odd-cat result; several primary passages remain inaccessible.",
+      "residual_risks": [
+        "The same-day Fock-reset record's full text is the most material unresolved overlap; it could contain a broader theorem than its summary. No order of priority is inferred from same-day dating.",
+        "Cited optical-cat article and deeper passages of the positivity and reset papers were not independently read. The verification of title and abstract at arXiv:2604.20303 does not establish its full scope.",
+        "An unrevealing lookup does not establish literature-wide priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified fixed-efficiency prior result, not an unobserved reset mixture",
+          "evidence": "The abstract describes necessity and sufficiency of efficiency eta>1/2 for persistence of Wigner negativity under the fixed loss considered.",
+          "identifier_or_url": "https://arxiv.org/pdf/2201.03257",
+          "material_read": "PDF p. 1 abstract, lines 7–13 in extracted text; later body not verified",
+          "method": "OA query timed out; lawful arXiv PDF abstract extraction",
+          "title": "Robustness of negativity of the Wigner function to dissipation",
+          "trigger": "Primary fixed-loss positivity boundary and possible cat specialization"
+        },
+        {
+          "assessment": "General reset stationarity credited; sign/onset not implied by the available statement",
+          "evidence": "Abstract states that stationary states under state-independent random resetting can be expressed in terms of reset-free modes.",
+          "identifier_or_url": "https://arxiv.org/pdf/1806.01298",
+          "material_read": "PDF p. 1 abstract, lines 14–25 in extracted text; later body not verified",
+          "method": "OA query timed out; lawful arXiv PDF abstract extraction",
+          "title": "Spectral properties of simple classical and quantum reset processes",
+          "trigger": "General reset construction may cover stationary state"
+        },
+        {
+          "assessment": "Specific coverage not independently verified",
+          "evidence": "Frozen RESULT.md line 77 describes fixed loss, but no primary passage was available to substantiate that attribution.",
+          "identifier_or_url": "https://doi.org/10.1364/PRJ.418417",
+          "material_read": "Citation metadata only; substantive passage not retrieved",
+          "method": "OA attempt timed out; Optica endpoint required CAPTCHA",
+          "title": "Quantifying quantum coherence of optical cat states",
+          "trigger": "Cited optical-cat attenuation comparison"
+        },
+        {
+          "assessment": "Cat-state criterion in abstract; exact broader scope unresolved. Correct the cited title in future versions.",
+          "evidence": "The linked identifier is Solinas, Donelli and Gherardini's Operational criterion for Wigner function negativity, not the title printed in frozen line 86. Its abstract states a cat-state Wigner-positivity condition but no Poisson-reset sign or volume law.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.20303",
+          "material_read": "PDF p. 1 title, stamp 22 April 2026 UTC, and abstract lines 12–27 in extracted text",
+          "method": "OA query timed out; lawful arXiv PDF abstract extraction",
+          "title": "Operational criterion for Wigner function negativity",
+          "trigger": "Cited close cat-state positivity work; locator/title discrepancy"
+        },
+        {
+          "assessment": "Substantial reset-threshold overlap on different inputs; generalization unresolved",
+          "evidence": "Summary states positivity at matched rates and return of negativity above that rate for odd Fock inputs, with a different even-input threshold. It does not state a coherent odd-cat coefficient or whole-plane strictness for this family.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-parity-dependent-wigner-negativity-threshold-under-poisson-fock--66df55b3ec78",
+          "material_read": "Indexed Resultary summary; full record and onset passages not retrieved",
+          "method": "Resultary search; mirrored OA attempt timed out",
+          "title": "Parity-dependent Wigner negativity threshold under Poisson Fock re-preparation",
+          "trigger": "Strongest distinct same-day threshold match"
+        },
+        {
+          "assessment": "Analogous methods and onset, not equivalent claim on the stated objects",
+          "evidence": "First summary refers to a two-photon input with a variable clock; second to squarefree finite-Fock support and deterministic attenuation.",
+          "identifier_or_url": "Resultary 0f4bc643e42b and d89672e5fa6b",
+          "material_read": "Indexed Resultary summaries only",
+          "method": "Resultary semantic comparison; attempted primary mirror retrieval for same-day renewal record",
+          "title": "Sharp mean-clock threshold for two-photon Wigner negativity; stellar-root multiplicity and onset exponent",
+          "trigger": "General renewal threshold and earlier quadratic onset analogues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–34 and 48–80",
+        "arXiv:2201.03257 p. 1 abstract",
+        "arXiv:1806.01298 p. 1 abstract"
+      ],
+      "rationale": "In a stationary resetting experiment with an unobserved age, Wigner negativity is a property of the mixture, not a statistic of which trajectories fall on the negative side of the deterministic loss threshold. The amplitude-independent rate threshold and single critical zero determine when the stationary resource survives. The explicit amplitude-dependent quadratic onset then quantifies how small the usable phase-space negative volume is close above threshold, beyond a sign at one point. The single-component statement also identifies the geometry relevant to that onset.",
+      "residual_risks": [
+        "No finite-sample detectability or advantage claim, and no analogous threshold established for a warm bath, incomplete resetting, or arbitrary Hamiltonian evolution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

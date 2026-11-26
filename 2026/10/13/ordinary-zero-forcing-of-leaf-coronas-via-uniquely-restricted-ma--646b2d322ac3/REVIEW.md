@@ -1,19 +1,21 @@
-# Scientific review of leaf-corona zero forcing
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The reduction preserves every original vertex's blue/white status after the initial private-leaf forces. A nondonor root cannot force an originally empty root while its own private leaf remains white, and may force its own leaf only after all its original neighbors have become blue. Thus every originally empty root must be reached by a distinct private-leaf donor. Such donor forces are ordered by a directed acyclic dependence relation, equivalent to a uniquely restricted matching saturating all empty-pair vertices. The reverse direction is a legal chronology. The generating formula assigns independent weight \(x(1+x)\) to each leaf-donor pair and \(x\) to a root-only pair; the complete-clique formula follows from the impossibility of starting when at least two pairs are empty. The inclusion-minimal classification follows by checking removal of every possible selected vertex. A separate direct simulator checked 500,260 initial sets, including all simple base graphs of order at most four. The proof handles all finite graph orders, including isolated vertices; computational checks alone would not.
+PASS
 
-## Originality (PASS, subject to residual risks)
+Fire initially blue leaves into white roots first. A root without an initially selected leaf cannot force another root: its white leaf blocks such a force until it forces the leaf, at which point all its original neighbors are already blue. Hence a successful sequence yields distinct donors in D, one per initially empty pair U, with no edge from an earlier donor to a later target. The matched endpoints have no alternating cycle. Conversely, using dependencies from every other adjacent target to a donor's own target, unique restriction makes the dependency digraph acyclic; processing a topological order clears U and every remaining leaf can then be forced. Fixed D,U give weight x^{n-|U|}(1+x)^{|D|}, with no overcounting. In a clique the successful cases are U empty and |U|=1 with a donor. For minimality, a doubly selected pair can lose its root without changing the criterion. If there is no empty pair, exactly one selection per pair and at least one selected leaf, keep such a leaf and delete the choice in any other pair (possible for n>=2, even for the all-leaf set); this fills an implicit case in the written proof. The all-root set and the one-empty-pair sets with one choice per other pair are therefore exactly the minimal sets. The minimum coefficient, upper number and boundary n=2 follow. Frozen verification files and output were inspected, not executed; the reported finite coverage is supplementary.
 
-The full 2018 founding zero-forcing-polynomial preprint covers general coefficient theory and several basic graph families, but not this leaf-corona cut formula. Brimkov--Carlson (2022) discuss exponentially many minimal zero forcing sets for whiskered cliques but do not give the full polynomial or complete classification; moreover, their exhibited mixed sets include sets that are not inclusion-minimal, as the explicit four-clique counterexample demonstrates. Javaid et al. (2016) treat larger attached corona factors and principally the scalar minimum. Earlier constrained-matching theory is acknowledged and could shorten the general structural argument, so the work does not assert novelty of uniquely restricted matchings themselves. Searches for weighted zero forcing polynomials of one-leaf coronas did not locate an equivalent theorem. The 2014 constrained-matching paper was not available in complete text during comparison, leaving a nonzero risk of antecedent structural coverage.
+## originality
 
-## Value (PASS)
+PASS
 
-The structural equivalence supplies a universally exact weighted enumerator of zero forcing sets in an operation—adjoining private leaves—that changes the forcing constraints in a nontrivial way. The clique specialization computes all coefficients and, beyond minimum size, separates one inclusion-minimal family of size \(n\) from exponentially many minimum sets of size \(n-1\). It also furnishes an explicit counterexample to the inclusion-minimal claim of a closely relevant published construction. These are natural invariants and a motivated boundary correction rather than an arbitrary single numerical table. This is an exact enumerative result, not a polynomial-time solution to arbitrary graph zero forcing.
+Credit constrained matching as prior machinery and the same-day leaf-corona power-domination record for an exact overlap on leaf-only seeds. The supported contribution is the ordinary all-seed transfer and weighted enumeration, with the exact clique minimal-set classification and correction of the earlier blanket minimality assertion. No priority is inferred from same-day indexing.
 
-## Closest literature and limitations
+## value
 
-The principal comparisons are Boyer et al. (2018, arXiv:1801.08910), Brimkov and Carlson (2022, arXiv:2204.01810, Proposition 1), Javaid et al. (2016, arXiv:1607.04071), and Tréfois and Delvenne (2014, arXiv:1405.6222). General constrained-matching reductions and unindexed equivalent formulas are residual originality risks; the 2014 full text was unavailable. The exact cut sum need not have polynomial running time. Finite exhaustive computations are supporting checks only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The structural test replaces trajectories in an arbitrary corona with a matching problem on the base cut and also counts all initial sets by size. The clique case resolves a concrete earlier minimality issue and separates minimum from inclusion-minimal sets. These uses do not depend on a claim of efficient general enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

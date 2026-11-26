@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:30:48.567583Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the Cartesian representation, a proper interval's minimum-priority key has precisely that subtree iff each existing immediately outside key has lower priority. This gives one-tree probabilities 2/[(k+1)(k+2)] and 1/(k+1); squaring and counting n−k−1 interior and two terminal intervals gives the exact mean, also for k=n−1. On a window [K,LK], intersecting enlarged intervals define dependency neighborhoods. Interior-interior product terms total O(nK·K²·K^−8); terminal-interior and terminal-terminal product terms are O(K^−3) and O(K^−2). Crossing and adjacent pairs cannot occur; nested pairs condition on a fresh relative order inside the larger interval. For a one-key gap, condition on the separator priority t: integrating over one exterior boundary gives t(1−t)^k+(1−t)^(k+1)/(k+1). Integrating the product over t gives O(K^−3) with both exterior boundaries and O(K^−2) with one missing in one tree, then square. Interior-parent edge-nesting and interior one-gap pairs thus contribute O(nK²·K^−6), strictly internal nesting O(nK³·K^−8), and the terminal cases O(K²·K^−4+K³·K^−6); two missing outer boundaries in a one-gap pair are impossible for fixed L and large n. Both dependency-graph error sums vanish at K proportional to n^(1/3). The mean tends by Riemann sum to the stated integral, with terminal mean O(1/K). For a formal point-process check, for each nonnegative continuous compactly supported f on (0,∞), independently retain indicators with probability 1−exp(−f(k/n^(1/3))); the same bounds apply, and the zero-count probability gives the Poisson Laplace functional with intensity 4u^−4 du. Finally the expected count above yn^(1/3) has limsup at most 4/(3y³). Truncation followed by y→∞ gives the stated maximum CDF; the strict lower threshold uses a ceiling. The finite uploaded verifier was read, not executed, and is not needed for the infinite limit.",
+      "replay_paths": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Indexed 113c6a577ae9 is a marked spatial Poisson theorem with quantitative error for finitely many sizes at the sqrt(n) scale in a single uniform BST.",
+          "The frozen references identify prior single-tree fringe-size theory; a decisive primary Holmgren–Janson passage was not retrieved."
+        ],
+        "reasoning": "Spatial Poisson limits for fixed size lists in one tree at sqrt(n) do not control alignments of two independent interval sets across O(n^(1/3)) sizes at a different scale. A dependence estimate for the shared events is needed.",
+        "searches": [
+          "Resultary: critical scale, spatial Poisson fringe subtrees",
+          "Holmgren–Janson arXiv:1406.6883 and their survey Section 7.2/Theorem 7.10"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 86f5c7b3e916, 113c6a577ae9, 1579f1008354 and 4995a7b03651",
+        "Holmgren–Janson arXiv:1406.6883 and survey, targeted retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-interval probabilities and two independent trees give the expected window intensity directly; neither the single-tree indexed statement nor the PDA indexed statement supplies the necessary two-interval joint bounds for this overlap."
+        ],
+        "reasoning": "The critical scale is visible at first moment, but the zero-count limit could be changed by nesting or adjacent interactions. The independent proof normalizes the intensity and shows these possible clusters vanish, which is the distinct step rather than a mere substitution into a known size profile.",
+        "searches": [
+          "Frozen RESULT.md lines 62–73 and cited single-tree size profile literature: Feng–Mahmoud–Panholzer, Fuchs, Dennert–Grübel, Holmgren–Janson",
+          "Resultary 113c6a577ae9 and 1579f1008354"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact indexed hit 86f5c7b3e916 is the same finding.",
+          "1579f1008354 gives pairwise common-clade Poisson counts of limiting mean 1/8 under the rooted PDA phylogeny law; the public lookup supplied no usable matching primary passage."
+        ],
+        "reasoning": "A common descendant key set in the BST is a common consecutive interval, not an unlabelled matching shape. The PDA overlap uses a different label geometry and tree law and its counts do not supply this increasing-size extreme or intensity.",
+        "searches": [
+          "Resultary: shared proper fringe key intervals and the n^(1/3) Fréchet law",
+          "Focused public literature search: common clades, shared consecutive key intervals and Cartesian-tree/treap fringe overlap"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "86f5c7b3e916 is an exact same-record match; 4995a7b03651 is a distinct same-day indexed result on shared direct edges and their density."
+        ],
+        "reasoning": "A common edge is not the same as a common descendant set, and a shared interval does not even require agreement on its root. The available direct-edge statement does not determine the interval maximum. The shared catalogue date gives no priority inference.",
+        "searches": [
+          "Resultary: exact shared key-interval Fréchet fingerprint and independent random BSTs",
+          "Resultary: shared edges in independent random search trees"
+        ]
+      },
+      "rationale": "The supported distinct claim is a two-tree, interval-labelled extreme-value and size point-process law. Established one-tree fringe probabilities and standard Poisson approximation are not new. The exact catalogue hit is the assigned record itself. The closest distinct statements cover one-tree size profiles, common clades in a different tree law, or shared direct edges, not this intersection statistic. The comparison does not certify priority.",
+      "residual_risks": [
+        "Full primary/comparator passages could not be inspected for all closest results. An equivalent count under common-subtree, Cartesian-tree, treap or range-minimum terminology could affect originality.",
+        "The unsuccessful public lookup is not evidence that a matching result is absent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same record, not independent prior coverage",
+          "evidence": [
+            "Matching same-key, two-tree Fréchet law with constant 4/3."
+          ],
+          "identifier_or_url": "Resultary 86f5c7b3e916",
+          "material_read": "Indexed finding and frozen full RESULT.md",
+          "method": "Local Resultary check and frozen source inspection",
+          "title": "A Fréchet law for the largest shared key interval in independent random binary search trees",
+          "trigger": "Exact indexed match"
+        },
+        {
+          "assessment": "Different one-tree scale and statistic in the available statement",
+          "evidence": [
+            "Marked spatial process at fixed sqrt(n) sizes in a uniform BST; listed O(n^−1/2) total-variation bound."
+          ],
+          "identifier_or_url": "Resultary 113c6a577ae9",
+          "material_read": "Indexed mathematical statement; attempted mirrored full-text access timed out",
+          "method": "Local Resultary search and mirrored retrieval attempt",
+          "title": "Critical-scale fringe subtrees form a multitype spatial Poisson …",
+          "trigger": "Closest candidate for a stronger fringe-process result"
+        },
+        {
+          "assessment": "Different sampling law and counts; extent outside summary unverified",
+          "evidence": [
+            "Pairwise common clades of independent rooted PDA trees, with Poisson(1/8) count limit."
+          ],
+          "identifier_or_url": "Resultary 1579f1008354",
+          "material_read": "Indexed mathematical statement; no mirrored passage obtained",
+          "method": "Local Resultary search and mirrored access attempt",
+          "title": "Joint Poisson independence of pairwise common clades in random …",
+          "trigger": "Common-clade formulation and same-day comparator"
+        },
+        {
+          "assessment": "Indexed finding concerns direct-edge density, not shared descendant intervals",
+          "evidence": [
+            "Direct edges are the shared object in the summary."
+          ],
+          "identifier_or_url": "Resultary 4995a7b03651",
+          "material_read": "Indexed statement; no decisive mirrored passage obtained",
+          "method": "Local Resultary search and mirrored access attempt",
+          "title": "A zeta-density law for shared edges in independent random search …",
+          "trigger": "Same two-tree model and a related shared-key structure"
+        },
+        {
+          "assessment": "The known one-tree profile is credited; no direct primary passage verifying or ruling out broader coverage",
+          "evidence": [
+            "RESULT.md lines 62–73 cites the survey Section 7.2 and Theorem 7.10 for the single-tree setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1406.6883; https://www2.math.uu.se/~svantejs/papers/sj306.pdf",
+          "material_read": "Frozen citations and scope discussion only; PDF downloaded for first but targeted probability passage not extracted, survey URL unavailable",
+          "method": "Bound record review and exact-source OA requests",
+          "title": "Limit Laws for Functions of Fringe Trees for Binary Search Trees and Random Recursive Trees; Fringe Trees, Crump–Mode–Jagers Branching Processes and m-ary Search Trees",
+          "trigger": "Named source for single-tree sizes and Poisson methods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The maximum shared descendant interval is a natural measure of agreement between independent randomized hierarchies on the same ordered keys. The exponent and finite mean alone do not identify its law. The Poisson result rules out asymptotically relevant clustering of large shared intervals and gives the exact Fréchet normalization, a useful distinction from the one-tree fixed-size regime.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

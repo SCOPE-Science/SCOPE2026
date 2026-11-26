@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:25:44.561938Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The rank (original face cardinality) of each barycentric vertex is preserved by D4 and occurs at most once in any flag. Thus two points of the same closed flag simplex in the same group orbit have identical supports and barycentric coordinates; the closed simplex embeds in the geometric quotient. This also makes the alternating deletion boundary well defined with distinct boundary facets, even though different orbit cells can have the same vertex set. Reviewed the complete frozen verifier and its recorded output, then independently enumerated all placements by choosing rows and permuting columns and all flags by ordered nonempty blocks. Running /workspace/queen_replay.py reproduced the placement and flag counts and orbit-cell vector (63,373,711,546,150). A separate descending-dimension free-face sequence leaves (45,148,108,0,0); choosing a spanning tree on this reduced complex and eliminating 104 generators (66 by unit relators, the rest by reversible single-occurrence substitutions) gives an empty presentation. Another independent replay checked signed boundaries and the original full two-skeleton's 311 generators; it found an alternative 826-pair collapse rather than the frozen script's 823. Different valid collapse orders need not leave the same model. A connected simply connected 2-complex of Euler characteristic five has H2 free of rank four and no higher homology; Hurewicz and the simply connected homological Whitehead theorem give the claimed wedge. This result is for the actual ordinary orbit space, not a rational invariant-space computation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general counting papers concern attack-free placement numbers, not a natural family classification of geometric symmetry orbit spaces.",
+          "The distinct same-day SCOPE e52bc69f2e71 calculates integral homology for the D4 quotient on the six-by-six board; 60ac3524e932 computes a different quotient on the five-by-five rook complex with diagonal A5."
+        ],
+        "reasoning": "Changing board size or replacing queen attacks and the acting group changes the space; neither related exact computation specializes to this claim.",
+        "searches": [
+          "arXiv:1303.1879v1 and arXiv:1402.4880v1",
+          "Resultary/SCOPE queen and rook quotient near matches e52bc69f2e71 and 60ac3524e932"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1303.1879v1",
+        "arXiv:1402.4880v1",
+        "Resultary/SCOPE 9242cf0d005d, e52bc69f2e71, 60ac3524e932, and identical record 0888d9867289"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "9242cf0d005d explicitly does not establish an equivariant splitting.",
+          "e52bc69f2e71 has degree-two 2-torsion and nonzero degree-three homology for the different board; 60ac3524e932 has two 5-primary Moore summands for the different graph and diagonal group."
+        ],
+        "reasoning": "The older nonequivariant wedge decomposition cannot be passed through the orbit operation; the two same-day results have disjoint assumptions where the action matters. A new quotient-specific collapse and fundamental-group argument are needed.",
+        "searches": [
+          "SCOPE 9242cf0d005d RESULT.md Finding and Limitations",
+          "SCOPE e52bc69f2e71 and 60ac3524e932 RESULT.md Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE 9242cf0d005d Finding identifies the ordinary homotopy type of K as a circle wedged with seventeen 2-spheres.",
+          "The primary q-Queens papers inspect placement counts and polynomial counting methods; they do not identify a fundamental group and homotopy model of the geometric quotient in the examined passages."
+        ],
+        "reasoning": "Compared the wedge claim to the group, integral homology and 2-dimensional-model formulation. Ordinary homotopy of the cover ignores stabilizers and does not give those quotient invariants.",
+        "searches": [
+          "Resultary/SCOPE: five-by-five nonattacking queen complex and D4 geometric orbit",
+          "arXiv:1303.1879v1",
+          "arXiv:1402.4880v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalog match 0888d9867289 is identical to the frozen record; the distinct matches have different graphs or groups.",
+          "The square-board counting work concerns numbers of placements, which can encode a face vector but not the orbit attaching maps or simple connectivity."
+        ],
+        "reasoning": "No independent exact table covering both the geometric orbit and its integral homotopy type was identified. Counting placements or even knowing quotient cell counts would not suffice.",
+        "searches": [
+          "Resultary/SCOPE exact 5x5 queen D4 quotient and related homology records",
+          "q-Queens square-board counting results arXiv:1402.4880v1"
+        ]
+      },
+      "rationale": "The exact geometric D4 quotient homotopy type is distinct from the unquotiented five-queen result, placement enumerations and the other checked symmetry quotients. No dominating prior description was found among the inspected statements.",
+      "residual_risks": [
+        "An unindexed calculation of this precise quotient or an earlier action-specific model might exist; a search yielding generic D4 material cannot exclude either."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same complex, not its orbit space or an equivariant model",
+          "evidence": "K is a circle wedged with seventeen spheres and equivariant splitting is expressly left unresolved.",
+          "identifier_or_url": "2026/10/25/SCOPE-the-five-by-five-nonattacking-queen-complex-is-a-circle-with-sev--9242cf0d005d",
+          "material_read": "RESULT.md Finding and Limitations (around offset 5808)",
+          "method": "Local Resultary mirror",
+          "title": "The five-by-five nonattacking-queen complex is a circle with seventeen two-spheres",
+          "trigger": "Exact same board and unquotiented complex"
+        },
+        {
+          "assessment": "Counting scope",
+          "evidence": "The same legal placements are counted; a count is not a quotient homotopy classification.",
+          "identifier_or_url": "https://arxiv.org/abs/1303.1879v1",
+          "material_read": "p. 1, counting/quasipolynomial passage",
+          "method": "OA primary text",
+          "title": "A q-Queens Problem. I. General Theory",
+          "trigger": "Archival source for the placement problem"
+        },
+        {
+          "assessment": "Counting scope of inspected results",
+          "evidence": "Derives placement counting formulas; this supplies no quotient attaching presentation.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.4880v1",
+          "material_read": "p. 2, inside-out polytope counting formulas",
+          "method": "OA primary text",
+          "title": "A q-Queens Problem. II. The Square Board",
+          "trigger": "Strongest cited square-board counting work"
+        },
+        {
+          "assessment": "Same type of action on a different board",
+          "evidence": "The six-by-six D4 quotient has (Z/2)^5 in degree two and Z in degree three.",
+          "identifier_or_url": "2026/11/22/SCOPE-five-independent-two-torsion-classes-in-the-six-by-six-queen-com--e52bc69f2e71",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Five independent two-torsion classes in the six-by-six queen complex quotient",
+          "trigger": "Distinct same-day D4 quotient"
+        },
+        {
+          "assessment": "Different complex and acting group",
+          "evidence": "Concerns the rook complex and diagonal A5, not the queen complex with board symmetries.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-five-primary-moore-summands-in-the-alternating-diagonal-five--60ac3524e932",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Two five-primary Moore summands in the alternating-diagonal five-by-five rook quotient",
+          "trigger": "Distinct same-day five-by-five quotient"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The board and full symmetry group are intrinsic to the standard queen placement problem; the geometric quotient accounts for stabilizers rather than treating symmetry as a mere count of different placements. Its exact integral homotopy type distinguishes simple connectivity, absence of torsion and survival of four two-spheres, useful beyond either a face inventory or the ordinary homotopy type of the cover.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

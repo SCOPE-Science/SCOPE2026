@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:47:59.053696Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Finding itself is correct. Independently, write c=1−q² and F(x)=cosh(r arcosh x). The two-dimensional product spectra, after extracting their common geometric mean, give x=1, 1/c, (1+q²)/c for opposite, adjacent, and identical states. These x are equally spaced. The alternating eigenvalue is the corresponding second difference of F times 2(c/d²)^r. F is strictly concave for 0<r<1: at x=cosh t, F′=r sinh(rt)/sinh t decreases because z coth z is strictly increasing. Its expansion F(1+v)=1+r²v+r²(r²−1)v²/6+O(v³) gives exactly the claimed quartic term. The other nonconstant eigenvalues are strictly positive by strict AM–GM; the inactive block affects only the positive constant eigenvalue. The frozen resolvent proof also checks: writing V=s²+2s+c², the product polynomials have quotient (V²−4q⁴s²)/V², giving the stated logarithmic derivative and single crossing. Fresh matrix spectra (18 cases, replay: python3 /workspace/evidence/review_checks.py 4) agreed to 1.0e−15; finite corroboration only. The frozen RESULT.md line 87 overclaims every strictly positive common spectrum, which includes the all-scalar spectrum where the only state is I/d and the Gram matrix is constant. repairs/4/RESULT.md corrects the quantifier to the stated Pauli-corner spectra and clarifies the pure-state overlap; the proof and Finding are unchanged and the three axes are assessed for that corrected text.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vuong–Osaka treat three points and give a four-point pure square, and Fannes et al. obstruct universal fractional entrywise fidelity positivity using pure states from two bases."
+        ],
+        "reasoning": "The pure-state identity with an entrywise fidelity power does not transfer to faithful mixed states. The older counterexamples establish pure-state failure, not strict failure for the specified faithful spectra.",
+        "searches": [
+          "Resultary: trace-power four-point positivity; pure-qubit fractional-power counterexamples",
+          "arXiv:2610.11021 Thm. 1.1 and Rem. 2.4",
+          "arXiv:1104.2271 §4 Prop. 5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic searches and dd061a1ac88f RESULT.md",
+        "arXiv:2610.11021",
+        "arXiv:1104.2271"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pure-square negative eigenvalue gives negativity by continuity only for sufficiently near-pure witnesses, not all the way to q↓0, where the limiting Gram matrix has rank one."
+        ],
+        "reasoning": "The claimed nonvanishing quartic departure and strict negativity at every nonzero interior q require an additional sign argument; neither follows from negativity at the pure endpoint or squared-fidelity positivity.",
+        "searches": [
+          "arXiv:2610.11021 p. 11 Rem. 2.4",
+          "arXiv:1104.2271 pp. 16–18 Props. 5 and 7",
+          "Resultary dd061a1ac88f RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At r=1/2 the trace-power functional is root fidelity. Fannes et al. report four-state failures; their positive all-mixed-qubit theorem applies to squared fidelity, a different kernel."
+        ],
+        "reasoning": "Generic root-fidelity failure alone provides neither the parameter range nor the isospectral small-q quantitative result.",
+        "searches": [
+          "Resultary: mixed-qubit Bloch-square fidelity; faithful Pauli-square quartic eigenvalues",
+          "arXiv:1104.2271 §2 Eq. (8), §3 Prop. 1 and §4 Prop. 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct Resultary record 2026/11/22/SCOPE-entropy-cusps-and-positivity-thresholds-for-two-basis-trace-powe--dd061a1ac88f gives 1±s_j(B^{∘r}) for rank-one projections from two bases. For d=2 mutually unbiased bases its alternating eigenvalue is 1−2^{1−r}."
+        ],
+        "reasoning": "This is a genuine overlap at the pure boundary, not a formula for the q-dependent faithful eigenvalue or its q⁴ term. The bounded search is not a priority guarantee.",
+        "searches": [
+          "Resultary: faithful Pauli-square quartic eigenvalues; trace-power four-point positivity"
+        ]
+      },
+      "rationale": "Pure-state nonpositivity, including the pure Pauli square, is already known; the supported contribution is the strict faithful-square obstruction for every interior q and every fractional r, with exact inertia and a quartic small-q law. The strongest compared statements do not give those features.",
+      "residual_risks": [
+        "A differently indexed mixed-qubit/Bures-kernel treatment could already establish the r=1/2 or a broader faithful case; bounded comparisons do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial overlap at q=1; three-point PSD at 1/2≤r≤1 is not the mixed four-point theorem.",
+          "evidence": [
+            "The four rank-one states have alternating eigenvalue 1−2^{1−r}; the theorem itself is for triples."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.11021",
+          "material_read": "PDF pp. 2 and 11, Theorem 1.1 and Remark 2.4",
+          "method": "Open-access primary text, statement and example comparison",
+          "title": "Three-Point Trace Positivity: Schatten Norm Compression and Interpolating Metrics",
+          "trigger": "Identical trace-power kernel and pure four-point obstruction"
+        },
+        {
+          "assessment": "Earlier pure-state obstruction and numerical root-fidelity failures; different mixed-qubit positive kernel.",
+          "evidence": [
+            "Proposition 5: powers of squared fidelity and pure states from bases.",
+            "Proposition 7: squared qubit fidelity is Tr(PQ)+2√(det P det Q)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1104.2271",
+          "material_read": "PDF pp. 4–5, 7–9, 16, 18; Eq. (8), Propositions 1, 5, 7",
+          "method": "Open-access primary text, check definitions, hypotheses and constructions",
+          "title": "Matrices of fidelities for ensembles of quantum states and the Holevo quantity",
+          "trigger": "Root-fidelity PSD at small cardinality and fractional-power obstruction"
+        },
+        {
+          "assessment": "Same pure square at d=2, not the faithful family.",
+          "evidence": [
+            "Two orthonormal bases supply 2d rank-one projections, with eigenvalues 1±s_j(B^{∘r})."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-entropy-cusps-and-positivity-thresholds-for-two-basis-trace-powe--dd061a1ac88f",
+          "material_read": "RESULT.md, offsets 0–9962",
+          "method": "Local Resultary mirror, compare actual finding and parameter range",
+          "title": "Entropy cusps and positivity thresholds for two-basis trace-power kernels",
+          "trigger": "Closest distinct Resultary trace-power spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This determines whether the three-point positivity phenomenon survives locally at four points even with full rank and a common spectrum. Exact inertia for the entire faithful square family and the first nonzero q⁴ defect are substantive stability information beyond a numerical example or continuation near pure states. The repair removes an unsupported generalization without diluting that contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

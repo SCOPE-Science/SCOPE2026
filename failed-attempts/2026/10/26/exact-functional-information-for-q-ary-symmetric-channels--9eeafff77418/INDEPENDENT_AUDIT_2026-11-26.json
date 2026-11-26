@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:35:25.895927Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With s_y=P_Y(y)>0 the likelihood ratio is W(y|x)/s_y on the prior support, so only the interval between b_y/s_y and a_y/s_y can contribute to the integral: the width there is m_y and it is 0 or 1 elsewhere. Its contribution, multiplied by s_y, is (a_y-b_y)(-m_y log_2 m_y), including m_y=0,1 and coalescing levels. In the symmetric channel the high-set mass is p_y or 1-p_y respectively; a dropped zero-probability output would contribute zero to those expressions. Strict concavity gives uniform optimality when the levels differ. In the conventional regime P_Y=cP_X+(1-c)u with c=a-b. The gap equals H(row)-(1-c)log_2 q minus the entropy Jensen deficit H(P_Y)-cH(P_X)-(1-c)log_2 q, where H(row)=h_2(epsilon)+epsilon log_2(q-1). The deficit is nonnegative and vanishes only at P_X=u for 0<c<1. At c=0 or 1 the displayed gap is identically zero. No result on gap maximization for c<0 is implied, and no coding achievability is certified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These sources treat the general divergence, the channel-simulation lower bound or the width description, on more general inputs. None of these checked statements optimizes the difference from mutual information over the prior for a fixed q-ary symmetric channel."
+        ],
+        "reasoning": "A channel-simulation cost bound in terms of the invariant is not an exact maximization of the invariant's excess over mutual information.",
+        "searches": [
+          "arXiv:2501.14053 §III, Theorem III.1",
+          "arXiv:2604.23076 Definition 3",
+          "arXiv:2506.16309 pp. 46–48"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "arXiv:2401.16579, 2501.14053, 2604.23076, 2506.16309",
+        "Resultary 9108567726ee"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published integral directly supplies the two-level formula by integration on one constant-width interval; the point-mass identity is the deterministic subcase. The general cost bound and definition do not state the sharp entropy-gap comparison or its equality condition."
+        ],
+        "reasoning": "Distinguish immediate evaluation of the established divergence from the explicitly quantified sharp gap corollary, whose proof additionally compares the row entropy and the strict Jensen deficit of a specific channel mixture. No stronger exact result covering the latter was found; its routine derivation is assessed separately under value.",
+        "searches": [
+          "arXiv:2401.16579 §IV, Definition IV.1 and Lemma IV.1",
+          "arXiv:2604.23076 Definition 3",
+          "arXiv:2501.14053 Theorem III.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two primary sources identify the same width-integral invariant and the latter names its expectation functional information. The inspected Resultary communications hit 9108567726ee instead studies peeling random linear equations on three bits."
+        ],
+        "reasoning": "The width function is not a new quantity under renaming. The unrelated three-bit record has no likelihood-width integral or gap extremum.",
+        "searches": [
+          "Resultary: functional information and two-level finite likelihood, q-ary symmetric channel, sharp maximum gap",
+          "arXiv:2401.16579 §IV and arXiv:2604.23076 Definition 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact formula or extremizer entry surfaced in the checked Resultary sets. The external search returned unrelated results and supplies no negative evidence."
+        ],
+        "reasoning": "An exact list or closed-form match would need to use D_CS rather than standard channel mutual information or ordinary channel capacity. No numerical table is used in the frozen proof.",
+        "searches": [
+          "Resultary ranked searches for the closed q-ary expression, two-level columns and gap maximization",
+          "Primary-literature search for the same exact formula"
+        ]
+      },
+      "rationale": "Limited to the explicit q-ary sharp gap optimization and its equality cases as a stated quantitative result: no exact matching theorem was identified. The finite two-level evaluation itself is an immediate evaluation of an existing definition; no novelty is credited for functional information, the integral, or its operational lower-bound role.",
+      "residual_risks": [
+        "Finite coverage of examples in the channel-simulation literature; the sharp gap may be known under a different information measure description.",
+        "The unrelated external search results do not support any claim of exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established definition mechanically yields the two-level integral; point-mass case already explicit",
+          "evidence": "D_CS is the integral of -w log_2 w and the lemma gives the point-mass self-information identity.",
+          "identifier_or_url": "https://arxiv.org/html/2401.16579",
+          "material_read": "§IV, Definition IV.1 and Lemma IV.1, OA offset 14400",
+          "method": "Lawful OA HTML, targeted passage reading",
+          "title": "On Channel Simulation with Causal Rejection Samplers",
+          "trigger": "Original channel-simulation divergence and an exact special case"
+        },
+        {
+          "assessment": "Operational lower bound, not the extremum over priors in the frozen model",
+          "evidence": "Uses the same divergence to lower-bound simulation cost.",
+          "identifier_or_url": "https://arxiv.org/html/2501.14053",
+          "material_read": "§III, Theorem III.1, OA offset 8500",
+          "method": "Lawful OA HTML, targeted passage reading",
+          "title": "The Redundancy of Non-Singular Channel Simulation",
+          "trigger": "General one-shot result that might imply the gap benchmark"
+        },
+        {
+          "assessment": "Same established invariant, not a q-ary sharp gap statement in the checked material",
+          "evidence": "Functional information is the expected channel-simulation divergence or width-function differential entropy.",
+          "identifier_or_url": "https://arxiv.org/html/2604.23076",
+          "material_read": "Definition 3, OA offset 10800",
+          "method": "Lawful OA HTML, targeted passage reading",
+          "title": "Rejection Sampling is Optimal for Relative Entropy Coding",
+          "trigger": "Definition and use of functional information"
+        },
+        {
+          "assessment": "Width-function treatment, no exact matched claim in the passages checked",
+          "evidence": "Discusses the divergence and prior Goc–Flamich work.",
+          "identifier_or_url": "https://arxiv.org/pdf/2506.16309",
+          "material_read": "pp. 46–48, OA offset 127400",
+          "method": "Lawful OA PDF, targeted passage reading",
+          "title": "Data Compression with Relative Entropy Coding",
+          "trigger": "Survey/thesis that might provide exact channel examples"
+        },
+        {
+          "assessment": "Different problem",
+          "evidence": "Iterative decoding of random linear equations on three information symbols.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-finite-three-source-peeling-law-and-necessity-of-degree-three-pa--9108567726ee",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Finite three-source peeling law",
+          "trigger": "Topical Resultary communication model hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The channel family and simulation bound are natural, but the two-level assertion reads a single rectangle off the existing defining integral. For the remaining sharp gap, the symmetric output is the textbook mixture with the uniform law, so the claimed improvement is a constant minus the ordinary Shannon entropy Jensen deficit; its maximum and interior equality follow immediately from the deficit being zero exactly at the uniform input. The exact number is just the evaluation there. No distinct structural obstacle, operational improvement beyond the existing bound, or demonstrated need for this particular routine corollary is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

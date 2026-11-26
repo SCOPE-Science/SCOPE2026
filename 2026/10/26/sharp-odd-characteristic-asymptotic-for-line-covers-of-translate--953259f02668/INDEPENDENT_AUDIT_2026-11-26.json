@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:04:40.801900Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The affine components are disjoint, there is one common point at infinity, and a line meets each conic in at most two points. For a nonvertical line of slope u through (a,a²+c_i), completing the square gives discriminant (u−2a)²+4(c_i−c_j). The i-th discriminant is a nonzero square exactly when t=u−2a is nonzero. Every nonempty product of the other discriminants has simple roots over the algebraic closure: the offsets are nonzero and distinct and the characteristic is odd. Expanding the square-indicator product, the Weil bound gives the coefficient m−1+2^(−m) in front of √q, with m=ell−1; excluding all zeros and t=0 changes the sum by at most 2m+1. In the 2ell-uniform full-line hypergraph all degrees are therefore D+O_ell(√q) for D=q/2^m, and any pair has codegree at most one. For the covering theorem's fixed gamma and d0, all degrees are positive, within gamma D of D, and <2D, all codegrees are <gamma D, and D≥d0 for large q uniformly in the translates. With accuracy alpha=epsilon this covers the affine points with at most (1+epsilon)q/2 lines; a single vertical line covers infinity and q≥2/epsilon absorbs it. Independent bounded replay `python3 /workspace/review-evidence/independent_finite_checks.py 4` compared the discriminant condition with directly enumerated lines for all two- and three-translate sets in F_9, including triples with zero full degree. That computation is only a check of the local algebra, not an asymptotic cover or an effective threshold.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Asgarli et al.'s curve theorem assumes irreducibility, while the present family is reduced and reducible for ell≥2.",
+          "Their Theorem 3.1 gives a conditional hypergraph cover with nearly regular degrees and small codegrees."
+        ],
+        "reasoning": "Neither theorem supplies the necessary simultaneous splitting count for this family. Applying the broader covering machinery here requires the uniform squarefree-discriminant argument in the record.",
+        "searches": [
+          "arXiv:2610.13042v1, Remark 1.4 and Section 3, Theorem 3.1",
+          "Resultary: asymptotic upper bound cov(C) = (1/2+epsilon) q for union of ell translated conics YZ=X^2+c_i, odd prime powers, uniform in distinct constants"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.13042v1",
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-characteristic-sensitive-line-covers-of-translated-finite-field--e3c5b7989e12"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior geometry gives lower bounds; the covering theorem needs a dense nearly regular hypergraph with positive degrees and low codegrees.",
+          "The new comparison point is d(P)=q/2^(ell−1)+O_ell(√q) uniformly, obtained from the distinct offsets, plus one line for the common infinity point."
+        ],
+        "reasoning": "A lower bound does not force any cover of comparable size, and generic hypergraph covering does not imply this statement without checking the nonautomatic geometric degree hypotheses. The PASS excludes novelty for the lower bound and for the covering machinery.",
+        "searches": [
+          "arXiv:2610.13042v1, Remark 1.4 and Theorem 3.1",
+          "Characteristic-sensitive line covers of translated finite-field parabolas, RESULT.md, odd-characteristic result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Asgarli et al., Remark 1.4, names the very same translated-parabola union and gives its counting lower bound; the remark concerns the failure of a different irreducible-curve bound.",
+          "Characteristic-sensitive line covers of translated finite-field parabolas gives an odd-field obstruction cov(C)≥(q+3)/2, not the asymptotic upper bound."
+        ],
+        "reasoning": "Changing names from conics to parabolas, or expressing a cover as a cover of an incidence hypergraph, preserves the comparison. Neither same-family lower bound controls the asymptotic upper bound.",
+        "searches": [
+          "Resultary: uniform asymptotic line cover q/2 for unions of translated parabolas or conics over odd finite fields, full-secant hypergraph",
+          "Web: finite-field rational line covering number of a union of distinct translated parabola conics asymptotic q/2, full secants, hypergraph covering theorem; Asgarli Remark 1.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The related Resultary record includes equality with its (q+3)/2 lower bound for two translates (0,1) at eight specified prime orders."
+        ],
+        "reasoning": "These are finite exact cover values for selected prime fields and one two-translate set, not upper bounds uniform over all translates, fixed component counts and unbounded odd prime powers.",
+        "searches": [
+          "Resultary: asymptotic upper bound cov(C) = (1/2+epsilon) q for union of ell translated conics YZ=X^2+c_i, odd prime powers, uniform in distinct constants",
+          "Characteristic-sensitive line covers of translated finite-field parabolas, RESULT.md, initial result and sample table"
+        ]
+      },
+      "rationale": "The lower bound and conic family are known; a distinct Resultary record even proves a stronger finite lower bound. The supported contribution is the matching first-order upper bound along all odd prime powers, uniform over fixed-size distinct translate sets, via simultaneous quadratic splitting. No inspected statement supplies that upper bound.",
+      "residual_risks": [
+        "Equivalent splitting-and-cover arguments may occur in unindexed finite-geometric sources; a bounded search is not a priority proof.",
+        "Pippenger–Spencer's covering consequence was verified in the cited primary application, not from a separate original-paper edition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The family, lower bound, and covering machinery are prior; irreducible-curve result and remark do not prove the claimed upper bound.",
+          "evidence": [
+            "Remark 1.4 counts ell q+1 rational points, at most 2ell per line.",
+            "Theorem 3.1 requires positive degrees, near-D degrees for all but gamma n vertices, maximum degree <kD, and pair codegrees <gamma D, with D≥d0; conclusion is a cover of size ≤(1+alpha)n/r."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.13042v1",
+          "material_read": "Remark 1.4 (HTML offsets 5278–9363) and Section 3, Theorem 3.1 (located at 33626, read from 33406).",
+          "method": "Bounded OA HTML full-text reading.",
+          "title": "Covering plane curves over finite fields with lines",
+          "trigger": "Same reducible conic family and exact cited covering theorem."
+        },
+        {
+          "assessment": "Stronger exact lower bound and specific finite equalities; no matching uniform upper bound.",
+          "evidence": [
+            "The odd-characteristic result proves cov(C)≥(q+3)/2 by a capacity threshold and a sum-of-squares obstruction.",
+            "The recorded equalities are for (0,1) at selected prime orders, not a uniform asymptotic upper theorem."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-characteristic-sensitive-line-covers-of-translated-finite-field--e3c5b7989e12",
+          "material_read": "RESULT.md, from offset 0: odd-characteristic statement, obstruction and finite two-translate sample results.",
+          "method": "Bounded read through the Resultary mirror.",
+          "title": "Characteristic-sensitive line covers of translated finite-field parabolas",
+          "trigger": "Direct same-family Resultary match, including odd-field cover numbers."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves the missing asymptotic upper bound for an explicit natural reducible obstruction family. Uniformity over translating constants and odd extension fields is substantive: the argument shows that all components simultaneously support the nearly maximal incidence needed for an asymptotically optimal cover. The result does not claim exact finite covers, a numerical threshold, or an improvement to known lower bounds.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

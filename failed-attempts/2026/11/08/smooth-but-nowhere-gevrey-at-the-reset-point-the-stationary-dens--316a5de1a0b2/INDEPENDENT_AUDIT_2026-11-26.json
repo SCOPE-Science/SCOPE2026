@@ -1,0 +1,172 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:02:46.143129Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–35 and 39–89",
+        "VERIFICATION.md and verification/verify_density.py, inspected; the recorded 56 diagnostic checks were not rerun",
+        "Biroli et al., arXiv:2406.08387, exact signed stationary density, equations (8), (10)–(17)"
+      ],
+      "rationale": "A two-sided Brownian motion with an independent stationary Poisson clock gives a stationary solution by summing the Brownian increments on past Poisson intervals, with multipliers a^j. The backward gaps at a fixed time are independent exponentials; mixing the Gaussian increments over their gaps makes the scaled terms independent centered Laplace variables, and the squared scales sum. Synchronous coupling multiplies any initial difference by a^(N_t), so the law is unique. Its positive even Fourier product has integrable polynomial weights of every order (retain sufficiently many factors), which proves smoothness, symmetry and p(0)>0. The rescaling gain term carries the Jacobian 1/rho; differentiating the stationary equation 2n times gives the multiplier lambda²(1-rho^(-(2n+1))) for either sign of a. Its product has sign (-1)^n and exponent -n². The remaining odd-factor products converge to a positive limit, so log derivative magnitudes grow quadratically in n and outgrow every finite Gevrey bound and the Taylor factorial. The signed-contraction exponential series is normal on the open positive complex half-plane for the positive-side density, and reflection proves the negative-side result. At zero Euler's q-binomial identity at q=rho² and argument rho gives exactly the stated height. No assertion needs an extension to zero resetting or the unit-modulus endpoints.",
+      "residual_risks": [
+        "The finite Fourier-integral and product diagnostics are not proofs of the all-order regularity or growth; those follow analytically as above."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stable partial-reset smoothness includes the Brownian specialization at positive contraction, but the inspected general smoothness result gives no jet or Gevrey conclusion. The stable product specializes at Brownian index 2; Biroli et al. treat signed rescaling and give the density modes but leave a cusp-cancellation check at numerical evidence.",
+          "The November 2 record additionally bounds local Taylor error; the October 26 record adds a log-periodic Fourier asymptotic in its positive-contraction range."
+        ],
+        "reasoning": "Neither the general stable theorem nor the 2024 discussion alone is used to assert prior proof of the exact jet. The broader November 2 theorem directly includes the full regularity classification of the frozen record with no material assumption change.",
+        "searches": [
+          "arXiv:2412.15626 Theorem A and Proposition 2.22",
+          "arXiv:2305.13722 equations (27)–(30)",
+          "arXiv:2406.08387 equations (8), (10)–(20)",
+          "Resultary 075256654d01 and 53ab45fd43ae"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Resultary 075256654d01, 53ab45fd43ae and b7f1f05c5e41",
+        "arXiv:2406.08387, 2412.15626, 2305.13722, 2205.03363"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The November 2 result states the complete signed origin jet and finite-Gevrey obstruction. The finite product in both records has the positive limit Q_rho because the sum of the powers rho^(2j+1) is finite.",
+          "In the prior density mode series the denominators are bounded away from zero and the differentiated terms are bounded up to the positive-side boundary by multiples of rho^(m²-mk) for each derivative order k."
+        ],
+        "reasoning": "Besides the direct exact prior result, the normalizing height and sharp growth constant are mechanical consequences rather than independent advances: at zero, Euler's q-binomial identity evaluates the series as (rho;rho²)_infty, and dividing the known derivative formula by its scale leaves the known finite product. The same termwise differentiation and q-binomial evaluation with argument rho^(1-k) even recover the jet from the old series. No novel surviving subclaim of this frozen theorem warrants a repair.",
+        "searches": [
+          "Resultary 075256654d01 original Finding and jet",
+          "Resultary 53ab45fd43ae original Finding",
+          "Biroli et al. arXiv:2406.08387 equations (10)–(17)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Fourier product is also the law of an independent Laplace sum. The signed density mode coefficient in Biroli et al. is 1/[rho^m product_{k=1}^m(1-rho^(-2k))] = (-1)^m rho^(m²)/(rho²;rho²)_m.",
+          "Resultary 075256654d01 uses the same stationary law for signed as well as positive contraction and the same normalized origin derivatives."
+        ],
+        "reasoning": "With rho=|a| and lambda=sqrt(r/D), the exponential and Fourier representations describe the identical stationary solution. Reflection at jump times is already covered by the signed model; it is not a parameter range absent from the exact November 2 theorem.",
+        "searches": [
+          "Resultary exact Brownian proportional resetting stationary jet/non-Gevrey queries, including smooth nonanalytic core",
+          "arXiv:2205.03363",
+          "arXiv:2305.13722",
+          "arXiv:2406.08387"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original November 2 RESULT.md states the same (-1)^n p(0) lambda^(2n) rho^(-n²) product of the n odd factors and vanishing odd derivatives, and the same smooth/analytic-off-zero/non-Gevrey distinction, for signed contraction. The October 26 statement matches these for positive contraction.",
+          "The distinct November 8 layer record b7f1f05c5e41 instead studies a limit as the contraction tends to zero and extraction of a crossing scale and total variation asymptotic."
+        ],
+        "reasoning": "The first two are actual earlier statement matches, not similarities of titles or an index match to the frozen record itself. The different layer record does not determine originality of the origin jet.",
+        "searches": [
+          "Resultary exact title, derivative formula and non-Gevrey origin searches",
+          "Resultary 075256654d01, 53ab45fd43ae and b7f1f05c5e41"
+        ]
+      },
+      "rationale": "Actual older Resultary statements cover the core theorem. The November 2 result is an exact match for the deterministic signed contraction, stationary density, odd derivative vanishing and full even derivative product, smoothness, analyticity off zero and failure of all finite Gevrey orders at zero. It also gives an additional Taylor-error bound. The October 26 record already gives the derivative and regularity package for positive contraction, with an extra Fourier asymptotic. The frozen normalized limit is immediate from the identical finite-product formula, and the height is a direct evaluation of the published signed density series. This is demonstrable coverage, not a rejection based on an inaccessible source or unresolved publication priority.",
+      "residual_risks": [
+        "This establishes statement coverage, not a conclusion about provenance or ultimate publication priority. Pierce arXiv:2204.07215, introduction offset 1088, confirms the pantograph framing; access to the exact steady-state passage timed out and no noncoverage inference is drawn from it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the core claim with an additional Taylor-error bound",
+          "evidence": [
+            "Same product for even derivatives, odd derivatives zero, C-infinity, analytic at each nonzero point, and no finite Gevrey order at the reset point for signed a."
+          ],
+          "identifier_or_url": "Resultary:2026/11/2/SCOPE-smooth-but-nonanalytic-core-of-brownian-proportional-reset-equil--075256654d01",
+          "material_read": "Original RESULT.md offsets 250–4718",
+          "method": "Local Resultary and bounded source passage via local mirror",
+          "title": "Smooth but nonanalytic core of Brownian proportional-reset equilibrium",
+          "trigger": "Exact origin-jet, Gevrey, and signed-model match"
+        },
+        {
+          "assessment": "Direct positive-contraction overlap; also supplies distinct Fourier asymptotics",
+          "evidence": [
+            "For positive contraction it gives the same jet, analytic away from zero and failure of finite Gevrey order at zero."
+          ],
+          "identifier_or_url": "Resultary:2026/10/26/SCOPE-exact-non-gevrey-derivatives-and-a-log-periodic-fourier-fingerpr--53ab45fd43ae",
+          "material_read": "Original RESULT.md, opening scientific statement from offset 0",
+          "method": "Local Resultary and source passage via local mirror",
+          "title": "Exact non-Gevrey derivatives and a log-periodic Fourier fingerprint",
+          "trigger": "Exact derivative asymptotic and Gevrey precedent"
+        },
+        {
+          "assessment": "Different limiting quantity",
+          "evidence": [
+            "Inner/outer and total-variation behavior as the rescaling tends to zero; not an all-order derivative result at fixed nonzero rho."
+          ],
+          "identifier_or_url": "Resultary:2026/11/8/SCOPE-a-singular-reset-point-layer-and-sharp-total-variation-for-nearl--b7f1f05c5e41",
+          "material_read": "Original RESULT.md opening statement at offset 0",
+          "method": "Local Resultary and source passage via local mirror",
+          "title": "A singular reset-point layer and sharp total variation for nearly complete resetting",
+          "trigger": "Same-day reset point regularity/inner scale comparison"
+        },
+        {
+          "assessment": "Exact prior signed density. The origin passage does not itself prove the even linear-cusp cancellation or the broader Gevrey claim.",
+          "evidence": [
+            "Stationary gain is r p(x/a)/|a|; the density is an |a|-dependent exponential sum. Authors report numerical tests of the linear cancellation and say they could not prove the identity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2406.08387",
+          "material_read": "PDF pp. 4–5, equations (8), (10)–(20), OA offsets 18500, 22200 and 27300",
+          "method": "OA original PDF passages",
+          "title": "Resetting by rescaling: exact results for a diffusing particle in one-dimension",
+          "trigger": "Equivalent signed-contraction law and origin behavior"
+        },
+        {
+          "assessment": "Smooth stationary density includes positive Brownian contraction, not the exact jet in the inspected proposition",
+          "evidence": [
+            "The Poisson rescaling factor is c in (0,1) and the strictly stable stationary density is C_0^infinity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2412.15626",
+          "material_read": "PDF p. 2, equation (1.1) and Theorem A; p. 20, equation (2.42) and Proposition 2.22, OA offset 96100",
+          "method": "OA original PDF passages",
+          "title": "Stationary states for stable processes with partial resetting",
+          "trigger": "General smoothness theorem under partial resetting"
+        },
+        {
+          "assessment": "Known stationary transform and position-space modes",
+          "evidence": [
+            "The symmetric stable transform at index 2 is the Brownian Fourier product; it is inverted by partial fractions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.13722",
+          "material_read": "PDF pp. 8–9, equations (27)–(30), offsets 29500–32655",
+          "method": "OA original PDF passages",
+          "title": "Time-dependent probability density function for partial resetting dynamics",
+          "trigger": "Stable-to-Brownian exact stationary series"
+        },
+        {
+          "assessment": "Positive-rescaling law and Laplace sum, not a signed origin-jet theorem in these passages",
+          "evidence": [
+            "The stationary transform is a product of the factors r/(r+Da^(2j)k²), interpreted as independent Laplace variables."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.03363",
+          "material_read": "PDF pp. 2–3, equations (3)–(8), offsets 11600–17938",
+          "method": "OA original PDF passages",
+          "title": "Diffusion with Partial Resetting",
+          "trigger": "Equivalent representation of the stationary law"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–35 and 64–89",
+        "Resultary 075256654d01 exact theorem and 53ab45fd43ae positive-contraction overlap",
+        "Biroli et al. signed density series"
+      ],
+      "rationale": "The underlying analytic/Gevrey boundary is mathematically meaningful, but the frozen contribution duplicates the earlier complete signed classification, including the exact jet. Neither the elementary normalized product limit nor the evaluation of the known series at zero constitutes a separate useful new result that would survive narrowing.",
+      "residual_risks": [
+        "This does not assess new parameter regimes or extensions; none are part of the assigned finding."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

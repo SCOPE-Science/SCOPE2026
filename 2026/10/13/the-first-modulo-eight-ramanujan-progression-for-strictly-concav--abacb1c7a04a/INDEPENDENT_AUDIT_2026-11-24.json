@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:34:03.509644Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md pp./lines 5–68, VERIFICATION.md, verify.py and verification_output.txt (read, not executed)",
+        "Liu–Xia arXiv:2607.07145v1, (1.1), Theorems 1.1 and 1.4 and p=5 example",
+        "Independent replay: python3 /workspace/review_evidence/1_reproduce.py"
+      ],
+      "rationale": "For the series defined in RESULT.md, Liu–Xia (1.1) is the same normalization, and Theorem 1.4 with p=5 and prime-power parameter zero explicitly gives all four universal progressions (valid starting at k=0). Theorem 1.1 makes every triangular coefficient odd, including the constant term (also 1 by direct evaluation). T_(a+2m)−T_a is a multiple of m, so residues from one triangular period suffice. An independent recomputation from the product verified the eighteen coefficients 4 mod 8, their coverage of all 124 nontriangular pairs with m≤24, and the congruence and nonzero coefficient of each of the 21 displayed witnesses at modulus 25. Every witness in residue r is at an index r+mk with k≥0. The finite step disproves universality rather than extrapolating it.",
+      "residual_risks": [
+        "The published positive congruence theorem is used as a premise rather than reproved. No classification for larger moduli is implied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu–Xia's general prime-power family and its p=5 example supply the entire positive side; Theorem 1.5 gives zero density of the nonzero coefficients.",
+          "Banerjee–Bringmann prove the one-way vanishing criterion for companion coefficients t_o(n) when 8n+9 is not represented by x²+2y²."
+        ],
+        "reasoning": "Sufficient conditions and zero density give no converse ruling out smaller progression moduli or further residues at 25.",
+        "searches": [
+          "Liu–Xia arXiv:2607.07145v1, Theorems 1.4 and 1.5",
+          "Banerjee–Bringmann arXiv:2607.08369, Conjecture 1.2 and Theorem 1.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local semantic index and mirrored records e0dfeeac2337 and 6376693faf2e",
+        "arXiv:2606.30208v1",
+        "arXiv:2607.07145v1",
+        "arXiv:2607.10576v2",
+        "arXiv:2607.08369"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Triangular coefficients are nonzero mod 4 and hence mod 8; some residues, e.g. 2 mod 3, have no triangular witness. The direct calculation gives s_1(2)=4 mod 8, not detectable by a mod-4 nonvanishing test."
+        ],
+        "reasoning": "The prior formulas permit calculation, but do not themselves provide the distinct obstruction covering all remaining residues through modulus 25.",
+        "searches": [
+          "Andrews–El Bachraoui arXiv:2606.30208v1, Theorem 1 and Corollary 1",
+          "Liu–Xia arXiv:2607.07145v1, (3.1), (1.4) and (1.5)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Andrews–El Bachraoui identify the same two-color series, but their progression corollary is modulo 4.",
+          "Dhar–Goswami–Tripathi Theorem 2 has the same residues for c(n), not s_1(n).",
+          "The closest Resultary s_1 hit concerns a zero-sum invariant; the closest same-day mod-8 hit concerns Campbell's c_11(n)."
+        ],
+        "reasoning": "Neither a companion sequence, a shared notation, nor a shared residue set for different coefficients constitutes an equivalent theorem.",
+        "searches": [
+          "Literature: ‘strictly concave compositions’ modulo 8 progression moduli optimality residue classes modulus 25 s_1(n)",
+          "Resultary semantic comparison for s_1 and mod-8 Ramanujan progression classification",
+          "arXiv:2606.30208v1; arXiv:2607.10576v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact list is the four published p=5 congruences; it is not described as exhaustive.",
+          "The same-day c_11 record identifies zeros off two dyadic rays in another sequence."
+        ],
+        "reasoning": "A finite catalogue certifying nonzero witnesses could establish exclusions, but the compared list certifies positive progressions, not the negative classification.",
+        "searches": [
+          "Resultary semantic comparison of exact s_1 mod-8 residues and progression moduli",
+          "Liu–Xia arXiv:2607.07145v1, explicit list after (1.4)"
+        ]
+      },
+      "rationale": "The four congruences were already stated explicitly by Liu–Xia. The supported distinct result is the least modulus and the exhaustive exclusion of all other pairs through that modulus, which the prior infinite families, mod-4 classification and density theorem do not establish.",
+      "residual_risks": [
+        "Bounded semantic and literature searches can miss differently worded or unindexed equivalent classifications. No priority for the four positive congruences is attributed to this record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial overlap only",
+          "evidence": "Identifies S_1 and gives the triangular dichotomy and progression classification modulo four.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.30208v1",
+          "material_read": "Definition, Theorem 1 and Corollary 1; offsets 453, 5020–8503",
+          "method": "Primary OA PDF text",
+          "title": "On a two-color partition series and its companions",
+          "trigger": "Identical sequence and progressions"
+        },
+        {
+          "assessment": "Explicit positive coverage; no optimality in these statements",
+          "evidence": "The p=5 example lists 8, 13, 18, 23; the next theorem concerns density rather than completeness.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.07145v1",
+          "material_read": "(1.1), p. 2 Theorems 1.1 and 1.4, continuation pp. 2–3 through Theorem 1.5; offsets 3300, 5000, 7670",
+          "method": "Primary OA PDF text",
+          "title": "A proof of Andrews–El Bachraoui's conjecture on the parity of coefficients of a q-series",
+          "trigger": "Same modulus and exact positive residue set"
+        },
+        {
+          "assessment": "Different modulo-eight coefficients",
+          "evidence": "Theorem 2 concerns c(n); Remark 1 points to other results for s_1(n).",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.10576v2",
+          "material_read": "Theorems 1–2 and Remark 1; offsets 2900–9656",
+          "method": "Primary OA PDF text",
+          "title": "Sign Patterns in a Two Colored Partition Companion Series",
+          "trigger": "Same numeric residues"
+        },
+        {
+          "assessment": "One-way parity vanishing theorem, not a converse",
+          "evidence": "Nonrepresentation of 8n+9 by x²+2y² implies t_o(n) is even.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.08369",
+          "material_read": "p. 2, Conjecture 1.2 and Theorem 1.3 at offsets 4181–4538",
+          "method": "Primary OA PDF text, located theorem passages",
+          "title": "Proof of a conjecture of Andrews and El Bachraoui on the parity of two-color partitions",
+          "trigger": "Independent proof cited in the companion paper"
+        },
+        {
+          "assessment": "Different mathematical object",
+          "evidence": "s_1 is a zero-sum constant; s_1(4)=9 and a modulus-16 extremal classification.",
+          "identifier_or_url": "Resultary 2026/10/4/SCOPE-exact-evaluation-of-s-1-4-and-the-eight-term-extremals--e0dfeeac2337",
+          "material_read": "Mirrored RESULT.md Finding and definitions, offset 75",
+          "method": "Local Resultary mirror",
+          "title": "Exact evaluation of s_1(4) and the eight-term extremals",
+          "trigger": "Notation match"
+        },
+        {
+          "assessment": "Different sequence",
+          "evidence": "The classification is for c_11(n), with zeros off two dyadic rays.",
+          "identifier_or_url": "Resultary 2026/10/13/SCOPE-a-mod-8-classification-for-the-level-11-ramanujan-sato-coefficie--6376693faf2e",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A mod-8 classification for the level-11 Ramanujan–Sato coefficients",
+          "trigger": "Same-day mod-8 classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen proof and witness data",
+        "Liu–Xia Theorem 1.4 and its first example"
+      ],
+      "rationale": "The first published example sets a natural cutoff; testing whether any smaller modulus works, and exhausting its own residues, proves its sharpness rather than choosing an arbitrary numerical interval. The witnesses are useful for separating true modulo-eight progressions from candidates surviving the known mod-four test.",
+      "residual_risks": [
+        "A finite sharpness result, not a global classification of possible progression moduli."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:39:38.170704Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–124; VERIFICATION.md lines 19–29; verify.py inspected, not executed",
+        "Replay: python3 /workspace/reproduction/5.py"
+      ],
+      "rationale": "In Z[[q]] all Euler products used as denominators are units. Set Q=E(q)^p/E(q^p)=1+pR via Frobenius. The quotient F/C telescopes to factors Q(q^{p^j})^{p^{2a−1−j}}, 0≤j<a. For (1+pR)^{p^k}, the term of order h has valuation at least k+h−ν_p(h); modulo p^{k+2} the only terms surviving beyond the constant are linear for odd p, and linear and quadratic for p=2. The latter quadratic has coefficient 2^{k+1}(2^k−1), which contributes with coefficient +1 after normalization mod 2. Thus only j=a−1 can contribute to (F/C−1)/p^{a+1} mod p. For odd p the local quotient (1−z)^p/(1−z^p) contributes −Σ_{h=1}^{p−1}z^h/[h(1−z^p)] after subtracting 1 and dividing by p. Summing over Euler factors produces the stated inverse-divisor sum. At p=2 the local quotient is 1−2z/(1+z), so R counts divisors mod 2 and is supported on squares. The quadratic contributes the Frobenius square, supported on twice-squares. The first term of either correction is −q after reduction; substitution and multiplication by the constant-one C give the claimed first nonzero residue at p^{a−1}, including a=1. Independent direct truncated binomial products verified all 728 inspected coefficients on eight pairs including p=2,a=6, both residue laws and each onset.",
+      "residual_risks": [
+        "Finite checks corroborate normalization and degree placement, not uniform quantification. The formal proof supplies uniformity; non-prime-power t is outside the claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sharma gives p^a generally and p² when a=1; Han–Ono addresses t=3 zero sets. The catalogue staircase covers each higher modulus and the first index at that modulus."
+        ],
+        "reasoning": "The primary literature statements are background, not by themselves full coverage. The staircase is a stronger theorem for the sharp modulus/onset component, with exactly the same generating functions.",
+        "searches": [
+          "Sharma arXiv:2610.01422 Propositions 1–2 and lifting proof; Han–Ono arXiv:0805.2461 Theorem 1.1; Resultary 08aedacaf7e0 Proof"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ec029e7a5238, 08aedacaf7e0, b999001ced11, 2f4761034551, a948733bc473",
+        "Sharma arXiv:2610.01422; Han–Ono arXiv:0805.2461"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior one-step proof explicitly states the exact telescoping identity, R_j(q)=R_0(q^{p^j}) where R_0=E(q)^p/E(q^p), and that every factor before j=a−1 is 1 mod p^{a+2}. Therefore it already reduces F/C to R_0(q^{p^{a−1}})^{p^a} at precisely the needed modulus."
+        ],
+        "reasoning": "Write the prior last factor as (1+pR)^{p^a}; retaining the only surviving binomial terms gives R for odd p and R+R² for p=2. For the same prior Euler quotient, expanding a single factor by binomial coefficients gives −1/h at nonzero residues h mod odd p; collecting divisors is direct coefficient extraction. At 2 the factor simplifies to 1−2z/(1+z), so divisor pairing gives squares and Frobenius gives twice-squares. There is no new obstruction or estimate beyond evaluation of the explicit last factor, and no claim here that the two closed expressions appeared verbatim in the source.",
+        "searches": [
+          "Resultary ec029e7a5238, proof offsets 1040–3685; Resultary 08aedacaf7e0, proof offsets 1850–6374"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary ec029e7a5238 gives the sharp one-step lift at n=p^{a−1}; 08aedacaf7e0 gives the first discrepancy at all prime-power moduli and the exact onset residue. Related gcd statements in b999001ced11, 2f4761034551 and a948733bc473 confirm scope overlap."
+        ],
+        "reasoning": "Exact coefficient content of the difference and maximal coefficientwise congruence modulus are equivalent by divisibility; the first staircase step above that modulus is precisely the claimed first index and residue.",
+        "searches": [
+          "Local Resultary semantic lookup: prime-power hook/core congruence, coefficient gcd, first-failure staircase, normalized Euler-product discrepancy and dyadic theta correction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue gives uniform p^{a+1} and at its first failed extension n=p^{a−1} with residue −p^{a+1} mod p^{a+2}. No verbatim full pair of residue series was located in the inspected findings."
+        ],
+        "reasoning": "Exact coverage of the first two claims is affirmative. Neither finite tables of individual t nor keyword misses settle the remaining formulas; those are assessed by implication below.",
+        "searches": [
+          "Local Resultary search and read of ec029e7a5238, 08aedacaf7e0, b999001ced11, 2f4761034551 and a948733bc473"
+        ]
+      },
+      "rationale": "The exact exponent, first discrepancy index and first residue are already stated in distinct earlier catalogue results. The odd and dyadic whole-series expressions were not located verbatim, but the inspected one-step-lift proof already gives, at the requisite modulus, the exact last-factor reduction. The remaining two expressions are obtained by retaining the first two binomial terms there and expanding a single, explicitly given Euler quotient. Thus rejection combines affirmative exact coverage of the sharpness claim with a concrete mechanical implication for the purported remainder.",
+      "residual_risks": [
+        "Historical attribution of the explicit odd and dyadic formulas remains open. The failure rests on affirmative coverage and demonstrated implication, not on access limits or missing search hits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact modulus/onset coverage and decisive implication for residues",
+          "evidence": "Same exact product telescope; earlier factors are already 1 mod p^{a+2}; coefficient at q^{p^{a−1}} is −p^{a+1} at that modulus.",
+          "identifier_or_url": "Resultary ec029e7a5238",
+          "material_read": "RESULT.md Finding and Proof, offsets 0 and 1040–3685",
+          "method": "Local catalogue mirror",
+          "title": "Sharp one-step p-adic lift for prime-power hook-core congruences",
+          "trigger": "Exact same congruence and last lifting factor"
+        },
+        {
+          "assessment": "Exact prior coverage of onset and leading coefficient",
+          "evidence": "At q^{p^j} the first discrepancy mod p^{2a−j+1} is −p^{2a−j}; take j=a−1.",
+          "identifier_or_url": "Resultary 08aedacaf7e0",
+          "material_read": "RESULT.md Finding and Proof, offsets 0 and 1850–6374",
+          "method": "Local catalogue mirror",
+          "title": "Exact p-adic first-discrepancy staircase for hook-length and core series",
+          "trigger": "Stronger threshold over all prime-power moduli"
+        },
+        {
+          "assessment": "Additional material overlap",
+          "evidence": "Exact prime-power content or modulus and first obstruction, not a verbatim complete normalized residue law in the findings.",
+          "identifier_or_url": "Resultary b999001ced11, 2f4761034551, a948733bc473",
+          "material_read": "Each RESULT.md Finding, offset 0",
+          "method": "Local catalogue mirror",
+          "title": "Optimal coefficient gcd for the hook-length and core series; Optimal congruence moduli and first obstructions; Exact universal congruence moduli",
+          "trigger": "Equivalent maximum modulus and first-obstruction invariants"
+        },
+        {
+          "assessment": "General p^a and prime-case p² stated; not the decisive stronger proof",
+          "evidence": "The two propositions have those respective moduli; no general first-error law appears there.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.01422",
+          "material_read": "Propositions 1–2 p. 3; formal lifting material pp. 3–5 (OA offsets 6867, 7087, 10900, 13991)",
+          "method": "Lawful OA PDF text",
+          "title": "A Prime-Power Dichotomy for Nekrasov–Okounkov Hook Lengths and t-Core Partitions (Sharma)",
+          "trigger": "Primary same-object prime-power congruence"
+        },
+        {
+          "assessment": "Different invariant at one parameter",
+          "evidence": "Zero-set equivalence for t=3, not coefficientwise p-adic discrepancy.",
+          "identifier_or_url": "https://arxiv.org/abs/0805.2461",
+          "material_read": "Theorem 1.1 p. 2, OA offset 7377",
+          "method": "Lawful OA PDF text",
+          "title": "Hook lengths and 3-cores (Han–Ono)",
+          "trigger": "Related hook/core equivalence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding; Resultary ec029e7a5238 proof and 08aedacaf7e0 Finding"
+      ],
+      "rationale": "The first error of a natural partition congruence is a motivated invariant, but its sharp index and valuation are already known. The remaining named series re-express the elementary residue of the same already isolated factor, at the very modulus of the prior proof. No independently unknown non-mechanical refinement survives in the frozen finding.",
+      "residual_risks": [
+        "This does not deny usefulness of the prior modulus or a readable explicit residue formula; it concerns the independent contribution of this frozen claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

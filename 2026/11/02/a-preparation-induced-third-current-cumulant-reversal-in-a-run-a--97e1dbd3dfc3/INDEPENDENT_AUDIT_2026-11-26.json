@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:16:03.918459Z",
+  "axes": {
+    "correctness": {
+      "limitations": "Disorder-averaged conditional cumulants only; unbiased iid orientations, step density in the thermodynamic limit, and noninteracting telegraph dynamics. The numerical zero is not needed, and neither its certified location nor uniqueness is claimed.",
+      "rationale": "At fixed disorder, a current contribution is a crossing Bernoulli variable. Taking its log-MGF first gives b₃(U_±) for qq, whereas orientation averaging first gives b₃(m) for qa. With d=(U_+−U_−)/2 the symmetric difference is (6m−3)d². The symmetric unbiased displacement law has 0<m<1/2 on 0<z<vt by the positive ballistic atom and the positive interior one-flip density. Near vt the two orientation-conditioned tails differ by a positive quantity (limit e^(−γt)), proving both strict signs claimed for every t>0. At z=vty, a single flip has uniformly distributed time conditional on its count; from +, crossings require flip after t(1+y)/2, and from −, before t(1−y)/2. Combining with the no-flip term and a uniform O((γt)²) two-or-more-flip remainder gives the stated first-order crossing probabilities. The qq and qa integrands at that order are −γty/2 and +γty/4, respectively, yielding −ρvγt²/4 and +ρvγt²/8. The compensated sign martingale has deterministic bracket 4γt and jumps of magnitude 2, giving the conditional Brownian limit for either sign. E[S_s S_u]=e^(−2γ|u−s|) for either initial sign bounds E[Y_t²] by v²t/γ, where Y_t is the free displacement. Thus the positive scaled displacements have uniformly small integrated tails, justifying passage to the spatial limit against |b₃(p)|≤p. For f=erfc, twice integrating by parts gives I_k=k/√π [1−2(k−1)/√π ∫e^(−2y²)f(y)^(k−2)dy] for k≥2 on y≥0. Evaluating at k=2,3 and taking I₁/2−3I₂/4+I₃/4 recovers C₃. It is positive from the limiting integral directly. Almost-sure continuity of the displacement and absence of interior crossing-level atoms give continuity after spatial integration, hence at least one finite sign reversal for qq.",
+      "replay_paths": [
+        "Frozen RESULT.md, lines 44–95; analytic reconstruction above with an independent second-moment bound for spatial tails. Frozen verify.py and VERIFICATION.md inspected, not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jose–Rosso–Ramola's extension includes initial orientation bias but its compared exact cumulant results and asymptotic table concern the variance.",
+          "The nearby indexed 402df5e0f059 concerns eventual coefficient signs of a stationary geometric-ensemble transform with resetting; e9d3dc779d5c concerns current/transfer sign reversals of a polarized two-sided gas."
+        ],
+        "reasoning": "Coverage of more bias parameters for a variance and sign results for different observables or dynamical ensembles do not supply the third-cumulant sign theorem under the unbiased quenched preparations.",
+        "searches": [
+          "arXiv:2310.16811, introduction and Table 1",
+          "Resultary: run-and-tumble preparation, quenched-current third cumulant and reversal"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2001.01923, 2306.13613, 2310.16811",
+        "Resultary 402df5e0f059 and e9d3dc779d5c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2023 discussion identifies higher current cumulants as further work; its known CGFs directly yield the third-order integral representation.",
+          "The Brownian CGF via the erfc crossing profile determines the same C₃ by differentiation. To turn it into an asymptotic for both RTP preparations the conditional diffusive limit and spatial tail control are required.",
+          "The inspected papers do not state the all-time strict ordering or the opposite short-time coefficients, which, with the common positive long-time term, furnish the reversal result."
+        ],
+        "reasoning": "Distinguish a CGF that implicitly determines a quantity from evaluated strict inequalities and a zero forced by two asymptotic signs. Credit the prior Brownian integral and known propagators; the added content is the telegraph preparation comparison and reversal.",
+        "searches": [
+          "arXiv:2306.13613, Discussion p. 5",
+          "arXiv:2001.01923, Brownian Eq. (9) p. 4 and quenched Eq. (16) p. 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jose–Rosso–Ramola give the qq and qa generating functions; Banerjee et al. give the quenched-position formula. Change the counting-field sign s=−p to match the frozen convention; three derivatives give exactly the displayed integrals."
+        ],
+        "reasoning": "Switching the sign of the counting field or differentiating an already stated CGF does not constitute a new exact formula; the substantive claim is the strict sign theorem about those integrals. Unconditional mixtures of disorder are not equivalent to the defined observables.",
+        "searches": [
+          "Primary lookup for quenched and annealed magnetization third-current cumulants and sign reversal in the run-and-tumble gas",
+          "arXiv:2306.13613, Eqs. (22), (25) and following text; arXiv:2001.01923, Eq. (16)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected variance asymptotics table has no third-current values or corresponding sign theorem. No exact matching indexed third-order result was evidenced by the bounded comparison."
+        ],
+        "reasoning": "This is an all-time sign comparison and asymptotic theorem, not a new table entry. The frozen numerical zero is illustrative and does not support originality of a root location or uniqueness.",
+        "searches": [
+          "arXiv:2310.16811, Table 1 (p. 6)",
+          "Resultary exact third cumulant and sign/ordering matches, including 402df5e0f059 and e9d3dc779d5c"
+        ]
+      },
+      "rationale": "The earlier exact generating functions already imply the Bernoulli-polynomial integral representations, and the Brownian CGF determines the limiting Brownian coefficient. The distinct result is the evaluated all-time strict comparison, opposite initial signs, and proof of a preparation-dependent negative-to-positive third-cumulant reversal in the stated telegraph gas.",
+      "residual_risks": [
+        "Bounded literature search: further prior evaluations of the Brownian or RTP third cumulants may exist; originality is not assigned to the exact CGFs or to the recoverable Brownian integral.",
+        "No same-day ordering or global publication priority inferred from the indexed comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact CGF precedent and Brownian-limit integral implication",
+          "evidence": "The quenched-position log integral and the Brownian erfc crossing probability yield the corresponding third-cumulant integrals after a counting-field sign change.",
+          "identifier_or_url": "arXiv:2001.01923",
+          "material_read": "Eq. (9) p. 4; Eq. (16) p. 5",
+          "method": "Lawful OA PDF passages",
+          "title": "Current fluctuations in non-interacting run-and-tumble particles in one-dimension",
+          "trigger": "Prior quenched-position current CGFs and Brownian scaling"
+        },
+        {
+          "assessment": "Same preparations and exact CGF; inspected discussion leaves higher cumulants for further work",
+          "evidence": "Fixed-orientation log averaging and orientation-averaged probabilities give the precise qq/qa formulas used in the claim.",
+          "identifier_or_url": "arXiv:2306.13613",
+          "material_read": "p. 4 Eqs. (22), (25) and following passage; Discussion p. 5",
+          "method": "Lawful OA PDF passages",
+          "title": "Generalized disorder averages and current fluctuations in run and tumble particles",
+          "trigger": "Identical density and initial orientation disorder definitions"
+        },
+        {
+          "assessment": "Broader preparation, different cumulant order",
+          "evidence": "Stated exact variance results and their leading time behavior are not third-cumulant results.",
+          "identifier_or_url": "arXiv:2310.16811",
+          "material_read": "Introduction pp. 2–3; Table 1 p. 6",
+          "method": "Lawful OA PDF passages",
+          "title": "Effect of initial conditions on current fluctuations in non-interacting active particles",
+          "trigger": "Potential stronger result allowing arbitrary initial bias"
+        },
+        {
+          "assessment": "Different processes or observables",
+          "evidence": "Stationary resetting/geometric-ensemble transform in the first; two-sided polarized current/transfer in the second.",
+          "identifier_or_url": "Resultary 402df5e0f059; e9d3dc779d5c",
+          "material_read": "Indexed findings and ensemble descriptions",
+          "method": "Local Resultary comparison",
+          "title": "Indexed current-sign and reversal comparisons",
+          "trigger": "Closest apparent current sign and reversal hits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem distinguishes two standard preparations of the same gas by a qualitative skewness phenomenon not decided by their common diffusive leading law. The strict all-time ordering and rigorous short/long sign comparison give a usable criterion for which preparation can exhibit negative third current cumulant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

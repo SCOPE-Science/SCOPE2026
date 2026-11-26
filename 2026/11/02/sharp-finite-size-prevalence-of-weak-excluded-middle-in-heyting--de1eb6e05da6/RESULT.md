@@ -2,83 +2,44 @@
 
 ## Finding
 
-Let \(H\) be a finite Heyting algebra, and write
+Let \(H\) be a finite Heyting algebra, and let \(w(H)\) be the proportion of elements \(a\in H\) satisfying \(\neg a\vee\neg\neg a=\top\). If \(H\) has \(n\ge3\) join-irreducible elements and \(w(H)<1\), then
 \[
- w(H)=\frac{|\{a\in H:\neg a\vee\neg\neg a=\top\}|}{|H|}.
+w(H)\le\frac{2^{n-2}+1}{2^{n-2}+3}.
 \]
-If \(H\) has \(n\ge3\) join-irreducible elements and does **not** satisfy weak excluded middle identically, then
-\[
- \boxed{w(H)\le\frac{2^{n-2}+1}{2^{n-2}+3}.}
-\]
-Equality holds if and only if \(H\) is isomorphic to the downset Heyting algebra of \(A_2\oplus A_{n-2}\), the ordinal sum of a two-point antichain and an \((n-2)\)-point antichain. In particular, the minimum possible proportion of failing elements at fixed join-irreducible count \(n\) is exactly \(2/(2^{n-2}+3)\).
-
-There is also an exact counting formula. Write \(H\cong J(P)\), where \(P\) is the finite poset of its join-irreducibles, and let \(C_1,\ldots,C_k\) be the connected components of the *undirected comparability graph* of \(P\). If \(\operatorname{Min}(C_i)\) denotes the minimal points of \(C_i\), then
-\[
- \boxed{|\{a\in H:\neg a\vee\neg\neg a=\top\}|=
- \prod_{i=1}^k\bigl(1+|J(C_i\setminus\operatorname{Min}(C_i))|\bigr).}
-\]
-Here \(J(Q)\) denotes all order ideals of the induced finite poset \(Q\), including the empty ideal. In particular \(w(H)=1\) if and only if each \(C_i\) has exactly one minimal point.
+Equality holds exactly for the downset Heyting algebra of \(A_2\oplus A_{n-2}\), the ordinal sum of a two-point antichain below an \((n-2)\)-point antichain. Thus \(2/(2^{n-2}+3)\) is the smallest positive failure proportion at fixed join-irreducible count. The previously known componentwise counting identity is a tool in the proof, not a second novelty claim.
 
 ## Assumptions and scope
 
-The language is that of Heyting algebras with the usual pseudocomplement \(\neg a=a\to\bot\); the probability uses the uniform distribution on the **elements** of \(H\), not on the join-irreducibles. The exact product formula holds for every finite Heyting algebra, with the empty product interpreted as one for the trivial algebra. The sharp bound applies only when \(n\ge3\) and \(w(H)<1\). An isomorphism of Heyting algebras is equivalent here to a bounded distributive lattice isomorphism.
-
-A connected component is formed using undirected edges between distinct comparable elements; this convention fixes the direction of the finite Birkhoff representation. \(A_j\) denotes an antichain of \(j\) points, and the ordinal sum places every element of the first antichain below every element of the second.
+The sampling is uniform on the elements of \(H\). Write \(H=J(P)\) under finite Birkhoff representation, with \(P\) the poset of join-irreducibles and \(J(P)\) its downset algebra, including the empty ideal. Components are for the undirected comparability graph. The pseudocomplement is \(\neg a=a\to\bot\). The bound concerns nonvalidity of this one-variable weak excluded-middle equation, not ordinary excluded middle or a binary failure count. The parameter is \(|P|\), not \(|H|\).
 
 ## Proof
 
-**1. Pointwise semantics.** By finite Birkhoff representation, take \(H=J(P)\). For an ideal \(I\subseteq P\) and a point \(p\in P\), the relative pseudocomplement satisfies
+**Counting ingredient (previously known).** In the downset convention the component formula from [1] is
 \[
- p\in\neg I\iff \downarrow p\cap I=\varnothing.
+\#\{I\in J(P):\neg I\cup\neg\neg I=P\}
+=\prod_C \bigl(1+|J(C\setminus\operatorname{Min}(C))|\bigr).
 \]
-Writing \(M(p)=\operatorname{Min}(P)\cap\downarrow p\) and \(S=I\cap\operatorname{Min}(P)\), every nonempty ideal of \(\downarrow p\) contains a minimal point of \(P\), so
+To see it directly, let \(M(p)\) be the set of minima below \(p\), and \(S\) the minima included in \(I\). By the definition of the pseudocomplement, \(p\in\neg I\) exactly when \(M(p)\cap S=\varnothing\); likewise \(p\in\neg\neg I\) exactly when \(M(p)\subseteq S\). Indeed, a minimum below \(p\) that is missing from \(I\) witnesses failure of the second condition, whereas if all such minima are in \(I\), every point below \(p\) has an element of \(I\) below it. Inside a component all minima are linked by successive common upper bounds: the nonempty cliques \(M(p)\) overlap at successive vertices of any comparability path, by inclusion for comparable vertices. Hence every point is covered by one of the two pseudocomplements exactly when on each component \(S\) contains no minimum or all minima. An ideal in the first case is empty in that component; in the second case deleting the minima leaves an arbitrary ideal of the remaining induced poset. This proves the identity and shows validity exactly when every component has only one minimum. The formula also holds for the empty poset by the empty product convention.
+
+**Extremal inequality.** Take a component \(C\) with \(s\) points and \(m\ge2\) minima, and let \(G,B\) count its satisfying and failing ideals, respectively. The formula gives \(G\le 1+2^{s-m}\le 1+2^{s-2}\). Every nonempty proper subset of the minima is a failing ideal, so \(B\ge 2^m-2\ge2\). Since \(B/(B+G)\) is strictly increasing in \(B\) and strictly decreasing in \(G\) for positive counts,
 \[
- p\in\neg I\iff M(p)\cap S=\varnothing,
- \qquad
- p\in\neg\neg I\iff M(p)\subseteq S.
+1-w(J(C))\ge \frac{2}{2^{s-2}+3}.
 \]
-For the second equivalence, a missing minimum \(m\in M(p)\setminus S\) belongs to \(\neg I\) and witnesses \(p\notin\neg\neg I\); conversely every \(q\le p\) has a minimum \(m\le q\), and if all such minima lie in \(S\), then \(q\notin\neg I\).
+Equality requires \(m=2\), the upper bound \(G=1+2^{s-2}\) and exactly two failing ideals. The upper bound on \(G\) is attained only when the nonminima are an antichain. If any nonminimum were above just one minimum, its principal ideal would be an additional failing ideal. Thus every nonminimum is above both, and \(C=A_2\oplus A_{s-2}\) up to isomorphism. Conversely that order has exactly two failing ideals (the singleton minima) and \(1+2^{s-2}\) satisfying ideals.
 
-Thus \(\neg I\cup\neg\neg I=P\) exactly when each nonempty \(M(p)\) is either wholly contained in \(S\) or disjoint from \(S\).
+For any \(P\) giving \(w(H)<1\), such a component exists. The probabilities multiply over components, so \(w(H)\le w(J(C))\le(2^{s-2}+1)/(2^{s-2}+3)\). The last expression is strictly increasing in \(s\), and \(s\le n\); global equality therefore forces \(s=n\). This proves the result and its equality characterization, including \(n=3\).
 
-**2. Connected components.** In one comparability component \(C\), construct a graph on its minimal points, joining two when they have a common upper bound in \(C\). This graph is connected: every \(M(p)\) is a clique, and for comparable \(p\le q\) the nonempty set \(M(p)\) is contained in \(M(q)\), so comparability paths glue these cliques together. The pointwise condition from step 1 therefore means precisely that \(S\cap C\) is either empty or all of \(\operatorname{Min}(C)\).
+## Verification and limits
 
-An ideal with no minimum of \(C\) is empty on \(C\). Ideals containing every minimum of \(C\) correspond bijectively, by deleting those minima, to \(J(C\setminus\operatorname{Min}(C))\). Therefore the number of satisfying ideals of \(C\) is \(1+|J(C\setminus\operatorname{Min}(C))|\). Choices over distinct components are independent, proving the product formula. All ideals satisfy the equation if and only if every connected component has one minimum: when there are at least two minima, an ideal containing exactly one gives a counterexample.
-
-**3. Sharp bound for a connected component.** Let \(C\) have \(s\) points and \(m\ge2\) minimal points. Connectedness implies \(s\ge m+1\). Put \(t=|J(C\setminus\operatorname{Min}(C))|\le 2^{s-m}\). There are exactly \(1+t\) satisfying ideals. Every nonempty proper subset of the \(m\) minima is itself an ideal and fails weak excluded middle, giving at least \(2^m-2\) failing ideals. Hence
-\[
- 1-w(J(C))\ge\frac{2^m-2}{1+t+2^m-2}
- \ge\frac{2}{2^{s-2}+3}.
-\]
-The last inequality follows because \(2^m-2\ge2\), \(t\le2^{s-m}\le2^{s-2}\), and \(B/(1+t+B)\) increases in \(B>0\) and decreases in \(t\ge0\).
-
-For equality, necessarily \(m=2\), \(t=2^{s-2}\), and the only failing ideals must be the two singleton minima. The second condition says the remaining \(s-2\) points are an antichain. As \(C\) is connected, every remaining point lies above at least one minimum. If such a point lay above exactly one, its principal downset would be a third failing ideal. Thus every remaining point lies above **both** minima, and \(C\cong A_2\oplus A_{s-2}\). Conversely that poset has \(2^{s-2}+3\) ideals and exactly \(2^{s-2}+1\) satisfying ideals, so equality holds.
-
-**4. Arbitrary finite posets.** If \(w(J(P))<1\), at least one component \(C\) has two or more minima. Writing \(s=|C|\le n\), multiplicativity gives
-\[
- w(J(P))=\prod_i w(J(C_i))\le w(J(C))
- \le\frac{2^{s-2}+1}{2^{s-2}+3}
- \le\frac{2^{n-2}+1}{2^{n-2}+3}.
-\]
-The right-hand fraction is strictly increasing in \(s\), so equality requires \(s=n\) (there is only one component), and step 3 gives the unique equality type. This completes the proof.
-
-## Verification
-
-The standalone standard-library script `verify_wem.py` independently evaluates \(\neg I\) and \(\neg\neg I\) as bitsets over all ideals. It enumerates all naturally labeled posets through six points: exactly \(1,2,7,40,357,4824\) orders in sizes one to six. Every poset passes the exact component-product formula and the sharp inequality. At sizes three through six, it finds exactly one naturally labeled equality structure, the asserted two-level poset. It also directly counts the equality constructions through sixteen points. These finite tests corroborate but are not used to prove the universal statements.
-
-Run the check with `python3 verify_wem.py`. It requires only Python 3 and its standard library.
+The unchanged companion `verify_wem.py` evaluates both pseudocomplements exactly on all naturally labeled posets through six vertices and cross-checks the stated extremal family through size sixteen (direct success enumeration through thirteen). These bounded checks corroborate the result; the proof above applies at all sizes. This is not a characterization of every attainable proportion.
 
 ## Relationship to prior work
 
-Bumpus and Kocsis (2021 preprint, later journal publication) introduced satisfiability-degree questions for Heyting algebras and classified which one-variable equations have a uniform finite satisfiability gap. Their results imply in particular that the weak excluded-middle equation has **no universal gap**. They do not give the stated sharp bound at each prescribed number of join-irreducibles, its equality characterization, or the componentwise enumeration formula.
-
-Lávička, Moraschini and Raftery (2021 preprint) develop the algebraic characterization of weak excluded-middle laws, including the logical connection with \(\mathbf{KC}\). That is a global validity characterization rather than a quantitative fixed-size prevalence statement. The result here gives a sharp, exponentially vanishing *conditional defect* bound for non-\(\mathbf{KC}\) finite algebras, consistent with the absence of a uniform gap.
-
-## Limitations
-
-The size parameter is the number of join-irreducibles, not the total number of elements of the Heyting algebra. The result gives the maximum satisfaction proportion among non-\(\mathbf{KC}\) algebras at that parameter, not the entire set of attainable proportions or an extremal lower bound. It is restricted to finite algebras. Terminological variants involving Stone or De Morgan algebras leave some historical-priority uncertainty.
+The joint satisfaction table in [1] gives the same marginal component identity in the upset convention; reversing the order exchanges maxima with minima. Bumpus and Kocsis [2] show that weak excluded middle has no uniform positive satisfiability gap across finite algebras. The bound here identifies the best positive gap at each fixed join-irreducible count and the unique order that attains it. Lávička, Moraschini and Raftery [3] study global validity and the connection with \(\mathbf{KC}\). The related second-De-Morgan comparison in [4] concerns ordered pairs and equality between two defect counts, and includes the family \(J(A_2\oplus Q)\) with two unary failures. To obtain the present optimum one must bound the unary failure *proportion* against all other nonvalid types, including disconnected orders, and then identify the unique maximizing \(Q\) at fixed size.
 
 ## References
 
-1. B. M. Bumpus and Z. A. Kocsis, *Degree of Satisfiability in Heyting Algebras*, arXiv:2110.11515, initially public 2021-10-21. See Sections 1–2 and Theorem 2.19 of the 2024 revised preprint. https://arxiv.org/abs/2110.11515
-2. T. Lávička, T. Moraschini and J. G. Raftery, *The Algebraic Significance of Weak Excluded Middle Laws*, arXiv:2108.09168, initially public 2021-08-20; *Mathematical Logic Quarterly* 68 (2022), 79–94. https://arxiv.org/abs/2108.09168
+1. *Joint weak-excluded-middle and double-negation spectra on finite Heyting frames*, [Resultary record 826a5e04fbd5](https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-joint-weak-excluded-middle-and-double-negation-spectra-on-finite--826a5e04fbd5), Finding and proof of component count.
+2. B. M. Bumpus and Z. A. Kocsis, *Degree of Satisfiability in Heyting Algebras*, [arXiv:2110.11515](https://arxiv.org/abs/2110.11515), Theorems 2.4 and 2.19, and Section 6.6.
+3. T. Lávička, T. Moraschini and J. G. Raftery, *The Algebraic Significance of Weak Excluded Middle Laws*, [arXiv:2108.09168](https://arxiv.org/abs/2108.09168), Introduction and Theorem 8.5.
+4. *Sharp first-defect rigidity for the second De Morgan law in finite Heyting algebras*, [Resultary record 30a6c75e00c5](https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-first-defect-rigidity-for-the-second-de-morgan-law-in-fini--30a6c75e00c5), Finding and rigidity proof.

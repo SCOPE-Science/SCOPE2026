@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The universal pentagonal upper bound follows from the smallest eigenvalue of the exact circulant sample matrix. Nonnegativity forces an interior double root for every degree-at-most-three cosine polynomial; Fourier positivity determines the sign of the remaining linear factor's slope, giving an exact upper bound and unique quadratic equality case. The quartic factorization has a strictly positive residual quadratic, and its Fourier coefficients are nonnegative. The degree-preserving perturbation has all sampled Fourier residues and disjoint analytic zero sets; the classical Horn copositive inequality yields an exact negative trace in the stated parameter interval. Symbolic checks of all relevant algebraic identities and a supplementary positive-definiteness sample check completed successfully. Risk: the result does not extend to noneven complex kernels or arbitrary nodes without new work.
+## correctness
 
-**Originality — PASS, with a stated historical limitation.** The five-cycle matrix and its separation from completely positive matrices are known and fully credited to the classical five-dimensional literature and Peyré's 2026 exposition. The inspected Damase–Pascoe paper treats general positive-definite interpolation, while Burer–Anstreicher–Dür treat matrix-cone structure; neither inspected text presents the joint sharp degree-at-most-three chord-constrained bound, positive-definite degree-four trigonometric extension, and degree-preserving strictly positive/full-rank variant. Related sparse Carathéodory–Fejér problems optimize different Fourier coefficients without this exact pentagonal zero constraint. Risk: an algebraically equivalent special-case interpolation theorem in older harmonic-analysis or positivity literature may not be indexed.
+PASS
 
-**Value — PASS.** The exact opposite-chord constraint is forced by the natural five-cycle sparsity geometry of the smallest nontrivial doubly-nonnegative versus completely-positive gap. The result determines the minimum Fourier bandwidth required to realize that sharp extremal matrix using a function satisfying both types of positivity *globally*, quantifies a strict degree-three gap, and shows that the separation survives a smooth degree-preserving perturbation into full-rank, entrywise-positive matrices. This is a natural finite interpolation invariant, not a recomputation of the known matrix obstruction. The strict-positivity perturbation is not claimed optimal outside its stated Horn-certificate range.
+Re-audited the repaired Finding and proof. For P(cos t)=f(t), the interior chord zero c=−φ/2 forces a double root since P is nonnegative on [−1,1]. At degree ≤3, P=(x−c)^2(A+B x); the third cosine coefficient B/4 must be nonnegative. Comparing x=d=η/2 to x=1 makes the ratio at most ((d−c)/(1−c))²=η², with equality forcing B=0. The normalized square belongs to the class and uniquely attains the bound. The five-point sample is I+q A(C5); explicit adjacent nonnegative rank-one terms plus (1−2q)I give complete positivity up to 1/2, including the full lower-degree range. The negative eigenvalue threshold 1−φq≥0 bounds arbitrary degree. For sharpness, the prior N=4 polynomial divided by sqrt(5) is exactly F. An independent symbolic replay solves for weights u,v,w in u+v x+w T4(x) from P(1)=1, P(c)=P'(c)=0, recovering the stated F; exact division by (x−c)^2 gives the displayed positive quadratic and exact evaluations give F(d)=η and the two Horn pairings 10−5sqrt(5), 10+5sqrt(5) for F and 1+cos 2t. Copositivity follows from mass transfer at nonadjacent vertices, reducing a triangle-free graph to a clique; the pairing is strictly negative at F. For the illustrative perturbation, the summands' zero sets do not meet, and strictly positive weights on all Fourier residues give full sample rank. Its Horn bound is sufficient only. The frozen verification script was inspected, not run.
 
-**Closest scientific literature.** Damase–Pascoe, arXiv:2602.09010v1, §§3.3–3.4, 6–7; Peyré (2026-07-04), complete pentagon exposition; Burer–Anstreicher–Dür (2009), §§1–2, 5; and Geronimo–Woerdeman (2004), positivity-extension background. The source-specific comparison and residual historical risk appear in the structured scientific audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS only for the repaired degree-three inequality, unique equality case, and the resulting sharp zero-chord bandwidth threshold. The frozen identification of the quartic interpolation as part of the contribution is not supported: a prior paper supplies literally the same polynomial after normalization, so quartic and unrestricted attainment are now expressly prior consequences. In the inspected comparisons, the prior extremal objective and matrix results do not supply the sharp exclusion or equality analysis for degree ≤3.
+
+## value
+
+PASS
+
+The antipodal chord class is dictated by the sparsity graph of the classical five-cycle obstruction. The useful new boundary is not the old quartic formula but a necessary bandwidth theorem with unique lower-degree extremizer: it quantifies how much complete positivity is forced by a global nonnegativity constraint and three Fourier harmonics, although it fails at four. This is a motivated exact finite interpolation invariant not supplied by the cone example or the older sparse support optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

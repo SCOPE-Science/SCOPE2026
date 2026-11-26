@@ -1,15 +1,21 @@
-## Correctness
+# Independent mathematical audit
 
-PASS. The four-element multiplication table is associative, commutative, monotone, has the stated unit and absorbing bottom, and admits residuals by finite-chain adjunction. The two one-point models are related by a homomorphism because every designated source atom remains designated. The sentence values are respectively \(b\in F\) and \(a\notin F\). The lower-bound argument excludes smaller source carriers in the stated unit-generated-filter setting.
+## correctness
 
-## Originality
+PASS
 
-PASS with a stated scope. Carr's 2024 preprint gives a qualitative failure for residuated conjunction in a nonintegral UL-chain, but the inspected statement uses an infinite truth-value algebra and does not establish a four-element finite witness or the minimum carrier size. Searches for the exact finite minimality statement returned no direct match. The comparison is a sharpening of known qualitative failure, not a claim that the general phenomenon is new.
+The order is bottom<a<e<b. The product is associative: bottom absorbs, otherwise b wins over a, and a wins over e; e is the unit. The rows are monotone and start at bottom, so each translation has the residual obtained by taking the largest eligible argument. Under the designated-atomic homomorphism convention, P changes from b to e without losing designatedness and R stays at the undesignated a. The source fusion is b and the target fusion is a. For a source below size four, the unit is either top or, in the only nontrivial nonintegral case, the middle element of a three-element chain. In the integral case x⊗y≤x∧y, so a designated product forces both inputs to be designated; in the three-element nonintegral case the only undesignated value is the absorbing bottom and the same conclusion holds. The trivial source has every atom designated. Induction on the fragment then propagates truth: a true source join on a chain has a true disjunct, a true existential over the finite chain has a witnessing assignment, and source meet and fusion both require true inputs. In a target with a unit-generated filter, meet, join and fusion propagate designatedness as needed, even for a different target algebra. The result does not assert failure for homomorphisms required to preserve atomic grades or value-order inequalities.
 
-## Value
+## originality
 
-PASS. The result gives the sharp finite carrier cutoff for a concrete failure mode in finite many-valued model theory. The exact small counterexample clarifies the boundary between the lattice-only preservation theorem and extensions that admit residuated fusion; the minimality proof is structural, not a table-only observation.
+PASS
 
-Closest literature and limitations: Carr, arXiv:2403.00217, especially Example 5.10 and Section 8. The result does not classify all finite residuated chains or residual-implication fragments. Exact novelty against all algebraic classification literature remains a residual risk.
+Carr anticipates the formula and nonintegral obstruction, and its standard UL product restricts to the submitted four-element multiplication on {0,1/3,1/2,1}. Thus neither the qualitative failure nor the product rule is the distinct contribution. The supported contribution is the exact minimum source carrier size in the stated finite unit-generated-filter setting; the inspected prior integral lemma and infinite example do not give that sharp threshold. The printed example's listed atomic assignments also do not witness its stated homomorphism; the qualitative construction can be fixed without changing the infinite algebra.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact threshold answers how small a truth algebra can separate lattice-positive from fusion-positive preservation under designated-atomic maps. It identifies the needed order configuration (an undesignated nonbottom value and a designated value strictly above the unit), and supplies a chain attaining it. This is a meaningful finite boundary for an existing preservation problem, not a claim to have discovered the qualitative phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

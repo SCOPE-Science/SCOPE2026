@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:31:49.192846Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–51",
+        "Frozen VERIFICATION.md, lines 18–23; verify.py, lines 7–46, inspected only",
+        "Aaronson, Proposition 3.1, for the fixed- and zero-drift context"
+      ],
+      "rationale": "Verified the telescoping proof and both normalizations. For h=β² and w=x+iy=β T_β^n(i), the two real recurrences give y≥β, x≥0, and 0<t=h/|w|²≤1 at every step. In the factorization w_next−1=(w−1)(1+h/w), arg(w−1) is in (0,π) and the second argument is in (−π/2,0), since its real part is positive. Their sum is in (−π/2,π), and w_next−1 is in the upper half-plane, so the arguments add without a branch correction. For |a|≤1/4 the logarithm error has absolute value at most |a|²/[2(1−|a|)]≤|a|²; here |a|²=h t. The bound t≤2 log(1+t) makes the total imaginary error at most 2h log(y/β). The initial phase is π+β−arctan β, whose excess is in [0,β³/3]. To justify the uniform bootstrap, y≤4π implies y_next≤8π, and then the telescoping inequality implies y_next≤π+β³/3+2β²log(8π/β)<4π: the added expression is increasing up to β=1/4, where it is less than 1. Thus y_n increases to a finite limit; its increments tending to zero force t_n→0 and x_n→+∞. The phase tends to zero and the asserted error bound follows. The real increments tend to h, hence x_n/n→h; in scaled coordinates u_n=β y_n/(π|w_n|²), giving the fixed-drift limit and then the stated iterated limit. At zero drift, T_0^n(i)=iB_n with B_{n+1}=B_n+1/B_n and B_n²/n→2, giving the claimed Poisson baseline.",
+      "residual_risks": [
+        "The frozen Python diagnostic uses floating-point arithmetic and is not an independently certified enclosure; the analytic proof gives the all-iterate and limiting bounds.",
+        "Neither a joint n,β asymptotic nor optimality of the error term is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aaronson's wider theorem includes this exact map at each fixed drift, with b∞ left unspecified. Ivrii/Pommerenke show qualitative finite-height behavior for simply parabolic maps. The return-sequence theorem includes the unshifted map via the symmetric two-point law."
+        ],
+        "reasoning": "A wider class of maps is not coverage of the new parameter estimate when the theorem treats each map separately. The return-sequence result treats zero drift and a different observable.",
+        "searches": [
+          "Aaronson, Proposition 3.1, singular-measure maps",
+          "Ivrii, Theorems 1.1 and 2.1 and Corollary 2.2",
+          "Pommerenke 1979, half-plane iteration, Theorem 2.1 as quoted in Ivrii",
+          "Arizmendi–Salazar–Wang arXiv:1811.12545, Theorems 1.2 and 4.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic searches and 5d815edc0f3b",
+        "Aaronson Proposition 3.1",
+        "Ivrii Theorems 1.1, 2.1 and Corollary 2.2",
+        "Arizmendi–Salazar–Wang Theorems 1.2 and 4.2",
+        "Pommerenke passages as reproduced by Ivrii"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known prefactor at fixed β is b∞(β)/(πβ²); the finite-height theorem asserts convergence but neither its β dependence nor the uniform error."
+        ],
+        "reasoning": "Once β b∞→π is known, the singular prefactor follows directly from the fixed-drift law. Conversely that law cannot determine the parameter growth of its unspecified height; the logarithmic potential estimate supplies the missing input. Credit the height theorem and its derived prefactor, not a new fixed-drift mixing theorem.",
+        "searches": [
+          "Aaronson Proposition 3.1 and proof, pp. 9–10",
+          "Ivrii Theorem 1.1 and Corollary 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The single atom ν=δ_0 in Aaronson's family gives exactly z+β−1/z; b∞ is its finite orbit height at i. Ivrii describes finite-height behavior via the positive-step conjugacy."
+        ],
+        "reasoning": "These are equivalent fixed-parameter orbit formulations. The singular coefficient requires a comparison across β→0, not just a conjugacy or a pointwise limit in n. The retrieved Resultary logarithmic-drift hit concerns a distinct planar map.",
+        "searches": [
+          "Resultary searches for translated Boole map, singular-drift orbit height, and β b∞→π",
+          "Aaronson arXiv:2609.00217, Proposition 3.1",
+          "Ivrii arXiv:2606.19260v1, Theorem 2.1 and Corollary 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact formula in the cited sources has a β-dependent orbit height left implicit; the retrieved Resultary item has a different map and asymptotic."
+        ],
+        "reasoning": "This is a continuous-parameter limit with a uniform error inequality, not a finite data table claim. The relevant exact-formula check was for an explicit small-drift height-law or normalization entry, not a numerical list of orbits.",
+        "searches": [
+          "Resultary searches for the exact π height limit and β-dependent error",
+          "Aaronson, Proposition 3.1, explicit normalization formula"
+        ]
+      },
+      "rationale": "Pass for the quantitative vanishing-drift height law and the resulting sharp singular prefactor in the stated order of limits. Existence of the finite height, the fixed-drift inverse-square law, and the zero-drift inverse-square-root baseline are already known, including for this map.",
+      "residual_risks": [
+        "The full original Pommerenke text was not lawfully retrievable in the bounded check; only the reproduced decisive statements were read.",
+        "Wider primary-literature lookup coverage is limited. An unindexed equivalent near-identity iteration bound is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct fixed-drift and zero-drift coverage; no vanishing-β estimate in the proposition",
+          "evidence": "For ν=δ_0 the map matches exactly; for β≠0 the normalizer is asymptotic to b∞/[π(nβ)²].",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.00217",
+          "material_read": "Proposition 3.1 and proof around p. 9, offsets 28800–33543",
+          "method": "Bounded OA PDF passages",
+          "title": "Dual mixing and quasi-mixing of inner function restrictions",
+          "trigger": "Exact map and normalization as a special case"
+        },
+        {
+          "assessment": "Qualitative orbit geometry, not the asserted vanishing-drift estimate",
+          "evidence": "Simple parabolic finite-height versus double parabolic infinite-height; finite-height form of the conjugacy. The v1 PDF is available despite the frozen access caveat.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.19260v1",
+          "material_read": "Theorem 1.1 p. 4; Theorem 2.1, Corollary 2.2 and remark p. 12; bibliography p. 57",
+          "method": "Bounded passages in retrievable original arXiv PDF",
+          "title": "Dynamics of simply parabolic inner functions",
+          "trigger": "Finite-height orbits and positive-step conjugacies"
+        },
+        {
+          "assessment": "Zero-drift return asymptotic on an overlapping example, not the claimed height law",
+          "evidence": "Singular zero-mean unit-variance law gives a return sequence asymptotic to √(2n)/π; symmetric two-point law realizes the unshifted map.",
+          "identifier_or_url": "https://arxiv.org/pdf/1811.12545",
+          "material_read": "Theorem 1.2 p. 3 and Theorem 4.2 p. 14",
+          "method": "Bounded OA PDF passages",
+          "title": "Berry–Esseen type estimate and return sequence for parabolic iteration in the upper half-plane",
+          "trigger": "Related zero-drift quantitative theory"
+        },
+        {
+          "assessment": "Reproduced results qualitative; no whole-document exclusion",
+          "evidence": "Conjugacy and finite-height statements for fixed maps; direct text not obtained.",
+          "identifier_or_url": "Pommerenke, J. London Math. Soc. (2) 19(3) (1979), 439–447",
+          "material_read": "Theorem 2.1 and finite-height corollary as reproduced in Ivrii p. 12; bibliographic entry p. 57",
+          "method": "Lawful direct retrieval unsuccessful; inspected the reproduced passages in OA arXiv source",
+          "title": "On the iteration of analytic functions in a halfplane, I",
+          "trigger": "Classic half-plane iteration possibly containing related estimates"
+        },
+        {
+          "assessment": "Different rational planar map and limit",
+          "evidence": "Critical-orbit expansion for y_n² rather than a finite-height law across β.",
+          "identifier_or_url": "Resultary 5d815edc0f3b",
+          "material_read": "Finding in mirrored record",
+          "method": "Local catalogue search and bounded passage",
+          "title": "A parabolic escape separator and a sign-changing logarithmic drift",
+          "trigger": "Semantic match for parabolic/logarithmic drift"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Limitations",
+        "Aaronson Proposition 3.1"
+      ],
+      "rationale": "Turning on translation changes the time exponent discontinuously. The known positive-drift coefficient was given by a limiting orbit height, so it left open how large the normalization gets near the zero-drift regime. This result gives the exact divergence exponent and constant with an explicit drift range and error for a natural single-pole model. It answers a parameter question rather than merely restating the known fixed-drift time law.",
+      "residual_risks": [
+        "The bounds concern iterated limits only; they do not locate a joint transition scale or generalize to arbitrary maps."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

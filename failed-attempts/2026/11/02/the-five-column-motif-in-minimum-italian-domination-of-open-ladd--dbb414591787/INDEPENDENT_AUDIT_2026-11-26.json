@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:38:03.116666Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The local test uses the zero-padding convention at both open ends and checks precisely the vertices labeled zero. I independently recovered the displayed potential by shortest-path relaxation on pair states using column weight minus one. Checking all finite inequalities proves the lower bound at every length by telescoping, and alternating 01 and 10 attains it. A path attains equality exactly when all slacks are zero. Independent trimming left 12 states, 16 arrows, and connector states 12 and 28 as both initial and final. First-return excursions alternate connectors, with one of each length 1, 2 and 5 from either connector; this is bijective including the empty composition for n=2. The recurrence and displayed counts follow. For the growth rate the positive root of x+x²+x⁵=1 is simple; equality in the triangle inequality on its circle forces x positive since exponents 1 and 2 are present. Its reciprocal is 1.704902776041646… .",
+      "replay": "python3 /workspace/branches/independent_replay.py 4",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gardner's abstract studies Italian domination numbers on these graph families; Theorem 3.4 is credited for the minimum value in a9925f4ce2fb but could not be verified in the thesis full text.",
+          "Shao–Zhao count on paths, trees and cycles, not this open ladder in the inspected results.",
+          "The later cyclic-prism record 0aeb660c48d4 uses a related denominator, but with periodic boundaries."
+        ],
+        "reasoning": "The abstract and the other graph families do not, by themselves, cover the exact ladder enumeration. The exact open-ladder record supplies stronger evidence than those methodological parallels.",
+        "searches": [
+          "Gardner thesis, ETSU item 3509",
+          "arXiv:2610.00108 full-text defining passages and ladder keyword",
+          "Resultary related open-ladder and cyclic-prism counts"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, and verify.py (read only)",
+        "Resultary a9925f4ce2fb and 0aeb660c48d4",
+        "arXiv:2610.00108",
+        "Gardner thesis abstract",
+        "OEIS A079971"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior result gives γ_I(L_n)=n and the same unique decomposition into an initial orientation and parts 1,2,5 on open ladders.",
+          "The claimed recurrence, counts and growth constant are direct consequences of the identical generating function."
+        ],
+        "reasoning": "Every substantive part of this Finding is explicit in the other record or follows directly from it; the supplied finite-state certificate does not leave a distinct finding.",
+        "searches": [
+          "Resultary a9925f4ce2fb, Finding, assumptions and proof Steps 1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shao–Zhao identify Roman {2}-domination as the same zero-vertex neighbor-sum predicate.",
+          "Resultary a9925f4ce2fb states the three-tile classification as a unique initial orientation and composition into 1, 2 and 5."
+        ],
+        "reasoning": "Tile lengths denote the same numbers of appended columns, and both statements count functions on distinguished rows and columns, not symmetry classes.",
+        "searches": [
+          "Resultary: minimum Italian domination counts and tile classifications on open ladders",
+          "arXiv:2610.00108, Roman {2}-domination definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A079971 is the undoubled and unshifted composition series 1/(1−x−x²−x⁵); the doubled ladder sequence lookup yielded no match.",
+          "The prior open-ladder record explicitly gives the doubled, shifted series 2x²/(1−x−x²−x⁵)."
+        ],
+        "reasoning": "The OEIS composition sequence alone would not identify a graph optimizer census. The prior ladder formula does identify exactly that census.",
+        "searches": [
+          "OEIS A079971",
+          "OEIS lookup for 2,2,4,6,10,18,30,52,88,150",
+          "Resultary a9925f4ce2fb, Finding"
+        ]
+      },
+      "rationale": "Shown already covered: the distinct published Resultary record a9925f4ce2fb explicitly states the same optimum, open labeled ladder count and unique orientation-plus-{1,2,5}-composition classification under the same row and column conventions. This is direct equivalence of mathematical claims, not a title, catalogue-date or provenance inference.",
+      "residual_risks": [
+        "The Gardner thesis full text remains uninspected. Historical provenance between the two Resultary records is unresolved; neither limitation undoes direct equivalence of the available statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the optimum, count and structural classification",
+          "evidence": "It states γ_I(L_n)=n, series 2z²/(1−z−z²−z⁵), and the unique two-choice orientation plus a composition into 1,2,5 on the same open labeled ladders.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-minimum-italian-domination-counts-and-a-three-tile-classif--a9925f4ce2fb/RESULT.md",
+          "material_read": "Mirrored RESULT.md offsets 0–4898: Finding, assumptions and proof Steps 1–3",
+          "method": "Bounded published-record text inspection",
+          "title": "Exact minimum Italian domination counts and a three-tile classification",
+          "trigger": "Direct same-family and same-classification match"
+        },
+        {
+          "assessment": "Methodological and definitional precedent, not the exact ladder classification",
+          "evidence": "Constrained compositions and DP count on paths, trees and cycles; the Italian predicate agrees with Roman {2}-domination.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.00108",
+          "material_read": "pp. 1–3, including Roman {2} synonym and algorithm passages around offsets 500, 5100 and 8150",
+          "method": "Bounded open PDF inspection",
+          "title": "Counting Weight-k Italian Dominating Sets on Trees and Cycles",
+          "trigger": "Same predicate and closest counting methodology"
+        },
+        {
+          "assessment": "The abstract establishes relevance to minimum weights; cannot rule out an equivalent classification in the thesis",
+          "evidence": "The abstract describes determining domination numbers, not optimizer counts; full-text retrieval failed.",
+          "identifier_or_url": "https://dc.etsu.edu/etd/3509/",
+          "material_read": "Landing-page abstract, offsets about 883–1386; full text not read",
+          "method": "Bounded public abstract inspection and lawful full-text attempt",
+          "title": "Italian Domination on Ladders and Related Products",
+          "trigger": "Thesis on the exact graph family"
+        },
+        {
+          "assessment": "Prior composition series, not a ladder database by itself",
+          "evidence": "The typed composition count is the coefficient of 1/(1−x−x²−x⁵).",
+          "identifier_or_url": "https://oeis.org/A079971",
+          "material_read": "Sequence entry and generating function",
+          "method": "Bounded public database inspection",
+          "title": "Number of compositions of n into parts 1, 2, and 5",
+          "trigger": "Exact match of composition factor in the formula"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The three-excursion classification is useful mathematics, but the frozen finding repeats an existing exact optimizer classification with the same graph, count, encoding and boundary conditions. Neither its recurrence and growth constant, which follow from the existing series, nor replay of the tight-walk certificate supplies an independently useful new result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

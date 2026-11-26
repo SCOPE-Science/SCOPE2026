@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:21:00.447164Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniform repartition is equivalent to a permutation divided into consecutive triples. The one- and two-triple falling factorial laws follow by sampling the first three or six positions. Conditional on compositions the outgoing bits are independent. Dividing the joint law by the two one-triple marginals leaves the first-order cross term -(k-3p)(l-3p)/(N*p*(1-p)), with uniform O(N^-2) remainder on interior compact p-sets. This gives the stated negative covariance correction to the limiting noise. Independently, on the lower boundary the probability in a triple with input spins S_i in {-1,1} is q=1/2+(S_1+S_2+S_3)/6-a*S_1*S_2*S_3. This yields the cubic mean y-8ay^3. For independent balanced spins, the linear and cubic terms are orthogonal: Var(q)=1/12+a^2, E[q(1-q)]=1/6-a^2 and Cov(q,K)=+1/4. In the partition the linear sum is fixed by the input count; the composition contribution is 3a^2, so total variance at balance is 1/6+2a^2. Swapping two permuted labels affects at most six bits, and changing one output uniform affects one; coupling the remaining permutation after a different exposure by a transposition gives the conditional variance O(N) and centered fourth moment O(N^2) for the outgoing count. At h=N^-1/2 and z=N^(1/4)y, the finite-sampling error in the scaled drift divided by h is O(N^-1/4); the scaled variance per h tends to the claimed constant and the compact-state fourth increment moment is O(h^2). Thus Taylor generator convergence and negligible jumps hold on compact sets. The global deterministic contraction in squared distance, with bounded finite-N mean error and variance, gives a stopped second-moment bound and compact containment; on compacts the drift and martingale variance estimates give tightness. Local uniqueness and the dissipative Lyapunov bound give the nonexplosive limiting martingale problem. Its positive integrable speed density is proportional to exp(-4a*z^4/sigma^2) and is the unique invariant probability. Complementing the two probabilities complements the entire output law, and simultaneous spin complementation commutes with the lower kernel, proving the parity identity for every allowed N. These checks apply also at b=0 downstairs and b=1 upstairs; they imply no finite-chain stationary convergence. The frozen script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Galam's follow-up uses a common contrarian fraction and also defines a related single-agent chain with the same mean evolution equation to study detailed balance. Noonan–Lambiotte select one uniformly random triple per event, and derive an ordinary-majority drift with nonzero central linear part."
+        ],
+        "reasoning": "Sharing a deterministic equation does not transfer noise; neither inspected stochastic model supplies the dependence of disjoint groups in a simultaneous update. General diffusion approximation yields a limit only after establishing the conditional moments, tightness and well-posedness for the specified chain.",
+        "searches": [
+          "arXiv:2607.02358v1 abstract and model section",
+          "arXiv:2101.03632v1 Sec. II and Fokker–Planck calculation"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "arXiv:2604.27226",
+        "arXiv:2607.02358v1",
+        "arXiv:2101.03632v1",
+        "Resultary semantic index and named local mirror record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Independent groups would leave an extra contribution 1/4 at balance in N times the one-step proportion variance; the true random partition subtracts it because the input count is fixed. This difference survives in the limiting quartic diffusion despite the same deterministic drift.",
+          "The neutral-corner complement identity transfers through a direct bit-complement argument but supplies no noise amplitude or dissipative cubic scaling for a>0 downstairs."
+        ],
+        "reasoning": "The claimed process law is not a corollary of the critical deterministic map, deterministic spin parity, or single-triple update approximations. The finite-N covariance and accompanying localization/tightness steps are needed.",
+        "searches": [
+          "arXiv:2604.27226 Eq. (11)",
+          "arXiv:2607.02358v1 model section",
+          "arXiv:2101.03632v1 p. 3",
+          "Resultary neutral contrarian corners, RESULT.md offsets 0 and 4400"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Set Galam's (c_3,0,c_2,1)=(a,b); Eq. (11) gives the same deterministic map with central multiplier 3*(1-a-b)/2 and hence both critical boundaries.",
+          "The closest Resultary record uses the same repartition and independent per-agent probabilities and has P_rev=P_neu*C=C*P_neu at the excluded neutral/reversal corners (0,1/3) and (1,2/3)."
+        ],
+        "reasoning": "These parameter and spin-duality identifications show direct overlap for the deterministic mean and complement principle. At the two compared corners the cubic restoring drift vanishes, so that result is not a reformulation of the claimed confining critical diffusion.",
+        "searches": [
+          "arXiv:2604.27226 Eq. (11) and central slope discussion",
+          "Resultary exact finite-population consensus decay at two neutral contrarian corners"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching model in the named mirror result provides a finite-N heterozygosity formula at the neutral corners, not a variance or diffusion formula along the confining parts of the two critical lines. Galam's parameter boundaries and deterministic phases do not tabulate the claimed critical finite-population coefficient."
+        ],
+        "reasoning": "The exact quantity compared is the conditional variance at critical scaling for the whole-population update, not a phase boundary or a neutral-corner consensus law. No equivalent formula for the permitted positive cubic coefficients was retrieved.",
+        "searches": [
+          "Resultary semantic comparison for finite-population contrarian critical dynamics",
+          "Resultary 2026/11/8/SCOPE-exact-finite-population-consensus-decay-at-two-neutral-contraria--a6e359c9ed75 RESULT.md",
+          "arXiv:2604.27226 pp. 8–12"
+        ]
+      },
+      "rationale": "The deterministic cubic map and both critical parameter lines are already covered. The supported distinct contribution is the finite-time diffusion theorem for simultaneous uniform repartition with independent per-agent outputs, particularly its exact partition-corrected noise amplitude. The simple complement identity supports the transfer to the flip line but is not, alone, the original contribution.",
+      "residual_risks": [
+        "Ranked catalogue and bounded primary checks cannot exclude other critical stochastic mean-field analyses. No priority conclusion is drawn from the dates of the compared records.",
+        "Originality applies to the specified repartition and output rule; it does not extend to a claim of first critical quartic diffusion or first stochastic Galam model."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same deterministic map and critical parameter conditions; no matching finite-N theorem in inspected passages",
+          "evidence": [
+            "Central slope is 3*(1-c_3,0-c_2,1)/2; both critical boundary relations are given."
+          ],
+          "identifier_or_url": "arXiv:2604.27226; DOI 10.3390/e28040443",
+          "material_read": "pp. 8–12, Eq. (11), offsets 18150, 22100, 25500",
+          "method": "OA arXiv PDF passage inspection",
+          "title": "Ratio-Dependent Contrarian Activation in Opinion Dynamics",
+          "trigger": "Original deterministic map and critical lines"
+        },
+        {
+          "assessment": "Substantive prior stochastic context, not the two-parameter simultaneous-update critical limit",
+          "evidence": [
+            "The related single-agent dynamics shares the mean equation; the reshuffled-triplet discussion uses a single contrarian fraction."
+          ],
+          "identifier_or_url": "arXiv:2607.02358v1",
+          "material_read": "pp. 1–4, offsets 660, 9900, 18000–22000",
+          "method": "OA arXiv PDF passage inspection",
+          "title": "Contrarian Majority Dynamics: Violation of Detailed Balance and Nonequilibrium Steady States",
+          "trigger": "Prior stochastic construction with random groups"
+        },
+        {
+          "assessment": "Different chain and drift",
+          "evidence": [
+            "One sampled triple is updated per event; the stated drift is 3*rho*(1-rho)*(2*rho-1)."
+          ],
+          "identifier_or_url": "arXiv:2101.03632v1",
+          "material_read": "pp. 2–3, Sec. II, offsets 12400 and 17800",
+          "method": "OA arXiv PDF passage inspection",
+          "title": "Dynamics of Majority Rule on Hypergraphs",
+          "trigger": "Triplet-majority diffusion approximation"
+        },
+        {
+          "assessment": "Same whole-population update and complement mechanism at different parameter points; heterozygosity rather than quartic diffusion",
+          "evidence": [
+            "The neutral and reversal corners have exactly conjugate kernels and no nonzero cubic center drift."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-exact-finite-population-consensus-decay-at-two-neutral-contraria--a6e359c9ed75",
+          "material_read": "RESULT.md offsets 0 and 4400, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror statement inspection",
+          "title": "Exact finite-population consensus decay at two neutral contrarian corners",
+          "trigger": "Closest same-microscopic-model and complement-duality match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The deterministic phase boundary does not quantify finite-population fluctuations. The theorem determines the fluctuation window, observation time and partition-sensitive amplitude for that specific process, and the flip conjugacy transfers the quantitative law without pretending the uncorrected sign-alternating chain has the same trajectory limit. The quartic invariant density is a meaningful property of the limit, not a claim about equilibrium at finite N.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

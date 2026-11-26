@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:14:15.852442Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Differentiating |w-a_j|^2=r^{2n}+a_j^2-2a_jr^n cos(n theta) gives strictly signed angular log derivative away from zeros; the negative-power rays have strictly negative angular curvature, the positive-power rays cannot support maxima, and simple zeros are nondegenerate minima by their positive quadratic leading term. At the origin H/H(0)=1-|z|^2+O(|z|^3). On a negative-power ray the log derivative is -2r times R(r)/Q(r^n); the integer powers n j-2 and n j do not collide for n>=3. The 2k Descartes variations bound roots with multiplicities. Every off-origin maximum requires a + to - crossing, preceded by a distinct - to + crossing because the derivative starts negative; the exactly analytic, nonconstant radial profile excludes flat intervals and includes degenerate isolated peaks. In the construction with x=r^2/n, the sign is S(x)-x. At all samples except the last, max(c_i,x)<k and |c_i-x|>=1/4, hence the ratio bound 1-1/(4k); at the final sample x=k+1/4 the largest ratio (k-1/2)/(k+1/4) also obeys that bound. The step approximation error is <=k exp(-n/(8k))<=1/8, so 2k disjoint intervals force 2k simple roots. The mixed radial-angular derivative is zero on each symmetry ray (the angular derivative vanishes identically there), so at each of the k radial maxima the full Hessian is negative definite. Nondegenerate critical points persist by the implicit function theorem and the global bound excludes an increase. Independently evaluated the sample signs in exact rational arithmetic at (k,n)=(1,18),(2,46),(3,78),(7,226),(10,352); all alternated from minus to minus. The packaged check_multiring.py covers six finite even-degree cases; the analytic argument also handles odd n and does not infer universal validity from the check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stellar representation covers finite polynomial zero configurations and identifies the Gaussian normalization, without an extremum-count theorem.",
+          "The general stationary-point identity applies beyond this family; Abreu's counting theorem is an expected areal density for a random Gaussian entire function.",
+          "The relevant lens paper's conjectural and general bounds there concern all images, not sharp counts of strict delay minima for arbitrary many aligned rings."
+        ],
+        "reasoning": "Neither a general stationary equation nor an expectation bound entails a deterministic sharp upper bound and simultaneous nondegenerate attainment for all k.",
+        "searches": [
+          "Resultary: Gaussian Fock intensity maxima concentric regular polygon polynomial multiring",
+          "Web: Fock Husimi Gaussian polynomial multiple concentric regular polygons maxima number radial peaks Descartes ring critical points spectrogram deterministic",
+          "Chabaud–Markham–Grosshans arXiv:1907.11009 Theorems 2 and 4; Abreu arXiv:2210.06721 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, AUDIT.json, METADATA.json, REVIEW.md, VERIFICATION.md, SLOGAN.txt and check_multiring.py",
+        "arXiv:astro-ph/9708111v1",
+        "arXiv:2210.06721",
+        "arXiv:1907.11009",
+        "Resultary 97de327d5f88, 3b78110a1c2a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-polygon Descartes polynomial has at most two negative-ray positive radii, and below the transition both exist. The two-ring indexed statement has at most two peak radii and realizes both.",
+          "The frozen construction chooses k separate radial transition locations and simultaneously controls the signed error at 2k+1 test locations."
+        ],
+        "reasoning": "One cannot join independent one- or two-ring witnesses by multiplication: the radial log derivatives add with a single fixed Gaussian term and new rings change every old critical point. The quantified sign control, combined with exact multiplicity saturation, is the surviving contribution.",
+        "searches": [
+          "Mao–Petters–Witt arXiv:astro-ph/9708111 §2",
+          "Resultary double-ring 3b78110a1c2a",
+          "Abreu arXiv:2210.06721 Proposition 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Away from roots, log(H)/2 = sum_a log|z-a|-|z|^2/2, the negative of the equal-mass lens time-delay function up to uniform scale, for source at zero. Its stationarity condition is conjugate(z)=P'(z)/P(z).",
+          "Mao, Petters and Witt arXiv:astro-ph/9708111 §2, equation (3) and following polynomial f_±, uses the equivalent one-polygon equation in units of total mass one."
+        ],
+        "reasoning": "Under z=sqrt(n) times the lens coordinate, the one-ring n factor is removed. The positive-root transition for f_+ bounds the off-origin minima of the lens delay, equivalently maxima of H. This is a genuine equivalent precedent for k=1, not merely similar terminology.",
+        "searches": [
+          "Web: point mass gravitational lens equal concentric regular polygons number maxima Gaussian polynomial log potential sharp many rings attracting fixed points",
+          "Web: Properties of Point Mass Lenses On A Regular Polygon Mao Petters Witt arXiv",
+          "Abreu arXiv:2210.06721 §2.2 and Prop. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed one-ring result 97de327d5f88 and double-ring result 3b78110a1c2a concern exact cases; the latter has a better sufficient n>=11 for k=2. The other exact hit is the frozen record itself."
+        ],
+        "reasoning": "Those precedents cover k=1,2, and restrict the credible novelty to the uniform all-ring result. A stronger bound for n at one fixed k does not imply the all-k assertion.",
+        "searches": [
+          "Resultary: Gaussian Fock intensity maxima concentric regular polygon polynomial multiring"
+        ]
+      },
+      "rationale": "Best of inspected evidence, the arbitrary-k count and constructive uniform nondegenerate saturation remain distinct. Neither the Chern critical-point formulation nor the one- or two-ring Descartes mechanism should be credited as entirely new. In particular, the regular-polygon lens literature already has the single-ring radial equation, Descartes bound and exact two-root transition after rescaling.",
+      "residual_risks": [
+        "A specialist deterministic many-ring lens or Gaussian-intensity theorem not found in the targeted searches could cover the general claim; this is not a priority certification.",
+        "No optimum n threshold or classification of all saddle bifurcations is established. The exact arithmetic replay used selected even n."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct one-ring precedent; no arbitrary concentric-ring theorem in the material read",
+          "evidence": [
+            "One polygon with source at center gives f_±(rho)=rho^g-rho^(g-2)±r^g; two negative-ray roots below the critical radius when g>=3."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/astro-ph/9708111v1",
+          "material_read": "Sections 1–3, especially equations (1), (3), f_±, and Descartes/radius transition",
+          "method": "Full arXiv HTML",
+          "title": "Properties of Point Mass Lenses On A Regular Polygon and The Problem of Maximum Number of Images",
+          "trigger": "Equivalent centered equal-mass lens stationary equation"
+        },
+        {
+          "assessment": "Same framework, different extremum counting problem",
+          "evidence": [
+            "Equation (2.9) is the Chern stationarity relation, and Theorem 1 counts expected densities, not sharp deterministic extrema."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2210.06721",
+          "material_read": "Section 2.2, Theorem 1, Proposition 1 and its proof",
+          "method": "arXiv HTML",
+          "title": "Local maxima of white noise spectrograms and Gaussian Entire Functions",
+          "trigger": "Same Gaussian-weighted modulus and Chern critical points"
+        },
+        {
+          "assessment": "Framework and interpretation only",
+          "evidence": [
+            "Gaussian weighting of the stellar polynomial and its zero set identify the class of states, not the degree of nondegenerate peak saturation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1907.11009",
+          "material_read": "Eq. (3), definition of stellar rank, Theorems 2–4 in main text",
+          "method": "arXiv PDF text",
+          "title": "Stellar representation of non-Gaussian quantum states",
+          "trigger": "Husimi identification of polynomial zero configurations"
+        },
+        {
+          "assessment": "Direct special-case overlap only",
+          "evidence": [
+            "Bound 2n+1 for n>=3 and sharpness for n>=11."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-peak-count-saturation-for-double-ring-gaussian-fock-polyno--3b78110a1c2a",
+          "material_read": "Indexed theorem statement, not full proof",
+          "method": "Resultary",
+          "title": "Sharp peak-count saturation for double-ring Gaussian Fock polynomials",
+          "trigger": "Identical shapes at k=2"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The deterministic sharp count in a natural symmetric finite-stellar-rank family is useful, especially because the witness produces an arbitrarily large number of concentric peak rings without relying on degenerate critical points or limiting parameters. The explicit finite degree condition and openness make it a reusable benchmark for peak geometry, despite sharper single- and double-ring cases and no claim of optimal thresholds.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

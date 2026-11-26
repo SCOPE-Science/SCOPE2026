@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:58:24.904138Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, shape reduction and maximal census, and ordinary coefficient-defect identities",
+        "Frozen VERIFICATION.md, verify_gp.py, check_coefficients.py and two recorded output files (inspected, not executed)",
+        "Repaired RESULT.md and independent replay: python3 /workspace/repairs/5/check_maximal.py",
+        "Independent full-family bounded replay: python3 /workspace/branches/review_graph_crosscheck.py"
+      ],
+      "rationale": "For the repaired maximal-set statement, the complement of the n-cycle has diameter two, so eligible sets are exactly those inducing no P3 in the complement, or a complete multipartite graph in the cycle. Among edge-containing sets the degree and triangle constraints allow only K2 or K1,2, since C_n has no induced C4 for n>=5. Every consecutive triple is maximal, and every cycle-edge pair extends to one. An independent set of size at least three can only extend independently, so exactly the maximal independent sets of that size survive. An independent maximal pair can only occur for n=5 or 6: independence and domination impose cyclic gaps 2 or 3, so the pair at n=5 has a gap of 2 and extends to a consecutive triple; the three such pairs at n=6 have two gaps of 3 and cannot extend. There are two maximal alternating independent triples at n=6. For any size k, the k-part circular gap list has n-2k gaps of length 3, giving n binom(k,n-2k)/k by rooting and unrooting on the labeled cycle. This gives the repaired full n>=5 census and lower-number consequence. The new checker, based on geodesic triple obstructions from Floyd distances, tests all legal subsets in ascending order and checks every possible extension for maximality, regardless of order. Its n=5..16 exact replay returned MAXIMAL_CENSUS_CHECK_OK; it corroborates, not replaces, the all-order proof.",
+      "residual_risks": [
+        "Simple labeled cycle complements only. The finite check is not an all-order proof and makes no claim about other graph families, variants of general position, or maximality for proper non-geodesic notions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "6fabfeea792b gives ψ(overline H)=I(H)+e(H)z²+(p(H)+t(H))z³+q(H)z⁴ with strict log-concavity, as well as an ordinary set-system lemma. Anand et al. give general structure and a diameter-two maximum-number formula. Di Stefano et al. Proposition 2.1 equates the existence of maximal pairs to universal lines."
+        ],
+        "reasoning": "The degree-two theorem specializes exactly to the removed result. Its eligible-set descriptions supply the candidates for the repaired theorem, not the anti-cycle facet census: that requires checking which otherwise maximal independent sets are contained in the extra eligible sets. A maximum number or universal-line test does not count all facets by size.",
+        "searches": [
+          "Resultary 6fabfeea792b, degree-two edge deletion Finding and proof §1",
+          "Anand et al. arXiv:1812.08460, Theorems 3.1 and 4.1",
+          "Di Stefano et al. arXiv:2306.09965v2, Proposition 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6fabfeea792b and targeted antihole/maximal-set catalogue search",
+        "Anand et al. arXiv:1812.08460",
+        "Di Stefano et al. arXiv:2306.09965",
+        "Iršič et al. DOI 10.1007/s00025-024-02133-3",
+        "Rather arXiv:2603.06930",
+        "OEIS A001608"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Iršič et al. Proposition 2.2 computes the ordinary polynomial using inclusion–exclusion over maximal sets, not a reverse formula computing all maximal counts from the ordinary polynomial. Di Stefano et al. give a maximal-pair criterion and a scalar lower number for ordinary cycles. The degree-two set-family description covers the independent sets and eligible extra shapes."
+        ],
+        "reasoning": "There is no mere polynomial substitution or coefficient extraction yielding this maximal profile. The needed containment calculation distinguishes gaps of 2 and 3 for the independently maximal pairs, and every larger independent facet survives. Thus the repaired census is a distinct refinement, not a claim of originality for the ingredients or for the scalar universal-line characterization.",
+        "searches": [
+          "Iršič et al. Proposition 2.2, ordinary polynomial from maximal sets",
+          "Di Stefano et al. Propositions 2.1 and 2.3",
+          "6fabfeea792b proof §1, degree-two Graph H[S] classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Iršič et al. Proposition 2.1(iii)–(iv) evaluates ordinary C_n. Focused catalogue results concern edge-general-position cycles, monophonic cycles, wheel graphs, and products rather than the repaired antihole vertex-facet profile."
+        ],
+        "reasoning": "Antiholes are cycle complements rather than cycles; the n=5 self-complementary case is a known common special case, not family-level exact coverage. Edge and monophonic variants use different admissibility. The repaired statistic is inclusion-maximal vertex sets, not a profile of all eligible sets with a different graph name.",
+        "searches": [
+          "Resultary: inclusion-maximal general-position sets of cycle complements antiholes labeled maximal-set polynomial opposite pairs C6 independently maximal cyclic gaps",
+          "Web: \"lower general position\" maximal sets cycle complement antihole \"general position\" graphs maximal independent sets polynomial",
+          "Iršič et al. DOI 10.1007/s00025-024-02133-3, Proposition 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A001608 explicitly identifies the known total count of maximal independent vertex sets of C_n. The exact matched catalogue profile is the ordinary GP polynomial. The focused catalogue queries did not yield an inspected exact profile for maximal geodesic general-position subsets of antiholes."
+        ],
+        "reasoning": "The Perrin total credits the underlying cycle-independent count, not the z-graded general-position census; the latter adds consecutive triples and removes the five independent pairs at n=5. The lack of a separate exact profile among retrieved hits is limited coverage evidence, not a proof of absence.",
+        "searches": [
+          "OEIS A001608 (Perrin sequence, maximal independent sets in cycles)",
+          "Local Resultary 6fabfeea792b; targeted inclusion-maximal antihole profile search"
+        ]
+      },
+      "rationale": "This verdict is for the repaired inclusion-maximal profile only. The strongest indexed comparator supplies the ordinary eligible-set structure, exact polynomial and strict log-concavity in a larger class: for H=C_n its edge and induced-P3 counts are n and its triangle and induced-C4 counts vanish. This is decisive coverage of the removed claims. The retained answer requires the maximality/containment comparison of eligible independent sets with eligible consecutive triples and yields the entire size-refined maximal general-position census. Known maximal independent counts and the universal-line criterion cover ingredients or numerical extremal aspects, not the inspected repaired exact profile. No inspected statement evaluates this profile. The assessment is bounded, and does not assert priority.",
+      "residual_risks": [
+        "The retained facet classification is elementary after the eligible-set reduction. A publication or database under an independent-domination, facet-complex or universal-line formulation could already state the exact transfer; the bounded comparisons do not prove its absence.",
+        "Catalogue dates do not establish priority for either the removed or the retained work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers removed all-set result and supplies eligible-set structure; does not state the repaired maximal profile in inspected passages",
+          "evidence": "Explicit polynomial for Δ(H)<=2 with strict log-concavity, and complete multipartite eligible shapes. H=C_n gives e=p=n and t=q=0; theorem counts eligible subsets, not their extension relations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-general-position-polynomials-and-strict-log-concavity-afte--6fabfeea792b/RESULT.md",
+          "material_read": "Finding and hypotheses at offset 0; proof §1 at offset 3247",
+          "method": "Bounded local mirror passages, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact general-position polynomials and strict log-concavity after degree-two edge deletion",
+          "trigger": "Stronger theorem contains original ordinary antihole polynomial"
+        },
+        {
+          "assessment": "Background characterization and scalar maximum",
+          "evidence": "Clique components with distance-constant, in-transitive partition; diameter-two upper general-position number theorem.",
+          "identifier_or_url": "https://users.fmf.uni-lj.si/klavzar/preprints/GPnumber-revised.pdf",
+          "material_read": "Theorem 3.1 p. 4 at offset 9547; Theorem 4.1 p. 5 at offset 12914",
+          "method": "Bounded OA PDF passages",
+          "title": "Characterization of general position sets and its applications to cographs and bipartite graphs",
+          "trigger": "General structural or diameter-two theorem"
+        },
+        {
+          "assessment": "General maximal-pair criterion and different ordinary-cycle invariant",
+          "evidence": "Universal lines iff lower general-position number two; ordinary C_n lower number is two for even n and three for odd n in the stated range.",
+          "identifier_or_url": "https://arxiv.org/html/2306.09965v2",
+          "material_read": "Proposition 2.1 at HTML offset 11950; cycle Proposition 2.3(i) at PDF offset 13972 in authors' preprint",
+          "method": "Bounded OA HTML and PDF passages",
+          "title": "Lower General Position Sets in Graphs",
+          "trigger": "Exact prior maximal-pair and cycle results"
+        },
+        {
+          "assessment": "Different graph family except n=5, and different direction of the maximal-set identity",
+          "evidence": "Ordinary cycle profile with cubic term; inclusion–exclusion from maximal sets to the ordinary polynomial, not a maximal antihole census.",
+          "identifier_or_url": "https://doi.org/10.1007/s00025-024-02133-3",
+          "material_read": "Propositions 2.1(iii)–(iv) and 2.2, pp. 3–4, offsets 4300 and 6343",
+          "method": "Bounded OA full-text passages",
+          "title": "General Position Polynomials",
+          "trigger": "Earlier cycle-polynomial and maximal-set connection"
+        },
+        {
+          "assessment": "Related ordinary family polynomials; no comparable facet theorem in examined passages",
+          "evidence": "Discusses paths and cycles as previously studied and describes results for complete multipartite graphs.",
+          "identifier_or_url": "https://arxiv.org/html/2603.06930",
+          "material_read": "Introduction offsets 4398 and 6380",
+          "method": "Bounded OA HTML passages",
+          "title": "Explicit Formulas and Unimodality Phenomena for General Position Polynomials",
+          "trigger": "Related later polynomial family formulas"
+        },
+        {
+          "assessment": "Known component count, not repaired invariant",
+          "evidence": "Identifies the total number of maximal independent vertex sets of C_n for n>=3; does not encode the anti-cycle general-position extension correction.",
+          "identifier_or_url": "https://oeis.org/A001608",
+          "material_read": "Comments at offset 490, maximal independent vertex sets of cycles",
+          "method": "Bounded database passage",
+          "title": "Perrin sequence, A001608",
+          "trigger": "Exact table for the underlying cycle-independent facet count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md",
+        "Di Stefano et al. arXiv:2306.09965 definition and Proposition 2.1",
+        "OEIS A001608 cycle independent total"
+      ],
+      "rationale": "The size of an inclusion-maximal set is the size at which a greedy addition process can stop, not necessarily the largest feasible size. In the standard cycle-complement family the repaired theorem gives the exact labeled census for each possible terminal size, and identifies precisely how adding consecutive triples to the cycle's independence complex removes some previously maximal faces. In particular the six-cycle opposite-pair obstruction and the disappearance of the five-cycle pairs are explained, not inferred from a finite table. This is a natural complete classification addressing an established graph invariant, without re-claiming ordinary coefficient log-concavity or broad consequences for greedy algorithms.",
+      "residual_risks": [
+        "Does not model a probability distribution over greedy stopping outputs; coefficients count labeled maximal solutions, not the number of insertion histories."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

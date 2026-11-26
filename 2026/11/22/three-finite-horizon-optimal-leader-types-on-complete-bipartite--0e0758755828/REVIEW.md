@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The follower matrix retains all original degrees, giving a three-orbit spectral decomposition. Explicit eigenvalues yield the three heat traces. Strict signs at three specified positive times are demonstrated by analytic comparisons using rational exponential Taylor bounds valid uniformly for every integer \(q\ge9\). The large-size phase diagram follows from convergence of all three pairwise objective differences and exact ordering of their limiting crossings. The packaged independent-form matrix-moment checker confirms the spectra and exact rational bounds; finite tests are not used to infer infinite cases.
+PASS
 
-## Originality — PASS on inspected evidence
+The Laplacian diagonal retains degrees q and 2. The follower-part zero-sum spaces contribute those eigenvalues and the normalized two-constant block has off-diagonal minus the square root of the product of the follower-part counts. For a=0 its trace is q+2 and determinant 4, giving delta and q+2-delta; for a=1 it has eigenvalues 1 and q+1; for a=2 the whole matrix is 2I. The smaller root for a=0 decreases with q by delta=8/(q+2+sqrt((q+2)^2-16)) and is below 19/50. From the trace differences, at t=1/5 the two comparisons H0-H1 and H0-H2 are bounded above by negative quantities using the uniform bound on the fast modes. At 67/100, H0-H1 is positive even after dropping those fast positive terms and replacing delta by 19/50, whereas H1-H2 is negative from exp(t)<49/25 and exp(-(q-1)t)<1/25. At 1 both rivals have larger trace than H2. An independent rational replay (`python3 /workspace/branches/heat_trace_exact_bounds.py`) certified the sign estimates; the middle Taylor margin is 294177970312366399583/177187500000000000000000 > 1/1000. The frozen verifier was inspected, not run. At fixed t, the three limiting differences have crossings log(phi), log(2), and log(sqrt(3)) with log(sqrt(3)) strictly between the other two; at this nonoptimizing crossing both comparisons with a=1 remain strict. This gives eventual uniqueness on the stated open intervals, not the finite-q diagram or ties at the boundaries. The exact placement multiplicities count the two chosen leaders in their parts. For the initial-condition interpretation of the objective, covariance I should be accompanied by zero mean (or use second moment I); this does not alter the heat-trace theorem.
 
-The related 2013 Lin–Fardad–Jovanović and 2014 Fitch–Leonard primary manuscripts optimize stationary inverse traces, not two-leader finite-horizon heat traces on this family. The complete available same-graph arbitrary-budget inverse-trace manuscript establishes a stationary allocation formula, whereas the present strict three-time inequalities do not follow from ordering their time integrals. The complete same-graph four-leader finite-gain manuscript addresses a different budget and stationary forcing model. The full Simpson–Chung heat-kernel consensus manuscript develops fast approximations of network states for fixed leader/follower partitions using a normalized Laplacian, not optimal leader placement for the unnormalized grounded heat-trace objective. Semantic searches of accessible mathematical records for complete bipartite, grounded heat trace, finite-time horizon, and equivalent spectral moment formulations returned no dominating pointwise classification. This supports originality against inspected sources, not exhaustive global priority. An equivalent unindexed theorem is a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-Finite-horizon leader choice is a natural control-design question when a network is observed at a prescribed stopping time, rather than under perpetual noise. The theorem gives three mutually disjoint optimal placements on *every* member of an infinite homogeneous network family, not an isolated parameter counterexample. It also identifies exact limiting golden-ratio and logarithmic time boundaries, explaining why an intermediate mixed placement can be genuinely optimal despite neither extreme allocation winning then.
+The distinct part is strict realization of all three winning placements at the stated positive times uniformly in q>=9, and the two exact fixed-time large-size boundaries. Neither grounded spectra in themselves nor stationary optimal placements are treated as new.
 
-## Limits
+## value
 
-The three finite-size winners are certified at three exact times and in nonempty neighborhoods; a global exact-time phase diagram for each finite graph and behavior at asymptotic tie times are not proved. The date attached to the focal literature is the first public arXiv date, not a journal or revision date. No external independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a motivated exact witness that finite-time placement can select all three allocations, not just interpolate between a short-time and a steady-state choice. The witness holds uniformly across an infinite graph family and gives two explicitly separated limiting thresholds. Its utility is to distinguish pointwise diffusion performance from stationary and single-eigenvalue rankings, not to claim a complete phase diagram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

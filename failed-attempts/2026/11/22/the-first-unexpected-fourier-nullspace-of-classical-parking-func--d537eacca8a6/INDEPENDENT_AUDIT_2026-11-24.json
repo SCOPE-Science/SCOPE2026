@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:03:45.182692Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–42",
+        "verify.py, lines 9–79 (inspected, not executed)",
+        "verification_output.txt",
+        "/workspace/reproduce_reviews.py, ordinal 2"
+      ],
+      "rationale": "On n+1 circular spots the unique empty spot rotates equivariantly when all n preferences are shifted. In each diagonal coset exactly one tuple leaves spot n empty and is a classical parking function. Summing a nontrivial character trivial on the diagonal over this transversal is the zero quotient character sum. There are (n+1)^(n-1)-1 such frequencies. Coordinate permutations preserve the indicator, and Fourier diagonalization over C counts the nonzero multipliers as the rank. Independently generated the parking set by sequential simulation at every size 1 through 5 and tested every frequency orbit. For an exact vanishing test, evaluate the residue polynomial at all primitive m-th roots modulo 65521. They give precisely the distinct roots of the reduced cyclotomic polynomial. The integer remainder coefficients have absolute value at most the support size, at most 1296, since each of the first m monomials reduces with coefficients in {-1,0,1} for these m. Thus vanishing modulo 65521 at all primitive roots is equivalent to an integer zero remainder. Results: forced zeros 0,2,15,124,1295, no others before n=5, and at n=5 exactly the stated five orbits of sizes 60,60,120,60,60. This gives ranks 2,7,49,501,6121 and five-car nullity 1655. Replay: python3 /workspace/reproduce_reviews.py 2.",
+      "residual_risks": [
+        "Only the forced inclusion is all-size; the classification and exact ranks do not extend past the stated tested domain."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stanley records the all-size diagonal-transversal statement, and his displayed Frobenius characteristic is for an S_n action, not a Fourier transform over the preference group.",
+          "Diaconis–Hicks relates parking features to distributions; the inspected passages do not provide the frequency table. No full-text conclusion is drawn from the Kung–Yan abstract."
+        ],
+        "reasoning": "The classical theorem subsumes the forced portion. A matching full multivariate preference enumerator would evaluate to each multiplier at roots of unity, but the inspected symmetric-group formula is not that enumerator. Direct catalogue coverage, not unresolved broad literature, decides the exceptional portion.",
+        "searches": [
+          "Stanley, Parking Functions and Noncrossing Partitions, §2",
+          "Diaconis–Hicks arXiv:1611.09821v1, opening and §3",
+          "Kung–Yan DOI 10.1016/S0097-3165(03)00009-8, lawful OA lookup"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b9abcc7e4a5d, primary mirrored Finding and Proof",
+        "Stanley 1996 §2",
+        "arXiv:1611.09821v1",
+        "DOI 10.1016/S0097-3165(03)00009-8 landing page"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior rank 6121 on dimension 7776 gives nullity 1655 by subtraction; the universal forced-zero formula m^(n-1)-1 follows from the stated transversal and orthogonality."
+        ],
+        "reasoning": "All frozen conclusions are explicit in, or immediate consequences of, verified statements. Independent reproduction does not restore originality.",
+        "searches": [
+          "b9abcc7e4a5d mirrored RESULT.md, Finding and Pollak proof",
+          "Stanley 1996 §2, transversal passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mirrored Finding defines the identical zero-based preference set, G_n=(Z/(n+1)Z)^n, and positive additive character transform. It gives the same cutoff and same coordinate multisets, not just a count."
+        ],
+        "reasoning": "This is exactly the same operator and classification. Permitting rank over R or C in the prior record includes the frozen complex case.",
+        "searches": [
+          "Resultary: classical zero-based parking functions, additive Fourier zeros modulo six, first extra five-car orbits",
+          "2026/11/16/SCOPE-first-unexpected-fourier-zeros-of-classical-parking-function-con--b9abcc7e4a5d, RESULT.md, offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first table gives ranks 2,7,49,501,6121 and extra counts 0,0,0,0,360. The second gives (1,2,3,3,4), (1,2,3,3,5), (1,2,3,4,5), (1,3,3,4,5), (2,3,3,4,5), with orbit sizes 60,60,120,60,60."
+        ],
+        "reasoning": "Both the exhaustive orbit information and the summary numerical classification are explicitly tabulated for the same objects.",
+        "searches": [
+          "Resultary b9abcc7e4a5d, Finding: zero counts, convolution rank, and sorted-frequency tables"
+        ]
+      },
+      "rationale": "Shown already covered in a distinct Resultary record, b9abcc7e4a5d: its Finding explicitly states the same cutoff, all five exceptional multisets with identical multiplicities, and the exact rank. This is statement-level equivalent coverage, not a plausible title or a conclusion about who discovered it first. The universal forced part is classical from Pollak. No distinct scientific remainder survives in the frozen claim.",
+      "residual_risks": [
+        "Historical priority and inaccessible earlier root-of-unity enumerator specializations remain unresolved. Neither is needed to establish exact catalogue overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit equivalent coverage. No discovery priority inference from the directory date.",
+          "evidence": [
+            "Length five is the first beyond the forced zeros; exactly 360 in the five listed orbits; 6121 convolution rank."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-first-unexpected-fourier-zeros-of-classical-parking-function-con--b9abcc7e4a5d/RESULT.md",
+          "material_read": "Mirrored RESULT.md at offset 0, Finding, scope and start of Proof, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; also bounded passage at 6400",
+          "method": "Direct statement comparison, including both tables and identical normalization",
+          "title": "First unexpected Fourier zeros of classical parking-function convolution",
+          "trigger": "Distinct indexed record with same exact cutoff and all five exceptions"
+        },
+        {
+          "assessment": "Supplies universal forced cancellation but the inspected formula does not classify the exceptions",
+          "evidence": [
+            "One parking function in each diagonal coset; separately a formula for the S_n Frobenius characteristic."
+          ],
+          "identifier_or_url": "https://math.mit.edu/~rstan/papers/nc.pdf",
+          "material_read": "OA PDF §2, Pollak passage and Frobenius characteristic, pp. 3–4, text near offsets 7200–8045",
+          "method": "Compare the kind of character and covered coefficients",
+          "title": "Parking Functions and Noncrossing Partitions",
+          "trigger": "Classical circular parking and potential symmetric generating function"
+        },
+        {
+          "assessment": "No implication from the compared passages; not a claim about unread passages",
+          "evidence": [
+            "Passages treat distributions and generating functions for parking-function features."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1611.09821",
+          "material_read": "OA PDF p. 2 near offset 4332 and §3 pp. 14–15 near offset 35400",
+          "method": "Compare exact statistics discussed to the joint additive-character vanishing problem",
+          "title": "Probabilizing Parking Functions",
+          "trigger": "Coordinate statistics that might encode Fourier coefficients"
+        },
+        {
+          "assessment": "Potential specializations not assessed; not decisive since equivalent coverage is verified elsewhere",
+          "evidence": [
+            "The summary concerns enumerative relations; it does not resolve this exact coefficient classification."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0097-3165(03)00009-8",
+          "material_read": "Landing page and abstract only; no OA full text recovered in lookup",
+          "method": "Lawful retrieval attempt; no negative full-text inference",
+          "title": "Gončarov polynomials and parking functions",
+          "trigger": "Possible stronger parking-function enumeration"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding",
+        "Resultary b9abcc7e4a5d exact orbit and rank tables"
+      ],
+      "rationale": "The first strict loss of rank is a natural scientific question and would be useful as a new classification. This submission instead reproduces the same complete known table and adds only immediate rank-nullity arithmetic; a rerun of the same bounded invariant is not a distinct valuable finding.",
+      "residual_risks": [
+        "This judgment is limited to the submitted claim, not the value of the underlying problem or of independent validation."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

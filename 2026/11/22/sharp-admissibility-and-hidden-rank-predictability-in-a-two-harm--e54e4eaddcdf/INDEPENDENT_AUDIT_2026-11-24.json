@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:20:43.104405Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The density has uniform margins; nonnegativity everywhere is necessary by continuity (a negative boundary point gives interior negativity) and sufficient by integration. At fixed z=|cos(2πu)cos(2πv)| the least linear contribution is -2|a|z. If s,t are the absolute cosines, s²+t² ranges between 2z and 1+z² with the endpoints realized by (sqrt(z),sqrt(z)) and (1,z). For b<0 the reduced concave quadratic has smaller endpoint value 1+2b-2|a|; b=0 is linear. For b>0 the reduced quadratic is 1-2b-2|a|z+4bz². Its minimizing z is min(1,|a|/(4b)), and z=0 excludes b>1/2 outright. The endpoint-to-vertex transition on the validity boundary is at 1+2b=8b, giving b=1/6. Both signed concordances vanish independently by invariance under reflection of just one margin, which reverses their signs. Integrating the squared conditional-CDF deviation gives 6 times a²/(4π²)+b²/(16π²), with no cross term by cosine orthogonality. On the first positivity branch the resulting bracket a²+b²/4 has maximum 65/144 by endpoint comparison; on the curved branch it is 16/31-(31/4)(b-8/31)². Thus the stated two signed maximizers are exhaustive. Expanding centered functions in the two normalized cosine modes gives Cov(f,g)=a f1 g1+b f2 g2, so maximal absolute correlation is max(|a|,|b|); the curved boundary satisfies |a|²<=1/2-8(b-1/4)², while the other branch and |b| cannot reach 1/sqrt(2). These are two-mode, population results, with boundary zeros allowed. Replay: RESULT.md lines 39–74; the uploaded symbolic check was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general orthogonal kernel framework gives the eigenvalues but uses the sufficient coefficient-sum bound for its trigonometric construction.",
+          "The inference follow-up gives a correlation cap of 0.5 for restricted trigonometric classes. The printed maximizer here lies outside their sufficient domain.",
+          "The related trigonometric copula article did not yield readable full text in the bounded OA attempts."
+        ],
+        "reasoning": "An operator formula or sufficient norm region does not imply the exact pointwise positivity region; a cap on a restricted subset cannot certify the optimum on the full family.",
+        "searches": [
+          "Longla arXiv:2308.11074 Eqs. (5)–(7), Proposition 2.1",
+          "Longla–Hamadou doi:10.1007/s00362-025-01778-8 trigonometric restriction and maximal correlation",
+          "Chesneau doi:10.3390/appliedmath1010002"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2308.11074",
+        "doi:10.1007/s00362-025-01778-8",
+        "doi:10.3390/appliedmath1010002 (access only)",
+        "Resultary e13a318382d7, 4829e3cb0e98, a9d152463f5d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One cosine term has no joint coefficient interaction; the two-mode optimization at b=8/31 uses both nonzero terms.",
+          "The shifted-Legendre domain uses polynomial basis functions and a distinct rank-functional objective; an orthogonal change of basis does not preserve pointwise positivity of this two-term kernel."
+        ],
+        "reasoning": "Orthogonality combines single-mode contributions to the squared CDF norm, but optimizing that sum over the larger exact positivity region is an additional result, as is optimizing the already-diagonal operator norm over that region.",
+        "searches": [
+          "Longla–Hamadou pp. 8–10, OA offsets 22667 and 26258",
+          "Resultary e13a318382d7 Finding and proof Step 3 versus original two-mode finding",
+          "Resultary 4829e3cb0e98 and a9d152463f5d Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Set all sine coefficients to zero and retain lambda1=a and lambda2=b to get exactly Longla's density.",
+          "A single even mode in e13a318382d7 maps via m=n=2k, theta=2 lambda_k. Its inverse-square Chatterjee formula agrees on each one-mode slice in its domain."
+        ],
+        "reasoning": "These equivalences credit the family, zero concordance, and overlap in one-mode scaling; they do not supply the two-mode positivity constraint or constrained optima.",
+        "searches": [
+          "Longla arXiv:2308.11074 Eq. (15), Lemma 2 and Remark 3",
+          "Resultary e13a318382d7 single normal mode, even-even frequencies"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-region catalogue hits are shifted-Legendre density admissibility or density-TP2; the trigonometric hit gives one-mode coefficients.",
+          "The literature parameter domain inspected is the sufficient diamond, not the curved boundary or the b=8/31 and b=1/4 optimization points."
+        ],
+        "reasoning": "These are evaluated analytic regions, not empirical tables. No inspected distinct exact-region source uses the same two diagonal cosines and positivity condition.",
+        "searches": [
+          "Resultary e13a318382d7, a9d152463f5d, 4829e3cb0e98",
+          "Longla Eq. (15) and Longla–Hamadou trigonometric parameter region"
+        ]
+      },
+      "rationale": "The complete positivity boundary and its sharp two-mode dependence maxima survive the strongest inspected comparisons. Neither cosine-only zero concordance nor the diagonal operator construction is credited as new; the single-mode Chatterjee calculation has materially overlapping same-day coverage.",
+      "residual_risks": [
+        "The same-day single-mode overlap does not resolve historical priority for that calculation.",
+        "No exhaustive exclusion of older or broader trigonometric-polynomial positivity results; the cited Chesneau text remained unreadable in the bounded check."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same construction and known concordance/eigenbasis; sufficient condition does not give the sharp curved region.",
+          "evidence": [
+            "The trigonometric condition sums absolute sine and cosine coefficients and requires the total to be <=1/2.",
+            "Remark 3 gives vanishing rho and tau when the sine coefficients vanish."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.11074",
+          "material_read": "Eq. (15), Lemma 2 and Remark 3, printed pp. 11–12, OA offsets 31956–37450; Eqs. (5)–(7) and Proposition 2.1, offsets 14384–21580",
+          "method": "OA primary PDF passages",
+          "title": "New copula families and mixing properties",
+          "trigger": "Originating cosine model and spectral/concordance formulas"
+        },
+        {
+          "assessment": "Uses sufficient domain and gives a restricted trigonometric correlation cap, not the full admissibility theorem and maxima.",
+          "evidence": [
+            "Reported restricted correlation is 0.5; b=1/4 and |a|=1/sqrt(2) violate the sufficient sum bound."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00362-025-01778-8",
+          "material_read": "Printed pp. 8–10, OA offsets 22667 and 26258, and overview",
+          "method": "OA publisher PDF excerpts",
+          "title": "Estimation problems for some perturbations of the independence copula",
+          "trigger": "Direct inference follow-up could state an exact domain or cap"
+        },
+        {
+          "assessment": "Covers single-mode Chatterjee dependence and even-mode vanishing concordance, not joint admissibility or the optima.",
+          "evidence": [
+            "Density 1+theta cos(mπu)cos(nπv), 0<theta<1; a two-mode sum is not its hypothesis."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, e13a318382d7",
+          "material_read": "Mirrored RESULT.md Finding, and proof Step 3 at offset 4614",
+          "method": "Local mirror statement and proof comparison",
+          "title": "A fixed-information vanishing rank-dependence law for normal-mode copulas",
+          "trigger": "Strongest same-day trigonometric rank overlap"
+        },
+        {
+          "assessment": "Distinct shifted-Legendre basis and Spearman/Kendall objectives.",
+          "evidence": [
+            "No pointwise positivity equivalence to the paired first and second cosines is stated or follows from orthonormality."
+          ],
+          "identifier_or_url": "Resultary 2026/10/13, 4829e3cb0e98",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Local mirror exact statement comparison",
+          "title": "Exact admissibility and sharp rank-correlation ranges for the two-mode Legendre copula",
+          "trigger": "Strong exact two-mode admissibility analogue"
+        },
+        {
+          "assessment": "Legendre density TP2 and Spearman ceiling, not cosine nonnegativity and Chatterjee/spectral extrema.",
+          "evidence": [
+            "TP2 imposes ordered-minor constraints beyond the density-validity requirement in this record."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, a9d152463f5d",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Local mirror exact statement comparison",
+          "title": "Exact density total positivity region of the two-mode Legendre copula",
+          "trigger": "Same-day two-mode density-boundary analogue"
+        },
+        {
+          "assessment": "Full-text implication unresolved, not evidence of absence.",
+          "evidence": [
+            "No readable full-text theorem was retrieved in the bounded checks."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/appliedmath1010002",
+          "material_read": "Bibliographic identification and OA access response only",
+          "method": "Bounded OA attempts",
+          "title": "On New Types of Multivariate Trigonometric Copulas",
+          "trigger": "Potential broader trigonometric positivity result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact admissibility region distinguishes valid from impossible parameters beyond a conservative model-inference domain. Two different extremizers quantify distinct forms of dependence despite zero classical concordance, which is more informative than one example of nonzero rank predictability. Neither sharp cap is presented as universal outside the two-harmonic model.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

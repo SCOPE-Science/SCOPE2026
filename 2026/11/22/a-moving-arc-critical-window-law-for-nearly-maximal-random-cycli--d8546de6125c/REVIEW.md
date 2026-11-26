@@ -1,15 +1,21 @@
-# Review of a moving-arc critical-window law
+# Independent mathematical audit
 
-## Correctness — PASS
-The ordered-angle area identity is exact, not experimental. A one-variable derivative proves the complete global maximum for arc half-span \(0<L<\pi\). The quadratic expansion has explicitly checked positive coefficients \(\gamma=3\sqrt3/16\) and \(eta=\sqrt3/4\); the moving maximum introduces the necessary \(4\gamma\min(\lambda,0)^2\) correction. Strict localization confines the rare event to a compact scaled region for bounded \(\lambda\), and dominated convergence proves the probability and conditional total-variation limit. Elementary integrations verify the exact profile at zero, the eventually linear branch and far-negative asymptotic. Independent quadrature of the original area probability corroborates the derived formula, but the analytic proof—not the numerical test—supports the continuum claim.
+## correctness
 
-## Originality — PASS, with historical priority risk
-The inspected full-circle area result of Koroleva–Nikitin, arXiv:1301.1360, has a fixed distribution; the fixed-kernel theory of Nikitin–Simarova, arXiv:2010.04460, instead studies large samples under fixed assumptions. A published threefold-oval area-tail crossover varies the body shape and rotational phase, not both endpoints of a circular sampling arc. The classical equilateral-inscribed-triangle maximum and fixed-arc asymptotic exponents do not imply a joint limit with the moving support and its conditional shape. The comparison was made by theorem implications, and the exact three-coordinate distribution and crossover coefficient were not found in accessible sources. An unindexed earlier critical-window calculation remains a residual risk; no independent literature-priority certification is claimed.
+PASS
 
-## Value — PASS
-At the sharply characterized arc length where the equilateral maximizer first fits, fixed-arc tail descriptions fail to describe the adjoining scaled geometries. The explicit crossover connects the corner-limited and interior-maximizer regimes, has an exact high-positive linear law and a far-negative reciprocal-square law, and resolves the complete local conditional geometry. This is a motivated classification of a singular geometric-probability transition rather than a small numerical improvement to a pre-existing constant.
+In ordered angles the area is sin(s/2)(cos d−cos(s/2)); the span envelope has its unique interior maximum at s=4π/3 (with d=0), and is increasing up to that point. The coefficients of the quadratic deficit are 3√3/16 and √3/4. Compactness away from this unique maximizing pair and the local quadratic lower bound put the exact event in a common bounded box after rescaling, uniformly on compact λ-sets. Centering at the moving maximum produces the +4γ min(λ,0)^2 term, not a constant threshold below criticality. In the scaled variables the ordering constraint |√ε z|<s/2 is inactive on that box for small ε; the determinant is ε^(3/2) and the ordered sample density is 3/(4 L^3). The symmetric difference of the exact and limiting domains lies in a quadratic shell of width O_K(√ε). In (w=u+v,z) that shell has area O_K(√ε) by mapping it into a circular annulus, and the remaining slice has length w bounded on the box. Thus the indicators converge uniformly in L^1; continuity, positivity and a compact lower bound for the limiting volume permit normalization and give the claimed TV convergence. The critical value, full-ellipse first moment, and beta integral ∫x√(1−4γx)dx=1/(60γ²) on [0,1/(4γ)] give the three stated profile formulas. The positive linear branch begins when the ellipse first lies entirely in w≥0. The proof's intermediate u+v=2L−s refers to unscaled deficits, as clarified unambiguously by the subsequent exact scaled substitution.
 
-## Scope and limitations
-Exactly three independent angle-uniform circle points are considered; the parameter approach is \(L-L_c=\lambda\sqrtarepsilon\) with bounded \(\lambda\). The theorem is not a many-sample limit or a universal smooth-curve result, and the two limits \(arepsilon	o0\) and \(|\lambda|	o\infty\) are not interchanged. Historical priority and independent mathematical validation are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The novelty assessed is the moving-support normalized profile and joint conditional law uniformly across the critical window, not the equilateral maximizer, the fixed critical coefficient or the fixed-arc exponents. No covering moving-support statement was identified in the inspected literature and configured corpus search.
+
+## value
+
+PASS
+
+The window is forced by the first appearance of an equilateral configuration and by the competition of a quadratic area deficit with the available position interval. The full clipped-domain law quantifies the transition, identifies the exact onset of linearity and gives the joint endpoint/midpoint distribution where the fixed-arc laws cannot be used uniformly. This is more than a restatement of the endpoint exponents.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

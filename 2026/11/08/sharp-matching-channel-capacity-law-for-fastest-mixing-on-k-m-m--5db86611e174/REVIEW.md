@@ -1,19 +1,21 @@
-# Self-review: matched-channel constrained fastest mixing
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The admissible fixed-probability and interval-constrained sets are compact and invariant under simultaneous matched-pair permutations and bipartition interchange. Averaging is feasible and cannot raise the centered spectral norm. This reduces the global problem to two off-diagonal edge types and a holding probability. The constant, bipartition-sign, pair-symmetric zero-sum, and pair-antisymmetric zero-sum spaces exhaust all \(2m\) eigenvectors, yielding a fully explicit three-mode objective. Two affine lower bounds hold for every feasible design and exactly match the two feasible formulas on opposite sides of \(2/(3m)\). The interval formula follows by minimizing the resulting V-shaped curve. The attached exact-rational test independently checks the eigenspaces and algebraic formulas; its finite sampling does not establish the universal theorem.
+PASS
 
-## Originality
+Average conjugates over simultaneous permutations of matched pairs and part interchange. This preserves feasibility and the uniform projector, and convexity ensures the centered norm cannot increase. In the averaged chain c=1−a−(m−1)b is the holding probability, and the cross block is (a−b)I+b11ᵀ. The centered nontrivial modes (part difference and the two paired zero-sum modes) have eigenvalues 2c−1, c+a−b and c−a+b, so the norm is max{|2c−1|,c+|a−b|}. Substituting b=(1−a−c)/(m−1), the latter linear modes are [(m−2)c+1−ma]/(m−1) and [mc+ma−1]/(m−1). Convex-combine 1−2c with each of these, choosing weights to cancel c. This gives unconditional lower bounds m(1−2a)/(3m−4) and (m−2+2ma)/(3m−2), including m=2 when the first mode's slope is zero. At their sole crossing a*=2/(3m) they equal 1/3. On the first branch the proposed b,c are nonnegative, c+a+(m−1)b=1, b≥a and c≤1/2; on the second the same checks hold with b≤a. The selected linear mode equals 1−2c on each branch, attaining the lower envelope of feasible objectives. The endpoints m=2,a=0 and a=1 retain the extra unit-modulus eigenvalues in the centered norm. For common bounds, the matched-edge average lies in [ℓ,u], and the strictly decreasing then increasing fixed-a response is minimized by clipping a*. This neither asserts uniqueness nor optimizes a finite-time distance. The frozen exact-rational checker was inspected, not run; these calculations prove the all-parameter result.
 
-PASS on inspected evidence, with qualified priority. Boyd, Diaconis and Xiao (2004, section 7.1) solve the ordinary balanced complete-bipartite problem: the unrestricted \(1/3\) optimum is known. Boyd, Diaconis, Parrilo and Xiao (2009, Theorem 3.1 and section 5.4.2) cover the edge-transitive crown endpoint and give generic symmetry reduction and the unrestricted bipartite formula. Jafarizadeh (2010, section III) solves distinct layered complete multipartite topologies. Their statements and hypotheses do not provide the closed-form fixed matched-edge-probability frontier or the two-sided capacity interval formula. Matching-deleted crown graph facts alone do not determine intermediate matched probabilities. Specialized unindexed papers and alternative capacity-constraint terminology remain risks; search absence is not certification.
+## originality
 
-## Value
+PASS
 
-PASS. Requiring or capping designated matched transitions is a natural resource constraint for a two-class communication network. The result gives the entire exact performance frontier, the universal optimally balanced matched probability, distinct slopes for under- and over-allocation, and an explicit stochastic design for any interval. The full parameter classification is more informative than a single optimal SLEM or a general SDP formulation; no unproved network-wide application or all-optimizer uniqueness is claimed.
+Bounded best-of-knowledge pass for the full fixed-probability tradeoff and its common-interval extension, not for the unconstrained balanced optimum, crown endpoint, or symmetry method. The strongest plausible published and indexed overlaps fix those individual cases or give a general reduction; none of the compared results evaluates the two-orbit constrained frontier at intermediate a.
 
-## Limitations and references
+## value
 
-The proof concerns symmetric stochastic chains with holding and uniform equilibrium; it does not optimize every finite-time distance or classify all nonsymmetric optimal matrices. The exact rational checker provides finite spot tests only. The primary comparisons were Boyd, Diaconis and Xiao, *SIAM Review* 46 (2004), 667–689; Boyd, Diaconis, Parrilo and Xiao, *SIAM J. Optim.* 20 (2009), 792–819; and Jafarizadeh, arXiv:1008.2588 (2010). The claimed finding has no independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fixing a distinguished partner link is a natural constraint in a two-class reversible network. The exact frontier quantifies how both inadequate and excessive use of such links harms mixing, identifies the switch between two spectral bottlenecks and tells when a permitted range incurs no cost. This is a useful all-size, all-capacity design law beyond the generic SDP and already-known endpoints.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

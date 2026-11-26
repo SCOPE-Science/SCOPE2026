@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:40:07.277845Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md: product, idempotent equations and obstruction proof",
+        "VERIFICATION.md and verify_spin_factor_f3.py, inspected; the separate exhaustive replay did not execute the submitted script",
+        "/workspace/branches/9c923b32-68cb-4088-9e3b-af55dc609dc9/independent_spin_factor_f3.py"
+      ],
+      "rationale": "Confirmed the eight idempotents, the 72 reachable elements, the nine exclusions, and the shortest-length counts 8, 12, 14, 18, 12, 8. The separate 81-element breadth-first computation derived the idempotents by squaring and replayed a witness for each reachable element. There is also a short exact replay on 12 orbits: let (a,w) denote scalar a and the number w of nonzero vector coordinates. Signed permutations act transitively on each orbit. Right multiplication by (2,σe_i) has scalar a'=2a+σv_i and new i-th coordinate −σa', with the other coordinates negated. Apart from loops and the transition to zero, the possible edges are (0,w)→(±1,w) for w>0 and (a,w)→(−a,w+1) for a≠0,w<3 and (a,w)→(0,w−1) for a≠0,w>0. Starting with (0,0),(1,0),(2,1), the new layers are (1,2); (2,3),(0,1); (0,2),(1,1); (2,2); (1,3). Orbit sizes for w=0,1,2,3 are 1,6,12,8. The missing orbits are (2,0),(0,3), as claimed. Nondegeneracy also gives simplicity: an ideal containing a nonzero pure vector contains the unit by pairing with a vector of nonzero inner product, and an ideal containing a nonscalar element with nonzero scalar part acquires a nonzero pure vector by multiplying by a vector orthogonal to its vector part.",
+      "residual_risks": [
+        "The argument uses left nesting; it does not classify arbitrary binary parenthesizations or other forms."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.2 assumes a quadratically closed field; 2 is nonsquare in the assigned field. Lemma 3.4 gives short-word necessary conditions over arbitrary characteristic-not-2 fields; Proposition 4.1 gives the complete arbitrary-field answer only for the different matrix form.",
+          "The Resultary fiber formula is general in the odd finite field but restricted to length two."
+        ],
+        "reasoning": "The generality in field or dimension of those statements does not include an all-length classification for this form.",
+        "searches": [
+          "Gogić–Tomašević, arXiv:2609.23581, Theorem 3.2, Lemma 3.4 and Proposition 4.1",
+          "Resultary 9a702bd71277"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.23581",
+        "Resultary:9a702bd71277"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 2.2 already excludes every scalar other than 0 and 1 from left-nested idempotent words. Lemma 3.4 provides a short-word bound and does not force permanent nonreachability. The two-idempotent omissions do not rule out longer words."
+        ],
+        "reasoning": "Credit prior scalar exclusion and the length-two overlap. Neither establishes the all-length obstruction for the eight nonscalar targets, their exact complement, or the shortest-length distribution.",
+        "searches": [
+          "arXiv:2609.23581, Lemma 2.2, Lemma 3.4 and Proposition 4.1",
+          "Resultary 9a702bd71277, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The trace-zero quadratic form of the matrix Jordan algebra is x²+yz, isometric in characteristic 3 to diag(1,1,−1); its determinant square class differs from that of diag(1,1,1). The trace-zero summand is intrinsic, being the kernel of the operator trace x↦tr(L_x).",
+          "The matching Resultary record concerns fibers of the product of two primitive idempotents, not arbitrary left-nested words."
+        ],
+        "reasoning": "Neither the split-matrix formulation nor the two-factor fiber formulation is equivalent to this nonsplit spin-factor reachability and distance census.",
+        "searches": [
+          "Gogić–Tomašević, arXiv:2609.23581, Corollary 3.3 and Proposition 4.1",
+          "Resultary spin-factor/Jordan idempotent product comparison: 9a702bd71277"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact table in the literature is for nonscalar 2×2 matrices with maximum length five. The matching Resultary record gives a two-idempotent fiber census, with eight pure isotropic misses upon specializing to this example. Neither compared source gives the 81-element reachability table or the six minimum-length counts."
+        ],
+        "reasoning": "These exact results are on genuinely different objects or lengths; the bounded search does not establish priority over all possible tables.",
+        "searches": [
+          "Focused primary-literature lookup on finite-field spin-factor idempotent word lengths",
+          "Resultary finite-field idempotent fiber search; closest record 9a702bd71277",
+          "arXiv:2609.23581, Proposition 4.1 exact length table"
+        ]
+      },
+      "rationale": "The supported contribution is the form-specific all-length nonscalar obstruction and complete minimum-length census. The scalar obstruction is already known and receives no novelty credit. The strongest located related statements either change the underlying field/form or concern only products of two primitive idempotents.",
+      "residual_risks": [
+        "The focused literature lookup returned no candidates; the explicit source comparisons, not the empty result, support the decision. Unindexed earlier enumerations remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial prior coverage, not coverage of the full finite finding",
+          "evidence": "Lemma 2.2 gives P(J)∩F1={0,1}; Theorem 3.2 needs quadratic closedness; Proposition 4.1 concerns M₂(F)⁺ and gives length at most five for nonscalars.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.23581",
+          "material_read": "Lemmas 2.2 and 3.4, Theorem 3.2 and Proposition 4.1 (PDF pages 6–11; decisive text at offsets 23984, 27704, 37061 and 40648)",
+          "method": "Lawful openly accessible PDF, located and read bounded passages",
+          "title": "Idempotent words in finite-dimensional simple Jordan algebras",
+          "trigger": "Exact same word notion, general spin factors and matrix-form length classification"
+        },
+        {
+          "assessment": "Later dated partial overlap, not coverage of all lengths",
+          "evidence": "The two-primitive-idempotent statement omits q²−1 nonzero isotropic targets in the applicable dimension-three type; at q=3 they are the same eight pure vectors, but only under the two-factor restriction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-primitive-idempotent-jordan-product-fibers-and-a-sharp-dim--9a702bd71277",
+          "material_read": "RESULT.md Finding, offset 0, dimension-three discriminant cases",
+          "method": "Local Resultary search and local mirror passage",
+          "title": "Exact primitive-idempotent Jordan product fibers and a sharp dimension bound",
+          "trigger": "Same finite-field spin-factor multiplication and an exact census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md exact census and all-length obstruction",
+        "Gogić–Tomašević, Theorem 3.2 and Proposition 4.1"
+      ],
+      "rationale": "This is a concrete test of the field and form hypotheses in a motivated idempotent-generation problem. In the smallest odd field, this nonsplit spin factor has eight nonscalar elements that never occur and others that first occur at length six, in contrast to complete nonscalar generation within five for the split matrix form. The exact census identifies the boundary a finite-field extension must account for, not just that brute-force enumeration is possible.",
+      "residual_risks": [
+        "No claim that this classifies larger finite fields or discriminant types."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

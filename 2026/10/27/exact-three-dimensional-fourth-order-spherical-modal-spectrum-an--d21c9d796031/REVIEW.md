@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-PASS. DLMF 18.17.21 and the precisely normalized sine-Plancherel identity give \(I_k=\pi^{-1}\int_0^1P_k(1-2x^2)^2dx\). A matched near-endpoint Hilb expansion with an independently evaluated Bessel-square primitive supplies the two-term logarithmic constant \(\gamma+\log32\). The three rational low-degree integrals are algebraically exact. The sharp stability coefficient is an evaluated consequence of Xu's specifically cited Theorem 1.3, not a newly established version of the general theorem. Supplemental code checks exact low-degree polynomials and numerical higher-degree convergence.
+## correctness
 
-## Originality
-PASS under best-knowledge scientific comparison, with historical uncertainty. The inspected Xu manuscript proves global modal ordering and displays the optimal stability coefficient as a Bessel-moment difference, but does not provide the two-term logarithmic high-degree tail or this evaluated three-dimensional coefficient. The 2018 Carneiro--Oliveira e Silva--Sousa manuscript contains a general degree-zero moment evaluation, not the present entire-degree formula or its two-term asymptotic. DLMF already tabulates the exact sine-transform identity; its algebraic Plancherel consequence must not be represented as a new special-function identity. Searches for weighted Legendre-square asymptotics, fourth spherical Bessel moments, and the explicit \(\gamma+\log32\) constant did not locate the combined result. A stronger older theorem could still subsume it.
+PASS
 
-## Value
-PASS. This evaluates a complete infinite modal spectral sequence in exact rational arithmetic and identifies both its sharp logarithmic rate and the nontrivial additive term governing high angular frequencies. The same calculation evaluates the previously integral-defined optimal stability coefficient in the first physical dimension and simplest admissible even exponent. These are natural invariants of the published sharp Fourier extension and stability problem, not an arbitrary finite data slice.
+The sine transform at frequency 2r has squared norm pi/4 times the input squared norm; squaring the DLMF identity then gives I_k=(1/pi) integral_0^1 P_k(1-2x^2)^2 dx, including k=0. Direct polynomial integration gives 1, 7/15, 11/35 for pi I_0, pi I_1 and pi I_2. For the tail, put K=k+1/2 and Q_k=pi I_k. In the low-angle integral for 2KQ_k, Hilb's errors O(theta^2) for theta<=1/K and O(theta^(1/2)K^(-3/2)) beyond give o(1) after squaring and integrating with the K factor. The amplitude factor theta/(2 sin(theta/2)) contributes an O(delta^2) error by J_0(u)^2=O((1+u)^(-1)). On [delta,pi-epsilon], interior cosine asymptotics give oscillatory averaging; the Bernstein bound makes the omitted right strip O(epsilon) uniformly since cos(theta/2)/sin(theta)=1/(2 sin(theta/2)). The complementary integral thus contributes log cot(delta/4)/pi. The Laplace transform of J_0^2 is (1/pi) integral_0^(pi/2) [(s/2)^2+sin^2 u]^(-1/2)du, asymptotic to log(8/s)/pi; subtracting the model kernel [(s/2)^2+u^2]^(-1/2) gives the constant. Integration by parts of the primitive transfers this to (log T+gamma+log 8)/pi+o(1) for the primitive at T. Matching at fixed delta and then letting delta tend to zero adds log 4, giving gamma+log 32. Xu's normalization and exponent produce the displayed coefficient from I_0 and I_1. The derivation, rather than the frozen finite quadratures, establishes the infinite claims.
 
-## Limitations
-The asymptotic has an unspecified lower-order remainder; the prior general stability theorem is invoked, not reproved. Historical priority for the Legendre weighted-square asymptotic remains a genuine risk. The verification script is supplementary, not independent mathematical certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the explicitly evaluated second term gamma+log 32 and the proof of its o(1) remainder in 2 pi^2 K I_k-log K. The classical sine transform implies the rational moment identity; the leading decay and rational spectrum also materially match a distinct indexed result. The evaluated stability coefficient is a corollary of Xu and the low-degree integrals, not a new stability theorem. No inspected source establishes or mechanically supplies the second term.
+
+## value
+
+PASS
+
+The spectral question arises naturally from the sharp mixed-norm extension problem. At exponent four in dimension three the endpoint is logarithmic, so the second term resolves a precise critical asymptotic that leading decay cannot give. Its evaluation identifies both the Bessel endpoint contribution and the interior matching constant; it is not just a new way to write a known small-degree norm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

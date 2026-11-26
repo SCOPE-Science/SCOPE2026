@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite scope is explicit: five groups of cardinality sixteen, all nonempty subsets of cardinality dividing sixteen, all complements modulo translation, and all possible spectra modulo translation. Two standalone integer checkers agree on the complete size-resolved table. One enumerates complements by exact-cover recursion and spectra by a clique search; the other directly tests every row subset and all normalized complement subsets and candidate frequency sets. The cyclotomic vanishing test is necessary and sufficient because the groups have exponent a power of two. The frequency subgroup scan is exhaustive; this supports negative obstruction counts rather than relying on failure to find witnesses. The normalization factor used only by the recursive checker follows from double counting. No extrapolation from finite experiments to arbitrary group order is claimed.
+PASS
 
-## Originality — PASS under bounded comparison
+Independently reproduced every size stratum and all five universality tests with /workspace/branches/replay_order16.py; read the submitted checkers but did not execute them. In the replay a pair of subsets of reciprocal sizes tiles iff its nonzero difference masks are disjoint: precisely such an intersection would give a repeated sum, and there are 16 sums. I grouped every zero-containing set of each divisor size by that difference mask, and intersected the exact Fourier-zero masks within each permissible complement bucket and then across permissible buckets. Evaluating in the basis 1,ζ,…,ζ^(E/2−1) with ζ^(E/2)=−1 gives the exact zero criterion (E=2 works too). Each possible spectrum translates to one containing 0; test its entire nonzero difference mask against the common Fourier-zero mask, checking all subgroups separately by difference closure. Translating complements changes each Fourier coefficient only by a phase, so no nonnormalized complement can change the mask. Uniformly over labeled tiles of size k, anchoring accounts for a fraction k/16, by double-counting a tile and a chosen element, also for periodic tiles. Replay produced totals (795,1611,2155,3147,4747) and obstruction totals (764,1056,1168,896,0), with all size columns as in RESULT.md. The cyclic example also checks: the alternating parity complements have all nonzero restricted character differences of {0,…,7} orthogonal, but difference 8 in the only order-eight dual subgroup restricts trivially. This proves the bounded order-16 classification; no extrapolation or formal proof claim.
 
-The literature already supplies the definition and Fourier-zero criterion for common spectra, plus cyclic prime-power existence, and the group \(\mathbb Z_4^2\) subgroup-obstruction count is covered by an earlier exact result. The accepted contribution is the **full comparative five-group census** and the additional obstruction counts \(764,1056,896,0\), not the preexisting special case or generic existence criterion. Full-text portions of the original universal-spectrum papers were compared with these statements, alongside published finite-group and Fourier-minor tables. None of the inspected sources supplies or implies the entire exact comparative subgroup-coset incidence table without new enumeration. Unindexed parallel calculations remain a possible priority risk; the source search cannot certify global uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The universal-spectrum question originated as a significant harmonic-analysis interface between tilings and character bases. The new table measures a distinct and mathematically necessary strengthening: whether a **single subgroup-based frequency design** works uniformly across all complements of each tile. At fixed group size, this property distinguishes the elementary abelian group (no obstructions) from all four non-elementary types and quantifies each obstruction by tiling-set cardinality. This is a natural complete classification, not a selected arbitrary test instance, while its scope remains purely finite.
+The full size-resolved ordinary tile baseline in all five groups is already available under anchoring, and every universal/subgroup count in the Z4² row exactly overlaps record 5. These are not credited as new. The supported distinct result is the joint census outside that row: exact obstruction size profiles for Z16, Z8×Z2 and Z4×Z2² and the subgroup-versus-arbitrary comparison across types, including the elementary abelian zero row. Cyclic universal existence is credited to the prior cyclic framework, not identified as an addition.
 
-## Closest literature and limitations
+## value
 
-Lagarias–Wang (1997), Theorems 1.1–1.3, are especially close: in particular the cyclic existence case is not new. Lagarias–Szabó (2000) treats universal cyclic spectra and related factorization criteria; Kolountzakis–Matolcsi (2004) supplies a counterexample beyond this small size; Farkas–Matolcsi–Móra (2006) explains the common-zero criterion. Existing public counts for \(\mathbb Z_4^2\) and \(\mathbb Z_4\times\mathbb Z_2^2\) are not repackaged as new results. The theorem does not extend to order thirty-two or any infinite family and has not had independent mathematical validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete first comparably small multi-type cutoff for common Fourier bases tests a natural restriction: are simultaneous spectra still possible when the frequencies must form a subgroup coset? The exact profiles distinguish a common basis from a common quotient transversal, quantify how severely they diverge, and expose the elementary-abelian contrast, including abundant obstructions even in the cyclic group with prior existence. The value lies in the exact obstruction data across types, not in recomputing known tile counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

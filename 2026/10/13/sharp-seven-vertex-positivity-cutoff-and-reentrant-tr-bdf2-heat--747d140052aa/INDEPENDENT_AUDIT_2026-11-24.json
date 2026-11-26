@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:46:01.160372Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the completed step, elimination at the L-stable parameter gives (1+sqrt(2))G²−sqrt(2)G, with G=(I+aL)⁻¹ and a=βh. The periodic Green kernel is positive. With cosh(t)=1+1/(2a), its ratio G_k/G_0 is cosh((n/2−k)t)/cosh(nt/2); its log derivative in t is strictly negative off the diagonal, since x tanh(xt) increases for nonnegative x. As t decreases with a and G²=G+a∂_aG, the diagonal has strictly smallest (G²)_k/G_k. Substitution of G_0=tanh(t/2)coth(nt/2) gives exactly the claimed F_n sign, with strict positivity off the diagonal at the two transition steps. At h=0 the step is the identity. n sinh(t)/sinh(nt) decreases strictly with n for fixed positive t. In an independent exact computation by rational Bernstein collocation I obtained the three n=7 minima 1667336/390625, 165684017/65625000 and 4853759/1562500, all greater than 2; the rational comparison polynomial is a lower bound since U_6(c)≥7. The n=8 sign witness is bounded above by −16383/436900. The product over the real Chebyshev zeros below 1 gives a strictly convex reciprocal on c>1, so the endpoint signs and 5/4 witness imply exactly two roots and strict nesting. The right root converges to sqrt(2); the substitution c=cosh(ξ/n) and sign bracketing at the unique positive crossing of ξ/sinh(ξ)=3−2sqrt(2) justify the scaled return law. Independent 55-digit evaluation gives 4.631334936231… and 10.406445651654… for n=8 and 0.237899999395… for the scaling constant. The independent reproduction is /workspace/branches/independent_checks/trbdf2.py; the packaged script was inspected, not executed. Fourier tests in that script are supplementary, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Absolute monotonicity radius about 2.414 yields sufficient stepsize conditions, not a necessary-and-sufficient cycle rule.",
+          "The same TR-BDF2 map on complete multipartite graphs has a cutoff at five and a vertexwise sign-loss band."
+        ],
+        "reasoning": "The general sufficient theorem does not prove reentry or sharpness. Complete multipartite graphs do not contain the cycle family beyond C_4, so their special sign formulas do not dominate the result.",
+        "searches": [
+          "Literature: TR-BDF2 positivity and monotonicity; Bonaventura–Della Rocca 1510.04303",
+          "Resultary dc2fd2585c8b"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1510.04303",
+        "Resultary 1f6f56bd0eac",
+        "Resultary 5b0558f2856d",
+        "Resultary 42b36260c821",
+        "Resultary dc2fd2585c8b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general SSP result, positivity for a weaker signed correction on the same lattice, and exact positivity sets for other maps/classes do not show that the stronger signed correction changes sign only in a single intermediate band."
+        ],
+        "reasoning": "Even using the known resolvent approach, the sign test, convex two-root analysis and exact comparison at n=7 versus 8 are separate statements with different hypotheses and conclusions.",
+        "searches": [
+          "1510.04303 §3; Resultary 1f6f56bd0eac, 5b0558f2856d, 42b36260c821, dc2fd2585c8b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent questions include entrywise monotonicity of the rational step, nonnegativity of the circulant heat kernel, and positivity of (1+sqrt(2))G²−sqrt(2)G. The filtered Crank–Nicolson note instead studies 2G²−G."
+        ],
+        "reasoning": "The two schemes have different thresholds for the decisive ratio G²/G: 1/2 and sqrt(2)/(1+sqrt(2)). Rescaling the steps cannot make their distinct rational stability functions identical.",
+        "searches": [
+          "Resultary: TR-BDF2 end-step cycle positivity and reentrance",
+          "1510.04303, §3",
+          "Resultary 1f6f56bd0eac"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Local results 5b0558f2856d and 42b36260c821 classify closely neighboring cycle problems. The [0/2] Padé map also separates C_7 and C_8, but on C_8 it fails at arbitrarily small positive h and recovers at one positive endpoint; RK4 gives a single upper bound."
+        ],
+        "reasoning": "These are concrete indexed overlaps in graph size and invariant, not a cross-method table entry or an exact classification for TR-BDF2.",
+        "searches": [
+          "Resultary: cycle positivity all steps C_7 C_8; positive timestep windows, Chebyshev threshold; cycle Runge–Kutta/Padé positivity"
+        ]
+      },
+      "rationale": "The stability map and geometric-resolvent techniques have clear precursors. The closest local sources either use a different rational update on cycles or the same update on a different graph class. None of the inspected results supplies or implies the Chebyshev criterion and strict reentrant window, including the cycle-specific seven/eight cutoff and endpoint laws.",
+      "residual_risks": [
+        "The bounded searches and inspected passages do not exclude an equivalent historical cycle-resolvent result; the filtered-CN note also records incomplete access to some older sources.",
+        "A distinct same-day record is not evidence of chronology or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the step and sufficient monotonicity theory, not the exact cycle result",
+          "evidence": [
+            "The L-stable choice γ=2−sqrt(2) gives an absolute-monotonicity radius about 2.414."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1510.04303",
+          "material_read": "§3, printed pp. 11–12, stability function and absolute-monotonicity analysis",
+          "method": "Bounded OA primary PDF reading",
+          "title": "Monotonicity, positivity and strong stability of the TR-BDF2 method and of its SSP extensions",
+          "trigger": "Same L-stable method and positivity question"
+        },
+        {
+          "assessment": "Different update; note the corrected citation URL here",
+          "evidence": [
+            "Strict unconditional lattice positivity for 2R_s²−R_s, not for the TR-BDF2 coefficients."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac/RESULT.md",
+          "material_read": "Finding and prior-work discussion, text offsets 0, 4300–7000 and 8800 onward",
+          "method": "Indexed search and bounded mirror read",
+          "title": "Unconditional lattice positivity from backward-Euler-filtered Crank–Nicolson",
+          "trigger": "Same one-dimensional lattice and signed resolvent method"
+        },
+        {
+          "assessment": "Non-equivalent positivity windows",
+          "evidence": [
+            "[0/2] Padé on C_8 has positivity set {0}∪[h_8,∞)."
+          ],
+          "identifier_or_url": "Resultary 5b0558f2856d",
+          "material_read": "Finding and Exact C_8 cutoff (offset 4750)",
+          "method": "Indexed search and bounded mirror read",
+          "title": "Distance-four positivity obstruction and sharp eight-cycle recovery",
+          "trigger": "Same C_7/C_8 separation on cycles"
+        },
+        {
+          "assessment": "Different polynomial method and cutoff behavior",
+          "evidence": [
+            "For cycles n≥8, RK4 has the single upper cutoff h≤1/2."
+          ],
+          "identifier_or_url": "Resultary 42b36260c821",
+          "material_read": "Finding (offset 0)",
+          "method": "Indexed search and bounded mirror read",
+          "title": "Sharp RK4 positivity intervals on every unweighted path and cycle",
+          "trigger": "Exact cycle final-step classification"
+        },
+        {
+          "assessment": "Applies to different graphs",
+          "evidence": [
+            "Complete multipartite graphs admit all-step positivity through five vertices; larger ones exhibit vertex-specific diagonal failure bands."
+          ],
+          "identifier_or_url": "Resultary dc2fd2585c8b",
+          "material_read": "Finding (offset 0)",
+          "method": "Indexed search and bounded mirror read",
+          "title": "A five-vertex positivity boundary and one-band sign recovery for TR-BDF2",
+          "trigger": "Same update and reentrant sign behavior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cycle diffusion is a canonical constant-coefficient generator and TR-BDF2 is a standard integrator. The exact threshold answers when positivity is unconditional and shows why a single SSP upper step bound cannot describe the full positivity set. The strictly expanding failure bands and quadratic recovery scale give information useful for mesh-size and step-size comparisons; they do not guarantee accuracy or internal-stage positivity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

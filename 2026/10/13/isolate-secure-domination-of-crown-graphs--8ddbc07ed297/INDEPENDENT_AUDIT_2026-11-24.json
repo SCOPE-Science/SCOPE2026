@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:09:07.741531Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use closed domination and require the result of a defender swap to have some selected isolate, not necessarily the same isolate. If a_i is isolated, it confines the selected B-side to {b_i}. With no b_i, domination forces all of A. With b_i, each omitted a_j can swap only with b_i, and the resulting one-sided set dominates only if a_j was the unique omission. In that case an attack at b_j leaves at least two A-vertices with b_i and b_j for n>=4; b_j sees every remaining A-vertex, and b_i sees at least one, ruling out isolation. If the A-side was full, an attack at any b_j different from b_i leaves both selected B-vertices with neighbors and every remaining A-vertex with a B-neighbor. Conversely, for A a swap against b_i can remove any a_j with j different from i, preserving domination and leaving a_i isolated; B is symmetric. For n=3 the same confinement and forced first swap leave only the two sides and triples consisting of a deleted pair and one other vertex; each such triple succeeds (for A={a_i,a_j,a_k}, S={a_i,a_k,b_i}, the attacks a_j,b_j,b_k can be defended by b_i,a_k,a_i respectively). Hence there are exactly 14 sets of size 3. Read VERIFICATION.md, verify.py and verify_output.txt. The frozen verifier's n=3 count is printed rather than asserted; separately enumerated all 63 nonempty subsets at n=3 and 255 at n=4 by a bit-mask check, obtaining 14 and 2. The frozen code was not run; its recorded range is 3<=n<=7 with additional side checks through n=50.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Remark 1 gives nonexistence for complete bipartite graphs; Proposition 3 gives the numerical cycle minimum ceil(3n/7).",
+          "The semitotal record allows the two sides and other minimal types but imposes partner proximity, not defender swaps."
+        ],
+        "reasoning": "The first two graph-family results respectively concern the undeleted graph and the n=3 crown only; the different domination parameter does not extend either to an all-set ISDS theorem.",
+        "searches": [
+          "Kumar–Subba Reddy arXiv:2002.05538v1 Remark 1 and Proposition 3",
+          "Resultary: semitotal-domination-polynomial-and-all-minimal-sets-of-crown-gr--8318e73b02ee"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting verification",
+        "arXiv:2002.05538v1",
+        "Resultary 798a85759c22, 8318e73b02ee and 0a4afac9ec94"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ordinary minimal dominating sets include the full sides but also mixed types; ISDS need not in general be inclusion-minimal dominating. A total-dominating swap cannot be a successful isolate-dominating swap.",
+          "In the frozen result the forced swap for a missing a_j and the loss of all isolates upon attacking b_j supply the distinct exclusion argument; edge deletion need not preserve defender feasibility."
+        ],
+        "reasoning": "The same-family classifications cannot force the swap rigidity. The paper's cycle minimum is a direct special-case implication only for the scalar at the boundary.",
+        "searches": [
+          "arXiv:2002.05538v1 Remark 1 and Proposition 3",
+          "Resultary cardinality-profile-of-minimal-dominating-sets-in-crown-graphs--798a85759c22 Finding",
+          "Resultary secure-total-domination-polynomial-of-crown-graphs--0a4afac9ec94 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kumar–Subba Reddy arXiv:2002.05538v1, PDF pp. 1–2, defines IDS and ISDS with the same existential defending swap.",
+          "The secure-total record preserves total domination on swap: all selected vertices have selected neighbors, unlike ISDS; the ordinary minimal-dominating record does not impose swap feasibility."
+        ],
+        "reasoning": "The deleted-perfect-matching model and selected-isolate requirement are both necessary to identify the same problem. Ordinary/minimal or total-secure formulations are not aliases for it.",
+        "searches": [
+          "Web: \"Algorithmic Complexity of Isolate Secure Domination in Graphs\" isolate secure dominating complete bipartite graphs crown graph",
+          "Resultary: cardinality-profile-of-minimal-dominating-sets-in-crown-graphs--798a85759c22; secure-total-domination-polynomial-of-crown-graphs--0a4afac9ec94"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed polynomials enumerate sets for different predicates. The numeric cycle formula directly gives gamma_0s(C6)=3 but does not count fourteen sets.",
+          "The frozen verify_output.txt is supporting evidence of this record, not an external exact table."
+        ],
+        "reasoning": "Credit the exact C6 minimum as covered. No matching table of ISDS subsets or parameter formula for general crowns was identified; this is a general structural claim, not a recomputation of a listed small graph number.",
+        "searches": [
+          "Indexed Resultary crown domination comparisons above",
+          "arXiv:2002.05538v1 Proposition 3, PDF p. 4"
+        ]
+      },
+      "rationale": "The supported distinct claim is the full swap-feasible family on crowns n>=4 and the boundary census, not the definition, nonexistence on complete bipartite graphs, or the already implied numerical minimum at C6. In the strongest checked same-graph sources, the conditions are ordinary minimal domination, semitotal domination, or secure total domination; none entails preserving an isolate under a defender swap.",
+      "residual_risks": [
+        "An differently indexed treatment of crown-graph ISDS or an unpublished all-set census could cover the result; the available comparisons do not establish universal publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact definitions, baseline nonexistence and the C6 numerical minimum; no implication of the general crown family classification in these passages",
+          "evidence": [
+            "Defining swap returns an IDS; complete bipartite nonexistence; gamma_0s(C_m)=ceil(3m/7)"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2002.05538",
+          "material_read": "PDF pp. 1–2 definitions at offsets 1050 and 5000; p. 3 Remark 1 near 8300; p. 4 Proposition 3 and proof near 10628",
+          "method": "Lawful OA PDF, targeted passages",
+          "title": "Algorithmic Complexity of Isolate Secure Domination in Graphs",
+          "trigger": "Initiating primary paper with the same invariant and complete-bipartite/cycle results"
+        },
+        {
+          "assessment": "Different predicate; ordinary inclusion-minimal domination",
+          "evidence": [
+            "Includes A and B but does not test isolate-preserving defender swaps"
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-cardinality-profile-of-minimal-dominating-sets-in-crown-graphs--798a85759c22",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Configured Resultary search and local mirror at 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Cardinality profile of minimal dominating sets in crown graphs",
+          "trigger": "Same graph and two full sides as solutions"
+        },
+        {
+          "assessment": "Different predicate; not equivalent despite the common sides",
+          "evidence": [
+            "Includes sides alongside other semitotal types"
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-semitotal-domination-polynomial-and-all-minimal-sets-of-crown-gr--8318e73b02ee",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Semitotal domination polynomial and all minimal sets of crown graphs",
+          "trigger": "Same graph and an exact minimal-set family"
+        },
+        {
+          "assessment": "Total domination is incompatible with an isolated selected vertex",
+          "evidence": [
+            "Defender swaps must preserve total domination"
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-secure-total-domination-polynomial-of-crown-graphs--0a4afac9ec94",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Secure total domination polynomial of crown graphs",
+          "trigger": "Same family and nearest swap predicate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A perfect-matching deletion is a natural symmetric change from a dense bipartite nonexistence case. The result gives a rigid all-set transition, not only the minimum: the new non-neighbors can preserve an isolate in a swap from a full side, but every mixed candidate for n>=4 fails. The exceptional 6-cycle shows exactly where this rigidity begins and separates the new census from the known numerical cycle invariant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

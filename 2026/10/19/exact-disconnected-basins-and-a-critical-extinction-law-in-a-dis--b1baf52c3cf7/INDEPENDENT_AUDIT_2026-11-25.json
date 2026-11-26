@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:09:38.192364Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The sign reduces to the sign of x−a for x>0, with H(a)=a. Since r_+>μ and μ<2, 4a/r_+<4(μ−1)/μ²<1; the upper quadratic takes value a(1+ε)>a at a, so the smaller crossing of level a lies below a and the larger is b>1/2. At b the actual image is a, and (b,1) maps into (0,a). The lower branch is increasing on (0,a) and its limiting value at a is a(1−ε), so that interval is invariant. For r_->1 its unique positive fixed point is in (0,a); increasingness prevents overshoot and the sign of f(x)−x gives monotone convergence from either side. For r_-<1 geometric contraction makes the product of the factors (1−x_j) positive, including for an orbit entering the interval in one step after b; this yields the positive exponential prefactor. At r_-=1 the positive orbit decreases to zero and 1/x_(j+1)−1/x_j=1/(1−x_j)→1, hence nx_n→1. Neither rate claim is for the exceptional endpoints 0 and 1. On (a,b) the right quadratic exceeds a and its maximum r_+/4 is below b: for r_+≤2 use b>1/2; otherwise f(r_+/4)=r_+²(4−r_+)/16≥1/2>a. The continuous logistic self-map of [0,1] at r=r_+ has f²(x)−x=−x(rx−r+1)[r²x²−r(r+1)x+r+1]; the quadratic discriminant is r²(r+1)(r−3), and at r=3 its double root is the positive fixed point. Coppel convergence then applies, and the invariant interval's lower bound a>0 excludes convergence to zero. At r=3 the upper fixed point attracts but is not hyperbolic; locally f² is increasing and its displacement has sign opposite x−p_+, which also gives local stability at this endpoint. The equilibrium at a and its single preimage b, and 0,1, are accounted for separately. Their zero measures leave basin lengths b−a and 1−b+a. At zero dispersal the larger crossing tends to 1/μ while the equilibria merge at a, giving the one-sided limiting selection fraction 2/μ−1. The critical value ε=1−1/μ lies in the stated strip because r_+=2μ−1<3 there. The analytical proof supports all limits; checker.py was read, not executed. It checks symbolic identities and sampled terminal states, not the inverse-time law directly, despite the broader verification note.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2011 article has both equilibria and upper/lower strict stability windows including ε<(3−μ)/μ and ε<1−1/μ; pp. 4–5 report numerical convergence to two fixed points or zero from multiple initial conditions",
+          "The 2023 Fig. 3 parameter study uses fixed initial X_0=0.7 and emphasizes high-growth long transients; Appendix A derives a three-step trapping boundary near the discontinuity",
+          "dafee39a2bfd gives an exact basin theorem at μ=2 and ε<1/2, not at μ<2"
+        ],
+        "reasoning": "Local stability and numerical coexistence do not identify preimages of the switching point or prove that the two open intervals are invariant/absorbed. The trapping result and μ=2 boundary classification do not cover the quantified weak-growth strip.",
+        "searches": [
+          "Resultary: Morozov Almutairi Petrovskii Lai discontinuous logistic dispersal map weak growth exact basin fraction",
+          "Singh–Parham–Hu Eqs. (16)–(19) and numerical initial-condition section",
+          "Morozov et al. 2023 author PDF Fig. 3 and Appendix A"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "DOI 10.1371/journal.pone.0024200",
+        "DOI 10.1016/j.chaos.2023.113707",
+        "Resultary dafee39a2bfd",
+        "DOIs 10.1016/j.biocon.2023.110419 and 10.1103/PhysRevE.47.3087 (access attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2011 lower stability threshold is r_-=1; the inspected passages did not give the critical trajectory law or exact basin endpoints",
+          "The classical no-two-cycle interval iteration theorem supplies convergence of continuous logistic maps, not invariance for the discontinuous switch",
+          "The 2023 trapping boundary is of a different type from the endpoints of the low-growth basins"
+        ],
+        "reasoning": "Once lower-branch entry is established, inverse-time decay is a standard reciprocal-increment calculation, not a standalone new law of logistic maps. The model-specific content needed to make it an all-initial-condition statement is the exact switch preimage and invariant upper interval, which also give the basin length and the positive ε→0 fraction. These were not obtained from the prior stability windows.",
+        "searches": [
+          "Resultary: discontinuous logistic dispersal map r minus equals one nx_n tends to one inverse-time extinction lower basin",
+          "Singh et al. 2011, DOI 10.1371/journal.pone.0024200, Eqs. (16)–(19), pp. 3–5 and OA literal search 1/n",
+          "Morozov et al. 2023 Appendix A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2011 growth/migration equations are x_(t+1)=F(y_t) and y_(t+1)=x_(t+1)[1+ε sgn(y_t−x_(t+1))]",
+          "Morozov et al. 2023 Eqs. (1)–(3) and logistic F discussion give the same recurrence with a zero clipping inactive on the assigned interval, and cite Singh et al. on fixed points"
+        ],
+        "reasoning": "Eliminating the intermediate growth variable closes the 2011 y recurrence and yields H exactly for logistic F. An ecological coordinate or sign-trigger renaming cannot make the map novel. The distinct claim must be the basin theorem, not equivalence of models.",
+        "searches": [
+          "Resultary: sign-triggered logistic dispersal map 1<mu<2 low growth separated basins extinction threshold",
+          "Literature: \"Long transients in discontinuous time-discrete models of population dynamics\" 113707 PDF density-dependent dispersal 2023 Morozov",
+          "Singh–Parham–Hu DOI 10.1371/journal.pone.0024200 Eqs. (3)–(4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2011 pp. 4–5: initial-density sampling (100 trials), not a closed basin-measure formula",
+          "Later distinct Resultary dafee39a2bfd, Finding and scope: uniform upper-basin probability (1/2)sqrt(ε/(1+ε)) at μ=2"
+        ],
+        "reasoning": "The indexed expression agrees with the μ=2 limiting substitution in b−a but describes a parameter line excluded here, on which the zero-dispersal selection fraction vanishes. It does not supply the positive limit for fixed μ<2 or the interior parameter partition; no matching exact table was established by the bounded search.",
+        "searches": [
+          "Resultary: exact disconnected basins critical extinction law discontinuous logistic map",
+          "Resultary: weak-growth piecewise logistic basin partition exact fractions epsilon to zero",
+          "Resultary: epsilon tends to zero nonzero basin selection fraction 2/mu minus 1 discontinuous logistic map"
+        ]
+      },
+      "rationale": "The scalar map, positive equilibrium branches and strict stability thresholds predate the 2023 source: Singh, Parham and Hu derive the same autonomous resident recurrence in 2011. The frozen Relationship to prior work should credit that antecedent rather than saying the 2023 paper introduced the map. The retained mathematical finding is the exact all-initial-state partition and uniform selection law on the specified weak-growth strip, including the critical trajectories and positive limiting selection fraction, not a newly introduced map or a new general logistic extinction mechanism. The strongest inspected prior results do not give that partition. This is a bounded assessment with the access risks below.",
+      "residual_risks": [
+        "The 2024 ecological follow-up might contain a differently phrased basin calculation; the attempted OA and repository routes did not expose the relevant mathematics.",
+        "Equivalence to the 1993 sectional discontinuity map could not be tested from a full passage.",
+        "The 2011 priority correction is positive evidence, but the bounded inspected passages do not certify exhaustive priority for the exact basin result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUBSTANTIAL PARTIAL COVERAGE",
+          "evidence": "The resident recurrence is exactly H after eliminating the growth coordinate, and the thresholds and coexistence were known. The inspected passages give simulations, not an exact basin boundary and selection theorem.",
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0024200",
+          "material_read": "pp. 2–5, Eqs. (3)–(4), (16)–(19), numerical initial-density discussion; offsets 5892, 20000–26892, 27800–32716",
+          "method": "lawful OA primary article passages",
+          "title": "Structural Perturbations to Population Skeletons: Transient Dynamics, Coexistence of Attractors and the Rarity of Chaos",
+          "trigger": "same sign-triggered logistic recurrence and prior stability ranges"
+        },
+        {
+          "assessment": "PARTIAL COVERAGE",
+          "evidence": "Same map and reference back to the 2011 fixed-point analysis; focus on high-growth transients and a different trapping region, not the claimed weak-growth basin partition.",
+          "identifier_or_url": "10.1016/j.chaos.2023.113707; https://chaos1.la.asu.edu/~ylai1/papers/CSF_2023_MAPL.pdf",
+          "material_read": "pp. 2–3 Eqs. (1)–(3) and logistic growth; pp. 6–7 Fig. 3; Appendix A p. 18",
+          "method": "lawful author-hosted PDF, located from title search",
+          "title": "Long transients in discontinuous time-discrete models of population dynamics",
+          "trigger": "frozen primary reference and possible weak-growth trapping implication"
+        },
+        {
+          "assessment": "DISJOINT PARAMETER LINE; LATER",
+          "evidence": "Exact basin selection at μ=2, with square-root response as ε→0, not the positive limit for each 1<μ<2.",
+          "identifier_or_url": "dafee39a2bfd",
+          "material_read": "Finding and assumptions, mirror offsets 0–7025",
+          "method": "Resultary local mirror",
+          "title": "Exact basin selection and fractional-power response at a discontinuity",
+          "trigger": "same sign-trigger map with explicit basin probability"
+        },
+        {
+          "assessment": "UNRESOLVED ACCESS",
+          "evidence": "No assumptions or theorem from the paper independently established.",
+          "identifier_or_url": "https://doi.org/10.1016/j.biocon.2023.110419",
+          "material_read": "Publisher landing page only; no usable mathematical passage",
+          "method": "lawful OA publisher and repository attempts, with direct publisher access returning HTTP 403",
+          "title": "Regime shifts, extinctions and long transients in models of population dynamics with density-dependent dispersal",
+          "trigger": "closely related same-group follow-up may contain basin or extinction calculations"
+        },
+        {
+          "assessment": "UNRESOLVED ACCESS",
+          "evidence": "Title alone does not identify the switch, convention, or parameter domain.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.47.3087",
+          "material_read": "No mathematical passage retrieved",
+          "method": "lawful DOI attempt returned HTTP 403; no accessible repository copy located",
+          "title": "Properties of a logistic map with a sectional discontinuity",
+          "trigger": "possible earlier discontinuous logistic basin analysis flagged in indexed related work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact coexistence ranges do not by themselves say which attractor a given initial density reaches. The discontinuity produces a disconnected lower basin and exact, physically interpretable population outcomes under uniform initialization across the full weak-growth strip. The positive limiting selection fraction despite equilibrium coalescence and the distinction between inverse-time and exponential extinction add precise quantitative conclusions beyond earlier local thresholds and samples. The result is useful for this model even though the underlying logistic convergence and decay mechanisms are classical.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

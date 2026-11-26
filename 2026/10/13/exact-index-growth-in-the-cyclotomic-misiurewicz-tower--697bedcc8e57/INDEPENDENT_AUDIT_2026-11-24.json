@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:14:04.342606Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The repaired finding states maximality of the polynomial root's order, not field nonmonogeneity: the latter reading of the frozen consequence is not justified. In fact at p=3,j=2,k=1 with norm 21, beta²=zeta−4 and u=zeta², eta=(beta−u)/2 satisfies eta²+u eta+1=0. Its norm polynomial X^4−X^3+3X²−X+1 has constant one, giving u=−eta−eta^(−1) in Z[eta]. Thus the relative bases (1,beta) and (1,eta) differ by an index of four over Z, exactly the computed index of the original order. The even-j level field is monogenic. For the quantitative theorem, translation by 2j gives Phi_p(Y^(2^k)+2j) and contains Z[zeta] through zeta=beta^(2^k)+2j. The norm is odd and greater than one, and squarefreeness gives valuation one at each prime of the radicand, so Eisenstein proves relative irreducibility and local maximality there (powers of a uniformizer have distinct valuations modulo the degree). Away from those primes and 2 the binomial discriminant is a unit. At each prime over 2 the base is unramified and the shifted polynomial has only one linear residual factor. With s=v2(j), its first principal face is (0,1) to (2^k,0) if s=0, (0,s+1) to (1,k) if s>k, and (0,s+1) to (2M,s−1) with M=2^(k−s) otherwise. In the third case the midpoint is the only non-endpoint coefficient on the first face, and its nonzero residual coefficient makes the residual quadratic separable; all other faces have residual degree one. Checking coefficient heights and increasing slopes gives the floor ordinates in the repair. Their sum by level counting is 2^k−2^(k−min(s,k)); summing residue degrees over 2 multiplies by p−1 for the absolute index. The 105-case frozen verify.py / verification_output.txt polygon replay was inspected, not executed; it does not compute maximal orders or independently prove Ore regularity. The revised RESULT.md and SLOGAN.txt were checked against the universal argument and the example.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The composition theorem gives the polynomial discriminant, not the quotient by the field discriminant; the later monogeneity criterion asks whether relevant primes divide an index, not their exact valuations.",
+          "Theorem 1.A on pure number fields computes a related dyadic profile but assumes an irreducible binomial X^n−a with rational integer a. The pertinent binomial has a=zeta−2j in the full cyclotomic ring."
+        ],
+        "reasoning": "Neither of these inspected general theorems evaluates the relative index solely by specializing their parameters. Computing the missing relative local lengths requires treating the unramified cyclotomic primes and residual faces. The quantitative trinomial-composition paper remains an access risk, not negative evidence.",
+        "searches": [
+          "arXiv:2610.02111 Theorem 1.1, Theorem 1.2 and Corollaries 1.3–1.4",
+          "doi:10.1112/mtk.12067 / arXiv:2005.01915, Theorem 1.A",
+          "doi:10.1016/j.jpaa.2026.108231, quantitative trinomial compositions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.02111, Theorems 1.1–1.2, Corollaries 1.3–1.4, Proposition 6.3",
+        "arXiv:2005.01915, abstract and Theorem 1.A",
+        "doi:10.1016/j.jpaa.2026.108231 (landing only)",
+        "Resultary 375c815a6974 and bed53eaf3903, Findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 6.3 with squarefree Phi_p(2j) and odd j covers the same tower at all levels. Its exceptional residual at 2 uses j times Phi'_p(x²), giving a coprimality test; together with the iff test this distinguishes zero from positive valuation, not its size.",
+          "The index valuation here sums lattice ordinates attained under relative regularity and then scales by the sum of residue degrees, p−1."
+        ],
+        "reasoning": "The genuine extension is even-j quantitative growth, not the zero-versus-positive boundary or the odd-j tower. The proof responds to the gap in the previously given criterion.",
+        "searches": [
+          "arXiv:2610.02111 Proposition 6.3 and equation (6.5)",
+          "arXiv:2610.02111 Theorem 1.2, condition (4)",
+          "arXiv:2005.01915 Theorem 1.A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Translate the tower to Phi_p(Y^(2^k)+2j), then take a radical of zeta−2j over Q(zeta). This does not eliminate the base extension.",
+          "The primary paper explicitly distinguishes polynomial monogeneity from existence of a generator for a number field, with Q(sqrt(5)) and x²−5 as an example."
+        ],
+        "reasoning": "The alternative binomial and absolute polynomial presentations define the same specified order. Field monogeneity is not an equivalent formulation and is not asserted by the repaired theorem.",
+        "searches": [
+          "arXiv:2610.02111, Theorems 1.1–1.2 and Proposition 6.3",
+          "Resultary cyclotomic Misiurewicz tower exact order index and dyadic valuation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Index record 375c815a6974 is for Z[zeta+c zeta^(−1)] in an odd composite-conductor cyclotomic field, not for a tower root with extension degree 2^k.",
+          "The same-day cyclotomic record bed53eaf3903 classifies a divisor-count divisibility bound, not orders or discriminants."
+        ],
+        "reasoning": "Neither inspected exact statement can be used as an index table for the specified iterates. The local and absolute degree normalizations differ from the nearest index record.",
+        "searches": [
+          "Resultary exact index Misiurewicz cyclotomic compositions",
+          "Resultary 375c815a6974",
+          "Resultary bed53eaf3903"
+        ]
+      },
+      "rationale": "The corrected surviving claim is the exact index for the specified power basis, particularly the valuations at all levels for even j. The same-family primary proposition already proves index one for odd j, and the general criterion detects nonmaximality of a polynomial order; neither provides the powers of two for even j. The exact rational pure-field discriminant calculation is a precedent for the method, not a directly applicable theorem for the radical over the cyclotomic base. Closest inspected indexed records concern different generators or different problems.",
+      "residual_risks": [
+        "The retained claim is not a historical priority guarantee. A general theorem for radical orders over unramified dyadic base fields or a separately indexed tower computation could cover the profile.",
+        "The quantitative trinomial-composition article was not materially accessible from the DOI response; no conclusion rests on its nonretrieval. The scope does not include nonsquarefree Phi_p(2j) or classification of monogenic fields for even j."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers odd-j order maximality and qualitative prime-index criteria, not the even-j exact index; criterion is for the polynomial, not field nonmonogeneity",
+          "evidence": [
+            "Proposition 6.3 requires j odd and proves monogeneity of the tower polynomials.",
+            "Theorem 1.2 is stated for the polynomial f(h(x^t)); its conditions include prime nondivisibility of subsidiary polynomial indices."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.02111",
+          "material_read": "Printed p. 2, definitions and Theorem 1.1 (offset 6801 onward); pp. 4–5, Theorem 1.2 and corollaries (offsets 15483–18952); pp. 24–25, Proposition 6.3 and proof (102119–107607)",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "On The Index of Polynomial Compositions over Valued Fields",
+          "trigger": "Identical tower and squarefree critical-value hypothesis"
+        },
+        {
+          "assessment": "Analogous quantitative results over Q, not this relative cyclotomic binomial",
+          "evidence": [
+            "Theorem 1.A assumes X^n−a in Z[X] and computes a field discriminant with p-adic thresholds for the rational radicand."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2005.01915",
+          "material_read": "Abstract and §1 through Theorem 1.A, offsets 0–6378, pp. 1–2",
+          "method": "Lawful OA same-paper arXiv version identified via DOI 10.1112/mtk.12067",
+          "title": "On integral basis of pure number fields",
+          "trigger": "Related p-power radical discriminant computation"
+        },
+        {
+          "assessment": "Not resolved; no claim of noncoverage from this response",
+          "evidence": [
+            "The response supplied no substantive paper abstract or theorem text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jpaa.2026.108231",
+          "material_read": "DOI landing response only; no material theorem passage retrieved",
+          "method": "Lawful OA DOI retrieval",
+          "title": "A study of monogeneity of trinomial compositions: Qualitative and quantitative aspects",
+          "trigger": "Potential general quantitative results for related compositions"
+        },
+        {
+          "assessment": "Distinct specified generator and field; no iterates",
+          "evidence": [
+            "The order lives inside an odd composite-conductor cyclotomic field and is generated by zeta+c zeta^(−1)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-composite-conductor-index-for-zeta-c-zeta-1--375c815a6974",
+          "material_read": "Local-mirror RESULT.md, Finding",
+          "method": "Resultary search and original passage comparison",
+          "title": "Exact composite-conductor index for zeta+c zeta^(-1)",
+          "trigger": "Nearby exact cyclotomic order-index formula"
+        },
+        {
+          "assessment": "Different invariant, regardless of date",
+          "evidence": [
+            "The result studies tau(n) dividing Phi_(p^k)(n) and equality for a bound on Omega(n)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-sharp-multiplicity-boundary-for-cyclotomic-relative-tau-numbers--bed53eaf3903",
+          "material_read": "Local-mirror RESULT.md, Finding",
+          "method": "Resultary search and original passage comparison",
+          "title": "Sharp multiplicity boundary for cyclotomic-relative tau numbers",
+          "trigger": "Same-day cyclotomic comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact absolute order index is the natural quantitative invariant after the generating-polynomial monogeneity test in the same tower. Rather than just detecting a bad prime, the formula shows precisely how the dyadic defect changes with iteration depth and the valuation of j. The repaired distinction about alternative integral generators prevents a materially wrong interpretation of that defect, while leaving the substantive all-level calculation intact.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

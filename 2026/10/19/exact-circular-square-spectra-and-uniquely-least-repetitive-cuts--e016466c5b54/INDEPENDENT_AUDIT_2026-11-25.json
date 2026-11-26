@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:51:33.593858Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–64, VERIFICATION.md, verify.py inspected without executing it",
+        "Brown et al., Theorem 4.1 and Lemma 4.2, journal p. 477",
+        "Independent recorded replays: /workspace/replay_frozen_math.py, python3 replay_frozen_math.py 1local 1"
+      ],
+      "rationale": "Every length-at-most-2^m circular factor is a factor of an aligned T_m T_m in the infinite word, obtained by substituting into 00. Brown et al.'s occurrence-alignment lemma then gives a genuine cyclic desubstitution bijection at even half-length, including for wrapping occurrences. Half-length one is counted by transitions on the source cycle, with V_j=2^j-V_{j-1}. At half-length three an even start is impossible: in the form a A b B c C with capitals denoting complements, comparison of the triples would require a=B, A=c and b=C, a contradiction. At an odd start, the corresponding four source bits must be 0011 or 1100; these lie at odd offsets in the lower image and correspond exactly to alternating triples two levels down. Equal adjacent source letters give two such triples, including across the boundary. This verifies both arrays, including the absent h=N/2 type, which desubstitutes to the nonsquare length-two T_1. Finite sums give S_m and H_m; a square of length 2h crosses precisely the 2h-1 internal cuts and survives the others. The independent six-triple by sixteen-offset replay verified the complete local crossing/starts bound and the length-4, 8 and 16 boundary cases. Under scaling an aligned cut sees G and an interior cut sees G+D. A global maximum must saturate all level pairs; starting at scale zero, saturation forces divisibility by 2^{k+4} when m−k≥5, making the next pair aligned. The final q=3 or 4 pair forces a half-block cut; the q=2 singleton bound is compatible, and handles m=2 directly. The canonical and half-shift cuts attain every bound. A separate exhaustive replay independently checked every half-length and each ordinary linear rotation through m=8, including both sums and the mean.",
+      "residual_risks": [
+        "The local table exhausts all possible triples and offsets, not all Thue–Morse blocks; the generalization to every m follows from the separate alignment and saturation proofs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aberkane–Currie's accessible statement concerns existence of circular power-avoiding factors by length. Theorems 12–13 of the accessible circular-critical-exponent paper give minima of circular critical exponents over length-n factors."
+        ],
+        "reasoning": "These are different optimizations; the largest repetition exponent attainable within a chosen circle does not determine the number of square occurrences surviving each cut of a specified prefix circle.",
+        "searches": [
+          "Aberkane–Currie, DOI 10.1016/j.tcs.2004.12.024",
+          "Circular critical exponents for Thue–Morse factors, arXiv:1808.02529, Theorems 12–13"
+        ]
+      },
+      "checked_sources": [
+        "Brown et al., DOI 10.1051/ita:2006030",
+        "arXiv:1808.02529; accessible Aberkane–Currie abstract",
+        "Resultary 81a9b638ced9, 44085a5bdac1, bbb6af29d4a1, f790bfb03bb7 and 1b68992899c3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Alignment yields desubstitution, and the type and positional results substantially enable spectrum aggregation. Brown's C(i) retains only the largest root from a start, not an all-occurrence crossing count. The sharp bound requires the four-half-length local crossing calculation at all offsets and a separate equality induction."
+        ],
+        "reasoning": "The mean is an elementary corollary once the occurrence spectrum is known; the distinct extremal assertion is not a restatement of regularity or a circular exponent theorem.",
+        "searches": [
+          "Brown et al., pp. 477–480, positional results and definition of C(i)",
+          "arXiv:1808.02529, Theorems 12–13"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The four iterated square types and all-start alignment are exact prior matches for the type/position inputs. The closest root-spectrum catalog result studies 2-binomial roots and the exact starts at odd root length three; the rotations catalog result counts 3-binomial equivalence classes."
+        ],
+        "reasoning": "Literal occurrence pairs (start,half-length) on a fixed circle, and loss at a specified cut, are not the set of roots, starts alone, or scattered-subsequence rotation equivalence. The shared literal odd-root positions do not supply the all-scale cut statistic.",
+        "searches": [
+          "Brown et al., DOI 10.1051/ita:2006030, Theorem 4.1 and Lemma 4.2",
+          "Resultary 81a9b638ced9 and bbb6af29d4a1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Brown tabulates/generates square-start indicators and the largest square-root length starting at a position. The four-run circle record counts distinct square words; the exact Abelian-square density record counts a different equality relation in the infinite word; the antidictionary record counts absent factors."
+        ],
+        "reasoning": "None of these matched exact sources lists or determines by reading off table entries the literal square occurrences at each half-length and the minimizing cuts of the assigned circle.",
+        "searches": [
+          "Resultary catalog comparisons: 81a9b638ced9, 44085a5bdac1, f790bfb03bb7, 1b68992899c3",
+          "Brown et al., Theorems 4.3 and 4.5"
+        ]
+      },
+      "rationale": "Pass is for the scoped circular occurrence census and especially the sharp uniqueness of the least-repetitive cuts, not the already-classified square-root types or alignment. Brown et al. give the positional language, making the counts tractable, but their inspected counting statistics do not give the extremum on nonwrapping counts across rotations. The strongest circular-exponent and published catalog comparisons study different objects or observables. The nontrivial extra ingredient is the simultaneous local crossing bound and its equality restrictions across scales.",
+      "residual_risks": [
+        "Aberkane–Currie full text remained unavailable; its abstract does not exclude additional related theorems. Pansiot and Brlek were inspected through Brown's restatement, not independently. The bounded comparison cannot exclude an unindexed rotational-count theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct dependency for types/placement but different proven counting statistics",
+          "evidence": "Theorem 4.1 gives the four iterated families; Lemma 4.2 gives dyadic alignment. Theorem 4.3 concerns square-start indicators/counts; Theorem 4.5 gives regularity of the largest-root length at each start.",
+          "identifier_or_url": "https://www.numdam.org/item/10.1051/ita:2006030.pdf",
+          "material_read": "Theorem 4.1 and Lemma 4.2, journal p. 477; Theorems 4.3 and 4.5, pp. 478–480; definition of C(i)",
+          "method": "OA PDF passage inspection",
+          "title": "Squares and overlaps in the Thue–Morse sequence and some variants",
+          "trigger": "Strong exact antecedent in literal square types and locations"
+        },
+        {
+          "assessment": "Extremizes circular critical exponent rather than linear square counts across cuts",
+          "evidence": "The minimum is over length-n factors, with objective the circular critical exponent.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.02529",
+          "material_read": "Abstract and Theorems 12–13, PDF p. 10",
+          "method": "OA PDF passage inspection",
+          "title": "Circular critical exponents for Thue–Morse factors",
+          "trigger": "Plausible earlier circular extremal result"
+        },
+        {
+          "assessment": "Visible result is distinct; full-text overlap unassessed",
+          "evidence": "States existence of circular 5/2^+-power-free Thue–Morse factors of each length; publisher retrieval returned 403.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2004.12.024",
+          "material_read": "Accessible abstract-level existence statement only",
+          "method": "OA DOI and publisher full-text retrieval attempted, plus indexed abstract",
+          "title": "The Thue–Morse word contains circular power free words of every length",
+          "trigger": "Closest cited circular power-avoidance source"
+        },
+        {
+          "assessment": "Substantial odd-root local overlap, no circular dyadic multiplicities or cut minimum in inspected statement",
+          "evidence": "Exact starts at odd half-length three among 2-binomial squares, with odd-root cases literal.",
+          "identifier_or_url": "2026/10/26/SCOPE-root-length-spectrum-and-odd-start-density-of-2-binomial-squares--81a9b638ced9",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary search and local-mirror OA reader",
+          "title": "Root-length spectrum and odd-start density of 2-binomial squares",
+          "trigger": "Closest exact position and spectrum match in the catalog"
+        },
+        {
+          "assessment": "Different parent circles and invariant",
+          "evidence": "Counts distinct square words in circles with four runs, not occurrence pairs and linear cuts of dyadic prefixes.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-square-spectra-and-sharp-maxima-for-four-run-binary-circul--f790bfb03bb7",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary search and local-mirror OA reader",
+          "title": "Exact square spectra and sharp maxima for four-run binary circular words",
+          "trigger": "Nearby exact circular-square counting result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Parts A–D",
+        "Brown et al., positional-statistic statements for comparison"
+      ],
+      "rationale": "The exact loss and unique half-shift pair solve a natural extremal problem for all rotations of canonical Thue–Morse blocks. The spectrum, first moment and mean are reusable exact enumerative data. Importantly, the cut extremum needs a local crossing lemma not supplied by the old factor-type result; the contribution is not just a restated allowed-length classification or a finite census.",
+      "residual_risks": [
+        "The proof and value assessment concern dyadic Thue–Morse prefixes, not arbitrary factors or binary circles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:04:20.793997Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In units of a, the Jacobian is a block diagonal operator −2P_j (P_j the radial rank-one orthogonal projector), plus common injection of K times the mean perturbation, K=[[x,−y],[y,x]]. Noncollinearity gives a rank-two phase-balance derivative and precisely M−2 tangential neutral directions. A rank-two determinant update gives characteristic polynomial [t(t+2)]^(M−2) det(t(t+2)I−[(t+1)I−S]K), where S=2 mean(P_j)−I has eigenvalues ±d. The trace in the determinant is 2x(t+1) and det([(t+1)I−S]K)=((t+1)^2−d²)(x²+y²). This reproduces all factors including exceptional t=0,−2 by polynomial identity. With the notation b_j of the proof, b_1 b_2−b_3=2(1−x)[y²+(2−x)(4−x)] and (b_1 b_2−b_3)b_3−b_1²b_4=4H. For x≥2 b_1 fails, and for 1≤x<2 the first determinant fails. For 0<x<1, b_1,b_4 and the first determinant are positive, so H>0 forces b_3>0 and then b_2>0, which completes strict Hurwitz equivalence. In u=y², H has positive leading coefficient, negative constant term and is strictly negative at u=x(2−x); its unique positive root decreases strictly with d². At equality the stated factorization gives a simple imaginary pair and a Hurwitz quadratic. At x=1/2, y=1 the exact threshold is d²=13/18, with an unstable square (H<0 and no imaginary or zero collective roots) and an attracting antipodal-pair polygon at φ=π/6 (d²=3/4), at the same coefficients. Independently replayed symbolic identities and 12 exact rational four-node Jacobian comparisons: python3 /workspace/replay/stuart_landau.py (SymPy). If Ω=0 the solution is an equilibrium, so the spectrum is interpreted as characteristic rates, not as multipliers of an orbit with an intrinsic period. For Ω≠0 the co-rotating transformation is periodic and the exponents give the claimed Floquet real parts. No nonlinear Hopf or single-orbit asymptotic-attraction claim is made.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "a0832bb5dd4e has an exact four-eigenvalue factor for C_r=0 only; b12a07d1a349 gives real-coupling inertia. 568cb1115538 gives heterogeneous pure-reactive attraction and persists for sufficiently small positive dissipative coupling with a shape-dependent allowance.",
+          "The Zhao–Uchida polygon construction has broader growth parameters, but its inspected stability treatment is numerical."
+        ],
+        "reasoning": "Heterogeneity is broader in one axis, not in the quantitative conclusion. Neither a boundary subcase nor small-coupling persistence implies the exact open region for positive dissipative coupling.",
+        "searches": [
+          "Resultary a0832bb5dd4e, 568cb1115538 and b12a07d1a349",
+          "Zhao–Uchida arXiv:2610.08239v1 §§2,5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECKER.py (read only)",
+        "arXiv:2610.08239v1 §§2,5",
+        "Resultary a0832bb5dd4e, 568cb1115538 and b12a07d1a349"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same-family C_r=0 exact attraction does not decide H's sign once x>0, and persistence does not determine the sharp threshold. The inspected prior numerical Jacobian criterion does not imply an explicit threshold or demonstrate the stated fixed-coefficient shape contrast.",
+          "The supplied real-only comparison would not imply the reactive regime, but the exact Appendix B formulas were not independently verified."
+        ],
+        "reasoning": "Once the quartic is derived, the four-agent example is a useful application of it, not a separate independent theorem for priority purposes. No inspected covering implication was identified for the positive-C_r theorem. Catalogue dates are not used to decide historical priority.",
+        "searches": [
+          "Zhao–Uchida Eqs. (38)–(57)",
+          "Zou–Zhan Appendix B comparison from frozen locators; Liu et al. DOI:10.1137/16M1086005 access attempt",
+          "Resultary a0832bb5dd4e and 568cb1115538 exact Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhao–Uchida constructs phase-locked Z=0 polygons via weighted closure, which reduces to ordinary phase balance for identical growth; Eqs. (48)–(57) numerically sample co-rotating Jacobian spectra.",
+          "The frozen source points to the second-moment macrovariables and four-dimensional collective real-coupling reduction in Zou–Zhan Appendix B (not independently readable through the attempted OA routes)."
+        ],
+        "reasoning": "Zero-mean, balanced and general-splay language has substantial object overlap. Numerical eigenvalue evaluation is not an all-parameter spectral identity, and setting y=0 deletes the reactive stabilization axis.",
+        "searches": [
+          "Resultary comparison: balanced zero-mean polygon / general splay state / exact collective characteristic quartic and second phase moment",
+          "Zhao–Uchida arXiv:2610.08239v1 §5 Eqs. (38)–(57)",
+          "Zou–Zhan DOI:10.1137/09075398X Appendix B (access attempts)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest catalogue records found concern purely reactive, sufficiently small positive dissipative, or only real coupling; the inspected statements do not list the 13/18 threshold or the positive-C_r stability surface.",
+          "Zhao–Uchida's instability evidence consists of sampled spectra (stated numerical setup M=8), not exact M=4 shape classification."
+        ],
+        "reasoning": "The tabulatable M=4 cutoff is compared separately from the continuous all-M theorem. A ranked-search miss does not certify absence.",
+        "searches": [
+          "Resultary ranked checks for identical balanced polygons, the exact collective spectrum and the four-agent shape threshold",
+          "arXiv:2610.08239v1 §5 sampled instability discussion"
+        ]
+      },
+      "rationale": "Credit existing balanced polygons, sampled shape-dependent stability, and the second-moment collective-reduction precedent. The supported distinct result is the complete quartic and exact necessary-and-sufficient threshold for identical oscillators with positive dissipative and potentially nonzero reactive coupling, with an explicit fixed-coefficient four-agent contrast. The strongest indexed overlaps give exact pure-reactive or real-coupling results or small-positive-coupling persistence, not the full strict boundary. This is a bounded comparison, not priority certification.",
+      "residual_risks": [
+        "Zou–Zhan Appendix B and Liu et al. were not independently available in full text.",
+        "An exact treatment in older globally coupled complex-amplitude literature may use different parameters or terminology. The retrieved evidence is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior for existence and sampled transverse shape dependence; not the exact inequality in the passages inspected",
+          "evidence": [
+            "Weighted closure and active radii in (38)–(47); sampled Jacobian eigenvalues and tolerance in (48)–(57). Nonlinear frequency shift is set to zero in the stated numerical setup."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.08239v1",
+          "material_read": "Model and numerical parameters (offset 5200), Eqs. (38)–(57) of §5 (offsets 26000 and 31100)",
+          "method": "OA HTML excerpts",
+          "title": "Heterogeneity-induced chaos in globally coupled Stuart–Landau oscillators",
+          "trigger": "Same complex-coupled phase-balanced waves and transverse spectral problem"
+        },
+        {
+          "assessment": "Exact overlap unresolved; no whole-paper noncoverage claim",
+          "evidence": [
+            "Frozen RESULT.md points to Appendix B, Eqs. (51), (58)–(59), as the real-coupling precedent."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/09075398X",
+          "material_read": "Citation and broad ring/splay scope; Appendix B unavailable independently",
+          "method": "Attempted publisher and identified author-supplied copy; full-text access not obtained",
+          "title": "Splay States in a Ring of Coupled Oscillators: From Local to Global Coupling",
+          "trigger": "Real-coupling splay stability and possible second-moment equivalent"
+        },
+        {
+          "assessment": "No independent full-text judgment",
+          "evidence": [
+            "Frozen RESULT.md identifies it as real-coupling range and synchronization work; exact scope not independently verified."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/16M1086005",
+          "material_read": "Bibliographic identification only",
+          "method": "DOI access attempt, no readable full text",
+          "title": "Global Stability of the Sync with Amplitude Effects",
+          "trigger": "Potential overlapping synchronization or splay stability result"
+        },
+        {
+          "assessment": "Material partial overlaps, not covering the full positive-C_r, variable-C_i criterion",
+          "evidence": [
+            "C_r=0 exact spectrum; heterogeneous C_r=0 attraction and small positive-C_r persistence; real-coupling inertia, respectively."
+          ],
+          "identifier_or_url": "Resultary a0832bb5dd4e, 568cb1115538, b12a07d1a349",
+          "material_read": "Findings via local mirror; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4 for a0832bb5dd4e",
+          "method": "Direct indexed statement and assumptions comparison",
+          "title": "Exact finite-population spectrum and slow relaxation of reactive Stuart–Landau polygons; Universal transverse attraction of noncollinear Stuart–Landau polygons; Exact inertia of balanced polygonal Stuart–Landau waves under real coupling",
+          "trigger": "Same model and closest exact spectrum/attraction results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The scalar shape statistic converts a population-size Jacobian into an exact spectral law and explains when reactive coupling overcomes dissipative destabilization. The same-parameter attracting and unstable polygons are a concrete demonstration that shape is dynamical data, not just geometric labeling. This improves on numerical sampling without asserting anything about global basins or nonlinear dynamics at the threshold.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

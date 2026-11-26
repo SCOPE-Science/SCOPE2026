@@ -20,7 +20,7 @@ The mechanism also has an exact rare-sketch coefficient. If \(P_\varepsilon\) pr
 \boxed{\lim_{\varepsilon\downarrow0}\frac{\Pr\{\|B_\varepsilon\|_2>t\}}{\varepsilon}
 =\frac{2\Gamma(n/2)}{\sqrt\pi\Gamma((n-1)/2)}\sqrt{\frac{1-t}{t}}.}
 \]
-Thus events of probability proportional to \(\varepsilon\), rather than typical residuals of size proportional to \(\varepsilon\), determine both leading variances. The leading variance of the posterior sample-variance proxy formed from the two constituent XTrace estimates is equal to the corresponding actual variance, although not claimed exactly equal at fixed positive \(\varepsilon\).
+Thus events of probability proportional to \(\varepsilon\), rather than typical residuals of size proportional to \(\varepsilon\), determine the nonzero leading variance coefficients. For either choice of constituent estimates \(Z_1,Z_2\), the posterior squared standard-error proxy \(\widehat V=(Z_1-Z_2)^2/4\) satisfies \(\mathbb E\widehat V=\operatorname{Var}((Z_1+Z_2)/2)+O_n(\varepsilon^2)\). This compares the expectation of the proxy with the variance of the estimator, not the variance of the proxy itself.
 
 ## Assumptions and scope
 
@@ -91,13 +91,13 @@ Each \(B_i\) depends only on the *direction* of \(\omega_i\), which is independe
 \[
 \bigl[(n+d)\mathbb E S_\varepsilon\bigr]^2=O_n(\varepsilon^2).
 \]
-For normalized residuals, \(|D_{\mathrm N,i}|\le2d\|B_j\|_2\), hence also \(|\mathbb E D_{\mathrm N,1}D_{\mathrm N,2}|=O_n(\varepsilon^2)\). Thus, for each method, the variance of the mean of two constituent estimates is half the variance of one, up to an additive \(O_n(\varepsilon^2)\). Averaging the exact conditional variances of step 2 and invoking step 3 gives the two stated limits. The same covariance estimate, together with the elementary identity for the sample-variance proxy, establishes its leading-order agreement with actual variance.
+For normalized residuals, \(|D_{\mathrm N,i}|\le2d\|B_j\|_2\), hence also \(|\mathbb E D_{\mathrm N,1}D_{\mathrm N,2}|=O_n(\varepsilon^2)\). Write \(v_Z=\operatorname{Var}(Z_1)=\operatorname{Var}(Z_2)\) and \(c_Z=\operatorname{Cov}(Z_1,Z_2)\) for either method. The two variances in question are obtained by using \(\operatorname{Var}((Z_1+Z_2)/2)=(v_Z+c_Z)/2\), averaging the exact conditional variances from step 2 to compute \(v_Z\), and applying step 3. Equal means also give \(\mathbb E[(Z_1-Z_2)^2/4]=(v_Z-c_Z)/2\), so the difference between the expected proxy and the variance of the mean is exactly \(-c_Z=O_n(\varepsilon^2)\).
 
 **5. Rare-event coefficient.** For fixed \(0<t<1\), the event \(H_\varepsilon>t\) is exactly
 \[
 |X|<\varepsilon R\sqrt{(1-t)/t}.
 \]
-Apply dominated convergence to the Gaussian small-interval probability divided by \(\varepsilon\), then average over \(R\). This gives the displayed coefficient for \(H_\varepsilon\); replacing \(H_\varepsilon\) by \(S_\varepsilon=\varepsilon+(1-\varepsilon)H_\varepsilon\) preserves that limit at fixed \(t\).
+For \(\varepsilon<t\), the analogous event \(S_\varepsilon>t\) is exactly \(|X|<\varepsilon R\sqrt{(1-t)/(t-\varepsilon)}\). Its conditional Gaussian interval probability divided by \(\varepsilon\) converges to \(2\phi(0)R\sqrt{(1-t)/t}\) and, for \(\varepsilon<t/2\), is bounded by a fixed multiple of \(R\). Averaging by dominated convergence gives the stated coefficient for the residual norm itself.
 
 ## Verification
 
@@ -105,7 +105,7 @@ The supplementary `verify.py` calculates the exact single-basic-estimator condit
 
 ## Relationship to prior work
 
-The XTrace algorithm, its exchangeable leave-one-out trace estimator, Gaussian unbiasedness, and recommended projected-residual normalization are due to Epperly, Tropp, and Webber (2023 preprint; 2024 journal version). Their variance results give general bounds and their normalization comparison is qualitative/numerical; the present theorem gives sharp leading constants for a singular fixed-dimension spectral family, an explicit comparison of normalized and ordinary versions, and a rare-event coefficient. Hallman (2025) analyzes rotational symmetrization and extended Krylov-space variants of XTrace, rather than the stated near-rank-one two-probe variance limits. Hallman (2024) studies tail extremality for the *ordinary* Gaussian quadratic-form trace estimator, not leave-one-out XTrace. The general fourth-moment identities, Gaussian radial/angular independence, and beta/chi identities used here are classical and are not claimed new.
+The XTrace algorithm, its exchangeable leave-one-out trace estimator, Gaussian unbiasedness, and recommended projected-residual normalization are due to Epperly, Tropp, and Webber (2023 preprint; 2024 journal version). Their Proposition 3.1 gives the general relation between expected squared error proxy and estimator variance in terms of probe correlation. Here the family-specific covariance estimate gives leading-order calibration. The main contribution consists of sharp leading constants for a singular fixed-dimension spectral family, an explicit comparison of normalized and ordinary versions, and a rare-event coefficient. Hallman (2025) analyzes rotational symmetrization and extended Krylov-space variants of XTrace, rather than the stated near-rank-one two-probe variance limits. Hallman (2024) studies tail extremality for the *ordinary* Gaussian quadratic-form trace estimator, not leave-one-out XTrace. The general fourth-moment identities, Gaussian radial/angular independence, and beta/chi identities used here are classical and are not claimed new.
 
 ## Limitations
 

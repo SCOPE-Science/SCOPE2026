@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:01:45.713983Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–3",
+        "Frozen VERIFICATION.md",
+        "Frozen verification/three_rc_verifier.py and verification/three_rc_verifier.out, inspected without execution"
+      ],
+      "rationale": "For OPT=k+d, any one occurrence per class in an optimum has three distinct start positions spanning at most d, so at least one adjacent start gap is at most floor(d/2). Its overlap lower-bounds the first greedy overlap (with zero also allowed). The resulting length is at most 2k+floor(d/2). Dividing by k+d gives a nonincreasing bound for d≥3: the upward numerator step at d=2j is offset by the denominator step because j≤k. At d=3 the resulting ratio is strictly below 2k/(k+2) for k≥3. For d=2 the three windows exhaust all k-factors of the host. The optimal first overlap is k−1. The binary endpoint obstruction is exact: the oriented last-letter and first-letter sets can be disjoint only if each is a singleton; doing this in both orders requires identical complementary endpoint pairs. The eight-case reduction is exhaustive because reverse-complementing the host reflects the window indices and toggles orientations, and reverse-complementing the candidate merge exchanges its ordered inputs and toggles both orientations. Independently checking the equalities, the adjacent pairs give respectively a direct overlap, a self-invariant first read reducing to that case, W₀=rc(W₂), or period two with impossible opposite endpoints. The nonadjacent pairs give respectively equal endpoints on W₁, W₁=rc(W₂), W₁=rc(W₀), or period three with h₁=h₂ while both hₖ₋₁ and hₖ must differ from h₁; at least one of those indices has residue 1 or 2. Thus every first tie leaves a positive second overlap. For sharpness 10^k1 realizes OPT=k+2, and the bad tie 01^{k−1}0 versus the remaining constant-word orbit has maximum overlap exactly one, since its endpoints are equal and its next letters have the opposite bit. The proof covers every k rather than extrapolating the finite counts.",
+      "residual_risks": [
+        "In the reproduction notes ‘through k=20’ means selected witness lengths 3–8, 12 and 20, not every length up to 20. The full-instance enumeration is k=3–7 and is auxiliary. The theorem is for worst legal ties on exactly three abstract binary classes, not best ties or larger collections."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general one-half compression guarantee yields G≤2k+floor(d/2). The follow-up's Algorithm 3 uses modified greedy before invoking the simple rule, and its abstract advertises bounds for modified rules and a constrained path."
+        ],
+        "reasoning": "At d=2 the half-compression guarantee permits length 2k+1, so the claimed binary endpoint obstruction does not follow. Broader approximation bounds for different greedy algorithms do not constrain the worst allowed ties of this algorithm.",
+        "searches": [
+          "Yamano–Shibuya arXiv:2601.15814 / CPM 2026 paper",
+          "Yamano–Shibuya arXiv:2611.16573",
+          "Fici et al. arXiv:1511.08431"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6caf817aa98c and c5782f9cc70b",
+        "Yamano–Shibuya CPM 2026 and arXiv:2611.16573",
+        "Fici et al. arXiv:1511.08431"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching GREEDY-RC guarantee and the exact k=4 endpoint instance are both genuinely prior coverage of parts of the mathematics. None of the inspected passages proves a positive second overlap for arbitrary three distinct windows of a length-(k+2) binary host after any maximal first merger."
+        ],
+        "reasoning": "Set sizes greater than three at fixed k=4 do not yield a length reduction, and no reduction to k=4 is supplied by the orientation papers. The unbounded claim adds the precise missing structural constraint and its sharp family.",
+        "searches": [
+          "CPM 2026 GREEDY-RC compression statement",
+          "6caf817aa98c full result",
+          "arXiv:2611.16573 Algorithm 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The four-mer RC census agrees at k=4 with the same witness. The ordinary binary four-mer SCS record has ratio 17/11 but does not allow reverse-complement orientations.",
+          "The CPM paper's GREEDY-RC is the matching pairwise maximum-overlap rule; the more refined approximation numbers are for modified algorithms."
+        ],
+        "reasoning": "Replacing the involution by reversal alone or suppressing orientations changes the allowed mergers, and translating the known compression inequality into length leaves one symbol missing in the decisive case.",
+        "searches": [
+          "Resultary binary maximum-overlap reverse-complement greedy ratio; 6caf817aa98c and c5782f9cc70b",
+          "Yamano–Shibuya CPM 2026 pp. 2–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6caf817aa98c enumerates all nonempty sets of ten binary four-mer orbits. It reports six equality sets at 4/3, including the three-class witness 0000,0001,1000 with (OPT,G)=(6,8)."
+        ],
+        "reasoning": "The exact four-mer result covers and is more general in input-set size at k=4. Its finite alphabet/length census does not cover increasing k. No indexed table spanning the exact all-length statement was identified.",
+        "searches": [
+          "Resultary record 6caf817aa98c Finding and census",
+          "Resultary record c5782f9cc70b Finding"
+        ]
+      },
+      "rationale": "The k=4 slice, including the same sharp triple, is explicitly covered by the distinct four-mer catalogue record. Scope-specific originality is the all-length three-class theorem and the structural k+2 obstruction, neither supplied by that census or by the inspected general half-compression or modified-greedy results. This is a bounded literature judgment and does not assert priority within the day shared by the records.",
+      "residual_risks": [
+        "Within-day order of the distinct four-mer and all-length records is not established; the mathematical overlap is explicit regardless. Unindexed literature or a stronger unexamined structural reduction could affect best-of-knowledge novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicitly covers k=4, not general k",
+          "evidence": [
+            "All subsets of ten four-mer classes, with the same triple among the equality cases."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-4-3-maximum-overlap-reverse-complement-superstring-ratio-f--6caf817aa98c/RESULT.md",
+          "material_read": "Finding and proof/census, offsets 0–7094",
+          "method": "Published record via local mirror",
+          "title": "Sharp 4/3 maximum-overlap reverse-complement superstring ratio for binary four-mers",
+          "trigger": "Exact adversarial-tie RC ratio for the k=4 slice"
+        },
+        {
+          "assessment": "Not the RC model",
+          "evidence": [
+            "Ordinary word containment and mergers, without reverse-complement orientations; ratio 17/11."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-worst-case-greedy-ratio-for-distinct-binary-four-mers--c5782f9cc70b/RESULT.md",
+          "material_read": "Finding and model/census, offsets 0–6766",
+          "method": "Published record via local mirror",
+          "title": "Sharp worst-case greedy ratio for distinct binary four-mers",
+          "trigger": "Exact four-mer adversarial greedy census"
+        },
+        {
+          "assessment": "Partial coverage through half compression, one symbol too weak at d=2",
+          "evidence": [
+            "Simple GREEDY-RC has the half-compression guarantee; the 2.875 guarantee is for TGREEDY-RC."
+          ],
+          "identifier_or_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CPM.2026.15",
+          "material_read": "CPM paper pp. 2–4, offsets 5568–13383",
+          "method": "OA full-text passages",
+          "title": "Improved Approximation Ratios for the Shortest Common Superstring Problem with Reverse Complements",
+          "trigger": "Matching simple greedy algorithm and general guarantees"
+        },
+        {
+          "assessment": "Inspected the portion relevant to simple versus modified greedy; no all-k implication there",
+          "evidence": [
+            "Algorithm 3 initializes with MGREEDY-RC before using the simple greedy rule."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.16573",
+          "material_read": "Abstract p. 1 and Algorithm 3 p. 5, offset about 15900",
+          "method": "OA PDF passages",
+          "title": "Yamano–Shibuya follow-up on reverse-complement superstring approximation",
+          "trigger": "Later full-text approximation treatment of the same orientation setting"
+        },
+        {
+          "assessment": "Reversal result is not directly the binary reverse-complement theorem",
+          "evidence": [
+            "The introduction distinguishes the reversal and reverse-complement problems; the guarantee is one-half of optimum compression."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1511.08431",
+          "material_read": "pp. 1–2, offsets 2500–9492",
+          "method": "OA PDF passages",
+          "title": "On the Greedy Algorithm for the Shortest Common Superstring Problem with Reversals",
+          "trigger": "General compression with a different involution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, generic-length versus endpoint regimes",
+        "General GREEDY-RC compression statement and exact four-mer overlap"
+      ],
+      "rationale": "The smallest nontrivial tie-sensitive instance size already exhibits a ratio approaching two. The theorem gives its exact dependence on length, explains the exceptional near-minimum host where the generic compression bound is insufficient, and does so by a structural binary obstruction plus a matching family, not by enlarging a finite census.",
+      "residual_risks": [
+        "Not an average-case or best-tie guarantee, and no transfer to other alphabets or larger class counts is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

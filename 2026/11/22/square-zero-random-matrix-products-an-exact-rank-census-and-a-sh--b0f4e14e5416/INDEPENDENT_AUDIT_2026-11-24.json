@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:44:24.758682Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Choose image dimension r, kernel dimension n-r, and a quotient-to-image isomorphism to obtain [n r]_q^2 |GL_r| choices of A. Fix this A: B maps onto all maps V to im A via B↦AB, with q^(n(n-r)) preimages per map. In a splitting V=im A ⊕ W, the blocks (C,D) of AB into im A satisfy (AB)^2=0 exactly when C^2=0 and im D⊆ker C. Surjectivity of A onto its image proves rank ABA=rank C, not generally rank AB. Square-zero C of rank s is specified by its s-dimensional image, an (r-s)-dimensional kernel containing that image, and a quotient isomorphism; these give the two Gaussian coefficients and |GL_s| in the formula. The allowed D contribute q^((r-s)(n-r)); this gives all strata including r=0, s=0 and r=n, with neither factor restricted to be nilpotent. The lower and upper normalized Gaussian and general-linear factors are uniformly bounded by powers of the positive product ∏_(j≥1)(1-q^(-j)), independently of n,r,s. The resulting exponent is -n^2+2nr-ns-2r^2+3rs-2s^2. With x=r-5n/7, y=s-2n/7 this is -3n^2/7-(x^2+y^2)/2-3(x-y)^2/2. The optimum is interior by linear margins; feasible rounding gives a bounded-penalty term (the finitely many small n are absorbed into the constant), and translated lattice sums are bounded uniformly in the shift. Reserving a quarter of the squared Euclidean penalty for the tail and summing the other quarter gives the stated conditional estimate. Single-matrix rank weights have exponent -n^2/2-2(s-n/2)^2 with s≤floor(n/2), giving matching constant bounds and hence the ratio. The stated rarity even within nilpotent products follows already from taking A invertible and AB regular nilpotent, a subevent of probability at least a q-dependent constant times q^(-n), by the size of the regular-nilpotent conjugacy class. The frozen direct four-case rank check and its output were read, not rerun; universal correctness is from the count and estimates, not the reported pass marker.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Dolžan abstract identifies prescribed products; the frozen statement-level Theorem 3.2 comparison gives a factorization count for any prescribed target depending on its rank. Summing over square-zero targets covers the marginal count.",
+          "The rectangular-nilpotency index summary gives q^(-m)+q^(-n)-q^(-m-n) for nilpotency without a bound on index; its square case is 2q^(-n)-q^(-2n)."
+        ],
+        "reasoning": "The prescribed-target result is substantially stronger than the unconditional finite square-zero-product count, whereas the total unrestricted nilpotency probability alone is not. Neither accessible statement reports the internal rank statistic after conditioning. Older factorization work remains a priority risk given incomplete full-text access.",
+        "searches": [
+          "Dolžan, The multiplication probability of a finite ring, arXiv:2504.12886 Theorem 3.2",
+          "Resultary:11977e975fa2",
+          "Resultary:1e0ec2625b3a",
+          "Kovács, Some enumeration problems for matrices over a finite field; Products of matrices over a finite field"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, AUDIT.json, VERIFICATION.md, checker and its output",
+        "arXiv:2504.12886 abstract and frozen Theorem 3.2 comparison",
+        "Resultary:11977e975fa2",
+        "Resultary:1e0ec2625b3a",
+        "Resultary:442e4aaba275",
+        "Resultary:c7286e4b73ec",
+        "Kovács (1987, 1988) bibliographic comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a fixed square-zero target X of rank k and fixed r, the image spaces counted in factorization are all U of dimension r containing im X, with equal numbers of factors per U. At n=3,k=1,r=2, one of the q+1 planes is ker X and gives s=0, while the other q give s=1; the aggregate fixed-(X,r) count merges these strata.",
+          "The refinement needs the count of U with dim X(U)=s. In V/im X, choose its intersection with ker X/im X and its projection to V/ker X, then choose a graph of a linear map between the relevant subquotients. This yields [n-2k r-s-k]_q [k s]_q q^((n-r+s-k)s) spaces, information not specified by the aggregate.",
+          "For the marginal alone, combining [n-k r-k]_q choices of U, the surjection count to U, the B-fiber size and the count of rank-k square-zero targets gives exponent -n^2+(r-k)(n-r)+2k(n-k). Completing squares yields -3n^2/7-(7/4)(k-3n/7)^2-(r-(n+k)/2)^2; this route also gives the sharp marginal exponent without rank ABA."
+        ],
+        "reasoning": "The numerical marginal and its saddle-point analysis can use the earlier prescribed-target law; optimizing a re-expression of that sum is not a new general factorization result. The conditional census and the concentration of the internal rank do require additional kernel-image incidence, so the distinct claim is that refined law, not just a reindexed known target count.",
+        "searches": [
+          "arXiv:2504.12886 Theorem 3.2 and frozen RESULT.md lines 67–78",
+          "Resultary:11977e975fa2",
+          "Resultary:c7286e4b73ec"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The condition is the nilpotency index-at-most-two of the product, including zero; its second internal rank is rank((AB)|_(im A)). The constrained-factor Resultary hit assumes each factor is itself square-zero.",
+          "Writing X=AB, the same second statistic is rank(XA), which is the dimension of X(im A), not rank X."
+        ],
+        "reasoning": "The two-index product law is not a product-rank law for square-zero factors, and an exact law of rank(AB) is not an equivalent joint statistic. The reformulation using X makes the extra incidence observable explicit.",
+        "searches": [
+          "Resultary: ABAB=0 random finite-field matrices rank A and rank ABA sharp exponent",
+          "Resultary:442e4aaba275",
+          "arXiv:2504.12886"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching hit b0f4e14e5416 is the frozen record itself. Distinct same-day c7286e4b73ec is indexed for products of rank-one square-zero factors. The earlier bidirectional product-rank hit also imposes square-zero factors."
+        ],
+        "reasoning": "These compared ensembles differ whether or not their dates coincide; no exact earlier retrieved table supplies these unrestricted pair strata. The search does not rule out unindexed or unread equivalent formulas.",
+        "searches": [
+          "Resultary: square-zero random matrix products exact joint rank census (rank A,rank ABA), 3/7 exponent and conditional center",
+          "Resultary:c7286e4b73ec",
+          "Resultary:442e4aaba275",
+          "Resultary:11977e975fa2"
+        ]
+      },
+      "rationale": "Pass for the exact internal (rank A, rank ABA) census under the square-zero product condition and its two-dimensional conditioned localization. Prescribed-target factorization covers the marginal event; the 3/7 exponent can be extracted by optimizing the corresponding target-rank sum and does not depend on access to the new internal rank statistic. Credit those overlaps, and the standard single-matrix formula, rather than treating the unconditional census or ratio as standalone originality.",
+      "residual_risks": [
+        "The exact Dolžan theorem passage and historical Kovács full texts were not independently retrieved; an older refinement conditioning on image/kernel incidence could further narrow the claim.",
+        "Some related Resultary comparisons are limited to indexed statements. Neither the sharp marginal exponent nor the single-matrix baseline is used alone to justify novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit finite marginal coverage; no independent full-text exclusion of the internal refinement. Even fixed first rank leaves a missing incidence statistic in the described formula.",
+          "evidence": "The abstract addresses products equaling a fixed element; the frozen comparison states that the finite-field count depends on rank of the target. The plane example demonstrates the lost statistic under that aggregation.",
+          "identifier_or_url": "https://arxiv.org/abs/2504.12886",
+          "material_read": "Official abstract and frozen characterization of Theorem 3.2 and its proof, RESULT.md lines 67–71; theorem passage not independently retrieved",
+          "method": "Primary lookup, targeted HTML/PDF OA attempts, and mathematical implication check",
+          "title": "The multiplication probability of a finite ring",
+          "trigger": "Potentially dominating prescribed-target factorization theorem"
+        },
+        {
+          "assessment": "Aggregate nilpotency covers the event as a set but does not count its index-two subset or its conditional ranks",
+          "evidence": "The stated rectangular probability is q^(-m)+q^(-n)-q^(-m-n), without restrictions on Jordan block sizes.",
+          "identifier_or_url": "Resultary:11977e975fa2",
+          "material_read": "Indexed formula and frozen comparison",
+          "method": "Local semantic lookup and specialization to square factors",
+          "title": "Rectangular nilpotent-product law over finite fields and its semisimple-ring consequence",
+          "trigger": "Broader nilpotent-product law for unrestricted factors"
+        },
+        {
+          "assessment": "A different domain of input pairs and a different rank observable",
+          "evidence": "Both factors are required to be square-zero in the indexed result.",
+          "identifier_or_url": "Resultary:442e4aaba275",
+          "material_read": "Indexed statement and frozen comparison",
+          "method": "Local semantic lookup",
+          "title": "Bidirectional product rank fibers of square-zero matrix pairs",
+          "trigger": "Closest earlier rank-fiber terminology and square-zero predicate"
+        },
+        {
+          "assessment": "Rank-one square-zero factors do not describe the unrestricted uniform ensemble",
+          "evidence": "The result is indexed for products of minimal nilpotent matrices, i.e. rank-one square-zero factors.",
+          "identifier_or_url": "Resultary:c7286e4b73ec",
+          "material_read": "Indexed mathematical summary",
+          "method": "Local semantic lookup",
+          "title": "All-length multiplication fibers and exact alternating mixing for minimal nilpotent matrices",
+          "trigger": "Distinct same-day exact nilpotent matrix-product record"
+        },
+        {
+          "assessment": "No negative full-text conclusion; could further narrow the finite or asymptotic novelty",
+          "evidence": "The frozen source identifies unrestricted nilpotent-product enumeration in the historical comparison, not a verified theorem on the internal pair of ranks.",
+          "identifier_or_url": "Kovács, LAA 94 (1987), 223–236; Illinois J. Math. (1988)",
+          "material_read": "Frozen bibliographic references and scope comparison only; historical full text not obtained",
+          "method": "Frozen source comparison and primary literature lookup",
+          "title": "Some enumeration problems for matrices over a finite field; Products of matrices over a finite field",
+          "trigger": "Historical same-ensemble factorization and nilpotency formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Within the natural index-at-most-two event for an unrestricted random product, the exact joint law distinguishes the rank of the first factor from the rank of the product restricted to its image. It reveals an order-one rank localization at two distinct linear scales, not determined by a target-rank distribution. This is a structural, reusable refinement of the existing product law, rather than a table of small cases or the marginal comparison alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

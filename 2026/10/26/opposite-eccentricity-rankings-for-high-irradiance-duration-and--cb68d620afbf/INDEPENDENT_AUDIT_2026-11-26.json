@@ -1,0 +1,184 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:15:16.631730Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With fixed a, luminosity and gravitational parameter, the period is fixed and the eccentric-anomaly time density is (1−e cos E)/(2π). The condition F/F₀>η is exactly e cos E>δ. No point qualifies for e≤δ (contact at e=δ is not strict); for e>δ it gives the symmetric interval bounded by E₀=arccos(δ/e). Its normalized physical-time measure is (E₀−e sin E₀)/π. Differentiation gives H'=(δ−e²)/(πe√(e²−δ²)), with a single positive-to-negative sign switch at √δ; the onset plateau is zero and the interior exceedance fraction is positive, giving the unique global maximum and its stated value. For the dose, the time-weighted integrand on that interval is (1−e cos E)^−1−η(1−e cos E); it is zero at the moving endpoint, and its e derivative is strictly positive there and throughout the nonempty interval because cos E>0. This proves strict ordering on the entire claimed range. Independently, using true anomaly ν, the inverse-square flux times dt/P is dν/(2π√(1−e²)); hence J=ν₀/(π√(1−e²))−ηH, with ν₀=arccos(((1−e²)/(1−δ)−1)/e). This reproduces the arctangent formula, gives divergence as ν₀→π, and reproduces the reported rounded example values. The e→1 limit is an ideal point-source limit, not an admissible orbit. VERIFICATION.md and verify.py report finite midpoint and Simpson quadrature comparisons; in the supplied code the excess comparison uses a second quadrature on the selected interval, not a direct coded check of the arctangent formula. The uploaded script was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dressing et al. give monotonicity of total time-mean flux at fixed a. Ji et al. contrast maximum- and mean-stellar-flux approximations to the habitable boundary. Bolmont et al. run climate simulations of the mean-flux approximation."
+        ],
+        "reasoning": "Monotone unthresholded mean and peak do not imply monotonicity of every upper-tail positive-part expectation. The frozen strict dose statement depends on the time weighting inside the subset exceeding the same fixed η; a climate-response theorem would need matching assumptions to imply it.",
+        "searches": [
+          "eccentric exoplanet orbit cumulative irradiation excess above threshold fluence positive part integrated periastron insolation fixed semimajor axis monotonic eccentricity",
+          "arXiv:2211.07883v2 abstract",
+          "arXiv:1002.4875v1 §2",
+          "arXiv:1604.06091v1 abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1202.2377",
+        "arXiv:1205.2429",
+        "arXiv:1002.4875v1",
+        "arXiv:2211.07883",
+        "arXiv:1604.06091",
+        "arXiv:2001.02228",
+        "Resultary ad77983f4c40 and 3130c9366d26",
+        "ScienceDirect S0019103513002911 (access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kepler Eq. (6) evaluates H after substituting the crossing angle; its differentiation is elementary and credited as a consequence, not a new orbital time law.",
+          "The total-flux formula can be seen as the no-clipping case of a dose integral, but gives no sign rule after clipping. The moving-support analysis or weighted pointwise comparison is what establishes the strict reversal in the frozen model."
+        ],
+        "reasoning": "None of the inspected stronger candidates establishes both conclusions for the same fixed above-circular threshold. The coupled result is not a numerical reuse of the climate or habitable-zone examples.",
+        "searches": [
+          "arXiv:1202.2377 §3.3, Kepler Eq. (6)",
+          "arXiv:1205.2429 §3.2",
+          "arXiv:1002.4875v1 §2, Fig. 1 discussion",
+          "Bolmont Habitability of planets on eccentric orbits Limits of the mean flux approximation 201628073 arXiv full paper"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The flux condition is crossing the fixed radius r_c=a/√η; the optimizing equation is equivalently r_c=a(1−e²), the semilatus rectum. The Gallery's mean-anomaly conversion gives the time for such a crossing but its cited calculation is for assigning phases to given orbits in a habitable annulus.",
+          "The Lambertian brightness-switch mirror optimizes reflected brightness over true anomaly and finds thresholds in separate peak topology."
+        ],
+        "reasoning": "Neither ring-shaped habitable time for a given orbit nor phase maximization of reflected brightness is the combined fixed-radius duration and excess-dose ranking as eccentricity is varied.",
+        "searches": [
+          "Kepler ellipse maximize fraction of orbital period spent inside a fixed radius eccentricity semilatus rectum fixed semimajor axis critical eccentricity time above insolation threshold",
+          "Resultary: Kepler orbit eccentricity maximizes time inside a fixed radius and threshold excess dose",
+          "arXiv:1202.2377 §3.3, Eqs. (5)–(9)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kane–Gelino report specific time-in-habitable-zone values for HD 131664 and HD 80606, not an optimization over e at fixed a and fixed threshold.",
+          "The nearest inspected mirror hits give exact expressions for a selection-weighted eccentric-transit yield or Lambertian brightness peaks; neither is a table or theorem for these two threshold functionals."
+        ],
+        "reasoning": "The positive result sought here is a continuous parametric theorem rather than a system-by-system table; the concrete tabulated and indexed candidates have different observables or data constraints.",
+        "searches": [
+          "Resultary: opposite eccentricity rankings excess dose integrated flux above threshold positive part Kepler optimizer duration fraction at semilatus rectum",
+          "arXiv:1205.2429 §3.2, Figs. 4–5",
+          "Resultary ad77983f4c40 and 3130c9366d26"
+        ]
+      },
+      "rationale": "The Kepler time-fraction construction is established and the duration formula itself follows immediately from it for one radius crossing. The distinct result is the sharp fixed-threshold eccentricity optimum paired with strict monotonicity of the positive-part excess at that very threshold and the resulting opposite rankings. The closest inspected sources concern time in a habitable annulus, unthresholded averages or maxima, climate response, or unrelated eccentric-orbit observables. This is a bounded best-of-knowledge comparison, not priority for the Kepler formulas or the time-in-zone method.",
+      "residual_risks": [
+        "A specialized orbital-insolation or radial residence-time treatment could have previously differentiated the same duration formula or derived a stronger positive-part inequality; the search was not exhaustive.",
+        "The purported ScienceDirect insolation hit could not be inspected, and the abstract comparisons above are not whole-paper exclusions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct methodological and formula overlap, not the coupled optimum/order theorem",
+          "evidence": [
+            "Luminosity and flux thresholds give radial boundaries; mean anomaly is proportional to elapsed time and equals E−e sin E."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1202.2377",
+          "material_read": "Section 3.3, Eqs. (5)–(9), text offset 18900",
+          "method": "OA PDF located by section and read by offset",
+          "title": "The Habitable Zone Gallery",
+          "trigger": "Closest primary method for time at insolation-defined orbital distances"
+        },
+        {
+          "assessment": "Known time-in-zone comparisons for given systems",
+          "evidence": [
+            "Contrasts time in a habitable zone with mean flux and reports specific periastron/apastron examples; no same-threshold mathematical optimum in this passage."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1205.2429",
+          "material_read": "Section 3.2, associated examples and Figs. 4–5, text offset 14900",
+          "method": "OA PDF passage",
+          "title": "The Habitable Zone and Extreme Planetary Orbits",
+          "trigger": "Compares orbital passage duration and intensity near periastron"
+        },
+        {
+          "assessment": "Unthresholded mean, closely related but insufficient",
+          "evidence": [
+            "Annual mean stellar flux scales as (1−e²)^−1/2 at fixed semimajor axis; extrema ratio also grows."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1002.4875v1",
+          "material_read": "Section 2 and Fig. 1 discussion, p. 3, offset 15350",
+          "method": "OA PDF passage",
+          "title": "Habitable Climates: The Influence of Eccentricity",
+          "trigger": "Exact monotonic time-mean irradiation at fixed semimajor axis"
+        },
+        {
+          "assessment": "Inspected main-result summary concerns climate response, not a positive-part dose",
+          "evidence": [
+            "Heat capacity and period distinguish mean- and maximum-flux limits of the inner habitable zone."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2211.07883",
+          "material_read": "Abstract, p. 1, offset 1360",
+          "method": "OA PDF passage",
+          "title": "Inner Habitable Zone Boundary for Eccentric Exoplanets",
+          "trigger": "Possible stronger analytic threshold relation under flux variation"
+        },
+        {
+          "assessment": "The inspected abstract studies climate simulations at specified mean flux, not this paired fixed-a statement",
+          "evidence": [
+            "Simulates ocean-covered planets at varied eccentricity and host luminosity using a global climate model."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1604.06091",
+          "material_read": "Abstract, p. 1, offset 600",
+          "method": "OA arXiv alternate located after DOI route failed",
+          "title": "Habitability of planets on eccentric orbits: the limits of the mean flux approximation",
+          "trigger": "Potential exact relation between eccentricity and time outside a flux-based zone"
+        },
+        {
+          "assessment": "Uses modeled surface conditions, not an instantaneous received-flux threshold",
+          "evidence": [
+            "Energy-balance model with runaway-greenhouse parameterization; temporal habitability depends on obliquity, latitude and spectral type."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2001.02228",
+          "material_read": "Abstract and introduction, pp. 1–2",
+          "method": "OA PDF passage and located introductory excerpts",
+          "title": "Habitability and Water Loss Limits on Eccentric Planets Orbiting Main-Sequence Stars",
+          "trigger": "Fraction of eccentric orbit with transient habitable conditions"
+        },
+        {
+          "assessment": "Different duration and weighting",
+          "evidence": [
+            "Treats a geometrically selected duration-power-weighted transit yield and exponent duality."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-duration-weighted-eccentric-transit-yield-an-exact-exponent-dual--ad77983f4c40/RESULT.md",
+          "material_read": "Opening Finding, literal match at offset 104 with context from 0",
+          "method": "Local mirror passage",
+          "title": "Duration-weighted eccentric transit yield: an exact exponent duality and critical logarithmic law",
+          "trigger": "Highest-ranked Resultary match on eccentricity and duration"
+        },
+        {
+          "assessment": "Optimizes reflected-light phase brightness, not time-integrated incident flux",
+          "evidence": [
+            "Optimizes B_e(f) over true anomaly and identifies a peak crossover as e changes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-double-peak-onset-and-unique-global-brightness-switch-fo--3130c9366d26/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror full-text excerpt",
+          "title": "A sharp double-peak onset and unique global-brightness switch for a Lambertian eccentric exoplanet",
+          "trigger": "Potential indexed eccentricity threshold with radiative observable"
+        },
+        {
+          "assessment": "Unverified relevance; no inference from unavailable text",
+          "evidence": [
+            "The search listing gives a topical title, not a claim about a fixed-threshold functional."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/abs/pii/S0019103513002911",
+          "material_read": "Search listing only; no full text",
+          "method": "Publisher route returned 403",
+          "title": "Insolation on exoplanets with eccentricity and obliquity (search listing)",
+          "trigger": "Potentially broader orbital insolation analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Duration above a threshold and cumulative excess are two natural but inequivalent measures of intermittent irradiation. The sharp interior turning point and the strict opposite ranking on the entire high-eccentricity branch determine exactly when shorter exposure is a misleading proxy for lower integrated forcing. This is a useful, bounded comparison for a standard idealized orbit, with no implication asserted for actual climate or habitability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

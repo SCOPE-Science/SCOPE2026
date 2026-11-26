@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:41:43.379446Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the repaired claim, independently enumerated every balanced prefix-admissible word and deduplicated outputs by deleting once per run; reconstructed both incidence directions and checked the frozen rational weights (including signs and domains), code shadow disjointness, all packing and cover inequalities and objective equality. The respective cardinalities are 1,1,2,4,9,24 and 1,1,2,4,29/3,3269/131, and the floor bounds are attained. The six input/output count pairs are (1,2),(2,4),(5,10),(14,28),(42,84),(132,264). The m=4 pair intersections are {1010100,1011100}, {1101100}, {1011000}, which verifies the repaired distinction. The revised verification notes accurately distinguish the checks made by the two frozen programs. No formal proof-assistant or all-length verification is claimed.",
+      "replay": [
+        "/tmp/opencode/audit_dyck.py",
+        "frozen certificates.json and the two frozen checker sources, inspected rather than executed",
+        "explicit m=4 shadows and vertex proof in the replacement RESULT.md"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kulkarni–Kiyavash allow an arbitrary constrained source and give a fractional-transversal upper bound; their evaluated constrained application is to run-length-limited words. Cullina–Kulkarni–Kiyavash give χ=ω=max(k,n−k)+1 for the full weight-k graph."
+        ],
+        "reasoning": "The general bound is the same LP method but does not evaluate these instances, while a full-layer coloring is not an exact induced-subgraph independence number or fractional packing value.",
+        "searches": [
+          "arXiv:1211.3128 §§V–VI",
+          "arXiv:1211.4056 Theorem 5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1211.3128",
+        "arXiv:1211.4056",
+        "Resultary c1dc18cb3082",
+        "Resultary 3635f93f657f",
+        "Resultary 71eef2e2dbc5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Restricting the balanced feasible universe gives only an upper bound, not the independently witnessed Dyck values. In the Motzkin model the additional flat step changes the available codewords and shadows; the published length range also does not reach the Dyck gap at transmitted length ten."
+        ],
+        "reasoning": "Neither known parameter substitution nor dropping allowed source words determines the exact Dyck primal and cover objectives or the first strict gap.",
+        "searches": [
+          "arXiv:1211.3128 §V",
+          "Resultary balanced-source, Dyck two-read, and Motzkin record passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Codebooks are matchings of the deletion-shadow hypergraph, or independent sets in the graph with adjacency for at least one shared output. The Dyck two-read record requires two distinct shared outputs, so its edge set is different."
+        ],
+        "reasoning": "The same Dyck source and one-deletion operation do not suffice if the collision graph uses a different threshold. The exact hypergraph equivalence conveys no evaluated Dyck optimum.",
+        "searches": [
+          "Resultary: Dyck one-deletion code / ballot / deletion-shadow packing",
+          "arXiv:1211.3128 §V",
+          "SCOPE-dyck-restricted-two-read-deletion-graph-a-vertex-marked-bijectio--3635f93f657f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The balanced table concerns all weight-m binary words of length 2m. The distinct same-date Motzkin table is over three-letter excursions of lengths 1–7; its first gap is 7/15 at length seven."
+        ],
+        "reasoning": "The broader and neighboring tables use different source layers and have different attained values. The same date does not determine order and was not used to rule out coverage.",
+        "searches": [
+          "Resultary: exact Dyck deletion-shadow capacities and fractional gap",
+          "SCOPE-exact-balanced-single-deletion-code-sizes-through-length-twelve--c1dc18cb3082",
+          "SCOPE-exact-single-deletion-codes-and-the-first-fractional-gap-for-mot--71eef2e2dbc5"
+        ]
+      },
+      "rationale": "The evaluated Dyck-source table and its first strict cardinality-objective gap are not supplied or implied by the inspected general packing results, exact balanced and Motzkin tables, or the Dyck two-read graph. The repair's m=4 vertex is an explicit clarification and counterexample to the original phrasing, not a claim of priority for the first nonintegral polytope.",
+      "residual_risks": [
+        "Unindexed exact small-layer enumeration under ballot-path, Catalan-source, or confusability-graph terminology could predate the result; the unsuccessful indexed literature lookup does not establish novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General framework, not evaluated Dyck spectrum",
+          "evidence": [
+            "Arbitrary source hypergraph and fractional-transversal bound; run-length-limited application."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1211.3128",
+          "material_read": "§V, printed pp. 11–12; conclusion pp. 15–16",
+          "method": "Lawful OA primary PDF, bounded original passages",
+          "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+          "trigger": "General constrained-source packing may cover the Dyck table"
+        },
+        {
+          "assessment": "Full-layer coloring and clique theorem, not exact Dyck packing",
+          "evidence": [
+            "χ=ω=max(k,n−k)+1 for the constant-weight graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1211.4056",
+          "material_read": "Printed pp. 9–10, including Theorem 5",
+          "method": "Lawful OA primary PDF",
+          "title": "Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings",
+          "trigger": "Constant-weight results might imply restricted capacities"
+        },
+        {
+          "assessment": "Different adjacency threshold",
+          "evidence": [
+            "Requires two distinct reads and explicitly excludes determination of optimal code sizes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-dyck-restricted-two-read-deletion-graph-a-vertex-marked-bijectio--3635f93f657f/RESULT.md",
+          "material_read": "Finding and scope at offset 0",
+          "method": "Local published-record mirror",
+          "title": "Dyck-restricted two-read deletion graph: a vertex-marked bijection and sharp degree",
+          "trigger": "Same words and deletion outputs, possible equivalent graph"
+        },
+        {
+          "assessment": "Strict superclass, no exact restriction theorem",
+          "evidence": [
+            "Balanced source capacities 1,2,5,14,42,132 and strict objective gap first at m=4."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-balanced-single-deletion-code-sizes-through-length-twelve--c1dc18cb3082/RESULT.md",
+          "material_read": "Source definition near offset 80; table and gap near offsets 1057–1304",
+          "method": "Local published-record mirror",
+          "title": "Exact balanced single-deletion code sizes through length twelve and the first fractional-packing gap",
+          "trigger": "Closest exact binary packing table"
+        },
+        {
+          "assessment": "Analogous problem, different excursion alphabet and layers",
+          "evidence": [
+            "Motzkin capacities 1,2,2,4,6,14,25; length-seven fractional optimum 382/15."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-single-deletion-codes-and-the-first-fractional-gap-for-mot--71eef2e2dbc5/RESULT.md",
+          "material_read": "Finding and source definition, offsets 44–1686",
+          "method": "Local published-record mirror",
+          "title": "Exact single-deletion codes and the first fractional gap for Motzkin excursions",
+          "trigger": "Distinct same-date constrained-source table and threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These are exact attainable code sizes for a constrained binary language with an operational decoding interpretation, not a numerical bound on a freely chosen graph. The first strict cardinality-objective gap pinpoints when this natural certificate bound stops giving an equal real-valued optimum, and the exact last two layers are finite calibration instances. The repaired statement does not claim a first polyhedral failure or a new general code construction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

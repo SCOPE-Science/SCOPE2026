@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:48:05.948458Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Frozen mathematics: for an outsider in a clique the closed trace consists of all codewords in that clique and its selected mate, if any. For ordinary location, two empty columns are forbidden; with at most one empty column, the same-clique traces are distinct, and cross-clique equality would require both cliques to have at most one codeword, impossible for n≥4. An empty column requires both cliques to be represented. The solid condition allows precisely the exceptional single-empty, all-other-double configurations, or fully occupied columns except the 2n singleton transversals with one selected vertex on one side. The single-deletion tests for these two families and their all-set counts check out. `python /workspace/reproductions/check_discrete_claims.py 3` compared all six original formulas against literal neighborhoods for n=4,5,6. Repaired mathematics: self-location forbids an empty column, whose trace contains only vertices from one clique and whose identifying intersection would contain that entire clique. An outsider with its selected mate needs at least two selected vertices in its own clique: zero gives only the mate's neighborhood, one leaves an additional vertex on the other side, and two distinct own-side neighbors eliminate all extra vertices. Thus count fully occupied columns and remove disjoint low-shore counts (n+1)z^n+nz^(n+1) for each shore. A double column allows a deletion on the shore with at least three selected vertices (total at least n+1≥5); all feasible singleton transversals are minimal, giving (2^n−2n−2)z^n. Self-location implies outsider antichain. Crown self-location forces a full shore or one doubly omitted column; in the latter case the prism condition fails. The shared sets consist of a full shore and at least two selected vertices on the other shore. Inclusion–exclusion over the full shores proves the shared polynomial. Ran `python /workspace/repairs/3/verify.py`: literal checks of all 5376 subsets in each graph for n=4,5,6 agree with the repaired enumerators and the solid family identity. The exact proofs cover all n≥4; the finite checks do not.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible stronger-code paper, §4, Theorem 31, bounds the solid and self minimum numbers in Cartesian products; its inspected passage does not enumerate all codes.",
+          "The introductory primary paper is credited for rook minima. Its identified PDF returned 403 and the DOI route timed out; the web lookup pointed to those same copies, not a readable alternate. Full-text comparison of Theorems 12–14 remains unconfirmed.",
+          "The complete prism locating-total classification retains up to one empty column; it includes certain fully selected layers with the other empty and also patterns with only one codeword on a shore."
+        ],
+        "reasoning": "The published minimum bounds are not code-family descriptions. The earlier all-code theorem for locating-total domination is genuinely different: adding the stronger identifying-intersection condition is not a parameter substitution, and the filter for occupied columns and balanced shores needs the prism self-location test.",
+        "searches": [
+          "Junnila et al. DOI 10.23638/DMTCS-21-1-1, §4 Cartesian products",
+          "DOI 10.1016/j.dam.2018.03.050 and UTUPub author manuscript; web lookup for the rook-graph theorem",
+          "Resultary 7f2244f74bb9 complete prism locating-total-domination classification"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, verification notes and original verifier",
+        "Repaired RESULT.md and finite reproduction",
+        "Resultary crown solid/self, crown OLD, prism LTD and prism locating-hop records",
+        "DOI 10.23638/DMTCS-21-1-1; DOI 10.1016/j.dam.2018.03.050 (access attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier crown solid cases are no overlapping omissions except 2n singleton failures, or one matched pair omitted with all other vertices chosen. Complementary trace antichains then transfer this entire code family, hence transfer one-deletion minimality too. Crown self sets instead require a full shore or single matched omission.",
+          "Neither a minimum of n in the prism nor a full classification of locating-total or distance-two sets shows that prism identifying intersections against all vertices are singletons. The repaired claim supplies that exact criterion and uses it to count the joint self family."
+        ],
+        "reasoning": "The solid results are credited as implied by prior work. The new self counts require a structural prism fact not obtained just by applying the prior crown self count, by reversing a trace inclusion, or by specializing a scalar bound. The shared polynomial is a corollary of that prism result and the credited crown classification.",
+        "searches": [
+          "60cce5e52da9 crown structural classes",
+          "arXiv:1808.06891 Theorem 31",
+          "7f2244f74bb9 full locating-total classification",
+          "7c5d36953a29 locating-hop classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier 2026-10-13 crown work 60cce5e52da9 gives the exact all-code solid and self classifications. For an outsider, the prism and crown closed traces are complements in C. Incomparability with at least two outsiders rules out both empty and full traces, and with at most one outsider domination is automatic in these nonisolated graphs. The solid families therefore coincide on the same vertex subsets, including their inclusion-minimal sets.",
+          "The crown self family instead allows whole shores alone and single matched omissions. Neither is prism self-locating. Conversely, a balanced singleton transversal without a whole shore works in the prism only."
+        ],
+        "reasoning": "Complementation transfers precisely the outsider antichain test, making the frozen solid enumerator prior coverage and its minimal spectrum a direct consequence of the known family. Self-location tests intersections against selected vertices as well; the crown and prism self families are not equivalent. The common subfamily requires the new prism test.",
+        "searches": [
+          "Resultary: ordinary closed location domination; complete prism rook graph and crown graph; solid, self and minimal polynomials",
+          "Resultary: self location complete prism exactly all codes at least two codewords in each clique and no empty matching column"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record itself is the exact catalog hit, not another source. 60cce5e52da9 states the matching solid polynomial and crown self polynomial 2z^n(1+z)^n−z^(2n)+nz^(2n−2). The crown open-location result 19e9d9cb81b5 gives z^(2n−2)(n+z)^2. The exact locating-hop record 7c5d36953a29 has a different full polynomial and minimal spectrum from the prism's closed self family."
+        ],
+        "reasoning": "The numerical solid match reflects identity of the sets. The other counts do not enumerate prism self-location or the shared self-location subfamily: open location requires the crown open trace rather than its complement to be nonempty, locating-hop uses distance-two traces, and crown self-location allows patterns prohibited by the prism.",
+        "searches": [
+          "Resultary: exact solid/self all-code polynomials, crown versus complete prism; locating-hop, ordinary and open neighborhoods"
+        ]
+      },
+      "rationale": "The frozen package cannot pass as a new three-family classification: the earlier crown solid-code classification determines the prism solid family exactly, not merely the same polynomial. The replacement at /workspace/repairs/3 narrows the new claim to the full and inclusion-minimal self-location enumerators in the prism and the count of sets self-locating in both graphs. It credits the known solid family as context, claims no novelty for known minima, and does not advance a new ordinary-location census. No prior coverage of the narrowed claim was established in the sources compared below.",
+      "residual_risks": [
+        "The introductory paper's complete rook-graph passages were unavailable on identified routes; a stronger existing self-location classifier is not ruled out by this access failure.",
+        "Unindexed explicit self-location or common-family enumerators remain possible. No historical priority certification is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly gives the prism solid family by the trace-antichain identity; different self family",
+          "evidence": [
+            "Solid omission cases P∩Q=∅ except the 2n failures, or P=Q={i}; self requires a full side or P=Q={i}."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-self-and-solid-locating-dominating-code-polynomials-of-crown-gra--60cce5e52da9/RESULT.md",
+          "material_read": "Finding, definitions and structural proof from offset 0",
+          "method": "Resultary query and bounded local-mirror statement/proof retrieval",
+          "title": "Self- and solid-locating-dominating code polynomials of crown graphs",
+          "trigger": "Complement graph and exact solid polynomial match"
+        },
+        {
+          "assessment": "Different locating property; not an all-vertex identifying-intersection classification",
+          "evidence": [
+            "Uses open total domination, distinguishes only outsiders, and accepts cases with an empty column or an entire shore selected alone."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-full-locating-total-domination-polynomial-of-complete-prisms--7f2244f74bb9/RESULT.md",
+          "material_read": "Finding, assumptions, and exact layer occupancy classes at offset 0",
+          "method": "Resultary search and local-mirror passage",
+          "title": "Full locating-total domination polynomial of complete prisms",
+          "trigger": "Complete all-code census for the same graphs"
+        },
+        {
+          "assessment": "Observes distance-two traces, not prism self-location",
+          "evidence": [
+            "N₂((0,i)) consists of opposite-layer vertices other than index i, and one permitted pattern is a whole shore alone."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-locating-hop-domination-of-complete-prisms-exact-enumerators-and--7c5d36953a29/RESULT.md",
+          "material_read": "Finding and distance-two reduction at offset 0",
+          "method": "Local-mirror statement and proof excerpt",
+          "title": "Locating-hop domination of complete prisms: exact enumerators and a five-column minimality transition",
+          "trigger": "All sets and inclusion-minimal spectra on the same prism, with a duality to crown LD"
+        },
+        {
+          "assessment": "Nonemptiness and distinctness of open traces, not intersection-based location in prism",
+          "evidence": [
+            "Polynomial z^(2n−2)(n+z)^2 for the specified open condition."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-all-open-locating-dominating-sets-of-crown-graphs--19e9d9cb81b5/RESULT.md",
+          "material_read": "Finding and defining condition, offset 0",
+          "method": "Local-mirror passage",
+          "title": "All open-locating-dominating sets of crown graphs",
+          "trigger": "Earlier open-neighborhood enumeration in complement graph"
+        },
+        {
+          "assessment": "Gives lower and upper bounds for minimum cardinalities in Cartesian products",
+          "evidence": [
+            "Theorem 31 compares each product number to the maximum of factor minima and the minimum of order-scaled factor minima."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1808.06891",
+          "material_read": "§4 opening and Theorem 31, pp. 12–13, offset 52800",
+          "method": "Recovered OA submitted version via journal DOI and read the located passage",
+          "title": "On Stronger Types of Locating-Dominating Codes",
+          "trigger": "A broader product theorem might cover the repaired count"
+        },
+        {
+          "assessment": "Credited minimum-cardinality source; broader full-text coverage remains an access risk",
+          "evidence": [
+            "The frozen record reports the rook-graph formulas for the three minimum cardinalities, here n−1,n,n."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2018.03.050",
+          "material_read": "Frozen RESULT.md relationship section, citing Theorems 12–14; no primary theorem passage retrieved",
+          "method": "Attempted publisher DOI and UTUPub manuscript 10024/155895; primary search did not identify a readable alternate",
+          "title": "On Regular and New Types of Codes for Location-Domination",
+          "trigger": "Rook-graph classification may contain results beyond credited minima"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The surviving complete invariant distinguishes two effects of graph complementation under natural locating criteria: the solid code families are identical, while self-location has different minimal patterns in the two graphs. The exact prism polynomial, minimal-support classification, and shared-code polynomial identify the size and structure of the self-locating families with more information than the already-known minimum n. Value attaches to that structural remainder, not re-enumeration of the inherited solid family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

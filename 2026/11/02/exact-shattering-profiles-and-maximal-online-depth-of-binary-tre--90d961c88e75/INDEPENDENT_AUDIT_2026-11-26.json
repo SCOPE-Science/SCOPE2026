@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:56:41.895466Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The closed neighborhoods have the two exact forms singleton leaf plus ancestor chain, or singleton internal node plus descendant cluster. The pair counts are binom(L,2), hL and sum(d 2^d). Laminarity rules out three leaves, chains rule out three internals, and two internal ancestors of one leaf cannot realize the lower internal alone. For the remaining triple type the all-positive trace fixes the internal vertex above or at the LCA; the double-leaf trace requires the LCA not to be root, and singleton-leaf traces exclude sibling leaves. At depths 1 through h−2 the two child centers, a different joint ancestor, third descendant leaf, and a disjoint branch give all required traces. Counting by LCA gives the claimed cubic coefficient; a four-point set necessarily contains a forbidden triple. The h=1 root is unavoidably positive, and the two leaves are individually but not jointly shattered. For Littlestone rank, 2^(h+1)−1 is a concept-count upper bound, and the 2^h leaf centers realize recursive internal-subtree tests followed by a leaf test on the remaining sibling pair. The deepest internal vertex on any cycle of length at least six forces a chord, and depth-one internals have distance four. Independent bounded enumeration (no frozen code executed) compared all supports to size four at h=2,3,4, and to size three at h=5, with coefficient lists [1,7,16,0,0], [1,15,62,16,0], [1,31,218,112,0], [1,63,754,576]; a memoized online recursion returned 1,2,3,4. Replay method: index tree by heap indices, build ancestors by integer halving, count distinct concept intersections with each support, and compute rank on concept masks by maximizing one plus the smaller child rank over nontrivial membership splits. The bounded checks do not establish the all-height claims, which follow from the structural arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Coudert et al. pp. 1 and 4 define graph VC dimension and give a general algorithmic framework.",
+          "The inspected frontier result enumerates a separate system of maximal antichains on rooted trees."
+        ],
+        "reasoning": "A general algorithm for extremal VC dimension is not an all-height closed count of shattered pairs/triples and does not fix the online rank. The frontier system is not a stronger neighborhood enumeration.",
+        "searches": [
+          "arXiv:2405.07588, literal closed neighborhood",
+          "Resultary: closed neighborhoods ancestor-leaf incidence binary tree exact shattered-support polynomial Littlestone"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 4–46, VERIFICATION.md, verify_binary_ancestor_neighborhoods.py inspected without execution",
+        "arXiv:2405.07588",
+        "Resultary bf95851f8ef7 and 1c2ce94b6b24",
+        "Focused primary web search listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard counting bound and binary prefix-test lower bound explain the online result once the leaf-centered restriction is identified; neither argument yields the exact mixed-support enumeration or the graph-class verification.",
+          "The closed center is part of every concept, and the allowed query points include both bipartitions."
+        ],
+        "reasoning": "A result for prefix antichains, bare descendant clusters or abstract counting cannot infer the full two-partition mixed traces. The structural characterization provides the distinct inference in the joint theorem.",
+        "searches": [
+          "arXiv:2405.07588 pp. 1,4, definitions and algorithm scope",
+          "Resultary bf95851f8ef7 Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Coudert et al. define the same general closed-neighborhood concept family, arXiv:2405.07588 p. 4.",
+          "Resultary bf95851f8ef7 uses maximal antichains or complete prefix-code frontiers as concepts; 1c2ce94b6b24 uses all ancestor-closed subsets."
+        ],
+        "reasoning": "Those tree classes differ from singleton-center neighborhoods with chains or laminar clusters. For example at h=3 the frontier rank is 4, the ideal rank is 8, and the closed-neighborhood rank is 3. A common query domain and tree do not equate the classes.",
+        "searches": [
+          "Resultary: perfect binary ancestor-leaf incidence graph exact shattering profile closed neighborhoods Littlestone rank chordal bipartite diameter four",
+          "Resultary: closed neighborhoods ancestor-leaf incidence binary tree exact shattered-support polynomial Littlestone",
+          "Primary: \"closed-neighborhood concept class\" graph VC dimension Littlestone dimension binary ancestor tree incidence exact shattering"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-date frontier entry gives VCdim=Ldim=2^(h−1), not the frozen profile; date alone does not establish ordering. The ancestor-closed entry gives ranks 1,2,4,8 over h=0 through 3 for its different class."
+        ],
+        "reasoning": "The exact indexed neighbor entries do not tabulate the coefficients of this closed-neighborhood system. The independently enumerated finite coefficients validate the mathematics, not priority.",
+        "searches": [
+          "Resultary local mirror records bf95851f8ef7 and 1c2ce94b6b24, opening Findings",
+          "Resultary: perfect binary ancestor-leaf incidence graph exact shattering profile closed neighborhoods Littlestone rank chordal bipartite diameter four"
+        ]
+      },
+      "rationale": "The exact profile of the full ground-set closed-neighborhood system together with maximum possible online depth on this chordal-bipartite family is distinct in the checked comparisons. The prefix split construction and concept-count bound are standard and not credited as standalone contributions.",
+      "residual_risks": [
+        "The focused external lookup was uninformative, not evidence of no published match. Equivalent descriptions as laminar incidence or bipartite neighborhood systems remain a historical priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework and general algorithms; no equivalent profile or online rank in relevant passages",
+          "evidence": "Defines N_G[v] by adjacency or equality and graph VC dimension as VC dimension of those sets on V.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.07588",
+          "material_read": "OA PDF p. 1 at offset 1759, p. 4 at offset 12214",
+          "method": "Literal locate followed by bounded passage reads",
+          "title": "Practical Computation of Graph VC-Dimension",
+          "trigger": "Foundational same closed-neighborhood concept definition"
+        },
+        {
+          "assessment": "Distinct concept family, not equivalent; no date-based priority inference",
+          "evidence": "Concepts are maximal antichains; the dimensions are both 2^(h−1).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-static-and-online-shattering-of-complete-hierarchical-fron--bf95851f8ef7/RESULT.md",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Exact static and online shattering of complete hierarchical frontiers",
+          "trigger": "Same-day binary-tree static/online shattering statement"
+        },
+        {
+          "assessment": "Different hypothesis family and finite scope",
+          "evidence": "All ancestor-closed subsets are concepts; ranks 1,2,4,8 at heights 0,1,2,3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-first-entropy-versus-littlestone-gap-for-perfect-binary-ancestor--1c2ce94b6b24/RESULT.md",
+          "material_read": "Finding and class definition",
+          "method": "Local mirror passage inspection",
+          "title": "First entropy versus Littlestone gap for perfect binary ancestor-closed set systems",
+          "trigger": "Online shattering on a similarly named perfect-binary ancestor system"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a concrete family inside a restrictive graph class for which the exact count of every static shattered layer is known and the concept-count upper bound on adaptive depth is attained. The conjunction is useful as an exact separation/witness and as benchmark data for graph-neighborhood dimension; the rank proof alone would be a routine prefix example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

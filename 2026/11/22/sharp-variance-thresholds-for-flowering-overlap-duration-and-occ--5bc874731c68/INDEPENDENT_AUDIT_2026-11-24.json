@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:00:53.675666Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–73",
+        "verify_overlap.py, lines 21–106",
+        "VERIFICATION.md, lines 3–23",
+        "Independent positive-root bisection and split Simpson quadrature for L=1,d=3/4"
+      ],
+      "rationale": "With X∼N(d,s), O=(L−|X|)₊ and positive overlap iff |X|<L, the two metrics are Gaussian smoothings of a tent and an interval indicator. The tent's distributional second derivative is δ₋L−2δ₀+δ_L, yielding F′=φ_s(d)[exp(−L²/(2s))cosh(dL/s)−1]. With z=L²/(2s) and a=2d/L this gives the sign of H_a(z)=log cosh(az)−z. For a≤1 it is strictly negative for z>0, including a=0. For a>1, H_a starts at zero with slope −1, is strictly convex and grows to +∞, giving one positive crossing and a unique maximum in s. At a↓1, H_a(C)→H_1(C)<0 for each C>0, so z_F→∞; (a−1)z_F=log 2−log(1+exp(−2az_F)) proves the claimed onset. F is continuous at zero. Differentiating Gaussian interval mass gives the difference of the two weighted densities in the record, with one positive zero at the stated s_P when d>L and strictly negative derivative when d≤L. At d=L the mass tends to 1/2 as s↓0 but the deterministic positive-overlap probability is zero. For d>L, layer cake expresses F as the integral of the narrower interval probabilities with half-width u∈(0,L). Their maximizing variances are q(u)=d²(u/d)/artanh(u/d), strictly between q(L)=s_P and d². Their derivatives are strictly positive at s_P and negative at d²; integration proves the strict ordering. An independent root bisection and split-at-zero quadrature give σ_F=0.6081417030881335, F=0.32447563410484603 and P=0.657492697428084 in the printed example. The supplied checker was read, not run.",
+      "residual_risks": [
+        "The finite reproduction corroborates the example, not the universal classification. The above fixed-C sign argument makes the root-divergence step in the frozen onset proof explicit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "RESULT.md lines 81–87 describes Austin et al. as studying observed changes in flowering duration and co-flowering richness, and Rudolf as treating nonlinear effects of interannual phenology variation.",
+          "The Gaussian CDF and heat-convolution representations in RESULT.md lines 34–62 are exact but have no independent ecological interpretation outside the model."
+        ],
+        "reasoning": "Empirical or simulated nonlinear response can cover the motivating phenomenon without giving the exact two signs, positive-variance optima or offset ratios for equal hard windows. Full-text scope remains an access limitation.",
+        "searches": [
+          "Gaussian onset uncertainty in flowering overlap",
+          "Austin et al., 10.1111/nph.19994",
+          "Rudolf, 10.1111/1365-2656.12850"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md, lines 32–73 and 81–96",
+        "Resultary statements for --7581a001010f, --c531e75148ae and --b112a9f7ab10",
+        "Primary-literature search on the Gaussian butterfly, heat smoothing and variance optimization"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Linearity in the butterfly decomposition recovers the difference of three Gaussian densities in F′. The frozen proof uses its sign for every s and a separate strict layer-cake comparison over all half-widths u∈(0,L).",
+          "The probability optimizer alone follows by solving a ratio of two densities; it is not the main reason for the originality judgment."
+        ],
+        "reasoning": "Known Gaussian valuation/heat-kernel tools give derivatives directly, but comparing the maximizers requires more than substituting inputs into a price or variance formula: the narrower probabilities must be ordered and their derivative signs controlled throughout the layer-cake integral. The available nearest statements do not give that comparison or the onset equivalent.",
+        "searches": [
+          "Bachelier model, arXiv:2104.08686, vega",
+          "Gaussian Normalized Coordinates and Risk-Neutral CDF Deformations, arXiv:2609.14212, butterfly",
+          "Resultary: Gaussian interval mass as a function of spread, flowering overlap duration and occurrence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The tent is the symmetric call-butterfly payoff (x+L)₊−2x₊+(x−L)₊ and the convolution of two equal box windows; occurrence is Gaussian mass on (−L,L).",
+          "Literature leads include the Bachelier model review arXiv:2104.08686 and Gaussian Normalized Coordinates and Risk-Neutral CDF Deformations, arXiv:2609.14212. No decisive full-text passage was accessible."
+        ],
+        "reasoning": "These are exact alternative formulations, including familiar component call derivatives. An individual price or Gaussian mass formula is not a theorem of global uniqueness, threshold onset and joint ordering for the butterfly and interval together.",
+        "searches": [
+          "Resultary: Gaussian-smoothed tent and overlap duration; Gaussian mass of fixed interval; tent or butterfly payoff and heat smoothing",
+          "Gaussian convolution tent triangular function butterfly payoff Bachelier maximum volatility variance log cosh midpoint fixed mean Gaussian interval probability maximize variance threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record itself ranked first in the focused flowering query.",
+          "Distinct same-date records --7581a001010f, --c531e75148ae, and --b112a9f7ab10 concern respectively covariance under a split of fixed total duration, optimal resource-limited flowering width against Gaussian pollinator timing, and the optimum center date of a foraging window over two Gaussian blooms."
+        ],
+        "reasoning": "None of these available statements identifies this common fixed width and relative-onset variance as the optimization variables or gives the paired thresholds. The date is not used to infer priority.",
+        "searches": [
+          "Resultary: Gaussian onset uncertainty in flowering overlap",
+          "Resultary: Gaussian-smoothed tent overlap duration and fixed interval mass"
+        ]
+      },
+      "rationale": "The distinct claim is the paired global variance classification: different exact duration and occurrence thresholds, the onset law for the positive duration optimum, and strict ordering of the two optima when they coexist. Gaussian interval-mass calculus, heat smoothing, option-payoff representations, and qualitative nonlinear responses to phenological variation are not credited as novel. The strongest available neighbouring statements treat different parameters or metrics and do not establish this joint result.",
+      "residual_risks": [
+        "No full-text mathematical comparison was possible for the named finance and ecology leads or the related mirrors. An uninspected prior result on Gaussian random-interval intersections or a normal butterfly's critical variance could overlap more of the claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct mathematical formulation lead, but no demonstrated coverage of the coupled optimizers; no whole-document exclusion",
+          "evidence": [
+            "The equivalence is verified by the displayed three-positive-part expansion; this does not depend on priority of a finance formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2104.08686; https://arxiv.org/pdf/2609.14212",
+          "material_read": "Search summaries on Bachelier pricing/volatility conventions and Gaussian CDF coordinates; no independent vega or butterfly passage obtained",
+          "method": "Literature statement comparison and lawful OA PDF requests for vega and butterfly",
+          "title": "A Black-Scholes user's guide to the Bachelier model; Gaussian Normalized Coordinates and Risk-Neutral CDF Deformations",
+          "trigger": "Mathematically equivalent Gaussian butterfly payoff and volatility parameter"
+        },
+        {
+          "assessment": "Available descriptions motivate the work; their full mathematical scope is unresolved",
+          "evidence": [
+            "The frozen comparison describes an empirical co-flowering study and a nonlinear interannual response study, not a fixed-width Gaussian optimization theorem."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/nph.19994; https://doi.org/10.1111/1365-2656.12850",
+          "material_read": "Descriptions in RESULT.md lines 81–96; cited full-text retrieval attempts timed out",
+          "method": "Bounded lawful OA requests and frozen comparison",
+          "title": "Climate change increases flowering duration, driving phenological reassembly and elevated co-flowering richness; Nonlinear effects of phenological shifts link interannual variation to species interactions",
+          "trigger": "Closest cited ecological settings"
+        },
+        {
+          "assessment": "The searched statements vary duration, resources or center timing instead of Gaussian relative-onset variance for equal widths",
+          "evidence": [
+            "The same-richness/opposite-covariance pair, optimized flowering-display width, and optimized foraging date are different assertions from the joint thresholds."
+          ],
+          "identifier_or_url": "Resultary record suffixes --7581a001010f, --c531e75148ae, --b112a9f7ab10",
+          "material_read": "Indexed mathematical objects and outputs; matching mirror texts not retrieved",
+          "method": "Resultary search and targeted local mirror attempts",
+          "title": "Covariance-maximizing flowering duration split; cube-root bounds for resource-limited flowering windows; two-bloom foraging timing bifurcation",
+          "trigger": "Related distinct same-day flowering-window findings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 5–30 and 64–73"
+      ],
+      "rationale": "Expected overlap and probability of any overlap are both natural measurements but are not interchangeable. The interval L/2<d<L has opposite initial responses for these two metrics in the same model. The touch discontinuity, distinct variance optima and strict comparison establish more than a generic nonmonotonic effect. The sharp offset thresholds and quantitative onset tell a researcher exactly when the qualitative distinction matters.",
+      "residual_risks": [
+        "The conclusions are for fixed equal-width windows and a Gaussian relative onset; they do not establish heterogeneous field responses, fitness, or intervention advice."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

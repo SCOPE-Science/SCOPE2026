@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every modulus \(m\ge2\), the proof classifies the reachable state triples by an exact parity constraint, realizes every admissible suffix triple, and supplies a three-case Myhill–Nerode separation. The shift formulas were reconstructed from the definition of position-distinct subsequence occurrences. No infinite conclusion is inferred from a finite test. Direct enumeration, 16 explicit modular minimizations and an exhaustive small-modulus suffix-separator check agree with the theorem; the complete reproducibility program is embedded.
+PASS
 
-## Originality — PASS (qualified)
+The appending rules are exact: a new 0 creates b new 10 pairs, and a new 1 creates a new 01 pairs. If c counts 01 pairs, then d=2c-ab, so the allowable residues are exactly d+ab divisible by g=gcd(m,2). At fixed residues a,b choose actual counts a+m,b+m; adjacent swaps traverse every 01-count between zero and their product. Thus every c residue occurs, giving precisely m^3/g reachable states, and the same argument realizes all allowable suffix triples. For a suffix with letter-count residues A,B, the endpoint imbalance is d+E+aB-bA. Each of the choices (-a,0), (-a,1), (-a+1,-b) can produce acceptance from (a,b,d), since one final letter count is zero modulo m. If all three also accepted from another state, subtraction of the resulting affine equalities gives first delta a=0, then delta b=0 and delta d=0, without division (hence also for even or composite m). This proves minimality of the complete DFA. Independently, the triples form the concatenation group and the accepting subset d=0 has trivial left-translation stabilizer: the identity forces a stabilizer's d=0 and the two unit-axis elements force b=a=0. Hence all reached states have distinct suffix languages. Replay: RESULT.md lines 24–66. VERIFICATION.md and verify_modular_pair_balance.py report finite checks; the uploaded code was inspected but not run.
 
-The pair-sum identity already appears in classical Parikh-matrix theory; it is not presented as a new observation. Poovanandran–Simpson–Teh (2021, Proposition 2.2) provide a broader identity but do not prove modular opposite-pair minimal-DFA size. Grobler–Sabellek–Siebertz (2023) study infinite-word Parikh automata, and Rauch–Holzer (2022) study accepting-state complexities of permutation-automata operations. Related indexed finite-state findings address individual \(0^j1\) counts and length-three alternating patterns; their statements do not imply the modular difference formula. Search coverage remains nonexhaustive, so an unindexed equivalent prior statement is a real residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-An exact all-modulus memory requirement for maintaining balance of opposite ordered-pair statistics is a natural finite-state question. The half-size collapse for even moduli and the explicit distinguishing suffix families are structural, not a routine relabeling or a one-off finite computation.
+The supported contribution is the exact number of right quotients for this binary zero-imbalance language over all moduli. Parikh pair counts and their sum, modular group counters, and permutation-automata methods are background. The examined sources do not establish this specific quotient size and acceptance minimality together. Strong nearby indexed records are distinguished by their actual available statements, not by date or title.
 
-## Scope and limitations
+## value
 
-This concerns complete deterministic automata, the alphabet \(\{0,1\}\), and the zero residue of the scattered-pair difference. No independent audit, exhaustive literature-priority determination, nondeterministic optimization or statement for arbitrary alphabet sizes is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural modular order-sensitive analogue of a letter-balance test. The exact deterministic memory requirement matters even for simple counters: the parity obstruction halves the state space at every even modulus, but no further quotient arises from testing only zero. The latter is an all-modulus minimality theorem about decision rather than output, not the routine construction of a product counter or a tiny computed instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

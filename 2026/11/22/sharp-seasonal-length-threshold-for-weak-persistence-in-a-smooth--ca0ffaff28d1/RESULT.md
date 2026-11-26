@@ -68,7 +68,7 @@ Indeed the error \(y_{n+1}-Y=q_n(y_n-Y)+(q_n-q)Y+(b_n-2(1+q))\) tends to zero un
 
 **4. Extrema within cycles.** The hostile plateau decreases \(p\), and its endpoint obeys \(p\le e^{-H_n}\). The subsequent ramp has \(\eta_n\to0\), so its occupancy differs multiplicatively from the plateau endpoint by at most \(e^{3\eta_n}\). The long favorable plateau starts below \(1/2\); there \(p'=p(1-2p)>0\). Its endpoint differs by \(o(1)\) from \(p(T_{n+1})\), because the final ramp has width \(\eta_n\to0\) and \(|p'|\le3\) on \([0,1]\). Therefore the maximal occupancy in a sufficiently late cycle is, up to \(o(1)\), the larger of its two cycle-boundary values. This establishes the stated \(\limsup\). Every hostile plateau has \(p\le e^{-H_n}\) at its end, yielding \(\liminf p=0\).
 
-**5. Identical Bohl exponents.** For \(D=c-e=r\), one always has \(-1\le D(t)\le1\). Hostile plateaux of lengths \(H_n\to\infty\) attain mean \(+1\); favorable plateaux of lengths \(F_n\to\infty\) attain mean \(-1\). Consequently \(\beta^-(D)=-1\) and \(\beta^+(D)=+1\), independently of \(\delta\).
+**5. Identical Bohl exponents.** For \(D=c-e=r\), one always has \(-1\le D(t)\le1\). Hostile plateaux of lengths \(H_n\to\infty\) attain mean \(-1\); favorable plateaux of lengths \(F_n\to\infty\) attain mean \(+1\). Consequently \(\beta^-(D)=-1\) and \(\beta^+(D)=+1\), independently of \(\delta\).
 
 **6. Critical rate for linearly lengthening balanced seasons.** With \(H_n=F_n=n\) and \(\eta_n=2^{-n}\), \(q_n=1\) exactly and the recurrence yields \(b_n=4+O(e^{-n}+2^{-n})\). Therefore \(y_n=4n+O(1)\) by summation, which proves \(n p(T_n)\to1/4\). This rate is asserted only for this specified calendar, not for every sequence with \(\delta=0\).
 

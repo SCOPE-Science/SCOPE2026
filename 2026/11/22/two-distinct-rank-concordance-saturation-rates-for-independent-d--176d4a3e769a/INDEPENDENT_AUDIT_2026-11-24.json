@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:14:00.462273Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–55",
+        "Frozen VERIFICATION.md and checker.py (inspected, not executed)",
+        "Independent analytic check: exact weighted inversion identity, stationary product limit and summable lag-tail domination"
+      ],
+      "rationale": "Orientation reverses both coefficients by the factor sigma, and the all-lag no-zero-sum condition eliminates all ties simultaneously. I reconstructed the Spearman constant without the cited occupation identity. For one positively oriented walk with ranks R_i, the future-minus-past inversion count for R_i-i gives sum_i i(R_i-i) = -sum_inv(i,j)(j-i); since the squares of the ranks sum to the squares of the time indices, sum_i(R_i-i)^2 = 2 sum_inv(i,j)(j-i). For each fixed lag, the length-normalized inversion count converges by the iid shift ergodic theorem. Inversions past lag m are dominated by the stationary forward sum of the corresponding lag-weighted indicators, whose mean tends to zero by p(k) <= q^k. Thus each single-walk squared displacement sum divided by n converges to 2 sum_k k p(k). To pass to the two-walk squared rank difference, the windowed displacements can be approximated in empirical L^2 by the stationary two-sided displacements: at fixed m the interior errors are bounded by all-lag tails past m with second moments tending to zero, and the 2m boundary terms vanish by the finite fourth moments and Borel–Cantelli. Their two-walk cross average converges to zero by Cauchy–Schwarz and the ergodic theorem, since the two stationary walks are independent and each past/future difference has mean zero. This proves the factor 12 with the exact Spearman denominator. Kendall counts the exclusive-or of the two inverted comparisons at each lag, giving its stated probability and the factor 4; the unweighted stationary tail bound justifies summing all lags. At least one p(1)>0 makes both limits positive because each p(1)<1. With both walks monotone after orientation, both errors vanish identically. These are pathwise limits under the stated moments and no ties, not limits for iid observations of the levels.",
+      "residual_risks": [
+        "No inference for zero drift, tied ranks, dependent walks, or the absence of the specified exponential moment. The finite checker alone cannot justify the almost-sure limits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xie–Zhu's assumption is zero mean, not a larger theorem covering the drift regime.",
+          "The cited Sparre Andersen–Spitzer formula concerns the occupation count of a single walk. Full-text access for Spitzer and Ryan was unsuccessful; no broader drift theorem was verified in those texts."
+        ],
+        "reasoning": "An occupation identity can supply a variance, but it does not identify the stationary rank displacement or justify an observation-window approximation, and it has no two-walk discordance conclusion on its own.",
+        "searches": [
+          "Xie–Zhu, arXiv:2611.20572, §2.1 and §2.3",
+          "Ryan–Haslbeck–Waldorp DOI 10.1080/00273171.2024.2436413",
+          "Spitzer DOI 10.1090/S0002-9947-1956-0079851-X"
+        ]
+      },
+      "checked_sources": [
+        "Primary passages: arXiv:2611.20572 and arXiv:2502.05102",
+        "Frozen cited occupation identity and rank identities, lines 41–53",
+        "Resultary 176d4a3e769a (same record), 4e88b1165008, 1a0e14953b54 and 704a8cde7ea2",
+        "Access attempts only: DOI 10.1080/00273171.2024.2436413 and DOI 10.1090/S0002-9947-1956-0079851-X"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The deterministic Spearman and Kendall formulas reduce the statistics to a squared rank displacement and a discordance count, but do not evaluate their empirical asymptotics.",
+          "The centered Brownian functional limits neither give a perfect limit under drift nor supply convergence rates in that regime."
+        ],
+        "reasoning": "The decisive extra content is control of all time lags and both rank windows to recover the order-n displacement/discordance counts and constants; no inspected stronger theorem supplies that conclusion.",
+        "searches": [
+          "Xie–Zhu Theorem 1",
+          "Frozen RESULT.md, no-tie Spearman and Kendall algebra and cited occupation identity, lines 41–53",
+          "Indexed exact rank/inversion comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xie–Zhu Assumption 1 and Theorem 1 treat the same statistics on zero-mean walks, with unscaled convergence in distribution to Brownian functionals.",
+          "Ranking-GARCH models a time series of permutations of alternatives rather than inducing one permutation by sorting a time series of cumulative levels."
+        ],
+        "reasoning": "Orientation reduces signs but does not turn nonzero drift into the centered theorem. Neither the Mallows process nor a Brownian centered limit is an equivalent formulation of the drift saturation constants.",
+        "searches": [
+          "Primary and Resultary search: Spearman and Kendall rank concordance, independent drifted random walks, weighted inversions and saturation rates",
+          "Xie–Zhu arXiv:2611.20572",
+          "Piancastelli–Barreto-Souza arXiv:2502.05102"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "176d4a3e769a is the identical record. The three distinct same-day hits cover a stable-walk distance correlation limit, a centered detrended distance correlation limit, and first/last rank dependence of one symmetric walk, respectively."
+        ],
+        "reasoning": "Neither a table for a different correlation measure nor an endpoint identity for one walk encodes the two full-sample rank laws and constants. Same-day entries were compared independently of date.",
+        "searches": [
+          "Resultary: 176d4a3e769a, 4e88b1165008, 1a0e14953b54, 704a8cde7ea2; matched RESULT.md findings"
+        ]
+      },
+      "rationale": "The distinct contribution is the almost-sure two-rate result with its exact lag-probability constants under oriented nonzero drift, no ties and the exponential-moment condition. The directly comparable rank-correlation theorem is centered and distributional. The generic rank identities and one-walk occupation identity do not by themselves give the two pathwise limits.",
+      "residual_risks": [
+        "Relevant original passages from Ryan and Spitzer were not accessible; the bounded search does not exclude older or unindexed equivalent work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct regime and conclusion",
+          "evidence": "Continuous iid increments, zero means, finite positive variances; convergence in law to Brownian functionals without saturation scaling.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.20572",
+          "material_read": "§2.1 Assumption 1, p. 2 (offset 6500); §2.3 Theorem 1, p. 3 (offsets 9800–13555)",
+          "method": "Primary OA full-text passages",
+          "title": "Nonsense rank correlations between independent random walks",
+          "trigger": "Same statistics and independent walks"
+        },
+        {
+          "assessment": "Different objects",
+          "evidence": "Conditional Mallows/Ranking-GARCH laws for a sequence of rankings of alternatives.",
+          "identifier_or_url": "https://arxiv.org/abs/2502.05102",
+          "material_read": "Abstract and §1, pp. 1–2 (offsets 1266 and 9436)",
+          "method": "Primary OA full-text passages",
+          "title": "Time Series Analysis of Rankings: A GARCH-Type Approach",
+          "trigger": "Rankings and time dependence"
+        },
+        {
+          "assessment": "Relevant text not assessed",
+          "evidence": "Publisher denied access and repository attempts timed out; this does not exclude overlap.",
+          "identifier_or_url": "https://doi.org/10.1080/00273171.2024.2436413",
+          "material_read": "Bibliographic title and comparison in frozen RESULT.md; primary relevant passages unavailable",
+          "method": "Lawful publisher and repository retrieval attempted",
+          "title": "Non-Stationarity in Time-Series Analysis: Modeling Stochastic and Deterministic Trends",
+          "trigger": "Cited drifted-walk context"
+        },
+        {
+          "assessment": "Classical ingredient as cited, not claimed new; full-text scope not independently assessed",
+          "evidence": "The cited formula is a probability generating function for a single walk; independent correctness reconstruction does not rely on it.",
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9947-1956-0079851-X",
+          "material_read": "Bibliography and exact formula reported in frozen RESULT.md, lines 43–51; original passage unavailable",
+          "method": "Lawful DOI and AMS PDF attempts, plus frozen citation",
+          "title": "A combinatorial lemma and its application to probability theory",
+          "trigger": "Classical occupation-count identity credited in proof"
+        },
+        {
+          "assessment": "Thematic overlap, not coverage",
+          "evidence": "Different statistic or single-walk endpoint scope, with no stated drift rate for either concordance statistic.",
+          "identifier_or_url": "Resultary 4e88b1165008, 1a0e14953b54, 704a8cde7ea2",
+          "material_read": "RESULT.md Findings",
+          "method": "Local published mirror",
+          "title": "Same-day Resultary comparisons: stable distance correlation, endpoint-detrended distance correlation, and one-walk endpoint ranks",
+          "trigger": "Similar walks and dependence statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact limits and Gaussian illustration, lines 3–16 and 55",
+        "Xie–Zhu arXiv:2611.20572, centered comparison"
+      ],
+      "rationale": "A shared time ordering of independent trending series can make both sample rank measures saturate. Quantifying two different powers and their nondegenerate constants distinguishes statistics that look identical at the limit; it also identifies how inversion lengths matter for Spearman but not Kendall. That is a specific benchmark for comparing rank methods on nonstationary paths, beyond the qualitative warning about trends.",
+      "residual_risks": [
+        "No finite-sample inference calibration or joint fluctuation law; weak drift can put the asymptotic regime far from practical sample sizes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:44:33.756651Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For coordinate ranges A≥B≥…, assign each pair one coordinate attaining its Chebyshev distance. A single witness for all three gives at most 2A by the line perimeter identity; multiplicity 2+1 gives at most 2A+B; three distinct witnesses give at most A+B+C≤2A+B. Three corners in the largest two coordinates attain the bound. If A>B, equality forces two diametral edges with a common outlier in the unique longest coordinate and distance B between the remaining pair. This gives exactly R times the number R²−S²(b²−2)^r of ordered pairs at distance B in the transverse box, because the three outlier choices and two endpoint orientations cancel the factor six for vertex labels. If A=B, all three pairs must attain A. In one leading coordinate a given label-pair event has 2a outcomes, each pairwise intersection has 2, and the triple intersection is empty. Inclusion–exclusion across the k independent coordinates gives the stated count with the unconstrained R³ factor and division by six. On a square board this counts 4a side-based constructions minus the four double-counted corner triples; on a nonsquare board the unique-longest formula gives 2n. For j specified failed pairs, the joint probability is [1−2j/q²+O(q⁻³)]^d, so their joint moments converge to e^(−2jλ), giving the binomial law by finite inversion. The collision bound 3/q^d controls conditioning on distinctness, and a union bound gives the infinite-ratio limit. A separate direct enumeration matched six boxes, including tied largest and tied second-largest sides. Replay: python3 /workspace/branches/498f0eb4-3154-491f-b4b6-81542ff7f3b8/small_box_check.py. The frozen 676,739-triple run is reported corroboration; the supplied verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 1.1 and 1.3 give a bound in terms of k-packing and an extremal maximum over graphs of fixed order and vertex connectivity, respectively.",
+          "Bujtás et al. state the maximum-of-factor-distances identity for strong products."
+        ],
+        "reasoning": "A sharp maximum over a class of graphs need not describe equality inside an individual box, much less count the triples. The metric identity is used, but the pair-witness optimization and equality count require additional arguments.",
+        "searches": [
+          "Hak–Kozerenko, arXiv:2611.17259v1 Theorems 1.1 and 1.3",
+          "Bujtás et al., arXiv:2510.02749 p. 3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.17259v1",
+        "arXiv:2510.02749",
+        "arXiv:1804.01088",
+        "Resultary ab79ffff8626, 88edcff3ac58, 5c83ef12f807"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-dimensional path case is covered by Das's equality class for triameter 2n−2; the record assumes at least two factors.",
+          "In tied boxes 3A follows from having a triangle in the diameter graph, but its number depends on three joint pair events. In a unique-longest box, the endpoint-outlier rule and transverse distance B are needed even after the metric is known. The limit depends on the joint avoidance probabilities, not just a one-pair distance law."
+        ],
+        "reasoning": "No inspected stronger theorem mechanically yields both equality regimes and the joint limiting law. The known metric and elementary inclusion–exclusion are tools, not claimed discoveries.",
+        "searches": [
+          "arXiv:2611.17259v1 p. 2 and arXiv:1804.01088 Theorem 3.3 versus frozen Proof §§1–4",
+          "Chebyshev distance identity and triple diameter-event calculation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Das p. 1 defines precisely the three-point perimeter invariant. In its Chebyshev formulation, the frozen equality classification requires endpoint data in leading coordinates, not a different definition of triameter.",
+          "The adjacent king-board catalogue results concern maximum cuts and adjacency-only first-order theories, not sums of three metric distances."
+        ],
+        "reasoning": "The equivalent Chebyshev/king-board formulation was checked rather than treating the graph-product vocabulary as novel.",
+        "searches": [
+          "Resultary: Chebyshev box maximum triangle perimeter, strong path product triameter and triametral triples, king-board equality census, diameter-pair threshold in uniform powers",
+          "Published triameter definitions in arXiv:1804.01088"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ab79ffff8626 is the identical frozen record.",
+          "The cited mirror for 88edcff3ac58, offsets 0–2113, classifies rank-three theories using adjacency and equality. The same-day 5c83ef12f807 finding counts maximum cuts of rectangular strong path grids."
+        ],
+        "reasoning": "These are not tables of maximum triangle perimeters or extremizing triples, despite matching natural graph families. The record date supplies no priority inference.",
+        "searches": [
+          "Resultary focused matches and local mirrors for ab79ffff8626, 88edcff3ac58 and 5c83ef12f807"
+        ]
+      },
+      "rationale": "The invariant and the strong-product maximum metric are known. The supported distinct claim is the sharp two-range value together with the full equality census in both multiplicity regimes and the joint diameter-pair transition. The inspected graph-wide packing/connectivity bounds, product metric identity, and king-board results do not supply that census or its asymptotics. This is a bounded best-of-knowledge decision, not priority certification.",
+      "residual_risks": [
+        "The outbound search was non-diagnostic. Earlier equivalent Chebyshev-box or diameter-graph results under different terminology could have been missed.",
+        "The comparison is to identified statements and relevant theorem passages, not a claim about all historical uses of Chebyshev extremal triples."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different sharp parameter bounds and equality problem",
+          "evidence": [
+            "Theorem 1.1 bounds tr(G) by 2(k+1)ρ_k(G)+k−2.",
+            "Theorem 1.3 optimizes over all graphs with prescribed order and connectivity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.17259",
+          "material_read": "v1 abstract; Theorems 1.1 and 1.3, p. 2 (offset 6250 onward)",
+          "method": "Primary PDF opening and bounded theorem passage",
+          "title": "Triameter, distance packings, and vertex connectivity",
+          "trigger": "Closest triameter bounds and extremizer study"
+        },
+        {
+          "assessment": "Metric input already established; different invariant",
+          "evidence": [
+            "Distance in a strong product is the maximum of factor distances."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2510.02749",
+          "material_read": "p. 3, offset 9018",
+          "method": "Primary PDF relevant definition passage",
+          "title": "On d-distance p-packing domination number in strong products",
+          "trigger": "Same class of graph products and metric"
+        },
+        {
+          "assessment": "Definition known; one-dimensional special case only among these boxes",
+          "evidence": [
+            "Equality at 2n−2 characterizes trees with two or three leaves."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1804.01088",
+          "material_read": "p. 1 definition; p. 4 Theorem 3.3",
+          "method": "Primary PDF bounded definition and theorem passages",
+          "title": "Triameter of graphs",
+          "trigger": "Foundational invariant and possible general equality theorem"
+        },
+        {
+          "assessment": "Different invariants on matching graph family",
+          "evidence": [
+            "Adjacency/equality theories and cut size, respectively, rather than triametral triples."
+          ],
+          "identifier_or_url": "Resultary 88edcff3ac58; 5c83ef12f807",
+          "material_read": "Mirrored statements and scopes",
+          "method": "Local Resultary search and mirror",
+          "title": "Twenty-two rank-three theories of rectangular king graphs; All maximum cuts of rectangular strong path grids",
+          "trigger": "King-board and same-day graph family matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Perimeter maximizers are a natural test of the graph distance invariant. The result describes how a second maximal coordinate changes their geometry and multiplicity, including the fixed 2n count despite arbitrary lengthening of a nonsquare board. The full formulas also identify the scale d≈q² at which a typical triple becomes extremal and distinguish the failures of all three pairs, rather than only bounding the triameter.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

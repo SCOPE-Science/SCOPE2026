@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness (PASS).** The matching permutation representation gives the exact \((2,2)\)-spectrum, sign-twisting relates \((2,1,1)\) to the largest ordinary Laplacian eigenvalue, and a trace/frobenius inequality bounds it by \((4W+2\sqrt\Delta)/3\). Explicit nonnegative bundle identities establish the final radical bound, and the unit star proves the constant cannot improve. The supplied verifier checks the representation formulas symbolically and 2053 finite test weights; exhaustive correctness comes from the paper proof, not tests.
+## correctness
 
-**Originality (PASS, qualified).** Alon's 2026 full text treats the general \(2/3\) statement as Conjecture 1.5, proves quasi-complete weighted graphs in Theorem 4.4, and supplies star equality in Theorem 4.5. It does not give a universal weighted four-vertex proof. Alon–Kozma's 2013 primary full text treats constant-one comparisons, and explains the four-vertex pair's obstruction to that stronger inequality. Relevant mathematical-research searches and historical claim indices were compared by scientific implication; no statement subsuming the present arbitrary-six-rate inequality was found. An equivalent theorem in unindexed spectral literature remains possible.
+PASS
 
-**Mathematical value (PASS).** This settles a natural first nontrivial complete case of an explicitly open uniform spectral-comparison conjecture, over a continuous six-dimensional cone of edge rates rather than a finite graph census. It identifies the exact optimal constant where full spectral dominance already fails, with an elementary three-dimensional mechanism that may inform higher-dimensional attempts. No general-\(n\) implication is claimed.
+A transposition fixes the matching containing its edge and swaps the other two matchings. On the sum-zero quotient, the triangle Laplacian with weights a,b,c therefore realizes (2,2); its two eigenvalues have sum 2W and product 3(ab+bc+ca), giving minimum W-sqrt(Delta). The (2,1,1) module is the sign twist of (3,1), so its minimum is 2W-Lambda where Lambda is the largest eigenvalue of the ordinary Laplacian restricted to the sum-zero space. Each edge contributes the outer product of the difference of its two vertex-coordinate rows in the Hadamard basis. This gives diagonal b+c,a+c,a+b and off-diagonal entries the three opposite-edge differences. Hence tr(M^2) <= 2W^2+2Delta. For deviations from mean 2W/3, the two other deviations sum to minus the largest deviation, so the latter is bounded by sqrt((2/3)(tr(M^2)-4W^2/3)). It follows that Lambda <= 2W/3 + (2/3)sqrt(W^2+3Delta), and 0<=sqrt(Delta)<=W implies sqrt(W^2+3Delta)<=W+sqrt(Delta). This proves the key comparison with no division by a gap. The dominance chain's remaining distinct pairs are covered by Aldous for (3,1) or the upper bound 2W on all spectra for the sign representation. The disconnected case of the Aldous comparison follows by adding positive rates and passing to the limit by eigenvalue continuity. The unit star has standard sum-zero eigenvalues 1,1,4 and bundles (1,1,1), giving exact ratio 2/3.
 
-**Closest prior work and limits.** The \(2/3\) star equality is previously known; only the all-weights four-vertex lower bound is claimed new. General graph sizes, equality classification and downstream mixing estimates remain open here. Independent evaluation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit only the uniform sharp lower bound for arbitrary weighted four-vertex graphs. Alon's Conjecture 1.5 is exactly the more general proposed comparison and the unit-star obstruction and equality are known. The strongest inspected theorems do not supply the sharp unrestricted four-vertex lower bound. This is an assessment of the distinct proved claim, not of priority beyond the consulted evidence.
+
+## value
+
+PASS
+
+The four-vertex dominance chain is the first to contain a comparison not settled by the ordinary interchange gap or the sign endpoint, and the star shows that its constant cannot be one. Settling the sharp constant on the whole nonnegative cone is a complete and natural test of the general conjecture. The trace proof explains the uniform result beyond the examples and special weight classes already in the literature.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

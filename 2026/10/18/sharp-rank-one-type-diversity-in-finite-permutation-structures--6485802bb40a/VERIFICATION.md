@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Compile and run `verify.cpp` using `g++ -O2 -std=c++17 verify.cpp -o verify && ./verify`. It enumerates all \(3,628,800\) ten-point permutations with `std::next_permutation`, constructs four quadrant bits by direct pair comparisons, and counts the 16-bit spectra with exactly ten set bits. Expected results: 328 extremizers, 164 of spectrum `0xfce8`, 164 of `0xfea8`, and 46 dihedral orbits comprising ten size-four and 36 size-eight orbits.
+## correctness
 
-Run `python3 verify_independent.py` for a separately implemented enumeration based on extrema of each prefix and suffix. It independently returns the two 164 counts. The analytic argument in `RESULT.md` proves that **no finite size** has more than ten local rank-one types. The enumerations prove the exact count only at size ten, and the witness shows its attainability.
+PASS
 
-The reproducible checks were completed from these files. The verification is not an independent external audit, which has not been performed.
+In the language with equality and two named strict total orders, a quantifier-free two-variable formula is a Boolean combination of equality and the four strict quadrants. Rank one permits only nonnested quantification, so the four existence bits determine the pointed one-variable type, and each bit is separately definable. For n>1 the first-order endpoints contribute at most two types. An interior point has nonempty sets of left and right bits, giving nine options, but masks 6 and 9 cannot coexist: whichever comes first, one requires the second point above it and the other requires it below. Thus at most eight interior masks occur; n=1 has only mask 0. At equality the eight interior masks must include the value-minimum and value-maximum masks 10 and 5, so both endpoints have vertical witnesses in each direction, forcing masks 12 and 3. All interior candidates except exactly one of 6 and 9 occur, recovering the two spectra without enumeration. Direct quadrant comparisons give ten distinct masks for the exhibited ten-point witness, and fewer points cannot realize ten types. An independent exhaustive run tested all 3,628,800 permutations of size ten, obtained 164 occurrences of each signature (0xfce8 and 0xfea8), and partitioned the 328 maximizers by the eight coordinate symmetries into ten size-four and 36 size-eight orbits. The eight transformations preserve extremality, but do not identify the names of the orders in the logical result.
+
+## originality
+
+PASS
+
+The four-quadrant logical reduction and even the occurrence of both ten-mask signatures have material coverage in a distinct same-day Resultary record on separable permutations. Neither is credited as separately distinct. The supported contribution is the sharp universal bound on within-structure rank-one diversity over all permutations, together with the census of its unrestricted size-ten extremizers and the symmetry-orbit refinement. The separable classification does not cover arbitrary permutations or give those multiplicities. No equivalent unrestricted bound plus census was substantiated in the bounded comparison; the same-day date does not resolve priority.
+
+## value
+
+PASS
+
+This is the maximum simultaneous local logical diversity in the natural two-order permutation language. The gap between the nine formal interior options and eight compatible ones explains a global obstruction not captured by looking at one point or by counting signature classes. Size ten is the forced minimal equality layer, not an arbitrary enumeration cutoff. Counting and quotienting all its realizations describes the complete equality layer up to geometric symmetries, rather than merely reprinting the two known signature witnesses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Review of unequal two-block Löwner ellipsoids
+# Independent mathematical audit
 
-**Correctness (PASS).** Every Boolean vertex on either coordinate block lies on the proposed positive definite ellipsoid: the quadratic form's support-size coefficient cancels and the origin has gauge one. The explicit contact distribution has positive weights after combining two supported Boolean laws and subtracting a smaller origin atom; its exact mean is the candidate center and covariance is the inverse precision divided by the dimension. Averaging an arbitrary competitor's containment inequality and using determinant AM–GM certifies global uniqueness. The independent exact-rational checker covers 361 parameter pairs, but the infinite assertion relies on the symbolic proof.
+## correctness
 
-**Originality (PASS, provisional priority).** The existing full-text balanced two-level chain Löwner theorem states equal levels only and supplies no inequality-size formula. The existing full-text unbalanced chain John theorem concerns the maximum-volume *inscribed* ellipsoid; it does not imply this outer ellipsoid. Under the parameter-unequal hypothesis the explicit all-contact outer precision and design are not covered by the compared statements. The possibility of an unindexed general optimal-design theorem for orthogonal cube hulls is a residual priority risk.
+PASS
 
-**Mathematical value (PASS).** A complete exact enclosing-ellipsoid evaluation for unequal two-level chain polytopes is a natural missing canonical invariant in an established family; its closed determinant and constructive global certificate determine semiaxes and every vertex contact without a numerical ellipsoid solver. It extends a genuinely restricted balanced geometry to cases where symmetry exchanges between coordinate blocks are absent. No downstream claim beyond the proved ellipsoid and contact classification is asserted.
+The frozen ellipsoid theorem was correct, but the law on sizes 0 and 2 for a block of size 3, for instance, assigns no mass to its singleton or full-set vertices, contrary to the full-support reading of the contribution statement. The repaired RESULT.md explicitly mixes each sparse law 3:1 with the uniform Boolean law. The latter has the same one- and two-coordinate moments; every nonzero contact has positive weight, and each weighted empty-set contribution before subtracting 1 exceeds 1/2 (at least 9/16 for even block sizes and 3/4 for odd ones). Thus the final measure really has full support. Independently, the Boolean vertex gauge is constant on each block because the linear coefficient in the weight vanishes, and the origin has unit gauge. The inverse relation HΣ=I/n holds on the contrast spaces since (q+1)wa/2=(p+1)wb/2=1/n. On normalized constant vectors, Σ is (p+1)(q+1)/(4(n+1)^2) times the matrix with diagonal p+1,q+1 and off-diagonal −√(pq), giving exactly the inverse of the precision restriction divided by n. This also covers one-element blocks, which have no contrasts. Independent rational tests checked the two-dimensional restriction for (1,1),(1,3),(2,3),(2,2),(7,10). Averaging containment and using determinant AM–GM proves global uniqueness, and the determinant and orthogonal order-polytope reflection agree. The revised verification paragraph distinguishes the finite Boolean gauge checks at p+q≤12 from the larger covariance test. The uploaded verifier was inspected, not run.
 
-**Closest literature and limitations.** Stanley, Ahmad–Fourier–Joswig, Freij-Hollanti–Lundström supply the poset framework. The published balanced outer ellipsoid is expressly credited, and the published unbalanced inner ellipsoid is distinguished. General ellipsoid theory supplies the optimality criterion but not this evaluated instance. Only standard-coordinate two-block complete posets are handled, and historical priority has not been independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the outer ellipsoid in the unequal regime, together with an explicit full-support contact design. The balanced formula is known and explicitly not credited as new. The nearest inner result, symmetric direct-sum law, and general optimization formulation do not supply the evaluated one-sided unequal case. The repaired full-support certificate does not change the object or covered range.
+
+## value
+
+PASS
+
+The unequal family is the natural two-rank extension of the balanced chain-polytope problem, not an arbitrary cutoff. The exact center, cross-block precision and volume answer outer-ellipsoid questions unanswered by the inner optimizer. Proving that boundary contact persists at every vertex despite asymmetry, and furnishing a usable positive-mass design with only two inclusion moments, makes the formulas reusable without numerical optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

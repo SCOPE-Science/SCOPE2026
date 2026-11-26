@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The theorem is based on the exact affine transformation for decimal appending, its 294-step identity modulo 49, the 42-periodicity of complete digit-width blocks, and an exact 42-block identity modulo 49 and 42. The standalone script proves the finite identity by modular exponentiation and separately checks the base index by direct digit streaming. Cyclic rotations preserve the valuation because 49 divides the difference between the decimal power of the word length and 1. No finite sample is used as a substitute for the induction.
+## correctness
 
-## Originality
-PASS within inspected sources. Ripà's arXiv:2205.10163 proves the disjoint index restriction \(m\equiv2,3,5,6\pmod9\), and contains finite checks but no 7-adic infinite family. The indices in this theorem have residue zero modulo nine. The OEIS sequence descriptions reference the same conjecture without supplying this subfamily. Semantic mathematical-record searches and deduplication did not identify an equivalent claim; a differently formulated 7-adic block-rotation lemma could subsume it, so priority is not independently certified.
+PASS
 
-## Value
-PASS. This supplies infinitely many complete cyclic-orbit exclusions for an identified open perfect-power question, in a residue class where the source's general obstruction does not apply. The 42-tier identity is a structural finite-state mechanism and applies at unbounded decimal lengths, not merely to a table of examples.
+Appending an e-digit integer acts on (v,k,1) by the upper-triangular matrix with rows (10^e,1,0), (0,1,1), (0,0,1). Over F₇ its sixth power is unipotent of index at most three, hence the 42nd power is the identity; lifting I+7K to its seventh power gives identity modulo 49. The order of 10 modulo 49 is 42 (powers 21,14,6 are 48,30,8). For e≥2, increasing e by 42 leaves the matrix and starting integer unchanged modulo 49, the iteration count unchanged modulo 294 by the Chinese remainder theorem, and e times that count unchanged modulo 42. Independent modular matrix powering and composition of widths 2 through 43 gave (a,b,length)=(1,0,0) modulo (49,49,42). This cycle can start after width four by cyclic conjugation of invertible maps. The computed state through 9999 was (28,39), then appending the first nine width-five integers gave (14,0), independently confirmed by a direct decimal stream through 10008. The nine-integer tail is identical in these residues at every specified width. A rotation moving h digits gives C′≡10^h C modulo 49 because 42 divides the length, so v₇(C′)=1 for every block rotation. This proves the exclusion for every integer power exponent at least two.
 
-## Limits
-The theorem treats cyclic rotations only, not all permutations; it does not prove the full perfect-power conjecture. The finite-state certificate was examined in the same mathematical review and has no independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The theorem concerns a specific infinite family with m≡0 mod 9 starting at 10008. The strongest inspected perfect-power results address other residue classes or finite cutoffs below this family. A later study with an advanced extension of Kashihara's problem in its title concerns trailing-digit frequencies, not valuation or perfect powers.
+
+## value
+
+PASS
+
+This supplies a uniform perfect-power exclusion for infinitely many block indices not decided by the known residue criterion or finite scan. The exact 7-adic valuation across all rotations is the useful invariant and covers all exponents at once; the result is not simply a large finite case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:59:31.237748Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The backward stochastic convolution conditional on Poisson times is a centered Gaussian with variance 2D times the integral of exp(-2 kappa t) a^(2N(-t,0]) for t>0. It lies strictly between zero and v_*, including for a=0. The common-noise coupling forgets the initial condition. Independent backward Poisson gaps yield the stationary pre-last-jump variance, independent of the exponential observation age. Thus delta=1-U=HB with H=1-a^2U' bounded below by 1-a^2 and B=e^(-2 kappa T) with CDF b^alpha. The endpoint CDF K z^alpha holds on 0<z<1-a^2. The normalized variance drift and jump generator on u^n yields the stated m_n; the convergent binomial expansion gives K, including K=1 at full resetting. In the mixture integral put q=x^2/(2v_*) and y=q delta; the endpoint density produces alpha K q^(-alpha) y^(alpha-1)e^(-y) at leading order. For delta>=delta_0>0 and q>1/2, the integrand after factoring e^(-q) increases with 1-delta and is bounded by its exponentially small value at delta_0. Integrating the resulting density asymptotic gives the stated two-sided survival by symmetry and the Gaussian Mills factor. Testing the same rescaled integral against bounded continuous functions and dividing by its mass proves the Gamma posterior for the density-defined conditional distribution. The zero-current invariant diffusion formula yields the stated polynomial tail at fixed positive weak-reset parameter; it says nothing about a joint limit or a=1. The uploaded checker was inspected but not executed; no simulation is needed for the exact endpoint or tail.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Olsen–Gupta's harmonic second moment at exponential exploration time is 2D/[2 kappa+r(1-a^2)], the n=1 case. Galla treats the diffusion approximation, not the actual OU contractions. Trajanovski et al. give the invariant full-reset resolvent, relevant at a=0. The two strongly matched records also examine the critical quadratic-exponential moment."
+        ],
+        "reasoning": "The moment antecedent and approximating SDE alone are not tail coverage for partial jumps; the exact OU contraction records are. Specializing the exact age identity to full reset sets H=1, and does not give a new tail mechanism.",
+        "searches": [
+          "Resultary: partial resetting harmonic potential exact stationary distribution moments recurrence tail",
+          "arXiv:2401.11919v2 §III.C Eqs. 30–34",
+          "arXiv:2602.21635v1 Supplement S1.1",
+          "arXiv:2301.12304v1 §III.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md:3–95, VERIFICATION.md, verify.py (inspection only)",
+        "Resultary local mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4: 3b8b757f8421 and 8652cc621e2b",
+        "Galla arXiv:2602.21635v1 S1.1; Olsen–Gupta arXiv:2401.11919v2 §III.C; Pierce arXiv:2204.07215v1 Eq. 1 (free diffusion with advection); Trajanovski et al. arXiv:2301.12304v1 §III.2, Eq. 21 (full reset)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior small-deficit density is alpha K delta^(alpha-1), and its tail proof rescales t=q delta with limiting kernel t^(alpha-1)e^(-t). For a bounded continuous test f(t) the same bound controls the test-weighted integral, and the unweighted one has limiting mass Gamma(alpha)."
+        ],
+        "reasoning": "Their exact mixture and rescaled integral give test-function expectations for the posterior after division by Gamma(alpha), so absence of a named conditional Gamma conclusion in the inspected findings does not establish independent mathematical content.",
+        "searches": [
+          "Resultary 2026/11/2/3b8b757f8421 density proof around offsets 5112–5500",
+          "Resultary 2026/11/2/8652cc621e2b Proof §§2–4, rescaling of the Gaussian mixture"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For 3b8b757f8421 put rho=r, c=a, theta=alpha, w=v_* delta. Its coefficient C=v_*^(-alpha)K yields exactly the frozen CDF, density and one-sided survival constants. For 8652cc621e2b put sigma^2=v_*, beta=alpha; the exact product P(a,beta) equals E[(sigma^2/W)^beta] with W=sigma^2-a^2V', which is K."
+        ],
+        "reasoning": "Dimensional versus dimensionless variance deficit and series versus product prefactors are exact equivalences, not distinct tail mechanisms.",
+        "searches": [
+          "Resultary: partial Ornstein–Uhlenbeck resetting exact stationary Gaussian tail variance deficit Gamma endpoint",
+          "Resultary: proportional resetting mean-reverting diffusion exact stationary tails"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The former lists the exact endpoint range, identical moment-product coefficient series and density/survival constants for the same model. The latter provides the endpoint identity, equivalent product, exact even moments and polynomial-vs-Gaussian diffusion comparison."
+        ],
+        "reasoning": "There are two catalogue formula matches for the main exact claim. Neither a different coefficient representation nor chronology of record paths establishes distinction or historical priority.",
+        "searches": [
+          "Resultary 2026/11/2/3b8b757f8421 Finding offsets 0–2300",
+          "Resultary 2026/11/2/8652cc621e2b Proof §§2–6 offsets 3510–7920"
+        ]
+      },
+      "rationale": "Two distinct available records already state the same exact variance endpoint and Gaussian asymptotic, one with the identical series and the other with an equivalent product, and the latter states the same contrast with the fixed-parameter diffusion. These are statement-level matches under dimensional normalization, not a priority finding. The conditional Gamma assertion is not printed in the inspected findings, but the matched endpoint and Gaussian mixture proofs immediately give it by inserting a bounded test function in the very same dominated-convergence integral and normalizing. The included full-reset endpoint is also mechanically obtained with H=1. No separate repaired claim is submitted.",
+      "residual_risks": [
+        "The dates of distinct catalogue paths are not proof of priority or attribution. The review did not verify the posted-version dates of the older full-reset and free-advection references or exhaust the older partial-resetting literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same exact asymptotics for 0<a<1; additional critical moment result",
+          "evidence": [
+            "Pr(V>=v_*-w)=Cw^theta for w<=v_*(1-c²); C is v_*^(-theta) times the identical series."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-endpoint-law-and-sharp-gaussian-tails-for-partially-reset--3b8b757f8421/RESULT.md",
+          "material_read": "Finding/Assumptions offsets 0–2300; density-rescaling passage around 5112–5500",
+          "method": "Local Resultary mirror passage read",
+          "title": "Exact endpoint law and sharp Gaussian tails for partially reset Ornstein–Uhlenbeck diffusion",
+          "trigger": "Identical variance endpoint law and series prefactor"
+        },
+        {
+          "assessment": "Exact equivalent endpoint and coefficient, and same fixed-scale diffusion comparison",
+          "evidence": [
+            "Product P(a,beta)=E[(sigma²/W)^beta]. The proof rescales the mixture by t=(x²/(2sigma²)) UW/sigma², i.e. q delta."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-gaussian-tail-rigidity-and-the-critical-quadratic-tilt-of-a-part--8652cc621e2b/RESULT.md",
+          "material_read": "Finding and Proof §§2–6, offsets 3510–7920 for endpoint, coefficient, tail integral and comparison",
+          "method": "Local Resultary mirror passage read",
+          "title": "Gaussian tail rigidity and the critical quadratic tilt of a partially reset harmonic diffusion",
+          "trigger": "Same physical OU endpoint, different prefactor representation"
+        },
+        {
+          "assessment": "Approximate SDE rather than exact Poisson jumps",
+          "evidence": [
+            "Linear harmonic specialization has stationary density proportional to (2D+lambda s x²)^(-1-(kappa+lambda)/(lambda s))."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.21635v1",
+          "material_read": "Supplement S1.1, Eqs. S3–S8, OA around 46800",
+          "method": "OA HTML passage read",
+          "title": "A diffusion approximation for systems with frequent weak resetting",
+          "trigger": "Cited algebraic density"
+        },
+        {
+          "assessment": "Second-moment specialization, not exact tail in that passage",
+          "evidence": [
+            "General time-law variance formula gives the n=1 stationary moment for exponential exploration intervals."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2401.11919",
+          "material_read": "§III.C Eqs. 30–34, OA offset 25800",
+          "method": "OA passage read",
+          "title": "Thermodynamic work of partial resetting",
+          "trigger": "Earlier exact harmonic partial-reset variance"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The Gaussian-versus-polynomial tail distinction is scientifically useful, but it is fully present in the matched exact-model work. The additional normalized Gamma limit in this package is the normalized endpoint kernel of that same available proof. Without a substantive additional localization result or application, that mechanical remainder does not supply a distinct valuable finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

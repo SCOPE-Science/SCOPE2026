@@ -1,0 +1,176 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:44:40.105975Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Proof 1–5, VERIFICATION.md, verify_direct.py, verify_gap.py, direct_output.txt and gap_output.txt",
+        "Independent direct-mask replay: python3 /workspace/review-evidence/check_deletion_extensions.py; 112333 masks at (q,n)=(3,8),(4,6),(5,2),(6,2),(7,2),(8,2),(9,2), comparing exact histograms of nontrivial fibers and embedding totals"
+      ],
+      "rationale": "The weak-descent jumps in period indices give the embedding count by stars and bars. For a collision, equal retained letters force aligned index differences in {−q,0,q}; a sign change without a zero would require one skipped run of at least 2q positions, impossible with q+1 deletions. At the two ends of a nonzero run each mask is forced to have a full consecutive q-block of deletions. Removing that block always gives P^(n−1), in which distinct single-position deletions give distinct remnants (the symbols between two such positions would otherwise all be equal). For a fixed remaining deletion j=qk+a, there are k+1 or k prefix placements and n−1−k or n−2−k suffix placements, as determined by phase. Both forms can represent the same target only for a fully cyclic q+1-word; exactly the adjacent-block pair represents one mask twice, leaving n−1 distinct masks at each of n−1 indices. The other placement ranges give one fiber of each stated nontrivial size. The excess multiplicities sum to the three deficits. At n=2 the cyclic class has just one singleton output per pattern and every class has zero deficit; absent patterns have zero embeddings and no correction. The class sizes follow by counting prefix and suffix families whose intersection has size q.",
+      "residual_risks": [
+        "The independent computation covers those finite cases only; the all-parameter result uses the index-gap and phase-counting proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The run threshold specializes to q, whereas this claim concerns all fixed targets of length q+1 beyond that threshold.",
+          "Li–Wang–Fu Theorem 17 bounds the unconditioned deletion sphere |D_t(U)| via a balanced string, not the individual prescribed-deletion fibers."
+        ],
+        "reasoning": "Knowing the onset of collisions or the aggregate deletion sphere does not determine the distribution of collisions at each deleted pattern.",
+        "searches": [
+          "SCOPE-exact-run-pattern-collision-thresholds-and-short-deletion-extrem--2036e6f8e3be",
+          "arXiv:2601.06493"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local mirror, cited and distinct same-day findings named above",
+        "arXiv:2603.20790v1",
+        "arXiv:2601.06493"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The embedding law gives the exact leading binomial by setting deletion length q+1; it does not identify remnants.",
+          "The necklace law quotients by rotation and stops at t=q. The run-pair complement result treats two-letter targets, not q+1 deletions."
+        ],
+        "reasoning": "The previously known terms and thresholds are excluded from novelty. Switching the equivalence relation, deletion budget or conditioning changes the counted object; none of the compared implications gives the four fiber spectra.",
+        "searches": [
+          "SCOPE-exact-embedding-multiplicity-spectrum-of-cyclic-permutation-powe--bcaf0c227997",
+          "SCOPE-short-deletion-necklaces-of-permutation-powers-exact-orbit-count--16ccfbf22eda",
+          "SCOPE-a-run-pair-formula-for-two-letter-complement-scattered-factors--3b99e07a61fe"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Adamson–Fleischmann–Huch define exactly C(w,u); their general algorithms and Theorem 4.3/Proposition 3 address computation and qualitative cardinality conditions, not these fibers.",
+          "The same-day two-point alternating result directly matches the class-I formula for 010/101 on (01)^n, but has q=2, outside the audited domain; a separate same-day result gives binary length-three complement counts, not this spectrum."
+        ],
+        "reasoning": "Complement notation is equivalent, but neither general computation nor the binary specialization produces the all-q phase split or spectra.",
+        "searches": [
+          "Resultary: prescribed-pattern complement scattered factors, first-postperiod deletion, permutation powers and alternating three-letter deletion",
+          "arXiv:2603.20790v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The corresponding indexed hit is the frozen result itself. Distinct nearby binary hits cover q=2; phase rigidity and bounded-digit hits concern deletions of a full period or integral powers of P."
+        ],
+        "reasoning": "The seed case and integral-period relatives neither tabulate nor imply the full q≥3 class distribution. This is bounded indexed evidence, not a uniqueness claim.",
+        "searches": [
+          "Resultary searches for postperiod prescribed-pattern collisions, all complement fiber multiplicities and repeated permutation deletions"
+        ]
+      },
+      "rationale": "The supported distinction is the complete length-(q+1), fixed-pattern, rooted output-fiber law for q≥3. The embedding term and first-collision threshold are known; binary three-deletion and one-full-period results are close but do not give the four-class theorem. The same-day matches are considered on substance, without inferring priority from the date.",
+      "residual_risks": [
+        "Unindexed equivalents remain possible; only material passages, not an exhaustive historical corpus, were inspected. Relative same-day priority is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundational overlap, no covering spectrum in inspected passages",
+          "evidence": "Computes complement sets and gives conditions on singleton/multiple complements, not phase-wise multiplicities.",
+          "identifier_or_url": "https://arxiv.org/html/2603.20790v1",
+          "material_read": "Definition and introduction; Theorem 4.3 and Proposition 3",
+          "method": "Lawful OA HTML, bounded passages around offsets 580, 8300, 60800 and 71700",
+          "title": "(Sets of) Complement Scattered Factors",
+          "trigger": "Same C(w,u) invariant"
+        },
+        {
+          "assessment": "Different invariant; full text available, relevant passages inspected",
+          "evidence": "Theorem 17 is a balanced-string upper bound for an unconditioned deletion ball.",
+          "identifier_or_url": "https://arxiv.org/html/2601.06493",
+          "material_read": "Abstract, Theorem 17, §V",
+          "method": "Lawful OA full text passages around 520, 72700 and 78750",
+          "title": "On the Number of Subsequences in the Nonbinary Deletion Channel",
+          "trigger": "Plausible more general nonbinary deletion result"
+        },
+        {
+          "assessment": "Covers exactly the embedding term E",
+          "evidence": "Binomial(k+m−1−d(u),m), with k=n and m=q+1.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-embedding-multiplicity-spectrum-of-cyclic-permutation-powe--bcaf0c227997",
+          "material_read": "RESULT.md finding, assumptions and embedding derivation",
+          "method": "Resultary local mirror, offset 0",
+          "title": "Exact embedding-multiplicity spectrum of cyclic permutation powers",
+          "trigger": "Exact same host and arbitrary target length"
+        },
+        {
+          "assessment": "Threshold only in the pertinent specialization",
+          "evidence": "Determines shortest collision length; the singleton-run specialization gives q, not fibers at q+1.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-run-pattern-collision-thresholds-and-short-deletion-extrem--2036e6f8e3be",
+          "material_read": "RESULT.md finding and assumptions",
+          "method": "Resultary local mirror, offset 0",
+          "title": "Exact run-pattern collision thresholds and short-deletion extremal counts",
+          "trigger": "Possible stronger collision theorem"
+        },
+        {
+          "assessment": "Different deletion length and equivalence relation",
+          "evidence": "At t=q, q circular mask orbits merge; rotation classes through t=q are counted.",
+          "identifier_or_url": "2026/11/8/SCOPE-short-deletion-necklaces-of-permutation-powers-exact-orbit-count--16ccfbf22eda",
+          "material_read": "RESULT.md finding and assumptions",
+          "method": "Resultary local mirror, offset 0",
+          "title": "Short-deletion necklaces of permutation powers",
+          "trigger": "Same host, boundary collision"
+        },
+        {
+          "assessment": "Two-letter targets only",
+          "evidence": "Run pairs minus abab occurrences in the fixed two-letter formula.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-run-pair-formula-for-two-letter-complement-scattered-factors--3b99e07a61fe",
+          "material_read": "RESULT.md finding",
+          "method": "Resultary local mirror, offset 0",
+          "title": "A run-pair formula for two-letter complement scattered factors",
+          "trigger": "General-host complement formula"
+        },
+        {
+          "assessment": "Binary analogue of class I; priority not inferred",
+          "evidence": "For (01)^n and 010 or 101, n−1 outputs have multiplicity n−1; q=2 is excluded by the audited theorem.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-point-collision-spectrum-for-alternating-words-with-a-scatte--e046ddbbf6b9",
+          "material_read": "RESULT.md finding",
+          "method": "Resultary local mirror, offset 0",
+          "title": "Two-point collision spectrum for alternating words with a scattered 010 deletion",
+          "trigger": "Strongest apparent same-day exact spectrum overlap"
+        },
+        {
+          "assessment": "Adjacent binary cardinalities",
+          "evidence": "Distinct-output counts for eight binary patterns, not all-q fibers.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-three-symbol-complement-deletion-spectra-of-finite-alterna--1e7ccb67347b",
+          "material_read": "RESULT.md finding",
+          "method": "Resultary local mirror, offset 0",
+          "title": "Exact three-symbol complement-deletion spectra of finite alternating binary words",
+          "trigger": "All fixed three-letter targets in adjacent binary regime"
+        },
+        {
+          "assessment": "One-period deletion, not first postperiod",
+          "evidence": "Deleting P from P^(r+1), only P^r is repeated and has multiplicity r+1.",
+          "identifier_or_url": "2026/11/22/SCOPE-phase-rigidity-and-exact-complementary-subsequence-capacity-of-p--20c8a8da2741",
+          "material_read": "RESULT.md finding",
+          "method": "Resultary local mirror, offset 0",
+          "title": "Phase rigidity and exact complementary-subsequence capacity of permutation powers",
+          "trigger": "Same-day rigidity for the same host"
+        },
+        {
+          "assessment": "Prescribed whole powers P^k",
+          "evidence": "Phase concatenations for deleting P^k from P^(m+k), not arbitrary q+1 patterns.",
+          "identifier_or_url": "2026/11/22/SCOPE-bounded-digit-law-for-complements-of-repeated-permutation-words--b24b0f8dcc3a",
+          "material_read": "RESULT.md finding",
+          "method": "Resultary local mirror, offset 0",
+          "title": "Bounded-digit law for complements of repeated permutation words",
+          "trigger": "Same-day structural complement theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and collision localization; prior threshold and binary comparisons in originality"
+      ],
+      "rationale": "The first deletion budget beyond a whole period changes conditional ambiguity in three different ways. The classification identifies every target susceptible to collisions and gives all residual list sizes, which cannot be recovered from the embedding count, injectivity threshold or unconditional deletion sphere.",
+      "residual_risks": [
+        "No extension to longer deletion patterns, mixed periods or rotation quotients is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

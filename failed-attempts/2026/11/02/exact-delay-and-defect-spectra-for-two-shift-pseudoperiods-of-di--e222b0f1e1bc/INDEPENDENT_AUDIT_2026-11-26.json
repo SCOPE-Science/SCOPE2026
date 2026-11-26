@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:41:04.901897Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–67",
+        "VERIFICATION.md and verify.py lines 12–79, inspected, not executed"
+      ],
+      "rationale": "Translate a run of length R to offsets 0 through R-1. For a shift h the same-letter positions are the beginning of that run up to offset R-h (exclusive) and its end starting at offset p-h (inclusive), clipped to the run. For s<t the earlier shift supplies the larger beginning interval and the later shift supplies the larger ending interval. Thus the bad offsets are exactly the integers in [max(0,R-s),min(R,p-t)), giving the frozen sum after clipping the length at zero. For positive s and u=p-t, the gap is empty exactly when s+u<=R. Summing over all runs gives the shortest-run rule. For the budget impose p-B<=u<=r-1 and sum r-u over these integers, including an empty range if r=1 or B<p-r+1; at the first nonempty budget only u=r-1 and s=1 qualify. The single occurrence per cycle of the ordered a0-to-a1 boundary proves primitivity, and the admissible positions in P^k include all residues since kp-t>=p for k>=2 and t<p. In (00101)^omega the shifts 2 and 3 reach the starting symbol at every residue, confirming the distinct-run qualification is needed.",
+      "residual_risks": [
+        "The finite-word statement uses the range where both shifts exist; the defect formula counts residues, not total finite-word failures."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed shortest-run result also treats arbitrary positive shifts by residue reduction. Meleshko et al. give a binary run-length obstruction, an alphabet-size bound and a general finite-factor test."
+        ],
+        "reasoning": "The indexed theorem covers the whole subperiod classification; the primary paper's binary obstruction alone implies the least admissible t lower bound in the binary two-run case but not the classification in arbitrary alphabet size. The finite-factor principle with periodicity gives the finite two-period assertion.",
+        "searches": [
+          "\"Pseudoperiodic Words and a Question of Shevelev\" Meleshko Ochem Shallit Shan Proposition 3 Theorem 5 Remark 11 two shifts periodic words",
+          "arXiv:2207.10171v3, Proposition 3, Theorem 5, Remark 11",
+          "Resultary 2026/11/8/SCOPE-the-shortest-run-law-for-two-shift-pseudoperiods-of-distinct-run--6eee0f0e44aa, arbitrary-positive-shift corollary"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/11/8/SCOPE-the-shortest-run-law-for-two-shift-pseudoperiods-of-distinct-run--6eee0f0e44aa",
+        "arXiv:2207.10171v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known triangular parametrization allows restriction to p-B<=d<=m-1; summing m-d on this interval gives the frozen budget, and the first nonempty interval gives its unique optimizer. The primary checking principle reduces the infinite check to all length-(t+1) factors; P^2 contains a starting representative of every cyclic factor at that length."
+        ],
+        "reasoning": "The absence of separately displayed budget and finite-copy formulas does not make those consequences new. The classification alone cannot recover nonzero counts, which can depend on longer runs in addition to the shortest one.",
+        "searches": [
+          "Shortest-run law Resultary record, Necessity, Sufficiency, Counting",
+          "arXiv:2207.10171v3, Remark 11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/11/8/SCOPE-the-shortest-run-law-for-two-shift-pseudoperiods-of-distinct-run--6eee0f0e44aa states u+(p-v)<=m, parametrization (u,p-d), and binom(m,2)."
+        ],
+        "reasoning": "Renaming (u,v,d,m) as (s,t,p-t,r) gives exactly the frozen zero-defect theorem and total count, with the same distinct-run assumption and subperiod shifts.",
+        "searches": [
+          "Resultary: Exact delay and defect spectra two-shift pseudoperiod distinct-run cyclic words F(s,t) zero-defect classification triangular delay count finite two-period equivalence",
+          "Resultary: \"shortest-run law\" two-shift pseudoperiods distinct-run"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest separate indexed record gives the exact locus of zero defects for all run-length tuples, not a table of nonzero defect magnitudes. The primary paper defines a Boolean pseudoperiod test, which does not assign a defect count."
+        ],
+        "reasoning": "There is exact catalogued coverage of the qualifying locus and its total count. No independent table or exact formula for the full nonzero spectrum was found in the inspected material.",
+        "searches": [
+          "Resultary: Exact delay and defect spectra two-shift pseudoperiod distinct-run cyclic words F(s,t) zero-defect classification triangular delay count finite two-period equivalence",
+          "arXiv:2207.10171v3, Definition 1 and Remark 11"
+        ]
+      },
+      "rationale": "The frozen claim includes a complete pseudoperiod classification, parametrization and total count that match a distinct indexed result under the very same assumptions. The budget and least-delay formulas are immediate consequences of that result. The exact nonzero defect counts are not stated in the inspected comparison; failure is not a claim that the complete defect formula was previously printed. Displayed path dates do not resolve priority but do not erase the overlap.",
+      "residual_risks": [
+        "No inference about historical priority from directory labels.",
+        "Bounded comparison; exact nonzero defects may have been treated under other cyclic matching terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent zero-defect classification and exact total count, with a broader shift corollary; no statement of nonzero phase defect counts",
+          "evidence": "The same shortest-run triangle with coordinates (u,p-v); the proof counts m-u choices of the second coordinate for each u.",
+          "identifier_or_url": "2026/11/8/SCOPE-the-shortest-run-law-for-two-shift-pseudoperiods-of-distinct-run--6eee0f0e44aa",
+          "material_read": "RESULT.md offsets 0–3992, 3850–5323 and 5200–7570, especially Necessity, Sufficiency and Counting",
+          "method": "Published-record local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The shortest-run law for two-shift pseudoperiods of distinct-run cycles",
+          "trigger": "Strongest matching separate indexed theorem"
+        },
+        {
+          "assessment": "Basic definition and related general bounds, not the entire defect formula",
+          "evidence": "Prop. 3 gives the binary run-length bound, Thm. 5 an alphabet-size bound, and Remark 11 the factor test of length largest shift plus one.",
+          "identifier_or_url": "https://arxiv.org/html/2207.10171v3; doi:10.46298/dmtcs.9919",
+          "material_read": "OA offsets 0–3996 (Definition 1), 7700–9796 (Prop. 3), 9600–11796 (Thm. 5), and 18400–20300 (Remark 11)",
+          "method": "Lawful OA full-text passages",
+          "title": "Pseudoperiodic Words and a Question of Shevelev",
+          "trigger": "Primary source of the same forward-shift definition and related run constraints"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding, Proof and Relationship to prior work",
+        "Shortest-run law, Counting"
+      ],
+      "rationale": "The class and sharp delay question are natural, but the classification is already represented, the budget just truncates the known triangle, and the finite-copy criterion is a direct check of residues. The only supported distinct remainder is the number of integers between two clipped endpoints in each run. No separate approximate-pseudoperiod problem, structural feature of the nonzero spectrum or mathematical use of these magnitudes beyond their already classified vanishing is established. On this evidence there is no motivated nonroutine surviving claim to repair.",
+      "residual_risks": [
+        "An independently motivated use of nonzero phase defects could change the value of a different, narrower claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

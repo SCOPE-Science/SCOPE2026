@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is fully finite and has a complete, reproducible exhaustive proof. Both independent constructions cover all \(\binom{20}{7}\) and \(\binom{20}{8}\) candidates without heuristic pruning, and independently produce the identical 25 optimum states and full intersection profile. Equality of the distinct graph labelings is checked by an explicit permutation. The double-complete-graph incidence conclusion follows from verified exhaustive pair adjacency counts, not a visualization alone. The main risk is programming errors shared across otherwise independent implementations; the two mathematically different monitoring criteria reduce, but cannot eliminate, that risk.
+## correctness
 
-**Originality — PASS (qualified).** The exact 25-state family and sharp three-exchange incidence-graph classification are distinct from the general existence, size-bound, product and complexity results in accessible full texts of the 2022 and 2024 primary literature. Published indexed searches and relevant mathematical records did not identify covering statements. The 2023 convex-polytope paper has a plausibly relevant title but only an abstract was available, so it might establish the number and possibly more; no claim of original discovery of the bare value \(8\) is made. Full-text inaccessibility and possible unindexed results remain historical-priority risks. The novelty judgment is provisional and does not assert literature completeness.
+PASS
 
-**Value — PASS.** A graph of polyhedral/network-monitoring interest admits a sharp and non-obvious threshold: all minimum sensors are isolated under one- and two-replacements, yet three-replacements yield a connected graph with a concrete doubled-complete-graph incidence structure and exact distances. This is a complete natural finite classification, useful as a stringent benchmark for optimal monitoring and physically constrained placement migration; it is not offered merely as a software exercise or as an unsupported generality.
+An independent exhaustive GP(10,2) recomputation checked all 190 endpoint pairs against all 30 edges, agreeing between shortest-path enumeration/intersection and deletion distances. There are 0 monitoring seven-sets among 77,520 (monotonicity excludes all smaller sets) and 25 monitoring eight-sets among 125,970, with exact equality to optima.json. The induced classes are 5 edgeless and 20 consisting of three disjoint edges plus two isolates. The 300 unordered intersections, indexed 0 through 8, are (30,0,80,60,90,40,0,0,0); the 40 pairs meeting in five are precisely the r=3 exchanges. Each matching-type optimum has two edgeless neighbors and every unordered pair of the five edgeless optima has exactly two such neighbors in common. This proves the doubled-K5 subdivision, not just its degree sequence. Its five degree-eight vertices have eccentricity 3 and the remaining twenty eccentricity 4. The exact private replay is branches/fa87f157-9ce2-425b-a88b-0bd3521d93fb/recompute_dodecahedron.py with --certificate pointing to the assigned optima.json; same-stem .out records the run. Uploaded scripts inspected, not executed. This proves only the specified finite graph and does not extend to movement constrained to original graph edges.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified PASS on the simultaneous-exchange geometry, not on the bare minimum or the already overlapping census. The known related threshold with one-at-a-time moves and spare sensors is a different reconfiguration problem.
+
+## value
+
+PASS
+
+A concrete, naturally posed fixed-budget reconfiguration question on a canonical graph has a sharp answer: an isolated optimum landscape for one or two replacements becomes one connected and fully identifiable incidence graph at three. That geometry is not encoded by the census and is a useful exact comparison case for other monitoring reconfiguration models. The count and computations alone would not support generality or establish a practical network migration protocol.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

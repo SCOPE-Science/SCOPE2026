@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:19:46.321288Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–35 and 38–91; reconstructed transition branches and exact centered reward variance algebra",
+        "Frozen VERIFICATION.md and verify.py lines 7–102 (read, not executed)"
+      ],
+      "rationale": "The endpoint identities βr=1, β−1=r, and 1−r=p show that A maps onto A∪B and C onto B∪C; the relative lengths of the stay and return target atoms are r and p. Each B choice sends the whole switch interval onto exactly A or C. On each allowed transition the conditional coordinate is uniform on the target atom by the constant affine slope, even given any preceding finite atom history. Thus the stated P_q applies, and solving the balance equations gives masses (q,p,1−q)/(1+p), which yield the frozen density. The same Markov and branch argument at successive visits to B gives i.i.d. L=1+J, with J geometric on {1,2,…} of parameter p and independent of the fresh Bernoulli-q mark. The length-independent mark selects reward 1 or J, so E[R]/E[L]=(1−qr)/(1+p). With ρ equal to this ratio, total variance gives Var(R−ρL)=(r/p²)[qρ²+(1−q)(1−ρ)²]+q(1−q)r²/p². Use qρ²+(1−q)(1−ρ)²=(ρ−1+q)²+q(1−q) and ρ−1+q=p(2q−1)/(1+p). Dividing by E[L] gives an equivalent profile (pr/(1+p)³)(2q−1)²+(r+r²)q(1−q)/(p(1+p)); expansion yields exactly the displayed positive concave quadratic. Ergodicity of the finite chain gives the almost-sure law. The cycle CLT applies and geometric boundary tails are negligible on the square-root scale. Independently, the tilted matrix for the labeled transitions has the frozen cubic. Its Perron root at tilt zero is isolated and simple for 0<q<1, so a complex tilt neighborhood admits an analytic leading eigenprojection and an exponentially smaller remainder in the stationary generating function. Cauchy estimates then give convergence of its first two normalized log derivatives and in particular of Var(S_n)/n; the same analytic expansion yields the Gaussian limit. Endpoint biases are only limits in the claim. Independent evaluation gave V_min≈0.0894427191000, V(1/2)≈0.4736067977500 and the factor ≈5.295084971875.",
+      "residual_risks": [
+        "Finite checks of selected q and tilt values do not establish either limit; the analytic proof keeps q fixed in the open interval. No extension to arbitrary singular starting laws or other bases is needed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dajani–de Vries gives the Bernoulli-choice invariant-law framework, records golden-type switch masses in the entropy discussion, and proves typical switch frequency. This is not a second-order fluctuation formula.",
+          "For golden β, Baker–Dajani explicitly writes the two possible return words as T₁^(i−1)∘T₀ and T₀^(i−1)∘T₁ on their respective full branches. Their intervals yield and therefore cover the length weights β^(−i) for i≥2 under the uniform switch coordinate."
+        ],
+        "reasoning": "The underlying return and reward words are present in the literature. The two return maps in Example 1.1 are analyzed for fixed switch choice; the digit-count claim transfers both return types to the fluctuating switch-choice process with the AC stationary law, identifies the joint regeneration and evaluates the fixed-step count variance after centering by the random length. A generic Markov or regenerative CLT does not itself give this evaluated dependence.",
+        "searches": [
+          "arXiv:math/0612602 abstract and PDF p. 14 observations 2–3",
+          "arXiv:1509.06194 Example 1.1, equations (1)–(4)",
+          "Dajani–Kraaikamp DOI 10.1017/S0143385702001141, exact title/DOI lookup for full text"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1509.06194 Example 1.1",
+        "arXiv:math/0612602 abstract and p. 14",
+        "DOI 10.4171/JEMS/21 Theorem 8",
+        "DOI 10.1017/S0143385702001141 attempted paper retrieval",
+        "Resultary records f7bbd337d1d0 and 2d5b0e1e56b8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior full-branch intervals and explicit symbolic words are enough to start a short alternate derivation and rule out novelty of timing or of the possible words. They do not report the random-mark centered digit reward variance or optimize it.",
+          "The limiting reward is not a per-switch count: it subtracts ρ(q)L to obtain fixed-digit-time rather than fixed-excursion-count fluctuations. The benchmark theorem instead fixes a different digit law."
+        ],
+        "reasoning": "The useful increment is not a special value of the known mean return, or application of the independent-fair digit law. It requires the joint duration-reward law under arbitrary random interleaving in the AC measure and its centering, giving the exact nonconstant all-bias profile despite an unchanged marginal switch clock. No inspected exact fluctuation theorem already packages this calculation.",
+        "searches": [
+          "arXiv:1509.06194 Example 1.1 versus frozen RESULT.md Steps 2–4",
+          "arXiv:math/0612602 invariant-law observations and DOI 10.4171/JEMS/21 Theorem 8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 8 gives uniform Bernoulli digits under the maximal-entropy measure, implying the different variance rate 1/4. Equal switching bias in the AC law is not that measure.",
+          "Resultary f7bbd337d1d0 gives a CLT for one deterministic skewed symmetric golden map at a plateau endpoint, not independently chosen B branches with variable q."
+        ],
+        "reasoning": "Zero-digit versus one-digit count is an equivalent variance formulation only for the same process, since their fixed-length sum is n. It does not identify the different golden map or the different invariant measure.",
+        "searches": [
+          "Resultary: golden-ratio random beta switching/digit variance, exact all-bias variance, Bernoulli-q digit-count CLTs, and golden switch returns versus maximal entropy",
+          "DOI 10.4171/JEMS/21 Theorem 8; arXiv:1509.06194 Example 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f7bbd337d1d0 gives variance √5/32 for its different deterministic golden map; 2d5b0e1e56b8 concerns finite multiplicatively constrained words. Baker–Dajani gives the exact mean return 2β²−β, not the digit dispersion."
+        ],
+        "reasoning": "The compared exact constants and law summaries give no variance-envelope match for the same stationary model, and exact mean return is not variance of the digit reward. This is a bounded catalogue and literature comparison.",
+        "searches": [
+          "Resultary: exact all-q bias envelope for golden-ratio random expansions",
+          "Resultary f7bbd337d1d0 Finding; arXiv:1509.06194 golden example"
+        ]
+      },
+      "rationale": "Credit only the evaluated second-order digit-count profile across all biases for the stationary absolutely continuous model and its sharp optimization. The Markov/invariant-law framework, golden full-branch return maps, their words and geometric timing, and the independent digit process under a different measure are prior. No overlapping all-bias variance theorem or stronger matching fluctuation result was identified in the inspected passages.",
+      "residual_risks": [
+        "The foundational Dajani–Kraaikamp full text was not obtained here; a prior exact Markov-additive variance computation or stronger corresponding digit-fluctuation theorem could cover the profile. The inspected known marked-word geometry makes the calculation short and is not itself credited as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the deterministic-choice return maps and their geometry; not the second-order profile",
+          "evidence": [
+            "Both maps are generalized Lüroth full-branch maps; explicit return words and interval lengths give the geometric law. Mean return 2β²−β stated."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1509.06194",
+          "material_read": "Example 1.1, pp. 4–5, equations (1)–(4), extracted offsets about 15900–20251",
+          "method": "Read original OA PDF; evaluate relative branch lengths and compare words",
+          "title": "Induced Random β-transformation",
+          "trigger": "Same golden switch return structure and explicit digit words"
+        },
+        {
+          "assessment": "Existing invariant-law framework and switch masses/mean frequency, not an evaluated digit variance in these passages",
+          "evidence": [
+            "Unique AC invariant law for Bernoulli choices; remark on β²=b₁β+1 refers to known switch masses and entropy, not a dispersion result."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0612602",
+          "material_read": "PDF abstract p. 1, and p. 14 observations 2–3 around extracted offsets 47700–50960",
+          "method": "Read original OA PDF and compare measure, entropy, switch frequency and fluctuation observables",
+          "title": "Invariant densities for random β-expansions",
+          "trigger": "Same Bernoulli-choice stationary AC framework and potential golden special case"
+        },
+        {
+          "assessment": "Covers an exact i.i.d. digit benchmark under a different measure",
+          "evidence": [
+            "Uniform Bernoulli digits under the maximal-entropy measure; earlier invariant measure distinguished."
+          ],
+          "identifier_or_url": "https://doi.org/10.4171/JEMS/21",
+          "material_read": "OA PDF pp. 1, 4, 15–16, Theorem 8",
+          "method": "Read primary statements and compare the invariant measures",
+          "title": "Measures of maximal entropy for random β-expansions",
+          "trigger": "Potential coverage by a known exact independent-digit process"
+        },
+        {
+          "assessment": "Unresolved direct primary coverage beyond the known Markov framework; no negative inference from access",
+          "evidence": [
+            "Title/authors and citation verified; the frozen self-review describes its Markov transition discussion, but this did not substitute for reading the paper."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0143385702001141",
+          "material_read": "Bibliographic identification and publisher index only; readable full text not obtained in this review",
+          "method": "DOI/open-copy search; attempt at identified Cambridge publisher article 8F6CB0519FB1E14A4525F557A3159EB7",
+          "title": "Random β-expansions",
+          "trigger": "Foundational source for the exact golden-base finite-state process"
+        },
+        {
+          "assessment": "Different deterministic map and invariant digit process",
+          "evidence": [
+            "Single plateau endpoint, AC stationary digit-count CLT with √5/32 and no Bernoulli bias parameter."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-three-step-zero-digit-correlations-and-a-gaussian-law-at-a--f7bbd337d1d0",
+          "material_read": "RESULT.md opening Finding",
+          "method": "Resultary local mirror",
+          "title": "Exact three-step zero-digit correlations and a Gaussian law at a plateau endpoint",
+          "trigger": "Closest inspected catalogue digit-count fluctuation theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and centered reward calculation; arXiv:1509.06194 Example 1.1 for known timing; DOI 10.4171/JEMS/21 Theorem 8 for the different digit benchmark"
+      ],
+      "rationale": "For the natural stationary digit-count observable, the same mean at balanced bias could suggest fair Bernoulli-like fluctuations and the unchanged switch clock could suggest little bias dependence. The exact all-bias dispersion distinguishes both: the timing is unchanged while the second-order statistic is strictly optimized at fair switching, and the independent-fair benchmark with equal digit mean gives a substantially different variance. Researchers using stationary digit counts can use the precise rate and distinguish the AC and maximal-entropy preparations. The contribution is this evaluated, optimized profile for the random interleaving, not application of a generic CLT or recomputation of known branch lengths.",
+      "residual_risks": [
+        "A narrow exact evaluation specific to the golden-base AC model, not a claim about general bases or inferences from independent digits."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

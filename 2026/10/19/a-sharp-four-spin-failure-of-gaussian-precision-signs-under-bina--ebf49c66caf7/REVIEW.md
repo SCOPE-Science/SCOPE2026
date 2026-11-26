@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A binary conditioning variable makes conditional expectations affine, so MTP2 implies nonnegative least-squares residual covariance for every pair among at most three spins. For the four-spin family, pairwise nonnegative log interactions establish MTP2, and conditional independence of the two leaves makes their linear residual covariance exactly the product of two logistic second differences and a strictly positive binary-interaction residual variance. The Schur-complement inverse sign is therefore exact. The rational example and exact arithmetic checks agree. Finite checks do not substitute for the analytical argument.
+PASS
 
-## Originality — PASS (with residual priority risk)
+Inspected RESULT.md:26–98, VERIFICATION.md and verify_ferromagnetic_precision.py. Full support gives strict variance in every nonzero direction. For d=2 the binary 2×2 determinant is the covariance, and for d=3 conditioning on the third coordinate preserves the nonnegative determinant. Because a binary conditioning variable spans all its functions together with the constant, the off-diagonal Schur complement is exactly the mean conditional covariance. The 2×2 inverse reverses its sign. In the four-spin model the log-mass has nonnegative pairwise mixed differences and no XY coupling. The conditional means depend only on k=Z+W; their nonlinear residuals after projection onto 1,Z,W are their discrete curvatures times the same residual of ZW. With q the positive four-cell marginal masses, the vector (1/q00,−1/q01,−1/q10,1/q11) spans the complement and has positive discrete mixed difference sum 1/q, giving the claimed residual variance. Independent expansion of the logistic second differences yields the strictly positive prefactor times (1−ar) or (1−bs); conditional independence kills the covariance of the conditional noises. The determinant of the residual covariance is positive, so the sign rule includes both exact zero hypersurfaces. Independent integer moment enumeration used weights 2^(3−3x+y+(x+y)(z+w)); sum 235, first moments 59,194,158,158, and XY moment 50. For C=235²Σ, det C=11393411432400000 and the minor deleting row 2 and column 1 is −795240000. Hence ΣXY=304/55225 and KXY=235/60966, as stated. Did not execute the source verifier.
 
-The closest primary work, Fallat et al., *Total positivity in Markov structures* (arXiv:1510.01290), proves general MTP2 conditional-independence and factorization properties, and discusses M-matrices for Gaussian MTP2. Its inspected binary and Gaussian sections do not state the dimension-three boundary or the four-spin logistic-curvature precision sign rule. Karlin–Rinott establish the Gaussian equivalence, which does not imply the non-Gaussian conclusion. Slawski–Hein is Gaussian-specific. Baba–Shibata–Sibuya show the broader separation of partial and conditional correlation; their abstract was available, but their full text was not verified here, so priority risk remains. The novelty claim excludes all general MTP2 preservation and Gaussian results. Similarity-search results on unrelated occupancy and inversion precision models were compared by implication, not by title.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A basic Gaussian shortcut identifies attractive dependence with a nonpositive off-diagonal precision. The theorem proves that shortcut cannot automatically be transferred to binary MTP2 models, gives the least possible binary dimension, and determines the complete sign transition for a natural nontrivial ferromagnetic graph. The explicit curvature mechanism explains *why* conditional independence and negative linear partial correlation coexist, which is relevant to graphical modeling and covariance-based surrogate inference.
+Credit the established Gaussian characterization, binary Ising MTP2 criterion, ordinary versus augmented covariance distinction, and even a previously published four-cycle with spurious ordinary precision entries. The latter has negative entries at the nonedges; the supported distinct claims are the sharp cutoff for a positive entry within full-support binary MTP2, and the exact field-dependent positive/zero/negative classification for the specified subfamily.
 
-## Limitations
+## value
 
-An earlier formulation via general nonlinear-regression Schur complements or log-linear Ising methods may implicitly contain the conclusion. Such priority has not been independently audited. The four-spin formula concerns one precision entry of the given model, not arbitrary four-spin laws.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A known spurious nonzero precision entry is not enough to overturn the attractive Gaussian sign rule. This threshold and the sign-changing full-support model do: the marginal covariance is positive and the conditional pair independent, yet the linear partial correlation is negative. The field hypersurfaces and common omitted separator interaction identify when a practitioner can and cannot read the usual precision sign as attraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

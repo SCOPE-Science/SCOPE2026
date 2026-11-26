@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:39:27.593353Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–21 and 25–52; projection, cell, facet and interval calculations independently checked.",
+        "Frozen check.py and VERIFICATION.md inspected; the indicated rational checks in d=2–6 and secondary numerical volume comparison are recorded evidence, not runs in this review.",
+        "Pavlík arXiv:2611.14277v1, Definition 1.2, Definition 3.1, Proposition 4.2, Lemma 6.3 and Proposition 6.4, actual cited passages."
+      ],
+      "rationale": "Faces through 0 give coordinate deletion and strictly positive retained barycentric weights, including the positive remaining weight at 0. For a face indexed by I not containing 0, the foot has retained coordinates b_i+λ_I/L_i, with λ_I>0 by the strict interior hypothesis. The origin normal cell is exactly the box [0,b_1]×…×[0,b_d]. At v_i set t=L_i(x_i−b_i); then the normal constraints are t≥0 and x_j≤b_j+t/L_j for j≠i. The original simplex constraints reduce to 0≤x_j for j≠i and the slanted top. In the full-dimensional cell, bottom t=0 and top cannot meet because at t=0 all x_j≤b_j and Σ b_j/L_j<1. Each upper/lower coordinate pair is also disjoint. A vertex needs d independent active inequalities, hence one per pair; all 2^d choices solve uniquely and feasibly as exactly the two families of feet, with independent active normals. Thus all stated inequalities really are facets and compatible intersections are precisely partial choices of the pairs, giving the cube and the antipodal v_i (top and lower choices) and B (bottom and upper choices). South/north intersections work coordinatewise in the cube, giving O1–O2. O3 can be checked directly: the edge at v_i for the bottom/top swap is along e_i, normal to the north facet t=0. The edge at v_i for a j-swap is along v_j−v_i, normal to the north facet x_j=b_j+t/L_j. At 0 it is coordinate perpendicularity. The inspected conditional Proposition 4.2 can also be used once the combinatorics and distinct projection vertices have established admissibility. Every point has at least one support-score maximizing vertex and two distinct cells meet on their tie hyperplane, a face of both. This verifies the normal-cell equality and face-to-face tiling for all allowed B and leg lengths, not just symmetric anchors or lengths.",
+      "residual_risks": [
+        "The cubes are combinatorial and need not be orthogonal boxes. Finite checks cannot settle the full-dimensional range; the proof here uses the right-simplex geometry explicitly."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 6.6 gives the equivalence in dimension three and Remark 6.9 records the low-dimensional implication. The higher-dimensional general implication is Conjecture 6.8. Proposition 4.2 requires admissibility, and Lemma 6.3 requires the geometric cutout condition as well as the kernel.",
+          "Companion Proposition 5.15 provides an all-dimensional apex result for a cone section satisfying the relative-interior fan incidence condition (I), with axial anchor and its specified pyramid construction. Proposition 5.16 also characterizes such bipolar realizations; neither asserts that all perpendicular sections of the arbitrary anchored right simplices satisfy (I). Lemma 5.12 gives only one direction of (I) under reciprocity.",
+          "The same-day orthogonal product result extends low-dimensional factors, not a single indecomposable higher-dimensional right simplex."
+        ],
+        "reasoning": "The apex result genuinely overlaps with the local geometry after conditions are proved. Re-expressing a tangent cone as an axial pyramid does not verify the interval condition or show its normal restriction is untruncated by the actual opposite simplex facet. The inspected sufficient conditions do not directly supply this uniform right-simplex assertion.",
+        "searches": [
+          "Pavlík arXiv:2611.14277v1, Proposition 4.2, Lemma 6.3, Theorem 6.6 and Conjecture 6.8 / Remark 6.9",
+          "Pavlík arXiv:2611.13896v1, Definition 5.1, Lemma 5.12, Propositions 5.6, 5.15 and 5.16",
+          "Local Resultary same-day product theorem f0cb121da12f"
+        ]
+      },
+      "checked_sources": [
+        "Pavlík arXiv:2611.14277v1 and 2611.13896v1 actual cited and conditional apex passages",
+        "Local Resultary f0cb121da12f, exact statement compared",
+        "Bounded literature search for classical cubical subdivision and right-simplex metric cutouts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the conditional apex theorem, the cone intersected with the normal inequalities is the local polytope; projected vertices and interval structure follow under (I). The reciprocal definition itself imposes strict support inequalities beyond the existence of some projected foot. The frozen right-simplex derivation explicitly controls feasible facet choices and actual original-polytope restrictions.",
+          "Thales Proposition 4.2 supplies perpendicularity once admissibility is shown and the general fan already tiles; the substantive step is the all-vertex, all-anchor identification of the actual projected cutouts. The same-day product theorem shares this conclusion for a different class and the date decides no priority."
+        ],
+        "reasoning": "A prior theorem that verified (I) for those sections and the relevant truncation for all anchors could give equivalent coverage. The known conditional or regular-base results do not do so. The proof here supplies a uniform strict projection and active-facet argument, not just a new numerical instance of the prior regular example.",
+        "searches": [
+          "Compare companion Definition 5.1 and Propositions 5.15–5.16 with the exact inequalities of frozen RESULT.md §§2–3",
+          "Compare Thales Proposition 4.2 and Lemma 6.3 with the bound proof",
+          "Compare local Resultary f0cb121da12f Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A restricted translated vertex normal fan is the Thales power diagram. An admissible orthogonal cutout and a Boolean orthogonally bipolar cuboid carry the additional geometry; an abstract cubical interval lattice does not.",
+          "Remark 5.7 gives the abstract cubical realization from the Boolean simplex face lattice. Proposition 5.6 proves the interval condition for regular centered simplex bases. A perpendicular section of a right-simplex tangent cone at an arbitrary B can have unequal intercepts and need not be regular."
+        ],
+        "reasoning": "Replacing fan by power diagram or using the word cuboid does not change the comparable claim. Existing cubical subdivisions and known centered regular examples do not assert that the actual Euclidean projection feet at this anchor are the metric cuboid's vertices or coincide with the power cells.",
+        "searches": [
+          "Resultary local semantic search for orthogonal right-simplex cutouts, cube subdivisions and Thales normal cells",
+          "Pavlík arXiv:2611.14277v1 §§3–6 and arXiv:2611.13896v1 §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The material non-self Resultary hit is f0cb121da12f, with families of orthogonal products and factor dimensions ≤3. The companion treats a centered regular simplex as an exact apex example and gives the already-known abstract cube. The frozen finite samples are not a separate prior classification."
+        ],
+        "reasoning": "The exact family to check is every anchored right simplex with arbitrary positive legs, not a catalogue of Boolean face lattices or finitely many centered shapes. Neither of the inspected family descriptions provides that classification.",
+        "searches": [
+          "Local Resultary checks for explicit right-simplex, orthoscheme and product cutout families",
+          "Companion arXiv:2611.13896v1, Proposition 5.6 and Remark 5.7 exact illustrated family"
+        ]
+      },
+      "rationale": "The distinct conclusion supported by the inspected literature is the uniform metric result for right simplices, at every interior anchor and at every vertex, including dimensions at least four. The prior cube combinatorics, always-existing normal-fan tiling, conditional apex cutout machinery and low-dimensional results are substantial overlaps and are not claimed as new. The inspection does not establish historical priority for the remaining metric result.",
+      "residual_risks": [
+        "Historical work on classical or metric cubical subdivisions could establish earlier right-simplex coverage; the targeted literature comparison is not exhaustive. The conditional apex mechanism and abstract cubical subdivision are known and must not be credited as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified prerequisite theory and low-dimensional result; not a general result for these higher-dimensional right-simplex cells",
+          "evidence": [
+            "Admissibility includes the actual distinct projection vertices and geometric bipolarity; Prop. 4.2 adds orthogonality conditional on it. Theorem 6.6 is specifically dimension three; Conj. 6.8 asks for the n≥4 sufficiency."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.14277v1",
+          "material_read": "Definition 1.2 p. 4 (offset 13585), Definition 3.1 p. 7 (20739), Proposition 4.2 p. 11 (34721), Lemma 6.3 and Proposition 6.4 pp. 17–18, Theorem 6.6 pp. 18–19 (57064), Conjecture 6.8 and Remark 6.9 p. 19 (60358)",
+          "method": "OA primary PDF passage reading",
+          "title": "Thales’s theorem in higher dimensions",
+          "trigger": "Defines the metric geometry and poses the extended tiling question"
+        },
+        {
+          "assessment": "Material conditional apex and exact regular-base overlap; no verified implication for every stated right-simplex anchor",
+          "evidence": [
+            "Condition (I) is an iff between incidence H⊆G and a normal/face-cone relative-interior intersection. The pyramid result uses an axial anchor and yields the projection vertices, bipolarity and the actual cone restriction under this condition. The checked regular-simplex proof uses special centered normal relations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.13896v1",
+          "material_read": "p. 3 classical combinatorial subdivision; Definition 5.1 p. 14 (offset 48795); Propositions 5.6 and Remark 5.7 pp. 15–16 (offset 53900 onward); Definition 5.11 / Lemma 5.12 (around 59850); cone construction and Lemma 5.14 (62200); Propositions 5.15–5.16 pp. 19–21 (67100 and 72075 onward)",
+          "method": "OA primary PDF inspection of decisive definitions, hypotheses and proof passages",
+          "title": "Face lattices of polytopes and bipolar polytopes",
+          "trigger": "Exact bipolar/metric apex theorem and earlier cubical subdivisions may cover the claim"
+        },
+        {
+          "assessment": "Material overlap on the tiling mechanism and low-dimensional factors; no coverage of the higher-dimensional indecomposable right simplex, no priority inferred",
+          "evidence": [
+            "The theorem requires an orthogonal product of dimension-at-most-three factors for the all-anchor-kernel tiling implication."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-orthogonal-products-preserve-bipolar-cutouts-and-extend-thales-t--f0cb121da12f",
+          "material_read": "Mirrored RESULT.md, Finding and assumptions",
+          "method": "Local Resultary search and mirror passage reading",
+          "title": "Orthogonal products preserve bipolar cutouts and extend Thales tilings to arbitrary dimensions",
+          "trigger": "Distinct same-day theorem extending the same high-dimensional implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and constructive proof",
+        "Pavlík Conjecture 6.8 and the companion's distinction between Boolean combinatorics and metric apex realization"
+      ],
+      "rationale": "The theorem resolves the actual projection-cutout identification, a substantive part of the higher-dimensional Thales question, for a natural family of simplices with no tuning of the interior anchor. The exact cell inequalities and cube structure give concrete usable geometry, including non-box cells. An abstract cube subdivision by itself would not resolve that question.",
+      "residual_risks": [
+        "No result for general high-dimensional polytopes or all simplices is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

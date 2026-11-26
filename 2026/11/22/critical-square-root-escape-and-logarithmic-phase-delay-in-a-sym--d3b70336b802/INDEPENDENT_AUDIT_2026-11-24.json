@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:25:14.542789Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At a=-1 the phase exactly satisfies u_{n+1}=sin(u_n), while x_{n+1}=x_n+u_{n+1} and y_{n+1}=-x_n. If u_0 is a multiple of π then u_1=0 and the image lies on the fixed line. Otherwise 0<|u_1|≤1 and the sign s persists while |u_n| decreases to zero, since the only fixed magnitude of sine on [0,1] is zero. The reciprocal-square increment expands as 1/3+u_n²/15+O(u_n⁴). Averaging gives v_n/n→1/3 for v_n=u_n^{-2}; then summation gives v_n=n/3+O(log n), and inversion gives u_n²=3/n+O(log n/n²). Subtracting the increments of n/3+(log n)/5 leaves a summable O(log n/n²) series, proving a finite constant rather than just an asymptotic equivalent for the logarithm. Independently checked the local coefficients with python3 /workspace/branches/replay_3_5/expansion_checks.py; the accompanying .log records the result. For x_n, separate s sqrt(3/j) from each phase term in the exact sum. The phase errors are O(log j/j^{3/2}), with tail O(log n/sqrt(n)); the sum of j^{-1/2} minus 2sqrt(n) has a finite limit with tail O(n^{-1/2}), since the differences from the integrals over [j-1,j] are summable. This proves the asserted intercept and bound; y_n=u_n-x_n gives the opposite intercept. Divergence excludes all nonexceptional orbits from recurrence; points captured from outside the line never revisit a sufficiently small neighborhood. The map preserves any given invariant probability in the measure-theoretic sense even if not invertible; recurrence on a countable Euclidean base implies almost-everywhere point recurrence, hence concentration on the closed fixed line. Conversely the fixed line supports arbitrary invariant probabilities and only fixed points are periodic. These statements use exact real arithmetic; the archived floating-point diagnostic was inspected, not executed, and could not decide exact capture near rounded multiples of π or the infinite-time assertions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The three-dimensional critical flip result has a local finite-constant log clock for 0<b≤1/2, with coefficients approaching the scalar ones as b→0. The sine-memory result proves a clock for fixed m≥1 with w_0,w_m>0, and compares with the scalar iterate in its proof. Its coefficients formally give 1/3 and 1/5 at zero lag moments, outside its asserted positive delayed weight range; it expressly gives no uniformity toward a reducible boundary."
+        ],
+        "reasoning": "Neither limiting expression is an included parameter case. A generic parabolic expansion explains the scalar clock, but a local result for a different amplitude or strictly positive memory does not itself give the real-plane exception set, accumulated drift with an intercept or the support classification.",
+        "searches": [
+          "Resultary: critical sine map, inverse-square logarithmic phase, critical sinusoidal flip and sine-memory clock",
+          "2026/11/22 Resultary 2e7a51efdb8a and e19724b77951, Findings and scopes"
+        ]
+      },
+      "checked_sources": [
+        "Ge et al. DOI 10.3390/sym15030712 pp. 2 and 6",
+        "Caldero Le jardin des plaisirs pp. 83–84",
+        "Resultary 2e7a51efdb8a and e19724b77951",
+        "Li et al. DOI 10.1109/TIE.2022.3144592 (access attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ge et al.'s shift inversion ℓ=d/(a+1) is singular at a=-1. Caldero's weaker remainder allows an unbounded difference after subtracting n/3+(log n)/5; it cannot by itself certify the sharper finite constant. The positive-memory theorem assumes a genuine delayed term, so cannot be specialized by simply setting every lag weight to zero."
+        ],
+        "reasoning": "The known scalar leading law plus sufficiently precise error bounds already makes square-root summation natural. The distinct result is its exact global application to this degenerate offset coupling, with summability yielding the phase limit and planar intercept, and classification of capture and recurrence. The same-day records are material analogues, not an ordering of priority.",
+        "searches": [
+          "Ge et al. article p. 6 offset 24098",
+          "Caldero pp. 83–84 offset 259899",
+          "Resultary e19724b77951 RESULT.md Finding, Assumptions and proof steps 1–2, offsets 0–3500"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact same planar map is Ge et al. Eq. (1). At a=-1 the transformation (x,y) to (x,x+y) makes it the sum extension of scalar sine iteration, in discrete time. Caldero's pp. 83–84 explicitly state u_n∼sqrt(3/n) and u_n^{-2}-u_0^{-2}-n/3=(log n)/5+o(log n)."
+        ],
+        "reasoning": "The scalar recurrence is not an independent new object or coefficient. Its known formula must be credited, and the claim compared in triangular coordinates as well as in the original coordinates. The finite constant is stronger than the scalar displayed remainder and the planar orbit statements concern the accumulated phase.",
+        "searches": [
+          "Ge et al. DOI 10.3390/sym15030712 Eq. (1) and §3.2",
+          "Scalar sine iteration inverse-square logarithmic asymptotic; Caldero Le jardin des plaisirs §1.9.9–1.9.11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This is not a census or a table: exact matching refers to a prior theorem for the same map. Retrieved same-day Resultary analogues have inverse-square clocks but distinct recurrences. Caldero is an exact coefficient match for the scalar iteration; Ge et al. give the exact planar map and the offset relation d=(a+1)ℓ, not the finite intercept or recurrent-set classification in the passages read."
+        ],
+        "reasoning": "No exact independent statement of the full planar theorem was established by the checked sources. Matching one numeral or just the map does not settle the entire claim; the scalar coefficient is nevertheless verified prior coverage.",
+        "searches": [
+          "Resultary: a=-1 Ge–Li sine-offset planar escape, logarithmic reciprocal phase and fixed-line capture",
+          "Caldero JDP.pdf pp. 83–84; Ge et al. DOI 10.3390/sym15030712 §3.2"
+        ]
+      },
+      "rationale": "Qualified for the combined sharp resonant planar orbit classification, including a finite planar escape intercept and summable renormalization of the phase. Credit prior scalar sine iteration: both the sqrt(3/n) leading law and the logarithmic coefficient 1/5 are explicitly in the Caldero exposition. Neither these two scalar facts nor the Taylor-expansion method is claimed as new by this review. The strongest checked scalar passage gives an o(log n) remainder, weaker than a finite renormalized limit; the checked exact planar antecedent does not give the reconstructed escape law or global classification.",
+      "residual_risks": [
+        "The underlying Carnet de Voyage en Analystan source cited in the exposition was not located; it could contain more detailed scalar asymptotics. The Li et al. full text was unavailable. Unindexed treatments of scalar parabolic iteration or an earlier equivalent planar reconstruction may precede some statements. Same-day overlap does not establish relative priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact map; inspected offset treatment does not settle the excluded shift denominator",
+          "evidence": "x_{n+1}=x_n+sin(x_n+y_n), y_{n+1}=a x_n; d=(a+1)ℓ and its inverse require a+1 nonzero for inversion.",
+          "identifier_or_url": "https://doi.org/10.3390/sym15030712",
+          "material_read": "Article p. 2 Eq. (1) at PDF offset 4901 and p. 6 §3.2 offset 24098",
+          "method": "OA primary PDF passage read",
+          "title": "Multiple Alternatives of Offset Boosting in a Symmetric Hyperchaotic Map",
+          "trigger": "Exact source map and possibly covering resonant analysis"
+        },
+        {
+          "assessment": "Verified scalar overlap, finite phase constant not stated in the displayed expansion",
+          "evidence": "n^{-1/2} leading law with sqrt(3) and inverse-square logarithm coefficient 1/5 with o(log n) residual.",
+          "identifier_or_url": "https://math.univ-lyon1.fr/~caldero/JDP.pdf",
+          "material_read": "§1.9.9–1.9.11, pp. 83–84, offset 259899",
+          "method": "OA primary expository PDF passage read",
+          "title": "Le jardin des plaisirs",
+          "trigger": "Exact scalar sine law and coefficient match in focused literature lookup"
+        },
+        {
+          "assessment": "Local result for a different map; b=0 boundary excluded",
+          "evidence": "Three-dimensional physical amplitude and finite log correction for positive b up to 1/2; no planar phase sum or planar orbit classification.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-logarithmic-critical-flip-clock-in-a-three-dimensional-sinusoi--2e7a51efdb8a",
+          "material_read": "RESULT.md Finding and scope, offset 0",
+          "method": "Local Resultary mirror passage read",
+          "title": "A logarithmic critical flip clock in a three-dimensional sinusoidal map",
+          "trigger": "Strongest indexed distinct finite-constant flip clock analogue"
+        },
+        {
+          "assessment": "Related formula; no zero-delay specialization within the theorem",
+          "evidence": "m≥1 and w_m>0, positive histories for asymptotics, no uniformity near reducible weights; comparison to a scalar sine iterate is used for leading scale bounds.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-five-lag-threshold-for-the-logarithmic-clock-of-critical--e19724b77951",
+          "material_read": "RESULT.md Finding, Assumptions and proof steps 1–2, offsets 0–3500",
+          "method": "Local Resultary mirror passage read",
+          "title": "A sharp five-lag threshold for the logarithmic clock of critical sine-memory dynamics",
+          "trigger": "Possible containing theorem for the scalar inverse-square clock"
+        },
+        {
+          "assessment": "Comparison unresolved, not negative evidence",
+          "evidence": "Both attempts returned HTTP 202 without a usable full-text passage.",
+          "identifier_or_url": "https://doi.org/10.1109/TIE.2022.3144592",
+          "material_read": "No primary passage retrieved independently; abstract comparison mentioned only in the frozen record",
+          "method": "Lawful primary DOI retrieval attempts on configured routes",
+          "title": "A Self-Reproduction Hyperchaotic Map With Compound Lattice Dynamics",
+          "trigger": "Predecessor sinusoidal-map work named as a coverage risk"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The vanishing denominator is intrinsic to the source's offset mechanism, not a gratuitous slice. The exact classification distinguishes all capture lines from irreversible signed subballistic drift and determines what happens to stationarity on the noncompact phase space. The finite intercept and renormalized phase distinguish this from merely observing that the scalar phase goes to zero or verifying one orbit. The ingredients are elementary, and value is attributed to this quantitative global boundary description, not to a new sine-iteration method or cryptographic implication.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

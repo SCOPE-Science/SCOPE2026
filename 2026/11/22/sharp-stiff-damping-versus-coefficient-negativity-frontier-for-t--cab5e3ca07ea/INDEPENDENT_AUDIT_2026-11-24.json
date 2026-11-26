@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:42:35.308006Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 25–97",
+        "VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent symbolic and numerical replay: python3 /workspace/evidence/record-2.py (SymPy, mpmath)"
+      ],
+      "rationale": "The first three order conditions give mean 1/2 and variance 1/12 at two distinct sorted nodes, and c in [0,1] gives u in [1/6,1/2]. Independently, in the B-orthonormal basis (1, sqrt(12)(c-1/2)), the matrix A has first column (1/2,1/sqrt(12)) and upper-right entry -1/sqrt(12) by the remaining order condition. In that basis the algebraic-stability form is diagonal with entries 0 and twice the lower-right entry of A, so that entry is t/6 for arbitrary t>=0. This is reversible and verifies exhaustiveness. The scalar test function in this basis gives the stated numerator and denominator, and residual |1-t|/(1+t) without a degenerate leading denominator. The upper-right Butcher-entry depth is strictly positive and strictly increasing in t at every u; at the least feasible t=(1-rho)/(1+rho) the other entries are positive. The derivative of the remaining depth function in u is strictly increasing for u>1/6, and its boundary signs are (3t-1)/8 and (5+t)/8. This proves attainment, the change at rho=1/2, the root characterization, and uniqueness including the equality case at the transition. Independently checked the exact Radau IIA tableau and sampled depths 1/12, 1/18, 0.04503467712462134 at rho=0,1/2,3/4, and the limit 0.03563906993888331.",
+      "residual_risks": [
+        "Sampled depths are corroboration; the all-budget result and uniqueness use the analytic argument.",
+        "No claim for other numbers of stages, unbounded nodes, or nonlinear SSP or finite-step objectives."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "RESULT.md lines 104–108 describe a general qualitative sign barrier, a phase-type SSP optimization, and a risk of earlier implicit-RK parametrizations.",
+          "The same-day Resultary summaries describe a large-stage oscillatory damping boundary and a stage-law mean-square decay and real-axis stability-radius frontier, respectively."
+        ],
+        "reasoning": "A qualitative barrier forces some negative entry but cannot give its sharp depth at each residual. Different classes and objectives in the matched stability results do not supply a stronger joint optimization on the present class. An equivalent general parametrization with a prior correspondence and minimization remains an access risk.",
+        "searches": [
+          "arXiv:2611.07981v1",
+          "arXiv:2610.37425v1",
+          "Hairer and Wanner, Solving Ordinary Differential Equations II",
+          "Resultary 4133b2680f33 and 9447b66be7eb"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 54–114",
+        "Resultary f7feb4142d7a, 60906ae1b586, 4133b2680f33, 9447b66be7eb (indexed statements)",
+        "arXiv:2611.07981v1 and arXiv:2610.37425v1 (attempted access)",
+        "Hairer and Wanner (cited use only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strongest catalog match is the unconstrained sharp minimum and unique symplectic optimizer, reported at p^3(1-p)=1/12.",
+          "RESULT.md lines 65–91 show the extra residual-to-parameter reduction and optimization over t>0, including the new change in active node bound."
+        ],
+        "reasoning": "The previously attained lower bound remains a lower bound for restricted feasible sets but cannot identify their exact minima after its optimizer is excluded. No stronger prior implication was established by the statements available; this does not rule out an implicit earlier result.",
+        "searches": [
+          "Resultary f7feb4142d7a catalog statement and attempted RESULT.md inspection",
+          "arXiv:2611.07981v1",
+          "arXiv:2610.37425v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The unconstrained predecessor's catalog statement fixes the symplectic optimizer; the nearby SSP record optimizes real-axis stability in a different SSP-optimal class.",
+          "RESULT.md lines 54–81 show that within the present family imposing a stiff residual is equivalent to limiting the algebraic-stability parameter to a two-sided interval."
+        ],
+        "reasoning": "Negative-real-axis residual, real-axis stability interval and SSP radius are not interchangeable. A constraint on the residual here forces a positive algebraic-stability parameter t when rho<1, excluding the unconstrained symplectic endpoint. No equivalent budget optimum was established in the available prior statements.",
+        "searches": [
+          "Resultary semantic comparison of the stiff-limit/negative-entry frontier",
+          "Resultary f7feb4142d7a",
+          "Resultary 60906ae1b586",
+          "arXiv:2611.07981v1",
+          "arXiv:2610.37425v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The unconstrained depth 0.0356390699... is explicitly in the catalog and is credited in RESULT.md lines 23 and 97.",
+          "The tableau at rho=0 is the classical two-stage Radau IIA method; the new assertion at this endpoint is its optimization property, not its coefficients."
+        ],
+        "reasoning": "The two endpoint data do not determine a function of all budgets or the derivative sign change at rho=1/2; the available catalog statements report no exact table of the constrained optimizers.",
+        "searches": [
+          "Resultary f7feb4142d7a",
+          "Resultary 60906ae1b586",
+          "Hairer and Wanner, Solving Ordinary Differential Equations II"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the profile with 0<=rho<1 and residual constraint sigma<=rho, including saturation and the boundary-to-interior transition. The earlier unconstrained minimum, uniqueness at that endpoint, and the classical Radau tableau are credited rather than counted as new. The closest indexed statements and available comparisons do not exhibit a dominating result for the strict-budget profile. Primary-source access was incomplete.",
+      "residual_risks": [
+        "No decisive primary passage could be verified for the closest predecessor or the two cited preprints; comparison is limited to catalog and attributed descriptions.",
+        "Earlier implicit RK parameter studies could encode the same constrained optimization. An unrevealing literature lookup is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unconstrained endpoint covered; primary proof details unresolved",
+          "evidence": "Indexed summary reports the sharp unconstrained value, unique symplectic optimizer and equation p^3(1-p)=1/12; mirrored full-text attempt timed out.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-unavoidable-negative-butcher-coefficient-for-two-stage-alg--f7feb4142d7a",
+          "material_read": "Indexed summary and frozen RESULT.md lines 97, 104–105; primary passage not retrieved",
+          "method": "Resultary semantic search; attempted mirrored RESULT.md lookup",
+          "title": "Sharp unavoidable negative Butcher coefficient for two-stage algebraically stable third-order Runge–Kutta rules",
+          "trigger": "Same feasible class and negativity objective"
+        },
+        {
+          "assessment": "Available description gives a qualitative obstruction, not a frontier",
+          "evidence": "Frozen report points to Section 5's nonnegativity obstruction; no inspected primary passage establishes its exact scope independently.",
+          "identifier_or_url": "arXiv:2611.07981v1",
+          "material_read": "Frozen RESULT.md lines 104–105 and REVIEW.md section on originality; primary theorem unavailable",
+          "method": "Cited-source OA lookup including HTML version; timed out",
+          "title": "A stability order barrier and SSP bound for Runge–Kutta methods with non-negative coefficients",
+          "trigger": "Closest qualitative sign barrier"
+        },
+        {
+          "assessment": "Described objective is different; precise scope unverified",
+          "evidence": "Frozen comparison identifies a positive-coefficient SSP-radius objective, not negative coefficient depth subject to a stiff residual.",
+          "identifier_or_url": "arXiv:2610.37425v1",
+          "material_read": "Frozen RESULT.md lines 104–105; primary passages not retrieved",
+          "method": "Cited-source OA lookup; timed out",
+          "title": "Phase-type representations for Strong Stability Preserving Runge–Kutta methods",
+          "trigger": "Potential related optimization parametrization"
+        },
+        {
+          "assessment": "Standard endpoint and background credited; broader parameter results not excluded",
+          "evidence": "The classical Radau IIA coefficients are not claimed as new.",
+          "identifier_or_url": "Hairer and Wanner, Springer, 1996",
+          "material_read": "Citation purpose in frozen RESULT.md line 114; no book passage inspected",
+          "method": "Scope comparison with cited use",
+          "title": "Solving Ordinary Differential Equations II",
+          "trigger": "Classical implicit RK stability and Radau references"
+        },
+        {
+          "assessment": "Different objectives in available statements; no order of priority inferred from same-day dates",
+          "evidence": "SSP-optimal real-axis interval, large-stage oscillatory damping, and moment-preserving stage-design stability, respectively.",
+          "identifier_or_url": "Resultary 60906ae1b586, 4133b2680f33, 9447b66be7eb",
+          "material_read": "Indexed statements only",
+          "method": "Resultary semantic search",
+          "title": "Related implicit RK stability and damping records",
+          "trigger": "Possibility of a matched different formulation, including same-day records"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–31 and 72–108"
+      ],
+      "rationale": "Stiff-limit damping and the size of negative Butcher entries are natural, distinct design constraints. The exact Pareto profile supplies a uniquely determined tableau for each budget and a nonobvious change from an endpoint node to two interior nodes at rho=1/2. This information is useful even knowing both the classical zero-residual tableau and the old unconstrained minimum; it is not an SSP or finite-step optimality theorem.",
+      "residual_risks": [
+        "Design interpretation is restricted to the stated two-stage class and scalar stiff limit."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

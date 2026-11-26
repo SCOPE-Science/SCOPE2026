@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:11:54.616186Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every complete allocation with common utility t must consume t|S| approved distinct goods from Γ(S), so t≤κ. In the κ-copy matching, any subset of slots has precisely the neighborhood of its represented agents and is no larger than κ times their number, so Hall applies. Counting approvals gives |Γ(S)|≥d|S|/2. With n≥3, even a double-approved leftover has a nonapprover; assigning all leftovers this way preserves κ. Agent i values goods in any other single bundle at most d−κ, so envy is at most one, and zero for even d. Binary search over feasible slot counts up to d is polynomial with the explicit incidence representation. In the exact-two case m=nd/2 and the whole-agent capacity bound forces κ=floor(d/2), giving the claimed additive welfare loss. Assigning to endpoints attains m and is PO; conversely any good assigned to a nonapprover can be moved to an approver without reducing anyone's utility, so PO requires welfare m. This supplies the explicit implication needed for exclusion of EQ+PO at odd d, not just a comparison with maximum welfare. Balanced orientation by auxiliary pairing and Euler tours yields each indegree floor(d/2) or ceil(d/2); the same outside-approvals bound gives EF1, and full EF at even d. Empty or zero-approved goods do not invalidate the proof; odd d implies even n. The n=2 single shared good demonstrates the completion boundary. Independent replay `cd /workspace && python checks/independent_replay.py 5` enumerated 40,854 complete allocations on 11 fixtures, including zero/singleton approvals and parallel goods, checked the exact optimum over EQ allocations with and without the required envy bound, and corroborated the efficient parity guarantees. The replay and frozen census are finite checks, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hosseini et al. guarantee EF1+EQ1 for n≤7 or laminar approvals, and give a Hall proof for three agents. Their 113-agent obstruction is high-overlap.",
+          "Freeman et al. find binary EQ+PO and EQ1+EF1+PO when feasible, and prove binary EQ+PO implies EF.",
+          "Christodoulou et al. §4, Theorem 3 gives complete EFX for the graphical model in polynomial time, not necessarily an orientation; the theorem imposes no exact-equity or optimum common utility condition."
+        ],
+        "reasoning": "A stronger envy condition alone does not imply equity. Neither conditional existence algorithms nor a guarantee of EQ1 in a different overlapping subfamily implies uniformly feasible complete EQ+EF1 at the maximum EQ utility for this family.",
+        "searches": [
+          "Hosseini et al. arXiv:2608.26410v1 Theorems 3, 4, 5, 13",
+          "Freeman et al. arXiv:1905.10656 Theorems 2 and 4, Proposition 5",
+          "Christodoulou Fiat Koutsoupias Sgouritsa EFX Allocations on Graphs 2023 arXiv balanced orientation regular binary valuations exact equitability"
+        ]
+      },
+      "checked_sources": [
+        "Hosseini et al. arXiv:2608.26410v1",
+        "Freeman et al. arXiv:1905.10656",
+        "Christodoulou et al. DOI 10.1145/3580507.3597764 (author PDF)",
+        "Hsu arXiv:2410.12039v2",
+        "Resultary 06daff579d6d and cfd6669f6627"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Under both incidence-degree-two assumptions the cycle-rank result applies; PO and EQX in that setting force every utility to be one, covering the efficient degree-two special case. Both records carry the same date; within-day order was not established.",
+          "The later pseudoarboricity record makes no PO claim. Its optimum does give the exact-two EQ welfare formula once λ=ceil(d/2) is substituted.",
+          "Euler balancing is classical and already gives the prescribed indegrees; outside-approval counts and moving wrongly assigned goods are the elementary fairness/efficiency translations."
+        ],
+        "reasoning": "Credit the special case, the graph-theoretic machinery, the known EQ+PO implication and the later full-equivalence comparison; do not treat the balanced orientation as a novel graph result. None of the evidenced earlier or same-day claims gives the complete sparse EQ+EF1 optimum for arbitrary d or the regular-graph parity tradeoff.",
+        "searches": [
+          "Resultary cfd6669f6627 Finding and proof offset 3000",
+          "Resultary 06daff579d6d Finding and scope",
+          "Freeman et al. Proposition 5",
+          "Hsu arXiv:2410.12039v2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In Resultary 06daff579d6d the maximum common utility is D−ceil(max_S e_G(S)/|S|) and the optimum is attained together with EF1.",
+          "For the multigraph of double approvals, d|S| counts a good touched by S once except that an edge internal to S is counted twice, so |Γ(S)|=d|S|−e_G(S).",
+          "Resultary cfd6669f6627 reverses the incidence restriction: each agent, not each good, has two incidences."
+        ],
+        "reasoning": "The Hall and pseudoarboricity formulas are equal, not just analogous. The latter assumes D≥2 and no zero-approval goods, which can be restored without changing either EQ utility or EF1. It is a later labelled record, not evidence the Hall/EF1 theorem was already known before the frozen record. The degree-two dual incidence result has only partial overlap.",
+        "searches": [
+          "Resultary: normalized two-sparse binary exact EQ optimal common utility EF1 pseudoarboricity and parity welfare",
+          "arXiv:2608.26410v1 Appendix C Theorem 13",
+          "Resultary 06daff579d6d and cfd6669f6627"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later pseudoarboricity record gives an exact density-conditioned welfare-price spectrum, along with the identical optimum common-utility formula over the shared domain.",
+          "The nearby seven-agent/fourteen-good graphical census concerns EQ1+EF1 orientations, not the arbitrary-degree exact EQ frontier."
+        ],
+        "reasoning": "The catalogue formula from November 8 really does encode the exact target optimum upon count conversion; that is stronger evidence of overlap than a matching numerical example. A census restricted to fixed small parameters cannot settle the target theorem, and no earlier all-parameter exact table was evidenced.",
+        "searches": [
+          "Resultary: graphical orientation binary equitability, regular graphs and exact equity welfare",
+          "Resultary 06daff579d6d and cfd6669f6627"
+        ]
+      },
+      "rationale": "The supported original contribution relative to the evidenced earlier work is an optimal complete exact-EQ and EF1 guarantee for all normalized rank-two approval profiles with n≥3, together with the quantitative exact-equity versus efficiency contrast on the regular exact-two subfamily. The matching and balanced-orientation tools, binary EQ+PO implying EF, and the overlapping degree-two efficient case are not new. There is demonstrable equivalent catalogue coverage of the central Hall/EF1 optimum in the not-identical record 06daff579d6d over D≥2 (zero-approved goods can be dropped), and thus also of its exact-two optimal EQ welfare by specialization. That record is dated November 8 versus this record's November 2; it establishes overlap, not prior coverage. No exact earlier covering theorem for the supported contribution was established by the statement checks. This is not a claim that the result is unique across the current catalogue or that within-day priority is settled.",
+      "residual_risks": [
+        "A prior exact-equity statement under graph density or balanced-orientation terminology could have gone unindexed or appeared outside the examined passages.",
+        "The matching November 8 statement fixes current overlap but does not establish independent historical provenance; neither within-day chronology nor exhaustive priority was proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EQ1 instead of EQ and different domains; high-overlap counterexample is outside scope",
+          "evidence": "The guarantees are for at most seven agents or laminar approvals, with the separate Hall argument for three agents.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.26410v1",
+          "material_read": "Theorems 3–4 p. 13, Theorem 5 p. 15, Appendix Theorem 13 p. 37",
+          "method": "OA primary passages and hypotheses comparison",
+          "title": "Simultaneous Envy and Equitability Guarantees",
+          "trigger": "Closest normalized binary simultaneous fairness claims and a Hall proof"
+        },
+        {
+          "assessment": "Feasibility-dependent algorithms; exact EQ+PO already implies EF",
+          "evidence": "No guaranteed exact-EQ allocation with the rank-two optimal utility or the odd-degree welfare gap follows from these statements.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.10656",
+          "material_read": "Theorem 2 p. 5 offset 22012; Proposition 5 p. 8 offset 33054; Theorem 4",
+          "method": "OA primary theorem comparison",
+          "title": "Equitable Allocations of Indivisible Goods",
+          "trigger": "Known flow-based EQ+PO and simultaneous fairness algorithms"
+        },
+        {
+          "assessment": "Complete EFX with no exact equality guarantee; existence of an EFX orientation is a separate decision problem",
+          "evidence": "§4 explicitly states a polynomial complete EFX allocation for any graph in its model, not necessarily an orientation.",
+          "identifier_or_url": "https://livrepository.liverpool.ac.uk/3171870/1/Graph_EFX.pdf",
+          "material_read": "Repository author PDF pp. 4–5, Theorems 2–3 (offsets 15570 and 20405)",
+          "method": "Lawful repository PDF, theorem passages after publisher access failed",
+          "title": "EFX Allocations on Graphs",
+          "trigger": "Prior graphical valuations with at most two endpoints per good"
+        },
+        {
+          "assessment": "Adjacent orientation and envy problem; no exact equity or parity price established by passages read",
+          "evidence": "Positive valuations only at edge endpoints; general prior orientation difficulty concerns EFX.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.12039v2",
+          "material_read": "Introduction p. 1 offset 2740 and model p. 3 offset 19000",
+          "method": "OA primary introduction and model passages",
+          "title": "EFX Orientations of Multigraphs",
+          "trigger": "Multigraph orientation could cover the efficient parity case"
+        },
+        {
+          "assessment": "Equivalent Hall optimum with EF1 on shared domain, with an additional welfare-price spectrum; later dated and does not claim PO",
+          "evidence": "D≥2, one or two approvers, maximum utility D−λ(G), constructive EF1 at that target. Same value as κ because Γ(S) has size D|S|−e_G(S).",
+          "identifier_or_url": "Resultary 06daff579d6d",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions offsets 0–2616; proof passage near 2400 and no-PO limitation near 6700",
+          "method": "Local catalogue lookup and exact algebraic comparison",
+          "title": "Pseudoarboricity and the sharp welfare price of exact equity for two-sparse binary allocations",
+          "trigger": "Strongest matching normalized rank-two theorem"
+        },
+        {
+          "assessment": "Covers the efficient d=2 overlap, not arbitrary d or Hall optimality",
+          "evidence": "Exactly two approved goods per agent and a cycle-rank test on the graph of goods, rather than at most two approvers per good.",
+          "identifier_or_url": "Resultary cfd6669f6627",
+          "material_read": "Mirrored RESULT.md Finding near offset 0 and proof near offset 3000",
+          "method": "Local catalogue lookup and incidence duality comparison",
+          "title": "A cycle-rank obstruction to efficient envy and equitability fairness",
+          "trigger": "Similar exact graph-theoretic EQ/PO claims on the same date"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This sparse graphical family is both a natural test of simultaneous envy and equitability and broad enough to allow nonlaminar systems and parallel goods. The theorem finds the full exact-EQ utility frontier while retaining EF1, even when completion must waste items and an endpoint-only fair allocation cannot be exactly equal. The exact-two additive gap n/2 and its disappearance after a one-unit relaxation give a useful concrete boundary, not a new assertion about Euler tours in isolation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

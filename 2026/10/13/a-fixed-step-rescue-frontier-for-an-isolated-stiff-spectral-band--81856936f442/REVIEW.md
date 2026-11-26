@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For any \(2<x<y\) the proof handles the whole interval by reducing its absolute quadratic maximum to the endpoint minimum and a possible positive vertex maximum. Strict monotonicity of these two envelopes in the corrective step proves existence and uniqueness; their crossing gives two explicit formulas separated at \(x_c=1+(\sqrt2-1)(y-1)\). Substitution independently checks the threshold, the exact \(4+2\sqrt2\) stability boundary, the normalized bandwidth limit, and the slow-mode nonexpansion implication. The checker tests exact rational endpoint identities and numerical uniform-interval suprema, but finite tests are not used as infinite proofs.
+PASS
 
-## Originality — PASS, with residual risk
+An independent interval-feasibility proof avoids assuming the location of the quadratic extremum. Write w(z)=z(z−1). Tolerance M at z imposes θ ∈ [1/z−M/w(z), 1/z+M/w(z)]. These closed intervals have common intersection iff the lower bound at u is at most the upper bound at v for all u<v (the reverse order imposes no positive constraint). Thus the optimum is the maximum of (1/u−1/v)/(1/w(u)+1/w(v)). Both the positive numerator and the reciprocal of the denominator increase with v, so take v=y. With a=u−1 and b=y−1 the ratio is ab(b−a)/(a(a+1)+b(b+1)). Its derivative in a has the sign of b²−2ab−a², hence its maximum on [x−1,b] is at a=max{x−1,(√2−1)b}. The active pair pins θ uniquely at their coincident interval boundaries; equivalently θ=((u−1)+(y−1))/(w(u)+w(y)), which lies strictly between 1/y and 1/u≤1/x. Substitution gives both frozen formulas, the branch join, and θ<1/2. In the interior branch the inequality M≤1 is d²≤1+2d, equivalent to y≤4+2√2. At fixed width Δ the endpoint branch is eventually active and division by y² yields Δ/2. On [0,2] both factors have magnitude at most one; the spectral theorem then gives the stated Euclidean norm result.
 
-The closest primary paper, Eriksson–Johnson–Logg (2003), analyzes stabilizing small-step packets after large explicit Euler steps, typically for an individual stiff scalar mode and more generally via multistage spectral polynomials. It does not state the unique single-correction minimax law on an uncertain continuous high-frequency interval or its two-case transition. Van Leer–Tai–Powell (1989) optimize different multistage Fourier smoothing polynomials, with a complex stability spectrum and freely selected stage coefficients. A closely related published safe-Richardson note insists that both factors are individually nonexpansive, excluding the required unstable first stage. The exact fixed-root interval problem may nonetheless have an equivalent historical treatment not found in the inspected sources; no exhaustive-priority or independent certification is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-This is a motivated sharp design question arising directly from the stiff-mode rescue mechanism in the primary paper, not an arbitrary small-parameter polynomial exercise. It produces the unique optimal correction over an entire uncertainty interval, an exact geometry transition, a universal large-band stability barrier, a limiting normalized bandwidth law for arbitrarily high frequencies, and an additional slow-spectrum safety guarantee. The result does not assert general high-order integration accuracy or universal speedups.
+The distinct contribution is the explicit fixed-unstable-root minimax classification, not Euler stabilization by a correction packet, equioscillation as a general technique, or an all-band high-frequency cutoff. The strongest inspected published comparisons optimize a different quantity or have incompatible step constraints.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Prescribing the large step models the already committed unstable update in explicit stabilization. The exact optimum replaces single-frequency sufficiency with robust tuning under band uncertainty, identifies the lower-edge-independent branch, and separates the sharp wide-band cutoff from narrow-band rescue at arbitrarily high frequencies. It gives a usable step and operator norm, not merely a numerical improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

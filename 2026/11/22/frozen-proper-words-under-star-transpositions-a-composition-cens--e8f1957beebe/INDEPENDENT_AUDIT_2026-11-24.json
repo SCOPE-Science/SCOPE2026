@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:40:51.225600Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With initial letters a,b, the position-1 swap is legal exactly when position 2 is not a, so a frozen word starts aba. At any other position only changing the first position and inserting a at its destination can break properness. A letter different from a,b is therefore immovable exactly when it touches an a, including at the right boundary where only one neighbor exists. Between consecutive a's only the two boundary letters can avoid this constraint; interior letters must all be b. This yields blocks of one or two proper non-a letters or a length-three c-b-d block with c,d outside {a,b}; the only length-two tail is c-b and any longer tail would force adjacent b's. Cutting at the a's is unique, so the prefix, geometric block series and tail multiply without overcounting. On equal indeterminates, their weights give the quartic denominator and the common factor (1+z); the cubic recurrence is primitive and its characteristic polynomial evaluates negatively at 1 and positively at q−1 (there it equals (q−2)^3). Thus the positive growth root is strictly below the unrestricted proper-word growth. For k occurrences of a, the maximum length is 3+4(k−2)+2, achieved by aba(cbca)^(k−2)cb. This excludes equal frequencies for q≥4 and the ternary m≤2 cases. Independently, a balanced ternary word with m≥2 needs m−1 further b's after aba; hence every one of its m−2 blocks and its tail contains exactly one b. Each block has two independent optional c slots around its b and the tail has one before its b. Choosing m of these 2m−3 slots and the six ordered initial letter pairs gives exactly 6 binomial(2m−3,m), positive iff m≥3. This verifies the threshold without finite extrapolation. The supplied script was inspected, not executed; the all-length proof is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The unrestricted star Gray-code work treats generation on the entire multiset-permutation graph. Fuchs et al.'s general color-swap definition requires edges of the colored graph.",
+          "Substituting the star for the path in the color-swapping model would also change the properness constraint to inequalities between the first and all later positions."
+        ],
+        "reasoning": "These more general abstractions do not supply the constrained star graph or a theorem determining its isolated degrees by composition.",
+        "searches": [
+          "Star transposition Gray codes for multiset permutations, arXiv:2108.07465",
+          "Coloring Reconfiguration under Color Swapping, arXiv:2511.06473 §4.1",
+          "Resultary homopolymer-free adjacent and skip transposition findings"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2108.07465",
+        "arXiv:2511.06473",
+        "Resultary e8f1957beebe (self-match), 8cf8692431c0, a6393332ba3a and 350f349099ec"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "0102 is star-frozen but allows an adjacent swap to 0120 and a distance-two swap to 0201. 010121 is adjacent-frozen but has the proper star neighbor 210101. 0120 is distance-two frozen but has the proper star neighbor 1020."
+        ],
+        "reasoning": "The actual known isolated-word predicates are incomparable with the claimed one; neither their counts nor an unrestricted Gray-code theorem imply a unique star-frozen block grammar or 6 binomial(2m−3,m).",
+        "searches": [
+          "arXiv:2108.07465 pp. 1–2 compared with the induced proper-word graph",
+          "arXiv:2511.06473 definition and §4.1 compared with the first-position move",
+          "Resultary adjacent and skip degree Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The assigned e8f1957beebe Resultary mirror is the same record, not another equivalent claim. The natural equivalent language is proper path colorings with a prescribed color histogram and exchanges between a distinguished endpoint and any other vertex.",
+          "Gregor–Merino–Mütze use those star positions but their vertex set is all multiset permutations. Fuchs et al. use proper path colorings but require swapping adjacent vertices."
+        ],
+        "reasoning": "Neither other formulation matches both the vertex and edge restrictions. In particular imposing properness means taking an induced subgraph of the unrestricted star graph and may create isolated vertices.",
+        "searches": [
+          "Resultary proper words, fixed-content path colorings, frozen star transpositions",
+          "arXiv:2108.07465, §1.1",
+          "arXiv:2511.06473, path color swapping"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8cf8692431c0 enumerates a degree spectrum under adjacent swaps. a6393332ba3a treats distance-two swaps on proper ternary words without prescribed composition. 350f349099ec imposes both aa and abab avoidance and uses adjacent swaps."
+        ],
+        "reasoning": "These tables count distinct predicates and do not contain the star census or its balanced-composition subseries. They were compared by statement, not discarded because of same-day dating.",
+        "searches": [
+          "Resultary exact isolated-word counts and degree spectra for first-letter exchanges",
+          "Resultary 8cf8692431c0, a6393332ba3a and 350f349099ec Findings"
+        ]
+      },
+      "rationale": "The distinct result is the composition-refined frozen census for the combination of a proper linear word domain and first-position star swaps, including the exact balanced ternary count. The nearest indexed records and literature cover a different move, a different domain, or both.",
+      "residual_risks": [
+        "The comparison is bounded and does not rule out an unindexed equivalent word census or path-coloring formulation.",
+        "No ordering or historical priority follows from a same-day catalogue date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same move, unrestricted vertex class",
+          "evidence": [
+            "All words with the given symbol counts are multiset permutations; a star transposition swaps the first entry with a later one."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.07465",
+          "material_read": "pp. 1–2, abstract and §1.1 definitions",
+          "method": "Primary paper passage inspection",
+          "title": "Star transposition Gray codes for multiset permutations",
+          "trigger": "Exact star move and fixed composition"
+        },
+        {
+          "assessment": "On the path the swaps are between neighboring positions",
+          "evidence": [
+            "The definition requires the two exchanged vertex colors to come from adjacent graph vertices and the result to be proper."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2511.06473",
+          "material_read": "pp. 1, 4, and §4.1 p. 17",
+          "method": "Primary paper passage inspection",
+          "title": "Coloring Reconfiguration under Color Swapping",
+          "trigger": "Proper colorings on paths and swap rigidity"
+        },
+        {
+          "assessment": "Adjacent not star transpositions",
+          "evidence": [
+            "The swapped positions are consecutive."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-degree-spectrum-of-homopolymer-free-words-under-admissible--8cf8692431c0",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Exact degree spectrum of homopolymer-free words under admissible adjacent swaps",
+          "trigger": "Strongest distinct indexed exact isolated-word comparison"
+        },
+        {
+          "assessment": "Distance-two moves and no prescribed composition",
+          "evidence": [
+            "Swaps have indices i,i+2, not a fixed common endpoint."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-skip-transposition-sphere-spectrum-of-proper-ternary-words--a6393332ba3a",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Exact skip-transposition sphere spectrum of proper ternary words",
+          "trigger": "Indexed nonadjacent exchange census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Isolated vertices obstruct any spanning Gray code on a nontrivial proper-word composition class, so the exact population by content is a natural invariant of the constrained generation problem. The all-composition grammar explains the sharp frequency barrier and the difference between balanced ternary and balanced larger alphabets; it gives actual counts, not just examples of failure. Absence of isolated vertices alone implies neither connectivity nor a Gray code.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

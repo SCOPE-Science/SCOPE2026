@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:37:40.094304Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–129, VERIFICATION.md and verify.py",
+        "python /workspace/branches/replay_discrete.py moments (SymPy 1.14)"
+      ],
+      "rationale": "The defining recurrences give child triples from (a,b,c)=(s(k),s(2k),s(2k+1)): (b,2b-a,2b+c) and (c,2c+b,2c-a). Under (m,d,e)=(a,b-a,c-a) they yield the frozen pair of child maps, preserve de=m^2+1, and start at (0,1,1). This proves the needed indexing without assuming the external tree interpretation. Summing the three quadratic observables over children and reducing de=m^2+1 independently recovers the exact four-state matrix and root state. A Cramer determinant for the third formal resolvent coordinate gives the stated numerator and denominator; the roots of the recurrence and the first four moments determine the claimed explicit formula. For the first moment, the child-pair aggregate of (d+e,m) is (3(d+e)+4m,(d+e)+2m), with trace 5, determinant 2 and m-sums 0,2 at n=0,1, giving the stated R_n. For n>=1 the squared CV is 2^n P_n/R_n^2-1. The positive leading coefficients yield the asymptotic constant 17K/4, and 2 lambda_+-alpha_+^2=1/2+sqrt(113)-(5/2)sqrt(17)>0, so subtracting 1 is asymptotically negligible. Independently evaluated all sequence values through level 12 by bottom-up scalar recurrence and matched each square sum against the symbolic transfer. The numeric bases 1.03952283129313 and 1.01956992467 agree; finiteness of this replay is not used to extend the theorem.",
+      "residual_risks": [
+        "Uniform complete dyadic rows and the stated recurrence only. The asymptotic is not a limiting distribution or a generic inference on typical values."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Heuberger, Krenn and Prodinger give spectral expansions with periodic fluctuations for a regular sequence given its representation; summing over complete radix levels also generally reduces to a matrix-power calculation."
+        ],
+        "reasoning": "This is real framework coverage, including the existence of a rational level-sum series once the square-sequence representation is known. It does not identify the effective quadratic transfer, contributing eigenvalues and residues, or compare them with the first-moment modes in this tree. No broader theorem evaluated in the sources determines the specific quadratic series or strict q>1.",
+        "searches": [
+          "arXiv:1802.03266v1 §1.2 Theorem A",
+          "2-regular summatory function eigenvalue asymptotics and dyadic second moments"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2510.22805",
+        "arXiv:2405.03552",
+        "arXiv:1802.03266v1",
+        "OEIS A383066",
+        "Resultary 8e97e5e2f96e and fd21e3c6e379"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published transfer results for the divisor tree concern sums of coordinates/ratios or extrema, not the closed second-order observable dynamics. Generic regular-sequence spectral theory depends on the effective square-sequence matrices and their projections."
+        ],
+        "reasoning": "The general possibility of computing level sums via linear representations is standard. The surviving claim is the resulting exact particular formula and the strict, explicit normalized growth: it requires determining which quadratic modes actually contribute and comparing their growth to the squared mean, not substituting into a known first moment.",
+        "searches": [
+          "arXiv:2405.03552 Theorem 5.3",
+          "arXiv:2510.22805 Proposition 7",
+          "arXiv:1802.03266v1 Theorem A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both Shakov constructions concern the same second coordinate of the tree; the later Proposition 7 computes the first dyadic moment, not the square moment."
+        ],
+        "reasoning": "The tree and sequence are equivalent presentations, not two potentially novel claims. Knowing the row sum or distribution of the sequence values over all rows does not identify square weights within each row.",
+        "searches": [
+          "A383066 dyadic second moment, quadratic sums, divisor-pair tree, 11 and sqrt(113)",
+          "arXiv:2405.03552 §5",
+          "arXiv:2510.22805 Proposition 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS records the scalar recurrence and links a table of s(k) through k=8191; that table, if used, would determine finitely many row moments, not the infinite formula. The entry was read; the raw b-file was not obtained.",
+          "Resultary 8e97e5e2f96e concerns continuous-time random tree root imbalance, and fd21e3c6e379 concerns additive energy of Pascal-row position sets."
+        ],
+        "reasoning": "Neither inspected catalogue analogue shares the moment observable of this tree. Scalar sequence data can verify small moments but is not equivalent to an exact all-n quadratic generating function.",
+        "searches": [
+          "Published Resultary A383066, divisor-pair trees and exact dyadic quadratic moments",
+          "OEIS A383066",
+          "Shakov A383066 second moment dyadic sum squares divisor tree 11 sqrt 113"
+        ]
+      },
+      "rationale": "Sequence/tree identification, first moments and general regular-sequence spectral methods are antecedents, not credited as new. The inspected results leave a distinct explicit quadratic-row formula and strict dispersion exponent for this sequence.",
+      "residual_risks": [
+        "Bounded searches do not exclude equivalent quadratic moment work under another sequence or tree notation. The unsuccessful raw b-file inspection and unproductive broad search are not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact first dyadic row average, not claimed as new",
+          "evidence": [
+            "The proposition gives 2^(-n)R_n=2(alpha_+^n-alpha_-^n)/(2^n sqrt(17)); the quadratic moment is a different observable."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2510.22805",
+          "material_read": "Proposition 7, p. 6, around extracted offset 15000",
+          "method": "OA PDF passage",
+          "title": "A 2-Regular Sequence That Counts The Divisors of n^2+1",
+          "trigger": "Same sequence and known first moment"
+        },
+        {
+          "assessment": "Prior tree and first-observable sums",
+          "evidence": [
+            "Sums the coordinates and their ratio, not the squared second coordinate in the cited statements."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2405.03552",
+          "material_read": "§5, Definition 5.2 and Theorem 5.3, pp. 23–24, and second-component indexing pp. 27–28",
+          "method": "OA PDF passages",
+          "title": "Polynomials in Z[x] whose divisors are enumerated by SL_2(N_0)",
+          "trigger": "Earlier construction and row sums of the same tree"
+        },
+        {
+          "assessment": "General summatory asymptotics given linear representation, not a sequence-specific moment evaluation",
+          "evidence": [
+            "Expansion uses eigenvalues of the sum of digit matrices and periodic coefficient functions; these depend on the supplied representation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1802.03266v1",
+          "material_read": "§1.2, Theorem A, pp. 3–4, offsets 9100–12152",
+          "method": "OA PDF passage",
+          "title": "Analysis of summatory functions of regular sequences",
+          "trigger": "Plausible general theorem on spectral behavior of regular-sequence sums"
+        },
+        {
+          "assessment": "Same scalar sequence; no quadratic generating function in inspected entry",
+          "evidence": [
+            "Initial values and four recurrences match, and the entry lists a table for indices 1 through 8191."
+          ],
+          "identifier_or_url": "https://oeis.org/A383066",
+          "material_read": "Defining formulas and links around offsets 400 and 830",
+          "method": "OA page; raw b-file retrieval unsuccessful",
+          "title": "A383066: A 2-regular sequence associated with the number of divisors of n^2+1",
+          "trigger": "Exact definition and indexed table"
+        },
+        {
+          "assessment": "Distinct objects and moments",
+          "evidence": [
+            "Random-tree branch-size imbalance and Pascal-row support energy do not give moments of A383066."
+          ],
+          "identifier_or_url": "Resultary 8e97e5e2f96e; fd21e3c6e379",
+          "material_read": "Both RESULT.md opening findings",
+          "method": "Local Resultary mirror",
+          "title": "Universal even-moment intermittency of root-branch imbalance; Exact two-sum spectra and dyadic additive energy of odd Pascal-row positions",
+          "trigger": "Ranked published dyadic- or tree-moment matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–49 and 106–127",
+        "arXiv:2510.22805 Proposition 7"
+      ],
+      "rationale": "Dyadic levels are inherent in this published divisor-pair tree, and its mean and maximum already motivated studying fluctuations within a level. The exact second moment gives a quantitative distinction from the mean: variability relative to the mean grows exponentially, with an explicit small but strictly positive exponent. The result is useful for tests or comparisons of concentration claims for the tree and is stronger than first-order growth or recomputing a short row table.",
+      "residual_risks": [
+        "The moment result alone neither proves concentration nor excludes convergence in probability; applications must respect the sampling convention."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:10:41.687575Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After translation to the common solution, a sampled reflection acts on z∈C as exp(2ijθ) times conjugation. The alternating sum S has generating polynomial 2^(−r) z^(−floor(r/2))(1+z)^r, so every listed index occurs with the stated binomial weight. For even r, the average is complex multiplication by exp(iSθ)cos(Sθ), either invertible or zero; independence gives the claimed geometric time. For odd r, the average is rank-one projection to L_(Sθ). A nonzero projected vector survives exactly when the next axis is not perpendicular. The support differences realize every integer from −r to r. A perpendicular ordered pair, when available, occurs almost surely by independent disjoint two-block trials; without one there is no killing after a surviving first projection. Even an exceptional nonzero start has strictly positive survival probability at its first projection because both distinct axes L_0 and L_θ occur. Thus the iff is valid for each fixed nonzero start; only the stated odd waiting-time formula assumes a generic first projection. The least positive d with cos(dθ)=0 is b/2 for a reduced even denominator b, and otherwise none exists; together with the even support and odd difference support this yields both thresholds. The killed transition probabilities give p^T Q^(k−1)1; uniform pair-trial decay implies spectral radius less than one and justifies summing the inverse series. Bounded independent rational calculation reproduced 61/9, 36, and 8 blocks for the stated examples; the general claim rests on the proof, not the uploaded checker.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Han–Su–Xie give expected-error decay and almost-sure convergence for the general randomized algorithm.",
+          "Dao and coauthors classify deterministic planar two-cone DR, which uses fixed sets."
+        ],
+        "reasoning": "Almost-sure asymptotic convergence does not imply exact finite-time absorption; the deterministic theorem does not govern resampled axes. No checked stronger statement gives this arithmetic classification.",
+        "searches": [
+          "Focused primary literature lookup of two-row randomized Douglas–Rachford exact termination",
+          "arXiv:2207.04291, Theorem 3.1 and Remark 3.3",
+          "arXiv:2310.17077, Theorem 2.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_reflection_resonance.py",
+        "arXiv:2207.04291",
+        "arXiv:1309.4709",
+        "arXiv:2310.17077",
+        "Resultary e045af1db347"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general algorithm supplies the update but no distribution of its planar parity-dependent effective angle or an exact absorption law.",
+          "For the indexed Kaczmarz process perpendicular ordered pairs can kill, but the specific formula uses uniform rows of a regular frame, not binomial weights on virtual axes."
+        ],
+        "reasoning": "Exact absorption requires deriving the alternating binomial support, separating rotations from projections, proving the necessity for exceptional starts, and counting the allowed support differences. The known projection-annihilation fact and general convergence bounds do not by themselves supply these claims.",
+        "searches": [
+          "arXiv:2207.04291, Algorithm 1 and Theorem 3.1",
+          "arXiv:1309.4709, §5",
+          "Resultary e045af1db347, finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Algorithm 1 uses norm-squared row sampling and x_(k+1)=(1−α)x_k+αz_r; the frozen case is precisely two normalized rows and α=1/2.",
+          "Deterministic two-line DR has one fixed scaled rotation cos(θ)R_θ, not a family of independently sampled products.",
+          "The planar two-cone theorem treats fixed deterministic DR and does not give generic finite hitting for the two-line singleton-intersection case."
+        ],
+        "reasoning": "Writing the problem in reflection-product, projection-product, or first-passage terms clarifies the overlap; only the randomized bundle gives the parity-dependent support and successive perpendicular virtual axes in this claim.",
+        "searches": [
+          "arXiv:2207.04291, Algorithm 1, Theorem 3.1 and Remark 3.3",
+          "arXiv:1309.4709, §5, equations (39b)–(41)",
+          "arXiv:2310.17077, Theorem 2.2 and Figure 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The close index match is unrelaxed Kaczmarz for n equally spaced planar normals: zero-operator probability for n iid draws at even n is 1−(1−1/n)^(n−1)."
+        ],
+        "reasoning": "This is an exact stochastic termination analogue, not a table of bundle thresholds or waiting times; row cardinality, angular hypotheses, axis probabilities and update differ. Its later catalogue date does not itself decide equivalence or priority.",
+        "searches": [
+          "Resultary: exact finite termination and hitting probabilities for planar randomized row methods; inspected e045af1db347"
+        ]
+      },
+      "rationale": "The algorithm itself and its convergence theory are prior work. The inspected statements do not resolve exact hitting under fresh reflection bundles: neither the even/odd denominator thresholds for this process nor the killed-chain first-solution law are covered. Deterministic planar DR and stochastic planar Kaczmarz have material connections but different transition processes. This is a scoped, best-of-knowledge finding.",
+      "residual_risks": [
+        "Focused literature and ranked index retrieval are not exhaustive; an equivalent result in stochastic projection products might be indexed differently.",
+        "The comparison to the indexed regular-frame result is based on its actual finding; its remaining discussion was not retrieved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact match to update and sampling after specialization; convergence results do not classify absorption",
+          "evidence": "Algorithm 1 independently samples according to norm-squared weights and makes the relaxed macro-update; it is the version without momentum.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.04291",
+          "material_read": "Algorithm 1 p. 8, Theorem 3.1 and Remark 3.3 p. 9, Remark 4.3 p. 13",
+          "method": "Bounded OA PDF passages",
+          "title": "Randomized Douglas–Rachford Methods for Linear Systems: Improved Accuracy and Efficiency",
+          "trigger": "Same randomized algorithm and plausible prior exact-hitting coverage"
+        },
+        {
+          "assessment": "Fixed deterministic operator only",
+          "evidence": "T=cos(θ)R_θ, nonsingular for the acute angles here.",
+          "identifier_or_url": "https://arxiv.org/abs/1309.4709",
+          "material_read": "§5 p. 9 equations (39b)–(41)",
+          "method": "Bounded OA PDF passage",
+          "title": "The rate of linear convergence of the Douglas–Rachford algorithm for subspaces is the cosine of the Friedrichs angle",
+          "trigger": "Same two-line geometry"
+        },
+        {
+          "assessment": "Fixed planar two-cone process, not freshly drawn bundles",
+          "evidence": "The deterministic two-line case is not finitely convergent for generic starts.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.17077",
+          "material_read": "Theorem 2.2 and Figure 1 p. 4",
+          "method": "Bounded OA PDF passage",
+          "title": "Douglas–Rachford is the best projection method",
+          "trigger": "Planar finite-convergence classification"
+        },
+        {
+          "assessment": "Material overlap in question, not in update or arithmetic statement",
+          "evidence": "Uses n equally spaced normals, individual projections, and an exact zero-operator probability for n iid uniform draws at even n.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-exact-finite-termination-probabilities-and-optimal-row-orders-fo--e045af1db347",
+          "material_read": "Finding at local-mirror offset 0; remaining tail not retrieved",
+          "method": "Local published-record mirror",
+          "title": "Exact finite termination probabilities and optimal row orders for planar row methods",
+          "trigger": "Closest exact stochastic termination index match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two-normal geometry is the minimal nontrivial instance of the published randomized method. The exact-hitting boundary separates almost-sure finite absorption from indefinite nonzero trajectories even when general convergence estimates apply. The sharp parity thresholds explain which reflection counts can possibly work; the waiting laws quantify the block and reflection costs, beyond merely identifying resonant examples. The value is for the exact-arithmetic stochastic scheme, not a finite-precision performance assertion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

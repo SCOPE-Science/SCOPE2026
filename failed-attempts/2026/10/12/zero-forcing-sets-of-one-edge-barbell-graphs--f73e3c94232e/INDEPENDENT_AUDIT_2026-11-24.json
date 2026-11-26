@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:36:44.730032Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof, lines 4–60",
+        "Frozen VERIFICATION.md and listed verifier, treated as source evidence rather than execution",
+        "Independent closure check at the replay path in this rationale"
+      ],
+      "rationale": "Two white non-bridge vertices in the same clique cannot be separated by a first force on either. Under the resulting one-per-clique restriction, the only possible four-white configuration has both bridge endpoints white and no first force. With three whites, either the opposite clique forces its white bridge endpoint and then forces across the bridge, or a non-bridge blue helper clears the opposite clique's lone white non-bridge vertex before the bridge force. In each case the last internal white is forced within its clique. The other triple cases follow by exchanging the sides, and every allowed smaller white set is a subset of an allowed triple, so follows by blue-set monotonicity. Both cliques have the required helpers for p,q≥3. Counting triples gives (p−1)+(q−1)+2(p−1)(q−1); counting pairs excludes precisely internal same-side pairs. This gives every coefficient and the minimum size. An independently written closure check matched the criterion and counts on all 14,400 subsets in the 16 ordered pairs 3≤p,q≤6; replay: python /workspace/branches/d6109c61-1838-413a-b817-f87179e5cdb6/recheck_barbell.py. The uniform conclusion comes from the proof, not the census.",
+      "residual_risks": [
+        "The finite check does not cover larger orders or variants of the forcing rule; the proof covers precisely the stated family."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Row's cut-vertex paper is relevant to the scalar minimum; full text was not accessible.",
+          "Boyer et al., §3 Theorem 1, gives the top three coefficients for general graphs.",
+          "Menon–Singh Theorem 1.2 and Corollaries 3.6–3.7 give coefficient inequalities, not this exact census."
+        ],
+        "reasoning": "General formulas already cover the three highest degrees and scalar decomposition does not by itself specify which sets attain the minimum. The separate exact bridge-barbell record covers even the lower coefficient and all attaining sets.",
+        "searches": [
+          "10.1016/j.laa.2011.05.012",
+          "arXiv:1801.08910",
+          "arXiv:2405.01423v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2",
+        "Row 10.1016/j.laa.2011.05.012 (bibliographic only)",
+        "Boyer et al. arXiv:1801.08910",
+        "Menon–Singh arXiv:2405.01423v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bridge barbells specifies all zero forcing sets and Z=a+b−3; each such minimum set omits three vertices.",
+          "The general coefficient theorem accounts for sizes |V|, |V|−1 and |V|−2 only."
+        ],
+        "reasoning": "With three omissions, choose three of the two bridge-endpoint locations and two internal locations, each usable once. These are the four claimed types, including their exact multiplicities. No distinct structural remainder is left.",
+        "searches": [
+          "Bridge barbells, Finding and Proof",
+          "Boyer et al., arXiv:1801.08910 §3 Thm. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bridge barbells, Finding and Assumptions: one bridge and clique orders a,b≥3, with at least a−2 and b−2 blue internal vertices; both bridge endpoints white at both thresholds is specifically excluded."
+        ],
+        "reasoning": "The blue thresholds say at most one white internal vertex per side. With those bounds the excluded configuration is exactly the sole allowed-size-four candidate. The two criteria are equivalent for every initial set.",
+        "searches": [
+          "Resultary: ordinary zero forcing polynomial of two cliques joined by a bridge; barbell/dumbbell minimum sets",
+          "2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Local mirror, Finding at offset 0, confirms the factorized polynomial x^(a+b−3)[x³+(a+b)x²+(ab+a+b−2)x+(2ab−a−b)] and exactly 2ab−a−b minimum sets."
+        ],
+        "reasoning": "Expanding this polynomial gives the complete frozen polynomial, not just a table coincidence for some orders.",
+        "searches": [
+          "Resultary: bridge barbell zero forcing polynomial and minimum set count",
+          "2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2/RESULT.md"
+        ]
+      },
+      "rationale": "A distinct published Resultary record gives the same all-set classification and exactly the same polynomial under the same rule and p,q≥3. The four displayed triple types merely unpack its criterion at the minimum size. This is demonstrated duplicate coverage, not a concern inferred from inaccessible literature.",
+      "residual_risks": [
+        "Row's full text may contain additional relevant structure; it cannot undo the exact overlap established independently of it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent all-set theorem and exact polynomial",
+          "evidence": "States the blue internal-vertex thresholds and one exception, polynomial and minimum count under p,q≥3 and the ordinary rule.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2/RESULT.md",
+          "material_read": "Finding, Assumptions and beginning of Proof, offset 0–2398",
+          "method": "Bounded local-mirror primary record inspection, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Zero forcing polynomial of bridge barbells",
+          "trigger": "Exact candidate on one-edge clique barbells and full polynomial"
+        },
+        {
+          "assessment": "Relevant to scalar determination; additional coverage unresolved",
+          "evidence": "The available identification concerns computing the number; no proof-level comparison inferred.",
+          "identifier_or_url": "10.1016/j.laa.2011.05.012",
+          "material_read": "Bibliographic record, title and publication data; not full text",
+          "method": "Publisher lookup and lawful alternate CORE PDF candidate 82481279, landing-only or denied",
+          "title": "A technique for computing the zero forcing number of a graph with a cut-vertex",
+          "trigger": "Bridge endpoints are cut vertices"
+        },
+        {
+          "assessment": "Partial generic coverage",
+          "evidence": "Coefficients in the top three degrees, but not the first nonzero coefficient of this family.",
+          "identifier_or_url": "arXiv:1801.08910",
+          "material_read": "§3 Theorem 1, PDF p. 3, offset 12286",
+          "method": "OA primary PDF passage",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "Canonical polynomial and high-degree formulas"
+        },
+        {
+          "assessment": "Non-equivalent conclusions",
+          "evidence": "Path-extremal polynomial inequalities are not the exact white-set criterion or enumerator.",
+          "identifier_or_url": "arXiv:2405.01423v1",
+          "material_read": "Thm. 1.2 p. 2 and Cor. 3.6–3.7 p. 8, offsets 6395, 19603, 20614",
+          "method": "OA primary PDF passages",
+          "title": "Exploring the Influence of Graph Operations on Zero Forcing Sets",
+          "trigger": "Graph operation and coefficient comparison candidate"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof",
+        "Bridge barbells, Finding and Assumptions"
+      ],
+      "rationale": "An otherwise unrecorded full classification on this natural test family could be useful to distinguish extremal size from the actual choices at a bridge. Here the exact classification, all coefficients and minimum-set count are already available. The reformulation in white vertices exposes no new cases, quantitative gain, or independently useful mathematical consequence.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

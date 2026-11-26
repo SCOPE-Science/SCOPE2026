@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:58:32.125663Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 25–47",
+        "Frozen VERIFICATION.md and check_square_zero.py (read, not executed)",
+        "Independent direct basis-product replay: /workspace/branches/01e9bd4c-ffe9-410f-a2a4-2d702a556eb4/independent_square_zero_check.py and independent_square_zero_check.log in that directory"
+      ],
+      "rationale": "For the given bilinear table e_i e_j=e_{2j-i}, the unscaled Fourier transform of u² at t is X_{-t}X_{2t}; p is invertible and the zero frequency must vanish. The inverse transform gives descent exactly when X_{qt}=X_t^q. Every nonzero index has orbit length d, so an orbit has one freely chosen F_{q^d} coordinate, with q^d−1 nonzero choices. The condition couples cosets by multiplication by −2; its quotient cycles all have length ℓ. Loops force zero, a 2-cycle permits at most one chosen vertex, and the usual circular gap count gives the displayed coefficients for longer cycles. The binary case reduces to the order of −1 modulo the subgroup, which is one precisely when d is even. This establishes the full quantifiers without assuming associativity or using a finite experiment as a proof.",
+      "residual_risks": [
+        "The independent enumeration tested nine regimes, including (p,q)=(5,4),(5,8),(7,2),(7,4) yielding 31, 1, 15, and 127 respectively. The other tested cases were (3,2),(5,2),(5,3),(11,2),(13,2), all yielding one. The replay is not formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.2 is a general complex Alexander-quandle Fourier product formula. Zhang treats general group-ring methods. The distinct indexed same-day SCOPE record explicitly describes independent sets in a character permutation and finite-field counts over splitting fields."
+        ],
+        "reasoning": "The wider family of Alexander quandles contains R_p, so splitting-field coverage is substantive, not a title match. Wider object scope does not enlarge that field hypothesis: the Frobenius quotient creates new loops and changes both cycle lengths and weights for nonsplit base fields. Date alone establishes no priority.",
+        "searches": [
+          "arXiv:2609.03799v1 Theorem 3.2",
+          "arXiv:2610.08204v1 Theorem 2.2",
+          "Resultary Alexander quandle square-zero spectrum search: 2026/10/26/SCOPE-the-square-zero-spectrum-of-finite-latin-Alexander-quandle-algeb--79c8559d0197"
+        ]
+      },
+      "checked_sources": [
+        "Resultary indexed Alexander-quandle spectrum record above",
+        "arXiv:2001.06843v2",
+        "arXiv:2609.03799v1",
+        "arXiv:2610.08204v1",
+        "arXiv:2608.09149v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Fourier identity yields pointwise multiplicative constraints. The indexed spectrum describes cycle-independent supports on characters; the frozen theorem needs cycle-independent supports on Frobenius orbits of characters."
+        ],
+        "reasoning": "When q≡1 mod p, d=1 and the frozen count specializes to the split mechanism. When d>1 the support constraint is imposed after descent and may force a trivial base-field locus even when split supports exist: e.g. p=5,q=2 has one base-field solution, although −2 acts nontrivially on the individual characters. No inspected statement supplies the nonsplit arithmetic census by direct specialization.",
+        "searches": [
+          "arXiv:2609.03799v1 Theorem 3.2",
+          "arXiv:2610.08204v1 abstract and Theorem 2.2",
+          "Indexed Alexander-quandle square-zero spectrum, splitting-field statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 3.1(2) gives a square-zero difference of distinct elements in a trivial subquandle. The later text treats nilpotents in trivial-quandle rings over integral domains."
+        ],
+        "reasoning": "Those are square-zero or nilpotent elements under related terminology, but no distinct i,j in the prime odd dihedral quandle satisfy 2j−i=i. The example and trivial-quandle analysis are not alternative formulations of this finite-field census. Idempotence is a different Fourier-coordinate equation.",
+        "searches": [
+          "Bardakov–Passi–Singh, arXiv:2001.06843v2 §3",
+          "A Further Study of Quandles and Quandle Rings, arXiv:2608.09149v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The index summary matches the split independent-support mechanism and counting by cycle lengths; the exact mirrored file was unavailable. The index material inspected does not exhibit d, the coset order ℓ, the weight q^d−1 or a binary census."
+        ],
+        "reasoning": "This is positive evidence of partial coverage, not a whole-document exclusion. The relevant exact comparison is an all-coprime-q table/formula, not a table over fields already containing the character values.",
+        "searches": [
+          "Resultary record 2026/10/26/SCOPE-the-square-zero-spectrum-of-finite-latin-Alexander-quandle-algeb--79c8559d0197; exact RESULT.md requested via local mirror"
+        ]
+      },
+      "rationale": "Credit the established Fourier identity and the material matching indexed coverage for splitting fields. The supported distinct contribution is the nonsplit descent and the resulting uniform arithmetic census, in particular the binary order-parity criterion and counts. A splitting-field theorem alone counts supports before descent; neither extension-field point counts nor the existence of the same permutation over a splitting field determine which whole Frobenius orbits may be occupied over the base field without the additional quotient-and-weight argument.",
+      "residual_risks": [
+        "Full statement of the matching Resultary record could not be read in its local mirror. It may include more than the splitting-field regime advertised by the index. No priority inferred from same-day dates.",
+        "The reviewed literature does not rule out an equivalent finite-field descent in another setting."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Square-zero precedent, not a census in this regime",
+          "evidence": "u=x_1−x_2 from a nontrivial trivial subquandle; the hypothesis fails for R_p.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.06843",
+          "material_read": "v2 PDF p. 5, §3 Proposition 3.1(2) and proof",
+          "method": "OA PDF, bounded passage",
+          "title": "Zero-divisors and idempotents in quandle rings",
+          "trigger": "Previously published square-zero theorem"
+        },
+        {
+          "assessment": "The product factorization is prior; finite-field descent not supplied in this passage",
+          "evidence": "The factors are transforms evaluated at χ∘φ and χ∘(id−φ), in the complex L¹ setting.",
+          "identifier_or_url": "https://arxiv.org/html/2609.03799v1",
+          "material_read": "Theorem 3.2, HTML offset 15418",
+          "method": "OA HTML, bounded passage",
+          "title": "Fourier Analysis and Idempotents in Quandle Algebras",
+          "trigger": "Potential general Fourier theorem implying the count"
+        },
+        {
+          "assessment": "Related group-ring structure and integral idempotents, not the target in these passages",
+          "evidence": "Augmentation transport is established; the inspected statements do not count the zero-square elements over finite fields.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.08204",
+          "material_read": "v1 abstract p. 1; Theorem 2.2 p. 3, offset 9290",
+          "method": "OA PDF, bounded passages",
+          "title": "Group-ring methods for Alexander quandle rings",
+          "trigger": "Potential coefficient-ring generalization"
+        },
+        {
+          "assessment": "Different quandle hypothesis",
+          "evidence": "Inspected nilpotent-element statements concern trivial quandles over integral domains.",
+          "identifier_or_url": "https://arxiv.org/html/2608.09149v1",
+          "material_read": "HTML offsets 800 and 13414",
+          "method": "OA HTML, bounded passages",
+          "title": "A Further Study of Quandles and Quandle Rings",
+          "trigger": "Earlier nilpotence results"
+        },
+        {
+          "assessment": "Material splitting-field overlap; further exact coverage unresolved",
+          "evidence": "The indexed claim uses independent sets in the character-group permutation and cycle lengths to determine finite-field counts over splitting fields.",
+          "identifier_or_url": "2026/10/26/SCOPE-the-square-zero-spectrum-of-finite-latin-Alexander-quandle-algeb--79c8559d0197",
+          "material_read": "Resultary summary only; exact local mirrored RESULT.md unavailable",
+          "method": "Configured local index and targeted local mirror retrieval",
+          "title": "The square-zero spectrum of finite latin Alexander quandle algebras",
+          "trigger": "Distinct same-day indexed overlap on exact invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§2–4",
+        "Indexed Alexander-quandle square-zero spectrum (split regime)"
+      ],
+      "rationale": "The exact count resolves when these nonassociative finite algebras admit a genuinely nonzero element with vanishing square and measures how many there are. The dependence on the base field matters: passing to a splitting extension can create solutions, and the binary specialization cleanly separates existence regimes. The useful contribution is the Frobenius-orbit invariant and associated census, not recomputation of a known Fourier product or of a cycle independence polynomial.",
+      "residual_risks": [
+        "No claim in modular characteristic, composite dihedral order, or for higher nonassociative nilpotence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

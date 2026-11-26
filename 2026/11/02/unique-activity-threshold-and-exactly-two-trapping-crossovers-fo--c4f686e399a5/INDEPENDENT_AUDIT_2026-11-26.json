@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:36:11.605826Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding, model and proof, lines 4–109",
+        "VERIFICATION.md and verify.py, inspection without execution",
+        "Independent rational recurrence checks and numerical solutions of the fold and limiting equations",
+        "Shee, arXiv:2409.06920v2, Eq. (21) and passive trapped special case"
+      ],
+      "rationale": "Complete resetting selects a regenerative stationary law. The five generator moments close, since all five observables vanish at reset. Substitution gives 2F over a strictly positive denominator; at p=0 it reduces to r/(4β+r). For each positive r the leading activity coefficient A has exactly one positive simple zero by Descartes' rule and its opposite endpoint signs. The positive activity root P_r exists beyond this zero and diverges at both ends of its trap domain, so its minimum is attained. At fixed activity the leading, linear and constant trap coefficients of F are positive, and only its cubic and quadratic coefficients can be negative. Descartes' rule therefore bounds the positive trap roots, counted with multiplicity, by two. At the minimum activity any zero is a local minimum and has even multiplicity, proving uniqueness and exact multiplicity two. Above it the negative value at the minimizing trap and positive values at both ends force two simple roots. F_p<0 and F_ββ>0 at the fold give the stated square-root opening. For the weak limit, P_r²/r≥C/[r(−A)] gives uniform coercivity at zero and infinity; on compact positive trap intervals the rescaled root converges to √G, whose derivative has precisely one positive zero. For the strong limit the coefficient of z² is (2t+1)(1+t−3t²); the rescaled bound C/[r²(−A)] diverges for large t uniformly at large r and along any sequence approaching the moving coefficient-zero boundary. The limiting quartic has the same two-root bound, so its positive branch has a unique minimum. Local convergence and both compactness arguments justify the limiting minima. Independently checked rational test triples agree with the factorized identity. Replay the numerical constants by solving F=F_β=0 at r=1, the weak-limit quartic and the strong-limit Φ=Φ_t=0; the independently obtained values agree to the quoted precision, apart from rounding. At r=1 and p=100, the two roots are approximately 0.7689475143 and 4828.575391.",
+      "residual_risks": [
+        "The frozen recurrence is the basis for correctness; the printed expanded equation (21) in Shee does not literally agree in its activity-independent linear trap term. At r=β=1 and p=0 the printed equation gives 257/1575, whereas the recurrence and Shee's stated passive special case both give 1/5. This is an apparent typo in the cited expansion, not a counterexample to the frozen theorem.",
+        "The threshold is p_c in p=Pe², or √p_c in Pe. A zero of the radial statistic does not imply a Gaussian stationary law.",
+        "The computations are numerical corroboration of constants and finite checks of the identity, not proofs of the continuum classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shee treats the exact positive-reset model and reports its moments and examples.",
+          "Chaudhuri–Dhar discuss re-entrance in the harmonic trap without complete Poisson resetting.",
+          "The closest indexed complete-reset records treat far tails or transverse kurtosis, and the run-and-tumble positivity-boundary record does not reset position."
+        ],
+        "reasoning": "The no-reset result is not a dominating theorem for positive reset rates; the distinct observables and models in the other comparisons also do not specialize to this sign classification. Shee's exact-model formula is the strongest related antecedent, credited separately.",
+        "searches": [
+          "Shee, arXiv:2409.06920v2, §6, stationary kurtosis and phase discussion",
+          "Chaudhuri–Dhar, arXiv:2005.14234v2, p. 14",
+          "Resultary nearby complete-reset and run-and-tumble results"
+        ]
+      },
+      "checked_sources": [
+        "Shee, arXiv:2409.06920v2 and published Eq. (21) and phase-figure passages",
+        "Chaudhuri–Dhar, arXiv:2005.14234v2, p. 14",
+        "Local Resultary index and compared records ab66b9962f7b, 1dd39e513d62 and b8f01f9a721f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior moment expression furnishes the algebraic input. Its printed quartic expansion uses 2(1+r²)(22+7r) inside the βr bracket where the passive special case and moment derivation require 2(1+r)²(22+7r).",
+          "The inspected phase discussion reports examples, without a multiplicity bound, fold proof, or control of minimizers in the singular limits."
+        ],
+        "reasoning": "A corrected exact expression defines the zeros, but a direct evaluation or substitution does not count them globally or justify interchange of threshold minimization with a singular limit. The decisive added steps are the sign-variation bound with multiplicity and coercive rescaling at both reset extremes.",
+        "searches": [
+          "Shee, arXiv:2409.06920v2, §6, expanded quartic and special cases, HTML offsets 38000–41095",
+          "Frozen RESULT.md, all-parameter proof, lines 84–109"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shee's Fig. 3(b) uses r=1 and Pe=10, showing two trapping zeros labeled approximately 0.77 and 4804. Fig. 4(b) describes the corresponding two zero-kurtosis boundaries.",
+          "The closest indexed transverse-kurtosis item concerns a different observable, control parameter and noise regime."
+        ],
+        "reasoning": "A plot at fixed reset and activity is already evidence for the same type of crossing. It does not assert the all-parameter sharp dichotomy or a single activity at which the pair of zeros coalesces.",
+        "searches": [
+          "Resultary searches for complete-reset radial excess kurtosis, re-entrant trap-strength zeros, unique activity threshold, and fold/asymptotic laws",
+          "Shee, arXiv:2409.06920v2, §6, Eq. (21), Figs. 3(b) and 4(b)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The located numerical phase material covers representative parameters, including the two-crossing example, not a tabulation or formula for the unique threshold, multiplicity and exact limiting constants.",
+          "The indexed neighbors ab66b9962f7b, 1dd39e513d62 and b8f01f9a721f address different invariants or assumptions."
+        ],
+        "reasoning": "Sample zero locations or a phase image are not exact coverage of the unbounded parameter domain. The numerical example and the qualitative sign sequence are antecedents, not novel evidence.",
+        "searches": [
+          "Resultary index queries for the radial fold, trap-strength crossings and reset asymptotics",
+          "Shee, Fig. 3(b), Fig. 4(b), and accompanying discussion"
+        ]
+      },
+      "rationale": "Credit Shee with the model, stationary moments, and prior observation of a re-entrant two-crossing plot. The distinct supported contribution is the global classification for each positive reset rate and all activity and trap strengths, including uniqueness, multiplicity, opening and both reset asymptotics. The bounded comparisons do not certify priority.",
+      "residual_risks": [
+        "A bounded comparison does not rule out unlocated algebraic analyses of the same quartic. No originality is assigned to the existing stationary moments or the reported sample crossings."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partially covering: moments and qualitative/example crossovers are prior; printed expansion has a passive-term discrepancy",
+          "evidence": "The r=1, Pe=10 example already has two trap crossings; the passive case states r/(4β+r), inconsistent with a literal evaluation of the printed general expansion.",
+          "identifier_or_url": "https://arxiv.org/html/2409.06920v2",
+          "material_read": "§6 Eq. (21) and passive special case (v2 HTML offsets 38000–41095); published PDF Eq. (21), p. 8, and Fig. 3(b) and discussion, p. 9; Fig. 4(b) phase discussion",
+          "method": "Original accessible article, bounded HTML and PDF excerpts",
+          "title": "Active Brownian particle under stochastic position and orientation resetting in a harmonic trap",
+          "trigger": "Exact same resetting and trap model, stationary kurtosis, and previously observed two-crossing behavior"
+        },
+        {
+          "assessment": "Qualitative antecedent in a distinct reset regime",
+          "evidence": "The trap-stiffness crossover is in the harmonic active-particle model without positive complete resetting.",
+          "identifier_or_url": "https://arxiv.org/abs/2005.14234",
+          "material_read": "v2 p. 14, PDF text offsets 46500–49452",
+          "method": "Original open-access preprint, relevant crossover discussion",
+          "title": "Active Brownian particle in harmonic trap: exact computation of moments, and re-entrant transition",
+          "trigger": "Earlier re-entrant trap stiffness result and exact moments"
+        },
+        {
+          "assessment": "Different orientation dynamics and boundary",
+          "evidence": "A nonuniform-turn run-and-tumble model without positional resetting has a positivity boundary expressed in angular Fourier modes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-positive-kurtosis-boundary-for-a-trapped-particle-with-p--ab66b9962f7b",
+          "material_read": "Finding in RESULT.md",
+          "method": "Local Resultary mirror",
+          "title": "A sharp positive-kurtosis boundary for a trapped particle with nonuniform turns",
+          "trigger": "Closest positive-kurtosis boundary in the indexed trapped-particle literature"
+        },
+        {
+          "assessment": "Different observable and parameter variation",
+          "evidence": "The fixed-heading athermal model concerns transverse coordinate kurtosis as the reset rate varies.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-unique-transverse-kurtosis-reversal-for-a-completely-reset-trapp--1dd39e513d62",
+          "material_read": "Finding in RESULT.md",
+          "method": "Local Resultary mirror",
+          "title": "Unique transverse kurtosis reversal for a completely reset trapped particle",
+          "trigger": "Complete-reset kurtosis sign and uniqueness"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "It concerns far-tail asymptotics and the lack of a Gaussian characterization by zero kurtosis, not the radial fold classification.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-angular-erasure-in-far-tails-of-a-harmonically-trapped-reset-act--b8f01f9a721f",
+          "material_read": "Finding in RESULT.md",
+          "method": "Local Resultary mirror",
+          "title": "Angular erasure in far tails of a harmonically trapped reset active particle",
+          "trigger": "Closely related trapped/reset active particle and zero-kurtosis distinction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, exact two-crossing classification and both asymptotic laws",
+        "Shee, Figs. 3(b) and 4(b), prior numerical phase context"
+      ],
+      "rationale": "The exact phase geometry resolves an existing numerically identified phenomenon: it excludes hidden additional sign intervals at any positive reset rate, distinguishes the unique double-root threshold from simple crossings, and gives the opening and the scales required to reach it in two singular regimes. These furnish quantitative diagnostics for the radial fourth moment beyond recalculation of a known phase plot.",
+      "residual_risks": [
+        "The phase is a sign of one stationary statistic, not a thermodynamic transition or a claim about arbitrary reset protocols."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

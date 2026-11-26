@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The exact local mass and weighted inverse matrices are assembled independently. Left-inverse identities give a rank-at-most-one positive-semidefinite update of the true inverse, hence two unit eigenvalues. Direct trace gives the third eigenvalue, whose square-defect factorization proves unique optimal weights. Reciprocal contrast and asymptotic case analysis give the complete exponent threshold, with exact critical supremum. Independent exact-rational checker passed 8,618 assertions; the continuous theorem follows from algebra, not sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://mfem.org/pdf/seminar/southworth2.pdf: slides 6-8 propose local mass weights and show improved grading; slide 13 provides a general upper bound of K=(alpha+beta)^2/(4alpha beta).",
+        "https://arxiv.org/abs/2607.12138: published BRAS mass-spectrum discussion and rank principle."
+      ],
+      "reasoning": "Neither general sufficient spectral bounds nor example tables imply the exact necessity direction for every power exponent, the nonattained 8/3 critical value, or uniqueness among all positive element weights.",
+      "searches": [
+        "broken-space additive Schwarz P1 local diagonal power weights mesh ratio half exponent stability",
+        "weighted BRAS averaging exponent one half mesh grading robustness threshold",
+        "weighted mass preconditioner length power law averaging graded elements critical square root"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.12138 (accessible primary sections)",
+      "https://mfem.org/pdf/seminar/southworth2.pdf (specific formula slides visually checked)",
+      "https://doi.org/10.1093/imanum/7.4.449 (abstract only)",
+      "earlier mathematical case studies with identifiers 073ddd6b-1292-4710-b921-699b24756903 and b1da109e-39bf-4387-8473-4db1fa6b3004",
+      "published-finding corpus semantic queries listed in named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior case study 073ddd6b-1292-4710-b921-699b24756903: periodic alternating P1 mass mesh, with weighted and unweighted BRAS spectral comparisons; no arbitrary two-cell scalar power-weight optimization.",
+        "Prior case study b1da109e-39bf-4387-8473-4db1fa6b3004: original unweighted BRAS on metric stars having at least three arms; no positive relative-weight optimizer.",
+        "Southworth slides: general weighted averaging and its condition-number bound, without the complete two-cell minimization and exponent transition."
+      ],
+      "reasoning": "Both historical claims can explain related unweighted pathology, and those implications are credited/excluded. Neither implies the optimized arbitrary-weight two-element spectrum or square-root threshold; the general slides establish motivation and constructions but not their sharp two-cell consequences.",
+      "searches": [
+        "Arithmetic–harmonic contrast controls the complete BRAS spectrum on metric stars",
+        "An exact mesh-contrast reversal for BRAS mass preconditioning",
+        "two-interval P1 broken-space additive Schwarz weighted mass inverse full spectrum one nonunit eigenvalue 4/3 optimal weights length ratio"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact rank-one formula is also the sole nonunit eigenvalue of the weighted one-interface constraint-space Gram matrix.",
+        "The source general interface-space theorem states eigenvalue reduction but not this exact two-cell parametric formula or exponent threshold."
+      ],
+      "reasoning": "Compared the same eigenvalue and optimizer after scaling, not titles. General constraint reduction could produce the result by computation; its theorem alone does not state a sharp all-power contrast dichotomy.",
+      "searches": [
+        "BRAS broken-space additive Schwarz two unequal interval elements P1 mass spectral condition number mesh grading Jacobi reversal",
+        "Krzysik Southworth Wimmer BRAS mass inverse 2026 two element mesh size ratio exact spectrum",
+        "BRAS weighted local-mass inverse two-cell critical exponent one-half mesh-size power diagonal uniform condition number",
+        "weighted additive Schwarz finite element mass optimal elementwise scalar weights P1 two elements unique minimizer spectral conditioning"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published-finding corpus result IDs reviewed concern spline projection norms, block scaling and other preconditioners, not a weighted BRAS two-cell mass spectrum.",
+        "The seminar numerical table on slide 8 concerns three P1 elements and selected weights, not a complete two-interval parametric table."
+      ],
+      "reasoning": "Numerical examples or nearby topics do not cover a universal exact formula. Vector search is not an exhaustive novelty guarantee.",
+      "searches": [
+        "Krzysik Southworth Wimmer BRAS mass inverse 2026 two element mesh size ratio exact spectrum",
+        "additive Schwarz local inverse multiplicity scaling graded 1D two elements worse than diagonal mass preconditioner",
+        "two-interval P1 broken-space additive Schwarz weighted mass inverse full spectrum one nonunit eigenvalue 4/3 optimal weights length ratio",
+        "BRAS weighted local-mass inverse two-cell critical exponent one-half mesh-size power diagonal uniform condition number",
+        "weighted additive Schwarz finite element mass optimal elementwise scalar weights P1 two elements unique minimizer spectral conditioning"
+      ]
+    },
+    "rationale": "Krzysik–Southworth–Wimmer and Southworth already introduce weighted BRAS, suggest local mass-diagonal weights and explain qualitative grading robustness. The claim is restricted to a complete, sharp two-cell scalar-weight spectrum, unique optimization and exact power-weight phase boundary, not those established general ideas. No matching implication was identified in the examined sources or actual published-finding corpus records; priority of possible unindexed one-interface derivations remains unresolved.",
+    "residual_risks": [
+      "A specialization of the general interface spectral identity may have been explicitly computed in unindexed earlier literature.",
+      "Wathen 1987 full text not inspected: known Jacobi background only assessed from abstract.",
+      "Two-element findings do not prove arbitrary many-element mesh uniform conditioning."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Underlying algorithm, rank principle and unweighted constructions known; exact optimized two-element scalar-weight law and power exponent not stated in inspected sections",
+        "evidence": [
+          "arXiv:2607.12138, sections 2.2–2.4 and numerical experiments"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.12138",
+        "material_read": "Relevant open-access manuscript sections on BRAS definition, spectral theory and experiments, including the theorem on unit eigenvalues and rank",
+        "method": "Read accessible full-text sections and compared hypotheses, matrices and conclusions",
+        "title": "Broken-space Additive Schwarz Mass Inverse Approximations and (Block) Preconditioning",
+        "trigger": "Primary construction and possible direct overlap"
+      },
+      {
+        "assessment": "Explicitly covers general weighting and diagonal mass recommendation and 3-element contrast tests, but not the optimized two-element all-weight spectrum or power exponent phase transition",
+        "evidence": [
+          "Slides pp. 6–8 and 13–15"
+        ],
+        "identifier_or_url": "https://mfem.org/pdf/seminar/southworth2.pdf",
+        "material_read": "Slides 6–8, 13–15, including formulas, weight comparisons and constraint-space eigenvalue reduction",
+        "method": "Read text and inspect PDF page screenshots for relevant weighted formulas and plots",
+        "title": "BRoken-Space Additive Schwarz (BRAS) for Mass Matrix Preconditioning",
+        "trigger": "Closely relevant weighted BRAS and grading examples"
+      },
+      {
+        "assessment": "Addresses mass/Jacobi spectral bounds, not visibly the weighted broken-space scalar optimization; residual full-text priority risk noted",
+        "evidence": [
+          "Wathen, IMA J. Numer. Anal. 7 (1987), 449–457 abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/imanum/7.4.449",
+        "material_read": "Abstract and bibliographic metadata only",
+        "method": "Read accessible abstract; no full-text exclusion inferred",
+        "title": "Realistic Eigenvalue Bounds for the Galerkin Mass Matrix",
+        "trigger": "Possible stronger Jacobi condition-number bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "47488341-b41e-410c-a8b8-e34a163f0433",
+  "value": {
+    "rationale": "The smallest conforming mesh with a shared interface admits a complete exact spectrum for an adjustable practical weight family. The result answers a motivated robustness question with a necessary-and-sufficient power-law threshold and sharp boundary constant; it distinguishes enough local mass weighting from insufficient weighting without claiming broader mesh convergence.",
+    "status": "PASS"
+  }
+}

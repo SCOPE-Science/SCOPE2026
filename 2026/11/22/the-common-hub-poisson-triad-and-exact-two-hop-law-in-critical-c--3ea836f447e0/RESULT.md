@@ -28,7 +28,7 @@ The limiting degrees have strictly positive conditional dependence: their joint 
 \lim_{x\to\infty}x^2\Pr(D_1>x,D_2>x)
 =\left(\frac{\lambda}{1-\alpha}\right)^2.
 \]
-The tail statement is a consequence of the same joint limiting law, with the order of limits taken first in graph size and then in degree threshold.
+The tail statement uses only the conditional Poisson marginals of the limiting law and independence of the tagged weights; it does not require conditional independence of the degrees. The graph-size limit is taken before the degree-threshold limit.
 
 ## Assumptions and scope
 
@@ -97,14 +97,17 @@ Run `python3 check.py`. The standalone standard-library checker verifies the exa
 
 ## Relationship to prior work
 
-Andreis, Avena, Hazra and Matteini (2026) define precisely this capped-Pareto model, derive single-tag degree limits and extremal-graph structure, and show that typical vertices in the largest component have distance at most three with high probability. Their accessible theorem summaries and indexed sections also discuss common-hub dependence in a dust argument; those facts are credited. The present statement concerns the entire **joint pair-degree/codegree law** and the exact two-hop probability, which are not among the inspected statements. Avena, Garlaschelli, Hazra and Lalli (2022, revised 2026) study a **different soft exponential** connection kernel and prove non-vanishing degree dependence without an explicit full joint law. General marked-Poisson thinning is standard; the specific capped-kernel intensities, codegree identity and distance-two limit are the asserted contribution.
+Andreis, Avena, Hazra and Matteini [1] establish single-tag degree limits (Theorem 1), an extreme-weight point process (Theorem 3), extreme-degree results (Theorem 6), and distance at most three with high probability for two typical vertices in the largest component (Proposition 1.4). Their Remark 2.5 identifies common hubs as a source of isolation dependence. For the same model, [4] uses the extreme-weight point process and Poisson marking for a single root to study clustering. The independent Poisson decomposition of the neighbor counts here is a two-tag extension of that marking mechanism; general Poisson marking and the common-hub mechanism are not new. The extra calculation evaluates the shared-neighbor intensity for the capped kernel, gives the finite-neighbor overlap probability including its lower-cutoff correction, and thus specifies the probability of distance exactly two rather than a high-probability distance bound.
+
+Avena, Garlaschelli, Hazra and Lalli [2] use the **soft exponential** kernel. They give an explicit limiting bivariate degree generating function in (4.19), building on the conditional calculation (4.18), and conjecture joint tail factorization in (2.8). The capped-kernel result above proves the corresponding tail factorization in the critical capped model, with its own marginal tail constant. It is not an assertion about the soft model. The two kernels give different shared-neighbor intensities.
 
 ## Limitations
 
-The original 2026 preprint's full PDF was unavailable in the accessible retrieval path; comparison used its abstract and indexed theorem/section excerpts, leaving possible unexamined appendices or calculations as historical-priority risk. This risk does not affect the self-contained probabilistic proof. No claim is made for the soft exponential kernel, the boundary cases \(\alpha=0,1\), growing tagged weights, joint shortest paths of length three, or simultaneous graph-size and tail thresholds. Independent mathematical assessment has not been performed.
+The comparisons above concern the stated results and their relevant proofs; they do not certify historical priority. No claim is made for the soft exponential kernel, the boundary cases \(\alpha=0,1\), growing tagged weights, joint shortest paths of length three, or simultaneous graph-size and tail thresholds.
 
 ## References
 
 1. L. Andreis, L. Avena, R. S. Hazra, E. Matteini, *Inhomogeneous random graphs: how heavy tails reshape connectivity* (public preprint 2026-10-21), https://arxiv.org/abs/2610.29564.
 2. L. Avena, D. Garlaschelli, R. S. Hazra, M. Lalli, *Inhomogeneous random graphs with infinite-mean fitness variables* (public preprint 2022-12-16), https://arxiv.org/abs/2212.08462; Journal of Applied Probability, DOI 10.1017/jpr.2025.10037.
 3. K. Lin, G. Reinert, *Joint vertex degrees in the inhomogeneous random graph model* (2016), https://arxiv.org/abs/0912.4812.
+4. [*An exact full-clustering atom for hard-saturated infinite-mean random graphs*](https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-an-exact-full-clustering-atom-for-hard-saturated-infinite-mean-r--0f1726f44dd0/RESULT.md) (2026), Proof §§1, 3–4.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-The analytic proof in `RESULT.md` establishes the exact infinite reset-age sum and global optimization. The separate `verify.py` script evaluates the actual four-dimensional Ising unitary with the Bell reset state, partial traces the propagated states, and directly calculates the Holevo gap. It then compares this result with the reduced-state formula and the derived bound at thirty positive parameter sets, and checks twenty explicit equality cases.
+## correctness
 
-Observed output:
+PASS
 
-```
-PASS: 30 direct 4x4 matrix vs conditional-state comparisons, 20 exact optimizer cases
-largest direct-matrix discrepancy 7.83484388477973e-13
-p=0.1 sharp bound in bits 0.3051585985360449
-limiting absolute cap in bits 0.31127812445913283
-```
+On the span of Φ+ and Ψ+, the Hamiltonian is the 2×2 matrix with diagonal (−J,J) and off-diagonal Ω. Exponentiating and tracing gives (I−y_m σ_x)/2 with y_m=[2JΩ/(J²+Ω²)]sin²(mφ) and φ=T√(J²+Ω²). With q=1−p the geometric age sum gives μ=c[1−p(1−q cos(2φ))/(1−2q cos(2φ)+q²)]/2. The fraction is strictly increasing in cos(2φ) for 0<p<1, so μ≤q/(1+q)<1/2, with equality only at c=1 and cos(2φ)=−1. For the entropy f(y)=h₂((1+y)/2), strict concavity gives f(y)≥1−y with equality only at 0 and 1. The resulting upper envelope g(μ)=f(μ)−1+μ is strictly increasing on [0,1/2], since g′≥1−(log₂3)/2>0. Thus saturation requires exactly J=Ω and φ=π/2 modulo π, which gives 0 or 1 polarization depending on parity and saturates the chord. The states commute at all parameters, so σ_x measurement gives precisely the Holevo gap. The maximal mean strictly decreases with p; its limit at p↓0 is 1/2, yielding the nonattained 0.311278124459… bit supremum. This is an analytic replay for the ideal single-spin ensemble, fixed positive T and J,Ω>0, not a claim about other reset states or noise. The finite truncation diagnostics in verify.py were inspected, not executed.
 
-Finite numerical evaluations cannot prove an all-parameter inequality or global uniqueness; these conclusions follow from strict analytic inequalities in the proof. The matrix tests use convergent geometric-tail truncation and are diagnostics, not an external scientific audit. Requires Python with NumPy and SciPy; run `python verify.py` in the directory containing this file.
+## originality
+
+PASS
+
+The same reset dynamics, reduced-state formula and Holevo identification were already published. Exact optimization of that particular single-spin Holevo gap over the allowed couplings and phase, its full equality conditions, and the resulting absolute supremum are the supported distinction.
+
+## value
+
+PASS
+
+This replaces a one-bit dimension bound by a sharp attainable fixed-reset-rate envelope, gives every exact tuning, and identifies the optimal parity-to-local-measurement channel. It explains quantitatively why the best possible single-spin readout in this model still yields at most about 0.3113 bits of age information. The simple entropy method resolves a real optimization question raised by a published physical model; no extrapolation to noisy devices, two-spin information or larger systems is justified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

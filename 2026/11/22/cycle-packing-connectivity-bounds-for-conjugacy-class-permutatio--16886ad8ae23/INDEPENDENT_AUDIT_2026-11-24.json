@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:00:27.185767Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For k <= c(lambda), choose k increasing positions outside the prescribed values since 2k <= n. The required arrows are vertex-disjoint two-label blocks. A cycle of size ell accepts any t <= floor(ell/2) such blocks and ell−2t spare labels: allocate within these capacities and close each list cyclically. This works for all cycle sizes and yields the exact word and falling-factorial cell counts. There are no relative cells below dimension c. A nullhomotopy of an i-sphere in the ambient space can be deformed into the common (c−1)-skeleton when i+1 <= c−1 by relative cellular approximation; paths give path connectivity for c >= 2. The ambient wedge theorem was checked in arXiv:1908.03394, Theorem 1.2; reduced homology vanishes in the range with any coefficient group. Each transposition contributes at most one letter to an increasing subsequence. This proves the sharp skeleton cutoff, not sharp connectivity. Reviewer-authored `python3 /workspace/independent_reproduction.py perm` (Python 3.12.3) compared exact word sets through n=8 and longest increasing subsequences over all perfect matchings at n=2,4,6,8,10,12 (10,395 matchings at n=12). The frozen verifier searches for absence only through n=8; its last two printed sharpness lines cover witness construction, not exhaustive absence. The proof does not rely on finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 7.15 gives probability 1/[(n−1)⋯(n−k)] for acyclic constraints when every part is at least k+1",
+          "Govc proves free fundamental groups for arbitrary permutation complexes",
+          "Chachólski–Levi–Meshulam establish the ambient setting and record the wedge of (n−1)-spheres theorem"
+        ],
+        "reasoning": "The existing constraint result applies to a stricter cycle-length domain. The topology results neither fill the lower skeleton of a particular conjugacy-class subcomplex nor imply its simple connectivity or higher vanishing range.",
+        "searches": [
+          "arXiv:2301.00898v2 Lemma 7.15",
+          "arXiv:2611.11362 Theorem 1",
+          "arXiv:1908.03394 Definitions 1.1, 1.4 and Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2301.00898v2",
+        "arXiv:1908.03394",
+        "arXiv:2611.11362",
+        "arXiv:2610.07303",
+        "Resultary:58e56027aa37",
+        "Resultary:43c09daa8e41",
+        "Resultary:58227329ae81",
+        "Resultary:0bdb08a9e169"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For minimum cycle size >=k+1 the k disjoint arrows are acyclic and have positive probability by Lemma 7.15, so that portion of word coverage is a corollary",
+          "For lambda=(2^m) and k=m>=2 the minimum-cycle hypothesis fails, but the packing and sharp obstruction both apply"
+        ],
+        "reasoning": "Credit the covered large-cycle regime and small tabulated instances. The distinct contribution is a bound determined by the sum of per-cycle capacities, including mixed sizes and small cycles, plus its all-order skeletal consequences.",
+        "searches": [
+          "Direct statement-level comparison with Lemma 7.15 of arXiv:2301.00898v2 and Resultary 58e56027aa37"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Campion Loth et al., Definition 7.1 and Lemma 7.15 treat prescribed position-value constraints as directed paths",
+          "Elizalde–Hanlon–Hersh distinguish exact-value subwords from relative-order pattern avoidance"
+        ],
+        "reasoning": "An occurrence of a target word is realizability of one ordered system of arrows with increasing domains. Arbitrary acyclic constraints are the right analogue, but the published lemma requires a minimum cycle length. Its distribution theorem is not the all-partition extension statement. Relative-order avoidance does not prescribe the letters themselves.",
+        "searches": [
+          "Resultary: exact-letter subsequences in a fixed cycle type, disjoint prescribed-edge packing",
+          "arXiv:2301.00898v2, §§7.1–7.2",
+          "arXiv:2610.07303, pp. 2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "58e56027aa37 gives fixed-point-free involution f-vectors and F2 homology for n=2,4,6,8",
+          "43c09daa8e41 tabulates single-cycle complexes through n=6; 58227329ae81 and 0bdb08a9e169 concern one class each"
+        ],
+        "reasoning": "The finite involution cell counts already encode the sharp cutoff at those particular sizes. The other f-vectors also include finite overlap. None is an all-n all-partition statement or proves an infinite cutoff. Date alone does not decide priority; the indexed assigned record itself is not a separate antecedent.",
+        "searches": [
+          "Resultary: conjugacy-class permutation complexes, injective-word skeleton, fixed-point-free involutions",
+          "Resultary records 58e56027aa37, 43c09daa8e41, 58227329ae81 and 0bdb08a9e169, original RESULT.md statements"
+        ]
+      },
+      "rationale": "Earlier positive-probability extension of acyclic constraints covers the short-word existence conclusion for types with every part at least k+1, in particular the corresponding range for one long cycle. It does not cover arbitrary short cycles, fixed points, or the uniform capacity and its exact involution boundary. No equivalent or dominating result for the combined general statement was identified in the inspected sources. The ambient theorem and the elementary direction of the involution obstruction are not claimed as separate innovations.",
+      "residual_risks": [
+        "The original Björner–Wachs PDF was inaccessible; the precise ambient theorem was checked in the published theorem restatement. Unindexed constraint-extension criteria for arbitrary prescribed cycle lengths remain a priority risk.",
+        "Finite same-date overlaps do not establish an order between records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Positive probability for every acyclic k-constraint if every part is >=k+1; this covers a precise restricted regime but not arbitrary lambda.",
+          "identifier_or_url": "https://arxiv.org/pdf/2301.00898v2",
+          "material_read": "Definition 7.1 vicinity, PDF p. 17; Lemma 7.15 and proof, PDF pp. 20–21, text offset 81975",
+          "method": "Lawful OA PDF: term location followed by passage read",
+          "title": "Permutation Statistics in Conjugacy Classes of the Symmetric Group",
+          "trigger": "Closest prior prescribed-edge realization theorem"
+        },
+        {
+          "assessment": "COVERS_AMBIENT_PREMISE",
+          "evidence": "Order complex of Inj([n]) is homotopy equivalent to a wedge of derangement-many (n−1)-spheres; preceding passage credits Farmer for homology and Björner–Wachs for homotopy.",
+          "identifier_or_url": "https://arxiv.org/abs/1908.03394",
+          "material_read": "PDF p. 2, Definitions 1.1 and 1.4, Theorem 1.2, text offset 5000",
+          "method": "Lawful OA PDF",
+          "title": "On the topology of complexes of injective words",
+          "trigger": "Ambient connectivity theorem and permutation-complex definitions"
+        },
+        {
+          "assessment": "DOES_NOT_IMPLY_CLAIM",
+          "evidence": "Fundamental groups are free, not necessarily trivial; no cycle-type word-extension premise in this theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.11362",
+          "material_read": "PDF p. 1, Theorem 1, text offset 2600",
+          "method": "Lawful OA PDF",
+          "title": "Fundamental Groups of Permutation Complexes",
+          "trigger": "Potential broader theorem about arbitrary generating families"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT",
+          "evidence": "Relative-order pattern avoidance differs from exact-label subsequences in a class of specified cycle type.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.07303",
+          "material_read": "PDF pp. 2–3, text offset 8200",
+          "method": "Lawful OA PDF",
+          "title": "Complexes of pattern-avoiding injective words",
+          "trigger": "Possible alternate use of subword or pattern"
+        },
+        {
+          "assessment": "FINITE_OR_CLASS_SPECIFIC_OVERLAP",
+          "evidence": "The involution census ends at eight letters; the long-cycle census ends at six letters; the remaining two entries are single classes, not arbitrary partitions.",
+          "identifier_or_url": "Resultary:58e56027aa37; 43c09daa8e41; 58227329ae81; 0bdb08a9e169",
+          "material_read": "Original Finding statements and f-vector scope in indexed RESULT.md files",
+          "method": "Resultary search and local mirror passage reads",
+          "title": "Three consecutive homology degrees first occur at eight letters for fixed-point-free involutions (related permutation-complex records)",
+          "trigger": "Same family and potentially already tabulated skeleton thresholds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A computable cycle-type condition controls every exact-letter cell in a growing range and gives nontrivial integral and homotopical connectivity in a naturally defined family. The bound works with a mix of long and short parts and provides a sharp skeletal cutoff for an infinite class, rather than extrapolating a finite homology census. It does not determine higher groups or claim that the connectivity bound is sharp.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

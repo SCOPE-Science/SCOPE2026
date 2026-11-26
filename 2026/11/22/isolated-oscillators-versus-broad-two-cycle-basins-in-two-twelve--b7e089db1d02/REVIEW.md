@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graphs are explicitly defined on twelve labelled vertices each, and synchronous open-neighbor strict binary majority with incumbent tie retention is implemented directly. All \(4096\) states of each graph are classified by two genuinely different finite functional-graph algorithms: Python orbit-following and C++ indegree peeling. These agree on every printed first-entry/period category, total basin population, fixed state, primitive two-cycle count, consensus basin and sharp depth. Exhaustive orbit grouping under the complete graph automorphism groups verifies 5/26 and 14/3 fixed/two-cycle geometric class totals; Burnside summation supplies an independent group-accounting check. The state-space proof is exhaustive, not an extrapolation. The source code and reference JSON have been replayed and verified from the accompanying bundle.
+PASS
 
-## Originality — PASS (qualified)
+Independently built the two graphs and indexed all 4096 states of each by bit masks. The update threshold on neighbor ones is floor(d/2)+1 at an incumbent zero and ceil(d/2) at an incumbent one, including degree-four ties. Computing every successor and flagging F²(s)=s identifies exactly the states with period dividing two, and following every initial state to its first flagged state proves the claimed cutoff and absence of other periods. On T, the fixed destination row is (16,238,468,720,216,72), the two-cycle destination row is (478,1264,528,96,0,0). Thus 239 primitive orbits attract 2366 states (1888 transient), sharp time three within that basin and five globally. The unanimous basins each contain 680 states. On benchmark C the rows are (146,1606,1200,1008,96,0) and (40,0,0,0,0,0); the unanimous basins each have 1032 states, and no oscillator has a transient predecessor. Witnesses 310 on T and 348 on C attain the global times. Independent adjacency-preserving bijection backtracking found groups of orders 24 and 48 and applying them gave respectively (5,26) and (14,3) fixed/two-cycle spatial counts. The structural symmetry arguments in the corrected result agree. Global sharpness of the iterate identity follows because F^(r+2)(x)=F^r(x) exactly when F^r(x) is already of period dividing two. All figures and claims in the corrected files were checked against this exhaustive replay or against the explicitly credited benchmark statement.
 
-Goles–Olivos already proves only periods one and two in the finite symmetric setting. More importantly, the published half-factor theorem for majority dynamics on line graphs **covers in principle the cuboctahedron's recurrent counts**, and those are not claimed as independently novel. That theorem neither classifies nonperiodic initial states nor implies that all cuboctahedral two-cycles have zero transient basin. The closest graph-specific published result uses a three-state excitation rule on the truncated tetrahedron; a separate exact result on the same two polyhedra concerns independence-complex homotopy, not majority dynamics. Published majority work on random and other finite graphs does not include this pair's full attraction/entry-time table. Exact-title, object, dual line-graph, numerical and alias searches found no covering result. Risk remains from unindexed tables or older inaccessible graph-specific treatments.
+## originality
 
-## Value — PASS
+PASS
 
-The two canonical Archimedean graphs have the same vertex count, yet their exact majority dynamics separate sharply: the cuboctahedral two-cycle basin consists only of its 40 periodic states, whereas 1,888 nonperiodic states flow into oscillation on the truncated tetrahedron. The 4-versus-5 sharp-entry gap and their symmetry-resolved orbit contrasts make this a motivated, completely resolved finite boundary example distinguishing recurrent-state enumeration from attraction basins. This is more informative than simply recounting finite fixed points; in particular, it demonstrates that a general classification of recurrent configurations does not determine how initial states flow toward those configurations. No extrapolation to an infinite graph family is suggested.
+For the repaired claim only: the established cuboctahedron census is a reference point, including the no-transient-predecessor result itself. The distinct contribution is the exact truncated-tetrahedral binary-majority attraction and entry census, not eventual period-two theory, a recomputation of the cuboctahedron, or a general isolation claim. No inspected statement gives or implies the new truncated-tetrahedral census.
 
-## Closest literature and limitations
+## value
 
-Goles and Olivos (1980); Benjamini et al. (arXiv:1405.2486, initially public 2014-05-11); Fountoulakis, Kang and Makai (2020); published line-graph half-factor classification; published truncated-tetrahedral excitation census; published two-Archimedean independence-homotopy comparison. The 1980 original was accessible as an institutional abstract, not an inspected complete article. The claims rest on exact finite computational certificates; no independent external mathematical audit has been performed. Additional unindexed material could affect priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The repaired contribution determines the exact distribution of recurrent destinations and times for a canonical twelve-vertex Archimedean majority network, motivated by comparison with the already established cuboctahedral isolation standard. The substantive contrast is that a uniformly random start usually oscillates on T, with 1888 nonperiodic starts converging to two-cycles, not simply that the graphs have different recurrent-state totals. The independent sharp times for reaching any attractor and for reaching an oscillator, plus symmetry-resolved counts, make the model a precise finite benchmark. This is not presented as the first existence of transients entering oscillations in general.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

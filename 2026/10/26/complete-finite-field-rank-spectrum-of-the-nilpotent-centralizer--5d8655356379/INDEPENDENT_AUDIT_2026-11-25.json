@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:18:54.425874Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–55; VERIFICATION.md; verify.py",
+        "/workspace/audit-checks/check_2.py (replay: python3 /workspace/audit-checks/check_2.py)"
+      ],
+      "rationale": "On the quotient by tM a commuting map induces a triangular matrix whose diagonal is the two diagonal constant coefficients. Nilpotence implies they vanish; conversely the resulting square sends M into tM, so iteration gives nilpotence. Dividing the long-block image by t and factoring out the killed top coordinate of the long source gives an ordinary-rank-preserving 2×2 map over R_l with lower-right entry in tR_l, l=m−1. Zero residue lowers l by one without changing the image dimension. A unit residue pivot in rank one leaves a 1×1 Schur complement in tR_l; for each fixed residue the opposite entry is uniform over its residue class, giving q^{3(l−1)} lifts per complement, also when the lower-right entry must vanish mod t. A scalar of ordinary rank r has valuation l−r, giving H_l. The invertible residue count q(q−1)^2 and rank-one count 2q²−q−1 give the stated P; full rank of the reduced map is exactly b_0 c_0 ≠ 0 and gives the product stratum. This holds for l=1 and in characteristic two. Independent literal enumeration of commuting matrices over GF(2), testing actual nilpotence by powers and rank by image-span size, matches the three histograms for m=2,3,4.",
+      "residual_risks": [
+        "Own computation covers GF(2) and three block pairs only; the local-ring proof carries all prime powers and sizes. Rank data do not determine the full Jordan-partition distribution."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed theorem gives total size for general partitions and exact regular probabilities for all almost-rectangular partitions.",
+          "Basili–Iarrobino give irreducibility and a generic partition; Bogdanić et al. classify possible Jordan types for two equal lengths."
+        ],
+        "reasoning": "For (m,m−1), k=2 and r=1 in the general fiber law, giving both the same total size and the same regular coefficient. These facts and a generic type do not determine the remaining coefficients. Equal-length support does not include the adjacent-length problem.",
+        "searches": [
+          "Local Resultary regular-nilpotent fibers, 0a136f3e3ee7",
+          "Basili–Iarrobino arXiv:0709.2304",
+          "Bogdanić et al. arXiv:2212.08425"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0a136f3e3ee7",
+        "Hua arXiv:2305.00176",
+        "Basili–Iarrobino arXiv:0709.2304",
+        "Bogdanić et al. arXiv:2212.08425"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary size exponent specializes to 4m−5 and probability to (1−1/q)^2.",
+          "Theorem 3.1 treats indecomposable simultaneous similarity, with parameters for canonical forms."
+        ],
+        "reasoning": "The special-case overlap is exact for the total and regular coefficient. To turn pair representatives into a histogram would require ordinary ranks and centralizer-orbit weights for each form, and coverage of decomposable pairs; this is not a parameter substitution into the cited theorem. Generic irreducibility does not supply rank-stratum point counts.",
+        "searches": [
+          "Exact general regular-fiber formula in Resultary 0a136f3e3ee7",
+          "Hua arXiv:2305.00176, Theorem 3.1",
+          "Basili–Iarrobino arXiv:0709.2304, Lemma 1.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hua defines canonical rank using the two off-diagonal blocks, with value zero for decomposable pairs.",
+          "Ordinary rank equals 2m−1 minus the number of Jordan blocks of X."
+        ],
+        "reasoning": "Canonical rank of the pair is not ordinary rank of X; for example decomposable diagonal operators can have nonzero ordinary rank. A weighted census by number of Jordan blocks would be equivalent, whereas a set of possible partitions is not.",
+        "searches": [
+          "Local Resultary search for rank multiplicities and finite-field nilpotent-centralizer fibers",
+          "Hua arXiv:2305.00176, Lemmas 2.1–2.2 and Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local overlap gives totals and regular fibers rather than ranks of all matrices.",
+          "Hua's list is of representatives of indecomposable pairs, not counts of matrices of each ordinary rank.",
+          "Frozen VERIFICATION.md reports six small histograms, not an outside source for general coefficients."
+        ],
+        "reasoning": "There is no equivalent all-coefficient table in the compared passages; counting orbit representatives is not counting individual commuting matrices.",
+        "searches": [
+          "Local Resultary search for complete finite-field rank census and regular fibers",
+          "Hua arXiv:2305.00176, Theorem 3.1"
+        ]
+      },
+      "rationale": "Pass for the full ordinary-rank multiplicity polynomial. The total count and the probability and count of the regular part are already covered by the indexed general regular-fiber law and receive no separate originality credit. A different or generic notion of rank cannot substitute for the remaining coefficients.",
+      "residual_risks": [
+        "An earlier constrained finite-chain-ring matrix rank distribution could imply the polynomial; not established by the comparisons above.",
+        "The cited Oblak PDF retrieval did not complete in the attempted route; no inference of absence or priority is made from that failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proven coverage of total count and highest-rank multiplicity, not the general polynomial in the inspected statement",
+          "evidence": "q^{sum min(lambda_i,lambda_j)−k} and Phi_r(q)Phi_{k−r}(q) give q^{4m−5} and (1−q^{-1})² at k=2, r=1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-regular-nilpotent-fibers-of-finite-field-nilpotent-centralizers--0a136f3e3ee7/RESULT.md",
+          "material_read": "Finding, exact regular-nilpotent fiber law and uniformity, offsets 450–2134",
+          "method": "Local Resultary file mirror",
+          "title": "Regular nilpotent fibers of finite field nilpotent centralizers",
+          "trigger": "Same finite-field centralizer and exact regular stratum counts"
+        },
+        {
+          "assessment": "Relevant canonical forms, not an ordinary-rank fiber census",
+          "evidence": "Theorem 3.1 begins with an indecomposable pair and supplies one of two forms; canonical rank is explicitly zero for decomposable pairs.",
+          "identifier_or_url": "https://arxiv.org/pdf/2305.00176",
+          "material_read": "Canonical-rank definition, p. 5; Theorem 3.1, p. 6, offsets 17258–19776",
+          "method": "Lawful primary PDF; definition and theorem inspection",
+          "title": "Canonical forms for a class of pairs of commuting nilpotent matrices under simultaneous similarity",
+          "trigger": "Two different Jordan block sizes, including consecutive lengths"
+        },
+        {
+          "assessment": "Irreducibility and generic partition do not give every rank's multiplicity",
+          "evidence": "Lemma 1.5 states irreducibility for the nilpotent locus of a finite-dimensional algebra over an infinite field.",
+          "identifier_or_url": "https://arxiv.org/pdf/0709.2304",
+          "material_read": "Introduction and p. 3 Lemma 1.5 passages near offsets 3839 and 8625",
+          "method": "Lawful primary PDF passage inspection",
+          "title": "Pairs of commuting nilpotent matrices, and Hilbert function",
+          "trigger": "Prior nilpotent-centralizer geometry"
+        },
+        {
+          "assessment": "Different size regime and support of Jordan types, not weighted counts",
+          "evidence": "The stated task is to characterize the conjugacy orbits intersecting the centralizer for two equal sizes.",
+          "identifier_or_url": "https://arxiv.org/pdf/2212.08425",
+          "material_read": "Abstract and beginning of introduction, p. 1, offsets 0–2450",
+          "method": "Lawful primary PDF scope inspection",
+          "title": "Jordan structures of nilpotent matrices in the centralizer of a nilpotent matrix with two Jordan blocks of the same size",
+          "trigger": "Potential relation between Jordan-type and rank classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Resultary 0a136f3e3ee7; Hua Theorem 3.1"
+      ],
+      "rationale": "Adjacent blocks are the two-block almost-rectangular family with distinct sizes, a natural setting where the generic operator is regular but lower ranks also occur. The exact finite-field rank law measures all nongeneric ranks in that family, uniformly in q and m. This adds a useful invariant beyond a known regular-density specialization or a Jordan-type existence theorem.",
+      "residual_risks": [
+        "The new contribution credited is the full ordinary-rank law, not a general Jordan-type enumeration or another regular-density result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

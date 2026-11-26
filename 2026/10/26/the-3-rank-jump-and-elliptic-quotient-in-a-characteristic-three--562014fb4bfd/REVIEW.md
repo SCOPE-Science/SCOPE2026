@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The explicit affine inverse coordinates and Artin–Schreier identity are universal polynomial equations. They identify the quotient ring rather than relying on a point count. The only point omitted by the chart is the unique fixed point. Smoothness follows from the elliptic discriminant and the explicit local derivative at that point; the ramification jump is computed in a uniformizer. The standard Deuring–Shafarevich formula and elliptic \(j\)-criterion give the exact ranks. The supplied symbolic verifier checks the key elimination identities and discriminant numerators.
+## correctness
 
-**Originality — PASS, subject to residual literature risk.** Elkies gives the central Klein quartic and a classical elliptic quotient, hence the single central member is covered. Bars' treatment of genus-three automorphisms is in characteristic zero. Tafazolian discusses the special Klein/Hermitian curve and its zero \(3\)-rank, not this smooth varying pencil. Targeted semantic and textual searches did not locate the same family-wide elliptic \(j\)-map and jump divisor; this is evidence of a distinct claim, not proof that no equivalent formulation exists. A specialized characteristic-three quartic pencil computation could preempt it.
+PASS
 
-**Mathematical value — PASS.** The family varies geometrically (its elliptic quotient's \(j\)-invariant is nonconstant) but the wild covering symmetry forces the genus-three \(3\)-rank to jump directly between the extremes \(0\) and \(3\). Locating the exact supersingular parameter within a natural deformation of the Klein quartic and specifying the unique ramification conductor gives a useful complete arithmetic-geometric classification, not a simple recomputation of the special central curve.
+With X+Y+Z=1 and t=X−Y, write X=Z−1−t, Y=Z−1+t. Then r=1−Z−t² and d=t−t³. Exact substitution recovers the stated quotient polynomial up to a unit, and the cycle acts by t↦t−1, with r,d invariant. Away from infinity the map is finite étale since the Artin–Schreier derivative is −1. In the chart Z=1 the line at infinity is w=0; the quartic there is −u⁴, with w derivative 1+λ at the unique point. For λ≠−1, completing the elliptic square gives the stated monic cubic, with discriminant (λ−1)/(1+λ)^5 and c4=λ²/(1+λ)². This gives the exact two singular parameters and j=λ⁶/(λ²−1). At the unique fixed point, w=u⁴/(1+λ)+O(u⁵) and the action in local parameter u satisfies σ(u)−u=(w−u²)/(1+u), of valuation two. Thus the sole lower break is one and the different has exponent four. Deuring–Shafarevich then gives f3(C)=3f3(E). Independently, on the smooth plane quartic the Hasse–Witt coefficient matrix from F² has diagonal λ²−λ and one cyclic off-diagonal −λ; its determinant is (λ(λ+1))³ and the matrix vanishes at λ=0, corroborating the full rank classification on the smooth locus. The own symbolic replay checked the affine polynomial, boundary terms, discriminant and Hasse–Witt matrix universally modulo three.
 
-**Scope and risk.** No claim of universal classification of genus-three curves or mixed-characteristic reduction. Independent verification is outstanding; a historically equivalent parameterization may exist.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+There is exact overlap for the elliptic moduli map after a parameter change, and known central-curve coverage. Neither the j-function in isolation nor the zero-rank Klein specialization carries the originality pass. The distinct result established here is the explicit wild C3-cover description for this smooth plane quartic pencil, with its ramification and the consequent rank classification of the genus-three source. The inspected other elliptic family is obtained by a different quotient from genus five; knowing its j-map does not produce this map from the quartics.
+
+## value
+
+PASS
+
+The cyclic pencil through a classical quartic gives a natural test of wild ramification and ordinarity under deformation. The explicit cover and the complete geometric jump calculation locate exactly where ordinarity fails on the entire smooth pencil, rather than merely demonstrating some ordinary members. The one-branch analysis and its connection to the varying elliptic quotient are useful even though the same elliptic moduli occurs in another family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

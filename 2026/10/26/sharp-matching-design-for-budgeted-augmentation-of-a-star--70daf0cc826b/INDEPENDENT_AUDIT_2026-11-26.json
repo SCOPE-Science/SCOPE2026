@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:39:57.701160Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–4, VERIFICATION.md and verify_star_aug.py (inspected only)",
+        "Independent replay: /workspace/review_evidence/frozen_review_replay.py, section 4; exact inverse of L plus the projector onto constants, including a matching at 22/7, a partial support, a triangular support with rank loss, and unequal weights with and without overlap"
+      ],
+      "rationale": "The star Laplacian has the constants, the hub-against-leaves vector and the leaf-zero-sum space as mutually orthogonal eigenspaces with eigenvalues 0, n+1 and 1. The added Laplacian vanishes on the first two and has trace 2T and rank at most k on the last. Padding with zeros, the improvement is the sum of f(mu)=mu/(1+mu) at k spectral values. Jensen and strict monotonicity in T give the optimum and require T=W and mu_i=2W/k for every i. Thus exactly k edges are positive and the incidence Gram matrix must be (2W/k)I: its diagonals require equal weights and its off-diagonals force disjointness. Such a matching exists by 2k<=n, including n=2. The curvature lower bound for -f on [0,2W] gives an objective deficit at least the spectral squared deviation divided by (1+2W)^3. The latter squared deviation is the squared Frobenius deviation of the Gram matrix even when rank is deficient; its diagonals give 4 times the weight variance sum, and the two orientations of each off-diagonal give twice the stated overlap sum. Multiplying by n+1 gives the stated Kirchhoff index.",
+      "residual_risks": [
+        "The explicit gap bound assumes k positive weights and full budget; it does not claim the best possible coefficient. The finite computations are not a proof over the continuum of weights."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bhoite et al. model a weighted base graph with coupled cardinality and conductance budget and propose an SDP relaxation, rounding and greedy heuristics. Ghosh et al. allocate conductance on prescribed edge vectors and include uniform conductances on the original star. Kooij–Achterberg treat a general unweighted augmentation complexity problem."
+        ],
+        "reasoning": "The base-star spoke weights are fixed in the finding and the leaf support is part of the optimizer. A numerical general framework, optimizing spokes on a prescribed star, or a hardness theorem does not imply the closed global value, all minimizers or the lower bound on deviation.",
+        "searches": [
+          "arXiv:2609.29790, abstract and model summary; DOI:10.1137/050645452, Eq. (31) and star example; arXiv:2302.12628, problem definition"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and its references",
+        "arXiv:1411.4884",
+        "DOI:10.1137/050645452",
+        "Li, MATCH 70 (2013) 163–174",
+        "arXiv:2302.12628",
+        "arXiv:2609.29790",
+        "Resultary SCOPE-716352690cc3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "No inspected general claim gives a rank/trace relaxation simultaneously known to be attainable by the feasible leaf incidences and stable in the specified weight and overlap variables. The proof uses the star's scalar action on the leaf space and the equality condition of the incidence Gram matrix."
+        ],
+        "reasoning": "Spectral Jensen and matrix incidence identities are standard and are not claims of novelty. Their star-specific reduction, equality classification and quantitative structural conclusion are not obtained by substituting the star into any stronger statement inspected.",
+        "searches": [
+          "arXiv:2609.29790 general optimization model",
+          "Focused primary literature lookup on Kirchhoff index, star augmentation and matching",
+          "Frozen RESULT.md, rank/trace reduction and incidence Gram argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kirchhoff index equals (n+1) times the specified trace objective, so both formulations were compared. Summers et al. select edges with assigned weights; Bhoite et al. jointly choose edges and conductances. The closest Resultary star hit SCOPE-716352690cc3 optimizes a different Gini-type statistic."
+        ],
+        "reasoning": "The general objective and modeling choices overlap, but the changed variables, objective, or available conclusions in these sources do not amount to the star matching and rigidity theorem.",
+        "searches": [
+          "Resultary search on weighted star leaf-edge augmentation, coherence/Kirchhoff minimization and disjoint matching",
+          "arXiv:1411.4884, p. 4; arXiv:2609.29790, pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Li's equality graph S_n+e is the star with one additional unweighted leaf link; it supplies an exact index for that regime. There was no exact all-weight table or corresponding all-k formula in the inspected comparisons."
+        ],
+        "reasoning": "This continuous-budget theorem is not a finite sequence identification, but the exact unit-weight specialization is relevant: Li's isomorphic one-link graphs cover k=1,W=1, not arbitrary W, multiple selected links or gap rigidity.",
+        "searches": [
+          "Li, Lower Bounds for the Kirchhoff Index, Theorem 1, MATCH 70 (2013), pp. 163–164",
+          "Resultary budgeted star augmentation exact-value search"
+        ]
+      },
+      "rationale": "The general joint cardinality-and-budget problem and the unweighted one-added-edge case have documented coverage. The supported distinct finding is the complete uniform-star solution for variable W and all admissible k, including every extremizer and the explicit quantitative gap. The strongest general formulation inspected uses optimization and approximation machinery, not a theorem that can be specialized directly to this closed form.",
+      "residual_risks": [
+        "The unread Perturbing Elliptic Operators paper is an access risk, not negative evidence. Prior specialized extremal-Kirchhoff results for augmented stars or other equivalent formulations may not appear in the bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material formulation overlap, not an inspected analytic star theorem",
+          "evidence": "Abstract and model use mixed-integer optimization, SDP relaxation, rounding, and a cost-aware greedy construction; no exact star classification is stated in these passages.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.29790",
+          "material_read": "PDF pp. 1–2, offsets 0, 1964 and 10100",
+          "method": "OA PDF passages",
+          "title": "Budget-Constrained Graph Augmentation for Robust Network Design via Kirchhoff Index Minimization",
+          "trigger": "General problem with joint graph support and conductance selection"
+        },
+        {
+          "assessment": "Related fixed-weight topology selection",
+          "evidence": "Candidate weights are associated to candidate edges while the edge set is selected.",
+          "identifier_or_url": "https://arxiv.org/abs/1411.4884",
+          "material_read": "PDF pp. 1 and 4, offsets 454 and 31804",
+          "method": "OA PDF passages",
+          "title": "Topology Design for Optimal Network Coherence",
+          "trigger": "Same trace-based objective under added graph edges"
+        },
+        {
+          "assessment": "Allocation on fixed topology, not joint selection of new leaf links",
+          "evidence": "The edge vectors are prescribed; the star example allocates uniformly across existing spokes.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "PDF p. 16, Eq. (31), offset 54803; p. 22, offset 72607",
+          "method": "OA author-hosted PDF passages",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Continuous budget allocation for effective resistance, including a star"
+        },
+        {
+          "assessment": "Actual coverage of a one-link unit-weight specialization",
+          "evidence": "The Kirchhoff lower bound has S_n+e among its equality cases.",
+          "identifier_or_url": "https://match.pmf.kg.ac.rs/electronic_versions/Match70/n1/match70n1_163-174.pdf",
+          "material_read": "Journal pp. 163–164, Theorem 1, offset 0",
+          "method": "OA journal PDF passage",
+          "title": "Lower Bounds for the Kirchhoff Index",
+          "trigger": "Exact index of a star with an extra unweighted edge"
+        },
+        {
+          "assessment": "General complexity result, not the weighted-star theorem",
+          "evidence": "Defines simple unweighted graphs with unit-resistance edges and at most k additional links.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.12628",
+          "material_read": "PDF pp. 1–2, offsets 0 and 5442",
+          "method": "OA PDF passages",
+          "title": "Minimizing the Effective Graph Resistance by Adding Links Is NP-hard",
+          "trigger": "Cardinality-constrained Kirchhoff augmentation"
+        },
+        {
+          "assessment": "Different statistic and graph operation in the indexed claim",
+          "evidence": "A complete-pair Gini norm for harmonic replacement, not Kirchhoff index of new leaf links.",
+          "identifier_or_url": "Resultary SCOPE-716352690cc3",
+          "material_read": "Indexed finding summary",
+          "method": "Resultary comparison",
+          "title": "Sharp complete-pair Gini norm of weighted-star harmonic replacements",
+          "trigger": "Closest star-network entry in ranked search"
+        },
+        {
+          "assessment": "Unresolved; not used as evidence of coverage or noncoverage",
+          "evidence": "Retrieval encountered timeout and DNS failures; no scientific statement was inspected.",
+          "identifier_or_url": "Perturbing Elliptic Operators. Adding Edges in a Network (title returned by literature search)",
+          "material_read": "Title only; paper not retrieved",
+          "method": "Focused literature search and unsuccessful OA retrieval",
+          "title": "Perturbing Elliptic Operators. Adding Edges in a Network",
+          "trigger": "Potentially relevant edge-addition perturbation results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact optimum and rigidity inequality",
+        "arXiv:2609.29790, general design problem"
+      ],
+      "rationale": "A hub-and-spoke network with sparse new links and fixed conductance resources is a natural instance of a nonconvex design problem. The solution specifies when the continuous budget and the combinatorial optimum can be realized simultaneously, and turns strict inequality into a directly interpretable penalty for support overlap and unequal weights. This is useful beyond the known one-unit-link calculation or restating the general design objective.",
+      "residual_risks": [
+        "Availability of a k-matching and fixed equal spokes are essential to this proof; the result does not solve general graph augmentation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

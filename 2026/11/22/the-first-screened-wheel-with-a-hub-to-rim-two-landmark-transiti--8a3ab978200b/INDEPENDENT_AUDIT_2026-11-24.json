@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:05:52.795098Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The residual covariance vanishes on observed rows and columns and equals the inverse unobserved principal precision block on the rest. Its trace is p'(mu)/p(mu), with strictly positive grounded determinants even at zero because the connected Laplacian's quadratic form is strictly positive on nonzero vectors vanishing on the landmarks. An independent incidence-matrix/characteristic-polynomial calculation (python3 /workspace/branches/independent_exact.py wheels, SymPy) matches every supplied finite determinant and comparison coefficient and verifies the exact zero-screening rows for m=7 and 8. For 4≤m≤6 every comparison with the maximally separated rim pair has strictly positive numerator, and m=3 is K4. At m=7 the two nearer rim types have positive differences from the farthest rim type; the hub-minus-farthest numerator is 2P, with negative constant and all positive higher coefficients. It has just one positive crossing, independently isolated between 0.175354708826 and 0.175354708827 by rational evaluation. Counting orbit types gives 2,5,3 optimal pairs for m=4,5,6 and 7,14,7 in the three m=7 regimes. For all m≥9 the tridiagonal inverse formulas follow from the root r+r^{-1}=3 and zero endpoint conditions. Geometric sums bound the path inverse traces and row sums as stated. The rim-pair Schur correction has denominator at most 2sqrt(5) and numerator at least 1+(m−2sqrt(5))²/(m−2) by Cauchy–Schwarz; the lower bound after subtracting the hub trace increases for m≥9 and is strictly positive at 9. Continuity extends the zero-screening preference to positive screening. The large-mu inverse expansion at fixed m has hub-minus-rim leading term (m−3)/mu² from the difference of unobserved degree sums, so the hub loses for sufficiently large mu. Uniqueness of the crossover is proved only at m=7.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cone result gives a unique positive hub-to-periphery transition over walk-regular bases, including a wheel rim, but for one landmark only. The star result varies the budget on a different graph. Belabbas–Wolfe develop general Nyström selection, not this wheel comparison."
+        ],
+        "reasoning": "A single vertex has no separation parameter and the residual conditioning block is different. A multi-budget theorem on stars drops the rim edges; it does not control the competition between rim separations and the hub in wheels.",
+        "searches": [
+          "2026/11/22/SCOPE-a-universal-screening-driven-nystr-m-landmark-migration-on-cones--5e432653c55a",
+          "2026/11/22/SCOPE-sharp-hub-abandonment-staircase-for-screened-star-nystr-m-landma--17294883f457",
+          "arXiv:0906.4582, §3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1c2403c1f0ec",
+        "Resultary 5e432653c55a",
+        "Resultary 17294883f457",
+        "arXiv:1302.0450",
+        "arXiv:1407.1569",
+        "arXiv:0906.4582"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Strict unscreened comparisons already imply sufficiently small positive-screening preferences by continuity. Fitch–Leonard give exact two-leader examples for paths and cycles. The one-landmark cone theorem does not mention pair equality or the degree-ten comparison."
+        ],
+        "reasoning": "Credit the unscreened result and its immediate continuity consequence. Neither that result nor the general formulations imply the large-screening reversal, the absence of a positive switch for smaller wheels or the exact single positive root and fourteen-way equality for seven rim vertices.",
+        "searches": [
+          "October 25 two-leader wheel Finding and Assumptions",
+          "November 22 one-landmark cone Finding and Assumptions",
+          "Fitch–Leonard, arXiv:1407.1569, p. 14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The unscreened leader-coherence objective is one-half the grounded inverse trace with the same pair orbits; it selects the same low-screening types. The general leader-selection framework likewise uses inverse-trace objectives."
+        ],
+        "reasoning": "Conditioning a screened Laplacian Gaussian, Nyström trace loss and the screened grounded inverse trace describe the same optimization here. At zero screening the older result applies; adding a positive diagonal is not a scaling of the unscreened trace and need not preserve its optimizer.",
+        "searches": [
+          "Resultary: screened wheel conditional variance, inverse grounded trace, hub–rim leader and Nyström landmark selection",
+          "2026/10/25/SCOPE-the-sharp-two-leader-coherence-transition-on-unweighted-wheels--1c2403c1f0ec",
+          "Lin–Fardad–Jovanović, arXiv:1302.0450"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact wheel comparison switches in rim size at zero screening, not in screening at fixed rim size. The closest positive tables/formulas concern the one-landmark cone model or stars."
+        ],
+        "reasoning": "No earlier covering two-landmark threshold or tie table was identified. An unindexed exact table could still give it; inconclusive broad web results are not negative evidence.",
+        "searches": [
+          "Resultary: exact screened trace on wheels, positive m=7 hub/rim optimizer transition",
+          "October 25 unscreened wheel classification; same-day cone and star optimization records"
+        ]
+      },
+      "rationale": "The positive-screening classification of two landmark sets is distinct in the inspected evidence. An earlier wheel result establishes the exact zero-screening classification. The strongest same-day positive-screening comparison treats one landmark on cones, including wheels, rather than the two-landmark decision; another treats budgets on stars, not wheels. Their date does not establish priority or equivalent coverage.",
+      "residual_risks": [
+        "The unavailable November 8 citation was not treated as evidence of absence or substituted by the distinct October 25 source.",
+        "An unindexed screened Gaussian sensor-placement or network-control calculation might contain an exact positive two-landmark comparison. Same-day catalogue records do not establish historical ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct zero-screening overlap; distinct parameter regime",
+          "evidence": "The noise-free normalized objective differs by a factor of two; maximally separated rim pairs win for 4≤m≤6, and hub–rim pairs win for m≥7 at zero screening.",
+          "identifier_or_url": "2026/10/25/SCOPE-the-sharp-two-leader-coherence-transition-on-unweighted-wheels--1c2403c1f0ec",
+          "material_read": "Finding and Assumptions, offset 0 onward",
+          "method": "Resultary and local mirror text",
+          "title": "The sharp two-leader coherence transition on unweighted wheels",
+          "trigger": "Exact comparison on the same wheels and landmark budget"
+        },
+        {
+          "assessment": "Includes wheel cones but treats one landmark rather than two",
+          "evidence": "A unique hub/periphery crossover for one landmark on cones over walk-regular bases under uniform screening.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-universal-screening-driven-nystr-m-landmark-migration-on-cones--5e432653c55a",
+          "material_read": "Finding and Assumptions (offsets 0–3980)",
+          "method": "Resultary and local mirror text",
+          "title": "A universal screening-driven Nyström landmark migration on cones",
+          "trigger": "Strongest positive-screening overlap on wheels"
+        },
+        {
+          "assessment": "Distinct graph family",
+          "evidence": "Hub-abandonment thresholds on stars as the landmark budget varies.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-hub-abandonment-staircase-for-screened-star-nystr-m-landma--17294883f457",
+          "material_read": "Finding (offsets 0–3013)",
+          "method": "Resultary and local mirror text",
+          "title": "Sharp hub abandonment staircase for screened star Nyström landmarks",
+          "trigger": "Same screened objective with variable budget"
+        },
+        {
+          "assessment": "Objective and optimization framework, not the finite screened comparison",
+          "evidence": "Inverse-trace formulations for noisy and noise-free leader selection.",
+          "identifier_or_url": "https://arxiv.org/abs/1302.0450",
+          "material_read": "pp. 5–6 (PDF-text offsets 14941–17611)",
+          "method": "Lawful OA full-text passages",
+          "title": "Algorithms for leader selection in stochastically forced consensus networks",
+          "trigger": "Possible general inverse-trace coverage"
+        },
+        {
+          "assessment": "Examples on paths and cycles rather than screened wheels",
+          "evidence": "Two-leader optimality on a cycle or path under the paper's centrality formulation.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.1569",
+          "material_read": "p. 14 (offset 58466 onward)",
+          "method": "Lawful OA full-text passage",
+          "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+          "trigger": "Exact two-leader placements"
+        },
+        {
+          "assessment": "General method, not a screened-wheel threshold",
+          "evidence": "Data-adaptive landmark selection and Nyström approximation.",
+          "identifier_or_url": "https://arxiv.org/abs/0906.4582",
+          "material_read": "§3 p. 6 (offsets 18260–20695)",
+          "method": "Lawful OA full-text passage",
+          "title": "On Landmark Selection and Sampling in High-Dimensional Data Analysis",
+          "trigger": "General data-adaptive Nyström selection"
+        },
+        {
+          "assessment": "Unable to confirm that exact reference; unscreened coverage is independently documented above",
+          "evidence": "The printed reference did not resolve successfully.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-hub-leader-transition-for-two-noise-free-leaders-on-wheel--8f7b91d540d5",
+          "material_read": "No full text available at the supplied reference",
+          "method": "Bounded retrieval of cited item; accessible distinct October 25 record compared separately",
+          "title": "Sharp hub-leader transition for two noise-free leaders on wheel graphs",
+          "trigger": "Specific zero-screening citation in the frozen record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smallest positive-screening switch on a simple family is a motivated boundary, distinguished from the known unscreened transition by competing pair geometries at fixed m. The exact crossover and tie structure quantify when a high-degree hub loses against separated rim measurements. The result across all larger wheels shows the reversal is not an isolated small calculation, while leaving intermediate regimes open.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

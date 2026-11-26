@@ -1,11 +1,21 @@
-# Review of the exact fourfold first-failure classification
+# Independent mathematical audit
 
-**Correctness (PASS).** The identity \(4n\binom{(b+4)n}{4n}=(bn+1)\binom{(b+4)n}{4n-1}\) reduces the odd-parameter case to the two-adic carry count. A deterministic binary transducer has four states at depth three, eleven at depth five, and the depth-five set is invariant under two transitions; no terminal state with the required index inequality has carry count below two. This is a closed finite mathematical certificate for all odd depths. The explicit boundary index has zero or one carry. The standalone checker executes these finite transitions from the packaged source, plus independent small-case checks.
+## correctness
 
-**Originality (PASS; residual historical risk).** The originating Sun and Guo–Krattenthaler articles provide a general divisibility bound and existence/upper bounds for first failure, not a complete least-index formula at first parameter four. The closest indexed prime-base-three result addresses a different fixed parameter and does not logically imply the two-primary plateau formula. Indexed related prime-power work determines the *first eligible index's* failure criterion but not the full least index after arbitrarily many delayed eligible candidates. Equivalent-parameter, more general coverage, published tables, and reduction checks are recorded with their actual queries and implications in `AUDIT.json`. Earlier complete coverage not located by these searches remains possible.
+PASS
 
-**Mathematical value (PASS).** This solves a natural entire fixed-parameter section of an explicitly defined number-theoretic first-failure function. The function is unbounded with a sharp, nontrivial \(2\)-adic parity plateau, and the proof requires a global carry obstruction rather than calculating a few failures. The threshold is mathematically motivated by the original divisibility problem, not an arbitrary finite cutoff. It provides substantially stronger information than a guaranteed existence of failures or a huge generic upper bound.
+The adjacent-binomial identity and gcd(bn+1,n)=1 settle all odd-prime factors and the cases of odd bn+1. For b,n odd it leaves failure iff the Kummer count in (4n-1)+(bn+1) is at most one. With h the largest positive odd integer at most nu2(b+3), the sum mod 2^h is n. Here is an independent proof of minimality for h>=3: write n_h=1+sum of 2^j over odd j=1,...,h-2. An odd n<n_h has a first missing bit j in that odd chain. The first summand has bit 1 at j (at j=1 directly, otherwise this is the previous odd bit of n), whereas the output bit is 0. A carry-out is forced there, even if an incoming carry exists. If there is only one carry, the next digit j+1 has output 1 and no carry-out; this 1 propagates along the even positions because bit i of 4n-1 agrees with bit i-2 of n for i>=3. Hence n has its bit h-1 set, contradicting n<n_h<2^(h-1). For h=1 the earlier-index claim is vacuous. At n_h the low h bits are disjoint; the high addition is 1+(qn_h-1), q=(b+3)/2^h, with exactly nu2(q)<=1 carries. The distinct thresholds are realized by b=1 and b=2^h-3 for odd h>=3. An independent Euclidean-quotient recurrence also reproduced the frozen 4- and 11-state certificate, its two-step closure, and its acceptance criterion: python /workspace/review-work/check-fourfold.py. That is an exact finite certificate for an unbounded claim, not an extrapolation.
 
-The full text of Sun's 2012 article, including its first-failure definition and examples, was inspected. Its statements do not give the complete fourfold family law. Historical priority beyond the inspected sources remains uncertain, and independent proof and literature audit have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The first-failure function, gcd-adjusted divisibility and existence/bounds are prior. In the inspected sources no result gives the arbitrary odd-b least index for a=4 or the unbounded two-adic plateau. The even branch and small overlapping examples are not claimed independently original.
+
+## value
+
+PASS
+
+This is a complete unbounded parameter slice of Sun's naturally defined least-failure function, replacing a general bound with an exact location. The two-adic plateaus and arbitrarily late first failures describe when divisibility first breaks, not only whether it breaks. The earlier-index obstruction is needed and is not supplied by known upper bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

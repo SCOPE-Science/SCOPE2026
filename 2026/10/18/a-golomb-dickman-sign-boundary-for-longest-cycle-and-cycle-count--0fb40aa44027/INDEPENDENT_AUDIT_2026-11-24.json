@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:09:58.183273Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–96; VERIFICATION.md and check.py inspected, not executed",
+        "Shepp and Lloyd (1966), asymptotics for the longest cycle"
+      ],
+      "rationale": "Marking one r-cycle weights a permutation by its exact count C_{n,r}; the n!/r labeled choices leave a uniform permutation on n−r labels. The mixed first moment and E[C_{n,r}]=1/r follow, including r=n with M_0=0. Uniform insertion into a specified longest cycle has conditional probability M_k/(k+1), and the longest length cannot decrease in the other cases. The uniform length of the cycle of label 1 gives a_k≥(k+1)/2 and thus a_n−a_m≥r/2 for m=n−r≥1. For r≤m, on all 1≤x≤m, (r−x)_+≤r(1−x/m); hence the capped-mean uplift is at most r(m−1)/(2m)<r/2, including n=2,r=1. For r>n/2 the cap fixes the maximum at r, giving the exact sign and any zero case without needing nonintegrality of a_n. The Golomb–Dickman limits follow by division by n and by r respectively, with the stated exclusions.",
+      "residual_risks": [
+        "No conclusion about the existence of an integer zero case, or a universal eventual sign when r_n/n approaches the critical ratio."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Exact cycle-type law and moments of ordered lengths in Shepp–Lloyd",
+          "Poisson–Dirichlet law of ordered proportions in Arratia–Barbour–Tavaré",
+          "Betz–Schäfer, arXiv:1605.08383, total counts conditioned on excluding long cycles"
+        ],
+        "reasoning": "The cycle-type law determines all moments but does not give a finite mixed-sign inequality. An asymptotic law for ordered proportions cannot ensure the exact finite sign. Conditional total count moments do not directly bound this unconditioned mixed covariance.",
+        "searches": [
+          "Shepp–Lloyd §§2,4,6; Arratia–Barbour–Tavaré introduction; Betz–Schäfer abstract and pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Shepp–Lloyd 1966, Arratia–Barbour–Tavaré 1999, Betz–Schäfer 2016, Shi 2014 abstract",
+        "Resultary 393ea8c68636, f219fce56fec, e87aa849607b, d6a01be54eac"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Reducing the r multiplicity c_r by one multiplies its cycle-type weight by r c_r, yielding the marked-permutation law",
+          "At n=4,r=2 the marked maximum is always 2, whereas the ordinary maximum can be 1 or exceed 2"
+        ],
+        "reasoning": "The exact identity is mechanically implied by the cycle-type law, but calculating every finite law does not mechanically give a uniform sharp sign. In particular the two maximum laws need not be stochastically ordered, so ordinary tail domination would not substitute for the capped-expectation argument.",
+        "searches": [
+          "Derive the mixed moment directly from the Shepp–Lloyd cycle-type law; compare stronger-ordering candidate d6a01be54eac"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shi 2014 repository abstract: joint moments of ordered cycle lengths",
+          "Resultary 393ea8c68636, f219fce56fec and d6a01be54eac, respective Findings"
+        ],
+        "reasoning": "M_n is a length, not a count of longest cycles or the total cycle count; covariance of two ordered lengths or two cycle counts is not this mixed covariance. Unrestricted uniform permutations do not have the derangement conditioning.",
+        "searches": [
+          "Primary search for longest-cycle/fixed-length-cycle covariance and sign",
+          "Resultary queries for longest-cycle/cycle-count covariance and stochastic ordering"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 393ea8c68636 (total count in Ewens derangements), f219fce56fec (two lengths in derangements), e87aa849607b (counts in a quadratic map family), d6a01be54eac (fixed points and total count)",
+          "Shepp–Lloyd §§4,6 treat ordered-length moments"
+        ],
+        "reasoning": "The closest entries forecast or tabulate different pairs of statistics or ensembles; none of the inspected entries supplies the exact all-n,r sign boundary.",
+        "searches": [
+          "Resultary search for exact covariance cutoff, cycle-count sign switches, and longest-cycle or fixed-point orderings"
+        ]
+      },
+      "rationale": "Passes for the finite uniform sign theorem and its exact boundary, not for cycle marking or the classical longest-cycle mean limit. The exact mixed-moment formula follows routinely from the known cycle-type law; the cited results do not provide the strict short-cycle estimate or the combined sign law.",
+      "residual_risks": [
+        "Uninspected full Shi thesis and unindexed general joint transforms remain possible overlap sources. A general cycle-type formula already makes the identity derivable and is not a novel part of the result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implies marked identity; inspected ordered moments do not state mixed sign",
+          "evidence": [
+            "Cycle-type weights have the factor 1/(r^{c_r} c_r!). Ordered-cycle moment results concern length of a specified order statistic."
+          ],
+          "identifier_or_url": "https://faculty.wharton.upenn.edu/wp-content/uploads/2012/04/Ordered-cycle-lengths-in-a-random-permutation.pdf",
+          "material_read": "Introduction, §§2,4,6, printed pp. 340–341, 346–347, 354–355",
+          "method": "OA PDF passages",
+          "title": "Ordered Cycle Lengths in a Random Permutation",
+          "trigger": "Classical exact cycle law and longest-cycle limit"
+        },
+        {
+          "assessment": "Asymptotic ordered-size coverage rather than finite mixed-sign coverage",
+          "evidence": [
+            "Poisson–Dirichlet convergence and a joint local limit theorem for large components."
+          ],
+          "identifier_or_url": "https://www.columbia.edu/cu/simontavare/STpapers-pdf/ABT99b.pdf",
+          "material_read": "Introduction, PDF p. 1, printed pp. 193–194",
+          "method": "OA PDF passage",
+          "title": "On Poisson–Dirichlet Limits for Random Decomposable Combinatorial Structures",
+          "trigger": "General ordered-cycle distribution"
+        },
+        {
+          "assessment": "Advertised ordered-length correlations are different; no full-text conclusion",
+          "evidence": [
+            "Abstract describes joint moments of ordered cycle lengths, not counts of exact-length cycles."
+          ],
+          "identifier_or_url": "https://scholarship.claremont.edu/hmc_theses/65/",
+          "material_read": "Institutional abstract only; PDF not retrieved",
+          "method": "Repository HTML; identified download routes unsuccessful",
+          "title": "Cycle Lengths of θ-Biased Random Permutations",
+          "trigger": "Thesis advertises sign-changing cycle-length correlations"
+        },
+        {
+          "assessment": "Different statistic, limiting question and conditioning",
+          "evidence": [
+            "Uses total cycle count in an ensemble excluding sufficiently long cycles."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1605.08383",
+          "material_read": "Abstract, introduction pp. 1–2",
+          "method": "OA PDF passages",
+          "title": "The number of cycles in random permutations without long cycles is asymptotically Gaussian",
+          "trigger": "Conditional count distributions with a longest-length restriction"
+        },
+        {
+          "assessment": "Different statistics or ensemble",
+          "evidence": [
+            "Examples include fixed point count conditional on total cycle count, and two exact-size counts conditional on no fixed points."
+          ],
+          "identifier_or_url": "393ea8c68636; f219fce56fec; e87aa849607b; d6a01be54eac",
+          "material_read": "RESULT.md Findings, offsets 0",
+          "method": "Resultary search and local mirror",
+          "title": "A universal size-dependent cycle covariance switch in Ewens derangements and related Resultary entries",
+          "trigger": "Closest exact-sign and ordering analogues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–24 and 48–85; classical cycle-type and ordered-length results above"
+      ],
+      "rationale": "The sign of dependence between a maximum and an exact-size frequency is a natural finite question not answered just by the classical limiting constant. The short-cycle comparison across the entire finite range and the exact single cutoff give useful information even on the integer boundary, without evaluating a joint distribution.",
+      "residual_risks": [
+        "No finite sign theorem for nonuniform/Ewens permutations is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

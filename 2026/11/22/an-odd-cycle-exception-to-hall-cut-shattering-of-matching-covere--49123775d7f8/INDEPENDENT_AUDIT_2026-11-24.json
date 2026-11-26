@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:26:18.630300Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cut graph is a union of alternating paths (including isolated vertices), or an even alternating cycle. A deficient path has both ends in the query set S. If the path is proper, making its S-vertices positive and all other queried vertices negative blocks both boundary edges; there are too few internal vertices outside S to match the positives. A spanning deficient path instead gives exactly one 11 edge, no 00 edge, odd order 2m+1, and m+1 positives. To realize a proper trace in this case, remove any omitted positive in the linear alternating path and match consecutive pairs on each of the even-length remnants; keep only the edges covering the desired trace. The full trace uses the exceptional edge and consecutive pairs among the remaining vertices, also valid for n=3. Minimum odd-cycle covers are exactly these supports, since at size m+1 the complement is independent of size m and exactly one edge has both ends in S. The crossing-matching bound and these explicit supports give the VC dimension. For the adaptive bound, one zero root branch gives the matching-coverage class of P_(n-1). The generic bipartite block-matrix representation is valid: complementary left coordinates encode omitted identity columns, and the needed minor is nonzero exactly when a matching monomial exists. The prior basis-class equality is sound; independently, its dimension is d=r_2(E)-r(E), where r_2 is the union rank of two copies: the largest basis difference is shattered by extending each prescribed positive subset away from its prescribed negatives, and any shattered set is contained in a basis difference. In the two-copy rank minimization min_X [2r(X)+|E\\X|], for a nonconstant query e a minimizing X shows that deletion lowers the bound by one if e is outside X, and contraction lowers it by one if e is in X. This proves the adaptive upper bound by induction. On bipartite graphs the Hall-cut necessity follows by separately realizing the traces S intersected with each shore and retaining only the positive-incident edges; the two restricted matchings are vertex-disjoint. Thus the path has dimension floor((n-1)/2), and its zero branch gives the asserted cycle upper bound. The frozen verifier and logged n=3..11 counts were inspected as finite corroboration, not executed or used for the all-order conclusion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bipartite record RESULT.md at mirror offsets 386 and 2039: exact Hall-cut criterion, VCdim=matching number, and explicit K3 failure outside the hypothesis.",
+          "Matroid record RESULT.md at offsets 1895 and 5209: finite basis-indicator VC/Littlestone equality and proof."
+        ],
+        "reasoning": "The first theorem covers every even cycle but not any odd cycle. The second controls the bipartite residual path; it does not give the odd-cycle trace classification.",
+        "searches": [
+          "Resultary 2026/11/8, SCOPE-shattering-by-matching-covered-vertices-in-bipartite-graphs--e1690cca5815",
+          "Resultary 2026/10/26, SCOPE-a-matroid-intersection-formula-for-the-online-shattering-dimensi--4613928307d1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and cycle verification materials",
+        "Resultary Hall-cut theorem and triangle remark",
+        "Resultary finite-matroid basis equality theorem and proof",
+        "Koana–Wahlström, arXiv:2402.11596, p. 3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even n follows from the bipartite criterion and basis reduction. Prior basis-indicator equality also yields the path-based upper bound for odd cycles.",
+          "The proper-deficient-path obstruction and spanning-path trace constructions are separate from these prior statements."
+        ],
+        "reasoning": "The odd lower bound and exact list require the treatment of the internal exceptional edge. Neither previously known ingredient supplies the obstruction or the converse constructions for odd cycles.",
+        "searches": [
+          "Resultary Hall-cut and matroid-intersection records listed above",
+          "arXiv:2402.11596 p. 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Koana–Wahlström, p. 3: feasible sets are precisely the vertex sets inducing a perfect matching in G; the Tutte matrix represents this same family.",
+          "RESULT.md, lines 23–29: one 11 edge and no 00 edge characterize the exceptional minimum covers."
+        ],
+        "reasoning": "Inducing a perfect matching is exactly being the complete covered set of a matching, unlike the independent-set family of the matching matroid. The delta-matroid representation is equivalent as a description of the concepts, not as a theorem about their cycle projections or the Hall-cut exceptions.",
+        "searches": [
+          "Resultary: matching-covered vertex shattering, Hall cut, odd cycle; public literature search on the same object",
+          "arXiv:2402.11596, matching delta-matroid"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest matching record contains the triangle example, not a table or formula classifying supports for odd n>=5.",
+          "The supplied counts through n=11 are evidence for this record, not a prior database."
+        ],
+        "reasoning": "Credit exact n=3 overlap. No located distinct table gives the indexed support criterion or the all-order exception count; a finite count alone would not classify the supports.",
+        "searches": [
+          "Resultary: cycle matching-coverage shattering and odd-cycle Hall-cut exceptions",
+          "Bipartite Resultary record, RESULT.md offset 2039",
+          "Frozen verification_output.txt"
+        ]
+      },
+      "rationale": "The prior Hall-cut theorem covers the even-cycle static result and already supplies the triangle exception. The matroid-basis theorem with the path restriction supplies the adaptive upper bound. The distinct contribution is the exhaustive classification of exactly which odd-cycle supports evade the Hall-cut test, and the resulting sharp odd-order dimension attained beyond the matching number. No inspected source entails that classification; this is not a priority certification.",
+      "residual_risks": [
+        "The public literature search yielded no pertinent additional source; this provides no evidence of absence.",
+        "Unindexed equivalent cycle results or stronger delta-matroid shattering results may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers even case and triangle example, not odd classification",
+          "evidence": [
+            "The iff requires bipartiteness and the triangle explicitly fails it."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-shattering-by-matching-covered-vertices-in-bipartite-graphs--e1690cca5815",
+          "material_read": "RESULT.md theorem and nonbipartite remark at mirror offsets 386, 2039",
+          "method": "Local Resultary lookup and original record via mirror",
+          "title": "Shattering by matching-covered vertices in bipartite graphs",
+          "trigger": "Exact same concept family; possible broader Hall criterion"
+        },
+        {
+          "assessment": "Verified ingredient; credit as a prior record rather than asserting an older classical theorem",
+          "evidence": [
+            "The theorem is for basis-incidence classes; the related work treats its adaptive argument as the record's contribution."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-matroid-intersection-formula-for-the-online-shattering-dimensi--4613928307d1",
+          "material_read": "RESULT.md theorem, proof and related work at offsets 1895, 5209, 8112",
+          "method": "Local Resultary lookup and original record via mirror",
+          "title": "A matroid-intersection formula for the online shattering dimension of basis indicators",
+          "trigger": "Nonstandard equality used in adaptive proof"
+        },
+        {
+          "assessment": "Same feasible family and representation; not a shattering classification in the inspected statements",
+          "evidence": [
+            "Feasible iff the induced graph has a perfect matching; matching delta-matroids are represented by Tutte matrices."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2402.11596",
+          "material_read": "Primary PDF p. 3, matching and linear delta-matroids, starting at text offset 11420",
+          "method": "Lawful OA literal location and bounded reading",
+          "title": "Faster algorithms on linear delta-matroids",
+          "trigger": "Exact equivalent feasible-set formulation for nonbipartite graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete classification of the minimal nonbipartite departure from a natural Hall test. Locating and counting the only supports that use the odd closing edge, and obtaining the sharp adaptive bound despite exceeding the matching number, provides more than extending the known triangle example or recomputing small orders.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

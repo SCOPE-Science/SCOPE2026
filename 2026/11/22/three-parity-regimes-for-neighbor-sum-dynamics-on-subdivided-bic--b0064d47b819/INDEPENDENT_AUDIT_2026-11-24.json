@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:12:57.184736Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§1–4",
+        "VERIFICATION.md lines 19–25",
+        "verify_ranks.py lines 28–70 and verify_states.py lines 5–60 (inspected, not run)"
+      ],
+      "rationale": "Write F=[[0,B],[B^t,0]], W=im B the zero-total subspace and ker B^t the constant line. The Q=BB^t formula acts by the shore degree parities plus the opposite shore sum. For even/even it has constant-shore image of dimension 2 and squares to zero; for odd/odd the zero-sum subspace on each odd shore is fixed and the two constants carry J2(0); for mixed, writing the even-shore coordinates as x and the odd shore as a constant plus its zero-sum subspace, Q vanishes on the latter and acts on (x,c) as (x+c1,sum x), with characteristic polynomial t(t-1)^e. In the last case im Q misses the global constant line and Q|W has rank e. The L=B^tB ranks follow by restricting B^t to W. The resulting F^k ranks for k=1,2,3,4 are (2(m+n-1),m+n,2,0), (2(m+n-1),2(m+n)-3,2(m+n-2),2(m+n-2)), and (2(e+o-1),2e+o-1,2e,2e). The third ranks use im Q|W and the quotient of im Q by the global constants; the fourth follow from Q^2,L^2. The block determinant gives only the two stated primaries, with unit dimensions 0,2(m+n-2),2e. As a check on unit block sizes, each nonzero Jordan block J_k(1) of Q gives one J_{2k}(1) of F: on the unit primary B^t identifies the two halves and the action is (x,y) -> (Qy,x); if x cyclic for Q, (x,0) gives a cyclic vector for F with annihilator (t^2-1)^k. For mixed parity Q on its image (u,sum u) acts in the u-coordinate as I+1 sum, a rank-one nilpotent perturbation with square zero, yielding one size-four F block. Successive differences of zero-primary ranks give the frozen zero blocks. Counting kernels of powers on the zero primary and fixed spaces of the appropriate powers on the unit primary gives every entry and period census, with full independent fibers of size q^b; an orbit of length j thus has j such fibers. Checked the smallest even and mixed shores, including zero multiplicities at e=2. No finite-size extrapolation was used.",
+      "residual_risks": [
+        "The frozen programs report binary, finite-size tests only; the extension-field result stands on the exact algebra. No fresh execution or formal verification is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General recurrence and incidence formulas describe how to compute dynamics; the minimum-rank paper instead varies symmetric matrix entries subject to the graph pattern."
+        ],
+        "reasoning": "Neither a minimization over matrices nor the general reduction computes this particular operator's parity-dependent elementary divisors.",
+        "searches": [
+          "Resultary 88cbaceccac4, 2fda8d5e0d01",
+          "Barrett et al. doi:10.13001/1081-3810.1330",
+          "Moreno–Bollman–Aviño-Díaz math/0604534; Pasqualetti–Borra–Bullo arXiv:1301.4587"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 88cbaceccac4, 2fda8d5e0d01, a32991e726e7, 52498ff103de",
+        "arXiv:2205.05375, math/0604534, 1301.4587",
+        "doi:10.13001/1081-3810.1330"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The subdivision rigidity theorem gives F^3 != 0 for these nonclique bases. In even/even, the edge-state theorem gives L^2=0 and the vertex factor is biclique adjacency with Q^2=0, so F^4=0 already follows."
+        ],
+        "reasoning": "That combination covers the even/even worst depth, not the full Jordan table, odd-shore primary distinctions or resulting basins and entry populations. Generic orbit formulas are not separately new.",
+        "searches": [
+          "Resultary 88cbaceccac4 Finding and proof; 2fda8d5e0d01 Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "B^tB is the edge-space factor of F^2, not F itself; BB^t is the mod-2 degree-plus-adjacency matrix of the base."
+        ],
+        "reasoning": "Passing from the squared factors to F requires splitting primary block sizes and resolving the zero blocks on both halves; a line-graph classification is not an equivalent full statement.",
+        "searches": [
+          "Resultary: subdivided biclique incidence/adjacency parity dynamics and Jordan census",
+          "Abudayah–Alomari–Sander arXiv:2205.05375"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identified complete Jordan/census tables concern a biclique with an extra intrashore edge or a deleted cross-edge, not the incidence adjacency of the subdivision."
+        ],
+        "reasoning": "The nearby explicit tables give different operators, and no matching table was identified in this bounded search.",
+        "searches": [
+          "Local Resultary searches for S(K_m,n), edge-subdivision and parity Jordan census; nearby records a32991e726e7 and 52498ff103de"
+        ]
+      },
+      "rationale": "Credit the known incidence mechanism, even/even extinction index (obtained by combining previous results), and generic orbit counting. The complete Jordan multiplicities on the fixed once-subdivided biclique adjacency, in particular the mixed unit block of size four together with the three zero-primary profiles, remain a distinct family-specific calculation in the evidence inspected.",
+      "residual_risks": [
+        "A general modular elementary-divisor catalogue or unindexed equivalent subdivision classification was not ruled out; primary framework papers were inspected only in the relevant passages. No chronological inference from same-date records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage",
+          "evidence": [
+            "F^3=0 iff the connected base is an even-order clique; hence F^3 != 0 here."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/88cbaceccac4",
+          "material_read": "Finding and proof, mirror offsets 0 and 4980",
+          "method": "Local mirrored text",
+          "title": "Three-step extinction rigidity and parity-swapped cycles on subdivided cliques",
+          "trigger": "Same subdivision operator and possible implication for bicliques"
+        },
+        {
+          "assessment": "Partial coverage",
+          "evidence": [
+            "The bipartite even case gives L^2=0 and its two-step Jordan profile, not the full alternating dynamics."
+          ],
+          "identifier_or_url": "Resultary 2026/10/25/2fda8d5e0d01",
+          "material_read": "Finding and proof",
+          "method": "Local mirrored text",
+          "title": "Three-step edge-parity extinction and a part-count Jordan law for even multipartite graphs",
+          "trigger": "Same edge-space squared factor in one regime"
+        },
+        {
+          "assessment": "Standard reduction",
+          "evidence": [
+            "B^*B=A(line graph)+2I and BB^*=A(base)+D in the unsigned case."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.05375",
+          "material_read": "p. 1, PDF text offset 0",
+          "method": "OA primary text",
+          "title": "Incidence matrices and line graphs of mixed graphs",
+          "trigger": "Broader incidence formulas"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Minimizes rank among pattern-constrained symmetric matrices with unrestricted diagonal."
+          ],
+          "identifier_or_url": "https://doi.org/10.13001/1081-3810.1330",
+          "material_read": "pp. 530–531, PDF text offset 1486",
+          "method": "OA primary text",
+          "title": "Minimum Rank of Edge Subdivisions of Graphs",
+          "trigger": "Same subdivision and matrix terminology"
+        },
+        {
+          "assessment": "Different graph operations",
+          "evidence": [
+            "Adds an internal edge or deletes a cross-edge of the ordinary biclique, rather than inserting vertices on all edges."
+          ],
+          "identifier_or_url": "Resultary a32991e726e7; 52498ff103de",
+          "material_read": "Both Findings",
+          "method": "Local catalogue and mirrored text",
+          "title": "One triangle edge switches the Jordan phase of biclique parity dynamics; A missing biclique edge switches parity dynamics among extinction, two-cycles and six-cycles",
+          "trigger": "Adjacent full three-parity catalogue entries"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and §4",
+        "Resultary 88cbaceccac4 and 2fda8d5e0d01 for the earlier extinction mechanisms"
+      ],
+      "rationale": "For this natural incidence graph family, parity of the shore sizes decides whether all signals die, synchronize in two steps on the recurrent space, or admit genuine period four, while the Jordan multiplicities give sharp transient and period populations without a state-space search. The full classification, not a single extinction time or the generic conversion from blocks to counts, supplies the value.",
+      "residual_risks": [
+        "Specific to unweighted ordinary subdivisions in characteristic two."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

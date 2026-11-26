@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:29:18.613852Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md proof steps 1–5; VERIFICATION.md and verify.py inspected, not executed",
+        "Independent bounded replay: node /workspace/branches/bounded-review-checks.js 1; 47,859 literal progressions with n≤160 and odd a≤601, only higher-multiplier pair (115,437) with k=5"
+      ],
+      "rationale": "Centering the terms at x=a+n−1 gives S=nx and C=nx(x²+n²−1), by the vanishing of odd centered powers and the centered second moment n(n²−1)/3. If the ratio is integral, x divides n²−1, so even n is impossible since x has the same parity as n. For odd n the integer quotient is odd. For k≥5, the ratio equation is x²−knx+n²=1, with x≥n. A second proof of the descent is to replace (n,x) by (kn−x,n): the smaller coordinate (n²−1)/x is a positive integer strictly below n for n≥2 and preserves the equation. The terminal pair is (1,k); the inverse move gives (U_j,U_(j+1)) for every j≥1 and proves exhaustion and uniqueness. Thus a=(k−1)U_j−U_(j−1)+1, positive, and it is odd iff U_(j−1) is even. For odd k the recurrence modulo two has period 0,1,1, so j≡1 mod 3. Excluding n=1 makes j=4 the first index, and strict increase plus substitution gives the stated minimum pair and its monotone length as k varies. Binet's formula gives the fixed-k count log(X)/(3 log(alpha))+O_k(1). The checked conclusion is for positive odd terms of step two, not arbitrary square-valued cube sums.",
+      "residual_risks": [
+        "The bounded search is only corroboration; the descent and parity argument supply the all-integer proof. No formal verification is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 12 covers each integer k>3, encompassing both parities of k and all positive norm solutions. Its U_j(k,−1) has characteristic roots (k±sqrt(k²−4))/2, so it is exactly the record's sequence.",
+          "The inspected Nicomachus works study multiplier 1 for the full collections; related repeated-block and Fibonacci examples do not yield arbitrary higher multipliers on their own. The Aassila and Aguilar full texts could not be inspected."
+        ],
+        "reasoning": "The stronger norm theorem applies literally to every target k. The unresolved texts are not needed to support that direct comparison.",
+        "searches": [
+          "Keskin–Güney arXiv:1304.6887, Theorem 12 and Eq. (1.2)",
+          "Aassila DOI 10.62072/acm.2026.09053; Aguilar thesis, repository item 2396",
+          "Kim–Stolarsky JIS 27 (2024) §7 Prop. 9; Barbeau–Seraj arXiv:1306.5257"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e718ee56397c (self-match)",
+        "Keskin–Güney arXiv:1304.6887 v1 Thm. 12",
+        "Barbeau–Seraj arXiv:1306.5257",
+        "Kim–Stolarsky JIS 27 Article 24.6.3",
+        "Aassila DOI 10.62072/acm.2026.09053 (abstract)",
+        "Aguilar repository 2396 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The positive root gives a=((k−2)n+u)/2+1. Substitution of the prior pair and V_j=kU_j−2U_(j−1) gives exactly a=(k−1)U_j−U_(j−1)+1. Modulo two, the three-state period forces j=3t+1, and n≥2 removes t=0.",
+          "The minimum and uniqueness come from j=4 and monotonicity, with U_4=k³−2k; the Binet growth in the prior formula gives the stated logarithmic count."
+        ],
+        "reasoning": "The Frobenius-type norm classification, recurrence, and uniform parameter domain are supplied by the earlier theorem. Checking a congruence, excluding j=1, and evaluating the first remaining term are routine deductions, not a remaining distinct classification.",
+        "searches": [
+          "arXiv:1304.6887 Thm. 12 and proof, pp. 11–12; frozen cubic-sum and parity reduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The positive admissible branch of the progression equation is exactly the norm equation, under u=2(a+n−1)−kn. Keskin–Güney give the pair (V_j(k,−1),U_j(k,−1)) with no parity restriction at all.",
+          "Barbeau–Seraj p. 9 gives a related norm-four Fibonacci/Pell family at discriminant 5, the excluded k=3 case."
+        ],
+        "reasoning": "The proof can be translated between cubic sums and positive norm solutions. The k=3 overlap does not decide the full k≥5 question, but Theorem 12 does after applying the mod-two restriction.",
+        "searches": [
+          "Resultary: odd step-two cube/square ratio, Lucas classification and multiplier 3",
+          "Literature: all positive solutions of Pell x²−(P²−4)y²=4 in Lucas sequences; arXiv:1304.6887 Thm. 12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only exact catalogue match found is the assigned record itself. The earliest pair and sparsity formula are not separately supported as prior table entries; they are consequences of the known sequence classification."
+        ],
+        "reasoning": "The claim is an exact infinite family, not an isolated numerical table entry. A distinct catalogue match is not necessary when a primary general theorem yields the full family, including the least pair by evaluation.",
+        "searches": [
+          "Resultary: uniform odd k≥5 progression classification and least length; record e718ee56397c"
+        ]
+      },
+      "rationale": "Keskin and Güney's Theorem 12 (public arXiv v1, 25 April 2013) already classifies exactly the positive solutions of u²−(k²−4)n²=4 for all k>3 by the same Lucas sequences. The frozen arithmetic-progression theorem is a direct change of variables and elementary parity filtering of this stronger result, with mechanical first-term and growth consequences. This is verified prior implication, not a claim to have located identical arithmetic-progression wording or to have shown the theorem false.",
+      "residual_risks": [
+        "Direct priority for phrasing the result in cubic-sum terms is not established; Aassila and Aguilar full texts were unavailable. Neither uncertainty weakens the verified prior implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive exact norm-equation coverage across the full k domain",
+          "evidence": "For k>3 every positive solution of x²−(k²−4)y²=4 is (V_j(k,−1),U_j(k,−1)), j≥1; the proof identifies the same two characteristic roots.",
+          "identifier_or_url": "https://arxiv.org/abs/1304.6887",
+          "material_read": "v1 title/abstract and date at offset 0; Theorem 12 and proof pp. 11–12 in PDF offset range 27600–34770",
+          "method": "OA primary PDF, statement and surrounding proof read by offset",
+          "title": "Positive Integer Solutions of the Pell Equation x²−dy²=N, d in k²±4, k²±1 and N in {±1,±4}",
+          "trigger": "Exact positive norm-four equation with D=k²−4 and Lucas exhaustiveness"
+        },
+        {
+          "assessment": "General multiplier-one collections and the related discriminant-five family, not decisive for k≥5",
+          "evidence": "The family alpha²−5 beta²=4 includes (47,21), corresponding under the k=3 variable change to (n,a)=(21,35).",
+          "identifier_or_url": "https://arxiv.org/abs/1306.5257",
+          "material_read": "PDF p. 1 definition, offset 0; p. 9 Pell family, offset 28400",
+          "method": "OA primary PDF passages",
+          "title": "Sum of Cubes is Square of Sum",
+          "trigger": "Nicomachus identity and multiplier-three boundary norm equation"
+        },
+        {
+          "assessment": "Related construction, not higher k classification for the progression alone",
+          "evidence": "Uses ν=0 for the entire collection including repeated or shifted terms; a proposition gives a Fibonacci family for its s=2 parameter.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL27/Kim/kim8.pdf",
+          "material_read": "Definition p. 2; Section 7 and Prop. 9 pp. 15–16, offsets 35000 and 39699",
+          "method": "OA primary journal PDF",
+          "title": "Translations and Extensions of the Nicomachean Identity",
+          "trigger": "Step-two progression and Fibonacci/Pell overlap"
+        },
+        {
+          "assessment": "Residual question about priority in progression language; no role in the verified stronger-theorem coverage",
+          "evidence": "Abstract relates to divisibility and a Nicomachus equality; no full proposition could be compared.",
+          "identifier_or_url": "https://doi.org/10.62072/acm.2026.09053",
+          "material_read": "DOI landing/abstract only; full text not read",
+          "method": "Publisher URL unavailable, DOI landing and repository-copy check",
+          "title": "When does the sum of an arithmetic progression divide its odd power sums?",
+          "trigger": "Potential exact progression divisibility antecedent"
+        },
+        {
+          "assessment": "Residual question about closer terminology or direct statements",
+          "evidence": "Abstract discusses extensions but does not resolve coverage of the claimed higher-multiplier classification.",
+          "identifier_or_url": "https://scholarworks.lib.csusb.edu/etd/2396/",
+          "material_read": "Official repository abstract only",
+          "method": "Repository landing page; identified full-text route returned unavailable",
+          "title": "When a Sum of Cubes Equals the Square of the Sum",
+          "trigger": "Thesis on broad Nicomachus extensions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof steps 1–5; Keskin–Güney Thm. 12"
+      ],
+      "rationale": "The integrality question is natural and the literal first pair is a useful illustration. As a claimed new theorem the result is a routine specialization of an existing complete Lucas classification, followed by a three-state parity filter and an evaluation at the first retained index. The record does not put forward a distinct invariant or nonmechanical classification beyond this specialization.",
+      "residual_risks": [
+        "This judgment does not deny expository value of the alternate descent proof or evaluate other common differences."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

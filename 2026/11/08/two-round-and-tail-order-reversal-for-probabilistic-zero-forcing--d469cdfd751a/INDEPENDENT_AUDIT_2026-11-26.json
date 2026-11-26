@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:07:48.654690Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(4) and tail proof; VERIFICATION.md; check_pzf.py (inspected, not executed)",
+        "Independent replay: python /workspace/reproductions/1.py"
+      ],
+      "rationale": "With synchronous independent sender attempts, the size-2-side start has J~Bin(b,1/b) first-round successes; conditional on J=j>0 the last A vertex is forced surely and each remaining B vertex with probability (j+1)/b. The other start has J~Bin(2,1/2), with the conditional factors 2/b and 1-(1-2/b)^2, respectively. No singleton finishes at round one. For the strict comparison I checked the central single-term lower bounds against (3/4)(4/b)^(b-1): the even comparison ratio exceeds 1 at m=7 and the odd at m=8, and their consecutive ratios exceed 1 on the respective ranges. Independently computed the full finite remainder b=3..15 exactly and enumerated every directed-attempt outcome through two rounds for both starts at b=3..6 (b=3 gives 37/81 vs. 34/81). For the tail, a descendant with x=1,y>0 has zero hold probability; with x=2 and w white B vertices the hold probability is ((w-1)/b)^(2w), zero at w=1 and bounded by 1/16 for 2<=w<b/2 or by e^(-2) for w>=b/2. This is strictly below both initial holds, 1/4 and (1-1/b)^b (the latter increases with b and is already 8/27 at b=3). Monotone counts give a triangular descendant transient matrix, hence descendant absorption has a strictly smaller exponential tail. The geometric holding time G is independent of the residual H; conditioning on H gives the normalized survival limit E[lambda^(-H)], finite and positive. This proves both equivalent asymptotics and the eventual reversed ordering. b=2 is symmetric.",
+      "residual_risks": [
+        "No claim of a unique crossing, a crossing-time bound, an expectation ordering, or extension to general complete bipartite graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 2.5 gives general one-step transition probabilities on K_{m,n}; Conjecture 2.6 concerns expected propagation time.",
+          "The Resultary large-part scaling-limit record has a different process and a large-size rather than fixed-size late-time limit."
+        ],
+        "reasoning": "A general kernel is sufficient input for the finite computations, but neither states nor gives a general comparison theorem that specializes to the two opposite inequalities. The uniform early inequality and isolation of the dominant hold require separate arguments.",
+        "searches": [
+          "arXiv:1906.11083, §2.3 Proposition 2.5 and Conjecture 2.6; bounded primary query on singleton complete-bipartite PZF distributions, no pertinent additional hit"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and the four stated record passages",
+        "Chan et al., arXiv:1906.11083 §2.3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-step law determines every fixed-instance hitting-time law, but the audited global result uses central-binomial estimates across all sizes and a strict bound on every post-exit holding probability."
+        ],
+        "reasoning": "Credit the transition law and finite matrix setup to prior work. A size-uniform strict ordering with a reversed dominant exponential tail does not follow from the tabulated means, and the other process-specific comparisons do not transfer.",
+        "searches": [
+          "Chan et al., §2.3 Proposition 2.5 and text around Table 2.4; Resultary 2720e505489e and abd152523b77, Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The identical Resultary hit d469cdfd751a is the audited record itself. 2720e505489e and afee3480ed61 use a recipient-side random forcing rule and compare scaling limits or expectations, respectively. abd152523b77 compares rounds two and three of a pull-only broadcast on K_{5,6}."
+        ],
+        "reasoning": "Swapping bipartition labels or writing K_{b,2} instead of K_{2,b} does not turn recipient-side or pull-only updating into sender-side PZF. The pull reversal is an analogy, not an equivalent formulation.",
+        "searches": [
+          "Resultary: sender-side probabilistic zero forcing, complete bipartite source ranking, stochastic incomparability and tail reversal; strongest records d469cdfd751a, 2720e505489e, afee3480ed61, abd152523b77",
+          "Chan et al., arXiv:1906.11083, §2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 2.4 reports means for both singleton starts for part sizes up to ten, including its K_{2,3} exception to the otherwise observed mean ordering."
+        ],
+        "reasoning": "Neither a finite table of means nor its exception gives the CDF at round two or the exact late-time decay rate. The index's exact match is a self-hit.",
+        "searches": [
+          "Resultary indexed matching and nearby results, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "Chan et al., Table 2.4, PDF p. 9"
+        ]
+      },
+      "rationale": "The transition mechanism is already known. The supported distinction is the strict ordering for every b>=3 at round two and the exact reverse late-time exponential comparison for the same two singleton-start laws. No equivalent or dominating evaluated conclusion was identified in the inspected sources.",
+      "residual_risks": [
+        "Bounded literature search was not exhaustive and produced no informative additional hit. The frozen record's other background references were not independently surveyed for historical priority. Unlocated equivalent or more general distribution comparisons remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General transition mechanism covered; opposite horizon comparisons not established by the inspected results",
+          "evidence": [
+            "Proposition 2.5 transition law, PDF text offset 43075; Table 2.4 means, offset 46705; Conjecture 2.6 on means, offset 47479"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1906.11083",
+          "material_read": "§2.3, Proposition 2.5 and adjacent transition text, Table 2.4 and Conjecture 2.6, PDF pp. 9–10",
+          "method": "Lawful arXiv PDF and HTML passage inspection",
+          "title": "Using Markov chains to determine expected propagation time for probabilistic zero forcing",
+          "trigger": "Same process, family, singleton starts and closest prior theorem"
+        },
+        {
+          "assessment": "Identical record excluded as an antecedent; three distinct same-date findings compared by assumptions, not by presumed priority",
+          "evidence": [
+            "2720e505489e: recipient-side limit laws; afee3480ed61: recipient-side expected-time ordering; abd152523b77: synchronous pull on K_{5,6}"
+          ],
+          "identifier_or_url": "Resultary/2026 local mirror: d469cdfd751a, 2720e505489e, afee3480ed61, abd152523b77",
+          "material_read": "Findings and scope for the matching/neighboring records; offset 0",
+          "method": "Local index search and mirrored text",
+          "title": "Published Resultary comparisons for probabilistic/randomized zero forcing and synchronous pull",
+          "trigger": "Closest indexed statements after aliases and law-order searches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and limitations; Chan et al. Table 2.4 and Conjecture 2.6"
+      ],
+      "rationale": "The two symmetric seed classes are the natural comparison left by the complete-bipartite expected-time literature. The theorem rules out stochastic dominance throughout a nontrivial infinite family, even though a fixed time horizon strongly favors one seed class; the sharp survival bases explain why that ranking fails. This is information the natural mean comparison cannot supply.",
+      "residual_risks": [
+        "Does not settle the older expectation problem or classify all crossings."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

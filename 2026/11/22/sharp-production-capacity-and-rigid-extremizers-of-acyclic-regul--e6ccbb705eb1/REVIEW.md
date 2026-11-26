@@ -1,19 +1,21 @@
-# Review of sharp acyclic-grammar production capacity
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The production-to-edge translation is exact and handles terminal and empty-string productions. Splitting all source edges yields the sharp sum-product recurrence for complete derivations. Strict monotonicity of the resulting integer-break product forces every edge to be productive at equality; if two distinct successor nodes each reached all remaining edges, acyclicity would fail. Hence equality forces a single chain of parallel-edge layers. Mixed-radix unary labels produce all consecutive lengths without collisions, proving the universal maximum and exact cover inverse. The two standalone scripts confirm sample budgets, exact word spectra and finite DAG equality cases, while the written induction supplies the infinite argument.
+PASS
 
-## Originality (O): PASS with residual priority risk
+Encode each rule as a labeled edge, with terminal rules going to one sink. Words are bounded by complete path count. Removing the r edges out of the start leaves budget e=p-r and at most M(e) continuations per head, counting the sink's empty continuation as one. Matching parallel chains give the maximum integer product over positive parts summing to p. M(p) increases strictly for p>=2 by increasing a part of a maximizing composition of p-1. At equality all p rules lie on complete paths and the word labels are collision-free. The case e=0 gives a single terminal layer; e=1 is impossible for p>=2 since at most p-1 paths would result. For e>=2 each maximizing suffix head must use every remaining edge by strict monotonicity. Distinct heads would have to reach each other, using an outgoing edge of the other, contradicting acyclicity. Thus there is one head per layer, inductively. The p=1 case requires exactly one terminal production at the start. Merging ones, replacing a part b>=5 by 3 and b-3, and replacing three twos by two threes give strict improvements; splitting a four into two twos preserves equality and yields the listed maximizing compositions. Mixed-radix labels yield exactly each exponent 0 through M(p)-1 once even over a unary alphabet. For the cover, the necessary count bound and the interval produced at the least feasible p coincide, giving the stated inverse and bounded additive remainder.
 
-The November 12, 2026 Hetzl--Shadman paper establishes NP-completeness of regular cover, not exact production-cardinality capacity or unary interval production thresholds. Hetzl--Wolfsteiner (2019, Lemma 7) give the weaker \(2^{p-1}\) cardinality bound; the new sharp formula yields \(C(6)=9\). Wolfsteiner's 2020 dissertation cites logarithmic-size descriptions of finite unary languages but does not state this exact capacity or graph-rigidity classification in inspected sections. Recorded published-finding corpus statement/implication searches for unary intervals, cardinality, acyclic grammars, and extremal DAGs yielded no same claim. The 1981 Bucher et al. primary text and 2026 Hajac et al. full all-path graph paper could not be inspected; the latter maximizes a different all-endpoint functional, but an unquoted stronger sublemma remains a real possibility. These are explicit priority limits, not purported proofs of noncoverage.
+## originality
 
-## Value (V): PASS
+PASS
 
-Exact maximal language capacity at each grammar budget and all maximizing derivation graphs are useful structural benchmarks for regular-cover optimization. The unary consecutive-length family is a natural complete infinitely parameterized solvable subcase of a newly proved NP-complete general problem. Both the precise staircase and its \(3/\log3\) natural-logarithmic leading constant sharpen earlier qualitative logarithmic statements; the equality rigidity is not merely a renaming or parameter substitution. The result is independent of the lengths of rule labels, by design of this production-count model.
+Pass for the sharp production-count capacity, equality structure with injective word labels, and exact consecutive-unary cover threshold. The integer-product calculation is classical. The closest primary graph result gives different extremal path functionals, including the important one-sink count from all starts; neither that result nor the general cover results establishes the stated fixed-endpoint grammar theorem in the inspected material.
 
-## Closest literature and limitations
+## value
 
-The most directly related sources are Hetzl--Shadman (arXiv:2611.16562v1), Hetzl--Wolfsteiner (Theoretical Computer Science 798, 2019, Lemma 7), Wolfsteiner (TU Wien dissertation, 2020, Chapter 4), the 1981 Bucher et al. primary citation, and Hajac et al. (arXiv:2606.16095). Claims are restricted to acyclic right-regular productions with arbitrary terminal blocks; the exact cover corollary applies only to consecutive unary exponents. Independent external review and full-text priority comparisons of the two stated inaccessible primaries remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact maximum and structural equality theorem address a natural resource question in the regular-cover model: how many distinct words a production budget can buy, and what must happen in an optimal description. The collision-free unary realization turns that maximum into an exact inverse for a natural test family, substantially sharpening the older cardinality bound rather than merely restating integer-break arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:13:12.658082Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An appended absent symbol cannot give a square, so every crucial word uses all five letters. First-appearance relabeling gives exactly one canonical representative and each complete-alphabet orbit has size 5!. A new forbidden factor can only end at the appended position, so a breadth-first canonical prefix census pruned by the suffix test is exhaustive. In /tmp/opencode/crucial_review.py I encoded Parikh vectors by base-8 positional weights; every tested half-length is ≤7, so a difference with signed digits in [−7,7] can vanish only when all digits vanish, by taking the lowest nonzero digit modulo 8. Before appending any letter, each candidate suffix length computes a deficit; a square is forced by a letter exactly when that deficit is its unit vector. The replay checked every depth 1–13, found no shorter full-alphabet crucial word, and gave 297588 canonical prefixes overall, 209190 at depth 13, of which 205424 use all five letters. It found precisely 14 crucial words and compared all 70 singleton witnesses against the frozen CSV. Sorted spectra match the four claimed frequencies 8,3,2,1 and 14·120=1680. Evdokimov–Kitaev Theorem 5 independently supplies the minimum length 13. The frozen C++ program already filters out multiple-witness candidates by design; the witness uniqueness here instead follows after independently retaining every word with all five nonempty witness sets. No frozen script was executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general Abelian-power work repeats the known square minimum and uses the Evdokimov–Kitaev construction in the square case; the later cited theorem concerns power lower bounds.",
+          "Related indexed records 8fc0108f4393 and 4884ed822a73 impose ordinary squares, not Abelian equality, and a gap insertion or an interior deletion rather than right extension."
+        ],
+        "reasoning": "General minimum-length bounds or constructions apply across wider alphabet sizes and powers but do not identify all minimizers with their witness profiles. The ordinary-square obstructions are for genuinely different equivalence of blocks and operations.",
+        "searches": [
+          "arXiv:0812.4730, p. 1 and p. 10 square-case construction",
+          "Avgustinovich–Glen–Halldórsson–Kitaev 2010, first page and Theorem 1",
+          "Local Resultary: crucial/extension-obstruction and Abelian-power classifications"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md, canonical_representatives.csv, check_census.py and independent_census.cpp",
+        "arXiv:math/0205217 and arXiv:0812.4730",
+        "Avgustinovich et al. 2010, author-hosted PDF",
+        "Korn 2003 via the cited secondary comparison only",
+        "Local Resultary targeted searches and inspected records 8fc0108f4393, 4884ed822a73 and 604142799482"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier formula implies exactly the cut-off 13 at n=5 and construction implies a nonempty extremal family.",
+          "The later construction and broader power lower bounds do not constrain all five appended-letter witnesses for every minimizer."
+        ],
+        "reasoning": "The formula controls length, not multiplicity or the uniqueness of a terminal square. Those stronger assertions require the full census with all square witnesses, rather than reading off a parameter from a general theorem.",
+        "searches": [
+          "arXiv:math/0205217, Theorem 5, pp. 5–6",
+          "arXiv:0812.4730, p. 10 and p. 13",
+          "On Shortest Crucial Words Avoiding Abelian Powers, p. 1 and Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Evdokimov–Kitaev give 4n−7 and an attaining construction.",
+          "Glen–Halldórsson–Kitaev p. 13 explicitly distinguish crucial words from maximal words, for which both xW and Wx must fail for every x."
+        ],
+        "reasoning": "Right maximality under appending is the equivalent one-sided obstruction. The two-sided maximality problem, including the cited Korn bound, restricts both ends and cannot serve as this census. Testing only letters already seen would also need the condition of exactly five distinct letters, which all the enumerated minimizers meet.",
+        "searches": [
+          "Right-crucial/minimal or maximal Abelian-square-free five-letter words, length 13 and exact census (focused literature search)",
+          "arXiv:math/0205217, Theorem 5",
+          "arXiv:0812.4730, §6 Remark (2), p. 13"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The adjacent exact archive hits concern five-/six-letter ordinary insertion, 30 ternary ordinary deletion cases at length 13, or binary words with four ones and a distinct-Abelian-factor statistic.",
+          "The primary sharp-minimum proof supplies minimizers by construction, not a full table of first-appearance five-letter minimizers."
+        ],
+        "reasoning": "Identical-looking lengths, alphabet sizes, or the word 'Abelian' do not encode the required complete five-letter right-extension candidate set or its profiles.",
+        "searches": [
+          "Local Resultary: complete five-letter length-13 census and four forcing signatures",
+          "Resultary records 8fc0108f4393, 4884ed822a73 and 604142799482, RESULT.md Findings",
+          "arXiv:math/0205217, Theorem 5 examples"
+        ]
+      },
+      "rationale": "The length formula and existence of a minimizer are old. The comparison supports a distinct full census of five-letter minimizers and the classification by unique right-extension obstructions; none of the inspected constructions or adjacent exact tables gives these data.",
+      "residual_risks": [
+        "Korn's primary full text could not be inspected, though the available scholarly description gives a different two-sided theorem.",
+        "A differently indexed older classification or unlocated append-obstruction table remains possible; bounded searches are not a proof of historical uniqueness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers length and existence, not the exact census",
+          "evidence": "L_min(S_n²)=4n−7 for n>2 and an attaining construction.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0205217",
+          "material_read": "Theorem 5 and attaining construction, pp. 5–6, passage around offset 11700",
+          "method": "Bounded open-access primary PDF passages",
+          "title": "Crucial Words and the Complexity of Some Extremal Problems for Sets of Prohibited Words",
+          "trigger": "Sharp general minimum for precisely the same right-crucial object"
+        },
+        {
+          "assessment": "Provides a credited construction and distinguishes the neighboring two-sided problem",
+          "evidence": "The square-case construction matches Evdokimov–Kitaev; Remark (2) defines maximality by failure of both xW and Wx and reports Korn's 4n−7 to 6n−10 bounds for n≥6.",
+          "identifier_or_url": "https://arxiv.org/pdf/0812.4730",
+          "material_read": "Definition and known square minimum on p. 1, construction p. 10, two-sided distinction and Korn citation p. 13 (offset 38980)",
+          "method": "Bounded open-access primary PDF passages",
+          "title": "Crucial Words for Abelian Powers",
+          "trigger": "Broader construction and possible one-sided/two-sided alias"
+        },
+        {
+          "assessment": "Length results rather than five-letter census",
+          "evidence": "Reiterates the square minimum; the new bound concerns Abelian powers.",
+          "identifier_or_url": "https://spider-v.science.strath.ac.uk/sergey.kitaev/Papers/AGHK.pdf",
+          "material_read": "First page around offset 400 and Theorem 1 scope",
+          "method": "Bounded open-access author-hosted PDF passages",
+          "title": "On Shortest Crucial Words Avoiding Abelian Powers",
+          "trigger": "Possible broader shortest-crucial classification"
+        },
+        {
+          "assessment": "Reported theorem addresses the two-sided length problem, not a demonstrated census match; inaccessible remainder unresolved",
+          "evidence": "The secondary source states the two-sided condition and attributes bounds for n≥6 to Korn. The failed access does not justify negative claims about the uninspected full text.",
+          "identifier_or_url": "JCTA 102 (2003), 207–211 (M. Korn)",
+          "material_read": "Primary text not retrieved; Glen–Halldórsson–Kitaev p. 13 Remark (2) and [8] read",
+          "method": "Lawful retrieval attempt plus bounded scholarly secondary passage",
+          "title": "Maximal Abelian Square-free Words of Short Length",
+          "trigger": "Plausible priority overlap under maximal-word terminology"
+        },
+        {
+          "assessment": "Different operations, alphabets or statistics",
+          "evidence": "Ordinary gap-insertion threshold 10 at five letters; ternary ordinary length-13 deletion-witness classification; binary four-1 Abelian-factor minimization at lengths 19–128.",
+          "identifier_or_url": "Resultary 8fc0108f4393, 4884ed822a73, 604142799482",
+          "material_read": "Mirrored RESULT.md Findings of all three records",
+          "method": "Bounded local mirror passages",
+          "title": "Related exact Resultary records on square-free obstructions and Abelian-factor counts",
+          "trigger": "Plausible exact tables and aliases returned by local searches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Classifying all minimizers at the sharp length of a classical obstruction problem is a motivated extremal census. Beyond giving the number of orbits, it isolates an exact structural fact: each of the five possible continuations of every minimizer is blocked at a unique length, and the permitted joint spectra fall into four explicitly counted families. This information is useful for comparing extremal constructions and is not implied by knowing the minimum length. No generalization to larger alphabets or to bicrucial words is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

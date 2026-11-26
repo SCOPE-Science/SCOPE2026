@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:09:56.375700Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 27–43",
+        "VERIFICATION.md and supplied verify.py, inspected, not executed",
+        "/workspace/replays/3/independent_ladder_census.py and census_n2_to_n10.txt"
+      ],
+      "rationale": "Every selected vertex that is isolated in the selected subgraph can be mapped to its rung mate, and every nonisolated selected vertex to an external private neighbor. Neither assignments of the same kind nor mixed assignments can coincide, so |D|≤n; an entire row attains this. At size n, full and empty columns are equinumerous. Only empty columns can supply external private neighbors to full columns, and each empty vertex must be used, which forbids neighboring singleton columns. Full columns cannot touch singleton columns either, since the latter would then have no private neighbor. With only singletons, a selected interior vertex loses its private neighbor exactly when one adjacent column selects its row and the other the opposite row; period two is necessary and sufficient, including the vacuous constraint at n=2. With only full and empty columns every column meets exactly one unlike neighbor, so these edges are the unique perfect matching of the even column path. This gives exactly the stated words. The two checkerboards are the only independent words, and complementing pairs the extremizers.",
+      "residual_risks": [
+        "The separate replay exhausts all size-n subsets for 2≤n≤10 and obtains 46 extremizers in total; it does not check larger n or replace the injection and structural proof. The phrase ‘prior neighbor’ in Step 3 is a typographical error for ‘private neighbor’."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The matched record attributes the scalar grid result to a bipartite identity Γ=α. Applied to the open ladder, α=n by the rung matching and checkerboard construction.",
+          "The matching and grid sources cited by the frozen result could not be inspected in full via the attempted OA routes."
+        ],
+        "reasoning": "A scalar value Γ=n alone does not imply the equality structures, which include dominated sets inducing edges. The direct statement-level duplicate, rather than inaccessible primary texts, decides coverage of the complete theorem.",
+        "searches": [
+          "Sahbi, arXiv:2610.03785, cited grid theorem; OA retrieval attempted",
+          "Goddard–Henning, doi:10.1007/s00010-025-01196-z, OA retrieval attempted",
+          "Resultary --ee60eed8ab77, scope and prior-work comparison"
+        ]
+      },
+      "checked_sources": [
+        "Resultary --ee60eed8ab77",
+        "OEIS A290379",
+        "arXiv:2610.03785 and doi:10.1007/s00010-025-01196-z (access attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "All extremal words are explicit in the matched result, including the row sets and full-column sets that contain edges."
+        ],
+        "reasoning": "Reading the masks gives the two independent checkerboards and pairs all words by complement, hence implies that every vertex belongs to half the extremizers. These corollaries do not supply an uncovered remainder. The direct private-neighbor argument is an alternate proof of the same result.",
+        "searches": [
+          "Resultary --ee60eed8ab77, Finding offset 0 and finite-state proof passage at offset 4759"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matched theorem fixes the Cartesian ladder P₂□Pₙ with labelled rows and columns and uses the same column masks, displaying the same four constant/alternating singleton words and even-only 3003/0330 patterns."
+        ],
+        "reasoning": "Maximum-cardinality inclusion-minimal dominating sets are the same object under either terminology. The match includes the exact vertex subsets, not merely the value of the optimum.",
+        "searches": [
+          "Resultary local searches: maximum minimal domination, upper domination, and open two-row ladders; --ee60eed8ab77, Finding offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A290379 counts all sizes and begins 2,6,7,18; its n=3,4 totals are not the claimed 4,6.",
+          "The distinct catalogue entry gives exactly 4 for odd n≥3 and 6 for even n≥2 as the coefficient of zⁿ in the size polynomial."
+        ],
+        "reasoning": "The aggregate OEIS table does not settle the extremal layer. The indexed theorem does and even gives the same layer as a polynomial coefficient.",
+        "searches": [
+          "OEIS A290379, page offset 0",
+          "Resultary --ee60eed8ab77, exact count and minimal-domination polynomial coefficient in Finding"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record, --ee60eed8ab77, states the identical upper-domination number, classification by the same six words with the same parity restriction, and exact census for the same labelled open ladder. The direct private-neighbor proof differs from the matched finite-state proof, but the scientific classification and both stated corollaries are covered. This conclusion rests on the statement comparison, not on catalogue chronology alone.",
+      "residual_risks": [
+        "The Sahbi theorem-number discrepancy remains unresolved; the result does not turn on that attribution.",
+        "Text matching establishes equivalent coverage, not an independent claim about authorship or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full conclusion in a distinct record with a different proof",
+          "evidence": [
+            "The theorem lists exactly the same six periodic words and parity-dependent census; it also includes n=1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-all-maximum-minimal-dominating-sets-of-ladder-graphs--ee60eed8ab77/RESULT.md",
+          "material_read": "Finding and scope at offset 0; finite-state proof passage at offset 4759",
+          "method": "Local mirror, bounded passages",
+          "title": "All maximum minimal dominating sets of ladder graphs",
+          "trigger": "Plausible complete match"
+        },
+        {
+          "assessment": "All cardinalities, not the upper layer",
+          "evidence": [
+            "The n=3 and n=4 totals are 7 and 18."
+          ],
+          "identifier_or_url": "https://oeis.org/A290379",
+          "material_read": "Title and initial table at offset 0",
+          "method": "OA page, bounded passage",
+          "title": "Number of minimal dominating sets in the n-ladder graph",
+          "trigger": "Exact ladder domination count"
+        },
+        {
+          "assessment": "Reported scalar coverage; primary version and theorem-number discrepancy unresolved",
+          "evidence": [
+            "The matched record references a bipartite identity in v2, §8, Theorem 8.1; the frozen result cites Theorem 3.1."
+          ],
+          "identifier_or_url": "arXiv:2610.03785",
+          "material_read": "No primary full-text passage available; secondary theorem reference in the matched record",
+          "method": "OA PDF/HTML retrieval attempted; bounded local comparison",
+          "title": "Upper Domination in Rectangular Grid Graphs and Its Relation to Sub-Quorum Colorings",
+          "trigger": "Scalar optimum and potential general theorem"
+        },
+        {
+          "assessment": "Unavailable for independent primary comparison; not negative evidence",
+          "evidence": [
+            "The frozen finding attributes a general matching inequality to this source; the direct proof and exact catalogue match suffice here."
+          ],
+          "identifier_or_url": "doi:10.1007/s00010-025-01196-z",
+          "material_read": "No primary passage retrieved",
+          "method": "DOI and publisher OA attempts",
+          "title": "Domination Parameters and Added Matchings",
+          "trigger": "Matching-based upper bound"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, equality proof and corollaries",
+        "Resultary --ee60eed8ab77",
+        "OEIS A290379"
+      ],
+      "rationale": "The structural equality question is natural independently of its originality: the scalar domination number alone does not describe the maximal layer, and the proof explains why the even-only sets arise from the open path’s perfect matching. The classification is substantive, although this record adds no distinct classification beyond the exact match.",
+      "residual_risks": [
+        "No classification for cycles or wider ladders follows from the equality proof here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stochastic saddle-point equations reduce to two independent scalar backward-Euler recurrences, with noise entering the right-hand side before the implicit solve. Exact geometric summation gives their covariance. Both deterministic step-doubling errors are strictly positive. The two-Gaussian Bhattacharyya objective is strictly convex in the logarithm of the common variance scale, so its geometric-mean optimum and hyperbolic-cosine minimum are global and unique. Fixed-final-time expansions establish the nonzero limiting mismatch. The derivative of the mode calibration function has exactly one positive zero, proving the paired-rate resonance classification. The accompanying exact-fraction/high-precision verifier returned `VERIFY_OK 894`; it is not a substitute for the analytical arguments.
+PASS
 
-## Originality — PASS (best-knowledge assessment)
+On the two consistent kernel coordinates the RHS noise is multiplied by q_j; independence gives terminal variance sigma² a_j by summing h³ q_j^(2k+2). The deterministic step-doubling indicator is positive since (1+lambda_j h/2)²>1+lambda_j h. In u=log(sigma²) the sum of the equal-mean Gaussian distances is half the sum of log cosh((u−log r_j)/2); it is strictly convex, with the two derivative terms cancelling at the midpoint. This proves the unique variance scale and minimum, including zero exactly for matching ratios. The h-leading error is exp(−lambda_j T) lambda_j² T h/4 and the leading variance factor is h²[1−exp(−2lambda_j T)]/(2lambda_j), giving the stated limit. The sign of its logarithmic derivative is that of 5(1−exp(−2x))−2x; strict concavity, positive initial slope and negative tail show one positive root and two distinct rates at each submaximal positive level. Separate high-precision arithmetic reproduced x_*=2.482557115872138151849… and the gap 1.000620761200976286155… for T=1 and rates 1 and 10. The nonzero lower bound is for terminal-marginal distances (or objectives containing them additively); the resonance is at leading order, not asserted to be exact at finite mesh.
 
-The probabilistic Euler step and componentwise Bhattacharyya calibration were introduced previously and are not claimed as new. The closest primary sources are Altmann–Moradi (arXiv:2406.07220, Sections 4.1, 5) and Conrad et al. (doi:10.1007/s11222-016-9671-0, Section 3.1). Their inspected material does not state the exact two-mode, one-scalar terminal frontier; the limiting spectral shape, sharp nonzero gap and unequal-rate matching resonance require this problem-specific calculation. Public mathematical searches and research-record comparisons did not identify an equivalent claim. The main residual risk is that a general classical Gaussian variance-scale formula, combined with standard Euler error expansions, may already be known in another guise. The broader covariance choice in the older work is fully acknowledged and does not contradict the restricted theorem.
+## originality
 
-## Value — PASS
+PASS
 
-A widely used scalar calibration aims to match numerical uncertainty with step-refinement error. The theorem proves that this can fail by an explicit, positive amount **even though both variances themselves vanish**. It quantifies the best achievable fit rather than just observing anisotropy; moreover, its strict spectral unimodality identifies precisely when different relaxation modes unexpectedly share an asymptotic scale. This is a motivated boundary for calibration design in constrained probabilistic integration, not a claim about arbitrary perturbation covariances or unconstrained nonlinear problems.
+The numerical method, use of a scalar Bhattacharyya calibration objective, and abstract two-target geometric-mean minimization have prior coverage. The supported distinct content is the step-doubling spectral law for this forced solver and its exact classification of persistent gaps and unequal-rate matches. The generic S-divergence theorem does not identify that law, and the examined solver sources do not give it.
 
-## Limitations and literature
+## value
 
-Applies only to a fixed two-mode diagonal, positive, linear problem and the specified isotropic kernel forcing, with the terminal-time portion of the calibration objective. The full-trajectory optimum can differ, while its objective retains the terminal lower bound. A mode-specific noise covariance can remove the obstruction. Independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives a concrete obstruction for an existing scalar calibration strategy: even optimizing the common scale separately at every resolution does not force both terminal marginal distances to vanish. The explicit spectral law identifies exactly when rates on opposite sides of its maximum evade that obstruction. This is useful for deciding when mode-dependent scales are necessary for these targets, not a claim about accuracy against the true solution law or global calibration over all times.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

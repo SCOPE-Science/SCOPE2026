@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source indicators are independent unless their vertices are adjacent; adjacent sources are impossible. Expanding their covariance establishes identity (1). The squared edge-gradient decomposition (2) follows algebraically. The leaf-arm accounting avoids double counting; direct leaf-branch arms satisfy a strict inequality. The sharp \(3/64\) bound follows from explicit degree inequalities and the tree leaf-budget identity. Equality forces exactly one degree-three center and no length-one arm; substitution attains the bound. The verifier independently checks the claim for labeled trees through order seven and direct orientations through order six. Finite checks are not the proof.
+PASS
 
-## Originality
+Under independent fair orientations, the source probability at v is a_v=2^−d_v. Nonneighbors' events depend on disjoint edges; adjacent sources are mutually exclusive. This yields Var(S)=Σ_v(a_v−a_v²)−2Σ_uv a_u a_v, equivalently the squared edge differences plus Σ_v b(d_v). On a path the two leaf edges and degree-two terms give n/16. In a nonpath the leaf arms are edge-disjoint and their count is L=2+Σ_{d≥3}(d−2). A leaf arm contributes at least 1/16+(1/4−2^−d)², strictly more if it has length one. Subtract n/16 and use g(d)≥1/64 and δ(d)≤(d−2)/64, strictly for each d≥3: δ(3)=0<1/64 (the proof's phrase ‘equality at d=3’ is a local wording error; the next step uses the correct strict difference); d=4,5 follow by substitution and d≥6 from b(d)>0. When a degree-three vertex exists the lower bound is 2/64 plus the branching penalties and is at least 3/64, with equality requiring only that one branch and three arms of length ≥2. If no branch has degree three, g(d)≥9/256 and L≥4 give at least (5L+8)/256>3/64. Arms 2,2,n−5 attain the gap for every n≥7 and none can do so at n=4,5,6. Global reversal gives the sinks statement. In independently written finite checks, enumerating connected (n−1)-edge sets and their actual orientations at n=4,…,7 gave second gaps 15/64, 11/64, 7/64, 3/64 and confirmed the equalizer condition on that range; replay python /workspace/branches/math_checks.py 5. The frozen verifier and recorded checks were inspected, not run; the analytical bound proves the infinite claim.
 
-PASS on inspected evidence, with historical-priority risk. Bienvenu studies association of reachability from a *chosen* source set, not count of indegree-zero vertices; Ralaivaosaona studies random sparse DAGs rather than independently oriented fixed trees; Conte et al. study source-constrained enumeration algorithms. None of the inspected statements implies the precise all-orders second-variance gap or equality class. Searches included the natural aliases 'source count', 'number of sources', 'sinks', 'random orientations', 'fair orientations', 'spiders', 'subdivided claws', and 'second-minimum variance'. Generic graph degree-index extremal results are a residual historical priority risk. This is not a uniqueness certificate.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The variance of the number of sources is a natural global statistic of random acyclic orientations of a fixed tree. The theorem isolates a nonzero size-independent stability gap above the path and completely classifies all sharp second minimizers, without fixing the tree size or restricting to bounded degrees. The structural proof explains why the first branching excess is \(3/64\), whereas greater branching and direct leaf attachments cost strictly more.
+The supported distinct result is the all-tree sharp variance gap, with the branching inequality excluding every profile with four or more leaves. The elementary moment formula is not counted as new. The closest exact covariance result supplies the three-leaf slice and the same equality shapes, but not the all-tree variance bound after the degree-profile correction. The comparison is of statements and their proofs, not dates or terminology.
 
-## Boundaries and status
+## value
 
-Only uniform independent orientations of finite trees are covered. Prior stronger extremal descriptions may exist under alternative terminology. Independent audit is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The marginal source-count variance is a natural fluctuation statistic for independently oriented fixed trees. The all-size positive gap separates the minimum path from all branched shapes, and the proof explains which number of branches and which leaf attachments control the first excess. The remaining all-branch-degree component is useful even after recognizing the three-leaf consequence of the covariance result, because the exact second minimum and complete equality classification cannot be concluded from that slice alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:54:21.969035Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Integrating e^(tu) against the quadratic integrated jump tail gives 2K(t)/(Vt^2)=1+wtH(t), with H(0)=E[J^3]/(3E[J^2]). The candidate scale function phi=wH/(1+wtH) is strictly below 1/t at positive t, so any t with phi>c is within the tested pole domain, establishing the exact unconstrained supremum. Its derivative has sign H'/H^2-w. Under the stated log-concavity, the tilted density e^(tu)h(u)/H(t) has increasing hazard (integrate its decreasing density ratio f(s+v)/f(s)), making its survival submultiplicative. The integrated second-moment bound E_t[U^2]<2(E_t[U])^2 is strict because r,s below the finite endpoint can have r+s above it on a set of positive measure. Thus (H'/H^2)'<0, and H'/H^2 tends to zero by the finite-support bound on H'/H and exponential growth of H. This proves uniqueness globally, including the strictly decreasing positive-t optimizer at equality and the true-variance normalization. Independent piecewise integration and rational Taylor arithmetic (python /workspace/checks/5.py with SymPy; output /workspace/checks/5.txt) confirm the integrated tail, matching through two derivatives, curvature, w*=868/1125, sigma^2/lambda cutoff 257/372, and g'(0)=-9716/84375. Inverting the stationarity equation then gives the cited linear t coefficient and quadratic excess w* H(0)^2/(-2g'(0)). Clarification: the >=1 conditional in the general Finding is vacuous under its log-concavity hypothesis. Indeed h(0)=1 and log-concavity imply h(r+s)<=h(r)h(s), strictly on a set of positive measure by bounded support, so H'(0)=integral integral h(r+s) dr ds < H(0)^2. The remark that the raw moment threshold expression can exceed one applies only outside the log-concave class (e.g. masses 999/1000 and 1/1000 at jumps 1 and 10); it does not affect the asserted classification or uniform constants. Submitted code was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen §7, PDF p. 15, explicitly distinguishes interior control from uniqueness of the positive-tilt optimizer.",
+          "14cc4c8da31b gives uniqueness by power-series coefficient ratios for a fixed jump size; its general bounded-jump statement expressly does not assert optimizer uniqueness.",
+          "0d7d53be9f16 treats unbounded gamma jumps. fafa66d95c35 treats compound-Poisson Beta jumps without varying Gaussian variance."
+        ],
+        "reasoning": "General implicit optimizability does not give all-parameter optimizer uniqueness, and none of these narrower shape families subsumes the log-concave integrated-tail condition. The Beta and gamma records supply meaningful related phase and onset phenomena, not the uniform dilution result.",
+        "searches": [
+          "Chen arXiv:2610.00032 §§6–7",
+          "Resultary: Gaussian-noise transition for optimal sub-gamma scales",
+          "Resultary: Gaussian dilution gamma jumps and compound-Poisson beta transitions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.00032, arXiv:2609.02590",
+        "Resultary 48dc597af751, 14cc4c8da31b, fafa66d95c35, 0d7d53be9f16, 33a2f59ff992"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Log-concavity of a tilted normalized integrated tail gives strict E_t[U^2]<2E_t[U]^2 on bounded support; combining it with the quotient derivative proves single crossing on all positive t.",
+          "The earlier exact variational result determines the scale implicitly, and the deterministic or signed two-size phase diagrams use different fixed-law identities."
+        ],
+        "reasoning": "A local coefficient sign or an implicit supremum cannot imply that the same threshold controls the full positive half-line. Reusing the standard IFR inequality for every tilt, and connecting it to this normalized derivative, is the mathematical step beyond the checked variational and special-case statements.",
+        "searches": [
+          "arXiv:2610.00032 §§3,6–7; IFR and the M-class",
+          "48dc597af751 RESULT.md Finding through Proof §1",
+          "14cc4c8da31b RESULT.md uniqueness proof and general bounded-jump qualification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen Theorem 3.1 gives the exact variational identity and §6 gives an M-class comparison to an exponential law with matching mean; these are formulations of the same fixed-variance envelope.",
+          "Record 48dc597af751 uses the equivalent (1-M(t)^(-1))/t for M(t)=2K(t)/t^2."
+        ],
+        "reasoning": "The variational problem itself and its low-frequency lower bound are prior. The strict monotonicity of H'/H^2 locates and counts all optimizing tilts under an additional shape assumption; this is not another name for the variational formula.",
+        "searches": [
+          "arXiv:2610.00032 Thm. 3.1 and §§6–7",
+          "Resultary: H'/H^2 optimal sub-gamma scales Gaussian dilution",
+          "arXiv:2609.02590 signed canonical remainder"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "48dc597af751 Finding and Assumptions: b=0 has unit positive Poisson marks plus a Gaussian, p*=3/4, with quadratic onset; b>0 adds a negative fixed-amplitude Poisson population.",
+          "14cc4c8da31b gives the constant-size threshold sigma^2/(lambda b^2)=1/3 and uniqueness beyond it."
+        ],
+        "reasoning": "The deterministic-jump endpoint is genuinely overlapping, not ignored because of its date, but changing a single jump size or rescaling the law cannot produce a continuous uniform jump size. The checked passages do not tabulate the same uniform-jump threshold or onset.",
+        "searches": [
+          "Resultary: uniform [1,2] jump optimal sub-gamma threshold 868/1125 257/372",
+          "Resultary: unequal-jump sub-gamma phase surface and quadratic crossover"
+        ]
+      },
+      "rationale": "Pass for the global shape-based single crossing and the continuous uniform jump classification with its onset, not for the variational transform, a local/interior dichotomy in general, fixed-jump Gaussian dilution, or the use of increasing hazard for log-concave densities. The same-day unequal-jump phase surface has material overlap at its Gaussian endpoint, where its positive jump has constant size one, but its hypotheses do not yield the variable-amplitude uniform law or the general kernel criterion. No publication order between the same-day records is asserted.",
+      "residual_risks": [
+        "The variational and reliability ingredients are classical or already published; historical overlap via renewal/hazard terminology is not ruled out by these bounded checks.",
+        "The same-day constant-jump endpoint does not establish priority in either direction; no broad literature absence is inferred from the focused source comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "substantial framework antecedent, not the shape criterion or uniform exact crossing",
+          "evidence": "§7 numerical interior example establishes existence, not uniqueness; §6 gives M-class criterion.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.00032",
+          "material_read": "Theorem 3.1 PDF p. 6; local bound p. 7; §6 p. 12; §7 p. 15; reliability context p. 2",
+          "method": "original accessible arXiv PDF passages",
+          "title": "Optimal Sub-Gamma Scales for Spectrally Positive Infinitely Divisible Laws",
+          "trigger": "same variational optimization and equilibrium transform"
+        },
+        {
+          "assessment": "signed fixed-mark overlap; no uniform positive jump dilution",
+          "evidence": "Exact Skellam transition for signed unit jumps, not Gaussian variation of continuous positive marks.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.02590",
+          "material_read": "PDF p. 4 signed transform and Skellam transition",
+          "method": "original accessible arXiv PDF passage",
+          "title": "Directional Optimal Sub-Gamma Scales for Infinitely Divisible Laws",
+          "trigger": "directional phase classification and possible broader coverage"
+        },
+        {
+          "assessment": "Gaussian endpoint overlaps constant jumps, not variable uniform jumps",
+          "evidence": "X_(0,p)=N_+-p+sqrt(1-p)G; p*=3/4; onset coefficients 40/3 and 5/9.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-unequal-jump-sub-gamma-phase-surface-and-quadratic-cross--48dc597af751/RESULT.md",
+          "material_read": "Finding, Assumptions and proof through first phase expansion (offset 0–3936)",
+          "method": "local catalogue and mirrored original text",
+          "title": "A sharp unequal-jump sub-gamma phase surface and quadratic crossover",
+          "trigger": "strongest same-day overlap: Gaussian-dilution endpoint and onset"
+        },
+        {
+          "assessment": "exact fixed-size law, with broader smoothing but not broader uniqueness",
+          "evidence": "Monotonicity by coefficient-ratio comparison for m(x)=2(e^x-1-x)/x^2; fixed-jump threshold r=1/3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-sharp-gaussian-noise-transition-for-optimal-sub-gamma-scales--14cc4c8da31b/RESULT.md",
+          "material_read": "Finding and bounded-jump scope; uniqueness proof §§1–2, equations (2)–(6)",
+          "method": "local catalogue and mirrored original text",
+          "title": "A sharp Gaussian-noise transition for optimal sub-gamma scales",
+          "trigger": "earlier sharp positive-jump Gaussian phase law"
+        },
+        {
+          "assessment": "related dilution result for unbounded gamma jumps",
+          "evidence": "Uses gamma jump parameters, not the bounded log-concave integrated-tail class.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-shape-dependent-gaussian-dilution-transition-and-singular-optima--0d7d53be9f16",
+          "material_read": "Finding and jump law assumptions",
+          "method": "local catalogue and mirrored original text",
+          "title": "Shape-dependent Gaussian dilution transition and singular optimal tilts",
+          "trigger": "adjacent continuously distributed jump family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a sharp true-variance concentration parameter for noisy marked counts. The kernel condition turns an implicit unbounded optimization into a strictly single-crossing equation across an entire positive-jump class. The bounded continuous uniform law is a useful exact benchmark distinct from fixed-size jumps; its quadratic excess measures when and how much the local third-cumulant scale ceases to suffice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

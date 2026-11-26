@@ -71,7 +71,7 @@ The unique MNW allocation gives goods \(1,5\) to agent \(1\) and goods \(2,3,4\)
 \[
 (u_1,u_2)=(3,6).
 \]
-Leximin instead gives agent \(1\) good \(5\) together with any one of goods \(1,2,3,4\) that has value \(1\) to agent \(1\), subject to agent \(2\) retaining two of its value-\(2\) goods. For the displayed witness there are exactly three such allocations, and all yield
+Leximin instead gives agent \(1\) goods \(1,5\) together with exactly one of goods \(2,3,4\). Agent \(2\) receives the other two goods from \(\{2,3,4\}\). There are exactly three such allocations, and all yield
 \[
 (u_1,u_2)=(4,4).
 \]
@@ -89,7 +89,7 @@ The generalized MNW convention is used so that the definition also covers the on
 The theorem classifies incompatibility of the **full optimizer sets**. It does not impose a tie-breaking rule within MNW or leximin.
 
 ## Proof
-For a profile, let \((a,b,c,d)\) be the numbers of goods of types
+With no goods, the unique empty allocation is optimal for both criteria. For a nonempty profile, let \((a,b,c,d)\) be the numbers of goods of types
 \[
 (1,1),\ (1,2),\ (2,1),\ (2,2).
 \]
@@ -142,7 +142,7 @@ At \(m=5\), the bad count vectors are exactly
 \]
 Swapping the agents interchanges the second and third coordinates. Therefore these eight vectors reduce to the four canonical classes listed in the Finding.
 
-Their multinomial counts, paired with their agent-swapped vectors, give orbit sizes \(10,10,40,40\). Direct allocation enumeration and the count-vector calculation both show that all bad profiles have MNW utility profile \((3,6)\) and leximin utility profile \((4,4)\).
+Their multinomial counts, paired with their agent-swapped vectors, give orbit sizes \(10,10,40,40\). Both calculations find maximum Nash product \(18\) and leximin utility profile \((4,4)\) on every bad profile. Since the sum of the two utilities is at most \(10\) for five goods, the only attainable sorted pair with product \(18\) is \((3,6)\): the other positive integer factor pairs \((1,18)\) and \((2,9)\) exceed the sum bound. Thus the welfare conflict holds for every optimizer of either rule.
 
 ## Verification
 The embedded `verify_mnw_leximin_bivalued_boundary.py` uses only the Python standard library and exact integer arithmetic.

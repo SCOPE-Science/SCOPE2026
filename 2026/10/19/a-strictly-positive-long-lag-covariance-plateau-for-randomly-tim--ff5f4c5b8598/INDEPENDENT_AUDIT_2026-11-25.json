@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:32:21.450277Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The dark-then-light return map is affine with multiplier exp(-(ar+b(1-r))h)<1. Its fixed point strictly lies between zero and c. The positive drop Delta over the dark segment equals the gain over the light segment. Integration of the two ODEs gives m=c(1-r)+Delta(1/a-1/b)/h, with Delta=c(1-exp(-arh))(1-exp(-b(1-r)h))/(1-exp(-(ar+b(1-r))h)). The hyperbolic cotangent form follows algebraically. For k>0 the sign of the derivative of h*coth(kh) is the sign of sinh(kh)cosh(kh)-kh, strictly positive. Thus b>a makes m strictly decreasing, and an absolutely continuous H gives strictly positive variance of m(H). In phase t/h the paths are uniformly bounded and Lipschitz since h<=T, including across joins. The product at a fixed lag has the same uniform control. Finite Fejer approximation, the substitution nu=1/h preserving integrability of the density-weighted Fourier coefficients, and Riemann–Lebesgue give the inner covariance limit E[R_H(s)]-(E[m(H)])^2. The energy of the nonzero conditional autocorrelation harmonics is summable, bounded by c^2 by Parseval. Thus the expected tail is uniformly summable, each expected nonzero harmonic tends to zero by Riemann–Lebesgue, and precisely E[m(H)^2] survives in the uncentered term. This proves the successive limit, not a joint limit or a renewed-period result. Inspected frozen RESULT.md lines 16–64, VERIFICATION.md and verify_photobioreactor.py. The NumPy/SciPy script was not run; finite quadrature and its loose covariance tolerance are illustrative, not evidence for the limits or for strictness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 and Remark 4 use phase dephasing for a one-time expectation; Remark 3 controls Fourier decay",
+          "Theorem 3 treats the instantaneous second centered moment",
+          "Catalogue results returned a correlation in a different periodically reoriented particle model and a spatial correlation in a periodically driven exclusion process"
+        ],
+        "reasoning": "General phase averaging and the law of total covariance give the framework, but total covariance alone gives no decay of the expected conditional phase covariance. The particle/exclusion settings do not share this orbit mean and lag limit.",
+        "searches": [
+          "Springer DOI 10.1007/s11538-026-01609-3, Theorems 1 and 3, Remarks 3, 4 and 6",
+          "Resultary 7535028cfbf4, 0c601a6eed5c",
+          "Focused literature query on quenched random-period covariance"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_photobioreactor.py",
+        "10.1007/s11538-026-01609-3 (Springer PDF)",
+        "Resultary 7535028cfbf4 and 0c601a6eed5c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source one-time variance uses c_0(h), the period average of x^2; the shifted product requires the period autocorrelation R_h(s)",
+          "The frozen derivation dephases nonzero lag harmonics of R_h(s) in a second limit and checks strict monotonicity of the mode that survives"
+        ],
+        "reasoning": "The source provides reusable Fourier ingredients, not an exact covariance or a general covering two-time theorem in the inspected results. Knowing that Var(m(H)) is distinct from Var(X(t)) at late times does not establish that it is the long-lag limit or that it is always strictly positive.",
+        "searches": [
+          "Springer PDF pp. 18–23, zero-mode formula, one-time dephasing, Theorem 3, Remark 6",
+          "Resultary phase-mixture covariance comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Springer PDF p. 18 near offset 55000: a_0(h) is defined by the same orbit integral and given in closed form",
+          "Remark 6 distinguishes Var(a_0(H)) from the long-time one-time variance",
+          "No matching title surfaced in the bounded catalogue checks"
+        ],
+        "reasoning": "Setting a=-A, b=-B, c=-C/B identifies the scalar trajectories and hence a_0=m; the plateau can be described as the atom at zero frequency in the phase-stationarized covariance spectrum. It is not equivalent to the source's limit of Var(X(t)).",
+        "searches": [
+          "Resultary: assigned title, random-period photosynthetic covariance, phase-mixture plateau",
+          "10.1007/s11538-026-01609-3, p. 18 Fourier zero mode and p. 23 Remark 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source supplies exact one-time moment formulas; Remark 6 names the period-mean variance but does not give it as a long-lag observable",
+          "The frozen numeric illustration is a single finite quadrature, not a database match or exact theorem"
+        ],
+        "reasoning": "A scalar orbit's exact lag limit under an arbitrary density is not indexed by a finite table of runs. Comparing the closest exact formulas shows the one-time variance equals the claimed plateau plus the mean within-cycle variance, not the plateau itself. Keyword misses alone were not treated as proof of noncoverage.",
+        "searches": [
+          "Resultary by frozen title and exact plateau phrasing",
+          "10.1007/s11538-026-01609-3, Theorem 3 and Remark 6; literal covariance/autocorrelation search"
+        ]
+      },
+      "rationale": "The supported distinctive claim is the fixed-lag covariance limit and its strictly positive long-lag plateau for this quenched model. The cited primary paper already publishes the period mean in equivalent parameters, gives the harmonic tools, and identifies a distinction between the variance of the zero mode and limiting one-time variance; the simplified mean formula alone is not credited as a new mean. The source's one-time results and the related indexed examples do not identify the two-time residual or prove strict dependence of the period mean on h. The extra analysis is to phase-average a shifted product, remove lag harmonics while keeping the quenched zero mode, and prove that this zero mode has positive variance for every allowed density. No inspected statement provides that full implication.",
+      "residual_risks": [
+        "The targeted search is not a priority guarantee; an uninspected general spectral mixture result or an independently stated kinetic specialization could narrow originality.",
+        "The original text of 7535028cfbf4 was not retrieved; the available summary supports only the limited model/observable comparison recorded here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers closed-form zero mode and one-time asymptotics but not the supported positive long-lag theorem",
+          "evidence": [
+            "On p. 18 a_0 is the conditional cycle mean; on pp. 22–23 c_0 is the mean of x^2, and E[c_0(H)] is distinguished from E[a_0(H)^2]."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11538-026-01609-3",
+          "material_read": "Springer OA PDF p. 18 (offset 54800–58379), Theorem 1 and Remark 4 pp. 19–20, Remark 3 p. 17, Theorem 3 p. 22 and Remark 6 p. 23",
+          "method": "Lawful direct Springer full-text PDF, bounded passage and literal query inspection",
+          "title": "A Random Differential Equation Approach for Modeling the Growth of Microalgae in Photobioreactors",
+          "trigger": "Same quenched scalar model and limiting statistics"
+        },
+        {
+          "assessment": "Different observable and model in available text; no full-text exclusion claimed",
+          "evidence": [
+            "Cross-coordinate squared-position correlations in a reoriented trapped-particle process."
+          ],
+          "identifier_or_url": "7535028cfbf4",
+          "material_read": "Indexed scientific summary only; original record text not retrieved",
+          "method": "Resultary and local-mirror retrieval attempt",
+          "title": "Reentrant cross-coordinate energy correlations under periodic orientation renewal",
+          "trigger": "Related phase-mixture covariance language"
+        },
+        {
+          "assessment": "Related terminology; observable is spatial rather than a quenched temporal lag limit",
+          "evidence": [
+            "Exclusion process with periodic gates."
+          ],
+          "identifier_or_url": "0c601a6eed5c",
+          "material_read": "Indexed scientific summary",
+          "method": "Resultary",
+          "title": "Periodic rate broadening of long-range anticorrelations",
+          "trigger": "Periodic forcing and persistent correlations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem answers whether random continuous timing eliminates persistence in the ensemble. It separates within-cycle fluctuations that dephase from between-period heterogeneity that survives and proves the survivor is strictly positive even for densities supported on small or disconnected sets. This is a specific, analytically interpretable temporal observable for the motivating model, not a restatement of the single-time variance or a numerical fit. It makes no empirical photobioreactor claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

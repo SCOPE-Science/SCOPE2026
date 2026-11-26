@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:55:13.758653Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–36; VERIFICATION.md and both frozen verifiers (inspected, not run)",
+        "Independent replay: /workspace/branches/3377fe26-453a-4e7d-83e6-d6982fc682e3/replay_mcgee.py (argument: full); replay.log in the same directory"
+      ],
+      "rationale": "The finding fixes the LCF graph [12,7,-7]^8, ordinary closed-neighborhood identification, and moves preserving size-optimality. If k vertices identify, 4k is the total signature size and at most k of the 24 nonempty distinct signatures are singletons, so 5k >= 48. An independent direct-signature search checked all 1,961,256 ten-sets and 2,496,144 eleven-sets, giving 0 and 384 codes, respectively. It checked all 54,912 oriented one-for-one replacements. There are 208 jump components and 272 jump edges: 176 singletons, 16 isolated edges and 16 copies of the specified glued-clique graph T. For each T it checked both four-cliques, their common vertex, and the four distinct noncentral attachments, two on each clique. It expressly checked that the two slides in each T are pendant and that no jump K2 supplies a slide. There are 352 slide components and 32 slide edges, giving 320 slide-frozen codes. Diameter 4 follows from two leaves on opposite cliques. The frozen Python lines 125–126 check T and the number of slides per jump component, but not their placement on pendant edges; the new replay checks the missing assertion. This is exact on this graph only, not for larger budgets, other cages or stronger identification predicates.",
+      "residual_risks": [
+        "The frozen reproducibility notes overstate the pendant-slide check in the packaged verification; the independent replay verifies it directly."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Balbuena–Foucaud–Hansberg address size bounds for identifying codes at girth at least five. The Möbius–Kantor record distinguishes its connected jump graph and a 488-state slide component with 96 isolates. The 2008 cage paper was not available in full."
+        ],
+        "reasoning": "Size bounds do not specialize to component descriptions, and the close Möbius–Kantor theorem is for a different fixed graph, not a general exchange theorem.",
+        "searches": [
+          "arXiv:1407.7263, pp. 1 and 3",
+          "Resultary 2026/11/8 de0bfc0e8a82",
+          "DOI 10.1016/j.ejc.2007.02.016"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9c86d0c9b13e, de0bfc0e8a82, 5763a9e3887b, 763cb004ebbc",
+        "arXiv:1407.7263",
+        "DOI 10.1016/j.ejc.2007.02.016 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior source explicitly says a representative together with the full automorphism group specifies every orbit member exactly. On these expanded states, the jump test is a two-bit symmetric difference, and the slide test is an edge lookup for those two bits."
+        ],
+        "reasoning": "The complete exchange graph is mechanically determined by the earlier census and the host graph; its evaluated structural description is not stated there or obtained as a specialization of a previously stated component theorem. No originality credit is given for the state table, and the mechanical derivation is decisive for the independent value assessment.",
+        "searches": [
+          "2026/10/13 record 9c86d0c9b13e, RESULT.md, Proof / Automorphism classification (text offsets 2460–4771)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The former same-day Finding gives jump components for 90 optima on a different graph; the latter gives McGee relocation results for 576 optimal power-dominating triples, not eleven-vertex identifying codes."
+        ],
+        "reasoning": "Changing the host graph or the constraint generating the optimum space changes the transition graph; neither result is equivalent. Same-day dates imply no order.",
+        "searches": [
+          "Resultary: McGee identifying-code exchange / token jump and slide / detector relocation",
+          "2026/11/22 Resultary records 5763a9e3887b and 763cb004ebbc"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior table gives decimal masks of all thirteen orbit representatives under the 32 automorphisms of the identical labelled graph, yielding 2*16+11*32=384 exact states. Its columns give orbit size, selected vertices in one vertex orbit and induced edges, not exchange adjacencies or components."
+        ],
+        "reasoning": "This is an exact antecedent for the full optimizer family, not just a matching scalar census; it does not give an exchange table or component statement.",
+        "searches": [
+          "Resultary exact McGee optimizer census: 2026/10/13 record 9c86d0c9b13e, Finding and Proof / Automorphism classification"
+        ]
+      },
+      "rationale": "The optimum cardinality, 384 masks and their 13 orbits are covered and not credited as new. No inspected source states the two exchange decompositions, the exact motif T, or the slide placements for this optimum space. This judgment is limited to the newly tabulated structural description, not to new input data, an independent theoretical result about identifying codes, or historical priority. The ease of obtaining that description mechanically from the previous data is assessed separately under value.",
+      "residual_risks": [
+        "Laihonen's cage paper was not inspected in full.",
+        "An unindexed exact reconfiguration table may overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full coverage of states; exchange structure not expressly reported but mechanically recoverable",
+          "evidence": [
+            "The representative together with the full graph automorphism group specifies every member of its orbit exactly."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-all-384-minimum-identifying-codes-of-the-mcgee-cage--9c86d0c9b13e/RESULT.md",
+          "material_read": "Finding, exhaustive test and Automorphism classification including all 13 table rows (offsets 2460–4771), Relationship and Limitations",
+          "method": "Local-mirror primary record; compared state table and its computable consequences to the two move graphs",
+          "title": "All 384 minimum identifying codes of the McGee cage",
+          "trigger": "Identical graph, optimum and full prior optimizer census"
+        },
+        {
+          "assessment": "Motivates the question, does not cover McGee",
+          "evidence": [
+            "584 optimum states; connected under jumps, but a 488-state component plus 96 isolates under slides."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8, de0bfc0e8a82",
+          "material_read": "Finding",
+          "method": "Local-mirror statement comparison",
+          "title": "Frozen and mobile minimum identifying codes of the Möbius–Kantor graph",
+          "trigger": "Identical optimization predicate and move rules on a different host"
+        },
+        {
+          "assessment": "Different host and jump-only result",
+          "evidence": [
+            "Exchange components on 90 optima, not on the 384 McGee codes."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, 5763a9e3887b",
+          "material_read": "Finding",
+          "method": "Local-mirror statement comparison",
+          "title": "Twenty-seven minimum-code exchange components in the complementary graph",
+          "trigger": "Same-day exact exchange classification"
+        },
+        {
+          "assessment": "Different state class",
+          "evidence": [
+            "576 power-dominating triples versus eleven-vertex identifying codes."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, 763cb004ebbc",
+          "material_read": "Finding",
+          "method": "Local-mirror statement comparison",
+          "title": "Eight exceptional relocation detours for optimum power domination",
+          "trigger": "Same host and relocation framing"
+        },
+        {
+          "assessment": "Code-size bounds, not optimum-preserving exchange components",
+          "evidence": [
+            "The paper frames the question studied as tight upper bounds on code size."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1407.7263",
+          "material_read": "Abstract and size-bound question, pp. 1 and 3",
+          "method": "OA primary PDF and scope comparison",
+          "title": "Locating-dominating sets and identifying codes in graphs of girth at least 5",
+          "trigger": "Applicable identifying-code bounds for a cubic graph of girth seven"
+        },
+        {
+          "assessment": "Unresolved full text; no adverse inference from access alone",
+          "evidence": [
+            "The publisher path did not supply the paper."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.ejc.2007.02.016",
+          "material_read": "Bibliographic record; no full text obtained",
+          "method": "Bounded lawful OA lookup at the publisher, without a successful full-text route",
+          "title": "On cages admitting identifying codes",
+          "trigger": "Same cage literature and identifying-code notion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof lines 26–36 and Relationship lines 54–56",
+        "Resultary 9c86d0c9b13e, complete orbit-representative table and completeness statement"
+      ],
+      "rationale": "Optimum-preserving detector relocation is a natural question on this canonical cage, and the exact fragmentation could be useful as a benchmark. But the significant prior input is not merely the host graph or the number 384: it specifies every labelled optimum by a short orbit table. Expanding those orbits and doing at most 73,536 pairwise symmetric-difference tests, one base-graph edge lookup per jump, and ordinary component/degree traversal mechanically gives the whole reported invariant, including the glued-clique shape and pendant slides. No further mathematical property explaining or separating these exchanges is established beyond inspecting that fixed computed graph. The record independently reproduces a correct, previously unstated table-derived fact, but does not meet the nonmechanical requirement for a contribution this narrow. Better motivation or a corrected checker assertion would not change this limitation.",
+      "residual_risks": [
+        "This judgment does not deny utility as benchmark data or imply the reported components were previously printed."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

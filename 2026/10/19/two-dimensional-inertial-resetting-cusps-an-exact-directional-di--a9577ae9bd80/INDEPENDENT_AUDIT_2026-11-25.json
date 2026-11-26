@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:13:10.576594Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Regeneration with the whole state refreshed gives a unique stationary mixture over Exp(R) excursion ages. Integrating the linear velocity equation yields an independent translational Gaussian with per-coordinate variance v(t)=ct^3(1+O(t)), c=2/(3M^2); Maxwell initial velocity adds w^2 K(t)^2 and gives variance w^2t^2(1+O(t)). The bounded active displacement is O(t^2) and has mean Pe t^2 e_1/(2M)+O(t^(5/2)), using E|U_u-e_1|=O(sqrt(u)). An independent error check uses the Gaussian Taylor expansion in displacement: for |h|=O(t^2), |se-h|^2 >= s^2/2-|h|^2 and |h|^2/v(t)=O(t), so shifted derivatives retain a Gaussian cutoff. For zero reset velocity the Hessian term is at most O(t^(-2) exp(-c' s^2/t^3)); so are the leading-variance and age-weight errors, after absorbing Gaussian polynomial factors. The mean-error term is O(s t^(-7/2) exp(-c' s^2/t^3)); replacing the variance and age weight in the linear drift costs O(s t^(-3) exp(-c' s^2/t^3)). The integrated total is O(s^(-2/3)). Integrating the unshifted t^(-3) kernel gives A, and the linear t^(-4) kernel times s gives R Pe M/(4 pi) times (e dot e_1)/s. For Maxwell reset velocity, the corresponding variance and weight errors integrate a t^(-1) cutoff, hence give O(1+|log s|), and the displacement terms give O(1); the leading t^(-2) kernel gives C. Ages bounded away from zero contribute O(1). Exact convex mixing keeps the bounds uniform in p and e, including Pe=0 and both pure protocols. Substituting s=kappa p^3 gives the claimed density limit. Polar integration cancels the dipole in disk mass and gives the angular numerator pi B epsilon e_1, with denominator 3 pi A epsilon^(2/3) to leading order. Each positive age has a density, so there is no atom. In the proof f_0 denotes the zero-velocity component, not the p=0 mixture endpoint. I inspected the frozen numerical checker and its stated record; it is passive/linear-response corroboration, not a proof for arbitrary Pe, and was not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible catalogue result 0454559af4e3 treats a one-dimensional passive Gaussian velocity restoration model and attributes the endpoint power/log singularities to Franke–Sokolov.",
+          "Shankari–Sahoo use a one-dimensional active Ornstein–Uhlenbeck propulsion and reset the entire state to its initial value."
+        ],
+        "reasoning": "A passive arbitrary-dimensional Gaussian age-mixture theorem could subsume the passive planar powers; there was no access to establish or rule out that scope in Franke–Sokolov. Passive symmetry cannot supply the active heading-dependent dipole. A variance-controlled pure protocol crossover is also distinct from varying the mixture weight of two fixed protocols.",
+        "searches": [
+          "DOI:10.1103/qyl8-6q9h and lawful alternate DOI/repository routes",
+          "Resultary: underdamped Gaussian velocity restoration and singularity crossover",
+          "arXiv:2509.18515v1, model and reset rule"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.21134v2",
+        "DOI:10.1103/qyl8-6q9h (access attempted)",
+        "arXiv:2008.03294",
+        "arXiv:2509.18515v1",
+        "Resultary findings 0454559af4e3, b66873f81208 and 69f3d2880be3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The p=1 model is prior and the age-mixture method and passive singularity mechanism are shared. The one-dimensional result has a cubic spatial scale controlled by the velocity scale, not the probability of a zero-velocity draw."
+        ],
+        "reasoning": "The planar passive exponents can be predicted from variance scaling; the mixture crossover follows by balancing verified endpoint density powers. The consequential additional work is the finite-activity first angular coefficient, the uniform errors that separate it from the leading cusp and justify integration through the reset point, and application to the stated mixture rather than a change of variance in a single Gaussian.",
+        "searches": [
+          "arXiv:2602.21134v2, Fig. 1 and §II",
+          "DOI:10.1103/qyl8-6q9h",
+          "Resultary 0454559af4e3, finding and prior-work passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Patel–Shee use the same inter-reset SDE and the same complete reset state as the p=1 branch; their inspected results describe moments, MSD and kurtosis.",
+          "Kumar–Sadekar–Basu give coordinate marginal singularities in an overdamped planar active model."
+        ],
+        "reasoning": "The planar density at a specified direction and its first odd term are not obtained from finitely many spatial moments or from one-coordinate marginals. The Jacobian also makes planar density and radial probability density different observables.",
+        "searches": [
+          "arXiv:2602.21134v2, §II and Fig. 1",
+          "arXiv:2008.03294, planar active Brownian resetting",
+          "Resultary: planar inertial active local cusp and angular density"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest exact crossover entry 0454559af4e3 gives a one-dimensional passive small-velocity-scale power-to-log crossover. The adjacent angular catalogue findings b66873f81208 and 69f3d2880be3 concern high-reset far tails.",
+          "The same-model primary results inspected report integrated moments rather than the local coefficients."
+        ],
+        "reasoning": "A directional far-tail asymptotic is in the opposite spatial regime, and an exact one-dimensional variance-controlled crossover is not a table or formula for planar coefficients A, B, C or for the mixture scaling in p.",
+        "searches": [
+          "Resultary: planar inertial resetting density coefficients, angular correction, cubic crossover",
+          "arXiv:2602.21134v2, abstract and local model setup"
+        ]
+      },
+      "rationale": "The supported distinction is the joint planar local-density expansion with the explicit active dipole at finite propulsion, uniform estimates for the two restoration protocols, and their rare-zero-velocity mixture consequences. The inertial active model, its complete zero-velocity resetting protocol, the renewal method, and related passive or marginal singularities are prior. The passive planar powers themselves have a direct dimension-scaling explanation and are not the sole basis of this judgment.",
+      "residual_risks": [
+        "The inaccessible Franke–Sokolov primary could include a dimensional generalization of the passive kernel. Other Gaussian-mixture theorems could also imply some passive exponents. The available material does not establish full prior coverage of the active dipole or the specified mixture."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Models the p=1 branch; the inspected statements give moment results",
+          "evidence": "Fig. 1 specifies r_0=v_0=0 and heading (1,0); the abstract identifies MSD and kurtosis.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.21134v2",
+          "material_read": "PDF pp. 1–3, abstract, Fig. 1 and §II; offsets 1777–6132 and 12344–20190",
+          "method": "OA primary PDF passages",
+          "title": "Controlling inertial active Brownian motion via stochastic resetting",
+          "trigger": "Same SDE and complete reset state"
+        },
+        {
+          "assessment": "Passive antecedent; dimensional coverage unresolved",
+          "evidence": "The accessible secondary statement attributes the known one-dimensional endpoint powers/logarithms to this source; that attribution is not a full-text comparison.",
+          "identifier_or_url": "https://doi.org/10.1103/qyl8-6q9h",
+          "material_read": "No primary full text obtained; related attribution in catalogue record 0454559af4e3 inspected separately",
+          "method": "Publisher and alternate PDF/HTML routes returned 403; DOI recovery did not locate a repository copy",
+          "title": "Resetting of underdamped Brownian motion",
+          "trigger": "May cover passive endpoint exponents more generally"
+        },
+        {
+          "assessment": "Overdamped dynamics and different observables",
+          "evidence": "Position–orientation resetting gives a high-reset |y|^(-1/3) marginal; position-only resetting gives an x-marginal logarithm.",
+          "identifier_or_url": "https://arxiv.org/abs/2008.03294",
+          "material_read": "PDF pp. 2, 4, 11, model, results summary, Eq. (38)",
+          "method": "OA primary PDF passages",
+          "title": "Active Brownian motion in two dimensions under stochastic resetting",
+          "trigger": "Planar active resetting with singularities at the origin"
+        },
+        {
+          "assessment": "Different dimension and propulsion",
+          "evidence": "One-dimensional inertial active-OU particle with full (x,v,f_a) reset and position renewal distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.18515v1",
+          "material_read": "PDF pp. 1–3, abstract and model including Eq. (6)",
+          "method": "OA primary PDF passages",
+          "title": "Active Ornstein–Uhlenbeck particle under stochastic resetting",
+          "trigger": "Related inertial active resetting density"
+        },
+        {
+          "assessment": "Material passive analogue, not the planar active or protocol-mixture claim",
+          "evidence": "One-dimensional power |x|^(-1/3) versus logarithm, with Gaussian resampling scale controlling the cubic crossover.",
+          "identifier_or_url": "2026/11/1/SCOPE-universal-crossover-between-power-law-and-logarithmic-spatial-si--0454559af4e3",
+          "material_read": "Finding offsets 0–5915 and prior work offsets 5800–9220",
+          "method": "Local catalogue mirror",
+          "title": "Universal crossover between power-law and logarithmic spatial singularities",
+          "trigger": "Closest Gaussian-age crossover and prior-work attribution"
+        },
+        {
+          "assessment": "High-reset far tail",
+          "evidence": "The angular density result is a directional far-field limit under a noise/reset crossover.",
+          "identifier_or_url": "2026/11/2/SCOPE-critical-thermal-noise-crossover-and-angular-tails-in-inertial-a--b66873f81208",
+          "material_read": "Finding and assumptions, offsets 0–2814",
+          "method": "Local catalogue mirror",
+          "title": "Critical thermal noise crossover and angular tails in inertial active resetting",
+          "trigger": "Planar inertial resetting and directional density"
+        },
+        {
+          "assessment": "Different joint limit",
+          "evidence": "Angular corrections occur in a joint high-reset and rare-event far-tail regime, not near the origin at fixed reset rate.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-singular-orientation-threshold-in-high-reset-inertial-active-p--69f3d2880be3",
+          "material_read": "Finding, offsets 0–2976",
+          "method": "Local catalogue mirror",
+          "title": "A singular orientation threshold in high-reset inertial active particles",
+          "trigger": "Angular asymptotics for inertial active resetting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The planar local mass and first orientation bias are natural observables inaccessible from the existing moment diagrams. The exact dipole shows how a reset heading survives below a leading isotropic singularity, and the uniform expansion separates effects of two experimentally distinct velocity-restoration rules. The cubic balance is informative because it gives both pointwise density and disk mass in the joint limit, although the balance itself is elementary once the endpoint expansions are known.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

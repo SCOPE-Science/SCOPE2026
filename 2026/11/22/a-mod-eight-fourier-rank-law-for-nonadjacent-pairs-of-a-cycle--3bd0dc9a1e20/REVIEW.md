@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The support is exactly the unordered nonedge pairs of a simple cycle. Subtracting signed adjacent pairs from the complete two-subset Walsh sum gives \(W_n(S)=((n-2|S|)^2-3n+4t(S))/2\) with every normalization explicit. A modulo-eight square test proves the necessary residues, and explicit feasible positive run counts prove sufficiency. Cyclic two-color run compositions give an exact zero-frequency multiplicity. Integer Walsh transforms of the literal support for \(4\le n\le15\) verify all 65,520 coefficients; the proof, not the experiments, handles arbitrary \(n\).
+## correctness
 
-**Originality — PASS under bounded comparison.** Brown and Hoshino (2008 first online, Theorem 3.3) give a cycle independence polynomial, including the support cardinality, but no sign-labelled Walsh spectrum or convolution rank. Alon–Dinur–Friedgut–Sudakov (2004) study Fourier methods for independent sets of weak graph products, not this degree-two cycle support; O'Donnell's 2014 Fourier framework supplies diagonalization but not this arithmetic cancellation criterion. Targeted semantic and literature comparisons did not locate an equivalent all-length mod-eight classification. An unindexed multivariate hard-core weight specialization or signed Seidel-graph identity remains a priority risk; absence from a search is not proof of novelty.
+PASS
 
-**Value — PASS.** Cardinality two is the first sector where the cycle's adjacency exclusion changes the Hamming-shell support. The result completely determines which periodic ring sizes lose Fourier information and counts every lost mode exactly, with a nontrivial three-residue modular law. It is an infinite natural-family rank classification, not merely a recomputation of ordinary independence counts or a finite experiment.
+An eigenvalue is the sum of s_i s_j over unordered nonedges. The sum over all distinct pairs is ((n-2k)^2-n)/2 and the n cycle edges contribute n-2t, yielding the stated multiplier with no scaling. The two constant masks give n(n-3)/2>0 for the stated n>=4. In all other masks t=2j, and any integer 1<=j<=min(k,n-k) is realizable by two alternating positive compositions. Odd n has odd square 1 mod 8, forcing n=3 mod 8; even n forces n=0 mod 4. Conversely, absolute signed sums 0, 2 and 1 at orders 0, 4 and 3 mod 8 yield the displayed valid j; the smallest cases are n=8,4,11 respectively, and the run-count inequalities persist as n increases by 8. For multiplicities, mark a negative run's first vertex: there are n choices for its label and independent positive compositions of k and n-k into j terms. Unmarking divides by j even for words with a smaller period, because labels distinguish all j marked starts. Walsh characters span the full complex function space, so these counts give exactly the nullity and rank.
 
-**Limitations.** Other cardinalities and general circulants are not treated. Exact nonzero singular-value multiplicities and historical priority beyond the inspected sources remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Walsh diagonalization, cyclic run counting and the one-step autocorrelation identity are prior techniques, not new here. The supported contribution is the exact all-length zero-mode classification and weighted nullity for the size-two cycle sector. Examined results do not state or mechanically specialize to the full arithmetic classification; the nonempty residue classes require their own feasible witnesses.
+
+## value
+
+PASS
+
+Two is the first cardinality at which cycle adjacency excludes any incidence patterns. The exact rank of its natural convolution gives a nontrivial all-order recovery boundary and quantifies lost modes even among singular lengths. This is more informative than the unsigned support count and more specific than generic Walsh diagonalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

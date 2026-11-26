@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The defining quotient relations are necessary and sufficient for a biderivation; the two-generator Jacobiator vanishes. The proof gives a complete monomial kernel basis for the minimum, an exact four-term dimension formula, the sharp maximum for nonzero brackets, and the unit-valued characteristic threshold. Direct finite-field enumeration and independent linear-algebra centre computation cover seven complete small cases and three larger reproducible samples, including the nonprime field \(\mathbb F_4\). Those checks corroborate the proof rather than certify arbitrary fields.
+## correctness
 
-## Originality
-PASS with a publication-priority caveat. Launois–Richard, arXiv:0805.4694v1, Proposition 2.1, already give the centre for the fixed bracket \(\{x,y\}=xy\) over \(\mathbb C\). Bao–Ye–Zhang, arXiv:1607.05958v1, Example 7.4, already study constant symplectic brackets for \(p\)-truncated polynomial algebras. Neither inspected source establishes the all-bracket affine classification plus generic congruence-sensitive centre formula and extremal finite-field census; those known individual special cases are excluded from novelty claims. Negative literature searching does not prove priority. Earlier research-history access was incomplete.
+PASS
 
-## Value
-PASS. Degree-zero Poisson cohomology is a standard invariant motivating the source literature. The theorem resolves its **minimum and maximum** over every bracket on the full family of truncated polynomial planes and gives a dense open locus with an exact finite-field population. The characteristic-dependent jumps in centre dimension, including the mixed-asymmetric cases, are structural and mathematically motivated.
+The two defining powers force m x^(m-1) f = n y^(n-1) f = 0, and these conditions suffice for the weighted determinant bracket on polynomial representatives to descend. An alternating biderivation has an alternating Jacobiator which is a derivation in each argument: expansion by Leibniz cancels the cross terms in pairs, also in characteristic two. Its generator triples therefore vanish, proving Jacobi on the quotient. For f=f0 g with f0=x^a y^b, the centre kernel contains the f0 kernel and agrees with it whenever g is a unit. This gives the claimed minimum over every field and the stated coordinate open and finite-field population, without identifying that open with the full minimum stratum. For each derivative separately the nonzero shifted monomial images have distinct exponents. Intersecting the two kernel masks and grouping by whether the exponents are divisible by p gives the four terms in the dimension formula (in characteristic zero use exponent zero). The values on x and y of the two-coordinate centrality map are independent for nonzero f; for the socle weight exactly those two monomials survive. A unit weight is possible precisely when both defining powers have zero formal derivative, and then the common derivative kernel is k[x^p,y^p].
 
-## Limits
-The conclusion is for labelled Poisson brackets, not isomorphism classes, higher Poisson cohomology, full nongeneric strata, or deformation-scheme structure. No external audit has been performed. Some broader implicit publication coverage is possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The checked sources supply fixed weights and small overlapping cases, but do not cover the congruence-sensitive minimum and its monomial basis for the full labelled family across arbitrary m,n and characteristic. Credit the special cases rather than attributing priority to their reappearance here.
+
+## value
+
+PASS
+
+The centre is degree-zero Poisson cohomology. Knowing its explicit generic basis and sharp extrema across a natural family of singular algebras identifies exactly how modular derivative zeros and truncation interact, including asymmetric cases not present in the standard complex and symplectic examples. The count refers to a concrete open set rather than claiming a full stratification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

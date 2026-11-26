@@ -1,23 +1,21 @@
-# Review: Correct level-set constant for a homogeneous finite-time control bound
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The HJB equation and the optimal feedback give \(\dot V_\infty\leq-F\). Properness and positive definiteness make \(K=\{V_\infty=1\}\) compact, so \(m=\min_KF>0\). Weighted homogeneity then yields \(F(x)\geq mV_\infty(x)^{d/(d+\mu)}\), and integrating the resulting scalar differential inequality gives the stated bound. An admissible anisotropic example proves that \(\min_KF\) and \(\max_KF\) need not coincide.
+PASS
 
-## Originality — PASS, with scope limitation
+Reconstructed the comparison. For nonzero x, dilate x by V(x)^(-1/(d+mu)) to the compact nonempty level set K (properness and homogeneity); on K the positive continuous F has minimum m>0. Rescaling gives F(x)>=m V(x)^(d/(d+mu)), with equality on the rays through the minimizers. The optimal HJB feedback gives dV/dt=-F-|u|^q/q. Integrate the inequality for V^(mu/(d+mu)) while V is positive; once V is zero, nonnegativity and monotonicity keep it zero. This includes x=0. For the example the weights (7/5,6/5) give degree 2 and satisfy the strict parameter constraint; the powers exceed 1. Constancy on K would imply V=C F^(11/10), whose last derivative vanishes at (s,0), s!=0. The drift there is also zero, contradicting HJB. Therefore max_K F is an upper, not lower, coefficient for F, in a genuinely admissible example. This does not refute a bound that could exploit the control-cost term. Bibliographic erratum: in the actual v1 PDF the target is Theorem 6.4, equation (6.1), followed by Remark 6.5; the frozen text misnumbers it but identifies the correct displayed argument. Replay: RESULT.md proof and example, lines 25–57; compare the cited PDF at pp. 13–14. VERIFICATION.md has narrative evidence only; no uploaded computation or formal certificate is required.
 
-The contribution is a source-specific correction to the coefficient used in Theorem 6.5 of the 2026 preprint, not a claim to a new general finite-time comparison theorem. The generic comparison principle is established in prior work; the inspected source's use of the maximum does not furnish the lower bound its displayed argument requires. Targeted searches found no exact equivalent correction, but search absence does not prove global uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-A settling-time upper bound is a quantitative control guarantee. Correctly identifying the level-set extremum prevents the proof from using an upper bound where a lower comparison coefficient is required. The minimum-based replacement is explicit, valid under the stated assumptions, and backed by an admissible example showing the distinction is substantive.
+The general scalar comparison and homogeneous commensurability are known and are not the contribution. The distinct claim is the correction of the explicitly printed extremum in this particular theorem's F-only step, with an admissible control example separating the extrema. The inspected source uses max, not min; no distinct equivalent correction or example was identified in the bounded checks.
 
-## Closest literature and limitations
+## value
 
-- Weng, Chitour, and Mason, arXiv:2607.22191v1, Theorem 5.1, Lemma 6.1, and Theorem 6.5.
-- Bhat and Bernstein, DOI 10.1137/S0363012997321358: foundational finite-time Lyapunov comparison; full PDF was not accessible in this review.
-- Kisole, Garg, and Peet, arXiv:2501.11255: explicit general settling-time bound from \(\dot V\leq-aV^\gamma\).
+PASS
 
-No trajectory-level counterexample to the source's printed maximum-based numerical bound is claimed; the result establishes the valid minimum-based bound and the failure of the maximum substitution in the displayed proof.
+This fixes a directional error in a quantitative finite-time guarantee for a standard chain of integrators. The example shows it is not a harmless choice of extreme values within the theorem's admissible cost class; using the correct extremum provides an applicable bound without asserting a trajectory-level counterexample.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

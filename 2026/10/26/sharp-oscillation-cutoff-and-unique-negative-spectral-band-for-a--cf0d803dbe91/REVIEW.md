@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The \(L^2\)-Godement theorem applies since the invariant kernel is continuous, square integrable (its squared radial envelope integrates to \(4\pi/3\)), and its explicitly computed spherical transform is integrable against hyperbolic Plancherel measure. Integration by parts using \(-\operatorname{sech}'r=\sinh r\operatorname{sech}^2r\) yields the transform with the stated normalization. A hyperbolic addition identity reduces its sign to the strictly increasing function \(\lambda\coth(\pi\lambda/2)\); this proves the unique cutoff and single negative band, including endpoints. Direct numerical quadrature and exact symbolic simplification support but are not substitutes for the proof.
+## correctness
 
-**Originality — PASS under bounded review.** The inspected 2009 line-kernel result covers only Euclidean translates; the 2014 geodesic-kernel source covers exponential families; the 2023 symmetric-space paper proves positivity for *unmodulated* hyperbolic secant powers and furnishes the underlying transform/criterion, but does not assert the sharp oscillatory frequency interval. Six published-research queries and comparisons with the closest recorded mathematical claims did not identify an equivalent or stronger statement. The closest mathematically related result treats \(e^{-ar}\cos(\omega r)\), whose decay family is not this kernel. Unindexed or differently parameterized literature remains a priority risk; absence of a search hit alone is not a novelty proof.
+PASS
 
-**Mathematical value — PASS.** The squared hyperbolic-secant profile is a classical soliton kernel and a natural positive-definite hyperbolic envelope. Its sharp stability radius under geodesic oscillation, together with the unique low-frequency negative band that destroys positive definiteness, is a complete, structural covariance-admissibility classification. This is not an arbitrary parameter slice or a bare computation of the already known unmodulated transform.
+For the corrected claim, the radial L2 norm squared is at most 4 pi/3 by s=tanh r. The half-line cosine transform of sech is (pi/2) sech(pi s/2), obtained independently from the beta integral after v=e^(2r). Integration by parts against the derivative of sech and product-to-sum give the stated transform and exponential decay. Writing F(s)=s sech(c s) for c=pi/2, the transform is pi^2 times [F(omega+lambda)-F(omega-lambda)]/lambda. It is even and the continuous zero value is 2 pi^2 F'(omega), whose sign is that of 1-c omega tanh(c omega). For lambda>0, combining the translated cosh denominators leaves the sign of lambda coth(c lambda)-omega tanh(c omega). The first function increases strictly from 1/c to infinity because sinh(x) cosh(x)>x for x>0; the second increases from zero to infinity. This gives the inclusive cutoff, unique positive zero beyond it, and full repaired sign including lambda=0. The continuous L2 radial profile and integrable transform meet the L2-Godement hypotheses; the supercritical interval has positive Plancherel measure. An independently written decimal bisection using the exponential form of tanh and Machin's pi formula corroborated omega*=0.76373914287512802042949…; this calculation was not needed to certify the analytic sign.
 
-**Scope and limits.** The proof is exact on curvature-\(-1\) real hyperbolic three-space for this fixed envelope. No classification is asserted for other dimensions or powers. This review does not constitute independent audit or external certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the nonzero-modulation cutoff and complete sign for the squared-sech envelope on curvature -1 H^3, not the transform framework, Fourier sech identity, unmodulated kernel, or general idea of a geodesic modulation cutoff. The closest indexed cutoff uses a different envelope and does not imply this one.
+
+## value
+
+PASS
+
+This is an exact admissibility boundary for a natural modulated version of an established radial H^3 kernel. It decides whether a distance profile works on every configuration and, on failure, specifies the entire forbidden spectral band, including its single positive boundary. A Euclidean computation or the unmodulated theorem cannot substitute; strict monotonicity after combining two shifted terms yields both directions and the inclusive threshold. The corrected zero-frequency sign completes the classification without enlarging the scientific claim beyond this profile.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

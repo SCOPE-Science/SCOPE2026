@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:16:01.604856Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On a simple cycle each zero has one zero neighbor by restraint and must have a 3 as its other neighbor. Hence all zeros occur in pairs, and each intervening positive run begins and ends at 3. Relative to length including the preceding zero pair, a singleton run 3 has excess 0, and any longer run costs at least 2 extra. Equality in the latter bound forces all interior labels to be 1; precisely 33, 313 and 3113 qualify. At optimum the total excess is zero for 3|n and two otherwise; reducing the length of the unique longer run modulo three selects 33 or 313. With no zeros, the set of 2/3 vertices dominates and adds at least ceil(n/3) above n. Only n=4,5 can tie in the nonzero residues: one 3 cannot dominate, whereas two 2's work at any pair on C4 (six choices) and exactly at the five nonadjacent pairs on C5. The periodic word has period three; the single 33 or 1 marker makes the defect words full period. Reversal gives a rotation, and the no-zero extra orbits are identified by pair distance. Replacing coefficients 3j by 3 for j>=2 in the baseline sum of n t^n gives the stated subtraction; the two small exceptions give +6t^4+5t^5. Independent exhaustive comparison of entire winner sets at n=3..8 passed using /workspace/review_checks.py (cycles); this corroborates but is not the all-orders proof. The supplied checker was inspected, not executed; its transfer recurrence counts labeled cyclic words through a fixed index, not orbits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The path bound in Theorem 4 is an endpoint-case induction for the value; Theorem 5 invokes it after cutting a cycle edge. The half-graph classification gives multiplicities 5,9,1,1,... in its own family."
+        ],
+        "reasoning": "Neither the path value bound nor a classification for a different graph family supplies the cycle equality and symmetry classification.",
+        "searches": [
+          "arXiv:2106.08501, Theorems 4 and 5",
+          "Resultary eaeb1fc41489, minimum restrained double Roman functions of half graphs"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2106.08501, Theorems 4–5",
+        "Resultary 5a85e47b19a4, ca1e0cc36d93 and eaeb1fc41489"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 5 gives n or n+2 as appropriate and produces the canonical cyclic witnesses. Its lower bound via the path theorem does not force uniqueness of the exhibited witnesses, classify no-zero ties, or count rotations and reflections."
+        ],
+        "reasoning": "The added zero-pair excess argument with a separate no-zero domination check supplies the all-optima information that the scalar theorem does not determine.",
+        "searches": [
+          "Mojdeh–Masoumi–Volkmann, arXiv:2106.08501, Theorem 5 and its use of Theorem 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 5a85e47b19a4 counts minimum global Roman functions on cycles: labels 0,1,2 and simultaneous domination in graph and complement, not restrained double Roman defense. Resultary ca1e0cc36d93 weighs pointwise-minimal Roman functions rather than enumerating fixed-weight optima of this different variant."
+        ],
+        "reasoning": "Neither comparable wording nor a cyclic-word reformulation identifies the admissible instances and optimizer notion.",
+        "searches": [
+          "Resultary: minimum-weight restrained double Roman functions on labeled cycles; cyclic-word ground-state multiplicity and dihedral orbits"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact cycle counts retrieved were global Roman (5a85e47b19a4) and pointwise-minimal Roman (ca1e0cc36d93); the restrained double Roman match was on half graphs (eaeb1fc41489)."
+        ],
+        "reasoning": "An equal numerical term would not be coverage across these graph-labeling variants. No applicable exact table was identified in the bounded lookup.",
+        "searches": [
+          "Resultary: exact optimal-labeling census for restrained double Roman cycles; orbit and generating function searches"
+        ]
+      },
+      "rationale": "Passes for the exhaustive minimizer classification and labeled and dihedral censuses, not the scalar optimum or canonical witnesses. The strongest same-problem primary source proves the optimum by reduction to a path, without classifying equality cases. Closest indexed census results concern different constraints or graph families.",
+      "residual_risks": [
+        "Published Numdam version was not accessible in the attempted retrieval; the relevant scalar theorem and proof were read in the OA preprint.",
+        "Ranked searches are not exhaustive, and an unindexed cycle equality-case census remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers scalar optimum and witnesses, not the full census",
+          "evidence": "Theorems 4 and 5 use scalar path bounds for the lower estimate; no all-cycle equality-case or orbit enumeration is given.",
+          "identifier_or_url": "https://arxiv.org/pdf/2106.08501",
+          "material_read": "p. 5, Theorems 4 and 5 with proofs, extracted around offsets 13700 and 15734",
+          "method": "Lawful OA preprint passage inspection; published Numdam retrieval unavailable",
+          "title": "Restrained double Roman domination of a graph",
+          "trigger": "Same invariant on the same cycles"
+        },
+        {
+          "assessment": "Different domination variant",
+          "evidence": "Requires graph and complement defense by Roman labels 0,1,2.",
+          "identifier_or_url": "Resultary 2026/11/8 5a85e47b19a4",
+          "material_read": "Original finding and assumptions",
+          "method": "Resultary local mirror",
+          "title": "Exact minimum global Roman functions on cycles and their dihedral orbits",
+          "trigger": "Same cycle and orbit questions"
+        },
+        {
+          "assessment": "Different admissibility and optimization condition",
+          "evidence": "Enumerates pointwise-minimal ordinary Roman functions by weight.",
+          "identifier_or_url": "Resultary 2026/11/8 ca1e0cc36d93",
+          "material_read": "Original finding and assumptions",
+          "method": "Resultary local mirror",
+          "title": "Exact weight census of pointwise-minimal Roman domination on cycles",
+          "trigger": "Same graph, exact word count"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "Half-graph optimum multiplicities do not classify cycles.",
+          "identifier_or_url": "Resultary 2026/10/12 eaeb1fc41489",
+          "material_read": "Original finding and assumptions",
+          "method": "Resultary local mirror",
+          "title": "Minimum restrained double Roman functions of half graphs",
+          "trigger": "Same invariant and minimizer census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full optimum set for a standard graph family is useful information beyond the invariant's value. The excess lemma explains uniform dihedral rigidity and exactly where it breaks at orders four and five; neither a table of minimum weights nor one construction reveals either phenomenon.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:23:49.145689Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 15–105",
+        "VERIFICATION.md lines 19–23; verify.py lines 5–74 (read only)",
+        "Independent finite check: recursively pair the least remaining endpoint with every other available endpoint; accumulate X, T, X², T² and XT and reduce the resulting integer moment fractions"
+      ],
+      "rationale": "In the uniform matching, edge probabilities and conditioning on a specified chord give the stated exact moments; an independent bit-mask enumeration of all 3, 15, 105, 945, 10395 and 135135 matchings at n=2 through 7 matched all five moments as reduced rational numbers (at n=7 they are 7, 252/13, 28/3, 50568/1859 and 2058/143 in the order EX, ET, Var X, Var T, Cov). For the unbounded argument, ranking iid paired endpoints is uniform and preserves the endpoint order within each pair. The cusp error is O_p(n^(4/3)) by DKW and the bounded chord-length density. In the linear rank correction, conditioning on the first chord gives zero by uniformity; in the reverse direction the one-endpoint contribution J has J(0)=0 and J'(x)=2[f(1-x)-f(x)]=0 a.e., and the centering term vanishes by antisymmetry. Disjoint summands and summands sharing only one index therefore give zero covariance in the off-diagonal sum, so its variance is O(n^2). The projection vector for t uniform on [0,1/2] is (2t(1-t)-1/3, 2t-1/2). Its covariance gives the claimed Gaussian law, determinant 1/8640, limiting slope 1/2 and squared correlation 15/16. Finite enumeration is a check of moments only, not of convergence.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Acan treats conditional crossing degree for the same length; Paguyo supplies univariate normal approximation. The exact joint statement itself appears in 25d00b41e332, whose approximation has nonnegative aggregate error of expectation n(n-1)/(2(2n-1))."
+        ],
+        "reasoning": "The univariate and conditional-degree sources do not suffice for the joint result, but the matched source proves it directly and supplies a stronger error bound on its rank proxy.",
+        "searches": [
+          "Resultary 25d00b41e332, proof Steps 3–4",
+          "Acan arXiv:1501.01489v1 §2",
+          "Paguyo arXiv:2104.01134v2 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Published Resultary 25d00b41e332",
+        "Acan arXiv:1501.01489v1",
+        "Paguyo arXiv:2104.01134v2",
+        "Flajolet–Noy (2000), OA access attempt and citing sources"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier proof uses the occupancy U-statistic, whose centered first projections are 2q-1/2 and 2q(1-q)-1/3 for q uniform on [0,1/2]; its mean O(n) proxy error is negligible at n^(3/2)."
+        ],
+        "reasoning": "The earlier statement directly covers the submitted result; independently its projections imply the same joint distribution and the moments give the same regression. Its degenerate remainder and proxy bound also imply T_n+n-2n sum_i q_i=O_p(n), so the later empirical-CDF route does not improve that error.",
+        "searches": [
+          "Resultary 25d00b41e332, RESULT.md offsets 3710–6681, Steps 3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Its L_n is exactly T_n: the minimum interior endpoint count over the two arcs, summed over each chord, and X_n counts unordered crossing pairs. Swapping the coordinates of its centered n^(3/2)-scaled pair gives the submitted covariance matrix."
+        ],
+        "reasoning": "The labels circular span and shorter-arc length do not distinguish these random variables, and the normalizations and sample spaces agree.",
+        "searches": [
+          "Resultary record 25d00b41e332, Finding and assumptions at offsets 0 and 1000"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed full record gives these same five exact moments, the same bivariate Gaussian covariance, limiting correlation sqrt(15)/4, explained variance 15/16 and limiting residual variance 1/720."
+        ],
+        "reasoning": "This is an exact substantive match in the indexed record, not a nearby n value or a finite numerical coincidence.",
+        "searches": [
+          "Published Resultary/SCOPE record 2026/10/18/25d00b41e332, Finding and moment display"
+        ]
+      },
+      "rationale": "A distinct published Resultary finding dated 2026-10-18 states the same theorem for the same rank-defined shorter-arc span and crossing-pair count, with covariance matrix transposed in coordinate order only, the same finite moments and the same regression consequences. This is demonstrated prior coverage, not a claim about dependence or authorship.",
+      "residual_risks": [
+        "Priority relative to earlier primary literature is not settled; this does not affect exact prior Resultary coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage",
+          "evidence": "Identical rank span, moments and joint law, plus an O(n) expected occupancy approximation error and the same leading projections.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-joint-gaussian-fluctuations-of-total-circular-chord-span-and-cro--25d00b41e332/RESULT.md",
+          "material_read": "Finding and assumptions at offsets 0 and 1000; proof Steps 3–4 at offsets 3710–6681",
+          "method": "Resultary query and local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Joint Gaussian fluctuations of total circular chord span and crossings",
+          "trigger": "Precise Resultary match"
+        },
+        {
+          "assessment": "Relevant ingredient, not joint coverage in inspected passages",
+          "evidence": "Shorter-arc definition and conditional marked-chord degree.",
+          "identifier_or_url": "https://arxiv.org/html/1501.01489v1",
+          "material_read": "Offsets 10541–11017 and §2 around offset 10900",
+          "method": "OA full-text passages",
+          "title": "On a uniformly random chord diagram and its intersection graph",
+          "trigger": "Same circular chord length and crossing-degree model"
+        },
+        {
+          "assessment": "Univariate crossing limit, not total-span joint coverage in inspected theorem",
+          "evidence": "Normal approximation for the crossing count.",
+          "identifier_or_url": "https://arxiv.org/html/2104.01134v2",
+          "material_read": "§1 Theorem 1.1 around offset 6550",
+          "method": "OA full-text passage",
+          "title": "Convergence rates of limit theorems in random chord diagrams",
+          "trigger": "Crossing CLT in the same model"
+        },
+        {
+          "assessment": "Access limitation, not negative coverage evidence",
+          "evidence": "Crossing-count limit law described by the accessible citing sources.",
+          "identifier_or_url": "Flajolet and Noy (2000), as cited in Acan and Paguyo",
+          "material_read": "Bibliographic and search-result material; no original relevant passage read",
+          "method": "Identified OA attempt failed with redirects; secondary cross-references",
+          "title": "Analytic combinatorics of chord diagrams",
+          "trigger": "Classic crossing moments and CLT"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 74–105",
+        "Resultary 25d00b41e332 Steps 3–4"
+      ],
+      "rationale": "The regression invariant is meaningful in isolation, but the submission repeats all of it and the complete joint law. The alternative empirical-CDF argument does not establish a useful stronger estimate or a new class of statistics: the earlier occupancy proof already gives O_p(n) error against the same leading iid span sum, while the submitted bounds give O_p(n^(4/3)). No separately substantiated advance remains in the frozen claim.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

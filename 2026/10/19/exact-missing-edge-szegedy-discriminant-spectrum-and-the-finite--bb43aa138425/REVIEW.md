@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness (PASS).** The full exact discriminant follows from four mutually orthogonal invariant spaces and an explicit \(2\times2\) block. Characteristic roots, spectral ordering, rationalized shift, and asymptotic constants have a self-contained proof. A freshly rebuilt finite-matrix verifier confirms 5,787 assertions on the admissible families, but the all-size result rests on the proof.
+## correctness
 
-**Originality (PASS, provisional to independent review).** Giordano–Martin-Delgado arXiv:2607.19129v1 derives the underlying perturbation and an exact old-vector Rayleigh expression; the actual new eigenvalue requires the two-dimensional reduction and has a different fixed-marked coefficient. For zero marks it does not shift at all. General equitable-partition methods remain relevant background and an implicit-coverage risk. Indexed-claim searches uncovered no equivalent model-specific result.
+PASS
 
-**Value (PASS).** The exact eigenvalue, not its old-vector Rayleigh quotient, governs phase sensitivity of this quantum-walk diagnostic. The vanishing zero-mark shift and universal \(1/2\) coefficient discrepancy in fixed-mark asymptotics make the distinction quantitatively and conceptually relevant.
+Absorbing marked columns give I_m and no marked-to-unmarked reciprocal entries. For uniform redistribution the distinct ordinary pairs have entry p and ordinary-defect pairs have a. The defect antisymmetric vector has eigenvalue zero, ordinary contrasts have eigenvalue -p with dimension b-1, and the remaining two orthonormal indicator vectors yield the compression with off-diagonal sqrt(2b)*a and ordinary diagonal (b-1)p, exhausting all dimensions. Its characteristic polynomial at L=(b+1)p is 2m/[(n-1)^2(n-2)], and L-lambda_- is positive. This proves the shift including m=0; the denominator tends to 1 for fixed m and to 1-alpha for proportional marking. Independently summing entries on the old uniform vector gives D_R=[2p+4b(p-a)]/k, equivalent to the claimed square-root formula. Since the ordinary and defect row sums differ for every b>=1 (use sqrt(1+1/(n-2))<1+1/[2(n-2)]), the Rayleigh inequality is strict. The square-root difference squared is asymptotic to 1/(4n), giving the extra 1/2 in the fixed-m coefficient. At k=2 the unmarked block vanishes and no strict comparison is claimed. Read frozen RESULT.md, VERIFICATION.md and verify.py; not a fresh execution. The recorded finite NumPy comparisons corroborate, but do not prove, the exact argument. No quantum search probability is established.
 
-**Limits.** Only one uniformly redistributed unmarked-edge deletion, and the classical Szegedy discriminant; no new search success-probability theorem. Search completeness and external scientific validation are unproved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The missing-link model, old-vector deficit and its asymptotic are already in Giordano–Martin-Delgado. The symmetric decomposition is a standard quotient technique. The record's supported distinct conclusion is the exact actual discriminant shift and its sharp fixed-marked discrepancy from the quoted perturbative expression. The original paper mixes qualified first-order wording with a Proposition 4 heading and an all-orders inference; its exactly evaluated quantity is a Rayleigh quotient. Do not characterize every statement in that paper as an assertion of exact eigenvalue equality.
+
+## value
+
+PASS
+
+The simple exact reduction resolves a concrete interpretive problem in a published perturbative model. At fixed marked count the usual old-vector estimate is wrong at leading order, even though it gives the right power for positive marked count; without marks it spuriously predicts a shift at all. This changes the phase coefficient and provides an exact benchmark for that physically motivated kernel, rather than merely restating a quotient principle.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

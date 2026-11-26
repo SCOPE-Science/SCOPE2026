@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:09:51.470363Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–52; VERIFICATION.md; verify.py (read, not executed)",
+        "Independent finite exact replay: all 98 isolated marks with 0, 1 or 2 secondary releases, all job sizes in {1,2}, and sorted offsets in {0,1,2,3}; 72 marks satisfy cover. For each ordered pair of these 72 and each second-primary time in {0,...,7} (41,472 cases), at every integer tick add its arriving work, service one unit iff workload is positive and merge consecutive busy unit intervals. Compared against the two-batch formula: with first work A, second work B and second primary time t, [0,A+B) if t<=A, otherwise [0,A) and [t,t+B). Every comparison and isolated iff check agreed."
+      ],
+      "rationale": "For an isolated cluster, until its first positive idle gap the available work just before release j is the previous service sum minus d_j (with coincident events processed together). Thus cover is exactly continuous service to B. The first violation instead ends the first busy interval at a proper partial sum <B. In the combined staggered queue, adding arrivals to an isolated cluster's input cannot decrease reflected workload; every primary t_i before the end tau of a busy interval therefore has t_i+B_i<=tau if tau is finite. Each release is strictly before t_i+B_i since all service sizes are positive. Thus at tau no trigger from that busy interval is pending. From the common empty start a, batch cumulative work up to a candidate first end v is at least staggered cumulative work. If batch ended strictly earlier, its cumulative work at v would be v-a, incompatible with continued staggered service through v and positive workload there. If staggered ends at finite tau, each of its primaries' full work has arrived, so batch also clears at tau; if staggered never ends no earlier batch end is possible. Repeat from the common empty state. This uses ends followed by a positive gap, not left-limit zeros at immediate restarts, and allows simultaneous primaries. Under Poisson input, conditional on a failing initial mark the event of no further primary until d_last+B+1 has positive probability and isolates the failure; countably many a.s.-covered marks give sufficiency. The batched service tree has conditionally Poisson(lambda B) offspring, giving the stated transform; rho<1 gives a finite tree and a transform fixed point unique by a Lipschitz bound rho. Summing expected work by generation gives EB/(1-rho), fresh Poisson increments at true clearings give independent exponential idle times, and for constant service the PGF solves F=z exp(rho(F-1)), giving the Borel formula by Lagrange inversion and L=bK.",
+      "residual_risks": [
+        "The exact bounded replay is supplemental; the supplied 700 seeded cases were not independently rerun, and the Borel checks in the supplied script are numerical truncations, not exact probability proofs.",
+        "The theorem is initially empty and work conserving; equality of cycles does not mean equality of workloads, waiting times, or service histories."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general-delay paper uses a simultaneous pair batch as a stationary stochastic workload upper bound, with asymptotic tightness as delays tend to zero; it considers one secondary per primary.",
+          "The exponential-delay paper uses a two-coordinate Markov description with pending secondaries and truncates to compute workload/system-time distributions. Classical M/G/1 directly gives the transform and Borel law only after identifying the batch queue."
+        ],
+        "reasoning": "A marginal stationary stochastic bound, limit or an already-batched formula cannot identify the same busy intervals on a coupled sample path. The cover reduction is the additional structural step.",
+        "searches": [
+          "arXiv:2610.40865v1, abstract and introduction",
+          "arXiv:2609.02320v1, abstract",
+          "Classical M/G/1 branching and marked Poisson queue"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and mirrored 564baccd2345",
+        "Inoue–Takine (2003) §§2.1–2.2",
+        "Rahnamania–Mandjes–Ashtiani arXiv:2610.40865v1 and 2609.02320v1",
+        "Frozen RESULT.md, claims and prior-work section"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The busy-indicator lemma covers back-to-back equal cells and periodic messages; the frozen criterion also allows a trigger later than the primary work provided intermediate released work bridges it, and proves a positive-probability failure if a random cluster violates cover.",
+          "The earlier stochastic pair comparison concerns workload order, and the earlier indexed inference result compares observation schemes within a single M/M/1 model."
+        ],
+        "reasoning": "The criterion is neither a parameter substitution into the periodic lemma nor a consequence of the stochastic order or inference theorem. The exact Poisson formulas are established consequences once the new pathwise reduction holds.",
+        "searches": [
+          "Inoue–Takine (2003), Proposition 2 and Lemma 1",
+          "Rahnamania–Mandjes–Ashtiani arXiv:2610.40865v1",
+          "2026/10/26/...564baccd2345, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The precursor explicitly says the original and equivalent queues are busy iff the all-at-once batch workload is positive.",
+          "For a back-to-back unit-service train the j-th relative release is j and the preceding work is j, so the train lies exactly on the cover boundary."
+        ],
+        "reasoning": "This is the same pathwise invariant for a true subfamily, not a precedent for the full sharp criterion with arbitrary within-cluster service and release data or necessity over all schedules.",
+        "searches": [
+          "queueing clustered arrivals periodic or Poisson staggered jobs equivalent batch arrival same busy periods Inoue Takine busy indicator cumulative service time cluster",
+          "Inoue–Takine (2003), §§2.1–2.2, Lemma 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "36932bb84192 is the assigned result itself. The strongest other returned busy-period match, 564baccd2345, studies M/M/1 arrival-rate inference from the count and duration in a given busy period.",
+          "Its Finding treats sufficiency of the paired record and a likelihood ratio, not equality of busy intervals across two coupled arrival schemes."
+        ],
+        "reasoning": "Neither the self-hit nor the distinct indexed inference theorem gives independent exact coverage of the structural criterion. A tabulated Borel law is already known and is not claimed as the contribution.",
+        "searches": [
+          "Resultary: single server queue triggered secondary arrivals staggered versus simultaneous batch identical busy intervals service cover cumulative preceding service cluster Poisson busy period"
+        ]
+      },
+      "rationale": "The strongest actual precursor is Inoue–Takine's exact busy-indicator equivalence for periodic cell trains, not merely a similar stochastic bound. The supported distinct claim is the sharp cumulative-service criterion for arbitrary locally finite primary schedules and finite heterogeneous clusters, together with the Poisson a.s. iff and resulting batch reduction. The classical transforms themselves are not new.",
+      "residual_risks": [
+        "The focused search does not settle historical priority against every release-time aggregation or network-calculus formulation. The positive decision concerns only the supported heterogeneous service-cover equivalence and its stochastic sharpness, not the known M/G/1 laws or periodic-train subcase."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of a strict special case",
+          "evidence": [
+            "Fixed-length back-to-back unit cell trains at periodic sources; batch forms at the message epoch; both original and intermediate equivalent systems are busy iff the batch workload is positive."
+          ],
+          "identifier_or_url": "https://orsj.org/wp-content/or-archives50/pdf/e_mag/Vol.46_02_220.pdf",
+          "material_read": "§§2.1–2.2, Proposition 2, batch construction and Lemma 1, journal pp. 222–224; PDF offsets 2100 and 14350",
+          "method": "OA primary PDF, literal locate and bounded passage reads",
+          "title": "Sojourn Time in a Queue with Clustered Periodic Arrivals",
+          "trigger": "Explicit prior busy-indicator equivalence"
+        },
+        {
+          "assessment": "Prior batch comparison but different invariant and one secondary per primary",
+          "evidence": [
+            "Stationary workload is stochastically sandwiched, with simultaneously arriving pairs as the upper bound and convergence to that bound as delays tend to zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.40865v1",
+          "material_read": "Abstract and introduction passages around offsets 1060 and 12826",
+          "method": "OA primary HTML, literal locate and bounded passage read",
+          "title": "Analysis of Triggered Packet Streams: Stochastic Bounds on System Time under General Triggering Delays",
+          "trigger": "Same triggered-arrival architecture and explicit batch comparison queue"
+        },
+        {
+          "assessment": "Different assumptions and result",
+          "evidence": [
+            "One secondary with independent exponential delay; finite-state truncation in the number of pending secondary customers, not elimination by service cover."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.02320v1",
+          "material_read": "Abstract, offset 1120; introduction passages at 8174 and 9867",
+          "method": "OA primary HTML, bounded article passages",
+          "title": "Analysis of Triggered Packet Streams: A Matrix-Analytic Method for Exponential Triggering Delays",
+          "trigger": "Same architecture and exact/approximation claims about workload"
+        },
+        {
+          "assessment": "Different comparison and invariant",
+          "evidence": [
+            "Count and duration summarize a busy period for arrival-rate inference in M/M/1; there is no staggered-versus-batch cycle comparison in that claim."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-paired-busy-period-detection-law-and-sharp-covert-constant--564baccd2345",
+          "material_read": "RESULT.md Finding, offset 71",
+          "method": "Local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact paired busy-period detection law and sharp covert constant",
+          "trigger": "Strongest distinct indexed busy-period match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–52 and 58–64",
+        "Inoue–Takine §2.2",
+        "arXiv:2610.40865v1 abstract"
+      ],
+      "rationale": "A simple markwise condition removes all intra-cluster timing information from an exact cycle law, with a sharp isolated witness rather than a sufficient approximation. It applies to heterogeneous services and dependent delays, can accept triggers after primary service, and makes classical batch formulas valid for the coupled staggered system. The structural reduction, not rederivation of Borel probabilities, provides the research value.",
+      "residual_risks": [
+        "No implication for performance metrics depending on internal releases, and the necessity across schedules does not say a particular interacting schedule cannot mask a failing cluster."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

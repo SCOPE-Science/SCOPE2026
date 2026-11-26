@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The first two superdiagonals determine every entry of the restricted power at this dimension, by an exhaustive path-length argument. A case split on all possible zero supports gives the component equations. Generic rank-one determinantal cones are geometrically irreducible and the omitted higher-superdiagonal coefficients are free. Inclusion-exclusion and two disjoint exceptional zero patterns give the exact finite-field formula. Independent calculations with the embedded verifier check direct matrix powers and memberships exhaustively in three small fields and by seeded samples in further prime characteristics. The proof does not extrapolate from these finite tests.
+## correctness
 
-**Originality — PASS, with residual risk.** Closest sources are Melnikov (arXiv:math/0312290), Boos–Reineke (arXiv:1004.1996), and Boos (arXiv:1205.5197), inspected in their full freely accessible HTML texts. They cover the geometry of square-zero matrices and parabolic orbits over \(\mathbb C\). Classical orbital-variety tableaux already account for the complex component *number* for partition \((p,2)\), so that number is not claimed as new in isolation. No inspected source supplies the explicit characteristic-\(p\) defining equations plus finite-field census. Mathematical-record comparisons disclosed no covering statement; unindexed stronger geometric formulas remain possible.
+PASS
 
-**Value — PASS.** The first two dimensions beyond the automatic \(p\)-nilpotency range are canonical thresholds of the restricted Lie algebra. At the first codimension-two size, the entire locus combines linear and nonlinear components and admits a uniform field-count polynomial. The explicit equations describe geometric strata not encoded by a component count and the finite-field census supplies exact arithmetic information. This is a natural complete invariant at a structurally distinguished dimension, not an arbitrary numerical slice.
+For the repaired claim, length-p increasing paths only use first-superdiagonal steps or one second-superdiagonal step. Both first-superdiagonal products must vanish. Any two nonadjacent zero positions force the remaining entry to vanish. A single zero must be interior; factoring the top entry leaves precisely the indicated determinant. Two adjacent zeros leave a nonzero coefficient times b_i, and either interior zero index gives the corresponding Q_k when b_i=0. The converse follows by the same factorization without dividing by any entries. Each determinant is irreducible over any extension (e.g. primitive linear in one variable with coprime coefficients), and its degree-one vanishing ideal is spanned by a_k. This distinguishes the equidimensional Q_k from each other and the P_ij, proves maximality, and gives the linear and nonlinear counts. The smaller-size assertions follow directly from path length. Independent replay `python3 /workspace/review_evidence/reproduce.py 2` compared powers applied to all basis vectors with component membership on all 59,049 full matrices for p=q=3, giving 22,113 points; the p=q=2 boundary check gives 28 of 64. The old point formula is correct as well, but the repaired document explains why it is prior-derived.
 
-**Limits.** Reduced geometric locus only; no scheme-theoretic radicality, arbitrary-size extension, or independent expert validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for the narrowed geometric claim only. The frozen originality assessment fails in its treatment of the finite-field count as a contribution: the compact expression follows mechanically from the published Fuchs–Kirillov recurrence on just two partitions. The corrected Finding drops that novelty claim and credits the specialization as a consistency check. No verified earlier result in this search supplies the complete explicit coordinate and determinantal component equations for the stated family.
+
+## value
+
+PASS
+
+The repaired claim identifies the exact first nonlinear geometry in a natural restricted-nullcone family. The numerical tableau count alone does not distinguish linear coordinate components from determinantal cones or locate them in the original matrix coordinates; the result supplies those components and their defining constraints uniformly. Value is not assigned to the prior-derived point count or to the numerical component count alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

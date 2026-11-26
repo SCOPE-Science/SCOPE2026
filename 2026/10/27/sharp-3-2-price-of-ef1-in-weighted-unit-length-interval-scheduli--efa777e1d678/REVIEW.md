@@ -1,15 +1,21 @@
-# Review of the weighted unit-length two-machine EF1 bound
+# Independent mathematical audit
 
-## Correctness — PASS
-For an optimum two-machine schedule, triangle-freeness plus chordality and the equal-length claw obstruction give a conflict graph consisting of paths. Deleting a lightest residue class modulo three on each path removes at most one third of its weight and leaves an induced matching. A greedy component orientation maintains an item-weight witness for the current load imbalance; therefore it is EF1 without additional deletions. The full theorem is proved analytically for all finite instances and arbitrary nonnegative identical item weights. Exact-rational `check.py` corroborates the construction in 10,365 finite cases, including direct exhaustive comparisons for bounded examples. The known three-job counterfamily demonstrates sharpness. The numerical checks are not offered as universal proof.
+## correctness
 
-## Originality — PASS, with residual publication-priority risk
-The direct antecedent, Borst–Shahkarami–Vaish, arXiv:2608.15159, proves a \(3/2\) upper bound for unweighted jobs and a \(3/2\) lower bound for weighted jobs, but not the arbitrary-weight matching upper bound. The distinction concerns implications: an unweighted guarantee does not cover heterogeneous job weights, and a weighted lower bound does not give a weighted upper bound. Equbal et al., arXiv:2605.09930, give maximal EF1 allocations in conflict graphs without a constant welfare ratio. Search records did not identify an equivalent weighted two-machine theorem; a search miss is not proof of priority. The known sharpness example is explicitly credited.
+PASS
 
-## Value — PASS
-This closes the natural weighted two-machine unit-duration price-of-fairness question at its precise \(3/2\) threshold and yields an elementary polynomial-time constructive approximation. An exact optimal ratio is valuable for bounding unavoidable utilitarian welfare loss from a fairness requirement in scheduling. The proof identifies a useful structural mechanism: conflict paths become disjoint pair-or-singleton components after at most one-third weight deletion. It is not a mere renaming of the unweighted theorem, since the EF1 orientation must control weighted load differences.
+For nonempty input, a value-two integral min-cost flow on the sorted endpoint DAG decomposes into two paths, and exactly encodes feasible schedules, including meetings at half-open endpoints and parallel job arcs. Empty input is trivial. In a selected optimum, order the equal-length jobs by start time (ties arbitrary). An overlapping pair with another start between them would place all three jobs at the later start, contradicting depth at most two. Hence conflict edges occur only between consecutive vertices and components are paths. Deleting a minimum-weight index class modulo three in each component costs at most one third and leaves only edges and singletons. Orient a component against the signed load difference D: if the old heavier side remains heavier, its witness item is still present and the gap decreases or stays fixed; if the side changes or the old gap was zero, the new heavier side gets the larger edge item or the singleton, whose weight is at least the increment and thus the new gap. A zero gap is EF1. This proves the ordinary EF1 inequalities for common nonnegative values. The three-job construction forces both outer jobs onto one machine if all are scheduled; the middle weight is less than either outer weight, and the fair optimum is exactly two. The factor is approached as epsilon tends to zero. Sorting, flow, and the remaining steps are polynomial for rational data. The bundled finite script was inspected, not executed or used as a universal certificate.
 
-## Limits and context
-The assertion is restricted to identical agent valuations, two machines, and one common positive interval length. A different published theorem could imply the same weighted bound, and non-indexed work has not been exhaustively excluded. Independent scientific audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinguishable contribution is the uniform weighted upper bound for two machines. The exact lower-bound construction and the prior unweighted guarantee are credited, not judged novel. The strongest retrieved results do not supply the claimed guarantee for arbitrary common weights.
+
+## value
+
+PASS
+
+Closes the gap between the explicit weighted obstruction and a weight-class-dependent bound for the natural two-machine case. The optimal approximation factor is independent of the weight spread and number of distinct values, and the construction is algorithmic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

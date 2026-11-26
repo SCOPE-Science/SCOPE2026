@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete prime-support sieve follows from \(H_r(t)\) monotonicity and exact upper and lower rational bounds. All thirteen possible second-layer prime pairs are treated. Seven pairs fail a two-sided exponent gap, two more fail a proved multiplicative-order obstruction, and the remaining four plus the first-layer pair are attained uniquely at exponents one. Exact-rational code independently checks all finite arithmetic certificates. The proof has no exponent cutoff.
+## correctness
 
-**Originality — PASS under inspected evidence.** Broughan–Zhou's full relevant primary discussion explicitly lists the five numbers yet leaves the even three-prime quotient-four case exceptional, and does not assert rigidity for arbitrary odd-prime exponents in the first two dyadic layers. OEIS A292422 restricts its definition to exponent-one odd primes and so cannot classify a larger family. The present result adds the universal no-repeated-odd-factor assertion. Searches of overlapping mathematical records yielded different functions/equations; absence from an index alone does not prove novelty.
+PASS
 
-**Value — PASS.** A complete, natural low-dyadic-layer classification within a difficult arithmetic-function equation is useful even though every surviving example was known. Ruling out every odd prime-power exponent throughout these layers is a substantive infinite-family obstruction, not another finite list or routine reparametrization.
+Multiplicativity reduces the two cases to H_p(b)H_q(c)=4/3 or 8/7. Each H_r(t) increases in t with minimum (r+1)/(r−1) and strict upper limit (r/(r−1))²; both endpoints decrease in r. Exact reproduction with python3 /workspace/audit_evidence/dyadic.py checks the bounds that restrict the prime search, obtains exactly (11,19) for a=1 and 13 possible supports for a=2, and verifies the five equality supports. On five supports the lower endpoint already equals the target, forcing both exponents to be one. On seven other supports the b=1 upper bound lies below target and b≥2 lower bound lies above. The last two require b≥3, so p divides the right side of σ=4φ. Since p∤σ(4)σ(p^b), it must divide σ(q^c), requiring c+1 divisible by the order of q modulo p (16 and 18 respectively). Substitution into the increasing lower bound rules out both tails. This covers arbitrary positive exponents and gives exactly the five printed integers; the frozen bounded scan is not used as an unbounded exclusion.
 
-**Risks and limits.** General even quotient-four solutions at higher powers of two remain open in the cited framing. An obscure prior proof may coincide. Modular and direct-search checks corroborate, but the unlimited-exponent assertion is supported by the written proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for proving that all quotient-four solutions in the two specified three-prime layers have both odd exponents one. All five individual solutions and the squarefree odd-part family are known. Broughan–Zhou place the even three-prime case outside their relevant proved classification; their list is examples, not a proof against repeated odd-prime powers. The primary-literature and Resultary searches surfaced no inspected earlier result settling these two unrestricted layers.
+
+## value
+
+PASS
+
+The two lowest positive valuations of 2 are a natural complete boundary in the already posed even quotient-four three-prime case. The work upgrades an observed exponent pattern to a rigorous classification over two unbounded odd exponents. The order constraints resolve the supports that endpoint bounds alone do not eliminate; merely recomputing the five previously known values would not suffice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

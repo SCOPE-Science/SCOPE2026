@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The mathematical argument is in RESULT.md. The following direct checks were completed on small prime fields by multiplying elements of each truncated path algebra and enumerating distinct evaluation-vector functions. They corroborate but cannot establish the unrestricted theorem.
+## correctness
 
-The standalone CHECKER.py requires only the Python standard library. Run `python CHECKER.py` after extracting the complete package. The successful terminating marker is `RIGHT_POLYNOMIAL_QUIVER_CHECKS_OK`.
+PASS
 
-- Over the two-element field: one loop has 64 right-polynomial functions and 8 bijective ones; two parallel loops have 256 and 32; either one-edge orientation has 256 and 16; a directed two-cycle has 4096 and 64; a source fork has 4096 and 128; and a directed three-vertex path has 16384 and 128.
-- Over the three-element field: one loop has 19683 right-polynomial functions and 1296 bijective ones; a single directed edge has 531441 and 7776.
+In b^d at most one radical factor survives. On arrow a:i→j this yields y_a times the geometric sum in its two endpoint values, which evaluates the divided difference for the source polynomial, including f_i' when the endpoint values coincide. An arrow coefficient on the left is multiplied only by the target diagonal. Thus zero-arrow inputs force all vertex and arrow value functions to vanish; varying a single arrow with equal endpoint values forces the source derivative to vanish at every field element. Unequal-value differences already vanish. Since H=X^q−X is split with simple roots (H'=−1), the stated H or H² divisibilities are necessary and sufficient. Peirce multiplication preserves the resulting two-sided ideal. Hermite interpolation at all field elements gives independent value and emitting-vertex derivative functions and independent target offsets, proving the function count over every prime power. A bijection induces a bijection on the equal-size diagonal fibers, and on each fiber it is diagonal affine on the arrows. Once every vertex value function is a permutation, unequal endpoint differences are nonzero automatically; the remaining requirement is precisely nonzero emitting-vertex derivatives. This gives the permutation formula. For a nonloop, (e_i b)^2 has source value s² and arrow multiplier s at b=se_i+te_j+ya, inconsistent with the required multiplier s+t at (s,t)=(0,1) as y varies. Hence it is not any right-polynomial function. All-loop algebras are commutative and ordinary substitution proves closure. This concerns the full function set, not a universal closure statement for the bijections. The supplied checker was inspected, not run; its prime-field examples do not replace the argument.
 
-For each model, the checker independently obtains the dimension of the coefficient-evaluation linear span and exhaustively enumerates all functions in that span to test injectivity. It also checks the explicit coefficient witness for non-closure where a nonloop arrow exists. The general proof applies to every finite field, including nonprime fields, and every finite quiver even when loops and oriented cycles occur; the checker covers only listed prime-field cases. An independent scientific audit has not been performed.
+## originality
+
+PASS
+
+The two-sidedness theorem and componentwise dual-number classification already cover substantial parts. The triangular null criteria also recover the global kernel by intersecting inverse images under elementary arrow quotients, and the total map count then follows, so these are not independent novelty claims. The distinct whole-quiver contribution is the simultaneous bijection criterion and census with shared vertex data, and the sharp nonrepresentability boundary for compositions of actual functions. The strongest checked composition predecessor uses the same ansatz for a different and weaker conclusion, not nonrepresentability by every polynomial. No checked statement or mechanical specialization supplies the complete classification with these conclusions.
+
+## value
+
+PASS
+
+The classifier makes the effect of arrow orientation and shared sources on otherwise noncommutative polynomial functions explicit. In particular, the exact permutation criterion handles parallel arrows, loops and cycles simultaneously, and the function-level nonclosure test is strictly stronger than failure of the naive law for composing formal polynomials. Both are useful across a natural class; they are not obtained by just multiplying independent per-arrow counts. The known two-sidedness and the kernel-derived total count alone would not establish this value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

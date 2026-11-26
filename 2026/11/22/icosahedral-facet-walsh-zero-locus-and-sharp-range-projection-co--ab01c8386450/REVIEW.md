@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The facet sign expansion, five-facets-per-vertex incidence and two-facets-per-edge incidence prove the exact Walsh formula without a computational assumption. Modulo-eight restriction eliminates all but three character sizes, giving the precise nonedge and six-subset zero characterization. Every remaining finite count is exhausted by the standalone exact-integer checker, which reconstructs the graph/facets independently, checks all \(4096\) frequencies, and uses Walsh inversion to certify the projection-kernel norm. Translation averaging followed by Fourier-diagonal uniqueness proves unrestricted endpoint-projection minimality. The claim is for one fixed finite graph, not an extrapolation.
+PASS
 
-## Originality — PASS, qualified historical assessment
+Expanding the three sign factors per triangle and summing uses five facets per vertex and two per edge, giving 20−10|S|+8(e−t). Complementation reverses every facet sign; reducing modulo eight leaves only sizes 2, 6, 10. The size-two zeros are exactly the 36 nonedges, and size six requires e−t=5. An independent exact calculation from the cyclic coordinate families (0,±1,±φ), with φ²=φ+1, uses squared distance four for edges and 3-cliques for faces. Direct face signs, the structural formula and the integer Walsh transform agree on all modes. The calculation reproduces all bins of the signed spectrum, the 724 six-set zeros by (e,t), and all bins of the inverse Walsh transform of the nonzero-mode mask. Rank is 3300 and nullity 796; on the orthogonal complement of the kernel the multiplier moduli range from two to twenty, yielding the pseudoinverse norm and condition number. In the convolution matrix of the range projection, every row and column has the same absolute sum, 56232/4096, so this is both endpoint norms. For any projection onto W, its translation conjugates fix W pointwise and map into W. Their average still has those two properties and commutes with translations. The joint character spaces are one-dimensional over either scalar field, forcing the average to be identity on the surviving modes and zero on the others. Since translation is isometric, averaging cannot increase either endpoint norm. Thus the all-projections minimum follows analytically, not from checking a numerical kernel. Exact replay: independent_icosahedron.py with independent_run.txt; the frozen verifier was inspected, not executed.
 
-The icosahedral geometry in Nash (arXiv:1308.0955) and the minimal-projection averaging principle in Aksoy–Lewicki (arXiv:1007.2214) are acknowledged. The most closely overlapping published finite result, *Icosahedral six-set edge criterion and zero-forcing exchange geometry*, solves a zero-forcing problem and gives an induced-edge census; its inspected full result does not give the face-incidence Fourier zero criterion or the exact projection constant. Published source and equivalence searches did not locate an implied or identical theorem. An unindexed equivalent spectral table remains a historical-priority risk; Zippin's 2004 paper was available at abstract level only.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete signed spectral and precise stable-range classification for the canonical icosahedral facet hypergraph. The identity \(\lambda(S)=20-10|S|+8(e(S)-t(S))\) exhibits a geometric obstruction; the exact \(724\)-member six-subset zero family is not an arbitrary index slice. The sharp value \(7029/512\) measures the minimum possible endpoint amplification of any recovery projection and is not inferred from the classical face count or generic averaging method. No general theorem for other polyhedra is claimed or needed for this finite invariant to have meaning.
+The distinct contribution is the exact facet-incidence zero set, complete signed spectrum, and sharp numerical range-projection norm for this specific graph, not the geometry or the projection averaging principle. The strongest inspected prior six-set statement describes a 200-element family contained in the new 724-element six-set zero family; it neither refers to the Walsh observable nor determines the other zeros or norm.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Facet convolution is a natural symmetric operator on vertex-set functions. Its null modes identify precisely which character signals it erases, while the endpoint projection constant is the exact cost of extracting its attainable range in the two endpoint norms even with unrestricted choice of projection. Those invariants are not determined by the vertex-facet incidence counts or by the Hilbert condition number. The zero criterion and independent exhaustive census give structural and quantitative information for a fixed, natural object.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

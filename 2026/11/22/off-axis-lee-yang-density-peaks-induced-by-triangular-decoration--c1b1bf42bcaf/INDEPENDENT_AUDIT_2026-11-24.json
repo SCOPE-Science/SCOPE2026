@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:34:01.921343Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(4) and lines 27–65",
+        "Frozen VERIFICATION.md and check.py (read as text, not executed)",
+        "Independent exact cut enumeration for 8 and 32 configurations"
+      ],
+      "rationale": "Cut enumeration conditional on a positive hub gives the per-pair factor A=1+2uz+uz²; reversal gives B=u+2uz+z² and a factor z at the negative hub. Independently, B has the two conjugate roots a=−u±i√(u(1−u)) of modulus √u<1, so z(B/A)^m is a finite Blaschke product on the disk, with a strictly increasing boundary phase. Its equation with −1 gives exactly 2m+1 distinct simple zeros. Writing w=z^−1 A(z) on the circle gives phase derivative −(1−u)(1+u+2u cos θ)/|w|² for arg w. The arc-count discrepancy from normalized unwrapped phase increment is O(1/(2m+1)), so the limit is the stated positive, normalized density. After extracting positive factors the derivative in c=cos θ has numerator −4uc²−4(u+1)c+3u²−6u−1; it decreases strictly with c and has endpoint signs + at −1, − at 1. Its sole admissible zero is the stated c_u, yielding exactly two maxima and two strict endpoint minima on the circle. The first root satisfies 2m[−arg w(θ_m)]+θ_m=π. Taylor expansion gives the stated denominator from slope (1−u)/(1+3u); oddness and θ_m=O(m^−1) give the O_u(m^−3) angle error. A heterogeneous ordinary star quantizes the phase of z·prod_j[(z+q_j)/(1+q_j z)]; its normalized zero counts on arcs differ from the corresponding normalized phase increments by O(1/(n+1)). Empirical q-law subsequences converge on [0,1]; on compact subintervals of (0,π) the resulting Poisson-kernel mixture is nondecreasing, also when q→1 since its boundary limit there is zero and mass at q=1 can contribute only an atom at π. Thus the separation holds for arbitrary positive heterogeneous bonds, not just for parameters uniformly away from q=1. Separate exact cut enumerations for one and two petals match the polynomial.",
+      "residual_risks": [
+        "All limits and error constants here use fixed u in (0,1); no uniform claim at either excluded boundary. Small enumeration does not establish the phase asymptotics or peak theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general circle theorem yields the circle location; the connected positive-edge-support hypothesis in Proposition 1 of Motion of Lee–Yang Zeros already implies finite-system simplicity here.",
+          "The Cayley-tree result uses a Blaschke-product phase, with a star specialization. The hub degree here grows as 2m, so the fixed maximum-degree zero-free-arc regime is different."
+        ],
+        "reasoning": "Finite simplicity is demonstrably covered and receives no novelty credit, even though analytically rederived. Phase and degree results do not classify the triangle factor's limiting peaks.",
+        "searches": [
+          "Hou–Jiang–Newman arXiv:2208.00917v1, abstract and Proposition 1 p. 6",
+          "Chio–He–Ji–Roeder arXiv:1806.00403v2, Proposition 1.1",
+          "Peters–Regts DOI 10.1112/jlms.12286, cited maximum-degree scope"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md prior-work comparison",
+        "Resultary inhomogeneous-star record fd8334aa6b45",
+        "Chio–He–Ji–Roeder arXiv:1806.00403v2",
+        "Hou–Jiang–Newman arXiv:2208.00917v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Blaschke phase differentiation and simple root counts have prior analogues or broader coverage. The triangle conditional factor depends jointly on two sites, and the nonreal pair produces an interior maximum where every positive mixture of ordinary star kernels is nondecreasing.",
+          "Taking the first quantized phase increment gives the leading-zero scale once the actual model's slope is computed; this is not credited as a new general principle."
+        ],
+        "reasoning": "The distinctive all-couplings maximum classification uses the actual triangle factor and a signed quadratic derivative test. No considered stronger result already supplies that classification or yields it by relabelling real star parameters.",
+        "searches": [
+          "Resultary fd8334aa6b45, RESULT.md offsets 0–4857 and 6800–10073",
+          "arXiv:2208.00917v1, p. 6",
+          "arXiv:1806.00403v2, Proposition 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The friendship-graph limit is also the mean of Poisson kernels for two conjugate nonreal poles of modulus √u, from B/A. Ordinary ferromagnetic stars use poles on the nonpositive real axis.",
+          "A's discriminant is 4u(u−1)<0, excluding factorization into independent positive-coupling star leaf factors."
+        ],
+        "reasoning": "Blaschke and Poisson representations make the close relationship explicit but do not make the two interaction models equivalent. The resulting angular shapes are provably incompatible.",
+        "searches": [
+          "Lee Yang Ising zeros partition function friendship graph windmill graph triangles shared vertex off axis density decorated star",
+          "arXiv:1806.00403v2, Proposition 1.1",
+          "Resultary inhomogeneous-star record fd8334aa6b45"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact friendship-graph hit is the assigned record itself. The distinct earlier inhomogeneous-star record gives simple circle zeros, mixture densities and low-angle scaling for the ordinary star, with a uniform upper bound q_*<1 in the limiting-density theorem."
+        ],
+        "reasoning": "The closest indexed earlier result provides a strong prior method and a comparator, but no exact friendship-graph density or bimodality theorem.",
+        "searches": [
+          "Resultary records c1b1bf42bcaf and fd8334aa6b45"
+        ]
+      },
+      "rationale": "Circle location, simplicity for connected ferromagnets, phase quantization via Blaschke products, and the star-kernel mechanism are prior. The supported distinct claim is a two-peak transition in shape under triangle decoration at every fixed positive finite coupling, with exact peak locations and a strict obstruction to matching by heterogeneous ordinary stars. The generic methods do not by themselves determine this shape.",
+      "residual_risks": [
+        "The targeted search and inspected prior passages do not exclude an unindexed friendship-graph or repeated-block calculation. No claim of exhaustive priority or a new circle/simplicity theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct comparator and method overlap; no decorated-star density equivalence",
+          "evidence": [
+            "The original star theorem represents the limiting density as mixtures of ordinary star kernels with q_j≤q_*<1."
+          ],
+          "identifier_or_url": "Resultary 2026/10/12/SCOPE-coupling-law-tomography-from-lee-yang-zeros-of-inhomogeneous-isi--fd8334aa6b45",
+          "material_read": "RESULT.md, offsets 0–4857 and 6800–10073 including assumptions and limitations",
+          "method": "Bounded local mirror reading",
+          "title": "Coupling-law tomography from Lee–Yang zeros of inhomogeneous Ising stars",
+          "trigger": "Strongest prior shared-hub phase, density and leading-angle result"
+        },
+        {
+          "assessment": "Phase precedent; Cayley-tree scope does not cover the triangular-petal model",
+          "evidence": [
+            "Iterated Blaschke products describe Cayley-tree zeros; depth one is a uniform star."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1806.00403v2",
+          "material_read": "Proposition 1.1, OA offset about 2200",
+          "method": "Bounded open-access theorem passage",
+          "title": "Limiting Measure of Lee–Yang Zeros for the Cayley Tree",
+          "trigger": "Open primary Blaschke framework for growing tree graphs"
+        },
+        {
+          "assessment": "Exact broader coverage of finite simplicity, not an implication of the peak classification",
+          "evidence": [
+            "Proposition 1 attributes simple Lee–Yang zeros for connected graphs of strictly positive interactions to Nishimori and Griffiths. The main work concerns trajectories under edge-coupling changes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2208.00917v1",
+          "material_read": "Abstract and Proposition 1 with Corollary 1, p. 6 (offset about 23970)",
+          "method": "Open-access primary PDF passages",
+          "title": "Motion of Lee–Yang Zeros",
+          "trigger": "Possible general connected-graph coverage of the finite simplicity assertion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (2)–(4) and star comparison",
+        "Resultary prior star result fd8334aa6b45",
+        "Connected-graph simplicity comparison in arXiv:2208.00917v1"
+      ],
+      "rationale": "The exact two-peak law demonstrates a qualitative change under a simple graph decoration, at every fixed positive coupling. More strongly, it rules out reproducing that change by arbitrary positive bond heterogeneity on the ordinary star. The density shape and closest-zero scale supply a useful exact high-degree comparison; circle location and finite simplicity alone would not justify the contribution.",
+      "residual_risks": [
+        "No claim of a bulk phase transition or a general classification of decorated or bounded-degree graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

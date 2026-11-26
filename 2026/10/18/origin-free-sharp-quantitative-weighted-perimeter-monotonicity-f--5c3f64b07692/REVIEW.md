@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The angular integral is exact and its logarithmic derivatives follow from the standard Bessel identity. The comparison barrier for the tilted-sphere coordinate mean follows from an explicit Riccati crossing argument with verified endpoint signs. The linear interpolation of nested balls maintains a center-motion speed bounded by its radius-growth speed and furnishes the all-dimensional logarithmic gap. Tonelli proves positive-mixture closure. The lambda-zero concentric limit establishes sharpness; negative lambda is excluded sharply by an explicit counterexample. The standalone script passed 720 inclusion inequalities and 800 ratio barriers; these tests are supplementary, not a substitute for the proof.
+## correctness
 
-**Originality — PASS, subject to the stated priority risk.** Csató–Giovagnoli (arXiv:2610.11677v1, Sections 1 and 3) handle general convex bodies with the origin condition and give counterexamples without it; they do not present this unrestricted-center ball-specific inequality, an exponential-mixture theorem, or the quantitative sharp factor. Saracco–Stefani (arXiv:2306.07770, Theorem 1.1) exclude monotonicity of nonconstant weights over *all* convex bodies, not over balls. Segura's Bessel-ratio paper provides established special-function methods, rather than the new geometric implication. Queries against published research findings for shifted nested spheres and Bessel monotonicity revealed no equivalent or stronger theorem. An older unindexed special-function argument might imply the same inequality, which remains a substantive residual priority risk.
+PASS
 
-**Value — PASS.** The necessity of an origin condition for weighted-perimeter inclusion on general convex bodies creates a natural geometric boundary question: can a substantial subfamily admit origin-free inclusion monotonicity? The affirmative all-dimensional answer for Euclidean balls is quantitatively sharp, remains nontrivial under center motion, and persists for positive mixtures. The negative-exponent counterexample classifies the entire exponential parameter family. This supplies a usable comparison inequality in geometric and weighted surface-area estimates, not merely an isolated numerical example.
+The spherical parametrization gives the displayed log-energy formula, with m(z) the tilted first-coordinate mean (zero at zero, strictly between zero and one for z>0). Differentiating the Bessel formula gives m'=1-m²-(d-1)m/z. At contact with g=1-c/z for z>c=d-1≥1, m'-g'=c(z-1)/z²>0; m(c)>0 rules out downward crossing. The radial derivative minus the center-radius derivative is c/r-2λ(s-r)(1-m); this is at least c/r for s≤r, and at least c/s for s>r by the bound (the zero-center and zero-parameter cases use the continuous angular formula). In the affine interpolation of centers and radii, |s'|≤R-r a.e., the center-radius derivative is nonnegative, and max{s_t,r_t}≤M. Integration gives the stated gap, including internal tangency or passage through the origin. Tonelli preserves the common multiplicative factor; the moment assumption gives finite positive energies. At zero parameter and zero centers the ratio reduces to log(R/r), giving uniform sharpness as r approaches R. For negative λ the concentric log derivative is c/r+2λr, eventually negative. Inspected RESULT.md §§1–5 and checker.py: angular quadrature and barrier tests are finite floating-point checks, reported but not rerun.
 
-**Scientific limitations.** No monotonicity for general convex bodies or all increasing radial weights is claimed. No best coefficient for each fixed positive lambda is claimed. No independent external scientific audit or exhaustive historical priority review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the sharp quantitative log-energy comparison for moving centers without an origin-containment condition, in every d≥2, and its positive-mixture form. The Bessel barrier is not new, mixture closure is a corollary, and several nearby qualitative statements are already known. None of the compared geometric results gives the required combination of gap, unrestricted nested-ball centers and dimension.
+
+## value
+
+PASS
+
+Origin-free inclusion is false in the ambient class of arbitrary convex bodies. This identifies a natural subfamily with an explicit, uniformly optimal strict gap, controls simultaneous center motion and radius growth, and distinguishes precisely the permissible exponential signs. The gap is not just qualitative monotonicity or a concentric special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

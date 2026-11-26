@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:05:15.948265Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–38",
+        "VERIFICATION.md and verify.py, read as evidence",
+        "/workspace/branches/independent_finite.py (independent reproduction)"
+      ],
+      "rationale": "Acyclic input gives exactly strict reachability: when a pair is not reachable, adjoining its reverse does not create a cycle and a topological order witnesses nonentailment. Cyclic input has no models and closes to all oriented pairs. Each two-edge directed path missing its shortcut, and each opposite-arrow pair, forces an exact premise in any iterative basis: no proper subset allows the first nontrivial inference. These rules suffice. For simultaneous directness a path's endpoints force its entire simple-path premise, and a proper cycle forces its entire premise by choosing a conclusion incident to an outside vertex. A spanning directed cycle needs only its proper path premises, which already supply every missing oriented pair. Counting the distinct path and cycle premises gives the two displayed sums; the cycle sum divided by n! tends to zero by splitting at n/2. Midpoint subdivision adds comparisons along paths of length at most 2^t in t rounds. A proper cycle yields an opposite-arrow pair by L−1 using forward cyclic distances at most ceil((n−1)/2), whereas a spanning cycle yields all pairs by L without explosion. A spanning path forces L rounds in the stated iterative basis. An independent finite closure-from-models calculation counted minimal nonclosed sets and premises compelled in one round for n=3 and 4, giving (9,9) and (30,62). The combinatorial proof, not this enumeration, covers all n.",
+      "residual_risks": [
+        "Counts are grouped by premise, with no auxiliary attributes and strictly simultaneous firing. The depth is for the displayed iterative basis, not a lower bound for unrestricted-size bases."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adaricheva–Nation–Rand state the general minimum-count property of the Duquenne–Guigues basis and distinguish direct computation from an ordered pass.",
+          "Baixeries–Napoli discuss the general minimum-versus-direct distinction.",
+          "The Cartesian-box and projective-geometry statements apply to box completion or projective span, not to any arbitrary finite closure with this count and depth."
+        ],
+        "reasoning": "General basis theory applies but leaves the pseudo-intents and minimal supports of this incidence model to be identified. In particular, its use does not decide which simple directed cycles are new direct premises, or the exact round when they cause explosion.",
+        "searches": [
+          "arXiv:1110.5805v3 pp. 1–2",
+          "arXiv:2404.12229v2 §1",
+          "Resultary Cartesian-box and finite projective geometry Horn basis records"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1110.5805v3",
+        "arXiv:2404.12229v2",
+        "Four local Resultary records listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-edge paths and opposite-arrow pairs are exactly the pseudo-intents in this model: any nonclosed input fails transitivity or contains a two-cycle, so any larger nonclosed input contains a two-edge pseudo-intent whose closure is not contained in it.",
+          "The same-day Hamiltonian-cycle incidence record has undirected edges as attributes and spanning cycles as models; the frozen record uses a directed spanning cycle as an inconsistent input, for which path firing already produces E."
+        ],
+        "reasoning": "The classical minimum theorem certifies minimality after the model-specific identification, not the identification, factorial direct count, or sharp cyclic-versus-acyclic round bound. The adjacent catalogue findings have no implication that supplies those model-specific statements.",
+        "searches": [
+          "arXiv:1110.5805v3 pp. 1–2",
+          "arXiv:2404.12229v2 §1",
+          "Resultary: SCOPE-hamiltonian-cycle-incidence-closure-exact-closed-sets-and-optima--7831ae36f111, Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md line 25 identifies the exact closure as strict reachability on DAGs with explosion to E on all cyclic graphs.",
+          "The permutation-matrix incidence record SCOPE-perfect-matching-implication-lattices-sharp-horn-bases-and-chess--28b8e1164b5d uses cells, not comparisons; its compatible objects complete partial matchings, not transitive reachability."
+        ],
+        "reasoning": "The same permutation objects can give different closure operators when the attributes change. Restricting to complete tournaments also removes the sparse path premises that force the direct count. Neither ordinary DAG reachability without explosion nor tournament consistency alone gives the frozen finding.",
+        "searches": [
+          "Resultary: linear-order pairwise comparison/precedence closure, direct and iterative Horn basis",
+          "Primary literature: order constraints, acyclic digraphs, canonical direct basis and minimum implications"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest named exact catalogue records count rules for edge attributes of undirected Hamiltonian cycles or cell attributes of matchings. Neither supplies a count/table for the oriented comparison attributes and all linear orders."
+        ],
+        "reasoning": "The catalogue statements count different invariants of different closure operators. The small n values here illustrate a formula over every n, rather than recompute a found table.",
+        "searches": [
+          "Resultary local mirror: SCOPE-hamiltonian-cycle-incidence-closure-exact-closed-sets-and-optima--7831ae36f111",
+          "Resultary local mirror: SCOPE-perfect-matching-implication-lattices-sharp-horn-bases-and-chess--28b8e1164b5d",
+          "Resultary searches for exact direct and iterative counts for linear-order comparisons"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact paired minimum counts and depth for the oriented-comparison closure, in particular the precise proper-cycle versus Hamiltonian-cycle boundary for the minimum direct basis. Generic minimum/direct basis theory, transitive closure and parallel doubling are established background. None of the inspected closest statements supplies the specialized path/cycle classification or its counts.",
+      "residual_risks": [
+        "An equivalent premise count under database dependencies, order constraints, or Horn prime-implicate terminology may be unindexed or absent from the bounded lookup."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies general framework, not this closure calculation",
+          "evidence": "The canonical basis minimizes rule count; the D-basis uses a prescribed ordered pass, not simultaneous directness.",
+          "identifier_or_url": "https://arxiv.org/abs/1110.5805",
+          "material_read": "Version 3, pp. 1–2, DG minimum and direct versus ordered-direct computation",
+          "method": "Open primary PDF, bounded passages",
+          "title": "Ordered Direct Implicational Basis of a Finite Closure System",
+          "trigger": "Strongest plausible general coverage via basis theory"
+        },
+        {
+          "assessment": "General tradeoff only",
+          "evidence": "Defines grouped implications and contrasts DG minimality with direct computation.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.12229",
+          "material_read": "Version 2, §1 p. 1",
+          "method": "Open primary PDF, bounded passage",
+          "title": "A minimal base or a direct base? That is the question!",
+          "trigger": "Minimum-versus-direct comparison"
+        },
+        {
+          "assessment": "Close vocabulary, distinct closure and count; no within-day priority inferred",
+          "evidence": "Objects are undirected Hamiltonian cycles, and attributes are their edges.",
+          "identifier_or_url": "SCOPE-hamiltonian-cycle-incidence-closure-exact-closed-sets-and-optima--7831ae36f111",
+          "material_read": "Mirrored RESULT.md finding and model/attribute scope",
+          "method": "Local catalogue and mirror",
+          "title": "Hamiltonian-cycle incidence closure: exact closed sets and optimal one-round Horn bases",
+          "trigger": "Same-day adjacent exact count using Hamiltonian cycles"
+        },
+        {
+          "assessment": "Distinct incidence encoding",
+          "evidence": "Permutation matrices give cell attributes; closure is based on matching completion.",
+          "identifier_or_url": "SCOPE-perfect-matching-implication-lattices-sharp-horn-bases-and-chess--28b8e1164b5d",
+          "material_read": "Mirrored RESULT.md finding and model/attribute scope",
+          "method": "Local catalogue and mirror",
+          "title": "Perfect-matching implication lattices: sharp Horn bases and chessboard topology",
+          "trigger": "Permutations as objects and grouped rule count"
+        },
+        {
+          "assessment": "Different family of closures",
+          "evidence": "Pseudo-intents are pairs of points, and depth is for integer-box completion.",
+          "identifier_or_url": "SCOPE-minimal-implication-bases-for-finite-cartesian-box-closure-have--1ecaeca96ad2",
+          "material_read": "Mirrored RESULT.md theorem",
+          "method": "Local catalogue and mirror",
+          "title": "Minimal implication bases for finite Cartesian box closure have sharp logarithmic parallel depth",
+          "trigger": "Matching minimum-basis and logarithmic depth pattern"
+        },
+        {
+          "assessment": "Different family of closures",
+          "evidence": "The geometry rules generate projective span from lines, not consistency of comparisons.",
+          "identifier_or_url": "SCOPE-sharp-logarithmic-line-closure-depth-and-direct-horn-basis-infla--edeed85c91bf",
+          "material_read": "Mirrored RESULT.md theorem",
+          "method": "Local catalogue and mirror",
+          "title": "Sharp logarithmic line-closure depth and direct Horn-basis inflation in finite projective geometries",
+          "trigger": "Matching sharp depth and direct count pattern"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md finding, direct premise lower bounds and depth proof; general direct and ordered-direct theory compared above"
+      ],
+      "rationale": "Linear precedence constraints are a natural closure model with consistency and transitivity. On exactly the same attributes the result quantifies the cost of insisting on one simultaneous pass: factorial many grouped premises instead of cubic many with logarithmic depth. The reason proper cycles but not spanning cycles require new direct premises identifies which inconsistent inputs cause additional rules; this is not just standard transitive-closure doubling.",
+      "residual_risks": [
+        "This is a grouped-rule count and synchronous depth gap, not a claim about running time, unit rules, or an ordered pass."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:18:26.128599Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The three anticanonical cubics cut out exactly the seven points, and at a point with, for example, X nonzero the first derivatives in the Y and Z directions give independent linear terms. Thus -K is nef and big. Adjunction and Cauchy–Schwarz reduce nonexceptional negative curves to degrees at most two (-2) or three (-1). Every five-point subset contains a Fano triple (deleting two points meets only five of seven lines); Bézout eliminates the proposed conics and the cubic with a double point. The remaining curves and their weights are exactly the stated seven of each type. Every three-vertex star has determinant zero, for either choice of center weight; the permitted isolated vertices and edges give negative-definite blocks. Over the finite field a fixed support descends as a reduced effective divisor; the ample-plus-support construction has positive-part null locus exactly the support and gives an interior divisor. An independent enumeration using Fano line triples {a,b,a xor b}, all incidence-preserving point permutations and admissible point/line pairs reproduced all five size polynomials, the 54 group orbits with multiplicities (3,10,8,12,4,16,1), and centralizer order seven for each of the 48 order-seven elements. All seven points and, separately, all seven lines are transitive under an order-seven element, so exactly the two pure supports and the nef support survive. The result is only for the specified collineation twists, not graph dualities. Replay: python3 /workspace/branches/independent_arithmetic.py. The frozen verifier was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general chamber criterion supplies the negative supports and interior construction, not the twisted arithmetic tables. The larger 336-element automorphism calculation gives homology and rational quotient homology, not orbit sizes on supports. The other degree-two chamber spectrum is for odd-characteristic general-position blowups with 33645 chambers, not this 2257-support weak del Pezzo surface."
+        ],
+        "reasoning": "Neither the broader graph automorphism group nor a larger general-position chamber count is a dominating classification of the invariant asked for here.",
+        "searches": [
+          "Bauer–Funke–Neumann arXiv:0912.0958v1 Proposition 1.1 and Remark 1.2",
+          "Resultary 6ab644e78016, Finding",
+          "Resultary 0820b646831a, Heawood Ind_2, Steps 3–5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3bea24e31a7b",
+        "Resultary 0820b646831a and its verifier",
+        "Resultary 6ab644e78016",
+        "arXiv:0912.0958v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior checker tests mapped_face(f,p)==f while accumulating a single signed Lefschetz sum for each permutation; it does not tally unsigned fixed faces by size, stabilizers, or group orbits. The earlier blowup theorem and general support criterion supply the geometry, not the arithmetic orbit calculation."
+        ],
+        "reasoning": "The unsigned rows are easy to obtain by instrumenting that prior enumeration; the same fixed pairs are visited, a material algorithmic overlap. The published aggregated character and support sizes do not determine how many faces of each size are fixed or the stabilizer-size distribution. The arithmetic interpretation needs the invariant-support realization, and the explicit group orbit census requires a different aggregation of the action, not substitution into the stated homology theorem.",
+        "searches": [
+          "0820b646831a RESULT.md offset 3850 and verify_heawood_ind2.py offset 4750",
+          "3bea24e31a7b RESULT.md sections 2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2256 nonempty faces of Ind_2(Heawood) equal the non-nef supports. Its published class signatures report fixed vertices and top-homology trace, not all fixed faces by cardinality."
+        ],
+        "reasoning": "The graph equivalent is the unsigned fixed-dissociation-set profile under the bipartition-preserving group and its action's orbit-size distribution. The alternating trace includes orientation signs and cancellations, and is not that profile.",
+        "searches": [
+          "Resultary: Heawood higher-independence/dissociation supports, Fano-plane Zariski chambers, and collineation orbits",
+          "Resultary Heawood Ind_2 RESULT.md, Step 4 and verifier"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3bea24e31a7b gives exactly (1,14,91,322,651,728,392,58) and 2257; 0820b646831a gives the same nonempty face vector and a different signature table. Neither inspected table gives the four nonidentity fixed-size rows or the subgroup orbit-size histogram."
+        ],
+        "reasoning": "Credit the exact split row; numerical nonmatches of the remaining entries are not by themselves evidence of absolute historical priority.",
+        "searches": [
+          "Local Resultary: characteristic-two Fano plane blowup and Heawood two-independence",
+          "Mirrored 3bea24e31a7b Finding and §§2–4; 0820b646831a verification and class signatures"
+        ]
+      },
+      "rationale": "The support complex and split polynomial are exactly prior work. The additional arithmetic descent classification and the unsigned subgroup orbit-size census are distinct from the preceding Heawood homotopy and orientation-signed Lefschetz results. Their known incidence computation is directly reusable; the conclusion is a bounded assessment of the different numerical result, not priority for computing the Heawood action.",
+      "residual_risks": [
+        "Earlier code already traverses all fixed faces for a different statistic; the unsigned rows admit a short modification of that procedure.",
+        "External primary-literature coverage is bounded; an unindexed equivariant dissociation-set enumeration could overlap. No claim of absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior split geometry and polynomial, no arithmetic twist or group-orbit classification in the inspected result",
+          "evidence": [
+            "Fourteen negative curves, induced degree <=1 and 2257 total."
+          ],
+          "identifier_or_url": "Resultary 3bea24e31a7b",
+          "material_read": "Mirrored RESULT.md Finding and Proof §§2–4, offsets 0 and 5953",
+          "method": "Configured local search and exact mirrored record comparison",
+          "title": "Zariski chambers of the characteristic-two Fano-plane blowup",
+          "trigger": "Identical characteristic-two blowup and supports"
+        },
+        {
+          "assessment": "Same underlying complex and fixed-face loop, different signed output; direct method reuse acknowledged",
+          "evidence": [
+            "All 336 automorphisms contribute signed fixed-simplex terms to the homology character; bipartition-preserving subgroup has order 168. No unsigned fixed-size or face-orbit table in those passages/code outputs."
+          ],
+          "identifier_or_url": "Resultary 0820b646831a",
+          "material_read": "Mirrored RESULT.md Finding, Steps 1 and 3–5, class signatures; VERIFICATION.md; verify_heawood_ind2.py offset 4750",
+          "method": "Exact passage and algorithm comparison",
+          "title": "Heawood two-independence homotopy and the full rational augmentation action",
+          "trigger": "Equivalent degree-at-most-one sets and full graph automorphism action"
+        },
+        {
+          "assessment": "Different surfaces and symmetry action; not a subsuming result",
+          "evidence": [
+            "Odd fields, general-position blowups, Geiser twists, 33645 geometric chambers."
+          ],
+          "identifier_or_url": "Resultary 6ab644e78016",
+          "material_read": "Mirrored Finding",
+          "method": "Compare input models and support census",
+          "title": "Thirty Frobenius chamber spectra for seven-point degree-two del Pezzo surfaces",
+          "trigger": "Neighboring arithmetic chamber classification"
+        },
+        {
+          "assessment": "Foundational support and interior-divisor criterion, not collineation enumeration",
+          "evidence": [
+            "Negative-definite supports can be realized by ample plus high positive multiples of the supporting curves."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/0912.0958v1",
+          "material_read": "Proposition 1.1 and Remark 1.2 (HTML offset 6197)",
+          "method": "Primary-text statement and proof comparison",
+          "title": "Counting Zariski chambers on Del Pezzo surfaces",
+          "trigger": "General support correspondence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a distinguished weak del Pezzo surface, a complete negative-component classification for every collineation twist gives a precise arithmetic invariant of its big cone, including order-seven disappearance of every intermediate support size. The 54-orbit stabilizer spectrum gives the symmetry types of the full support family. These are meaningful for chambers of divisors over the base field; the already known untwisted 2257 count and known signed homology character do not supply those two classifications.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

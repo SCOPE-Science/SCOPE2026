@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:31:52.657582Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–51",
+        "VERIFICATION.md:19–25 and verify.py",
+        "Independent check: python3 /workspace/branches/frozen_math_reproduction.py quantum; over GF(5), tested generator maps by the full radical multiplication table for the two generic parameters, checked 400 maps for each parameter pair, directly counted fixed elements of each automorphism, and tested all 64 radical subspaces by left/right multiplication, giving 10 ideals including the algebra."
+      ],
+      "rationale": "The ideal spanned by x,y,z is nilpotent and the quotient is k, so it is the radical; its square is kz. Over the stated field, a radical element ux+vy+wz has square (1+lambda)uvz, so each column of an invertible square-zero generator change on J/J² is supported on one coordinate, and the columns lie on opposite axes. Preserving the mixed relation excludes an antidiagonal automorphism since lambda²≠1, leaves independent nonzero diagonal entries and unrestricted central shifts, and forces z to scale by the diagonal product. Between parameters a diagonal change requires equality, and a swap requires inversion and realizes it. The inversion classes have size two, including in characteristic two, yielding the stated counts and unboundedness. In f−1, if a,b,ab all differ from one the radical rank is three. If exactly one of a,b,ab equals one it is two, with 3(q−2) choices of the diagonal pair. At a=b=1 it is one except for the identity, where it is zero. Including the unit gives the displayed fixed-space counts. At each scalar value, support on the two radical quotient axes and, for zero support, whether z has a nonzero coefficient determine the five element orbits; the central shifts act transitively on the z coefficient for nonzero support. Any proper ideal lies in J and any element outside kz produces a nonzero multiple of z on multiplication by a generator. Thus the intermediate ideals are exactly the inverse images of projective lines in J/J², with the two coordinate lines fixed and all mixed lines in one orbit. Finally the z-coefficient pairing is Frobenius and gives Nakayama eigenvalues lambda and lambda⁻¹ on J/J²; changing the Frobenius functional changes the automorphism by an inner factor, which acts trivially modulo J².",
+      "residual_risks": [
+        "The independent GF(5) test is one odd field, where the two generic parameters are reciprocal; it does not independently test a pair of nonisomorphic generic parameters. The proof handles those pairs and characteristic two.",
+        "The frozen script's ideal enumeration uses the derived containment-of-z criterion, not independent left/right multiplication; its parameter-class loop constructs inversion pairs rather than exhaustively checking inter-parameter isomorphisms. Neither limitation affects the symbolic arguments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "De Graaf writes down the central-extension cocycle action over arbitrary fields and lists the isomorphism classes; the stabilizer equations for A_{3,4}^delta are not given in the table, and the later classification crosswalk gives no such action census.",
+          "Shepler–Uhl identify the corresponding graded automorphism groups in characteristic not two; this is the degree-preserving component and does not include the two shifts into the degree-two socle. Djoković's ordinary exterior group concerns the excluded parameter lambda=−1."
+        ],
+        "reasoning": "A general action for classifying cocycles sets up the stabilizer problem but does not state its generic solutions in common split coordinates. A graded result does not compute the ungraded statistics and does not extend its stated characteristic assumption to characteristic two.",
+        "searches": [
+          "arXiv:1009.5339v2 §5 action on cocycles of A_{2,1}",
+          "arXiv:2508.04104v4 §6 nilpotent classification crosswalk",
+          "Shepler–Uhl, Automorphisms of quantum polynomial rings and Drinfeld Hecke algebras, pp. 1–2, eq. (1.1)",
+          "DOI:10.4153/CJM-1978-111-5 exterior automorphisms"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1009.5339v2",
+        "arXiv:2508.04104v4",
+        "Shepler–Uhl original PDF",
+        "arXiv:1405.5325",
+        "arXiv:math/0407108, p. 1",
+        "DOI:10.1017/S0004972708000312, p. 35",
+        "arXiv:0909.5568, p. 1",
+        "DOI:10.4153/CJM-1978-111-5, p. 1336",
+        "Resultary and the named published findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "De Graaf's theorem does imply the isomorphism classification after the displayed change of basis. To deduce a generic group from the action setup one must solve Pᵀ[[0,1],[lambda,0]]P=s[[0,1],[lambda,0]], imposing the actual stabilizer instead of classifying its orbit; the split square-zero directions and mixed relation give the nonzero diagonals, s=ab, followed by the free socle shifts. The prior exact-family derivation spectrum uses the shears but does not exhaust all automorphisms. The later retraction article does exhaust the generic automorphisms."
+        ],
+        "reasoning": "Credit both the mechanical isomorphism consequence and the partial symmetry ingredients. The additional finite-field comparison concerns the full common faithful action, fixed-space dimensions and the ideal geometry, not a restatement of the classification of forms or derivations. The later group calculation corroborates overlap without disqualifying priority relative to the inspected earlier statements.",
+        "searches": [
+          "arXiv:1009.5339v2 §5, A_{3,4}^delta and preceding GL₂ action",
+          "arXiv:2508.04104v4 §6",
+          "2026/10/12/SCOPE-idempotent-derivations-and-rank-spectra-of-radical-cube-zero-qua--fe209f246957",
+          "2026/11/2/SCOPE-a-sharp-retraction-compatibility-transition-in-four-dimensional--0ecfe14093fe, Finding and proof §§1,4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "De Graaf's A_{3,4}^delta radical has a²=c, b²=delta c, ab=c, ba=0. Set a=x+y, b=(lambda x−y)/(lambda−1), c=(1+lambda)z. Then delta=−lambda/(lambda−1)² and equality of delta is equivalent to (lambda−mu)(1−lambda mu)=0. His classification therefore gives the exact isomorphism criterion in the frozen characteristic range via unitalization.",
+          "The Nakayama eigenvalue set {1,rho,rho⁻¹} in Lambre–Zhou–Zimmermann is the same data with rho=lambda⁻¹ (and is the radical-quotient pair after dropping the unit/socle eigenvalue). Together with generator exchange this is a second route to the earlier isomorphism classification."
+        ],
+        "reasoning": "The isomorphism criterion and its spectral witness are not new. The same-algebra equivalence does not itself establish the full embedded automorphism action or its finite element and ideal statistics.",
+        "searches": [
+          "Resultary: parameter-independent full automorphism action on finite-field two-generator quantum exterior algebras",
+          "Web: automorphism group quantum exterior algebra four-dimensional parameter lambda quantum complete intersection isomorphism classification",
+          "arXiv:1009.5339v2 §5, A_{3,4}^delta",
+          "arXiv:1405.5325 Remark 3.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 12 fixed-space spectrum treats the ordinary two-generator exterior algebra in odd characteristic, with 3q rather than 5q element orbits. The distinct same-day short-local-algebra record classifies commutative algebras; sometimes it also has five support orbits per scalar, but its orbit-size multisets differ.",
+          "The November 2 retraction-compatibility article gives nonzero diagonal quotient matrices and two free central coordinates for this same generic algebra (reciprocal parameter convention). Its normal form implies the very same full linear subgroup and order, but it is dated later and its stated tables concern endomorphisms and retractions."
+        ],
+        "reasoning": "Exact generic-group overlap with the November record is genuine, not a title match, and must be separated from priority. The earlier exterior table does not apply at the generic parameters, and no simultaneous earlier generic action census was established.",
+        "searches": [
+          "Resultary: generic quantum exterior fixed-space rank and ideal orbits",
+          "2026/10/12/SCOPE-fixed-space-spectrum-of-automorphisms-of-the-two-generator-exter--d65e5b9dcbcf",
+          "2026/10/13/SCOPE-element-orbit-strata-of-four-dimensional-short-local-algebras-ov--c17e7c7434d6",
+          "2026/11/2/SCOPE-a-sharp-retraction-compatibility-transition-in-four-dimensional--0ecfe14093fe"
+        ]
+      },
+      "rationale": "The algebra family, the exact equality-or-inverse isomorphism classification, and Nakayama data are prior; the graded automorphism component and central shears also have relevant antecedents. The supported distinct contribution is the simultaneous equality of the full ungraded linear actions in the stated split coordinates in all finite characteristics, together with the associated complete fixed-space, element and ideal orbit comparison across the generic classes. The earlier classification supplies the isomorphism fibers, but an additional stabilizer computation and analysis of the action are required. A later catalogue record independently supplies the full normal form, not evidence of prior coverage of the frozen record.",
+      "residual_risks": [
+        "Earlier low-dimensional graded-automorphism references cited by Shepler–Uhl were not all independently read; a fuller earlier explicit stabilizer or orbit description remains possible. The novelty conclusion is bounded to the demonstrated action-level distinction and the inspected comparisons, not the known isomorphism classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_ISOMORPHISM_CRITERION_PRIOR_NOT_FULL_ACTION_CENSUS",
+          "evidence": "Gives the class a²=c, b²=delta c, ab=c, ba=0 and identifies members exactly by delta. The Gröbner-basis details do not list its full automorphism stabilizer.",
+          "identifier_or_url": "https://arxiv.org/pdf/1009.5339v2",
+          "material_read": "§5, PDF pp. 6–7, cocycle action and A_{3,4}^delta class",
+          "method": "OA PDF bounded classification passage with explicit basis reduction",
+          "title": "Classification of nilpotent associative algebras of small dimension",
+          "trigger": "Stronger dimension-three nilpotent classification, applicable to J over arbitrary fields"
+        },
+        {
+          "assessment": "CLASSIFICATION_CROSSWALK_NOT_STABILIZER",
+          "evidence": "Reproduces de Graaf's nilpotent list and identifies the corresponding class at t=delta.",
+          "identifier_or_url": "https://arxiv.org/pdf/2508.04104v4",
+          "material_read": "§6 nilpotent comparison, PDF p. 11",
+          "method": "OA PDF bounded passage",
+          "title": "On three-dimensional associative algebras",
+          "trigger": "Potentially stronger low-dimensional tables"
+        },
+        {
+          "assessment": "RELATED_GRADED_ACTION_ODD_CHARACTERISTIC",
+          "evidence": "Identifies the graded automorphism groups of associated quantum polynomial and exterior algebras, with characteristic not two; it does not give the full ungraded matrix action and orbit profile.",
+          "identifier_or_url": "https://sites.math.unt.edu/~ashepler/papers/UhlShepler.pdf",
+          "material_read": "PDF pp. 1–2, eq. (1.1) and stated hypotheses",
+          "method": "OA PDF bounded passages",
+          "title": "Automorphisms of quantum polynomial rings and Drinfeld Hecke algebras",
+          "trigger": "Earlier quantum exterior automorphism theory"
+        },
+        {
+          "assessment": "NAKAYAMA_WITNESS_PRIOR",
+          "evidence": "Gives the eigenvalue set {1,rho,rho⁻¹} for the same algebra with reciprocal parameter convention.",
+          "identifier_or_url": "https://arxiv.org/pdf/1405.5325",
+          "material_read": "Remark 3.6, PDF p. 9",
+          "method": "OA PDF bounded passage",
+          "title": "The Hochschild cohomology ring of a Frobenius algebra with semisimple Nakayama automorphism is a Batalin–Vilkovisky algebra",
+          "trigger": "Exact same-family intrinsic spectral invariant"
+        },
+        {
+          "assessment": "SAME_GENERIC_FULL_GROUP_LATER_DATED_RECORD",
+          "evidence": "Nonzero diagonal quotient entries and two free socle coordinates imply the same full embedded subgroup and order. Its main classification is of endomorphisms and retractions.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-retraction-compatibility-transition-in-four-dimensional--0ecfe14093fe",
+          "material_read": "Finding; proof §§1 and 4",
+          "method": "Published record mirror",
+          "title": "A sharp retraction-compatibility transition in four-dimensional quantum complete intersections",
+          "trigger": "Exact generic automorphism overlap"
+        },
+        {
+          "assessment": "SAME_FAMILY_NARROWER_SYMMETRY_FACTS",
+          "evidence": "The n=2 family has the same quadratic-shear automorphisms and the record counts derivation ranks, not full automorphism fixed spaces and orbits.",
+          "identifier_or_url": "2026/10/12/SCOPE-idempotent-derivations-and-rank-spectra-of-radical-cube-zero-qua--fe209f246957",
+          "material_read": "RESULT.md Finding and generic derivation passage",
+          "method": "Published record mirror",
+          "title": "Idempotent derivations and rank spectra of radical-cube-zero quantum complete intersections",
+          "trigger": "Earlier generic-family use of parameter-independent symmetry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:10–51",
+        "arXiv:1009.5339v2 §5",
+        "arXiv:1405.5325 Remark 3.6"
+      ],
+      "rationale": "The exact result gives an unbounded failure of a stronger invariant than abstract automorphism group: even the embedded faithful vector-space action is constant over arbitrarily many nonisomorphic algebras. The matching fixed-space and element-orbit profiles and the seven-orbit action on the actual ideals make this loss explicit, while the prior Nakayama spectrum shows which parameter information remains accessible to another intrinsic invariant. The example is uniform across finite-field characteristics rather than a selected small coincidence.",
+      "residual_risks": [
+        "This value does not attach to reclassifying the already known algebra types. The action fixes k pointwise; semilinear isomorphisms and the exceptional parameters are outside scope."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

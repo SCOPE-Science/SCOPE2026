@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:50:01.023575Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let d=m−1. The degree-three zonal harmonic comes from (x·z)³−3|z|²(x·z)/(d+2) for unit x; normalizing to 1 at z=x gives P₃=( (d+2)t³−3t)/(d−1). The addition theorem with probability surface measure yields K=D_m⁻¹EE* as the matrix of this polynomial at the pairwise inner products. Direct dot products give (m−4)/(2(m−2)) for overlapping pairs and −2/(m−2) for disjoint pairs. With B the unsigned incidence matrix, BB*=(m−2)I+J, so constants, B*(1⊥), and ker B split sample space orthogonally with the stated dimensions. The overlap adjacency is B*B−2I, and the disjoint adjacency is J−I−(B*B−2I). Their joint weights are (2(m−2),(m−2)(m−3)/2), (m−4,−(m−3)), (−2,1). Substitution and clearing 8(m−2)⁴ give the three stated factors; exact integer substitution also matched for 5≤m≤80 in a fresh bounded replay, which does not replace the factorization. All factors are positive for m≥5 except the middle eigenvalue at m=8. There the diagonal spectrum by sector is 4/3,0,4/3 and the nullity is 7; feasible y are exactly those with By constant. The minimal interpolant is (3/(4D_8))E* y because EE* acts on feasible data by 4D_8/3, and it is perpendicular to ker E. D_8=77, yielding the stated norm squared and kernel formula. λ₀−λ₂ factors with the sole zero m=8 on the integer domain, excluding any other flat case. The three sectors refer to invariant summands, not three distinct numerical eigenvalues at resonance. The frozen supporting script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The hypersimplex result covers all subset sizes in its stated range, including k=2 and its exceptional rank 21 at (8,2). The all-degree result covers the same node family and includes degree three explicitly.",
+          "Seidel and Krebs–Shaheen provide the addition-theorem and Johnson-adjacency tools, respectively; these passages do not state this cubic rank classification."
+        ],
+        "reasoning": "A broader theorem that gives the specialized sector spectrum and zero criterion is exact coverage. A method for obtaining the candidate eigenvalues alone is relevant groundwork, not by itself a verified statement of the isolated defect.",
+        "searches": [
+          "af1002126e73, Finding and Johnson sectors",
+          "a9addfb59135, Finding and cubic specialization",
+          "Krebs–Shaheen, On the spectra of Johnson graphs, pp. 1–2",
+          "Seidel, Spherical Harmonics and Combinatorics, §§2–7"
+        ]
+      },
+      "checked_sources": [
+        "af1002126e73",
+        "a9addfb59135",
+        "dca009d35f16",
+        "Seidel 1981 memorandum",
+        "Krebs–Shaheen 2008",
+        "arXiv:1104.4692",
+        "DOI:10.1007/BF03187604 (attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For m=8 the classical equiangular tight-frame geometry plus the cubic addition formula already gives K=(4I−G_lin)/3, since the normalized cubic polynomial equals −t/3 at t=±1/3; G_lin is the linear Gram with nonzero eigenvalues 4. Changing representative signs conjugates the odd-degree Gram by a sign diagonal; the explicit incidence relations correspond to the given representatives.",
+          "The stronger indexed results give the all-m sector data fixing P and D₈; the canonical pseudoinverse reconstruction and 3/308 norm factor then follow algebraically."
+        ],
+        "reasoning": "The known equiangular configuration explains the single exceptional point but not uniqueness across m. Exact indexed sector coverage supplies that quantifier. Appending the canonical inverse for the same flat Gram is not a new spectral assertion.",
+        "searches": [
+          "Seidel §§2–4 (addition theorem and code examples)",
+          "a9addfb59135, explicit cubic coefficients",
+          "af1002126e73, U₁ vanishing criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "af1002126e73 uses centered k-subsets 1_S−(k/n)1 normalized to unit length: k=2 identifies the frozen node vectors exactly.",
+          "a9addfb59135 uses the identical centered edge nodes and explicitly states the same three degree-three Gram factors.",
+          "dca009d35f16 uses root directions e_i−e_j, not centered pair sums."
+        ],
+        "reasoning": "The first two identifications preserve the normalized Gram and sample-space sector decomposition. A root configuration does not preserve the pairwise geometry and is not equivalent merely because it also has simplex-edge nomenclature.",
+        "searches": [
+          "Resultary: Johnson-sector cubic harmonic sampling on centered simplex edge pairs and hypersimplices",
+          "Resultary: all-degree spherical harmonic sampling at regular simplex edge midpoints"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The all-degree entry includes all three matching cubic factors and defect dimension 7.",
+          "The hypersimplex catalog entry includes the exceptional pair (8,2) and the first-sector defect.",
+          "The classical 28-line geometry at m=8 is related but a spherical-code table entry alone does not enumerate cubic ranks for all m."
+        ],
+        "reasoning": "The indexed hits go beyond the same exceptional number: they identify the operators and their sectors on exactly the same node family. Their dates are not evidence of priority.",
+        "searches": [
+          "Resultary a9addfb59135",
+          "Resultary af1002126e73",
+          "Seidel §4 classical spherical-code table"
+        ]
+      },
+      "rationale": "Two distinct indexed findings provide exact coverage rather than merely using the same method. The hypersimplex result specializes at k=2 to these very nodes and degree, with the first-sector defect at (8,2). The simplex-edge all-degree record has the same explicit three eigenvalues, multiplicities and isolated cubic rank defect. Their exact Gram data also fix the flat projection and canonical minimum-norm reconstruction by the pseudoinverse. Both entries have later catalog dates; this is a finding of exact/stronger catalog coverage, not a finding of prior authorship, precedence or dependence. No separate substantial remainder of the frozen claim is left by retaining only the reconstruction or its norm constant.",
+      "residual_risks": [
+        "The indexed chronology does not establish discovery priority or relations among records.",
+        "The 1977 Delsarte–Goethals–Seidel paper and Delsarte's 1978 Hahn-polynomial paper were not accessible in full; any implicit earlier formulation there is unassessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains the k=2 specialization and its isolated rank-21 resonance",
+          "evidence": "Centered k-subsets give exactly the frozen midpoint vectors when k=2; (8,2) loses the first sector of dimension 7.",
+          "identifier_or_url": "2026/10/26/af1002126e73",
+          "material_read": "Finding and U₁ exceptional case, text offsets 0 and 1467–1687",
+          "method": "Resultary and bounded mirrored record text",
+          "title": "Pell resonances in cubic spherical-harmonic sampling on hypersimplices",
+          "trigger": "Strong broader match for cubic evaluation on subset orbits"
+        },
+        {
+          "assessment": "Exact cubic theorem coverage within an all-degree study",
+          "evidence": "Same three normalized cubic factors, degree-three defect of dimension 7 at n=8, and rank classification.",
+          "identifier_or_url": "2026/11/2/a9addfb59135",
+          "material_read": "Finding and cubic explicit formulas, offsets 0 and 3200",
+          "method": "Resultary and bounded mirrored record text",
+          "title": "Exact-degree spherical harmonic sampling of simplex edge midpoints",
+          "trigger": "Same nodes and full Gram comparison"
+        },
+        {
+          "assessment": "Different geometry",
+          "evidence": "Edge directions e_i−e_j, not centered edge midpoints.",
+          "identifier_or_url": "2026/11/2/dca009d35f16",
+          "material_read": "Node definition in Finding",
+          "method": "Resultary comparison and mirrored record text",
+          "title": "Cubic and quintic orthogonality resonances for regular simplex edges",
+          "trigger": "Potential alias of the midpoint orbit"
+        },
+        {
+          "assessment": "Technical ingredients and related configurations, not the full isolated rank statement in inspected passages",
+          "evidence": "Provides Gegenbauer reproducing formula, code bounds, spherical designs and Hahn polynomials.",
+          "identifier_or_url": "https://pure.tue.nl/ws/files/4294066/696891.pdf",
+          "material_read": "§§2–7, including addition theorem and code table, text offsets 5600, 8200, 9800, 13700",
+          "method": "Bounded OA PDF-text comparison",
+          "title": "Spherical Harmonics and Combinatorics",
+          "trigger": "Classical kernel, 28-line geometry and discrete-sphere framework"
+        },
+        {
+          "assessment": "General adjacency eigendata rather than midpoint cubic resonance in the inspected statement",
+          "evidence": "Eberlein-polynomial spectra for Johnson graphs.",
+          "identifier_or_url": "Krebs and Shaheen (2008), On the spectra of Johnson graphs",
+          "material_read": "pp. 1–2, text offsets 700 and 3800",
+          "method": "Bounded OA PDF-text comparison",
+          "title": "On the spectra of Johnson graphs",
+          "trigger": "Potential general Johnson spectral coverage"
+        },
+        {
+          "assessment": "Related Gegenbauer conditions, no direct sample-space rank comparison in inspected passage",
+          "evidence": "Relates real spherical designs to Gegenbauer sums and complex/projective designs.",
+          "identifier_or_url": "https://arxiv.org/abs/1104.4692",
+          "material_read": "pp. 10–11, offsets 26000–28500",
+          "method": "Bounded OA PDF-text comparison",
+          "title": "Complex spherical designs and codes",
+          "trigger": "Possible design-theoretic equivalent rank theorem"
+        },
+        {
+          "assessment": "Unresolved, not evidence against coverage",
+          "evidence": "The original primary text remained unavailable; Seidel's exposition was inspected separately.",
+          "identifier_or_url": "https://doi.org/10.1007/BF03187604",
+          "material_read": "Bibliographic identification only, no accessible full text",
+          "method": "Bounded DOI/publisher/repository attempts",
+          "title": "Spherical codes and designs",
+          "trigger": "Foundational work might contain a specialized equivalent statement"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The natural simplex midpoint orbit yields a uniform interpolation criterion and a unique, structurally explained loss of incidence modes with tight reconstruction on the quotient. This is useful spectral information about harmonic sampling across dimensions; it is not just a table of ranks or an arbitrary numeric case. The failure is on distinct catalog coverage, independent of that mathematical significance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

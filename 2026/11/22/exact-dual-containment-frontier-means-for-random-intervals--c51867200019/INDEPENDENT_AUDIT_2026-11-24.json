@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:54:56.834124Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any continuous common CDF, the transformed endpoints are independent uniforms and have no ties almost surely. Monotonicity then preserves all sampled strict endpoint orders even if the CDF has flat pieces. In the uniform endpoint triangle (u,v), the conditional probabilities of containing a peer and being contained in a peer are respectively (v−u)² and 2u(1−v); others are conditionally independent. Integrating these absence probabilities with density 2 and weight n proves both expectation integrals. For the first, use d=v−u, integrating (1−d²)^(n−1) with weight 2n(1−d); the two terms are n B(1/2,n) and 1. The gamma ratio then gives the stated O(n^(−1/2)) remainder. For the second, integrate in v first, symmetrize u with 1−u, and put s=1−2u on the first half. This gives ∫[1−Q(s)^n]/[1−Q(s)] ds on [0,1] with Q=(1+s²)/2. Expanding the finite series and its binomials gives the claimed sum for all n≥1. To compare with H_n split 2/(1−s²) into 1/(1−s) and 1/(1+s). Since 0≤Q−s=(1−s)²/2 and Q≤exp(−(1−s)/2), the divided power difference integrates to O(1/n); subtracting the Q^n term from the 1/(1+s) integral has O(1/n) cost as well. This proves log n+γ+log 2+O(1/n) and the ratio of expectations only. Independent enumeration of all matchings through seven arcs confirmed both exact means; at n=7 the 135135 matchings give 1619/429 and 140744/45045 respectively. Replay: /workspace/branches/1da99c1c-3c5b-494d-b3bb-bb9d14dce460/independent_matching_check.py and independent_matching_check.txt. The frozen script was inspected, not executed; finite matching tests do not verify asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bai et al.'s abstract describes limit laws for uniform convex polygons, a plausible source for the triangle mean. Primary full-text passages could not be obtained via publisher and identified OA mirror routes; no conclusion about their precise moments or constants follows from the abstract alone.",
+          "Chen et al.'s inspected crossing–nesting symmetry and fixed block endpoint sets are different statistics. The 1990 same-model article could not be independently read through publisher/OA or exact-title lookup."
+        ],
+        "reasoning": "A more general exact planar-region theorem with the specific constant could cover this result, but such a covering statement was not established. The lawful access failures are bounded risks, not exclusion evidence.",
+        "searches": [
+          "Bai et al., Limit theorems for the number of maxima in random samples from planar regions, DOI 10.1214/EJP.v6-76",
+          "Chen et al. arXiv:math/0501230, nesting definitions and matching corollary",
+          "Justicz–Scheinerman–Winkler DOI 10.1080/00029890.1990.11995679"
+        ]
+      },
+      "checked_sources": [
+        "Resultary same-day joint interval-order boundaries and planar corner covariance",
+        "arXiv:math/0501230",
+        "DOI 10.1214/EJP.v6-76 (abstract and bibliographic entry)",
+        "DOI 10.1080/00029890.1990.11995679 (bibliographic material)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tail-summing the precedence product gives the recorded gamma ratio by the finite binomial identity Σ_{r=0}^n 2^(−r) binom(n+r,r)=2^n. Precedence tests whether a fresh interval lies wholly to one side, whereas strict containment tests it against both designated endpoints; the equality of this marginal mean does not imply dominance-region probability 2xy or its resulting explicit B_n.",
+          "Depth statistics describe largest chains, not the number of arcs with no parent or no contained peer. No covering statement for the exact outer count and log 2 correction was established by the accessible comparisons."
+        ],
+        "reasoning": "Credit the exact mean coincidence and limit the scientific novelty decision to the useful distinct dual-containment census and comparison, rather than claiming priority for isolated gamma-ratio values.",
+        "searches": [
+          "Same-day Resultary precedence-boundary Finding and assumptions, RESULT.md offset 0",
+          "Chen et al. primary nesting-depth comparison",
+          "Bai et al. convex-polygon maxima and log-side orientation check, abstract and alternate-retrieval attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With (x,y)=(u,1−v), the sampling density is 2 on x,y>0, x+y<1. Inclusion-minimal intervals correspond to upper Pareto maxima with domination probability (1−x−y)²; inclusion-maximal intervals correspond to lower Pareto minima with probability 2xy. Both are exact equivalences, but neither is the usual independent-coordinate unit-square model.",
+          "Chen et al. count maximum nesting depth and discuss minimal/maximal block elements (endpoint labels), rather than counting arcs not nested in either chosen direction."
+        ],
+        "reasoning": "The orientations distinguish the square-root and logarithmic sides; an upper-triangle maxima result must be checked separately for the opposite orientation and the constant.",
+        "searches": [
+          "Resultary strict interval containment, nesting-free matching arcs, random interval-order boundary counts and triangular Pareto frontiers",
+          "Literature searches for uniform-triangle planar maxima/minima, exact expectation, and Bai–Hwang–Tsai planar-region maxima"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-joint-boundary-counts-of-random-interval-orders-and-independent--65bf5632821e proves the survival product ∏_{j=0}^{k−1}(2n−2j)/(2n−j) for each precedence-extreme count. Summing it gives the same numeric sequence 4^n(n!)²/(2n)!−1 as the inner containment mean. At n=3 the respective inner-containment and precedence histograms on counts 1,2,3 are (2,8,5) and (3,6,6), so the laws are not interchangeable.",
+          "SCOPE-an-exact-negative-corner-count-for-planar-pareto-maxi--db827d47108a concerns a corner-count covariance under independent coordinates, not the uniform endpoint triangle. No verified covering exact table for the logarithmic outer frontier emerged."
+        ],
+        "reasoning": "The same-day precedence result is materially overlapping exact numerical evidence, not the identical assigned result or a priority inference. It matches only the square-root-side expectation value and supplies no logarithmic formula.",
+        "searches": [
+          "Resultary exact containment frontier sizes, precedence-minimal and precedence-maximal interval-order boundary counts",
+          "Resultary exact planar Pareto maxima and triangle frontier means"
+        ]
+      },
+      "rationale": "The supported distinct finding is the quantitative comparison of the two strict-containment frontiers, including the exact outer-frontier mean and its sharp constant. The inner gamma-ratio value also occurs as the mean of a different boundary statistic in a distinct same-day record. Neither a priority claim from dates nor a claim that the gamma-ratio sequence itself is new is warranted. The studied precedence law, matching depth results, and independent-coordinate Pareto results do not give the outer containment mean or the two-frontier comparison.",
+      "residual_risks": [
+        "Exact uniform-triangle Pareto mean formulas or constants may already appear in planar maxima literature; full results of Bai et al. were not accessible via identified routes.",
+        "The full 1990 Random Intervals paper was unavailable; exact containment consequences under the same endpoint model could remain undiscovered.",
+        "The same-day precedence result does not settle priority and is not used to claim novelty of the inner mean sequence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mean sequence overlap for the inner side, distinct order and no outer-volume result",
+          "evidence": [
+            "The stated product tail uses interval precedence, not strict containment. Both precedence frontier means sum to the square-root-side gamma ratio."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-joint-boundary-counts-of-random-interval-orders-and-independent--65bf5632821e",
+          "material_read": "RESULT Finding and assumptions, offset 0, and marginal survival product",
+          "method": "Configured Resultary lookup, local mirror, exact mean comparison",
+          "title": "Joint boundary counts of random interval orders and independent Rayleigh extremes",
+          "trigger": "Same random-endpoint model and exact frontier statistics"
+        },
+        {
+          "assessment": "Does not imply the fringe counts through its stated symmetry",
+          "evidence": [
+            "Crossing and nesting numbers are largest sizes of mutually crossing or nested configurations; the conditioned min/max block elements are endpoint sets."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0501230",
+          "material_read": "Primary PDF abstract p. 1, k-nesting definition p. 2, complete-matching corollary p. 4 (offsets 10600–11200)",
+          "method": "Lawful arXiv PDF, bounded passages",
+          "title": "Crossings and Nestings of Matchings and Partitions",
+          "trigger": "Same matching representation and nesting order"
+        },
+        {
+          "assessment": "Different independent-coordinate law and covariance statistic",
+          "evidence": [
+            "The statement assumes independent coordinates; triangular occupancy is dependent."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-an-exact-negative-corner-count-for-planar-pareto-maxi--db827d47108a",
+          "material_read": "RESULT Finding and assumptions, offset 0",
+          "method": "Configured Resultary lookup and local mirror",
+          "title": "An exact negative corner-count covariance for planar Pareto maxima",
+          "trigger": "Pareto reformulation of opposite containment frontier counts"
+        },
+        {
+          "assessment": "Material priority risk, not an assessed proof of noncoverage",
+          "evidence": [
+            "The abstract asserts asymptotic normality for the maximal-point count under uniform convex-polygon sampling and further planar-region results, but gives no exact formula or constant."
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/EJP.v6-76",
+          "material_read": "Publisher/search abstract and EuDML bibliography only; no full text obtained",
+          "method": "Lawful publisher PDF and full-page routes and identified EMIS PDF routes attempted",
+          "title": "Limit Theorems for the Number of Maxima in Random Samples from Planar Regions",
+          "trigger": "Directly relevant uniform planar regions including convex polygons"
+        },
+        {
+          "assessment": "Article not independently available for statement-level containment comparison",
+          "evidence": [
+            "The frozen abstract account concerns disjoint packing and universal intersection. No scope conclusion about the uninspected complete text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/00029890.1990.11995679",
+          "material_read": "Bibliographic page and search identification only independently; frozen RESULT describes the abstract",
+          "method": "Lawful DOI and publisher direct/alternate attempts and exact-title/author search",
+          "title": "Random Intervals",
+          "trigger": "Foundational article on the exact same interval model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Inner and outer irredundant containment collections are canonical summaries of the same interval sample, not arbitrarily chosen subsets. Exact distribution-free calibration of the logarithmic side, including its constant, and its comparison to the square-root side quantify very different expected summary sizes. This is useful without a claim about concentration or realized ratios; it is not just reusing the known numerical mean of a precedence frontier.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

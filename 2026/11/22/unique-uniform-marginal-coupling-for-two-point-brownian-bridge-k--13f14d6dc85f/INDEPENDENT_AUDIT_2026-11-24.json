@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:27:10.700231Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Noiseless conditioning on the sites, independently of the process, leaves independent residual bridges on the three gaps. Each integrated covariance is h³/12; direct symbolic Schur complementation agrees on distinct interior sites. Collisions and endpoints simply remove zero gaps. The RKHS interpretation uses the Brownian-bridge Dirichlet-energy norm. For the scaled cost 12V, the mixed-half dual deficit is (d-1/2)²(d+1). On the lower same-half triangle the deficit increases in x (strictly away from the corner of separation 1/2), and at x=0 it is (2-y)(1/2-y)². Reflection and exchange give equality exactly at separation 1/2. The dual integral is 3/32, hence every Borel coupling has expected risk at least 1/64; equality support and atomlessness of the first marginal make the shift law unique. Independently, the sum of gap cubes equals 6 times the integral of (t-s) over empty intervals (s,t). The empty-interval probability is at least max(0,1-2(t-s)) by the marginal constraints, and the half-shift realizes this pointwise lower envelope. Integration gives the same sharp bound. Exact independent integrals give 1/40 and 5/192 for independence and reflection. Replay: python /workspace/independent_checks.py 4 (SymPy); original verification notes and script inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The kernel sampling formulation in Briol et al. chooses an i.i.d. law and puts supremum outside the site expectation. Santin optimizes a deterministic maximum of the interpolation power function. The other passages give Bayesian quadrature error bounds and Nyström/landmark analysis."
+        ],
+        "reasoning": "None of those design classes and losses covers this constrained optimization over all Borel couplings. General transport duality sets up a cost-specific certificate; it does not determine its minimizer or equality set.",
+        "searches": [
+          "Briol et al. arXiv:1706.03369 Eq. (3)",
+          "Santin arXiv:2210.15959 Thm. 5",
+          "arXiv:2202.10615 and arXiv:2301.09517"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary mirror, three exact records above",
+        "arXiv:1706.03369",
+        "arXiv:2210.15959",
+        "arXiv:2202.10615",
+        "arXiv:2301.09517"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known shifted design is feasible, but neither its periodic optimality nor the i.i.d. spacing functional guarantees optimality against all uniform couplings for this cost. The cost depends on endpoint gaps as well as interpoint separation."
+        ],
+        "reasoning": "A cost-specific deduction remains even with a known candidate—e.g., a pointwise gap-cost dual inequality or an empty-interval lower-envelope argument and equality analysis. It is not an application merely by renaming the prior risk.",
+        "searches": [
+          "Resultary i.i.d. bridge design and periodic marginally uniform design above",
+          "Briol et al. arXiv:1706.03369 Eq. (3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-unique-optimal-i-i-d-two-node-design-for-brownian-bridge-kernel--1c7b05ec88c4 has the same bridge loss and a variable common i.i.d. marginal.",
+          "SCOPE-sharp-minimax-variance-of-two-marginally-uniform-samples-for-ban--dde341430d54 uses the same half-shift at bandlimit one for a periodic equal-weight estimator.",
+          "SCOPE-antithetic-coupling-uniquely-minimizes-two-stratum-brownian-poly--913020869da7 treats a Brownian polynomial moment with separate stratum restrictions."
+        ],
+        "reasoning": "Neither identical cost with different feasibility nor identical site construction with different loss is equivalent. Randomization is revealed here and the optimized fixed-site weights need not be equal.",
+        "searches": [
+          "Resultary: Brownian bridge two-node quadrature, uniform marginals, half-period shifts and antithetic coupling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary i.i.d. risk is approximately 0.0160494871749 under a nonuniform optimized marginal. The exact periodic bandlimit-one result instead obtains zero variance for its own loss. The deterministic bridge interpolation theorem has neither uniform marginals nor this objective."
+        ],
+        "reasoning": "An exact risk comparison must match both admissible law and criterion; these are scientifically relevant exact lookups, not tables for the same optimum.",
+        "searches": [
+          "Resultary: exact two-node Brownian bridge kernel quadrature optimum and marginally uniform minimax variance",
+          "Brownian bridge exact design, arXiv:2210.15959 Thm. 5"
+        ]
+      },
+      "rationale": "Credit the sharp all-uniform-couplings optimum and equality classification for the Brownian-bridge posterior integral variance, not the shifted lattice, the cubic spacing cost in isolation, or abstract transport duality. The strongest exact overlaps reuse the cost under a different admissible law or the same shift under a different loss. The bounded comparison cannot establish absolute priority.",
+      "residual_risks": [
+        "The bounded catalogue and cited-primary comparison does not exclude an equivalent theorem under interval coverage, void probabilities or systematic sampling in broader literature.",
+        "No novelty is assigned to the randomized shifted lattice itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different admissible laws",
+          "evidence": "Optimizes mu⊗mu with variable common marginal; the optimal marginal is nonuniform and yields risk about 0.0160494871749.",
+          "identifier_or_url": "2026/11/2/SCOPE-unique-optimal-i-i-d-two-node-design-for-brownian-bridge-kernel--1c7b05ec88c4",
+          "material_read": "RESULT.md, Finding (offset 0)",
+          "method": "Local Resultary mirror",
+          "title": "Unique optimal i.i.d. two-node design for Brownian-bridge kernel quadrature",
+          "trigger": "Same bridge kernel and cubic-gap objective"
+        },
+        {
+          "assessment": "Different kernel, weights and loss; no priority inference from date",
+          "evidence": "At bandlimit one, an equal-weight half-shift cancels first harmonics and gives zero worst-case variance.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-minimax-variance-of-two-marginally-uniform-samples-for-ban--dde341430d54",
+          "material_read": "RESULT.md, Finding (offset 0)",
+          "method": "Local Resultary mirror",
+          "title": "Sharp minimax variance of two marginally uniform samples for bandlimited integrands",
+          "trigger": "Same random shift and marginal constraints"
+        },
+        {
+          "assessment": "Different Brownian model, target and stratum constraints",
+          "evidence": "Optimizes coupling of separately stratified sites for a centered polynomial moment of Brownian motion.",
+          "identifier_or_url": "2026/11/22/SCOPE-antithetic-coupling-uniquely-minimizes-two-stratum-brownian-poly--913020869da7",
+          "material_read": "RESULT.md, Finding (offset 0)",
+          "method": "Local Resultary mirror",
+          "title": "Antithetic coupling uniquely minimizes two-stratum Brownian polynomial error",
+          "trigger": "Related all-couplings polynomial certificate"
+        },
+        {
+          "assessment": "Different objective and i.i.d. design",
+          "evidence": "Selects a sampling law for i.i.d. nodes with supremum over integrands outside site expectation.",
+          "identifier_or_url": "https://arxiv.org/abs/1706.03369",
+          "material_read": "PDF p. 2, Eq. (3), offset 13850",
+          "method": "OA PDF passages",
+          "title": "On the Sampling Problem for Kernel Quadrature",
+          "trigger": "Randomized kernel sampling design"
+        },
+        {
+          "assessment": "Deterministic pointwise interpolation criterion",
+          "evidence": "Equally spaced deterministic nodes minimize the maximum power function, not expected integral variance with uniform marginals.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.15959",
+          "material_read": "PDF p. 5, Theorem 5, offset 21772",
+          "method": "OA PDF passage",
+          "title": "Equally spaced points are optimal for Brownian Bridge kernel interpolation",
+          "trigger": "Exact bridge-kernel site design"
+        },
+        {
+          "assessment": "General bounds; no positive coverage evidence in the passage",
+          "evidence": "Studies average-case Bayesian quadrature errors, not an exact two-site uniform copula in the passage inspected.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.10615",
+          "material_read": "PDF p. 1, abstract",
+          "method": "OA PDF passage",
+          "title": "On Average-Case Error Bounds for Kernel-Based Bayesian Quadrature",
+          "trigger": "Broader randomized Bayesian quadrature bounds"
+        },
+        {
+          "assessment": "Different kernel approximation problem in material read",
+          "evidence": "The passages discuss general Nyström approximation and convex quadrature, not the classified bridge-area design.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.09517",
+          "material_read": "PDF p. 1 and related literature near offset 10800",
+          "method": "OA PDF passages",
+          "title": "Sampling-based Nyström Approximation and Kernel Quadrature",
+          "trigger": "Related non-i.i.d. kernel landmarks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural constrained design benchmark: only dependence may be optimized, so it gives a precise test of the benefit of dependence without changing sampling marginals. The sharp bound and equality structure rule out every alternative joint law, not just common competitors. The reductions against independence and reflection are meaningful under the fixed-site posterior criterion; no minimax-over-integrands-after-randomization claim follows.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:39:33.190965Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–72 and 74–150; VERIFICATION.md and checker.py",
+        "Independent tilt-slope example and direct Poisson and signed-transform derivations"
+      ],
+      "rationale": "Independently reconstructed the Lévy and regression assertions in RESULT.md lines 74–146. Under the basic Thorin conditions the gamma ray (v/λ,v/λ²) has integrable (1∧‖jump‖²) and (1∧y): for |λ|≥1 the bounds are constants times λ^−2 after integrating v, and for small |λ| splitting at v=λ² and 1 gives O(1+|log |λ||). An equivalent direct construction is to leave Poisson jumps at |λ|≤1 uncompensated, compensate the first-coordinate sum at |λ|>1 in L², and add the integrable deterministic large-rate correction (1/λ−λ/(1+λ²)) against U. The second-coordinate sum is finite almost surely and uncompensated; the Gaussian part is (N(0,σ²),σ²) with covariance diag(σ²,0). Frullani's integral then gives the joint exponent of the frozen transform; principal logs agree because the two gamma factors have opposite-signed arguments and their product has positive real part. The transform fixes the HBB law. The inverse ray coordinates are (λ,v)=(z/y,z²/y); a fixed v-shell recovers U even for infinite measure, the Jacobian times v^−1 is y^−2, and the thresholds are the displayed maxima. For regression the extra inverse-rate integrability gives finite first moments, and tilted expectations yield ∫λ/(λ²+q)dU and ∫1/(λ²+q)dU. Their vanishing as q→∞ fixes the shifted intercept d. The remaining Stieltjes transform is that of the pushforward of (λ−b)U, understood as a locally finite signed density with integrable total variation against (1+t)^−1. Writing the Stieltjes kernel as a Laplace integral gives injectivity by two Laplace uniqueness steps (the exponentially tilted measures are finite); the finite signed conditional-mean measure then vanishes by one more Laplace uniqueness step. Radon–Nikodym weights give all balances and one-sided single-magnitude rigidity, with arbitrary slope only in the zero-spectrum case. Nonzero U puts mass off both axes, precluding independence of the ID coordinates. For one sign, bounded Borel association can be justified by conditioning on increasing finite-intensity windows of the Poisson configuration, and on the independent Gaussian variable: conditional expectations of bounded increasing observables increase with added jumps in each window, because the remaining increment and the deterministic compensations do not depend on that window's points. Poisson association and martingale convergence prove the inequality without any moments. The first-moment tilted ratios were also checked at three rational Laplace arguments for balanced and unbalanced two-magnitude examples (replay `OPENBLAS_NUM_THREADS=1 python /tmp/opencode/frozen-review-diagnostics.py`, check 1). The frozen checker was inspected but not executed; neither checker establishes the arbitrary-measure claims on its own.",
+      "residual_risks": [
+        "The regression uses absolute integrability of both jump coordinates; the Lévy geometry and independence do not. The signed-rate spectrum is a positive measure on a signed parameter space. Recovery is from the joint Lévy measure, not from finite samples."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Torricelli §2 Thm. 2 and (2.13)–(2.17) give a broader radial/angular characteristic exponent and polar Lévy representation. Barndorff-Nielsen–Maejima–Sato's opening sections describe T(R^d), B(R^d) and the stochastic-integral map. Grabchak–Zhang's abstract/introduction concern gamma small-jump approximation and simulation.",
+          "These are positive broad coverage of multivariate gamma/Thorin ray mechanisms. The HBB-specific rate-to-ray assignment and signed inversion use the actual atom map; the conditional mean and its exact ratewise balance require a weighted signed transform argument."
+        ],
+        "reasoning": "A generalized polar Lévy representation does not in itself state a classification of integrable affine regressions. Credit the general machinery; no inspected broad theorem provided the specialized conditional equivalence.",
+        "searches": [
+          "Torricelli arXiv:2503.09574v2 §2 Theorem 2",
+          "Some classes of multivariate infinitely divisible distributions admitting stochastic integral representations Thorin radial measure 2006 full text theorem",
+          "DOI:10.1007/s00180-026-01725-7 (multivariate gamma / Dickman)"
+        ]
+      },
+      "checked_sources": [
+        "Kloster arXiv:2611.01058v1 §3; Torricelli arXiv:2503.09574v2 §2 Theorem 2",
+        "Barndorff-Nielsen–Maejima–Sato (2006) opening material; Grabchak–Zhang (2026) abstract and introduction",
+        "Resultary cf622f8d63bf and identical self-hit 114e8b4dd602"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kloster Proposition 3.3 obtains the factorial-ratio relation of mixed cumulants to parent cumulants under moments; the present absolute first-moment scope need not have these higher moments.",
+          "Uniqueness of a weighted signed Stieltjes transform implies magnitude-by-magnitude cancellation of (λ−b)U. That yields explicit positive/negative weights (1±b/r)/2 and permits continuous asymmetric spectra, whereas one sign alone forces r=|b|. None of the inspected moment or general radial statements gives that equivalence."
+        ],
+        "reasoning": "The signed jump geometry is closely implied by the gamma example, canonical transform and general Lévy theory, so the pass does not rest on treating that machinery as new. The extra regression classification requires a genuinely separate implication and converse, including for non-atomic Thorin laws with no assumed higher moments.",
+        "searches": [
+          "T. K. Kloster A characterization and closure property of Thorin's class arXiv 2611.01058 Example 3.1 Proposition 3.1 3.2 3.3 HBB",
+          "Torricelli Thm. 2 eqs. (2.13)–(2.17)",
+          "Frozen RESULT.md lines 125–146"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kloster uses exactly the same Fourier–Laplace characterization (Proposition 3.1) and the same reflected or ordinary single gamma atom (Example 3.1). Proposition 3.2 identifies Y as the GGC with Thorin pushforward under squaring and lower endpoint σ².",
+          "The new affine condition is equivalently annihilation of each Laplace tilt by the signed projected (z−by)-weighted Lévy measure, or the displayed signed Stieltjes transform of the rate measure. It is not a new name for the HBB representation or unsigned marginal."
+        ],
+        "reasoning": "Treat the HBB law in both descriptions as the identical object. A single-gamma example is already affine on one ray, but it does not supply the arbitrary-measure necessity or characterize when mixtures yield it.",
+        "searches": [
+          "Resultary: canonical hyperbolic Bochner Bernstein coupling Thorin measure joint Levy measure affine conditional regression",
+          "Resultary: affine regression Thorin signed measure Stieltjes",
+          "Kloster arXiv:2611.01058v1, §3 Example 3.1 and Propositions 3.1–3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact summary hit 114e8b4dd602 is the assigned source itself. Closest distinct same-day hit cf622f8d63bf covers infinite divisibility of a two-sided positive/reflected Erlang mixture exactly at a single Erlang stage."
+        ],
+        "reasoning": "That Erlang-mixture test distinguishes a one-dimensional mixture's infinite divisibility, not rate balance for the signed component of a canonical joint law. The available summary is not whole-text exclusion; no same-day priority is inferred.",
+        "searches": [
+          "Resultary: signed Thorin measure gamma ray jump measure spectral recovery affine regression",
+          "Resultary: canonical hyperbolic Bochner Bernstein coupling Thorin measure joint Levy measure affine conditional regression"
+        ]
+      },
+      "rationale": "The canonical law, single signed gamma coupling, unsigned marginal and mixed-cumulant formula are directly prior. The joint gamma-ray geometry is a natural extension within the prior multivariate Thorin framework and should not be described as a general representation advance. The exact necessary-and-sufficient ratewise balance under absolute first-moment integrability, with converse, one-sided rigidity and genuinely asymmetric continuous examples, is the supported distinct claim. In particular the inspected cumulant and polar-representation theorems do not give that conditional-mean equivalence.",
+      "residual_risks": [
+        "Uninspected sections in broader multivariate and Lévy conditional-regression literature could contain a general proportional-kernel theorem covering this result; partial primary passages do not justify a whole-document exclusion.",
+        "The distinct Erlang record was summary-level, and no global priority ordering is assigned by publication date alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for coupling, signed gamma atoms, unsigned marginal and mixed cumulants, not an affine conditional-mean classification in the compared statements. The frozen attribution of class closure to Proposition 3.1 is a citation mislocator; Proposition 3.1 is the coupling characterization/uniqueness, while closure is stated at class level.",
+          "evidence": [
+            "Example 3.1 has jumps on the same gamma ray in the single-rate law. Proposition 3.1 fixes the same unique pair with Z distributed as X. Proposition 3.2 pushes unsigned rates to their squares. Proposition 3.3 gives the stated mixed-cumulant factorial ratio under moments."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.01058v1",
+          "material_read": "§3 Example 3.1 and Propositions 3.1–3.3, abstract and Theorem 1.1 locators",
+          "method": "Literature query; exact passages from a bounded lawful public-source retrieval after timed-out OA passage attempts",
+          "title": "A characterization and closure property of Thorin’s class",
+          "trigger": "Identical canonical HBB coupling and closest primary antecedent"
+        },
+        {
+          "assessment": "Broad representation machinery is prior; the inspected theorem does not give the signed HBB affine balance",
+          "evidence": [
+            "Radial/angular Thorin measure and polar representation of the Lévy measure."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2503.09574v2",
+          "material_read": "§2 Theorem 2, equations (2.13)–(2.17)",
+          "method": "Bounded public primary passage after attempted OA lookup; compared polar Lévy and exponent formulas",
+          "title": "Thorin processes and their subordination",
+          "trigger": "Broader multivariate representation could cover the ray geometry"
+        },
+        {
+          "assessment": "General representation context only at the inspected locations; not whole-paper exclusion",
+          "evidence": [
+            "Higher-dimensional Thorin and Bondesson classes and Upsilon(L(R^d))=T(R^d)."
+          ],
+          "identifier_or_url": "http://ksato.jp/pdf/bnms2b.pdf",
+          "material_read": "Author-hosted PDF p. 1 abstract and §1 opening material",
+          "method": "Primary literature query, lawful author copy and targeted text comparison",
+          "title": "Some classes of multivariate infinitely divisible distributions admitting stochastic integral representations",
+          "trigger": "Older primary multivariate Thorin theory"
+        },
+        {
+          "assessment": "Visible contribution is small-jump approximation and simulation; not a verified full-text exclusion",
+          "evidence": [
+            "Dickman approximation for small jumps of general multivariate gamma distributions."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00180-026-01725-7",
+          "material_read": "Abstract and introduction pp. 1–2",
+          "method": "Bounded open primary text comparison",
+          "title": "On the simulation of general multivariate gamma distributions using Dickman approximations",
+          "trigger": "Broader gamma radial jumps and related Thorin GGCs"
+        },
+        {
+          "assessment": "Distinct problem about infinite divisibility of a mixture rather than regression of the canonical pair",
+          "evidence": [
+            "Two-sided positive/reflected Erlang mixture is ID exactly at one Erlang stage and has a Lévy representation there."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-one-stage-infinite-divisibility-boundary-for-signed-erlang-m--cf622f8d63bf",
+          "material_read": "Resultary catalog summary; full local-mirror passage not obtained",
+          "method": "Local semantic lookup and statement comparison; attempted targeted retrieval",
+          "title": "The one-stage infinite-divisibility boundary for signed Erlang mixtures",
+          "trigger": "Closest distinct same-day signed gamma and Lévy hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–46 and 125–146",
+        "Kloster §3 Example 3.1 and Propositions 3.2–3.3 (compared ingredients)"
+      ],
+      "rationale": "Affine prediction of the signed coordinate from the canonical latent scale is a natural classification question. A mere marginal transform or a few cumulants do not tell whether it holds under first-moment assumptions; an exact necessary-and-sufficient condition yields the contrast between one-sided single-rate rigidity and asymmetric continuous two-sided freedom. The jump map also gives a precise account of where the sign information discarded by the marginal is retained.",
+      "residual_risks": [
+        "This is an exact structural classification, not a stable estimator from samples or an unrestricted regression theorem for all infinite-mean spectra."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verifier `artifacts/verify.py` exhausts every \(\mathbb F_2\)-linear endomorphism of the four-dimensional vector space \(M_2(\mathbb F_2)\), so the search contains exactly \(2^{16}=65536\) maps.
+# Independent mathematical audit
 
-For each weight \(\lambda\in\{0,1\}\), the first pass tests the Rota–Baxter identity on all \(16\) ordered pairs of matrix units. The defect is bilinear, hence this is exhaustive. A second routine checks every accepted map on all \(256\) ordered pairs of elements of the algebra. The outputs are exactly \(28\) weight-zero operators and \(110\) weight-one operators.
+## correctness
 
-For every accepted map, powers are computed as exact binary linear maps and all monic polynomial relations of increasing degree are tested. The degree distributions are \((1,21,6)\) for degrees \((1,2,3)\) at weight \(0\), and \((2,84,24)\) at weight \(1\). Hence degree \(3\) is maximal in both cases.
+PASS
 
-The algebra automorphism group is computed independently in two ways: by exhaustively testing invertible unital multiplicative linear maps, and by inner conjugation from \(\operatorname{GL}_2(\mathbb F_2)\). Both methods give exactly \(6\) automorphisms. Exhaustive orbit closure then gives automorphism-orbit sizes \((3,3)\) at weight \(0\) and \((6,6,6,6)\) at weight \(1\). Adding transpose gives \((6)\) and \((12,12)\); adding \(\phi(R)=R+\operatorname{id}\) at weight \(1\) gives one \(24\)-element class.
+The defect is bilinear, and choosing all four matrix-unit images independently enumerates every one of the 16^4 linear maps exactly once. I independently ran python3 /workspace/branches/record5_replay.py, which builds the product table from contracted matrix coordinates, checks the 16 basis pairs for every map at each weight and all 256 pairs for every accept, and uses incremental GF(2) elimination on matrix powers to find the first monic relation. It returned totals 28 and 110, degree distributions (1,21,6) and (2,84,24), and extremal polynomial masks 8 (six) and 10,12 (twelve each), i.e. X³, X³+X, X³+X². The replay independently constructs inner conjugations from inverse pairs of invertible matrices; Skolem–Noether applies to the central simple algebra M_2(F_2), and the scalar center of GL_2(F_2) is trivial, yielding all six. Transpose normalizes the conjugation action and R→R+id commutes with both actions; substituting the identity verifies it preserves the weight-one condition. Taking the direct orbit images gave sizes (3,3)→(6) at weight zero and (6,6,6,6)→(12,12)→(24) at weight one; these partitions verify the stated exchanges. Both prescribed canonical reductions were in the independently determined extremal sets. Only the independent program was executed. In the frozen documentation VERIFY_OK is said to be at the end, whereas the packaged output begins with it; all numerical lines agree and this does not affect the result.
 
-The recorded output in `artifacts/verify_output.txt` terminates with `VERIFY_OK`. No timeout, random sampling, floating-point arithmetic, or unproved extrapolation is used.
+## originality
+
+PASS
+
+The distinct supported result is the full finite-field census at the two weights and the refined rational extremal orbit partitions, including the degree bound achieved in characteristic two. Known integral canonical examples and the analogous characteristic-zero equivalence are not new. The broader rank-one result overlaps one subset of the weight-zero maps but neither determines the total nor reaches an extremal. No inspected source determines the whole result; this is a best-of-knowledge assessment.
+
+## value
+
+PASS
+
+The smallest field excluded by the related characteristic hypotheses is a natural boundary for the stated rigidity question, not a randomly selected finite sample. The exhaustive result resolves that boundary for both possible weights and establishes the necessity of the individual symmetry generators in the finite-field setting: conjugation is not transitive, transpose alone still fails at weight one, and adding φ resolves the split. These precise counts and degree/orbit distributions give a useful reference and test case for attempts to extend the rigidity theorem to positive characteristic. No extension to other fields or sizes is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:35:51.062911Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The readout is equivalent to (T,U) because its length is known and N_2=U, N_1=T-2U. An incidence interval for a marker at i runs from max(1,i-h+1) to min(i,n-h+1). Its size is c_i=min(i,h,n-i+1) in the claimed range, and U is intersection size. Distinct positions have distinct intervals, so T>2U and U≤h-1. For a positive overlap below full incidence, at least one marker is in an endpoint band; opposite endpoint bands cannot overlap. With the left endpoint chosen, either both markers are at most h and positions are (u,t-u), or only the first is at most h and positions are (t-h,t-u). The branches meet at t=h+u and each yields just one permitted left orientation; reflection gives the second. Two full-incidence markers have distance h-u for u>0; for u=0, count pairs at distance at least h in a central band of n-2h+2 positions. Disjoint markers below full incidence are either on opposite ends (t-1 choices at t≤h, 2h-1-t at h<t<2h), or one is in the central band and the other has incidence t-h (2(n-h-t+2) choices for h<t<2h). This proves the five formulas and positivity exactly on the feasible region, except the single zero (2h,0) at n=3h-2. The full-incidence disjoint case requires n≥3h-1; evaluating the multiplicities gives the stated singleton classes. Its proportion is 1-6(h-1)/n+O_h(n^-2); the square dominates the normalized collision sum with remainder O_h(n^-2), proving the asymptotic. Independently enumerated all literal windows for 154 complete (n,h) cases at h=2..15 and n=3h-2..3h+8, including the one-short boundary, and checked singletons at and after saturation. Replay: python3 /workspace/independent_checks.py 4. The frozen verification script was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "a872b80fc72c gives the complete signature iff and the proof's disjoint cases B≤h and B>h (outer values both small, one small, neither small), at arbitrary n and h. It is the covering stronger result.",
+          "Ye–Elishco study length-limited reconstruction codes but the inspected theorem is not this weight-two census. Same-day bed4b72a3904 instead classifies preimages of ordered window sums for arbitrary binary words; its stated fibers are not the fibers of the unordered readout."
+        ],
+        "reasoning": "The earlier dated note is stronger on the identical word family and provides calculable full fibers, rather than only a general framework. Do not infer coverage or priority from date or from the same width alone for the distinct ordered-record comparison.",
+        "searches": [
+          "Resultary a872b80fc72c Proof §§1–4, identities (1)–(2)",
+          "arXiv:2208.14963 §VIII pp. 22–23",
+          "Resultary bed4b72a3904, ordered local histograms"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a872b80fc72c, a98561a7f27e, 2d009d6ce2ea, 14cf0c12c2fc and bed4b72a3904",
+        "arXiv:2208.14963 §VIII",
+        "Frozen RESULT.md, VERIFICATION.md and verify_fixed_window.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For B≤h put K=h-B+1 and a=min(A,D). Since A+B+D=n+2 and n≥3h-2, max(A,D)≥h. Taking degree h in the prior identities gives U=min(a,K); T=2h-(h-a)_+-(K-a)_+. For t<2h the two linear pieces invert to (a,K)=(u,h+2u-t) at t≤h+u, and (t-h,u) at t≥h+u; they agree at equality. Requiring 1≤K≤h-1 and 1≤a<h yields exactly 2u+1≤t<2h and u≤h-1, with both orientations permitted, giving multiplicity 2. For t=2h, K=u and A,D≥h with A+D=n+2-B; the number is n-3h+2+u.",
+          "For B>h the same identities give U=0 and T=min(A,h)+min(D,h). The prior §3 already separates the possibilities with A+D≤n-h+1 by zero, one or two small endpoints. Two small endpoints with sum t give t-1 or 2h-1-t at the break t=h. One small endpoint is t-h and allows n-h-t+2 other choices per orientation. With no small endpoints, counting two nonnegative slacks with sum at most n-3h+1 gives binom(n-3h+3,2). These are exactly the original five cases including the missing profile at the one-short boundary.",
+          "The capacity and singleton statements follow by counting positive entries and entries equal to one in this table; the collision expansion is the square of the dominant normalized entry plus O_h(n^-2). 2d009d6ce2ea concerns width-three support for arbitrary weights and is not the source of this implication."
+        ],
+        "reasoning": "This is coefficient extraction and a sum over the already proved signature partition (two linear inversions and elementary counts within its stated cases), with no additional structural lemma or new unknown invariant needed. It covers the whole asserted result even though the prior note did not print the projected five-piece table.",
+        "searches": [
+          "Resultary a872b80fc72c RESULT.md offsets 0–3492 (Finding, identities), 3492–6166 (signature and count proof)",
+          "Resultary 2d009d6ce2ea Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior a872b80fc72c uses the same indexed weight-two words, coordinates A=a+1, B=b+2, D=c+1 with A+B+D=n+2, and polynomials F(z)=∑(N_{l,1}+N_{l,2})z^l and G(z)=∑N_{l,2}z^l. The audited coordinates are exactly [z^h](F+G) and [z^h]G, respectively.",
+          "The signatures retain B if B≤h and the multiset of A,D below h. At h=2, length-one counts are fixed by weight and the projection is equality of fibers; for h≥3 this projection can merge distinct signatures (at h=3,n=8 the marker pairs (1,4) and (2,7) agree on (T,U)=(4,0) but differ at length two)."
+        ],
+        "reasoning": "A mere richer-channel cardinality would not imply the answer. Here the earlier identities give the specific projection and the earlier signature theorem gives the exact preimages of its arguments. Compare the evaluated projection, not the unequal capacity numbers.",
+        "searches": [
+          "Resultary single-width Hamming-weight/composition profiles for two marked positions",
+          "Resultary a872b80fc72c, RESULT.md Finding and Proof §§1–2",
+          "Ye–Elishco arXiv:2208.14963 §VIII"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a98561a7f27e gives length-at-most-two run-count class sizes for arbitrary binary words; on fixed weight two length one carries no information, so this covers the h=2 table.",
+          "14cf0c12c2fc gives exact literal triple-spectrum fibers for two-marker words, including the binary case for n≥8. At h=3 composition counts sum the literal triple counts; the source states the finer table, not the audited general-width table.",
+          "a872b80fc72c provides an exact capacity and a full fiber parametrization for the richer all-length deck; the present evaluated table is recovered from those exact data as below."
+        ],
+        "reasoning": "No claim of a separately printed all-h identical table is made. The h=2 table is previously covered and the all-h table is mechanically implied by a verified stronger source.",
+        "searches": [
+          "Resultary a872b80fc72c, a98561a7f27e and 14cf0c12c2fc",
+          "External exact single-length, weight-two substring-composition spectrum lookup"
+        ]
+      },
+      "rationale": "The fixed-layer theorem is mathematically correct but is mechanically implied by the prior two-marker length-limited deck result, which supplies the exact wordwise polynomials and classifies and counts their signatures by the same outer-gap cases. The different observation and different capacities are real; what fails is originality of the evaluated coarsening, not equality of the two channels. The implication below recovers the complete frozen finding, not merely the common saturation threshold or a single table entry. No inaccessible source or same-day priority assumption is needed for this decision.",
+      "residual_risks": [
+        "The external keyword check is not exhaustive; additional independent coverage may exist. The failure rests on the positive exact implication from a verified prior original, not on search silence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers by the explicit coefficient and class-sum corollary, not by equating channels or capacity numbers.",
+          "evidence": [
+            "Identities (1)–(2) determine both observed coefficients; signature iff gives all preimages; §3 gives the gap-case domain, with A+D≤n-h+1 precisely when B>h."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-3r-1-saturation-law-for-two-marker-length-limited-compos--a872b80fc72c/RESULT.md",
+          "material_read": "RESULT.md Finding, Assumptions, Proof §§1–4, offsets 0–6166",
+          "method": "Resultary lookup; bounded direct reading from local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp 3r−1 saturation law for two-marker length-limited composition decks",
+          "trigger": "Same two-marker domain, exact profile and full fiber parametrization for the dominating length-limited deck"
+        },
+        {
+          "assessment": "Exact h=2 special case on fixed weight two.",
+          "evidence": [
+            "Run-count classes for length-one and length-two compositions; the length-one layer is constant at fixed length and weight."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e",
+          "material_read": "Local mirror RESULT.md offsets 0–3589",
+          "method": "Resultary lookup and original statement",
+          "title": "Exact binary r=2 length-limited composition reconstruction",
+          "trigger": "Possible exact narrow-width coincidence"
+        },
+        {
+          "assessment": "Width-three support theorem at arbitrary source weight; not the full weight-two inverse census.",
+          "evidence": [
+            "Positive histogram coordinates for width three form an interval; enumerates attainable profiles for unrestricted words."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-interval-support-characterization-for-binary-three-window-compos--2d009d6ce2ea",
+          "material_read": "Local mirror RESULT.md offsets 0–3030",
+          "method": "Resultary lookup and original statement",
+          "title": "Interval-support characterization for binary three-window composition multispectra and the sharp four-window obstruction",
+          "trigger": "Single exact width composition spectrum"
+        },
+        {
+          "assessment": "Finer literal-multiset channel at h=3, not an all-width composition theorem.",
+          "evidence": [
+            "Exact literal triple-spectrum classes for n≥8; q=2 gives binary weight-two sources."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-three-mer-multiplicity-fibers-for-two-marker-words--14cf0c12c2fc",
+          "material_read": "Local mirror RESULT.md offsets 0–3483",
+          "method": "Resultary lookup and original statement",
+          "title": "Exact three-mer multiplicity fibers for two-marker words",
+          "trigger": "Exact inverse fibers on the same family at width three"
+        },
+        {
+          "assessment": "Ordered vector of sums, not unordered compositions; no priority inference from shared date.",
+          "evidence": [
+            "Positions and order of fixed-width window responses are retained; domain is arbitrary binary words."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-metameric-class-census-for-ordered-binary-local-histograms--bed4b72a3904",
+          "material_read": "Local mirror RESULT.md offsets 0–3924",
+          "method": "Resultary lookup and original statement",
+          "title": "Exact metameric-class census for ordered binary local histograms",
+          "trigger": "Distinct same-day exact fixed-window counts"
+        },
+        {
+          "assessment": "Code construction for the broader length-limited readout, not itself an exact all-source fixed-layer census.",
+          "evidence": [
+            "Length-limited observation includes all substring compositions of length at most r; the inspected construction uses Lyndon strings."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2208.14963",
+          "material_read": "PDF §VIII pp. 22–23, offsets 136300–141812",
+          "method": "Lawful OA bounded PDF passages",
+          "title": "Reconstruction of a Single String from a Part of its Composition Multiset",
+          "trigger": "Primary length-limited composition reconstruction literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The unordered single-width capacity, singleton fibers, and collision probability are motivated reconstruction statistics, but this frozen contribution is a routine projection and evaluation of a complete prior exact classification. In particular, the collision term only squares the dominant entry obtained from the previously identified two-large-endpoint, separated regime. The analysis does not supply a separate nonmechanical claim beyond the prior exact signature and its elementary consequences.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

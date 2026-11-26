@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:56:09.779482Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The vertical decomposition is unique; factoring the canonical trace-character sum gives the claimed multiset. For v nonzero, squaring the Gauss sum and substituting (x−y,x+y) gives q by orthogonality, since the trace pairing is nondegenerate. At v=0 only u=0 survives. The complex endpoint matrix norms are the absolute row/column sums of q^(−2) times the character sum. Independently, for a fixed common first-coordinate sum t, the difference of the sums of squares is 2(x−x′)(x+x′−t). The affine map to these factors is invertible in odd characteristic, so each nonzero prescribed difference has q−1 solutions and zero has 2q−1. Counting the fiber quadruples and summing over t gives q(q−1)|H|^4+q²E(H). For two fibers, the trace of vη covers each prime-field value q/p times; twice the symmetric cosine sum over residues −(p−1)/2,…,(p−1)/2 equals 2 csc(π/(2p)) by the finite geometric series. No odd-order root is −1, and the three distinct pair sums of a two-point set have multiplicities 1,2,1. These facts give the stated special norm, zeros, energy, and limits after division by the singleton norm. Independent Python replay /workspace/replay/audit_1.py checked the exact squared multiset and pair energy for all 511 nonempty GF(9) fibers (every two-point case has energy 1638 and eight zeros). This finite check supplements the proof. Reproducibility caveat: the frozen checker would print a counter of 100, but its prime-field loop increments by three even on singleton, three-point and full fibers, which have only two assertions. There are 82 comparison assertions by inspection, including repetitions; the counter does not certify 100 independent comparisons. No theorem depends on that count.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Iosevich–Li–Yu evaluate the flat/nonzero single-paraboloid magnitudes via quadratic Gauss sums, including the one-parabola prime-modulus case; general synthesis bounds do not state the new support's exact norm."
+        ],
+        "reasoning": "Affine-transitive synthesis is not a theorem evaluating arbitrary fiber unions. The operative stronger background is the standard odd-characteristic quadratic Gauss magnitude together with the convolution law, which applies to arbitrary vertical multipliers, not just indicators.",
+        "searches": [
+          "arXiv:2609.25404v1, §5.1, (5.2) and (5.4)",
+          "arXiv:2508.12194v1, §2 Theorems 4–5",
+          "Primary web query: \"vertical translates\" finite field parabola Fourier projection norm additive energy quadratic Gauss sum fiber"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "arXiv:2609.25404v1 and arXiv:2508.12194v1",
+        "Resultary a4d0f8547404, e0347a2c3e00, e3c5b7989e12 and a7de780d37f3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known flat Gauss slices, the character-transform product rule and the usual finite-group norm and energy formulas imply the full arbitrary-H claim. The two-point term reduces to the same finite trace cosine sum used for other supports."
+        ],
+        "reasoning": "The special zero and energy counts follow respectively from absence of −1 among the p-th roots and the pair-sum weights 1,2,1. The two limits are direct leading-term limits. Neither an exact matching title nor an extension-field statement in the prime-modulus reference is necessary for this implication assessment.",
+        "searches": [
+          "arXiv:2609.25404v1, §5.1",
+          "Resultary e0347a2c3e00, proof §§1–4",
+          "Resultary a7de780d37f3, proof §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The lift indicator is exactly the convolution of the one-parabola indicator and the indicator of {(0,h):h∈H}, with no multiplicities.",
+          "The opposite-parabolas result a4d0f8547404 is materially related but uses a sum of two Gauss sums minus the common origin, not a product by the fiber transform."
+        ],
+        "reasoning": "The convolution formulation is equivalent to the claimed factorization and turns the entire magnitude law into multiplication of each known frequency slice by a scalar magnitude. The opposite-parabola identity does not itself give the vertical-union formula.",
+        "searches": [
+          "Resultary: exact Fourier norm transfer vertical lifts finite-field parabolas H subset F_q magnitude multiset endpoint additive energy",
+          "Resultary: sharp Fourier projection norm two opposite finite parabolas 4/pi amplification law finite field"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct exact table covering arbitrary H was recovered. The synthesis article's (5.2) already gives the prime-modulus single-sheet flat spectrum. The two-point phase average also appears in cubic-fold e0347a2c3e00 and same-day parabolic erasure a7de780d37f3."
+        ],
+        "reasoning": "There is no additional table needed for the stated invariant: multiplying the flat slices recovers the arbitrary-fiber histogram, the standard trace multiset evaluates two points, and no exact table of one-dimensional norms for arbitrary H is being claimed.",
+        "searches": [
+          "Resultary: exact Fourier norm transfer vertical lifts finite-field parabolas H subset F_q magnitude multiset endpoint additive energy",
+          "Resultary: characteristic-sensitive sharp Fourier projection norm cubic fold finite field parabola line-cover translated parabolas"
+        ]
+      },
+      "rationale": "No retrieved source was shown to print the full package verbatim. The claim is nevertheless covered as a direct combination of the known one-parabola spectrum with the Fourier product rule for vertical convolution, the standard endpoint and fourth-moment formulas, and, for the two-point specialization, the standard two-phase cosine calculation already used in close prior work. The arbitrary fiber is a pointwise multiplier, not a new spectral computation or a solution of the remaining one-dimensional norm problem.",
+      "residual_risks": [
+        "Bounded literature search did not establish whether an older text explicitly prints the exact same package.",
+        "The failure is based on demonstrated routine implication, not on an unverified exact duplicate or an unavailable source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known single-sheet ingredient in prime modulus, not an arbitrary-fiber union theorem",
+          "evidence": "Equations (1.5), (1.6), (5.2), (5.4); product of quadratic Gauss sums yields the flat single-sheet magnitudes.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.25404",
+          "material_read": "HTML §1 at offset 8300; §5.1 at 33000",
+          "method": "Bounded OA HTML reading",
+          "title": "Spectral synthesis with the complexity parameter in Z_N^d",
+          "trigger": "Cited paraboloid synthesis and Gauss spectrum"
+        },
+        {
+          "assessment": "Background, not the exact lift norm",
+          "evidence": "Theorems 4–5 give support-size and Fourier-indicator-norm synthesis inequalities.",
+          "identifier_or_url": "https://arxiv.org/abs/2508.12194",
+          "material_read": "§2 at offsets 4200 and 8500",
+          "method": "Bounded OA reading",
+          "title": "On spectral synthesis in Z_N^d",
+          "trigger": "Potential general theorem"
+        },
+        {
+          "assessment": "Different support and calculation",
+          "evidence": "The opposite graphs intersect; their kernel is a sum of Gauss sums minus one.",
+          "identifier_or_url": "Resultary a4d0f8547404",
+          "material_read": "RESULT.md Finding and Proof §1",
+          "method": "Local mirror",
+          "title": "A sharp 4/pi amplification law for Fourier projection onto two opposite finite parabolas",
+          "trigger": "Close exact two-parabola norm"
+        },
+        {
+          "assessment": "Shared trigonometric step, different support",
+          "evidence": "The graph (x,y,xy²) admits a root-count reduction and trace cosine evaluation.",
+          "identifier_or_url": "Resultary e0347a2c3e00",
+          "material_read": "RESULT.md Finding and Proof §§1–4",
+          "method": "Local mirror",
+          "title": "A characteristic-sensitive sharp Fourier-projection norm for a cubic fold",
+          "trigger": "Exact cosecant-type norm"
+        },
+        {
+          "assessment": "Geometric overlap only",
+          "evidence": "Bounds line-cover sizes for translated conics; not a Fourier or energy theorem.",
+          "identifier_or_url": "Resultary e3c5b7989e12",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Local mirror",
+          "title": "Characteristic-sensitive line covers of translated finite-field parabolas",
+          "trigger": "Same translated conics"
+        },
+        {
+          "assessment": "Substantial arithmetic overlap, distinct support and no date-based priority inference",
+          "evidence": "Deleting two points from one parabola yields a correction with 2/[p sin(π/(2p))] by the same finite cosine sum.",
+          "identifier_or_url": "Resultary a7de780d37f3",
+          "material_read": "RESULT.md Finding, offset 0, and Proof §5, offset 5800",
+          "method": "Local mirror",
+          "title": "A universal two-term erasure law for finite-field parabolic Fourier projection",
+          "trigger": "Shared characteristic-sensitive coefficient"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The formulas are a convenient worked example, but the lift makes the spectrum a direct product with the known Gauss magnitudes and leaves the substantive arbitrary-fiber invariant as an unevaluated one-dimensional norm. Restricting to two points only inserts a standard trace average and a three-value pair-sum census; neither the endpoint constant nor the energy resolves a nontrivial remaining case of the fiber problem. No independently valuable remainder requiring a repair was established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

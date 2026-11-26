@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:04:28.592214Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Concatenation gives superadditivity in n at each fixed d. Greedy embedding of a fixed target is equivalent to embedding by any index sequence, and after each first hit the remaining i.i.d. stream is independent, so successive waiting times are independent Geom(pᵢ) variables on {1,2,…}. Their negative Laplace transforms are Mᵢ(t) as stated. Markov's inequality and independence across sources give an e^{dtn} factor; summing over all length-ℓ targets gives exactly S_d(t)^ℓ. Choosing any fraction above dt/(−log S_d) gives vanishing tails and the finite-d bound. With t_d=log d/(dΔ), the nonmaximal-letter terms relative to the maximal one total O(1/d), including a tie among second-largest letters. Also Λ₁=t/p₁−(1−p₁)t²/(2p₁²)+O(t³), so the finite-d bound at t_d is p₁+(1−p₁)t_d/2+O(t_d²+1/(d log d)). The minimum of the d mode-letter counts yields the lower baseline by the strong law at fixed d. The limiting inequality is one-sided and does not assert sharpness or an asymptotic equivalent. Reviewed frozen binary enumeration and recorded numerical checks without executing the supplied code; they corroborate finite instances only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Ren–Wen Theorem 1.1 brackets the uniform binary excess by constants times d⁻¹ᐟ²; Theorem 1.2 treats uniform k-ary sampling.",
+          "Lueker is identified as a two-string study in Li–Ren–Wen; direct full-text access was unavailable."
+        ],
+        "reasoning": "The uniform many-string theorems do not include a unique most-probable symbol (they have Δ=0); the two-string comparator cannot be treated as ruling in or ruling out a general d-string extension without its text.",
+        "searches": [
+          "Li–Ren–Wen, arXiv:2504.10425, p. 3 Theorems 1.1 and 1.2",
+          "Lueker, 10.1145/1516512.1516519"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2504.10425 Theorems 1.1–1.2",
+        "10.3390/math9131515 Theorems 1–2",
+        "Resultary d6195162bd45 (summary) and 36c13b698190"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Finite nonuniform inclusion-probability recurrences and fixed-alphabet uniform asymptotic bounds provide ingredients or comparators but not the suppressed contribution of nonmodal letters in Σᵢ Mᵢ(t)ᵈ at t≈log d/(dΔ)."
+        ],
+        "reasoning": "The frozen implication uses the letter-dependent factors before summation and a bias-dependent asymptotic balancing; merely substituting p₁ into the uniform theorem or using an embedding recurrence does not establish it.",
+        "searches": [
+          "arXiv:2504.10425 p. 3, Our Contributions",
+          "10.3390/math9131515 §2 and §2.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nikolić et al. give recurrences for a fixed target in a random source and for two independent random words under a multinomial law.",
+          "Resultary 36c13b698190 counts excess time for contiguous first occurrence, not scattered embedding."
+        ],
+        "reasoning": "The recurrence and the greedy waiting-time representation describe the same finite embedding event for a fixed target, but the many-source transform and limiting bound do not follow by rewording that event. Contiguous occurrence is a different random time.",
+        "searches": [
+          "Nikolić et al., 10.3390/math9131515, §2 Theorem 1 and §2.4 Theorem 2",
+          "Resultary 2026/10/18, 36c13b698190"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest LCS record's returned summary concerns uniform binary words with scaled count dₙ2⁻ⁿΣⱼ<ᵣ binom(n,j)→λ and a two-point LCS limit at r−1 and r; the exact-ID local mirror was not available."
+        ],
+        "reasoning": "The coupled count and length regime in the summary does not state a fixed-d long-word constant or the strictly biased large-d limit. No exact matching entry was identified in the bounded lookup.",
+        "searches": [
+          "Resultary topical lookup for fixed strictly biased many-word LCS, finite-d transform, and log(d)/d coefficient",
+          "Resultary 2026/11/2, d6195162bd45"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the letter-specific finite-d transform bound and the strict-bias implication at fixed alphabet and fixed probabilities. The checked precedents cover nonuniform finite embedding probabilities and uniform many-word LCS, not this rate statement or variational bound.",
+      "residual_risks": [
+        "Lueker full text was not available lawfully in the retrieval attempted.",
+        "The closest Resultary LCS comparison was limited to its summary. Equivalent biased subsequence bounds under other terminology are not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Uniform theorems, not strict-bias coverage",
+          "evidence": "Uniform binary excess has order d⁻¹ᐟ²; second theorem is for a uniform k-letter alphabet.",
+          "identifier_or_url": "https://arxiv.org/pdf/2504.10425",
+          "material_read": "p. 3, Our Contributions, Theorems 1.1–1.2, offsets 7600–8500",
+          "method": "OA arXiv PDF, bounded passage",
+          "title": "Expected Length of the Longest Common Subsequence of Multiple Strings",
+          "trigger": "Primary many-string LCS constant comparison"
+        },
+        {
+          "assessment": "Finite probability recurrences rather than the transform bound or the large-d constant",
+          "evidence": "Theorem 1 treats fixed target and random source; Theorem 2 treats independent random words.",
+          "identifier_or_url": "https://doi.org/10.3390/math9131515",
+          "material_read": "§2 Theorem 1, p. 4; §2.4 Theorem 2, p. 6",
+          "method": "OA original PDF, bounded passages",
+          "title": "Solving the Longest Common Subsequence Problem Concerning Non-Uniform Distributions of Letters in Input Strings",
+          "trigger": "Same nonuniform model and embedding event"
+        },
+        {
+          "assessment": "Not a direct comparison",
+          "evidence": "The available secondary citation describes a two-string result.",
+          "identifier_or_url": "https://doi.org/10.1145/1516512.1516519",
+          "material_read": "No primary full text; scope described by Li–Ren–Wen",
+          "method": "Lawful OA lookup returned access denial and no identified repository copy",
+          "title": "Improved Bounds on the Average Length of Longest Common Subsequences",
+          "trigger": "Cited benchmark for expectation bounds"
+        },
+        {
+          "assessment": "Summary describes a different coupled uniform regime; not a whole-document exclusion",
+          "evidence": "Two-point limit at r−1 and r as d and source length grow together.",
+          "identifier_or_url": "Resultary d6195162bd45",
+          "material_read": "Indexed summary only; exact-ID mirror not available",
+          "method": "Local Resultary search",
+          "title": "Independent Poisson misses at the short-subsequence crossover",
+          "trigger": "Closest indexed many-word LCS result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite-d upper bound keeps the entire letter law and can be optimized by a one-variable search without calculating any subsequence probabilities. Its quantified strict-bias implication is substantially smaller than the benchmark order in the tied, uniform binary case and describes a meaningful distributional distinction. Credit is for the upper bound and usable variational expression, not an optimal rate or optimum coefficient.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

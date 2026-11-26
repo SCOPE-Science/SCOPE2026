@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:59:56.036596Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the infinite period 012, greedy matching must advance to the next block exactly at each weak descent, so a nonempty word is absent precisely when H≥k. Deleting an endpoint drops H by its adjacent indicator; for a triple the drop is 0 or 1 by transitivity (two descents give 1, two increases give 0, mixed gives 1 iff a<c). Thus minimal absence is exactly H=k with every deletion dropping H by one, and proper subsequences are then present by transitivity. This yields exactly the starting/ending weak descents and triple tests, and an adjacency on ordered pairs, weighting each new edge by t and each weak descent by s, including the initial st². In fact at most k−1 strict ascents are possible, since both endpoints are descents and two ascents cannot be consecutive; hence the stronger length bound 2k (the weaker frozen bound suffices for t=1). Independently computed the characteristic polynomial, identified its reversal with D, and checked the full numerator by the first nine coefficients and Cayley–Hamilton; verified all eight totals, plus complete direct histograms for k=1..6 by listing the present subsequences and testing all one-letter extensions of present prefixes (no assumed length cutoff). Replay: /workspace/branches/independent_replays/replay4.py and replay4.out. The shortest absent words are exactly the weakly decreasing words of length k+1; their multiset count is binom(k+3,2). From state 00 each of 1100 and 2100 is a valid four-symbol return, with three new descents, and 0 is an available one-descent loop. The initial 00, independent return choices and final zeros prove the bound at every k, including k≤3. The finite histograms corroborate rather than replace the formal identities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kosche et al. give exponential constructions for selected repeats and fixed even alphabet size ≥4, not the ternary formula. General enumeration and extremal counts of all absent subsequences in the other papers are not the fixed-host spectrum. The 11/2 record gives the q²-state exact transfer formula for every q≥3 and evaluates it at q=3."
+        ],
+        "reasoning": "The general Resultary transfer statement specializes with no change in host or statistic and gives the result directly; the inspected published algorithmic and extremal statements alone do not give the displayed rational function.",
+        "searches": [
+          "arXiv:2108.13968 §3, Proposition 3.6",
+          "arXiv:2504.21471 and arXiv:2407.18599",
+          "Resultary f7b066958a2d, Finding and General transfer"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_mas.py, verify_rational.py",
+        "Resultary f7b066958a2d, fe91200b1768 (mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+        "arXiv:2108.13968, 2504.21471, 2407.18599"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The common classified language gives the stated elementary two returns by testing four edges each; indeed replacing 2100 by 000 gives a second prefix-distinct three-descent return using just 0 and 1. The shortest layer follows by weak decrease and stars and bars, and the exact rational function fixes every count."
+        ],
+        "reasoning": "Generating the two returns in the already classified graph is elementary and the weak exponential bound is not a new invariant or an improved growth threshold. The known general MAS characterization is relevant, but the decisive coverage of the entire explicit rational identity comes from the exact catalogue matches.",
+        "searches": [
+          "Resultary f7b066958a2d, Deletion-local minimality and General transfer; fe91200b1768, structural classification",
+          "arXiv:2108.13968 Theorem 3.1 and Proposition 3.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both catalogue records use the same greedy criterion (weak descent = entry into a new block), the same endpoint constraints, and the same deletion change in the local triple test. The 11/2 variables (t,z) mark repeats and length; the 11/8 variables (y,z) mark length and repeats."
+        ],
+        "reasoning": "The sets counted are identical after renaming the variables; this is not a match of isolated parameter values or a switch from a minimal absent subsequence to an absent factor.",
+        "searches": [
+          "Resultary: minimal absent subsequences (012)^k weak descents length spectrum",
+          "f7b066958a2d and fe91200b1768, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 11/2 displayed numerator, denominator, initial eight totals and total-count series match term for term with (t,z)→(s,t). The 11/8 record displays the same rational function with (y,z)→(t,s) and includes two more totals."
+        ],
+        "reasoning": "These are two separate indexed results with whole-spectrum coverage, not just table-prefix coincidences or an identical-record search hit. The date ordering of the displayed directory entries does not settle discovery or attribution.",
+        "searches": [
+          "Resultary: ternary periodic / repeated permutation MAS complete spectrum",
+          "f7b066958a2d and fe91200b1768 exact formula passages (offset 0)"
+        ]
+      },
+      "rationale": "The main finding is wholly covered in the inspected current catalogue: two separate records give the identical complete ternary rational spectrum and local classification, one via a broader arbitrary-alphabet ordered-block transfer formula. Their displayed directory dates are later than this frozen record, so this is a finding of equivalent existing coverage, not that those records had historical priority or that independent earlier discovery is disproved. The explicit elementary lower bound does not supply a substantively distinct counting result once the same language and spectrum are known.",
+      "residual_risks": [
+        "Troníček's potentially relevant full text was not available; its contribution was not assumed. Equivalent later catalogue coverage establishes neither when the frozen proof was first obtained nor historical priority. No literature search here claims exhaustiveness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact ternary overlap, plus general q≥3 transfer matrix",
+          "evidence": [
+            "Identical rational numerator and denominator, identical first eight totals, and bound k+1≤length≤2k."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-ternary-minimal-absent-subsequence-spectrum-of-repeated-pe--f7b066958a2d/RESULT.md",
+          "material_read": "Finding, greedy and deletion-local proof, and start of General transfer (offset 0); verification and literature passages (offset 5353)",
+          "method": "Resultary search and exact local-mirror read",
+          "title": "Exact ternary minimal-absent-subsequence spectrum of repeated permutation words",
+          "trigger": "Same periodic host and exact MAS spectrum, broader alphabet"
+        },
+        {
+          "assessment": "Exact ternary overlap",
+          "evidence": [
+            "Displays the same weak-descent language and identical generating functions with variables interchanged."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-complete-minimal-absent-subsequence-spectrum-of-repeated-ter--fe91200b1768/RESULT.md",
+          "material_read": "Finding and proof beginning (offset 0); verification and comparison (offset 5400)",
+          "method": "Resultary search and exact local-mirror read",
+          "title": "The complete minimal-absent-subsequence spectrum of repeated ternary permutations",
+          "trigger": "Same host, exact complete spectrum"
+        },
+        {
+          "assessment": "The compared construction does not cover the ternary case",
+          "evidence": [
+            "Even alphabet σ≥4 and k=(2σ+2)m; construction of at least 4^m minimal absent words."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.13968",
+          "material_read": "§3, Proposition 3.6, printed pp. 205–207, PDF pp. 7–8 (offsets 20500–29882)",
+          "method": "OA primary PDF passage",
+          "title": "Absent Subsequences in Words",
+          "trigger": "Original repeated-increasing-block exponential lower bound"
+        },
+        {
+          "assessment": "Algorithmic coverage, not explicit spectrum in inspected statements",
+          "evidence": [
+            "Output-linear-delay and incremental enumeration and longest-MAS algorithms."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2504.21471",
+          "material_read": "Abstract and introduction passage, PDF p. 1, offset 1200",
+          "method": "OA primary passage",
+          "title": "Efficiently Finding All Minimal and Shortest Absent Subsequences in a String",
+          "trigger": "General MAS enumeration"
+        },
+        {
+          "assessment": "Different statistic in inspected passage",
+          "evidence": [
+            "Counts all absent subsequences, not just the minimal ones."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.18599",
+          "material_read": "Abstract, PDF p. 1, offset 1600",
+          "method": "OA primary passage",
+          "title": "Adamson et al., absent subsequences at fixed universality index",
+          "trigger": "Potential spectral/counting analogue"
+        },
+        {
+          "assessment": "Unresolved, not used for the rejection",
+          "evidence": [
+            "No statement-level conclusion drawn from a redirect failure."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-49614-1_26",
+          "material_read": "No full-text passage retrieved",
+          "method": "Lawful OA attempts via DOI and Springer chapter URL; repository copy not located",
+          "title": "On Problems Related to Absent Subsequences",
+          "trigger": "Possible closely related absent-subsequence automata"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An exact ternary MAS spectrum is a useful invariant of a motivated family, but duplicate current coverage includes the exact spectrum and the structural rules behind it. The shortest layer is known, and the weak exponential estimate is an elementary consequence of those rules rather than a distinct extremal estimate or new phase of the spectrum. Reproduction adds confidence but does not provide an independently useful unknown exact fact.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:37:59.358342Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The angular dependence of the Hermite STFT matrix coefficients gives diagonalization, and t=π(x²+ξ²) makes the radial integral use dt. The Laguerre square is a Poisson mass times C_q(k;t)^2/(q!t^q), including k<q by the falling-factorial polynomial identity. For u=(k−c)/√c in a compact set, bounded t−c, coefficient extraction from exp(−s√t)(1+s/√t)^k and Stirling give the compact-uniform limit F_q. For no escape, the recurrence bounds t^−q/2|C_q| by a fixed polynomial in 1+r, r=|k−t|/√t. For k≥t/2, Stirling gives a bounded prefactor times exp(−b min(r²,r√t)) for the rescaled mass, by the rate function I(s)=s log s−s+1; for k<t/2 the exp(−bt) bound absorbs the possible √t prefactor. Use r≥(|k−c|−w/2)/√(c+w/2), not a uniformly additive o(1) comparison over all k. The tails and compact convergence give the supremum, every maximizing index, and the converse. Differentiating the three low-order F_q gives the stated constants and sets. At q=1 the compact expansion at the two peaks is F_1(u)+c^−1/2 H(u)+O_w(c^−1), with H(u)=F_1(u)(u³−3u)/6. The density's first two t log derivatives on those bands are O(c^−1/2) and O(c^−1); symmetry therefore makes the midpoint error O_w(c^−1) relative. Near a peak u_0, F_1 drops at least quadratically and H is Lipschitz. Comparing with a nearest lattice point gives |u−u_0|=O_w(c^−1/2) for each band maximizer and its normalized value F_1(u_0)+c^−1/2 H(u_0)+O_w(c^−1). The negative peak's correction wins, including for any integer ties. This supplies the sharp index bound without derivative estimates in the signal degree. The frozen `python3 check_annular_hermite.py` (SymPy and mpmath) reports 160 finite assertions; inspection shows its numerical mode searches are restricted to an index band and do not certify the global tail. The script was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eq. (5) of the shoulder record holds on compact scaled-index ranges for arbitrary fixed Hermite order. Eq. (6) identifies the signed first correction at each nonzero nondegenerate peak. The paper on radial operators gives the exact Laguerre multiplier for more general radial symbols, but not by itself the required limiting maximization. The Daubechies result as restated in arXiv:1404.7713 treats Gaussian expanding disks."
+        ],
+        "reasoning": "The strongest coverage is the shoulder expansion plus its fixed-degree tail argument, not the older radial integral formula or the disk limit. The shoulder record's explicit global conclusion is for order two, so the all-order leading coverage is by implication, not an attribution of an identically worded theorem.",
+        "searches": [
+          "Resultary 74fee70a2be4 compact expansion, cancellation and global order-two argument",
+          "arXiv:1905.00978 Prop. 6.3 Eq. (43)",
+          "arXiv:1404.7713 pp. 6–7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4e06172f4f4e and 74fee70a2be4",
+        "Resultary 4048bfddff1f",
+        "Resultary 57fcc645d909 (summary only)",
+        "arXiv:1905.00978",
+        "arXiv:1506.07084",
+        "arXiv:1404.7713"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first-window record states the lower shoulder wins with k=R−√(2R)+O_L(1) and relative +√2/(6√R). The broader record's Eq. (5) gives the all-order leading envelope and a correction; its proof controls the tails by a Poisson rate times a polynomial of degree four at order two. Replacing four by 2q follows from the same fixed-degree Charlier coefficients, with exponential domination unchanged."
+        ],
+        "reasoning": "Choose a large fixed scaled cutoff using the tail estimate and maximize the uniform limiting envelope on that compact interval. Since scaled integer spacing tends to zero, nearest lattice points reach the envelope supremum and every maximizer must approach its argmax set; sequences approaching that set are asymptotically optimal. The q≤2 constants are elementary extrema of those given envelopes. Thus simply deleting the covered first-order theorem would not isolate a distinct valuable remainder.",
+        "searches": [
+          "4e06172f4f4e RESULT.md Finding",
+          "74fee70a2be4 RESULT.md Eq. (5) and tail proof in global order-two subsection"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Thin annulus width L in t=πr² is fixed area w; R is the center c and n the signal index k. Their leading G_q is F_q. The same operator also has the true-polyanalytic radial Toeplitz multiplier description."
+        ],
+        "reasoning": "These are the same parameters, normalizations and spectra, not a comparison based only on Hermite windows or a word such as annulus. The first-Hermite shoulder laws match the two corrections and the bounded-offset statement exactly.",
+        "searches": [
+          "Resultary 4e06172f4f4e Finding",
+          "Resultary 74fee70a2be4 Finding and Eq. (5)",
+          "arXiv:1905.00978 §6 Prop. 6.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first two catalogue matches supply exact parametric expansions, not just tabulated values. Summary of 57fcc645d909 suggests a stronger Gaussian-only fixed-area mode law, but its original was not available. Finding of 4048bfddff1f lets width grow proportional to √R; its top eigenvalue tends to an order-one limit."
+        ],
+        "reasoning": "The same-day items were not dismissed on dates: the Gaussian-only summary is unresolved and the inspectable critical-width claim has different scaling. Neither is needed to establish coverage.",
+        "searches": [
+          "Resultary 4e06172f4f4e",
+          "Resultary 74fee70a2be4",
+          "Resultary 57fcc645d909",
+          "Resultary 4048bfddff1f"
+        ]
+      },
+      "rationale": "The separately featured first-window theorem is exactly covered by distinct published record 4e06172f4f4e. For the leading all-fixed-order statement, record 74fee70a2be4 supplies the stronger compact-uniform normalized eigenvalue expansion at every fixed order and a fixed-degree Poisson-tail argument in its order-two application. The same estimate with polynomial degree 2q immediately yields the all-fixed-order no-escape step. The norm and index statements then follow by maximization and lattice approximation, without a further new term or a genuinely different regime. This is mathematical coverage, including proof-level implication for the all-order leading statement; it is not an assertion that the 11/8 catalogue entries were published before the frozen 10/18 package. The matched records are distinct from the input.",
+      "residual_risks": [
+        "The relationship and historical priority among the different packages are unresolved.",
+        "The original Daubechies article and the exact same-day Gaussian crossing statement were not read; neither drives this rejection.",
+        "Earlier Charlier asymptotics may yield further priority overlap beyond the decisive catalogue evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact first-window coverage",
+          "evidence": "Opposite ±√2/(6√R) relative corrections, lower shoulder gap and global maximizing indices R−√(2R)+O_L(1).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-lower-shoulder-selection-law-for-thin-first-hermite-localiza--4e06172f4f4e",
+          "material_read": "Mirrored RESULT.md Finding from offset 0",
+          "method": "Local mirror primary statement",
+          "title": "The lower shoulder selection law for thin first-Hermite localization annuli",
+          "trigger": "Exact fixed-area first-window selection and norm correction"
+        },
+        {
+          "assessment": "Stronger compact eigenvalue expansion, signed shoulder law, and tail argument that transfers to every fixed order",
+          "evidence": "Eq. (5) on compact scaled intervals and exponential tails dominating fixed-degree polynomial growth; explicitly states globally selected outer shoulder at order two.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-signed-shoulder-law-for-thin-hermite-window-localizati--74fee70a2be4",
+          "material_read": "Mirrored RESULT.md Finding from offsets 0 and 1213; Eq. (5) through global order-two proof from offset 4250; mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror statement and decisive proof passage",
+          "title": "Universal signed shoulder law for thin Hermite-window localization annuli",
+          "trigger": "Same all-fixed-order density and potentially stronger asymptotics"
+        },
+        {
+          "assessment": "Potential overlap at q=0; no whole-record conclusion",
+          "evidence": "Summary describes exact crossings and a fixed-area second-order Gaussian norm law.",
+          "identifier_or_url": "57fcc645d909",
+          "material_read": "Catalogue summary only; matching RESULT.md absent from the local mirror",
+          "method": "Resultary summary and mirror retrieval attempt",
+          "title": "Exact Gaussian-annulus eigenmode crossings and a Bernoulli second-order law",
+          "trigger": "Potentially stronger same-day Gaussian slice"
+        },
+        {
+          "assessment": "Different width regime",
+          "evidence": "Width proportional to √R and top eigenvalue tending to 2Φ(w/2)−1.",
+          "identifier_or_url": "4048bfddff1f",
+          "material_read": "Mirrored RESULT.md Finding from offset 0",
+          "method": "Local mirror primary statement",
+          "title": "Critical-width Gaussian annuli have a two-edge Fock concentration law",
+          "trigger": "Same-day annulus spectral law"
+        },
+        {
+          "assessment": "Known exact machinery, not by itself the asymptotic maximum",
+          "evidence": "Laguerre-integral multiplier for general radial symbols.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.00978",
+          "material_read": "§6 Prop. 6.3 Eq. (43), p. 21, OA offset near 61100",
+          "method": "Primary OA passage",
+          "title": "Radial operators on polyanalytic Bargmann–Segal–Fock spaces",
+          "trigger": "Stronger general exact radial spectrum"
+        },
+        {
+          "assessment": "Exact overlap prerequisite",
+          "evidence": "Hermite–Laguerre and Fourier–Wigner relations.",
+          "identifier_or_url": "https://arxiv.org/abs/1506.07084",
+          "material_read": "Eq. (8), p. 3, offset 9300; Eqs. (19)–(20), pp. 5–6, offset 22800",
+          "method": "Primary OA passages",
+          "title": "Complex Hermite functions as Fourier–Wigner transforms",
+          "trigger": "Exact overlap normalization"
+        },
+        {
+          "assessment": "Restated Gaussian disk result is a different limit; original full text not assessed",
+          "evidence": "Gaussian-window Hermite diagonalization/eigenvalues and expanding-disk limit.",
+          "identifier_or_url": "https://arxiv.org/abs/1404.7713",
+          "material_read": "pp. 6–7, offsets 18700–22675; Daubechies bibliography p. 20, offset 61884",
+          "method": "OA published restatement, not the 1988 original",
+          "title": "On accumulated spectrograms",
+          "trigger": "Foundational Daubechies comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The functional-analytic content is meaningful: it finds the sharp optimal concentration over unbounded mode indices, rather than just the behavior of one index or a disk approximation. The first correction also breaks an otherwise exact limiting tie. That intrinsic utility does not distinguish the result from the specifically overlapping catalogue findings.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

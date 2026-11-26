@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof has two critical checks.
+# Independent mathematical audit
 
-First, after fixing the center to a color \(\alpha\), each leaf loses at most one of its \(k\) colors. For every subset of leaves, the union of available colors therefore contains at least \(k-1\) labels. With residual capacity \(m\) on each label except capacity \(m-1\) on \(\alpha\), every such union has capacity at least \(m(k-1)-1\). The hypothesis \(m(k-1)\ge n\) makes this at least the total number \(n-1\) of leaves, which is stronger than every capacitated Hall inequality needed.
+## correctness
 
-Second, when \(m(k-1)<n\) and \(k\ge2\), the plain cyclic cover using \(\tau(i)=i+1\pmod{k}\) forbids \(\tau(\alpha)\) at every leaf once the center is colored \(\alpha\). The center consumes one slot of \(\alpha\), so all leaves together have at most \(m(k-1)-1<n-1\) admissible color slots. This is a finite-capacity obstruction, not a probabilistic or computational inference. For \(k=1\), one matched edge already has no coloring.
+PASS
 
-`verify.py` independently exhausts all plain full covers for \(2\le n\le4\), \(1\le k\le4\), and directly solves the bounded-coloring problem. It also checks the arithmetic Hall and cyclic-obstruction inequalities for \(2\le n\le200\), \(1\le k\le200\). Its recorded output is in `verification_output.txt`.
+The original quantifies over arbitrary covers with global labels and compares with EDP, not SEDP. Fixing any center color removes at most one choice per leaf. A nonempty subset of leaves sees at least k−1 labels, whose total remaining capacity is at least m(k−1)−1, after subtracting one slot for the center. Under the criterion this is at least n−1, so cloning labels according to their residual capacities proves all Hall inequalities. Conversely the common Z_k palette and the cyclic edge map forbid one label on every leaf different from the center label. The center also uses no copy of that forbidden label, so fewer than n total slots are accessible whenever m(k−1)<n. For k=1 one matched edge suffices. This includes n=2, k=n, k>n and the stated switches at n=9. Inspected VERIFICATION.md, verify.py and its recorded output; the proof is analytic, and the bundled census is confined to plain full covers and was not replayed.
 
-Finite replay does not prove the universal quantifiers; it only stress-tests the analytic argument and the delicate boundary cases.
+## originality
+
+PASS
+
+The cyclic witness and the high-palette range have documented antecedents; the complete low-palette EDP criterion for stars, including its sufficiency direction for arbitrary covers, was not covered by the strongest inspected statements.
+
+## value
+
+PASS
+
+The result completely resolves a natural graph family's palette spectrum under a new quantified coloring constraint, including below the general forest guarantee. A sharp obstruction-versus-capacity criterion explains when the failure to extend across palette sizes is inherent; the n=9 switches directly separate EDP behavior from the older SEDP example. The contribution is this boundary, not a new form of Hall's theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

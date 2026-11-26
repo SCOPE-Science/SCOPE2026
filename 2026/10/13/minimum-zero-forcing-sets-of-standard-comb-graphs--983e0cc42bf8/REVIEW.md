@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces minimum zero forcing sets to forcing-chain path covers. The leaf count gives the sharp lower bound \(\lceil n/2\rceil\); equality constrains the number of leaves in each chain. For even \(n\), every chain must contain two leaves, forcing the unique adjacent pairing of spine indices. For odd \(n\), exactly one chain has one leaf; separating whether a spine endpoint is initially blue yields the stated canonical families, and the all-leaf overlap recurrence gives the closed count. The standalone exhaustive checker agrees for every \(2\le n\le11\).
+## correctness
 
-## Originality
-PASS. The foundational tree theorem proves equality with path cover number and gives one endpoint construction, but does not enumerate all minimum zero forcing sets of the standard comb. The inspected \(q\)-analogue paper treats a broader comb class under the different \(Z_1\)-game and does not give the ordinary minimum-basis count. The inspected minimal-fort paper uses a comb example for forts/maximal failed zero forcing sets, not for this minimum-basis classification. Exact and alias searches found no stronger statement implying the parity formulas.
+PASS
 
-## Value
-PASS. The standard comb is a canonical corona/tree family appearing explicitly in later zero-forcing literature. The classification refines a known scalar tree theorem to the complete optimal-set geometry. The odd case is not a direct product count: different minimum path covers yield duplicate leaf endpoint sets, and resolving this overlap produces the nontrivial factor \((3m+4)2^{m-1}\). This supplies an exact basis census useful whenever one needs all optimal placements rather than only their minimum cardinality.
+Forcing chains cover the tree, with one initially blue endpoint per chain. A chain contains at most two pendant leaves; the cover by adjacent pairs of teeth, with a one-tooth path in odd order, attains the ceiling lower bound using the tree endpoint theorem. With even n every path must contain two leaves; a chain skipping an index would strand its internal pendant leaf as a singleton, so only the adjacent perfect pairing is possible. With odd n just one path has one leaf. If it has a spine endpoint, no two-leaf path can skip a tooth, so the sole unmatched tooth has odd index and gives the one spine choice. Otherwise either all paired paths are adjacent or exactly one pair skips one tooth and leaves its middle leaf as a singleton. That latter pattern is represented in the stated union by moving the unmatched choice to the selected outer endpoint. For counting distinct odd all-leaf choices, 00 cannot start a valid word. For prefix 10 or 01 the initial two entries can be deleted and prepended bijectively (when q=1 and the word starts 10, entry 3 is selected and can serve as the new singleton). For 11 one needs q=1 and entry 3 zero; there are 2^(m−1) remaining choices. With A₁=3 this yields the stated all-leaf, spine and total counts. The n=2 boundary gives the two endpoints of P₄.
 
-## Closest literature and limitations
-The closest general theorem is Proposition 4.2 of the foundational zero-forcing paper. The closest same-object source located is the \(q\)-analogue paper's comb section, which studies a different game. A recent minimal-fort paper also depicts a comb but addresses a dual obstruction family. The result does not cover generalized combs or nonminimum zero forcing sets, and the literature search cannot prove absolute novelty against inaccessible or unindexed material.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The tree path-cover theorem supplies the scalar result and any chosen cover's endpoint construction, not the explicit parity-dependent census of distinct endpoint sets across the standard comb's minimum covers. The closest indexed spider result overlaps at n=3 only, the broader comb literature studies a different forcing game, and graph-operation work inspected does not provide this exact enumeration.
+
+## value
+
+PASS
+
+For the natural path-corona tree family this describes exactly which minimum seed sets can contain a spine vertex and counts the distinct minimum sets, not the representations by path covers. The nonunique odd all-leaf parametrization and parity distinction are genuine structure beyond the known scalar zero forcing number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

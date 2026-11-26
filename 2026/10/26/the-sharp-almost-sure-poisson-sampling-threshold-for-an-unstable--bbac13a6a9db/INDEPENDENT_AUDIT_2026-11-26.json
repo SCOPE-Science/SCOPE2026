@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:05:16.520245Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each fixed gain the hold multiplier is M(h)=k/a+(1−k/a)e^(ah); any zero is simple and has probability zero at a sample, so log|M(H)| is integrable. The two strong laws give the exponent at sample times. The upper bound |M(h)|≤C exp(ah) and H_n/T_n→0 give the matching upper limsup at all times; zeros do not affect this upper bound, and no assertion uniform across gains on one probability-one event is needed. The exponent is positive for k<a and zero for k=a. For k>a, write p=λ/a and θ=1−a/k. Integration by parts in the beta integral, deleting a symmetric interval at y=θ whose boundary-log difference tends to zero, gives the simpler exact identity F_p(θ)=θ^p PV ∫_0^(1/θ) z^(p−1)/(1−z) dz. For 0<p<1 the whole integral to infinity pairs to ∫_0^1 (z^(p−1)−z^(−p))/(1−z) dz, positive below 1/2, zero at 1/2 and negative above. Truncation adds a positive tail correction. This proves strict positivity for 0<p≤1/2 and negativity for small θ for 1/2<p<1. For p=1 the integral is −log(1/θ−1), and for p>1 its eventually negative tail grows in magnitude like (1/θ)^(p−1)/(p−1), confirming the stated small-θ expansion. For the mean-square comparison, when λ≤2a the no-sample event alone gives a nondecaying lower bound at every k≠a; k=a is constant. When λ>2a the proposed minimizer gives E[M(H)^2]<1, and a small exponential weight preserves the mass <1 of the nonnegative first-hold renewal kernel λe^(−λs)M(s)^2; the weighted no-sample term is bounded, giving decay at deterministic times. Independent quadrature of the pole-subtracted integral agrees with the signs and critical closed form at the replay points in /workspace/replays/recheck_frozen.py, poisson(); the proof, not quadrature, resolves all parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Basu–Ferrante–Fiacchini use iid exponential holds (p. 3) and prove mean-exponential stability conditions for a different output-regulation architecture (pp. 10–11). No decisive full-text passage was accessible for the two DOI lookups."
+        ],
+        "reasoning": "An LMI for mean behavior is not a sharp pathwise obstruction. A general stochastic-product theorem may recover part of the exponent argument; that alone would not evaluate the sign optimum for all λ/a.",
+        "searches": [
+          "arXiv:2306.15317, Problem 2 and Lemma 1",
+          "DOI 10.1109/LCSYS.2022.3184902",
+          "DOI 10.1137/0123017"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_poisson_threshold.py and requirements.txt (read only)",
+        "Tanwani et al. §6.3",
+        "arXiv:2306.15317",
+        "Resultary 011bbc4f73d2; indexed summary for 3b462c0cdecb",
+        "DOI lookups 10.1137/0123017 and 10.1109/LCSYS.2022.3184902"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-model moment construction applies above 2a. The frozen theorem also treats a/2<λ≤2a and proves positive pathwise growth for all gains other than k=a at and below a/2."
+        ],
+        "reasoning": "Even if second-moment decay implies pathwise decay for admissible gains in its range, it cannot by itself prove existence below 2a or the universal nonexistence statement at a/2. Those require the sign calculation for the logarithmic integral.",
+        "searches": [
+          "Tanwani–Chatterjee–Liberzon, Proposition 6.2, pp. 235–236",
+          "Basu–Ferrante–Fiacchini, Problem 2/Lemma 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact scalar criterion is negativity of an expected logarithm of the hold multiplier, followed by optimization over k. Tanwani et al. study the same scalar hold and rate but a squared-moment criterion. Resultary 011bbc4f73d2 uses independent randomization of finite-horizon control on deterministic two-unit intervals."
+        ],
+        "reasoning": "Neither a squared-moment criterion nor periodic randomization of controls is equivalent to the pathwise criterion for exponentially distributed hold times.",
+        "searches": [
+          "Resultary semantic search: scalar Poisson zero-order hold, almost-sure exponent and λ>a/2",
+          "Beutler (1972), DOI 10.1137/0123017",
+          "Tanwani–Chatterjee–Liberzon (2018), §6.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact indexed λ/a=1/2 hit surfaced in the bounded search. The inspected scalar chapter gives λ/a=2 under its mean-square criterion. The summary for 3b462c0cdecb refers to symmetric stable Lévy noise; its exact text was not available in the local mirror."
+        ],
+        "reasoning": "These are catalogued stability statements to compare by model, admissible controller and stability notion, not by the mere occurrence of a threshold. No separate relevant numerical table was identified.",
+        "searches": [
+          "Resultary: scalar Poisson sampling pathwise threshold (compare 011bbc4f73d2 and 3b462c0cdecb)",
+          "Tanwani chapter §6.3 Proposition 6.2"
+        ]
+      },
+      "rationale": "The supported distinct claim is the sharp fixed-gain Poisson frontier λ>a/2 for pathwise exponential stability, not a new general logarithmic-product principle or the λ>2a mean-square frontier. The closest inspected same-model result is about second moments; no exact or implying coverage of the pathwise frontier was established. This is a best-of-knowledge decision with a material access risk from Beutler (1972).",
+      "residual_risks": [
+        "Beutler's exact assumptions and possible scalar example could not be verified independently.",
+        "Huff et al. full text and the later Cauchy-mixture record's exact statement remained unavailable; bounded searches are not priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model, distinct stability criterion",
+          "evidence": "Mean-square stabilizability at λ>2a; the compared passage does not give the pathwise boundary.",
+          "identifier_or_url": "https://liberzon.csl.illinois.edu/research/Tanwani2018_Chapter_StabilizationOfDeterministicCo.pdf",
+          "material_read": "Section 6.3, Proposition 6.2, pp. 235–236",
+          "method": "OA PDF passage inspection",
+          "title": "Stabilization of Deterministic Control Systems Under Random Sampling: Overview and Recent Developments",
+          "trigger": "Same scalar Poisson zero-order-held feedback model"
+        },
+        {
+          "assessment": "Broader stochastic sampling context",
+          "evidence": "Poisson arrivals with iid exponential intervals; mean-exponential stability and LMI design for output regulation.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.15317",
+          "material_read": "Sampling description p. 3; Problem 2 and Lemma 1 pp. 10–11",
+          "method": "OA PDF passage inspection",
+          "title": "Output Regulation of Stochastic Sampled-Data Systems with Post-processing Internal Model",
+          "trigger": "Exponential holds and control stability"
+        },
+        {
+          "assessment": "Material unresolved access risk; not evidence of absence",
+          "evidence": "Subject matter directly concerns pathwise bounds and randomly sampled control; exact model and intensity condition could not be compared.",
+          "identifier_or_url": "https://doi.org/10.1137/0123017",
+          "material_read": "Citation and title only; no independently inspectable paper or abstract passage",
+          "method": "Targeted literature lookup and lawful OA/DOI retrieval; article and abstract-page access denied, no alternate copy found",
+          "title": "Almost Sure Exponential Bounds for Stochastic Operator Systems, with Applications to Randomly Sampled Control",
+          "trigger": "Plausible earlier pathwise scalar specialization"
+        },
+        {
+          "assessment": "Access-limited; no full-text inference drawn",
+          "evidence": "Cited PDF was unavailable, DOI did not return article text, and repository attempts did not yield a readable copy.",
+          "identifier_or_url": "https://doi.org/10.1109/LCSYS.2022.3184902",
+          "material_read": "Bibliographic identification; no inspected theorem passage",
+          "method": "Cited lawful PDF, DOI and repository-copy attempts",
+          "title": "Necessary and Sufficient Convex Condition for the Stabilization of Linear Sampled-data Systems under Poisson Sampling Process",
+          "trigger": "Same sampling family, plausible sharper specialization"
+        },
+        {
+          "assessment": "Comparable contrast, different controller and hold law",
+          "evidence": "Randomized finite-horizon optimal control every two time units, rather than fixed gain at exponential holds.",
+          "identifier_or_url": "Resultary 2026/10/18, 011bbc4f73d2",
+          "material_read": "RESULT.md model and claim",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "A sharp fractional-moment gap and infinite expected cost in scalar control",
+          "trigger": "Scalar pathwise-vs-moment gap"
+        },
+        {
+          "assessment": "Potential context match, no full-text exclusion asserted",
+          "evidence": "Summary describes multiplicative noise driven by symmetric stable Lévy noise, not the deterministic affine hold flow in the frozen result.",
+          "identifier_or_url": "Resultary 2026/11/8, 3b462c0cdecb",
+          "material_read": "Indexed summary only; exact result not present in local mirror",
+          "method": "Local Resultary search and mirror lookup",
+          "title": "A Cauchy-mixture obstruction to stabilizing scalar flows by sampled feedback",
+          "trigger": "Scalar sampled-feedback upper exponent and threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp rate answers a natural stability-design question for an existing scalar benchmark. It distinguishes the entire continuous-time path from observations at the sample times, and exhibits a full range where fixed gain is effective almost surely but no fixed gain works in mean square. The strict obstruction at the endpoint, with unchanged state only at k=a, is substantive and cannot be obtained from the existing second-moment frontier alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

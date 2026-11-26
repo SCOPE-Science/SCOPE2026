@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The finite-state verification uses the standalone `verify.py` file in the same package. Reproduce with Python 3, NumPy and SymPy installed by running `python verify.py`.
+## correctness
 
-The program constructs explicit labeled complete rooted trees, computes the greedy two-offer transition matrix, and solves the associated root-hitting time system numerically for nine branching/height instances. It independently computes exact finite-deadline Bellman-optimal hitting probabilities for all labeled non-root states for twelve deadlines, comparing them with the fixed parent-first policy; the equality is tested using exact rational arithmetic. A distinct tridiagonal absorbing-chain calculation evaluates the hitting-time generating function and compares it at two rational arguments per instance to the closed continued fraction, again exactly. The total is 2,538 exact state/deadline and PGF checks. Further large-height moment/cycle-constant comparisons are numerical/asymptotic consistency tests.
+PASS
 
-The infinite-height central limit theorem and exponential limit are proved analytically in `RESULT.md`: the latter is not deduced from finite simulation or finite-horizon enumeration. No formal proof assistant or independent review is claimed. The checks do not establish historical priority.
+Every path from depth i+1 to the root must reach depth i. Conditional on the first visit and observed history, future independent offers admit at most the optimal depth-i success probability with the remaining time, bounded by the full-horizon value. Thus value is nonincreasing in depth for every horizon. Bellman maximization always admits parent-first as an optimizer, with no restriction to stationary or deterministic competitors; the forced leaf step and zero-horizon boundary are covered. Under that rule p=1−(b/(b+1))², the leaf transition is inward with certainty, and first-step decomposition of downward passage gives J_i=zp+zqJ_{i+1}J_i with J_h=z, hence denominators positive on [0,1]. Strong Markov gives the product of successive independent crossing PGFs; multiplying by 1/(1−z) converts masses to optimal cumulative deadline probabilities. For h=1 the product is z as required. The uploaded finite verifier was inspected, not executed; no asymptotic or all-policy conclusion is based on its checks.
 
-Self-review completed; independent audit not performed.
+## originality
+
+PASS
+
+The narrowed simultaneous stochastic-optimality statement and exact evaluation of optimal finite-deadline probabilities survive the prior-law overlap on the inspected evidence. No claim is made that the radial continued-fraction method or the large-height regimes themselves are new.
+
+## value
+
+PASS
+
+A strategy that optimizes a mean may fail at a hard deadline. This result identifies a single policy attaining every finite deadline bound even against history-dependent randomized strategies, and gives those attainable probabilities without building a state space exponential in tree height. That decision guarantee, not the textbook first-step recursion or the covered fluctuation transition, motivates the repaired claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

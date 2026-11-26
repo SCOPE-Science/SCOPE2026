@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:56:14.273006Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, definitions and proof, lines 16–74",
+        "Frozen verify.py, rational block checks and finite spectral tests, lines 7–74",
+        "Frozen VERIFICATION.md, lines 1–19"
+      ],
+      "rationale": "For the stipulated unit-penalty, plus-dual, simultaneous quadratic updates, differentiating one block gives (s+2)x_i^+=(s+1)x_i-S-lambda. On the zero-sum space this multiplies by b=(s+1)/(s+2); the independent sum/dual block has trace t=(2s+3-2m)/(s+2) and determinant q=(s+1-m)/(s+2). In the quadratic Schur test the only nonautomatic inequality is 1+t+q=(4s+6-3m)/(s+2)>0. At equality a real eigenmode alternates with multiplier -1 (including m=2, s=0); below, P(-1)<0 forces a real root below -1. Thus the strict threshold is necessary for all states and sufficient irrespective of Jordan blocks. For s<m-1 the roots straddle zero. The positive root is at most b by P(b)=ms/(s+2)^2; the negative root increases strictly, since (t'lambda_- - q')/(2lambda_- - t)>0. Its magnitude crosses the increasing b exactly once, from m-1 at s=0 to zero at m-1, with the crossing above the stability boundary. P(-b)=0 gives the claimed quadratic and positive root. For s>=m-1 complex roots have modulus sqrt(q)<b; if real, the roots are nonnegative and P(b)>0 with b>t/2 places both below b. Hence no other global minimizer exists. Expanding the positive root and b gives the stated 4/3 asymptotic gap ratio. This is a spectral radius, not a one-step norm bound.",
+      "residual_risks": [
+        "Checker inspected, not executed; the analytic reconstruction supplies the all-m proof. The comment about full-matrix numerical evolution in verify.py describes a block spectral test in the actual code."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "4142 proves the general sufficient s>=m-1 and identifies convergence for much smaller coefficients as a research issue.",
+          "3894 uses an iteration-dependent under-relaxation correction; 2611.00570 uses inexact solves and safeguarded penalty/multiplier updates."
+        ],
+        "reasoning": "Only 4142 covers the precise iteration as a specialization; its convergence domain does not exhaust the benchmark domain and its theorem does not optimize the benchmark rate.",
+        "searches": [
+          "Optimization Online 4142, convergence theorem and conclusion",
+          "Optimization Online 3894, Algorithm 1",
+          "arXiv:2611.00570, Algorithm 1"
+        ]
+      },
+      "checked_sources": [
+        "Optimization Online manuscripts 4142 and 3894",
+        "arXiv:2611.00570 v1",
+        "Resultary dc6c98b3c10b, 88ef47013166, 75453f340b95, 9ae77a2e1a30"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical sufficient set cannot certify the critical failure or the stable parameters below m-1, including the rate minimizer.",
+          "The primary sequential and relaxed comparisons do not have the same simultaneous sum/dual and disagreement spectrum."
+        ],
+        "reasoning": "One can derive the result starting from the known update; obtaining necessity and the best coefficient still requires the benchmark-specific invariant subspaces and opposing mode analysis, not an available specialization of a stronger analyzed formula.",
+        "searches": [
+          "Optimization Online 4142, pp. 3, 7, 11",
+          "Resultary distinct exact stability/tuning statements above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Changing the multiplier sign in (1.6) and taking A_i=1, unit penalty and x_i^2/2 gives exactly the same iteration.",
+          "The close all-order catalogue characteristic polynomial is for fixed-order cyclic ADMM, whose block update is sequential."
+        ],
+        "reasoning": "The equivalent formulation establishes prior coverage of the update, but the cyclic spectrum or a sign change of the classical convergence theorem does not give the sharp threshold and minimizer.",
+        "searches": [
+          "He–Xu–Yuan, Optimization Online 4142, equation (1.6)",
+          "Resultary semantic search for Jacobi/proximal quadratic ADMM and exact spectral damping"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact title/formula match was the assigned record itself.",
+          "Distinct hits include dc6c98b3c10b (all-order cyclic characteristic polynomial), 88ef47013166 (three-block sequential penalty optimum), 75453f340b95 (Gauss–Seidel chain Schur frontier), and 9ae77a2e1a30 (two-block scalar linearized ADMM)."
+        ],
+        "reasoning": "The related numerical or symbolic exact results apply to different iteration matrices or tune a different parameter. No distinct matching theorem surfaced; date alone does not resolve priority.",
+        "searches": [
+          "Resultary semantic searches for rate-optimal Jacobi damping, scalar-constraint quadratic ADMM and exact stability frontiers"
+        ]
+      },
+      "rationale": "The scheme itself is classical. The supported distinct claim is the exact all-m threshold and unique asymptotic spectral tuning for this one homogeneous fixed-penalty Jacobi benchmark, not a general ADMM theorem or a priority certification.",
+      "residual_risks": [
+        "A primary literature search returned no hits; not evidence of absence. An unindexed or uninspected specialized spectral analysis remains possible.",
+        "Priority is not established. The existing classical update and its general sufficient condition are already known."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same iteration after specialization and sign convention; convergence guarantee not sharp here",
+          "evidence": "The proximal term is s beta ||A_i(x_i-x_i^k)||^2/2; the theorem uses s>=m-1, while the conclusion asks about coefficients much smaller than m-1.",
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2013/11/4142.pdf",
+          "material_read": "p. 3 equation (1.6), p. 7 sufficient condition, p. 11 conclusion",
+          "method": "Open PDF, located passages read",
+          "title": "On the Proximal Jacobian Decomposition of ALM for Multiple-block Separable Convex Minimization Problems and its Relationship to ADMM",
+          "trigger": "Same Jacobi proximal update and incumbent coefficient"
+        },
+        {
+          "assessment": "Different relaxed map",
+          "evidence": "The correction is w^{k+1}=w^k-alpha_k(w^k-tilde w^k).",
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2013/05/3894.pdf",
+          "material_read": "Abstract and Algorithm 1, pp. 1, 7",
+          "method": "Open PDF, located passages read",
+          "title": "On full Jacobian decomposition of the augmented Lagrangian method for separable convex programming",
+          "trigger": "Plausible equivalent Jacobi scheme"
+        },
+        {
+          "assessment": "Different adaptive, inexact algorithm",
+          "evidence": "Algorithm 1 has multiplier acceptance tests and penalty doubling between stages.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.00570",
+          "material_read": "Abstract and Algorithm 1, pp. 1, 8",
+          "method": "Open PDF, located passages read",
+          "title": "A Parallel Adaptive Proximal ADMM for Linearly Constrained Separable Composite Optimization Problems",
+          "trigger": "Jacobi-type proximal ADMM antecedent"
+        },
+        {
+          "assessment": "Adjacent exact results, not equivalent coverage",
+          "evidence": "The defining cases are respectively cyclic ADMM, sequential three-block penalty tuning, a Gauss–Seidel two-constraint chain, and scalar two-block linearization.",
+          "identifier_or_url": "dc6c98b3c10b; 88ef47013166; 75453f340b95; 9ae77a2e1a30",
+          "material_read": "Finding and defining update/scope of each",
+          "method": "Resultary semantic search and local mirror statement inspection",
+          "title": "Distinct Resultary exact quadratic ADMM spectral records",
+          "trigger": "Close exact formulas or sharp frontiers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and scope",
+        "Optimization Online 4142, conclusion on smaller coefficients"
+      ],
+      "rationale": "This is a motivated sharp calibration of the established generic damping prescription on a natural test problem where every parallel block participates in the same constraint. The exact instability boundary and optimal coefficient distinguish stability from best rate, and identify competition between a positive disagreement mode and a negative coupled mode rather than a repeated-root optimum. The 4/3 leading spectral-gap gain quantifies a real difference from the general sufficient prescription on this benchmark.",
+      "residual_risks": [
+        "No improvement is asserted for heterogeneous, relaxed or adaptive algorithms, or for finite-time transient error."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

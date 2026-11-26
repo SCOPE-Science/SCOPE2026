@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:30:35.698374Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The objective is the equally weighted sum of conditional two-success tails; the factor 1/2 is immaterial. For q=1−p, K=n−1, the increment of F_p(k) is k p²q^(k−1) for k≥1 and is zero at k=0. Hence the first increment of the symmetric objective H is strictly negative, and for 0<j<K/2 the sign is that of log(j/(K−j))+(2j−K)log q. An independent sign argument divides by K−2j: with t=(K−2j)/K, the result is −log q−2 arctanh(t)/(Kt), strictly increasing with j by the positive series for arctanh(t)/t. Thus the half-range can only decrease and then increase, with at most one zero step inside; the initial strict decrease rules out an interior tie for the maximum. The odd central reflected pair agrees by symmetry. Rechecked the even factorization and the odd incremental polynomial: dividing respectively by p q^(m−1) after removing the even positive factor, or by p² q^(m−1) in the odd case, yields a strictly increasing expression in q, negative near zero and positive near one. Thus the roots and all endpoint ties are as stated, including p₄=2/3. For p=z/n the exact endpoint difference tends to (1−e^(−z/2))[(1+z)e^(−z/2)−1], with one positive sign change, so two fixed brackets and the finite-n uniqueness imply convergence of np_n. Independently evaluated the positive root by 55-digit decimal bisection as 2.512862417252339353965475… . Inspected the finite supporting checker without executing it; it is not the proof of the all-n result. The strict claim excludes p=0 and 1 and assumes static, equal-prior design.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The resource-allocation search surfaced generic exact/heuristic algorithms for separable nonconvex allocation, not an indexed threshold theorem; the primary full text at that URL was not available.",
+          "b5700e6d7b92 is an exact optimization on continuous allocations for Poisson conditional counts with positively bounded survival probabilities."
+        ],
+        "reasoning": "The convex-then-concave shape of a symmetric discrete utility alone does not imply endpoint-only optimization: for six units, a utility starting at zero with successive increments 0,1,2,10,0.5,0.25 gives H(2)=14, greater than H(0)=13.75 and H(3)=6. The finite-binomial increment-ratio structure is essential. A generic optimization algorithm can solve specified instances without implying the strict symbolic threshold law.",
+        "searches": [
+          "Public literature: identical sigmoidal integer utilities, separable resource allocation, concentration and equal split",
+          "Resource allocation problems with expensive function evaluations, ScienceDirect S037722172200618X",
+          "Local Resultary b5700e6d7b92, same transition pattern for pooled Poisson totals"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "arXiv:0907.1614v1",
+        "arXiv:1105.5393v1",
+        "Resultary 4e69c33bc1b2, b5700e6d7b92, 2666a1201bc7 and 2fc37a4008e7",
+        "ScienceDirect S037722172200618X (indexed abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In b5700e6d7b92, the discordant Poisson means are hx+ℓ(B−x) and ℓx+h(B−x) with ℓ>0, and the threshold satisfies βB coth(βB/2)=1+αB. On the ℓ→0, h=1 boundary the discordant objective becomes the same continuous Poisson two-tail limit; the limiting equation becomes e^(B/2)=1+B. This boundary is outside the stated ℓ>0 theorem and in any case does not determine finite binomial allocations.",
+          "The transit-window paper analyzes phase coverage and explicitly discusses detection/aliasing with two sampled transits; Dzigan–Zucker use posterior updating and ranked follow-up epochs, not a static equal-prior two-point design."
+        ],
+        "reasoning": "The continuous Poisson connection is real and was checked by direct substitution in the conditional means, not dismissed on title or date. The finite discrete increments, parity thresholds and exclusion of all other integer ties do not follow by that substitution or from the limit in reverse.",
+        "searches": [
+          "Local Resultary b5700e6d7b92 Finding, assumptions and Poisson thinning; 2666a1201bc7 Finding",
+          "Transit primary literature arXiv:0907.1614v1 §2.1 and §3.5.1 and arXiv:1105.5393v1 §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "4e69c33bc1b2 optimizes three continuous phase arcs for a continuously uniform unknown phase, not any n with a two-point prior.",
+          "2fc37a4008e7 compares specified binomial tails after adding two trials rather than optimizing all integer splits."
+        ],
+        "reasoning": "The telescope application is one interpretation of a symmetric separable binomial resource-allocation problem. Neither the continuous arc geometry nor a single pair of tail comparisons is equivalent to global optimization over all of its splits.",
+        "searches": [
+          "Local Resultary and public literature: maximize sum of two binomial two-success tails over complementary integer allocations; reliability allocation and transit confirmation",
+          "Local Resultary 4e69c33bc1b2 and 2fc37a4008e7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2666a1201bc7 gives precisely e^τ=1+2τ for an exponential upper-tail allocation, so its τ is c_*/2.",
+          "The binomial-tail analogue is not a listing of finite reliability thresholds p_n; no independent listing of the exact all-n law was identified in the checked evidence."
+        ],
+        "reasoning": "The limiting root is not an independent novelty claim. A tabulated positive root of that equation or a related binomial identity would not give the two parity laws or strict all-budget classification.",
+        "searches": [
+          "Local Resultary reliability and optimizer pattern, and exact limiting equation e^t=1+2t; 2666a1201bc7, b5700e6d7b92 and 2fc37a4008e7"
+        ]
+      },
+      "rationale": "The complete finite-binomial classification is not covered by the inspected sources. The optimizer pattern has a close continuous Poisson analogue and the limiting equation is known in another exact optimization; these are not independently new features taken alone. The scope of this pass is the finite-n law, including its strict ties and the link from the finite roots to that limit.",
+      "residual_risks": [
+        "Older discrete reliability-allocation results with different terminology may cover some of the finite classification; the first broad search was nonresponsive and is not negative evidence.",
+        "The previously known limiting equation and nearby Poisson optimizer switch are not claimed as independent novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Transit detection/window functions, not discrete two-ephemeris allocation.",
+          "evidence": [
+            "The model excludes weather/outages in the stated window calculation and discusses minimum sampled transits and aliasing."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0907.1614v1",
+          "material_read": "PDF p. 2 §2.1 at offset 16356; pp. 6–7 §3.5.1 at offsets 36550 and 39000",
+          "method": "Bounded primary OA PDF passages",
+          "title": "Observational Window Functions in Planet Transit Surveys",
+          "trigger": "Published two-confirmation and observational-window comparator"
+        },
+        {
+          "assessment": "Adaptive scheduling from posterior distributions; does not provide the stated static classification.",
+          "evidence": [
+            "Posterior updates and transit-probability peaks are used to prioritize epochs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1105.5393v1",
+          "material_read": "PDF pp. 2–3 §2, offsets 10000–12981 and 15100–17833",
+          "method": "Bounded primary OA PDF passages",
+          "title": "Directed follow-up strategy of low-cadence photometric surveys in search of transiting exoplanets – I. Bayesian approach for adaptive scheduling",
+          "trigger": "Strong applied follow-up scheduling comparator"
+        },
+        {
+          "assessment": "Three arcs over a continuous posterior, not the two-hypothesis model for all n.",
+          "evidence": [
+            "It optimizes three continuous windows for two-transit confirmation under an uncertain continuous phase."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-weather-reliability-threshold-for-three-transit-observat--4e69c33bc1b2",
+          "material_read": "Mirrored RESULT.md offsets 0–5642, Finding and proof setup",
+          "method": "Bounded catalogue mirror passages",
+          "title": "A sharp weather-reliability threshold for three transit-observation windows",
+          "trigger": "Closest exact transit reliability threshold"
+        },
+        {
+          "assessment": "Continuous Poisson analogue; its excluded ℓ=0 boundary matches the limiting objective, not the finite-n binomial theorem.",
+          "evidence": [
+            "Its budget constrains expected releases, not integer trials, and the success count is pooled. Its sharp comparison uses βB coth(βB/2)=1+αB."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-single-budget-switch-from-concentrated-to-equal-two-date-intro--b5700e6d7b92",
+          "material_read": "Mirrored RESULT.md Finding and offsets 560–3638, assumptions and conditional thinning",
+          "method": "Bounded catalogue mirror passages",
+          "title": "A single budget switch from concentrated to equal two-date introductions under a two-founder quorum",
+          "trigger": "Closest optimizer pattern and mathematically linked Poisson objective"
+        },
+        {
+          "assessment": "Prior exact equation, different optimization and no finite binomial threshold.",
+          "evidence": [
+            "Equal versus sparse weights change at e^τ=1+2τ."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-exact-weight-phase-diagram-for-two-exponential-upper-tails--2666a1201bc7",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Bounded catalogue mirror passage",
+          "title": "Exact weight phase diagram for two exponential upper tails",
+          "trigger": "Exact scalar transition match after rescaling"
+        },
+        {
+          "assessment": "Indexed abstract describes generic exact and heuristic methods, not a direct stated match; not counted as a whole-paper exclusion.",
+          "evidence": [
+            "Abstract refers to integer resource allocation with expensive function evaluations and convex/nonconvex separable costs."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S037722172200618X",
+          "material_read": "Search-indexed abstract; primary full text not obtained at this URL",
+          "method": "Focused public search and OA access attempt",
+          "title": "Resource allocation problems with expensive function evaluations",
+          "trigger": "Generic nonconvex integer resource-allocation theorem/algorithm possibility"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a fixed budget and independent per-visit reliability, two confirmations create a real choice between fully exploiting one ephemeris and protecting both. A unique finite-n boundary with exact tie information gives a complete decision rule without scanning possible allocations, and shows why a partially concentrated compromise is never optimal within this model. This is a useful exact stylized design result, not evidence for real-weather independence or adaptive telescope scheduling.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

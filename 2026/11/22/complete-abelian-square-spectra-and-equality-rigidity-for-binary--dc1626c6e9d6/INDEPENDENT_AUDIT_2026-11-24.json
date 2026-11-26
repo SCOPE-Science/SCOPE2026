@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:25:59.205457Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A factor must have 0, 2 or 4 ones. With 0 ones the even zero-runs contribute floor(M/2) distinct words. With 2 ones the disjoint cases are 11, flanked square 0^x110^x for 1<=x<=min(a,b) (the triple cluster cannot supply both flanks), and 10^b1 for even b. With 4 ones, two from each cluster forces 0^x11 0^b11 with x<=min(a,b) and x congruent to b mod 2 so a midpoint separates the clusters. One from the first and three from the second forces 10^b1110^b, present iff c>=b. All are literal factor contents, not occurrence or Parikh counts. For t=n-5 and m=min(a,b)>=1, t<=2M+m and the difference between the lower bound M/2+1/2+3m/2 and (2M+m+6)/4 is 5m/4-1>0. When m=0, a=0; even b gives at least floor(M/2)+3>floor((2M+6)/4), and odd b<c gives floor(c/2)+2>floor((2c+5)/4). For odd b with c<=b, equality with floor((t+6)/4) is equivalent to 0<=b-c<=4, including c=b separately where the extra factor raises the count by one. Equivalently the admissible odd b are in [t/2,(t+4)/2] with b<=t. For odd t there is exactly one, and for even t there are two iff t/2 is odd and t>=6; t=2 has only b=1. This proves the claimed existence and multiplicities and includes n=6. Reversing preserves the set sizes. The algebraic proof is all-parameter; the uploaded verification reports 8,820 direct factor tests and minimization via the formula at lengths 6..300, inspected but not rerun. No unrestricted five-one minimum follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "ArXiv §5 counts a selected effective four-run construction; for five ones the split is 2+3. The four-run record proves sharp minima H(A)+H(B) for four-run words of both compositions A,B>=4, where H(u)=floor((u+2)/4)."
+        ],
+        "reasoning": "The earlier minimum lower-bounds the positive four-run boundary at zero count at least four, not the five-run interior. The primary theorem evaluates a subfamily chosen by effective partitions. No inspected general theorem for all two-cluster five-one words supplies the five-run terms or full rigidity.",
+        "searches": [
+          "Fazekas–Mammoliti–Mercaş–Simpson, arXiv:2604.23188v1, §5 Definition 9 and Theorem 12, §6",
+          "Resultary: all-parameter literal factor counts and fixed-composition minima; 5d3bd3075065"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.23188v1",
+        "Resultary 5d3bd3075065",
+        "Resultary 36a7f1823c0d",
+        "Resultary 604142799482"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 12 produces a count floor((5+2)/4)+floor((n-5+2)/4)=floor((n+1)/4) for an effective word when n-5>=4. The exact four-run formula can already be used to solve equality on those four-run faces, not just choose one witness."
+        ],
+        "reasoning": "The attained value on the four-run face and its computable equality conditions are not the new part. The extended census accounts jointly for factors using the leading and the trailing zero-runs (no Abelian square can span all five runs, because it would contain five ones). The strict bound when both outer gaps are positive rules out additional minimizers in the five-run interior. The full theorem adds this exclusion and covers degenerate run/short-length boundaries, without settling arbitrary five-one compositions.",
+        "searches": [
+          "arXiv:2604.23188v1 §5 Definition 9, Theorem 12 expression and Table 3",
+          "Resultary 5d3bd3075065 sharp lower bound for all positive four-run parameters"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The unrestricted-positive-run formula for U^p V^q U^r V^s in 5d3bd3075065 (finding and proof, offset 0 onward) specializes on a=0,c>0 and, after reversal, on a>0,c=0."
+        ],
+        "reasoning": "Reversal and letter exchange preserve literal square-count spectra; the four-run overlaps are exact, not just conceptual analogies. The case with both outer zero-runs positive has five runs and cannot be mapped by these symmetries to that four-run theorem.",
+        "searches": [
+          "Resultary: words 0^a11 0^b111 0^c, fixed five ones, reversed forms, sharp literal Abelian-square census",
+          "Resultary 5d3bd3075065 exact four-run content counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary Table 3 includes 1^2 0^7 1^3 0^6, an exact member of the boundary at n=18. Resultary 604142799482 tabulates unrestricted weight four at n=19..128; 36a7f1823c0d classifies a different triple-plus-singleton weight-four family."
+        ],
+        "reasoning": "Credit the primary example as an exact prior instance, not a separate all-length extremizer list. The other tables have different compositions and cannot stand in for the requested five-one classification.",
+        "searches": [
+          "Resultary: four- and five-one exact Abelian-square minima and extremizer tables",
+          "Fazekas et al., arXiv:2604.23188v1 Table 3",
+          "Resultary 604142799482 and 36a7f1823c0d"
+        ]
+      },
+      "rationale": "Pass for the genuine five-run extension and the resulting sharp classification across the full specified family. Credit prior exact positive four-run censuses and minima, which already cover both positive four-run boundary faces, and the primary effective-word construction, which already supplies an attaining word when there are at least four zeros. Neither covers all parameters here or excludes a better or tied solution among the five-run interior.",
+      "residual_risks": [
+        "A stronger unindexed five-run or fixed-weight census could subsume the new interior result; the inspected evidence does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Attaining boundary construction, not full family coverage",
+          "evidence": "Effective four-run words, weight-five split 2+3 and example 1^2 0^7 1^3 0^6; the theorem counts the effective word.",
+          "identifier_or_url": "https://arxiv.org/html/2604.23188v1",
+          "material_read": "§5 Definition 9 and Theorem 12, OA offsets 22000–27499; Table 3; §6 scope",
+          "method": "OA arXiv HTML passage inspection",
+          "title": "Binary Words Containing Few Abelian Squares",
+          "trigger": "Cited effective construction at the same composition"
+        },
+        {
+          "assessment": "Exact partial overlap and a sharp bound on the four-run faces",
+          "evidence": "All positive p,q,r,s formula for literal squares; stable-composition sharp minimum H(A)+H(B) for A,B>=4. Does not cover a genuine five-run interior.",
+          "identifier_or_url": "5d3bd3075065",
+          "material_read": "RESULT.md finding and beginning of proof, offsets 0–5515",
+          "method": "Local Resultary mirror original passage",
+          "title": "Exact Abelian-square content counts and Parikh minima for four-run binary words",
+          "trigger": "Strongest direct coverage of boundary cases"
+        },
+        {
+          "assessment": "Different fixed weight and clusters",
+          "evidence": "Triple and singleton of the marked letter, not two and three.",
+          "identifier_or_url": "36a7f1823c0d",
+          "material_read": "RESULT.md Finding and prior-work passage, offsets 0 and about 6400",
+          "method": "Local Resultary mirror passages",
+          "title": "Abelian-square spectra and sharp minima for triple-plus-singleton binary words",
+          "trigger": "Related exact two-cluster literal census"
+        },
+        {
+          "assessment": "Different fixed weight and bounded lengths",
+          "evidence": "Weight four only, n=19..128.",
+          "identifier_or_url": "604142799482",
+          "material_read": "RESULT.md finding, offset about 300",
+          "method": "Local Resultary mirror passage",
+          "title": "Four-one Abelian-square minima and all extremizers through length 128",
+          "trigger": "Closest extremizer table in fixed-weight comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The effective four-run witness motivates exactly this extension: adding a left outer zero-run to the two-plus-three witness, while moving the same total zero count among gaps, is a natural family around a known low-count construction. The all-parameter literal census and strict cost of opening both outer gaps show why that extension produces no improvement or additional extremizers. The novel value is this rigidity in the larger family, not reproducing the four-run numerical minimum or suggesting an unrestricted result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

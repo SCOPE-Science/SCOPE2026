@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:10:01.181930Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Correct under the explicit Assumptions: uniform ordering of embedded paths, equivalently independent identically distributed continuous clocks. Independence and continuity alone, as in the abbreviated model sentence, would not suffice for the odd-path laws. An even path always takes r from each side until one side is below r. For odd paths all admissible vertex sets have the same number (r+1)!r!/2 of undirected embeddings. Under the uniform order, the remaining paths contained in the vacant set retain an exchangeable relative order, so the next orientation has probability (a−r)/(S−k+1). This yields drift (S−k)/(S−k+1) times D. The multiplicative correction h validates the stopped martingale; the S=k to S=0 transition is deterministic and contributes zero martingale increment under the convention. At S≥εN, the martingale fluctuations are O_P(√N), giving uniform macroscopic drift approximation. In the nonzero-imbalance case, below the positive root of s=|δ|s^{1/k} the approximated |D| would exceed S, whereas above the root the terminal estimate S−|D|≤2r rules out stopping. Boundedness gives the expectation limit. In the critical case there is no early stop at S≥εN with high probability. Summing predictable variance there gives k⁻¹ times the integral of s^(−2/k), and the normalized small-S contribution is at most O(ε^(1−2/k))+o(1). The normalized jumps are O(N^(1/k−1/2)), so the martingale CLT applies with variance 1/(k−2). A bounded terminal size would force normalized |M| to tend to zero there, excluded by the limiting Gaussian's lack of a zero atom. Substitution of h≈(S/N)^(1/k) and S≈|D| at stopping gives the stated exponent and power. The K_{11m,9m} perfect packing takes the specified 3m and m orientations, yet the random vacancy fraction is (1/10)^(5/4). A separate exact reconstruction passed all 11 small full-labeled state laws, 564 drift, 6300 even-remainder and six scaling checks (/workspace/branches/515a47f0-fc47-43bc-9dc2ead3e21f/full_checks.txt); it was not a proof of the asymptotic laws. The uploaded checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fully sacrificial urn Theorem 4 requires positive balance and gives a fixed-draw color-count Gaussian; here the balance is −k and the limit concerns terminal total at a random boundary.",
+          "The frozen report describes near-perfect packing for regular small-codegree substrates; exact hypotheses of those two papers could not be verified at the DOI sources."
+        ],
+        "reasoning": "The positive-balance result cannot be specialized to this negative-balance stop. In the balanced graph the path-support hypergraph has degrees of order n^(2r) and pair codegrees O(n^(2r−1)); even a near-perfect packing conclusion of that type would not give the scale or distribution of the remaining vertices. This comparison does not assert a full reading or applicability of the two packing papers.",
+        "searches": [
+          "Flajolet–Dumas–Puyhaubert Theorem 4, condition (69)",
+          "Spencer DOI 10.1002/rsa.3240070206; Rödl–Thoma DOI 10.1002/(SICI)1098-2418(199605)8:3<161::AID-RSA1>3.0.CO;2-W"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–108, VERIFICATION.md lines 18–22, verify.py lines 7–123",
+        "Resultary 0215db9f67be; arXiv:2212.05091; FlDuPu06 §6; DOI access attempts for Spencer and Rödl–Thoma"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact k=3 law fixes one balance and one power. The Type B recurrence is a framework, with a specific off-diagonal model solved in §5; the Gaussian theorem for the fully sacrificial family has the opposite sign of total balance."
+        ],
+        "reasoning": "Neither cited limiting theorem supplies the variance accumulated until an almost empty negative-balance urn or its conversion at the absorbing boundary for k≥5. Those are the substantive parts of the surviving claim.",
+        "searches": [
+          "Resultary 0215db9f67be Finding; Hwang–Kuba–Panholzer equations (35)–(36); Flajolet–Dumas–Puyhaubert Theorem 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Subtract r from both class counts to get urn proportions x/(x+y), y/(x+y) with rows (−r−1,−r), (−r,−r−1). The path terminal boundary allows overshoot of a shifted coordinate.",
+          "Hwang et al. define all-nonpositive Type B diminishing urns generally, but the solved OK Corral model in §5 removes one ball of the opposite color, with zero diagonal and absorbing axes."
+        ],
+        "reasoning": "The classification and recurrence identify the analogy, but swapping colors does not yield the path replacement matrix or its overshoot boundary from the solved model. In particular the balance and drift eigenvalue cannot be obtained from a mere rescaling of the one-removal model.",
+        "searches": [
+          "Diminishing urn both colors removed, all-negative balanced replacement, terminal stopping law; Hwang–Kuba–Panholzer arXiv:2212.05091 §§1.1,5",
+          "Flajolet–Dumas–Puyhaubert, §6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0215db9f67be gives the equal-rate three-site critical scale N^(1/4), power 3/2, and fixed-imbalance fraction |δ|^(3/2); these are exactly the k=3 specialization, not a result for k≥5. The bounded public path query did not produce an additional usable exact comparison."
+        ],
+        "reasoning": "A single path length does not cover the k-dependent terminal exponent, variance and crossover. The later catalog date does not establish which three-site version was historically first.",
+        "searches": [
+          "Resultary 0215db9f67be, bipartite path adsorption and quarter-power jamming",
+          "Random greedy bipartite path adsorption odd paths jamming critical fluctuations five-vertex path vacancy limiting distribution"
+        ]
+      },
+      "rationale": "Credit is for the fixed odd lengths k≥5, particularly the noncentral terminal law and changing critical exponent. Even-path stoichiometry and the shorter indexed k=3 case are not separately credited. The exact reduction locates the result in diminishing two-color urns, but the relevant primary statements inspected do not provide this two-coordinate-deletion stopped asymptotic. The packing-paper access limitation does not establish noncoverage or block a decision.",
+      "residual_risks": [
+        "An uninspected specialized decreasing-urn theorem could treat the same matrix or stopping window.",
+        "The exact cited packing hypotheses were not verified; the three-site antecedent's historical provenance is not established by its indexed path date or the frozen references."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General finite modeling class, different solved matrix and boundary",
+          "evidence": "Type B is nonpositive with absorbing axes or walls; equation (35) solves the unit opposite-color removal model, not simultaneous unequal deletions of both colors.",
+          "identifier_or_url": "https://arxiv.org/abs/2212.05091",
+          "material_read": "§1.1 pp. 1–2, offsets 0–10720; §5 equations (35)–(43), pp. 9–10, offsets 53805–58861",
+          "method": "OA PDF bounded passages",
+          "title": "Analysis of some exactly solvable diminishing urn models",
+          "trigger": "Closest general all-nonpositive two-color urn formulation"
+        },
+        {
+          "assessment": "Different sign and kind of limit",
+          "evidence": "σ is the common row sum; the theorem assumes σ>0 and studies first-color count after a deterministic number of draws.",
+          "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlDuPu06.pdf",
+          "material_read": "Balance definition PDF text offset 82688; §6 condition (69), Theorem 4, article pp. 90–91, offsets 159844–166772",
+          "method": "OA PDF full-text passages",
+          "title": "Some Exactly Solvable Models of Urn Process Theory",
+          "trigger": "Potential general fully sacrificial urn CLT"
+        },
+        {
+          "assessment": "Exact k=3 overlap only",
+          "evidence": "States critical N^(1/4) powered-Gaussian and macroscopic |δ|^(3/2) laws without extending to k≥5.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-quarter-power-jamming-law-for-random-three-site-adsorption-on--0215db9f67be",
+          "material_read": "RESULT.md Finding offsets 350–2698",
+          "method": "Local mirror statement passage",
+          "title": "A quarter-power jamming law for random three-site adsorption on complete bipartite graphs",
+          "trigger": "Same adsorption model at the shortest odd length"
+        },
+        {
+          "assessment": "Exact applicability unverified",
+          "evidence": "Only the reported near-perfect conclusion is compared here, not the paper's full hypotheses.",
+          "identifier_or_url": "10.1002/rsa.3240070206",
+          "material_read": "Frozen RESULT.md relationship summary; DOI retrieval returned HTTP 403",
+          "method": "Lawful primary retrieval attempt; no accessible repository copy identified",
+          "title": "Asymptotic packing via a branching process",
+          "trigger": "Random greedy near-perfect packing comparison"
+        },
+        {
+          "assessment": "Exact applicability unverified",
+          "evidence": "Reported general packing target is not itself an identified terminal fluctuation theorem.",
+          "identifier_or_url": "10.1002/(SICI)1098-2418(199605)8:3<161::AID-RSA1>3.0.CO;2-W",
+          "material_read": "Frozen RESULT.md relationship summary; DOI retrieval returned HTTP 403",
+          "method": "Lawful primary retrieval attempt; no accessible repository copy identified",
+          "title": "Asymptotic packing and the random greedy algorithm",
+          "trigger": "Random greedy near-perfect packing comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result measures a natural finite-size jamming gap invisible to near-perfect packing bounds. The stochastic critical law and length-dependent scale distinguish odd adsorbates from exact deterministic even remainders and distinguish a kinetic macroscopic waste fraction from a packing obstruction. This goes beyond the one-length overlap and the routine even stoichiometry.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-`certificate.py` is complete and standalone. Execute `python3 certificate.py` in the same directory; `certificate_output.txt` records the observed output. It enumerates the determinant-one projective group independently from all square-determinant matrices; compares the resulting permutation sets; verifies every cell, every incidence, and integral boundary squared; then performs exact unimodular cancellations in descending degrees. The resulting zero differential has generator counts \((1,0,0,30,5,0)\), with one connected degree-zero generator. Modular elimination over primes \(2,3,5,7\) and the Euler-characteristic check provide separate consistency checks, not a proof of torsionfreeness.
+## correctness
 
-The relevant chain lemma and the selection and clearing of unit pivots are written in `RESULT.md` and implemented directly in `certificate.py`. There are no sample-only or random verification stages, omitted cells, runtime-dependent external input files, or delegated numerical assumptions. The public scientific assertion is restricted to the exact finite group action and its integral homology, two-connectivity, and non-shellability. Independently reproduced mathematics is not claimed.
+PASS
+
+An injective word has distinct deletion faces and a Boolean interval of subwords, so its ordered simplex gives the regular cellular model with signed deletion. Independently generated the group using x↦x+1 and x↦−1/x, both determinant-one projective transformations; their closure has 60 elements, the full group since |SL₂(F₅)|=(25−1)·5 and the scalar kernel has order 2. With the stated reference order the signed matrices give cell counts (6,30,120,360,300,60) and differential ranks (5,25,95,235,60) in degrees 1–5. Independent integral reduction had only unit invariant factors in each matrix, so the integral homology has no torsion: torsion of H_d is torsion of coker(∂_{d+1}) since im(∂_d) is free. The resulting reduced groups are Z³⁰ in degree 3 and Z⁵ in degree 4 only. Full word counts through length four give the full three-skeleton of the six-letter injective-word complex. That complex is a wedge of five-spheres, and cellular approximation gives the two-connectivity of its three-skeleton and therefore of the present complex. Purity follows from generation by full-length words; nonzero homology below dimension five rules out pure shellability.
+
+## originality
+
+PASS
+
+Credit the exact integral homology and its structural consequences for the specified projective action, not the ordered-word construction or general connectivity/shellability methods. The available earlier framework statements and indexed nearby family computations do not give the signed calculation for this 60-facet ordered-subword complex.
+
+## value
+
+PASS
+
+A canonical small nonabelian projective group action is a meaningful test for the topology of subgroup-generated word complexes. A full low skeleton and integral homology in two different intermediate degrees distinguish it from full-word and pure-shellable models. The exact ranks and torsion exclusion provide a reproducible benchmark for other natural group actions without assuming a larger classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Review: independent Gumbel cutoffs for two spectral-accuracy tiers
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof reconstructs the residual eigenvalues, validates the continuous-time Markov/exponential race mapping, derives an exact finite binomial–hypoexponential CDF, and proves the joint Gumbel limit by an explicit vanishing cross-exceedance estimate. The background count concentration and incomplete-block correction are both negligible at the \(\Theta(r)\) scale. Direct Schur complement and independent finite-state/integral checks support the algebra; asymptotic simulations are not used as infinite proofs.
+## correctness
 
-**Originality — PASS, with residual bibliography risks.** The strongest inspected 2026 RPCholesky analysis establishes accuracy bounds and a diagonal coupon illustration, not the correlated two-tier spectral plateau, linked finite hitting law, or independence of the two thresholds. The 2022 algorithm and 2024 accelerated method give the sampling rule and performance estimates. Retrieved related stochastic pivot results use other operators or metrics. The abstract of Divan–Gilles 2026 reports broad convergence rates, but its full text was not accessible; generic two-stage coupon-collection literature is an additional residual coverage risk. A search failing to find a match is not a proof of originality.
+PASS
 
-**Value — PASS.** Numerical kernel approximation needs a principled distinction between moderate and strict spectral accuracy, especially under correlation. This nontrivial block family produces two different stopping-budget thresholds with exact finite strict-tier distribution and sharp limiting probabilities; asymptotic independence is a new qualitative property of one shared adaptive trajectory.
+The unvisited, once-pivoted and twice-pivoted blocks have top residual eigenvalues 1+rho, w and 0, so delta<w gives the exact weak/strict split including equality at w. Competing clocks have rates 2,w,delta, with a uniform choice between the untouched block's two indices; ordering the clocks recovers the residual-diagonal pivot law. At the first-contact maximum H the block count is 2r-L; at the completion maximum M it is 2r. The same background process J must be used in both coordinates. The convolution tail of U+V is (2 exp(-wt)-w exp(-2t))/(2-w); the maximum density and the independent conditional binomial count give the CDF. At marginal extreme levels u,v with v>u the common exceedance probability is bounded by 2 exp(-wv-(2-w)u)/(2-w)+exp(-2v), and r times this tends to zero. The joint CDF is the r-th power of the one-block no-exceedance probability, hence factors in the limit. A lower cutoff H>(1/2-epsilon)log r makes the expected number of outstanding completions beyond that cutoff o(r). Conditional count variances are O(r log r) at the two tight logarithmic times; the rank errors are o_p(r) without requiring independence of the two background counts. Delta=O(1/log r) makes the center-to-time Taylor remainder o_p(r) and both rank scales Theta(r). Independent finite check at r=2,s=3,w=3/4,delta=1/4: recursion with rate weights (8a,3b,c) and integration after x=exp(-t/4), F=1-(8/5)x^3+(3/5)x^8, agree at ranks 4 through 7 to 1.7e-15 (first mass 0.226019594440647).
 
-**Limitations.** Identical \(2\times2\) blocks, exact residual-diagonal sampling, fixed \(\rho,\beta\), background dimension at least order \(r\log r\), operator norm only. No general PSD or finite-sample uniform rate is claimed. Published overlap remains uncertain where full text was unavailable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the linked exact two-tier operator-norm stopping law and asymptotic independence with the nonlinear rank centers, not the sampling scheme, exponential races, or a marginal coupon-collection limit.
+
+## value
+
+PASS
+
+An exact operator-norm pivot budget for a natural block model is useful as an accuracy benchmark. A single trajectory exhibiting independent limiting fluctuations at two distinct spectral plateaux is information not supplied by a single cutoff or an order-of-growth budget. The nonlinear background center matters in the admissible critical size regime and is not a cosmetic reparametrization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

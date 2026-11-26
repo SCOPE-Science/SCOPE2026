@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The mathematical argument is self-contained in `RESULT.md`. The checkable identities are the four-box spline central and outer pieces, the exact derivative polynomial of the arc residual, the primitive \(\Phi\), the rational sign enclosure for its unique critical root, and the separated-jump plateau. `check.py` runs using Python 3 standard library only; it validates 1,628 exact-rational, decimal and bounded-Fourier assertions (the precise count is printed at execution).
+## correctness
 
-At three bandwidths, independent Fourier partial sums verify the exact optimal pulse energy to within the explicit missing-tail bound \(2/(\pi^2N)\) after the first \(N\) positive frequencies. Such finite tests do not establish uniqueness, uniform bandwidth coverage or the full infinite-dimensional \(BV\) bound; those follow from the derivative-measure coupling, analytic fourfold-box convolution, and monotonicity proof. Numerical approximations to the root and constants are subordinate to their exact polynomial definitions.
+PASS
 
-No independent audit is represented or implied.
+Normalize the two Jordan parts of the circular derivative by V/2, and pair them to express the function modulo constants as a probability average of oriented arc indicators times V/2. Equality can be checked by the Hilbert-space variance identity: the residuals must all equal one maximizing residual. The multiplier 1−sinc²(πka) is nonzero for k≠0, so equality of residuals identifies the arc modulo constants. For the arc energy F(L), expansion of (I−T_a)^2 gives F(L)=L+2∫₀ᴸ(L−x)(K_a*K_a−2K_a)(x)dx, using circular kernels. The unwrapped four-box spline gives F(az)=aΦ(z) for z≤1; no translate contributes even at a=1/3 and z=1. The quartic is strictly convex with opposite endpoint signs and has exactly one root on (0,1). Beyond a, F''≥0 all the way to 1/2 even with wrapping, so F'≤0 by symmetry. The strict decrease from ar to a rules out every other length except the complementary one. For a≤1/4 integration of the outer spline gives the a/5 plateau; V=2 for a unit arc gives the claimed squared-norm factor 1/4. Exact independent spline-integral, root-enclosure and plateau checks passed; replay from /workspace with python3 -I -B branches/frozen_review_checks.py.
+
+## originality
+
+PASS
+
+The supported distinct contribution is the exact centered triangular-convolution norm throughout 0<a≤1/3 and its rigid pulse equality class. The general BV reduction and the phenomenon of interacting jump layers in other smoothers are not independently new claims. The closest available statements have different operators or conclusion strength; the comparison is provisional where only indexed summaries or frozen source inspections were available.
+
+## value
+
+PASS
+
+Twice-centered moving averages are a natural smoothing operation for periodic jump data. The separation between the worst short pulse and a pair of isolated jumps is structural: the exact squared residual is about 23.17% larger than the separated plateau where that plateau exists. The complete extremizer geometry and endpoint-valid bandwidth law give a sharp benchmark not supplied by a convergence rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

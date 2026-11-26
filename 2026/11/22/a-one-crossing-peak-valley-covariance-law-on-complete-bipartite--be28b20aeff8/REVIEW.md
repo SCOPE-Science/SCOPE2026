@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a uniformly random height ordering of \(K_{a,b}\), the minima count is the first monochromatic run length and the maxima count is the last. Gap moments and a two-dimensional beta integral give the exact mixed moment. The monotonicity claim is established by a rational difference identity and a symbolic positive-coefficient polynomial after the domain substitution \(a=u+3\), \(b=u+3+v\). The remaining case \(a=2\) has a seven-coefficient positive polynomial; \(a=1\), balance positivity, the negative tail and the square-root scaling are treated separately. Executing `python verify.py` checks 2,061 exact assertions and the positive-coefficient certificates. Tests alone are not the proof; the displayed identities give the all-parameter argument.
+PASS
 
-## Originality — PASS, with historical-priority risk
+The ranking is a uniform fixed-content word. Its initial and terminal runs give the minima and maxima, respectively. Uniform compositions of one color into the gaps of the other give the mean and same-color products. Integrating the cross-color joint probability over 0<x<y<1 gives 1-1/binom(a+b,a) after multiplying by ab. Combining these recovers (1), including the a=b=1 degenerate case. The exact independent replay verifies the difference factorization and the 65 strictly positive coefficients of the cleared lower bound for a≥3, and for a=2 verifies the degree-six numerator with coefficients 1,23,219,1129,3188,4056,936 over a positive denominator. The diagonal lower bound after a=u+2 has numerator 14u³+76u²+122u+48; the a=1 polynomial and fixed-a negative quadratic tail check separately. For scale, put e=1/a and r=(b-a)/a in the rational part F. Then F(0,r)=0, its e derivative there is -r²(r+2)³/(r+1)³, and the e² coefficient at r=0 is 8. Taylor expansion at r=c√e with bounded c is uniform; the reciprocal binomial is at most (2a+1)/4^a. This gives the claimed limit and, by monotonic sign bracketing on both sides of c=1, b_*(a)-a~√a. No finite-size tie is excluded. Supplied verify.py was inspected but not executed; separate exact replay: branches/afdeadca-c733-4153-b111-b74305c48a13/replay_certificates.py and replay_certificates.txt.
 
-The full primary paper of Baldi, Rinott and Stein (1989) addresses marginal extrema statistics and a normal approximation, especially on regular graphs, rather than the mixed extrema-count transition of unbalanced complete bicliques. The full arXiv paper of Burdzy and Pal (2016) studies labelings with restricted peak configurations, rather than this mixed covariance law. Known general pairwise extrema formulas can imply the rational covariance expression by summation, but their statement does not supply the strict one-crossing result or the square-root imbalance boundary. The first/last homogeneous-run formulation was also searched. No explicit stronger theorem or tabulation settling this exact sign classification was identified; an overlooked older equivalent boundary-run analysis remains possible. The conclusion does not assert independent priority certification.
+## originality
 
-## Value — PASS
+PASS
 
-The balanced regular biclique has positive peak–valley covariance, but a sufficiently unbalanced biclique has negative covariance. The theorem resolves the complete integer phase diagram by an all-size monotonicity certificate and identifies the surprising \(\sqrt a\) rather than linear imbalance scale. This is a structural dependence boundary for a natural, classical random-labeling statistic; it is not a lone numerical case or an arbitrary derived invariant.
+The finite covariance is covered by summation of general dyadic joint probabilities; no separate novelty credit for the ranking reduction or (1). The strict integer imbalance monotonicity and sharp square-root threshold survive comparison with the known pairwise formula, conditional peak-labeling papers and differently defined run statistics. This is qualified best-of-knowledge coverage, not exhaustive historical priority.
 
-## Limitations and references
+## value
 
-The result is restricted to iid continuous heights and complete bipartite host graphs. The first-order cutoff does not decide the sign in the microscopic \(b-a=\sqrt a+O(1)\) window; the exact covariance identity does. No independent validation or exhaustive historical-priority proof has been performed. Primary sources: P. Baldi, Y. Rinott and C. Stein (1989), *On the Distribution of the Number of Local Minima of a Random Function on a Graph*, and K. Burdzy and S. Pal (2016), *Twin peaks*, arXiv:1606.08025v1.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Strict separation of positive and negative mixed count covariance is a meaningful all-size dependence classification, not an isolated exact entry. A square-root amount of shore imbalance already changes the balance of the competing dyadic terms; the sharp limit identifies that scale and the formula resolves finite boundaries. The scope is iid atomless heights on bicliques, not arbitrary graph modifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

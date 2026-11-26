@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim counts absent strings, not embeddings: any binary query of length \(k+1\) is absent precisely when no boundary pair matches the corresponding 01/10 block. This is proved by a complete greedy matching dichotomy. The matrices count such boundary-constrained strings once each; the Thue–Morse complement relation gives \(P_{r+1}=(P_rJ)^2\), and determinant \(-1\) plus Cayley–Hamilton gives the exact quadratic recurrence for all indices. The linear inhomogeneous logarithmic recurrence is solved explicitly; the perturbation series is absolutely convergent, establishing the claimed entropy and \(O(1)\) remainder. Finite direct enumeration, direct matrix multiplication, and an independent distinct-subsequence dynamic program agree through their stated ranges. A computation by itself is not being treated as an infinite proof.
+## correctness
 
-## Originality — PASS, with disclosed residual risk
-The general shortest-absent-subsequence framework and the precise triangular transfer matrices for concatenated binary 01/10 blocks are **known**. The closest published note optimizes all such block sequences and derives Fibonacci extrema; it neither states nor implies an explicit *evaluated* Thue–Morse-specific trace-square recurrence and entropy constant without the additional Thue–Morse self-similar analysis supplied here. Related complete-source comparisons with the 2021 absent-subsequence paper and the 2024 tight-bounds paper did not locate such a theorem, and targeted external mathematical searches and research-record searches likewise found none. General algorithms that can compute each term separately do not constitute the uniform nonlinear recurrence or its limit. Residual risk: an equivalent Thue–Morse matrix-product/trace-map result could have appeared under continued-fraction or automata terminology outside the inspected sources. Search failure is not proof of uniqueness.
+PASS
 
-## Mathematical value — PASS
-The precise count for every dyadic prefix of a canonical aperiodic automatic word refines algorithmic and extremal counting results into an explicit infinite family. The two-integer renormalization reduces a matrix product of exponentially many factors to logarithmically many scalar steps, and the positive explicit entropy series quantifies exponential growth in input length. This is a motivated structural invariant, not an arbitrary isolated small-length census or a rebranding of the known transfer matrix.
+This assessment is for repairs/4/RESULT.md. For k=2^(m-1), the k binary blocks each contain both symbols, so all length-k strings embed and k+1 zeros do not. The first block that greedily consumes two symbols, if any, does so on the original target pair at that block index; one double consumption suffices for a length-(k+1) target to embed. Hence the two allowed-pair matrices count strings, not embeddings. Their product P_r satisfies P_(r+1)=(P_r J)^2; P_r J has determinant -1, so Cayley–Hamilton proves the two updates and the entry sum is s_r+t_r. For the repaired asymptotic, log2(s_r) obeys the forced linear recurrence with roots 2 and -1, and the proof retains both modes. The bound eps_j <= (2/ln 2)*4^(-j) controls each omitted tail by O(4^(-r)) after scaling. The initial correction cancels because eps_0-eps_1=1; the strictly decreasing positive eps_j then give C>0 by pairing the remaining alternating terms. Taking first differences gives the second logarithm with correction -2*(-1)^r*C. Exponentiation and summation give the two displayed normalized limits, with odd minus even equal to (u-u^(-1))*(u+u^(-1)-1)>0. Independent direct target enumeration for m=1 through 5 matched 3,5,12,74,2666; bounded Decimal series evaluation with the geometric tail gives lambda between approximately 0.649537093097466276 and 0.649537093097466307. Those checks are finite corroboration only. The unchanged frozen count checker was inspected, not executed, and does not check either leading constant.
 
-## Scope and limitations
-Only the prescribed binary dyadic Thue–Morse prefixes and shortest absent scattered subsequences are covered. The general 01/10 matrix-transfer representation is prior work. The indicated asymptotic constant is evaluated by a convergent series; the finite checks support but do not replace the theorem. Independent assessment has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The PASS applies to the repaired parity-resolved asymptotic, not to the frozen recurrence claim. A separate catalog record states the exact same shortest length and count dynamics after a coordinate change. The classical trace map also covers the scalar trace recursion; the exponential rate is the escape exponent for its positive orbit, not a different constant under relabeling. The surviving result gives explicit, provably unequal parity multipliers for the shortest-absent-string count and controls the error to them. The inspected recurrence, trace-dynamics and Lyapunov statements do not give those multipliers.
+
+## value
+
+PASS
+
+Quantifying the growth of the set of shortest nonembeddable strings in canonical Thue–Morse prefixes is an exact question about a natural object. The repaired result goes beyond computing a rate from an already available recurrence: even after removing the leading exponential, doubling the prefix alternates between provably different multiplicative constants. This rules out a single-constant equivalent, and the series and convergence rate make the parity effect quantitative.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

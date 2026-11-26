@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:40:18.951425Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a diagonal pair in a rectangle the only shortest internal vertices are the two cross corners, so all-set admissibility is exactly pairwise disjointness of the row pairs used by columns. With no triple or quadruple the double columns inject into six pairs; with a triple they inject into the three edges from the omitted row, and with a quadruple none remain. Empty or singleton columns yield a factor 1+4z each. For maximality there are no empty columns, a singleton must be on a degree-three row in the graph of used pairs, and a double column's edge must dominate every other row. With a triple present, at least one link to the omitted row must be occupied in a double column, and t=1,2,3 gives singleton alphabets 1,2,4. In the doubles-only regime the complement of the used-pairs graph is a union of cliques (two nonedges with a common endpoint force the third nonedge). This gives the star, cycle, K4 minus one edge, and K4 once the extendible all-singleton case is removed. The cycle has no degree-three row, hence needs n=4 and is excluded by n>=6. Injective column assignments for these structures and the full-column configuration give the stated four coefficients. The largest competing-to-maximum term ratio is 64/((n−4)(n−5)); all other ratios are O(n^−3) or smaller. Thus the claimed probability concerns uniform sampling from maximal sets, not greedy sampling. The independent replay branches/independent-replays/rook.py used row masks (not occupied-column-type enumeration), intersected row subsets, and computed each row's forbidden extensions from other rows sharing a column. It checked every admissible set at n=2..6 (1,587,227 total), the V_n coefficients, and the n=6 maximal counts (6984,11520,31680,720) at sizes 9 through 12. This is corroboration; the structural proof establishes the full ranges. Frozen code was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Cartesian-product result gives maximum size as a Zarankiewicz number. Brešar–Yero give minimum maximal size m+n−1. Bujtás et al. define the general enumerator and give examples on other objects."
+        ],
+        "reasoning": "The maximum and minimum sizes are not full multiplicities, and a general enumerator definition or identity does not provide its evaluation at this fixed shore without a full structural enumeration.",
+        "searches": [
+          "arXiv:2112.13024 pp. 7–8",
+          "arXiv:2307.02951 p. 9",
+          "DOI:10.1007/s00010-025-01197-y §3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2112.13024",
+        "arXiv:2307.02951",
+        "DOI:10.1007/s00010-025-01197-y",
+        "Resultary:e5b6a87ad3b1",
+        "Resultary:54b55c893708"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The minimum-maximal census m n^(m−1)+n m^(n−1)−mn at m=4 gives n 4^(n−1)+4n^3−4n = n 4^(n−1)+12(n)_2+4(n)_3. The three-row census does not contain the four-row edge-usage regimes."
+        ],
+        "reasoning": "The minimum coefficient is mechanically implied and is excluded from the distinct claim, independent of shared dating. That specialization and the two extremal size results do not determine V_n or the sizes and counts of the three larger maximal strata or their ratios.",
+        "searches": [
+          "Resultary:e5b6a87ad3b1 Finding",
+          "arXiv:2307.02951 Corollary 7",
+          "Resultary:54b55c893708 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rook vertices are edges of K4,n; forbidding a selected four-corner rectangle is exactly C4-freeness, and maximality is C4-saturation relative to that bipartite host."
+        ],
+        "reasoning": "Both enumerators transfer exactly to these labeled bipartite graph counts by edge count; this is a genuine equivalence. The cited rectangle and saturation theorems do not give both full polynomials.",
+        "searches": [
+          "arXiv:2112.13024 Lemma 3.5 and Corollary 3.7",
+          "arXiv:2307.02951 §2.3, Corollary 7",
+          "Four-by-n rectangle-free binary matrices / labeled K2,2-free and C4-saturated bipartite subgraphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e5b6a87ad3b1 gives the minimum-maximal count for arbitrary rook products. 54b55c893708 gives full ordinary and maximal polynomials for three, not four, rows."
+        ],
+        "reasoning": "The first is an exact match for the lowest coefficient, and is now credited; it does not enumerate the other strata or the all-set coefficients. No full table for four rows was identified in the bounded comparison. Inconclusive external search is not evidence of absence.",
+        "searches": [
+          "Local Resultary rook-graph maximal and visibility polynomial search; e5b6a87ad3b1 and 54b55c893708",
+          "Labeled K2,2-free or saturated C4-free edge enumerations at fixed shore size four"
+        ]
+      },
+      "rationale": "For the repaired attribution, the distinct claims supported by the comparison are the full V_n, the full M_n including three larger cardinality strata beyond the covered minimum coefficient, and the uniform-maximal asymptotic. The rectangle characterization, definition of visibility polynomial, extremal sizes already implied by prior results, and the minimum-size multiplicity are not novel components.",
+      "residual_risks": [
+        "Specialized enumeration of maximal rectangle-free arrays or labeled saturated bipartite graphs could have further overlaps. The search was bounded and the external result inconclusive.",
+        "The shared catalogue date does not establish priority between records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the equivalence and maximum-size connection, not both enumerators",
+          "evidence": [
+            "Mutual visibility permits at most three selected vertices per Cartesian square; maximum is z(m,n;2,2)"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2112.13024",
+          "material_read": "Lemma 3.5, Corollary 3.7, PDF pp. 7–8, offsets 17900–20562",
+          "method": "OA primary PDF passages",
+          "title": "On the mutual visibility in Cartesian products and triangle-free graphs",
+          "trigger": "Same graph family and rectangle-free encoding"
+        },
+        {
+          "assessment": "Covers saturation and minimum maximal size",
+          "evidence": [
+            "Correspondence with C4-saturated bipartite graphs; minimum m+n−1"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.02951",
+          "material_read": "§2.3, Corollary 7, PDF p. 9, offsets 23300–27468",
+          "method": "OA primary PDF passages",
+          "title": "Lower (total) mutual visibility in graphs",
+          "trigger": "Exact results for maximal visibility sets in rook products"
+        },
+        {
+          "assessment": "General polynomial definition and different examples, not an evaluated four-row formula",
+          "evidence": [
+            "Cardinality polynomial for ordinary mutual-visibility sets; example K_n,n"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00010-025-01197-y",
+          "material_read": "§3, pp. 1889–90, OA offset 14500",
+          "method": "OA primary article passage",
+          "title": "Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets",
+          "trigger": "Same polynomial invariant and potential generic evaluation"
+        },
+        {
+          "assessment": "Material exact coverage of the lowest coefficient; not the full polynomial; date does not order the results",
+          "evidence": [
+            "Count m n^(m−1)+n m^(n−1)−mn"
+          ],
+          "identifier_or_url": "Resultary:e5b6a87ad3b1",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Enumeration and symmetry classes of minimum maximal mutual-visibility sets in rook graphs",
+          "trigger": "Same graphs and exact enumeration of a maximal-size stratum"
+        },
+        {
+          "assessment": "Same polynomial concepts, different topology/shore size",
+          "evidence": [
+            "Explicit all-set and maximal-set polynomials for K3 Cartesian Kn"
+          ],
+          "identifier_or_url": "Resultary:54b55c893708",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact visibility and facet polynomials for three-row rook graphs",
+          "trigger": "Both target enumerators on the closest smaller fixed shore"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The four-row shore is a natural fixed-width graph family in which subsets and terminal configurations can both be counted structurally across arbitrarily many columns. The complete counts quantify the gap between existence of small maximal sets and the fact that almost every uniformly sampled maximal set is largest, with a sharp leading asymptotic deficit. This is not just a new derivation of the known minimum coefficient, and no assertion about a greedy distribution is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

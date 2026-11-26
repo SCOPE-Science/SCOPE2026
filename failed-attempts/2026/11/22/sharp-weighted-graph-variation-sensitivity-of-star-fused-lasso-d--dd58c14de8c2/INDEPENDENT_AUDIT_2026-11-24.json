@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:17:19.395021Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:31–71",
+        "Frozen VERIFICATION.md:19–35",
+        "Frozen verify_star_tv.py:10–115",
+        "Independent review_replay.py, star()"
+      ],
+      "rationale": "The stated mathematical modulus holds. In hub-relative coordinates d, the dual solves a box-constrained strictly convex QP with Hessian G=diag(1/m_i)+11^T/m_0 and output edges d-Gp. On a strict fused set S the free dual variables yield differential h_j-sum_{i in S}m_i h_i/(m_0+sum_{i in S}m_i) for j outside S, and zero in S. The exact weighted column sums are bounded by the singleton-fused columns and by 1 for the unfused columns. All patterns are realized with interior dual values on fused spokes and nonzero gaps on other spokes; the finite affine decomposition gives the upper bound on entire segments, by continuity also on boundaries. k=1 is included. At unit masses, unit weights and unit penalties, x=(-3,0,2,2,2) and x+epsilon e_1 for epsilon=1/5 give a ratio of 3/2 by exact KKT. The independent replay is `python3 -B /workspace/review_replay.py`, check 5. Source RESULT.md line 71 has corrupted LaTeX alpha tokens (U+0007); the single-input inequality it means is nonincrease of regularizing TV by comparison with u=x. No uploaded checker was executed.",
+      "residual_risks": [
+        "Finite replay does not certify the universal bounds; the proof uses strictly positive masses, penalties and measurement weights."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026/11/17 record b4b1357d8d1c states the exact two-input weighted graph-TV modulus is the maximum cut-amplification over connected-block averaging projections, independent of positive penalties.",
+          "Vaiter et al. arXiv:1404.5557 §4.2 and Madrid Padilla et al. arXiv:1608.03384 §3.2 are identified in the frozen comparison as local sensitivity and statistical risk, respectively; primary passages not independently retrieved."
+        ],
+        "reasoning": "On a star the only possible nonsingleton connected block is the one containing the hub, and its cut ratios reduce to the weighted edge-column norms. The indexed general graph theorem is material overlap; the summaries do not determine whether it includes all the independent weights at issue.",
+        "searches": [
+          "exact graph variation perturbation modulus graph fused lasso b4b1357d8d1c vertex fidelity masses independently weighted measurement variation connected block averaging strict attainment",
+          "Vaiter partly smooth regularizers local sensitivity fused lasso Section 4.2",
+          "Madrid Padilla DFS fused lasso graph total variation denoising tree star statistical error rates"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d4226f395931, b4b1357d8d1c, cdbf64e27ce9, and assigned self-hit dd58c14de8c2; indexed summaries",
+        "Frozen source comparison to arXiv:1404.5557, arXiv:1608.03384 and DOI:10.1109/ICASSP.2011.5946561"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "d4226f395931: weighted isotonic star modulus and stabilizing measurement weights.",
+          "b4b1357d8d1c: exact graph-TV connected-block maximization and penalty independence.",
+          "Frozen RESULT.md:37–69: strict realizability of the TV blocks and attained column norms."
+        ],
+        "reasoning": "Transfer of the already optimized norm uses only equality of the finite lists of affine derivatives. For the attaining pair use an interior point of the corresponding TV cell and a small coordinate perturbation of the maximizing column. Consequently separate finite attainment wording and the equal-mass and hub-mass corollaries do not leave a distinct surviving result.",
+        "searches": [
+          "2026/11/17 sharp weighted star isotonic variation modulus singleton pooled leaf edge weights",
+          "2026/11/17 exact graph-variation perturbation modulus graph fused-lasso denoiser connected-block averaging projections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/11/17 record d4226f395931 states exact two-input edge-variation amplification for weighted isotonic least squares on every rooted star, controlled by one pooled leaf, and a criterion for whether positive edge weights stabilize it."
+        ],
+        "reasoning": "The active-set families coincide in quotient coordinates, not just the appearance of one singleton witness. Both maps realize every S by strict KKT; both are piecewise affine with the same linear parts. With the same m and w they must have exactly the same global modulus. The sign offsets and the absence of hard order constraints in TV do not change that modulus.",
+        "searches": [
+          "sharp weighted star isotonic variation modulus d4226f395931 positive fidelity masses weighted edge variation singleton pooled leaf hub mass"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "dd58c14de8c2 is the assigned claim itself, not separate prior art. Earlier cdbf64e27ce9 concerns complete-pair Gini variation, not variation measured on the star edges."
+        ],
+        "reasoning": "The self-hit does not establish novelty. Coverage is through the earlier equivalent operator family and not literal duplication of a table or the use of Gini weights.",
+        "searches": [
+          "star fused lasso graph variation sensitivity sharp two-input Lipschitz coefficient"
+        ]
+      },
+      "rationale": "Earlier indexed work already covers the same exact invariant by a direct active-block equivalence. The weighted rooted-star isotonic result states the sharp two-input edge-variation amplification over weighted isotonic least squares (including the choice of positive measurement edge weights). For constraints u_i>=u_0, its strict pooling regions have exactly the same linear parts as the present star TV map. In particular every S occurs in isotonic regression: choose u_i=u_0 on S, u_j>u_0 off S, and positive inequality multipliers on S, then define x from the weighted KKT equations. Its differential is mass averaging on {0} union S and identity elsewhere. Thus the entire set of induced edge-variation norms, its maximum, and the maximizing coordinate perturbation transfer unchanged to the TV map for each positive penalty vector. This is concrete prior coverage of the coefficient and thresholds, not rejection for a missing full text. The separately indexed earlier general graph-TV modulus already describes exactly this connected-block maximization and penalty independence; its precise independent-weight hypotheses could not be confirmed, so it is corroborating evidence, not the sole basis for failure.",
+      "residual_risks": [
+        "Full mirrored passages were unavailable, so the exact independent-weight hypotheses of the general graph theorem are not asserted. Earlier journal graph-TV and primary references were not independently excluded. The failure rests on substantive coverage through the equivalent star pooling invariant, not on access errors."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the same sharp star edge-variation invariant by exact transfer; no claim about unread details of its proof",
+          "evidence": [
+            "Catalogue statement explicitly identifies weighted isotonic least squares, two inputs, a single pooled leaf and the choice of positive edge weights."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-weighted-star-isotonic-variation-modulus-and-optimal-stabi--d4226f395931",
+          "material_read": "Indexed scientific statement; attempts at the mirrored RESULT.md timed out",
+          "method": "Compare the published statement with the KKT-derived affine-cell family for the two maps",
+          "title": "Sharp weighted star isotonic variation modulus and optimal stabilizing edge weights",
+          "trigger": "Same graph, weighted least squares, two-input weighted variation and single-leaf pooling"
+        },
+        {
+          "assessment": "Covers the graph-TV optimization mechanism and penalty invariance; independently weighted masses and edge norm assumptions not resolved from the available statement",
+          "evidence": [
+            "Exact two-input graph-variation Lipschitz constant as maximum cut-amplification of connected-block averages independent of every positive regularization parameter."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-exact-graph-variation-perturbation-modulus-of-the-graph-fused-la--b4b1357d8d1c",
+          "material_read": "Indexed theorem summary; mirrored RESULT.md not retrieved",
+          "method": "Compare stated connected-block maximum with star connected partitions",
+          "title": "Exact graph-variation perturbation modulus of the graph fused-lasso denoiser",
+          "trigger": "Potential general theorem for the very same proximal map and modulus"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:14–23 and 37–71",
+        "Resultary d4226f395931 and b4b1357d8d1c, scientific summaries"
+      ],
+      "rationale": "The norm and its branching threshold are natural and useful. However, the value proposed as a new exact invariant is already obtained from the earlier sharp edge-variation analysis of the same mass-averaging face family. The penalty independence is also in the earlier graph-TV statement. Rewriting the same column norms for TV and specializing the parameters does not leave a separately valuable unknown result under the exact-invariant standard.",
+      "residual_risks": [
+        "This is not a judgment against applications of the already covered stability criterion."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

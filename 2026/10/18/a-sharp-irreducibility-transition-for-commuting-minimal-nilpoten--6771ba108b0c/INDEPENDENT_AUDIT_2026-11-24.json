@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:11:58.806420Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–69",
+        "Frozen VERIFICATION.md, lines 20–24, and verify_rank_one.py, lines 27–129, read without execution",
+        "/workspace/repairs/2/RESULT.md, proof and finite-field corollary; repaired VERIFICATION.md, scientific reproduction notes and unchanged channel fields",
+        "Independent replay: /workspace/branches/1a2269e9-e8fb-496a-8f2d-5b5a230a4a54/check_n4_f2.py and check_notes.md"
+      ],
+      "rationale": "Re-audit of the repaired theorem: a nonzero commuting product would have the common image line of the factors, which a square-zero factor kills. Consequently S=sum of images lies in K=intersection of kernels and the admissible intermediate dimensions are exactly dim S<=d<=dim K. Both ranks are at most r, so the asserted index sets cover, including the zero tuple; neither S=V nor K=0 can occur. Each incidence is closed in the product with the projective Grassmannian and locally a product with r irreducible rank-one cones of dimension n-1. At retained indices r>=d, the images can generate U, giving generic fiber dimension zero. In the reducible range r>=n-d also; choose r vector factors spanning U and independently r covector factors spanning (V/U)*. Then S=K=U, excluding every competing index, not just those of maximal dimension. The interval in the reducible range contains the middle dimensions, yielding the total dimension and strict reducibility including n=2r-1. The companion formula follows directly by one subspace Möbius inversion with the image span fixed; its equivalence with the double-flag marginal follows because both partition and count precisely the same ordered tuples. A separate F2 implementation directly multiplied 106 eligible matrices and counted 2836 pairs and 38536 triples, matching the formula; the triple count with every entry nonzero was 30345. These runs corroborate only those finite cases.",
+      "residual_risks": [
+        "Only the reduced geometric variety is classified. The checks do not establish a scheme structure or singularity assertions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ngo treats dimension three and gives the subregular dimension and two-branch reducibility result.",
+          "Levy–Ngo–Šivic derive a related dimension bound for unrestricted block tuples with vanishing products.",
+          "Double-flag enumeration works for arbitrary rank vectors and all arities over finite fields, but its theorem is a census, not a classification of irreducible closures."
+        ],
+        "reasoning": "The broad count fully covers the old census. The inspected geometry theorems, on dimension three or unrestricted block tuples, do not give the retained reduced rank-one component list for n>=4.",
+        "searches": [
+          "Ngo arXiv:1301.2712 §§4.1, 4.4",
+          "Levy–Ngo–Šivic arXiv:2105.07918 §3, Lemma 3.3",
+          "2026/11/2/SCOPE-double-flag-enumeration-of-pairwise-annihilating-square-zero-mat--7465760ed8a5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and revised Finding and Relationship to prior work",
+        "Local results and open primary passages in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The higher-orbit theorem supplies image-span dimensions and the top-dimensional component count. For (4,3) that count is one, while the repaired theorem identifies three components by common image and kernel.",
+          "The exact double-flag count directly implies the finite-field total by marginalization; it does not specify containment relations among geometric closures."
+        ],
+        "reasoning": "The one-dimensional difference between component dimensions 13 and 12 in the example is decisive: top-component data alone miss two irreducible components. The additional common-kernel saturation step proves their existence and the full index range. The repaired claim is not merely the covered counting result with a new formula.",
+        "searches": [
+          "Higher commuting tuples RESULT.md Finding and image-span parameterization",
+          "Double-flag RESULT.md Finding and exact flag factorization",
+          "Ngo arXiv:1301.2712 §4.4, Lemma 4.4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The November 8 Finding gives smooth irreducible nonzero-entry image-span strata of dimension r(n-1)+d(n-d) and classifies maximal-dimensional components only. It explicitly says it does not classify lower-dimensional irreducible components.",
+          "Commutation on the rank-one square-zero locus is equivalent to all ordered products vanishing; the representation formulation requires the same extra entrywise rank bound."
+        ],
+        "reasoning": "Neither adding zero entries to the strata nor knowing their dimensions identifies which smaller-dimensional closures are contained in others. In fact the nonzero witness with S=K=U already distinguishes those closures, which is additional work beyond the matching strata statement. An unrestricted representation theorem would need a separate argument for the rank-constrained locus.",
+        "searches": [
+          "Resultary: higher commuting tuples in the minimal nilpotent matrix orbit; square-zero pairwise annihilating tuples",
+          "2026/11/8/SCOPE-higher-commuting-tuples-in-the-minimal-nilpotent-matrix-orbit-ex--821c8ec91c9b",
+          "Rank-constrained representations of the radical-square-zero local algebra k[x_1,...,x_r]/(x_ix_j)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Double-flag N_{n,q}(rank vector,t,k) covers every rank vector, common image dimension and common kernel dimension, with zero maps allowed.",
+          "The higher-orbit result gives 30345 nonzero triples for n=4,q=2; the zero-allowed total is 1+3*105+3*2625+30345=38536.",
+          "Huang gives a generating series for all mutually annihilating pairs, not rank-resolved all-arity counts or component data."
+        ],
+        "reasoning": "The old census is covered on its entire stated domain by summing the double-flag count over rank vectors in {0,1}^r and t,k. Lack of the identical one-sum presentation or the exact example in that source does not make the old result distinct. No exact table or count here supplies the required closure noncontainment for the revised geometry.",
+        "searches": [
+          "Double-flag RESULT.md Finding, offsets 0 and 1700",
+          "Higher commuting tuples RESULT.md Finding and examples, offsets 0 and 6900",
+          "Huang arXiv:2110.15566 Theorem 1.2"
+        ]
+      },
+      "rationale": "Pass for the repaired, narrower finding: the complete list of irreducible components, with lower-dimensional pieces and the exact irreducibility transition. The strongest rank-one overlap explicitly stops at maximal-dimensional components, and the full list requires the image-span/common-kernel witness. The removed census novelty is not necessary for this finding and is explicitly credited in its new place. Catalogue dates are not taken as priority proof.",
+      "residual_risks": [
+        "A bounded literature search yielded no additional relevant citation, which does not establish absence. Earlier rank-constrained representation-variety formulations remain a plausible uninspected overlap. Catalogue dates do not determine priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial overlap in the strata, counting and top-dimensional component statements; only nonzero entries, does not classify lower-dimensional components.",
+          "evidence": [
+            "dim S_d=r(n-1)+d(n-d); two top-dimensional components for odd n and r>=(n+1)/2, one otherwise; explicitly no lower-dimensional classification.",
+            "(n,r,q)=(4,3,2) gives 30345 nonzero triples."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-higher-commuting-tuples-in-the-minimal-nilpotent-matrix-orbit-ex--821c8ec91c9b",
+          "material_read": "RESULT.md Finding, scope, image-span proof and example excerpts, offsets 0, 4200, 6900",
+          "method": "Local Resultary mirror",
+          "title": "Higher commuting tuples in the minimal nilpotent matrix orbit: exact finite-field counts and image-span geometry",
+          "trigger": "Strongest same-object overlap: rank-one tuples, strata, components and exact counts"
+        },
+        {
+          "assessment": "Directly covers original census as a marginal; no component claim in the inspected theorem.",
+          "evidence": [
+            "Counts ordered tuples with each product zero, including diagonal products, for fixed full rank vector and both flag dimensions; includes zero maps and arbitrary arity."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-double-flag-enumeration-of-pairwise-annihilating-square-zero-mat--7465760ed8a5",
+          "material_read": "RESULT.md Finding, scope and flag-factorization/Möbius proof, offsets 0 and 1700",
+          "method": "Local Resultary mirror",
+          "title": "Double-flag enumeration of pairwise annihilating square-zero matrix tuples",
+          "trigger": "Potential dominating result for the entire census"
+        },
+        {
+          "assessment": "Dimension-three prior result correctly excluded from the claim.",
+          "evidence": [
+            "dim C_i(O_sub)=2i+2 and two-branch reducibility for i>=2 in the sl_3 case."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1301.2712",
+          "material_read": "PDF §4.1 p. 5 (offset 19500), §4.4 Lemma 4.4.2 p. 8 (30846)",
+          "method": "Lawful open PDF, bounded primary passages",
+          "title": "Mixed Commuting Varieties over Simple Lie Algebras",
+          "trigger": "Minimal/subregular orbit closure geometry antecedent"
+        },
+        {
+          "assessment": "Counts unrestricted pairs, not a reduced component theorem.",
+          "evidence": [
+            "Normalized generating series for pairs with AB=BA=0 indexed by ambient dimension."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2110.15566",
+          "material_read": "PDF Theorem 1.2, p. 4, offset 12006",
+          "method": "Lawful open PDF, bounded primary passage",
+          "title": "Mutually Annihilating Matrices, and a Cohen–Lenstra Series for the Nodal Singularity",
+          "trigger": "Exact prior finite-field count for the pair condition"
+        },
+        {
+          "assessment": "Neighboring block-product dimension argument; lacks the rank-one component classification in inspected material.",
+          "evidence": [
+            "Dimension bound for unrestricted block tuples subject to cross-product constraints."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2105.07918",
+          "material_read": "PDF §3 Lemma 3.3, p. 7, offset 29942",
+          "method": "Lawful open PDF, bounded primary passage",
+          "title": "Commuting Varieties and Cohomological Complexity Theory",
+          "trigger": "Related unrestricted components and vanishing-products argument"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding and noncontainment proof",
+        "Higher commuting tuples RESULT.md, maximal-dimensional component theorem",
+        "Ngo arXiv:1301.2712 §4.4"
+      ],
+      "rationale": "The repaired result provides a full classification of the reduced commuting locus for every arity on the smallest nonzero nilpotent orbit closure. It answers irreducibility and non-equidimensionality, which cannot be inferred from the largest components alone. The (4,3) example already separates the full component list from a unique largest component. This structural result is useful independently of the credited point-count corollary.",
+      "residual_risks": [
+        "The result does not classify singularities, normality, orbit quotients, or the unreduced equation scheme."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

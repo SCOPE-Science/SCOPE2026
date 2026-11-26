@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:18:41.219548Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the unweighted adjacency walk, time averaging keeps exactly the equal-eigenvalue terms. The quadratic form is the sum of squared Frobenius norms of the compressions E_lambda diag(z) E_lambda, so all compressions must vanish. The center-coupled block is a symmetric arrowhead with nonzero couplings at odd path eigenvalues, hence simple and disjoint from those poles. At an even mode lambda its reflection-symmetric path resolvent has coordinate sum (m+1)/(lambda-2), so collision would require lambda(lambda-2)=b(m+1), impossible since the left side is less than 8 and the right at least 9. Thus the even path space is unrestricted in the blade index and each odd path space has blade sum zero. Testing single blades and then blade differences forces every squared-sine moment to vanish per blade (for three or more blades each pair-sum vanishes and hence every entry vanishes). The Fourier transform of the symmetric part extended with a zero at index 0 is constant by sin^2=(1-cos(2x))/2, forcing that part to be zero. A coupled eigenvector with nonzero center enforces z_0=0, and products within each spectrally separated eigenspace are reflection-symmetric on each blade, proving the converse. Counting pairs gives the stated rank and nullity including m=2. The attached NumPy projector/rank script and recorded 40 graph cases were inspected, not run; the proof handles exact multiplicities without tolerance assumptions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The average-mixing Gram/commutant theorem is general, and rank is the dimension of the span of average states. It does not compute the path-blade span.",
+          "The indexed clique-cored theorem gives one null difference direction per size-two clique petal without other kernel directions. It covers the path-as-clique boundary P_2=K_2, not longer, nonclique paths on the described hypotheses."
+        ],
+        "reasoning": "For m≥3 the Fourier moment span and the separation of the repeated path modes from hub modes are additional family-specific deductions not provided by a generic Gram formula or clique symmetry.",
+        "searches": [
+          "Coutinho–Godsil–Guo–Zhan, DOI 10.37236/7867, Theorem 5, Corollary 6, Lemmas 8–10",
+          "Resultary 1fc0e371735c, heterogeneous clique-cored windmill rank/kernel"
+        ]
+      },
+      "checked_sources": [
+        "10.37236/7867",
+        "10.7273/000006322 (landing and cited section locator only)",
+        "Resultary 1fc0e371735c (indexed statement)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General compression equations require solving the spectral multiplicities and proving fullness of the reflection-symmetric squared-mode span; those steps are provided in RESULT.md.",
+          "Summing null difference modes on K_2 petals gives the same boundary rank, but P_m for m≥3 is not such a petal; its reflected positions need not be twins."
+        ],
+        "reasoning": "Credit the known framework and boundary, but no inspected theorem implies the all-length path kernel or the corresponding rank for b≥3.",
+        "searches": [
+          "DOI 10.37236/7867, Theorem 5 and commutant description",
+          "Kimmerling §5.1.3, Kulli vs Dutch windmills",
+          "Resultary 1fc0e371735c, null difference modes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the Kulli construction the hub is adjacent to every path vertex; Dutch endpoint-identification results for paths are not on the stated graph for m>2.",
+          "The bound source describes Kimmerling's statement as a finite-data-backed rank conjecture on this regime; full wording was not retrieved."
+        ],
+        "reasoning": "A proposed rank formula is not a proof, and by itself does not determine a coordinate description of the kernel. Equivalent terms must retain the center join and blade lengths, not just the word windmill.",
+        "searches": [
+          "Kulli path windmills, center join K1 ∨ bP_m, path-blade rank and nullspace",
+          "Kimmerling DOI 10.7273/000006322, §5.1.3 and Conjecture 5.1.5",
+          "Resultary: average-mixing rank and kernel for windmill graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frozen literature account reports finite computed path rank data in the dissertation; the dissertation table and conjecture text could not be independently read.",
+          "The catalogue hit provides known clique-petal coverage at m=2."
+        ],
+        "reasoning": "Even existing numerical ranks including W_{3,3} would not enumerate all blade lengths and counts or give the exact real kernel. No independent priority is claimed for the known boundary or isolated rank entries.",
+        "searches": [
+          "Kimmerling thesis §5.1.3 and Conjecture 5.1.5, DOI 10.7273/000006322",
+          "Resultary same-family windmill rank and spectral gap, hit 1fc0e371735c"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the evaluated infinite-family rank and full blade-by-blade kernel for m≥3 and b≥3, not the general projector criterion or the known clique-petal boundary m=2. The conjecture attribution was checked to the level of available evidence, not by independently reading its complete text.",
+      "residual_risks": [
+        "Exact dissertation conjecture wording, finite table and other nearby sections were not independently readable; the result is not here credited as resolving the whole conjecture.",
+        "The closest Resultary entry could not be read in full through the mirror, and a later path-windmill treatment under another name may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves the general framework, not the evaluated path rank",
+          "evidence": "Gram of average states, rank as span dimension, and diagonal projection from the commutant.",
+          "identifier_or_url": "https://doi.org/10.37236/7867",
+          "material_read": "PDF pp. 5–6 Theorem 5 and Corollary 6, and Lemmas 8–10",
+          "method": "Lawful OA PDF, bounded relevant passages",
+          "title": "A New Perspective on the Average Mixing Matrix",
+          "trigger": "Strong general mixing-matrix rank/Gram framework"
+        },
+        {
+          "assessment": "Exact attribution could not be independently confirmed; no comparable full-text novelty inference",
+          "evidence": "Title and thesis identity are retrievable; the frozen result restricts its conjecture comparison to the at-least-three-blade rank prediction.",
+          "identifier_or_url": "https://doi.org/10.7273/000006322",
+          "material_read": "Public repository landing information and frozen record's account of §5.1.3; no primary conjecture text",
+          "method": "DOI/repository and lawful PDF link attempted; signed PDF link expired and unsigned URL denied",
+          "title": "Continuous-Time Quantum Walks on Windmill Graphs",
+          "trigger": "Directly relevant thesis cited for Kulli path finite data and conjecture"
+        },
+        {
+          "assessment": "Acknowledged P_2 overlap; broader overlap not inferred or ruled out from missing full text alone",
+          "evidence": "Size-two clique petals contribute exactly one null difference mode per petal.",
+          "identifier_or_url": "Resultary 1fc0e371735c",
+          "material_read": "Indexed statement/description; matching RESULT.md unavailable through the local mirror",
+          "method": "Configured Resultary search and local-mirror attempt",
+          "title": "Exact rank and uniform positive spectral gap for heterogeneous clique-cored windmills",
+          "trigger": "Strongest catalogue overlap on windmills and exact kernel"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The supported infinite-family result identifies all null modes of a natural quantum-walk invariant rather than interpolating finite ranks. The blade antisymmetries and hub condition provide exact direction-level information and explain why the b≥3 spectral structure suffices; the known clique boundary is not the source of value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

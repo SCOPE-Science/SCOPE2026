@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:57:11.360299Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For N=n−1, A=c00 and B=c11 determine the total mixed count and δ=last−first determines the mixed-count imbalance. Thus Parseval must be applied within δ buckets, with the two same-endpoint contributions added before squaring. The transfer matrix has entries weighted by 1/2 and an additional 1/2 for the initial bit, as used in RESULT.md lines 23–35. Equality in the row triangle inequalities at a unit-modulus eigenvalue enforces λ²=1 and both diagonal phases equal to λ. Compactness and a uniform resolvent bound give exponential decay off the two torus neighborhoods, including potentially defective matrices. At the simple eigenvalue 1, lag-zero and lag-one indicator covariances give Σ=[[5,−3],[−3,5]]/16, det Σ=1/16. The endpoint-sector squared amplitudes sum to 3/8. Conjugation by diag(1,−1) and a global minus sign give the same squared weights at the other peak (one peak on the torus, not four corner peaks). The analytic expansion yields a uniform Gaussian bound and each peak integral is 4π/N before the Fourier normalization. The resulting factor is 3/(4πN), giving the claimed limit and entropy. Inspected RESULT.md, VERIFICATION.md and verify.py without executing the uploaded program. Review-side direct counting, dynamic counts and the run sum independently agree through n=16; the count there is 70,873,180. The two sum methods also agree at n=60,100,160 with nP_n≈0.2446063, 0.2421977, 0.2408783. These are finite checks only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact worst-case ambiguity result gives the same balanced and imbalanced class-size formulas and an asymptotic for the maximum class size.",
+          "The Markov-type paper counts admissible cyclic frequency matrices, not weighted matches of two linear samples."
+        ],
+        "reasoning": "General local-limit methods are classical, and exact fiber sizes determine all finite probabilities in principle. Neither maximum-fiber asymptotics nor counting admissible types evaluates the aggregate squared-fiber sum; using a local limit also requires the covariance, endpoint weights and parity computation.",
+        "searches": [
+          "Primary literature lookup for collision and local-limit results for Markov types and binary adjacent-pair counts",
+          "Resultary exact worst-case ambiguity of binary two-gram profiles, 5122acc1b9bd"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1804.04548",
+        "DOI:10.46298/dmtcs.2768",
+        "Resultary 5122acc1b9bd",
+        "Resultary 13779c08da71"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Summing squares of the prior individual class-size formulas recovers the finite identity in the frozen verification section exactly.",
+          "The frozen asymptotic computes a second moment, not the largest class, the number of classes, or the frequency of singletons."
+        ],
+        "reasoning": "The finite identity follows from existing formulas and is not original. Extracting its evaluated constant requires an additional asymptotic argument, not substitution into the earlier maximum or profile-count results.",
+        "searches": [
+          "5122acc1b9bd and 13779c08da71 RESULTS, statement-level comparison",
+          "DOI:10.46298/dmtcs.2768 cyclic reduction and binary case"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gabrys–Milenkovic's linear multispectrum is the same observation, but their inspected result concerns reconstruction codes.",
+          "The observable also has a transition-count formulation using the 00 count, 11 count and signed endpoint flow. Jacquet et al. explicitly impose cyclic balance instead."
+        ],
+        "reasoning": "A cyclic balanced type, or a linear type with both endpoints distinguished, does not have the same collision event. The squared weights of the three flow classes and the index-two lattice are needed for the stated constant.",
+        "searches": [
+          "Resultary: binary ordered two-gram profiles, collision probabilities and Markov types",
+          "arXiv:1804.04548 PDF p. 2",
+          "DOI:10.46298/dmtcs.2768 PDF pp. 2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalogue records 13779c08da71 and 5122acc1b9bd respectively supply exact profile counts/singletons and exact individual sizes/maximum. The latter is an additional directly relevant overlap beyond the frozen citations."
+        ],
+        "reasoning": "Credit the finite inputs, not claim the run sum as novel; no inspected matching catalogue entry gives the evaluated leading constant for the collision probability.",
+        "searches": [
+          "Resultary: binary 2-multispectrum counts, per-profile sizes and two-sample collision constant"
+        ]
+      },
+      "rationale": "The same ordered linear read model, exact fiber sizes, and formulas for the count, maximum and singleton fibers are prior coverage. The distinct result supported by the checks is the evaluated aggregate second-moment asymptotic, including its endpoint and lattice normalization, and the corresponding entropy constant.",
+      "residual_risks": [
+        "An equivalent second-moment evaluation under Markov-type or information-spectrum terminology may exist outside the inspected results. The targeted lookup does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct finite coverage; maximum asymptotic is not a collision asymptotic.",
+          "evidence": [
+            "Balanced and imbalanced fiber sizes equal the frozen L and R run formulas; maximum is taken over one fiber."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-exact-worst-case-ambiguity-of-binary-two-gram-profiles--5122acc1b9bd",
+          "material_read": "RESULT.md Finding and class-size formulas, offset 0",
+          "method": "Local catalogue mirror",
+          "title": "Exact worst-case ambiguity of binary two-gram profiles",
+          "trigger": "Identical spectrum and exact finite sizes"
+        },
+        {
+          "assessment": "Exact counts and singleton classification, not the squared-fiber asymptotic.",
+          "evidence": [
+            "Counts attainable spectra and singles out size-one fibers."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+          "material_read": "RESULT.md offsets 0 and 2500",
+          "method": "Local catalogue mirror",
+          "title": "Exact binary two-multispectrum code size and singleton classification",
+          "trigger": "Same alphabet and ordered observation"
+        },
+        {
+          "assessment": "Same read model, different reconstruction-code statistic.",
+          "evidence": [
+            "The linear multispectrum definition and unique reconstruction setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1804.04548",
+          "material_read": "PDF p. 2, offsets 10427 and 12152",
+          "method": "Bounded primary OA PDF passages",
+          "title": "Unique Reconstruction of Coded Strings from Multiset Substring Spectra",
+          "trigger": "Same linear multiset spectrum definition"
+        },
+        {
+          "assessment": "Cyclic type count rather than open-word pair collision.",
+          "evidence": [
+            "The paper explicitly restricts to cyclic strings; the binary example imposes c01=c10."
+          ],
+          "identifier_or_url": "https://doi.org/10.46298/dmtcs.2768",
+          "material_read": "PDF pp. 2–3, printed pp. 388–389, offsets 6267 and 5700",
+          "method": "Bounded primary OA PDF passages",
+          "title": "Counting Markov Types",
+          "trigger": "Transition types could cover pair-spectra asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact leading constant quantifies average two-sample confusability under the simplest nontrivial ordered-read model and fixes the additive term of its Rényi-2 entropy. It is not a class size or a uniqueness probability; the endpoint and lattice factors explain why estimates from closely related models need not predict this normalization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

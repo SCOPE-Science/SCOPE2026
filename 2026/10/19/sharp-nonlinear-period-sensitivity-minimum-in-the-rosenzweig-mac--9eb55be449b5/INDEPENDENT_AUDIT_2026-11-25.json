@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:35:05.737029Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The coexistence equilibrium in original time has Hopf Jacobian [[0,−d_H],[h,0]] and frequency ω=√(h d_H); differentiation along the equilibrium gives d(tr J)/dd=−(1−h)(1+h)/(2h). I independently checked the period coefficient using a polar expansion instead of the complex normal-form computation. In coordinates u=x−x_H, v=d_H(y−y_H)/ω, write the quadratic terms as (A u²+Buv, C u²+Euv) and cubic terms as (F u³+Gu²v, H u³+Iu²v). With L=1+h and d=d_H, direct Taylor expansion gives (A,B,C,E)=(−d,−4hω/(L²d),−2ω/L,4h/L²) and (F,G,H,I)=(−4h/L²,8hω/(L³d),4ω/L²,−8h/L³). For c=cos θ,s=sin θ, the first angular correction is Cc³+(E−A)c²s−Bcs²; the second-order radius correction is the antiderivative of [Ac³+(B+C)c²s+Ecs²]/ω. Averaging reciprocal angular speed with this radius correction gives the coefficient [10C²+(E−A)²+B²−BC−3A(E−A)]/(24ω²)−(3H−G)/(8ω), which simplifies to the stated rational C(h). The radial cubic averaged in the absence of time rescaling is (3F+I)/8−(2AC−AB+EC)/(8ω)=−1/(2L), confirming transversality leads to the local stable branch for d<d_H. In a smooth off-Hopf eigenbasis the trace shift is O(r²) on the branch and affects the radial equation first at cubic order, while the constant angular term is exactly ω_lin(d,h); the leading polar radius agrees with the prey harmonic to first order. Thus this computes a least-period correction relative to the same-d focus rather than the frozen Hopf frequency. The numerator of C(h) is positive by the indicated grouping and its endpoint limits diverge. Direct differentiation gives the displayed P and negative sign of its denominator on (0,1); the positive-half-line substitution has coefficients with one sign change and P(0)=1, P(1)=−32, so there is exactly one global minimizer. Independent bisection gave h=0.37246273719082396 and C=1.2232816447053083. CHECK.py and NUMERIC_CHECK.py were inspected, not executed; their recorded finite checks are not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The phase-portrait paper proves a supercritical Hopf using a negative real Lyapunov coefficient of the polynomial model.",
+          "The available de Roos section explains the imaginary eigenvalue as spiral speed around the steady state and the crossing of the real part. Its located period passage does not analyze the nonlinear period correction.",
+          "The 1963 source is flagged for a reported period equation but the primary equation was not accessible."
+        ],
+        "reasoning": "Knowledge of a stable bifurcating orbit and of the linear focus frequency does not determine the coefficient of r² for the physical period. No finding about the inaccessible original period equation is assumed.",
+        "searches": [
+          "arXiv:2501.13728 §6.2",
+          "de Roos, Chapter 4 Hopf bifurcation in a predator–prey model, period passage",
+          "Rosenzweig–MacArthur 1963 DOI 10.1086/282272"
+        ]
+      },
+      "checked_sources": [
+        "Diz-Pita–Llibre–Otero-Espinar arXiv:2501.13728",
+        "de Roos university Chapter 4",
+        "Rosenzweig–MacArthur DOI 10.1086/282272 (bibliographic/landing only)",
+        "Liou–Cheng SIAM J. Math. Anal. 19 (1988), 867–878 (bibliographic only)",
+        "Resultary targeted searches for the named coefficient and minimum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The time-rescaled paper has intermediate normal-form quantities and concludes stability from ℓ₁<0; a real Lyapunov coefficient gives no imaginary resonant coefficient in physical time.",
+          "Even a correct formula for the linearized focus period does not yield the nonlinear coefficient, and uniqueness of a cycle concerns a different property.",
+          "A physical-time complex Hopf coefficient with the correct eigenvector normalization would indeed imply C(h) by taking its imaginary part; the global minimizer then requires an additional exact optimization."
+        ],
+        "reasoning": "The available ingredients are relevant, but neither direct rescaling of the reported Lyapunov constant nor substitution into a linear formula yields the claimed invariant or the minimum.",
+        "searches": [
+          "arXiv:2501.13728 PDF p. 1 and §6.2 p. 8",
+          "de Roos Chapter 4 linear frequency passage",
+          "Liou–Cheng SIAM J. Math. Anal. 19 (1988), 867–878"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen observable uses the prey first harmonic at physical-time phase and subtracts the unfolding's own linear frequency, not a Hopf-point frequency held fixed.",
+          "The prior article obtains a polynomial vector field by a state-dependent factor b+x; equivalence of trajectories under that transformation does not equate physical periods.",
+          "A complex cubic coefficient in the original time and normalized prey amplitude would encode the same coefficient."
+        ],
+        "reasoning": "Matching the observable requires transforming both clock and amplitude. The accessible prior computation does not provide the needed same-clock complex invariant.",
+        "searches": [
+          "Diz-Pita–Llibre–Otero-Espinar arXiv:2501.13728 PDF pp. 1 and 8",
+          "Rosenzweig MacArthur predator prey Holling type II Hopf normal form physical period approximation oscillation frequency cubic imaginary Lyapunov coefficient Rosenzweig MacArthur 1963 period equation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bounded catalogue searches returned related oscillator/Fourier topics but did not surface a matching indexed coefficient/minimum.",
+          "The strongest accessible model-specific normal-form passage (§6.2 of arXiv:2501.13728) displays a Lyapunov coefficient, not a table or formula for the physical-time prey-harmonic sensitivity."
+        ],
+        "reasoning": "The catalogue check is not an exhaustion claim. The exact inspected coefficient belongs to the real part of a rescaled bifurcation computation, not the normalized period.",
+        "searches": [
+          "Resultary Rosenzweig–MacArthur Hopf period sensitivity, physical-time prey harmonics, and exact coefficient/minimum",
+          "Graphical Representation and Stability Conditions of Predator-Prey Interactions, period, Rosenzweig MacArthur 1963 abstract 209 223 pdf"
+        ]
+      },
+      "rationale": "Credit the normalized physical-time coefficient relative to the same-d linear frequency and its unique sharp model-specific minimum, not the known predator–prey model, existence of a supercritical Hopf cycle, or normal-form method. The decisive prior accessible normal-form calculation uses a different clock and reports stability, not this frequency observable. The original period equation's scope remains unresolved and is not treated as negative evidence.",
+      "residual_risks": [
+        "The original 1963 period equation and the full Liou–Cheng text were not inspected; an earlier equivalent physical-time Hopf expansion cannot be ruled out.",
+        "Targeted discovery did not settle the full historical literature. This is a bounded comparison, not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known Hopf and orbital stability; different time variable, no matching physical-time coefficient in the inspected calculation",
+          "evidence": "The model is polynomialized by a state-dependent time rescaling multiplying by b+x; the Hopf passage reports ℓ₁=−(c+δ)^4/[4c^4ω(c−δ)^2]<0 and a bifurcating stable cycle.",
+          "identifier_or_url": "https://arxiv.org/abs/2501.13728",
+          "material_read": "PDF p. 1 (offsets 1400–6286); §6.2 PDF p. 8 (offsets 22800–27795)",
+          "method": "Primary preprint, targeted PDF passages",
+          "title": "Global phase portraits of a predator-prey system",
+          "trigger": "Same predator–prey class with an explicit Hopf calculation"
+        },
+        {
+          "assessment": "Background on linear frequency; not a matched nonlinear period expansion in the inspected passage",
+          "evidence": "Imaginary part b determines the speed of spiral motion near the steady state; real part a changes sign as the carrying-capacity parameter K crosses K₂.",
+          "identifier_or_url": "https://staff.fnwi.uva.nl/a.m.deroos/projects/BifurcationTheory/43-HopfPoint-Rosenzweig.html",
+          "material_read": "Linearized frequency/spiral and Hopf discussion, page text offset 16250–18572",
+          "method": "Lawful public page, literal locate then bounded read",
+          "title": "Chapter 4 Hopf bifurcation in a predator–prey model",
+          "trigger": "Possible same-model period formula found in targeted web lookup"
+        },
+        {
+          "assessment": "Full-text scope unresolved",
+          "evidence": "Publication details corroborated by bibliography; the original calculation was not available for comparison.",
+          "identifier_or_url": "https://doi.org/10.1086/282272",
+          "material_read": "Bibliographic citation and landing-page material only; no primary period equation",
+          "method": "Lawful DOI and alternate JSTOR retrieval attempts, plus exact-title discovery query",
+          "title": "Graphical Representation and Stability Conditions of Predator-Prey Interactions",
+          "trigger": "Foundational source with a period equation reported by the frozen finding"
+        },
+        {
+          "assessment": "Only the stated bibliographic topic is established here",
+          "evidence": "The title describes cycle uniqueness; the absence of a period expansion in that article is not asserted.",
+          "identifier_or_url": "SIAM Journal on Mathematical Analysis 19 (1988), 867–878",
+          "material_read": "Bibliographic entry in arXiv:2501.13728 PDF p. 12; no full text",
+          "method": "Bibliography lookup and unsuccessful lawful full-text retrieval",
+          "title": "On the uniqueness of a limit cycle for a predator-prey system",
+          "trigger": "Prior limit-cycle result in this class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Using the physical-time prey harmonic and the equilibrium's changing linear frequency separates nonlinear slowing from the parameter-driven frequency shift. These are observables a researcher can directly estimate near a supercritical Hopf cycle. The exact positive rational coefficient and its unique least-sensitive parameter value provide a quantitative benchmark for this canonical model, rather than merely repeating Hopf stability or claiming global period monotonicity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

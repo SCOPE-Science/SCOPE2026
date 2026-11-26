@@ -1,15 +1,21 @@
-# Review of the finite-field realization threshold
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact incidence object is explicitly specified, the four-point frame fixes all projective freedom, the remaining free parameters cover every strict realization, and the cross-product equations force the other vertices. The finite-field census exhausts all possibilities for the only four field orders smaller than seven and independently identifies exactly one valid class over the seven-element field. The two enumerations and all 120 triple-determinant tests agree; the explicit witness is checked directly. Finite-field exhaustiveness is a proof of this bounded theorem, not a claim about higher cardinalities.
+## correctness
 
-## Originality — PASS, with priority risk
-Sink's full exposition gives the parameterization and characteristic-zero K3 results; its Sections 1–4 do not state the finite-field minimum or uniqueness over the seven-element field. Cohen–Liu study complex one-line extensions, not this arithmetic cutoff. Isham et al. classify ten-point incidence varieties birationally over characteristic zero and note that their work does not determine desired finite-field point counts. Exact statement and aliases were compared against mathematical research records and broader internet literature searches, without identifying a dominating theorem or existing numerical table. This does not prove absolute novelty: an unindexed finite-geometry realization table may exist. Cohen–Liu's full text was available in an alternate plain-text rendering; Sink and Isham et al. were inspected in their scholarly HTML versions.
+PASS
 
-## Mathematical value — PASS
-The least field admitting a rational point on a strict incidence-moduli space is an intrinsic arithmetic existence invariant, separate from characteristic-zero nonemptiness or birational type. The smallest possible field cardinality is seven and has only one marked projective realization, showing an explicit arithmetic obstruction at all four smaller field orders. The exact witness supplies a reusable finite-geometry example and the complete small-field cutoff rather than an arbitrary single-field numerical observation. It does not claim a new general moduli theorem.
+Exact collinearity makes (1,2,3,5) a frame, so fixing its ordered coordinates eliminates the entire label-preserving PGL freedom. Point 7 is forced onto 23 (away from its endpoints), and point 6 is forced off 23. Their normalized forms (0,1,t) and (1,a,b) are therefore exhaustive. The four construction intersections are unique in any strict realization: coincident defining lines would give a forbidden triple (125, 136, 125, or 345, respectively). Independent enumeration used spans as explicit point sets and set intersections, not the supplied cross-product checker. It tested all 120 possible three-subsets for each candidate with ten distinct points, used the irreducible quadratic X²+X+1 over F2 to handle F4, and checked the displayed polynomial separately in factored form. The (roots, distinct roots, strict classes) counts are (4,0,0), (13,0,0), (22,0,0), (31,0,0), (50,1,1) for q=2,3,4,5,7. The witness and (a,b,t)=(5,6,6) agree. These are all prime powers through 7. Replay: python3 /workspace/branches/replay145.py (PLANE lines), output /workspace/branches/replay145.txt. ‘Cubic’ here refers to degree in a,b for t fixed, not total degree in all three variables.
 
-## Limits and related literature
-The conclusion is only about the specified ten labeled triples and finite fields of order at most seven. Larger finite fields, the special-fiber geometry of characteristic-zero K3 compactifications, and generalizations to all ten configurations remain outside the claim. Primary sources: Cohen–Liu, arXiv:2208.12293; Sink, arXiv:2312.07542; Isham et al., arXiv:2507.09829. Residual risk: unpublished finite-field matroid representability databases.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The configuration, strict convention, frame and equation are prior. The supported distinct result is the least finite-field order and exact labeled orbit count at the threshold, relative to the inspected sources. An identical Resultary hit is the assigned record, not independent precedence.
+
+## value
+
+PASS
+
+This is a field-of-realization boundary for a pre-existing named configuration, not a slice picked after an arbitrary census. Working in the strict open locus is decisive: many equation roots do not correspond to ten distinct points. The minimum and unique labeled model provide an exact finite-characteristic benchmark that the known characteristic-zero geometry and equation do not supply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

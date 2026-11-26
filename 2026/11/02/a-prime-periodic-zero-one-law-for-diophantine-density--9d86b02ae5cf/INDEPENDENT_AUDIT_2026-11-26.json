@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:09:59.103009Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–42",
+        "Frozen VERIFICATION.md lines 19–25 and verify.py (inspection only)"
+      ],
+      "rationale": "For reduced p/q and 1<=v<q, nonzero modular residues give the universal floor 1/q. If 0 is present, among 0, lp/q, ..., floor((q-1)/l) lp/q modulo one, two have circular distance at most the reciprocal of their count, at most l/q; their difference is an eligible positive multiple of l. If all nonzero classes are present, either the inverse u of p modulo q is not divisible by l or q-u is not, since l dividing both would contradict gcd(u,q)=1. For necessity choose a missing nonzero t and arbitrarily large q congruent to t modulo l, so gcd(q,l)=1. Take p inverse to l modulo q. If the residue of vp modulo q is a nonzero signed j of magnitude less than q/l, then the representative v is l*j for j>0, or q-l*abs(j) for j<0. These have residues 0 and t respectively, neither allowed. Thus the defining minimum is at least 1/l along infinitely many reduced pairs, ruling out every positive exponent; exponent zero is trivial for nonempty periodic sets once the minimum is defined. The empty-set convention, l=2, periodic counting, and the effect of restoring either class all agree. No unbounded claim is inferred from the finite verifier, which was inspected, not executed.",
+      "residual_risks": [
+        "The argument classifies complete residue unions of prime period, not general composite-period sets or finite modifications."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 5 treats m times the positive integers for all m>=2, and hence by monotonicity all periodic sets containing the zero class for any modulus.",
+          "Proposition 6 proves zero for the translated progression 2m times the positive integers plus m, using a coprime obstruction family."
+        ],
+        "reasoning": "The zero-class half is already covered more generally. The translated examples do not classify all residue unions omitting zero, prime or composite; the nature of the obstruction alone is not a necessary-and-sufficient theorem.",
+        "searches": [
+          "arXiv:2610.27497v1 §2 Propositions 5–6 (OA offsets 11287–16132)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.02620v1 Definition 1",
+        "arXiv:2610.27497v1 §2",
+        "Resultary 790d86c7f372 Finding and proof Step 3",
+        "Frozen RESULT.md lines 44–53"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sanford proves one sufficient condition and a particular obstruction, not the joint failure for every residue union missing any nonzero class along with zero.",
+          "The catalogue covering result supplies explicit failure of subadditivity even for disjoint sets."
+        ],
+        "reasoning": "Neither monotonicity nor knowing every individual singleton class density proves the required uniform lower bound simultaneously for every eligible denominator in a multi-class set. The inverse obstruction rules out both signs of every small modular numerator by selecting the denominator residue to match the missing unit.",
+        "searches": [
+          "Sanford arXiv:2610.27497v1 Definition 1 and Propositions 5–6",
+          "Resultary 790d86c7f372 Finding and proof Step 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The expanded Definition 1 has v<q and takes a supremum, while the initial note admits v=q in its formulation.",
+          "790d86c7f372 realizes prescribed pairs of densities with alternating-block covering sets, including two density-zero sets whose union has density one."
+        ],
+        "reasoning": "The periodic classification matches the expanded definition. Arbitrary covering constructions show non-subadditivity but do not identify which residue unions have which invariant.",
+        "searches": [
+          "Sanford arXiv:2606.02620v1 Definition 1 and arXiv:2610.27497v1 §2",
+          "Resultary periodic/covering sets of prescribed Diophantine density, 790d86c7f372"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "790d86c7f372 prescribes densities via alternating blocks, not via a finite residue catalogue.",
+          "The frozen Relationship section itself reports an earlier single-progression classification; no exact indexed passage for it was located in the bounded check."
+        ],
+        "reasoning": "The exact claim is parametrized over all primes and subsets, not a finite lookup. Even a single-class table would not exhaust all unions for a non-subadditive invariant.",
+        "searches": [
+          "Resultary searches for prime-periodic or single-residue-class Diophantine density and related covering results; inspected catalogue match 790d86c7f372"
+        ]
+      },
+      "rationale": "Credit Sanford's expanded definition and its multiples-of-any-modulus result, and the existing translated-progression and covering-set phenomena. The initial Sanford note uses a different endpoint convention; the expanded paper is the direct reference for the frozen definition and the explicit multiples proposition. The supported distinct contribution is the necessary-and-sufficient test simultaneously for every whole prime-periodic residue union, with the missing-unit obstruction. The bounded checks do not establish historical priority against every unpublished or unindexed progression result.",
+      "residual_risks": [
+        "A specific single-progression match mentioned in the frozen discussion remains unverified; stronger implicit periodic coverage elsewhere cannot be excluded.",
+        "No novelty is claimed for qualitative non-subadditivity or the case containing all multiples of the period."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related definition, not the exact version in use",
+          "evidence": [
+            "The initial note states a density-exponent bound with v<=q, rather than v<q in the later supremum definition."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2606.02620v1",
+          "material_read": "Definition 1, OA offset 2976",
+          "method": "Primary OA HTML passage inspection",
+          "title": "A Note on Diophantine Approximation with Restricted Denominators",
+          "trigger": "First cited formulation"
+        },
+        {
+          "assessment": "Covers invariant and zero-class sufficiency, not the full prime-union classification",
+          "evidence": [
+            "Definition 1 uses the defining v<q restriction; Proposition 5 proves density one for multiples; Proposition 6 proves density zero for a specific translated progression."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.27497v1",
+          "material_read": "§2 Definition 1 (offset 3442) and Propositions 5–6 (offsets 11287–16132)",
+          "method": "Primary OA HTML passage inspection",
+          "title": "On a Notion of Density Related to Restricted Diophantine Approximation",
+          "trigger": "Same invariant, progressions and elementary obstruction"
+        },
+        {
+          "assessment": "Prior qualitative phenomenon via nonperiodic constructions",
+          "evidence": [
+            "The (0,0) construction uses alternating blocks of integers with union all positive integers."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-prescribed-diophantine-densities-for-two-covering-sets-of-upper--790d86c7f372",
+          "material_read": "Finding and proof Step 3 (RESULT.md, OA offset 0)",
+          "method": "Resultary lookup and local-mirror passage read",
+          "title": "Prescribed Diophantine densities for two covering sets",
+          "trigger": "Exact related invariant and non-subadditivity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–13 and 22–39",
+        "arXiv:2610.27497v1 Propositions 5–6",
+        "Resultary 790d86c7f372"
+      ],
+      "rationale": "This is a complete structural classification on a natural test class for a non-subadditive approximation invariant. It explains why sets of arbitrarily high natural density can have Diophantine density zero even with very regular membership, and why a single restored residue class can change the invariant maximally. Neither a single-class table nor qualitative covering examples supply that boundary.",
+      "residual_risks": [
+        "Value is the complete criterion on prime-periodic sets; effects outside periodic sets or for prescribed composite periods are not claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the torus torsion-defect formula
+# Independent mathematical audit
 
-The theorem is proved analytically in `RESULT.md`. The main logical checks were the classification of torsions on \(C(\mathbb T^d)\) as circle-valued multipliers, existence of the integer winding vector for every continuous multiplier, the exact Euclidean Lipschitz lower bound on winding, translation invariance of the Haar mean of the real phase coboundary, connectedness of the real phase-error image below operator defect \(2\), and the equality case at the endpoint of an interval. These jointly prove the infimum and all optimizer claims; no finite search is treated as a proof of universal validity.
+## correctness
 
-The reproducible `CHECK.py` uses only the Python standard library. Running `python CHECK.py` checks the character formula at multiple one- and two-dimensional budgets and checks that explicit sine-perturbed phase functions do not beat the character bound on sampled grids. Example outputs for the circle rotation \(\beta=2\pi(\sqrt2-1)\) and target \(-1\) give defects approximately \(0.532510684083\) at budget \(1\) and \(0.092446900979\) at budget \(8\). These checks catch phase-sign and \(2\pi\)-scaling mistakes only.
+PASS
 
-No classification of all optimizers is claimed at the diametral defect \(2\); the exact finite minimization formula and character attainment do include that case. No general Diophantine decay rate is asserted. The critical assertion is proved for the continuous-function lattice and Euclidean flat torus metric only. Originality remains subject to possible unindexed cocycle-theory literature; independent review has not been performed.
+For every complex-linear torsion, evaluation on f−f(x)1 vanishes at x, so U is exactly multiplication by the continuous unimodular function u=U1; translation is an invertible isometry, giving the claimed sup norm defect. Lift u to a phase k·x+h(x) on the universal cover, with unique integer k and continuous periodic h. The chordal/geodesic Lipschitz normalization gives ‖k‖₂≤Lip(u): along a lifted straight segment, subdivision into arbitrarily short increments bounds the angular variation by Lip(u) times the length because the angle-to-chord ratio tends to 1; take long segments in direction k and use boundedness of h. The character realizes equality by its directional derivative. In a fixed class, the continuous increment h(x+β)−h(x) integrates to 0, so it vanishes somewhere and the defect is at least the corresponding character defect. This already proves the exact finite minimum, including L=0 and defect 2. For an optimizer with defect less than 2, the phase errors lie, by connectedness, in one closed arc lifted to a real interval of half-width less than π; the mean phase error is at one endpoint (or the interval is a singleton). Continuity and full Haar support force the error to be constant, hence h is invariant and constant in the dense-orbit case. In dimension one irrationality excludes e^(ikβ)=−1 even for continuous non-Lipschitz multipliers, while density yields convergence of the finite minima to zero. The checker was inspected but not executed; grids do not prove these universal bounds or rigidity.
+
+## originality
+
+PASS
+
+The supported contribution is the exact finite Lipschitz-budget minimum and dense-orbit optimizer classification for the fixed torus rotation. The irrational-circle zero-defect obstruction and density of the character eigenvalues are already known, and are credited rather than treated as original. The inspected commutator and approximate-intertwining results give related mechanisms but not the exact constrained problem.
+
+## value
+
+PASS
+
+For a natural forbidden operator relation, the result determines exactly what a bounded regularity budget buys, separating arithmetic phase approximation from arbitrary continuous phase changes. Optimizer rigidity makes the answer structural rather than a numerical bound or reproof of the obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

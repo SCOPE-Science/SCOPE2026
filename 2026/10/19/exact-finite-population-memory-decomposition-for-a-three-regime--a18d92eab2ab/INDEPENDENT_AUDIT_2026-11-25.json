@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:02:49.428689Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 16–138; independent generator reconstruction, including an alternate finite-state positivity proof",
+        "Frozen VERIFICATION.md lines 19–23 and verification/check.py source (inspected, not executed)",
+        "Standalone replay: python3 /workspace/review-evidence/bounded_counts.py, voter_check()"
+      ],
+      "rationale": "In the middle environment both voter jump directions have positive rates wherever the destination exists; since S can reach and leave the middle, this proves irreducibility even at a=0. Center the count at μ=(a+β z̄)/c. Its drift is −c(X−μ)+β(z−z̄); for the centered environmental eigenmodes z_j with rates η_j and variances V_j, the product generator has no simultaneous-jump term. Stationarity gives Cov(X,z_j)=βV_j/(c+η_j). Orthogonality under (1/4,1/2,1/4) yields V_1=1/8 and V_2=(1−2δ)²/16. The quadratic variation rate of the count fraction is H(X,z)/N with the stated H. Thus 2c(v_N−V_∞)=E[H]/N, and E[H]=H_0−2q v_N−2c V_∞; solving gives v_N−V_∞=κ/(Nc+q). The same identity proves positivity directly: H is nonnegative everywhere and strictly positive in the middle environment, which has stationary probability 1/2. The drift equation for the stationary PDMP gives the same environmental cross moments and v_∞=V_∞ with no jump-variation term. At lag t, the exact covariance solves C_N′+c C_N=β Σ_j Cov(X,z_j)e^{−η_j t}, with C_N(0)=v_N; the PDMP solves the identical inhomogeneous equation with C_∞(0)=V_∞. Integration gives the stated kernels, including (1+ct)e^{−ct} when c=η_j, and the strictly positive single-rate difference for each finite t≥0. This also proves monotonicity in N. Independent rational generator calculations reproduced the N=10 example and derivatives through order 3 in that example and at both nonzero-mode resonances.",
+      "residual_risks": [
+        "The lag-derivative computation is bounded corroboration, not a proof at arbitrary lag; the linear covariance equation supplies the all-lag result. Fixed rates, autonomous environment and stationarity are essential to this argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected Hufton and Peralta abstracts specify linear-noise/pair approximations or system-size expansion, with different scope. Indexed 3151b21302ef computes a stationary covariance matrix for three linear filters of a binary Markov input; 1905b42cd00e computes exact finite-population moments in a compromise model with Gaussian shocks."
+        ],
+        "reasoning": "The former methods can motivate moment calculations and linear filtering addresses the environmental term, but none of the inspected statements gives the exact voter-jump correction from joint stationary quadratic variation. Later catalog matches are not evidence of prior priority.",
+        "searches": [
+          "Hufton et al. arXiv:1512.00785, intrinsic noise in switching environments",
+          "Peralta et al. arXiv:1807.04615, noisy-voter dynamic correlations",
+          "Resultary exact covariance in linear Markov filters and finite interacting populations"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2305.19096 §II and §V.B; related arXiv:1512.00785 and 1807.04615 abstracts",
+        "Published records 1beb49e7e43f, 1905b42cd00e, bdecd47d270b and 3151b21302ef"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The drift and environmental filter yield the semigroup on linear observables; that alone does not supply the initial covariance at finite N. Exact second-moment closure and positivity of voter quadratic variation show that the entire finite-size effect is a positive difference in the initial variance. Leading-order linear-noise results do not identify the exact Nc+q denominator."
+        ],
+        "reasoning": "The result uses standard generator machinery but is not merely a continuum filter or a parameter substitution into an inspected prior formula. Its distinct content is the exact separation and sign at every lag for the specified jump chain.",
+        "searches": [
+          "Caligiuri–Galla arXiv:2305.19096 Eq. (1), Eq. (34), §V.B; compare frozen RESULT.md lines 93–138",
+          "Mankin–Ainsaar–Reiter Phys. Rev. E 60, 1374: APS/DOI and lawful-copy retrieval"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Setting herding h=1 and holding spontaneous noise fixed in the paper's voter rates is the frozen count generator, and Eq. (34) uses the exact z=(0,δ,1) transition chain. The three-state finite-N treatment in §V.B/Fig. 9 uses simulations and leading corrections, not the audited exact lag covariance.",
+          "bdecd47d270b instead switches the spontaneous flip rates in a two-state environment and gives a variance law whose pole is in the switching-speed variable."
+        ],
+        "reasoning": "The same-model source is directly relevant despite its different notation; its stationary distribution treatment does not establish the exact moments being audited. The two-state noise-switching model is not a relabeling: it changes the decay coefficient and has a different scope and observable.",
+        "searches": [
+          "Resultary exact stationary autocovariance in a three-state switching noisy-voter model, finite-population corrections and switching-influencer moment closure",
+          "Caligiuri–Galla arXiv:2305.19096 §II and §V.B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1beb49e7e43f gives an exact two-exponential autocovariance of aggregate occupancy for two independent binary chains. bdecd47d270b supplies a different exact stationary variance. The same-model Fig. 9 is numerical, not an exact covariance table."
+        ],
+        "reasoning": "A scalar sum-of-exponentials resemblance does not preserve the joint model, number of modes, resonance or N-dependence. Neither indexed exact law nor numerical curves give the audited invariant.",
+        "searches": [
+          "Resultary exact all-lag covariance and switching/finite-size law; 1beb49e7e43f and bdecd47d270b",
+          "Caligiuri–Galla Fig. 9 and §V.B"
+        ]
+      },
+      "rationale": "The exact voter and environment rates, Markov relaxation and linear filter are known. Credit is limited to the exact finite-state stationary lag decomposition for those rates, including its population-size-independent environmental terms and strictly positive rational finite-size coefficient. The same-model source inspected uses numerical/leading-order finite-population treatments; the strongest indexed exact covariances use different dynamics. No inspected work supplies the complete audited decomposition.",
+      "residual_risks": [
+        "Phys. Rev. E 60, 1374 full text remained inaccessible by the attempted lawful routes. Exact moment identities in another general linear jump-system treatment might imply some of the decomposition; the comparison is not an absolute priority finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct model precedent, not the audited exact covariance",
+          "evidence": "The rates match after herding normalization; three-state stationary PDMP results are numerical and the illustrated finite-population treatment includes leading 1/N corrections.",
+          "identifier_or_url": "https://arxiv.org/pdf/2305.19096",
+          "material_read": "§II Eq. (1), PDF pp. 2–3; §V.B Eq. (34), pp. 9–11 and Fig. 9",
+          "method": "OA PDF passage inspection",
+          "title": "Noisy voter models in switching environments",
+          "trigger": "Exact same three-state influencer model and finite-population analysis"
+        },
+        {
+          "assessment": "Method precedent in the inspected passage, not evidence about the whole paper",
+          "evidence": "The abstract describes intrinsic fluctuation treatment by linear-noise approximation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1512.00785",
+          "material_read": "Abstract, PDF p. 1",
+          "method": "OA PDF passage inspection",
+          "title": "Intrinsic noise in systems with switching environments",
+          "trigger": "Related finite-size fluctuation method"
+        },
+        {
+          "assessment": "Inspected setting and method differ from exact autonomous three-regime forcing",
+          "evidence": "Dynamic correlations employ pair approximation and system-size expansion on heterogeneous networks.",
+          "identifier_or_url": "https://arxiv.org/pdf/1807.04615",
+          "material_read": "Abstract, PDF p. 1",
+          "method": "OA PDF passage inspection",
+          "title": "Stochastic pair approximation treatment of the noisy voter model",
+          "trigger": "Noisy-voter temporal correlations at finite size"
+        },
+        {
+          "assessment": "Different generator and observation",
+          "evidence": "Aggregate of two independent binary chains has covariance v_1e^{−λ_1t}+v_2e^{−λ_2t}; no interacting count population or finite-size denominator.",
+          "identifier_or_url": "2026/10/12/SCOPE-a-sharp-second-moment-blind-spot-in-anonymous-two-habitat-occupa--1beb49e7e43f",
+          "material_read": "RESULT.md Finding and stationary covariance formula",
+          "method": "Published-record local mirror",
+          "title": "A sharp second-moment blind spot in anonymous two-habitat occupancy",
+          "trigger": "Exact all-lag switching covariance found in the corpus"
+        },
+        {
+          "assessment": "Later related result, different modulated parameter and only stationary variance",
+          "evidence": "The two-state environment changes the spontaneous flip rate; the pole is in environmental switching speed.",
+          "identifier_or_url": "2026/11/8/SCOPE-an-exact-one-pole-fluctuation-law-for-noisy-voting-under-a-two-s--bdecd47d270b",
+          "material_read": "RESULT.md Finding",
+          "method": "Published-record local mirror",
+          "title": "An exact one-pole fluctuation law for noisy voting under a two-state environment",
+          "trigger": "Exact finite noisy-voter fluctuation under switching"
+        },
+        {
+          "assessment": "Covariance content unverified; neither affirmative nor negative coverage inferred",
+          "evidence": "The cited object concerns trichotomous forcing; precise applicability to all-size count covariance could not be established from the accessible material.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.60.1374",
+          "material_read": "Citation/DOI identification only; no primary passages accessible",
+          "method": "Lawful APS/DOI retrieval unsuccessful; no repository copy located",
+          "title": "Trichotomous noise-induced transitions",
+          "trigger": "Potentially related three-level Markov forcing and stationary analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 33–80 and 93–138",
+        "Caligiuri–Galla arXiv:2305.19096 §V.B and Fig. 9"
+      ],
+      "rationale": "The covariance is directly interpretable as memory of the fluctuating opinion fraction. The result isolates precisely what changing N can change, with sign, rate, exact amplitude and behavior at resonances, without solving an unavailable stationary density or relying on leading-size approximations. That is a usable exact invariant of the existing, physically motivated influencer model.",
+      "residual_risks": [
+        "No results for full stationary laws, arbitrary starting states, sparse graphs or switching coefficients that change the count drift slope."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

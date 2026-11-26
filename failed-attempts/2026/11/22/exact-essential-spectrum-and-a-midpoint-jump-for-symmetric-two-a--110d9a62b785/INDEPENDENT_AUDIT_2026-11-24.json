@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:58:56.493740Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The binomial series and transpose give the stated matrix and its symmetry. For u=(1-z)^{-1}-1/2 the boundary Jacobian is |u+1/2|^{-2}; it is canceled by the squared Cayley prefactor (the unweighted measures are not literally equal). Paley–Wiener then gives the normalized Laplace unitary. The atomic map sends u to tu/(1−t)+1/[2(1−t)] and the Laplace substitution gives t^{-1} exp(−x/(2t))g((1−t)x/t), hence the asserted reciprocal log-shifts and weights. For t≠1/2 the constant-coefficient symbol is 2r cos(ξL) and covers the full norm enclosure. On the normalized long translated cutoffs, each shift discrepancy has norm at most sqrt(2|L|/N); the multiplier error vanishes uniformly there, and the supports escape, giving the required singular Weyl sequence at every spectral point. Strict pointwise attenuation of both summands excludes norm attainment. At t=1/2 the doubled atom is the non-atomic multiplication model with essential range [0,4]. Strong continuity follows from dilations and dominated convergence of the locally uniformly bounded multipliers, for both terms. Testing the norm difference on unit approximate eigenvectors at the negative edge and using A_{1/2}≥0 gives the claimed lower bound. Inspected checks/finite_sections.py and frozen VERIFICATION.md; recorded finite numerical checks were not rerun and are not needed for these analytic conclusions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Fourier theorem works for every positive measure of finite critical moment, shows every point of its curve is Fredholm essential, and proves nonattainment. Bellavita et al. already give the exact norm. The support-obstruction record proves a negative two-coordinate compression, not spectral saturation."
+        ],
+        "reasoning": "A mere norm formula and nonpositivity would not determine the spectrum, but the broader Fourier theorem supplies every point of the interval, and self-adjointness plus the norm excludes all others.",
+        "searches": [
+          "Resultary Fourier essential-spectrum and reflection theorem 88a49ad157a1",
+          "arXiv:2307.15334 Theorem 2 p. 7",
+          "Resultary midpoint support obstruction cb3fe6556dcf"
+        ]
+      },
+      "checked_sources": [
+        "88a49ad157a1",
+        "arXiv:2307.15334",
+        "cb3fe6556dcf",
+        "b381f6ad0c16"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For t≠1/2, Λ_μ(ξ)=2 cos(ξ log((1−t)/t))/sqrt(t(1−t)) has precisely the closed advertised range. At the midpoint the source's multiplier 2exp(−2exp(x)) scales to essential range [0,4] for mass two."
+        ],
+        "reasoning": "The complete full and essential intervals follow. At the midpoint local strong continuity in the same displayed model follows from continuous translations and dominated multiplier convergence. Once the lower edge and midpoint positivity are known, approximate edge vectors immediately give the norm gap. Neither the brief convergence calculation nor the edge subtraction changes which record establishes priority.",
+        "searches": [
+          "Fourier-branch RESULT.md Finding and Proof §§2–3, offsets 0 onward; midpoint in Limitations at offset 6657",
+          "Fourier-branch proof §5 nonattainment"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Fourier-branch theorem uses the same entries on the same coefficient H², with the same Fredholm convention. Its two-atom specialization is Γ_μ for μ=δ_t+δ_{1−t}.",
+          "The atomic adjoint is the reciprocal-parameter atom, making the paired sum self-adjoint; the triangular Hausdorff matrix on BMOA/Bloch is a different operator."
+        ],
+        "reasoning": "Passing from the matrix to a real Fourier branch by reflexion of the logit does not change the spectral problem, and at the midpoint the correct measure is 2δ_{1/2}.",
+        "searches": [
+          "Resultary same matrix and Fredholm spectral interval under symmetric two-atom and Fourier-logit formulations",
+          "arXiv:2307.15334 Proposition 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Fourier record's Finding gives an explicit formula for exact spectral points depending on μ. Its Limitations give the midpoint unit-atom multiplier and interval. The sign record expressly does not characterize the full negative spectrum; the BMOA/Bloch record has a different operator."
+        ],
+        "reasoning": "The indexed exact analytic formula covers the entire requested band for this parameter family without requiring a separate table. A search return of the frozen entry itself is not independent evidence.",
+        "searches": [
+          "Resultary 88a49ad157a1 and the same-object earlier sign obstruction cb3fe6556dcf",
+          "Resultary two-atom Hausdorff spectrum b381f6ad0c16"
+        ]
+      },
+      "rationale": "A distinct same-day Resultary theorem supplies exactly the full signed interval as a specialization of its Fourier-essential-spectrum inclusion with the sharp norm enclosure. It also contains the unit-atom midpoint multiplier and proves nonattainment in greater generality. Release order within the day is not established. The strong limit is not stated there, but the shared elementary model makes it routine, and the norm gap is immediate from the covered spectrum and midpoint positivity.",
+      "residual_risks": [
+        "Same catalogue date does not establish release order; the Fourier record's comment on symmetric two-atom classifications does not settle that chronology.",
+        "No definitive assessment was made of the more general Toeplitz-composition C*-algebra literature; this does not weaken the identified exact indexed implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the central classification via specialization; does not explicitly state parameter convergence.",
+          "evidence": [
+            "Every Λ_μ(ξ) is a singular approximate spectral value; unit midpoint atom has essential range [0,2]."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-fourier-essential-spectrum-branch-and-reflection-dichotomy-for-g--88a49ad157a1/RESULT.md",
+          "material_read": "Finding and Proof §§2–3 at offset 0 onward, nonattainment §5, relationship and Limitations at offset 6657",
+          "method": "Local original-file mirror; evaluated the spectral curve and midpoint scaling",
+          "title": "Fourier essential-spectrum branch and reflection dichotomy for generalized Hilbert matrices",
+          "trigger": "Same matrix with general positive measures and signed Fredholm spectral inclusion"
+        },
+        {
+          "assessment": "Prior exact norm; that formula alone does not identify spectral saturation.",
+          "evidence": [
+            "The H² norm is the integral of [t(1−t)]^{-1/2}, hence the claimed 2/sqrt(t(1−t))."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.15334",
+          "material_read": "Theorem 2 p. 7 (opened at PDF-text offset 22400)",
+          "method": "Lawful primary arXiv PDF",
+          "title": "Generalized Hilbert operators arising from Hausdorff matrices",
+          "trigger": "Same coefficient normalization, atom adjoints and positive-measure exact norm"
+        },
+        {
+          "assessment": "Proves nonpositivity off midpoint, not the entire negative essential band.",
+          "evidence": [
+            "Negative principal minors under a support gap; explicit limitation about the negative spectral set and multiplicities."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-midpoint-support-obstruction-to-positivity-of-generalize--cb3fe6556dcf/RESULT.md",
+          "material_read": "Finding and Limitations at offsets 0 and 6780",
+          "method": "Local original-file mirror",
+          "title": "A sharp midpoint-support obstruction to positivity of generalized Hilbert matrices",
+          "trigger": "Same paired atoms and prior sign conclusion"
+        },
+        {
+          "assessment": "Does not establish the H² self-adjoint claim.",
+          "evidence": [
+            "Uses the triangular Hausdorff matrix on BMOA/Bloch, not this weighted-composition sum on H²."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-arithmetic-filling-and-polynomial-spectral-regions-for-two-atom--b381f6ad0c16/RESULT.md",
+          "material_read": "Operator and space from indexed record comparison",
+          "method": "Resultary comparison of object and setting",
+          "title": "Arithmetic filling and polynomial spectral regions for two-atom Hausdorff matrices",
+          "trigger": "Two-atom spectral classification under Hausdorff terminology"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact signed spectrum of a positive-entry matrix is a meaningful question, but the submitted pair's classification and nonattainment are already supplied by the indexed general result. The separately worded strong/norm discontinuity follows by basic operator continuity in that same model and the covered spectral edge, rather than a substantive independent remainder.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

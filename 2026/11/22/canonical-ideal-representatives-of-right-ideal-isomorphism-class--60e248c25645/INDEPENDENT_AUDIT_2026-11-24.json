@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:15:56.542957Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Right multiplication sends a column to a descendant column by coordinate inclusion, so right ideals are precisely compatible column spaces. Each column has one parent, allowing a recursive basis extension: each new vector in column v generates one copy of e_vv A along its descendants, with directness checked columnwise. The ranks at diagonal idempotents are module invariants and recover the multiplicities by differences. For a two-sided ideal, left idempotents and e_tu force each column to be the initial ancestor segment, uniquely determined by the rank. Conversely these segments are stable on the left and along every right multiplication, so all admissible ranks occur. Componentwise injectivity forces the embedding inequality and it is realized by inclusion of the canonical ideals; min/max preserve admissibility. Evaluation at the idempotent gives the Hom formula. Between distinct projective types the Hom blocks occur in only one comparable direction and form a nilpotent ideal, with the diagonal matrix algebras giving the semisimple quotient; this proves the displayed unit count. Passing to the quotient by the fixed parent space gives the Gaussian factor even for a root, and sibling choices are independent given the parent. The chain profile sequences are ballot paths of semilength n+1; the star counts follow by the two root ranks. A maximal vertex above an ancestor gives a right ideal not stable on the left, while the antichain is commutative. These arguments work over arbitrary fields as stated, with the two numerical counting formulas restricted to finite fields. VERIFICATION.md and verify.py were inspected, not executed; the small-field RREF/Hom tests are not evidence of universality on their own.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.11 treats a two-diagonal-scalar-block triangular ring A(V) with an arbitrary-dimensional off-diagonal space. V=k gives the two-vertex chain. For dim V>1, distinct lines in the radical already give distinct two-sided ideals of the same right-module type.",
+          "Heredity implies every submodule of the regular projective module is projective, not that it has one canonical two-sided embedding."
+        ],
+        "reasoning": "Allowing more parallel off-diagonal directions in a two-block ring does not allow arbitrarily many forest vertices with a unique path between comparable ones. The general iso-multiplication property is strictly weaker than the claimed uniqueness.",
+        "searches": [
+          "Tuganbaev et al., arXiv:2611.20073v2, §2.2 and Theorem 2.11",
+          "Hereditary path-algebra interpretation of the regular module"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2611.20073v2 §2.2; Resultary 362c67a2cd8c and 86bf40d26650",
+        "Shapiro DOI 10.2307/2319698, bounded access attempt only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard decomposition of projectives and dimension at idempotents explain why multiplicities are differences of column ranks. The Gaussian coefficients are standard Grassmannian counts.",
+          "The branched proof must simultaneously realize each admissible rank family by a unique left-stable subset of matrix units and count its right-only embeddings conditioned independently along children."
+        ],
+        "reasoning": "The principal normal-form and order claim does not follow from iso-multiplication alone or from abstract hereditary decomposition. The source's additional initial-segment argument is what makes the embedding order coincide with inclusion of actual representatives. The Hom and automorphism formulas then follow by standard methods and carry little standalone originality weight.",
+        "searches": [
+          "arXiv:2611.20073v2, Theorem 2.11 and its two-sided radical ideals",
+          "Resultary 362c67a2cd8c, Finding and structural interpretation of the chain counts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Unique paths identify the incidence algebra with the oriented forest's path algebra. This recovers projectivity and the standard projective-type decomposition.",
+          "Transposition and reversal of the indexing identify the chain's left- and right-ideal counting problems.",
+          "The ordinary order-ideal-lattice record concerns counting fingerprints, not submodules of an incidence algebra."
+        ],
+        "reasoning": "The equivalent path-algebra formulation yields projectivity, but identifying exactly which two-sided ideals realize the types uses initial segments in the ancestor chains. The left-right duality in a chain does not turn that chain enumeration into the branched count.",
+        "searches": [
+          "Rooted-forest right ideals as subrepresentations of the regular representation of an outward-oriented forest; hereditary path algebras",
+          "Resultary Gaussian flag counts 362c67a2cd8c and rooted-forest ideal lattices 86bf40d26650"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frozen record itself is an identical catalogue hit, not separate evidence. The closest forest-lattice hit is for ordinary order ideals. The triangular matrix study gives a Gaussian flag formula for all left-ideal dimensions in a chain.",
+          "The Shapiro Catalan chain count is credited in the record; the original DOI text was not accessible on the checked route."
+        ],
+        "reasoning": "The chain counts are credited where they translate, rather than counted as novel merely because they use right ideals or different coordinates. No applicable tabulation of the rooted-forest right-ideal types and fibres was established in the inspected hits. The inaccessible original chain paper is not negative evidence.",
+        "searches": [
+          "Resultary: canonical ideal representatives/right ideal isomorphism classes/rooted forest; matches 60e248c25645, 86bf40d26650, 362c67a2cd8c",
+          "Shapiro, DOI:10.2307/2319698"
+        ]
+      },
+      "rationale": "The supported distinction is the unique two-sided normal form for each right-ideal module type across branched rooted forests, together with its identification of the embedding order and the fibred finite-field count there. The hereditary projective decomposition, standard Hom and unit-count machinery, chain Catalan enumeration, and the chain Gaussian-flag count are not new ingredients. The broader triangular iso-multiplication result covers a two-vertex chain but makes no uniqueness assertion of the stated kind.",
+      "residual_risks": [
+        "An older specialized result on projective subrepresentations and monomial ideals of outward-oriented trees could subsume the representative theorem; the bounded comparison has not established such coverage.",
+        "Original Shapiro text was not verified; no novelty is assigned to the chain Catalan count."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers iso-multiplication for two blocks; no branched unique representative theorem",
+          "evidence": "Every right ideal of A(V) is isomorphic to a two-sided ideal; subspaces of the radical illustrate why this statement does not ensure uniqueness.",
+          "identifier_or_url": "https://arxiv.org/html/2611.20073v2",
+          "material_read": "§2.2, Theorem 2.11 and nearby ideal analysis, offsets 13300–19749",
+          "method": "Read OA original passages",
+          "title": "Iso-Multiplication Modules over Noncommutative Rings: Triangular Classification and Rational Rigidity",
+          "trigger": "Direct prior study of the same module property for triangular rings"
+        },
+        {
+          "assessment": "Chain counting overlap credited; no branching or module-isomorphism classification",
+          "evidence": "The finite-field Gaussian flag formula counts embedded left ideals in the upper-triangular matrix algebra; transpose and reversal transfer it to right ideals.",
+          "identifier_or_url": "Resultary 362c67a2cd8c",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Read local mirror passage",
+          "title": "Gaussian flag formula for the complete left-ideal dimension spectrum of triangular matrix algebras",
+          "trigger": "Exact finite-field chain count under opposite algebra duality"
+        },
+        {
+          "assessment": "Different underlying ideals and question",
+          "evidence": "Studies ordinary rooted-forest order-ideal lattices of width at most two and fingerprints that recover the forest.",
+          "identifier_or_url": "Resultary 86bf40d26650",
+          "material_read": "RESULT.md Finding near offsets 0–900",
+          "method": "Read local mirror passage",
+          "title": "One-round counting fingerprints of rooted-forest ideal lattices",
+          "trigger": "Closest separate catalogue hit on forest ideal lattices"
+        },
+        {
+          "assessment": "No independent full-text scope judgment; chain count is not claimed as new",
+          "evidence": "DOI route denied access. The cited result is credited for the two-sided ideals of upper-triangular rings, not used as evidence of noncoverage.",
+          "identifier_or_url": "https://doi.org/10.2307/2319698",
+          "material_read": "Citation and description in frozen RESULT.md; original text not retrieved",
+          "method": "Bounded OA attempt and comparison with the inspected chain enumeration",
+          "title": "Upper Triangular Rings, Ideals, and Catalan Numbers",
+          "trigger": "Cited prior chain Catalan count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The unique actual two-sided ideal in each module class is valuable in the iso-multiplication problem: it identifies the module embedding lattice with an ideal inclusion lattice, rather than just proving that all right ideals are projective. Over a finite field the branched formula separates the number of abstract types from the potentially many embeddings of a type. The forest orientation is substantive: at a two-parent merge the separate row vectors into a maximal vertex can already span different isomorphic two-sided ideals, so the uniqueness is not a generic hereditary-algebra phenomenon.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:02:30.825685Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–67",
+        "Frozen verify.py and VERIFICATION.md, including recorded profiles at lines 24–29"
+      ],
+      "rationale": "For the trace F minus one edge e, one endpoint of e must be omitted while retaining the endpoints of all other selected edges. Hence every e of a shattered F has an endpoint private to e. Conversely, the union of the endpoints of any T⊆F realizes just T if all edges have a private endpoint. This property is exactly being a star forest: a triangle or a noninduced three-edge path violates it, whereas an acyclic nonstar component has diameter at least three. Centers of a spanning star forest dominate the host, including isolates; assigning every vertex outside a minimum dominating set one edge to that set gives the reverse inequality. This establishes the exact VC parameter and the threshold reduction, with a star forest as a polynomial certificate. The labeled component counts 1,1,r for sizes 1,2,r>=3 give exp(ze^(zt)-z²t/2); the k-edge coefficient uses n-k components. A separate distinguished-vertex recurrence reproduced the recorded small profiles. In the uniform m-subset of N edges, the probability of a specified e-edge set is (m)_e/(N)_e. The (n)_4/2 paths give mean tending to 4c³, and disjoint path tuples give the powers of this mean. At the first overlap with earlier disjoint copies, the intersection with the new path is a nonempty proper subgraph, so its 3v-4e is positive; even when later intersections are entire copies, their 3v-4e is nonnegative. This makes the union's 3v-4e strictly negative and the overlap contribution negligible. Triangles vanish in expectation. First moments give the c=0 case, and monotone coupling handles diverging m/n^(2/3). The frozen script was inspected, not executed.",
+      "residual_risks": [
+        "The limits concern uniform fixed-size subsets and the three-edge path as an ordinary subgraph; finite enumerations do not prove the limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The spanning-star-forest approximation paper states the exact n−γ(G) identity and the corresponding hardness outright. Frieze–Karoński Theorem 5.6 gives the binomial-graph Poisson law for strictly balanced H; H=P4 has density 3/4 and automorphism order 2. Kranakis' edge VC complexity theorem is for a different range generator."
+        ],
+        "reasoning": "Using the frozen reduction, the known identity and standard random-subgraph theorem cover the numerical and asymptotic consequences. Neither explains why these are the shattered subsets of the vertex-induced edge model without the private-endpoint characterization.",
+        "searches": [
+          "Maximum spanning star forest versus minimum dominating set literature query",
+          "Introduction to Random Graphs, Frieze–Karoński Theorem 5.6",
+          "Kranakis et al., Theorems 7.5–7.6"
+        ]
+      },
+      "checked_sources": [
+        "Kranakis et al. §§1.1, 7",
+        "Improved Approximation Algorithms for the Spanning Star Forest Problem §1",
+        "Frieze–Karoński Theorem 5.6",
+        "Two related Resultary Findings",
+        "OEIS exact-term response",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With shattering identified, maximum size and NP-hardness transfer exactly. For p≈2c n^(-4/3), the Poisson mean from P4 is (2c)^3/2=4c³ and the expected triangle count tends to zero. Monotonicity and concentration transfer the binomial law to fixed edge counts in the window, or the frozen factorial moments give it directly. The labeled SET construction immediately gives the EGF after counting star types."
+        ],
+        "reasoning": "The consequences are largely mechanical once the new identification is made. Prior implications are credited accordingly; no inspected prior result supplies that identification merely by specializing a theorem with the same ranges.",
+        "searches": [
+          "Spanning star forest §1 versus frozen RESULT.md lines 35–52",
+          "Frieze–Karoński Theorem 5.6 versus frozen RESULT.md lines 54–64",
+          "Direct literature query on random star-forest probability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the given incidence relation the trace bit is x_u AND x_v. Dually, the complement range is a union of incidence stars of omitted vertices. Having the identity submatrix on F in the vertex-edge incidence bipartite graph means every selected edge has a private endpoint; this is the exact shattering criterion in another form.",
+          "Kranakis et al. instead use connected edge-set ranges in their edge-dimension results. The same-day Resultary edge-conjunction record uses the transposed incidence for a finite Littlestone calculation and references the present VC finding. The later rectangle record has independent choices on two shores, not arbitrary graphs with one vertex-set choice."
+        ],
+        "reasoning": "None of the checked equivalent-language hits independently states the universal shattering theorem or establishes it for a class covering this incidence model. The same-day reference is genuine overlap of models, not independent evidence of priority or equivalent coverage.",
+        "searches": [
+          "Local Resultary: induced-edge shattering, star forests, rectangle and edge conjunction ranges",
+          "Induced-edge VC, vertex subsets, domination and private vertex literature query",
+          "VC dimension of unions of neighborhoods, irredundant generators and induced matchings literature query",
+          "Kranakis et al., VC-Dimensions for Graphs, §§1.1 and 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact OEIS query returned no sequence matching these totals. The later rectangle enumeration is for bipartite supports. The finite edge-conjunction catalogue computes a different dimension and does not give the complete-graph edge-rank table.",
+          "The exact total sequence is only one slice of the bivariate (n,k) coefficients; no checked table states that entire coefficient array or an exact prior star-forest shattering rank profile."
+        ],
+        "reasoning": "This check distinguishes possible existing enumeration over the same objects and coefficients from generic labeled-tree counts and nearby rank tables; the negative sequence lookup is not evidence of global absence.",
+        "searches": [
+          "OEIS exact terms: 1,1,2,7,26,111,622",
+          "Labeled star-forest generating function literature query",
+          "Local Resultary rectangle star-forest enumeration and finite edge-conjunction catalogues"
+        ]
+      },
+      "rationale": "The supported distinct core is the exact identification of the shattered sets of the specified edge-ground-set incidence model with star forests. The star-forest/domination correspondence and hardness are established prior facts; the EGF uses the standard labeled exponential formula and the window specializes the classical strictly balanced subgraph mechanism. They are not credited as independently novel tools or results about star forests in isolation. No inspected earlier source identifies the shattered sets in this same model, or implies that identification under the same assumptions.",
+      "residual_risks": [
+        "An equivalent earlier incidence-matrix, irredundant-union, or AND-monomial theorem may have been missed. The assessment is limited to the inspected statements and does not credit standalone novelty for established graph optimization or the classical Poisson mechanism."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different edge range generator",
+          "evidence": "Connected edge sets, relation to the line graph, and associated EVC hardness; not edge sets induced by arbitrary vertex subsets.",
+          "identifier_or_url": "https://carleton.ca/scs/wp-content/uploads/sites/260/TR255.pdf",
+          "material_read": "§1.1 p. 4, near offset 7400; §7 pp. 22–24, offsets 41100–42150, including Theorems 7.5–7.6",
+          "method": "Bounded OA primary PDF passages",
+          "title": "VC-Dimensions for Graphs",
+          "trigger": "Closest cited classic graph edge-VC result"
+        },
+        {
+          "assessment": "Exact prior n−γ(G) and hardness for maximum spanning star forest",
+          "evidence": "Component centers dominate and maximizing edges minimizes centers; NP-hardness from minimum dominating set.",
+          "identifier_or_url": "https://people.eecs.berkeley.edu/~prasad/Files/star.pdf",
+          "material_read": "§1 Introduction, PDF p. 2, offsets 1680–2947",
+          "method": "Bounded OA primary PDF passage",
+          "title": "Improved Approximation Algorithms for the Spanning Star Forest Problem",
+          "trigger": "Likely exact earlier domination/maximum-star-forest formula"
+        },
+        {
+          "assessment": "Covers the binomial P4 count upon specialization; fixed-edge conversion is standard and shattering identification is separate",
+          "evidence": "If H is strictly balanced and np^m(H) tends to a positive constant, its copy count converges to Poisson, with mean given by that constant to the vertex count divided by aut(H).",
+          "identifier_or_url": "https://www.math.cmu.edu/~af1p/BOOK.pdf",
+          "material_read": "Chapter 5, Theorem 5.6, PDF p. 96, offsets 207171–208636",
+          "method": "Bounded lawful OA PDF passage",
+          "title": "Introduction to Random Graphs",
+          "trigger": "General Poisson window for strictly balanced subgraphs"
+        },
+        {
+          "assessment": "Material model overlap and explicit cross-reference; different invariant, no chronological inference",
+          "evidence": "Finite adaptive classification through seven vertices, and a reference to the present vertex-induced-edge VC result rather than an independent theorem covering it.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-the-first-information-bound-failures-for-edge-conjunction-little--4610032ef0f4",
+          "material_read": "RESULT.md offsets 0 and 4520, Finding and relationship passage",
+          "method": "Bounded local mirror passages",
+          "title": "The first information-bound failures for edge-conjunction Littlestone dimension",
+          "trigger": "Same-day matching edge-conjunction incidence model"
+        },
+        {
+          "assessment": "Later record for bipartite rectangle supports, not broader undirected coverage",
+          "evidence": "Uses A×B ranges and enumerates bipartite star forests with two shore sizes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-shattered-edge-supports-of-combinatorial-rectangles-are-star-for--41f165ae6da1",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Bounded local mirror passage",
+          "title": "Shattered edge supports of combinatorial rectangles are star forests",
+          "trigger": "Same star-forest conclusion under related AND ranges"
+        },
+        {
+          "assessment": "No returned match for the specified terms",
+          "evidence": "The query explicitly reported no table match; this does not exclude differently indexed or refined enumerations.",
+          "identifier_or_url": "https://oeis.org/search?q=1%2C1%2C2%2C7%2C26%2C111%2C622",
+          "material_read": "Results page for the given seven terms",
+          "method": "OA public-page passage",
+          "title": "OEIS exact-term search",
+          "trigger": "Possible exact star-forest enumeration sequence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–30 and 35–64",
+        "Star-forest approximation paper §1",
+        "Frieze–Karoński Theorem 5.6"
+      ],
+      "rationale": "The edge range family is the natural vertex-induced range system, or principal Boolean ideals on rank-two elements in a complete host. Identifying its actual shattered subsets for every host is more informative than a dimension bound: it gives a local structural test and connects the dimension exactly to a standard optimization invariant. The labeled size profile and random sampling window then answer natural questions about the same shattering system. The contribution is the structural connection and exact profile, not a new general enumeration or probability technique.",
+      "residual_risks": [
+        "No finite-n error estimate or arbitrary sampling distribution is covered; this sharp scale is a nontrivial limiting window, not a zero-width transition."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

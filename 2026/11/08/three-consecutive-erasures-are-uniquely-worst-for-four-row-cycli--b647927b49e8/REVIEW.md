@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Gram reduction from four Fourier rows to a real three-by-three matrix was reconstructed from character orthogonality. Consecutive erasures yield an explicit quadratic expression for the dominant eigenvalue. For every \(N\ge10\), a side-lobe domination lemma and strict Perron--Frobenius comparison prove uniqueness of cyclicly consecutive masks; all other triples have at most one adjacent pair. For \(N=7,8,9\), a standalone exact-rational cosine interval certificate exhausts all nonconsecutive triples and proves strict eigenvalue separation using the zero-trace spectral inequality. Vandermonde independence handles strict positivity for all \(N\ge7\). The checker also tests 91,355 masks at finite orders, corroboration rather than an infinite proof.
+## correctness
 
-## Originality — PASS, provisional
-A published two-character cyclic harmonic-frame erasure theorem gives sharp worst masks in dimension two, but its two-point correlation formula cannot imply the four-row sign-changing Dirichlet kernel or the exceptional finite-order argument. Marshall--Waldron counts harmonic-frame equivalence classes; Batenkov--Diederichs--Goldman--Yomdin provides quantitative clustered-Vandermonde estimates rather than an exact all-order extremal-mask statement. The available published results involving four-row full-spark minors, consecutive frequency projection norms, or three-site positive sampling determine different invariants. Closest source without accessible full text: Dirckx--Huybrechs--Ongenae, a Fourier-submatrix SVD computation paper; it could contain an unrecognized special result. Searches are not a proof of priority, and literature coverage is not exhaustive.
+PASS
 
-## Mathematical value — PASS
-Three arbitrary missing measurements in a four-sensor harmonic analysis frame form a natural adversarial stability problem. The sharp constant identifies exactly the worst geometry and the complete worst-mask count at every permissible cyclic order, where the fourth Fourier row produces oscillating signed correlations and exceptional small-order cases. This supplies an exact benchmark for selecting and protecting Fourier measurements, rather than a mere numerical sampling or an unmotivated parameter substitution.
+The full four-row Fourier synthesis matrix is Parseval. Subtracting the erased-column contribution gives λ_min(S_E)=1−λ_max(Φ_E*Φ_E). Removing the diagonal phases gives NΦ_E*Φ_E=4I+B_E up to conjugacy, where the off-diagonals are the signed r_d evaluated on actual increasing-label differences. For the consecutive candidate, the odd eigenvector gives −b_N and the even sector gives x²−b_N x−2a_N²=0. Its positive root is the largest: b_N≥0 for N≥8, and at N=7 the independent certificate gives −b_N<2.91<β_N. For N≥11, r_2>6/5 by the cosine bounds in the proof; the positive main-lobe product 4 cos t cos(2t) decreases up to π/4, and the magnitude in the sidelobe is at most 8/(3√6), obtained by maximizing 4u(1−2u²). At N=10, r_2=1 and the remaining circular distances have magnitudes <1, 1, 0 for d=3,4,5 respectively. A nonconsecutive triple has at most one adjacent pair. Taking entrywise magnitudes in the Rayleigh quotient and comparing with the positive-off-diagonal matrices with entries (a,b,b) and (a,a,b) proves a strict Perron inequality since a>b>0. For N=7,8,9 an independent rational computation on unordered cyclic gap triples certifies s<6.34,8.01,10 and β_N>2.91,3.69,4.34 respectively. Here s is the sum of the three squared off-diagonals; trace zero and Cauchy–Schwarz on the other two eigenvalues give λ_max(B_E)²≤4s/3. The three strict rational gaps verify uniqueness in those orders. The Vandermonde property of any four retained columns proves the bound is positive, and the consecutive triple has exactly N distinct translates.
 
-## Scope and limitations
-No conclusions about nonconsecutive frequency-row patterns, different erasure counts, full singular-value orderings, or optimal reconstruction algorithms. The historical-priority assessment is provisional; no external independent mathematical review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The checked evidence supports a distinct exact all-N comparison of the top erased-block singular value for four fixed consecutive frequencies and three arbitrary cyclic sites. Earlier or separate sources cover closely related erasure criteria, contiguous blocks, or the same minimax lower-bound theorem with fewer frequencies; none of the checked statements supplies this four-frequency optimization with its signed sidelobes and exact equality cases. The most plausible inaccessible finite erasure table is a named remaining risk, not evidence of either coverage or noncoverage.
+
+## value
+
+PASS
+
+This gives a sharp adversarial stability guarantee for a natural lowpass sampling frame: an exact lower squared singular value usable under three arbitrary losses, and a characterization of every worst mask. The normalization and the equality cases matter for comparing sample geometries. The four-frequency sidelobe and the separately certified small cyclic orders make this more than replacing a parameter in a three-frequency result or computing a single known contiguous block.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

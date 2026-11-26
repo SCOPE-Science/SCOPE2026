@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:26:34.316619Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an edge ij of K_n, the exact closed-neighborhood count is m-d_i-d_j+2x_ij. Subtracting equations sharing one index forces uniform ground-set degree parity, and then m must be odd; the converse follows immediately. Size 1 is impossible. At size 3, the only even-degree support is a triangle (its selected vertices are independent in the disjointness graph); the only all-odd possibility for n>=5 is a perfect matching at n=6. At size 5, an even-degree simple graph decomposes into cycles and can only be a single 5-cycle. All-odd degrees require even n<=10; n=6 is already solved, n=8 forces degrees 3,1,1,1,1,1,1,1 giving the star and two disjoint edges, and n=10 forces a perfect matching. Disjointness gives a cycle, a connected star/matching join, or a clique, respectively. Counts are 12*binom(n,5), 8*binom(7,3)*3, and 10!/(2^5*5!) plus the separate 6!/(2^3*3!) case. For the exchange claim, four common edges determine a spanning path and a unique completion. The five nonadjacent two-edge cuts each admit one different cyclic reconnection, in each case reversing a block of length two or three not containing the distinguished element and reversing sign. This gives a 5-regular bipartite graph on 6+6 cycles; the omitted cross edges form a matching and each omitted pair has distance three. Independent replay: python3 /workspace/review_checks.py 3 uses XOR of actual closed-neighborhood masks and induced connectivity, checks all cardinalities up through the minimum at each n=5..10, verifies degree signatures, and constructs both exchange relations at n=5. Reproduced counts 12,15,252,1512,1512,3969. The PDF proof and finite replay are not interchangeable; the argument above exhausts all n. The frozen Python verifier intentionally stops at size 3 for n=6 despite the broader wording in the original Verification paragraph.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Caro et al. 2001 gives the classical definition and several classes, not a classification in the inspected introduction",
+          "Resultary 0911d0775271 and 944543e08525 classify inclusion-minimal total domination as 3K_2, K_3 plus K_2, C_5, K_4",
+          "Resultary 5d12bf126372 also lists 3K_2 and C_5 for inclusion-minimal ordinary domination, with further types"
+        ],
+        "reasoning": "Minimum connected odd domination need not produce an inclusion-minimal ordinary or total dominating set. In particular, the 5K_2 exceptional optimizer contains a proper total dominating 3K_2 and thus cannot be recovered just by selecting entries from a total-minimal classification.",
+        "searches": [
+          "Caro–Goldwasser–Klostermeyer DOI:10.7151/DMGT.1137",
+          "Caro–Klostermeyer–Yuster DOI:10.7151/DMGT.1276",
+          "Gorodezky Dominating sets in Kneser graphs",
+          "Resultary: inclusion-minimal (total) dominating sets of rank-two Kneser graphs"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.7151/DMGT.1137",
+        "doi:10.7151/DMGT.1276 (full text inaccessible)",
+        "Caro–Klostermeyer 2003 publisher record",
+        "Torrence–Torrence 2016 Table 1",
+        "Gorodezky 2007 thesis abstract",
+        "Resultary 7b458bdb223f, 76acfc20ea67, 0911d0775271, 944543e08525, 5d12bf126372, c7089565d41d, 7b2b8bd5606e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two total-domination records already count the same labelled matchings and cycles as sets for their different objectives",
+          "The GP(5,2) spectrum includes ten weight-three solutions and does not assert their disconnectedness",
+          "The strict-testing record states parity of the unordered cyclic order and uses orbit witnesses for a pool property, not two-edge switching"
+        ],
+        "reasoning": "The matchings and cycles have known combinatorial counts and are not new objects. They do not imply the all-n parity optimizer theorem, the n=8 and n=10 exceptions, or that the connected Petersen optimum has no one-replacement move and forms exactly the six-crown under two replacements. The extra structural work is the parity reduction and its short-support exhaustion plus the adjacency proof.",
+        "searches": [
+          "Resultary 76acfc20ea67 proof §1 and 7b458bdb223f Finding",
+          "Resultary 0911d0775271, 944543e08525 and 5d12bf126372 Findings",
+          "2001 closed-neighborhood odd-domination definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2001 odd domination terminology uses closed-neighborhood parity",
+          "KG(5,2)=GP(5,2); Resultary 7b458bdb223f gives 10z^3+12z^5+10z^7 for all odd dominating sets",
+          "I+A(KG(n,2))=J+B^T B over F_2 with B the ground-set edge incidence matrix; this is not the closed-neighborhood matrix of the triangular graph L(K_n)",
+          "Resultary c7089565d41d studies open-neighborhood color partitions; 7b2b8bd5606e studies a different line-graph family"
+        ],
+        "reasoning": "The parity reduction here treats connected closed-neighborhood solutions. Uniform numerical multiple coverage, open-neighborhood color conditions and ordinary line-graph domination are not equivalent. The Petersen weight-five coefficient is an exact already-known component but the spectrum does not specify solution connectivity or transitions.",
+        "searches": [
+          "closed-neighborhood connected odd domination rank-two Kneser graphs Petersen graph",
+          "Resultary: GP(n,2) odd weight spectra; strong odd colorings on two-subset Kneser graphs; odd domination on line graphs",
+          "arXiv:2308.15603 k-tuple domination"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The weight-five 12 is explicit in Resultary 7b458bdb223f",
+          "The Lights Out table gives Petersen nullity 5, not weight-five count or adjacency",
+          "76acfc20ea67 partitions the twelve Hamilton cycles by sign and uses six even cycles as tests",
+          "The targeted switch search returned general traveling-salesman/Hamilton cycle material, not a decisive adjacency table"
+        ],
+        "reasoning": "The count 12 and sign partition are credited. Counting code solutions or establishing the sign partition does not itself give share-three adjacency or the missing matching. No inspected exact table supplies the n=8 and n=10 connected-odd minimum sets.",
+        "searches": [
+          "Resultary: GP(n,2) exact odd domination spectrum; Petersen strict testing; connected odd domination KG(n,2)",
+          "Hamiltonian cycles K5 two edge switch 2-opt graph crown K6,6 matching adjacency graph traveling salesman",
+          "Torrence–Torrence Lights Out on Petersen graphs Table 1"
+        ]
+      },
+      "rationale": "The supported distinct result is the connected closed-parity optimizer classification, including the exact additional branches at n=8 and n=10 and the specific optimum replacement relation. The record already disclaims priority for the Petersen weight-five count. The even/odd partition of Hamilton cycles is also known, but the closest inspected group-testing result does not identify the two-replacement exchange graph. The comparison is bounded, not a priority guarantee.",
+      "residual_risks": [
+        "The 2003 and 2005 full texts were not obtained in usable form; the bounded search cannot exclude an older equivalent classification.",
+        "No external primary weight enumerator beyond the Resultary spectrum was verified, and the Lights Out table is not treated as such a source.",
+        "An unindexed two-edge-exchange result for the twelve Hamilton cycles remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines exact predicate; bounded passages do not give Kneser connected minima",
+          "evidence": "Odd means |N[v] intersect D| odd for all v.",
+          "identifier_or_url": "https://bibliotekanauki.pl/articles/743442.pdf",
+          "material_read": "pp. 119–120, abstract and §1",
+          "method": "OA PDF passage",
+          "title": "Odd and residue domination numbers of a graph",
+          "trigger": "Foundational closed-parity definition"
+        },
+        {
+          "assessment": "Unresolved historical access; not exclusion evidence",
+          "evidence": "2003 text unavailable via extraction; 2005 journal and accessible alternate attempts did not yield primary text.",
+          "identifier_or_url": "https://combinatorialpress.com/jcmcc-articles/volume-044/the-odd-domination-number-of-a-graph/ ; doi:10.7151/DMGT.1276",
+          "material_read": "2003 landing-page/metadata only; no usable extracted full text for 2003 or 2005",
+          "method": "OA publisher and identified alternate PDF/page attempts",
+          "title": "On the odd domination number of a graph; Connected odd dominating sets in graphs",
+          "trigger": "Highly relevant general and connected parity literature"
+        },
+        {
+          "assessment": "Nullity, not weight spectrum or exchange adjacencies in the passages inspected",
+          "evidence": "Uses I+A and lists nullity 5 for P(5,2).",
+          "identifier_or_url": "https://msp.org/involve/2016/9-5/involve-v9-n5-p01-s.pdf",
+          "material_read": "Definitions p. 722 and Table 1 p. 730",
+          "method": "OA PDF exact passages",
+          "title": "An iterative strategy for Lights Out on Petersen graphs",
+          "trigger": "Equivalent binary closed-neighborhood matrix on Petersen graph"
+        },
+        {
+          "assessment": "Explicit known numerical overlap, no exchange graph encoded",
+          "evidence": "The n=5 polynomial is 10z^3+12z^5+10z^7.",
+          "identifier_or_url": "Resultary 7b458bdb223f",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Complete odd domination weight spectra of GP(n,2)",
+          "trigger": "Exact same Petersen graph and weight coefficient"
+        },
+        {
+          "assessment": "Already describes the parity partition but solves a test separation predicate",
+          "evidence": "Exactly six even cycles, well-defined by cyclic order parity; a pool must avoid both members of a disjoint pair while including a third edge.",
+          "identifier_or_url": "Resultary 76acfc20ea67",
+          "material_read": "Finding and proof §1, offsets 0–4229",
+          "method": "Local Resultary mirror",
+          "title": "Six even Hamilton cycles solve the Petersen strict-testing obstruction",
+          "trigger": "Same twelve Hamilton cycles and their sign classes"
+        },
+        {
+          "assessment": "Counts some of the same support families but imposes a different predicate; no connected parity exceptional supports",
+          "evidence": "The minimal total domination classification has 3K_2 and C_5 but not K_1,3 plus 2K_2 or 5K_2.",
+          "identifier_or_url": "Resultary 0911d0775271, 944543e08525, 5d12bf126372",
+          "material_read": "Findings and type/census statements",
+          "method": "Local Resultary mirror",
+          "title": "Inclusion-minimal ordinary and total domination in rank-two Kneser graphs",
+          "trigger": "Same graph and overlapping short edge support classes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The rank-two Kneser family is canonical. Closed parity on all ground-set pairs unexpectedly allows only three exceptional ground-set orders to change the minimum configuration types, and two of those change multiplicity without changing size. The exact labelled classification and the contrast between frozen one-replacement and connected two-replacement optima identify structure not visible in the known Petersen weight count or in ordinary domination.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

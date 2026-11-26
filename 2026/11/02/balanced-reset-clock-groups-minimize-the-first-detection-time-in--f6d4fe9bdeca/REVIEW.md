@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact clock-conditional factorization reconstructs the absorption event for all searchers, then integrates independent group clocks. The key transfer identity is obtained by multiplying and symmetrizing two moment products; its integrand is nonnegative on the full support \([0,1]^2\). Finite transfer chains prove both extrema, the split identity proves the extra-controller order, and the Brownian first-passage small-duration asymptotic gives two positive distinct clock-conditioned survival values at every \(t>0\). These steps also establish the necessary quantifiers, boundary cases \(K=1\) and \(K=N\), and nondegenerate strictness. Exact rational identity checks and independently discretized renewal equations provide reproducible corroboration, not proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Biroli–Majumdar–Schehr, arXiv:2303.18012, Sections III–IV derive independent and fully simultaneous Poisson protocols separately. Their analysis does not state or prove fixed-\(K\) intermediate controller allocation, balanced and extremal group partitions, or pointwise first-arrival stochastic ordering. De Mauro et al., arXiv:2509.06658, treat collective non-Poisson renewal stationary spatial statistics, not mixed independent-clock partition first passage; their conclusion lists partial reset mechanisms and first passage as future extensions. The moment transfer is mathematically elementary once the grouped physical object has been defined, so unknown general correlation/majorization literature remains a priority risk. Searches located no decisive equivalent or broader covering theorem, but absence of a search hit does not establish publication novelty.
+PASS
 
-## Mathematical value — PASS
-The natural constrained-design parameter is the number of independent reset controllers, not just total searchers or individual reset rate. For every positive time, the theorem identifies the exact best and worst permanent group allocations with a fixed controller budget and proves that purchasing one additional independent clock can only improve first detection. An explicit nonzero four-searcher gap quantifies the first genuinely mixed configuration. The distributional order also controls every increasing delay loss without solving a separate first-passage integral for each allocation. These are structural, physically interpretable all-horizon statements rather than merely routine numerical values; engineering costs and non-identical clocks remain open.
+Conditional independence of excursions and searchers gives a moment M_m(t) for a size-m group; independence of clocks gives the product. Symmetrizing two independent conditional survivals makes the transfer difference nonnegative (both factors Q-Q' and Q^(a-b-1)-Q'^(a-b-1) have the same sign), and similarly gives M_(a+b) >= M_a M_b. Balancing transfers terminate since they decrease the sum of squared sizes. To attain the maximum, transfer from any remaining non-singleton to a largest group (the reverse of a balancing transfer), until only one group can be larger than one. This proves usual stochastic order even for distributions supported on {0,c}, where fixed-K transfers need not be strict. For Brownian–Poisson at any t>0, the no-reset atom gives S_0(t)>0, while one early reset gives S_0(u)S_0(t-u)=S_0(t)-u S_0'(t)+o(u)>S_0(t), on a positive-probability event. Consequently the kernels are strictly positive on an event of positive probability and all other moments are positive. The stated minimal N=4 example and its identity follow by a=3,b=1; N<=3 has no inequivalent sizes at a fixed K. The mean comparison is justified by pointwise order and finite individual Poisson-reset mean, which follows from renewal with success probability exp(-x_0 sqrt(r/D)). At t=0 there is equality; an exact renewal epoch can be treated as the end of the preceding excursion, with S_0(0)=1 for the new one.
 
-## Literature scope and limitations
-Full text inspected: arXiv:2303.18012, model and Protocol A/B Sections II–IV, including equations (4), (20)–(26); arXiv:2509.06658, introduction, reset protocols, and concluding discussion of partial resets and first passage. The examined papers do not provide the balanced-partition implication. An uninspected general theorem in renewal dependency, association, or majorization could subsume portions; independent publication-priority review remains unperformed. The strict result is restricted to identical Brownian walkers with positive finite Poisson rate and full resetting.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The independently assessed contribution is the sharp intermediate fixed-K classification for first-hit survival over all positive integer group partitions, including Brownian–Poisson strictness. The product-moment inequalities themselves are standard consequences of moment log-convexity and covariance. There is material same-day indexed overlap for the endpoint first-hit comparison, with no priority inferred. Neither the endpoint comparison nor the equal-block diffusivity result studied in the retrieved sources determines the arbitrary intermediate partitions and both extremizers.
+
+## value
+
+PASS
+
+A fixed number of reset controllers is a natural constraint distinct from optimizing the common reset rate. The result identifies the optimal and worst assignments of all N searchers for every K simultaneously across all horizons, and isolates when sharing clocks makes strict differences. The finite controller classification and applied all-time strictness, not the abstract textbook moment inequality or the endpoint special case, provide the value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

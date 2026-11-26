@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:53:41.610640Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Frozen checker.py inspected only",
+        "python3 /workspace/branches/independent_reproductions.py 4 (integer Sturm counts at ±0.005, rational-mesh bisection of the two central roots)"
+      ],
+      "rationale": "For N=3k+1, both endpoints indeed have potential 1/2 and the palindromic interior has M=3q−2, q=2k+1. The continuant recurrence gives d_(3r)=(-2)^r, d_(3r+1)=2(-2)^r and d_(3r+2)=0. Substituting suffix/prefix minors in the inverse gives geometric decay in |i−j| and a q-independent operator norm bound; therefore the interior stays invertible on a fixed interval. The diagonal Green entry is 1/2, the off-diagonal corner is 2^(−q), and directly summing the squared corner column gives (2/3)−(5/3)4^(−q). Thus the Schur diagonal vanishes at zero with derivative −(5/3)(1−4^(−q)), while the off-diagonal is −2^(−q). The Schur derivative is bounded above by −I, forcing one root per reflection channel at distance at most 2^(−q), with opposite signs and no other roots in the fixed interval. Uniform resolvent bounds control the diagonal Taylor remainder; the inverse determinant expression has logarithmic derivative O(q), which controls the off-diagonal on this scale. Both energy errors are O(q4^(−q)), giving ±(3/10)4^(−k)+O(k16^(−k)) and the reciprocal 10/3. Independent integer Sturm inertia checks and tight bisection corroborated the isolation and both scaled constants at k=3,6,12,20,32.",
+      "residual_risks": [
+        "Finite numerical corroboration is not the uniform spectral gap proof; the proof is specific to the given potential and cutoff residue."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Qualitative finite-section theory diagnoses applicability; integer-valued-potential theorems exclude v=1/2; ergodic periodic-approximation bandwidth asymptotics concern bands rather than two isolated Dirichlet eigenvalues."
+        ],
+        "reasoning": "None of these general results as stated provides the two signs, leading coefficient, error and uniform separation for this finite section.",
+        "searches": [
+          "arXiv:2110.09339v2 Theorems 1.1 and 1.3",
+          "arXiv:2208.04015v3 Theorems 1.1–1.2",
+          "arXiv:2208.01646v3 Theorems 1–2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2110.09339v2; arXiv:2208.04015v3; arXiv:2208.01646v3",
+        "Resultary f4ef6a89f29b, d735f6816a9a and target"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Example 4.2 identifies the decaying zero-energy multiplier of modulus 1/2 and both half-line failures; it characterizes which truncation phases to avoid. It does not analyze energy variation of the finite boundary matching equations."
+        ],
+        "reasoning": "The multiplier anticipates the exponential scale, not the normalized size of the boundary overlap or the slope giving 3/10, nor a two-root count in a fixed interval. The quantified asymptotic requires further spectral estimates.",
+        "searches": [
+          "arXiv:2110.09339v2 Example 4.2 pp. 18–19 and Theorem 1.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reindexing (2,1/2,1/2) gives the palindromic word (1/2,2,1/2) and the same bad boundary phases: take l_(k+1)=−3k−1 and r_k=3k+1. f4ef6a89f29b has a similar boundary doublet for a clamped cubic averaging matrix; d735f6816a9a gives a two-enhanced-bond Jacobi problem."
+        ],
+        "reasoning": "The phase-shifted same model is true prior coverage of the qualitative effect; changing boundary matrix/defect model in the other indexed analogues does not yield these constants.",
+        "searches": [
+          "arXiv:2110.09339v2 Example 4.2 and Remark 4.3",
+          "Resultary boundary spectral outlier and Jacobi doublet search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8d4194b8d465 is the target. f4ef6a89f29b and d735f6816a9a are distinct indexed results for other matrices; the focused literature lookup produced no useful exact match."
+        ],
+        "reasoning": "There was no independent exact coefficient or table for the finite-segment doublet in the inspected evidence; a non-result does not establish absence.",
+        "searches": [
+          "Resultary: three-periodic finite-section counterexample, Jacobi edge-mode splitting",
+          "Focused primary search for quantitative splitting in the same model"
+        ]
+      },
+      "rationale": "The established counterexample and its boundary phases are not original here. The same-model source supplies the monodromy and unstable half-line limits, but does not give the finite-length doublet, a uniform isolation interval, its prefactor and remainder, or the inverse-norm limit. The distinct content is that quantitative refinement.",
+      "residual_risks": [
+        "General or unindexed transfer-matrix tunneling formulas might cover the coefficient after specialization; no such result was established in the inspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact qualitative precedent, not the quantitative finite eigenvalue theorem",
+          "evidence": "Invertible full line with trace 5/2; noninvertible half-line compressions at l_n=−3n+2 and r_n=3n+1, with contracting multiplier of modulus 1/2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2110.09339v2",
+          "material_read": "Theorem 1.1 and Remark 1.2(b), p. 3 offset 6000; Example 4.2 and Remark 4.3 pp. 18–19 around offset 58776",
+          "method": "Original OA PDF text",
+          "title": "Finite Sections of Periodic Schrödinger Operators",
+          "trigger": "Exact same potential and bad finite-section phases"
+        },
+        {
+          "assessment": "Does not apply to half-integral potential",
+          "evidence": "Integer-valued potential is explicit in hypotheses.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.04015v3",
+          "material_read": "Theorems 1.1–1.2, p. 3 offset 7809",
+          "method": "Original OA PDF text",
+          "title": "Half-line compressions and finite sections of discrete Schrödinger operators with integer-valued potentials",
+          "trigger": "Possibly broader finite-section theorem"
+        },
+        {
+          "assessment": "Bandwidths of periodic approximations, not Dirichlet levels",
+          "evidence": "Logarithmic bandwidth estimates are in terms of Lyapunov exponents.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.01646v3",
+          "material_read": "Abstract/introduction p. 1 offset 0 and Theorems 1–2 pp. 3–4 offset 9675",
+          "method": "Original OA PDF text",
+          "title": "On the Bandwidths of Periodic Approximations to Discrete Schrödinger Operators",
+          "trigger": "Related exponential spectral asymptotics for periodic operators"
+        },
+        {
+          "assessment": "Analogous asymptotics for a different operator",
+          "evidence": "Boundary outliers in a finite clamped averaging matrix converge to a common nonzero limit with explicit splitting.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-boundary-spectral-outliers-in-cubic-schoenberg-greville-averagin--f4ef6a89f29b",
+          "material_read": "Original Finding",
+          "method": "Local mirrored original",
+          "title": "Boundary spectral outliers in cubic Schoenberg–Greville averaging",
+          "trigger": "Closest indexed structural doublet"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Gabel et al. Example 4.2"
+      ],
+      "rationale": "The phase and model are motivated by an established failure of finite-section inversion, not arbitrarily tuned. Turning qualitative instability into a sharp inverse-norm law, and identifying precisely two exponentially small eigenvalues of opposite signs rather than a collapsing bulk gap, gives necessary conditioning information about this benchmark. The exact coefficient and remainder distinguish this result from a numerical observation or a monodromy bound.",
+      "residual_risks": [
+        "No robustness with respect to changes of boundary phase, potential or boundary conditions is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

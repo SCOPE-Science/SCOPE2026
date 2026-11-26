@@ -1,15 +1,21 @@
-# Mathematical review — Critical repulsion in a nilpotent polynomial oscillator
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact nonlinear generalized-polar dynamics yield a return expansion on the original positive ordinate section. The first coefficient vanishes at criticality by the polynomial primitive \(F\), the second by reflection symmetry, and the third is the strictly positive beta expectation \(158/49725\). The complete local Poincaré map has remainder \(O(\rho^{29})\). The parameter-uniform analytic expansion and simple-zero argument prove a hyperbolic unstable cycle for sufficiently small \(\delta>0\), with a physical-time period obtained in the unrescaled clock. `verify.py` rechecks the critical algebraic identities and independently integrates the unexpanded angular equation. Finite numerical tests serve only as corroboration.
+## correctness
 
-## Originality — PASS, with residual priority uncertainty
-García-Saldaña, Gasull and Giacomini's arXiv:1304.2163 (2013) establishes the generalized family's strict-side stability but explicitly leaves the critical equality for \(k>1\) uncomputed. The present result supplies the exact \(k=2\) critical sign, nonzero return coefficient and the nearby amplitude/period constants. Huang–Liang arXiv:1708.07959 (2017) studies general limit-cycle bounds rather than these coefficients. Searches by both coordinate forms, the numerical fraction, the return exponent, the threshold and the amplitude exponent, together with checks of accessible prior claim abstracts, revealed no overlapping exact result. These searches cannot prove historical uniqueness; an inaccessible/unindexed derivation remains possible.
+PASS
 
-## Mathematical value — PASS
-Resolving a deliberately outstanding equality case produces an unexpectedly high-order repelling focus and a sharply quantified bifurcation scale \(\delta^{1/14}\). The limit-cycle amplitude, multiplier and original-time period are motivated observables of this natural polynomial family, not arbitrary parameters or a cosmetic generalization.
+Verified the return in the stated original positive-y section, not in an unspecified normal-form radius. For X=y=rC, Y=x=r²S, the angular clock is r(1−r⁷B_m)>0 locally, and at C=1, S=0 the section coordinate is exactly r. Independently expand r(θ)=ρ[1+c₁ρ⁷+c₂ρ¹⁴+c₃ρ²¹+…] in the radial equation. At m=1/3 this gives c₁=F, c₂=4F²+∫₀^θ AB, and c₃′=A(8c₂+28F²+15FB+B²). F vanishes at the two section ends and ∫AB=0 by reflection; integration by parts therefore gives c₃(T)=∫A(B²+7BF). In a separate exact rational calculation, expanding the beta-integrand numerator yielded coefficients (−36,225,−717,1521,−2181,2395,−1823,979,−363) in ascending order; dividing by 1152 and summing against (3/4)_j/(5/4)_j gave 158/49725. This reproduces the positive coefficient, its ρ²² power, and the O(ρ²⁹) remainder by analyticity. The linear coefficient at ρ⁸ is K(m−1/3), where K/T=15/77. Rescaling r=δ^(1/14)R gives the simple positive zero of −K+IR¹⁴ in C¹ and a return multiplier 1+14Iρ²¹+o(ρ²¹)>1. Integrating the actual reciprocal angular speed gives the physical period T/ρ(1+o(1)). Small sections exist uniformly near the threshold and remain transverse; the positive critical displacement implies local repulsion. The frozen verify.py and VERIFICATION.md were inspected, not executed; their finite sample integrations are corroboration only.
 
-## Limitations and closest literature
-Results concern a local neighborhood of the origin, the \(k=2\) family and \(m\uparrow1/3\); no complete census of remote cycles or classification of all integer indices is asserted. Closest primary literature is arXiv:1304.2163, Theorem 1.3 and Section 2. The related 2017 limit-cycle literature has been compared for potential stronger implication. Independent literature priority checking remains desirable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The underlying family, threshold, noncritical stability and generalized-polar method are prior work. No inspected result establishes the higher critical coefficient for this same member, its sign, or the normalized 1/14 laws. The primary source expressly leaves this case uncomputed. This is a best-of-knowledge assessment, not a priority guarantee.
+
+## value
+
+PASS
+
+This is the first integer member left open at equality in the cited theorem, not an arbitrary sample parameter. Its two cancellations make a leading-coefficient test inconclusive. Resolving the sign with a normalized exact coefficient decides critical stability and determines the singular onset amplitude and physical-time period of an unstable cycle. No general k>2 or global limit-cycle classification is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

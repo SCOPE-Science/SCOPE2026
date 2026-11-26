@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The principal all-modulus step is the modular Euler-trail realization lemma. It explicitly constructs an integer nonnegative edge multiset with prescribed residues and exact boundary: first choose residues, then correct their integer divergence with nonnegative edge flows in the complete directed graph, finally add \(m\) copies of every edge to guarantee connectivity. This handles nonprime moduli without invalid field-rank assumptions. The induced incidence map has \(q-1\) independent constraints, and the proof exhibits all accessible states, separating suffixes, and a uniform stationary irreducible periodic chain. Independent state-generation and minimization programs match at four parameter pairs. The universal claim rests on proof, not the tests.
+PASS
 
-## Originality
+The proof covers q,m≥2, rejects the empty word, accepts the one-letter word 0, counts overlapping directed pairs including loops, and requires the initial/final symbol 0. For a modular edge vector with the boundary of an s-to-t walk, take nonnegative residue representatives c. The integer imbalance (e_s−e_t−∂c)/m sums to zero, so route its positive mass to its negative mass using available directed edges. Add m times these flows and then m copies of every edge. The support is strongly connected and has the exact prescribed Euler-trail imbalance, giving the desired walk even for composite m. Root-star incidences generate the sum-zero module, of order m^(q−1), so each endpoint fiber has size m^(q²−q+1). All its states are reachable. A live state (s,r) can accept a suffix beginning with any letter a because the remaining residue −r−e_sa has boundary e_a−e_0. Equal last letters and distinct residues cannot accept the same suffix; for different last letters s,t, equivalence would force r′−r=e_sa−e_ta for every a, impossible since the vectors are nonzero in distinct columns even modulo two. The initial state and dead state are distinguished from live states by these suffix possibilities, and from one another by the suffix 0. For uniform input the live chain is strongly connected by residual walk realization, with degree q in and out, so the stationary law is uniform. The total edge residue increases by one per step and a loop-letter return of length m exists, so the period is exactly m. Each class contains q m^(d−1) states via translation of one loop coordinate on every endpoint fiber. Along n−1=0 mod m the periodic return probability converges to the reciprocal class size; the independent first-letter requirement contributes 1/q. Other lengths cannot be accepted. This reconstructs both exact formulas without treating finite case outputs as universal evidence.
 
-**PASS against the material inspected; unindexed overlap is a residual risk.** The closest established theoretical notions are \(2\)-abelian equivalence and word-factor frequency distributions. Karhumäki–Saarela–Zamboni (2013), Lemma 2.3, establishes endpoint information associated with exact factor counts but does not state this modular DFA complexity or periodic length-density theorem. Bell–Burnett–Schulz (2026), Theorem 1.1, bounds numbers of factor frequencies in *infinite* words. Puzynina–Schavelev (2026), Theorems 1–2, concern distributions of *letter* Parikh vectors before factors of morphic words. None of those results implies the present exact state minimum by mere specialization. Comparable modular *scattered*-subsequence monitors involve different updates and incidence constraints. The public theorem deliberately claims neither novelty for the standard incidence identity nor novelty for Euler's criterion or the finite Markov-chain convergence theorem.
+## originality
 
-## Value
+PASS
 
-**PASS.** Monitoring all local pair frequencies mod \(m\) is a natural finite-memory analogue of factor-frequency and \(2\)-abelian statistics. The formula shows an exact exponential-in-\(q^2\) memory cost, despite the \(q-1\) conservation constraints, for all alphabet sizes and even composite moduli. The accompanying periodic acceptance law describes how a deterministic arithmetic obstruction survives in long uniform random inputs. Both statements help separate contiguous-factor monitoring from previously studied scattered-pair monitoring.
+The closest available catalogue works separately address modular scattered pairs or exact contiguous profiles; primary literature supplies exact k-abelian or Markov types, modular letter Parikh vectors, general counter automata, or subword frequencies in infinite words. The inspected results do not give the joint anchored adjacent-pair minimum DFA and periodic finite-word density. The standard Euler and Markov tools are not part of the originality claim.
 
-## Limits and residual risks
+## value
 
-The result addresses full contiguous length-two counts with a specified identical start/end symbol; arbitrary factor subsets, longer patterns, other graph supports, and nonuniform moduli are outside scope. Literature and database searches do not prove uniqueness of a mathematical theorem; an unindexed equivalent may exist. The finite computational checks supplement but do not independently certify the all-parameter argument.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural complete finite-language test: retain all neighboring-symbol transition statistics modulo m and require return to the anchored symbol. The incidence relations remove q−1 independent coordinates, but discovering the exact complexity requires showing that every surviving residue/endpoint is reachable and distinguishable. The same structure yields a nontrivial period-m acceptance limit with an exact class mass; this quantifies both deterministic memory and typical acceptance for the same monitor, including composite moduli. Neither is a numerical coincidence or merely the existence of a counter automaton.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

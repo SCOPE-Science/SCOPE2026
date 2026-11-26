@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The claim is restricted to SPD matrices with two eigenvalues, an exact one-dimensional normal-equations least-squares correction, and a single specified Richardson step. The derived error-propagation matrices are rank one; their Euclidean norm formulas follow from the single nonzero singular value. The elementary identity \((c^2+\kappa^2s^2)^2-s^2(\kappa^4s^2+c^2)=c^2[1+2(\kappa^2-1)s^2]\) gives the exact presmoothing bound; a one-variable derivative gives the post-smoothing extremum, and negativity of the cubic through 2 and strict monotonicity thereafter gives the unique nonexpansivity threshold. The rank-one matrix identity provides the all-integer power law. The code independently evaluates all matrices and tests 1,510 cases. Algebra, not numerical extrapolation, establishes the infinite and global assertions.
+PASS
 
-## Originality
+I reconstructed the correction by projecting the residual orthogonally off Ap. Let u be a unit vector orthogonal to Ap, so C_p=A^(-1) u u^T A and all unit directions u occur. Set d=1-1/k and t=u_1^2. The pre-order norm is d |u_1| ||A^(-1)u||<=d, attained at t=1. The post-order squared norm is d^2 t[k^2-(k^2-1)t], a concave quadratic with optimizer t=min(1,k^2/[2(k^2-1)]). This proves both sharp envelopes including the transition at sqrt(2). Above sqrt(2), max squared norm minus one equals (k^3-k^2-4k-4)/(4(k+1)). The cubic is negative up through 2 for k>1, strictly increasing thereafter, and has a root between 2 and 3 (2.875129794162778826...). For k=3, p=(sqrt(7),1) gives the optimizer and post norm 3 sqrt(2)/4. Both rank-at-most-one products have trace dt and obey T^2=(dt)T, proving the power law. At t=0 both matrices are zero: the finding's phrase 'common nonzero eigenvalue' should be read as 'common trace, the only potentially nonzero eigenvalue'; the formula includes zero. Both orders are contractions in the residual norm because their A-conjugates replace C_p by an orthogonal projection. Thus the effect is genuinely Euclidean solution-error amplification, not divergence, residual growth or a claim about adaptive history spaces. The exact argument does not rely on the package's floating-point grid.
 
-Relevant public mathematical records and primary literature were compared by mathematical implication. Adler–He–Hu–Lefebvre establish the two-grid interpretation and the residual-minimal coarse correction formulas, and He establishes Richardson/NGMRES equivalences and monotonicity relationships. Neither inspected material states the exact maximization over every coarse line, its cubic Euclidean safety frontier, or the matching fixed-line finite-power law. Classical two-grid and oblique projection theory is acknowledged, not claimed as new. The motivating paper's later sections were not retrievable for complete inspection, so independent bibliographic overlap assessment remains important; this is not a proof of uniqueness.
+## originality
 
-## Value
+PASS
 
-There is a natural stability decision: whether to smooth before or after the same normal-equations least-squares coarse correction. The exact dimension-two classification shows that a strictly contracting base smoother and asymptotically stable two-grid propagator can still permit strict Euclidean error amplification when smoothing follows correction, whereas the opposite order is safe for every coarse line. The sharp condition-number cutoff and unbounded \(\kappa/2\) scaling quantify a concrete finite-horizon risk not captured by spectral-radius estimates. The two-dimensional setting and fixed coarse space are explicit limits, not arbitrary parameter slices.
+The residual-minimal correction and the two product orderings are prior art. The supported distinct claim is their contrasting sharp worst-case Euclidean error norms over all fixed coarse lines with the endpoint Richardson step, including the cubic all-line stability threshold. Neither general projector obliquity nor prior residual monotonicity is equivalent to this directional rank-one product optimization. The rank-one power identity itself is standard and is not credited as a separate novelty.
 
-## Closest literature and limitations
+## value
 
-The nearest work is arXiv:2609.13091 (first public 2026-09-11), whose accessible initial sections supplied exact two-grid and normal-equation definitions. arXiv:2603.25983 studies preconditioned Richardson/NGMRES relations, and classical multigrid results address other norms and operators. Later sections and any unavailable appendices of the motivating preprint were not materially inspected. The claim does not cover adaptive changing coarse spaces or arbitrary nonlinear acceleration schemes.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+There is a real order decision even for the same coarse line and the same strictly contracting smoother. The exact all-line envelope identifies when smoothing last can cause transient solution-error growth, quantifies its unbounded size with conditioning, and sharply separates it from asymptotic convergence and residual contraction. The calculation is short, but the arbitrary-line worst-case threshold provides a useful fixed-space benchmark rather than a routine application of a general norm bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

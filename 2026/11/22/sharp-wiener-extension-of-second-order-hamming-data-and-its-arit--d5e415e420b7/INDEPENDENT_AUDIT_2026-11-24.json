@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:20:56.369919Z",
+  "axes": {
+    "correctness": {
+      "rationale": "RESULT.md lines 4–83: permutation averaging preserves all constraints and cannot increase the Fourier l1 norm even for complex values. A radial coefficient at layer j gives shell evaluations 1, 1-2j/n, and 1-4j(n-j)/(n(n-1)); at size two the character is negative exactly when one of the two coordinates lies in the subset, with probability 2j(n-j)/(n(n-1)). Hence the three signed moments are (1,0,Q) in (1,j,j(n-j)). Eliminate b_n via the first moment, writing X=(n-r)b_r and Y=(n-r-1)b_{r+1}; the other moments give X+Y=n and rX+(r+1)Y=Q. Thus X=n(r+1)-Q and Y=Q-nr have the stated signs; b_n<=0. The norm 1-2b_n yields the displayed value. At each integer j, the product (j-r)(j-r-1) is nonnegative and its upper bound is the larger convex endpoint value, D, because r<=(n-1)/2. Thus P_r is bounded in modulus by 1, with the required signed contacts; its pairing is exactly the claimed value by the moments, regardless of complex phases. This proves optimality over all admissible extensions, with at most three nonzero layers. Denominators are positive even for n=2. At a switch Q=nr, adjacent affine branches both take 1+2r/(n-r); D decreases across the switch, increasing the slope. A switch at d=2 is not interior, and at d=0 the optimizer is constant. Independent replay `python3 -I /workspace/review-work/replay.py 5` matched 186 exact grid optima through n=11, including switch targets, by enumerating Vandermonde-basis supports for the raw moments (1,0,-Q). For the real linear program split into positive and negative parts, an optimal basic solution has at most three nonzero signed entries, so this is an independent finite computation, not a proof of all dimensions and t. The supplied checker was inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The positive-definite Hamming two-ball proof uses degree-two q-ary Krawtchouk polynomials and adjacent dual contacts, but maximizes counting mass of spatially supported functions with nonnegative Fourier data. The unrestricted Fourier signs are essential here: with sum j b_j=0, a nonnegative radial spectrum would have all its mass at j=0, forcing t=1. The inspected fourth-norm synthesis, concentration spectrum and tight-frame sampling sources respectively optimize a different quotient, a spectral conditioning problem and a Parseval identity with positive shell masses."
+        ],
+        "reasoning": "Changing primal positivity, spatial support and objective here is substantive. The positive-definite result does not cover t<1 and standard shell transforms only identify the constraints; none of the inspected statements supplies the closed signed-extension optimum.",
+        "searches": [
+          "Resultary 443142350f41, 7e1e7b451f74, 0a317e4c9b00, 52fb6118ea85, 87dd1cb82f82",
+          "doi:10.1007/s13373-018-0132-2 (Krawtchouk transforms and convolutions)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md finding, assumptions, proof and comparison sections; VERIFICATION.md and check.py",
+        "Resultary mirror findings and proof passages for 443142350f41, 7e1e7b451f74, 0a317e4c9b00, 52fb6118ea85 and 87dd1cb82f82",
+        "Resultary catalogue for d5e415e420b7 and 6bb4a5c56494; primary search evidence as specified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General LP duality or a finite design method gives a bounded quadratic and the possibility of a three-point support. It does not select r=floor(Q/n), r+1 and n. The decisive inequality uses integers, since the product of consecutive offsets is negative strictly between r and r+1 in the continuous interval. That grid effect makes the stated contact pattern possible; neither a continuous dual bound nor the generic support cardinality alone gives the numerical formula."
+        ],
+        "reasoning": "The exact formula and optimizer sectors require the specific integer-grid polynomial and feasible moment solution, not a rename of generic duality. An earlier closed-form resolution of this particular functional would be covering, but no such statement was obtained.",
+        "searches": [
+          "Resultary 443142350f41 and 7e1e7b451f74",
+          "Computing c-optimal experimental designs using the simplex method (finite experimental-domain search hit)",
+          "Design of c-Optimal Experiments for High dimensional Linear Models, arXiv:2010.12580",
+          "Feinsilver–Schott doi:10.1007/s13373-018-0132-2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In raw moments, sum b=1, sum j b=0 and sum j^2 b=-Q. Thus the dual tests the functional (coefficient of 1) minus Q times (coefficient of j^2) on quadratics bounded by 1 at integers 0,...,n. Equivalently, for quadratic regression on the same finite grid, a linear unbiased estimate of that functional has these signed weights b. Given b, minimizing its unit-noise variance factor sum b_j^2/p_j over design masses p_j by Cauchy–Schwarz gives (sum |b_j|)^2, attained with p proportional to |b|. Finite c-optimal design is therefore a genuine alternate formulation. The inspected four-moment Resultary record instead uses a continuous interval, four moments and a cubic certificate."
+        ],
+        "reasoning": "This comparison credits the general minimum-total-variation formulation and finite design reduction without treating a generic LP algorithm, or a continuous cubic extremal theorem, as an explicit solution of the discrete adjacent-contact and staircase problem. A specialized c-optimal design or discrete Chebyshev classification remains a plausible equivalent.",
+        "searches": [
+          "Resultary: minimum Wiener norm on the Boolean cube, Hamming-ball extension and signed moment problems",
+          "Web: c-optimal design finite equally spaced quadratic regression estimate linear combination intercept and quadratic coefficient Elfving discrete signed weights optimal support adjacent points",
+          "Resultary 7e1e7b451f74"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary match was the target itself. The indexed 6bb4a5c56494 statement also involves a minimum Wiener norm, three terms and discrete transitions, but for analytic interpolation on two concentric regular polygons. The primary alias query returned an unrelated 2008 tomography result, not an exact source."
+        ],
+        "reasoning": "The check is for a prior table or formula of the full Boolean extension norm at the stated interpolation values, not for unrelated interpolation trinomials or known Fourier transforms. The polygon comparison is summary-level; its indexed date is 2026/11/16, and its setting rather than its date distinguishes it. A web query's failure to find a match does not establish priority.",
+        "searches": [
+          "Resultary: minimum Wiener norm on the Boolean cube; Hamming-ball extension; signed moment problems",
+          "Resultary d5e415e420b7 and 6bb4a5c56494",
+          "Web: \"minimum Wiener norm\" Fourier extension Hamming cube prescribed values Hamming weights 0 1 2 signed Krawtchouk moment"
+        ]
+      },
+      "rationale": "The supported distinction is the explicit exact extension cost and contact staircase on the finite discrete grid, not permutation averaging, Krawtchouk transforms, finite moment duality or the generic existence of an optimizer supported on at most three layers. The closest inspected Hamming-ball, signed moment and analytic-Wiener results change the objective, moment setting or domain. Generic finite c-optimal design supplies an equivalent LP but no available statement identifying these contacts and their floor law.",
+      "residual_risks": [
+        "An earlier explicit discrete Chebyshev, exact c-optimal design, or signed-quadrature formula for the same functional could be equivalent. No exhaustive priority claim is made.",
+        "The analytic-Wiener polygon source and primary transform/design papers were not independently obtained in full; comparisons to them are limited to the evidence specified. The frozen tree-multiplier reference is abstract-level context, not a premise."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not imply the signed extension; different positivity, support and objective",
+          "evidence": [
+            "Finding: counting mass maximized over positive-definite ball-supported functions with f(0)=1. Proof §§1 and 3: q-ary Krawtchouk polynomials and adjacent dual contacts."
+          ],
+          "identifier_or_url": "Resultary 443142350f41",
+          "material_read": "Local mirror RESULT.md Finding and Proof §§1–3",
+          "method": "Local Resultary lookup and bounded original mirror inspection",
+          "title": "Sharp positive-definite mass of q-ary Hamming two-balls",
+          "trigger": "Closest finite-cube two-ball and adjacent dual-contact theorem"
+        },
+        {
+          "assessment": "Common duality, not the discrete quadratic cost or its arithmetic contacts",
+          "evidence": [
+            "Continuous signed measures on [-1,1], four ordinary moments, bounded cubic dual."
+          ],
+          "identifier_or_url": "Resultary 7e1e7b451f74",
+          "material_read": "Local mirror RESULT.md Finding and Proof",
+          "method": "Local Resultary lookup and original mirror inspection",
+          "title": "Sharp four-moment recovery frontier for signed two-atom measures",
+          "trigger": "Strong signed moment total variation analogue"
+        },
+        {
+          "assessment": "Different Fourier quotient and spatial support constraint",
+          "evidence": [
+            "Optimizes ||hat f||_infinity/||hat f||_4 for supported input, not minimum Fourier l1 over all extensions."
+          ],
+          "identifier_or_url": "Resultary 0a317e4c9b00",
+          "material_read": "Local mirror RESULT.md Finding and opening proof",
+          "method": "Local Resultary lookup and original mirror inspection",
+          "title": "Sharp fourth-norm spectral synthesis on Boolean radius-two balls",
+          "trigger": "Same-day result on the same Boolean ball and a Fourier norm"
+        },
+        {
+          "assessment": "An operator spectrum/conditioning result, not signed Fourier measure minimization",
+          "evidence": [
+            "Concentration operator for quadratic Walsh sampling."
+          ],
+          "identifier_or_url": "Resultary 52fb6118ea85",
+          "material_read": "Local mirror RESULT.md Finding and Proof §1",
+          "method": "Local Resultary lookup and original mirror inspection",
+          "title": "Exact quadratic Walsh concentration on Hamming balls",
+          "trigger": "Same cube and quadratic Walsh data"
+        },
+        {
+          "assessment": "Positive sampling for a frame identity, not minimum signed spectral variation",
+          "evidence": [
+            "Positive shell sampling gives a Parseval identity."
+          ],
+          "identifier_or_url": "Resultary 87dd1cb82f82",
+          "material_read": "Local mirror RESULT.md Finding and Proof §§1–2",
+          "method": "Local Resultary lookup and original mirror inspection",
+          "title": "Minimum radial sampling layers for a tight quadratic Walsh frame",
+          "trigger": "Low-order Walsh moment conditions and few layers"
+        },
+        {
+          "assessment": "Analytic polygonal data, rather than finite Boolean Hamming interpolation in the available statement",
+          "evidence": [
+            "Indexed summary describes two concentric polygons, trinomials and transitions; whole-text coverage unverified."
+          ],
+          "identifier_or_url": "Resultary 6bb4a5c56494",
+          "material_read": "Catalogue statement summary; the original source was not available in the mirror attempt",
+          "method": "Local Resultary lookup and targeted mirror attempt",
+          "title": "Exact analytic-Wiener interpolation on two concentric regular polygons",
+          "trigger": "Similar exact Wiener trinomials and discrete switches"
+        },
+        {
+          "assessment": "Gives general finite-domain optimization context, not evidence for this explicit support pattern",
+          "evidence": [
+            "Snippet describes minimizing the variance of the best linear unbiased estimator of a linear functional c^T beta over a finite experimental domain."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0167947308003320",
+          "material_read": "Search abstract snippet only; targeted alternate expositions on the same LP did not yield accessible passages",
+          "method": "Primary web search; targeted OA attempts to c-optimal-design sources",
+          "title": "Computing c-optimal experimental designs using the simplex method",
+          "trigger": "Equivalent general finite design LP"
+        },
+        {
+          "assessment": "Generic transforms are credited; no full-text exclusion claimed",
+          "evidence": [
+            "Frozen reference describes the Krawtchouk transform and convolution formalism, not an exact signed-norm extension as characterized there."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s13373-018-0132-2",
+          "material_read": "Frozen RESULT.md lines 90–100 characterization; original passage not obtained",
+          "method": "Targeted OA retrieval timed out",
+          "title": "Krawtchouk transforms and convolutions",
+          "trigger": "Primary low-order shell-transform context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural Fourier-algebra interpolation problem on the first Boolean ball with a freely variable second-order profile, the minimum spectral l1 norm is the quantitative cost of enforcing these local data. The exact expression controls both that cost and the changing optimal signed layers, including arithmetic phase boundaries at all dimensions. This is not a single parameter slice or a generic LP existence result. No classification of all optimizers, higher Hamming data, or other alphabets is needed or implied.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

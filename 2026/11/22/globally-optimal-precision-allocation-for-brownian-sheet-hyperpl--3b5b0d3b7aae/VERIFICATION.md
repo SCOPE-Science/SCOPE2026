@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Mathematical verification record
+# Independent mathematical audit
 
-For the theorem in `RESULT.md`, exact covariance integration gives \(\operatorname{Var}(J_d)=3^{-d}\), \(\operatorname{Cov}(J_d,A_{j,x})=3^{-(d-1)}c(x)\), and for distinct axes \(\operatorname{Cov}(A_{j,x},A_{k,y})=3^{-(d-2)}c(x)c(y)\). Subtracting the common scalar projection produces independent Gaussian residuals. Conditional Gaussian precision additivity, a one-crossing derivative in each slice coordinate, and strict Jensen concavity give the **global**, not merely stationary, design theorem. The signed-polynomial proof of strict concavity is printed in `RESULT.md`.
+## correctness
 
-## Reproducible checks
+PASS
 
-Run `python3 verify.py` with Python 3 and only its standard library. In the current science package it passed 125 exact rational full-covariance/posterior-precision comparisons, exact cross-orientation residual-covariance cancellation, 99 positive-root and optimum-risk formula checks, 4,950 supplementary random alternative designs, and noiseless limits in dimensions two through seven. These checks were conducted against the packaged `verify.py` contents and not an unrelated computation file.
+Tensor integration gives Var(J)=3^(-d), Cov(J,A_j)=3^(-(d-1))c(x_j), and Cov(A_j,A_k)=3^(-(d-2))c(x_j)c(x_k) for distinct axes. Projecting each slice onto J cancels all off-diagonal residual covariances; joint Gaussianity gives independent residuals and additive scalar information. At p>0 the derivative in x has sign 12(1-x)-ux(3x-2), u=p/3^(d-2); x=0 conveys no information and x=1 has negative derivative, so the single interior root is the unique maximum. At that root the optimized information derivative increases strictly with x (A<0 and Q>0 in the stated derivative factorization), and x decreases strictly with u. Continuity at zero extends strict concavity to the closed precision simplex. Strict Jensen therefore excludes zero-precision allocations, establishes the unique uniform split, and then the location root is forced on every axis. Substitution gives the asserted risk, crossover and fixed-d noiseless limit: at x=2/3 the scaled channel information is 72, hence total limiting precision 3^d(8d+1).
 
-## Scope and limits
+## originality
 
-Exact arithmetic validates only tested finite instances; randomized comparisons do not certify universal optimality, and no assertion of independent validation is made. The all-dimensional theorem follows from the written analytical proof; it assumes the specified Brownian-sheet tensor kernel, one complete slice per axis, independent Gaussian errors and a sum-of-precisions budget. The original article comparisons address publication priority only as far as inspected materials establish; no external independent assessment has been performed.
+PASS
+
+The supported distinction is the specific tensor-slice precision and location law, not Gaussian conditioning, integral sensors or the familiar coordinate location 2/3 by itself. The closest indexed Brownian-sheet record optimizes one noisy point value, and the closest external integral-sensor work does not solve this target/budget/geometry. Neither yields the independent-channel factorization with optimized strict concavity as an existing design theorem.
+
+## value
+
+PASS
+
+The exact allocation is useful when measurement precision, rather than the number of slices, is the resource. Residual independence makes this an unusually tractable nontrivial joint-design problem, and the location scaling identifies the budget needed to prevent high-dimensional measurements from drifting toward the outer faces. The conclusions about boundaries, symmetry and attainable risk add information beyond generic covariance evaluation or a numerical design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Gram normalization is checked by direct integration. For the three-frequency interval design, the characteristic polynomial has sum-of-principal-minors coefficient \(2(3+t^2)\varepsilon^2/3+O(\varepsilon^4)\) and determinant \(4(1-t^2)^2\varepsilon^6/135+O(\varepsilon^8)\); the quotient gives the least-eigenvalue profile. The analytic implicit-function theorem gives a uniform differentiable branch despite the singular limiting Gram matrix, and its strict profile maximum together with uniform second derivatives proves exact small-aperture optimizer uniqueness. The exact resonance classification follows from the necessary and sufficient vanishing of all sinc off-diagonals. Symbolic coefficients and finite spectral checks reproduce the formulas. The proof makes no numerical inference of an infinite claim.
+PASS
 
-## Originality — PASS, subject to historical priority
+The dx/2 normalization gives a real sinc Gram matrix of trace 3. My symbolic replay /workspace/review-evidence/gram.py, independent of the frozen checker, confirms the elementary-symmetric coefficient expansions and the two symmetric eigenvalue coefficients. With z=ε² and λ=z²y, the characteristic equation divided by z³ is analytic at z=0, and the derivative in y there is 2(3+t²)/3, bounded away from zero on the closed interval. Local analytic branches glue on a compact neighborhood; this gives a uniform C² expansion in t. The largest root tends uniformly to 3 and the nontrivial middle root is 2(3+t²)z/9+O(z²), by the principal-minor sum, so the constructed root is the least even at t=±1. Its rescaled limit 2(1−t²)²/[45(3+t²)] has a strict isolated maximum with second derivative −28/405 at zero. Evenness, strict concavity near zero and the positive gap away from it imply exact uniqueness, not just convergence of optimizers. At zero the antisymmetric root is 1−sinc(2ε), and the remaining roots follow by splitting the symmetric 2×2 block. Independently, dividing the small block determinant 2z²/45−2z³/315+O(z⁴) by its large root 3−2z/3+O(z²) gives 2/135 and 2/1701. For any positive ε, compactness attains the maximum, and trace 3 forces equality at 1 exactly at identity. The two positive adjacent gaps must sum to 2ε and be nonzero integer multiples of π. This gives precisely the stated lattice, m≥2, the parity criterion and the m=3 strict loss at t=0. No intermediate-aperture classification is implied.
 
-The closest literature develops the generalized prolate sinc matrix and nonuniform Fourier/Vandermonde singular-value rates. Slepian's equispaced prolate eigenvalue asymptotics are prior art, and the symmetric eigenvalue formula itself is not counted as a new result. The distinct contribution is the global optimization of a free middle node under fixed outer endpoints in the small-aperture regime, with uniform uniqueness, combined with an exact all-resonance optimizer classification and an explicit parity-dependent failure of symmetric spacing. The inspected primary statements and relevant proofs do not imply the optimizer results directly. Older nonharmonic exponential optimal-design work might contain equivalent descriptions, and this residual risk remains.
+## originality
 
-## Value — PASS
+PASS
 
-At fixed outer spectral extent, the sharp least Gram eigenvalue is the natural stability measure for three-tone synthesis and inversion. The proof identifies the unique best sub-Rayleigh geometry, the two-term exact stability cost, all perfectly conditioned apertures and their optimizer multiplicities, and a qualitative switch from uniform to necessarily nonuniform gaps. This completes two mathematically natural asymptotic and resonant regimes, rather than calculating a detached test case. The result does not settle the intermediate-aperture global design problem.
+Credit prolate asymptotics, the fixed equispaced spectrum, and the elementary orthogonality criterion as background. The distinct supported content is exact global, unique placement for every sufficiently small positive aperture in the continuous fixed-span three-node problem. Resonance is a simple complementary result, not sufficient by itself for novelty or value.
 
-## Primary literature and limitations
+## value
 
-Batenkov–Goldman, arXiv:2107.09326, Definition 2.4, Theorems 2.1–2.3 and Section 3; Batenkov–Demanet–Goldman–Yomdin, arXiv:1809.00658, Sections 2–3; Batenkov–Diederichs–Goldman–Yomdin, arXiv:1909.01927, Introduction and main singular-value estimates; Batenkov–Diab, arXiv:2203.11923, Sections 1–3. All comparisons concern actual claims rather than similar keywords. The unrestricted historical priority of the design problem remains unverified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The free middle frequency at fixed bandwidth is a natural stability design variable. Exact small-aperture rigidity and the sharp optimum cost answer more than a scale bound or fixed-node computation. The lattice of perfect-conditioning designs provides a concrete contrast, with an entire resonant family excluding symmetry. No claim is made that the small-aperture interval is maximal or that the uncovered intermediate design problem is solved.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

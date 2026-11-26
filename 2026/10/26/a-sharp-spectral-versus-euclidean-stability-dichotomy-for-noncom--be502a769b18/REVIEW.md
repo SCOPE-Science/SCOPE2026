@@ -1,22 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-For finite-dimensional real symmetric positive-definite \(H,K\), the exponential-Euler map is exactly \(S_h=I-W_hK\), where \(W_h=H^{-1}(I-e^{-hH})\succ0\). Its similarity through \(K^{1/2}\) is symmetric, giving the if-and-only-if \(K\preceq2H\) spectral and common \(K\)-energy contractivity condition via the sharp limit \(W_h\to H^{-1}\). The separate similarity through \(W_h^{1/2}\) gives the Euclidean upper bound. An extreme-eigenvector swap supplies the sharp \(\sqrt{\kappa_2(H)}\) supremum; the rank-one limit and continuity prove positive Euclidean amplification for every fixed positive step when \(H\) is nonscalar. The exact rational two-state witness is separately verified by the included standard-library checker. Finite numerical checks are corroboration, not replacements for the quantified analytical proof.
+PASS
 
-## Originality: PASS (best-knowledge assessment)
+Exact exponential Euler yields S_h=I-W_hK. Its K-energy transform is I-K^{1/2}W_hK^{1/2}, symmetric, so its energy operator norm equals its spectral radius. Since 0<W_h<H^{-1} for finite positive h, K<=2H makes the positive eigenvalues of K^{1/2}W_hK^{1/2} strictly below two even at equality in the Loewner bound; if K is not <=2H its limit has an eigenvalue above two and all sufficiently large h are unstable. Each step decreases the same energy on nonzero states. The alternative similarity through W_h gives the bound sqrt(cond(W_h)), and the eigenvalue ratio of W_h is (b/a)(1-exp(-ha))/(1-exp(-hb)) for extremal eigenvalues a<=b of H. Swapping the extreme eigenvectors in the H-scaled admissible K gives limiting norms eta sqrt(b/a) as h goes to infinity for eta<1, then eta tends to one. For scalar H the norm is at most one and tends to one as h tends to zero. For each fixed h and nonscalar H, a rank-one K along a mixture of two H-axes gives a shear block [xi,0; zeta,1] with zeta nonzero because W_h distinguishes those axes; the determinant of its squared singular-value matrix minus I is -zeta^2. Perturbing into the strict SPD interval preserves expansion. Exact replay gives determinants 19/25 for K and 2H-K and squared amplification 224729/204800 on (1,1).
 
-Caliari--Cassini--Einkemmer--Ostermann, arXiv:2303.15861v1, Theorem 2.1, prove scalar Fourier-mode stability for a commuting heat-operator split. D'Autilia--Sgura--Simoncini, arXiv:1903.05030, analyze scalar-mode and matrix-oriented reaction-diffusion integration, not the quantified all-step noncommuting SPD Loewner result and sharp Euclidean amplification theorem. The relevant published-finding corpus records for weighted Jacobi Euclidean damping, two-step Richardson and two-coordinate Gauss-Seidel concern distinct iteration families, and their summaries do not state or logically dominate this combined result. Elementary facts on preconditioned Richardson and symmetric similarity are prior-known and not asserted as original in isolation. The assessed new object is the exact noncommuting exponential-Euler family with a necessary-and-sufficient stability criterion, universal sharp amplification constant and impossibility of a Euclidean-safe positive step under nonscalar splitting. No covering claim was identified in the accessible records, but this is not a uniqueness proof. A 2026 related splitting paper was available only at abstract level; specialized unpublished or uncatalogued results remain a genuine priority risk.
+## originality
 
-## Value: PASS
+PASS
 
-The source's scalar stability threshold does not distinguish stability in physical energy from possible one-step amplification in Euclidean solution error. This distinction directly affects damping/step choices for matrix-based exponential time integrators with spatially variable noncommuting SPD operators. A sharp condition \(K\preceq2H\), a dimension-free best possible amplification factor \(\sqrt{\kappa_2(H)}\), and an impossibility result for *every* chosen positive step are structural, testable design information rather than an arbitrary finite parameter slice. The result does not assert higher-dimensional PDE discretization convergence, nor an error-amplification trajectory for one fixed \(K\) at all steps.
+Credit the family-specific exponential-Euler classification, especially failure of uniform Euclidean nonexpansivity at each prescribed positive step for nonscalar H, together with the exact admissible Loewner region. Do not credit the general phenomenon or the sharp similarity amplification constant as independent novelty: the latter is already available in the corresponding preconditioned-Richardson problem and applies in the large-step limit. No inspected source supplies the full finite-step family statement.
 
-## Closest literature and limitations
+## value
 
-- Caliari, Cassini, Einkemmer and Ostermann (2023), arXiv:2303.15861v1, Theorem 2.1, commuting scalar spectral criterion; full motivating sections examined.
-- D'Autilia, Sgura and Simoncini (2019), arXiv:1903.05030, Sections 2 and 4.1, reaction-diffusion and scalar spectral analysis; relevant primary material inspected.
-- Published published-finding corpus statements on weighted-Jacobi Euclidean damping and safe two-step Richardson; summary-level implication comparison only.
-- Related arXiv:2610.07989 (2026), available abstract only; full text not inspected. General preconditioning literature may contain equivalent consequences, and independent priority verification is needed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The split has a natural stability-design question: an unconditional spectral or physical-energy guarantee does not imply a step-size restriction that guarantees uniform Euclidean nonexpansivity. The exact classification shows the failure at every fixed step in every anisotropic reference matrix, not merely at one counterexample or in a large-step limit. The sharp scale quantifies the protection available when the physical energy, rather than Euclidean size, controls the application.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

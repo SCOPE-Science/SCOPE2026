@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The stated deficit is exactly the loss in the known sharp affine-transitive synthesis ratio. Affine symmetry makes Fourier transforms of all orbit translates isometric in counting \(\ell^r\); Clarkson and Ball–Carlen–Lieb midpoint inequalities control their mean pairwise separation. Jensen bounds the distance to the orbit average. For \(r=2\), orthogonal projection gives an exact identity. Two explicitly computed fixed finite-group families establish optimality of the deficit powers. The standalone checker verifies 5,600 supplementary random instances and 21 asymptotic formula instances; those tests are not substituted for the general proof.
+## correctness
 
-**Originality — PASS relative to inspected sources.** Iosevich–Li–Yu (arXiv:2609.25404, 2026, Theorem 4.1) proves the sharp synthesis constant and exact extremizers; its Section 10 explicitly poses the quantitative near-equality question addressed here. Bhowmik–Deodhar–Iosevich (arXiv:2508.12194) provides finite synthesis inequalities but not a quantitative distance-to-orbit conclusion. Clarkson (1936), Ball–Carlen–Lieb (1994), and Ricard–Xu (2014/2016) supply previously known abstract convexity estimates, rather than a theorem about finite affine-transitive Fourier synthesis or its sharp two-regime exponents. Semantically related published results on particular Fourier sets and geometric stability were compared; none inspected states or demonstrably dominates the present Fourier conclusion. Residual risk: a general contractive-projection stability statement or unindexed result could imply this specialization; independent literature review is still needed.
+PASS
 
-**Mathematical value — PASS.** The theorem answers the concrete quantitative question raised by the motivating primary paper, for every real \(1<r<\infty\) and every affine-transitive finite abelian support. It identifies a modulus-independent metric and quantitatively distinguishes the two optimal exponents, rather than merely restating strict convexity. Precise constants outside the Hilbert case are not claimed optimal, and no nonsymmetric-support result is asserted.
+Choose a maximizing Fourier frequency χ₀ and demodulate. The finite transitive affine average sends the demodulated function g to h=c·1_S, with c nonzero because the maximizing coefficient is nonzero. Affine pullbacks induce isometries of counting Fourier ℓʳ (phase and permutation). Their average H=ĥ has norm (1−δ)R for R=||f̂||ᵣ, in particular justifying δ∈[0,1). The pairwise convexity inequality has exponent s=r and coefficient β=1 for r>2, and s=2, β=r−1 for 1<r<2. Averaging over two independent translates of ĝ bounds the expected s-th power of their difference by (2ˢ/β)(Rˢ−||H||ᵣˢ): Jensen bounds the expected midpoint norm power below by ||H||ᵣˢ. Isometry and uniform group measure reduce the two-translate difference to one relative translate; Jensen then bounds ||ĝ−H||ᵣˢ by that one-translate expectation. At r=2 the average is an orthogonal projection, giving the stated identity. The singleton case has δ=0 and equality. For r>2, the full-support two-frequency example has δ∼tʳ/r and best relative error t/(1+tʳ)^(1/r). For 1<r≤2, on {0,1} in Z₃ the nonmaximal Fourier magnitudes before the common normalization are sqrt(1+3t²), with maximizing magnitude 2 for small t. Thus δ=3t²/(2ʳ+2)+Oᵣ(t⁴). The perturbation is transverse to the trivial modulation line while the two other lines are separated from the limiting signal; the best relative error is bounded below by a constant times |t|. Both obstructions are to any higher exponent even on the respective fixed group and support.
 
-The nearby literature and limitations are documented in RESULT.md and the structured audit; tests are supplementary and no independent mathematical validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the known sharp constant and equality cases, and the prior abstract convexity/projection inequalities. The supported distinct contribution is the Fourier-specific dimension-independent stability classification with optimal deficit powers, including matching obstructions after optimizing over all extremizer lines. The upper-bound mechanism is a corollary of known convexity once the Fourier norm deficit is identified with loss under averaging; it is not a new Banach-space inequality.
+
+## value
+
+PASS
+
+This answers the stated Fourier near-equality question in a concrete norm, uniformly in group size and support, and proves that the powers cannot improve even on fixed small groups when the comparison extremizer is optimized. The meaningful contribution is the optimal Fourier-specific stability law and its two distinct obstruction regimes, not novelty of convexity or optimality of the displayed constants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -21,14 +21,14 @@ The graph has \(n\ge4\) vertices and all hopping magnitudes are one; no onsite p
 The uniform Peierls phase has gauge-invariant total magnetic flux \(n\phi\pmod{2\pi}\). The first-public motivating source is Coutinho et al., *Irrational quantum walks*, arXiv:2208.08971 (2022-08-18, primary MSC 81P68). Its general number-theoretic viewpoint motivates this magnetic specialization, but its integral-Hamiltonian algorithm is not being claimed as a new lemma.
 
 ## Proof
-**Fourier reduction.** Put \(\zeta=e^{2\pi i/n}\), and \(f_k(j)=n^{-1/2}\zeta^{kj}\), for \(0\le k<n\). These vectors form an orthonormal eigenbasis of \(H_\phi\), with
+**Fourier reduction.** Put \(\zeta=e^{2\pi i/n}\), and \(f_k(j)=n^{-1/2}\zeta^{-kj}\), for \(0\le k<n\). Since \((Tf_k)(j)=f_k(j-1)=\zeta^k f_k(j)\), these vectors form an orthonormal eigenbasis of \(H_\phi\), with
 \[
 \lambda_k=2\cos\!\left(\phi+\frac{2\pi k}{n}\right),\qquad
 \lambda_{k+n/2}=-\lambda_k.
 \]
 By translation symmetry it suffices to study transfer from \(0\) to \(j\). Fourier expansion shows that PGST requires and is equivalent to simultaneous approximation
 \[
-e^{-it\lambda_k}\longrightarrow\gamma\zeta^{-jk}\quad(0\le k<n)
+e^{-it\lambda_k}\longrightarrow\gamma\zeta^{jk}\quad(0\le k<n)
 \]
 along some times, with an overall phase \(\gamma\). For any integer vector \(\ell\) satisfying \(\sum_k\ell_k=0\) and \(\sum_k\ell_k\lambda_k=0\), multiplying these phase conditions implies
 \[

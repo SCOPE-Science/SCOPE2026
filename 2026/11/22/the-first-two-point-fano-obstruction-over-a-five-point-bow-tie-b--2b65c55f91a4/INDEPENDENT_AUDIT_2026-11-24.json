@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:06:21.392411Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–50",
+        "VERIFY.py exact-cover implementation (inspected, not executed)",
+        "CHECKS.txt",
+        "VERIFICATION.md",
+        "/workspace/reproduce_reviews.py, ordinal 1"
+      ],
+      "rationale": "A free amalgam introduces no mixed triples across the two exclusive sides; a Fano copy cannot straddle them because every pair of Fano vertices is in a line. The Fraïssé extension property realizes every legal finite diagram over the individually named base, and homogeneity identifies diagrams with complete ordered injective pair types. Free copies give infinitely many realizations. With up to four old points and two new points, or five old points and one new point, there are fewer than seven vertices, hence no restriction. With five old and two new points every Fano copy spans them; deleting the two new points removes 3+3-1=5 distinct lines, leaving two lines meeting in one old point. Conversely that bow tie extends, so on named sets the 15 bow ties are all minimal obstructions and form one isomorphism type. For exactly those two old lines, the line through their common vertex and the two new points is forced. The four other new lines must use opposite arms, with each arm vertex seeing each new point once. They are precisely the two alternating colorings of a 2x2 array. The two five-bit completion requirements intersect in exactly the central mutual bit (their union uses nine bits); after fixing it on, the four-bit requirements are disjoint and their union uses eight bits. This verifies the intended count despite the informal word 'overlap' in the conditional proof. The valid-diagram count is 2^25-2*2^20+2^16=31522816. Given the five mutual bits, the link count is 2^12 times 256 when the center bit is off and 225 when on, independent of the four other bits. Thus K is the sum of an independent Binomial(4,1/2) and Bernoulli(225/481). Its total variation from Binomial(5,1/2) is |225/481-1/2|*max_k binom(4,k)/16=93/7696 by telescoping the variation of the unimodal four-bit mass. An independent exact relabelling enumeration from the binary projective plane gives 30 designs, 15 old restrictions each with two completions, and the critical-bit counts 256 and 225. Replay: python3 /workspace/reproduce_reviews.py 1.",
+      "residual_risks": [
+        "The conditional distribution is for exactly the two fixed old triples, not arbitrary denser bases. Uniqueness of the minimal bow tie is up to isomorphism, not equality of labelled edge sets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Conant's §7 characterizes free amalgamation via 2-irreducible minimal forbidden structures; it supplies the general model-theoretic framework.",
+          "Fano-specific record 107723e9a6d2 has six-old-point one-point onset and Pasch overlap penalties over partial-Steiner bases. This does not fix a five-old, two-new joint profile.",
+          "Person–Schacht's inspected abstract concerns typical bipartite structure of large Fano-free systems, not finite extension types."
+        ],
+        "reasoning": "Using the one-point theorem after choosing the first new point would require general input bases that need not be partial Steiner, and keeping track of fixed shared pair incidences; the inspected statement does not give this. The free-amalgamation theorem identifies the objects but does not calculate their conditioned counts.",
+        "searches": [
+          "Conant arXiv:1505.00762 §7, free amalgamation and 2-irreducibility",
+          "Fano-free hypergraphs and finite Fano containment/reliability literature",
+          "Resultary 107723e9a6d2, Fano Pasch overlap"
+        ]
+      },
+      "checked_sources": [
+        "TheoremDB P2586",
+        "Conant arXiv:1505.00762 §7",
+        "Resultary 107723e9a6d2, e4fc66906286, aca820cf2535, 5ae2c90229c3 and target identity 2b65c55f91a4",
+        "Person–Schacht abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "e4fc66906286 concerns a tetrahedron-free core with isolated vertices; aca820cf2535 is tetrahedron-free and takes disjoint old triples. 5ae2c90229c3 concerns one-point types over a tetrahedron-free base with two old triples sharing a pair.",
+          "Calculating a conditional count from the known Fano designs requires identifying the old restrictions, classifying the two completions with their single joint bit, and computing the joint law; the scalar count and number of designs do not establish these incidences."
+        ],
+        "reasoning": "Analogues motivate the question but do not carry over their forbidden patterns or counts. The distinct part is the exact obstruction and distribution in this conditioned two-point regime, not a new algorithm for unconditioned Fano counting.",
+        "searches": [
+          "Resultary e4fc66906286 ordered pair correction",
+          "Resultary aca820cf2535 exact mutual-link conditioning over a matching",
+          "Resultary 5ae2c90229c3 overlap correction",
+          "P2586 labels and global probability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "TheoremDB P2586's saved solution counts 5988866663 out of 2^35 seven-point labelled systems without conditioning on the old triples or specifying a link profile.",
+          "The inspected Resultary hit 2b65c55f91a4 is the target itself and not independent earlier coverage."
+        ],
+        "reasoning": "Logical ordered types are equivalent here to labelled free-incidence extensions with the old ten bits fixed and the relevant five mutual bits specified. The previously reported sum over old configurations does not give these fibers.",
+        "searches": [
+          "Resultary: ordered pair types in the homogeneous Fano-free hypergraph; five-point bow tie; mutual-link law",
+          "TheoremDB P2586, exact probability of Fano containment; conditioned seven-point Fano reliability lookup"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected P2586 passage reports the global count and 30 labelled Fano planes, not a table indexed by old induced edge set and mutual links. It marks the solution not Lean verified.",
+          "The exact indexed match for the conditioned law was the assigned record itself; the distinct indexed analogues target different configurations or arities."
+        ],
+        "reasoning": "A fully conditioned reliability table would have been decisive; the closest verified tabulation is of a different observable. The difference is one of mathematical variables, not just wording.",
+        "searches": [
+          "TheoremDB P2586 Saved solution/Verification, R316–R317",
+          "Resultary exact conditioned count 31522816, central-bias law and Fano bow tie"
+        ]
+      },
+      "rationale": "The supported contribution is the first ordered-pair obstruction with its exact conditioned type and mutual-link distributions. General free amalgamation, the seven-point Fano plane, and its 30 relabellings are known. Neither the available global reliability count nor the inspected one-point or tetrahedron-free analogues give the conditioned law. The strongest possible stronger overlap would be a multivariate Fano reliability specialization, not a global scalar probability.",
+      "residual_risks": [
+        "Earlier unindexed multivariate Fano reliability calculations could encode the conditioned count; the retrieved scalar result does not.",
+        "Same-day records are distinguished by content, not by an inferred publication order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unconditioned containment and labelled design counts, not the requested conditioned law",
+          "evidence": [
+            "5988866663 of 34359738368; 30 labelled Fano planes."
+          ],
+          "identifier_or_url": "https://www.theoremdb.org/statements/fano-plane-containment-probability/",
+          "material_read": "Saved solution/Verification near text offset 1268, records R316–R317",
+          "method": "Compare which incidence coordinates are conditioned and what is reported",
+          "title": "Exact probability that a random 7-vertex triple system contains a Fano plane",
+          "trigger": "Identical seven-vertex forbidden object and exact finite database"
+        },
+        {
+          "assessment": "General framework covers free amalgamation, not the diagram count",
+          "evidence": [
+            "Free amalgamation iff the minimal forbidden structures are 2-irreducible."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1505.00762",
+          "material_read": "§7, p. 21, OA text offsets 78161–78408",
+          "method": "Compare minimal-forbidden-structure condition with Fano pair coverage",
+          "title": "An axiomatic approach to free amalgamation",
+          "trigger": "Exact Fraïssé framework"
+        },
+        {
+          "assessment": "One-point result, not the joint pair-type count",
+          "evidence": [
+            "Six old vertices first permit a one-point deficit; Pasch bounds are 7/8 and 25/32."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-pasch-overlap-penalty-for-one-point-types-in-the-fano-fr--107723e9a6d2",
+          "material_read": "Mirrored RESULT.md offsets 1174 and 1909, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Compare type arity, base size, and partial-Steiner hypothesis",
+          "title": "A sharp Pasch-overlap penalty for one-point types in the Fano-free homogeneous hypergraph",
+          "trigger": "Exact same homogeneous hypergraph with neighboring extension arity"
+        },
+        {
+          "assessment": "Tetrahedron-free finite inequality and asymptotic correction; no Fano bow-tie implication",
+          "evidence": [
+            "Fixed core plus isolated old vertices."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-strictly-positive-second-order-pair-type-correction-for-every--e4fc66906286",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Compare forbidden object and base family",
+          "title": "A strictly positive second-order pair-type correction for every fixed tetrahedron-free hypergraph core",
+          "trigger": "Ordered pair-type correction in a closely related homogeneous hypergraph"
+        },
+        {
+          "assessment": "Different induced-matching geometry and forbidden structure",
+          "evidence": [
+            "Counts by mutual-link sets for disjoint old triples in the tetrahedron-free class."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-phase-sensitive-mutual-link-perturbation-over-disjoint-tet--aca820cf2535",
+          "material_read": "Mirrored RESULT.md Finding near offset 809",
+          "method": "Compare base geometry and omission class",
+          "title": "Sharp phase-sensitive mutual-link perturbation over disjoint tetrahedron-free hyperedges",
+          "trigger": "Same observable and pair arity"
+        },
+        {
+          "assessment": "Distinct one-point tetrahedron problem",
+          "evidence": [
+            "50 one-point types rather than 49 over a four-point base with a shared old pair."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-overlap-matching-bounds-for-one-point-types-of-the-generic--5ae2c90229c3",
+          "material_read": "Mirrored RESULT.md near offset 1469",
+          "method": "Compare intersections, arity and forbidden object",
+          "title": "Sharp overlap-matching bounds for one-point types of the generic tetrahedron-free 3-hypergraph",
+          "trigger": "Earlier exact overlap correction in a small named hypergraph base"
+        },
+        {
+          "assessment": "Abstract concerns typical global structure, not this exact probability",
+          "evidence": [
+            "Asymptotic bipartite structure of Fano-free hypergraphs."
+          ],
+          "identifier_or_url": "Person–Schacht, paper under the stated title",
+          "material_read": "p. 1 abstract",
+          "method": "Compare asymptotic subject with fixed finite conditioning; no whole-document noncoverage inference",
+          "title": "Almost all hypergraphs without Fano planes are bipartite",
+          "trigger": "Primary exact-class Fano-free literature search hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and two-completion argument",
+        "P2586 global count",
+        "Resultary 107723e9a6d2 one-point comparison"
+      ],
+      "rationale": "Five is not an arbitrary truncation: it is exactly the earliest base size where two-point restrictions can coexist with completely unrestricted one-point extensions. A single minimal old-edge configuration explains the onset, together with the sharp and nonobvious localization of the mutual-link bias to just one bit while the others remain fair and independent. The value is that structural boundary and law, not the standalone count of known Fano relabellings or the arithmetic for total variation.",
+      "residual_risks": [
+        "No asymptotic inference or classification of the law on arbitrary denser bases is made."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,21 +1,21 @@
-# Scientific review: rooted-forest Walsh nullities on complete bipartite graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The root-set generating determinant is reconstructed by the augmented-vertex matrix-tree bijection, including signed substitutions. The bipartite block determinant yields the exact character multiplier for every pair of shore weights. Character multiplicities follow from the Boolean Fourier basis. Three independent arithmetic arguments establish the even-even obstruction, uniqueness of the odd balanced zero weight pair, and uniqueness of the consecutive-shore zero character. Stirling's formula establishes the asymptotic ratio. The standalone integer verifier checks 33,444 assertions, including independently enumerated spanning rooted forests and all Walsh characters for six small graphs. The infinite conclusions rely on the proof, not finite enumeration.
+PASS
 
-## Originality — PASS, bounded comparison
+Deleting the new vertex from a spanning tree of the root-weighted augmentation designates exactly one root per forest component, so the matrix-tree cofactor is the multiaffine root enumerator. Substitution of signs computes the unnormalized Walsh sum with no positivity requirement. In the bipartite Schur complement the off-diagonal block has rank one and both diagonal blocks are invertible for m,n≥2, yielding the determinant prefactor and the product of the two reciprocal-diagonal sums. Its vanishing gives the exact zero-product equality; each weight pair contributes binomial multiplicity (eigenvalues for different pairs need not be distinct). The even-even equality is blocked modulo 2. At balanced odd d, write Q=d²−1 and c=(d−1)/2. Same-side weights cannot give equality except at (c,c); opposite displacements a and −b require Q(a−b)=2ab with 0<2ab≤Q/2, impossible. Stirling gives 2/(πd) for the resulting relative nullity. For d,d+1 the zero equation determines v=(d²−1)u/[d(d+2)−2u] where u=d−x and v=y. For 1≤u≤d, the positive difference u−v is strictly below one: the denominator is at least d², and u(2d+1−2u)≤(2d+1)²/8<d² for d≥2. Thus only u=v=0 remains, giving exactly one zero character. The computation supports, but does not prove, the all-size classifications.
 
-The complete rooted-forest count by shore root cardinalities is explicitly known in Jin–Liu (2004), Theorem 2.3, and in Székely (2004), Theorem 1. Chebotarev–Shamis's matrix-forest theorem provides the underlying determinant. Those results determine the unsigned root distribution, and are fully credited. Inspected primary full text does not state the signed root-set Walsh zero locus, the balanced central-binomial nullity, or uniqueness of the consecutive-shore zero character. Comparable indexed Fourier results concern different Fourier coordinates or different graph families. The mathematical addition is the character-spectrum classification and the all-dimensional Diophantine noncancellation arguments, not a new rooted-forest enumeration or a new general determinant identity.
+## originality
 
-Residual priority risk: a prior unindexed signed-weight evaluation, or an application of the published general root-count formula not found by the searches, could already contain the same zero classification. These results should be independently checked before public originality is asserted without qualification.
+PASS
 
-## Value — PASS
+The Walsh transform is a direct signed evaluation of a classical root enumerator and uses a standard rank-one determinant reduction. The substantive distinct contribution is the exact multiplicity and uniqueness of the balanced and consecutive-shore zeros. No prior statement or stronger root-count theorem inspected here supplies those arithmetic conclusions without the new exclusion arguments. Historical priority remains bounded.
 
-A root-set distribution is a canonical observation of a random spanning rooted forest, and its Walsh zeros determine whether XOR convolution can recover arbitrary signals. The result exhibits three distinct arithmetic regimes across an infinite graph family: exact invertibility for even-even shores, a central-binomial-squared rank defect for odd balanced shores, and exactly one unobservable mode for consecutive shores. The odd-balanced lost fraction is asymptotic to \(2/(\pi d)\), rather than a fixed fraction. These are natural sharp rank classifications, not isolated small examples or merely rewritten forest counts.
+## value
 
-## Scope and limits
+PASS
 
-The general formula gives an exact computable nullity for every \(m,n\ge2\), but a simple residue-class singularity test for every unbalanced mixed-parity case is not claimed. No smallest nonzero spectral gap or condition-number theorem is claimed. Independent audit remains outstanding.
+The exact kernel measures lost Walsh modes in a natural forest-root convolution. Proving zero loss for both even shores, an explicit central-binomial defect for odd balanced shores, and one lost mode for consecutive shores exposes distinct behavior on natural infinite families, useful beyond raw root enumeration.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:17:15.826110Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The fair creation bits can be recovered by ordering the uniform weights by increasing distance to 1/2; the sign of the newest weight relative to 1/2 dominates all sums with earlier weights, and each sign is fair conditional on the distances. Ross's maximum tail excess is exactly the maximum of the reversed sign walk including time 0; for even n the matching deficiency differs from that maximum by at most one. Centering the weighted bit sum for the edges gives exactly minus one half the sum of the same walk's partial sums. Donsker and the sup/integral continuous mapping give the joint limit with the stated centering and sign. The normalized fourth moments are bounded by Doob and the independent weighted-sign moment formula, giving uniform integrability through second moments. Independently, let h(t)=t-t²/2. Then B−3hA is independent of A (joint Gaussian with zero cross-covariance and Var(A)=1/3); one-dimensional Gaussian integration by parts conditional on this residual identifies Cov(M,A) as E[h(T)]. The supremum derivative is h(T) by a.s. uniqueness of the argmax and is bounded; arcsine moments give 5/16. This gives -5/32 after the edge factor, and division by the two nonzero limiting variances in standard-deviation form gives the stated correlation. Conditional monotonicity in each bit gives nonpositive covariance with each bit; changing the last bit when all earlier bits are 1 gives strictly negative covariance even at n=2. VERIFICATION.md and verify.py were inspected, not executed. The finite graph enumeration does not certify the limit or its moments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 6.6 allows biased creation bits with a corresponding weight law and identifies the symmetric uniform case. This covers finite graph model equivalence; the inspected population and degree-limit passages do not supply the mixed subgraph/matching fluctuations.",
+          "Ross gives a deterministic identity at all orders, stronger than the even-order matching formula alone; it has no edge-statistic component."
+        ],
+        "reasoning": "A representation of the entire graph can be used as an input, but is not by itself a joint invariance principle with the evaluated graph covariance. The conditional Brownian-meander law is not a dominating model statement that can be specialized to the unconditional limit.",
+        "searches": [
+          "Diaconis–Holmes–Janson arXiv:0908.2448, §§6.3–6.4 Corollaries 6.5–6.6",
+          "Reilly–Scheinerman §3 and Ross §4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Ross arXiv:1111.7157; Reilly–Scheinerman EJC 16(1) R130; Diaconis–Holmes–Janson arXiv:0908.2448; Resultary d5ca94a0b708"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The creation bits and the maximum matching identity are fully known. The sum weighting for edges is elementary, but comparison of the two observables requires using the reversed bits in both, not just invoking their separate laws.",
+          "An additional Gaussian maximum/area covariance calculation under the common motion is required to get the nonzero covariance constant; a Donsker limit alone would also not establish second-moment convergence."
+        ],
+        "reasoning": "The same-walk joint convergence is a short application of known inputs once the coupling is identified. The full joint fluctuation and exact dependence assertion is not a restatement or numerical specialization of the inspected prior matching and edge results.",
+        "searches": [
+          "Ross Prop. 4.3 compared with Reilly–Scheinerman §3.2 and Thm. 3.7; Resultary d5ca94a0b708 Proof §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ross's deterministic formula uses the same maximum over creation-sequence tails. Reilly–Scheinerman Theorem 3.7 identifies the fair-bit and iid uniform-weight models; the weak versus strict threshold is immaterial almost surely.",
+          "The same-day conditional graph result has a meander limit, not a maximum of the unconditional Brownian motion jointly with its signed area."
+        ],
+        "reasoning": "Reinterpreting the deficiency as a rounded walk maximum is known, but matching and edge marginals do not fix their coupling. From the weighted bit sum, summation by parts identifies exactly which area couples to the maximum, including the sign and the normalization.",
+        "searches": [
+          "Ross arXiv:1111.7157, maximum matching in threshold graphs as maximum tail excess",
+          "Reilly–Scheinerman EJC 16(1) R130, creation sequence versus uniform weight threshold graphs",
+          "Resultary matching deficiency and edge-count coupling, Hamiltonicity-conditioned d5ca94a0b708"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record itself is not an independent exact hit. The distinct same-day record studies conditional clique and edge fluctuations; the cited exact statistics for matching size and edges in the unconditional model are marginal."
+        ],
+        "reasoning": "An exact law for either marginal or an edge statistic conditioned on Hamiltonicity neither tabulates this joint law nor determines -5/32. No exact match was established in the inspected results; this is not a claim that every table has been searched.",
+        "searches": [
+          "Resultary threshold graph matching deficiency, edge count and Brownian coupling; d5ca94a0b708 and frozen 0cf251055999",
+          "Ross §4 known exact matching-number law; Reilly–Scheinerman graph statistics"
+        ]
+      },
+      "rationale": "Pass for the unconditional joint limit for maximum-matching deficiency and the centred edge count in the same graph draw, and the resulting exact asymptotic covariance and correlation. The individual graph representations, matching formula and marginal limits are prior or standard; no standalone priority is assigned to Brownian maximum/area identities as such.",
+      "residual_risks": [
+        "Specialized joint-functional or threshold-graph fluctuation work beyond the inspected sources could contain a stronger result. No historical uniqueness is asserted for the Brownian covariance considered separately."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the tail-excess identity and matching marginal, not the joint assertion",
+          "evidence": "h(s) is the maximum tail excess of zeros; the matching number equals floor((n−h(s))/2).",
+          "identifier_or_url": "https://arxiv.org/pdf/1111.7157",
+          "material_read": "§2 pp.3–4 around PDF-text offset 7600; §4 Prop. 4.3 p.6 around offset 9500",
+          "method": "Read original OA PDF passages",
+          "title": "Further Properties of Random Threshold Graphs",
+          "trigger": "Exact deterministic matching interpretation and distribution"
+        },
+        {
+          "assessment": "Covers the fair-bit graph law and related graph statistics",
+          "evidence": "Theorem 3.7 equates the fair creation-sequence and uniform-weight models.",
+          "identifier_or_url": "https://doi.org/10.37236/219",
+          "material_read": "§3.2 and §3.4 Theorem 3.7, pp.8–9 around PDF-text offset 19850",
+          "method": "Read journal OA PDF passages",
+          "title": "Random Threshold Graphs",
+          "trigger": "Prior exact model identification and edge statistics"
+        },
+        {
+          "assessment": "Model representation, not the audited same-graph covariance",
+          "evidence": "Corollary 6.6 allows the biased sign distribution and specializes to uniform weights at p=1/2.",
+          "identifier_or_url": "https://arxiv.org/abs/0908.2448",
+          "material_read": "Corollaries 6.5–6.6 and beginning of §6.4, PDF pp.32–33 around offset 92400",
+          "method": "Locate and read OA PDF text by offset",
+          "title": "Threshold Graph Limits",
+          "trigger": "Broader threshold graph representation and possibility of prior degree or process limits"
+        },
+        {
+          "assessment": "Related edge-process calculation in a conditional law, not a match; priority not inferred from date",
+          "evidence": "Conditions on Hamiltonicity and derives a Brownian-meander limit for clique and edge statistics.",
+          "identifier_or_url": "Resultary d5ca94a0b708",
+          "material_read": "RESULT.md Finding and Proof §1 from offset 0",
+          "method": "Read local mirror passage",
+          "title": "Conditional spectral bias and local-global independence in Hamiltonian threshold graphs",
+          "trigger": "Material same-day overlap on the model, Brownian functionals and edge fluctuations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Edge count and unmatched-vertex count are natural graph invariants measured on the same sample. The exact asymptotic dependence is substantial (correlation near -0.898) despite the very different limiting marginal shapes. The common-walk representation explains the effect at the appropriate two scales and the strict finite-order sign connects it to the original model, not just to an abstract Brownian moment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:13:10.048612Z",
+  "axes": {
+    "correctness": {
+      "limitations": "Stationary, independent angle and signed Gaussian speed, with a fixed nonzero finite positive gapped spectrum. The theorem does not validate sign at finite times or for spectra without a gap. A zero-displacement case cannot be normalized.",
+      "rationale": "At D_r=1 use ordered gaps u,v,w and P=e^(−u−w). The angular four-point is P(1/4+e^(−4v)/8) by the zero-total-charge constraint, while the direct and crossed products of angular two-points are P/4 and Pe^(−2v)/4. Expand the independent speed by Wick and subtract each product using its paired speed factors. For the constant-speed coefficient the resulting integrand is P(e^(−4v)/8−e^(−2v)/2), which integrates with factor 24 to −21/4. Put L(x)=6/x+3/(x+4)−6/(x+2). The direct and crossed contributions to the λμ² kernel sum to 3/[2(1+q)]+(q+2)² L(q)/(q+1)². The λ² kernel is 3/[4(q+1)(r+1)]+(q+r+2)² L(q+r)/[2(q+1)²(r+1)²]; here the two crossed pairings give the outer factors 1/[(q+1)(r+1)] and the symmetrized mean of (q+1)^−2 and (r+1)^−2. Combining fractions gives the stated a and b, so a pair of distinct atoms contributes 2b(q,r), not b(q,r). Every surviving term is exponentially bounded in all three gaps using the spectral gap and finite measure, also after multiplying by u+v+w. Thus the exact finite-window weight (t−u−v−w)_+ gives K₄t+O(1) and the gap rescaling restores D_r^−3. Integrating the two-point correlation and adding independent thermal variance gives K₂; thermal noise adds no fourth cumulant. Positive kernels give a single positive root for μ≠0, and no sign change for μ=0, λ>0. For K₂>0 the normalized cumulant at the root is O(t^−2).",
+      "replay_paths": [
+        "Frozen RESULT.md, lines 48–81; independent analytic ordered-gap coefficient expansion is given in the rationale. VERIFICATION.md and verify_spectral.py were inspected, not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Peruani–Morelli analyze second-order transport; D_eff in that comparison is half the asymptotic variance rate.",
+          "arXiv:2112.13415 models the speed-noise contribution as Brownian increments and evaluates radial moments, not stationary Gaussian speed with an exponential spectrum.",
+          "The trapped binary-speed threshold (1e2722220628) is a different active-particle process and observable."
+        ],
+        "reasoning": "Neither wider dimensional coverage for a single OU rate nor other fourth-moment results with different driving processes include the arbitrary positive spectral mixtures in this theorem.",
+        "searches": [
+          "arXiv:0705.4646, transport moments",
+          "arXiv:2112.13415, model and fourth moments",
+          "Resultary cross-model fourth cumulants and threshold searches"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_spectral.py",
+        "arXiv:2108.12228, 2112.13415, 0705.4646",
+        "Resultary 01663bcd59b1, 15c61d1928ee, 1e2722220628"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact one-rate hierarchy permits extraction of the one-atom result. Its stationary spectral specialization has b(q,q)=3(q³+7q²+14q+16)/[4q(q+1)³(q+2)].",
+          "None of the inspected prior statements evaluates the mixed term 2b(q,r) for q≠r; this term is necessary for any general mixture sign result."
+        ],
+        "reasoning": "Do not infer positivity for all mixtures from the diagonal or from transient plots. The main added calculation is uniform off-diagonal positivity and the integrated consequence on the stated measure class.",
+        "searches": [
+          "arXiv:2108.12228, model equations and §§7.2–7.3",
+          "arXiv:2112.13415, Eq. (18)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2108.12228 has independent signed OU speed, orientation diffusion and thermal motion. In the planar specialization the stationary law gives q=γ_v/D_r and λν=(D_v/γ_v)δ_q.",
+          "The journal/preprint kurtosis passages concern radial moments, a specified initial orientation and speed, and transient crossovers; longitudinal stationary cumulants require a normalization and initialization comparison."
+        ],
+        "reasoning": "The one-atom restriction is equivalent at the level of stationary dynamics, not a separate new model. A radial kurtosis expression or transient temporal sign change is not automatically the longitudinal t-linear cumulant sign as intensity varies.",
+        "searches": [
+          "Primary lookup: active Brownian motion with speed fluctuations fourth moment long-time kurtosis Ornstein–Uhlenbeck Shee Chaudhuri arbitrary dimensions",
+          "Resultary: Gaussian-spectrum speed, ABP fourth cumulant and kurtosis threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact indexed formulas concern an OU-product drift, matched-MSD dimers with different stiffness noise, or a trapped binary-speed run-and-tumble particle. None of those inspected statements identifies this kernel.",
+          "The one-rate moment hierarchy is an exact precedent but supplies only a diagonal specialization for this comparison."
+        ],
+        "reasoning": "A finite list of one-rate formulas, even all diagonal evaluations, cannot fix a symmetric kernel off the diagonal. For each distinct pair the exact test of equivalent coverage is the mixed coefficient of the two intensity weights, or its general implication.",
+        "searches": [
+          "Resultary ranked fourth-cumulant/kernel/threshold results 01663bcd59b1, 15c61d1928ee and 1e2722220628",
+          "arXiv:2108.12228, §§7.2–7.3"
+        ]
+      },
+      "rationale": "Credit the one-OU physical model, earlier exact moment methods, and standard cumulant identities. Pass the distinct evaluated off-diagonal positive coefficient, extension to arbitrary finite gapped positive spectra, and the resulting unique long-time sign threshold for the nonzero mean case. Do not claim the one-OU setting itself or transient kurtosis reversals as new.",
+      "residual_risks": [
+        "Bounded comparison, not a priority certification. Broad general cumulant formulae or unlocated multirate calculations may be relevant.",
+        "The exact one-rate moment precedent is material coverage of the physical and mathematical special case even absent the same printed longitudinal formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial diagonal and methods overlap; no examined off-diagonal kernel",
+          "evidence": "OU variance D_v/γ_v; exact fourth-moment hierarchy and radial transient kurtosis. A longitudinal rate is not printed in the passages read.",
+          "identifier_or_url": "arXiv:2108.12228; DOI 10.1088/1742-5468/ac403f",
+          "material_read": "pp. 4–5 (model); §7.2 p. 20; §7.3 and discussion pp. 21–23",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Active Brownian motion with speed fluctuations in arbitrary dimensions: exact calculation of moments and dynamical crossovers",
+          "trigger": "Closest exact four-moment predecessor, identical one-rate OU dynamics"
+        },
+        {
+          "assessment": "Different speed noise and observable",
+          "evidence": "Propulsion with a Brownian speed increment and a radial fourth-moment result.",
+          "identifier_or_url": "arXiv:2112.13415",
+          "material_read": "pp. 2–3 model and p. 6, §IV Eq. (18)",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Self-propulsion with speed and orientation fluctuation: exact computation of moments and dynamical bistabilities in displacement",
+          "trigger": "Exact fourth moments and displacement kurtosis with speed noise"
+        },
+        {
+          "assessment": "Second-order precedent",
+          "evidence": "The equations inspected concern the MSD and effective diffusivity, not a cross-frequency fourth cumulant.",
+          "identifier_or_url": "arXiv:0705.4646",
+          "material_read": "pp. 3–4, transport equations",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Self-propelled particles with fluctuating speed and direction of motion",
+          "trigger": "Transport in the fluctuating speed and direction model class"
+        },
+        {
+          "assessment": "Thematic, not same model or coefficient",
+          "evidence": "Respectively OU-product drift, matched-MSD stiffness-noise dimers, and trapped binary-speed tumbles.",
+          "identifier_or_url": "Resultary 01663bcd59b1, 15c61d1928ee, 1e2722220628",
+          "material_read": "Primary findings and scope passages for the three hits",
+          "method": "Local indexed mirror",
+          "title": "Related indexed active-particle fourth-order findings",
+          "trigger": "Closest local exact OU and sign-threshold matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit positive mixed term answers a question that checking one relaxation time cannot settle: whether combining modes preserves a single reversal as speed variance increases. The theorem handles continuous spectra and explains the disappearance of the inverse-time kurtosis term at the unique nonzero-mean threshold.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

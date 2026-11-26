@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:55:59.979477Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The central identities are correct: exchangeability makes the average 1/T and gives a common diagonal v and off-diagonal b. The fixed sum forces b=−v/(T−1), so pushing the covariance through the matrix of gradients gives vT/(T−1) times the centered scatter; the trace and the pairwise sum agree by expanding centered squares. The positive-v range and kernel claims hold, and λ_i²≤λ_i with equality exactly for binary coordinates proves that uniform one-hot is uniquely maximal for v. However, Finding lines 90–105 makes two unconditional claims that are false under the stated assumptions. With T=2, g₁=0, g₂=1 and Λ=(1/2,1/2) deterministically, the gradients differ but v=0 and the covariance has rank zero, not rank one. With equal task gradients, deterministic uniform and uniformly one-hot weights give the same zero aggregate covariance, so uniform one-hot is not the unique law maximizing Cov(Z) as stated (it uniquely maximizes v, or Cov(Z) when the scatter is nonzero). The tight-frame characterization of nontrivial noise on the centered-gradient span likewise needs v>0: deterministic uniform weights give no noise even for g=(2,0),(−1,1),(−1,−1), whose scatter diag(6,2) is not scalar on its span. The NumPy checker was inspected, not executed; it selects v>0 in its two-task test and does not test uniqueness at zero scatter.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Fang give Var(∑ᵢXᵢπ(i))=n⁻¹∑ᵢⱼσᵢⱼ²+(n−1)⁻¹∑ᵢⱼcᵢⱼ² for uniform π independent of an array with row- and column-centered means. Deterministic arrays are allowed. Cheng's n-normalized nonnegative exchangeable weights are the same finite-weight setup under W=TΛ; the inspected setup alone is not an explicit covariance theorem."
+        ],
+        "reasoning": "Chen–Fang's formula allows general centered arrays, not just the rank-one centered array produced by a projection of the RLW gradients and one realization of its weights. That earlier general theorem is decisive.",
+        "searches": [
+          "Chen–Fang arXiv:1111.3159v5, Theorem 1.1, equation (1.2)",
+          "Cheng arXiv:1109.4204v2, Section 2.2, W1–W2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Chen–Fang arXiv:1111.3159v5",
+        "Lin et al. arXiv:2111.10603v1",
+        "Cheng arXiv:1109.4204v2",
+        "Bayesian-bootstrap Resultary record",
+        "Præstgaard–Wellner lawful access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fix Λ and an independent uniform permutation π; the permuted Λ has the same unconditional law by exchangeability. For each projection u, use the deterministic array cᵢⱼ=⟨u,gᵢ−ḡ⟩(Λⱼ−1/T) conditional on Λ. Its row and column sums are zero. The conditional variance in equation (1.2) is the product of the sums of the two squared factors divided by T−1 and the conditional mean of the centered projection is zero."
+        ],
+        "reasoning": "Averaging the second squared sum gives Tv; polarization then gives precisely the frozen matrix. The range and kernel follow from a Gram matrix, isotropy on its nonzero span is the tight-frame identity, and the maximal weight variance and equality law follow from x²≤x on [0,1] and exchangeability. The RLW paper already identifies the uniform single-task sampling law, without a claim of maximality.",
+        "searches": [
+          "Chen–Fang arXiv:1111.3159v5, Theorem 1.1 part (1)",
+          "Lin et al. arXiv:2111.10603v1, p. 4 constrained-Bernoulli construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day Bayesian-bootstrap record gives Var(M)=μ₂/(N+1) for a scalar weighted mean of fixed data under Dirichlet(1,…,1) weights. The original RLW paper uses the constrained-Bernoulli one-task update; the inspected sections analyze other aspects, not this scatter formula."
+        ],
+        "reasoning": "The Dirichlet formula is an exact special case but does not cover arbitrary exchangeable weights or a full vector scatter. The bootstrap representation prompts the more general permutation-array comparison, which does cover these.",
+        "searches": [
+          "Resultary: RLW random loss weighting task gradient covariance disagreement scatter",
+          "Resultary: exchangeable simplex random weights covariance weighted sum fixed vectors",
+          "Resultary: Præstgaard Wellner exchangeably weighted bootstrap covariance normalized weights",
+          "Resultary: Liu random weighting bootstrap covariance exchangeable weights"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Bayesian-bootstrap record gives an exact prior moment entry under the standard uniform Dirichlet law, not a numerical table. The permutation variance identity is symbolic for all T and eligible arrays."
+        ],
+        "reasoning": "A finite table of RLW distributions cannot exhaust the simplex laws and is not the appropriate covering object. The exact scalar special case is genuine overlap, and the general symbolic variance theorem covers the remaining weight laws after conditioning and permutation.",
+        "searches": [
+          "Resultary: exchangeable simplex random weights covariance weighted sum fixed vectors",
+          "2026/10/13/SCOPE-exact-bayesian-bootstrap-coupling-of-weighted-mean-and-variance--5810f04cc5f5",
+          "Chen–Fang equation (1.2)"
+        ]
+      },
+      "rationale": "Even after correcting the degeneracies, the central finite-weight covariance identity is a direct corollary of a published, more general uniform-permutation variance formula. The fact that the RLW paper uses the weights without locally restating this covariance does not remove that coverage. The remaining support, tight-frame and extremality observations add only immediate algebraic consequences and a scalar bounded-variance bound.",
+      "residual_risks": [
+        "The Præstgaard–Wellner full text was not available in the inspected routes; explicit statements there remain unresolved.",
+        "The bounded searches do not establish priority for an optimizer-specific exposition. The mathematical coverage here rests on the verified general variance theorem, not on a negative search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General prior variance theorem; gives the central claim by conditioning on the weights and using deterministic arrays.",
+          "evidence": "Equation (1.2) is the exact variance for X with independent entries and centered means, paired via a uniform independent π; deterministic X yields the sum-of-squares term alone.",
+          "identifier_or_url": "https://arxiv.org/pdf/1111.3159",
+          "material_read": "Theorem 1.1 part (1), paper p. 2, equation (1.2), and header",
+          "method": "OA literal locate and bounded original PDF-text read at offset 6628",
+          "title": "On the error bound in a combinatorial central limit theorem",
+          "trigger": "Exact general variance for assignment by a uniform permutation"
+        },
+        {
+          "assessment": "Same RLW application and exact one-task scheme, not itself used as a source for the general covariance theorem.",
+          "evidence": "Constrained Bernoulli normalizes by the sum, rather than softmax, and exactly one task participates per update.",
+          "identifier_or_url": "https://arxiv.org/pdf/2111.10603v1",
+          "material_read": "PDF pp. 4–5, weighting algorithm and analysis opening; pp. 4–5 around offsets 16600 and 19600",
+          "method": "Bounded OA primary-source reading",
+          "title": "Reasonable Effectiveness of Random Weighting: A Litmus Test for Multi-Task Learning",
+          "trigger": "Defining RLW law and its one-hot option"
+        },
+        {
+          "assessment": "Same weight axioms at finite T after rescaling; the inspected passages concern bootstrap moment consistency, not an explicit gradient formula.",
+          "evidence": "Conditions W1 and W2 are exchangeability, nonnegativity and fixed total n.",
+          "identifier_or_url": "https://arxiv.org/abs/1109.4204v2",
+          "material_read": "Abstract and Section 2.2, pp. 3–4",
+          "method": "Bounded OA primary-source reading",
+          "title": "Moment Consistency of the Exchangeably Weighted Bootstrap for Semiparametric M-Estimation",
+          "trigger": "Generic exchangeable constant-sum weights"
+        },
+        {
+          "assessment": "Exact scalar uniform-Dirichlet special case, not the full theorem; directory date does not determine priority.",
+          "evidence": "Var(M)=μ₂/(N+1) under Dirichlet(1,…,1).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-bayesian-bootstrap-coupling-of-weighted-mean-and-variance--5810f04cc5f5/RESULT.md",
+          "material_read": "Statement and weighted-mean variance entry",
+          "method": "Local-mirror original statement inspection",
+          "title": "Exact Bayesian-bootstrap coupling of weighted mean and variance",
+          "trigger": "Exact covariance overlap with fixed observations under simplex weighting"
+        },
+        {
+          "assessment": "An explicit formula there was not determined; not needed for the implication verdict.",
+          "evidence": "Relevant original passages were not retrieved from the attempted routes.",
+          "identifier_or_url": "Præstgaard–Wellner, Annals of Probability (1993)",
+          "material_read": "No readable original full text retrieved",
+          "method": "Lawful DOI and Project Euclid OA PDF attempts",
+          "title": "Exchangeably weighted bootstraps of the general empirical process",
+          "trigger": "Original general exchangeable-bootstrap reference"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The covariance interpretation can be useful for explaining RLW, but it is a direct reuse of a known exact permutation variance, followed by trace and Gram-matrix identities. The coordinate-variance endpoint is an elementary bounded-variable inequality and the attaining optimizer is an already described special case. Correcting the degenerate cases would improve exposition but would not leave a distinct valuable mathematical result to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:34:08.117855Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, definitions and amplitudes lines 27–57, analysis lines 59–123; VERIFICATION.md and verify.py inspected, not executed",
+        "Independent analytic reconstruction of constants, derivative asymptotics and compact-uniform tail bounds"
+      ],
+      "rationale": "For the defined one-sided integral, v_p²=S_p′²/(2ζ(p)S_p). Put L=log t, k_t=(2ζ(3)/(γtL))^(1/2), and H_ε(x)=∫_0^x exp(−εv)dv. Splitting the two sums at n≤1/k gives leading terms k²H_ε(log(1/k))/2 and kH_ε(log(1/k)), with errors O(k²+k^(2+ε)) and O(k+k^(1+ε)). At k=k_tu, H_(s/L)/L tends locally uniformly to Φ(s)/2. Thus the collision exponent tends to Φ(s)u² and the moving velocity square divided by L tends to Φ(r)/(2ζ(3)). To justify uniform tails, for k≤t^(−1/4) the lower harmonic sum gives H_ε≥c_K L for |ε|≤K/L, hence an exp(−c_Ku²) bound. On k≥t^(−1/4) the n=1 collision term gives exp(−c√t). The derivative split and the sum lower bound give v²≤C(1+H_ε) for small k, using exp(−εx)≤1+|ε|H_ε(x); at u≤1 its L-normalized bound is C_K(1+|log u|)u^(−1/2) for large t, and at u≥1 it is bounded. For fixed δ in (2,3), separate convergent Riemann sums for Sδ and Sδ′, with integration by parts on their coefficients, give v²∼Zδ k^(δ−3), an integrable power; at and above 3 use the logarithmic and finite-second-moment limits. These bounds justify the Gaussian/Mellin integration uniformly on compact parameter sets, which recovers all fixed amplitudes and both ratios with the stated factors of 2. No quadrature is needed to establish the limits.",
+      "residual_risks": [
+        "The assertion is solely for this deterministic one-sided spectral integral, not for the full microscopic stochastic current or an exchange of infinite-volume and large-time limits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Andreucci et al. §5.1 explicitly limit the leading power expansions to noninteger α and δ, and §5.2 classifies fixed nonmarginal powers. Tamaki–Saito derive interaction branches above, at and below δ=3 with no variable long-range collision exponent."
+        ],
+        "reasoning": "Those regime results do not supply the log-corrected amplitude trichotomy for α=3, nor bounds uniform in the moving exponents. The present result does not credit itself for the nonmarginal power branches or the prior interaction logarithm.",
+        "searches": [
+          "Primary literature lookup for inverse-cube long-range kinetic transport and near-critical crossover",
+          "arXiv:2409.11832v1 §§5.1–5.2, Eqs. (41)–(46)",
+          "arXiv:1906.08457v1, model assumptions and Eq. (40)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked searches and the two catalog findings above",
+        "arXiv:2409.11832v1, inspected kinetic and nonmarginal passages",
+        "arXiv:1906.08457v1, inspected setup and Eq. (40)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior model integral is a starting formula; its reported fixed-exponent limits do not capture both terms that combine into (1−e^(−ε log(1/k)))/ε. The interaction-only result lacks a collision exponent to tune."
+        ],
+        "reasoning": "The needed uniform retained-term expansion and resulting compact-uniform integral asymptotics are not supplied by taking α or δ to 3 in fixed-exponent powers. The two roles of Φ, a multiplicative velocity factor and a Gaussian width, also explain why the joint profile differs from the fixed-δ collision profile.",
+        "searches": [
+          "arXiv:2409.11832v1 §§4.2, 5.1–5.2 and Appendix B as cited",
+          "arXiv:1906.08457v1 Eq. (40) and nearest-neighbor exchange setup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Andreucci et al. give the same diagonal kinetic mechanism and mode integral up to temperature, one-sided and wave-number conventions. Tamaki–Saito give a critical interaction log with nearest-neighbor exchanges."
+        ],
+        "reasoning": "A changed normalization is not a novelty claim. The short-range exchange comparator has a k² collision rate rather than k² log(1/k), giving t^(−1/2)log t at the interaction endpoint in place of the present √(log t/t).",
+        "searches": [
+          "Resultary searches for inverse-cube spectral transport, marginal collision relaxation and critical amplitudes",
+          "arXiv:2409.11832v1 §4.2 Eqs. (27)–(34)",
+          "arXiv:1906.08457v1 §III.3.1 Eq. (40)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November catalog finding has the same scalar Φ for inverse-square iterates of a sigmoid interval map, appearing in a log N correction. The October catalog finding treats Lᵖ norms of mollified-ball Fourier kernels. No same spectral crossover was returned by the ranked searches."
+        ],
+        "reasoning": "A shared elementary critical-window function is not a match to its role in a product/quotient of two different spectral factors. The mapped iteration and Fourier-norm quantities are not this kinetic observable under a change of variables.",
+        "searches": [
+          "Resultary searches for fixed-δ collision crossover, double-marginal spectral crossover, and the critical amplitude",
+          "2026/11/17/SCOPE-an-exponentially-weighted-logarithmic-crossover-at-the-neutral-f--ec7e4796f3ca",
+          "2026/10/11/SCOPE-a-universal-logarithmic-crossover-for-mollified-ball-fourier-ker--733954c45518"
+        ]
+      },
+      "rationale": "The kinetic integral and interaction-only logarithmic endpoint are prior work. Pass for the inverse-cube collision endpoint in this integral and the compact-uniform crossover when one or both exponents are tuned within 1/log t. The strongest inspected same-model analysis excludes the integer exponents from its leading fixed-exponent classification, and the strongest inspected endpoint comparator keeps the exchange short range.",
+      "residual_risks": [
+        "The search does not rule out another uniform two-parameter theorem or equivalent asymptotic outside the inspected coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the kinetic starting point and nonmarginal powers; does not give the crossover in the inspected passages",
+          "evidence": "§5.1 expressly restricts its leading power analysis to noninteger α,δ; Eqs. (41)–(46) classify fixed nonmarginal regimes.",
+          "identifier_or_url": "https://arxiv.org/html/2409.11832v1",
+          "material_read": "§4.2 Eqs. (27)–(34), HTML around offset 24500; §§5.1–5.2 around offsets 30225–36018",
+          "method": "Lawful OA original HTML passages",
+          "title": "Thermal transport in long-range interacting harmonic chains perturbed by long-range conservative noise",
+          "trigger": "Same kinetic integral and long-range collision model"
+        },
+        {
+          "assessment": "Prior interaction marginality; different collision model",
+          "evidence": "Nearest-neighbor exchanges; Eq. (40) gives t^(−(δ−2)/2), t^(−1/2)log t, t^(−1/2) below, at and above δ=3 for δ>2.",
+          "identifier_or_url": "https://arxiv.org/abs/1906.08457",
+          "material_read": "Model offsets 4350–7019 and §III.3.1 Eq. (40), offsets 34600–37529",
+          "method": "Lawful OA paper passages",
+          "title": "Energy current correlation in solvable long-range interacting systems",
+          "trigger": "Already derives an interaction-endpoint logarithm"
+        },
+        {
+          "assessment": "Different mathematical observable and use of Φ",
+          "evidence": "Inverse-square sigmoid-map iterates and their finite-horizon log correction.",
+          "identifier_or_url": "2026/11/17/SCOPE-an-exponentially-weighted-logarithmic-crossover-at-the-neutral-f--ec7e4796f3ca",
+          "material_read": "RESULT.md Finding (mirror offset 0)",
+          "method": "Resultary search and local mirror",
+          "title": "An exponentially weighted logarithmic crossover at the neutral fixed point",
+          "trigger": "Same scalar profile in ranked results"
+        },
+        {
+          "assessment": "Analogy, not implication",
+          "evidence": "The observable is an Lᵖ norm of a mollified-ball Fourier kernel.",
+          "identifier_or_url": "2026/10/11/SCOPE-a-universal-logarithmic-crossover-for-mollified-ball-fourier-ker--733954c45518",
+          "material_read": "RESULT.md Finding (mirror offset 0)",
+          "method": "Resultary search and local mirror",
+          "title": "A universal logarithmic crossover for mollified-ball Fourier kernels",
+          "trigger": "Earlier logarithmic critical window"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–57, 94–123; comparison with Andreucci et al. §§4–5 and Tamaki–Saito Eq. (40)"
+      ],
+      "rationale": "The exact spectral integral is motivated by an existing kinetic calculation that leaves out integer-range leading asymptotics. The result fills a boundary of that model and quantifies the scale over which the fixed-power regimes cease to approximate it. In particular, the numerator's enhancement and Gaussian-width suppression can be varied independently, and neither treating both as constants nor independently interpolating the fixed-exponent powers gives the uniform ratio.",
+      "residual_risks": [
+        "Model-level value only; no validation of the complete physical current or experimental crossover is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

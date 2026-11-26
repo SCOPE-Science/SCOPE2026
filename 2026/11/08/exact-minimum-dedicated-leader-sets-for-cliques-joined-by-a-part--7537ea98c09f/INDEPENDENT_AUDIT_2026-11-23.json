@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:19:36.544549Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen statement that the last edge changes the shape/geometry of the optimal placements is misleading as a claim about the sets themselves: the two displayed classifications give exactly the same family on the common labeled vertices. The corrected RESULT, REVIEW, AUDIT and SLOGAN are in repairs/1/ with the supporting package; the frozen files remain intact. Reassessment: if D is the diagonal matching indicator, the clique-symmetric and clique-antisymmetric restrictions are mI-J and mI-J+2D, respectively. For k<m, summing within each clique in the eigenvector equations at an unmatched coordinate forces the two clique sums to zero at eigenvalue m; matched coordinates must then agree. This yields the two independent class constraints and dimension 2m-k-2. Antisymmetric matched sum-zero vectors give dimension k-1 at m+2; the remaining two antisymmetric block-constant modes have trace m+2 and determinant 2k. Their roots are distinct (discriminant at least (m-2)^2+8), avoid 0,m,m+2 and have both class coordinates nonzero. The symmetric m-space and antisymmetric m-space, together, have the required two independent constraints. PBH at the lower bound demands two missing classes of different types, exactly the condition for independent constraint columns (1,1),(1,0),(0,1); this also sees all but at most one of the matched antisymmetric coordinates. For k=m the restrictions are mI-J and mI-J+2I, with 2 distinct from m (m>=3), and both large spaces are detected by observing m-1 distinct pairs. The counts are 2^k(m-k)^2+2k(m-k)2^(k-1) and m*2^(m-1). At k=m-1 the only allowable omissions are both unmatched singletons, or an old matched pair and one singleton. Upon joining the singletons into the new match these are precisely the cases omitting the new pair or an old pair, respectively; both implications preserve the chosen vertices. An independent exact Kalman rank replay (integer Krylov vectors, full rank modulo a prime or exact rational fallback) at repairs' declared m=3..5 checked all 1094 candidate sets, 420 controlling sets, equality of the actual final-edge optimizer families for each m, and the 4/12 zero-forcing split at (3,2). Replay: python replay/1_cliques.py. This checks small graphs only; the block/PBH argument covers all stated m,k. The frozen verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The arXiv paper states an all-member qualitative-class test and reports special cases for paths, cycles, complete graphs and a connection with trees.",
+          "The cited Hsu threshold-graph hypothesis fails: for k<m an unmatched index j gives induced path u_j,u_1,v_1,v_j; for k=m choose three distinct indices i,j,l for u_i,u_j,v_j,v_l.",
+          "The weighted-barbell quantum-search result surfaced in the query is for a single weighted bridge and a different objective."
+        ],
+        "reasoning": "General PBH/critical-set methods furnish a test and multiplicity lower bounds, not a guarantee that coordinate inputs attain the bound or a description of the attaining sets. The two missing-column types and final-edge same-set statement require an additional calculation.",
+        "searches": [
+          "arXiv:1403.4868",
+          "doi:10.1049/iet-cta.2018.5875 (cited comparison)",
+          "doi:10.1049/cth2.12385 (cited comparison)",
+          "Public matched-clique/barbell search"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1403.4868v1 pp. 1–3",
+        "Resultary matched-clique query and published index comparisons",
+        "Public barbell/partial-matching search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The zero-forcing criterion for the entire qualitative class cannot recover the non-zero-forcing PBH placements. A Cartesian-product spectrum in the full matching case does supply eigenvalues; it does not state the partial-matching optimum or compare the actual families across the final edge."
+        ],
+        "reasoning": "Exact classification across partial and complete matching and the final-edge invariance survive. The complete-matching calculation alone is a standard special-matrix argument, not the originality basis.",
+        "searches": [
+          "arXiv:1403.4868 Eq. (5), comparison with (6), Sec. IV PBH",
+          "Resultary matched-clique query above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Monshizadeh–Zhang–Camlibel distinguish fixed ℓ_min(X) from all-matrix ℓ_min(G); their zero-forcing equivalence is about the qualitative class.",
+          "Independent finite witness B_(3,2): 12 PBH optima, of which only 4 zero-force."
+        ],
+        "reasoning": "Matching the underlying graph does not match the matrix quantifier. The exact witness disproves equivalence of the sets of minima. Coherence/grounded-inverse or finite-horizon heat leader optimization also uses a different objective, not PBH injectivity.",
+        "searches": [
+          "Resultary: minimum dedicated Laplacian leader sets two cliques partial matching fixed unit weight controllability optimal PBH zero forcing matched pairs",
+          "Public literature: graph Laplacian two complete cliques joined by partial matching barbell minimum dedicated leaders PBH exact controllability two cliques connected matching spectrum",
+          "arXiv:1403.4868 §§ II–IV"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned this record itself and grounded inverse-square/heat-trace examples for complete bipartite graphs (including 58d772448336 and 5c789fff85ad), not tables of fixed-Laplacian controllability ranks on these clique graphs."
+        ],
+        "reasoning": "Ordinary graph and spectral tables cannot alone determine which coordinates observe each eigenspace. No independent exact table of the required placements was identified in these bounded searches.",
+        "searches": [
+          "Resultary matched-clique fixed-Laplacian query above",
+          "Public graph Laplacian partial-matching/barbell query"
+        ]
+      },
+      "rationale": "Best of knowledge: the exact fixed-unit-Laplacian min-size placement classification and resulting final-edge invariance are not supplied by the inspected strong-structural criterion or by the relevant surfaced records. The repaired corollary is a consequence of the classification, not claimed as an independent invention of a new controllability test. The existence of unlocated equivalent work remains possible.",
+      "residual_risks": [
+        "No claim of global priority; equivalent clique-prism or partial-matching results may use a different name.",
+        "Hsu and Dai comparisons rely on the cited scopes in the frozen package, not independent full-paper exclusions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides general tools and a different matrix quantifier, not this optimal-set classification",
+          "evidence": "Formula (5) separates the network/qualitative problem from the single-matrix definition; Eq. (6) explicitly identifies the fixed Laplacian convention; § IV applies PBH for all X in the class.",
+          "identifier_or_url": "https://arxiv.org/pdf/1403.4868",
+          "material_read": "Accessible arXiv v1 PDF pp. 1–3, §§ I–III and start of IV incl. Eqs. (5),(6) and Lemma IV.1",
+          "method": "Primary PDF text and comparison of fixed-matrix vs whole qualitative class",
+          "title": "Zero forcing sets and controllability of dynamical systems defined on graphs",
+          "trigger": "Closest broad zero-forcing/dedicated-leader alternative"
+        },
+        {
+          "assessment": "The indexed theorem optimizes grounded inverse-square trace on a weighted bipartite graph, not minimum fixed-Laplacian dedicated control",
+          "evidence": "The summary compares two fixed leaders' placements by heat/Green-type trace objective over varying conductance.",
+          "identifier_or_url": "Resultary 58d772448336",
+          "material_read": "Published mathematical index statement only",
+          "method": "Compared graph, objective and quantifiers; no full-paper exclusion inferred",
+          "title": "A vanishing cubic boundary layer in inverse-square leader placement on matching-weighted bipartite networks",
+          "trigger": "High-ranked matching and leader-placement result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two dense communities with a varying number of independent bridges give a natural coordinate-leader problem. The result determines the budget and every allowable optimum on the actual labeled graph, with exact preservation under the final bridge despite changed eigenspaces, and a documented separation from zero forcing. This is not simply tabulation or restating PBH. The false suggestion of changed optimum geometry does not survive into the repair.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

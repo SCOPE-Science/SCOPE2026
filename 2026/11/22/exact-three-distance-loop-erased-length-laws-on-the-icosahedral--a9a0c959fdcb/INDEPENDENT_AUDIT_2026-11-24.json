@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:54:20.119771Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–60; VERIFICATION.md; verify_icosahedral_lerw.py inspected but not run.",
+        "Independent full replay: python3 /workspace/branches/6eae8c6a-3fc5-48ea-887c-e143e882c1ff/independent_contraction_check.py --full",
+        "Kenyon, arXiv:1001.4028, p. 3, for the UST/LERW identity."
+      ],
+      "rationale": "For any specified simple endpoint path, trees containing its edges are in bijection with spanning trees after contracting it; the cofactor at the contracted vertex is precisely the Laplacian principal minor on the vertices outside the path, with parallel edges counted. Different endpoint paths are mutually exclusive in a tree. An exact separate implementation evaluated the minors and exhaustively summed them for all 66 pairs (30, 30, 6 by distance). Every length entry matched, each row summed to the separately computed cofactor 5,184,000, and the rational means and geodesic masses matched. In particular 7/30 < 26/75 < 11/30 gives the asserted nonmonotonicity. The standard UST path/chronological loop-erasure identity applies to the unweighted walk stopped at the fixed endpoint.",
+      "residual_risks": [
+        "The independently written checker uses the same justified contraction identity; it is not a second derivation of that identity. The census is for the unit-conductance graph only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kenyon–Wilson describes in-principle computation of probabilities involving specified path edges or vertices. Peres–Revelle and Schramm focus on scaling. The distinct indexed record evaluates partition polynomials for perfect-matching edge markings."
+        ],
+        "reasoning": "These are general tools, different regimes, or different statistics. Weighting the number of marked edges anywhere in a tree does not give the distribution of the number of edges on a specified path.",
+        "searches": [
+          "arXiv:1107.3377 p. 3; arXiv:math/0410430 p. 1; arXiv:math/9904022 p. 1",
+          "Resultary: five weighted icosahedral spanning-tree ensembles, record 721fa7244a39"
+        ]
+      },
+      "checked_sources": [
+        "Resultary searches by title, table, equivalent statistic and geodesic fractions; distinct record 721fa7244a39",
+        "arXiv:1001.4028 pp. 3, 36; arXiv:1107.3377 p. 3; arXiv:math/0410430 p. 1; arXiv:math/9904022 p. 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The adjacent-edge marginal 11/30 already follows by edge transitivity and 11 edges per tree among 30 edges. Path inclusion formulas make the larger calculation possible but require a graph-specific weighted sum over simple paths of each length."
+        ],
+        "reasoning": "Neither the common adjacent marginal, the partition functions, nor the general probability identities provide the three distributions or their diagonal ordering by direct specialization. The nonmonotone comparison uses shortest-path multiplicities and the corresponding forest weights, not just ordinary distances or resistances.",
+        "searches": [
+          "Kenyon–Wilson arXiv:1107.3377 p. 3; Kenyon arXiv:1001.4028 p. 3; DOI 10.1016/j.rinp.2022.105443 (candidate adjacent resistance source)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The LERW length and UST path distance are equal in law for fixed endpoints. The indicated works supply the equivalence or study UST-distance scaling rather than the evaluated finite icosahedral distributions."
+        ],
+        "reasoning": "The two names refer to the same statistic, so an equal fixed-pair UST-distance table would count as coverage. No such statement was located in the compared sources.",
+        "searches": [
+          "Resultary: distance-conditioned UST path laws and icosahedral loop-erasure",
+          "Literature: exact icosahedral LERW/UST path length; arXiv:1001.4028 p. 3; arXiv:math/0410430 p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only the bound record matched the full table in Resultary. The strongest related indexed record 721fa7244a39 shares the denominator at unit weights but its Finding contains weighted partition functions, not endpoint path-length entries."
+        ],
+        "reasoning": "The shared graph and denominator do not account for the conditional numerators. No independent exact table was found in the completed searches.",
+        "searches": [
+          "Resultary: full table title and exact numerators with denominator 5,184,000",
+          "Resultary: geodesic fractions 11/30, 7/30, 26/75",
+          "Literature: exact icosahedral UST path law"
+        ]
+      },
+      "rationale": "The known UST/LERW equivalence, cofactor methods, denominator and adjacent-edge marginal are not distinct contributions. The strongest inspected sources do not give or subsume the graph-specific full length census at the three fixed-pair distances, or its nonmonotone geodesic comparison. This decision is on that combined exact law, not a priority claim about the method or individual known entries.",
+      "residual_risks": [
+        "Two proposed external lookups (numeric denominator and resistance) did not complete; the resistance article was not accessed in full. An unindexed finite enumeration or material outside the inspected passages could antedate the law. No absence or priority conclusion follows from those gaps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different statistic",
+          "evidence": "Five partition polynomials mark edges of a perfect matching, with common unit-weight evaluation 5,184,000.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-five-exactly-ordered-weighted-tree-ensembles-from-icosahedral-pe--721fa7244a39/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Bounded local mirror read, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Five exactly ordered weighted-tree ensembles from icosahedral perfect matchings",
+          "trigger": "Distinct indexed result on the same graph and spanning-tree ensemble"
+        },
+        {
+          "assessment": "Directly covers the standard equivalence, not the evaluated table in the inspected material",
+          "evidence": "The text states that a UST path has the LERW path law and cites Pemantle for it.",
+          "identifier_or_url": "https://arxiv.org/pdf/1001.4028",
+          "material_read": "p. 3, offset 9400; p. 36, offset 95250",
+          "method": "Targeted open PDF reads",
+          "title": "Spanning forests and the vector bundle Laplacian",
+          "trigger": "Candidate equivalence of path laws"
+        },
+        {
+          "assessment": "Applicable general machinery; not an evaluated length census in the passage",
+          "evidence": "The passage explains that the response matrix can in principle recover specified-edge or specified-vertex path events.",
+          "identifier_or_url": "https://arxiv.org/pdf/1107.3377",
+          "material_read": "p. 3, offset 6800",
+          "method": "Targeted open PDF read",
+          "title": "Spanning trees of graphs on surfaces and the intensity of loop-erased random walk on planar graphs",
+          "trigger": "Connection formulas could determine the claimed path events"
+        },
+        {
+          "assessment": "Relevant distance results in other regimes",
+          "evidence": "The opening defines tree distance and addresses scaling and tails, including the complete graph model.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0410430",
+          "material_read": "p. 1, offset 850",
+          "method": "Targeted open PDF read",
+          "title": "Scaling limits of the uniform spanning tree and loop-erased random walk on finite graphs",
+          "trigger": "Exact object under the equivalent UST-distance description"
+        },
+        {
+          "assessment": "No whole-paper noncoverage claim",
+          "evidence": "The adjacent marginal is credited independently by symmetry; access failure is not used to support novelty.",
+          "identifier_or_url": "https://doi.org/10.1016/j.rinp.2022.105443",
+          "material_read": "Landing material only",
+          "method": "Bounded open access attempts; article full text unavailable",
+          "title": "Two-point resistances in Archimedean resistor networks",
+          "trigger": "Cited for the adjacent-edge special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, full table and geodesic comparison, lines 4–30 and 51–57",
+        "Exact replay across all 66 pairs",
+        "arXiv:math/0410430 and arXiv:1107.3377 for context"
+      ],
+      "rationale": "The icosahedral graph is a canonical small regular polyhedral graph with exactly three pair distances. The complete distribution is a finite exact test case for UST or LERW length calculations at near, intermediate and antipodal separation. In particular it provides a concrete counterexample to monotone dependence of the geodesic probability on separation: an antipodal pair has more compulsory steps but also more short routes, and the exact comparison is not captured by the adjacent resistance or the total spanning-tree count.",
+      "residual_risks": [
+        "This is a finite benchmark and witness; it is not a theorem about other polyhedra or a new determinant method."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

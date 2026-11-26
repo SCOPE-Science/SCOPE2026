@@ -69,7 +69,7 @@ def draw_phase(z, h, rng):
 
 def main():
     checks=0
-    for z in (0.07,0.17,0.5,1.,1.7,2.1773189849653964,3.,5.3,7.):
+    for z in (0.07,0.17,0.5,1.,1.7,2.177318984965307,3.,5.3,7.):
         value=odds(z,lambda y:y)
         analytic=math.sinh(z)/z-1
         assert abs(value-analytic) < 2e-9*max(1,analytic)
@@ -80,7 +80,14 @@ def main():
         assert abs(b/a-value) < 2e-9*max(1,value)
         assert abs(b/(a+b)-(1-z/math.sinh(z))) < 2e-9
         checks+=2
-    zcrit=2.1773189849653964
+    lo, hi = 2., 3.
+    for _ in range(54):
+        mid = (lo + hi)/2
+        if math.sinh(mid) < 2*mid:
+            lo = mid
+        else:
+            hi = mid
+    zcrit = (lo + hi)/2
     assert abs(math.sinh(zcrit)-2*zcrit) < 1e-12
     checks+=1
     for c in (0.,0.4,1.7,3.,6.):
@@ -138,6 +145,6 @@ def main():
         assert abs(observed-predicted)<6*sigma+0.008,(observed,predicted)
         checks+=1
     print(f'PASS: {checks} independent finite diagnostics (integrals, asymptotic coefficients, order, nullspace, drift, bridge Monte Carlo)')
-    print(f'neutral-return capture-majority z = {zcrit:.15f}, r L^2/D = {zcrit**2:.15f}')
+    print(f'neutral-return capture-majority z = {zcrit:.12f}, r L^2/D = {zcrit**2:.12f}')
 
 if __name__=='__main__':main()

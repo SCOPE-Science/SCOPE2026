@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:18:53.112249Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A substitution changes total weight by at most one, and deleting or inserting nonzero symbols attains the required distance. All weights are represented, so word indexing just duplicates rows and columns of the weight array. Put a=max(0,r-t), b=min(ell,r), k=b-a+1. The source's row templates work because rows outside [a,b] differ from the nearest boundary template by an additive constant. Independently, with F(s)=|s| or max(0,s), the k allocation terms F(i-h)+F(j-r+h), a<=h<=b, are bounded below by F(i+j-r); equality holds at an integer h between i and r-j, since that interval always intersects [a,b]. The witness offsets left and right weights against each other, giving entries F(i-j). Its diagonal is zero and every nonidentity permutation has some i>j, hence has positive cost in either case. In any smaller outer-product representation two assigned cells must share an attaining term, and swapping their columns makes a competing assignment no more costly. Thus both ranks are exactly k=1+min(ell,t,r,m-r), including zero cut lengths and the two endpoint radii. The balanced cut realizes the stated range. Independent bounded replay: python3 /workspace/independent_checks.py 2 checked 330 exhaustive compressed tropical ranks, 8,774 direct codeword distances over alphabets of size 2, 3 and 5 through length four, and the allocation factor at these parameters. Those checks do not replace the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Develin–Santos–Sturmfels give tropical rank <= Kapranov rank <= Barvinok rank and a permuted Monge property of Barvinok-rank-two matrices, not the all-k reverse bound.",
+          "The Gaubert–Niv abstract identifies tropical total positivity/Monge classes and factorization into elementary matrices, not a minimum number of rank-one additive outer terms. Decisive deeper passages were not independently accessible in the attempted readers."
+        ],
+        "reasoning": "The standard inequality only turns a tropical minor into a lower bound on factor width; membership in a Monge class or a product factorization by elementary matrices does not by itself supply the minimum width. No verified broader theorem yields both formulas mechanically.",
+        "searches": [
+          "arXiv:math/0312114, Definitions 1.1, 1.3, Theorem 1.4 and p. 20",
+          "arXiv:1606.00238v6, abstract and introduction; attempted full-text passage retrieval"
+        ]
+      },
+      "checked_sources": [
+        "Sheshadri arXiv:2607.23471",
+        "Develin–Santos–Sturmfels arXiv:math/0312114",
+        "Gaubert–Niv arXiv:1606.00238v6 (limited preview)",
+        "Resultary exact self-match and Fourier Hamming-ball near-neighbor"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sheshadri's rank 2^(dim C-dim C_L-dim C_R) assumes a binary linear code; the sphere/ball at ell=t=r=2 over the binary alphabet have rank three.",
+          "The general comparison accounts for the swap inequality but not for obtaining a k-term factor or a k-by-k nonsingular witness."
+        ],
+        "reasoning": "These are substantive structural precursors, but their verified hypotheses or conclusions do not subsume the radial classification. The rank-three instance rules out a rank-preserving identification with a binary linear-code conditional matrix, not merely a change of symbols.",
+        "searches": [
+          "arXiv:2607.23471, §B/Theorem 1",
+          "arXiv:math/0312114, Theorem 1.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary match 2026/11/8/SCOPE-exact-tropical-decoding-ranks-of-hamming-spheres-and-balls--526b93a25718 is the frozen item itself.",
+          "On compression the functions are the V-shaped and one-sided hinge arrays on the sum of the two weights; reversing the columns gives the corresponding difference-indexed Monge arrays.",
+          "The distinct Resultary Hamming-ball Fourier record 2026/11/8/SCOPE-universal-inverse-and-sharp-conditioning-of-finite-fourier-hammi--3b7e4e36808a concerns complex sampling matrices rather than distance arrays."
+        ],
+        "reasoning": "Neither the Fourier formulation nor binary linear trellis decoding is equivalent to the two weight arrays. Row/column multiplicity does not alter either rank and hence cannot hide an alphabet-dependent distinction.",
+        "searches": [
+          "Resultary: tropical/min-plus rank of centered Hamming-ball, sphere and weight-compressed decoding matrices",
+          "arXiv:2607.23471, §B and Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two closest indexed Resultary entries were the same finding and the distinct Fourier Hamming-ball record; the latter calculates invertibility and conditioning.",
+          "The inspected exact rank family in Sheshadri is the power-of-two profile for binary linear codes."
+        ],
+        "reasoning": "Neither an exact entry with a different invariant nor the formula for linear-code ranks supplies a preexisting all-radii, all-cuts table for these two nonlinear radial families. The search is bounded.",
+        "searches": [
+          "Resultary sphere/ball tropical ranks and conditional Hamming decoding",
+          "arXiv:2607.23471, Theorem 1 and its transversal proof"
+        ]
+      },
+      "rationale": "The closest verified result gives the same two ranks for binary linear codes via a trellis dimension, not the weight-dependent ranks of radial decoding arrays. Neither the verified general rank comparison nor the identified Monge theory provides the combined closed formula. The result is distinct on the inspected evidence, not a certification of historical priority.",
+      "residual_risks": [
+        "An implicit full-rank evaluation under Monge, staircase, or clipped sum/difference-array terminology could remain unlocated.",
+        "The Gaubert–Niv full relevant sections were not independently retrieved; only accessed statements are assessed.",
+        "Search output does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close binary-linear result, not covering these nonlinear radial distance families",
+          "evidence": [
+            "Both ranks equal 2^s for binary linear C with s=dim C-dim C_L-dim C_R."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.23471",
+          "material_read": "PDF pp. 1–3, §B and Theorem 1 with transversal argument",
+          "method": "Open-access text and statement comparison",
+          "title": "Trellis State Complexity as an Exact Tropical Factorization Rank",
+          "trigger": "Identical decoding matrix construction, both rank notions and cut dependence"
+        },
+        {
+          "assessment": "Provides rank inequalities and a low-rank Monge observation, not these exact ranks",
+          "evidence": [
+            "tropical <= Kapranov <= Barvinok; the paper notes inequalities may be strict."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0312114",
+          "material_read": "Definitions 1.1, 1.3, Theorem 1.4, and p. 20 Monge discussion",
+          "method": "Open-access passage comparison",
+          "title": "On the rank of a tropical matrix",
+          "trigger": "General rank theory and potential Monge implication"
+        },
+        {
+          "assessment": "Known abstract describes Monge images and elementary-matrix products; unable to exclude additional material beyond accessed passages",
+          "evidence": [
+            "Abstract: tropical totally nonnegative matrices with finite permanent factorize in terms of elementary matrices."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1606.00238",
+          "material_read": "Cached PDF extraction preview, abstract and beginning of §1.1; targeted passage retrieval and alternate HTML failed",
+          "method": "Lawful OA PDF and attempted alternate rendering",
+          "title": "Tropical Totally Positive Matrices",
+          "trigger": "Strong plausible Monge and staircase theory for the transformed arrays"
+        },
+        {
+          "assessment": "Different matrix entries, semiring and invariant",
+          "evidence": [
+            "Finding is on Fourier sampling invertibility and condition numbers, not conditional Hamming distances or tropical ranks."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-universal-inverse-and-sharp-conditioning-of-finite-fourier-hammi--3b7e4e36808a",
+          "material_read": "Mirrored RESULT.md, Finding from offset 0",
+          "method": "Resultary search and local mirror comparison",
+          "title": "Universal inverse and sharp conditioning of finite Fourier Hamming-ball sampling",
+          "trigger": "Closest distinct Resultary Hamming-ball matrix match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For canonical radial targets, the exact width of a separated min-plus decoding representation is a natural invariant. The result identifies the entire cut profile and explains why two different distance functions pay the same rank cost, and why the binary nonlinear case can have rank three rather than a power of two. This is a concrete extension of the representational comparison beyond linear codes, not a claim about arbitrary nonlinear trellises, approximate rank, or computational runtime.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

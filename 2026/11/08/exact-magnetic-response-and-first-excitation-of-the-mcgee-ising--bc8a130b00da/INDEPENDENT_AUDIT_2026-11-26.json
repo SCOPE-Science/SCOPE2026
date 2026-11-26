@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:54:54.526564Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Hamiltonian, LCF construction, maximum-cut census and field/temperature proof",
+        "VERIFICATION.md, verify_masks.cpp and verify_recursive.cpp; inspected, not executed",
+        "/workspace/branches/2c0a1ce1-7271-4879-92a6-70de59620179/mcgee_gray_enumeration.py and mcgee_gray_census.txt"
+      ],
+      "rationale": "An independent Gray-code enumeration of all 16,777,216 subsets of the 24-vertex, 36-edge LCF graph reproduced every cardinality maximum and its labeled count. In particular, at q=10,11,12 the maximum cuts are 30,31,32 with multiplicities 8,8,2; complement gives the other half of the census. For positive field it suffices to minimize over q≤12. The affine energies 36−2C_q−b(24−2q) give the q=12,10,0 plateaux in order, with q=10,11,12 tying at b=1 (8+8+2) and all independent sets tying at b=3 (34,305 including the empty set). Spin reversal handles h<0. At h=0 the two parity classes attain cut 32; their four uncut bonds are frustrated. All cut-31 states, sixteen in total, have magnetization ±2 with eight of each sign. The exact gap is 2J and no other energy lies within 4J of the ground energy. With mean magnetization zero, the variance has leading term (64/2)e^(−2βJ), giving the claimed (4/3)β coefficient per site.",
+      "residual_risks": [
+        "The census concerns labeled configurations on the specified McGee graph, not symmetry classes or other cages. The expansion is at h=0 and fixed J>0; for negative fields the nonzero source magnetizations reverse."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Strečka, Karľová and Madaras discuss finite clusters shaped as the five Platonic solids. Baez and MathWorld provide construction and graph invariants for McGee, not the required cut census in the inspected passages."
+        ],
+        "reasoning": "The field-envelope technique for finite graphs is established; applying it requires this graph's sector optima and multiplicities. Neither the five-cluster results nor graph-identifying parameters give those counts for McGee.",
+        "searches": [
+          "arXiv:1502.04449 p. 2; exact antiferromagnetic finite-cluster response",
+          "AMS Visual Insight and MathWorld McGee entries; graph construction, known statistics"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5daca7995d97, f2071fe04f1e, 3e5911c9aaad",
+        "arXiv:1502.04449 and graph-reference passages",
+        "Focused primary cut/Ising/Tutte search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At b=3 the energy reduces to −36+4e(S) in units of J, so the older independence vector directly implies the 34,305-fold degeneracy. At b=1 the low-field crossing and susceptibility require information beyond the zero-internal-edge subsets."
+        ],
+        "reasoning": "The coefficients with e(S)=0 do not by specialization give the eight q=11 subsets with one internal edge, the two q=12 subsets with two internal edges, or their exact cut and magnetization comparison. Even a zero-field cut polynomial would not generally distinguish q at fixed cut, whereas a prior bivariate polynomial for this graph would cover the new claim; none was located.",
+        "searches": [
+          "Resultary 5daca7995d97, original exact vector; arXiv:1502.04449, finite-cluster method; cardinality-marked and unmarked cut polynomial equivalents in primary query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On a cubic graph, c(S)=3|S|−2e(S), so the equivalent near-optimal statistics count subsets with the smallest internal edge counts at fixed cardinality. The focused primary query did not retrieve a matching paper or table."
+        ],
+        "reasoning": "A cardinality-marked cut enumerator (equivalently the joint graph Ising polynomial) would recover the entire response. A single maximum-cut value would not give its multiplicity, sectors, or the first excitation's magnetizations. Cycle-separating cut sizes concern a different invariant.",
+        "searches": [
+          "Resultary: McGee size-resolved cuts and independent sets",
+          "Primary query: \"McGee graph\" (\"maximum cut\" OR \"maxcut\" OR \"cut polynomial\" OR \"Ising model\" OR \"Tutte polynomial\" OR \"frustration index\")"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original independence-complex record gives the exact independent-set vector through size ten, totaling 34,304 nonempty faces and 34,305 with the empty face. Catalogue summaries of the cyclic-cut and packing records concern cycle-separating eight-edge cuts and reconfiguration of independent nine- and ten-sets, respectively."
+        ],
+        "reasoning": "The exact independence table covers all C_q and N_q with q≤10 via c=3q, and therefore saturation. Neither it nor the inspected related catalogue descriptions supplies the cut maxima among larger, necessarily nonindependent sets. No claim of absence of an unindexed cut table is made.",
+        "searches": [
+          "Resultary: McGee independence complex 5daca7995d97, near-extremal cyclic cuts f2071fe04f1e, maximum packing 3e5911c9aaad",
+          "Primary exact cut/Ising/Tutte lookup above"
+        ]
+      },
+      "rationale": "The distinct part is the size-resolved near-maximum cuts at q=11 and 12, the resulting low-field response, and the magnetization-resolved first excitation/susceptibility. The independent-set size vector is explicitly prior, including the eight maximum independent sets and the input that yields the saturation degeneracy. Nothing in the strongest inspected matches determines the q=11,12 results or the full cut-31 statistics.",
+      "residual_risks": [
+        "Two related catalogue items could only be compared by their described claims. An unindexed McGee cut table, graph-polynomial database, or exact cluster calculation could overlap; the focused search does not rule this out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage: implies the saturation endpoint degeneracy",
+          "evidence": "Counts (1,24,240,1304,4212,8328,10024,7072,2668,424,8), dropping to zero above size ten; no q=11 or 12 induced-edge optima in the statement.",
+          "identifier_or_url": "Resultary 5daca7995d97",
+          "material_read": "RESULT.md, stated homotopy type and independent-set size vector",
+          "method": "Local publication mirror",
+          "title": "The McGee graph independence complex is a five-sphere",
+          "trigger": "Exact independent-set table controlling saturation"
+        },
+        {
+          "assessment": "Described invariant is different; access limited",
+          "evidence": "Cycle-separating cuts of size eight, not all spin cuts of maximum size 32.",
+          "identifier_or_url": "Resultary f2071fe04f1e",
+          "material_read": "Catalogue summary only; mirror retrieval timed out",
+          "method": "Resultary and original mirror access attempt",
+          "title": "Near-extremal cyclic edge cuts of the McGee graph",
+          "trigger": "Same graph and cut terminology"
+        },
+        {
+          "assessment": "Related described claim; access limited",
+          "evidence": "Reconfiguration among independent nine- and ten-sets, not q=11,12 with nonzero internal edges.",
+          "identifier_or_url": "Resultary 3e5911c9aaad",
+          "material_read": "Catalogue summary only; mirror retrieval timed out",
+          "method": "Resultary and original mirror access attempt",
+          "title": "The maximum packing reconfiguration in the McGee graph",
+          "trigger": "Same graph and large vertex-subset optimization"
+        },
+        {
+          "assessment": "Related method, different graph family",
+          "evidence": "Five Platonic solids; no McGee case in the inspected model scope.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.04449",
+          "material_read": "p. 2, offset 7014, model and finite graph cases",
+          "method": "OA original passage",
+          "title": "Giant magnetocaloric effect, magnetization plateaux and jumps of the regular Ising polyhedra",
+          "trigger": "Exact low-temperature field response on finite regular Ising graphs"
+        },
+        {
+          "assessment": "Background, not a cut census in material read",
+          "evidence": "Order, degree, girth and cage identity.",
+          "identifier_or_url": "https://blogs.ams.org/visualinsight/2015/09/15/mcgee-graph/",
+          "material_read": "Opening exposition at offset 0",
+          "method": "Original public page",
+          "title": "McGee Graph",
+          "trigger": "Known graph-specific structural data"
+        },
+        {
+          "assessment": "Construction background in inspected material",
+          "evidence": "LCF notation and graph data, not a cardinality-marked cut census.",
+          "identifier_or_url": "https://mathworld.wolfram.com/McGeeGraph.html",
+          "material_read": "Graph properties around offset 407",
+          "method": "Original public page",
+          "title": "McGee Graph",
+          "trigger": "Known graph-specific tables or equivalent construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, low-field degeneracies, gap and susceptibility",
+        "Independent cut census",
+        "Resultary 5daca7995d97 (credited saturation input)"
+      ],
+      "rationale": "The McGee graph is the natural smallest cubic girth-seven cage. Its uniform antiferromagnet probes frustration of that graph, and the exact low-field crossing and one-sixth magnetization plateau resolve how adding a field lifts the zero-field order. The joint excitation counts also give the first nonzero susceptibility term rather than just the maximum cut. These are concrete finite-cluster benchmarks; the known independent-set census at saturation is not counted as an additional contribution.",
+      "residual_risks": [
+        "Finding limited to this cage and uniform classical couplings; it does not support a pattern across girths or a bath-temperature phase transition."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:19:32.589015Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on luminosity and capping the inverse-square visibility radius at R gives the capped-power expectation with α=q/2. The −t/2 log shift fixes the arithmetic mean, not the log mean. Gaussian truncation and differentiation give S′=α[(α−1)M−p_t(0)]/2, with M the lower truncated moment and p_t(0)>0. This is strictly negative at and below α=1. For α>1 and d=log x≥0, H=M/p_t(0)<1/b<1/(α−1), so the derivative is still negative, including x=1. For d<0, independently integrating the first two moments of the H integrand gives I₁=t−(bt+d)H and I₂=tH−(bt+d)I₁, hence 2t²H′=2dI₁+I₂, yielding the stated ODE. With c=α−1, the integrating-factor derivative of H−1/c has sign of (b/2)t²+(1+cd)t−d². This quadratic has one positive zero. The transformed difference increases to zero from below after that zero, is strictly decreasing before it, and is positive for sufficiently small t (integrate over a neighborhood of u=−d). This proves one, strictly sign-changing root. Bounded payoff and convergence in probability give continuity at t=0 and limit zero at infinity. At t=2h+s, expansion under the integral on bounded s gives H=1/c−[s/c²+2/c³]/(4h)+O(h⁻²); the remainder is controlled by polynomial moments against a decaying exponential. Bracketing s proves the stated optimum expansion. At the root, M=p_t(0)/c and the normal tail on the positive side is asymptotic to p_t(0) by its density ratio tending to exp(−u). The identity (h+t/2)²/(2t)=h+(t−2h)²/(8t) confirms the yield coefficient. Independent split Gaussian quadrature and direct scalar search give t≈2.151163 and S≈0.048969789 for q=3, x=0.1. The proof can be replayed in RESULT.md lines 31–66; inspected verify.py was not executed, and numerical diagnostics do not certify the universal statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sylos Labini et al. derive N(>f) scaling as f^(−D/2) and luminosity-integrated magnitude- and volume-limited counts; Nord et al. integrate the Gaussian log-luminosity tail above a survey-dependent cutoff."
+        ],
+        "reasoning": "These frameworks cover the selection model and computation at specified scatter. The inspected statements do not vary log-variance along the mean-preserving drift, establish a unique root for each subthreshold x and α>1, or give the faint-mean optimizer expansion.",
+        "searches": [
+          "Sylos Labini et al., astro-ph/9605135, §2 equations 5, 9, 12–14",
+          "Nord et al., arXiv:0706.2189, §2 flux-selection window"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, AUDIT.json, VERIFICATION.md and verify.py",
+        "Sylos Labini et al., astro-ph/9605135, and Nord et al., arXiv:0706.2189, primary sections",
+        "Local Resultary results",
+        "Targeted capped-power volatility literature lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary equations yield the capped radial count weight and the Gaussian selection probability under their respective assumptions. The truncated lognormal calculation itself is standard and yields the exact smooth t>0 expectation."
+        ],
+        "reasoning": "The derivative combines a truncated moment and a boundary density with opposite signs for α>1, so neither known component determines the number of sign changes. The one-root argument and uniform bounded-offset expansion are separate quantitative conclusions. The evidence does not justify a claim of absolute priority in finance.",
+        "searches": [
+          "astro-ph/9605135 §2; arXiv:0706.2189 §2; capped-power payoff equivalence comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same expectation is the undiscounted capped-power payoff min(1,X^α) with mean-fixed lognormal underlying; set the call-power strike to zero and cap to one algebraically. Nord et al. §2 give the lognormal flux-selection window via erfc. The targeted finance lookup did not produce an identifiable primary theorem of global vega sign."
+        ],
+        "reasoning": "Reinterpretation as payoff or source detection is not novelty. For α≤1 the capped payoff is concave and mean-preserving spread already gives nonincrease. For α>1 the payoff is convex below the cap and flat beyond, with a downward derivative jump at the cap. Global one-crossing analysis and optimal-value asymptotics do not follow just from a pricing or selection formula.",
+        "searches": [
+          "Targeted literature lookup for lognormal capped-power vega and a global volatility maximizer",
+          "Local Resultary lookup of finite flux-limited selection and fixed-arithmetic-mean lognormal scatter"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The top match was the identical frozen record. The adjacent indexed optimal survey exposure record 5193eb56b220 concerns dwell-time policies and identifying a distribution of source thresholds, according to its returned summary."
+        ],
+        "reasoning": "The first result is a self-match. In the adjacent result the decision variable is exposure duration, not parent log-variance at fixed arithmetic mean. Its stated inverse problem is not a table or formula for the present optimizing variance. No other exact coverage was identified in the bounded results.",
+        "searches": [
+          "Local Resultary search of flux-limited lognormal selection and optimized scatter; comparison of SCOPE entries 802947e73443 and 5193eb56b220"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the full fixed-arithmetic-mean classification, strict unique maximizing variance in the interior regime, and faint-mean asymptotics. The standard count law, selection integral, lognormal truncation, and concave-payoff monotonicity principle are not the contribution. Equivalent portfolio-payoff terminology leaves a real priority risk, but neither the available primary expressions nor the indexed comparisons were found to imply the optimizing theorem.",
+      "residual_risks": [
+        "A finance or actuarial theorem might already give a global volatility maximum for the same mean-fixed capped power; the bounded finance lookup did not resolve that historical risk.",
+        "Negative ranked returns and the scope of checked primary passages do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General count law and selection integrals covered; no optimizing result identified in these passages",
+          "evidence": [
+            "Equations 5, 9, 12–14 relate radial power laws, counts versus flux and luminosity-function integration."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/astro-ph/9605135",
+          "material_read": "§2, pp. 6–7, extracted offsets 15376–20375",
+          "method": "Open-access PDF passage inspection",
+          "title": "Finite size effects on the galaxy number counts: evidence for fractal behavior up to the deepest scale",
+          "trigger": "Same inverse-square threshold and power-law finite-volume counts"
+        },
+        {
+          "assessment": "Same Gaussian selection operation, not the fixed-mean variance extremum in material inspected",
+          "evidence": [
+            "The window W integrates P(log luminosity | redshift, mass) above the log luminosity cutoff and is expressed via erfc."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0706.2189",
+          "material_read": "§2, p. 2, extracted offsets 9475 and 10040",
+          "method": "Open-access PDF passage inspection",
+          "title": "Effects of Selection and Covariance on X-ray Scaling Relations of Galaxy Clusters",
+          "trigger": "Lognormal luminosity and Gaussian flux-selection windows"
+        },
+        {
+          "assessment": "Different variable and conclusion in available statement; not a whole-record exclusion",
+          "evidence": [
+            "The statement concerns recovering thresholds using optimized dwell times."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-optimal-survey-exposure-policies-identify-a-bounded-luminosity-t--5193eb56b220",
+          "material_read": "Returned Resultary summary only",
+          "method": "Local ranked index comparison",
+          "title": "Optimal survey exposure policies identify a bounded luminosity threshold distribution",
+          "trigger": "Adjacent indexed survey-optimization problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact count exponent q=2 distinguishes a universal scatter penalty from an interior optimum when the mean lies below the finite survey edge. This resolves a natural selection question that neither a local Jensen argument nor the integrated counts at prescribed scatter can answer. The optimizer equation and faint-source scale give quantitative analytic benchmarks and expose why fixing arithmetic rather than log mean matters. This is a mathematical model of an ideal survey, not an empirical prescription for changing source scatter or a claim about the actual radial exponent of the universe.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Review of the dyadic structure-graph cycle theorem
+# Independent mathematical audit
 
-## Correctness
-PASS. The periodic-core classification is proved using residue dynamics, nilpotent valuation growth and unique coefficientwise inversion of the map on its unit-residue fiber. The dyadic-period property follows by affine shear lifting. Polynomial-degree growth proves that the orders are unbounded as the truncation length varies. The eighth-iterate degree-eight certificate, together with its factor \(ub(u+b)\) and binary leading-coefficient cancellation, proves that no sixteen-cycle exists through length nine. An explicit point produces a sixteen-cycle at length ten. Exhaustive full-graph traversal and independent fixed-point enumeration produce the same complete cycle census. These proof ingredients and independent calculations are recorded in RESULT.md, verify.py and verification_output.txt.
+## correctness
 
-## Originality
-PASS, with the normal historical-priority reservation. Chernev and Chernev (arXiv:2611.07521v1) prove existence of nontrivial cycles for broad classes and cite the nilpotence/two-cycle criterion; their computational table concerns prime residue rings and finite fields, not the truncated-polynomial chain rings. Their conclusion explicitly lists long-cycle study as future work. Lipkovski's foundational articles define the same Vieta map, while the 2022 digraph paper concerns integer residue rings. No located result implies the dyadic tower theorem, sharp first sixteen-cycle, or exact \(m=10\) census. Previous related finite-field calculations concern reduced rings and cannot specialize to a nilpotent extension. Limited access to some older full texts leaves a priority risk.
+PASS
 
-## Mathematical value
-PASS. This addresses a directly proposed question about long cycles of structure graphs, gives an all-truncation explanation of the dyadic cycle structure and its unboundedness, and isolates a sharp natural first occurrence of length sixteen with a complete connected-component census. The finiteness of the exact computation is appropriate to the motivated cutoff, while the general structural claims have independent proofs.
+Mod t only (0,0) and (1,0) can be periodic. In the first class, multiplying b by a∈tR_m strictly raises its valuation until b=0, so only (a,0) cycles there. In the second, the output equations give b=v+u and u²+(1+v)u+v+w=0; the unknown coefficient at each positive degree has coefficient 1 and all other summands at that degree are determined from lower ones. Thus this core is permuted. Under one-level reduction, new coefficients transform affinely with linear part (x,y)↦(x+y,y). A power returning the lower level acts by a translation or by a shear plus translation on a fiber, with order dividing four. The singleton unit core at m=1 begins the induction, so all periods are powers of two. For the formal polynomial iterates the second-coordinate degree is strictly larger than the first, and the degree recurrence is (d,e)↦(e,d+e); no positive iterate is the identity. For each power 2^k a nonzero coordinate difference cannot vanish on the product of the infinite subset tF₂[[t]] of F₂((t)) with itself. A nonzero evaluation survives in a finite quotient, giving periods exceeding 2^k. The degree-eight jet argument is consistent: both homogeneous parts have both variables as factors and vanish on u=b, so they contain ub(u+b); on the binary core this product is in t⁴, giving order at least nine after the degree-five factor, while discarded degree ≥9 terms already vanish through m=9. The entire finite cutoff and census were also independently reproduced, using a distinct multiplication-table recurrence P(a,2c+e)=tP(a,c)+ea and full path visitation of all 2^(2m) vertices for 1≤m≤10. No period 16 occurred at m≤9. At m=10 the exact cycle counts at 1,2,4,8,16 were 1024,1280,5888,17152,6144 and no others; core fixed counts were 512,3072,26624,163840,262144. The witness in bit encoding went (3,4)→(515,4) after eight and returned after sixteen, so its least period is sixteen. In a finite functional graph each weak component has exactly one directed cycle; the counts sum to 31488. Replay: python3 /workspace/branches/5d54ab14-9345-42dc-b9bd-eb18147d673b/independent_census.py 10; full_run.txt in the same directory records the UTC run and all counts. Uploaded verify.py and reference log were inspected, not executed. The finite run supports the finite cutoff and census, not the all-m assertions.
 
-## Limitations
-The theorem gives no closed formula for full cycle populations at arbitrary truncation length and no analogous classification for all finite chain rings. The exact finite census is accompanied by reproducible verification, not independent external certification. Earlier or unindexed equivalent cycle tables remain possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The structure graph and the possibility of two-cycles in nonreduced rings are established prior work. The available comparisons do not give the periodic core, the unbounded dyadic-order statement, or the exact first period-sixteen threshold and census for this truncated-polynomial tower. A focused lookup and inspected passages support this bounded verdict, not a comprehensive priority claim.
+
+## value
+
+PASS
+
+Long cycles of this natural structure map are a posed mathematical direction. The binary nilpotent tower isolates the effect of thickening; the periodic core and unbounded dyadic orders are structural answers. The cutoff at an intrinsically defined first occurrence of period sixteen is not an arbitrary finite slice, and the complete counts at that threshold give the component structure and a baseline for studying later lifts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

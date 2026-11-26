@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:02:15.919037Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–46; VERIFICATION.md and ladder_transversal_verify.py inspected as text",
+        "python3 /workspace/branches/independent_frozen_checks.py 3: reconstructed distances, maximal path vertex sets via one-edge extendability, and all minimal hitting sets via incremental antichains for h=2..10; exact labeled comparisons passed, including (pairs,triples)=(15,0),(18,4),(30,100) at h=5,6,10"
+      ],
+      "rationale": "Distances are rung difference plus the column-change indicator. Thus shortest paths are monotone in the rung and use at most one switch. Extension gives exactly the two diameter-endpoint pairings with h switch positions each. If both columns are chosen, a path in one orientation misses the set exactly when its switch index t lies strictly between the maximum selected rung of its ending column and the minimum of its starting column; both orientations give the two gap inequalities. With one chosen column, the two extreme switches force its boundary pair. Only column extrema can be essential. In a 2+2 selection, both minima being essential would require each column maximum to exceed the other by at least two, an impossibility. In a 2+1 selection the singleton must be at least two rungs inside both extrema; removing it fails unless the two extrema are the full boundary pair. This proves both directions for all three labeled families. Pairs total 2+h+2(h−1)=3h. Per doubled column the count is binom(h−2,3)−(h−4) for h≥4, and is zero at h=2,3. Complementation makes minimal transversals correspond to facets, so positivity of the triple term from h=6 gives the stated purity cutoff.",
+      "residual_risks": [
+        "Bounded execution is corroboration; the gap and counting arguments supply the unrestricted result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 1, p. 6: ξ(P_q □ P_r)=2 for q,r≥2. This yields exactly the frozen scalar minimum on setting r=2."
+        ],
+        "reasoning": "The stronger grid result is credited for the minimum. It neither classifies the minimizing labeled pairs nor detects minimal triples.",
+        "searches": [
+          "DOI:10.3390/math9141592; full-text 'Cartesian' and 'grid graphs'"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2101.08042",
+        "DOI:10.3390/math9141592",
+        "arXiv:2210.15325",
+        "Resultary ladder general-position homology finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general-position complex has all pairs as faces and no faces of size four or more; here complements of boundary-pair transversals already have size 2h−2. The cubic agreement can be seen algebraically: Euler characteristic with the homology record's H₁ rank gives 2 binom(h,3)−2h(h−3), the same count obtained here by subtracting forbidden triples from all alternating triples for h≥4."
+        ],
+        "reasoning": "The equal integers do not recover the omitted labeled configurations or the facets of the distinct complex. A maximal-path gap analysis is required in addition to the older scalar theorem.",
+        "searches": [
+          "Resultary SCOPE-integral-homology-of-general-position-complexes-of-ladder-graphs--5fa650315627, Finding",
+          "DOI:10.3390/math9141592, Corollary 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Peterin–Semanišin, pp. 2–3, define the same vertex-hitting family under 'maximal shortest paths cover'; a ξ(G)-set is a smallest such cover. The geodesic transversal number and packing literature likewise optimize cardinality."
+        ],
+        "reasoning": "Equivalence of the cover definitions credits the known optimum, not the distribution of minimal sets; for h≥6 some minimal sets are not optimal.",
+        "searches": [
+          "arXiv:2101.08042",
+          "DOI:10.3390/math9141592, Section 2",
+          "arXiv:2210.15325"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct homology record's Finding gives reduced H₂ rank h(h−4)(h−5)/3 for h≥6 and zero at h=2..5. Its triples are all alternating-column triples in three distinct rungs; the frozen triples impose two gaps and exclude the boundary pair."
+        ],
+        "reasoning": "The numerical agreement is exact but counts different objects; the related record is not dismissed on the basis of date.",
+        "searches": [
+          "Resultary comparison for ladder geodesic transversal spectrum, purity, and maximal shortest path cover",
+          "Resultary 2026/11/8/SCOPE-integral-homology-of-general-position-complexes-of-ladder-graphs--5fa650315627"
+        ]
+      },
+      "rationale": "The minimum value 2 is prior, even on all rectangular grids. What survives is the labeled inclusion-minimal classification, size spectrum, and resulting purity cutoff. A distinct same-day ladder homology record has exactly the same cubic coefficient as a Betti number, but not the transversal spectrum or the complement complex.",
+      "residual_risks": [
+        "Bounded literature and index coverage; no global priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers minimum, not minimal-set census",
+          "evidence": "Corollary 1 proves ξ(P_q □ P_r)=2 for q,r≥2.",
+          "identifier_or_url": "https://doi.org/10.3390/math9141592",
+          "material_read": "Official publisher PDF, pp. 2–3 Section 2, p. 6 Corollary 1; offsets 9487 and 26011",
+          "method": "Lawful OA, literal location followed by bounded passage read",
+          "title": "On the Maximal Shortest Paths Cover Number",
+          "trigger": "Same invariant under alternate terminology; all grids"
+        },
+        {
+          "assessment": "Prior terminology and minimum optimization",
+          "evidence": "Smallest hitting set for maximal geodesics, plus complexity and tree/cactus results.",
+          "identifier_or_url": "https://arxiv.org/pdf/2101.08042",
+          "material_read": "PDF pp. 1–2, offsets 1211 and 4296",
+          "method": "OA passage comparison",
+          "title": "The geodesic-transversal problem",
+          "trigger": "Foundational same definition"
+        },
+        {
+          "assessment": "Prior scalar setup, not covering the target census in inspected material",
+          "evidence": "Definitions and packing versus minimum-transversal comparisons.",
+          "identifier_or_url": "https://arxiv.org/pdf/2210.15325",
+          "material_read": "PDF pp. 1–2, offsets 1450 and 4672",
+          "method": "OA passage comparison",
+          "title": "Geodesic packing in graphs",
+          "trigger": "Closely related transversal number and packing"
+        },
+        {
+          "assessment": "Same coefficient, different complex and claim",
+          "evidence": "All pairs are faces; triples alternate columns. H₂ rank agrees numerically with the new size-three transversal count.",
+          "identifier_or_url": "2026/11/8/SCOPE-integral-homology-of-general-position-complexes-of-ladder-graphs--5fa650315627",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary lookup and statement comparison",
+          "title": "Integral homology of general-position complexes of ladder graphs",
+          "trigger": "Exact overlapping cubic and threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen classification and purity statement; Peterin–Semanišin Corollary 1 for the baseline optimum"
+      ],
+      "rationale": "The smallest nontrivial Cartesian strip is a natural test family for the maximal-geodesic covering hypergraph. The formula distinguishes optimum from inclusion-minimality and locates the first non-pure order h=6; the labeled families identify exactly which irredundant covers cause that distinction rather than merely giving a scalar optimum.",
+      "residual_risks": [
+        "No extension to wider grids or to different path covering conventions is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

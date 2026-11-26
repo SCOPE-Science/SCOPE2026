@@ -1,15 +1,21 @@
-# Scientific review: exact revival thresholds under telegraph noise
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the specified stationary telegraph process and independent isotropic qubit depolarizer, the known unital-qubit criterion gives the exact entanglement-breaking inequality. The sign lobes of telegraph coherence are explicit. The negative second derivative of the logarithmic coherence-to-threshold ratio proves that each lobe has at most one non-entanglement-breaking interval; the strict translation inequality orders the critical rates. Upper and lower analytical bounds at successive extrema yield the Lambert-count and static-noise asymptotics with bounded index error. A standalone implementation independently checks telegraph matrix exponentiation and the partial-transposed Choi eigenvalues on finite test sets. Remaining mathematical limits are fixed parameters, fair stationary switching, and a single-qubit channel; finite tests do not prove the asymptotics.
+PASS
 
-## Originality — PASS, with priority limitations
+Averaging the two initial-sign characteristic functions gives f''+2λf'+v²f=0 with f(0)=1, f'(0)=0. Depolarization commutes with the rotations. In the computational-basis Choi matrix the coherence is the |00><11| entry e^(-κt)f/2, and partial transpose places it in the block with both diagonal entries (1-e^(-κt))/4. Its smaller eigenvalue is the PPT minimum, so equality is entanglement breaking. The initial positive lobe decreases to zero. On each later lobe log(|f|/h_κ) has second derivative -ω²csc²(ω(t-z_j))+[κ/(2sinh(κt/2))]²<0 since t>π/(2ω); the positive set is one interval or empty. The rate quotient vanishes at lobe endpoints, is positive inside, and strictly decreases under translation by π/ω, even without telegraph damping. Its value at the |f| peak and the upper estimate replacing the denominator by the left zero establish the bounds. For fixed λ>0 these squeeze the counting index to within O(1) of the solution of 2e^(-λt)/t=κ (bounded shift of lobe index absorbs the multiplicative error), giving W(2λ/κ). For λ=0 the squeeze is between inverse-time denominators a fixed distance apart and gives the inverse-rate law. At and above critical damping f is positive and strictly decreases for t>0, so only the initial crossing occurs. Independent replay: python3 /workspace/branches/independent_checks.py 1; 30 propagator/PPT pairs and nine revival count inversions.
 
-Ruskai (arXiv:quant-ph/0302032) proved the foundational unital-qubit entanglement-breaking criterion. Zhou, Lang and Joynt (arXiv:0912.3313, Eq. (37), Sections V–VII) directly established telegraph-driven entanglement sudden death/revival and **qualitative finiteness of revivals under relaxation**. D'Arrigo and collaborators (arXiv:1210.1122) gave an equivalent telegraph coherence function. Shrikant, Srikanth and Banerjee (arXiv:1805.11411) examined related but different qubit channel constructions. The present claimed gap is narrower: exact, strictly ordered per-lobe depolarization thresholds for an explicitly independent isotropic depolarizer, the unique active interval within every lobe, and the two-term Lambert-W count versus singular static-noise scaling. This is not claimed to invent entanglement revivals or qualitative finite revival. Searches and direct primary-source comparisons did not locate those sharp statements; a broader unlocated theorem may imply them, and independent priority review remains necessary.
+## originality
 
-## Value — PASS
+PASS
 
-The channel-wide number of entanglement-preserving recovery windows is a natural and operationally meaningful discriminator between coherent oscillations and preserved quantum correlations. The count laws quantify how the number of recoveries diverges as an independent Markovian noise rate vanishes. The sharp negative logarithmic correction and the different inverse-rate endpoint behavior supply more information than a routine single crossing calculation. The scope is restricted to a stationary two-state fluctuator, pure phase rotation, and isotropic Markovian noise; no claim is made about hardware operating costs or other entanglement witnesses.
+The input channel construction, telegraph coherence, qubit entanglement-breaking criterion and qualitative strong-coupling revivals have precedents. The supported distinct contribution is the exact strictly ordered lobe thresholds (including equality and interval topology) and sharp count with bounded remainder for the specified independently depolarized channel.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+For a standard exactly soluble noise model combined with a separately calibrated depolarizer, the hierarchy identifies which individual revivals survive. The explicit logarithmic count with a negative log-log correction, and its change to inverse-rate behavior for static noise, quantify a qualitative revival picture with an operationally meaningful channel observable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

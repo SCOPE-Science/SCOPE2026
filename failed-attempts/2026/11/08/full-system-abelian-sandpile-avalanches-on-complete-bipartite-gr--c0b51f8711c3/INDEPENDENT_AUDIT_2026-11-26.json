@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:35:14.580302Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–22 and 26–50",
+        "Frozen VERIFICATION.md, checks/exhaustive.py and checks/structural.py",
+        "/workspace/branches/e771865e-e393-4881-8481-897740670f04/check_tiny.py and check_tiny.out (bounded independent check)"
+      ],
+      "rationale": "The all-maximal stable state plus one chip at t has a legal one-topple sequence t, all nonsink A, then remaining B, ending stable. Least action bounds each toppling count by one for every stable state. For equality t has height a-1 and every other B vertex has at least one chip. Subtracting one at those B vertices after deleting the old sink lowers both their unfired heights and thresholds by one; after t fires, the residual legal once-per-vertex order is precisely burning in the deleted graph rooted at t. The inverse is stable and recurrent: a forbidden subset cannot contain t, whose height is at least its internal degree, and any subset avoiding t has a burning witness from the auxiliary recurrent state. Thus the maximum count is the tree count of K_(a-1,b), including a=2 when this graph is a star. Dividing by the complete bipartite tree count yields the probability. Independently, stationarity and chip mass balance give expected total topplings over B exactly one, since exactly those vertices lose a chip to the sink per toppling. Stationary height balance at each nonsink A gives b E[u_A]=E[sum_B u]=1. Thus E[T]=1+(a-1)/b and the stated activity fraction and balanced asymptotic follow. An independent forbidden-subconfiguration enumeration and legal stabilizer gave (recurrent, full, max, mean, share)=(12,1,4,4/3,1/4) for (2,3) and (12,4,4,2,2/3) for (3,2). The original scripts were inspected, not executed.",
+      "residual_risks": [
+        "The finite check is corroborative; the proof is for a fixed neighboring drive and uniform recurrent measure, not arbitrary driving."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Austin et al. establish the one-topple bound for adjacent drive; the inspected families in their avalanche-polynomial calculations do not include complete bipartite graphs.",
+          "The Resultary theorem covers simple and parallel-edge graphs with adjacent drive and states precisely the general count and height-level bijection."
+        ],
+        "reasoning": "The one-topple bound alone would not imply the count, but the inspected general deletion theorem supplies the count and the exact same bijection without additional bipartite argument. The unproductive primary lookup is not relied upon as evidence of absence.",
+        "searches": [
+          "Targeted primary literature lookup for fixed-root single-wave/two-rooted-forest counting",
+          "Austin et al., arXiv:1605.02713, Corollary 9",
+          "Resultary 2b4c8c3b6996, Finding and Proof"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2b4c8c3b6996 and 36e2b4c11721",
+        "arXiv:1605.02713, 1208.0024, 1307.7740, 2409.11811",
+        "DOI 10.1016/j.amc.2017.06.030 (unavailable full text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stronger statement has the same meaning of recurrence, fixed addition, and full avalanche.",
+          "Uniform recurrence makes the addition action stationary; expected chip loss to the sink is one and stationarity at each nonsink A then gives mean (a+b-1)/b."
+        ],
+        "reasoning": "The full-event probability is the known general count divided by the standard total; the mean uses two balance identities, and the share equals b times the full-event probability. The balanced limit is the elementary exponential limit. No separate noncovered mathematical conclusion of substance remains.",
+        "searches": [
+          "Resultary 2b4c8c3b6996, precise hypotheses and bijection versus frozen RESULT.md Findings and Proof §§1–4",
+          "Austin et al. introduction and Corollary 9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct record gives count tau(G-s) for all nonsinks toppling when the drive is a sink-neighbor.",
+          "Its bijection fixes the driven height at degree minus one and subtracts from each other height the multiplicity of its edges to the old sink."
+        ],
+        "reasoning": "For K_(a,b) the multiplicity is one on B outside the drive and zero on the nonsink A part. Its auxiliary graph is exactly K_(a-1,b) with root t. The equality event by total topplings and the event of every vertex toppling are the same because each topples at most once.",
+        "searches": [
+          "Resultary lookup for full-system avalanche, sink deletion, fixed adjacent drive and rerooting",
+          "Local mirror exact source 2b4c8c3b6996"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The general count specializes to tau(K_(a-1,b))=(a-1)^(b-1)*b^(a-2), with denominator tau(K_(a,b)).",
+          "The later Resultary 36e2b4c11721 gives exact event probability (n-1)/(2n) and mean (n+1)/2 for a=n,b=2.",
+          "The assigned record itself also appeared as a self-match and was not counted as independent coverage."
+        ],
+        "reasoning": "The narrower later record is not a priority claim or proof of general overlap; the exact bipartite formula already follows from the stronger database statement.",
+        "searches": [
+          "Resultary exact IDs 2b4c8c3b6996 and 36e2b4c11721",
+          "arXiv:1208.0024, 1307.7740 and 2409.11811 for complete-bipartite recurrent-state formulas"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record gives the same sink-deletion and rerooting bijection and count for all finite connected undirected loopless graphs. The bipartite law is its exact specialization. The remaining mean and rare-event fraction follow directly from stationary mass and height balance and division. The distinct record is dated the same day: this establishes mathematical coverage and no demonstrated independent contribution, not chronological priority or a provenance judgment.",
+      "residual_risks": [
+        "No date order is inferred for the same-day records.",
+        "The possible Wu–Zhang–Chen antecedent and the general wave literature were not exhausted; failure follows from separately verified catalogue coverage, not access limitations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive mathematical coverage; same-day date does not determine priority",
+          "evidence": [
+            "For an adjacent fixed drive v the count is tau(G-s); the proof sends c(u) to c(u)-b_u and makes v the new sink."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sink-deletion-bijection-for-full-sandpile-avalanches-and-a-wheel--2b4c8c3b6996",
+          "material_read": "Local RESULT.md Finding and Proof, offsets 0–5294; related-work passage around 5900 onward",
+          "method": "Configured Resultary search and exact local mirror read",
+          "title": "Sink-deletion bijection for full sandpile avalanches and a wheel sink-location transition",
+          "trigger": "Exact more general count and construction"
+        },
+        {
+          "assessment": "Adjacent-drive bound covered; inspected family list does not supply this bipartite coefficient",
+          "evidence": [
+            "At a sink-neighbor no vertex topples more than once; listed explicit calculations include trees, cycles, complete graphs and wheels."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1605.02713",
+          "material_read": "Open PDF abstract, introduction p. 3 and Corollary 9 p. 5",
+          "method": "Lawful open-access PDF passage read",
+          "title": "The Avalanche Polynomial of a Graph",
+          "trigger": "Known adjacent-drive bound and potential full coefficient coverage"
+        },
+        {
+          "assessment": "Recurrent-state result in inspected passage, not a full-text exclusion of avalanche overlap",
+          "evidence": [
+            "The abstract describes the bijection to decorated parallelogram polyominoes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1208.0024",
+          "material_read": "OA PDF abstract p. 1",
+          "method": "Lawful OA passage read",
+          "title": "Parallelogram polyominoes, the sandpile model on a complete bipartite graph, and a q,t-Narayana polynomial",
+          "trigger": "Same graph family and recurrence"
+        },
+        {
+          "assessment": "Related recurrence results; bounded comparison only",
+          "evidence": [
+            "Recurrent and parking configurations, two operators and a cyclic lemma are the stated objects."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1307.7740",
+          "material_read": "OA PDF abstract p. 1",
+          "method": "Lawful OA passage read",
+          "title": "Two operators on sandpile configurations, the sandpile model on the complete bipartite graph, and a Cyclic Lemma",
+          "trigger": "Possible bipartite sandpile structural antecedent"
+        },
+        {
+          "assessment": "Recurrence classification in inspected passage",
+          "evidence": [
+            "The abstract highlights Ferrers-diagram and Motzkin-path characterizations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2409.11811",
+          "material_read": "OA PDF abstract p. 1",
+          "method": "Lawful OA passage read",
+          "title": "Abelian and stochastic sandpile models on complete bipartite graphs",
+          "trigger": "Recent complete bipartite classification"
+        },
+        {
+          "assessment": "Later overlap for a=n,b=2, not an earlier general theorem",
+          "evidence": [
+            "Sink is in the n-part, drive is a fixed hub, and the displayed probability and mean imply share (n-1)/n."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-an-all-or-none-avalanche-law-with-a-rare-binomial-bridge-on-k-2--36e2b4c11721",
+          "material_read": "Local RESULT.md Finding, offset 0 onward",
+          "method": "Configured Resultary search and exact local mirror read",
+          "title": "An all-or-none avalanche law with a rare binomial bridge on K_{2,n}",
+          "trigger": "Exact special-family formula in catalogue"
+        },
+        {
+          "assessment": "Unresolved historical risk, not relied on to decide coverage",
+          "evidence": [
+            "The secondary source flags a potential overlap; no original theorem passage was obtained."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.amc.2017.06.030",
+          "material_read": "Deletion record's related-work passage; DOI and publisher did not yield usable original full text",
+          "method": "Lawful DOI and publisher retrieval attempts",
+          "title": "Spanning trees and recurrent configurations of a graph",
+          "trigger": "Possible earlier general antecedent flagged by the deletion record"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof §§3–4",
+        "Resultary 2b4c8c3b6996 Finding and Proof"
+      ],
+      "rationale": "A rare event carrying an order-one share of activity is a useful interpretation. But once the identical deletion law is available, its claimed exact invariant needs only routine bipartite tree counts, conservation, and an elementary limit. The specialized presentation adds no separate structural result or independently nonmechanical invariant of value.",
+      "residual_risks": [
+        "This does not rule out scientific value in a full avalanche-size law, nonadjacent drive, or a result for a different scaling regime."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

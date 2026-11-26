@@ -1,19 +1,21 @@
-# Review of the sharp eighth-power covering threshold
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses the smooth degree-eight Fermat twist for every nonzero target over an odd prime field. Its genus is \(21\), so Hasse--Weil gives at least \(p+1-42\sqrt p\) projective points; at most eight are at infinity. Thus every nonzero target has an affine representation for \(p\ge1783\), while zero has the trivial representation. The finite component is an exhaustive census for every prime at most \(1777\), not a sample. The checker verifies exact represented-residue counts, independently recomputes the eighth-power image by repeated squaring, and tests the subgroup-size identity. Critical limits: no claim is made about prime-power rings or the complete representation-count distribution.
+PASS
 
-## Originality — PASS on inspected evidence
+For p odd and target a nonzero, the derivatives of X^8+Y^8-aZ^8 cannot vanish together in projective space over the algebraic closure. The smooth plane curve is geometrically integral (distinct components would meet) and has genus 21. The at-most-eight points on Z=0 leave at least p-7-42 sqrt(p) affine points by Hasse–Weil. At 1778 the squared margin (1778-7)^2-42^2*1778 is 49 with 1778-7 positive, and the unsquared lower bound increases for p>441. Thus the asserted large-prime range is covered with no gap above the census cutoff 1777. The target zero is immediate and F_2 has both elements as eighth powers. A separately written replay used trial-division primality, eight repeated modular multiplications for each x and a residue bitmap for all pairs of distinct power values as sets (including diagonal pairs). It checked all 275 primes through 1777 and exactly reproduced p:count = 5:3, 13:10, 17:5, 29:22, 41:21, 73:46, 89:56, 97:73, 113:85, 137:86, 233:204, 257:225, 337:295, 761:666. The replay checks the power-image size 1+(p-1)/gcd(8,p-1) in the three odd-prime branches, 769 primality, and compositeness of all integers between 761 and 769. This proves the least prime threshold. The uploaded verifier was inspected, not executed; the exact replay can be repeated with python3 /workspace/evidence/5/independent_two_eighths.py.
 
-The closest source is Arias--Borja--Anaya (2023), Corollary 21 and Section 6. Their general eventual bound applies but cannot determine the sharp cutoff or the eleven exceptional primes in the genuinely octic branch. Their fourth-power theorem already covers the three exceptions \(5,13,29\), which are credited and are not presented as new. Bergelson--Best--Iosevich (2020) proves general large-field existence, not the sharp octic exception list. Searches for equivalent characterizations (two-term modular Waring number, additive basis of eighth-power residues, Fermat octic twists, exact octic exceptional primes) revealed no covering theorem. A possibly relevant 2022 thesis is an unresolved bibliographic risk, not evidence of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The represented-residue invariant and the two-summand modular Waring threshold are standard natural arithmetic questions. The infinite general theorem leaves a genuine finite gap, and the complete classification reveals the last obstruction at prime \(761\), yielding an exact stable prime threshold at \(769\). The nontrivial eleven-prime octic branch, exact exceptional cardinalities, and reusable sharp proof boundary make the result more than a random finite sample or an unexplained incremental bound.
+Best-of-knowledge pass for the sharp prime-field octic classification, the eleven p=1 mod 8 obstructions and their counts, and the last obstruction at 761. The three quartic-branch exceptions and their counts are already known, and eventual coverage and the general geometric/counting methods are not new. The best relevant full texts inspected do not give the octic finite classification or its sharp threshold. The 2022 thesis and the unread portion of the 2021 graph paper remain access risks, not evidence of noncoverage.
 
-## Reproducibility and scientific limitations
+## value
 
-Run `python3 verify.py` to reproduce all finite calculations using only standard Python. The output is recorded in `checks.txt`. The proof's large-prime part relies on Hasse--Weil. Exhaustive computation is a finite certificate, not an independent proof of every result in the literature, and novelty remains subject to uncatalogued publications.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The largest exception for a fixed exponent is a natural question explicitly raised in the two-power coverage literature. For the prime-field case at exponent eight, the result gives the sharp onset of permanence and all genuinely octic exceptions with exact coverage deficits. The theorem combines a certified universal cutoff and an exhausted finite complement, rather than proposing a table from sampled primes. Its specific finite counts are useful independently of a new general method, and the already-known quartic branch is not credited as a new contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

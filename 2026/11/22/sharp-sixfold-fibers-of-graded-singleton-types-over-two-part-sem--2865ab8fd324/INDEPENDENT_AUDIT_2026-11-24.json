@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:28:22.298356Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, VERIFY.py (inspected, not executed)",
+        "/workspace/review-replays/5.py and 5.out"
+      ],
+      "rationale": "Rectangle parity allows two complementary rows for a point added to the first class and two complementary columns for the second (out-neighbors there use the complement transpose); a new class allows all orientations independently. The degree fixes n, and each perfect matching of the four residual exponents with positive pair sums yields precisely the proposed part sizes and an admissible parameter digraph. Under normalized row and column weights at most one orientation bit remains. Either balanced weight absorbs that bit; exchange of equally sized parts can identify the bits exactly when the normalized weights agree. Repeated exponent occurrences identify two matchings even as paired exponent multisets, ruling out six types before the distinct-exponent sum 0+1+2+3. I independently enumerated rectangle-valid matrices, explicitly appended one-point extensions and quotiented by permutations. The first witnesses occur at orders 3, 4 and 6, including exactly two types for each of (1,5), (2,4), (3,3) at the six-point witness. The all-order proof does not depend on this finite check.",
+      "residual_risks": [
+        "Exactly two nonempty base classes; naming pertains only to the type count, not the ordinary-isomorphism fiber. No conclusion about longer tuples or more base classes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jasiński et al. state Ramsey precompact expansions for ages of homogeneous digraphs; Hubička et al. state EPPA for the semigeneric age.",
+          "5135d85e91a6 concerns ungraded tuple-orbit counts; c21950936465 recovers cardinality and number of represented classes from numerical tuple-type counts. d131516353b2 treats ungraded counts for generic multipartite graphs."
+        ],
+        "reasoning": "Ramsey and extension theorems provide structural background but do not control the inverse fiber of the out-neighbor grading. Ungraded singleton counts collapse here to 2^n+4 and cannot distinguish the part profiles in question.",
+        "searches": [
+          "arXiv:1310.6466v3 and arXiv:2401.12153v4",
+          "Resultary 5135d85e91a6, c21950936465, d131516353b2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2401.12153v4 and 1310.6466v3, passages above",
+        "Resultary 03514b39812a, 5135d85e91a6, c21950936465 and d131516353b2",
+        "Frozen comparison with the known parity premise"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A normalized two-part switching matrix can be reconstructed from two label weights and an orientation bit, using the known parity premise.",
+          "Orbit totals at one fixed part profile do not specify which weights yield the same residual polynomial, particularly across distinct size pairs."
+        ],
+        "reasoning": "The normal form makes the inverse proof short but does not by itself state or supply the matchings between scores for bases with different profiles. The report credits the prior structure and distinguishes the new classification of score collisions from orientation counts.",
+        "searches": [
+          "Resultary 03514b39812a, 5135d85e91a6, c21950936465; arXiv:2401.12153v4 parity definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2401.12153v4, PDF p.1 defines the same even cross-part rectangle condition; the indexed §5.1 excerpt describes at most two direction-agreement classes on each side.",
+          "Resultary 03514b39812a describes permutation fixed points and an unlabeled orientation census for equally sized parts."
+        ],
+        "reasoning": "The parity and switching descriptions encode the same matrix structure. Counting orbits of orientations for a given pair of part sizes, even with side exchange, is not equivalent to finding all size pairs and orientation types in a fixed score fiber.",
+        "searches": [
+          "Resultary: score-polynomial reconstruction, row/column switching and cycle parity for two-part semigeneric digraphs",
+          "Hubička–Jahel–Konečný–Sabok, arXiv:2401.12153v4, parity condition and literature lead in §5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "03514b39812a is the nearest known exact orientation census by indexed statement; it is not indexed by out-neighbor score polynomials. The identical assigned catalog entry is not an independent antecedent.",
+          "The same-date numerical rigidity entry c21950936465 has a different stated invariant, regardless of ordering within the date."
+        ],
+        "reasoning": "No inspected census directly gives the score-fiber threshold or class-size matching inverse. The full cycle-parity body remained inaccessible, and its summary does not rule out overlapping special cases.",
+        "searches": [
+          "Resultary: two-part unlabeled semigeneric matrices, inverse spectrum fibers, exact counts by part size"
+        ]
+      },
+      "rationale": "The rectangle representation and the homogeneous age are known. The supported contribution is the conversion of the out-neighbor grading into a complete matching inverse and a sharp uniform ambiguity bound, including the first orders for different types and different part profiles.",
+      "residual_risks": [
+        "The closest cycle-parity mirror body was not readable. That proof or unindexed work may contain equivalent special cases or a stronger classification; available statements do not establish that overlap. Historical priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verifies the prior structural premise; abstract states a different main theorem",
+          "evidence": "Introduction defines semigeneric by even orientation count for any pair of two-element subsets in distinct parts; abstract gives EPPA and ample generics.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.12153v4",
+          "material_read": "PDF p.1 abstract and definition; indexed excerpt of §5.1; full decisive passage not obtained",
+          "method": "OA PDF text preview and primary-literature excerpt",
+          "title": "Extension property for partial automorphisms of the n-partite and semigeneric tournaments",
+          "trigger": "Exact parity premise and row/column agreement structure"
+        },
+        {
+          "assessment": "Background on the homogeneous age; no whole-document conclusion",
+          "evidence": "Abstract describes Ramsey precompact expansions and universal minimal flows for the homogeneous digraphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1310.6466v3",
+          "material_read": "PDF abstract and introduction opening; frozen record cites §10 but its passage was not independently retrieved",
+          "method": "OA PDF text preview and bounded passage attempts",
+          "title": "Ramsey precompact expansions of homogeneous directed graphs",
+          "trigger": "Cited semigeneric construction"
+        },
+        {
+          "assessment": "Partial structural overlap, not a score-fiber theorem in visible statement",
+          "evidence": "Summary treats side-exchange permutation character and unlabeled orientations with equal part sizes.",
+          "identifier_or_url": "Resultary 03514b39812a",
+          "material_read": "Indexed statement; mirror body not obtained",
+          "method": "Local Resultary lookup and attempted local mirror retrieval",
+          "title": "Cycle-parity symmetry character for two-part semigeneric digraphs",
+          "trigger": "Closest exact switching and isomorphism comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen score polynomial and inverse criterion",
+        "Independent sharp fiber replay"
+      ],
+      "rationale": "The score grading adds orientation information that the total singleton count loses. Recovering every compatible part-size profile and sharply bounding the number of ordinary isomorphism types by a constant independent of base size solves a concrete inverse problem, not just a handful of examples.",
+      "residual_risks": [
+        "The constant bound exploits a four-term residual and need not extend to more parts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

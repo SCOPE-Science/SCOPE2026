@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:49:20.916545Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At positive lag the event of no refresh has probability p=e^(−rt) independent of X0. Conditional on it, the vector pair is jointly centered Gaussian with cross-covariance B=Σexp(−Aᵀt); after at least one refresh, X0 and Xt are independent. Stationarity gives C=pB and cancels the terminal conditional covariance in the within-time Wick pairing. Thus subtracting the unconditional pairings leaves (p−p²)(B_ik B_jl+B_il B_jk), as claimed. C is invertible, so the two C-inverse contractions are d² and d, proving the logarithmic inversion and a strictly positive squared-probe witness for a pair with uᵀCv≠0. The stationary adjoint equation makes the refresh density a quadratic times the Gaussian. Nonnegativity along rays implies Q=(AΣ+ΣAᵀ)/2−D is positive semidefinite, so the matched Gaussian OU twin with drift matrix A+rI and diffusion D+Q+rΣ is admissible. The explicit isotropic positive quadratic density integrates to one, satisfies the stationary equation and is non-Gaussian when the chosen δ>0; a reset couples different starts, so the invariant law is unique. The result concerns exact ensemble moments, not estimation from one trajectory segment. The supplied scalar polynomial-generator and 2D conditioning checks were inspected, not executed; the proof is not dependent on them.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Avrachenkov–Piunovskiy–Zhang, Theorem 1 Eq. (1), gives the exact transition kernel on arbitrary Borel spaces as e^(−rt) times the free kernel plus a term independent of the starting state. It allows any restart probability distribution.",
+          "Olsen §II Eq. (2) also displays the last-renewal propagator with an initial-state-independent reset term for distributed resets; its later moment formulas concentrate on one-time observables."
+        ],
+        "reasoning": "The earlier theorem applies on R^d with the free OU kernel and the precise given refresh distribution. For a stationary reset law π, subtracting π of the transition formula eliminates the second term and immediately covers lag covariances of arbitrary observables, not only linear ones.",
+        "searches": [
+          "Avrachenkov Piunovskiy Zhang Markov processes with restart general Markov transition kernel probability distribution restart Theorem formula process",
+          "arXiv:1206.5674 Theorem 1",
+          "arXiv:2310.04840 §II Eq. (2)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1206.5674 Theorem 1 Eq. (1)",
+        "arXiv:2310.04840 §II Eq. (2)",
+        "arXiv:2107.11686 §2.1",
+        "Resultary 08050fc52754, d13d753808a7, c69dc0d762a5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write the prior theorem as P̃_tg(x)=pP_tg(x)+b_t(g) where b_t(g) is constant in x. Integrating against stationary π and subtracting gives Cov_π(f(X0),g(Xt))=p Cov_π(f,P_tg), with P_tg evaluated at X0. The formula for polynomial g follows by integrability or truncation.",
+          "For linear g this gives C=pB. For quadratic g the free linear-Gaussian evolution gives Cov_π(x_i x_j,P_t(x_k x_l))=B_ik B_jl+B_il B_jk by Isserlis. Subtract the two cross pairings, then contract with C inverse: K has multiplier p^(−1)−1 and the contraction contributes d²+d."
+        ],
+        "reasoning": "All hypotheses of the earlier theorem are satisfied directly; there is no new reset class, no unknown mixed-moment evaluation beyond Wick and no additional inverse problem once the scalar proportionality factor is obtained. The arbitrary-dimensional non-Gaussian-refresh result and its inversion follow by direct substitution even though they are not written out in the theorem.",
+        "searches": [
+          "arXiv:1206.5674 Theorem 1 Eq. (1), pp. 4–5 (PDF pp. 6–7)",
+          "Resultary 08050fc52754 Proof §6",
+          "Resultary d13d753808a7 Proof §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The tensor is the covariance of two degree-two observables with its two cross-pair terms subtracted. The general restart kernel reduces that covariance to the covariance under free propagation with an e^(−rt) multiplier.",
+          "The earlier scalar rethermalization kernel in d13d753808a7 at gaps (0,t,0) gives K=2(e^(rt)−1) C² and hence already gives the scalar clock ratio. That record alone does not cover non-Gaussian refreshes or vector matrices."
+        ],
+        "reasoning": "The arbitrary-state-space restart formula works without a Gaussian restart law. A Gaussian stationary input suffices for the free conditional pair to be jointly Gaussian, whether or not the free process preserves the target law. Therefore the change from Gaussian to non-Gaussian reset sources is already inside the scope of that generic formula.",
+        "searches": [
+          "Resultary: Gaussian stationary engineering, non-Gaussian OU resets, and connected equal-pair four-time covariance",
+          "arXiv:1206.5674 Theorem 1, Eq. (1)",
+          "Resultary d13d753808a7, Proof §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "08050fc52754 gives the feasibility and lag covariance exactly. d13d753808a7 gives an exact scalar four-time kernel. c69dc0d762a5 has a different reset Brownian marginal. The general prior transition theorem determines the two-time law on the actual audited class."
+        ],
+        "reasoning": "There is no needed numerical table. The exact kernel supplies the moments without a new computation beyond Wick substitution; lack of a preprinted tensor or its table is not a distinction.",
+        "searches": [
+          "Resultary 08050fc52754, d13d753808a7, c69dc0d762a5",
+          "arXiv:1206.5674 Eq. (1)"
+        ]
+      },
+      "rationale": "The claimed tensor and rate inversion are mechanically covered as consequences of the earlier exact transition-function theorem for arbitrary Markov processes with independent fixed-distribution restart. Its assumptions include non-Gaussian vector refreshes without any extra premise. With the separately known feasibility and covariance of Gaussian stationary targets, only ordinary Gaussian pairings and matrix contractions remain. This is established stronger-result coverage, not a failure based on an unavailable exact-phrase match.",
+      "residual_risks": [
+        "No claim that the explicit d(d+1) contraction was printed in an earlier paper. Failure is based on the exact stronger theorem and explicit implication, not on verbatim duplication or historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger coverage; the audited tensor and inversion follow mechanically",
+          "evidence": [
+            "P̃ν(t,x,Γ)=e^(−rt)P(t,x,Γ)+∫_E∫_0^t r e^(−rs) P(s,y,Γ) ds ν(dy) for any Borel state space and restart law ν."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1206.5674",
+          "material_read": "OA PDF pp. 6–7 (printed pp. 4–5), offset 7550, Theorem 1 and Eq. (1) with proof context",
+          "method": "Compared state space, reset law and full dependence on initial state; specialized to stationary OU and observables of degrees one and two",
+          "title": "Markov Processes with Restart",
+          "trigger": "Potential dominating transition theorem for any fixed-law independent restart"
+        },
+        {
+          "assessment": "Additional direct renewal antecedent",
+          "evidence": [
+            "The second propagator term is independent of the initial state, and the paper derives stationary one-time moment recursions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.04840",
+          "material_read": "PDF §II Eqs. (2), (5)–(8), offsets 9400–14854; §III around Eq. (22), offset 23500",
+          "method": "Read renewal propagator and compared its initial-state dependence and one-time scope",
+          "title": "Steady-state moments under resetting to a distribution",
+          "trigger": "Same OU reset-to-distribution mechanism and exact moment framework"
+        },
+        {
+          "assessment": "Covers feasibility and second-order data; combined with general kernel provides all inputs",
+          "evidence": [
+            "Cov(X_(t+s),X_t)=exp(−(A+rI)s)Σ."
+          ],
+          "identifier_or_url": "Resultary 08050fc52754",
+          "material_read": "Local RESULT.md main characterization and Proof §6, offset 6705",
+          "method": "Compared Gaussian target inverse source and matrix lag covariance",
+          "title": "Exact Gaussian stationary-state engineering by non-Gaussian stochastic resets",
+          "trigger": "Identical Gaussian target and non-Gaussian refresh feasibility"
+        },
+        {
+          "assessment": "Exact scalar Gaussian-refresh specialization, not sufficient alone for the vector non-Gaussian claim",
+          "evidence": [
+            "Ordered fourth cumulant 2σ⁴ exp(−λ(a+2b+c))(exp(rb)−1)."
+          ],
+          "identifier_or_url": "Resultary d13d753808a7",
+          "material_read": "Local RESULT.md Proof §2, offsets 3525–4567",
+          "method": "Set the first and last gaps in the ordered four-time formula to zero",
+          "title": "Gaussian covariance twins and displacement-only identification of Poisson-rethermalized Ornstein–Uhlenbeck motion",
+          "trigger": "Same fourth-order clock ratio in a narrower case"
+        },
+        {
+          "assessment": "Related four-time kernel but different underlying model",
+          "evidence": [
+            "The resetting bath has Brownian free motion and resets to a point; its stationary marginal is not Gaussian."
+          ],
+          "identifier_or_url": "Resultary c69dc0d762a5",
+          "material_read": "Local RESULT.md Finding and Proof, offsets 0–6574",
+          "method": "Compared stationary marginal and free dynamics",
+          "title": "Four-time sign fingerprints of covariance-matched resetting, Gaussian, and telegraph baths",
+          "trigger": "Potential overlapping multi-time fingerprint"
+        },
+        {
+          "assessment": "Scalar resetting antecedent; not the decisive stronger source",
+          "evidence": [
+            "Last-reset-time representation for diffusion reset to the origin."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.11686",
+          "material_read": "Primary §2.1 Eqs. (1)–(4), offset 13000",
+          "method": "Compared last-reset representation and computed correlation",
+          "title": "Autocorrelation functions and ergodicity in diffusion with stochastic resetting",
+          "trigger": "Prior two-time resetting correlations"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The observable is physically interpretable and is a useful way to illustrate the distinction between Gaussian marginals and Gaussian temporal laws. As the asserted scientific advance, however, it is a routine linear/quadratic moment evaluation of a known exact kernel with a scalar inversion already exemplified in equilibrium rethermalization. The contraction repackages that scalar ratio; it adds no new identifiable regime beyond the direct kernel calculation, no inferential guarantees, and no independent nonmechanical result that could survive a narrower claim here.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

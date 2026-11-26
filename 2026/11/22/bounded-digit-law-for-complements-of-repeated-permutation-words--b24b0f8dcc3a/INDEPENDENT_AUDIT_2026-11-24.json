@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:32:09.271887Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–56, verify_masks.py, verify_dp.py and their archived logs",
+        "/workspace/replay_words.py"
+      ],
+      "rationale": "After reading i host symbols and deleting d, the next deletion is possible only when i and d agree modulo q (distinct letters), i.e. the retained count i-d is a multiple of q. Therefore once a retained block begins its next q-1 letters are forced keeps, and all retained letters split into complete rotation blocks. At the initial gap and each between-block gap, minimal deletions are respectively s_1 and the least nonnegative phase differences; their sum is necessary. Conversely delete exactly these minimum gaps, retain the specified full blocks, and put all slack in the final deleted gap. Source and deleted phases agree in each gap, so the deleted word is exactly P^k, not merely a same-length subsequence. Rotation starts identify distinct phase sequences; passing to increments is bijective, so the generating function counts bounded digits and the maximal sum is (q-1)m. Empty cases give the one expected word: empty for m=0 and P^m for k=0. The fixed-alphabet count fraction is the cumulative law of iid uniform digits with the stated mean and variance; the normal limit follows by CLT and continuity at the moving threshold. An independent generator of feasible deletion embeddings checks whole literal residual sets, a separate inclusion-exclusion coefficient sum, and saturation in 120 cases, reproducing counts 76, 221 and 121 and extending through q=6.",
+      "residual_risks": [
+        "Finite replay is corroboration only; the proof requires distinct letters and a whole-period aligned host and deletion. The CLT statement is for fixed q."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1 gives a general enumeration algorithm, including these finite instances; §5 notes that even closed formulas for specific cases remain open",
+          "Resultary 9da10a722a15 concerns arbitrary target words of length q+1, not length qk with k≥2 and q≥3"
+        ],
+        "reasoning": "An algorithm for arbitrary inputs and the first-postperiod arbitrary-target classification do not supply this closed law in the joint multiperiod range.",
+        "searches": [
+          "Adamson–Fleischmann–Huch, arXiv:2603.20790v1 Theorem 3.1 and §§4–5",
+          "Resultary first-postperiod complement deletion spectrum"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.20790v1",
+        "Resultary b24b0f8dcc3a (self), 20c8a8da2741, d7ef6cdd9c92, bcaf0c227997, 9da10a722a15"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The single deletion theorem assumes a source that is itself a power P^r; after one period is deleted, the remaining rotation concatenation need not be a power of P, so the theorem cannot just be iterated",
+          "One-track embedding counts do not impose the second-track requirement on the exact positions not used",
+          "At k=1, the new digit simplex has total at most q, and the only forbidden unrestricted compositions have one digit q, giving precisely C(m+q,q)-m"
+        ],
+        "reasoning": "The new proof identifies the shared phase invariant across all k and the constructive slack allocation. The count and saturation then follow from standard bounded-composition facts, not new composition mathematics.",
+        "searches": [
+          "20c8a8da2741 and bcaf0c227997 Findings, compared with frozen Proof §§1–3",
+          "arXiv:2603.20790v1 Theorem 3.1 and §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 20c8a8da2741 states k=1 phase language 0*1*…(q-1)*0*, equivalent to a monotone lifted phase walk in [0,q]",
+          "Resultary d7ef6cdd9c92 gives binary phases in at most k runs, equivalent to a digit budget of 2k",
+          "Resultary bcaf0c227997 gives greedy weak-descent embedding multiplicities for one prescribed subsequence"
+        ],
+        "reasoning": "The equivalent two-track shuffle formulation requires the survivor and prescribed deletion simultaneously. For k≥2, allowing several wraps in the coupled tracks is not a one-track embedding-multiplicity formula and is outside the two known special-case languages.",
+        "searches": [
+          "Resultary phase rigidity, permutation-power deletion complements, cyclic permutation embedding multiplicities",
+          "Primary complement scattered factor / periodic permutation word language search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b24b0f8dcc3a is the assigned record itself",
+          "20c8a8da2741 gives the exact k=1 count C(m+q,q)-m; d7ef6cdd9c92 gives sum of binomial coefficients up to min(2k,m) in the binary case",
+          "9da10a722a15 is a length-(q+1) target spectrum"
+        ],
+        "reasoning": "Those exact data cover proper special cases or different target lengths. No independent exact table was found giving the claimed family; no priority ordering is inferred for distinct same-day records.",
+        "searches": [
+          "Resultary exact cyclic permutation power complement language and count"
+        ]
+      },
+      "rationale": "The complement operator and its general algorithm, the binary law, and the single-period slice are covered and credited, including the exact same-day k=1 catalogue result. The supported distinct result is the uniform multiletter multiperiod rotation language and bounded-sum enumeration. The saturation and CLT are immediate consequences of that language and are not independent novelty claims.",
+      "residual_risks": [
+        "Exact mirror lookup for the separately cited binary run-formula record 53b12846b520 failed; no noncoverage inference is drawn. The inspected binary-tail record independently settles credit for that specialization.",
+        "No order is established among distinct same-day catalogue records. A bounded primary search and available texts do not exclude unindexed shuffle-quotient results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definition and a finite computation algorithm are prior; no closed multi-period count or phase language in inspected passages",
+          "evidence": [
+            "Theorem 3.1 computes C(w,u) on arbitrary inputs",
+            "§5 says even a closed formula in specific cases remains open"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.20790v1",
+          "material_read": "Theorem 3.1 (HTML offset 26182), structural portions at 61261 and 87678, and §5 (offset 91997)",
+          "method": "OA HTML source passages",
+          "title": "(Sets of) Complement Scattered Factors",
+          "trigger": "Broad same-definition complement language theorem"
+        },
+        {
+          "assessment": "Covers k=1 completely; different same-day record, no ordering inferred",
+          "evidence": [
+            "C(P^(m+1),P) phases 0*1*…(q-1)*0*; exact count C(m+q,q)-m"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-phase-rigidity-and-exact-complementary-subsequence-capacity-of-p--20c8a8da2741",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Resultary mirror",
+          "title": "Phase rigidity and exact complementary-subsequence capacity of permutation powers",
+          "trigger": "Exact overlap of phase language for distinct-letter permutation powers"
+        },
+        {
+          "assessment": "Exact binary coverage; no implication for q≥3 without further phase argument",
+          "evidence": [
+            "At most k runs of ba; binomial sum up to min(2k,m)"
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-binomial-tail-law-for-complements-of-alternating-words--d7ef6cdd9c92",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Resultary mirror",
+          "title": "Binomial-tail law for complements of alternating words",
+          "trigger": "Whole binary law for arbitrary deleted periods"
+        },
+        {
+          "assessment": "Independent single-track embeddings, not compatible two-track residuals",
+          "evidence": [
+            "Weak-descent formula for embedding multiplicities of an arbitrary target in P^k"
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-embedding-multiplicity-spectrum-of-cyclic-permutation-powe--bcaf0c227997",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Resultary mirror",
+          "title": "Exact embedding-multiplicity spectrum of cyclic permutation powers",
+          "trigger": "Plausible equivalent subsequence formulation"
+        },
+        {
+          "assessment": "Arbitrary length q+1 deletions give a different theorem; no priority inferred",
+          "evidence": [
+            "Deletion length fixed to q+1 rather than qk"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-complete-first-postperiod-complement-deletion-spectra-of-permuta--9da10a722a15",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Resultary mirror",
+          "title": "Complete first-postperiod complement deletion spectra of permutation powers",
+          "trigger": "Same-day related complements of P^n with longer deletions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof §§1–4",
+        "Adamson–Fleischmann–Huch Theorem 3.1 and §5",
+        "Resultary 20c8a8da2741"
+      ],
+      "rationale": "Counting literal residuals rather than embeddings is a natural information-loss problem for deletions. The result gives their full language in an infinite two-parameter regime where the general algorithm otherwise works instance by instance. The forced-rotation characterization also yields an exact saturation boundary and a scaled transition in the available fraction; those are useful consequences, not additional claims of priority.",
+      "residual_risks": [
+        "Novelty and value are assessed for the genuinely multiperiod multiletter result, not for a restatement of the established binary or one-period law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

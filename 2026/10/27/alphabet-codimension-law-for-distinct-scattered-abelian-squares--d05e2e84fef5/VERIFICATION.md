@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python3 verification.py` with Python 3 standard library. The checker directly enumerates every distinct scattered subsequence of each source word and counts the Abelian-square patterns; a separate calculation constructs the mean coefficients from multinomial signatures and geometric waiting-time series. They agree exactly for seven independent rational sources: three binary sources through lengths 10 or 11, two ternary sources through length 8, a four-letter source through length 6, and a five-letter source through length 5, totaling 39,286 source words. Three separate binary coefficient sequences also agree with the algebraic-square-root differential equation. Exact rational coefficient formulas for uniform alphabets of sizes two, three and four were evaluated at input length 100, and the exact-to-leading-asymptotic ratios were approximately 1.0058804, 1.0070547 and 1.0104227, respectively.
+## correctness
 
-These checks independently verify finite coefficients, normalization, handling of repeated patterns, and the correct order and constant on moderately large indices; they do not independently certify analytic continuation or the all-parameter asymptotic theorem. Those conclusions are supported by the complete proof in RESULT.md. Full external independent audit has not been performed.
+PASS
+
+Greedy waiting times for a fixed string are independent geometric variables by independence of the unread input; the stopping time tests occurrence, not multiplicity of embeddings. The angular constant term enforces exactly q-1 independent Parikh equalities. Strict positivity at consecutive waiting-time degrees rules out a second radial phase at |z|=r, and full support with the last angle fixed forces all angles to be zero in the angular equality case. At the pole in t=z/r the radial derivative is 2 mu, and the quadratic angular defect is theta^T C theta with C=diag(v_1,...,v_{q-1})-vv^T and det C=product v_a. The implicit root is real locally, with log t(theta)=theta^T C theta/(2 mu)+O(|theta|^4). On a fixed sufficiently small angular neighborhood a common circle just outside the roots gives the single residue and a uniform exponentially small remainder; a possibly smaller outside circle works for the complementary compact angular set. Gaussian integration and the analytic factor 1/(1-rt) give the stated constant. Summing unrestricted patterns instead gives U/(1-U); its simple residue gives the ratio of means. In the binary case the cosine integral yields the stated discriminant, and direct algebra gives r=1/(1+s), v_0 v_1=s/(1+2s), mu=2(1+s)/(1+2s). Uniform substitution agrees as well. Checked RESULT.md:20–80, 82–171 and inspected VERIFICATION.md:19–23 and verification.py. The listed finite checks are corroborative and were not rerun; no claim about typical words, varying alphabet, or vanishing masses is validated.
+
+## originality
+
+PASS
+
+The supported distinction is the sharp arbitrary-full-support random-host occurrence law and its weighted constant, not fixed-length Abelian pattern enumeration or the unrestricted subsequence mean. A later indexed binary record gives the same binary marginal and is finer by marking length; it does not cover nonuniform sources of more than two letters. The uniform specialization also follows from prior pattern asymptotics together with the elementary waiting-time mixture, so it is not credited as a separate novelty.
+
+## value
+
+PASS
+
+The statistic combines the natural distinct-subsequence mean with a standard combinatorial symmetry constraint. It quantifies that balance can cost a power for each independent coordinate without altering the exponential base, and specifies the sensitivity to every fixed letter mass. This answers a different quantitative question from counting possible strings or counting unrestricted subsequences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

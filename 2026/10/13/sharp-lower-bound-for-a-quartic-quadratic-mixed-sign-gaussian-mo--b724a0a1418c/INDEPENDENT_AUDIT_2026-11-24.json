@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:32:28.076890Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For centered unit-variance jointly Gaussian X,Y,Z and 0<u<1, put t=1−u, r=E[XY]² and T=t(t+2). Gaussian orthogonal coordinates realize Y=aX+√(1−r)W and Z=kX+ℓW+mV with a=E[XY] and k²+ℓ²+m²=1; at r=1 the independent coordinates can be chosen for the residual of Z. Dividing by M=E|X|^{−u}, the weighted even X-moment of order 2j is t(t+2)…(t+2j−2). Independent expansion of the sixth-degree polynomial yields the stated block quadratic form. A−T>0: r²(t²−1)≥r(t²−1), and the stated lower bound has positive constant 1−t after factoring t. The shifted 2×2 determinant is t(1−r)(1−t)(t+5)K, with K a strictly positive Bernstein combination on 0≤r≤1. Also D−T=(1−r)(1−t)(3+t−r(3−t)), strictly positive for r<1. These show strictness for r<1 and positive semidefiniteness at r=1. At r=1, Y=±X and the shifted form equals (A−T)k², so equality is exactly k=0, which by joint Gaussianity means Z independent of X. Taking Z independent and r↑1 yields positive-definite approximants, also proving the nonattained infimum in that restricted class. The marginal product normalization divides T by 3. Ran the independent symbolic replay `python3 -B /workspace/reviews/replay_3.py` (SymPy 1.14.0), expanding the Gaussian moment and checking the determinant and diagonal identities as polynomial identities, including r=1. Inspected but did not execute the packaged rational diagnostic. The signs over all real parameters are analytic, not certified by samples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Zhou et al. lower estimate specializes to 3M(1−ρ_XY²)²(1−ρ_XZ²); it vanishes as |ρ_XY|→1.",
+          "The Lan et al. lower estimate has Schur-complement correction factors and likewise degenerates at the singular approach where the true ratio tends to T>0.",
+          "The absolute-raw-moments abstract describes structured covariance families; its theorem text was not accessible for comparison."
+        ],
+        "reasoning": "Broader exponent/dimension coverage need not dominate the stated constant. The verified lower bounds are too weak precisely where sharpness is attained, while a structured covariance family does not by itself cover all correlation matrices.",
+        "searches": [
+          "Zhou–Zhao–Hu–Song arXiv:2308.13740 Theorem 1.1 and Proposition 1.6",
+          "Lan–Ouimet–Sun arXiv:2505.09976 Theorem 1",
+          "Gaussian product inequalities for absolute raw moments, S016771522500197X"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, VERIFY.py and source self-review",
+        "arXiv:2205.10231 Theorem 2.1",
+        "arXiv:2308.13740 Theorem 1.1 and Proposition 1.6",
+        "arXiv:2505.09976 Theorem 1",
+        "Resultary e4514be65dca and 433a1dfefb6b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gaussian moment recurrence immediately verifies T at Y=±X with independent Z, but does not show that other correlations cannot lower it. Known lower estimates leave positive slack even for positive-definite covariance arbitrarily close to that configuration.",
+          "The verified shifted-moment matrix positivity and its kernel give the missing matching lower bound and optimizer statement."
+        ],
+        "reasoning": "Neither the bivariate comparison nor the covariance-dependent lower bounds imply the sharp universal lower bound, even with the obvious candidate equality witness. The determinant sign over all correlations is a substantive additional comparison.",
+        "searches": [
+          "Russell–Sun Theorem 2.1; Zhou et al. Proposition 1.6; Lan et al. Theorem 1; indexed e4514be65dca and 433a1dfefb6b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two normalizations are T relative to E|X|^{−u} and T/3 relative to the product of marginals. Covariance-free infimum over all correlations equals the positive-definite infimum but, in the latter class, there is no attained minimum.",
+          "The adjacent mixed-sign result e4514be65dca concerns two quadratic positive factors and comparison to the joint positive-side moment, not both these powers and this normalization.",
+          "The bivariate opposite product theorem is an upper comparison for two opposite-sign powers."
+        ],
+        "reasoning": "Moving the normalization into the constant, swapping the roles of the positive factors together with their exponents, or taking a closure of positive-definite covariance does not create a distinct result. Replacing the quartic with a quadratic or aggregating a product as a single Gaussian coordinate changes the problem.",
+        "searches": [
+          "Resultary: sharp three-variable mixed-sign Gaussian product, quartic–quadratic negative-power moment",
+          "arXiv:2205.10231 opposite Gaussian product inequality",
+          "arXiv:2308.13740 Proposition 1.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e4514be65dca treats (−s,2,2), including an exact correlation criterion and a sharp upper violation bound. Distinct same-day 433a1dfefb6b treats (2,2,2) and an envelope at fixed total squared correlation."
+        ],
+        "reasoning": "Neither retrieved exact envelope gives the (−u,4,2) lower extremum or its optimizer. No finite table is intrinsic to this continuous all-correlation problem; the exact indexed formulas were nevertheless compared.",
+        "searches": [
+          "Resultary: mixed-sign Gaussian product quartic–quadratic sharp constant and equality",
+          "Resultary: opposite Gaussian product deficits, Gaussian correlation envelopes"
+        ]
+      },
+      "rationale": "The precise supported addition is the optimal covariance-free lower constant and complete equality classification for (−u,4,2), not a general mixed-sign Gaussian inequality. The inspected broadly applicable comparison bounds degenerate near the extremizer and cannot provide this infimum. No equivalently strong claim was found in the adjacent indexed records or available primary statements.",
+      "residual_risks": [
+        "Ranked literature and indexed retrieval is not exhaustive; earlier equivalent moment-matrix inequalities or Gaussian extremal estimates may remain.",
+        "S016771522500197X abstract available but no theorem-level comparison; possible narrower overlap is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Bivariate upper comparison, not a lower bound for the three-coordinate pattern.",
+          "evidence": [
+            "Theorem 2.1 compares the two-factor joint moment to the product of marginals from above for opposite signs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.10231",
+          "material_read": "PDF p. 3 Theorem 2.1, offset 6900",
+          "method": "OA PDF passage reading",
+          "title": "An Opposite Gaussian Product Inequality",
+          "trigger": "Original opposite-sign Gaussian comparison"
+        },
+        {
+          "assessment": "Applicable but non-dominating.",
+          "evidence": [
+            "Prop. 1.6 gives the stated covariance-dependent bound with factors (1−ρ_XY²)² and (1−ρ_XZ²)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.13740",
+          "material_read": "Theorem 1.1 p. 3 offset 7700; Proposition 1.6 p. 4 offset 11050",
+          "method": "OA PDF passage reading and specialization",
+          "title": "Some New Results on Gaussian Product Inequalities",
+          "trigger": "General three-dimensional lower bound covers these exponents"
+        },
+        {
+          "assessment": "Schur-complement lower bound, not the sharp covariance-independent endpoint.",
+          "evidence": [
+            "The correction factors vanish on approaching Y=±X in the relevant specialization, even when Z is independent."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2505.09976",
+          "material_read": "Theorem 1, p. 3 offset 10800",
+          "method": "OA PDF passage reading",
+          "title": "Results related to the Gaussian product inequality conjecture for mixed-sign exponents in arbitrary dimension",
+          "trigger": "Higher-dimensional stronger-theorem candidate"
+        },
+        {
+          "assessment": "Abstract describes compound-symmetric and autoregressive correlations and nonzero common means; narrower overlap is unresolved.",
+          "evidence": [
+            "No theorem covering arbitrary centered correlations was verified from this record."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S016771522500197X",
+          "material_read": "Available abstract description only, not theorem text",
+          "method": "Lawful OA check; full text not retrieved",
+          "title": "Gaussian product inequalities for absolute raw moments",
+          "trigger": "Nearby absolute-moment result"
+        },
+        {
+          "assessment": "Different exponents and targets; no equivalent exact coverage.",
+          "evidence": [
+            "The former has two quadratic positive powers and a blockwise upper comparison; the latter is the all-positive three-quadratic moment."
+          ],
+          "identifier_or_url": "e4514be65dca; 433a1dfefb6b",
+          "material_read": "Both local mirror RESULT.md Finding passages at offset 0",
+          "method": "Resultary and local-mirror passage reading",
+          "title": "Sharp blockwise opposite Gaussian-product deficit with two quadratic factors; Sharp squared-correlation envelope for the three-dimensional Gaussian product",
+          "trigger": "Closest mixed-sign indexed comparison and distinct same-day envelope"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first unequal even positive power pair in a published mixed-sign comparison regime is a motivated nontrivial test. Its exact positive uniform lower constant fills a quantitative gap left by the degenerating bounds, and the equality description explains why a positive-definite search would only approach the minimum. This is useful without a claim about all exponent patterns.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

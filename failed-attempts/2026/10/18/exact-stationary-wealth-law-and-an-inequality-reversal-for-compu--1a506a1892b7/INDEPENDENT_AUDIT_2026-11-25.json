@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:38:51.809042Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–102",
+        "VERIFICATION.md and check.py (inspected, not executed)",
+        "python3 /workspace/audit-replay/frozen_checks.py 2"
+      ],
+      "rationale": "For any putative positive-finite-mean stationary law the arrival rate λ=1−p₀ is positive and less than one: at λ=1 every finite state can hit zero via successive empty arrivals, so a stationary law cannot have p₀=0. For fixed 0<λ<1, negative unit-service drift off zero and irreducibility give a unique queue invariant law, with moments from geometric drift. In fact P(z)=(1−λ)exp(λ(z−1))/(1−∫₀^λ exp(s(z−1))ds), giving a compound-geometric factor and validating its evaluation at two for λ=2−√2, since e^λ−1<1. Stationarity requires p₀=1−λ. Expanding the PGF at one gives m=λ+λ²/[2(1−λ)] and Var=m+[λ²/(2(1−λ))]²+λ³/[3(1−λ)], with mean a bijection onto (0,∞) and variance 4/3 at mean one. The squared-survival identity with independent copies gives G(X)≤1−(2−√2)²<2/3, while the mean-one geometric law gives exactly 2/3. The independent PGF-convolution replay using outward-rounded rational intervals and a 35-term survival sum encloses G between 0.5799288331138616032330 and 0.5799288331138616032368; the squared tail is bounded by 3.772×10⁻²¹. This independently certifies the wider frozen decimal bracket without treating ordinary rounded Decimal arithmetic alone as a certificate.",
+      "residual_risks": [
+        "Fixed points of the Poisson mean-field map only; no claim of nonlinear global convergence, finite-population equilibrium, or all-mean Gini ordering."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fixed-arrival stationary probability family is classical.",
+          "V2 derives the closed form in terms of λ before inserting the mean-one normalization, and recovers the variance from it."
+        ],
+        "reasoning": "The conserved-mean family follows by substituting a general m into P′(1)=λ+λ²/[2(1−λ)] and choosing the stable root. Standard queue uniqueness plus this monotone equation supplies the fixed-point uniqueness. V2 does not expressly give the arbitrary-mean theorem, but this step adds no substantive law beyond the stable queue and the known self-consistency equation.",
+        "searches": [
+          "Nakagawa (2005), stationary probabilities for arrival λ<1 and deterministic unit service",
+          "Lyu arXiv:2511.08202v2 §§3–4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2511.08202v1 and arXiv:2511.08202v2, especially the latter's §3–4 and PDF stamp",
+        "Nakagawa DOI 10.15807/jorsj.48.111",
+        "Resultary entries 282d4d29b0de and 59c65892117c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "V2 explicitly says the constrained model has a lower Gini than the geometric reference; its arXiv header is stamped 22 Jul 2026.",
+          "From the v2 formula and active fraction alone one obtains G≤1−λ²<2/3, without a numerical calculation. V2 does not supply the frozen tail certification."
+        ],
+        "reasoning": "The headline correction is already both stated, numerically evaluated and directly implied by the earlier revised source. An added arithmetic certificate cannot make the covered finding original.",
+        "searches": [
+          "arXiv:2511.08202v2 §§3–4, Eq. (15), Table 1 and versioned PDF first page",
+          "arXiv:2511.08202v1 §§2–4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The synchronous recursion equals the embedded queue recursion at fixed λ.",
+          "Lyu v2 §3 Eqs. (6)–(12) gives the same PGF with λ=2−√2 and p₀=√2−1; §4 gives 4/3 and uses the same squared-survival Gini formula."
+        ],
+        "reasoning": "The law and inequality comparison are equivalent at m=1, not results for a differently sampled or finite-population model. V1 instead reports p₀≈0.551 and G≈0.649 against a stated geometric benchmark 1/3; inspecting v1 alone misses the correction.",
+        "searches": [
+          "arXiv:2511.08202 v1 and v2, wealth Poisson master equation, stationary generating function, Gini",
+          "Nakagawa DOI 10.15807/jorsj.48.111, embedded unit-service M/D/1 queue"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "V2 Table 1 reports λ=0.585786, p₀=0.414214, variance 4/3 and Gini 0.579929; Eq. (15) and adjacent text state the geometric comparator 2/3 and lower model Gini.",
+          "Resultary entries 2026/10/18 … 282d4d29b0de and 2026/10/13 … 59c65892117c concern Theil cash-grant rankings and Gini/Theil profile rankings, not this chain."
+        ],
+        "reasoning": "The exact matching primary-source table and comparison are positive evidence of coverage, independent of the lack of a matching Resultary hit. The table does not purport to give the new eleven-decimal certified bracket.",
+        "searches": [
+          "Resultary: synchronous compulsory unit transfers, Poisson wealth equilibrium, Gini reversal",
+          "arXiv:2511.08202v2 §4 Table 1"
+        ]
+      },
+      "rationale": "The earlier revision of the very same arXiv source already gives the exact self-consistent mean-one PGF, the same variance, and the direction and numerical value of the Gini reversal against 2/3. The v2 PDF has the arXiv stamp 22 July 2026 UTC, preceding the frozen October record. The general-mean parametrization is a routine inversion of the same fixed-arrival queue PGF derivative; the proof of the already reported direction follows from one known survival probability. The more precise rigorous bracket is not present in the inspected revision, but does not rescue the original finding's claim of a distinct analytic law and reversal.",
+      "residual_risks": [
+        "No assertion of exhaustive coverage of all wealth-exchange literature or prior digits; the directly inspected earlier v2 establishes the material overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct earlier coverage of core mean-one law and reversal",
+          "evidence": [
+            "§3 gives the exact PGF and rate; §4 states variance 4/3 and 0.579929…<2/3; PDF margin says arXiv:2511.08202v2 [physics.soc-ph] 22 Jul 2026."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2511.08202v2 ; https://arxiv.org/pdf/2511.08202v2",
+          "material_read": "HTML §3 Eqs. (6)–(12) and §4 Eq. (15) through Table 1; versioned PDF first page",
+          "method": "OA original HTML and version-stamped PDF inspection",
+          "title": "Mean-Field Analytical Solution of the Mesa Boltzmann Wealth Model",
+          "trigger": "Same arXiv identifier and same mean-field model"
+        },
+        {
+          "assessment": "Earlier version presents numerical comparison with different, incorrect geometric Gini; it has been superseded for this claim",
+          "evidence": [
+            "Reports 0.649 against a stated geometric Gini of 1/3, not the standard 2/3."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2511.08202v1",
+          "material_read": "Abstract, §2 Eqs. (1)–(2), §3 master equation and §4.2 numerical comparison",
+          "method": "OA original HTML passage inspection",
+          "title": "How Fixed-Amount Transactions and Liquidity Constraints Amplify Wealth Inequality: A Kinetic Model Deviating from the Maximum Entropy Benchmark",
+          "trigger": "Version cited in frozen RESULT.md"
+        },
+        {
+          "assessment": "Classical fixed-rate equivalent, no Gini claim there",
+          "evidence": [
+            "Stationary probabilities at λ<1 with unit service."
+          ],
+          "identifier_or_url": "https://doi.org/10.15807/jorsj.48.111",
+          "material_read": "§2, J-STAGE PDF offsets 1400–4206",
+          "method": "OA original PDF passage inspection",
+          "title": "On the Series Expansion for the Stationary Probabilities of an M/D/1 Queue",
+          "trigger": "Equivalent Poisson-input deterministic-service queue"
+        },
+        {
+          "assessment": "Different objects and comparisons",
+          "evidence": [
+            "Deterministic household income rankings, not invariant probabilities of the Poisson chain."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18 … 282d4d29b0de and 2026/10/13 … 59c65892117c",
+          "material_read": "Opening findings",
+          "method": "Local Resultary mirror inspection",
+          "title": "Theil cash-grant reversals and three-household Gini–Theil reversals",
+          "trigger": "Strongest catalogue hits on reversal semantics"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2511.08202v2 §4 and Table 1",
+        "RESULT.md lines 56–102"
+      ],
+      "rationale": "Correcting the original inequality claim and obtaining the exact mean-one benchmark would be useful, but the earlier revised paper already does both. The residual general-mean formulas amount to standard queue moments and the inversion of one quadratic; the improved decimal certificate is not motivated by any decision near the Gini gap, which is already separated using the first survival term. No independently worthwhile unresolved target remains as framed.",
+      "residual_risks": [
+        "This does not rule out substantively different work on convergence, finite-population limits, or all-mean inequality orders."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

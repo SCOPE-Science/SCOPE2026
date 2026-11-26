@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result is a finite-dimensional spectral theorem. The exact spectral pair formula follows by expanding the Fourier eigenbasis and integrating termwise. Distinct energy gaps stay nonzero at zero flux except for the diagonal and opposite-frequency pairs. The latter are expanded with their exact trigonometric splitting, establishing both the limiting expression and the uniform finite-window error bound. Fourier-coefficient injectivity at odd cycle sizes and two-to-one pairing at even sizes reduce uniformity to explicit zeros of the integral kernel. Rational algebraic integers and the strict cosine ranges exclude every dimension outside three, four, and six. The two orders of limits and endpoints are separately verified. The standalone verifier compares the result with quadrature of the Born probabilities and checks representative limit regimes; no finite experiment is used in place of an infinite proof.
+PASS
 
-## Originality — PASS, subject to priority risk
+For Fourier vectors with entries exp(2πikj/n), the forward shift has eigenvalue exp(−2πik/n), so the signs in the stated H give eigenvalue E_k=2cos(2π(k+α)/n). The normalized finite-window probability is the double sum with kernel G(−T(E_k−E_l)); l=k contributes 1/n and the only extra zero-flux degeneracies are distinct l=−k. Their signed gap is −4 sin(2πk/n) sin(2πα/n), giving the displayed argument. All other gaps stay nonzero for fixed n and contribute O_n(1/T) by |G(z)|≤2/|z|. Since |G′|≤1/2, the replacement error of the resonant arguments is O_n(|αT−τ|+Tα³); the last term is O_K(T⁻²) on the stated window. Reality, positivity and normalization follow by the probability-vector limit. Fourier uniqueness separates nonzero frequencies 2k for odd n, requiring z_k∈2πZ minus zero; for even n the frequency collides with k+n/2 and the kernel sum is 2 sin(z_k)/z_k, requiring z_k∈πZ minus zero. For odd n≥5 and even n≥8 the ratio of the k=2 and k=1 arguments would be the rational algebraic integer 2cos(2π/n). This is in (0,2), equals 1 only for n=6, and hence is impossible there. Direct substitution for n=3,4,6 yields the three stated time lattices. At τ=0 the starting-vertex deviation counts a nonempty set of modes; as τ→∞ every retained argument diverges in magnitude. At fixed generic flux, distinctness of E_k follows from k+l+2α not being a multiple of n, leaving only the diagonal in the infinite-time limit. All estimates are for fixed n; exact flattening is asserted for the limiting profile only. The supplied script was inspected, not executed.
 
-The closest motivating article, Adamczak et al., arXiv:0708.2096v1, proves nonuniform long-time averaging for real cycle Hamiltonians at zero flux. Levine et al., arXiv:2605.04414v1, establishes exact infinite-time average uniformity for chiral circulants with simple spectra; this does not address the singular flux-duration boundary layer. Zanoli et al., DOI:10.3389/frqst.2026.1894991, treats the flux Hamiltonian but studies parameter-estimation and thermometric quantities rather than a Cesàro position distribution of a localized walker. The comparison is by stated mathematical claims and logical coverage, not by article titles alone. A related 2026 paper by Luppi on flux-dependent measurement back-action was only available in abstract form; its possible unexamined appendices and other equivalent near-degeneracy analyses remain a documented priority risk. Independent priority validation has not been performed.
+## originality
 
-## Value — PASS
+PASS
 
-Near zero flux, a fixed generic-field average is uniform although the zero-field average is not. The exact inverse-flux observation-time profile resolves this physically natural singular limit, and the sharp arithmetic classification of exactly uniform crossover profiles at dimensions three, four, and six is not implied merely by knowing either endpoint. This gives a concrete finite-time robustness diagnostic for controlled flux rings, with an explicit convergence bound.
+The distinct result is the zero-total-flux, all-vertex weak-flux limit together with its complete finite-parameter flattening classification. The Fourier spectral formula, inverse-detuning scale and kernel-suppression mechanism are prior (especially the indexed half-flux result); the inspected statements do not settle the zero-flux coefficient coincidences or the n=3,4,6 classification.
 
-## Limits
+## value
 
-Fixed cycle dimension; localized starting vertex; nearest-neighbor unit hopping; no decoherence or measurements during evolution. The finite-time resonance conclusion applies to the limiting profile, not literally to finite-duration averages. Novelty priority is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At fixed size the limiting distribution resolves the two incompatible orders of limits quantitatively. The classification answers a finer natural question than the known inverse-detuning scale: whether the entire time-averaged profile can equal uniformity already at finite scaled observation time. The odd/even frequency coincidences change the exact kernel zeros, and the algebraic gap-ratio obstruction explains why only the three specified sizes can realize them.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

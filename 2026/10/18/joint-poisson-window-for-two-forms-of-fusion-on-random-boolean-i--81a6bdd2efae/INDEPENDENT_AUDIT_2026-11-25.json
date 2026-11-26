@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:33:09.882184Z",
+  "axes": {
+    "correctness": {
+      "rationale": "There are 3^k ordered joins and (3^k−1)/2 distinct unordered joins, because the only swap-fixed pair is (X,X). Write r(u)=2^{|u|}, d(u)=r(u)−1_{u=X}; the first two sums of r are 3^k and 5^k. Indicators involving disjoint bits are independent, and different indicators sharing one bit have covariance p^3(1−p). The ordered distinct overlap counts are 2Σ r(r−1) for mixed and Σ d(d−1) for self, and the cross count is Σ dr; these give the three stated second-moment coefficients. This handles k=0, where only the mixed Bernoulli(p²) indicator remains, and p=0,1. For an additional small check, at k=1 the conditional mixed count for a-patterns 00, 10, 01, 11 is respectively 0, b_X, b_∅+b_X, b_∅+2b_X; the self count is one only for 11. At p=1/2 this gives the two means 3/4,1/4, variances 13/16,3/16 and covariance 3/16. For the joint approximation distinct neighboring witnesses share exactly one bit. The squared-degree sum of the pooled bit graph is at most 5·5^k, so b1≤5·5^k p^4, b2≤5·5^k p^3 and b3=0 by joint independence outside the neighborhood. AGG Theorem 2 explicitly allows partition aggregation; the two Poisson sums are independent. Its variation norm is twice the sup-event distance, so the stated astronomical-scale bound 20·5^k(p³+p⁴) is conservative: even 10·5^k(p³+p⁴) follows with this normalization. Substituting p=t3^{−k/2} yields the stated exponentials and the adjustment for the self mean. The self truth event differs by at most p due to the lone diagonal; applying positivity to the limiting vector gives independent truth limits. Markov handles the sparse regime, and the dense relative variances vanish by the two bounds (3^kp²)^{−1} and (5/9)^k/p. All witnesses of x lie below x, where the same independent law holds. The original finite checker was read, not executed; the approximation and threshold follow from the proof rather than its bounded tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "AGG bounds the Poisson process approximation in terms of dependency sums and explicitly transfers the bound to a vector of counts. It does not compute these sums for the Boolean-join graph or determine the exact cross-covariance.",
+          "The thesis Chapter 6 and the 2023 paper’s stated subject are logical axiomatization, not Bernoulli truth schemes or critical windows."
+        ],
+        "reasoning": "The general Poisson theorem is a proof ingredient; the Boolean incidences, the shared sample, and the inequality 5<3√3 must be supplied to extract this window with the stated rates and intensities.",
+        "searches": [
+          "Arratia–Goldstein–Gordon (1989) Theorem 2 and partition-count corollary",
+          "Knudstorp 2023 Modal Information Logics: Axiomatizations and Decidability"
+        ]
+      },
+      "checked_sources": [
+        "Knudstorp 2022 thesis, Definitions 1.3–1.4 and chapter overview",
+        "DOI 10.1007/s10992-023-09724-5 (abstract)",
+        "Arratia–Goldstein–Gordon 1989, Theorem 2 and pp. 11–12",
+        "Goldstein–Reinert author preprint, p. 1 and equation (1)",
+        "Resultary e2f2b087c520, 61de9f18450c, 7a716ab4f9b6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same Bernoulli a-bit can enter both witness types, so the finite vector is not an independent pair; its overlap count Σ d(u)r(u)=5^k−2^k is needed for the exact covariance.",
+          "The Poisson comparison depends quantitatively on 5^kp³ tending to zero at the scale set by 3^kp². Neither the semantics alone nor the scalar cross-team result implies this comparison."
+        ],
+        "reasoning": "The prior general theorem produces the product law after the new dependency estimate, but not the moment identities or stated window by substitution of a previously analyzed instance.",
+        "searches": [
+          "Compare AGG 1989 partition-count bound and b1,b2,b3 assumptions to the two witness types",
+          "Compare Knudstorp’s supremum interpretation and Resultary e2f2b087c520 Finding to the mixed and self counts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complement sends a join to a disjoint pair; the same-letter coordinate uses unordered loopless edges and the cross coordinate uses independent copies with the empty-set diagonal allowed.",
+          "Knudstorp defines the supremum semantics. Goldstein–Reinert instead sample independent uniform subsets of specified sizes and count elements in their intersection."
+        ],
+        "reasoning": "The equivalence uses disjointness of two sampled Boolean-lattice vertices. Counting elements common to several fixed-size sampled sets is a different statistic, not the graph reformulation of this two-count vector.",
+        "searches": [
+          "Resultary: random Boolean-lattice join decompositions, disjointness graph, self and mixed Bernoulli edge counts",
+          "Knudstorp thesis Definitions 1.3–1.4 and Chapter 6",
+          "Goldstein–Reinert, total variation for subset numbers, equation (1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 12 record gives a generating function and Poisson/compound-Poisson regimes for a scalar cross-team dependence-violation count, not these two induced witness counts.",
+          "The same-day results count zero-indegree points under random De Morgan negations and missing-incidence components in a random formal context, respectively."
+        ],
+        "reasoning": "Those probability formulas are for distinct random evidence and cannot be read as a table of the five moments or a law of the two fusion witnesses. The bounded catalog comparison did not identify a covering statement.",
+        "searches": [
+          "Resultary: joint Poisson law and exact overlap moments for random join witnesses",
+          "Resultary: 2026/10/12 poly-dependence violation laws, e2f2b087c520",
+          "Resultary: same-day Boolean critical regimes, 61de9f18450c and 7a716ab4f9b6"
+        ]
+      },
+      "rationale": "This is a specific joint induced-edge and cross-edge calculation on the Boolean disjointness graph, equivalently the Boolean-join fusion problem. The distinct support is the exact covariance and related second moments coupled with the two-intensity Poisson limit despite a common vertex sample. Neither fusion semantics nor the general Chen–Stein bound is new, and no exact finite joint distribution is claimed.",
+      "residual_risks": [
+        "The broader web-search wave was deferred. An equivalent induced-edge/disjointness-graph result or random-family union-cover theorem could appear under another name; the examined passages do not resolve general historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Logical framework, not the random witness statistic",
+          "evidence": [
+            "The supremum clause quantifies over pairs with the named join; Chapter 6 treats axiomatization. The related 2023 journal abstract at DOI 10.1007/s10992-023-09724-5 concerns axiomatization and decidability."
+          ],
+          "identifier_or_url": "https://eprints.illc.uva.nl/id/eprint/2226/1/MoL-2022-24.text.pdf",
+          "material_read": "Thesis PDF pp. 12–13, Definitions 1.3–1.4, and the overview describing Chapter 6",
+          "method": "Compared the semantic clause and the join-semilattice axiomatization scope",
+          "title": "Modal Information Logics",
+          "trigger": "Defining supremum modality and join frames"
+        },
+        {
+          "assessment": "General theorem applies after the specific overlap and incidence work",
+          "evidence": [
+            "The process bound is 2(2b1+2b2+b3) in the variation norm, and the following count-vector result aggregates a partition; the coupling note identifies a factor 2 relative to mismatch probability."
+          ],
+          "identifier_or_url": "https://dornsife.usc.edu/larry-goldstein/wp-content/uploads/sites/221/2023/06/AGG-1.pdf",
+          "material_read": "Author-hosted PDF pp. 3–4, journal pp. 11–12, Theorem 2, partition statement and coupling note",
+          "method": "Read the dependency bound, partition step and variation convention",
+          "title": "Two Moments Suffice for Poisson Approximations: The Chen–Stein Method",
+          "trigger": "General multivariate approximation and normalization"
+        },
+        {
+          "assessment": "Different observable and sampling model in the inspected statement",
+          "evidence": [
+            "Each random set has a prescribed size, and W is the cardinality of their intersection, not a count of pairs of selected Boolean worlds."
+          ],
+          "identifier_or_url": "https://dornsife.usc.edu/larry-goldstein/wp-content/uploads/sites/221/2023/10/poisson_subset.pdf",
+          "material_read": "Author copy p. 1, Introduction and equation (1), offset 805 onward",
+          "method": "Read the alternate open copy after the publisher retrieval failed; compared the probability spaces and observables",
+          "title": "Total Variation Distance for Poisson Subset Numbers",
+          "trigger": "Potential equivalent random-subset Poisson result"
+        },
+        {
+          "assessment": "Different witness predicate and scalar count",
+          "evidence": [
+            "There are two independently sampled Bernoulli relations and a cross-team violation count with ordinary- and compound-Poisson regimes, not a self/mixed Boolean-join pair."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-poisson-and-compound-poisson-violation-laws-for-random-poly-depe--e2f2b087c520",
+          "material_read": "Finding in the mirrored RESULT.md",
+          "method": "Compared the random objects, violation count and limiting regimes",
+          "title": "Poisson and compound-Poisson violation laws for random poly-dependence",
+          "trigger": "Closest exact catalog Poisson witness-law result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural comparison is between reusing a truth set and drawing a second independent one in the same binary connective. The result distinguishes their threshold intensities, resolves what common randomness contributes at finite k, and gives a quantitative proof that it does not survive as dependence in the critical limit. The moment and error formulas are useful as a benchmark for alternative sampling models, without asserting persistence, independence at finite k, or simultaneous truth at all worlds.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

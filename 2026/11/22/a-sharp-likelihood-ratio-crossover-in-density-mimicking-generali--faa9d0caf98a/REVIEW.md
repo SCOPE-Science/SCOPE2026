@@ -1,19 +1,21 @@
-# Review of the generalized density-sampled half-logistic rate-order theorem
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The proof begins from the exact, normalized count model in the 2024 originating article and establishes geometric summability. Adjacent log probabilities give strict log-concavity and all modal cuts. For any pair of rates, normalization cancels and the ratio increment is governed by a single continuous forward-difference function. An explicit hyperbolic-cosine curvature comparison proves a unique inflection of the governing function and a strictly decreasing positive forward-difference regime; hence there can be only one positive-level crossing. The first ratio step is consequently a necessary and sufficient global condition, including the exact equality/tie boundary. An integral average of a strictly decreasing logistic kernel yields uniqueness of the second-rate restoration threshold. The rational witness checks a genuine likelihood-ratio order failure without approximations. The standalone finite reproducer was executed successfully, but its grids are secondary corroboration rather than proof.
+PASS
 
-## Originality: PASS, with residual priority risk
+The weights are positive and bounded by a summable geometric sequence. Normalizers cancel in adjacent ratios. At fixed α, the log increment of the higher/lower rate ratio is (1+α)[F(n+1)−F(n)]−α(b−a), where F=log((1+e^(−ax))/(1+e^(−bx))). For an independent check of the turn, write F'=b/(1+e^(bx))−a/(1+e^(ax)). Its sign changes exactly once from positive to negative because (1+e^(bx))/(1+e^(ax)) rises strictly from 1 to infinity. If F'≥0, then b/(1+e^(bx))≥a/(1+e^(ax)); comparing their squares times e^(bx) and e^(ax) shows F''<0 there. Thus whenever d(x)=F(x+1)−F(x)>0, x is before the maximum of F, and F'(x+1)<F'(x) whether x+1 is before or after that maximum. Hence d decreases strictly while positive and cannot re-enter its positive region. The first step sets the full threshold by d(0)=H; every positive level has at most one downward crossing, giving the strict steps and tie cases. H/(b−a) is a strictly decreasing average as b increases, from (1+e^a)⁻¹ to 0, so c(a,b) decreases from e^(−a) to 0 and the claimed restoration rate is unique where it exists. At fixed θ, the positive unit decrements h_n of the strictly convex log(1+e^(−θx)) decrease to zero; the adjacent log masses are (1+α)h_n−αθ, yielding strict discrete log-concavity, all modes and the adjacent ties. The two witness ratios reduce to the stated exact rational inequalities; scalar bisection independently gives b_*≈2.19009277655 for the example.
 
-The originating primary full text (Barbiero–Hitaj, *Journal of the Indian Society for Probability and Statistics*, 2024, §5, https://doi.org/10.1007/s41096-024-00185-w) proposes precisely the two-parameter density-sampling PMF and qualitatively notes its nonzero-mode flexibility, but does not state the present sharp rate likelihood-ratio phase diagram or one-turn classification. The related 2024 Barbiero–Hitaj *Annals of Operations Research* work (https://doi.org/10.1007/s10479-023-05807-3) is an explicit alternative survival-preserving discretization, and its generalized mass formula is not algebraically identical. General likelihood-ratio order theory supplies definitions but not the evaluated boundary. Targeted title, synonym, formula, shape/modal and rate-order searches gave no identified stronger equivalent. This supports provisional originality, not a claim of exhaustive uniqueness; a sufficiently general unlocated sampling-order theorem remains a research-priority risk.
+## originality
 
-## Value: PASS
+PASS
 
-The 2024 source explicitly motivates allowing positive modes but does not classify how the two-parameter law behaves under changes of rate. The sharp and complete pairwise monotone-likelihood-ratio order classification distinguishes a robust one-sided comparison regime from an exactly single-peaked, nonmonotone regime. For shapes below one, a unique critical *larger* rate restores the stronger order even after small rate changes break it. This nontrivial structural separation matters to monotone tests and rate-driven modeling; exact mode thresholds and ties describe all possible modal configurations. The result is a mathematical characterization, not a demonstrated empirical improvement.
+Barbiero–Hitaj define the same sampled-density count model and note the possibility of positive modes, but the inspected generalization does not give its fixed-shape pairwise rate phase diagram. The strongest matching catalogue and published alternatives treat either a different discretization or a different family. An earlier single-turn theorem for two rates in the same continuous parent would imply much of the discrete result by sampling; no such comparison was identified in the accessible relevant passages, and the limits of the targeted search are recorded below.
 
-## Closest work and limits
+## value
 
-The two open primary articles listed in RESULT.md were compared at the level of their PMF definitions, assumptions, parameter direction and proved implications. The theorem assumes a fixed positive shape and finite positive rates. It does not classify mixed-parameter variation, ordinary stochastic order beyond the cases implied by MLR, or the different type-I survival-preserving family. The checker is finite, and independent audit remains unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a motivated count model, this identifies exactly when increasing rate orders the observations by likelihood ratio and when it instead gives a single ratio peak. At small shape it shows that increasing the second rate further can restore the stronger order after a small increase fails, and gives the exact unique restoration criterion. This provides a useful parameter comparison for monotone testing or modeling, beyond the existing observation that modes need not be at zero. The mode staircase supplements rather than carries the value case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

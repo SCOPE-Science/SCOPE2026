@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:39:59.935235Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–70",
+        "Frozen VERIFICATION.md, verify.py and requirements.txt (source inspection)",
+        "/workspace/replays/4.py (executed: exact forward arrival-order sums, orbit coverage and witness)"
+      ],
+      "rationale": "Rescaling time by beta leaves the event order unchanged. From seed 2 in the witness, each of 0, 1 and 4 has initial weight 1 while 3 has weight 0; with probability 2/3 the first event is therefore at 0 or 1. Condition on 0: the next weights for 1, 3 and 4 are q+2, 1 and 1. If 1 arrives next, the target weights are q+2 and 1. This gives the claimed rational function; subtracting 1/2 gives numerator q²−q−8 over 6(q+3)(q+4), and direct differentiation is strictly positive for q≥0. Independently I summed products of race probabilities over complete arrival orders, instead of using the uploaded backward recursion. I checked that the permutation orbits of the seven representative triangle graphs were disjoint and covered all 1, 19 and 150 qualifying labeled graphs at orders 3, 4 and 5, respectively, with the prescribed cap at order five. For the 129 seed/target comparisons the reduced numerator of 2P−1 is identically zero in 43 cases and coefficientwise of one sign in the remaining 86; the denominator is positive for q≥0. Triangle-free graphs have no q-dependence and graphs of order less than three have no such triple of vertices, so the exhaustion establishes the exact minimality claim. No finite parameter grid is used for these signs.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The papers establish higher-order interaction mechanisms, collective phase effects or parameter-dependent patterns, not a universal inequality for labeled relative arrival times on the small graphs."
+        ],
+        "reasoning": "A model class including triangles, or a result about aggregate phase or pattern changes, does not establish a sign exclusion across all bounded simple graphs with every seed/target triple.",
+        "searches": [
+          "arXiv:2301.09407v2, abstract and model description",
+          "DOI 10.1038/s41467-019-10431-6, abstract and introduction",
+          "DOI 10.1371/journal.pcbi.1012206, abstract and author summary"
+        ]
+      },
+      "checked_sources": [
+        "Resultary, including the exact assigned record and distinct entries above",
+        "arXiv:2301.09407v2",
+        "DOI 10.1371/journal.pcbi.1012206",
+        "DOI 10.1038/s41467-019-10431-6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The discrete-time study observes infection order for classification; the transmission-pattern paper tracks attributed edges; the deterministic catalogue result changes seed budget and compares different graphs."
+        ],
+        "reasoning": "These results do not fix the conditional weights in the continuous-time witness or give the required seven-graph sign exclusions. Neither the exact q crossing nor the minimality is obtained by parameter substitution.",
+        "searches": [
+          "arXiv:2301.09407v2, model passage around offset 5350",
+          "DOI 10.1371/journal.pcbi.1012206, author summary",
+          "Resultary e3715faf6e01, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2301.09407v2 studies order and topology with pairwise and three-node interactions but in discrete time, and uses correlation/discrimination statistics rather than a labeled two-target race. DOI 10.1371/journal.pcbi.1012206 focuses on which links are used and how frequently."
+        ],
+        "reasoning": "The half-probability crossing compares labels in a single seed-conditioned continuous-time race. Neither aggregate correlation nor link attribution is the same observation; time discretization can also introduce ties absent in the audited process.",
+        "searches": [
+          "Resultary: smallest triangle-reinforced motif arrival-order reversal; continuous-time SI probability one target precedes another; connected triangle graph enumeration",
+          "Literature query: Distinguishing Simple and Complex Contagion Processes on Networks Cencetti Contreras infection order triangle reinforcement first-arrival probability minimal graph motif"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit was the assigned record. Distinct hit e3715faf6e01 concerns a deterministic two-neighbor full-activation ranking; hit 51f5bbdc1318 describes source ranking by mean outbreak size on trees, on search-summary evidence only."
+        ],
+        "reasoning": "An enumeration of thresholds by seed size or of source rankings by expected size is not an enumeration of sign-stable target-arrival probabilities, even if it also reports a smallest graph.",
+        "searches": [
+          "Resultary: minimal graph motif switch in first-arrival probability with higher-order triangle interaction; exact infection-order enumeration"
+        ]
+      },
+      "rationale": "The distinct statement is the exact labeled-arrival reversal and sharp vertex/edge boundary for the specified continuous-time pairwise-plus-graph-triangle model, not the model ingredients or the use of observed event order as such. Closest primary passages concern discrete-time order/topology correlations, edge-use frequencies, and collective phase behavior; the related catalogue reversals have different observables and rules.",
+      "residual_risks": [
+        "Bounded search and passage inspection do not certify priority or rule out unindexed work or supplements. The tree source-ranking comparison is summary-only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong methodological overlap but different statistic and time convention",
+          "evidence": [
+            "Uses 'the order in which network nodes are infected' and correlations with local topology; model description includes discrete-time SI."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2301.09407v2",
+          "material_read": "Abstract near HTML offset 900; model description near 5350",
+          "method": "Targeted OA HTML excerpts",
+          "title": "Distinguishing Simple and Complex Contagion Processes on Networks",
+          "trigger": "Primary use of infection order with pairwise and triangle contagion"
+        },
+        {
+          "assessment": "Edge-use metric rather than relative first arrival",
+          "evidence": [
+            "Author summary describes 'which links are used for contagions and how frequently'."
+          ],
+          "identifier_or_url": "https://doi.org/10.1371/journal.pcbi.1012206",
+          "material_read": "Journal PDF p. 1, abstract and author summary around offsets 1446 and 2508",
+          "method": "Targeted OA PDF excerpts",
+          "title": "Infection patterns in simple and complex contagion processes on networks",
+          "trigger": "Dependence of higher-order patterns on pairwise versus group transmission"
+        },
+        {
+          "assessment": "Collective transition result, not a target-order or smallest-motif theorem in these passages",
+          "evidence": [
+            "The paper distinguishes a filled simplex from its edges and reports discontinuous transitions and bistability."
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/s41467-019-10431-6",
+          "material_read": "PDF p. 1, abstract and introduction around offsets 0 and 4200",
+          "method": "Targeted OA PDF excerpts",
+          "title": "Simplicial models of social contagion",
+          "trigger": "Earlier higher-order graph interaction model"
+        },
+        {
+          "assessment": "Different graph comparison, observable and process",
+          "evidence": [
+            "Full-activation rankings of two graphs under changes in seed budget in a deterministic two-neighbor process."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-six-vertices-are-sharp-for-seed-budget-rank-reversals-in-two-nei--e3715faf6e01",
+          "material_read": "Mirrored RESULT.md Finding, opening passage",
+          "method": "Resultary and local mirror",
+          "title": "Six vertices are sharp for seed-budget rank reversals in two-neighbor contagion",
+          "trigger": "Smallest graph reversal in a contagion process"
+        },
+        {
+          "assessment": "Summary suggests a different objective and graph class; full-text scope not established",
+          "evidence": [
+            "Summary describes seed comparisons by expected outbreak size on trees."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-seven-vertices-are-sharp-for-transmissibility-dependent-epidemic-source-ranking-reversals-on-trees--51f5bbdc1318",
+          "material_read": "Search summary only; matching local full-text path unavailable",
+          "method": "Resultary",
+          "title": "Seven vertices are sharp for transmissibility-dependent epidemic source ranking reversals on trees",
+          "trigger": "Another indexed smallest reversal"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and limitations",
+        "/workspace/replays/4.py",
+        "arXiv:2301.09407v2, order-based comparison motivation"
+      ],
+      "rationale": "The example gives a minimal, exact counterexample to treating stronger triangle reinforcement as mere acceleration preserving relative arrival preference. A direct neighbor of the seed is overtaken in probability by a nonneighbor, with a specified crossing and an exhaustive lower bound on graph size. That isolates an order effect in the graph process beyond an aggregate growth-rate change; the contribution does not rest on a numerical fit or an application claim.",
+      "residual_risks": [
+        "No claim about larger-graph classification, recovery, independently specified hyperedges, weighting or real-world transmission is assessed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

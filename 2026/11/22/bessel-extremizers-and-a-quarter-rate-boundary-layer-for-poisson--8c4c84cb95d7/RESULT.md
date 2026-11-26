@@ -1,109 +1,62 @@
-# Bessel extremizers and a quarter-rate boundary layer for Poissonized Hardy averaging
+# Sharp BV extremizers and a large-time boundary layer for Poissonized Hardy averaging
 
 ## Finding
 
-Let \(H\) be the real Hardy average on \((0,1)\), and let \(P_t=\exp(t(H-I))\) for \(t>0\). On the real distributional bounded-variation space \(BV(0,1)\), with unweighted interior variation \(|Df|((0,1))\), define
+On the real space \(BV(0,1)\), with unweighted distributional variation on the open interval, let \(Hf(x)=x^{-1}\int_0^x f(u)\,du\) and \(P_t=e^{t(H-I)}\) for \(t>0\). Write
 \[
 C(t)=\sup_{|Df|((0,1))>0}\frac{\|f-P_tf\|_{L^1(0,1)}}{|Df|((0,1))}.
 \]
-Let \(I_0\) denote the modified Bessel function with power series \(I_0(z)=\sum_{k=0}^{\infty}(z^2/4)^k/(k!)^2\). There is one \(a_t>0\) with
+This sharp error equals the total variation distance (the supremum over measurable events) between an exponential-one law and its convolution with the compound-Poisson sum \(Y_t\) of a Poisson\((t)\) number of independent exponential-one variables. Let \(a_t\) be the unique positive root of \(e^{-t}I_0(2\sqrt{ta_t})=1\), where \(I_0\) is the modified Bessel function. The complete nonconstant equality class is
 \[
-I_0(2\sqrt{t a_t})=e^t,\qquad s_t=e^{-a_t}.
+f=c+d\,\mathbf1_{(s_t,1)},\qquad s_t=e^{-a_t},\quad c,d\in\mathbb R,\ d\ne0
 \]
-Then \(C(t)\) is attained, and its unique nonconstant equality functions, modulo almost-everywhere equality, are
+up to almost-everywhere equality. The sharp error is
 \[
-f(x)=c+d\,\mathbf1_{(s_t,1)}(x),\qquad c,d\in\mathbb R,\quad d\ne0.
+C(t)=\int_{s_t}^1\!\big[1-e^{-t}I_0(2\sqrt{t\log(1/u)})\big]du=\Pr(Y_t>a_t).
 \]
-Its exact value has either of the equivalent forms
+Its short- and large-time behavior is
 \[
-C(t)=\int_{s_t}^1\!\left[1-e^{-t}I_0\!\left(2\sqrt{t\log(1/u)}\right)\right]du
-=\mathbb P\{Y_t>a_t\},
+\begin{aligned}
+a_t&=1+t/4+O(t^2),& C(t)&=t/e-t^2/(4e)+O(t^3) &&(t\downarrow0),\\
+a_t&=t/4+\tfrac14\log(2\pi t)+O((\log t)^2/t),& 1-C(t)&\sim 2(2\pi t)^{-1/4}e^{-t/4} &&(t\to\infty).
+\end{aligned}
 \]
-where \(Y_t\) is the compound-Poisson sum of a Poisson\((t)\) number of independent exponential-one variables, with the empty sum zero. The sharp extremizer location and error exhibit the quantitative two-sided regimes
-\[
-a_t=1+\frac t4+O(t^2),\qquad C(t)=\frac te-\frac{t^2}{4e}+O(t^3)\qquad(t\downarrow0),
-\]
-\[
-a_t=\frac t4+\frac14\log(2\pi t)+O\!\left(\frac{(\log t)^2}{t}\right),\qquad
-1-C(t)\sim2(2\pi t)^{-1/4}e^{-t/4}\qquad(t\to\infty).
-\]
-In particular, the unique worst jump has \(s_t\sim(2\pi t)^{-1/4}e^{-t/4}\) at large time. The result concerns the exact identity-approximation error, not the ordinary operator norm of \(P_t\) on \(L^1\).
-
-## Assumptions and scope
-
-The domain is the open unit interval with Lebesgue output measure, and \(f\) is any real element of \(BV(0,1)\). Its canonical representative may be written \(f(x)=c+\mu((0,x))\) for almost every \(x\), where \(\mu=Df\) is a finite signed measure in the open interval; endpoint values are immaterial. The Hardy map is \((Hf)(x)=x^{-1}\int_0^x f(y)\,dy\) for \(0<x<1\). Because \(H\) is a positive contraction on bounded functions and preserves constants, the bounded-operator exponential \(P_t=e^{-t}\sum_{m=0}^\infty t^mH^m/m!\) acts on every \(BV\) input. At \(t=0\) the defect is identically zero and there is no unique extremizer; all uniqueness assertions require \(t>0\).
+In particular, the large-time maximizing jump is asymptotic to \((2\pi t)^{-1/4}e^{-t/4}\), and the deficit is asymptotic to twice its distance from the left endpoint. This concerns the identity-approximation error for a real \(BV\) domain and Lebesgue output measure, not an ordinary \(L^1\) operator norm. At \(t=0\) the error is zero and the uniqueness statement does not apply.
 
 ## Proof
 
-**1. Probabilistic reduction.** Let \(U_1,U_2,\ldots\) be independent uniform\((0,1)\) variables and \(N_t\) an independent Poisson\((t)\) count. Iterated Hardy averaging has \((H^mf)(x)=\mathbb Ef(xU_1\cdots U_m)\). Thus \((P_tf)(x)=\mathbb Ef(xe^{-Y_t})\), with \(Y_t=-\sum_{j=1}^{N_t}\log U_j\). This identity also follows directly from the absolutely convergent exponential series. Since \(P_t\) fixes constants and the signed-measure representation gives \(f(x)=c+\int\mathbf1_{(s,1)}(x)\,d\mu(s)\), Fubini and the triangle inequality reduce the sharp error to the supremum of single-jump defects.
-
-**2. Exact jump defect.** For \(h_s(x)=\mathbf1_{(s,1)}(x)\), the nonnegative error \(h_s-P_th_s\) vanishes below \(s\). For a realization of \(Y_t\), its integral is the length of \((s,\min\{1,se^{Y_t}\})\), namely \(\min(1,se^{Y_t})-s\). Hence, for \(0<s<1\),
+Each Hardy application acts by replacing \(x\) by \(xU\) for independent uniform \(U\in(0,1)\); Poisson mixing shows \(P_tf(x)=\mathbb E f(xe^{-Y_t})\). This follows from the exponential series on bounded functions, which includes \(BV(0,1)\). For a step \(h_s=\mathbf1_{(s,1)}\), its error is nonnegative pointwise, with integrated defect
 \[
-E_t(s):=\|h_s-P_th_s\|_1=\mathbb E[\min(1,se^{Y_t})-s].
+E_t(s)=\mathbb E[\min(1,se^{Y_t})-s].
 \]
-The law of \(Y_t\) has an atom of size \(e^{-t}\) at zero and, on \((0,\infty)\), strictly positive density
+For independent uniform \(X\in(0,1)\), the law of \(Xe^{-Y_t}\) has distribution function \(s+E_t(s)\) on the interval and density \(W_t(-\log s)\), where
 \[
-p_t(y)=e^{-t-y}\sqrt{t/y}\,I_1(2\sqrt{ty}),
+W_t(a)=\mathbb E[e^{Y_t}\mathbf1_{\{Y_t<a\}}]=e^{-t}\sum_{m\ge0}\frac{(ta)^m}{(m!)^2}=e^{-t}I_0(2\sqrt{ta})\qquad (a>0).
 \]
-which follows by summing the gamma densities conditional on \(N_t=m\ge1\). Here \(I_1(z)=I_0'(z)\). For \(a=-\log s>0\), differentiation under the expectation gives
+The sum conditions on the Poisson count and integrates the resulting gamma densities, including the mass \(e^{-t}\) at zero. Thus \(E_t'(s)=W_t(-\log s)-1\) decreases strictly in \(s\) from positive infinity to \(e^{-t}-1\); there is exactly one maximizing step, at \(s_t\). The set on which the density of \(Xe^{-Y_t}\) exceeds that of \(X\) is \((0,s_t)\), so the maximum difference of probabilities is \(E_t(s_t)\). Under the change of variables \(x\mapsto-\log x\) this is the asserted total variation. Integrating the derivative of \(E_t\) from \(s_t\) to 1 yields the integral formula; splitting the expected minimum at \(Y_t=a_t\) and using \(W_t(a_t)=1\) yields \(E_t(s_t)=\Pr(Y_t>a_t)\).
+
+Writing \(f=c+\int h_s\,d\mu(s)\) almost everywhere, with \(\mu=Df\) a finite signed measure on the open interval, gives
 \[
-E_t'(s)=\mathbb E[e^{Y_t}\mathbf1_{\{Y_t<a\}}]-1.
+\|f-P_tf\|_1\le\int E_t(s)\,d|\mu|(s)\le E_t(s_t)|\mu|((0,1)).
 \]
-The truncated tilted moment is exactly
+The integral representation and Fubini apply since the steps are bounded and the measure is finite. A jump at \(s_t\) attains the bound. Strictness of the maximum forces all variation of an equality function to be supported at \(s_t\), giving exactly the stated affine family of jumps.
+
+At small \(t\), divide the root equation \(I_0(2\sqrt{ta})=e^t\) after subtraction of 1 by \(t\). The resulting analytic equation is \(a-1+t(a^2/4-1/2)+O(t^2)=0\). Its derivative in \(a\) at \((t,a)=(0,1)\) is 1, so the unique root satisfies \(a_t=1+t/4+O(t^2)\). On a bounded range of \(a\) around one, expanding \(W_t\) and integrating gives
 \[
-\mathbb E[e^{Y_t}\mathbf1_{\{Y_t<a\}}]
-=e^{-t}\left(1+\sum_{m\ge1}\frac{t^m a^m}{(m!)^2}\right)
-=e^{-t}I_0(2\sqrt{ta}).
+E_t(e^{-a})=\int_0^a e^{-v}(1-W_t(v))\,dv=e^{-a}\big[ta+t^2(a^2/4-a/2)\big]+O(t^3).
 \]
-The formula includes the atom at zero. Consequently
+Since \(a e^{-a}\) is stationary at 1, the expansion of \(C(t)\) follows.
+
+For large \(t\), set \(z_t=2\sqrt{ta_t}\). From \(I_0(z)=e^z(2\pi z)^{-1/2}(1+O(z^{-1}))\) on the positive real axis, first \(z_t/t\to1\), then \(z_t=t+\tfrac12\log(2\pi t)+O((\log t)/t)\). Squaring and dividing by \(4t\) gives the claimed location. For the prefactor, let \(A\sim\operatorname{Poisson}(t)\) and \(B\sim\operatorname{Poisson}(a_t)\) be independent. Realize \(Y_t\) as the \(A\)-th arrival time of a separate unit-rate Poisson process, at time zero if \(A=0\), and take \(B\) as its count by time \(a_t\). Then \(1-C(t)=\Pr(A\le B)\). From the two Poisson mass formulas, for integer \(k\ge0\),
 \[
-E_t'(s)=e^{-t}I_0(2\sqrt{t\log(1/s)})-1.
+\Pr(B-A=k)=e^{-t-a_t}(a_t/t)^{k/2}I_k(z_t),
 \]
-As \(s\) increases from zero to one, this derivative decreases strictly from positive infinity to \(e^{-t}-1<0\). It vanishes exactly at \(s_t\). Since \(E_t(s)\to0\) at both endpoints, \(s_t\) is the unique global maximizer. Integration of \(E'_t\) from \(s\) to one gives the displayed exact integral. At the root, integration by parts in the formula for the expected minimum gives \(E_t(s_t)=\mathbb P(Y_t>a_t)\).
+where \(I_k\) is the modified Bessel function of order \(k\). The tie probability is exactly \(e^{-a_t}\) by the root equation. For fixed \(k\), \(I_k(z_t)/I_0(z_t)\to1\); this follows from the Fourier integral of \(e^{z_t\cos\theta}\) against \(\cos(k\theta)\), normalized by its integral, since that measure concentrates near \(\theta=0\). The ratio has absolute value at most 1. Since \(a_t/t\to1/4\), the sum over \(k\ge0\) after division by the tie probability has terms dominated by \((2/3)^k\) for sufficiently large \(t\); its limit is \(\sum_{k\ge0}2^{-k}=2\). This gives the asymptotic prefactor, not only the exponential rate.
 
-**3. The norm and all equality cases.** For \(\mu=Df\),
-\[
-\|f-P_tf\|_1\le\int_{(0,1)}E_t(s)\,d|\mu|(s)
-\le E_t(s_t)|\mu|((0,1)).
-\]
-A single jump at \(s_t\) attains equality. If a nonzero signed measure attains equality, the second inequality forces its total variation to be supported on the singleton \(\{s_t\}\), because \(E_t(s)<E_t(s_t)\) at every other point. Thus \(\mu=d\delta_{s_t}\), giving exactly the stated equality class.
+## Relationship to prior work and scope
 
-**4. Short-time expansion.** The root equation and the series \(I_0(2\sqrt{ta})=1+ta+t^2a^2/4+O(t^3)\), uniformly for \(a\) near one, imply \(a_t=1+t/4+O(t^2)\). Moreover, \(P_t=I+t(H-I)+t^2(H-I)^2/2+O(t^3)\) uniformly on bounded inputs. For the step at \(s=e^{-a}\), \(\|h_s-Hh_s\|_1=sa\) and \(\|h_s-H^2h_s\|_1=s(a+a^2/2)\). Because all the step defects have one sign, their scalar combination expands as
-\[
-E_t(e^{-a})=t e^{-a}a+\frac{t^2 e^{-a}}2\left(\frac{a^2}{2}-a\right)+O(t^3)
-\]
-uniformly for \(a\) near one. Substitution of \(a=a_t=1+O(t)\), using stationarity of \(ae^{-a}\) at one, proves the stated coefficient of \(t^2\).
+The **scalar threshold and exact error** have a classical equivalent in equal-prior noncoherent on–off keying in additive Gaussian noise. For example, the Technical University of Munich teaching material [*Coherent and Non-Coherent On-Off Keying*, §2.3](https://en.lntwww.lnt.ei.tum.de/Applets:Coherent_and_Non-Coherent_On-Off_Keying) gives the Rayleigh/Rice densities, the two error integrals and the optimal threshold at the density intersection. With Gaussian component variance \(\sigma^2\), nonzero signal amplitude \(M\), and received envelope \(\eta\), set \(t=M^2/(2\sigma^2)\) and \(y=\eta^2/(2\sigma^2)\). Their two densities transform into \(e^{-y}\) and \(e^{-y}W_t(y)\), exactly the two laws in the total variation formula above. The density intersection is the Bessel root and the optimal average error is \((1-C(t))/2\). No originality is claimed for this scalar testing problem, its threshold equation, or its exact error characterization.
 
-**5. Large-time location.** Put \(z_t=2\sqrt{ta_t}\). The standard positive-real Bessel expansion \(I_0(z)=e^z(2\pi z)^{-1/2}(1+O(z^{-1}))\) yields
-\[
-z_t=t+\tfrac12\log(2\pi t)+O((\log t)/t).
-\]
-Squaring and dividing by \(4t\) proves the expansion of \(a_t\) and hence \(s_t\).
+The [fixed-iterate BV calculation](https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-bounded-variation-error-of-iterated-ces-ro-averaging--fa8ba69dbe73/RESULT.md) gives sharp step errors for individual \(H^m\), with maximizing location \(\exp[-(m!)^{1/m}]\). This does not give equality for the Poisson mixture by averaging those sharp values: even \(m=1,2\) require different jumps and both have positive weights. Arvanitidis and Siskakis ([arXiv:1006.1520](https://arxiv.org/abs/1006.1520)) study dilation semigroups and analytic Hardy-space Cesàro operators rather than this real \(BV\) norm problem. Belli, Gül, Ross and Siskakis ([DOI](https://doi.org/10.1007/s00020-026-02865-7)) use a different, nonconstant-preserving kernel. The contribution assessed here is the reduction of the sharp Hardy identity error to the testing distance, the resulting full BV extremizer classification, and the quantitative jump/deficit asymptotics. A bounded comparison does not exclude an earlier equivalent sharp asymptotic from the detection literature.
 
-**6. Sharp deficit prefactor.** Write \(W_t(y)=e^{-t}I_0(2\sqrt{ty})=\mathbb E[e^{Y_t}\mathbf1_{\{Y_t\le y\}}]\) for \(y>0\), with \(W_t(0)=e^{-t}\). At \(a_t\), \(W_t(a_t)=1\). Stieltjes integration by parts gives
-\[
-\mathbb P\{Y_t\le a_t\}=e^{-a_t}\left(1+\int_0^{a_t} e^z W_t(a_t-z)\,dz\right).
-\]
-For each fixed \(z\ge0\), the Bessel derivative ratio \(I_1(r)/I_0(r)=1+O(r^{-1})\) and \(a_t/t\to1/4\) give \(W_t(a_t-z)\to e^{-2z}\). To justify passage under the integral, observe that for \(a_t/2\le y\le a_t\), the logarithmic derivative \(\partial_y\log W_t(y)=\sqrt{t/y}\,I_1(2\sqrt{ty})/I_0(2\sqrt{ty})\) is at least \(3/2\) for all sufficiently large \(t\). Thus \(e^zW_t(a_t-z)\le e^{-z/2}\) for \(0\le z\le a_t/2\). On the remaining interval \(a_t/2\le z\le a_t\), monotonicity gives a total bound \(a_t e^{a_t}W_t(a_t/2)\), which tends to zero since \(I_0(r)\le e^r\) and
-\[
--t+a_t+\sqrt{2ta_t}=( -3/4+1/\sqrt2)t+O(\log t)\to-\infty.
-\]
-Dominated convergence therefore makes the integral tend to \(\int_0^\infty e^{-z}\,dz=1\). As \(C(t)=\mathbb P(Y_t>a_t)\), this proves \(1-C(t)\sim2e^{-a_t}\) and the displayed prefactor. No numeric experiment is used to establish the infinite-time result.
-
-## Verification
-
-The standalone `checker.py` (Python 3 with `mpmath`) checks two independently implemented finite-time formulas: an explicit Poisson mixture of the \(H^m\) step defects and the modified-Bessel integral. It also checks the root equation, nearby maximizing values, and quantitative finite-time consistency with both asymptotic regimes. Running the embedded checker produced `PASS 108 numerical comparisons`. The proof above supplies strict uniqueness and the infinite-time estimates; the numerical samples alone would not prove either.
-
-## Relationship to prior work
-
-The real Hardy average is classical. Arvanitidis and Siskakis (arXiv:1006.1520, first posted 2010-06-08) analyze Cesàro-type operators via dilation semigroups and calculate Hardy-space norms and spectra, rather than the \(BV\)-to-\(L^1\) identity error of \(\exp(t(H-I))\). Miller's 2007 survey concerns analytic Cesàro operators, their spectra and related composition semigroups. The recent real-variable Cesàro spectral study of Belli, Gül, Ross and Siskakis (2026) uses the different nonconstant-preserving kernel \(x^{-1}\int_0^x f(u)/(1-u)\,du\), so its operator-norm and spectral statements do not imply this theorem. Exact sharp bounds for fixed integer iterates of \(H\) also do not determine the Poissonized sharp norm by convex combination: their unique maximizing jumps depend on the integer power. The new exact Bessel threshold and quarter-rate asymptotic require optimizing the full mixture jointly. An exhaustive historical-priority claim is not made.
-
-## Limitations
-
-The theorem is for the specific real one-sided Hardy operator, a Poissonization with a unit-rate jump clock, Lebesgue \(L^1(0,1)\), and unweighted interior distributional variation. It does not assert analogous formulas for weighted interval measures, two-sided averages, non-Poisson mixing laws or general \(L^1\) input functions. The original-source inspection is necessarily limited to accessible texts; possible unindexed equivalent results are a residual historical-priority risk. This is a mathematical argument accompanied by reproducible finite checks, not an independent audit.
-
-## References
-
-- A. G. Arvanitidis and A. G. Siskakis, *Cesàro Operators on the Hardy Spaces of the Half-Plane*, arXiv:1006.1520, first submitted 2010-06-08. https://arxiv.org/abs/1006.1520
-- V. G. Miller, *The Cesàro and Related Operators, a Survey*, Banach Center Publications 75 (2007), 233–247. https://doi.org/10.4064/bc75-0-14
-- A. Belli, U. Gül, W. T. Ross and A. G. Siskakis, *Crescents and the Real Variable Cesàro Operator*, Integral Equations and Operator Theory 98 (2026), article 42. https://doi.org/10.1007/s00020-026-02865-7
+The accompanying `checker.py` provides finite numerical comparisons between the step-defect integral and its Poisson-mixture representation; it is not needed for the proof or for either limiting statement.

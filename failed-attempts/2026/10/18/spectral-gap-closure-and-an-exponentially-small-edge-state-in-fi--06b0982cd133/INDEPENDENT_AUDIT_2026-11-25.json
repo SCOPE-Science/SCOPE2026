@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:45:16.222487Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The product of two ordinary Laguerre generating functions is the associated Laguerre generating function at the sum of the arguments. With the orthonormal Laguerre functions this gives M=RB/2, B=I−τS; the complement of those m basis vectors is in the kernel. The determinant is (−1)^(m(m−1)/2)2^−m, and deformation to reversal gives the claimed inertia for all m≥1, including m=1. The singular-value square is B*B/4 with the one-end correction to a tridiagonal Toeplitz matrix. Rank-one interlacing gives its limiting magnitude distribution; odd signed traces are O(1) before normalization since a fixed reverse-band intersects only O(1) diagonal entries. This gives the signed law and the arcsine normalization at τ=1. The reverse triangle inequality and constant-vector Rayleigh bound give the subcritical endpoint. At τ=1 the boundary conditions are v_(−1)=0 and v_m=v_(m−1); the sine vectors in the finding satisfy both. Reversing the difference vector evaluates its sign as (−1)^(k−1), yielding the exact eigenfunctions, extreme magnitudes and determinant product. For τ>1 the reversed, τ^−m scaled inverse of B has truncated kernel τ^(−1−i−j) on i+j≤m−1; its Hilbert–Schmidt limit has norm τ/(τ²−1), giving the full prefactor. Interlacing places at most one singular value below (τ−1)/2, and the computed one is eventually below it. All limits hold for fixed τ. The packaged finite-dimensional checker was inspected, not run; it is not needed to establish the limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kawabata gives the exact dispersion and finite sine/hyperbolic quantization for every uniform positive hopping choice; this is the precise finite extremal problem. Asbóth–Oroszlány–Pályi also exhibit the same supercritical prefactor through the approximate clean-chain overlap.",
+          "Ferrari et al. Theorem 3.2 and Corollary 3.3 apply to any integrable symbol f with real Fourier coefficients and the anti-identity times T_n[f]. They give the signed distribution ±|f| with equal weights. With f=(1−τe^(iθ))/2 (or its conjugate according to the Toeplitz convention), this is exactly the frozen ν_τ, not merely its absolute-value distribution.",
+          "Higham's inverse-entry formula for bidiagonal matrices and Widom's unsigned Toeplitz distribution also cover individual ingredients; neither is the basis for the full signed-law comparison."
+        ],
+        "reasoning": "These are stronger results for the same block and same Toeplitz family. The Kac–Murdock–Szegő covariance comparison instead has a different endpoint correction and is not needed for coverage.",
+        "searches": [
+          "Open SSH quantization: Kawabata 2024, pp. 1–2; arXiv:1509.02295, §1.5 finite chain equations",
+          "Flipped Toeplitz signed eigenvalue distributions: arXiv:1810.03326, Theorem 3.2 and Corollary 3.3",
+          "Higham doi:10.13001/ela.2024.8297 and Widom doi:10.4171/ZAA/350"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–79; VERIFICATION.md; checker.py",
+        "Kawabata SSH_OBC.pdf (2024)",
+        "arXiv:1810.03326; arXiv:1509.02295",
+        "Resultary ad9e67002c01",
+        "doi:10.13001/ela.2024.8297; doi:10.4171/ZAA/350"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the exact SSH equation put v=1, t=τ, L=m. For the in-gap root k=π+iκ, τ=sinh((m+1)κ)/sinh(mκ). This ratio is strictly increasing on κ>0 from (m+1)/m to infinity, so exactly one such wavenumber yields one positive/negative energy pair for each fixed τ>1 and large m; real wavenumbers cannot yield energies of modulus below τ−1.",
+          "With w=e^(−κ), the exact equations give τ−w^−1=w^(2m−1)(1−w²)/(1−w^(2m)) and E²=(τ−w)(τ−w^−1). Here w→τ^−1 with exponentially small error by the first equation, so |E|∼(τ²−1)τ^(−m−1); the required singular value is |E|/2. This is a direct expansion of the exact prior quantization, not reliance on an unproved prefactor from approximate overlap. For τ<1 the Toeplitz band lower bound is approached by the lowest real mode (equivalently by the constant-vector variational test).",
+          "Critical singular vectors fix the eigenvectors of RB up to phase because B*B has simple eigenvalues; the sign follows by reflection of the first difference as above. Substitution in the flipped-Toeplitz theorem also gives the critical arcsine law."
+        ],
+        "reasoning": "The full edge behavior, count and critical magnitudes survive with the precise index and scale, and the signed bulk is already a direct special case. The frozen proof's inverse-norm calculation is a valid alternate elementary proof, not a different spectral phenomenon.",
+        "searches": [
+          "Kawabata SSH_OBC.pdf, Eq. (6) and Eqs. (10)–(12)",
+          "arXiv:1810.03326 Corollary 3.3",
+          "Resultary ad9e67002c01 exact critical singular values"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For B=I−τS, the doubled matrix A=[[0,B*],[B,0]] is, by interleaving sublattices and gauging bond signs, the open 2m-site SSH path with intracell hopping 1 and intercell hopping τ. Its positive energies are exactly the singular values of B, twice those of M=RB/2.",
+          "A commutes with the reflection exchanging sublattices via R. On the plus-reflection subspace (v,Rv), A represents RB, and on the minus subspace it represents −RB. Thus the signed finite spectra are not naively identical, but M is precisely a reflection-sector fold at half-scale.",
+          "At τ=1 the doubled path is homogeneous and its sine eigenbasis splits by reflection parity, selecting alternating signs; in the original B convention the sine vector with angle θ=(2k−1)π/(2m+1) is mapped by RB to 2(−1)^(k−1)sin(θ/2) times itself."
+        ],
+        "reasoning": "The doubling, reflection restriction, Laguerre basis and factor 1/2 identify the exact matrix and its signs, not just a qualitative analogy to edge localization. A single exceptional singular value corresponds to an energy pair in the doubled SSH matrix, not a single signed energy there.",
+        "searches": [
+          "Open finite SSH chain exact spectrum, sinh quantization and edge energy",
+          "Kawabata, Exact solution to the Su-Schrieffer-Heeger model with open boundaries, Eqs. (1)–(12)",
+          "Resultary ad9e67002c01, nilpotent-shift critical singular spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 11 indexed record gives the exact critical inverse singular values [2sin((2j−1)π/(4m+2))]^−1 for (I−S)^−1, including a tridiagonal characteristic equation and eigenvector formula. Taking reciprocal magnitudes and dividing by two gives all the critical magnitudes claimed here, in particular the least and largest.",
+          "That indexed record does not contain the fixed-τ>1 asymptotic and boundary count in its stated critical-window result."
+        ],
+        "reasoning": "This is an exact indexed overlap in the critical case, rather than a title or thematic match; fixed-parameter coverage comes from the finite SSH equations instead.",
+        "searches": [
+          "Local Resultary search on critical nilpotent-shift inverse, bidiagonal singular spectrum and related Hankel records",
+          "Resultary ad9e67002c01, RESULT.md offsets 0–6969"
+        ]
+      },
+      "rationale": "The key trichotomy and the supercritical count are covered by the exact uniform finite open SSH problem after an explicit block reduction; the signed empirical law is a direct substitution into a general flipped-Toeplitz theorem, and the critical magnitudes are also in an earlier indexed nilpotent-shift record. The signed critical vector conversion is elementary in the reflection sector of a homogeneous path. Applying known spectral results to this kernel with the Laguerre addition identity does not support the frozen novelty claim.",
+      "residual_risks": [
+        "The comparison establishes earlier equivalent spectral coverage and direct implication, not the earliest source for the Laguerre-integral formulation or for each of its elementary proofs.",
+        "The frozen package flags the uninspected full text of the 2016 anti-pentadiagonal paper; no conclusion here depends on that paper or on its inaccessibility."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The exact dispersion and quantization imply the edge laws and count",
+          "evidence": [
+            "Boundary A_(L+1)=B_0=0; E²=v²+t²+2vt cos k; sin((L+1)k)/sin(Lk)=−t/v; t/v=sinh((L+1)κ)/sinh(Lκ) for the in-gap mode."
+          ],
+          "identifier_or_url": "https://kawabata.issp.u-tokyo.ac.jp/lectures/2024CMP/SSH_OBC.pdf",
+          "material_read": "pp. 1–2, Eqs. (2)–(6), (8)–(12), offsets 770–6210",
+          "method": "Author-hosted OA PDF, located at sinh then read both decisive passages; exact parameter and root comparison",
+          "title": "Exact solution to the Su-Schrieffer-Heeger model with open boundaries",
+          "trigger": "Exact open boundary spectral equations for the same bidiagonal block"
+        },
+        {
+          "assessment": "Covers the full signed empirical law",
+          "evidence": [
+            "Real Fourier coefficients suffice for anti-identity times T_n[f]. The limiting function takes |f| and −|f| on equal-length halves of its domain."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1810.03326",
+          "material_read": "Theorem 3.2 p. 11, and Corollary 3.3 pp. 13–14, offsets around 24250 and 29380–30381",
+          "method": "OA PDF locate and bounded primary passage, followed by exact symbol substitution",
+          "title": "The Eigenvalue Distribution of Special 2-by-2 Block Matrix-Sequences with Applications to the Case of Symmetrized Toeplitz Structures",
+          "trigger": "Possible direct prior for signed rather than just magnitude bulk"
+        },
+        {
+          "assessment": "Exact critical magnitude overlap, not the fixed-parameter supercritical assertion",
+          "evidence": [
+            "R_n(0)=(I−J_n)^−1 has singular values [2sin((2j−1)π/(4n+2))]^−1."
+          ],
+          "identifier_or_url": "Resultary:ad9e67002c01",
+          "material_read": "RESULT.md offsets 0–6969, s=0 formula, characteristic equation and vector formula",
+          "method": "local Resultary search and mirrored primary record",
+          "title": "First-order critical-window singular spectra of nilpotent-shift resolvents",
+          "trigger": "Earlier exact critical singular values for the frozen finite section's inverse"
+        },
+        {
+          "assessment": "Same finite SSH block; approximate splitting already gives the same leading coefficient, exact coverage supplied by Kawabata's quantization",
+          "evidence": [
+            "Normalized left and right profiles and hybridization calculation; for hopping 1 and τ their leading overlap is (τ²−1)τ^(−m−1) before rescaling."
+          ],
+          "identifier_or_url": "arXiv:1509.02295",
+          "material_read": "Finite-chain Eqs. (1.42), (1.44)–(1.54), especially PDF pp. 19–20 offset 58800",
+          "method": "OA PDF bounded passage, specialization to uniform alternating hopping",
+          "title": "A Short Course on Topological Insulators",
+          "trigger": "Known finite open-chain edge splitting"
+        },
+        {
+          "assessment": "Cover the inverse structure and unsigned bulk but are not used to infer the signed law by themselves",
+          "evidence": [
+            "Bidiagonal inverse entries are products along the chain; the Toeplitz singular-value law is distributed as the absolute symbol."
+          ],
+          "identifier_or_url": "doi:10.13001/ela.2024.8297; doi:10.4171/ZAA/350",
+          "material_read": "Higham Lemma 2.1 Eq. (2.1) p. 3; Widom Eq. (2) p. 1",
+          "method": "bounded OA primary passages",
+          "title": "The Power of Bidiagonal Matrices; On the Singular Values of Toeplitz Matrices",
+          "trigger": "General inverse and unsigned Toeplitz spectral coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The example illustrates bulk versus extremal invertibility, but the frozen contribution is a repackaging of the same already quantified SSH edge problem and flipped-Toeplitz bulk law by a standard orthonormal Laguerre expansion. No additional spectral behavior, inversion estimate outside the existing parameter/boundary setting, or mathematically motivated new consequence of the Hankel realization is established. The clean alternate derivation has expository utility but is insufficient as the asserted scientific finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

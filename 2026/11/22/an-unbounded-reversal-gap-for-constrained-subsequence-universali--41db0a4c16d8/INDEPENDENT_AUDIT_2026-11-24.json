@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:28:16.049310Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–81; VERIFICATION.md; verify.py lines 11–109 (inspect only)",
+        "Independent bounded construction and exact partition refinement: 18/18 matches for 2≤d≤4, 1≤k≤3 and both patterns"
+      ],
+      "rationale": "The greedy arch terminals, followed by a symbol absent from the remainder, witness nonuniversality when the arch count is below k. The two factor monitors act differently: before saturation, a run of d zeros in the forward monitor makes every future completion impossible, whereas the reverse monitor allows all initial zeros, represented by one pending state. Away from the end levels the reachable nondead states have two empty remainder versions, one pending-one version, and d−1 pending-zero versions, realized by alternating prefixes and unary appends. The level-zero and saturated level sizes are respectively d+1 and d+1 forward, versus 3 and d reverse. With r arches still needed, shortest legal completions from empty, pending-zero and pending-one are (10)^r, 1(01)^(r−1) and 0(10)^(r−1), of lengths 2r and 2r−1 as applicable, including d=2. This separates levels and empty/pending classes, and the pending-zero witness also excludes pending one. Appending 0^(d−t)1(01)^(r−1) separates same-class nonsaturated monitor counts j<t (including t=1 for empty remainders); after saturation only the monitor witness is needed. Counting the one dead residual gives exactly the stated complete DFA sizes, also for k=1. Reversal preserves the all-length-k subsequence condition, reverses the forbidden factor, and hence preserves word counts despite the exact state gap d−1.",
+      "residual_risks": [
+        "The uploaded verifier was not executed; the bounded independent check corroborates rather than proves the infinite family. The proof applies only to the stated complete deterministic model and parameter domain."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adamson et al., pp. 1–2 and conclusion p. 19, allow arbitrary regular constraints and give existence, counting, and ranking algorithms.",
+          "Barker et al., arch-factorization discussion and Theorem 4.1, support the greedy universality criterion and word-level algorithms."
+        ],
+        "reasoning": "The arbitrary regular-language framework contains these instances, but the inspected statements concern recognition/enumeration and not equality in any minimal-state bound. They supply ingredients, not a dominating classification of these right congruences.",
+        "searches": [
+          "Adamson et al. arXiv:2311.10658v1, k-universality in regular languages",
+          "Barker et al. arXiv:2003.04629v1, arch factorization"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Resultary local catalogue and original mirror passages listed above",
+        "Barker et al. and Adamson et al. primary passages",
+        "Focused external exact-formula search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "3a8f24d1254e counts universality indices under two run caps.",
+          "f3f18a6ce713 counts shortest universal words avoiding a length-four pattern.",
+          "a999d7db7c66 gives length 3m+2 and multiplicity m+2 for shortest masters of odd-length golden-mean targets."
+        ],
+        "reasoning": "Run caps forbid long runs themselves, unlike the oriented factors (which allow an arbitrary terminal or initial zero run). Counting shortest words or using restricted target families does not yield right-congruence distinguishability. No prior implication of the exact d−1 gap was established; the same-day catalogue date supplies no priority ordering.",
+        "searches": [
+          "Resultary run-limited universality, shortest universal words avoiding factors, and golden-mean subsequences"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact Resultary hit 41db0a4c16d8 is the identical assigned result, inspected in its Finding at offset 0.",
+          "The published Finding of 294ac7d4ffb0 gives r+1 for the partial trim DFA and 2r+1 for the Wheeler DFA of Av(0^r1) alone."
+        ],
+        "reasoning": "The base-avoidance part is known and the complete sink convention can be normalized, but the lack of a universality restriction and different Wheeler model preclude an equivalent minimality result. Exchanging symbols or reversing the input labels does not remove the intersection or prove the reverse DFA size.",
+        "searches": [
+          "Resultary exact formulas, binary universality with either forbidden orientation",
+          "Focused external search of exact paired DFA formulas and reversal gap"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact formula catalogue hit is the self-match; the closest discrete entries 294ac7d4ffb0 and f3f18a6ce713 tabulate different invariants.",
+          "Frozen VERIFICATION.md records tests of these two-parameter counts, not an antecedent external table."
+        ],
+        "reasoning": "No independent matching table was identified. An univariate affine sequence obtained by fixing one parameter would not identify the indexing, language or joint two-parameter theorem.",
+        "searches": [
+          "Resultary search for (d+2)k+d+1 and (d+2)k+2 and reversed forbidden-factor DFA state counts"
+        ]
+      },
+      "rationale": "The inspectable prior work supplies arch factorization, regular intersection algorithms, and special cases of universality with factor/run restrictions, but not this pair of exact minimal complete DFA classifications. Neither the fixed language reversal nor the resulting additive gap follows from those statements without a specific quotient analysis.",
+      "residual_risks": [
+        "The focused external search yielded unrelated results, not proof of absence. Unindexed state-complexity literature and equivalent formulations under different terminology remain a risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Assigned record itself.",
+          "evidence": "States both complete-state formulas for the same languages and gap d−1.",
+          "identifier_or_url": "2026/11/22/SCOPE-an-unbounded-reversal-gap-for-constrained-subsequence-universali--41db0a4c16d8",
+          "material_read": "Finding, offset 0",
+          "method": "local mirror",
+          "title": "An unbounded reversal gap for constrained subsequence-universality automata",
+          "trigger": "exact formula hit"
+        },
+        {
+          "assessment": "Different constraint and state model.",
+          "evidence": "r+1 trim partial and 2r+1 Wheeler states for bare Av(0^r1).",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-prefix-sorting-state-cost-for-avoiding-a-binary-zero-run-f--294ac7d4ffb0",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "local mirror",
+          "title": "Exact prefix-sorting state cost for avoiding a binary zero-run follower",
+          "trigger": "same forward forbidden factor and state-size question"
+        },
+        {
+          "assessment": "Not the same factor language or statistic.",
+          "evidence": "Distribution of universality indices when both runs are capped.",
+          "identifier_or_url": "2026/10/25/SCOPE-run-limited-binary-words-exact-subsequence-universality-spectrum--3a8f24d1254e",
+          "material_read": "Finding, offset 0",
+          "method": "local mirror",
+          "title": "Run-limited binary words: exact subsequence universality spectrum",
+          "trigger": "run/arch constraints"
+        },
+        {
+          "assessment": "Fixed length-four factors and enumeration, not minimality.",
+          "evidence": "Counts shortest length-2k universal avoiding words.",
+          "identifier_or_url": "2026/11/8/SCOPE-five-growth-regimes-for-shortest-binary-subsequence-universal-wo--f3f18a6ce713",
+          "material_read": "Finding, offset 0",
+          "method": "local mirror",
+          "title": "Five growth regimes for shortest binary subsequence-universal words",
+          "trigger": "contiguous factor avoidance with universal subsequences"
+        },
+        {
+          "assessment": "Changes which targets are required; not a DFA theorem.",
+          "evidence": "Targets avoid 11; finds shortest master length and multiplicity.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-odd-length-extremizers-of-golden-mean-scattered-subsequ--a999d7db7c66",
+          "material_read": "Finding, offset 0",
+          "method": "local mirror",
+          "title": "Complete odd-length extremizers of golden-mean scattered subsequences",
+          "trigger": "near same-day universality/factor-avoidance hit"
+        },
+        {
+          "assessment": "Relevant known framework.",
+          "evidence": "Defines scattered factor universality and uses arch factorization for word-level results.",
+          "identifier_or_url": "https://arxiv.org/html/2003.04629v1",
+          "material_read": "abstract, arch-factorization discussion and Theorem 4.1 near HTML offset 38000",
+          "method": "OA original text",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "arch factorization mechanism"
+        },
+        {
+          "assessment": "General algorithmic coverage, not a state minimality equality here.",
+          "evidence": "Decision, counting, and ranking for subsequence-universal words accepted under regular restrictions.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.10658v1",
+          "material_read": "PDF abstract p. 1 near offset 1300, definition p. 2 near offset 4800, conclusion p. 19 near offset 74400",
+          "method": "OA original text",
+          "title": "k-Universality of Regular Languages",
+          "trigger": "same intersections as instances of a general language problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Finding and quotient proof in frozen RESULT.md; base avoidance comparison 294ac7d4ffb0"
+      ],
+      "rationale": "The object combines two natural recognition problems, each of which has a simple monitor; bare avoidance even has the same d+2 complete states in both directions. The exact d−1 gap for their intersection holds at every universality level and isolates the directional effect of terminal versus initial runs. This provides a reusable exact benchmark for deterministic recognition and shows what reversal-invariant word counts and generic intersection bounds cannot determine.",
+      "residual_risks": [
+        "Unbounded additive gap, not a claim of maximal reversal blow-up or of bit-space lower bounds outside the DFA model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

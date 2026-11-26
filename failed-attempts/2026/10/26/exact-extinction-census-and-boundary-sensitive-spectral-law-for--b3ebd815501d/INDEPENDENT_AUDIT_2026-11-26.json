@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:11:35.640699Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The synchronous edge phase update is an exact coboundary: if the old oriented edge difference is +1, the head cannot advance more than the tail; reversal and the zero case finish the check. Thus extinction forces zero cycle circulation. Conversely the integral lift is monotone and bounded by the first multiple of three above its initial maximum: a site at that bound cannot have an excited neighbor. Stationarity then forces all phases to be resting. The open-ladder squares form an integral basis (face boundaries generate, or eliminate successive rail edges). Independently count extensions in the lift by setting the old rung increment to s in {0, +/-1}: new rail increments u,v each lie in {-1,0,1}, and the next rung increment is s+v-u in that same set. The counts of zero/nonzero next increments are (3,4) for s=0 and (2,4) for either nonzero s. Initial multiplicities are 3 and 6, so the trace and determinant of the reduced transfer are 7 and 4, with counts 9 and 57. These give the stated numerator, roots, and leading constant with the stated normalization by 9^n. A fresh reverse-reachability calculation on the full finite state graphs yielded 9, 57, 363, 2313, 14739 for n=1 through 5 (python3 /workspace/review_checks.py). The supplied verifier and recorded output were inspected, not executed. The finite check is not the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The three-rate theorem gives counts Z_n, Q_n−Z_n, and 9^n−Q_n for GHM rates 0, 1/4, and 1/3 respectively, with the same n≥2 and labeling.",
+          "The general finite-graph circulation or cycle-mean criterion classifies individual states but does not count them."
+        ],
+        "reasoning": "The first family of counts already subsumes the entire frozen census. General dynamics theorems alone do not supply that specialized population.",
+        "searches": [
+          "Local Resultary three-rate excitation census 9fa61fb1a7f9",
+          "arXiv:1610.07320v1 Theorem 3; Doba DOI 10.25088/ComplexSystems.27.2.101"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, VERIFY_LADDER.py, VERIFY_OUTPUT.txt, REVIEW.md",
+        "Resultary 9fa61fb1a7f9 and cae3512f5687",
+        "Doba (2018), §6",
+        "Gravner–Lyu–Sivakoff, Theorem 3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching recurrence has the exact same seeds and characteristic polynomial; multiplying the indexed series by z gives the frozen series.",
+          "Circular-prism counts require zero total longitudinal winding and a trace rather than free endpoints."
+        ],
+        "reasoning": "Solving that exact recurrence and dividing by 9^n mechanically recovers the asserted sharp asymptotic and prefactor. No dependence on an inferred order of same-day publication is needed.",
+        "searches": [
+          "9fa61fb1a7f9 Finding and transfer; cae3512f5687 circular-prism Finding and Laurent transfer"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "9fa61fb1a7f9 Finding counts labeled all-initial-coloring GHM rate zero on P_n × K_2. In this finite deterministic system, rate zero at every site means no 0→1 transitions on the eventual orbit, so any remaining 1 or 2 disappears and the orbit is all-resting. The converse is immediate.",
+          "cae3512f5687 has a longitudinal winding condition absent from the open ladder."
+        ],
+        "reasoning": "Zero eventual GHM rate and extinction are the same event here. Circular versus open boundary conditions, by contrast, are not equivalent.",
+        "searches": [
+          "Local Resultary open square ladder activity and zero-winding/extinction census; records 9fa61fb1a7f9 and cae3512f5687",
+          "Doba §6 Theorem 1; Gravner–Lyu–Sivakoff Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Z_1=9, Z_2=57, Z_n=7 Z_(n−1)−4 Z_(n−2); the matched transfer gives sum Z_n z^(n−1)=(9−6z)/(1−7z+4z²)."
+        ],
+        "reasoning": "This is equality of sequences for all sizes, not a coincidence of a few tabulated terms or an identification with the identical frozen item.",
+        "searches": [
+          "Local Resultary open-ladder and circular-prism counts; 9fa61fb1a7f9 RESULT.md Finding and zero-rate transfer"
+        ]
+      },
+      "rationale": "A distinct indexed result gives exactly the extinction count as the zero-rate member of its three-rate population census for the same labeled open ladders and the same deterministic GHM rule. Its catalogue date is later than the frozen record's; the decision is equivalent coverage in the inspected corpus, not a finding of earlier publication or an allegation about provenance. The generic graph criteria and the same-day circular-ladder result do not by themselves establish this overlap.",
+      "residual_risks": [
+        "Bounded historical search; unindexed ladder color enumerations remain possible. The later indexed match by itself establishes no earlier priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Complete equivalent coverage for the zero-rate census; later catalogue date",
+          "evidence": "Same labeled ladder and alphabet, zero-rate recurrence with both seeds, and two additional rate counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-three-rate-excitation-census-on-open-square-ladders--9fa61fb1a7f9/RESULT.md",
+          "material_read": "Finding (offset 0), zero-rate transfer (around offset 4800), relationship to prior work (offset 8376)",
+          "method": "Resultary search and local mirror statement/proof passages",
+          "title": "Exact three-rate excitation census on open square ladders",
+          "trigger": "Same open-ladder GHM rule with a stronger all-coloring census"
+        },
+        {
+          "assessment": "Related but does not state or directly imply the open census",
+          "evidence": "C_n × K_2 and constant coefficient of a Laurent trace with an additional winding restriction.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-extinction-law-and-a-gaussian-winding-penalty-for-excitati--cae3512f5687",
+          "material_read": "RESULT.md Finding and transfer, offsets 0 and about 1500",
+          "method": "Resultary search and local mirror",
+          "title": "Exact extinction law and a Gaussian winding penalty for excitation on circular prisms",
+          "trigger": "Same-day ladder transfer with nearby objects"
+        },
+        {
+          "assessment": "Covers the graph-wide criterion, not the ladder enumeration in the inspected passages",
+          "evidence": "Zero phase difference on all circuits implies convergence to rest under the specified rule.",
+          "identifier_or_url": "https://doi.org/10.25088/ComplexSystems.27.2.101",
+          "material_read": "Publisher paper p. 103 update; p. 114, §6 Theorem 1",
+          "method": "Lawful OA publisher PDF",
+          "title": "The Time Evolution of a Greenberg–Hastings Cellular Automaton on a Finite Graph",
+          "trigger": "General extinction criterion cited in the frozen proof"
+        },
+        {
+          "assessment": "Covers synchronization and general activity, not the exact population in the inspected theorem",
+          "evidence": "Finite connected graph activity given by maximum directed-cycle mean; synchronization iff the initial edge form is irrotational.",
+          "identifier_or_url": "https://arxiv.org/pdf/1610.07320v1",
+          "material_read": "PDF p. 4, Theorem 3",
+          "method": "Lawful OA arXiv PDF",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Stronger activity law for the same model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The initial-condition extinction probability is a natural statistic, and its exact boundary transfer would be meaningful in isolation. As a distinct finding against the available corpus, however, this is entirely the zero-rate slice of the broader exact population census; the prefactor is a routine consequence of its already supplied recurrence. No new boundary case, invariant, or independently useful uncovered conclusion survives.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

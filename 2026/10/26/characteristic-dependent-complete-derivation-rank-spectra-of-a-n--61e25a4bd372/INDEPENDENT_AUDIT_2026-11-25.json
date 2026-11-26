@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:35:28.733391Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–49, VERIFICATION.md and verify.py inspected; the uploaded program was not executed.",
+        "Independent reproduction: /workspace/branches/69b916f5-aa68-4b80-8860-f559f99d9896/independent_rank_check.py and independent_rank_check.txt. Includes all 2^16 endomorphisms of the four-dimensional algebra over F2 with an explicit Leibniz check; histograms (1,21,154,336,0), (1,26,234,1116,810), (1,124,3100,27400,47500) for q=2,3,5 and nonzero rank entries (1,45,770,5040,10528) including rank zero for m=4 over F2."
+      ],
+      "rationale": "Preservation of E_m²=kz forces the center column (0,c); applying Leibniz to the bilinear product (v·w)z gives A^T+A=cI, with free central row ℓ. Conversely these conditions give Leibniz on all products. If 2 is invertible, A=tI+S with S skew and c=2t; A=I,c=2 is invertible. In characteristic two c=0 and A is symmetric; the two parameter counts give the stated dimension jump. For the even-field count, a nonzero first diagonal entry gives the ordinary Schur complement. If that entry is zero and the first row is nonzero, congruence on the remaining coordinates gives a leading block [[0,1],[1,b]]. This block is invertible for every b, and its inverse has bottom-right entry zero. The lower block therefore keeps its determinant condition and there are r−1 free entries (b and the remaining entries of row two); this proves the stated recurrence without requiring the leading block to be alternating. Radical/quotient counting gives the Gaussian factor, and the appended row leaves rank r on exactly q^r choices, otherwise increasing it by one. In odd characteristic at m=3 a nonzero skew matrix has rank two; for t≠0, det(tI+S)=t(t²+a²+b²+c²). Summing the quadratic character gives q²+qχ(−s) representations of a nonzero s by a²+b²+c², so exactly q²+q shifts are singular at s=−t². Since A+A^T=2tI has rank three, these singular matrices have rank two; the nonzero center column adds one to their rank independently of ℓ. This yields the frozen vector, including its rank-zero and full-rank terms. Independent bounded checks reproduce the q=2,3,5 rank vectors and the m=4 binary vector.",
+      "residual_risks": [
+        "The finite runs corroborate rather than prove the general formulas. Full rank is rank on E_m, not rank on V or rank up to an equivalence relation. The frozen remark about a hyperbolic two-space need only mean the invertible displayed two-by-two block; in characteristic two it need not be alternating."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General results on derivation spaces and twin partitions do not give the required rank spectrum in the inspected passages.",
+          "The square-zero Finding explicitly gives nonsingular symmetric-form product counts in even characteristic; the older symmetric-form literature is an antecedent to counting A, not itself a theorem about ranks of complete derivations."
+        ],
+        "reasoning": "Having the even form counts and the same-family normal form makes the even formula a direct exercise in the dimension of a row span. That implication is credited. Generic form counts by rank do not describe the intersection of the skew 3x3 affine scalar-shift family with determinant zero over every odd q.",
+        "searches": [
+          "Cabrera et al. arXiv:1912.06925 abstract and Theorem 2.10",
+          "Schmidt, symmetric bilinear forms over finite fields, 2015 introduction and citation [30]",
+          "Resultary 6bc75715e7da Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6bc75715e7da, mirrored Finding",
+        "arXiv:1912.06925, abstract and Theorem 2.10",
+        "Schmidt (2015) p. 1/reference [30] and Schmidt (2010) citation/landing page"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Given the characteristic-two normal form and classical form counts, quotient radicals yield N_r, and q^r rank-preserving central rows give the frozen C_j immediately.",
+          "The odd case splits by t=0 versus t≠0; at t≠0 the count is controlled by the nonzero-level ternary quadric a²+b²+c²=−t² and the rank-two condition on singular shifts."
+        ],
+        "reasoning": "The direct even implication is not credited as a standalone original fact. The odd spectrum requires a separate quantitative split, including the center-column contribution and the odd finite-field rank multiplicities; no inspected antecedent states or mechanically specializes to that operator spectrum. The standard finite-field quadratic-character count used in its proof is not itself claimed as new.",
+        "searches": [
+          "Resultary 6bc75715e7da Finding, normal form and product counts",
+          "Cabrera et al. arXiv:1912.06925 Theorem 2.10",
+          "Schmidt form-count literature as above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "6bc75715e7da uses the same products and same characteristic-two normal form but imposes D²=0, equivalently A²=0 and ℓA=0. Its formula counts that restricted locus.",
+          "Theorem 2.10 of arXiv:1912.06925 is explicitly for nondegenerate evolution algebras. This family has annihilator kz, so it is not in that theorem's regime."
+        ],
+        "reasoning": "The square-zero enumeration is not equivalent to the unrestricted census: in the former the available central rows belong to a subspace of dimension m−r and the quotient-matrix rank is bounded by floor(m/2). In odd characteristic nonzero scalar shifts give additional ranks not described by that comparator.",
+        "searches": [
+          "Local Resultary search for derivation rank spectra of evolution algebras with annihilator and one-dimensional square, symmetric matrices and square-zero derivations",
+          "Resultary 6bc75715e7da Finding",
+          "Cabrera et al. arXiv:1912.06925 p. 8, Theorem 2.10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The checked exact enumerator is for square-zero derivations only and in even characteristic. The symmetric form product counts are exact for nonsingular forms, not an unrestricted table of complete odd-field derivations."
+        ],
+        "reasoning": "No exact unrestricted odd-field four-dimensional rank table was identified in the inspected material; the square-zero coefficients count a genuinely different set and are not being relabeled as the desired counts.",
+        "searches": [
+          "Resultary ranked searches for unrestricted full derivation rank spectrum and four-dimensional odd-characteristic rank census",
+          "Resultary 6bc75715e7da explicit coefficient enumerator",
+          "Schmidt (2015) introduction and even-characteristic reference"
+        ]
+      },
+      "rationale": "The algebra, characteristic-two normal form and symmetric-form counts overlap known material, and the even-field row-extension formula is a direct deduction once those ingredients are assembled. The supported distinct part is the complete odd-characteristic four-dimensional derivation spectrum and its comparison with the even one; the inspected strongest sources do not count the scalar-shift stratum or give a stronger result implying that exact spectrum. This is not a claim that the form counts or evolution-algebra construction are new.",
+      "residual_risks": [
+        "No publication-priority claim follows from the index dates. A specialized affine skew-matrix or derivation-rank census could give older odd-field coverage; none was established by the checked material.",
+        "The even symmetric-form multiplication formulas and the even census as their direct corollary are explicitly not independent novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the even normal form, form counts and a different, restricted derivation rank census; those structural inputs imply the unrestricted even count directly",
+          "evidence": "The theorem fixes characteristic two and D²=0, gives symmetric T and central functional, and enumerates them with the constraint that the functional vanishes on im(T). No odd scalar-shift count is in its stated regime.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-rank-census-of-square-zero-derivations-on-characteristic-two-e--6bc75715e7da/RESULT.md",
+          "material_read": "Finding and start of scope; mirror offsets 0–2164, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary discovery and OA mirror statement inspection",
+          "title": "A rank census of square-zero derivations on characteristic-two evolution algebras",
+          "trigger": "Same algebra, derivation rank and finite-field normal form"
+        },
+        {
+          "assessment": "Relevant structural antecedent; inspected theorem does not control this degenerate family's rank census",
+          "evidence": "Theorem 2.10 is formulated for nondegenerate evolution algebras. The algebra under review is degenerate in its natural basis because z²=0 and Ann(E_m)=kz.",
+          "identifier_or_url": "https://arxiv.org/pdf/1912.06925",
+          "material_read": "Abstract p. 1, text offset 511; Theorem 2.10 p. 8, offset 25852",
+          "method": "Direct OA PDF full-text passages",
+          "title": "On the characterization of the space of derivations in evolution algebras",
+          "trigger": "The frozen review flags this broad derivation-space theorem as possible coverage"
+        },
+        {
+          "assessment": "Form-count context; the checked paper treats odd q, and it directs readers elsewhere for even q. It does not count derivations of the given algebra",
+          "evidence": "The introduction expressly sets odd q and refers to the separate even-characteristic symmetric-form work.",
+          "identifier_or_url": "K.-U. Schmidt (2015)",
+          "material_read": "Introduction, p. 1 and reference [30]",
+          "method": "Direct OA statement inspection",
+          "title": "Symmetric Bilinear Forms over Finite Fields with Applications to Coding Theory",
+          "trigger": "Classical census for ranks of symmetric forms, an ingredient in the even case"
+        },
+        {
+          "assessment": "Cannot determine the paper's exact printed rank formulas from this access; the even form counts are treated as established regardless",
+          "evidence": "The title and citation identify the same form regime, but not operator counts for the evolution algebra.",
+          "identifier_or_url": "K.-U. Schmidt, J. Combin. Theory Ser. A 117 (2010), 1011–1026",
+          "material_read": "Landing-page and reference metadata only; no usable primary full text obtained",
+          "method": "Lawful OA retrieval attempt following Schmidt's 2015 citation",
+          "title": "Symmetric bilinear forms over finite fields of even characteristic",
+          "trigger": "Primary even-field form-count source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and odd-field proof, lines 23–29 and 44–49; Hegazi–Abdelwahab arXiv:1508.06860 as cited for the natural four-dimensional algebra; Resultary 6bc75715e7da for the different restricted census."
+      ],
+      "rationale": "Full derivation rank measures image and kernel dimensions intrinsically. The four-dimensional algebra is a natural classified nilpotent member, and this is the complete rank distribution over every odd finite field, not a single chosen finite field or one sample operator. In particular it quantifies how many derivations are actually invertible rather than merely exhibiting one, and comparing it with the even-field distribution shows exactly how the rank strata change. This value assessment rests on the distinct odd-field classification, not on the already known counts of symmetric forms.",
+      "residual_risks": [
+        "The odd-field enumeration is limited to m=3 and is not an odd-characteristic all-dimension formula or a conjugacy-class count."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

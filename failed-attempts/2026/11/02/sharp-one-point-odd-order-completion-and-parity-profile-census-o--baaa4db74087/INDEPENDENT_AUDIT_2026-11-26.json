@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:18:45.912900Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Existing directed cycles cannot acquire new edges in an extending bijection, so an even one is fatal on every superset. The only free arrows pair the terminals and initials of distinguished open paths (an isolated vertex counts as both), specifying a permutation of paths. A resulting cycle has odd vertex length precisely when it contains an odd number of odd paths. Deleting the even objects leaves an odd-cycle permutation on u objects, and reinserting v labelled even objects in ordered lists after the u odd objects gives v! binom(u+v-1,v) choices per base permutation. The known odd-cycle EGF, or the labelled cycle construction in the frozen proof, then gives the displayed integer count and series. With no odd objects there are no nonempty admissible cycles; an empty path set is the unique completion if the existing cycles are odd. Adding one specified isolated point in the obstructed open-path case forces a single path-cycle with the point and all v even paths, giving v! and proving minimality. An independent enumeration agreed on all 36 coloured profiles of total size at most 7; it did not use the supplied checker. The proof, not the test, covers arbitrary finite sets and does not concern simultaneous extensions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Etidadialiabadi–Gao concern qualitative extensions of families on finite supersets, including a cyclic-fundamental-group case. The coloured-permutation citation concerns no monochromatic cycles by title; the full text was not obtained."
+        ],
+        "reasoning": "Qualitative extension theorems do not supply fixed-set multiplicity or one-point sharpness. Excluding monochromatic cycles is a different local restriction: here an all-odd singleton is permitted and a mixed cycle with two odd objects is forbidden.",
+        "searches": [
+          "Etidadialiabadi–Gao, arXiv:2610.04870v1, odd-extension definition and Theorem 4.23",
+          "Kim–Kim–Seo, DOI 10.4134/JKMS.j160392"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "OEIS A000246",
+        "Etidadialiabadi–Gao arXiv:2610.04870v1",
+        "Resultary --d5e2f8948506 and --a14c729a8c1b",
+        "DOI 10.4134/JKMS.j160392 and MathOverflow 308178, access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known EGF is A(z)=(1+z)(1-z^2)^(-1/2). A list of even labels after each odd label gives the bivariate substitution z=x/(1-y)."
+        ],
+        "reasoning": "The substitution gives the displayed square root mechanically; the ordered-gap factor is v! binom(u+v-1,v) and gives the binomial closed form. At u=1 that factor is exactly v! and the empty/even cases follow from the same parity test. No additional extension machinery or new enumerative identity is required.",
+        "searches": [
+          "OEIS A000246 exact EGF; Etidadialiabadi–Gao cited odd-extension theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A000246 identifies the ordinary permutations with all cycles odd and gives their exact EGF. The coloured Ewens catalogue comparator counts selected types in unrestricted coloured permutations, not this restricted ensemble."
+        ],
+        "reasoning": "Match each exposed path terminal to an exposed path initial to get the equivalent coloured-permutation problem. Erasing even objects recovers the ordinary odd-cycle problem; insert them after odd objects in ordered gap lists to recover all completions uniquely.",
+        "searches": [
+          "Resultary: odd-order partial permutation extension parity profile; colored permutation cycles",
+          "OEIS A000246, odd-order permutations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A000246, FORMULA, gives sqrt((1+x)/(1-x)) and an exact binomial expression for the uncoloured count. No identical two-parameter table was found in the bounded catalogue results."
+        ],
+        "reasoning": "The OEIS entry directly covers v=0. For v>0 the missing factor is an ordered distribution of v labelled objects among u existing gaps, so the available exact univariate entry already suffices for every profile.",
+        "searches": [
+          "OEIS A000246",
+          "Resultary exact parity-profile formula and coloured-permutation queries"
+        ]
+      },
+      "rationale": "The presentation for partial bijections was not found verbatim, but the entire count and EGF are a routine ordered-gap insertion consequence of the existing exact odd-cycle enumeration after contracting the prescribed paths. The sharp one-point case is just the one-gap case with u=1, and the impossibility cases are immediate from fixed cycles and parity. This judgment does not rely on inaccessible references or claim that a prior source printed the partial-bijection wording.",
+      "residual_risks": [
+        "The original source of the ordinary count was not determined.",
+        "There may be earlier exact partial-bijection formulations; cited coloured-permutation full text was not obtained."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct exact coverage of ordinary odd-cycle enumeration; full frozen count follows by ordered reinsertion",
+          "evidence": "The EGF is sqrt((1+x)/(1-x)); the cited exact binomial coefficient formula yields the central-binomial factor used here.",
+          "identifier_or_url": "https://oeis.org/A000246",
+          "material_read": "Interpretation near offset 2623 and FORMULA near offsets 4950–7331",
+          "method": "Public database targeted statement and formula inspection",
+          "title": "OEIS A000246, permutations with all cycles odd",
+          "trigger": "Exact uncoloured sequence and possible implication for arbitrary parity profiles"
+        },
+        {
+          "assessment": "Broader existence framework; inspected statements do not give fixed-set multiplicities",
+          "evidence": "The definition allows some finite superset for sets of partial maps; the cyclic case is qualitative.",
+          "identifier_or_url": "https://arxiv.org/html/2610.04870v1",
+          "material_read": "Abstract, introduction and odd-extension definition, offsets 0–7689; §4.5, Theorem 4.23 near offset 105600",
+          "method": "Targeted OA HTML passage inspection",
+          "title": "Extension Properties for Partial Permutations",
+          "trigger": "Same odd-extension terminology and partial permutation objects"
+        },
+        {
+          "assessment": "Different probabilistic statistic, not the parity-restricted completion count",
+          "evidence": "Studies covariance under a cycle weight for unrestricted coloured permutations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/2/SCOPE-a-one-crossing-covariance-law-for-colored-ewens-cycles--d5e2f8948506/RESULT.md",
+          "material_read": "Finding, offsets 0–1973",
+          "method": "Targeted local mirror statement comparison",
+          "title": "A one-crossing covariance law for colored Ewens cycles",
+          "trigger": "Catalogue hit for specified coloured cycle compositions"
+        },
+        {
+          "assessment": "No full-text theorem comparison with these two items",
+          "evidence": "Neither item was relied on for the adverse implication finding.",
+          "identifier_or_url": "https://doi.org/10.4134/JKMS.j160392 ; https://mathoverflow.net/questions/308178/cycle-generating-function-of-permutations-with-only-odd-cycles",
+          "material_read": "Bibliographic details only",
+          "method": "Lawful OA attempts, including DOI and journal routes for the first and direct/VPN for the second; exact ordinary EGF independently confirmed in OEIS",
+          "title": "Colored permutations with no monochromatic cycles; Cycle generating function of permutations with only odd cycles",
+          "trigger": "Cited coloured-cycle and ordinary odd-cycle precedents"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A finite census is relevant to the motivated odd-extension problem, but here the single-map case is exhausted by the immediate path permutation bijection and a textbook ordered-list insertion into the known odd-cycle class. The one-point witness and its factorial count are the single-gap instance, not an additional structural phenomenon in extension theory.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:48:16.034399Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reassessed /workspace/repairs/5/RESULT.md. Radius variable t=|z|²/(1−|z|²) gives the stated positive diagonal beta-prime eigenvalues, and splitting 2m ternary digits gives the translates of μ_m. The CDF bound follows by induction on each branch (on the right, 1+u^δ≤(2+u)^δ by monotonicity of the difference; the middle gap has CDF 1/2); rescaling gives F_m(t)≤t^δ even beyond the support. For k≥1, Stieltjes integration by parts discards the nonpositive term on the rising side of g_k and bounds the rest by ∫_(k/2)^∞ t^δ(−g_k')dt. Ordinary integration by parts yields A_k plus the truncated beta integral; J_k is decreasing by its gamma recurrence, and A_x decreases for x≥2 from log(1+2/x)≥2/(x+1) and δ<2/3. For k=1 the missing piece of the full beta integral is kept as a subtraction and bounded using (1+t)^3≤(3/2)^3 up to 1/2. The four-cylinder Jensen lower bound uses exact means 1/6 and 5/6. Independent bounded replay: python3 /workspace/branches/independent_exact_replay.py; exact rational interval arithmetic verifies the dimension, sine, exponential, beta-integral and Jensen inequalities (vacuum lower ≈0.62900005 and first-mode upper ≈0.62095097 in the independent enclosure). Higher modes are uniformly below 0.600. Thus the normalized spectral gap is strictly greater than 1/200 and the claimed squared-distance estimate follows by expansion in the diagonal basis. Local weak convergence follows from the fixed digit decomposition, and the tail is O(R^(δ−2)) uniformly by the CDF bound and integration by parts, establishing the vacuum series, its positivity and finiteness. The approximate decimal is not a certificate. The frozen CHECK.py was inspected, not executed. No claim for odd stages, general weights or arbitrary dilations is needed for the repaired gap.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Gaussian catalogue theorem gives strict vacuum dominance for every positive scale and Cantor stage, and a gap depending on the outer radius",
+          "The primary Knutsen papers concern Gaussian/STFT localization with Hermite modes rather than the Bergman beta-prime operator"
+        ],
+        "reasoning": "The probability-scale mixture g_k(t)=∫_0^∞ e^(−s) s e^(−st)(st)^k/k! ds gives each Bergman eigenvalue as the same exponential average of dilated Gaussian eigenvalues. Thus the later-dated Gaussian theorem directly implies strict Bergman dominance and an exact norm expression, despite the spaces being different. Its stated numerical gap bound does not yield the normalized stage-uniform bound here.",
+        "searches": [
+          "Resultary 4db46e8786d3 §Finding, proof §§1–4",
+          "Knutsen arXiv:1907.00848 and 2104.10976"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2201.11705, 1907.00848, 2104.10976",
+        "Resultary 23a4c7691d0b and 4db46e8786d3",
+        "Frozen RESULT.md, VERIFICATION.md, CHECK.py; repaired RESULT.md; independent_exact_replay.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gaussian strict gaps transfer by the positive mixture; the k=0 even series is the k=0 term in L_e(1)",
+          "The uniform Bergman gap uses a Cantor CDF envelope and four exact first-digit Jensen contributions"
+        ],
+        "reasoning": "Combining Gaussian dominance with the existing mode limits identifies the norm limit at k=0 without a new limit-existence theorem. The bound obtained by mixing the stated Gaussian inequality uniformly in k uses k=1; after normalization its right side is at most 2^m/(1+3^m)^2, since the vacuum mass of s E_m is at most s|E_m|. It therefore degenerates and does not imply the repaired 1/200 separation, which is proved by uniform mode and vacuum estimates.",
+        "searches": [
+          "23a4c7691d0b Finding and Limitations",
+          "4db46e8786d3 §3 Gaussian gap inequality",
+          "Repaired RESULT.md proof §§2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "AMV's measure is 2α(1−|z|²)^(2α−1)dA; α=1/2 gives the unweighted case and the displayed beta-prime g_k",
+          "23a4c7691d0b at b=1 and n=2m gives exactly the same region and normalization"
+        ],
+        "reasoning": "With n=2m and R=3^m, AMV's two-sided order becomes (2/3)^m. The Resultary limit matches the setup exactly but gives a maximum over k rather than identifying the index or proving this explicit uniform gap.",
+        "searches": [
+          "arXiv:2201.11705 §2, Proposition 4.1 and Proposition 4.5",
+          "Resultary 23a4c7691d0b §Finding and definitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "23a4c7691d0b states L_e(b)=max_k ∫g_(k,b)dν and explicitly says it does not identify maximizing order",
+          "4db46e8786d3 states a Gaussian gap at outer radius X with factor e^(−X)Σ_(j<k)X^j/j!"
+        ],
+        "reasoning": "Exact theorem-level coverage of limit existence and of qualitative uniqueness after the mixture, not a table of numerical eigenvalues. Neither inspected statement gives the repaired explicit 1/200 gap in scaled Bergman units.",
+        "searches": [
+          "Resultary: balanced Cantor Bergman localization sharp norm constants and vacuum maximizer; 23a4c7691d0b and 4db46e8786d3"
+        ]
+      },
+      "rationale": "Pass only for the repaired, explicit strictly positive gap in balanced normalization uniformly over all m≥2 and all excited modes, with its norming-vector stability. The frozen claim's general even-limit existence was covered; vacuum identification and finite-stage uniqueness also follow by combining the earlier even-limit characterization with a subsequently dated all-scale Gaussian dominance result. The repaired finding attributes those overlaps and does not claim priority for them.",
+      "residual_risks": [
+        "Focused source comparison, not an exhaustive priority search or an assertion that no other proof can quantify the gap.",
+        "A later catalogue theorem showing coverage is not evidence about priority at the frozen record's date. No optimality is claimed for 1/200."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact eigenvalue representation and two-sided order; not the repaired uniform gap",
+          "evidence": [
+            "Probability measure with exponent 2α−1",
+            "C_n(R)=R C_n and beta-prime density; norm comparable to (2/3)^n R^(1−δ)"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.11705",
+          "material_read": "§1.1 p. 2, §2 p. 4, Theorem 2.1 p. 5, Proposition 4.1 p. 10 and Proposition 4.5 p. 13; offsets 6373, 11825, 15171, 34230, 46730",
+          "method": "OA primary PDF text",
+          "title": "A fractal uncertainty principle for Bergman spaces and analytic wavelets",
+          "trigger": "Same Bergman mask, scaling and density"
+        },
+        {
+          "assessment": "Exact even-limit overlap at b=1; does not identify the maximizing mode or give a uniform gap",
+          "evidence": [
+            "R_n=3^(n/2); even limit is max_k∫g_(k,b)dν",
+            "Limitations explicitly excludes classifying maximizing indices"
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-subsequential-constants-for-bergman-concentration-on-balan--23a4c7691d0b/RESULT.md",
+          "material_read": "Finding, assumptions, diagonalization, digit split, end of proof and Limitations, offsets 0–3501 and 5464 onward",
+          "method": "Local Resultary mirror",
+          "title": "Sharp subsequential constants for Bergman concentration on balanced Cantor annuli",
+          "trigger": "Prior exact even-stage norm limit"
+        },
+        {
+          "assessment": "Later-dated qualitative coverage by positive mixture; no priority inference or transfer of a uniform useful numerical bound",
+          "evidence": [
+            "Hermite density e^(−r)r^k/k!, unique Gaussian, gap depends on X via an Erlang tail"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-gaussian-spectral-dominance-for-every-radial-middle-third--4db46e8786d3/RESULT.md",
+          "material_read": "Finding and proof §§1–4, offsets 0–6433",
+          "method": "Local Resultary mirror",
+          "title": "Exact Gaussian spectral dominance for every radial middle-third Cantor mask",
+          "trigger": "All-scale dominance under a Gamma kernel which mixtures connect to beta-prime"
+        },
+        {
+          "assessment": "Different Gaussian operator; inspected passages do not provide the normalized Bergman spectral gap",
+          "evidence": [
+            "Gaussian-window Hermite diagonalization; Part II distinguishes mid-third asymptotic size from establishing a maximal Gaussian eigenvalue"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1907.00848 and https://arxiv.org/abs/2104.10976",
+          "material_read": "Part I Introduction pp. 1–2 and Theorem 2.1 p. 4 near offset 12728; Part II abstract and Introduction p. 3 near offset 8172",
+          "method": "OA primary PDF text",
+          "title": "Daubechies' Time-Frequency Localization Operator on Cantor Type Sets I and II",
+          "trigger": "Closest published Gaussian analogues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The explicit gap is at the same scale as the decaying norm and is simultaneous in stage and mode. It ensures uniform stability of the extremizing subspace for almost-maximal Rayleigh quotients, a distinction not obtained from uniqueness at individual stages or from convergence of the maximal spectral value alone. The repair foregrounds this gap already certified by the original uniform estimates instead of claiming the known norm-limit existence as new.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

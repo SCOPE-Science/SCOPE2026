@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:50:01.310319Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Gram integrals and A−2B=∫(φ(u)−φ(1−u))²du>0 give an invertible Toeplitz Gram operator. The geometric inverse solves the off-diagonal recurrence and gives 1 at the origin by A−2Bq=Δ. The continuous symmetric kernel has uniformly integrable rows by geometric decay. K(x,x)>0 by positive definiteness of the inverse on the nonzero local basis vector; hence the Lebesgue function is positive. In each open cell, a nonzero kernel section satisfies K″=θ²K and any zero gives a nonnegative derivative jump for |K|, so integration gives strict convexity and knots-only maxima. Continuous outputs from bounded compactly supported truncations of the sign of a knot row show that the row maximum is the sharp essential-supremum norm; symmetry and L¹/L∞ duality give sharpness on L¹. The nodal integral is twice a geometric series times its single-crossing cell integral. For a check of the Taylor term, put C=cosh θ, α(q)=(1+q²)/(1+q), β(q)=q²/(1+q)^3. The cell-integral numerator is α(q)(C−1)+β(q)(C−1)²+O((C−1)³). With r=2−√3 and κ=−r/(5√3), this gives J=α(r)/2+θ²[−α(r)/24+β(r)/4+κα′(r)/2]+O(θ⁴). Dividing by Δ(1−q) and including the factor 2 gives 2+θ²/120+O(θ⁴). At large θ, Δ∼1/θ, q→0 and |J−tanh(θ/2)/θ|≤q tanh(θ/2)/θ. Continuity and the two endpoint limits yield attainment above 2 at finite positive θ, not uniqueness. Replay: RESULT.md proof §§1–4 (especially lines 37–97). The supplied check.py was inspected, not run; it uses floating-point checks and a cell antiderivative shared with the formula, plus a separate quadrature check of the row. Neither is the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kayumov states the sharp supremum 3 over partitions of a finite segment.",
+          "Keryan–Passenbrunner give a partition-uniform finite L∞ bound depending on the Chebyshev system."
+        ],
+        "reasoning": "Neither theorem evaluates the norm at individual θ on the fixed infinite uniform mesh or implies its local and global dependence on θ.",
+        "searches": [
+          "arXiv:math/0408418 §1.3, Theorem 1",
+          "arXiv:1807.07161 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0408418",
+        "arXiv:1807.07161",
+        "doi:10.1109/TSP.2005.843700 (access attempts)",
+        "Resultary 61a51e76f5c1",
+        "Resultary 9499aea3bfb2",
+        "Frozen RESULT.md and VERIFICATION.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A bound of 3 or a general existence/boundedness theorem does not establish knots-only maximizers or a norm tending to 2 at both ends and exceeding 2 in between.",
+          "The record credits established filter/Gram representation; a representation alone leaves the absolute row integral, maximizing x, and dependence on θ to be determined."
+        ],
+        "reasoning": "The evaluated profile and its strict finite-tension amplification are supported distinct statements, not a numerical specialization of the inspected theorem statements.",
+        "searches": [
+          "Kayumov, math/0408418, §1.3",
+          "Keryan–Passenbrunner, 1807.07161, Theorem 1.1",
+          "Unser–Blu, doi:10.1109/TSP.2005.843700 (access attempts)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kayumov §1.1 defines a least-squares projector for L-splines; §1.3 treats D²−λ², the same local equation. The full-line uniform case must still fix the dimensionless θ=|λ|h.",
+          "Unser–Blu is a plausible equivalent cardinal/filter formulation; no readable primary paper was obtained. The ter Morsche reference is identified bibliographically as interpolation, not orthogonal projection."
+        ],
+        "reasoning": "Compare the sharp Lebesgue function for orthogonal approximation, which gives both endpoint norms, not interpolation or uniform boundedness of a different operator.",
+        "searches": [
+          "Resultary: exact L1 L-infinity operator norm orthogonal projector cardinal exponential spline tension Lebesgue function knots",
+          "arXiv:math/0408418",
+          "doi:10.1109/TSP.2005.843700",
+          "doi:10.1016/0021-9045(85)90048-6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/18/SCOPE-one-anomalous-cell-destroys-the-sharp-uniform-mesh-spline-projec--61a51e76f5c1: the baseline has norm 2 and a single length defect raises it; the splines are polynomial with a perturbed mesh.",
+          "2026/11/2/SCOPE-exact-endpoint-norms-of-uniform-periodic-linear-spline-orthoproj--9499aea3bfb2: exact constants below 2 for finite periodic linear-spline spaces."
+        ],
+        "reasoning": "Both are meaningful exact overlaps in the zero-tension family, but neither evaluates a positive tension on the full line. The bounded catalogue comparison is not proof of exhaustive priority.",
+        "searches": [
+          "Resultary: exact L1 L-infinity operator norm orthogonal projector cardinal exponential spline tension Lebesgue function knots (50 ranked results)"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the fixed uniform full-line sharp formula and resulting tension profile. Known Gram/filter machinery, arbitrary-partition bounds, and the linear-spline baseline do not by themselves give those claims. No priority is assigned to those ingredients or to general endpoint norm duality.",
+      "residual_risks": [
+        "The accessible Kayumov overview does not include his proof chapters; earlier Kayumov work listed there remains uninspected.",
+        "The full Unser–Blu paper could not be read via the identified OA routes; an equivalent historical computation remains possible.",
+        "The broad primary search was inconclusive; the priority finding rests on the specific source comparisons, not on absence from search output."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader mesh supremum, not an evaluation on the fixed cardinal mesh",
+          "evidence": [
+            "Theorem 1: c(+λ,−λ)=3 for the supremum over partitions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0408418",
+          "material_read": "§1.1 and §1.3, including Theorem 1 on printed p. 4",
+          "method": "Lawful OA PDF, located passages read by offset",
+          "title": "Least-squares approximation by second-order L-splines",
+          "trigger": "Same second-order differential equation and sharp projector bound"
+        },
+        {
+          "assessment": "Boundedness only for this comparison",
+          "evidence": [
+            "The bound depends only on U_k, for all partitions of [0,1]."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1807.07161",
+          "material_read": "Theorem 1.1, printed p. 2",
+          "method": "Lawful OA PDF passage by offset",
+          "title": "Projection operators onto spaces of Chebyshev splines",
+          "trigger": "Could imply endpoint behavior by more general projection theory"
+        },
+        {
+          "assessment": "Coverage unresolved; no whole-paper exclusion",
+          "evidence": [
+            "Known representation is credited by the record; no full text inspected to exclude an exact norm statement."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/TSP.2005.843700",
+          "material_read": "Bibliographic identity; primary full text not obtained",
+          "method": "OA attempts at author page/PDF, DOI and identified alternate",
+          "title": "Cardinal Exponential Splines: Part I—Theory and Filtering Algorithms",
+          "trigger": "Plausible same-object full-line orthogonal projection formulas"
+        },
+        {
+          "assessment": "Distinct perturbation of the piecewise-linear mesh",
+          "evidence": [
+            "Norm 2 on the unperturbed mesh and strictly above 2 with a length defect."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-one-anomalous-cell-destroys-the-sharp-uniform-mesh-spline-projec--61a51e76f5c1",
+          "material_read": "RESULT.md Finding",
+          "method": "Local published-record mirror",
+          "title": "One anomalous cell destroys the sharp uniform-mesh spline projector bound",
+          "trigger": "Same-day full-line norm amplification finding"
+        },
+        {
+          "assessment": "Different domain and zero tension",
+          "evidence": [
+            "Finite periodic constants strictly below 2, with supremum 2."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-endpoint-norms-of-uniform-periodic-linear-spline-orthoproj--9499aea3bfb2",
+          "material_read": "RESULT.md Finding",
+          "method": "Local published-record mirror",
+          "title": "Exact endpoint norms of uniform periodic linear spline orthoprojectors",
+          "trigger": "Closest exact-norm catalogue comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The norm measures exact worst-case endpoint amplification for a standard tension-parameterized least-squares approximation. Neither a universal spline bound nor the limiting polynomial case decides whether introducing tension improves or worsens the constant. The formula, knots-only extremizers of the Lebesgue function, and rigorously nonmonotone positive-tension behavior answer that question without inferring it from sampling. No location or uniqueness of the best tension is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

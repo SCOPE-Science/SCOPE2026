@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The established singleton-distance-two recurrence is explicitly sourced to Proposition 2.3 of arXiv:2210.10577. The new argument reconstructs every additional step: disjoint parity paths give an exact Fibonacci-product count, a telescoping identity puts all short subsets below the averaging cutoff, and the positivity of the recurrence gives a root-based two-sided growth estimate. Taking logarithmic limits follows from exact inequalities, not from experimental extrapolation. `verify.py` independently checks the least-excluded construction, legal subset totals, identities, and the precise cutoff for bounded indices. Risks are confined to the stated reliance on the published recurrence and possible transcription mistakes, checked against the primary full text.
+PASS
 
-## Originality — PASS, provisional relative to inspected evidence
+Moura et al., Proposition 2.3, gives the needed recurrence and initials. It implies increasing positive terms and a_{j+3}−a_{j+2}=a_j for j≥1, hence the sum through n−3 equals a_n−4, including the endpoint n=4. Distinct legal index subsets are independent sets in two disjoint paths on the odd and even indices. Their Fibonacci counts, with empty-path count F_2=1, multiply to D_j. All legal subsets through n−3 qualify, and positivity forbids indices n or later in a representation below a_n. This squeezes the numerator, counting collisions with full multiplicity and the empty sum once. The cubic has no nonpositive root and strictly increases from −1 to a positive value between 1 and 2; its positive root satisfies ρ⁻¹+ρ⁻³=1. Dividing the recurrence by ρ^{j+1} traps a_j/ρ^j between the positive minimum and maximum of its first three values by convexity. Binet's formula yields D_j=Θ(φ^j), proving the claimed Θ estimate and root limit. Testing the cubic at φ proves ρ<φ; the pointwise maximum is at least the mean. Independently, review_evidence/reproduce.py 4 builds a weighted sum histogram from the greedy mex rule with a two-bit legality state through n=18 and checks the prefix sum, D_j and numerator bounds. The exact growth base is about 1.104029578062806; the frozen approximate decimal differs by under 1.5×10⁻¹³ and should not be read as correctly rounded to all printed digits. The exact expression is correct.
 
-The motivating full text asks for the mean-representation behavior (Question 5), supplies only the sequence recurrence for the singleton case, and restricts its multiplicity lemma to a dense-family regime excluding the boundary parameters of this result. The 2016 Fibonacci-quilt paper proves an analogous type of result for a different sequence and rule, which does not imply this exact exponent or Fibonacci-product bounds. OEIS records the underlying recurrence but not the claimed mean multiplicities. Targeted literature and mathematical-record searches found no dominating result. A prior unindexed equivalent proof is a residual risk; this is not an independent priority certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The quantity averaged is the explicit invariant posed by the motivating paper, and the simplest non-Fibonacci singleton forbidden difference is a natural test case. The result determines the previously unspecified exponential rate (not just existence of multiple representations) and gives valid finite cutoff bounds with only a two-index slack. It connects a parity-split independent-set entropy \(\varphi\) with the arithmetical growth root \(\rho\). It does not determine a leading constant or solve the general forbidden-set problem.
+The recurrence and the method of comparing counts and thresholds are prior. No inspected source supplied the cutoff-sensitive Fibonacci-product bounds or the resulting S={2} mean multiplicity exponent. This is a best-of-knowledge determination of the stated singleton result, not of absolute priority or a general S theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This resolves the exponential-rate part of a published mean-multiplicity question at a structurally natural boundary case. The finite shift comparison explains why legality entropy dominates numerical term growth, a fact the sequence recurrence alone does not quantify. The contribution is limited to the stated mean rate and useful finite bounds; it does not give a limiting prefactor or a typical-point multiplicity law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:20:22.703398Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; frozen verify.py inspected as evidence",
+        "/workspace/branches/audit_finite_reproduction.py"
+      ],
+      "rationale": "Aggregating the two fine Euler steps gives multiplier a² and forcing sigma sqrt(h) S, S=a xi_1+xi_2. Both candidates are normalized Gaussians independent across blocks, so both preserve each entire Euler-grid marginal, without needing the same Brownian realization. The deterministic terminal mean difference does not affect the variance. With k remaining blocks, the fine and coarse weights are a^{2k} and b^k; independence makes the terminal variance additive. In each block the covariance of S and zeta is at most sqrt(1+a²), with equality only at S/sqrt(1+a²) almost surely. The weights multiplying the covariance in the variance formula are strictly negative because a,b>0 and sigma is nonzero, so simultaneous equality is necessary and sufficient for the unique optimum. Expanding the squares gives the gap as 2 sigma² h times [sqrt(2(1+a²))-(1+a)] times sum (a²b)^k; the bracket is positive since the difference of the two squared arguments is (1-a)². Rationalization gives the leading gap bracket lambda²h²/4. For t=2kh the uniform expansions give a^{2k}-b^k=e^{-lambda t}lambda²t h/2+O(h²) and sqrt(1+a²)=sqrt(2)[1-lambda h/2+O(h²)]. Their Riemann limit for V_*/h² is sigma²lambda²/4 times the integral of e^{-2lambda t}(1-lambda t)², while the gap gives sigma²lambda(1-e^{-2lambda T})/8. Integration gives the stated constants, and subtracting three aligned brackets from the shared bracket gives 4U(U-1)e^{-2U}. An independent 40-digit forward covariance recursion at U=0.2,1,3 (4000 blocks each) respectively yielded ratios 2.21163, 2.99985, 3.06065, consistent with the fixed-horizon limits; no uniform claim was inferred from those samples. Replay: python3 /workspace/branches/audit_finite_reproduction.py.",
+      "residual_risks": [
+        "This is variance for the terminal identity observable, not its uncentered second moment or a pathwise approximation of a common driving Wiener process. Cross-block couplings and b<=0 are outside the result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Giles p. 29 and Jourdain–Kebaier p. 2 use shared Brownian paths to couple grid levels. These choose the unweighted sum here.",
+          "Chada et al. Eq. (3.5)–(3.6) prove a different stronger coupling for their exponential-Euler law, and cite Müller–Scheichl–Shardlow as related finite-dimensional Langevin work."
+        ],
+        "reasoning": "The known maximal-covariance principle solves the individual standardized scalar block abstractly, so no new general transport or MLMC theorem is asserted. Shared-path error bounds constrain a different class. The general principle does not by itself compare the resulting exact finite-h and fixed-horizon explicit-Euler values with the shared-path choice.",
+        "searches": [
+          "Giles DOI 10.1017/S096249291500001X",
+          "Jourdain–Kebaier arXiv:1708.07064",
+          "Chada et al. arXiv:2108.00794",
+          "Restatement in terms of scalar fixed-marginal Gaussian maximal covariance"
+        ]
+      },
+      "checked_sources": [
+        "Giles DOI 10.1017/S096249291500001X",
+        "arXiv:1708.07064",
+        "arXiv:2108.00794",
+        "Resultary 52b8aac2c127 and 4069f35ab289"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact prior weighted-noise formula relies on semigroup composition to give agreement of linear paths. Applying its idea to explicit Euler does not yield its claim of equality: the deterministic multipliers and second moments do not compose the same way.",
+          "Independent-block variance additivity and covariance maximization give the optimizer but neither classical result evaluates its gain or the U-dependent comparison."
+        ],
+        "reasoning": "The novelty judgment concerns the exact scheme-specific performance theorem, not the known abstract optimization argument. It also does not infer any optimality under cross-block transport.",
+        "searches": [
+          "Chada et al. exponential Euler Eqs. (3.5) and (3.6)",
+          "Giles shared Brownian sum, p. 29",
+          "Giles and Jourdain–Kebaier exact coupling hypotheses"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The block-local optimization is the maximal-covariance coupling of scalar S and a standard normal. In exponential Euler the published noise relation R^C_j=e^{-lambda_n Delta t_f}R^F_{2j}+R^F_{2j+1} gives pathwise equality in the pure linear case; the exact semigroup fixes the coarse marginal.",
+          "Here explicit Euler has coarse multiplier b different from a², and a prescribed coarse innovation amplitude sqrt(2h), not the fine block norm sqrt(h(1+a²))."
+        ],
+        "reasoning": "Weighting two fine noises is a genuine methodological overlap. The fitting normalization, nonzero optimal residual and comparison to the Brownian-sum baseline depend on both explicit-Euler laws, so the zero-difference exponential-Euler theorem is not the claimed result in different notation.",
+        "searches": [
+          "Resultary scalar Ornstein–Uhlenbeck / Euler / block-local Gaussian variance coupling",
+          "arXiv:2108.00794 Eq. (3.5) weighted fine noise",
+          "Müller Scheichl Shardlow Multilevel Monte Carlo for Langevin dynamics arXiv pdf Ornstein coupling fine coarse normal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest same-day indexed OU item compares Fourier Brownian-bridge modes for a one-step endpoint approximation and is expressly scoped to that basis. The nested Euler-grid hit is for compound-Poisson jumps."
+        ],
+        "reasoning": "No finite table is invoked; the relevant indexed exact targets are the covariance gain and limit frontier as formulas. The closest indexed transitions have different sampling primitives or noise and do not give these formulas.",
+        "searches": [
+          "Resultary weighted OU innovation / two-level Euler variance / threefold limiting ratio searches",
+          "2026/11/2/SCOPE-a-sharp-mode-bypass-transition-for-brownian-bridge-approximation--52b8aac2c127",
+          "2026/10/25/SCOPE-a-bernoulli-jump-phase-law-for-coupled-euler-grids--4069f35ab289"
+        ]
+      },
+      "rationale": "Cauchy–Schwarz maximal covariance is classical and receives no originality credit, nor does aggregating fine increments in MLMC. The overlooked difference addressed here is the exactly normalized drift-aligned innovation under the two prescribed explicit-Euler marginals in the independent-block class, with exact positive gap and the nonconstant fixed-horizon ratio crossing three. Closest weighted couplings use other grid marginals; inspected exact statements do not provide this comparison. Literature priority is qualified, particularly for related finite-dimensional Langevin couplings.",
+      "residual_risks": [
+        "The searches are not exhaustive. The exact primary comparison with Müller–Scheichl–Shardlow and any older specialized explicit-Euler OU calculation remains a priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of shared-Brownian construction",
+          "evidence": [
+            "Coarse Brownian increments are formed by summing fine ones along the same path."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S096249291500001X",
+          "material_read": "p. 29, PDF offset about 70800",
+          "method": "OA primary PDF passage",
+          "title": "Multilevel Monte Carlo methods",
+          "trigger": "Standard Euler MLMC baseline"
+        },
+        {
+          "assessment": "Fixed shared-Brownian coupling, not block-local optimization",
+          "evidence": [
+            "The fine and coarse simulations on a level use the same Brownian path."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1708.07064",
+          "material_read": "p. 2, offset about 5885",
+          "method": "OA primary PDF passage",
+          "title": "Non-asymptotic error bounds for the Multilevel Monte Carlo Euler method applied to SDEs with constant diffusion coefficient",
+          "trigger": "Additive-noise Euler comparison on two grids"
+        },
+        {
+          "assessment": "Exact method overlap for exponential Euler; different prescribed marginals",
+          "evidence": [
+            "Weights based on the exponential semigroup, yielding pathwise agreement on the coarse grid with no reaction term."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.00794",
+          "material_read": "Intro p. 2 and pp. 9–11 Eqs. (3.5)–(3.6), offsets about 6500, 34791, 39585",
+          "method": "OA primary PDF passages",
+          "title": "Improved Efficiency of Multilevel Monte Carlo for Stochastic PDE through Strong Pairwise Coupling",
+          "trigger": "Closest exact weighted-innovation construction"
+        },
+        {
+          "assessment": "Different optimization class and endpoint approximation",
+          "evidence": [
+            "Optimizes Fourier bridge modes for one-step endpoint reconstruction within a selected basis."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-mode-bypass-transition-for-brownian-bridge-approximation--52b8aac2c127/RESULT.md",
+          "material_read": "Finding and scope",
+          "method": "Resultary index and local mirror (36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "title": "A sharp mode-bypass transition for Brownian-bridge approximation",
+          "trigger": "Indexed OU Gaussian approximation with an exact transition"
+        },
+        {
+          "assessment": "Scheme-specific coverage not determined",
+          "evidence": [
+            "Cited as prior work on strong coupling for Langevin dynamics; no exclusion of exact Euler coverage is inferred from the access limitation."
+          ],
+          "identifier_or_url": "Müller, Scheichl and Shardlow (2015); cited by arXiv:2108.00794",
+          "material_read": "Chada et al. citation; the cited paper's primary passages were not retrieved",
+          "method": "Identified reference, focused search and OA landing attempt",
+          "title": "Multilevel Monte Carlo for Langevin dynamics",
+          "trigger": "Finite-dimensional antecedent for weighted pairwise coupling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen finite-step gap and fixed-horizon theorem",
+        "Shared-Brownian MLMC baseline and exponential-Euler comparison",
+        "Independent forward covariance check"
+      ],
+      "rationale": "When a linear terminal observable only requires the separate Euler marginal laws, a local Gaussian rescaling without extra samples produces a quantifiable variance reduction with an exact optimum for that implementable class. The strict finite-step gain and the limiting horizon-dependent factor, which can exceed three, make it a useful calibrated comparison rather than a tiny numerical improvement or a general Cauchy–Schwarz example. It is not an improved power of h or a general complexity theorem.",
+      "residual_risks": [
+        "The value is specific to the stated observable and coupling freedoms; no improvement is certified for nonlinear payoffs, costs across a whole level hierarchy, or couplings required to share a Brownian trajectory."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

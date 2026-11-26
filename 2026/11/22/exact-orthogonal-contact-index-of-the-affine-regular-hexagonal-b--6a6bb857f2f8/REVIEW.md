@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is the real affine-regular hexagonal plane \(G=(\mathbb R^2,\max\{|x|,|y|,|x+y|\})\). The quantity is the maximum minimum length of the images of two unit vectors under a contraction from \(G\) to Euclidean \(\mathbb R^2\), constrained to be orthogonal there. The critical factorization \(\omega_\perp(G)=\max\|[u\ v]^{-1}\|^{-1}\) is justified in both directions, including unequal image lengths. The exact inverse-operator norm comes from all six vertices of the hexagonal unit ball. Every pair of edges reduces, using signed isometries, to the same-edge case or the single symmetric two-parameter cross-edge case. The cross-edge optimization has three exhaustive regions; the derivative signs, transition curve and endpoint comparison prove the upper bound, and the explicit inverse matrix attains it. The proof is infinite/continuous in its quantifiers; the standalone finite checker is supplementary and passed 90,154 numerical assertions.
+PASS
 
-## Originality — PASS, subject to bibliographic priority risk
+Equalize the two nonzero perpendicular image lengths by shrinking the input columns to the smaller image length. In the orthonormal image coordinates this gives QS=rI and r≤1/||S⁻¹||. Rescaling either column outward to the sphere multiplies S⁻¹ on the left by a Euclidean diagonal contraction, so it cannot decrease the reciprocal, and Q=S⁻¹/||S⁻¹|| attains it for each independent sphere pair. Dependent pairs have reciprocal continuously extended as zero by the determinant formula. Evaluation on the six hexagon vertices gives denominator max(||row 1 of S||₂,||row 2 of S||₂,||row 1 + row 2||₂), with numerator |det S|. The stated rotation, reflection and sign changes reduce to the same edge (bound 1/√2) or columns (1,−s),(−t,1). Put 0≤s≤t. The two active denominators are A=√(1+t²) and B=√((1−s)²+(1−t)²). The score using A decreases with s; using B it increases, since the derivative numerator is (1−t)(1−s−t+t²)≥0 wherever B is active. For t≤τ=2−√3 the best is s=t, with score (1+t)/√2; for t≥1/2 the best is s=0, with score ≤2/√5. Between these cutoffs the best is s=1−√(2t), and the sign of the total derivative is that of −1−t+√(2t)(3+t²)/2, an increasing function there, so the maximum is at an endpoint. The difference in squared endpoint scores is (26−15√3)/5>0. At s=t=τ the three vertex norm constraints agree, and the claimed inverse matrix sends the columns to perpendicular vectors of length (1+τ)/√2=(3−√3)/√2. This covers the real norms and all degenerate edge cases. The uploaded floating-point diagnostics were read, not used as proof or executed.
 
-Zhang--Xu--Liu--Li, *Von Neumann--Jordan Constants in Banach Tensor Products* (arXiv:2609.37503, first public 27 September 2026), defines the orthogonal-contact index in equation (7). Its Example 3.12 establishes only that the affine-regular hexagonal plane cannot have two **unit** orthogonal Hilbert contacts, hence \(\omega_\perp(G)<1\), not a numerical sharp maximum. The exact tensor von Neumann--Jordan constant \(1+\sqrt3/2\) appearing in a separate indexed result bounds the contact index from above by \(\sqrt{(2+\sqrt3)/4}\), which is strictly weaker than the exact value found here. The known Euclidean Banach--Mazur distortion \(2/\sqrt3\) gives a strictly weaker feasible lower bound \(\sqrt3/2\). The same hexagonal geometry and related Birkhoff/James/Schäffer orthogonality constants do not determine this distinct optimization. Exact-phrase, numerical-value and equivalent-factorization literature comparisons found no matching result, but non-indexed prior work cannot be excluded. The primary paper was inspected in the relevant full-text material; the cited separately indexed comparator's full text was not accessible, leaving a bounded bibliographic risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The index is introduced to quantify orthogonality preserved by contractions into Hilbert spaces and is used in lower bounds for tensor Banach geometry. The published qualitative hexagonal counterexample is canonical. Its exact contact index resolves a motivated natural optimization, gives a sharp contraction witness and determines the numerical deficit \(1-(3-\sqrt3)/\sqrt2\). The value is not a cosmetic rearrangement of the qualitative obstruction or a recomputation of an indexed table. No general tensor inequality improvement is asserted.
+The same invariant and hexagon were previously studied, with the strict inequality below one already established. The supported new content is the sharp value and attaining contraction, not the failure of unit contact itself. No examined prior result fixes the sharp number.
 
-## Closest sources, limits and verification
+## value
 
-The primary published source is https://arxiv.org/abs/2609.37503 (equation (7), Example 3.12). Comparison records include *Exact von Neumann--Jordan constant of Hilbert--hexagon tensor products* (dated 1 November 2026) and *Euclidean Banach--Mazur profile of a classical hexagonal family* (dated 4 October 2026). The formula applies only to the real two-dimensional norm shown in RESULT.md; it does not prove an all-dimensional orthogonal-contact classification. The automated finite script complements but cannot replace the analytic proof, and no independent validation is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the exact attained optimum of a pre-existing contact invariant on its motivating non-Euclidean test plane. It makes the qualitative obstruction quantitative and sharp even though the standard exact distortion and tensor constants only bound it. Both the numerical gap and extremizing contraction are useful as benchmarks for comparisons of these invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

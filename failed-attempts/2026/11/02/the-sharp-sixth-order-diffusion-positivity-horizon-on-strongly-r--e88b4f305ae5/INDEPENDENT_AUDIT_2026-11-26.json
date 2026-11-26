@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:34:28.021273Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–97; VERIFICATION.md lines 19–31; verify.py lines 23–47, 84–101, 104–183 (inspected, not executed)",
+        "Independent polynomial convolution and scalar bisection: C4 H≈8.609199508643 and Petersen H≈3.127315033461 at unit conductance; independent C5 spot check with a,b=(5∓√5)/2 at z=2 by multiplying the interpolant by D(2L) and comparing with N(2L)"
+      ],
+      "rationale": "The adjacency identity A²=(k−μ)I+(λ−μ)A+μJ yields the two nonzero Laplacian eigenvalues and, by the trace, their multiplicities. On the complement of the constants both eigenspaces must occur, since otherwise all off-diagonal Laplacian entries would coincide. Interpolation on 0,a,b gives the stated common diagonal and the two off-diagonal formulas. I independently expanded the numerators of r′ and q′, q=(1−r)/t: −24(t⁴−30t²+600) and −2(t⁴+120t²+1200t+3600), respectively, over D². Each is strictly negative; for z>0, the nonedge entry is a positive multiple of q(az)−q(bz), and the edge correction has the sign of r(az)−r(bz). The diagonal decreases strictly from 1 to (2−v)/v<0; clearing the positive denominators gives one positive root and a degree-six polynomial with leading coefficient (ab)³(2−v)≠0. At h=0 the map is the identity. The rational root comparisons and illustrative cases agree with the proof.",
+      "residual_risks": [
+        "Finite floating-point examples are diagnostics, not the universal proof; no inference on intermediate stages, nonuniform conductances, or floating-point implementation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.12 gives a sufficient invariance step bound using absolute monotonicity, not this exact SRG interval. The complete-bipartite record reaches all K_{p,q}, but overlaps the SRG class only at K_{m,m}, m≥2; only in the balanced case do all diagonals first vanish together."
+        ],
+        "reasoning": "General sufficient positivity bounds and extension to unbalanced bicliques are not the demonstrated source of coverage; that source is the already matching all-SRG theorem.",
+        "searches": [
+          "Horváth–Song–Terlaky, §3.2.1 Theorem 3.12; Wade et al., DOI 10.1002/num.20039; Resultary [3/3] complete-bipartite record 69e05d2d12b3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–40 and 99–116",
+        "Resultary 1805058e2ad7, 69e05d2d12b3, 2a383c6386f9, 4defdf9c32e5",
+        "Horváth–Song–Terlaky §3.2.1; Wade et al. bibliographic record; Horváth DOI 10.1016/j.amc.2005.08.026 landing page/abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both use 1+f r(az)+g r(bz)=0 with the completed Gauss end-step; the older proof also addresses primitive and imprimitive SRGs. General RK absolute monotonicity and internal-stage positivity are different claims."
+        ],
+        "reasoning": "Strict positivity of both off-diagonal classes, simultaneous diagonal vanishing, and absence of re-entry are all prior conclusions under the equivalent hypotheses. Multiplying out denominators or changing the time unit supplies no new theorem.",
+        "searches": [
+          "Direct comparison of frozen RESULT.md lines 5–24, 44–89 with 1805058e2ad7, Finding and proof §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "1805058e2ad7, Finding, Assumptions and scope, and proof §§1–4: unweighted SRGs, strict off-diagonal positivity for all positive steps, a strictly decreasing common diagonal with one zero, and the same multiplicity-weighted root equation."
+        ],
+        "reasoning": "Put a=k−r and b=k−s for the older record's adjacency eigenvalues r>s; its unit-conductance step is the frozen dimensionless z=ch. The two formulations give exactly the same matrix and signs.",
+        "searches": [
+          "Resultary: sixth-order Gauss–Legendre/diagonal [3/3] Padé diffusion positivity on strongly regular graphs; matching record 1805058e2ad7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue contains the full symbolic [3/3] cutoff and sign classification, not just numerical values. The two [2/2] hits use v−(2k−λ+μ) to separate unconditional positivity from a finite edge-entry cutoff."
+        ],
+        "reasoning": "The exact family invariant was already covered, independently of reproducing example roots. The [2/2] tables and classifications concern a different rational function and failure mechanism.",
+        "searches": [
+          "Resultary exact-family records 1805058e2ad7, 69e05d2d12b3, 2a383c6386f9, and 4defdf9c32e5"
+        ]
+      },
+      "rationale": "A distinct earlier Resultary record, 1805058e2ad7, already states and proves the full [3/3] strongly regular graph theorem at unit conductance, including all strict off-diagonal signs and the identical diagonal-only single crossing. Uniform c>0 is exactly h ↦ ch. The polynomial reformulation follows by multiplying by the same two positive denominators. This is demonstrated prior coverage of the finding, not a correctness objection or an inference from a title or publication date alone.",
+      "residual_risks": [
+        "Exact catalogue coverage does not by itself establish journal publication priority or provenance; Wade and Horváth full texts were not available. Neither access gap changes the direct mathematical overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING",
+          "evidence": "Same strict off-diagonal signs, unique common diagonal crossing and exact root equation, prior h replaced by ch.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-positivity-frontier-for-sixth-order-gauss-diffusion-on-s--1805058e2ad7/RESULT.md",
+          "material_read": "Finding and Assumptions and scope at offset 0; proof §§1–4, offsets 1800–4774",
+          "method": "Local mirror; compare statement, spectral variables, domain and proof",
+          "title": "A sharp positivity frontier for sixth-order Gauss diffusion on strongly regular graphs",
+          "trigger": "Direct match to graph class, Padé order and endpoint"
+        },
+        {
+          "assessment": "Partial coverage; same-day date not an ordering claim",
+          "evidence": "K_{p,q} positivity horizon with permanent off-diagonal signs; in the balanced case all diagonals vanish at the cutoff.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-single-diagonal-obstruction-and-a-uniform-high-degree-law-for--69e05d2d12b3/RESULT.md",
+          "material_read": "Offsets 0–3158, 4351–4410",
+          "method": "Local mirror; compare regularity and hitting diagonal classes",
+          "title": "A single diagonal obstruction and a uniform high-degree law for sixth-order Gauss diffusion",
+          "trigger": "Claimed complete-bipartite overlap"
+        },
+        {
+          "assessment": "Inspected theorem insufficient for the exact claim",
+          "evidence": "The valid threshold τ=γρ is sufficient, with ρ an absolute-monotonicity radius.",
+          "identifier_or_url": "https://engineering.lehigh.edu/sites/engineering.lehigh.edu/files/_DEPARTMENTS/ise/pdf/tech-papers/14/14T_007.pdf",
+          "material_read": "§3.2.1 Theorem 3.12, p. 10 and surrounding text, offsets about 32200–36372",
+          "method": "Lawful OA preprint; compare conclusion and hypotheses",
+          "title": "Steplength thresholds for invariance preserving of discretization methods on a polyhedron",
+          "trigger": "Potentially dominating general invariance theorem"
+        },
+        {
+          "assessment": "Full-text coverage undetermined",
+          "evidence": "Title concerns positivity-preserving Padé smoothing; no theorem read that could establish or exclude coverage.",
+          "identifier_or_url": "https://doi.org/10.1002/num.20039",
+          "material_read": "Bibliographic scope only; DOI and Wiley retrieval forbidden, no open copy retrieved",
+          "method": "Lawful OA lookup",
+          "title": "Smoothing with positivity-preserving Padé schemes for parabolic problems with nonsmooth data",
+          "trigger": "Potential related Padé treatment"
+        },
+        {
+          "assessment": "Related, not a substitute for [3/3] analysis",
+          "evidence": "[2/2] can stay nonnegative for all steps; finite failure is by edge entries.",
+          "identifier_or_url": "Resultary 2a383c6386f9; 4defdf9c32e5",
+          "material_read": "Both findings at offset 0",
+          "method": "Local mirrored statements and method-order comparison",
+          "title": "Exact Gauss–Legendre diffusion positivity / Exact positivity intervals for fourth-order Padé diffusion on strongly regular graphs",
+          "trigger": "Same graph class, distinct order"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 20–24, 85–109; Resultary 1805058e2ad7 and 2a383c6386f9"
+      ],
+      "rationale": "The all-SRG positivity mechanism is useful in its original form, but the submitted contribution adds only a time-unit substitution and equivalent algebraic expression to the already usable classification. The examples and fourth-order comparison do not establish a separate new mathematical result. There is no surviving distinct valuable claim here to repair.",
+      "residual_risks": [
+        "This assesses the distinct contribution of the submission, not the usefulness of the original theorem or the accuracy of the checker."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

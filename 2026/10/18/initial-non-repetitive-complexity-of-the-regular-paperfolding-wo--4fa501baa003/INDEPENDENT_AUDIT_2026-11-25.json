@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:27:27.468048Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the stated zero-based digit rule, f_{2j}=j mod 2 and f_{2j+1}=f_j. No factor of length four alternates: its two even-indexed letters differ. For length at least eight each parity track has length at least four; the track from even positions alternates and the other is a contiguous factor, so a factor recognizes the parity of its start. When n≥16, same-parity equality is equivalent to equality of the odd-index track, of length floor(n/2) for even starts and ceil(n/2) for odd starts. The reverse implication holds because equality of those shorter factors, still of length ≥8, forces the same phase on the alternating track. Thus the earliest second start is the smaller of 2R(floor(n/2)) and 2R(ceil(n/2))+1, necessarily the even one by monotonicity under extension. Its earlier matching start likewise doubles and is unique because all starts before the first duplicate are pairwise distinct. For a reproducible finite base, generate indices 0–38 by stripping powers of 2 from i+1 and compare exact slices of lengths 1–15 in increasing start order. The short (R,q) sequence is (1,0),(3,0),(3,0),(8,3),(8,3),(12,4),(12,4); the 24 length-eight factors at starts 0–23 are distinct, and the slices of length fifteen at 8 and 24 both equal 001101100010011. This proves the base for all 8≤n≤15, and the decimation proves all larger n. The independent bounded witness check for n=8,…,8191 also agrees, but the infinite conclusion does not rely on it or on executing the supplied verifier. The dyadic block endpoints give limit inferior 3/2 and limit superior 3; Allouche's 4n count for n≥7 then gives 3/8 and 3/4.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Allouche (1992), PDF p. 1, gives p(n)=4n for n≥7 in any paperfolding sequence, but not scanning positions. Burns §2 and Theorem 3.4 gives appearance through the last necessary first occurrence, and uses a factor-equality automaton. The canonical-positions article could not be read in full from the attempted lawful routes."
+        ],
+        "reasoning": "A complete characterization of canonical first-occurrence positions could potentially settle the first duplicate via its first missing position, unlike the cardinality or the maximum of those positions. The available appearance theorem is not such a characterization; inability to check the canonical-position article does not establish noncoverage.",
+        "searches": [
+          "arXiv:2210.14719v1",
+          "doi:10.1016/0304-3975(94)90028-0",
+          "doi:10.1017/S0004972700011655"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding–Proof",
+        "Frozen VERIFICATION.md and verify.py (read only)",
+        "Indexed comparison records and primary passages listed in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Burns uses the Walnut predicates pffaceq and pfapp to prove a coverage theorem, not a first-duplicate minimization. Nicholson–Rampersad use inrc for other words. Allouche–Bousquet-Mélou is a plausible first-occurrence comparison but did not yield a readable decisive passage."
+        ],
+        "reasoning": "An automaton for equality gives a possible method to formulate a separate minimization and extract a law; the inspected conclusions do not imply the stated first-duplicate value and unique match by a parameter substitution. Nor do the ordinary factor count and latest-new-position law alone determine the first missing index of the canonical starts.",
+        "searches": [
+          "arXiv:2210.14719v1",
+          "doi:10.1016/0304-3975(94)90028-0",
+          "arXiv:1507.08206"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nicholson–Rampersad §1–2, PDF p. 2, defines inrc as the largest m with distinct length-n factors at starts 0,…,m−1; this is exactly R(n). The non-initial nrc can start anywhere and is a different invariant. The examples named in the abstract treat Thue–Morse, Fibonacci and Tribonacci. The indexed exact inrc law is for the period-doubling word."
+        ],
+        "reasoning": "In the prefix-length convention for first repetition the exact equivalent would be r(n)=n+R(n), and one-based starts add one to both indices. Complementing the letters changes neither collision. These translations were distinguished from shifts of invariant or word.",
+        "searches": [
+          "arXiv:1507.08206",
+          "arXiv:2210.14719v1",
+          "2026/11/8/SCOPE-exact-initial-non-repetitive-complexity-of-the-period-doubling-w--02f7855ec641"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The paperfolding cyclic-complexity Finding states c_f(2n)=c_f(n) for n≥8 divisible by four, counting cyclic-conjugacy classes. The repetition-factorization Finding enumerates 232 factors admitting a different type of repetition. The exact period-doubling initial-complexity recurrence counts the same type of statistic for a different word. Burns' exact appearance value at n=8 corresponds to zero-based start 47 for the latest new factor, not the first duplicate at start 24."
+        ],
+        "reasoning": "None of the compared exact tables or formulas enumerates first repeated windows of this paperfolding word. The two index-based statistics already differ at n=8 after converting conventions, and equivalence under cyclic conjugacy would change the scan.",
+        "searches": [
+          "2026/10/18/SCOPE-dyadic-invariance-of-cyclic-complexity-in-the-regular-paperfoldi--376fa657e5cf",
+          "2026/10/13/SCOPE-complete-repetition-factorization-ambiguity-profile-of-the-regul--63b75717184c",
+          "2026/11/8/SCOPE-exact-initial-non-repetitive-complexity-of-the-period-doubling-w--02f7855ec641",
+          "arXiv:2210.14719v1"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact paperfolding first-duplicate law together with the earlier matching position, rather than the definition of initial non-repetitive complexity, factor equality by automata, or ordinary and appearance complexity. The closest available paperfolding comparisons involve the last new occurrence or a different equivalence/counting procedure; the closest exact initial-complexity catalogue entry treats a different sequence. Canonical-position full-text coverage remains a named risk.",
+      "residual_risks": [
+        "The 1994 canonical-positions paper remains a material full-text gap. Even if no equivalent theorem was found in the sources read, uninspected canonical-position or automatic-sequence treatments could imply one. The frozen study itself was identified by its supplied source, not by an independently accessible mirror copy."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same statistic; inspected formula scope covers other words",
+          "evidence": [
+            "inrc fixes the start of the scan at zero; nrc does not."
+          ],
+          "identifier_or_url": "arXiv:1507.08206",
+          "material_read": "Abstract and §§1–2, PDF p. 2, definition near text offset 2994",
+          "method": "OA PDF passages",
+          "title": "Initial non-repetitive complexity of infinite words",
+          "trigger": "Exact invariant in earlier literature"
+        },
+        {
+          "assessment": "Proves ordinary factor count, not first duplicate",
+          "evidence": [
+            "4n length-n factors for n≥7 in any paperfolding sequence."
+          ],
+          "identifier_or_url": "doi:10.1017/S0004972700011655",
+          "material_read": "PDF p. 1, near text offset 432",
+          "method": "OA PDF passage",
+          "title": "The number of factors in a paperfolding sequence",
+          "trigger": "Exact paperfolding factor count and limit denominator"
+        },
+        {
+          "assessment": "Closest accessible position-related theorem; latest new rather than first duplicate",
+          "evidence": [
+            "Appearance is shortest covering prefix, with A_w(n)=S_w(n)+n−1 in the paper's convention. For n=8, S_f(8)=48 in one-based starts."
+          ],
+          "identifier_or_url": "arXiv:2210.14719v1",
+          "material_read": "§2 p. 2 and §3 pp. 3–6, offsets about 1800–5443 and 7300–14697, including Theorem 3.4",
+          "method": "OA PDF passages",
+          "title": "The appearance function for paper-folding words",
+          "trigger": "Exact results on canonical start positions for this word"
+        },
+        {
+          "assessment": "Residual possible implication, not evidence of absence",
+          "evidence": [
+            "The exact description of canonical positions could not be checked against the first-repeat thresholds."
+          ],
+          "identifier_or_url": "doi:10.1016/0304-3975(94)90028-0",
+          "material_read": "No primary full text obtained; frozen comparison was abstract-level",
+          "method": "Bounded lawful DOI, publisher and author-page lookup",
+          "title": "Canonical positions for the factors in paperfolding sequences",
+          "trigger": "Could characterize the first noncanonical position"
+        },
+        {
+          "assessment": "Different equivalence and invariant",
+          "evidence": [
+            "Counts factor conjugacy classes by cyclic rotation."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-dyadic-invariance-of-cyclic-complexity-in-the-regular-paperfoldi--376fa657e5cf",
+          "material_read": "Mirror RESULT.md Finding",
+          "method": "Bounded mirror passage",
+          "title": "Dyadic invariance of cyclic complexity in the regular paperfolding word",
+          "trigger": "Same-day dyadic result on the same word"
+        },
+        {
+          "assessment": "Factorization of a single factor, not collisions between starts",
+          "evidence": [
+            "Counts 232 factors admitting a repetition factorization."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-complete-repetition-factorization-ambiguity-profile-of-the-regul--63b75717184c",
+          "material_read": "Mirror RESULT.md Finding",
+          "method": "Bounded mirror passage",
+          "title": "Complete repetition factorization ambiguity profile of the regular paperfolding word",
+          "trigger": "Exact repetition census for the same word"
+        },
+        {
+          "assessment": "Exact law for a distinct word",
+          "evidence": [
+            "Its initial scan is performed on period-doubling, not on regular paperfolding or its complement."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-initial-non-repetitive-complexity-of-the-period-doubling-w--02f7855ec641",
+          "material_read": "Mirror RESULT.md Finding",
+          "method": "Bounded mirror passage",
+          "title": "Exact initial non-repetitive complexity of the period-doubling word",
+          "trigger": "Closest catalogue entry by invariant and recurrence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first duplicate is a natural prefix analogue to global factor complexity and to the latest first occurrence. Its exact position is not given by the total number of distinct factors or the covering endpoint. The dyadic law and unique location of the partner identify exactly how long the initial scan remains injective, and the parity/decimation argument explains why both positions scale together. This supplies a useful exact word-combinatorics invariant rather than a finite list of collisions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

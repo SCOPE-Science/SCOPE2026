@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:37:20.791517Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Assumptions and Proof; VERIFICATION.md and verify.py inspected, not executed",
+        "Independent replay: python3 /workspace/reproductions/5.py. Exact Euler recurrence, 2574 strict log-concavity bridge indices, full finite-box and cap certificate, and all 562,475 distinct-size comparisons through n=150",
+        "DeSalvo–Pak arXiv:1310.7982, Proposition 2.4 p. 3 (offset 11500), strict analytic tail"
+      ],
+      "rationale": "Deleting one copy of each prescribed part is a bijection onto partitions of the remaining integer; when r+s>n the joint event is impossible and the positive marginals give strict negative covariance. Otherwise, with a=n−r−s, the sign is the opposite of F=p(a+r)p(a+s)−p(a)p(a+r+s). For Q_t(x)=p(x+t)/p(x), products of consecutive ratios show Q_t strictly decreases on x≥26. DeSalvo–Pak Theorem 1.1 is worded as log-concavity, rather than explicitly as strict log-concavity; their Proposition 2.4 proves a positive logarithmic defect for m≥2600. The finite strictness bridge for m=26,…,2599 was independently confirmed in exact arithmetic (minimum integer defect 3052), so the strict premise used in the frozen proof holds. Thus F>0 if a≥26. At smaller a cap both coordinates at R=26−a. Extending s from R increases the normalized difference Q_r(a)−Q_r(a+s), and the analogous normalization works for extending r, so positivity propagates from the caps. If the two caps coincide one uses the positive diagonal defect, not a covariance of a variable with itself. For distinct caps any saturated comparison is strictly positive except a=0,r=1; that exceptional trajectory has F=p(s)−p(s+1)<0 by the part-one insertion map and the missing one-part partition. The independent pentagonal-recurrence replay reproduces all 2,925 distinct-size comparisons, all 26 positive diagonal caps, and all 325 saturated comparisons, with no saturated zero. It yields exactly 11 exceptional positives outside the persistent family and the five zeros, with largest nonpersistent positive n=16. The cap argument, not finite extrapolation, certifies the remaining n.",
+      "residual_risks": [
+        "The unbounded step relies on the published analytic tail estimate; it is not re-proved by the finite replay. The proof only concerns two distinct occurrence indicators."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Log-concavity provides eventual ratio monotonicity; the strengthened centered inequality p(n)^2>p(n−m)p(n+m), n>m>1, controls symmetric cases, not all mixed shifts.",
+          "The exact boundary inequality compares p(r)p(s) to p(r+s), with no positive base a. Sampling and residue-class bias sources compare different random statistics."
+        ],
+        "reasoning": "These sources prove substantial portions or ingredients, but the wider statistical settings and centered inequalities do not dominate the all-a nonsymmetric classification.",
+        "searches": [
+          "arXiv:1310.7982 Theorems 1.1 and 5.1 and Proposition 2.4",
+          "arXiv:1403.3352 Theorem 2.1",
+          "arXiv:1407.3639 Theorems 1–3; arXiv:2408.14365v2, pp. 1–3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 007cea5a5e4f and 57a00506bf7c",
+        "DeSalvo–Pak arXiv:1310.7982 and Bessenrodt–Ono arXiv:1403.3352",
+        "Mutafchiev arXiv:1407.3639 and Schlosser–Zhou arXiv:2408.14365v2",
+        "Corteel–Pittel–Savage–Wilf and Fristedt access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a≥26 log-concavity implies negative covariance through ratio products; at a=0 the boundary comparison is already known apart from the immediate r=1 case.",
+          "Positive small bases can give either sign, including interior positive (16,1,3) and interior zeros (9,1,2), (10,1,5); the saturated mixed comparisons and strict extension are needed to certify that the list is complete."
+        ],
+        "reasoning": "Tail and boundary implications are credited, but none supplies a uniform finite reduction at positive small a plus the complete exception census. The different-observable prior count result cannot substitute for it.",
+        "searches": [
+          "arXiv:1310.7982 Theorem 1.1, Proposition 2.4, and Theorem 5.1; arXiv:1403.3352 Theorem 2.1; Resultary 007cea5a5e4f Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sign problem is exactly the opposite sign of p(a+r)p(a+s)−p(a)p(a+r+s), not the sign of the multiplicity covariance.",
+          "At a=0, r,s≥2 this is exactly the Bessenrodt–Ono multiplicative inequality, including its exceptional signs and equalities.",
+          "The nearest catalogue entry concerns counts C_r,C_s, not the thresholded variables 1_{C_r>0},1_{C_s>0}."
+        ],
+        "reasoning": "The reduction detects exact prior coverage of the boundary row, while the count covariance does not determine the thresholded covariance. The mixed shifts at positive a remain distinct.",
+        "searches": [
+          "Prescribed-size occurrence covariance, mixed partition-product defect, and ratios Q_t; arXiv:1310.7982 and arXiv:1403.3352",
+          "Resultary: part-size count covariance, 007cea5a5e4f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bessenrodt–Ono gives the exact a=0 comparison for r,s>1, including equality at {2,7} above sum eight and small exceptions. This accounts for boundary zeros at (n,r,s)=(7,3,4),(8,2,6),(9,2,7).",
+          "007cea5a5e4f asserts negative multiplicity covariance; 57a00506bf7c studies block counts in uniform labeled set partitions conditioned on the number of blocks. Neither is the table for presence indicators under unrestricted integer partitions."
+        ],
+        "reasoning": "The checked exact table covers a boundary row, not the seven positive and two zero exceptions at positive a or the full diagram.",
+        "searches": [
+          "Resultary: exact presence/covariance signs for two prescribed sizes; matches 007cea5a5e4f and 57a00506bf7c",
+          "arXiv:1403.3352 Theorem 2.1 and small exceptions"
+        ]
+      },
+      "rationale": "Credit Bessenrodt–Ono for the whole a=0, r,s≥2 row (four positive boundary exceptions and three zeros in this parameterization), the elementary insertion argument for the r=1 boundary, and DeSalvo–Pak for the tail. The supported distinct result is the complete off-diagonal finite-size classification, in particular the a>0 mixed-defect sign diagram with seven positive and two zero exceptions. Neither the nearest occurrence/multiplicity works nor the exact known partition inequalities imply that classification without the mixed-shift cap argument and exact finite data.",
+      "residual_risks": [
+        "Corteel–Pittel–Savage–Wilf and Fristedt were not available in full. Unindexed older dependence work could contain a related statement; no historical priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies tail and symmetric products; the display of Theorem 1.1 alone does not say strict",
+          "evidence": "Proposition 2.4 gives a strictly positive lower bound for 2 log p(m)−log p(m−1)−log p(m+1) for m≥2600. Theorem 5.1 gives strict centered products for n>m>1.",
+          "identifier_or_url": "https://arxiv.org/pdf/1310.7982",
+          "material_read": "Theorem 1.1 p. 1, Proposition 2.4 p. 3 (offset 11500), Theorem 5.1 p. 5 (offset 18233)",
+          "method": "Primary OA PDF",
+          "title": "Log-Concavity of the Partition Function",
+          "trigger": "Essential tail premise and strongest related product inequalities"
+        },
+        {
+          "assessment": "Direct prior coverage of the non-unit boundary row, not the mixed interior",
+          "evidence": "For u,v>1 with u+v>8, p(u)p(v)≥p(u+v), equality only at {u,v}={2,7}; the preceding range has explicitly listed small exceptions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1403.3352",
+          "material_read": "Theorem 2.1 and small cases, p. 2, offset 4813",
+          "method": "Primary OA PDF",
+          "title": "Maximal multiplicative properties of partitions",
+          "trigger": "Exact equivalent comparison when a=0"
+        },
+        {
+          "assessment": "Different observable, no implication of the occurrence law",
+          "evidence": "Covariance theorem concerns multiplicity counts C_i,C_j and distinguishes them from binary presence indicators.",
+          "identifier_or_url": "2026/10/25/SCOPE-strict-negative-covariance-of-every-pair-of-part-size-counts-in--007cea5a5e4f",
+          "material_read": "RESULT.md Finding and comparison, offsets 0–4762",
+          "method": "Local Resultary mirror",
+          "title": "Strict negative covariance of every pair of part-size counts in a uniform integer partition",
+          "trigger": "Nearest indexed covariance theorem for the same probability space"
+        },
+        {
+          "assessment": "Different object, conditioning and statistics",
+          "evidence": "Counts singleton and size-s blocks in a labeled set partition at fixed block count, rather than occurrences in integer partitions.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-single-covariance-sign-transition-among-block-sizes-at-fixed-p--57a00506bf7c",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A single covariance sign transition among block sizes at fixed partition size",
+          "trigger": "Same-date exact covariance sign classification"
+        },
+        {
+          "assessment": "One sampled part and asymptotic laws",
+          "evidence": "Limit theorems concern the size/multiplicity of a single sampled part, not joint occurrence of two prescribed sizes.",
+          "identifier_or_url": "https://arxiv.org/pdf/1407.3639",
+          "material_read": "Introduction p. 2 offset 4790, Theorems 1–3 and discussion p. 5 offset 12746",
+          "method": "Primary OA PDF",
+          "title": "Sampling Parts of Random Integer Partitions: A Probabilistic and Asymptotic Analysis",
+          "trigger": "Directly related random-partition statistic and context for the 1999 article"
+        },
+        {
+          "assessment": "Related count comparison, not the prescribed-size covariance classification",
+          "evidence": "Compared quantities count parts in residue classes, rather than two indicators.",
+          "identifier_or_url": "https://arxiv.org/pdf/2408.14365v2",
+          "material_read": "pp. 1–3, offsets 0, 2750, 8300",
+          "method": "Primary OA PDF",
+          "title": "Residue Class Biases in Unrestricted Partitions, Partitions into Distinct Parts, and Overpartitions",
+          "trigger": "Focused search hit comparing part sizes in unrestricted partitions"
+        },
+        {
+          "assessment": "Unresolved priority risk; the secondary account does not settle full coverage",
+          "evidence": "Mutafchiev reports results about multiplicity of a sampled part, not the entire content of the older paper.",
+          "identifier_or_url": "10.1002/(SICI)1098-2418(199903)14:3<185::AID-RSA4>3.0.CO;2-F",
+          "material_read": "Bibliographic record and secondary account in Mutafchiev, pp. 2, 5; primary full text unavailable",
+          "method": "DOI and Wiley attempts plus lawful OA copy lookup",
+          "title": "On the multiplicity of parts in a random partition",
+          "trigger": "Plausible older result in the same uniform sample law"
+        },
+        {
+          "assessment": "Broader possible antecedent; no uninspected theorem used",
+          "evidence": "No primary passage retrieved that can establish or exclude exact overlap.",
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9947-1993-1094553-1",
+          "material_read": "Bibliographic record only; primary full text unavailable",
+          "method": "DOI and AMS entry/PDF attempts",
+          "title": "The structure of random partitions of large integers",
+          "trigger": "Potential conditioning and dependence antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof; independently reproduced exception list; Resultary 007cea5a5e4f for the contrasting multiplicity statistic"
+      ],
+      "rationale": "Presence is a natural observable distinct from multiplicity. Conditioning on total size does not force pairwise negative occurrence dependence: the theorem isolates an infinite positive boundary family and determines the exact last positive away from it. The sharp cutoff at 17 and the equality cases give a concrete benchmark for dependence claims under fixed-total sampling, including when a negative-correlation heuristic is wrong.",
+      "residual_risks": [
+        "No general negative association or classification for more than two indicators, restricted partitions, or alternate sampling laws."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:44:31.936571Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Frozen pappus_hexagon_certificate.json and both printed outputs",
+        "Frozen verify_factorizations.py and verify_local_constraints.py, inspected; not executed",
+        "Independent replays: python3 /workspace/branches/audit_graphs.py and PYTHONDONTWRITEBYTECODE=1 python3 /workspace/branches/pappus_implication.py"
+      ],
+      "rationale": "The incidence rule gives a simple cubic bipartite graph and makes both local orders unambiguous. Independently exhaust all proper assignments by branching on an unassigned edge with the fewest available colours at its two endpoints; this yields exactly 120 states. For each state pair, the changed edges must all exchange the same two colours and form a single connected degree-two subgraph; properness then forces alternation. Testing all state pairs gives 216 length-six edges and 324 unrestricted edges, and the frozen labelled vertex and hexagon-edge tables agree entrywise and by their quoted digests. For each hexagon component, the six degree-nine hubs are independent, deleting them leaves nine six-cycles, the hub attachments alternate, and the incidence pairs are exactly K3,3. Distances from every state give eccentricity 6 under hexagon moves and 4 under unrestricted moves, with 60 vertices on each side of the sign partition. Sign is invariant since each switch transposes local colours at an even number of vertices. The global S3 action is free and the neighbor maps bijectively onto the neighboring orbits, giving the stated six-sheeted cover. Independent quotient distances and edge counts agree.",
+      "residual_risks": [
+        "All finite conclusions are for the exact Pappus incidence graph and single-cycle moves, not arbitrary switching of multiple cycles or a general family."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "McDonald–Mohar–Scheide p. 1 uses four colours",
+          "Belcastro–Haas arXiv:1209.1730 pp. 2,11 treats class counts and a K3,3 example",
+          "Belcastro–Haas 2017 pp. 1,3,10, Proposition 2.1 and the vertex-fixed-copy construction"
+        ],
+        "reasoning": "These do not determine the Pappus local move graph. The named edge-Kempe graph triangle-free theorem is consistent with triangles in the quotient. The exact catalogue signature theorem is the materially covering result.",
+        "searches": [
+          "arXiv:1005.2248 four-colour equivalence",
+          "arXiv:1209.1730 cubic edge-Kempe classes",
+          "Belcastro–Haas 2017 named edge-Kempe graphs and lifts"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 81d0af0022f9, original Finding and proof signatures",
+        "arXiv:1005.2248 p. 1",
+        "arXiv:1209.1730 pp. 1,2,11",
+        "Belcastro–Haas (2017) pp. 1,3,10",
+        "arXiv:2105.01363 pp. 1,13,19",
+        "Zenodo 10.5281/zenodo.4707697, retrieval attempted but data unavailable"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "81d0af0022f9 Finding and Proof §3, offsets 0–1938 and 1940–5436",
+          "Independent /workspace/branches/pappus_implication.py constructs each 60-state lift from the signatures alone, with 108 hexagon edges and (6,6) distances, or 162 edges and (4,4) distances unrestricted"
+        ],
+        "reasoning": "Independent switches of three hexagons produce a cube per active pair and transposition-related hub pair. The unique active pair at leaves closes the adjacency description, while global swaps on the other two pairs give every unrestricted edge. The forced graph and a sign-reversing incidence automorphism yield the remaining sign, edge, covering and metric statements. An abstract ten-state quotient without the actual signatures would not have sufficed.",
+        "searches": [
+          "Compare windmill plus cycle-signature theorem, not quotient alone, with T(K3,3) and unrestricted distances"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "81d0af0022f9 RESULT.md offsets 0–1938, both quotient windmills and orbitwise pair signatures",
+          "Independent realization map from incidence vertices (points then lines, each lexicographic) to its vertices mod 18: [0,10,14,2,6,16,8,12,4,1,11,15,5,9,13,17,3,7]"
+        ],
+        "reasoning": "The labelled and unlabelled configurations are distinct state graphs, but the two underlying cubic graphs are isomorphic. The nontrivial cube gluing follows from the extra signatures, not from equating those configurations.",
+        "searches": [
+          "Resultary: Pappus three-edge-colouring interchange and labelled hexagon cover",
+          "Compare Resultary 81d0af0022f9 vertex realization with frozen y=mx+b realization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Goedgebeur–Östergård PDF p. 13, offset 32100: aggregate order-18 row covers 149 graphs but does not identify an exact Pappus local switch adjacency",
+          "81d0af0022f9 RESULT.md offsets 1940–5436: canonical 20 states, 36 orbit edges and all orbitwise two-colour signatures"
+        ],
+        "reasoning": "The external aggregate table is not a local labelled census; the graph-level dataset is unchecked after lawful retrieval failed. The exact catalogue orbit/signature table—not an assumed table of labelled edges—supplies all data required for the forced lift.",
+        "searches": [
+          "arXiv:2105.01363 Table 2 and dataset DOI 10.5281/zenodo.4707697",
+          "81d0af0022f9 RESULT proof paragraphs 1–4 and exact orbit signatures"
+        ]
+      },
+      "rationale": "The abstract windmill quotient alone does not determine a labelled cover. The distinct catalogue comparator supplies more, namely all two-colour cycle signatures by orbit: all three pairs at a center have three hexagons, while at a peripheral state only one pair has three hexagons and the others are spanning 18-cycles. These signatures and the quotient force the frozen lift, not just its size. For a fixed pair at a named hub, independently switching its three disjoint hexagons gives an 8-state cube. Its antipodal pairs are precisely the orbit identifications within that cube, because the untouched third matching forces a global rename to fix its colour. One antipodal pair is the two named hubs related by the active transposition. The other three pairs fill one quotient triangle. At a hub the nine moves must project to nine distinct orbit neighbors, so the three colour pairs account for the three distinct triangles. All peripheral hexagon moves stay in their active cube. Label the six hubs by S3: a cube connects antipodal hubs g and gτ with τ a colour transposition, and the nine hub pairs form the transposition Cayley graph K3,3. Removing each cube's antipodal hubs leaves its six-cycle with alternating attachments. The unrestricted edges are also forced: each of the other two colour-pair swaps at a peripheral state is a global transposition on its spanning 18-cycle. Thus both distance tables are mechanical outputs of these forced graphs, without inspecting any of the original labelled-state enumeration. The local sign completeness is a direct consequence: (x,y)↦(x,−y), (m,b)↦(−m,−b) is a Pappus automorphism that swaps two local slopes at each of nine points and keeps the line orders, so interchanges the two signs; switch invariance then identifies the two components. This is demonstrated corollary coverage, not an inference of priority from catalogue dates.",
+      "residual_risks": [
+        "The unavailable graph-level census is not used to infer novelty or coverage. Directory dates do not establish priority or dependency. The covering inference needs the actual signatures and independent toggles; it is not an assertion that all six-sheeted covers of the windmill are isomorphic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not print the named-state graph but gives the decisive extra cycle signatures that force it.",
+          "evidence": [
+            "A center has signatures ((6,6,6),(6,6,6),(6,6,6)); each noncenter has ((6,6,6),(18),(18)). There are two copies of the windmill quotient."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-two-windmill-components-in-the-pappus-graph-three-edge-coloring--81d0af0022f9",
+          "material_read": "RESULT.md Finding and assumptions offsets 0–1938 and proof/verification transition offsets 1940–5436, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Read actual quotient theorem and orbit signature data; verify graph realization and reconstruct both labelled variants from the proved signatures",
+          "title": "Two windmill components in the Pappus graph three-edge-coloring interchange graph",
+          "trigger": "Exact Pappus orbit graph and two-colour switches"
+        },
+        {
+          "assessment": "Relevant general framework without Pappus-specific signatures or named hexagon metrics in the inspected passages.",
+          "evidence": [
+            "Proposition 2.1 concerns the unrestricted graph on named colourings; a quotient can have triangles."
+          ],
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/69/ajc_v69_p197.pdf",
+          "material_read": "PDF pp. 1,3,10, offsets 529,7439,23319",
+          "method": "Compare graph definition, triangle-free result and vertex-fixed constructions",
+          "title": "Edge-Kempe-equivalence graphs of class-1 regular graphs",
+          "trigger": "General named-colour graph construction and potential classification"
+        },
+        {
+          "assessment": "Aggregate class counts are not the restricted or full labelled edge table; graph-specific contents remain unchecked.",
+          "evidence": [
+            "Table 2 gives aggregate counts for 149 connected cubic bipartite graphs on 18 vertices, with unrestricted class counts 1–10 and 16 occurring."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2105.01363",
+          "material_read": "PDF pp. 1,13,19 (Table 2 at about offset 32100; dataset citation near 39500)",
+          "method": "Read aggregate table and dataset citation; attempted lawful access to the identified dataset",
+          "title": "Switching 3-edge-colorings of cubic graphs",
+          "trigger": "Order-18 census and data potentially including the Pappus graph"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen graph and locality-distance comparison",
+        "81d0af0022f9 exact orbit graph and pair-cycle signatures",
+        "Independent signature-only reconstruction"
+      ],
+      "rationale": "The named-state locality cost and a concrete structural lift are natural questions. But here the published exact orbit signatures force the lift and both move graphs by the above construction. The remaining distance difference is a finite distance tally on those forced graphs. Under the standard for narrow exact invariants, the frozen enumeration does not supply a surviving independent contribution beyond that known orbit/signature data. The intrinsic interest of the labelled graph is not in dispute.",
+      "residual_risks": [
+        "No claim that a broader structural theorem about other colour-switch graphs would lack value; no such theorem is offered here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

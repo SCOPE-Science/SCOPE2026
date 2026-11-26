@@ -1,19 +1,21 @@
-# Scientific review: odd biclique covers of cycle bouquets
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof establishes the claimed formula for all finite one-vertex unions of \(t\ge1\) cycles with lengths at least three. The path-adjacency rank calculation gives \(\operatorname{rank}_{\mathbf F_2}A(G)=2s\), and the Eulerian even-core obstruction rules out a perfect cover exactly when the number of odd petals is odd. A direct two-biclique identity for a pair of triangles, a one-biclique square identity, and a two-vertex edge expansion produce an explicit cover meeting the lower bound. The mathematical argument is independent of exhaustive testing. Replaying the included verifier confirms 1,484 explicit covers and ranks and ten small exact minima. Risk: finite checks cannot detect every conceivable mistake in the infinite proof; the algebraic and parity lemmas have therefore been proved explicitly.
+PASS
 
-## Originality — PASS
+Independently counted the binary adjacency kernel using each petal's internal equations z_{j+1}=z_{j−1}, with z₀=z_ℓ equal to the common hub coordinate. Even positions have the hub value and odd positions have one free candidate value per petal. Closing an odd petal forces its candidate to equal the hub; closing an even petal leaves it free. The two terms in the hub equation from each petal agree and cancel. Nullity is therefore 1 plus the number of even petals, which gives rank 2s. For a size-s cover, A=MJMᵀ and rank forces the side-incidence matrix M to be injective; Eulerian parity gives A1=0 and thus Mᵀ1=0. Every side is even and hence so is the XOR edge count; odd o is impossible at rank equality. For the upper bound checked the paired triangles explicitly: the two K₂,₂s share only the extra cross-edge bc; the other six edges are exactly the two triangles at the hub. A square costs one biclique and an unmatched triangle costs two. A rim-edge replacement uv→uxyv toggles only uv, ux, xy, yv by one K₂,₂ on disjoint sides {u,y} and {x,v}. This preserves all other edges regardless of previously used cancelling edges, and generates every length with one biclique per two added vertices. The total is s+(o mod 2), including t=1 and o=0. The uploaded checker was inspected, not run; its finite tests and exact-small-instance search are corroboration only.
 
-The closest primary research is Buchanan et al., *Odd Covers of Graphs*, arXiv:2202.09822, and Buchanan et al., *On odd covers of cliques and disjoint unions*, arXiv:2408.08598. The latter full article, especially §§1–3, was inspected for the butterfly example, the even-core obstruction (Corollary 5), and disjoint-union cycles (Theorem 8). The former article establishes the general rank method and individual-cycle background. Those statements do not provide the odd-cover number of heterogeneous bouquets or an all-length pairing-and-expansion construction. Published-result similarity searches over friendship, windmill, cycle bouquet, coalescence, one-vertex union, rank-bound and odd-biclique-cover aliases returned no same-invariant covering claim; retrieved graph-bouquet studies addressed different invariants. Risk: a mathematically equivalent result may exist in unindexed or more recent material. This review reports the actual comparisons and does not claim universal novelty certification.
+## originality
 
-## Value — PASS
+PASS
 
-This determines a natural exact graph invariant throughout a connected family obtained by the first nontrivial operation beyond disjoint cycles: identification of one vertex. The formula distinguishes parity of the *number* of odd petals from the published disjoint-union rule, reveals precisely when an Eulerian nonbipartite bouquet has a perfect odd cover, and supplies a reusable local expansion realizing optimal covers for arbitrarily long heterogeneous petals. It is a structural result, not an arbitrary finite calculation.
+Credit prior single-cycle values, the rank and even-core lower bounds, and the butterfly example. The supported distinct result is the uniform rank and matching upper/lower formula for one-vertex unions, where the gap depends on parity of the number of odd petals. The comparison is limited to inspected sources; it does not claim priority for the known ingredients.
 
-## Literature and scope
+## value
 
-References: arXiv:2202.09822 (rank bound and foundational odd covers); arXiv:2408.08598, §§1–3 (butterfly, even-core obstruction, disjoint-union cycle formula). The general cactus case and enumeration of minimum covers are not settled here. Independence of review has not been established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Cycle bouquets are a natural first articulation family after disjoint cycles. Their exact gap above half the binary rank changes from a presence-of-odd-cycles criterion to an odd-number criterion. This isolates what hub identification permits—pairing odd petals by cancelling a cross-edge—and yields an optimal constructive answer for all petal lengths rather than a small example or enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

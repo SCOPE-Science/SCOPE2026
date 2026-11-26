@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:52:29.748652Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I independently reconstructed the three generalized Petersen graphs and enumerated all labelled subsets. For each root s, I intersected the masks of all incoming shortest-path extensions at each BFS vertex v: forced(s,v) = intersection over predecessors u of (forced(s,u) union {uv}). Every shortest path to v has exactly one such final edge, so this gives the precise pair mask without edge deletion or path multiplicity. The union over selected pairs and the single-deletion test are exact by monotonicity. All six coefficient vectors, the three independence numbers (4,8,10), and the optimum structures agree. The Desargues shores are distinguished by outer index parity reversed on the inner ring. Both covers project via index reduction mod 5, since inner steps 2 and 3 project to 2 and -2. Incremental union-find on all monitoring states counted the complete component multisets at every cap from the minimum to the first connected cap (8,11,15), not merely the immediately preceding caps. In particular, caps 7,10,14 give 15,2007,101 components, respectively. Replay: /workspace/reviews/replay_meg.py and replay_meg.txt. I inspected the frozen checkers and recorded outputs; the new enumeration is independent of executing them.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The girth/minimum-degree theorem ensures that covers monitor; the product theorem concerns Cartesian/strong products, not these double-cover enumerations."
+        ],
+        "reasoning": "The cover theorem does give the Petersen monitoring family when combined with its elementary diameter-two converse: a path of length at most two using an edge must have a selected endpoint on that edge. It cannot enumerate D or H this way; D has independent optimal monitoring sets. Neither inspected general result determines the full finite classification.",
+        "searches": [
+          "arXiv:2403.09122 Theorem 6.3 and Corollary 6.4",
+          "arXiv:2210.08955 Theorem 1",
+          "arXiv:2210.03774 introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2210.03774",
+        "arXiv:2210.08955",
+        "arXiv:2403.09122",
+        "Resultary:efca9366864e",
+        "Resultary:6a8674c7694e",
+        "Resultary:6135c3416108",
+        "Resultary:9af54586d6c3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Minimum-only exchange first connects at replacement size three for the dodecahedron. At cap 10 the full add/delete graph contains 2006 isolated minimal size-10 configurations."
+        ],
+        "reasoning": "An exchange of three among optima can be simulated by passing through their union of size at most 11, but this does not connect or count the other inclusion-minimal sets. The material remaining claim gives the all-state spectrum and exact cap, and is not a consequence of optimum-only exchange or the vertex-cover upper bound.",
+        "searches": [
+          "Resultary:SCOPE-a-doubled-k-5-exchange-geometry-for-minimum-dodecahedral-edge-fa--efca9366864e Finding",
+          "arXiv:2403.09122 pp. 17–18"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dev et al. Definition 1.1 is exactly the all-shortest-path definition (equivalently an increase of distance on removal).",
+          "The double-cover record names both GP aliases but computes an induced-matching complex, not the up-set of monitoring subsets.",
+          "Simultaneous replacement among minimum sets is different from the induced graph on all valid subsets under one addition or deletion."
+        ],
+        "reasoning": "Comparing under both graph naming systems and the edge-failure interpretation identifies genuine partial census overlap but not an alias for the capacity invariant.",
+        "searches": [
+          "Resultary: dodecahedral/Desargues/Petersen monitoring edge-geodetic and edge-failure subsets, spare capacity and exchange",
+          "arXiv:2210.03774",
+          "Resultary:SCOPE-equal-sphere-multiplicities-in-different-degrees-for-two-peterse--6a8674c7694e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The doubled-K5 record Finding gives 25 size-eight optima for GP(10,2), five independent and 20 inducing three disjoint edges with two isolates.",
+          "The cube record gives the five independent octets, and the factorized polynomial record uses GP(6,2), not any of the three graphs under audit."
+        ],
+        "reasoning": "Credit the matching dodecahedral entries. No examined table or record gives the full all-set and minimal-subset spectra with the bounded component data.",
+        "searches": [
+          "Resultary:SCOPE-a-doubled-k-5-exchange-geometry-for-minimum-dodecahedral-edge-fa--efca9366864e",
+          "Resultary:SCOPE-monitoring-edge-geodetic-sets-of-the-d-rer-graph-a-factorized-po--9af54586d6c3",
+          "Resultary:SCOPE-integral-five-cube-quotient-lattice-in-dodecahedral-independence--6135c3416108"
+        ]
+      },
+      "rationale": "Pass for the complete all-set and inclusion-minimal spectra and the all-state add/delete capacity comparison, not as a priority claim for each constituent. A distinct same-day record already contains the exact dodecahedral minimum census and its two induced shapes. Neither the date nor the absence of matching literature numbers establishes priority for those facts. The previously known independent octets are also excluded from the originality credit.",
+      "residual_risks": [
+        "An unindexed table or earlier equivalent computation is possible; source comparisons are limited to identified passages.",
+        "Same-day priority for the dodecahedral optimum census is not established or claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same invariant, not equivalent census in inspected passage",
+          "evidence": [
+            "Every shortest path uses the given edge; introductory list treats other families."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2210.03774",
+          "material_read": "p. 2, Definition 1.1 and introductory scope",
+          "method": "Primary OA PDF text",
+          "title": "Monitoring edge-geodetic sets in graphs",
+          "trigger": "Origin of invariant"
+        },
+        {
+          "assessment": "Different graph operations",
+          "evidence": [
+            "Bounds are for Cartesian and strong graph products."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2210.08955",
+          "material_read": "p. 2, Theorem 1",
+          "method": "Primary OA PDF text",
+          "title": "Monitoring edge-geodetic sets: hardness and graph products",
+          "trigger": "Potential general coverage"
+        },
+        {
+          "assessment": "Cover upper bound; not the full classification",
+          "evidence": [
+            "All vertex covers monitor for connected minimum-degree ≥2, girth ≥5 graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.09122",
+          "material_read": "pp. 17–18, Theorem 6.3 and Corollary 6.4",
+          "method": "Primary OA PDF text",
+          "title": "Bounds and extremal graphs for monitoring edge-geodetic sets in graphs",
+          "trigger": "Strongest cover implication"
+        },
+        {
+          "assessment": "Exact partial overlap; chronology within day unresolved",
+          "evidence": [
+            "25 eight-sets with the same shape split; exchange threshold counts simultaneous replacements among optima."
+          ],
+          "identifier_or_url": "Resultary:2026/11/22/SCOPE-a-doubled-k-5-exchange-geometry-for-minimum-dodecahedral-edge-fa--efca9366864e",
+          "material_read": "Finding, minimum sets and exchange thresholds",
+          "method": "Resultary statement comparison",
+          "title": "A doubled-K5 exchange geometry for minimum dodecahedral edge-failure monitors",
+          "trigger": "Same graph and optimum census"
+        },
+        {
+          "assessment": "Same graphs, different invariant",
+          "evidence": [
+            "Induced-matching spaces of GP(10,2) and GP(10,3)."
+          ],
+          "identifier_or_url": "Resultary:SCOPE-equal-sphere-multiplicities-in-different-degrees-for-two-peterse--6a8674c7694e",
+          "material_read": "Finding and Assumptions",
+          "method": "Local mirror",
+          "title": "Equal sphere multiplicities in different degrees for two Petersen double covers",
+          "trigger": "Graph aliases and two-cover comparison"
+        },
+        {
+          "assessment": "Independent eight-sets already known",
+          "evidence": [
+            "Five inscribed cubes are maximum independent sets."
+          ],
+          "identifier_or_url": "Resultary:SCOPE-integral-five-cube-quotient-lattice-in-dodecahedral-independence--6135c3416108",
+          "material_read": "Finding",
+          "method": "Local mirror",
+          "title": "Integral five-cube quotient lattice in dodecahedral independence homology",
+          "trigger": "Independent optimum geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The dodecahedral and Desargues graphs are natural covers of the same small benchmark, but their monitoring statistics and their valid-intermediate spare costs differ markedly. The census distinguishes minimum from inclusion-minimal placements and quantifies a genuine obstacle to relocation: at the cap immediately below connectivity, configurations can be isolated exclusively because deletions fail and additions exceed capacity. These exact all-state data and the strict dodecahedral separation from the vertex-cover construction are useful finite benchmarks, not an assertion of cover monotonicity or of a result for arbitrary GP parameters.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

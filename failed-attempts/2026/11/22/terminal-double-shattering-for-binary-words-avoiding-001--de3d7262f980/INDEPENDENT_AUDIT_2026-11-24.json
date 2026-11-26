@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:18:23.822779Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a queried adjacent pair followed by a queried position, assigning 00 to the pair and 1 later cannot extend: avoiding 001 forces the suffix after 00 to be all zero. Conversely, with no adjacent queried positions fill holes with ones. If there is a terminal adjacent pair, fill holes before it with ones and fill the suffix with zeros if the pair is 00 (otherwise ones). This handles all short lengths too. Splitting supports into independent sets and those with pair ending at t gives the stated I_n+z^2 sum I_{t-3}, including the empty prefix at t=2. Summing gives the rational series. Equivalently for k>=2 the sorted positions have gaps at least two except the last gap, which may equal one. Subtracting 0,1,...,k-2,k-2 from the positions bijects to k-subsets of [n-k+2], giving binom(n-k+2,k); size zero and one give 1 and n. Thus the largest k is floor(n/2)+1 for n>=1. Independent replay: python3 /workspace/branches/shattering_reproduction.py. The projected DFA oracle confirmed all 8190 labeled support decisions for n=1..12 and the claimed polynomials at n=8 and n=12.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2a4a7f458de3 treats avoidance of any single contiguous binary trigram, not a smaller length range",
+          "Johnson studies substring families of an individual string, not generally this all-words language"
+        ],
+        "reasoning": "The all-trigram classification specializes to the exact 001 family; the Johnson comparison is not the reason for the failure.",
+        "searches": [
+          "Resultary 2a4a7f458de3: Single forbidden trigram languages, two shattering types",
+          "arXiv:2101.06490; public literature search of word and trace shattering"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2a4a7f458de3, a86c7bc37664, 8fc07c00f15e",
+        "arXiv:2101.06490"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Obstruction excludes adjacent gaps among the first k-1 positions and imposes no extra condition on the last pair",
+          "The independent-set/terminal-pair split or the binomial compression above obtains every requested coefficient and the rank from that obstruction"
+        ],
+        "reasoning": "Even if the other record does not print the same series, it determines it by direct combinatorial enumeration. No scientific requirement for historical priority is inferred from the order of same-day records.",
+        "searches": [
+          "Resultary 2a4a7f458de3 compared with RESULT.md lines 7–21, 33–35"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The all-single-trigram summary gives the obstruction earlier selected point followed by a later adjacent pair, up to reversal; reversal turns this into adjacent pair followed by later selected point as in RESULT.md lines 5–7"
+        ],
+        "reasoning": "Reversing both words and queried coordinates preserves all extension decisions and sends forbidden factor 100 to 001. The corresponding coordinate complex is identical after relabeling.",
+        "searches": [
+          "Resultary: forbidden contiguous trigram 001 and terminal adjacent-pair coordinate shattering",
+          "Resultary 2a4a7f458de3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2a4a7f458de3 supplies the exact rule for support membership in the relevant symmetry type; a separate exact printed polynomial was not verified",
+          "Resultary a86c7bc37664 has the same scalar dimension for joint avoidance of 000 and 111 but a different complex"
+        ],
+        "reasoning": "Exact support membership is stronger than an exact count table. Matching VC dimension on its own for another language would not be enough.",
+        "searches": [
+          "Resultary: terminal-double support criterion, shattering face polynomial and VC dimension for 001"
+        ]
+      },
+      "rationale": "A distinct indexed all-single-trigram classification already covers the substantive exact support criterion, up to coordinate reversal. Its same-day date does not establish temporal priority, but neither is it the identical record. The polynomial, series and rank are direct enumeration of that very support family and do not restore a distinct finding. Failure is for demonstrable equivalent coverage of the claimed mathematics, not a failed download.",
+      "residual_risks": [
+        "The covering record's full mirror Finding and Johnson's primary text could not be retrieved. The failure is based on positive coverage in the sufficiently specific catalogue statement and the explicit implication above, not on presumed contents of unread text.",
+        "Which of the same-day formulations was produced first is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong equivalent coverage; no same-day temporal priority claimed",
+          "evidence": [
+            "Its asymmetric type excludes an earlier selected point followed by an adjacent selected pair, up to reversal."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-single-forbidden-trigram-languages-two-shattering-types-and-a-sh--2a4a7f458de3",
+          "material_read": "Resultary catalogue summary, including all-eight scope and the adjacency obstruction; full mirror Finding requested but timed out",
+          "method": "Local semantic search and targeted mirror OA read attempt",
+          "title": "Single forbidden trigram languages: two shattering types and a shattering-extremality classification",
+          "trigger": "Same entire single-factor language, exact support theorem under reversal"
+        },
+        {
+          "assessment": "Nearby but a different concept family in the available description",
+          "evidence": [
+            "Substring families of a fixed word are not by definition the entire regular avoidance language."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2101.06490",
+          "material_read": "Indexed result and description in frozen RESULT.md §Relationship; OA full-text attempt timed out",
+          "method": "Literature search and targeted attempted OA read",
+          "title": "Binary strings of finite VC dimension",
+          "trigger": "Binary-word VC alternative formulation"
+        },
+        {
+          "assessment": "Different forbidden set in the first case; different statistic in the second",
+          "evidence": [
+            "The first forbids both 000 and 111; the second concerns Walsh multipliers, not coordinate traces."
+          ],
+          "identifier_or_url": "Resultary a86c7bc37664; 8fc07c00f15e",
+          "material_read": "Resultary catalogue summaries",
+          "method": "Local semantic search with comparison to frozen finding",
+          "title": "A regular shattering complex for binary words with no monochromatic triple; A three-phase sharp Walsh stability law for binary words avoiding 001",
+          "trigger": "Related shattering polynomial or identical language"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A complete support theorem for the canonical avoidance language would be useful as a distinct result. Once its exact support classification is credited to the all-trigram coverage, the remainder is a direct independent-set summation or gap compression, and the scalar dimension is just its degree. There is no independently valuable distinct exact claim to repair this record into as submitted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

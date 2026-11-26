@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:13:13.832102Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof; VERIFICATION.md and fat_prism_verifier.py as recorded evidence (not executed)",
+        "/workspace/branches/ec505965-a42e-4159-8ec9-a28f21cf84d7/fresh_prism_census.py"
+      ],
+      "rationale": "On a connected cubic graph, a surjective FAT coloring with at least two colors has a positive integral off-diagonal neighbor count, so at most four colors are feasible. The two constant layers always give a FAT two-coloring. With three colors, each vertex sees all three colors once. Over F_3, if u_i is an ordered column and J swaps layers, the rule u_(i+1)=-u_(i-1)-Ju_i gives u_(i+3)=Ju_i. The 36 seeds are exactly the two-column assignments (a,b),(c,d) with a!=d and b!=c: the missing colors complete the next column, and these inequalities propagate. When 6 divides n all seeds close; when n is three modulo six, every column must be invariant under the swap, leaving six colorings. If 3 does not divide n, equal color-class sizes are impossible, also by double counting opposite-color edges. With four colors each vertex and its three neighbors use every label. Consecutive columns use complementary pairs, and after two columns each pair comes back in the opposite order, forcing period four and giving 4*3*2=24 seeds exactly when 4 divides n. Requiring each named color to occur makes the palette action free, so the unnamed counts divide by 3! or 4!, with no graph-automorphism quotient. A new local transfer check matched all 36 census cases for n=3..20; it corroborates rather than proves the infinite classification.",
+      "residual_risks": [
+        "The census is for indexed circular ladders and onto, named palettes. FAT chromatic number maximizes the feasible palette; there is no two-color census or automorphism classification here."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Beers–Mulas prove equal class sizes and spectral and product principles, and explicitly lift a three-color FAT coloring to C_6 square K_2. Minyard–Sepanski's existence theorem treats generalized Petersen graphs, larger than prisms. Lisitsyna's 2013 abstract advertises all admissible parameters for perfect three-colorings of prisms and Möbius ladders, but its body was not read."
+        ],
+        "reasoning": "Equal class size implies the divisibility obstruction for three colors; the general product and eigenfunction results alone do not state the exact census. The 2013 paper is particularly relevant under the quotient-matrix alias, but an abstract about admissible parameters cannot decide whether it gives the exact counts.",
+        "searches": [
+          "arXiv:2510.18494, Theorem 2.12; arXiv:2604.21665, Theorems 2.9 and 7.6 and Figure 9",
+          "Web search: \"Perfect 3-colorings of prism and Möbius ladder graphs\" pdf author theorem admissible parameters; Russian exact-title/author lookup"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and the strong-odd, neighborhood-balanced and proper conflict-free Results",
+        "arXiv:2510.18494",
+        "arXiv:2604.21665",
+        "arXiv:2410.05422",
+        "Math-Net da716 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At least two colors always exist by coloring the layers separately, and the degree bound is four. The two exact counts determine every case in the chromatic trichotomy by taking the larger available palette, and divide by the freely acting color-permutation groups to give the unnamed counts.",
+          "The proper conflict-free indexed record is not by itself equivalent: it asks only for one unique color in an open neighborhood rather than three different colors."
+        ],
+        "reasoning": "The substantive exact pieces are covered in the indicated local-rule aliases, and the chromatic-number and unnamed conclusions are direct consequences. The known three-color existence and earlier four-color table already determine the existence trichotomy; the remaining three-color count has exact existing indexed coverage, with priority not adjudicated here.",
+        "searches": [
+          "Resultary: FAT chromatic number and unnamed partitions for prisms; proper conflict-free prism census",
+          "arXiv:2410.05422, Lemma 4.1 and Theorem 4.2",
+          "Strong-odd transfer proof table and neighborhood-3-balanced Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For cubic graphs the only FAT-three quotient is J_3, exactly the three-neighbor rainbow condition, also an injective three-coloring or a partition into three total dominating sets. For FAT four the quotient is J_4-I_4, equivalently a proper locally bijective map to K_4.",
+          "Minyard–Sepanski identify the injective-coloring equivalence and show G(m,j) admits the three-balanced coloring iff 3|m and 3 does not divide j; set j=1 for prisms within that theorem's range."
+        ],
+        "reasoning": "There is no distinction between the three-color local rules: in a cubic graph three disjoint total dominating classes each meet every neighborhood exactly once. This alias recovers prior existence, while the indexed classification below also recovers all the exact census and period data.",
+        "searches": [
+          "Resultary: neighborhood-balanced prism colorings, perfect/equitable prism colorings and FAT chromatic spectrum",
+          "Web search: prism graphs circular ladder rainbow open neighborhoods total domatic partitions number perfect colorings of prisms 3 colors six periodic K4 coverings",
+          "arXiv:2410.05422, Sec. 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The balanced-coloring Finding gives exactly N_3=0,6,36 in the same residue cases and the same row swap after three columns, with the same vertex-label and palette conventions; it additionally counts the Möbius closures.",
+          "The prior strong-odd transfer states split into both, exactly one, or neither cross-column equality. The first two kinds have a monochromatic neighborhood at a vertex in the second column. The neither-equality row, with 24 states, has representative (0,1),(2,3),(1,0),(3,2); all neighborhoods are rainbow, and its 24 states form six directed four-cycles."
+        ],
+        "reasoning": "Strong-odd proper colorings allow three equal neighbors or three distinct neighbors. FAT four is exactly the rainbow-only portion of that enumeration. Its table exhausts this portion and gives N_4=24 iff 4|n, with the stated rigidity, without any new prism enumeration. The later indexed N_3 result exactly covers the other census even though the index timing does not confer priority.",
+        "searches": [
+          "Resultary: exact three- and four-color prism census, six-periodic closure, labeled and unnamed colorings",
+          "2026/10/26/SCOPE-a-parity-obstruction-and-exact-strong-odd-coloring-census-for-ci--697eedb2d5a5, transfer proof table",
+          "2026/11/8/SCOPE-six-periodic-rigidity-of-neighborhood-3-balanced-colorings-on-pr--766f520bafef, Finding"
+        ]
+      },
+      "rationale": "The submitted all-order classification is mathematically covered by the inspected statements, not just similar colorings of the same graph. The earlier indexed strong-odd transfer table gives exactly the FAT-four subfamily and count after the local rainbow filter. The separate neighborhood-3-balanced indexed result gives the identical full FAT-three census and rigidity, and extends it to a second closure type. Published earlier work already gives the three-color existence test. The chromatic and unnamed spectra then follow from elementary degree bounds, a layer coloring, and freely permuting labels. This is a decision about distinct scientific content in the existing record, not a finding that the later-dated exact three-color census has historical priority over the frozen result. It does not rely on inaccessible literature.",
+      "residual_risks": [
+        "Whether Lisitsyna's original or the earlier generalized-Petersen injective-coloring proof already contains the exact count, rather than just existence, was not established. The 2026/11/8 indexed path is later than the frozen record's path; it establishes mathematical overlap, not historical precedence of that exact count."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General necessary condition, not the exact prism census",
+          "evidence": "Connected regular graphs with FAT colorings have equal color-class sizes.",
+          "identifier_or_url": "arXiv:2510.18494",
+          "material_read": "Theorem 2.12, p. 5, offset 15897",
+          "method": "Bounded OA primary-source excerpt",
+          "title": "Fair and Tolerant (FAT) Graph Colorings",
+          "trigger": "Same invariant and regular-graph necessary conditions"
+        },
+        {
+          "assessment": "General criterion and product lift, including existence at n=6; not the full census",
+          "evidence": "Eigenfunction characterization and a lift of a three-color FAT coloring of C_6 to C_6 square K_2.",
+          "identifier_or_url": "arXiv:2604.21665",
+          "material_read": "p. 1 near offset 2230; Theorem 2.9, p. 5, offset 13906; Figure 9, p. 23, offset 61158; Theorem 7.6, p. 24, offset 62985",
+          "method": "Bounded OA primary-source passages",
+          "title": "Spectral Perspectives on FAT Graph Colorings",
+          "trigger": "General spectral/product claims plus explicit example on the same prism family"
+        },
+        {
+          "assessment": "Prior equivalence and existence classification in a larger family",
+          "evidence": "G(m,j) has a 3-balanced coloring iff 3 divides m and 3 does not divide j, for m>=5. The proof constructs a same-layer-pair coloring by index modulo three and explicitly relates the criterion to prior injective coloring; it does not count all prism colorings in that passage.",
+          "identifier_or_url": "arXiv:2410.05422",
+          "material_read": "Sec. 4, pp. 5–6, Lemma 4.1 and Theorem 4.2, extracted offsets 11600–15094",
+          "method": "Bounded OA primary-source passage read",
+          "title": "Neighborhood Balanced 3-Coloring",
+          "trigger": "Equivalent three-color rule on generalized Petersen graphs containing prisms"
+        },
+        {
+          "assessment": "Implies exact FAT-four census and rigidity without a new enumeration",
+          "evidence": "The neither-cross-equality row consists of six period-four cycles, representing 24 fixed-index colorings at multiples of four. That row, and only that row, satisfies the rainbow-neighborhood rule and properness.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-parity-obstruction-and-exact-strong-odd-coloring-census-for-ci--697eedb2d5a5",
+          "material_read": "RESULT.md, transfer equivalence and four-color orbit representative table, offsets 2040–5827",
+          "method": "Local mirror, exact passage and mathematical filtering comparison",
+          "title": "A parity obstruction and exact strong odd coloring census for circular prisms",
+          "trigger": "Broader local coloring rule and exact transfer table on the same graphs"
+        },
+        {
+          "assessment": "Complete equivalent three-color coverage in a later-dated indexed record; no finding of its priority",
+          "evidence": "On the prism it gives counts 0,6,36 in the same cases, the same six-periodic layer-swap law, and the color-name quotient. It also treats the Möbius ladder.",
+          "identifier_or_url": "2026/11/8/SCOPE-six-periodic-rigidity-of-neighborhood-3-balanced-colorings-on-pr--766f520bafef",
+          "material_read": "RESULT.md, Finding and scope at offsets 0–2602, and prior-work discussion from offset 6700",
+          "method": "Local mirror, exact statement comparison",
+          "title": "Six-periodic rigidity of neighborhood 3-balanced colorings on prisms and Möbius ladders",
+          "trigger": "Equivalent local three-color rule and identical host family"
+        },
+        {
+          "assessment": "Does not itself give the exact FAT census",
+          "evidence": "Requires some unique neighbor color, not a full rainbow neighborhood.",
+          "identifier_or_url": "2026/10/26/SCOPE-four-palette-proper-conflict-free-colorings-of-circular-prisms-a--6b811dd47690",
+          "material_read": "Indexed Finding at offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Four-palette proper conflict-free colorings of circular prisms",
+          "trigger": "Same graph and palette but possibly weaker neighborhood constraint"
+        },
+        {
+          "assessment": "Potential older structural or exact coverage; not used to decide the outcome",
+          "evidence": "The official abstract claims a complete description of admissible parameters, but no exact FAT-three census is asserted in the abstract.",
+          "identifier_or_url": "DOI:10.1134/S1990478913020105; https://www.mathnet.ru/eng/da716",
+          "material_read": "Official Math-Net bibliographic entry and abstract only",
+          "method": "Publisher direct and VPN access failed; lawful Math-Net Russian original was identified and its PDF retrieval attempted but unsuccessful",
+          "title": "Perfect 3-colorings of prism and Möbius ladder graphs, M. A. Lisitsyna",
+          "trigger": "Same prism and perfect three-color quotient formulation, possible earlier count or structural proof"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding",
+        "Strong-odd transfer table",
+        "Neighborhood-3-balanced census and rigidity Finding"
+      ],
+      "rationale": "Exact counts and rigidity on a natural all-order ladder family are worthwhile in principle. In this submitted scope, however, the useful classification and both exact censuses are already available through the inspected equivalent local formulations. Expressing them as a maximum over palettes and dividing by the palette factorials provides no additional exact invariant or structural consequence beyond those mechanically recovered results.",
+      "residual_risks": [
+        "This does not say that a complete prism classification is intrinsically trivial or that the frozen record lacked historical priority for the three-color census."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

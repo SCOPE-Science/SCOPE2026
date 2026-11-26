@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:16:49.265344Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–43; VERIFICATION.md and check_dickson.py inspected but not executed",
+        "Independent replay: python /workspace/branches/independent_finite_checks.py 4. Computed D_(p^r) as the trace of a power in the quadratic algebra with relation θ²−xθ+1, not by polynomial coefficient generation or iteration. Compared every target, full additive periods, and collision moments at 18 levels, plus 252 pairwise distance tests across (p,r)=(5,1),(5,2),(7,2),(11,1)."
+      ],
+      "rationale": "The Laurent substitution X=z+z⁻¹ gives D_n(X)=z^n+z⁻n, composition, the Frobenius reduction, and D_p′(X)/p≡(X²−4)^((p−1)/2) modulo p. In the coordinate x=a+pu away from ±2 the linear term has exact factor p²; higher terms are divisible by p³ since all inner coefficients in the shifted Taylor expansion are multiples of p and the top term has p^p. At ±2 the derivative is p² and the degree-two coefficient is ±p²(p²−1)/12, as follows by expanding the Laurent identity at z=±1. The quadratic term in u thus has factor p⁴ for p≥5, as do the higher terms including the top term. The resulting unit-linear polynomial plus p times an integral polynomial is a surjective isometry after normalization, giving valuation gains 1 and 2 on the respective branches. D_p(x)≡x mod p makes the gains additive under iteration and the isometry maps smaller balls onto the balls of exactly the corresponding depths. At finite k, branch size p^(k−1) divided by p^max(k−1−rh,0) gives the constant fiber size, and disjointness modulo p permits summing the sizes and their second moments; the measures are those of the full balls. A translation period must be divisible by p and testing in a nonexceptional branch forces v_p(T)+r≥k. The same inequality suffices on both kinds of branch, proving the stated minimum including k=1.",
+      "residual_risks": [
+        "Replay is bounded; the Taylor and isometry argument proves the unlimited quantifiers. No conclusion is made for p=2,3 or parameter other than one."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed prime-index result is broader in the unit parameter and specializes to parameter one. The 1991 Galois-ring abstract describes cardinality bounds and certain exact preimage counts; theorem-level coverage was not recovered. Shang's degree-unrestricted theorem gives a maximum over nonpermutation polynomial functions, not this exact image."
+        ],
+        "reasoning": "The broader unit-parameter result supplies the entire one-step local model; its restriction to parameter one is valid and enough for compositional iteration. The wider polynomial and Galois-ring domains alone would not establish coverage of exact critical branches.",
+        "searches": [
+          "Prime-index Dickson polynomial Resultary record, square and nonsquare unit parameters",
+          "Bremser–Gómez-Calderon, JNT 38 (1991), DOI 10.1016/0022-314X(91)90087-R",
+          "Shang, arXiv:2310.20226, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact, iteration/fiber and broader Dickson queries",
+        "Prime-index Dickson indexed Finding and decisive normalized-polynomial proof passages",
+        "Bremser–Gómez-Calderon publisher abstract; Shang Theorem 1.1; Panraksa–Tangboonduangjit Proposition 5.5; Gassert abstract/introduction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the indexed proof D_p≡X^p modulo p, G_r(u)=(D_p(r+pu,a)−D_p(r,a))/p² is integral and reduces to c_r u on ordinary branches, and D_p(2+pu,1)=2+p³uE(u)² with E≡1 modulo p. The negative branch is obtained by oddness."
+        ],
+        "reasoning": "Each iterate remains in the same mod-p branch, so composing the already available exact metric factors gives rh(a), and the full output ball follows by restriction of the same isometry. Finite fibers are constant with multiplicities obtained by reducing the ball and dividing, so its measure, count and ordered collision moment are forced. For additive periods, identity modulo p forces p|T, then the ordinary branch shows v_p(T)≥k−r and the exceptional branches cannot tighten this; this uses only the same metric identity. No substantive unproved extension separates the frozen result from the indexed proof.",
+        "searches": [
+          "Prime-index Dickson record Proof §§1–3: Frobenius reduction and the normalized G_r and H polynomials",
+          "Frozen RESULT.md lines 4–20 and 41–43"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "D_n(X,1)=2T_n(X/2); multiplication by 2 is a p-adic isometry. The indexed prime-index proof normalizes each ordinary branch by p² and each exceptional one by p³, giving polynomials congruent as polynomials to c_r u or u, with c_r a unit. The negative branch follows by oddness."
+        ],
+        "reasoning": "For an integral polynomial reducing to a unit linear polynomial, the difference quotient is that unit modulo p, giving the exact distance law and identifying the output of every smaller ball. Chebyshev orbit periods are a different notion from the additive translation period used here.",
+        "searches": [
+          "Resultary searches for prime-power Dickson branches, iteration and fibers",
+          "Prime-index Dickson value sets, Proof §§2–3, offsets 2850–5641",
+          "Panraksa–Tangboonduangjit, arXiv:2605.04417, Proposition 5.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-day entry gives p−2 balls of depth 2 and two exceptional balls of depth 3, all modular fiber counts, and the Haar density at a=1. These are the exact r=1 values, with no need for a numerical lookup at any p or k."
+        ],
+        "reasoning": "The overlap is on the exact object and outputs, not merely similar titles. The date proves no ordering; the record does not directly tabulate r>1, which is instead covered by the mathematical implication below.",
+        "searches": [
+          "Resultary exact image, fiber, additive period and iteration queries",
+          "2026/11/22/SCOPE-exact-prime-power-value-sets-of-prime-index-dickson-polynomials--6a065e0bd9a3"
+        ]
+      },
+      "rationale": "A distinct indexed result on prime-index Dickson polynomials already gives the normalized polynomial models that determine exact distances on every one-step branch for parameter one. The frozen family uses no new input to pass from those models to r steps: classes are preserved and the known one-step isometries compose on all subballs. The image and finite counts, collision moment and least additive translation period then follow directly. This is demonstrated mathematical coverage, not a chronology claim about two records with the same catalogue date. The uncertain scope of the 1991 paper is not the basis for failure.",
+      "residual_risks": [
+        "The accessible abstract does not settle the independent historical scope of the 1991 paper; same-day catalogue records do not establish which was written first. Neither limitation affects the proved implication from the accessible indexed record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct one-step coverage; proof implies the entire prime-power iterate claim",
+          "evidence": "Ordinary normalized integral G_r is unit linear modulo p; exceptional D_p(2+pu,1)=2+p³uE(u)², E≡1; −2 by oddness; first step preserves residues. Established image balls and fibers at a=1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-prime-power-value-sets-of-prime-index-dickson-polynomials--6a065e0bd9a3/RESULT.md",
+          "material_read": "Finding at offset 0; Proof §§2–3 and the derivative passage at offsets 2850–5641",
+          "method": "Configured local published-record mirror",
+          "title": "Exact prime-power value sets of prime-index Dickson polynomials",
+          "trigger": "Exact prime-index specialization and potentially sufficient per-branch models"
+        },
+        {
+          "assessment": "Unresolved theorem scope, not used for the verdict",
+          "evidence": "Abstract announces value-set estimates and some preimage results; Theorem 5, Lemmas 9–10 and Theorem 11 were not independently read.",
+          "identifier_or_url": "https://doi.org/10.1016/0022-314X(91)90087-R",
+          "material_read": "Publisher abstract only; cited Academia copy and ScienceDirect full text unavailable",
+          "method": "DOI/publisher and identified lawful alternate full-text attempt",
+          "title": "Value Sets of Dickson Polynomials over Galois Rings",
+          "trigger": "General Galois rings include the untwisted prime-power residue rings"
+        },
+        {
+          "assessment": "Related orbit results, not additive translation periods",
+          "evidence": "Proposition 5.5 gives the unique periodic lift with unchanged orbit period for p dividing the degree.",
+          "identifier_or_url": "https://arxiv.org/html/2605.04417",
+          "material_read": "Abstract and Proposition 5.5, offsets 85250–87748",
+          "method": "OA HTML passage",
+          "title": "Fixed points and exact periods of Chebyshev polynomials modulo odd prime powers",
+          "trigger": "Conjugate polynomial dynamics on the same rings, including p dividing the degree"
+        },
+        {
+          "assessment": "General extremal bound, not Dickson-specific coverage",
+          "evidence": "Gives maximum cardinality p−1 at p and p^(k−2)(p²−p+1) at p^k for k>1 among nonpermutation polynomial functions.",
+          "identifier_or_url": "https://arxiv.org/html/2310.20226",
+          "material_read": "Theorem 1.1, offsets 3600–5999",
+          "method": "OA HTML passage",
+          "title": "Value sets of non-permutation polynomials over the residue class rings of integers",
+          "trigger": "General value-set cardinality on the same rings"
+        },
+        {
+          "assessment": "Finite-field rather than all-depth classification",
+          "evidence": "Studies functional graphs over finite fields.",
+          "identifier_or_url": "https://arxiv.org/html/1209.4396",
+          "material_read": "Abstract and introduction, offsets 0–3490",
+          "method": "OA HTML passage",
+          "title": "Chebyshev Action on Finite Fields",
+          "trigger": "Chebyshev is the same map after scaling"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and iteration proof; indexed prime-index result, Proof §§2–3"
+      ],
+      "rationale": "The whole-ring fiber profile would be useful if it required a new local classification. Here the ordinary and exceptional normalized one-step maps, including their full p-adic domains, are already available. The different exponent merely iterates those same contractions; counting, collisions and the least translation period are immediate arithmetic of the already determined branches. The exact restatement is a useful corollary but does not have a substantive remaining scientific gain as an independent finding.",
+      "residual_risks": [
+        "No new parameter regime is established in the frozen record; extension to the excluded prime three or general degrees would be a different claim, not a repair of this overlap."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

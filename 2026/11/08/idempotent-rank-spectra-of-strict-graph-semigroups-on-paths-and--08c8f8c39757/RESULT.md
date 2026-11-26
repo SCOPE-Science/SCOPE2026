@@ -1,85 +1,44 @@
-# Idempotent-rank spectra of strict graph semigroups on paths and cycles
+# Graph-power structure of strict idempotents on paths and cycles
 
 ## Finding
-For every finite simple graph \(G\), let \(\operatorname{St}(G)\) be the semigroup of partial transformations of its vertex set whose inverse image of each vertex is either empty or exactly one edge, and whose inverse image of every edge is also either empty or an edge. Let
-\[
-E_G(t)=\sum_{\substack{f\in\operatorname{St}(G)\\ f^2=f}}t^{|\operatorname{im} f|}.
-\]
-Then for the path \(P_n\) with \(n\ge1\) vertices,
-\[
-\boxed{E_{P_n}(t)=\sum_{k=0}^{\lfloor n/2\rfloor}\binom{2n-3k+1}{k}t^k,\qquad
-\sum_{n\ge0}E_{P_n}(t)x^n=\frac1{1-x-2tx^2+t^2x^4}.}
-\]
-In the generating function only, \(P_0\) denotes the empty graph, with \(E_{P_0}(t)=1\).
 
-For the simple cycle \(C_n\) with \(n\ge3\),
+For a finite simple graph \(G\), let \(\operatorname{St}(G)\) consist of the partial transformations of its vertex set for which the inverse image of each vertex and of each edge is either empty or an edge. Let \(E_G(t)=\sum_{f\in\operatorname{St}(G),\,f^2=f}t^{|\operatorname{im}f|}\), and let \(I(H;t)\) be the independence polynomial of a graph \(H\). The graph of pairwise conflicts between oriented edges representing strict idempotents is the **third power of a path or cycle**:
 \[
-\boxed{E_{C_n}(t)=\sum_{k=0}^{\lfloor n/2\rfloor} c_{n,k}t^k,\qquad
-c_{n,k}=\begin{cases}
-\displaystyle\frac{n}{n-2k}\binom{2n-3k-1}{k},&2k<n,\\[4pt]
-4,&2k=n.
-\end{cases}}
+H(P_n)\cong P_{2n-2}^{\,3}\quad(n\ge1),\qquad
+H(C_n)\cong C_{2n}^{\,3}\quad(n\ge3).
 \]
-Every coefficient counts idempotents of exactly the specified transformation rank, not arbitrary elements of the strict semigroup. In particular, maximum-rank idempotents number \(\lfloor n/2\rfloor+1\) for \(P_{2\lfloor n/2\rfloor}\), \(\binom{(n-1)/2+3}{3}\) for odd paths, \(4\) for even cycles, and \(n(n+1)/2\) for odd cycles.
-
-For every finite graph \(G\) whose connected components are paths, cycles or isolated vertices, \(E_G(t)\) is the product of the displayed component polynomials. **Every zero of \(E_G(t)\) is real and strictly negative.** Consequently its nonzero coefficient sequence is ultra-log-concave and hence unimodal.
+Consequently \(E_{P_n}(t)=I(P_{2n-2}^{\,3};t)\) and \(E_{C_n}(t)=I(C_{2n}^{\,3};t)\). In particular the cycle rank polynomial is
+\[
+ E_{C_n}(t)=\sum_{k=0}^{\lfloor n/2\rfloor}\frac{2n}{2n-3k}\binom{2n-3k}{k}t^k.
+\]
+This includes the coefficient \(4\) at maximum rank for even \(n\), and \(n(n+1)/2\) at maximum rank for odd \(n\). For every graph of maximum degree at most two, \(E_G\) is the product of the component polynomials. If nonconstant, it has only strictly negative real roots and its coefficients form an ultra-log-concave sequence in the sense of normalization by \(\binom{\deg E_G}{k}\).
 
 ## Assumptions and scope
-All graphs are finite, undirected and simple. A partial map is allowed to be empty. The rank of a partial map is its number of image vertices. The strict semigroup \(\operatorname{St}(G)\) is not generally a monoid with the identity map. The conventional cycle \(C_n\) is used only for \(n\ge3\). The graph \(P_n\) has \(n\) vertices. The product formula also applies to disconnected graphs of maximum degree at most two; the empty graph has polynomial \(1\).
+
+Graphs are finite, undirected and simple. An oriented edge denotes an edge with one selected endpoint. Two distinct oriented edges conflict if their underlying edges coincide or intersect, or if their selected endpoints are adjacent. The graph \(H(G)\) has these oriented edges as vertices and conflicts as edges. A graph cube joins distinct vertices at distance at most three in the original graph. Here \(P_n\) has \(n\) vertices and \(P_0\) denotes the empty graph. The empty partial map is included, and rank is the cardinality of the image. The root statement is not asserted for source graphs of higher degree. These are not the idempotents of the full Margolis–Rhodes monoid.
 
 ## Proof
-**1. Idempotents as oriented matchings.** By the definition of \(\operatorname{St}(G)\), a strict map has domain a union of pairwise disjoint edges, and has an independent image set, with each domain edge collapsed to its associated image vertex (the matching-independent-image characterization in Margolis–Rhodes, Lemma 3.3). If \(f^2=f\), then every vertex in \(\operatorname{im}f\) is fixed. The image vertex assigned to a particular domain edge must therefore lie on that very edge: it lies in a domain edge, and its image equals itself, so it belongs to its own nonempty fiber. Conversely, choosing a matching of edges and selecting one endpoint from each, with all selected endpoints pairwise nonadjacent, defines a strict idempotent. Thus the rank-\(k\) idempotents are in bijection with \(k\)-edge matchings with one marked endpoint per edge and with the marked endpoints independent. No other idempotents exist.
 
-**2. Paths.** Read the vertices of \(P_n\) from left to right. Each oriented matching is a tiling into \(m=n-2k\) unused single vertices (monomers) and \(k\) ordered adjacent pairs (dimers), each dimer marked \(L\) if its left endpoint is selected and \(R\) if its right endpoint is selected. The selected endpoints are nonadjacent exactly when two consecutive dimers are not in the forbidden order \(RL\), with no intervening monomer. A run of \(r\) consecutive dimers therefore has exactly \(r+1\) valid markings, namely \(L^aR^{r-a}\) with \(0\le a\le r\). The \(m\) monomers separate the dimers into \(m+1\) runs of lengths totaling \(k\). Hence the number of rank-\(k\) idempotents is
-\[
-[t^k](1-t)^{-2(m+1)}=\binom{2m+k+1}{k}=\binom{2n-3k+1}{k}.
-\]
-The weighted ordinary generating series over \(n\) is obtained by putting \(n=m+2k\):
-\[
-\sum_{m\ge0}\sum_{k\ge0}\binom{2m+k+1}{k}x^{m+2k}t^k
-=\sum_{m\ge0}\frac{x^m}{(1-tx^2)^{2m+2}}
-=\frac1{(1-tx^2)^2-x}.
-\]
-This equals the claimed rational function and implies the fourth-order recurrence \(E_{P_n}=E_{P_{n-1}}+2tE_{P_{n-2}}-t^2E_{P_{n-4}}\) for \(n\ge4\), with \(E_{P_0}=E_{P_1}=1\), \(E_{P_2}=1+2t\), and \(E_{P_3}=1+4t\).
+**From strict idempotents to the conflict graph.** Nonempty point fibers are disjoint edges. No two image vertices can be adjacent, because the inverse image of an edge between them would have four vertices. A partial map is idempotent if and only if it fixes every point in its image. Thus each nonempty fiber must contain its image vertex, and conversely choosing one vertex per matching edge and requiring all chosen vertices to be independent gives a strict idempotent. This known characterization identifies the rank with the number of chosen oriented edges and gives \(E_G(t)=I(H(G);t)\).
 
-**3. Cycles.** Let \(k\) edges be selected in \(C_n\). If \(m=n-2k>0\), select one of the \(n\) labeled vertices as a distinguished monomer; cyclically from this vertex, the \(m\) monomers determine \(m\) runs of dimers, whose length-sum is \(k\). Again a run of \(r\) dimers has \(r+1\) markings. Summing the product of these counts gives \([u^k](1-u)^{-2m}=\binom{2m+k-1}{k}\). Each actual idempotent has exactly \(m\) choices for the distinguished monomer, whereas the initial marked vertex has \(n\) choices. Therefore the desired number is \(\frac{n}{m}\binom{2m+k-1}{k}\). If \(m=0\), necessarily \(n=2k\ge4\); there are two perfect matchings of the even cycle, and for each only the two constant orientation choices avoid the forbidden \(RL\) adjacency around the circle, giving exactly four idempotents. The formula also covers \(k=0\), producing the unique empty partial map.
+**Conflict geometry.** In order along the path or around the cycle, write \(e_i=\{i,i+1\}\). Let \(L_i\) and \(R_i\) select \(i\) and \(i+1\), respectively, and list the oriented edges as \(L_1,R_1,L_2,R_2,\ldots\). The two orientations of any single edge conflict, as do all orientations of successive edges. These are separated by at most three positions in the list. For disjoint edges, a conflict arises only when the right endpoint of one and the left endpoint of the other are consecutive vertices; in the forward direction the pair must be \(R_i,L_{i+2}\), exactly three positions apart. Conversely every pair at distance at most three in the list is of one of these types. On the cycle indices are taken periodically and either direction of the list can witness distance at most three. In \(C_3\) all underlying edges intersect, so the six orientations give the complete graph, also \(C_6^3\). For the one-vertex path the list is empty. This proves both graph identifications.
 
-**4. Connected components.** An idempotent sends every nonempty matching fiber to a vertex of that same fiber, hence to its own connected component. Its restrictions to distinct components are independently strict idempotents. This gives \(E_{G\sqcup H}=E_GE_H\), including isolated vertices which contribute factor \(1\).
+**Coefficient formulas.** In the linear list of \(2n-2\) positions, an independent set is a selection with successive positions differing by at least four. For rank \(k\ge1\), subtracting \(3(i-1)\) from the \(i\)-th position bijects to ordinary \(k\)-subsets of a list of length \(2n-2-3(k-1)\). Thus the already known path rank polynomial has the positive coefficient form \([t^k]E_{P_n}(t)=\binom{2n-3k+1}{k}\) for \(0\le k\le\lfloor n/2\rfloor\); the empty choice gives \(k=0\). For reference, writing \(n=m+2k\) in this coefficient sum gives the known path series \(\sum_{n\ge0}E_{P_n}(t)x^n=\sum_{m\ge0}x^m/(1-tx^2)^{2m+2}=1/(1-x-2tx^2+t^2x^4)\).
 
-**5. Real-rootedness.** Define an oriented-edge conflict graph \(H(G)\) whose vertices are pairs \((e,v)\) with \(e\in E(G)\) and \(v\) one endpoint of \(e\). Distinct pairs conflict if their underlying edges coincide, their underlying edges share an endpoint, or their selected endpoints are adjacent in \(G\). By part 1, \(E_G(t)\) is exactly the independence polynomial of \(H(G)\).
+For the cyclic list of \(N=2n\) positions, first take \(k\ge1\) and distinguish a chosen position. There are \(N\) choices of its label. The successive clockwise gaps, including the last gap back to the distinguished position, each have length at least four, and their sum is \(N\). For \(k=1\) there is just the gap of length \(N\). Subtracting four from each gap gives \(\binom{N-3k-1}{k-1}\) ordered nonnegative compositions of \(N-4k\) into \(k\) parts when \(4k\le N\), and none otherwise. Dividing by \(k\) removes the distinguishing mark. This yields \(\frac Nk\binom{N-3k-1}{k-1}=\frac{N}{N-3k}\binom{N-3k}{k}\). It also yields the stated expression at \(k=0\) when the empty set is included separately. In the original cycle notation the coefficient when \(2k<n\) is equivalently \(\frac{n}{n-2k}\binom{2n-3k-1}{k}\); for \(2k=n\) the uniform expression gives \(4\).
 
-For a path or cycle of length at least four, index successive edges \(e_i=\{i,i+1\}\) linearly or cyclically and write \(L,R\) for the selected left/right endpoint. The neighbors of \((e_i,L)\) are contained in the union of the two cliques
-\[
-\{(e_{i-2},R),(e_{i-1},L),(e_{i-1},R)\},\qquad
-\{(e_i,R),(e_{i+1},L),(e_{i+1},R)\},
-\]
-with nonexistent edge indices omitted. Similarly, the neighbors of \((e_i,R)\) are contained in the two cliques
-\[
-\{(e_{i-1},L),(e_{i-1},R),(e_i,L)\},\qquad
-\{(e_{i+1},L),(e_{i+1},R),(e_{i+2},L)\}.
-\]
-For the shortest cycle \(C_3\), all distinct oriented edges conflict, so \(H(C_3)\) is complete. The path case with at most three vertices is immediate. This neighborhood two-clique property proves that \(H(G)\) is claw-free for all graphs with maximum degree at most two (disjoint unions preserve the property). The Chudnovsky–Seymour theorem states that the independence polynomial of every claw-free graph is real-rooted. The positive coefficients and constant coefficient one exclude nonnegative real zeros, proving strict negativity whenever the polynomial is nonconstant. Newton's inequalities give ultra-log-concavity of its coefficients (divided by the corresponding binomial coefficients), and therefore unimodality.
-
-For the top rank, the path formula gives \(k+1\) at \(n=2k\), and \(\binom{k+3}{3}\) at \(n=2k+1\); the cycle formula gives \(4\) at \(n=2k\ge4\) and \(n(k+1)=n(n+1)/2\) at \(n=2k+1\).
+**Components and roots.** The fibers of an idempotent map to their own endpoints, so choosing idempotents on different connected components is independent, and ranks add. Isolated vertices contribute \(1\), as does the empty graph. In a path or cycle cube the neighbors of any vertex are covered by the clique of up to three immediately preceding vertices and the clique of up to three immediately following vertices. The cliques may overlap in a short cycle, which does not affect the argument. The cubes and their disjoint unions are therefore claw-free. The Chudnovsky–Seymour theorem makes their independence polynomials real-rooted. All coefficients are nonnegative, with constant coefficient one, so no root is zero or positive. Newton's inequalities give log-concavity after division by the binomial coefficients of the degree, hence ultra-log-concavity and unimodality. When the polynomial is constant the root statement is vacuous.
 
 ## Verification
-A standalone Python 3 checker, `verify.py`, independently enumerates all partial maps for small paths/cycles and tests the original inverse-image definition plus \(f^2=f\). It separately enumerates oriented matchings, enumerates independent sets of the conflict graph, and tests its claw-free property across larger finite cases. It compares each rank polynomial against both exact formulas and reports `VERIFY_OK`. The direct finite enumerations corroborate the theorem but do not prove it for unbounded graph sizes; the symbolic argument above does.
 
-For instance,
-\[
-E_{P_6}(t)=1+10t+21t^2+4t^3,\qquad
-E_{C_6}(t)=1+12t+30t^2+4t^3.
-\]
+The accompanying `verify.py` and `verification_output.txt` record bounded checks of the coefficients from direct partial maps, oriented matchings and conflict-graph independent sets, as well as finite tests of claw-freeness. The recorded summary is `VERIFY_OK direct_partial_map_cases=8 oriented_matching_cases=22 conflict_polynomial_cases=14 clawfree_cases=44`. These checks do not verify the cube identification or real-rootedness for an unbounded family; the proof above establishes both. Examples are \(E_{P_6}=1+10t+21t^2+4t^3\) and \(E_{C_6}=1+12t+30t^2+4t^3\).
 
-## Relationship to prior work
-Margolis and Rhodes (arXiv:2609.39370, first submitted 2026-09-30) define \(\operatorname{St}(G)\), give its matching/independent-image description (Lemma 3.3), prove regularity for path and cycle examples (Theorems 7.3 and 7.4), and count *all strict maps* by rank in Section 8. They construct some explicit idempotents in Section 11. None of those statements gives the number of composition-idempotent maps of each rank: for idempotents the selected image vertices must lie on their associated domain edges. The formulas here enumerate that constrained subfamily.
+## Relationship to prior work and limitations
 
-Chudnovsky and Seymour's 2007 theorem is the known general real-rootedness result and is not asserted as new. The new application consists of the oriented-edge conflict construction and its claw-free structure, coupled to the exact idempotent-rank formulas. Older papers on degree-two continuous-map semigroups and idempotents of different diagram monoids do not imply the displayed exact path/cycle formulas through the statements examined.
-
-## Limitations
-No assertion is made that \(E_G(t)\) is real-rooted for arbitrary graphs of degree greater than two, nor that the exact formulas describe the full Margolis–Rhodes monoid \(\operatorname{MR}(G)\). The polynomials count composition-idempotents of the **strict** subsemigroup only. The Cauchy/independence-polynomial consequence uses the established Chudnovsky–Seymour theorem. Historical priority under alternative enumerative formulations remains subject to further specialist comparison. Computations were exhaustive only for the finite cases specified in the checker and are not substitutes for the symbolic proof.
+Margolis and Rhodes supply the matching and independent-image description of arbitrary strict maps (Lemma 3.3), count all strict maps by rank (Section 8), and construct selected strict idempotents on even and odd cycles for a different purpose (Definitions 11.1 and 11.3). The earlier *Idempotent enumeration in strict Margolis–Rhodes path semigroups* already gives the general selected-endpoint characterization and the very same path rank generating function, including its coefficients in an equivalent alternating-sum form. Those are antecedents, not originality claims here. The cyclic coefficient calculation is a circular spacing count, and the implication from claw-freeness is the general theorem of Chudnovsky and Seymour. The claim concerns the precise graph-cube representation of the strict-idempotent constraint and the resulting cycle rank and root conclusions for degree at most two, not originality of spacing formulas or of real-rootedness for claw-free independence polynomials. Historical priority for equivalent representations is not asserted.
 
 ## References
-- S. Margolis and J. Rhodes, *The Margolis-Rhodes Monoid of a Graph* / *The Margolis-Rhodes Monoid of Continuous Functions on a Graph*, arXiv:2609.39370v2 (first version 2026-09-30), Sections 3, 7, 8, 11, 12. https://arxiv.org/pdf/2609.39370v2
-- S. W. Margolis and J. Rhodes, *Degree 2 Transformation Semigroups as Continuous Maps on Graphs: Foundations and Structure*, arXiv:2005.02606 (2020). https://arxiv.org/abs/2005.02606
-- M. Chudnovsky and P. Seymour, *The roots of the independence polynomial of a clawfree graph*, J. Combin. Theory Ser. B 97 (2007), 350–357, DOI: 10.1016/j.jctb.2006.06.001.
+
+- S. Margolis and J. Rhodes, *The Margolis–Rhodes Monoid of a Graph*, [arXiv:2609.39370v2](https://arxiv.org/pdf/2609.39370v2), Lemma 3.3 and Sections 8 and 11.
+- [*Idempotent enumeration in strict Margolis–Rhodes path semigroups*](https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-idempotent-enumeration-in-strict-margolis-rhodes-path-semigroups--a32f66c49f5d/RESULT.md), Finding and Proof.
+- M. Chudnovsky and P. Seymour, *The roots of the independence polynomial of a clawfree graph*, J. Combin. Theory Ser. B **97** (2007), 350–357, [DOI: 10.1016/j.jctb.2006.06.001](https://doi.org/10.1016/j.jctb.2006.06.001), Theorem 1.1.

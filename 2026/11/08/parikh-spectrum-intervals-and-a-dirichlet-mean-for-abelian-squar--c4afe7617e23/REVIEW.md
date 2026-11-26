@@ -1,15 +1,21 @@
-# Scientific review: three-marker Abelian-square half-Parikh spectra
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete claim is the wordwise interval-union identity, the Dirichlet distributional limit and the rational expectation \(157/288\). The interval lemma gives necessary and sufficient constraints on the two outside zero lengths of every two-one square. A factor containing an odd number of ones cannot be an Abelian square; a factor with two ones can only select one of the two adjacent pairs. These facts exhaust all square classes without assuming any bound on the four gaps. The limiting argument uses uniform weak compositions, continuous mapping and bounded convergence. The rational mean is the exact four-dimensional volume computation via Ehrhart polynomials at denominator twelve, with vertex enumeration and fourth-difference data given explicitly. The standalone script passed 40,920 directly enumerated three-one words and two exact lattice-volume certificates. Finite checks support but do not replace the infinite arguments.
+## correctness
 
-## Originality — PASS, qualified
-Kociumaka–Radoszewski–Rytter–Waleń (2014/2016) define precisely the Abelian-nonequivalent square-vector statistic, establish general growth bounds and an upper bound proportional to the number of runs; these do not determine the exact three-marker vector set or its limiting distribution. Fazekas–Mammoliti–Mercaş–Simpson (2026) classify several minima for the different statistic of **literal distinct** Abelian squares, including three-one minimizers, without the asserted Parikh-class population law. The available older wordwise formula for *literal distinct* squares also does not give this projected count or the expectation without a further interval and volume argument. The original contribution is not the definition of square vectors or a general growth-order bound. Automated database and accessible historical comparisons did not reveal an equivalent theorem. Unindexed or uninspected historical results remain a priority risk.
+PASS
 
-## Value — PASS
-The distinction between literal-distinct and Abelian-nonequivalent squares is a recognized structural issue. The wordwise formula turns an occurrence-level repetition condition into the union of just two explicit integer intervals, while the scaling limit gives a nonconstant probability law and an exact rational first moment. The fixed sparse composition is motivated by being the first marker count with two competing adjacent pairs; it is not an arbitrary finite slice or an isolated numerical value. It does not claim a new unrestricted-square bound.
+A factor containing a pair of adjacent ones with gap g has outer runs L,R with L+R=2r-g-2; the halves each contain one one exactly when L,R<=r-1. An integer with that sum is attainable from the two capped intervals exactly when the sum is nonnegative and no greater than the sum of the caps. Resolving the minima yields the stated three upper bounds and the lower bound, including zero gaps and empty intervals. Two adjacent pairs give a union by half-length, not a sum; pure-zero classes are floor(M/2). Uniform indexed words correspond to uniform integer compositions. Their normalized gaps converge by simplex Riemann sums to the Dirichlet law; the rounded interval endpoints give uniform O(1/n) error in the normalized count, and the length of the union is continuous even at an interval's collapse. Boundedness gives first-moment convergence. Independent bounded replay enumerated active four-constraint systems by exact rational solves, triangulated hull boundaries (SciPy ConvexHull; only triangulation topology used floating point), and summed rational simplex determinants: 7 vertices and 12 boundary simplices for P1, 10 vertices and 26 for P12, volumes 1/32 and 13/864. This independently corroborates the original Ehrhart volumes without executing reproduce.py. In simplex coordinates the density is 6; it gives union contribution 41/144, while the simplex maximum gives H4/8=25/96, totaling 157/288. Both cited interior examples for the limit are consistent. The source's finite word checks are recorded evidence rather than an all-length proof.
 
-## Sources and limitations
-Primary literature: Kociumaka et al., *Maximum Number of Distinct and Nonequivalent Nonstandard Squares in a Word*, DLT 2014, DOI 10.1007/978-3-319-09698-8_19; expanded version https://arxiv.org/abs/1604.02238. Relevant later literature: Fazekas et al., *Binary Words Containing Few Abelian Squares*, https://arxiv.org/abs/2604.23188. General finite extremal table: https://oeis.org/A262265. The full limiting CDF, sharp convergence rate and higher-weight analogue are not determined. Historical uniqueness cannot be certified by search alone.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same class statistic is established terminology. A same-day exact factor classification supplies the feasible literal factors and materially overlaps the local interval argument. The supported distinct contribution is the exact deduplicated linear spectrum with its conditional limit law and exact mean: the earlier/comparable literal cardinality and circular spectrum statements do not supply the overlap measure for the two projected linear intervals. No within-day priority is inferred.
+
+## value
+
+PASS
+
+This measures diversity in a natural, established equivalence, not a relabeling of literal diversity. The union resolves precisely which half-Parikh vectors are realized in the sparse regime; its nonconstant conditional law and exact mean quantify the scale-n effect and its nontrivial two-pair overlap, which the scale-n^2 literal-square law does not measure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** Quadratic expansion gives an exact error representation; Cauchy--Schwarz and Frobenius invariance supply lower and upper extrema, whose attainability follows from real orthogonal equal-diagonal construction and the spectral theorem. Spherical fourth moments give Haar expected risk. Averaging adversarial orientations proves the minimax lower bound for every fixed frame distribution, and Haar frames attain it. Signed-frame cancellation and third-order Taylor remainders establish the stated expected-bias extension. The standalone checker independently reproduced exact examples and finite numerical tests; it is not used as an infinite proof.
+## correctness
 
-**Originality: PASS under examined literature, with residual priority risk.** The directly motivating 2026 paper supplies the one-sided finite-difference projected-gradient estimator and a smoothness upper bound, but not the exact quadratic optimal-frame, Haar-risk and adversarial-orientation minimax classification. A 2021 basis-rotation paper uses central differences and hence a distinct truncation-error mechanism. The balanced-diagonal existence theorem and spherical moments are expressly acknowledged as classical mathematical ingredients. Searches for the full theorem, aliases and stronger error coverage identified no equivalent complete numerical-differentiation claim; this is best-knowledge priority, not certification.
+PASS
 
-**Value: PASS.** A fixed, natural \(k+1\)-evaluation projected-gradient primitive is basis-dependent even when its span is unchanged. The exact formula quantifies up to a \(k\)-fold removable squared error for rank-one positive curvature, identifies exact cancellation under traceless indefinite restricted curvature, and provides a sharp minimax design when the curvature eigendirections are unavailable. This is a concrete sampling-design guarantee, not a generic optimizer-rate claim. The scalar quadratic and oracle-orientation game restrictions remain important.
+Exact Taylor expansion on the quadratic gives error (h/2) B diag(Q^T C Q), with B=B0 Q. Orthonormality gives the squared-diagonal loss, even in a proper subspace. The diagonal sum is the trace; equality in the lower Cauchy–Schwarz bound requires equal diagonals, attainable by successively choosing a unit Rayleigh quotient at the mean and compressing to its complement. The Frobenius bound is attained by an eigenbasis. Normal fourth moments, divided by E||g||^4=k(k+2) for a standard Gaussian g whose direction is independent of its radius, give the claimed Haar risk. For every fixed designer law, Haar averaging of the adversary's orientation makes U^T Q Haar for each Q and yields the same lower bound; a Haar designer attains it for every U. Column sign symmetry cancels the mean vector, not its squared norm. Averaging signed differences gives centered differences in expectation at the same realized evaluation cost, and the third-derivative remainder has norm at most Mh^2 sqrt(k)/6. The trace-zero criterion and rank-one ratios follow directly, including k=1. A new exact check used a non-coordinate two-plane in R^3 and all four sign choices plus exact integration on the circle for k=2.
 
-Closest literature: arXiv:2609.08277v1 (Algorithm 2/Lemma 4.1); arXiv:2106.07313v1 (central-difference basis rotation); the classical Schur--Horn diagonal theorem. Residual risks include uncatalogued specialized randomized-frame numerical-differentiation results and different practical noise models.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The estimator, balanced diagonal, Haar moments and invariant averaging are not new. The supported distinct contribution is the sharp basis-selection analysis for this estimator, in particular the exact minimax risk over orientation-independent frame laws for the fixed-spectrum quadratic problem. No inspected comparator states it or entails it by a parameter substitution alone.
+
+## value
+
+PASS
+
+The projected one-sided estimator is a pre-existing evaluation primitive. This analysis answers a natural design question with fixed evaluation budget: span alone does not fix the error, a trace-zero compressed Hessian permits an exact choice, and Haar sampling attains the explicit price of not knowing eigendirections. The rank-one factors give a concrete attainable separation rather than just a smoothness estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

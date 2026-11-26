@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:42:31.294813Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The modulus of a real or complex line segment is bounded by the larger endpoint modulus, and the orbit includes or approaches both endpoints. This gives max(|f|,|Pf|) also for the discrete powers exactly in the stated range 0≤rho<1. Pasting Pf on an arbitrary E and f off E is an exact linearization, because the measurable comparison event realizes the pointwise maximum for each f. With b=P1_E and a=1-b, conditional Cauchy–Schwarz gives the matrix with rows (1,0) and (sqrt(ab),b) on the two conditional energy square roots. The Gram matrix has trace 1+b and determinant b², yielding Lambda(b). The vector from a function with value 1 off E and r_b=ab/(Lambda(b)-b²) on E lies in the top eigendirection on 0<b<1, and both conditional Cauchy–Schwarz inequalities are then equalities. The multiplier is measurable and bounded (Lambda≥1 gives r_b≤b/(1+b)). Localizing on a positive-measure set in the conditioning sigma-algebra near the essential supremum gives the lower bound without a disintegration assumption; when that supremum is 1, constants give equality. Strict concavity gives the unique maximizing mass 2/3 and the stated essential-range criterion for norm equality. For trivial conditioning, compactness of the mass set follows from summable atomic subsums plus a full interval of nonatomic masses, and r_(2/3)=1/4. On the uniform grid, only the two neighbors of 2/3 can maximize; in the deficit identity the denominator strictly decreases between 8/3 and 2/3, so offsets of magnitudes 1/(3n) and 2/(3n) are ordered by deficit despite the asymmetry. Taylor expansion gives the coefficient 1/9. The arbitrary-space result is analytic, not a finite extrapolation; frozen finite replay path verify.py was inspected, not run, and is not needed for the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ciccone et al. prove norm p'=2 for the general semigroup maximal operator under the stated nonatomic and local-compactness hypotheses, with the general Stein upper bound in the introduction.",
+          "Palai–Ray assert existence of C_p(T) for the broader power maximal inequality under their conditions (i)–(iv).",
+          "Pitman supplies general Doob inequalities and a pathwise refinement; the inspected Bañuelos–Osȩkowski discussion focuses on p<1."
+        ],
+        "reasoning": "General boundedness cannot determine a sharp, usually smaller coefficient varying with P. The compactness theorem's sharpness assumptions are not the fixed-relaxation assumptions, and changing the exponent or taking many observation times does not recover the formula.",
+        "searches": [
+          "arXiv:2610.10247v1 Theorem 1.1",
+          "arXiv:2606.16506 Theorem 1.1",
+          "Jim Pitman, A note on L² maximal inequalities, 1981",
+          "Bañuelos–Osȩkowski, Sharp Maximal L^p-Estimates for Martingales"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Pitman (1981), A note on L² maximal inequalities",
+        "Acciaio et al. arXiv:1202.0447v4",
+        "Ciccone et al. arXiv:2610.10247v1",
+        "Palai–Ray arXiv:2606.16506",
+        "Bañuelos–Osȩkowski, Sharp Maximal L^p-Estimates for Martingales (inspected opening discussion)",
+        "Resultary rectangular maximal, conditional-expectation commutator, and binary-projection mixing records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known refined estimates involve initial and terminal L² norms, not an optimization over event conditional probabilities. In the semigroup literature, a broad bound of 2 in norm or an unspecified bound C_p(T) does not yield the exact coefficient for P.",
+          "For scalar projections onto constants the theorem can distinguish different attainable subset-mass sets, and in uniform finite spaces the squared norm varies with n, equalling 4/3 precisely for 3|n."
+        ],
+        "reasoning": "Neither starting-value refinements nor general boundedness imply the P-dependent formula by specialization. Once the exact profile is known, the continuum maximum, the equality test, and the grid quantization are its consequences; the endpoint identity and the extension to powers add no separate priority claim.",
+        "searches": [
+          "Acciaio et al. arXiv:1202.0447v4, (1.2)–(1.3)",
+          "Palai–Ray Theorem 1.1",
+          "Ciccone et al. Theorem 1.1 and hypotheses"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The endpoint operator is the maximum of a terminal variable and its conditional expectation in modulus, i.e. a two-time martingale maximal operator.",
+          "Acciaio et al., arXiv:1202.0447v4, introduction, Theorems 1.1–1.2 and (1.3), give the classical and starting-value-refined inequalities; their cited sharpness uses continuous martingales, not a fixed conditional expectation.",
+          "The same-day conditional-expectation commutator record concerns a linear difference of compositions of two projections, not the maximum of two moduli."
+        ],
+        "reasoning": "The martingale wording is genuinely equivalent if the conditioning sigma-algebra and the two times are held fixed. The inspected general running-maximum inequalities do not make this restriction and do not give the conditional event-mass spectrum. The commutator operates on a different quantity.",
+        "searches": [
+          "Focused literature search on exact two-time L² Doob and one-step martingale maximal norms and Bellman constants",
+          "Resultary: conditional-expectation maximal norms, subset mass and two-choice operators",
+          "arXiv:1202.0447"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The rectangular maximal record, RESULT.md offsets 0–4700, gives (4/3)^(d/2) for its ordinary adjacent two-point average. In dimension one its squared constant is 4/3, but its choices are translations/rectangles, not sets of conditional masses.",
+          "The binary conditioning mixing record, RESULT.md offset 0, gives centered norms for products of projections and iterates rather than maximal quotients."
+        ],
+        "reasoning": "The numerical coincidence does not supply Lambda, the varying uniform-grid values or the equality criterion. No matching table or exact formula for those data was located in the bounded catalogue searches.",
+        "searches": [
+          "Resultary: conditional event-mass spectrum, two-time maximal norm, nearest 2n/3 uniform atom correction",
+          "2026/11/1/SCOPE-sharp-two-choice-rectangular-maximal-bounds-and-geometric-rigidi--2ae83343e2e7",
+          "2026/10/11/SCOPE-exact-mixing-norms-and-time-reversal-obstruction-for-binary-cond--8cff936fbe0f"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact norm for each fixed conditional expectation, as determined by the conditional event-mass profile, including its equality criterion and the sharp constant-projection and uniform-grid consequences. The bounded comparisons found broader martingale/semigroup inequalities and a different operator with the same sharp numerical constant, but no equivalent fixed-projection formula or stronger result implying it. Endpoint convexity, use of the complex modulus and the power extension are not treated as separate originality contributions. This is a best-of-knowledge decision, not a priority certificate.",
+      "residual_risks": [
+        "The targeted search was bounded; an older two-time martingale or Bellman result could yield part or all of the formula in different notation. No priority certification is given.",
+        "The trajectory article was checked via its lawful arXiv copy; the comparison is to the identified formulas and sharpness statements, not a claim about everything in the paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Genuine related refinement, not exact fixed-projection coverage",
+          "evidence": "Classical squared constant 4 and estimates including the starting value; equality in the refined inequality is obtained for suitable positive continuous martingales.",
+          "identifier_or_url": "https://arxiv.org/pdf/1202.0447",
+          "material_read": "v4 PDF pp. 1–3, offsets 0–10878, Theorems 1.1–1.2 and (1.3)",
+          "method": "Bounded OA read of the same paper on arXiv after the alternate web copy was inaccessible",
+          "title": "A Trajectorial Interpretation of Doob’s Martingale Inequalities",
+          "trigger": "Possible exact sharpened Doob bound retaining the initial value"
+        },
+        {
+          "assessment": "Broader estimates rather than the one-step conditional profile in the inspected passages",
+          "evidence": "General Doob-type inequalities with squared constant 4 and pathwise refinement.",
+          "identifier_or_url": "Jim Pitman, Séminaire de Probabilités 15 (1981), 251–258",
+          "material_read": "Printed pp. 251–254, OA offsets 0 and 3905, introduction and theorem discussion",
+          "method": "Bounded OA PDF passages",
+          "title": "A note on L² maximal inequalities",
+          "trigger": "Two-time Doob and general martingale sharpness search"
+        },
+        {
+          "assessment": "Broader Stein bound and different sharpness assumptions",
+          "evidence": "Norm p'=2 at p=2 under local compactness on a nonatomic space; the relaxation retains an identity term and in general does not satisfy those hypotheses.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.10247v1",
+          "material_read": "Introduction and Theorem 1.1, p. 2, offset 4967",
+          "method": "Bounded OA PDF passages",
+          "title": "On L^p norms of maximal operators",
+          "trigger": "Potential stronger result for Markov semigroup maximal norms"
+        },
+        {
+          "assessment": "Boundedness only for this comparison",
+          "evidence": "Theorem 1.1 asserts the existence of C_p(T) for the supremum of positive-contraction powers with the stated spectral and operator hypotheses.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.16506",
+          "material_read": "Page 3, offsets 9660–12031, hypotheses (i)–(iv) and Theorem 1.1",
+          "method": "OA literal locator followed by bounded PDF passage",
+          "title": "Maximal Ergodic Theorems for Operators with Finite Peripheral Spectrum",
+          "trigger": "Potential coverage of discrete powers by a stronger maximal theorem"
+        },
+        {
+          "assessment": "Different operator despite shared constant",
+          "evidence": "The result is for two-choice rectangular maxima on the integer lattice and does not state a profile for conditional expectations.",
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-two-choice-rectangular-maximal-bounds-and-geometric-rigidi--2ae83343e2e7",
+          "material_read": "Mirrored RESULT.md offsets 0–4700",
+          "method": "Local Resultary and bounded mirror text",
+          "title": "Sharp two-choice rectangular maximal bounds and geometric rigidity",
+          "trigger": "Closest catalogue hit numerically: sharp squared constant 4/3 in dimension one"
+        },
+        {
+          "assessment": "Different operator; no dependence inferred from the date",
+          "evidence": "A commutator of two conditional expectations, rather than the maximal operator formed from one P and I.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-l-p-commutator-norms-for-two-balanced-binary-conditional-e--9c8a38ae8411",
+          "material_read": "Mirrored RESULT.md opening at offset 0",
+          "method": "Local Resultary and bounded mirror text",
+          "title": "Sharp L^p commutator norms for two balanced binary conditional expectations",
+          "trigger": "Distinct same-day result with exact norms and conditional expectations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The relaxation model isolates a natural maximal-norm question where generic bounds conceal the role of the underlying probability space. The exact conditional profile distinguishes universal sharpness from sharpness for a given projection and works without measurable-fiber hypotheses. Its finite uniform specialization resolves the asymmetric grid choice, determines exactly when universal equality holds and quantifies the deficit. This is a useful structural and quantitative result, not only the computation of a universal constant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

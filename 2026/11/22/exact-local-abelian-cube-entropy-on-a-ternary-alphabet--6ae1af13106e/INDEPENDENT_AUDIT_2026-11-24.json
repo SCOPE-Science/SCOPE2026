@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:47:40.757843Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–40; VERIFICATION.md; check_transfer.py; check_direct.py (inspected, not executed)",
+        "Independent exact cluster calculation and literal suffix-graph test: /workspace/branches/review-3-replay.py"
+      ],
+      "rationale": "The all-length formula was reproduced with signed forbidden-word clusters rather than the source's suffix quotient. The minimal forbidden set is the three constant triples and 24 length-six words formed by repeating the same distinct unordered pair three times, ordering each pair independently. A length-six word made of three identical-letter pairs already contains a constant triple. None of the 27 minimal forbidden words properly contains another. For a cluster ending in w, the recurrence is x_w = -z^|w| - sum_v x_v times the overlap polynomial sum_k z^(|w|-k) over proper suffix-prefix overlaps from v to w. Separating a signed marked word into unmarked letters and maximal clusters gives 1/(1-3z-sum_w x_w), by cancellation of marked subsets of occurrences. The exact five-class cluster system yields the stated coprime numerator and denominator and the initial values. The literal 180-state length-five suffix graph is strongly connected (forward and reverse reachability from 01201) and has cycles of lengths 3 and 4 (periodic 012 and 0012); it is primitive. Perron–Frobenius and the exact series give a simple unique dominant pole with positive residue coefficient. Q changes sign on (0,1) and (2,3), and Descartes' rule permits only two positive roots. Evaluation at the pole gives alpha=2.607914749105280... and C=1.474405450809276..., consistent with the reported approximations. The source's alternate 49-state proof, including the Cayley–Hamilton shift to n>=49 and the early coefficients, is consistent with the independent result.",
+      "residual_risks": [
+        "The few displayed decimal digits of the root and residue are numerical; exact results use the rational series and primitive graph. The result does not count avoidance at all block lengths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Samsonov–Shur Table 1 (printed p. 161, OA offset 42000) reports 2.371237 as an upper bound for full ternary Abelian-cube avoidance using a much larger cutoff and DFA. The earlier article studies exponential growth of full avoidance."
+        ],
+        "reasoning": "A reusable procedure to build cutoff automata does not provide the weighted automaton reduction, exact rational series or residue at this cutoff. A bound on a smaller language cannot determine growth of its larger regular outer approximation.",
+        "searches": [
+          "Samsonov–Shur 2012, finite-antidictionary construction and Table 1",
+          "Aberkane–Currie–Rampersad 2004, full ternary avoidance"
+        ]
+      },
+      "checked_sources": [
+        "Aberkane–Currie–Rampersad (2004)",
+        "Samsonov–Shur (2012)",
+        "OEIS A096168",
+        "Resultary 6ae1af13106e and 5bb863a03aec"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full avoidance is a strict subset: (012)^3 is admitted at the local cutoff. The binary summary asserts count 10+2·1_{3|n}, unlike the ternary exponential law."
+        ],
+        "reasoning": "Neither a bound on a strict subset nor a two-symbol enumeration implies the ternary rational function. The finite-antidictionary method makes the number computable but does not supply its evaluation at the two shortest periods.",
+        "searches": [
+          "Samsonov–Shur 2012, Table 1 and finite antidictionaries",
+          "A096168 definition",
+          "Resultary binary cutoff 5bb863a03aec"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The strongest catalogue hit is the identical frozen record 6ae1af13106e, not another source. Record 5bb863a03aec is described as a binary cutoff with eventual periodic counts. Full ternary avoidance has 7998 words of length 9 rather than 8232."
+        ],
+        "reasoning": "Relabelling the ternary symbols, using unordered pairs, or expressing the condition as a finite-type shift does not alter this language. Changing to two symbols or forbidding all block lengths does alter it.",
+        "searches": [
+          "Resultary: ternary avoidance of Abelian cubes of root lengths 1 and 2, rational series and 2.60791474910528",
+          "Finite antidictionary / three successive matching unordered pairs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2004 table and A096168 have 7998 and 20124 at lengths 9 and 10; the frozen count gives 8232 and 21462. Earlier agreements through length eight occur before any longer cube fits."
+        ],
+        "reasoning": "The exact sequence comparison rules out the plausible published table as an equivalent enumeration. No distinct exact match for this series or its root was verified.",
+        "searches": [
+          "OEIS A096168, count 8232 at length 9 and 21462 at length 10 versus full avoidance",
+          "Aberkane–Currie–Rampersad 2004, printed p. 2",
+          "Resultary, exact denominator and entropy approximation"
+        ]
+      },
+      "rationale": "The exact labelled ternary series and entropy for the root-length-two cutoff are distinct from the full-language counts and growth bound, from a reusable finite-antidictionary construction, and from the indexed binary cutoff. The precise evaluated ternary cutoff was not found in the inspected material. This is a best-of-knowledge assessment, not a priority certificate.",
+      "residual_risks": [
+        "A focused general literature lookup did not return usable results; the independent positive comparison rests on the accessible sources above. The binary record was available only by summary. An unindexed earlier evaluation of the same cutoff remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different full-avoidance language",
+          "evidence": [
+            "7998 at n=9 and 20124 at n=10 for cubes of all lengths"
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL7/Currie/currie18.pdf",
+          "material_read": "Definition and count table, printed p. 2, OA offset 4200",
+          "method": "Read the primary PDF passage and compare indexed-word counts",
+          "title": "The Number of Ternary Words Avoiding Abelian Cubes Grows Exponentially",
+          "trigger": "Same alphabet and closely related avoidance counts"
+        },
+        {
+          "assessment": "Supplies a general method and a different growth bound, not the exact root-two result",
+          "evidence": [
+            "The ternary row lists 6,015,458 forbidden words and a 15,187,934-vertex DFA with upper bound 2.371237"
+          ],
+          "identifier_or_url": "https://www.numdam.org/article/ITA_2012__46_1_147_0.pdf",
+          "material_read": "Finite-antidictionary construction and Table 1, printed p. 161, OA offset 42000",
+          "method": "Read the primary PDF method and table; check scope of the Root column",
+          "title": "On Abelian Repetition Threshold",
+          "trigger": "Finite truncations and quantitative ternary growth"
+        },
+        {
+          "assessment": "Full avoidance, not the local cutoff",
+          "evidence": [
+            "7998 at length nine"
+          ],
+          "identifier_or_url": "https://oeis.org/A096168",
+          "material_read": "Sequence definition and initial terms, offset 220",
+          "method": "Read the entry and compare first divergent coefficients",
+          "title": "Number of Abelian cubefree words over a 3-letter alphabet",
+          "trigger": "Plausible exact enumeration match"
+        },
+        {
+          "assessment": "The accessible claim is binary; other contents not assessed",
+          "evidence": [
+            "Reported eventual periodic counts 10+2·1_{3|n}, not the ternary count"
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-a-zero-entropy-phase-transition-for-the-first-two-binary-abelian-cube-periods--5bb863a03aec",
+          "material_read": "Catalogue summary only; local mirror did not return full text",
+          "method": "Compare the explicit alphabet and reported binary count in the summary",
+          "title": "A zero-entropy phase transition for the first two binary Abelian-cube periods",
+          "trigger": "Distinct hit on the same two forbidden periods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cutoff is motivated by the shortest two block lengths, the first regular approximation that captures nonconstant anagram cubes. Its exact growth rate shows a material gap from the published full-avoidance upper bound (2.607914749... versus 2.371237), and the exact enumerator and residue provide a reusable baseline for successive finite cutoffs. This is not a new bound for full avoidance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

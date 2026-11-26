@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:38:49.430542Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "/workspace/repairs/3/RESULT.md",
+        "/workspace/review-evidence/02-05-small-checks.js (Hamming-interval check)"
+      ],
+      "rationale": "The repaired claim classifies five-word binary length-four 2-frameproof codes. After a translation to include zero, the other supports must be a pairwise-intersecting antichain: containment frames the smaller support via zero, and disjointness frames zero. Singletons and the full set cannot coexist with another support. Four supports are possible as exactly four triples or as a three-edge star and its opposite triple; zero, one, two or three two-sets and the triangle case exhaust the options. The representative is frameproof by the pair types (two units, or a unit and all-ones), and its translates by its five words realize the five pointed forms. All translates are distinct by XOR indexing; pair distances follow by the same pair types. Independently evaluated all 4368 five-sets and 8008 six-sets using strict Hamming triangle inequalities on their triples. Found 16 valid five-sets, no six-set, the five pointed forms, all distance profiles (2×6,3×4), and the unique code after translating by total XOR. No larger code is possible by heredity. Coordinate permutations fix the representative, giving the stated order-24 stabilizer. Frozen verifier inspected, not executed; the repaired verification notes state its actual size cutoff.",
+      "residual_risks": [
+        "The finite check and proof concern 2-frameproofness, not 2-IPP or separability. No general length classification follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The identity-plus-ones construction works at general N and specializes exactly to C*. Adjacent corpus claims concern lengths seven and six, the ternary alphabet, and binary two-separability respectively."
+        ],
+        "reasoning": "The general construction gives one orbit representative but does not rule out a second orbit. Other lengths/alphabet sizes and the separable predicate do not imply the stated equality case.",
+        "searches": [
+          "Guo–Stinson–van Trung Theorem 5.1 at N=4",
+          "Resultary 44b21eaff93c, c608e3fc246b, 8c0b5e3e829e, 7972e2c56907"
+        ]
+      },
+      "checked_sources": [
+        "Korže–Vesel §4",
+        "Guo–Stinson–van Trung Lemma 2.1 and Theorem 5.1",
+        "Randriambololona pp. 1–2",
+        "Resultary exact/alias/adjacent-parameter matches",
+        "Repaired RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Excluding every size-six candidate, plus a size-five construction, suffices for the prior bound. The equality-case argument instead restricts every size-five candidate to one of two pointed support types, and proves these are all translations of C*."
+        ],
+        "reasoning": "The bound and construction establish existence and extremality of C*, not uniqueness. XOR and distances are simple orbit consequences, not independent novelty claims.",
+        "searches": [
+          "Korže–Vesel §4, offsets about 28500 and 32961; Guo–Stinson–van Trung Theorem 5.1, offset about 66000; comparison with repaired RESULT.md proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Geodesic intervals in the Boolean cube are exactly descendants of a pair. Binary (2,1)-separating systems and type-{1,2} separating hash families are aliases. IPP is not: 0000 has several disjoint parent pairs of units in the representative."
+        ],
+        "reasoning": "The hypercube alias makes the earlier maximum an exact prior result. It also maps the equality classification to all maximum general-position subsets, so neither extra notational form is treated as another new claim.",
+        "searches": [
+          "Resultary: binary length-four 2-frameproof exact 16 maxima translation orbit, pointed codes, Q4 general position",
+          "Korže–Vesel, DOI 10.1007/s00009-023-02416-z, §§1 and 4",
+          "Randriambololona arXiv:1010.5764, binary (2,1)-separating systems",
+          "Guo–Stinson–van Trung arXiv:1406.6920, Lemma 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 gives gp(Q_4)=5 and the accompanying SAT discussion certifies exactness through dimension seven. The inspected table and discussion do not give the sixteen labeled sets or a translation orbit. Closest catalogue censuses have different length or alphabet, or use separability."
+        ],
+        "reasoning": "A maximum-size table does not report an equality-case census. The repaired result unambiguously credits the prior numerical entry.",
+        "searches": [
+          "Korže–Vesel §4 Table 1 and accompanying exactness statement; Resultary exact 16 labeled maxima and five containing zero"
+        ]
+      },
+      "rationale": "Pass is for the narrowed equality classification, not for the numerical bound as a new result. The frozen Finding foregrounds the exact maximum and its comparison omits the publication under an equivalent graph formulation. The complete replacement explicitly credits both gp(Q_4)=5 and the representative construction, leaving the 16-code orbit classification, pointed forms and invariants as the claimed contribution. The strongest compared sources do not give or imply that classification in the inspected passages.",
+      "residual_risks": [
+        "Full texts of Blackburn, Staddon–Stinson–Wei, Cheng–Jiang–Wang and Rochanakul were not retrieved. An equality enumeration elsewhere, including in an unindexed or prior computational source, remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the exact maximum, not the equality classification in inspected sections",
+          "evidence": "Reports gp(Q_4)=5 and exactness for the first seven dimensions via no larger SAT solution.",
+          "identifier_or_url": "https://doi.org/10.1007/s00009-023-02416-z",
+          "material_read": "§1 definition (PDF p. 3, offset 2500), §4 Table 1 (p. 10, offset 28500), exactness argument (p. 11, offset 32961)",
+          "method": "Lawful OA bounded full-text PDF passages",
+          "title": "General Position Sets in Two Families of Cartesian Product Graphs",
+          "trigger": "Equivalent binary hypercube problem with exact small-dimensional values"
+        },
+        {
+          "assessment": "Covers C* construction, not its uniqueness",
+          "evidence": "Type-{1,w} separating hash family condition is equivalent. Identity columns plus an all-ones column specialize to the stated five words.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.6920",
+          "material_read": "Lemma 2.1, p. 2; Theorem 5.1, p. 18, offset 66000",
+          "method": "Lawful OA bounded full-text passages",
+          "title": "On tight bounds for binary frameproof codes",
+          "trigger": "Exact binary representative and separating hash alias"
+        },
+        {
+          "assessment": "Equivalent setting, no inspected length-four orbit census",
+          "evidence": "Gives the Hamming space and support formulations for binary separating sets.",
+          "identifier_or_url": "https://arxiv.org/abs/1010.5764",
+          "material_read": "pp. 1–2, offsets 2600–6567",
+          "method": "Lawful OA full-text passages",
+          "title": "(2,1)-separating systems beyond the probabilistic bound",
+          "trigger": "Equivalent binary separating-systems formulation"
+        },
+        {
+          "assessment": "Not exact coverage",
+          "evidence": "Binary lengths seven and six, ternary length four, and binary length-four two-separability do not classify binary length-four 2-frameproof codes.",
+          "identifier_or_url": "Resultary 44b21eaff93c, c608e3fc246b, 8c0b5e3e829e and 7972e2c56907",
+          "material_read": "Finding/parameter statements",
+          "method": "Configured local Resultary search and statement comparison",
+          "title": "Related equality classifications in different parameters or predicates",
+          "trigger": "Highest-related local equality and small-code census matches"
+        },
+        {
+          "assessment": "Not used as evidence excluding existing coverage",
+          "evidence": "No exact equality-classification passages from these papers were available in the checks.",
+          "identifier_or_url": "DOIs 10.1137/S0895480101384633; 10.1109/18.915661; 10.1007/s10623-018-0490-5; 10.1155/2020/4879108",
+          "material_read": "Bibliographic/source-level checks only; no full texts obtained",
+          "method": "Bounded lawful OA attempts, including publisher access and repository availability checks",
+          "title": "Frameproof Codes; Combinatorial properties of frameproof and traceability codes; Improved bounds on 2-frameproof codes with length 4; New Bounds on 2-Frameproof Codes of Length 4",
+          "trigger": "Foundational and potentially same-length frameproof references cited by the frozen original"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding and Proof",
+        "Korže–Vesel Table 1",
+        "Guo–Stinson–van Trung Theorem 5.1"
+      ],
+      "rationale": "For a natural finite extremal problem, an equality classification determines all optimal objects rather than reproducing their cardinality. It explains the rigidity at length four: one orbit even without permitting coordinate permutations, with an intrinsic XOR index and explicit pointed forms. This gives exact reference data for both separating codes and small hypercube general-position sets.",
+      "residual_risks": [
+        "The motivation is the exact coalition-size-two equality case at length four, not an extrapolation to other lengths or a claim that the known extremal size is new."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The coefficient expansion in the central nilpotent parameter \(t=1+r^2\) proves two affine five-spaces with a common central four-space. The commutator of the two reflection directions is nonzero, so the induced graph is exactly the clique amalgamation; a direct centralizer dimension calculation gives every noncentral orbit size. The quaternion and three abelian cases follow from explicit group-algebra multiplication. An independent-by-construction multiplication-table checker verifies ten small-field square-zero counts, two complete commuting-pair enumerations, and the binary conjugacy partition. Finite computations supplement the characteristic-two symbolic proof rather than proving its infinite-field range.
+## correctness
 
-**Originality (PASS, with residual publication-priority risk).** Prior work on the complete unit group of the dihedral algebra and existing square-zero regular-rank enumerations are relevant antecedents. Their unit-group structure and single-element rank distributions do not state or imply a complete mutual-commutativity relation among square-zero elements without an additional analysis. Searches for the induced square-zero commuting graph, its clique amalgamation and conjugacy profile found no directly equivalent published statement. A relevant later comparison of quaternion and dihedral algebras was not available in full and remains a possible coverage risk.
+PASS
 
-**Value (PASS).** Commuting graphs of distinguished nilpotent loci are intrinsic finite-algebra invariants. This theorem completes their classification for all five groups of the smallest order admitting both dihedral and quaternion nonabelian examples, uniformly over infinitely many finite fields. It exposes a precise reducible-versus-central dichotomy invisible to mere square-zero cardinalities, and determines all conjugacy orbit sizes of the noncentral dihedral square-zero locus.
+Re-audited repairs/4/RESULT.md. For the two nonabelian groups, t=1+z has square zero and multiplication by t identifies the four coset directions with the ideal t kG. Because the quotient by that ideal is commutative, [ta,b]=t[a,b]=0. The displayed dihedral square is obtained by expanding in the coset basis, with scalar part S² and independent t, tr, ts, trs coefficients. The square-zero locus is the two stated spaces with central intersection. Within a branch elements commute; across their noncentral complements their commutator is a nonzero scalar multiple of tr. This gives the inclusion–exclusion pair counts and the complement size. The quaternion expansion instead forces all three nonidentity coefficients to vanish; the abelian truncated polynomial cases retain 4, 6 and 7 free coordinates respectively. The frozen proof line 37 incorrectly gave the span of the commutator images as ⟨tr,trs⟩ on both dihedral branches. The corrected proof uses [s,r]=trs and [s,rs]=tr on the first, and [rs,r]=ts and [rs,s]=tr on the second. Both pairs are independent, and the t-ideal is killed, so rank two and centralizer dimension six hold in both cases. The unit criterion follows by passing to the commutative quotient (there the square is the augmentation squared) and lifting across the square-zero ideal. In the six-dimensional centralizer the augmentation is a nonzero functional, so the index of its units in all units is (q−1)q⁷/((q−1)q⁵)=q². Conjugation preserves square-zero; dividing the two noncentral complements' total size by q² gives the corrected proof of the unchanged orbit formula. The supplied finite arithmetic checks were inspected, not run and not used as proof over all fields.
 
-**Limitations.** Nothing is claimed for groups of higher order, for nilpotence index greater than two, or for independent priority validation. The field must have characteristic two.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original graph headline has substantive prior implication: in addition to the known quaternion locus, Creedon–Gildea’s proof of Proposition 2.1 gives the characteristic-two square polynomial for dihedral units. Via x ↦ 1+x it gives both noncentral square-zero directions, and the adjacency among those families follows immediately from their representative commutator. The repair credits that coverage and treats the graphs as context rather than a separate distinct claim. The retained result is the uniform unit-orbit size census on the D8 square-zero set. The inspected proof of the unit-group structure includes conjugations on certain subgroups, but not the full unit centralizers in both square-zero branches. The repaired element-centralizer argument yields those indices. This assessment concerns the surviving narrower result, not an originality pass for the original graph headline.
+
+## value
+
+PASS
+
+Restricted to the unit-orbit size census, this is an exact invariant of a natural distinguished nilpotent set in the smallest dihedral modular algebra. It quantifies the reduction from element counts to counts modulo all algebra units uniformly over fields, which a total cardinality or a commuting graph within the nilpotent locus cannot supply. The result identifies central singletons and the precise common noncentral orbit size, not representatives or a classification for larger groups.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

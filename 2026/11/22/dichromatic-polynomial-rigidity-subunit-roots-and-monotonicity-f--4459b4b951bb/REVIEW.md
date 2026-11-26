@@ -1,11 +1,21 @@
-# Review of the coherent directed multi-theta dichromatic classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph is defined with \(r\ge2\), \(c\ge1\) and positive internal-arm lengths, making all and only its \(r\) directed cycles explicit. Independent colour-event conditioning yields an integer polynomial identity; differentiation at one followed by cyclotomic multiplicities and finite Möbius inversion proves complete parameter reconstruction. The real-root parity statement follows from a strict logarithmic derivative and endpoint limits, and strict monotonicity from a positive derivative for every real \(x>1\). All quantifiers and simple-root statements have been checked. A standalone exact checker independently enumerates labelled colour assignments and integer polynomial factors.
+## correctness
 
-**Originality — PASS with limited historical priority assurance.** The full November 9, 2026 arXiv paper of Crew et al. was inspected including its general inclusion–exclusion theorem, root results, tournament uniqueness section and open monotonicity conjecture. Its general formula provides the counting mechanism and is not claimed as new; the within-family cyclotomic reconstruction, parity-resolved complete subunit root count, and strict family-specific monotonicity were not stated there. Targeted published mathematical-record comparisons found no stronger exact family theorem. The 2022 foundational work on dichromatic equivalence was accessible only as abstract/publisher preview; without its full text a prior equivalent family construction cannot be excluded. This risk is explicitly retained rather than interpreting a negative keyword search as proof of novelty.
+PASS
 
-**Value — PASS.** The 2026 paper identifies both dichromatic uniqueness and monotonicity as live structural questions. A complete polynomial fingerprint for an infinite nontrivial strongly connected family, with sharp zero-location parity and an all-real-parameter monotonicity proof, directly bridges both gaps. The integer-partition formula also quantifies the exact range of distinct family polynomials at fixed order. This is more informative than simply substituting a small digraph into a general counting identity.
+For c≥1, r≥2 and d_i≥1, the only simple cycles are the r forward-arm/return-path cycles, all with a common return path, giving strong connectivity. With q named colors the return is monochromatic with probability q⁻ᶜ and the conditional forward-interior events are independent with probabilities q⁻ᵈⁱ. This yields the stated polynomial for infinitely many q. Its highest degree is N; the product has a double or higher zero at 1, so P′(1)=c and D=N−c−1. Cyclotomic multiplicities count forward lengths divisible by each index and finite Möbius inversion recovers all length counts. Thus each permitted partition of D into at least two parts contributes a distinct polynomial, proving the census. For 0<x<1 odd r makes both terms in P/x negative. For even r write P/x=xᴰ(1−xᶜ)(H−1), with H=∏(x⁻ᵈⁱ−1)/(1−xᶜ). H runs from +∞ to 0 and its logarithmic derivative obeys xH′/H≤(−r+x)/(1−x)<0 by the geometric-sum bounds; hence the unique crossing is simple. For x>1 each factor in B=∏(1−x⁻ᵈⁱ) is positive, <1 and increasing. The invalid-color fraction x⁻ᶜ(1−B) is strictly decreasing there, and continuity and its value 1 at x=1 give strict normalized increase on the full stated interval.
 
-The result is not globally unique across arbitrary digraphs, does not settle monotonicity for all digraphs, and does not locate all roots.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The product polynomial is an explicit specialization of prior general minimal-cycle inclusion–exclusion; credit that coverage, not a new counting principle. The inspected evidence does not supply the inverse classification of parameters, the parity-sharp positive subunit root count, or the strict normalized theorem from 1 for this family. The pass concerns those consequences and the associated type census, with limited historical-priority assurance.
+
+## value
+
+PASS
+
+The family is natural: all elementary directed cycles share a return path, with arbitrary forward-arm count and lengths. A complete relative fingerprint (and hence an exact fixed-order census), a sharp parity criterion and a strict normalized interval form a full structural test family for the related general questions. The value is in these conclusions rather than the already covered inclusion–exclusion evaluation alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

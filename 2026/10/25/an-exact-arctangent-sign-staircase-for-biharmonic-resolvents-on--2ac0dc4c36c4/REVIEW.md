@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Walsh diagonalization gives the exact binomial resolvent sum. A rational partial-fraction identity, verified by residues, gives the complex product with positive modulus and a cosine of a strictly increasing phase. The phase crosses exactly \(\lfloor d/2\rfloor\) half-integer multiples of \(\pi\); nonvanishing derivatives yield simple roots. A uniform small-parameter Taylor remainder yields the final-crossing asymptotic. The standalone `check.py` passed 5,099 additional finite checks.
+## correctness
 
-## Originality — PASS within inspected evidence
-The 2015 Daners–Glück–Kennedy theory covers qualitative positivity criteria but not this explicit parameter family and full zero count. The closest historical Boolean-cube exponential-heat result is for a different operator function; the finite-cycle biharmonic resolvent is for a different graph geometry. Bibliographic and primary-literature searches for antipodal Green functions, arctangent/gamma identities and equivalent phase formulas did not identify a covering result. Exact titles and similarities are not treated as proofs of priority.
+PASS
 
-## Value — PASS
-Antipodal response is a natural long-range diagnostic of a discrete fourth-order Green operator. The classification explains arbitrarily many sign reversals as dimension grows and proves an explicit last-zero squared-logarithmic dimension law. These facts are useful independently of the unresolved full-matrix positivity horizon.
+For the unnormalized combinatorial Laplacian, normalized Walsh characters have eigenvalues 2k and give the scaled antipodal binomial sum with factor (-1)^k. Independently, the kernel of exp(-s L_d) between antipodes is [(1-exp(-2s))/2]^d by independent coordinate flips. Laplace integration for the ordinary shifted resolvent and the change u=exp(-2s) give its beta product for Re z>0, and rational continuation to z=±i/sqrt(t) is legitimate. Taking the appropriate imaginary part gives the positive product amplitude times cos(sum arctan(a/j)), with a=1/(2 sqrt(t)); this confirms the partial-fraction signs and 2^d normalizing factor. Phase derivative is strictly positive, and the phase ends at dπ/2 only at a=∞. Thus exactly floor(d/2) half-odd multiples of π lie in its open range, including the distinction at odd d; each crossing is simple and remains so under the decreasing parameter change. At p=π/2 the smallest phase root lies between p/H_d and 2p/H_d for large d by the uniform cubic arctangent remainder. Expansion gives a_0=p/H_d+H_d^(3)p³/(3H_d⁴)+O(H_d^(-6)); inverting gives the stated negative H_d^(3)/(6H_d) correction. The independent diagnostic matched 45 exact rational solves on the Hamming-layer quotient for d=2–10 with the binomial sum (independent_recheck.py, cube); the frozen script was inspected, not run. Only the antipodal entry is classified; t=0 is excluded and the last antipodal crossing is only a lower bound for an eventual full-matrix positivity cutoff.
 
-## Limits and risk
-Only antipodal entries are classified. Equivalent previously published product identities under different terminology remain a genuine priority risk; the continuum source was inspected only in abstract form. Claims about entire-matrix entrywise positivity are not made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact finite sign classification and final-zero expansion of this antipodal squared resolvent remain distinct from the inspected heat, time-stepping and path-resolvent results. Ordinary resolvent partial fractions and the beta integral themselves are standard; no priority is claimed for those tools or for eventual positivity in general.
+
+## value
+
+PASS
+
+A natural entry of a standard fourth-order graph resolvent exhibits an unbounded number of sign changes as the graph dimension grows. The exact count, ordered simple crossings and precise logarithmic scale resolve more than eventual positivity or a small-dimensional witness, and can be used to benchmark positivity or reentry for higher-order graph operators. The result neither assumes nor infers entrywise positivity at the antipodal cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

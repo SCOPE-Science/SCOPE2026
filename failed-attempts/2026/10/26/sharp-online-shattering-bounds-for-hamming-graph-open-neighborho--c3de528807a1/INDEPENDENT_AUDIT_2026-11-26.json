@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:06:54.582212Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After a first positive query v, a distinct second positive query w leaves q−2 centers on one coordinate line at distance one, exactly two intermediate centers at distance two, and none beyond that. On a coordinate line a query on the line excludes at most one center; a query off the line includes at most one. Thus every genuine second split has a branch of Littlestone dimension ≤1, the first-positive space has dimension ≤2, and the full dimension is ≤3. In dimension one a negative answer identifies the center; H(2,2) has only two distinct concepts, and in H(3,2) the first-positive space has only three centers and hence cannot realize depth two. The independent replay `python3 /workspace/review-evidence/independent_finite_checks.py 5` verified every frozen certificate path under distance-one labels, giving depths 3,3,2 in H(2,3), H(4,2), H(3,2), respectively. Fixing extra coordinates and restricting symbols preserves all these labels, giving the lower bounds for larger graphs. Independently, no triple in H(2,3) can be VC-shattered: a distance-one pair has only one common neighbor, and a triple of pairwise distance-two points can be relabeled as the diagonal, which has no common neighbor. Two points are shattered. Standard version-space prediction and the shattered-tree adversary identify the dimension with the deterministic realizable mistake bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The mixed-alphabet result classifies open and closed VC and Littlestone dimensions on full Cartesian products of complete graphs; its open formula specializes to the present one when every factor size equals q.",
+          "The distinct exact online result also proves the uniform bound for induced subgraphs."
+        ],
+        "reasoning": "Equalizing the alphabet sizes and selecting the open part entails the entire formula, including the binary exceptions. The broader result is not merely a source using a graph with a similar name.",
+        "searches": [
+          "Resultary: Exact Littlestone dimension or online mistake bound for the class of open neighborhoods of vertices in Hamming graphs H(d,q), especially H(2,3) adaptive dimension 3 versus VC dimension 2, binary exceptional cases H(2,2), H(3,2), and upper bound 3.",
+          "Exact online neighborhood dimensions of mixed-alphabet Hamming graphs, RESULT.md, offset 0"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2007.16042",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-online-neighborhood-shattering-on-hamming-graphs-and-the-u--7cdb5eb909a9/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-online-neighborhood-dimensions-of-mixed-alphabet-hamming-g--4e24e4c568c0/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Adler–Benediktsson–Macpherson prove intersection counts and static VC dimension three for d≥3,q≥3, or d≥2,q≥4, or d≥4; the VC theorem alone does not imply the present online upper bound or H(2,3) lower bound.",
+          "The distinct equal-alphabet online result explicitly proves the positive-positive intersection obstruction and the exact adaptive classification, with the H(2,3) gap."
+        ],
+        "reasoning": "The older static work is partial coverage, not the reason for rejection. The verified exact adaptive theorem already entails the advertised sharp online mistake bound and every dimensional case.",
+        "searches": [
+          "arXiv:2007.16042v1, Section 4, Lemmas 4.2–4.5 and Theorems 4.6–4.7",
+          "Exact online neighborhood shattering on Hamming graphs and the unique VC gap, RESULT.md, Finding, proof and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact online neighborhood shattering on Hamming graphs and the unique VC gap defines the same concept class on [q]^d, queried by the vertices, and states the same exact adaptive formula and H(2,3) gap.",
+          "Mistakes in the deterministic realizable game are characterized by Littlestone dimension; the bound is not a separate theorem requiring new Hamming analysis."
+        ],
+        "reasoning": "The use of sets rather than neighborhood indicators and of [q] rather than {0,…,q−1} changes neither the domain nor any label after relabeling. This is identical statement-level coverage, distinct from the older static VC theorem.",
+        "searches": [
+          "Resultary: Exact Littlestone dimension or online mistake bound for the class of open neighborhoods of vertices in Hamming graphs H(d,q), especially H(2,3) adaptive dimension 3 versus VC dimension 2, binary exceptional cases H(2,2), H(3,2), and upper bound 3.",
+          "Web: “Littlestone dimension” Hamming graph neighborhood class open neighborhoods exact"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The former lists exactly 1 for d=1 or H(2,2), 2 for H(3,2), and 3 otherwise. The latter includes all of these open values in its table."
+        ],
+        "reasoning": "The overlap is with exact all-parameter results rather than selected instances in an empirical graph table. A different finite certificate for one of the entries does not supply a new exact invariant.",
+        "searches": [
+          "Exact online neighborhood shattering on Hamming graphs and the unique VC gap, RESULT.md, Finding",
+          "Exact online neighborhood dimensions of mixed-alphabet Hamming graphs, RESULT.md, finding/table at offset 0"
+        ]
+      },
+      "rationale": "A distinct Resultary record gives the exact all-parameter formula on the identical query domain and open-neighborhood class, with the H(2,3) adaptive/static separation, and additionally addresses induced subgraphs and the uniqueness of the full-graph gap. A second distinct record gives the open table in a broader mixed-alphabet theorem. The asserted mistake bound is an immediate translation of the Littlestone formula, not a surviving independent claim. This is a finding of verified exact coverage, not a conclusion about who obtained or published the theorem first; the catalog-path dates do not settle priority.",
+      "residual_risks": [
+        "Coverage is established independently of catalog dating; chronological priority and whether the overlapping proofs arose independently were not established.",
+        "The targeted academic search was bounded, not an exhaustive history of online or thicket dimension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Static VC and local geometry, not the exact adaptive theorem in these inspected passages.",
+          "evidence": [
+            "Theorem 4.7 excludes H(2,3) from the VC-dimension-three cases and includes H(4,2), giving the known Ldim lower bound there."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2007.16042",
+          "material_read": "Abstract and Section 4, pp. 21–22, Lemmas 4.2–4.3 and 4.5, and Theorems 4.6–4.7 (OA offsets 54154–58389 and 57888–61157).",
+          "method": "Bounded OA PDF passages.",
+          "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "Same open-neighborhood set system and credited intersection geometry and VC comparison."
+        },
+        {
+          "assessment": "Exact coverage of the whole frozen mathematical claim, plus stronger consequences; priority not determined.",
+          "evidence": [
+            "Same open, vertex-queried class and all three exact cases.",
+            "States VCdim=2<Ldim=3 for H(2,3), proves the same dimension-one positive-positive restriction, and includes the induced-subgraph bound."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-online-neighborhood-shattering-on-hamming-graphs-and-the-u--7cdb5eb909a9/RESULT.md",
+          "material_read": "Finding, scope, intersection proof (offsets 0–3064), and Relationship to prior work and Limitations (offsets 6161–7535).",
+          "method": "Bounded mirror readings after resolving the actual shortened path.",
+          "title": "Exact online neighborhood shattering on Hamming graphs and the unique VC gap",
+          "trigger": "Distinct source with an exact overlapping adaptive formula."
+        },
+        {
+          "assessment": "The open equal-alphabet specialization reproduces the target; the source explicitly treats equal-alphabet online results as existing and does not claim them as new.",
+          "evidence": [
+            "The table treats products of complete graphs with multiple possible factor sizes; on the equal-alphabet slice it reproduces all exceptions and H(2,3)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-online-neighborhood-dimensions-of-mixed-alphabet-hamming-g--4e24e4c568c0/RESULT.md",
+          "material_read": "Finding/table (offsets 0–2600) and Relationship to prior work (from offset 9851).",
+          "method": "Bounded mirror reading.",
+          "title": "Exact online neighborhood dimensions of mixed-alphabet Hamming graphs",
+          "trigger": "Plausible dominating theorem under unequal alphabets and both types of neighborhoods."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The dimension and VC gap are useful facts about an elementary learning class, but the record supplies no additional invariant, parameter regime, stronger bound, or distinct technical ingredient beyond the verified overlapping proof and results. The implementation and particular leaf choices are corroboration, not an independent mathematical advance. There is no separately valuable narrower remainder to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

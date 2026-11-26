@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:08:19.028752Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Check the model with rain saturating capacity throughout every prescribed wet burst, no ponded water during dry gaps, no switching costs, full initial capacity and nonnegative gaps. For general positive wet durations w_i let a_i=exp(-k w_i), u_i=1-a_i, and z_i=1-y_i be the deficit at the wet start. Wet j contributes f_min w_j+(Delta/k)u_j(1-z_j); afterwards a dry gap maps the new deficit to exp(-r d_j)(u_j+a_j z_j). Iterating with z_1=0 gives exactly the pair coefficient u_i u_j times the intermediate product of the a_m and the exponential of minus r times the intervening dry sum in the loss. The negative exponential for each adjacent pair supplies the strictly negative Hessian diagonal term -r²u_i u_{i+1} exp(-r d_i); the other pair contributions are negative semidefinite. Thus strict concavity and compactness give uniqueness, including boundary optima. For four equal bursts, reverse the gap order; uniqueness forces d_1=d_3=x. Up to constants the loss becomes 2exp(-rx)+exp(-r(D-2x))+2a exp(-r(D-x)). Its strict convexity and the sign of its derivative at zero, 2r[(1+a)exp(-rD)-1], give x=0 through equality at D_c. At D/2 the derivative is 2r[1-(1-a)exp(-rD/2)]>0, so the interior regime has a unique zero. Rearrangement gives exp(rD)=exp(3rx)+a exp(2rx) and d_2-d_1=log(1+a exp(-rx))/r>0, decreasing to zero as D→infinity. For three equal bursts the sum of the two single-gap exponentials is the only nonconstant part, hence equality of the gaps is always optimal; for two bursts there is no allocation choice. Independent bisection at k=r=w=D=1 gave x=0.24930539617380754, agreeing with the stated example. Inspected checker.py and VERIFICATION.md; did not execute the frozen script. The runoff equivalence uses the stated fixed total rainfall and immediate-runoff model; the theorem itself concerns infiltration volume.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary SWMM text states that recovery applies when there is neither precipitation nor ponded water; Eq. (4-9) is the prescribed-step recovery, not an optimization over multiple gaps.",
+          "Primary retrieval at the two 1974 DOIs and associated publisher routes did not yield readable texts. The frozen discussion reports that the Karmeli–Peri abstract addresses cycle-number and operation-pattern choices; that abstract was not independently verified. A secondary search index mentions Bauer in connection with capacity recovery after intermittent rain.",
+          "The frozen comparison describes the Assouline design variables as rate and irrigation duration. The DOI route failed in this independent inspection, so that comparison is not attributed to a newly inspected full text."
+        ],
+        "reasoning": "A general schedule simulation can be evaluated on the four-pulse family, but without a result optimizing unequal gaps under a fixed total budget, it does not determine the threshold. The closest pulse-design historical titles make sense as priority leads, not as evidence that the same optimization was solved.",
+        "searches": [
+          "Karmeli–Peri DOI 10.1061/JRCEA4.0000988, pulse irrigation principles and cycle/rest design",
+          "Bauer DOI 10.1080/02626667409493900, intermittent Horton infiltration",
+          "EPA/600/R-15/162A §4.2.2",
+          "Assouline DOI 10.1029/2019WR025221"
+        ]
+      },
+      "checked_sources": [
+        "Resultary targeted gap-threshold, concavity and historical pulse-model searches",
+        "6830145589ea",
+        "085aa8fe8a29",
+        "EPA/600/R-15/162A",
+        "10.1061/JRCEA4.0000988",
+        "10.1080/02626667409493900",
+        "10.1029/2019WR025221",
+        "ScienceDirect S0022169420306752 (search index and unsuccessful primary access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Combining already known wet/dry evolution steps produces the model recurrence, not the optimizer. The loss contains both single-gap and overlapping adjacent two-gap penalties, breaking equal spacing despite equal bursts.",
+          "The closest exact storage result has a capacity cap and spill, and changes only the placement of one middle pulse; the older/relevant pulse-design sources yielded no independently readable statement implying a law for the prescribed objective."
+        ],
+        "reasoning": "The derivative switch and interior middle-gap excess are not obtained by substituting parameters into the established model or the different allocation theorem. Confined to the evidence accessible here, the structural gap result survives. Inaccessible full papers remain a material priority qualification, not evidence of absence.",
+        "searches": [
+          "EPA/600/R-15/162A §4.2.2, pp. 91–92, Eq. (4-6) through Fig. 4-4 and Eq. (4-11)",
+          "6830145589ea and 085aa8fe8a29 Findings",
+          "10.1061/JRCEA4.0000988 and 10.1080/02626667409493900 primary access attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the stipulated saturated supply and fixed rainfall total, maximizing infiltrated volume is equivalent to minimizing immediate infiltration-excess runoff, or to minimizing the positive exponential sum of wet-start capacity deficits.",
+          "The SWMM manual's dry recovery gives exponential decay of the capacity deficit toward full recovery in a dry, unponded time step, but is a forward evolution law.",
+          "The broader query retrieved an intermittent revised-Horton simulation paper; the available index description is about continuous infiltration simulation with moisture/drainage controls, not an accessible exact scheduling theorem."
+        ],
+        "reasoning": "The deficit and runoff formulations identify comparable prior work. Saturation-excess overflow of a finite-capacity storage model is not the same objective or equivalent forward state, despite a drying exponential in both.",
+        "searches": [
+          "Resultary: four Horton bursts, gap activation and unequal-duration strict concavity",
+          "EPA/600/R-15/162A §4.2.2 Eqs. (4-6)–(4-11)",
+          "infiltration optimization pulsed irrigation optimum dry intervals fixed total rest time consecutive Horton recovery unequal gap convexity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact best match dc0a9d01824e is the assigned finding itself. Distinct same-day 6830145589ea optimizes spill for three rainfall pulses in an initially empty finite-capacity drying store by varying the middle event time.",
+          "085aa8fe8a29 optimizes the ordering of intensity blocks with nonincreasing infiltration capacity, not dry-gap allocation under recovery."
+        ],
+        "reasoning": "Both distinct catalogue matches are genuine storm-scheduling comparisons, but neither supplies the exponential capacity-deficit pair coefficients, the three-gap optimizer, or the sharp support switch. Same-day dating is not used to exclude coverage or infer priority.",
+        "searches": [
+          "Resultary: four-burst activation threshold; strict concavity unequal Horton pulse durations; Karmeli–Peri and Bauer",
+          "6830145589ea RESULT.md at mirror offset 0",
+          "085aa8fe8a29 RESULT.md at mirror offset 0"
+        ]
+      },
+      "rationale": "The model mechanism is already in the SWMM manual, and related exact gap-allocation and storm-ordering records exist. The actual novelty determination concerns the support threshold, the persistent central-gap excess, and the strict concavity under redistributing fixed rest time in this existing model. The closest exact gap-allocation record changes both the state law and objective. The strongest plausible historical leads (Karmeli–Peri and Bauer) remain incompletely accessible; no whole-document noncoverage or publication priority is claimed. On inspected statements there is no direct or broader coverage of the particular optimization.",
+      "residual_risks": [
+        "The original 1974 articles were not independently readable; a published pulse design could still contain an analogous or equivalent result. No historical priority is asserted against them.",
+        "The engineering capacity law itself is established. Search results and the inspected excerpts do not establish global bibliographic uniqueness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established model ingredient; inspected section not a scheduling theorem",
+          "evidence": [
+            "At time t_r+d the capacity deficit is its value at time t_r multiplied by exp(-k_r d). Recovery is used only in absence of both rain and ponding."
+          ],
+          "identifier_or_url": "https://nepis.epa.gov/Exe/ZyPDF.cgi/P100NYRA.PDF?Dockey=P100NYRA.PDF",
+          "material_read": "§4.2.2, printed pp. 91–92, OA offset 194320, Eqs. (4-6)–(4-11) and Fig. 4-4",
+          "method": "OA EPA PDF by literal locator and bounded equation passage",
+          "title": "Storm Water Management Model Reference Manual, Volume I: Hydrology (Revised)",
+          "trigger": "Original technical statement of the same capacity recovery step"
+        },
+        {
+          "assessment": "Different model, objective and pulse count",
+          "evidence": [
+            "Three prescribed pulses enter an initially empty finite-capacity exponentially drying store; the objective is saturation-excess spill and the variable is the middle event time."
+          ],
+          "identifier_or_url": "6830145589ea",
+          "material_read": "RESULT.md Finding and model, offset 0",
+          "method": "Published finding local mirror",
+          "title": "Convex overflow envelope and exact gap allocation for three rain pulses",
+          "trigger": "Closest exact fixed-gap scheduling comparison, same day"
+        },
+        {
+          "assessment": "Different variables and capacity evolution",
+          "evidence": [
+            "It orders intensity blocks under a nonincreasing infiltration-capacity law rather than assigning dry recovery durations."
+          ],
+          "identifier_or_url": "085aa8fe8a29",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published finding local mirror",
+          "title": "A sharp rainfall-block rearrangement law for infiltration excess",
+          "trigger": "Exact infiltration/runoff scheduling law"
+        },
+        {
+          "assessment": "Unresolved historical lead; no whole-document assessment",
+          "evidence": [
+            "The frozen comparison reports cycle number and operating pattern as design variables. Available independent access did not settle whether a rest-redistribution theorem occurs in the paper."
+          ],
+          "identifier_or_url": "https://doi.org/10.1061/JRCEA4.0000988",
+          "material_read": "Bibliographic data and frozen description of abstract; original article and abstract not independently read",
+          "method": "Lawful OA DOI and publisher attempts plus focused query (no primary passage)",
+          "title": "Basic Principles of Pulse Irrigation",
+          "trigger": "Plausibly broad older wet/rest design work"
+        },
+        {
+          "assessment": "Potential recovery-law overlap; optimization coverage unresolved",
+          "evidence": [
+            "The secondary excerpt attributes recovery during longer interruptions to Bauer, but does not describe a gap allocation objective or theorem."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/02626667409493900",
+          "material_read": "Bibliographic data and secondary search excerpt only; no primary passage retrieved",
+          "method": "OA DOI and publisher attempts; secondary trace via 10.1080/02626667.2011.609485",
+          "title": "A Modified Horton Equation for Infiltration During Intermittent Rainfall",
+          "trigger": "Older intermittent-Horton primary model"
+        },
+        {
+          "assessment": "Reported rate/duration focus; no independent whole-document noncoverage finding",
+          "evidence": [
+            "The frozen comparison identifies the variables as irrigation intensity and duration, not the allocation of fixed rest time."
+          ],
+          "identifier_or_url": "https://doi.org/10.1029/2019WR025221",
+          "material_read": "Bibliographic data and frozen description; no primary passage independently retrieved",
+          "method": "OA DOI access attempt returned 403",
+          "title": "A Simple Method to Design Irrigation Rate and Duration and Improve Water Use Efficiency",
+          "trigger": "Possible modern irrigation-design optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For fixed wet exposure and dry time, the allocation is a natural control problem for this accepted empirical model. The first equal-burst count that changes which gaps should be used has an exact, nontrivial boundary, and evenly spaced gaps are strictly suboptimal even once all three gaps are positive. The general strict concavity also identifies a unique allocation for unequal predetermined pulses, making this useful as a benchmark for numerical scheduling. The result is not a field-validated recommendation; it assumes saturated wet input, no ponding in recovery, full initial capacity and no switching overhead.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

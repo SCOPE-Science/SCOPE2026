@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:47:44.742249Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§ Finding, Proof and Verification; VERIFICATION.md; verify.py (read, not executed)",
+        "Independent replay: python3 /workspace/checks/check_exact.py 5 (21,172 support inputs through 200,000; hits 12,44,332; auxiliary sieve through 50,000)"
+      ],
+      "rationale": "The exact cototient is m=2^(a-1)p^(b-1)(p+1). If b>=2, divide D(m)=2^a p^b by p^(b-2); reducing modulo p forces p|(b-1), since p does not divide 2^(a-1)(p+1). The logarithmic derivative then bounds (a-1+t)/2+(b-1)/p+D(u)/u strictly below 2. It forces a=t=1 and b=p+1; the product rule would give D(2u)=p-1, contradicting the odd parity of u+2D(u). At b=1, cancelling 2^(a-2+t) gives (a-1+t)u+2D(u)=2^(2-t)p. Integrality excludes t>=3; the parity and nonnegativity constraints for each remaining t force a=2. Substitution gives each stated auxiliary equality in both directions, including u=1 at t=2. A squared prime divisor of u would divide D(u) and contradict cD(u)=u-1. The three examples and both bounded lists were reproduced independently; the valuation/parity proof, not the sieve, supplies the unrestricted quantifier.",
+      "residual_risks": [
+        "The proof is for positive a,b and odd prime p; it does not enumerate either auxiliary family or other supports."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The squarefree port equation cB-RD(B)=1 includes 2D(u)=u-1 at (R,c)=(2,1)."
+        ],
+        "reasoning": "The general port theorem already subsumes the second auxiliary identity, but starts with the port data; it neither rules out other exponents in the original equation nor imposes the prime constraint.",
+        "searches": [
+          "Han Wang arXiv:2605.21518v1 §6, Definition 6.1 and Lemma 6.3"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A248817 and A054377",
+        "Wang, arXiv:2605.21518v1, §6",
+        "Local Resultary exact and near-match searches and cited SCOPE Finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Closest matched SCOPE record 2026/10/4/SCOPE-sharp-support-thresholds-for-the-arithmetic-derivative-cototient--b2439d05e1a7 concerns D(n)-(n-φ(n)), not D(n-φ(n)). Wang assumes a squarefree port argument to begin with."
+        ],
+        "reasoning": "No examined passage implies both a=2,b=1 and the valuation/prime-constrained equivalence for arbitrary exponents. A subtraction-form threshold has a different input to D and cannot furnish the exclusion.",
+        "searches": [
+          "Local Resultary: arithmetic derivative cototient and support thresholds; exact equation and support rigidity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For squarefree u, t=1 reduces to odd primary pseudoperfect u; t=2 reduces to even primary pseudoperfect 2u by D(2u)=u+2D(u). The prime test p=2u-1 or p=4u-1 is additional."
+        ],
+        "reasoning": "Neither auxiliary problem is novel in itself; the new implication is that all possible exponents and valuations on the stated support must reduce to these alternatives.",
+        "searches": [
+          "Local Resultary: exact cototient-derivative equation and two-prime-support classification",
+          "OEIS A054377: primary pseudoperfect derivative/reciprocal formulations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A248817 lists 12,32,44,332 and records n=(n-φ(n))′. A054377 lists 2,6,42,1806 and onward, with odd examples unresolved."
+        ],
+        "reasoning": "The three in-scope examples are known, and 32 is out of scope. Neither database gives the theorem for all 2^a p^b.",
+        "searches": [
+          "OEIS A248817 (exact equation and terms)",
+          "OEIS A054377 (auxiliary sequence)"
+        ]
+      },
+      "rationale": "The investigated prior sources cover the equation, examples and auxiliary equations, not the unrestricted two-prime exponent collapse and its prime-constrained iff. This is a bounded best-of-knowledge judgment.",
+      "residual_risks": [
+        "An unindexed proof or OEIS-adjacent note could give the same reduction. The full text of the Butske–Jaje–Mayernik paper was not available in the inspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the equation and examples, not the theorem",
+          "evidence": "n=(n-φ(n))′; entry includes 12,32,44,332 and attribution in 2014.",
+          "identifier_or_url": "https://oeis.org/A248817",
+          "material_read": "Definition, listed terms and attribution, HTML offset 0",
+          "method": "OA page",
+          "title": "Numbers that are equal to the arithmetic derivative of their cototient",
+          "trigger": "Identical equation and numerical hits"
+        },
+        {
+          "assessment": "Covers auxiliary forms, not necessity on cototient support",
+          "evidence": "Reciprocal equation 1/N+Σ_{q|N}1/q=1 and derivative equivalence D(N)=N-1; odd existence unresolved.",
+          "identifier_or_url": "https://oeis.org/A054377",
+          "material_read": "Definition and comments/terms, HTML offset 0",
+          "method": "OA page",
+          "title": "Primary pseudoperfect numbers",
+          "trigger": "Potential reparameterization of both auxiliary equations"
+        },
+        {
+          "assessment": "Exact general coverage of the auxiliary port, not the cototient classification",
+          "evidence": "With squarefree B, Δ_(R,c)(B)=cB-RD(B)=1; (R,c)=(2,1) gives the t=2 branch identity.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.21518",
+          "material_read": "Abstract (p. 1) and §6 pp. 6–7, offset 19524, Definition 6.1, (11)–(12), Lemma 6.3",
+          "method": "OA PDF, bounded passages",
+          "title": "Port Fillings for Primary Pseudoperfect Numbers",
+          "trigger": "Broader theorem on derivative port identities"
+        },
+        {
+          "assessment": "Different equation",
+          "evidence": "Defines G(n)=D(n)-(n-φ(n)); no implication for exponent collapse in D(n-φ(n))=n.",
+          "identifier_or_url": "2026/10/4/SCOPE-sharp-support-thresholds-for-the-arithmetic-derivative-cototient--b2439d05e1a7",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Sharp support thresholds for the arithmetic-derivative cototient expression",
+          "trigger": "Strongest close local Resultary match"
+        },
+        {
+          "assessment": "Full-text overlap not resolved; no positive evidence of the support classification",
+          "evidence": "The title identifies the reciprocal auxiliary equation, not the original cototient equation.",
+          "identifier_or_url": "doi:10.1090/S0025-5718-99-01088-1",
+          "material_read": "Bibliographic identification only; full text not read",
+          "method": "Lawful OA retrieval returned 403; no alternate repository full text obtained",
+          "title": "On the equation Σ_{p|N}1/p+1/N=1, pseudoperfect numbers, and perfectly weighted graphs",
+          "trigger": "Plausible earlier coverage of the two auxiliary branches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md §§ Finding, Proof, Limitations",
+        "OEIS A248817 and A054377"
+      ],
+      "rationale": "For a pre-existing arithmetic-derivative equation, an exact natural-support result collapses two unbounded exponents to a single shape n=4p, gives an immediate mod-8 exclusion, and makes the remaining difficulty precise in terms of primary pseudoperfect numbers and an extra primality condition. This is a structural restriction and an iff, not a new numerical table or a claim to have exhausted the prime-constrained families.",
+      "residual_risks": [
+        "Value is confined to the given support; neither existence in the odd branch nor total enumeration is resolved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

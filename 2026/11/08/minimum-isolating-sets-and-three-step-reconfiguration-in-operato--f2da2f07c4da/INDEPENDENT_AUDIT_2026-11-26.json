@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:47:01.801296Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5; VERIFICATION.md; verify_patterns.cpp and patterns_output.txt; verify_direct.py and direct_output.txt",
+        "Independent replay: python3 /workspace/branches/independent_kg_isolating.py"
+      ],
+      "rationale": "For any two selected K_n edges, a disjoint pair of unselected edges can meet both, whether the selected edges meet or not. For three selected edges, the only failing type is P4: its two diagonally crossing witnesses are disjoint and meet all three selected edges. A triangle or 3K2 leaves nothing; a star or P3 plus K2 leaves only edges through a single common point. There are 12 forbidden triples per four-set. Deleting one selected edge leaves either an adjacent pair (2(n-3) P4 extensions) or a disjoint pair (4 extensions); subtracting these from the Johnson degrees gives every table entry. Independently checked the universal upper bound by a different reduction from the frozen partition program: any pair uses at most 12 endpoint labels, so embed in K12 and relabel the first triple to one of four type representatives. Directly testing the original isolation condition gave 39,820 K12 states; for each representative and each such target (159,280 pairs), testing for a direct edge, common neighbor, or adjacent first/last neighbors inside the union gave a path of at most three. Since paths only use edges of that union, they pull back to every original n, including n<12. Two disjoint states in K5 force three steps, and the nonisometry witness has all four potential Johnson intermediates forbidden. The independently written check also reproduced the example state and edge counts at n=5,6,7,8.",
+      "residual_risks": [
+        "The general upper-bound proof is a finite exhaustive certificate, not a symbolic exchange lemma. No statement for token slides or KG(n,k) with k>2 is verified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 11 concerns iota(G)=|V(G)|/3; the relevant Resultary statements instead require two selected vertices on a short geodesic, or domination plus an induced perfect matching."
+        ],
+        "reasoning": "Neither an extremal classification at equality nor stronger/different domination objectives determine which triples isolate or the moves between them.",
+        "searches": [
+          "arXiv:2401.03933v2 Theorem 11",
+          "Resultary 8fb72445b963 and 785c37304582"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f2da2f07c4da (self), 8fb72445b963 and 785c37304582",
+        "arXiv:1504.08055v1",
+        "arXiv:2401.03933v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "8fb72445b963 gives only matchings as minimum triples at n=6,7 and gives minimum four at n=5 and n≥8; the audited isolation families include multiple nonmatching types and have minimum three throughout. Prior Petersen scalar value gives no move information."
+        ],
+        "reasoning": "The matching overlap at two orders does not imply the P4-only exclusion, its extensions/degrees, or diameter three. Diameter results on the host graph are not exchange-graph results.",
+        "searches": [
+          "Resultary 8fb72445b963 and 785c37304582 Findings",
+          "arXiv:1504.08055v1 §1.2 and Example 2.1(3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Caro–Hansberg's {K2}-isolating predicate is identical; Boyer–Goddard identify it as vertex-edge domination. The Petersen value three is explicit."
+        ],
+        "reasoning": "No originality is assigned to the predicate, the alias, or the numerical n=5 specialization; their statements do not classify all minimum sets or exchanges.",
+        "searches": [
+          "arXiv:1504.08055v1 §1.2 and Example 2.1(3)",
+          "arXiv:2401.03933v2 Introduction; Kneser isolation under the vertex-edge domination alias"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue exact match f2da2f07c4da is the assigned record; 785c37304582 enumerates paired-dominating sets of size six on Petersen, not the sixty isolating triples. Example 2.1(3) gives only the Petersen number, not the minimum-triple or move census."
+        ],
+        "reasoning": "No independent exact statement or table of the claimed minimum-set and exchange data was identified in the sources checked.",
+        "searches": [
+          "Resultary exact Kneser isolation/P4-exception/count/exchange query",
+          "Caro–Hansberg Example 2.1(3)"
+        ]
+      },
+      "rationale": "The known numerical Petersen case is explicitly not a contribution. The strongest related published statements concern different predicates or extremal ranges and do not yield the all-order minimum configurations, induced exchange graph, or its sharp diameter/nonisometry. The exact Resultary hit is this same record.",
+      "residual_risks": [
+        "Bounded literature/catalogue coverage; unindexed exact results under isolation or vertex-edge domination remain possible. A result on the host Kneser diameter was available only at snippet level and is not relied on for exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent definition and prior scalar n=5 result; no implication of remaining result from these statements",
+          "evidence": "The undominated vertices induce no K2; 'If P is the Petersen-graph, iota(P)=3'.",
+          "identifier_or_url": "https://arxiv.org/abs/1504.08055v1",
+          "material_read": "§1.2 p.3 and Example 2.1(3) p.4, OA offsets 8164 and 10856",
+          "method": "Primary OA passage inspection",
+          "title": "Partial domination—the isolation number of a graph",
+          "trigger": "Identical parameter and exact boundary case"
+        },
+        {
+          "assessment": "Equivalent parameter and a different extremal problem",
+          "evidence": "Isolation is equivalently vertex-edge domination. Theorem 11 classifies connected graphs with isolation number one third of order.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.03933v2",
+          "material_read": "Abstract, Introduction p.1, Theorem 11 p.7 (OA offset 12521)",
+          "method": "Primary OA passage inspection",
+          "title": "Disjoint isolating sets and graphs with maximum isolation number",
+          "trigger": "Identical parameter under alternate name and possible general structural theorem"
+        },
+        {
+          "assessment": "Different predicate; partial overlap of matching triples at two orders",
+          "evidence": "Each exterior vertex lies on a shortest path of length at most two containing at least two selected vertices; the only optimal triples at n=6,7 are matchings.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-3-2-geodesic-domination-of-rank-two-kneser-graphs--8fb72445b963",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Published Resultary local mirror",
+          "title": "Sharp (3,2)-geodesic domination of rank-two Kneser graphs",
+          "trigger": "Same host family and a complete minimum-triple assertion"
+        },
+        {
+          "assessment": "Different predicate and cardinalities",
+          "evidence": "Dominating with an induced perfect matching; all minima have size four for n≥6, six for n=4,5.",
+          "identifier_or_url": "2026/10/26/SCOPE-minimum-paired-domination-in-two-subset-kneser-graphs--785c37304582",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published Resultary local mirror",
+          "title": "Minimum paired domination in two-subset Kneser graphs",
+          "trigger": "Exact configuration counts on same hosts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, degree table, and two exchange witnesses"
+      ],
+      "rationale": "This gives a complete optimal-state space for a natural infinite family, not a new label for the Petersen scalar minimum. The simple forbidden-pattern description exposes degree heterogeneity and a uniformly sharp exchange bound even though ambient Johnson geodesics need not remain feasible.",
+      "residual_risks": [
+        "No broader reconfiguration claim beyond this move rule and this family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

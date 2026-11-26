@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:25:33.385969Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–48, independently reconstructed via coordinate partitions and factorial moments",
+        "Frozen CHECK.py, CHECK_OUTPUT.txt and VERIFICATION.md; inspected recorded finite tests without executing uploaded code",
+        "Independent factorial coefficient sums and explicit two-identification coordinate counts for k=3 and 4"
+      ],
+      "rationale": "For every pair of Kneser vertices, including repeated endpoints, a common neighbor exists since n≥3k. Thus every nonempty state reaches all one by step two; the empty state remains empty and all-one is absorbing. One-step coverage is equivalent to the absence of a transversal of size at most k, since such a transversal can be extended to exactly k. Up to k seeds always have one; k+1 seeds have one iff they intersect in some pair. In an independent ordered draw of k+1 ordered k-sets, the disjointness probability is (n)_{k(k+1)}/(n)_k^{k+1}; conditioning on distinct seeds multiplies by 1+O(n^{-k}). Subtracting the first and second sums of falling-factorial log terms gives log D=−A/n−(B+A²/2)/n²+O(n^{-3}), with the asserted signs after exponentiating. For k+2 seeds, use independent ordered draws without repetition within each seed. A fixed admissible equality pattern of codimension d on the k(k+2) coordinate slots has probability O(n^{-d}) (match its blocks to distinct ground points). With at most two lost distinct points there is either one triple block or two double blocks; the saving of two transversal picks requires a triple from distinct seeds or two double blocks on four different seeds. With double blocks sharing a seed, even choosing both block points saves at most one. These exact patterns are disjoint and each has probability n^{-2}+O(n^{-3}), from the falling-factorial count; conditioning away repeated entire seeds again costs O(n^{-k}). Independent small symbolic/count checks recovered (A,B,C)=(54,−1215,1485) and (160,−11600,12800) for k=3,4, with the respective triple/pair split (270,1215), (1280,11520). For M≥k+3 and failure, some ground k-set is hit by at least k+3 selected seeds. Its hit-family has O(n^{k−1}) possible seeds, so the (k+3)th binomial factorial-moment bound gives O(n^{-k-3}) per transversal candidate and O(n^{-3}) overall. The finite collection of fixed-count binomial masses differs from the Poisson masses by O(1/N); this also controls the baseline tail via its complement. Subtract p^N, negligible in the expansion, to distinguish first hitting from all-one at t=1. This proves the normalization and the stated uniform-in-n remainder for fixed k,λ.",
+      "residual_risks": [
+        "The finite samples do not certify the remainder; k≥3 fixed is material because N^{-1}=O(n^{-3}) is used, and λ is fixed positive."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5 specializes at multiplicity one to the minimum size k+1 and clique minimizers for n≥k(k+1)",
+          "Cornet–Torres use closed neighborhoods, and Jarrah et al. discuss cycle behavior without a sparse-seed probability in the inspected passage"
+        ],
+        "reasoning": "These cover meaningful prior structural facts but give no multiplicities of two-collision failures with one extra seed and no error bound for the Bernoulli mixture.",
+        "searches": [
+          "Brešar–Cornet–Dravec–Henning arXiv:2312.15464 Theorem 5",
+          "Cornet–Torres arXiv:2308.15603 Theorem 11",
+          "Jarrah–Laubenbacher–Veliz-Cuba arXiv:0805.0275; Östergård–Shao–Xu Kneser domination bounds"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary searches, including rank-two and same-day Johnson records",
+        "Brešar–Cornet–Dravec–Henning Theorem 5",
+        "Cornet–Torres definitions and Theorem 11",
+        "Jarrah et al. structural passage",
+        "Östergård–Shao–Xu lawful access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Minimum-set theorem implies the disjoint-family term eventually, but no statement there determines the k+2 failures",
+          "Earlier polynomial specializes to rank two, where the present second-order bookkeeping of repeated seeds would itself need modification"
+        ],
+        "reasoning": "A mechanical corollary would need a prior all-rank near-minimum counting/cover law, not just the minimal possible total dominating set nor the limiting dynamical attractor. No such prior implication was verified.",
+        "searches": [
+          "Theorem 5 in arXiv:2312.15464 and local Resultary 25e19d001ea1 and 8ab3558fe450 exact statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Open-neighborhood coverage is total domination; in the ground-set hypergraph it is exactly τ≥k+1",
+          "Resultary 25e19d001ea1 explicitly uses τ≥3 for KG(n,2) and counts its total dominating sets"
+        ],
+        "reasoning": "An all-fixed-rank generating function for total domination could be evaluated at Bernoulli weights to give the probability, but the retrieved exact rank-two polynomial is outside the rank range and not such a formula.",
+        "searches": [
+          "Kneser random OR seeds, total/open-neighborhood domination and random uniform hypergraph transversal number",
+          "Resultary total domination polynomial / Kneser cover band / rare-seed consensus"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Records 25e19d001ea1 and 0911d0775271 treat rank-two Kneser total domination; the former polynomial and latter inclusion-minimal enumeration do not encompass fixed k≥3",
+          "Record 8ab3558fe450 treats Johnson adjacency and logarithmic-density Poisson windows for uncovered shadows",
+          "The exact semantic hit bb755b8c9ba3 is this assigned record"
+        ],
+        "reasoning": "Neither a different statistic/rank nor logarithmic windows on a different graph yield the specific expansion. The same-day Johnson comparison is substantively different irrespective of publication order.",
+        "searches": [
+          "Resultary KG(n,2) total-domination polynomial and inclusion-minimal enumeration",
+          "Resultary Poisson consensus windows, Kneser/Johnson OR dynamics"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the quantitative first-hit expansion, not for OR-network propagation or deterministic minimum total domination. The nearest theorem gives the eventual k+1/disjoint threshold; the nearest exact polynomial covers rank two only; and the distinct same-day Johnson record treats a different adjacency and regime. The new content is the second-order rare-seed correction, including the k+2 transversal obstruction coefficient and the control needed to mix over all larger families.",
+      "residual_risks": [
+        "An equivalent rare-hypergraph transversal expansion under another vocabulary may exist.",
+        "The 2015 Kneser domination paper was not retrieved in full; bounded searches do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the eventual deterministic threshold and minimizers",
+          "evidence": "The k-tuple total-domination theorem specializes at multiplicity one to disjoint k+1 seeds for fixed rank k and sufficiently large n.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.15464",
+          "material_read": "p. 1 definitions; p. 4 Theorem 5 (text near offset 15007)",
+          "method": "Bounded OA PDF reading",
+          "title": "k-Domination invariants on Kneser graphs",
+          "trigger": "Closest general Kneser total domination theorem"
+        },
+        {
+          "assessment": "Different domination predicate",
+          "evidence": "Closed-neighborhood k-tuple domination is not the time-one OR open-neighborhood event.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.15603",
+          "material_read": "p. 1 definition; p. 10 Theorem 11 (near offset 30585)",
+          "method": "OA PDF statement comparison",
+          "title": "k-tuple domination on Kneser graphs",
+          "trigger": "Domination-parameter alias"
+        },
+        {
+          "assessment": "Known propagation context, not the probability expansion in inspected passage",
+          "evidence": "The inspected results concern dependency-graph structure and cycle behavior.",
+          "identifier_or_url": "https://arxiv.org/abs/0805.0275",
+          "material_read": "p. 4 structural/cycle passage (near offset 11000)",
+          "method": "Bounded OA PDF reading",
+          "title": "The Dynamics of Conjunctive and Disjunctive Boolean Networks",
+          "trigger": "General OR-network dynamics"
+        },
+        {
+          "assessment": "Shared hypergraph transversal equivalence, wrong rank for implication",
+          "evidence": "Exact polynomial of KG(n,2) and upper-band unique two-point obstruction do not give the k≥3 low-count corrections.",
+          "identifier_or_url": "Resultary 2026/10/12/SCOPE-total-domination-polynomial-and-unique-cover-band-of-kneser-grap--25e19d001ea1",
+          "material_read": "Local-mirror RESULT Finding/assumptions at offset 0; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local catalogue and mirror passage inspection",
+          "title": "Total domination polynomial and unique cover band of Kneser graphs",
+          "trigger": "Exact total-domination polynomial alias"
+        },
+        {
+          "assessment": "Different edges, density window and uncovered objects",
+          "evidence": "Johnson log-density windows are not a fixed-mean Kneser rare-seed expansion.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-a-hierarchy-of-poisson-consensus-windows-in-disjunctive-johnson--8ab3558fe450",
+          "material_read": "Local-mirror RESULT Finding and assumptions at offset 0",
+          "method": "Local catalogue and mirror passage inspection",
+          "title": "A hierarchy of Poisson consensus windows in disjunctive Johnson networks",
+          "trigger": "Closest same-day random consensus comparator"
+        },
+        {
+          "assessment": "Unresolved at full text",
+          "evidence": "Access timeout does not support a whole-document noncoverage assertion.",
+          "identifier_or_url": "https://www.dlib.si/details/URN:NBN:SI:doc-G3YP01PE",
+          "material_read": "Bibliographic identification only; PDF/primary reading unavailable",
+          "method": "Lawful OA Dlib attempts",
+          "title": "Bounds on the domination number of Kneser graphs",
+          "trigger": "Earlier Kneser domination result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and independent expansion/partition classification",
+        "Primary minimum-total-domination comparison and rank-two catalogue comparison"
+      ],
+      "rationale": "In a natural bounded-time OR process on a standard family, the rare-seed approximation quantifies when one update suffices rather than two. The first two correction orders resolve a deterministic threshold, a disjointness penalty, and two non-equivalent multi-seed collision mechanisms; the second-order term cannot be read off the minimum total domination number. The explicit coefficient and all-sizes remainder are useful for finite-size comparison at fixed rank.",
+      "residual_risks": [
+        "This is specifically a fixed-rank Bernoulli expansion, not a new general dynamics or domination classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

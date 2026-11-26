@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:16:59.039624Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–51, VERIFICATION.md and verify.py (inspected without execution)",
+        "Independent replay: python3 /workspace/audit-evidence/replay_1.py (SymPy, mpmath and exact Fraction arithmetic)"
+      ],
+      "evidence": [
+        "Independent 64-term exact series enclosure with geometric remainder and interval Horner evaluation of A certified G>6170/10000 across 512 closed rational subintervals (not point sampling). Original fixed-point rounding and series bounds were inspected; the replay uses different enclosures.",
+        "Symbolic checks confirm derivative, two endpoint expansions, equilateral value and curvature, and tail algebra. Separate side-pair quadratures at five ratios agree within 1e−33 at the stated precision; they are numerical corroboration only."
+      ],
+      "rationale": "For each ordered side pair, the arclength expectation uses product length measure divided by (2+t)², followed by division by (2+t); the same-side integrals are a³/3. For unlike sides, homogeneity gives the factor 3 in divergence of (x f,y f) for f(x,y)=sqrt(x²+y²−2qxy); only the two outer edges contribute. Using J(z;k)=(z sqrt(z²+k²)+k² asinh(z/k))/2 on each edge yields the displayed integrals: on equal legs the log ratio is (1−q+t)/(1−q)=(2+t)/t, and on a leg/base pair the two edge logs reduce to H and L respectively. Summing two ordered leg/leg and four ordered leg/base terms proves the formula at all 0<t<2. Differentiation and the identity L−H=−(t−1)K give F=−(t−1)G. At the small end A/t>=8, L>log 16>8/3, H<=256t/255 and the polynomial is >=−14t. At the large end A<0, L>=2/(t+1) by the atanh bound and H>3 by the first five positive series terms; the resulting upper bound on F equals (t−2)(11t+9)/(t+1). Each inequality has the required coefficient sign. On the middle interval the independent rational enclosure covers every subinterval including t=1; positivity proves both strict branches. Expanding exact log and analytic factors at t=0 and s=2−t=0 gives the stated remainders and coefficients. R(1)=(2+log 3)/18, R'(1)=0 and R''(1)=4(1−log 3)/81; analyticity there gives the quadratic deficit. The common endpoint limits 1/6 together with strict monotonicity yield the exact range and equality case.",
+      "residual_risks": [
+        "Middle-interval proof is computer-assisted; the replay is not a formal proof assistant certification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The convex-curve theorem implies the strict lower inequality R>1/6. The disk upper bound 2/pi², reported there as Tokmachev's theorem, is weaker than the triangle upper bound and does not identify a triangle optimizer.",
+          "For the flattened triangle use a similarity making the base [-1,1] and width eps(1−|x|), eps=sqrt(4−t²)/t. The same-day lens theorem has coefficient (1/32)∫(1−|x|)² dx=1/48 for eps² log(1/eps), and eps²=s+O(s²) gives exactly (s/96)log(1/s). Its error is only O(s), so it cannot extract the finite coefficient of s.",
+          "The small-base limit in short-base coordinates has a vertical edge in the needle direction or changing profiles, not the fixed admissible Lipschitz graphs joined at both tips used in that theorem. The stadium result is for a different needle family."
+        ],
+        "reasoning": "Credit the prior universal strict lower inequality and the exact same-day overlap in the leading flattened-triangle term. These do not provide the exact curve or imply the distinct extremal and remainder assertions.",
+        "searches": [
+          "Shen arXiv:2611.21661v1 Thm. 1.1 and introduction; Tokmachev MathNet znsl7205",
+          "Resultary 5e66fde6292b fixed-profile collapsing convex lenses and e9fe3b5c1d68 degenerating stadiums"
+        ]
+      },
+      "checked_sources": [
+        "Shen arXiv:2611.21661v1 p.1 and arXiv:2608.06470v4 p.1",
+        "Resultary 5e66fde6292b, 28c76116152b, e9fe3b5c1d68, d886b40f95a8 and 38e56e27b473",
+        "Tokmachev via landing/attribution only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two bounding inequalities hold for every convex body and impose no comparisons between two different triangle side ratios. The fixed-lens theorem has remainder of the same order as the triangle's finite linear correction. The shape derivative and short-base expansion require separate calculations."
+        ],
+        "reasoning": "A weaker global envelope, an asymptotic law accurate only up to O(s), and a different polygonal shape with its own extremizer leave the complete isosceles profile undetermined. One partial precise implication (the flattened leading term) has been identified, not discounted.",
+        "searches": [
+          "Shen 2611.21661 Thm. 1.1 and disk theorem attribution; Resultary 5e66fde6292b Finding/scope; 28c76116152b Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 28c76116152b studies the same normalized expected length but for rectangles: exact profile, unique square maximum, and needle and local expansions. This is not a change of parametrization of the isosceles triangle family.",
+          "Shen arXiv:2608.06470v4 compares the boundary and interior sampling expectations; it does not give a triangle shape curve."
+        ],
+        "reasoning": "Normalizing the perimeter rather than the equal leg is equivalent by similarity, but choosing points in the interior, changing power, or choosing a different boundary shape is not. The same-day rectangle comparison is an analogy, not a different statement of this theorem.",
+        "searches": [
+          "Local Resultary: exact first-distance moment of independent triangle boundary points, isosceles mean chord profile",
+          "Web: boundary mean distance arclength random points convex curve perimeter normalized sharp inequality isosceles triangle explicit profile asymptotics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d886b40f95a8 computes the second moment, not the expectation of the first power; 38e56e27b473 uses second and fourth moments plus perimeter to reconstruct side lengths. No matching first-power formula was found among inspected records; numerical check values are not an independent publication."
+        ],
+        "reasoning": "Recovering the side lengths supplies geometric input but not a first-power evaluation or its sharp derivative signs. Finite low moments without a separate first-moment formula do not give this profile.",
+        "searches": [
+          "Local Resultary: exact distance first moment arbitrary triangle boundary; comparison with d886b40f95a8 and 38e56e27b473"
+        ]
+      },
+      "rationale": "The supported distinct claim is the explicit first-power isosceles shape profile, strict unimodality and unique equilateral maximizer, with the resolved degeneration expansions and local deficit. The strict universal lower bound is known. The same-day fixed-width-profile theorem actually covers the leading flattened-triangle logarithmic coefficient, but not the finite linear coefficient, the short-base degeneration, or the global profile. No priority is asserted for the covered parts or inferred from same-day dates.",
+      "residual_risks": [
+        "Full Tokmachev text was not accessible; hidden historical exact triangular calculations and general first-moment formulas remain possible. Independent comparison does not establish same-day priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the universal lower inequality; upper bound not a ranking of triangles",
+          "evidence": [
+            "Thm. 1.1: theta(K)>per K/6; 1/6 sharp. The introduction attributes disk-only equality in the upper bound 2/pi² to Tokmachev."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.21661",
+          "material_read": "Page 1 definition, introduction and Theorem 1.1, text offset 1950–3379",
+          "method": "Open primary PDF, theorem and attributed upper bound",
+          "title": "A Sharp Perimeter Inequality for Mean Distances on Convex Curves",
+          "trigger": "Same normalized arclength mean statistic and sharp lower bound"
+        },
+        {
+          "assessment": "Known disk maximum; unseen material not ruled out as a source of formulae",
+          "evidence": [
+            "Shen identifies the disk as the unique maximizer over convex bodies."
+          ],
+          "identifier_or_url": "https://www.mathnet.ru/eng/znsl7205",
+          "material_read": "Search result/landing material and explicit attribution in Shen p.1, not full original",
+          "method": "Lawful MathNet and Springer lookups; use of attributed theorem for comparison",
+          "title": "The Mean Distance Between Random Points on the Boundary of a Convex Figure",
+          "trigger": "Earlier maximal perimeter-normalized expectation"
+        },
+        {
+          "assessment": "Boundary/interior comparison, not shape-dependence within triangles",
+          "evidence": [
+            "Its comparison changes sampling between boundary arclength and region area."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.06470v4",
+          "material_read": "Page 1, motivating comparison",
+          "method": "Primary OA theorem-level inspection",
+          "title": "The Zaporozhets–Tarasov Conjecture on Mean Distances",
+          "trigger": "Same definition of boundary expectation"
+        },
+        {
+          "assessment": "Demonstrable partial coverage of leading flattened term; same-date priority unresolved",
+          "evidence": [
+            "The general coefficient is (1/32)∫h², with fixed profiles on [-1,1] and O(eps²) error. The tent yields 1/96 in s units, but the O(s) term cannot be read from it."
+          ],
+          "identifier_or_url": "Resultary 5e66fde6292b",
+          "material_read": "Mirrored Finding and scope, offsets 0–3571, and targeted proof passages through offset 6155",
+          "method": "Local Resultary and mirror; explicit tent substitution",
+          "title": "Universal logarithmic mean-distance law for collapsing convex lenses",
+          "trigger": "General thin-body asymptotic for the identical normalized expectation"
+        },
+        {
+          "assessment": "Close analogy but distinct scope, without priority inference",
+          "evidence": [
+            "Strict branch, square extremum and asymptotics for rectangles."
+          ],
+          "identifier_or_url": "Resultary 28c76116152b",
+          "material_read": "Mirrored Finding, offsets 0–2983",
+          "method": "Local Resultary and mirror",
+          "title": "Sharp boundary chord mean-distance profile of Euclidean rectangles",
+          "trigger": "Same-day exact profile, extremizer and degeneration for a polygon family"
+        },
+        {
+          "assessment": "Different collapsing shape",
+          "evidence": [
+            "Rounded stadiums, not isosceles triangles."
+          ],
+          "identifier_or_url": "Resultary e9fe3b5c1d68",
+          "material_read": "Mirrored Finding, offsets 0–2959",
+          "method": "Local Resultary and mirror",
+          "title": "Logarithmic mean-distance deficit for degenerating Euclidean stadiums",
+          "trigger": "Same-day separate logarithmic degeneration law"
+        },
+        {
+          "assessment": "Other moment orders or inverse data, not the first distance moment",
+          "evidence": [
+            "First result evaluates a squared distance. Second reconstructs using moments of orders 2 and 4."
+          ],
+          "identifier_or_url": "Resultary d886b40f95a8 and 38e56e27b473",
+          "material_read": "Mirrored Findings starting at offset 0 of both records",
+          "method": "Local Resultary and mirror",
+          "title": "Exact second moment boundary gap for arbitrary Euclidean triangles; Two boundary chord moments and perimeter determine every Euclidean triangle",
+          "trigger": "Possibly a stronger general triangle distance formula or reconstruction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–24, 26–51; Shen 2611.21661 Theorem 1.1; Resultary 5e66fde6292b and 28c76116152b"
+      ],
+      "rationale": "Boundary mean chord length is a canonical geometric statistic, and isosceles triangles provide a natural continuous family with two inequivalent degenerations. Knowing the complete monotonic profile, sharp unique equilateral extremum and exact rates resolves a shape question the convex-class bounds and leading thin-lens asymptotic do not. A researcher comparing collapse mechanisms can use the precise rates and finite coefficients rather than just a common limiting value.",
+      "residual_risks": [
+        "The result says nothing about the global optimum among scalene triangles or about other distance moments."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

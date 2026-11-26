@@ -1,0 +1,176 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:07:14.323318Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–66",
+        "Frozen VERIFICATION.md, verify_cayley_boundary.py, and verification_output.txt",
+        "Independent replay: python3 /workspace/branches/independent_cayley.py (F5 projective coordinate enumeration and permutation-determinant factorization)",
+        "Line-free Cayley record, Proof §§1–2 (line exhaustion and descent)"
+      ],
+      "rationale": "The six coordinate edges and three pairing lines exhaust the lines: on any other proposed line the four coordinate linear forms are nonzero; the identity that the sum of their reciprocals vanishes forces cancellation of the poles in two proportional pairs, each with opposite forms. Otherwise the parametrization would be constant. Distinct pairing-line intersections are distinct in characteristic >3; coordinate-vertex germs of the reduced divisor are three independent coordinate axes in an affine chart, and all remaining intersections are ordinary two-axis germs. Thus the normalization is nine rational components with seminormal gluing. There are 4 three-branch and 9 two-branch points. Branch multipliers modulo rescalings on components and common rescalings at each singular point are the whole connected Picard group: for these germs the unit quotient sees only branch constants, so there is no additive part. Dualizing this torus quotient gives the oriented integral graph kernel, equivariantly, of rank 30−22+1=9. A spanning-tree cycle basis is integral by its unit chord coordinates. Independently enumerating the coordinate line sets and their intersections over F5 and applying the five permutations to the actual points and branches reproduces all orbit rows. The determinant on the graph kernel is (t−1) times the branch permutation determinant divided by the component and point determinants; this reproduces all five characteristic polynomials. The coordinate incidence argument, not the sample characteristic, supplies the general profiles. Counting rational normalization points separately on every fixed line and replacing the fixed preimages over each fixed singular point gives the extension-count identity; its exponential gives the orbit product. A rational torus point is a homomorphism from the lattice to the algebraic closure's units satisfying h(Fx)=h(x)^q; the resulting finite Hom of the displayed cokernel has the same abstract invariant factors since det(qI−F) is prime to the characteristic. This proves the group formula and the order rows without inferring Smith factors from an isogeny.",
+      "residual_risks": [
+        "No frozen checker executed. The independent finite enumeration checks incidence and orbit arithmetic, not geometric local rings in all characteristics or an independently reduced symbolic Smith form. The general proof verifies the claimed presentation, not separate symbolic invariant factors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hassett's resolution and Picard calculation concern the surface, not its line divisor. The complement paper computes the fundamental group after removing the singular points of the surface.",
+          "The normalization-units sequence gives a general method, illustrated by toric contribution at a node and additive contribution at a cusp; it does not treat this Cayley union or its S4 action."
+        ],
+        "reasoning": "The general sequence underlies the result, but does not furnish the required local unit models, branch action or the finite-group presentation for this divisor. Surface or complement invariants are not substitutes.",
+        "searches": [
+          "Hassett, Rational Surfaces over Nonclosed Fields, §4.1.3",
+          "Caleb Ji, Generalized Jacobians I, §2.1 normalization-units sequence",
+          "Amram–Dettweiler–Friedman–Teicher arXiv:0803.3005 pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary matches named above",
+        "Heath-Brown arXiv:math/0210333",
+        "Hassett §4.1.3",
+        "Amram et al. arXiv:0803.3005",
+        "Generalized Jacobians I §2.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write v,e,m for fixed coordinate vertices, unordered pairs and matchings. Using the prior inversion, the full surface count is q²+q+1+q(e−v): subtract the union of four lines in the trace plane and add the six coordinate edges; the common ordered endpoint-incidence terms cancel. Subtracting the prior open counts recovers each divisor row, also for powers of Frobenius. Equivalently the divisor count is q(e+m)+v+2m−b−m(m−1) with b the fixed endpoint incidence count in that proof.",
+          "The prior complement zeta functions, or their fixed-point coefficients together with normalization, already determine the rational cycle traces and hence the order values. They do not determine the integral Picard lattice or its finite group merely from those numerical spectra."
+        ],
+        "reasoning": "The numerical arithmetic is credited as a consequence, not treated as independent novelty. An integral cycle model can be transported from the prior seven-line incidence via the graph contraction, but requires the additional comparison and the proof that the actual Cayley gluing yields the whole Picard torus; the prior numerical invariant is not an integral Picard result.",
+        "searches": [
+          "Line-free Cayley RESULT.md, Proof §§2–4, local text offsets 0–9684",
+          "B3 integral Picard tori RESULT.md, Finding, local text offsets 0–2539"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The open-locus record uses degree-four étale algebras; its five types are exactly the cycle types of the coordinate Frobenius, and its inversion uses the same coordinate and pairing lines.",
+          "The earlier seven-line plane arrangement from inversion has the same integral incidence-cycle lattice as the Cayley branch graph: equivariantly contract each edge from E_e to P_e and identify the coordinate vertices with the plane coordinate-line labels and the contracted vertices with the plane triple-point labels."
+        ],
+        "reasoning": "The plane graph is a useful equivalent lattice model, not itself the connected Picard scheme of the reduced Cayley divisor. In particular its planar triple germs are different from the three-axis germs. Identifying the full torus requires establishing the gluing at the actual Cayley singularities and giving the integral descent and matrix presentation.",
+        "searches": [
+          "Web search: Cayley cubic nine lines divisor finite field zeta generalized Jacobian Picard torus Frobenius Cayley cubic twists boundary intersection graph",
+          "Resultary: Cayley nine lines, Cayley twists and Picard tori",
+          "Heath-Brown math/0210333 pp. 1–2; line-free Cayley RESULT.md Proof §§1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Cayley open-locus record c7d5886403e1 gives all five point-count and zeta rows for S minus D, and its proof gives fixed counts for the seven-line arrangement used in the reduction.",
+          "Cayley line Hilbert-scheme record 2f8fc2a76c51 gives three reduced and six nonreduced sections, rank 27 with nine geometric support points; it is not gluing data for the reduced union.",
+          "B3 record 1f81114becfd gives five integral tori and finite groups for a blown-up reflection arrangement with 16 rational components, 30 nodes and cycle rank 15, not the rank-9 Cayley line union."
+        ],
+        "reasoning": "The catalogue has genuine geometry and numerical overlap, and a close analogue of the integral method, but the exact Cayley Picard-group object does not coincide with any of those other objects.",
+        "searches": [
+          "Resultary: five Cayley twist spectra and integral four-nodal Cayley line Hilbert scheme",
+          "Resultary: five integral Frobenius Picard tori of a nine-line divisor"
+        ]
+      },
+      "rationale": "Credit the nine lines and five twists as known, and the numerical divisor point counts, zeta functions and rational cycle spectra as recoverable from the prior line-free arithmetic and its proof. What remains distinct is the identification of the connected Picard scheme of the singular Cayley line union as a torus with an exact integral S4-cycle lattice, its descent, and the concrete finite-group presentations. The closest indexed method match treats a different genus-15 curve; the geometric Hilbert-scheme and surface Picard references do not identify this invariant.",
+      "residual_risks": [
+        "Targeted literature comparison is bounded; it cannot rule out a differently indexed treatment of the integral comparison with the plane arrangement. The exact catalogue open arithmetic overlap is an implication, not a claim about priority of unpublished derivations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Numerical rows recoverable by inversion and fixed incidences; no integral Cayley Picard identification",
+          "evidence": [
+            "Five open-locus tables; explicit inversion",
+            "Seven-line fixed incidence data for every power of Frobenius"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-five-arithmetic-spectra-for-the-line-free-locus-of-cayley-cubic--c7d5886403e1/RESULT.md",
+          "material_read": "Finding, assumptions and Proof §§1–4, text offsets 0–9684",
+          "method": "Lawful local-mirror full-text passages",
+          "title": "Five arithmetic spectra for the line-free locus of Cayley cubic twists",
+          "trigger": "Same surface twists and adjacent arithmetic potentially implying the divisor rows"
+        },
+        {
+          "assessment": "Methodological overlap, different divisor and tori",
+          "evidence": [
+            "Seven blowups, 16 components, 30 nodes, genus 15",
+            "Integral class-by-class torus and finite group table"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-five-integral-frobenius-picard-tori-of-the-resolved-b-3-reflecti--1f81114becfd/RESULT.md",
+          "material_read": "Finding, offsets 0–2539",
+          "method": "Lawful local-mirror full-text passage",
+          "title": "Five integral Frobenius Picard tori of the resolved B3 reflection arrangement",
+          "trigger": "Five S4 twists of another nine-line construction with exact Picard groups"
+        },
+        {
+          "assessment": "Parametrizing scheme, not reduced divisor or its Picard group",
+          "evidence": [
+            "Three reduced sections and six rank-four nonreduced factors"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-integral-27-line-hilbert-scheme-of-the-four-nodal-cayley-cub--2f8fc2a76c51/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Lawful local-mirror full-text passage",
+          "title": "The integral 27-line Hilbert scheme of the four-nodal Cayley cubic",
+          "trigger": "Same nine geometric lines and integral result"
+        },
+        {
+          "assessment": "Prior line enumeration and height context, not divisor Picard theory",
+          "evidence": [
+            "Four nodes, six coordinate lines and three pairing lines",
+            "The arithmetic counting problem is on their complement over Q"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0210333",
+          "material_read": "Introduction, PDF pp. 1–2, offset 0",
+          "method": "Lawful OA original PDF passage",
+          "title": "The Density of Rational Points on Cayley's Cubic Surface",
+          "trigger": "Same cubic and geometric boundary"
+        },
+        {
+          "assessment": "Same line geometry; Picard group of the resolution rather than generalized Picard scheme of D",
+          "evidence": [
+            "Nine-line geometry and birational resolution"
+          ],
+          "identifier_or_url": "https://www.claymath.org/wp-content/uploads/2022/03/cmip08c.pdf",
+          "material_read": "§4.1.3 pp. 189–190, text near offset 541500",
+          "method": "Lawful OA book PDF passage",
+          "title": "Rational Surfaces over Nonclosed Fields",
+          "trigger": "Potential surface/divisor Picard overlap"
+        },
+        {
+          "assessment": "Different complement and invariant",
+          "evidence": [
+            "S4-invariance; fundamental group Z/2 for the smooth-locus complement of the singular points"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0803.3005",
+          "material_read": "PDF pp. 1–2, offsets 2200–5630",
+          "method": "Lawful OA original PDF passage",
+          "title": "The Fundamental Group for the Complement of Cayley's Singularities",
+          "trigger": "Same Cayley configuration and symmetry"
+        },
+        {
+          "assessment": "Supplies standard normalization background, not the Cayley gluing calculation",
+          "evidence": [
+            "Normalization-unit quotient and node versus cusp examples"
+          ],
+          "identifier_or_url": "https://www.math.columbia.edu/~calebji/Generalized_Jacobians.pdf",
+          "material_read": "§2.1 p. 3, text offset 6480 onward",
+          "method": "Lawful OA lecture-note passage",
+          "title": "Generalized Jacobians I",
+          "trigger": "Possible general normalization implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 13–37 and 45–62",
+        "Line-free Cayley record, Proof §§2–4",
+        "Independent orbit verification"
+      ],
+      "rationale": "The reduced union of all geometric lines is a canonical boundary of this singular cubic. Correctly distinguishing its four three-axis gluings from planar ordinary triples determines whether its connected Picard scheme has any additive contribution. A concrete integral equivariant lattice and finite presentation allow exact descent and finite-group calculations not licensed by rational zeta spectra alone. This is useful for comparing degenerations and twists even though independent novelty is not assigned to the point counts and symbolic Smith factors are not asserted.",
+      "residual_risks": [
+        "The exact group is presented by a matrix, not simplified into cyclic factors for all q; the value lies in integral Picard structure, not just the numerical table."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:15:26.832733Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On polynomials [D,C_s]=(s-1)C_sD and iterating yields (s-1)^k C_sD^k; integration on this core gives the stated orthogonal-output weights. The identity atom contributes zero. Tonelli of the square of each moment gives the geometric-derivative kernel for the Hilbert–Schmidt norm, and 1-st>=max(1-s,1-t) bounds it by one. For an atom at s the norm is 1/(1+s), proving sharpness as s decreases to zero. For the trace iff, Tonelli gives the integral of Phi(s)=(1-s) sum sqrt(j+1)s^j. At s=e^{-h}, h^{3/2} times the sum converges by a Riemann sum with exponential tail to Gamma(3/2); Phi is comparable to (1-s)^(-1/2) near one, and extends with value 1 at zero. For k>=2 the successive-factor comparison reduces to (j+k)^2-(j+k+1)(j+1)=(k-2)j+k^2-k-1>0, proving the claimed weighted binomial estimate from equality at j=0. Summing the negative-binomial generating function cancels (1-s)^k and gives sqrt(k!)rho((0,1)). For an atom, the j=0 term alone tends to sqrt(k!), giving sharpness by squeezing. The l^2 or l^1 bounds give compact bounded extensions from the dense core. Beta integration gives the weights, with consecutive ratio sqrt((j+1)(j+k+1))/(j+alpha+k+1)<1 and decay j^(-alpha-k/2). The p-series criterion proves each stated endpoint exclusion (p>0); it does not assert a sharp p=1 threshold separately for each k>2. Independent bounded checks: 287 weighted-binomial comparisons, 6 atomic norm sums and 930 beta weight ratios, /workspace/branches/spectral_design_replays.js, fockCheck. The frozen checker was inspected, not executed; its rational matrices use the unnormalized monomial basis and its numerical truncations do not prove ideal membership.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Galanopoulos–Stylogiannis test l^p membership of the original eigenvalue sequence m_j. Blasco–Galbis discuss boundedness, compactness and summing of the dilation operators and cite the original multiplier criterion."
+        ],
+        "reasoning": "The universal commutator ideal conclusions can hold even if H_rho is not compact, for example with an identity atom. The prior tests on H_rho do not entail the inequality for weighted finite differences of its moments.",
+        "searches": [
+          "arXiv:2008.06684 Theorem 3, Schatten classes",
+          "arXiv:2310.01059 Introduction, Fock Hausdorff operators"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 48fa5cf0ec0d",
+        "Resultary 0783dd6010b8",
+        "Resultary ea31c245e336",
+        "arXiv:2008.06684",
+        "arXiv:2310.01059",
+        "arXiv:2208.03394"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Hardy/Cantor theorem relates its singular values to m_j-m_{j+1} for one measure with unweighted shifts. The Fock integration finite-difference construction varies an integration-order index. The diagonal Hausdorff ideal theorem uses m_j without taking differences."
+        ],
+        "reasoning": "None provides the required estimate for factorial-weighted moment differences across all finite positive measures. The sharp first/higher split here needs the positive kernel, summability comparisons at s near one, and matching lower witnesses.",
+        "searches": [
+          "48fa5cf0ec0d Finding and Proof §1",
+          "arXiv:2008.06684 Theorem 3",
+          "ea31c245e336 Resultary finite-difference construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fock weights have the form sqrt((j+k)!/j!) times the kth forward difference of a completely monotone moment sequence (up to the sign convention).",
+          "48fa5cf0ec0d uses the first difference of Hardy diagonal dilation moments, with no growing factorial multiplier. Alpay et al. focus on pairs of weighted shifts with diagonal commutators."
+        ],
+        "reasoning": "A result phrased using Hausdorff moment differences with the same growing weights would be equivalent. Removing the weights or swapping the operators changes the ideal threshold, not merely the notation.",
+        "searches": [
+          "Resultary: dilation-moment commutators, finite differences and Schatten spectra",
+          "arXiv:2208.03394 §2, weighted-shift commutator algebra"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct same-record hit was a self-match. 48fa5cf0ec0d gives a specific log-periodic Hardy/Cantor singular spectrum. 0783dd6010b8 and ea31c245e336 concern finite combinations of integration/multiplication/differentiation operators, not a positive radial-dilation moment multiplier."
+        ],
+        "reasoning": "No fixed invariant table is natural for a symbolic all-measure bound; the relevant exact catalogued spectra and Schatten filtrations do not contain the universal commutator criterion checked here.",
+        "searches": [
+          "Resultary: sharp annihilation-commutator Schatten gain for Hausdorff mixtures and Fock finite differences",
+          "Resultary: explicit singular values and ideal thresholds from dilation moment differences"
+        ]
+      },
+      "rationale": "The moment representation and weighted-shift interpretation are not claimed to be new. The closest inspected exact shift commutator treats a single Cantor measure with unit Hardy shift weights. The operator-ideal results for H_rho itself and the algebra of pairs of weighted shifts do not cover the sharp positive-mixture bounds for its Fock annihilation commutators or their trace endpoint. No exact prior coverage of the hierarchy was found in the bounded comparison.",
+      "residual_risks": [
+        "A general positive weighted moment or shift-ideal theorem could contain equivalent results under different terminology; the bounded searches do not exclude it.",
+        "The date shared with a distinct Fock finite-difference record says nothing about relative priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest structural analogue, different shift and fixed measure",
+          "evidence": "Hardy shift commutator has weights m_j-m_{j+1}, log-periodic decay and ideal threshold p>1/(1+log 2/log 3) for the middle-thirds Cantor law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-logarithmically-periodic-singular-spectrum-and-critical-residu--48fa5cf0ec0d/RESULT.md",
+          "material_read": "Finding and Proof §1 beginning at local offset 0",
+          "method": "Configured local Resultary mirror",
+          "title": "A logarithmically periodic singular spectrum and critical residue for a Cantor moment commutator",
+          "trigger": "Exact dilation-moment commutator spectrum"
+        },
+        {
+          "assessment": "Known diagonal moment and multiplier criterion, not the commutators",
+          "evidence": "The test is summability of powers of the original moments int t^(-j-1)dmu(t), matching m_j after change of variables.",
+          "identifier_or_url": "https://arxiv.org/abs/2008.06684",
+          "material_read": "Theorem 3, p. 5, PDF text around offset 13900",
+          "method": "Lawful OA primary PDF passage",
+          "title": "Hausdorff operators on Fock spaces",
+          "trigger": "Exact Schatten theorem for the same Hausdorff family"
+        },
+        {
+          "assessment": "Original multiplier bounds and summing theory; not the checked commutator endpoint",
+          "evidence": "The introduction summarizes the multiplier criterion and identifies the studied classes and operator properties.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.01059",
+          "material_read": "Introduction, p. 2, PDF text offset about 5350",
+          "method": "Lawful OA primary passage",
+          "title": "Hausdorff operators on Fock spaces (Blasco–Galbis)",
+          "trigger": "Broader operator-ideal studies of the same dilation family"
+        },
+        {
+          "assessment": "Related algebra, different commutator object",
+          "evidence": "The commutators of the pairs of shifts examined there are diagonal; this commutator of an annihilator with a diagonal mixture is off-diagonal.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.03394",
+          "material_read": "Abstract, p. 1 and §2, p. 2, around text offset 6100",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Alpay et al., weighted-shift commutator calculus in Fock-type spaces",
+          "trigger": "Potentially equivalent weighted-shift lemma"
+        },
+        {
+          "assessment": "Nonmatching operator families",
+          "evidence": "They use critical Fock integration operators combined with multiplication and differentiation and describe finite-combination or integration-order differences. These are not iterated commutators of a Hausdorff multiplier.",
+          "identifier_or_url": "Resultary 0783dd6010b8 and ea31c245e336",
+          "material_read": "Findings and scope of the two catalogue records",
+          "method": "Configured local Resultary mirror",
+          "title": "Related Fock moment filtrations and finite-difference generators",
+          "trigger": "Earlier and distinct same-day Schatten thresholds indexed by finite differences"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The structural regularization is uniform over dilation mass arbitrarily near the identity. B1 may fail to be trace class even while all higher iterates are: the exact half-order boundary moment and the sharp beta examples distinguish the two universal thresholds. The nontrivial part is the sharp nature of the ideal gain and its endpoint mechanism, not the elementary computation of a single shift matrix.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

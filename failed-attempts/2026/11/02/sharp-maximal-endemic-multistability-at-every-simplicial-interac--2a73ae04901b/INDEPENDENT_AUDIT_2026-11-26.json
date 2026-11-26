@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:45:00.164937Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stipulated scalar ODE, f=(1-x)P-1 has degree M and f(1)=-1. Local asymptotic stability at an interior zero requires a positive drift just left and a negative drift just right, even when the zero is not hyperbolic, since a nonzero polynomial has isolated zeros. Each pair of consecutive attractors therefore costs an intervening zero; 2k-1<=M gives the claimed bound. In the proposed construction the coefficient sum bound follows from the product of one plus each small positive root of Q. The geometric-series baseline gives exactly -x^M; at each of the M interleaved test points all factor distances are at least delta/(2M), so the perturbation dominates by at least 4(1-delta)>1. The alternating signs and the negative right boundary yield M distinct interior roots of a degree-M polynomial, necessarily simple. Working leftwards from the right boundary gives exactly ceil(M/2) attractors, and the strict signs persist on an open positive-coefficient neighborhood. The sign at x=0 has the stated even/odd orientation. Inspected RESULT.md, VERIFICATION.md and verify.py. The rational sign certificates for M=2 through 12 are supplementary and were not rerun. This verifies the scalar theorem only, not an all-order rigorous stochastic-to-mean-field limit; the cited source treats the latter as conjectural.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 25 record states ceil(M/2) as the sharp count of attracting positive equilibria and realizes all M prescribed distinct roots in (0,1) whose sum is below one.",
+          "Kiss–Bick–Simon study the same scalar polynomial through four-body groups in the inspected analysis, obtaining two stable positive branches."
+        ],
+        "reasoning": "Arbitrary placement under the stated sum constraint is stronger than existence of a maximal configuration. The lower-order published result is pertinent precedent, but a lower-order example alone cannot imply the full all-order statement.",
+        "searches": [
+          "05e1cb0684bf, arbitrary-order root placement and attracting-root cap",
+          "arXiv:2410.15330, Model C and section 3.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary records 05e1cb0684bf and 52adade0259d",
+        "arXiv:2309.12752, arXiv:2410.15330 and arXiv:1810.07031"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For prescribed roots the degree-M polynomial f is fixed by its zero set and f(1)=-1. When all these distinct roots tend to zero, its limiting polynomial is -x^M, and division of 1+f by 1-x is continuous on this finite-dimensional affine family."
+        ],
+        "reasoning": "The earlier placement theorem allows sequences of distinct roots tending to zero with sum less than one. The limiting P is the degree-(M-1) geometric sum, hence coefficientwise near-one positivity follows, and simple-root continuation yields the stated openness. This covers the near-unit and robustness clauses without the prior statement having to use those words.",
+        "searches": [
+          "05e1cb0684bf, earlier prescribed-simple-root guarantee",
+          "52adade0259d, factorized normalized scalar polynomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/25/SCOPE-sharp-endemic-attractor-capacity-and-positive-rate-realization-f--05e1cb0684bf treats the same polynomial with a positive recovery constant; rescaling time and rates sets that constant to one.",
+          "The primary source's equation (II.31) supplies the same polynomial form, not the all-order sharp realization."
+        ],
+        "reasoning": "Time normalization does not change root positions, hyperbolicity, or stability types, and P's coefficients are the normalized s_j/j!, not the unscaled rates.",
+        "searches": [
+          "Resultary: arbitrary-order scalar simplicial SIS polynomial, sharp attractor count and positive coefficient realization",
+          "arXiv:2309.12752, equation (II.31)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier record 05e1cb0684bf supplies the exact count and placement guarantee.",
+          "2026/11/2/SCOPE-exact-inverse-design-of-maximal-endemic-multiplicity-in-higher-o--52adade0259d states the same normalized polynomial and gives the factorized realization and an exact necessary-and-sufficient sum condition."
+        ],
+        "reasoning": "These are structural exact indexed matches, not coincident equilibrium counts from a sampled table. The second record is same-day; it is not used as earlier-priority evidence.",
+        "searches": [
+          "Resultary: sharp endemic-attractor capacity and exact inverse design of maximal multiplicity"
+        ]
+      },
+      "rationale": "A distinct October 25 indexed record already establishes the sharp all-order count and the stronger realization of any prescribed set of M simple interior roots with sum below one. Normalizing recovery gives the same scalar polynomial. As those roots coalesce toward zero, the coefficients of P converge to one because f(1)=-1 fixes the multiplicative factor and P=(1+f)/(1-x). Openness is automatic for the simple interior roots in the strictly positive coefficient region. The same-day exact inverse-design entry is a further mathematical match, not used to infer temporal priority. The strongest earlier index evidence, rather than the equation's appearance by itself in prior papers, decides the failure.",
+      "residual_risks": [
+        "The primary-literature comparison is bounded, not a historical priority survey; the earlier indexed implication already suffices.",
+        "The same-day inverse-design record is not assigned a before/after ordering.",
+        "The scalar result does not establish the conjectural all-order stochastic limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier stronger result covers frozen counts and near-one existence by specialization",
+          "evidence": "Arbitrary distinct interior roots of sum less than one, with simple-root stability and the same sharp count after normalization.",
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-endemic-attractor-capacity-and-positive-rate-realization-f--05e1cb0684bf",
+          "material_read": "RESULT.md Finding and placement argument (mirror offsets 0–5939 and near 5600)",
+          "method": "Indexed lookup with mirrored full-text passages",
+          "title": "Sharp endemic-attractor capacity and positive-rate realization for arbitrary-order simplicial SIS dynamics",
+          "trigger": "Earlier exact upper bound and realization"
+        },
+        {
+          "assessment": "Exact mathematical overlap, not resolved chronological priority",
+          "evidence": "Necessary-and-sufficient condition on root sum, unique corresponding coefficients, and alternating simple-root stability.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-inverse-design-of-maximal-endemic-multiplicity-in-higher-o--52adade0259d",
+          "material_read": "RESULT.md Finding and factorization (mirror offsets 0–5845 and near 5600)",
+          "method": "Indexed lookup with mirrored full-text passages",
+          "title": "Exact inverse design of maximal endemic multiplicity in higher-order SIS contagion",
+          "trigger": "Same-day matching inverse formulation"
+        },
+        {
+          "assessment": "Equivalent formal model and motivation, not the sharp realization in the inspected statements",
+          "evidence": "The source conjectures the arbitrary-order limiting claim and raises the possibility of arbitrarily many positive states.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.12752",
+          "material_read": "PDF p. 2 introduction, p. 7 equation (II.31), p. 14 discussion",
+          "method": "Open-access full-text passages",
+          "title": "Insights from exact social contagion dynamics on networks with higher-order structures",
+          "trigger": "Original all-order polynomial and stated mathematical gap"
+        },
+        {
+          "assessment": "Lower-order scalar overlap; coupled-population results are a different problem",
+          "evidence": "Two stable branches in the analyzed scalar model through four-body groups; a separate coupled model with up to four stable states.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.15330",
+          "material_read": "PDF p. 3 Model C; pp. 11–12 section 3.2; p. 21 conclusion",
+          "method": "Open-access full-text passages",
+          "title": "Kiss–Bick–Simon higher-order contagion analysis",
+          "trigger": "Same scalar model with multiple stable positive roots"
+        },
+        {
+          "assessment": "Related model and lower-order example, not demonstrated all-order placement in those passages",
+          "evidence": "Increasing-order simplicial terms and a bistability example.",
+          "identifier_or_url": "https://arxiv.org/abs/1810.07031",
+          "material_read": "PDF pp. 9 and 11, offsets 14000 and 18931",
+          "method": "Open-access full-text passages",
+          "title": "Simplicial models of social contagion",
+          "trigger": "Prior increasing-order homogeneous model and bistability"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The source's all-order question is mathematically motivated, but the frozen answer supplies no distinct structural consequence beyond prior arbitrary simple-root placement. The coefficient-near-one condition is the small-root limit of the already determined factorized polynomial, and openness is routine simple-root continuation. The alternate sign-interleaving construction and finite examples do not add a mathematically useful new regime or remove a restriction of the prior theorem.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

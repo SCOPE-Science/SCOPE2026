@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:33:16.807298Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The four root-anchored edges have lengths H−h,H−h,H,h and abundance coverages a,b,c,a+b; the edge-miss probability for z covered individuals is C(N−z,m)/C(N,m), with the zero convention. Both profiles therefore have PD H at m=1 and 3H−h at m=N. I inspected the proof, notes and checker, and independently enumerated actual individual subsets. A subset's PD divided by H is its represented-taxon count minus t times the indicator that both sisters occur. Enumerating the sorted-sister profiles via cut positions gave sizes 1,2,4,6,9 and 58 unordered pairs. For every pair I used the subset counts as exact affine coefficients and checked all open root cells and interior roots (116 tests), dropping all zero signs. This confirms absence below N=7 and the three open intervals (1/2,13/23), (1/7,3/17), and (1/5,3/13) for the stated pairs in order, including ties at the excluded endpoints. The H=9,h=2 witness gave differences (1/21,−1/35,−1/35,1/7,2/7). Replay: python3 -I /workspace/review_math.py 1. Minor documentation overstatement: the frozen checker explicitly asserts only the third coefficient list, although it checks the sign cells for all pairs. My independent subset check reproduced all three lists; no change to the theorem is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nipperess and Matsen's ecoregion comparison reports different rank orderings on a common rarefied richness standard.",
+          "Local result 5a25007d6a45 shows opposite signs at depths 2 and N−1 for a single abundance-balancing transfer on nonstar ultrametric trees; its threshold is six."
+        ],
+        "reasoning": "Generic or empirical rank changes and a one-transfer comparison between selected depths do not cover arbitrary profile pairs with at least two strict reversals or determine the first attainable census.",
+        "searches": [
+          "Primary search: phylogenetic diversity rarefaction ranking communities rank order expected diversity sampling depth reversal assemblages Nipperess Matsen Chao",
+          "Local Resultary nearby PD and ultrametric results"
+        ]
+      },
+      "checked_sources": [
+        "Resultary catalogue and local mirror of 3d789b92bf80, 5a25007d6a45, bf2f4439a272, fe2545590f3f",
+        "Nipperess and Matsen arXiv:1208.6552",
+        "Chao et al. DOI 10.1111/2041-210X.12247 and PMC3775626 (access attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior rooted expectation yields exact coefficients, not a dominance theorem or a bound on sign changes across depths.",
+          "The same-day catalogue result bf2f4439a272 shares the three-tip ultrametric setup but treats Bray–Curtis versus normalized weighted UniFrac, with t(N−3)>1; it has no depth parameter."
+        ],
+        "reasoning": "The known expectation makes an exact analysis possible but does not state or imply the ranking claim without a new comparison of all relevant profile and depth inequalities. The closest catalogue comparisons have another statistic or a single-transfer constraint; they do not produce the minimum and the three open windows.",
+        "searches": [
+          "Compare Nipperess–Matsen p. 6 with the finite crossing classification",
+          "Resultary comparison against 3d789b92bf80, 5a25007d6a45, and same-day bf2f4439a272"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nipperess and Matsen represent individuals by possibly multiple marks per species and average root-anchored edge inclusion under uniform fixed-size sampling without replacement.",
+          "Local result 3d789b92bf80 is an at-most-one-switch theorem for expected richness, not PD."
+        ],
+        "reasoning": "Faith rooted PD under individual rarefaction is the same expectation as the prior edge-coverage formula. Expected richness is its star-limit case here, but the interior shared stem subtracts a depth-dependent both-sister contribution, so the richness sign comparison does not apply.",
+        "searches": [
+          "Resultary: expected rooted phylogenetic diversity rarefaction strict rank reversals smallest census seven; two strict ranking reversals expected rooted PD minimum census; three-taxon expected PD rarefaction rankings reverse twice three profile pairs",
+          "Nipperess and Matsen arXiv:1208.6552, rooted PD expectation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact small-profile census surfaced in the ranked catalogue results. The empirical tables/results concern Australasian ecoregions, not matched three-tip profiles at all integer depths and all stem ratios.",
+          "Related local result fe2545590f3f concerns recovery of topology from complete mean-PD curves, with a different size parameter (taxa, not individuals)."
+        ],
+        "reasoning": "Neither inspected use of rarefaction curves tabulates the sign cells of every comparison on the fixed three-tip tree or settles the three first-layer types.",
+        "searches": [
+          "Resultary exact-claim variants keyed to three profile pairs and the seven-individual onset",
+          "Nipperess and Matsen arXiv:1208.6552, ecoregion data and results pp. 9–10"
+        ]
+      },
+      "rationale": "The supported distinct claim is the minimum common census and all three profile intervals for two strict depth-order reversals. Exact PD expectation and changes in site rankings under rarefaction were already known. The closest primary and published catalogue comparisons do not settle this specific multiple-crossing boundary.",
+      "residual_risks": [
+        "Known relevant Chao et al. text and the extra search hit were not passage-checked; an unindexed example, supplementary table, or stronger sign-change theorem could narrow originality.",
+        "Catalogue results were ranked, not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial methodological precursor, without the inspected sharp comparison theorem.",
+          "evidence": [
+            "Uniform fixed-size sample without replacement; multiple marks can be individuals of a species; E[Y^r]=sum_i ell_i[1−q_k(D_i)].",
+            "Rarefying the ecoregion data to 25 species gives very different site rank orderings."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1208.6552",
+          "material_read": "OA PDF p. 6 rooted expectation (offset 15500); pp. 2 and 9–10, summary and ecoregion application (offsets 1740, 24000–24400)",
+          "method": "Primary OA PDF passage inspection",
+          "title": "The mean and variance of phylogenetic diversity under rarefaction",
+          "trigger": "Same individual-based rooted-PD expectation and rank changes"
+        },
+        {
+          "assessment": "Related objects but none states the double-crossing boundary; publication order is not inferred from dates.",
+          "evidence": [
+            "Single crossing in expected richness; opposing PD directions for one abundance transfer; sharp disagreement of Bray–Curtis with weighted UniFrac; nonidentifiability of topology from curves."
+          ],
+          "identifier_or_url": "Resultary 3d789b92bf80, 5a25007d6a45, bf2f4439a272, fe2545590f3f",
+          "material_read": "Finding passages (offset 0), and assumptions for the same-day comparison",
+          "method": "Ranked catalogue comparison and local published-record mirror",
+          "title": "Three-species rarefaction, transfer, and same-day distance comparisons",
+          "trigger": "Closest catalogue results with the same sampling, geometry, or target statistic"
+        },
+        {
+          "assessment": "Unable to clear this text independently; the access failure is not negative evidence.",
+          "evidence": [
+            "Publisher requests returned HTTP 403 and no alternate copy was retrieved."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/2041-210X.12247",
+          "material_read": "No primary full-text passage retrieved",
+          "method": "Lawful DOI/publisher OA requests and repository recovery",
+          "title": "Rarefaction and extrapolation of phylogenetic diversity",
+          "trigger": "Cited closely related rooted-PD curve comparison"
+        },
+        {
+          "assessment": "A lower-confidence overlap lead; title alone cannot resolve it.",
+          "evidence": [
+            "No usable primary passage was retrieved."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3775626/",
+          "material_read": "Landing material only, not full text",
+          "method": "Lawful OA retrieval attempt",
+          "title": "Abundance-weighted phylogenetic diversity measures distinguish microbial community states and are robust to sampling depth",
+          "trigger": "Literature result on PD and sensitivity to sampling depth"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A three-tip tree is the first rooted ultrametric shape with a shared internal edge. The result pinpoints when that edge can cause a double reversal even without unequal censuses or missing taxa, contrasting with the closest expected-richness single-crossing result. The sharp finite cutoff, exact windows and endpoint behavior give a sensitive benchmark for sampling-depth comparisons and for any proposed general crossing bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

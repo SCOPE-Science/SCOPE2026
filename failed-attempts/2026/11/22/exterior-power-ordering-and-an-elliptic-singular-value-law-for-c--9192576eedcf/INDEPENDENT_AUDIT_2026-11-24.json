@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:46:55.356977Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–107; checked minors, norm/convexity arguments, weighted count with perturbations, and coefficient evaluation",
+        "VERIFICATION.md and check.py inspected, not executed; finite checks neither prove nor refute the count limit"
+      ],
+      "rationale": "The indicator-column differences in each minor are disjoint ordered intervals, giving the stated zero-or-positive-monomial formula. This justifies entrywise order of the compounds and hence their norms; strict operator norm follows by testing the strictly larger Gram matrix on a nonnegative top vector. The Poisson average gives Ky Fan order by convexity and the strict Schatten norm order by strict convexity and the nonconstant conjugation orbit. For the counting lemma, discard the first aN rows at rank cost O(aN), the last rows beyond bN at norm cost O(1/(bN)), and block interfaces at rank cost bounded independently of N for a fixed partition and bandwidth. After freezing ND on the blocks, the empirical Toeplitz singular law can also be seen by comparison with circulant sections at rank cost at most the bandwidth. Sample block positions outside threshold atoms, use upper and lower threshold margins, and refine the partition to integrate the monotone symbol count in x; the integral over x>0 is the angular mean divided by the threshold parameter. The l¹ coefficient tail has s_n at most its mass divided by n, so the two-sided count inequalities transfer the limit. Monotone inversion, elliptic substitution, and harmonic/zeta comparison give the singular and trace limits. All assertions are for fixed t<1; they include the diagonal t=0 case. Compact triangularity gives the stated spectrum: for each diagonal value, its eigenvector may alternatively be obtained by the recurrence (i−j)x_i=t i x_{i−1} starting at index j.",
+      "residual_risks": [
+        "Weak empirical convergence alone cannot evaluate a threshold at an atom; choosing sample points away from those atoms and using threshold margins closes this detail. No uniform endpoint result at t=1 is verified or claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary aa2e3f6295b0 Finding and §§3–4 give the period-two Weyl law with equal modulation reducing to the same scalar coefficient. Pushnitski arXiv:1710.02652 §1.3 Theorem 1.2 gives s_n∼n^(−γ) times (mean |b|^(1/γ))^γ for finitely many diagonals asymptotic to b_m j^(−γ); the geometric Cesàro truncations satisfy this with γ=1."
+        ],
+        "reasoning": "The banded theorem applies to D∑_{j≤M}t^j S^j. The omitted tail has s_n≤t^(M+1)/((1−t)n), so threshold splitting followed by M→∞ gives the full endpoint and log-trace consequences. The infinitely many original diagonals are not covered by the banded theorem without this transfer.",
+        "searches": [
+          "Resultary: period-two geometric weights, block-symbol singular Weyl law",
+          "Alexander Pushnitski spectral asymptotics Toeplitz matrices weighted diagonal singular values banded matrices arxiv"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary comparison, including original mirror passages for de465e616ced and aa2e3f6295b0",
+        "Pushnitski arXiv:1710.02652 v1 §1.3",
+        "Rhaly DOI 10.4153/CMB-1984-064-5 p. 1",
+        "Albanese–Bonet–Ricker arXiv:2305.04805 p. 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For |z|<1, F_k(z)=∧^k[D(I−zS)^−1] is operator-norm analytic. Changing arg z is unitary conjugation by ∧^k diag(e^{ij arg z}); thus on each circle the norm of F_k is constant. The scalar maximum principle applied to ⟨y,F_k(z)x⟩ for unit x,y proves the norm monotonicity in radius. This extends beyond the minor-positive case.",
+          "The inspected Rhaly and Albanese–Bonet–Ricker passages establish or describe compactness and ordinary spectrum, not rankwise exterior order. Prior Weyl coverage and its applicability are separate from those ordinary spectral facts."
+        ],
+        "reasoning": "The exact endpoint is a prior implication with a standard tail transfer. The compound-order observation is not claimed to appear verbatim in the older Cesàro references, but its asserted norm inequalities are immediate from radial analyticity and the usual exterior-power identity. The explicit minor formula offers an alternative proof, not a materially stronger norm result.",
+        "searches": [
+          "Pushnitski arXiv:1710.02652 §1.3 Theorem 1.2",
+          "Rhaly DOI 10.4153/CMB-1984-064-5 and Albanese–Bonet–Ricker arXiv:2305.04805 on the same operator",
+          "Analytic radius comparison applied to the exterior-power claim in RESULT.md lines 37–54"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Distinct entry de465e616ced Finding, offsets 405–1079, states s_n=κ(√q)/n+O_q(n^(−3/2)log(2+n)) in the geometric weighted space H_q with κ the same angular mean. Conjugating ordinary Cesàro by x_j↦q^(j/2)x_j yields C_√q entry for entry."
+        ],
+        "reasoning": "For 0<t<1 the two operators are unitarily equivalent at q=t², so the sharp limit is literally the same with a stronger remainder in the distinct entry. The t=0 diagonal endpoint adds no unsupported case. The calendar date establishes neither record's priority.",
+        "searches": [
+          "Resultary: generalized/geometric Cesàro operator, weighted ℓ², elliptic singular Weyl coefficient and exterior order"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact endpoint coverage under equivalent weighting at de465e616ced and under equal modulation at aa2e3f6295b0. Older record 43fc115e6443 instead treats W_t f=f(tz)/(1−tz). The assigned suffix 9192576eedcf denotes the frozen finding, not a distinct source."
+        ],
+        "reasoning": "The exact coefficient is already present in the distinct indexed findings just compared. The weighted composition operator W_t is not the same matrix; it supplies no evidence for this exterior order.",
+        "searches": [
+          "Resultary: geometric Cesàro singular values, elliptic Weyl coefficient, and rank ordering"
+        ]
+      },
+      "rationale": "A material advertised result, the sharp singular endpoint with the elliptic coefficient, is covered. A distinct indexed finding proves a stronger asymptotic for a unitarily equivalent realization, and another proves a block generalization specializing to the same coefficient. Their same UTC date does not establish priority. Independently, Pushnitski's earlier banded-matrix theorem gives the endpoint by truncation and a weak-Schatten tail estimate. The distinct indexed findings inspected do not establish exterior-power order, but that order also follows directly from the classical maximum principle for the analytic exterior powers of C_z with radial norms; no new ordering principle is needed.",
+      "residual_risks": [
+        "No chronological conclusion from the same-day indexed entries. Earlier verbatim statements of the exterior order remain unresolved. The Zizler et al. primary text was not retrieved; the originality failure rests on the verified overlaps and prior theorem, not that access limitation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly and more strongly covers the endpoint after unitary conjugation; same-date priority unresolved.",
+          "evidence": [
+            "s_n=κ(√q)/n+O_q(n^(−3/2)log(2+n)) on H_q; κ is the same angular mean."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, suffix de465e616ced",
+          "material_read": "Mirrored Finding, OA offsets 405–1079",
+          "method": "Lawful local mirror",
+          "title": "Elliptic Weyl coefficient and quantitative singular decay of geometric Cesàro averaging",
+          "trigger": "Same angular-mean limit with a quantitative remainder"
+        },
+        {
+          "assessment": "Equal modulation gives the scalar endpoint; does not establish the claimed exterior order in the inspected statements.",
+          "evidence": [
+            "The unmodulated specialization u=v recovers the same angular mean."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, suffix aa2e3f6295b0",
+          "material_read": "Mirrored Finding and §§3–4, OA offsets 442, 4249, 6157, 6714",
+          "method": "Lawful local mirror",
+          "title": "Period-two geometric weights: singular Weyl law and contrast rigidity",
+          "trigger": "Block generalization potentially containing the geometric weight"
+        },
+        {
+          "assessment": "Covers every band truncation; the elementary tail bound extends the conclusion to the full operator.",
+          "evidence": [
+            "Finite bandwidth and a_{j,j+m}=b_m j^(−γ)+o(j^(−γ)) imply s_n(A)=n^(−γ)(mean |∑b_m e^{imθ}|^(1/γ))^γ+o(n^(−γ))."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1710.02652",
+          "material_read": "v1 PDF p. 3, §1.3 assumptions and Theorem 1.2, OA offsets 7380–9962",
+          "method": "Lawful OA primary PDF; located theorem and read surrounding hypotheses",
+          "title": "Spectral asymptotics for a class of Toeplitz operators on the Bergman space",
+          "trigger": "Earlier general singular-value asymptotics for power-like matrix diagonals"
+        },
+        {
+          "assessment": "Checked passage supplies classical facts, not the cross-parameter norm order.",
+          "evidence": [
+            "Compactness, spectrum and Hilbert–Schmidt membership."
+          ],
+          "identifier_or_url": "https://doi.org/10.4153/CMB-1984-064-5",
+          "material_read": "p. 1, OA offsets 1801–2033",
+          "method": "Lawful OA primary passage",
+          "title": "Generalized Cesàro Matrices",
+          "trigger": "Same geometric Cesàro matrix"
+        },
+        {
+          "assessment": "Reviewed passage describes existing compactness and spectral work.",
+          "evidence": [
+            "The ordinary spectral facts do not entail the rankwise product inequalities."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.04805",
+          "material_read": "p. 1, OA offsets 4195–4416",
+          "method": "Lawful OA primary passage",
+          "title": "Spectral properties of generalized Cesàro operators in sequence spaces",
+          "trigger": "Same family on sequence spaces"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 10–31, 37–69, 112–116",
+        "Resultary de465e616ced stronger asymptotic and Pushnitski arXiv:1710.02652 §1.3"
+      ],
+      "rationale": "The sharp coefficient is natural, but the frozen record rederives a covered endpoint without improving its known precision. The remaining rankwise inequalities are a direct maximum-principle deduction for this rotation-equivariant analytic family; the minor formula is a short calculation on a staircase matrix and no application requiring it, or nontrivial ordering enhancement, is established in the finding. A self-contained alternative derivation has expository utility but does not supply a distinct valuable scientific finding here.",
+      "residual_risks": [
+        "No claim that the operator itself lacks scientific interest; the value assessment is for the incremental content of this submission."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

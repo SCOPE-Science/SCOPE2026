@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the ordinary \(m\)-fold planar point, the completed normalization/conductor quotient has branch truncation degree \(m-1\). Binary homogeneous forms of degree \(d<m\) evaluate injectively at \(m\) distinct tangent directions, giving \(\dim V_d=d+1\). The normalization unit sequence removes the constant torus, leaving the smooth unipotent unit quotient of dimension \((m-1)(m-2)/2\). The image of \([p^r]\) comprises only branch jets of degrees divisible by \(p^r\); its intersection with the ring-image subgroup has explicit dimension \(\sum_j(p^rj+1)\). The stated image formula follows. A coordinate-supported unit detects the exact exponent. Exact finite-field verification passes for numerous fields and values of \(m\), without replacing the general argument.
+## correctness
 
-## Originality — PASS, provisionally
-Geisser, arXiv:0704.0479, supplies general Picard affine-structure results; the source's corrected 2021 revision was consulted rather than relying on superseded text. Brion, arXiv:1310.0186, sections 4.1–4.3, supplies relative unit-quotient theory and other examples of unipotent periods. Neither inspected source states the all-\(r\) multiplication-by-\(p^r\) image profile for the concurrent-line family. Searches under line pencils, ordinary multiple points, relative unit groups, \(p\)-power image dimensions, and generalized Jacobians did not locate a covering formula. No claim of established absolute historical priority is made. Rosenlicht's classical source was cited as foundational background but not fully inspected; this remains a literature risk.
+PASS
 
-## Mathematical value — PASS
-The image-dimension sequence is a natural isogeny-sensitive invariant of a connected Picard variety, and the formula determines the entire sequence for every number of lines and every characteristic. It exhibits unbounded \(p\)-power exponent along an explicit natural family and detects the smallest characteristic-two non-vector instance. These are structural geometric properties invisible to the dimension or arithmetic genus alone, not merely a re-evaluation of a standard genus formula.
+For the reduced concurrent plane-line pencil, a product of all but one line equation isolates one branch in degree m-1, while a binary form of degree less than m-1 cannot vanish on the other m-1 directions and be nonzero there. Thus the conductor is the product of the branch ideals (t_i^{m-1}). In degree d through m-2 the local-ring image is the independent evaluation space V_d of dimension d+1. The normalization units exact sequence gives the connected Picard group as G/H, with G the principal branch jets and H the ring units with common constant 1; independent branch constants remove the torus and the normalized components have trivial Pic^0. G and H are smooth connected unipotent, with the degree filtration giving additive factors. At s=p^r the reduced image G_s consists of all jets supported on degrees sj, by coefficient Frobenius and algebraic closedness. G_s intersection H is the linear coefficient locus V_{sj} in precisely those degrees. Fibers of the quotient map restricted to G_s are cosets of that intersection, so the image dimension is mL-sum_{j=1}^L(sj+1); at r=0 it is (m-1)(m-2)/2. A single-branch unit 1+t_1 retains a nonzero class whenever s<=m-2, by the same zero-count argument; s>=m-1 kills the whole group. This yields the exact k-point exponent, threshold and m=4, p=2 example. Packaged verify.py and verify_output.txt were inspected, not executed; finite-field ranks do not on their own establish the group-scheme image formula.
 
-## Limitations and priority risk
-The result concerns concurrent reduced line pencils only; no claim is made about all arrangements, classification into Witt factors, or independence of prior specialist computations. The numerical sample checks use finite fields, while the universal conclusion uses an independent symbolic proof. The underlying unit-quotient formalism predates this calculation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Passes for the complete reduced multiplication-image dimension profile on the concurrent plane-line family. The relative-unit quotient, unipotent structure for singular curves, and examples of higher unipotent period are prior. None of the materially compared results supplies the all-m, all-r profile or the specific graded intersection computation.
+
+## value
+
+PASS
+
+For a natural reducible plane-curve family, the full succession of multiplication images distinguishes characteristic-sensitive group structure missed by the arithmetic genus or dimension alone. It gives an exact uniform numerical invariant and identifies the first nontrivial p-image in each characteristic, with a concrete order witness, without needing a full group classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:31:57.104621Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exponential-time representation of R gives entrywise nonnegativity, and M=(R−(1−θ)I)/θ reduces the positivity test to its diagonal for θ>0. Discounted occupation before departure and after the first return gives R_ii(s)=[1+r_i E{s(1−exp(−T_i/s))}]⁻¹, retaining T_i=∞ rather than conditioning on return. The integrand increases strictly to T_i for both finite positive times and ∞, and is bounded by s near zero. Monotone convergence therefore gives the specified limit, including zero for a transient state; renewal reward gives the stationary mass in each closed class. Absorbing diagonals are constant one. This proves the exact crossing criterion with equality included; θ=0 is the Euler diagonal test and θ=1 is a nonnegative resolvent. Reversal preserves the diagonal and the Euler exit rates. The recorded rational tests are finite corroboration only; the frozen script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fallat–Tsatsomeros Lemma 2.2 relates the Cayley transform to the resolvent; Theorem 4.1 is an M-matrix criterion, not a diagonal monotonicity claim. Doyle p. 10 relates resolvents and return-time moments. The general positivity-radius literature source by Horváth was not verified in full text here."
+        ],
+        "reasoning": "These primary background results are not the basis for the failure; the much closer irreducible Resultary theorem is.",
+        "searches": [
+          "Primary-literature search: finite Markov generator theta positivity, resolvent diagonals and M-matrices",
+          "DOI:10.13001/1081-3810.1086",
+          "arXiv:0909.2636",
+          "DOI:10.1016/S0168-9274(98)00050-6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 2026-10-12 irreducible frontier; 2026-10-04 reversible and 2026-11-02 irreducible Crank–Nicolson notes",
+        "Fallat–Tsatsomeros DOI:10.13001/1081-3810.1086",
+        "Doyle arXiv:0909.2636",
+        "Horváth DOI:10.1016/S0168-9274(98)00050-6 (abstract/landing only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For N≥2 add ε times an all-to-all conservative generator. The perturbed resolvent diagonals are strictly decreasing by the earlier theorem and converge for every fixed s to the original ones by matrix inversion continuity. The limiting diagonals are nonincreasing. An equality at two distinct s would force a plateau, hence constancy by analyticity, impossible when R′_ii(0)=−r_i<0. An absorbing row is constant one. The large-s limit is the Abel mean of p_ii(t), which tends to zero for transient states and to the within-class stationary mass for closed recurrent states."
+        ],
+        "reasoning": "This yields the same sharp interval, threshold and unique finite roots for all finite generators. Alternatively the same renewal proof allows defective return by setting exp(−∞)=0 and using monotone convergence. R* = D⁻¹RᵀD implies identical diagonal tests immediately. Neither change supplies a distinct nonmechanical claim in the frozen finding.",
+        "searches": [
+          "2026/10/12 stationary-mass positivity frontier, Proof §§1–4, mirror offsets 2500–5284"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier work uses exactly the same diagonal test for arbitrary θ, the same regenerative diagonal identity, and the same strict derivative argument for irreducible chains; no detailed balance."
+        ],
+        "reasoning": "Using the minimum diagonal rather than the first of the statewise roots does not change the sharp horizon. The overlapping claim is not merely a directed-cycle or θ=1/2 result.",
+        "searches": [
+          "Resultary: finite conservative Markov generator θ method, stationary mass, strict resolvent diagonal decrease and no reentry",
+          "2026/10/12/SCOPE-stationary-mass-positivity-frontier-for-the-theta-method-on-fini--e98f7c7419d6, Proof §§1–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed 2026-10-12 frontier states the irreducible classification including finite-root uniqueness; the 2026-10-04 note treats the reversible one-interval result, and the 2026-11-02 first-return note treats the irreducible Crank–Nicolson case."
+        ],
+        "reasoning": "The relevant exact lookup is for indexed theorems, not a numerical table: Q is arbitrary and the answer is a function of its resolvent. No distinct indexed exact statement of the reducible formulation was needed to establish implication.",
+        "searches": [
+          "Resultary: theta-method stationary-mass frontier and one-interval positivity",
+          "2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+          "2026/11/2/SCOPE-a-first-return-law-makes-crank-nicolson-positivity-one-interval--6b800a293f32"
+        ]
+      },
+      "rationale": "The 2026-10-12 Resultary stationary-mass positivity frontier already gives the full arbitrary-θ classification for irreducible generators, including nonreversible ones, using the same return formula and monotonicity. The remaining universal interval and exact roots follow mechanically by continuity and analyticity from that result; recurrence endpoints are the classical finite-chain limits, and reversal is diagonal conjugacy and transposition. This is stronger coverage than the reversible prior identified in the frozen record.",
+      "residual_risks": [
+        "Some primary numerical-analysis sources were inaccessible in full text and could add coverage. The negative decision rests on verified positive coverage and the explicit implication, not on an access problem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the full irreducible subclaim; implies the remaining classification with standard limiting arguments.",
+          "evidence": "The exact return resolvent is 1/[1+q_i s(1−E exp(−H_i/s))]; the proof differentiates the identical kernel and gives the sharp crossing at 1−θ.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-stationary-mass-positivity-frontier-for-the-theta-method-on-fini--e98f7c7419d6/RESULT.md",
+          "material_read": "Finding; Proof §§1–4, including mirror offsets 2500–5284",
+          "method": "Published RESULT.md, local mirror",
+          "title": "Stationary-mass positivity frontier for the theta method on finite Markov chains",
+          "trigger": "Closest earlier arbitrary-θ, nonreversible classification"
+        },
+        {
+          "assessment": "Supplies Cayley algebra, not statewise strict resolvent ordering.",
+          "evidence": "I+F=2(I+A)⁻¹; Theorem 4.1 characterizes M-matrix membership of transformed matrices.",
+          "identifier_or_url": "https://doi.org/10.13001/1081-3810.1086",
+          "material_read": "Lemma 2.2 and Theorem 4.1, PDF pp. 2 and 5",
+          "method": "Lawful journal PDF",
+          "title": "On the Cayley Transform of Positivity Classes of Matrices",
+          "trigger": "Possible general matrix coverage"
+        },
+        {
+          "assessment": "The inspected passage concerns return-time moments, not time-step positivity.",
+          "evidence": "It relates higher moments of return times to powers of the fundamental matrix.",
+          "identifier_or_url": "https://arxiv.org/pdf/0909.2636",
+          "material_read": "p. 10, offset 22561",
+          "method": "OA preprint",
+          "title": "The Kemeny Constant of a Markov Chain",
+          "trigger": "Return/resolvent identity background"
+        },
+        {
+          "assessment": "Full-text comparison unresolved; not relied upon for the verdict.",
+          "evidence": "No decisive full-text passage obtained.",
+          "identifier_or_url": "https://doi.org/10.1016/S0168-9274(98)00050-6",
+          "material_read": "Landing page and abstract only",
+          "method": "Lawful DOI retrieval",
+          "title": "Positivity of Runge–Kutta and Diagonally Split Runge–Kutta Methods",
+          "trigger": "Positivity-radius comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp horizon has genuine use for Markov time stepping, but the structurally significant nonreversible no-reentry theorem is already covered. In the frozen extension, the new cases require only extending the same return-time argument to a defective return distribution, or a continuity argument followed by classical finite-chain limiting probabilities. The reversal observation is immediate diagonal similarity and transposition. No independently substantive surviving contribution was established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

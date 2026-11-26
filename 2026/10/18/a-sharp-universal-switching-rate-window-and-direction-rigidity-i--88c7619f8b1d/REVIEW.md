@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The six-state generator is irreducible and its environmental occupancies are exactly one half each. Eliminating OFF occupation leaves a three-by-three invertible ON resolvent. The explicit Vandermonde flux factorization is verified by a symbolic identity and direct exact-rational six-state stationary comparisons. The strict positivity decompositions for the three denominator coefficients, the derivative factorization, and both sharp limiting weight families give an analytical proof for all strictly positive weights and rates. The included verification program passed one symbolic resolvent factorization, 60 independent rational generator comparisons, and optimizer identity and boundary checks. Numerical examples are corroboration, not the proof.
+## correctness
 
-## Originality — PASS in accessible sources
-The same six-state ON/OFF microscopic model is **not new**: Roldán and Parrondo (2010) specify its rates, compute dissipation and characterize current behavior qualitatively, including small-potential and fast-switching limits. The inspected complete paper does not state the all-positive-weight Vandermonde law, universal optimal switching interval, or its sharp endpoints. Seifner et al. (2023) reproduce its microscopic rates and stationary numerical data without claiming current optimization. Lee et al. (2003) concerns a discrete-time three-state model, not this continuous-time six-state switching mechanism. A general previous record on switching two reversible Markov chains bounds reversal counts but admits reversals in some three-site examples; it does not imply no reversal for this detailed-balance-rate subclass or the exact optimizer. Broader 2018 work on sawtooth-potential ratchets could not be examined in full text; novelty remains provisional pending independent literature review.
+PASS
 
-## Mathematical value — PASS
-The on/off flashing ratchet is a standard finite model of driven transport, and selecting switching frequency to maximize transport is its natural design question. An exact sign rigidity theorem rules out current reversals for every positive three-height arrangement in the stated class, while a universal, sharp interval for the unique maximizing switching rate is unexpectedly independent of the potential contrast. This is a global structural solution rather than a single parameter substitution or isolated numerical optimum.
+Eliminate the OFF masses with (s+3)q=(1/2)1+sp. The remaining equation is stationarity of an effective three-state chain with rates r_ij=w_j/w_i+t, where h=3s/(s+3), t=h/3, and the ON probability mass is 1/2. Its effective bond current equals the physical current including the OFF contribution. Independently, the triangle tree formula gives the cycle-product difference t(1-t)V/e_3 divided by twice the sum of the rooted tree weights, with V the stated oriented Vandermonde. On the zero-sum subspace, adding the uniform rates shifts the two negative generator eigenvalues by -h; the tree weight sum is h^2+h(e_1e_2/e_3-3)+e_1 U/e_3, from the trace and the pair principal minors, with U=sum w_i^2. Substitution gives the claimed A,B,C, sign and normalization. The exact symbolic stationary check independently agreed, including J=1/658 for (w_0,w_1,w_2,s)=(1,2,3,1). Positivity follows from the coefficient expansions, and differentiation reduces the magnitude maximizer to C-As^2=0. Since 0<e_2<U for distinct positive weights, the window is strict; near-equal weights and a dominant weight approach the respective endpoints. Any repeated weight gives zero current. Conservation makes bond currents equal; three oriented bonds contribute to the displacement rate, so the velocity is 3J. The frozen Python checker was read, not executed.
 
-## Limits and relevant prior literature
-The conclusion applies only to homogeneous OFF hopping, symmetric location-independent flashing, three sites, and rate ratios \(w_j/w_i\). No general longer-ring or arbitrary-generator theorem follows. Full-text historical exclusion is not claimed; comparison with a plausible 2018 switched sawtooth model remains incomplete because access was unavailable. All provenance and mathematical independence claims remain for separate external assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The model, generic stationary solution methods, reversal-degree bounds, and some restricted-family transport behavior are known. The distinct supported claim is the arbitrary positive weight-ratio/unit-OFF specialization with its factored current, absence of direction reversal and sharp exact rate window, not a new generic triangle rational form.
+
+## value
+
+PASS
+
+The exact factorization separates the direction from the time-scale dependence in a standard microscopic ratchet. It supplies a sharp range valid for every detailed-balance weight profile in the stipulated normalization and a computable attainable maximum for any such profile. This gives quantitative information beyond a generic upper bound on reversal count, without extrapolating to general ratchet dynamics or entropy-production optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:50:29.320282Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the first-moment operator on ℓ²(Z^d): for λ>0 the resolvent of A_d exists, and any eigenvector is a multiple of (λ−A_d)^−1δ_0, giving β G_d(λ)=1, a one-dimensional eigenspace and no other positive eigenvalue by strict monotonicity. In the unit per-oriented-edge normalization p_t(0,0)=[exp(−2t)I_0(2t)]^d. With y=2dt and bounded u≥0 the small-y integrand multiplier is 1+y²/(4d)+(y⁴/32−uy/2)/d²; exponentiation of the log expansion on y≤d^(1/8) leaves a uniform O(d^−3) polynomial-weight remainder. Beyond that cutoff up to d, I_0(y/d)≤exp(y²/(4d²)) gives exp(−3y/4). Beyond d, k(z)=e^(−z)I_0(z) is decreasing by its angular integral, k(1)<1 and k(z)=O(z^−1/2) by the quadratic bound on 1−cos θ; thus the remaining integral is at most d k(1)^(d−3)∫_1^∞k³. Integrating the small-y coefficients gives 1/2, 3/4 and −u/2 at the stated orders. Reciprocal expansion gives β_c=2d−1−1/d+O(d^−2); β_dG_d(u/d)−1=(s+1−u)/(2d²)+O(d^−3). The strict sign test at zero and bracketing at s+1±ε give exactly the two stated cases. No decision is claimed at s=−1 or about a random population's trajectory. The supplied verification and numeric log were inspected, not rerun; the recorded finite numerical runs test only G_d(0), not a uniform bound or the spectral conclusion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yarovaya gives dimension monotonicity at fixed intensity, and a source-intensity expansion at fixed dimension. Rytova–Yarovaya gives the rank-one criterion and threshold alternatives in a heavy-tailed walk model.",
+          "The accessible 2012 abstract describes spatial-temporal large-deviation Green asymptotics, not explicit on-diagonal large-d coefficients. Its full text was unavailable on the attempted OA routes."
+        ],
+        "reasoning": "The first two sources cover general mechanisms or different asymptotic regimes, not a uniform estimate for λ=u/d and β~2d. No claim is made that the inaccessible 2012 paper lacks the relevant expansion.",
+        "searches": [
+          "Yarovaya arXiv:2610.27129, Theorems 4–5",
+          "Rytova–Yarovaya arXiv:2001.08032",
+          "Molchanov–Yarovaya DOI:10.1070/IM2012v076n06ABEH002621"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1004.1435",
+        "arXiv:2610.27129",
+        "arXiv:2001.08032",
+        "DOI:10.1070/IM2012v076n06ABEH002621 (abstract only)",
+        "Resultary 0c20504a4e6d, 72449e47556b and 4ef3bfa6ec2f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At λ=u/d, z=1−u/(2d²)+O(d^−4). For 0≤z≤1 the nonnegative many-step remainder is bounded above by its value at z=1. Once the unshifted O(d^−3) estimate is known, the prefactor 2d/(2d+u/d) contributes −u/(2d²), and changes to z²p_2 and z⁴p_4 are only O(d^−3) or smaller.",
+          "Thus the near-threshold slope and inversion are straightforward from the complete unshifted expansion with short-return data; the finite-dimensional high-source expansion is not uniform here, and the inspected generating-function identities alone do not bound the many-step remainder."
+        ],
+        "reasoning": "Credit all mechanical ingredients and precisely locate what earlier coverage would suffice. The independently verified uniform remainder and the resulting natural crossover are the supported distinct claim, with unresolved historical risk for the unshifted precision.",
+        "searches": [
+          "Guttmann arXiv:1004.1435 p. 15 equation (38)",
+          "Yarovaya arXiv:2610.27129 Theorems 4 and 5",
+          "Literature and Resultary searches targeting the exact high-dimensional on-diagonal expansion and first-moment critical window"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Let P_d(0;z)=Σ_m p_m(0,0)z^m be the discrete jump-chain Green function. Exact Poissonization gives G_d(λ)=P_d(0;z)/(2d+λ) at z=2d/(2d+λ); hence β_c/(2d)=1/P_d(0;1), the escape probability.",
+          "Guttmann gives the normalized Fourier denominator and the arbitrary-dimensional Bessel generating function. Its known coefficients include p_2=1/(2d) and p_4=(12d²−6d)/(2d)^4."
+        ],
+        "reasoning": "The problem is equivalent to a band-edge expansion of the hypercubic lattice Green/Watson integral; earlier exact formulae must be normalized before comparison. The required sum of all terms from six steps onward is O(d^−3), not an implication of knowing those first two coefficients alone.",
+        "searches": [
+          "High dimensional simple random walk hypercubic lattice return probability expansion Watson integral Green function",
+          "Guttmann arXiv:1004.1435 §2.2 and equation (38)",
+          "High-dimensional percolation/return-probability small-step asymptotics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 0c20504a4e6d uses the same rank-one criterion for coordinate-product walks but gives high-intensity curvature at fixed dimension. Resultary 72449e47556b treats a hypercubic array of impurities and band-edge multiplicities; 4ef3bfa6ec2f treats two-dimensional origin-and-neighbor impurities."
+        ],
+        "reasoning": "The searched indexed claims are genuinely related but do not give this scale for a single source. The shared date of the hypercubic-array record does not settle priority. No matching ranked result is not an absence proof.",
+        "searches": [
+          "Resultary: high-dimensional one-source catalytic lattice walks, threshold beta=2d−1+s/d and d lambda spectral window",
+          "Resultary nearest aliases: single impurity Green resolvent and critical dimension"
+        ]
+      },
+      "rationale": "Pass for the supported high-dimensional Green-function accuracy at the band edge and its exact joint dimension/source critical window, not for the Bessel representation, elementary short-return coefficients or rank-one criterion. The exact known lattice generating function does not itself estimate its total many-step contribution near the band edge. However, an older correctly normalized expansion of the total return Green function to the same order would imply essentially the full window by a short calculation, not just its threshold. This is a material historical risk rather than verified coverage in the inspected sources.",
+      "residual_risks": [
+        "An older high-dimensional Watson-integral, escape-probability or many-step return expansion at λ=0 may already imply the stated window; this was not established in the inspected text.",
+        "The 2012 full text remains uninspected and its abstract alone is not decisive.",
+        "No statement is assessed for exact equality s=−1, non-unit rates without rescaling, multiple sources, or population-level limits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the exact generating function and return coefficients, not the required summed tail in the passages read",
+          "evidence": "I_0 to the dth power and multinomial return generating function; Joyce citation describes coefficient asymptotics and dominant branch-point behavior.",
+          "identifier_or_url": "https://arxiv.org/pdf/1004.1435",
+          "material_read": "§2.2 pp. 13 and 15, offsets 41700–44190 and 48680–51028, including (34) and (38)",
+          "method": "OA PDF text",
+          "title": "Lattice Green functions in all dimensions",
+          "trigger": "Equivalent Watson integral and high-dimensional hypercubic coefficients"
+        },
+        {
+          "assessment": "Different asymptotic regime",
+          "evidence": "Dimension monotonicity for fixed β; λ_0(d,β)=β+a_d(0)+O(β^−1) at fixed d.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.27129",
+          "material_read": "Theorems 4 and 5, pp. 8–9",
+          "method": "OA PDF text",
+          "title": "Supercritical Branching Random Walks on Nested Lattices",
+          "trigger": "Nearest catalytic dimension/source comparator"
+        },
+        {
+          "assessment": "Covers the rank-one criterion; different jump kernel",
+          "evidence": "β I_0(λ)=1 and unique-root criterion; no claim to these hypercubic large-d constants.",
+          "identifier_or_url": "https://arxiv.org/pdf/2001.08032",
+          "material_read": "Equation (18), p. 6, and Lemma 3.3, p. 8",
+          "method": "OA PDF text",
+          "title": "Heavy-Tailed Branching Random Walks on Multidimensional Lattices. A Moment Approach",
+          "trigger": "One-source criterion and threshold"
+        },
+        {
+          "assessment": "Unresolved relevance to dimension asymptotics",
+          "evidence": "Abstract focuses on large deviations; it cannot establish or rule out same-order high-dimensional coefficients in the paper.",
+          "identifier_or_url": "https://doi.org/10.1070/IM2012v076n06ABEH002621",
+          "material_read": "Publisher abstract, around HTML offset 900; full text not inspected",
+          "method": "Lawful OA access and repository-copy attempt; publisher PDF unavailable",
+          "title": "Limit theorems for the Green function of the lattice Laplacian under large deviations of the random walk",
+          "trigger": "Plausible lattice-resolvent asymptotics precedent"
+        },
+        {
+          "assessment": "Different generators or parameter regimes; shared spectral setup credited",
+          "evidence": "Fixed-d high-β curvature, many impurities, and fixed d=2, respectively.",
+          "identifier_or_url": "Resultary 0c20504a4e6d, 72449e47556b, 4ef3bfa6ec2f",
+          "material_read": "RESULT.md findings and assumptions, at offset 0 (first record through offset 4070)",
+          "method": "Local published-record mirror",
+          "title": "Strict dimensional convexity and universal high-intensity curvature for one-source branching walks; Binomial binding thresholds and band-edge states of hypercubic impurity arrays; Exact critical lines in the two-dimensional nearest-neighbor lattice delta model",
+          "trigger": "Closest indexed rank-one, hypercube and delta-source matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This identifies the natural source-intensity width d^−1 after the order-one shift, including its exact transition location and the resulting nonzero rescaled eigenvalue. The window distinguishes the existence of a positive first-moment growth mode from its absence in a canonically normalized model where fixed-d strong-intensity asymptotics do not apply. The value is the exact near-threshold benchmark, not the use of Bessel expansions or the rank-one criterion on their own.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

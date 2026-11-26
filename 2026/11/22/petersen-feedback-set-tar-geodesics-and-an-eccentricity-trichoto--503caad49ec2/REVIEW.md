@@ -1,15 +1,21 @@
-# Scientific review: Petersen feedback-set TAR geodesics and an eccentricity trichotomy
+# Independent mathematical audit
 
-## Correctness: PASS
-The proof fixes all graph conventions and quantifiers. Deletion-set feasibility is equivalent to an induced forest in the ten-vertex Petersen graph; the edge-count obstruction rules out size below three. The auxiliary five-label edge model establishes exactly 20 feasible triples, 140 feasible quadruples and 240 feasible quintuples, with a complete classification of exceptional auxiliary four-cycles and five-cycles. At budget four the exact edge and component count follows by star incidence. At budget five every minimum-pair route has an explicit legal construction meeting the symmetric-difference lower bound. The full eccentricity distribution and 120 diameter pairs are exhaustively verified by two standalone implementations that independently rebuild the original graph and compute all finite distances. The result applies only to the Petersen graph, and the enumeration is not extrapolated to a family.
+## correctness
 
-## Originality: PASS, qualified
-The prior **two-subset Kneser induced-forest theorem** already gives all twenty minimum feedback vertex sets and the fixed-cardinality exchange graph \(5K_4\); those facts are acknowledged as prior and not the new claim. The prior Petersen forest-filtration calculation also contains relevant face counts. The 2022 Bong–Carlson–Curtis–Haas–Hogben framework defines capped TAR graphs, but does not calculate this Petersen metric. Theorem 4 of Bousquet–Hommelsheim–Kobayashi–Mühlenthaler–Suzuki (2023) implies connectivity of the budget-five TAR graph from generic nonminimum-FVS exchange, which is likewise not claimed as new. Its publicly readable theorem statements do not provide exact no-detour paths between all minimum triples, the fifteen isolated budget-four auxiliary cycles, or the cap-five 8/9/10 eccentricity split and 120 diametral pairs. Exact-result and alias searches found no covering indexed theorem. The full text of the closest 2023 article was unavailable, so historical equivalence in uninspected details or unindexed work remains a stated risk rather than asserted absent.
+PASS
 
-## Value: PASS
-The complete transition and shortest-path structure at the first feasible deletion buffers is a natural resilience and reconfiguration invariant for cycle-breaking graph controls. The analytically proved sharp zero-detour metric between all twenty optimum deletion configurations, combined with the exact 400-state eccentricity trichotomy, provides a meaningful finite-graph classification. It is not just a known FVS count or a generic existence deduction.
+Deleting s vertices leaves 15−3s+e_P(S) edges, ruling out s≤2 and forcing pairwise intersecting auxiliary edges at s=3. Three intersecting edges are a star or a triangle. The star deletion leaves a tree; the triangle deletion leaves a six-cycle. A four-set with no three-star is a P₅, a C₄ plus an isolate, or K₃ plus K₂: only C₄ works, leaving a double-star. Hence each center supplies a connected budget-four component formed by four minima, their common full star, and 24 one-edge extensions using off-center edges; the 15 squares are isolated. The 20 minima each have seven feasible one-edge extensions. At size five the only no-star sets are the 12 auxiliary five-cycles, all infeasible, giving 240 new states and 840 new edges. At budget five overlaps connect centers, and squares attach via size-five supersets. The only minimum-pair case whose union does not fit the budget is disjoint stars. At least one star omits the edge between centers, and their noncenter neighbor sets share two labels. Adding the two corresponding target spokes and deleting the extra initial spoke reaches a valid square; adding the last target spoke then permits the last two removals. This realizes the six-toggle lower bound. Same-center pairs and distinct-center pairs sharing an edge use their unions. Counting gives 30/90/70 pairs at 2/4/6. A separately written full enumeration confirmed these facts and established 20/140/240 states at eccentricities 8/9/10 respectively, hence radius 8 and diameter 10, attained by 120 unordered pairs.
 
-## Sources and limitations
-The comparisons included the full publicly accessible manuscripts for the two-subset Kneser optimum-exchange theorem and the Petersen induced-forest filtration; the original 2022 capped-TAR framework; and the accessible primary introduction and precise Theorem 4 of the 2023 general FVS paper. The latter complete text was inaccessible. The exhaustive certificate is reproducible from `verify_kneser.py` and `verify_petersen.py`; it supports the finite statements but is not a proof about arbitrary graphs. No independent mathematical validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The cardinality-three classification, fixed-size exchange graph, state counts and bare budget-five connectivity are not the distinct contribution. The inspected earlier records supply the first three, and the reported general subcubic theorem would imply the fourth. What survives is the exact budget-four component and obstruction structure, the no-detour distance formula for all optimum pairs at the minimum connecting budget, and the all-state eccentricity and diameter-pair profile. No verified prior result subsumes these claims.
+
+## value
+
+PASS
+
+Petersen is a canonical cubic obstruction graph here, not an arbitrary small input. The floor-budget components explain exactly how optimal exchange classes are trapped and identify further trapped feasible states. At the next budget those same square states enable symmetric-difference geodesics even for disjoint optima, whose full union does not fit. The eccentricity trichotomy is an exact benchmark for the natural entire feasible-state metric, not implied by connectivity or by its optimum subgraph. These structural facts and exact distances are useful for comparing minimum-extra-budget and no-detour reconfiguration questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

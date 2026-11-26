@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:35:20.288998Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An at-most-one swap preserves symbol counts, so both packings add over the number k of U steps, also the number of D steps. Independently reconstructed the allowed excursions using an extendable nonnegative-prefix recursion, and constructed every unchanged or swapped output without applying a prefix test to outputs. Rebuilt output incidence and checked all explicit codebook, rational primal and rational dual inequalities and objective equalities for the 19 layers. For the integer upper bounds, independently used memoized recursion on surviving sources: at a common output of two or more surviving sources a packing chooses either none or exactly one of those sources. In the chosen branch remove that source and every source intersecting its ball; when no such output remains all remaining sources are jointly feasible. The alternatives are exhaustive, and in all layers the resulting exact maximum matches the codebook size. Source counts are 1,2,4,9,21,51,127; M is 1,2,2,4,7,14,28 and P is 1,2,2,4,7,71/5,5515/182. At n=6 the gap is 1/5 and the floor still equals 14; at n=7 it is 30, strictly above 28. In the length-seven layers k=0,1,2,3 the integer maxima are 1,6,14,7 and the fractional maxima 1,6,2785/182,8. Replay: python3 /workspace/review-evidence/channels.py swap; see swaps.log in the same directory. This examines only single adjacent exchanges through length seven.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The multipermutation framework studies more general composition classes; its table supplies upper bounds rather than exact restricted Motzkin-layer values.",
+          "The general-alphabet adjacent-transposition paper gives coding bounds with asymptotic statements, not a finite Motzkin integer and output-incidence LP classification."
+        ],
+        "reasoning": "Full-composition upper bounds restrict a Motzkin subset but are not generally sharp for it. Neither general theory identifies the gap at six or the failure of rounding at seven for the complete prefix-constrained set.",
+        "searches": [
+          "Caltech ETR122 Sec. IV numerical upper bounds on A(m,r,d)",
+          "Kovačević–Kiah–Goyal arXiv:2509.06692, pp. 1–2 and 6"
+        ]
+      },
+      "checked_sources": [
+        "2026/11/22/SCOPE-exact-adjacent-swap-packings-of-short-dyck-words-and-the-first-f--7abdf29f158b",
+        "2026/11/22/SCOPE-sharp-one-swap-correction-in-ternary-length-six-2-regular-multip--6a43245eae5f",
+        "Caltech ETR122 Sec. IV",
+        "arXiv:2509.06692",
+        "2026/11/22/SCOPE-exact-single-deletion-codes-and-the-first-fractional-gap-for-mot--71eef2e2dbc5",
+        "2026/11/22/SCOPE-wilf-equivalent-catalan-permutation-sources-separate-under-one-a--a3afe54a9273"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The six-step gap is contributed by k=1 and the seven-step gap by k=2 and k=3; each has H steps. The Dyck-only comparison therefore misses the decisive layers. The fixed-composition 18-word result places no sharp bound at 7 on the smaller Motzkin subset and gives no exact rational relaxation for that subset.",
+          "The Catalan permutation comparison has the same swap channel but not the same source words, since entries of a permutation are distinct rather than repeated U, D, H."
+        ],
+        "reasoning": "No inspected broader result or local exact table implies the claimed integer and fractional optima of the full Motzkin model. The substantive novelty is the comparison of the two optima and the two distinct first-occurrence thresholds, not the encompassed Dyck cases.",
+        "searches": [
+          "Resultary 7abdf29f158b, 6a43245eae5f, 71eef2e2dbc5, and a3afe54a9273; arXiv:2509.06692"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On each fixed composition, with unrestricted received words, the output balls are exactly radius-one balls in the full adjacent-transposition graph: two sources are confusable iff their graph distance is at most two.",
+          "The 7abdf29f158b Dyck record uses the same ball even when outputs leave the excursion family. Dyck semilength k is exactly the Motzkin layer (n,k)=(2k,k)."
+        ],
+        "reasoning": "The Dyck layers are literal overlap, not new cases of a distinct channel. The metric equivalence concerns the ambient graph with paths through all outputs, not its subgraph induced by excursions. It does not eliminate the Motzkin prefix constraint on sources.",
+        "searches": [
+          "Resultary Motzkin constrained source adjacent swap packing and exact 71/5 and 5515/182",
+          "Resultary 7abdf29f158b short Dyck adjacent-swap packings, Finding and Assumptions",
+          "Buzaglo et al., Error-Correcting Codes for Multipermutations, Caltech ETR122"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact full-table search points back to the assigned record. The strongest near matches are an 18-word maximum among all 90 length-six words of composition (2,2,2), and the Dyck table, which gives M=P=2 at semilength 3.",
+          "The distinct exact Motzkin deletion entry deletes one coordinate, leading to outputs of length n-1, unlike same-length exchange outputs."
+        ],
+        "reasoning": "All 90 words of composition (2,2,2) are not the 30 admissible Motzkin excursions in that layer (its M is 7). Neither the broader composition number nor the Dyck-layer row gives the full Motzkin table; matching sources in a different channel also do not determine it.",
+        "searches": [
+          "Resultary first integer-rounding failure for one-swap Motzkin excursions with P6=71/5, P7=5515/182",
+          "Resultary 6a43245eae5f full ternary composition (2,2,2), 7abdf29f158b Dyck packing table, 71eef2e2dbc5 Motzkin deletion"
+        ]
+      },
+      "rationale": "The exact Resultary hit on the full table is the assigned record itself. There is material partial coverage: the no-horizontal layers are the same as previously indexed Dyck swap layers, and an unrestricted multipermutation result uses the same channel for one host composition. The initial gap and the first floor failure need the layers with horizontal steps that those results do not determine. The literature comparison is bounded and not a priority assertion.",
+      "residual_risks": [
+        "The focused outbound query added no useful source and is not evidence of absence. An unindexed finite constrained-channel computation or an equivalent tabulation could exist.",
+        "Coarse catalogue dates do not resolve relative priority among the distinct compared notes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct partial coverage of the Dyck layers, including n=6,k=3; not the full totals",
+          "evidence": "Includes the unchanged word and arbitrary one-unequal-swap outputs, Dyck or otherwise; gives integer optima 1,1,2,4,9 and fractional optima 1,1,2,4,19/2 at semilength 1–5.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-adjacent-swap-packings-of-short-dyck-words-and-the-first-f--7abdf29f158b",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–2461",
+          "method": "Resultary search and local-mirror primary passages",
+          "title": "Exact adjacent-swap packings of short Dyck words and the first fractional gap",
+          "trigger": "Exactly the same balls on the no-horizontal subfamily"
+        },
+        {
+          "assessment": "Unrestricted source class, not the Motzkin prefix-conditioned layer",
+          "evidence": "Capacity 18 over all 90 words of composition (2,2,2); the record explains that the two values in the earlier paper's comparison are upper bounds, not exact optima.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-one-swap-correction-in-ternary-length-six-2-regular-multip--6a43245eae5f",
+          "material_read": "RESULT.md Finding, offset 0; prior comparison and limitations, offsets 5300–6943",
+          "method": "Resultary search and local-mirror primary passages",
+          "title": "Sharp one-swap correction in ternary length-six 2-regular multipermutations",
+          "trigger": "Exact same alphabet, length, composition and error channel for one candidate layer"
+        },
+        {
+          "assessment": "Same ambient channel; bounds on all multipermutations, no sharp prefix-restricted result",
+          "evidence": "The two entries 30 and 34 at m=3 are upper bounds, not the exact optimization of Motzkin sources.",
+          "identifier_or_url": "https://www.paradise.caltech.edu/papers/etr122.pdf",
+          "material_read": "Sec. IV, p. 4, offset 27000, A(m,2,3) numerical bounds",
+          "method": "Caltech OA PDF, targeted primary passage",
+          "title": "Error-Correcting Codes for Multipermutations",
+          "trigger": "Published fixed-composition adjacent-transposition codes with relevant numerical table"
+        },
+        {
+          "assessment": "General bounds and asymptotic statements, not an exact finite constrained table",
+          "evidence": "Works with q-ary strings under adjacent transpositions, but the inspected results do not give exact Motzkin packing optima.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.06692",
+          "material_read": "pp. 1–2 and 6, OA offsets 690,5200,22400",
+          "method": "OA primary text, bounded passages",
+          "title": "Bounds on Codes Correcting Adjacent Transpositions",
+          "trigger": "General-alphabet theorem could cover all ternary adjacent-transposition codes"
+        },
+        {
+          "assessment": "Different channel and incidence system",
+          "evidence": "The outputs delete a coordinate, changing the blocklength, whereas the bound outputs preserve all symbol counts and length.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-single-deletion-codes-and-the-first-fractional-gap-for-mot--71eef2e2dbc5",
+          "material_read": "RESULT.md Finding and channel, offsets 0–2310",
+          "method": "Resultary and local-mirror primary statement",
+          "title": "Exact single-deletion codes and the first fractional gap for Motzkin excursions",
+          "trigger": "Close title and identical class of source paths"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The comparison isolates a practical distinction for exact coding bounds: the first nonintegral relaxation advantage is small enough to disappear under flooring, whereas at the next length the floor exceeds the best code by two. The complete preceding lengths and preservation of the genuine receiver alphabet make this a sharp boundary for the natural packing model, not merely a fractional example with a cherry-picked source subset. The composition data locate which types of paths cause the failure and give a benchmark for stronger upper bounds, without implying a larger-length law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

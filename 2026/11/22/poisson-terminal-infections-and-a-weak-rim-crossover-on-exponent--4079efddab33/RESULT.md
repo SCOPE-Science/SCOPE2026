@@ -1,106 +1,62 @@
 # Poisson terminal infections and a weak-rim crossover on exponential first-passage wheels
 
 ## Finding
+On a wheel with \(n\ge5\) rim vertices, start only the hub infected. In the irreversible model with spoke transmission rate \(\alpha>0\) and rim transmission rate \(\beta_n\ge0\), let \(N_n(t)\) count susceptible rim vertices at time \(t\) and let \(T_n\) be the time when the last becomes infected. Write \(G\) for the standard Gumbel law with cdf \(\exp(-e^{-x})\).
 
-Let \(W_{n+1}\) be a wheel with hub \(h\) and rim \(v_0,\ldots,v_{n-1}\), \(n\ge5\). Initially only \(h\) is infected; infection is irreversible and crosses each hub--rim edge at rate \(\alpha>0\) and each rim--rim edge at rate \(\beta_n\ge0\), independently and with exponential waiting times. Write \(T_n\) for the first time all rim vertices are infected and \(N_n(t)\) for the number remaining susceptible at time \(t\). Let \(G\) have the standard Gumbel law \(\Pr(G\le x)=\exp(-e^{-x})\).
-
-**Fixed positive rim rate.** For every fixed \(\alpha,\beta>0\), define \(a=\alpha+2\beta\) and
+For fixed \(\alpha,\beta>0\) with \(\beta_n=\beta\), put \(a=\alpha+2\beta\) and \(t_n(x)=(\log n+2\beta/\alpha+x)/a\). For each real \(x\),
 \[
- t_n(x)=\frac{\log n+2\beta/\alpha+x}{a}.
+N_n(t_n(x))\Rightarrow\operatorname{Pois}(e^{-x}),\qquad
+aT_n-\log n-2\beta/\alpha\Rightarrow G.
 \]
-For every fixed real \(x\),
+If instead \(\beta_n\log n\to c\in[0,\infty)\), then for each real \(x\),
 \[
- N_n(t_n(x))\ \Longrightarrow\ \operatorname{Poisson}(e^{-x}),
- \qquad aT_n-\log n-\frac{2\beta}{\alpha}\ \Longrightarrow\ G.
+N_n((\log n+x)/\alpha)\Rightarrow\operatorname{Pois}(e^{-x-2c/\alpha}),\qquad
+\alpha T_n-\log n+2c/\alpha\Rightarrow G.
 \]
-
-**Weak-rim crossover.** Fix \(\alpha>0\), and let \(\beta_n\ge0\) satisfy \(\beta_n\log n\to c\in[0,\infty)\). Then for every fixed real \(x\),
-\[
- N_n\!\left(\frac{\log n+x}{\alpha}\right)
- \Longrightarrow\operatorname{Poisson}\left(e^{-x-2c/\alpha}\right),
-\]
-and equivalently
-\[
- \alpha T_n-\log n+\frac{2c}{\alpha}\ \Longrightarrow\ G.
-\]
-In particular, a rim rate on the scale \(1/\log n\) already produces a nonzero order-one shift relative to the exact star law \(\Pr(T_n\le t)=(1-e^{-\alpha t})^n\) at \(\beta_n=0\). This is the sharp star-window scale: if instead \(\beta_n\to0\) and \(\beta_n\log n\to\infty\), then \(\alpha T_n-\log n\to-\infty\) in probability.
+This identifies the rate scale \(1/\log n\) for an order-one shift from the star window, where \(\beta_n=0\) gives \(\Pr(T_n\le t)=(1-e^{-\alpha t})^n\) for \(t\ge0\). If \(\beta_n\to0\) but \(\beta_n\log n\to\infty\), then \(\alpha T_n-\log n\to-\infty\) in probability.
 
 ## Assumptions and scope
-
-The rim is a simple undirected cycle; at every susceptible vertex each infected neighbor transmits at the stated independent exponential rate. Equivalent first-passage realization: give spoke \(hv_j\) an independent \(E_j\sim\operatorname{Exp}(\alpha)\), rim edge \(v_jv_{j+1}\) an independent \(Y_j\sim\operatorname{Exp}(\beta_n)\) (for zero rate, set its weight to infinity), and take the infection time of \(v_i\) to be the shortest weighted-path length from \(h\) to \(v_i\). The exponential memoryless property proves equivalence to the specified Markov SI process. All limits are along integer \(n\to\infty\); convergence is distributional, not an almost-sure statement. The fixed-rate assertion does not require or imply uniformity over all growing rim rates.
+The rim is a simple undirected cycle. Each edge from an infected to a susceptible vertex transmits after an independent exponential wait of the given rate. Equivalently give each spoke an independent \(\operatorname{Exp}(\alpha)\) weight and each rim edge an independent \(\operatorname{Exp}(\beta_n)\) weight (infinite if \(\beta_n=0\)). Infection times are distances from the hub in this first-passage metric: an edge's wait is first needed when one endpoint becomes infected, so its independent exponential clock gives the stated Markov rates. Equivalently again, the rim counting process comes from the two-sided discrete Bass model on a circle with external rate \(p=\alpha\) and total neighbor influence \(q=2\beta_n\); each infected neighbor contributes \(q/2\). The claims concern terminal-window counts and completion times, not the mean adoption curve or a new exact finite-circle marginal formula.
 
 ## Proof
 
-**1. An exact infinite-rim one-point void probability.** Replace the rim cycle by the integer line, with independent \(\operatorname{Exp}(\alpha)\) seed delays at all integer sites and independent \(\operatorname{Exp}(\beta)\) nearest-neighbor edge weights. Let \(X_0(t)\) indicate that site zero has not been reached by time \(t\). Along either ray, distances from zero to consecutive sites are the arrival times \(S_k\) of a rate-\(\beta\) Poisson process. Conditioned on the edge weights, no seed from that ray can reach zero by \(t\) precisely when its seed delays obey \(E_k>(t-S_k)_+\) for all \(k\ge1\). The Poisson Laplace functional gives the one-ray protection probability
+### One-point survival on the infinite line
+Put independent exponential seed delays of rate \(\alpha\) at all sites on the infinite line, with independent nearest-neighbor edge weights of rate \(\beta\). Along one ray from the target, the distances to successive sites are the arrival times \(S_k\) of a rate-\(\beta\) Poisson process. Conditional on the edge weights, protection from that ray requires each seed delay to exceed \((t-S_k)_+\). Thus the one-ray protection probability is
 \[
- J_\beta(t)=\mathbb E\exp\left(-\alpha\sum_{k\ge1}(t-S_k)_+\right)
- =\exp\left[-\beta\int_0^t(1-e^{-\alpha(t-s)})\,ds\right]
- =\exp\left[-\beta t+\frac\beta\alpha(1-e^{-\alpha t})\right].
+J_\beta(t)=\mathbb E\exp[-\alpha\textstyle\sum_{k\ge1}(t-S_k)_+]
+=\exp[-\beta t+(\beta/\alpha)(1-e^{-\alpha t})],
 \]
-The two rays and the seed at zero are independent. Therefore the infinite-rim survival probability is **exactly**
+by the Poisson Laplace functional, integrating \(1-e^{-\alpha(t-s)}\) on \([0,t]\). For \(\beta=0\), take \(J_0=1\). The two independent rays and the seed at the target give
 \[
- p_\infty(t)=e^{-\alpha t}J_\beta(t)^2
- =\exp\left[-(\alpha+2\beta)t+\frac{2\beta}{\alpha}(1-e^{-\alpha t})\right].\tag{1}
+p_\infty(t)=e^{-\alpha t}J_\beta(t)^2
+=\exp[-(\alpha+2\beta)t+(2\beta/\alpha)(1-e^{-\alpha t})]. \tag{1}
 \]
-This calculation does not assert an exact finite-wheel marginal identity.
+This is the infinite-line marginal. The calculation is included to make the tail argument self-contained; circle marginal laws are already treated in [1,2].
 
-**2. Finite-radius coupling.** Let \(R_n=\lceil(\log n)^2\rceil\). For each rim vertex \(i\), define \(X_i^{(R)}(t)\) to be the event that no seed at rim distance at most \(R_n\) can reach \(i\) by following the direct rim arc of at most \(R_n\) edges. If \(4R_n<n\), these events depend only on the independent spoke and rim weights in the \(R_n\)-neighborhood of the target. An infection path omitted by this truncation must traverse at least \(R_n\) consecutive rim edges in one direction by time \(t\), since all seed delays are nonnegative. Hence for any \(i\),
-\[
- \Pr\bigl(X_i^{(R)}(t)\ne\mathbf1\{v_i\text{ susceptible at }t\}\bigr)
- \le2\Pr\bigl(\operatorname{Pois}(\beta_n t)\ge R_n\bigr).\tag{2}
-\]
-Here \(\operatorname{Pois}(0)\) is zero. For each time sequence used in the theorem, \(\beta_n t=O(\log n)\), so the bound in (2), multiplied by any fixed power of \(n\), tends to zero by the Poisson Chernoff bound. Formula (1), with \(\beta=\beta_n\), is consequently an asymptotically exact one-point probability on the finite wheel, with error superpolynomially small:
-\[
- \Pr(X_i^{(R)}(t)=1)=p_\infty(t)+o(n^{-K})\quad\text{for every fixed }K>0.\tag{3}
-\]
+### Local truncation and pair protection
+Let \(R=\lceil(\log n)^2\rceil\). Let \(X_i\) indicate that vertex \(i\) is still protected when only paths along either of its first \(R\) rim edges and the corresponding seed delays are used. For large \(n\), \(4R<n\), so the two radius-\(R\) rays use the same law as on the line. On the circle, any omitted successful path must use at least \(R\) rim edges along one ray into the target by time \(t\). The same holds for an omitted successful infection on the line. Thus the error probability of either one-point truncation is bounded by \(2\epsilon_n\), where \(\epsilon_n=\Pr(\operatorname{Pois}(\beta_n t)\ge R)\). In all windows used here \(\beta_n t=O(\log n)\), and the Poisson Chernoff bound gives \(n^K\epsilon_n\to0\) for every fixed \(K\). In particular, if \(p_n=\Pr(X_i=1)\), then \(p_n=p_\infty(t)+O(\epsilon_n)\) with \(\beta=\beta_n\) in (1), and the exact and truncated counts agree with probability at least \(1-2n\epsilon_n\).
 
-**3. Local pair protection.** For two different rim sites whose cyclic separation is at most \(2R_n\), choose the disjoint outward rays of length \(R_n\) running away from one another around the longer complementary arc. If both truncated survival indicators equal one, both sites' spoke delays exceed \(t\) and neither outward ray can send infection to its endpoint. Write
+Let \(i\ne j\) have cyclic distance at most \(2R\). In the longer complementary arc take the outward radius-\(R\) ray from each target. These two rays are disjoint because the arc length exceeds \(2R\); their non-root seed delays, edge weights and the two root seeds are all independent. If both vertices survive under truncation, their own seeds exceed \(t\) and their respective outward rays are protected. Writing \(J_{\beta,R}(t)\) for the one-ray protection probability keeping only the first \(R\) sites,
 \[
- J_{\beta,R}(t)=\mathbb E\exp\left(-\alpha\sum_{k=1}^{R}(t-S_k)_+\right).
+\Pr(X_i=X_j=1)\le e^{-2\alpha t}J_{\beta_n,R}(t)^2
+\le e^{-2\alpha t}(J_{\beta_n}(t)+\epsilon_n)^2. \tag{2}
 \]
-Independence gives the strict bound
-\[
- \Pr\left(X_i^{(R)}(t)=X_j^{(R)}(t)=1\right)
- \le e^{-2\alpha t}J_{\beta_n,R_n}(t)^2.\tag{4}
-\]
-The right side is at most \(e^{-2\alpha t}[J_{\beta_n}(t)+\varepsilon_n]^2\), where \(\varepsilon_n\le\Pr(\operatorname{Pois}(\beta_n t)\ge R_n)\). Under fixed \(\beta>0\) at \(t=t_n(x)\), it is \(O(n^{-(2\alpha+2\beta)/(\alpha+2\beta)})\). Under \(\beta_n\log n\to c\) at \(t=(\log n+x)/\alpha\), it is \(O(n^{-2})\). The constants may depend on the fixed parameters and \(x\), but not on \(i,j,n\).
+The indicators have a dependency graph obtained by joining vertices at cyclic distance at most \(2R\): each indicator is independent of the collection outside its own graph neighborhood, by disjoint underlying weights.
 
-**4. Rare surviving sites are Poisson.** Two truncated indicators are independent when their cyclic distance exceeds \(2R_n\). The dependency graph thus has at most \(4R_n\) neighbors per site. Let \(p_n\) be their common success probability. The elementary local-dependence Poisson bound (Arratia--Goldstein--Gordon's Chen--Stein bound) controls total-variation error against \(\operatorname{Pois}(np_n)\) by a constant multiple of
-\[
- b_1=n(4R_n+1)p_n^2,\qquad
- b_2=\sum_i\sum_{0<d(i,j)\le 2R_n}\Pr(X_i^{(R)}=X_j^{(R)}=1).
-\]
-For fixed \(\beta>0\), (1)--(4) give \(b_1=O(R_n/n)\) and \(b_2=O(R_n n^{-\alpha/(\alpha+2\beta)})\); for the weak-rim regime they give \(b_1,b_2=O(R_n/n)\). All errors vanish, as does the truncation error for the entire rim by the union bound.
+### Terminal counts and completion
+For fixed \(\beta>0\), at \(t_n(x)\) the mean in (1) obeys \(np_\infty(t_n(x))=\exp[-x-(2\beta/\alpha)e^{-\alpha t_n(x)}]\to e^{-x}\), and the bound (2) is \(O(n^{-(2\alpha+2\beta)/(\alpha+2\beta)})\). In the weak-rim window \(t=(\log n+x)/\alpha\) with \(\beta_n\log n\to c\), the exponent of \(np_\infty(t)\) is \(-x-2\beta_n t+(2\beta_n/\alpha)(1-e^{-\alpha t})\to-x-2c/\alpha\), and (2) is \(O(n^{-2})\).
 
-**5. Evaluate the Poisson means and the completion event.** For fixed \(\beta\), substitute \(t_n(x)\) into (1):
-\[
- np_\infty(t_n(x))=\exp\left[-x-\frac{2\beta}{\alpha}e^{-\alpha t_n(x)}\right]\longrightarrow e^{-x}.
-\]
-For \(\beta_n\log n\to c\), at \(t=(\log n+x)/\alpha\), formula (1) gives
-\[
- np_\infty(t)=\exp\left[-x-2\beta_n t+\frac{2\beta_n}{\alpha}(1-e^{-\alpha t})\right]
- \longrightarrow e^{-x-2c/\alpha}.
-\]
-Finally \(\{T_n\le t\}=\{N_n(t)=0\}\). Evaluating the mass at zero of the limiting Poisson laws proves both completion-time assertions. For sharpness, suppose \(\beta_n\to0\) while \(\beta_n\log n\to\infty\). At any fixed \(K>0\), choose \(t=(\log n-K)/\alpha\). Equation (1) gives \(np_\infty(t)\to0\), and the same truncation argument as (2) applies because \(\beta_n t=o(\log n)\). The union bound gives \(\Pr(T_n>t)\le np_\infty(t)+o(1)\to0\). Since \(K\) is arbitrary, \(\alpha T_n-\log n\to-\infty\) in probability, as claimed. \(\square\)
+Apply the dependency-graph Chen–Stein bound [3] to \(\sum_iX_i\) with mean \(np_n\). Its two terms are \(n(4R+1)p_n^2=O(R/n)\) and the sum of \(\Pr(X_i=X_j=1)\) over ordered neighboring distinct pairs. The latter is \(O(R n^{-\alpha/(\alpha+2\beta)})\) for fixed positive \(\beta\), and \(O(R/n)\) for the weak-rim window. Both tend to zero; so does the full-count truncation error. This proves the two Poisson limits. Taking the mass at zero, using \(\{T_n\le t\}=\{N_n(t)=0\}\), gives the displayed Gumbel laws. At \(\beta_n=0\) the independent spoke delays give the exact star distribution. Finally if \(\beta_n\to0\) and \(\beta_n\log n\to\infty\), take \(t=(\log n-K)/\alpha\) for any fixed \(K>0\). Then \(np_\infty(t)\to0\) by (1), and the same one-point truncation bound gives \(\Pr(T_n>t)\le np_\infty(t)+O(n\epsilon_n)\to0\). This proves escape from the star window.
 
 ## Verification
+The accompanying `verify_wheel.py` constructs finite-wheel Markov generators and compares one-point survival computed by uniformization with (1) for selected sizes and rates. These comparisons concern the one-point approximation, not the count or extreme-value limits, which follow from the proof.
 
-The standalone `verify_wheel.py` uses only the Python standard library. It independently constructs the full finite-state SI Markov generator for wheels with 6, 8 and 10 rim sites, computes the site-zero survival probability by continuous-time Markov uniformization, and compares 12 numerical values at four rate/time combinations to the infinite-line expression (1). All twelve checks pass. They test the model and the one-point coupling, not the infinite-size Poisson theorem. The proof of the theorem is the analytic argument above, including the local-dependence and truncation bounds.
+## Relationship to prior work and limitations
+The two-sided homogeneous discrete Bass circle [1,2] has exactly the rim transition rates here under \(p=\alpha, q=2\beta\). In particular, [2, §4.1, eqs. (4.3)–(4.6)] gives exact finite-circle one-point survival via a recursion, valid for two-sided as well as one-sided diffusion, and §§3.3–3.4 give useful survival-event identities. Taking the infinite-size limit in the marginal recursion yields the ODE \(S'(t)=[-(p+q)+qe^{-pt}]S(t)\), which gives (1). The distinction here is control of the **joint rare-survivor count in a logarithmic time window**, with a Poisson limit and a crossover for the last adoption time. One-point survival alone does not exclude clusters. The locality argument and dependent-pair bound are needed for these conclusions. The comparison is bounded and does not settle absolute priority.
 
-## Relationship to prior work
-
-Bhamidi, van der Hofstad and Hooghiemstra study exponential first-passage weights and hopcounts on random configuration-model graphs; their graph ensemble and typical-vertex statements do not yield deterministic hub-rooted wheel flooding extremes. Renlund analyzes propagation speeds along infinite width-two ladders; it does not yield a terminal-infection law for a cycle of sites all attached to one infected hub. Leskelä and Ngo treat flooding times on sparse random configuration models with bounded empirical high-degree moments; the wheel has a hub of growing degree and the required deterministic geometry is outside that theorem. The published wheel SIS model with recovery studies stationary mean-field quantities, not exact irreversible SI terminal times. The established Poisson approximation theorem is applied rather than claimed as new.
-
-Published research findings on *clique bouquets* involve disjoint peripheral petals (and a different \(\log\log n\) shift), not a single growing peripheral cycle. Published wheel *bond-percolation* connectivity findings concern a static thresholded edge graph; shortest-path sum constraints for exponential passage times are not equivalent to independent-edge openness at a single time. These comparisons do not establish uniqueness, and the prior-art evaluation remains provisional.
-
-## Limitations
-
-Only the specified irreversible SI/independent exponential-passage model, hub initial condition and simple wheel geometry are covered. The results are weak-convergence statements for the number of last susceptible sites and the finishing time. No exact finite-wheel distribution or higher-order asymptotic error constant is claimed. No Gumbel moment convergence, nonexponential edge-weight generality, or uniform assertion over unrestricted rate sequences is proved. The shifted weak-rim Gumbel law requires the finite limit \(\beta_n\log n\to c\); the separate star-window escape assertion assumes \(\beta_n\to0\) and \(\beta_n\log n\to\infty\). Independent scientific validation and definitive historical-priority confirmation remain outstanding.
+There is no claim of uniformity over unrestricted rate sequences, Gumbel moment convergence, a finite-wheel distribution of \(T_n\), or extension to nonexponential weights. In particular the proof uses fixed positive rim rate, or the specified weak-rim regimes, with the hub as the single initial source.
 
 ## References
-
-1. S. Bhamidi, R. van der Hofstad and G. Hooghiemstra, *First passage percolation on random graphs with finite mean degrees*, first public arXiv posting 2009-03-30, https://arxiv.org/abs/0903.5136.
-2. H. Renlund, *First-passage percolation on ladder-like graphs with heterogeneous exponential times*, arXiv posting 2011-02-23, https://arxiv.org/abs/1102.4744.
-3. L. Leskelä and H. Ngo, *First passage percolation in sparse random graphs with boundary weights*, arXiv posting 2018-06-25, https://arxiv.org/abs/1806.09568.
-4. R. Arratia, L. Goldstein and L. Gordon, *Two moments suffice for Poisson approximations: the Chen--Stein method*, Ann. Probab. 17 (1989), 9--25, https://doi.org/10.1214/aop/1176991491.
-5. L. Jiao, D. Guo and Y. Wang, *SIS Process with Heterogeneous Infection Rates in Wheel Graphs*, Mathematics 13 (2025), 3580, https://doi.org/10.3390/math13223580. This studies a different, recovering epidemic model.
+1. G. Fibich and R. Gibori, *Aggregate diffusion dynamics in agent-based models with a spatial structure*, Operations Research **58** (2010), 1450–1468. [DOI](https://doi.org/10.1287/opre.1100.0818).
+2. G. Fibich, T. Levin and O. Yakir, *Boundary Effects in the Discrete Bass Model*, SIAM Journal on Applied Mathematics **79** (2019), no. 3. [Author-hosted article](https://www.math.tau.ac.il/~fibich/Manuscripts/Bass_boundary_SIAP19.pdf).
+3. R. Arratia, L. Goldstein and L. Gordon, *Two moments suffice for Poisson approximations: the Chen–Stein method*, Ann. Probab. **17** (1989), 9–25. [DOI](https://doi.org/10.1214/aop/1176991491).

@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:53:23.930841Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–50",
+        "Frozen VERIFICATION.md lines 19–23 and verify.py lines 6–126, read without executing",
+        "arXiv:1307.4722, vertex-cover theorem and Theorem 3",
+        "Independent distance and row/column analysis of K₃□C₃"
+      ],
+      "rationale": "An MMD pair can only be strongly resolved by an endpoint. Conversely, a geodesic through a given pair can be extended at its ends until both endpoints are MMD, and either selected endpoint then strongly resolves the original pair. In the Cartesian product maximality separates by coordinate, so the MMD graph is the direct product of K_q with the antipodal matching or the odd step cycle. The even components are crowns. Their independent sets lie on one side (empty counted once) or are one of the q cross-matched pairs, giving 2(1+t)^q−1+qt² per component. For odd n, adjacent occupied layers must be identical singletons. Aggregating all size-at-least-two layer states by their common neighbors and weight h_q leaves a weighted transfer matrix on empty, q singleton colors and heavy. On the uniform singleton coordinates it restricts to B_q; on the q−1 color differences it acts as t, giving the trace term and its correction. Complementation produces the asserted cover polynomials. In the odd cycles with an empty layer, a singleton run of length ℓ≥2 is improved by full alternating layers, since q⌈ℓ/2⌉>ℓ; isolated full layers yield q⌊n/2⌋, while no empty layer gives n. The only tie is q=n=3. For even n one vertex per component forces its chosen side. In odd n≥5 one vertex cannot force by rotation, and choosing both layers of the unique adjacent pair in the minimum cover forces it: after deleting that pair the remaining odd path has a unique independent set of maximum size. For n=3, q>3, two retained layers distinguish the basis. In K₃□C₃ the distance-2 pairs are precisely those differing in both coordinates; any two vertices fit both some two-layer and some two-color basis. Three vertices in two retained layers using all colors force that two-layer basis, with the dual construction for a two-color basis. This direct boundary check confirms six bases of size six and forcing number three.",
+      "residual_risks": [
+        "The recorded nine-instance regression is finite corroboration and was not rerun; the proof covers all parameter values.",
+        "Forcing is relative to other minimum-cardinality bases, not other inclusion-minimal or arbitrary strong resolving sets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 8(d) gives the even scalar qn/2. Corollary 15(d) gives min(q(r+1),(2r+1)(q−1)) for n=2r+1, equal to q(r+1) for q≥3. The minimal-solution enumeration theorem produces inclusion-wise minimal sets; the forcing literature gives n/2 and 2 for single cycles."
+        ],
+        "reasoning": "Scalar dimension does not enumerate bases or all sets. A general algorithm listing minimal solutions is not a closed all-set evaluation or a classification of forcing. The cycle forcing values do not determine the product, notably at q=n=3.",
+        "searches": [
+          "arXiv:1307.4722, Corollaries 8(d) and 15(d)",
+          "arXiv:2309.17419, Theorem 3.8",
+          "Lenin–Kathiresan–Bača, Proposition 2.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1307.4722, 2309.17419, 2307.12401",
+        "DOI:10.55016/ojs/cdm.v12i2.62287",
+        "Resultary 2189c58cd95e, e9f31746918a and 18184fb790c3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known conversion is exact but leaves the family-specific independent-set count to be evaluated. The close same-graph topology result computes homotopy invariants; the same-graph independent-domination result counts configurations minimizing size within maximal independent sets."
+        ],
+        "reasoning": "The odd trace requires distinguishing same-color singleton runs from transitions through empty layers; the q−1 color modes cannot be obtained from a scalar optimum. Maximum support tie and product forcing require analysis of the entire basis family. The even enumerator is an elementary crown count; the support for distinct value is the full parity-dependent result and rigidity, not the reduction alone.",
+        "searches": [
+          "arXiv:1307.4722, Theorem 3 and scalar corollaries",
+          "arXiv:2309.17419, minimal versus minimum definitions",
+          "arXiv:2307.12401, Thm. 22",
+          "Resultary e9f31746918a, Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The actual equivalent enumerator is the ordinary independence polynomial of the MMD graph: a union of crowns for even n and K_q × C_n for odd n. Theorem 3 supplies the equivalence but not its all-coefficient evaluation. The closest catalogue match 2189c58cd95e gives a top-homology rotation character for cycle lengths 3r."
+        ],
+        "reasoning": "A matching full independence-polynomial formula would count as coverage under z^{qn}I(z⁻¹). A homotopy type or a character of a homology group is not the size distribution of faces.",
+        "searches": [
+          "Resultary graph-family comparisons: categorical products of cycles and complete graphs, strong resolving polynomials, and forcing",
+          "Literature: exact independence polynomial of K_q × C_n and strong resolving set enumeration",
+          "arXiv:1307.4722, strong resolving graph and Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Theorem 22 gives homotopy types of independence complexes including Ind(C_{3r} × K_q). The e9f31746918a Finding gives exact minimum independent-domination multiplicities in C_n × K_q. The 18184fb790c3 record gives a full strong-resolving polynomial for generalized-quadrangle incidence graphs."
+        ],
+        "reasoning": "The homotopy type records spheres, not the full face vector; minimum independent domination counts smallest inclusion-maximal independent sets, not maximum independent sets or all independent sets. The exact full polynomial in a different family does not imply this one. No exact table was identified that subsumes the frozen formulas.",
+        "searches": [
+          "Resultary 2189c58cd95e, e9f31746918a, 18184fb790c3",
+          "arXiv:2307.12401, Theorem 22 and discussion of the remaining cycle lengths"
+        ]
+      },
+      "rationale": "The standard MMD/vertex-cover equivalence, product reduction and the scalar strong metric dimension are already established and are credited, not passed as novel. The distinct supported claim is the evaluated all-set polynomial and the associated exhaustive basis and forcing classification. The inspected comparisons do not state that result or mechanically imply it from exact enumerator or basis data for the same product.",
+      "residual_risks": [
+        "An unexamined exact independence polynomial for K_q × C_n would give material coverage. The focused external search was uninformative and is not evidence of absence; the decision rests on the inspected analogous and same-graph results.",
+        "The already-known scalar dimension is excluded from the novelty decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Both reduction and scalar are prior",
+          "evidence": [
+            "Cartesian MMD graph is the categorical product; the scalar even and odd dimensions are corollaries, without the all-cardinality weighted polynomial."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1307.4722",
+          "material_read": "Vertex-cover theorem p. 3 (offset 8900), Theorem 3 p. 4 (10400), Corollary 8(d) p. 5 (16880), Corollary 15(d) p. 7 (20330)",
+          "method": "Targeted OA full-text reading",
+          "title": "On the strong metric dimension of Cartesian and direct products of graphs",
+          "trigger": "Direct coverage of product reduction and scalar formulas"
+        },
+        {
+          "assessment": "Prior framework and scalar forcing for the cycle alone",
+          "evidence": [
+            "The even/odd values n/2 and 2 concern single cycles, not the clique–cycle product or its exceptional six bases."
+          ],
+          "identifier_or_url": "https://doi.org/10.55016/ojs/cdm.v12i2.62287",
+          "material_read": "Definitions p. 2 (offset 3700) and Proposition 2.2 p. 3 (5800)",
+          "method": "Targeted OA reading",
+          "title": "The Forcing Strong Metric Dimension of a Graph",
+          "trigger": "Same forcing invariant and cycle family"
+        },
+        {
+          "assessment": "General algorithm for a different output",
+          "evidence": [
+            "Polynomial delay for listing inclusion-wise minimal solutions, not the size-generating polynomial for all strong resolving sets."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2309.17419",
+          "material_read": "Inclusion-minimal definition p. 3 at offset 9306 and Theorem 3.8 p. 10 at offset 32300",
+          "method": "Targeted OA full-text reading",
+          "title": "Enumerating minimal solution sets for metric graph problems",
+          "trigger": "General strong resolving set enumeration"
+        },
+        {
+          "assessment": "Same underlying independence complexes, different invariant",
+          "evidence": [
+            "Theorem 22 gives wedge-of-spheres homotopy types for k=3,4,5,6 and k=3r, not an f-vector or forcing classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.12401",
+          "material_read": "Theorem 22 p. 24, offsets 53397–56152; remaining-cycle discussion p. 27, offset 61500",
+          "method": "Targeted OA PDF passage comparison",
+          "title": "Homotopy type of the independence complex of some categorical products of graphs",
+          "trigger": "Exact same categorical product under the enumerator equivalence"
+        },
+        {
+          "assessment": "Top homology, not all degrees of independent sets",
+          "evidence": [
+            "Determines the rotation character on top rational homology for Ind(C_{3r} × K_q)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-cyclic-homology-representations-of-cycle-complete-categorical-pr--2189c58cd95e",
+          "material_read": "RESULT.md Finding at offset 0, local-mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Published-record search and local mirror reading",
+          "title": "Cyclic homology representations of cycle–complete categorical products",
+          "trigger": "Close indexed same-graph and independence-complex result"
+        },
+        {
+          "assessment": "Different extremization, later record",
+          "evidence": [
+            "For n≥6 counts minimum-cardinality independent dominating sets of size ⌈2n/3⌉, not all independent sets or those of maximum size."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-cyclic-color-gap-rigidity-and-exact-minimum-independent-dominati--e9f31746918a/RESULT.md",
+          "material_read": "RESULT.md Finding and assumptions, offsets 0–3275",
+          "method": "Published-record search and local mirror reading",
+          "title": "Cyclic color-gap rigidity and exact minimum independent-domination multiplicities in C_n × K_q",
+          "trigger": "Exact multiplicities and color runs on the same underlying MMD graph"
+        },
+        {
+          "assessment": "Different family",
+          "evidence": [
+            "Works with generalized-quadrangle incidence graphs, not clique–cycle Cartesian products."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-strong-resolving-polynomials-and-sharp-basis-exchange-in-f--18184fb790c3",
+          "material_read": "Indexed Finding comparison for the graph family",
+          "method": "Published-record lookup and targeted record comparison",
+          "title": "Exact strong-resolving polynomials and sharp basis exchange",
+          "trigger": "Indexed full strong-resolving-set polynomial and basis structure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–32 and 41–50",
+        "arXiv:1307.4722 scalar and product theory",
+        "Lenin–Kathiresan–Bača Proposition 2.2"
+      ],
+      "rationale": "Clique–cycle products are natural finite metric graphs. The full cardinality distribution gives information the known optimum and minimal-solution algorithms do not. The parity-dependent component/trace evaluation exposes the role of singleton colors and the exceptional tie at the smallest product; the basis census and exact witness sizes determine when a basis can be specified from a small subset. This is a useful exact invariant and classified boundary, not merely a recalculation of strong metric dimension.",
+      "residual_risks": [
+        "The claim does not cover K₂ or other Cartesian factors and is assessed only for basis-relative forcing."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

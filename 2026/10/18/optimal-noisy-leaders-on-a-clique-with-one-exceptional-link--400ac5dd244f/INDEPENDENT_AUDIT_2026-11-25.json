@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:29:25.380306Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–108",
+        "VERIFICATION.md:19–25 and verification.py:10–109 (inspected, not executed)",
+        "Independent exact K5 cofactor check"
+      ],
+      "rationale": "The positive-definite grounded matrix is the grounded unit clique B plus (w-1)bb^T, b=e1-e2. With v_i=c on leaders and a otherwise, the inverse of B is diag(v)+vv^T/[q(a-c)], since 1-sum(v)=q(a-c)>0. Its trace depends only on q. A second update gives J=J_clique+(1-w)s/[1-(1-w)r] with r=b^TB^-1b and s=||B^-1b||^2. The cases j=0,2 give 2a or 2c for r and 2a^2 or 2c^2 for s; the mixed case follows by squaring ce1-ae2-v/q. In particular r<=2/n<1 so the weakening denominators are positive. Under weakening j=2 has strictly smaller r,s than its competitors; q=1 excludes that count, gives equal r for j=0,1, and wins at j=0 by smaller s. Reinforcement maximizes s/(1+ur), u=w-1>0. Its j=1 versus j=2 numerator has positive constant and linear coefficients: the latter is 2c[a(a-c)(1+1/q)+a^2 n/q^2], establishing strict dominance whenever both counts are feasible. The j=1 versus j=0 numerator is exactly D+uH, with a positive denominator. The feasible endpoint counts give the stated q=1, n-1, n and interior cases, ties included, while w=1 gives full symmetry. Independently computed inverse traces via principal minors divided by determinant for all ten K5 three-leader sets at each of 11/10, 27/22 and 2. In order of j=0,1,2 the traces at equality are 49/60, 49/60, 212/255; the unique minimizing counts on the two test sides are 0 and 1 respectively.",
+      "residual_risks": [
+        "The direct evaluation checks only the stated witness; universality follows from the rank-one argument. Assumes positive gains and conductances and a single exceptional link."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former two cover general noisy-leader optimization formulations, with special exact results for some budgets/graphs; the latter covers weighted paths and rings with noise-free leaders."
+        ],
+        "reasoning": "A general formula for testing every placement, or a one- or two-leader criterion, does not supply the explicit all-q winner and ties for this topology. The noise-free one-dimensional results do not specialize to it.",
+        "searches": [
+          "arXiv:1302.0450 finite-gain optimization",
+          "arXiv:1708.06873 noisy-leader resistance representation",
+          "arXiv:1412.6595 exact path/ring leader algorithms"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1302.0450, 1407.1569, 1708.06873, 1412.6595",
+        "Resultary 3efa33a797ea, 17423e28b87e, 5b299daa2230"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General optimality criteria may reduce a fixed small budget, particularly a single leader, to evaluation. They do not give the strict elimination of j=2 under reinforcement, the weakened-link change with budget, or the sign boundary with all ties for interior q."
+        ],
+        "reasoning": "The distinctive statement requires solving inequalities between the orbits, with the sign changing with conductance, not merely instantiating the covariance formula or a topology-independent variational identity.",
+        "searches": [
+          "arXiv:1407.1569 Theorem 2",
+          "arXiv:1708.06873 introduction and model",
+          "Frozen RESULT.md §§3–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two-leader modified joint centrality gives an alternative optimizer criterion for the trace, not the endpoint-count sign rule for all q.",
+          "Distinct same-date exact classifications 3efa33a797ea, 17423e28b87e and 5b299daa2230 involve different topologies and fixed budgets."
+        ],
+        "reasoning": "Different objective expressions are not new results here. The classification compares feasible graph orbits explicitly and for arbitrary leader counts, not just writes the objective in another form.",
+        "searches": [
+          "Resultary exact title and '27/22 exceptional edge clique'",
+          "Resultary weighted clique, exceptional edge and finite gain variants",
+          "arXiv:1407.1569 Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Windmills and coronas have two-leader classifications; the K_{2,m} record has a four-leader phase diagram. Their stated graph assumptions are not the one-link weighted clique."
+        ],
+        "reasoning": "No checked exact catalogue classification supplies the witness and all-q diagram. The decision does not rest on absence of an isolated number from a table.",
+        "searches": [
+          "Resultary exact title and witness threshold query",
+          "Resultary 3efa33a797ea, 17423e28b87e, 5b299daa2230"
+        ]
+      },
+      "rationale": "The common noisy-consensus objective, resistance criteria and matrix updates are standard. The supported distinct contribution is the exact all-budget placement and tie rule for a clique with one continuously varied link. The strongest located papers or distinct catalogue records do not provide that optimizer classification.",
+      "residual_risks": [
+        "The primary query 'leader selection complete graph weighted edge noisy consensus finite gain' produced no relevant result; this is not evidence of absence.",
+        "An unindexed exact optimizer calculation or an equivalent formulation not retrieved remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known model and general optimization",
+          "evidence": "Finite positive feedback and the half-inverse grounded covariance under unit forcing.",
+          "identifier_or_url": "https://arxiv.org/abs/1302.0450",
+          "material_read": "PDF p. 5 near offset 11500",
+          "method": "OA PDF passage",
+          "title": "Algorithms for Leader Selection in Stochastically Forced Consensus Networks",
+          "trigger": "Foundational equal-noise finite-gain objective"
+        },
+        {
+          "assessment": "General two-noisy-leader criterion, not all-q weighted-clique optimizer",
+          "evidence": "Modified joint centrality for two noisy leaders with applications on selected graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.1569",
+          "material_read": "PDF pp. 3–4 and Theorem 2 on p. 13, offsets near 9000 and 50500",
+          "method": "OA PDF passages",
+          "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+          "trigger": "Candidate equivalent structural optimizer criterion"
+        },
+        {
+          "assessment": "Same objective and broad framework; exact listed cases do not provide the all-budget diagram",
+          "evidence": "Noise-corrupted leaders may be arbitrary in number; variance is half the inverse trace and listed exact results include weighted single-leader and cycle cases.",
+          "identifier_or_url": "https://arxiv.org/abs/1708.06873",
+          "material_read": "PDF pp. 1 and 3, offsets near 5000 and 17300",
+          "method": "OA PDF passages",
+          "title": "A Resistance Distance-Based Approach for Optimal Leader Selection in Noisy Consensus Networks",
+          "trigger": "General resistance formula and weighted-graph treatment"
+        },
+        {
+          "assessment": "Different graph and noise regime",
+          "evidence": "Exact polynomial-time algorithms for weighted paths and rings.",
+          "identifier_or_url": "https://arxiv.org/abs/1412.6595",
+          "material_read": "PDF p. 1 abstract",
+          "method": "OA PDF passage",
+          "title": "Efficient, Optimal k-Leader Selection for Coherent, One-Dimensional Formations",
+          "trigger": "General-budget exact leader selection"
+        },
+        {
+          "assessment": "Different topology, q=2 only",
+          "evidence": "Unit-edge windmill K1 join rKm; peripheral-clique versus hub/peripheral configurations.",
+          "identifier_or_url": "Resultary 3efa33a797ea",
+          "material_read": "Finding and Assumptions, offsets 100–4264",
+          "method": "Resultary search and local mirror",
+          "title": "Gain-uniform two-leader placement transition on clique windmills",
+          "trigger": "Closest same-date finite-gain clique-related classification"
+        },
+        {
+          "assessment": "Different perturbation and fixed q=2",
+          "evidence": "One pendant leaf per clique vertex and a feedback-gain threshold.",
+          "identifier_or_url": "Resultary 17423e28b87e",
+          "material_read": "Finding and Assumptions from offset 150",
+          "method": "Resultary search and local mirror",
+          "title": "Exact two-leader gain transition on complete graph coronas",
+          "trigger": "Same-date clique-core threshold"
+        },
+        {
+          "assessment": "Different topology and budget",
+          "evidence": "Counts leaders on the two-vertex side of unit K_{2,m} for four leaders.",
+          "identifier_or_url": "Resultary 5b299daa2230",
+          "material_read": "Finding and Assumptions from offset 150",
+          "method": "Resultary search and local mirror",
+          "title": "Complete four-leader phase diagram on unequal complete bipartite graphs",
+          "trigger": "Same-date exact count classification with ties"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:9–32, 81–108",
+        "Independent exact K5 cofactor check"
+      ],
+      "rationale": "A single weighted link is a natural symmetry-breaking case in otherwise exchangeable finite-gain consensus. The theorem solves design rather than just evaluating a placement: it proves a budget-dependent change under weakening and a sharp switch with a tie under reinforcement. The K5 witness demonstrates that choosing by endpoint status alone, without the weight, is inadequate even in this minimal perturbation setting.",
+      "residual_risks": [
+        "No extension to several modified links, heterogeneous gains or sparse ambient graphs is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

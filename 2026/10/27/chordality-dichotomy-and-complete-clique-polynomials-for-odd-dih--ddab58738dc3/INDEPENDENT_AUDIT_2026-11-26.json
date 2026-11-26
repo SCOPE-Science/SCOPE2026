@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:19:30.322983Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For odd n>=3, the homomorphism equation after subtracting f(0) gives h(-x)=-h(x), h(2y)=2h(y), and h(2y+x)=h(2y)+h(x). Surjectivity of doubling gives additivity and hence the affine normal form. Direct composition gives determinant adjacency in (a-1,b) coordinates. At n=p^e a unit coordinate lets one solve the single determinant equation uniquely along the primitive line, which is a complete closed neighborhood. For e=1 remove all nonzero points and then the singleton; at e>=2 the remaining points px are partitioned into fibers labelled by x mod p^{e-2}. These labels are well defined, each fiber is a p^2-clique, and two different fibers have uniform complete or empty adjacency by cancellation of p^2 in the determinant congruence. Lifting a base perfect-elimination order one fiber at a time gives a perfect-elimination order because every later neighbor lies in the same fiber or in a later neighboring fiber, and the latter labels form a clique. This includes e=2 via the one-vertex modulus-one base. The same argument bounds the largest core clique by p^2 times the base clique number; a primitive line attains p^e and reverse greedy coloring is optimal in each induced graph. For other odd moduli coprime nontrivial factors give orthogonal idempotents: the four listed vertices have zero determinants exactly on the four cycle edges, since the diagonal pairs have determinants equal to the nonzero idempotents. Replayed python3 /workspace/repairs/4/verify.py and observed VERIFY_OK affine=3,5 orders=3,5,9,25,27 cycles=15,21,45. These checks are finite: exhaustive endomorphisms at 3 and 5, all-pair affine commutation and later-neighbor clique tests at the five prime powers, and four-cycle tests on the listed composite moduli. The provided frozen verifier was inspected but not executed. The repaired proof makes no assertion at even moduli or about the chromatic number at mixed-prime moduli.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hatui–Mukherjee–Patra give strong product reduction to Sylow factors and discuss base finite abelian cases and perfectness in other families. The chain-ring record's primitive pivot and valuation-shell proof gives related local determinant relations. Neither source states the elimination result. The 2024 triangular-graph results describe the finite-field case and numerical invariants and diameter over residue rings."
+        ],
+        "reasoning": "The strong product of two noncomplete factors with dominant vertices contains an induced four-cycle from two induced three-vertex paths, so the negative mechanism is already implicit in the product result. The prime-power positive direction uses the determinant reduction as an entire graph quotient with complete fibers and combines it with simplicial primitive vertices. A local pivot identity or a perfectness result for other graphs does not by itself establish this recursive elimination or chordality.",
+        "searches": [
+          "Resultary: chordality/perfect elimination of deep commuting graphs",
+          "Literature: chordal commuting graph determinant zero upper triangular ring finite chain ring simplicial perfect elimination deep commuting graph abelian rank two prime power",
+          "Hatui–Mukherjee–Patra arXiv:2511.13303 Lemma 2.10, Sections 3 and 4",
+          "Cheraghpour et al. arXiv:2402.12619v1 Theorems 2.11, 2.12 and Corollary 2.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–95, VERIFICATION.md and verify.py",
+        "Repaired RESULT.md, VERIFICATION.md and verify.py",
+        "October 4, November 2 and November 22 Resultary comparators above",
+        "arXiv:2012.03789, 2511.13303 and 2402.12619v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cameron–Kuzma define deep commuting graphs and leave graph invariants including chromatic number unconsidered in the cited discussion. The chain-ring proof counts determinant-zero tuples by pivot and valuation; the retained theorem uses those adjacency facts to construct a vertex order, not to derive another count. The mixed-prime witness also follows by translating the known product mechanism."
+        ],
+        "reasoning": "The covered maximum-clique results, finite-field base cases, and exact all-size counts are not claimed as new. The retained positive theorem identifies, at each depth, a complete-neighborhood layer and an induced graph that lifts an order on a smaller graph, adding a structural conclusion and a concrete algorithm. With the mixed-prime boundary this decides a full infinite family. This is a best-of-knowledge assessment of the distinction, not a priority claim for the local determinant identities.",
+        "searches": [
+          "Cameron–Kuzma arXiv:2012.03789 pp. 1 and 10",
+          "Hatui–Mukherjee–Patra arXiv:2511.13303 Sections 3 and 4",
+          "November 2 chain-ring Proof Sections 2–3 versus repaired primitive-neighborhood and quotient steps"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 4 maximum-lift-commuting record gives precisely the prime-power determinant graph and its maximum clique classification. The November 2 chain-ring record uses pairs (x,y) from A(c,x,y) with commutator entry xv-uy and q^ell choices of c."
+        ],
+        "reasoning": "At R=Z/(p^e), the full triangular commuting graph replaces each determinant vertex by a clique of p^e identical scalar-coordinate lifts. The existing maximum classification is genuinely for the same graph; the 2024 triangular graph excludes the center. Chordality is invariant under uniform nonempty clique substitution (take one representative per fiber for necessity and lift an elimination order for sufficiency), so a chordality theorem there would be material. The inspected 2024 results give field structure and other invariants, not that dichotomy.",
+        "searches": [
+          "Resultary: rank-two lift-commuting determinant graph",
+          "Resultary: odd dihedral-quandle determinant graph and chordality",
+          "Resultary: upper-triangular determinant graph and clique polynomial",
+          "arXiv:2402.12619v1 and arXiv:2511.13303"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For S_e=1+p+...+p^e the November 2 record gives full triangular clique polynomial S_e(1+z)^{p^{2e}}-(S_e-1)(1+z)^{p^{2e-1}}. The October 4 record gives clique number p^e and S_e maximum cliques. The November 22 joint-image record concerns rank statistics of ordered tuples with repetition."
+        ],
+        "reasoning": "With C_e the originally claimed determinant polynomial, the triangular polynomial equals C_e((1+z)^{p^e}-1). Undoing the substitution gives S_e(1+z)^{p^e}-(S_e-1)(1+z)^{p^{e-1}}. This satisfies the frozen recurrence: the primitive contribution adds p^{e-1}(p+1)=S_e-S_{e-2} to the leading coefficient and subtracts it from the other coefficient; the e=2 core term uses the one-vertex base. Thus the all-size table/formula is exactly covered. Clique counts or tuple counts alone do not include an elimination order or induced-cycle classification; the retained boundary is a different invariant.",
+        "searches": [
+          "Resultary: all-size clique polynomial and ordered commuting tuples for the determinant graph",
+          "Resultary two-pole chain-ring record Finding and Proof Sections 1–4",
+          "Resultary: maximum lift-commuting subsets and joint image ranks for commuting quandle endomorphisms"
+        ]
+      },
+      "rationale": "For the repaired claim only, the supported distinct result is the explicit recursive perfect-elimination order for all odd prime powers and the resulting exact chordality boundary. Prior comparisons cover the determinant identification, the maximum clique invariant, the prime case, related local determinant reductions, and the mixed-prime product mechanism. They do not supply the general elimination order or the full chordality classification. The exact equivalent all-size polynomial was removed rather than passed with a disclaimer. The chromatic consequence is attributed to the order together with the known clique number, not presented as an independent central novelty.",
+      "residual_risks": [
+        "An equivalent perfect-elimination theorem for a determinantal orthogonality graph over a chain ring could exist outside the checked material. The strong product comparison already implies the negative mechanism. Dates of distinct records do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same graph and exact maximum clique census",
+          "evidence": "Maximum cliques are exactly order-p^a subgroups, numbering 1+p+...+p^a. The size and orbit argument does not give a recursive elimination order.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-maximum-pairwise-lift-commuting-subsets-in-c-p-a-imes-c-p-a--6b7aca53a924/RESULT.md",
+          "material_read": "Finding at offset 0 and Smith-form and orbit argument near offset 3100",
+          "method": "Published record, bounded full-text passages",
+          "title": "Maximum pairwise lift-commuting subsets in C_{p^a} x C_{p^a}",
+          "trigger": "Identical prime-power determinant graph"
+        },
+        {
+          "assessment": "Complete enumeration equivalent after undoing substitution; overlap is later-dated, not a priority determination",
+          "evidence": "Includes scalar matrices in the full polynomial; determinant adjacency depends only on (x,y), and each pair has q^ell matrix lifts. Unit pivot and valuation reduction are used to count tuples.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-two-pole-commuting-tuple-and-clique-enumerators-for-triangular-a--8fae3394a05c/RESULT.md",
+          "material_read": "Finding and scope at offset 0, proof at offset 3050, prior-work discussion at offset 8660",
+          "method": "Published record, bounded full-text passages",
+          "title": "Two-pole commuting-tuple and clique enumerators for triangular algebras over finite chain rings",
+          "trigger": "Potential full polynomial via scalar-coordinate reduction"
+        },
+        {
+          "assessment": "Field and torsion examples and relevant product theorem; no exact chordality boundary in inspected statements",
+          "evidence": "For C_p squared gives lines meeting at zero; for C_{p^2} squared exhibits the complete p-torsion subgraph. Section 4 gives the strong product of the Sylow-factor graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/2511.13303",
+          "material_read": "Sections 3.1 and 3.3, pp. 7 and 9–10; Section 4 p. 14 around offset 44680 and reference to Lemma 2.10",
+          "method": "OA full text, bounded passages",
+          "title": "On the deep commuting graph of a finite group",
+          "trigger": "Potential general chordality/perfectness and composite product coverage"
+        },
+        {
+          "assessment": "Determinant and finite-field structure, numerical results over residue rings; not the full chordality or all-size theorem in the inspected statements",
+          "evidence": "Theorem 2.12 addresses connectivity and diameter in the noncentral graph, and Corollary 2.3 addresses numerical invariants over prime-power residue rings.",
+          "identifier_or_url": "https://arxiv.org/html/2402.12619v1",
+          "material_read": "Introduction and scope near offsets 7198–8175; prime-power Corollary 2.3 and nonfield Theorem 2.12 at offsets near 34123 and 47801",
+          "method": "OA full text, bounded passages",
+          "title": "On Commuting graphs of triangular rings",
+          "trigger": "Earlier closely related determinant-zero commuting graph via scalar coordinates"
+        },
+        {
+          "assessment": "Foundational definitions; not a chordality theorem",
+          "evidence": "Defines deep commuting and expressly leaves graph invariants such as chromatic number outside the scope of the cited discussion.",
+          "identifier_or_url": "https://arxiv.org/abs/2012.03789",
+          "material_read": "pp. 1 and 10, offsets 776 and 21752",
+          "method": "OA full text, bounded passages",
+          "title": "Between the enhanced power graph and the commuting graph",
+          "trigger": "Origin of equivalent deep commuting graph terminology and invariant questions"
+        },
+        {
+          "assessment": "Related ordered-tuple census; not a chordality result",
+          "evidence": "Uses the same determinant relation for tuples with repetition, refined by joint and composite-image rank, and credits the unweighted tuple identity in determinant form.",
+          "identifier_or_url": "2026/11/22/SCOPE-joint-image-and-product-ranks-of-commuting-endomorphisms-of-fini--6af1b09e19bc",
+          "material_read": "Finding and proof/prior-work passages at offsets 0, 3985 and 7685",
+          "method": "Published record, bounded full-text passages",
+          "title": "Joint-image and product ranks of commuting endomorphisms of finite dihedral quandles",
+          "trigger": "Same affine endomorphism monoid and broader counting data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired theorem classifies a natural commuting graph at every odd modulus and gives a usable constructive elimination and coloring procedure on the positive side. It distinguishes complete neighborhoods at primitive vertices from the recursively structured nonprimitive remainder; on the negative side it gives an explicit minimal-length forbidden induced cycle. This is structural information absent from the exact clique census alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

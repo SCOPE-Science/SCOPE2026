@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:35:10.886179Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–5; VERIFICATION.md and checker.py inspected as evidence, not executed.",
+        "Reconstructed cycle-current, energy quadratic-form and equality arguments independently of finite tests."
+      ],
+      "rationale": "In mass pairing, the diagonal terms of the centered operator vanish by zero flux divergence, and the off-diagonal entries of the mass-multiplied operator are opposite across each edge. For an arbitrary two-point rule, the energy quadratic form after the divergence cancellation is ΣₑFₑ(αₑ−1/2)(θᵤ−θᵥ)². On a simple graph the mixed term tests each active edge separately, proving energy uniqueness; any edge on a cycle can be active. For the common kernel, any two neighbors of v can be joined in G−v and hence occur consecutively through v on a simple cycle. The transport at v of this single cycle current is ±(θᵤ−θᵥ)/(2mᵥ); the common kernel forces equality along every even walk. The parity classes are the two sides in a connected bipartite graph, and an odd detour makes them a single class in a connected nonbipartite graph. Conversely constants are null by divergence balance and checkerboard face averages vanish on every edge. Skew-adjointness gives the conserved weighted projection onto the mean-zero sign in continuous time and in every Cayley/Crank–Nicolson step; invertibility follows from the positive real part of I+τD/2 in mass pairing. Dual Cauchy–Schwarz in the inverse-Laplacian norm yields the stated floor. On the periodic grid the two wraparound cycles prescribe parity, and direct substitution in the standard stencil gives the eigenvalue 4/hₓ²+4/hᵧ² (208 for the 4×6 fixture). Uniform masses make the checkerboard mean-zero, and a stationary checkerboard realizes equality at every time. Ordinary coordinate parity gives the bounded-grid claim.",
+      "residual_risks": [
+        "The exact intersection depends on the full algebraic flux envelope and 2-vertex-connectivity. A restricted velocity-control basis may leave a larger intersection. No assertion of nonbipartite controllability or universal equality for a nonuniform Laplacian."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 2.2.1 and Corollary 2.2.2 of the signless-Laplacian survey characterize the kernel by xᵤ=−xᵥ across edges; Hu et al. prove the skewness and time-step conservation for the centered method."
+        ],
+        "reasoning": "The signless result gives the familiar alternating vector and skewness makes any known common null direction a conserved projection. Neither shows that all common null vectors must be constant on parity classes. The cycle condition for every pair of incident edges supplies that required implication.",
+        "searches": [
+          "Cvetković–Rowlinson–Simić, Signless Laplacians of Finite Graphs, §2.2",
+          "Hu et al., Lemma 3.2 and Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Hu–Li–Zhang–Zuazua arXiv:2601.06294",
+        "Cvetković–Rowlinson–Simić §2.2",
+        "Chapman–Mesbahi (2011) pp. 1–2",
+        "Chan et al., arXiv:2606.16306, §III-C Eq. (18)",
+        "Resultary 95cbda13f566 and 4e59b6ed7525"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hu et al. expressly discuss grid-scale oscillations and limited impact on mix-norm. An alternating face average vanishes on a bipartite graph, and once invariance is known the inverse-Laplacian denominator is a dual-norm computation."
+        ],
+        "reasoning": "The bipartite sufficiency and norm step are short consequences of known mechanisms. The distinction is the necessity and completeness of the jointly stationary space, including exclusion of any further common direction on nonbipartite graphs, and the resulting exact obstruction for the optimization objective. A warning about oscillations is not such a classification.",
+        "searches": [
+          "Hu et al., Eq. (2.6)–(2.7), Remark 2.3, Lemma 3.2 and Theorem 3.1",
+          "Signless Laplacians of Finite Graphs, Proposition 2.2.1 and Corollary 2.2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hu et al. use the same single-valued two-cell face average with exact discrete divergence. Chapman–Mesbahi formulate transport via an out-degree Laplacian, and Chan et al. interpret directed Laplacians as diffusion-advection semigroups."
+        ],
+        "reasoning": "The exact graph formulation can be written as a joint kernel of the weighted skew operators for a basis of cycle flows. A single graph Laplacian or directed transport generator, or a specified restricted family of velocity traces, does not give that joint kernel.",
+        "searches": [
+          "Resultary: checkerboard stationary modes, cycle-flow kernels and centered mixing floors",
+          "Hu et al., arXiv:2601.06294; Chapman–Mesbahi, Advection on Graphs; Chan et al., arXiv:2606.16306"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "95cbda13f566 treats fixed points of a nonlinear diffusion map with mirror-ghost boundary conditions. 4e59b6ed7525 gives phase-dependent Schatten moments of weighted cyclic shifts."
+        ],
+        "reasoning": "The first match is a genuine checkerboard analogy but uses a different nonlinear operator and does not quantify over incompressible transport fields. The second does not give common kernels or an inverse-Laplacian mixing bound. No time ordering is inferred from their dates.",
+        "searches": [
+          "Resultary ranked matches for stationary checkerboards and graph circulations: 95cbda13f566 and 4e59b6ed7525"
+        ]
+      },
+      "rationale": "The reviewed increment is the complete joint stationary-space characterization for cycle currents on simple 2-vertex-connected graphs and its consequence for the mixing objective. The centered stencil, mass and energy preservation, and the checkerboard parity mechanism have substantial precedents; novelty is not assigned to any of those in isolation. The strongest inspected prior statements do not establish necessity via all cycle currents or give the exact control-independent inverse-Laplacian obstruction with the periodic equality case.",
+      "residual_risks": [
+        "Older advection or skew-incidence cycle-space literature may phrase the joint-kernel result differently. The bounded comparison is not a worldwide priority guarantee. Energy-uniqueness and centered skewness are not separate originality claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known method and conservation, plus oscillation warning; no joint kernel or sharp floor in these passages",
+          "evidence": [
+            "Equation (2.7) uses the centered face average; Theorem 3.1 and Lemma 3.2 give conservation and antisymmetry."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2601.06294",
+          "material_read": "§2.1 (2.6)–(2.7) at offset 32979, Remarks 2.1 and 2.3 at offsets 35151 and 39449, Thm. 3.1 and Lemma 3.2 at offsets 53793 and 55243",
+          "method": "Primary arXiv HTML",
+          "title": "A Structure-Preserving Numerical Scheme for Optimal Control and Design of Mixing in Incompressible Flows",
+          "trigger": "Same centered scheme, mix-norm objective and checkerboard warning"
+        },
+        {
+          "assessment": "Classical checkerboard characterization for a different operator",
+          "evidence": [
+            "Connected zero eigenspace for the signless Laplacian occurs exactly for bipartite G, from the edge equations xᵤ=−xᵥ."
+          ],
+          "identifier_or_url": "https://turing.mi.sanu.ac.rs/projects/signless_L_reportJan28.pdf",
+          "material_read": "§2.2, Prop. 2.2.1 and Cor. 2.2.2, PDF p. 8, offset 16044",
+          "method": "Primary survey PDF",
+          "title": "Signless Laplacians of Finite Graphs",
+          "trigger": "Possible equivalent bipartiteness/kernel theorem"
+        },
+        {
+          "assessment": "The parity-mode analogy does not identify the transport theorem",
+          "evidence": [
+            "Positive fixed points for p>2 are constant on coordinate-parity classes in a nonlinear diffusion update."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-complete-positive-fixed-points-and-neutral-checkerboard-modes-in--95cbda13f566",
+          "material_read": "Mirrored RESULT.md Finding at offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and mirrored primary record",
+          "title": "Complete positive fixed points and neutral checkerboard modes",
+          "trigger": "Closest checkerboard fixed-space catalogue hit"
+        },
+        {
+          "assessment": "Out-degree Laplacian transport has a different quantifier and operator",
+          "evidence": [
+            "The formulation derives conservation of the unweighted state sum, not the cycle-generated joint null space."
+          ],
+          "identifier_or_url": "Chapman and Mesbahi, IEEE CDC-ECC 2011",
+          "material_read": "pp. 1–2, especially p. 2 Eqs. (2)–(3), offset 10250",
+          "method": "Primary PDF",
+          "title": "Advection on Graphs",
+          "trigger": "Graph advection as possible alternative formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§2–5",
+        "Hu et al., Remark 2.3, motivation from grid-scale effects in the mix-norm"
+      ],
+      "rationale": "The result detects an exactly immovable contribution to a real numerical mixing objective, rather than just a possible grid oscillation. The bound uses the initial projection and the chosen norm, so it can serve as a diagnostic before optimizing controls. The all-circulations classification explains precisely which graph parity structures yield common stationary directions under the stated hypotheses.",
+      "residual_risks": [
+        "The diagnostic is for discretized transport; the checkerboard floor can be small on a fine grid and need not affect smooth initial data appreciably. Absence of this obstruction does not imply mixing."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

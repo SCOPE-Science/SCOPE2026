@@ -14,15 +14,15 @@ There are exactly two equilibria if \(k<a/c\) and none if \(k\ge a/c\). In the e
 
 1. If \(a<c\), both equilibria are exponentially asymptotically stable precisely for \(k<k_A\).
 2. If \(a=c\), both are exponentially asymptotically stable precisely for \(k<0\).
-3. If \(a>c\) and \(a\ne2c\), both are exponentially asymptotically stable precisely for \(\min(k_A,k_B)<k<\max(k_A,k_B)\); they have exactly two eigenvalues with positive real part outside that open interval.
+3. If \(a>c\) and \(a\ne2c\), both are exponentially asymptotically stable precisely for \(\min(k_A,k_B)<k<\max(k_A,k_B)\). They have exactly two eigenvalues with positive real part for admissible \(k<\min(k_A,k_B)\) or \(k>\max(k_A,k_B)\), but none at either endpoint.
 4. If \(a=2c\), no equilibrium is spectrally asymptotically stable for any \(k\). The isolated parameter \(k=-2\) has eigenvalues \(-2c,\,\pm2i\sqrt b\); for every other \(k<2\), both equilibria have two eigenvalues with positive real part.
 
-In cases 1–3 the nonhyperbolic interval endpoints have a simple imaginary conjugate pair and one strictly negative real eigenvalue, and for all other admissible parameters outside the stable regions there are exactly two eigenvalues with positive real part. At every simple endpoint the real parts of the imaginary pair cross zero transversely. In contrast, at the pinched point \(a=2c,k=-2\), the real part of the branch approaching the positive imaginary eigenvalue has the exact two-sided quadratic law
+In cases 1–3 the nonhyperbolic stability endpoints in the equilibrium region have a simple imaginary conjugate pair and one strictly negative real eigenvalue, hence unstable index zero. In those three cases, every other admissible parameter outside the stable regions has unstable index two. At every simple endpoint the real parts of the imaginary pair cross zero transversely. In contrast, at the pinched point \(a=2c,k=-2\), the real part of the branch approaching the positive imaginary eigenvalue has the exact two-sided quadratic law
 \[
 \operatorname{Re}\lambda_+(k)=\frac{bc}{64(b+c^2)}(k+2)^2+O((k+2)^3),
 \qquad k\to-2.
 \]
-In particular, varying \(k\) cannot create a linearly stable equilibrium at \(a=2c\), although there is a unique nonhyperbolic parameter. For example, for any \(b>0\), choosing \(a=3,c=1\) gives a stable interval \(-6<k<-3/2\) and index-two instability on either side.
+In particular, varying \(k\) cannot create a spectrally asymptotically stable equilibrium at \(a=2c\), although there is a unique nonhyperbolic parameter. For example, for any \(b>0\), choosing \(a=3,c=1\) gives a stable interval \(-6<k<-3/2\), imaginary pairs at its endpoints, and index-two instability for \(k<-6\) or \(-3/2<k<3\).
 
 ## Assumptions and scope
 
@@ -82,7 +82,7 @@ The standalone `verify.py` derives the characteristic polynomial and factored Ro
 
 ## Relationship to prior work
 
-Chengwei Dong's 2022 original work [1], particularly Section 2 and Section 3.4, introduced the system, gave the equilibria and Jacobian and studied coexistence and parameter-dependent chaotic behavior; it discussed Routh–Hurwitz for the fixed \((a,b,c)=(10,100,11.2)\) and numerical scans of \(k\), without deriving the factored complete stability partition for arbitrary positive \((a,b,c)\), the reentrant \(a>c\) window, or the isolated quadratic imaginary-axis contact at \(a=2c\). The older Yang–Wei–Chen construction [2] corresponds to the unmodified \(k=0\) system and does not imply this two-threshold \(k\)-dependent classification. Classical Routh–Hurwitz [3] supplies the root-counting implication, not the system-specific factorization or its pinching geometry.
+Chengwei Dong's 2022 original work [1], particularly Section 2 and Section 3.4, introduced the system, gave the general equilibria and Jacobian and studied coexistence and parameter-dependent chaotic behavior. Section 3.4 discussed Routh–Hurwitz for the fixed \((a,b,c)=(10,100,11.2)\) and numerical scans of \(k\). Dong's general Jacobian and classical Routh–Hurwitz [3] provide the starting data and criterion for the calculation here. Neither of those inspected sections states the factor-sign partition for arbitrary positive \((a,b,c)\), the bounded stable interval for \(a>c\), \(a\ne2c\), or the isolated quadratic imaginary-axis contact at \(a=2c\). The earlier Yang–Wei–Chen construction [2] concerns the unmodified \(k=0\) system.
 
 ## Limitations
 

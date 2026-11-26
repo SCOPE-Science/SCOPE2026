@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:45:02.722160Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Both maps satisfy T_i(0)=0, strict increase and 0<T_i(y)<y for y>0. Independent composition and coefficient expansion recover P_r/Q_r and its positive denominator. The source-free polynomial is positive for x>0. Strict concavity in r between 0 and 2/5 proves positivity below 2/5, and the exact factorization at 2/5 gives just a double tie at x=2, not a reversal. Above 2/5 up to 12/25, Descartes' two sign variations and the signs at 0, 2 and infinity give exactly two simple roots straddling 2. From 12/25 (where the degree drops) through r<2 there is one sign variation among the nonzero coefficients and opposite signs at zero and infinity, hence one simple positive root. At or above 2 every positive-power coefficient is negative and the constant is nonpositive; the boundary zero at x=0 when r=2 is not in the domain. The sign orders therefore agree with the claimed minimizers. Setting r=2/5+t² and x=2+tz, the polynomial divided by t² extends at zero with leading equation 96z²−7200=0; the two simple z-roots give x=2±5√3 t+O(t²). As r increases to 12/25, the smaller root tends to the limiting cubic's unique positive root below 2. The larger cannot have a bounded subsequence, since it stays above 2 and the limiting cubic has no root there or at 2. The equation divided by x³ then gives (12/25−r)x→264/625. The frozen checker was inspected, not run. The model represents an order-independent fixed concentration addition at constant flow, not continuous distributed loading or dilution.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Covino et al. fit concentration-dependent reach uptake data and include hydrologic turnover. Dalwadi et al. optimize a spatially graded filtration model. The closest loaded reach theorem solves a continuously forced reach model with a common rate and varies reach lengths."
+        ],
+        "reasoning": "Concentration-dependent field uptake and filtration optimization motivate saturation but are not permutation theorems for these maps. The continuously loaded theorem's common rate and source within both reaches do not specialize to a fixed between-reach translation in the discrete maps.",
+        "searches": [
+          "Public literature: serial saturating Michaelis–Menten removal, stage ordering, interstage additive feed and multiple reversals; Covino–McGlynn–Baker DOI 10.1029/2009JG001263",
+          "arXiv:1507.01722, Abstract and Introduction",
+          "Local Resultary continuous lateral-source reversal theorem"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification/check_interstage.py",
+        "Exact source-free and continuously loaded Resultary statements identified above",
+        "Covino–McGlynn–Baker doi:10.1029/2009JG001263, Abstract and Eq. (24)",
+        "Dalwadi–Griffiths–Bruna arXiv:1507.01722, Abstract and Introduction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first record explicitly excludes intermediate additions and implies the strict r=0 preference. The second uses a common distributed rate s>k within both reaches, giving one inlet reversal only in a specified reach-length regime."
+        ],
+        "reasoning": "There is overlap in motivation, saturation and checking optimal order as input changes. Neither assumption set contains fixed interstage addition to two discrete maps; neither statement implies the positive two-root window or its boundary asymptotics. No priority inference is made from the same-day dates.",
+        "searches": [
+          "Local mirror: 2026/10/25/SCOPE-a-two-index-ordering-law-for-serial-saturating-nutrient-removal--15d05df5ff61, offsets 0–5126",
+          "Local mirror: 2026/11/22/SCOPE-a-sharp-concentration-length-reversal-for-two-continuously-loade--adc4e9b417cb, offsets 0–5437 and 5100–8886"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both discrete laws use T(y)=y−uy/(K+y). At r=0 the older indices (K,K−u) compare (1,2/5) with (2,6/5), so reach 2 first is already known. With S_r(y)=y+r the compositions become T_2∘S_r∘T_1 and T_1∘S_r∘T_2."
+        ],
+        "reasoning": "The inserted translation operates between the nonlinear removals; it is not a translation of x or a source-free map with the same zero-inlet constraint. The older commutator and its upper bound therefore do not identify the quartic or its two positive switches.",
+        "searches": [
+          "Local Resultary: serial saturating reaches, interstage loading, order commutator and multiple reversal",
+          "Source-free ordering-law result, assumptions and Proof §§2–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest distinct exact-model hit covers the source-free law; the strongest distinct injected-model hit covers continuous loading with at most one inlet-concentration reversal in its setting."
+        ],
+        "reasoning": "Neither gives independently covering threshold values 2/5, 12/25 and 2, a positive double tie at x=2, or the linked square-root and escaping-root constants for this fixed source model. No tabular verification would by itself establish the continuous phase diagram.",
+        "searches": [
+          "Local Resultary: thresholds for optimal serial reach order with interstage added concentration; sharp two-switch reversal"
+        ]
+      },
+      "rationale": "The source-free preference for this pair is already covered. The closest distinct same-day result with lateral input uses a continuous distributed source and does not cover the inserted fixed translation. The exact two-switch window and sharp birth and escape laws are supported as distinct for the stated discrete pair in the inspected material, not as a new general result on saturating kinetics or an empirical prediction.",
+      "residual_risks": [
+        "The accessible comparisons do not exclude an unlocated general rational-composition or process-engineering theorem. The public lookup supplied the author-hosted field paper, not an exhaustive literature census.",
+        "The field paper motivates saturation but does not establish that a real system obeys the stated finite-step model or exhibits these switching concentrations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the r=0 baseline, not intermediate addition",
+          "evidence": "Assumptions explicitly exclude intermediate inputs; the two-index classification implies reach 2 first for the frozen parameter pair at r=0.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-two-index-ordering-law-for-serial-saturating-nutrient-removal--15d05df5ff61",
+          "material_read": "Assumptions and Scope and Proof §§2–4, mirror offsets 0–5126",
+          "method": "Local mirror",
+          "title": "A two-index ordering law for serial saturating nutrient-removal reaches",
+          "trigger": "Exact map family and source-free containment"
+        },
+        {
+          "assessment": "Related but different source placement and evolution law",
+          "evidence": "The source acts continuously within both reaches with common rate s>k; the inlet switch count in that length regime is one, not two.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-concentration-length-reversal-for-two-continuously-loade--adc4e9b417cb",
+          "material_read": "Finding and Assumptions, mirror offsets 0–5437; Proof §§3–5, offsets 5100–8886",
+          "method": "Local mirror",
+          "title": "A sharp concentration-length reversal for two continuously loaded reaches",
+          "trigger": "Closest same-day distinct loaded switching theorem"
+        },
+        {
+          "assessment": "Establishes genuine motivation for nonlinear uptake, not the modeled order classification",
+          "evidence": "A tracer addition measures nutrient retention in four adjacent reaches. Equation (24) fits Umax C/(Km+C) to dynamic uptake data; this is not an optimal-order comparison of two discrete maps with a common between-stage concentration increment.",
+          "identifier_or_url": "doi:10.1029/2009JG001263 ; https://covinowatershed.weebly.com/uploads/1/7/0/5/17055502/covino_et_al_jgr_biogeo_2010_.pdf",
+          "material_read": "Abstract p. 1 (offset 650), Michaelis–Menten fit Eq. (24) p. 7 (offset 52900)",
+          "method": "Lawful author-hosted copy of the same article located after publisher access failed; targeted OA PDF passages",
+          "title": "Separating physical and biological nutrient retention and quantifying uptake kinetics from ambient to saturation in successive mountain stream reaches",
+          "trigger": "Original empirical source and possible earlier interstage-load formulation"
+        },
+        {
+          "assessment": "Different optimization object",
+          "evidence": "Homogenized transport and adsorption in porosity-graded filters, rather than swapping two finite-step stages with an intervening source.",
+          "identifier_or_url": "https://arxiv.org/abs/1507.01722",
+          "material_read": "Abstract and Introduction, HTML offsets 377–3644",
+          "method": "Lawful OA arXiv HTML",
+          "title": "Understanding how porosity gradients can make a better filter using homogenization theory",
+          "trigger": "Cited optimization comparator for saturating removal"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The concrete example puts an exact boundary on the scope of a natural source-free ordering law. A single physically interpretable addition changes the number of optimal-order switches, so a rule designed for source-free serial removal can fail in a qualitatively new way. Proving both reversals and the complete source-strength diagram, including the mechanism by which the roots are created and one escapes, is more useful than a sign plot or isolated parameter tuple. The value is as an exact model counterexample, not as evidence for field deployment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

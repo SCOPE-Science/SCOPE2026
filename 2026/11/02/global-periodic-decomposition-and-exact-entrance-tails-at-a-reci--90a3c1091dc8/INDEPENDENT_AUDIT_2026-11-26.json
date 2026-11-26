@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:58:44.496669Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–86",
+        "Frozen verify.py and VERIFICATION.md, inspected but not executed"
+      ],
+      "rationale": "The conjugacy uses a=kb₁ and domain [−k,k]. On J₀ the four iterates run through k(u−1), u−t, ku+1, u, with the half-open images exactly as claimed, so all four phases are distinct, including the orbit of zero. Off P the three endpoint exceptions are k→t→−1→0. Every orbit that avoids P forever therefore alternates on (t,1) and (−1,−t); the affine return on the positive strip has fixed point p with multiplier k² and no other orbit staying bounded there for all future returns. It follows that the only avoiding points are ±p and every other point outside P is transient. The open strips have total length 2/k, and each inverse step from either entire target strip fits into the opposite strip and divides length by k. The finitely many endpoint preimages at any fixed n have length zero, so the survivor length is 2/k^(n+1). Dividing by domain length 2k and summing the resulting tail gives the exact probability and mean. For the invariant law, write Q=P∪{−p,p}; Q is Borel and forward invariant, and the increasing preimages g⁻ⁿ(Q) exhaust the domain. Invariance and continuity from below give μ(Q)=1, including any potentially atomic measure on an exceptional endpoint. Equal masses on the two-cycle and pushforward of the restriction on J₀ to the other three phases give the displayed unique mixture (with ρ immaterial at α=1). Ergodicity reduces to a point mass on the Borel selector, or to the two-cycle measure.",
+      "residual_risks": [
+        "The phrase 'normalized Lebesgue measure' is read in the sense fixed in the assumptions: the 2/k^(n+1) formula is ordinary length in u, not the probability. The frozen proof's assertion that a transient point always has a neighborhood inside the complement is too strong at −1, t or k; the preimage argument proves the invariant-measure conclusion without that assertion. Frozen rational tests are finite corroboration, not proof of the quantified result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2023 paper studies fixed-point absence, one chaotic example, and single-orbit numerical bifurcations at m₂=5, b₁=4. The discussion of observed period four for 0.1<m₁<0.2 does not treat all trajectories at the endpoint m₁=0.2, the reciprocal resonance for m₂=5. The Lyapunov-floor theorem's parameter inequality excludes the resonance; the border-collision theorem is a period-three criterion only."
+        ],
+        "reasoning": "Numerical periods off the resonance, a single excluded period, and a theorem outside the parameter chamber cannot imply exact global entrance and invariant laws there. Plausible coverage in inaccessible passages has not been ruled out.",
+        "searches": [
+          "2021 map paper DOI 10.1142/S021812742150200X and 2022 chapter DOI 10.1007/978-3-031-02472-6_8",
+          "2023 map paper Section 3, DOI 10.3390/electronics12020444",
+          "Resultary 0e8f83f035e7 and af278b76d784"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3ad9a95c328f, af278b76d784, 0e8f83f035e7",
+        "DOI 10.3390/electronics12020444",
+        "DOI 10.1142/S021812742150200X (limited access)",
+        "DOI 10.1007/978-3-031-02472-6_8 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The staircase theorem explicitly leaves out other itineraries, boundary points and global basin coverage. The period-three criterion gives no period three here, not a census of all periods. The published chaotic example has slopes (0.8,5), not reciprocal slopes."
+        ],
+        "reasoning": "The new survivor-strip argument is what shows bounded alternation forces the particular repelling pair; the exact affine inverse lengths and exhaustive entrance then identify the tail and invariant probabilities. Merely knowing the neutral interval family gives none of these complement facts.",
+        "searches": [
+          "3ad9a95c328f restricted-itinerary theorem and limits",
+          "af278b76d784 period-three threshold",
+          "Electronics 12 (2023), 444, Theorems 1–2 and Section 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier catalogue uses outer slope α and inner slope M; at Mα=1 with one block its interval (1,M) gives the same least-period-four identity return as the interior of the frozen (positive outer) phase. The 2023 equations give the same four branches after scaling by a."
+        ],
+        "reasoning": "Under M=k and α=1/k this is genuine mathematical equivalence for the known open period-four family. It does not analyze the complement or included endpoints.",
+        "searches": [
+          "Resultary search for reciprocal slopes, fixed-point-free four-branch map, neutral return and resonance staircase",
+          "3ad9a95c328f Finding; García-Grimaldo et al. DOI 10.3390/electronics12020444, equations (1)–(3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact neutral interval and identity return, and the absence of a three-cycle via r(s−1)=1−1/k<1, are indeed in overlapping catalogue results. The bifurcation diagram estimates observed periods for a single initial condition, not the exact entrance-tail sequence P(τ>n)=k^(−n−2)."
+        ],
+        "reasoning": "The relevant exact database entries on periods were checked and credited, notwithstanding the different names or same-day indexing. None of those entries identifies the one alternating survivor pair or provides all-n survivor lengths.",
+        "searches": [
+          "Resultary exact period-resonance and prime-period census: 3ad9a95c328f and af278b76d784",
+          "Numerical bifurcation discussion in Electronics 12 (2023), 444, Section 3"
+        ]
+      },
+      "rationale": "The map and the open continuum of identity four-returns are already known, and absence of period three at resonance also follows from a separate catalogue result. Credit only what survives those comparisons: the exhaustive spectrum including the one repelling pair, finite-time entrance for every other point with exact geometric tails, endpoint treatment, and complete invariant-probability description. The strongest inspected matching statements do not cover this global complement analysis. Full text of the original 2021 article and the comparative chapter was not accessible, leaving a priority risk but not negative evidence.",
+      "residual_risks": [
+        "The defining 2021 paper and comparative 2022 chapter could contain uninspected stronger resonance material. The decision is based on the statements actually compared and does not establish definitive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the open neutral family only",
+          "evidence": [
+            "At block count one and Mα=1, J₁=(1,M) has least period four and identity return. Other itineraries, boundaries and global coverage are excluded."
+          ],
+          "identifier_or_url": "3ad9a95c328f",
+          "material_read": "RESULT.md restricted-itinerary theorem and scope",
+          "method": "Resultary local mirror",
+          "title": "Sharp periodic resonance staircase and neutral intervals in a fixed-point-free map",
+          "trigger": "Same four-branch family and reciprocal resonance"
+        },
+        {
+          "assessment": "Specializes to absence of period three, not a global classification",
+          "evidence": [
+            "At r=1/k,s=k, the threshold quantity r(s−1) remains below one."
+          ],
+          "identifier_or_url": "af278b76d784",
+          "material_read": "RESULT.md period-three criterion",
+          "method": "Resultary local mirror",
+          "title": "Sharp prime-three border collision and expansion gap in a fixed-point-free map",
+          "trigger": "Same-day distinct result on the same map"
+        },
+        {
+          "assessment": "Same normalized map, no all-point resonance result in the inspected sections",
+          "evidence": [
+            "The paper displays the four branches, proves fixed-point absence and a specific chaotic example, and reports a one-initial-condition bifurcation sweep. The reciprocal case sits at the endpoint of the stated period-four interval in that sweep."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/electronics12020444",
+          "material_read": "PDF p. 3, Eqs. (1)–(3), offset 14850; p. 4 Theorems 1–2; Section 3, pp. 4–5, offsets 18750–22612",
+          "method": "OA publisher PDF passage inspection",
+          "title": "FPGA Implementation of a Chaotic Map with No Fixed Point",
+          "trigger": "Open primary paper with the exact map and numerical periods"
+        },
+        {
+          "assessment": "Unresolved full-text coverage",
+          "evidence": [
+            "The accessible material identifies the class and chaotic behavior but is insufficient to assess a full reciprocal-slope classification. DOI and alternate page requests did not return the article text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1142/S021812742150200X",
+          "material_read": "Accessible metadata/abstract excerpts; frozen record reports first-page access",
+          "method": "DOI and lawful alternate-copy lookup; full text not retrieved",
+          "title": "Chaotic Features of a Class of Discrete Maps without Fixed Points",
+          "trigger": "2021 defining article and plausible direct prior coverage"
+        },
+        {
+          "assessment": "Unresolved full-text coverage",
+          "evidence": [
+            "Publisher access did not return the chapter text. No whole-chapter inference is made from the abstract-level evidence."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-02472-6_8",
+          "material_read": "Abstract only as reported in the frozen comparison; no chapter text retrieved",
+          "method": "Lawful publisher access attempt and comparison with frozen source notes",
+          "title": "Comparative Analysis of Chaotic Features of Maps Without Fixed Points",
+          "trigger": "Related comparative chapter potentially covering additional parameter ranges"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–27 and 53–86",
+        "Resultary 3ad9a95c328f restricted-itinerary theorem",
+        "Electronics 12 (2023), 444, Section 3"
+      ],
+      "rationale": "The reciprocal locus is the natural multiplier-one boundary, not an arbitrary slice: a known neutral periodic band coexists with genuine expansion of its complementary survivor dynamics. The classification tells whether every other itinerary escapes, precisely how fast typical initial points enter, and what all invariant laws can be. Those facts are useful beyond the already known identity return or a few orbit computations.",
+      "residual_risks": [
+        "Does not classify off-resonance parameters or make a finite-precision, hardware or security claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

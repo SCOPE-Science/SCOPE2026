@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact continuous-priority representation gives independent binomial lower-priority counts conditional on the target priority, while record minima give independent record-count laws. The difference for adjacent key ranks is an antisymmetric coefficient times a symmetric nonnegative discrete increment. Pairing binomial masses proves every tail inequality; explicit positive support witnesses prove strictness at all indicated integer thresholds. Symmetry, endpoints and the exact transport identity follow from root probabilities and the established harmonic mean. Exact-arithmetic independent recurrence, mixture and exhaustive enumeration checks passed 6,500 assertions. The finite tests are not substitutes for the infinite-range proof.
+## correctness
 
-## Originality — PASS, historically qualified
-Grübel–Stefanoski's 2005 Theorem 1 already supplies the exact fixed-key distribution and earlier authors established its mean and variance. These are not claimed here. The cross-rank theorem is not just the same formula with changed variables: the comparison demands a strict all-threshold inequality between two hypergeometric/record mixtures. A shared Bernoulli transfer, antisymmetric likelihood-ratio pairing and strict-support analysis supply the additional argument. Devroye–Hwang study global profile width, not this ordering. Full text of a relevant 1998 selection algorithm paper was inaccessible, so historical priority remains qualified.
+PASS
 
-## Mathematical value — PASS
-Search depth is a natural rank-sensitive search-cost random variable. First-order stochastic dominance simultaneously settles all upper-tail search-cost comparisons, not just the already-known mean difference. The exact Wasserstein distance quantifies the entire adjacent-rank sensitivity and identifies the sharp central equality boundary. This is a meaningful finite-sample structural improvement over solely marginal enumeration or asymptotic Poisson approximations.
+Conditional on the searched key's uniform priority u, its ancestors on each side are the lower records among independently retained priorities below u. At ranks i and i+1, share a Bin(i-1,u), a Bin(n-i-1,u), and one Bernoulli(u) which is assigned to opposite sides in the two marginals. When the extra trial succeeds, the incremental record success probabilities are 1/(x+1) versus 1/(y+1), multiplying the same symmetric nonnegative threshold factor P(C_x+C_y=t-1). Pair x<y with its transposition: the binomial likelihood ratio in the larger trial count is increasing, so every combined contribution is nonnegative, including pairs outside the smaller support. For i<n/2 the strict pair (0,1) works at t=2; at larger t use (0,t-1) if i=1, otherwise (i-1,n-i-1), since a positive-length record count has full support from 1 to its length. These pairs work for every 0<u<1. Root probability 1/n and maximal depth n-1 give the endpoint equalities; reflection gives the even central equality. The expected depth is H_i+H_{n+1-i}-2 by summing inverse interval lengths (ancestor probabilities), and ordered laws have W1 equal to their mean difference via quantile coupling. The uploaded verifier was inspected, not executed; VERIFICATION.md records 6,500 exact assertions, including exhaustive insertion through n=8 and recurrence-based checks through n=24. All-size strictness is established analytically.
 
-## Sources and remaining limits
-The closest inspected full primary paper is R. Grübel and N. Stefanoski (2005), arXiv:math/0503738v1, especially Theorem 1 and Section 3.2. Devroye and Hwang (2006), arXiv:math/0607119v1, provides a directly relevant random-BST probability classification and distinct global-profile results. Kirschenhofer and Prodinger's 1998 article on selection comparisons is relevant to the known variance, but only its abstract and citations were accessible. The theorem does not establish likelihood-ratio dominance or any joint almost-sure depth ordering.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the supported adjacent-rank, strict all-interior-threshold comparison. The individual marginal laws and harmonic means are classical, and the W1 formula is a consequence of the ordering, not a separate new distribution theorem. The strongest inspected overlaps give either exact marginal input or a different conditional order, not this joint statement about ranks.
+
+## value
+
+PASS
+
+This compares the full finite search cost by key rank, not just its average or a central-limit regime. It answers whether every attainable nontrivial deadline is less likely to be met toward the center, even at the extreme tail, and isolates the exact exceptional thresholds and central symmetry. The method controls competing changes of the two random record counts; the transport calculation is useful but secondary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

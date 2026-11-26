@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:26:08.329012Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 3–55",
+        "VERIFICATION.md, lines 19–31",
+        "Frozen verify.py and verify_fast.cpp, inspected only",
+        "/workspace/branches/22a2a1c5-9b19-430f-9f50-2403daeae7fa/gp8_3_recheck.py, independent Python 3 replay",
+        "/workspace/branches/22a2a1c5-9b19-430f-9f50-2403daeae7fa/recheck.log, lines 2–14"
+      ],
+      "rationale": "Every three-edge simple path is shortest, since a shorter path between its ends would yield a cycle of length at most five. Hence selected-edge components are stars (there are no triangles), and including isolated vertices gives at least four components on 16 vertices. Equality at 12 edges consists of four disjoint full cubic stars, whose centres partition the vertices by closed neighbourhoods. For an independent finite check, reconstruct the labelled GP(8,3), BFS from each vertex, and for every endpoint pair follow all edges that increase distance from the source and decrease distance to the target. This exhausts the 216 shortest paths up to reversal and gives 192 distinct triples, including nonconsecutive triples on length-four paths. Increasing-edge-index recursion counts each triple-free set exactly once, and testing all single additions detects every facet by heredity. The resulting face vector is (1,24,276,1832,7362,17712,24468,18240,7017,1576,300,48,4), with 78860 total; the nonzero facet coefficients are 792,1329,336,36,4 at sizes 7,8,9,10,12. The independently checked closed-neighbourhood codes give exactly the four maximum star sets. Their six pairwise intersections have size four, so the simultaneous replacement distance is exactly eight. The four maxima each have twelve distinct size-eleven subsets and no two maxima share one; these account for all 48 such admissible sets and establish unique extension.",
+      "residual_risks": [
+        "Exhaustion certifies the single labelled graph; it provides no analogous facet census for the wider generalized Petersen family. The exchange rule tests endpoints only, not intermediate single-edge steps."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The edge-general-position articles treat trees, hypercubes/partial cubes, block graphs, path grids and Fibonacci/Lucas cubes in the passages inspected; their stated results concern maximum sizes, structure or bounds rather than this facet complex.",
+          "The stronger perfect-two-colouring theorem applies to GP(n,3) but concerns a different predicate."
+        ],
+        "reasoning": "GP(8,3) is not a tree or block graph. It is also not a partial cube: a0 and b2 have three internally disjoint length-three geodesics, via (a1,a2), (a7,b7), and (b0,b5), respectively. Any isometric hypercube embedding would put all six intermediate vertices in their three-dimensional interval, forcing the complete 3-cube and its 4-cycles, contrary to girth six. This rules out direct application of the partial-cube hypotheses.",
+        "searches": [
+          "arXiv:2105.04292, section 3",
+          "arXiv:2302.01587, section 3",
+          "arXiv:2304.10114, sections 3–4",
+          "arXiv:2009.07120v2, Theorem 3.4"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md, lines 57–70",
+        "Resultary 9f04d2127dbd and cfe9401b705a",
+        "arXiv:2009.07120v2, 2105.04292, 2302.01587 and 2304.10114"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior centre classes produce four star factors; the hitting of all geodesics by at most two selected edges is a separate test, including length-four paths with an internal centre and a distant centre.",
+          "Even given the four maxima and their overlaps, the count 48 and unique extension of every size-eleven admissible set do not follow without excluding other size-eleven sets."
+        ],
+        "reasoning": "Once the new optimum correspondence is known, pairwise overlap and the exchange threshold are direct deductions from the prior centre list and the graph. The full face/facet census and absence of other size-eleven sets are not implied by that list or by a bare maximum-size theorem.",
+        "searches": [
+          "Karami, arXiv:2009.07120v2, section 3 and proof of Theorem 3.4",
+          "Manuel, Prabha and Klavžar, arXiv:2105.04292, Theorems 3.2–3.3; Tian, Klavžar and Tan, arXiv:2302.01587, Theorems 3.1–3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Karami, arXiv:2009.07120v2, matrix A4 in section 3: an independent class with three neighbours outside, and exactly one neighbour in that class for every outside vertex, is exactly an efficient dominating code.",
+          "Theorem 3.4 constructs the class a_(4i), b_(4i+2); at n=8 this and its rotations are exactly the four listed centre sets. The necessity proof starting at a0 exhausts the two choices for b2 and eliminates the second, so it yields the exact GP(8,3) codes, not merely their existence (an all-inner class cannot cover every outer vertex exactly once)."
+        ],
+        "reasoning": "Do not count the existence or labelled list of perfect codes as new. A perfect colouring is a condition on selected centres and does not assert that their incident edges avoid three selected edges on every geodesic. This additional equivalence to edge-general-position maxima is part of the distinct result.",
+        "searches": [
+          "Resultary: GP(8,3)/Möbius–Kantor edge general position, face/facet counts",
+          "Primary literature: generalized Petersen efficient domination, perfect code, equitable perfect two-colouring"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed result containing this polynomial is the bound record itself, not independent prior coverage. The nearby same-graph cfe9401b705a concerns weak-total metric bases, a different invariant.",
+          "The exact codes are covered by the primary perfect-two-colouring construction and proof; this is not an edge face/facet table."
+        ],
+        "reasoning": "A graph database can identify the graph, and the two-colouring result specifies the centre sets. Neither supplies the requested counts of geodesic-avoiding edge subsets or of inclusion-maximal subsets.",
+        "searches": [
+          "Resultary exact Möbius–Kantor edge-general-position census, entries 9f04d2127dbd and cfe9401b705a",
+          "Karami, Theorem 3.4; exact GP(8,3) phrase searches in the three edge-general-position papers"
+        ]
+      },
+      "rationale": "The efficient dominating codes themselves are covered by prior perfect two-colouring work and must receive prior credit. What distinguishes this finding is the exact edge-geodesic complex, including its face and facet profiles, the characterization of its optimum sets by those codes, and its near-optimum extension result. The checked stronger-looking graph-family and parameter results do not give this complex or those profiles.",
+      "residual_risks": [
+        "The supplied literature section omits the material perfect-two-colouring overlap. The comparisons credit that known ingredient; they do not certify priority of the edge census over inaccessible or unindexed work. Literal keyword misses and noisy lookup results are not negative proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior coverage of the efficient dominating codes; not a claim about edge-general-position sets",
+          "evidence": "A4=[[0,3],[1,2]], existence for 4 dividing n, explicit colour-one class a_(4i), b_(4i+2), and forced cases from a0.",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.07120",
+          "material_read": "Section 3 matrix list, text offset 6650; pp. 4–5 Theorem 3.4 and proof, offset 12019",
+          "method": "OA primary PDF passages",
+          "title": "Perfect 2-colorings of the generalized Petersen graph GP(n,3)",
+          "trigger": "Equivalent formulation of efficient domination in the exact graph family"
+        },
+        {
+          "assessment": "Tree/hypercube and partial-cube results do not give the target edge complex",
+          "evidence": "Different graph hypotheses and maximum-oriented conclusions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2105.04292",
+          "material_read": "Section 3, Theorems 3.2–3.3, text offset near 10000",
+          "method": "OA primary PDF passages",
+          "title": "Edge General Position Problem",
+          "trigger": "Foundational same invariant and potentially general bounds"
+        },
+        {
+          "assessment": "Block-graph results, not the girth-six GP(8,3) census",
+          "evidence": "The inspected section assumes a block graph.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.01587",
+          "material_read": "Section 3, Theorems 3.1–3.2, offset near 16200",
+          "method": "OA primary PDF passages",
+          "title": "Extremal edge general position sets in some graphs",
+          "trigger": "Potential more general optimizer classification"
+        },
+        {
+          "assessment": "Different partial-cube families",
+          "evidence": "Fibonacci and Lucas cube graphs; their hypotheses do not hold here.",
+          "identifier_or_url": "https://arxiv.org/pdf/2304.10114",
+          "material_read": "Sections 3–4 near offset 3860",
+          "method": "OA primary PDF passages",
+          "title": "Edge general position sets in Fibonacci and Lucas cubes",
+          "trigger": "Further exact results for structured graphs"
+        },
+        {
+          "assessment": "Identical to the assigned result, not an antecedent",
+          "evidence": "Same two polynomials and optimum sets.",
+          "identifier_or_url": "Resultary 9f04d2127dbd",
+          "material_read": "Finding near offset 280",
+          "method": "Local mirror",
+          "title": "Four perfect-code star factors and a gapped edge-general-position complex on the Möbius–Kantor graph",
+          "trigger": "Exact table match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 5–31 and 35–49",
+        "arXiv:2009.07120v2, Theorem 3.4; arXiv:2105.04292, section 3"
+      ],
+      "rationale": "The classical symmetric cubic girth-six graph is a natural test of how edge general position interacts with efficient domination beyond the tree and cube settings. The distinction between vertices of the facet size spectrum matters: non-largest maximal sets exist at sizes seven through ten, yet an admissible eleven-edge set has exactly one largest extension. This is precise information about local maximality and stability, not a recomputation of known perfect codes or a bare maximum size.",
+      "residual_risks": [
+        "The certified gap and exchange threshold are for this graph and move rule; no broader facet gap is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

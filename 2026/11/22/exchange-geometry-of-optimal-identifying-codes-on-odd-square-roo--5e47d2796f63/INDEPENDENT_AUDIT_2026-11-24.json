@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:21:25.368396Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the selected bipartite support, a 3-vertex component gives equal traces and at most one singleton or isolated edge is permitted (two small components force either equal or empty traces). The minimum size 3m+1 forces exactly m+1 tree components. A singleton then forces at least one P4, whose same-shore leaf with that singleton gives duplicate traces, so the components are one edge and m P4s. Sufficiency: for two cells sharing one endpoint to have equal traces, their other endpoints must be leaves at that shared vertex; for disjoint cells to have equal traces, nonempty star incidences force two isolated crossed edges. Neither configuration occurs. Pairing shores and choosing holes yields the stated count and transitivity. Deleting the isolated edge forces its reinsertion. Leaf deletion forces its singleton back onto its P3 at the other admissible endpoint. Central deletion leaves three K2s; either reconnect the newly separated pair through the other corner, or join one to the original K2 in two ways each. This gives 7 distinct neighbors per block; touching an intact P4 cannot give a valid decomposition. Independently generated all 7200 decompositions at n=5, tested all 6- and 7-cell candidates by precomputed board neighborhoods, and computed the exchange graph by shared six-cell cores. Replay: python3 /workspace/checks/2.py, output /workspace/checks/2.txt. Confirmed degree 14, 50400 edges, connectivity and all ten shell sizes. Transitivity turns this eccentricity into radius and diameter 9. Frozen C++ and Python sources were read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The closest Resultary exchange comparator ending 7b3432c6fd0d handles the 4x4 rook and Shrikhande graphs; the slide follow-up ending 5a3b8b760e77 restricts moves to graph neighbors.",
+          "The general web query returned unrelated independent-set jumping material."
+        ],
+        "reasoning": "Even n=4 and adjacency-constrained slides do not cover arbitrary odd token jumps or the n=5 distances.",
+        "searches": [
+          "Web: identifying codes reconfiguration minimum code exchange graph token jumping",
+          "Resultary: minimum identifying-code exchange, token jump and slide"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_py.py and verify_cpp.cpp",
+        "Gravier–Moncel–Semri Theorem 1",
+        "Foucaud et al. arXiv:1107.0207",
+        "Local Resultary comparison entries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The static theorems give minimum and optimum family, but no move enumeration or graph distances.",
+          "The static family is the input to the separate component-deletion proof and the finite graph census."
+        ],
+        "reasoning": "The exchange structure requires substantive further analysis; it is not a parameter substitution into a static theorem.",
+        "searches": [
+          "Gravier–Moncel–Semri Theorem 1",
+          "Foucaud et al. Proposition 10",
+          "Goddard–Wash rectangular products (retrieval attempted)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "R_n is the line graph of K_{n,n}; the two identifying-code notions and the unrestricted jumps agree. Proposition 10 constructs the same static odd optimum structure."
+        ],
+        "reasoning": "Changing to edge codes does not create a new static problem, and the cited edge-code results do not state the exchange classification.",
+        "searches": [
+          "Resultary: odd rook optimal identifying-code exchange and balanced biclique edge-code reconfiguration",
+          "Foucaud et al. arXiv:1107.0207 Definition 5 and Proposition 10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact local entry is the assigned record. Distinct same-day entries ending 84e917c8da04 and fb33fb75dc16 treat strengthened detection on the 4x4/Shrikhande graphs and static even-order minima, respectively."
+        ],
+        "reasoning": "No distinct exact table of the claimed odd exchange data emerged; neither same-day result has the same feasibility predicate and scope.",
+        "searches": [
+          "Resultary: five-by-five rook optimum exchange counts and distances",
+          "Resultary same-day ordinary and false-negative rook codes"
+        ]
+      },
+      "rationale": "The static optimum size, orbit and consequent optimizer count are not passed as new. The supported distinction is the odd-order move classification and degree, plus the exact five-board exchange metric.",
+      "residual_risks": [
+        "Goddard–Wash OA PDF yielded no extractable passage; its full text was not independently inspected.",
+        "No universal absence of earlier odd-order identifying-code reconfiguration work is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Static minimum and one orbit directly covered.",
+          "evidence": [
+            "For odd n at least 5, the minimum is floor(3n/2) and the optimum is unique modulo row and column permutations."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v15i1n4/pdf/",
+          "material_read": "p. 2 Theorem 1, OA offset 3921",
+          "method": "OA paper passage inspection",
+          "title": "Identifying codes of Cartesian product of two cliques of the same size",
+          "trigger": "static baseline and possible implicit enumeration"
+        },
+        {
+          "assessment": "Prior line-graph equivalence and balanced-biclique static optimization, not exchange data in these passages.",
+          "evidence": [
+            "Odd-order constructions use K2 and P4 components."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1107.0207",
+          "material_read": "Definition 5 (p. 2, offset 7237), Proposition 10 (p. 4, offset 15327)",
+          "method": "OA paper passage inspection",
+          "title": "Identifying codes in line graphs",
+          "trigger": "equivalent edge-code formulation"
+        },
+        {
+          "assessment": "Direct methodological overlap, different graph order.",
+          "evidence": [
+            "The 4x4 rook graph has 2208 codes, 28800 edges and diameter 6 there."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-optimal-identifying-code-exchange-geometry-of-the-shrikhande-and--7b3432c6fd0d",
+          "material_read": "RESULT.md offset 661",
+          "method": "Resultary and local mirror passage inspection",
+          "title": "Optimal identifying-code exchange geometry of the Shrikhande and rook graphs",
+          "trigger": "closest same-move catalogue result"
+        },
+        {
+          "assessment": "Different detection condition or even-order static problem.",
+          "evidence": [
+            "The former demands at least two reports; the latter classifies static even-square minima."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-false-negative-identifying-code-polynomials-and-exchange-geometr--84e917c8da04; 2026/11/22/SCOPE-four-orbit-types-and-exact-enumeration-of-minimum-identifying-co--fb33fb75dc16",
+          "material_read": "Findings, offsets 767 and 0 respectively",
+          "method": "Local mirror passage inspection",
+          "title": "Same-day false-negative and even-order rook-code records",
+          "trigger": "distinct closely indexed records"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact move classification exposes which blocks can interact and gives a uniform all-order degree rather than another static count. The first odd case covered by the static classification has a complete exchange metric, not merely a selected pair distance or a sample. No larger-order connectivity or diameter is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:19:03.850707Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–71; VERIFICATION.md; verify.py; verification_output.txt",
+        "Independent analytic leading-coefficient, equality-case, and budget checks; no uploaded code executed."
+      ],
+      "rationale": "For each direction i, testing on centered vectors constant in the other coordinates gives the factor Rayleigh quotient with rates averaged over the N/n_i fibers. By budget homogeneity this bounds the product gap by α_i B_i/(N/n_i), also when B_i=0. Summing the budget inequalities gives the sharp upper bound. Each factor's unit-budget optimizer exists by compactness and has positive gap by using all edges. Repeating these designs with equal gaps gives a Kronecker sum attaining the bound. On a path with w_k=ℓ k(n−k)/2, the order-r finite-difference terms contribute leading coefficient ℓ[r+binom(r,2)] to L(k^r), with no term of higher degree; the boundary weights are zero, so this holds at the endpoints. The polynomial flag then gives the full path spectrum, and tensor products add the eigenvalues with multiplicity. For a grid the centered coordinate k_i−(n_i+1)/2 has squared norm D_i=N(n_i²−1)/12 and energy B_i. Equality at the optimum forces each coordinate to be a gap eigenvector, regardless of multiplicity. The difference equation on each separate fiber with w_0=0 has the unique parabolic solution, so asymmetric allocations cannot tie it. The spectrum has exactly d occurrences of its smallest positive value. Dividing by the uniform gap using d(n−1)n^(d−1) edges yields the given ratio and the cosine expansion gives its limit, also consistent with equality at n=2. No graph symmetry of a competitor or hidden normalized-Laplacian convention is used.",
+      "residual_risks": [
+        "The frozen output reports eight grid spectra (four exact and four numerical), twenty coordinate identities, and 1440 sampled asymmetric allocations; these are corroboration only, not exhaustion or independent replay. No uniqueness for arbitrary factors is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun et al. give unique single-path rates, k(n−k)/2 for unit gap and unit prices; the indexed birth-death theorem allows arbitrary positive prices and masses. The discrete-time product record imposes stochasticity and minimizes two-sided spectral contraction for vertex- and edge-transitive factors. The frozen directional-multiplier comparison permits only one scalar per direction; its source text was not independently accessible here."
+        ],
+        "reasoning": "The first two cover the entire path case but do not classify weights on products of paths. The stochastic theorem has a vertexwise feasibility constraint, a different objective, and excludes general path factors. Results confined to directionwise multiples cannot rule out unrestricted asymmetric competitors.",
+        "searches": [
+          "Sun et al., Section 5.2 Result 5; Fiedler absolute algebraic connectivity of trees via de Abreu",
+          "Resultary 03df0802fe13 weighted birth-death paths",
+          "Resultary 78a82f1ea5ed symmetric stochastic product mixing",
+          "Indrani et al. DOI 10.29121/JISSI.v2.i2.2026.93"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 03df0802fe13, 78a82f1ea5ed, 82c9d23eb995, 395bf62a28a0, 8a4a15cc3c55",
+        "Sun et al. §4.1 and §5.2; de Abreu pp. 55–57; Shakeri et al. arXiv:1510.06785v1; Indrani and Wan access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kronecker spectral addition and known path optimizers recover the candidate for repeated factor designs. They do not by themselves prove that arbitrary weights cannot exceed or tie it. Shakeri et al. optimize interlayer links with fixed layers. In this proof the unrestricted upper bound uses directional coordinate tests for arbitrary fiber rates, and equality forces each fiber's local recurrence on grids."
+        ],
+        "reasoning": "A candidate on the restricted tensor class, or an existence result from orbit averaging, does not yield the global equality classification when weights may vary within a direction. Credit the prior formulas and general dual methods separately from these steps.",
+        "searches": [
+          "Sun et al. Sections 4 and 5.2; de Abreu Table 3.1; indexed 78a82f1ea5ed Finding; arXiv:1510.06785v1 abstract; Indrani DOI and identified ResearchGate copy; Wan DOI 10.1109/CDC.2008.4738734"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The problem is absolute algebraic connectivity up to scaling the average-one edge budget, and is equivalent by homogeneity to minimum unit-gap cost, or its maximum-variance unfolding dual. Finite inverse spectral moments and log-determinants are not the reciprocal gap 1/λ₂."
+        ],
+        "reasoning": "The duality relates formulations of the single-graph optimum but does not in the inspected passages give product tensorization or classify all equality cases for grids. The related inverse-moment records do not solve the reciprocal-gap problem by their finite-order results.",
+        "searches": [
+          "Resultary: budgeted Cartesian-product algebraic connectivity, reciprocal gap, pseudoinverse and optimal conductances",
+          "Sun–Boyd–Xiao–Diaconis DOI 10.1137/S0036144504443821, Section 4 geometric dual",
+          "de Abreu DOI 10.1016/j.laa.2006.08.017, pp. 55–57"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact d=1 overlap at 03df0802fe13. ID 82c9d23eb995 has the same 12/π² constant in a Dirichlet Poisson coordinate-sampling problem rather than a graph conductance budget; 395bf62a28a0 and 8a4a15cc3c55 are finite inverse spectral moment optimizations. No exact all-product or unrestricted grid classification was located in the bounded index check."
+        ],
+        "reasoning": "Neither a matching coefficient nor a related product objective establishes exact coverage. The one-dimensional exact hit is credited explicitly.",
+        "searches": [
+          "Configured Resultary index, exact spectral gap and weights on Cartesian products and rectangular grids; inverse-spectrum and discrete mixing alternatives"
+        ]
+      },
+      "rationale": "The supported distinction is the unrestricted fixed-total-conductance formula for arbitrary connected factors and the all-edge uniqueness result for rectangular grids. Single-path parabolic optimality and uniqueness, the geometric dual, and fixed-weight product spectral addition are prior ingredients, not new findings. The closest comparisons do not supply the unrestricted optimization theorem and grid equality classification in this model.",
+      "residual_risks": [
+        "Could not independently inspect the Indrani or Wan full texts; comparisons depending on their exact theorem scope retain that access risk.",
+        "The bounded search does not establish priority, including for equivalent product laws for maximum-variance embeddings."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS single-path optimizer and uniqueness; geometric dual is prior, inspected passages do not give unrestricted Cartesian tensorization or grid rigidity",
+          "evidence": [
+            "Unit-cost unit-gap path rates are k(n−k)/2 and unique; budget homogeneity gives exactly the frozen d=1 rates."
+          ],
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "Section 4.1 opening (journal p. 689); Section 5.2 Result 5 and proof, journal pp. 695–696, offset 47440",
+          "method": "Open Stanford copy of the original SIAM Review paper",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Same budgeted Laplacian optimization, duality and parabolic path optimizer"
+        },
+        {
+          "assessment": "COVERS d=1 with additional mass and price parameters",
+          "evidence": [
+            "Uniform masses and prices yield the same gap and parabolic rates, uniquely."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-the-price-metric-variance-law-for-fastest-mixing-on-weighted-bir--03df0802fe13/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Configured Resultary index and local mirror",
+          "title": "The price-metric variance law for fastest mixing on weighted birth-death paths",
+          "trigger": "Strongest exact indexed single-path overlap"
+        },
+        {
+          "assessment": "Different class, objective and constraints",
+          "evidence": [
+            "Optimizes ||P−J/N||₂ for symmetric stochastic P on products of vertex- and edge-transitive factors. Unrestricted uniqueness uses a separate local independence hypothesis. The frozen theorem uses arbitrary connected factors and a fixed total budget on independently adjustable conductances."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-two-sided-mixing-and-fiedler-edge-rigidity-on-cartesian-gr--78a82f1ea5ed/RESULT.md",
+          "material_read": "Finding, Assumptions, and orbit-averaging setup, offset 0",
+          "method": "Configured Resultary index and local mirror",
+          "title": "Sharp two-sided mixing and Fiedler-edge rigidity on Cartesian graph products",
+          "trigger": "Closest indexed product optimizer and unrestricted rigidity result"
+        },
+        {
+          "assessment": "Covers the normalized optimization definition and ordinary unweighted product spectrum input",
+          "evidence": [
+            "Average-one edge valuation identifies the same scale-free problem. The table gives the minimum of unweighted factor gaps, not the optimum under a total conductance budget."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2006.08.017",
+          "material_read": "Journal pp. 55–57, including Table 3.1; ref. [27] p. 72",
+          "method": "Open survey PDF",
+          "title": "Old and new results on algebraic connectivity of graphs",
+          "trigger": "Absolute algebraic connectivity and Cartesian graph product identity"
+        },
+        {
+          "assessment": "Frozen account describes a directional-multiplier problem; independent full-text scope remains unconfirmed",
+          "evidence": [
+            "The frozen comparison explicitly distinguishes one constant multiplier per direction and states that individual edge optimization is excluded. This recorded comparison is not fresh article inspection."
+          ],
+          "identifier_or_url": "https://doi.org/10.29121/JISSI.v2.i2.2026.93",
+          "material_read": "Frozen RESULT.md lines 77–85 and frozen AUDIT.json source description only; no article text independently read",
+          "method": "DOI and identified lawful ResearchGate copy attempted; unusable results",
+          "title": "Algebraic connectivity and exact Laplacian spectra of generalized graph products",
+          "trigger": "Plausibly closest primary budgeted directional product result"
+        },
+        {
+          "assessment": "The stated optimization is of interlayer links, with fixed layers",
+          "evidence": [
+            "This feasible set differs from allocating the entire budget among all product edges."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1510.06785v1",
+          "material_read": "Abstract, p. 1",
+          "method": "Primary arXiv source",
+          "title": "Maximizing Algebraic Connectivity in Interconnected Networks",
+          "trigger": "Interconnected-layer conductance-budget optimization"
+        },
+        {
+          "assessment": "Independent theorem-level comparison could not be made",
+          "evidence": [
+            "The frozen comparison attributes general structure and necessary conditions, not a grid classification; the text was not independently inspected."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/CDC.2008.4738734",
+          "material_read": "Frozen citation and comparison only",
+          "method": "DOI retrieval attempted, no readable copy",
+          "title": "On the structure of graph edge designs that optimize the algebraic connectivity",
+          "trigger": "Potential general structural implications for edge-rate design"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 38–71; comparison with the known single-path optima and discrete two-sided product designs."
+      ],
+      "rationale": "The result resolves the full budgeted optimization on a natural graph product by reducing it to factor optima despite allowing variations across every fiber. On rectangular grids it also determines the unique design, multiplicities and quantitative cost of uniform weighting. The equality argument excludes ties outside the repeated-fiber family, a mathematical conclusion not available merely from selecting directional multipliers or plugging prior path optima into the product spectral identity.",
+      "residual_risks": [
+        "No solution for arbitrary factor optimization, unequal edge prices, normalized or directed Laplacians, or all general-product maximizers is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

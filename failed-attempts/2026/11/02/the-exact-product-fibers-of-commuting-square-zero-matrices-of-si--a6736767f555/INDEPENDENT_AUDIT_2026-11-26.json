@@ -1,0 +1,179 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:10:12.658299Z",
+  "axes": {
+    "correctness": {
+      "rationale": "There are only ranks 0,1,2 for square-zero factors in dimension four. Counting image/kernel flags and isomorphisms gives the stated N_1 and N_2 with N_2/N_1=q(q−1). At rank one, B preserves the image line of A and vanishes on it, so every product is zero. In the E_12 basis the commuting square-zero B parameters give q(q³+q²−q) partners with zero 2×2 block and q(q²−1)q² with a nonzero square-zero block. At rank two, the centralizer is M_2(k[t]/t²), A=t, B=P+tQ, and the equations are P²=0 and PQ+QP=0. For P=0 there are q⁴ possibilities and zero product; for nonzero P=E_12 up to conjugacy, Q_21=0 and Q_11+Q_22=0 are independent even in characteristic two, giving q² choices. There are q²−1 such P, and tP has rank one. Uniform conjugacy on the N_1 nonzero targets gives N_2 q²(q²−1)/N_1=q³(q−1)(q²−1). Adding the rank-zero and rank-one cases and the rank-two zero partners yields the stated zero fiber, equivalently 1+N_1+N_2+N_1(q⁵+q⁴−q²)+N_2q⁴. No nonzero target of a different type can occur. All arguments count ordered labeled pairs over an arbitrary finite field.",
+      "reproduction": {
+        "evidence": "Exact arithmetic cross-check: q=2 gives 105 targets, 24 per nonzero fiber and zero fiber 8296; q=3 gives 1040 targets, 432 per nonzero fiber and zero fiber 840321. These are evaluations of the independently checked count, not a new full matrix enumeration. The frozen verification notes and script were inspected, not executed."
+      },
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kokol Bukovšek et al. characterize image Jordan types (2^x,1^(n−2x)) with x≤n/4, not counts.",
+          "Britnell–Wildon ask which classes admit commuting representatives, Ngo–Šivic study the geometry of commuting nilpotents, and Huang's inspected aggregate counts do not impose individual square-zero conditions.",
+          "The earlier Resultary rank strata and the all-dimensional common-kernel counts do impose the required conditions and together are enough to derive the finding. The later c8a4349a84d7 additionally states broader fixed-target formulas and calls size four a previously established special case."
+        ],
+        "reasoning": "The published image and general nilpotent literature do not by themselves show coverage; the dimension and product-rank specializations in the earlier Resultary material do. The later generalization is a relationship, not evidence of earlier publication priority.",
+        "searches": [
+          "Kokol Bukovšek et al., Proposition 2.2, products of commuting nilpotents",
+          "arXiv:1001.0811, commuting classes; arXiv:1308.4438, commuting varieties; arXiv:2110.15566, annihilating matrices",
+          "Resultary all-dimensional and multivariate counts"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Kokol Bukovšek et al., ELA 16 (2007), Proposition 2.2",
+        "arXiv:1001.0811, 1308.4438, 2110.15566",
+        "Resultary ce965cde261e, 2db661bafe6d, 6deaf49eec33, 7465760ed8a5, c8a4349a84d7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ce965cde261e factors at m=2,r=1 yield [4 choose 2]_q |GL_2(q)| (q+1)(q−1)q² = N_2 q²(q²−1). If a factor has rank one, the other kills its invariant image line, so nonzero-product pairs are exactly the pairs of this stratum. Equivariance under simultaneous conjugation divides the count uniformly by N_1.",
+          "The earlier all-n representation sum over common kernel dimension specializes to 1+[4 choose 3]_q(q⁶−1)+[4 choose 2]_q(q⁴−1)(q⁴−q). It counts precisely A²=B²=AB=BA=0, which is the frozen zero fiber. The total is then this number plus the rank-one stratum."
+        ],
+        "reasoning": "These are mechanical specializations and orbit division, requiring no independently new characteristic-dependent argument or surviving product target.",
+        "searches": [
+          "Compare the displayed formula of ce965cde261e with m=2,r=1",
+          "Compare 2db661bafe6d entire representation count at n=4 to the zero target"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In size four all pairs with nonzero product have both factors of rank two, and the nonzero targets are in one orbit. This turns the product-rank-one count into the single-target count by exact division.",
+          "Commutativity and AB=0 are equivalent to the two vanishing cross-products once the square-zero hypotheses are imposed. Thus the earlier mutually annihilating pair count gives exactly the zero fiber, not a merely similar count."
+        ],
+        "reasoning": "The two natural restatements partition the entire image and preserve the labeled finite-field point counts and their quantifiers.",
+        "searches": [
+          "Resultary: product-rank strata of commuting square-zero matrices, mutually annihilating square-zero pairs, finite-field product fibers",
+          "Resultary ce965cde261e and 2db661bafe6d, actual Findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 13 rank-one product stratum in dimension four and October 12 zero-product total in dimension four cover the underlying data exactly.",
+          "6deaf49eec33 refines zero pairs by ranks and image intersection. Distinct same-day 7465760ed8a5 refines pairwise annihilating tuples by the ranks, image span and common kernel, hence covers the zero fiber at arity two.",
+          "The November 8 general product-fiber record contains the exact size-four nonzero formula explicitly; it is later and points to an earlier finite-field size-four count without identifying its exact record."
+        ],
+        "reasoning": "Failure rests on the October records, not on assuming within-day priority or treating the later record as earlier, nor on the existence of a match to the title.",
+        "searches": [
+          "Resultary 2026/10/13 ce965cde261e; 2026/10/12 2db661bafe6d; 2026/10/26 6deaf49eec33; 2026/11/2 7465760ed8a5; 2026/11/8 c8a4349a84d7"
+        ]
+      },
+      "rationale": "Both claimed new parts follow from earlier published Resultary counts: the nonzero fiber is the rank-one stratum of the full-rank pair formula at m=2, divided by the number of conjugate targets; the zero fiber is the already counted dimension-four mutually annihilating locus. These are actual covered cardinalities even where the older sources use different refinements. The qualitative image is explicitly known and is not credited as a new claim.",
+      "residual_risks": [
+        "The exact historical source of the earlier size-four census mentioned by the later paper is not identified. The finding is already implied by independently identified counts; neither chronology within a day nor absolute publication priority is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Image known, not a count",
+          "evidence": [
+            "Square-zero product type (2^x,1^(n−2x)) iff x≤n/4."
+          ],
+          "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/455/455/455",
+          "material_read": "Proposition 2.2, printed pp. 239–240, extracted offset 10700 onward",
+          "method": "OA PDF bounded passage",
+          "title": "Products of commuting nilpotent operators",
+          "trigger": "Known image theorem on identical factors"
+        },
+        {
+          "assessment": "Nonzero fiber follows by conjugacy quotient",
+          "evidence": [
+            "Formula for labeled pairs of maximal rank in dimension 2m for each r; specializes to N_2 q²(q²−1)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-product-rank-strata-of-commuting-full-rank-square-zero-matrix-pa--ce965cde261e/RESULT.md",
+          "material_read": "Finding, assumptions and the rank-two normal-form proof; mirrored offsets 0–4668",
+          "method": "Resultary and local mirror",
+          "title": "Product-rank strata of commuting full-rank square-zero matrix pairs over finite fields",
+          "trigger": "Exact earlier count of nonzero-product pairs via rank stratum"
+        },
+        {
+          "assessment": "Exact zero fiber at n=4",
+          "evidence": [
+            "Counts X²=Y²=XY=YX=0 for any n and q; sums over ranks and common kernel explicitly."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-joint-rank-and-common-kernel-distribution-of-mutually-annihilati--2db661bafe6d/RESULT.md",
+          "material_read": "Finding, scope, and proof by common kernel; mirrored offsets 0–2718 and 3200–4520",
+          "method": "Resultary and local mirror",
+          "title": "Joint rank and common-kernel distribution of mutually annihilating square-zero matrix pairs",
+          "trigger": "Earlier exact zero-fiber count on identical locus"
+        },
+        {
+          "assessment": "Broader zero-fiber count",
+          "evidence": [
+            "Joint rank and image-intersection distribution for mutually annihilating square-zero pairs."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-joint-jordan-rank-and-radical-image-intersection-census-for-squa--6deaf49eec33",
+          "material_read": "Finding, mirrored offsets 0–2605",
+          "method": "Resultary and local mirror",
+          "title": "Joint Jordan-rank and radical-image intersection census for square-zero pairs",
+          "trigger": "Earlier alternate refinement of the zero locus"
+        },
+        {
+          "assessment": "Zero fiber by arity-two specialization, no within-day ordering inferred",
+          "evidence": [
+            "Labeled square-zero tuples with vanishing cross-products; counts by individual ranks, common image span and common kernel."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-double-flag-enumeration-of-pairwise-annihilating-square-zero-mat--7465760ed8a5",
+          "material_read": "Finding and scope, mirrored offsets 0–2863",
+          "method": "Resultary and local mirror",
+          "title": "Double-flag enumeration of pairwise annihilating square-zero matrix tuples",
+          "trigger": "Distinct same-day zero-locus coverage"
+        },
+        {
+          "assessment": "Later broader fixed-target formula",
+          "evidence": [
+            "Zero count Z_n(q), explicit prefactor times Z_(n−4t)(q) at rank-t targets; recognizes the size-four formula as a special case."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-complete-finite-field-product-fibers-for-pairs-of-commuting-squa--c8a4349a84d7",
+          "material_read": "Finding and prior comparison, mirrored offsets 0–3258 and 6400–8258",
+          "method": "Resultary and local mirror",
+          "title": "Complete finite-field product fibers for pairs of commuting square-zero matrices",
+          "trigger": "Exact later extension of the setting and arithmetic"
+        },
+        {
+          "assessment": "Different question in inspected statement",
+          "evidence": [
+            "Existence of commuting representatives of similarity classes, not labeled multiplication fibers."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1001.0811",
+          "material_read": "PDF p. 1, offset 0",
+          "method": "OA PDF bounded passage",
+          "title": "On types and classes of commuting matrices over finite fields",
+          "trigger": "Finite-field commuting pairs"
+        },
+        {
+          "assessment": "Different field and invariant in inspected statement",
+          "evidence": [
+            "Irreducibility of commuting nilpotent varieties over algebraically closed fields."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1308.4438",
+          "material_read": "PDF pp. 1–2, offsets 0 and 7300",
+          "method": "OA PDF bounded passages",
+          "title": "On varieties of commuting nilpotent matrices",
+          "trigger": "Broader nilpotent-tuple setting"
+        },
+        {
+          "assessment": "The inspected aggregate counts do not enforce both squares zero",
+          "evidence": [
+            "Counts mutually annihilating pairs unrestricted and gives an aggregate nilpotent count; this does not isolate pairs of nilpotency index at most two."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2110.15566",
+          "material_read": "Theorem 1.2, PDF p. 4 at offset 12226; §3.1 p. 8 at offset 24500",
+          "method": "OA PDF bounded passages",
+          "title": "Counting mutually annihilating matrices over a finite field",
+          "trigger": "Plausible general zero-fiber specialization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "This is a natural exact fiber question at the smallest dimension where a nonzero product occurs. But the stronger earlier counts yield every piece of this specific invariant by direct substitution and division by a single conjugacy-orbit size. The result supplies no new parameter regime, fiber structure, or consequence beyond assembling those already known numbers.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

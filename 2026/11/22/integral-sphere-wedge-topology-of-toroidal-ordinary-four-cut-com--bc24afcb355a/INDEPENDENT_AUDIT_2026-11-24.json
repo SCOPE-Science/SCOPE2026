@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:59:42.782070Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 19–57",
+        "VERIFICATION.md lines 19–23; verify.py (including PATS as literal data); verification_output.txt",
+        "/workspace/reproductions/check_4.py and check_4.txt (independent strip/cyclic checks and integral Smith calculation)"
+      ],
+      "rationale": "The dual has full 2-skeleton and tetrahedra exactly the connected four-sets. For odd n the torus need not be bipartite, but the needed assertion is local: any closed walk of length <=5 has zero column winding for n>=6, and even row-step parity; thus any induced five-vertex graph here is bipartite. If all its four-vertex deletions are connected its minimum degree is two or more, forcing K_{2,3}, which the product excludes since no distinct pair has three common neighbors. The triangle-free four-set count is 16n stars, 52n induced paths and 5n squares. Independently using the 35 cycle coordinates complementary to a cube vertex, the 35x38 cube boundary has 35 unit Smith factors. I also independently checked the 36 supplied templates as data, enumerating connected tetrahedron translation types and retaining actual coface offsets on the infinite strip; there are 73 types, of which 37 survive in the consecutive-column cubes, and each chosen triangle is free at its removal and outside those cubes. The cyclic cases 6–13 reproduced. For a uniform check, lift each connected tetrahedron to a strip window of span <=3. For n>=7, two such lifts meeting in a projected triangle, aligned at one common vertex, agree on its other vertices: each difference from the aligned vertex is in [-3,3], whose residues are distinct. No wrap-around changes incidences or the template orbits, with n=6 checked directly. The cube union glued along full single-column simplices has H_3=Z^{3n}, H_2=0. Adding only relative cells of dimension <=2 after collapse preserves H_3 and embeds H_2 into free relative H_2. Simple connectivity and Euler characteristic then give the wedge; alternatively use the saturated integral attaching matrix of the 3-cells over the full 2-skeleton, a wedge of two-spheres. Duality gives degrees 4n-6 and 4n-5, and the lower of those groups excludes pure shellability of the original.",
+      "residual_risks": [
+        "No assertion for n<6, other widths, total cuts or the original cut complex's homotopy type. The graph itself is not generally bipartite, but the needed local property is proved above."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The pentagonal-girth four-cut theorem requires girth >=5 and concerns the original cut complex.",
+          "The defined grids in Cut Complexes II §5 are products of paths, with no wrap edges.",
+          "4a74053b5bd8 treats C_m square C_n with m,n>=5 at k=3."
+        ],
+        "reasoning": "Four-cycle fibers violate the high-girth hypothesis, the torus is not a path grid, and the general toroidal three-cut result misses both the cut size and width.",
+        "searches": [
+          "94b36fd5471f; arXiv:2407.08158 §5; 4a74053b5bd8"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary and mirrored records listed above",
+        "OA arXiv:2407.08158 §5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cylinder H_3 count 3(m-1) at m=n+1 equals 3n numerically, without proving any periodic attachments, saturation of the boundary lattice or the two-sphere rank. The cylindrical record explicitly leaves additional homology and homotopy open.",
+          "Path-grid and high-girth statements do not apply to this cyclic product."
+        ],
+        "reasoning": "Closing the chain of cube blocks and removing all out-of-block tetrahedra are substantive new incidence checks; the established cylinder invariant does not imply them.",
+        "searches": [
+          "4f68bb556153 Finding and limitations; arXiv:2407.08158 §5; 94b36fd5471f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "4f68bb556153, Finding at offset 0, has integral dual H_3=Z^{3(m-1)} for the ordinary four-cut complex of C_4 square P_m, with limitations at offset 6672.",
+          "4d5dde862e76 has an exact dual wedge for the same host but the ordinary three-cut criterion."
+        ],
+        "reasoning": "Duality accounts for the original/dual rank language, but does not remove the open/periodic or threshold difference. Comparing through Alexander duality does not establish equivalence.",
+        "searches": [
+          "Local Resultary: toroidal ordinary four-cut, dual, original and next-to-top homology",
+          "4f68bb556153; 4a74053b5bd8; 4d5dde862e76"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day distinct mixed-dimensional ordinary four-cut dual records use H(3,3) and K_3 square K_3, not C_4 square C_n.",
+          "The same-host 4d5dde862e76 gives dual degrees 1 and 2 for the three-cut, not degrees 2 and 3 for the four-cut."
+        ],
+        "reasoning": "No distinct exact family entry found; same-day cataloguing was examined but not treated as evidence of priority or identity.",
+        "searches": [
+          "Local Resultary: C_4 square C_n ordinary 4-cut and mixed dual wedges",
+          "28a4b2bc3a91; dc4e90566a37; 4d5dde862e76"
+        ]
+      },
+      "rationale": "The closest comparison gives only the higher dual degree for the open cylinder. The exact same host appears at threshold three, and a high-girth ordinary four-cut theorem excludes the host. No inspected source establishes the periodic four-cut topology or mechanically implies the integral wedge result.",
+      "residual_risks": [
+        "Primary web query returned unrelated girth results and is not negative evidence. Comparison is bounded; unindexed equivalent work may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial overlap only",
+          "evidence": "The graph has path longitudinal factor; dual H_3 has rank 3(m-1), and full homotopy is not claimed.",
+          "identifier_or_url": "4f68bb556153",
+          "material_read": "RESULT.md Finding offset 0; prior work and limitations offset 6672",
+          "method": "Local mirror",
+          "title": "Exact next-to-top homology of four-cut complexes of square cylinders",
+          "trigger": "Closest overlap with identical width and ordinary threshold"
+        },
+        {
+          "assessment": "Different threshold and no C_4 factor",
+          "evidence": "For m,n>=5 the three-cut dual is a torus with extra circles.",
+          "identifier_or_url": "4a74053b5bd8",
+          "material_read": "RESULT.md Finding offset 0 and prior-work discussion offset 7797",
+          "method": "Local mirror",
+          "title": "Toroidal three-cut complexes retain an integral fundamental-surface class",
+          "trigger": "Periodic grid topology and possible family coverage"
+        },
+        {
+          "assessment": "Same host, different ordinary cut threshold",
+          "evidence": "The three-cut dual has n two-spheres and extra circles; the claimed signed lattice there is also for the three-cut.",
+          "identifier_or_url": "4d5dde862e76",
+          "material_read": "RESULT.md offsets 0 and 9057",
+          "method": "Local mirror",
+          "title": "A signed integral sphere lattice at the four-cycle boundary of toroidal three-cut complexes",
+          "trigger": "Exact same host type"
+        },
+        {
+          "assessment": "Host violates girth condition",
+          "evidence": "The statement is for simple graphs on at least nine vertices of girth at least five.",
+          "identifier_or_url": "94b36fd5471f",
+          "material_read": "RESULT.md offsets 0 and 8981",
+          "method": "Local mirror",
+          "title": "Homotopy classification of four-cut complexes at the pentagonal girth boundary",
+          "trigger": "General four-cut classification"
+        },
+        {
+          "assessment": "Four-cut coverage on a different graph family",
+          "evidence": "Grid edges increment a coordinate on an interval, never wrapping; the section determines ordinary three- and four-cut topology for those grids.",
+          "identifier_or_url": "https://arxiv.org/pdf/2407.08158",
+          "material_read": "§5 opening, p. 16, text offset 71500",
+          "method": "OA PDF locate and bounded passage read",
+          "title": "Topology of Cut Complexes II",
+          "trigger": "Primary grid four-cut theorem"
+        },
+        {
+          "assessment": "Structural analogues, no inclusion or inferred same-day priority",
+          "evidence": "The fixed graphs have different vertex sets and adjacencies, with triangles; neither claim gives a theorem on toroidal cycles.",
+          "identifier_or_url": "28a4b2bc3a91; dc4e90566a37",
+          "material_read": "Both RESULTS, opening at offset 0",
+          "method": "Local mirror",
+          "title": "Mixed-dimensional ordinary four-cut duals on H(3,3) and K_3 square K_3",
+          "trigger": "Same-date mixed sphere wedge matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–17 and 22–63",
+        "4f68bb556153; arXiv:2407.08158 §5"
+      ],
+      "rationale": "The integral topology of a full periodic family is determined beyond the known open-cylinder rank: the collapse gives a uniform reduction to local cubes, isolates the surviving 3n independent classes, and proves saturation and the exact second homology. The mixed degrees give an immediate non-shellability obstruction for a natural regular grid family, contrasting with top-only results for path grids.",
+      "residual_risks": [
+        "The collapse certificate is specialized to width four and threshold four."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

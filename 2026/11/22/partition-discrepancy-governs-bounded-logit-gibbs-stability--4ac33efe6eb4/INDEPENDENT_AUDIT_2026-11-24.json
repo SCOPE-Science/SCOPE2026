@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:20:02.686425Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–98",
+        "Frozen VERIFICATION.md and checker.py inspected without execution",
+        "Cohen–Fausti Eq. (41) as an independent normalization cross-check"
+      ],
+      "rationale": "At p=G(x), DG(x)h has ith entry beta p_i(h_i−p·h). Convexity of its unhalved L1 norm gives a maximizing cube vertex h with signs + on S and − on its complement. For q=p(S) this produces 4beta q(1−q); the empty and full subsets give zero. For each proper nonempty S let A and B be its two prior sums. Its posterior odds run through [e^(−beta R) A/B,e^(beta R) A/B]: bounds follow by comparing the weighted averages of the exponentials on each side, and exactly the whole interval is realized by scores constant on each side. Minimize absolute log-odds on this interval to get (|log(A/B)|−beta R)_+. Now 4q(1−q)=sech²(log(q/(1−q))/2) and |log(A/B)|=2 artanh(|1−2A/(A+B)|), so optimization over subsets yields the stated rho(c) formula. Convex-segment integration gives the global bound, and rescaling any boundary maximizer toward a constant gives interior points at which small steps in the maximizing sign direction recover the derivative norm as a limit. This establishes a supremum of two-input quotients, not attainment by distinct inputs. At R=0 additive invariance makes the map constant. Equal weights give rho=0 or 1/n and hence the stated threshold and positive-budget limit. For binary-encoded positive integer weights a nonzero imbalance is at least 1/C of the total; its absolute log-odds is at least log((C+1)/(C−1))>2/C>1/C. With beta=1 and R=1/C this proves exact saturation iff PARTITION is positive, with polynomial-length rational parameters.",
+      "residual_risks": [
+        "The 10,099 finite numerical assertions are producer-reported; the proof, not comparison of rounded numbers, establishes sharpness and exact equality in the reduction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Hilbert theory gives a global dimension-free bound and a sharper fixed-probability refinement. Nair has a sharp same-norm result for unrestricted softmax; Gao–Pavel treat the Euclidean norm; Kanai et al. study bounded logits for robustness, not this mixed-norm coefficient."
+        ],
+        "reasoning": "An unrestricted upper bound does not characterize strict improvement or exactly when equality in the sharp constant is possible on the prior-centered ball. A sharp same-norm bound is not a sharp mixed-norm bound.",
+        "searches": [
+          "Cohen–Fausti arXiv:2309.02413",
+          "Nair arXiv:2510.23012",
+          "Gao–Pavel arXiv:1704.00805",
+          "Kanai et al. arXiv:2010.02558"
+        ]
+      },
+      "checked_sources": [
+        "Cohen–Fausti arXiv:2309.02413",
+        "Nair arXiv:2510.23012; Gao–Pavel arXiv:1704.00805; Kanai et al. arXiv:2010.02558",
+        "Resultary 4ac33efe6eb4, b6094ff64b5e, 9f41e7317a3b and c3f08b1304de"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a fixed prior ν, differentiation of (41) in Hilbert radius gives local slope 2 max_S ν(S)(1−ν(S)), yielding the frozen Jacobian norm after conversion. The frozen argument minimizes attainable subset log-odds over a ball, then proves the optimal local norm is the two-input constant and turns its exact threshold into a strict integer partition gap."
+        ],
+        "reasoning": "Credit the fixed-probability formula and matching two-level tilt idea as prior. The strongest inspected statement does not identify which prior discrepancy controls the best local norm anywhere in a positive-radius ball or give its saturation decision reduction. The separate optimization and complexity conclusion go beyond an identity for local sensitivity at one probability.",
+        "searches": [
+          "Cohen–Fausti Lem. 5.2, proof and Eq. (41), compared to frozen Eqs. (5)–(10)",
+          "Resultary b6094ff64b5e Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For p=G(x), q=G(y), their Hilbert distance is beta times the oscillation of x−y. The bounded score set maps onto the Hilbert ball centered at c/C. By translating scores, the smallest sup-norm of x−y for given probabilities is half its oscillation. Cohen–Fausti's Lemma 5.2 bounds distance of a variable point to a known fixed probability, with sharp two-level witnesses from its ball vertices."
+        ],
+        "reasoning": "The exact reformulation is the Lipschitz coefficient between two freely varying probabilities inside a fixed ball, multiplied by 2beta. A finite bound to the fixed center and its derivative at that center do not yield this optimized coefficient; the local derivative must be evaluated at all feasible base points.",
+        "searches": [
+          "Literature: bounded Hilbert projective ball sharp Lipschitz total variation oscillation norm weighted softmax subset masses saturation partition Cohen Fausti",
+          "Resultary: sharp local-to-global total variation versus Hilbert metric Lipschitz constant within a projective ball around positive prior; variation seminorm, balanced subset partition, two-point opposite sign tilts, weighted Gibbs or logit range saturation",
+          "Cohen–Fausti arXiv:2309.02413, Thm. 5.1, Lem. 5.2 and Eq. (41)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit 4ac33efe6eb4 is the frozen record itself. b6094ff64b5e gives A−delta²/A and partition-hard saturation for the diagonal-quadratic prediction map. The Shannon–quadratic and Tsallis comparators give other global simplex-map formulas."
+        ],
+        "reasoning": "Same-norm-pair and partition analogies are material but not identities of maps or exact coefficient tables. Diagonal-quadratic saturation uses a different map with full-support finite witnesses and no score-diameter parameter. No priority inference rests on a shared posting date.",
+        "searches": [
+          "Resultary 4ac33efe6eb4, b6094ff64b5e, 9f41e7317a3b and c3f08b1304de"
+        ]
+      },
+      "rationale": "The fixed-posterior sensitivity is already supplied by the sharp fixed-center Hilbert-to-L1 calculation of Cohen–Fausti after differentiation and norm conversion. The supported addition is optimizing this local sensitivity over the positive-radius projective ball around a specified weighted prior, expressing the sharp two-input constant by prior partition discrepancy and giving its binary-input saturation hardness. The checked Hilbert source has the fixed-center finite displacement calculation, not that within-ball two-input optimization. The closest partition-hardness record concerns a different, quadratic simplex map.",
+      "residual_risks": [
+        "An unlocated exact Hilbert-ball embedding calculation or earlier sensitivity corollary could subsume the domain optimization. The unread posterior-coresets result is not evidence of noncoverage or coverage. Historical priority is limited to checked statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact local overlap and finite fixed-center result; distinct domain optimization",
+          "evidence": "The denominators 1+ν(S)(e^(±R)−1) arise from tilting the coordinates in S; the first-order unhalved-L1 slope in Hilbert radius is 2ν(S)(1−ν(S)).",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.02413",
+          "material_read": "p. 24 and continuation, Theorem 5.1 and Lemma 5.2, offsets 91194 and 92240, Eq. (41) and proof; Remark 13 on TV convention",
+          "method": "Primary PDF passages",
+          "title": "Hyperbolic contractivity and the Hilbert metric on probability measures",
+          "trigger": "Closest equivalent geometry and subset sensitivity"
+        },
+        {
+          "assessment": "Different norm pairing and domain",
+          "evidence": "Tight constant one-half for ℓ^p to the same ℓ^p, without this prior-centered restriction.",
+          "identifier_or_url": "https://arxiv.org/pdf/2510.23012",
+          "material_read": "pp. 1–2, offsets 0 and 8400, abstract and norm definitions",
+          "method": "Primary PDF passages",
+          "title": "Softmax is 1/2-Lipschitz: A tight bound across all ℓ_p norms",
+          "trigger": "A sharp global softmax bound"
+        },
+        {
+          "assessment": "Euclidean bounds",
+          "evidence": "Uses gradient of log-sum-exp and Euclidean Lipschitz continuity, not prior-dependent mixed-norm sharpness.",
+          "identifier_or_url": "https://arxiv.org/pdf/1704.00805",
+          "material_read": "§V p. 5, offset 37202",
+          "method": "Primary PDF passage",
+          "title": "On the Properties of the Softmax Function with Application in Game Theory and Reinforcement Learning",
+          "trigger": "General softmax sensitivity"
+        },
+        {
+          "assessment": "Different question",
+          "evidence": "Constrains logits by bounded functions for robustness; does not calculate the stated probability-map coefficient in the inspected sections.",
+          "identifier_or_url": "https://arxiv.org/pdf/2010.02558",
+          "material_read": "pp. 2 and 4, offsets 8500 and 36762",
+          "method": "Primary PDF passages",
+          "title": "Constraining Logits by Bounded Function for Adversarial Robustness",
+          "trigger": "Bounded-logit formulation"
+        },
+        {
+          "assessment": "Substantial analogy, different map",
+          "evidence": "A−delta²/A and NP-complete saturation for diagonal-quadratic regularization, without a bounded score parameter.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-cross-norm-stability-and-partition-complexity-of-diagonal--b6094ff64b5e",
+          "material_read": "Finding",
+          "method": "Local mirror RESULT.md",
+          "title": "Sharp cross-norm stability and partition complexity of diagonal-quadratic simplex prediction",
+          "trigger": "Closest exact partition-complexity result"
+        },
+        {
+          "assessment": "Not assessed for coverage",
+          "evidence": "Snippet mentions Hilbert geometry and Cohen–Fausti. The PDF endpoint returned a verification page; no mathematical comparison with its unseen content is claimed.",
+          "identifier_or_url": "https://openreview.net/pdf?id=mcYLjE9HI6",
+          "material_read": "Discovery title and short snippet only; no scientific full text retrieved",
+          "method": "Focused literature discovery and direct OA attempt",
+          "title": "Unit-Weight Posterior Coresets: Sharp KL Geometry and ...",
+          "trigger": "Discovery result cites sharp Hilbert/TV geometry for posterior probabilities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen sharpness, parity, and integer-gap proofs",
+        "Fixed-center and diagonal-quadratic comparisons"
+      ],
+      "rationale": "This improves a global robustness constant precisely where the weighted prior prevents balancing any subset under the allowed score budget. It gives an exact dependence on the prior and radius, not just a sufficient bound or a local norm, and identifies an exact saturation decision for which a dimension-free smooth map still encodes a discrete partition problem. The odd/even uniform-prior cases are consequences of the weighted result, not its sole motivation.",
+      "residual_risks": [
+        "The hardness concerns exact saturation under the stated encoding, not approximation at fixed error. There is no guarantee about a preceding learned score function or finite attainment of the supremum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:47:11.018992Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT, METADATA, AUDIT, REVIEW, SLOGAN, VERIFICATION and integer/rational path checker (read, not executed)"
+      ],
+      "rationale": "Independent kernel derivation: put N=n+1 and extend a path vector oddly across 0 and N to the 2N-cycle. The two unit cyclic shifts U and U^{-1} preserve the odd subspace in their sum; their half-sum restricts to the half-adjacency. The Chebyshev recurrence on the cycle gives 2T_m=(U^m+U^{-m}), whose restriction counts the forward difference and the two odd reflections, yielding (1). At a<b only d=b−a and h=min(a+b,2N−a−b) can contribute, with opposite signs unless h=N (outside the window). At fixed m the d-count is n−m and the h-count is twice floor((m−1)/2); at distinct equal-parity j<k each of a+b=k and a+b=2N−k gives exactly one feasible pair of difference j, and opposite parities give none. The centered scores are 2 times the sum of off-diagonal entries times z_a z_b; distinct unordered pairs are orthonormal in sign space, so all covariance constants follow. Each parity block is scalar minus twice the all-ones matrix: the parity of n has eigenvalue zero on constants and the other parity eigenvalue one, with the stated scalar eigenvalues on orthogonal contrasts. The finite sine sum for U_n(x) gives twice the sum of the parity-n Chebyshev terms plus I for even n; U_n(A_n)=0 on the sine eigenangles. This covers n=2, where the even block is identically zero and has no off-diagonal correlation claim. Independent replay gave 216224 kernel entries, 9454 Gram entries, 9454 null-polynomial entries and 203 exact raw full-sign-space covariance entries.",
+      "replay_paths": [
+        "/workspace/reviews/evidence-2.py"
+      ],
+      "residual_risks": [
+        "Finite replay covers n≤30 and raw sign space n≤8; the proof establishes generality only for the stated shared-sign half-adjacency and degrees 1 through n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hallman accelerates evaluation for a general symmetric input; Hallman–Troester develop variance and cost allocation using telescoping levels, including independent level estimators.",
+          "Strang–MacNamara identify Toeplitz plus Hankel structure for Dirichlet f(K), without evaluating the off-diagonal Chebyshev-degree Gram matrix in the inspected material."
+        ],
+        "reasoning": "Generic stochastic and spectral formulas do not supply the signed overlap constants or the parity-block spectrum without computing these path-specific intersections, and the stochastic results use different outputs.",
+        "searches": [
+          "Chebyshev polynomials path graph reflected Dirichlet adjacency Chebyshev exact stochastic trace covariance Rademacher Hutchinson degrees Toeplitz Hankel",
+          "arXiv:2101.00325 §§1,3–5",
+          "arXiv:2103.10516 §§1–2 and stated main contributions",
+          "DOI 10.1137/120897572 §§1–3"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1137/120897572",
+        "arXiv:2101.00325",
+        "arXiv:2103.10516",
+        "Resultary cyclic and path-Laplacian covariance/risk results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Odd extension to a larger cycle is linear-algebraically valid but independent signs on that larger cycle do not remain independent after imposing the odd reflection. Rather, the two reflected bands give the negative cross term for each distinct same-parity degree pair.",
+          "The finite sine eigenangles already imply the parity polynomial identity."
+        ],
+        "reasoning": "The cyclic covariance statement does not restrict to the path covariance under the required probe distribution. The reflected kernel and null identity should be recognized as covered ingredients; the evaluated covariance and ensuing full polynomial risk are the contribution.",
+        "searches": [
+          "DOI 10.1137/120897572 §3",
+          "arXiv:2101.00325 §3",
+          "Resultary cycle record b98b9ba7de7d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Strang–MacNamara §3 gives a finite sine matrix-element sum for any f(K), with K=2I−2A_n. Taking f(λ)=T_m(1−λ/2) supplies the reflected kernel after discrete cosine summation.",
+          "Covariance here equals twice the Frobenius pairing of off-diagonal parts; a matching Gram table in that vocabulary would be equivalent."
+        ],
+        "reasoning": "The prior structural entry formula supplies the ingredients, but computing all overlaps of direct and reflected bands and discarding diagonals is a separate path calculation; no equivalent evaluated pairing was located in the inspected sources.",
+        "searches": [
+          "Strang MacNamara functions of difference matrices Toeplitz plus Hankel Dirichlet Chebyshev reflected polynomial exact path degree inner products covariance",
+          "Resultary: Chebyshev trace covariance path reflected Dirichlet Rademacher parity negative and cyclic complementary degrees"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary cycle result 2026/11/22 b98b9ba7de7d has an alias-only covariance with positive complementary degree terms; the path-Laplacian risk record ae4b067d8462 gives a different pseudoinverse risk.",
+          "The retrieved discrete trace formulas for regular graphs concern traces/walks, not shared-probe off-diagonal inner products on a Dirichlet chain."
+        ],
+        "reasoning": "A same-table antecedent need not mention randomized estimation if it evaluates the off-diagonal Gram entries; neither periodic aliasing nor scalar risk of a different operator provides those entries.",
+        "searches": [
+          "Public Toeplitz-Hankel/reflected-polynomial inner-product query above",
+          "Resultary parity negative/cyclic complementary-degree query above"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the explicit off-diagonal Gram/covariance law and its benchmark interpretation. The reflected kernel is a specialization of known Dirichlet spectral matrix-function structure, and the null polynomial is a classical Chebyshev characteristic identity. Neither is credited as independently new. The older Toeplitz–Hankel framework is closer to the proof than the trace-estimation papers and should be credited.",
+      "residual_risks": [
+        "A historical closed formula for the off-diagonal Chebyshev Gram matrix might use different terminology; no exhaustive historical priority finding.",
+        "Corpus comparisons based on abstracts/summaries are limited to the inspected statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the spectral/kernel ingredient; inspected sections do not state evaluated covariance",
+          "evidence": [
+            "K is the Dirichlet second difference with diagonal 2 and off-diagonal −1; §3 gives the discrete sine eigenbasis and f(K) entry sum."
+          ],
+          "identifier_or_url": "https://math.mit.edu/highdegree/TplusH.pdf; DOI 10.1137/120897572",
+          "material_read": "Author PDF §§1–3 through the finite spectral matrix-entry formula, and MIT repository publication details",
+          "method": "Compare normalization and substitute a shifted Chebyshev polynomial into the displayed spectral sum",
+          "title": "Functions of Difference Matrices Are Toeplitz Plus Hankel",
+          "trigger": "Prior general finite Dirichlet matrix-function identity"
+        },
+        {
+          "assessment": "General evaluation cost improvement, not specialized covariance",
+          "evidence": [
+            "Eq. (3.4) is the Chebyshev product rule; Algorithm 3.1 uses it to reduce matvec count."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2101.00325",
+          "material_read": "Full author PDF through conclusions, especially §3",
+          "method": "Read method and compare output and input assumptions",
+          "title": "Faster Stochastic Trace Estimation with a Chebyshev Product Identity",
+          "trigger": "Same Chebyshev sign quadratic forms"
+        },
+        {
+          "assessment": "Related methodology, not the claimed evaluated finite-path Gram law in inspected sections",
+          "evidence": [
+            "Eq. (2.5) telescopes levels; §2.3 estimates each summand independently and optimizes the variance/cost allocation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2103.10516",
+          "material_read": "Author PDF introduction, contribution summary, §2 and start of §3",
+          "method": "Compare estimator and variance decomposition to common-sign degrees",
+          "title": "A Multilevel Approach to Stochastic Trace Estimation",
+          "trigger": "Potentially broader variance analysis"
+        },
+        {
+          "assessment": "Does not imply the path result by specialization",
+          "evidence": [
+            "Positive aliases of complementary degrees below cycle length, instead of negative same-parity reflections."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22 record b98b9ba7de7d",
+          "material_read": "Indexed theorem summary only",
+          "method": "Compare boundary/probe models and nonzero covariance pattern",
+          "title": "Cyclic Chebyshev aliasing and a reentrant two-level trace-design boundary",
+          "trigger": "Closest shared-probe exact covariance on another boundary condition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen finding, recurrence replay and comparison to Hallman–Troester's general multilevel motivation"
+      ],
+      "rationale": "For a standard Dirichlet test matrix this gives the exact stochastic risk of every degree≤n polynomial in one shared sample, with systematic variance cancellation absent from independently sampled degrees. A researcher comparing sampling and polynomial designs can use the signed covariance, exact spectrum and deterministic null contrast as a complete finite-size benchmark. The result makes no speedup claim and derives meaningful all-size constants, not just sample covariances.",
+      "residual_risks": [
+        "Benchmark value is specific to the normalization, degree window and probe sharing. It is not an optimization or runtime guarantee on arbitrary graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:34:50.580132Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed from Phillips et al. Definitions 2.2, 3.5 and Teh Definitions 2.1–2.2. Every group with nonempty intersection either has an always-satisfied cross-approver or is contained in a pure bloc. Mixed exclusive groups alone have empty intersection even in the EJR+ single-round test. A pure bloc's full-horizon quota is maximal and if it fails, the opposite candidate must have won somewhere, witnessing failure of both EJR+ disjuncts. This proves both directions, including zero quotas. Independent enumeration of all nonempty groups for a,b=1..3, c=0..2, L=1..7 and T=0..L checked 945 profile/horizon/count cases: compute the intersection, union, largest single-option support and maximum voter satisfaction directly; static approval permits taking the largest cohesion demand. All three Boolean outcomes equal the interval test. Term-by-term differentiation cancels interior terms, leaving the two displayed masses. Their ratio decreases strictly from infinity to zero, proving the unique optimum when both quotas are positive; the endpoint cases follow by binomial tail monotonicity. Without overlap, floor/ceiling leaves 1–2 accepted counts so the maximal atom bound and Stirling at p=a/n match. With positive overlap, Chernoff tails and the adjacent failure atoms give the two KL exponents; these bounds also apply uniformly near the interior limit p_* (the atom prefactors are subexponential). Strict monotonicity of the two rate functions in opposite directions gives the unique balanced optimum and Stirling in the finite odds gives p_L→p_*. For a=b and c=1, L>=3 guarantees two positive symmetric quotas and a unique fair-coin optimum. The standardized half-width is sqrt(L)/n+O(1/sqrt(L)); CLT inside (0,infinity), maximal atom times number of accepted counts at 0, and Chebyshev at infinity establish all endpoints. As a finite diagnostic, summing exact integer binomial coefficients at L=n^2 for n=11,21,41,81 gives probabilities 0.724747,0.705194,0.694350,0.688627 against limit 0.682689. The packaged checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Phillips et al. Thm. 3.9 establishes deterministic EJR+-guaranteeing local search. Teh studies optimal welfare among feasible outcomes. Borodin–Lueger Prop. 12 studies asymptotic PJR of deterministic round-robin."
+        ],
+        "reasoning": "Neither feasibility, optimal deterministic welfare, nor an additive underrepresentation bound for a deterministic schedule gives the ex-post success distribution under independent repeated draws.",
+        "searches": [
+          "arXiv:2505.22513 §3",
+          "arXiv:2605.11157 §§1–2",
+          "arXiv:2603.26504 §6.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2505.22513v1",
+        "arXiv:2605.11157v1",
+        "arXiv:2603.26504v1",
+        "Resultary adjacent temporal voting records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing group guarantees can achieve or approximate quotas by coupling across rounds, whereas the Bernoulli law is unconstrained from round to round. Standard CLT applies only once the shrinking acceptance corridor and finite-horizon maximizing bias are identified."
+        ],
+        "reasoning": "The closest source implications yield feasibility and the static group reduction, not the contrast between one or two quota counts and an overlap-supplied corridor of order L/n, measured against standard deviation of order sqrt(L) at the exact optimal bias.",
+        "searches": [
+          "arXiv:2605.11157 Abstract/Defs. 2.1–2.2",
+          "arXiv:2505.22513 §3",
+          "arXiv:2603.26504 §6.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ordinary temporal notions agree with the cited definitions. In this static setting, every cohesive group agrees in all rounds, so the quota is a full-horizon count. Phillips et al. discuss apportionment with approval preferences as a closely related static model."
+        ],
+        "reasoning": "The deterministic reduction is an elementary specialization of prior axiom definitions and should not be counted as a new equivalence theorem for all static elections. Random apportionment conditioned on meeting quotas would not be equivalent to the unconditioned i.i.d. bias optimization here.",
+        "searches": [
+          "Resultary: temporal justified representation independent binomial lottery cross approval quadratic voter horizon",
+          "arXiv:2505.22513 Defs. 2.2, 3.5; arXiv:2605.11157 Defs. 2.1–2.2 and cited static equivalence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest hits besides this record included two-party temporal FJR+ welfare price and Gaussian/logarithmic/birthday laws for temporal proportionality price (d38de6c49c13). In the latter, Proof §1 forces each party to win exactly its integer quota when every voter approves one party and the horizon is divisible by n; the randomness in Finding is in voters' party affiliations."
+        ],
+        "reasoning": "The no-overlap exact quota census at divisible horizons is already covered. The welfare price over independent voter affiliations is not the chance of meeting quotas over i.i.d. round choices for one fixed electorate, and the birthday n^2 scale there is a number of labels, not a horizon. A generic binomial tail table would evaluate one fixed instance but would not by itself determine the election optimizer and joint law.",
+        "searches": [
+          "Resultary: temporal justified representation independent binomial lottery cross approval quadratic voter horizon",
+          "Resultary d38de6c49c13, Finding and Proof §1"
+        ]
+      },
+      "rationale": "Best of knowledge: static EJR/EJR+ equivalence, temporal proportionality axioms and their deterministic achievement pre-exist. The independent stationary lottery classification and optimizing crossover add a different probability question, not a new axiom or binomial limit theorem.",
+      "residual_risks": [
+        "Primary literature query returned transport unavailable, not zero results. Targeted inspection used cited papers. Unindexed randomized apportionment and temporal fairness results remain possible; generic binomial optimization is not claimed new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same axioms; deterministic verification and algorithm, not i.i.d. lottery threshold",
+          "evidence": [
+            "Def. 3.5 uses (sigma,tau)-cohesiveness plus unanimous-round disjunction. Thm. 3.9 controls every output of a selected local-search rule."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2505.22513v1",
+          "material_read": "§§1–3; definitions 2.1–2.2, 3.5; Props. 3.6–3.7 and Thm. 3.9",
+          "method": "Open-access full text, relevant sections",
+          "title": "Strengthening Proportionality in Temporal Voting",
+          "trigger": "Defining source for temporal EJR+"
+        },
+        {
+          "assessment": "Deterministic welfare benchmark; static EJR/EJR+ equivalence is already prior",
+          "evidence": [
+            "§1.1 states welfare price and complexity/tractability results; Lemma 4.2 asserts EJR/EJR+ equivalence for every static preference temporal election."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.11157v1",
+          "material_read": "Abstract, contributions and definitions 2.1–2.2; Lemma 4.2 statement and lead-in",
+          "method": "ArXiv PDF and original HTML passages",
+          "title": "The Price of Proportional Representation in Temporal Voting",
+          "trigger": "Static approvals and same ordinary representation notions"
+        },
+        {
+          "assessment": "Not the same statistic or randomization restriction",
+          "evidence": [
+            "Prop. 12 gets asymptotic PJR from each n-round deterministic round-robin block, not a chance of exact quota attainment."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.26504v1",
+          "material_read": "§§1–3, §6.1 Algorithm 4 and Props. 11–13",
+          "method": "Open-access full text, relevant sections",
+          "title": "Online Temporal Voting: Strategyproofness, Proportionality and Asymptotic Analysis",
+          "trigger": "Temporal representation asymptotics"
+        },
+        {
+          "assessment": "Covers exact quotas for singleton parties at divisible horizons, not the i.i.d. optimization or overlapping-voter crossover",
+          "evidence": [
+            "§1 gives x_j=a b_j whenever ell=a n and only exclusive party approvals occur. The n^2 scale in Finding varies the number of party labels, rather than temporal horizon, and the output statistic is an optimal welfare ratio."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-gaussian-logarithmic-and-birthday-window-laws-for-the-temporal-p--d38de6c49c13/RESULT.md",
+          "material_read": "Finding, Scope and Proof §1 quota census",
+          "method": "Public repository RESULT source",
+          "title": "Gaussian, logarithmic and birthday-window laws for the temporal proportionality price",
+          "trigger": "Exact temporal quota reduction, Gaussian limits and a separate n^2 scale"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Quantifies when a stationary independent decision stream can meet established exact collective quotas without coordination: the exact finite bias and failure rate are operationally interpretable, and a change of one approval ballot turns an atom-scale probability into a nontrivial quadratic horizon crossover. This distinguishes independent scheduling from rules guaranteeing quotas through dependence. It is not a new CLT, general voting mechanism, or claim of scope beyond this profile family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

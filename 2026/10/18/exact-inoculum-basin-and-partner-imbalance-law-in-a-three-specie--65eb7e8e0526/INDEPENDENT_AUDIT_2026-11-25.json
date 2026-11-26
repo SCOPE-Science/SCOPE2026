@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:22:18.397698Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The result holds for the stated exchange-symmetric deterministic ODE on strictly positive initial states. Bounded interaction terms and logistic comparison give positive global solutions. Subtracting resident per-capita growth rates gives y′=−(a/2)p y(1−y²), and differencing invader and mean resident payoffs gives z′=zp[(−k+ar/2)p−dz]. Thus in ds=p dt the squared contrast obeys r_s=−ar(1−r) and the resident odds obey w_s+(−k+ar/2)w=d. Their integrating factor is H(s)=e^{cs}/√(r₀+(1−r₀)e^{as}); its integral is exactly T(r₀) by u=e^(−as). The numerator w₀+d∫H is strictly decreasing, and its limit distinguishes all three cases, with w₀=R/I. If the limit is positive or zero, s goes to infinity in physical time; on equality the tail ratio ∫_s^∞H/H tends to 1/k and yields w→−d/k. On these branches the eventual mean interaction tends respectively to a/2 and c(−d)/(k−d), so scalar logistic comparison gives the claimed positive total limits. When the numerator vanishes first at finite s*, w_s(s*)=d<0 and p has a simple zero there. Physical time diverges logarithmically; equivalently d(log p)/dt→d<0, giving integrability of the mean interaction Φ=O(p). Solving (1/N)′=μ−Φ/N and applying the Cesàro limit to its integrating factor yields μtN→1 and z→1. Differentiation gives T′>0. Substitution u=(1−r)v gives the beta constant by dominated convergence with dominating integrand v^(q−1)/√(1+v/2) for r≥1/2 and 0<q<1/2. The balanced threshold uses T(0)=1/k, and the resident-equilibrium rare-invader exponent is −k.",
+      "replay": "Analytic reconstruction of RESULT.md lines 31–90, including the separatrix, finite ecological-time endpoint, and physical-time rate. The frozen verify.py and VERIFICATION.md were inspected, not executed. Their reported finite examples do not test or prove convergence exactly on the separatrix. In line 69 the two resident limits are equal, not necessarily the residents themselves at finite time.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arthur et al. Eq. (2), PDF p. 4, gives the identical model class; §§2,4 (pp. 5, 9–10) use a numerical extinction cutoff and present a rare-invader barrier and qualitative simulated outcomes.",
+          "May–Leonard and Hale–Valdovinos could not be compared in full text through the attempted lawful routes. They are not counted as inspected negative evidence."
+        ],
+        "reasoning": "A rare-invasion criterion describes linear growth at a resident equilibrium, not a separatrix over all resident contrasts. Qualitative bistability in a related model does not yield the explicit I_c or its exponent. A more general explicit law for equal-intrinsic-rate planar systems could cover the composition formula and was not ruled out.",
+        "searches": [
+          "Arthur–Nicholson–Wilkinson arXiv:2609.34956, Eq. (2), Sections 2 and 4",
+          "May–Leonard DOI 10.1137/0129021",
+          "Hale–Valdovinos DOI 10.1002/ece3.8453"
+        ]
+      },
+      "checked_sources": [
+        "Arthur–Nicholson–Wilkinson arXiv:2609.34956, pp. 4–5, 9–10",
+        "Resultary e9dfb76770c3, 04eddb3a1618, 5c0b5b556e15"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Under the stated parameters the rare-invader exponent at the resident equilibrium equals c−a/2<0. The primary model paper reports total extinction as one simulated outcome.",
+          "The frozen calculation determines the zero-terminal-numerator curve of a linear odds equation and derives the beta singularity; in physical time, integrable mean interaction is what gives the exact inverse-time mass prefactor."
+        ],
+        "reasoning": "Knowing the two qualitative facts does not mechanically give the absolute inoculum threshold at unequal resident densities or the cutoff-free time asymptotic. The latter follows from the crowding equation once the supercritical composition limit and decay are established and is not credited as new in isolation.",
+        "searches": [
+          "Arthur–Nicholson–Wilkinson arXiv:2609.34956 §§2,4; projective planar phase portrait comparisons Bomze and May–Leonard"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In projective coordinates u=x₁/x₃, v=x₂/x₃ and dτ/dt=x₃, the composition dynamics have per-capita laws d−cu+(a−c)v and d+(a−c)u−cv. This follows from differences of the original payoffs.",
+          "The Bomze article full text was not available from the attempted lawful routes; the targeted search surfaced mutualism reviews and qualitative equilibrium analyses, not an inspected exact beta separatrix for these projective laws."
+        ],
+        "reasoning": "The planar LV representation is equivalent for the basin in composition coordinates; it does not carry the absolute population N unless the scalar crowding equation is included. A same-system separatrix formula in that formulation would cover the composition part regardless of notation.",
+        "searches": [
+          "replicator/Lotka–Volterra projective classification, Bomze DOI 10.1007/BF00318088",
+          "planar mutualistic Lotka Volterra equal negative intrinsic growth explicit separatrix incomplete beta function basin exact symmetric obligate mutualism"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record e9dfb76770c3 proves a commensal initial-density threshold with fixed host/parasite densities in a harvested model.",
+          "Same-day records 04eddb3a1618 and 5c0b5b556e15 concern periodic two-component critical decay and a self-cubic network mutualism threshold, respectively."
+        ],
+        "reasoning": "These share the labels threshold, extinction or mutualism, but neither the vector field nor the exact basin formula matches. No exact formula table was identified in the bounded catalogue comparison.",
+        "searches": [
+          "Resultary: ecological-fitting three-component finite inoculum basin boundary, partner imbalance beta law, and extinction decay (three ranked searches, limit 50 each)"
+        ]
+      },
+      "rationale": "Credit the explicit all-initial-state boundary, contrast scaling and physical-time treatment jointly, not the interaction model, the existence of total extinction in it, or the representation by replicator and projective Lotka–Volterra equations. The strongest inspected same-model primary passages describe a rare-invasion barrier and simulated outcomes, not the contrast-dependent basin formula. The strongest inspected catalogue matches analyze different dynamics. Classical phase-plane coverage of the projective special case could not be fully checked and is a residual risk, not a priority assertion.",
+      "residual_risks": [
+        "No whole-document noncoverage conclusion for arXiv:2609.34956. Older classifications, papers on symmetric planar LV separatrices, and the mutualism review may contain relevant specializations; several full texts were not retrieved. The indexed search is finite and no priority claim follows from dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct model and qualitative antecedent, not an explicit separatrix in inspected passages",
+          "evidence": "Interaction law has common crowding, §4 defines the rare barrier and lists whole-community extinction; simulation sets densities below 10^(−6) to zero.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.34956",
+          "material_read": "§2 Eq. (2), PDF pp. 4–5, offsets 9950–13935; §4 pp. 9–10, offsets 20300–23740",
+          "method": "OA PDF passage inspection",
+          "title": "Models of Ecological Fitting",
+          "trigger": "Same original population law and invasion outcomes"
+        },
+        {
+          "assessment": "Not usable as negative coverage evidence",
+          "evidence": "The independently verified payoff-difference transform produces the planar LV system to compare; the work's exact coverage was not verified.",
+          "identifier_or_url": "https://doi.org/10.1007/BF00318088",
+          "material_read": "Bibliographic identification only; full text not retrieved",
+          "method": "Lawful DOI and publisher retrieval attempts",
+          "title": "Lotka–Volterra equation and replicator dynamics: a two-dimensional classification",
+          "trigger": "Relevant projective planar classification"
+        },
+        {
+          "assessment": "Not used as a noncoverage finding",
+          "evidence": "The relevance of an exact parameter slice could not be tested from a passage.",
+          "identifier_or_url": "https://doi.org/10.1137/0129021",
+          "material_read": "Bibliographic identification only; full text not retrieved",
+          "method": "Lawful publisher and alternate retrieval attempts",
+          "title": "Nonlinear aspects of competition between three species",
+          "trigger": "Strongly related classical phase-plane setting"
+        },
+        {
+          "assessment": "Conceptual lead only, not evidence of noncoverage",
+          "evidence": "Public description concerns qualitative patterns across two-species mutualism models; exact formula coverage was not assessed.",
+          "identifier_or_url": "https://doi.org/10.1002/ece3.8453",
+          "material_read": "Title and public search description only; no full-text passage obtained",
+          "method": "OA DOI lookup with lawful alternate recovery attempts",
+          "title": "Ecological theory of mutualism: Robust patterns of stability and thresholds in two-species population models",
+          "trigger": "Search returned a review of threshold models relevant to the projective system"
+        },
+        {
+          "assessment": "Structural analogue, different system",
+          "evidence": "Critical commensal density for fixed host/parasite densities separates extinction, a saddle, and persistence in a harvested system.",
+          "identifier_or_url": "2026/10/11/SCOPE-initial-condition-basin-threshold-and-parasite-sensitive-rescue--e9dfb76770c3",
+          "material_read": "Mirrored RESULT.md opening, offset 0–4202",
+          "method": "Local mirror statement comparison",
+          "title": "Initial-condition basin threshold and parasite-sensitive rescue",
+          "trigger": "Closest indexed basin-threshold hit"
+        },
+        {
+          "assessment": "Different model and different parameter boundary",
+          "evidence": "Two periodically forced cooperative components at a zero-invasion threshold give periodic t^(−1) profiles.",
+          "identifier_or_url": "2026/10/18/SCOPE-universal-two-component-critical-extinction-profiles-in-periodic--04eddb3a1618",
+          "material_read": "Mirrored RESULT.md opening, offset 0–3249",
+          "method": "Local mirror statement comparison",
+          "title": "Universal two-component critical extinction profiles in periodic systems",
+          "trigger": "Same-day exact inverse-time extinction result"
+        },
+        {
+          "assessment": "Different system and equilibrium criterion",
+          "evidence": "A network of mutualists with self-cubic crowding has a positive-equilibrium threshold without a newcomer-inoculum separatrix.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-degree-sharp-rescue-threshold-for-obligate-mutualism-with-self--5c0b5b556e15",
+          "material_read": "Mirrored RESULT.md opening, offset 0–2998",
+          "method": "Local mirror statement comparison",
+          "title": "A degree-sharp rescue threshold for obligate mutualism with self-crowding",
+          "trigger": "Same-day mutualism threshold hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Within this published deterministic model class the finding quantifies the gap between linear invasion fitness and the actual basin. It provides a benchmark that is uniform over all positive initial triples in the symmetric slice, not a comparison of selected trajectories: the same resident sum can have arbitrarily different critical fractions as the imbalance changes, and asymptotic composition dominance is distinguished from establishment at positive abundance. The motivation and use are mathematical and model-specific.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

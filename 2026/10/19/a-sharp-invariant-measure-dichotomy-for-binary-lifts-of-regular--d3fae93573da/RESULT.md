@@ -1,68 +1,45 @@
 # A sharp invariant-measure dichotomy for binary lifts of regular Toeplitz words
 
 ## Finding
-For each integer \(p_1\ge6\) and every sequence of integers \(q_k\ge4\), consider the regular Toeplitz words of Kang and Jäger, and the binary first-difference lift described below. This lift is minimal for every allowed parameter sequence. It is uniquely ergodic **if and only if** \(\sum_{k\ge1}q_k^{-1}=\infty\). If that sum is finite, it has **exactly two ergodic invariant probability measures** and its entire invariant-measure simplex is their closed line segment.
 
-More precisely, put \(P_k=\prod_{j=k}^{\infty}(1-2/q_j)\), where the infinite product is interpreted as zero if it vanishes. Let \(C_{k,a}\) be the level-\(k\) odometer-aligned tower base with initial lifted symbol \(a\in\{0,1\}\). When the series converges, the two ergodic measures \(\mu_+\) and \(\mu_-\) satisfy
-\[
-\mu_{\pm}(C_{k,0})=\frac{1\pm P_k}{2p_k},\qquad
-\mu_{\pm}(C_{k,1})=\frac{1\mp P_k}{2p_k}.
-\]
-For any invariant probability measure there is a parameter \(t\in[-1,1]\) such that
-\[
-\mu(C_{k,0})=\frac{1+tP_k}{2p_k},\qquad
-\mu(C_{k,1})=\frac{1-tP_k}{2p_k}
-\]
-for every \(k\). The equations characterize the whole measure, not merely these marginals. The parameter \(t\) is unique when the series converges. When the series diverges, all parameters represent the same unique measure with \(\mu(C_{k,a})=1/(2p_k)\).
+Fix integers \(p_1\ge6\) and \(q_k\ge4\) for all \(k\ge1\). The binary first-difference lift of the regular Toeplitz system defined below is minimal. It is uniquely ergodic if and only if \(\sum_{k\ge1}q_k^{-1}=\infty\). If the sum converges, the invariant probability measures form a closed line segment whose two endpoints are the only ergodic measures.
 
-## Assumptions and scope
-Let \(w_1=11 0^{p_1-3}\), of length \(p_1-1\). Define recursively
+More precisely, let \(C_{k,a}\) denote the aligned level-\(k\) tower base with initial lifted symbol \(a\in\{0,1\}\), and put \(P_k=\prod_{j=k}^\infty(1-2/q_j)\). The entire segment in the convergent case is parametrized, uniquely and affinely, by \(t\in[-1,1]\), with
 \[
-w_{k+1}=(w_k0)^{q_k-3}\,w_k1\,w_k1\,w_k,
-\qquad p_{k+1}=q_kp_k.
+ \mu_t(C_{k,0})=\frac{1+tP_k}{2p_k},\qquad
+ \mu_t(C_{k,1})=\frac{1-tP_k}{2p_k}.
 \]
-The period-\(p_k\) skeleton is the periodic repetition of \(w_k\square\), with its final placeholder \(\square\) unfilled at level \(k\). The compatible skeletons determine the regular two-sided Toeplitz subshift \(Y\subset\{0,1\}^{\mathbb Z}\) through the standard Toeplitz orbit-closure construction. Its maximal equicontinuous factor has coordinates \(\rho_k:Y\to\mathbb Z/p_k\mathbb Z\) satisfying \(\rho_k(\sigma y)=\rho_k(y)+1\). The positive integer \(q_k\ge4\) ensures that the earlier placeholder occurs both as a zero and as a one before the next surviving placeholder, so the displayed periods form an essential nested structure.
+The ergodic measures are \(\mu_{+1}\) and \(\mu_{-1}\). In the divergent case both tower-base masses are \(1/(2p_k)\), and every \(t\) in these formulas gives the same unique measure.
 
-Set
+## Construction and scope
+
+Let \(w_1=11 0^{p_1-3}\), and set
 \[
-X=\{x\in\{0,1\}^{\mathbb Z}:(x_{j+1}-x_j)\bmod2=y_j\text{ for some }y\in Y\}.
+ w_{k+1}=(w_k0)^{q_k-3}w_k1\,w_k1\,w_k,\qquad p_{k+1}=q_kp_k.
 \]
-Let \(\pi(x)_j=(x_{j+1}-x_j)\bmod2\), and define
-\[
-C_{k,a}=\{x\in X: \rho_k(\pi(x))=0,\ x_0=a\},\qquad a\in\{0,1\}.
-\]
-The level-\(k\) families \(\{\sigma^r C_{k,a}:0\le r<p_k,\ a\in\{0,1\}\}\) are finite clopen Kakutani–Rokhlin partitions (using the convention for the shift compatible with the displayed odometer equation). They are increasingly refined and generate the Borel sigma-algebra modulo every invariant probability measure. Their finitely many exceptional non-generating points have base phases at the unfilled residue for all large \(k\), a set of invariant measure zero.
+Use the compatible Toeplitz skeletons \(w_k\square\) repeated with period \(p_k\), with the final letter \(\square\) unassigned. Let \(Y\) be the two-sided Toeplitz orbit closure so obtained. These are essential periods: before the next surviving hole, the earlier hole is filled with both symbols, and the skeleton at level \(k\) has exactly one hole residue modulo \(p_k\). The aligned odometer factor has coordinates \(\rho_k:Y\to\mathbb Z/p_k\mathbb Z\) with \(\rho_k(\sigma y)=\rho_k(y)+1\). In phase \(r\) the level-\(k\) hole residue in the coordinates of \(y\) is \(-1-r\pmod {p_k}\).
+
+Define \(\pi(x)_j=x_{j+1}-x_j\pmod2\), \(X=\pi^{-1}(Y)\), and \(C_{k,a}=\{x:\rho_k(\pi(x))=0,\ x_0=a\}\). Both bases are nonempty, since each \(y\in Y\) has precisely two lifts, one for either initial symbol. The sets \(\sigma^r C_{k,a}\), \(0\le r<p_k\), form clopen partitions \(\mathcal P_k\) of \(X\). Generation here is only required modulo invariant null sets; we do not assert a finite set of exceptions to pointwise separation.
 
 ## Proof
-**1. Minimality and regularity.** Every skeleton has one unassigned position per period \(p_k\), hence hole density \(p_k^{-1}\to0\); consequently \(Y\) is regular, minimal and uniquely ergodic by the classical Toeplitz criterion. The word \(w_k\) has an even number of ones: the claim holds for \(w_1\) and the recursion adds two ones. Therefore a lifted phase is unchanged after \(w_k0\), is flipped after \(w_k1\), and has returned to its original value after the two exceptional ones. Since the return language contains both identity and phase-flip permutations, the two-state return action is transitive. The permutative-lift minimality criterion of Kang and Jäger (Theorem 1.5 and the proof of Theorem 6.13) then proves minimality of \(X\) for every stated sequence.
 
-**2. Exact level-incidence calculation.** Fix a lifted symbol \(b\) at the beginning of a level-\(k+1\) block. Among the \(q_k\) successive level-\(k\) subblock beginnings, \(q_k-1\) carry symbol \(b\), and exactly one carries \(1-b\). Indeed, the repeated \(w_k0\) blocks keep phase \(b\); the first \(w_k1\) flips it at the next beginning; the second \(w_k1\) restores it. Thus the normalized incidence matrix is exactly
+**Refinement and incidence.** Each \(w_k\) has even parity: \(w_1\) has two ones, and \(w_{k+1}\) contains \(q_k\) copies of \(w_k\) and two extra ones. In a level-\(k+1\) block starting with lift symbol \(b\), the \(q_k\) level-\(k\) beginnings have symbol \(b\) except for the beginning immediately after the first of the two \(w_k1\) blocks. At that beginning the symbol is \(1-b\); crossing the second such block restores \(b\). This count is independent of the unresolved final hole. All the symbols of the lift within a level block (through its last position) are determined by its starting symbol and \(w_k\). Consequently each atom of \(\mathcal P_{k+1}\) sits in a specified atom of \(\mathcal P_k\), and the normalized incidence is
 \[
-M_k=\frac1{q_k}\begin{pmatrix}q_k-1&1\\1&q_k-1\end{pmatrix}.
+ M_k=q_k^{-1}\begin{pmatrix}q_k-1&1\\1&q_k-1\end{pmatrix}.
 \]
-This is a count of actual lifted subblock starting symbols, rather than an assumption of independent random labels.
 
-**3. All invariant measures.** Let \(\mu\) be shift invariant. Set \(v_{k,a}=p_k\mu(C_{k,a})\); then \(v_{k,0}+v_{k,1}=1\). Invariance and the tower refinement just proved give
-\[
-\begin{pmatrix}v_{k,0}\\v_{k,1}\end{pmatrix}
-=M_k\begin{pmatrix}v_{k+1,0}\\v_{k+1,1}\end{pmatrix}.
-\]
-Conversely, a compatible sequence of two-component probability vectors determines consistent masses on every cell of every refined tower partition, hence an invariant Borel probability measure by compactness. The tower partitions determine it uniquely: for any fixed coordinate window, a level-\(k\) block and its starting symbol specify the lift throughout the window except when the window intersects the one unspecified symbol per \(p_k\) sites. Every invariant measure gives those exceptional phases mass at most the window length divided by \(p_k\), tending to zero. Thus no additional measures can reside in unresolved fibers.
+**Minimality.** The base Toeplitz system is minimal, and its single-hole densities \(1/p_k\) also make it regular. Choose a base point whose odometer phase is not an embedded integer (the factor is onto the uncountable odometer). Its entire orbit has this property and is dense in \(Y\). It suffices to consider nonempty cylinders specified on intervals \([i,j]\) that contain zero and have at least two coordinates, since any nonempty cylinder contains such a cylinder. Realize the projected word on \([i,j-1]\) in this dense orbit and choose the lift with the prescribed symbol at \(i\). For this point each difference coordinate in the window is eventually outside the hole residue, since a coordinate \(h\) remaining a hole at every stage would imply phase \(-1-h\) in the odometer. At a sufficiently large level the interval lies inside the aligned block containing zero (crossing between consecutive blocks would cross the hole). The atom containing the chosen lift is then contained in the cylinder. Every orbit visits both \(C_{k,0}\) and \(C_{k,1}\) in any full aligned level-\(k+1\) block by the incidence count and visits their translates at the required times. Hence every orbit meets every nonempty cylinder; \(X\) is minimal.
 
-**4. Exact dichotomy.** Put \(d_k=v_{k,0}-v_{k,1}\). The eigenvectors of \(M_k\) are \((1,1)\) with eigenvalue one and \((1,-1)\) with eigenvalue \(\beta_k=1-2/q_k\in[1/2,1)\). Therefore \(d_k=\beta_kd_{k+1}\). Since \(|d_{k+1}|\le1\), this implies \(|d_k|\le\prod_{j=k}^N\beta_j\) for all \(N\ge k\). If \(P_k=0\), every \(d_k\) vanishes and the invariant measure is unique. Otherwise \(d_k/P_k\) is independent of \(k\), and every constant \(t\in[-1,1]\) gives compatible vectors \(d_k=tP_k\). The set of all invariant probabilities is therefore affinely isomorphic to the closed interval \([-1,1]\); its two endpoints are precisely the ergodic measures. Finally, for \(q_k\ge4\), the logarithms of \(1-2/q_k\) are comparable to \(-1/q_k\); hence \(P_k>0\) precisely when \(\sum_{j\ge1}q_j^{-1}<\infty\). This proves all stated equivalences and formulas.
+**All invariant probabilities.** For an invariant probability \(\mu\), let \(v_{k,a}=p_k\mu(C_{k,a})\). Invariance and the partitions give \(v_{k,0}+v_{k,1}=1\), and refinement gives \(v_k=M_k v_{k+1}\) for column vectors. Conversely, take a compatible sequence of probability vectors. For each \(N\) choose a point in each \(C_{N,a}\) and place mass \(v_{N,a}/p_N\) on each iterate along the first \(p_N\) steps of that point. These measures have exactly the prescribed masses on \(\mathcal P_k\) whenever \(k\le N\), by refinement and compatibility. A weak-* accumulation point is invariant: the difference of integrals against a continuous function after shifting is bounded by \(2\|f\|_\infty/p_N\), from the endpoints of the finite orbit segments. The accumulation point retains the prescribed masses since the atoms are clopen.
 
-## Verification
-The companion `verify.py` checks the exact phase distribution at successive block starts for \(p_1\in\{6,\ldots,12\}\), \(q\in\{4,\ldots,13\}\), the stochastic matrices and their nonconstant eigenvalues, and compositions of four such matrices by exact rational arithmetic. It also checks four nested word constructions. The computations are finite cross-checks only: the arbitrary-sequence result follows from the proof above. Run `python3 verify.py` with a standard Python 3 installation; no third-party packages are required.
+To see uniqueness given those masses, the phase distribution at each level is uniform under every invariant probability because the shift cyclically permutes its residues. Enlarge any fixed coordinate window to an interval \([i,j]\) containing zero. The phases where a hole meets \([i,j-1]\) have total mass at most \((j-i)/p_k\). On every other phase the interval lies inside the aligned block containing zero, and the atom determines the lifted word there. Thus the atom masses determine all cylinder probabilities in the limit. Equivalently, outside the countable set of embedded integer phases (Haar-null in the odometer), every finite interval is determined at some level. This argument makes no assumption about a finite exceptional set of points in \(X\).
 
-## Relationship to prior work
-Kang and Jäger, Theorem 6.13 (arXiv:2609.01140v1), introduced this Toeplitz word recursion and proved that some fast-growing period ratios give a minimal, non-uniquely-ergodic binary lift. The present theorem keeps their construction and extends the qualitative existence result to a complete parameter-by-parameter classification, with the exact measure simplex and observable tower-base masses. Their Theorem 5.4 gives a general criterion for unique ergodicity but does not state this explicit dichotomy.
+**Dichotomy.** Write \(d_k=v_{k,0}-v_{k,1}\). The incidence gives \(d_k=(1-2/q_k)d_{k+1}\). Iteration and \(|d_k|\le1\) imply \(|d_k|\le P_k\). The negative logarithms of the factors are comparable to \(1/q_k\) uniformly on \(q_k\ge4\); thus all \(P_k\) vanish in the divergent case, and there is exactly one compatible family. Otherwise, \(d_k/P_k\) is independent of \(k\), and every \(t\in[-1,1]\) gives a compatible family. The established affine bijection with invariant probabilities identifies the endpoints as the extreme points, hence the only ergodic measures.
 
-Bezuglyi, Karpel and Kwiatkowski (arXiv:1709.00055v3) provide the general finite-rank Bratteli incidence-matrix theory behind measure-simplex calculations. The general matrix machinery is background, not a newly claimed method. The new identification is the rank-two stochastic incidence sequence for this specific minimal permutative Toeplitz lift and the resulting explicit sharp classification. Cortez, Drewlo, Gómez and Jäger (arXiv:2512.19921v1) construct Toeplitz systems with prescribed ergodic-measure counts in a different geometric framework.
+## Reproducibility
 
-## Limitations
-This theorem applies to the displayed binary recursion with all \(q_k\ge4\); no classification of general Toeplitz subshifts, alternative filling schemes, or arbitrary permutative block codes is asserted. The exact two-ergodic-measure phase is a symbolic measure-theoretic statement, not a claim of spectral equivalence or mixing. General Bratteli theory may permit an alternate derivation. Independent originality review has not been performed.
+The companion `verify.py` checks symbolic parities, rational matrices and their four-stage products on finite parameter ranges, and samples the first four steps of three nested word constructions. These are finite checks; the proof above supplies the infinite-sequence and invariant-measure assertions.
 
-## References
-- Z. Kang and T. Jäger, *On lifts of strictly ergodic subshifts by permutative sliding block codes*, arXiv:2609.01140v1, first posted 2026-09-01; Sections 5 and 6.5, Theorem 6.13. https://arxiv.org/html/2609.01140v1
-- S. Bezuglyi, O. Karpel and J. Kwiatkowski, *Exact number of ergodic invariant measures for Bratteli diagrams*, arXiv:1709.00055v3, particularly Sections 4 and 7.2. https://arxiv.org/html/1709.00055v3
-- M. I. Cortez, J. Drewlo, J. Gómez and T. Jäger, *Constructing Toeplitz arrays via cut and project schemes*, arXiv:2512.19921v1. https://arxiv.org/html/2512.19921v1
+## Relationship to prior work and limitations
+
+Kang and Jäger, *On lifts of strictly ergodic subshifts by permutative sliding block codes*, [arXiv:2609.01140v1](https://arxiv.org/html/2609.01140v1), Thms. 1.5, 5.4 and 6.13, supply the construction and minimality argument. Their aperture-discrepancy lower bound already implies non-unique ergodicity in the summable regime. The explicit conclusion here is the converse for the stated parameter family and the full invariant simplex with its tower-base masses; the incidence and inverse-limit method itself is standard (see Bezuglyi, Karpel and Kwiatkowski, *Exact number of ergodic invariant measures for Bratteli diagrams*, [arXiv:1709.00055v3](https://arxiv.org/html/1709.00055v3), Remark 7.4 and §7.2). The result does not classify general Toeplitz systems, other filling schemes, or other permutative lifts, and does not assert mixing or spectral equivalence.

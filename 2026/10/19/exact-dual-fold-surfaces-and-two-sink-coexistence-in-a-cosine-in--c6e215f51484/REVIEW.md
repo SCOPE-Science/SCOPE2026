@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete fixed-point census follows from the exact reduction of each branch equation to a one-minimum quotient \(h_b\), whose derivative numerator has strictly positive derivative and opposite endpoint signs. Convexity and concavity fix all multiplier types and establish nondegenerate folds. The strict endpoint and parameter inequalities, explicit exact-arithmetic four-root witness, and quadratic endpoint expansion are derived in `RESULT.md`. The standard-library checker independently passed 591 finite consistency checks, which are not substituted for the infinite-parameter proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The full source Lawnik–Moysis–Volos 2023 paper, especially its Equation (20) and Section 4.2, supplies numerical no-fixed-point regions and a general graph-intersection criterion, not this exact trigonometric two-surface census. The closest published fractional-power classification is for Equation (15) of the same source and cannot imply the cosine-family fold functions or universal four-point existence at every breakpoint. Targeted mathematical-record and open-literature searches found no covering result. A related 2024 paper describes distinct logistic/tent maps in its abstract, but its full manuscript could not be read; a same-map antecedent in unindexed literature also cannot be excluded.
+PASS
 
-## Mathematical value — PASS
-The authors motivate fixed-point-free parameter choices because stable equilibria create open nonchaotic attraction basins. This result gives the complete exact parameter exclusion test for the cosine model, proves coexistence of two distinct attracting equilibria, and identifies a structural contrast with another nonlinear member of the family: four equilibria are possible at every breakpoint rather than only in a restricted breakpoint band. The quantified quadratic endpoint shrinkage makes the exact narrow-branch geometry explicit. These are natural exact classification data, not an arbitrary finite example; claims about cryptographic success or global chaotic dynamics are expressly excluded.
+For u=x/b the left fixed-point equation is h_b(u)=1−a, h_b(u)=(1−bu)/cos(πu/2). Its derivative numerator Q_b goes from −b to (π/2)(1−b), and Q'_b=(π²/4)(1−bu)cos(πu/2)>0. Thus h_b drops from 1 to its unique minimum m_b and increases to infinity, giving exactly the advertised intersections for levels in (0,1). Reflection of the interior fixed-point equations gives c=h_(1−b)((1−x)/(1−b)), not a global conjugacy of the discontinuous map. The endpoints and assigned switch value are not fixed. Both interior branches have positive multipliers. Strict convexity/concavity of F−x gives the stated ordering of slopes in the two-root cases, and at tangency F'=1, F''≠0 and the respective a or c derivative is a positive cosine. At the left fold the displacement is positive on either side, so it attracts from the left and repels to the right locally; the signs reverse at the right fold. Evaluating h at the previous minimizer proves strict decrease of m_b in b; h_1(u)=(1−u)/sin((π/2)(1−u))>2/π, and continuity at each fixed u<1 followed by u→1 gives the limiting minimum 2/π. The implicit root near (b,u)=(0,0) is analytic and odd in b because Q_(−b)(−u)=−Q_b(u), so u_b=4b/π²+O(b³) and m_b=1−2b²/π²+O(b⁴); reflection gives the other endpoint law. The exact rational witness follows from 3·297²=264627>250000=500², testing x=1/6 and 5/6 and the branch ends. This proves the closed census on the stated open parameter cube, all-breakpoint coexistence, and local stability, not full basins or higher periods. The deposited verifier was inspected, not executed; its finite grid is supplemental.
 
-## Residual limits
-The later 2024 related full manuscript was inaccessible, and comprehensive priority beyond inspected records cannot be certified. The proof concerns local fixed-point dynamics, not all global or chaotic behavior. Finite checks supplement but do not replace the analytic proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Lawnik–Moysis–Volos already state the exact map, branch geometry and numerical fixed-point-free regions. An earlier indexed result proves an exact two-fold census with identical local stability ordering for the fractional-power member, but its threshold formulas and breakpoint restrictions do not imply those for cosine. The supported distinct part is the exact cosine-specific partition and endpoint constants, in particular two sinks attainable at every interior breakpoint. The judgment does not grant novelty to generic convex/concave root counting.
+
+## value
+
+PASS
+
+The original cosine family's published numerical equilibrium-free diagrams leave a natural exact classification gap. The sharp thresholds let a researcher choose or exclude fixed points and simultaneous sinks without parameter-grid uncertainty, including near either highly asymmetric breakpoint. Equality cases and the quadratic size of the coexistence windows at the corners add information not recoverable from a representative four-point example or the generic curvature bound. Value is local fixed-point geometry, not a claim about global chaos or security.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

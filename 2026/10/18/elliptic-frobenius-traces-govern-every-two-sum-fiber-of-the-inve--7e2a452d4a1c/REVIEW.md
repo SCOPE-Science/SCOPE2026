@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof normalizes nonzero first-coordinate slices, reconstructs the exact quadratic lift count, uses the Möbius involution of the rational target map, and evaluates both diagonal and off-diagonal collision contributions. The latter is the negative Frobenius trace of the explicitly nonsingular cubic elliptic curve. The two moment identities then recover all five multiplicities. The sharp onset uses Hasse's bound together with exact small-field cases; separate brute-force computations in eleven prime fields and four nonprime fields agree. These computations are not substituted for the general proof.
+## correctness
 
-**Originality — PASS, best-knowledge.** Checked finite-field sharp-extension literature, publicly indexed results on the multiplicative inverse hyperbola and fifth-power polynomial graph, relevant elliptic-sum aliases, and the accessible related research ledger. The same-surface inverse-square convolution spectrum was not located. Crucially, existing results on degree-two inverse hyperbolas, degree-five polynomial graphs, or quadratic surfaces do not imply the cubic inverse-square representation fibers by additive affine equivalence. A hidden equivalent formula in arithmetic character-sum literature remains an originality risk, and two adjacent public research records were accessible only through their result summaries rather than full source files.
+PASS
 
-**Mathematical value — PASS.** This is the complete, naturally defined convolution multiplicity spectrum of the first reciprocal-power curve beyond the multiplicative hyperbola, uniformly across all fields of characteristic at least five. It identifies an elliptic (rather than congruence-class-only) arithmetic fluctuation in both the additive energy and sumset size, and settles the exact onset of four-representation fibers. Such fiber counts are direct inputs to fourth Fourier-extension moments; the claim does not pretend to determine unrestricted operator norms.
+For s≠0 the product parameter z=ab/s² has weight 1+χ(1−4z) and target W(z)=(1−2z)/z². Its only possible distinct partner is z/(2z−1); the exclusions 0,1/2,1 are correct. The only odd weight is at 1/4, with partner −1/2 of weight 1+χ(3), giving exactly one odd fiber per nonzero s. At s=0 all nonempty fibers are twofold. The elliptic cubic has distinct roots and one point at infinity; its character sum is −a_q. In the expansion of the off-diagonal product, the three excluded values contribute a combined 7+χ(−1)+2χ(−3), so the restricted sum is q−7−2χ(−1)−2χ(−3)−a_q. The repaired proof assigns the off-diagonal weight 8 to each fourfold fiber, 4 to each threefold fiber and zero to all others; this gives M4 and then M2,M0 and the sumset via counting. Hasse gives strict positivity for q≥29 via q−15−2√q>0. The eight remaining eligible fields have M4=0,0,0,0,16,36,66,48 in increasing order. This includes the nonprime field 25.
 
-The closest published broad foundation is González-Riquelme–Oliveira e Silva (2024), *Sharp extension inequalities on finite fields*, arXiv:2405.16647, which concerns quadratic surfaces. Related published inverse-hyperbola and fifth-power-graph classifications have different algebraic objects and conclusions. The remaining risk is an undiscovered equivalent elliptic character-sum evaluation. There is no independent scientific audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass is limited to the repaired claim: the complete target histogram and the sharp fourfold-fiber onset in characteristic at least five. A distinct indexed record gives the exact same energy, elliptic curve and normalization (and extends the energy to smaller characteristics). The repair explicitly credits this existing coverage and treats energy and its Fourier restatement as supporting context. The date of the catalogue path does not resolve priority or provenance.
+
+## value
+
+PASS
+
+For a natural reciprocal-power graph, the complete convolution census distinguishes the number and prevalence of additive collisions rather than only their second moment. The exact sharp small-field cutoff identifies when genuinely fourfold representations can first occur and guarantees that they persist in every eligible larger field. Both are useful exact information beyond an energy computation or an isolated numerical case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

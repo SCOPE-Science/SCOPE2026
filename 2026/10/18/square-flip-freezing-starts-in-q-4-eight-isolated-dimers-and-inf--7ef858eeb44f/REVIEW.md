@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Two independent complete enumerators generate precisely the same 272 labeled matchings of the four-dimensional hypercube. Independent adjacency generators agree on each state. Exact component, orbit and all-source shortest-path searches reconstruct the finite claimed statistics. The four displayed matchings are actual frozen perfect matchings and satisfy the four cross-disjointness conditions; an explicit coordinate-square case split proves the infinite lower bound for every integer dimension at least four. The checker is included and independently replayable; its computation cannot establish a higher-dimensional exact count, which is not claimed.
+## correctness
 
-## Originality — PASS, subject to literature risk
-The scalar 272 is known, as are the existence of disconnected local dimer dynamics in some three-dimensional boxes and hypercube connectivity for larger allowed alternating-cycle lengths. Fink's adjacency by a spanning Hamiltonian cycle differs from a four-cycle symmetric difference. Hartarsky–Lichev–Toninelli study exactly the matching objects and generalized local update rule, but their positive results permit longer cycles and do not entail four-cycle connectivity, the 8-isolate/264 component census, or the constructive lower bound. The earliest public dated source by Milet–Saldanha concerns local square flips in a different three-dimensional domain. The closest published four-cube matching multiplicity record concerns all pairings of sixteen binary vectors with prescribed XOR profiles in a complete graph, not square-flip moves in \(Q_4\). A separate four-cube forcing-set census enumerates alternating cycles and symmetry orbits but does not assert this local reconfiguration structure. The named full texts were inspected; residual priority risk from unindexed or differently worded square-flip results remains.
+PASS
 
-## Value — PASS
-The natural dimer question is which dimensions permit completely immobile states when only the smallest physically local move is allowed. This establishes a sharp dimension-four onset, exact structure of the first exceptional state space and a doubly exponential explicit family of frozen matchings in all higher dimensions. The distinction between global, long-cycle and strict square-flip reconfiguration is mathematically substantive; these are not merely new labels for known scalar matching counts.
+Independently checked the repaired dimensional scope and census. Any four-cycle in the cube flips each coordinate an even number of times; with distinct vertices the four steps alternate between two coordinates. Every matching is a bijection from even to odd vertices which respects Hamming adjacency, so the independent replay's checks of 2!, 4!, and 8! bijections are exhaustive for d=2,3,4. Enumerating opposite pairs in all coordinate squares generates precisely the defined reversible moves. The separate replay found the same vertex and edge counts, components, degree histogram, all-source eccentricities and 384-element cube group orbit of isolates. Its seed checks show that each displayed seed is a frozen perfect matching and all four are pairwise edge-disjoint. These checks support the general proof: the product decomposition Q_4 × Q_(d-4) yields independently chosen frozen matchings on all slices; squares with only outer directions have no matched edges, inner-only squares are frozen locally, and a mixed square needs the same inner edge in opposite-parity slices, which cross-disjointness forbids. Restricting the global matching to individual slices recovers all 2^(d-4) binary choices. The corrected minimality follows from the absence of isolates at d=2,3 and their existence at d=4; d=1 is explicitly exceptional and Q_0 has a single vertex.
 
-## Sources and limitations
-Primary comparisons: Milet–Saldanha (2014), Fink (2007/2009), Hartarsky–Lichev–Toninelli (2023/2024), and the established perfect-matching census OEIS A005271. The exhaustive finite method is reproducible but not independently audited. No exact enumeration of frozen matchings in dimension greater than four is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired distinct claim relative to the older literature is the exact square-only graph structure at Q_4 and the parity-slice construction yielding a quantitative bound in all d≥4. The older cited graph and tiling results do not contain this structure; the raw matching counts were already tabulated and carry no originality. Multiple later-dated indexed records have genuine, in one case nearly complete, mathematical overlap, including identical base states and ingredient-level coverage of the bound. They are explicitly credited rather than treated as distinct advances on the common content. No earlier occurrence of those overlapping statements was verified; no historical priority or independence is inferred from catalogue dates.
+
+## value
+
+PASS
+
+The local four-cycle move is a natural connectivity rule for dimers. At the first nonvacuous dimension with freezing, the result distinguishes a single mobile component from symmetry-equivalent frozen states and gives exact travel distances within the mobile component. Those exact local quantities cannot be read off the raw perfect-matching total or larger-cycle connectivity theorems. The disjoint-seed construction additionally certifies a doubly exponential family of isolated states in arbitrary dimension rather than an incidental small census alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

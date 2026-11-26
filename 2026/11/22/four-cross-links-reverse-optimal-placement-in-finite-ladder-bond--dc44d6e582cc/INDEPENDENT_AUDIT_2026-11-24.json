@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:16:32.969997Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a nonempty set of open rungs, an intact exterior top (left) and bottom (right) segment is necessary. Successive open rungs have no working rung between them, so traversing each interior interval requires and suffices to have one intact rail there; all these tests use disjoint edges. The product is therefore p^L times the product of (2-p^d); with no open rungs the terminals are disconnected. Endpoint moves increase some positive-weight term (including the all-open term when q=1) and decrease none. With three rungs the entire position dependence is -q^2(1+q)(p^x+p^(L-x)), giving the center by strict convexity; one rung gives qp^L regardless of location. For four and q=1, strict concavity of log(2-p^d) gives exactly the integer-balanced triples. At fixed 0<q<1 the first-order gap weight is the probability of open rungs on both sides. Its middle-minus-outer difference is q^2(1-q)>0, so the unique first-order maximizer, hence the exact maximizer for p sufficiently near 1 at each fixed L,q, is (1,L-2,1). In the joint scaling, only same-gap two-rail failures and the appropriate adjacent rail failure paired with a failed endpoint rung contribute to order two. These give sum(d^2)+lambda(a+c); no single failure disconnects. Balancing a,c at each b and using the strictly increasing discrete forward differences of Phi proves the threshold 2L-8 and precisely the three stated ties there. This is a leading-order threshold, not a finite-epsilon tie-breaking claim. Read the nested verification/verify_ladder.py; independently ran `python3 /workspace/branches/ladder-review-reproduction.py`: 762 exact successes-by-rail-failure histograms (all placements for k=1..4, L=3..5, each vertical state) and 116 endpoint layouts at L=5..10 with zero, one and two failures agree. The finite test corroborates, not replaces, the proof. The phrase 'perfectly reliable rails' in the limitations should be read as reliable vertices on two rails: the rail bonds have p<1 throughout.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tanguy's transfer-matrix formulation permits heterogeneous rail, rung and node data over arbitrary length and includes near-unity reliability analysis. The rearrangement paper was not available for a statement-level comparison through the DOI or identified publisher PDF."
+        ],
+        "reasoning": "The transfer matrix gives reliability of any specified layout and subsumes basic computability, but the inspected results do not rank the placements or establish a change in optimizer. Do not infer the scope of the inaccessible rearrangement theorem from its title.",
+        "searches": [
+          "Tanguy arXiv:cs/0612143, pp. 1, 3–4",
+          "Boland, Proschan and Tong (1989), DOI 10.1002/1520-6750(198912)36:6%3C807::AID-NAV3220360606%3E3.0.CO;2-I"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification/verify_ladder.py",
+        "Tanguy arXiv:cs/0612143",
+        "Resultary 66b8a5ac1a02, 5eb0f876c681, 18efdfc6c0e6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact endpoint-enhanced D-optimal theorem allocates continuous conductances to all rungs under a total budget and all optimal rung weights are positive. The heterogeneous reliability calculation gives a separate value for each given network."
+        ],
+        "reasoning": "Endpoint enhancement with all rungs active is not an implication of, or a route to, a fixed count of four stochastically operating rungs. Enumerating a reliability formula at specific parameters does not by itself prove a uniform integer optimizer, strict fixed-q reversal or the explicit joint-limit threshold.",
+        "searches": [
+          "Tanguy arXiv:cs/0612143, pp. 3–4",
+          "2026/11/2/SCOPE-exact-endpoint-enhanced-d-optimal-rung-allocation-on-finite-ladd--18efdfc6c0e6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The circular spacing Finding optimizes a weighted spanning-tree sum with three marked rungs while all other rungs remain; equal gaps maximize and consecutive rungs minimize regardless of conductance contrast.",
+          "The modulo-five Finding minimizes a sum of effective resistances with precisely two unit rungs, obtaining roughly one-fifth and four-fifths positions."
+        ],
+        "reasoning": "Neither electrical objective is the probability of connection between opposite endpoints with independent bond failures; in the circular case even the topology and the claimed invariance under contrast differ. The same-day entry is compared on content, not excluded by date.",
+        "searches": [
+          "Resultary: universal spacing extrema for three weighted rungs of a circular ladder and optimal placement of two cross links between parallel paths Kirchhoff index",
+          "2026/11/22/SCOPE-universal-spacing-extrema-for-three-weighted-rungs-of-a-circular--5eb0f876c681",
+          "2026/11/8/SCOPE-optimal-placement-of-two-cross-links-between-parallel-paths-a-mo--66b8a5ac1a02"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The aligned published comparisons give a fixed-layout reliability evaluation or exact optimizers for other objectives; the exact same-title catalogue hit is the assigned record itself."
+        ],
+        "reasoning": "No checked source tables the claimed optimizer regimes. The main claim is an all-length theorem for continuous p,q; a finite table of selected fixed-layout reliabilities alone would not establish it.",
+        "searches": [
+          "Resultary ladder placement and exact rung allocation entries",
+          "Tanguy arXiv:cs/0612143, two-terminal ladder section"
+        ]
+      },
+      "rationale": "The exact reliability method and weighted ladder layout analogies are not new. The checked statements do not provide the discrete change of the optimal installed layout as the Bernoulli rung reliability changes, its minimum rung count, or the joint-scaling quadratic optimizer. The pass is limited to those distinctions and the examined evidence.",
+      "residual_risks": [
+        "The Boland–Proschan–Tong rearrangement paper was inaccessible; a general arrangement result elsewhere might bear on the optimization. The focused literature search is not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior coverage of heterogeneous ladder evaluation, not established coverage of the layout reversal",
+          "evidence": "Transfer matrices account for individual edge and node reliabilities; a 3-by-3 matrix computes two-terminal reliability for specified ladders of arbitrary length.",
+          "identifier_or_url": "https://arxiv.org/pdf/cs/0612143",
+          "material_read": "p. 1 (offset 1592), pp. 3–4 (offsets 8403, 11361)",
+          "method": "Primary OA paper passages",
+          "title": "Exact solutions for the two- and all-terminal reliabilities of a simple ladder network",
+          "trigger": "General two-terminal reliability on the same topology"
+        },
+        {
+          "assessment": "Different objective and rung count",
+          "evidence": "The theorem minimizes the Kirchhoff index of two unit-resistance links, with the one-fifth/four-fifths law.",
+          "identifier_or_url": "2026/11/8/SCOPE-optimal-placement-of-two-cross-links-between-parallel-paths-a-mo--66b8a5ac1a02",
+          "material_read": "RESULT.md Finding and assumptions, offset 70 onward",
+          "method": "Published Resultary local mirror",
+          "title": "Optimal placement of two cross-links between parallel paths: a modulo-five law",
+          "trigger": "Parallel paths and precise optimal discrete rung positions"
+        },
+        {
+          "assessment": "Distinct statement regardless of relative timing",
+          "evidence": "The circular prism with background unit-conductance rungs maximizes weighted tree count at balance and minimizes it at consecutive marked rungs for every nonunit contrast.",
+          "identifier_or_url": "2026/11/22/SCOPE-universal-spacing-extrema-for-three-weighted-rungs-of-a-circular--5eb0f876c681",
+          "material_read": "RESULT.md Finding, offset 70 onward",
+          "method": "Published Resultary local mirror",
+          "title": "Universal spacing extrema for three weighted rungs of a circular ladder",
+          "trigger": "Same-day balanced versus consecutive gap formulas"
+        },
+        {
+          "assessment": "Different admissible allocations and objective",
+          "evidence": "A continuous nonnegative rung budget maximizes the weighted spanning-tree sum at positive weights on every rung, with a higher weight at each endpoint.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-endpoint-enhanced-d-optimal-rung-allocation-on-finite-ladd--18efdfc6c0e6",
+          "material_read": "RESULT.md Finding, offset 70 onward",
+          "method": "Published Resultary local mirror",
+          "title": "Exact endpoint-enhanced D-optimal rung allocation on finite ladders",
+          "trigger": "Finite path-ladder allocation with endpoint preference"
+        },
+        {
+          "assessment": "Unresolved; not evidence of absence or overlap",
+          "evidence": "No readable theorem identified.",
+          "identifier_or_url": "https://doi.org/10.1002/1520-6750(198912)36:6%3C807::AID-NAV3220360606%3E3.0.CO;2-I",
+          "material_read": "Bibliographic identification only",
+          "method": "DOI and identified publisher PDF attempts denied access",
+          "title": "Optimal arrangement of components via pairwise rearrangements",
+          "trigger": "Possible general reliability rearrangement theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Opposite-terminal reliability at fixed link count is a natural design objective distinct from weighted trees and effective resistance. The smallest number of rungs at which a strictly balanced-versus-clustered change can occur is a meaningful cutoff, and the joint failure calculation explains when the two design effects compete. This is not just another evaluation of a known ladder reliability polynomial.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

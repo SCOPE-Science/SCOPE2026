@@ -1,19 +1,21 @@
-# Scientific review: Pascal-row nondivisibility correlations
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof starts from the Lucas/Fine base-\(p\) product for nondivisible binomial coefficients, establishes the exact finite cyclic mixed-moment carry recursion, and uses the exact mean and variance to identify its centered limiting Pearson kernel. Its recursion is terminating and rational for every fixed shift. Symbolic identities show that the one-digit shift \(1\) is strictly largest, the one-digit shift \(2\) strictly second-largest, and every displacement having two nonzero base-\(p\) digits lies strictly below the second level. The row-sum contraction for repeatedly occurring digit \(1\) proves a zero infimum without a zero correlation. Exact-rational symbolic factorization independently verified the critical polynomial inequalities. The included checker compares direct Pascal-triangle rows and exact cyclic mixed moments against digit and carry predictions for several odd primes. These finite checks do not establish the universal theorem by themselves.
+PASS
 
-## Originality — PASS within the material inspected
+The repair makes only the second maximum a contribution, over fixed positive shifts not powers of p for each odd prime, with cyclic indexing and Pearson normalization. Splitting the units digit under addition gives the raw product-sum carry recurrence, and the squared-mean/second-moment ratio [3(p+1)/(2(2p+1))]^L decays to zero. At lag one the recursion contracts, and larger fixed shifts use smaller arguments, so the rational limit is the Pearson limit. Dividing a shift by an exact factor of p preserves the limit. For reduced one-digit shifts, exact integer and square sums give C_2, C_1-C_2>0 and C_2-C_p(a)>0 for 3<=a<p; its comparison polynomial decreases to p-2>0 (empty range for p=3). For a reduced multidigit shift both input lags are positive, so the known first-tier bound gives C<=C_1(U_1+V_1)/B. The gap to C_2 is strictly positive, with numerator 3(p^2+p+6) over the stated positive denominator. All remaining equality cases are exactly 2p^k. Replay python3 /workspace/branches/reproduce_pascal.py (SymPy) independently checked the seven polynomial identities and reconstructed all exact raw and centered cyclic correlations from actual modular Pascal rows for (p,L)=(3,5),(5,3),(7,2); those examples corroborate the proof but do not establish it. No finite-length ranking or growing-shift claim is made. The original checker remains applicable.
 
-Lane (2023, arXiv:2309.12942) studies the same row-count statistic and one-point residue distributions, without stating the fixed-shift Pearson correlation kernel or both sharp extremal levels. Rowland (2017, arXiv:1704.05872) supplies a known generalization of the underlying one-row digit product, not shifted two-row correlations. Mathonet–Rigo–Stipulanti–Zénaïdi (2022, arXiv:2201.06636) encode entire Pascal rows as integers rather than studying the row-count correlation. The closest indexed mathematical result addresses the binary case \(p=2\) and does not imply the odd-prime hierarchy. Search and implication checks found no identified stronger theorem. The possibility of an unindexed equivalent digital-sequence result is a residual originality risk, not evidence of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-At a natural number-theoretic object—the count of entries in Pascal's triangle nonzero modulo an odd prime—the finding supplies a complete rational two-point carry computation, a strict ranking of every displacement into two maximizer tiers and the rest, and an unattained zero infimum. The equality families \(p^k\) and \(2p^k\) are structural rather than arbitrary finite examples. It extends the study from marginal row frequencies to precise dependence between rows.
+The repaired statement credits the previously covered carry kernel and first tier and isolates the sharp runner-up with all its equality cases. No inspected comparator states or gives this all-shift extremum as a special case of a stronger theorem. Knowing the recursive function lets one evaluate C_p(2), but does not by itself establish its rank among infinitely many shifts.
 
-## Limits and comparison
+## value
 
-The limit is taken at a **fixed** displacement while complete prime-power cutoffs grow. No finite-cutoff maximizer theorem, growing-shift uniform limit, independent external audit or exhaustive literature priority is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The runner-up quantifies the strict gap from the principal resonance and identifies every shift attaining the next level, using a uniform comparison of all remaining digit patterns. This strengthens a natural dependence question for Pascal rows; simply evaluating the single lag 2 would not supply that information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

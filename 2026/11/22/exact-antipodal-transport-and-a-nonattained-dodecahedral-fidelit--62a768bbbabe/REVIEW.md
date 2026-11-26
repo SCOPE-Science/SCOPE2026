@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The one-excitation Hamiltonian is defined without ambiguous factors; the vertex count, complete eigenvalue multiplicities and antipodal signs were checked via exact spectral projectors. Both the finite exhaustive exclusion of 282 non-antipodal pairs and the exact extremum certificates are independently inspectable. The dodecahedral argument correctly distinguishes supremum from attainment and uses dense irrational torus flow; the icosahedral Pell sequence supplies an explicit PGST sequence. Both embedded verification programs were independently replayed. Numerical matrix exponentials corroborate but are not used to prove the infinite-time assertions.
+PASS
 
-## Originality — PASS on inspected evidence, with remaining priority risk
+Reconstructed the adjacency spectra and parity factors from exact Cartesian coordinates: with antipodes ordered in pairs, adjacency has blocks (B,C;C,B), and B+C and B-C have exactly the even and odd characteristic-polynomial factors in the table. Independently checked the unique graph-distance antipode for each vertex and the degree-three geometric eigenspace (eigenvalues 1, 0, sqrt(5), sqrt(5) on cube, octahedron, icosahedron, dodecahedron). Its projector has entries 3(u·v)/(N r^2), with r the vertex radius, so strict Cauchy–Schwarz excludes PGST for every distinct non-antipodal pair; the tetrahedron follows from A=J-I. The bounded exact reproduction is replayable with python -B /workspace/branches/platonic_reconstruction.py (SymPy); it passed the four parity, shell and geometric projector checks and both derivative and peak-value identities. The uploaded scripts were inspected but not run. Vertex transitivity gives diagonal weights m_lambda/N and hence the stated amplitudes. For the dodecahedron the two frequencies 1 and sqrt(5) have dense joint phase torus; strict convexity in cos(sqrt(5)t) reduces to endpoints. The negative endpoint has squared numerator at most 144, and the positive endpoint polynomial has only one interior stationary point x=-1/2, where the derivative changes from positive to negative and the squared numerator is 243. Equality additionally requires sqrt(5)t/(2pi) integral, impossible for nonzero rational t/(2pi) giving cos t=-1/2. For icosahedral antipodes odd Pell indices give q even, p odd, p-sqrt(5)q=1/(p+sqrt(5)q); evaluating at t=pi q gives the stated cos^4 limit. Exact transfer would require 6t and 2sqrt(5)t to be multiples of 2pi, which forces t=0 and fails the parity-phase condition. The single-frequency cube, octahedron and tetrahedron attain the stated values at pi/2, pi/3 and pi/4.
 
-The founding framework and cube result are credited to Christandl et al. (2003), and the six-vertex octahedron is expressly treated as an already-known cross-polytope special case of Tsomokos et al. (2008). Pal and Bhattacharjya (2016) concern cycles and circulants, not the specified icosahedral antipodes. Coutinho, Guo and Schmeits (2025, updated 2026) discuss general peak transfer and particular examples; their inspected sections do not state the dodecahedral supremum or five-graph classification. Stronger implications were compared, including the known cross-polytope case. Unindexed equivalent results remain possible; no historical uniqueness is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-The Platonic skeletons are canonical, physically motivated uniform-coupling networks. The two icosahedral/dodecahedral duals have a sharp qualitative contrast: one attains unit fidelity arbitrarily well but never exactly, while the other is capped at an exact, nonattained rational value. This is a motivated complete finite-family classification with a reusable exact transport benchmark, not an arbitrary parameter slice or a trivial re-expression of a known table.
+The nonattained dodecahedral antipodal supremum 243/400 survives statement-level comparison and needs an actual joint-phase optimization, not a known upper bound or a generic transfer criterion. The classification combines older cases and general tools with graph-specific conclusions; it is not credited as five new cases. Checked narrow and broad result statements for the exact uniform-adjacency model. No compared distinct source supplies the dodecahedral sharp cap or the complete classification; priority remains best-of-knowledge. The cube and octahedral cases are not original contributions.
 
-## Scope and residual risks
+## value
 
-The time evolution is the adjacency, not Laplacian or coin, walk. The dodecahedral supremum is *antipodal-only*. The octahedral value is not new. There is a residual historical-priority risk from unpublished or unindexed comparable work. There is no independent scientific audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Uniform adjacency dynamics on the canonical Platonic skeletons give a natural finite benchmark. The exact nonattained subunit cap for the dodecahedron is not a norm estimate, a table lookup or a consequence of excluding perfect transfer. Its sharp value distinguishes this graph from proper PGST on its icosahedral dual, resolving an operationally meaningful limit in the fixed Hamiltonian model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

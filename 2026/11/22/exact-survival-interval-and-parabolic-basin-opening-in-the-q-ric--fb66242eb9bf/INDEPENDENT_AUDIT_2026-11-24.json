@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:42:29.298709Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–84",
+        "Frozen VERIFICATION.md and verify.py (inspected, not run)"
+      ],
+      "rationale": "The stated scaling gives the normalized map and is realizable by positive physical parameters. Its denominator is ≥1−k/e>0 (the first > in proof line 51 should be ≥ at t=1). The maximum image α/(e−k) lies below 1, and the map is increasing on the image. The factor G(t)/t=α/(e^t−kt) has its unique peak at c, where the denominator equals α_c; its endpoint values at 0 and 1 are below one. This yields the three regimes, both Lambert-W roots and increasing-branch stability. In the two nonextinction regimes, the right-hand preimage of the basin endpoint is uniquely forced by equality of t exp(−t) on the two branches, with the larger root >1. Monotone iteration after the first step gives exactly the stated endpoint and exterior behavior; below the fold each step contracts t by at most α/α_c. Expanding e^t−kt around c gives G(c+u)−c=u−cu²/[2(1−c)]+O(u³); telescoping reciprocal increments yields the asserted 1/n law away from both fold endpoints. The square-root fixed-point displacement is −sqrt(2δ/k)+O_k(δ) for the lower root; the implicit upper-end derivative b'(c)=−b_c(1−c)/[c(b_c−1)] then gives exactly the length coefficient. Monotone convergence precludes nonconstant cycles; invariance and bounded continuous test functions reduce invariant probabilities to mixtures of the finite set of fixed points.",
+      "residual_risks": [
+        "All initial data are covered only in the stated strict parameter sector; no uniform iteration rate in an open basin is claimed.",
+        "Fixed k and normalized t are used for the expansion. The fold endpoints land on c and do not satisfy the nonstationary 1/n law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The periodic λ-Ricker paper describes intervals with periodic Allee and attracting states; the exact published polynomial maps classify high- and low-density extinction, with 44c0b8d77733 supplying a fold rate."
+        ],
+        "reasoning": "This provides qualitative and method precedent, not a demonstrated theorem covering the rationally deformed map with its all-t trapping sector and explicit two-branch endpoint. The uninspected full Allee paper is not ruled out by its abstract.",
+        "searches": [
+          "Yang–Sacker, DOI 10.3934/dcdsb.2014.19.589, available abstract",
+          "Resultary 44c0b8d77733 and a6ac2c88779b, exact Allee basin findings"
+        ]
+      },
+      "checked_sources": [
+        "Publisher record DOI 10.1080/10236198.2022.2142468",
+        "Yang–Sacker abstract DOI 10.3934/dcdsb.2014.19.589",
+        "Resultary matches 44c0b8d77733, a6ac2c88779b, 5ec36a674502, c95e712ea1ac, e27a20e68d74"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Local fixed points and stability are precedent; the polynomial fold record explicitly gives two-sided survival and a parabolic rate. Square-root splitting and a reciprocal-time rate follow familiar fold/Taylor arguments once the one-sided basin and leading derivative are known."
+        ],
+        "reasoning": "Local fold data do not determine whether high initial densities go extinct or where their boundary is. The global range estimate and second preimage are needed for that boundary, and differentiating that preimage contributes to the square-root coefficient for the entire basin width, distinct from just the splitting of equilibria.",
+        "searches": [
+          "Original article DOI 10.1080/10236198.2022.2142468, publisher abstract and Lambert-W/fold search excerpt",
+          "Aishwaraya 2024 thesis, Ch. 2 cited institutional bitstream",
+          "Resultary 44c0b8d77733, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original article is on the same map in physical parameters; its accessible publisher material covers real Lambert-W equilibrium branches and fold/flip curves. The closest readable exact survival-interval match (44c0b8d77733) instead uses a polynomial Allee-logistic map on [0,1]."
+        ],
+        "reasoning": "Scaling t=βx preserves local results, so its equilibrium formulas are not new. The polynomial comparison has an algebraic upper cutoff on a different physical domain, not the second branch of t exp(−t) on [0,∞). No equivalent map-specific basin-length result was found in the inspected passages.",
+        "searches": [
+          "Resultary: q-deformed or homographic Ricker, exact survival basin, upper-density extinction and saddle-node rate",
+          "DOI 10.1080/10236198.2022.2142468",
+          "Aishwaraya Dynamics of the Homographic Ricker-like maps thesis q deformed Ricker Chapter 2 IIT Jodhpur institutional repository pdf full text download"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "44c0b8d77733 gives fold basin [ρ,s] and critical constant a²/ρ; a6ac2c88779b gives a middle survival interval for a cubic Allee map. Distinct same-day entries concern a discontinuous map, a product-sine map, and a three-dimensional polynomial separatrix."
+        ],
+        "reasoning": "This continuous parameter theorem is checked against an exact-formula index rather than a numerical table. None of the compared exact formulas furnishes the q-Ricker Lambert-W basin endpoint, its measure jump, or its square-root length coefficient.",
+        "searches": [
+          "Resultary exact thresholds and basin-width laws: 44c0b8d77733, a6ac2c88779b, 5ec36a674502, c95e712ea1ac, e27a20e68d74"
+        ]
+      },
+      "rationale": "This is a bounded pass for the model-specific global classification and quantified fold opening, not for the known map, its Lambert-W equilibria, the saddle-node mechanism, or parabolic convergence in general. The strongest readable precise analogues concern different Allee recurrences and do not give the normalized q-Ricker cutoff or its length coefficient. The publisher's accessible record establishes overlap on local bifurcations and equilibria but cannot resolve whether additional global results appear in the inaccessible article or thesis; that risk remains material and explicit.",
+      "residual_risks": [
+        "Full original q-Ricker article and Chapter 2 of the originating thesis were not readable independently. Exact coverage there remains unresolved.",
+        "A broader unimodal Allee theorem with the relevant hypotheses may cover parts of the qualitative basin argument; reported originality is model-specific and best of current knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known map and local bifurcations; global claim coverage unresolved",
+          "evidence": "Accessible material concerns nonlinear dynamics, bifurcations, and topological entropy; it identifies the same fixed-point machinery.",
+          "identifier_or_url": "https://doi.org/10.1080/10236198.2022.2142468",
+          "material_read": "Publisher abstract/record and search excerpt on Lambert-W branches and fold/flip curves; not full text",
+          "method": "Publisher record and lawful OA retrieval attempt; full text blocked by HTTP 403",
+          "title": "Dynamics of q deformed Ricker map",
+          "trigger": "Same recurrence and principal priority risk"
+        },
+        {
+          "assessment": "Material residual priority risk, not evidence of noncoverage",
+          "evidence": "Frozen RESULT.md lines 92, 96 and 101 identify its relevance to fixed points, fold, coexistence and bifurcation.",
+          "identifier_or_url": "https://ir-api.iitj.ac.in/ir/api/core/bitstreams/a0082d15-cdb9-406c-9494-10b5131cf0a6/content",
+          "material_read": "Citation and frozen authors' chapter description only; no independent chapter passages retrieved",
+          "method": "Lawful direct bitstream and repository-item attempts failed DNS; targeted search for an alternate institutional copy returned no identified full text",
+          "title": "Dynamics of the Homographic Ricker-like maps",
+          "trigger": "Originating author's thesis with same-map Chapter 2"
+        },
+        {
+          "assessment": "Qualitative broader precedent, theorem coverage unresolved",
+          "evidence": "Parameter intervals with periodic Allee and attracting states for a periodic λ-Ricker map.",
+          "identifier_or_url": "https://doi.org/10.3934/dcdsb.2014.19.589",
+          "material_read": "Abstract in Semantic Scholar DOI record only",
+          "method": "DOI/abstract inspection; OA direct/VPN did not return AIMS full text",
+          "title": "Periodic unimodal Allee maps, the semigroup property and the λ-Ricker map with Allee effect",
+          "trigger": "Potential general precedent for a unimodal Allee basin"
+        },
+        {
+          "assessment": "Conceptual overlap for a different polynomial model on [0,1]",
+          "evidence": "Exact fold basin [ρ,s] and limit n(x_n−ρ)=a²/ρ for interior starts; no q-Ricker Lambert-W endpoint in the statement.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-survival-interval-and-an-upper-density-bottleneck-crossove--44c0b8d77733",
+          "material_read": "RESULT.md Finding, text offset 0",
+          "method": "Resultary search and local-mirror passage",
+          "title": "Exact survival interval and an upper-density bottleneck crossover",
+          "trigger": "Strongest indexed result: exact fold survival interval and rate"
+        },
+        {
+          "assessment": "Different cubic recurrence",
+          "evidence": "A bounded middle basin with extinction above and below; period-two-free window.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-extinction-basins-and-the-sharp-no-two-cycle-window-for-a--a6ac2c88779b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary search and local-mirror passage",
+          "title": "Exact extinction basins and the sharp no-two-cycle window",
+          "trigger": "Exact density cutoffs in a prior Allee map"
+        },
+        {
+          "assessment": "Different discontinuous map; not a global basin classification",
+          "evidence": "One-sided saddle-node with square-root fixed-point splitting.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-equilibrium-elimination-threshold-for-a-sine-exponential-d--5ec36a674502",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local-mirror passage",
+          "title": "Sharp equilibrium-elimination threshold for a sine-exponential map",
+          "trigger": "Distinct same-day fold calculation"
+        },
+        {
+          "assessment": "Different state map and observable",
+          "evidence": "Basin widths in a product-sine map, not an Allee fold.",
+          "identifier_or_url": "2026/11/22/SCOPE-an-exact-basin-width-law-and-two-sink-density-transitions-in-an--c95e712ea1ac",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local-mirror passage",
+          "title": "An exact basin-width law and two sink-density transitions",
+          "trigger": "Distinct same-day basin-width calculation"
+        },
+        {
+          "assessment": "Different dimensional dynamics",
+          "evidence": "Three-dimensional polynomial map with an H<1/H>1 extinction–escape separatrix.",
+          "identifier_or_url": "2026/11/22/SCOPE-an-exact-global-separatrix-and-two-expanding-scales-in-a-three-d--e27a20e68d74",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local-mirror passage",
+          "title": "An exact global separatrix and two expanding scales",
+          "trigger": "Distinct same-day global extinction boundary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Proof and Limitations",
+        "Original q-Ricker publisher record, DOI 10.1080/10236198.2022.2142468",
+        "Resultary polynomial-map comparator 44c0b8d77733"
+      ],
+      "rationale": "For a previously studied model, the result supplies a concrete global answer not obtainable just from its local equilibria: initial density can be too high as well as too low, with an explicit upper cutoff and an interval of nonextinction already at the fold. Critical relaxation and the exact one-sided change of that interval quantify time to recovery and basin size. Classifying the full half-line in a sector where all states land on the increasing branch also gives a clean exclusion of cycles and a tractable invariant-measure benchmark.",
+      "residual_risks": [
+        "A jump in Lebesgue length does not specify a jump in persistence probability without an initial distribution.",
+        "No claims about regimes allowing iterates beyond the increasing branch."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

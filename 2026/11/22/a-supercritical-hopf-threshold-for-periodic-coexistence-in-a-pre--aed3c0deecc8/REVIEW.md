@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-For the fixed strictly positive payoff matrices and \(\beta=1\), the full three-population ODE reduces exactly to the stated polynomial vector field in prey frequency, total prey, and predator abundance. The unique positive coexistence equilibrium in the specified parameter neighborhood has a cubic characteristic polynomial with roots \(-1/8,\pm i\) at \(K=8\). The exact derivative of the critical eigenvalue has positive real part \(1/130\) with respect to \(K\). Exact third-order derivatives and normalized complex eigenvectors give \(\ell_1=-369/66820\), establishing a nondegenerate supercritical Hopf bifurcation and locally attracting cycles on the side \(K>8\). The standalone checker passed exact symbolic tests from the actual packaged source.
+PASS
 
-## Originality: PASS, bounded
+The cited model's equations yield the stated reduction: reproduction and capture differences are both 1/2, and their population averages are 5/8+x and 1, respectively. For k=1/K the unique interior equilibrium is (3/8+k,1,1) whenever 0<k<5/8. At k=1/8 its characteristic polynomial is (lambda+1/8)(lambda^2+1); differentiating the moving-equilibrium polynomial at lambda=i gives d(lambda)/dk=(-32-4i)/65 and d Re(lambda)/dK=1/130. Independently from the centered polynomial, B(q,qbar)=0, B(q,q)=(0,-2i,2i), and C(q,q,qbar)=(1/64,0,0). To replay the nonzero resolvent, write A=(2iI-J)^(-1)B(q,q); A_V=(996+512i)/771, A_X=i A_V/16, A_U=2i(A_V-1). Contracting B(qbar,A)+C(q,q,qbar) with the stated normalized left row gives G21=-369/33410-521107i/801840 and l1=-369/66820 in that normalization. The simple transverse pair, negative third eigenvalue and negative l1 prove the local attracting branch on K>8. Its vanishing amplitude at an interior point ensures positivity. No global cycle uniqueness or persistence follows. VERIFICATION.md and verify_hopf.py were inspected but the bundled script was not run.
 
-The accessible complete Cruz–Neves paper (arXiv:2607.13281, Section 7) presents numerical examples of likely Hopf-generated stable cycles and explicitly states that they lack proofs. Its analytical theorems instead concern equilibrium existence, stability and zero-eigenvalue collisions. The foundational Braga–Wardil paper analyzes the model and coexistence scenarios but does not provide this model-specific Hopf coefficient. Related mathematical findings concerning boundary stability exchange and neutral parameter balance do not imply a supercritical Hopf bifurcation for the chosen positive matrices. Literature searches did not find the exact rational witness or Lyapunov coefficient. Lack of search matches is not a proof of priority; independent assessment may uncover an equivalent unpublished or inaccessible derivation.
+## originality
 
-## Value: PASS
+PASS
 
-The source explicitly identifies rigorous confirmation of stable periodic three-population coexistence as unfinished. Producing a fully admissible parameter witness with a certified nonzero normal-form coefficient converts a phenomenon supported by numerical trajectories into an actual local existence-and-attraction theorem, without claiming global ecological persistence or broad classification.
+Pass only the exact analytic witness with the specified payoff matrices and beta=1, not the existence of a positive-payoff supercritical Hopf in this model. An earlier published record already proves that existence for the model's numerical Scenario 8. It should be cited in describing the contribution. Its local result for different payoffs and mortality neither proves the present coefficient nor provides a general theorem from which this witness follows mechanically.
 
-## Scope and residual risks
+## value
 
-The theorem is restricted to a specific rational positive-payoff game and a neighborhood of one carrying-capacity value. The source's separately simulated parameter sets are not covered. Its claims rest on the classical nondegenerate Hopf theorem, not numerical integration. Source comparisons are substantial but not an exhaustive mathematical-priority audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Constant averaged capture with differing individual capture payoffs gives a motivated simplification: it leaves frequency–predator feedback while fixing total prey and predator values at coexistence. The exact unit-frequency threshold and signed normal-form data then give a reproducible analytic benchmark for separating that feedback from more general capture dependence and for checking continuation or normal-form computations. This is not valuable merely for replacing one numerical threshold with a different number, and does not purport to prove the original numerical example, which already has its own proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

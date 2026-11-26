@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact section identity in \(\mathbb F_5[t]\), local \(A_1\)/\(A_2\) resolution analysis, and the nodal infinity fiber identify the three correction terms. Height positivity excludes the middle \(\mathrm I_5\) components, giving primitive height \(1/30\). Shioda–Tate and the rational-surface discriminant formula show that the section generates the entire torsion-free geometric group. Frobenius negates its square-root coefficient. The standalone exact checker passed, but the infinite statement relies on the proof.
+## correctness
 
-## Originality — PASS, qualified
-The original characteristic-five surface and its fiber types are due to Burek–Chmiel–Cynk–Oczko, arXiv:2611.15943v1. The geometric rank and height lattice fall under Oguiso–Shioda's 1991 classification and are not claimed new. The new explicit primitive section and exact odd/even constant-field arithmetic descent are not identified in the checked source text, classifications or targeted literature searches. A related arXiv:2609.12522v1 full text was inaccessible and remains a priority risk; absence from search results does not prove novelty.
+PASS
 
-## Value — PASS
-The complete field-of-definition and arithmetic Mordell–Weil classification is natural for the elliptic surface at the base of the non-liftable threefold construction, and determines the explicit quadratic twist carrying its primitive section. This is a structural arithmetic statement about an entire infinite sequence of finite-field function fields, not an arbitrary numerical sample.
+For u=t+2 and x=tu, the right-hand side is t²u²(4tu+3u²+3t²)=2t²u² in characteristic five. The discriminant is t³u⁴ and j=4u⁵. The local discriminant orders in the minimal coordinates are 3,4,5 at 0,3,infinity (at infinity rescale by s² and s³), with types III, IV and I5 as in the original paper. P reduces to the singular point in each minimal Weierstrass fiber, respectively (0,0),(0,0),(1,0), and is disjoint from O. The identity component of the smooth model is the smooth locus of the Weierstrass fiber; sections of the regular model meet the smooth part of the fibration, so these reductions force nonidentity components, not a point of intersection on the strict transform. Their contributions are 1/2, 2/3 and either 4/5 or 6/5. The rational surface has chi=1, so the latter option gives a negative height -11/30; the former gives 1/30. The unimodular rank-ten NS lattice and root ranks 1+2+4 force geometric rank one, and the trivial-lattice determinant is 30. For a primitive free generator G its self-pairing is |T|²/30, T the finite torsion. Writing P=nG modulo torsion yields n²|T|²=1, proving both primitivity and torsion-freeness. Frobenius acts on alpha by alpha^5=-alpha and on P by negation, so its m-th invariants give the exact constant-field groups. The quadratic twist isomorphism (x,Y)↦(x,alpha Y) changes the descent sign and identifies the stated primitive generator.
 
-## Scope and limits
-Only constant-field extensions are covered; no threefold cohomology or other base change is claimed. This is a self-review and not an independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The surface, its earlier explicit quadratic-twist model, the abstract geometric group, and the general height tools are substantial existing coverage. There is also a same-day trace calculation from which the abstract Frobenius sign follows (without inferring priority from dates). The surviving distinct contribution is the explicit identification and certification of a specific primitive section in these coordinates, giving a generator-level constant-field and twist classification, rather than the abstract rank, height determinant, or sign alone.
+
+## value
+
+PASS
+
+The section addresses explicit arithmetic on a naturally occurring characteristic-five elliptic surface used in Calabi–Yau constructions. The result identifies an actual integral generator, not a candidate point or a rational rank: its multiples produce all rational sections over every admissible constant extension, and the same coordinates give the descent on the twist. The concrete section and local index calculation supply the value beyond known geometric lattice type and count-derived sign.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

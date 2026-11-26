@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:05:03.171291Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The sharp theorem survives unchanged. The implementation sentence at frozen RESULT.md line 25 did not distinguish testing the neighborhood cardinality of the current agent set from testing whether that set still contains a Hall violator. The cardinality-only deletion test can stop too early: take top sets {h},{h},{x,y},{x,y} on four active houses h,x,y,w. All four agents are deficient and each triple has three neighbors, but the first pair is deficient. The complete replacement at /workspace/repairs/5/RESULT.md uses a polynomial matching test for each restricted agent set with the house side fixed. Unsaturability is retained at each deletion. At termination every proper subset is saturable by restricting a matching of a single-deletion set, so Hall implies that the returned set itself is inclusion-minimal deficient. Its neighborhood has size z−1 for z agents, and z≥2. Each participation when at least n houses are active spends one entire current top tier, and no agent with only one surviving tier can participate because she sees all active houses. For any prefix begun with at least n houses, summing z−1≤(n−1)z/n and counting at most k−1 participations per agent bounds deletions by (n−1)(k−1). Thus the algorithm retains at least n houses after every prefix and terminates in a covering top-choice matching. Identical tiers of size n−1 force envy at the lower supply, or no injection when k=1. The minimization takes at most n² matching tests per round and at most m rounds. Independent bounded bitmask checks found zero failures in 6,561 profiles at (n,k,m)=(2,3,4) and 32,768 at (3,2,5); they found 78 obstructions in 4,096 at (3,2,4) and 6 in 729 at (2,3,3). The corrected shrinking rule returned an inclusion-minimal set on each of 12,802 unsaturable graphs among all 50,625 top-choice graphs with four agents, four houses and nonempty agent neighborhoods. Replay: node /workspace/review-evidence/5.js. These finite checks do not establish the universal bound or the running time. Frozen verification notes and code were inspected, not executed or modified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gan et al. give a broader polynomial feasibility algorithm for unrestricted tied rankings and an alternating-path method for minimal violators. They do not state the tier budget or a guaranteed supply as a function of k in the inspected passages.",
+          "Aziz et al. frame their theorem around existence and complexity under uncertainty, referring to Gan et al. for the deterministic model. The focused search produced no additional plausible primary result for the given supply bounds."
+        ],
+        "reasoning": "An algorithm deciding existence for each instance, even for more general preferences, does not assert existence for every input at this supply. The relevant quantitative step is to bound total removal by counting exhausted tiers, not by applying the runtime or feasibility guarantee alone.",
+        "searches": [
+          "Gan et al. Lemma 2.1, Algorithm 1 and Theorem 2.2",
+          "Aziz et al. AAAI-24 DOI/primary PDF, deterministic and compact-indifference model descriptions",
+          "Primary literature query: \"envy-free\" house allocation \"2n-1\" dichotomous preferences houses \"tiers\" OR \"indifference classes\" supply bound k(n-1)+1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py; repaired RESULT.md",
+        "arXiv:1905.00468v2, arXiv:1901.09527v6 and the AAAI-24 Aziz et al. paper",
+        "Resultary c9bac74cb7dc and c70406a039ac",
+        "Focused follow-up primary literature query for both exact supply bounds"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior algorithm's minimality gives the per-round z−1 fact. To force the quantitative guarantee one still needs the count across rounds: the last tier is protected in any round started with n houses, and every participation consumes a tier. Summing the resulting incidences yields the supply bound; identical undersized tiers attain the obstruction.",
+          "Gan et al.'s binary comparison describes a fixed acceptability graph with different guarantees, not an ordinary full-assignment supply theorem."
+        ],
+        "reasoning": "The bounded-tier budget is a short new argument applied to known machinery, rather than a direct substitution in a known threshold. The repaired matching routine is only a sound implementation of known minimal-Hall elimination and receives no separate originality credit.",
+        "searches": [
+          "Gan et al. Theorem 2.2 and Lemma 2.1; p. 4 comparison to binary acceptability graphs",
+          "Resultary Hall-deficiency and two-level comparators c9bac74cb7dc and c70406a039ac"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gan et al. use exactly one house per agent, allow ties, and compare allocated houses; thus their deterministic instance model is the same, and their Algorithm 1 is credited.",
+          "Aigner-Horev–Segal-Halevi call a matching envy-free when no unmatched left vertex is adjacent to a matched right vertex. This can permit an unsaturated left side and does not encode a distinct ranking over multiple tiers."
+        ],
+        "reasoning": "A full matching in an appropriate chosen-house top-choice graph is an equivalent feasibility description. A matching in a single acceptability graph or an EFX/bundle guarantee with other saturation conventions is not the same assertion.",
+        "searches": [
+          "Resultary: universal envy-free house supply with bounded indifference classes, k(n−1)+1; dichotomous 2n−1",
+          "Gan–Suksompong–Voudouris arXiv:1905.00468v2 pp. 1–2, 4",
+          "Aigner-Horev–Segal-Halevi arXiv:1901.09527v6 p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c9bac74cb7dc counts centers failing EFX in a delegated-center setup with k centers, two lower agents per center and 2k goods. c70406a039ac concerns ordered EF1 with two-level additive valuations on a fixed eight-good laminar-matroid domain.",
+          "Neither matched the definitions of one distinct house per agent, ordinary no-envy, and the exact sharp supply for all n,k."
+        ],
+        "reasoning": "This is a quantified threshold rather than an isolated numerical instance. The closest retrieved catalogue entries cover other allocation objects, not an exact entry for this threshold.",
+        "searches": [
+          "Resultary local catalogue: exact k(n−1)+1, dichotomous 2n−1, bounded tiers and Hall deficiency; c9bac74cb7dc and c70406a039ac"
+        ]
+      },
+      "rationale": "The repaired claim credits the polynomial top-choice Hall-elimination algorithm and minimal-set existence to prior work; the supported distinct result is the sharp uniform bounded-tier supply guarantee. The inclusion-minimal matching-test correction repairs correctness, not originality. The decisive additive tier budget and tight worst-case supply are not stated or supplied by specializing the inspected unrestricted algorithm's existence/complexity result. The readily derived dichotomous case is not separately credited as new. A bounded follow-up search for the two specific supply bounds produced no new plausible primary candidate, not evidence of historical absence.",
+      "residual_risks": [
+        "A quantitative guarantee might be present as an observation or exercise in unindexed earlier literature on dichotomous or bounded-tier assignment. Searches and accessible primary passages cannot rule out independent or earlier derivation.",
+        "The k=2 bound is an easy specialization of the same tier count; the supported increment is the general tight guarantee, not separate priority for the dichotomous case or the algorithm."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior algorithmic coverage; no sharp k-tier supply theorem located",
+          "evidence": "The algorithm takes top-choice graph edges on the active set, deletes the neighborhood of a minimal Hall violator on failure, and decides and constructs in polynomial time. Lemma 2.1 uses maximum matching and alternating reachability.",
+          "identifier_or_url": "arXiv:1905.00468v2",
+          "material_read": "PDF p. 1 at offset ~3500; p. 2 Lemma 2.1 and Algorithm 1/Theorem 2.2 at offsets ~6200 and ~8950; binary comparison p. 4 at ~14000",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Envy-Freeness in House Allocation Problems",
+          "trigger": "Same weak-order house model and prior Hall algorithm"
+        },
+        {
+          "assessment": "Different notion and saturation guarantee",
+          "evidence": "An envy-free matching forbids adjacency from unmatched left vertices to matched right vertices and need not be perfect.",
+          "identifier_or_url": "arXiv:1901.09527v6",
+          "material_read": "PDF p. 1 definition, offset ~700",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Envy-free Matchings in Bipartite Graphs and their Applications to Fair Division",
+          "trigger": "Binary ranking and Hall-structure comparator"
+        },
+        {
+          "assessment": "Uncertainty/extension framework, not located uniform resource guarantee",
+          "evidence": "The paper refers to the established deterministic algorithm and studies uncertain preferences; compact indifference is implemented via linear extensions of weak preferences.",
+          "identifier_or_url": "https://ojs.aaai.org/index.php/AAAI/article/download/28802/29534",
+          "material_read": "PDF p. 1 at offset ~4300 and p. 2 at ~14400",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Envy-Free House Allocation under Uncertain Preferences",
+          "trigger": "Related weak preferences and possible deterministic consequence"
+        },
+        {
+          "assessment": "Different allocation and fairness criterion",
+          "evidence": "Its result is a count of failing EFX centers, not a universal supply threshold for individual house assignments.",
+          "identifier_or_url": "Resultary c9bac74cb7dc",
+          "material_read": "Mirrored RESULT.md offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local catalogue and mirrored statement reading",
+          "title": "A Hall-deficiency formula for binary delegated-center EFX",
+          "trigger": "Indexed binary/Hall exact count"
+        },
+        {
+          "assessment": "Different fairness, bundle model and quantifiers",
+          "evidence": "The setting has four agents and eight goods with laminar-matroid constraints and two-level additive valuations, using ordered EF1.",
+          "identifier_or_url": "Resultary c70406a039ac",
+          "material_read": "Mirrored RESULT.md offset 0, same snapshot",
+          "method": "Local catalogue and mirrored statement reading",
+          "title": "Ordered EF1 for all two-level valuations on an eight-good domain",
+          "trigger": "Indexed exact two-tier-like resource guarantee"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result asks for the smallest stock of houses that guarantees a feasible no-envy assignment under an interpretable restriction on individual preference coarseness. An existence algorithm does not tell a planner what stock necessarily suffices. The tier-edge accounting gives a tight answer under heterogeneous weak orders and the identical-order obstruction shows precisely why one fewer house can fail, without transfers. This value is retained by the implementation repair.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

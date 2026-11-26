@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:27:06.544741Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5 of Proof (lines 32–73)",
+        "Frozen VERIFICATION.md and verify.py (source inspection only)"
+      ],
+      "rationale": "Reconstructed both backward problems with the gate generator acting on columns. For Q's eigenvectors 1,z,conjugate(z), K=sqrt((rI−Q)/D) has eigenvalues k0,k,conjugate(k); e0 has coefficient 1/3 in each mode. For joint resetting the no-reset absorption transform at r is exp(−Kx)K^−1e0/(e0^T K^−1e0), from the two Neumann and one Dirichlet data. Its stationary average gives the stated renewal mean. For position-only resetting the bounded solution is h+exp(−Kx)c; the reflecting conditions force Kc=t e0 and the stationary projection of the equation forces π exp(−Ka)c=−1/r, hence t=−3k0 exp(k0a)/r. The z coefficient of h is −k0 exp((k0−k)a)/(κk). The Dirichlet condition cancels the remaining constant in the difference, giving exactly the stated real part. A fixed block has uniformly positive chance of absorption (reset to a, reach the open gate and hit zero during a reset-free interval), giving uniformly finite means and uniqueness of the bounded backward solution by stopping. Re(k)^2−Im(k)^2=(r+3γ/2)/D>k0² and arg(k) is strictly between −π/12 and 0, so the claimed phase, starting sign, and every simple positive zero follow. The proof never subtracts large simulated means to infer high-index reversals.",
+      "residual_risks": [
+        "The finite matrix/backward-grid diagnostics were not rerun and cannot establish the all-distance statement. The result is about stationary-initialized means, not stochastic ordering or arbitrary gate generators."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Scher et al. distinguish composing gating and restarting in different orders, producing distinct reset semantics, but do not compare the directed 3-cycle means.",
+          "Bressloff's 2026 text examines gated renewal and boundary/desorption-induced resetting; its §2.1 uses a two-state gate. The frozen characterization of §§2–3 as discussing this particular complete versus partial Poisson reset comparison was not substantiated by the inspected text."
+        ],
+        "reasoning": "General theory for gated first passage makes the models meaningful, but the inspected results do not give the mode amplitudes and positive-distance zeros for these two reset operators.",
+        "searches": [
+          "arXiv:2211.09164, conclusions",
+          "arXiv:2601.01588 v2, abstract and §§1–2.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary matched records and local mirror",
+        "arXiv:2107.02148",
+        "arXiv:2009.02739",
+        "arXiv:2211.09164",
+        "arXiv:2601.01588 v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier renewal mean uses stationary gate refreshing; the persistent-gate reset equation instead has a vector-valued reinjection m(a).",
+          "The frozen theorem needs the nonzero complex coefficient 1/(κk), Re(k)>k0, and −Im(k)>0, which produce infinitely many simple roots."
+        ],
+        "reasoning": "A scalar renewal identity for the joint protocol, and comparison formulas restricted to two-state gates, do not imply that the sign changes in the difference recur infinitely often; the persistent three-state backward problem supplies the decisive information.",
+        "searches": [
+          "arXiv:2009.02739 §3",
+          "arXiv:2107.02148 Appendix B, Eq. (B.2)",
+          "arXiv:2211.09164 conclusions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mercado-Vásquez–Boyer arXiv:2107.02148, Appendix B, explicitly identifies the same two reset operations in its two-state model and Eq. (B.2) gives a strict one-sided comparison.",
+          "The primary query's active-Brownian orientation-reset hit does not represent a boundary with a cyclic Markov gate."
+        ],
+        "reasoning": "Comparing operations (including what is redrawn and from which law), rather than the informal names, gives the same comparison question but not the three-state answer. The two-state real relaxation rate cannot produce the conjugate-mode sign reversals here.",
+        "searches": [
+          "Resultary: Brownian stochastic gating reset protocol position-only stationary state joint reset cyclic three-state gate damped oscillatory mean first passage reversals",
+          "Primary: \"position-only resetting\" \"stochastically gated\" Brownian three-state cyclic gate joint resetting gate state mean first-passage"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit is the assigned record itself, not separate coverage.",
+          "Distinct hit 2026/11/8/SCOPE-strict-two-geometric-reset-count-law-for-a-brownian-search-with--e8269f686a15: a positive two-geometric mixture for counts of resets under persistent two-state gating."
+        ],
+        "reasoning": "A law for counts in one two-state protocol does not tabulate or imply equality distances between two protocols in the three-state model. No applicable independent numerical table is identified for the continuum claim at all positive rates.",
+        "searches": [
+          "Resultary: Brownian stochastic gating reset protocol position-only stationary state joint reset cyclic three-state gate damped oscillatory mean first passage reversals"
+        ]
+      },
+      "rationale": "The closest actual side-by-side reset comparison is for an irreducible two-state gate and gives the opposite kind of conclusion: a fixed ordering for every distance. The closest distinct catalogue record concerns a persistent two-state gate's reset count, not ordering between protocols. The examined general framing distinguishes the two semantics but supplies no spatial complex-mode ordering law for the directed cycle. This is a bounded assessment, not a priority claim.",
+      "residual_risks": [
+        "Unindexed prior comparisons or an equivalent spectral inequality for general Markov gates may exist; follow-up catalogue lookups could not connect. No negative inference is made from access or search failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest comparison; two states and fixed ordering",
+          "evidence": "Eq. (B.2) has T_B<T_av for positive rates; this is the comparison locator in the arXiv copy (rather than Eq. (49)).",
+          "identifier_or_url": "https://arxiv.org/abs/2107.02148",
+          "material_read": "Appendix B, PDF pp. 13–14, OA offset 68400",
+          "method": "Original OA PDF passage",
+          "title": "Search of stochastically gated targets with diffusive particles under resetting",
+          "trigger": "Direct comparison of joint and persistent gating at resets"
+        },
+        {
+          "assessment": "Models the joint protocol for two states; not the reversal theorem",
+          "evidence": "The gate is two-state with stationary redraw at each particle reset in the relevant analysis.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.02739",
+          "material_read": "§3 pp. 5–7, offsets 15500 and 20141",
+          "method": "Original OA PDF passages",
+          "title": "Diffusive search for a stochastically-gated target with resetting",
+          "trigger": "Origin of joint stationary gate refreshing"
+        },
+        {
+          "assessment": "Relevant distinction of mechanisms but no matching comparison in inspected material",
+          "evidence": "The order of composing gating and restarting determines whether internal dynamics are left decoupled or reset with the search.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.09164",
+          "material_read": "Conclusions p. 15, offset 133500",
+          "method": "Original OA PDF passage",
+          "title": "Continuous Gated First-Passage Processes",
+          "trigger": "Plausible general prior theorem for both semantics"
+        },
+        {
+          "assessment": "Inspected material is about a two-state gate and a different notion of resetting",
+          "evidence": "Desorption-induced particle resetting is distinguished from bulk spontaneous resetting, not the present choice of preserving versus redrawing the gate.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.01588",
+          "material_read": "v2 abstract/§1 and §2.1, offsets 0, 10777 and 16000",
+          "method": "Original OA PDF passages",
+          "title": "Renewal theory for Brownian motion with stochastically gated targets",
+          "trigger": "Frozen citation for possible complete/partial reset comparison"
+        },
+        {
+          "assessment": "Related model, materially different result",
+          "evidence": "One persistent two-state protocol and its reset-count law, rather than a comparison of two stationary means for a directed three-state cycle.",
+          "identifier_or_url": "2026/11/8/SCOPE-strict-two-geometric-reset-count-law-for-a-brownian-search-with--e8269f686a15",
+          "material_read": "RESULT.md, reset-count finding and assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Strict two-geometric reset count law for a Brownian search with a persistent gate",
+          "trigger": "Closest distinct catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof §§3–5",
+        "Mercado-Vásquez–Boyer Appendix B"
+      ],
+      "rationale": "This gives an explicit counterexample to extrapolating the familiar two-state ordering to a natural nonreversible gate. At every positive rate triple the exact formula specifies which protocol to choose at any given distance and why the advantage can alternate even when the absolute difference is exponentially small. The repeated changes, not merely evaluation of one mean, are the substantive phenomenon.",
+      "residual_risks": [
+        "No experimental resolution of the small large-distance effects, extension to arbitrary switching, or distribution-level dominance is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

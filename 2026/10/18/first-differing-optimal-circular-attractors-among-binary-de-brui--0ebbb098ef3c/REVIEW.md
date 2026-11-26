@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The lower bound counts distinct length-eight windows and the 32-point equality rigidity forces exactly eight residue classes. The hexadecimal cycles are both verified de Bruijn cycles. All eight obstruction rows for the 33-example identify missed seven-factors for the residue sets, while the 33-witness repairs its sole missed shorter factor; the 32-example has a valid residue-class attractor. The bounded order-four statement is exhaustively checked over all 495 canonical balanced candidates, with 16 retained as valid de Bruijn cycles. No random or incomplete search underlies the assertion. The standalone verifier was executed and its printed output matched `verification_output.txt`.
+## correctness
 
-**Originality (PASS within examined evidence).** Mantaci et al. (2021) give definitions and asymptotic de Bruijn bounds, not this pair of exact circular minima. Whittington (2024) raises the issue of shorter-factor coverage and gives a prime-order construction but no covering composite-order-eight classification. Béal, Crochemore and Romana (2025/2026) tabulate a size-33 *greedy linear* attractor, which does not entail the exact circular separation. Targeted research-record and existing-claim comparisons disclosed no stronger statement. Residual risk: unpublished or differently worded order-eight circular-attractor tables and results implicit in more general statements. Novelty is not inferred solely from an unsuccessful search.
+PASS
 
-**Value (PASS).** The result identifies the first power-of-two order at which the sharp factor-window packing lower bound ceases to determine the optimal circular string attractor uniformly across de Bruijn necklaces. Two exact witnesses at identical order isolate the obstruction as the requirement to cover shorter factors, rather than covering the distinct eight-windows. This directly addresses the mathematical mechanism motivating optimal de Bruijn attractors; it is a finite structural boundary, not a claimed general asymptotic theorem.
+Each of the 2^k length-k circular windows is the unique occurrence of a distinct factor, and a selected position hits exactly k such windows. When k divides 2^k and the capacity bound is attained, no window may contain two chosen positions. Thus consecutive cyclic gaps are at least k, and their sum makes every gap k: all equality cases are residue sets modulo k. Every longer occurrence contains a length-k window already hit by such a set. Independently I enumerated every binary tail following the unique rotationally anchored 0^k for k=1,2,4, and intersected sets of factors with the covered occurrences. The respective necklace counts are 1,1,16, and the valid-residue histograms are {1:1}, {2:1}, {2:4,3:8,4:4}. Each frozen order-eight word has 256 distinct length-eight windows. I checked all eight obstruction rows for V against both starts and residue-disjointness, found that residue seven misses only 1011011, and checked coverage by the advertised 32- and 33-position sets at every length 1–256, including wrapping occurrences. This yields the exact separation and the first power-of-two order, not a comparison over all orders less than eight or a statement about a worst cycle.
 
-Scientific limitations: the example is binary and order eight, with a bounded earlier-order census. Independent priority assessment and scientific audit have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct statement is exact 32-versus-33 optimality for two circular order-eight cycles, with uniform optima at the smaller power-of-two orders. The most relevant inspected comparison reporting 33 is an experimental linear attractor size, not an exact circular optimum. The inspected same-invariant catalog result is at order five only. Prime-order results for particular linear unfoldings do not determine the composite order-eight cyclic case. Mantaci et al. Proposition 41 was not accessible in full text, a specific unresolved literature risk rather than evidence for or against priority.
+
+## value
+
+PASS
+
+The natural counting bound from unique length-k windows predicts a common optimum in the smaller cases. At the first relevant power-of-two order the two exact certificates show that the circular optimum depends on the choice of cycle and that shorter factors can alone force a strict increase despite complete length-k coverage. This answers a specific extremal question and provides concrete benchmarks for circular factor coverage without mistaking a greedy set for an optimum or claiming an asymptotic separation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

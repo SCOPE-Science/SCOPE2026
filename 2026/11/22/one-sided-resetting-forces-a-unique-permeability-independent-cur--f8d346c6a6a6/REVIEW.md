@@ -1,19 +1,21 @@
-# Scientific review: One-sided resetting forces a unique permeability-independent current reversal at a biased membrane
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The unique normalized solution follows from a positive Neumann source resolvent plus one explicitly derived homogeneous flux corrector. The directed interface algebra yields the exact current formula and strictly positive boundary traces. The monotonicity argument compares two hyperbolic-cosine weighted averages with the midpoint and is strict for **every** Borel law wholly supported in the open left/right semicircle. Endpoint limits establish precisely one transverse threshold in the competing-bias regimes, and no root otherwise. The uniform-source formulas integrate exactly. The standalone checker ran successfully with 877 diagnostic checks including independently discretized finite-volume boundary problems. Infinite-parameter statements rest on the analytic proof rather than finite experiments.
+PASS
 
-## Originality — PASS, qualified
+Checked the directed boundary law and signed flux in RESULT.md:18–29, 48–58, 64–124. As an independent sign/normalization check, test Dp''−rp=−rμ with cosh(η(L−x)) and cosh(ηx) and integrate by parts: the equal endpoint derivatives give p(0)=A+gJ and p(L)=B−gJ with g=(cosh(ηL)−1)/(Dη sinh(ηL)). Substitution gives the claimed positive denominator. The explicit Neumann solution plus the flux corrector gives existence and uniqueness; the two positive traces and the positive Dirichlet Green kernel for −D∂xx+r imply interior positivity for a finite Borel source, also for singular continuous μ. Integrating the weak equation gives total mass one. For the left semicircle, the derivative of log(B/A) is the difference of cosh-weighted averages of z tanh(ηz) on opposite sides of L/2 and hence is strictly negative for each η>0. The ratio tends to 1 at zero and to 0 at infinity: positive mass a definite distance left of the midpoint suffices for exponential domination even if the source accumulates at the midpoint. Reflection inverts the ratio. Thus the stated β criteria, current signs, transversality (dη/dr=1/(2Dη)), and absence of κ in the root equation all follow. Integrating the coshes verifies the uniform formulas and expanding them at η=0 verifies the weak-bias coefficient for any fixed eligible source. The numerical example replays as 4*acosh(1.5)**2 = 3.70503712923511. VERIFICATION.md and verify_biased_membrane.py were read, not executed; the reported finite-volume and discrete-source results are auxiliary, not a proof for all Borel sources. This check concerns only the displayed diffusive membrane flux, not reset displacements or two-sided sources.
 
-Bressloff (2024, arXiv:2402.16403) already provides asymmetric membrane transmission and separately the unbiased resetting ring; Bressloff (2022/2023, arXiv:2211.12460) provides an asymmetric interval first-passage treatment. Previously published unbiased ring membrane-current tomography and entropy optimization results were compared at their theorem and proof levels: each has membrane bias \(eta=1\), where a one-sided source gives a **fixed current sign** rather than the phase transition proved here. Tucci et al. (2020, DOI:10.1103/PhysRevResearch.2.043138) treat transport/resetting gauge choices without this biased membrane. The checked exact statements do not imply the claimed all-source, bias-dependent unique inversion with permeability-independent threshold. The antecedent Green and interface techniques are credited and not claimed as discoveries. Residual publication-priority risk remains from broader implicit comparison theorems and one incompletely inspected screened-reset paper.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-There are two naturally competing sources of directed transport: the membrane preference and frequent relocation to one semicircle. Their competition leads to a complete and sharp regime classification that is robust under arbitrary source singularity, with an exactly identified threshold independent of crossing conductance. This provides a usable boundary in experimental current-direction control and a clean counterpoint to symmetric-interface fixed-sign behavior. The contribution is a structural one-crossing theorem, not merely a computation for a special reset point.
+Pass is limited to the biased-interface, strictly one-sided fixed-source sign classification, with a transverse permeability-independent crossover in the competing-bias regimes. The symmetric current transform and the asymmetric interface law separately are antecedents, not discoveries.
 
-## Closest literature and limitations
+## value
 
-The primary models are Bressloff (2024), arXiv:2402.16403, and Bressloff (2022), arXiv:2211.12460. The result applies to the **continuous physical membrane flux only**, not jumps assigned winding during resetting, and requires fixed positive bias/permeability, fixed homogeneous diffusivity and a reset law fully supported in an open semicircle. It does not establish current-reversal bounds for sources spanning both sides. Some claims may follow from a broader, as-yet-unlocated transport comparison. Independent scientific audit is not complete.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a complete sharp phase diagram for competition between directional transmission and the location of reinjection, valid even for singular one-sided sources. It separates what permeability controls (the magnitude) from what it cannot shift (the unique transverse zero when one exists), with a directly evaluable uniform-source threshold. It does not constitute empirical transport validation or a result about winding due to reset jumps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

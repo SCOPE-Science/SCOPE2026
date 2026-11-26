@@ -1,19 +1,21 @@
-# Scientific review: universal categorical bigram covariance spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact \(L^2(p\otimes p)\) decomposition into a constant, an additive symmetric potential, an additive antisymmetric gradient, and a doubly centered interaction is complete and orthogonal. The open-path quadratic variance identity assigns eigenvalues \(2m-1\), \(1\), and \(m\) in the unnormalized whitened covariance; the cyclic version assigns \(2n\), \(0\), and \(n\). The dimensions sum to \(q^2\), and every assertion includes its required sample-length boundaries. The mean, every raw covariance entry, the potential and interaction eigenvector equations, and the trace were independently checked by exact sequence enumeration over 25 rational models. The asymptotic Pearson statement follows from the bounded one-dependent vector central limit theorem, not an extrapolation of the finite checks.
+PASS
 
-## Originality — PASS, with material residual risks
+In L2(p tensor p), decompose a score into its constant, additive potentials u(a)+u(b) and v(a)-v(b) with centered u,v, and a row/column-degenerate residual h. These are orthogonal and exhaust the score space under full support. The plus sum on a path has single endpoint weights and doubled interior weights, variance (4m-2)||u||^2, whereas the minus sum is the endpoint difference of variance 2||v||^2; the two endpoint cross terms cancel. Degeneracy gives zero covariance with all single-letter terms and between all distinct interaction windows, even through one-letter overlaps. The interaction variance is m||h||^2. Dividing by the squared weighted norms of these scores and by m gives exactly 2-1/m, 1/m and 1, plus the constant null direction. This proves the ranks, sharp equality spaces for nonzero centered costs, and the m=1 coincidence. On cycles every plus weight is 2 and the minus sum vanishes; n>=3 ensures distinct windows never share both letters, including n=3. Thus gradient scores join the nullspace and the other normalized eigenvalues become 2 and 1. The same covariance follows by enumerating the two overlap orientations, with m-1 contributions each on a path and n on the cycle. The exact trace is q^2-1; the bounded one-dependent CLT permits a singular Gaussian limit and gives the stated known-p weighted chi-square via the squared whitened norm. Replay: RESULT.md lines 48–95; an independent exact-rational q=2, p=(1/3,2/3), n=3 enumeration checked both path and cycle covariance and score equations. The uploaded verify_bigram.py and VERIFICATION.md were inspected, not run; their 25 cases are path/cycle configurations over several alphabet/size laws, not 25 distinct laws each tested in both geometries.
 
-The novelty assessment is **only** for the exact all-parameter finite-sample weighted covariance spectrum, the exact \(q-1\)-dimensional additional cyclic nullspace, and the sharp variational extremizers. Earlier general generating-function literature on overlapping words (Park–Spouge 2004) and cyclic word occurrences (Percus–Percus 2005) concerns broader distributions; its accessible abstracts do not state this closed spectral diagonalization. Those full texts remain inaccessible and could encode these formulas implicitly. The serial categorical testing literature (Bilodeau–Lafaye de Micheaux 2009; Elsinger 2020) already covers orthogonal statistical decompositions and asymptotic calibration. Eigenvalues of the empirical *transition matrix* (Pritchard–Scott 2004) and eigenvalues for *subsequence counts* (Even-Zohar–Lakrec–Tessler 2020/2021) are different observables. A relevant public mathematical findings index returned related fixed-composition binary transition results and adjacent-word reconstruction counts, but no explicit matching finite-sample spectrum. Neither searches nor inaccessible texts prove absolute historical uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The covariance matrix is the complete second-order uncertainty geometry of a standard transition-frequency table; computing only its entries is not the same as identifying their universal whitened eigenvalues, rank, sharp cost-variance extrema, and exact boundary effect. Closing a path eliminates an entire nontrivial gradient subspace. The condition number \(2m-1\) and the correct weighted Pearson asymptotic law provide direct inferential consequences. The result is motivated by statistical identifiability and calibration rather than an arbitrary finite numerical invariant.
+Pass only for the complete exact finite-length nonuniform whitened spectra and the sharp path-to-cycle boundary effect with extremizing subspaces. The known-probability Pearson asymptotic law is directly covered in earlier work, not merely related; it is neither credited as new nor needed as a novel ingredient. The strongest accessible comparison has the limiting decomposition but does not establish the complete finite-length spectral comparison.
 
-## Verification scope and limitations
+## value
 
-Reproduce the 25-case exact rational checks with `python3 verify_bigram.py`. The proof covers all sample sizes in its stated domain. Historical priority is limited by nonaccess to the full original papers on general overlapping-word counting. Only the precise spectral result is assessed as new; general serial-independence testing and joint-count generating functions are acknowledged prior art.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result resolves which modes of a natural overlapping-count table are poorly conditioned and why. Path gradients retain exactly the random endpoint imbalance, giving small but nonzero variance; closing the path eliminates exactly those directions while leaving the interaction and symmetric families at stable scales. The finite spectra and equality families therefore give exact rank and conditioning information even at small sample sizes or nonuniform letter frequencies, beyond the previously known limiting Pearson calibration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

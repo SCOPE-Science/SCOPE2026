@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:28:22.843410Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The nonempty support of a fixed point would contain a whole 5-cycle of adjacent row vertices, so the action is free and simplex interiors have no stabilizers. Orbit CW boundaries use alternating deletion and the sign of the unique translate to the representative. An independent program, replayable as python3 /workspace/branches/reproduce_1_2.py 1, enumerated all nonempty vertex masks using a column-major indexing, chose minimum-mask orbit representatives, checked all signed boundary compositions, and reduced each boundary separately by integer unit pivots. The face counts were (20,150,540,1010,1020,590,200,30) upstairs and (4,30,108,202,204,118,40,6) downstairs. Both free-rank vectors were (1,0,0,2,1,0,0,0); the sole nonunit boundary invariant was 5 in degree 2 of the quotient, giving exactly Z/5 in H1. Cokernel torsion of d_(k+1) is the torsion of H_k because their quotient is the free image of d_k. The independent tree-and-triangle presentation eliminated all 131 upstairs generators, so this is the universal cover with deck group C5. Hurewicz and H2=0 give pi2=0 and pi3=Z^2; transfer and the equal third Betti numbers give the identity action rationally and hence integrally on the lattice. In the covering-classifier Serre sequence the only possible incoming differentials to (3,0) would use fiber H^1 or H^2, both zero; a beta(a) is nonzero on BC5, so its pullback is nonzero. On the matching Moore wedge both factors come from the two-dimensional Moore summand, making their product zero. The corrected consequence is non-equivalence to that wedge, not nonexistence of a wedge with the same homology. The source checker was inspected, not executed; the independent program does not compute a cochain-level cup product or repeat the optional direct quotient Tietze route.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jonsson's coprime-period theorem gives the unquotiented Euler characteristic 0 at (4,5). The other inspected grid results concern open or cylindrical conditions or the distinct width-three torus."
+        ],
+        "reasoning": "Euler characteristic descends by dividing by the free action order; it neither determines the individual free ranks and integral torsion nor constrains this cup product to be nonzero. No inspected width-three recurrence specializes to the stated quotient.",
+        "searches": [
+          "Targeted primary-literature lookup for the toroidal 4-by-5 order-five orbit and Bockstein product",
+          "Jonsson Corollary 3.1; Bousquet-Mélou–Linusson–Nevo introduction/abstract; Adamaszek toroidal reduction scope"
+        ]
+      },
+      "checked_sources": [
+        "Jonsson DOI 10.37236/1093",
+        "Bousquet-Mélou–Linusson–Nevo arXiv:math/0701890",
+        "Adamaszek arXiv:1202.1655",
+        "Resultary 29fac7c1f6af, 19b7184f8768, 374b6b4d37f7, d5437ea45cad, f59bb33003d3, 9a956b068ad8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The previously computed chessboard product is of the same type, but for a different covering space and different homology; the periodic-grid partition function supplies only an alternating sum."
+        ],
+        "reasoning": "A general covering-classifier lemma gives the product from two-connectedness, but the inspected precedents do not give that hypothesis for this space or compute the integral quotient homology. The corrected Moore-wedge obstruction is a consequence, not separately credited as a novel technique.",
+        "searches": [
+          "Jonsson Corollary 3.1 versus signed orbit matrices",
+          "Resultary 19b7184f8768 finding and prior-work discussion versus the covering argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jonsson's periodic S_(4,5) is the same base graph C4 Cartesian product C5. The Resultary chessboard quotient also uses column shift, but its faces are partial matchings rather than graph independent sets."
+        ],
+        "reasoning": "The hard-square alias identifies the unquotiented object, not the quotient invariants. Similar notation and the same cyclic group on a chessboard do not identify the face posets or yield a map transporting the computation.",
+        "searches": [
+          "Resultary: toroidal hard-square 4-by-5 cyclic column quotient and mod-five Bockstein cup product",
+          "Jonsson S_(m,n) periodic grid definition; Adamaszek toroidal grid definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "29fac7c1f6af is the assigned record itself. Distinct inspected 19b7184f8768 is a four-by-five chessboard quotient with H2=Z^4, H3=Z and a nonzero Bockstein product. The grid records 374b6b4d37f7, d5437ea45cad and f59bb33003d3 concern the unquotiented 5-by-5, 5-by-6 and 4-by-7 tori; distinct same-day 9a956b068ad8 is a robust clique complex on the open 4-by-5 grid."
+        ],
+        "reasoning": "No distinct exact table or entry inspected supplies these same orbit groups or product. The same-day open-grid result differs mathematically, not merely chronologically.",
+        "searches": [
+          "Resultary local mirror for exact 4-by-5 toroidal result, fivefold cyclic quotient and neighboring hard-square dimensions"
+        ]
+      },
+      "rationale": "Prior work has the underlying periodic graph and its Euler statistic, and there is a closely parallel fivefold chessboard quotient with a Bockstein product. None of the distinct inspected sources gives the signed orbit-chain answer for the 4-by-5 toroidal graph or the two-connectedness of its covering complex needed for this product argument. This judgment is for the corrected exact space-and-invariant claim, not for a new general group-cohomology mechanism.",
+      "residual_risks": [
+        "Bounded precedence assessment; a targeted lookup that does not locate a separate exact result does not establish absolute novelty.",
+        "The neighboring chessboard computation limits novelty of the general obstruction idea, not of this graph-quotient calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the underlying Euler statistic, not the studied quotient invariants",
+          "evidence": "S_(m,n) is the double-periodic square grid; Z=1 for coprime periods, yielding the independence-complex Euler characteristic zero.",
+          "identifier_or_url": "https://doi.org/10.37236/1093",
+          "material_read": "p. 1 grid definition (offset 576); p. 2 offset 4266; p. 11 Corollary 3.1 (offset 29105)",
+          "method": "Primary OA PDF passages",
+          "title": "Hard Squares with Negative Activity and Rhombus Tilings of the Plane",
+          "trigger": "Exact periodic grid and strongest indexed numerical theorem"
+        },
+        {
+          "assessment": "Inspected scope distinguishes the open/cylindrical topology from the torus count; no target consequence in that material",
+          "evidence": "The toroidal alternating-count result is attributed to Jonsson.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0701890",
+          "material_read": "p. 1 abstract, offset 0",
+          "method": "Primary OA PDF passage",
+          "title": "On the Independence Complex of Square Grids",
+          "trigger": "Possible broader hard-square topology results"
+        },
+        {
+          "assessment": "Different grid boundary or width in the pertinent reductions",
+          "evidence": "Defines cylindrical and toroidal grids; toroidal recursion is for C3 times C_n, not the 4-by-5 rotation quotient.",
+          "identifier_or_url": "https://arxiv.org/pdf/1202.1655",
+          "material_read": "pp. 1–2, offsets 2000 and 5300",
+          "method": "Primary OA PDF passages",
+          "title": "Hard Squares on Cylinders Revisited",
+          "trigger": "Homotopy reductions for adjacent classes of periodic grids"
+        },
+        {
+          "assessment": "Related mechanism for a different object",
+          "evidence": "Faces are partial rook matchings, H2=Z^4 and H3=Z, and the nonzero product evaluates as 2 mod 5 on a specified cycle.",
+          "identifier_or_url": "Resultary 19b7184f8768",
+          "material_read": "Mirrored RESULT.md, finding and prior-work discussion, offsets 0 and 5119",
+          "method": "Local Resultary mirror",
+          "title": "A nontrivial mod-five Bockstein cup product in the cyclic chessboard quotient",
+          "trigger": "Closest previous quotient/product analogue"
+        },
+        {
+          "assessment": "Same assigned record, not independent prior coverage",
+          "evidence": "Matches the column shift action, integral groups and product.",
+          "identifier_or_url": "Resultary 29fac7c1f6af",
+          "material_read": "Mirrored RESULT.md finding compared with the frozen Finding",
+          "method": "Local Resultary catalogue comparison",
+          "title": "Integral homology and a nonzero mod-five cup product in a toroidal hard-square quotient",
+          "trigger": "Exact catalogue match"
+        },
+        {
+          "assessment": "Distinct complexes or size regimes",
+          "evidence": "Unquotiented neighboring tori have sphere types in other degrees; the 4-by-5 open-grid comparison is a five-robust clique complex, not the target independence quotient.",
+          "identifier_or_url": "Resultary 374b6b4d37f7; d5437ea45cad; f59bb33003d3; 9a956b068ad8",
+          "material_read": "Mirrored RESULT.md findings at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Nearby hard-square and open-grid catalogue entries",
+          "trigger": "Nearby parameters and same-day 4-by-5 title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This small coprime torus has a natural free prime-order action and a known Euler statistic that cannot see either the torsion or the product. The complete integral groups and a specific nonzero cup product distinguish the quotient from a matching Moore wedge and give a useful hard-square comparison at an exact, reproducible parameter, without suggesting a general classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

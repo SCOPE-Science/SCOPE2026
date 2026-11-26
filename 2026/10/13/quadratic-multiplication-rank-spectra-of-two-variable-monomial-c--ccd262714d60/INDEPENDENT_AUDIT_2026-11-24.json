@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:32:04.998689Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–35",
+        "Frozen VERIFICATION.md and VERIFY.py, inspected only",
+        "Independent replay: python3 /workspace/quadratic_rank_replay.py"
+      ],
+      "rationale": "For nonzero Q, multiplication blocks below the middle inject since no degree-m relation has yet entered, and the complementary blocks surject by the perfect monomial socle pairing. The order-(m-1) middle block is tridiagonal with diagonal b and off-diagonals a,c. With either off-diagonal nonzero an end-to-end kernel recurrence leaves at most one free coordinate; with both zero the nonzero form is invertible on the block. The total maximal rank is (m-1)^2; xy attains it, and x^2 attains one less. For ac=0 the determinant vanishes just when b=0. For ac≠0 the characteristic-root calculation gives a zero for unequal roots iff their ratio is a nontrivial m_0-th root of unity, and for equal roots iff p divides m. The parameter b²/(ac)=2+xi+xi^(-1) identifies exactly each inverse pair, and Frobenius fixes its value iff xi^(q-1)=1 or xi^(q+1)=1. The two groups intersect exactly at the inversion-fixed roots in their union. This accounts for the half-sum and the deleted identity when p does not divide m. The t=0 fibers take b=0 and arbitrary nonzero a,c; at t≠0 arbitrary nonzero a,b determine c. This works also in characteristic two. Independent ungraded matrix multiplication ranks matched the enumerator in all 21 exhaustively enumerated (m,q) pairs tested over F_2, F_3, F_5 and F_9; for example (m,q)=(8,9) yielded multiplicities (1,272,456) at ranks (0,48,49).",
+      "residual_risks": [
+        "The replay is a bounded corroboration; the proof, not the tested values, establishes all degrees and all finite fields."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Marangone studies degree-two non-Lefschetz loci but in the ternary characteristic-zero setup; Boij et al. concern linear forms. Numata's family is broader at determinant level, not at counting level."
+        ],
+        "reasoning": "The geometric rank-failure framework and determinant inputs are established; the quantitative binary finite-field census has different arithmetic parameters and does not specialize from those results.",
+        "searches": [
+          "arXiv:2404.16238, abstract and introduction",
+          "arXiv:1609.00952, abstract and introduction",
+          "arXiv:2002.12649, Theorem 3.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local Jordan-census and tridiagonal findings",
+        "arXiv:2002.12649",
+        "arXiv:2404.16238",
+        "arXiv:1609.00952",
+        "DOI:10.1515/spma-2023-0114 (citation only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day cubic-by-cubic result implies the m=3 formula directly. Numata supplies the algebraic determinant, while the asserted count needs the corank-one argument and separate split, nonsplit and equal-root arithmetic; these are not supplied by Numata's determinant theorem."
+        ],
+        "reasoning": "The all-m enumerator is not treated as new merely for writing its numbers explicitly: it needs the finite-field orbit classification and weighted fiber count. No conclusion about the content of the inaccessible tridiagonal paper is used.",
+        "searches": [
+          "arXiv:2002.12649, Theorem 3.2",
+          "Same-day Resultary record --5570b61d52fb, Case II",
+          "DOI:10.1515/spma-2023-0114"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The middle-block determinant is a degree-two instance of Numata's product-of-linear-forms determinant after base extension. The indexed tridiagonal nullity law uses 2n-1 independent entries in a symmetric matrix, not the three repeated-diagonal coefficients."
+        ],
+        "reasoning": "A determinant formula detects the exceptional set over an extension, not the number of its rational coefficient triples. Neither generic tridiagonal freedom nor splitting the quadratic makes the required Frobenius descent and weights a parameter substitution.",
+        "searches": [
+          "arXiv:2002.12649, Theorem 3.2, with d=r=m-1 and k=m-2",
+          "Resultary: symmetric finite-field tridiagonal corank census"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-the-finite-field-jordan-type-distribution-of-mathbb-f-q-x-y-x-3--5570b61d52fb, Case II: select the homogeneous quadratic slice by setting higher coefficients to zero; its ranks give 1+(q²-1)T³+(q³-q²)T⁴. SCOPE-complete-finite-field-jordan-spectra-in-the-cubic-by-cubic-monom--74c030e7b6dc also includes the quadratic case for m=3, p>=5."
+        ],
+        "reasoning": "These are material overlaps, not merely lexical. The first covers the entire boundary m=3, but neither supplies the dependence on arbitrary m and m_0.",
+        "searches": [
+          "Resultary: finite-field Jordan type distribution F_q[x,y]/(x^3,y^3)",
+          "Resultary: complete finite-field Jordan spectra cubic-by-cubic monomial complete intersection"
+        ]
+      },
+      "rationale": "The general-m count is the supported distinct claim. The m=3 count is already a mechanical rank projection and homogeneous slice of a same-day indexed Jordan census, with no priority conclusion from that date. The central determinant is also covered at the level of a prior general multiplication determinant after splitting the quadratic. Neither comparison covers the all-m finite-field coefficient enumerator.",
+      "residual_risks": [
+        "An unindexed finite-field Toeplitz or finite-field recurrence census could coincide with the coefficient count. Full text of the cited finite-chain-ring determinant paper was unavailable. Bounded comparison does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of m=3; no assumed priority",
+          "evidence": [
+            "For a nonzero quadratic leading part, the count includes an independent q^3 factor for higher coefficients. Restricting these to zero and taking ranks gives exactly the claimed m=3 specialization."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-the-finite-field-jordan-type-distribution-of-mathbb-f-q-x-y-x-3--5570b61d52fb",
+          "material_read": "Mirrored RESULT.md offsets 0–2412 and 3800–5879, Case II",
+          "method": "Local Resultary mirror and Jordan-to-rank comparison",
+          "title": "The finite-field Jordan-type distribution of F_q[x,y]/(x^3,y^3)",
+          "trigger": "Exact object at m=3, all characteristics"
+        },
+        {
+          "assessment": "Restricted overlap at m=3",
+          "evidence": [
+            "The all-element census explicitly treats the quadratic case in characteristic p>=5; no extension to m>3."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-complete-finite-field-jordan-spectra-in-the-cubic-by-cubic-monom--74c030e7b6dc",
+          "material_read": "Mirrored RESULT.md offsets 0–2167 and 3367–3845",
+          "method": "Local Resultary mirror",
+          "title": "Complete finite-field Jordan spectra in the cubic-by-cubic monomial complete intersection",
+          "trigger": "Indexed exact quadratic case"
+        },
+        {
+          "assessment": "Covers the determinant input, not the finite-field coefficient count",
+          "evidence": [
+            "Theorem 3.2 for products of linear forms at d=r=m-1, k=m-2 is the exact middle block, allowing extension when the quadratic is nonsplit."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2002.12649",
+          "material_read": "Introduction p. 1; Theorem 3.2 p. 3",
+          "method": "OA primary text, specialize the theorem",
+          "title": "On the determinant of multiplication map of a monomial complete intersection ring",
+          "trigger": "Same binary monomial algebra and graded map after splitting"
+        },
+        {
+          "assessment": "Different dimension, field and invariant",
+          "evidence": [
+            "The conic locus in P^5 is for ternary characteristic-zero complete intersections."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2404.16238",
+          "material_read": "Abstract, introduction pp. 2–3 and ternary monomial examples pp. 3–4",
+          "method": "OA primary text",
+          "title": "The non-Lefschetz locus of conics",
+          "trigger": "Broader geometric degree-two rank-failure formulation"
+        },
+        {
+          "assessment": "Unresolved extent; no negative inference",
+          "evidence": [
+            "No readable theorem passage was retrieved; coverage is judged from other inspected sources only."
+          ],
+          "identifier_or_url": "https://doi.org/10.1515/spma-2023-0114",
+          "material_read": "Bibliographic citation only; relevant article passages inaccessible",
+          "method": "DOI/publisher HTML and PDF attempts and lawful alternate lookup",
+          "title": "Determinants of tridiagonal matrices over some commutative finite chain rings",
+          "trigger": "Potential Toeplitz determinant and finite-field overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Numata, Theorem 3.2, for the established determinant context"
+      ],
+      "rationale": "This classifies the full multiplication-rank distribution in the complete space of homogeneous quadratic multipliers, a natural family of Lefschetz operators. It supplies the exact frequency of failure and shows which arithmetic data control it even for nonsplit forms and nonseparable characteristic. The exact formula across all m and q is useful beyond either an isolated census or a determinant test for one form.",
+      "residual_risks": [
+        "No value claim relies on the already recoverable m=3 case by itself or asserts coverage of arbitrary forms or higher-dimensional rings."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

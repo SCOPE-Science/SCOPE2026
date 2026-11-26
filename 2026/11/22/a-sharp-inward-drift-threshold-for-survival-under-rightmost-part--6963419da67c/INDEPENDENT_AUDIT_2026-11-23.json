@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:21:34.666399Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the unabsorbed coupling the cycle pairs (Y,H) are iid: Y is the rightmost final displacement and H the maximum downward excursion of any walker during that cycle. The mean is −v/r+sqrt(2D) m_N sqrt(π)/(2 sqrt(r))=(v_c−v)/r. Finite nonzero variance makes the centered walk oscillate to arbitrarily negative reset positions, and a negative mean gives such positions by the strong law. A nonpositive reset position forces a prior continuous hit; positive reset positions alone would not imply survival. In the positive-mean case both cycle displacements and maximal absolute excursions have exponential moments near zero: for standard Brownian motion the one-sided supremum up to independent Exp(r) has tail exp(−u sqrt(2r)) by the hitting-time Laplace transform, and a union bound and Cauchy–Schwarz combine the two signs, N walkers and |v|T. Hence E exp(−θY)<1 for some θ>0; the sum of the Markov bounds for H_i−sum_{j<i}Y_j gives the record's exponential upper bound on capture for large x. This factors the current mark from past increments only. From every x>0, Brownian path support/positive killed transition probabilities and a reset in a finite time window give a positive probability of safely reaching that large reset level. There is also positive probability of capture before the first reset. The strong law, Poisson reset frequency, and exponential-tail Borel–Cantelli control of every within-cycle excursion give the stated almost-sure speed on survival, for all j. The coupled Gaussian maxima give strict increase and the stated N=1,2 checks and large-N leading term. Replay: RESULT.md lines 32–64; VERIFICATION.md and check.py were inspected, not executed. Numerical endpoint diagnostics cannot certify continuous or infinite-horizon survival.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier group-reset kernel covers current extrema and derives stationary center-of-mass avoidance observables, not a classification of unlimited-time continuous survival.",
+          "The harmonic first-hit paper uses quasi-stationary and large-count first-passage approximations. The single-walk historical-maximum paper was not retrieved in full."
+        ],
+        "reasoning": "Standard random-walk results apply to the reset skeleton; their inferences on a positive mean alone do not control intracycle excursions or establish survival from every x. The additional mark bounds and safe accessibility are essential to the physical continuous-absorption result. A general center-of-mass or historical maximum calculation does not transfer those conclusions to this model.",
+        "searches": [
+          "Primary literature lookup for group-reset survival and drift",
+          "arXiv:2412.02524 §II and stationary avoidance passage, offsets 10900 and 27800",
+          "arXiv:2604.24406 §§III.B and III.D, offsets 18200 and 23800",
+          "Majumdar–Sabhapandit–Schehr DOI 10.1103/PhysRevE.92.052126"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Lee–Yang–Lizana arXiv:2604.24406",
+        "Lee et al. arXiv:2412.02524",
+        "Resultary records 93a6d9240315 and 3412af4d45e5",
+        "Majumdar–Sabhapandit–Schehr 2015 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first-hit rule itself is not new. Under harmonic drift each cycle's centered displacement distribution depends on the starting position, rather than giving the iid increments with constant mean (v_c−v)/r.",
+          "The actual driftless statement has no variable v and therefore no critical equality or nonzero-drift comparison. The lattice running-record result has neither this stopping rule nor this reset skeleton."
+        ],
+        "reasoning": "Applying the kernel and textbook random-walk methods supplies ingredients; the exact parameter boundary including equality, all-start survival in the positive phase and its ballistic law are the remaining joint result. No inspected reset theorem supplies that implication wholesale.",
+        "searches": [
+          "Resultary 93a6d9240315, mirror Finding and Assumptions offset 0",
+          "Resultary 3412af4d45e5, mirror Finding and Assumptions offset 0",
+          "arXiv:2604.24406 §II and §§III.B,D; arXiv:2412.02524 §II and avoidance discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2604.24406 uses the same current rightmost relocation and same first-any-particle hitting event, but a harmonic drift −kx.",
+          "Resultary 93a6d9240315 independently indexes the same continuous first-hit problem at v=0 for N≥2; its stated result is positive escape for every x,D,r>0."
+        ],
+        "reasoning": "Stationary center-of-mass avoidance, surviving a reset skeleton, and surviving continuously until infinity are distinct. The translation-invariant marked walk in the frozen theorem is equivalent to the continuously monitored resetting experiment, not to harmonic confinement or historical-record resetting.",
+        "searches": [
+          "Local Resultary: rightmost collective resetting, positive escape and drift threshold",
+          "Lee, Yang and Lizana arXiv:2604.24406 §II, p. 2",
+          "Lee et al. arXiv:2412.02524 §II, p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "93a6d9240315 covers the driftless subcase; 3412af4d45e5 gives an exploration-speed threshold for one lattice walker returning to its running record."
+        ],
+        "reasoning": "The driftless catalog entry is a real overlap even though priority cannot be ordered by its same-day date. The exploration result and known normal-maximum constants are not a database or table of this continuous-absorption phase diagram; no enumerative table is applicable.",
+        "searches": [
+          "Local Resultary: current-maximum Brownian group escape and reset-to-record drift thresholds"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the whole constant-drift sharp threshold and the almost-sure speed of survivors. There is substantial known overlap in the resetting protocol, Gaussian extreme-value kernel, and the zero-drift case. Neither priority over the driftless observation nor novelty of the renewal/random-walk methods is claimed.",
+      "residual_risks": [
+        "The targeted primary lookup did not return usable additional sources; this is not negative evidence.",
+        "The precise historical-maximum paper scope and priority relative to the same-day driftless Resultary item remain limited as noted; no claim of exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest physical protocol, different dynamics and conclusions",
+          "evidence": [
+            "Particles in a harmonic potential reset to the current rightmost position; first-group hitting is the first boundary hit by any walker.",
+            "The survival calculation uses an approximately quasi-stationary distribution and approximations to first-hitting distributions, including at large N."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2604.24406",
+          "material_read": "§II p. 2, offsets 7700–10610; §§III.B and III.D, pp. 4 and 6–7, offsets 18200 and 23800",
+          "method": "Original OA PDF targeted passages",
+          "title": "Beyond average: heterogeneous first-passage dynamics in many-particle systems with resetting",
+          "trigger": "Same resetting protocol and exact first-hit event"
+        },
+        {
+          "assessment": "Kernel and stationary observable overlap; not the first-hit boundary",
+          "evidence": [
+            "Defines resetting to max(x_1,…,x_N). The avoidance observable is obtained from the stationary center-of-mass distribution."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2412.02524",
+          "material_read": "§II p. 2 offset 10900, p. 4 avoidance discussion offset 27800",
+          "method": "Original OA PDF targeted passages",
+          "title": "General theory for group resetting with application to avoidance",
+          "trigger": "Earlier general extreme-value group kernel and avoidance"
+        },
+        {
+          "assessment": "Direct overlap on v=0, with no inference about ordering from the date",
+          "evidence": [
+            "Positive escape for driftless synchronized Brownian particles resetting to the current maximum for N≥2 and all x,D,r>0."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-positive-escape-probability-for-every-positive-maximum-group-res--93a6d9240315",
+          "material_read": "Original RESULT.md, Finding and Assumptions, offset 0",
+          "method": "Local Resultary and original mirror passage",
+          "title": "Positive escape probability for every positive maximum group reset rate",
+          "trigger": "Same-day entry with the same driftless continuous first-hit model"
+        },
+        {
+          "assessment": "Different process and observable",
+          "evidence": [
+            "A nearest-neighbor walker resets to its historical running record, and the threshold concerns improvement in exploration speed."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-drift-threshold-for-optimal-independent-reset-to-record-ex--3412af4d45e5",
+          "material_read": "Original RESULT.md, Finding and Assumptions, offset 0",
+          "method": "Local Resultary and original mirror passage",
+          "title": "Sharp drift threshold for optimal independent reset-to-record exploration",
+          "trigger": "Near alias combining reset to a maximum and a drift threshold"
+        },
+        {
+          "assessment": "Precise whole-document comparison unresolved",
+          "evidence": [
+            "Available description refers to one walker returning to a historical maximum. Full-text access failed; no independent negative inference made."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.92.052126",
+          "material_read": "Bibliographic citation and frozen scope description; no original PDF passage independently retrieved",
+          "method": "Lawful OA access attempts",
+          "title": "Random walk with random resetting to the maximum position",
+          "trigger": "Prior maximum-based resetting and ballistic behavior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The question is whether cooperative resetting can offset actual inward drift when every walker is continuously exposed to absorption. The exact finite-N phase line, inclusion of critical capture, and linear speed on survival answer that question, with the contrast between reset-skeleton behavior and continuous survival made explicit. This is not an estimate extrapolated from finite-horizon observations, nor just the known zero-drift escape phenomenon.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

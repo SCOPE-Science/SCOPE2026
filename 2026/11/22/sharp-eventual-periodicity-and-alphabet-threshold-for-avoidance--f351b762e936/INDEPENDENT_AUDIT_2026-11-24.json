@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:38:54.671584Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently enumerated binary words through length eight using base-4 encoded Parikh sums, verified the exact counts, 12 contexts, 10 length-six transitions and six length-eight phases, and checked the unique correct continuation of each length-eight phase. This is a finite certificate for all lengths because appending a bit can only create a forbidden suffix of length 4 or 6; the six distinct phases exhaust length eight and always have the periodic continuation. The two additional length-seven words make the onset sharp. Independently checked both distinct same-length returns for each of the three prescribed constraints (ternary joint and each binary single order), checking every factor in the seed plus each block and exact return of the maximal context. Any future crossing factor is then checked by the next return, so the choices concatenate freely and arbitrary remaining length is obtained by a prefix of one return. Counts are positive and submultiplicative by factoring a word at a fixed index, giving existence of entropy and the stated strict bounds. Replay: python3 /workspace/branches/reproduce_decisive.py; the frozen scripts and verification notes were inspected without execution.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grant quantifies over every order at or above the cutoff, not exactly {2,3}. Rao–Rosenfeld construct binary 3-Abelian-square avoidance at periods at least three and ternary 2-Abelian-square avoidance at periods at least two."
+        ],
+        "reasoning": "A broader ban at cutoff two excludes even the exhibited period-six infinite word, which has an Abelian square of order six. Conversely, k-Abelian equivalence for k>1 has extra conditions and excludes fewer squares at a given order; positive entropy there does not prove it for the present Parikh-only restriction.",
+        "searches": [
+          "Grant arXiv:1012.0524 §1, binary Abelian squares of order at least k",
+          "Rao–Rosenfeld arXiv:1507.02581 Corollary 1 and Theorem 2, k-Abelian long-period avoidance"
+        ]
+      },
+      "checked_sources": [
+        "Resultary catalog and mirrored cyclic RESULT 4c3beeb5d56e",
+        "Grant arXiv:1012.0524",
+        "Rao–Rosenfeld arXiv:1507.02581"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The all-orders lower-cutoff table bounds a smaller language; the k-Abelian and literal positive-growth results concern different, weaker per-order equivalences."
+        ],
+        "reasoning": "The table witnesses do not exclude additional paths, and positive growth of the per-order weaker constraints cannot certify the three exact return languages. Exhaustion at length eight and the jointly compatible returns give the precise additional results.",
+        "searches": [
+          "Compare Grant §§1–2, Rao–Rosenfeld Corollary 1 and Theorem 2, and cyclic RESULT 4c3beeb5d56e with the frozen overlap graph and return blocks"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary match f351b762e936 is this very result. The distinct 4c3beeb5d56e explicitly forbids literal uvuv and abcabc on indexed circles and reports positive shift entropy."
+        ],
+        "reasoning": "For example, 0110 is an Abelian square of order two but not a literal square. Neither taking the periodic extension nor changing from cyclic to linear boundary conditions converts the literal forbidden patterns to the required Parikh equalities.",
+        "searches": [
+          "Resultary: Abelian square avoidance orders 2 and 3, period 000111 and entropy",
+          "Resultary 4c3beeb5d56e, Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Grant's ℓ(2)=10 row lists 0011100011, a phase fragment of the same sequence, as an extremal word for avoiding every order at least two. It is not an enumeration of all binary words under the exact two-order restriction. The nearby literal table counts legal indexed periodic points, not the linear Abelian language."
+        ],
+        "reasoning": "Credit the prior precise phase fragment; neither table gives the six exhaustive length-eight factors, the transient counts or the growth comparisons.",
+        "searches": [
+          "Resultary lookup for exact stabilization at six phases, length eight",
+          "Grant arXiv:1012.0524 §2 Shallit–Rampersad table, literal lookup 000111 and read surrounding definitions",
+          "Resultary 4c3beeb5d56e exact count list"
+        ]
+      },
+      "rationale": "The supported distinct result is the exact binary rigidity and onset under the two exact orders, joined to a constructive exponential-growth threshold and binary inclusion-minimality. Neither standard overlap graphs nor periodic examples are by themselves the originality basis.",
+      "residual_risks": [
+        "Targeted literature search supplied no further decisive source; historical finite-state tables, unindexed calculations or stronger ternary constructions may still overlap. No priority order is inferred between distinct same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "An earlier phase fragment and related extremal quantity, not the exact-order language classification",
+          "evidence": [
+            "§2: for k=2 the maximum length under its stronger restriction is 10 and the lexicographically least witness is 0011100011."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1012.0524",
+          "material_read": "PDF §1 defining ℓ(k) and §2 table including the k=2,3 rows",
+          "method": "Checked which factor orders are tested and compared exact words",
+          "title": "On Avoiding Sufficiently Long Abelian Squares",
+          "trigger": "Same binary alphabet, order definitions, and an extremal table with the periodic phase fragment"
+        },
+        {
+          "assessment": "Does not imply the Parikh-only entropy or counting theorem",
+          "evidence": [
+            "Corollary 1 uses 3-Abelian squares at periods at least 3; Theorem 2 yields a ternary avoidance of 2-Abelian squares of period at least 2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1507.02581",
+          "material_read": "Theorem 1, Corollary 1 with growth paragraph, and Theorem 2 passages",
+          "method": "Distinguished the equivalence parameter from square half-length and compared restriction implications",
+          "title": "Avoidability of long k-abelian repetitions",
+          "trigger": "Binary and ternary long-period avoidance and growth"
+        },
+        {
+          "assessment": "Different forbidden language and invariant",
+          "evidence": [
+            "The hypotheses say literal tandem squares on indexed periodic extensions; its shift has positive entropy."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-cyclic-zeta-function-and-missing-primitive-periods-under-s--4c3beeb5d56e/RESULT.md",
+          "material_read": "Finding and Assumptions, offset 0–2200",
+          "method": "Compared equivalence, boundaries and counted objects",
+          "title": "Exact cyclic zeta function and missing primitive periods under simultaneous binary two- and three-step square avoidance",
+          "trigger": "Same two half-lengths, exact counts, periods and entropy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first two nontrivial half-length restrictions constitute a minimal pair that forces binary words into just one periodic orbit after a sharp finite cutoff, while adding a third symbol or removing either restriction permits independent choices forever. This gives an exact rigidity benchmark for bounded Abelian-square avoidance and distinguishes zero capacity from genuine exponential growth; finite counts alone would not establish that distinction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

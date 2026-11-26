@@ -1,12 +1,21 @@
-# Mathematical and literature assessment
+# Independent mathematical audit
 
-## Correctness
-The precise scalar balance, parameters and equilibrium are defined in RESULT.md. An exact derivative factorization reduces the global question to a quadratic in \(z=(k/K)^p\), whose discriminant, positive-root count and sign pattern give the necessary and sufficient conditions. The limiting values of oxygen and strict monotonicity on each branch prove the exact count of threshold crossings. The square-root and three-halves onset orders follow from the root formula and integral of the factored derivative. `verify.py` passed 21,781 supplementary floating-point assertions; the analytic reasoning, not computation, supports infinite quantifiers. Physical conclusions are restricted to positive equilibrium oxygen.
+## correctness
 
-## Originality
-Closest accessible source: Williams et al. (*Biogeosciences* 21, 2024; DOI 10.5194/bg-21-1961-2024), whose full article and discussion were inspected, especially its physical oxygen flux estimate, discussion of organic material as an additional respiration source, and limitations. Rippeth et al. (*Nature Communications* 15, 2024; DOI 10.1038/s41467-024-47548-2) establish mixing sensitivity and multiple flux paths but the accessible source was limited to an abstract and summary. Große et al. (*Biogeosciences* 13, 2016; DOI 10.5194/bg-13-2511-2016) analyze a more complex simulated ecosystem; its accessible detailed abstract was inspected, not the complete study. Daewel et al. (*Communications Earth & Environment* 3, 2022; DOI 10.1038/s43247-022-00625-0) simulate changing oxygen and productivity under wind-wake modification. The exact Hill-reaction discriminant and global three-crossing classification were not found in inspected materials. Generic Hill-function calculus is existing knowledge, and the biophysical Hill result of Martinez-Corral et al. (2024) is not a steady mixing-balance result; unlocated equivalent lemmas remain a priority risk. A search not finding a theorem is not a uniqueness proof.
+PASS
 
-## Value
-Vertical exchange simultaneously replenishes deep oxygen and can transport material that contributes to respiration; the literature explicitly notes this competition. The theorem identifies a sharp, interpretable boundary between guaranteed monotone ventilation benefit and a potential reentrant oxygen-risk window, for every cooperative exponent in the specified class. The formula classifies all positive mixing rates rather than a selected numerical case. The result is a model benchmark and not a prediction of actual shelf-sea oxygen, as the Hill consumption law was not fitted.
+For each fixed k>0 the linear oxygen equation has a unique equilibrium with exponential convergence. With x=k/K and z=x^p, the sign of its mixing derivative equals the sign of 1-qG(z), where G=z(p-1-z)/(1+z)^2. For p<=1, G<0. For p>1, G'=[p-1-(p+1)z]/(1+z)^3 and the positive maximum at z0=(p-1)/(p+1) is (p-1)^2/(4p). This gives the exact threshold, including strict increase at a single stationary double zero. Above threshold the derivative numerator has precisely the two displayed simple roots in (0,p-1) and sign pattern +,-,+. The curve runs from -infinity to Cs from below; strict monotonicity on each branch gives the stated level counts, including tangencies and no level at or above Cs. A positive level is necessary for physical meaning. At fixed p, the root gap in z is asymptotic to 2 sqrt(p) sqrt(q-qc)/(1+qc); the smooth x(z) conversion gives the printed splitting coefficient. For the concentration gap, integrate (q+1)(z-z_-)(z_+-z) times the smooth positive weight (r0/K)/[p z^(1+1/p)(1+z)^2] over that interval; its integral scales as the cube of the root gap with a strictly positive limiting coefficient. Independent bounded replay: python3 /workspace/review_replay.py, check 5, including the exact gain maximum, an exact positive-root count in the p=2 example and its numerical levels. This establishes a conditional model theorem, not a field-data claim.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct claim is the exact all-parameter fold and level-count boundary for the specified positive-baseline Hill balance, not the use of Hill laws, generic positive-feedback folds or universal onset exponents. The mathematically equivalent rational response is a material historical-priority risk, searched explicitly. The available prior statements did not establish the same exact critical condition or an implication covering this constant-plus-Hill gain. The access limitations below do not establish absence.
+
+## value
+
+PASS
+
+With ventilation and mixing-stimulated oxygen demand competing, the threshold tells exactly when monotone ventilation gain can give way to a rise–fall–rise steady response. The positive-baseline/all-parameter classification and exact crossing counts provide a precise model benchmark and parameter demarcation, not an arbitrary numerical slice or a claim that generic fold exponents are new. Biological interpretation is restricted to positive equilibria under an explicitly uncalibrated law; no field tipping point or transient prediction is supported.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

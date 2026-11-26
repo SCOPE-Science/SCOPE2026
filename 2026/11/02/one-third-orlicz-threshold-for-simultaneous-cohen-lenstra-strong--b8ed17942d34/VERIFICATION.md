@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 VERIFY.py` (Python 3 standard library only). The program enumerates homomorphisms by possible generator images, counts automorphisms exactly, compares them against the classical partition formula, and independently counts partitions by square-part weights through 23. Verified output:
+## correctness
 
-```
-VERIFY_OK automorphism_formula_exact_cases=17 square_partition_weights=24 primes=2,3
-```
+PASS
 
-This check is finite and tests critical structural lemmas only. The probability-one simultaneous law is proved by weighted empirical measures and independent Borel–Cantelli; the infinite one-third threshold is proved using a generating-product upper bound and an explicit disjoint exponential family. The theorem excludes the critical endpoint and assumes independent idealized Cohen–Lenstra samples, not observed number-field class groups.
+On each atom x the norm of evaluation equals w_x=Φ⁻¹(1/p_x), since the one-coordinate modular bound is attained by w_x times the singleton indicator. Integrable w gives a common full-probability event via the scalar strong laws on all coordinates and on a countable finite-set exhaustion of the tails; it gives convergence even in empirical-functional norm. If E w=∞, independence and the tail-sum test imply w(X_n)/n is unbounded almost surely. Equivalently to the proof's uniform boundedness step, select increasing n_j with w(X_n_j)/n_j≥j2^j and sum the positive norm-one singleton witnesses with coefficients 2⁻ʲ. The series converges in the Luxemburg space (and evaluations converge), and its empirical means exceed j at n_j. Integrability follows from Φ≥identity. The logarithmic inverse asymptotic follows by bounding the integral on its last half and all of [0,t]. For the automorphism formula, Hom factor sizes give ℓ^S endomorphisms; reduction on G/ℓG is block triangular by cyclic-order size and invertibility requires each multiplicity block to be invertible. The correction to log |Aut| is O(√S), uniformly by the column bound. The Gaussian estimate on the square-partition product gives log N(s)=O(s^(1/3)); the disjoint binary-column families make the opposite strict side diverge. The cyclic-type witness has a summable Orlicz modular but each q-moment q>1 diverges. The endpoint is not decided.
+
+## originality
+
+PASS
+
+The simultaneous-law question, its L^q criterion, and the square-partition growth scale are prior. The supported distinct content is the exact countable-atom Luxemburg criterion and the resulting two-sided Orlicz threshold for Cohen–Lenstra sampling, not a new asymptotic for partitions into squares.
+
+## value
+
+PASS
+
+The exact atomic test converts a simultaneous convergence question into a checkable property of the mass distribution and controls the norm of the empirical functional when it holds. For the standard Cohen–Lenstra law this yields an explicit boundary within classes strictly beyond every positive extra power moment; the failure result is equally informative and does not contradict the scalar strong law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

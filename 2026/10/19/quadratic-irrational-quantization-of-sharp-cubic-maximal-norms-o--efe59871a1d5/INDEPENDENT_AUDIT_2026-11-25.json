@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:07:09.439434Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, assumptions and proof §§1–4",
+        "Frozen VERIFICATION.md and checks/verify_cubic.py (inspected, not executed)"
+      ],
+      "rationale": "The two slack factorizations follow from (Λ−1)y²=Λz² and Λz²(3−2z)=1, with 2y=3. On averaging at mean one in L³, the affine term drops out and each zero must be z or y, giving high mass α. Nonconstant finite vectors give quotient above one; Jensen equalization of each group at fixed means improves the quotient unless both groups are constant (a threshold tie may be placed in the upper group). For a fixed mass, differentiation gives the displayed bracket, and dividing by t² gives a strictly decreasing expression with strictly negative derivative at its unique root. Thus the optimal t is smooth and interior. For a→0, write m=a+(1−a)t: m³−t³≤3a(t+a)²; splitting at t=a^(1/3) bounds F−1 uniformly by O(a^(2/3)); the other endpoint follows from F−1≤(1−a)/a. This verifies global maximum separation. The mean-one second variation minimizes 3α(Λ−1)y u²+3(1−α)Λz v² under αu+(1−α)v=−(y−z); every feasible linear slope is realized by a smooth mean-one path. Its reciprocal weight sum simplifies to 1/(3Λz²) by the mean constraint. Consequently κ=3(y−z)/(2D)=1−√7/14 with D=(322−31√7)/162. For the grid, the nearest point yields an O(n^−2) upper bound on the deficit and the maximizing point is then within O(n^−1). The local multiplicative bounds apply to both and squeeze the optimal deficit relative to the squared distance to the nearest point, without assuming the optimizer is always that point. The quadratic integer polynomial gives the lower rational-approximation bound, continued fractions attain the matching order infinitely often, and density gives the n^−2 subsequence. Irrational mass excludes equality on every finite uniform space; atomlessness gives equality of exactly the stated two-level distributions.",
+      "residual_risks": [
+        "Interpret the deficit identity as an L³ statement, where subtraction is defined. The script's docstring uses a different script name from its actual path; the verification file gives the actual path. Finite numerical tests are not used for the uniform estimate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The nonatomic semigroup theorem is under local compactness, excludes finite atoms, and does not cover the noncompact identity component of the atomless mean semigroup considered here.",
+          "The complete-graph two-value result applies for general p>1, but the inspected large-p results hold with n fixed, rather than fixed cubic exponent and n→∞; the other graph papers give L² or variation conclusions."
+        ],
+        "reasoning": "A wider exponent range for two-valued inputs does not give an optimized mass fraction or relative finite-grid deficit. Nor does a universal semigroup norm under different hypotheses give these exact finite-graph invariants.",
+        "searches": [
+          "arXiv:2610.10247v1 Theorem 1.1",
+          "arXiv:2011.02630 abstract and Proposition 2",
+          "arXiv:2005.03146v3 and arXiv:2603.12462v1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2011.02630, 1410.6204, 2610.10247v1, 2005.03146v3, 2603.12462v1",
+        "Resultary 1a9c9a4ca51f and caeee768a4ff"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior two-value theorem reduces each finite norm to two-level masses and a scalar ratio, and hence is the natural route to optimizing the cubic constant. It supplies neither the irrational maximizing mass nor a nondegenerate second variation or uniform relative estimate."
+        ],
+        "reasoning": "Even after the reduction, obtaining the quantization requires locating and certifying the unique continuous maximizer, evaluating the exact curvature, and justifying a multiplicative grid comparison uniform at very small fractional parts. The distinct claim is not merely an alternative proof of the existing extremizer-shape theorem.",
+        "searches": [
+          "arXiv:2011.02630 Proposition 2 and fixed-n scope",
+          "Frozen RESULT.md §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Soria–Tradacete use the same max of local value and full average on K_n; Gonzalez-Riquelme–Madrid prove the two-value principle for p>1.",
+          "1a9c9a4ca51f is a two-input variation modulus on K_n; caeee768a4ff is a Fourier third-moment inequality on C_6."
+        ],
+        "reasoning": "The operator definition is identical in the two graph papers, but the variational or Fourier quantities in the catalogue do not become its cubic operator norm by normalization or exponent conversion.",
+        "searches": [
+          "arXiv:1410.6204 complete-graph formula and norm bounds",
+          "arXiv:2011.02630 Proposition 2",
+          "Resultary same-operator and third-moment comparisons 1a9c9a4ca51f, caeee768a4ff"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected exact catalogue constants are for variation or a Fourier problem. The inspected early graph-norm passage gives bounds, not the fixed-cubic sequence."
+        ],
+        "reasoning": "The assertion is not a finite lookup: it specifies a uniform law across arbitrarily large n, including subsequences with vastly different deficit orders. No exact table equivalence was found in the inspected material.",
+        "searches": [
+          "Resultary same-operator and third-moment searches including 1a9c9a4ca51f and caeee768a4ff",
+          "arXiv:1410.6204 p. 9"
+        ]
+      },
+      "rationale": "The complete-graph operator and two-value extremizer theorem are prior. The supported distinct result is the exact fixed-cubic, large-n quantization, including the irrational limiting mass, nonzero curvature, and uniform relative asymptotic on near-integral subsequences. The inspected two-level theorem is a starting point rather than an implication of this arithmetic statement.",
+      "residual_risks": [
+        "The literature comparison is bounded; a separate Bellman-function treatment or an unindexed equivalent asymptotic is not excluded. Prior work already supplies the general two-level reduction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Two-value reduction covered; inspected results do not give fixed-cubic grid quantization",
+          "evidence": [
+            "Proposition 2 concerns norm-attaining functions for p>1; the abstract addresses fixed n and large p."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2011.02630",
+          "material_read": "Abstract and Proposition 2, PDF p. 4 (OA offset about 12000)",
+          "method": "Open-access PDF passages",
+          "title": "Sharp inequalities for maximal operators on finite graphs, II",
+          "trigger": "Identical operator and general p extremizers"
+        },
+        {
+          "assessment": "Same definition; inspected p>1 discussion gives bounds",
+          "evidence": [
+            "Maximum of point value and full average on K_n."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1410.6204",
+          "material_read": "PDF pp. 4 and 9 (OA offsets about 10000 and 27700)",
+          "method": "Open-access PDF passages",
+          "title": "Best constants for the Hardy–Littlewood maximal operator on finite graphs",
+          "trigger": "Same K_n maximal operator and exact norm question"
+        },
+        {
+          "assessment": "Distinct nonatomic and local-compactness hypotheses",
+          "evidence": [
+            "Sharp constant p′ in the stated semigroup setting, not the finite uniform operator here."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.10247v1",
+          "material_read": "Theorem 1.1, HTML offset about 3800",
+          "method": "Open-access theorem passage",
+          "title": "On L^p norms of maximal operators",
+          "trigger": "Possible broader semigroup sharp inequality"
+        },
+        {
+          "assessment": "Related L² and variation results, not cubic quantization",
+          "evidence": [
+            "The earlier work concerns the K_n L² norm and p-variation; the later work has a variation objective."
+          ],
+          "identifier_or_url": "arXiv:2005.03146v3; arXiv:2603.12462v1",
+          "material_read": "Abstract and initial statements",
+          "method": "Open-access source passages",
+          "title": "Sharp inequalities for maximal operators on finite graphs; Sharp variational inequalities for the Hardy–Littlewood maximal operator on finite undirected graphs",
+          "trigger": "Related complete-graph sharp inequalities"
+        },
+        {
+          "assessment": "Different quantity; later path date",
+          "evidence": [
+            "Two-input total-variation perturbation constant, not an ℓ³ operator norm."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-two-input-graph-variation-modulus-of-the-centered-maximal--1a9c9a4ca51f",
+          "material_read": "RESULT.md opening Finding",
+          "method": "Local mirror",
+          "title": "Sharp two-input graph variation modulus of the centered maximal operator",
+          "trigger": "Same-operator exact norm-like catalogue hit"
+        },
+        {
+          "assessment": "Different operator and domain; later path date",
+          "evidence": [
+            "Fourier moment inequality on C_6."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-sharp-third-moment-amplification-and-sixfold-optimizer-rig--caeee768a4ff",
+          "material_read": "RESULT.md opening Finding",
+          "method": "Local mirror",
+          "title": "Exact sharp third-moment amplification and sixfold optimizer rigidity",
+          "trigger": "Exact cubic-moment catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4",
+        "arXiv:2011.02630 Proposition 2"
+      ],
+      "rationale": "This identifies the sharp norm gap of a natural complete-graph operator, not just a uniform upper bound. Equal atom weights grid the extremizing mass, and identifying the resulting exact arithmetic factor explains why there need not be a single convergence rate. The pointwise certificate and constrained curvature tie the atomless equality problem to the finite-grid behavior.",
+      "residual_risks": [
+        "Restricted to the cubic exponent and the stated complete-graph or mean-space operator."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

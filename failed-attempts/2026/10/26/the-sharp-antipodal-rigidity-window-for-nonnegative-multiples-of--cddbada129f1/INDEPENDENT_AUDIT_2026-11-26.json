@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:06:49.517161Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I reconstructed Φ70 as Φ35(−X), propagated the linear functional on powers using its scalar characteristic recurrence, and confirmed the sixteen positive entries at 19..34, all other entries through 53 zero, and the entry at 54 equal to −2. After shifting off the smallest occupied exponent, positivity eliminates exactly the middle block. Reduction modulo Φ70 identifies X^35 with −1, and the two remaining block polynomials have degree at most 18<24, so are equal. This argument works over R and does not assume integer coefficients or infer real divisibility from a single complex root. The 19 antipodal generators have disjoint supports and give the claimed simplicial cone; the converse follows from the binomial and degree bound. Independently convolving the stated quotient with Φ70 gives the exact 16-term W. Its degree is 54 and its coefficients in degrees 0 and 35 differ, precluding binomial divisibility. Replay: /workspace/replays/recheck_frozen.py, cyclotomic().",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tan–Zhang's universal minimum with its equality case gives 35 at N=70, not by itself the first non-antipodal diameter. Steinberger's theorem concerns least degree. The later real antipodal rigidity result treats N=30·2^h, which excludes 70."
+        ],
+        "reasoning": "These comparisons distinguish an unconstrained minimum, a near-equality bound, and different index families from the exact supporting-arc assertion at 70. The stronger relevant result is the 2pq diameter theorem with its kernel and classification.",
+        "searches": [
+          "arXiv:2609.07646v1, Theorem 1.1, §4.2 and Proposition 5.1",
+          "Steinberger, EJC 19(4), P1, Theorem 1",
+          "Resultary: 311989a6e17a, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (read only)",
+        "Resultary 4430cfe2c9a3 and 311989a6e17a",
+        "arXiv:2609.07646v1",
+        "EJC 19(4) P1",
+        "arXiv:2008.11268"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proof §1 identifies the rational signed CRT kernel with cᵢⱼ=uᵢ+vⱼ. Its rational equations extend over R (tensor the rational polynomial remainder map with R). At support diameter at most 53 subtract all overlapping antipodal pairs, leaving at most one root per signed cell. The net matrix is then cᵢⱼ=uᵢ−sⱼ. For any level t between two of its finitely many potentials, the matrix 1{uᵢ>t}−1{sⱼ>t} is additive, has entries 0 or ±1, and every nonzero sign is a matching sign of cᵢⱼ. If c≠0, at least one such cut is nonzero."
+        ],
+        "reasoning": "That cut represents a nonempty squarefree vanishing subset supported in the residual interval. A minimal vanishing subset inside it cannot be an antipodal pair; the regular 5- and 7-gons have respective circular diameters 56 and 60. It must therefore be nonpolygonal with diameter at least 54 by the indexed theorem, a contradiction. Hence only antipodal pairs remain in 0..53, giving the 19-ray cone immediately. The indexed checkerboard W attains 54 and has no antipodal pair. This uses the kernel and actual bound, not merely the apparent similarity of statements.",
+        "searches": [
+          "Resultary: 4430cfe2c9a3, Finding, Assumptions and Proof §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed 2pq theorem gives minimal circular diameter (2p−1)(q−1) for nonpolygonal minimal subsets. A subset of the normalized fixed interval 0..D has circular diameter at most D; to use attainment in the linear formulation, rotate a shortest covering arc to start at 0."
+        ],
+        "reasoning": "The two diameter conventions yield the same minimum after allowing shifts. The squarefree condition is an actual scope difference and requires the signed-kernel reduction below, rather than identification by numerical cutoff alone.",
+        "searches": [
+          "Resultary: nonpolygonal minimal vanishing sums order 2pq, circular diameter, 4430cfe2c9a3",
+          "arXiv:2609.07646v1",
+          "arXiv:2008.11268"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published small-weight type classification is up to rotation and does not state the coefficient-cone cutoff in the compared theorem. For W in the frozen Finding, its even residues are exactly the rectangle A×B with A={0,2,4} mod 5 and B={0,5} mod 7; its odd residues form Aᶜ×Bᶜ. This is S(A,B) exactly in the indexed parametrization."
+        ],
+        "reasoning": "The actual witness belongs to the existing classification, not merely to a table entry of the same weight. The exact diameter from the indexed theorem is 54 at p=5, q=7.",
+        "searches": [
+          "arXiv:2008.11268, §3 Theorem 3.3",
+          "Resultary: 4430cfe2c9a3, checkerboard parametrization"
+        ]
+      },
+      "rationale": "The same-day Resultary theorem for nonpolygonal minimal vanishing subsets at order 2pq already supplies the sharp boundary, and its additive kernel gives a short conformal reduction that extends the boundary to the claimed real cone. The exact W is also one of that theorem’s classified checkerboards. The distinct indexed theorem thus covers the Finding, despite different wording and coefficient scope. This finding of coverage does not establish posting order or dependency on the common date.",
+      "residual_risks": [
+        "The common Resultary path date cannot settle chronological priority.",
+        "The precise placement of W in the published small-weight type table was not established; the exact match to the indexed checkerboard family already resolves coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the sharp threshold after signed-kernel reduction; also classifies W",
+          "evidence": "Minimum (2p−1)(q−1); rational kernel is additive row/column potentials; all nonpolygonal minimal subsets are parity checkerboards.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-circular-diameter-of-nonpolygonal-minimal-vanishing-sums-a--4430cfe2c9a3/RESULT.md",
+          "material_read": "Finding, Assumptions, Proof §1 (offsets 0–4492), and §3 attainment passage",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "Sharp circular diameter of nonpolygonal minimal vanishing sums at order 2pq",
+          "trigger": "Exact 70 boundary in a general minimum-arc theorem"
+        },
+        {
+          "assessment": "Unconstrained minimum and concentration, not the exact next cutoff in these passages",
+          "evidence": "D(F)≥(p−1)N/p with equality given by a rotated/scaled prime polygon.",
+          "identifier_or_url": "https://arxiv.org/html/2609.07646v1",
+          "material_read": "Theorem 1.1, §4.2 and Proposition 5.1",
+          "method": "OA HTML passage inspection",
+          "title": "Sharp Diameter Bounds for Nonnegative Cyclotomic Multiples",
+          "trigger": "Same nonnegative multiples and diameter"
+        },
+        {
+          "assessment": "Least degree rather than first non-antipodal support",
+          "evidence": "The even-index result includes index 70, in the least-degree setting.",
+          "identifier_or_url": "EJC 19(4) (2012), P1",
+          "material_read": "Theorem 1, p. 3",
+          "method": "OA PDF passage inspection",
+          "title": "The lowest-degree polynomial with nonnegative coefficients divisible by the n-th cyclotomic polynomial",
+          "trigger": "Even-index minimum degree and cyclotomic certificates"
+        },
+        {
+          "assessment": "Type classification, not in itself a minimum arc or real cone theorem",
+          "evidence": "Classifies types and parities of minimal sums of weight at most 16 up to rotation.",
+          "identifier_or_url": "https://arxiv.org/html/2008.11268",
+          "material_read": "Theorem 3.3, §3",
+          "method": "OA HTML passage inspection",
+          "title": "Classifying minimal vanishing sums of roots of unity",
+          "trigger": "Minimal vanishing types of weight 16"
+        },
+        {
+          "assessment": "Analogous but different indices",
+          "evidence": "Treats N=30·2^h with escape at 2N/3, not N=70.",
+          "identifier_or_url": "Resultary 2026/11/8, 311989a6e17a",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Sharp antipodal rigidity below two-thirds of a cyclotomic period",
+          "trigger": "Exact real coefficient cone with an antipodal escape cutoff"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The first failure of antipodal rigidity and the supporting cone are natural structural questions. Here the exact invariant follows from the indexed family theorem and its signed-kernel description, and W is one of its checkerboards. The frozen separating certificate is a short alternative verification, but it does not establish any additional mathematical claim beyond that coverage.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

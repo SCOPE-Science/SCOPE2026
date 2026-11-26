@@ -1,15 +1,21 @@
-# Review of the cross-polytope intersection-body classification
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The measure normalization is fixed by the coarea identity with independent standard Laplace coordinates: the central section volume equals \(2^n f_{\sum u_iX_i}(0)/(n-1)!\). Fourier inversion and partial fractions give the exact radial formula. The Vandermonde cancellation constructs the polynomial numerator; a nonzero residue along every denominator hyperplane rules out common factors. The resulting homogenized equation is linear in the homogenizing variable, so Gauss's lemma proves absolute irreducibility. Comparing homogeneous top-degree factor sets and parity of the next term distinguishes all signed orthants. The argument applies to all integers \(n\ge4\) and excludes coordinate-hyperplane artifacts. Independent convex-hull section computations and exact symbolic checks are supporting finite checks, not an infinite proof.
+## correctness
 
-## Originality
-**PASS, with residual priority uncertainty.** The 2021 work of Berlow, Brandenburg, Meroni and Shankar proves general semialgebraicity and a denominator-degree upper bound, and works out cube examples. The present theorem identifies a different, cross-polytopal family with exact irreducible degree \(\binom n2\) for *every* orthant; the noncancellation argument is essential to obtain equality in the prior upper bound. The 2024 translation/convexity paper does not state these exact degrees. The 2026 restricted-section preprint uses the same known Fourier integral, but studies extrema of selected hyperplane sections; it does not state the algebraic-boundary classification. The three-dimensional specialization is a known special calculation, and is not included in the new scope \(n\ge4\). Searches of related indexed findings revealed a section-face-spectrum result and earlier octahedral computations, not an all-dimensional degree classification. The possibility of equivalent unindexed classical work remains.
+PASS
 
-## Mathematical value
-**PASS.** The sharp exact degrees and component count classify a canonical intersection-body family in all dimensions, turning a general possible-degree bound into an attained value and a complete list of irreducible components. The dimension-four consequence (16 sextic components) is concrete and verifiable. This gives structural information about an algebraic-geometric invariant of a natural convex body and is not merely a computation at an arbitrary parameter choice.
+Reconstructed the Euclidean section normalization: for unit u the density of the Laplace projection at zero is the section integral of exp(−||y||₁)/2^n, giving (n−1)!/2^n times the section volume. Fourier inversion and partial fractions give c_n times the stated rational sum. On the unit sphere the integrand is dominated by (1+t²/n)^−1, so the section formula has a continuous positive extension to coordinate-wall directions; this does not require evaluating a possible zero-over-zero rational expression there. The common-denominator numerator is alternating, so division by the monic linear Vandermonde factors is exact over the integers. At a generic a_j=−a_i≠0, only terms i,j contribute a pole. Written over a_i²−a_j² their numerator has limit 2a_i^(2n−3)/∏_{k≠i,j}(a_i²−a_k²), which is nonzero. Thus no pair-sum factor cancels and the homogenized linear polynomial in z is primitive and irreducible over C. A dehomogenized factorization would homogenize and contradict this. On each open orthant, the polynomial vanishes at the radial boundary point, and its derivative in the radial scaling direction there equals the nonzero D_n of the signed point. Hence the patch is relatively open and smooth, and Zariski dense in that irreducible hypersurface. Continuity and density of open orthants in the topological boundary account for the remaining points. Any differing pair-sign products distinguish the top-degree factor sets, while simultaneous sign reversal changes the relative parity of the two nonzero homogeneous parts. This proves the exact component count and the sum of degrees. Independent dimension-four checks recover P_4=e_2e_3−e_1e_4 and the axis-limit normalization 4/3.
 
-## Limits and relationship to closest work
-The Laplace integral, semialgebraicity, and general component-degree bound are existing tools, not new discoveries. The classification applies to the origin-centered standard cross-polytope only. The real algebraic hypersurfaces may contain points beyond the convex body's Euclidean boundary. Independent validation has not been performed; unindexed equivalent computations cannot be ruled out by database search alone.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest examined results give an upper bound for symmetric polytopes, a section-volume representation on the same family, or the exact dimension-three classification expressly outside the new claim. They do not establish denominator noncancellation, absolute irreducibility and exact mutually distinct components for n≥4. The assessment is bounded and does not certify priority.
+
+## value
+
+PASS
+
+Determining whether the general degree bound is attained for the standard cross-polytope, and which irreducible equations account for its boundary, is a motivated metric-algebraic classification problem. The result settles sharpness, component multiplicity and explicit equations uniformly in dimension; this is more informative than an isolated small-dimensional check or a new expression for an already known section volume.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

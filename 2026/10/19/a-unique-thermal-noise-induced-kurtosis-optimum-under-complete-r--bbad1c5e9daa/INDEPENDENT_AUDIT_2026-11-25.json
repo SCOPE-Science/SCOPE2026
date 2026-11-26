@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:59:58.960141Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At a stationary independent Poisson age U of rate k, the dimensionless conditional position is centered Gaussian with variance hU+2U−3+4e^(−U)−e^(−2U), using force initialized at zero. Independently reconstructed the rational excess kurtosis via the stationary generator of the scaled position and force, with reset term −k on each nonconstant monomial: (k+j)M_ij=iM_(i−1,j+1)+h·binom(i,2)M_(i−2,j)+j(j−1)M_(i,j−2). Exact symbolic differentiation gives the stated degree-seven sign pattern: + for degrees 7 through 3, unrestricted degree 2, − for degrees 1 and 0. For h>0 there is one positive root by Descartes and the opposite signs at 0 and infinity; the derivative has the opposite sign of this polynomial. Both endpoint excesses are 3. For h=0 the independent formula reduces to 3+54k(k+2)/[(k+3)(k+4)], strictly increasing to 57. The thermal derivative is strictly negative pointwise, hence the optimized height strictly decreases between positive h values. Under h=e³, k=c/e, multiplying the critical polynomial by e² gives limiting sign polynomial 128c⁵−720c²; bracketing its nonzero root and using uniqueness proves the weak-noise scaling. The peak tends to 57 by comparison to the h=0 curve, taking h→0 at fixed k and then k→∞ for the lower bound. At h=1: k*=1.173900687945557, K=5.522908937170489. Replay: python /workspace/calculations/reproduce_frozen.py (check reset_kurtosis). No stationary regime at zero reset rate is used.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A general Gaussian-renewal mixture computes centered position moments by age averaging; the published renewal and Gaussian propagator already specify the stationary distribution.",
+          "Guéneau–Majumdar–Schehr's moment recursion is for a trapped particle whose drive resets but whose position persists, and the related OU appendix analyzes variances. Patel–Shee obtain fourth-moment behavior in another dynamics."
+        ],
+        "reasoning": "The renewal theorem covers the representation and makes the explicit kurtosis algebraically derivable. Neither the examined prior moments nor the general renewal principle supplies the strict reset-rate monotonicity on both sides of a unique maximum for all h>0.",
+        "searches": [
+          "arXiv:2306.09453 §4.2 and Appendix A",
+          "arXiv:2509.18515v1 Eq. (8)",
+          "arXiv:2602.21134 Eq. (4), Fig. 4 and pp. 7–9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2509.18515v1",
+        "arXiv:2306.09453",
+        "arXiv:2602.21134",
+        "arXiv:2609.21124 (abstract)",
+        "Local Resultary catalogue and inspected Nov. 8 and Nov. 22 findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The former supply a Gaussian age mixture; its fourth moment is three times the age mean of the squared conditional variance. They report stationary MSD and density in the inspected passages, not the derivative-sign certificate of the standardized fourth moment.",
+          "The latter's nonmonotonicity examples use a different state, different statistic and a different high-reset limit."
+        ],
+        "reasoning": "Obtaining the rational fourth-moment ratio is an application of known integration. Proving that its derivative has one sign change for every positive h and none at h=0 is a separate all-parameter assertion; no inspected stronger optimization theorem implies it by specialization.",
+        "searches": [
+          "Shankari–Sahoo PDF pp. 2–5, Eqs. (6), (8), (10), (12), (20) and Fig. 3",
+          "Patel–Shee PDF pp. 7–9, Fig. 4 and limiting formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shankari–Sahoo reset the entire state to its initial values; taking initial force zero and the overdamped dynamics gives the very same free full-reset process.",
+          "Patel–Shee use complete resets but a 2-D inertial particle with rotating fixed-speed heading and a different radial statistic, not the Gaussian integrated OU force."
+        ],
+        "reasoning": "Credit the equivalent same-process propagator, while keeping protocol, noise law and positional statistic fixed when comparing derivative and endpoint statements.",
+        "searches": [
+          "Resultary and primary literature: Gaussian active OU, resetting both force and position, stationary fourth moment and excess kurtosis optimum",
+          "arXiv:2509.18515v1, Eqs. (6), (8), (10), (12), (20)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Nov. 8 record classifies cumulant maxima for a confined particle with reset Brownian driving, not full position resets. The Nov. 22 record also has a limiting excess of 57, for a trapped swimmer's transverse position; its theorem is a cumulant sign change."
+        ],
+        "reasoning": "The dimensionless optimum is a function of h, not a single table constant. The shared limiting number 57 is not evidence of identical dynamics or the same optimization theorem. No matching indexed exact classification was verified.",
+        "searches": [
+          "Resultary: thermal broadening, complete resetting, non-Gaussianity and kurtosis extrema",
+          "Resultary 2026/11/8/SCOPE-thermal-broadening-preserves-the-strict-ordering-of-two-non-gaus--7fc19401bd11 and 2026/11/22/SCOPE-unique-transverse-kurtosis-reversal-for-a-completely-reset-trapp--1dd39e513d62"
+        ]
+      },
+      "rationale": "Best of current knowledge: the same process and full-reset Gaussian renewal propagator are known. The supported distinction is the global shape classification of the stationary kurtosis and its singular change at zero thermal noise, including proof of a unique maximizer for every strictly positive thermal ratio. Computing mixture moments from the propagator is not a novel method.",
+      "residual_risks": [
+        "An unlocated exact stationary fourth-moment optimization or a stronger analysis of the same renewal mixture could cover the all-parameter classification. The bounded comparison is not a general priority exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and stationary renewal law, not the full kurtosis classification in the inspected passages",
+          "evidence": "Whole-state reset to initial values, Gaussian overdamped propagator and stationary MSD are explicit; the fourth moment is derivable from the propagator.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.18515v1",
+          "material_read": "PDF pp. 2–5, Eqs. (6), (8), (10), (12), (20), Fig. 3; offsets about 13600–33575 in relevant passages",
+          "method": "Open primary PDF, bounded equation and figure passages",
+          "title": "Active Ornstein-Uhlenbeck particle under stochastic resetting",
+          "trigger": "Same overdamped fully reset active OU and thermal model"
+        },
+        {
+          "assessment": "Related moment method but not the free complete-state reset",
+          "evidence": "The harmonically confined position persists when the force is reset; the OU appendix derives variance results.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.09453",
+          "material_read": "Eqs. (33)–(38), §4.2 Eq. (59), Appendix A Eqs. (A.1)–(A.14), PDF pp. 13–14, 18, 37–38",
+          "method": "Open primary PDF, bounded equations including appendix",
+          "title": "Active particle in a harmonic trap driven by a resetting noise: an approach via Kesten variables",
+          "trigger": "General moment formulas for reset colored noise"
+        },
+        {
+          "assessment": "Different force, dimension, inertia and statistic",
+          "evidence": "Complete reset of a 2-D inertial swimmer's position, velocity and heading with a radial kurtosis measure; its reported rapid-reset limit is 19.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.21134",
+          "material_read": "PDF p. 3 Eqs. (1)–(4), Fig. 4 and limiting formulas pp. 7–9",
+          "method": "Open primary PDF, bounded model and results",
+          "title": "Controlling inertial active Brownian motion via stochastic resetting",
+          "trigger": "Fourth moments and reset-rate kurtosis behavior"
+        },
+        {
+          "assessment": "Verified topic distinction at abstract level, not a whole-text exclusion",
+          "evidence": "The abstract addresses finite-interval first passage with reflecting and absorbing boundaries, not free stationary kurtosis.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.21124",
+          "material_read": "PDF p. 1 abstract",
+          "method": "Open primary PDF, abstract only",
+          "title": "Persistence, resetting, and first-passage times of an active Ornstein–Uhlenbeck particle",
+          "trigger": "Same broad class of Gaussian active resetting"
+        },
+        {
+          "assessment": "Overlapping question but not the same protocol",
+          "evidence": "Fourth- and sixth-cumulant maxima are for an oscillator driven by a reset force, with position continuous at resets.",
+          "identifier_or_url": "Resultary/2026: 2026/11/8/SCOPE-thermal-broadening-preserves-the-strict-ordering-of-two-non-gaus--7fc19401bd11",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Local catalogue and mirror",
+          "title": "Thermal broadening preserves the strict ordering of two non-Gaussianity-optimal reset rates",
+          "trigger": "Thermal-noise classification of uniquely optimal reset rates"
+        },
+        {
+          "assessment": "Shared numerical limit, different stochastic model and theorem",
+          "evidence": "An athermal confined swimmer exhibits transverse cumulant sign reversal, not a unique positive-thermal-noise optimum for a Gaussian active force.",
+          "identifier_or_url": "Resultary/2026: 2026/11/22/SCOPE-unique-transverse-kurtosis-reversal-for-a-completely-reset-trapp--1dd39e513d62",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Local catalogue and mirror",
+          "title": "Unique transverse kurtosis reversal for a completely reset trapped swimmer",
+          "trigger": "Complete resets and exact rapid-reset excess kurtosis 57"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Different variances need not order standardized excursion amplitudes. The result identifies the unique extremum of a concrete shape observable and a sharp boundary in thermal noise: the optimum escapes to infinite reset rate on approaching the noise-free limit. Establishing this for arbitrarily small positive noise, rather than for a few plotted choices, is the value. It does not rank first-passage performance or determine positional tail laws.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

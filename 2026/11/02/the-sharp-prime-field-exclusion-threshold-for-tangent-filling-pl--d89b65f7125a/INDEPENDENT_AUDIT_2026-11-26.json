@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:37:44.687464Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–61; VERIFICATION.md lines 19–27; verify_classification.py lines 13–95, verify_incidence.py lines 8–71, verify_smoothness.py lines 3–12 (inspected, not executed)",
+        "Independent exact replay: exhaustive affine x,y for every nonsingular (a,b); rational elliptic addition for [3]E and its three translates; normalized projective representatives (1:x:y),(0:1:y),(0:0:1); evaluate the six equations and their explicit gradients and test each ambient point by dot product against the resulting tangent lines; repeat incidence for p=7",
+        "Asgarli–Ghioca arXiv:2302.13420v2 Theorem 1.1; Blokhuis, Combinatorica 14 (1994), 111–114, prime-order nontrivial blocking-set bound"
+      ],
+      "rationale": "Coverage by rational tangents dualizes to a blocking set. For a geometrically integral cubic in p>3, its irreducible dual has degree at most six by intersecting with a general dual line and pulling back to a polar conic. It cannot be a line: concurrency of the tangents would make the quadratic directional derivative toward that point vanish identically on the cubic and hence as a polynomial, which in p>3 would make the cubic independent of one variable and geometrically reducible. Thus p+1>6 excludes a full dual line. Blokhuis gives 3(p+1)/2, while distinct smooth points have distinct tangents by Bézout. For p=11,13, Hasse forces exactly 18,21 points respectively. A geometrically integral singular cubic has at most p+2 rational points by its genus-zero normalization and unique possible singular point; a ground-field irreducible geometrically reducible cubic has no smooth rational point because its three lines are Frobenius-conjugate. The published prime-field bound covers p≥17. For the remaining smooth cubics, an origin exists by Hasse, and the short-Weierstrass classification exhausts pointed curves. Any rational degree-three embedding arises from O_E(2O+T), modulo translation by a rational point (hence modulo 3E(F_p)) and projective basis change. For T=(r,s), s≠0, Y=(y+s)/(x−r) has simple poles at T and O and is regular at −T, so 1,x,Y form a basis of L(2O+T); substitution yields the stated cubic. Independent exact finite-field computations confirmed both single scaling orbits; the listed cosets have sizes 6,6,6 and 7,7,7 and exhaust the underlying groups. The six (points, tangents, coverage) triples are (18,18,114), (18,18,112) twice; (21,21,145), (21,21,156) twice, strictly below 133 and 183. The F_7 witness covers all 57 points by twelve tangents, and the gradient argument excludes common nonzero zeros even over the algebraic closure.",
+      "residual_risks": [
+        "The descent/classification and blocking-set bounds are mathematical inputs, not certified by the finite computation. The result does not extend to nonprime fields or to any larger degree on this evidence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 requires p≥4(d−1)²(d−2)², giving prime p≥17 for d=3. Theorem 1.2 requires q≥d²(d−1)⁶, giving q≥576 in degree three. §2.3 has the general blocking-set argument but no 11 or 13 model census."
+        ],
+        "reasoning": "Neither theorem's sufficient parameter range dominates the two missing primes. Hasse and the blocking-set inequality meet at equality there rather than excluding filling by themselves.",
+        "searches": [
+          "Asgarli–Ghioca, Tangent-filling plane curves over finite fields, arXiv:2302.13420v2 §§1–2, Theorems 1.1 and 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–15 and 63–72",
+        "arXiv:2302.13420v2; Blokhuis, prime-order blocking bound; Resultary 315bd0fa99d0, f982e4d03960, 6ed9d400dac8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The small-field notes concern the specific degree-(q−1) construction at q=5,7, or conic exceptions, not the cubic cases 11 and 13. At p=11,13, Hasse permits exactly 18 and 21, the lower bounds from Blokhuis."
+        ],
+        "reasoning": "The earlier inequalities only reduce to Hasse-maximal possibilities. The new finite exclusion tests plane embeddings in three degree-three classes per curve, not just the Weierstrass embedding, so no cited implication supplies the result.",
+        "searches": [
+          "Asgarli–Ghioca §2.3 and small-field notes in §§1, 3.4; Blokhuis prime-order nontrivial blocking-set bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The dual blocking-set reduction is present in the earlier literature. The prior F_7 record 315bd0fa99d0 already gives a smooth cubic with twelve tangents covering all 57 points. Later F_7 classification f982e4d03960 uses xy²−x²z−2yz², which becomes the negative of the frozen witness under (x,y,z)=(−X,Z,Y)."
+        ],
+        "reasoning": "The dual formulation and characteristic-seven existence are not new; neither yields the exclusion at the two larger fields. The later equivalent witness model is a corroboration, not evidence of earlier priority.",
+        "searches": [
+          "Resultary tangent-filling plane cubic, dual curve as rational blocking set, prime fields 11 and 13; Asgarli–Ghioca §2.3; Resultary 315bd0fa99d0 and f982e4d03960"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No covering table was returned by the bounded searches. The inspected F_11 hit 6ed9d400dac8 treats an 18-tangent cover for a degree-ten curve, and 315bd0fa99d0 treats degree three over F_7."
+        ],
+        "reasoning": "The degree-ten result concerns existence for another curve, not nonexistence at degree three. A table of elliptic isomorphism classes or point counts alone does not encode the degree-three embedding classes and their tangent incidences.",
+        "searches": [
+          "Resultary: exact cubic nonexistence and smooth embedding coverage over F_11 and F_13; nearby Resultary identifiers 6ed9d400dac8 and 315bd0fa99d0"
+        ]
+      },
+      "rationale": "The distinct claim is exclusion of cubic tangent filling at both 11 and 13, completing the threshold theorem. The general bound, dual blocking-set reduction and characteristic-seven existence are prior and are not credited as new. No inspected relevant claim implies the two residual primes. This is a bounded literature assessment, not an assertion of global priority.",
+      "residual_risks": [
+        "A finite search cannot exclude an unindexed small-field classification, earlier equivalent incidence work, or unpublished computations. The no-hit finding is not evidence of exhaustive literature coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers larger primes; inspected cases do not cover 11 or 13 in degree three",
+          "evidence": "d=3 requires p≥16 in the first bound; notes on q=5,7 concern the degree-(q−1) construction.",
+          "identifier_or_url": "https://arxiv.org/html/2302.13420v2",
+          "material_read": "Theorems 1.1–1.2, §§1, 2.3 (offsets 14500–18100), Remarks 2.2–2.3 and 3.7 (around offset 43000)",
+          "method": "OA primary HTML, statement and small-field proof comparison",
+          "title": "Tangent-filling plane curves over finite fields",
+          "trigger": "Same notion and degree-dependent prime bound"
+        },
+        {
+          "assessment": "Covers the credited existence/sharpness witness, not the exclusion",
+          "evidence": "Smooth cubic, 12 distinct rational tangents covering the full 57-point plane.",
+          "identifier_or_url": "Resultary 315bd0fa99d0",
+          "material_read": "Mirrored Finding at offset 150",
+          "method": "Local mirror",
+          "title": "A smooth tangent-filling cubic over F_7 and the sharp minimum degree",
+          "trigger": "Exact characteristic-seven existence precedent"
+        },
+        {
+          "assessment": "Later classification in characteristic seven, not earlier coverage of the claim",
+          "evidence": "The unique projective class has equation xy²−x²z−2yz²=0.",
+          "identifier_or_url": "Resultary f982e4d03960",
+          "material_read": "Mirrored Finding at offset 250",
+          "method": "Local mirror and symbolic coordinate substitution",
+          "title": "The unique smooth tangent-filling cubic over F_7",
+          "trigger": "Projective equivalence of witness formulations"
+        },
+        {
+          "assessment": "Different degree and question",
+          "evidence": "Degree ten with an 18-tangent cover over F_11, not degree-three exclusion.",
+          "identifier_or_url": "Resultary 6ed9d400dac8",
+          "material_read": "Mirrored Finding at offset 150",
+          "method": "Local mirror, check degree and quantifier",
+          "title": "An eighteen-tangent projective triangle on the first Asgarli–Ghioca example",
+          "trigger": "Exact F_11 search hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–12 and 17–58; Asgarli–Ghioca Theorem 1.1 and Question 1.5"
+      ],
+      "rationale": "This resolves the sharp prime-field transition for a natural geometric covering question. The residual primes are forced by general bounds, rather than an arbitrary computational slice. Exhaustion of all degree-three embedding classes rather than just elliptic curves is the key step that makes this finite calculation a complete exclusion theorem.",
+      "residual_risks": [
+        "Does not determine the minimal tangent-filling degree above three at 11 or 13 or settle any extension-field threshold."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

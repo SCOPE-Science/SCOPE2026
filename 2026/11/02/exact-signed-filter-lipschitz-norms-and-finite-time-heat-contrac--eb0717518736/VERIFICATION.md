@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,27 +19,24 @@
 }
 ---
 
-# Reproducibility and scope of checks
+# Independent mathematical audit
 
-The self-contained `verify_kneser_exact.py` was run with Python 3 and emitted:
+## correctness
 
-```text
-CHECK_OK adjacency_matrix_entries= 123188 exact_signed_certificates= 767 rational_spectral_heat_tests= 225
-```
+PASS
 
-It checks the adjacency-square identity for every entry of each \(KG(n,2)\) with \(5\le n\le19\); verifies exact signed-filter certificates, including all six Petersen polygon witnesses and the outsider-permutation matching; and verifies exact rational spectral-multiplier heat identities. All rational comparisons are exact.
+For the repaired signed geometry, row cancellation gives y=−x+sum(V)−sum(U) on a fixed edge. At n≥6 the derangement matches disjoint pairs and bounds |x+y| by 2(n−4); four feasible corners have values in an interval of length one. This also corrects the frozen proof's informal 'full sum of absolute coefficients' wording: sign potentials of magnitude 1/2 take half that sum, exactly the claimed norm. At n=5 symmetrization preserves the pair, and distances imply |z|≤2, |z−x|≤2 for z=q−p, hence |y|+|x|≤4. The three prescribed tests and negatives satisfy the metric conditions on all six support points and extend by the explicit McShane formula. Convex combinations fill the respective regions and their support functions give all signs and zero coefficients. The common-neighbor identity is valid on diagonal, disjoint and intersecting entries and J vanishes on the quotient. An independently constructed edge-potential LP anchoring one vertex agreed exactly numerically on all 49 integer coefficient pairs −3…3 for each of n=5,6; replay with graph disjointness, two inequalities per edge, and fixed edge objective. Independent heat LP checks at t=0,0.001,0.05,0.3,1.4 matched the original formula to 6e−16; its increasing log-rate and t=0 Petersen degeneracy also follow by differentiating the exact two-exponential formula. Those finite checks are not an all-n proof. The frozen verification and both checkers were inspected, not executed.
 
-The supplemental `check_kneser_lp.py` requires NumPy and SciPy (`scipy.optimize.linprog` and `scipy.linalg.expm`). It was run successfully and emitted:
+## originality
 
-```text
-n 5 signed/heat passed
-n 6 signed/heat passed
-n 7 signed/heat passed
-n 8 signed/heat passed
-n 9 signed/heat passed
-CHECK_OK signed_and_heat_lp_checks 75
-```
+PASS
 
-It compares the claimed norms to direct Kantorovich-dual optimization over graph-edge inequalities and to matrix-exponential heat rows. These are floating-point checks with numerical tolerances, not exact certifications.
+The remaining exact joint feasible regions support arbitrary real signed filters. Positive-walk idleness results cover the removed heat finding and the positive support directions, not the claimed full geometry. The opposite-sign Petersen corners in particular require additional feasible potentials; no matching signed-region statement was found in the inspected sources. The all-signed shape is retained as one invariant, not each sign sector as a separate novelty claim.
 
-The proof in `RESULT.md` is the source of the all-dimensional and all-time claims. Neither finite checker verifies the entire infinite parameter domain, nor has an independent mathematical audit been performed.
+## value
+
+PASS
+
+The exact joint region is the finite-dimensional invariant controlling every affine adjacency filter and hence every polynomial filter on this quotient. The opposite-sign directions are needed for shifted adjacency and other non-Markov filters, for which idleness comparisons cannot give the amplification. The Petersen hexagon versus the stable parallelogram for n≥6 gives a genuine change in the optimization, including a flat branch for small positive shifts on Petersen. The positive heat calculations alone would be routine applications of prior theorems and were removed as a contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

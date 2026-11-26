@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-The proof is a structural classification, not an extrapolation from finite data. The public source files `verification/verify_bfs.py` and `verification/verify_witness.cpp` independently evaluate all admissible sensor sets using graph distances, without calling the formula as an acceptance test. Each compares the resulting omitted-cardinality polynomial with the closed formula and fails on a coefficient mismatch. The Python verifier also checks all inclusion-minimal sensor-set coefficients against the stated second polynomial by testing every one-vertex deletion.
+# Independent mathematical audit
 
-Checks executed from the supplied sources:
+## correctness
 
-```
-python3 verification/verify_bfs.py
-# PASS: 71 cases, m,n>=3, m+n<=11, 0<=t<=min(m,n)
-g++ -O2 -std=c++17 verification/verify_witness.cpp -o verify_witness
-./verify_witness
-# PASS: 108 cases, m,n>=3, m+n<=12, 0<=t<=min(m,n)
-```
+PASS
 
-Both methods explicitly enumerate all vertex subsets in each tested graph. The Python method reconstructs edge-distance vectors; the C++ method uses per-edge-pair distinguishing-vertex bitmasks. The universal statement relies on the five-step proof and not on the bounded checks. The scientific theorem has received only the stated self-review; no independent audit has been performed.
+For the repaired claim: cover complements are independent, hence single-shore sets or one deleted pair. A pair of omitted unmatched vertices in one shore makes two edges at a common selected neighbor indistinguishable; one omitted matched endpoint instead supplies its selected partner as a distance-2 vs distance-1 witness. A mixed pair gives distinct selected-endpoint intersections. Maximal complements give M, with the N−t exponent distinct from the two others when just one shore is saturated, since then t≥3. At t=1 the cross-pair and one-shore exponents coincide. This proves both polynomials, the minimum multiplicities and the corrected size classification. An independent BFS-and-witness replay checked 199 graphs with shores 3 through 8, 14,171 admissible masks and 1,850 maximal omissions; no submitted code was run. Replay: /workspace/branches/9f1ffba2-6ded-4b74-8aa9-c3a135f6d951/independent_omissions.py.
+
+## originality
+
+PASS
+
+The surviving exact cardinality and saturation classifications concern edge-resolving vertex covers, not unconstrained edge resolving, vertex resolving or the weaker vertex-edge domination. The no-deletion scalar is prior and credited.
+
+## value
+
+PASS
+
+A structural enumeration of a natural combined coverage and identification constraint gives all feasible and all minimal sensor sets. Rectangular one-shore saturation creates an intermediate cardinality, while the widest gap grows with the deletion size. This is not a finite-case extrapolation or a re-count of ordinary metric bases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

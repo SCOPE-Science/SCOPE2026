@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:06:46.872221Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The connected bipartite design has rank 2n−1. Woodbury applied to the full-table hat matrix gives the stated deletion identity. Independently collecting terms, let x_e mark the deleted indices used by observed edge e, m_e be their count, d_e=n−2+m_e, and S be the number of coordinates shared by e,f. The kernel is S/n + (x_e·x_f)/[n(n−2)] − d_ed_f/[n(n−2)T]. Shared-coordinate entries are positive; the limiting unmarked-coordinate bound at n=3,r=1 can be equality only for two once-marked cells with that shared coordinate, forcing e=f and S=2. Disjoint cells with no marked overlap are negative. One overlap is nonnegative exactly when both cells are marked once (zero at r=1). The twice-marked reversed cell is positive since 2T−n²>0 for n≥3,r≥2. Each coordinate line has d-weight T, so disjoint cells have total weight (n−2)T+d_e. For a once-marked row remove the n−r unmarked other-end overlap cells and subtract contributions of r−1 negative overlap cells; for a twice-marked row remove the reversed cell and subtract 2(n−2) negative overlap contributions. This gives negative masses N_0=(n−2)/n+(n−2)/(nT), N_2=(n−2)/n and N_0−N_1=[(r−n/2)²+3(n−2)²/4]/[n(n−2)T]. Row sums equal one, giving the norm and the strict maximizing-type classification; the triangle equality gives the union of maximizing-row sign patterns. Data in [0,1] have sharp signed minimum −(norm−1)/2, the negative of the defect magnitude in the frozen wording. The decrement formulas follow by subtraction; T_(n−2)=(n+1)(n−2) gives the final-step ratio. The repaired proof specifies the small cases, sign convention and unchanged observed-cell scope. An independent exact grounded-Laplacian check (`python3 reproductions/frozen-1-5-reproduction.py deletion`) verified 166 representative rows for six sizes between 3 and 15, also checking the r=1 zero entry. A separate exact regression check agreed on 39 designs and 1370 rows for 3≤n≤8. Neither check substitutes for the general proof; the frozen checker was inspected but not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Spielman–Srivastava supply the general incidence-space projector W^(1/2)BL⁺BᵀW^(1/2); Drineas–Mahoney relate its diagonal leverage to effective resistance.",
+          "These formulas construct the kernel or its diagonal; they do not evaluate the extrema of its signed absolute row sums in the intermediate deletion family."
+        ],
+        "reasoning": "The background identities are used as prior mathematics. The supplied proof evaluates three different classes by sign and summation and compares them; the new maximum is not a leverage identity or a direct specialization of an existing row-sum theorem found in the checked sources.",
+        "searches": [
+          "Spielman–Srivastava arXiv:0803.0929v1, Lemma 3",
+          "Drineas–Mahoney arXiv:1005.3097v1, §3.2 Lemma 1",
+          "Partial-crown cut projection and matching-deleted two-way experiment design"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0803.0929v1",
+        "arXiv:1005.3097v1",
+        "Resultary records be4205de9f5c, 6319a2a73e78, a18a2c603916, 430cc80014f3, a6d084f27adb, 3e0b8abda735 and a87b3d94c4ca"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The r=n value is explicitly 3−4/n for the crown cut projector and all rows maximize by edge transitivity. The rectangular single-edge drop 2/[ab(a−1)(b−1)] becomes 2/[n²(n−1)²] for a=b=n, equal to the stated first difference. Its disjoint-edge maximizers are exactly the zero-mark cells.",
+          "The isolated formulas at r=0,1,n neither evaluate the row sums for 2≤r<n nor determine the last/previous decrement ratio. In particular, the last drop uses the intermediate r=n−1 norm, with a positive excess that is absent at the crown endpoint."
+        ],
+        "reasoning": "Directly implied cases were taken out of the claimed increment. The remaining indexed-coverage comparison is for the intermediate extremizer law and its final-deletion corollary, not for the known values.",
+        "searches": [
+          "October 18 crown cut-cycle RESULT.md, finding and proof §§2–3",
+          "October 26 rectangular biclique edge erasure RESULT.md, finding",
+          "October 26 crown minimal projection norm RESULT.md, finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Negating column-side potentials identifies a_i+b_j on the observed cells with the cut space of the bipartite graph K_n,n minus the matching; orientation changes leave absolute row sums unchanged.",
+          "The crown and one-edge-erasure results thus refer to exactly this operator in their respective cases. The same-day continuous metric-graph affine-projector records do not: they use functions on geometric edges and an arclength Gram matrix."
+        ],
+        "reasoning": "The verified cut-projector special cases are genuine equivalences, while the continuous affine quantities are not the same norm on the same input space.",
+        "searches": [
+          "Resultary: two-way additive least squares matching deletion, crown cut projector, one-edge biclique erasure",
+          "Primary literature: graph transfer-current projector, incidence-space row sums and two-way ANOVA missing observations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-sharp-matching-deletion-stability-for-two-way-additive-least-squ--be4205de9f5c is the identical assigned finding, not precedence.",
+          "Earlier distinct entries 6319a2a73e78 and a18a2c603916 give the full-crown value; 430cc80014f3 and a6d084f27adb give the one-edge result. Same-day 3e0b8abda735 and a87b3d94c4ca use different continuous projection spaces."
+        ],
+        "reasoning": "The exact indexed endpoint hits are credited. No distinct all-intermediate matching table was established in the checked sources; search absence is not priority evidence.",
+        "searches": [
+          "Resultary: crown cut-cycle projection norms 3−4/n, bipartite edge erasure, matching-deletion projector norms and maximizing rows"
+        ]
+      },
+      "rationale": "This is a pass for the repaired intermediate family, not credit for isolated known cases quoted in the frozen statement. Exact prior indexed results cover intact and one-edge-deleted bicliques (including the r=1 maximizing cells), and the full crown norm. The repaired RESULT.md and SLOGAN.txt distinguish these from the remaining 2≤r<n law and its optimizing cells, and the exact enhanced final decrement. The compared sources do not cover that remainder on the bounded evidence available.",
+      "residual_risks": [
+        "Earlier unindexed missing-observation design or electrical-network work could contain equivalent intermediate row sums.",
+        "The catalogue dates establish which known cases were found, not absolute external priority; the continuous records considered on the same date are distinguished by their operator domains, not dismissed by date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers r=0,1, not intermediate multiple matching deletions",
+          "evidence": [
+            "Deleting one edge gives the exact drop 2/[ab(a−1)(b−1)] with the maximum attained on edges disjoint from it; the intact biclique gradient space is identified with additive arrays."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-edge-erasure-sensitivity-of-gradient-projections-on-rectan--430cc80014f3/RESULT.md",
+          "material_read": "RESULT.md finding at offset 0",
+          "method": "Specialized the rectangular gradient projection result to a square table and matched the maximizing edges",
+          "title": "Exact edge-erasure sensitivity of gradient projections on rectangular bicliques",
+          "trigger": "Direct one-deletion precedent for the identical projector"
+        },
+        {
+          "assessment": "Directly covers the full-crown case",
+          "evidence": [
+            "For the real crown-graph cut projection the ℓ¹ and ℓ∞ norms are both 3−4/n."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-cut-and-cycle-complementability-after-deleting-a-perfect-m--6319a2a73e78/RESULT.md",
+          "material_read": "RESULT.md finding at offset 0 and proof §§2–3",
+          "method": "Compared the edge projector and its exact row/column sums with the additive hat matrix at r=n",
+          "title": "Sharp cut and cycle complementability after deleting a perfect matching",
+          "trigger": "Exact unweighted crown cut norm"
+        },
+        {
+          "assessment": "Confirms the endpoint value, not an all-intermediate matching-deletion formula",
+          "evidence": [
+            "The crown cut norm is the same 3−4/n value at r=n."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-minimal-cut-cycle-projection-norms-on-crown-graphs--a18a2c603916/RESULT.md",
+          "material_read": "RESULT.md finding at offset 0",
+          "method": "Compared the stated crown value and the graph domain",
+          "title": "Sharp minimal cut-cycle projection norms on crown graphs",
+          "trigger": "Potentially stronger crown projection theorem"
+        },
+        {
+          "assessment": "Prior projection identity, no coverage of the intermediate extrema in the passage",
+          "evidence": [
+            "Lemma 3 gives W^(1/2)BL⁺BᵀW^(1/2) as the edge-space projection and identifies leverage/resistance diagonals."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0803.0929v1",
+          "material_read": "Lemma 3, PDF p. 6, near offset 18479",
+          "method": "Compared weighted transfer-current identity and diagonal facts with the sharp absolute-row-sum objective",
+          "title": "Graph Sparsification by Effective Resistances",
+          "trigger": "General incidence-space projection and potential stronger coverage"
+        },
+        {
+          "assessment": "Diagonal leverage, not the norm or maximizing rows",
+          "evidence": [
+            "The incidence-design leverage scores correspond to effective resistances; the target takes a sum over every absolute entry of a row instead."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1005.3097v1",
+          "material_read": "§3.2, Lemma 1, PDF p. 9, offset 35316",
+          "method": "Compared the leverage identity with the ℓ∞ objective and intermediate deletion hypotheses",
+          "title": "Effective Resistances, Statistical Leverage, and Applications to Linear Equation Solving",
+          "trigger": "Least-squares leverage and effective resistance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The maximum uniform amplification of the standard real additive fit is a natural, directly useful invariant, not a diagonal leverage score. For the intermediate family the exact extremizing cells and strict decay under successive deletions quantify what the known one-deletion and crown endpoints do not. The last step loses the only remaining zero-mark target and produces the exceptional exact gain; that structural transition and the signed fitted-value bound survive removal of the known cases as new claims.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

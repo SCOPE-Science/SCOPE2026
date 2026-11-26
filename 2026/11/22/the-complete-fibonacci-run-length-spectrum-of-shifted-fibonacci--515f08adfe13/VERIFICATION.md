@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Execute `python3 verify.py` from the same directory. The checker uses only Python standard-library integer arithmetic. It builds the semigroup by unbounded-generator coin-change dynamic programming for each \(5\le a\le24\), independently computes the Zeckendorf-digit count and the membership threshold, and scans the entire finite gap set to obtain lengths and multiplicities. It independently compares with the proposed closed formula and checks the Fibonacci word recursion.
+## correctness
 
-The run passed 1,381,700 membership checks, 121,385 digit-word positions, and 46,365 gap blocks, including every relevant boundary for these 20 parameter values. Computation is finite and cannot establish the theorem at all indices; the infinite proof is the membership-word concatenation and its run-multiset recurrence as presented in `RESULT.md`. The published Apéry-set theorem is treated as a proven mathematical input, not a locally reconstructed independent result. The evidence supports self-review only; no independent mathematical audit has been performed.
+PASS
+
+For m=F_a, the published Apéry representative mβ(r)+r gives the gap test β(r)>q at qm+r. The multiples of m separate the rows, so the runs in each thresholded word really are maximal in the semigroup. The Zeckendorf split B_a=B_(a−1) concatenated with (1+B_(a−2)) follows by using F_(a−1) and then a remainder strictly below F_(a−2). At each q≥1 the first entry of the second piece is a separator; its q=1 tail contributes exactly one block of length F_(a−2)−1 and its higher levels give the noninitial blocks from B_(a−2). The first piece contributes those from B_(a−1). The empty noninitial multisets at a=3,4 and this recurrence give the stated Fibonacci multiplicities, including a=5; q=0 contributes the unique initial block. Summation gives F_(a−2) blocks. An independent coin-change replay for a=10 scanned 1 through 275 and recovered the complete displayed spectrum; it is a finite cross-check only. The frozen verifier was inspected, not executed.
+
+## originality
+
+PASS
+
+The supported distinct result is the full uniform maximal-gap-length histogram, not the Apéry theorem, known genus or isolated-gap count. The closest same-family record gives exactly the length-one component. The inspected prior inputs do not give the run recurrence or an equivalent all-length count; the uniform distribution uses the separating threshold boundary and a run-multiset recurrence, not just a fixed-parameter Apéry enumeration.
+
+## value
+
+PASS
+
+Maximal gap blocks refine the established genus and isolated-gap invariants of a previously studied numerical-semigroup family. A uniform complete distribution tells which lengths occur and their frequencies, including the skipped penultimate Fibonacci length, without enumerating the semigroup. The threshold-word recurrence explains those facts and provides a reproducible structural reason for the Fibonacci frequencies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

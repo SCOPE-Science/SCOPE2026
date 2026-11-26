@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof isolates the vacuum-to-one-excitation operator sector. Each local dephasing term vanishes except at the unique flipped site, where it contributes exactly \(-\kappa\), so the dissipator is scalar on the whole sector. The Hamiltonian preserves that sector and therefore the transferred coherence is exactly multiplied by \(e^{-\kappa t}\). The reduced channel's partially transposed Choi state has a two-by-two block with determinant \(-|c|^2/4\), which is negative exactly for nonzero transferred coherence. For a qubit channel the PPT criterion is necessary and sufficient for Choi separability, giving the stated if-and-only-if criterion. At the source chain's mirror time \(\tau=\pi/J\), the noiseless amplitude has unit modulus, so finite dephasing cannot make the channel entanglement breaking.
+## correctness
 
-Risk: the convention for the complex phase of \(c\) depends on whether one propagates \(|0\rangle\langle1|\) or its adjoint, but all claims use only its modulus and are invariant under this convention. The result assumes the precise Lindblad normalization stated in the finding.
+PASS
 
-## Originality
-PASS. The defining paper explicitly says its dephasing conclusion comes from numerical calculations of the partial-transpose eigenvalue over investigated lengths and couplings, while its analytic commuting-generator argument is given for local decay; it also notes that the full coherent and dissipative superoperators do not commute for dephasing. The present proof instead identifies a smaller exact invariant coherence sector and derives an all-length, all-finite-rate entanglement-breaking criterion. Candidate-specific database searches for mirror-inverting spin chains, pure dephasing, Choi states, and entanglement breaking returned no implication-equivalent finding. Current and prior result archives were compared for the source identifier, mirror-inversion/dephasing aliases, and the theorem's Choi implication.
+PASS applies to the repaired RESULT.md, not the frozen complex equality. Frozen line 9 says c=e^(−κt)f, but line 47 fixes c as the coefficient on |0><1| and line 35 correctly evolves |vacuum><j| with the conjugate amplitude. This is an actual phase error: with H_1=gσ_x, E_0=0, and t=π/(2g) for transfer between two sites, f=−i but c=+i exp(−κt). The repair gives the conjugate on |0><1| and f on its adjoint. Independently rederived the final statement: only site m flips sign on |vacuum><m|, so the rate on that invariant operator sector is −κ, and noiseless left-vacuum/right-excitation evolution gives e^(−itE_0)<j|e^(itH_1). Tracing all but k kills m≠k. Excitation conservation gives output populations (1−p,p) for input |1> and a pure vacuum output for |0>. For the normalized Choi matrix partially transposed on the output, the uncoupled entries are 1/2 and p/2, and the |01>,|10> block is one half of [[0,c],[conj(c),1−p]]. Its determinant is −|c|²/4. If c=0, the Choi state is diagonal and separable; otherwise the block is NPT. The damping factor is nonzero at finite κt, so the EB criterion is unchanged. With |f|=1 at τ=π/J, the negative eigenvalue has the stated form; at fixed |c|>0 it increases in 1−p, giving the displayed upper bound at 1−p=1, uniform in length for fixed J and κ. The frozen regression grid only tests magnitude-dependent algebra and is not evidence for the phase identity or the infinite family.
 
-The closest later primary full text inspected was Jeske, Vogt and Cole (arXiv:1308.3042), which studies the same engineered perfect-transfer coupling profile with correlated dephasing and evaluates transfer quality; it contains no “entanglement breaking” statement and does not derive the Choi criterion. Bayat and Omar (arXiv:1502.03468) use a different weak-end-coupling, measurement-assisted architecture. Residual risk remains that a poorly indexed source contains the same invariant-sector observation.
+## originality
 
-## Value
-PASS. The finding resolves a specific numerical conclusion in an established perfect-state-transfer model by an exact theorem valid for every chain length and every finite dephasing strength. It also gives the sharper structural criterion “entanglement breaking iff the noiseless transfer amplitude vanishes,” so no population solution is needed. This is mathematically useful because the full coherent and dissipative generators need not commute; the proof exposes precisely the smaller sector on which they do. The result does not oversell operational quality and explicitly separates persistence of Choi entanglement from high transfer fidelity.
+PASS
 
-## Closest literature and limitations
-Clark et al. are the defining source and supply the numerical dephasing observation. Jeske et al. analyze dephasing of the same perfect-transfer coupling profile but a different question, including spatial correlation. Bayat and Omar address measurement-assisted protection in another transfer architecture. The theorem is limited to equal-rate independent pure dephasing, number conservation, and vacuum initialization.
+Reassessed for the repaired convention. The distinct contribution supported by the comparison is the exact invariant-sector formula for common-rate chain dephasing and its universal finite-time EB test and mirror-chain consequence. The finite-size numerical observation, the effective-model observation, and the channel-level Choi and PPT theorems are prior. Correcting the conjugation changes neither the mathematical scope of this non-overlap nor the norm-based criterion.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The repaired result turns a published numerical observation into a uniform finite-rate theorem and identifies which invariant block controls the answer without solving population transport. The exact characterization at arbitrary transfer times, including zeros of the noiseless amplitude, and the explicit finite-rate Choi witness distinguish EB from low transfer fidelity. The value survives the correction because both the factor's modulus and its zero set are unchanged.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

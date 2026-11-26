@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:56:48.410817Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof",
+        "Frozen VERIFICATION.md and check.py (inspected only)",
+        "Independent finite diagnostic: /workspace/replay_constants.py and /workspace/replay_constants.log, Crofton calculation"
+      ],
+      "rationale": "I checked the topology independently in the normal disk bundle of the circle, which is injectively parametrized for r>1. At angle theta, a hyperplane with signed offset m and normal projection length S cuts a convex disk fiber if |m-rS cos(theta)| is at most sqrt(1-S^2 sin^2(theta)). For generic S<1 each nonempty fiber contracts continuously to the minimum-norm point of its affine slice. With u=cos(theta), the feasible set in [-1,1] is an interval (the defining quadratic has positive leading coefficient S^2(r^2-1) for S>0). Its inverse cosine image is one contractible arc, two disjoint arcs or the entire circle according to whether it includes one, neither or both endpoints. Excluding null transitions, the endpoint tests |m-rS|<1 and |m+rS|<1 on 0<=m<1+rS give the three asserted lengths. Normalization uses the orientation-dependent available offset length, not a uniform orientation conditional on a hit. S squared has the stated beta law. Differentiating the truncated first moment gives the sign I-B, a strict crossing, and substitution gives the optimum probability 2B. Rescaling by sqrt(d) yields a Rayleigh projection and convergence of the truncated first moments by the bounded second moment. In rescaled inverse radius t, the critical sign tends pointwise to E[Y 1(Y<=t)]/E[Y]-Pr(Y>t), which increases strictly from -1 to 1; bracketing its root proves convergence of the optimizers. For Rayleigh Y the zero reduces to the displayed erf equation. Independent quadrature reproduced 0.734903908748044 and 0.792442639799811; in d=4 the exact equation is r^3-r-1=0.",
+      "residual_risks": [
+        "Classifies generic solid sections up to homotopy, not homeomorphism, and excludes null transition levels and tangencies. Finite quadrature corroborates constants, not the all-dimensional proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "55079a76e4e3 uses a core S^(d-2), has connected generic sections in d>=4, and its maximizing r=1+O(d^-1) gives success tending to one.",
+          "03a5b1cbc2da studies central lines and total intersection length of spherical-core tori. 0b58849cdd31 studies affine lines and thin tubes around ovals in R^3."
+        ],
+        "reasoning": "The plausible broader families either change the core or change the sampling and observable. They do not cover the fixed-circle affine-hyperplane optimum.",
+        "searches": [
+          "Local Resultary semantic search for toroidal Crofton optimizers and slicing families",
+          "Resultary 55079a76e4e3, 03a5b1cbc2da and 0b58849cdd31 full-text Finding passages"
+        ]
+      },
+      "checked_sources": [
+        "Finch arXiv:2611.15546v1",
+        "Resultary 8cf34e87984a",
+        "Resultary 55079a76e4e3",
+        "Resultary 03a5b1cbc2da",
+        "Resultary 0b58849cdd31"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Finch supplies the offset topology at fixed normal projection; his optimized law integrates with the three-dimensional direction distribution. The fixed plane in d dimensions gives Beta(1,(d-2)/2) for the squared projection, and the limiting projection is Rayleigh rather than the spherical-core regime."
+        ],
+        "reasoning": "The slice reduction legitimately uses a prior lemma. The beta optimization and Rayleigh maximizing constants require reweighting the conditional law and analyzing the new maximum, and are not a substitution into a published general optimizer.",
+        "searches": [
+          "Finch Sections 4.2–5; Resultary 8cf34e87984a Finding; Resultary 55079a76e4e3 Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Finch's disk, annulus and two disks are the same homotopy classification in d=3; his optimum is r≈1.11890, P≈0.89721.",
+          "Resultary 8cf34e87984a treats symmetric convex-meridian toroidal solids in R^3 and contains the circular-meridian law there."
+        ],
+        "reasoning": "The three-dimensional specialization is covered. Neither source changes the normal projection distribution to a fixed 2-plane in d>=4.",
+        "searches": [
+          "Local Resultary semantic search for fixed-circle/circular-spine tube, Crofton affine hyperplane topology and optimum",
+          "arXiv:2611.15546v1, Sections 4.2 and 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected numerical three-dimensional optimum is not the d=4 plastic-constant optimum. The closest higher-dimensional optimizer record gives the near-horn radius and probability tending to 1 for a spherical core."
+        ],
+        "reasoning": "This is a parameterized geometric law with exact constants, not recovery of a finite table; the optimizer values and limit were specifically compared with the closest records.",
+        "searches": [
+          "Local Resultary optimizer/slicing hit list; Finch Section 5; Resultary 55079a76e4e3 Finding"
+        ]
+      },
+      "rationale": "Finch gives the exact underlying 3D slice law and 3D optimum; they are not new. Changing the ambient space while keeping the circle plane fixed changes the Crofton projection law. The cited growing spherical-core optimization has a different body and conclusion. The checked passages do not give the fixed-core d>=4 optimizer or its Rayleigh limit, nor a stronger theorem already supplying them.",
+      "residual_risks": [
+        "The broad Resultary lookup completed; additional targeted Resultary lookups were unavailable and are not negative evidence. Unindexed or differently named fixed-core generalizations remain possible. No priority conclusion is inferred from shared publication dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers d=3, not d>=4",
+          "evidence": "Meridian disk-gluing classification, offset weights and unique d=3 optimizer r≈1.11890.",
+          "identifier_or_url": "https://arxiv.org/html/2611.15546v1",
+          "material_read": "Sections 4.2 and 5, rendered offsets 22100–30549",
+          "method": "OA HTML passage inspection",
+          "title": "Slicing a Doughnut at Random",
+          "trigger": "Closest original fixed-circle affine-plane law"
+        },
+        {
+          "assessment": "Covers the circular meridian in R^3 only",
+          "evidence": "Annulus/disk/two-disks law for symmetric convex meridians and inverse support reconstruction.",
+          "identifier_or_url": "Resultary 8cf34e87984a",
+          "material_read": "RESULT.md Finding, offsets 0–4889",
+          "method": "Local mirror text",
+          "title": "A three-topology Crofton law and inverse support tomography for convex-meridian toroids",
+          "trigger": "Potential more general meridian law"
+        },
+        {
+          "assessment": "Different core and optimum",
+          "evidence": "Spherical core S^(d-2); connected sections for d>=4, optimal radius 1+0.22746821156/d+o(1/d), optimal success tending to one.",
+          "identifier_or_url": "Resultary 55079a76e4e3",
+          "material_read": "RESULT.md Finding, proof and relationship passages at offsets 0, 4696 and 9134",
+          "method": "Local mirror text",
+          "title": "Gaussian-optimal Crofton ball sections of higher-dimensional spherical tori",
+          "trigger": "Closest higher-dimensional optimization antecedent"
+        },
+        {
+          "assessment": "Noncovering observable and sampling",
+          "evidence": "Central line intersection length, spherical-core family.",
+          "identifier_or_url": "Resultary 03a5b1cbc2da",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror text",
+          "title": "Dimension-three rigidity and inverse laws for central-line intersections",
+          "trigger": "Same-solid or related torus section result"
+        },
+        {
+          "assessment": "Noncovering sampling and regime",
+          "evidence": "Affine lines through thin tubes around planar ovals in dimension three.",
+          "identifier_or_url": "Resultary 0b58849cdd31",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror text",
+          "title": "A reciprocal-chord Crofton law for double passages through thin tubes",
+          "trigger": "Potential fixed-loop tube generalization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and scope",
+        "Finch arXiv:2611.15546v1 Section 5",
+        "Resultary spherical-core comparison 55079a76e4e3"
+      ],
+      "rationale": "Holding the circle fixed is a natural alternative to growing the spine dimension and isolates the effect of adding normal directions. The exact three-type law and maximum identify how much radius is needed to offset the concentrating normal projection. The contrast with the spherical-core optimum is qualitative as well as numerical: the optimal radius diverges and the optimal probability is bounded away from one. This is more informative than the d=4 constant alone.",
+      "residual_risks": [
+        "No convergence rate, broader loop classification or application beyond invariant affine hyperplanes for this family is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

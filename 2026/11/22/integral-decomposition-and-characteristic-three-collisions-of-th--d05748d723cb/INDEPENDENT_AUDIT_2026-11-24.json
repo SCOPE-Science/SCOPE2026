@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:48:14.270217Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Verified by an integral open-cover calculation. At a point with three nonzero homogeneous coordinates, invert those three; xyzw then kills the fourth coordinate in the ring, not just on points. With x=0,y=1 the two independent relations impose (z^3,w^3)=(1,-1); with y=0,x=1 they impose (z^3,w^3)=(-1,-1); with z=0,x=1 they impose (y^3,w^3)=(1,1); with w=0,x=1 they impose (y^3,z^3)=(-1,1). In each case the remaining cubic relation is the sum or difference of the two imposed relations. Changing signs as in the four displayed embeddings yields Z[u,v]/(u^3-1,v^3-1) in each chart. At each coordinate point set its nonzero coordinate to 1 and invert the three cubic coefficients of the equations whose prefactors are the three other coordinates; the coefficients evaluate to units ±1 at the section, and these equations kill all three coordinates on that open. These four opens are copies of Spec Z. No residue-field point has precisely two nonzero homogeneous coordinates: for either surviving coordinate used as a quartic prefactor, the other contributes just its cube with coefficient ±1. Therefore the eight pairwise disjoint opens cover the entire scheme, ruling out additional vertical or infinitesimal pieces. Each rank-nine chart is free on u^i v^j, 0<=i,j<3. Away from 3 the cubic is separable; at 3 it is (u-1)^3, giving one geometric point per factor with completed local ring k[[s,t]]/(s^3,t^3), graded monomial dimensions (1,2,3,2,1) and maximal-ideal nilpotency index 5. The sign-normalized points and eight support points agree with RESULT.md. The frozen check.py inspects rational point counts for eight primes and the local monomial basis; these are finite checks only, not the proof or evidence of geometric reduction in arbitrary fibers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 5.17 gives 4d^2+4 reduced points and arithmetically Gorenstein structure for an arbitrary exponent d>=3 over C, not over Z.",
+          "Example 6.3 stays in characteristic zero and studies a subset. The two database analogues have length-four local factors on different surfaces or Hilbert schemes, not a length-nine Penrose collision."
+        ],
+        "reasoning": "Broader exponent range does not broaden the base. The term arithmetically Gorenstein is a property of the homogeneous coordinate ring and does not assert mixed-characteristic control.",
+        "searches": [
+          "arXiv:2209.04820v1 Proposition 5.17 and proof (OA offset 303010)",
+          "10.1007/s10801-025-01477-5, Example 6.3 and characteristic convention",
+          "Resultary 6be37a1d7eaa and 2f8fc2a76c51"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py",
+        "arXiv:2209.04820v1 §5.3; arXiv:2611.13108v1 §4.1; arXiv:1701.06512v2 Table 1; DOI 10.1007/s10801-025-01477-5 Example 6.3",
+        "Resultary d05748d723cb, 59289dd58fe2, 6be37a1d7eaa and 2f8fc2a76c51"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier proof indeed provides the same coordinate-plane strategy and the signed power equations on x=0. It ultimately asserts reducedness and dimension zero over C.",
+          "The arithmetic proof has to identify localized ideals over Z, including at coordinate sections, rather than substitute roots in a catalogue or count generic points."
+        ],
+        "reasoning": "A base-aware argument inspired by the existing coordinate computation is short, and once the four factors are found their local length and Hilbert function are immediate. But the complex theorem itself neither proves integral flatness of this ideal nor implies its characteristic-three local structure. Credit the earlier geometric argument rather than representing the chart idea as wholly new.",
+        "searches": [
+          "arXiv:2209.04820v1 Proposition 5.17 proof and Eq. (5.1)",
+          "arXiv:2611.13108v1 §4.1",
+          "Resultary 59289dd58fe2 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 5.17 has the identical ideal for d=3 in C[x,y,z,w]. Equations (18)–(19) of arXiv:2611.13108 give the same signs and four families with u,v complex cube roots.",
+          "Resultary d05748d723cb is the reviewed record itself; 59289dd58fe2 shares the ideal but studies the doubled middle non-Lefschetz divisor of a specified section over Q."
+        ],
+        "reasoning": "The known coordinate descriptions are equivalent after sign normalization, but the schemes over Spec Z and Spec C are not interchangeable. Same-day shared input does not establish overlapping arithmetic conclusions.",
+        "searches": [
+          "Resultary semantic search for the Penrose forty-point quartic scheme, integral decomposition and characteristic-three collision",
+          "arXiv:2209.04820v1 Proposition 5.17",
+          "arXiv:2611.13108v1 equations (18)–(19)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 and Eq. (5.1) catalogue the complex rays/points. The exact arithmetic invariant is the finite integral coordinate algebra and its behavior in every characteristic, neither of which is specified by these tables.",
+          "The indexed exact integral hit is the record under review; the neighboring Lefschetz record does not tabulate reductions."
+        ],
+        "reasoning": "The coordinate tables document known generic geometry, but do not determine that a given ideal over Z has no extra closed or embedded special-fiber pieces.",
+        "searches": [
+          "arXiv:1701.06512v2 Table 1",
+          "arXiv:2209.04820v1 Eq. (5.1)",
+          "Resultary d05748d723cb and 59289dd58fe2"
+        ]
+      },
+      "rationale": "Pass for the specific arithmetic model and its scheme structure, not for the quartics, the forty complex points, or the signed cube-root parametrization. Proposition 5.17 of Chiantini et al. already treats exactly these signs over C as the d=3 case of a power family. Its proof computes the support via coordinate-plane strata and records the relevant cube relations for one plane; the new conclusion must be restricted to the integral gluing-free decomposition, flatness and nonreduced special fiber of the displayed integral ideal. The related same-day Penrose Lefschetz result concerns an Artinian quotient over Q, not this arithmetic conclusion. No ordering is inferred within the day.",
+      "residual_risks": [
+        "No claim to global priority: the Zimba–Penrose original and a potential revised monograph associated with arXiv:2209.04820v1 were not inspected.",
+        "An unindexed arithmetic extension of the known coordinate-plane proof could duplicate the result. An unproductive general literature lookup supplies no negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact geometric overlap; not a mixed-characteristic theorem",
+          "evidence": [
+            "The proposition declares the ring C[x,y,z,w]; for x=0 with y,z,w nonzero the proof imposes signed d-th-power relations, and concludes 4d^2+4 reduced points."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.04820v1",
+          "material_read": "§5.3, Proposition 5.17 and proof, Eq. (5.1), PDF pp. 63–64, OA offset 303010",
+          "method": "Targeted OA text inspection, then compared the proof to the integral assertions",
+          "title": "Configurations of points in projective space and their projections",
+          "trigger": "Earlier identical signed equations and stronger power family"
+        },
+        {
+          "assessment": "Same signs and parametrization in characteristic zero",
+          "evidence": [
+            "The equations and four cube-root families match; the questions are about a complex configuration and incidences."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.13108",
+          "material_read": "v1 §4.1, equations (18)–(19), PDF p. 11, OA offset 47640",
+          "method": "Targeted OA text inspection",
+          "title": "Waldschmidt constants and invariant geometry for exceptional rank-four complex reflection groups",
+          "trigger": "Frozen source for the same ideal and coordinates"
+        },
+        {
+          "assessment": "Same quartic ideal in characteristic-zero setting",
+          "evidence": [
+            "Example 6.3 uses a 20-point subconfiguration and does not supply an integral reduction theorem."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10801-025-01477-5",
+          "material_read": "Example 6.3, PDF p. 21, OA offset 62511; setting p. 2",
+          "method": "Targeted OA text inspection",
+          "title": "Matrixwise (approach to unexpected hypersurfaces) reloaded",
+          "trigger": "Exact earlier quartics"
+        },
+        {
+          "assessment": "Complex points, not an integral model",
+          "evidence": [
+            "Forty rays with signed cube-root coordinates in complex projective space."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1701.06512",
+          "material_read": "v2 Table 1, PDF p. 6, OA offset 17899",
+          "method": "Targeted OA table inspection",
+          "title": "The Penrose dodecahedron and the Witting polytope are identical in CP^3",
+          "trigger": "Coordinate table for an equivalent realization"
+        },
+        {
+          "assessment": "Shared ideal only, different base and invariant",
+          "evidence": [
+            "Works over Q with section x+2y+3z+w and a doubled quintic non-Lefschetz divisor."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-doubled-middle-lefschetz-quintic-in-a-penrose-forty-point-arti--59289dd58fe2",
+          "material_read": "Finding and specified Artinian section",
+          "method": "Local-mirror reading",
+          "title": "A doubled middle Lefschetz quintic in a Penrose forty-point Artinian reduction",
+          "trigger": "Distinct same-day record with identical input ideal"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact integral algebra and non-curvilinear characteristic-three collision are useful for specializing this standard model of a named configuration: specializing its coordinate table shows merging support, but not the multiplicity, flatness or the two independent nilpotent directions, nor absence of vertical pieces. The decomposition distinguishes a length-nine thickening of embedding dimension two from nine transverse points or one curvilinear component, and exactly identifies when the point scheme can be treated as reduced. The value is specific to this model, not a claim about the entire reflection arrangement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific assessment: exact de Bruijn OR clocks
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a complete, sharply quantified first-hitting-time law for a specified synchronous directed OR network, not a generic assertion about all Boolean dynamics. A length-\(t\) directed walk in the full de Bruijn graph exists exactly for the matching suffix/prefix pair. Thus the all-one event splits into \(q^{d-t}\) independent, nonempty initial-activity requirements, each imposed on a disjoint class of \(q^t\) vertices. This yields the exact cumulative count \((2^{q^t}-1)^{q^{d-t}}\), from which the first-entry counts, sharp extreme and biased distribution follow. The uncovered-class statistic has an exact binomial law; its mean in the critical binary window is identically \(2^c\), and the Poisson and two-point limits follow by standard binomial bounds. The two standalone checkers confirm the full direct dynamic census for six small parameter pairs, path-overlap equivalence and several exact critical-window expectations. Their finite scope is explicitly distinguished from the proof.
+## correctness
 
-## Originality — PASS, with historical risk
-Jarrah–Laubenbacher–Veliz-Cuba (arXiv:0805.0275v1, Sections 1–3) and Gadouleau (arXiv:2104.04403, Sections 2–3) establish general Boolean-walk semantics and recurrent-point classifications. They imply that only two fixed configurations remain on a primitive de Bruijn digraph, so that qualitative assertion is not new. Neither inspected full text supplies the exact de Bruijn suffix-class first-entry counts or the dimension-dependent Poisson cutoff. The published Wielandt OR result proves a very different graph-dependent gap bound and a linear-logarithmic typical clock in its own graph order; its full RESULT was compared, and it does not dominate the new formula. A de Bruijn random-edge-coloring study addresses different random variables and was also inspected in full. The closest dedicated broadcasting article was available only through its abstract/bibliographic record; it studies a communication protocol rather than autonomous OR evolution, but its unseen full text remains a residual equivalence risk. Exact prior equivalence has not been ruled out universally.
+PASS
 
-## Value — PASS
-The all-size cumulative census and finite-time extinction shell are natural dynamical invariants for broadcast/consensus on the standard directed de Bruijn family, where shortest path length, automatic information propagation and input-word length are structurally linked. The exact suffix obstruction does more than quantify a generic convergence theorem: it yields every first-entry population, exhibits an extreme/typical time separation \(d\) versus \(\log_q d\), and determines a nontrivial Poisson two-point cutoff along a mathematically canonical dimension window. This is a complete temporal classification of a natural infinite graph family; no broad arbitrary-graph theorem is claimed, and standard probability limits are openly credited.
+For 0 ≤ t ≤ d, a length-t walk ends at a target precisely when the source's last d−t letters match the target's first d−t letters. Thus all-one at t means every one of q^(d−t) disjoint initial classes of size q^t is occupied. This gives both the exact product count and binomial empty-class law; all-one is absorbing, so subtracting successive cumulative counts is valid. At t=0 only all-one hits, at t=d every nonzero state hits, and a singleton cannot hit by d−1. The sole infinite hitting time belongs to all-zero; this is a clock to all-one, not to either unanimous configuration. At t=(1±ε)log_q(d), with the appropriate integer rounding, the mean empty count diverges or vanishes, respectively. At binary d=2^h+h+c the empty-class means at h−1, h, h+1 are 2^(2^(h−1)+c+1), 2^c, 2^(c−1−2^h). Independence at each time gives the Poisson limit at h and the two adjacent hitting masses without requiring independence across times. An independent direct-update census agreed at (2,1),(2,2),(2,3),(2,4),(3,1),(3,2), including finite counts (1,6560,44064,14400,510) and one nonhit at (2,4); this corroborates only finite cases. The frozen verification paths are verify_exhaustive.py and verify_reachability.py with their recorded outputs; neither frozen program was executed in this review.
 
-## Source limits and priority risk
-A full-text scholarly equivalence across every historical broadcasting and Boolean-network source is not claimed. The original 1946 de Bruijn article is cited at year resolution; no fictitious calendar day was assigned. The earliest source used here with a verified original public posting **at day resolution** is the 2008-05-02 arXiv preprint. The older 1994 broadcasting paper was checked through its accessible journal abstract and bibliographic record, not read as a full manuscript. Verification of this proof does not establish publication priority or independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified to the all-size labelled hitting census and the lattice-scale random-initialization law for this graph. General OR propagation, primitiveness and independent-block Poisson approximation are prior; the checked general results do not supply the exact suffix partition or its hitting invariant, and the closer cutoff analogues have different obstruction sets.
+
+## value
+
+PASS
+
+The formula gives the count of all labelled inputs meeting any deadline, and the entire biased reliability curve, on a standard directed network. This is more informative than its exponent or its fixed points: it quantifies d versus log_q d and identifies the sparse dimension subsequences where each of two adjacent clocks retains positive mass. The dimension window is forced by keeping the mean number of empty classes finite, rather than selected as an arbitrary numerical slice. Value is in the exact graph-specific invariant and calibration, not in a new general occupancy principle.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

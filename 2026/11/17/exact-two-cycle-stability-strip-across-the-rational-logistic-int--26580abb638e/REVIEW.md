@@ -1,23 +1,21 @@
-# Scientific assessment: exact two-cycle stability strip
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The factorization of \(F_{\mu,\lambda}^{\circ2}(x)-x\) yields precisely the two fixed-point factors and a quadratic whose discriminant is \((\mu-\lambda)(\mu+1)[\mu^2-(3+\lambda)\mu-\lambda]\). The signs at both ends of the invariant unit interval and the vertex location prove **existence, uniqueness, and interiority** of the primitive two-cycle beyond the previously known first flip. Vieta reduction gives its exact derivative product \(1-R\), while strict monotonicity of \(R\) and the exact endpoint value greater than two establish a unique secondary loss of hyperbolic attraction. The derivative sign in the interpolation parameter proves strict threshold monotonicity. The explicit square-root law follows from expansion at the simple discriminant root. Independent symbolic identities and numerical samples are reproducible using `verify.py`.
+PASS
 
-Remaining correctness boundaries: the theorem does not imply global attraction of the cycle or existence of period four at the neutral boundary; neither is claimed.
+For the repaired statement, the swap equations for two distinct points give sum S=(mu+1)/mu by subtraction and product P=S/(mu-lambda) by addition. Conversely these sum and product equations imply both swap equations; solving the quadratic therefore introduces no extraneous roots. Its discriminant has the sign of H and its vertex lies in (0,1) with positive endpoint values, so a positive discriminant gives exactly one primitive pair in the interval and a double root gives none. At each root x, with other root y, differentiate (1+lambda x)F(x)=mu x(1-x) and use mu S=mu+1: the derivative numerator is mu(y-x)-(1+lambda y). Multiplication gives 1-mu(mu-lambda)(y-x)^2/[(1+lambda x)(1+lambda y)], which reduces to 1-R via the given P,S. With t=sqrt(1+lambda) the critical point is 1/(1+t), the stated invariance endpoint gives H=2 t^2(t+1), and R=4[1+1/(t+1)^2]>2 there. R rises strictly from zero with mu above mu_1 by its three positive factors. It falls strictly with lambda wherever H>0. Comparing a smaller-lambda threshold at the larger lambda either puts it below the latter's mu_1, or places it inside the latter admissible interval with R<2 because the upper invariance endpoint increases. This proves strict increase, including the endpoints. At lambda=1 the quartic divided by mu^2 reduces to s^2-4s-4 with s=mu-1/mu; the allowed root has s=2+2 sqrt(2), giving the corrected radical. The simple zero of H gives the square-root expansion and error by factoring out mu-mu_1 before expanding the positive analytic factor. An independent symbolic calculation confirmed the frozen factorization, discriminant, product derivative, invariance-endpoint identity, and quartic, all of which apply to the repaired theorem.
 
-## Originality — PASS within examined sources
+## originality
 
-The source paper (Conejero–Lizama–Quijada 2025, DOI 10.3390/math13030518) explicitly supplies the first fixed-point flip boundary and tabulates numerical period-two/period-four transitions at four interpolation values. Its full accessible Sections 2–8, including the numerical bifurcation table and references, do not contain an all-parameter exact secondary boundary, monotonicity theorem, or a complete two-cycle root classification. Kumar et al. (2022, DOI 10.3934/mbe.2022115) analyze the rational endpoint and report a numerical period change near 5.033, but do not give this uniform formula. The known logistic parameter value \(1+\sqrt6\) is explicitly excluded from novelty. Semantically compared indexed mathematical findings concern different maps (for example, rational Rulkov, inverse-power, Duffing and alternate rational discretizations), so their theorems do not imply the rational logistic interpolation's threshold.
+PASS
 
-Residual originality risk: an earlier general rational-quadratic dynamical classification might imply the particular calculation without explicitly naming this family; absence of a matching search result is not proof of global priority.
+The repaired claim is a uniform exact period-two census and local stability strip for the interior of the known interpolation, with a rigorous strictly increasing secondary boundary on the closed parameter interval and an explicit opening coefficient. The endpoints are included for continuity and credited, not asserted as new. The closest primary paper treats the identical family and gives the exact first fixed-point threshold, but its Section 7 determines the secondary boundaries at four samples by numerical approximation. The strongest indexed prior gives the entire exact rational-endpoint census, multiplier and threshold and goes further for period four there; that specialization is covered and excluded from the supported distinct claim.
 
-## Mathematical value — PASS
+## value
 
-The first study motivated continuous interpolation between two maps but resolved its secondary period change at four isolated parameter samples through finite computation. An exact stability boundary for **every** interpolation value, together with uniqueness, a closed multiplier, strictly increasing threshold and its square-root onset, removes reliance on numerically determined bifurcation values and makes the entire primary two-cycle stability strip mathematically accessible. This is a natural continuum classification answering a question posed by the published model, not an arbitrary parameter slice or a mere numerical recalculation.
+PASS
 
-## Closest literature and limitations
+An exact stability boundary for a specified two-parameter interpolation answers what sampled Lyapunov plots cannot: where the only primitive two-cycle is locally attracting, and whether increasing interpolation moves the crossing monotonically at every parameter. The closed-form multiplier and opening coefficient explain onset and loss of hyperbolicity, and the proof applies across the whole invariant strip. That uniform statement survives crediting the known endpoints and does not rely on rediscovering them or merely fitting tabulated values.
 
-Conejero–Lizama–Quijada (2025): full family, first flip and numerical second thresholds. Kumar et al. (2022): rational endpoint, approximate two-cycle stability interval. The classical logistic model has an established exact second threshold at \(\lambda=0\). The result establishes local stability of the primitive two-cycle and not higher-period creation, chaotic dynamics or global basin claims.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

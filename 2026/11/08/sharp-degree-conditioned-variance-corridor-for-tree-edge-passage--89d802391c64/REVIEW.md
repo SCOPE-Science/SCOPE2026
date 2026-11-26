@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The first-step moment equations are checked with the walk stopped upon first hitting the external parent. Substituting the exact mean \(2s_v-1\) yields a finite recursive variance identity; expanding it establishes the weighted fringe-subtree sum without any appeal to finite enumeration. Discrete convexity of \(u(u-1)\) yields the unique balanced lower extremizer; strict increasing increments of \(F(u)=\frac83(u^3-u)\) yield the unique path-plus-leaves upper extremizer. Equality cases are valid also at the small boundary orders, and the attached exact-rational verifier independently checks all rooted shapes of orders two through eight. No claim of computer-proved infinite quantification is made.
+PASS
 
-## Originality (PASS, provisional)
+An independent first-step check decomposes each parent passage into a geometric number of failed child excursions and one final step. At a vertex with h children the failure count has mean h and variance h(h+1); a failed excursion chooses a uniform child and lasts 1+Z_c. Induction gives mean 2s_v−1 and the variance recurrence V_v=sum_c V_c+4sum_c s_c²+4(s_v−1)², equivalent to the frozen recurrence. Thus V_x=4s(s−1)+8sum_{v≠x}s_v(s_v−1), independent of the part beyond y. At fixed branch sizes the lower bound requires every proper descendant of a branch root to be a leaf; strict integer smoothing then gives the unique balanced size multiset. For the upper bound, induction on an unrestricted branch of size r gives maximum P(r)=(4/3)r(r−1)(2r−1), uniquely at the endpoint-rooted path: the child-size contributions F(u)=P(u)+4u(u−1) have strictly increasing increments, so concentrate all surplus on one child, and one child is best when the number is unrestricted. At x this same allocation at fixed k gives (s−k,1,…,1), including k=s−1, when all children are leaves. Substitution of s=2m+1, k=m verifies both polynomials and the ratio asymptotic m/6 with equal marked degrees, mean and order. Inspected VERIFICATION.md and verify.py without running the latter; the absorbing-chain check there is finite (s=2–8) and not needed for the proof. In its final m-loop it asserts the lower expression and U>=L rather than a separate upper-polynomial identity; the upper polynomial was checked by exact substitution above.
 
-The closest structural precedent is Aldous–Fill, §5.3, Theorem 5.20, which supplies a general formula for the variance of tree first-passage times, including an adjacent edge. That identity is acknowledged, and no new general variance formula is claimed. The assessed new conclusion instead solves the *optimization* at fixed starting-side component size and first-edge starting degree, including both sharp numerical bounds and all extremizing rooted shapes, and exhibits an unbounded same-local-data dispersion ratio. Chiclana (2026) proves tree variance lower bounds without this degree-conditioned exact extremal classification in the material examined. The published-literature searches identified no directly matching assertion. Source-access and priority risks are documented in `AUDIT.json`: in particular, a general exact-variance identity provides a strong starting point, while parts of a relevant recent preprint and an older thesis could not be inspected in full.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-Conditional first-passage variance is a natural measurement of dispersion in tree random walks, and a component-size-and-starting-degree constraint is a natural local-data comparison: the mean is fixed automatically by the component size, and the degree fixes the immediate branching. The result completely classifies the extreme variances under this information, identifies structurally different extremizers, and shows that even matching order, marked degrees and mean permit a variance ratio of linear order. This quantifies a genuine limitation of degree-based nonconcentration estimates, rather than a numerical improvement at arbitrary parameter values.
+The adjacent-edge mean and exact variance are already available, including the fringe form by regrouping. The supported distinct claim is the sharp degree-and-size-conditioned corridor with both rooted equality classifications and its quantitative same-data consequence. Neither the exact predecessors nor the distinct indexed overlaps checked supply this optimization.
 
-## Limitations and literature comparison
+## value
 
-The variance is for a non-lazy simple random walk and a directed traversal of a tree edge, not a general graph or an arbitrary source-target pair. Known exact tree-variance identities must be distinguished from the new sharp fixed-degree optimization. The full texts of Meng Wang's honors project and the later portions of Chiclana's HTML were not accessible during inspection; the broad historical-priority conclusion is therefore provisional. Independent scientific assessment has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete sharp optimization answers how much root-degree information restricts dispersion when the mean is already fixed by the size of the starting component. The equality shapes identify two competing mechanisms, and the unbounded matched-data ratio shows that any size-independent multiplicative prediction from those statistics fails. Credit rests on the sharp constrained classification, not on rediscovering the known moment formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

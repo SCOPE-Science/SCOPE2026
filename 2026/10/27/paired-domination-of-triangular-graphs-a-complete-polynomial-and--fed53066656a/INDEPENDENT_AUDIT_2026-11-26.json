@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:13:44.449621Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–80",
+        "Frozen VERIFICATION.md, CHECKS.txt, verify.py, full_n7.py, and count_min.py, inspected as evidence"
+      ],
+      "rationale": "An unselected edge of the clique is undominated exactly when both endpoints are unused, so at most one unused label is necessary and sufficient. A perfect matching in the selected line graph pairs selected edges at common endpoints. In a connected component, assign every non-tree edge to one endpoint and process a rooted spanning tree from its leaves: pair all currently available assigned and child edges if there are an even number, passing the parent edge up, or consume the parent edge in one pair and pair the rest if there are an odd number. At the root the unpaired count is even by global parity, proving sufficiency. In the labeled exponential formula, log A selects connected graphs, averaging its z and −z forms keeps those with an even number of edges, and (1+x)e^(−x) replaces unrestricted singleton isolates by zero or one. No perfect matching multiplicities enter. For the minimum, each edge pair covers only three labels, so b pairs must cover at least n−1 labels, giving b≥ceil((n−1)/3). Disjoint paths attain equality in the first two residue classes; in the third, two wedges sharing exactly one label form a four-edge tree and the remaining wedges are disjoint. For a component with 2r edges and v labels, the nonnegative defect 3r−v is at least r−1; total defect 3b+i−n is at most two. The only zero defect component is P3. The possible positive-defect components are a five-vertex tree (defect one), a four-edge graph on four labels (defect two), and a seven-vertex tree (defect two). This gives the listed component multisets for each residue class and choice of isolate. The factors 3/3!=1/2, 125/5!, 15/4!, and 7^5/7! count component types on blocks of labels; dividing by multiplicity factorials for repeated types gives the displayed terms across the three formulas, with the stated omissions. Boundaries n=3,4,5 are included.",
+      "residual_risks": [
+        "The recorded finite checks were not rerun. The universal assertions follow from the component pairing, formal enumeration and defect proofs, not the recorded samples."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The standard even-order matching theorem is broader than the parity step. The inspected Ulatowski material defines paired domination and studies paired/upper paired domination, not the indicated full census in those passages. A Resultary total-domination classification concerns a weaker matching-free condition."
+        ],
+        "reasoning": "Total domination requires each selected vertex to have another selected neighbor; that does not ensure every edge-bearing component has even size. Enumeration for the weaker object cannot give the paired-domination census without additional work.",
+        "searches": [
+          "Ulatowski, Opuscula Math. 35(1) (2015) 127–135; Haynes–Slater; Jiang et al. DOI 10.3934/math.2022069",
+          "Resultary triangular line graph paired-domination slides; minimum total domination"
+        ]
+      },
+      "checked_sources": [
+        "Frozen proof and bibliography",
+        "Resultary 371270f6d358 and 089ab809679e",
+        "Sumner (1974), institutional metadata and indexed statement",
+        "Ulatowski (2015), pp. 127–128"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier slide proof's three-label coverage bound also works in other residues, but zero excess coverage forces its n≡1 optimizer census only. At the other residues, the defect analysis must account for competing trees and four-edge graphs. The displayed EGF is a short application of the general labeled exponential formula to the classical parity test and isolate restriction."
+        ],
+        "reasoning": "This gives credit for direct implications and for the exact prior residue class, without confusing that prior specialization with a derivation of the remaining component counts.",
+        "searches": [
+          "Resultary 371270f6d358 §§Finding, Proof, Limitations; 089ab809679e §Finding",
+          "Sumner, Graphs with 1-Factors (1974); standard labeled exponential formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "T_n[D]=L(F); a 1-factor of L(F) is a decomposition of F into two-edge paths, independently in each edge-containing component. The classical even-order connected line-graph 1-factor theorem recovers the parity test. The unused-label condition is the elementary domination criterion for a clique host."
+        ],
+        "reasoning": "This treats line-graph matching and edge-pair decomposition as the same criterion and does not claim either as new.",
+        "searches": [
+          "Sumner 1974 graphs with 1-factors connected claw-free graph even order perfect matching original paper PDF line graphs path length two edge decomposition Kotzig",
+          "Resultary: paired domination of triangular graphs, minimum sets and paired-domination polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "371270f6d358, §Finding, states γ_pr=2k, k disjoint P3s plus one unused label, and (3k+1)!/(2^k k!) optima for n=3k+1: exact overlap. 089ab809679e also has the coincident count for that residue but for minimum total domination. No matching all-size polynomial or all-residue paired-domination profile table was identified."
+        ],
+        "reasoning": "The prior paired-domination result is credited exactly on its stated domain; the extra slide-graph results do not widen its n quantifier.",
+        "searches": [
+          "Resultary: paired domination of triangular graphs, complete polynomial and minimum-set census",
+          "Resultary 371270f6d358 and 089ab809679e, inspect exact Findings"
+        ]
+      },
+      "rationale": "The supported distinct result is the complete enumerator and all-residue minimum census, particularly the minimum component profiles and multiplicities for n≡0 and n≡2 mod 3. The edge-pairing criterion is a consequence of classical perfect-matching theory, and the exact n≡1 minimum type, cardinality and count are already in a distinct earlier Resultary record. Neither part is credited as new. The article's proof of those parts is useful for making the wider census self-contained.",
+      "residual_risks": [
+        "The exact n≡1 overlap should be cited in any future use; there is no separate priority claim for that case or for the standard matching ingredient.",
+        "Haynes–Slater and the Jiang et al. full texts and the Puttaswamy citation were not independently inspected in full. Bounded comparisons do not exclude an uninspected equivalent census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified exact prior coverage for n≡1 mod 3",
+          "evidence": "States all optimal sets and the same count on n=3k+1; explicitly limits the theorem to that residue.",
+          "identifier_or_url": "2026/10/25/SCOPE-paired-domination-slides-of-triangular-graphs-as-square-bouquet--371270f6d358",
+          "material_read": "Mirrored RESULT.md, offset 0 Finding; located proof around offset 3230 and limitations around offset 9253",
+          "method": "Resultary local search and mirrored primary record",
+          "title": "Paired-domination slides of triangular graphs as square-bouquet token swaps",
+          "trigger": "Exact graph, invariant and optimizer case"
+        },
+        {
+          "assessment": "Different invariant with a coincident residue",
+          "evidence": "Total domination is the selected invariant; the n=3t+1 profile agrees, but the other component profiles are not those for paired domination.",
+          "identifier_or_url": "2026/10/12/SCOPE-all-minimum-total-dominating-sets-of-triangular-graphs--089ab809679e",
+          "material_read": "Mirrored RESULT.md offsets 0 and 3782",
+          "method": "Resultary local search and mirrored primary record",
+          "title": "All minimum total dominating sets of triangular graphs",
+          "trigger": "Same host, closely related minimum census"
+        },
+        {
+          "assessment": "Classical coverage of the edge-pairing lemma, not of the full triangular graph census",
+          "evidence": "The indexed abstract explicitly mentions 1-factors for connected even-order line graphs. The statement applies to each L(H) for a connected selected-edge component H with even edge count.",
+          "identifier_or_url": "https://scholarcommons.sc.edu/math_facpub/13/",
+          "material_read": "Institutional bibliographic page and indexed abstract excerpt; not article full text",
+          "method": "Primary literature search and institutional OA landing page; repository and identified alternate PDFs returned HTTP 403",
+          "title": "Graphs with 1-Factors",
+          "trigger": "Known broader line-graph matching theorem"
+        },
+        {
+          "assessment": "Standard definition and distinct results in the passages read",
+          "evidence": "Defines paired dominating sets via induced perfect matchings and discusses upper paired domination and cycles.",
+          "identifier_or_url": "https://opuscula.agh.edu.pl/vol35/1/art/opuscula_math_3509.pdf",
+          "material_read": "pp. 127–128, around offset 0",
+          "method": "OA publisher PDF, opening passage",
+          "title": "The paired-domination and the upper paired-domination numbers of graphs",
+          "trigger": "Paired-domination primary background"
+        },
+        {
+          "assessment": "No primary result verified; residual access risk",
+          "evidence": "Full text was not obtained in the attempted route; no claim about its whole-document coverage is based on that attempt.",
+          "identifier_or_url": "https://doi.org/10.3934/math.2022069",
+          "material_read": "Citation and metadata only",
+          "method": "Exact DOI retrieval attempt",
+          "title": "Upper paired domination in graphs",
+          "trigger": "Cited general paired-domination source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings and equality-defect proof",
+        "Resultary 371270f6d358 §Finding"
+      ],
+      "rationale": "The full counting invariant for a natural line-graph family tracks which sizes occur and with what frequency, rather than just bounding the optimum. The genuinely distinct minimum census identifies all equality configurations in the two other residues: it separates unused labels, cycles in four-edge components, and larger sparse trees. Those structural distinctions and counts are useful for studying the space of optima, as illustrated by the separate slide-graph work in the previously covered residue. The standard parity reduction or the n≡1 count alone would not support this value finding.",
+      "residual_risks": [
+        "No new reconfiguration theorem or general classification for other Johnson graphs is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

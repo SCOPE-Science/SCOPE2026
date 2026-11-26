@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The standard game is completely determined by the two finite minimax recurrences. Every legal move strictly enlarges the dominated mask, so reverse-mask dynamic programming is exhaustive rather than heuristic. A 1,048,576-mask C++ evaluator and an independently written memoized Python evaluator agree on the two game values, the twenty opening values, all 760 conditional two-ply scores, and every distance profile. The statement is explicitly restricted to the graph \(\operatorname{GP}(10,2)\), with no unproved extrapolation.
+PASS
 
-## Originality — PASS, with residual historical-priority risk
+For the ordinary game on GP(10,2), the covered set and next mover are sufficient: a previous move's whole closed neighborhood is covered, so no repeated move can be legal. Every proper set admits a move and each legal move strictly enlarges it. With terminal D=S=0, the exact recurrence is D(U)=1+min S(U∪N[v]) and S(U)=1+max D(U∪N[v]) over legal v. The independent reachable-set DAG run used 11,846 dominated masks and checked all openings and all 760 conditional scores for distinct ordered opening/reply pairs under both conventions. It returned roots (9,8), uniform opening values, and distance-1-through-5 totals (9,8,8,8,9) and (9,9,8,9,9). The shell counts are (3,6,6,3,1); distinct closed neighborhoods have the same cardinality four so all nineteen distinct replies are legal. Hence S's optimal replies are neighbors and the antipode (four), while D's are precisely distance three (six). Frozen replay sources and logs are artifacts/game_dp.cpp, game_dp.py, cpp_output.txt and python_output.txt in the record directory; they were inspected, not executed. Independent replay: /workspace/branches/0a2fa392-a5ad-47f5-a702-3f2fd5f52e46/gp102_game_check.py and companion gp102_game_check_output.txt.
 
-The founding 2010 paper defines the game, proves general bounds and displays the smaller \(C_6\) first-player disadvantage. The 2016 full-text paper treats very small game values and diameter-extremal graph characterizations; neither entails exact values eight and nine on the dodecahedral graph. The 2013 publisher summary gives general bounds and existence constructions, not the exact 20-vertex minimax score or geometric reply classes; its full text remained inaccessible here, a concrete residual risk. Indexed records on static domination, power domination and matching games involve different state rules. Existing publications may contain unindexed computations. A failed search alone has not been treated as a novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-This determines both adversarial game values and all optimal second moves for a canonical cubic planar symmetric graph. The contrast between its minimum static domination size six and game lengths eight and nine measures a concrete adversarial cost; the five distance classes explain the counterintuitive starting disadvantage. This is a complete natural finite strategic classification rather than a single arbitrary parameter sample, and it is exactly reproducible.
+The standard game, its general bounds and starting-player effects are prior. The closest same-day record has an exactly matching Dominator-first response profile on the Desargues graph, but Desargues is bipartite, whereas GP(10,2) contains five-cycles, and its Staller-first profile and value differ. No inspected statement for the dodecahedral graph gives the complete two-convention profile or a theorem forcing it. This is a best-of-knowledge judgment on the specific dodecahedral result, not priority of the minimax recurrence or of starting disadvantage in general.
 
-## Scientific limitations
+## value
 
-The claim is finite and graph-specific. Exhaustive programs are part of the proof and do not establish an infinite family. Bibliographic completeness and independent scholarly validation are not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A canonical cubic Platonic graph gives a natural test of the difference between starting conventions. The full distance profile explains which replies are responsible, distinguishing neighbors and the antipode from intermediate distances under one start and singling out only distance three under the other. This exact invariant is usable to benchmark strategies and compare other cubic symmetric graphs; it is not just a recomputed scalar or a claim that the starting disadvantage itself is new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

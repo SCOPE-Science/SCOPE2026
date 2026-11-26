@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification methods and limits
+# Independent mathematical audit
 
-Reproduce using `python3 verify.py` (Python 3.10 or later; standard library). Its direct neighborhood evaluation on each proper ternary cyclic coloring for lengths \(3\) through \(13\) agrees with the equal-increment-triple local characterization, and its frozen counts agree with the closed formula. Independently enumerating all \(2^n\) cyclic increment strings through length \(20\), filtering both the modulo-three closure and two excluded triples, gives the same counts. The code also checks the explicit even/odd existence witnesses through length \(301\) and the unweighted transfer trace recurrence.
+## correctness
 
-The proof's noncomputational steps are the cyclic increment bijection, the local swap iff homogeneous triple lemma, the two degree-four determinant evaluations and the roots-of-unity filter. The asymptotic statement additionally uses the roots of the stated cubic and Lucas polynomial. Finite checks do not establish the theorem for arbitrarily large lengths. No independent audit or formal certification is asserted.
+PASS
+
+An indexed proper coloring is specified by its first named color and a cyclic sign word. If p of the increments are +1, closure is 2p−n≡0, equivalently p+n≡0 (mod 3). An adjacent swap is allowed exactly when both outside neighbors are the third color, or equivalently the surrounding three increments are equal; the same argument works on the triangle where the outside neighbors coincide. Frozen words thus avoid 000 and 111, not isolated signs. The weighted trace over states 00,01,10,11 counts indexed cyclic words with no division for periodic orbits; summing the three twists implements closure and cancels the factor 1/3 against three initial colors. Direct determinant expansion gives (1−z−z²)(1+z+z²) and, for either nontrivial twist, (1−z)(1+z+z³). The traces and Newton sums produce the stated Lucas term, cubic recurrence and rational generating function, subtracting the length-two coefficient 6 (length one is zero). Minority-run capacity excludes the admissible weights at lengths 3,5,7; alternating words at even lengths and (001)^3 followed by alternating pairs at odd lengths at least nine give valid cyclic witnesses including the closing triples. The cubic has one negative real root −alpha (local extrema are positive), and the conjugate pair has modulus alpha^(-1/2) by the root product. Thus the Lucas root dominates and division by 2^n+2(−1)^n yields the claimed asymptotic fraction. /workspace/evidence/reproduce_other_checks.py verified counts for n=3..27 by a separate twelve-state trace over actual consecutive color triples. That check supports, but does not replace, the all-length proof.
+
+## originality
+
+PASS
+
+The supported claim is the exact congruence-refined cycle count, exceptional lengths and asymptotics for named proper colorings under adjacent legal swaps. The swap model, path rigidity and generic weighted transfer methods are not claimed as new. The precise forbidden-word statement attributed in the frozen record to Agur et al. was not independently verified and is not used as negative coverage evidence.
+
+## value
+
+PASS
+
+Isolation is the most immediate obstruction to moving within proper adjacent-swap colorings. Indexed cycles are the simplest family where the local obstruction must satisfy global color closure. The count resolves every length, explains the small odd exceptions, and gives an exponential rate for the proportion of states with no permitted first move. It does not claim to classify larger components or add a new general transfer-matrix method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

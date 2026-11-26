@@ -1,106 +1,107 @@
 {
   "correctness": {
-    "rationale": "Every finite moment follows from one-coordinate simultaneous avoidance. Exact second moments and asymptotic coefficients were reconstructed independently, including symmetrized covariance entries. The Gaussian limit uses independent streams conditioned on a binomial retention count, the standard conditional-Poisson multivariate occupancy CLT, and a delta-method correction. 749 exact rational checks corroborated the finite formulas; finite checks are not treated as proofs of the asymptotic law.",
+    "rationale": "The finite variance yields v by expanding the logarithm of the one-letter avoidance probability through order n⁻²; the strictly monotone derivative bracket gives its sole maximum on [0,1]. The joint law centers by exact expectations. Conditional on latent retention decisions there are three independent occupancy streams. Fourier conditioning at their fixed totals gives the Schur complement, and the binomial fluctuation adds only ρ(1−ρ)Q² to the common-leaf variance. See the two limit proofs in RESULT.md. The finite code enumeration verifies neither limiting theorem.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Barbour and Gnedin, arXiv:0809.4387, introduction and §§2–4: multivariate occupancy frequency counts within one fixed infinite-urn allocation, with Poissonization and normal approximation.",
-        "Bogachev, Gnedin and Yakubovich, arXiv:math/0609498, introduction and §§1–2: variance behavior for the number of occupied boxes of one infinite-urn occupancy model."
+        "Hwang–Janson and Barbour–Gnedin treat occupancy counts in a single stream. b3d73bd92af7 conditions on fixed independent Poisson stream totals for full-degree agreement and does not have a random shared-stream size."
       ],
-      "reasoning": "The known single-stream count theorems supply methods but do not state a coupled two-code law. Their stated parameter spaces do not incorporate independent per-position refresh and the common-leaf nonlinear response. A different, very general multistream theorem might dominate; its possibility remains a residual risk, not affirmative prior coverage.",
+      "reasoning": "These precedents cover classical de-Poissonization and related conditional limit methodology, but give no linear-load covariance including the binomial retention fluctuation for both leaf counts and the overlap.",
       "searches": [
-        "random allocation balls into bins bivariate correlated occupancy empty boxes asymptotic normal coupled samples noise 2014",
-        "correlated occupancy models two dependent multinomial allocations common empty cells CLT 2009",
-        "occupancy urns two dependent sequences empty bins overlap noise Gaussian",
-        "bivariate occupancy distributions repeated sampling overlap empty cells asymptotic normal",
-        "resampling coupled occupancy models joint empty bin count variance maximal at intermediate correlation",
-        "common leaves two correlated uniform Cayley trees Gaussian law overlapping leaf sets"
+        "arXiv:math/0604397, Theorem 2.1",
+        "arXiv:0809.4387, opening joint approximation and §2",
+        "Resultary: multistream Gaussian limits, degree agreement and shared-ancestry leaf CLTs"
       ]
     },
     "checked_sources": [
-      "https://arxiv.org/abs/math/0609498",
-      "https://arxiv.org/abs/0809.4387",
-      "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-cubic-memory-of-shared-ancestry-in-leaf-counts-of-correlated-uni--99a911c57a5d",
-      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-rational-cross-tree-covariance-kernel-for-correlated-uniform-a--3469578c4e97",
-      "mathematical record b3d73bd9-2af7-4365-88bf-10f9af57b8cc"
+      "Resultary noisy vacancy c552f8b16e6b",
+      "Resultary degree agreement b3d73bd92af7",
+      "Resultary shared ancestry 99a911c57a5d",
+      "arXiv:math/0604397, arXiv:0809.4387, arXiv:math/0609498"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "arXiv:math/0609498 Theorems 1.1–1.3 concern bounded or convergent variance for infinite fixed frequencies.",
-        "arXiv:0809.4387, §§2–4 concern joint numbers of occupancy frequency classes in a single infinite urn scheme, not two partially copied code strings.",
-        "published-finding corpus 99a911c57a5d has a cubic correlation law for partial shared ancestry, unlike the present nonmonotonic overlap variance; published-finding corpus 3469578c4e97 uses a distinct attachment-degree process."
+        "Setting t=u=0 and ε=1−ρ in the mixed moments gives the stated common-leaf moments for m=n−2 directly. In contrast, its limiting law assumes coupon coverage m=n log n+O(n). The degree-agreement CLT uses fixed sizes in independent occupancy streams."
       ],
-      "reasoning": "The existing theorems do not logically specialize to the exact two-code factorial-moment identity without adding the coupled-pair model. The optimization step is a new comparison within that model. The underlying Prüfer correspondence and occupancy de-Poissonization lemma are not asserted novel.",
+      "reasoning": "No finite-moment novelty survives this reduction. At linear load one still needs the variance expansion, strict parameter optimization, conditioning on three streams, and the additional binomial covariance; neither inspected limit theorem supplies those conclusions by setting parameters.",
       "searches": [
-        "Cayley random labeled tree two Prüfer code sequences each coordinate shared with probability rho otherwise independently refreshed common leaves overlap asymptotic variance nonmonotone rho",
-        "common leaves two correlated uniform Cayley trees Gaussian law overlapping leaf sets",
-        "Small counts in the infinite occupancy scheme Barbour Gnedin",
-        "On the variance of the number of occupied boxes Bogachev Gnedin Yakubovich"
+        "c552f8b16e6b RESULT.md, Finding and Proof, mirror offset 0–3382",
+        "b3d73bd92af7 RESULT.md, Finding and conditional limit argument, offsets 0–6923"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "published-finding corpus related records 99a911c57a5d and 3469578c4e97 study copied ancestry/parents in recursive-growth trees, not independent uniform Cayley trees coupled in Prüfer coordinates.",
-        "The previous mathematical record b3d73bd9-2af7-4365-88bf-10f9af57b8cc describes whole-degree agreement in independent Cayley trees; the retention parameter and shared-leaf variance maximum are absent."
+        "The absent-label map gives an exact identification with noisy occupancy; c552f8b16e6b uses ε=1−ρ and contains the finite joint factorial moments of vacancy categories."
       ],
-      "reasoning": "Under Prüfer coding, shared leaves equal labels absent from both of two correlated strings, whereas the indexed related results concern another random tree law or a statistic counting any matching degree. Neither provides an equivalent coupling or an implication of its nonmonotonic variance curve.",
+      "reasoning": "The equivalent formulation identifies exact coverage of finite moments, but the finite mixed moments are premises rather than the narrowed claim about linear-load fluctuations and variance optimization.",
       "searches": [
-        "Cayley random labeled tree two Prüfer code sequences each coordinate shared with probability rho otherwise independently refreshed common leaves overlap asymptotic variance nonmonotone rho",
-        "resampling coupled occupancy models joint empty bin count variance maximal at intermediate correlation",
-        "common leaves two correlated uniform Cayley trees Gaussian law overlapping leaf sets",
-        "Prüfer sequence noise coupling correlated random trees leaf overlap covariance Gaussian"
+        "Resultary: noisy occupancy common vacancy and Prüfer-code shared leaves",
+        "Resultary: correlated tree leaf-count laws and code refresh"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "No exact parameter table or matching coefficient was returned in searched published-finding corpus results; nearest listed records have different objects and formulas.",
-        "The four limiting variance values and the optimizer follow directly from the proof and the standalone exact finite identity; they are not copied from a preexisting table."
+        "c552f8b16e6b is an exact formula match for finite moments, not a catalogue statement of the linear-load maximizing retention probability or Gaussian law."
       ],
-      "reasoning": "Numerical agreement with a table would require the same two-code refresh protocol and the same common-leaf statistic, not simply tree leaf totals. Search non-detection is not treated as proof of uniqueness.",
+      "reasoning": "The decimals represent an analytic root and variance, not a new table entry; the check concerns the same coupling, load limit and structural maximum.",
       "searches": [
-        "Prüfer Cayley two correlated code strings shared leaf vertices retention parameter 0.719964 unique variance maximum 0.117367 3 minus 2rho plus rho squared",
-        "shared leaves Prüfer random trees table noise retention optimum 0.719964",
-        "Prüfer sequence correlated tree leaf overlap"
+        "Resultary: common-empty-box count under resampling; shared-leaf variance maximum under Prüfer-code refresh"
       ]
     },
-    "rationale": "The reviewed novelty is the coordinatewise partially shared Prüfer-code coupling and its exact common-leaf factorial transform, joint fluctuation covariance, and unique interior variance maximum. Primary texts inspect ordinary one-stream occupancy, not these claims; indexed related tree findings use recursive-growth couplings or different full-degree agreement. Classical occupancy normality and code bijections are prior work. Residual general-theorem risk is explicitly retained.",
+    "rationale": "The finite coupled occupancy model and its factorial moments are exactly covered by the mixed-moment theorem in c552f8b16e6b, so they are not asserted as novel. The conclusions assessed here are the variance maximum and the specified jointly centered Gaussian law at linear load m=n−2. Neither follows from the coupon-coverage Poisson law or the independent-Cayley degree-agreement limit on inspected evidence.",
     "residual_risks": [
-      "An unindexed broad theorem on coupled multistream urn allocations could imply the covariance formulas or limiting normality.",
-      "The searched published-finding corpus index and accessible history are not a proof of global originality.",
-      "Only same-model mathematical inspection has been performed; independent priority audit remains necessary."
+      "Same-day catalogue dates do not establish priority for the shared formulas.",
+      "Unlocated general multistream results may imply parts of the conditional approximation; the conditioning method is not asserted as original.",
+      "The comparison is bounded, not certification of historical priority."
     ],
     "source_inspections": [
       {
-        "assessment": "NOT_COVERING for the exact coupled Prüfer-code common-leaf variance maximum; does cover classical one-stream occupancy background",
-        "evidence": "Theorem 1.1 characterizes bounded limiting variance for one fixed infinite-frequency allocation; the model has neither copied paired codes nor two-tree intersection.",
-        "identifier_or_url": "https://arxiv.org/abs/math/0609498",
-        "material_read": "Introduction and main Theorems 1.1–1.3, with discussion of single-stream variance",
-        "method": "Full-text HTML reading of original arXiv work",
-        "title": "On the variance of the number of occupied boxes",
-        "trigger": "Archival occupancy variance theory used as mathematical baseline and date anchor"
+        "assessment": "Covers finite identities; different limiting regime",
+        "evidence": "The exact mixed factorial moments specialize to all finite shared-leaf factorial moments; its limit is at coupon coverage.",
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-critical-resampling-noise-and-a-three-poisson-vacancy-law-at-cou--c552f8b16e6b/RESULT.md",
+        "material_read": "Finding and Proof, offset 0–3382",
+        "method": "Bounded local-mirror statement and proof read",
+        "title": "Critical resampling noise and a three-Poisson vacancy law at coupon coverage",
+        "trigger": "Exact noisy-occupancy equivalence"
       },
       {
-        "assessment": "NOT_COVERING for the paired-code shared-leaf claim; supplies standard single-allocation Gaussian methodology",
-        "evidence": "Theorem 3.1 concerns joint counts of distinct fixed occupancy sizes within a single infinite urn model, not the simultaneous absence of labels from partially coupled Prüfer strings.",
+        "assessment": "Related method, different statistic and dependence",
+        "evidence": "Full-degree agreement over independent trees uses fixed-size independent streams and no random retain count.",
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-gaussian-law-for-degree-agreement-across-independent-cayley-tr--b3d73bd92af7/RESULT.md",
+        "material_read": "Finding and conditioned-Poisson Fourier argument, offsets 0–6923",
+        "method": "Bounded local-mirror reads",
+        "title": "A Gaussian law for degree agreement across independent Cayley trees",
+        "trigger": "Closely related multistream CLT"
+      },
+      {
+        "assessment": "Single-stream count law",
+        "evidence": "The statistic counts boxes with occupancy in a specified set, in one allocation.",
+        "identifier_or_url": "https://arxiv.org/abs/math/0604397",
+        "material_read": "Theorem 2.1, PDF p. 4, offset about 11600",
+        "method": "Bounded OA primary PDF passage inspection",
+        "title": "Local limit theorems for finite and infinite urn models",
+        "trigger": "Possible broad occupancy limit coverage"
+      },
+      {
+        "assessment": "Joint counts in one allocation; classical method",
+        "evidence": "Joint approximation of occupancy-frequency counts is supported by Poissonization/de-Poissonization, not a correlated pair of allocations.",
         "identifier_or_url": "https://arxiv.org/abs/0809.4387",
-        "material_read": "Introduction, Section 2 Poissonization, Section 3 normal approximation, and start of Section 4 moments",
-        "method": "Full-text HTML reading of original arXiv work",
+        "material_read": "PDF pp. 1–2, abstract and §2",
+        "method": "Bounded OA primary PDF passages",
         "title": "Small counts in the infinite occupancy scheme",
-        "trigger": "Plausible stronger multivariate urn normality theorem"
+        "trigger": "Possible joint occupancy approximation coverage"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
-  "schema_version": 1,
-  "scope_run_id": "f67d985e-9321-456d-a390-6d0bcdd7c3ef",
+  "previously_published_pending_reaudit": false,
+  "scope": "Scientific assessment of the narrowed linear-load finding; the finite noisy-occupancy identities are supporting background.",
   "value": {
-    "rationale": "A coupled uniform tree comparison naturally asks which vertices remain terminal. A unique maximum of uncertainty at strictly intermediate code retention is an interpretable, non-obvious boundary that endpoint analyses cannot reveal. The exact finite moment law and trivariate Gaussian covariance permit calibrated joint uncertainty calculations for such replicated trees. This is not a mere normalization or arbitrary size selection.",
+    "rationale": "The unique peak of overlap-count uncertainty is a natural structural feature of the coupled-tree null model, absent at either independence or perfect copying. The joint Gaussian law describes how the two marginal leaf counts fluctuate with their overlap. Neither conclusion is evidence about graph-edge perturbations or exact finite-size maxima.",
     "status": "PASS"
   }
 }

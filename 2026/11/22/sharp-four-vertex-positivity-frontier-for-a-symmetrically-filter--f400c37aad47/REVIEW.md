@@ -1,22 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the stated first-order matched filter, the response is exactly \(I-hL(I+hL/2)^{-2}\), consistent with the specified first-order filtered branch in Wu and Shu, arXiv:2611.02282v1, Equations (3.5), (3.6), (3.38). Spectral calculus gives eigenvalues in \([1/2,1]\), preserving constants. Every simple undirected graph of at most three vertices is covered by the explicit checks of \(K_1,K_2,P_3,K_3\). On \(P_4\), four independent rational off-diagonal formulas have a common strictly positive denominator; all but the endpoint-neighbor class are positive, and Descartes' rule gives exactly one positive root of the sign-controlling cubic. Effective-resistance double centering and finite-dimensional functional calculus prove the general fixed-order stiff expansion and its path obstruction for every \(n\ge4\). The delivered Python/SymPy checker passes; no finite enumeration is treated as proof of all graph orders or timesteps.
+PASS
 
-## Originality — PASS, with residual priority risk
+For fixed G,p,c the scalar variable x=hcλ/2 on a positive eigenvalue tends to infinity and the binomial expansion gives r_p(x)=p/x+O(x^-2), independently of any finite test. Squaring, multiplying by hλ and summing the finitely many spectral projectors yields the exact 4p²/(c²h) coefficient of L⁺ with matrix-norm O(h^-2), with the constant space unaffected. A strictly positive off-diagonal of L⁺ therefore makes that same entry negative at sufficiently large h. The scalar subtraction is (2/c)x r_p(x)^2 where x r_p(x)^2 is continuous, nonnegative, zero at zero and tends to zero at infinity; c≥4C_p proves the [1/2,1] spectrum simultaneously and for all h≥0. Unit-path resistances are distances |i−j|. Double-centering −HDH/2 using sums n(n−1)/2, 1+(n−2)(n−1)/2 and n(n²−1)/3 gives (n−1)(2n−7)/(6n) at 12, strictly positive for n≥4. Thus every fixed finite order has the path obstruction, rather than just a check for a finite list of orders.
 
-The motivating full text introduces the filter and its unconditional energy stability, but does not state the exact graph positivity frontier. Fontan–Altafini already establishes that Laplacian pseudoinverses need not be \(M\)-matrices; this general sign phenomenon is credited, not newly claimed. The full published weighted-path Gauss result concerns the distinct multiplier \((z^2-6z+12)/(z^2+6z+12)\), not the filtered-Euler multiplier \((1+z^2/4)/(1+z/2)^2\). The complete-multipartite scalar-filter criterion is restricted to that graph class, which excludes the path \(P_4\). Targeted mathematical-record and primary-literature comparisons found no statement implying the specific sharp cubic cutoff and minimal witness order. Unindexed literature and other implementations of the same rational filter remain residual risks, so this is not an independently established priority claim.
+## originality
 
-## Value — PASS
+PASS
 
-A sharp four-state obstruction in a norm-contracting, mass-conserving heat integrator distinguishes spectral stability from the discrete maximum principle on a physically natural diffusion network. The exact onset and the general pseudoinverse obstruction explain why arbitrarily stiff steps can remain energetically safe while producing negative nodal values. The result helps identify when a positivity constraint or limiter is mathematically necessary; it does not promise improved accuracy, cost, or nonlinear convergence.
+The repair drops the covered sharp first-order P4 threshold and minimum-order theorem. Its surviving contribution is the explicit stiff-limit failure guarantee across every fixed finite filter order and positive proportional splitting, with the coefficient and uniform spectral-band contrast. Pseudoinverse sign facts, previous applications to other multipliers, and filter energy stability are all credited. Comparisons do not establish chronological priority between the two same-day records.
 
-## Closest literature and limits
+## value
 
-- Yue Wu and Chi-Wang Shu, arXiv:2611.02282v1, especially Equations (3.5)–(3.12), (3.38), and related proofs, https://arxiv.org/abs/2611.02282.
-- Angela Fontan and Claudio Altafini, arXiv:2109.14587v1, Laplacian pseudoinverse sign structure, https://arxiv.org/abs/2109.14587.
-- *Unconditional fourth-order Gauss positivity on weighted paths: a four-vertex cutoff*, https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-unconditional-fourth-order-gauss-positivity-on-weighted-paths-a--73910250a06c.
-- *A scalar criterion for unconditionally positive rational graph-heat steps on complete multipartite networks*, https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-scalar-criterion-for-unconditionally-positive-rational-graph-h--335027f86795.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Raising the filter order or changing the proportional splitting is a motivated potential remedy for negative nodal updates. The result rules it out throughout the fixed-finite-order family on every unit path of size at least four, even with a uniformly positive contractive spectrum. The coefficient identifies the controlling graph property and predicts the location and scale of the failure, beyond an isolated rational witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

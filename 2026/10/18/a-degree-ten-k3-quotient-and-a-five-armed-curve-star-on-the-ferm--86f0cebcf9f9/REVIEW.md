@@ -1,13 +1,21 @@
-# Scientific review: Fermat quintic reflection quotient
+# Independent mathematical audit
 
-**Correctness — PASS.** The quotient equation follows by invariant-ring algebra; the smooth fixed quintic and isolated projective fixed point give a single \(A_1\) quotient singularity. Weighted adjunction, rational double-point crepancy, and vanishing of irregularity show that its minimal resolution is K3. The five invariant lines have five distinct directions at the isolated fixed point, giving a \(K_{1,5}\) exceptional curve graph. The local divisor pullback \(f^*C_\beta=R_\beta+E/2\) supplies the integral polarization formula \(H\sim 2\sum R_\beta+5E\). Two independent calculations give \(H^2=10\), and symbolic checks verify the expansion and intersection matrix. Analytic and cohomological steps are proved, not inferred from the script.
+## correctness
 
-**Originality — PASS, with residual bibliographic uncertainty.** Miura--Takahashi [1] count the order-two quasi-Galois points and describe the reflections but do not state their surface quotient, its K3 resolution or the five-armed curve configuration. Miura--Taki [2] study different, degree-four quartic surfaces; its available abstract does not cover the quintic quotient. General weighted-K3 and finite-group-quotient theory supplies tools, not this explicit specialization and divisor identity. Searches for aliases, weighted models, and comparable published claims yielded no covering statement. Earlier equivalent special-K3 presentations remain possible and are explicitly listed in AUDIT.json.
+PASS
 
-**Value — PASS.** The structure answers a motivated new question about the *geometry* behind thirty natural reflection involutions, identifying a degree-ten K3 and a six-curve sublattice of discriminant \(-16\). The complete reducible class formula is a usable geometric boundary polarization that encodes five concurrent lines; no claim of Picard-lattice completeness is made.
+Taking the graded invariants gives the asserted equation. The projective fixed loci are v=0 (a smooth fixed quintic with reflection action in its normal direction) and the isolated point in the v-chart. At the latter the u derivative is 5 and the remaining smooth coordinates z,w are acted on by simultaneous sign, yielding exactly one A1 point. Weighted adjunction, crepancy and the invariant summand of H^1 of the quintic, preserved by resolution of the rational singularity, give K3. The degree-two sections have no common zero; pullback from the ample Cartier O_Y(2) gives nef and big, with only E contracted. The square is 10 and cannot be divisible by the square of any integer at least 2. Locally on the resolution use q=z/w and p=w^2: the exceptional is p=0 and the five strict transforms are q=beta with distinct simple roots. The equation at v=1 gives u as w^5(q^5+1) times a unit; u^2 pulls back to order 5 on p=0 and order 2 on each arm. Thus the divisor identity is integral and linear, not just numerical. Adjunction and the Schur complement give the star's signature and determinant. The t=0 plane quintic is disjoint from o, maps isomorphically from the fixed curve, and is a genus-six member of H. Coordinate permutations and diagonal fifth-root scalings give the stated conjugacies. Independent replay: python3 /workspace/reproductions/finite_checks.py 1 checks the polynomial, square completion, local leading form and lattice identities; the geometric assertions are proved analytically.
 
-**Limitations.** The polarization is nef and big rather than ample; the full Néron--Severi group is not computed. The historical comparison is not exhaustive, and an inaccessible broader classification might overlap. No independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-**Sources.** [1] Kei Miura and Takeshi Takahashi, arXiv:2610.09331v1, Section 4. [2] Kei Miura and Shingo Taki, arXiv:2608.25445v1, available abstract.
+Best of the comparisons made, prior sources cover the involutions and general geometric tools, not the specific Fermat transposition quotient together with the marked configuration and polarization degeneration. The degree-ten K3 is its minimal resolution, not the singular weighted quotient itself.
+
+## value
+
+PASS
+
+The classified Fermat involutions motivate asking what surface one obtains. The integral nef genus-six polarization and all six named curves, rather than just the K3 label, provide useful geometric data for classifying or comparing the model and its degree-two alternative. The reducible member and the fixed smooth member are in the same concrete linear system.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

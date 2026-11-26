@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:19:13.242120Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof and Verification, lines 4–39",
+        "Frozen VERIFICATION.md, even_cycle_verify.cpp, even_cycle_verify.py and witnesses.json (inspected as evidence, uploaded code not run)",
+        "/workspace/branches/711205f8-0d3e-4169-9186-d6bc1e18a3cc/fresh_k6_check.py (fresh replay: run with python3)",
+        "/workspace/branches/711205f8-0d3e-4169-9186-d6bc1e18a3cc/fresh_k6_check.out (outputs, lines 1–7)"
+      ],
+      "rationale": "The nonempty difference of two perfect matchings is an alternating union of even cycles of length at least four; six vertices allow only a single 4- or 6-cycle. Conversely, alternating each such cycle and matching the unused pair in the four-cycle case constructs the two distinct matchings. All-positive traces force containment in one of these cycles. A five-edge positive support has to be the spanning path in a 6-cycle; retaining the first four edges of that path forces use of the last edge in the only Hamiltonian completion, and no 4-cycle can realize the first four. No larger set is shattered by downward closure. A four-edge subset of a cycle is either the 4-cycle or a linear forest of four edges on at most six vertices, giving exactly P5, P4 plus an edge, or two P3s. The 16 traces for a representative of each type were independently checked in the certificate, and permutation symmetry plus downward closure gives all smaller subsets contained in a cycle. Counting labelled paths and cycles gives 45, 360, 180, 90 respectively. All pairs are admissible; a triple is admissible exactly unless it is a star or triangle (any three-edge linear forest can extend to a spanning cycle), yielding 455−60−20=375. The fresh exhaustive replay generated the 15 perfect matchings and 105 concepts, tested all 32768 supports with zero iff discrepancies, checked all 64 witnesses, and gave augmented boundary ranks 1,14,91,284. Subtracting consecutive ranks from the chain dimensions gives exactly one nonzero reduced Betti number, 675−284=391 in degree three. The proof's sentence attributing direct JSON witness checking to both supplied programs overstates the C++ check; the C++ program tests traces globally without reading JSON, while the supplied Python description and the fresh replay check the certificate explicitly. The exhaustive finite result is unaffected.",
+      "residual_risks": [
+        "The exhaustive census covers exactly K6 and the nonempty differences of distinct perfect matchings. The homology calculation is over F₂ only; no integral or homotopy conclusion is warranted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cambie–Girão–Kang bounds the allowable family size given bounded VC dimension of a repeated set operation, not the collection of traces for perfect matchings.",
+          "The all-order Hamiltonian classification has a concept restriction: for n=6, maximum supports are precisely a path of order 5 and an isolated vertex. The plausible earlier graph-generated classes paper was not available in full text through the attempted DOI access."
+        ],
+        "reasoning": "A theorem for a concept subfamily gives some shattered sets, but not all supports for the enlarged family. Conversely, shattering by a general superfamily would not imply shattering by the exact even-cycle family unless compatible witnesses were supplied. A bound on set-family size controls neither supports nor homology.",
+        "searches": [
+          "Cambie–Girão–Kang arXiv:1808.02352, Theorems 1.2 and 1.3",
+          "Resultary 3fab3bb139ff all-order Hamiltonian characterization",
+          "Kranakis et al., graph-generated set systems, DOI retrieval attempt"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3fab3bb139ff, 3eaf6a69af80 and e4269d50475a (same record)",
+        "Cambie–Girão–Kang arXiv:1808.02352",
+        "Targeted primary-literature query and Kranakis et al. DOI attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n=6 the older two-path criterion permits order split 1+5 but excludes 2+4 and 3+3. The new differences do shatter both excluded types, and the other new type is cyclic rather than a linear forest. The prior numerical dimension 4 is a lower bound by inclusion, not on its own an upper bound for the enlarged class."
+        ],
+        "reasoning": "The rank calculation is for a different simplicial complex rather than a recomputation of a known invariant. Prior Hamiltonian witnesses and the known label obstruction are shared constituents; the extra trace realizations and full exact census are not consequences of the Hamiltonian-only statements.",
+        "searches": [
+          "Resultary 3fab3bb139ff Finding and 3eaf6a69af80 Finding",
+          "Cambie–Girão–Kang §§1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary e4269d50475a is the reviewed record itself; 3fab3bb139ff classifies supports for Hamiltonian cycles alone.",
+          "On six vertices the reviewed difference family is precisely the even simple cycles C4 and C6, not all simple cycles, spanning 2-factors or all members of the cycle space."
+        ],
+        "reasoning": "Re-expressing the matching differences as even simple cycles leaves the same edge traces. Restricting to the Hamiltonian concepts leaves only C6; for example a C4 support cannot have an all-positive Hamiltonian trace, but is shattered in the submitted family. Adding the empty difference is also not part of the claim.",
+        "searches": [
+          "Resultary: shattered support complex Hamiltonian cycles classified shattered supports P5 K6 linear forest edge shattering complete graph",
+          "Primary literature: perfect matchings K6 symmetric difference shattered supports edge shattering four-cycle six-cycle VC dimension"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The all-order Hamiltonian polynomial gives the same terms through degree three and M6=360 in degree four. The reviewed family has 675 degree-four terms, adding 45+180+90=315. The exact indexed matching-difference hit is the same finding, not a separate table."
+        ],
+        "reasoning": "All triples here are admissible linear forests, so the lower-degree counts are already covered for the subfamily. The known table cannot supply the extra facet incidences or boundary ranks of the enlarged complex.",
+        "searches": [
+          "Resultary 3fab3bb139ff exact shattering polynomial and M6",
+          "Resultary 3eaf6a69af80 VC and Littlestone values at K6",
+          "Resultary e4269d50475a same-record hit"
+        ]
+      },
+      "rationale": "The exact distinct content is what the 4-cycle concepts add to the Hamiltonian-only shattering complex at six vertices, the resulting complete shattered-support classification, and the mod-two homology of that full complex. The numerical value VCdim=4 for the Hamiltonian-only class, its already-shattered supports, and the alternating-cycle decomposition are prior inputs, not independent novelty.",
+      "residual_risks": [
+        "The bounded query did not surface a directly covering published source. Historical priority remains unresolved, notably against inaccessible graph-generated-set-system literature or an implicit restricted-cycle trace theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full C6 subfamily; does not cover the enlarged concept class",
+          "evidence": "At most n−3 edges: linear forests; n−2 edges: two paths and the stated order conditions. M6=360, exactly the P5 supports.",
+          "identifier_or_url": "Resultary 3fab3bb139ff",
+          "material_read": "RESULT.md Finding and assumptions, offset 0 through 3995 including start of proof",
+          "method": "Local mirror passage inspection and n=6 specialization",
+          "title": "Complete edge-trace shattering classification and polynomial for labeled Hamiltonian cycles",
+          "trigger": "Strongest exact all-support and polynomial comparison"
+        },
+        {
+          "assessment": "Same VC dimension for the subfamily, not the four-type classification or homology",
+          "evidence": "VCdim(H6)=4 and Ldim(H6)=5; the concepts are spanning cycles only.",
+          "identifier_or_url": "Resultary 3eaf6a69af80",
+          "material_read": "RESULT.md Finding and scope, offset 0 through 3150",
+          "method": "Local mirror passage inspection",
+          "title": "Hamiltonian-cycle edge shattering: exact VC dimension and a first adaptive gap",
+          "trigger": "Cited exact dimension for Hamiltonian cycles at six vertices"
+        },
+        {
+          "assessment": "General extremal bounds, no implication of the exact traces or ranks claimed here",
+          "evidence": "Bounds |A| for bounded VC-dim(A△A) or VC-dim(△A^k); no matching-specific support classification in the inspected statements.",
+          "identifier_or_url": "https://arxiv.org/pdf/1808.02352",
+          "material_read": "p. 2, offset 5150 through 7341, especially Theorems 1.2 and 1.3",
+          "method": "Open-access PDF passage",
+          "title": "VC dimension and a union theorem for set systems",
+          "trigger": "General theorems on the symmetric-difference operation"
+        },
+        {
+          "assessment": "Unresolved historical risk, neither established coverage nor evidence of noncoverage",
+          "evidence": "The attempt did not return full text for statement comparison.",
+          "identifier_or_url": "Kranakis et al., graph-generated set systems",
+          "material_read": "Bibliographic identification; no primary full text obtained",
+          "method": "Bounded DOI access attempt",
+          "title": "On the VC-dimension of set systems generated by graphs",
+          "trigger": "Plausible historical prior for VC dimension in graph-generated concept families"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and cycle/trace proof",
+        "Resultary 3fab3bb139ff for the Hamiltonian comparison",
+        "Fresh K6 exhaustive output"
+      ],
+      "rationale": "K6 is the first even complete graph where nonempty perfect-matching differences include both short and spanning cycles, and the last before two disjoint alternating cycles become possible at order eight. Thus it is a meaningful cutoff for the trace effect of adding short cycles. The VC dimension alone misses 315 extra facets and the changed set of allowed support types. The full shape and exact mod-two invariant give a usable baseline for comparisons with spanning-only or multi-component concept families, rather than a numerical recomputation of the known dimension.",
+      "residual_risks": [
+        "The finite baseline does not predict an all-order classification or identify an integral homotopy type."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

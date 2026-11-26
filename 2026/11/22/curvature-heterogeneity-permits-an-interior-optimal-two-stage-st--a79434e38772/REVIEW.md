@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two-stage affine map is derived directly from both oracle evaluations. Uniform contraction \(0<A_{ij}\le97/100\) proves a unique invariant law with finite second moment and makes the two moment recurrences legitimate. Exact rational moment calculations give the claimed risk; differentiation reduces optimality to a strictly decreasing quadratic with opposite endpoint signs. The equal-slope boundary is proved for all \(0<\eta a<1\), and endpoint derivative signs yield a genuine open parameter neighborhood of interior optima. `verify.py` reproduces the critical exact identities and comparisons.
+## correctness
 
-**Originality — PASS, with historical-priority limitations.** Full arXiv HTML of Yoon–Loizou 2026 was inspected for its stage variants, primary contributions and counterexamples; it compares full reuse against independence but does not provide the stationary affine root-risk optimum across all fixed-marginal couplings. Full arXiv HTML of Emmanouilidis–Vidal–Loizou 2024 was inspected for its sampling Algorithms 1–3; those vary cross-iteration order and reuse within each iteration. The nearest available indexed mathematical records focus on homogeneous bilinear stage coupling (no sample-dependent affine offsets), Gaussian additive-noise coupling with fixed linear operator, or cross-iteration reshuffling. Those stated results do not imply the present affine stationary-risk polynomial or its strict interior optimum. Inaccessible complete texts of some indexed records remain a priority risk; this is not an independent certification of novelty.
+PASS
 
-**Value — PASS.** Same-sample and independent-sample stochastic extragradient are standard design choices in the motivating work. The example proves that both, and even maximal anticorrelation, can be strictly worse than a reproducible mixed design under constant-step stationary root risk, despite every component and update being contractive. The equal-slope rigidity and persistence under perturbations distinguish a curvature-driven structural effect from an arbitrarily tuned isolated numerical example. It also exhibits a nontrivial bias--variance tradeoff: the minimizer is biased while independent sampling is unbiased.
+Uniform marginals force the diagonal masses u/2 and off-diagonal masses (1−u)/2. The four affine multipliers are 79,37,97,91 divided by 100. Bounded offsets and products bounded by (97/100)^k make the stationary backward affine series converge absolutely. A common fresh pair sequence contracts discrepancies and yields second-moment convergence for finite-second-moment initializations. The moment equations use freshness and give the stated mean and risk about zero. Reviewer-authored `python3 /workspace/independent_reproduction.py affine` (SymPy 1.14.0) reconstructed the maps, rational risk and three comparison values; its critical points were about 0.718624522 and 2.078872634. The derivative has sign opposite to the stated strictly decreasing quadratic with endpoint signs + and −, proving exact strict global optimality. Smooth dependence retains the endpoint signs under small perturbations. With equal slopes, centering at the mean root gives contraction 1−t+t² and centered noise td(S_J−tS_I) with E[S_IS_J]=2u−1. Its variance and hence risk decrease strictly in u for 0<t<1 and distinct roots; coincident roots tie. These are fixed IID stationary-risk conclusions, not adaptive or root-convergence claims.
 
-**Scientific limitations.** The optimized risk is stationary squared distance to the mean-operator root for IID fixed joint sample laws, not time-averaged risk or gap rate. The result is scalar; samplewise contraction is verified for the example, not claimed universally. General historical coverage, especially equivalent variants under a different stochastic-operator vocabulary, remains a residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Optimization over within-step uniform-marginal couplings is already present for homogeneous bilinear stochastic extragradient, and stagewise noise-coupling optimization appears for a different noisy two-step algorithm. Credit those precedents. The supported distinct result is an interior minimizer of genuine nonzero stationary affine root risk for strongly monotone components, with a contrasting equal-slope boundary and persistence under perturbation.
+
+## value
+
+PASS
+
+A strict interior risk optimum rules out the common design shortcut of considering only reuse, independence or maximal antithetic pairing, even with scalar strong monotonicity and contraction under every pair. The nonzero stationary bias at the optimum, the equal-slope obstruction, and a perturbation-stable example establish a meaningful boundary of the heuristic; the contribution does not need a universal nonlinear classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

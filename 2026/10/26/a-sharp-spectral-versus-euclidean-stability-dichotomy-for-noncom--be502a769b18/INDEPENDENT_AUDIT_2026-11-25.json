@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:05:09.354009Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Proof and Verification; VERIFICATION.md; static inspection of verify.py",
+        "/workspace/branches/843a2ca5-0514-47f1-ba72-35898d8dd41f/replay_rational.py and replay_rational.out"
+      ],
+      "rationale": "Exact exponential Euler yields S_h=I-W_hK. Its K-energy transform is I-K^{1/2}W_hK^{1/2}, symmetric, so its energy operator norm equals its spectral radius. Since 0<W_h<H^{-1} for finite positive h, K<=2H makes the positive eigenvalues of K^{1/2}W_hK^{1/2} strictly below two even at equality in the Loewner bound; if K is not <=2H its limit has an eigenvalue above two and all sufficiently large h are unstable. Each step decreases the same energy on nonzero states. The alternative similarity through W_h gives the bound sqrt(cond(W_h)), and the eigenvalue ratio of W_h is (b/a)(1-exp(-ha))/(1-exp(-hb)) for extremal eigenvalues a<=b of H. Swapping the extreme eigenvectors in the H-scaled admissible K gives limiting norms eta sqrt(b/a) as h goes to infinity for eta<1, then eta tends to one. For scalar H the norm is at most one and tends to one as h tends to zero. For each fixed h and nonscalar H, a rank-one K along a mixture of two H-axes gives a shear block [xi,0; zeta,1] with zeta nonzero because W_h distinguishes those axes; the determinant of its squared singular-value matrix minus I is -zeta^2. Perturbing into the strict SPD interval preserves expansion. Exact replay gives determinants 19/25 for K and 2H-K and squared amplification 224729/204800 on (1,1).",
+      "residual_risks": [
+        "The rational replay checks one strict expansion, not the quantified proof. The fixed-h result permits K to depend on h; strict energy decrease for variable steps does not imply convergence if the total time can remain finite."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The motivating scalar Fourier-mode split has the threshold split fraction >=1/2. The matrix-oriented reaction-diffusion analysis reduces stability to scalar modes. Battestini et al. use a factorized approximation of exponential-like functions for noncommuting operators and give a scalar test-equation stability analysis."
+        ],
+        "reasoning": "The scalar criterion is the proportional commuting specialization of K<=2H; it prohibits the nonnormal behavior at issue. The other noncommuting scheme changes the update map, so its results do not establish the theorem for I-W_hK.",
+        "searches": [
+          "Caliari–Cassini–Einkemmer–Ostermann arXiv:2303.15861 Theorem 2.1",
+          "D’Autilia–Sgura–Simoncini arXiv:1903.05030 §§3.2, 4.1",
+          "Battestini–Caliari–Cassini arXiv:2610.07989 §2.1 and stability discussion"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d5b5fc32ba2a and 3a006a7e6ef7",
+        "Caliari et al. Theorem 2.1",
+        "D’Autilia et al. §§3.2, 4.1",
+        "Battestini et al. §2.1 and stability discussion",
+        "Kressner et al. §3.2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At finite h the Loewner restriction is 0<W_h^{1/2}KW_h^{1/2}<=2(I-exp(-hH)), not an unrestricted centered spectral window. In particular at small h a centered-window extremizer with eigenvalues of the transformed iteration of opposite signs cannot be assumed admissible: all admissible iteration eigenvalues can be positive then. The frozen rank-one limit produces expansion via anisotropy even in this regime."
+        ],
+        "reasoning": "A generic sharp window bound does not say that its expanding extremizer is feasible inside this finite-step ordered interval. The scalar result also has no anisotropic pair. The rank-one perturbation proves the missing fixed-step quantifier without extrapolating a large-h extremizer to small h.",
+        "searches": [
+          "Resultary d5b5fc32ba2a, spectral-window statement and extremizer",
+          "Caliari et al. Theorem 2.1",
+          "Frozen RESULT.md proof of every-prescribed-step expansion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "S_h is SPD-preconditioned Richardson with inverse preconditioner W_h. As a preconditioned residual map I-A B^{-1}, the same matrix is represented by A=W_h and B^{-1}=K. Resultary d5b5fc32ba2a gives the sharp centered-spectral-window Euclidean residual amplification delta sqrt(cond(A)) and contraction in the A^{-1} metric."
+        ],
+        "reasoning": "This equivalence gives the same norm bound and the standard extremal mechanism, not a separate norm principle. At h approaching infinity, A approaches H^{-1}; the limiting admissible spectrum lies in (0,2], and the centered-window extremizers with delta<1 are admissible as limiting maps. Thus the global constant is a sharp application of that prior theorem, not novel as an abstract sharp-contraction bound.",
+        "searches": [
+          "Resultary d5b5fc32ba2a, mirrored RESULT.md offsets 0 and 4186",
+          "Kressner–Steinlechner–Vandereycken arXiv:1508.02988, §3.2 equation (23)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d5b5fc32ba2a gives the sharp Richardson residual result. 3a006a7e6ef7 (mirrored RESULT.md offsets 0, 4099, 8280) gives weighted contraction with unbounded Euclidean transients across a stiffness family for PartRosExp2. A nearby midpoint entry 0252dcf5ae18 was identified, but its mirrored RESULT.md was not retrieved."
+        ],
+        "reasoning": "These are substantive precedents for energy stability versus Euclidean gain, but PartRosExp2 is a different map and its family gain is unbounded. Neither inspected indexed result states the exact fixed-H and all-prescribed-h exponential-Euler classification. No exact tabulated expression for that classification was found in the bounded lookup.",
+        "searches": [
+          "Local Resultary searches for exponential-Euler noncommuting SPD energy and sharp Euclidean stability and for preconditioned Richardson norm amplification"
+        ]
+      },
+      "rationale": "Credit the family-specific exponential-Euler classification, especially failure of uniform Euclidean nonexpansivity at each prescribed positive step for nonscalar H, together with the exact admissible Loewner region. Do not credit the general phenomenon or the sharp similarity amplification constant as independent novelty: the latter is already available in the corresponding preconditioned-Richardson problem and applies in the large-step limit. No inspected source supplies the full finite-step family statement.",
+      "residual_risks": [
+        "Bialecki (1994), DOI 10.1137/0915043, identified through preconditioned-iteration prior art, could not be inspected in full after retrieval failed and no repository copy was identified. The exact scope of the nearby implicit-midpoint entry was not retrieved. Neither access issue is used as evidence of noncoverage; no publication-priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact scalar/proportional special case; no noncommuting Euclidean dichotomy",
+          "evidence": "Unconditional scalar Fourier-mode stability at split fraction at least one half.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.15861",
+          "material_read": "Theorem 2.1, p. 5, OA offset 16346",
+          "method": "Primary full-text passage",
+          "title": "Accelerating exponential integrators to efficiently solve semilinear advection-diffusion-reaction equations",
+          "trigger": "Motivating exponential-Euler unconditional stability threshold"
+        },
+        {
+          "assessment": "Matrix implementation and scalar-mode stability, not this SPD pair",
+          "evidence": "The stability analysis reduces to scalar modes of a reaction-diffusion semidiscretization.",
+          "identifier_or_url": "https://arxiv.org/pdf/1903.05030",
+          "material_read": "§§3.2 and 4.1, pp. 6, 9–10; offsets 19900, 30984, 40067",
+          "method": "Primary full-text passages",
+          "title": "Matrix-oriented discretization methods for reaction-diffusion PDEs: comparisons and applications",
+          "trigger": "Possible matrix exponential-Euler stability overlap"
+        },
+        {
+          "assessment": "Different factorized scheme",
+          "evidence": "Factorizes exponential-like matrix functions and considers scalar Dahlquist stability, not the exact exponential-Euler map for this split.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.07989",
+          "material_read": "§2.1 pp. 3–4 at offset 8239; stability discussion p. 7, offsets 18000–22678",
+          "method": "Primary full-text passages, newly accessible in this review",
+          "title": "Analysis of split exponential integrators for semilinear problems with noncommuting operators",
+          "trigger": "Noncommuting split in very close integrator terminology"
+        },
+        {
+          "assessment": "General symmetric similarity and weighted-inner-product background",
+          "evidence": "Gives preconditioned Richardson and its symmetric transformed system and natural preconditioner-related inner product.",
+          "identifier_or_url": "https://arxiv.org/pdf/1508.02988",
+          "material_read": "§3.2, equation (23), p. 7, OA offset 29858",
+          "method": "Primary full-text passage",
+          "title": "Preconditioned low-rank Riemannian optimization for linear systems",
+          "trigger": "Equivalent SPD-preconditioned Richardson iteration"
+        },
+        {
+          "assessment": "Covers the general norm mechanism and limiting constant; does not address finite-h admissible interval here",
+          "evidence": "Sharp residual amplification delta sqrt(cond(A)) under a centered spectral-equivalence bound.",
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-euclidean-residual-safety-frontier-for-spectrally-equivale--d5b5fc32ba2a",
+          "material_read": "Mirrored RESULT.md offsets 0 and 4186",
+          "method": "Local Resultary search and mirror passages; exact variable identification",
+          "title": "Sharp Euclidean residual safety frontier for spectrally equivalent preconditioners",
+          "trigger": "Same norm bound after Richardson identification"
+        },
+        {
+          "assessment": "Different integrator and quantified family",
+          "evidence": "PartRosExp2 has weighted stability and can exhibit unbounded Euclidean gain across a stiffness family.",
+          "identifier_or_url": "2026/10/25/SCOPE-unbounded-euclidean-transients-and-a-weighted-stability-law-for--3a006a7e6ef7",
+          "material_read": "Mirrored RESULT.md offsets 0, 4099, 8280",
+          "method": "Local Resultary search and mirror passages",
+          "title": "Unbounded Euclidean transients and a weighted stability law for a partitioned exponential integrator",
+          "trigger": "Same weighted versus Euclidean stability phenomenon"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Caliari et al. scalar split",
+        "Richardson and PartRosExp2 comparisons above"
+      ],
+      "rationale": "The split has a natural stability-design question: an unconditional spectral or physical-energy guarantee does not imply a step-size restriction that guarantees uniform Euclidean nonexpansivity. The exact classification shows the failure at every fixed step in every anisotropic reference matrix, not merely at one counterexample or in a large-step limit. The sharp scale quantifies the protection available when the physical energy, rather than Euclidean size, controls the application.",
+      "residual_risks": [
+        "Does not prove floating-point robustness, positivity, a PDE operator theorem, or a single K expanding at all h."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

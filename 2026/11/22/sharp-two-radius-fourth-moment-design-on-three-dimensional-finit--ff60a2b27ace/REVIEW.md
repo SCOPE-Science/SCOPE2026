@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact two-sum count is reconstructed from binary quadratic slices in the nonisotropic case and a Witt basis in the nonzero isotropic case. Its three distinct character classes and ratio-nine corrections give a closed energy identity. The normalized minima follow by exact rational inequalities for every field order at least eleven and exact finite-field arithmetic for field orders three, five, seven, and nine. Characteristic three and the double resonance in characteristic five are included. Direct finite-field enumeration checks the original targetwise convolution and not just the final scalar. No infinite statement is inferred from numerical checks.
+PASS
 
-## Originality — PASS relative to inspected materials
+At Q(x)=s≠0, the dot-product constraint fixes the x-component of y and leaves a binary form of determinant class s, so the two distinct slice counts differ by qχ(−s) exactly when the discriminant vanishes. At nonzero isotropic x, use a hyperbolic pair and a third vector whose norm is in the class −1 (the full determinant is a square): unequal radii fix a nonzero hyperbolic coordinate and leave q solutions, while equal radii reduce to counting square roots times q. This same splitting gives q²+qχ(−s) vectors at norm s≠0 and q²−1 nonzero isotropic vectors. Mixed roots, when present, are a(1±√(b/a))², both in the class of a. Substituting 4a and 4b into the mixed discriminant gives exactly the two ninefold collisions for distinct nonzero radii; both must be counted if both occur. Squaring the convolution gives the three energy polynomials: the linear correction uses (q−σ)(q²+qσ)=q(q²−1); the squared correction includes the overlaps. After normalization the two displayed difference polynomials are strictly positive for q≥11; the additional H term is nonnegative. The exact small-field comparisons and all equality counts follow, including characteristic three and the double collision at q=5. Orthogonality and S=−S give the claimed fourth-moment/return identity. Independent replay: python3 /workspace/branches/independent_checks.py 1 exhausts 95 pairs over orders 3,5,7,9,11 using direct ordered sums, agrees on all energies and winner counts 1,1,9,6,25; this replay did not cover order 25 or replace the symbolic all-field proof. Frozen checker inspected, not executed.
 
-The 2026 single-radius sphere extension work motivates the Fourier fourth-moment question, but its sharp exponent result does not determine optimal pairs of distinct sphere radii. Earlier Euclidean association-scheme work provides general structure constants that underlie the convolution and must be credited; their existence is not new. The exact optimized uniform-union four-step return value and the complete character-class phase diagram, with exceptional fields of orders five and nine, were not found as existing stated results in the full texts and topical research comparisons examined. An older derived or tabulated optimization may remain undiscovered; independent novelty review is needed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural invariant is both the fourth Fourier moment of a uniform sampling support and a four-step return probability for a two-distance Cayley walk. The theorem gives a sharp all-field design choice, shows that mixing character types fails exactly at two small field orders, and explains the finite-field boundary via a discriminant collision. It does not require an unrelated downstream theorem or claim arbitrary-weight optimization.
+Credit the established intersection-number theory and the common sphere-count machinery. Best of available evidence supports the sharp odd-3D radius-pair comparison and its full equality classes, not a claim to the underlying convolution or a general Fourier-operator optimum.
 
-## Limits
+## value
 
-Only dimension-three standard quadratic spheres, two nonzero distinct radii, and the uniform law on their union are covered. The checker handles finitely many representative fields; the symbolic proof supplies the all-field assertion. An equivalence hidden in earlier general intersection-number sources remains a bibliographic risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Choosing the support of a prescribed uniform two-shell walk to minimize its exact return probability is a motivated discrete design problem. The dimension-three classification yields all optimal radii, two genuine exceptions and an arithmetic mechanism to handle small fields; it is not a table lookup or an isolated sample calculation. It does not address weights or general extension extremizers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

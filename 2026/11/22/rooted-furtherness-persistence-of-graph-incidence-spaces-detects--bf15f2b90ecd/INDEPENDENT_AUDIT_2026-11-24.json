@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:52:55.470070Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–43 and associated VERIFICATION.md/verify.py",
+        "/workspace/branches/09b7b1ce-6f7d-4524-b2e5-beff1d7e7a5d/replay_incidence_barcodes.py and replay_incidence_barcodes.out in the same directory"
+      ],
+      "rationale": "A graph vertex has a singleton lower set and a graph edge has a three-point lower set. For a vertex root, all other vertices enter at 1 and its incident edges enter at 2, joining exactly d_v isolated vertices to the root component without a cycle. For an edge root the two endpoints with the subdividing point already form a connected path at 0; the other vertices enter at 1. The level-2 double star joins k_e distinct outside vertices, and after taking its root edge and one edge per outside vertex as a tree, the remaining edges are precisely one per common neighbor. This proves the c_e cycle births at 2. All remaining edges enter at 3; graph inclusions inject cycle spaces and introduce nothing in higher dimension, and the full subdivision is connected with cycle rank m-n+1. This gives the claimed ordinary barcodes, also for a single edge, with triangle recovery by summing c_e and dividing by three. Petersen and the pentagonal prism have the same substituted profiles. They differ by existence of a four-cycle; both incidence posets have no beat points and are their own Stong cores. The finite-space nonhomotopy is not a claim of distinct order-complex weak types. Fresh replay on 771 connected labelled graphs (8100 roots) through five vertices and the named pair corroborates these deductions.",
+      "residual_risks": [
+        "Replay is finite and independent of the uploaded checker. The proof applies only to the specified lower-topology order-complex filtration of connected simple graphs and the nonhomotopy statement uses ordinary finite-space homotopy."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Steiner record gives all-degree barcodes of Steiner 2-(v,k,1) incidence spaces. At block size two every pair is an edge, so it gives exactly the current complete-graph subcase (edge common-neighbor count v-2).",
+          "Badra–Singh Theorem 4.1 gives H0 births at 0 and 1 in its connected setup and no later births."
+        ],
+        "reasoning": "Steiner parameters do not cover arbitrary heterogeneous graphs, and graph-specific merge times and H1 birth ranks do not follow from the cited general component-birth statement alone.",
+        "searches": [
+          "2026/10/25/SCOPE-complete-furtherness-barcodes-of-steiner-incidence-spaces--f241a0823713",
+          "Badra–Singh §3–4; Theorem 4.1"
+        ]
+      },
+      "checked_sources": [
+        "Badra–Singh arXiv:2610.16386v1",
+        "Resultary f241a0823713 and 2eb6df597d95, and bf15f2b90ecd as self match",
+        "Frozen Stong core theorem citation and proof step 5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The graph-core formula gives the Stong core as the incidence poset of the graph 2-core plus discrete points indexed by tree components. It implies the nonhomotopy of the cubic pair, which both have themselves as 2-cores.",
+          "It does not describe rooted persistent classes. The local rank at level 2 for an edge root instead requires counting the excess incident edges over a spanning double-star tree."
+        ],
+        "reasoning": "The known core theorem settles the nonhomotopy half, and general filtration results supply background; the new equality of all rooted barcodes and local triangle recovery require the graph-specific calculation.",
+        "searches": [
+          "2026/10/4/SCOPE-graph-2-cores-classify-stong-cores-of-incidence-posets--2eb6df597d95, theorem and proof",
+          "Badra–Singh Theorem 4.1; Steiner block-size-two specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Badra–Singh Definition 2.6 and Remark 2.7 give the exact weight |U_y\\U_x|; this is the same filtration, not a Rips-filtration alias.",
+          "Order complexes of height-two graph incidence posets are edge subdivisions; cyclic homology comes from edges of the corresponding subgraph. Ordinary finite-space homotopy is not equivalent to the order-complex homotopy used in barcode calculation."
+        ],
+        "reasoning": "The reformulation as a rooted filtered subdivision yields a short way to compute this invariant without changing the problem. Neither ordinary unfiltered graph cycle rank nor the general filtration definition supplies the rooted birth multiplicities.",
+        "searches": [
+          "Badra–Singh arXiv:2610.16386v1 furtherness and finite T0 principal opens",
+          "Resultary incidence-space barcodes and Stong graph cores"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary bf15f2b90ecd is the exact same frozen record, not another source of coverage.",
+          "The preceding Steiner record reports an exact profile collision among the 80 nonisomorphic Steiner triple systems on 15 points. Its block-size-two case is K_n, not either of the compared cubic graphs."
+        ],
+        "reasoning": "The prior collision is a meaningful precedent, but is not an exact table or formula for arbitrary simple graphs or for this pair. No distinct exact match was identified in the retrieved evidence.",
+        "searches": [
+          "Resultary rooted graph-incidence furtherness barcodes, edge triangles and Petersen/prism",
+          "Resultary f241a0823713 Finding, collision of Steiner triple systems"
+        ]
+      },
+      "rationale": "The distinct contribution is the full degree/common-neighbor barcode formula for arbitrary connected simple graphs and the explicit barcode collision across distinct finite-space cores. The underlying filtration, general H0 principle, complete-graph subcase, Steiner-design collision precedent, and graph-core method are already covered and are not credited as new.",
+      "residual_risks": [
+        "The targeted additional primary lookup was unavailable; this is not negative evidence. The actual results read support a bounded comparison, not proof of historical priority or absence of unindexed equivalents."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The filtration and H0 birth principle are covered, not the graph-specific degree-one births in the inspected statements",
+          "evidence": [
+            "The finite T0 expression equals |U_y\\U_x|. Theorem 4.1 gives one essential component and level-one births indexed by incomparable minimal points."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.16386",
+          "material_read": "v1 p. 4 Definition 2.6 and Remark 2.7, §3 pp. 4–5, §4 Theorem 4.1 p. 7 (offset 21843)",
+          "method": "Original OA PDF passages",
+          "title": "Persistence diagrams of finite topological spaces",
+          "trigger": "Primary definition and general persistence theorem for the same filtration"
+        },
+        {
+          "assessment": "Covers K_n and earlier collisions on different objects, not arbitrary connected graphs",
+          "evidence": [
+            "In a Steiner 2-design with block size 2, each unordered pair is a block; larger block size produces a different incidence space."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-complete-furtherness-barcodes-of-steiner-incidence-spaces--f241a0823713",
+          "material_read": "RESULT.md Finding at offset 0 and comparison around offset 5700",
+          "method": "Resultary search and actual mirrored RESULT.md passages",
+          "title": "Complete furtherness barcodes of Steiner incidence spaces",
+          "trigger": "Closest earlier all-degree incidence-poset barcode classification"
+        },
+        {
+          "assessment": "Covers the core classification used for the collision; not a barcode theorem",
+          "evidence": [
+            "For both connected cubic graphs the core is their full incidence poset, so nonisomorphism rules out finite-space homotopy."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-graph-2-cores-classify-stong-cores-of-incidence-posets--2eb6df597d95",
+          "material_read": "RESULT.md theorem at offset 0 and proof around offset 3000",
+          "method": "Resultary search and actual mirrored RESULT.md passages",
+          "title": "Graph 2-cores classify Stong cores of incidence posets",
+          "trigger": "General theorem implying the finite-homotopy distinction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof steps 1–5",
+        "Badra–Singh definition and earlier Steiner/graph-core comparisons"
+      ],
+      "rationale": "For a basic family of finite spaces this gives an exact interpretation of what the established filtration sees: all rooted intervals have a simple combinatorial origin, and a degree-one edge-root birth counts local triangles. The named pair shows the complete root-tagged invariant cannot determine the ordinary finite-space core, despite detecting these graph features. That joint classification and limitation is useful beyond a small computation or the known complete-graph substitution.",
+      "residual_risks": [
+        "No separation of weak homotopy types or extension to general height-two finite spaces is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

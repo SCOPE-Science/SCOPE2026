@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The Fraïssé homogeneity argument identifies the exact labelled type space as a square of the symmetric group. The eight transformations have fixed-type counts \((n!)^2\), \(n!\), or zero as proved, so Burnside applies without an unproved approximation. The free-triple witness proves arbitrary-arity orbit-partition separation at arity three. Direct exhaustive checks independently corroborate each subgroup and the sharp pair boundary. Scope excludes other reducts.
+## correctness
 
-## Originality
-PASS, with residual bibliographic risk. The existence and identification of ten dihedral intermediate groups are established by Cameron and Linman–Pinsker, and are not claimed here. The full published reduct-classification manuscript was examined in its relevant sections (especially its dihedral discussion and relation-preservation table), together with Cameron's earlier paper. Neither states the six all-arity numerical orbit-count classes or the contrasting exact arity-three orbit-partition recovery. Published database comparisons for reduct orbit profiles of other homogeneous structures concern different underlying type spaces and do not imply these exact claims. An independently unnoticed treatment of this particular dihedral orbit character would be covering prior work.
+PASS
 
-## Mathematical value
-PASS. Closed reduct groups are normally distinguished by their full orbit partitions, but orbit-growth numbers are much cheaper invariants; this theorem determines exactly how much information is lost for an entire natural ten-group sublattice of a classical 39-group reduct classification. It proves that six numerical classes persist even if every tuple length is known, while only three labelled points suffice for complete orbit-partition recovery. Both the loss and the sharp recovery boundary are structural and not consequences merely of numerical sample coincidence.
+For the repaired RESULT.md and SLOGAN.txt: all labelled pairs of total orders occur; homogeneity gives one base orbit per pair. Order-reversing and order-exchanging lifts exist by uniqueness of the homogeneous structure with this age. Their action on the order relations has kernel G and image W, so the closed finite coset union and inverse-image description agree with the finite type action. An order on n≥2 labels is never its reverse. The identity fixes (n!)² types, either no-reversal or double-reversal swaps fix n! each, and every other element fixes zero. The Burnside average yields the stated formula, including all subgroup rows; n=1 is separate. Equality partitions give the triangular Stirling transform. The six profile multiplicities 3,2,2,1,1,1 imply seven groups have nonunique profiles, not four as the literal frozen sentence says; four is the deficit of the number of scalar profiles from ten. The corrected finding says seven. On the four pair sign types the two one-order flips give different parallel matchings, the double flip and the double-flip/swap group give the same diagonal matching, S and the double-flip swap each give a distinct single merged pair, and exactly three groups act transitively. With the trivial partition this gives seven. The designated triple with orders 123 and 132 has trivial W-stabilizer since the orders are neither equal nor reversed, so its orbit alone identifies H. These arguments were reconstructed; the separate finite type enumeration found seven pair partitions, ten triple partitions and matched the recorded finite output without running the packaged script. The formula for all arities rests on the fixed-point proof, not on the finite checks.
 
-## Relationship and limits
-The results do not classify all 39 groups, nor do they claim the dihedral ten-group sublattice is new. Originality is best-knowledge relative to inspected publications and searchable records; an unindexed orbit-profile derivation remains possible. No external independent scientific validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the repaired claim, the supported distinction is the evaluated all-arity scalar profiles/collision classes and the explicit comparison with pair partitions and the one-orbit witness. The original priority framing for triple partition separation does not survive: Linman–Pinsker's relation-preservation data already imply it. The corrected text states and credits this direct implication and does not assert a new full triple-orbit separation theorem. The corrections leave a distinct calculation of information loss for the ten known groups.
+
+## value
+
+PASS
+
+On a natural full sublattice of a classical reduct classification, a researcher comparing oligomorphic growth with structural reconstruction needs to know whether two particular nonidentical closed groups remain indistinguishable even given every scalar count. The repaired result gives all such collisions, their exact multiplicities and first scalar distinguishing arity, not merely one coincidence or a numerical table requiring extrapolation. It explains the loss against the prior structural benchmark and provides a direct one-orbit comparison on the known action. The value is the sharp numerical information loss on an intrinsically defined family, not re-proving prior ternary separation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

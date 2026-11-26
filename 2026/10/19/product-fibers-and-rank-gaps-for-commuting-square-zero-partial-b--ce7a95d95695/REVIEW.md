@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Each partial injection of square zero has one-arrow chains. An active mixed composition forces a four-vertex commuting diamond and saturates every possible incidence, so diamonds are independent and rank consumes four vertices per arrow. The complement has zero mixed products, hence decomposes into alternating-colored paths and even cycles. The labeled component counts give the indicated exponential formula, and choosing the intermediate vertices of each fixed product arrow gives the exact fiber formula. The integer recurrence and exhaustive pair-by-pair enumeration through seven points independently corroborate the identities.
+## correctness
 
-**Originality — PASS, with residual literature risk.** A previously published general commutation criterion for partial injections (Araújo–Bentz–Konieczny, Proposition 2.2) and single-element/random-product enumerations (Ganyushkin–Mazorchuk) are recognized as stronger background on the general objects. Their examined sections do not state the conditional commuting square-zero *prescribed-product fiber count* or the rank-refined generating function. Targeted exact and alias searches in the available research index and public literature found no covering statement. Janson–Mazorchuk's 2005 full text was not reliably accessible; its available abstract discusses single-element counts. This and otherwise unlocated equivalent literature remain risks, not evidence of absolute novelty.
+PASS
 
-**Value — PASS.** The rank of a product and the multiplicity of a specified product are natural finite-monoid invariants. The sharp one-quarter rank ceiling and the complete uniform fiber law reveal how commutation imposes a four-vertex geometry; the entire exact sequence is not simply a special-case numerical table. The argument supplies a reusable decomposition into colored paths, cycles and rigid diamonds.
+The frozen piecewise formula is correct, but its unqualified rank-only consequence fails on arbitrary prescribed targets. On four labels the arrow 1→2 has two factorizations, while the partial identity on {1}, also of rank one, has none. The corrected RESULT.md restricts rank-only constancy to feasible targets and states exact feasibility. To re-audit: each color is a matching with disjoint domain and image. A product arrow forces a commutative diamond whose four distinct vertices are saturated in both colors, so different product arrows occupy disjoint components. On the complement of all diamonds, no directed two-step walk is possible; the source/sink orientations leave only isolated vertices, alternating paths and alternating even cycles, with the two-color parallel pair as length two. The connected contributions are z, 2z^k for k>=2, and z^(2j)/j for j>=1. Their exponential, the ordered selection of 2r distinct intermediates from n−2r labels, and the count n!/[r!(n−2r)!] of square-zero targets give the stated zero-product EGF, piecewise fiber and rank-marked EGF including n=0 and r=0. An independent direct census through n=5 matched the formula on every square-zero target; rank-zero and rank-one counts were 253 and 24 for n=4, and 1981 and 120 for n=5. No uploaded code was executed.
 
-The result is limited to injective square-zero partial maps and has no claim to independent validation or universal bibliographic uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass the complete labeled fiber enumeration and rank EGF in the symmetric inverse monoid on the repaired support. Do not credit the underlying chain criterion, the nilpotency of the product, or use of labeled exponential counting as new. The closest exact same-constraint analogue counts linear maps in a different ambient set.
+
+## value
+
+PASS
+
+The prescribed-product census is a natural invariant of a standard finite monoid. It settles feasibility and counts every admissible fiber for every n, rather than only checking that a product can be nonzero or counting all commuting pairs at a few sizes. The exact zero-product count quantifies the residual freedom after the forced local diamonds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

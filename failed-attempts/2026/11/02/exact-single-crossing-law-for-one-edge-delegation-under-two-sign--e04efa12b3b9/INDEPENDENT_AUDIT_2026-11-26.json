@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:57:54.721352Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional on state s, only disagreeing donor/recipient votes can change the weighted majority. A creation of correctness requires (X,Y,S)=(0,1,h−1); a loss requires (1,0,h). Independence and the two equal adjacent binomial coefficients yield the stated Aₛrₛ^(h−1) factor; the odds comparison follows by dividing by positive denominators. Averaging uses fixed prior weights. Dividing the result by the positive binomial coefficient and the larger base to the power h−1 gives a constant plus one monotone exponential. This proves the sign law, including equal bases, zero coefficients and an integer transition with a zero. The quoted witness gains and inequalities check by exact rational evaluation; in both witnesses vₛ>uₛ>1/2. A separate ballot enumeration agrees in 108 exact statewise comparisons for h=1–4 (/workspace/branches/frozen_math_replay.py, argument 3); the uploaded script was inspected, not executed. The theorem is for a fixed edge chosen before the signal and fixed parameters as population size varies.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The common-signal weighted-majority model includes an edge fixed before the signal, but the inspected finite examples concern many-edge structures. The support-size result uses latent exponential terms for the gain from adding voters, not delegation."
+        ],
+        "reasoning": "The general models are relevant, but the exact direct coverage is the older one-edge catalogue statement rather than an analogy with adding voters or a general mechanism guarantee.",
+        "searches": [
+          "Gilbert et al. arXiv:2608.16738v1, common-signal framework, Propositions 1–2 and Theorem 3.1",
+          "Resultary 5099ff0be1f8, sharp support-size law"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 6a41be4f4ced, 5099ff0be1f8 and 8d3d2ea032f1",
+        "Gilbert et al. arXiv:2608.16738v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the identical gain formula Aₛ is affine increasing in vₛ. For qₛ>1/2, Aₛ at vₛ=uₛ is negative and its limit at vₛ=1 is positive, so either sign is attainable with vₛ>uₛ. Choose A on the larger base negative and on the smaller base positive, and overweight the latter in the prior; the sign is positive at h=1 and eventually negative."
+        ],
+        "reasoning": "The earlier result explicitly covers the theorem and automatically yields the opposite witness orientation by elementary parameter choice; the exact numerical example does not substantively narrow to a different finding.",
+        "searches": [
+          "6a41be4f4ced, proof of one crossing and exact real crossing location",
+          "arXiv:2608.16738v1, model and mechanism theorem passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching statement has m=h, a_b=u_s, c_b=v_s, λ_b=r_s and identical priors, fixed-before-signal delegation and statewise iid background voters. It gives the same binomial multiplier and same odds condition."
+        ],
+        "reasoning": "The notation translates without changing an assumption, intervention, size variable, or conclusion.",
+        "searches": [
+          "Resultary: two-state conditional vote correlation, single-edge delegation and population-size reversal",
+          "6a41be4f4ced, exact Resultary Finding, assumptions and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6a41be4f4ced gives the full two-state exact formula and the crossing law. The later 8d3d2ea032f1 increment agrees at its initial delegation step when donor competence equals background competence, but varies delegation count, not electorate size."
+        ],
+        "reasoning": "This is a match to an exact result in the finding catalogue, not a numerical instance table or only a matching title.",
+        "searches": [
+          "Resultary: exact finite odd-size gain for single-edge delegation",
+          "Indexed entries 6a41be4f4ced and 8d3d2ea032f1"
+        ]
+      },
+      "rationale": "Resultary 6a41be4f4ced explicitly states the identical two-state one-edge formula, statewise odds test and single crossing in electorate size, including its equal-base and dominant-base cases. It also gives a strict-better-recipient harmful-to-helpful example and a real crossing location. The frozen helpful-to-harmful witness is a different example, but the possibility follows routinely from the identical two-exponential formula and the attainable signs of its coefficients; it is not a new crossing law. The Gilbert et al. literature comparison verifies framework overlap independently, but the direct determination here is the equivalent indexed finding. No claim about authorship or historical provenance follows from the comparison.",
+      "residual_risks": [
+        "Primary-literature comparison is bounded, not a provenance or priority judgment. The equivalent mathematical content is directly evidenced independently of relative dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equivalence of central claim",
+          "evidence": "Same conditional binomial pivots and odds test, monotone rescaling of two bases, explicit crossing location and strict-better-recipient harmful-to-helpful example.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-one-crossing-law-for-majority-accuracy-under-single-edge-liqui--6a41be4f4ced/RESULT.md",
+          "material_read": "RESULT.md Finding, assumptions, proof and witness; decisive mirror passage offsets 350–5614",
+          "method": "Local mirror passage inspection",
+          "title": "A one-crossing law for majority accuracy under single-edge liquid delegation",
+          "trigger": "Exact one-edge and population-size claim match"
+        },
+        {
+          "assessment": "Model covers the intervention, but inspected theorem and examples concern other constructions or guarantees",
+          "evidence": "Statewise independent sink votes, weighted majority, and many-edge all-to-one/paired-delegation examples, not the exact one-edge population law in inspected passages.",
+          "identifier_or_url": "https://arxiv.org/html/2608.16738v1",
+          "material_read": "Abstract, model and delegation definitions (offsets 16000–20999), Propositions 1–2 (28000–32999), §3.1 and Theorem 3.1 (33000–36404)",
+          "method": "Lawful OA HTML passage inspection",
+          "title": "Liquid democracy under vote correlation: On the fallacies of averaging and the excluded middle",
+          "trigger": "Primary source for the common-signal model and exact finite examples"
+        },
+        {
+          "assessment": "Related method, different comparison",
+          "evidence": "Bounds reversals in the gain from adding two voters as a function of the number of effective latent levels.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-sharp-support-size-law-for-majority-accuracy-reversals-under-s--5099ff0be1f8",
+          "material_read": "Finding and intervention",
+          "method": "Local mirror",
+          "title": "A sharp support-size law for majority accuracy reversals under a common signal",
+          "trigger": "Latent-state exponential-sum sign-reversal law"
+        },
+        {
+          "assessment": "Restricted formula overlap at the first delegation, different varied parameter",
+          "evidence": "First step matches uₛ=qₛ with expert recipient; its unimodality varies delegation count at fixed population.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-unimodality-and-weakest-signal-selection-in-common-signal-proxy--8d3d2ea032f1",
+          "material_read": "Finding and first-delegation specialization",
+          "method": "Local mirror",
+          "title": "Unimodality and weakest-signal selection in common-signal proxy voting",
+          "trigger": "Exact delegation increment under a common signal"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The one-edge gain law is useful, but its submitted incremental content is an additional numerical reversal witness in the same class. The known law gives the opposite direction at once by the coefficient signs and prior choice; the new numbers do not establish a separate boundary, regime, or independent invariant. No genuinely valuable repaired remainder is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

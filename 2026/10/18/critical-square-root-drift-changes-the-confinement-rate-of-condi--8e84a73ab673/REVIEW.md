@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Exact Feynman--Kac transform and Bromwich inversion are established, with a moving positive saddle for the critical drift. A strictly positive real-part gap on the contour, the explicit second derivative, and Gaussian localization give a uniform sharp probability formula. Comparing fixed prefixes retains the order-one budget shift, and the Cameron--Martin drift factors cancel exactly; Scheffé's lemma upgrades convergence to total variation. The proof depends on genuine analytic contour estimates, not finite sampling. The attached standard-library checker verifies representative identities and the root classification.
+PASS
 
-## Originality — PASS, qualified
+The transform follows by applying the driftless harmonic-oscillator semigroup to exp(ν·), times exp(−νa−ν²S/2), and doing its Gaussian integral. In inversion the exponent with extensive derivatives is λy−S√(2λ)/2+ν²/(2√(2λ)); stationarity and its positive real second derivative give exactly ℓ_S and S v_S. The leading transform replacement is uniform on the contour: |g|≤√2 Re g and the tanh error is O(exp(−2S Re g)), which absorbs the unbounded |g| multiplier; the sech term is bounded with ν²=O(S). After normalization the absolute contour integrand is bounded by a constant times exp[−S(Re g−g_S)/2], with a quadratic gap locally and sqrt(|u|) growth at infinity. Thus the local Gaussian integral gives the factor √2/(ℓ_S√(2πSv_S)), not just an exponential rate. For a fixed prefix, changing S and y by fixed amounts leaves a bounded first-derivative mismatch at the old saddle and does not change the leading Gaussian prefactor. Keeping the exact exponent change cancels both drift terms in the prefix Girsanov density. The limiting OU exponential is a true martingale on every bounded window: the explicit Itô form is bounded above there by exp[γ(t+x²)/2]. Scheffé gives path-space TV on that window. The positive saddle is unique, varies continuously with μ_T²/T and tends to 1/(2θ) when c=0. Local weak convergence on infinite path space is interpreted with extensions beyond T, e.g. constant continuation; tightness on each integer window yields tightness in the compact-open topology.
 
-Aurzada--Dutta--Wiegand (arXiv:2610.12354v1) explicitly present the critical \(\mu_T\sim c\sqrt T\) regime as an open question and prove a different (subcritical) regime; the new moving-saddle equation produces a new limiting rate for \(c>0\). Their exact transform is used as a known lemma, not misrepresented as new. Comparisons with accessible mathematical literature did not identify the same conclusion. Aurzada--Lifshits--Schickentanz (arXiv:2312.12982) concerns zero drift. Schmidt (arXiv:2608.19744) is potentially relevant but only its abstract was accessible; this uncertainty remains and no whole-document noncoverage is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Determines the sharp answer to an explicit parameter-critical question in a recently published probability study and exhibits a transition from drift-independent to drift-dependent conditioned dynamics. The cubic-root confinement law and matching sharp probability asymptotic quantify the critical boundary rather than giving an isolated calculation.
+The distinct contribution is the drift-dependent critical saddle, associated sharp probability equivalent and resulting hard-budget OU limit for μ_T²/T with a positive limit. The driftless limit, the exact transform, and local ensemble equivalence methods are prior ingredients. The exact same-model prior theorem has a strictly smaller drift range and explicitly asks about the critical scale. The same-day two-endpoint result overlaps the initial-window limit at fixed drift but does not cover the critical scale; no priority inference is made from date alone.
 
-## Residual risk and limits
+## value
 
-Related general path-ensemble theory may imply an equivalent result under another formulation; full comparison with one 2026 preprint was inaccessible. The proof covers fixed initial conditions, a hard quadratic constraint, finite drift-squared scaling and fixed time windows, not arbitrarily growing windows or arbitrary confining potentials.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This resolves the named critical-scale question for the hard budget, showing that strong imposed drift changes the local confinement rate even though the growing linear drift cancels from the limit. The sharp prefactor and controlled finite-prefix probability ratios are quantitatively useful and establish more than a formal ground-state or exponential-order argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:18:26.055441Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every level is an automorphism class within its rooted half and has constant multiplicities to neighboring levels, so the weighted path recurrence is exact. Starting from uniform color, leaves separate in round 1. Until round a+1 (for a=m<b), induction peels one paired level from the ends each round: the next newly exposed boundary vertices see d copies of the preceding peeled class, and all interior classes not yet touching a peeled class retain their common color (degree d+1). With a=b, at round a only the two roots share the residual color and they are paired by a graph symmetry. With b=a+1 the taller root has d+1 identical branches of height a and the tree is a regular-tree ball; sphere peeling reaches the center at round b. For b>=a+2 the core B_{a+1},...,B_b has L=b-a>=2 classes of the quotient path that share one color at round a+1. At round a+2 its two endpoint signatures see d and 1 copies of the preceding paired color, respectively; interior core members see neither. Thereafter, among core vertices still sharing a color, only the two residual endpoints see an already individualized core neighbor. If distinct they see distinct such colors; if one vertex remains it is already a singleton. Inductively the remaining core block after j peeling steps has length L-2j, until length at most one. The exact core time is a+1+floor(L/2), including L=2,3. Old colors prevent singleton levels from merging or interacting with earlier paired levels. The paired classes first split at a+3 for P_a, which sees the two different core endpoints; then at each step only the next outward pair has a neighbor in a split pair. The final paired leaf class splits at 2a+3. Stable partitions cannot begin before the last strict split; after both clocks stop the discrete level quotient is stable. Colors distinguish these levels and no automorphism can merge distinct stable colors; rooted symmetries are transitive within a level. In the symmetric cases center/central-edge symmetries act transitively within the paired spheres. Fresh independent quotient recurrence checked 192 cases at d=2,3,4 and 1<=a,b<=8, including terminal quotient partitions; the paired clock example (a,b,d)=(1,6,2) and core clock (1,9,2) exercise each regime of the maximum. Supplemental case and recurrence notes: /workspace/branches/a7facf79-0d71-4de0-a9d9-8a84fe715125/record-3-independent-check.md. This is bounded corroboration, not an all-parameter certificate or fresh full-graph enumeration. Read frozen VERIFICATION.md and verify.py without executing the frozen code.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general tree maximum as a function of vertex count, attained by paths, is an upper bound rather than this family's equality. The truncated universal-cover correspondence applies to the whole family but does not count its exact depth without a family-specific comparison. The directly root-joined Bethe-tree literature surfaced is spectral; the full texts of the closest generalized-Bethe matches were not obtained."
+        ],
+        "reasoning": "The general results explain the observable, not its precise stopping round; the spectral metadata establishes a structural match only and cannot establish noncoverage of every passage.",
+        "searches": [
+          "arXiv:1407.3175, pp. 3–4 and Lemma 2.6 p. 8",
+          "Resultary 62369f349a41, sharp tree-wide stabilization bound",
+          "Spectra of weighted generalized Bethe trees joined at the root"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1407.3175",
+        "Resultary 26d471c733ad, f588e80de7e8, bdd4c56e8fa8, 48578f29bafa, 62369f349a41",
+        "ScienceDirect PII S0024379508000657 and CORE 82738688 (access/scope only)",
+        "Rojo DOI:10.1016/j.laa.2006.08.006 (landing/abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lemma equates round-r colors and rooted truncated covers; in a tree, eventually the full rooted tree type is seen, so the orbit clause is known by direct implication. The closest family-specific result has differently visible junctions and count signatures, and the global bound depends on expanded order rather than the two heights."
+        ],
+        "reasoning": "Only the stopping-time formula and its two-clock explanation receive originality credit; obtaining the exact depth from the general correspondence requires a new determination of when the truncated types split.",
+        "searches": [
+          "arXiv:1407.3175 Lemma 2.6",
+          "Resultary 26d471c733ad and 62369f349a41, Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 12 double-spider result 26d471c733ad has two adjacent degree-three centers with length pairs (a,a) and (a,a+1), producing depth 2a+1. Its arms contain degree-two paths, whereas every nonleaf of the present tree has degree d+1 and the joining edge is initially indistinguishable by degree. The October 13 one-center subdivided-star and double-broom formulas also concern path arms or hub-to-hub paths, not complete branching at each level."
+        ],
+        "reasoning": "A two-wave argument alone is not equivalence. The multiplicity-d/1 defect and its first visibility at round a+2 are specific to the joined regular halves.",
+        "searches": [
+          "Resultary: double Bethe tree joined perfect d-ary trees color refinement 1-WL stability depth",
+          "Resultary: asymmetric two-center tree weighted quotient equitable partition refinement iterations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The returned exact values or formulas concern subdivided stars, double brooms, double spiders, or the all-tree maximum, not the stabilization of D_d(a,b). No matched all-parameter table or formula covering D_d(a,b) was identified."
+        ],
+        "reasoning": "An infinite-family exact statement would be covered by an indexed equivalent analytic formula, not by unrelated small matching integer depths.",
+        "searches": [
+          "Resultary: Bethe tree 1-WL stabilization exact round formula and unequal root-joined perfect trees",
+          "Resultary bdd4c56e8fa8, 48578f29bafa, 26d471c733ad, 62369f349a41"
+        ]
+      },
+      "rationale": "The supported new content is the exact three-regime stopping time, especially the delayed return wave in the unequal-height case. Standard results already give the rooted-neighborhood characterization and imply stable colors equal automorphism orbits on a tree. The nearest exact-depth findings handle different graph families or supply a general bound rather than this depth. No inspected comparison covers the formula; the bounded search cannot establish historical priority.",
+      "residual_risks": [
+        "The most relevant root-joined spectral sources were not accessible in full text via the checked lawful routes; nor can this bounded search exclude an older equivalent analysis under another family name."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implies tree-orbit statement and explains locality, not exact joined-height stopping time",
+          "evidence": [
+            "Lemma 2.6 matches round colors iff depth-r truncated universal covers agree as rooted types."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1407.3175",
+          "material_read": "pp. 3–4 definitions and stabilization; p. 8 Lemma 2.6, PDF text offsets 25250–28595",
+          "method": "Primary OA PDF passages",
+          "title": "Universal covers, color refinement, and two-variable counting logic: Lower bounds for the depth",
+          "trigger": "General refinement-depth framework and orbit implication"
+        },
+        {
+          "assessment": "Similar technique on a different construction",
+          "evidence": [
+            "Adjacent centers with path arms (a,a) and (a,a+1), giving 2a+1, not two complete branching halves."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-a-double-spider-family-with-color-refinement-depth-one-below-its--26d471c733ad/RESULT.md",
+          "material_read": "Finding and depth proof",
+          "method": "Local mirror passages",
+          "title": "A double-spider family with color-refinement depth one below its diameter",
+          "trigger": "Closest two-center asymmetric tree with refinement waves"
+        },
+        {
+          "assessment": "General order bound, not exact depth for this family",
+          "evidence": [
+            "Maximum over n-vertex trees attained by paths; no height-dependent equality for the two Bethe halves."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-sharp-half-order-upper-bound-for-color-refinement-depth-on-trees--62369f349a41/RESULT.md",
+          "material_read": "Finding and extremal statement",
+          "method": "Local mirror passages",
+          "title": "Sharp half-order upper bound for color-refinement depth on trees",
+          "trigger": "A candidate dominating general depth theorem"
+        },
+        {
+          "assessment": "Structural overlap; no conclusive full-text noncoverage assessment",
+          "evidence": [
+            "The stated topic is spectra of weighted root-joined generalized Bethe trees."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0024379508000657",
+          "material_read": "Bibliographic scope and search description; full text unavailable via publisher and identified CORE endpoint",
+          "method": "Primary landing/search evidence and lawful CORE alternate attempt",
+          "title": "Spectra of weighted generalized Bethe trees joined at the root",
+          "trigger": "Closest source on the root-joined Bethe construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact stabilization depth of root-joined perfect trees is a motivated benchmark for refinement on a natural branching family. The threshold at a height gap of two, delayed re-splitting of the shorter side, and crossover between outward and inward clocks are not captured by order bounds or by reading leaf distance alone. Independence of branching factor d>=2 quantifies a structural phenomenon rather than a table of specially tuned instances.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

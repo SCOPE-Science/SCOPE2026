@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The statement fixes the edge orientation, incoming-only Boolean NOR rule, domain \(q\ge2,d\ge1\), definition of first periodic entry, and independent Bernoulli initialization. The proof explicitly reduces the dynamics after \(d-1\) steps to loopless-complete-graph NOR, proves the exhaustive recurrent set and sharp bound, partitions initial variables into disjoint predecessor trees, and derives the cumulative time law and exact basin counts. The derivative argument for the twofold scalar recursion proves the critical-bias limit. The included program independently checks complete small examples and integer counts. Random sampling is not offered as an all-size proof.
+PASS
 
-## Originality: PASS, with residual risk
+Each update reduces relevant prefix length by one until the first-letter subspace. The reduced loopless complete NOR map permutes the zero/one pair, fixes each singleton and sends every other nonuniform vector to zero. Periodicity forces membership in the image after d−1 steps; a specified two-one vector is attainable then by disjoint, individually surjective NOR trees (including height 0), hence realizes T=d. Initial leaves of distinct prefix evaluations have distinct suffixes, while leaves within a root are indexed by all admissible prepended strings, once each. Independence and equal bias therefore give the stated CDF as the disjoint probabilities of two uniform outcomes and q+1 single-block outcomes; at t=d−1 only one-hot outputs reach a fixed point. Exact integer counts use B_t and S_t as leaf counts. For the critical limit, differentiation of J(s) gives the sign of sum_{j=0}^{q−1} s^(−j)−q², strictly falling from +infinity to q−q². With endpoint limits 1 and 0 this establishes precisely one interior crossing of 1; monotone even iterates converge to opposite endpoints on either side, and p=p_* is stationary. The basin limit is (q+1)p_*² there, including the stated endpoint cases off criticality.
 
-The closest accessible claims are the general directed Boolean graph-dynamics survey, a special-digraph study whose accessible extended abstract names paths/cycles/stars/arborescences, and an existing de Bruijn incoming-NOR result. The latter uses full words with repeated symbols allowed and has no one-hot frozen Kautz phases; its uniform-oscillator distribution does not imply the additional block-selective term or fixed-phase probability established here. A Kautz XOR result concerns a different linear update. Searches for Kautz NOR, equivalent prefix-tree formulas, exact entrance distributions and broader line-digraph coverage found no demonstrated implication of the complete claim. The 2013 journal version of the special-digraph study was not fully accessible; a historical equivalence there or elsewhere remains a risk.
+## originality
 
-## Value: PASS
+PASS
 
-The compared graph families are canonical bounded-degree low-diameter word networks, and removing forbidden adjacent-symbol words changes the set of nonlinear recurrent states. The exact first-entry shell and labelled-basin formulas work for every alphabet and depth, and the isolated critical-density frozen survival differs qualitatively from the almost-sure global oscillator for any fixed off-critical initialization. This is a motivated complete dynamical classification, not an arbitrary small graph table or a renaming of the NOR-tree recursion.
+Credit the classical graph structure and strong same-day overlap in NOR prefix collapse, product bias recursion and exact shells on de Bruijn words. The Kautz fixed phases, extra block event and resulting exact nonzero critical basin are not obtained by substituting parameters in the two-uniform-state law. No inspected source provided a stronger theorem covering this additional phase and first-entry statement. This is a limited substantive distinction, not a priority determination for the method.
 
-## Scientific limitations
+## value
 
-The graph is directed and reads only its incoming neighbors. There is no uniformity in a bias that approaches criticality with increasing depth. Published mathematical priority is assessed under accessible-source limitations; external independent validation is pending.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Kautz is a standard directed network, and the effect of deleting same-letter transitions is qualitative: a uniform oscillator acquires q+1 coexisting fixed phases. The exact first-entry and individual-basin laws, and the isolated critical survival limit, measure the effect for all alphabets and depths and are useful beyond the elementary NOR-tree recursion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

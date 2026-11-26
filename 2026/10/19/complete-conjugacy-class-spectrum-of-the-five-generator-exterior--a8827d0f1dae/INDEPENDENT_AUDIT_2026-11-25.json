@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:01:21.049047Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–80; VERIFICATION.md and verify.py inspected, not executed",
+        "Exact independent rank split and quotient-count reconstruction above"
+      ],
+      "rationale": "In odd characteristic the commutation condition is exactly a_odd∧b_odd=0; the centralizer index is q^rank and all 15 even coordinates are free. Independently, for a_odd=v+α+β with v≠0, split V=⟨v⟩⊕W. The degree-two projection has rank 4. On its kernel the degree-four image is v∧Λ³W of dimension 4: b_1 is a multiple of v and the contribution α∧b_1 is already in that image. This gives rank 8 and (q⁵−1)q²⁶ elements. When v=0, the perfect top wedge pairing identifies α with an alternating form on V. The radicals of nonzero forms have dimensions 3 or 1; each quotient contributes q−1 or |GL₄|/|Sp₄|=q²(q−1)(q³−1), respectively. This gives N₂,N₄ as stated, with q¹⁶ free lifts per form. Divide element counts by 1,q²,q⁴,q⁸ to obtain each coefficient; weighted mass is q³¹. In odd characteristic positive-even units are central and every unit factors into such a unit and 1+u with u odd; u²=0 and [1+u,1+w]=1+2u∧w. Noncommuting generator pairs establish class exactly two. The squarefree alternating convention implies commutativity in characteristic two. Nonzero scalars split off centrally without altering class sizes, multiplying counts by q−1.",
+      "residual_risks": [
+        "The frozen checker works modulo prime fields, not extension fields. The analytic argument uses only finite-field linear algebra and the cardinality q and is uniform in prime powers.",
+        "The checker uses int.bit_count, so the stated Python 3.9 minimum is optimistic; this does not affect the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prop. 7.5 gives maximal commutative subalgebras containing a nonzero-linear element of dimension 24 in rank five, covering the rank-8 ingredient.",
+          "Bovdi–Leung concerns maximal commutative subalgebra structure. Rossmann's Theorem A applies to graphical class-two groups with independent edge commutators."
+        ],
+        "reasoning": "Neither dimension for one stratum nor a general enumerator for independent graph-edge brackets gives the exterior linear–cubic and degree-three rank distribution.",
+        "searches": [
+          "Domokos–Zubor arXiv:1403.2916v2 Proposition 7.5",
+          "Bovdi–Leung arXiv:1803.03457 introduction",
+          "Rossmann class-size polynomial, pp. 1–4, Theorem A"
+        ]
+      },
+      "checked_sources": [
+        "Domokos–Zubor arXiv:1403.2916v2; Bovdi–Leung arXiv:1803.03457; Rossmann Theorem A",
+        "Resultary b94809d1e9e0, 3d81ace8eeb2, ba4d5eb87025"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Odd rank-zero-linear elements reduce to alternating forms only after a graded wedge-map argument. Count formulas for alternating forms give the coefficients in that stratum once the reduction is proved.",
+          "For a graphical bracket with zero-radical vertex space dimension 15 and edge space dimension 15, the all-ones vertex vector has bracket rank 15−c for c connected components. Rank ≤8 would force c≥7. With no isolated vertices, at most 9 edges are possible for such a 15-vertex graph. This rules out directly treating this centerless bracket as a graphical one."
+        ],
+        "reasoning": "This is not a parameter substitution into the inspected graph formula or prior centralizer theorem. The exact equivalent census is later, whereas the verified prior input covers only a stratum and general ingredients.",
+        "searches": [
+          "Rossmann graphical groups Eq. (1.3), Theorem A and Example 1.3",
+          "Resultary b94809d1e9e0 Finding and proof section 4",
+          "Domokos–Zubor Proposition 7.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The later E₅ algebra centralizer census lists dimensions 32,30,28,24 with multiplicities q¹⁷, q¹⁷N₂, q¹⁷N₄, (q⁵−1)q²⁷; the scalar part has no effect on these multiplicities except a factor q.",
+          "The E₅ associative commutator-fiber/width record 3d81ace8eeb2 has different fibers (of the product of two varying arguments rather than ranks at each fixed argument)."
+        ],
+        "reasoning": "For each fixed scalar part 1, divide the census multiplicity by q, then divide by q^(32−d) for each centralizer dimension d. This yields the audited polynomial, so the first catalogue overlap is exact by reduction.",
+        "searches": [
+          "Resultary: five-generator exterior algebra units, class-size polynomial and centralizer/commutator rank census",
+          "Domokos–Zubor arXiv:1403.2916v2 Proposition 7.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026/11/02 threshold-and-centralizer record b94809d1e9e0 explicitly contains the equivalent four-row census; the 2026/11/08 four-generator record ba4d5eb87025 concerns a smaller algebra."
+        ],
+        "reasoning": "Treat the exact later table as demonstrable coverage, while separating chronology from the fact of equivalence. Its catalogue timestamp is later, and neither derivational independence nor complete historical priority is established.",
+        "searches": [
+          "Resultary: five-generator Grassmann centralizer dimensions 32,30,28,24; ordinary class sizes 1,q²,q⁴,q⁸; Plücker commutator fibers"
+        ]
+      },
+      "rationale": "The known centralizer dimension in the nonzero-linear stratum, elementary even-characteristic behavior, and standard alternating-form counts are not new. The contribution is the full rank-separated size enumerator for the specific exterior principal-unit group. No earlier inspected theorem supplies the required class-size distribution. The later five-generator algebra centralizer census is a direct equivalent source of the same odd-q coefficients by scalar slicing and division by class size; this is material overlap, not genuinely different science or evidence in itself of earlier priority.",
+      "residual_risks": [
+        "An earlier exact finite Grassmann-group centralizer enumeration could establish prior coverage; the external lookup returned irrelevant results and is not evidence of absence.",
+        "The later exact census shares the decisive ranks and coefficients; its dependence and the full chronology beyond the published records are unverified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known rank-8 ingredient, not full finite-field census",
+          "evidence": [
+            "Dimension 3·2³=24 in this case."
+          ],
+          "identifier_or_url": "https://real.mtak.hu/33679/1/1403.2916v2.pdf",
+          "material_read": "Prop. 7.5, p. 9, near offset 32500",
+          "method": "Primary OA PDF",
+          "title": "Commutative subalgebras of the Grassmann algebra",
+          "trigger": "Possible direct centralizer formula"
+        },
+        {
+          "assessment": "The inspected scope is maximal commutative subalgebras rather than a class-size census",
+          "evidence": [
+            "Characteristic not two; maximal-subalgebra structure."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1803.03457",
+          "material_read": "Abstract and introduction p. 1",
+          "method": "Primary OA PDF",
+          "title": "Maximal commutative subalgebras of a Grassmann algebra",
+          "trigger": "Possible broader Grassmann structure coverage"
+        },
+        {
+          "assessment": "Different commutator category",
+          "evidence": [
+            "Graph edges index independent brackets; free class-two examples have a different bracket."
+          ],
+          "identifier_or_url": "https://torossmann.github.io/files/csp.pdf",
+          "material_read": "Definitions pp. 1–2; Eq. (1.3) p. 3; Theorem A p. 4; Example 1.3",
+          "method": "Primary OA PDF passages at offsets 0, 7600, 9000",
+          "title": "Enumerating conjugacy classes of graphical groups over finite fields",
+          "trigger": "General finite-field class-size polynomial theorem"
+        },
+        {
+          "assessment": "Later exact equivalent odd-q enumeration",
+          "evidence": [
+            "Lists all four centralizer multiplicities; scalar slicing and orbit counting recover all four principal-unit coefficients."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-commuting-pair-threshold-in-fourth-order-grassmann-algebras-and--b94809d1e9e0/RESULT.md",
+          "material_read": "Finding and proof §4, offsets 0 and approximately 4800",
+          "method": "Published-record local mirror",
+          "title": "Commuting-pair threshold in fourth-order Grassmann algebras and related centralizer data",
+          "trigger": "Exact five-generator centralizer comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and graded rank proof",
+        "Comparison to prior nonzero-linear centralizer dimension and exact later algebra census"
+      ],
+      "rationale": "The natural exact invariant is the ordinary class-size distribution of a principal-unit group, not an arbitrary count of vectors. Rank five is the first odd-generator case with two distinct nonzero alternating ranks for the leading cubic part; the exact polynomial locates and quantifies those strata and the conspicuous missing q⁶ size. It is directly usable for finite group centralizer and commuting probabilities without enumerating a group of order q³¹.",
+      "residual_risks": [
+        "No higher-generator spectrum, character-degree theorem, or priority certificate is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

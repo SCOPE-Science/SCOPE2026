@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every odd prime \(p\ge5\) and positive rational direction ratio, the cyclotomic argument proves rational independence of nonzero cycle eigenvalues. It excludes all cross-pair eigenvalue coincidences except equal weights. Exact eigenspace multiplicities force four or eight vertex inputs, respectively. Fourier evaluation on the stated adjacent patches provides explicit full-rank PBH restrictions. Every boundary case involving zero frequencies, swapped pairs and equal-frequency pairs is covered in the proof; a composite-cycle witness shows the primality condition has content. The included NumPy checker independently runs 85 finite checks, but these are corroboration, not an infinite proof.
+## correctness
 
-## Originality — PASS, subject to literature risk
-General PBH, Laplacian grid controllability and Cartesian-product `p-simple` theory are previously published. The new point assessed is the complete cyclotomic nonresonance criterion for all positive *rational ratios* on prime square tori and the corresponding sharp four-input anisotropic placement. Chapman et al. supply the conditional product theorem but not the arithmetic noncollision hypothesis. Notarstefano and Parlangeli use path-product grids. Li et al. (2026) announce minimal torus control; their isotropic case is acknowledged and expressly not claimed new. Their inaccessible full text is the strongest unresolved comparison, especially if it extends to weighted torus graphs. The current evidence supports originality with this clearly stated risk, not a uniqueness certificate.
+PASS
 
-## Value — PASS
-The result identifies a sharp resource discontinuity in controllability between anisotropic rational and isotropic conductances in an infinite, naturally defined class of diffusion networks. It supplies constructive optimal patches, arithmetic explanation, an explicit finite exceptional-ratio locus for real weights, and a composite-order boundary example. Four versus eight coordinate actuators is a structurally consequential difference; it is not a routine numerical improvement or arbitrary finite census.
+The positive distinct cycle eigenvalues are Q-linearly independent: a relation would give a polynomial P of degree at most p−1 vanishing at a primitive pth root, with P(1)=0; divisibility by Φp and Φp(1)=p force P=0, whose disjoint nonconstant coefficients are the proposed relation coefficients. For a rational anisotropy, a cross-pair collision makes a/b a positive proportion of two nonzero differences of basis vectors (allow e0=0); the nonzero entries on both sides have modulus one, so a/b=1. Off E_p over the reals, cross-pair collision is excluded directly by its definition. At isotropy independence recovers the unordered multiset including zero (there are two labels total). Since p≥5 supplies two distinct positive indices, the largest eigenspace dimensions are exactly four off resonance and eight at isotropy. PBH for the real symmetric state matrix is equivalently injectivity of the complexified vertex restrictions. Two consecutive samples per coordinate give full column rank on each sign block. At isotropy, four distinct vertical roots at most can occur, their groups have at most two horizontal roots each, and consecutive vertical then horizontal Vandermonde evaluations separate all of them. This proves both patches and placement-independent lower bounds. The C6 example has a valid six-dimensional collision. Frozen floating-point diagnostics were inspected, not rerun; exact ranks and case boundaries here follow from the algebra.
 
-## Closest literature and limitations
-Notarstefano–Parlangeli, arXiv:1203.0129v1 (2012); Chapman–Nabi-Abdolyousefi–Mesbahi, DOI 10.1109/TAC.2014.2328757 (2014); Li–Li–Liu–Hu, DOI 10.1109/TAC.2026.3698015 (abstract only, 2026). The theorem does not classify every irrational exceptional ratio, practical control energy, arbitrary input matrices, or composite cycle orders. The 2026 full text could not be accessed through available open/institutional routes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass is for the exact anisotropic rational no-collision law for the prime square and resulting optimal coordinate-input count and placement, not for the known isotropic count, PBH, or product diagonalization. The strongest inspected indexed results cover either the isotropic prime square or an anisotropic rectangle of different side lengths. Neither states the parameter-uniform rational resonance exclusion on prime squares. The inaccessible IEEE torus paper leaves a material priority risk, but there is no verified anisotropic coverage in the available material.
+
+## value
+
+PASS
+
+The result explains why a whole natural class of exact rational anisotropies avoids collisions while isotropy doubles the optimal coordinate-control budget. It proves minimum budgets and constructive placements, identifies the finite possible resonance locus for real weights, and distinguishes composite-order obstructions. It does not claim energy bounds or conditioning near a resonance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

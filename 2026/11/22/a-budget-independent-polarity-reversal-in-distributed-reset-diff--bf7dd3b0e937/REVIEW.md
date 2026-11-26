@@ -1,11 +1,21 @@
-# Scientific review: budget-independent polarity in distributed-reset diffusion
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof directly solves a two-Robin-boundary discounted hitting problem, integrates over arbitrary reset laws and uses an exact Poisson renewal formula. The derivative numerator is a quadratic whose derivative is strictly negative throughout the entire budget interval. The strict inequalities were checked analytically even for reset mass at endpoints, rather than inferred from numerical maximization. The odd hyperbolic moment therefore determines the unique optimizer's side. For two positions, monotonicity of \(\sinh(uk)/\sinh(vk)\) gives exactly one crossing under the stated strict condition. The packaged standard-library checker passed 11,430 independent deterministic assertions of identities and finite numerical examples; it is not a substitute for the proof.
+## correctness
 
-**Originality — PASS, subject to publication-priority uncertainty.** Ghosh et al. (arXiv:2609.02355v1) provide the two-Robin forward fluxes and resetting framework. Méndez et al. (arXiv:2401.01125) provide distributed-source renewal tools. An available deterministic-source result for fixed-total reactivity with competing exponential bulk death contains the one-point case and is explicitly excluded from novelty. The distinct assessed claim is the *arbitrary reset-law, budget-independent optimizer polarity*, and the *sharp one-crossing classification as reset frequency varies for an asymmetric two-site law*. Related published boundary-allocation and drifting two-point-trap results have different sources or control variables. Some directly relevant published claim details were accessible only as indexed summaries; implicit coverage remains possible.
+PASS
 
-**Value — PASS.** The result gives a natural structural reaction-design invariant for two competing partially absorbing endpoints. One hyperbolic source statistic determines which endpoint receives more of any total reaction budget, and a physically explicit two-site resetting protocol reverses that choice at a single exactly computable frequency independently of resource size. The result is not limited to a chosen budget value or a finite numerical grid.
+Frozen RESULT.md's opening unqualified at-most-one-positive-zero statement is false for the symmetric equally weighted two-site law: the odd moment vanishes for all k. The complete repaired RESULT.md now explicitly excludes this degenerate case there, consistently with its detailed theorem, and supplies the strict f<1 bound. Independently solving f''=k²f with f'(0)=a(f(0)−1), f'(1)=b(1−f(1)) gives the displayed numerator and positive denominator (direct substitution verifies both endpoint equations, including a=0 or b=0); hyperbolic convexity bounds the numerator strictly below the denominator. Renewal gives the stated monotone objective. For t=a(K−a), differentiating N=KB+δa+Ct, U=Q₀+Et gives N'U−NU'=δQ₀+t'(CQ₀−EKB)+Eδ(t−at'), where t−at'=a². Pointwise kC cosh k−sinh k B=(cosh k−1)s₀ after averaging, and reflecting y gives the other positive identity. Thus H is strictly decreasing even with boundary reset mass, and the midpoint sign fixes the unique optimum, including endpoint derivative equality. For u≠v the sinh ratio starts at u/v and is strictly monotone by the strict increase of x coth x, so equality of the small-k weights is not a positive crossing; for u=v use (2w−1)sinh(uk). The example factors as stated, and direct evaluation gave 23.15648205771944. Reviewed the frozen diagnostic script by inspection, not execution; the post-repair proof handles arbitrary Borel measures and all budgets without a grid.
 
-The assumptions require fixed positive \(D,L,Q,r\), fresh independent spatial resets, and memoryless Robin capture. No inverse estimation, measurement noise stability, other surface-memory protocols, or independent proof certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified for the repaired arbitrary-law budget invariance and sharp two-site optimizer crossing, not for the Robin transform or renewal formula. The exception is an existing case of the detailed theorem and adds no novelty claim.
+
+## value
+
+PASS
+
+For the repaired result one source statistic fixes which wall receives the majority of any positive budget without solving the allocation equation; the explicit asymmetric law exhibits a robust reversal under variation of a single control. This is a structural fixed-resource result beyond forward first-passage computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

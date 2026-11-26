@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim fixes the original pseudo-Frobenius set before deletion, so the first positive output member has exact coordinate \(m-|\operatorname{PF}(S)\setminus\{F\}\cap[1,m-1]|\). At output multiplicity two, precisely one original low gap remains. In a nonordinary source, all the other low gaps are pseudo-Frobenius, which forces the surviving gap to be \(1\): otherwise the missing \(m+u\) would be a forbidden sum of a pseudo-Frobenius gap and a source element. For \(m\ge3\), one additional pseudo-Frobenius step fills \(2m+1\), and closure fills the whole tail, yielding exactly \(B_m=\{0,m\}\cup[m+2,\infty)\). Ordinary and multiplicity-two sources exhaust the alternatives. Every displayed source family is checked to be almost symmetric, and its image is computed directly. All quantifiers range over arbitrary proper almost symmetric numerical semigroups, not a finite Frobenius cutoff. The checker independently enumerates the finite range \(F\le20\) and returns `VERIFY_OK`.
+PASS
 
-## Originality — PASS, with priority risk
+The source uses the original pseudo-Frobenius set and retains the Frobenius row. Removing a original gap positions before the first positive member moves that member from m to m-a. At output multiplicity two exactly one of the m-1 low gaps survives. In an ordinary source that survivor is F, giving T_1. Otherwise F is not a low gap; write u for the unique low gap that is not pseudo-Frobenius. Each m+i for i≠u (1≤i<m) belongs to the source. If m+u belonged too there would be a complete interval of length m starting at m, forcing ordinariness. If u>1, the pseudo-Frobenius gap 1 added to the member m+u-1 forces the missing m+u, a contradiction. With u=1 and m≥3, addition of m and the identity 2m+1=(m+2)+(m-1), with m-1 pseudo-Frobenius, fill [2m,3m-1] and hence the tail. Thus the only nonordinary sources of multiplicity at least three are B_m; directly their PF set is {2,…,m-1,m+1}, so they are almost symmetric and map to T_2. At multiplicity two the least odd member determines T_g and there is no deletion; B_2=T_2. For g≥3 the complementary pairs containing 0,1,2 are distinct and forced, leaving exactly 2^(g-3) sets, of which only T_g occurs. The unrestricted proof is independent of the supplied verify.py/VERIFY_OUTPUT.txt check through F=20 (601 almost symmetric sources, 46 in the slice); the checker was inspected, not executed. RESULT.md Step 2 does not need its aside about a positive small element; the defining ordinary case is no positive member strictly below the conductor.
 
-The immediate primary paper [1] defines the map and asks for its image; it does not characterize the full multiplicity-two target slice or its inverse fibers. The 2025 predecessor [2] supplies Young-diagram decomposition tools and a different restricted symmetric-set construction. The public argument [3] establishes a necessary exclusion of \(1\) from image targets, but leaves the genus-one/genus-two infinite fibers and all higher-genus singleton fibers unaddressed. The exact equivalence/implication comparisons are in `AUDIT.json`. The scientific literature comparisons cannot establish absolute historical priority and earlier numerical-semigroup sources may contain an equivalent special lemma.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The primary paper explicitly asks to characterize the image and documents extensive fiber collapse. This theorem provides a complete, infinitely quantified inverse-image classification on the smallest nontrivial target-multiplicity slice. It proves a sharp qualitative transition: infinite fibers in exactly the first two genera, and rigidity (unique preimage) in every larger genus. It also excludes all *nonsemigroup* symmetric numerical sets of multiplicity two, a structural obstruction not obtained from the previously known condition that image targets omit \(1\), and gives the sharp image fraction \(2^{3-g}\) at genus \(g\ge3\). The exponential rarity \(2^{3-g}\) of image targets in this stratum also makes the obstruction quantitatively sharp. This directly informs inverse reconstruction rather than just checking examples or computing a small table.
+Pass for the full inverse classification on the multiplicity-two target slice, not the definition, output symmetry, standard form of multiplicity-two semigroups, or every individual image example. The strongest matching distinct indexed record gives particular common examples, without the all-source exclusions or higher-genus rigidity. No priority between same-day results is inferred.
 
-## Closest literature and scientific limits
+## value
 
-Theorem 4.2 and Section 5 of Delgado–Süer–Yeşil (2026), Lemma 5.7 and the decomposition discussion of Yeşil (2025), and the 2026 public row-retention argument are the closest inspected texts. No independent review or exhaustive literature-priority certification was obtained. The theorem does not classify outputs of multiplicity at least three.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The source paper explicitly asks what the symmetrization can hit. This solves the smallest possible nontrivial target slice over the full source domain: it rules out all nonsemigroup targets of multiplicity two, gives infinite fibers precisely in genera one and two, and yields unique reconstruction above genus two. That structural exclusion, not the routine count of complementary pairs, explains the exponential rarity and the value of the invariant. It makes no claim about targets of higher multiplicity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

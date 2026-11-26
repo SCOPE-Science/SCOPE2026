@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:23:46.512225Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For even inputs the cubic difference is the input difference times an odd factor, so the even inputs give exactly one root for each even target, at finite levels and in Z_2. All outputs are even. In the odd classes centered at 1 and -1 modulo four, the offset y+2 or y-2 factors as (x-1)^2(x+2) or (x+1)^2(x-2). With x displaced from its center by 2^r u, the nonzero offset has valuation 2r and odd part u^2(a+2^r u), with a=3 or -3. Its fixed unit residues modulo eight are 7,1 at r=2 and 3,5 at r>=3, in sign order. On each class of odd u modulo four the normalized output difference gains exactly one valuation relative to u-v, so each class is bijective onto its specified ball. If the offset is zero modulo 2^k, displacement must be divisible by 2^ceil(k/2), giving 2^floor(k/2) inputs for k>=4. At nonzero offset, m=k-2r<=2 requires only the matching fixed unit, yielding 2^(k-r-1) inputs; otherwise each of two classes contributes 2^(r+1), since units are read modulo 2^(k-r) but the required precision within each class is 2^(m-1). Thus the displayed exponent is exact. In Z_2 the sign branches are disjoint modulo sixteen; each noncenter target therein has two odd roots, each center one. Per sign the noncenter balls have measure sum_(r>=2) 2^(-2r-3)=1/96, yielding 1/48 for three roots, 23/48 for one, and 1/2 for none; the two double-root targets have measure zero. Polynomial evaluation gives a period 2^k, and evaluating a candidate period at n=0 shows it must be divisible by 2^k when k>=2: odd T gives F(T)=2 modulo four, while even T has v2(F(T))=v2(T). Modulo two the function is identically zero, of least period one. An independent direct enumerator matched all fibers for k=4 through 12. The uploaded checker was inspected, not executed. Replay: /workspace/branches/3374c2ce-90c9-4a2b-982f-f399c11ba37f/direct_fiber_crosscheck.py and direct-k12.log in that directory. The mathematical arguments, not finite replay, justify the least periods and actual two-adic root counts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The dyadic counterpart's exact coordinate identities hold over all Z_2, not just fixed samples or compatible residues, and its even branch is an isometric bijection. The ternary exact law changes the prime to three. The 1991 abstract states estimates and preimage determinations in certain cases, without exposing the relevant hypotheses."
+        ],
+        "reasoning": "The constructive dyadic identities already supply the inverse-limit classification once one uses ordinary square classes. The other prime and the abstract do not establish dyadic historical coverage.",
+        "searches": [
+          "Resultary 5e7f44cf3ca5, square-coordinate lemma and all four branches",
+          "Resultary a4218d5c4f84, exact ternary fibers",
+          "Bremser–Gómez-Calderón 1991, value sets and preimage counts over Galois rings"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5e7f44cf3ca5, a4218d5c4f84, and 7802afd6e155 (self-match)",
+        "JNT 38 (1991) 240–250, publisher abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The counterpart gives a square argument ranging bijectively over either all Z_2 or the odd units on each input class. Zero has a single square root, and every nonzero square has exactly two, since Z_2 is an integral domain. The square supports have offset shells 16(7+8Z_2), 16(1+8Z_2), and 2^(2r)(3+8Z_2) or 2^(2r)(5+8Z_2) for r>=3, centered at the corresponding critical values. Their volumes sum to 1/48 across both signs. At k>=2 the counterpart gives exactly one root over y=0, necessarily x=0; evaluating at a putative period proves minimality of 2^k, already a period of any integer polynomial at that precision."
+        ],
+        "reasoning": "The two-adic result is not inferred by conflating finite counts with point counts. It follows from the other proof's actual coordinate bijections and the elementary square-root law. Measure and period are then immediate. They are different listed consequences, not an additional independent invariant here.",
+        "searches": [
+          "Resultary 5e7f44cf3ca5, Proof steps 1–3 and low-level/zero-target law",
+          "Compare Resultary 7802afd6e155, Finding of Z_2 preimages, Haar measure, and periods"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the cubic fiber record, odd classes 5 and 3 modulo eight give the r=2 offset shells at 110 and 18 modulo 128, each with 16 odd roots for k>=7. The other classes have offsets 64b times a square, b=3 or 5. A nonzero square-root argument then has valuation 2(r-3), with unit test at d=k-2r. Its root count times eight is 2^(r+min(2,d-1)); the zero argument gives 2^floor(k/2). The record's small-precision rows agree at k=4,5,6 as well."
+        ],
+        "reasoning": "Dividing out the square factor 64 and the correct unit translates the two formulas target by target. Different natural coordinates and finite starting precision do not create a distinct finite statement.",
+        "searches": [
+          "Resultary: x^3-3x, cubic Dickson trace polynomial, dyadic valuation shells and critical fibers",
+          "Resultary 5e7f44cf3ca5, Finding and square-coordinate proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7802afd6e155 is the bound result and is not its own prior art. 5e7f44cf3ca5 lists exact exceptions for k=1 through 6 and gives a complete arithmetic case split thereafter. The independent enumeration recovers both records' exact common-range fibers through k=12."
+        ],
+        "reasoning": "Finite agreement is corroboration only; the genuine overlap is the all-depth equivalence. No separate catalogue match for the measure value alone is needed to derive it from the already established target balls.",
+        "searches": [
+          "Resultary: cubic Dickson dyadic fiber tables and full fiber laws",
+          "Resultary 7802afd6e155 and 5e7f44cf3ca5, Finding and Verification"
+        ]
+      },
+      "rationale": "A different indexed record, 5e7f44cf3ca5, gives the identical finite cubic fibers in square coordinates and proves the actual two-adic coordinate bijections. Those bijections immediately imply the additional two-adic root counts and target balls; Haar measure adds the volumes of those balls. The period formula follows directly from the zero-fiber classification. These statements are not explicitly bundled in the counterpart, but are mechanically implied by its result and proof. This comparison establishes equivalent coverage, not chronological precedence. The same-day date and the unresolved published full text do not drive the verdict.",
+      "residual_risks": [
+        "The 1991 full text remains unavailable, so the historical reach is unsettled. The relative order of the two same-day indexed records is not inferred. The mathematical coverage comparison does not depend on settling either question."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the finite fibers and implies the extra assertions by elementary consequences of its explicit square coordinates",
+          "evidence": "Each of two odd coordinate maps is onto Z_2 and each of two others is onto all odd units; the even branch is bijective.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-dyadic-fiber-law-for-the-cubic-dickson-polynomial--5e7f44cf3ca5/RESULT.md",
+          "material_read": "Finding at offset 0 and near 1287; assigned frozen counterpart lines 5–51 and 55–104, especially Steps 1–3",
+          "method": "Resultary search, local-mirror extract and frozen source comparison",
+          "title": "Exact dyadic fiber law for the cubic Dickson polynomial",
+          "trigger": "Exact same map and dyadic precisions, with possible inverse-limit implication"
+        },
+        {
+          "assessment": "Ternary analogue, not dyadic coverage",
+          "evidence": "The residue rings are Z/3^k and the maximizers are counted there.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-exact-ternary-fiber-law-for-the-cubic-dickson-polynomial--a4218d5c4f84/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary search and local-mirror text inspection",
+          "title": "The exact ternary fiber law for the cubic Dickson polynomial",
+          "trigger": "Same named cubic with potentially broader exact fiber coverage"
+        },
+        {
+          "assessment": "Unresolved historical overlap; cannot infer whole-paper noncoverage",
+          "evidence": "Preimage cardinalities are determined 'in certain cases'; available text does not identify whether the cubic at residue characteristic two is among them.",
+          "identifier_or_url": "https://doi.org/10.1016/0022-314X(91)90087-R",
+          "material_read": "Accessible publisher abstract only; no theorem text obtained",
+          "method": "Publisher metadata and attempted lawful full-text retrieval at publisher and identified alternate copy",
+          "title": "Value sets of Dickson polynomials over Galois rings",
+          "trigger": "Strongest plausible primary coverage of the same family over prime-power rings"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The underlying complete local classification is useful, and distinguishing finite multiplicities from actual two-adic point counts matters. Here, however, the counterpart already supplies the coordinate bijections that settle both. The explicitly appended Haar measures and periods follow by adding known ball measures and testing the known zero fiber, respectively. No genuinely separate remainder adds a nonroutine scientific fact beyond the covered classification.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

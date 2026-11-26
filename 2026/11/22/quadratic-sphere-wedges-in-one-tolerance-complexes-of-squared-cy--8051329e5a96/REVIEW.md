@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The face classification uses the exact graph, filled clique and tolerance-one definitions for every integer \(n\ge9\). The counts \(f_2=n(2n-9)\) and \(f_3=n(n-4)\) follow from edge/triple incidence enumeration. The three explicit collapse stages pair every tetrahedron with a triangular face that is free at its time of removal; the seven-position exclusion and all local types are valid modulo any \(n\ge9\). Each collapse preserves homotopy. A tree-fan argument proves simple connectivity from the complete one-skeleton and the triangles containing spanning-tree edges. The reduced two-dimensional complex has free integral \(H_2\) of the stated rank; Hurewicz and homological Whitehead yield the full wedge-of-two-spheres homotopy type. Independent program checks cover twenty-two exact finite instances, eight with mod-two boundary-rank verification. The program is corroboration, not the proof of the unrestricted quantifier.
+## correctness
 
-## Originality — PASS (with priority risk)
-The most directly relevant current source is S. Selvaraja, arXiv:2611.14384v1, 10 November 2026. Its collapsibility theorem addresses clique complexes of chordal graphs, which exclude the specified nonchordal squared cycles; its general Leray results bound dimensions without computing the new Betti ranks or ordinary homotopy type. M. Kim and A. Lew, arXiv:2109.03030, introduce tolerance complexes and bounds but do not supply the present all-cycle classification in the inspected material. Other indexed graph-power results concern two-independence, neighborhood or cut complexes. An isolated smaller cycle and an analogous squared-path problem do not imply a formula for all squared cycles: closing the path changes the second Betti rank by a signed quantity \(n-11\), which changes sign and then grows. All accessible related claims were compared by mathematical object, parameter and implication rather than title alone. The residual risk is an unindexed or inaccessible equivalent calculation; absence in search results is not a proof of priority.
+PASS
 
-## Mathematical value — PASS
-This is an exact **integral homotopy** classification of an infinite, natural nonchordal family for which contemporary general tolerance-complex results give upper bounds rather than exact topological types. The proof supplies a uniformly explicit collapse and establishes absence of torsion and all higher homotopy obstructions needed for a sphere wedge. Quadratically many top-dimensional spheres arise from the cyclic closing of the local triangles; the differing boundary effect relative to a squared path shows that the exact invariant is structural, not a textbook dimension bound or a renamed published special case.
+The claim is for the filled clique complex and ordinary homotopy for every n≥9. In a graph triangle, each of the three positive cyclic gaps must be ≤2 or ≥n−2; they sum to n, so one is ≥n−2 and the other two are 1. A 4-clique is then impossible. The complete tolerance one-skeleton, the degree-four wedge count, and the n duplications from consecutive four-sets give f₂=n(2n−9) and f₃=n(n−4). I checked all three freeness stages, including wraparound: a first-stage face has the lone length-two edge and a third vertex isolated in that face, so its unique possible completion adds the intervening vertex. The second-stage faces have precisely one consecutive edge; its two possible completions are the nominated tetrahedron and one deleted in stage I. For the third-stage face {i,i+1,i+3}, the possible completions add i+2 or i−1, the latter producing the already deleted B_(i−1). The remaining complex is 2-dimensional. Fans over paths in a spanning tree of the squared graph push every edge loop into the tree, proving simple connectivity. Thus Euler characteristic gives free integral H₂ of rank (n²−7n−2)/2, and Hurewicz plus homological Whitehead gives the wedge, not just its homology. Independent incidence peeling on directly enumerated graph cliques for n=9,10,11,12 removed all tetrahedra and gave ranks 8,14,21,29. Replay: node /workspace/branches/independent_finite_checks.js (record 1 block).
 
-## Limitations
-The result is confined to the filled squared-cycle clique complex, tolerance one, and \(n\ge9\). The ordinary homotopy statement does not classify equivariant modules, other cycle powers, or higher tolerance parameters. Finite checks do not certify every \(n\), and independent validation has not been performed. Full-text comparison of some mathematically distinct indexed records was not possible, so publication priority remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest inspected results treat unfilled graphs, filled squared paths, different tolerance, a single cycle length outside the claim, or general bounds. None determines the all-n integral wedge for the filled squared cycles under review. This is a bounded best-of-knowledge decision, not a priority certification.
+
+## value
+
+PASS
+
+The filled squared cycle is a natural uniformly nonchordal family for testing tolerance topology. Its explicit collapse removes every tetrahedron uniformly and the exact quadratic sphere multiplicity resolves ordinary integral homotopy, substantially more than a Leray bound or an isolated finite check. The freeness pattern gives a useful constructive benchmark for other graph-power complexes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

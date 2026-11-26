@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:24:48.404355Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For exact independent oscillators with common times and momenta in the coupling, each coordinate separation is multiplied by cos(omega_i T). Independent repetitions of a common law give expectation |d_1|^2 a^K+|d_2|^2 b^K, so the supremum over normalized starting directions is max(a,b)^K, attained along a coordinate axis. For odd m the common cosine-zero set is theta=pi/2 mod pi, necessary almost surely for zero risk, and the remaining refreshed Gaussian terms give a fresh target draw. For even m let s be the distance from this slow-mode zero class and delta=pi/[2(m+1)]. The supporting function F(s)=m sin^2(s)+cos^2(ms) has derivative -2m sin((m-1)s) cos((m+1)s), with a unique strict minimum at delta on [0,pi/(2m)] and value (m+1) sin^2(delta). A direct check of the global boundary is that for s>=pi/(2m), F(s)>=m sin^2(s)>=m sin^2(pi/(2m))=F(pi/(2m))>F(delta), using strict increase in the first lobe after delta. Thus weighted averaging gives the lower bound for any law, and equality requires the pointwise gap to vanish almost surely. Each contact phase yields both risks equal; their entire union mod pi is exactly the optimizing support. Checks here are analytic; the frozen numerical verify.py was inspected, not run. No extension to changing laws, physical time budgets, discretization or other convergence metrics is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The roots-of-unity theorem solves the maximum quadratic persistence over consecutive frequencies 1 through K at fixed mean on [0,pi]. Wang–Wibisono prescribe iteration-dependent schedules; Apers et al. analyze TV convergence for a chosen distribution."
+        ],
+        "reasoning": "A lower bound for a maximum involving all intervening modes does not lower-bound the maximum on the two surviving modes 1 and m. The exact Gaussian flow and product bounds from the primary HMC works are shared, but prescribed schedules and selected time laws do not prove unrestricted iid minimization.",
+        "searches": [
+          "SCOPE-sharp-roots-of-unity-trajectory-laws-for-quadratic-mixing-in-gau--cb640fd569a0, consecutive frequencies and quadratic IACT",
+          "arXiv:2207.02189v2 Chebyshev time schedules",
+          "arXiv:2209.12771v1 §3 Gaussian random-time TV convergence"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "SCOPE-sharp-roots-of-unity-trajectory-laws-for-quadratic-mixing-in-gau--cb640fd569a0",
+        "SCOPE-a-sharp-arithmetic-trichotomy-for-two-frequency-sine-equidistrib--c712ee7ad220",
+        "arXiv:2207.02189v2",
+        "arXiv:2209.12771v1",
+        "arXiv:2209.07438v3",
+        "arXiv:1511.09382v2",
+        "arXiv:2107.11058 §2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fold any nonnegative phase modulo pi and average its law with reflection about pi/2. This preserves all integer cosine-square expectations and gives mean pi/2. Hence the K=2 IACT result implies the m=2 squared-risk bound without a budget; its optimal phase set is reflection invariant, so the original folded law must be supported there. Bou-Rabee–Sanz-Serna use exponential times and different efficiency metrics; Jiang treats both partial refresh and a variable-time Chebyshev schedule in v3. The sine majorant comparison concerns first sine moments."
+        ],
+        "reasoning": "The worst quadratic IACT has the increasing transform of max_j E cos^2(jT), since mixed modes have correlations bounded in absolute value by the largest diagonal persistence. This is an exact comparison on the same modes at m=2, but the consecutive spectrum introduces extra modes for m>=4. The other inspected assertions do not supply the required global pointwise cosine bound and all its contact phases.",
+        "searches": [
+          "SCOPE-sharp-roots-of-unity-trajectory-laws-for-quadratic-mixing-in-gau--cb640fd569a0 Finding and quadratic spectrum",
+          "arXiv:1511.09382v2 §§4.2–4.3",
+          "arXiv:2209.07438v3 §2.3",
+          "arXiv:2107.11058 §2 Theorem 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact two-frequency sine theorem optimizes the smaller of two first sine expectations and finds a weighted support with weights in reverse proportion to the frequencies. The reviewed problem is equivalently optimization of two expectations of cos(2theta), cos(2m theta), by the cosine-square identity."
+        ],
+        "reasoning": "Replacing cosines at frequency ratio 1:m by unshifted sines would need a common phase shift of pi/2 modulo pi at both frequencies. An even m precludes this. Squaring the two sine expectations or replacing each by an expectation of a square is also not an equivalence. The common phase offset pi/[2(m+1)] in the even case does not establish an implication of the sharp squared-risk support or equality theorem.",
+        "searches": [
+          "Resultary: two harmonic frequencies HMC iid optimal duration minimax squared cosines parity",
+          "SCOPE-a-sharp-arithmetic-trichotomy-for-two-frequency-sine-equidistrib--c712ee7ad220"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For K=2 the checked roots-of-unity result gives worst quadratic persistence 1/4 and the support pi/3,2pi/3 with equal masses under its budget. The checked two-frequency cosine-threshold record concerns joint threshold probabilities under Lebesgue measure, not a table of optimal cosine-square risks over all laws."
+        ],
+        "reasoning": "The m=2 value and support are demonstrably covered; the exact theorem for consecutive frequencies and the threshold-probability record are not an exact table for the m>=4 sparse-pair values or optimizer classes. No priority inference from dates or search ranking.",
+        "searches": [
+          "Resultary: 1:2 oscillator exact squared-cosine minimax, roots-of-unity support, two-frequency trigonometric minimax"
+        ]
+      },
+      "rationale": "The shared ingredients are Gaussian mode cosines, randomized durations, and two-frequency linear supports. The strongest compared HMC theorem implies the m=2 result even after folding away its budget, and the common odd quarter-period observation is elementary. The surviving general claim is the exact unrestricted sparse-pair iid minimax for every even m, including m>=4, and all its optimal laws. Checked primary statements and nearest catalogue comparisons do not imply that family.",
+      "residual_risks": [
+        "An earlier sharp weighted-cosine or trigonometric-polynomial extremum could encode the entire even-m supporting inequality under other terminology. No inspected statement does so.",
+        "No claim of historical priority or extension to physical integration cost, optimal Wasserstein coupling or more than two modes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Subsumes m=2 by the symmetry argument; compares a different max for m>2",
+          "evidence": "Consecutive modes 1 through K; K=2 IACT optimum 5/3 maps to persistence 1/4; constrained optimizer uniform on pi/3 and 2pi/3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-roots-of-unity-trajectory-laws-for-quadratic-mixing-in-gau--cb640fd569a0/RESULT.md",
+          "material_read": "Finding, scope and proof Step 1 (offset 0), quadratic spectrum and reduction",
+          "method": "Actual RESULT.md in local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp roots-of-unity trajectory laws for quadratic mixing in Gaussian Hamiltonian Monte Carlo",
+          "trigger": "Same exact Gaussian HMC and a minimax reducible to squared cosine expectations"
+        },
+        {
+          "assessment": "First sine moments and arithmetic contact sets, not the common-phase squared-cosine problem",
+          "evidence": "The sine optimum at even ratio 1:m is cos(pi/[2(m+1)]); the two common phases cannot both be shifted from cosines to sines at even m.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-arithmetic-trichotomy-for-two-frequency-sine-equidistrib--c712ee7ad220/RESULT.md",
+          "material_read": "Finding, assumptions and proof comparison, offsets 0 and 5200",
+          "method": "Actual RESULT.md in local mirror",
+          "title": "A sharp arithmetic trichotomy for two-frequency sine equidistribution",
+          "trigger": "Closest two-frequency measure minimax and supporting inequality"
+        },
+        {
+          "assessment": "Uses predetermined K-dependent times for a W2 guarantee, not optimization over the same iid law",
+          "evidence": "Fresh momenta across a Chebyshev sequence; Gaussian coordinate cosine dynamics shared.",
+          "identifier_or_url": "https://arxiv.org/html/2207.02189v2",
+          "material_read": "Introduction and §2 / Algorithm 1, offset about 4450",
+          "method": "Primary OA HTML passage",
+          "title": "Accelerating Hamiltonian Monte Carlo via Chebyshev Integration Time",
+          "trigger": "Gaussian HMC and potentially stronger optimized time scheduling"
+        },
+        {
+          "assessment": "Selected uniform time grid and TV guarantee, not exact joint minimization over all duration laws",
+          "evidence": "Independently sampled times from a selected finite set with a cosine-coverage condition.",
+          "identifier_or_url": "https://arxiv.org/html/2209.12771v1",
+          "material_read": "§3, random-time construction and TV analysis, offsets about 22900 and 30350",
+          "method": "Primary OA HTML passages",
+          "title": "Hamiltonian Monte Carlo for efficient Gaussian sampling: long and random steps",
+          "trigger": "Uses iid durations and cosine product convergence"
+        },
+        {
+          "assessment": "Partial refresh and variable schedules; specifically v3 is not only a fixed-time study. No compared statement optimizes an arbitrary common iid law for the sparse pair",
+          "evidence": "The complete-refresh variable case uses a random permutation of a fixed K-time Chebyshev set for quadratic W2 convergence.",
+          "identifier_or_url": "https://arxiv.org/html/2209.07438v3",
+          "material_read": "Abstract and §2.3, offsets 0 and about 30800",
+          "method": "Primary OA HTML passages",
+          "title": "On the Dissipation of Ideal Hamiltonian Monte Carlo Sampler",
+          "trigger": "Gaussian dissipation and fixed or scheduled time policy overlap"
+        },
+        {
+          "assessment": "Efficiency and ergodicity for exponential durations, not all-law minimax of synchronous squared discrepancies",
+          "evidence": "State-independent iid exponential times with a tunable mean, Gaussian IACT and mean-squared displacement criteria.",
+          "identifier_or_url": "https://arxiv.org/html/1511.09382v2",
+          "material_read": "§1 and §§4.2–4.3, offsets about 8500 and 55700",
+          "method": "Primary OA HTML passages",
+          "title": "Randomized Hamiltonian Monte Carlo",
+          "trigger": "Prior iid exact-flow random times"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Integer resonance of two modes is a canonical test of whether randomized durations overcome conflicting phase zeros. The full even-ratio family shows they do not under the precise stationary iid squared-distance objective, and gives every optimal law. The multi-ratio classification has content beyond the already covered m=2 benchmark and the simultaneous-zero observation for odd ratios.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

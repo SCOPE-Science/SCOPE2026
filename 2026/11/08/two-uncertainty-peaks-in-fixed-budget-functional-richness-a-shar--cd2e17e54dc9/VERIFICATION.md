@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,4 @@
 }
 ---
 
-The mathematical claim, all exact variance values, and the exhaustive finite boundary are reproducible with `python3 verify.py` (standard library only). The program generates every nondecreasing positive partition of total size 2 through 13, evaluates an exact covariance identity with rational arithmetic, and detects a decline followed by a later rise. It tests 259 profiles through 12 species, and 100 profiles at 13 species; only the profile `(1,6,6)` at size 13 is non-unimodal. An independent direct count of survivor subsets verifies the witness at all 14 sample budgets and another 438 small profile-budget combinations.
-
-For the infinite family the checker makes 95 exact sample checks over indices 6 through 100, while the all-index conclusion rests on the explicit analytic positive-polynomial and binomial-growth proof in RESULT.md. The finite experiment is not treated as proof for unbounded family sizes.
-
-The embedded formula counts only idealized functional-group occupancy under uniform sampling without replacement. The first literature source has an accessible abstract but not the full primary text; historical-priority assessment therefore retains this risk. External independent audit has not been performed.
+Run `python3 verify.py` with Python 3 (standard library only). It computes the variance from exact integer counts of the three sampled group occupancies and checks both rational identities and their signs at each of the 95 values \(m=6,\ldots,100\). These checks do not substitute for the analytic all-\(m\) sign proof in RESULT.md. The earlier sharp finite census boundary is prior context, not a claim of this note.

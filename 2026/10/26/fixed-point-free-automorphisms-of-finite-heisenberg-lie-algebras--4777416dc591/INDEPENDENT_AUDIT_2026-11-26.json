@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:26:35.135011Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The characteristic central line equals the derived algebra. All automorphisms are obtained from a symplectic similitude of multiplier c and an arbitrary central shear; c=1 fixes z, and for c!=1 every fixed vector in the quotient lifts uniquely to a fixed vector after solving the scalar central equation. Fix c!=1. Its fibre has size |Sp_(2n)(q)| and any fixed space is totally isotropic. To verify the stabilizer without characteristic-dependent block coordinates, count ordered independent isotropic r-frames: at step i there are q^(2n-i)-q^i choices, and Sp acts transitively by symplectic basis extension. A multiplier-c element fixing a given frame exists by fixing the e-vectors and scaling the complementary f-vectors by c; the frame stabilizer in that fibre is thus a coset of the pointwise Sp stabilizer. Dividing frames by |GL_r(q)| gives subspaces, so the normalized product of the isotropic-subspace count and its stabilizer count is 1/|GL_r(q)|. The subspace-lattice Möbius factor (-1)^r q^(r(r-1)/2) then gives the printed finite fibre sum. There are q-2 contributing fibres and q^(2n) shears each; division by the total group order yields the stated proportion, and Euler's absolutely convergent product gives the fixed-q limit. This also proves the q=2 zero case and the n=1 specialization, with no odd-characteristic assumption. Independent bounded replay /workspace/branches/5d89a633-f68e-4ab9-97a4-e22692ea83e9/independent_check.py counted 40 of 60 matrices in each nonidentity fibre at (n,q)=(1,4) and 29160 of 51840 in the single nonidentity fibre at (2,3), yielding 1280 and 2361960 automorphisms, respectively. These are finite checks; the bundled verifier was inspected rather than executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Garton assumes 1<=c<=a-1 for congruence depth c, so the analogue of depth zero needed for a nonidentity multiplier over the residue field is excluded; Note 2.1.4 used in the proof has the same restriction.",
+          "Fulman–Stanton Theorem 2.3 treats the multiplier-one symplectic group; for (n,q)=(1,3) its fixed-vector-free probability is 5/8, not the nonidentity fibre's 1/2. Fulman–Guralnick's abstract concerns subspace actions, whose derangement condition differs from excluding eigenvalue 1."
+        ],
+        "reasoning": "An exact higher congruence-depth law, multiplier-one law or result on invariant subspaces is not a stronger theorem in the required residue multiplier regime. The unread primary paper is not used for a negative claim.",
+        "searches": [
+          "Garton, Random matrices and Cohen–Lenstra statistics for global fields with roots of unity, Ch. 3 opening and Corollary 3.1.2",
+          "Fulman–Stanton Theorem 2.3",
+          "Fulman–Guralnick arXiv:1303.5480",
+          "Neumann–Praeger DOI 10.1112/S0024610798006772"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–63 and bundled verification material",
+        "Resultary 17f0de4cb789",
+        "Fulman–Stanton Theorems 2.1 and 2.3",
+        "Garton Corollary 3.1.2 and Note 2.1.4",
+        "Fulman–Guralnick arXiv:1303.5480 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "If Garton's moments applied at depth zero to an exact multiplier fibre, their specialization to elementary abelian targets would give the requisite moments over odd prime fields. The positive-depth assumption actually forbids that specialization.",
+          "The k=0 general linear result supplies the common probability only after the nonidentity-fibre equivalence is established; the Heisenberg scalar and shear factors alone do not establish it."
+        ],
+        "reasoning": "The standard symplectic orbit and subspace Möbius ingredients are not new. Their relevant combination identifies a nonidentity coset count and explains why rank n rather than ambient dimension 2n controls it. No inspected theorem gives that bridge in the full regime.",
+        "searches": [
+          "Garton Ch. 3 opening, thesis pp. 19–20, and Note 2.1.4 p. 14",
+          "Fulman–Stanton Theorem 2.1(1)–(2)",
+          "Resultary 17f0de4cb789 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A fixed-vector-free linear map is the zero-fixed-space case, equivalently invertibility of I-g; this differs from fixing no line or having no eigenvalue at all.",
+          "Fulman–Stanton Theorem 2.1 at k=0 gives exactly the finite sum and product in GL_n(q), not in a nonidentity GSp_(2n)(q) fibre. The fibre identity can be seen by noticing that all ordered independent fixed-frame moments up to rank n equal one in both laws, which determines the distribution on dimensions 0 through n.",
+          "Resultary 17f0de4cb789 gives the same q^3(q+1)(q-2)^2 count for dimension three."
+        ],
+        "reasoning": "The general linear expression coincides exactly, but it cannot be substituted without a bridge: the nonidentity multiplier forces all fixed frames to be isotropic, and a multiplier-specific frame stabilizer gives the matching normalized moments. The dimension-three overlap is exact and not claimed as a contribution.",
+        "searches": [
+          "Resultary: exact fixed-point-free automorphisms of finite Heisenberg Lie algebras",
+          "Fulman–Stanton Theorems 2.1 and 2.3, dimension of a fixed space",
+          "Garton Corollary 3.1.2, exact multiplier cokernel moments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact formula in dimension three equals the present n=1 formula for every q. The exact distributions in the inspected classical group reference are for GL and Sp, with their own actions."
+        ],
+        "reasoning": "Credit the indexed count and equivalent existing formula in their respective regimes. A table for three-dimensional automorphisms or for general linear derangements does not by itself enumerate the higher-dimensional Heisenberg family.",
+        "searches": [
+          "Resultary exact Heisenberg fixed-point-free automorphism counts, record 17f0de4cb789",
+          "Fulman–Stanton §2 exact fixed-vector distributions"
+        ]
+      },
+      "rationale": "The three-dimensional case is already an exact indexed result, and the finite sum and product already describe a classical general linear fixed-vector law. The supported distinction is identifying that law in every nonidentity symplectic multiplier fibre of rank n and using it to give the higher-dimensional Heisenberg automorphism count over arbitrary finite fields. The strongest inspected finite-size multiplier moment theorem is at positive congruence depth and does not include the nonidentity residue multiplier needed here. The result is not credited as a new general linear derangement formula.",
+      "residual_risks": [
+        "The Neumann–Praeger full text remains unread; a direct count in nonidentity multiplier cosets or a broader classical-group result outside the inspected passages is not ruled out.",
+        "The finite-size law in the nonidentity fibre may have circulated under a fixed-space or cokernel formulation; the decision is limited to the actual comparisons, not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of n=1 only",
+          "evidence": [
+            "The formula is q^3(q+1)(q-2)^2 and is stated for arbitrary finite q."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-fixed-point-free-automorphism-count-for-the-three-dimensio--17f0de4cb789",
+          "material_read": "RESULT.md Finding, three-dimensional count",
+          "method": "Resultary search and local mirror text",
+          "title": "Exact fixed-point-free automorphism count for the three-dimensional Heisenberg Lie algebra",
+          "trigger": "Matching natural object and exact invariant"
+        },
+        {
+          "assessment": "Identical probability law at zero in GL_n, distinct multiplier-one law in Sp; neither is the exact GSp fibre assertion as stated",
+          "evidence": [
+            "At GL fixed dimension k=0, q^(i(i-1)/2)/|GL_i(q)| equals the reciprocal product in the frozen sum. Theorem 2.3 explicitly treats Sp, not the other multiplier fibres. The introduction to §2 credits Rudvalis–Shinoda."
+          ],
+          "identifier_or_url": "https://dornsife.usc.edu/jason-fulman/wp-content/uploads/sites/224/2023/06/fulman-stantonfinal.pdf",
+          "material_read": "§2, Theorem 2.1 and Remarks, PDF p. 3, offset 6882; Theorem 2.3(1), p. 4, offset 9500",
+          "method": "OA PDF passages",
+          "title": "On the Distribution of the Number of Fixed Vectors for the Finite Classical Groups",
+          "trigger": "Closest established finite fixed-space count and exact formula alias"
+        },
+        {
+          "assessment": "Strong near-match, but congruence depth zero is outside the actual scope",
+          "evidence": [
+            "Chapter 3 fixes c in {1,...,a-1}; the corollary conditions the multiplier to be 1 mod l^c and not 1 mod l^(c+1). Its replacement of an exact fibre by a congruence-depth average invokes Note 2.1.4, which also excludes c=0."
+          ],
+          "identifier_or_url": "https://asset.library.wisc.edu/1711.dl/VB2JDB7JUO4RZ8N/R/file-eb0fa.pdf",
+          "material_read": "2012 UW–Madison dissertation, thesis pp. 19–20, Chapter 3 opening, Corollary 3.1.2 and its proof (offsets 54850–58946); thesis p. 14, Note 2.1.4 (offset 43200 onward)",
+          "method": "OA institutional thesis PDF passages",
+          "title": "Random matrices and Cohen–Lenstra statistics for global fields with roots of unity",
+          "trigger": "Finite-rank exact-multiplier cokernel moments can characterize a fixed-space distribution"
+        },
+        {
+          "assessment": "Nearby subspace-action setting; whole-paper coverage not excluded on this basis",
+          "evidence": [
+            "The stated action is on subspaces, not on nonzero vectors."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1303.5480",
+          "material_read": "p. 1 abstract, offset 558",
+          "method": "OA PDF abstract passage",
+          "title": "Derangements in subspace actions of finite classical groups",
+          "trigger": "Potential coset and classical derangement comparison"
+        },
+        {
+          "assessment": "Plausible unresolved source; no exclusion based on access failure",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1112/S0024610798006772",
+          "material_read": "Full theorem text unavailable; DOI lookup furnished no repository copy and identified publisher endpoint returned HTTP 403",
+          "method": "Lawful OA retrieval attempts",
+          "title": "Derangements and Eigenvalue-Free Elements in Finite Classical Groups",
+          "trigger": "Potential finite classical-group coverage of eigenvalue exclusion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact count answers a natural intrinsic question about the action of the automorphism group on a standard two-step Lie algebra. Its useful structural content is that the multiplier-one fibre is categorically obstructed by the centre while all other fibres have the same fixed-vector-free law, controlled by half the symplectic quotient dimension. This gives a uniform density in higher dimensions and in even characteristic, rather than a new table entry at a selected small field or merely recomputing the known three-dimensional case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

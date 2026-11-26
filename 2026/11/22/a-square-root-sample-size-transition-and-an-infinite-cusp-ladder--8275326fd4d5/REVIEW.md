@@ -1,19 +1,21 @@
-# Review of the square-scale fitted-Poisson empirical test result
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The statistic has the exact source normalization: it is the **full** \(\ell_1\) discrepancy, not half-total-variation. The proof controls estimated-mean substitution with the exact Hellinger affinity, derives a finite-binomial mean identity, and establishes concentration by bounded differences. A Poisson local limit and justified finite-window truncation yield the critical Gaussian-occupancy integral; separate estimates prove the two outer regimes. The modal-density calculation gives a strictly increasing profile and a positive, explicitly calculated \(3/2\)-power singularity at each integer-occupancy threshold. The standalone checker passes 126 independent finite checks. The analytic arguments, not that finite checker, support the infinite assertions.
+PASS
 
-## Originality: PASS, qualified
+The fitted-weight L1 statistic is the full pmf L1 discrepancy (twice conventional total variation); the all-zero sample has the specified extension. For Poisson pmfs the affinity is exp(−(√s−√t)²/2); the L1 bound and Poisson sample-mean variance give an expected fitting error at most 2/√n. The change from replacing one draw is bounded by 2/n for the unfitted discrepancy. Cellwise binomial deviations can be summed despite multinomial dependence, and the binomial and Poisson mean-deviation identities follow by positive-part summation. For λ_n/n² tending to finite positive κ, the local CLT gives the Gaussian cell-mean profile on bounded standardized windows; bounded second moments permit passage to uniform Poisson deviations there (by subsequences and compactness), and Chebyshev bounds missing tails. A central window with O(√λ_n) cells gives the zero limit when √λ_n=o(n), and the deterministic overlap bound n max_k q_{λ_n}(k) gives the limit two when n=o(√λ_n). After scaling to the standard normal, the modal probability is continuous and strictly decreasing in its mean, giving monotonicity and both endpoint values. On compact κ intervals its branch derivatives are bounded; differentiating under the integral, ignoring the measure-zero crossing sites for each κ, gives C1 with continuous derivative by domination. Transverse crossing boundaries are analytic locally, and the unbounded tail uses the analytic zero-mode branch with uniform Gaussian domination. At the peak crossing of j, the branch difference is a(j)(f−j)/j to first order with positive derivative jump. The new interval has half-width √((κ_j−κ)/κ_j) and integration of the quadratic cap gives exactly 4φ(0)a(j)/(3κ_j^(3/2)). Its nonzero one-sided term precludes a second derivative. Independent split-interval Simpson quadrature returned D(0.2)=1.099789562606009 and D(κ_1)=1.027858248254292; the numerical increment over the local low-mode branch divided by the predicted cusp term was 1.000045 to six decimals for j=1–4 at relative offset 10^−4. The frozen check.py and VERIFICATION.md were inspected, not executed. The proof has no reliance on numerical coverage and does not treat bootstrap size or power.
 
-The primary Kirui et al. preprint (arXiv:2402.12866) and the earlier 2023 thesis both provide the weighted \(L_1\) statistic; the thesis also gives the classical Poisson mode fact. Their inspected Sections 2–4 and Chapters 3–5 do not contain the increasing-intensity null limit or its singularity ladder. The general empirical-distribution concentration theory of Berend and Kontorovich (2012) and occupancy approximation of Barbour (2009) supply techniques but not the full curve. Related mathematical record searches found no directly dominating statement. Potential broader generic results not inspected remain a priority risk. The source preprint's earliest verified precise public day is 2024-02-20; a 2023 thesis was examined but a public repository-deposit day was not established.
+## originality
 
-## Value: PASS
+PASS
 
-The result describes a real statistical calibration boundary: even under an exact Poisson null, the full empirical/fitted mass-function discrepancy switches from nearly zero to nearly its maximum when the alphabet width outgrows the available sample. Its nontrivial critical curve and infinitely many non-smooth occupancy-mode transitions are structurally informative, beyond a routine fixed-parameter consistency statement.
+The distinct result is the exact growing-intensity critical profile and its infinite modal cusp ladder, with both endpoint regimes. The statistic, generic empirical-L1 bounds and Poisson mode facts are not new. The closest different Resultary finding actually assumes vanishing intensity; the broader empirical-distribution result can give the subcritical limit but does not determine the profile or its regularity. The assessment is bounded by the compared sources.
 
-## Closest literature and limitations
+## value
 
-Main sources are Kirui et al., arXiv:2402.12866 and doi:10.37920/sasj.2025.59.1.2; Kirui's 2023 thesis, Chapter 3; Berend–Kontorovich, arXiv:1205.6711; and Barbour, arXiv:0902.0879. The result concerns one statistic and its null law only. It does not analyze bootstrap critical values, type-I rejection probability or power. Classical Poisson local limits, mode formulas, and empirical-process concentration are credited. Other general occupancy asymptotics may cover components of the finding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives a quantitative null regime boundary for an existing goodness-of-fit statistic: a well-specified fitted null can produce a distance close to its maximum once the effective Poisson width overwhelms n. The exact middle profile and infinite regularly located losses of second differentiability are informative structure not supplied by consistency bounds or by a single calibrated simulation. It is not a bootstrap error-control theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

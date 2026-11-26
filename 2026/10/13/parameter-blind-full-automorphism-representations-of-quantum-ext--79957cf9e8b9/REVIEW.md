@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The radical filtration and square-zero conditions force monomial linear parts, and the relation rules out the antidiagonal case for \(\lambda^2\ne1\). Explicit matrix multiplication reconstructs all automorphisms. The isomorphism obstruction follows from the same argument between two parameters; the inverse-parameter isomorphism is an actual generator exchange. The triangular fixed-space calculation is partitioned into exhaustive disjoint cases. Element and ideal orbit representatives are proved transitive, not inferred from experiments. Independent finite checks exhaust all candidate generator images and all radical subspaces over five finite fields; this is corroborative, not a proof of infinite generality.
+PASS
 
-## Originality — PASS (self-review)
+The ideal spanned by x,y,z is nilpotent and the quotient is k, so it is the radical; its square is kz. Over the stated field, a radical element ux+vy+wz has square (1+lambda)uvz, so each column of an invertible square-zero generator change on J/J² is supported on one coordinate, and the columns lie on opposite axes. Preserving the mixed relation excludes an antidiagonal automorphism since lambda²≠1, leaves independent nonzero diagonal entries and unrestricted central shifts, and forces z to scale by the diagonal product. Between parameters a diagonal change requires equality, and a swap requires inversion and realizes it. The inversion classes have size two, including in characteristic two, yielding the stated counts and unboundedness. In f−1, if a,b,ab all differ from one the radical rank is three. If exactly one of a,b,ab equals one it is two, with 3(q−2) choices of the diagonal pair. At a=b=1 it is one except for the identity, where it is zero. Including the unit gives the displayed fixed-space counts. At each scalar value, support on the two radical quotient axes and, for zero support, whether z has a nonzero coefficient determine the five element orbits; the central shifts act transitively on the z coefficient for nonzero support. Any proper ideal lies in J and any element outside kz produces a nonzero multiple of z on multiplication by a generator. Thus the intermediate ideals are exactly the inverse images of projective lines in J/J², with the two coordinate lines fixed and all mixed lines in one orbit. Finally the z-coefficient pairing is Frobenius and gives Nakayama eigenvalues lambda and lambda⁻¹ on J/J²; changing the Frobenius functional changes the automorphism by an inner factor, which acts trivially modulo J².
 
-The closest primary sources [1]–[4] treat the same algebra, including its Nakayama automorphism, but their full-text statements concern Hochschild cohomology, Galois-covering homology, stable module theory and Batalin–Vilkovisky structures. In particular, [4] Remark 3.6 identifies the parameter-sensitive Nakayama eigenvalues; it does not state the full automorphism-matrix representation is independent of every generic parameter. Searches for quantum exterior algebras, finite-field automorphism groups, isomorphism identification by inversion, fixed-space ranks and ideal orbits did not identify a stronger covering statement in the searched research database. The parameter-independent representation and its unbounded nonisomorphism ambiguity are the claim; none of the standard defining relations or earlier Hochschild results is presented as new. A published equivalent full automorphism-action classification under other terminology remains a concrete residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-This supplies a natural and arbitrarily large failure of a notably strong classification invariant: not just an abstract automorphism group, but the complete faithful action on the underlying four-dimensional vector space, together with its element and ideal orbit profiles, cannot distinguish the original nonisomorphic Frobenius algebras. Conversely, the Nakayama spectrum retains the missing parameter. The exact classification of the indistinguishable family, its cardinality for all finite fields, and explicit orbit descriptions are a motivated structural comparison rather than a selected tiny numerical case.
+The algebra family, the exact equality-or-inverse isomorphism classification, and Nakayama data are prior; the graded automorphism component and central shears also have relevant antecedents. The supported distinct contribution is the simultaneous equality of the full ungraded linear actions in the stated split coordinates in all finite characteristics, together with the associated complete fixed-space, element and ideal orbit comparison across the generic classes. The earlier classification supplies the isomorphism fibers, but an additional stabilizer computation and analysis of the action are required. A later catalogue record independently supplies the full normal form, not evidence of prior coverage of the frozen record.
 
-## Limitations and source relationships
+## value
 
-The theorem concerns base-field-linear automorphisms and excludes \(\lambda\in\{0,1,-1\}\); computations checked \(q\in\{4,5,7,8,9\}\) only. Relevant primary texts: [1] Buchweitz–Green–Madsen–Solberg, arXiv:math/0407108; [2] Hou–Xu, DOI:10.1017/S0004972708000312; [3] Bergh–Erdmann, arXiv:0909.5568; [4] Lambre–Zhou–Zimmermann, arXiv:1405.5325. Independent audit has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact result gives an unbounded failure of a stronger invariant than abstract automorphism group: even the embedded faithful vector-space action is constant over arbitrarily many nonisomorphic algebras. The matching fixed-space and element-orbit profiles and the seven-orbit action on the actual ideals make this loss explicit, while the prior Nakayama spectrum shows which parameter information remains accessible to another intrinsic invariant. The example is uniform across finite-field characteristics rather than a selected small coincidence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

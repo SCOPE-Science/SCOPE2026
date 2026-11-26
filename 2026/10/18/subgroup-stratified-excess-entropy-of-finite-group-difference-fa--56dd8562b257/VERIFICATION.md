@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification evidence and limits
+# Independent mathematical audit
 
-The complete analytic argument appears in `RESULT.md`. The proof verifies the group action and its orientation posterior, the conditional independence of observed halves given their recoverable coset vector, and the finite-subgroup perturbation argument. Infinite statements depend on the strong law of large numbers and finite-group elementary facts, not on exhaustive numeric enumeration.
+## correctness
 
-Run `python3 verify.py` using only the Python standard library. It independently enumerates group-valued source words, applies the noncommutative operation \(Y_i=X_i^{-1}X_{i+k}\), and compares the resulting exact rational output distributions to the separately evaluated finite orientation-entropy identity. Actual execution returned:
+PASS
 
-`VERIFY_OK: 38 independent group-valued finite-cylinder entropy identities across cyclic and nonabelian examples`
+The repaired finite-block identity follows by conditioning the n+k inputs on their deterministic differences: there are k disjoint chains and each chain's posterior is its product-law weight across simultaneous left translates. The true lift ensures a positive denominator, change of reference lift permutes the probabilities, and a chain with no output contributes q_1=H(mu). Bounded conditional entropy gives the entropy rate. On each half, the strong law identifies the exact boundary orbit, since starting with gX_j changes all reconstructed letters by left translation and hence changes the limiting law to mu(g^-1 x). The halves use disjoint iid tails given the boundary; translating a tail and its boundary by an element of K_mu preserves law and differences, so the two conditional laws depend only on the orbit vector. Conditional independence given that vector and recovery from both halves yield H(C); uniformity within each orbit gives the log term. This works with zeros, nonnormal subgroups and singleton group. The set of limits follows from closed symmetry constraints, finiteness of the subgroup lattice, and mixing with a full-support law of distinct orbit masses to realize each subgroup. The order-two transposition subgroup example in S3 gives k times the entropy of masses (1/2,1/3,1/6). Replay: repaired RESULT.md, all three proof sections. Frozen VERIFICATION.md and verify.py were inspected, not run; the reported 38 numerical finite-block comparisons are not the infinite proof.
 
-The models cover \(\mathbb Z/3\mathbb Z\), \(\mathbb Z/4\mathbb Z\), and \(S_3\), both tested lags \(k=1,2\), and full, proper nonnormal, and trivial stabilizers. The program checks only finitely many words and does not prove the full theorem, asymptotic reconstructibility, or uniqueness of the research claim.
+## originality
 
-The available literature was compared at the level of claims; the well-known binary Rule-60 excess-entropy discontinuity is credited to Lindgren and Nordahl (1988). Independent audit and certification have not been performed.
+PASS
+
+The supported distinct claim is the arbitrary finite-group excess entropy and complete subgroup-indexed set of perturbation limits, with the finite posterior formula, not the already known biased-binary reconstruction and discontinuity. The closest indexed additive binary result and inspected group-related factor literature do not supply the nonnormal left-action classification.
+
+## value
+
+PASS
+
+The theorem computes a natural infinite-observation information observable and ties its loss exactly to an identifiable group symmetry, including with degenerate laws. The subgroup cluster classification gives a precise discontinuity diagram rather than only a generic jump or an isolated binary example; nonnormal subgroups genuinely exercise the side of the action.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

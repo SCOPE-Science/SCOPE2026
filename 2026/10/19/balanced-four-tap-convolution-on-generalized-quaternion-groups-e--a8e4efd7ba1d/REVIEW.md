@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem concerns all and only unweighted, balanced four-tap convolution supports on generalized quaternion groups with dyadic cyclic index. The standard complete irreducible decomposition yields the stated two-by-two block and determinant. Every even-indexed singular block is counted using nested power-of-two congruences; zero blocks supply the separate valuation correction. Odd blocks vanish only at the antipodal support, and the four scalar characters account for the remaining contributions. The first moment is established by exact residue counts and correction terms. The checker's direct regular-representation matrices and modular Gaussian elimination agree with the formula on all normalized differences for the first two eligible indices, and on further tests at two higher indices. This is an analytic proof for all indices, not extrapolation from modular data.
+## correctness
 
-## Originality — PASS, subject to stated search limitations
-Dobson (2003) studies certain special non-normal Cayley digraphs and permutation automorphisms, not the all-support convolution nullity function. Minchenko–Wanless (2015) studies quartic connected undirected **integral** Cayley graphs and omits the general directed, potentially looped connection sets and exact mean. Hormozi–Rodtes (2016) studies Brauer symmetry classes of tensors, not four-tap regular convolution, despite involving dicyclic groups. Behajaina–Legrand (2022) gives representation criteria for integrality of inverse-closed simple Cayley graphs; those criteria do not determine the proposed rank formula or count. The closest accessible prior results on three-tap nonabelian convolution or two-tap Fourier support do not imply the balanced four-tap result. An unindexed equivalent specialist result remains possible; novelty and publication priority have not been independently certified.
+PASS
 
-## Mathematical value — PASS
-The zero eigenvalue is the precise obstruction to invertibility of a sparse finite-group convolution kernel. The result resolves a natural complete, infinite-family rank-stratification problem, not a single arbitrary low-order example: it yields an explicit all-support formula, the minimum-nullity population, the unique extremal geometry, and a first moment growing logarithmically with group size despite an asymptotic half of supports having the minimal nullity. These statistics distinguish the nonabelian dyadic family from coarse singular-versus-invertible statements.
+Left translating the support preserves rank. Independently, on two cyclic cosets one can pair the Fourier mode j on the rotation coset with mode −j on the other; a acts by opposite phases and b switches cosets, with the return phase (−1)^j. This yields the stated 2×2 symbol, paired again at −j, with fixed modes 0 and n giving the four scalar characters. For even j the determinant condition is the union of congruences n divides (j/2)(r±u), nested because n is dyadic, yielding max(A/2−1,0) eligible singular blocks when A is even and zero when A=1. Both terms of the symbol vanish together exactly when j times each difference is congruent to n mod 2n; common difference valuation t in [1,k−1] gives 2^(t−1) zero blocks. When j is odd, a sum of squared cosines can vanish only for r=u=n, so every odd block then adds its full nullity. The four scalar tests contribute 1, 2, or 3 according to mixed, even/even, or odd/odd parities. For the mean, odd/odd congruence union tails are 2^(2−j) for powers 2^j with j≥2; for halved even differences the union tail is 2^(1−j)−2^(1−2j), before removing both zero axes. Removing those axes and adding the zero-block corrections gives the stated moment. Ordered anchors have exactly four presentations per unordered support. An independent exact characteristic-zero rank calculation checked 617 supports (every normalized r,u,w at n=4 and every r,u at one deterministic offset at n=8), including the two full difference-pair sums 148 and 856.
 
-## Limitations
-The calculation does not treat arbitrary weights, different tap allocations, odd cyclic index, or the rest of the spectrum. Modular rank experiments are supporting checks, not infinite proof or a complex rank certificate when a modular minor vanishes. Searches are not exhaustive over unindexed older literature. Independent mathematical validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The precise all-support dyadic valuation strata, populations and closed first moment survive the comparison. General Fourier blocks and the extremal rank bound in isolation are standard or elementary. Dicyclic graph singularity is the closest external overlap risk, but the available statement is for finite simple graphs, and its full text was not successfully opened. Neither that scope nor the checked integrality papers gives the complete directed or looped coefficient-one census and its first moment. Closest indexed complete analogues use odd cyclic index or the different generalized-dihedral group law; they do not extend by substitution.
+
+## value
+
+PASS
+
+This is an exact all-scale sparse convolution rank classification, not a repeated singularity test. Every support is singular but asymptotically half lose just one dimension, while a log-growing mean reflects a range of much larger kernels and extremizers have an explicit subgroup geometry. Such distinctions are useful for rank-sensitive filtering and not apparent from the common first scalar zero or integrality criteria.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

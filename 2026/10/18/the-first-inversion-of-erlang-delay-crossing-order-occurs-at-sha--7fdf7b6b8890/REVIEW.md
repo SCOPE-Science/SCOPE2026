@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite-dimensional Erlang linear-chain characteristic polynomial follows directly from the mean-preserving transform. The imaginary-axis condition and transversality derivative are reconstructed in RESULT.md, including all quantifiers and the \(\tau>0\) boundary. The finite but exhaustive order-minimality argument is backed by the exact rational certificate `interval_certificate.py`, which checks all 66 earlier even-index comparisons, the first possible inversion, and the stated complete order at the illustrative ratio. `spectral_check.py` independently confirms selected unstable counts, without purporting to prove all cases.
+## correctness
 
-## Originality — PASS, with risks
-The nearest exact family is Bîrdac et al. (2026), which establishes the base characteristic equation, generic phase-root condition, and Gamma shapes one/two plus Dirac results. The present result does not repackage that reduction: it proves a **sharp first Erlang shape for reversal of chronological crossing order**, an explicit threshold, and a new unstable-pair-count chronology. Zhang–Stépán (2019) cover discrete-delay force feedback; an all-order Gamma-memory study of a cognitive-map PDE has a distinct characteristic factorization, though only its indexed summary was examined. General theory may contain indirect implications, and nonaccess to some full papers prevents a conclusive historical priority assertion.
+PASS
 
-## Value — PASS
-Ordering thresholds determines actual stability windows. A concrete first loss of chronological phase-index order at a natural minimal integer shape gives testable, exact predictions: two destabilizing pairs before an intervening restoring crossing and an equality boundary carrying two different imaginary frequencies. This behavior is invisible in low-order Gamma comparisons and cannot be inferred from phase crossing parity alone.
+At s=iω>0 imaginary, reality of the Erlang transform forces m arctan(τω/m)=kπ with 1≤k<m/2; the real part then gives exactly the stated ω_k and τ_k. For the implicit derivative denominator 2iω+bτQ with Q=(1+iτω/m)^(-m−1), Re Q=(−1)^k cos^(m+2)(kπ/m) is nonzero. The real derivative has numerator −2bω² Re Q over the squared modulus, giving simplicity and the claimed signs. At zero delay the two finite roots have derivative −b/2. For the other roots, w=τs/m gives the limiting polynomial m²w²(1+w)^m with m roots approaching w=−1, thus safely in the left half-plane. No zero root occurs and the polynomial has fixed degree at all finite positive delays. Odd-to-even order is strict immediately; for even-to-odd order the sign changes exactly at the stated ratio obtained by cross-multiplication of positive squared delays. Independent rational interval enumeration certified all 66 earlier even-index comparisons strictly above one, verified the frozen decimal bounds on ρ_28,2, verified ρ_28,2<999/1000 and proved all other admissible even-index thresholds at 28 above one. To check that the adjacent inversion gives precisely the stated total order, the odd subsequence increases with k. The even subsequence also increases: set x=tan²(kπ/m) and p=m/2; the derivative numerator for x/[1−r(1+x)^(-p)] is 1−r[1+(p+1)x]/(1+x)^(p+1)≥1−r>0 by Bernoulli's inequality. Therefore the only swap is 2,3, and signed transverse crossings give counts 0,2,4,2,0. At equality ω₂²<a<ω₃², so the ties are distinct pairs, not repeated roots. The primary equations give a₂=4, b₂=2κ at z*=0 with I*=3/2, consistent with the example's coupling and input.
 
-## Scientific limitations
-The conclusions concern linear spectra for \(a>b>0\) and Erlang integer shape, not nonlinear branch existence, nonlinear Hopf type, arbitrary delay densities, or comprehensive priority certification. Finite eigenvalue diagnostics supplement the analytic and exact-integer-interval reasoning.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The scalar model, general phase criterion, related alternation and some lower-shape stability facts are not credited as new. The exact integer-shape cutoff for chronological inversion over the full open coupling range, and its first distinct-pair boundary, are not supplied by the inspected passages or closest catalogue record.
+
+## value
+
+PASS
+
+An alternating phase crossing list can mislead a stability count if it is used as a chronological list. The result determines exactly until which Erlang shape that shortcut is valid for every admissible coupling and identifies its first failure and simultaneous two-frequency boundary. The four-unstable-root interval is a substantive difference in the linearized spectrum of an existing model, even if the first inversion occurs only near b/a=1.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

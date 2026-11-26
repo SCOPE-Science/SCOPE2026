@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:57:14.722274Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let c=ε/h, X=x/h and W=sqrt(v)/h. For a two-step return fix a coordinate with gradient magnitudes s,t and memories u,w. The memory equations give (1+β)u²=βs²+t², (1+β)w²=s²+βt²; equal displacement magnitudes give s(u+c)=t(w+c). If s>t the latter forces su<tw, but (1+β)(s²u²−t²w²)=β(s⁴−t⁴)>0; the reverse strict inequality is likewise impossible. This covers zero gradient coordinates as well. Thus memories agree with the gradient magnitudes and signed gradients are opposite; invertibility gives X and −X and the reduced equation (1), which conversely yields a prime-two orbit for nonzero X. Positive b disallows a vanishing spatial coordinate. Modulo overall sign the same-sign equations force equal magnitudes by comparing their opposite-monotone sides, yielding the a+b branch. In the opposite-sign sector equal magnitudes give the a−b branch. For unequal magnitudes x,z, subtracting the equations and the equations divided by x,z gives (1−2x)(1−2z)=2c/(a+b) and b(x+z)=2(a+b)xz. Their unique fixed sum S=(a+b−2c)/(2a) and product bS/(2(a+b)) satisfy the discriminant bound precisely at c<(a−b)²/[2(a+b)], since S>0. Conversely their distinct positive roots lie below 1/2 because S<1 and the product of 1−2x and 1−2z is positive. The relations make the two residuals equal (first subtraction) and equal after division by x,z (second subtraction); x≠z forces both residuals to vanish. At equality they collapse into the already counted antisymmetric orbit. The excluded zero-amplitude cases at the other two thresholds, counting modulo sign, and the limits {x,z}→{1/2,b/(2a)} agree with the claimed counts and representatives. Independent replay: python3 /workspace/review-evidence/check_frozen_math.py 2 eliminates one coordinate directly in each sign sector and uses exact real-root isolation in 16 rational parameter cases, including all three equality cases and on both sides of the merger. This does not assess stability. Frozen numerical substitutions are corroboration, not a proof of exhaustion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.3 is the general existence iff h>2ε/λmax(A); Theorems 5.9–5.10 address corner branch existence at high rate, not exclusion or enumeration of other branches.",
+          "Regis–Chewi derive scalar/per-component formulas and rod-flow ODEs, not a discrete orbit census in these passages."
+        ],
+        "reasoning": "The first threshold is exactly the general existence theorem specialized. Corner existence produces two geometric corner cycles for this diagonally dominant matrix, but neither counts nor excludes the off-corner branches.",
+        "searches": [
+          "arXiv:2610.30078v1 Theorems 5.2, 5.3, 5.9–5.10 and Remark 5.11",
+          "arXiv:2605.06821v1 §§5.1–5.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.30078v1",
+        "arXiv:2605.06821v1 §§5.1–5.2",
+        "Resultary 779e48cdeae5",
+        "Resultary 25f4b1ac7763"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general equation is a starting point, while Remark 5.11 leaves branch connection/limits open and §8.3.1 gives trajectory numerics for a different two-dimensional Hessian with unequal diagonals."
+        ],
+        "reasoning": "Specialization of the existence theorem mechanically gives h_+, not h_− or h_sb. Obtaining the inequality for the mixed sector, constructing both solutions and excluding all others require solving the equations; trajectory illustrations are not a complete geometric count.",
+        "searches": [
+          "arXiv:2610.30078v1 Eq. (22), Theorems 5.3, 5.9–5.10, Remark 5.11 and §8.3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 5.2 gives the same reduced equation and bijection modulo sign for the same epsilon-outside updated-memory map.",
+          "Resultary 779e48cdeae5 uses the prior memory in the denominator; it also has just one spatial coordinate."
+        ],
+        "reasoning": "The prior antipodal reduction is truly equivalent as a characterization and is credited. A lagged scalar map is not a reformulation of the original map or its full coupled census.",
+        "searches": [
+          "arXiv:2610.30078v1 §3.1 and Theorem 5.2/Eq. (22)",
+          "Resultary: coupled quadratic RMSProp period-two census, antipodal cycles, lagged update"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "779e48cdeae5 proves a unique scalar lagged cycle above 2ε/a.",
+          "25f4b1ac7763 gives a symmetric-cycle transition for memoryless Riemannian RMSProp on the unit circle."
+        ],
+        "reasoning": "The theorem index is the relevant exact comparison for the continuum of rates and decay parameters; neither checked record uses this coupled Euclidean map and orbit family.",
+        "searches": [
+          "Resultary: four-regime period-two RMSProp, coupled symmetric Hessian",
+          "Resultary local-mirror 779e48cdeae5 and 25f4b1ac7763"
+        ]
+      },
+      "rationale": "The same reduced equation, antipodal bijection, first existence threshold and large-rate corner existence are due to Loh et al. The supported distinct finding is the exhaustive coupled census with its two further thresholds, boundary multiplicities and two explicit noncorner branches/limits. The checked statements do not establish these consequences, and alternative indexed update maps are not equivalent.",
+      "residual_risks": [
+        "The cited Regis–Chewi Appendix D characterization was not confirmed; no whole-document coverage exclusion is based on the passages checked.",
+        "An unindexed exact coupled classification could exist; no priority conclusion is drawn from an empty broad lookup."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same reduced equation, existence threshold and corner theory; inspected numerics and statements do not establish the full census",
+          "evidence": [
+            "Equation (22) is the same reduced system. Remark 5.11 leaves branch connections open. In §8.3.1 the two-dimensional A_2 has diagonals about 0.6693 and 0.6307; the sweep follows trajectories rather than locating all geometric cycles."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.30078v1",
+          "material_read": "§3.1 pp. 4–5; Theorems 5.2–5.3 pp. 13–14; Theorems 5.9–5.10 and Remark 5.11 pp. 17–19; §8.3.1 p. 28",
+          "method": "Lawful primary OA PDF, offsets 18850, 54500–60924, 72800–78998 and 109500 onward",
+          "title": "The Dynamics of RMSProp Beyond the Stability Threshold",
+          "trigger": "Strong general theorem for the exact map and period"
+        },
+        {
+          "assessment": "Continuous-time reduction and update background; no discrete coupled census in inspected material",
+          "evidence": [
+            "Per-component second-moment/preconditioner formulas and rod-flow ODEs; the frozen Appendix D characterization was not independently confirmed."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.06821v1",
+          "material_read": "§§5.1–5.2, pp. 6–7, offsets 23200–34700",
+          "method": "Lawful primary OA PDF",
+          "title": "A Rod Flow Model for Adam at the Edge of Stability",
+          "trigger": "Prior per-coordinate RMSProp at the stability edge"
+        },
+        {
+          "assessment": "Lower-dimensional and different map",
+          "evidence": [
+            "Unique scalar cycle above 2ε/a, but using the old rather than newly updated memory in the spatial denominator."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-update-order-instability-of-a-one-step-lag-rmsprop-two-cyc--779e48cdeae5",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp update-order instability of a one-step-lag RMSProp two-cycle",
+          "trigger": "Closest indexed RMSProp two-cycle result"
+        },
+        {
+          "assessment": "Not the frozen cycle question",
+          "evidence": [
+            "The ambient space is the unit circle and the memory parameter is zero."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-global-phase-transition-and-attracting-two-cycles-for-memo--25f4b1ac7763",
+          "material_read": "RESULT.md stated setting and result",
+          "method": "Resultary local mirror",
+          "title": "Sharp global phase transition and attracting two-cycles for memoryless RMSProp",
+          "trigger": "Indexed sharp-period-two transition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The symmetric coupled quadratic isolates a natural solvable test of whether known corner existence accounts for all large-rate cycles. The answer is no: two additional cycles have explicit noncorner limits and a sharp merger, and the classification handles all rates, not just a perturbative neighborhood. The merger is an exact statement about the cycle equations, not an orbital stability claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

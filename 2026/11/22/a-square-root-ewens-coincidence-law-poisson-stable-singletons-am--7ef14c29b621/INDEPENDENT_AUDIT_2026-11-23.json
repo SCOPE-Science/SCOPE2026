@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:28:31.016032Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Sum the Ewens weights over the complement of fixed disjoint marked blocks of total size s. Its rising-factorial normalizer cancels all but the last s factors of the original normalizer. Squaring the resulting one-partition probability and counting ordered distinct labels gives the stated factorial moment, including k=0 and k=n. For each fixed k it tends to c^(2k); the next moments control uniform integrability, and Poisson moment determinacy gives the count limit. On the nonnegative integers, convergence at each mass point and tightness give total variation. Conditional on C_n=k the locations are a uniform k-subset. In uniformly random order, sampling without replacement differs from independent discrete uniform sampling by at most the collision probability O(k^2/n); hence the rescaled counting measure tends to that of k independent uniforms. Tightness in k and the Poisson count identify the weak PPP limit, not TV for locations. The whole common two-block expectation is O(1/n) by the marked identity. A common block of size at least three forces any chosen labelled triple from that P_n block to lie together in independent Q_n; consistency gives probability 2/[(theta_n+1)(theta_n+2)], independently of the choice. The sum over P_n blocks is bounded in expectation by this probability times E K(P_n)=O(sqrt(n) log n), so all larger common complete blocks vanish in probability. Finally, restriction to a fixed pair gives probability 1/(theta_n+1) in one partition and independence yields the exact mean of R_n; this statistic counts pair membership in the meet and the frozen quantitative claim is about its expectation. The supplied n<=6 rational checker was inspected, not executed; it does not establish the limit or exclusion estimates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tsukuda works with component counts of one Ewens partition. The inspected §5.1 small-component comparison and Theorem 5.8 use theta^2/n -> 0, whereas it tends to c^2>0 here. Other regimes in that paper also concern one Ewens sample.",
+          "Pittel reports a Poisson approximation for size-two meet classes for uniform partitions, with parameter rho^2/2 and rho exp(rho)=n, and excludes larger meet classes there."
+        ],
+        "reasoning": "Neither broad one-draw Ewens component-count results nor uniform meet results specialize to exact complete matches of independent Ewens label sets at theta proportional to sqrt(n). The latter is a different model, not a different parameter value of the Ewens family.",
+        "searches": [
+          "Tsukuda, arXiv:1704.06768, §1.2, §5.1 and Theorem 5.8",
+          "Gnedin–Pitman, arXiv:math/0608307v1, formula (1) and sampling consistency",
+          "Pittel, Where the Typical Set Partitions Meet and Join, Theorem 4"
+        ]
+      },
+      "checked_sources": [
+        "Pittel, DOI 10.37236/1483",
+        "Gnedin–Pitman, arXiv:math/0608307v1",
+        "Tsukuda, arXiv:1704.06768",
+        "Resultary local index and mirrored rare-block hierarchy, three-point association and graph-indexed co-clustering records",
+        "Frozen RESULT.md, VERIFICATION.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gnedin–Pitman supply the exact one-partition weights and restriction consistency; these are the inputs for factorial moments and fixed-triple bounds.",
+          "Even knowing singleton sample sizes and using the standard rare uniform-subset intersection limit would give only the singleton part. Non-singleton matches require a separate size-uniform exclusion; the linear pair mean uses a distinct statistic."
+        ],
+        "reasoning": "The singleton approximation and pair expectation are elementary after the reduction, but no inspected general theorem simultaneously controls equality of entire blocks of all sizes in this window. The selected-triple argument with a growing total number of P_n blocks is needed to justify the comparison without summing only finitely many block sizes.",
+        "searches": [
+          "arXiv:math/0608307v1, formula (1) and sampling consistency",
+          "arXiv:1704.06768, §5.1",
+          "Pittel, Theorem 4; indexed rare-block hierarchy Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cycle supports of an Ewens permutation give the Ewens set partition; common full-block label sets correspond to shared entire cycle supports (not necessarily the same cyclic order). Singleton agreements are common fixed points.",
+          "Pittel and the indexed rare-block hierarchy instead concern cells of the meet under independently sampled uniform partitions."
+        ],
+        "reasoning": "A meet cell need not exhaust either original block, and a shared cyclic ordering is stronger than a shared support for size at least three. A common-block law therefore cannot be read off from the known meet-cell statements, quite apart from changing the partition measure. The permutation alias produced a matching single-partition approximation paper, not a verified two-draw theorem.",
+        "searches": [
+          "two independent Ewens permutations common cycles common fixed points common blocks square root Poisson variable parameter Tsukuda",
+          "Resultary local index: intersections of independent partitions; matched SCOPE-sharp-rare-block-hierarchy-for-intersections-of-independent-rand--0bcbccd83e00",
+          "Pittel, Where the Typical Set Partitions Meet and Join, p. 1 and Theorem 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The rare-block hierarchy gives exact asymptotic information about m-point cells of r independent uniform equivalence relations, including location information. The other indexed findings concern indicators within one exchangeable or Ewens–Pitman partition."
+        ],
+        "reasoning": "These are the closest indexed exact occupancy or co-membership results, not a table or theorem for agreement of two full Ewens block collections. The reviewed claim is a growing-parameter limit for all n, not a finite table entry.",
+        "searches": [
+          "Resultary local index: SCOPE-sharp-rare-block-hierarchy-for-intersections-of-independent-rand--0bcbccd83e00; SCOPE-a-three-point-association-threshold-for-exchangeable-random-part--e33b73ee2f3e; SCOPE-graph-indexed-co-clustering-exchangeability-and-a-sharp-triangul--d2695069789b"
+        ]
+      },
+      "rationale": "The distinct claim is the law for all exact block agreements of two independent Ewens draws in the square-root concentration regime, including the spatial limit and the exclusion of all larger agreements despite linear expected shared pair membership. The marked Ewens formula, one-draw small-component approximation, elementary rare subset overlaps, and the pair-expectation calculation are not separately new. The closest published and indexed comparisons concern either one draw, or cells in the intersection of independent uniform equivalence relations. In actual checked passages neither covers the joint exact-block law here.",
+      "residual_risks": [
+        "An unindexed equivalent result in common labelled cycle supports or independent Ewens samples is possible. Search comparisons do not establish historical priority.",
+        "The law does not describe fluctuations of R_n, a general meet-cell law, or parameter regimes outside theta_n/sqrt(n) tending to a finite strictly positive constant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related but uses uniform partitions and meet classes, not Ewens full-block matches",
+          "evidence": [
+            "The theorem concerns size-two intersection classes, with parameter rho^2/2, and absence of larger intersection classes."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/1483",
+          "material_read": "Meet definition p. 1 (PDF offset 0); Theorem 4 p. 11 (offset 35000)",
+          "method": "Original OA PDF passages",
+          "title": "Where the Typical Set Partitions Meet and Join",
+          "trigger": "Strongest cited prior two-partition intersection law"
+        },
+        {
+          "assessment": "Small component-count approximation for a single draw, with the inspected bounds not in the critical window here",
+          "evidence": [
+            "Case A is n/theta tending to infinity, but §5.1 Proposition 5.1 and Theorem 5.8 impose theta^2/n tending to zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1704.06768",
+          "material_read": "§1.2 p. 3 (offset 7650); §5.1 and Proposition 5.1 pp. 14–15 (offset 57500); Theorem 5.8 p. 22 (offset 93674)",
+          "method": "Publisher PDF route did not yield full text; lawful open arXiv copy of the same paper, original passages",
+          "title": "On Poisson approximations for the Ewens sampling formula when the mutation parameter grows with the sample size",
+          "trigger": "Plausible stronger theorem for growing-parameter Ewens Poisson approximation"
+        },
+        {
+          "assessment": "Background formula for one partition and its restrictions",
+          "evidence": [
+            "The Ewens partition formula gives the specified-partition weight; consistency gives its induced law on a fixed labelled subset."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0608307v1",
+          "material_read": "Formula (1) pp. 1–2, sampling consistency p. 3",
+          "method": "Public primary preprint, bounded original passages",
+          "title": "Poisson representation of a Ewens fragmentation process",
+          "trigger": "Original cited partition identities and consistency"
+        },
+        {
+          "assessment": "Intersections of uniform equivalence relations, not common complete blocks or the Ewens window",
+          "evidence": [
+            "It gives a rare-class hierarchy including unique-class and uniform-location results for m-point meet cells in r independent uniform draws."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-rare-block-hierarchy-for-intersections-of-independent-rand--0bcbccd83e00/RESULT.md",
+          "material_read": "Finding and Assumptions, starting offset 0",
+          "method": "Local Resultary search and bounded mirrored RESULT read",
+          "title": "Sharp rare-block hierarchy for intersections of independent random equivalence relations",
+          "trigger": "Closest distinct indexed result on sparse common equivalence classes and locations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Independent random partitions can be compared by full-block agreements or by co-memberships, two natural but inequivalent notions. The exact critical law makes their difference quantitative: all complete matches reduce to a spatial Poisson process of singletons, with an explicit no-match probability, while shared pair count has linear expected size. The uniform exclusion of every larger block is essential to that interpretation and not obtained by counting singletons or fixed pairs alone. This provides a useful benchmark for comparing random partitions, not a claim of a new general Poisson approximation method.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

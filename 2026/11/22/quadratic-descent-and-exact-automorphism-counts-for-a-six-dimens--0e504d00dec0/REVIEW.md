@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The six-dimensional multiplication has cube-zero radical and the characteristic quotient \(J/(Z(R)\cap J)\) carries a nonsingular binary quadratic form. Its commutator fixes the multiplier \(\det L\) of any algebra automorphism. Every admissible quotient similitude lifts: an alternating product discrepancy gives one equation in a four-parameter central shear, while the two independent annihilator shifts contribute four more parameters. Hence each similitude has exactly \(q^7\) lifts, and the split/nonsplit similitude groups give the stated orders. The all-field assertion is a proof, not an inference from finite experiments. Independent small-field enumeration and an explicit base-change isomorphism confirm its critical formulas. See RESULT.md and verify.py.
+PASS
 
-## Originality — PASS, qualified by historical-priority risk
+The radical products land in Kw, which the radical annihilates; this gives associativity and the local radical with J²=Kw. The nondegenerate commutator form on the a,b quotient gives the stated center. A noncentral radical element with a nonzero a or b coefficient has a nonzero central product with a suitable c_i; an element with nonzero scalar part has one with w, and the remaining nonzero elements are central. Any unital K-linear isomorphism induces L on J/(Z∩J) and sends w to (det L)w′ by the commutator, while squaring forces Q′(Lv)=(det L)Q(v). Conversely, this identity fixes the action on the central quotient by the perfect pairing; the correction to the V×V product is alternating and imposes one nonzero linear equation on the four central correction coordinates. Thus each admissible L has q³ choices of correction and q² choices for each of the two independent w′ offsets, giving q⁷ actual invertible lifts. Isotropy is equivalent to Tr(αβ)=0: if α=0 it is immediate, and otherwise the line search reduces to u²+u+αβ=0. The two nonsingular binary forms are isometric within each type, with determinant-one isometries in the displayed polar normalization. The split similitudes preserve or swap the two zero lines; the anisotropic norm similitudes are multiplication by a nonzero extension element followed by identity or conjugation. This gives the two stated orders. Counting trace-zero products gives q(q+1)/2 pairs, and each zero of Q gives q³ square-zero radical elements. Tr(1)=m modulo 2 verifies the parity of scalar extension; direct substitution verifies the displayed F₄ map. The published-size q=4 count 294912 for both binary models is consistent because they are both split over F₄; a trace-one F₄ model instead has count 491520. The independent bounded replay checked trace classes for all ordered parameter pairs over F₂ and F₄ and the q³ correction count for 12 and 360 admissible quotient maps respectively, not all full algebra maps; see /workspace/branches/5d3ca7bf-3f6b-4ed8-a5a8-901320f9b893/replay.py, replay_GF2.txt and replay_GF4.txt. The frozen checker and stdout were inspected, not rerun.
 
-Abyzov–Lyubimtsev–Tuganbaev, arXiv:2610.36174v1 and arXiv:2611.16086v1, already introduced the order-64 families and classified the two Family-2 algebras over \(\mathbb F_2\) using the Arf invariant; those facts are not claimed as new. The inspected full texts and queried mathematical research records did not identify a complete \(q^7\) lift theorem or the two exact all-field automorphism formulas. Classical quadratic-form similitude groups are credited as ingredients. Remaining uncertainty: older small-dimensional nilpotent algebra or form-extension automorphism results may imply the proposed formula under different names. Absence from searches does not prove priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact automorphism-group orders and uniform lift mechanism are natural quantitative structure invariants for a family introduced in current ring-classification work. They distinguish the two types already over \(\mathbb F_2\) and explain why the distinction disappears after precisely the even-degree scalar extensions. The formula applies to all powers of two and is not a routine list of arbitrary examples. See RESULT.md, Sections Finding and Proof, and the supporting computation.
+The model and exact binary classification, including the 24-versus-8 square-zero contrast, are prior. The classical binary quadratic-form classification and similitude counts are likewise not claimed. The supported distinct result is the ring-level uniform lift count and exact K-linear automorphism arithmetic over all finite binary extensions; the other counts and scalar-descent contrast are consequences in this ring family.
 
-## Limits
+## value
 
-The theorem classifies only the displayed field-algebra family; its automorphisms are \(K\)-linear. Finite checks cover \(q=2,4,8\) for quadratic similitudes and smaller sets for literal algebra products. Full external priority adjudication and independent mathematical validation are outside the present review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The family comes from the minimal binary centrally essential examples, so scalar extension and K-linear symmetry are natural invariants. The theorem counts the whole automorphism group, including the nontrivial q⁷ factor that is invisible in the quadratic quotient, and explains exactly when the two minimal examples coalesce after base change. This is a useful structural invariant and not a finite replay of the binary census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:47:08.810828Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The primary paper’s Figure 2 description and Eqs. (6)–(8) confirm that the feedback is the XOR of the two conditionally complemented tail bits; the two occurrences of the selector cancel. This gives the stated autonomous update, not a rule about the initial-seed selector. The image lies in the three-bit parity hyperplane, and the kernel is exactly {0,1^k} from the first k−1 equations. Rank and the odd tail parity of 1^k show that the image is the hyperplane and the restriction to it is bijective; all outside states have exactly one step of transient, and each image point has one outside predecessor. For the characteristic polynomial, elimination with unit pivot coefficients gives b_j=(t^{j−1}+⋯+1)b_1; the final row is (t+1)b_k+b_{k−1}, giving t^k+∑_{j=1}^{k−2}t^j. Removing the zero quotient gives the stated Q at k=16. The private replay /workspace/branches/review5_exact.py verified all 65,536 states by exact indegree peeling and orbit traversal, giving cycles [1,32767] and 32,768 one-step tails. It separately obtained t^32768=t and t^32767=1 modulo Q, both Rabin gcds equal to 1, and residues 021F, 5193, 355C for the three order tests. Irreducibility and these nonidentity residues prove primitivity; multiplication by the primitive element acts transitively on the nonzero field elements. The basin sizes are 2 and 65,534. The frozen word ‘nonunit’ in the polynomial certificate is an editorial misuse: all three residues are units but not the identity, and the proof explicitly uses only the latter. Uploaded code was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed result studies the continuous full tent map’s primitive cycles and unfolding statistics. Koopman tabulates feedback terms for maximal-length right-shift registers."
+        ],
+        "reasoning": "Continuum periodic codes do not encode the finite conditional complement/XOR update. The shift-register result governs the invertible component after its operator and polynomial have been identified; it does not cover the singular k-bit map with complementary predecessor pairs.",
+        "searches": [
+          "Resultary 2026/11/8/SCOPE-exact-prime-cycle-unfolding-spectrum-and-gaussian-law-for-the-fu--8f9787de0704",
+          "Koopman Maximal Length LFSR Feedback Terms"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_tent.py (read, not executed)",
+        "Nardo et al. 2023 article; Nardo 2024 thesis relevant chapter",
+        "Koopman length-15 table; indexed full-tent record ending 8f9787de0704"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Figure 2’s last XOR gate cancels the selector, validating the linear coordinate formula. The thesis gives low-precision qualitative cycles. The standard feedback table supplies a period only for a register already identified by its characteristic polynomial."
+        ],
+        "reasoning": "The nontrivial step is recognizing and proving the exact degenerate linear architecture for all k≥3 and identifying the 16-bit circuit’s invariant part with the known primitive register. After that step the period is standard; the parity identity, transient layer and basin counts depend on the full map, which the table or continuous result does not analyze.",
+        "searches": [
+          "Nardo et al., Figure 2 and Eqs. (6)–(8)",
+          "Nardo thesis Chapter 5",
+          "Koopman LFSR table and feedback convention",
+          "Resultary continuous full-tent record ending 8f9787de0704"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Article pp. 3–5 and thesis Chapter 5 reproduce the same gate-level circuit. Article pp. 7–8 and 13 and thesis pp. 74, 80–81 discuss empirical tests and observed behavior, not an exact nullspace, one-step transient law, or complete 16-bit orbit census."
+        ],
+        "reasoning": "The source diagram fixes the same map; publishing its next-state gate rule does not itself identify its invariant rank-15 quotient by parity or the cycle and basin decomposition. The targeted ranked search was bounded, not a priority guarantee.",
+        "searches": [
+          "Resultary digital XOR-perturbed tent map characteristic polynomial, parity and cycle-length lookup",
+          "Nardo Nepomuceno Muñoz XOR perturbed digital tent map exact cycle period 32767 parity linear characteristic polynomial Hardware-Efficient Perturbation finite state analysis",
+          "10.3390/electronics12081953",
+          "Nardo 2024 thesis, UFMG handle 1843/75848"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Koopman’s full 1800-entry compressed length-15 list includes 7FFE at decompressed line 1804. With the site’s conditional right-shift feedback convention the characteristic polynomial is t^15+∑_{j=0}^{14}f_j t^{14−j}, so 7FFE corresponds exactly to Q; its reciprocal also appears as feedback 5FFF. The indexed tent work does not tabulate this XOR circuit’s state graph."
+        ],
+        "reasoning": "Primitivity of this standalone polynomial is already covered and independently rechecked, not a novel database entry. The relevant exact object is the published k-bit circuit and its invariant image, complement pairing, cycle and basin census, not the polynomial alone. The table does not identify that object with this polynomial.",
+        "searches": [
+          "Koopman 15-bit maximal length LFSR polynomial table BFFF primitive polynomial degree 15",
+          "https://users.ece.cmu.edu/~koopman/lfsr/15.dat.gz",
+          "Resultary continuous full tent map prime-cycle record ending 8f9787de0704"
+        ]
+      },
+      "rationale": "The pass is for the exact identification and state-transition classification of this particular published architecture, including the nonperiodic part. The circuit itself, maximal-length shift-register theory, and the primitive polynomial considered by itself are not new. The same-circuit article and thesis passages inspected describe the update and empirical behavior, not this exact classification. Continuous full-tent cycle theory does not apply to the gated bit update as a substitute for the claimed result.",
+      "residual_risks": [
+        "Ranked and targeted searches and chapter-level inspection do not establish comprehensive publication priority. The exact finite replay applies at k=16; the all-k result relies on the separate proof.",
+        "No application-level statistical failure or cryptographic exploit is inferred from the parity and cycle facts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_CIRCUIT_NO_EQUIVALENT_CLASSIFICATION_IN_PASSAGES",
+          "evidence": "The final gate applies XOR after conditional complements, giving the exact cancellation; the empirical passages do not give the invariant hyperplane or exact state census.",
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/18534/1/electronics-12-01953.pdf",
+          "material_read": "PDF pp. 3–5, Eqs. (6)–(8) and Fig. 2 explanation (offsets 14300–17865 and 20600–23264); results/conclusion pp. 7–8 and 13",
+          "method": "Lawful OA primary PDF passages",
+          "title": "A Hardware-Efficient Perturbation Method to the Digital Tent Map",
+          "trigger": "Originating architecture and possible prior enumeration"
+        },
+        {
+          "assessment": "SAME_CIRCUIT_EMPIRICAL_OVERLAP",
+          "evidence": "Repeats circuit and test results; the checked cyclic-behavior discussion is qualitative and does not give the exact 16-bit state census.",
+          "identifier_or_url": "https://repositorio.ufmg.br/handle/1843/75848",
+          "material_read": "Chapter 5, Eqs. (5.7)–(5.8) and Fig. 5.2, pp. 68–71, empirical tests p. 74 and lower-precision discussion pp. 80–81",
+          "method": "Lawful institutional OA thesis full-text passages",
+          "title": "Exploiting the Chaotic Dynamics: Novel Approaches for Cryptosystems, Digital Systems, and Lyapunov Exponent Estimation",
+          "trigger": "Later thesis may contain the exact same circuit analysis"
+        },
+        {
+          "assessment": "COVERS_POLYNOMIAL_PRIMITIVITY_ONLY",
+          "evidence": "7FFE with the right-shift convention gives Q; 5FFF gives its reciprocal. Neither the table nor convention describes the Nardo circuit or the transient layer.",
+          "identifier_or_url": "https://users.ece.cmu.edu/~koopman/lfsr/",
+          "material_read": "The feedback convention and size-15 entry; decompressed 15.dat.gz header and exact entries at lines 903 and 1804",
+          "method": "OA index passage and bounded matching in the linked raw data",
+          "title": "Maximal Length LFSR Feedback Terms",
+          "trigger": "Exact degree-15 primitive polynomial might already be tabulated"
+        },
+        {
+          "assessment": "DISTINCT_CONTINUOUS_SYSTEM",
+          "evidence": "Concerns continuous full-tent cycles/statistics, not the gated finite-state rule.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-prime-cycle-unfolding-spectrum-and-gaussian-law-for-the-fu--8f9787de0704",
+          "material_read": "Mirrored RESULT.md, offset 0–4173",
+          "method": "Resultary semantic lookup and local mirror",
+          "title": "Exact prime-cycle unfolding spectrum and Gaussian law for the full tent map",
+          "trigger": "Closest indexed exact tent-cycle result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete and independently checkable classification of a motivated published digital architecture, distinguishing empirical coarse histograms from a precise output support restriction and distinguishing period from the basin and transient structure. The reduction reveals a lost dimension at any stated word length and quantifies the entire published 16-bit state graph. It is useful without novel LFSR theory or claims about an application attack.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

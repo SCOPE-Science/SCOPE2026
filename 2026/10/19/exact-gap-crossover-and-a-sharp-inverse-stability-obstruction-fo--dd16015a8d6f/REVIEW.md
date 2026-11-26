@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact integration of the two interval Fourier transforms yields a four-tent inverse Fourier identity. Only the two positive/negative nearest-neighbor tent overlaps can occur; calculating those integrations establishes all three pieces of \(\Phi\) and the separated-gap coefficient \(8/3\). A four-endpoint alignment argument gives the sharp quotient symmetric difference \(2|\eta|\), and comparison of exponents excludes any inverse \(\beta>2/3\) estimate for the squared-magnitude \(L^2\) metric. The exact-rational geometry checker verifies independent finite cases in each regime; the proof is analytic and not inferred from tests.
+## correctness
 
-**Originality — PASS, subject to historical priority.** The inspected Xia–Xu manuscript (arXiv:2606.19855v1, pp. 3–4 and its relevant proofs) gives two-interval uniqueness and claims Lipschitz stability from squared-Fourier-magnitude data, but does not give the explicit three-regime spectral norm profile or the \(2/3\) exponent obstruction. Its printed Lipschitz statement is mathematically incompatible with this explicit model under the listed length and gap assumptions. The result therefore cannot be characterized as a simple corollary of that statement; the discrepancy needs independent adjudication. Database comparisons of the exact tents, length-imbalance, interval covariograms, and fractional stability aliases produced no statement that entails the complete crossover. Unindexed prior computations remain a possible source of historical priority.
+PASS
 
-**Value — PASS.** A direct quantitative stability test for the two-interval inverse problem reveals a previously unaccounted cubic-power loss of spectral information at equal component lengths. The exact cubic-spline overlap formula identifies the transition when the gap approaches the imbalance scale, while the fixed-gap calculation gives a sharp necessary upper limit for any prospective inverse Hölder stability exponent. This is motivated by a specific recent theorem and the relationship between Fourier intensities and interval covariograms, not an arbitrary numerical slice.
+Direct interval correlation gives T_(ell+a)+T_(ell-a)-2T_ell for the self terms, the two tents at ±ell, and cancels the mixed terms except for the negative tents at ±d (the shorter interval produces the flat part of each mixed overlap). Plancherel in the stated 2pi convention turns the squared intensity norm into the four-tent energy. Positive and negative supports separate as a<ell; the only cross terms are same-side pairs at distance g. The tent autocorrelation is the convolution of four centered length-a boxes, equivalently the cubic truncated-power difference with knots -2a,-a,0,a,2a. It gives 2a^3/3-ag^2+g^3/2 up to a, (2a-g)^3/6 up to 2a, and zero thereafter. Substitution in 8a^3/3-4C_a(g) verifies the joins and plateau. For the quotient distance, reflection fixes E_0. Its L1 translation discrepancy is continuous, strictly positive off zero and constant at large translations. Triangle inequality forces any minimizer into a small fixed neighborhood of zero as a tends to zero; there the endpoints do not interact and the cost is 2|t-a/2|+2|t+a/2|, minimized at 2a. At fixed positive gap this proves exactly the stated obstruction, not an upper estimate for arbitrary pairs. The checker named in RESULT.md:68 was not supplied or replayed; the reasoning is analytic.
 
-**Closest comparison and scientific risks.** Yu Xia and Zhiqiang Xu, *Fourier Phase Retrieval for Finite Unions of Intervals*, arXiv:2606.19855v1 (18 June 2026), Theorems 1.2 and 1.3(ii), source https://pdfs.assets.alphaxiv.org/2606.19855v1.pdf. Verify the gap and length assumptions directly when adjudicating the contradiction. No global stability modulus, uniqueness extension, or arbitrary-magnitude-data theorem is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the exact intensity crossover for the fixed-gap length-imbalance direction and its uniformly separated inverse obstruction at equal component lengths. The cubic tent overlap profile itself is shared with the equal-width gap-variation problem and is not novel in isolation. The directly inspected Xia–Xu estimate is incompatible with the explicit family under the printed hypotheses and metric; it does not cover the contribution.
+
+## value
+
+PASS
+
+The degeneration occurs at a natural equal-length geometry with neither a vanishing component nor a closing gap. The explicit family tests a specific claimed stability regime and rules out every exponent above 2/3 there, while the exact overlap calculation quantifies the fixed-center gap crossover. This is a useful obstruction without claiming a matching general upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

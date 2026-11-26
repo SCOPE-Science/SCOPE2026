@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two required fault constructions were verified from shortest-path distances and all face masks, without assuming that graph deletion is simplicial deletion. The acyclic matching certificates and signed integer Morse projections are fully reproducible with `verify.py`. The directed Hasse graph is checked exhaustively, and the sole critical one-cell in the edge-fault case has three zero-degree two-cell attachments. This last homotopical step establishes the circle–sphere wedge rather than merely rational or modular homology. The vertex-fault complex has one critical vertex and two critical two-cells. Checks cover every possible single edge or vertex via explicit label-permutation transitivity.
+PASS
 
-## Originality — PASS against inspected evidence
+The independent replay `python3 /workspace/reviews/2-check.py` builds the three metrics by Floyd–Warshall and tests each unordered triple by comparing twice its largest pairwise distance with the sum of its three distances. It checked connectivity and reproduced forbidden triple counts 30, 50, 33 and nonempty face vectors (10,45,90,80,30,5), (10,45,70,38,6), (9,36,51,24,3). All nonempty faces participate in the oriented Hasse acyclicity check, with 860, 482, 336 incidences. The disjoint toggles give 129, 82, 60 pairs and critical cell counts (1,0,0,1), (1,1,3,0), (1,0,2,0) from dimension zero upwards. Relabeling the five ground labels sends any two-set to any two-set and any disjoint pair to any disjoint pair, so testing the representative faults is exhaustive. By discrete Morse theory the first and last complexes reduce up to homotopy to CW complexes with only the indicated 0/3- or 0/2-cells; these are the stated sphere or wedge. For the edge fault an independent exact calculation avoids reliance on the bundled signed gradient implementation: the complete simplicial one-skeleton has a star spanning tree, and projection onto the 36 non-tree edges identifies the rational cycle space with Q^36. The projected oriented triangle boundaries span rank 35, so b1=1. In the Morse CW model the sole 1-cell is a circle and its three 2-cell attaching maps have integral degrees. A single nonzero degree would make rational b1=0, so all three degrees are zero and all three attachments are nullhomotopic. Thus the wedge is an integral homotopy statement, not just a mod-two check. The frozen signed recursion is consistent with cancellation of unit face incidences in acyclic order; the independent route establishes the required vanishing without executing that script. No extrapolation to simultaneous or larger faults.
 
-The closest primary source, Iršič–Klavžar–Rus–Tuite (arXiv:2401.05696), provides a complete maximal-facet list and general-position polynomial for the *intact* Petersen graph. This covers the combinatorial baseline and its directly implied properties, but is not a formula for graph-metric edge or vertex faults. The source's relevant sections were inspected, alongside foundational Manuel–Klavžar (arXiv:1708.09130) scope and indexed mathematical findings on other graph-geodesic complexes. No covering deletion homotopy claim was located. The possible existence of unindexed equivalent computations remains a residual risk, and complete universe-wide novelty is not asserted.
+## originality
 
-## Value — PASS
+PASS
 
-Exact metric-fault homotopy is a natural robustness invariant for the highly symmetric Petersen graph. The first edge fault creates a nontrivial fundamental group and three two-dimensional spheres, while the first vertex fault remains simply connected with two two-sphere summands. These integral homotopy distinctions are not implied by the intact graph's general-position maximum or polynomial. The result addresses both natural one-fault orbits and stops short of unproved general fault laws.
+Best of knowledge, the previously computed intact Petersen general-position polynomial and facet list do not cover the two fault-metric homotopy types. The intact type is only a baseline; originality does not rest on having new intact faces or a new method of discrete Morse theory.
 
-## Scope and limitations
+## value
 
-The claim classifies exactly one edge deletion or exactly one vertex deletion, plus the intact baseline. It is nonequivariant and makes no assertion for two simultaneous faults or other Kneser graphs. No independent audit or proof-assistant certification has been performed. The executable evidence is finite exhaustive verification of explicitly bounded ten- and nine-vertex objects, not extrapolation to an infinite family.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Petersen graph is a natural symmetric test case for shortest-path betweenness under faults. All single deletions fall in just the two canonical orbits, so the result is a complete first-fault calculation rather than a hand-picked edge. A single lost edge creates a loop, while a lost vertex leaves the complex simply connected; the integral homotopy classification gives usable information not supplied by forbidden counts or Betti numbers alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

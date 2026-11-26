@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Subcritical Poisson branching yields the exact Erlang renewal resolvent. Closed forms for stages one to three follow by partial fractions. The derivative of the three-stage response reduces to one unimodal positive-sine lobe per period, establishing all positive-time peaks, strict equality cases, and exponentially accumulating thresholds for every branching ratio in \((0,1)\). The independent finite symbolic/numerical checks agree with the analytic derivation.
+## correctness
 
-**Originality — PASS, provisionally.** Prior seismological ETAS modeling uses Omori triggering, while Erlang Hawkes cascades, renewal theory and gamma-kernel mean calculations are established. The classified theorem is specifically the exact stage-three mean-descendant peak count, threshold curve and exponential asymptotic. Duarte et al. provide a full Erlang-cascade treatment but the inspected material concerns different questions. Cui–Wu–Yin and Varsei–Samimi are particularly important unresolved full-text comparison risks; their abstracts alone cannot establish that they do not cover this result. No matching statement or stronger implication appeared among inspected published-finding corpus records or accessible text.
+PASS
 
-**Mathematical value — PASS.** A model-level qualitative transition—birth of each delayed aftershock echo—is characterized exactly with sharp explicit thresholds and a minimal Erlang stage, not merely numerically illustrated. For fixed subcritical branching the echo count is finite but becomes unbounded as criticality is approached, informing interpretation of delayed aftershock responses.
+The j-th generation mean density is q^j times the Erlang(mj,β) density by convolution; summing gives the stated transform and absolutely convergent series, with total mass q/(1−q). In dimensionless time the m=1 exponential is strictly decreasing and the m=2 derivative changes sign once at tanh(sqrt(q)τ)=sqrt(q). For m=3, the three cube-root poles give the stated damped sine/cosine expression. Its time derivative equals β²a(1+a)exp(−(1+a/2)τ)/3 times the frozen F(θ), with a=q^(1/3). For θ>0 the divisor exp(sqrt(3)θ)−cosθ is positive; h has limit 1 at zero and cannot exceed the positive level δ on nonpositive-sine intervals. On each positive half-wave the numerator H in h′ has derivative −4 exp(sqrt(3)θ) sinθ, strictly negative. Hence the first lobe is decreasing, and every later lobe has one strictly nondegenerate maximum d_j. Two crossings when δ<d_j add exactly one strict peak; equality is a quadratic zero of the rate derivative with negative coefficient, so the rate has a stationary inflection, not a maximum. Shift by 2π strictly decreases h on positive-sine angles, proving strict ordering; exponential decay gives finiteness for each q<1. The maximum angle is 2πj+π/6+O(exp(−2πsqrt(3)j)) from the root equation near its simple undamped zero. Thus d_j is asymptotic to (sqrt(3)/2) exp(−sqrt(3)(2πj+π/6)); 1−q_j is asymptotic to 6d_j. This holds for the ensemble descendant rate excluding the seed, not for realized catalog peaks.
 
-**Scientific limitations.** The theorem describes ensemble mean rate in a single-seed, zero-background, unmarked Poisson branching model, not a catalog sample path or a fit to natural earthquakes. It does not apply directly to power-law Omori kernels. Historical priority awaits fuller literature access and independent assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct statement is the exact infinite classification of strict peaks for the subcritical Erlang-three single-seed mean descendant rate, including threshold equality and geometric accumulation. Erlang cascades, renewal densities, and Hawkes moment calculations are prior frameworks. The inspected analogous three-state threshold classifications are not this peak law. Several relevant full texts remain unavailable; priority is provisional.
+
+## value
+
+PASS
+
+A mode count for a delayed branching mean intensity is a natural qualitative question; the proof finds the first integer stage supporting a secondary peak and classifies all additional peaks, including the equality boundary. It also quantifies how close to critical the effect first occurs, an important constraint on practical interpretation. It supplies neither a seismic catalog fit nor a prediction of sample-path peaks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

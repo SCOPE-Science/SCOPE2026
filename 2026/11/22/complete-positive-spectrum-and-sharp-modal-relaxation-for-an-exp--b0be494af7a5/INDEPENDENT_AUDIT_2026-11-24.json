@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:43:14.654251Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Splitting at zero gives block triangular T, with the positive block dominated in its powers by the ordinary ordered Volterra simplex and the negative block unitarily equivalent to cK_q. Away from zero the triangular Riesz projection preserves the negative-block multiplicity. For the midpoint approximation, a principal submatrix has nondecreasing prefix lengths at least the row indices. Its determinant is zero if any lengths repeat, and otherwise the lengths are exactly 1,…,k and the determinant is 1 before rescaling. The contributing limiting domain is {0<u_k<1, 0<u_j<q u_(j+1) for j<k}; the inequality chain printed at RESULT.md line 43 is not literal notation for this region, but the immediately preceding minor condition and the stated substitution specify it. Scaling u_j=q^(k−j)t_j gives the stated coefficient, and the factorial majorant gives locally uniform determinant convergence. Norm convergence, stability of the ranks of isolated Riesz projections and Rouché's theorem transfer all nonzero eigenvalues with multiplicity, using the established real-simple zero theorem. Multiplication by h is unitary on the specified weighted space, so projection removal and Gelfand's formula give the exact rate. The scaled entire functions qE(q,−w/q) converge locally uniformly to −w+w²/2: Rouché on a circle of radius 3 and separate neighborhoods of 0 and 2 counts exactly the first two roots on the scaled domain; bounded-z convergence gives the first root tending to 1. The genus-zero product and Newton identities give the three power sums without an operator trace-class premise. check.py and requirements.txt were inspected, not executed; the 1,847 conditions are finite corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Morris–Feldstein–Bowen/Iserles theorem gives all zeros of E(q,·), simple and negative.",
+          "The conditioned-chain paper proves principal-pole survival asymptotics for a given starting point."
+        ],
+        "reasoning": "The known zero theorem takes effect for the whole spectrum only after identifying the full operator determinant, not merely after identifying a scalar denominator or principal root.",
+        "searches": [
+          "arXiv:1709.04357, introduction and zero asymptotics",
+          "arXiv:2611.16041, Theorem 1.1(B) and Lemma 3.4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py and requirements.txt",
+        "arXiv:2611.16041",
+        "Aurzada–Raschel 2025 manuscript",
+        "arXiv:1709.04357",
+        "Resultary 3bb34effe0f1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Aurzada–Worf's starting-point persistence formula is A(z)B_y(z)/D(z) with D(z)=E(q,−cz). Their proof checks noncancellation at the smallest pole and subtracts its principal part; this is substantial prior information about the same modes.",
+          "No comparable identification of the full operator determinant or all algebraic multiplicities occurs in these passages."
+        ],
+        "reasoning": "A scalar or one-vector resolvent formula could yield more with a proof that its observable sees every modespace and its pole orders. That additional operator argument is not part of the compared scalar/principal-mode statements; determinant approximation here gives exhaustiveness and multiplicities directly, and the weighted norm conclusion then follows.",
+        "searches": [
+          "arXiv:2611.16041, eq. (10), Lemmas 3.3–3.4, PDF pp. 14–16, offsets 47700–55844",
+          "Persistence_MA_1_.pdf, Lemmas 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The principal eigenvalue is c/z₁ and the conditioned state space is [−a,0).",
+          "The scalar identity p_n^a(θ)=p_n^(1/a)(1/θ) transfers positive-coupling persistence to the expanding range."
+        ],
+        "reasoning": "The normalization and scalar denominator match after rescaling, but a persistence generating function is a restricted resolvent observation; neither scalar duality nor the identification of its first pole establishes the full operator multiplicities.",
+        "searches": [
+          "arXiv:2611.16041, Theorem 1.1(B), Remark 1, eq. (10) and Lemma 3.4",
+          "Persistence_MA_1_.pdf, Theorem 1 and Lemmas 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical indexed record is not independent evidence. The distinct phase-diagram record gives Dobrushin coefficient and worst-state TV distance 1 at each finite time in this exact parameter regime.",
+          "The zeros themselves are classical; no numerical root table is claimed as new."
+        ],
+        "reasoning": "An exact uniform-TV obstruction does not give the weighted Hilbert operator-norm exponent. The root data precede the result but do not tabulate which operator modes occur.",
+        "searches": [
+          "Resultary records b0be494af7a5 and 3bb34effe0f1",
+          "arXiv:1709.04357"
+        ]
+      },
+      "rationale": "Prior work provides the conditioned chain, principal eigenfunction and eigenvalue, persistence generating functions displaying the deformed-exponential denominator, and the zero theorem. The supported distinct claim is the exhaustive operator spectrum with algebraic multiplicities and the exact weighted-space operator-norm modal rate, not discovery of the denominator or of the conditioned chain. The closest distinct indexed result is about worst-state total variation, a different norm and conclusion.",
+      "residual_risks": [
+        "No claim of exhaustive historical priority; an unlocated all-mode operator treatment may exist.",
+        "The focused literature query added no useful source; the conclusion rests on actual passage comparisons, not on the absence of hits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact principal-mode and conditioning coverage, not the assessed all-mode or weighted-norm claim",
+          "evidence": "The principal value is the inverse smallest positive zero of E(q,−cz); the later proof controls the first pole of the starting-point persistence generating function.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.16041",
+          "material_read": "Theorem 1.1(B) and Remark 1 pp. 3–4; Lemmas 3.3–3.4 pp. 14–16",
+          "method": "OA primary text, including direct PDF passages",
+          "title": "MA(1) processes with uniform innovations conditioned to stay positive in the expanding regime",
+          "trigger": "Same chain, kernel, parameter range and principal mode"
+        },
+        {
+          "assessment": "Prior scalar generating functions, not an exhaustive operator spectrum",
+          "evidence": "Duality takes (a,θ) to (1/a,1/θ) for positive θ for the probabilities p_n, with a separate generating-function identity.",
+          "identifier_or_url": "https://viasm.edu.vn/Cms_Data/Contents/viasm/Media/tienanpham2025/Persistence_MA_1_.pdf",
+          "material_read": "Definition p. 1, Theorem 1 p. 2, Lemmas 1–2 pp. 5–6",
+          "method": "OA primary PDF",
+          "title": "Persistence probabilities for MA(1) sequences with uniform innovations",
+          "trigger": "Scalar persistence denominators and parameter duality"
+        },
+        {
+          "assessment": "Classical zero theorem credited, distinct from operator identification",
+          "evidence": "Reports infinitely many simple negative real zeros and no other zeros, noting the completion by Iserles.",
+          "identifier_or_url": "https://arxiv.org/abs/1709.04357",
+          "material_read": "Definition and introduction, including offsets 4418–4638",
+          "method": "OA primary text",
+          "title": "Zeros of the deformed exponential function",
+          "trigger": "Exact root family used in the spectral result"
+        },
+        {
+          "assessment": "Different topology and statistic, consistent with the claimed limitation",
+          "evidence": "In the expanding positive-a region, the worst-state TV distance and Dobrushin coefficient stay 1 at every finite time.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-mixing-index-phase-diagram-for-persistence-conditioned-u--3bb34effe0f1",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "A sharp mixing-index phase diagram for persistence-conditioned uniform processes",
+          "trigger": "Distinct indexed result on mixing of the same conditioned chain"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The transition is not treated as self-adjoint and a leading survival mode alone does not give the worst weighted-norm relaxation. Exhausting its nonzero modes with simplicity provides the exact rate for a specified conditioned-chain space, separates it from uniform TV behavior, and identifies its large-expansion scale independent of the innovation endpoint a. The rate and power sums are useful exact spectral quantities beyond the previously known leading mode.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

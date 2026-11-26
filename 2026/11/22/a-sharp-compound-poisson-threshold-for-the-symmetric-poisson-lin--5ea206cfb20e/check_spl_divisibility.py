@@ -25,10 +25,16 @@ q = 1/(1+theta)
 Z = (theta+2)*(1+q)/(1-q)+2*q/(1-q)**2
 assert sp.simplify(norm*Z-1)==0
 # Exact brackets: uniqueness follows from Descartes' one positive sign change.
-for polynomial, lo, hi in [
-  (P, sp.Rational(6745418354243,10**13), sp.Rational(6745418354245,10**13)),
-  (H, sp.Rational(6751308705666,10**13), sp.Rational(6751308705667,10**13))]:
+boundary_prefixes = [
+    (P, 'crit', 67454183542439917437, 482487738319200658),
+    (H, 'zero', 67513087056664607088, 481194304092015622),
+]
+for polynomial, label, r_prefix, theta_prefix in boundary_prefixes:
+    lo = sp.Rational(r_prefix, 10**20)
+    hi = sp.Rational(r_prefix+1, 10**20)
     assert polynomial.subs(r,lo)<0<polynomial.subs(r,hi)
+    assert sp.Rational(theta_prefix, 10**18) < 1/hi-1
+    assert 1/lo-1 < sp.Rational(theta_prefix+1, 10**18)
 # In the nonzero, strictly positive characteristic-function phase,
 # an exact rational specimen already has a negative 4th logarithmic harmonic.
 R=sp.Rational(27,40)
@@ -50,7 +56,6 @@ for Rf in (0.2, 0.5, 0.665, 0.6745, 0.675, 0.7):
         closed = c*(af+bf*cos(t))/(1-2*Rf*cos(t)+Rf**2)**2
         assert abs(direct-closed)<1e-10, (Rf,t,direct,closed)
 print('Exact identities, normalization, polynomial brackets, rational witness and numeric checks: PASS')
-print('r_crit ~',sp.N(sp.nsolve(P,.67),20))
-print('theta_crit ~',sp.N(1/sp.nsolve(P,.67)-1,20))
-print('r_zero ~',sp.N(sp.nsolve(H,.675),20))
-print('theta_zero ~',sp.N(1/sp.nsolve(H,.675)-1,20))
+for _, label, r_prefix, theta_prefix in boundary_prefixes:
+    print(f'r_{label} = 0.{r_prefix:020d}...')
+    print(f'theta_{label} = 0.{theta_prefix:018d}...')

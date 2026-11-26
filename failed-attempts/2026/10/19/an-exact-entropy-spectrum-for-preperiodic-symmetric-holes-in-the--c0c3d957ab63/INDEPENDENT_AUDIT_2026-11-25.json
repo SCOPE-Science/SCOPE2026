@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:44:43.014733Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4 of Proof; VERIFICATION.md; verify_markov.py",
+        "Ding–Steiner–Sun arXiv:2610.03327v1 §4.4 for the dimension–entropy correspondence"
+      ],
+      "rationale": "The rational branch images give the stated finite Markov graph. After identifying reflected states, the first return from state m+1 takes any length k=2,...,m+1 with multiplicity two: choose the initial target j=m+2-k, advance to m, then choose its reflected or unreflected successor. States I_0,J_0 contribute at most a spectral radius of one. Thus the growing component satisfies 2 sum(lambda^(-k), k=2,...,m+1)=1. Closed endpoints are retained; the nested cylinder map is onto and each point has at most two codes (once a side of an endpoint is chosen its next interval is forced). This finite-to-one coding preserves entropy. The inverse similarities satisfy the graph-directed open set condition on interval interiors, giving dimension log(lambda)/log(2). Adding a return term shows strict monotonicity. For delta=2-lambda the exact identity delta(3-delta)(2-delta)^m=2 first gives m delta=o(1), then delta=O(2^-m), and on substitution gives the asserted O(m 2^-m) relative error. The supplied rational checks are corroborative only; no uploaded code was run.",
+      "residual_risks": [
+        "No claim for other hole families or for a statistical escape rate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ding–Steiner–Sun give the alternating kneading determinant and its inverse negative root for entropy for surviving admissible boundaries, and give the negative-doubling survivor dimension correspondence. Here a_m,b_m are surviving boundaries since their finite forward orbits land on the fixed points 1/3,2/3.",
+          "Glendinning–Hege concern more general positive-entropy boundaries, not this exact polynomial."
+        ],
+        "reasoning": "The determinant theorem applies to these precise parameters, without a change of endpoint convention.",
+        "searches": [
+          "arXiv:2610.03327v1 Lemma 2.1, Corollary 3 and §4.4",
+          "Glendinning–Hege arXiv:2508.21429v1 §3"
+        ]
+      },
+      "checked_sources": [
+        "Ding–Steiner–Sun 2610.03327v1",
+        "Glendinning–Hege 2508.21429v1",
+        "Resultary records --20b1e7951921, --c3e891785474 and --8027a957802c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For x=1/lambda the prior determinant evaluated at -x is 1-sum(x^n,n=1,...,m+1)+x^(m+2)/(1+x). Multiplying by 1+x gives 1-2 sum(x^n,n=2,...,m+1). Substitution at x=1/lambda gives the exact frozen equation. Multiplying the latter by lambda-1 yields delta(3-delta)(2-delta)^m=2, from which the coefficient and error follow directly."
+        ],
+        "reasoning": "The full analytic invariant, not merely the isolated numerical example or the general topic, is mechanically implied.",
+        "searches": [
+          "arXiv:2610.03327v1 Lemma 2.1 (OA offset 32050), applied to the two exact survivor addresses"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For symmetric holes T=R D where D is positive doubling and R(x)=1-x; the branch symbols differ by reflection on odd iterates. The ordinary binary addresses are 0 1^(m+1) (01)^infinity and its complement."
+        ],
+        "reasoning": "Alternating the address differences transfers the negative kneading evaluation to an ordinary binary power series; this is an exact reduction, not a comparison of close hole sizes.",
+        "searches": [
+          "Resultary: negative-doubling entropy for preperiodic symmetric holes",
+          "Ding–Steiner–Sun arXiv:2610.03327v1 §2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/11/1 SCOPE-exact-parity-resolved-escape-and-zeta-for-a-postcritical-negativ--20b1e7951921 states the identical m=1 hole and entropy/dimension. The 2026/11/2 symmetric dyadic-hole record --c3e891785474 instead has dyadic widths and different roots. The 2026/10/11 periodic/zeta trichotomy --8027a957802c stops at a=2/5, below this family."
+        ],
+        "reasoning": "The m=1 match is partial coverage, not evidence of priority over the frozen result or of a table for the full family.",
+        "searches": [
+          "Resultary negative-doubling exact entropy and symmetric plateau records"
+        ]
+      },
+      "rationale": "The principal formula is a direct specialization of a prior entropy theorem for the identical open negative-doubling survivor system. The eventual tail contributes a geometric series, and its reduced numerator is exactly the claimed Perron equation. Strict monotonicity and the stated shrinking-hole estimate are elementary consequences of that same equation. Absence of a separately printed family formula does not remove prior implication.",
+      "residual_risks": [
+        "The cited plateau address-width record --195a748d0893 could not be read via the available mirror; rejection rests on the independently demonstrated prior implication, not on missing access."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING by direct implication",
+          "evidence": "K(z)=sum((b_n-a_n)z^(n-1)); substitution reduces it to the frozen Perron polynomial as shown above.",
+          "identifier_or_url": "https://arxiv.org/html/2610.03327v1",
+          "material_read": "§2.2 Lemma 2.1 and Corollary 3; dimension relation in §4.4",
+          "method": "bounded OA full-text passages and endpoint-code substitution",
+          "title": "Open dynamical systems in topologically expansive decreasing Lorenz maps",
+          "trigger": "identical model and a possible exact entropy formula"
+        },
+        {
+          "assessment": "related boundary theory; not the decisive exact coverage",
+          "evidence": "Studies boundary of positive entropy/dimension, not this specific positive-entropy parameter sequence.",
+          "identifier_or_url": "https://arxiv.org/html/2508.21429v1",
+          "material_read": "abstract and §3",
+          "method": "bounded OA full-text passages",
+          "title": "The boundary of chaos for piecewise smooth maps and the boundary of positive Hausdorff dimension for survivor sets of open maps",
+          "trigger": "general decreasing-branch survivor theory"
+        },
+        {
+          "assessment": "m=1 overlap only",
+          "evidence": "Hole (5/12,7/12), entropy log(2)/2, dimension 1/2.",
+          "identifier_or_url": "2026/11/1/SCOPE-exact-parity-resolved-escape-and-zeta-for-a-postcritical-negativ--20b1e7951921",
+          "material_read": "RESULT.md finding",
+          "method": "Resultary lookup and local mirrored result",
+          "title": "Exact parity-resolved escape and zeta for a postcritical negative-doubling hole",
+          "trigger": "same endpoints in catalogue"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Ding–Steiner–Sun Lemma 2.1"
+      ],
+      "rationale": "The symmetric family and exact coefficient are natural, and the elementary Markov proof is useful exposition. But the exact invariant and the quantitative error are obtained by geometric summation in a known applicable formula and elementary manipulation of its numerator. The submitted statement supplies no separate new cutoff, mechanism, or nonmechanical exact result.",
+      "residual_risks": [
+        "This decision does not exclude a distinct result about finer statistics of this family."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

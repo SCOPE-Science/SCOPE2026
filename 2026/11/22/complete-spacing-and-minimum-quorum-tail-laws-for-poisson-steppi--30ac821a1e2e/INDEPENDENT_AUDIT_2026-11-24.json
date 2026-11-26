@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:07:04.922087Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(5), Proof and scope; VERIFICATION.md and verify.py (inspected only)",
+        "Independent replay: python3 /workspace/branches/independent_replay.py 3"
+      ],
+      "rationale": "The chain rule for conditional probabilities gives the specified product under the stated reset model. The Poisson derivative is Q'_m=e^(−u)u^(m−1)/(m−1)!; dividing by the positive tail gives h_m as in the theorem. Its denominator increases strictly from 1 to infinity, so h_m decreases from m to zero. Consequently each log-success derivative is −λ_i h_(m_i)(a_i e^(−λ_i d_i)), strictly decreasing in d_i. Strict concavity on the compact simplex yields a unique optimizer; at L=0 the simplex is a singleton. The positive marginal loss must equal t on positive gaps and be at least t at zero, by transfer of length between coordinates, with sufficiency by concavity. The resulting inverse lengths are continuous and their sum increases strictly from zero to infinity for t in (min c_i,b): a stage with b_i=b has c_i<b and diverges at b. This verifies the unique multiplier, activation ordering, and the permanent zero when c_i≥b, including equality. At L→∞ the nonminimum stages have the stated finite limits. For i∈M the small-u tail expansion gives b−t=K_i u_i(1+O(u_i)), so the diverging lengths sum to W−H log(b−t)+o(1). Inserting the complementary length D gives the multiplier and all additive offsets in (2). Multiplying the tails, the diverging factors share decay exponent b and joint length L−D+o(1); the other tails tend to positive finite values. This gives the coefficient with e^(bD), not its reciprocal. The three-stage transition equations reduce to the displayed formulas; positive length in stage 2 occurs strictly above the equality threshold. Independently computed example thresholds are 1.0334405869187265338 and 0.5145647539971824762, and 65-digit regularized-gamma/KKT calculations verified tied-stage offsets, multiplier and scaled probability at L=25 and 50. Lower bounds on gaps reduce by a shift of coordinates exactly as stated.",
+      "residual_risks": [
+        "The independent numerics are illustrative, not the argument for the infinite parameter range. The proof addresses a fixed reset chain and does not validate that stochastic model for a real network."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hodgson et al. study target-reach probability and conditional mean time in a patch-occupancy speed objective, and find regularly spaced layouts best in their simple comparisons up to eight patches.",
+          "The frozen comparison describes Saura et al. as using binomial founding and maximum-product paths through a given network. Independent attempts reached institutional metadata only; the institutional download redirects to the publisher abstract route, not an alternate open manuscript. The primary fixed-sum search also found a warm-standby reliability candidate, but yielded no accessible statement from it."
+        ],
+        "reasoning": "A landscape-network framework or general separable concavity theorem does not directly give the Poisson-specific marginal ceiling and tied long-distance constants. The actual inspected results do not dominate the model and objective; no exclusion is inferred from inaccessible full text.",
+        "searches": [
+          "Hodgson et al. DOI 10.1371/journal.pone.0047141, open PDF methods/results",
+          "Saura et al. DOI 10.1111/1365-2664.12179 and Stockholm Resilience Centre public publication index",
+          "Primary fixed-sum chain-spacing/reliability search"
+        ]
+      },
+      "checked_sources": [
+        "Resultary chain-placement and Poisson-quorum lookups and the three distinct compared findings",
+        "Hodgson et al. open PDF (methods and results)",
+        "Saura et al. DOI and Stockholm Resilience Centre metadata only",
+        "Focused primary literature search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-way chain with inverse-quadratic passage shares a fixed-sum product geometry, but it has distinct active behavior including an equal-to-asymmetric transition and uses a different marginal loss.",
+          "Generic KKT supplies equal marginal losses on the active set. The marginal ceiling λ_i m_i, the Poisson correction λ_i m_i/(m_i+1), the tied shares and additive offsets, and the coefficient involving finite nonminimum gaps require evaluating this tail and its expansion; these are not given by the inspected work on patch speed or the same-day Poisson thresholds."
+        ],
+        "reasoning": "The justified novelty is the complete Poisson-specific law, not chain optimization, the possibility of unequal gaps, or the method of a common multiplier. The compared statements do not give its exact asymptotic parameters as a specialization.",
+        "searches": [
+          "Resultary local RESULT.md for the Poisson activation thresholds, midpoint design and three-hop inverse-quadratic transition",
+          "Hodgson et al. methods/results in open PDF",
+          "Frozen RESULT.md equations (1)–(3) vs standard separable KKT"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day consecutive-activation finding optimizes a sum of success probabilities over a budget of mean founder counts in identical habitats. Its support thresholds and large-quorum law are not for a log-product with an exponentially parameterized distance budget.",
+          "The same-day placement-regimes finding has a product for serving two units with at least one encounter and an optimal midpoint; it has fixed symmetric geometry and does not give the heterogeneous quorum laws."
+        ],
+        "reasoning": "The log-product is a separable log-CDF allocation (the Poisson upper tail here is also a regularized lower gamma integral). Neither changing a product to a sum of raw success probabilities nor optimizing a symmetric two-unit geometry preserves the asserted problem. Standard KKT under log transformation is credited, not claimed as novelty.",
+        "searches": [
+          "Resultary lookup for heterogeneous Poisson founding/establishment, activation thresholds and fixed-length product chains",
+          "Primary search: Poisson quorum tail fixed sum allocation exponential attenuation chain spacing stage reliability product heterogeneous optimal distance asymptotic minimum attenuation founder quorum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first indexed record gives active-count thresholds and a large-quorum Gaussian-quantile law for a different optimization; the second gives a three-hop transition under inverse-quadratic hop success. The PLOS article's numerical patch comparisons target another objective."
+        ],
+        "reasoning": "There is no finite table to look up that would by itself certify the continuous all-length, all-parameter theorem. The inspected numerical and exact special-case findings provide no matching transition or asymptotic coefficient table for this model.",
+        "searches": [
+          "Resultary lookup for Poisson activation, stepping-stone fixed-sum placement and long-range laws",
+          "6c42718054c6 and 7f2a14fcab85 RESULT.md Findings",
+          "Hodgson et al. 10.1371/journal.pone.0047141 p. 4 reported placement comparisons"
+        ]
+      },
+      "rationale": "Standard separable concave allocation gives the optimality conditions, not a new general optimization principle. The supported distinct result is the evaluated heterogeneous Poisson-tail specialization, in particular the active-set cutoff and explicit tied minimum-product asymptotics with the sharp leading coefficient. The strongest inspected analogues change either the objective, the gap-dependent success law or the asymptotic regime. No inspected source was found to mechanically supply the whole Poisson-quorum theorem. One cited article and an adjacent reliability candidate were not accessible as primary full text; their access limitations are not negative evidence.",
+      "residual_risks": [
+        "The inaccessible papers and possibility of an unlocated equivalent separable-tail theorem remain risks. The available comparisons justify a bounded scientific assessment, not priority against all earlier work.",
+        "A shared publication date for the adjacent corpus findings does not establish chronological priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related spacing result but different objective and stochastic model",
+          "evidence": "Speed combines target attainment rather than extinction and the conditional time to target; its regular-placement result concerns a simple patch-occupancy model up to eight added patches.",
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0047141",
+          "material_read": "Open PDF Methods pp. 2–3 around offset 9600 and Results p. 4 around offset 30300",
+          "method": "Bounded open full-text passage inspection",
+          "title": "The Speed of Range Shifts in Fragmented Landscapes",
+          "trigger": "Closest cited primary work optimizing stepping-stone spacing"
+        },
+        {
+          "assessment": "Limited access, unresolved as an independent full-text comparison",
+          "evidence": "DOI/publisher attempts returned 403, and the institutional link targets the Wiley abstract. The binomial-path comparison is reported by the frozen record, not confirmed from the paper here.",
+          "identifier_or_url": "https://doi.org/10.1111/1365-2664.12179",
+          "material_read": "Stockholm Resilience Centre publication citation and link; frozen Related Work lines 101–103; no independently accessed paper passages",
+          "method": "DOI/publisher OA attempts and lawful institutional link inspection",
+          "title": "Stepping stones are crucial for species' long-distance dispersal and range expansion through habitat networks",
+          "trigger": "Cited thresholded stepping-stone path model"
+        },
+        {
+          "assessment": "Distinct objective and limiting parameter",
+          "evidence": "Fixed mean-founder budget maximizes the expected number of successful identical habitats; support thresholds and a large-quorum Gaussian asymptotic do not give the heterogeneous product chain's large-length law.",
+          "identifier_or_url": "Resultary/2026:2026/11/22/SCOPE-consecutive-habitat-activation-thresholds-for-poisson-founder-qu--6c42718054c6",
+          "material_read": "Local RESULT.md Finding and objective around offset 468",
+          "method": "Bounded local mirror reading",
+          "title": "Consecutive habitat activation thresholds for Poisson founder quorums",
+          "trigger": "Material exact Poisson-quorum allocation and active-set overlap"
+        },
+        {
+          "assessment": "Related symmetric two-unit case",
+          "evidence": "Probability both units receive an encounter is maximized at the midpoint; no n-stage heterogeneous fractional-gap or tied-asymptotic law.",
+          "identifier_or_url": "Resultary/2026:2026/11/22/SCOPE-three-placement-regimes-versus-universal-balanced-coverage-in-a--d74952a96f76",
+          "material_read": "Local RESULT.md Finding at offset 0",
+          "method": "Bounded local mirror reading",
+          "title": "Three placement regimes versus universal balanced coverage",
+          "trigger": "Product of exponentially attenuated Poisson encounter successes"
+        },
+        {
+          "assessment": "Not the Poisson law",
+          "evidence": "The three-hop product has inverse-quadratic passage probabilities and switches from symmetric to asymmetric optima.",
+          "identifier_or_url": "Resultary/2026:2026/11/22/SCOPE-a-first-order-three-hop-stepping-stone-spacing-transition-under--7f2a14fcab85",
+          "material_read": "Local RESULT.md Finding at offset 0",
+          "method": "Bounded local mirror reading",
+          "title": "A first-order three-hop stepping-stone spacing transition",
+          "trigger": "Closely matching fixed-sum chain geometry"
+        },
+        {
+          "assessment": "No statement-level inference from this candidate",
+          "evidence": "The direct and alternate retrieval routes both returned HTTP 403.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S095183201630268X",
+          "material_read": "Search citation/title only",
+          "method": "Attempted lawful publisher primary-page retrieval; access denied",
+          "title": "Optimal arrangement of connecting elements in linear consecutively connected systems with heterogeneous warm standby groups",
+          "trigger": "Adjacent heterogeneous chain reliability design hit from the focused primary search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, activation theorem, equations (2)–(3) and Limitations",
+        "Hodgson et al. 10.1371/journal.pone.0047141, contrasting objective"
+      ],
+      "rationale": "The ideally reset chain is a natural product model in which heterogeneity changes the design in a precise way: some constraints never enter, others saturate, and tied slow exponential losses split the unbounded distance according to the inverse attenuation rates. The exact coefficient and additive offsets let a reader distinguish cases with the same leading decay rate. The entire finite-length optimizer and terminal law are a useful exact benchmark, not a claim that generic multiplier optimization is new or an empirical placement recommendation.",
+      "residual_risks": [
+        "The theorem has value for the stated idealized probability model. It need not predict actual spatial outcomes with alternate pathways, correlated stages, extinction or repeated attempts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:26:42.658743Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Across each fixed-j cut, the number of h steps leaving equals the number entering because the map is a permutation; the steps are all in the same direction, so this is independent of j. The v argument uses fixed-i cuts. Thus the packing condition is necessary. The image of the additive residue map is g times a whole cyclic group with fibers of size g. Denote a=pN, b=qM. An active band is covered once by the incoming h targets [0,a) and v targets [a,a+b); each has exactly one predecessor in the band, even if one interval is empty. This proves the matching, covers equality and axes, and gives a and b labels of the two types respectively per band. Distinct selected bands give distinct active sets; proper circular translates are distinct because a nonempty proper circular block has a unique entering boundary, also after rescaling by g. For the phrase 'one valid local cycle permutation', the construction really has one cycle per band: gcd(a,b) divides MN by coprimality of p,q (check prime valuations), so it equals g. The local residue rotation by a/g cycles through (a+b)/g residues; each full residue revolution displaces a site by (b/g,-a/g), of order g since gcd(p,q)=1. The word-linear selector computes one residue per site; setup is also within O(MN). At the origin all choices are d. For spins, each dual choice marks one same-spin edge per triangle. The local even flip parity yields a flat Z2 edge assignment, with periods M-H and N-V modulo 2; zero periods give precisely two spins by connectedness. Independent brute force separately enumerated matchings and ground states on 3x3, 3x4, 4x3 and 4x4, checking support, both bounds and the parity-filtered factor two. Replay python3 /workspace/checks/4.py; output /workspace/checks/4.txt. The frozen Newton recurrence and construction code were inspected, not executed; the finite checks are not the all-period proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "KOS describes the toroidal partition function and its fixed-slope counting coefficients.",
+          "Bao–He–Zahabi state a perfect-matching/GLSM-field association for every Newton-polygon lattice point in their toric setting."
+        ],
+        "reasoning": "There is plausible general coverage of qualitative saturation, so it is not the protected distinction. Neither inspected passage supplies the elementary arbitrary-rectangle selector or either sectorwise bound.",
+        "searches": [
+          "Kenyon–Okounkov–Sheffield arXiv:math/0310326 Section 3.2",
+          "Bao–He–Zahabi DOI 10.1007/s00220-022-04404-y, toric Newton-polygon matching saturation"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CONSTRUCTION_CHECK.py",
+        "Jiang–Hou 2611.00154v1",
+        "Kenyon–Okounkov–Sheffield math/0310326",
+        "Bao–He–Zahabi DOI 10.1007/s00220-022-04404-y",
+        "Resultary exact and distinct same-day entries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jiang–Hou specifically call nonvanishing of interior coefficients on general rectangles a further direction beyond their odd-square constructions.",
+          "Polygon saturation would imply nonemptiness but provides neither the explicit per-site selector nor the two quantitative counts of distinct witnesses as stated."
+        ],
+        "reasoning": "The proof gives additional explicit geometry and distinctness, not just a direct corollary of an existence assertion or a restated positive coefficient.",
+        "searches": [
+          "Jiang–Hou PDF pp. 12–13 Appendix A, resolving the count by slope",
+          "KOS Section 3.2 and Bao–He–Zahabi pp. 580–581"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cell permutation uses the same d,h,v choices and the same NH and MV totals. Proposition 1 and Eq. (7) use the same mod-two spin periods.",
+          "In the paper's coefficient formulation the support question is exactly nonvanishing of the corresponding finite slope coefficient."
+        ],
+        "reasoning": "Different winding and monomial notation does not create a distinct support problem; the spin consequence is a direct application of the known reconstruction.",
+        "searches": [
+          "Jiang–Hou arXiv:2611.00154v1 Appendix A slope counts and Proposition 1",
+          "Resultary: toroidal honeycomb dimers, finite occupation sectors, cyclic bands"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match ending f2d5d3d215a2 is the assigned result.",
+          "A distinct entry ending e6b37d939d38 counts metric face-closure tilings of a two-row honeycomb rather than occupation sectors of perfect matchings.",
+          "The primary work has a coefficient formula, boundary counts and selected odd-square witnesses, not the claimed constructive family on all rectangles."
+        ],
+        "reasoning": "An exact coefficient formula for arbitrary sectors is prior; the novelty is not computing a numerical sector table under a new name.",
+        "searches": [
+          "Resultary exact modular-band and directional sector count terms",
+          "Resultary same-day honeycomb records",
+          "Jiang–Hou Appendix A equations A4–A8"
+        ]
+      },
+      "rationale": "Pass is for the explicit residue selector together with its quantitative band-subset and circular-shift witness families. Qualitative finite saturation alone is not credited as new, and the spin lift and factor two are prior.",
+      "residual_risks": [
+        "The precise application of general toric lattice-point saturation to all rectangular sizes was not settled; no priority is assigned for abstract saturation.",
+        "Later versions and older unindexed explicit constructions or stronger lower bounds were not exhaustively ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior exact coefficient formula and spin criterion, with general interior nonvanishing explicitly unresolved in the inspected version.",
+          "evidence": [
+            "Interior nonvanishing is an additional coefficient problem, not a premise; further directions include general rectangular tori beyond the constructed odd-square sectors."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.00154v1",
+          "material_read": "Appendix A pp. 12–13, OA offsets 81564 and 88328; Proposition 1 on p. 3 located",
+          "method": "OA PDF passage inspection",
+          "title": "Weak-coupling selection and finite-torus entropy in the triangular Ising antiferromagnet",
+          "trigger": "same finite graph, cell convention, sectors and spin lifts"
+        },
+        {
+          "assessment": "General slope enumeration machinery, not the quantitative claim in the passage.",
+          "evidence": [
+            "Fixed-slope tilings are counted by extracting a coefficient of the weighted partition function."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0310326",
+          "material_read": "p. 8 Section 3.2, OA offset 18568",
+          "method": "OA passage inspection",
+          "title": "Dimers and amoebae",
+          "trigger": "general dimer slope and coefficient theory"
+        },
+        {
+          "assessment": "Strong conceptual overlap for abstract support; finite selector and multiplicity estimates not supplied in the inspection.",
+          "evidence": [
+            "Every Newton-polygon lattice point is associated with one or more GLSM fields, with perfect matchings in the described framework."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00220-022-04404-y",
+          "material_read": "pp. 580–581, Isoradial Spectral Curve and GLSM Fields, OA offsets 25600 and 27493",
+          "method": "OA Springer PDF passage inspection",
+          "title": "Mahler Measure for a Quiver Symphony",
+          "trigger": "potential dominating lattice-point saturation"
+        },
+        {
+          "assessment": "Different objects and invariants.",
+          "evidence": [
+            "Two-edge-length assignments and face closure on a 2-by-n honeycomb are not directional perfect-matching occupations."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-parity-resolved-exact-metric-tiling-counts-on-a-two-row-honeycom--e6b37d939d38",
+          "material_read": "RESULT.md passages at offsets 0 and 6400",
+          "method": "Resultary and local mirror",
+          "title": "Parity-resolved exact metric tiling counts on a two-row honeycomb",
+          "trigger": "closest distinct same-day honeycomb catalogue result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It gives an output-linear, no-search witness for any feasible finite slope, resolves the concrete support gap in the inspected source constructively, and makes two quantitative finite-degeneracy guarantees including on admissible spin sectors. Positivity of a characteristic polygon or the mere availability of a coefficient formula would not give these witnesses.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Reproduce with `python check_identifiability.py` and SymPy installed. Exact symbolic assertions check the normalizer via the first two beta moments, the special \((\rho,\delta)=(0,1)\) beta-function shift, cancellation of \(\rho\) at \(\delta=0\), inversion of the normalized quadratic coefficients and both zero-tilt score identities. Three rational beta-shape examples plus three exact rational pointwise density comparisons support the special-fiber identity; all checks completed successfully. Independently of the checker, the full mathematical proof in RESULT.md covers infinitely many parameters by endpoint exponents, equality of normalized polynomials and linear independence of logarithmic and linear scores. No finite computation certifies uniqueness outside the algebraic proof. Source review used the 2021 preprint and the complete author-hosted journal article, with careful inspection of the density and identifiability propositions. No independent validation has been performed.
+## correctness
+
+PASS
+
+The beta moments give the specified positive normalizer. The left endpoint factor is never zero. The right endpoint vanishes only at (rho,delta)=(0,1), where absorbing (1-x)^2 adds exactly two to the right shape. After this reduction, equality of endpoint orders fixes alpha and the canonical right shape b; the factor with constant term one is then uniquely fixed. For its nonzero linear/quadratic coefficients p,q, delta=-2q/p and rho=4q/p^2-1. A constant factor gives exactly the reported beta fibers, including the strict cutoff b>2. Density zeros inside the interval do not affect this argument. At rho>0, delta=0 the rho score vanishes, and the other scores are multiples of centered log(x), log(1-x), x. A putative constant linear combination, differentiated and multiplied by x(1-x), has all three coefficients zero. The scores are square integrable, so this proves the exact Gram rank. Identical laws at every sample size give the stated consistency obstruction. The frozen SymPy checker was inspected, not executed; its algebraic checks do not prove exhaustiveness or Fisher rank.
+
+## originality
+
+PASS
+
+The beta reduction at zero tilt and the model itself are known. The reviewed contribution is the exhaustive collision classification, the resulting reconstruction criterion and the exact zero-tilt rank, not rediscovery of the beta reduction. The preprint's injectivity assertion is contradicted by an admissible collision; the journal's mixture restriction does not imply the reviewed result. No independent equivalent was verified in the bounded source comparison.
+
+## value
+
+PASS
+
+The result tells which model parameters can be recovered from arbitrarily many observations, corrects an unrestricted published-preprint inference, and distinguishes the globally nonidentifiable fibers from the exactly three first-order identifiable directions on the interior beta submodel. The boundary collision and complete off-fiber reconstruction are useful beyond the trivial zero-tilt degeneracy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

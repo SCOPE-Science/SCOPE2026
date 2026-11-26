@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Claim:** For odd-prime-dimensional qudit graph states on any even torus \(C_m\square C_n\), checkerboard entropy in base-\(p\) dits is exactly \(mn/2-\gcd(m,n)+\mathbf1_{\{v_p(m)=v_p(n)\}}\).
+## correctness
 
-## Correctness — PASS
+PASS
 
-The proof reduces the exact flat Schmidt spectrum to the rank of the finite-field checkerboard adjacency. A Laurent symbol factors as \((x+y)(1+xy)/(xy)\), allowing direct calculation of the periodic convolution kernel at all odd primes, even when cycle lengths are divisible by \(p\). Two root branches have \(\gcd(M,N)\) points apiece and two intersections; the local crossing quotient length is \(2\min(P,Q)\) except when the two prime powers coincide, when it is \(2P-1\). The count yields the claimed entropy without finite extrapolation. The package's exact Python checker reproduces 420 independent grid ranks and 15 local-algebra quotient lengths, with no failures. The analytic calculation is the proof; the finite data are corroboration only. Boundaries: even sides at least four, odd prime local dimension, homogeneous unit edges, specified pure checkerboard cut.
+For h=mn/2, the graph-state coefficient array has entries p^{-h} ω^{uᵀDv}. Grouping u by the image of Dᵀ gives p^r orthogonal Fourier characters on B and orthogonal sums on A, each sum of p^{h−r} computational basis states. This gives the stated flat Schmidt spectrum and entropy. The full adjacency has rank 2r. The frozen local-algebra proof checks out: τ=x+x^{-1}+y+y^{-1} factors as (x+y)(1+xy)/(xy). After separating p-parts P,Q and prime-to-p parts M,N, there are 2gcd(M,N)−4 one-branch points of length min(P,Q), plus two crossings. At a crossing the module with s^P=0 is free on 1,t by the monic relation t²=s²(1+t)/(1+s). It has t^{2P}=0; for Q>P, Q≥3P makes t^Q redundant. For P=Q the additionally imposed t^P generates a one-dimensional socle ideal, as it is a unit times s^{P−1}t. The same reasoning includes P=Q=1 and symmetry covers Q<P. An independent proof of the all-size nullity avoids the local computation: up to a unit shift the adjacency is (I+S)(I+H), where S,H are the (1,−1) and (1,1) shifts. Conjugation by multiplication by (−1)^i gives A=I−S and B=I−H. Each shift has g orbits, labeled by i+j and i−j modulo g respectively. Nullity of AB equals g+dim(ker A ∩ im B). On ker A, testing im B amounts to pairing with the orbit indicators in ker Bᵀ. Two labeled orbits have intersection 0 for different parity and 2mn/g² for the same parity: the map (i,j)↦(i+j,i−j) mod g has a two-element kernel on residues and image the equal-parity pairs. Hence the test matrix has two constant blocks, of total rank 2 when p∤2mn/g² and rank 0 otherwise. For odd p this is precisely the equal-valuation dichotomy. Nullity of the full adjacency is 2g−2δ, yielding all stated example ranks and entropies without any large-size extrapolation.
 
-## Originality — PASS on examined evidence; priority remains provisional
+## originality
 
-The strongest overlapping historical work comprises graph-state entanglement-to-cut-rank formulas (Hein, Eisert and Briegel, arXiv:quant-ph/0307130; Hein and collaborators, arXiv:quant-ph/0602096), qudit controlled-phase methods (Looi and collaborators, arXiv:0712.1979; Chen and Zhou, arXiv:1507.05386), and general finite-characteristic periodic convolution (Zaidenberg, arXiv:math-ph/0606070). Hunziker, Machiavelo and Park (2004) treat related open-boundary square-grid automata. These texts were inspected in the relevant primary sections, not inferred solely from abstracts. They establish ingredients, not the odd-prime toroidal p-adic crossing length or entropy dichotomy identified here. Multiple published-result searches under modular rank, periodic harmonic functions, graph-state Schmidt spectra, and toroidal cut geometry also found no implication-equivalent item. The characteristic-two torus calculation has different local intersection structure and cannot imply this odd-prime theorem. Residual risk: unidentified specialized finite-field torus-rank results could establish this formula under different notation. No independent priority verification has been performed.
+PASS
 
-## Mathematical value — PASS
+The supported distinct content is the closed odd-prime toroidal adjacency nullity, equivalently exact checkerboard entanglement, and its one-dit valuation switch. The same-graph binary formula, the standard graph-state cut-rank reduction and characteristic-p convolution machinery are not new. No verified checked source covers the odd-prime switch for this graph and these side-length hypotheses, including inseparable periods. This is a bounded comparative judgment, not a priority certificate.
 
-Exact checkerboard entanglement is an intrinsic graph-state resource invariant. The proof exposes a sharp, nontrivial distinction between equal and unequal prime-adic valuations of the two period lengths, accounting for a one-dit difference throughout an infinite family of finite physical networks. Its local-crossing length also informs finite-characteristic periodic convolution beyond the immediate entanglement application. The scope and boundary are motivated by ideal square-lattice qudit cluster-state geometry, not a contrived fixed-size computation.
+## value
 
-## Verification and limits
+PASS
 
-The independently executable proof checker is `qudit_torus_check.py`; the expected exact stdout is `qudit_torus_verification.log`. The finite tests support, but do not prove, the infinite formulas. Nonprime or characteristic-two local dimensions, other cuts, arbitrary weights, noisy states, twisted tori and edge deletion lie outside the claim.
+Checkerboard entropy is a natural invariant of the periodic grid state. The formula isolates the exact departure from the generic deficit at fixed geometry, distinguishes equal nonzero valuations from unequal ones, and explains why a semisimple character count is insufficient. It settles a complete arithmetic classification for this cut rather than a tabulation of examples or a repackaging of the usual cut-rank identity.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

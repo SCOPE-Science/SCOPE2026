@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:04:33.366222Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5 of Proof; VERIFICATION.md; verify.py (inspected only)",
+        "Replay: python /workspace/audit-evidence/1.py; output /workspace/audit-evidence/1.txt"
+      ],
+      "rationale": "The affine contraction gives the unique stationary series. Its support is the compact fixed point of the contracting support operator; adding [0,1/3] fills the gaps of the scaled Cantor set (maximal gap 2/9). Grouping the centred independent signs by n+k=m gives m copies with coefficient 2/3^(m+1). Choose m so the m-th angle is u in [π/3,π]; its product with the next cosine has absolute value at most 9/16 by the quadratic 4z²−3z, z=cos²(u/3), or the bound 1/2 on the lower half of the range. This gives Fourier decay with exponent log_3(16/9)>1/2 and Plancherel yields the stated strict lower Sobolev range. At the stated t_N all angles through m=N are integer multiples of π; the remaining factors are positive and give BA^N. The tail-deficit bound A≥(1−π²/144)/2>4/9 implies unbounded t_N|μ̂(t_N)|, incompatible with a finite derivative measure of the BV zero extension (finite one-sided traces). Fixed-width bands around t_N retain a uniform positive fraction of A^N: the early product has summable cosine deficits and the late log ratio is bounded by O((N+1)3^(−N)) away from zeros. Summing the band contributions diverges also at the stated endpoint. Independent finite products reproduced A, B, s_* and the sampled resonances; the analytic estimates, not samples, cover all N and stated Sobolev exponents.",
+      "residual_risks": [
+        "Neither optimal Sobolev threshold nor continuity is determined; no implication for other contractions or Cantor weights."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3 of Mantica (2010) gives a general sufficient L² criterion; the model and proof methodology overlap. Mantica–Peirone proves finite-union-of-intervals attractors under dissection hypotheses."
+        ],
+        "reasoning": "These broader statements concern sufficient smoothing or topology. Neither is a theorem of BV nonmembership or quantitative Sobolev nonmembership for the stationary measure. Credit the topological and methodological coverage without treating it as regularity coverage.",
+        "searches": [
+          "arXiv:1005.3395, Theorems 3–4",
+          "arXiv:1506.08033, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Mantica 2010 arXiv:1005.3395; Mantica 2011 arXiv:1106.4945; Mantica–Peirone 2015 arXiv:1506.08033",
+        "Resultary local search and mirror, including 76514505fe2e and 884fcbeb4df5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general product specializes directly, but the multiplicity m from aligning both ternary scales and its estimates are specific. A sufficient L² criterion supplies no lower Fourier bounds and does not rule out BV."
+        ],
+        "reasoning": "Do not count the product identity in abstract form as new. Extracting BA^N, establishing 3A>1, and showing the resonances persist over disjoint frequency bands use independent model-specific arguments; the cited implications do not by themselves yield the joint result.",
+        "searches": [
+          "arXiv:1005.3395, Eq. (22), pp. 11–13, Theorem 3",
+          "arXiv:1106.4945, discussion of invariant-measure continuity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The second affine stage with a Cantor fixed-point distribution is the same family after affine normalization; published illustrated outer ratios include 0.1, 0.2 and 1/4, not an asserted matching-ratio BV result.",
+          "The general invariant product is already Eq. (22)."
+        ],
+        "reasoning": "The model is not distinct by a change of notation. The mathematical distinction is the simultaneous L² and non-BV conclusion, and the specified Sobolev obstruction for the exact matching ratio. Continuity discussion for other parameters does not imply BV at this ratio.",
+        "searches": [
+          "Mantica, arXiv:1005.3395, Eq. (22) and Cantor-driving examples",
+          "Mantica, arXiv:1106.4945, §4.4 Example 2 and §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 76514505fe2e ranks integer frequencies of the bare Cantor measure; 884fcbeb4df5 concerns a finite-digit modular coherence optimum, not an affine stationary law. No exact match was identified in the returned results."
+        ],
+        "reasoning": "These are the nearest frequency/arithmetic records inspected, but neither computes the stationary product's geometric resonances or proves the density classification. This is not an exhaustive database absence claim.",
+        "searches": [
+          "Resultary matching Cantor stationary series / ternary resonance semantic search: 76514505fe2e, 884fcbeb4df5",
+          "Primary literature discovery for matching Cantor-driven affine density BV/Fourier regularity"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the matched-scale regularity separation and quantitative resonance results, not for first introducing the model, invariant product, general L² technique, or interval topology. Mantica's product and known topological theorem give substantial ingredients. The exact weighted resonance and quantitative estimates, including lower bounds on whole Fourier bands, are not supplied by the compared statements. Neither the Cantor-measure Fourier ranking nor the finite-digit coherence invariant in Resultary is a result on the stationary affine series.",
+      "residual_risks": [
+        "Bounded semantic and primary literature searches do not establish absolute priority; older alternative parametrizations or unindexed resonance calculations could be missed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior product representation and L² method; no matched-scale joint result in compared statements",
+          "evidence": "Eq. (22) factors the invariant characteristic function. Illustrations at outer ratios 0.1 and 0.2 describe continuous densities; Theorem 3 supplies a sufficient L² condition.",
+          "identifier_or_url": "https://arxiv.org/pdf/1005.3395",
+          "material_read": "Eq. (22), p. 9; Cantor-driving examples pp. 11–12; Theorem 3 p. 13",
+          "method": "Lawful open PDF, bounded passage search/read",
+          "title": "Dynamical Systems and Numerical Analysis: the Study of Measures generated by Uncountable I.F.S.",
+          "trigger": "Same affine model and general smoothing criterion"
+        },
+        {
+          "assessment": "Same family, different illustrated regime; does not supply the frozen resonance or BV obstruction",
+          "evidence": "Example 2 chooses the outer ratio independently and illustrates 1/4; §5 treats dependence of continuity on both parameters and the singular continuous case on Cantor support.",
+          "identifier_or_url": "https://arxiv.org/pdf/1106.4945",
+          "material_read": "Example 2 in §4.4, p. 10, and §5, pp. 12–13",
+          "method": "Lawful open PDF, bounded passage search/read",
+          "title": "Direct and Inverse Computation of Jacobi Matrices of Infinite Homogeneous Affine I.F.S.",
+          "trigger": "Same Cantor driving family and continuity comparison"
+        },
+        {
+          "assessment": "Prior support-topology coverage, not stationary density regularity",
+          "evidence": "Second-generation attractor is a finite union of closed intervals under the dissection hypothesis.",
+          "identifier_or_url": "https://arxiv.org/pdf/1506.08033",
+          "material_read": "Theorem 1.1, p. 2",
+          "method": "Lawful open PDF, bounded passage search/read",
+          "title": "Attractors of Iterated Function Systems with uncountably many maps",
+          "trigger": "Broader theorem on the same topological attractor notion"
+        },
+        {
+          "assessment": "Distinct measure and invariant; not equivalent or covering",
+          "evidence": "Ranks Fourier coefficients of the Cantor measure itself at ±3^a and ±4·3^a; does not take the stationary infinite affine series.",
+          "identifier_or_url": "Resultary 2026/11/2, 76514505fe2e",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local Resultary search and mirror text",
+          "title": "The two leading integer Fourier multiplier moduli of the middle-third Cantor measure",
+          "trigger": "Closest indexed Cantor frequency statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Proof §§3–5 and Limitations"
+      ],
+      "rationale": "The matching-scale Cantor example separates an interval attractor and genuine L² regularization from BV regularization in a natural singular-noise affine model. The lacunary mechanism and fixed-band Sobolev obstruction give quantitative information beyond testing a sufficient smoothing criterion or finding one large Fourier value.",
+      "residual_risks": [
+        "The value is a concrete regularity boundary/counterexample, not optimal regularity or a parameter classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

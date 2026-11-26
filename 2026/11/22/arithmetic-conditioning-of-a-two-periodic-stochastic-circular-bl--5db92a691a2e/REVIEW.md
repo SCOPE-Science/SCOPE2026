@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem fixes the cyclic operator, sample length, norm, and parameter ranges explicitly. Splitting even/odd sites by the unitary Fourier transform yields the stated \(2\times2\) matrices with determinant \((1-a)(1-b)-ab\cos^2(\pi k/q)\). Multiplication by the Chebyshev product yields the exact signed determinant, and rank-one resonant blocks give nullity exactly two. The norm is attained by the zero-frequency block because the nonnegative singular-value representation is monotone in the modulus of the off-diagonal coefficient. Near either simple zero, the small singular value is the determinant divided by the nonzero singular value, yielding the constant in \(q/\|q\alpha\|_{\mathbb Z}\). Standard continued-fraction and Liouville approximation facts give the arithmetic consequences. The standalone code performed 242 reproducibility assertions, including independently constructed dense matrices and exact-rational determinants and ranks; finite tests are not used as the infinite proof.
+PASS
 
-## Originality — PASS (qualified)
+The unitary transform in the two-site cell index gives the stated blocks. Their determinants are (ab/2)(cos(2π α)−cos(2π k/q)) in the supercritical regime. The leading coefficient and roots with multiplicities of T_q−1 give the exact determinant, including its sign. Each vanishing block has rank one; the two interior resonant frequencies are distinct, whereas the critical case has just k=0. Subcritical block determinants stay ≥1−a−b. The largest singular value is attained at k=0 by entrywise monotonicity after removing phases. At either zero the determinant has slope magnitude πab sin(2π α) and the other singular value tends to √S_*. A nearest sample gives an O(1/q) upper bound on the minimum, so every minimizing sample lies within O(1/q) of a root by the local two-sided linear bound and compactness away from the roots. The relative Taylor error there is O(1/q), even when the nearest distance is unusually small. This gives exactly the stated constant and the three approximation regimes. Transposition preserves all singular values.
 
-González del Cueto and Guevara Vasquez, *Fast circular convolution with periodic kernels* (arXiv:2611.16144v1), derive Fourier-block representation and inversion for general periodically varying convolution kernels; its accessible full text was examined in the relevant definitions, spectral/inversion results and applications. This supplies the starting machinery but not the exact sine-square determinant, rational-grid nullity census or sharp small-divisor conditioning constant for this stochastic three-tap family. Closest published records concern either Diophantine conditioning of Gaussian interference measurements, inversion by two full-resolution two-dimensional stencils, dihedral convolution, or two-periodic cubic spline collocation; none implies the present formula after matching objects and assumptions. Published circular-deconvolution stability papers by Linzer and Yalamov are relevant, but only accessible abstracts were reviewed and they discuss transform-algorithm stability. Neither historical uniqueness nor human priority has been certified.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural deconvolution inverse-stability question for a minimal positive, mass-preserving, spatially varying point-spread function. The theorem resolves finite-grid identifiability and sharp condition-number growth in the same family; rational, badly approximable and Liouville phases exhibit qualitatively distinct behavior even though their row-stochastic stencils have the same local support. The exact leading constant quantifies worst-case noise amplification and can benchmark regularization or discretization choices. It is not an average-case image-recovery prediction and does not claim that the recent general FFT algorithm is inaccurate.
+The independently supported distinction is the exact all-grid inverse-conditioning law and rank-loss classification for this positive, genuinely two-periodic finite blur. Neither Fourier block diagonalization, Chebyshev products nor the Diophantine mechanism in deconvolution is new on its own. No inspected distinct source states or implies the full finite-grid law and its sharp Euclidean constant for this family.
 
-## Closest literature and limitations
+## value
 
-Primary source: F. González del Cueto and F. Guevara Vasquez, arXiv:2611.16144v1, first public 2026-11-12. Earlier circular deconvolution stability papers: E. Linzer, SIAM J. Numer. Anal. (1992), DOI 10.1137/0729085; P. Y. Yalamov, SIAM J. Matrix Anal. Appl. (2000), DOI 10.1137/S0895479899351052 (abstract comparisons only). Related periodic tridiagonal work: A. Dyachenko and M. Tyaglov, arXiv:2109.10771 (abstract comparison). Earlier equivalent spectral or small-divisor derivations could exist in unpublished or unindexed sources; the displayed result is not an externally certified priority claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For an elementary positive local blur, invertibility at every finite size does not imply even a polynomial conditioning bound. The result identifies the fixed phase that decides which resolutions are unusable and gives the sharp perturbation scale on the others. This is a useful explicit benchmark separating inverse-conditioning pathologies from one-step amplification and from FFT implementation effects.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

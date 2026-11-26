@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:56:18.139580Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–104; VERIFICATION.md and checker.py (inspected, not executed)",
+        "Liu arXiv:2209.08050v3 §§2 and 4.2, Eqs. (2.2), (4.7), (4.8), for the exact weights and normalization",
+        "Independent replay: python3 /workspace/branches/independent_checks.py. Starting with F_1=−1, it bounds each integral increment using the even terms of the expansion about t=1/2: for a=N+1/2 and z=(2N+1)⁻² the sum is N(N+1)/a³ times Σ[(j+1)/(2j+3)]zʲ. Omitting all j≥17 introduces a positive error bounded by N(N+1)z¹⁷/[2a³(1−z)]. Exact rational endpoint comparisons recover the four sign enclosures in the frozen proof and 1.006014499509<m_55<1.006014499510."
+      ],
+      "rationale": "The known continuous null gives iid uniforms and exchangeable Dirichlet(1,…,1) spacings. Every cyclic j-spacing sum is Beta(j,N−j), so averaging over origins preserves the mean. Differentiation of the beta integral gives the two harmonic-number log moments. Pairing j and N−j with the fixed weights gives the harmonic contribution (N−1)(N+2)/N and the claimed log sum. With F_N=N(m_N−1), subtraction and integration by parts give ΔF_N=2N(N+1)∫₀¹ t(1−t)/(N+t)³ dt>0. For N>1, the logarithmic derivative of N(N+1)/(N+t)³ is bounded above by 1/N−2/(N+1)<0. Hence ΔF_N decreases strictly, and G_N=NΔF_N−F_N decreases strictly because its increment equals (N+1)(ΔF_{N+1}−ΔF_N). Independently enclosed F20<0<F21 and G55<0<G54 settle both global classifications since the sign of G_N gives the sign of m_{N+1}−m_N. The integral gives ΔF_N=1/(3N)+O(N⁻²) uniformly and thus the stated asymptotic. Each summand is a nonnegative Bernoulli relative-entropy score after multiplying by −2, positive with positive probability, so division by m_N is well defined and cannot change within-n ordering.",
+      "residual_risks": [
+        "Enclosures certify the required finite signs, not monotonicity by finite extrapolation; the strict integral inequalities give the infinite-range conclusions. Neither fitted null parameters, dependence, discrete nulls, nor other circular pooling rules are covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu says the Gaussian approximation has mean approximately 1. The second Liu preprint could not be read in the attempted lawful versions (404), and the focused title lookup did not identify another copy. Zhang DOI 10.1111/1467-9868.00337 returned 403; only the relation in Liu was relied on."
+        ],
+        "reasoning": "A statement about the Gaussian model or an asymptotic operator cannot order finite sample sizes or imply exact centering for the nonlinear statistic. The unavailable sources are unresolved risks, not negative statement-level evidence.",
+        "searches": [
+          "Liu arXiv:2209.08050v3 §6.3.2 Theorem 7 and Remark 6.3",
+          "Circularly Symmetric Tests of Goodness-of-Fit, arXiv:2209.08150 official PDF, abstract, export PDF and HTML",
+          "Chuanhai Liu \"Circularly Symmetric Tests of Goodness-of-Fit\" 2209.08150 full text exact expectation reweighted Anderson-Darling"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2209.08050v3 §§2, 4.2, 6.3.2",
+        "arXiv:2209.08150 (retrieval unsuccessful)",
+        "Zhang DOI 10.1111/1467-9868.00337 (original unavailable; Liu relation inspected)",
+        "Resultary d3e356c40ee3 (self-match), 256528af082e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The beta log moments are standard, and the cyclic average inherits the parent expectation. The strongest accessed same-statistic prior passages concern approximate or limiting unit mean; neither gives the signed finite difference of the scaled mean error or the four boundary signs."
+        ],
+        "reasoning": "The finite-mean formula follows by specializing standard beta moments, not from the limiting law. The full claimed result additionally requires the strictly increasing F_N, strictly decreasing G_N and the exact certified boundary comparisons; it is not a parameter substitution into an existing fluctuation or tail result.",
+        "searches": [
+          "Liu arXiv:2209.08050v3 (4.8), Theorem 7 and Remark 6.3",
+          "Resultary 256528af082e RESULT.md",
+          "Frozen RESULT.md finite-difference proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu uses μ_i=i/(n+1), per-origin coefficient −2, and an average over n+1 cyclic origins. With N=n+1 this is precisely the frozen statistic. His Zhang comparison concerns the R_n² statistic for a different plotting-position convention, not this W score."
+        ],
+        "reasoning": "The statistic is not new under its spacing notation. A labelled unpooled copy of the parent W score would have the same null expectation by exchangeability, so known exact finite mean or hump results for that parent could cover these conclusions. No such passage was found in the cited comparison. The R_n² relation is not an alternate formula for this statistic.",
+        "searches": [
+          "Resultary: average-pooled exact mean of Eq. (4.8); modified likelihood-ratio/spacing aliases; Zhang 2002 aliases",
+          "Liu arXiv:2209.08050v3 Eqs. (2.2), (2.6)–(2.7), (4.7)–(4.8)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match d3e356c40ee3 is the assigned finding. The distinct same-day 256528af082e gives a limiting independent-χ²₂ Fourier-series law for the same average circularized nonlinear score, with limiting mean 1, limiting variance and spectral-tail bounds."
+        ],
+        "reasoning": "The same statistic makes the distinct record a material comparison. The reported tail bounds concern the limiting spectral series, not signs of the finite mean error or its differences. The two records' shared date establishes no priority.",
+        "searches": [
+          "Resultary checks on the exact W mean, crossing and maximum, spacing/LR alternatives",
+          "Resultary 256528af082e and assigned d3e356c40ee3"
+        ]
+      },
+      "rationale": "The modified score and average circularization are Liu's, exactly in the checked normalization. The supported distinction is exact finite-null centering and the global crossing and maximum, not the known Gaussian/continuum approximation or the limiting mean. Neither the accessed closest primary passages nor the closely overlapping asymptotic SCOPE result specifies or implies the finite profile.",
+      "residual_risks": [
+        "The two unavailable items and the possibility of an earlier unpooled or differently notated exact-mean analysis leave historical risk. No inference of absence from unsuccessful access or a title lookup.",
+        "The same-day limiting-law result is genuine overlap on the statistic, but no priority is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior statistic; the inspected centering passage is Gaussian approximate, not a finite peak or crossing",
+          "evidence": [
+            "Eq. (4.8) averages the coefficient −2 score over n+1 origins. Remark 6.3 gives mean ‘approximately 1’ in the Gaussian approximation. Zhang LR is compared with R_n², not the W score."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.08050",
+          "material_read": "v3 §2 p. 3 Eq. (2.2) and p. 4 Eqs. (2.6)–(2.7); §4.2 pp. 10–11 Eqs. (4.7)–(4.8); §6.3.2 pp. 17–18 Theorem 7 and Remark 6.3",
+          "method": "Lawful OA PDF text, offsets 11200, 16400, 42400 and 72500",
+          "title": "Reweighted and Circularized Anderson-Darling Tests of Goodness-of-Fit",
+          "trigger": "Exact definition and possible finite-mean calculation in the originating work"
+        },
+        {
+          "assessment": "Coverage unresolved; no adverse inference from access",
+          "evidence": [
+            "Frozen RESULT.md describes abstract-only access in its earlier checks; this review found no accessible section to compare."
+          ],
+          "identifier_or_url": "arXiv:2209.08150",
+          "material_read": "No full text or abstract retrieved during this audit",
+          "method": "Official arXiv PDF, abstract, export-PDF and HTML returned 404; exact-title web lookup did not identify a lawful alternate copy",
+          "title": "Circularly Symmetric Tests of Goodness-of-Fit",
+          "trigger": "Closely titled contemporaneous circularization work; potential finite-moment overlap"
+        },
+        {
+          "assessment": "The inspected relation is to the R statistic. Direct coverage elsewhere in Zhang is not determined.",
+          "evidence": [
+            "Liu's comparison uses an alternate plotting-position convention for R_n², not Eq. (4.8)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/1467-9868.00337",
+          "material_read": "No original full text retrieved; Liu §2 Eqs. (2.6)–(2.7) read for the documented relation",
+          "method": "DOI landing attempt returned 403; OA of Liu's own comparison",
+          "title": "Powerful goodness-of-fit tests based on the likelihood ratio",
+          "trigger": "Candidate equivalence under likelihood-ratio terminology"
+        },
+        {
+          "assessment": "Same statistic but distinct asymptotic question",
+          "evidence": [
+            "Fourier-series weak limit, limiting mean 1, exact limiting variance and spectral-tail bounds; no stated finite mean law or monotonicity cutoff."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22 256528af082e",
+          "material_read": "RESULT.md stated null-limit result",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact Fourier calibration and null variance of the circularized score",
+          "trigger": "Closest indexed same-statistic quantitative result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Limitations",
+        "Liu arXiv:2209.08050v3 Eq. (4.8) and Remark 6.3"
+      ],
+      "rationale": "For an existing goodness-of-fit score whose asymptotic reference mean is one, the exact mean gives a benchmark across sample sizes and an exact deterministic standardization. The small peak overshoot is not the value by itself: the discrepancy is much larger below one at small n (for n=1, m_2=2−2 log 2), and the proof locates the only sign reversal and the only turning point over the whole integer range. Neither classification follows from asymptotic unit mean.",
+      "residual_risks": [
+        "Mean centering alone does not supply critical values, tail probabilities, better test size, or better power. Within a fixed sample size it leaves rejection ordering unchanged."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

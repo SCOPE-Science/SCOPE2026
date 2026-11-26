@@ -1,96 +1,36 @@
-# Sharp six-state positivity barrier and recovery for two-stage Radau IIA on directed cycles
+# Disconnected positive-step windows for two-stage Radau IIA on the directed eight-cycle
 
 ## Finding
-Let \(n\ge2\) be an integer, let \(P\) cyclically advance the standard basis of \(\mathbb R^n\), and let \(Q=P-I\). For a dimensionless step \(h\ge0\), let \(T_n(h)\) be the one-step matrix of the two-stage Radau IIA method applied to \(y'=Qy\):
-\[
- T_n(h)=R(hQ),\qquad R(z)=\frac{1+z/3}{1-2z/3+z^2/6}.
-\]
-All these matrices preserve total mass: \(\mathbf1^\mathsf{T}T_n(h)=\mathbf1^\mathsf{T}\). Their entrywise-positivity behavior has the following sharp dimension barrier and recovery law.
 
-1. For every \(2\le n\le5\), \(T_n(h)\) is entrywise nonnegative for **every** \(h\ge0\), and strictly positive for every \(h>0\).
-2. For **every** \(n\ge6\), the entry from state \(0\) to state \(5\) satisfies
-\[
-  (T_n(h))_{5,0}=-\frac{h^5}{108}+O(h^6)\quad(h\downarrow0).
-\]
-   Thus all these cycle sizes have negative entries at every sufficiently small positive step. Nonetheless, \(T_n(h)\to\mathbf1\mathbf1^\mathsf T/n\) as \(h\to\infty\), so all entries become strictly positive for all sufficiently large steps.
-3. On the **first failing cycle**, \(n=6\), the complete nonnegative-step set is
-\[
- \{0\}\cup[\rho,\infty),
-\]
-   where \(\rho\) is the **unique** positive root of
-\[
- p(h)=h^5+15h^4+60h^3+90h^2+36h-12.
-\]
-   In particular, \(0.2086088<\rho<0.2086089\). The sole negative entry type for \(0<h<\rho\) is a displacement of five directed edges.
-4. On the **eight-cycle** the positivity set is disconnected beyond the isolated zero step: the transition matrix is strictly positive at \(h=2\), negative on the diagonal at \(h=4\), and strictly positive again at \(h=20\). These statements hold by exact rational arithmetic, not simulation.
+On the unit-rate one-way eight-cycle, let \(P e_j=e_{j+1\bmod 8}\) and \(Q=P-I\), acting on column vectors. The two-stage Radau IIA endpoint \(T(h)=R(hQ)\), where \(R(z)=(6+2z)/(6-4z+z^2)\), preserves total mass for every \(h\ge0\). The matrix is strictly entrywise positive at \(h=2\) and at \(h=20\), but has a negative diagonal at \(h=4\). Thus \(\{h>0:T(h)\ge0\text{ entrywise}\}\) has at least two connected components with nonempty interiors. Recovery from the initial small-step positivity failure need not be permanent, even on a directed cycle with just one outgoing edge per vertex and identical jump rates.
 
 ## Assumptions and scope
-Here \(P e_j=e_{j+1\bmod n}\), so \(Q\) is a unit-rate, irreducible, nonreversible continuous-time Markov generator in the **column-vector convention**. Time steps are dimensionless; a common edge rate \(c>0\) replaces \(h\) by \(ch\). Entrywise nonnegative means all entries are nonnegative, including diagonal entries, not merely stability in a matrix norm. We analyze the one-step endpoint, not internal Runge–Kutta stages or the accuracy of iterated physical trajectories. The theorem does not assert the positivity set is a single interval for every \(n\).
+
+The step \(h\) is dimensionless; for a common rate \(c>0\), the dimensionless step is \(c\) times the physical time step. This statement concerns the endpoint, not the internal stages. It does not give the number or endpoints of all the windows or claim that eight is the smallest size exhibiting this behavior.
 
 ## Proof
-**Stability function and pole exclusion.** The two-stage Radau IIA tableau is
+
+Set \(D=6I-4hQ+h^2Q^2\) and \(U=6I+2hQ\). The poles \(2\pm i\sqrt2\) lie in the open right half-plane, whereas \(hQ\) has eigenvalues \(h(\zeta-1)\) for eighth roots of unity \(\zeta\). Hence \(D\) is invertible and \(T=D^{-1}U\) depends continuously on \(h\ge0\). The identity \(\mathbf 1^{\mathsf T}Q=0\) gives \(\mathbf 1^{\mathsf T}T=\mathbf 1^{\mathsf T}\). Both \(D\) and \(U\) commute with \(P\); therefore the columns of \(T\) are cyclic shifts of its first column \(x=T e_0\).
+
+Writing \(x_j=m_j/d\) with \(d>0\), the equation \(Dx=U e_0\) is the integer recurrence (indices modulo eight)
 \[
- A=\begin{pmatrix}5/12&-1/12\\3/4&1/4\end{pmatrix},\qquad
- b=(3/4,1/4)^\mathsf T.
+(6+4h+h^2)m_j-(4h+2h^2)m_{j-1}+h^2m_{j-2}
+=d\big[(6-2h)\mathbf 1_{j=0}+2h\mathbf 1_{j=1}\big].
 \]
-Direct substitution into \(R(z)=1+zb^\mathsf T(I-zA)^{-1}\mathbf1\) gives the stated \(R\). The denominator zeros are \(2\pm i\sqrt2\), whereas every eigenvalue of \(Q\) is \(\zeta-1\) for an \(n\)th root of unity \(\zeta\), and hence has nonpositive real part. Thus \(T_n(h)\) exists for every \(h\ge0\). Since \(R(0)=1\) and \(\mathbf1^\mathsf TQ=0\), mass is conserved.
+The following rows satisfy this equality by direct substitution, so invertibility proves that each is the indicated first column:
 
-**Sharp small-step barrier.** Expand \(R\) about zero by multiplying the formal series by its quadratic denominator. The first six coefficients are
-\[
- R(z)=1+z+\frac{z^2}{2}+\frac{z^3}{6}+\frac{z^4}{36}-\frac{z^5}{108}+O(z^6).
-\]
-When \(n\ge6\), a term of degree below five in \(P-I\) cannot transport from \(e_0\) to \(e_5\), and the coefficient of \(P^5\) in \((P-I)^5\) is one. No smaller power aliases to \(P^5\) modulo \(P^n-I\). Hence the indicated negative coefficient is exact for **all** \(n\ge6\). This is a sign statement about an analytic germ, not a finite-grid inference.
+| \(h\) | \(d\) | \((m_0,\ldots,m_7)\) |
+|---:|---:|:---|
+| 2 | 2058973 | (231813, 660978, 536022, 329580, 173844, 81288, 33624, 11824) |
+| 4 | 339145563 | (−5703833, 56028956, 73175032, 68840480, 56145856, 41935616, 29330944, 19392512) |
+| 20 | 1666416340218976267 | (127548251905668327, 165339419304006540, 194402033385305400, 215921855262276000, 230967940898520000, 240500094415200000, 245376351288000000, 246360393760000000) |
 
-**Universal large-step recovery.** The permutation \(P\) is diagonalized by the discrete Fourier transform. The zero eigenvalue of \(Q\) is simple and corresponds to constants; all other eigenvalues satisfy \(\operatorname{Re}\lambda<0\). For each nonzero eigenvalue, \(R(h\lambda)=O(h^{-1})\) as \(h\to\infty\), because the numerator degree is one and the denominator degree is two. The Fourier decomposition therefore gives
-\[
- T_n(h)=\frac1n\mathbf1\mathbf1^\mathsf T+O_n(h^{-1}).
-\]
-For fixed \(n\), every entry is consequently strictly positive at all sufficiently large \(h\).
+Thus the first and last rows give positive neighborhoods of 2 and 20, respectively, and the negative diagonal excludes 4 and a neighborhood. Every connected subset of the real line containing 2 and 20 contains 4. The two positive neighborhoods therefore lie in distinct components. For context, the known small-step negative entry at displacement five has leading coefficient \(-h^5/108\), so \(h=0\) is isolated and is not responsible for the separation proved here. The known convergence to the uniform projection follows from \(R(0)=1\) and \(R(z)\to0\) on the other seven spectral rays; it does not prevent the finite-step loss at \(h=4\).
 
-**Exact low-dimensional sign certificates.** Write
-\[
- D_n(h)=I-\frac{2h}{3}(P-I)+\frac{h^2}{6}(P-I)^2,
- \qquad U_n(h)=I+\frac h3(P-I).
-\]
-In the ring \(\mathbb Q[h,P]/(P^n-I)\), the certificate file `certificate.json` supplies integer polynomials \(d_n(h)>0\) and \(N_{n,j}(h)\) such that
-\[
- D_n(h)\sum_{j=0}^{n-1}N_{n,j}(h)P^j=d_n(h)U_n(h).
-\]
-Thus \(T_n(h)=\sum_j(N_{n,j}(h)/d_n(h))P^j\). The coefficient lists are ascending in \(h\), so their signs are directly inspectable. All coefficients of \(d_n\) are nonnegative, with positive constant term. For each \(n=2,3,4,5\), all coefficients of each \(N_{n,j}\) are nonnegative and every such polynomial is positive for \(h>0\); this proves unconditional strict positivity. The standalone, standard-library-only `verify.py` checks **each** polynomial identity exactly, rather than merely evaluating at sampled steps.
+## Reproduction
 
-For \(n=6\), the same exact certificate shows the four intermediate displacements \(j=1,2,3,4\) have strictly positive numerator polynomials at \(h>0\). The exceptional fifth displacement has numerator \(h^5p(h)\), with \(p\) as above. Its derivative is
-\[
- p'(h)=5h^4+60h^3+180h^2+180h+36>0\qquad(h\ge0).
-\]
-Since \(p(0)=-12\), it has exactly one positive root. To exclude a hidden diagonal obstruction, its numerator is exactly
-\[
- N_{6,0}(h)=h^{10}+5h^9-5h^8-50h^7+26h^6+664h^5
- +2280h^4+4440h^3+5400h^2+3888h+1296.
-\]
-For \(0<h\le3\), the negative terms have magnitude at most
-\(5h^8+50h^7\le585h^5<664h^5\). For \(h\ge3\), the four leading terms equal \(h^7(h^3+5h^2-5h-50)>0\), because the cubic is increasing on \([3,\infty)\) and equals \(7\) at \(3\). Every remaining term is positive. Thus the diagonal numerator is positive for all \(h>0\). The asserted exact six-cycle set follows.
+The exact integer rows in `certificate.json` are checked by `python3 verify.py` (Python standard library), including the recurrence at every cyclic index and the signs. See `verification_output.txt`. The rows are also displayed above, so the argument does not require a floating-point calculation or a step-size grid.
 
-**An eight-cycle with separated windows.** Solving the \(8\times8\) rational circulant system exactly gives
-\[
-\begin{aligned}
- \min_{i,j}(T_8(2))_{ij}&=\frac{11824}{2058973}>0,\\
- \min_{i,j}(T_8(4))_{ij}&=-\frac{5703833}{339145563}<0,\\
- \min_{i,j}(T_8(20))_{ij}&=\frac{127548251905668327}{1666416340218976267}>0.
-\end{aligned}
-\]
-The negative entry at \(h=4\) is diagonal. A circulant has all its entry types in one column, and the checker verifies its exact linear systems and column sums. Rational dependence on \(h\) ensures continuity: positivity near \(h=2\) and near \(h=20\), separated by negativity at \(h=4\), gives two distinct positive-step components. As established above, \(h=0\) is an additional isolated nonnegative step in dimension eight.
+## Relationship to prior work and limitations
 
-## Verification
-Run `python3 verify.py` with `certificate.json` in the same directory. The checker uses only Python's standard library; it verifies polynomial identities for \(n=2,3,4,5,6\), numerator/denominator positivity certificates, the sixth-cycle root isolating interval, the scalar Taylor coefficients, and exact rational eight-cycle matrices at \(h=2,4,20\). The recorded `verification_output.txt` contains the result of executing the packaged checker. These finite polynomial identities are complete algebraic certificates for the finite small-cycle classifications; the arbitrary-dimension claims rely on the independent formal-series and Fourier arguments above.
-
-## Relationship to prior work
-Blanes, Iserles and Macnamara (first posted 16 February 2021) motivate positivity for graph-Laplacian ODEs and discuss barriers to positivity in classical high-order integrators. Their results concern general positivity-preserving constructions rather than the complete directed-cycle endpoint sign law of the two-stage Radau IIA rational function. Banjai and Ferrari (2022) analyze Gauss-based Runge–Kutta convolution quadrature and Padé stability functions, not these nonreversible Markov transition entries. A published eight-state positivity-barrier study examines the different fourth-order \([2/2]\) Padé / two-stage **Gauss–Legendre** method, whereas here the third-order \([1/2]\) Padé / two-stage **Radau IIA** map fails already at six cyclic states and ultimately recovers positivity through \(L\)-stability. The former method's positivity criterion does not imply this result, and neither does a generic absolute-monotonicity step bound.
-
-## Limitations
-The result concerns one-way unit-rate directed cycles and endpoint matrices only; it does not classify general Markov generators, unequal edge rates, higher-stage Radau methods, or the full positivity set at every \(n\ge7\). The six-cycle recovery root is algebraic but has no claimed elementary radical expression. The eight-cycle rational witnesses establish disconnectedness without enumerating every boundary point. The comparison with specialist publications is best-knowledge rather than a mathematical proof of global novelty; an inaccessible or unindexed prior theorem could supersede it.
-
-## References
-- S. Blanes, A. Iserles and S. Macnamara, *Positivity-preserving methods for ordinary differential equations* (first posted as arXiv:2102.08242 on 16 February 2021), https://arxiv.org/html/2102.08242v2 .
-- L. Banjai and M. Ferrari, *Runge–Kutta convolution quadrature based on Gauss methods* (arXiv:2212.07170, first posted 14 December 2022), https://arxiv.org/html/2212.07170v1 .
-- P. Munch, I. Dravins, M. Kronbichler and M. Neytcheva, *Stage-parallel fully implicit Runge–Kutta implementations with optimal multilevel preconditioners at the scaling limit* (arXiv:2209.06700, 14 September 2022), https://arxiv.org/abs/2209.06700 .
-- *Eight-state barrier for Markov positivity of the [2/2] Padé map*, published research record (2026), https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab .
+The six-state barrier, the complete six-cycle recovery threshold, the positivity of smaller cycles, and the small-/large-step asymptotics for every larger cycle are established in *A six-state threshold and positivity recovery for Radau IIA on directed cycles* ([Resultary 1260be3011dc](https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-six-state-threshold-and-positivity-recovery-for-radau-iia-on-d--1260be3011dc/RESULT.md)); see also [d6e23c144dbb](https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-six-states-are-the-sharp-small-step-positivity-barrier-for-two-s--d6e23c144dbb/RESULT.md) and [24a51aae20d9](https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-six-state-recovery-of-markov-positivity-for-radau-iia-on-d--24a51aae20d9/RESULT.md). Those claims are background, not part of this contribution. The same method has disconnected windows on undirected stars ([Resultary 17146a0a41df](https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-three-disjoint-positivity-windows-for-two-stage-radau-iia-on-sta--17146a0a41df/RESULT.md)), while the two-stage Gauss–Legendre \([2/2]\) map on the same directed eight-cycle has one bounded positive-step window ([Resultary 6e27618b0571](https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-stochasticity-reentry-for-fourth-order-gauss-stepping-on-t--6e27618b0571/RESULT.md)). Neither mechanism specifies two separated positive-step intervals for the subdiagonal \([1/2]\) map on a one-way cycle. This comparison is targeted and does not establish historical priority against unindexed work.

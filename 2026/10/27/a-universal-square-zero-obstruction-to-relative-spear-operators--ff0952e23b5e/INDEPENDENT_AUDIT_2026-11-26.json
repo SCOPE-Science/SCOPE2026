@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:54:13.253216Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Start with Gx_n of norms tending to one, for unit x_n. Weak sequential compactness applies even in a nonseparable Hilbert space, or one can work in the separable closed span of the sequence. A unit weak limit gives norm convergence and a one-dimensional initial space. Otherwise the normalized deviations are unit and weakly null. Enumerating the chosen vectors and the normalized weak limit if nonzero, their pairwise inner products can be made bounded by 2^(−i−j−3) for distinct indices i,j≥1, inductively by weak convergence. The off-diagonal Gram matrix then has row sums below 1/2 and a uniform lower coefficient bound. The closed span M of the weak limit and the even deviations contains the selected images; the same lower bound applied against finite combinations in M makes odd deviations independent modulo M. Thus M is separable and M⊥ has infinite dimension. In either case there is an isometry V from M into M⊥. The single S=VP_M has norm one, is a partial isometry, and S²=0; on the selected near-norming subsequence ||SGx_n|| tends to one, proving m_G(SG)=1. For relative admissible pairs, ||z−Gx||≤√(2δ), and |⟨Sa,a⟩|≤||P_Ma||||P_{M⊥}a||≤||a||²/2; hence v_G(SG)≤1/2. In scalar output a phase-aligned z gives exactly ||Tx||, proving equality, and for G=I on ℂ² one recovers the classical sharp w(T)≥||T||/2. Replay: RESULT.md lines 25–56. VERIFICATION.md and checker.py were inspected, not run; numerical matrices cannot establish the subsequence lemma, and the script's scalar nonnegativity test alone would not establish equality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "6b4ca769d355 gives the exact index and scalar-output criterion for finite-dimensional Hilbert spaces; 19c0b6e9bd13 gives exact zero or half for positive norm-one contractions on separable infinite-dimensional complex H.",
+          "Dey–Pal Thm. 3.12 shows finite-dimensional relative spears must be partial isometries; Question 1 asks about infinite dimension."
+        ],
+        "reasoning": "These exact conclusions overlap the index claim on their specified domains, but do not include arbitrary nonpositive or rectangular G between infinite-dimensional spaces, or the claimed fixed factor in that regime. The finite-dimensional partial-isometry necessity alone is weaker than the codomain classification.",
+        "searches": [
+          "Resultary: exact relative numerical-index trichotomy, 6b4ca769d355; zero-or-half relative numerical index, 19c0b6e9bd13",
+          "Dey–Pal Thm. 3.12 and Question 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Kadets et al. arXiv:1905.12257 and DOI 10.1007/s13398-024-01582-3",
+        "Dey–Pal arXiv:2603.20796",
+        "Gau–Huang–Wu Prop. 2",
+        "Resultary 6b4ca769d355, 19c0b6e9bd13 and 9d9ed6a25770"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kadets et al. construct rank-one square-zero postcomposition in the ordinary index proof: a factor S_ε can depend on a chosen ε-norming vector and gives ||S_εG||>1−ε. This covers the same construction when G attains its norm.",
+          "If G is diagonal with entries increasing strictly to 1 on ℓ², every near-norming unit sequence is weakly null, so for each fixed finite-rank S, m_G(SG)=0, although appropriate varying rank-one S_ε have ||S_εG|| approaching 1."
+        ],
+        "reasoning": "This example rules out simply exchanging the ε-dependent choice with the seminorm infimum. The single initial space capturing infinitely many near-norming images is a substantive extension. Ordinary commuting-product inequalities cannot supply it; SG need not commute or even act on one Hilbert space, and the comparison is relative to G.",
+        "searches": [
+          "arXiv:1905.12257 pp. 14–15, Lem. 3.8(b), Prop. 3.9(b); p. 21 Prop. 4.13",
+          "Gau–Huang–Wu Prop. 2, square-zero commuting products"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2024 generating-operator paper defines exactly m_G and records v_G≤m_G≤||T||. The 2019 ordinary n_G uses ||T||, not m_G.",
+          "For G(x)=x₁ and T(x)=x₂ on ℂ² with scalar output, m_G(T)=v_G(T)=0 but ||T||=1. The ordinary index obstruction does not decide the seminorm-relative classification even here."
+        ],
+        "reasoning": "The relevant relative spear identity is v_G=m_G, not ordinary spearness; equality or an upper bound in a ratio with the larger denominator cannot simply be transferred to the ratio with the smaller one.",
+        "searches": [
+          "arXiv:1905.12257, Lem. 3.8 and Props. 3.9, 4.12–4.13",
+          "Generating operators between Banach spaces DOI 10.1007/s13398-024-01582-3",
+          "Dey–Pal arXiv:2603.20796 Definition 1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first two entries classify exact indices only in their restricted settings. 9d9ed6a25770 concerns ordinary w(AB)/(||A||w(B)) for positive A and square-zero B."
+        ],
+        "reasoning": "Those entries do not catalogue the asserted all-G fixed witness. A table of possible constants alone could not encode the existence of the specific factor for every G.",
+        "searches": [
+          "Resultary: relative Hilbert spear, near-norming seminorm and square-zero numerical radius; 6b4ca769d355, 19c0b6e9bd13, 9d9ed6a25770"
+        ]
+      },
+      "rationale": "The ordinary-norm upper bound and square-zero postcomposition idea are already in Kadets et al.; the finite-dimensional classification and several infinite-dimensional special cases also have direct exact catalogue coverage. The supported distinct contribution is one fixed norm-one square-zero partial isometry witnessing the m_G obstruction for each arbitrary G, including nonattainment, nonseparable Hilbert spaces and distinct domain/codomain. Neither the prior approximate family nor the checked special cases establishes this quantified statement. Priority beyond the inspected sources is not resolved.",
+      "residual_risks": [
+        "The in-process relative-spear follow-up cited by the generating-operator paper was not inspected.",
+        "The relevant catalogue dates do not establish independence or precedence; bounds and classification on the matched regimes are not claimed as distinct."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong partial overlap, with ordinary denominator and a tolerance-dependent family",
+          "evidence": [
+            "Prop. 4.13 uses rank-one square-zero Hilbert operators and invokes Prop. 3.9; the latter constructs S_ε after choosing x with ||Gx||>1−ε/3."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1905.12257",
+          "material_read": "Abstract; Lem. 3.8 and Prop. 3.9 pp. 14–15 (offset 59730 onward); Props. 4.12–4.13 pp. 20–21 (82457 onward)",
+          "method": "Lawful OA PDF passages",
+          "title": "On the numerical index with respect to an operator",
+          "trigger": "Same Hilbert 1/2 bound and square-zero factor mechanism"
+        },
+        {
+          "assessment": "Establishes the definition and the distinction; follow-up not inspected",
+          "evidence": [
+            "v_G≤||·||_G≤||·||; the comparison of v_G with ||·||_G is left to in-process work."
+          ],
+          "identifier_or_url": "DOI 10.1007/s13398-024-01582-3",
+          "material_read": "pp. 2–3, offsets 4537–6609",
+          "method": "Lawful paper passages",
+          "title": "Generating operators between Banach spaces",
+          "trigger": "Same near-norming functional"
+        },
+        {
+          "assessment": "Main checked prior relative-spear theorem is weaker and finite-dimensional",
+          "evidence": [
+            "Finite-dimensional relative spear implies partial isometry; no arbitrary-dimensional square-zero witness in inspected statements."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.20796",
+          "material_read": "Def. 1.2 p. 2, Thm. 3.12 p. 11, Question 1 p. 13",
+          "method": "Lawful OA PDF passages",
+          "title": "On the geometry of G-norm",
+          "trigger": "Same relative spear property and open infinite-dimensional extension"
+        },
+        {
+          "assessment": "Different radius and commutativity hypotheses",
+          "evidence": [
+            "Uses AB square-zero from A²=0 and AB=BA, so w(AB)=||AB||/2."
+          ],
+          "identifier_or_url": "https://files.ele-math.com/articles/oam-02-08.pdf",
+          "material_read": "Abstract p. 137, Prop. 2 p. 138",
+          "method": "Open journal PDF passages",
+          "title": "Numerical Radius Inequalities for Square-zero and Idempotent Operators",
+          "trigger": "Similar product-form numerical-radius inequalities"
+        },
+        {
+          "assessment": "Direct overlap in finite dimension and for positive separable endomorphisms, distinct product problem in the third",
+          "evidence": [
+            "6b4ca769d355 uses compression to the norm-attaining subspace; 19c0b6e9bd13 distinguishes D=I−G² equal to zero or compact injective; 9d9ed6a25770 studies ordinary w of an ordered product."
+          ],
+          "identifier_or_url": "Resultary 6b4ca769d355; 19c0b6e9bd13; 9d9ed6a25770",
+          "material_read": "RESULT.md Findings; first two exact definitions and setting restrictions",
+          "method": "Resultary local search and mirror read",
+          "title": "Exact relative numerical-index trichotomy for finite-dimensional Hilbert operators; A zero-or-half relative numerical-index dichotomy for positive Hilbert contractions; A sharp spectral-band numerical-radius law for square-zero factors",
+          "trigger": "Exact seminorm-relative results and square-zero factor laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed-factor theorem addresses the actual near-norming seminorm, where a varying family can become invisible and where the usual operator-norm index cannot classify spears. It gives an explicit geometric obstruction even without norm attainment and settles the Hilbert codomain question under the claimed assumptions; the sharp constant is meaningful even though the individual index need not equal it.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

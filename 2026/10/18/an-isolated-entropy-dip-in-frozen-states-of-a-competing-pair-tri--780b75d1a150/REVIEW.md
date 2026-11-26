@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The spin-flip energy increment is derived directly from the stated Hamiltonian. The exact de Bruijn transfer representation is one-to-one for rings of at least five vertices. The six characteristic polynomials have been checked by independent symbolic construction of all \(16\times16\) matrices, and 42 finite-ring direct Hamiltonian enumerations agree with their traces. The Perron–Frobenius step uses explicit primitive recurrent components, not numerical extrapolation. All threshold equalities use strictly positive flip-energy increments.
+## correctness
 
-## Originality — PASS, with specified bibliographic risks
-The 1994 Kisker–Rieger–Schreckenberg paper establishes the pure three-spin complexity but not competing finite pair/triplet couplings. The 2002 De Smedt–Godrèche–Luck paper concerns pair-only kinetically constrained dynamics, and the 1976 Frøyen–Sudbø–Hemmer work is a triangular-lattice equilibrium mean-field model. Direct published-result searches did not locate an exact equivalent five-regime strict absorbing-state entropy law. Pure-triplet entropy is acknowledged as prior; the claim is about mixed-coupling thresholds and the isolated dip. The 1976 full text and unindexed treatments remain a coverage risk.
+PASS
 
-## Value — PASS
-Competing two-body and three-body interactions provide a motivated route from conventional Ising freezing to triplet-induced extensive blocked-state complexity. The exact isolated dip at one finite coupling ratio is an unusual consequence of the strict zero-temperature tie rule, providing a clear phase-boundary benchmark rather than a routine finite-size result.
+Flipping the center of abcde changes the two adjacent pair terms and the three containing triplets, giving ΔH/(2J)=c(b+d−r(ab+bd+de)); strict positivity and N≥5 are used. The only possible nonnegative zeros are 0, 2/3, 2. A labeled periodic spin configuration corresponds to a unique closed walk with fixed starting site in the four-spin overlap graph, even when its primitive period divides N. Independent replay: for p/q=0,1/3,2/3,1,2,3, indexed words − as 0 and + as 1, formed edges by the integer test c[q(b+d)−p(ab+bd+de)]>0, computed transitive closure for SCCs and characteristic coefficients by c_k=−(Σ_{j=1}^k c_{k−j} tr(A^j))/k with c_0=1. All six polynomials agree with RESULT.md; cyclic component sizes are (1,1), (6,1), (6), (11), (10), (12), and the dominant component in each positive-r case contains the all-minus loop. Direct recomputation of the whole Hamiltonian after each single-spin flip agreed with the transfer traces in all 30 cases over N=5,…,9. At zero there are exactly two uniform configurations; otherwise primitivity gives a single dominant positive eigenvalue and the trace has its exponential rate. In the last regime the factor x⁹−x³−1 has its positive root below δ because at δ, y=δ³>2 and y³−y−1>0. Edge inclusion and strict component extension were verified for the 6-to-11 and 10-to-11/12 inclusions, proving α<β and γ<min(β,δ) by strict Perron monotonicity. Also β<73/50<δ: for the r=1 irreducible block A, v=A⁴⁴1>0 satisfies 50Av<73v coordinatewise by exact integer arithmetic, and the cubic at 73/50 has numerator −2433. The finite replays corroborate the all-volume transfer and Perron arguments, not vice versa.
 
-## Scientific limitations
-No statement concerns probabilities of reaching blocked states, relaxation times, finite-temperature equilibrium, or a new pure-triplet growth constant.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct result is the finite mixed-coupling phase diagram for strict single-spin minima, especially the entropy value at r=2 being below both adjacent open regimes. The pure triplet growth base δ is already known; the r>2 local word set is exactly the pure triplet one because r>2 dominates every pair field. Neither the pure comparison, the published constrained pair dynamics nor the closest indexed weak/exchange blocking statements supplies the mixed threshold graph and its entropy dip. This is a bounded statement-level assessment, not a priority certification.
+
+## value
+
+PASS
+
+A natural one-dimensional competing Hamiltonian has a complete finite-ratio classification, and ties at one isolated ratio remove exponentially many strict minima relative to nearby couplings on both sides. This is a structural discontinuity in the count, not merely a numerically precise root or a claim about quench kinetics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

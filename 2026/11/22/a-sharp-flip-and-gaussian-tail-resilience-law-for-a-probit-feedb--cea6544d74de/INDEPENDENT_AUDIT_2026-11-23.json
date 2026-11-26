@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:23:08.241038Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The open-state conjugacy is exact: for g(z)=Φ(z)-1/2, the update in the normal coordinate is z-a g(z). Strict decrease of q(u)=g(u)/u=∫₀¹φ(su)ds gives pointwise strict decrease in amplitude off zero for a<=2/φ(0); continuity excludes a positive limiting amplitude. At criticality the cubic term is +z³/3 after the linear term -z. Squaring yields v_next=v-(2/3)v²+O(v³), whose reciprocal increments tend to 2/3 as long as v never vanishes. This gives the two critical constants, with precisely the stated finite-hit exception. Adding the two displacement equations forces opposite points, and a q(u)=2 gives uniqueness iff a>a_c. The return multiplier is (1-aφ(u))². Along the branch aφ(u)=2/[∫₀¹exp(u²(1-s²)/2)ds] decreases strictly from 2 to 0; this gives stability, monotonicity on either side of the zero, and unique superstability. The expansion of q gives u²~6(a-a_c)/a_c. At large gain the exact identity a/4-u=(a/2)(1-Φ(u)) first gives u/a→1/4, then Mills' ratio gives a/4-u=O(φ(u)), hence φ(u)/φ(a/4)→1; substituting back yields all three stated constants. An independent bracketed solve using the series for the integral of exp(-t²) gave u_s≈1.399985276878204 and a_s≈6.678663688751936. The supplied checker was inspected, not executed. The supercritical assertion is global uniqueness of the pair, but local attraction; no broader basin conclusion is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The shift theorem supplies a periodic mean, not a global Gaussian-CDF gain law. The logit comparison gives global supercritical attraction outside a backward orbit but in the logit family with threshold 8 and endpoint exp(-a/4+o(a)).",
+          "The distinct same-day rational logistic map 0f33b0185379 has a local flip and critical inverse-square behavior but different return map and no Gaussian large-gain branch."
+        ],
+        "reasoning": "The broader family construction has no matching dynamics theorem. The stronger basin conclusion for a different map does not cover the narrower probit theorem. A generic local flip normal form also does not control a return multiplier along a cycle for every finite gain.",
+        "searches": [
+          "arXiv:2603.20685 §4 versus the later logit discussion",
+          "arXiv:2412.16379 symmetric logit region",
+          "Resultary gradient-descent and first-flip comparisons"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.20685 §4",
+        "arXiv:2412.16379 §3.1",
+        "Resultary:ec7e4796f3ca",
+        "Resultary:22b2af44d04e",
+        "Resultary:0f33b0185379",
+        "Resultary:cea6544d74de (self-match)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior periodic-mean observation plus symmetry can motivate the opposite-point reduction. The critical coefficient and monotone multiplier depend on different Gaussian integral quotients; the high-gain law uses u=a/4-(a/2)(1-Φ(u)) and the Gaussian Mills scale."
+        ],
+        "reasoning": "The symmetry mechanism and normal-form methods should not be claimed new. The sharp quantitative probit branch and its uniform stability are not a specialization of the inspected logit or local normal-form conclusions.",
+        "searches": [
+          "arXiv:2603.20685 §4, Proposition 4.2 and Remark 4.3",
+          "arXiv:2412.16379 §3.1: period-two equation and endpoint law",
+          "Resultary entries 22b2af44d04e and 0f33b0185379"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The shift-map formula gives the exact bound map for h=-Φ^-1, b=1/2; the example mentioning the positive normal quantile is not itself the minus-feedback dynamics.",
+          "In force coordinates this is gradient descent for V(z)=∫₀ᶻ(Φ(t)-1/2)dt. The critical-convergence catalogue analogue 22b2af44d04e has a different quotient map; the tanh entry ec7e4796f3ca has a logistic force."
+        ],
+        "reasoning": "Being in the prior shift family or a gradient method is not new. Replacing the logistic force by the probit force is not a gain-preserving conjugacy of the updates; their tail scales and branch multipliers depend on the different forces.",
+        "searches": [
+          "Resultary meaning lookup for probit feedback, Gaussian CDF or erf iteration, symmetric sigmoid, and gradient descent at critical gain",
+          "arXiv:2603.20685 §4, Remark 4.3",
+          "arXiv:2412.16379 §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match cea6544d74de is the assigned record; the other examined matches are distinct logit, rational logistic, or gradient-descent results."
+        ],
+        "reasoning": "Standard normal tables can check values once the defining scalar equation is proved; they are not a table of this bifurcation or its multiplier. The ranked catalogue check does not exclude other indexing or priority.",
+        "searches": [
+          "Resultary matching of probit flip, superattracting gain, and Gaussian tail resilience"
+        ]
+      },
+      "rationale": "The normal-quantile family is within a known shift construction, and the logit all-gain diagram is a close qualitative analogue. The probit theorem adds its exact critical relaxation coefficient, all-gain multiplier and unique superstable gain, and Gaussian rather than logistic tail and multiplier constants. None of the strongest inspected statements implies those results under its own hypotheses. This assessment is evidence-bounded, not a priority certification.",
+      "residual_risks": [
+        "The bounded public literature query did not yield a usable close source; that miss has no evidentiary weight for priority.",
+        "An unlocated theorem on Gaussian-CDF iteration or general scalar gradient dynamics could cover part of the qualitative diagram. No worldwide priority or ordering among same-day records is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_CONSTRUCTION_NOT_DYNAMICAL_CLAIM",
+          "evidence": "Formula f=h^-1(h(x)+a(x-b)) and explicit normal example; choosing the negative quantile yields the bound map, without the critical and supercritical laws.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.20685",
+          "material_read": "§4, Remark 4.3, p. 9; OA passage at offset 22300",
+          "method": "Primary OA PDF passage",
+          "title": "Shift maps and statistical invariants for some dynamical systems",
+          "trigger": "Prior general quantile shift with normal example"
+        },
+        {
+          "assessment": "ANALOGOUS_LOGIT_DYNAMICS",
+          "evidence": "Threshold 8, global attraction to the symmetric period-two orbit outside the center's preimages, and a logistic lower endpoint exp(-a/4+o(a)).",
+          "identifier_or_url": "https://arxiv.org/abs/2412.16379",
+          "material_read": "§3.1, p. 7, offsets 16900–18172",
+          "method": "Primary OA PDF passage",
+          "title": "Bifurcations and invariant sets for a family of replicator maps from evolutionary games",
+          "trigger": "Closest symmetric all-gain flip analogue"
+        },
+        {
+          "assessment": "DIFFERENT_FORCE_AND_LIMIT",
+          "evidence": "Tanh update and near-neutral finite-horizon scaling with a_N=8+θ/N, not the Gaussian force or all-gain branch.",
+          "identifier_or_url": "Resultary:2026/11/17/SCOPE-an-exponentially-weighted-logarithmic-crossover-at-the-neutral-f--ec7e4796f3ca",
+          "material_read": "RESULT.md offset 0, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary and matching original in mirror",
+          "title": "An exponentially weighted logarithmic crossover at the neutral flip",
+          "trigger": "Tanh/sigmoid alias"
+        },
+        {
+          "assessment": "STRUCTURAL_ANALOGUE",
+          "evidence": "Critical convergence and a relaxation rate for a different gradient-descent quotient map.",
+          "identifier_or_url": "Resultary:2026/11/8/SCOPE-global-critical-convergence-and-exact-depth-dependent-flip-relax--22b2af44d04e",
+          "material_read": "RESULT.md offset 0 in local mirror",
+          "method": "Local Resultary and matching original in mirror",
+          "title": "Global critical convergence and exact depth-dependent flip relaxation",
+          "trigger": "Gradient-descent reformulation"
+        },
+        {
+          "assessment": "DISTINCT_MAP_NO_EQUIVALENT_COVERAGE",
+          "evidence": "Generalized rational logistic map, local first-flip law and inverse-square critical behavior; does not give the probit branch.",
+          "identifier_or_url": "Resultary:2026/11/22/SCOPE-exact-first-flip-laws-and-a-vanishing-normalized-stability-windo--0f33b0185379",
+          "material_read": "RESULT.md offset 0 in local mirror",
+          "method": "Local Resultary and matching original in mirror",
+          "title": "Exact first-flip laws and a vanishing normalized stability window",
+          "trigger": "Distinct same-day flip result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact quantitative response law for the natural normal-quantile counterpart of the established logit model: the oscillation remains locally stable at every supercritical gain yet becomes almost neutral on a Gaussian scale, with an explicit unique gain of fastest linear relaxation and a sharp law at the flip. These distinctions are relevant when comparing feedback strengths and distributions, beyond a generic flip assertion. The value is for the deterministic map and its stated stability notions, not applied performance or a global supercritical classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

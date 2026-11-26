@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:16:59.564430Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 30–92",
+        "Frozen VERIFICATION.md, lines 19–27",
+        "Frozen check_klein_character.py, lines 18–127",
+        "Frozen klein_character_checks.txt, lines 1–12",
+        "arXiv:2307.12401v2, Propositions 8 and 25",
+        "arXiv:1905.06926, Definition 2.1 and Proposition 3.2"
+      ],
+      "rationale": "Proposition 25 gives concentration in degree 3 and the identity value B_q for the specified categorical graph. In the augmented Lefschetz sum an invariant independent face with r vertex orbits contributes (-1)^(r+1); degree 3 makes its contribution to the homology trace (-1)^r. For s the orbit graph is K_q x K_q, whose independence complex is a wedge of (q-1)^2 circles; for st only the q diagonal orbits are admissible, and no two can coexist, so the trace is 1-q. I independently counted the t sum by partitioning selections according to the sheets containing an off-diagonal orbit. Every off-diagonal orbit in one sheet conflicts with every such orbit in the other (at least one of the two orders of the second pair has both coordinates different from a fixed ordering of the first). With no off-diagonal orbit the signed sum is q-1: the empty/on-one-sheet contribution is -1 and the q matching diagonal singleton pairs contribute +q. With off-diagonal orbits on just one sheet, zero or one opposite diagonal gives a factor (1-1) from the freely selectable same-sheet diagonals. Two opposite diagonals force the same-sheet diagonal set empty and permit just the one off-diagonal pair containing both, for contribution -1 per unordered pair. Three or more opposite diagonals permit no off-diagonal pair. The two sheets give q-1-2 binom(q,2)=-(q-1)^2, including q=2. Sign-character inner products give the multiplicities. Barycentric subdivision eliminates inversions; the quotient chain complex is the orbit coinvariant complex, and over Q exact averaging identifies its homology with invariants. Inspected the frozen checker and its stored output, which report finite corroboration, not an all-parameter certificate; no uploaded code was executed.",
+      "residual_risks": [
+        "Only rational homology of the quotient is established; neither its integral homology nor an equivariant homotopy classification follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 25 covers unequal sizes n,m; it gives only the nonequivariant bouquet.",
+          "Record 325e8a339640 gives layer-swap trace (n-1)(m-1) uniformly for unequal sizes as well.",
+          "Record e94a1787c63a covers a larger symmetry group, but at n=m=4."
+        ],
+        "reasoning": "Credit the dominating size range for concentration and for the s-trace, and the dominating group at q=4. Neither dominates both the parameter range and both generators of the finding.",
+        "searches": [
+          "arXiv:2307.12401v2, Propositions 8 and 25",
+          "arXiv:1905.06926, Proposition 3.2",
+          "Resultary records 325e8a339640 and e94a1787c63a"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 98–110",
+        "arXiv:2307.12401v2",
+        "arXiv:1905.06926",
+        "Resultary 325e8a339640",
+        "Resultary e94a1787c63a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior wedge determines B_q and the two-factor wedge determines the s-trace once the fixed space is identified.",
+          "The four traces determine the V4 quotient rank by averaging; knowing only the identity and s-trace gives just the sums of the t-sign multiplicities at each fixed s-sign."
+        ],
+        "reasoning": "The previously known inputs do not determine how the t signs divide those eigenspaces. The transpose orbit compatibility and the combined flip-transpose obstruction supply the missing information. The multiplicity and quotient formulas themselves are consequences of the character rather than separate novelty claims.",
+        "searches": [
+          "arXiv:2307.12401v2, Proposition 25",
+          "arXiv:1905.06926, Proposition 3.2",
+          "Resultary records 325e8a339640 and e94a1787c63a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A rational V4 character is equivalent to its four simultaneous sign multiplicities; the quotient rank is only the trivial multiplicity.",
+          "Resultary record 325e8a339640 identifies the fixed space of the layer swap and computes its homology trace and the quotient by that involution."
+        ],
+        "reasoning": "The layer result covers one generator and only one involution quotient. An ordinary wedge statement or an s-fixed-space result is not an equivalent determination of the two missing traces or of the full sign decomposition.",
+        "searches": [
+          "Resultary: sheet/layer interchange, factor swap, fixed spaces and rational equivariant homology of Ind(K2 x Kq x Kq)",
+          "arXiv:2307.12401v2, Proposition 25"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record e94a1787c63a, Finding and character table: restriction to (1,s,t,st) is (63,9,-9,-3)."
+        ],
+        "reasoning": "That table is exact overlap at q=4, not a source for arbitrary q. The abstract V4 sign table supplies the inversion from traces to multiplicities, not the action-dependent traces.",
+        "searches": [
+          "Resultary: natural symmetry characters of the complete graph categorical product independence complexes, including K2 x K4 x K4"
+        ]
+      },
+      "rationale": "The distinct finding supported by the comparison is the uniform character for the specified V4 action and its rational invariant/quotient ranks. The ordinary wedge and its Betti count are known, the sheet-flip character is covered by a distinct indexed result with both sizes arbitrary, and all four values at q=4 are covered by a larger natural symmetry calculation. None of these inspected statements establishes the uniform transpose and combined traces and hence the full all-q character. No priority is inferred from catalogue date labels.",
+      "residual_risks": [
+        "The searches and statement comparisons are bounded, not a priority certification; an unindexed uniform factor-exchange or larger-action character may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers ordinary homotopy, not the V4 action",
+          "evidence": "Proposition 25 gives f(2,n,m) copies of S^3, f(l,n,m)=(l-1)(n-1)(m-1)(lnm-4)/4; Proposition 8 gives the two-factor wedge.",
+          "identifier_or_url": "https://arxiv.org/html/2307.12401v2",
+          "material_read": "HTML Propositions 8 and 25 (offsets 16634 and 65294)",
+          "method": "Targeted primary full-text inspection",
+          "title": "Homotopy type of the independence complex of some categorical products of graphs",
+          "trigger": "Exact ambient graph family and homology concentration"
+        },
+        {
+          "assessment": "Covers the two-factor nonequivariant wedge",
+          "evidence": "Coordinatewise adjacency defines the categorical product; Proposition 3.2 gives (m-1)(n-1) circles for m,n>=2.",
+          "identifier_or_url": "https://arxiv.org/pdf/1905.06926",
+          "material_read": "Definition 2.1, PDF p. 2, and Proposition 3.2, PDF p. 5",
+          "method": "Targeted primary PDF inspection",
+          "title": "Homotopy Type of Independence Complexes of Certain Families of Graphs",
+          "trigger": "Exact two-factor fixed-space computation"
+        },
+        {
+          "assessment": "Covers s on a larger size range only",
+          "evidence": "Fixed space Ind(K_n x K_m), third-homology trace (n-1)(m-1), quotient by the layer swap.",
+          "identifier_or_url": "2026/10/25/SCOPE-layer-swap-fixed-spaces-and-rational-homology-of-complete-graph--325e8a339640",
+          "material_read": "RESULT.md Finding",
+          "method": "Published catalogue search and local mirrored full-text passage",
+          "title": "Layer-swap fixed spaces and rational homology of complete-graph categorical products",
+          "trigger": "Likely inclusion of the same involution and quotient"
+        },
+        {
+          "assessment": "Exact q=4 overlap, no arbitrary-q coverage in the statement",
+          "evidence": "Its table restricts to (63,9,-9,-3) on the specified four elements.",
+          "identifier_or_url": "2026/10/25/SCOPE-multiplicity-free-rational-homology-under-the-natural-symmetries--e94a1787c63a",
+          "material_read": "RESULT.md Finding and character table",
+          "method": "Published catalogue search and local mirrored full-text passage",
+          "title": "Multiplicity-free rational homology under the natural symmetries of the K2 x K4 x K4 independence complex",
+          "trigger": "Larger action possibly implying all four tested traces"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–26 and 64–92",
+        "arXiv:2307.12401v2, Proposition 25",
+        "Resultary 325e8a339640 and e94a1787c63a"
+      ],
+      "rationale": "The two involutions are intrinsic symmetries of the equal-factor categorical product, not arbitrary tested permutations. The result determines all simultaneous eigenspaces at every size and the precise rational homology of the full natural four-element orbit space, which the nonequivariant sphere wedge and the single-sheet-flip trace do not determine. The uniform transpose calculation, rather than a known q=4 table entry or elementary character inversion, supplies the substantive increment.",
+      "residual_risks": [
+        "Value is for this natural subgroup and these rational invariants, not a determination of all symmetries or the quotient homotopy type."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

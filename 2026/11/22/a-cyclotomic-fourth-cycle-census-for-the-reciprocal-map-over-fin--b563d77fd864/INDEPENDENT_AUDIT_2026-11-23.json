@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:51:46.530519Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The coprimality-of-values induction applies over every field, and D₄=∏_{j=0}^3 Nⱼ ensures each of the first four inputs is nonzero for a root of N₄−XD₄. Independently expanded the return equation and verified its exact factors P=2X²+1, A, B. Their discriminants are −8, 2048, 324000000 and the pairwise resultants Res(P,A), Res(P,B), Res(A,B) are 4,25,81. Thus all fourteen geometric return roots are simple and disjoint in the stated range; no lower periods except two can divide four. Moreover f²(X)+X=A(X)/[X(X²+1)], so A describes exactly the anti-return f²(x)=−x; oddness makes this subset invariant, and B is invariant as the remaining primitive period-four set. Evaluating in the actual cyclotomic quotient rings gives the stated roots, stabilizers {1,7} and {1}, and orbit sizes 4 and 8; these imply the characteristic-zero irreducibilities. The rational denominator for the quartic parametrization is a unit away from 2 since its square is 2. The factor identities therefore specialize at a primitive root of unity for every p≥7, and separability preserves the sizes of the distinct root sets. The action of q-Frobenius on indices is multiplication by q, with constant stabilizer on each orbit because the groups are abelian. It fixes all or none of each invariant root set; dividing the rational point counts by four gives the claimed indicators. Reviewer-written exact replay `python /workspace/review_checks/1.py` uses SymPy over integer/rational polynomial rings and finite-field arithmetic for 248 prime fields and six quadratic extensions; these finite checks are not the proof of all extensions. Frozen verifier inspected only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier note allows more characteristics, but explicitly excludes longer periods. The originating paper treats general k, rational-square conditions, inertness and preimage questions; those conditions do not determine a finite periodic-point field of definition."
+        ],
+        "reasoning": "Larger characteristic coverage for periods two and three and larger recurrence parameter scope do not dominate the period-four result. A more general periodic-point factorization for this same quadratic rational family would be relevant; none is established in the inspected texts.",
+        "searches": [
+          "arXiv:2610.00765v1 Theorems A–D, Remark 4.2, §7 and reference [2]",
+          "Published SCOPE-0f652b36ee53 Finding and Limitations"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-0f652b36ee53 full result",
+        "arXiv:2610.00765v1 full text"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier short-cycle work supplies the second-return factor P and a cyclotomic method for a different sextic. It does not give the fourth-return quartic and octic or their stabilizers. Lemma 2.2 gives the no-cancellation recurrence in the rational setting, not the new factors."
+        ],
+        "reasoning": "Frobenius and recurrence tools are available, but the two explicit splitting conditions require new information about the primitive fourth-return factors. Naming the known recurrence or applying the earlier period-three congruence does not give them.",
+        "searches": [
+          "SCOPE-0f652b36ee53 period-two and cyclotomic period-three proof",
+          "arXiv:2610.00765v1 Lemma 2.2 and Remark 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same object is T(t)=t+1/t after rescaling cumulative sums, or ψ(x)=x/(x²+1) in inverse coordinates when k=1. In the originating paper (2.1) and Remark 4.2 study recurrence outcomes and preimage trees, not the fourth return. The short-cycle note uses f^j(x)−x for j≤3."
+        ],
+        "reasoning": "A least-four point is a root of the fourth return with the second return removed. Counting these points modulo Frobenius and dividing by four is equivalent to the orbit census; preimages of 0 concern a different orbit condition.",
+        "searches": [
+          "websearch: finite fields reciprocal map x+1/x fourth period four cycles cyclotomic 16 30 Matijasevick 2610.00765 backwards fourth dynatomic polynomial",
+          "arXiv:2610.00765v1 §§1–2, Remark 4.2 and §7",
+          "SCOPE-0f652b36ee53 rational-iteration proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published exact finite-field formulas involve the quadratic square condition and q≡1 mod 9 for different periods; their table/formulas do not include 16 and 30 at period four. The primary preprint's §7 finite computations are checks of its reciprocal-sum square conditions."
+        ],
+        "reasoning": "The checked explicit censuses address different invariants or periods; they cannot supply the all-prime-power period-four count. No inference is made from the failed ranked lookup.",
+        "searches": [
+          "Resultary query: finite-field reciprocal map x+x^-1 primitive period four dynatomic cyclotomic 16 30 (transport unavailable)",
+          "SCOPE-0f652b36ee53 exact finite-field cycle formulas",
+          "arXiv:2610.00765v1 §7 computations"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass limited to the primitive period-four splitting and count. A directly inspected earlier finite-field census covers periods at most three; the actual originating reciprocal-sum paper is now accessible and its substantive finite-field discussion concerns preimages of zero, not these returns. No absolute priority claim.",
+      "residual_risks": [
+        "Websearch and the ranked Resultary query were unavailable. The companion preprint has no linked full-text identifier in the inspected reference; possible earlier coverage there or under an arithmetic-dynamics alias remains a risk. No negative search evidence was used."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers periods 1–3 including the period-two factor; expressly excludes period four",
+          "evidence": [
+            "N₂ and N₃ formulas, period-three sextic and ninth-root index action; limitations exclude least period >3."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-cyclotomic-rigidity-of-the-first-short-cycles-of-the-reciprocal--0f652b36ee53/RESULT.md",
+          "material_read": "Full finding, return and cyclotomic proofs, limitations",
+          "method": "Published full result text",
+          "title": "Cyclotomic rigidity of the first short cycles of the reciprocal map over finite fields",
+          "trigger": "Same map, finite fields and exact cyclotomic counts for nearby periods"
+        },
+        {
+          "assessment": "Known map and recurrence applications; the finite-field discussion there does not give the primitive four-cycles",
+          "evidence": [
+            "(2.1) and Lemma 2.2 give the recurrence; Remark 4.2 and §7 concern traversing preimages of 0. Related work cites a companion described as studying Galois groups and prime divisors of orbits."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.00765v1",
+          "material_read": "Full-text statements in §§1–7, especially related work, §2, Remark 4.2, §7 and bibliography",
+          "method": "ArXiv full-text HTML",
+          "title": "Perfect squares in reciprocal-sum sequences and primes that are inert in quadratic fields",
+          "trigger": "Original reciprocal-sum map and finite-field relevance"
+        },
+        {
+          "assessment": "Uninspected companion; no whole-document coverage conclusion",
+          "evidence": [
+            "§1 refers Galois groups and orbit prime divisors to the companion; Remark 4.2 cites it for a density-zero result, not for a period-four theorem."
+          ],
+          "identifier_or_url": "Reference [2] of https://arxiv.org/html/2610.00765v1",
+          "material_read": "Citation and description in §§1 and 4 of the originating paper, not the companion full text",
+          "method": "Primary-paper cross-reference",
+          "title": "Arithmetic dynamics of z+k/z: Galois groups, prime divisors of orbits, and zeros of iterates",
+          "trigger": "Companion preprint on arithmetic dynamics of the same family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Period four is the next natural census after the already studied periods two and three. The exact separation into two cyclotomic splitting criteria, coexistence of all four counts 0 through 3, and extension-field uniformity give reusable orbit data rather than a finite lookup.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

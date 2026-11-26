@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The no-jump reduction follows from the single Lindblad jump to an absorbing vacuum. The ordered hard-core two-particle Hamiltonian is the exterior square of the path adjacency. One-body sine eigenmodes diagonalize it. For odd prime denominator, the independent cyclotomic cosine basis excludes all degenerate nonzero two-particle energies; every such eigenvector has nonzero amplitude at the first bond. Thus only the zero-energy subspace supports surviving states, and precisely one of its \((p-1)/2\) dimensions couples to the jump. Two finite trigonometric identities yield the exact diagonal entries of the projected surviving space. Dissipativity proves that all complementary eigenmodes decay for every \(\kappa>0\), with no restriction on its size relative to hopping. Every part of the formula has been checked against independently constructed finite adjacency matrices. Potential limitation: the proof does not extend unchanged to composite denominators because further energy degeneracies can occur.
+PASS
 
-## Originality — PASS, provisional scientific priority
+In the ordered hard-core basis no allowed hop crosses the particles, so H is the restriction of H₁⊗I+I⊗H₁ to the antisymmetric product. The sine-mode determinants at the sink have nonzero sine factors and a nonzero difference of cosines. For prime p, writing 2 cos(πk/p)=(-1)^k(ζ^(uk)+ζ^(−uk)), u=(p+1)/2, gives disjoint nonzero residue pairs for 1≤k≤(p−1)/2. A rational relation would be a polynomial of degree at most p−1 with zero constant coefficient divisible by 1+X+···+X^(p−1), hence is zero. Consequently nonzero two-mode sums are simple, and zero has exactly the complementary-mode multiplicity (p−1)/2; the single sink removes one dimension. For the zero-energy projector, sine products vanish on even i+j. On odd i+j use g=j−i and d=i+j; the product with the sink is (cos(gθ)−cos(dθ))(cos θ−cos(3θ))/4 before summing θ=πk/p. Product-to-sum uses even integral frequencies whose half-sums are (p·1_{2p divides frequency}−1)/2. The constants cancel, giving exactly the three indicators in B; the squared-sine sum leaves the extra term only at i+j=p. Subtracting the normalized rank-one projector for Q|1,2⟩ therefore gives the displayed diagonal. The dark subspace reduces the dissipative Hamiltonian; taking imaginary parts in its eigenvector equation excludes any real eigenvalue on the complementary block, so polynomial Jordan prefactors do not prevent decay. This proves rate-independent eventual survival. As a separate finite check, independent_dark_kernel.py constructs the integer hopping matrix from allowed moves, appends the sink constraint, computes a rational nullspace basis U, and compares the diagonal of U(UᵀU)^(-1)Uᵀ exactly at primes 5,7,11,13,17,19 (405 states). This checks the projector evaluation, not simplicity of all other energies; that follows from the prime proof. The frozen verify.py and its recorded numerical evidence were inspected without executing the uploaded code.
 
-Inspected primary full-text sources include Krovi–Brun (arXiv:quant-ph/0606094), Krapivsky–Luck–Mallick (arXiv:1311.6298), Everest–Hush–Lesanovsky (arXiv:1406.6097), Large–Underwood–Feder (arXiv:1412.1022), and Marché et al. (arXiv:2405.04789). The first two develop spectral trapping for single-particle walks, the third uses distributed nonlocal pair losses, the fourth free hard-core transport without a sink, and the fifth onsite losses for non-hard-core bosons. General dark-projector or free-fermion methods are earlier knowledge, not the asserted novelty. The precise prime-family localized boundary pair-loss survival law and \((p-3)/2\) classification are not directly stated or implied by those inspected treatments without additional spectral and arithmetic analysis. published-finding corpus and published-source searches for close alternative formulations did not identify this exact evaluated law. Residual risk: an unidentified broader spectral or dissipative many-body theorem may subsume the result; searches alone cannot establish publication priority.
+## originality
 
-## Value — PASS
+PASS
 
-A unique localized bond-loss channel is a natural two-particle reaction trap, and hard-core nearest-neighbor transport is a canonical solvable lattice. The exact initial-position dependence distinguishes certain unit-probability annihilations from permanently protected pairs, rather than merely counting possible dark eigenvectors. The prime arithmetic restriction is mathematically substantive: it eliminates otherwise possible energy-resonance contributions. The all-size and all-positive-rate law is a reusable reference for localized many-body capture, not a numerical lookup or arbitrary unexplained invariant. The finding does not claim experimental performance, broader rates of convergence, or an extension to composite paths.
+General dark subspace and hard-core path methods are credited. The surviving distinct result is the evaluated prime-family projector for a single occupied adjacent bond in the hard-core sector, giving both protected dimension and a closed probability for every localized pair and all positive loss rates.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This is a natural canonical trap on the two-particle configuration graph. The exact survival profile supplies information not contained in dark-state existence: it resolves which localized pairs can retain population, the arithmetic dependence on the path size, and explicit boundary and parity effects. It gives an all-size, all-loss-rate reference for localized annihilation; the underlying general projection principle alone does not provide these probabilities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

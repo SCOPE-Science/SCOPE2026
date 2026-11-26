@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:55:34.094377Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a blue cell, the white-neighbor count is the sum of the degrees of its row and column in the white-edge graph. Hence the first force requires an isolate and a leaf on opposite sides; edges of any initial cycle can never be the first edge removed from that cycle. At most 2n-2 white edges are possible, and equality forces a single tree plus an isolate. If the isolate is a row, the 2n-2 degree sum on n columns forces a leaf column. Its removal creates a column isolate too, and a forest with isolates on both sides can be eliminated by leaf deletions; transpose for the other type. The bipartite tree formula gives the stated component sizes. A slide is a shared-endpoint white-edge exchange. If it touches the previously isolated row via the added edge, the common endpoint must be a column, so no column degree changes and no cross-type slide can result. For a fixed missing row, insert edges from a chosen active row to each missing adjacent column and drop the last edge of the original tree path to that column; this preserves the tree and shares the column. All other active rows then have degree one and can be pivoted to one column, producing the double star. A center row distinct from two missing rows exists for n>=3, and transferring the leaf edge at the center column connects the two double stars by a slide. A jump can instead delete a leaf column edge and attach the previously missing row to a different column, producing a tree on all rows and all other columns. At n=2 the rook graph is C4: exactly the four adjacent pairs are optimal, a slide produces an opposite pair, and a jump connects the adjacent pairs cyclically. The proof is uniform without enumeration. I inspected the frozen brute force and tree-support programs and recorded checks for n=2,3,4 without executing them; they are corroboration, not an all-size certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Geneson et al. define adjacency by changing one vertex and prove family results including forests; this is the jump framework and the base rook graph is not a forest. Bong et al. define slides but their forcing predicates are PSD and skew. Benson et al. give product forcing-number results, not minimum-set mobility."
+        ],
+        "reasoning": "The established frameworks or product theorems do not yield the square-rook ordinary slide components. A jump theorem on a different graph family does not cover this slide-versus-jump comparison.",
+        "searches": [
+          "Geneson–Haas–Hogben arXiv:2009.00220",
+          "Bong et al. arXiv:2501.03642",
+          "Benson et al. arXiv:1510.02421",
+          "Resultary ordinary zero-forcing slide reconfiguration"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, both Python sources and verification_output.txt",
+        "Four published Resultary records and four primary papers listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior forest criteria identify which supports are valid, while the slide graph further restricts exchanges to edges with a common endpoint. The missing-label transfer requires a center row active in both supports; no slide can traverse the opposite support type. The constructed cross-type jump does not share endpoints."
+        ],
+        "reasoning": "Ordinary unrestricted spanning-tree basis exchanges do not keep a fixed isolate type or guarantee the required shared endpoint. This result adds a constrained connectivity proof, not a mechanical enumeration of the prior state-space formula.",
+        "searches": [
+          "Resultary dd424d573692, forest criterion and minimum trees",
+          "Geneson–Haas–Hogben and Benson et al., definitions and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 6eba6f023d64 uses the same rook graph and slide rule but on minimum power-dominating sets (one per chosen row and column, size n-1), and finds connectivity. Resultary f1a64dfcb98f analyzes ordinary zero-forcing slides on complements of paths, and 72025585cc5d analyzes complete prisms."
+        ],
+        "reasoning": "Changing the predicate or base graph changes the state space. The exact alternative formulation must preserve minimum ordinary forcing states, both isolate types, and the shared-endpoint exchange condition.",
+        "searches": [
+          "Resultary: rook-graph minimum zero-forcing token slides; shared-endpoint bipartite white-tree exchanges; isolated-row and isolated-column orientations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The rook forcing polynomial already encodes the total and the two equal isolate-type counts. Montazeri–Soltankhah already give the scalar minimum. The two counts in the frozen n=3,4 checks refer to component sizes, not new counts of the underlying states."
+        ],
+        "reasoning": "The known exact table counts states, not paths and edges. The same numbers become component sizes only once the type invariant and within-type reachability are proved. No novelty is assigned to the enumerative formula in isolation.",
+        "searches": [
+          "Resultary dd424d573692, minimum-set enumeration; Montazeri–Soltankhah Theorem 2.1; Resultary rook reconfiguration records"
+        ]
+      },
+      "rationale": "The distinct claim is the structure of valid constrained moves on the already known minimum supports, including the contrast with unrestricted jumps. The known optimum, support classification, and count are credited. No inspected distinct source covers the exact move theorem; same-day records were compared without assuming publication order.",
+      "residual_risks": [
+        "An unindexed equivalent move classification in the language of tree pivots or zero forcing could remain undiscovered; no unconditional priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior classification and counts, not the constrained-move theorem",
+          "evidence": "Forest with opposite-side isolate/leaf; minimum sets have white trees with one row or one column isolate.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-zero-forcing-polynomials-of-rook-graphs-via-bipartite-forests--dd424d573692",
+          "material_read": "RESULT.md, Finding and minimum-set passages, offsets 0, 4769, 8972",
+          "method": "Local published-record mirror",
+          "title": "Zero-forcing polynomials of rook graphs via bipartite forests",
+          "trigger": "Exact state supports and counts"
+        },
+        {
+          "assessment": "Strong overlap of setting but different predicate",
+          "evidence": "Connected slide graph of minimum power-dominating sets with diameter 2n-2; these minima are not zero-forcing tree complements.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-the-exact-token-slide-diameter-and-antipodal-pairs-of-minimum-po--6eba6f023d64",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local published-record mirror",
+          "title": "The exact token-slide diameter and antipodal pairs of minimum power-dominating sets of rook graphs",
+          "trigger": "Same board and slide rule"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "For complements of paths, K2 plus three isolates at n=5, connected for n>=6.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-sliding-connectivity-threshold-for-minimum-zero-forcing--f1a64dfcb98f",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local published-record mirror",
+          "title": "A sharp sliding connectivity threshold for minimum zero forcing",
+          "trigger": "Same ordinary forcing and slide rules"
+        },
+        {
+          "assessment": "Complete prisms are not square rook graphs for n>=3",
+          "evidence": "For K_n square K_2 the listed structure is two isolated vertices plus two copies of the crown line graph.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-crown-line-geometry-and-frozen-universal-states-in-complete-pris--72025585cc5d",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local published-record mirror",
+          "title": "Crown-line geometry and frozen universal states in complete prisms",
+          "trigger": "Ordinary forcing on a closely related Cartesian product"
+        },
+        {
+          "assessment": "Jump convention, no covering theorem seen",
+          "evidence": "Adjacency is by changing a single vertex, not necessarily moving a token to a neighbor; connectedness results include forests.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.00220",
+          "material_read": "First PDF page, abstract and definition",
+          "method": "OA primary PDF",
+          "title": "Reconfiguration graphs of zero forcing sets",
+          "trigger": "Foundational ordinary zero-forcing reconfiguration"
+        },
+        {
+          "assessment": "Different predicates",
+          "evidence": "Defines neighboring-vertex exchanges and focuses on PSD and skew forcing rather than standard forcing.",
+          "identifier_or_url": "https://arxiv.org/abs/2501.03642",
+          "material_read": "PDF pp. 1–2, offsets 4922–9077",
+          "method": "OA primary PDF",
+          "title": "Reconfiguration of Minimum PSD Forcing Sets and Minimum Skew Forcing Sets",
+          "trigger": "Slide framework"
+        },
+        {
+          "assessment": "Numerical results, not the claimed slide connectivity",
+          "evidence": "Product results include zero-forcing numbers for tensor products and for Cartesian products of cycles.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.02421",
+          "material_read": "Section 2, including Theorem 2.6 and PDF p. 5",
+          "method": "OA primary PDF",
+          "title": "Zero forcing and power domination for graph products",
+          "trigger": "Graph-product forcing results"
+        },
+        {
+          "assessment": "Prior scalar minimum; attributed",
+          "evidence": "The formula mn-k(m+n)+k^2+k at k=1 gives mn-m-n+2.",
+          "identifier_or_url": "https://doi.org/10.55016/ojs/cdm.v16i1.68557",
+          "material_read": "Theorem 2.1, pp. 91–93",
+          "method": "OA journal PDF",
+          "title": "k-Forcing number for Cartesian product of some graphs",
+          "trigger": "Exact rook forcing numbers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "On a standard graph family, an explicit geometric invariant gives two large connected mobility classes for local moves even though unrestricted moves connect all optima. Legal within-class paths and the exceptional 2-by-2 boundary make this stronger than disconnection alone or a recount of known states.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

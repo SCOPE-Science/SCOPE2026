@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The unit-modulus rank-two lemma is independently reconstructible: two independent unimodular rows yield a phase ratio, and the affine modulus-one equation has at most two unit-circle roots unless a coefficient vanishes. This establishes an exhaustive row-class/column-class dichotomy. Character proportionality is exactly membership in the stated annihilator subgroups, yielding both directions of the minimum-rank identity, including rank one and rectangular boundary cases. For cyclic order \(3p\), four distinct elements cannot occupy a single \(p\)-residue fiber of size three. The resulting rank-two cases and the split \((1,3),(2,2),(3,1)\) are counted without overlaps. The attached exact integer checker independently tests all \(3969\) order-six rectangular restrictions and all \(1089\) ordered affine-orbit representative pairs at order 21; prime-field-to-complex lifting is justified by explicit cyclotomic norm bounds, not heuristic tolerance.
+## correctness
 
-## Originality — PASS under bounded comparisons
-The closest earlier published order-fifteen four-point rank census contains the special case \(4500\) but not the arbitrary-group equivalence or all-prime \(3p\) formula. Previous three-point semiprime classifications reuse an elementary three-by-three rigidity lemma but do not assert the rank-two dichotomy for every rectangular unimodular character table. The full inspected primary texts of Tao, Meshulam, Krahmer–Pfander–Rashkov and Delvaux–Van Barel (2006 report on Fourier matrices) concern full spark, uncertainty, small rank tables or constructive low-rank blocks; none states the necessary-and-sufficient arbitrary finite-abelian rank-two criterion. This is a bounded priority conclusion, not a uniqueness guarantee. The separate 2006 Kronecker-product paper was accessible only by abstract and may conceal an implicit implication.
+PASS
 
-## Value — PASS
-The finding turns an arbitrary low-rank Fourier sampling question into a test of explicit annihilator cosets, uniformly for all finite abelian groups and all nonempty rectangular selections. The sharp boundary at rank two separates subgroup-forced losses from more complicated higher-rank deficiencies. As a substantive application, a complete infinite-family four-point rank-two incidence classification at all cyclic orders \(3p\) follows from structural reasoning, not from extending an isolated numerical table. This is relevant to exact multiband Fourier interpolation and rank-defect diagnosis.
+In rank two choose independent unit-modulus rows u,v and write z_j=v_j/u_j. At most two ratio values imply at most two projective column classes, since each column is scaled from the evaluation of every row's two coefficients at that ratio. If at least three distinct values occur, every linear combination αu+βv that is an actual row must satisfy a constant real affine functional on at least three points of the unit circle; a nonconstant one has at most two. Hence αβ=0, giving at most two row classes. Rank one, including one-row or one-column shapes, has one class. Conversely at most two proportional classes in either direction bound the rank by two. For Fourier rows, proportionality means χ(r−s) is independent of χ∈C, exactly the H_C relation; the column condition is its K_R dual. This establishes the capped rank identity, not an exact rank above two. For 3p and four distinct indices no four-set lies in one mod-p fiber (capacity 3). Its differences generate the p-coordinate, and also the 3-coordinate unless the set is pure mod 3. Therefore H_C is trivial or the order-three subgroup, and likewise dually. Rank two means exactly one mod-3-pure side, opposite a set on two mod-p fibers; rank one is impossible. The two roles are disjoint because a mod-3-pure four-set has four distinct mod-p residues. The counts 3 binom(p,4) and (3+9+3) binom(p,2), multiplied by two, give the exact incidence law. The independent replay used exact cyclotomic determinants, not finite-field ranks, for all 3,969 nonempty rectangles at order six and affine-orbit weighted four-set pairs at orders 15 and 21, obtaining 4,500 and 66,150 rank-two pairs and no rank-one pairs at the latter two orders.
 
-## Closest literature and unresolved priority risks
-The prior third-minor results on distinct prime products and order \(3p\) give only triple restrictions; the order-fifteen fourth-minor census gives only one modulus. Delvaux and Van Barel describe constructive subgroup block tilings but the complete 2007 Kronecker-product article was not materially accessible. A not-yet-indexed equivalent of the low-rank rigidity lemma remains possible. None of these uncertainties changes the self-contained proof's defined scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the earlier exact order-15 census and earlier 3×3 incidence theorems. The supported contribution is the explicit finite-abelian all-rectangle coset criterion together with the exact occurrence classification and all-p 4×4 incidence formula. Do not credit the three-point unit-modulus obstruction as independently new. The known-three-point-lemma attribution is a material overlap risk, since the precise general 3×3 proportional-pair formulation would already imply the rectangular structural step. The available earlier statements establish size-three Fourier results and the single-modulus size-four census; they do not verify that decisive earlier formulation or the full all-p size-four implication.
+
+## value
+
+PASS
+
+The rank-two cutoff is a natural identifiability threshold for restrictions of a character table. The coset criterion replaces determinant searches by a direct structural test, and the 3p result gives the complete rank-two occurrence set and precise four-channel incidence over an infinite family, not merely a known small-modulus table or a singularity total that conflates defects. Value is assigned to this exact criterion and incidence, not to the elementary unit-circle observation by itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

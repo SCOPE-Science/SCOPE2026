@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:32:40.888961Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof; verify.py and verification_output.txt (read, not executed)"
+      ],
+      "rationale": "Each candidate supplies exactly two approval incidences, even at n=2. Each strict improver spends at least one such incidence, so a nonempty proposal needs at least n|T|/k voters but can reach at most 2|T|. If n=2k, a block forces equality: all approvers of each proposed candidate are among the improvers, all improvers have zero old utility and exactly one new approval. Either proposed candidate therefore lies at the centre of a vacant cyclic triple. Conversely, its singleton proposal and two approvers block with equality. When n=2 no such vacancy is possible; for k<3 at half budget there cannot be three vacant positions, while k=3 admits one and gives 14 of 20 stable committees. Distinguishing a chosen position gives 2k locations and an ordered list of k gaps of sizes 0,1,2 totaling k; divide by k, not by rotation or orbit size. The multinomial sum follows, and the uniform lattice law on {0,1,2} has span 1 and variance 2/3, giving the stated local-CLT constant after division by the central binomial coefficient. No inference from finite checks is needed.",
+      "residual_risks": [
+        "No audit of an extension to k>n/2 or any weaker blocking preference convention."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The three-quarter proof §2 gives both the below-half statement and the stronger JR-to-core regime. Becker et al. show existence in general; the other primary comparisons concern restricted domains, disjoint chains or formulations of existence."
+        ],
+        "reasoning": "The indexed proof is covering even though the primary general existence theorems do not imply exact membership.",
+        "searches": [
+          "Resultary 7f5b4dfc0244; 93699154001a",
+          "arXiv:2609.11912, 2108.01987, 2610.06871, 2512.16895"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7f5b4dfc0244, 93699154001a",
+        "arXiv:2609.11912, 2108.01987, 2610.06871, 2512.16895",
+        "OEIS A002426"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Covered membership determines exactly the cyclic fixed-weight binary words with gaps in {0,1,2}. The count of rooted words is 2k[z^k](1+z+z²)^k, and each unrooted labelled word has k markings."
+        ],
+        "reasoning": "Standard bounded compositions and the lattice local limit give the exact and asymptotic claims mechanically, even though the approval-specific numbers are not printed in the comparison.",
+        "searches": [
+          "7f5b4dfc0244 Proof §§1–2",
+          "OEIS A002426",
+          "Frozen RESULT.md §§Counting and Asymptotic incidence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "7f5b4dfc0244 uses ballots {i−1,i} rather than {i,i+1}, and exactly the strict utility improvement and Hare affordability inequality. Its proof §1 identifies JR with the vacant-triple test at half."
+        ],
+        "reasoning": "Index shift gives the same problem, rather than a related model, and JR violation blocks by the shared candidate.",
+        "searches": [
+          "Resultary: half-budget cyclic no-three-gap condition and universal core membership below half",
+          "‘cyclic’ ‘Hare core’ approval elections adjacent pairs committee core-stable"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching approval-core table surfaced; A002426 gives the standard central trinomial coefficient. The path-profile result counts PO+EJR and gives a different Poisson limit."
+        ],
+        "reasoning": "Neither the sequence entry alone nor the path-profile transfer matrix gives the Hare census; the extra factor 2 follows by rooting a selected position in the already characterized cyclic words.",
+        "searches": [
+          "Resultary: 2[z^k](1+z+z²)^k, half-budget cyclic forbidden triples",
+          "OEIS A002426; Resultary 93699154001a"
+        ]
+      },
+      "rationale": "The stated facts are correct, but the actual structural threshold results are covered by the proofs in the distinct indexed three-quarter-threshold record 7f5b4dfc0244. With voter indices shifted by one it is precisely the same profile, utilities and blocking rule. Its proof explicitly shows no blocking below half, equates JR to no vacant triple at and above half, and proves that every JR committee is core up to but not including 3n/4. Non-JR gives a direct singleton block at half. The restriction n≥4 excludes only the immediate small cases relevant here. The stated existence theorem of the comparison is not itself the complete membership result; its proof establishes the covering statements. The census is a direct cyclic-gap coefficient extraction from that covered criterion, and its asymptotic is the standard central coefficient divided by a central binomial coefficient. I find no nonmechanical remainder. The comparison entry has a later displayed date; this is a scientific coverage decision, not a claim of chronological precedence or independent rediscovery.",
+      "residual_risks": [
+        "No finding on historical priority is made. Primary passages with only abstracts were not read exhaustively; that cannot undo the verified implication from the indexed proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicitly covers structural statements, not an explicitly printed census",
+          "evidence": [
+            "Proof §1 gives JR iff no three consecutive unselected candidates at and above half.",
+            "Proof §2 gives the 4|T|/3 improver bound for JR and the 2|T| below-half bound."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-three-quarter-hare-core-separation-threshold-for-cyclic--7f5b4dfc0244/RESULT.md",
+          "material_read": "Finding, Assumptions, Proof §§1–2, offsets 0–5700",
+          "method": "Local Resultary mirror, statement and mathematical implication comparison",
+          "title": "A sharp three-quarter Hare-core separation threshold for cyclic two-approval elections",
+          "trigger": "Same graph and blocking law; possible stronger threshold"
+        },
+        {
+          "assessment": "Different counted object and domain",
+          "evidence": [
+            "Path with m−1 voters on adjacent pairs, PO+EJR, four-state transfer matrix and a cubic-root Poisson window."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-cubic-root-poisson-threshold-for-fair-and-efficient-interval-c--93699154001a/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A cubic-root Poisson threshold for fair and efficient interval committees",
+          "trigger": "Closest forbidden-run enumeration comparison"
+        },
+        {
+          "assessment": "General existence, not exact membership or counts",
+          "evidence": [
+            "Hare-core committees exist for all approval instances and are computable in polynomial time."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.11912v1",
+          "material_read": "Results at HTML offset 4350",
+          "method": "Open primary text",
+          "title": "Existence of the Core in Approval-Based Committee Elections",
+          "trigger": "Same strict Hare notion and general approval domain"
+        },
+        {
+          "assessment": "Restricted-domain existence statements differ from exact cyclic rule",
+          "evidence": [
+            "Algorithms assessed for approval linearly consistent or strict recursive single-top-crossing domains."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2108.01987",
+          "material_read": "Abstract and §4 at offset 47200",
+          "method": "Open primary text",
+          "title": "Core-Stable Committees under Restricted Domains",
+          "trigger": "Special-domain coverage candidate"
+        },
+        {
+          "assessment": "Candidate-disjoint chains, not the overlapping cyclic ballots",
+          "evidence": [
+            "Studies sizewise least-core margins."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.06871",
+          "material_read": "Abstract at offset 0",
+          "method": "Open primary abstract",
+          "title": "Exact Sizewise Least Cores for Candidate-Disjoint Approval Chains",
+          "trigger": "Related constrained approval structures"
+        },
+        {
+          "assessment": "Passage describes broad methods rather than this exact count",
+          "evidence": [
+            "Mixed-integer approach to core existence and special cases."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2512.16895",
+          "material_read": "Abstract at offset 0",
+          "method": "Open primary abstract",
+          "title": "On the Edge of Core (Non-)Emptiness",
+          "trigger": "General approval-core algorithmic comparison"
+        },
+        {
+          "assessment": "Exact coefficient sequence, not an election characterization",
+          "evidence": [
+            "a(n)=[x^n](1+x+x²)^n."
+          ],
+          "identifier_or_url": "https://oeis.org/A002426",
+          "material_read": "Definition and coefficient interpretation at offset 4050",
+          "method": "Public sequence entry",
+          "title": "Central trinomial coefficients",
+          "trigger": "Isolate the standard coefficient in the census"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Proof, Limitations",
+        "Resultary 7f5b4dfc0244 Proof §§1–2",
+        "OEIS A002426"
+      ],
+      "rationale": "The all-committees boundary and exact stability test are useful questions, but the strong same-profile comparison already resolves them. Once those are fixed, the balanced cyclic count and rate require just the standard marked-gap coefficient and a central coefficient asymptotic, with no remaining new structural constraint or separately motivated invariant not already mechanically implied. A narrower claim to the central-trinomial factor would not meet the scientific value bar.",
+      "residual_risks": [
+        "Other quota regimes or variants may pose genuinely distinct census questions; they are outside this finding."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

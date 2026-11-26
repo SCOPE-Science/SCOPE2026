@@ -2,7 +2,7 @@
 
 ## Finding
 
-In the two-opinion infection-induced-switching SIS model of Götz, Krüger, Niedzielewski, Schneider and Pabjan, specialize to equal susceptibility and zero infectivity for the second infectious opinion class. Along every positive asymmetric endemic equilibrium whose susceptible-opinion ratio is \(0<z<1\), the exact local asymptotic stability criterion is a **quadratic inequality** in a dimensionless endemic-prevalence parameter \(u>0\):
+In the two-opinion infection-induced-switching SIS model of Götz, Krüger, Niedzielewski, Schneider and Pabjan, specialize to equal susceptibility and zero infectivity for the second infectious opinion class. For any positive asymmetric endemic equilibrium whose susceptible-opinion ratio is \(0<z<1\), all eigenvalues of the simplex linearization have strictly negative real parts if and only if the following **quadratic inequality** holds in the dimensionless endemic-prevalence parameter \(u>0\):
 \[
 P_z(u):=A(z)u^2+B(z)u+C(z)>0,
 \]
@@ -14,7 +14,7 @@ B(z)&=(z+1)(z^4-3z+1),\\
 C(z)&=z(z+1)^2(2z^2-2z+1).
 \end{aligned}
 \]
-The equilibrium is linearly unstable when \(P_z(u)<0\); equality gives one negative eigenvalue and one purely imaginary conjugate pair. In particular, a ratio \(z\) permits exactly **two distinct positive spectral crossings** along this fixed-ratio family if and only if \(A(z)>0\), \(B(z)<0\), and \(B(z)^2>4A(z)C(z)\). These conditions characterize a natural region in the full parameter space, not merely an isolated numerical experiment.
+Thus \(P_z(u)>0\) implies local exponential stability within the simplex, and \(P_z(u)<0\) implies instability. Equality gives one negative eigenvalue and a nonzero purely imaginary conjugate pair; no nonlinear stability verdict is made at equality. A ratio \(z\) permits exactly **two distinct positive spectral crossings** along this fixed-ratio family if and only if \(A(z)>0\), \(B(z)<0\), and \(B(z)^2>4A(z)C(z)\). These conditions characterize a region of the two-parameter endemic family, not merely an isolated numerical experiment.
 
 For the exact ratio \(z=3/8\),
 \[
@@ -83,9 +83,9 @@ and the third Hurwitz determinant factors **exactly** as
 H:=(-\operatorname{tr}J)S_2(J)+\det J
 =\frac{u}{z^2(z+1)^3}\,P_z(u).
 \]
-For a real cubic characteristic polynomial \(\lambda^3+a_1\lambda^2+a_2\lambda+a_3\), the Routh–Hurwitz criterion is \(a_1>0\), \(a_3>0\), \(a_1a_2>a_3\). Here \(a_1=-\operatorname{tr}J>0\), \(a_3=-\det J>0\), and \(a_1a_2-a_3=H\). The last inequality also enforces \(a_2>0\), so no additional sign hypothesis is needed. This proves the exact stability criterion \(P_z(u)>0\). For \(P_z(u)=0\), the characteristic polynomial factors as \((\lambda-\operatorname{tr}J)(\lambda^2+S_2(J))\); since both trace and determinant are negative, \(S_2(J)=\det J/\operatorname{tr}J>0\), proving the asserted imaginary pair.
+For a real cubic characteristic polynomial \(\lambda^3+a_1\lambda^2+a_2\lambda+a_3\), the Routh–Hurwitz criterion for all roots to have negative real parts is \(a_1>0\), \(a_3>0\), \(a_1a_2>a_3\). Here \(a_1=-\operatorname{tr}J>0\), \(a_3=-\det J>0\), and \(a_1a_2-a_3=H\). The last inequality also enforces \(a_2>0\), so no additional sign hypothesis is needed. This proves the exact Hurwitz criterion \(P_z(u)>0\). For \(P_z(u)=0\), the characteristic polynomial factors as \((\lambda-\operatorname{tr}J)(\lambda^2+S_2(J))\); since both trace and determinant are negative, \(S_2(J)=\det J/\operatorname{tr}J>0\), proving the asserted imaginary pair. Conversely, a root on the imaginary axis cannot be zero (since \(a_3>0\)); substitution of \(i\omega\) with \(\omega\ne0\) forces \(a_2=\omega^2\) and \(a_3=a_1a_2\). Therefore \(P_z(u)<0\) gives a root in the open right half-plane. The equilibrium is interior, so the linearized stability and instability theorems apply in the reduced simplex coordinates for the strict signs, but do not decide nonlinear stability when \(P_z(u)=0\).
 
-**Two-crossing classification.** For every \(0<z<1\), \(C(z)>0\), since \(2z^2-2z+1=2(z-1/2)^2+1/2>0\). A quadratic \(A u^2+B u+C\) with \(C>0\) has two distinct *positive* zeros exactly when \(A>0\), \(B<0\), and \(B^2-4AC>0\): the discriminant gives real distinct roots, and their positive sum and product force both roots positive. This proves the parameter-domain statement.
+**Two-crossing classification.** For every \(0<z<1\), \(C(z)>0\), since \(2z^2-2z+1=2(z-1/2)^2+1/2>0\). A quadratic \(A u^2+B u+C\) with \(C>0\) has two distinct *positive* zeros exactly when \(A>0\), \(B<0\), and \(B^2-4AC>0\): the discriminant gives real distinct roots, and their positive sum and product force both roots positive. In the two-root case both are simple. At any such simple positive zero, \(H'(u)\ne0\) by the positive prefactor of \(P_z(u)\), and the implicit differentiation formula below shows transversality. Conversely any imaginary-pair crossing must be a zero of \(H\). This proves the parameter-domain statement.
 
 **Exact reentrance.** At \(z=3/8\) direct rational substitution yields
 \[
@@ -98,7 +98,7 @@ H&=\frac{u(200u^2-4741u+12342)}{11979}.
 \]
 The quadratic has discriminant \(11^2\cdot104161>0\), positive leading coefficient and positive constant, with two distinct positive zeros \(u_-\) and \(u_+\) stated above. Therefore \(H\) is positive below the first zero and above the second, and negative strictly between. Since \(S_2(J)>0\) everywhere on this family, the unstable interval has a right-half-plane complex conjugate pair, not a positive real eigenvalue. At either zero the pair is nonzero imaginary, and the third eigenvalue equals the negative trace.
 
-For transversality, use \(a_1=-\operatorname{tr}J\), \(a_2=S_2(J)\) and \(H=a_1a_2-a_3\). Implicit differentiation of the characteristic polynomial at \(\lambda=i\sqrt{a_2}\) gives
+For transversality, use \(a_1=-\operatorname{tr}J\), \(a_2=S_2(J)\) and \(H=a_1a_2-a_3\). This argument applies at fixed \(z\) to any zero of \(H\) with \(u>0\). The root \(i\sqrt{a_2}\) is simple, since the factorization separates it from the other two roots. Implicit differentiation of the characteristic polynomial there gives
 \[
 \left.\frac{d}{du}\operatorname{Re}\lambda\right|_{H=0}
 =-\frac{H'(u)}{2(a_1^2+a_2)}.
@@ -119,7 +119,7 @@ The classical Routh–Hurwitz criterion and general local spectral-crossing meth
 
 ## Limitations
 
-This is a deterministic, homogeneous-mixing, \(\alpha=0,\delta=1\) result. It does not describe cases with \(\alpha>0\), unequal susceptibility, stochastic finite populations, spatial spread, or global basins. It concerns the nonbalanced endemic branch with \(0<z<1\); other equilibria may coexist, including a stable disease-free state. Imaginary-pair transversality alone does **not** establish nonzero first Lyapunov coefficients, branch direction, actual periodic orbit existence, stability of oscillations, or global dynamical outcomes. Historical-priority comparison is literature-bounded and has not undergone independent review.
+This is a deterministic, homogeneous-mixing, \(\alpha=0,\delta=1\) result. It does not describe cases with \(\alpha>0\), unequal susceptibility, stochastic finite populations, spatial spread, or global basins. It concerns the nonbalanced endemic branch with \(0<z<1\); other equilibria may coexist, including a stable disease-free state. The sign test does not determine nonlinear stability on the neutral locus \(P_z(u)=0\). Imaginary-pair transversality alone does **not** establish nonzero first Lyapunov coefficients, branch direction, actual periodic orbit existence, stability of oscillations, or global dynamical outcomes. Historical-priority comparison is literature-bounded.
 
 ## References
 

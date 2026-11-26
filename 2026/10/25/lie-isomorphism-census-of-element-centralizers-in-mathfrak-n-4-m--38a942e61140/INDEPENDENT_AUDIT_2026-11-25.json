@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:37:36.861561Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Matrix-unit multiplication gives the three stated centralizer equations. With d nonzero the first and third simple-root coordinates are fixed by D, leaving an abelian kernel, of dimension three unless a=f=0, when it has dimension four. With d=0 and (a,f) nonzero, D=0 and the other equation cuts out a symplectic orthogonal hyperplane in the four noncentral coordinates; the restricted alternating form has rank two in every characteristic. With a=d=f=0 and (b,e) nonzero, the hyperplane is spanned by T=bE12+eE34 and the four-dimensional abelian ideal spanned by E23,E13,E24,E14. On that ideal ad_T has rank two; its square sends E23 to -2be E14 and is zero on the other generators. Thus the nilpotent operator has Jordan blocks (2,2) when 2be=0 and (3,1) otherwise, giving exactly the two listed Lie types over k. X itself has ad_X of rank one and square zero in both cases. Zero b and e in the last stratum leaves exactly the q central elements. Counting the disjoint coordinate cases gives the stated multiplicities and their sum q^6. An independent brute-force commuting-pair replay, factoring out the known central line and taking spans by scalar closure, confirmed all lower-central signatures over F2, F3 and F4: python3 /workspace/reproduce_3.py, output /workspace/reproduce_3.txt. The all-field Lie-isomorphism conclusion comes from the structural argument, not the signatures checked at three field orders.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Burkhart–Vella give 16 Borel orbits with defining locally closed equations and representatives in algebraically closed arbitrary characteristic; in particular the table separates the strata represented by E13, E24 and E13+E24.",
+          "Goodwin–Röhrle give Borel representatives and commuting-variety components in algebraically closed characteristic zero. Soffer studies conjugacy-class counts for unitriangular groups."
+        ],
+        "reasoning": "The orbit equations can organize point counts, and brackets can be evaluated at representatives. The orbit theorem is not an abstract Lie-type classification, and its field hypothesis does not supply rational conjugacy or descent by itself. In particular the three named orbits still remain separate in characteristic two in the table, which does not say that their centralizers coalesce by Lie type.",
+        "searches": [
+          "arXiv:1708.05042v1 Proposition 5 and type-A3 table",
+          "arXiv:1209.1289v1 §3.3",
+          "arXiv:1411.5389v1 §§1–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d23fa671bcf4",
+        "Resultary 12229b4f02ed",
+        "Resultary 0f3c26f9728b",
+        "arXiv:1708.05042v1",
+        "arXiv:1209.1289v1",
+        "arXiv:1411.5389v1",
+        "arXiv:1901.07869v1",
+        "Anil Kumar–Prajapati 2015 institutional preprint",
+        "arXiv:2608.09235v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The embedded record gives the actual hyperplane row (-e,0,0,0,b) for a=d=f=0; its parametrization by [b:e] is genuine structural coverage.",
+          "One has to restrict the bracket to that hyperplane: ad_T on its abelian ideal has rank two but square proportional to -2be. Thus projective coordinate-axis points, non-axis points and the field characteristic affect the abstract classification even though rank, dimension and embedded fibre counts alone cannot separate them."
+        ],
+        "reasoning": "The rowspaces provide inputs for a derivation, not a published classification of their brackets. Multiplying embedded-fibre counts cannot produce the Lie multiplicities without the additional bracket analysis and identifying which kernels have the same Lie type. The available Borel table is also a route to the result, not a finite-field theorem implying the characteristic-dependent merger without this further step.",
+        "searches": [
+          "Resultary: odd/even rank-one class transition in the strictly triangular Lie algebra",
+          "Resultary d23fa671bcf4, Finding and Proof Cases 1–4",
+          "arXiv:1708.05042v1 pp. 8–9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the algebra group 1+N, C_{1+N}(1+X)=1+C_N(X), since the group factors commute exactly when XY=YX. Equality of the resulting embedded subgroups is thus equality of the embedded kernels.",
+          "Anil Kumar–Prajapati classify such equality on the d=0, af nonzero subcase into q^2(q-1) fibres with q(q-1) elements per fibre. Bhunia treats conjugacy of group centralizers in the invertible triangular group over an infinite field in characteristic other than two."
+        ],
+        "reasoning": "The algebra-group correspondence gives real overlap for the embedded kernels on that subcase; it does not identify all fibres producing abstractly isomorphic Lie algebras. Embedded equality, conjugacy of subgroups, and abstract Lie isomorphism are different invariants.",
+        "searches": [
+          "Resultary: abstract Lie-isomorphism census of element centralizers in n_4",
+          "arXiv:1901.07869v1 z-classes",
+          "Anil Kumar–Prajapati, Maximal Non-commuting Sets in UU_4(F_q), §4.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact embedded-centralizer spectrum (d23fa671bcf4) counts q+1 distinct hyperplanes with q(q-1) elements per hyperplane, and gives all other exact kernel-fibre sizes over every finite field.",
+          "The group-order table in Majeed–Ramkumar on prime fields has a single order-p^5 row. The same-day hits 12229b4f02ed and 0f3c26f9728b study Nijenhuis operators and involutive automorphisms respectively, not the abstract element-centralizer census."
+        ],
+        "reasoning": "The embedded centralizer table gives the dimension-indexed element totals after multiplication. It does not group the q+1 hyperplanes by internal bracket type. The prime-field order table also cannot distinguish the two five-dimensional types. Those separate Lie entries were not found in the inspected tables.",
+        "searches": [
+          "Resultary: exact finite-field type multiplicities for strictly upper-triangular 4 by 4 matrices",
+          "Resultary: s5, f4 plus k, h3 plus k centralizer types",
+          "Resultary d23fa671bcf4",
+          "arXiv:2608.09235v1 Table 1"
+        ]
+      },
+      "rationale": "The distinct contribution is the bracket-level element census, especially the characteristic-dependent splitting within one adjoint Jordan stratum. Dimension rows and their totals are not distinct from the embedded spectrum; the commuting equations and much of the coordinate organization are also available there. The examined structural classifications make the calculation possible, but do not give the internal Lie-type equivalences or characteristic-two fusion. Passing is limited to the bracket-level classification and its type multiplicities, not a priority claim for rank or kernel counts.",
+      "residual_risks": [
+        "The embedded-kernel parametrizations and explicit Borel orbit equations are close. A separate specialist computation could have already evaluated their internal Lie types.",
+        "Published-catalog dates do not determine lineage. The primary comparisons do not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact embedded kernels and fibre counts; no internal type labels",
+          "evidence": "q+1 hyperplanes, each with q(q-1) elements per fibre, with no split into class two and class three.",
+          "identifier_or_url": "Resultary 2026/11/8, d23fa671bcf4",
+          "material_read": "RESULT.md theorem, scope and rowspace classification, especially the five-dimensional projective family",
+          "method": "Archived primary text, including opening offset 0 and Case 1 near offset 2944",
+          "title": "Exact embedded-centralizer spectrum of the strictly upper-triangular four-by-four algebra",
+          "trigger": "Strongest same-object and same-field structural comparison"
+        },
+        {
+          "assessment": "Representative and point-count inputs, without the abstract Lie census",
+          "evidence": "16 algebraically closed Borel orbits, with coordinate conditions and dimensions; E13, E24 and E13+E24 are separate orbit representatives.",
+          "identifier_or_url": "arXiv:1708.05042v1",
+          "material_read": "Proposition 5 and type-A3 orbit table, PDF pp. 8–9",
+          "method": "OA primary PDF, offsets 23400–27839 including 23500",
+          "title": "Defining Equations of Nilpotent Orbits for Borel Subgroups of Modality Zero in Type An",
+          "trigger": "Possible stronger orbit classification in all characteristics"
+        },
+        {
+          "assessment": "Characteristic-zero Borel geometry, not all finite fields and internal types",
+          "evidence": "16 Borel orbit representatives are used to analyze commuting-variety components.",
+          "identifier_or_url": "arXiv:1209.1289v1",
+          "material_read": "Abstract and §3.3, PDF pp. 1 and 6",
+          "method": "OA primary PDF, offsets 0 and 18650",
+          "title": "On commuting varieties of nilradicals of Borel subalgebras of reductive Lie algebras",
+          "trigger": "Commuting-variety and type-A3 orbit comparison"
+        },
+        {
+          "assessment": "Substantive embedded equality overlap, not abstract Lie types",
+          "evidence": "On a23=0 and a12 a34 nonzero, q^2(q-1) distinct centralizers and q(q-1) elements per equality fibre.",
+          "identifier_or_url": "https://www.isibang.ac.in/~statmath/eprints/2015/1.pdf",
+          "material_read": "§4.5 Observation 21 and Lemma 22, PDF pp. 10–12",
+          "method": "Institutional OA preprint, offsets 33100–37529",
+          "title": "Maximal Non-commuting Sets in Unipotent Upper-triangular Linear Group UU_4(F_q)",
+          "trigger": "Same finite n=4 algebra-group kernels"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "The work bounds conjugacy-class counts and uses dimensions of spaces of commuting transformations.",
+          "identifier_or_url": "arXiv:1411.5389v1",
+          "material_read": "Abstract and §§1–2, PDF pp. 1–3",
+          "method": "OA primary PDF, offsets 375 and 4902–8881",
+          "title": "Upper bounds on the number of conjugacy classes in unitriangular groups",
+          "trigger": "Potential group census implication"
+        },
+        {
+          "assessment": "Different notion of type, ambient algebra and field scope",
+          "evidence": "Group centralizers in the invertible triangular group counted up to conjugacy over an infinite field of characteristic other than two.",
+          "identifier_or_url": "arXiv:1901.07869v1",
+          "material_read": "Definition, theorem and §3",
+          "method": "OA primary PDF, pp. 1–2, 6; offsets 670, 4880, 14500",
+          "title": "Conjugacy classes of centralizers in the group of upper triangular matrices",
+          "trigger": "Possible equivalent terminology via z-classes"
+        },
+        {
+          "assessment": "Order/dimension overlap over prime fields",
+          "evidence": "Lists coordinate strata for the orders, with no bracket distinction within order p^5.",
+          "identifier_or_url": "arXiv:2608.09235v1",
+          "material_read": "Table 1, PDF p. 4",
+          "method": "OA primary PDF, offsets 9813–13274",
+          "title": "Majeed–Ramkumar group-centralizer order table for UT(4,p)",
+          "trigger": "Exact table at n=4"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In the natural smallest strictly triangular matrix Lie algebra with a class-three bracket, dimensions and adjoint Jordan type leave open a concrete internal-structure question. The exact census resolves it: two nonisomorphic five-dimensional types coexist under the same odd-characteristic adjoint Jordan data and become one type in characteristic two. The abundance and loss of the class-three type are not consequences of merely knowing the distribution by dimensions. This makes the small census a useful finite-field structural benchmark rather than a duplicate of rank data.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

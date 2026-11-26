@@ -1,19 +1,21 @@
-# Scientific assessment: mortal Brownian conditional first-passage fluctuations
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact renewal transform, conditioning on exponential survival, and differentiated mean and variance are derived with consistent Brownian normalization. The key difference of variance and squared mean is a positive multiple of \(B(z)-m\). The proof establishes strict positivity of the second derivative, the unique maximum of \(B\) by an infinite-series coefficient sign argument, and counts all intersections within the physical constraint \(z>\sqrt m\). At \(m=1\), zero resetting is explicitly excluded from the count of positive rates. The standalone checker independently confirms exact symbolic identities, the original published moment formulas, and numerical brackets. Its finite checks are not offered as proof of the global result.
+PASS
 
-## Originality
+Renewal at the first reset gives the immortal transform 1/(1+qA(q+ρ)); independent exponential mortality tilts this transform to φρ(m+u)/φρ(m), normalized by the probability of success. Logarithmic differentiation gives V−M²=−(2A′+mA″)/(1+mA). Since A″=H/(4z⁶)>0 for z>0 by H′=e^z(z²−3z+3)>0 and H(0)=0, the sign of CV−1 is that of B(z)−m, with z=√(m+ρ). Expanding the numerator of B′ gives G/z²=−6 plus positive powers with positive coefficients: g₄,…,g₁₀ are positive directly, and for n≥11 P(n)≥30 and a doubling induction shows 30·2ⁿ>16n³+320n. Thus G/z² has one positive simple zero, and B has a strict nondegenerate maximum; B″(zc)=−4zcG′(zc)/H(zc)²<0. At the boundary z=√m the sign follows from B(z)−z²=z³e^z(1−z)/H(z). Together with B(1)=1, zc>1, mc<zc², and the subsequent zero of B, this proves the counts and signs, including the excluded zero-rate equality at m=1 and the admissible double root at mc. The high-precision independent check recovered mc≈1.10642822093643738483 and ρc≈0.28424024613180761599 and both rates at m=1.05; it compared moments at 12 parameter pairs. Replay: /workspace/branches/46a31644-dec4-48b3-8590-ae91fd3d2fa3/independent_crossing_check.py. The supplied check.py and verification notes were read, not executed; the infinite coefficient argument, not a finite scan, proves uniqueness.
 
-PASS, qualified. Radice (arXiv:2211.16173; Phys. Rev. E 107, 024136) provides the same model and explicit moment formulas, and numerically locates disappearance of the unit-CV rate near \(m=1.1\), but does not state the two-positive-crossing interval \(1<m<m_c\), a global zero-count certificate, or the exact tangency constant. Reuveni's universal optimal-reset CV result is about unconditional mean optimization, and Belan's work about successful outcome probability optimization; these do not classify the present zero count. An independently published reset-distance reentrance concerns a different physical parameter in a different model. The highly relevant original paper's full HTML sections, including the discussion of Eq. (87), Fig. 4 and the appendix-linked results, were inspected. Risk remains that the exact claim has been deduced elsewhere from the already-published formulas or that a broader unindexed theorem covers it; failure to find such coverage does not certify publication priority.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The original model's numerical study treats a unit-CV rate as a single design point. This theorem reveals a narrow but open interval of death rates with *two* such design points and a three-phase sign sequence. It provides a complete exact boundary, a sharp tangency rate, and physical scaling for all starting distances and diffusion coefficients. This is a natural and interpretable conditional-search reliability question, not a selected arbitrary numerical slice. It does not optimize the mean, probability of success, or more general reset laws.
+Radice has the same conditional moments and a numerical investigation of the equality, including the approximate upper mortality cutoff. The supported distinct claim is the global admissible-root classification, the exact single-maximum characterization and double-root threshold, and the nonempty two-positive-crossing regime for the same-start reset rule. No match other than the assigned record itself states this classification in the inspected sources.
 
-## Limits and closest literature
+## value
 
-The claim is a proof-level refinement, not an assertion of a new physical process. The 2022/2023 Radice study is exceptionally close and supplies its essential transform; this is explicitly acknowledged. Direct specialist priority assessment is still outstanding. Only constant-rate Poisson resetting, exponential death, point target and return-to-start resetting are included.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact classification resolves a narrow qualitative regime easily lost in numerical searches: two positive rates delimit a higher-relative-fluctuation window when both zero and large reset rates give sub-unit conditional CV. The proof establishes the unique boundary and its multiplicity for all admissible mortalities and corrects a single-crossing reading of the prior numerical treatment without making an optimization claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

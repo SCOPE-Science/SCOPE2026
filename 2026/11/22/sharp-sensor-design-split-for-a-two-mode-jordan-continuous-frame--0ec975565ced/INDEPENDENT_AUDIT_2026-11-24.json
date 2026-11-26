@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:15:45.566523Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The half-line moments yield W=|v|²M(w)/(2a), with det M=r² and trace 1+r²+|w|². Thus v≠0 is necessary and sufficient and the condition number is minimized uniquely at w=0. For a unit sensor set d=1+|w−r|²; the determinant of M−dI/2 is one quarter of 4r²−(1+r²+|w|²)²+4r²(Re w)², the stated negative square. At determinant zero the smaller eigenvalue reaches d/2 only for the nonnegative real root: the negative root at r>1 has d>2; the positive root has d<2 and gives a positive semidefinite rank-one difference. At r=1 the roots merge and the difference is zero. Sensors with v=0 have zero lower bound; compactness gives a strictly sub-ceiling maximum for r<1 and the positive real-direction derivative at w=0 for r≠1 proves the split. RESULT.md lines 31–49 suffice for exact replay; the unspecified supplemental numerical trial is unnecessary. No subcritical optimum value is established or claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The f399b33924d9 finding gives a stronger finite-time conditioning law for the same Jordan system.",
+          "The semigroup-to-cogenerator correspondence transfers existing bounds but does not perform Euclidean unit-sensor optimization. The adjacent catalogue hits concern diagonal or discrete-time dynamics, not the joint Jordan design."
+        ],
+        "reasoning": "The finite-time formulas dominate the conditioning calculation, while the normalization-sensitive lower-bound criterion is not supplied by these results.",
+        "searches": [
+          "Resultary: f399b33924d9, 4c44e6e23704, 0ffcc7242b3f",
+          "arXiv:2611.13867, PDF introduction and Theorem 2.11"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Resultary 0ec975565ced (same record), f399b33924d9 (original statement), 4c44e6e23704 and 0ffcc7242b3f (catalogue comparisons)",
+        "Bailey–Gallardo-Gutiérrez–Partington, arXiv:2611.13867"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The finite-horizon minimizer is (−bμ_T,1) and minimum max(ρ_T,ρ_T⁻¹). As T→∞, μ_T→1/(2a) and ρ_T→(b/(2a))². The bound holds pointwise for each generating direction and the limiting direction attains it; tightness is possible precisely at r=1.",
+          "The lower bound A_T displayed there is evaluated at the condition-optimal sensor, not maximized over unit sensors."
+        ],
+        "reasoning": "The conditioning benchmark should be credited to an immediate limiting implication; the certificate for a different normalized objective and the equality/strict split for that objective do not follow from that implication.",
+        "searches": [
+          "f399b33924d9/RESULT.md, Finding and scope (mirror offset 68–3289)",
+          "arXiv:2611.13867, PDF introduction and Theorem 2.11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The objective is the smallest eigenvalue of the single-input infinite-horizon controllability Gramian at unit input direction (E-optimal design), not just its condition number.",
+          "Finite-horizon record f399b33924d9 explicitly excludes the smallest eigenvalue with an absolute gain constraint."
+        ],
+        "reasoning": "Changing from frames to Gramians preserves the optimization, but minimizing the eigenvalue ratio does not maximize the lower eigenvalue once the fixed unit-sensor denominator depends on direction.",
+        "searches": [
+          "Resultary: stable two-mode Jordan continuous orbit sensor design, condition number versus unit lower frame bound",
+          "Bailey–Gallardo-Gutiérrez–Partington, arXiv:2611.13867, cogenerator and Jordan passages"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact combined claim returned under 0ec975565ced is the same finding, not independent coverage; the other exact Jordan design record has a different objective and horizon."
+        ],
+        "reasoning": "No separate applicable catalogue formula for the unit-sensor lower-bound phase was established in the examined hits; this is not a database-wide absence claim.",
+        "searches": [
+          "Resultary: 2026/11/22/SCOPE-sharp-sensor-design-split-for-a-two-mode-jordan-continuous-frame--0ec975565ced",
+          "Resultary: 2026/11/22/SCOPE-a-unique-finite-tightness-horizon-for-damped-jordan-orbit-frames--f399b33924d9"
+        ]
+      },
+      "rationale": "The distinct contribution is the exact unit-norm lower-bound ceiling, its attainment branch, and its comparison with condition-number design. The conditioning formula, optimizing direction, and existence threshold for half-line tightness are already implied by the same-day finite-horizon design statement; no separate originality credit is given to those components. This is coverage, not a claim about which record came first.",
+      "residual_risks": [
+        "The bounded primary-literature search did not establish comprehensive coverage of older continuous-time E-optimal, single-input Gramian results. An equivalent result under a control-design formulation remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial exact coverage of conditioning through the infinite-time limit; no claim of priority inferred from the shared date.",
+          "evidence": "μ_T and ρ_T formulas; scope expressly excludes optimizing smallest eigenvalue under an absolute gain constraint.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-unique-finite-tightness-horizon-for-damped-jordan-orbit-frames--f399b33924d9/RESULT.md",
+          "material_read": "Finding, exact formulas and Assumptions and scope, offset 68–3289",
+          "method": "Resultary hit followed by original filed statement in local mirror",
+          "title": "A unique finite tightness horizon for damped-Jordan orbit frames",
+          "trigger": "Same dynamics and shared condition-number optimization"
+        },
+        {
+          "assessment": "Verified transfer and model-space background; the read statements are not a unit-sensor optimization theorem.",
+          "evidence": "Cogenerator orbit uses (I−A)⁻¹φ, not a unit-sphere-preserving transformation in general; bounds differ by a factor of 2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.13867",
+          "material_read": "PDF introduction on pp. 1–2 and Theorem 2.11 opening on p. 6; literal Jordan lookup as a locator",
+          "method": "Lawful arXiv PDF after unsuccessful HTML route",
+          "title": "Frames Associated with C₀-Semigroups",
+          "trigger": "Cited continuous-frame transfer theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The comparison settles a concrete sensor-design question for a basic nonnormal family: balancing the Gramian and protecting the weakest observable direction disagree except at one coupling. The exact ceiling and unique attaining branch for r≥1 give a usable performance certificate for the unit-norm objective; the subcritical conclusion is strict separation, not a formula for its optimum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

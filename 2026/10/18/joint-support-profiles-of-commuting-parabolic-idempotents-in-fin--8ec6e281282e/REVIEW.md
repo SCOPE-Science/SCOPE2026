@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The uniform formula follows from the published connected-component commutation criterion and an explicit two-family inclusion–exclusion for each occupied component. The path generating function follows from a unique run decomposition. The stated characteristic roots yield the recurrence solution and asymptotic conclusion. The included checker tests the actual parabolic 0-Hecke actions for symmetric and hyperoctahedral groups and independently reconstructs each support-profile coefficient in finite examples.
+## correctness
 
-**Originality — PASS within inspected sources, subject to access risk.** Sentinelli's 2018 Propositions 3.3–3.5 already give exactly the commutativity criterion, so it is not a novel contribution. The claim concerns the uniform graph-polynomial enumeration and complete three-support distribution including the product, together with a rational trivariate path series. The 2018 and 2020 accessible Sentinelli documents and 2026 Berenstein–Greenstein–Li treatment were inspected at the relevant material and did not give these enumerations. Targeted mathematical searches and published-finding corpus returned no directly equivalent formula. The 2020 graph-universality paper by Sentinelli has an accessible abstract but its complete primary text remained unavailable; an equivalent enumeration in that paper or in graph-spin literature is a specific residual risk.
+PASS
 
-**Value — PASS.** Commuting idempotents form a canonical subsemigroup invariant of the finite 0-Hecke monoid, and the triple-support profile refines both the number of commuting pairs and the parabolic support size of their product. The formula works uniformly across all finite Coxeter types, not merely a single small example. In connected type, the full-support count is universally \(2^{m+1}-1\); in path type, a rational trivariate series yields exact rank-by-rank counts and exponential rarity of commuting pairs. This is a complete natural enumerative invariant motivated by the noncommuting graph previously studied in the cited literature, not a renaming of the commutativity test.
+Use the established pairwise commutation test for the connected components of I and J. The inclusion-maximal members of this combined collection are disjoint and have no edges between them: on the same side this is by definition, and on opposite sides meeting or adjacent members would have to be nested. Thus these maximal members are exactly the components of I∪J. Conversely, on each union component one factor then contains the full parabolic idempotent, which absorbs the other by its descents; different components commute. For fixed union U, the two allowed membership families in each component give the two binomial weights, with the all-both term subtracted once. On paths, split the configurations into the empty path, a vacancy followed by any configuration, or an occupied run followed by nothing or a vacancy and any configuration. This gives F=1+xF+Q(1+xF), including A_0. At u=v=w=1, 1+Q=1/((1−x)(1−2x)), so F=1/(1−4x+2x²). The union-full count for a connected graph is its single component weight evaluated at 1, and the path proportion decays since 2+√2<4.
 
-**Closest prior work and limits.** Sentinelli (2018), Propositions 3.3–3.5 and Theorem 3.7, is decisive prior art for the criterion; Sentinelli (2020), Remark 4.17, is relevant to graph structure; the author's 2020 graph-universality article has an unresolved full-text comparison. Independent validation was not performed, and an equivalent unindexed count is possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the uniform three-support polynomial across finite Coxeter graphs. The enumerand and the underlying commutation criterion are not new. The type-A projection to Catalan monoid idempotents gives a considerably closer overlap than coincident numerical totals: the known gap-word proof reweights directly to the type-A formula. Do not give independent novelty credit to that specialization, the Catalan product-rank marginal, or the unweighted recurrence. The all-graph joint count uses an additional induced-component reorganization of the general pairwise commutation test, which is not supplied by the path gap result or the numerical tables. No covering all-type weighted statement was established in the available comparisons.
+
+## value
+
+PASS
+
+The supports are intrinsic parabolic ranks of the two commuting factors and their product, so the three-variable profile distinguishes questions that a total, clique spectrum or one product-rank marginal cannot answer. The uniform formula converts a pairwise compatibility problem to one weighted sum over induced subgraphs, gives joint counts by rank on branching and reducible diagrams, and makes edge-label independence explicit. That is a useful exact count beyond the known path enumeration, even though its proof is short.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

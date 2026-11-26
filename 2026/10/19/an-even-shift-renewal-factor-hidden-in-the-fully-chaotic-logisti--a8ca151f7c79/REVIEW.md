@@ -1,15 +1,21 @@
-# Review of the logistic quarter-threshold even-process realization
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The exact semiconjugacy \(x=\sin^2(\pi u)\) takes the logistic dynamics to circle doubling; a six-interval Markov partition maps under strong lumping to the displayed three-state stochastic matrix. The direct proof recovers every word probability, verifies geometric renewal gaps, establishes symbolic entropy from almost-sure state recovery, and calculates frequency pressure by an explicit tilted characteristic polynomial. The finite-state Markov large-deviation theorem gives the stated rate function; its boundary cases follow by continuity and direct cylinders. Independent exact-rational word calculations through length eleven, tilt characteristic identities, and covariance checks returned `VERIFY_OK`. Experiments are not used as infinite proofs.
+## correctness
 
-## Originality
-**PASS at best-knowledge priority, with explicit risks.** The classical stochastic Even Process, its infinite Markov order, and its standard entropy theory are not new; Travers–Crutchfield (2014), Figure 1, gives its full probability-parameter family. Prior full-parameter Chebyshev threshold results already imply the simple covariance identity. The narrowly asserted contribution is the natural \(1/4\)-threshold realization in the logistic map, identification of its entire stationary word law, and its concrete observable-dependent frequency pressure and deviation profile. Karamanos–Mistakidis–Mistakidis arXiv:1608.05876v1 examines a different logistic parameter and the critical-point partition. Searches for a quarter-threshold even shift or an equivalent Markov-factor formulation did not identify an earlier identical construction. MacKernan–Nicolis 1994 and Froyland–Junge–Ochs 2001 could only be inspected at abstract/bibliographic level and constitute a residual priority risk. Failure to find an identical result is not definitive proof of originality.
+PASS
 
-## Value
-**PASS for an explicit geometric-symbolic classification, not for a new abstract process.** The threshold is dynamically motivated: it is the nonfixed preimage of the logistic map's nonzero fixed point, and the distinguished observation is measurable as a natural state-above-threshold sensor. The full logistic map has entropy \(\log2\), but that coarse observation produces the strictly sofic even shift with topological entropy \(\log\varphi\), measure entropy \((2/3)\log2\), and a nontrivial pressure/rate profile. Identifying this exact hidden-process realization answers a substantive information-loss and symbolic-model question, although it does not extend to arbitrary thresholds or establish a general new hidden-Markov theorem.
+Uniform u under x=sin²(pi u) pushes forward to normalized arcsine measure; doubling has the indicator of (1/6,5/6) as the sensor. Successive inverse cylinders for the six equal arcs have masses (1/6)2^-(length-1), because each admissible itinerary maps bijectively onto its last arc with the appropriate constant slope. Thus the six-cell transition law is exact, and combining reflection pairs {0,5},{1,4},{2,3} gives a strong lumping with the frozen P and stationary weights. Only state A emits zero. From A or C, a fair choice either emits zero next or starts the deterministic B,C pair, giving the odd geometric gaps and renewal independence. The labeled support admits precisely even one-runs between zeros, with golden-ratio growth; the past last zero and parity recover the state a.s., and the two random rows give entropy (2/3)log 2. The all-one cylinder recurrence gives the stated alternate continuation probabilities, excluding finite Markov order. The tilted characteristic polynomial is z(z²-z/2-e^(2t)/2); its Perron eigenvalue gives the SCGF and differentiable Gärtner–Ellis applies (finite on all real t), with the stated Legendre values at 0 and 1 and zero at 2/3. The eigenvalue -1/2 yields the covariance and the stationary finite-state CLT variance 8/27. Boundary orbits are null. The uploaded script was read, not run; its finite checks are not used for any of the infinite claims.
 
-## Literature and limitations
-The Feigenbaum-parameter paper is arXiv:1608.05876v1, the canonical Even Process is documented in Travers–Crutchfield (2014, doi:10.3390/e16031396) and *Spectral simplicity of apparent complexity II* (2017, doi:10.1063/1.4986248), and general coarse-graining frameworks are MacKernan–Nicolis 1994 and Froyland–Junge–Ochs 2001. The 2017 Even Process treatment confirms abstract infinite Markov order as known prior work. Inaccessible plausible full texts and the possibility of an unindexed specific threshold identification remain real priority risks. No independent audit has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the established Even Process, its abstract word/renewal structure and infinite Markov order, the generic finite-state pressure and coarse-graining methods, and the covariance specialization. The evidence supports a distinct identification of this exact process as the quarter-threshold factor of the invariant fully chaotic logistic map, with a specified observable and its explicit frequency profile. The nearest inspected sources involve different observables or a different logistic parameter. This is a bounded assessment, not exclusive historical priority.
+
+## value
+
+PASS
+
+The threshold is selected intrinsically as the distinct preimage of the nonzero fixed point. Its complete law gives a simple deterministic source with demonstrably infinite output memory, explicit return and observation lengths, and exact occupation fluctuations. This is useful when memory, symbolic support or deviations of a measured scalar time series cannot be read off from the ambient map's full entropy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

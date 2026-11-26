@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:50:50.788123Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In homogeneous coordinates (t,u,v,w) on e1=0, write (X0,...,X4)=(t+u,t+v,t+w,t-u-v-w,t). Then e2=Q and e3=3tQ+C in characteristic five; thus the scheme is globally the projective cone over (Q,C), not just its displayed affine chart. The Gram matrix of Q is nonsingular modulo five, and each of the three cubic factors cuts the conic in two simple rational points; no pair of factors shares a point on the conic. The CI ideal is saturated, so the six reduced points give exactly six reduced projective lines and the vertex is the only singular point. The graded normalization is the product of six k[s], so the Hilbert series (1-t²)(1-t³)/(1-t)³ gives normalization length 5+3+1=9. The normalization of the projective fibre and count 1+6·5=31 follow. Replay: independent_check_1.py independently evaluates the equations on all 625 parameter quadruples modulo five and returns the six listed directions and 31 projective points; the scheme and length conclusions are algebraic, not inferred from finite points. Frozen checker inspected, not run. Frozen attestation, audit and Lean fields record not_performed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 01e405ef1ff6 additionally determines the conductor as m³. Serre treats the good-reduction range p≠2,5 and the characteristic-two fibre; he does not identify this fibre at 5 in those passages. Braden–Northover introduces the classical equations and coordinate permutation symmetry."
+        ],
+        "reasoning": "Published statements about characteristic two or the generic genus-four curve do not supply the characteristic-five claim, but the earlier local Resultary computation covers it and gives a stronger local invariant.",
+        "searches": [
+          "Resultary: Bring's curve bad reduction prime 5 decomposition six concurrent lines",
+          "Serre, Topics in Galois Theory §8.3.2(d,e)",
+          "Braden–Northover, arXiv:1206.6004 §1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 01e405ef1ff6, 83cf15f4acd3, 46cde1663e18",
+        "Serre §8.3.2",
+        "Braden–Northover arXiv:1206.6004",
+        "arXiv:2208.13692 (literal reduction-related lookup only)",
+        "Frozen RESULT.md, VERIFICATION.md and verify_bring5.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "01e405ef1ff6 gives the reduced concurrent rational components and the same graded calculation."
+        ],
+        "reasoning": "Taking the disjoint union of the normal components gives the normalization and counting their rational points with the common vertex identified gives 31. Neither adds a distinct result to the earlier scheme computation.",
+        "searches": [
+          "Resultary 01e405ef1ff6, Finding and normalization calculation",
+          "Serre §8.3.2(d)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 01e405ef1ff6 Finding and proof, offsets 0–3635: six reduced F5 lines through [1:1:1:1:1], same local Q and cubic, six directions on the smooth conic."
+        ],
+        "reasoning": "By Newton's identities the elementary symmetric and power-sum ideals agree in characteristic five, since 2 and 3 are units. This is an equality of embedded schemes, not merely two models of the same generic curve.",
+        "searches": [
+          "Resultary: Bring curve characteristic 5 six concurrent lines special fibre",
+          "Resultary: e1=e2=e3 Bring curve F5 six rational lines delta invariant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 01e405ef1ff6, offsets 3900–6065, explicitly computes defect 9 and Hilbert ranks 1,3,5,6 stabilized at six. Resultary 83cf15f4acd3 and 46cde1663e18 also have the six-line and defect calculation, but are later records."
+        ],
+        "reasoning": "There is a matched exact calculation in the result index, not just a similar point count or an entry about a different fibre.",
+        "searches": [
+          "Resultary: Bring curve characteristic five singular special fiber integral model root coordinates"
+        ]
+      },
+      "rationale": "An earlier distinct Resultary record establishes the same characteristic-five scheme and local invariants under the equivalent power-sum presentation; it also gives the conductor. Normalization and the finite point count add only immediate consequences of the same six rational concurrent lines.",
+      "residual_risks": [
+        "Scholarly priority beyond the inspected sources was not established. Literal misses in arXiv:2208.13692 are not negative full-text evidence.",
+        "No conclusion about the stable or regular model follows; the comparison is for this embedded fibre."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage, with a stronger conductor statement",
+          "evidence": "Six F5 lines at the diagonal point; six reduced directions on a smooth conic; normalization defect 9; the same exact Hilbert ranks.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-the-six-line-characteristic-five-reduction-of-bring-s-curve-and--01e405ef1ff6/RESULT.md",
+          "material_read": "Finding and proof, offsets 0–3635 and 3900–6065",
+          "method": "Bounded local mirror reads",
+          "title": "The six-line characteristic-five reduction of Bring’s curve",
+          "trigger": "Same model, characteristic and local invariants"
+        },
+        {
+          "assessment": "Relevant background, not coverage at five in these passages",
+          "evidence": "Power sums; good reduction exercise excludes 2 and 5; semistable description at 2.",
+          "identifier_or_url": "https://www.ms.uky.edu/~sohum/ma561/notes/workspace/books/serre_galois_theory.pdf",
+          "material_read": "Chapter 8 §8.3.2, printed pp. 86–87, especially (d,e)",
+          "method": "Bounded OA passage read",
+          "title": "Topics in Galois Theory",
+          "trigger": "Classic exercise on reduction of the same embedded curve"
+        },
+        {
+          "assessment": "Defines the model; no characteristic-five description in this passage",
+          "evidence": "Power-sum complete intersection with S5 acting by permutations.",
+          "identifier_or_url": "https://arxiv.org/pdf/1206.6004",
+          "material_read": "§1 p. 1 and equation (1.1)",
+          "method": "Bounded OA passage read",
+          "title": "Bring’s Curve: its Period Matrix and the Vector of Riemann Constants",
+          "trigger": "Classical equation and coordinate realization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The bad-fibre structure and local invariants would be worthwhile for this natural model, but those computations are already covered. The point count and normalization are immediate from the prior rational-line description; the frozen record supplies no distinct scientific gain.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

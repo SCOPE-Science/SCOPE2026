@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:12:47.058041Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–54; VERIFICATION.md; census_q4.cpp, forward_q4.cpp, results_a.txt, results_b.txt, geometry_q4.py, geometry_result.txt and witness.txt",
+        "Independent replay: python3 /workspace/branches/finite_reconstruction.py cube; /workspace/branches/cube_run.txt"
+      ],
+      "rationale": "The bit-mask update is exactly (E,R) -> (T(E) outside E union R, E); the threshold counts the four Hamming-distance-one neighbors. In my separate vectorized enumeration of every ternary state, I found the first t with F^(t+4)(x)=F^t(x), or would have rejected the bound if any state did not have such a t by 7. An equality certifies recurrence and holds from first entry if it holds later. Shorter return tests yielded only periods 1 and 4. All eleven nonzero depth/period cells agree with both frozen outputs; canonical phases give one fixed point and eighteen four-orbits and all 18 individual basin sizes match. The exact depth-seven count is 19200; the explicit trajectory from ternary index 88458 reproduces all nine witness rows through its first fixed phase at 7. The equality F^11=F^7 is certified by enumeration and the witness proves F^10 differs from F^6. The coordinate permutations and translations are the full group: a stabilizer of 0 permutes its four neighbors, determining any vertex from its distance to 0 and to those neighbors. Applying all 384 permutations to every recurrent phase gives class sizes 6 and 12, and XOR closure of the direction sets checks the four disjoint affine two-flats, including the stated equality pattern of their directions. Their basins are 676 (parallel) and 644 (alternating). I also verified the 72 nonconstant recurrent transitions are unchanged by adding antipodal edges; this says nothing about their full basins on the folded cube.",
+      "residual_risks": [
+        "Exact finite verification for this labelled graph and synchronous rule, not a proof on higher cubes or a re-audit of the Clebsch basin census. Frozen programs were inspected, not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former contains the local rule family, including the three-color nearest-neighbor threshold-two parameters. The latter's finite-graph synchronization theorem activates at one excited neighbor."
+        ],
+        "reasoning": "The family parameterization does not enumerate finite torus attractors, and the synchronization theorem uses a genuinely different activation rule.",
+        "searches": [
+          "Fisch–Gravner–Griffeath DOI 10.1007/BF01890834, §1; Gravner–Lyu–Sivakoff arXiv:1610.07320v1, Eq. (1) and Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary baa09c19e0b4 and d99b448f2f7e",
+        "Fisch–Gravner–Griffeath DOI 10.1007/BF01890834; Gravner–Lyu–Sivakoff arXiv:1610.07320v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With vertices 1 and 15 excited and 0 resting, vertex 0 fires in the Clebsch update but not in the Q4 update. The independently matched recurrent transitions concern only the 18 Q4 orbits, not the transient graphs."
+        ],
+        "reasoning": "The known larger-graph census cannot be specialized by simply deleting the antipodal neighbor. Even orbit persistence in one direction and equal individual basin sizes establish neither a complete selection of cycles from the prior table nor inherited entry times or basin membership.",
+        "searches": [
+          "Clebsch Finding and Assumptions, baa09c19e0b4; exact unmodified-Q4 threshold-one Finding d99b448f2f7e; 1991 threshold-range rule"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "d99b448f2f7e recognizes the equivalent torus and cube graph but uses threshold one; baa09c19e0b4 adds generator 15 to generators 1,2,4,8."
+        ],
+        "reasoning": "Q4=Q2 square Q2 and Q2=C4, so the stated torus alias preserves adjacency. Neither increasing the threshold nor adjoining the antipodal matching is a relabelling of the update.",
+        "searches": [
+          "Resultary and focused primary-literature search: three-state threshold two on four-cube, tesseract, Q4 and C4 square C4 periodic 4-by-4 torus",
+          "Resultary d99b448f2f7e, baa09c19e0b4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The threshold-one Q4 record has periods 1,3,4,10 and depth 11. The Clebsch record has 30 parallel and 60 twisted four-waves with basins 676/644 and depth 7."
+        ],
+        "reasoning": "These are exact tables on distinct maps. In particular the Clebsch table does not count the surviving 6+12 waves under edge removal or their Q4 basins.",
+        "searches": [
+          "Resultary d99b448f2f7e (same graph/alias) and baa09c19e0b4 (same threshold and size); Q4 threshold-two orbit, basin and sharp entry aliases"
+        ]
+      },
+      "rationale": "The exact threshold-two census on the unmodified four-cube is supported as distinct within the inspected evidence. There is significant overlap with the same-day Clebsch finding: the per-orbit basin sizes and seven-update cutoff coincide, the geometry is related, and every Q4 four-wave persists under folding. The Clebsch claim nevertheless concerns a different map, with 90 orbits, not 18; it does not give the Q4 counts, selection of cycles or entry histogram. I do not infer order or priority within that date.",
+      "residual_risks": [
+        "Intra-day order of the compared Clebsch and cube findings is not established. Durrett–Griffeath patt-sol/9303002 returned 404 on the attempted route and was not inspected in full. No claim to exclude unindexed exact torus enumerations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong same-day overlap, different graph; no intra-day priority finding",
+          "evidence": [
+            "Additional antipodal matching; 30 parallel and 60 twisted orbits vs. 6 and 12; same 676/644 and 7."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-two-geometric-four-wave-families-survive-threshold-two-excitatio--baa09c19e0b4",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Local archive bounded passage",
+          "title": "Two geometric four-wave families survive threshold-two excitation on the Clebsch graph",
+          "trigger": "Same 16 vertices, threshold, sharp time and individual basin numbers"
+        },
+        {
+          "assessment": "Same graph, threshold one",
+          "evidence": [
+            "The threshold-one period spectrum includes 3 and 10 and the relaxation bound is 11."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-primitive-excitation-periods-on-the-four-cube-an-exact-finite-st--d99b448f2f7e",
+          "material_read": "Finding and rule",
+          "method": "Local archive bounded passage",
+          "title": "Primitive excitation periods on the four-cube: an exact finite-state census",
+          "trigger": "Exact four-cube/toroidal-lattice census"
+        },
+        {
+          "assessment": "General wave/rule framework, not the exact finite labelled table in the inspected passages",
+          "evidence": [
+            "The nearest-neighbor range is the four cardinal directions; threshold and color count are separate parameters."
+          ],
+          "identifier_or_url": "https://www.math.ucdavis.edu/~gravner/papers/fgg.pdf",
+          "material_read": "Abstract and §1 (journal pp. 23–24, offsets 0 and 6100)",
+          "method": "Open primary PDF bounded passages",
+          "title": "Threshold-range scaling of excitable cellular automata",
+          "trigger": "Canonical threshold-two planar rule"
+        },
+        {
+          "assessment": "Not the threshold-two rule",
+          "evidence": [
+            "A single excited neighbor suffices in Eq. (1)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1610.07320v1",
+          "material_read": "§1 Eq. (1) and §2 Theorem 3, offsets 0 and 13000",
+          "method": "Open primary HTML bounded passages",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Finite-graph theorem for three-color excitation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, recurrence census and phase geometry; independently enumerated results; two exact comparison records"
+      ],
+      "rationale": "The standard four-cube and its smallest square-torus realization with C4 factors make a natural controlled case for changing threshold and adjacency. The full labelled invariant separates the two possible affine phase geometries, quantifies how rare their attraction is, and proves that all oscillatory basins stabilize by depth two while extinction transients reach depth seven. These precise structural and basin facts give a reusable benchmark and a base case for comparisons with the threshold-one and folded-cube models, not just a state count.",
+      "residual_risks": [
+        "No claim of basin membership equivalence with Clebsch, a formula for higher dimensions, or a universal effect of increasing the threshold."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

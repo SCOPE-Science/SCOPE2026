@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:50:08.936325Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The partially contracted normalized tensor has squared Frobenius norm S_h. Conditioned on its predecessor and writing lambda_i for the reshaped contraction's squared singular values, S_h has the law sum_i lambda_i chi²_(r,i)/r with sum_i lambda_i=S_(h-1). Its conditional second moment is S_(h-1)^2+(2/r)sum_i lambda_i^2, at most (1+2/r)S_(h-1)^2. Centered Jensen over the PSD spectral decomposition transfers both single-probe and conditional-mean variance bounds to every trace-one target. The last core gives conditional fourth moment 3S_(d-1)^2, and conditioning on the shared cores gives the exact two-term variance decomposition. Every separable direction makes each conditional map rank one, attaining both bounds simultaneously. The ratios then have conditional laws independent of the preceding tensor, so the same shared prefix multiplies independent suffix factors. This verifies the finite law, almost-sure random limit and persistent MSE for the stated coupling, including k=0, k=d-1, L=1 and r=1. The gamma-ratio expansion around zero and log(1+2/r) yield the proportional limits under exactly the stated scalings. Replay of the independent proof: reviews/evidence/tt_moments.md. The frozen checks were inspected but not executed and do not establish generality. No pointwise exact variance formula is claimed for arbitrary PSD targets.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "TT trace concentration averages independent complete TT vectors; its rank condition is for concentration. TT subsketches discussed in the sketching paper are applied independently to summands.",
+          "Exact Gaussian Kronecker moments and rank-one product-vector methods handle independent factors, not a general bond-rank shared completion experiment."
+        ],
+        "reasoning": "A result for independent probes, or an inner factorization into independent mode factors when r=1, does not cover the shared-prefix joint law for arbitrary bond rank. Partial contractions used inside a single sketch do not automatically induce this coupling across probes.",
+        "searches": [
+          "arXiv:2606.15679v1 Theorem 7",
+          "arXiv:2603.11009 Sections 5.2 and 5.2.1",
+          "arXiv:2309.04952 Theorem 1; arXiv:2004.06433 Lemma 2.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.15350v1",
+        "arXiv:2606.15679v1",
+        "arXiv:2603.11009",
+        "arXiv:2309.04952",
+        "arXiv:2004.06433",
+        "Resultary 24eab12f65d4 and de93365fc409"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-probe tools can be reused to bound the squared prefix norm via an auxiliary Gaussian completion. Independent averaging gives the known k=0 endpoint exactly.",
+          "No inspected passage supplies the cross-probe conditional factorization as a random scale shared by the whole average or the nonzero limit when L tends to infinity at fixed nonempty prefix."
+        ],
+        "reasoning": "The individual moments are ingredients; an argument analyzing the coupling is necessary to obtain the joint law, separable sharpness for both marginal and common variance, and the corresponding order-dependent error floor. Marginal moments alone do not identify the joint law.",
+        "searches": [
+          "Compare arXiv:2606.15350v1 exact marginal fourth-moment tensor and arXiv:2606.15679v1 Theorems 5, 7 with the shared-prefix finite law and limits",
+          "Compare the two indexed Gaussian TT variance records under their actual sampling assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Normalized Gaussian rMPS and Gaussian TT probe entries are contractions of the same independent Gaussian cores up to the stated normalization; the existing real marginal variance bound is 3(1+2/r)^(d-1)-1 with a separable equality witness.",
+          "The frozen joint experiment shares k cores across probes; having this same marginal law for each probe does not mean that experiment is independent."
+        ],
+        "reasoning": "The probe names do not distinguish the single-probe theorem. The scientifically distinct object is the family of coupled probes and the exact dependence on k and L.",
+        "searches": [
+          "Gaussian TT trace estimation shared core prefix and cross-probe variance; Resultary and primary literature",
+          "Camaño–Epperly–Meyer–Tropp arXiv:2606.15350v1, Definition 1.1 and Theorems 1.2, 4.3, 4.6",
+          "Bujanović–Kressner–Olić arXiv:2606.15679v1, Lemma 4 and Theorem 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/18/SCOPE-sharp-site-order-variance-law-for-three-core-gaussian-tensor-tra--24eab12f65d4 gives a one-probe formula and mode-ordering rule for three-core product-PSD targets.",
+          "2026/11/2/SCOPE-exact-gaussian-tensor-train-coordinate-covariance-and-optimal-mi--de93365fc409 gives within-vector squared-coordinate covariance and exact variance with independent TT samples for diagonal targets."
+        ],
+        "reasoning": "These exact formulas are for other observables or sampling designs; neither is a table, formula or census for cross-probe shared-core variance. The later path date is not read as evidence of priority or lack of coverage.",
+        "searches": [
+          "Resultary semantic searches for sharp exact Gaussian TT covariance and mode/core reuse",
+          "Inspect both closest indexed Gaussian TT results"
+        ]
+      },
+      "rationale": "Two primary papers already cover the marginal Gaussian TT or rMPS sharp variance, and independent averaging covers k=0. The strongest indexed exact alternatives concern one-probe order dependence and one-vector coordinate covariance with independent probes. None of the inspected results analyzes the joint shared-prefix law, finite-probe random-scale factorization and resulting persistent worst-case floor. That coupled-law contribution is the basis of the pass, not the known marginal moment tools or the independent-probe specialization.",
+      "residual_risks": [
+        "Bounded semantic and primary searches cannot rule out equivalently formulated Gaussian shared-sketch analyses elsewhere.",
+        "The known sharp marginal moment and independent-probe endpoint receive no novelty credit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sharp single-probe envelope covered; no shared-prefix estimator in the inspected statements",
+          "evidence": "Isotropy, exact fourth-moment tensor and real variance envelope attained by a separable direction.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.15350v1",
+          "material_read": "Definition 1.1 p. 5; Theorems 1.2, 4.3 and 4.6 pp. 7, 29, 32",
+          "method": "OA primary PDF model and theorem passages",
+          "title": "Gaussian rMPS quadratic-form moment and variance analysis (Camaño, Epperly, Meyer and Tropp)",
+          "trigger": "Equivalent Gaussian probe representation and exact variance"
+        },
+        {
+          "assessment": "Known sharp marginal moment and independent estimator; different joint model",
+          "evidence": "Separable equality in the marginal bound; Theorem 7 assumes independent whole probes.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.15679v1",
+          "material_read": "Lemma 4, Theorem 5 and Theorem 7, pp. 5 and 7–9",
+          "method": "OA primary PDF theorem passages",
+          "title": "Stochastic trace estimation with tensor train random vectors",
+          "trigger": "Closest primary trace-estimation result"
+        },
+        {
+          "assessment": "Different sketch sampling and objective",
+          "evidence": "Independent partial sketches applied to summands; no repeated Hutchinson shared-prefix joint theorem in these passages.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.11009",
+          "material_read": "Sections 5.2 and 5.2.1, pp. 15–16",
+          "method": "OA primary PDF sketch-construction passages",
+          "title": "Linear-Scaling Tensor Train Sketching",
+          "trigger": "Potential pricing-free alias in Gaussian TT sketch reuse"
+        },
+        {
+          "assessment": "Independent-factor rank-one probe variance",
+          "evidence": "The exact variance is for a Kronecker product of independent Gaussian factors.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.04952",
+          "material_read": "Theorem 1, p. 4",
+          "method": "OA primary PDF theorem passage",
+          "title": "Hutchinson's Estimator is Bad at Kronecker-Trace-Estimation",
+          "trigger": "Exact Gaussian structured trace-variance comparison"
+        },
+        {
+          "assessment": "Different joint setup",
+          "evidence": "Independent product factors in a rank-one norm estimation argument.",
+          "identifier_or_url": "https://arxiv.org/abs/2004.06433",
+          "material_read": "Lemma 2.1, p. 3",
+          "method": "OA primary PDF lemma passage",
+          "title": "Norm and Trace Estimation with Random Rank-one Vectors",
+          "trigger": "Rank-one product-vector special case"
+        },
+        {
+          "assessment": "One-probe, three-core mode-order problem",
+          "evidence": "Exact V_chi(p,q,r) for product-PSD targets and optimal mode reordering, with no cross-probe reuse.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-site-order-variance-law-for-three-core-gaussian-tensor-tra--24eab12f65d4",
+          "material_read": "Mirrored RESULT.md, Finding and Assumptions from offset 0",
+          "method": "Local semantic search and mirrored statement inspection",
+          "title": "Sharp site-order variance law for three-core Gaussian tensor trains",
+          "trigger": "Closest indexed exact TT variance law before the assigned record path date"
+        },
+        {
+          "assessment": "Coordinate rather than shared-core cross-probe covariance",
+          "evidence": "Three-state transfer law within one Gaussian TT vector and independent-probe variance for diagonal targets.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-gaussian-tensor-train-coordinate-covariance-and-optimal-mi--de93365fc409",
+          "material_read": "Mirrored RESULT.md, Finding and Assumptions from offset 0",
+          "method": "Local semantic search and mirrored statement inspection",
+          "title": "Exact Gaussian tensor-train coordinate covariance and optimal mixtures",
+          "trigger": "Closest indexed exact Gaussian TT covariance result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Reusing initial cores is a natural structured-probe design. Knowing its exact worst-case variance, rather than only that some correlation arises, shows when suffix resampling cannot make the estimator consistent, quantifies the rank/order tradeoff, and provides a concrete worst-case family and law. This concerns accuracy under reuse, not a claimed improvement in cost or performance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

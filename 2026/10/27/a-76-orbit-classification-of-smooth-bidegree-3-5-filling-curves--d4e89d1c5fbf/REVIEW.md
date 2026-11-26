@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The nine rational-point evaluation equations have rank nine on the 24-dimensional bidegree-\((3,5)\) space, yielding exactly \(2^{15}\) filling forms. Two constructions of this full space agree. Rational nonsingularity screening leaves 5,832; exact four-chart Gröbner tests classify geometric smoothness, and independently implemented characteristic-two polynomial reduction tests all 5,832 candidates without orbit shortcuts. The full 36-element product projective group then yields the 76 orbit representatives. The genus and geometric integrality conclusions follow from adjunction and positive intersection of divisors of complementary bidegrees.
+## correctness
 
-**Originality — PASS, qualified.** The directly relevant Homma–Kim work (arXiv:2203.11595) proves the minimal bidegree and gives existence examples, not the complete smooth bidegree-\((3,5)\) count or orbit distribution. The later Ahammed–Campbell–Moon paper (arXiv:2512.02796) studies the minimal-degree family in other characteristics; its computational table is not this family. Genus-six catalogues and projective-three-space complete intersections do not cover these genus-eight embedded forms. A search of indexed research records and relevant full-text mathematical papers did not locate equivalent coverage. This does not exclude unindexed computations, unpublished tables, or later independent priority.
+PASS
 
-**Mathematical value — PASS.** The first increase beyond Homma–Kim's minimal asymmetric bidegree \((3,4)\) yields genus-eight curves of the smallest field in a natural, exhaustible family. The result gives the *complete* embedded smooth filling-curve count, 76 equivalence classes, and stabilizer spectrum, addressing the arithmetic geometry of the filling property rather than an arbitrarily selected curve. It separates rational nonsingularity (5,832) from geometric smoothness (2,304), illustrating a genuine classification obstruction.
+Nine evaluations have rank nine: the exponent choices {0,1,3} in X and {0,1,5} in Y give tensor-product interpolation bases, leaving 15 free coefficients. Local first derivatives screen exactly for smoothness at those nine points. I independently interpolated the full space, applied all 36 invertible matrix pairs to each orbit representative, and tested the affine Jacobian ideal for being the unit ideal (lex F5B over F2), together with univariate gcd tests on the two boundary lines and evaluation at their common corner. Over an algebraic closure a proper ideal has a common zero, so this checks geometric smoothness, not just points of small extension degree. Replay obtained 32768 vectors including zero, 5832 rationally smooth vectors, 206 screened orbits, then 2304 geometrically smooth vectors in 76 orbits of sizes 36, 18, 12, 6 with multiplicities 55, 15, 3, 3. The fixed-point sum is 2736, and all representative masks and sizes match the frozen CSV. A reducible smooth divisor would have disjoint components; any nontrivial partition of an effective divisor class of bidegree (3,5) has positive intersection, excluding that possibility. Adjunction gives genus (3-1)(5-1)=8.
 
-**Limitations.** Equivalence is under \(\operatorname{PGL}_2(\mathbf F_2)^2\) on ordered factors, not abstract curve isomorphism. The algebraic closure is handled by ideal-unit certificates, not bounded finite-field point searches. Publication-priority uncertainty remains for uncatalogued earlier computation. This evaluation is not independent expert review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier work supplies the rational-point ideal and nearby smooth filling examples or exact censuses of other bidegrees. The inspected statements do not give or force this binary asymmetric bidegree-(3,5) census and stabilizer distribution.
+
+## value
+
+PASS
+
+This is a complete classification at the first asymmetric bidegree beyond the binary minimal (3,4) with first degree fixed at 3. The underlying genus-eight curves fill nine points and carry the two specified projections. The exact census, representatives and stabilizer distribution provide a usable benchmark for binary filling curves and for comparison of embedded families, rather than merely another existence example or a sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

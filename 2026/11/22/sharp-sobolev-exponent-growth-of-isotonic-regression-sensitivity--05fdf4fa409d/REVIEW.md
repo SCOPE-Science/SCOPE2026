@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The argument identifies all local affine matrices by strict PAVA block partitions. Its step-input computation yields nonnegative gradient-transfer matrices with column sums at most one and row sums at most \(n/2\). An elementary Hölder/Schur estimate supplies the all-exponent global upper bound; explicit strictly complementary two- and three-block chambers supply finite-pair lower witnesses and exact endpoints. The remaining all-exponent limit follows from uniform relative bounds. Rational partition enumeration and direct PAVA experiments corroborate rather than replace these infinite-family deductions.
+## correctness
 
-## Originality — PASS, qualified
-The earliest verified archival source arXiv:1211.3930 establishes isotonic regression and variation/order machinery but not this gradient-\(\ell_p\) sharp asymptotic. arXiv:1503.08458 studies order-isotone projection. The later arXiv:1706.01852 gives qualitative nonexpansivity criteria, which do not entail the sharp growth rate and constant for noncontractive gradient seminorms. The closest catalogued item `fcdc0a30-e6a2-48d5-98e9-6c97f0cbfe8c` exactly resolves \(p=2\), but that one exponent cannot determine the full phase diagram and the uniform leading coefficient. The \(p=1\) fact is attributed rather than asserted as new. Residual risk: an unindexed historical paper might contain the full general-p statement, and the complete 2006 Pešta thesis could not be accessed; its abstract indicates a distinct Sobolev-function estimation problem.
+PASS
 
-## Mathematical value — PASS
-The result supplies the sharp dimension-growth exponent and leading coefficient simultaneously for every discrete Sobolev exponent. It quantifies how Euclidean least-squares isotonic projection can be stable in edge total variation but arbitrarily unstable in all stronger \(\ell_p\)-gradient seminorms, with a one-sample relative finite-size accuracy. The two boundary concentration mechanism gives concrete worst-case adversarial perturbations and a uniform stability benchmark that neither the qualitative contraction criterion nor the isolated Hilbert-exponent solution provides.
+In the stated unweighted Euclidean projection on a path, translation equivariance makes the gradient quotient well-defined. The chamber map Q is averaging on consecutive blocks; each gradient column of DQD⁻¹ is obtained by taking output gradients of a unit step. For adjacent blocks of lengths m,l this gives a boundary row with nonnegative ramp weights, central entry one and row sum (m+l)/2. The two contributions of an internal edge to neighboring boundary rows add to one before missing endpoint rows are discarded; a separating edge contributes one. Weighted Hölder and these column/row bounds give (n/2)^(1−1/p), including p=1; the row sum gives p=∞ directly. The finitely many closed affine cells partition each line segment into subsegments on which these estimates apply, including a segment lying on cell boundaries. Strict chambers with decreasing raw data inside pooled blocks and distinct ordered means give genuine finite witnesses: the block pattern (1,n−2,1) sends a ramp to a gradient with two equal entries (n−1)/2, yielding the lower bound, and (1,n−1) attains the infinity upper bound. The latter's row has entry one plus a further positive entry for n≥3, so its dual p-norm bound is strictly above one for p>1, even at n=3. The increasing chamber yields equality at p=1, and n=2 follows from its upper bound and the identity chamber. Dividing by (n/2)^(1−1/p) gives the uniform error at most 1/n. No complete finite interior-p formula is claimed. Read RESULT.md:3–57, VERIFICATION.md and check_isotonic_wp.py without executing uploaded code; the independent_matrix_check.py and .log in /workspace/branches/49ed2a84-f4f4-492d-aba9-c2ac3ab8e796 corroborate exact row/column sums and genuine fitted pairs for bounded n, with floating evaluation of selected p-norm ratios. The general conclusion comes from the analytic argument.
 
-## Limitations
-Intermediate finite-dimensional constants are not claimed exact, nor are unequal masses, other graph orders, or other fidelity models. Similar unpublished or unindexed estimates could affect priority. Independent mathematical assessment is still needed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the sharp uniform all-exponent leading constant with explicit finite two-sided error, the sharp infinity endpoint and the contraction/expansion transition for this two-input derivative seminorm. The TV endpoint and the Hilbert-exponent coefficient have existing coverage and are not separately credited. The available recognized value-space results and these special exponents do not supply the matching bounds uniformly over all exponents.
+
+## value
+
+PASS
+
+Isotonic projection is contractive on values and in gradient TV, but the bias this suggests for stronger gradient seminorms is wrong. The exact infinity gain, failure at each p>1 even in the shortest nontrivial dimension, and quantitative all-exponent interpolation with a matching leading constant give a sharp stability benchmark for arbitrary input perturbations. Uniform relative error controls exponents varying with dimension, not just one fixed exponent at a time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:39:41.132969Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the shifted problem write Δ=uvᵀ with u unit and v=pu+qJu. The trace/determinant conditions are independently recovered as p≤−2α and α²+b²+αp−bq≥0; every pair (p,q) is realizable and its norm is √(p²+q²). Thus the problem is projection of zero onto two half-planes. At b=0 the determinant is at most −α² in the trace-feasible region. For 0<b<α the feasible coordinates obey p≤−2α and q≤(b²−α²)/b<0, both closest-to-zero bounds attained together, giving (α²+b²)/b and forcing nonsymmetry. Both invariants then vanish and C is nonzero (entry b in the (u,Ju) basis), so C²=0 and C is defective. For b≥α the closest trace-feasible point is (−2α,0), with determinant b²−α², giving exactly the symmetric minimizers and nilpotent/imaginary boundary cases. Unrestricted trace–Frobenius equality forces −α I. For passive Δ the invariants give precisely the stated interval and its strict interior; above the upper endpoint the margin fails (actual zero-margin instability at the shifted threshold only when δ=0). Arbitrary rank-one strict feasibility for b>0 follows by lowering p by ε and q by more than αε/b; strict unrestricted feasibility follows by increasing the scalar correction. Trace equality is necessary at each finite closed optimum, proving nonattainment and giving the strict infima; b=0 remains infeasible. The frozen exact-arithmetic checker and recorded assertions were inspected, not executed. Separate reproduction `python3 /workspace/checks/frozen_math_checks.py 1` passed for sampled trace/determinant coordinates, nilpotent endpoints and overdamping. The analytic half-plane argument, not sampling, establishes the complete profile.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guglielmi–Sicilia formulate strict Frobenius stabilization and a structured variant, then use a rank-adaptive ODE algorithm. The older Guglielmi–Lubich abstract covers rank constraints in the general matrix-nearness problem; the full article was unavailable."
+        ],
+        "reasoning": "A broad formulation or algorithm permits instances of the objective but is not a general exact theorem that yields the weak/passive distance and equality cases by substitution.",
+        "searches": [
+          "arXiv:2402.14657v1 §1, equations (1) and (4)",
+          "Web literature: Matrix Stabilization Using Differential Equations Guglielmi Lubich full text pdf rank constraint"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked search and matching local Finding passages",
+        "arXiv:2402.14657v1",
+        "DOI 10.3934/math.2024931",
+        "DOI 10.1137/16M1105840 available abstract and OA attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The available strict/general nearness results do not yield a fixed-rank threshold or distinguish the nonzero nilpotent minimizers from the purely imaginary case. The two trace/determinant inequalities themselves are standard."
+        ],
+        "reasoning": "Credit the established objective, unrestricted scalar trace argument and elementary tools. The distinct part is solving the rank-one distance globally, including feasibility and equality/boundary geometry; the ODE formulation does not itself perform that classification.",
+        "searches": [
+          "Resultary: minimum norm rank-one matrix perturbation stability disk 2x2 rotation dilation exact closed form",
+          "arXiv:2402.14657v1 §1 and examples",
+          "DOI 10.1137/16M1105840 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "He–Liu treat constrained regional eigenvalue assignment in a second-order gyroscopic system, with sensitivity optimization. The close catalogue entry on CARE spectral truncation minimizes over replacements Y acting through A−GY."
+        ],
+        "reasoning": "A first-order representation of a second-order pencil does not identify its constrained feedback variables or cost with a free Frobenius additive 2×2 correction. CARE replacement variables and costs are likewise different.",
+        "searches": [
+          "Resultary: minimum Frobenius norm rank-one additive stabilization of real 2x2 planar rotation dilation matrix aI+bJ freely oriented correction exact threshold",
+          "Resultary: rank-one matrix stabilization norm-nearest perturbation planar rotation dilation weak strict stability passive negative semidefinite",
+          "He–Liu, DOI 10.3934/math.2024931"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected close distinct findings 2026/11/22/SCOPE-a-sharp-rank-one-stabilization-cost-after-spectral-truncation-of--2139fec1d52c and 2026/10/13/SCOPE-sharp-reentrant-mean-square-stability-of-randomized-damped-shear--b467b674b3e7. Neither available Finding concerns the stated optimization profile."
+        ],
+        "reasoning": "A strict Frobenius CARE replacement cost is not this additive distance; a randomized splitting mean-square stability interval is not a correction minimization. No exact table entry was identified in the bounded search.",
+        "searches": [
+          "Resultary: aI + bJ rank one stabilization Frobenius norm margin threshold",
+          "Resultary: exact Frobenius minimum rank-one perturbation stabilize matrix real planar rotation aI+bJ",
+          "Resultary: low-rank matrix stabilization rank-one cost compared with unrestricted nearest stable matrix"
+        ]
+      },
+      "rationale": "The general minimum-Frobenius stabilization objective and standard 2×2 eigenvalue and determinant tools are established. The supported distinct result is the exact fixed-rank cost and full optimizer/passive/strict classification for the real rotation–dilation model. No inspected prior statement covers that profile mechanically; the most plausible inaccessible source is explicitly noted.",
+      "residual_risks": [
+        "The 2017 SIAM paper is strongly relevant and its full text was inaccessible; a precise equivalent example there remains possible.",
+        "Comparable closed forms under other structured-nearness or feedback terminology cannot be ruled out by this limited search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established problem class and numerical method; inspected material supplies no exact fixed-rank planar threshold",
+          "evidence": [
+            "Equation (1) is strict margin; (4) imposes a matrix-subspace constraint. Examples include Smoke, Toeplitz and Brusselator matrices."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2402.14657v1",
+          "material_read": "Abstract and §1, equations (1), (4), offsets 0 and 2200; example passages near offsets 31396 and 42000",
+          "method": "OA HTML targeted passages",
+          "title": "Stabilization of a matrix via a low rank-adaptive ODE",
+          "trigger": "Frobenius stabilization with adaptive rank"
+        },
+        {
+          "assessment": "Different dynamical system and optimization",
+          "evidence": [
+            "Second-order gyroscopic pencil and rank-one control with pole sensitivity analysis."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/math.2024931",
+          "material_read": "Open journal PDF p. 1, offsets 868–4054",
+          "method": "OA PDF introductory statement and scope",
+          "title": "A robust regional eigenvalue assignment problem using rank-one control for undamped gyroscopic systems",
+          "trigger": "Rank-one regional stabilization of rotating systems"
+        },
+        {
+          "assessment": "General problem precedent; full-text exact-case coverage unresolved",
+          "evidence": [
+            "Accessible abstract describes nearest stabilization and constraints. SIAM/GSSI requests were denied and Tübingen did not load; a landing page is not full text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/16M1105840",
+          "material_read": "Abstract and repository/landing metadata only",
+          "method": "Targeted web literature search; attempted lawful OA at SIAM, GSSI and Tübingen; JSTOR landing view",
+          "title": "Matrix Stabilization Using Differential Equations",
+          "trigger": "Most plausible prior source on norm-nearest rank-constrained stabilization"
+        },
+        {
+          "assessment": "Distinct replacement optimization",
+          "evidence": [
+            "PSD rank-at-most-one replacements Y for a specified CARE solution; the strict-stability matrix is A−GY."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-rank-one-stabilization-cost-after-spectral-truncation-of--2139fec1d52c",
+          "material_read": "RESULT.md opening Finding, offset 0",
+          "method": "Local mirror",
+          "title": "A sharp rank-one stabilization cost after spectral truncation",
+          "trigger": "Strongest same-cost catalogue match"
+        },
+        {
+          "assessment": "Different dynamics and invariant",
+          "evidence": [
+            "Randomized splitting and mean-square stability, not additive Frobenius-nearest corrections."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-sharp-reentrant-mean-square-stability-of-randomized-damped-shear--b467b674b3e7",
+          "material_read": "RESULT.md opening Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Sharp reentrant mean-square stability of randomized damped shears",
+          "trigger": "Planar rotation stability catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp distance and minimizer classification for the basic rotating unstable mode is a useful low-rank nearness benchmark. It quantifies the rank penalty, which diverges as rotation vanishes despite a fixed unrestricted cost, and distinguishes a fragile defective optimum from passive feasibility and its upper amplitude cutoff. This is not a higher-dimensional or fixed-actuator stabilization theorem, nor a robustness guarantee.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

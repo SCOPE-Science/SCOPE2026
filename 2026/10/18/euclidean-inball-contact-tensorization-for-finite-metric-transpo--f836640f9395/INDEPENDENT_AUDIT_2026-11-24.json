@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:26:53.659865Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The edge-root directions span the zero-sum hyperplane, and central symmetry gives an interior origin. Its polar inequalities are exactly the centered Lipschitz constraints. Polar vertices give support-value-one facets, and the longest polar vectors are vertices by strict convexity. Central symmetry allows centering an arbitrary feasible ball at zero without loss of radius. Under the uniform independent coordinates the conditional variance sum weights each orthogonal Hoeffding term on A by |A| rather than 1. Equality forces all |A|>=2 terms to vanish. Centered additive terms are individually feasible and reconstruct a feasible sum for the sum metric; sharpness forces every term to be a factor maximizer. Uniqueness of centered factors gives the product contact count. Antipodal active inequalities force each optimal center to annihilate the contacting normals, and the gaps to finitely many remaining facets give a relative neighborhood in that annihilator. Sign differences isolate every lifted factor span, and distinct lifts are orthogonal; the codimension is therefore the sum of the q_i. For paths, the pairwise squared-distance variance bound is saturated only by the signed centered ramps, since the two endpoints must achieve their full distance. These prove the arbitrary finite metric and grid claims without extrapolation.",
+      "reproduction": "python3 /workspace/review-evidence/frozen_math_crosschecks.py 5. Independently enumerated centered polar vertices using every possible tight spanning tree for two non-path examples. A three-point metric with distances (1,1,1) times the unit two-point path had max squared dual norm 17/6, 12 contacts, normal rank 3; distances (1,2,2) times that path gave 41/6, 4 contacts, rank 2. This uses connectedness of the graph of tight pairs at a vertex, because a disconnected tight graph would admit independent, small component shifts preserving centering. It is finite corroboration of the product classification, not an infinite proof. The frozen grid script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General symmetric-edge and Kantorovich–Rubinstein polytope work identifies the relevant polar or classifies combinatorial facets in graph settings.",
+          "Same-day triangular graph, dodecahedral graph and matched-pair ultrametric results address metric-specific contact and center invariants, not finite sum products with unrestricted factors."
+        ],
+        "reasoning": "A facet description supplies candidates, not which of their normalized normals have the common maximal Euclidean norm. An exact contact census for a fixed family does not supply the all-factor product classification. The graph-section representation is not a substitute for classifying which admissible polar vertices maximize norm.",
+        "searches": [
+          "arXiv:1807.07678 Theorem 3.1 description; arXiv:1910.05193 Definition 2.4 and Theorem 2.5",
+          "Resultary same-day graph/matching metric hits bc67016b7973, 6a983f891fe3, 33ca0e3719de"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md, AUDIT.json comparison locators and verify_grids.py",
+        "Bobkov–Houdré (1996); arXiv:1807.07678, 1910.05193 and 2003.06725",
+        "Indexed results c4dd39cda462, 4fbd84888e21, bc67016b7973, 6a983f891fe3 and 33ca0e3719de"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 1996 source shows a coordinate sum attains the sharp bound. Its inspected statement and proof passages do not classify every optimizer in the desired generality. The Boolean-cube result has already made the geometric comparison for the two-point factors."
+        ],
+        "reasoning": "Applying polarity to the scalar prior result directly yields r_X, but existence of an additive extremizer does not say all are additive. The strict equality test via higher Hoeffding interactions is the additional argument needed before the complete normal set can be characterized. The span of all these normals, not just the radius or one maximizing normal, then controls the affine center dimension via antipodality and strict gaps.",
+        "searches": [
+          "Bobkov–Houdré (1996), Theorem 1 and Lemma 5 proof",
+          "D’Alì–Delucchi–Michałek arXiv:1910.05193 §2.3–2.4",
+          "Resultary c4dd39cda462 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The centered polar representation converts scalar inradius into inverse square root of N times maximal uniform variance. Bobkov–Houdré already tensorizes that variance.",
+          "The Boolean-cube record gives precisely the n_i=2 contacts, radius and center dimension, including the signed-coordinate normals. The indexed path summary gives the matching one-factor formulas."
+        ],
+        "reasoning": "The earlier scalar theorem and the previously computed special cases are genuine coverage, not merely numerical resemblance. What remains is a joint characterization of all maximizers and hence their span for arbitrary factor metrics, where q_i and S_i need not be those for a path.",
+        "searches": [
+          "Resultary: transportation/Lipschitz-free unit ball Euclidean inball facet contacts and incenter dimension; Boolean-cube c4dd39cda462 and path 4fbd84888e21",
+          "Bobkov–Houdré doi:10.3150/bj/1178291721, Theorem 1 and Lemma 5",
+          "arXiv:1910.05193, Definition 2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 gives total facet numbers 82 and 18 for the 3-by-3 and 3-by-2 grids. The contact set for each grid here has four members, which is a different statistic.",
+          "The Boolean-cube indexed result does contain the exact touching subset and contact count on its entire subfamily; the graph comparison records give other exact metric-specific values."
+        ],
+        "reasoning": "These exact counts are credited where domains and invariants match. Total face vectors do not rank polar facets by distance or determine the affine hull of maximizing centers. No examined table covers the arbitrary factor product equality classification.",
+        "searches": [
+          "Çelik et al. arXiv:2003.06725, §4 and Table 1, offsets 39876 and 48600",
+          "Resultary c4dd39cda462, 6a983f891fe3 and bc67016b7973"
+        ]
+      },
+      "rationale": "The scalar radius is covered by Bobkov–Houdré's maximal-variance tensorization and standard polarity; the Boolean-cube and path contact calculations also overlap exactly in their domains. The supported distinct claim is the full contacting-normal product classification and the affine rank law for all optimal centers for arbitrary finite factor metrics, and hence grid contacts beyond Boolean cubes. None of the inspected comparisons supplies that equality-case and geometric classification throughout this domain. Establishing it requires recovering all additive optimizers and proving the antipodal tight-normal span and local sufficiency; multiplying the scalar variance or using a total facet count does not do that.",
+      "residual_risks": [
+        "The full earlier path proof and full formula of Higashitani–Jochemko–Michałek Theorem 3.1 were not inspected. The comparison does not establish exhaustive coverage or discovery priority; equivalent geometric formulations could occur under product spreads, Lipschitz-free spaces or symmetric edge polytope terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the scalar radius by polarity, not the full contact/center classification in passages inspected.",
+          "evidence": "Product bound attained by the sum of one-coordinate maximizers.",
+          "identifier_or_url": "https://www-users.cse.umn.edu/~bobko001/papers/1996_Bernoulli_BH.pdf",
+          "material_read": "Theorem 1, printed p.249, offset 2768; Lemma 5 and induction, pp.252–253, offset 8343 onward",
+          "method": "Lawful author-hosted OA PDF passages",
+          "title": "Variance of Lipschitz Functions and an Isoperimetric Problem for a Class of Product Measures",
+          "trigger": "Direct maximal-variance tensor theorem"
+        },
+        {
+          "assessment": "Exact special case of the theorem when all factors have two unit-distance points.",
+          "evidence": "In dimension d: radius 2/sqrt(d*2^d), 2^d signed-coordinate contact normals, center dimension 2^d-d-1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-euclidean-inballs-and-high-dimensional-center-freedom-in-h--c4dd39cda462/RESULT.md",
+          "material_read": "Full Finding; targeted equality-method locator",
+          "method": "Local mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp Euclidean inballs and high-dimensional center freedom in hypercube transportation balls",
+          "trigger": "Strongest exact overlap"
+        },
+        {
+          "assessment": "One-factor overlap based on the summary; no claim of inspection of the full proof.",
+          "evidence": "Indexed radius sqrt(12/(n(n^2-1))), two contact facets and dimension n-2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-path-symmetric-edge-polytopes-have-an-exact-inradius-and-a-codim--4fbd84888e21",
+          "material_read": "Indexed summary and mirrored setup; later decisive passage not retrieved",
+          "method": "Resultary search and local-mirror attempts",
+          "title": "Path symmetric edge polytopes have an exact inradius and a codimension-one incenter locus",
+          "trigger": "Exact one-factor precursor"
+        },
+        {
+          "assessment": "Same grids and exact total counts, not the contacting subset or affine center dimensions.",
+          "evidence": "Uses Cartesian products of paths; the 3-by-3 and 3-by-2 transportation balls have 82 and 18 facets in total.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.06725",
+          "material_read": "§4 PDF p.10 offset 39876 and Table 1 PDF pp.12–13 offset 48600",
+          "method": "Lawful OA PDF passages",
+          "title": "Wasserstein Distance to Independence Models",
+          "trigger": "Exact path-product metric precedent and facet table"
+        },
+        {
+          "assessment": "Identifies the object and duality, not the center classification.",
+          "evidence": "Defines the Kantorovich–Rubinstein and Lipschitz pair and gives a symmetric edge polytope section for graph shortest-path metrics.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.05193",
+          "material_read": "§2.3 Definition 2.4 PDF pp.4–5 offset 13356 and §2.4 Theorem 2.5 p.5 offset 16848",
+          "method": "Lawful OA PDF passages",
+          "title": "Many faces of symmetric edge polytopes",
+          "trigger": "Finite-metric polar and graph formulation"
+        },
+        {
+          "assessment": "General graph polytope combinatorics; only scope of the facet theorem inspected.",
+          "evidence": "Signed edge-root convex hull, with a stated combinatorial description of facet hyperplanes.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.07678",
+          "material_read": "PDF pp.1–2 at offsets 3291 and 8197, including description of Theorem 3.1, not the full theorem formula",
+          "method": "Lawful OA PDF passages",
+          "title": "Arithmetic aspects of symmetric edge polytopes",
+          "trigger": "General facet hyperplane comparison"
+        },
+        {
+          "assessment": "Compared at the statement level, not excluded by date.",
+          "evidence": "The stated domains are J(n,2), the dodecahedral graph, and matched-pair ultrametrics; e.g. the dodecahedral result gives radius 1/sqrt(29), 20 contacts and affine center dimension 9.",
+          "identifier_or_url": "Resultary bc67016b7973, 6a983f891fe3, 33ca0e3719de",
+          "material_read": "Indexed Findings in local mirror",
+          "method": "Resultary search and local mirror",
+          "title": "Triangular graph, dodecahedral and matched-pair inball comparisons",
+          "trigger": "Same-day metric-specific inball claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete classification of the origin contacts and a structural rank law for the translation freedom of all largest balls, not a scalar variance estimate or a recomputation of face numbers. It applies to arbitrary finite metrics and explains why path-product grids can have many facets yet relatively few contacts and a large affine incenter locus. It does not claim a complete description of the boundary of that locus.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

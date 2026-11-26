@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:18:49.699962Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed the weak-contraction expansion. Along a two-sided Poisson process the stationary age and earlier gaps are iid Exp(1); the stable increments across those intervals have characteristic exponents weighted by c^(jα). The sum of conditional stable scale times is almost surely finite, yielding the stationary scale mixture with normalized time V=δ Σ_j (1−δ)^j E_j. Coupling two initial states with the same resets and noise multiplies their difference by c to the number of resets, which tends to zero, proving uniqueness. The weights sum to one; sums of their rth powers times (r−1)! give the cumulants, so Var(V)=δ/(2−δ) and E(V−1)^4=3 Var(V)^2+6δ^4/(1−(1−δ)^4)=O(δ²). Hence E|V−1|³=O(δ^(3/2)). The needed three L1 derivatives in v can also be justified without the cited stable tail estimate: subordinate the Gaussian p_(2,s) with s=v^(2/α)T where T has Laplace transform exp(−u^(α/2)) (T=1 for α=2). Gaussian scaling gives ||∂_s^j p_(2,s)||_1=const_j s^(−j); after the chain rule the factors T^j cancel these negative powers of T, providing uniform L1 domination on [1/2,3/2]. The first Taylor term averages to zero and the quadratic term has exact coefficient Var(V)/2. Outside the interval, 2 bounds the density difference in L1 and the constant, linear and quadratic tail contributions are all O(δ²) by the fourth moment and |V−1|>1/2. Fourier differentiation gives the stated K_α, nonzero but integral zero, hence sign-changing. For Cauchy, a primitive of K_1 is 2x/[π(1+x²)²] and the sign boundary is 1/√3. For Gaussian, K_2=p_2 H_4(x/√2)/4 and the boundary contributions from −H_3 φ at a and b give ||K_2||_1=√6[aφ(a)+bφ(b)]. Halving the density error yields ||K_α||_1 ε_c/4 plus the stated remainder. The index is fixed; no uniformity or finite state variance for α<2 is needed. Inspected the frozen verification/check.py and its 171-assertion saved output without executing the upload; finite Fourier checks do not certify the L1 remainder.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Di Bello et al. derive stationary spatial tails and moments for stable flights with partial resetting.",
+          "Assefa et al. require a polynomial base process and give affine-reset higher-order moment and cross-moment formulae; their introduction refers the fixed partial-reset stable case to Grzywny et al."
+        ],
+        "reasoning": "The all-orders moment assumption of that polynomial framework does not include non-Gaussian stable motions, and a moment formula in the Gaussian case still does not control the signed L1 remainder. The closest inspected stationary spatial estimates are not estimates uniform over the central and tail regions in the weak-reset limit.",
+        "searches": [
+          "arXiv:2501.01139v2 §§V.1–V.2, stationary stable-flight tails and moments",
+          "arXiv:2610.01363 polynomial processes under affine resetting",
+          "Random-scale mixture Taylor or local-limit correction in L1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verification/check.py and verification/check_output.txt",
+        "arXiv:2412.15626v1, 2501.01139v2 and 2610.01363",
+        "SCOPE e56c39b9e83a, 3e4e01201dc0, b7f1f05c5e41 and 571c4b455373"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known invariant mixture is essential input; the exact mean and variance of its normalized time and the third absolute/fourth moment estimates localize the Taylor argument.",
+          "The inspected related limit statements do not assert control of the averaged Taylor remainder in L1 in this regime, nor identify the sign intervals needed for the endpoint norms."
+        ],
+        "reasoning": "Taylor expansion is a general tool, but applying it here requires smoothing estimates in the scale parameter, control of atypical mixture scales, and exact cancellation of the linear term. The prior mixture representation and the cited moment/physical-time convergence statements are not a stronger weak-contraction L1 theorem that yields the claimed coefficient by substitution.",
+        "searches": [
+          "arXiv:2412.15626v1, Eqs. (2.42), (3.9), (3.14)",
+          "arXiv:2501.01139v2, stationary measure analysis",
+          "SCOPE e56c39b9e83a, weak resetting and Gaussian central scale"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grzywny et al., Eq. (2.42), have the same stable-density mixture. Their L1 limit in Eq. (3.14) is as physical time tends to infinity at given reset parameters.",
+          "SCOPE e56c39b9e83a takes the weak-contraction limit for Brownian motion, but its theorem concerns rare displacements and only notes a central Gaussian scale."
+        ],
+        "reasoning": "Operational-time mixing gives the identical invariant-law representation, not the same limit question. A central weak limit or distant-tail law is not equivalent to a signed full-density L1 correction with an identified coefficient.",
+        "searches": [
+          "Resultary: weak proportional reset stationary central scaling and total variation",
+          "arXiv:2412.15626v1 §2.4 and Corollaries 3.5, 3.8",
+          "Primary literature on weak partial resetting stationary stable mixtures in total variation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first two related records concern weak-reset Brownian rare displacements or sharp tails. The third gives Brownian TV behavior as c decreases to zero, not as c increases to one. The fourth is a renewal-reset OU mixture inversion result."
+        ],
+        "reasoning": "These exact results do not tabulate the stated variance-normalized TV coefficient even at α=2; their differences are in the actual metric, regime or objects, not just naming. No inference of priority is made from catalogue dates or lack of identical search hits.",
+        "searches": [
+          "Resultary exact weak-reset TV profile, Gaussian and Cauchy reset-scale constants",
+          "SCOPE e56c39b9e83a, 3e4e01201dc0, b7f1f05c5e41 and 571c4b455373"
+        ]
+      },
+      "rationale": "The assessed contribution is the sharp first correction in L1 as the contraction approaches one, with the nonzero TV coefficient and endpoint constants. The reset process, stationary mixture, and Taylor method are not independent novelty claims. The closest checked work treats either a different convergence parameter, a different spatial regime, or moments rather than this correction to the full law.",
+      "residual_risks": [
+        "A sharper general random-scale-mixture theorem or weak-reset perturbation analysis may already encompass the correction; none was established by the targeted comparisons.",
+        "Version front matter and first-deposit metadata need not report the same date; no precise historical priority is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mixture antecedent; different parameter limit in its L1 result.",
+          "evidence": [
+            "The ergodic density is the integral of the stable transition density against the operational-time law; the L1 convergence is in physical time."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2412.15626v1",
+          "material_read": "§2.4 Eq. (2.42), offset 85109; Corollaries 3.5 and 3.8, Eqs. (3.9) and (3.14), offsets 108900–112661",
+          "method": "Targeted primary OA HTML reading",
+          "title": "Stationary states for stable processes with partial resetting",
+          "trigger": "Identical invariant law and established L1 convergence"
+        },
+        {
+          "assessment": "Prior stationary spatial and moment analysis, not the weak-contraction L1 expansion.",
+          "evidence": [
+            "§V.1 studies stationary spatial tails; §V.2 computes stationary moments."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2501.01139v2",
+          "material_read": "§V.1 near offset 22600 and §V.2",
+          "method": "Targeted primary OA HTML reading",
+          "title": "Partial versus total resetting for Lévy flights in d dimensions: similarities and discrepancies",
+          "trigger": "Same stable-flight model and stationary formulas"
+        },
+        {
+          "assessment": "Broader reset mechanism for polynomial bases, with moment outputs not a weak-reset TV profile.",
+          "evidence": [
+            "The base process must preserve polynomials and have finite polynomial moments of all orders; the objectives are moments, cross-moments and semimartingale characteristics."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.01363",
+          "material_read": "Introduction and assumptions, PDF p. 2, offsets 5800–9224",
+          "method": "Targeted primary OA PDF reading",
+          "title": "Moments of polynomial processes under affine resetting",
+          "trigger": "Potential general affine-reset result"
+        },
+        {
+          "assessment": "Overlap in the weak-reset parameter and Gaussian leading scale, not first correction in global TV.",
+          "evidence": [
+            "Its theorem gives a rare-displacement large-deviation law rather than a central density correction in L1."
+          ],
+          "identifier_or_url": "SCOPE e56c39b9e83a",
+          "material_read": "RESULT.md, Finding and central-scale comparison",
+          "method": "Published record via local mirror",
+          "title": "Dilogarithmic rare-displacement law for weak proportional resetting",
+          "trigger": "Closest weak-reset Brownian regime including central scaling discussion"
+        },
+        {
+          "assessment": "Sharp stationary tail asymptotic, not a central TV profile.",
+          "evidence": [
+            "Concerns a Brownian rare-tail scale."
+          ],
+          "identifier_or_url": "SCOPE 3e4e01201dc0",
+          "material_read": "RESULT.md Finding",
+          "method": "Published record via local mirror",
+          "title": "Sharp weak partial-reset stationary tails with a dilogarithmic rate",
+          "trigger": "Same weak proportional-reset parameter"
+        },
+        {
+          "assessment": "Opposite contraction limit.",
+          "evidence": [
+            "The contraction tends to zero, rather than one."
+          ],
+          "identifier_or_url": "SCOPE b7f1f05c5e41",
+          "material_read": "RESULT.md Finding",
+          "method": "Published record via local mirror",
+          "title": "A singular reset-point layer and sharp total variation for nearly total resetting",
+          "trigger": "Same TV metric for Brownian partial resetting"
+        },
+        {
+          "assessment": "Identifiability/inversion rather than forward weak-reset approximation.",
+          "evidence": [
+            "The model is an OU process under renewal resetting."
+          ],
+          "identifier_or_url": "SCOPE 571c4b455373",
+          "material_read": "RESULT.md Finding",
+          "method": "Published record via local mirror",
+          "title": "Stationary marginal inversion for renewal-reset Ornstein–Uhlenbeck processes",
+          "trigger": "Related Gaussian scale-mixture tools"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Weak resetting is a natural singular limit of the stationary family. The signed L1 correction gives the first measurable error in replacing a random operational time by its mean, valid even when the stable state lacks a variance. Strict positivity of the TV coefficient makes the order sharp, and the two tractable endpoints supply exact benchmarks not available from characteristic-function convergence alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

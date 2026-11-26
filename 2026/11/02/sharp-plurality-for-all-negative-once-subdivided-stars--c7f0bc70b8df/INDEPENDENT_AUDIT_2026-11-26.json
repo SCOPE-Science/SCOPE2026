@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:29:48.989103Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A doubly-yellow arm's leaf has to be ignited yellow, no later than the round its intermediate burns; if they burn together the intermediate must spread before that leaf ignition. With a yellow center the intermediate would spread green immediately after a yellow leaf ignition, and cannot spread yellow simultaneously with the leaf. With a green center first burned in round T, a doubly-yellow arm with ignited intermediate needs the green center to keep it tied at the first spread after its leaf ignition. The center cannot predate that ignition, since otherwise it spreads yellow to the still-unburned intermediate before or during the leaf's ignition round. This forces leaf ignition in T. With a spread-burned yellow intermediate, its leaf must still be unburned at the start of the spread, and the green center would produce positive influence on the first spread after T. The intermediate therefore spreads in T+1 and its leaf must be ignited in T+1. One ignition per round bounds the two types by one each. Independent replay of RESULT.md line 30: each of a1, b2, b3, a2 is unburned at its ignition; the center and b1 are green after round 2, intermediates j>=3 are yellow after round 3, and leaves j>=4 turn green in round 4. The two center/leaf contributions to a2 cancel until its ignition. This gives exactly two double arms and m+2 yellow vertices for every m>=3. Color reversal gives the plurality bound. The cited path formula gives P3 and P5 values 2 and 3. Inspected verify.py's simultaneous labelled and orbit transitions without execution; the recorded finite checks are not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 3.4 treats all-negative paths; Section 5 names tree bounds as future work. The two catalogue statements apply to K_{1,m} without subdivisions."
+        ],
+        "reasoning": "Neither graph class contains the branching target m>=3 with each arm of length two.",
+        "searches": [
+          "arXiv:2610.02506 Sections 3 and 5",
+          "Resultary 97e5bc53aa08 and 0a6ed269e5a9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.02506",
+        "Resultary 97e5bc53aa08, 0a6ed269e5a9, 501033f46b47, 17146a0a41df (mirror 36a7204b5741b75430355c38bf9bf0ef7468c2a4)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Path plurality is floor((2n+1)/3); the signed ordinary-star profile permits only the ordinary leaf mechanism."
+        ],
+        "reasoning": "The path formula already accounts for m=1,2. For m>=3 one cannot combine separate path optima: all arms share one center's total influence and a global single ignition budget. Neither antecedent gives the two ignition slots T and T+1 or achieves them on the subdivided star.",
+        "searches": [
+          "arXiv:2610.02506 Theorem 3.3 and Corollary 3.4",
+          "Resultary 97e5bc53aa08 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Burning Signed Graphs, Definition 2.1 and Remark 2.2, p. 3: spread, then pick one unburned vertex if any; negative signs give influence −sum of neighbor colors. Definition 2.5 p. 4 optimizes terminal plurality."
+        ],
+        "reasoning": "This is the same dynamics, not a new name or a switching reduction to a path or a star. Color-preserving switching is not assumed.",
+        "searches": [
+          "Resultary: signed-burning plurality, negative spiders and subdivided stars",
+          "arXiv:2610.02506"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact ordinary-star hit gives all-negative plurality m on K_{1,m}; 501033f46b47 computes signed double Italian domination on the same tree, not burning plurality; 17146a0a41df is Radau diffusion on stars."
+        ],
+        "reasoning": "No matched formula/table computes the requested signed-burning parameter on these subdivided stars.",
+        "searches": [
+          "Resultary signed burning exact plurality once-subdivided star; hits 97e5bc53aa08, 0a6ed269e5a9, 501033f46b47, 17146a0a41df"
+        ]
+      },
+      "rationale": "The checked earlier exact results cover paths and ordinary stars, not the two-edge arms of this all-negative signed tree, and the tree parameter match from domination theory is a different invariant. Pass is confined to the branching plurality formula and sharp two-arm obstruction.",
+      "residual_risks": [
+        "The targeted external query did not yield another relevant source; this does not exclude prior exact work under other terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same process and exact path boundaries; no target result in checked passages",
+          "evidence": [
+            "p.3 states 'Pick an unburned vertex, if one exists'; Section 5 discusses signed trees as future work."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.02506",
+          "material_read": "Definitions 2.1 and 2.5, Remark 2.2 pp. 3–4; Theorem 3.3 and Corollary 3.4 pp. 7–8; Section 5 p. 27",
+          "method": "Lawful OA PDF, located passages",
+          "title": "Burning Signed Graphs",
+          "trigger": "Exact process and plausible tree result"
+        },
+        {
+          "assessment": "Ordinary stars only",
+          "evidence": [
+            "K_{1,m} has one vertex per arm; the second record's negative-star value is m."
+          ],
+          "identifier_or_url": "Resultary 97e5bc53aa08; 0a6ed269e5a9",
+          "material_read": "Both Findings, offset 0",
+          "method": "Local mirror",
+          "title": "Reachable-colouring code and exact plurality profile of signed stars; Exact plurality number of signed stars",
+          "trigger": "Closest signed-burning catalogue statements"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Computes gamma_sdI, without spreading or ignition."
+          ],
+          "identifier_or_url": "Resultary 501033f46b47",
+          "material_read": "Finding and scope, offset 0",
+          "method": "Local mirror",
+          "title": "Exact signed double Italian domination of once-subdivided stars",
+          "trigger": "Exact same tree family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact all-order terminal-color optimum for a natural first branching family answers a concrete part of the signed-tree problem. The center's two-slot timing obstruction is structural, and a uniform legal construction saturates it rather than extrapolating a census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

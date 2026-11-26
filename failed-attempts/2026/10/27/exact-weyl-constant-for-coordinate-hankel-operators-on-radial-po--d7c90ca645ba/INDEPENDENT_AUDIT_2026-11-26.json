@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:08:59.983424Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–75, including uniform gamma difference, lattice and logarithmic limits",
+        "VERIFICATION.md and CHECKER.py, inspected without rerunning"
+      ],
+      "rationale": "The spherical monomial integral and the radial gamma integral give the stated norm, and the torus characters of H applied to distinct monomials are distinct. Subtracting the squared norm of the analytic projection from the squared multiplication norm gives λ_α=(α₁+1)r_n−α₁r_(n−1), with the second term omitted for α₁=0. For x=(n+d)/m and a=1/m, the ratio Γ(x+a)/Γ(x) contributes 1+a(a−1)/(2x)+O(x⁻²) after factoring x^a. This gives the stated r_n expansion and its difference with r_(n−1). Multiplying that difference by α₁≤n leaves a uniform relative O(1/n), since 1−qα₁/n≥1/m. This both bounds the norm and makes the norm of the tail after truncating degrees tend to zero. With h=ε^(2/q), the high-shell lattice indicators are sandwiched by multiplicatively dilated regions with the stated angular radius; the low-degree shells disappear after the h^d normalization. The region is bounded with null radial boundary, so the lattice sum converges to its volume. The simplex Jacobian yields 1/d!, and the first-coordinate marginal is Beta(1,d−1). In the quartic d=2 case direct integration gives (1/8)·(31/80). Inversion of the positive counting asymptotic gives k s_k^p_c→C, whence the logarithmic mean and all normalized Dixmier traces equal C; strong Schatten summability fails.",
+      "residual_risks": [
+        "No uniformity in m or d, other symbols, or a statement at m=1 follows from the proof. Source numerical shell samples do not certify the Weyl limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Canonical-solution moment diagonalization and Schatten criteria for radial measures, singular-value comparisons in IDA theory, and compactness characterizations are genuinely relevant but do not in the inspected passages give this counting coefficient.",
+          "The radial Weyl records concern Toeplitz operators with different symbols and bounded Hessian hypotheses, unlike the growing radial-power Hessian here."
+        ],
+        "reasoning": "General spectral reductions and two-sided bounds must be separated from a general exact law. The indexed exact coordinate law, in contrast, covers every d≥2 and real m>1 in the frozen scope.",
+        "searches": [
+          "Haslinger–Lamel, Lemma 10, Proposition 11 and Corollary 9",
+          "Fan–Wang–Zeng, arXiv:2410.20082, Theorem 4.2 and Corollary 4.3",
+          "Liu–Wang–Zeng, arXiv:2609.26810, Hankel scope",
+          "Resultary 11aeb72ff555 and b72687c89789 radial Weyl criteria"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0a1689d14441, 11aeb72ff555 and b72687c89789, matching statement passages",
+        "Haslinger–Lamel Lemma 10 and Proposition 11",
+        "Fan–Wang–Zeng §4; Liu–Wang–Zeng introduction",
+        "Bommier-Hato–Youssfi and Bommier-Hato–Engliš–Youssfi abstract/bibliographic comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general monomial moments are a substantial precursor: the coordinate spectrum follows by restriction to the selected component. Obtaining the coefficient still uses a uniform adjacent-ratio difference and the angular count, not just substitution into a Schatten threshold.",
+          "The distinct indexed result already states the same singular-value and logarithmic limits."
+        ],
+        "reasoning": "The ordinary logarithmic spectral limit of the critical power directly gives its Dixmier traces; the wording 'Dixmier measurable' gives no surviving new scope over the indexed residue. The prior moment and threshold sources should not be credited with an exact coefficient merely on the basis of plausible derivability.",
+        "searches": [
+          "Haslinger–Lamel, Proposition 11 and equations (13)–(15)",
+          "Bommier-Hato–Youssfi, DOI 10.1007/s00020-007-1513-1",
+          "Resultary 0a1689d14441 angular asymptotics and logarithmic spectral residue"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed RESULT.md sets p=m, δ=1−1/p and s_*=2d/δ, and studies H=(I−P)M_(conjugate z₁) with the identical radial power weight and singular-value multiplicity.",
+          "The scalar Hankel map also equals the canonical ∂̄ solution on f d(conjugate z₁), relating the older moment formulas to the same operator."
+        ],
+        "reasoning": "Under p=m and δ=q the exponents coincide and 1/[d(d−2)!]=(d−1)/d!, so the exact integral and counting law are identical, without a change of singular-value or volume normalization.",
+        "searches": [
+          "Resultary: sharp angular Weyl law/critical Dixmier residue for a coordinate Hankel operator on radial power Fock spaces",
+          "0a1689d14441 RESULT.md",
+          "Haslinger–Lamel, arXiv:math/0612352, canonical ∂̄ solution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0a1689d14441 directly prints C_(2,2)=31/640 and the all-parameter exact integral, rather than merely a few shell estimates.",
+          "The 2014 abstract concerns the complex plane; the nearby author-hosted Gaussian study has a different weight and symbol regime."
+        ],
+        "reasoning": "The exact indexed formula includes the same nontrivial multivariable quartic value and the whole family. Plane or Gaussian trace data cannot stand in for it.",
+        "searches": [
+          "Resultary 0a1689d14441 counting coefficient and quartic example",
+          "Bommier-Hato–Engliš–Youssfi, DOI 10.1016/j.jfa.2013.08.007",
+          "Dixmier Trace and the Fock Space, Engliš author copy"
+        ]
+      },
+      "rationale": "There is demonstrable equivalent coverage in a distinct indexed theorem, 0a1689d14441: not just the known membership threshold but the same sharp counting law, angular integral, quartic value and logarithmic residue for the whole specified family. This is a coverage decision, not a claim of earlier historical discovery by that record: its catalogue date is later than the frozen record's date. The older spectral diagonalization and membership literature is not by itself the basis for the failure.",
+      "residual_risks": [
+        "The indexed overlap establishes equivalent content, not chronology of discovery, provenance or reliance.",
+        "The 2007 and 2014 full texts were not retrieved. An earlier exact implication from a broader spectral result remains a priority question, not the evidence for duplicate coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent coverage, not evidence of earlier priority",
+          "evidence": [
+            "Same symbol and weight, exact coefficient including 31/640, singular-value asymptotic and critical logarithmic limit."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-a-sharp-angular-weyl-law-for-coordinate-hankel-operators-on-radi--0a1689d14441/RESULT.md",
+          "material_read": "Opening finding, scope and first proof passage, local mirror offset 0–3134",
+          "method": "Bounded local mirror inspection",
+          "title": "A sharp angular Weyl law for coordinate Hankel operators on radial power Fock spaces",
+          "trigger": "Direct indexed overlap"
+        },
+        {
+          "assessment": "Moment and block reduction substantially overlap; no exact coefficient established by inspected passages",
+          "evidence": [
+            "On a one-component form the minimal solution is the coordinate Hankel map; the block entries are monomial moment ratios."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0612352",
+          "material_read": "Lemma 10, Proposition 11 and equations (13)–(15), Corollary 9, pp. 5–8",
+          "method": "Primary passage inspection",
+          "title": "Spectral properties of the canonical solution operator to ∂̄",
+          "trigger": "Older exact spectral reduction for rotation-invariant measures"
+        },
+        {
+          "assessment": "Comparability and membership in inspected passages",
+          "evidence": [
+            "Rearranged IDA bounds compare singular-value sums by inequalities; no exact angular coefficient there."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2410.20082",
+          "material_read": "§4, Theorem 4.2 p. 19 and Corollary 4.3 p. 21",
+          "method": "Primary passage inspection",
+          "title": "IDA Function and Asymptotic Behavior of Singular Values of Hankel Operators on Weighted Bergman Spaces",
+          "trigger": "Potentially stronger singular-value asymptotics"
+        },
+        {
+          "assessment": "Boundedness and compactness characterization in those passages",
+          "evidence": [
+            "The inspected discussion does not state a sharp coordinate Weyl law."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.26810",
+          "material_read": "Introduction p. 4, extracted offsets 15974–16886",
+          "method": "Primary passage inspection",
+          "title": "Bergman Kernels and Hankel Operators on Weighted Fock Spaces in Several Complex Variables",
+          "trigger": "Same operator class in several variables"
+        },
+        {
+          "assessment": "Known sharp Schatten threshold, no whole-document coverage finding",
+          "evidence": [
+            "Boundedness, compactness and threshold are not new claims here."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00020-007-1513-1",
+          "material_read": "Bibliographic/abstract material; full text not obtained",
+          "method": "Lawful-access and bibliographic check",
+          "title": "Hankel Operators on Weighted Fock Spaces",
+          "trigger": "Same radial power weight and symbol class"
+        },
+        {
+          "assessment": "Reported complex-plane domain does not include d≥2",
+          "evidence": [
+            "No whole-document noncoverage inference from unavailable access."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jfa.2013.08.007",
+          "material_read": "Publisher abstract; full text unavailable",
+          "method": "Abstract inspection and attempted lawful access",
+          "title": "Dixmier Classes on Generalized Segal–Bargmann–Fock Spaces",
+          "trigger": "Exact critical trace on generalized power Fock spaces"
+        },
+        {
+          "assessment": "Different Gaussian and bounded-symbol setting",
+          "evidence": [
+            "The standard Gaussian weight is not the m>1 radial power regime."
+          ],
+          "identifier_or_url": "https://users.math.cas.cz/~englis/79.pdf",
+          "material_read": "Opening pp. 1–2",
+          "method": "Author-hosted primary passage inspection",
+          "title": "Dixmier Trace and the Fock Space",
+          "trigger": "Nearby exact Dixmier-trace law"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 39–75; older Schatten threshold and related comparison results"
+      ],
+      "rationale": "An exact angular counting law across the full radial-power family is mathematically useful independently of the attribution question. It refines the Schatten cutoff to a normalized critical trace and shows why dimension counting alone does not give the coefficient. The quartic value is a check on the general angular law, not an isolated tiny instance sold as a contribution.",
+      "residual_risks": [
+        "This assesses the usefulness of the mathematical law, not additional value over the exactly overlapping indexed record."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

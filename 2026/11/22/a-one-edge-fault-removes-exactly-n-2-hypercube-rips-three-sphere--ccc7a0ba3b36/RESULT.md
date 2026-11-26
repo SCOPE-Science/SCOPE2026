@@ -2,82 +2,46 @@
 
 ## Finding
 
-Let \(Q_n\) be the graph on \(\{0,1\}^n\) with edges joining words that differ in one coordinate, and let \(e\) be any graph edge. Put \(G_n=Q_n-e\), with its **recomputed, unweighted shortest-path metric**. For each integer \(n\ge3\), define
+Let \(Q_n\) be the graph of binary words of length \(n\), with edges at Hamming distance one, and let \(G_n=Q_n-e\) with the **recomputed unweighted shortest-path metric**. For each integer \(n\ge3\), put
 \[
-c_n=\sum_{0\le j<i<n}(j+1)\bigl(2^{n-2}-2^{i-1}\bigr).
+c_n=\sum_{0\le j<i<n}(j+1)(2^{n-2}-2^{i-1}).
 \]
-The inclusive radius-two Vietoris–Rips complex has the integral homotopy type
+In the inclusive Vietoris–Rips filtration,
 \[
 \operatorname{VR}(G_n;2)\simeq\bigvee^{c_n-(n-2)}S^3.
 \]
-The wedge with zero summands is a point; thus the three-cube with one edge deleted is contractible at radius two.
+The zero-summand wedge is a point, so the faulted three-cube is contractible at radius two. At radius one, the faulted complex is a wedge of \((n-2)2^{n-1}\) circles, one fewer than for the intact cube. The two filtrations are literally identical at every radius at least three.
 
-More precisely, the filtration is unchanged from the intact cube at every radius at least three. At radius one, \(G_n\) is a wedge of \((n-2)2^{n-1}\) circles, one fewer than the intact cube. The integral persistent-homology barcode differs from that of \(Q_n\) by **exactly one fewer degree-one interval** \([1,2)\) and **exactly \(n-2\) fewer degree-three intervals** \([2,3)\); every other interval is unchanged. Intervals are half-open and include the lower endpoint. This comparison holds for all integer \(n\ge3\).
+**Persistence comparison.** Over any field the barcode differs by exactly one fewer degree-one interval \([1,2)\) and exactly \(n-2\) fewer degree-three intervals \([2,3)\); all other intervals agree. Over \(\mathbb Z\), the same statement holds for the multiplicities of the free interval-module summands at these two intervals, with a common integral persistence module for the remaining stages. It does not require all the integral groups at higher scales to be free.
 
 ## Assumptions and scope
 
-All complexes are finite abstract simplicial complexes: a subset is a face of \(\operatorname{VR}(G;r)\) if all its pairwise shortest-path distances in \(G\) are at most \(r\). All homotopy and homology assertions are integral. The vertex set of the faulted graph is unchanged. The deleted edge is not reintroduced as a length-one connection; distances are recomputed. By hypercube edge transitivity, set \(e=\{0,e_1\}\) without loss of generality, where \(e_i\) is the word with a one in coordinate \(i\).
-
-The intact-cube theorem of Adamaszek–Adams, \(\operatorname{VR}(Q_n;2)\simeq\bigvee^{c_n}S^3\) for \(n\ge3\), is used as an established input [1]. The scale-inclusion nullhomotopy theorem of Adams–Virk [2] is used only to deduce the final barcode comparison, not the homotopy claim.
+A finite vertex set belongs to \(\operatorname{VR}(G;r)\) when all of its pairwise shortest-path distances in \(G\) are at most \(r\). The inclusion is at the lower endpoint of every half-open interval. The fault does not remove vertices. All homology groups in the proof have integer coefficients except where another coefficient ring is indicated. For a coefficient ring \(R\), \(I_R[a,b)\) denotes the persistence module with a copy of \(R\) on \([a,b)\), with identity maps inside the interval, and zero elsewhere.
 
 ## Proof
 
-**1. The only changed pairwise distance.** In \(Q_n-e\), the distance from \(0\) to \(e_1\) is exactly three: the four-cycle through any other coordinate supplies a three-edge path, whereas bipartiteness excludes a two-edge path. Any two words at Hamming distance at least two have multiple shortest coordinate-flip paths, and no single edge belongs to all of them: varying which required coordinate is flipped first or last supplies a geodesic avoiding the deleted edge. Any other adjacent pair retains its edge. Thus no other graph distance changes. Put \(X=\operatorname{VR}(Q_n;2)\) and \(Y=\operatorname{VR}(Q_n-e;2)\). The complex \(Y\) consists exactly of the faces of \(X\) **not containing both endpoints of** \(e\).
+**1. Exactly one distance changes.** By cube symmetry we may delete \(e=\{0,e_1\}\), where \(e_i\) has one nonzero coordinate in position \(i\). The endpoints now have distance three: there is a three-edge detour along a square and the bipartition rules out a two-edge path. Between words of Hamming distance at least two, flip the differing coordinates in any order and in its reverse order. These geodesics have disjoint interiors: at each intermediate level their flipped coordinate sets are distinct (a proper prefix and suffix of the same size). In particular, at least one avoids the deleted edge. Every other adjacency is unchanged. Thus with \(X=\operatorname{VR}(Q_n;2)\) and \(Y=\operatorname{VR}(G_n;2)\), \(Y\) consists of precisely those faces of \(X\) not containing both endpoints of \(e\).
 
-**2. The link of the lost edge.** Let \(L=\operatorname{lk}_{X}(e)\). Its vertices comprise
-\[
-a_i=e_i,\qquad b_i=e_1+e_i,\qquad 2\le i\le n,
-\]
-where the plus sign means disjoint coordinate support, not addition in an ambient metric. All \(a_i\) are pairwise adjacent, all \(b_i\) are pairwise adjacent, and the only edges between these two groups are \(a_i b_i\). Consequently \(L\) consists of two disjoint \((n-2)\)-simplices connected by \(n-1\) distinct rung edges. Collapsing each simplex to a point shows
-\[
-L\simeq\bigvee^{n-2}S^1.
-\]
-The cycles \(a_2a_ib_ib_2a_2\), with \(3\le i\le n\), form an **integral basis** of \(H_1(L;\mathbb Z)\). This follows by collapsing the two contractible cliques: the resulting multigraph has two vertices and \(n-1\) parallel edges, with the displayed cycles corresponding to differences from the rung indexed by \(2\).
+**2. Link and relative homology.** The vertex set of \(L=\operatorname{lk}_X(e)\) consists of \(a_i=e_i\) and \(b_i=e_1+e_i\) for \(2\le i\le n\), by the distance-two conditions from both endpoints. The \(a\)'s form one simplex, the \(b\)'s another, and the only cross-edges are \(a_i b_i\). Collapsing both contractible simplices in the quotient gives a graph of two vertices with \(n-1\) parallel edges. In particular \(L\) is connected, has the homotopy type of a wedge of \(n-2\) circles, and the squares \(a_2 a_i b_i b_2 a_2\), \(3\le i\le n\), give an integral basis of \(H_1(L)\) by taking differences from the rung with index two.
 
-**3. Excision and a primitive surjection.** The closed star \(\operatorname{st}_X(e)=e*L\) is contractible and
-\[
-X=Y\cup(e*L),\qquad Y\cap(e*L)=(\partial e)*L\simeq\Sigma L.
-\]
-Thus cellular excision (or the corresponding quotient of the star) gives
-\[
-H_k(X,Y;\mathbb Z)\cong\widetilde H_{k-2}(L;\mathbb Z).
-\]
-The only nonzero relative group is therefore \(H_3(X,Y;\mathbb Z)\cong\mathbb Z^{n-2}\).
+The union \(X=Y\cup(e*L)\) has intersection \((\partial e)*L\). The relative simplicial chains have exactly the simplices containing \(e\) as generators; orienting the two vertices of \(e\) first identifies this complex with the augmented chains of \(L\) shifted by two, since the boundary terms deleting an endpoint vanish relatively. Thus \(H_k(X,Y)=\widetilde H_{k-2}(L)\), with just \(H_3(X,Y)\cong\mathbb Z^{n-2}\) nonzero.
 
-For every \(i\in\{3,\ldots,n\}\), restrict to the eight vertices of the coordinate three-subcube supported on \(\{1,2,i\}\). Their radius-two Rips complex is the boundary of a four-dimensional cross-polytope, hence an oriented \(S^3\). Under the relative map
-\[
-H_3(X;\mathbb Z)\longrightarrow H_3(X,Y;\mathbb Z)\cong H_1(L;\mathbb Z),
-\]
-its fundamental class maps, up to sign, to the four-cycle \(a_2a_ib_ib_2a_2\). Indeed, the relative part of the oriented cross-polytope boundary consists of the tetrahedra containing \(e\), and deleting \(e\) from their oriented faces leaves exactly the signed edge-cycle of the link square. The \(n-2\) images form the integral basis from step 2. **Hence the map is surjective over \(\mathbb Z\)**, not merely over a field.
+**3. An integral surjection.** For each \(3\le i\le n\), the eight vertices in the subcube on coordinates \(\{1,2,i\}\) give a radius-two complex that is the boundary of a four-dimensional cross-polytope (only antipodal pairs are forbidden). Its oriented fundamental cycle maps to the corresponding link square under the map \(H_3(X)\to H_3(X,Y)\): the tetrahedra containing \(e\) leave the four oriented link edges on deleting its endpoints. Each has coefficient \(1\) or \(-1\) and they form a cycle, so the image is the indicated square with one of its two orientations. The images form the integral basis above, and hence the map is onto over \(\mathbb Z\).
 
-**4. Homology and homotopy.** The intact complex \(X\) is a wedge of \(c_n\) three-spheres by [1]. The long exact sequence of \((X,Y)\), together with step 3, yields
-\[
-\widetilde H_k(Y;\mathbb Z)\cong
-\begin{cases}
-\mathbb Z^{c_n-(n-2)},&k=3,\\
-0,&k\ne3.
-\end{cases}
-\]
-As \(L\) is connected, \((\partial e)*L\simeq\Sigma L\) is simply connected. The star is contractible, and \(X\) is simply connected. Van Kampen applied to the above cover implies \(\pi_1(Y)=0\). Since \(H_2(Y)=0\), the degree-two Hurewicz theorem also gives \(\pi_2(Y)=0\). Choose based three-sphere maps representing a basis of \(H_3(Y;\mathbb Z)\) via Hurewicz. Their wedge induces an integral homology isomorphism; the simply-connected homology Whitehead theorem makes it a homotopy equivalence. This establishes the asserted integral three-sphere wedge, including the contractible case.
+**4. Homotopy type.** The intact theorem [1, Theorem 1] gives \(X\simeq\bigvee^{c_n}S^3\). The relative sequence and the surjection give \(\widetilde H_3(Y)=\mathbb Z^{c_n-(n-2)}\) and no other reduced homology. The complex \(Y\) is connected because it contains the connected graph \(G_n\). The intersection \((\partial e)*L\) is the suspension of a connected complex, hence simply connected. The star \(e*L\) is contractible, so van Kampen for this union of subcomplexes gives \(\pi_1(Y)\cong\pi_1(X)=0\). The vanishing of \(H_2(Y)\) gives \(\pi_2(Y)=0\) by Hurewicz. Based maps from three-spheres representing an integral homology basis then induce an integral homology equivalence from their wedge to \(Y\), and the simply connected homology Whitehead theorem gives the desired homotopy equivalence, also in the zero-rank case.
 
-**5. All scales and persistence.** At radius one, the complex is the connected graph \(Q_n-e\), with \(n2^{n-1}-1\) edges and \(2^n\) vertices. Its first Betti number is \((n-2)2^{n-1}\). At any radius \(r\ge3\), the only changed vertex distance, from one to three, is again admissible, so the two Rips complexes are literally equal. The degree-one classes die at radius two because \(H_1(Y)=0\); the degree-three classes die at radius three because the inclusion from the faulted radius-two complex to radius three factors through the intact radius-two complex, and the intact scale-two-to-three inclusion is nullhomotopic by [2, Proposition 3.3]. All scale complexes and connecting maps from radius three onward are unchanged, giving the stated exact barcode difference. The degree-zero part is unaffected.
+**5. Radius one and persistence.** At radius one the faulted complex is the connected triangle-free graph \(G_n\), on \(2^n\) vertices and \(n2^{n-1}-1\) edges, so its cycle rank is \((n-2)2^{n-1}\). At radius three and above, both metrics admit exactly the same pairs, so the complexes and all subsequent inclusions agree. Both filtrations have the same degree-zero persistence, as the vertices are the same and each graph is connected at radius one. In positive degrees the only groups below radius three are degree one on \([1,2)\) and degree three on \([2,3)\), and they are free over \(\mathbb Z\) or vector spaces of the same ranks over any given field. The degree-one maps across radius two are zero by the degree-one homology vanishing there. The faulty radius-two-to-three inclusion factors through \(X\hookrightarrow\operatorname{VR}(Q_n;3)\), which is nullhomotopic by [2, Proposition 3.3]; the intact map is the same nullhomotopic inclusion. Thus there are no connecting positive-degree maps from either early interval into the remaining stages. For either coefficient choice, both modules split as their common part (degree zero and the common positive-degree tail, extended by zero below radius three) plus the indicated \(I_R[1,2)\) and \(I_R[2,3)\) summands in degrees one and three. The rank differences are one and \(n-2\), respectively. Over a field the common part has the usual interval decomposition, so this gives the full barcode comparison. Over \(\mathbb Z\) the displayed splitting makes the comparison without any decomposition assumption on the common part.
 
 ## Verification
 
-The standalone standard-library script `verify_hypercube_fault.py` independently reconstructs the graph distances with breadth-first search, checks that precisely the endpoint distance changes, enumerates every clique face at radius two, computes all boundary ranks over \(\mathbb F_2\), and checks the explicit two-clique-plus-rungs edge-link structure for \(n=3,4,5,6\). The accompanying `verification_output.txt` is its recorded execution output. Its original/faulted third Betti ranks are respectively \((1,0)\), \((9,7)\), \((49,46)\), and \((209,205)\). These finite experiments support the calculations but are not the infinite proof, which is the integral argument above.
+The companion standard-library code `verify_hypercube_fault.py` checks the distances, radius-two faces, Betti numbers over \(\mathbb F_2\) and the link structure for \(n=3,4,5,6\); see `verification_output.txt` for its recorded results. The intact/faulted third Betti numbers in those dimensions are \((1,0),(9,7),(49,46),(209,205)\). This finite check is corroboration only. The arbitrary-dimensional integral homotopy argument and the coefficient-specific persistence statements follow from the proof, not from a field calculation or a higher-scale homology census.
 
-## Relationship to prior work
+## Relationship to prior work and limitations
 
-Adamaszek–Adams [1] classify the intact hypercube's scale-two Rips homotopy and give the formula for \(c_n\). Adams–Virk [2] discuss independent cross-polytopal classes and nullhomotopy of inclusions between consecutive Rips scales, again with the intact Hamming metric. These known theorems provide inputs; neither states the homotopy or barcode response under a **deleted graph edge with recomputed distances**. The distinction matters: merely deleting a vertex, changing the radius, or passing to a quotient is not equivalent to the present edge fault. The structural step specific to this result is the primitive surjection from coordinate three-cube sphere classes onto the edge-link cycle lattice.
-
-## Limitations
-
-The argument treats exactly one missing edge and unweighted shortest-path distance for binary cubes of dimension at least three. It does not classify arbitrary simultaneous edge failures, weighted faults, or the individual homotopy types at radii at least three beyond their identity with those of the intact hypercube. The novelty comparison cannot exclude unindexed or inaccessible equivalent literature, and the computational checks are finite only.
+The intact-cube sphere count and the nullhomotopy of intact successive scale inclusions are established inputs [1,2]. The cross-polytopal spheres in intact coordinate subcubes are also known [2]; the new step is the integral comparison with the specific lost edge, via their images in its link cycle lattice. This is different from puncturing the vertex set of the Hamming metric or determining a homotopy type of an intact higher-scale cube. Only one missing graph edge is treated. No torsion-freeness or new individual homotopy classification of the common stages at radii at least three is asserted. Priority is provisional.
 
 ## References
 
-[1] M. Adamaszek and H. Adams, *On Vietoris–Rips complexes of hypercube graphs*, arXiv:2103.01040 (first submitted 2021-03-01), Theorem 1 and its proof. https://arxiv.org/abs/2103.01040
-
-[2] H. Adams and Ž. Virk, *Lower bounds on the homology of Vietoris–Rips complexes of hypercube graphs*, arXiv:2309.06222 (first submitted 2023-09-12), Proposition 3.3, Theorem 2.4 and Section 4. https://arxiv.org/abs/2309.06222
-
-[3] S. Shukla, *On Vietoris–Rips complexes (with scale 3) of hypercube graphs*, arXiv:2202.02756 (first submitted 2022-02-06). https://arxiv.org/abs/2202.02756
+1. M. Adamaszek and H. Adams, *On Vietoris–Rips complexes of hypercube graphs*, arXiv:2103.01040, Theorem 1. https://arxiv.org/abs/2103.01040
+2. H. Adams and Ž. Virk, *Lower bounds on the homology of Vietoris–Rips complexes of hypercube graphs*, arXiv:2309.06222, Proposition 3.3 and Section 4. https://arxiv.org/abs/2309.06222
+3. S. Shukla, *On Vietoris–Rips complexes (with scale 3) of hypercube graphs*, arXiv:2202.02756. https://arxiv.org/abs/2202.02756

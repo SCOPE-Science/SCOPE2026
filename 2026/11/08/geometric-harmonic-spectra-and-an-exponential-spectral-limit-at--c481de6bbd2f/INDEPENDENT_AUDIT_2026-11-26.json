@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:22:04.414509Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–72",
+        "VERIFICATION.md and check_spectrum.py, inspected only"
+      ],
+      "rationale": "Writing Q=a(x²+y²)+xy, the radial identity is d(r²−1)/dt=−2Q(r²−1), and the on-circle angular equation is Q−sin²θ=(a−1/2)+R cos(2θ−φ). For b>R it has a constant sign; integrating inverse speed gives least orbit period 2π/Δ. The observable e^{2iθ} itself has half that period, consistent with frequency spacing 2Δ. After the respective shifts of v=2θ−φ, its Ode is v̇=2ε(b−R cos v). Writing h=tan(v/2) gives ḣ=ε[(b−R)+(b+R)h²]; scaling h by β=sqrt((b−R)/(b+R)) and taking arctangent gives uniform phase ẇ=εΔ modulo π. Consequently ζ=e^{2iw} is uniform under physical-time sampling, and U=−ε e^{iφ}(ζ+k)/(1+kζ), with k=(1−β)/(1+β)=R/(b+Δ). Expanding the Möbius factor, the constant coefficient is k and nonzero centered coefficients are (1−k²)(−k)^{j−1}, times the unit-modulus prefactor. Orthogonality squares their moduli in the centered covariance and gives exactly the claimed one-sided atoms and correlation with the stated Fourier convention. Their total mass is 1−k². With p=1−k²=2Δ/(b+Δ), the variance-normalized frequency is ε(b+Δ)pJ where J has geometric(p) law on the positive integers. The exact geometric tail gives pJ⇒Exp(1), hence the signed scale εR and the characteristic-function limit. The unnormalized mass tends to zero and neither endpoint is a periodic parameter. The form-feed typo in the displayed period line of the proof does not affect the correctly stated result or the integral evaluation.",
+      "residual_risks": [
+        "The supplied numerical quadrature checks an explicit profile for four parameters and finite lags, not infinite spectral or endpoint statements. The audit uses the analytic identities and does not assert an angular, radial, or stochastic spectrum beyond the specified complex observable."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The ordinary Adler equation is the single-tone case of the generalized periodic force law in Yamaguchi–Asano, with time described by a reciprocal-speed quadrature. Their located study is of adiabatic two-tone modulation and winding. The identified Josephson voltage-spectrum paper was not readable via the DOI and alternate OA attempt."
+        ],
+        "reasoning": "The Adler equation gives the exact reduced dynamics after a constant phase shift, not just a qualitatively similar normal form. A theory of its deterministic running-state harmonics would be relevant. The inspected generalized Adler passage provides the evolution and clock quadrature but no theorem about this signed power or endpoint scaling. The Josephson voltage is affine in a real projection of the phase in the single-tone overdamped model, so its exact running harmonics could be relevant if matched to that regime; the unread paper contributes no verdict.",
+        "searches": [
+          "Yamaguchi–Asano arXiv:2602.21451, §II, equations (1)–(2)",
+          "\"RSJ model\" \"Fourier\" dc biased junction voltage harmonics analytical no capacitance McCumber waveform coefficients",
+          "\"10.1103/PhysRevB.96.125438\" \"arxiv\" Signatures periodic supercurrent voltage response open preprint"
+        ]
+      },
+      "checked_sources": [
+        "Gasull–Giacomini arXiv:2210.15803",
+        "Resultary local mirror, exact self-match and 49449bc217a6",
+        "Yamaguchi–Asano arXiv:2602.21451",
+        "Josephson Fourier source DOI 10.1103/PhysRevB.96.125438, retrieval attempt only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed proof expands δ/(1−α cos(2u)) in the nonuniform angle u, with cosine coefficients 2r^j, to obtain E[cos(4θ)]=−r² and a squared-position variance. It also gives the exact tangent Cauchy transformation. It does not give the temporal coefficient of U as a function of the uniform clock, or a temporal variance-normalized scaling law."
+        ],
+        "reasoning": "The angular density and its coefficients do not translate verbatim to physical-time powers: one must invert the phase clock, expand the complex observable rather than the density, and square its temporal coefficients. Once the exact geometric power is obtained the weak-limit step is elementary, but the angular spread or period alone does not give the normalized endpoint spectrum; distinguishing the signed direction and the physical frequency scale is part of the checked result.",
+        "searches": [
+          "Gasull–Giacomini §7.1 equation (15); Resultary 49449bc217a6, steps 2–4, mirror offsets 3270–7097; Yamaguchi–Asano §II"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gasull–Giacomini §7.1 equation (15) has the identical cubic and the identical two intervals. Resultary 49449bc217a6, proof steps 2–4, gives θ̇=−(1+α sin2θ), the tangent substitution and a Poisson-kernel angular density."
+        ],
+        "reasoning": "Choose α=R/b, shift the slow gate and scale time by b: the indexed angular equation on the oval becomes the same negative-orientation circle equation, with the positive orientation obtained by time reversal. This is a genuine phase-level equivalence, despite the different planar embeddings. The indexed angular moments give single-time laws, not signed temporal powers of the doubled-angle observable. The compared cubic paper establishes the orbit and parameter range, not this observable's spectrum.",
+        "searches": [
+          "\"a(x^2+y^2)+xy\" \"invariant circle\" cubic spectrum harmonic autocorrelation exponential limit",
+          "Adler equation exact Fourier harmonics rotating phase cos phi power spectrum dc driven Josephson junction geometric coefficients critical current exponential spectrum phase slips analytic solution",
+          "Resultary: cubic invariant unit-circle periodic orbit exact harmonic power spectrum second angular harmonic physical-time sampling variance-normalized exponential frequency limit Riccati Adler SNIC"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact hit 2026/11/8/SCOPE-geometric-harmonic-spectra-and-an-exponential-spectral-limit-at--c481de6bbd2f is the assigned record itself. Distinct same-day 2026/11/8/SCOPE-exact-physical-time-statistics-and-arrest-scaling-of-an-algebrai--49449bc217a6 concerns phase statistics and arrest scaling on an algebraic oval; its exact angular expansion was compared directly."
+        ],
+        "reasoning": "No priority is inferred from the same-day date or the self-match. A table of the spatial Poisson-kernel coefficients, or of harmonic frequencies without powers, is not an entry for the temporal power and its endpoint law.",
+        "searches": [
+          "Resultary semantic lookup for physical-time geometric spectrum and variance-normalized exponential limit"
+        ]
+      },
+      "rationale": "The cubic family's invariant circle and periodic regime, the fixed-sign Adler/Riccati dynamics and the elementary tangent clock are background. The supported distinction is the original-time power of this specified complex second harmonic and its variance-normalized signed limit. The closest related indexed calculation in a different oscillator is in fact equivalent at the level of phase dynamics after shifting and scaling, but its Fourier series is for a one-time angular density, not a temporal power spectrum. No covering temporal spectral statement or limit was verified in the strongest accessible comparisons.",
+      "residual_risks": [
+        "The cited Ermentrout–Kopell exposition timed out, and the closely related Josephson full text was unavailable through the tried OA links. Equivalent deterministic Adler/RSJ harmonic formulas may exist outside the inspected passages. Priority is provisional; no novelty is assigned to the phase conjugacy or to the standalone geometric-to-exponential limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The same cubic, periodicity range and invariant circle are prior",
+          "evidence": [
+            "The circle x²+y²=1 is a limit cycle in the two stated parameter intervals. The read passage concerns cycle structure, not temporal spectra."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2210.15803",
+          "material_read": "§7.1 equation (15), PDF pp. 22–23, passage around offsets 58725–58945",
+          "method": "Bounded OA PDF passage read",
+          "title": "Number of Limit Cycles for Planar Systems with Invariant Algebraic Curves",
+          "trigger": "Exact cubic vector field and invariant circle"
+        },
+        {
+          "assessment": "Equivalent single-tone phase clock after a shift and constant time change; one-time angular and position statistics instead of the temporal power limit",
+          "evidence": [
+            "θ̇=−(1+α sin2θ); tan(u)/η has the Cauchy gate law; the Poisson-kernel angular density is expanded for moments of X and X²."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-physical-time-statistics-and-arrest-scaling-of-an-algebrai--49449bc217a6",
+          "material_read": "Original Finding and proof steps 2–4, offsets 0–7097 via two bounded reads",
+          "method": "Resultary lookup and local mirror passage read",
+          "title": "Exact physical-time statistics and arrest scaling of an algebraic limit cycle",
+          "trigger": "Similar arrest, physical time and a potentially equivalent phase equation"
+        },
+        {
+          "assessment": "Confirms single-tone Adler reduction and reciprocal-speed clock; its studied modulation and winding do not supply the checked spectral conclusion in these passages",
+          "evidence": [
+            "The conventional choice is v(φ)=A cos φ in the washboard potential. The authors describe temporally modulated two-tone dynamics."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.21451",
+          "material_read": "Introduction and §II equations (1)–(2), PDF p. 2 / offset 3060–6534",
+          "method": "OA PDF literal locate followed by offset read",
+          "title": "Topological phase dynamics described by overtone-synthesized classical and quantum Adler equations",
+          "trigger": "Broader Adler phase dynamics possibly covering the running regime"
+        },
+        {
+          "assessment": "Not used to assert noncoverage; relevant access risk",
+          "evidence": [
+            "Direct and alternate routing to the DOI text returned HTTP 403; the OA preprint recovery timed out. The pointer mentions voltage spectra and 4π supercurrent, not enough for a statement match."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevB.96.125438",
+          "material_read": "Search pointer only; no full-text passage retrieved",
+          "method": "OA DOI attempts and identified alternate preprint recovery, then a targeted preprint-identifier lookup",
+          "title": "Signatures of a 4π-periodic supercurrent in the voltage response of Josephson junctions",
+          "trigger": "Potential related Fourier-spectrum result in a capacitively shunted junction model"
+        },
+        {
+          "assessment": "Identical assigned record",
+          "evidence": [
+            "Matches both the discrete spectrum and the normalized signed limit."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-geometric-harmonic-spectra-and-an-exponential-spectral-limit-at--c481de6bbd2f",
+          "material_read": "Mirrored Finding",
+          "method": "Resultary lookup and local mirror read",
+          "title": "Geometric harmonic spectra and an exponential spectral limit at a cubic invariant-circle degeneration",
+          "trigger": "Exact catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof",
+        "Gasull–Giacomini §7.1",
+        "Resultary 49449bc217a6, proof steps 2–4"
+      ],
+      "rationale": "The doubled-angle observable is the natural complex coordinate on the antipodal phase quotient. Its exact covariance and full signed power give a useful temporal invariant beyond one-time angular statistics or the period. They quantify a concrete singular effect: every fixed harmonic collapses toward zero frequency as the period diverges, but increasing harmonic indices on the variance scale retain a nondegenerate distribution at physical frequencies of order R. The endpoint sign and scale and the vanishing raw variance distinguish this from merely interpolating a line spectrum or tabulating phase densities.",
+      "residual_risks": [
+        "A narrow deterministic observable result, not a classification of generic slow-gate spectra, limit-cycle stability, or spectra of perturbations off the orbit."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Review of the half-filling nonlinear entropy theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof starts from the exact density–polarization PDE and verifies the full local entropy-flux identity. Convexity is uniform on a density interval capped by \(R<1/2\), and the periodic Poincaré constant produces a fully explicit nonlinear decay rate. A steady or traveling profile contained in \(\rho\le1/2\) has zero dissipation and must be constant. At and above half filling, characteristic nonreal eigenvalues or a nontrivial Jordan block prevent positive-definite local Hessian symmetrizers. The independent checker verifies 83 exact algebraic/numerical assertion groups; no numerical sample is substituted for the proof.
+## correctness
 
-**Originality — PASS, qualified.** The 2018 active-lattice derivation, linear spinodal and flat-interface binodals are prior work; the exact entropy and nonlinear no-pattern barrier are the assessed additions. The 2021 Gaussian-order quasi-potential is a fluctuating-hydrodynamic quantity rather than the present exact nonlinear Lyapunov entropy. The 2022 entropy-production large-deviations theory concerns pathwise irreversibility, not the entropy flux here. Published nonmodal-amplification and finite-ring-spinodal findings concern related but non-dominating linear results. General entropy-system theory could implicitly contain the calculation, and independent literature-priority assessment remains necessary.
+PASS
 
-**Mathematical value — PASS.** The same driven PDE supports phase-coexistence questions, so a drive-independent nonlinear certificate and sharp local-density obstruction address a natural structural gap. The theorem makes no claim that low initial mean, or even an initially low maximum, stays low under arbitrary dynamics. It is a deterministic PDE theorem rather than a microscopic statistical certification.
+Differentiation gives f'=2ρ+log(1−ρ) and (1−ρ)f''=1−2ρ, so H DF is symmetric and q=m(1−ρ)f' satisfies ∇q=(DF)^T∇h. The diffusion chain rule and m source yield exactly −f''|ρ_x|²−|m_x|²−2m² after periodic integration, with no activity coefficient. Conservation of the density mean and α_R≤f''≤1 bound the relative entropy above by half the sum of the two squared L² distances. Poincaré for the density fluctuation and the polarization reaction give the claimed minimum rate. For a steady or translated profile confined to ρ≤1/2, the entropy integral is constant; then m=0 and ρ_x=0 where ρ<1/2. At ρ=1/2 differentiability at a global maximum gives ρ_x=0 as well. At an unpolarized physical state the off-diagonal symmetry equation is (1−ρ_*)H_11=(1−2ρ_*)H_22, impossible for a positive-definite Hessian when 1/2≤ρ_*<1. This also verifies the obstruction at the degenerate threshold without relying on the rate bound there.
 
-**Closest literature and limitations.** Kourbane-Houssene et al., arXiv:1801.08952 (PDE and linear instability); Agranov et al., arXiv:2209.03000 (entropy-production fluctuations). Exact general convex symmetrizer prior art remains a residual risk. Only classical periodic solutions under their stated ranges are covered; no finite-system phase diagram or unconditional cap invariance is proved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The PDE and linear spinodal are known, and the Hessian obstruction is a direct flux-Jacobian calculation, not credited in isolation. The supported contribution is the exact nonlinear periodic entropy balance with an explicit h and the resulting exclusion of all smooth stationary and traveling profiles confined pointwise to half filling or below, with a conditional quantitative decay estimate. The strongest inspected primary antecedent concerns a linear instability threshold and a particular stationary-interface construction, not this claim.
+
+## value
+
+PASS
+
+The exact entropy turns a linear homogeneous threshold into a genuinely nonlinear statement for smooth finite-amplitude periodic profiles, at any activity. The endpoint argument at half filling handles loss of coercivity rather than treating it as a uniform decay estimate. It separates low pointwise density from low mean and gives a quantitative diagnostic when the stricter cap is known. These conclusions, not the familiar entropy framework or eigenvalue test in isolation, justify the result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

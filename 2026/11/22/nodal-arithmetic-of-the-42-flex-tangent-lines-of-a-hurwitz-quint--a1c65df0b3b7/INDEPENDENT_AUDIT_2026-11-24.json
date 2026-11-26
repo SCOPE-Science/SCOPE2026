@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:32:44.589327Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Proof §§1–4",
+        "VERIFICATION.md and verify_hurwitz_flex_arrangement.py (read, not executed)",
+        "Arakelian–Borges–Speziali, arXiv:1811.09224, Lemmas 3.1 and 3.5 and Theorem 3.6"
+      ],
+      "rationale": "Verified geometric completeness, not just the F5-rational cases. On the torus the three scaled gradient entries are A-C, B-A, C-B for A=XY^4, B=YZ^4, C=X^4Z. Their simultaneous vanishing would give F=3A≠0; the three coordinate points are also smooth. In local coordinates putting a smooth point at (0:0:1) and tangent Y=0, the Hessian determinant at the point is −2a(4c)^2, where a is the tangent-direction quadratic coefficient and c is the nonzero normal linear coefficient. Hence Hessian vanishing characterizes flexes here even though the characteristic divides the degree. Direct Hessian expansion and substitution of Z=1, X=t, Y=λt^4 give the stated cubic and thirteenth-power equation; the change to s=t^13 gives the stated degree-39 polynomial and inverse λ=4+4s+2s². In a separate FLINT implementation using a different irreducible degree-12 modulus and direct splitting of the degree-39 polynomial, all 39 roots were simple; explicit tangent restriction gave 39 order-three and three order-four contacts. The resulting 42 normalized lines gave 861 different projective pair intersections (which rules out every triple). Exact Frobenius on lines gave {1:3,3:1,12:3}; on nodes it gave {1:3,3:4,6:3,12:69}, with the fixed nodes exactly the axes points and every other flex singly incident. Distinct line pairs cross transversely. The cycle counts give both the reduced support's zeta function and the minimal common field degree 12. Replay: python /workspace/branches/independent_hurwitz.py (python-flint).",
+      "residual_risks": [
+        "Exact finite-field computation with an elementary completeness reduction; not a proof-assistant formalization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general Hurwitz theorem specializes exactly to the 3+39 support and orders",
+          "The sextic record has 72 lines with sixfold and triple points over C; the Klein quartic record studies triangles of 24 flexes of a quartic"
+        ],
+        "reasoning": "The general support theorem gives no line incidence result; neither neighboring arrangement/finite-field record covers this degree-five object.",
+        "searches": [
+          "Arakelian–Borges–Speziali, Lemmas 3.1, 3.5 and Theorem 3.6",
+          "Resultary Hessian-invariant sextic and characteristic-five Klein quartic comparisons"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1811.09224 / DOI 10.1016/j.ffa.2021.101842",
+        "Local Resultary match and the two nearby mirror records identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior parametrization provides tangent input points, not any nonvanishing assertion for triples of their gradients"
+        ],
+        "reasoning": "The zeta function follows routinely once the no-concurrence assertion and the line cycle type are known, but the prior theorem does not establish that pair-to-node bijection. Exhaustive exact incidence is the nontrivial added step.",
+        "searches": [
+          "Arakelian–Borges–Speziali, arXiv:1811.09224, pp. 2, 4–7",
+          "Exact Resultary comparisons for sextic and quartic records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the identical frozen record, not an independent overlap",
+          "The full text of arXiv:1811.09224 concerns Weierstrass points for the linear series of lines, yielding flex points and contact orders"
+        ],
+        "reasoning": "Incidence of the tangent lines, equivalently collinearity of their coefficient points in the dual plane, is not the curve's flex-support problem. No equivalent independent incidence statement surfaced.",
+        "searches": [
+          "Resultary searches on 42 Hurwitz quintic flex tangents, incidence and Frobenius",
+          "Literature search on the Hurwitz quintic flex-tangent arrangement over F5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only the exact reviewed record reported the 861 nodes and cycle spectrum; the inspected primary theorem lists flex data, not a node table"
+        ],
+        "reasoning": "No independent exact table was located; the support list is not a database of the pairwise intersections or their fields of definition.",
+        "searches": [
+          "Resultary 42-line incidence and Frobenius searches",
+          "Targeted literature search for the F5 arrangement"
+        ]
+      },
+      "rationale": "The 42 flex points and their contact orders are established inputs. The distinct contribution supported by the comparisons is the full flex-tangent incidence and node arithmetic of this particular quintic over F5, not the flex-support classification.",
+      "residual_risks": [
+        "Bounded comparison does not exclude an unindexed exact arrangement calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers support and orders, not the arrangement's node arithmetic",
+          "evidence": "At n=4,p=5 yields coordinate contact four and the cubic/13th-power parametrization of ordinary flexes.",
+          "identifier_or_url": "https://arxiv.org/pdf/1811.09224",
+          "material_read": "pp. 2, 4–7, especially Lemmas 3.1, 3.5 and Theorem 3.6",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "The Hurwitz curve over a finite field and its Weierstrass points for the morphism of lines",
+          "trigger": "Exact family and flex characterization"
+        },
+        {
+          "assessment": "Different curve, characteristic and incidence profile",
+          "evidence": "A complex 72-line arrangement with higher concurrence.",
+          "identifier_or_url": "2026/11/2/SCOPE-the-72-flex-tangents-of-the-hessian-invariant-sextic-form-an-arr--094d1c44685b",
+          "material_read": "Statement and incidence counts",
+          "method": "Local mirror",
+          "title": "The 72 flex tangents of the Hessian-invariant sextic form an arrangement with 12 sixfold points, 216 triple points and 1728 nodes",
+          "trigger": "Closest indexed flex line arrangement"
+        },
+        {
+          "assessment": "Different curve and invariant",
+          "evidence": "Degree-four Klein quartic with 24 flexes, not a node scheme of 42 tangent lines.",
+          "identifier_or_url": "2026/10/25/SCOPE-frobenius-splitting-of-the-characteristic-five-klein-quartic-s-f--07295989c49b",
+          "material_read": "Statement identifying flexes and triangles",
+          "method": "Local mirror",
+          "title": "Frobenius splitting of the characteristic-five Klein quartic's flex triangles",
+          "trigger": "Closest characteristic-five flex Frobenius comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof §§3–4",
+        "arXiv:1811.09224, flex support theorem"
+      ],
+      "rationale": "This is the complete incidence and arithmetic description of the canonical flex-line arrangement of a natural small Hurwitz curve in characteristic dividing its degree. The absence of any higher concurrence is not implied by flex counts or geometry of unrelated arrangements and is needed before an unordered-pair Frobenius calculation is valid. The orbit spectrum gives the exact node counts in every extension and the minimal splitting degree, reusable data for subsequent study of this arrangement.",
+      "residual_risks": [
+        "Specific to this quintic and characteristic; no broader arrangement family or downstream theorem is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The full edge classification is established by exposed faces of a two-layer twisted prism: same-layer cube and cross-class edges and opposite-layer unique max/min pairs. Exact binomial enumeration yields the edge polynomial, total count, longest-edge multiplicity, and squared-diameter gap. Splitting edge counts into cube, cross-class and complementary classes gives the two-atom weak limit, with binomial concentration in the long-edge class. A standalone checker independently reconstructs edges from clique facets with exact arithmetic for twenty size pairs (106,380 candidate vertex pairs); finite verification is auxiliary to the analytic proof. A separate examination confirmed that the arguments also handle empty-set vertices, equal class sizes, and the two endpoint regimes of the scaling limit.
+## correctness
 
-## Originality — PASS (priority provisional)
-The 1977 paper introduces an affinely equivalent object but does not in the inspected portions enumerate squared edge lengths. Aprile, Cevallos and Faenza (arXiv:1702.03187, Section 3.2) prove a vertex/facet tradeoff for Hansen polytopes; the claim concerns a finer metric invariant. Aliniaeifard et al. (arXiv:1804.00360) characterize edges of the underlying stable-set polytope, not the full Euclidean edge-length spectrum of its twisted prism. Freij et al. (arXiv:1201.5790) focus on the face numbers of split-graph Hansen polytopes, not the complete bipartite non-split family. Published search results on metric polytope spectra, diameters, and related graph polytopes did not exhibit the stated formula or logarithmic crossover. The earlier multipartite Hansen incenter classification concerns maximally inscribed balls and does not imply edge lengths. Literature priority remains vulnerable to unindexed equivalent results and partial access to older articles.
+PASS
 
-## Mathematical value — PASS
-This is a complete metric enumeration of every edge in a canonical, widely studied central-symmetric graph-polytope family. Its explicit distribution reveals a sharp scale separation: the graph's smaller part of logarithmic size creates coexistence of constant-length and dimension-scale-squared edges, a behavior invisible to ordinary face counts. The exact law allows one to calculate arbitrary edge-length moments and to distinguish geometric edge sampling from simple vertex sampling. These are natural and reusable geometric invariants, not a bounded numerical example.
+Read the frozen proof and supporting files. In either horizontal face the two coordinate cubes are faces; only their Hamming-distance-one edges qualify within a cube. Each nonempty mixed pair is exposed by giving the two supports tied positive score, with negative scores elsewhere. Across layers an exposing functional exists exactly when the base functional has a unique maximum S and unique minimum T; shifting its height coefficient ties the chosen vertices. For nonempty mixed pairs take +1 on S, −1 on T, small negative weights on the rest of S's class, and small positive weights on the rest of T's class. For a common class the cube forces strict complementary signs, and weights in the other class can be made smaller in total magnitude than either nonzero extremum. When one endpoint is empty, all coordinates must have the same strict sign at that extremum; the other endpoint must fill a class and can be made the unique opposite extremum by choosing that class dominant. Both empty is impossible. This verifies the four edge types and their squared lengths. The longest two are the cross-layer full-class pairs (p+q+4); the norm bound and antipodality give diameter squared 4(q+1), strictly larger since p≤q. Dividing the three class counts by q·2^q at finite c gives weights proportional to 1,4c,0; at c=∞ dividing by 2^(p+q) shows cross-class dominance. For any nonzero cross-class limiting mass both part sizes diverge, so independent conditioned binomial sizes give concentration at normalized length 1/2. The c=0 endpoint needs no such conditional concentration. Independent bounded integer-score enumeration agreed for (2,2),(2,3),(3,3), giving opposite-layer totals 26,54,114 and total edge counts 60,128,260. Witness scores were restricted to [−4,4]; this is supporting evidence only. The shipped clique checker was inspected, not executed.
 
-## Source limitations
-The 1977 original was inspected at its definition and early structural sections but not comprehensively line by line. Some database hits were compared from summaries; no absence-of-hit is treated as definitive novelty proof. The computational checker establishes exhaustive finite checks only; the proof gives the infinite parameter theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The base skeleton and twisted-prism construction are antecedents. The searched sources do not give the full length-weighted twisted-prism skeleton in this realization or its crossover. The passage from known base edges to opposite-layer edges and normalized metric weights is explicitly verified, not treated as a rescaling of an established metric formula.
+
+## value
+
+PASS
+
+A full metric census for a standard embedding is useful beyond an ordinary edge count: it makes the competing edge populations explicit and proves a sharp imbalance scale where both short and dimension-scale squared lengths retain positive probability. The complete result includes two very different endpoint regimes and distinguishes the longest edges from the vertex diameter. It requires no arbitrary length cutoff or finite-instance conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

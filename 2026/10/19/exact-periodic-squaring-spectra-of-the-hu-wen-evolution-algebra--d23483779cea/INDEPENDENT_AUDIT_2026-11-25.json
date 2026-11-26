@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:39:08.502834Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Original basis multiplication gives E²=span(e1+e3,e2+e3), with products 0,u,−u+lambda v as stated. All periodic points lie there. Writing c=lambda b, the c=0 fiber maps to the origin. On c≠0 use z=a/c: the map is the direct product (c,z)→(c²,(2/lambda)z−1/lambda²). This independently verifies both iterate formulas. At lambda≠2 the affine factor has one fixed center and acts about it by multiplication by t; its m-th iterate fixes q points if t^m=1 and one otherwise. At lambda=2 it is translation by −1/4, whose m-th iterate fixes q points exactly when p divides m. The scalar power factor fixes gcd(2^m−1,q−1) nonzero values. Squaring is a permutation exactly on the odd-order subgroup among the periodic c values, and the affine factor is a permutation, giving 1+qh. The two factors' least periods combine by lcm: at lambda=2 any point over c≠0 has period lcm(k,p), with k the c-period, so the k-step fiber return may be the identity if p divides k. Möbius inversion and the cycle factors yield the stated zeta, and the small-field examples follow. RESULT.md line 73 means the exceptional (second), not the first, displayed count. Independent original-table enumeration matched 270 fixed-iterate comparisons and 20 periodic-locus counts over F3, F5, F7 and F9 with the irreducible relation theta²=2 over F3. The checks are finite; the product argument gives the unrestricted result.",
+      "replay_path": "/workspace/branches/f725e55e-dd9e-484c-aa8c-f6572801d9c9/",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hu–Wen prove the identical square algebra and count its idempotents over any field, not only over C. Their equation at lambda=2 gives the translation on the c=1 fiber directly. Hutz–Patel give the scalar power-map coprime-order locus over prime fields; this does not classify the affine factor. The weighted cyclic Resultary map shifts indices rather than feeding a single shared base coordinate."
+        ],
+        "reasoning": "Existing statements account for F_1, for the particular exceptional translation on c=1, and for the base scalar invariant. They do not classify the families of resonant returns across all periodic base values and all lambda, including the exceptional affine drift.",
+        "searches": [
+          "Hu–Wen §2.1 Theorem 2.1 and Eq. (4); Hutz–Patel arXiv:1710.07821v1 §3.2 Prop. 3.3; finite-field monomial system criteria",
+          "Resultary 469a88eb67c9 cycle census"
+        ]
+      },
+      "checked_sources": [
+        "Hu–Wen arXiv:2609.25023v1 §2.1",
+        "arXiv:0711.1230, arXiv:0910.5550, arXiv:2201.00954v1 and arXiv:1710.07821v1 relevant monomial or split-map passages",
+        "Resultary 1a1e7e2dd0e3, 2828ce45dd11, 6caca5db41c6 and 469a88eb67c9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior idempotent proof already yields 2ab−b²=a and lambda b²=b, and at lambda=2 and b=1/2 it gives a−1/4=a. It does not analyze the product on c≠0 or its higher iterates. Scalar power-map results recover the base factor of the counts."
+        ],
+        "reasoning": "A p-cycle on the exceptional c=1 fiber is already immediate from the prior proof, so it is not sufficient novelty. What survives is the exact all-period census, which requires combining the full multiplicative orbit count with the two different affine resonance mechanisms.",
+        "searches": [
+          "Hu–Wen arXiv:2609.25023v1 Theorem 2.1 proof, Eqs. (2)–(4)",
+          "Hutz–Patel arXiv:1710.07821v1 Prop. 3.3; Sha–Hu arXiv:0910.5550 scalar monomials"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For nonzero c, the frozen skew product is exactly a product of a power map and an affine map using z=a/c. Delgado–Eckert's examined definition uses coefficient-one monomials; Sha–Hu and Oliveira–Brochero Martínez concern scalar monomial dynamics. Hutz–Patel §3.2 treats the scalar power-map periodic locus."
+        ],
+        "reasoning": "The split-map comparison is genuinely relevant once the normalization and nonzero base are identified. Base periodicity is covered, and product fixed counts multiply. The ordinary versus exceptional affine-factor spectrum must still be identified for the Hu–Wen map, and the zero fiber handled separately. No exact same-family spectrum was found in these statements.",
+        "searches": [
+          "Finite-field monomial dynamics, weighted triangular maps, and split polynomial iteration; arXiv:0711.1230, 0910.5550, 2201.00954v1 and 1710.07821v1",
+          "Hu–Wen arXiv:2609.25023v1 Theorem 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-family entries classify algebra automorphisms, subalgebra lattices, or algebra endomorphisms and retractions, rather than cycles of Q. The closest cycle-spectrum record, 469a88eb67c9, counts cycles and basins of a weighted cyclic-shift quadratic map, a different nonlinear map."
+        ],
+        "reasoning": "Neither same-family linear/structural classifications nor a complete census for another quadratic map provide the exact F_m table here. No distinct catalog match for the Hu–Wen formulas was identified.",
+        "searches": [
+          "Local Resultary lookup for Hu–Wen finite-field squaring cycle spectrum; entries 1a1e7e2dd0e3, 2828ce45dd11, 6caca5db41c6 and 469a88eb67c9"
+        ]
+      },
+      "rationale": "The algebra, its stable square and idempotents are already known, and scalar power-map periodicity is standard. The supported contribution is the complete, field- and parameter-dependent nonlinear iterate spectrum, obtained by separating the base power map from affine fiber resonance. Neither the power-map method nor the idempotent-free exception alone is new.",
+      "residual_risks": [
+        "The full census may have an unindexed earlier formulation via normalized homogeneous quadratic maps and finite-field products; checked general power-map results are only partial coverage.",
+        "Ordinary monomial-map coverage does not itself certify originality of the exceptional affine case, for which the same-family proof is the closest antecedent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact family, stable square and idempotent baseline covered; the proof also implies exceptional translation on the c=1 fiber.",
+          "evidence": [
+            "a−1/4=a has no solution at lambda=2, establishing no nonzero idempotent."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.25023v1",
+          "material_read": "§2.1 Theorem 2.1 and proof, Eqs. (2)–(4); Corollary 2.2, HTML offsets 3356–8354",
+          "method": "Lawful arXiv full-text passage; alternate preprint host unavailable",
+          "title": "Idempotent-free non-solvable evolution algebras over C",
+          "trigger": "Defines the exact family and computes F_1"
+        },
+        {
+          "assessment": "Relevant power-map factor; does not identify the Hu–Wen split and affine resonance.",
+          "evidence": [
+            "The periodic locus of a scalar power map is counted by the prime-to-degree part of the multiplicative-group order plus the zero point."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1710.07821v1",
+          "material_read": "Abstract/introduction and §3.2 Prop. 3.3, PDF text offset 10350 onward",
+          "method": "Lawful preprint passages",
+          "title": "Hutz–Patel study of split polynomial dynamics over finite fields",
+          "trigger": "Possible broader coverage by splitting coordinates"
+        },
+        {
+          "assessment": "A related census for a different map.",
+          "evidence": [
+            "Uses F_a(x)_i=a_i x_(i−1)^2, not the Hu–Wen stable-square product after normalization."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-arithmetic-cycle-and-basin-spectra-of-weighted-cyclic-evolution--469a88eb67c9",
+          "material_read": "Finding and cycle and basin formulas, RESULT.md offsets 0–11600",
+          "method": "Local published-record mirror",
+          "title": "Arithmetic cycle and basin spectra of weighted cyclic evolution maps",
+          "trigger": "Complete quadratic finite-field cycle census in evolution algebras"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Hu–Wen's idempotent-free, non-solvable example naturally raises the question of what survives under repeated squaring over finite fields. The explicit exact cycle multiplicities distinguish base arithmetic from multiplicative or additive fiber periods, and show that identical total periodic-locus sizes can hide very different spectra. This resolves a motivated entire-family invariant rather than merely exhibiting the simple exceptional p-cycle or applying a scalar gcd formula to a single example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

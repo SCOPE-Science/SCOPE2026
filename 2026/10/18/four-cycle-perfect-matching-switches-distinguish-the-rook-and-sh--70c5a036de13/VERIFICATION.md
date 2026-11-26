@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 enumerate.py certificate.json` to regenerate every finite state and transition. Run `python3 verify_certificate.py certificate.json` to validate all 48 host edges per graph, every matching, every switch, and every shortest-path eccentricity against the supplied certificate. Compile and execute `independent.cpp` under C++17 for a separate partner-array implementation and independent shortest-path checks.
+## correctness
 
-The matching enumeration covers every eight-edge perfect matching because the least unused vertex has exactly one partner. The local switch generator examines both other pairings of each disjoint matching-edge pair, which exhausts all alternating four-cycle switches. The graph traversal processes every state, not a sample. For the rook graph, the 72 isolated states also follow from the four-cycle count in the proof.
+PASS
 
-Computed output files are included. The finite certificates and source programs are part of this package and can be checked without external services. The check establishes the stated finite results, not novel implications outside these two graphs or independent external validation. Relevant literature may be incomplete.
+A fresh enumeration from the two stated host graphs grouped the eight-edge perfect matchings by their six-edge subsets. Distinct matchings sharing six edges differ in exactly two different pairings of the same four vertices, hence in precisely one alternating four-cycle. All-source BFS on this alternative construction verified R: 2016 states, 6048 switches, component sizes 1368, 288 twice, and 72 isolated; S: 1920 states, 5280 switches, component size 1908 and 12 isolated. The radii/diameters (7,8), (14,14), (10,13), and all 576 degree-three vertices in the two 288 components were reproduced. The direct rook isolation proof also checks: exactly one horizontal edge per row and one vertical per column are necessary, horizontal pairs form an assigned C4 on the columns, and complementary incident-row pairs give distinct vertical pairs. Mixed pairs cannot switch: if the horizontal row meets the vertical edge, the needed same-column horizontal vertex would coincide with its endpoint; otherwise both horizontal vertices would need the vertical column.
+
+## originality
+
+PASS
+
+The move and graph pair are standard. No earlier theorem or exact catalogue entry checked determines the complete numerical component and distance profile for this switch operation on these two hosts. In particular the closely related records either change the states, the move, or the host.
+
+## value
+
+PASS
+
+Rook and Shrikhande are the canonical same-parameter nonisomorphic pair. Their complete switch profiles give a concrete witness that those parameters do not control the frozen states or the exact distances in this natural reconfiguration process. The two cubic diameter-14 rook components and the single large Shrikhande component are more informative than simply observing that both switch chains are disconnected.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The assertion uses the published untruncated finite-capacity queue *approximation*, not an exact stochastic waiting-time law. The stationary action boundary is a scalar cost-difference threshold. Its weighted energy moments are calculated exactly from the distribution with two spatial atoms and a uniform continuous component. Capacity conservation gives the sharp load threshold and the energy split; equality of the two leading waiting-cost poles gives the unused-capacity ratio and common divergence. An analytic implicit-function argument yields the next-order waiting-cost difference. All hypotheses, including strictly positive slack and the interval in which the moment polynomials are valid, are stated. The companion code checks the exact rational constants and full untruncated root equation at multiple near-critical loads. It does not substitute finite experiments for the limiting proof.
+PASS
 
-## Originality — PASS, subject to historical priority risk
+The exact station-0 conditional choice probability at energy e is 1/2−(t+3e/20)/30 throughout the critical threshold interval. Integration gives the three affine moments in the finding. Since U₀+U₁=25, the conditions λUᵢ<300 localize any near-critical stable equilibrium to t near −5. The difference of the waiting costs minus t strictly decreases between opposing poles, establishing a unique threshold and an equilibrium allocation up to a null tie set. With q=δ₀/ε and η=24−λ, multiplying the gap equation by η gives at η=0 a residual proportional to V₀*/q−V₁*/(1−q). It has a simple interior root, and the exact regularized equation is analytic there. The root q=23/48 and its complement give the common scaled cost 1000; the affine identity (t+5)/η=(25q−25/2)/(5λ/6) gives the coefficient −5/192 with O(η²) remainder in t. The mass at t=−5 is 13/24. At or above 24 both queues cannot be stable by total capacity. These are facts about the specified deterministic game with an approximate waiting cost, not exact M/G/2 delays.
 
-Dupont–Petit–Séguret establish existence/uniqueness and demonstrate the **qualitative** high-load 50/50 energy share numerically, and this observation is attributed to them. Their manuscript contains no matching derivation of the exact threshold \(24\), EV-count fraction \(13/24\), spare-capacity ratio \(23/48:25/48\), common divergence coefficient \(1000\), or cost-gap expansion. Bodas–Ganesh–Manjunath treat heterogeneous *delay sensitivity* but assume customer classes do not change workload distributions; Liu et al. study a different deterministic-service multi-server queue approximation. Related indexed findings on low-choice-noise congestion and two-resource equilibrium selection concern mathematically different limits. Overlap comparison is by scope and implication rather than title; neither a failed text search nor this document proves global priority.
+## originality
 
-## Value — PASS
+PASS
 
-The source's charging-station numerical case already motivates the demand-composition versus customer-count distinction. This theorem resolves its natural maximal-load boundary and quantifies an operationally relevant divergence and second-moment-dependent allocation of the remaining service capacity. The exact limiting population percentages make the counterintuitive difference between EV count and total energy workload testable within the mathematical model. These are quantitative structural facts at the actual feasibility boundary, not an arbitrary slice or a restatement of half-workload shares.
+The source supplies the game, a general existence theorem, and near-capacity numerical observations. The supported distinction is the joint zero-noise asymptotic calibration of count, slack, cost and gap, not those prior results or the total-capacity identity.
 
-## Limits and nearest literature
+## value
 
-The result does not establish an exact stochastic \(M/G/2\) heavy-traffic queue limit, global stability of any dynamics, or applicability to realistic charging networks without calibration. The 2021 parallel-server work and the 2021/2023 charging-equilibrium work are related but not identified with the exact game. Priority uncertainty remains for related queue approximations and transportation/game-theory literature not exhaustively searched.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The expansion separates three different notions of balance at saturation: equal energy workload, unequal headcounts and a different division of spare capacity. It resolves an otherwise indeterminate finite difference between two divergent costs, and provides exact reference values for validating calculations of this particular continuum-game approximation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

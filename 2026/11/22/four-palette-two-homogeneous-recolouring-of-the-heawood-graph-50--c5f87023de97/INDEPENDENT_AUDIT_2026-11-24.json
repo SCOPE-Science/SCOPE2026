@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:18:11.604026Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 3–39",
+        "VERIFICATION.md, lines 19–21",
+        "Frozen verify.py, lines 15–84",
+        "/workspace/branches/c3cba7f8-0097-4959-adab-657cb9040a0c/independent_census.py, especially lines 88–98; replay with Python 3",
+        "/workspace/branches/c3cba7f8-0097-4959-adab-657cb9040a0c/census.log"
+      ],
+      "rationale": "Each bichromatic Fano line accounts for exactly one equal-colour pair, and each pair has exactly one line; this forces multiplicities 4,2,1,0. The singleton and the two same-colour points must be collinear, since otherwise the line through the singleton and one of the pair would be trichromatic. The flag and three distinct names determine that shore. An independent implementation exhausts all 4^7 words on each shore, joins under the properness conditions, and tests all single-coordinate moves. It gives 6048 states (504 three-colour, 5544 four-colour), degree counts (2520,2016,504,1008), and 3024 edges. Crucially, it checks that the unique degree-two vertex in each nontrivial component is adjacent to both degree-three vertices, each of which has two leaves, establishing the explicit T7 shape in all 504 components, not just its degree sequence. The 2520 isolates all use four names; the centre state in each T7 uses three.",
+      "residual_risks": [
+        "The degree multiset in the Finding is not an equivalent characterization of T7 among abstract trees: the two degree-three vertices could be adjacent with the degree-two vertex on a leaf branch. The explicit shape and main theorem are correct. Use the proof's adjacency assertion or the independent check, not just the frozen script's component signatures."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The abstract and Corollary 1.2 concern existence with at most four colours on cubic bipartite graphs; section 3.1 concerns fall three-colourings in a restricted family."
+        ],
+        "reasoning": "Existence, even for a broader class that includes the Heawood graph, neither classifies states nor determines single-site moves.",
+        "searches": [
+          "Hao, Liu and Romaniello, arXiv:2611.16649v1: general cubic bipartite two-homogeneous colourings and fall-colouring construction"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md, lines 41–50",
+        "Resultary 78dac1ccb780, 3487b14e2bb2, 0b0ea03f39a5 and bound entry c5f87023de97",
+        "arXiv:2611.16649v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known flag argument fixes the three-colour portion (and motivates the shore symmetry); it supplies neither the twelve permissible four-palette extensions per shore flag nor the move incidence data.",
+          "Four-fold total domination uses two memberships per vertex rather than one proper colour."
+        ],
+        "reasoning": "The prior flag count can be credited without treating the four-palette component decomposition as mechanical substitution. Determining the extensions and their move graph needs an additional exhaustive or structural argument.",
+        "searches": [
+          "Resultary 78dac1ccb780, Finding and flag proof; 0b0ea03f39a5, Finding; arXiv:2611.16649v1, section 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With only three available names, properness and two neighbour colours mean each closed neighbourhood sees all three names, the fall-colouring condition.",
+          "The Fano-flag classification gives 21 times six frozen proper three-colourings; choosing the three names from four gives the 504-state subset."
+        ],
+        "reasoning": "This equivalence establishes overlap for the three-colour backbone, not for the fourth-colour states or their edges under the two-homogeneous predicate. Those same states are not isolated in the four-palette graph.",
+        "searches": [
+          "Resultary: two-homogeneous Heawood/Fano incidence colourings and single-site recolouring",
+          "Resultary 78dac1ccb780; arXiv:2611.16649v1, section 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The top entry c5f87023de97 is the bound record itself.",
+          "The distinct same-day result 3487b14e2bb2 counts 6048 frozen locally identifying assignments, not the admissible states here; the earlier flag census counts only the three-colour overlap."
+        ],
+        "reasoning": "A numerical match is not an equivalent census: locally identifying compares closed-neighbourhood colour sets on edges, whereas the present open-neighbourhood cardinality constraint gives nonisolated seven-vertex components. The four-fold total-domination table uses set-valued labels and does not encode proper named colourings.",
+        "searches": [
+          "Resultary exact Heawood state/component census search; records c5f87023de97, 78dac1ccb780, 3487b14e2bb2 and 0b0ea03f39a5"
+        ]
+      },
+      "rationale": "A known Fano-flag result gives the 504 three-colour states after palette choice. The distinct supported claim is the entire four-palette move graph for the exact two-neighbour-colour predicate, including all four-colour states and component types. The inspected existence theorem, earlier three-colour move graph and same-day Heawood count do not give that result.",
+      "residual_risks": [
+        "The bounded primary search did not return another directly matching source; this is not evidence against unindexed or unsearched coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact three-colour overlap only",
+          "evidence": "21 flags and six colour orders yield 126 frozen states in the proper three-colour graph.",
+          "identifier_or_url": "Resultary 78dac1ccb780",
+          "material_read": "Finding and Fano flag proof, offsets 0 and 4000",
+          "method": "Local mirror",
+          "title": "Fano flags and the unique mobile sector of Heawood 3-colourings",
+          "trigger": "Exact subconfiguration and three-colour reconfiguration precedent"
+        },
+        {
+          "assessment": "Related existence results, not a census in the inspected statements",
+          "evidence": "Four-colour existence for cubic bipartite graphs and a three-colour fall-colouring construction.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.16649",
+          "material_read": "Abstract; Corollary 1.2 near text offset 5000; section 3.1 near 8200",
+          "method": "OA primary PDF passages",
+          "title": "On 2-Homogeneous Colourings of Cubic Bipartite Graphs",
+          "trigger": "Same predicate, includes the Heawood graph in the motivating theory"
+        },
+        {
+          "assessment": "Distinct predicate and move census; no priority claim based on date",
+          "evidence": "Locally identifying colourings; 6048 frozen assignments.",
+          "identifier_or_url": "Resultary 3487b14e2bb2",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Frozen colourings and a sharp two-vertex mobility threshold",
+          "trigger": "Same graph, date and state-count number"
+        },
+        {
+          "assessment": "Different objects",
+          "evidence": "Set-valued membership labels, not proper single-colour vertex labels.",
+          "identifier_or_url": "Resultary 0b0ea03f39a5",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact four-fold total-domination witnesses of the Heawood graph",
+          "trigger": "Four names and a two-membership condition on the same incidence graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 3–15 and 41–45",
+        "arXiv:2611.16649v1, Corollary 1.2",
+        "Resultary 78dac1ccb780, Finding"
+      ],
+      "rationale": "The four-name palette is motivated by the general four-colour existence result and is the first enlargement of the known Heawood three-name sector. The exact component types answer reachability under the preserved local constraint: every non-isolated state can reach a unique three-colour state within its component, whereas 2520 four-colour states cannot move at all. This is a usable benchmark for comparing constraints or allowing larger moves, not just a tally of witnesses.",
+      "residual_risks": [
+        "No extrapolation to larger palettes or other cubic bipartite graphs is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

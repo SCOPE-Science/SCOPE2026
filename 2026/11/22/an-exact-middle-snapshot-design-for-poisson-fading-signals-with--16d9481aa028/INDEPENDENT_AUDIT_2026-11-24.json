@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:36:56.883973Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–71; VERIFICATION.md and check.py inspected, not executed",
+        "Replay: python3 /workspace/branches/32063e78-4c11-4570-b7e6-a7f3d36a1b10/independent_check_record2.py"
+      ],
+      "rationale": "Subtract the time-zero derivative row from each of the other two rows of the Poisson mean Jacobian. Its determinant is, up to sign, (theta/lambda)(1-e^-q)e^-z h(z). Squaring and dividing by the three means gives the stated Fisher determinant, with variable part e^-2z h(z)^2/(e^-z+rho). The strictly concave h vanishes at 0 and q, is positive between them, and has strictly signed endpoint slopes. The log determinant is strictly concave and goes to minus infinity at both ends, proving one interior maximum at fixed nominal parameters. With G=2h'/h-2+1/(1+rho e^z), both G_z and G_rho are strictly negative, so dz*/drho=-G_rho/G_z<0 at fixed q. The limiting scores at zero and infinite rho bracket the score strictly and converge uniformly on compact interior intervals; their unique roots give the two strict bounds. For the short horizon, put z=qv and factor h(qv)=q^2 v(1-v)[1+q(2v-1)/6+O(q^2)]/2, analytically in a neighborhood of v=1/2. The derivative in v of the leading log score is -16 at 1/2. Its first-order score perturbation is q(2/3-2+1/(1+rho)), which gives the claimed coefficient. The local branch is the global maximizer by uniqueness. At large q the limiting score is strictly decreasing, with opposite signs at 1 and 2; convergence on compact subsets brackets the finite-q root at the limiting root. A separately written diagnostic reproduced t*=1.043396317665198 and the determinant ratio 2.013109816346372, and independently compared the analytic determinant to the direct Jacobian computation.",
+      "residual_risks": [
+        "The numerical examples and scale diagnostics are bounded checks, not proofs of the parameter-uniform sign. The zero-background limit is one-sided for the three-parameter Fisher criterion; dropping the background from the fitted model is not equivalent."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The FLIM preprint models independent Poisson channels, instrument-response convolution, biexponential decay and additive background; it optimizes D-optimal selection over temporal bins or gates using effective information for selected parameters. The classical exponential-design papers were identified from abstracts or secondary descriptions; full texts were not obtained."
+        ],
+        "reasoning": "This is substantial broader Fisher-design overlap. A general design algorithm can be adapted to numerically search a simplified model, but the inspected wider formulation does not give all-parameter uniqueness or ordering for the continuous pinned single date. Full-text conclusions about the classical papers were not inferred from metadata.",
+        "searches": [
+          "arXiv:2601.00490 full text, pp. 1–2",
+          "Dette–Neugebauer DOI 10.1016/S0378-3758(96)00131-0",
+          "Han–Chaloner DOI 10.1016/S0378-3758(02)00175-1"
+        ]
+      },
+      "checked_sources": [
+        "Shi–Zhang–Wong DOI 10.1186/s40488-019-0092-4",
+        "FLIM arXiv:2601.00490",
+        "Dette–Neugebauer and Han–Chaloner bibliographic/secondary evidence and retrieval attempts",
+        "Local Resultary exact self-match and mirrored distinct records fd2b83b9ab32 and d33d1b563ac3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mean Jacobian factor is shared with the Gaussian model; the FLIM formulation supplies mean-dependent Poisson weighting in a wider acquisition model. The two indexed related timing laws optimize other forward maps and quantities."
+        ],
+        "reasoning": "The general information formula implies the determinant factorization for the saturated Poisson model, but not the resulting all-horizon root geometry. The signs of the two derivatives of the reduced score, and the perturbation and trapping arguments for the limiting roots, are additional conclusions, not obtained by reparameterizing the Gaussian stationary point or a spatial delay bound.",
+        "searches": [
+          "Shi–Zhang–Wong exponential design example, pp. 13–15",
+          "arXiv:2601.00490 forward and information model, pp. 1–2",
+          "Resultary fd2b83b9ab32 and d33d1b563ac3 mirrored findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shi et al. write the same mean P_0+P_1 exp(-delta t) with independent homoscedastic Gaussian noise. Their inspected design examples use Bayesian criteria and priors."
+        ],
+        "reasoning": "The reparameterizations amplitude/background/decay and P_1/P_0/delta match the same forward curve. For saturated three-date homoscedastic Gaussian data there is no product of Poisson means in the determinant; its score is 2h'/h-2 and ignores the background ratio. It is the infinite-rho endpoint of the present family, not the finite-rho optimum or its comparative statics.",
+        "searches": [
+          "Local Resultary pinned observation, single-exponential Poisson fading, and background-dependent timing queries",
+          "Shi–Zhang–Wong, DOI 10.1186/s40488-019-0092-4, pp. 13–15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit is the assigned record itself. The inspected pinned two-mode record covers a Gaussian signal and a horizon threshold. The distinct same-day ambient-background bound concerns a diffusing spatial pulse and source-location timing."
+        ],
+        "reasoning": "Neither the two-exponential Jacobian nor the spatial pulse model gives the one-exponential unknown-baseline Poisson score. The same-day entry was assessed by its actual target and forward model, not by publication ordering. No independent exact formula or table was established in this comparison.",
+        "searches": [
+          "Local Resultary queries for pinned exponential observation and Poisson background timing",
+          "Resultary self-match 16d9481aa028 and distinct matches fd2b83b9ab32 and d33d1b563ac3"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the uniquely optimal pinned-endpoint middle snapshot in the instantaneous single-exponential Poisson-plus-constant model, its strict background-ratio sensitivity, and its explicit temporal limits. The Fisher information construction and exponential-plus-constant Jacobian are not novelty claims.",
+      "residual_risks": [
+        "Limited access to the 1997 and 2003 classical full texts and limited reviewed sections of the FLIM paper leave historical priority provisional. The incomplete literature lookup is not proof of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same mean but homoscedastic Gaussian noise; numerical Bayesian design in the inspected passages",
+          "evidence": "Y_j=P_0+P_1 exp(-delta t_j)+epsilon_j, independent normal errors of common variance.",
+          "identifier_or_url": "https://doi.org/10.1186/s40488-019-0092-4",
+          "material_read": "Exponential-model setting and designs, pp. 13–15, PDF offsets 56184 and 59946",
+          "method": "Public primary PDF, bounded passages",
+          "title": "Particle swarm based algorithms for finding locally and Bayesian D-optimal designs",
+          "trigger": "Same exponential-plus-constant mean and three-parameter design"
+        },
+        {
+          "assessment": "Real overlap in likelihood and criterion, different forward model and candidate-selection problem",
+          "evidence": "Poisson time channels, response-convolved biexponential signal and background, selection of gates or bins with nuisance-robust effective information.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.00490",
+          "material_read": "PDF pp. 1–2, offsets 3120, 9764, 13551",
+          "method": "Public primary preprint passages, not abstract only",
+          "title": "Fisher-Information-Driven Adaptive Acquisition for Photon-Efficient FLIM",
+          "trigger": "Closest broader background-aware Poisson D-optimal timing work"
+        },
+        {
+          "assessment": "Classical design context; no exclusion based on unavailable full text",
+          "evidence": "The title and secondary comparison establish exponential design relevance, not coverage of the exact pinned Poisson theorem.",
+          "identifier_or_url": "https://doi.org/10.1016/S0378-3758(96)00131-0",
+          "material_read": "Bibliographic/abstract access and Shi et al. secondary discussion; no primary full text",
+          "method": "Publisher/DOI and lawful repository retrieval attempts; a 2012 different-paper hit was discarded",
+          "title": "Bayesian D-optimal designs for exponential regression models",
+          "trigger": "Classical optimal exponential design comparator"
+        },
+        {
+          "assessment": "Relevant exponential design precedent; priority risk remains for uninspected material",
+          "evidence": "Identified as exponential-regression design in the secondary source; no usable passage asserting the target Poisson comparative statics.",
+          "identifier_or_url": "https://doi.org/10.1016/S0378-3758(02)00175-1",
+          "material_read": "Bibliographic/abstract access and Shi et al. secondary discussion; no primary full text",
+          "method": "Publisher/DOI retrieval attempts, including inaccessible publisher material",
+          "title": "D- and c-optimal designs for exponential regression models used in viral dynamics and other applications",
+          "trigger": "Classical local optimal exponential design comparator"
+        },
+        {
+          "assessment": "Different parameterized mean, noise and comparison",
+          "evidence": "Two modes, Gaussian setting and a sharp horizon transition.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-horizon-transition-for-pinned-observations-of-two-expone--fd2b83b9ab32",
+          "material_read": "Mirrored RESULT.md, finding and assumptions",
+          "method": "Local Resultary search and published-record mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp horizon transition for pinned observations of two exponential modes",
+          "trigger": "Closest indexed pinned endpoint design"
+        },
+        {
+          "assessment": "Different observation and inference problem",
+          "evidence": "Optimal localization timing for a diffusing spatial pulse at three counters.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-ambient-background-delay-bound-for-one-shot-localization--d33d1b563ac3",
+          "material_read": "Mirrored RESULT.md, finding and assumptions",
+          "method": "Local Resultary search and same published-record mirror",
+          "title": "A sharp ambient-background delay bound for one-shot localization",
+          "trigger": "Distinct same-day background-dependent timing hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions, and proof of comparative statics and limits; Shi–Zhang–Wong Gaussian comparator"
+      ],
+      "rationale": "With only one free snapshot in a saturated joint design, the result gives a usable rule for scheduling under background uncertainty: increasing the background moves that date strictly earlier rather than leaving it at the Gaussian optimum or the midpoint. The limits quantify when the scale is T and when it is 1/lambda, and the numerical example shows a substantial determinant gap within the declared design space. The contribution is the strict analytic comparison and calibration, not use of Poisson Fisher information by itself.",
+      "residual_risks": [
+        "No claim for time-integrated gates, unpinned designs, uncertainty-averaged optimality, costs, or other detector physics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

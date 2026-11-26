@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The first-force degree argument is an exact necessity criterion for all minimum starters. In path powers, minimum degree occurs only at the endpoints and forces the two disjoint starter families. In cycle powers, regularity forces every minimum set to arise as a punctured closed neighborhood; cyclic-interval intersection multiplicities give the exact number without overcounting, and the two-front propagation lemma gives both exponents. Complete and antipodal graph boundaries are treated separately. The directly executed `verify.py` performs 115832 independent initial-set checks across 97 power-graph profiles and 180 interval-representation profiles. Finite replay corroborates, but is not the proof of, the all-parameter theorem.
+## correctness
 
-**Originality — PASS, subject to literature risk.** Abiad et al. (arXiv:2610.03892v1), Propositions 7 and 8, give minimum *cardinalities* only, not minimum-set enumerators or time distributions. The universal next-to-leading coefficient theorem of Boyer et al. (arXiv:1801.08910v1) subsumes the \(n=2k+2\) cycle count and \(n=k+2\) path count, and Ferrero et al. (arXiv:2511.16335), Example 3.1, covers ordinary cycles; these overlaps are explicitly credited. Searches using closed-neighborhood, consecutive-circulant, zero-forcing-polynomial, and synchronous-propagation descriptions yielded no proof that covers the principal higher-cycle-power \(k\ge2\), \(n\ge2k+3\) bivariate refinement. Undiscovered equivalent treatments in circulating graph, minimum-forcing-set, or propagation-time literature are a residual risk; no claim of certified global novelty is made.
+PASS
 
-**Value — PASS.** A new two-parameter all-optimum classification answers not only how many sources are needed, but precisely how many optimal locations exist and how rapidly each propagates. The sharp parity distinction between fast and slow equally minimum-sized placements is invisible in the known scalar graph-power forcing numbers. This is a natural structural/census refinement, not a routine restatement of the minimum value.
+A size-delta starter can first force only from a minimum-degree vertex v and must be N[v] minus the single target. In the noncomplete path power only the two endpoints have degree k; their starter families are disjoint because each includes its own endpoint and omits the opposite endpoint. Exactly the missing neighbor is forced initially, then precisely one vertex per round: any forcing vertex that sees a later white vertex must also see the first white vertex. In a noncomplete cycle power the closed neighborhoods are cyclic intervals of length L=2k+1. At order 2k+2, the two whites are forceable exactly if nonantipodal, in one round by their antipodes. At n>=L+2 distinct L-intervals can share L−1 vertices only when their centers are consecutive (a two-piece overlap has size 2L−n<=L−2); hence exactly the contiguous starters have two representations and the other starters have a unique first force. For a contiguous black interval of length h>=2k, the two distances through black vertices from any forcing vertex to the white endpoints sum to h+1>2k, so only one boundary can be reached through black vertices from that vertex. Exactly the two white boundary vertices (one if coincident) can be forced, using vertices k steps back into the black interval. This gives both ceiling exponents and the claimed parity. Complete graphs give the stated complements-of-one-vertex case. The independent bit-mask enumeration gave the cycle profiles 24y, 45y^2 and 10y^2+40y^3 at (n,k)=(8,3),(9,3),(10,3), and checked both short path boundaries and an ordinary cycle.
 
-The proof is limited to standard synchronous zero forcing on powers of labeled paths and cycles, not arbitrary graphs or probabilistic variants. Independent external validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the prior scalar values, the near-complete size census from the universal zero-forcing polynomial, and ordinary-cycle propagation. Distinct indexed results reproduce much of the starter census and are treated as overlapping content, not dismissed by date or treated as establishing priority. The supported distinct claim is the full synchronous-time refinement in the higher powers: in particular the parity-sensitive split of the exhaustive long-cycle minimum-starter family and its exact multiplicities by time. Neither a scalar nor an unweighted census determines that refinement.
+
+## value
+
+PASS
+
+Powers of paths and cycles are standard forcing test families with the same cardinality among all minimum starters. The full time profile quantifies how geometry rather than seed size changes performance: when the white gap length is even, puncturing the black interval costs an extra round, while it costs none for odd length. The counts and exact boundary regimes make that distinction usable without enumerating seeds; scalar values, complete cases or ungraded starter counts alone would not motivate another result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

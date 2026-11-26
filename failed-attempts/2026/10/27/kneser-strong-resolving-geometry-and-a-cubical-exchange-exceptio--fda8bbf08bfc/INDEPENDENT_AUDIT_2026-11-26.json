@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:29:22.544222Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–32",
+        "VERIFICATION.md and supplied verification sources/outputs, inspected without execution",
+        "Independent direct geodesic replay: /workspace/branches/57b9ff99-2c35-4b9b-a195-60a5668f6d07/verify_independent.py and verify_independent_n4.out / verify_independent_n5.out"
+      ],
+      "rationale": "The operative definition in Finding line 5 puts the selected vertex on a geodesic through one of the two vertices with the other as an endpoint. It does not make the selected vertex an endpoint, so it counts a selected interior point between the pair. On that literal definition the set of all original vertices qualifies: when one of the pair is original, select that endpoint; otherwise an original vertex lies inside a shortest path between the distinct subdivision vertices. But that set misses both ends of every Kneser edge (and at n=5 its size is 5, less than the claimed dimension 6). The theorem and supplied geodesic checker instead use the standard definition: d(z,x)=d(z,y)+d(y,x) or d(z,y)=d(z,x)+d(x,y). Under that intended endpoint convention the mathematics checks out. Disjoint subdivision pairs are at diameter four. For each non-disjoint case a neighbor farther from the other endpoint is immediate: use an incident subdivision with a fresh index for original–original or original–subdivision pairs, and the nonshared original endpoint for intersecting subdivision pairs. MMD pairs must be covered, and extending a geodesic at either end to a maximal one gives the converse. Intersecting edge families either share a center or consist of the triangle determined by two adjacent edges and a third avoiding their center. This gives the stated polynomial and minimal covers, and the exchange graph follows by intersections of the omitted families. Correcting the definition would not resolve the separate coverage finding below.",
+      "residual_risks": [
+        "Independent direct checks exhaust n=4,5 only, for the intended standard definition: 432 and 2432 total sets respectively, 8 and 5 minimum sets, and (threshold, diameter) of (1,3) and (3,1). The failure concerns the frozen definition as written, not those conventional calculations."
+      ],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two texts supply the general reduction. The separate catalogue result identifies exactly the needed graph on all the vertices and describes every minimal cover by its actual elements."
+        ],
+        "reasoning": "The general reduction alone is not the family-specific theorem. The distinct catalogue record supplies the remaining structural identification over the entire audited parameter range.",
+        "searches": [
+          "arXiv:2309.17419v2, strong-resolving-graph cover characterization",
+          "arXiv:1612.02843v1 §1.3 Theorems 5–6",
+          "Resultary e52c4405d821 Proof §§1–4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e52c4405d821",
+        "arXiv:2309.17419v2",
+        "arXiv:1612.02843v1",
+        "DOI:10.1016/j.dam.2006.06.009 access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the explicit cover classification, every omitted subdivision family is a subset of a full star or triangle and original vertices can be independently selected. Size ≥2 star subsets have a unique center, and the only nonstar subsets are the complete triangles. Thus one binomial coefficient per center gives the full enumerator. For n≥5 the only minima are star complements, so each pair requires n−2 replacements because two stars share exactly one edge. At n=4 the Kneser graph is three disjoint edges; a minimum cover selects exactly one endpoint of each edge, and a budget-one move flips exactly one of those three bits."
+        ],
+        "reasoning": "These operations mechanically yield every extra formula and the cube, without a new structural lemma. No noncovered core remains under the intended definition.",
+        "searches": [
+          "e52c4405d821 Proof §§2–4, offsets 1800 and 4654",
+          "arXiv:2309.17419v2 strong resolving sets as covers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "e52c4405d821, Proof §§1–4, uses exactly the complete graph with every edge subdivided once, n≥4; it identifies the same Kneser graph plus isolated originals and the same individual omitted edge families. The general theorem converts vertex covers to strong resolving sets."
+        ],
+        "reasoning": "The objects are identical after replacing q_ij by w_ij; the minimal-set characterization and dimension are equivalent, not simply numerical matches.",
+        "searches": [
+          "Local Resultary once-subdivided complete graph and minimal strong resolving sets: e52c4405d821",
+          "Strong resolving graph as MMD and vertex covers: arXiv:2309.17419v2; survey arXiv:1612.02843v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Its two-term polynomial enumerates inclusion-minimal sets, not all sets, and its explicit star/triangle forms yield the dimension and minimum counts at all n≥4."
+        ],
+        "reasoning": "The two enumerators are not identical; the decisive match is the complete analytic classification, not a shared finite table value.",
+        "searches": [
+          "Resultary e52c4405d821, Finding and Proof §4"
+        ]
+      },
+      "rationale": "The intended Kneser reduction, isolated originals, full-star/triangle minimal sets and dimension are explicitly covered by a distinct Resultary record for the identical family and range. The full set polynomial and exchange result are not separately written in that record but are direct consequences of its explicit graph and explicit omitted families, as shown below. This is demonstrable coverage in the review snapshot, not a historical priority judgment; the overlapping record bears a later date.",
+      "residual_risks": [
+        "Earlier specialized publication remains unresolved. Coverage in the inspected catalogue is not a claim that the later-dated record predates this record or originated the theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit equivalent structural coverage and sufficient to derive the remaining formulas; does not settle priority",
+          "evidence": [
+            "The same disjointness graph, isolated originals and two explicit types of minimal complements are stated."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-minimal-strong-resolving-sets-of-once-subdivided-complete-graphs--e52c4405d821",
+          "material_read": "RESULT.md Finding and Proof §§1–4, including offsets 1800 and 4654",
+          "method": "Local Resultary search; bounded local mirror passage inspection",
+          "title": "Minimal strong resolving sets of once-subdivided complete graphs",
+          "trigger": "Same graph family and minimal strong resolving classification"
+        },
+        {
+          "assessment": "Verifies the known general ingredient, not the special family identification",
+          "evidence": [
+            "Strong resolving sets are exactly vertex covers of the MMD graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2309.17419v2",
+          "material_read": "Vertex-cover characterization and citation to Oellermann–Peters-Fransen Theorem 2.1, offset 34535",
+          "method": "OA passage read",
+          "title": "Enumerating minimal solution sets for metric graph problems",
+          "trigger": "General reduction from strong sets to covers"
+        },
+        {
+          "assessment": "General definitions/reduction; no family-specific inference from this source alone",
+          "evidence": [
+            "The strong metric dimension is a vertex-cover number of the strong resolving graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1612.02843v1",
+          "material_read": "§1.3 and Theorems 5–6, offsets 12363 and 18800",
+          "method": "OA passage read",
+          "title": "The strong resolving graph and its universality properties",
+          "trigger": "Survey confirmation of MMD normalization and cover correspondence"
+        },
+        {
+          "assessment": "Not used to rule out further coverage; separate exact catalogue result is decisive",
+          "evidence": [
+            "The accessible 2023 text explicitly attributes the general characterization to this paper's Theorem 2.1."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2006.06.009",
+          "material_read": "No readable primary full text from publisher; theorem checked in arXiv:2309.17419v2 and arXiv:1612.02843v1",
+          "method": "Resolver and lawful OA citation check",
+          "title": "The strong metric dimension of graphs and digraphs",
+          "trigger": "Original vertex-cover correspondence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Proof §§2–3",
+        "Resultary e52c4405d821 Proof §§2–4"
+      ],
+      "rationale": "The graph family is natural and the exchange picture is useful exposition, but the remaining exact formulas and exchange invariants are mechanical consequences of the covered explicit classification. Under either a subset count or a binary choice for each matching edge, no independent mathematical gap remains for this claim as submitted.",
+      "residual_risks": [
+        "This decision is specific to these once-subdivided cliques and these invariants, not to strong metric reconfiguration problems in general."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

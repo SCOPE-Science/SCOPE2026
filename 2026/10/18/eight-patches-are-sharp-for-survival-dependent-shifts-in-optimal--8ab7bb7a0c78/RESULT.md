@@ -1,68 +1,49 @@
-# Eight patches are sharp for survival-dependent shifts in optimal habitat protection
+# The two eight-vertex exceptions for parameter-independent optimal site protection on trees
 
 ## Finding
-Let \(T\) be a finite, undirected, unweighted tree of \(n\) equal habitat patches. Every patch independently remains usable with common probability \(p\in(0,1)\). After the random losses, write \(K_1,\ldots,K_s\) for the connected components of the surviving induced subgraph, and take \(C=\sum_{i=1}^s |K_i|^2\), the number of ordered mutually connected surviving patch pairs (including identical endpoints). An intervention makes one chosen vertex survive with certainty without changing other patches. The optimal intervention maximizes \(\mathbb E[C]\).
 
-**Sharp minimum and complete first exceptional layer.** Every tree with at most seven vertices has at least one vertex that is an optimal intervention for *all* \(p\in(0,1)\). Among the 23 nonisomorphic unlabelled eight-vertex trees, exactly two lack such a universal optimal vertex. For the first exceptional tree with edge list `[(1,0),(1,2),(0,5),(2,3),(2,4),(5,6),(6,7)]`, vertex 2 alone is optimal for \(0<p<p_A\), vertex 1 alone for \(p_A<p<1\), and both at \(p_A\), where \(p_A\) is the unique root in \((0,1)\) of \(p_A^3+p_A^2=1\) (approximately \(0.7548776662\)). For the second exceptional tree with edge list `[(1,0),(1,2),(0,5),(2,3),(2,4),(5,6),(5,7)]`, precisely vertices 2 and 5 tie for optimum when \(0<p<1/\sqrt2\), and precisely vertices 0 and 1 tie when \(1/\sqrt2<p<1\); all four tie at \(p=1/\sqrt2\).
+Let the vertices of a fixed unweighted tree survive independently with common probability \(p\in(0,1)\), except that one chosen vertex is made certain to survive. Let \(C\) count ordered pairs of surviving vertices in the same surviving connected component, including the diagonal. Among the 23 unlabelled trees on eight vertices, exactly 21 have a protected vertex maximizing \(\mathbb E[C]\) simultaneously for all \(p\). The two exceptions, with labels \(0,\ldots,7\), are:
 
-These are statements about *global* best protected patches, not merely reversals of arbitrary pairwise rankings. Thus eight is the smallest tree order at which the optimal protected site necessarily depends on the common patch survival probability.
+- \(A=\{01,05,12,23,24,56,67\}\). Vertex 2 is the unique optimum below the root \(\alpha\in(0,1)\) of \(p^2+p^3=1\), vertex 1 is the unique optimum above it, and exactly those two tie at \(\alpha\). This crossover was already covered by an equivalent deletion optimization [1, 2].
+- \(B=\{01,05,12,23,24,56,57\}\). Exactly vertices 2 and 5 are optimal below \(1/\sqrt2\), exactly 0 and 1 are optimal above it, and precisely those four tie at \(1/\sqrt2\).
+
+The contribution is the complete order-eight exceptional layer, in particular the second obstruction and its full optimum sets. The tree-order cutoff and the first crossover are not claimed as new.
 
 ## Assumptions and scope
-The tree and its edges are fixed, and all patches have equal unit weight. Site failures are independent and identically distributed, and an intervention guarantees survival of exactly one chosen site. Connectivity uses surviving *vertices* and the fixed surviving-induced edge set; links do not fail independently. Each ordered pair of surviving sites contributes one to \(C\) if connected, and the pair with equal endpoints counts. No further survival, cost, or dispersal effects are assigned to the intervention. The result holds for every \(p\in(0,1)\), with endpoint values used only for algebraic certificates.
 
-## Proof
-**1. Exact protection gain.** Each connected ordered pair \((a,b)\) has a unique tree path \(P_{ab}\). Without protection, its probability of being connected is \(p^{d_T(a,b)+1}\), because every path vertex must survive. If vertex \(v\) is protected, the probability becomes \(p^{d_T(a,b)}\) when \(v\in P_{ab}\) and is unchanged otherwise. Define the nonnegative integer-coefficient path-through-vertex polynomial
+All sites have unit weight. The surviving graph is the induced subgraph; the edges do not fail separately. Fixing the survival of the protected site does not change any other site's probability. The budget allows exactly one protection. No empirical intervention claim or classification beyond order eight is made.
+
+## Exact objective and comparison with deletion
+
+For the unique path \(P_{ab}\) from \(a\) to \(b\), let \(d(a,b)\) be the number of its edges. The contribution of \((a,b)\) to the expected gain from protecting \(v\) vanishes unless \(v\in P_{ab}\). Otherwise it is \((1-p)p^{d(a,b)}\), including the gain \(1-p\) when \(a=b=v\). Thus the protected sites maximizing the gain are precisely the maximizers of
 \[
-F_v(p)=\sum_{(a,b)\in V(T)^2:\,v\in P_{ab}}p^{d_T(a,b)}.
+F_v(p)=\sum_{a,b:\,v\in P_{ab}}p^{d(a,b)}.
 \]
-The gain in expected connectivity, relative to protecting no site, is exactly
+Put \(W_T(p)=\sum_{a,b}p^{d(a,b)}\) and let \(S_v(p)\) count unordered distinct pairs in the same component of \(T-v\), weighting each by \(p^{d(a,b)}\). Then
 \[
-\Delta_v(p)=(1-p)F_v(p).
+F_v(p)=W_T(p)-(n-1)-2S_v(p).
 \]
-Since \(1-p>0\), every optimizer of the expected connectivity is exactly a maximizer of \(F_v(p)\). The diagonal term \((v,v)\) contributes one to \(F_v\), ensuring the normalization matches \(C\).
+Indeed the paths avoiding \(v\) consist of \(n-1\) diagonals and the two orientations of each residual pair. Therefore the optimal protected vertices are exactly the minimizers of \(S_v\), with identical ties, for every tree and every \(p\) in scope. The known lower-order guarantee for \(2\le n\le7\) and the switching spider \(A\) in [1, 2] apply through this identity; order one is immediate. The model interpretations are distinct, but the vertex optimization is not.
 
-**2. Rigorous finite all-tree certificate.** The bundled executable enumerates all \(n^{n-2}\) Prüfer words for each \(2\le n\le8\), together with the one-vertex tree. Each labelled tree is converted into a canonical, unlabelled AHU code obtained by pruning leaves to its center(s), recursively sorting rooted branch codes, and taking the lexicographically smaller ordering of the two centered rooted halves when there are two centers. Consequently one representative from every isomorphism class is retained. The resulting class counts for orders \(1,\ldots,8\) are exactly \(1,1,1,2,3,6,11,23\).
+## Exhausting order eight
 
-For each representative, breadth-first search reconstructs the unique path for every ordered vertex pair and counts its contribution to every coefficient of every \(F_v\). To certify \(F_v(p)\ge F_w(p)\) for an entire interval rather than at sampled values, pad the integer-coefficient difference \(Q(p)=F_v(p)-F_w(p)\) to degree \(d=n-1\) and compute the integers
+The companion `vertex_criticality_verify.py` enumerates all labelled eight-vertex trees via the bijection with Prüfer words of length six on \(\{0,\ldots,7\}\). It retains one tree per canonical code: center the tree, encode each rooted branch by a parenthesized sorted list of child codes, and for a central edge use the sorted pair of the two rooted half codes. Balanced words distinguish a single rooted tree from a concatenation of two rooted half trees. Induction on rooted tree order and preservation of the center under isomorphism justify the reduction to exactly 23 shapes. For each, summing unique paths gives all integer coefficient vectors of \(F_v\).
+
+Let \(Q=F_u-F_v\) and set \(d=7\). For \(t=p/(1-p)>0\) one has the identity
 \[
-b_j=\sum_{k=0}^j [p^k]Q(p)\binom{d-k}{j-k},\qquad 0\le j\le d.
+(1+t)^d Q\left(\frac{t}{1+t}\right)
+=\sum_{j=0}^d t^j\sum_{k=0}^j [p^k]Q\binom{d-k}{j-k}.
 \]
-The exact identity
-\[
-(1+t)^dQ\!\left(\frac{t}{1+t}\right)=\sum_{j=0}^{d}b_jt^j
-\]
-proves \(Q(p)\ge0\) for all \(p\in[0,1]\) whenever every \(b_j\ge0\). No approximate sign sampling enters these dominance certificates. The verifier finds such a vertex simultaneously dominating every other vertex in all 25 shapes of order at most seven and in 21 of the 23 shapes of order eight. For the two exceptions, exact evaluation at \(p=1/2\) and \(p=9/10\) gives disjoint sets of maximizers; hence neither exceptional tree can have a universally optimal vertex. This exhausts all trees with at most eight vertices.
+Nonnegative coefficients certify dominance on the whole interval; at least one strictly positive coefficient gives strict dominance there. At 21 representatives the checker finds a vertex with such nonnegative certificates against every other vertex. At the two others it verifies disjoint exact maximizer sets at \(1/2\) and \(9/10\), which suffices to exclude any common maximizer. The displayed trees are nonisomorphic (they have different degree multisets), and their codes are the two exceptional codes.
 
-**3. Exact structure of the two exceptional cases.** For the first explicit tree, direct path counting yields
-\[
-F_2(p)-F_1(p)=2p(1-p^2-p^3).
-\]
-The remaining vertices are dominated throughout \(0<p<1\) by vertex 2 or vertex 1 (the certificate compares 2 against vertices 3–7 and 1 against vertex 0). The strictly decreasing expression \(1-p^2-p^3\) has exactly one zero on \((0,1)\). Neither candidate ties another vertex in that open interval except that the two candidates tie at their crossover; therefore the stated optimal choices follow.
+For \(A\), the path counts give \(F_2-F_1=2p(1-p^2-p^3)\). All vertices 3–7 are strictly dominated by 2, and vertex 0 by 1. For \(B\), the two three-valent vertices are interchanged by a tree automorphism, which also interchanges the internal path vertices 0 and 1; the four leaves are all strictly dominated by vertex 2. Here the two competing vectors, in ascending degree order, are \((1,6,8,6,8,8,0,0)\) for vertex 2 and \((1,4,8,10,8,8,0,0)\) for vertex 0. Their difference is \(2p(1-2p^2)\), so it has just the stated interior root. The strict comparisons follow from the above coefficient transform on the exact witness vectors. One can also infer strictness from the weak certificates and the strict inequalities at a sample where the dominating vertex is the unique winner or belongs only to the claimed tied optimum set: a certified coefficient list then cannot consist entirely of zeros.
 
-For the second explicit tree, path counts give
-\[
-F_2(p)=F_5(p),\qquad F_0(p)=F_1(p),\qquad
-F_2(p)-F_0(p)=2p(1-2p^2).
-\]
-The other four vertices are strictly below one of those candidate pairs throughout the open interval, as certified by the same coefficient test. The difference changes sign exactly at \(p=1/\sqrt2\), proving the complete optimality regimes.
+## Reproduction and limitations
 
-## Verification
-Run `python vertex_criticality_verify.py` with Python 3.9 or later and no third-party dependencies. The program computes all labelled Prüfer trees, canonically reduces to nonisomorphic shapes, constructs the path polynomials from actual edge lists, produces exact integer coefficient dominance checks, verifies the two explicit polynomial identities and exact rational winner sets, and independently enumerates all \(2^7\) survival configurations conditional on each protected vertex at two rational probabilities. Expected terminal summary:
-
-`VERIFY_OK unlabeled_counts=1,1,1,2,3,6,11,23 exceptions=2 exact_bernstein=PASS witness_polynomials=PASS direct_state_count=PASS`
-
-This finite enumeration is complete for \(n\le8\), and says nothing about a universal larger-order classification. Integer and rational certificates, rather than floating-point optimization or a search timeout, supply the finite exhaustive proof.
-
-## Relationship to prior work
-The connected-pair objective \(C\), and its equivalence to landscape coincidence/connected-component metrics on undirected graphs, are *existing* ecological network indices: Matisziw and Murray (2009) introduced a connectivity-change index and Saura (2010) established its equivalence to the earlier landscape coincidence probability. Minor and Urban (2008) motivated habitat-patch criticality and resistance to network disturbance. Saura and Rubio (2010) explained patch and link contributions under graph connectivity metrics. This result does **not** introduce a new deterministic connectivity measure, a new path-enumeration identity, or new conservation criteria in general. Its subject is instead the sharp smallest order and complete exceptional-shape classification for **independent stochastic site failure with one certain-protection intervention** and the exact probability-dependent globally optimal vertices. Existing edge-failure reinforcement questions change the reliability of a corridor, and do not imply this site-protection classification.
-
-The full Minor–Urban (2008) text and the available full-text treatment of Saura (2010) were examined for mathematical coverage. The Matisziw–Murray paper is particularly relevant but only its abstract and the detailed analysis of its connectivity index in Saura (2010) could be inspected; equivalent stronger statements elsewhere cannot be excluded solely by unsuccessful literature searches.
-
-## Limitations
-The theorem is a finite tree-structure result, not a claim about arbitrary graphs, unequal patch qualities, nonidentical or correlated survival, interventions that alter edges, multiple simultaneous protections, or an empirically optimal conservation decision. The component-square metric gives equal weight to all ordered patch pairs and includes diagonal pairs; changing the metric can change the conclusion. The two thresholds belong to the explicit eight-vertex shapes, not to every landscape. The earlier literature comparison cannot constitute a proof that no equivalent unpublished or otherwise inaccessible theorem exists.
+Run `python3 vertex_criticality_verify.py` (Python 3.9+). The exact integer certificates and rational nonuniversality checks, not the script's independent spot-check of survival configurations, establish the continuum result. The script also rechecks the already-covered lower orders. The exhaustive conclusion is specific to the eight-vertex layer, unit weights, uniform independent survival, and the ordered-pair objective. The deterministic objective \(C=\sum_i|K_i|^2\) is an existing component-coincidence measure, not a new index [3].
 
 ## References
-1. Minor, E. S., and Urban, D. L. (2008). *A Graph-Theory Framework for Evaluating Landscape Connectivity and Conservation Planning*. Conservation Biology 22, 297–307. DOI: `10.1111/j.1523-1739.2007.00871.x` (first publicly available 31 January 2008).
-2. Matisziw, T. C., and Murray, A. T. (2009). *Connectivity Change in Habitat Networks*. Landscape Ecology 24, 89–100. DOI: `10.1007/s10980-008-9282-z`.
-3. Saura, S. (2010). *Measuring Connectivity in Habitat Mosaics: The Equivalence of Two Existing Network Indices and Progress Beyond Them*. Community Ecology 11, 217–222. DOI: `10.1556/ComEc.11.2010.2.10`.
-4. Saura, S., and Rubio, L. (2010). *A Common Currency for the Different Ways in Which Patches and Links Can Contribute to Habitat Availability and Connectivity in the Landscape*. Ecography 33, 523–537. DOI: `10.1111/j.1600-0587.2009.05760.x`.
+
+1. [Sharp eight-vertex onset of transmissibility-dependent optimal vaccination on contact trees](https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-sharp-eight-vertex-onset-of-transmissibility-dependent-optimal-v--639f57a81324/RESULT.md), Finding and Exact objective.
+2. [Eight vertices are sharp for a transmissibility-dependent vaccination target on trees](https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-eight-vertices-are-sharp-for-a-transmissibility-dependent-vaccin--9ba80a93d3d8/RESULT.md), Finding and Sharp eight-vertex witness.
+3. S. Saura, *Measuring Connectivity in Habitat Mosaics: The Equivalence of Two Existing Network Indices and Progress Beyond Them*, Community Ecology 11 (2010), 217–222. DOI: 10.1556/ComEc.11.2010.2.10.

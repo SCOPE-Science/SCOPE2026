@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:56:51.758491Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed route budget b, the sum of its two edge-failure factors is minimized uniquely at equal efforts by AM–GM. Connectivity is strictly increasing in either route probability given the other (each is <1). After this reduction, write u=exp(−b/2), v=exp(−(B−b)/2), p=uv=exp(−B/2), and w=u+v. The product of failure probabilities is [(1−s)+2su−su²][(1−s)+2sv−sv²]. At fixed p its terms depending on w are −s(1−s)w²+[2s(1−s)−2s²p]w; thus success is a strictly convex quadratic of w when 0<s<1. The achievable w interval is [2√p,1+p], with only the midpoint of the route-budget split mapping to its lower end and only the two concentrated choices to its upper end. Strict convexity excludes every intermediate point even when the endpoints tie. For x=exp(−B/4), the endpoint difference is s(1−x)²[(1−s)(1−x)²−2x²]. The bracket has a unique zero in (0,1) at x=1/(1+√(2/(1−s))). The ordering, unique threshold, all three tie allocations and 32/81 at s=1/2 follow. At s=1 success is strictly increasing in w (linear coefficient 2p), and at s=0 every plan gives zero. For one investable edge per route the joint failure is (1−s)²+s(1−s)(exp(−b)+exp(−(B−b)))+s²exp(−B), uniquely minimized at b=B/2 by AM–GM. This checks all nonnegative allocations, not merely symmetric ones. The frozen symbolic and finite-grid checker was inspected, not executed. The proof applies only to equal costs/efficiencies, independent gates and links, and static two-terminal connectivity; the minimality is in the specified identical two-route family.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vicentini (1970), memorandum 201, frames maximizing a sum of S-shaped utility functions under a resource constraint. El-Neweihi, Proschan and Sethuraman (1986), abstract indexed with the reliability query, uses majorization to assign components in parallel-series or series-parallel systems."
+        ],
+        "reasoning": "The logarithmic transformation places the route objective in classical resource allocation, so this general setup and any coarse support classification are not claimed as new. The exact frozen split is decided by a strictly convex quadratic in the sum of two failure factors with fixed product. The available prior material does not establish that criterion for these continuous investments, or the viability dependence; older full-text coverage is incomplete.",
+        "searches": [
+          "Vicentini 1970 optimal allocation S-shaped utility identical functions uniform resource allocation sigmoidal knapsack mesquita controlled reliability Si et al",
+          "https://commons.case.edu/wsom-ops-reports/370/",
+          "https://doi.org/10.2307/3214014"
+        ]
+      },
+      "checked_sources": [
+        "All seven assigned frozen files",
+        "Jiang et al. 2024, DOI 10.1007/s10980-024-01852-w",
+        "Vicentini (1970), CWRU technical memorandum 201 (abstract)",
+        "El-Neweihi et al. (1986), DOI 10.2307/3214014 (abstract and citation)",
+        "Resultary 3c0015aa15b1 and dc53d6309137 (indexed statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jiang et al.'s Methods define equivalent connectivity by area-weighted best-path probabilities, plus structural and circuit-based indices. The indexed classical comparator allocates fixed components. The rational-response Resultary statement shares the decision pattern but has no intermediate viability parameter."
+        ],
+        "reasoning": "An area-weighted best path, a fixed-component assignment and a rational two-route problem do not evaluate the independent union under the frozen exponential response with constant viable-gate probabilities. Even supposing an older generic result settled support, it would not alone assert the dependence on s and the loss of the finite transition at s=1.",
+        "searches": [
+          "Resultary rational two-route record 3c0015aa15b1",
+          "https://link.springer.com/article/10.1007/s10980-024-01852-w#Sec7",
+          "classical parallel-series reliability allocation query above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 3c0015aa15b1: two parallel two-edge routes with rational passage x/(1+x) and budget switch from concentrated to equal; threshold specified by a cubic. The target also appeared and was not used as independent prior evidence."
+        ],
+        "reasoning": "The common objective is the product of two route failures, or a sum of negative logarithms of route failures. An edge-wise nonlinear substitution mapping x/(1+x) to 1−exp(−x) does not preserve the additive budget hyperplanes. The published rational-response comparator does not give the fragile-gate family, root, or one-link-versus-two-link classification.",
+        "searches": [
+          "Resultary: two identical parallel two-edge reliability paths exponential budget allocation concentration diversification intermediate node viability threshold",
+          "reliability optimal resource allocation two parallel series routes exponential component reliability resource 1 exp identical S shaped Vicentini optimal allocation closed form redundancy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The rational-response entry quotes a cubic root; the four-habitat exponential-response entry concerns a different path objective and two distinct effort levels. Jiang's Table 1 specifies node/edge-removal scenarios on a landscape, not effort optimizers."
+        ],
+        "reasoning": "None of these numbers or tabulated quantities represents the threshold as a function of s or the tie value 32/81. The claim is an analytic classification across all B and s; exact-table comparison is limited to the inspected material.",
+        "searches": [
+          "Resultary query above and published neighbors 3c0015aa15b1 and dc53d6309137",
+          "https://link.springer.com/article/10.1007/s10980-024-01852-w, Methods and Results"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass on the closed viability-dependent threshold, all optimizers, and shortest-route contrast. The closest published comparator shares the same two-route reliability architecture and the same qualitative switch, not the effort law or gate parameter; no novelty is credited to the qualitative switch by itself or to the elementary optimization methods. The empirical source and classical allocation searches do not imply the exact parameter family identified here.",
+      "residual_risks": [
+        "The Vicentini PDF and the close rational-response full result could not be inspected, so no claim about everything in either document is made.",
+        "A literature query about symmetric sigmoidal allocation was unavailable; that failure has no negative evidentiary weight.",
+        "Historical priority is not established against all classical continuous reliability allocation results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different decision problem and connectivity measure",
+          "evidence": "Methods use equivalent connectivity EC from patch areas and best-path probabilities, then perturb a landscape network by node/edge removal to set priorities.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s10980-024-01852-w",
+          "material_read": "Abstract, Introduction, Methods through the ecological-security optimization formulation, and main results overview",
+          "method": "Open primary article HTML",
+          "title": "Integrating patch stability and network connectivity to optimize ecological security pattern",
+          "trigger": "Ecological motivation and possible equivalent connectivity objective"
+        },
+        {
+          "assessment": "Confirms prior general setup; priority against its full theorem statements is not resolved by its abstract",
+          "evidence": "The abstract explicitly maximizes total return over nonnegative allocations summing to a fixed resource.",
+          "identifier_or_url": "https://commons.case.edu/wsom-ops-reports/370/",
+          "material_read": "Repository abstract and bibliographic record; PDF not readable in the accessible response",
+          "method": "Primary repository page and attempted repository PDF",
+          "title": "On the Resource Allocation Problem with S-Shaped Utility Functions",
+          "trigger": "Plausible broader identical-return allocation theorem"
+        },
+        {
+          "assessment": "Known qualitative counterpart with a different explicit response law; not a whole-document priority exclusion",
+          "evidence": "Two edge-disjoint two-edge routes, p(x)=x/(1+x), with switch at B*=2σ for 2σ³+σ²−8σ−8=0.",
+          "identifier_or_url": "Resultary 3c0015aa15b1",
+          "material_read": "Indexed scientific statement and stated assumptions/formula; full record fetch was unsuccessful",
+          "method": "Resultary result and read-only link attempts",
+          "title": "A discontinuous corridor-redundancy investment threshold in a two-route ecological network",
+          "trigger": "Closest public mathematical comparator with the same geometry and optimizer switch"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact dependence on site viability is useful: it shows when independent backup beats further investment in the first serial route, how the switch moves to infinity as the gates become perfectly viable, and why no asymmetric compromise can be globally optimal. The single-edge comparator separates the effect of serial complementarity from gate fragility alone. This is an exact reliability benchmark under specified response and independence laws, not evidence for a field budget.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

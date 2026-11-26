@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The exact reduced-rate identity is \(\mu+\beta Z/\sqrt V\) with independent \(Z\sim N(0,1)\) and \(V\sim\chi^2_\ell\). Critical analytic checks are (i) Gaussian independence from orthogonal input directions; (ii) inverse chi-square moments exist only for orders strictly smaller than half the degrees of freedom; (iii) the positive exponential moment of \(1/\sqrt V\) diverges at the origin for every positive multiplier; and (iv) fresh-sketch Euler conditional moments multiply independently. These steps constitute the proof of the infinite and finite claims; sampling does not.
+# Independent mathematical audit
 
-`check.py` has been executed with Python, NumPy and SciPy. It checks a deterministic negative-rate SPD witness, 6 exact Student-versus-beta comparisons, 18 Monte Carlo quantile comparisons, 4 finite-second-moment comparisons and the exact three-row Euler stability calculation. Random sampling is only diagnostic and does not establish the claimed infinite moments or all-parameter statements.
+## correctness
 
-The statement is restricted to the fixed one-dimensional real Gaussian-sketched Galerkin model, exact arithmetic, and the two explicit sketch-reuse conventions. The independent audit remains unperformed.
+PASS
+
+For the stated fixed real trial line, the Gaussian projections on u and (Au-mu*u)/beta are independent. After normalization by ||Su||, the dot product with the second projection has conditional law N(0,1) independent of V=||Su||^2, giving rate mu+beta*Z/sqrt(V) and the shifted Student law. The sign event is Z<0 and V/(V+Z^2)<beta^2/(mu^2+beta^2), which gives the half-beta expression, independently of sign, and V/ell tending to one gives convergence in probability. For p,t>0, conditioning on V and doing the normal integral gives E exp(-pt*Lambda)=exp(-pt*mu) E exp((pt*beta)^2/(2V)); this is infinite at V=0 under any finite chi-square degrees of freedom. A reused Euler multiplier raised to power 2k is comparable to |Z/sqrt(V)|^(2k) in the tails, so the inverse-chi-square integral converges exactly for ell>2k, with logarithmic divergence at equality. The same infinite second moment holds for the error relative to any deterministic finite comparator, by a triangle bound. In the independent case Tonelli factors the nonnegative product; no factor has zero expectation for beta>0 and h>0. For ell>2 the one-step expectation is (1-h*mu)^2+h^2*beta^2/(ell-2), strictly below one exactly on the stated interval and equal to one at the positive endpoint. The diagonal example and deterministic beta=0 exception agree. The uploaded script was read, not executed; finite samples can check scales/quantiles but not moment divergence.
+
+## originality
+
+PASS
+
+Pass for the explicit dynamical comparison of frozen and independent-refresh Euler, particularly the independent mean-square frontier, not for the Gaussian sign law, the shifted-Student rate, or the sketched projected equation. An earlier same-rate reciprocal calculation is mathematically very close and makes the frozen-law consequences short deductions. A later Resultary exponential record substantively overlaps the exact-time portion, independently of its date, but neither it nor the earlier records give the two Euler reuse conventions and their different boundaries. No inspected source covers the combined Euler stability result.
+
+## value
+
+PASS
+
+The same unconditional Gaussian sketch at the same finite row count and step size can have a decaying second moment under independent refresh and an infinite one after finitely many steps under reuse. The sharp refreshed stepsize ceiling and the precise reuse cutoff determine where this happens, which neither a high-probability embedding statement nor a negative-rate probability decides. The distinction concerns a fixed rank-one model, not a prescription for higher-rank algorithms or computational cost.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

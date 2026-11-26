@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For nonexceptional sizes, the forced Gram matrix is nondegenerate, and Witt transitivity with the standard finite orthogonal-group orders gives the exact embedded frame count. For characteristic-divisible sizes, one nondegenerate subframe and a uniquely determined isotropic complementary vector yield the full counts, while its zero case gives the exact affine-dependence count. Dimension-zero and determinant square-class conditions are included explicitly. The independent graph/linear-algebra checker passed 102 prime-field and 16 extension-field instances; infinite validity derives from the general proof, not sample extrapolation. Standard finite-orthogonal group and Gauss-sum facts are prerequisites.
+PASS
 
-## Originality — PASS (with residual risk)
+Translate the first vertex to 0 and polarize: the ordered differences have Gram matrix (a/2)(I+J). The determinant follows from the rank-one update. When p does not divide r, the frame is independent and embeds exactly when the required complement can exist: arbitrary nonzero determinant class in positive complement dimension, only the square class in complement dimension zero. Witt extension gives the group quotient because the pointwise frame stabilizer is precisely the orthogonal group of its nondegenerate complement. When p divides r, the Gram radical is the all-ones line; the first h=r-2 vectors are still a nonsingular frame. The remaining vector's projection is minus the sum of that frame, since h+1=-1 in the field; its norm there is (a/2)h(h+1)=a. Therefore its arbitrary displacement in the complement must be isotropic, and exactly the zero displacement is dependent. The zero count follows by additive-character orthogonality in an orthogonal basis: the nontrivial-character terms cancel in odd dimension; in dimension 2s the quadratic Gauss sum raised to 2s contributes q^s times the character of (-1)^s times the determinant, with (q-1)/q from summing nonzero characters. Dimension zero has exactly one vector. These cases give the rank split and r<=d+2 bound; a nonzero side forces distinct vertices. The translation factor q^d and unordered normalization r! are integer count factors, not field divisions.
 
-Swanepoel's 2026 general-field result characterizes existence of equilateral sets and dependence thresholds, but does not compute the complete ordered clique enumerator or dependence histogram. Lorenz–Zimmermann compute **maximum** clique counts in representation graphs, not the entire all-size distribution. General orbit-stabilizer and Witt facts are not claimed as new. Targeted searches comparing formulations, alternative terminologies, and prior published records identified no implication of the stated all-size formulas from a published count theorem. An unindexed general counting formula remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The graph clique polynomial is a natural exact invariant; counting only maximum cliques does not determine its nonmaximal coefficients. The affine-dependent subcount reveals a sharp characteristic-divisibility transition and a side-length character effect even for a fixed field and dimension. This is a full natural family classification, not an arbitrary finite tabulation.
+The distinct content supported is the uniform all-size count with an explicit characteristic-divisible split for both ranks, especially nonmaximum cliques, using isotropic completion in arbitrary complement dimensions. The rank obstruction, the unique dependent in-span configuration, orbit structure, ordinary nonsingular orbit quotient method, and maximum-size totals are prior or routine consequences of prior structure and standard group orders, and are not credited as standalone originality.
 
-## Boundaries
+## value
 
-Only nonzero fixed side lengths and the standard nondegenerate sum-of-squares quadratic form in odd characteristic are treated. This does not count induced nonclique patterns or identify all isometry orbits. No independent mathematical audit has been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete clique polynomial and affine-rank counts are useful exact invariants of natural finite-field distance graphs. In characteristic-divisible sizes the completion law determines how many cliques have each possible rank, not just whether an equilateral set exists, and shows that for the same field, dimension and clique size the rank proportions can change with the side square class. This is meaningful for the nonsaturated size range left out by the maximum clique table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

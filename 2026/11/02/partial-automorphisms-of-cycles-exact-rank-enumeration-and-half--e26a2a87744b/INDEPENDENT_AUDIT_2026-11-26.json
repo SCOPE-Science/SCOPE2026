@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:57:54.123183Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A proper nonempty cycle subset is a path forest; marking a one-run start gives n choices of position and exactly r marks per labelled subset, including symmetric run configurations. For deficiency d the number r of components is at most d. For fixed shape there are O_d(n) labelled subsets and at most 2^d d! isomorphisms between any two. Thus the O_d(n^(r−1)) shapes with r<d give O_d(n^d) total. When r=d all d gaps are unit; imposing a unit part or equality of two parts in a d-part composition costs one degree of freedom, so all such exceptions cost O_d(n^d) maps as well. The good shapes number n^(d−1)/(d!(d−1)!)+O_d(n^(d−2)); for each there are n(d−1)! choices for each of domain and image and 2^d orientation choices. This proves the leading coefficient 2^d/d; d=1 separately gives exactly 2n² even at n=3. The original context checks also hold: empty and full contributions are 1 and 2n, the component bound and independent-set factorial sandwich give the claimed growth and rank deviation exponent, and the two-point distance witness works precisely for n≥6. For the path comparison, each rank-k map with k<n admits at least one pair of omitted vertices and each of the n² possible pairs is isomorphic to the reference P_(n−1) problem. Neither counting convention quotients labelled domains or maps.",
+      "replay": "python3 /workspace/branches/frozen_replay.py 1 independently backtracks over adjacency-preserving and reflecting injective assignments for every domain of C_n for n=3..9, directly tabulates cyclic shapes, and checks every coefficient. It gives (1,36,234,384,216,72,12) at n=6 and total 50482 at n=9. The uploaded verifier was inspected but not executed; the asymptotic rests on shape bounds, not the small vectors.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jajcay et al., Proposition 3.1, characterize the Green classes by induced-subgraph type. Dimitrova et al., Theorem 2.1, count partial automorphisms of paths. Resultary b3dc8a9f5e5d proves matching-order total growth and comparable macroscopic tails for P_n; 5cf963fdeacf treats even crown posets."
+        ],
+        "reasoning": "Class stratification supplies the general mechanism, not the cycle-specific shape asymptotic. Cutting at omitted vertices transfers graph-path counts with a factor at most n², sufficient for the coarse scales but insufficient for the leading coefficient at fixed deficiency. Crown poset adjacency/order constraints are different.",
+        "searches": [
+          "Resultary: induced subgraph partial automorphisms of cycles component run count asymptotics rank concentration",
+          "arXiv:1809.04422 Proposition 3.1",
+          "arXiv:2101.12468 Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d147c97c6256, cd9dfc7a9f4c, b3dc8a9f5e5d, 5cf963fdeacf",
+        "Jajcay et al. Prop. 3.1",
+        "Dimitrova et al. Thm. 2.1",
+        "Fernandes–Paulista Thm. 1.4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact rim coefficient is a shape sum, with terms depending on multiplicity and singleton factors. The compared path theorem gives tails and total scale but not a cycle leading constant as rank approaches n at fixed deficiency."
+        ],
+        "reasoning": "Substituting k=n−d provides the starting sum, not its leading class: the count of distinct nonunit d-part shapes must be estimated and all collisions, unit parts and lower component counts bounded to extract 2^d/d. This is a shape-dominance argument, not merely evaluating a known closed scalar formula. The simple path count comparison cannot recover that constant.",
+        "searches": [
+          "Resultary: partial automorphisms cycle fixed deficiency rank n-d asymptotic high rank coefficient",
+          "d147c97c6256, rim formula and run-count proof, mirror offsets 0 and about 3100",
+          "b3dc8a9f5e5d, Finding at offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "d147c97c6256 names exactly these maps as the rim monoid with domain-cardinality rank; the rim formula is not counting the cycle's ambient partial isometries. Fernandes–Paulista arXiv:2205.02196, p. 2 and Theorem 1.4, require full graph distance."
+        ],
+        "reasoning": "The two monoids agree only when distance among distinct vertices takes just the values 1 and 2; partial induced isomorphisms can change nonedge distance in larger cycles. The wheel rim polynomial is genuinely equivalent to the frozen rank enumerator, not merely a distance-based variant.",
+        "searches": [
+          "Resultary: PAut(C_n) partial automorphism cycle graph all induced subgraphs rank counts",
+          "Resultary: cycle graph induced partial graph isomorphisms rank polynomial path component partitions",
+          "\"partial automorphism\" cycle graph \"rank\" enumeration induced subgraphs cycle monoid"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d147c97c6256, Finding at offset 0, has exactly the same binomial, multiplicity factorial and orientation factors for n≥5. cd9dfc7a9f4c, Finding, gives R_C5(z)=1+25z+100z²+100z³+50z⁴+10z⁵."
+        ],
+        "reasoning": "This is overlapping exact coverage regardless of unestablished same-day ordering; the small n=3,4 extension is not a sufficient claim on its own. The repaired law does not assert novelty of any table of individual rank vectors.",
+        "searches": [
+          "Resultary: partial automorphism monoid cycle exact rank enumeration cycle graph rank coefficients",
+          "Resultary: fixed deficiency rank asymptotic partial automorphism monoid cycle",
+          "Resultary: induced-subgraph partial automorphism cycle near-full rank counts corank"
+        ]
+      },
+      "rationale": "Limited to the repaired asymptotic at moving rank n−d and the description of its leading class. The exact cycle rank polynomial overlaps a distinct record directly and no claim to it remains. The factorial growth and macroscopic concentration have near-equivalent path counterparts and are not the repaired finding. No compared statement supplies the leading fixed-d coefficient or the dominant-type assertion; obtaining it from the exact wheel formula requires identifying which shapes supply the leading order despite their varying symmetry factors.",
+      "residual_risks": [
+        "A fixed-corank analysis of an equivalent cycle enumeration could contain this asymptotic under a different term. The same-day ordering is not determined. The precise rank polynomial is demonstrably covered regardless of priority; the narrower comparison concerns asymptotic extraction only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for n≥5, not a stated fixed-deficiency limit",
+          "evidence": "Q_n uses precisely n(r−1)!binom(n−k−1,r−1)/∏m_j! for each subset shape and 2^(r−m_1)∏m_j! for its isomorphisms.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-finite-rank-hub-correction-for-wheel-partial-isometry-monoids--d147c97c6256/RESULT.md",
+          "material_read": "Finding and rim run-count proof, mirror offsets 0–3168 and around 3100",
+          "method": "Indexed local mirror, bounded decisive passages",
+          "title": "A finite-rank hub correction for wheel partial-isometry monoids",
+          "trigger": "Same-day distinct exact rank polynomial on the rim cycle"
+        },
+        {
+          "assessment": "Transferable coarse scales, not cycle fixed-deficiency constant",
+          "evidence": "The path concentration estimate is exp(−ε n log n+O_ε(n)); the finding also includes sharper lower tails.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-lower-tail-exponents-for-random-partial-automorphisms-of-a--b3dc8a9f5e5d/RESULT.md",
+          "material_read": "Finding and assumptions, mirror offsets 0–2464; relationship around offset 6300",
+          "method": "Indexed local mirror",
+          "title": "Sharp lower-tail exponents for random partial automorphisms of a finite path",
+          "trigger": "Highly similar macroscopic rank law on the closely related path monoid"
+        },
+        {
+          "assessment": "General type classification, no evaluated fixed-deficiency asymptotic in compared statement",
+          "evidence": "Green D-classes are induced-subgraph isomorphism types.",
+          "identifier_or_url": "https://arxiv.org/pdf/1809.04422",
+          "material_read": "Proposition 3.1, pp. 8–9, extraction around offset 33250",
+          "method": "OA primary PDF passage",
+          "title": "Inverse monoids of partial graph automorphisms",
+          "trigger": "General theorem possibly covering rank enumeration"
+        },
+        {
+          "assessment": "Path result; cyclic placings and high-rank cycle leading coefficient not given",
+          "evidence": "Counts linear path partial automorphisms via binary domain patterns and runs.",
+          "identifier_or_url": "https://arxiv.org/pdf/2101.12468",
+          "material_read": "Theorem 2.1, p. 7, extraction around offset 24700",
+          "method": "OA primary PDF passage",
+          "title": "Partial Automorphisms and Injective Partial Endomorphisms of a Finite Undirected Path",
+          "trigger": "Run-based enumeration for a close graph family"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Preserves full ambient distances; the exact even/odd totals have leading term n2^(n+1).",
+          "identifier_or_url": "https://arxiv.org/pdf/2205.02196",
+          "material_read": "Definition p. 2 around offset 5800; Theorem 1.4 p. 6 around offset 21600",
+          "method": "OA primary PDF passages",
+          "title": "On the monoid of partial isometries of a cycle graph",
+          "trigger": "Potential equivalent cycle monoid theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural fixed-deficiency stratum detects near-complete partial symmetries, a regime not characterized by typical-rank behavior. The uniform formula in each fixed positive deficiency gives both the growth power and a nontrivial leading coefficient, and identifies which domain/image structures account for that order and which are lower by a full power of n. This is reusable quantitative information rather than the evaluation of an arbitrary small case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and mathematical checks
+# Independent mathematical audit
 
-Run `python verification/verify_algebra.py` to independently substitute the two finite-state generators into the claimed Poisson solutions and check the exact variance and maximum-rate identities symbolically. This program uses SymPy; its assertions compare rational expressions identically, not at sampled parameters. It checks identities needed for the proof but does not mechanically establish general martingale central-limit theory.
+## correctness
 
-For an independent experiment, compile and run `verification/check_event_driven.cpp` with a C++17 compiler. It simulates exponential switching and exact deterministic motion between switches, with a stationary-approximation burn-in of forty inverse trap rates. With 50,000 trajectories per model at \(k=1,v=1.4\) and \(g\in\{0.35,1,3\}\), the six observed work-variance rates agree to within approximately 1.2% of their proved asymptotic values, subject to finite-time and sampling errors. It is not an exhaustive or infinite-time numerical certificate.
+PASS
 
-The probabilistic proof additionally uses irreducibility of each finite-state drive, contractivity of the harmonic coordinate, bounded support under stationarity, the stationary ergodic theorem for predictable jump brackets, and the bounded-jump martingale central limit theorem. These standard analytical steps are justified in the result but are not replaced by the symbolic scripts.
+Both force generators take u to -gu, and the stated stationary laws give E[U²]=v²/2. Stationary harmonic convolution preserves equality of all force, position and mixed two-time covariances. Applying the stationary joint generator to xu and x² gives E[XU]=v²/[2(k+g)] and k E[X²]=E[XU], yielding the common mean work rate. For run-and-rest, the generator sends Q=u² to gv²-2gQ and P=xu to Q-(k+g)P. Therefore Phi=aQ+bP with a=1/[2(k+g)] and b=-k/(k+g) has L Phi=mu-(Q-kP). Both run-to-rest and rest-to-run holding rates are g; the squared-jump bracket has a²v⁴ and b²v² E[X²] from the two jump types collectively, and the mixed 2abv² E[XU] term comes only from the running states because the rest-to-run sign is symmetric. The two b-dependent contributions cancel by k E[X²]=E[XU], giving the proposed V3. For the telegraph process Q is constant and Phi=bP; the squared difference from flips is 4 b²X²U² at rate g/2, giving V2. The stationary joint process is an ergodic factor of the stationary irreducible force path, and the coordinate is bounded by v/k. Martingale bracket averaging and the bounded jump sizes give the CLT; the bounded endpoint corrector changes variance per unit time by o(1) via Cauchy–Schwarz. The ratio and derivatives give the crossing at g=k and unique parameter maxima at g=k and g=k/2, respectively. The result matches second-order moments, not full one-time or path distributions.
 
-Independent audit status: not performed.
+## originality
+
+PASS
+
+No independent originality is credited to the stationary run-and-rest model, the telegraph comparator alone, or the martingale method. The supported finding is the evaluated run-and-rest work variance and its exact reversal against a second-order-matched telegraph comparator across the trap/switching rate equality. The strongest inspected same-model literature concerns stationary position laws. The strongest matching reversal and work records change the observable, model or both. None yields this pair of rates or the ordering by specialization.
+
+## value
+
+PASS
+
+This is a quantitative counterexample to inferring work-noise ordering from matched second-order propulsion or position data, even when the mean work also matches. The reversal at a physically interpretable rate equality, rather than only a pointwise difference, supplies a test of models with identical covariance diagnostics. The explicitly evaluated jump-bracket cancellation explains why the difference survives the matching.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

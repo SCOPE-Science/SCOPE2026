@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:29:23.376125Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, eqs. (1)–(13) and assumptions; VERIFICATION.md; verify_mapping.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/review_exact_checks.py 2. Bin-by-bin labeled-completion DP checked 511 pointwise cases and 21 product cases for 3≤n≤8, of which 15 had product bound <1; mixtures recovered the unconditional law exactly."
+      ],
+      "rationale": "Conditioning on a feasible exact labeled history of T=m fixes precisely m iid map coordinates and puts no constraint on the remaining n-m coordinates. Its prescribed targets have at most one double hit. A coupling through the free allocation charges at most m b_(n,k-1)+b_(n,k-2) for imposing the prescribed targets and m b_(n,k-1) for completing the same free outputs with fresh uniform targets (each fresh target is independent of prior occupancies). Averaging conditional TV is exactly the TV against the product with the same H marginal. Summing the birthday survival product bounded by exp(-t²/(2n)) gives the stated mean bound. In the rare-threshold regime p_k=Pr(Pois(1)≥k)~e^-1/k! gives k~log(n)/loglog(n) and the shifted binomial tails have orders k/n and k²/n. The multinomial-to-product-Poisson ratio is bounded by e^q (zero off feasible count vectors) and tends to one near all q fixed occupancies at k. Conditional on the Poisson tails, the excesses vanish in probability, giving the factorial moments λ^q; the Poisson law is moment-determinate. Expanding the birthday survival product at t=O(√n) gives the Rayleigh limit; J|T is discrete uniform, and (UR,(1-U)R) has the stated density by the Jacobian R. TV contracts under projection to the two lengths and supplies the joint independence, including the zero-count event.",
+      "residual_risks": [
+        "Finite replay checks the finite coupling bound, not the infinite limit. The rare-threshold limit is along admissible integer-threshold subsequences; neither uniformity over atypical long histories nor independence of the whole indegree vector follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Flajolet–Odlyzko give fixed-r indegree means with nonuniform errors and treat largest path/cycle/component statistics; Perkins compares full planted/exchangeable occupancy configurations in planting-dependent regimes."
+        ],
+        "reasoning": "Neither gives an applicable full-configuration bound at the required rate for roughly √n prescribed outputs, followed by averaging over the stopping history. Thresholding is essential to the two crossing estimates.",
+        "searches": [
+          "Resultary: Hansen Jaworski Flajolet Odlyzko planted occupancy high indegree random mapping history extreme values",
+          "Flajolet–Odlyzko, Random Mapping Statistics, pp. 339–342",
+          "Perkins, arXiv:1004.5373, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Flajolet–Odlyzko DOI 10.1007/3-540-46885-4_34",
+        "Hansen–Jaworski DOI 10.1239/aap/1208358892 and companion DOI 10.1002/rsa.20187 (limited)",
+        "arXiv:1004.5373",
+        "arXiv:1310.7055",
+        "Published records a2c6e57f022c and 303f0920fc82"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The local mapping theorem treats orbit lengths; Perkins conditions on a fixed planting, and the birthday paper studies the stopping time to c collisions."
+        ],
+        "reasoning": "Exposure formulas and marginal results are useful ingredients, not the projected total-variation inequality. The prescribed orbit has a specific multiplicity pattern and the proof separately controls crossings under prescribed and resampled outputs.",
+        "searches": [
+          "Hansen–Jaworski Theorem 3.1",
+          "Perkins arXiv:1004.5373, pp. 1, 3",
+          "Arratia–Garibaldi–Kilian arXiv:1310.7055, abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zero threshold count is equivalent to maximum indegree <k; the maximum event describes only one atom of the count. Theorem 3.1 computes orbit height and cycle length via exchangeable indegrees."
+        ],
+        "reasoning": "Orbit length summaries are projections of H. Even a product limit for the maximum event and lengths would not yield the count distribution or the full labeled-history TV bound.",
+        "searches": [
+          "Resultary: random mapping orbit indegree extremes Poisson rare threshold independent history",
+          "Hansen–Jaworski, Local properties of random mappings with exchangeable in-degrees, Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Read the distinct same-day fixed-/cyclic-point TV record a2c6e57f022c: exact count-count dependence and sharp order n^-1, despite zero covariance. Related record 303f0920fc82 gives component-count covariances with fixed-degree indegree counts."
+        ],
+        "reasoning": "Neither tests dependence of a labeled history with the count of globally exceptional indegrees. Nothing in the inspected records makes same-day publication a priority finding.",
+        "searches": [
+          "Resultary: complete labeled orbit random mapping high indegree threshold count total variation product law independent rare extremes",
+          "Resultary: \"2 E[T]\" binomial tail indegree orbit random map total variation 2 b_{n,k-1}"
+        ]
+      },
+      "rationale": "No inspected result covers the quantitative product estimate for the entire stopped labeled history against the global growing-threshold count. Credit the classical orbit and occupancy marginals separately; the supported distinct contribution is their quantitative decoupling at the full-history level.",
+      "residual_risks": [
+        "Companion Hansen–Jaworski full text was not obtained. Classical methods could implicitly give related growing-indegree estimates; the inspected statements do not establish the quantitative full-history claim. Ranked searches are nonexhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical marginals, not the joint claim in the inspected statements",
+          "evidence": [
+            "Mean number of fixed-r indegree vertices ~ne^-1/r!; cautions the error is nonuniform and contour methods may treat growing r. Extremal section concerns long paths/cycles and largest components."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/3-540-46885-4_34",
+          "material_read": "p. 339 Theorem 4; §4 pp. 340–342",
+          "method": "Open Springer PDF, theorem and extremal passages",
+          "title": "Random Mapping Statistics",
+          "trigger": "Classic mapping asymptotics and extremes"
+        },
+        {
+          "assessment": "Overlaps local length laws, not full-history/exceedance TV",
+          "evidence": [
+            "Height and cycle length distributions expressed through exchangeable D_i with total n."
+          ],
+          "identifier_or_url": "https://doi.org/10.1239/aap/1208358892",
+          "material_read": "Abstract and Theorem 3.1, p. 186",
+          "method": "Open Cambridge PDF, exact theorem",
+          "title": "Local properties of random mappings with exchangeable in-degrees",
+          "trigger": "Same orbit variables with general indegree laws"
+        },
+        {
+          "assessment": "Unresolved full-text risk",
+          "evidence": [
+            "No whole-paper absence inference made."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/rsa.20187",
+          "material_read": "Bibliographic record; full text not retrieved",
+          "method": "Publisher access and DOI retrieval attempt, no lawful open copy found in the check",
+          "title": "Random mappings with exchangeable in-degrees",
+          "trigger": "Companion mapping model"
+        },
+        {
+          "assessment": "A related different configuration comparison",
+          "evidence": [
+            "Planting-dependent regimes compare all loads in labeled bins, not the projected rare count after a stopped orbit."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1004.5373",
+          "material_read": "Abstract p. 1; Theorem 1 p. 3",
+          "method": "Open arXiv PDF, theorem and regime comparison",
+          "title": "The Forgetfulness of Balls and Bins",
+          "trigger": "Potentially stronger planted-occupancy TV theorem"
+        },
+        {
+          "assessment": "Birthday marginal analogue only at material inspected",
+          "evidence": [
+            "Stopping time to c collisions is not the global count above k or its conditional law."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1310.7055",
+          "material_read": "Abstract p. 1",
+          "method": "Open arXiv PDF, stated observable compared",
+          "title": "Asymptotic distribution for the birthday problem with multiple coincidences, via an embedding of the collision process",
+          "trigger": "Related birthday stopping-time asymptotics"
+        },
+        {
+          "assessment": "Distinct TV variables",
+          "evidence": [
+            "Compares fixed-point count to cyclic-point count, not H to N_(n,k)."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-n-1-total-variation-dependence-of-fixed-and-cyclic-points--a2c6e57f022c",
+          "material_read": "Claim in RESULT.md",
+          "method": "Local published record mirror",
+          "title": "Sharp n^-1 total-variation dependence of fixed and cyclic points",
+          "trigger": "Closest same-day exact TV result in the same model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, (1)–(4) and (7)",
+        "Classical and planted-allocation comparisons above"
+      ],
+      "rationale": "The result answers whether conditioning on an entire birthday-scale orbit affects the globally rare indegree count, not just whether two normalized summaries have separate marginal limits. The explicit uniform-in-h conditional bound depends on T(h) and gives a useful decoupling rate after averaging; the Poisson/Rayleigh joint limit is a meaningful consequence.",
+      "residual_risks": [
+        "A scoped quantitative result for uniform independent map outputs and rare count projections; there is no mixing claim for the full indegree profile."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

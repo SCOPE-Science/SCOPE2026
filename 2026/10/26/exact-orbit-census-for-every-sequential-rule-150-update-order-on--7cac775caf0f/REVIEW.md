@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof independently derives the wall-interchange action, shows every complete-sweep wall permutation has two cycles, and tracks the single reference bit. The two equations for wall periodicity and fiber return yield the exact binary rank count, and Möbius inversion counts primitive cycles. The global order is minimal because the wall action is faithful on even-parity vectors for at least three sites. Reconstructed boundary cases include a one-element wall cycle, even and odd ring sizes, and possible rank-zero matrices. Exact finite calculations provide corroboration but are not substitutes for these unrestricted arguments.
+## correctness
 
-## Originality
-PASS with the bounded literature evidence listed below. Defant's Theorem 4.1 already gives the **identity-sweep** periodic-point census and must not be considered new. Macauley–McCammond–Mortveit derive a Rule-150 dynamics group and gap-permutation action; Macauley–Mortveit give update-order cycle-equivalence bounds. Those are essential antecedents, not exact arbitrary-schedule cycle census formulas. The new statement determines fixed points of every power for every permutation update order from a two-by-two rank, covering distinct non-identity schedules. Relevant searches also compared other parity cellular automata and reversible Rule-150 Floquet systems. Historical priority remains subject to independent assessment, particularly against general affine Coxeter-element classification.
+PASS
 
-## Value
-PASS. The problem is naturally posed by update-order dependence in sequential dynamical systems. The result supplies a complete, explicitly computable phase-space invariant for all schedules rather than a routine case extension; orders on a six-site ring realize global periods \(3\), \(5\), and \(8\). It is motivated both by the earlier identity-order formula and the theoretical bound on inequivalent update schedules.
+A local update exchanges exactly the two incident walls. If the wall transpositions before and after site zero are B and A, then B conjugates ASB to BAS; BA uses every edge of a path once and is a full cycle. Indeed, removing the last edge gives two component cycles by induction, and the last transposition joins them. Composing the full cycle with S splits it at the two walls incident to site zero, which lie in distinct resulting cycles, even when one is a singleton. In coordinates (Bd,x_0), the increment of x_0 is the sum at those two walls. A p^t-fixed wall vector on the cycles of lengths a,b has independent blocks of sizes gcd(a,t) and gcd(b,t); even parity of the full wall and zero net bit increment give exactly the two rows of Q_t on their two parity sums. Both sums are independently attainable before imposing the rows, so no rank is lost in translating from Q_t to the full block space. Each valid wall gives two fixed states. Invertibility gives the primitive census by divisor inversion. The wall action on even vectors is faithful for n>=3 because a permutation fixing every unordered pair fixes each vertex. At L the only possible remaining effect is the common wall-cycle parity multiplied by n/g in the fiber; parity one is realized by a wall in each cycle. This proves minimality and the exact doubling condition. A fresh replay on 1,173 orders, exhaustive through n=6 with samples at n=7,8,9, matched 16,089 fixed-power counts, all map orders and 11,907 primitive-count comparisons.
 
-## Closest literature and limitations
-See Defant, arXiv:1511.06966, Theorem 4.1 (identity schedule); Macauley–McCammond–Mortveit, doi:10.1007/s10801-010-0231-y, Theorem 5.4 (group action); Macauley–Mortveit, arXiv:0802.4412, Section 5 (equivalence classes); and Macauley–McCammond–Mortveit, arXiv:0707.2360 (periodic-set independence). The result concerns one visit per site on finite rings only; it does not prove historical priority beyond the inspected sources or cover arbitrary update words. The verifier executes exactly reproducible finite tests. Independent review is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The constituent wall action and identity-order period census are antecedents. No earlier exact or dominating multi-order census was established by the inspected evidence. A distinct, later Resultary record does establish the same census in another parametrization and adds order-frequency results; the census itself is not distinct from that later statement. This is an assessment relative to the frozen record, not a priority claim.
+
+## value
+
+PASS
+
+Every orbit length and its multiplicity can be obtained from two lengths without iterating the 2^n states. The formula also distinguishes sweeps whose lifted order is twice their wall order, explaining an effect that a wall-only calculation would miss. This is an exact phase-space invariant for a standard sequential automaton, beyond an upper bound or finite list of schedules.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

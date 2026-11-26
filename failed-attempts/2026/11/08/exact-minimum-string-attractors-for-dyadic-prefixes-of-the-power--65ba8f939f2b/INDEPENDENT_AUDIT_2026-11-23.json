@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:27:16.189122Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write t_j=2^j-1. Every occurrence of a factor with two ones contains a whole consecutive-one pair, and each pair has a selected endpoint. Factors with one one fit at the penultimate one unless their left overhang exceeds 2^(k-2)-1; then they must end at the last one and hit its preceding zero. All-zero factors fit in the last gap. For the lower bound, the distinct gap sizes give unique occurrences for the even-index pair witnesses ending at most at exclusive endpoint 2^(k-1) (even k) or 2^(k-2) (odd k). For odd k the additional near-penultimate witness has interval [3*2^(k-3)-1,2^(k-1)+1); the final witness starts at 3*2^(k-2)-1. The intervals are disjoint, with equality of adjacent boundaries allowed at k=2,3. Independently enumerated all byte substrings, marking those spanning the first selected point at or to the right of their start, and located each obstruction with two literal find calls to establish uniqueness. For k=2..9 the distinct-factor totals were 8,27,93,337,1273,4937,19433,77097; the hit sets were exactly the full sets and the sorted obstruction intervals were disjoint with cardinality 2,3,3,4,4,5,5,6. Replay: python replay/2_attractor.py. This bounds the replay, not the proof. The frozen checker was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "November 2 Resultary record reports the exact all-prefix profile: 3+j on 6*4^j<=n<24*4^j, and 2 at n=4."
+        ],
+        "reasoning": "For k>=3 take j=floor((k-3)/2), so 2^k=8*4^j or 16*4^j; both lie in the published interval and give the frozen value. At k=2 the early case gives 2. The historical upper-bound source alone cannot give equality, but this stronger exact profile does.",
+        "searches": [
+          "Resultary powers-of-two characteristic word offline minimum query; November 2 record 5ffa12b82ec7",
+          "arXiv:2012.06840"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 19c751e8e9ff and 5ffa12b82ec7",
+        "arXiv:2012.06840v6 (Introduction and §6 Theorem 8)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both Resultary statements recover the frozen cardinality identically. The first additionally reports the same kind of upper and lower certificates. A targeted public literature query was unavailable, so no negative inference is made from it."
+        ],
+        "reasoning": "An explicit choice of one optimizer is not a new minimum classification; the record makes no distinct theorem about the space of optima or a comparably motivated independent invariant. No substantive residual theorem is established once the prior coverage is credited.",
+        "searches": [
+          "October 25 and November 2 Resultary statements; Schaeffer–Shallit, arXiv:2012.06840"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 25 Resultary record 19c751e8e9ff reports ceil(k/2)+1 on every length 2^k for k>=2 and describes explicit optimal positions and disjoint unique factors."
+        ],
+        "reasoning": "ceil(k/2)=floor((k+1)/2). The word, prefix lengths, contiguous-factor objective, and offline quantifier match. This is not the related online greedy invariant.",
+        "searches": [
+          "Resultary: offline minimum binary string attractor characteristic powers of two 11010001 dyadic exact formula Schaeffer Shallit lower bound",
+          "arXiv:2012.06840"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published index gives explicitly the complete dyadic formula and a separate all-length formula, not just small-n tabulation."
+        ],
+        "reasoning": "An exact formula for the whole parameter set is stronger than a matching table; finite replay adds no originality.",
+        "searches": [
+          "Resultary exact dyadic string-attractor and all-prefix profile results 19c751e8e9ff and 5ffa12b82ec7"
+        ]
+      },
+      "rationale": "The central exact minimum for the same word and all the same dyadic lengths was already expressly reported in the October 25 Resultary record, along with explicit optimal positions and disjoint unique-factor lower witnesses. A second, November 2 record reports a strictly broader all-length formula that entails the same equality. This is positive prior-coverage evidence, not a negative literature-search conclusion. The index establishes the overlap at the level of the mathematical results it reports; I do not assert identity of the uninspected witness sets or proof text.",
+      "residual_risks": [
+        "Earlier Resultary full texts could not be retrieved; exact equality of explicit witnesses and textual proof priority were not adjudicated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact core claim covered; literal witness equality not determined",
+          "evidence": "Index explicitly states ceil(k/2)+1 for every k>=2 and explicit optimal positions with disjoint unique-factor witnesses.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-dyadic-string-attractor-size-of-the-powers-of-two-indicato--19c751e8e9ff",
+          "material_read": "Published title and mathematical index statement; full text not accessible on attempted repository and raw-file routes",
+          "method": "Direct statement/quantifier comparison and parity identity",
+          "title": "Exact dyadic string-attractor size of the powers-of-two indicator word",
+          "trigger": "Same word, exact value and witness method"
+        },
+        {
+          "assessment": "Strictly stronger in prefix length; implies the entire cardinality claim",
+          "evidence": "3+j for 6*4^j<=n<24*4^j, initial values include 2 at n=4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-minimum-string-attractor-profile-of-the-powers-of-two-char--5ffa12b82ec7",
+          "material_read": "Published title and mathematical index statement; full text inaccessible on attempted routes",
+          "method": "Substitute dyadic lengths into the reported all-prefix intervals",
+          "title": "Exact minimum string-attractor profile of the powers-of-two characteristic word",
+          "trigger": "Plausibly dominating all-prefix theorem"
+        },
+        {
+          "assessment": "Same word and offline objective; Theorem 8 supplies upper bounds only. Decisive exact prior coverage is the two later Resultary records.",
+          "evidence": "Part (a) gives i+2 on 3*4^i<=n<6*4^i; part (b) gives i+3 on 6*4^i<=n<12*4^i. The authors explicitly say matching lower bounds need other techniques.",
+          "identifier_or_url": "https://arxiv.org/pdf/2012.06840v6",
+          "material_read": "arXiv v6 PDF, Introduction and §6 pp. 9–10 including Theorem 8 and proof",
+          "method": "Read primary definitions, both attractor construction ranges, and statement at end of proof",
+          "title": "String Attractors for Automatic Sequences",
+          "trigger": "Historical source for the same word and attractor objective"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The offline prefix invariant is worthwhile, but recovering the already published dyadic exact result within an already solved all-prefix profile does not fill the claimed gap. No genuinely new classification of optimal placements or new obstruction theorem is established; no valuable repair is justified by the frozen evidence.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:49:46.235365Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Finding, Proof and Assumptions; VERIFICATION.md; verify.py (read, not executed)",
+        "Independent monomial-based replay: python3 /workspace/checks/check_exact.py 1 (both witnesses and all 32 F₂ parameter tuples with λ=1)",
+        "Dolgachev–Martin published Theorem 3.4 and Proposition 3.2"
+      ],
+      "rationale": "The vertex [0:0:0:1] of the weighted ambient space is off F=0. On each weight-one affine chart, the usual hypersurface Jacobian test is equivalent to vanishing of all four homogeneous partials: the partial for the fixed coordinate follows from weighted Euler, xF_x+yF_y+zF_z=0 in characteristic 2. F_w=x²+yz; F_x=λyz(y+z). With λ nonzero, their common base-point locus is precisely [0:1:0], [0:0:1], [1:1:1]. Substituting in the two remaining partials forces w=b, d, λ+b+d respectively. Substitution into F gives b²+a, d²+e, λ²+b²+d²+a+b+c+d+e. This both exhausts the geometric singularity candidates and gives their exact existence conditions. The two characteristic-two examples meet the displayed polynomial family's λ/root restrictions and have printed inequality values (1,1,1) and (0,1,1) respectively when the disputed condition is listed first; the first is singular at the stated point, the second smooth by exhaustion.",
+      "residual_risks": [
+        "The finite replay is only corroboration; the affine-chart and three-point exhaustion prove the claim over algebraically closed characteristic-two fields. Other normal forms and later tables are not audited here."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 3.2 gives the general equations A=0 and wA_i+B_i=0; the Theorem 3.4 proof leaves evaluating them to the reader. Related Resultary record 5b9d85e49b06 treats a restricted cyclically invariant F₂ family, with e=a and (b+a,c+a)≠(0,0)."
+        ],
+        "reasoning": "The broad criterion supplies the method, not the specific replacement for the wrong published coefficient locus. A restricted cyclic F₂ classification, even if it overlaps for some parameters, is not the general implication for all parameters of (1)(a).",
+        "searches": [
+          "Dolgachev–Martin published Proposition 3.2 and proof of Theorem 3.4",
+          "Local Resultary near matches on degree-two double-plane smoothness"
+        ]
+      },
+      "checked_sources": [
+        "Dolgachev–Martin arXiv v2 and published PDF, cited sections",
+        "Local Resultary correction and related-family searches",
+        "Targeted Theorem 3.4 erratum search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.4 specifies three possible ramification curve singular base points, not the corrected conditions for their lifts. The other near hit treats plane sextics in characteristic zero or >21."
+        ],
+        "reasoning": "The known framework implies how to compute the lift conditions, but the printed claimed answer is false and the inspected alternatives do not settle the raw family under λ≠0. The witness failing the third printed inequality is in the raw family, not in the theorem's printed restricted list.",
+        "searches": [
+          "Published Theorem 3.4, its proof and Proposition 3.2; local Resultary 5b9d85e49b06 and 9f1530723e22 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source uses exactly A=x²+yz, B=xλyz(y+z)+B₀ and the same coefficient labels and base points. Its disputed inequality omits b²+d²."
+        ],
+        "reasoning": "In the actual printed coordinates the conditions are inequivalent: with unchanged λ and unchanged first two obstructions, changing c separates the two predicates in opposite directions. This is not a coordinate or convention change.",
+        "searches": [
+          "Dolgachev–Martin arXiv:2209.09082v2 and published 2025 §3.2, family (1)(a)",
+          "Local Resultary searches for characteristic-two degree-two del Pezzo smoothness and the disputed obstruction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both primary versions still list the disputed condition with λ² but no b²+d²; the targeted erratum search returned the original paper, not a correction."
+        ],
+        "reasoning": "The exact table-like source is the theorem's family list. Comparing its actual entry establishes a mismatch; the search does not prove that no separate correction exists.",
+        "searches": [
+          "Published and arXiv normal-form enumerations; targeted search for a Theorem 3.4 erratum; local Resultary correction queries"
+        ]
+      },
+      "rationale": "The existing general Jacobian criterion and normal-form geometry are credited. The supported distinct finding is a concrete correction of one published classification inequality, with witnesses that separate the two predicates in both directions. No inspected source gives that correction as a previously stated result.",
+      "residual_risks": [
+        "An unindexed or informal correction may exist. The precise intersection with the restricted cyclic F₂ family was not classified; overlap only on that slice cannot establish the all-parameter claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly verifies the error in the journal statement and the older general criterion",
+          "evidence": "Family (1)(a) prints λ²+a+b+c+d+e≠0, alongside b²+a≠0 and d²+e≠0. The proof leaves the partial-derivative computation to the reader.",
+          "identifier_or_url": "https://msp.org/ant/2025/19-4/ant-v19-n4-p03-s.pdf",
+          "material_read": "§3.1 Proposition 3.2, PDF offset 16400; §3.2 Theorem 3.4, journal pp. 720–721, offset 18270, and proof",
+          "method": "OA PDF, bounded passages",
+          "title": "Automorphisms of del Pezzo surfaces in characteristic 2 (journal version)",
+          "trigger": "Primary source alleged to print the wrong smoothness restriction"
+        },
+        {
+          "assessment": "Same displayed uncorrected condition",
+          "evidence": "Same polynomial B_1 and same three base points in this version; no b²+d² in the disputed inequality.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.09082v2",
+          "material_read": "§3.2 Theorem 3.4, PDF offset 17567",
+          "method": "OA PDF, bounded passage",
+          "title": "Automorphisms of del Pezzo surfaces in characteristic 2 (preprint)",
+          "trigger": "Possible discrepancy between preprint and published family"
+        },
+        {
+          "assessment": "Restricted cyclic F₂ family, not exact coverage",
+          "evidence": "Uses e=a and (b+a,c+a)≠(0,0) in a fixed-branch cyclic family, not the full λ≠0 parametric obstruction.",
+          "identifier_or_url": "2026/10/26/SCOPE-four-frobenius-types-among-cyclic-degree-two-del-pezzo-double-pl--5b9d85e49b06",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror bounded passage",
+          "title": "Four Frobenius types among cyclic degree-two del Pezzo double planes",
+          "trigger": "Closest local smoothness classification overlap"
+        },
+        {
+          "assessment": "Different geometry and characteristic",
+          "evidence": "Concerns plane sextics in characteristic zero or >21, rather than weighted quartic double planes in characteristic two.",
+          "identifier_or_url": "2026/10/13/SCOPE-conic-discriminant-and-codimension-one-boundary-of-the-c-3-2-pla--9f1530723e22",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror bounded passage",
+          "title": "Conic discriminant and codimension-one boundary of the C3^2 plane sextic family",
+          "trigger": "Nearby conic-discriminant classification hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Dolgachev–Martin published Theorem 3.4",
+        "RESULT.md Finding and separating examples"
+      ],
+      "rationale": "Although obtained by elementary differentiation, this is an actionable correction to a published classification: the printed locus includes a singular equation and excludes a smooth one in the displayed parameter coordinates. Anyone selecting or enumerating smooth members of that family needs the exact locus. The contribution is the corrected locus and separators, not a new smoothness method or an audit of downstream automorphism cases.",
+      "residual_risks": [
+        "No downstream table is claimed to be wrong; the practical distinction disappears on the slice b=d, but not generally."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

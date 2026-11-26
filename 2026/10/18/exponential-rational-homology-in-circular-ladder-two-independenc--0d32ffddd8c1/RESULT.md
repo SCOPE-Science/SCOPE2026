@@ -1,109 +1,56 @@
-# Exponential rational homology in circular-ladder two-independence complexes
+# Nonvanishing and exponential rational homology in circular-ladder two-independence complexes
 
 ## Finding
-For every integer \(n\ge3\), consider the circular ladder \(L_n=C_n\square K_2\) and its two-independence complex \(X_n=\operatorname{Ind}_2(L_n)\). Let
+Let \(X_n=\operatorname{Ind}_2(C_n\square K_2)\) for every integer \(n\ge3\). Write \(E_n=\sum_{S\in X_n}(-1)^{|S|}=-\widetilde\chi(X_n)\). Then \(E_4=-3\), and \(E_n>0\) for every other \(n\ge3\). In particular every \(X_n\) is noncontractible and has nonzero reduced rational homology. More quantitatively,
 \[
-P_n(z)=\sum_{\sigma\in X_n}z^{|\sigma|},\qquad E_n=P_n(-1)=-\widetilde\chi(X_n).
-\]
-There is an explicit sixteen-state transfer matrix determining the **entire face polynomial** \(P_n(z)\) for every \(n\ge3\), and its characteristic polynomial is
-\[
-\det(tI-T(z))=t^{10}(t^2+zt+z^2)
-\bigl[t^4-(z+1)t^3-(2z^2+z)t^2+(z^3-z^2)t+z^4\bigr].
-\]
-In particular the signed face sums satisfy, for every \(n\ge3\),
-\[
-E_{n+6}=E_{n+5}+E_{n+3}-2E_{n+2}+3E_{n+1}-E_n,
-\]
-with \((E_3,E_4,E_5,E_6,E_7,E_8)=(4,-3,11,10,1,29)\). The values are **never zero**: \(E_4=-3\), and \(E_n>0\) whenever \(n\ge3\) and \(n\ne4\).
-
-Let \(\alpha\in(1.386,1.387)\) be the larger positive root of \(q(t)=t^4-t^2-2t+1\). Then
-\[
-E_n=\alpha^n+O(1.31^n),\qquad
 \sum_{j\ge0}\dim_{\mathbb Q}\widetilde H_j(X_n;\mathbb Q)
-\ge |E_n|>\frac{(1.386)^n}{3}\quad(n\ge20).
+\ge |E_n|>\frac{(1.386)^n}{3}\qquad(n\ge20).
 \]
-Thus **every** such higher-independence complex is noncontractible and carries exponentially growing total rational homology. The full homotopy type is not determined.
+The sign conclusion and cutoff come from the signed specialization of the previously computed dissociation polynomial. The signed sums satisfy \(E_n=\alpha^n+O(1.31^n)\), where \(\alpha\in(1.386,1.387)\) is the larger real root of \(t^4-t^2-2t+1\).
 
 ## Assumptions and scope
-The graph \(C_n\), for \(n\ge3\), is the simple cycle on the cyclic index set \(\mathbb Z/n\mathbb Z\). Vertices of \(L_n\) are \((i,r)\), for \(i\in\mathbb Z/n\mathbb Z\) and \(r\in\{0,1\}\); edges join consecutive indices in the same layer and the two layers at the same index. The complex \(X_n\) consists precisely of subsets whose induced subgraphs have maximum degree at most one: every connected component of a simple graph has at most two vertices if and only if every vertex has induced degree at most one. The empty subset is included. Ordinary geometric realization and reduced rational simplicial homology are used.
+The graphs are simple and undirected. The circular ladder has consecutive cyclic edges in each layer and one rung at each index of \(\mathbb Z/n\mathbb Z\). A face is a vertex subset whose induced components have size at most two, equivalently whose induced graph has maximum degree at most one. These are exactly the dissociation sets, including the empty set. Homology is reduced simplicial homology over \(\mathbb Q\).
 
 ## Proof
-**1. Local constraint and exact transfer.** Encode column \(i\) by \(b_i\in\{0,1,2,3\}\), whose binary digits record chosen vertices in the two layers. For digits \(a,b,c\in\{0,1,2,3\}\), define the predicate \(J(a,b,c)\) by requiring, for both \(r\in\{0,1\}\) with the \(r\)-th bit of \(b\) equal to one,
+Let \(P_n(z)=\sum_{S\in X_n} z^{|S|}\). The earlier complete dissociation-polynomial formula [1, Finding and Proof §1] gives
 \[
-[a_r=1]+[c_r=1]+[b_{1-r}=1]\le1.
+\sum_{n\ge3}P_n(z)u^n=-u\partial_u\log Q(u,z)-u-(1+2z)^2u^2,
 \]
-Here brackets are zero-one truth values. It is exactly the induced degree constraint at each selected vertex of the middle column. Index rows and columns of \(T(z)\) by ordered pairs \((a,b)\), and set
+where
 \[
-T(z)_{(a,b),(b',c)}=
-\begin{cases}
- z^{\operatorname{popcount}(c)},&b=b'\text{ and }J(a,b,c),\\
- 0,&\text{otherwise.}
-\end{cases}
+Q(u,z)=(1+zu+z^2u^2)(1-(z+1)u-(2z^2+z)u^2+(z^3-z^2)u^3+z^4u^4).
 \]
-For \(n\ge3\), a cyclic sequence \((b_0,\ldots,b_{n-1})\) is a face if and only if its every consecutive triple satisfies \(J\). It determines exactly one based length-\(n\) closed walk through states \((b_{i-1},b_i)\). Along that walk, every selected vertex contributes its fugacity exactly once. Therefore
+At \(z=-1\), write \(Q(u,-1)=\prod_{k=1}^6(1-\lambda_k u)\). The logarithmic derivative gives \(E_n=\sum_k\lambda_k^n\) for \(n\ge3\), where the \(\lambda_k\) are the roots of
 \[
-P_n(z)=\operatorname{tr}(T(z)^n)\qquad(n\ge3).
+(t^2-t+1)(t^4-t^2-2t+1)=t^6-t^5-t^3+2t^2-3t+1.
 \]
-There is no division by the cyclic order: indices of the ladder are fixed and each based walk records its indexed column sequence.
-
-**2. Exact characteristic polynomial.** Expanding the explicitly defined sixteen-by-sixteen determinant over \(\mathbb Z[z,t]\) gives
+In particular, as a consequence of the prior formula,
 \[
-\det(tI-T(z))=
- t^{10}(t^2+zt+z^2)
- (t^4-(z+1)t^3-(2z^2+z)t^2+(z^3-z^2)t+z^4).
+ E_{n+6}=E_{n+5}+E_{n+3}-2E_{n+2}+3E_{n+1}-E_n\qquad(n\ge3).
 \]
-Equivalently, the nonnilpotent factor of \(\det(I-uT(z))\) is
-\[
-(1+zu+z^2u^2)
-(1-(z+1)u-(2z^2+z)u^2+(z^3-z^2)u^3+z^4u^4).
-\]
-The attached exact symbolic program independently expands this determinant and compares its coefficients over the integers; the transfer construction makes this a proof for all \(n\), not an extrapolation from small cases.
-
-**3. Signed recurrence.** At \(z=-1\), the nonzero eigenvalues, counted with algebraic multiplicity, are the roots of
-\[
-(t^2-t+1)\,(t^4-t^2-2t+1)
-=t^6-t^5-t^3+2t^2-3t+1.
-\]
-Because traces of positive powers equal power sums of eigenvalues even for nontrivial Jordan blocks, the displayed order-six recurrence follows for every \(n\ge3\). Direct expansion gives the six initial values in the finding.
-
-**4. Every signed sum is nonzero.** Write \(q(t)=t^4-t^2-2t+1\). Its derivative satisfies
-\[
-q'(t)=2(t-1)(2t^2+2t+1).
-\]
-The quadratic factor is strictly positive on the real line, so \(q\) decreases until one and increases afterward. Exact rational evaluations show that its two real roots satisfy \(0.425<\delta<0.430\) and \(1.386<\alpha<1.387\). Both are positive; its other roots are a conjugate pair of modulus \(\rho=(\delta\alpha)^{-1/2}<1.31\). The two roots of \(t^2-t+1\) have unit modulus. Therefore
-\[
-E_n\ge\alpha^n-\delta^n-2\rho^n-2
->\alpha^n\bigl[1-(0.430/1.386)^n-2(1.31/1.386)^n-2/(1.386)^n\bigr].
-\]
-Exact rational arithmetic establishes
-\[
-(0.430/1.386)^{20}+2(1.31/1.386)^{20}+2/(1.386)^{20}<\tfrac23.
-\]
-Every ratio in this expression is strictly smaller than one, so for all \(n\ge20\) one has \(E_n>\alpha^n/3>(1.386)^n/3>0\). The remaining values for \(3\le n\le19\), computed by the exact recurrence, are
+The first six terms from the logarithmic derivative are \((4,-3,11,10,1,29)\). Iterating this integer recurrence gives the full list for \(3\le n\le19\):
 \[
 4,-3,11,10,1,29,4,21,67,6,105,113,44,317,171,298,761.
 \]
-All but the second are positive. The spectral expression also yields \(E_n=\alpha^n+O(1.31^n)\).
 
-**5. Topological consequence.** For any nonempty finite simplicial complex with the empty face counted in its face polynomial, \(P(-1)=-\widetilde\chi\). Euler–Poincaré over \(\mathbb Q\) gives
+For a uniform sign certificate beyond this finite list, put \(q(t)=t^4-t^2-2t+1\). Its derivative is \(2(t-1)(2t^2+2t+1)\), with a positive quadratic factor on the real line. Exact signs at \(0.425,0.430,1.386,1.387\) are respectively \(+,-,-,+\). Hence the only real roots are \(\beta\in(0.425,0.430)\) and \(\alpha\in(1.386,1.387)\). Its conjugate pair has modulus \(\rho=(\alpha\beta)^{-1/2}<1.31\), by the constant term and \(1/(1.386\cdot0.425)<1.31^2\). The two roots of \(t^2-t+1\) have unit modulus. The power-sum formula gives the stated growth law for \(E_n\) and also the lower bound
 \[
-\left|\widetilde\chi(X_n)\right|\le
-\sum_{j\ge0}\dim_{\mathbb Q}\widetilde H_j(X_n;\mathbb Q).
+ E_n>\alpha^n\left[1-(0.430/1.386)^n-2(1.31/1.386)^n-2/(1.386)^n\right].
 \]
-Since \(E_n=-\widetilde\chi(X_n)\ne0\), each complex has nonzero reduced rational homology and cannot be contractible. The exponential lower bound follows from step 4.
+At \(n=20\), the sum of the three subtracted terms is less than \(\tfrac23\) by the exact rational comparison
+\[
+ 3\big(430^{20}+2\,1310^{20}+2\,1000^{20}\big)<2\,1386^{20}.
+\]
+Each subtracted term decreases as \(n\) increases. It follows that \(E_n>\alpha^n/3>(1.386)^n/3\) for every \(n\ge20\). Together with the finite list this proves the sign assertion at every length. Finally Euler–Poincaré identifies \(-E_n\) with the alternating sum of reduced rational Betti numbers; taking absolute values gives the claimed lower bound. A nonzero reduced Euler characteristic precludes contractibility.
 
-## Verification
-Run `python verify_prism.py` with the version of SymPy specified in `requirements.txt`. The exact symbolic check reconstructs the transfer matrix and verifies the full characteristic polynomial. A separate exhaustive bitmask program, using actual graph adjacencies rather than triple-state constraints, matches **every coefficient** of \(P_n(z)\) for \(3\le n\le8\). Exact integer traces reproduce signed terms through index nineteen; rational root evaluations and the spectral error bound are checked without floating-point assumptions. The symbolic determinant and all-parameter transfer bijection, not the finite enumeration, establish the theorem for unbounded \(n\).
+## Verification and limitations
+The proof uses a supplied polynomial identity from prior work; the finite list alone does not certify the infinite sign claim. The root brackets and the inequality at exponent twenty are rational checks. The companion verifier `verify_prism.py` (Python and SymPy; see `requirements.txt`) computes the signed list and verifies these exact comparisons. Its checks of the full face polynomial and transfer determinant verify the input identity, not a novelty claim for that identity. The Betti lower bound does not determine the separate Betti numbers, integral torsion or homotopy type.
 
 ## Relationship to prior work
-Deshpande and Singh introduced a systematic topological treatment of higher independence complexes and computed homotopy types for complete multipartite graphs, fully whiskered graphs, paths, cycles, and perfect rooted trees [1]. These do not include cubic circular ladders. Abdelmalek and collaborators study higher-independence shellability for chordal families [2]; \(C_n\square K_2\) contains an induced four-cycle and is not chordal. Tu, Xiao, and Lang analyze the dissociation polynomial of cubic graphs but their main inequality assumes **positive** fugacity [3], which does not determine its signed value at \(-1\) or the topological consequences here. Ordinary independence, matching, total-cut, Čech, and Rips complexes of the same ladder graph are distinct constructions. No inspected statement supplies this exact order-six signed recurrence or proves noncontractibility and exponential rational homology for every circular ladder.
-
-## Limitations
-This theorem specifies the signed face polynomial, full face-enumerator transfer, and **a lower bound on total rational Betti number**. It does not compute the separate Betti numbers, integral torsion, attaching maps, or full homotopy type. The originality comparison is limited to inspected primary literature, accessible indexed mathematical results, and named search variants; undiscovered equivalent work remains possible. No independent mathematical audit has been carried out.
+The complete dissociation polynomial and its transfer determinant for the same family are already in [1]. The signed recurrence and growth rate follow from specializing that identity. The contribution here is the all-length sign classification and resulting uniform rational-homology nonvanishing and explicit lower bound, not a new full face enumerator. Higher-independence results for cycles [2] and chordal graphs [3] do not cover these nonchordal prisms. The later catalogue entry [4] has substantially overlapping signed and homological results; no claim of independent provenance or absolute priority is made.
 
 ## References
-[1] P. Deshpande and A. Singh, *Higher Independence Complexes of graphs and their homotopy types*, arXiv:2001.05448, first publicly posted 2020-01-15. https://arxiv.org/abs/2001.05448
-
-[2] F. M. Abdelmalek, P. Deshpande, S. Goyal, A. Roy, and A. Singh, *Chordal graphs, higher independence and vertex decomposable complexes*, arXiv:2106.10863, first publicly posted 2021-06-21. https://arxiv.org/abs/2106.10863
-
-[3] J. Tu, J. Xiao, and R. Lang, *Counting the number of dissociation sets in cubic graphs*, AIMS Mathematics 8 (2023), 10021–10032, first publicly posted 2023-02-23, DOI:10.3934/math.2023507. https://doi.org/10.3934/math.2023507
+1. [*Complete dissociation polynomial and Lucas maximum-set law for cycle prisms*](https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-complete-dissociation-polynomial-and-lucas-maximum-set-law-for-c--862aa31d85c9/RESULT.md), Resultary record 862aa31d85c9, 13 October 2026.
+2. P. Deshpande and A. Singh, *Higher Independence Complexes of Graphs and Their Homotopy Types*, arXiv:2001.05448.
+3. F. M. Abdelmalek et al., *Chordal graphs, higher independence and vertex decomposable complexes*, arXiv:2106.10863.
+4. [*Exponential homology growth in circular-ladder two-independence complexes*](https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-exponential-homology-growth-in-circular-ladder-two-independence--fb91d040f763/RESULT.md), Resultary record fb91d040f763, 1 November 2026.

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:42:04.435709Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Condition on X, so P(X/Y>z|X)=min(1,(X/z)^q), and put a=theta/z^2, s=q/2. Since theta/X^2 is unit exponential, the exact tail is 1−exp(−a)+a^s Gamma(1−s,a), with Gamma(1−s,a)=∫_a^∞ exp(−t)t^(−s)dt. Differentiating this exact expression, not an asymptotic equivalent, gives f(z)=q a^s Gamma(1−s,a)/z; the moving-limit terms cancel. The integral tends to Gamma(1−s) for s<1, grows as log(1/a) for s=1, and is equivalent to a^(1−s)/(s−1) for s>1. In the last case the 1−exp(−a) term also contributes at order a, giving s/(s−1), not 1/(s−1), for the survival constant. Division of the exact leading terms gives z h(z)→min(q,2). For every real r>0, Tonelli and independence factor E[Z^r] as theta^(r/2) times ∫_0^∞ t^(−r/2)e^(−t)dt times ∫_0^1 q y^(q−r−1)dy. The two integrals have strict cutoffs r<2 and r<q, respectively, and their finite values are Gamma(1−r/2) and q/(q−r), as claimed. There is no finite variance; when q≤1 the mean itself is not finite. The mathematical conclusions hold; the wording at RESULT.md line 236 about differentiating regular variation is not valid in general, but the cited exact density justifies this step here. The uploaded numerical checker was inspected, not executed and is not used as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Breiman's theorem yields both off-critical survival constants: for q<2 multiply the Pareto tail by E[X^q], and for q>2 multiply the inverse-Rayleigh tail by E[Y^(−2)]. At equality the needed extra moment fails. Rivera et al. treat a Rayleigh-parent slash law with all parent positive moments, so their cutoff r<q does not itself cover the inverse-Rayleigh cutoff."
+        ],
+        "reasoning": "Breiman alone does not prove the critical logarithm. The exact same-model formulas and the existing E_s expansions, not an extension of Breiman under failed hypotheses, settle that case.",
+        "searches": [
+          "Resultary: ratio product regularly varying competing tail indices equal index logarithmic critical tail constants",
+          "Denisov–Zwart DOI:10.1239/jap/1197908822, pp. 1–2",
+          "Rivera et al. DOI:10.3390/math8101842, Proposition 4"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/math.2026938",
+        "NIST DLMF §8.19(iv)",
+        "DOI:10.1239/jap/1197908822",
+        "DOI:10.3390/math8101842",
+        "Resultary SCOPE-critical-window-extreme-value-crossover-for-the-slashed-inverse--7d13318f4405"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For s=1, exact S=1−e^(−a)+a E_1(a) gives S~a ln(1/a), and exact f=(q/z)a E_1(a) gives the matching density constant. For s>1, S~a[1+1/(s−1)]; for s<1 the E_s term dominates 1−e^(−a). Divide to obtain the stated hazard. Proposition 8 states regular variation, not an incorrect explicit value of the index; the checked proof passage leaves calculation of the final ratio implicit. Proposition 6 gives the mean, and the all-real moments follow directly from (2.1) by the exponential and beta power integrals."
+        ],
+        "reasoning": "The source plus the classical expansions implies all the principal constants, powers and the logarithm by direct evaluation, without a new limiting theorem. The all-real moment formula adds explicit wording to an elementary consequence of the factor laws, not a distinct structural result.",
+        "searches": [
+          "AIMS DOI:10.3934/math.2026938, Eqs. (2.1), (2.2), (2.5), Propositions 6 and 8",
+          "https://dlmf.nist.gov/8.19#iv"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The AIMS source states f(z)=theta q z^(−3) E_s(a), S(z)=1−exp(−a)+a E_s(a), and gives the exact hazard. The frozen integral, after one integration by parts, is the same expression, since a E_s(a)=a^s Gamma(1−s,a)."
+        ],
+        "reasoning": "Slash ratio, independent product with a Pareto factor, and generalized exponential-integral forms give the same law. Changing to the integral with 1−exp(−t) does not add a new formula or an extra hypothesis.",
+        "searches": [
+          "Resultary: slashed inverse Rayleigh tail regular variation q Proposition 8",
+          "Resultary: critical logarithmic q=2 tail hazard ratio product inverse Rayleigh",
+          "AIMS DOI:10.3934/math.2026938, Propositions 1 and 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "DLMF §8.19(iv), Eq. 8.19.8 at n=1 gives E_1(a)=−ln(a)+O(1); at integer n>1 it gives the constant 1/(n−1). Eq. 8.19.10 gives the leading Gamma(1−s)a^(s−1) for noninteger s<1 and the constant 1/(s−1) for noninteger s>1. The closest indexed record concerns a moving-q window and explicitly treats the fixed-q three-regime classification as a consequence of the source formulas, not as its new claim."
+        ],
+        "reasoning": "The exact special-function table entries, substituted into the same-model survival and density, cover every q>0, including q=2. The moving-q record is material context but does not itself give all the fixed-q density/hazard and moment statements, and its catalog date is not priority evidence.",
+        "searches": [
+          "NIST DLMF §8.19, literal query Series Expansions; exact text offset 7690",
+          "Resultary SCOPE-critical-window-extreme-value-crossover-for-the-slashed-inverse--7d13318f4405, RESULT.md offsets 0 and 5836"
+        ]
+      },
+      "rationale": "The leading asymptotics, including the log and its coefficient at q=2, are direct substitutions in the published exact SIR formulas using preexisting tabulated expansions of the very same special function. The fractional moment formula is a direct product of standard factor moments. This is stronger-result coverage of the core finding, not a claim that Gómez et al. printed the three-regime theorem or all real-order moments verbatim.",
+      "residual_risks": [
+        "No claim of an earlier verbatim statement or relative priority between the same-date records. A broader equal-index product theorem was not needed to decide coverage because the exact same-model formula and standard expansion settle the critical case directly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "More informative exact formulas; mean and regular-variation statement given, but not verbatim three-regime or all-real moment theorem",
+          "evidence": [
+            "Exact survival, density and hazard in terms of E_(q/2)(theta/z²)."
+          ],
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2026/7/PDF/math-11-07-938.pdf",
+          "material_read": "Eqs. (2.1), (2.2) and (2.5), exact survival and hazard (offsets 12900 and 17900); Proposition 6 (22900); Definition 1 and Proposition 8 (25400–29846)",
+          "method": "Bounded lawful OA primary PDF reading",
+          "title": "EM algorithm in the slashed inverse Rayleigh regression model with an application",
+          "trigger": "Exact same distribution and primary formulas"
+        },
+        {
+          "assessment": "Decisive broader exact expansions for all orders used here",
+          "evidence": [
+            "Integer formula exposes the critical log; noninteger formula exposes the gamma/power and constant terms."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/8.19#iv",
+          "material_read": "§8.19(iv), Eqs. 8.19.8–8.19.11, offset 7690 onwards",
+          "method": "Literal OA HTML location followed by bounded text inspection",
+          "title": "NIST Digital Library of Mathematical Functions: Generalized Exponential Integral",
+          "trigger": "Exact standard expansion of the published SIR special function"
+        },
+        {
+          "assessment": "Off-critical asymptotics covered; not decisive for critical coefficient",
+          "evidence": [
+            "The extra moment hypothesis holds for the lighter-tailed factor only off criticality."
+          ],
+          "identifier_or_url": "DOI:10.1239/jap/1197908822",
+          "material_read": "pp. 1–2, offsets 1280 and 6600",
+          "method": "Bounded OA PDF reading",
+          "title": "On a theorem of Breiman and a class of random difference equations",
+          "trigger": "Product of independent heavy-tailed factors"
+        },
+        {
+          "assessment": "Different parent and different moment cutoff",
+          "evidence": [
+            "Finite iff r<q in the Rayleigh-parent case."
+          ],
+          "identifier_or_url": "DOI:10.3390/math8101842",
+          "material_read": "Proposition 4, p. 5, offset 19050",
+          "method": "Bounded publisher OA PDF reading",
+          "title": "Scale Mixture of Rayleigh Distribution",
+          "trigger": "Analogous slash model and real-order moments"
+        },
+        {
+          "assessment": "Moving-q result with fixed-q classification identified as a consequence of the primary formula",
+          "evidence": [
+            "Does not claim the fixed-q classification as new; the moving-q result is not part of the frozen finding."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-critical-window-extreme-value-crossover-for-the-slashed-inverse--7d13318f4405/RESULT.md",
+          "material_read": "Finding and relationship section, offsets 0 and 5836",
+          "method": "Configured local mirror",
+          "title": "Critical-window extreme-value crossover for the slashed inverse Rayleigh model",
+          "trigger": "Closest indexed overlap at q=2"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The tail index and the distinction between an exact power and a logarithmically modified power matter for extreme-value work. As a standalone finding, however, this fixed-q list is obtained by reading the leading term from a standard table for the exact function already in the model, and the moment and hazard assertions require only factorization and division. The source already correctly states regular variation; there is no contradicted index theorem being corrected. The record neither addresses the moving-parameter crossover nor derives another nonroutine consequence.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

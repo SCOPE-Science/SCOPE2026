@@ -2,7 +2,7 @@
 
 ## Finding
 
-Let \(Q_4\) be the binary four-cube, with vertex set \(\mathbb F_2^4\). A **one-failure power-dominating set** is a subset \(S\) of *distinct* sensor locations such that \(S\setminus\{v\}\) power dominates \(Q_4\) for every \(v\in S\), without deleting the vertex or its incident graph edges. Then:
+Let \(Q_4\) be the binary four-cube, with vertex set \(\mathbb F_2^4\). A **one-failure power-dominating set** is a nonempty subset \(S\) of *distinct* sensor locations such that \(S\setminus\{v\}\) power dominates \(Q_4\) for every \(v\in S\), without deleting the vertex or its incident graph edges. Then:
 
 1. The minimum size of such an \(S\) is exactly \(4\), and there are exactly \(376\) minimum sets.
 2. Put an auxiliary edge between two cube words exactly when their Hamming distance is \(3\). A four-set \(S\) is one-failure power dominating **if and only if** its auxiliary induced subgraph is \(2K_2\), \(P_4\), or \(C_4\). The respective counts are \(160\), \(192\), and \(24\). These split into five orbits under the ordinary cube automorphism group: three \(2K_2\) types of sizes \(48,96,16\), one \(P_4\) type of size \(192\), and one \(C_4\) type of size \(24\).
@@ -10,7 +10,7 @@ Let \(Q_4\) be the binary four-cube, with vertex set \(\mathbb F_2^4\). A **one-
 
 ## Assumptions and scope
 
-The underlying graph is the fixed simple labelled graph \(Q_4\) with vertices the sixteen four-bit words; the coordinate indexing in the verification scripts is \(0,\ldots,15\), with an edge \(uv\) when \(\operatorname{popcount}(u\oplus v)=1\). There is at most one sensor at a vertex. Failure removes one sensor, **not** a graph vertex. Given a surviving set \(A\), power domination begins by observing the closed neighborhood \(N[A]\). Thereafter, whenever an observed vertex has exactly one unobserved neighbor, that neighbor is observed; repeat until no new vertices can be observed. A set succeeds precisely when all sixteen vertices are observed. At least one failure is considered even for a singleton set. The auxiliary graph defined by Hamming distance three is *not* the graph on which sensors propagate or slide.
+The underlying graph is the fixed simple labelled graph \(Q_4\) with vertices the sixteen four-bit words; the coordinate indexing in the verification scripts is \(0,\ldots,15\), with an edge \(uv\) when \(\operatorname{popcount}(u\oplus v)=1\). There is at most one sensor at a vertex. Failure removes one sensor, **not** a graph vertex. Given a surviving set \(A\), power domination begins by observing the closed neighborhood \(N[A]\). Thereafter, whenever an observed vertex has exactly one unobserved neighbor, that neighbor is observed; repeat until no new vertices can be observed. A set succeeds precisely when all sixteen vertices are observed. The initial deployment is nonempty so a failure can occur; for a singleton the surviving set is empty and fails. The auxiliary graph defined by Hamming distance three is *not* the graph on which sensors propagate or slide.
 
 ## Proof
 
@@ -29,7 +29,7 @@ For unordered triples, the sorted multiset of their three pairwise Hamming dista
 
 These counts sum to \(\binom{16}{3}=560\). In each successful type at least one pair has distance three; in each unsuccessful type none does. Hence **a three-vertex set power dominates exactly when it contains a distance-three pair**. The table can be regenerated without assuming this conclusion by the direct forcing checker, which processes every one of the \(560\) triples.
 
-**2. Geometry and sharp optimum.** Let \(H\) be the graph on the same sixteen words, joining pairs at distance three. Its edges always join opposite parity classes, so \(H\) has no triangle. Any putative one-failure three-set would have to leave a power-dominating pair after each of three deletions, forcing a triangle in \(H\), which is impossible. A one-failure four-set \(S\) requires every triple of \(S\) to contain an edge of \(H\); equivalently \(\alpha(H[S])\le2\). Since \(H\) is triangle-free, the only induced four-vertex graphs with independence number at most two are \(2K_2\), \(P_4\), and \(C_4\). The stated examples show this condition is attainable.
+**2. Geometry and sharp optimum.** A surviving singleton observes its own closed neighborhood of size five and cannot force: the central vertex has no unobserved neighbors and each of the four neighbors has three. Together with failure of the empty surviving set, this rules out deployments of size one or two. Let \(H\) be the graph on the same sixteen words, joining pairs at distance three. Its edges always join opposite parity classes, so \(H\) has no triangle. Any putative one-failure three-set would have to leave a power-dominating pair after each of three deletions, forcing a triangle in \(H\), which is impossible. A one-failure four-set \(S\) requires every triple of \(S\) to contain an edge of \(H\); equivalently \(\alpha(H[S])\le2\). Since \(H\) is triangle-free, the only induced four-vertex graphs with independence number at most two are \(2K_2\), \(P_4\), and \(C_4\). The stated examples show this condition is attainable.
 
 The four weight-three vectors \(1111\oplus e_i\), \(i=1,2,3,4\), form a basis of \(\mathbb F_2^4\): the linear map \(T(x)=x\oplus(\operatorname{parity}(x))1111\) satisfies \(T^2=\mathrm{id}\) and sends weight-one differences exactly to weight-three differences. Hence \(H\cong Q_4\). The ordinary cube has \(32\) edges and \(24\) four-cycles. A \(P_4\) is uniquely determined by a middle edge and an ordered choice of distinct additional directions at its endpoints, giving \(32\cdot3\cdot2=192\) induced \(P_4\)'s. The number of unordered disjoint edge pairs is \(\binom{32}{2}-16\binom{4}{2}=400\). Each \(P_4\) contributes one such pair and each \(C_4\) two, leaving \(400-192-2\cdot24=160\) induced \(2K_2\)'s. Thus \(160+192+24=376\).
 
@@ -51,7 +51,7 @@ Dean, Ilic, Ramirez, Shen and Tian (2011) proved the unprotected power dominatio
 
 ## Limitations
 
-The theorem is confined to the finite graph \(Q_4\), one failed sensor, and distinct sensor locations. It does **not** characterize higher-dimensional hypercubes, multiset sensor allocations, two or more failures, or relocations passing through larger nonoptimal intermediate sets. Reconfiguration paths under jumping preserve the four-sensor budget and robustness at each step. The proof uses small exhaustive computations for the triple-orbit closure table and exact relocation distances. Independently authored mathematical review and complete publication-priority clearance have not been performed.
+The theorem is confined to the finite graph \(Q_4\), one failed sensor, and distinct sensor locations. It does **not** characterize higher-dimensional hypercubes, multiset sensor allocations, two or more failures, or relocations passing through larger nonoptimal intermediate sets. Reconfiguration paths under jumping preserve the four-sensor budget and robustness at each step. The proof uses small exhaustive computations for the triple-orbit closure table and exact relocation distances. Publication priority is not certified.
 
 ## References
 

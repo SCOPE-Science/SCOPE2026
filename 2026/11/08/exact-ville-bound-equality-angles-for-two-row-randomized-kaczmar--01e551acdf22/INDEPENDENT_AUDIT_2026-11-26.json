@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:50:21.299573Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 7–60",
+        "VERIFICATION.md",
+        "verify_exact.py"
+      ],
+      "rationale": "With row 1 as the initial label, the null-line projection on a switch multiplies squared norm by q, and a repeat leaves it unchanged. The switch bits determine each row string uniquely by recursion, so are jointly iid fair and yield the binomial law and exact mean rⁿ. The mean-normalized process is a martingale; its logarithmic drift is log(√q/r)<0, so it tends to zero and any supremum at a threshold above one is attained on this probability-one event. For the first crossing, stopped values are bounded by λ/r, so bounded-time optional stopping and dominated convergence give E[Zτ;τ<∞]=1. Equality requires no overshoot. Write A=log(1/r)>0 and B=log(r/q)>0. The finite all-up prefix through its first crossing forces log λ=mA; the finite one-down-then-up prefix forces B/A integral. Both finite prefixes have positive probability (no infinite all-up event is used). Conversely integral B/A makes +A skip-free on the lattice, so no overshoot at any level mA. Since r>√q, B/A>1; B/A=d−1 is precisely q=r^d for d≥3. Strict convexity, f_d(1/2)>0, f_d(1)=0 and f′_d(1)>0 give one nonunit root in (1/2,1), hence admissible q. Lattice rounding gives the full ceiling formula; d=3 gives the stated golden-ratio value. This argument is infinite-horizon; the frozen verifier was inspected but not executed.",
+      "residual_risks": [
+        "Restricted to the fixed initialization, iid uniform sampling, and mean normalization r, not the generic operator-norm rate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Anderson et al. prove a general time-uniform concentration bound for linear recurrences applied to randomized Kaczmarz; the generic operator-norm factor here is (1+√q)/2 rather than r.",
+          "Koolen–Wijkstra, Pérez-Ortiz and Lardy exhibit a martingale attaining a general Ville-style bound.",
+          "Bai–Wu's abstract advertises closed-form mean-squared error for flat matrices, not the jointly binomial law or all-time equality in the accessible evidence."
+        ],
+        "reasoning": "A general upper bound or existence of a different sharp martingale does not classify equality in this full-rank model. An exact mean-error formula could cover the marginal expectation but does not encode first passage by itself.",
+        "searches": [
+          "arXiv:2511.20877v1 Theorem 1.3",
+          "arXiv:2502.16019v1 Theorem 2.1 and §2.1",
+          "Bai–Wu DOI 10.1016/j.laa.2018.05.009"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0702226v1",
+        "arXiv:2511.20877v1",
+        "arXiv:1808.03204v8",
+        "arXiv:2502.16019v1",
+        "DOI 10.1016/j.laa.2018.05.009 (abstract)",
+        "Resultary 01e551acdf22 and 7575b954bf9b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Howard et al.'s overshoot sandwich explains equality when landing is exact; the inspected theorem does not specify the two Kaczmarz jumps or classify exact landing in q.",
+          "Here finite positive-probability prefixes force integer B/A and a lattice threshold; strictness and the root family then follow."
+        ],
+        "reasoning": "General first-passage theory gives the mechanism and the tuned-boundary computation after reduction. The complete statement requires the model's path distribution and necessity, neither supplied by the general inequalities inspected.",
+        "searches": [
+          "arXiv:1808.03204v8 §5.1 Proposition 3",
+          "arXiv:2511.20877v1 Theorem 1.3",
+          "arXiv:2502.16019v1 §2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact error-path alias is a product with factors 1 or q; in logarithms of the mean-normalized error it is a fair two-jump walk.",
+          "Strohmer–Vershynin Theorem 2 gives norm-weighted expected-error contraction, not a path law.",
+          "Howard et al. Proposition 3 locates the known overshoot mechanism in time-uniform crossing inequalities."
+        ],
+        "reasoning": "Relabeling the problem as skip-free first passage does not make the probability identity new. The contribution is the Kaczmarz reduction and the angle/threshold criterion, including strictness off the lattice cases.",
+        "searches": [
+          "Resultary: two-row iid randomized Kaczmarz switching, exact crossing and equality angles",
+          "arXiv:math/0702226v1 §2",
+          "arXiv:1808.03204v8 §5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match 01e551acdf22 is the assigned record, not distinct prior evidence.",
+          "The strongest distinct catalogue hit 7575b954bf9b counts finite-horizon expectation under randomized complete two-row sweeps rather than independent single-row choices."
+        ],
+        "reasoning": "No distinct exact q,λ law was located among the inspected records. A sweep always includes both labels and is not equivalent to iid single-row steps; expectation data cannot fix all-time threshold crossings.",
+        "searches": [
+          "Resultary: exact two-projection Ville equality profile, switches and randomized two-row Kaczmarz",
+          "Known exact mean-error formulas for randomized Kaczmarz: Bai–Wu"
+        ]
+      },
+      "rationale": "Credit the jointly binomial switch law and complete row-correlation and threshold equality classification for this normalized Kaczmarz family. Standard Ville sharpness and zero overshoot are not new; the skip-free staircase is the expected consequence once the specific walk has been derived and its arithmetic necessity established.",
+      "residual_risks": [
+        "Bai–Wu full text was unavailable; older random projection or two-point first-passage work may contain a closer specialization. No priority is claimed for the expectation bound, the ordinary stopping principle, or skip-free passage in isolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Expected exponential error bound, not the exact joint law or equality cases.",
+          "evidence": "Row choice weighted by squared norm; theorem controls expected squared error.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0702226v1",
+          "material_read": "§2 Theorem 2, PDF p. 4",
+          "method": "Open-access primary paper",
+          "title": "A randomized Kaczmarz algorithm with exponential convergence",
+          "trigger": "General Kaczmarz convergence under normalized-row sampling"
+        },
+        {
+          "assessment": "General concentration, not exact first crossing in q,λ under r.",
+          "evidence": "All-trajectory high-probability bound for a general recurrence, with a randomized Kaczmarz application.",
+          "identifier_or_url": "https://arxiv.org/abs/2511.20877v1",
+          "material_read": "Theorem 1.3 and application statement, HTML offset 11320",
+          "method": "Open-access primary paper",
+          "title": "Beyond Expectation: Concentration Inequalities for Randomized Iterative Methods",
+          "trigger": "Time-uniform guarantee in the same algorithmic family"
+        },
+        {
+          "assessment": "Covers the overshoot principle, not the model-specific necessary arithmetic conditions.",
+          "evidence": "General crossing-probability sandwich controlling the gap by the overshoot.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.03204v8",
+          "material_read": "§5.1, Proposition 3, HTML offsets 134462–136364",
+          "method": "Open-access primary paper",
+          "title": "Time-uniform Chernoff bounds via nonnegative supermartingales",
+          "trigger": "Closest known stopping equality mechanism"
+        },
+        {
+          "assessment": "General sharpness, not the equality classification of this projection process.",
+          "evidence": "Attaining floor-hugging martingale construction.",
+          "identifier_or_url": "https://arxiv.org/abs/2502.16019v1",
+          "material_read": "Theorem 2.1 and §2.1, PDF pp. 4–5",
+          "method": "Open-access preprint of the same work",
+          "title": "A generalisation of Ville's inequality to monotonic lower bounds and thresholds",
+          "trigger": "General constructions attaining the Ville bound"
+        },
+        {
+          "assessment": "Possible overlap with mean or other aspects; no whole-paper conclusion.",
+          "evidence": "Abstract announces a closed-form mean-squared-error formula.",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2018.05.009",
+          "material_read": "Publisher abstract; no full text",
+          "method": "Lawful DOI, publisher and alternate institutional retrieval attempts; no accessible paper found",
+          "title": "On convergence rate of the randomized Kaczmarz method",
+          "trigger": "Exact mean-square formula for flat matrices"
+        },
+        {
+          "assessment": "Different sampling and target statistic.",
+          "evidence": "Randomizes order of complete two-projection sweeps, derives finite-horizon expected error, not iid row first passage.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-random-sweep-order-mixing-strictly-slows-two-row-kaczmarz-in-mea--7575b954bf9b/RESULT.md",
+          "material_read": "Finding and Limitations",
+          "method": "Local mirror",
+          "title": "Random sweep order mixing strictly slows two-row Kaczmarz in mean square",
+          "trigger": "Strongest distinct indexed two-row comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 7–31 and 48–60",
+        "arXiv:2511.20877v1 Theorem 1.3"
+      ],
+      "rationale": "This supplies a concrete nonsingular randomized solver that exactly attains a time-uniform error bound, with a complete exceptional set rather than just an example. It distinguishes lattice exactness from strictness at the natural mean rate and gives a useful benchmark for adaptive error certificates. It does not assert sharpness for the different generic operator-norm rate.",
+      "residual_risks": [
+        "No improvement for general matrices, noisy iterations, or other initializations is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

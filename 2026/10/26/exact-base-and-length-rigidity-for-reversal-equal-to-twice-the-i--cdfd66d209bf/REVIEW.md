@@ -1,19 +1,21 @@
-# Review of exact affine-digit-reversal classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem quantifies integer bases \(b\ge4\), lengths \(L\ge2\), and nonzero first and final digits. Reconstructing the carry recurrence from \(2N-4=r_b(N)\) fixes a finite carry alphabet; the first and last equations exclude every carry alternative except two endpoint carries of one. An inward mirrored induction then forces each interior digit to be \(b-1\), and a direct place-value calculation proves the converse. The odd-base prime obstruction and two-digit quadratic specialization follow exactly. The independent finite verifier corroborates 44 complete bounded parameter domains and 1980 further identities. No search count is used as an infinite proof.
+PASS
 
-## Originality — PASS within inspected evidence
+With units digit t and leading digit s, the carry recurrence starts at -4 and ends at 0; c_i is in {-1,0,1} for i>=1, and once nonnegative stays so. The outside equations give 3s=4+b c_1-2c_(L-1). A negative c_1 forces t=1, s=b-2, incompatible with the final equation; c_1=0 forces 3s=2 or 4. If c_1=1 and c_(L-1)=0, length two is already impossible and otherwise b=2 mod 3; the next mirrored equations give 3a_1=2b c_2-2-c_(L-2), either negative or nonzero modulo 3. These equations remain valid when the two mirrored positions coincide (length three). Thus both outer carries are 1, giving s=(b+2)/3 and t=(2b+7)/3; the digit bound on t imposes b>=10. At each inward pair integrality forces 2x-1-y=0 mod 3 for x,y in {0,1}, hence x=y=1, and both digits are b-1; a central digit satisfies u+1=b. Direct reversal of the resulting expansion proves existence, including the empty middle block. For primes the equality reduces to q=p-2; odd admissible bases give even digit sum and an even candidate, and the even length-two expansion gives the displayed quadratic pair. Independently enumerated every eligible integer in bases 4 through 17 at lengths 2 through 4 (303,765 inputs), with agreement; replay python3 /workspace/reproductions/independent_finite_checks.py. The frozen verification script was inspected, not executed.
 
-The 2023 decimal prime-\(v\)-palindrome theorem contains the base-ten subcase of the affine reversal, so the decimal identity itself is explicitly not claimed as new. Its full text was compared against the arbitrary-base and arbitrary-length statement. The 2024 general-base paper gives the previously known \(109\) example and an open base-existence problem, but not the uniform affine reversal classification. General reversal multiples \(r_b(N)=kN\) are not logically sufficient because the present offset is nonzero. Targeted published searches and the available mathematical claim database yielded no equivalent theorem or dominating result. An overlooked general affine-palintiple classification remains possible, so this is not an independent publication-priority assertion.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The object is a natural arithmetic subproblem of the published general-base prime-\(v\)-palindrome question. The theorem gives a sharp congruence restriction and unique candidate of every length, reduces prime occurrences to explicit twin-prime pairs, and entirely excludes the odd bases even when the affine reversal has a solution. These statements distinguish base arithmetic, digit rigidity, and prime-factorization constraints; this is more than checking small examples. It does not resolve the full prime-\(v\)-palindrome problem or conjecture prime infinitude.
+Pass for the arbitrary-base and arbitrary-length affine classification and the resulting restrictions for the specified prime subcase, not for the decimal specialization or the already-published base-16 example. The strongest shifted-reversal paper studies commutation with an affine map, not affine reversal of a single input. No inspected covering theorem gives the forced digits and congruence across bases.
 
-## Limitations and closest literature
+## value
 
-Boran et al. (2023), arXiv:2307.00770v1: decimal characterization and digit method; our base-ten branch is covered, not original. Bispels et al. (2024), arXiv:2405.05267: general-base definitions, base-sixteen example, and Problem 1; the special all-base affine class is not stated. Sutcliffe's reversal-multiplication problem has no \(-4\) term. Source searches are not proofs of publication priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The offset -4 is forced by the arithmetic function for a reversal equal to twice an odd prime, rather than picked from a parameter table. The rigidity theorem replaces a search over every integer of each base and length by one explicit pair of primality tests in eligible bases and none elsewhere. It separates digit rigidity from prime occurrence and yields the odd-base obstruction, without claiming infinitude or solving the general-base prime question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

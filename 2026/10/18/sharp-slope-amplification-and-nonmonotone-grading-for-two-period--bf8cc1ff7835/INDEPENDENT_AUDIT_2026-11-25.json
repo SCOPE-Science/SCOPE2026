@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:00:15.421108Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Mass entries are the elementary hat integrals; 6M is sign-conjugate to A=dI−B with nonnegative nearest-neighbor B of row sum d/2. The Neumann inverse is bounded, strictly positive entrywise by paths and exponentially decaying by distance. This gives a stable coefficient map on ℓ² and the canonical kernel extension to ℓ∞ inputs by absolute summability and truncation. Taking inverse row differences across the unit cell gives the reflected positive pair-source vector with alternating kernel signs. Its odd and even recurrences and the center-source equation uniquely force the decaying root and the stated β and u. The integral of the absolute affine interpolant is the sum of the two triangle areas, and geometric summation and reflection yield F; a sign input realizes the norm. Rescaling the other cell length multiplies its slope by 1/r, and the two translation classes exhaust slopes. /workspace/replay.py (splines, Python 3 + SymPy) checks the recurrence and exact special values, and independently evaluates the long branch at r=2 as 43/20−√105/28, strictly below F(2). Reciprocal symmetry gives q′(1)=0, and the branches tie at 1; their difference has positive right derivative there. F′(1)>0 but F(2)<F(1), proving nonmonotonicity. Scope is the full-line alternating positive mesh with Lebesgue measure and bounded-input kernel extension; neither finite boundaries nor arbitrary grading is inferred. Packaged finite tests were inspected, not executed or used as an infinite certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems supply inverse-Gram entry decay, uniform periodic projector boundedness, or max-norm bounds across knot sequences, respectively.",
+          "Jia's multiple-geometric-mesh article was not available in full in bounded lawful retrieval."
+        ],
+        "reasoning": "Generic entry and sup-norm upper bounds provide useful tools but not the signed two-row difference integral, its sharp attainment, or the grading comparison. Jia is a named residual risk, not negative evidence.",
+        "searches": [
+          "arXiv:1308.4824 Theorem 1.2; arXiv:1608.06720v2 Theorem 1.4; Foucart SplineProj2.pdf Theorem 10; DOI:10.2307/2007836"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d07a5524a720, ce52dee09ef7, 5a407f379fb4, 7ddf81269c76",
+        "arXiv:1308.4824 and arXiv:1608.06720v2",
+        "Foucart, SplineProj2.pdf; OpenPb.pdf attempted without usable passage",
+        "Jia, DOI:10.2307/2007836 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same-mesh exact sup norm yields only the bound 2∥P∥∞→∞/h on a slope on a cell of length h.",
+          "The uniform slope limit recovers exactly F(1), supplying neither F′(1) nor a graded slope comparison."
+        ],
+        "reasoning": "The absolute integral of the difference of two evaluation kernels is not determined by their separately maximized norms. The graded inverse-mass pair-source recurrence and its sign-changing affine integral supply information absent from the strongest results inspected.",
+        "searches": [
+          "Resultary d07a5524a720 and ce52dee09ef7 Findings and assumptions, compared with frozen RESULT.md lines 4–23"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "ce52dee09ef7 computes uniform finite-periodic slopes with limit (9−√3)/2.",
+          "7ddf81269c76 is finite two-cell projection with input seminorm ∥f′∥∞."
+        ],
+        "reasoning": "For piecewise affine outputs, global Lipschitz seminorm, largest absolute cell slope, and ∥(Pf)′∥∞ specify the same output. Neither uniform specialization nor replacing the rough-input norm by a derivative seminorm gives the alternating full-line formula.",
+        "searches": [
+          "Resultary: two-period spline gradient, sharp rough-input slope amplification, alternating-mesh L∞ to Lipschitz",
+          "ce52dee09ef7; 7ddf81269c76"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d07a5524a720 gives 2−(a−b)²/(3a²+10ab+3b²) for the projector L∞ norm on the same bi-infinite mesh.",
+          "5a407f379fb4 gives exact finite-periodic values and the infinite-period limit for the projector L∞ norm."
+        ],
+        "reasoning": "Both exact comparisons optimize point value kernels, not their cellwise differences divided by cell length. No claim of priority follows from catalogue dates.",
+        "searches": [
+          "Resultary: exact alternating two-period linear spline projection norms, graded kernel gain; d07a5524a720; 5a407f379fb4"
+        ]
+      },
+      "rationale": "The strongest inspected comparator in the same mesh computes the projector sup norm, and the strongest derivative comparator fixes a uniform mesh. Neither gives the exact nonuniform rough-input derivative gain or its grading reversal. The distinction also survives comparison with a finite-interval Sobolev gain using a different input norm. This is a best-available-evidence judgment, not a priority certification.",
+      "residual_risks": [
+        "Jia's full text was not available; older sharp estimates under finite-element or geometric-mesh terminology may be missed. No priority certification is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact different output norm",
+          "evidence": "Sharp projector sup norm 2−(a−b)²/(3a²+10ab+3b²).",
+          "identifier_or_url": "Resultary d07a5524a720",
+          "material_read": "Finding and assumptions",
+          "method": "Resultary local mirror",
+          "title": "Sharp stability reversal for orthogonal linear spline projection",
+          "trigger": "Same degree and exact same full-line alternating grid"
+        },
+        {
+          "assessment": "Uniform-mesh overlap only",
+          "evidence": "Exact finite uniform periodic slope gains converge to (9−√3)/2.",
+          "identifier_or_url": "Resultary ce52dee09ef7",
+          "material_read": "Finding",
+          "method": "Resultary local mirror",
+          "title": "Sharp rough-input slope amplification for periodic linear splines",
+          "trigger": "Same sharp rough-input slope functional"
+        },
+        {
+          "assessment": "Different output norm",
+          "evidence": "Exact sup-norm gains, including their infinite-period limit.",
+          "identifier_or_url": "Resultary 5a407f379fb4",
+          "material_read": "Finding",
+          "method": "Resultary local mirror",
+          "title": "Exact two-periodic spline projection norms and a quadratic mesh effect",
+          "trigger": "Exact periodic comparison on alternating meshes"
+        },
+        {
+          "assessment": "Different domain and input norm",
+          "evidence": "Finite interval with two cells, input measured by ∥f′∥∞.",
+          "identifier_or_url": "Resultary 7ddf81269c76",
+          "material_read": "Finding and assumptions",
+          "method": "Resultary local mirror",
+          "title": "Sharp Sobolev seminorm amplification by the two-cell linear spline projection",
+          "trigger": "Sharp slopes in a two-cell geometry"
+        },
+        {
+          "assessment": "Provides decay and convergence, not exact slope gain",
+          "evidence": "Theorem 1.2 exponential Gram-inverse estimate.",
+          "identifier_or_url": "https://arxiv.org/pdf/1308.4824",
+          "material_read": "p. 2, Theorems 1.1–1.2",
+          "method": "OA PDF text",
+          "title": "On almost everywhere convergence of orthogonal spline projections with arbitrary knots",
+          "trigger": "General inverse-Gram antecedent"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Max-norm bounds for continuous splines in families of knots and orders.",
+          "identifier_or_url": "https://foucart.github.io/publi/SplineProj2.pdf",
+          "material_read": "Abstract and p. 15 §5 Theorem 10",
+          "method": "OA PDF text",
+          "title": "On the value of the max-norm of the orthogonal projector onto splines with multiple knots",
+          "trigger": "Broader max-norm results"
+        },
+        {
+          "assessment": "Not an exact slope gain",
+          "evidence": "Uniform L∞ estimate with constant depending on spline order.",
+          "identifier_or_url": "https://arxiv.org/html/1608.06720v2",
+          "material_read": "§3 Theorem 1.4",
+          "method": "OA HTML",
+          "title": "Orthogonal projectors onto spaces of periodic splines",
+          "trigger": "Periodic spline projector bounds"
+        },
+        {
+          "assessment": "Full text unavailable in bounded retrieval; coverage not inferred",
+          "evidence": "Paper title identifies nearby projector boundedness; no decisive derivative theorem was accessible.",
+          "identifier_or_url": "https://doi.org/10.2307/2007836",
+          "material_read": "Landing-page bibliographic/abstract-level material only",
+          "method": "DOI route and attempted AMS OA PDF",
+          "title": "L∞-boundedness of L²-projections on splines for a multiple geometric mesh",
+          "trigger": "Similar nonuniform-mesh literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This sharp rough-input slope gain is a direct mesh stability invariant distinct from both projector sup-norm stability and preservation of smooth input. The two families of cells compete; the exact gain increases near uniform spacing but decreases below the uniform value at contrast two. This parameter-dependent obstruction to a simple grading monotonicity rule, with a sharp kernel realization, has content beyond the uniform special value or a generic slope bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The proof supplies the exact inverse-return-cylinder identity, an all-index inverse-orbit recurrence estimate with its subprincipal logarithmic coefficient, uniform distributional expansions over the entire half-line, and an exact one-dimensional maximization. Those analytic steps certify the claims for all admissible parameters and all large indices; finite computations do not.
+## correctness
 
-Run `python verify.py` with Python 3's standard library. The checker tests the inverse-branch recurrence and first-return cylinder boundaries across four selected parameters, and evaluates four initial-boundary profiles over three horizons each. Expected terminal status:
+PASS
 
-`VERIFY_OK return_cylinder_tests=52 weighted_cases=4 normalized_rate_checks=12`
+The strict return tail at n uses the left-branch threshold x_(n-1) and the initial-section integral up to (1+x_(n-1))/2. For w_j=x_j^(-alpha), the increments are A-B/w_(j+1)+O(w_(j+1)^(-2)), A=alpha*2^alpha, B=alpha*(1+alpha)*2^(2*alpha)/2. Linear growth first gives w_j=Aj+O(log j); replacing 1/w_(j+1) by 1/(A(j+1)) introduces a summable error. Inversion gives the stated positive Q_alpha=B/(alpha*A^2). The integrated density has relative second coefficient d*r*2^(-beta)/(r+beta); substituting the orbit gives L. For k=floor(un)-1, k=un+O(1) and k>=n-1 uniformly. The floor incurs O(n^-1) in the relative leading term, the small-o density bound is uniform over this tail of indices, and log(k)/k differs from (log n)/(nu) by uniformly O(n^-1). This yields the two profiles, with the logarithmic term dominating also at beta=alpha. Differentiating u^(-p)(1-u^(-eta)) gives the stated maximizers and constants; comparison with n^(-p) gives the moment criterion for positive s (nonpositive orders are automatically finite).
 
-The computed normalized errors approach their proved constants slowly; finite samples are not used to extrapolate the infinite limit. No independent audit or external validation is reported.
+## originality
+
+PASS
+
+The distinct result is the explicit crossover with sharp full-half-line conditional excess profiles and supremum constants for the specified local density expansion, not the logarithmic inverse orbit, the leading return tail, or the algebra of a generic Pareto profile. The inspected results do not supply the combined second-order arbitrary-start tail, its two competing coefficients, and the sharp normalized excess conclusion.
+
+## value
+
+PASS
+
+The quantitative bias of the Pareto excess approximation depends on which of the start density and neutral orbit supplies the slowest correction. The boundary beta=alpha and the positive sharp supremum constants tell when improving start regularity no longer improves the error, even without an invariant probability law. This is a meaningful natural transition and a distributional error guarantee, not a standalone moment test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

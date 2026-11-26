@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The archived `verify_klein120.py` program uses only exact Python integers and Gaussian-integer pairs, not floating point, external algebra packages, or a saved matrix. It reconstructs 60 projective point representatives and the same 60 dual plane normals. It tests all 3,600 point–plane incidence decisions and 900 positive incidences. Matrix polynomial multiplication and the first six traces certify all 60 rational incidence eigenvalues and multiplicities; their associated 120 Laplacian eigenvalues give the exact matrix–tree determinant.
+## correctness
 
-For each of primes 2, 3, 5, 7, the verifier reduces a 119-by-119 integer Laplacian modulo a prime power. Unit row and column pivots are invertible in the local quotient; when all entries in a remaining block are divisible by the prime, the block is divided and the valuation increases. Explicit moduli are 2^12, 3^8, 5^6, 7^5. No valuation reaches the modulus cutoff. Calculations are repeated with the first point vertex and last plane vertex deleted separately, and both resulting valuation lists agree. The determinant is verified against the entire product of invariant factors and excludes any other prime factor. The nonzero divisibility-chain factors are checked exactly.
+PASS
 
-Actual command: `python3 verify_klein120.py`.
+The classical sixty points and sixty planes give separate vertex sets and the stated algebraic bilinear zero test. I reconstructed the projectively normalized supports in F_37 with i mapped to 6: each Gaussian dot product is a+bi with |a|,|b|≤4, so a+6b has magnitude at most 28 and vanishes mod 37 exactly when a=b=0. The integer incidence matrix has degree 15 on both sides and 900 edges. Exact characteristic polynomials agree, including simplicity of the zero Laplacian root; the cofactor determinant is 2^235·3^15·5^48·7^30. Direct integer Smith reduction of the 119-by-119 cofactor returned 64 ones and factors 2^×7, 4, 20^×3, 40^×14, 1120^×16, 4480^×3, 13440^×7, 40320^×3, 201600, where × denotes multiplicity. The product and divisibility check, so all primes and multiplicities are accounted for. The frozen verifier's local proof also uses valid equivalences: unit pivots split factors, and reducing precision on division by p of the entire residual block preserves the remaining information. No pivot reaches the cutoff.
 
-Actual output is saved as `verify_output.txt`, ending `KLEIN_60_15_INTEGRAL_CRITICAL_GROUP_OK`.
+## originality
 
-This finite exact computation supports a complete finite Smith decomposition. It does not certify original publication priority, any positive-characteristic geometric realization, or a canonical surface degeneration.
+PASS
+
+The geometry, Levi graph and valencies are classical. No distinct inspected statement gives or forces the complete integral reduced-Laplacian Smith decomposition of this graph. The supported contribution is the integral group, not the configuration or its name. This is a bounded best-of-knowledge assessment.
+
+## value
+
+PASS
+
+This is the complete integer chip-firing invariant of a standard 120-vertex geometric Levi graph. In particular it gives a minimal generator count of 55, exponent 201600, and the precise local structure beyond the tree number. Those data are useful for computations with divisors on this graph and for the component group of a regular split unit-thickness model with this dual graph; the graph is motivated independently of its answer and the invariant is not a repackaging of the spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

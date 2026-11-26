@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The standard Ciani smoothness criterion gives exactly the excluded discriminant components, and a smooth plane quartic has genus three. Direct multinomial expansion of the tenth power proves the diagonal Hasse–Witt entries \(A,A,B\) and their exact factorizations. Diagonality proves that the geometric stable Frobenius rank is the number of nonzero diagonal entries. Over the smooth base the three factors of \(A\) and five factors of \(B\) are geometrically reduced and irreducible. Explicit elimination on each \(B\)-component gives exactly one \(s=0\) intersection and two pairs of nonzero square roots, all transverse and smooth; disjointness excludes extra points. The independent executable coefficient extraction and exhaustive field evaluations produce the claimed rank distributions. Main limits: finite-field searches do not alone prove the infinite-field component geometry, and no full Newton polygons are proved.
+## correctness
 
-## Originality — PASS with residual historical risk
-The new exact eight-component, two-versus-one multiplicity divisor and 25 reduced marked intersections are compared by implication, rather than title similarity, with Ohashi (2022), Moriya–Kudo (2022), Bouw–Coppola–Lorenzo García–Somoza (2023) and nearby characteristic-three/five/seven Ciani findings. Ohashi already implies quadratic-extension definability for any superspecial Ciani curve; this is treated as known. Moriya–Kudo already provide an algorithm and an isomorphism-class census; the result does not claim a new curve-class census. None of the inspected statements covers this parameter-scheme geometry and these two marked rank distributions. Residual risk: an unindexed previous exact calculation could duplicate this specialization; a literature search is not a uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-The two-dimensional dihedrally symmetric slice is a motivated locus of the classical Ciani family, with a prime-to-characteristic three-elliptic-quotient decomposition. The nonreduced Hasse divisor and 25 transverse superspecial intersections organize all its nonordinary strata, not merely an arbitrary finite sample. Explicit marked rank frequencies over the prime and quadratic fields give usable arithmetic data and explain how the geometric intersection behavior manifests over finite fields. This is not a claim about unknown isomorphism-class counts.
+The partial derivatives, divided by twice the respective nonzero coordinate, give the principal subsystem on coordinate squares for the symmetric matrix with diagonal 2 and off-diagonal r,s,s. Two-coordinate singularities give r or s = ±2; in the remaining case the determinant is 2(2-r)(r+2-s²) and at s²=r+2 the all-nonzero kernel vector is (1,1,-s). Genus is three. In the standard quartic Hasse–Witt coefficient rule all off-diagonals have an odd exponent and vanish. Independent truncated polynomial multiplication gives exactly the diagonal entries A,A,B and the asserted identities. Diagonality preserves support under every Frobenius twist, so the stable rank is 2[A≠0]+[B≠0], and rank-zero Cartier in genus three is equivalent to superspeciality. Removing r=2 leaves the three reduced A factors (the two linear-in-r factors are primitive, their coefficient and constant having no common root); each of the five distinct B factors is a graph in s. Same-group crossings occur only on the excluded boundary. Restricting each L_i to a B graph in t=s² gives the two roots 4 and the stated retained t_i; the first is excluded and the second is simple and nonzero in each case. Thus the scheme of A=B=0 is reduced by the nonzero derivative after t=s² or the independent gradients at s=0. For c=0,±5 the L2 arguments are 1,5,9 (all squares over F11), and their L1 multiples by 8 are nonsquares there. For c=±ω the two norms are 9,1, hence both arguments are squares over F121. The independent branch census over F11 and F121 via θ²=2 verified smoothness counts, all branch multiplicities of the retained meetings and rank frequencies (9,14,18,32), (25,326,560,13132). Enumeration supports the finite counts, not the algebraic-closure proof. The supplied script was inspected, not executed.
 
-## Scope, source and status
-Relevant primary literature: https://arxiv.org/abs/2201.12996 (Ohashi, Ciani smoothness and superspeciality), https://arxiv.org/abs/2209.02926 (Moriya–Kudo, arithmetic algorithms and census), https://arxiv.org/abs/2310.10416 (Bouw et al., invariant/conductor framework). Related published-finding corpus statements concern characteristic three, five or seven, or different characteristic-eleven families. Priority risk from material not indexed or not accessible remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct contribution is the factorized Hasse scheme of the characteristic-eleven marked slice, including multiplicities and reduced crossings, and the marked rank counts. Smoothness and quadratic-extension definability are covered by Ohashi and are not novelty. No inspected source states or mechanically supplies the distinct contribution.
+
+## value
+
+PASS
+
+The equal-coefficient Ciani slice has a symmetry swapping the two repeated elliptic factors, so the doubled Hasse branches and their interaction with the simple ones address a natural structured locus. The scheme and two marked arithmetic censuses describe how the rank strata are organized, including a transverse superspecial zero-dimensional scheme, without purporting to reclassify curve isomorphism classes or Newton polygons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

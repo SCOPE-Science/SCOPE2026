@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS.  The projective-conic criterion is proved for this setting, including the converse and the exclusion of degenerate conics for arc subsets of size at least five.  The exact verifier independently reconstructs the source generator columns, checks all 84 three-column ranks, and exhausts every surviving subset of sizes five through nine.  The computed rank census forces the stated puncturing profile.
+## correctness
 
-## Originality
-PASS.  The motivating source gives the code as a non-GRS MDS example but does not classify its puncturings.  Focused searches by source identifier, parameters, puncturing/shortening aliases, conic language, and GRS-equivalence language found no statement of the six deletion triples or the complete rank census.  The closest located result is Wang--Liu--Luo's different example showing that a non-GRS code may have a GRS puncture and shortening; it does not imply this exact profile.
+PASS
 
-## Value
-PASS.  Puncturing stability is a natural structural robustness invariant for an explicit non-GRS MDS code: it measures how much coordinate deletion is needed before the exceptional non-GRS geometry collapses back to a classical GRS configuration.  The result is a complete classification, not a selected witness: it identifies the exact threshold, all threshold-attaining punctures, and the behavior one level beyond the threshold.
+The generator matches Example 1. An exact independent finite reproduction confirmed all 84 three-column subsets are independent. On each surviving subset, evaluate the six quadratic monomials modulo 17 on (1,t^3,t^4). Rank below six detects a conic; no three points are collinear, so a singular conic (two lines over the algebraic closure, possibly coincident) cannot contain five of them. A smooth conic can be projectively parametrized with an unused rational point at infinity, giving an ordinary GRS code up to monomial equivalence; GRS columns conversely lie on such a conic. The independent enumeration of all 256 surviving sets gave rank-(5,6) counts (0,1),(0,9),(0,36),(6,78),(126,0) in descending size order. The six deletion triples matched exactly: {4,10,16}, {3,7,9}, {3,5,16}, {2,5,9}, {2,4,7}, and {0,2,3}. Hence the least puncturing depth is three. Replay: the frozen verify.py specifies the finite instance; independently, enumerate the subsets of S and row-reduce the rows (1,t^6,t^8,t^3,t^4,t^7) modulo 17.
 
-## Closest literature and limitations
-Abdukhalikov--Verma supply the explicit code and its non-GRS MDS status.  Wang--Liu--Luo show on a different code that GRS structure can reappear after puncturing, so the broad phenomenon is not new.  The new content assessed here is the exact puncturing depth and full puncture profile of the source example.  The claim is finite and code-specific; no family-wide theorem or cryptographic security conclusion is made.  Absolute novelty cannot be guaranteed against unindexed material.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the original construction, the general conic test, and the automatic five-point GRS case. The minimum depth and six successful deletion triples are a distinct unreported profile in the checked sources. The nearest indexed recovery theorem is not a special-case cover even after allowing a projective equivalence of the full arc.
+
+## value
+
+PASS
+
+Puncturing to GRS is a natural recovery invariant of the published explicit non-GRS MDS example. Knowing that three punctures are necessary and sufficient, and which six choices work, tells a reader how robust its non-GRS property is under deletion; neither the general recognition test nor the automatic five-point case gives that information. The contribution is finite and example-specific.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

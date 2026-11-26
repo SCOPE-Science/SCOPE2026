@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:12:49.839523Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Binary supports translate right by one per round and truncate at the sink. Replacing a predecessor i by i+d shows F_t⊆F_{t-d} for t≥d. A common residue a for any intersection of the first d supports lifts to the physical vertex a+d (0≤a<d), so no intersections are lost at the sink for k≥2. The nerve has the claimed translates of -R and inversion identifies the cycle complex; nonempty intersections are simplices. Independently, residue reduction has a simplicial section a↦a+d, with the composite contiguous to the identity because original and section vertices share the same first-period firing simplex. For two holes the complements of the facets are edges of g disjoint C_L (K2 for L=2), so the nerve is the Alexander dual of their independence complex. Cone deletion of the second path vertex gives the three-step suspension recurrence; in the cycle cofibre one side of the map is contractible or the source sphere has strictly smaller dimension. L=3,4,5 give three points, two contractible components and a circle, respectively, and K2 gives S⁰. The join therefore has integral reduced cohomology of rank b in degree gs-1, and duality shifts it to degree d-gs-2 as claimed, including degree-zero cases. The frozen mod-two checker was inspected, not run, and is not evidence of integral torsion-freeness; the integral argument is decisive.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 30e002050b11 formulation is a filtration retraction for periodic configurations on cycles, even for multigrain states; its domain has no sink.",
+          "Lemma 3.7 in the arXiv preprint identifies the single-residue path special case, not general motifs."
+        ],
+        "reasoning": "The cycle retraction is broader in allowed grains and filtration but does not give the first-period intersection witness on a terminating path. The path lemma handles only one occupied residue.",
+        "searches": [
+          "Resultary 30e002050b11, periodically lifted avalanche complexes",
+          "arXiv:2606.26786v1 named path and cycle sections"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_avalanche.py",
+        "arXiv:2606.26786v1",
+        "Resultary 0cd469567fa0",
+        "Resultary 30e002050b11",
+        "Resultary 26c947aff33f",
+        "Resultary 2195b8d11ea1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known nerve, independence-cycle, join and duality tools apply once the first-period path nerve and edge-complement identification are established. The preprint's Conjecture 3.18 predicts the L=2 cyclic answer but is not a theorem there.",
+          "The decisive witness is a+d in the second block, in every required firing simplex; it supplies the comparison of sink and cycle intersections."
+        ],
+        "reasoning": "The known topological tools do not of themselves give the path nerve or its realization condition. The new identification works for all motifs and makes the integral calculation available even when the cyclic holes have noncoprime separation.",
+        "searches": [
+          "arXiv:2606.26786v1 §§3.1–3.2",
+          "Frozen proof Step 2 and Steps 3–5; Combinatorial Alexander Duality, arXiv:0710.1172 Theorem 1.1 (as cited in the frozen proof)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3.21 covers g=1 cyclic cases by multiplying residue labels by h^(-1), which sends the holes to a consecutive pair. The proposition with two occupied residues directly meets two holes at d=4.",
+          "The complementary-residue record also covers some cyclic hole pairs {a,a+k} for coprime n,k after relabeling."
+        ],
+        "reasoning": "Relabeling cannot remove a nontrivial gcd, and cyclic relabeling alone gives no equivalence for terminating paths. Exact coprime results are credited rather than treated as distinct because of notation.",
+        "searches": [
+          "Resultary: periodically lifted avalanche homology repeated binary directed path and cycle nerve",
+          "arXiv:2606.26786v1 Lemma 3.7, Proposition 3.19, Conjecture 3.18 and Theorem 3.21",
+          "Resultary 0cd469567fa0, q=2 and δ_a=0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day one-bar result proves a contractible-to-circle transition for a path with grains {0,1,r+2,r+3}; at path length 2(r+2) this is the exact motif R={0,1} with k=2 and agrees at the final stage. The later two-pair collapse result also covers this subset with a trailing-zero allowance.",
+          "No inspected exact statement covers arbitrary repeated R on sink paths or the full noncoprime two-hole formula."
+        ],
+        "reasoning": "Both four-grain records materially overlap a special family and prove more detailed claims about it. They do not classify other motifs. Same-day overlap is distinguished from priority, which is not decided by the date.",
+        "searches": [
+          "Resultary 0cd469567fa0, 30e002050b11, 26c947aff33f and 2195b8d11ea1; compared their mirrored Findings",
+          "arXiv:2606.26786v1 pp. 11, 15–16"
+        ]
+      },
+      "rationale": "Credit the known cyclic and particular path cases and standard topology. The distinct content supported by the comparison is arbitrary binary repeated sink-path transfer with the first-period nerve, and its uniform two-hole application including noncoprime separations. The nearest periodic lifting result concerns cycles on both sides; the nearest two-hole classification concerns coprime shifts. Neither supplies the requisite no-boundary-loss equivalence for all motifs on terminating paths.",
+      "residual_risks": [
+        "An unindexed transfer or noncoprime special case may exist. The source comparison is not an exhaustive priority claim and refers to the inspected preprint version."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Single-residue path and several cyclic cases covered; no generic transfer in those statements",
+          "evidence": "Lemma gives disconnected contractible components for a single residue; Theorem 3.21 treats consecutive occupied blocks and hence cyclic g=1 by unit relabeling. The single-zero-residue prediction is a conjecture in v1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.26786v1",
+          "material_read": "v1 Lemma 3.7 p. 11 offsets 32260–35840; Conjecture 3.18 and Proposition 3.19 p. 15 offsets 43644–48355; Theorem 3.21 p. 16 offsets 50322–53711",
+          "method": "OA primary full text, bounded sections",
+          "title": "Avalanche homology of digraphs via sandpile dynamics",
+          "trigger": "Original directed path/cycle avalanche results for closely matching initial states"
+        },
+        {
+          "assessment": "Genuine overlap of coprime cyclic specializations",
+          "evidence": "Its q=2, δ_a=0 cases are two holes {a,a+k} on a cycle with gcd(n,k)=1 and agree with the sphere/wedge cases.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-arithmetic-transitions-in-complementary-residue-avalanche--0cd469567fa0",
+          "material_read": "RESULT.md theorem and matching cases, offsets 0–9597",
+          "method": "Local Resultary mirror",
+          "title": "Sharp arithmetic transitions in complementary-residue avalanches",
+          "trigger": "Closest indexed complementary-residue classification"
+        },
+        {
+          "assessment": "Different boundary regime",
+          "evidence": "Equivariant filtration retraction for periodic configurations on cycles, not a sink-path map.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-equivariant-persistence-reduction-for-periodically-lifted-aval--30e002050b11",
+          "material_read": "RESULT.md Finding, offsets 0–3968",
+          "method": "Local Resultary mirror",
+          "title": "Equivariant persistence reduction for periodically lifted avalanches",
+          "trigger": "Potential stronger equivalence for periodic motifs"
+        },
+        {
+          "assessment": "Specific final-homotopy overlap; stronger timing detail for that family only",
+          "evidence": "Grains {0,1,r+2,r+3} give a contractible-to-circle one-bar transition.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-a-one-bar-avalanche-filtration-from-two-adjacent-grain-pairs-on--26c947aff33f",
+          "material_read": "RESULT.md Finding, offsets 0–5116",
+          "method": "Local Resultary mirror",
+          "title": "A one-bar avalanche filtration from two adjacent grain pairs",
+          "trigger": "Same-day path result with exactly repeated adjacent pairs"
+        },
+        {
+          "assessment": "Special-case overlap",
+          "evidence": "Collapse to a circle for a four-grain family, including two repeats of a pair at matching path length.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-two-separated-grain-pairs-give-a-circle-in-directed-path-avalanc--2195b8d11ea1",
+          "material_read": "RESULT.md Finding, offsets 0–2294",
+          "method": "Local Resultary mirror",
+          "title": "Two separated grain pairs give a circle in directed path avalanches",
+          "trigger": "Another exact path subfamily"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "One common second-block witness turns a terminating dynamical system into a finite-period homotopy calculation for every binary motif and every k≥2. This is useful beyond the previously classified small motifs. The two-hole case converts the arithmetic of separation into explicit integral ranks, including exponentially many classes in growing degree, without a size-dependent path computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

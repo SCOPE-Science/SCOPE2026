@@ -1,19 +1,21 @@
-# Scientific review: Four-residue extinction and two-cycle phases on complete triple-incidence graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The direct incidence-column difference argument proves full point rank for every \(n\ge4\). Four parity evaluations of the point Gram matrix yield \(BB^{\mathsf T}\in\{I,I+J,0,J\}\), all idempotent. The block iterate-rank filtration establishes the exact nilpotent three-chains and the recurrent involution, and the fixed-state equations establish its full Jordan structure. Counting the kernels on the nilpotent component gives every periodic-entry layer; an equal-fiber Fitting decomposition gives all individual basins. The attached executable independently constructs graph matrices and checks ranks through \(n=16\), exhaustively enumerating the two smallest systems. These checks corroborate, not replace, the universal proof.
+PASS
 
-## Originality — PASS with historical-priority limitation
+For n>=4 the difference of two incidence columns with two points in common gives each e_i+e_j; these span the coordinate-sum kernel, and any triple column has sum one. Thus B is onto over every characteristic-two field. The diagonal and off-diagonal entries of Q=BB^T are the two stated intersection counts, modulo two, giving I,I+J,0,J; when J occurs n is odd, so J²=J. Ranks of F,F²,F³ are 2n,n+d,2d using surjectivity/injectivity; F^5=F³ shows F²=I on im F³ and the direct complement is ker F³. On that complement the ranks of F and F² are 2(n−d) and n−d, so there are n−d size-three chains, no size-two ones and m−2n+d size-one chains. Fixed states solve Qu=u and w=B^T u: their dimension d forces exactly d size-two blocks at eigenvalue one on the 2d-dimensional recurrent summand. Over F_q the nilpotent kernel sizes and the unconstrained recurrent part yield the four cumulative exponents; the Fitting fibers give q^(N−2d) configurations per recurrent coordinate, hence the stated orbit basins. At n=4 the nilpotent part vanishes; in the residue-zero class at n>=8 it consists of size-one chains, while the other classes have positive size-three counts. In residue two there are no two-cycles. The source checker and captured output were inspected, not executed. An independently written binary power/rank check for n=4,5,6,7 reproduced ranks [8,8,8,8,8], [15,10,9,8,8], [26,12,6,0,0], [42,14,8,2,2] from F^0 through F^4 (replay: branches/3f9330f6-8de5-425f-833f-2fb35a1c4698/independent_rank_check.py); it does not replace the all-order and all-field proof.
 
-The closest published graph-dynamics records concern edge subdivisions of ordinary complete graphs (even incidence-column weights and rank defect one) and symmetric projective-plane point–line incidences (square block matrices). Neither published full result contains or implies the full rectangular point–triple incidence four-residue family. Ghorbani et al. cover classical subset-inclusion matrix rank tools; Moreno et al. cover finite linear dynamics in general; Rowland and Yassawi concern automatic sequence columns. Their general theory and matrix foundations are credited rather than claimed new. Equivalence outside the examined literature remains a risk, and no independent novelty certification has been performed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The object is the complete three-uniform set system, not an arbitrary selected graph. Its temporal evolution displays an exact four-residue structural phase transition: for \(n\equiv2\pmod4\) every state dies in three steps; for \(n\equiv3\pmod4\) only \(q^2\) states recur; and the two other residues support much larger involutive recurrent spaces with different transient dimensions. The calculation determines full Jordan types, all temporal orbits and basin populations, and sharp asymptotic proportions of states requiring the last update. This is a meaningful complete dynamical classification distinct from the classical rank computation alone.
+The full-rank incidence fact, design intersection identity and linear dynamics framework are prior material. The narrower supported contribution is the exact four-residue Jordan/census classification for the complete triple-incidence graph. The strongest related exact dynamic statements treat different graphs; the shared design calculation alone is not the census.
 
-## Closest literature and limits
+## value
 
-The complete primary texts inspected were Moreno–Bollman–Aviño-Díaz (arXiv:math/0604534), Ghorbani et al. (arXiv:0709.3144), and Rowland–Yassawi (arXiv:1209.6008), along with two full published graph-incidence results cited in RESULT.md. The work is limited to full triple systems, characteristic-two fields, unweighted open-neighbor synchronous updating. Historical priority and independent validation are not established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete triple system is a canonical uniform incidence family, and classifying extinction versus recurrence is a natural dynamical invariant. The result sharply distinguishes mod-four regimes, including total extinction, only q² recurrent states, and exponential recurrent spaces, and quantifies sharp transient times and basin populations. It is not just a rank recomputation: the incidence parity and the temporal Jordan decomposition explain those differences for all finite characteristic-two fields.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

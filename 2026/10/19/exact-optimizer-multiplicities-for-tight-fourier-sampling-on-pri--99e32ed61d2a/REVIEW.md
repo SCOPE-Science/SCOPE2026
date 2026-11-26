@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The row-Gram matrix reduces tightness to cyclotomic divisibility at precisely the difference-valuation levels. Reduction modulo \(X^{p^{j+1}}-1\) proves the equal-child-count lemma without numerical approximations. The universal size bound \(p^{|J|}\) is attained exactly by forced/full digit branching at required levels and singleton branching elsewhere. Independent digit choices give the exact multiplicity exponent, and the largest omitted digit determines the common translation stabilizer. Exhaustive exact-integer tests corroborate every level profile at small prime-power orders.
+## correctness
 
-## Originality
-PASS, with residual risk. The source *Minimum tight exponential-frame size on cyclic prime-power groups* already proves the minimum size and gives one construction; these are explicitly excluded from the new claim. Fan–Fan–Shi (2015), Theorem 5.1, establishes homogeneous structure for spectra of spectral sets, a powerful precursor that explains the tree shape after a homogeneous-model reduction. Neither inspected text states the exact number of minimum redundant tight-frame frequency sets on arbitrary spatial subsets, nor the uniform translation-orbit multiplicity; the new numerical laws are an enumerative consequence of these structural ideas, rather than independent new homogeneity theory. Residual risk: an older source may have recorded the same tree enumeration or an equivalent generating function.
+PASS
 
-## Value
-PASS. The exact size bound alone does not quantify design freedom. This refinement exhibits optimizers growing as \(p^{p(k-1)}\) even for an optimally two-frequency frame on two spatial sites, determines all optimal designs explicitly, and computes the exact number inequivalent under frequency translation. It is a natural complete degeneracy classification for optimal discrete Fourier sampling, not an arbitrary sliced example; it makes no claim to a new general frame principle.
+The frozen example incorrectly calls the optimum a two-character frame for every prime (e.g. it has three characters for p=3). The frozen running description also overstates the verifier: it filters at the predicted size rather than finding the minimum. Complete replacements in /workspace/repairs/1 fix the example, make positivity and nonemptiness explicit, and accurately document a replacement verifier. Rechecked the final theorem: Gram entries off the diagonal vanish precisely at the primitive orders specified by J. Reducing below degree p^(j+1), divisibility by 1+X^(p^j)+…+X^((p-1)p^j) is equivalent to constant coefficients across each digit fiber, since the quotient has degree <p^j. Nonempty branching forces >=p^r leaves, with equality precisely at p or 1 children as specified. The converses use equal numbers of leaves under forced siblings. Products of free choices give E. Above the last free level the tree fills complete residue classes, giving the subgroup p^s; the larger subgroup p^(s-1) would fill all children at the last free level, contradiction. Nested subgroups give equality and uniform orbit size, including the singleton and full-group cases. The repaired example has p characters and the stated counts. I ran the replacement /workspace/repairs/1/verify.py: exact cyclotomic long division and observed minimization over all subsets and profiles at N=2,4,8,16,3,9,5,7 reproduced all counts, stabilizers, orbit counts, and arities. This is a finite diagnostic supplement to the proof.
 
-## Scope of review
-Analytic correctness is supported by a complete elementary proof and exact finite checks. The novelty assessment is limited to the specifically inspected prior mathematical statements; it is not an exhaustive guarantee of historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+On re-audit, the repair distinguishes the known minimum, equivalent homogeneous-tree characterization and immediate product for the raw count from its surviving focus: the uniform frequency-translation stabilizer for all optimizers and its exact quotient census. The strongest inspected precedent provides the structural classification but no such subgroup or orbit theorem. Passing this bounded enumerative refinement does not award originality to the minimum or the classification.
+
+## value
+
+PASS
+
+The repaired result tells a sampler how many genuinely distinct minimal unweighted designs there are after removing the natural equivalence of a common frequency shift. It also determines the exact subgroup of shifts fixing any design, even for redundant frames, rather than assuming a free action or simply dividing by the group order. The nonuniform degeneracy between profiles and uniform stabilizer within each profile are meaningful structural information; the value is modest and lies in the quotient invariant, not the routine product or known minimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Review of exact intrinsic-to-extrinsic stretch on circular cones
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The surface metric \(ds^2+q^2s^2d\phi^2\) develops exactly to a planar sector, giving the intrinsic distance for shorter azimuthal separation below \(\pi\). Cartesian products give the independent ambient chord formula. The ratio of independent area-radial coordinates has exactly a rate-two Laplace log ratio; together with the uniform shorter angle it yields the exact one-dimensional distribution. The unique maximizer follows from strict monotonicity of \(x\cot x\) and \(\sin x/x\), and a positive mixed linear-quadratic local deficit yields the sharp \(3/2\) power and coefficient. The saved checker tests numerical integrations against independent three-dimensional sampling; numerical agreement is not a substitute for the proof.
+PASS
 
-## Originality
+For any curve avoiding the apex, lift its azimuth and develop it into the plane. If the absolute developed angular change is at least pi, meeting the opposite ray already gives a total length at least s+t; for smaller absolute changes the chord bound increases with the angle. The shortest representative has angle q delta <= pi q < pi and its chord stays within the radial disk. The same s+t bound applies to paths through the apex. The developed and Cartesian chords give the stated quotient after division by 4st. Area sampling gives independent delta uniform on [0,pi] and U=log(s/t) with density exp(-2|U|). The quotient decreases with |U| at every delta>0; on U=0 its increase with delta follows from the decrease of x cot(x). This gives precisely the maximizers, essential support and invertible endpoint K(q); lateral area pi q L^2 then fixes scale. For 1<lambda<K, solving the quotient inequality yields the stated Q and the interval |U|<2 asinh(sqrt(Q)), giving the displayed strict survival integral, including the stated endpoint probabilities. At delta=pi and U=0, the linear coefficient of pi-delta is cos(pi q/2)/2 and the quadratic coefficient of U is (sin^2(pi q/2)-q^2)/(8q^3 sin(pi q/2)). Large |U| forces Z to 1 uniformly, so the local expansion controls the entire upper excursion. Its rescaled region has area 8/(3 A_q sqrt(B_q)); the sampling density tends uniformly to 1/pi after factoring out the Jacobian. This proves both the precise coefficient and the uniform conditional limit.
 
-**PASS, subject to historical uncertainty.** O'Rourke–Vîlcu (2011) supplies conical development, and a 2016 geodesic discussion identifies the opposite-rim intrinsic length. The two closest accessible mathematical results on cone sidewalls give an intrinsic squared-distance law and intrinsic diameter tails, respectively. Neither supplies the intrinsic-to-ambient **ratio distribution** or its maximal-distortion probability asymptotic. A general metric distortion theorem for positive-reach sets concerns a different geometric hypothesis. Searches also covered quasiconvexity, dilation, geodesic-to-chord stretch, exact ratio CDF and conditional endpoint scaling. The full historical literature may contain an equivalent unretrieved formula; no claim of independent priority certification is made.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Metric distortion is a natural quantitative invariant of an embedded singular surface. Here the entire scale-free stretch law is available, its exact upper-tail probability measures rarity of maximally distorted pairs, and its sharp endpoint determines the opening (and, combined with lateral area, the cone itself). These are not just a restatement of an unfolded geodesic or a low-order moment; they quantify all random pairwise multiplicative path inflation and the conditional geometry of its extreme configurations.
+The supported contribution is the exact area-sampled intrinsic/ambient ratio law, sharp tail and conditional shape for the circular cone. Cone development and the opposite-rim chord calculation are not claimed new; other exact intrinsic-distance or stretch models were compared at the level of their observables and parameters. No equivalent coverage of the probabilistic cone claim was demonstrated in the inspected sources.
 
-## Limits
+## value
 
-The cone must be right circular, with genuine positive height and fixed opening, and the points must be independent area-uniform samples from the sidewall alone. The full distribution is expressed by an exact one-dimensional integral. There is no uniform claim at the planar or needle-cone limits and no independent validation or global priority certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Pairwise metric distortion measures how much an embedded surface underestimates intrinsic travel when straight 3D chords are used. The endpoint identifies the cone opening, but it alone says nothing about how often this distortion is approached. The exact law, leading frequency and conditional scales quantify that gap for the natural area measure and are not determined by intrinsic-distance moments or the single opposite-rim computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The score is derived from Gaussian regression and the arcsine sign identity. All four binary outcomes are covered by the odd two-dimensional conditional-mean space. The exact hyperbolic decomposition proves strict fixed-gap symmetry without numerical inference; monotone one-dimensional derivative factors give the unique global optimum, including coincident nodes and endpoints. The short-correlation asymptotic follows by exponent comparison. The standalone symbolic/numerical verifier passed 4,967 assertions. Risk: only the claimed specified Gaussian model, not general nonlinear one-bit encoders, is proved.
+## correctness
 
-**Originality — PASS (subject to historical-priority risk).** The closest exact OU posterior-integral variance statement in published full-valued Gaussian quadrature uses real measurements and has strictly interior two-point optima for every positive decay rate. The two-sign result has a sharp endpoint-to-interior transition and thus is not implied by that full-valued design theorem. Fesl–Koller–Utschick supply noiseless Gaussian one-bit conditional-mean formulas and arcsine moment identities but do not optimize two times for a stationary OU integral. Bania–Baranowski treat quantized state filtering, not this integrated target/two-site design. Pronzato–Zhigljavsky give general full-observation quadrature theory. A Hilbert-space one-bit encoding paper addresses a different one-bit unconstrained encoder class. Material source comparisons, actual searches, and remaining access limitations appear in `AUDIT.json`. Risk: unseen older equivalent fixed-sign Gaussian-process design might exist; search noncoverage is not proof of priority.
+PASS
 
-**Value — PASS.** The threshold characterizes a substantive change in optimal sensor geometry induced by severe quantization on a canonical Gauss–Markov kernel, rather than supplying a numerical tweak. For all weakly decaying correlations in a nonempty parameter interval, both extreme endpoints are optimal, while for faster decay the nodes become strictly interior and approach trisections. This exact design law is useful for two-bit functional sensing and for understanding the difference between sign-only and full-precision quadrature. Scope intentionally excludes optimized thresholds, pathwise sensing and adaptive algorithms.
+PASS applies to repairs/2/RESULT.md. In the frozen Finding's critical equation and Proof Step 3's definition of B, the arcsine bracket is printed as a multiplier outside the fraction. This is false as printed: at the stated critical rate the product gives about 7.831, not 1. The frozen interior stationarity equation and the checker's g_func already put the bracket in the denominator. Differentiating −log(1+c(d)) gives −c'/(1+c)=λr/[√(1−r²)(π/2+arcsin r)], confirming the repair. Independently reconstructed the Gaussian conditional projection (odd under simultaneous bit flip), including the coincident-sign limit. The fixed-gap score decomposes along the sum and difference of the two covariance weights; its derivative in the center's cosh coordinate is strictly negative by the displayed centering identity and arcsin(r)<πr/2. At the centered pair, A strictly increases from 0 to 1, B strictly decreases from infinity, and B(1) strictly decreases with λ from infinity to zero. This gives uniqueness at, below and above the critical rate, with positive small gaps improving over every coincident pair. For large λ, evaluate A/B at fixed displacements on either side of d=1/3 to bracket the root; the uniform interior estimate (π/4)exp(λ(3d−1)/2)(1+o(1)) gives the logarithmic correction. Own bisection reproduced λ_c≈0.0600892783080023 and λ(d_*−1/3)≈0.16104298351366 at λ=100,200,500. Inspected the shipped verifier and its requirements, without executing the uploaded code.
 
-**Closest literature and limitations.** See DOI 10.1080/00207179.2017.1282627; arXiv:1808.10722, arXiv:2212.04470, arXiv:2202.05292; and the published exact full-valued OU quadrature result linked in `RESULT.md`. The author-uploaded quantized-filtering paper was inspected through accessible hosted text rather than an independent publisher PDF; full historical-priority confirmation and independent mathematical evaluation remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired two-sign design result, not the general Gaussian projection or arcsine identity, survives the scoped comparison. Full values give a different design problem with no small-λ endpoint phase; standard one-bit estimation machinery does not establish the shape in the OU placement variables.
+
+## value
+
+PASS
+
+The placement classification solves a natural low-bandwidth sensing design, not just a fixed-site risk evaluation. The rate at which endpoint sensing ceases to be optimal and the trisection asymptotic quantify the effect of observing signs rather than full values, with an implementable unique gap equation. The repair makes that equation and the threshold unambiguous.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

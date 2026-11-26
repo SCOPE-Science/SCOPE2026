@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The four-run representation of a positive \(0101\)-count is forced, and every five-run representation has exactly one unused endpoint run, giving the balanced product \(Q_n\). Direct, disjoint choices of the second matched symbol in the six-run witness give the count difference \((a-1)(b-1+d)-cd\). The four explicit residue polynomials are strictly positive for all \(n\ge9\). The cases \(n=6,7\) have concrete strictly better witnesses; every one of the \(2^n\) words at lengths \(4\le n\le8\) is exhausted by two distinct counting routines. The checker also verifies the low-run capacity in additional small cases. No finite sampling is used to infer the infinite conclusion.
+PASS
 
-## Originality — PASS, subject to residual risk
+For the scattered pattern, every occurrence uses four strictly ordered runs. A five-run host either has an unusable leading 1-run or an unusable trailing 0-run; deleting it and padding a participating run strictly improves any positive count. At four runs the count is the product of their lengths, maximized by balancing the positive integer parts. In the proposed six-run host the second selected bit lies either in the inserted singleton 1 or in the following run of length b-1. Summing these two contributions leaves the gain (a-1)(b-1+d)-cd over abcd; the four balanced residues yield t^2-3t+1, t^2-t, t^2 and t^2-t, each strictly positive in its n>=9 range. I separately enumerated all compositions of n with both starting bits, counting by the middle two runs, and obtained unrestricted/restricted pairs (1,1), (2,2), (5,4), (9,8), (16,16) at lengths 4–8. The six-run witnesses 010101 and 0010101 achieve 5 and 9, respectively. This proves the claimed exact exception set, with no extrapolation or assertion of six-run global optimality.
 
-Menon and Singh (2023, arXiv:2306.07870v1, Section 4) already identify the failure at \(n=6\) for an alternating target of length four. That observation is not claimed as new. Their at-most-three-run theorem does not supply a four-run classification; their explicit \(n=6\) example does not imply the unexpected \(n=8\) equality or prove failure for all \(n\ge9\). Burstein–Hästö–Mansour (2003) treat other pattern classes and packing-density questions. Barton's clumpy-pattern structural result (2004) is inapplicable because \(0101\) interleaves equal letters. Specific statement, alias, database, and stronger-coverage searches revealed no equivalent all-length theorem. Unindexed equivalent work remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The alternating four-run pattern is the first natural boundary outside the cited three-run structural result. This theorem completely resolves when a low-run host can be globally optimal, establishes a strict structural obstruction from six runs onward, and finds a nonmonotone return to four-run optimality at \(n=8\) between two regions of failure. It is a full natural classification of a word-structure question, not an arbitrarily chosen parameter slice or merely an enumeration of examples.
+The length-six failure and its alternating witness are already in Menon–Singh, as the frozen text credits. The supported distinct result is the exact five-run capacity together with the complete finite exception set and explicit six-run improvements for every other length. The analogous published catalogue result treats different patterns, and the closest structural results compared do not supply this classification.
 
-## Closest sources and limitations
+## value
 
-The main closest source is Menon–Singh, *Subsequence Frequency in Binary Words* (arXiv:2306.07870v1), Section 4 and its open-ended conclusions. Packing-density and clumpy-pattern works are related but do not imply the finite exceptional set. The unrestricted maximum count for general length remains open in this result, and priority requires independent literature review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The known alternating counterexample shows that matching the target's four runs can fail once. The reviewed theorem determines exactly when even a five-run budget fails, and shows that a six-run witness already certifies this obstruction at every nonexceptional length. The isolated return to equality at n=8 is part of a full structural boundary, not an arbitrary small-value census. The balanced-product formula alone is elementary; the value is its exact comparison to unrestricted packing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

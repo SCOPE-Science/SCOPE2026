@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:03:35.660441Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations and proof; VERIFICATION.md and verify.py inspected without execution",
+        "arXiv:2310.07399 §2.1, equations (2)–(4), and §2.2 full refresh",
+        "Independent replay: python3 /workspace/reproductions/exact_checks.py 1"
+      ],
+      "rationale": "Using the rRKN position formula with the second force at q+Vhξ+(Vh)²F(q)/2 gives Q'=AQ+Bξ with A=1−z/2+Vz²/12 and B=h(1−z/6). Independent exact integration against 2v gives 1−E[A²]=zD(z); D strictly decreases since 3z²−32z+104 is everywhere positive. Synchronous coupling gives W₂ contraction precisely while E[A²]<1, an invariant law there, and zero stationary mean. For z≥ρ, the stationary identity for the raw second moment rules out finite second moments since E[A²]≥1 and B≠0. Within the interval the scaled variance is (1−z/6)²/D; the difference from 1 factors as z(z²−8z+8)/(288D), giving both roots and the bias signs. At both roots E[A²]=(z+1)/9<1; B=0 only at z=6, giving δ₀. At all other stable steps a hypothetical stationary Gaussian yields a nonconstant mixture of centered Gaussian variances because A² is not constant. Strict Jensen for its characteristic function rules out that Gaussian. At the two calibration roots the exact remainder of E[A⁴]−1 is (318z−1516)/1215, negative at the smaller and positive at the larger. W₄ contraction gives a finite fourth moment at the smaller root; at the larger a finite fourth moment would violate the fourth-moment identity, whose forcing is strictly positive. No limiting simulation is needed for these statements.",
+      "residual_risks": [
+        "The finite-variance threshold is not an existence threshold for arbitrary invariant laws. The fourth-moment result supplies no exact tail exponent. The larger calibration is outside the small-step accuracy guarantee."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 is a finite-horizon L² accuracy result under small-step assumptions, and the closed Gaussian invariant law in Remark 1 is for the Verlet comparator.",
+          "The earlier theta result gives the conventional E|R(H)|^p moment criterion in its model, with finite-support step laws. Even a general affine moment theorem would require evaluating the new coefficient moments and solving the actual rRKN calibration equation."
+        ],
+        "reasoning": "Credit the standard affine moment criteria and method definitions. A process-level convergence bound does not give an exact invariant variance cancellation, and an abstract power-moment criterion does not evaluate its sign at either calibration point.",
+        "searches": [
+          "arXiv:2310.07399 §4 Theorem 1 and §3 Remark 1",
+          "Resultary 6b73e39a7294, exact moment criterion and examples"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2310.07399 §§2.1, 2.2, 3 and 4",
+        "Resultary 6b73e39a7294 and 2f2752b5d5bf, passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The shared mechanism is not a contribution. The rRKN D(z), its positive-root threshold, and the factor z(z²−8z+8) are additional method-specific identities, and the reduced fourth-moment polynomial determines the split specifically at that pair.",
+          "Neither the theta-model pair of random step laws nor the overdamped resonance result identifies the rRKN stationary law at any of these steps."
+        ],
+        "reasoning": "The calibration and divergent fourth moment are not a special case of the earlier finite-support example or of an exact invariant Gaussian for another method. The novelty assessment concerns the specific diagnosis, not general non-Gaussianity or heavy tails of random recursions.",
+        "searches": [
+          "arXiv:2310.07399 §§2–4; Resultary 6b73e39a7294 and 2f2752b5d5bf, findings and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The integrator's harmonic position marginal is an affine update with random state coefficient and fixed Gaussian noise magnitude. The original integrator paper indeed specifies density 2u and refreshed momentum; one substep sets T=h.",
+          "Earlier Resultary 6b73e39a7294 studies an affine OU stochastic-theta step R(H)X+S(H)Z with independently randomized steps of finite support, and already proves a conditionally Gaussian mechanism with the same stationary variance but distinct fourth-moment behavior."
+        ],
+        "reasoning": "The comparison must include random-coefficient affine chains as equivalent language for the mechanism. The previous theta example varies a step law; it is not a relabeling of the continuously randomized internal stage at a fixed external step of this rRKN scheme.",
+        "searches": [
+          "Resultary: random affine Gaussianity and fourth-moment boundaries, exact Gaussian calibration and harmonic rRKN 2.5",
+          "Bou-Rabee–Kleppe arXiv:2310.07399 §2.1 and §2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact invariant calculation in the primary source uses deterministic Verlet, not the rRKN coefficient. Same-day Resultary 2f2752b5d5bf concerns two overdamped stochastic Runge–Kutta schemes, including a Gaussian-invariant-variance resonance and a time-average variance gap.",
+          "The earlier theta result does not contain D(z), the pair 4±2√2, or a fourth-moment table for those steps."
+        ],
+        "reasoning": "No inspected exact formula or table matches the same integrator, harmonic normalization, independence model and one-substep assumption.",
+        "searches": [
+          "Resultary: two exact Gaussian variance calibrations, sharp fourth moment and rRKN harmonic stability",
+          "arXiv:2310.07399 §3 Remark 1, exact Gaussian harmonic invariant comparison"
+        ]
+      },
+      "rationale": "Neither the integrator nor the conditionally Gaussian random-affine mechanism is new. The decisive distinct claim is the exact calculation for one rRKN 2.5 substep with triangular stage randomization, including both target-variance roots and their opposite fourth-moment behavior. The defining paper and the closest indexed moment-splitting precedent do not supply these rRKN-specific quantities.",
+      "residual_risks": [
+        "The deferred broad literature lookup gave no evidence either way; a specialized harmonic calculation might exist elsewhere.",
+        "The theta record notes DOI 10.1080/00207179.2022.2056516 as related random-step stochastic-theta stability literature, with only reported abstract-level scope; that is not a full-text comparison or evidence of rRKN coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the method; different invariant calculation and accuracy claims",
+          "evidence": [
+            "Equations (2)–(4) give triangular rRKN 2.5; Remark 1 computes the invariant Gaussian for Verlet; Theorem 1 gives finite-horizon error bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.07399",
+          "material_read": "PDF pp. 4–5 §§2.1–2.2 (around text offset 11000); p. 10 Remark 1 (47000); p. 11 Theorem 1 (50000)",
+          "method": "Primary open-access PDF targeted passages",
+          "title": "Randomized Runge-Kutta-Nyström Methods for Unadjusted Hamiltonian and Kinetic Langevin Monte Carlo",
+          "trigger": "Primary definition of the same integrator and Gaussian target analyses"
+        },
+        {
+          "assessment": "Substantive mechanism overlap, different scheme and step randomness",
+          "evidence": [
+            "OU stochastic-theta model with finitely supported random step laws; exact moment criterion and distinct fourth-moment behavior for equal stationary variance."
+          ],
+          "identifier_or_url": "Resultary 6b73e39a7294",
+          "material_read": "RESULT.md offsets 0–5871 and 5800–10200",
+          "method": "Local mirror",
+          "title": "Sharp Gaussianity and fourth-moment boundaries for randomly stepped stochastic-theta methods",
+          "trigger": "Earlier Gaussian affine model with equal stationary variance and fourth-moment split"
+        },
+        {
+          "assessment": "Different method and comparison statistic; no exact overlap identified",
+          "evidence": [
+            "Overdamped stochastic Runge–Kutta resonance and time-average variance gap, not triangular-stage uHMC."
+          ],
+          "identifier_or_url": "Resultary 2f2752b5d5bf",
+          "material_read": "RESULT.md offsets 0 and 5286–5700",
+          "method": "Local mirror",
+          "title": "Exact Gaussian calibration and time-average variance gap for two stochastic Runge–Kutta samplers",
+          "trigger": "Same-day adjacent Gaussian calibration result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact calibration and fourth-moment assertions",
+        "arXiv:2310.07399 §3, Gaussian comparisons; Resultary 6b73e39a7294, related fourth-moment mechanism"
+      ],
+      "rationale": "Stationary variance is an especially natural accuracy diagnostic on the harmonic Gaussian test problem. For a published unadjusted sampler the exact cancellation of variance bias at two step sizes, one with infinite fourth moment, demonstrates concretely why a second-moment check can fail even in the simplest target. The closed-form stability range and roots make the diagnostic reproducible and interpretable without relying on a finite simulation.",
+      "residual_risks": [
+        "One harmonic dimension, one substep, and full momentum refresh. The larger calibration is a counterexample for diagnostics, not a recommendation for sampling."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

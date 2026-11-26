@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:05:46.681683Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The corrected finding retains the exact 174/16/8 counts and sharp 4/84/70 shortest-obstruction distribution. For even rings of length at least eight, a bit flip affects four distinct outputs and any six-bit context is available on the eight-ring. These flip equations and the constant-input conditions are necessary there and sufficient on every sufficiently long even ring by starting from zero and inserting the ones one at a time. Repeating any shorter even-ring input to a longer multiple preserves both parity and the local windows, establishing the remaining lengths. Importantly, the frozen line 17's assertion that both rational ranks are 17 is false: the eight-ring system has rank 17/free dimension 15, while the system of flip equations with the four individual constant-bit constraints has rank 19/free dimension 13. An independent exact row reduction gives both ranks and equality of the two Boolean solution sets, with 174 pairs. Path labels in the eight-state graph are precisely finite output pair-words, since the five-symbol input fragments overlap in three symbols. The subset automaton reaches the empty set exactly on an unattainable word; full finite reachability and compactness of nested bilateral preimage constraints prove the surjectivity test at all lengths. Independent exact enumeration confirmed the 16 onto rules and 4/84/70 minimum depths. Mapping coordinates by the eight matching-parity pairs gives local inverse permutations. All other 166 pairs were independently checked against the supplied periodic collision data (80/76/10 witnesses of lengths 2/4/6); periodic repetition makes them full-shift collisions, not obstructions to onto-ness. The repaired RESULT.md corrects the rank assertion and short-ring proof; the repaired check_surj.py removes the unrelated absolute module search path. Replay with those two replacements in a copy of the source directory, keeping the original verify.py and collision_witnesses.json alongside them. Independent replay did not execute the uploaded code. This PASS is for the corrected files, not the frozen rank assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2025 conservation graph covers general finite nonuniform radius-three-halves systems; its closed walks describe conservation on sizes n>=7. Thus it supplies the broader conservation framework, including the alternating repetitions.",
+          "The 2026 authors' abstract covers synthesizing number-conserving automata on finite grids by concatenation and the dynamics of all such blocks of length less than five; the UGent repository marks its full text restricted."
+        ],
+        "reasoning": "Coverage of which assignments conserve or how finite concatenated blocks behave does not itself establish bilateral onto-ness. Full-text overlap with the nearby 2026 result remains uncertain; the abstract's finite-block statement is not treated as exhaustive evidence about the paper.",
+        "searches": [
+          "10.1007/s11047-025-10015-y §4",
+          "10.1007/s11047-025-10059-0",
+          "Wolnik Makuracki \"Barriers and blocks\" \"10059-0\" cellular automata pdf repository open full text surjectivity"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, check_surj.py, collision_witnesses.json",
+        "Corrected RESULT.md and check_surj.py under repairs/5",
+        "Wolnik et al. DOI 10.1007/s11047-025-10015-y",
+        "UGent abstract for DOI 10.1007/s11047-025-10059-0",
+        "Resultary --025e46223371 (identity), --0611d3cb97b2, --5550b94658cc, --56a035af2e1b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even a complete reversibility classification for the broader nonuniform class could only identify the bijective subset. Periodic collision data alone cannot distinguish onto noninjective rules from rules with missing output words.",
+          "The conservation property, the general subset test and the neighboring class tables do not give the number of rule pairs in this class with a missing word of each minimum length."
+        ],
+        "reasoning": "The conservation classification and possible prior reversibility coverage supply inputs or partial checks, not the eight additional onto rules or the true worst-case length. Those depend on the joint full image reachability census on this class.",
+        "searches": [
+          "AUTOMATA 2024 Makuracki et al., Preliminary results of the exploration of the set of number-conserving non-uniform one-dimensional binary cellular automata",
+          "10.1007/s11047-025-10015-y §4",
+          "Resultary 2026/11/22 --0611d3cb97b2 RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Blocking into even-aligned pairs converts the map to an ordinary shift-commuting system on a four-symbol alphabet; onto-ness is fullness of its path-label language, equivalently the absence of a Garden-of-Eden output word.",
+          "The conservation graph in Wolnik et al. has local rules as part of its admissibility framework, whereas the checked eight-state automaton has input triples as states and tracks the attainable outputs of a fixed rule pair."
+        ],
+        "reasoning": "An equivalent image-language classification would be direct coverage. The known conservation graph does not give that image classification, and an equivalent testing method alone is not the sharp class-specific counts and cutoff.",
+        "searches": [
+          "10.1007/s11047-025-10015-y §4",
+          "Resultary 2026/11/22 --0611d3cb97b2 and --5550b94658cc"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit --025e46223371 is the reviewed record. The closest method match --0611d3cb97b2 classifies alternating three-input pairs (708 onto, horizon 5). The neighborhood-size match --5550b94658cc classifies homogeneous four-input rules (582 onto, horizon 18). The period-three entry --56a035af2e1b treats elementary inputs and a horizon of four blocks."
+        ],
+        "reasoning": "The distinct entries neither tabulate the present class nor supply a containing table: three-input rules omit essential-fourth-input pairs, homogeneous rules omit genuinely alternating pairs, and period-three elementary assignments are a different domain. Dates of these entries were not used to infer precedence.",
+        "searches": [
+          "Resultary 2026/11/22 --025e46223371 (identity), --0611d3cb97b2, --5550b94658cc, --56a035af2e1b"
+        ]
+      },
+      "rationale": "Credit is limited to the exact bilateral image classification for the number-conserving alternating four-input subclass: the sixteen onto pairs, the noninjective onto cases, and the sharp three-pair test and histogram. The conservation graph, the general image-language method and the reversible subset are not separately claimed as original. The strongest inspected indexed matches solve different rule classes; the available primary material gives conservation or short finite-block dynamics rather than the exact full-shift census. Repairing the ranks and proof exposition does not create or enlarge the originality claim.",
+      "residual_risks": [
+        "The full 2026 paper and 2024 presentation were not inspected. The 2026 small-block result in particular might contain related or implicit periodic data; this remaining historical uncertainty neither establishes coverage nor warrants a stronger novelty claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact conservation framework, not the claimed finite full-shift image classification in the inspected sections",
+          "evidence": "Closed walks describe number-conserving rule sequences on grids of size at least seven, in a graph with 273,538 vertices.",
+          "identifier_or_url": "10.1007/s11047-025-10015-y",
+          "material_read": "Abstract, PDF p. 2 (offset 9409) and §4 (PDF p. 8, offset 39522)",
+          "method": "Primary PDF passages",
+          "title": "A directed graph allowing for the exploration of the set of number-conserving non-uniform one-dimensional binary cellular automata with radius one and half",
+          "trigger": "Strong broader coverage of the exact radius and conservation premise"
+        },
+        {
+          "assessment": "Material finite-block overlap; full-text scope and any implicit image census unresolved",
+          "evidence": "Abstract says it describes dynamics of all such number-conserving blocks of length less than five on finite grids; the published PDF is marked UGent only.",
+          "identifier_or_url": "10.1007/s11047-025-10059-0; https://biblio.ugent.be/publication/01KK1J5XM58N7QFXQJH0BB6C2B",
+          "material_read": "UGent abstract and access notice, offsets 0–1344; not full text",
+          "method": "Publisher/DOI and direct PDF attempts returned redirect errors; repository abstract and access notice read as alternate",
+          "title": "Exploration of number-conserving non-uniform cellular automata with a neighborhood of size four: barriers and blocks",
+          "trigger": "Potential overlapping classification of short blocks on exactly the same neighborhood"
+        },
+        {
+          "assessment": "Exact theorem and assumptions not established here; reversible subset not asserted as new",
+          "evidence": "Frozen related work describes a reversible classification in the nonuniform radius-three-halves class.",
+          "identifier_or_url": "https://automata2024.webspace.durham.ac.uk/wp-content/uploads/sites/364/2024/07/5-Non-uniform-cellular-automata-with-radius-one-and-half.pdf",
+          "material_read": "Bibliographic identification and description in the frozen RESULT.md only",
+          "method": "Official presentation PDF and conference site attempts returned 403",
+          "title": "Preliminary results of the exploration of the set of number-conserving non-uniform one-dimensional binary cellular automata with radius one and half",
+          "trigger": "Reported broader reversible classification"
+        },
+        {
+          "assessment": "Material methodological overlap, not a containing rule class",
+          "evidence": "They concern alternating elementary, homogeneous four-input, and period-three elementary systems respectively, without the present simultaneous period-two, four-input, and all-even-ring conservation conditions.",
+          "identifier_or_url": "Resultary 2026/11/22 --0611d3cb97b2, --5550b94658cc, --56a035af2e1b",
+          "material_read": "Local-mirror RESULT.md statements at respective offsets 221, 230 and 185",
+          "method": "Bounded local-mirror comparison",
+          "title": "Sharp five-pair Garden-of-Eden test for alternating elementary rules; sharp first-forbidden-block horizon for four-input binary rules; period-three surjectivity rigidity",
+          "trigger": "Strongest possible same-date dominance by an exact broader census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The short neighborhood and smallest nontrivial spatial period give a natural conserving subclass in which infinite-system onto-ness can be compared directly with reversibility. The exact classification demonstrates that half of the onto rules have collisions, and a witness of at most three even-aligned pairs diagnoses every failure of onto-ness, with three necessary for 70 cases. This sharp finite criterion and structural distinction have independent use beyond a count of conserving assignments. The repair preserves those conclusions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

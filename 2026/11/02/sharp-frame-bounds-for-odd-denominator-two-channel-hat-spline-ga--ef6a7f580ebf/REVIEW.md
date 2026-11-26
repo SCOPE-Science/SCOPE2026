@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The central claim concerns every odd integer denominator, not a finite numerical pattern. Its proof reconstructs the integer-modulation Walnut frame operator, derives its two-periodic Jacobi fiber unitarily, evaluates the four relevant coefficients by finite arithmetic sums, and proves strict monotonicity of both extreme eigenvalue branches using the exact positive discriminant \(24(q^2-1)\). Endpoint continuity establishes sharp essential bounds. A separate direct Zibulski–Zeevi calculation and exact-rational sum checks corroborate the normalization and algebra (773 assertions). Numerical experiments are not treated as an all-denominator proof.
+## correctness
 
-## Originality — PASS relative to inspected literature
-The August 2026 Stangl–Frederick source determines frame membership on \(ab=1/q\) in a different modulation range, rather than the two-channel sharp frame constants at \(b=1\), \(ab=2/q\). The Atindehou–Frederick–Kouagou–Okoudjou work proves regions of frame existence and exhibits duals, but not these operator-norm extrema. Relevant published results giving sharp hat-spline bounds at \(ab=1/2\), \(3/2\le b\le7/4\), and integer-coset multiwindow systems have different lattices and do not imply this formula. Classical Zak and Walnut representations reduce the task to explicit matrices; they do not evaluate the continuous exact extrema. The principal residual risk is earlier unindexed all-odd-denominator calculations in Gabor frame-operator literature.
+PASS
 
-## Value — PASS
-The first nontrivial two-channel rational lattice family is an intrinsic quantitative test case for the recent full-rational-frame questions. Exact lower and upper reconstruction-stability constants hold for every admissible odd denominator, including the critical smallest \(q=3\) system, and the condition numbers have a sharp uniform cap and a nontrivial persistent limit of \(3\). The result answers an actual parameterized spectral-optimization problem rather than merely checking frame membership or performing a one-off finite example.
+The frozen proof used the centered hat in the Walnut coefficients but evaluated the sums for the translated hat: at q=3, t=0 the actual centered D(t),D(t+1) are 11/9,8/9, not 8/9,11/9. Both coefficient pairs are interchanged; this leaves trace, squared diagonal difference and off-diagonal modulus invariant. The repair explicitly works with the unitary-equivalent translated hat, reconstructs the finite sums by branch counts, endpoint sums and quadratic coefficients, and derives the two-channel matrix with no normalization change. Nonnegative products optimize both spectral edges at phase zero. The derivative gap 24(q²−1)>0 makes both extreme-phase branches strictly increasing in w, and continuity gives the stated essential extrema and sharp bounds. Recomputed 1248 centered coefficient identities in integer arithmetic; the general proof is symbolic, not extrapolated from the samples.
 
-## Scope and independent validation
-The proof covers the centered triangular spline, unit modulation spacing and translation step \(2/q\) for odd \(q\ge3\). It neither solves nonunit modulation nor the published open \(b\ge3/2\) regime for numerator two. The small risk of equivalent unindexed literature remains. Supplementary tests are not independent mathematical certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected same-density and same-window work does not give the exact fixed-hat, b=1 spectral edges. The supported contribution is sharp bounds and conditioning, not qualitative frame membership or the general fiber representation.
+
+## value
+
+PASS
+
+The smallest genuinely two-channel reduced numerator is a natural exact spectral benchmark beyond integer oversampling. Both optimal edges, not just positivity, give usable noise/stability constants and exhibit a nontrivial universal conditioning limit of three. The thin but structured family is infinite, and the proof identifies distinct controlling base points for the two edges.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

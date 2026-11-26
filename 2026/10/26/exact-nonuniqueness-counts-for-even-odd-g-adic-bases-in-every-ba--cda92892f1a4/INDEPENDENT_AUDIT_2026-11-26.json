@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:37:41.753288Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–24 and 26–73",
+        "VERIFICATION.md, check.py and recorded check.log totals",
+        "Independent direct summand enumeration, all bases 4–10 and k=1–3; evidence: /workspace/branches/a7630844-e3ba-46b6-9065-d9a67b3bfa82/independent-direct-check.txt"
+      ],
+      "rationale": "Digit splitting gives exactly one mixed-parity summand pair for a mixed integer. A same-parity representation of a mixed integer must carry and thus has two positive summands. Each even-start block has 2g−1 carry-or-no-carry values; the odd-start family loses the units digit and has only g choices for the last digit because overflow is forbidden. The intersection has units zero and 2k−1 free binary digits. Removing pure outputs before inclusion–exclusion gives (3g−1)(2g−1)^(k−1)−2g^k−2^(2k−1)+1. For a positive pure integer, the number of same-parity unordered positive pairs is (∏(d_j+1)−2+I)/2, where I is 1 exactly when every active digit is even. This is one only for a lone 2 or 3 or two 1s. An opposite-parity carry gives at least two unordered pairs whenever all present digits are 1 and units is zero, because each used preceding digit has to split g, with floor(g/2)≥2 choices even at one site. A lone unit 1 has neither type. The surviving unique pure count is 5k−1 and the only missing integers are 0 and 1. Adding the two ambiguity counts gives the formula; 2g−1>4 gives the stated leading asymptotic. Independent summand enumeration reproduced all 21 recorded configurations (3,550,513 admitted pairs).",
+      "residual_risks": [
+        "Finite enumeration corroborates the proof but cannot establish the all-parameter result. The exact constant is for strict complete-block cutoffs only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tang treats wider classes of g-adic partitions with minimality and uniqueness/density results. Tang & Ling study criteria for asymptotic minimality."
+        ],
+        "reasoning": "Neither the more general density assertion nor a minimality criterion fixes the union/intersection cardinalities or exact corrections at these cutoffs.",
+        "searches": [
+          "Tang arXiv:2610.23152v1 Theorem 1.1 and Corollaries 1.3–1.5",
+          "Tang & Ling arXiv:1810.10925v1, partition-based minimal bases"
+        ]
+      },
+      "checked_sources": [
+        "Ling & Tang 2015",
+        "Tang 2026 arXiv:2610.23152v1",
+        "Tang & Ling arXiv:1810.10925v1",
+        "Resultary 4f25c243d10a and 1da72fea4e7a",
+        "OEIS base-four lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Density-one uniqueness allows many sublinear exceptional counts and determines neither the exponent nor coefficient. The ternary proof uses base-nine digits 0–4 with split counts (1,2,3,2,1); the frozen argument evaluates all 2g−1 local sums and distinguishes single digits 2 and 3 and the higher-base carry splits."
+        ],
+        "reasoning": "The proof family is related but the higher-base combinatorial classification and counts are not obtained by substituting a number in a previously general formula.",
+        "searches": [
+          "Ling & Tang Theorem 1.1; Resultary 4f25c243d10a Finding, scope and initial proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2015 theorem uses ordered representations of the same parity-supported set. Ordered count two gives its generic unique distinct-summand case, but equal summands would give ordered count one. The 4f25c243d10a record uses exactly the frozen unordered convention and g=3."
+        ],
+        "reasoning": "Converting conventions does not supply finite-cutoff counts. At g=3 the ternary constant is one larger than formal extrapolation from g≥4: a single power has only one opposite-parity carry split at g=3, and the set of admissible lone digits changes. The exact ternary result does not imply the higher-base claim.",
+        "searches": [
+          "Resultary exact nonunique representation counts for alternating g-adic/ternary bases",
+          "Ling & Tang, doi:10.1017/S0004972715000805, Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The OEIS term query returned no match for that five-term subsequence. Resultary 4f25c243d10a states an exact base-three count; 1da72fea4e7a counts integers requiring the summand 1."
+        ],
+        "reasoning": "The base-three symbolic match does not cover the g≥4 sequence, and the mandatory-summand statistic is not the cardinality of R_g≥2. The limited OEIS miss is only bounded lookup evidence.",
+        "searches": [
+          "OEIS exact term lookup 3,58,491,3624,25873 (g=4)",
+          "Resultary exact representation thresholds and essential-summand census for alternating digit bases"
+        ]
+      },
+      "rationale": "The distinct finding is an exact uniform exceptional-set size and exponent on natural cutoffs for g≥4. The closest published theorem gives density-one uniqueness for the very same basis; a distinct same-date ternary record gives a materially related exact formula via the same parity decomposition, but at a disjoint base with a different pure-digit correction. Neither supplies this quantified count.",
+      "residual_risks": [
+        "Nathanson's 1988 Minimal bases and powers of 2 was identified from references, not inspected directly. The web search yielded no useful result; it and the one OEIS lookup do not rule out a differently indexed equivalent treatment. No priority direction is inferred between the two same-date records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact object, coarser uniqueness result",
+          "evidence": "For g≥2 proves thinness, strong minimality and density-one ordered count two.",
+          "identifier_or_url": "https://doi.org/10.1017/S0004972715000805",
+          "material_read": "Theorem 1.1, PDF p. 2 around offset 3932",
+          "method": "Bounded lawful primary PDF reading",
+          "title": "On minimal asymptotic g-adic bases",
+          "trigger": "Same basis and representation uniqueness"
+        },
+        {
+          "assessment": "Broader family but no matching exact cutoff in inspected results",
+          "evidence": "The results apply under g>h to partitions and give minimality and uniqueness statements, not the finite nonuniqueness census.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.23152",
+          "material_read": "Theorem 1.1 and Corollaries 1.3–1.5, PDF p. 3 around offset 7981",
+          "method": "Bounded OA PDF reading",
+          "title": "Minimal asymptotic g-adic bases from arbitrary partitions",
+          "trigger": "Wider partition theorem could cover the frozen family"
+        },
+        {
+          "assessment": "Minimality criteria, not an exact representation threshold in inspected passages",
+          "evidence": "The discussion treats Nathanson's partitions and criteria/counterexamples for preserving minimality.",
+          "identifier_or_url": "https://arxiv.org/abs/1810.10925",
+          "material_read": "PDF pp. 2–3, offsets 3427–6865",
+          "method": "Bounded OA PDF reading",
+          "title": "On asymptotic bases and minimal asymptotic bases",
+          "trigger": "Additive basis background and possible older general theorem"
+        },
+        {
+          "assessment": "Substantial method and object overlap, distinct base and correction; within-day order unknown",
+          "evidence": "States 8·5^(k−1)−2^(2k−1)−5k specifically below 9^k in base three.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-nonunique-representation-counts-in-a-ternary-even-odd-digi--4f25c243d10a",
+          "material_read": "Finding, scope and initial proof, offset 0",
+          "method": "Paged Resultary mirror",
+          "title": "Exact nonunique-representation counts in a ternary even–odd digit basis",
+          "trigger": "Closest exact same-date count"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Counts obligatory usage of summand 1 rather than multiplicity at least two.",
+          "identifier_or_url": "2026/10/25/SCOPE-an-exact-essential-summand-census-for-the-alternating-g-adic-bas--1da72fea4e7a",
+          "material_read": "Indexed Finding/statistic",
+          "method": "Local Resultary inspection",
+          "title": "An exact essential-summand census for the alternating g-adic basis",
+          "trigger": "Exact census on the same alternating basis"
+        },
+        {
+          "assessment": "No result for this bounded query",
+          "evidence": "The site reports that the terms do not match the table.",
+          "identifier_or_url": "https://oeis.org/search?q=3%2C58%2C491%2C3624%2C25873",
+          "material_read": "Search result for the literal terms",
+          "method": "Lawful OA webpage",
+          "title": "OEIS sequence lookup for 3,58,491,3624,25873",
+          "trigger": "Exact index check for the first allowed base"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof steps 2–4",
+        "Ling & Tang's density theorem and the distinct ternary Finding"
+      ],
+      "rationale": "Density leaves the rate of exceptional representations undetermined in a classical thin additive basis. Complete two-digit blocks are natural for its parity decomposition; counting all such blocks in all higher bases gives an exact rate, coefficient and finite correction with a genuine low-base carry distinction. This is useful beyond any one verified grid and need not extend to arbitrary partitions or cutoffs to be worthwhile.",
+      "residual_risks": [
+        "The absence of 0 and 1 representations and the underlying thin-basis properties alone are not the contribution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

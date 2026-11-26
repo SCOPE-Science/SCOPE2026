@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two-block part follows by subtracting successive suffix-selection marginals, reflecting the forced block-count distributions across the fixed total, and a dimension bound on the image of a finite simplex. The four-party part follows from the forced identity \(b+c-1=p_{23}-p_{14}\), two lower bounds, exact feasible lotteries in both sign chambers, and the equality conditions proving uniqueness. The exact-rational verifier independently enumerates small LP vertices and covers \(1{,}398\) rational profiles; the arbitrary-real and arbitrary-block-size assertions follow from proof, not extrapolation. Potential limits: floor blocks must be distinct, quota and marginal axioms exact, and ties resolved as stated.
+PASS
 
-## Originality — PASS with residual priority risk
+Under the specified fixed priority for equal quotas, cross-floor inversions are impossible and within each block every zero-envy rounded-up set is a suffix. Its length has tails P(L≥j)=r_(s−j+1), so the integer total forces exactly the reflected coupling, proving both directions and uniqueness, including ties and zero masses. At most min(m,t)+1 count pairs are available; the affine marginal image has dimension at most N−2 in the (N−1)-dimensional quota plane. For the (2,2), k=2 case, summing marginals and subtracting normalization gives p23−p14=b+c−1. Both objectives are bounded below by this difference in absolute value. The displayed lotteries attain equality: a+c≤1≤b+d ensures the potentially problematic weights are nonnegative. Equality for either objective forces p13=0 and min(p14,p23)=0; the difference and marginals then determine all six weights. This handles either sign, the equality boundary, and tied residues under the declared priority. The bundled Fraction checker checks optimal values over LP bases, not uniqueness of optimal support; that comes from the proof. It was inspected, not executed.
 
-The closest primary literature is La Commare, Tucker-Foltz and Verdugo, *Envy-free Randomized Apportionment* (arXiv:2610.24217v1), particularly Proposition 4.2, Theorem 4.3, and the four-party worked example in Section 4.2. Its general flow and optimization LP cover algorithmic feasibility and numerical minimization, but its inspected statements do not give the general two-block reflection compatibility and measure-zero theorem, nor the unique symbolic optimizer and exact minimum for all four-party two-block instances. Published mathematical-record searches did not reveal an earlier equivalent; this is not proof of unique priority. General LP reduction and unindexed prior symbolic analyses remain material risks.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem supplies an exact structural reason why two distinct, repeated floor groups generally cannot achieve zero envy even though randomized rounding is ex-ante fair. It also turns the first nontrivial multiblock optimization cell into an explicit, unique, constant-time lottery and gives a sharp quantitative price for failing the reflection condition. These are motivated by quota rounding and the finite examples of the initiating work, not arbitrary numerical restrictions. The sharp identity simultaneously controls the expected count and the probability of any envy.
+The model, feasibility framework, and optimization of both types of costs are prior. Pass is for the explicit structural and sharp quantitative finding: a reflected count law with uniqueness and nullity, and the shared exact optimizer, uniqueness, and value throughout the balanced chamber. The reflection is a short structural specialization of the general network, not a new general decision method. The checked prior statements do not give the tight marginal lower bound and its equality conditions for both costs, or the resulting chamber-wide formula.
 
-## Scope and independence
+## value
 
-The theorem is not a universal solution for all floor-block partitions and has not undergone an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first balanced two-floor case already shows that proportionality and zero envy are generically incompatible. The exact positive cost is useful beyond a feasibility test: it quantifies the unavoidable violation and shows that optimizing its incidence does not trade off with optimizing its expected count in this chamber. This is a natural small case, not a claimed general optimization advance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

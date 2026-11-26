@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationary covariance was independently derived from the stable four-dimensional quadrature drift and its diagonal squeezed-thermal diffusion, matching the source's eigenvalue formula with the vacuum variance normalized to one-half. The all-parameter coupling optimum follows from a derivative whose sign is governed by an exactly factored quadratic. The global ceiling is a strict finite-parameter bound, not an attained maximizer. The scaled profile follows from an exact rational-radical representation; its quadratic entanglement window and thermal endpoints were checked. Symbolic/matrix reproduction (1057 passing assertions) supplements the displayed proof. Risks are limited to the deliberately excluded unequal, detuned and laboratory-frame settings.
+PASS
 
-## Originality — PASS with residual risk
+The frozen main formulas are mathematically correct under the stated resonant, phase-locked, equal-bath assumptions. The normal modes have anomalous moments γM/(γ±2iJ), with M=−y sinh(2r)/2, giving local anomaly μM and intermode anomaly −iχM. Equal local quadrature blocks can be made isotropic by identical local symplectic scalings; a common rotation diagonalizes the cross block to diag(c,−c), with |c|=|χM|. Partial transposition makes that cross block scalar, giving the smaller symplectic eigenvalue sqrt((y cosh(2r)/2)^2−(μM)^2)−|c|. In the repair, writing t=tanh(2r), the difference between the squared first radical and the square of sqrt(1−t)+t sqrt(μ(1−μ)) is t(sqrt(1−μ)−sqrt((1−t)μ))². Both sides of the square-root comparison are nonnegative. For 0<t<1 the unique equality is μ=1/(2−t), or J=γ sqrt(1−t)/2, yielding 2ν̃_−=y/sqrt(1+t). At r=0 all J are equivalent; for r>0 the strict PPT threshold and, when positive, unique negativity maximum follow. The frozen high-squeezing window is a limiting, not a finite-r, window. The uploaded verifier was inspected, not executed; its recorded 1057 finite checks are not proofs. The repaired RESULT and verification notes bound the claim to the exact prescribed-squeezing optimization.
 
-The source itself already has the full finite-parameter steady-state covariance and smallest partially transposed symplectic eigenvalue; those are explicitly excluded from the contribution. Its main text gives qualitative nonmonotonicity and squeezing domes, not the singular joint high-squeezing/vanishing-coupling profile, exact sharp scaled survival window, globally sharp nonattained log-negativity ceiling, or corresponding thermally constrained resource boundary. Schuch–Wolf–Cirac study optimized noisy Gaussian devices with arbitrary passive controls; Ge–Tasgin–Zubairy study passive mixing of prescribed input states. Comparisons with published related findings did not reveal these same restricted-model scaling statements. Some of the new results are consequences of optimization of a published exact formula, and implicit subsumption by general Gaussian resource theory remains a real originality risk, not a proof of noncoverage.
+## originality
 
-## Value — PASS
+PASS
 
-The sharp window identifies the coupling precision required to retain entanglement when the squeeze resource diverges. It resolves an apparent paradox between the source's suppression of correlations at strong squeezing for fixed hopping and finite limiting entanglement along jointly tuned hopping. The exact occupation threshold, optimal hopping schedule, critical squeezing cost, and rigorous nonattainment inform a motivated open-bosonic-system resource tradeoff, beyond numerical observation of a finite squeezing dome.
+For the repaired claim only: the prescribed-squeezing hopping optimum and exact minimum are not stated or directly supplied by the strongest inspected antecedents. The frozen claim as a whole does not pass: the indexed fixed-hopping effective-squeezing optimum and window directly give the joint supremum, nonattainment, and weak-coupling limiting profile and endpoints. These parts and the complementary fixed-hopping optimum are not claimed in the repair.
 
-## Closest literature and scope
+## value
 
-Primary prior work: Ayoub–Castillo-Gonzalez–Bittner (arXiv:2605.03978v1), which already provides the exact finite-parameter eigenvalue formula. Adjacent Gaussian-control theory: Schuch–Wolf–Cirac (arXiv:quant-ph/0505145); passive squeezing conversion: Ge–Tasgin–Zubairy (arXiv:1506.04937). The result does not apply to unequal baths, non-phase-locked references, or a generic entanglement measure. Independent scientific validation is not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At a fixed, physically constrained bath squeezing, the optimizer specifies the unique hopping setting rather than only describing a dome or bounding achievable entanglement. The exact minimum yields an actionable strict finite-resource thermal feasibility test, including equality and separable regimes. This is not tuning the relative bath phase or re-evaluating the indexed fixed-hopping squeezing optimum. The previously implied joint ceiling and asymptotic window do not contribute to this assessment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

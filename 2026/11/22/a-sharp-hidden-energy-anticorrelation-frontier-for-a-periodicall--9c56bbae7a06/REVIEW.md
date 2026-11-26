@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Lyapunov covariance equation separates into a constant stable trace/off-diagonal subsystem and a driven scalar difference. Exact periodic matching, phase integration and conditional Gaussian Wick identities give the complete fourth-order formula. The strictly increasing response \(F(z)=1-\tanh(z)/z\) proves the unique-crossing and sharp-coupling classification, including zero coupling and threshold equality. The independent matrix-propagation checker passed 639 assertions. The full-lag covariance identity is derived, not inferred from a finite grid.
+## correctness
 
-## Originality — PASS (qualified)
-Cerasoli et al. (arXiv:2201.04903) study fixed unequal bath temperatures and spectral-density fluctuation statistics of the gyrator. Chen, Gibson and Craven (Phys. Rev. E 108, 024148, 2023) study oscillatory bath temperatures in a one-coordinate underdamped heat-transport model. Neither inspected work supplies a sign-changing, phase-mixed cross-energy covariance classification for the coupled two-coordinate model. The closest general stationary Ornstein–Uhlenbeck theory supplies component propagators but does not by itself state the exact fourth-cumulant and sharp coupling frontier. Broader uncatalogued periodic Gaussian-mixture work could implicitly cover parts of this finding, so publication priority remains uncertain.
+PASS
 
-## Mathematical value — PASS
-The natural experimental question is whether time-averaged position and spectral covariance measurements can reveal thermal bath swapping. Here all two-time covariances are mathematically indistinguishable from equilibrium, but an experimentally observable quadratic-energy correlation has a complete sharp sign phase diagram and an exact contrast/coupling feasibility threshold. The fourth cumulant also identifies the hidden half-period when other physical scales are known. This is a substantive identifiability boundary and a complete natural parameter classification, not merely a numerical sign example.
+For J=diag(1,−1), KJ+JK=2aJ, so the unique stable periodic covariance is T₀K⁻¹+q(t)J where q′=−2aq+2δσ. Half-period antisymmetry fixes q(0)=−(δ/a)tanh(aτ). Integration of q(t)² on the positive half-period gives (δ/a)²[1−tanh(aτ)/(aτ)]; its mean over both halves is zero. The globally randomized phase gives time translation invariance. Conditional future increments have mean zero, so the covariance at lag h≥0 is e^(−Kh) times the averaged one-time covariance, and the opposite lag is its transpose. The covariance of the conditional variances is −E[q²], whereas the off-diagonal covariance is the constant −kT₀/(a²−k²); conditional Wick pairing thus adds exactly twice its square. The marginal fourth cumulants are 3E[q²], and the mixed one is −E[q²]. F increases strictly from 0 to 1 because the numerator of F′ has derivative 2z sech²(z)tanh(z). Thus for k≠0 a finite crossing requires R>√2u/(1−u²), and some R<1 meets this precisely when 0<u<√(2−√3). Equality in the contrast condition gives a zero only at infinite half-period; k=0 is strictly negative at every positive half-period. The illustrative parameters give target 128/729 as stated.
 
-## Limits
-The result requires equal trap diagonal entries, equal-and-opposite noise temperature modulation, a fixed unobserved uniform phase and positive bath temperatures. No entropy-production bound, thermodynamic-current inversion or independent publication-priority assessment is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The scoped contribution is the exact fourth-order sign frontier in a phase-randomized thermal OU pair despite its whole equilibrium covariance function. Neither covariance camouflage by itself, Gaussian phase mixing by itself, nor sign changes in unrelated periodically driven observables are claimed new. The resolved related indexed papers use materially different models or observables.
+
+## value
+
+PASS
+
+In a natural symmetric thermal model even the whole second-order stationary time series fails to distinguish the switched baths from equilibrium. Negative squared-coordinate covariance is impossible for a centered Gaussian pair, and this result says exactly when it is visible and when no permissible contrast yields a crossing. It supplies a diagnostic regime and a sharp limit on it, rather than merely the existence of non-Gaussian phase mixtures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

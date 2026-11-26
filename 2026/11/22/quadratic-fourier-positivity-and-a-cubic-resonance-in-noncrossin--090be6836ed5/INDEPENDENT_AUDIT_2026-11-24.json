@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:22:40.566221Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the unnormalized successor-arc model a marked arc of length d separates the d−1 strictly interior labels (none can join its block or span the arc) from the exterior, where contracting its endpoints leaves n−d labels. Thus N_e=C_(d−1)C_(n−d). Catalan log-convexity gives N_e≤C_(n−2) for d≥2, with N_e=C_(n−1) for d=1; contracting two distinct adjacent-label arcs gives N_ef=C_(n−2) also when they share a vertex. Expanding the quadratic character gives C_n−2N_e−2N_f+4N_ef. For zero, one and two adjacent-label arcs the stated bounds are positive from n=5 (as is the singleton bound). At n=6 the three marked common-source arcs are mutually exclusive and have counts 42,14,10, giving zero. Reduction modulo 4 uses even N_e and C_6=132. The −4 witness has total singleton count 80 and only two compatible pairs, of multiplicities 4 and 2, with no triple: 132−160+24=−4. A fresh exact calculation independently agreed on the support of 132 vectors and evaluated every signed sum directly; it confirmed all six-label degree-zero multiplicities in the zero census, 25 cubic zeros, rank 23684, nullity 9084 and the absolute nonzero minimum 4. At n=5 the same calculation finds 164 zeros beginning at degree 4. The phrase ‘first cubic obstruction’ is correct in the stated n≥5 regime, not globally: at n=4 the three adjacent chain arcs give 14−2·15+4·6−8=0. Nor does ‘first cubic’ mean the first singular operator. The accompanying original checker uses int.bit_count, requiring Python 3.10 or later rather than 3.8; the independent run is not dependent on that checker.",
+      "replay": "/workspace/branches/c3bcf88d-6fd4-498b-ad09-e784702826d9/independent_arc_census.py (direct sums at n=5,6; JSON outputs in the same directory)",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reading gives Catalan/Narayana counts for the underlying arc support. Bóna–Mező treats block-count generating polynomials for partitions into nonsingleton blocks. Resultary d959f279b56a uses the same arc coordinates on a specifically restricted noncrossing support."
+        ],
+        "reasoning": "Aggregate counts by number of blocks do not track which arcs are present, and a signed spectrum restricted to singleton-free seven-label partitions supplies neither the unrestricted n=6 table nor all-n positivity.",
+        "searches": [
+          "arXiv:1405.6904 p. 2",
+          "arXiv:0705.2734 p. 1",
+          "Resultary: noncrossing partitions successor-arc signed spectra and degree at most two"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1405.6904",
+        "arXiv:0705.2734",
+        "Resultary:006bcae293e6",
+        "Resultary:8c788e5d89ed",
+        "Resultary:d959f279b56a",
+        "Resultary:2970b971a7bb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "8c788e5d89ed concerns mod-8 valuations for all set partitions in relation-incidence coordinates. 006bcae293e6 treats noncrossing/nonnesting with all-pair coordinates through n=5. The same-day all-partition successor-arc result has matching quadratic positivity for n≥5 but its n=6 operator is invertible."
+        ],
+        "reasoning": "A prior valuation in other coordinates cannot prove quadratic signs or a sharp min-nonzero and nullity here; restriction from all partitions to noncrossing ones does not preserve location-specific signed sums either.",
+        "searches": [
+          "Resultary:8c788e5d89ed exact dyadic valuations",
+          "Resultary:006bcae293e6 first Walsh rank separation",
+          "Resultary:2970b971a7bb all-partitions staircase rook quadratic protection"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reading p. 2 identifies left noncrossing diagrams with Catalan noncrossing partitions. Resultary 006bcae293e6 instead records all co-block pairs, including nonsuccessor pairs."
+        ],
+        "reasoning": "The same combinatorial objects need not give the same Boolean Fourier problem. Recovering all-pair incidence from arcs uses transitive closure; the unequal ranks at n=5 (1024 vs 860) rule out invertible affine equivalence.",
+        "searches": [
+          "arXiv:1405.6904 left noncrossing arc diagrams",
+          "Resultary: noncrossing successor arc versus same-block pair Walsh convolution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Reproducing the all-pair noncrossing n=5 transform agreed with 006bcae293e6's signed-multiplicity table (no zeros), unlike the 164 zeros of successor arcs. Same-day d959f279b56a gives 19 cubic zeros and 157808 total zeros for 162 singleton-free seven-label support vectors."
+        ],
+        "reasoning": "Both are exact signed-spectrum comparators, not the same census. For the all-pair model a fresh n=6 check gave nullity 2346, also different. Shared terminology and same-day dates alone do not determine priority.",
+        "searches": [
+          "Resultary:006bcae293e6 RESULT.md and spectrum.csv",
+          "Resultary:d959f279b56a RESULT.md offsets 0 and 2200"
+        ]
+      },
+      "rationale": "The Catalan arc object is known, as are related Walsh spectra in materially different embeddings and restricted families. The checked statements do not give the all-n successor-arc quadratic positivity or the exact unrestricted six-label successor-arc census.",
+      "residual_risks": [
+        "The earlier noncrossing all-pair modulo-four result mentioned in the original prose could not be securely identified; the two accessible relation-incidence records have different scopes. An unindexed signed-arc enumerator may overlap.",
+        "The distinct same-day successor-arc findings are genuine mathematical neighbors, but their dates do not establish priority or dependence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Underlying arc model and enumeration, not the signed frequency table in that passage",
+          "evidence": [
+            "Left noncrossing arc diagrams correspond to noncrossing set partitions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1405.6904",
+          "material_read": "p. 2, left noncrossing diagrams and Catalan/Narayana enumeration",
+          "method": "Open-access primary PDF passage",
+          "title": "Noncrossing arc diagrams and canonical join representations",
+          "trigger": "Same noncrossing arc support and equivalent formulations"
+        },
+        {
+          "assessment": "Exact all-pair table, not the successor-arc spectrum",
+          "evidence": [
+            "At n=5 all-pair noncrossing rank is 1024, not 860."
+          ],
+          "identifier_or_url": "Resultary:006bcae293e6",
+          "material_read": "RESULT.md offsets 0 and 3200; n=5 noncrossing column of spectrum.csv",
+          "method": "Local mirror passages and mathematical cross-check of the table",
+          "title": "First Walsh-rank separation of noncrossing and nonnesting Catalan partitions",
+          "trigger": "Closest two-embedding exact rank comparison"
+        },
+        {
+          "assessment": "Different support and different Boolean coordinates",
+          "evidence": [
+            "Uses all same-block pairs and Bell-number congruences for all set partitions."
+          ],
+          "identifier_or_url": "Resultary:8c788e5d89ed",
+          "material_read": "RESULT.md opening",
+          "method": "Local mirror passage",
+          "title": "Exact dyadic Walsh valuations for equivalence-relation supports",
+          "trigger": "Potentially stronger congruence result"
+        },
+        {
+          "assessment": "Same encoding; restricted support missing the present all-n claim and n=6 census",
+          "evidence": [
+            "Singleton-free noncrossing partitions at seven labels; 19 cubic zeros."
+          ],
+          "identifier_or_url": "Resultary:d959f279b56a",
+          "material_read": "RESULT.md offsets 0 and 2200",
+          "method": "Local mirror passages",
+          "title": "Exact Fourier range and sharp endpoint recovery for seven-point successor arcs",
+          "trigger": "Same-day exact successor-arc Fourier count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "There is a natural cutoff by Walsh degree in a fixed Catalan encoding: all quadratic modes survive at every size from five, but cubic modes can already disappear at six. The exact finite loss and first nonzero magnitude are useful invariants of this operator, beyond object counts or arbitrary sample statistics. This does not assert an all-size high-frequency classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:33:18.138174Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reassessed the repaired heat claim. The decays are e^(-t) and e^(-4t) at the specified diffusivity and Euclidean amplitude normalization. Their energy Gram is positive definite for all T>0; the reflected objective vanishes at the endpoints and midpoint and is positive in each open half. The repaired background argument correctly factors 1+exp(z) out of the sign-conjugated inverse; the residual matrix has log-convex nonzero entries (positive irreducible for b≠0, diagonal otherwise). Convexity of its log spectral radius plus the strict scalar factor and divergent inverse tails gives precisely one optimum on each half. Independently, the squared area identity for the Gram determinant gives Delta_T/T⁴ -> 3/4 by integrating 9(r-q)²/2 over the unit square. The stable trace/determinant formula then gives uniform convergence of T^(-3) Lambda_T to 3u(1-u)/(1+4u), whose unique maximizer is (sqrt(5)-1)/4. At infinity the uniform eigenvalue limit has positive gap for 0<u<1 due to its off-diagonal entry, so interior stationarity gives a characteristic-polynomial resultant of -9(1-u)²(50u³+19u²+4u-9)/10000. The cubic is strictly increasing on [0,1] with opposite endpoint signs; its unique interior zero must be the limiting optimizer. Uniform convergence on the compact design interval justifies both argmax limits. Independently reproduced the sites 0.3123764311071713 and 0.2737605526096953. The determinant comparator has unique u=1/3 independently of T, as stated in the repair. Replay: python /workspace/independent_checks.py 5 (SymPy). Original verification and program were inspected, not executed; no claim about monotonicity, measurement noise or higher modes is made.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nussbaum's Corollary 1.2 gives log-convex spectral radius for nonnegative irreducible matrices with log-convex positive entries (and identically zero entries allowed), and describes strictness/equality.",
+          "The exact discrete-time spectral sensor result optimizes over a free unit sensing direction. The actuator-design paper optimizes over scalar actuator directions, not the constrained continuous-time point-sine design."
+        ],
+        "reasoning": "Factoring out the strictly log-convex scalar already derives the original uniqueness result from the broader matrix theorem; the repair credits it. Neither that convexity theorem nor an unconstrained optimal sensing amplitude fixes the heat horizon limits on the sine curve.",
+        "searches": [
+          "Nussbaum, Convexity and Log Convexity for the Spectral Radius, Corollary 1.2",
+          "Resultary SCOPE-exact-spectral-optimal-sensor-amplitudes-for-positive-diagonal-o--f73c92c23f4a",
+          "Geshkovski and Zuazua arXiv:2108.05629"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary mirror, three distinct analogue records above",
+        "Nussbaum 1986 Corollary 1.2; Kingman DOI access attempted",
+        "arXiv:1403.6445",
+        "arXiv:2108.05629",
+        "Wolf–Moura–Krstić 2012",
+        "Kang–Xu 2013",
+        "Burns–Herdman DOI/publisher access attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical log-convexity plus the softplus factor gives an exact implication for the old uniqueness claim. It makes no assertion about the singular Gram degeneracy as T decreases to zero or the characteristic-polynomial stationarity relation at infinite horizon."
+        ],
+        "reasoning": "The surviving result requires determining T^(-3) times the objective uniformly through a rank-one short-horizon limit, then solving a separate algebraic interior optimum at infinite horizon. It is not an instance of the spectral convexity theorem with renamed parameters.",
+        "searches": [
+          "Nussbaum Cor. 1.2, PDF p. 11",
+          "arXiv:2108.05629 overview and arXiv:1403.6445 abstract",
+          "Resultary exact sensor designs above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-site correlated-noise record shares the modes and a minimum Fisher eigenvalue but takes two simultaneous noisy observations. The exact D-optimal heat record has two time-separated point samples and uses the determinant. The assigned record's exact self-hit is not an independent comparator.",
+          "The spatial observability literature searched uses either fixed-measure domains/random initials or different sensor/actuator configurations."
+        ],
+        "reasoning": "Changing a continuous record at a single fixed point into two noisy samples changes the Gramian; changing the minimum-eigenvalue criterion into its determinant also changes the optimizer (for this very Gram the determinant optimum is always u=1/3). No exact formulation match was established for the repaired endpoints.",
+        "searches": [
+          "Resultary: one-point heat sensing, two Dirichlet modes, E-optimal location and smallest observability eigenvalue",
+          "arXiv:1403.6445 and arXiv:2108.05629"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest other exact entries give free-sensor amplitudes, an asymptotic two-sensor collision, or two-time D-optimal locations. No checked independent indexed statement gave the specified limiting single fixed site or its cubic."
+        ],
+        "reasoning": "The scientifically relevant exact lookup is constrained heat sensor locations and their horizon limits, not a generic catalogue of the cubic's roots. Equal eigenmodes do not identify identical admitted measurements or losses.",
+        "searches": [
+          "Resultary: exact spectral optimal sensor placement, two-time Dirichlet heat, correlated two-mode Fisher information"
+        ]
+      },
+      "rationale": "For the repaired claim, credit only the exact short- and long-horizon optimizers for the specified single-point, two-heat-mode worst-direction design. The general convexity/uniqueness assertion is treated as classical machinery applied to these gains. None of the strongest checked spatial or spectral design results gives the two exact horizon endpoints under this criterion and admissible set. This is a best-of-knowledge judgment, not absolute priority.",
+      "residual_risks": [
+        "Unindexed heat observer-design work could contain equivalent exact horizon endpoints.",
+        "The Burns–Herdman full text was not retrieved; no whole-paper conclusion follows. A separate inaccessible strict Perron-root reference poses no further originality requirement for the repaired claim, which treats that method as known."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the matrix theorem; factoring a strict scalar supplies strictness directly. Does not give heat endpoint optimizers.",
+          "evidence": "Positive nonzero entries are required to be log convex; r(F(t)) is then log convex for the nonnegative irreducible family, with stated equality conditions for the geometric entrywise interpolation.",
+          "identifier_or_url": "https://sites.math.rutgers.edu/~nussbaum/Pubs/logconvexity1986.pdf",
+          "material_read": "Corollary 1.2, extracted PDF p. 11, offsets 22847–25693",
+          "method": "Author-hosted OA primary PDF",
+          "title": "Convexity and Log Convexity for the Spectral Radius",
+          "trigger": "Broader result covering strict logit uniqueness after factorization"
+        },
+        {
+          "assessment": "The classical statement is corroborated; no judgment based on the unavailable original pages alone",
+          "evidence": "Log-convex matrix entries imply a log-convex spectral radius; the accessible Nussbaum passage explicitly attributes this implication to Kingman.",
+          "identifier_or_url": "https://doi.org/10.1093/qmath/12.1.283",
+          "material_read": "Secondary search excerpt; OUP PDF not retrieved. Same theorem read in Nussbaum's primary Corollary 1.2.",
+          "method": "OA attempt and corroboration via accessible primary follow-on",
+          "title": "A Convexity Property of Positive Matrices",
+          "trigger": "Original spectral-radius log-convexity"
+        },
+        {
+          "assessment": "Different time model and design space",
+          "evidence": "Maximizes minimum eigenvalue in finite discrete time over a free unit sensor, and attains 1/L precisely at |g_i|²=r_i/L.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-spectral-optimal-sensor-amplitudes-for-positive-diagonal-o--f73c92c23f4a",
+          "material_read": "RESULT.md Finding and setup",
+          "method": "Local Resultary mirror",
+          "title": "Exact spectral optimal sensor amplitudes for positive-diagonal orbits",
+          "trigger": "Exact E-optimal sensor with a diagonal evolution"
+        },
+        {
+          "assessment": "Different observations and asymptotic parameter",
+          "evidence": "Two simultaneous sites with correlated noise give an asymptotic collision law as the noise correlation tends to one.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-square-root-sensor-collision-under-near-perfect-correlated-noi--87c590c2f437",
+          "material_read": "RESULT.md Finding and setup",
+          "method": "Local Resultary mirror",
+          "title": "A square-root sensor collision under near-perfect correlated noise",
+          "trigger": "Same two modes and minimum Fisher eigenvalue"
+        },
+        {
+          "assessment": "Different design class and eigenvalue criterion",
+          "evidence": "Optimizes Fisher determinant over two locations for two time-separated readings.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-asymmetric-d-optimal-placement-for-two-time-dirichlet-heat--bbee3bcb3f40",
+          "material_read": "RESULT.md Finding and setup",
+          "method": "Local Resultary mirror",
+          "title": "Exact asymmetric D-optimal placement for two-time Dirichlet heat sensing",
+          "trigger": "Exact sites for the same two Dirichlet heat modes"
+        },
+        {
+          "assessment": "Averaged domain observability, not this point E-design",
+          "evidence": "Optimizes over measurable subsets of fixed measure using an average of the observability inequality over random initial data.",
+          "identifier_or_url": "https://arxiv.org/abs/1403.6445",
+          "material_read": "PDF p. 1 abstract, extraction offset 650",
+          "method": "OA PDF passage",
+          "title": "Optimal shape and location of sensors for parabolic equations with random initial data",
+          "trigger": "Parabolic sensor placement"
+        },
+        {
+          "assessment": "Related linear systems design, different actuator variables and objective reduction",
+          "evidence": "Minimizes scalar-control cost, with a maximization of the smallest eigenvalue of a related SPD matrix in the reduction.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.05629",
+          "material_read": "Abstract and Introduction overview, extraction offsets near 845 and 7511",
+          "method": "OA passages",
+          "title": "Optimal actuator design via Brunovsky's normal form",
+          "trigger": "Smallest-eigenvalue scalar control design"
+        },
+        {
+          "assessment": "Different spatial domain and sensor criterion",
+          "evidence": "Chooses a minimally sized sensor set on a two-dimensional battery thermal model with a min-max metric inspired by mode eigenanalysis.",
+          "identifier_or_url": "https://ecal.studentorg.berkeley.edu/pubs/CDC12-PDESensorPlacementBatts.pdf",
+          "material_read": "PDF p. 1, extraction offset near 700",
+          "method": "OA PDF passage",
+          "title": "On Optimizing Sensor Placement for Spatio-Temporal Temperature Estimation in Large Battery Packs",
+          "trigger": "PDE-temperature sensor locations and eigenanalysis"
+        },
+        {
+          "assessment": "Related observability measure, not exact optimal locations",
+          "evidence": "Uses an empirical Gramian and the smallest eigenvalue to characterize partial observability.",
+          "identifier_or_url": "https://skoge.folk.ntnu.no/prost/proceedings/nolcos-2013/papers/0011.pdf",
+          "material_read": "PDF p. 1 abstract and Introduction near offsets 800 and 3600",
+          "method": "OA PDF passages",
+          "title": "Partial Observability and Its Consistency for Linear PDEs",
+          "trigger": "Smallest eigenvalue in PDE partial observability"
+        },
+        {
+          "assessment": "Unresolved, not negative coverage evidence",
+          "evidence": "The title alone does not distinguish its criterion or say whether it contains these exact heat locations.",
+          "identifier_or_url": "https://doi.org/10.1016/j.ifacol.2021.06.102",
+          "material_read": "Bibliographic/title information only; full passages unavailable",
+          "method": "DOI and publisher OA attempts",
+          "title": "Optimal Sensor Placement for Observer Design",
+          "trigger": "Potential relevant continuous-time sensor placement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A one-point, two-amplitude experiment is the simplest heat model in which weak observability arises from nearly indistinguishable temporal modes. The endpoints show a precise horizon-dependent change in worst-direction design, contrasting with determinant design whose optimizer is horizon invariant. The short-time rank loss is reflected in cubic-in-time information; the late optimal point is instead determined by the integrated modal Gram. These exact limits are useful benchmarks for sensor design and numerical methods near temporal degeneracy, without claiming a temporal monotonicity theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

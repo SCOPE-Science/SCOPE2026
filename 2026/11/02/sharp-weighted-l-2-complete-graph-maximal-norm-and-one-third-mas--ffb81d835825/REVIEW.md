@@ -1,15 +1,21 @@
-# Scientific review: weighted maximal averages on complete graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-The weighted graph-ball definition reduces exactly to singleton/global-average maxima. Normalizing the finite mass measure, splitting at the average, and applying Cauchy–Schwarz yields an explicitly computed positive two-by-two matrix with trace \(2-t\), determinant \((1-t)^2\), and top eigenvalue \(\Phi(t)\). Its positive top eigenvector generates an admissible two-level extremizer for every subset, and equality in Cauchy–Schwarz forces all extremizers to be of this form. Differentiation proves the one-third universal equality condition. The integer SUBSET SUM reduction uses the positive masses \(L-T\), \(2L-A+T\), total \(3L\), and a forbidden large item, giving a correct polynomial many-one reduction. The checker replay independently tests exact rational identities and finite examples; it does not certify the infinite/all-real-weight theorem.
+## correctness
 
-## Originality — PASS, qualified
-The 2014 finite-graph foundation studies counting measure. The exact unweighted \(L^2\) complete-graph theorem is **already established** in González-Riquelme–Madrid (2020), Theorem 4; that portion is antecedent, not a novelty claim. The evaluated contribution is the sharp formula for arbitrary nonuniform atom masses, the exhaustive mass-subset extremizer classification, and the weak NP-completeness of attaining the universal threshold. Uniform vertex cloning does not imply the formula directly: the unrestricted counting-measure problem on clones admits high-level sets that split atomic clones, while the weighted original requires constancy within each atom. Semantically related finite-graph results available in research indices concern variation, counting measure, other graphs or other norms, not this weighted equality decision. Residual priority risk: weighted finite-space formulations could have been missed; the proof method resembles the 2020 unweighted argument.
+PASS
 
-## Mathematical value — PASS
-The exact optimum of a natural finite metric-measure maximal operator is reduced to attainable weighted subset masses; this allows exact norm evaluation, full equality classification and an explicit pseudo-polynomial algorithm for integer masses. The sharp universal threshold has arithmetic rather than vertex-count rigidity, and recognizing equality is weakly NP-complete. The latter is a genuine difficulty absent from the counting-measure version, not just a changed numerical example. Arbitrary real atom masses remain valid analytically, while the hardness assertion is confined to binary-encoded positive integers.
+The original weighted mathematics is correct: at high-set mass t the two-block quadratic form has trace 2−t and determinant (1−t)². Its positive top eigenvector realizes the high/low ratio in the Finding, and equality in the blockwise Cauchy–Schwarz inequalities enforces constancy on both blocks. In the repaired question only the universal-bound equality is needed: det((4/3)I−B(t))=(t−1/3)² and the lower diagonal entry is positive, so equality requires t=1/3, and the values 4 and 1 are an exact witness. A nonzero maximizer exists by finite-dimensional compactness. In the reduction the masses sum to 3L; the last mass exceeds L, and the original masses alone total less than L, so the subset must include L−T and the original target is exactly T. Descending subset-sum updates and the subset certificate give the claimed weak NP-completeness and decision bound.
 
-## Sources and limitations
-Foundational source: Soria and Tradacete, arXiv:1410.6204 (2014), Introduction and Proposition 2.7. Strongest antecedent: González-Riquelme and Madrid, arXiv:2005.03146 (2020), Theorem 4 and full relevant proof §3.1. Further comparison: arXiv:2011.02630, the sequel (counting measure; abstract and accessible introduction). Unindexed equivalent results remain possible; independent validation and publication-priority certification have not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original exact norm and optimizer characterization cannot be credited as a distinct analytical finding: the decisive prior proof gives the sharp coefficient and equality conditions for each active fraction before optimizing, so the mass-weighted analytic extension is mechanical. The repaired Finding is the explicitly stated decision-complexity result alone, retaining the credited one-third criterion as an analytical input. The inspected mathematical and indexed coverage did not establish the complexity of this specific norm-equality problem. This is not a pass for the original analytical headline or a claim of exhaustive priority.
+
+## value
+
+PASS
+
+The repaired statement answers whether one can recognize saturation of the sharp bound efficiently from the natural compact mass representation. The graph geometry is fixed by the number of atoms, yet equality detection distinguishes a trivial cardinality test from a weakly NP-complete arithmetic obstruction. The encoding distinction and pseudo-polynomial boundary are useful independently of claiming a new norm formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

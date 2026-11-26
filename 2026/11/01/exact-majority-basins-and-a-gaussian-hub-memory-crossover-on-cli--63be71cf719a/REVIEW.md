@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For every odd \(n\ge3\) and even \(m\ge4\), the peripheral update thresholds for existing zeros and ones coincide. This proves one-round clique uniformization, after which the hub reaches a unique stable majority at round two. The explicit boundary configuration demonstrates that the two-round bound is always sharp. Independent counts of the possible initial clique patterns for either initial hub state yield the basin formula, and the binomial CLT with Stirling's estimate gives the stated Gaussian crossover. Direct state-transition checkers independently verified all states for three representative cases. The proof, not the finite experiments, establishes the infinite-family claim.
+## correctness
 
-**Originality — PASS, qualified.** The general two-period theorem of Goles–Olivos is not claimed. The closest archival literature deals with module-based voting-time bounds (Kaaser et al., arXiv:1508.03519v1) and majority convergence/information retention on other graph families (Benjamini et al., arXiv:1405.2486v1; Tamuz–Tessler, arXiv:1307.4035v1). The existing triangle-windmill specialization is explicitly excluded. The two-scale even-clique individual-basin result is not implied by those comparisons. The 1980 original threshold paper was available as an abstract rather than inspectable full text, and unindexed overlap cannot be ruled out.
+PASS
 
-**Value — PASS.** The theorem identifies which of \(2^n\) absorbing states attract a specified input, derives an exact natural basin invariant, and isolates a sharp Gaussian transition in whether one hub bit survives local majority amplification. The parameter \(n/m\) is intrinsic: it compares the number of independent majority modules to their size, rather than selecting an arbitrary subsequence.
+With m=2r and initial hub c, a zero in a clique turns to one iff k+c>=r+1, and a one stays one iff k-1+c>=r. Thus the whole clique updates to the same bit, and the m-1 agreeing internal neighbors then preserve it. At round two the hub takes the strict majority of the n permanent bits, with no tie since n is odd. This describes exactly all 2^n fixed states and rules out other recurrence. For sharpness take c=0, (n+1)/2 cliques with r+1 ones and the rest empty: (n+1)(r+1)/2<=nr since n(r-1)>=r+1, so the hub cannot change at round one but must change at round two. For each prescribed set P of one-cliques, binomial reflection gives the local multiplicities u_m,v_m, interchanged by c, and independence of choices gives the two products. The resulting dependence on p is proportional to cosh((p-n/2)log(v_m/u_m)), giving exactly the stated extrema. Given the initial hub, the number of matching final cliques is Bin(n,(1+q_m)/2). Stirling gives q_m~sqrt(2/(pi m)); the binomial CLT standardizes the cutoff at -q_m sqrt(n)/sqrt(1-q_m^2) up to O(n^(-1/2)), and Chebyshev gives the high-ratio limit. The low-ratio limit follows in the joint growing regime (and for bounded n by continuity of the finite binomial tail). The two saved checkers and output files were inspected, not executed: they check finite graphs with (n,m)=(3,4),(3,6),(5,4), not the all-parameter result.
 
-Scientific limits: The result does not concern odd peripheral clique orders, even numbers of petals, or recovery of an external correct opinion. It is proved mathematically, with finite enumeration as corroboration only. Independent mathematical validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier October 26 Resultary finding is an exact antecedent for two-vertex petals, which are excluded here; the extension in clique order yields an independent second scale and hence a limiting hub-memory law unavailable in the antecedent. No inspected statement or stronger theorem gives the present labelled basin census and growing-even-clique crossover. This is a best-of-knowledge comparison, not a claim that two-round triangle-windmill fixation, general module arguments, or the binomial CLT are new.
+
+## value
+
+PASS
+
+The odd number of even cliques gives a natural separation of local voting and hub feedback. The individual labelled basin law recovers the full terminal-state distribution, rather than only a stabilization bound. Growing clique order changes the local influence of the hub, and the exact tie count identifies the n/m balance that separates memory loss from almost certain retention. This two-scale prediction has no counterpart at fixed triangle size and concerns retention of an initial bit, not unanimity or recovery of external truth.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

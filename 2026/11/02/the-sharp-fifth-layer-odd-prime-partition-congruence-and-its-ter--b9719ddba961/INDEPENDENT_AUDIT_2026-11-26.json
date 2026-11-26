@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:08:43.290991Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 31–83",
+        "Frozen VERIFICATION.md and verify.py (read, not executed)",
+        "Independent power-sum calculation recorded above"
+      ],
+      "rationale": "Extraction from qB_m gives H_0=q/(1−q). If f_r(n)=[q^n]H_r, the recurrence is f_(r+1)(n)=Σ_(k=1)^(mn) f_r(k), n≥1. Independent expansion in the monomial basis gives f_3(n)=m^6 n^3/6+(m^5+m^4)n^2/4+(m^4+3m^3)n/12. Thus with s=mn the fourth coefficient polynomial is [m^6 s^2(s+1)^2+(m^5+m^4)s(s+1)(2s+1)+(m^4+3m^3)s(s+1)]/24. Converting to rising binomials yields the four frozen coefficients. For p≥5 only the linear-in-n term survives after division by p^4 and reduction modulo p; it is n/8. Convolution with B_p gives the stated normalized digit, nonzero at n=1. At m=3 the four h_j coefficients are −729,21627,−74358,59049, yielding the stated ternary numerator; the first two partition numbers normalize to 23 and 275, which are coprime. For every p, B_p is an integral formal unit with constant term one; the first four coefficient vectors of h_1 through h_4 form a unimodular matrix (determinant one). Content is therefore the gcd of the four h_j coefficients, and the last one p^10 rules out all other prime factors.",
+      "residual_risks": [
+        "A single member with exact p-valuation does not by itself give the integer gcd; the unit-content argument is required for p≥5. The normalized digit can vanish at individual n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The variable-base theorem specializes to universal p^4 for p≥5 and its displayed general bound specializes only to 3^2 at p=3.",
+          "Sun–Zhang gives a digit-based exact enumeration formula for general indices; the inspected result does not isolate this progression's content or residue.",
+          "The all-ones archive law allows varying depth r but fixes the index m^r−1. The nearby depth-three result uses m^4n−m−am^2−bm^3. The colored result has a different family and strong color-divisibility assumptions."
+        ],
+        "reasoning": "A variable base, exponent, or enumeration formula does not by itself give the all-n fifth-layer normalized residue. The explicitly checked p≥5 universal bound is nevertheless covered.",
+        "searches": [
+          "Żmija arXiv:2403.04495v1, Theorem 1.3 and Corollary 1.4",
+          "Sun–Zhang arXiv:1706.07148v1, Theorem 1.2",
+          "Resultary a4362220d5df, 9f08fd865d9d and 4d302bb5d4d4"
+        ]
+      },
+      "checked_sources": [
+        "Żmija arXiv:2403.04495v1",
+        "Rødseth–Sellers DOI 10.1006/jnth.2000.2594 (limited)",
+        "Sun–Zhang arXiv:1706.07148v1",
+        "Resultary a4362220d5df, 9f08fd865d9d, 4d302bb5d4d4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The all-ones record gives b_m(m^r−1)≡m^(r−1)((m+1)/2)^(r−2) modulo m^r when (m,6)=1 and m≥5. With m=p,r=5 this gives exact valuation 4 at n=1. The universal p^4 bound and this witness determine the p-part; an integer-content argument is still needed for the literal gcd.",
+          "Universal p^4 divisibility at 3, as reported for the equivalent Rødseth–Sellers progression, would not yield a fifth factor of 3 or an exact generating function."
+        ],
+        "reasoning": "Known methods give direct access to a fourth computation but the checked results do not give its general output or exceptional ternary cancellation. The frozen integer gcd proof explicitly eliminates other prime factors; the n=1 valuation alone is not that proof.",
+        "searches": [
+          "Żmija Theorem 1.3/Corollary 1.4 together with Resultary a4362220d5df",
+          "Rødseth–Sellers Theorem 1 as cited in the frozen record (primary full text unavailable)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The recurrence gives b_p(pN−p)=b_p(pN−p+1)=⋯=b_p(pN−1); the two progressions in the citations and Finding agree term by term.",
+          "Żmija uses essentially the same extraction operators and rising-binomial basis."
+        ],
+        "reasoning": "Shifting the final base-p digit and reusing the extraction framework are not new. The calculation of the fourth polynomial and its valuation/digit consequences, not the representation, are the substantive comparison.",
+        "searches": [
+          "Rødseth–Sellers DOI 10.1006/jnth.2000.2594",
+          "Żmija arXiv:2403.04495v1, Section 2",
+          "Resultary equivalent last-digit shifts of p^5n−1 and all-ones partitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed all-ones law gives b_p(p^5−1)/p^4≡1/8 modulo p for p≥5; it contains no n>1 value for this progression and excludes 3.",
+          "No exact ternary series or all-n divided-digit table was found in the inspected bounds and examples or matched archive hits."
+        ],
+        "reasoning": "The available residue at n=1 is an exact match and is credited. The indexing and inspected examples do not establish absence elsewhere.",
+        "searches": [
+          "Resultary fifth-layer gcd and p^5n−1 progression queries",
+          "Resultary a4362220d5df, Finding and proof",
+          "Żmija arXiv:2403.04495v1, printed theorem and extraction examples"
+        ]
+      },
+      "rationale": "Credit the universal p^4 divisibility and extraction formalism to earlier work. At p≥5 the universal bound and the indexed all-ones residue at n=1 together already determine the exact p-part of the gcd; that archive record is catalogued later, which does not settle priority. The distinct supported contributions are the exact ternary progression factor and series, and the full all-n normalized residue for primes p≥5, with their explicit fourth-extraction calculation. The strongest inspected matches do not give these contributions.",
+      "residual_risks": [
+        "The exact Rødseth–Sellers theorem and any larger tables could not be read in the primary text; another exact historical specialization is possible. No priority guarantee follows from the bounded review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers ordinary p^4 for p≥5 and extraction machinery; inspected passages leave the exact ternary series and full divided digit uncovered",
+          "evidence": "Variable-base congruences and extraction/h_j formulas.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.04495v1",
+          "material_read": "Theorem 1.3 and Corollary 1.4, PDF p. 3, text offset 10297; Section 2, PDF pp. 4–5, offset 15100",
+          "method": "Primary OA PDF passages",
+          "title": "High order congruences for M-ary partitions",
+          "trigger": "General theorem and nearly identical extraction approach"
+        },
+        {
+          "assessment": "The frozen attribution of p^4 is credited as reported, not a verified whole-paper claim",
+          "evidence": "The algebraic equivalence of the two progressions was verified; additional primary-text coverage remains unknown.",
+          "identifier_or_url": "https://doi.org/10.1006/jnth.2000.2594",
+          "material_read": "Landing page/abstract only; Theorem 1 and equations (2)–(7) not accessible in primary text",
+          "method": "Publisher OA attempt returned 403; identified PSU institutional listing had no visible full text",
+          "title": "On m-ary partition function congruences: A fresh look at a past problem",
+          "trigger": "Same progression once final digits are equated"
+        },
+        {
+          "assessment": "Broader enumeration result, not an inspected statement of the sharp progression law",
+          "evidence": "Expression depends on the base-m digits of the input.",
+          "identifier_or_url": "https://arxiv.org/abs/1706.07148v1",
+          "material_read": "Theorem 1.2, PDF p. 2, text offset 5500",
+          "method": "Primary OA PDF passage",
+          "title": "On the Enumeration and Congruences for m-ary Partitions",
+          "trigger": "General enumeration could imply a digit statement"
+        },
+        {
+          "assessment": "Covers n=1 sharpness and its residue for eligible bases; later catalogue date, no priority inference",
+          "evidence": "General r all-ones congruence with (m,6)=1; does not cover p=3 or arbitrary n.",
+          "identifier_or_url": "Resultary a4362220d5df",
+          "material_read": "Mirrored RESULT.md Finding and proof, offsets 0 and 3000",
+          "method": "Configured local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp leading m-adic units for all-ones m-ary partition indices",
+          "trigger": "Exact leading digit at the first progression index"
+        },
+        {
+          "assessment": "Distinct progressions",
+          "evidence": "Exact gcds of four shifted m^4n−m−am^2−bm^3 branches.",
+          "identifier_or_url": "Resultary 9f08fd865d9d",
+          "material_read": "Mirrored RESULT.md Finding and valuation argument, offsets 0 and 3500",
+          "method": "Configured local mirror",
+          "title": "Sharp universal gcds for the four depth-three branches of m-ary partitions",
+          "trigger": "Adjacent depth and ternary valuation effects"
+        },
+        {
+          "assessment": "Distinct hypotheses, not excluded on date alone",
+          "evidence": "Prime-power base and strongly divisible color count, not the uncolored progression.",
+          "identifier_or_url": "Resultary 4d302bb5d4d4",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Configured local mirror",
+          "title": "Sharp prime-power base valuations for highly colored digital partitions",
+          "trigger": "Same catalogue day and normalized valuation/digit results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Żmija Theorem 1.3 and Corollary 1.4",
+        "Resultary a4362220d5df"
+      ],
+      "rationale": "Depth five is motivated by the exceptional arithmetic at the denominator 24, not just a numerical slice. The precise ternary gain and exact entire progression series explain where the usual power fails to be sharp, while the larger-prime law answers which progression members have an additional factor. These are useful refinements beyond isolated leading units or rechecking the ordinary bound.",
+      "residual_risks": [
+        "The conclusions do not classify arbitrary depths or all composite bases."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

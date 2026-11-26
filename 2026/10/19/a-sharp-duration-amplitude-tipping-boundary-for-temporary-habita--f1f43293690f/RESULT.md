@@ -49,11 +49,23 @@ The value \(\phi_c\) is a shock-amplitude fold threshold depending on the *basel
 
 ## Proof
 
-**Baseline stability and separatrix.** Define \(q_\phi(u)=(1-\phi u)(u-a)\). The equilibrium \(S=(1,v_0)\) has Jacobian
+**Baseline dynamics and post-restoration basin test.** Define \(q_\phi(u)=(1-\phi u)(u-a)\). The equilibrium \(S=(1,v_0)\) has Jacobian
 \[
  \begin{pmatrix}\big(1-(2-a)\phi_0\big)/\varepsilon&-1/\varepsilon\\v_0&0\end{pmatrix}.
 \]
-Its trace is strictly negative and determinant \(v_0/\varepsilon>0\), hence it is a hyperbolic sink for every positive \(\varepsilon\). The origin is likewise a sink, with eigenvalues \(-a/\varepsilon\) and \(-1\). The nonzero fast equilibria at frozen \(v=v_0\) solve \(q_{\phi_0}(u)=v_0\); these are \(u=1\) and \(u=w\), with \(a<w<(1+a\phi_0)/(2\phi_0)<1\). The scalar flow \(u'=u(q_{\phi_0}(u)-v_0)\) goes toward \(1\) above \(w\) and toward \(0\) below \(w\). The branch through \(w\) is normally repelling, while those through \(1\) and \(0\) are attracting. In the autonomous full system, the prey-only equilibrium \((a,0)\) is a saddle, and its stable manifold follows the normally repelling branch on compact intervals between \(a\) and \(w\). Standard compact-interval fast–slow persistence gives the same basin assignment for starting points uniformly separated from \(w\) at predator coordinate \(v_0+o(1)\): recovery for prey above \(w\), extinction for prey below \(w\), once \(\varepsilon\) is sufficiently small. More explicitly, after a bounded additional fast-time interval the former points enter a fixed attracting upper-layer neighborhood, where the reduced predator law \(v'=v(U_+(v)-1)\) has a hyperbolic sink at \(v_0\), since \(U_+'(v_0)=1/q'_{\phi_0}(1)<0\). The latter enter \(u<a/2\), an invariant shrinking region with \(u'\le-(a/2)u\) in fast time, after which predator also tends to zero. The compact separation from \(w\) is essential.
+Its trace is strictly negative and determinant \(v_0/\varepsilon>0\), hence it is a hyperbolic sink for every positive \(\varepsilon\). The origin is likewise a sink, with eigenvalues \(-a/\varepsilon\) and \(-1\). The baseline factorization is \(q_{\phi_0}(u)-v_0=-\phi_0(u-1)(u-w)\), with \(a<w<(1+a\phi_0)/(2\phi_0)<1\). The scalar fast flow with \(v=v_0\) approaches \(1\) from any \(u>w\), and \(0\) from \(0<u<w\).
+
+Consider restored initial states with prey tending to a fixed \(U_s>0\), \(U_s\ne w\), and predator equal to \(v_0+O(\varepsilon)\). On any bounded additional interval of fast time, continuous dependence gives convergence to the scalar flow from \(U_s\), with predator still \(v_0+O(\varepsilon)\). For \(U_s>w\), choose such an interval long enough that the limiting scalar prey value lies near \(1\) with \(h(u)<h(w)/2\), where \(h(u)=u-1-\log u\). Define the autonomous relative-entropy function (cf. [4])
+\[
+ E(u,v)=\varepsilon h(u)+v-v_0-v_0\log(v/v_0).
+\]
+The predator part is \(O(\varepsilon^2)\) at the end of this fast interval, so \(E<\varepsilon h(w)\) for sufficiently small \(\varepsilon\). For each such fixed \(\varepsilon\), the sublevel with bound equal to this entry value is compact in the positive quadrant and lies in \(u>w\): if \(u\le w\), then \(h(u)\ge h(w)\). In original time,
+\[
+ \dot E=(u-1)[q_{\phi_0}(u)-v_0]=-\phi_0(u-1)^2(u-w).
+\]
+The sublevel is forward invariant and the only invariant subset of \(\dot E=0\) within it is \(S\), since \(u=1\) can persist only when \(v=v_0\). It follows that the restored solution converges to \(S\).
+
+For \(U_s<w\), choose the additional fast interval so that its limiting scalar endpoint has prey strictly below \(a/2\). The full system enters \(0<u<a/2\) for sufficiently small \(\varepsilon\). There the fast-time derivative satisfies \(u'\le -(a/2)(1-\phi_0 a/2)u\), because \(v\ge0\), \(a-u\ge a/2\) and \(1-\phi_0u\ge 1-\phi_0 a/2>0\). This region is forward invariant in the nonnegative quadrant and \(\dot v\le-(1-a/2)v\) in original time. Thus both populations tend to zero. Neither argument assigns a basin when \(U_s=w\).
 
 **Fast pulse.** In fast time \(\theta=t/\varepsilon\), while the shock is active,
 \[
@@ -63,18 +75,18 @@ On each fixed interval \(0\le\theta\le s\), ordinary continuous dependence and G
 \[
  U'=U[q_{\phi_1}(U)-v_0].
 \]
-The bounds are uniform for each fixed finite \(s\), and the solution stays nonnegative and bounded by the initial prey value.
+The bounds are uniform on each fixed finite \(0\le\theta\le s\). The full solution stays nonnegative with \(u\le1/\phi_1\), since at that level the prey derivative is nonpositive. This bounds \(v'\) by \(O(\varepsilon)\) on the fast interval. The scalar solution stays positive for finite time and satisfies \(U\le1\), since \(q_{\phi_1}(1)<v_0\). Thus the restored initial values satisfy precisely the hypotheses of the basin test with \(U_s=U(s)\) whenever \(U(s)\ne w\).
 
 **Amplitude threshold and finite-duration classification.** The parabola \(q_\phi\) has its maximum at
 \[
  f(\phi)=\frac{1+a\phi}{2\phi},\qquad
  F(\phi)=\frac{(1-a\phi)^2}{4\phi}.
 \]
-On \(\phi\in(0,1)\), \(F'(\phi)=(a^2-\phi^{-2})/4<0\). At baseline \(\phi_0\), the maximum is strictly larger than \(v_0\) because \(q_{\phi_0}(1)=v_0\) and \(1>f(\phi_0)\). Consequently there is a unique \(\phi_c>\phi_0\) solving \(F(\phi_c)=v_0\), with the stated radical expression. It belongs to the admissible interval \((\phi_0,1)\) precisely when
+On \((0,1/a)\), \(F'(\phi)=(a^2-\phi^{-2})/4<0\), and \(F(1/a)=0\). At baseline \(\phi_0\), the maximum is strictly larger than \(v_0\) because \(q_{\phi_0}(1)=v_0\) and \(1>f(\phi_0)\). Consequently there is a unique \(\phi_c\in(\phi_0,1/a)\) solving \(F(\phi_c)=v_0\), with the stated radical expression. It belongs to the admissible interval \((\phi_0,1)\) precisely when
 \[
  v_0>F(1)=\frac{(1-a)^2}{4}\quad\Longleftrightarrow\quad \phi_0<\frac{3+a}{4}.
 \]
-For \(\phi_1<\phi_c\), the layer equation has a stable positive upper root above \(w\), which cannot be crossed by \(U\). At \(\phi_1=\phi_c\), the two roots merge at \(f(\phi_c)\in(w,1)\); uniqueness prevents crossing this double root in finite time. Thus the restored solution recovers for any fixed finite \(s\) whenever the shock does not exceed the admissible fold, including throughout the baseline immunity region.
+For \(\phi_0<\phi\le\phi_c\), \(f(\phi)<1\) and \(f(\phi)>w\): if the continuous vertex first reached \(w\), then \(F(\phi)=q_\phi(w)<q_{\phi_0}(w)=v_0\) because \(w>a\), contradicting \(F(\phi)\ge v_0\). Also \(q_\phi(1)<v_0\). For \(\phi_1<\phi_c\), the stable upper root therefore lies in \((w,1)\). At \(\phi_1=\phi_c\), the two roots merge at \(f(\phi_c)\in(w,1)\). Scalar uniqueness prevents \(U\) from crossing either equilibrium in finite time. Thus the restored solution recovers for any fixed finite \(s\) whenever the shock does not exceed the admissible fold, including throughout the baseline immunity region.
 
 For \(\phi_1>\phi_c\), \(q_{\phi_1}(u)<v_0\) at every \(u\), so the layer prey trajectory decreases strictly from \(1\), crosses \(w\) exactly once, and separation of variables gives the stated positive integral \(s_c\). It is the unique crossing time; the post-switch basin assignment above proves the two long-term outcomes whenever \(s\ne s_c\).
 
@@ -93,13 +105,15 @@ The complement is bounded; the equality uses the explicit formula for \(f(\phi_c
 
 ## Verification
 
-Run the self-contained `verify.py` with Python 3 and SymPy/mpmath installed. It checks the radical fold identities, the polynomial factorization at baseline, the exact closed integral formula, strict inequalities for the example, and the bottleneck prefactor numerically at a sequence of amplitudes approaching the fold. Optional SciPy integration checks sample finite positive \(\varepsilon\) outcomes and is clearly separated from the proof. All infinite-parameter conclusions, basin arguments, and the singular asymptotic rely on the analytic proof above, not a finite test.
+Run the self-contained `verify.py` with Python 3 and SymPy/mpmath installed. It checks the fold and denominator identities symbolically in the example, compares the closed expression to quadrature at high precision, tests the two duration inequalities, and illustrates the bottleneck prefactor numerically at a sequence of amplitudes approaching the fold. Optional SciPy integration illustrates finite positive \(\varepsilon\) outcomes. The basin conclusions and the singular asymptotic are established by the analysis above, not by finite tests.
 
 ## Relationship to prior work
 
 Hennessy, Popović, and Sattar [1] introduced and analysed the same strong-Allee two-species system under a **linear ramp** in inverse carrying capacity; its preprint provides the frozen critical manifold, fold geometry, bistability, and a ramp-rate tipping threshold. None of those established foundations is claimed here as new. The novel investigated input is instead a **finite rapid rectangular deterioration with full restoration**, where the predator remains quasi-frozen during the pulse. The above result supplies a complete sharp fast-pulse amplitude/duration diagram, an explicit baseline immunity region, and the exact fold-divergence constant.
 
 Ratajczak and collaborators [2] showed qualitatively and computationally that ecological regime shifts under press/pulse disturbances depend jointly on intensity and duration. Karakoç and collaborators [3] investigated recovery under pulse and press perturbations in a different predator–prey/resource model. These general phenomena motivate the question; neither supplies the displayed exact limit classification for the model [1]. Standard scalar separatrix, singular perturbation, and quadratic bottleneck techniques are acknowledged as underlying methods.
+
+For the same autonomous system, [4] gives the relative-entropy sublevel used here and a separate high-predator extinction certificate. The pulse classification does not require locating the full autonomous basin boundary: a bounded layer transient suffices to reach either the entropy sublevel or the low-prey region.
 
 ## Limitations
 
@@ -112,3 +126,5 @@ The duration boundary is exact only for the limiting fast-pulse problem, for eac
 [2] Z. Ratajczak, P. D'Odorico, S. L. Collins, B. T. Bestelmeyer, F. I. Isbell, and J. B. Nippert, *The interactive effects of press/pulse intensity and duration on regime shifts at multiple scales*, Ecological Monographs 87 (2017), 198–218, https://doi.org/10.1002/ecm.1249 .
 
 [3] C. Karakoç, A. Singer, K. Johst, H. Harms, and A. Chatzinotas, *Transient recovery dynamics of a predator–prey system under press and pulse disturbances*, BMC Ecology 17 (2017), 13, https://doi.org/10.1186/s12898-017-0123-2 ; https://pmc.ncbi.nlm.nih.gov/articles/PMC5381073/ .
+
+[4] *Two explicit, opposing basin certificates in a strong-Allee tipping model*, https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-two-explicit-opposing-basin-certificates-in-a-strong-allee-tippi--f7e958313282 .

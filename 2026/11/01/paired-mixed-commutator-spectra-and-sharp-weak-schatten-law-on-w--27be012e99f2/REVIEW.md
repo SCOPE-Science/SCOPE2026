@@ -1,11 +1,21 @@
-# Review of mixed harmonic Bergman commutator spectrum
+# Independent mathematical audit
 
-**Correctness (PASS).** The normalized monomial basis and projection coefficients yield a single weighted bilateral shift. The exact positive and negative tails are equal in absolute value; gamma moments are strictly log-convex, which makes each tail coefficient positive. The coefficient reflection gives paired singular multiplicities; the middle-weight identities give a guaranteed block of zeros. A two-variable finite difference of log-gamma moments proves the \(r^{-2}\) leading coefficient, and singular-value counting gives its sharp indexed constant and logarithmic trace. All claims use fixed parameters and the operator is bounded. Reproducibility source runs 16,278 finite checks but is not substituted for proof.
+## correctness
 
-**Originality (PASS, best-knowledge).** Tian–Wang–Zhao (2026) proves qualitative noncommutation; Dong–Zhou (2013) proves vanishing-pattern symmetry, and Dong–Zhou (2014) classifies finite-rank cases. Their accessible full texts do not state the positive paired singular multiset or the sharp weighted mixed-degree weak-Schatten coefficient. Chbichib–Ghiloufi (2026) treats an ambient projection-multiplier commutator with different order. A previously recorded same-space self-commutator theorem covers \(m=n\) but does not give the claimed cross-index spectrum; that special case is explicitly excluded. The monomial shift calculations in older work are a potential route to derive parts of this result, so exhaustive priority is not asserted.
+PASS
 
-**Value (PASS).** Mixed analytic/coanalytic Toeplitz commutators are natural quantitative noncommutation objects. Their non-selfadjoint spectra nevertheless have exact even singular-value pairing; a zero block depends on degree mismatch, while the sharp high-frequency scale is the product of degrees. The natural weak-Schatten endpoint is determined with its exact logarithmic coefficient. These are motivated operator invariants, not an arbitrary finite numerical slice.
+The radial beta integral in the stipulated probability measure gives the moments h_r; angular projection onto each e_(k+j) yields the three weights, including h_j/√(h_(-k)h_(k+j)) when crossing zero. The operator is a unitary bilateral translation times a real diagonal, so its modulus has entries |d_k|. The nonnegative tail gives −b_r. Conjugation J of functions satisfies J A_j J=A_j*, so J C J=−C*, giving d_(n−m−k)=−d_k and the opposite tail. For n>m, direct substitution, including the two endpoints, gives equal products h_n/√(h_k h_(n−m−k)) at 0≤k≤n−m; the reverse order follows by adjoint. Independently, for ρ=α+1>0 the ratio h_(r+j)/h_r=∏_(l=1)^j (r+l)/(r+l+ρ) is strictly increasing in r. The logarithmic mixed difference is a sum over l=1,...,m of the integral from 0 to n of ρ/[(r+l+t)(r+l+t+ρ)] dt, giving positive leading term ρmn/r². The prefactor tends to one with O(1/r) error. Compactness and the sharp rearrangement follow from two such tails and only finitely many central entries; the t-level count is asymptotic to 2√(ρmn/t), without any monotonicity assumption on b_r. The p-series and logarithmic average then give exactly the stated constants.
 
-**Residual risks.** Older quasihomogeneous shift formulas could yield an equivalent sharp spectral coefficient under a different name. The complete exact kernel, polynomial-symbol extension, and independent validation are not claimed. The scientific review is not a publication-priority certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The contribution assessed is the exact weighted unequal-degree singular-value description and sharp mixed constant, not a separate discovery of quasihomogeneous shift coefficients, symmetry of zeros, or a diagonal law. Accessible earlier work gives unweighted shift and reflection machinery, weighted commutation, and other-operator spectra; it does not directly give this full weighted mixed spectrum. The distinct later-indexed Resultary e4b0e7c2544e does give the same spectrum and a stronger exact kernel result. The comparison verifies mathematical overlap, but not prior publication of that match relative to the frozen entry or independent provenance.
+
+## value
+
+PASS
+
+These are the simplest non-diagonal analytic/coanalytic harmonic Toeplitz commutators. The exact tails and central description distinguish finite crossings from both infinite harmonic sectors and identify a sharp borderline ideal and logarithmic coefficient, rather than just a qualitative failure of commutation or a decay upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

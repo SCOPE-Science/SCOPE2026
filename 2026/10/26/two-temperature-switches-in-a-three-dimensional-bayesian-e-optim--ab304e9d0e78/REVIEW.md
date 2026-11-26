@@ -1,11 +1,21 @@
-# Scientific review: two-switch Bayesian E-optimal design
+# Independent mathematical audit
 
-**Correctness — PASS.** The two matrices are explicit positive-semidefinite rank-one updates of a positive-semidefinite prior. Their characteristic polynomials give spectra \((1,1,8)\) and \((0,4,5)\). The exponential-trace comparison is the exact polynomial \((t-1)Q(t)\), with \(t=e^{-1/\mu}\). Three exact rational sign evaluations force two interior roots, and Descartes' two-sign-change bound rules out all further positive roots. The analytic two-dimensional exponential-integral argument proves minimality for strict minimum-eigenvalue and trace endpoint dominance. The included checker replays finite exact-arithmetic assertions and additional numerical comparisons; finite experiments are not substitutes for the proof.
+## correctness
 
-**Originality — PASS, with priority uncertainty.** The 2026 primary treatment defines the same smoothing, Bayesian rank-one design objects, and small-parameter discrete-optimum preservation, but its relevant main results and appendix do not provide this two-switch ranking or the dimension-two obstruction. The earlier full-text treatment of matrix-exponential smoothing concerns gradient approximation and semidefinite optimization, rather than binary rank-one design rank reversal. Published research-record searches and prior claim comparisons did not locate equivalent implication. The elementary spectral order technique itself is not claimed new; earlier results on Laplace-transform ordering or exponential-polynomial crossings remain a genuine priority risk.
+PASS
 
-**Value — PASS.** Under exactly the information-matrix model motivating smoothed Bayesian E-design, the nonlinear surrogate's preferred experiment changes twice and selects a singular matrix despite an available positive-definite design. The result supplies exact cutoffs and demonstrates why smoothing-quality or selection heuristics need not improve monotonically as temperature decreases; the rigorous two-dimensional barrier locates the first dimension where this mechanism is possible. No algorithmic convergence failure or arbitrary-dimension upper bound is claimed.
+The two outer-product updates give a 2-by-2 block of trace 9 and determinant 8 for M_u alongside an eigenvalue 1, and M_v is diagonal. Thus the spectra are (1,1,8) and (0,4,5), with unique unsmoothed winner u and traces 10 and 9. Set t=exp(-1/mu); the sign of the objective difference is the negative of the sign of P=2t+t^8-1-t^4-t^5=(t-1)Q(t). Descartes' bound of two positive zeros counted with multiplicity and the exact signs at 1/2, 3/5 and 9/10 prove two simple roots, all ties and all three winner intervals. Independent 60-digit bisection on P, not the frozen script, gives 1.879597222729257440 and 6.819744289599112074 for the two mu values. For d=2 the sorted smaller eigenvalue and the trace are the two ascending partial sums; strict advantage in both makes the sum of the strictly decreasing convex exponentials smaller. Concretely, at fixed trace that sum decreases as the smaller eigenvalue moves toward half the trace, while at fixed smaller eigenvalue it decreases as the trace increases. Increase the trace first and the smaller eigenvalue second; the intermediate ordered pair is feasible. Dimension one is immediate. The claim is about binary choices, not fractional optimization.
 
-**Closest literature and limits.** Hendrych–Besançon–Pokutta, arXiv:2608.27024, Eq. (4), Sections 1–2, 5, 7 and relevant appendix; d'Aspremont, arXiv:math/0512344, Sections 1, 3–4; Nesterov (2007) as historical methodological background. A general exponential-order or majorization theorem may imply the supporting two-dimensional observation, but the exact rank-one two-switch instance and binary-design classification were not found in these inspected results. The construction concerns exactly two feasible integer designs with a nonzero prior and exact matrix exponential.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The normalized smoothing, Bayesian E-design setting, low-smoothing stability, and the elementary d<=2 majorization argument are not new. The contribution that survives comparison is the explicit minimal-dimensional shared-prior rank-one witness, with a singular interior winner, strict agreement at both endpoints, and exactly delimited reversals; it is not supplied by the inspected smoothing results or the distinct indexed two-switch examples.
+
+## value
+
+PASS
+
+This is a compact counterexample to reading the low- and high-smoothing rankings as evidence for intermediate smoothing. It works for two legitimate rank-one experiments on a common prior, selects a singular design on a whole open interval despite a full unit loss in the exact E-objective, and locates that interval exactly in the smallest possible dimension. This supplies a reproducible diagnostic instance for a standard objective without claiming a solver failure or general switch bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

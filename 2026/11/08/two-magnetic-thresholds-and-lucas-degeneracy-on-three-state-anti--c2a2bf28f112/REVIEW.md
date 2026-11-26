@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem specifies the exact wheel, labeled three-color configurations, edge normalization, strict positive-field domain, all integer sizes from five upward, both boundary fields, and ground-state degeneracy. The proof independently derives a sharp rim adjacency lower bound for a nonzero hub, an exact zero-hub optimization for each possible favored-color count, and explicit strict cross-sector comparisons. It counts all equality cases at both transition fields rather than extrapolating finite data. `verify.py` exhaustively checks 265356 configurations for sizes five to ten and 54 exact positive-field comparisons, including both transition boundaries; computations support, not replace, the all-size proof.
+PASS
 
-## Originality — PASS on examined scientific evidence; residual priority risk
+With a nonzero hub, k zero rim sites force at least 2k−n zero-zero edges, and an odd wheel is not properly three-colorable. Thus U≥max(n mod 2,2k−n); for 0<x<2 its field-shifted bound is minimized uniquely at k=ceil(n/2), attained with strict alternation (even) or one forced zero-zero edge (odd). Equality leaves no hub-color rim site and yields exactly 4 or 2n labeled configurations. At x=2 equality requires no adjacent nonzero rim sites and no hub-color rim site; conversely every independent set of rim nonzeros realizes −n, giving 2L_n. For x>2 the nonzero-hub optimum is uniquely all-zero on the rim for each hub color. For a zero hub with k≥1 the exact edge cost is k+max(0,2k−n): place zeros optimally and alternate the two other colors in each remaining run. At k=0 the rim costs n mod 2. Minimizing these costs less x(k+1) and subtracting the nonzero-hub optimum gives, on successive field ranges (0,1], [1,2], [2,3], [3,∞), the differences (m−1)x, m−x, (m−1)x−m, n−x for n=2m, and (m−1)x, m−1, (m−1)(x−1), n−x for n=2m+1. The restrictions m≥3 even and m≥2 odd give strict positivity below n, and the zero-hub minimizer for x>3 is uniquely all zero. This gives exactly three states at n and one above, with no extra ground-state change at the internal hub-sector breakpoints 1 and 3. Fibonacci path counts give L_n=F_(n−1)+F_(n+1), the entropy density log φ at x=2, and the adjacent regime counts show the claimed density jump. Independently ran /workspace/branches/replay_2.py: integer transfer statistics by hub, last rim color, U and K for n=5..15; checked the full optimal statistics with multiplicities at 2,871 exact rational field points covering all positive intersections and one witness in each open field cell for those sizes. This is finite corroboration only; the analytic argument proves all n≥5. Uploaded code was inspected, not executed.
 
-The classical partition-function/subgraph formulas of Chang–Shrock (arXiv:0907.0777) provide a broader implicit construction, not an evaluated positive finite-coupling wheel ground-state diagram. Crucially, the explicit wheel formulas in Chang–Shrock (arXiv:0908.2375, section on wheels) and Shrock–Xu (arXiv:1009.1182, wheel section) are weighted proper-coloring results: they discard all states with any same-color adjacent edge. These cannot directly give the new all-field energies, parity-resolved low-field degeneracies or the critical \\(2L_n\\) count because the optimal configurations have violations of proper coloring at the low-field odd rim and for every size above \\(h=2J\\). The 2015 strip-transfer paper arXiv:1506.07392 addresses other finite-width lattice families. No exact covering statement appeared in the targeted mathematical-record or primary-literature comparison, but an unindexed equivalent solution or additional specialization of a general partition formula remains possible. This evidence supports a provisional originality assessment, not worldwide uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete natural infinite-family ground-state classification for the smallest three-color antiferromagnet on the hub-and-ring geometry. It resolves simultaneously a fixed finite magnetic threshold, an extensive combinatorial ground-state entropy at that threshold and a second threshold that grows linearly with system size; each affects an identifiable physical occupation observable. The result is not a cherry-picked finite graph or an arbitrary numerical invariant. The importance is confined to exact finite-system benchmarks and zero-temperature combinatorics, rather than an asserted new thermodynamic phase.
+Wheel weighted proper-coloring formulas and general field Potts partition representations are known. The exact finite-coupling ground states in this claim include monochromatic edges, unlike proper colorings, and the strongest exact same-day wheel results use different spin interactions or optimize single-spin stability instead of global energy. The distinct supported claim is the full parity-sensitive finite-J ground-state diagram, including the threshold degeneracies and the exact Lucas correspondence.
 
-## Reproducibility and limits
+## value
 
-Run `python verify.py` in the extracted artifact directory. The all-size proof is mathematical; enumeration is finite only. Source inspections cover the pertinent sections and statements, not every page of every referenced work. Field \\(h=0\\), nonuniform couplings, more than three colors, and positive-temperature behavior are not covered.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The wheel separates competition on a frustrated cycle from a hub with extensive degree. The theorem fully resolves both mechanisms and their degeneracies at all positive fields, yielding one fixed-field transition with genuine extensive entropy and a second size-dependent hub transition. This makes the hard-core independent-set structure at the first threshold an identifiable ground-state mechanism rather than an incidental enumeration; the odd cases also test behavior outside hard proper-coloring. No finite-temperature phase transition is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

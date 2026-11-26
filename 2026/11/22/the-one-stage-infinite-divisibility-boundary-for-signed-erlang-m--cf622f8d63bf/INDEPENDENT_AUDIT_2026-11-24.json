@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:22:59.111169Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–70; VERIFICATION.md and check.py inspected but the supplied script was not executed",
+        "Independent replay: python3 /workspace/replays/frozen_review_checks.py 1; 27 exact shape-two strip/root checks and 54 exact shape-one mean cross-checks"
+      ],
+      "rationale": "For the mixture (not a difference) the MGF is a weighted sum on −b<Re z<a. The zero-free inference can be proved without analytic continuation of Lévy triplets: if X is infinitely divisible and Y_j are iid mth convolution roots for any m, Tonelli at every real argument in (−b,a) gives E exp(sX)=(E exp(sY_1))^m, so each root has the same strip of exponential moments at least. Their analytic MGFs obey this identity on the complex strip. Any zero of the MGF of X would have finite order divisible by every m, impossible since M(0)=1. For k≥2 put w=((1−p)/p)^(1/k) exp(iπ/k); w has nonnegative real part and w^k=−(1−p)/p. The inverse z=ab(w−1)/(bw+a) has z+b=b(a+b)w/(bw+a) and a−z=a(a+b)/(bw+a), both with strictly positive real part because Re w≥0 and |w|>0, including k=2 where Re w=0. Substituting gives (1+z/b)/(1−z/a)=w and cancels the numerator with neither denominator zero. For k=1, M=(1+cz)/[(1−z/a)(1+z/b)] with −1/a<c<1/b. Frullani's identity for each half-line gives the displayed logarithm. For c<0 the subtracted positive-side exponential decays faster than e^(−ax); for c>0 the reflected exponential decays faster than e^(−b|x|); for c=0 nothing is subtracted. The resulting nonnegative Lévy density integrates against 1∧|x|, yields the stated uncompensated finite-variation exponent with zero drift and no Gaussian part, and its MGF agrees near zero. Both p=0 and p=1 are excluded and would give infinitely divisible one-sided gamma laws for every stage.",
+      "residual_risks": [
+        "The replay samples rational parameter choices; the analytic proof covers all positive rates, interior sign probabilities, and common integer shapes. No extension to unequal or noninteger shapes is audited."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen prior-work discussion identifies Çankaya et al. as defining a broader Bernoulli generalized-gamma mixture and studying estimation; the article was not recoverable in full in this review.",
+          "Kloster's inspected Corollary 1.1 concerns an independent multiplier with a hyperbolically completely monotone density on the positive half-line. The asymmetric mixture paper's decisive sections were unavailable."
+        ],
+        "reasoning": "A distribution-family definition alone need not imply any infinite-divisibility classification. Positive HCM multiplication cannot apply directly to a two-valued multiplier with a negative value. With incomplete article access, no contrary claim about the entire 2015 or 2023 papers is made.",
+        "searches": [
+          "Çankaya et al. 2015 signed generalized gamma mixture, DOI 10.15446/rce.v38n2.51666 and alternate-title OA search",
+          "Korolev–Zeifman 2023, DOI 10.3390/math11173797",
+          "Kloster arXiv:2611.01058v1, Thorin class closure"
+        ]
+      },
+      "checked_sources": [
+        "Resultary cf622f8d63bf (identical) and f6ec6eb36df2 (summary)",
+        "Kloster arXiv:2611.01058v1",
+        "Pérez-Abreu–Stelzer arXiv:1201.1461v1",
+        "Primary and alternate OA access checks for Çankaya et al. 2015 and Korolev–Zeifman 2023"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kloster's multiplier is positive and has an HCM density. Inspected Pérez-Abreu–Stelzer introduction treats multivariate/matrix gamma laws, not the two-term MGF sum."
+        ],
+        "reasoning": "The usual closure theorem for differences of independent gamma variables concerns products of MGFs, not sums. The generic infinite-divisibility strip principle does not itself place a zero inside the strip; that requires selecting a root and proving the two strict real-part inequalities with all rates and weights free. Known one-stage positive examples alone do not decide the uniform boundary.",
+        "searches": [
+          "Kloster arXiv:2611.01058v1, Corollary 1.1",
+          "Pérez-Abreu–Stelzer arXiv:1201.1461v1 / JMA 130 (2014), additive gamma context",
+          "Frozen references 2–3 for split and asymmetric generalized gamma models"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "cf622f8d63bf returned the identical assigned statement. The catalogue summary for f6ec6eb36df2 describes an independent sign times one exponential magnitude with arbitrary bias and common scale on the two sides; its full mirror file was not recovered."
+        ],
+        "reasoning": "The latter class includes a=b, k=1, not arbitrary a,b or k≥2. Nothing in the summary covers the proposed obstruction; its full-text infinite-divisibility claims remain unknown. Two-sided double-exponential mixtures should not be confused with bilateral gamma convolutions.",
+        "searches": [
+          "Resultary: sign-randomized gamma / signed Erlang, infinite divisibility, stage boundary",
+          "Signed exponential fixed points under the generalized equilibrium transform, Resultary f6ec6eb36df2",
+          "Bounded primary literature query on sign-randomized gamma mixtures and infinite divisibility"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit is the frozen snapshot. The other indexed analogue is an exponential fixed-point class, not an all-stage table."
+        ],
+        "reasoning": "This universal symbolic classification involves freely varying rates and probabilities, not lookup on a finite instance table; a matching entry would have to supply the uniform integer-shape boundary or a theorem implying it. No separate such entry was identified, and missing full text leaves that possibility open.",
+        "searches": [
+          "Resultary exact signed Erlang boundary and signed exponential variants",
+          "Çankaya et al., exact paper title and DOI in the primary/alternate OA routes"
+        ]
+      },
+      "rationale": "The distinct claim supported by the searches is the uniform common-integer-stage boundary, particularly the explicit strict-strip obstruction for every stage at least two and arbitrary unequal rates and interior sign bias. The sign-mixture family and special exponential laws have antecedents; no priority is asserted for their definitions, or independently for the one-stage law or the general zero-free principle. The exact Resultary hit is the assigned record itself. The closest distinct analogue located in the catalogue is narrower; the closest family paper could not be read in full, so the pass is best of the available evidence, not historical uniqueness.",
+      "residual_risks": [
+        "The 2015 generalized-gamma mixture paper is the main unresolved literature risk: a nontrivial infinite-divisibility assertion in its uninspected body could overlap. The 2023 passages and the earlier catalogue fixed-point full text were also unavailable. Unsuccessful searches were not treated as evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known family-level antecedent per the frozen description; the inaccessible paper cannot be classified as not covering the theorem.",
+          "evidence": "The frozen comparison calls it a two-sided Bernoulli generalized-gamma construction and estimation study, and flags incomplete primary-text access.",
+          "identifier_or_url": "https://doi.org/10.15446/rce.v38n2.51666",
+          "material_read": "Bibliographic record and the frozen RESULT.md description at lines 78, 83, 87; no decisive full-text passage retrieved",
+          "method": "Official and DOI OA attempts, alternate repository candidate returned 404, and exact-title SciELO literature search",
+          "title": "A Bimodal Extension of the Generalized Gamma Distribution",
+          "trigger": "Most plausible earlier paper on exactly the split generalized-gamma mixture family"
+        },
+        {
+          "assessment": "Not usable as proof of absence or coverage.",
+          "evidence": "The frozen comparison distinguishes generalized-gamma sign mixtures from normal variance–mean mixtures; not independently confirmed at the needed primary passage.",
+          "identifier_or_url": "https://doi.org/10.3390/math11173797",
+          "material_read": "Landing material and frozen characterization; §§1, 4–5 were not recovered",
+          "method": "OA HTML/PDF and repository attempts; direct recovery failed",
+          "title": "Quasi-Exponentiated Normal Distributions: Mixture Representations and Asymmetrization",
+          "trigger": "Possible more general sign-asymmetrization theorem or equivalent mixture representation"
+        },
+        {
+          "assessment": "Different multiplier assumptions; no implication for sign selection.",
+          "evidence": "Closure is under independent multiplication by an HCM-density random variable, supported on the positive half-line.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.01058",
+          "material_read": "v1 p. 1 extracted offset 1768, and Corollary 1.1 p. 2 around offset 6929",
+          "method": "OA arXiv primary text passages",
+          "title": "A characterization and closure property of Thorin's class",
+          "trigger": "Potential implication from a multiplicative closure theorem"
+        },
+        {
+          "assessment": "Related gamma background; the inspected material does not supply a signed mixture classification.",
+          "evidence": "The subject is classical multivariate and matrix gamma constructions, not sign-randomization of a common-shape Erlang law.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jmva.2014.04.017",
+          "material_read": "arXiv:1201.1461v1, introduction p. 2 extracted offset about 2200",
+          "method": "OA preprint passage reading",
+          "title": "Infinitely divisible multivariate and matrix Gamma distributions",
+          "trigger": "Gamma infinite divisibility and possible bilateral/additive formulation"
+        },
+        {
+          "assessment": "Overlap in a special family, not evidence for the stage boundary; limitation of full-text access retained.",
+          "evidence": "Summary describes arbitrary sign bias with one common exponential magnitude scale.",
+          "identifier_or_url": "Resultary f6ec6eb36df2",
+          "material_read": "Catalogue summary only; matching mirror RESULT.md unavailable",
+          "method": "Local semantic catalogue and local mirror lookup",
+          "title": "Fixed points of the generalized equilibrium transform are signed exponential laws",
+          "trigger": "Earlier near-hit for independent sign times exponential magnitude"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and proof",
+        "Çankaya et al. mixture-family citation and Kloster positive-multiplier comparison"
+      ],
+      "rationale": "The theorem isolates a distributional boundary for a standard sign-mixture model uniformly in rates and mixing weight: changing the number of exponential stages eliminates infinite divisibility even for arbitrarily imbalanced but nondegenerate mixtures, while a pure one-sided endpoint remains infinitely divisible. The explicit strip witness is needed because a generic nonvanishing theorem does not by itself decide whether the algebraic zero is eligible; the explicit one-stage Lévy triplet makes the positive side interpretable. The integer common-shape setting is natural for the Erlang model, not an arbitrary parameter slice manufactured from sampled cases.",
+      "residual_risks": [
+        "The value is for this stage classification and its mechanism, not a claim about arbitrary generalized-gamma mixtures or overall maximal generality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

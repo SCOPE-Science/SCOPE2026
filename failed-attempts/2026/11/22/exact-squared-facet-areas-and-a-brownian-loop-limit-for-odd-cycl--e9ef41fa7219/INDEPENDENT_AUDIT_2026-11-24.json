@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:14:28.932137Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A facet needs at least n−1 active signed roots. All n cannot be active since the sum of an odd number of ±1 potential increments cannot be zero. The remaining increment is an even integer of absolute value at most one, hence zero. Each omitted edge and balanced sign sequence gives one simplex. Its cone from the origin is a signed path-root simplex with incidence Gram determinant n, so the facet area is sqrt(n) times the normalized normal norm divided by (n−2)!. This is intrinsic Euclidean area. A uniform actual facet gives a uniform balanced sequence; for a squared partial-sum difference spanning d of m=n−1 increments the mean is d(m−d)/(m−1), rather than d for an unconditioned path. Applying the pairwise variance identity and summing over pairs gives (n²−1)/12 for the centered cycle potential norm squared, and twice that for the path. The bridge invariance principle and uniform Riemann sums give the stated centered periodic bridge functional. The periodic Green kernel has paired sine/cosine eigenvalues (2pi k)^(−2), giving the stated Laplace law, mean, and variance. The finite squared normal moment bounds the L² norm of the scaled unsquared areas and so ensures convergence of their means. The surface ratio follows from these means and the central-binomial facet-count ratio. Exact independent Gram computations at n=3,5,7,9 covered 806 facets by cyclic symmetry; mean squares were 2, 5/18, 7/3600, 1/423360. Numerical quadrature yielded ratio coefficient 0.583488362048 at two resolutions (not a rigorous decimal certificate). Replay: python3 /workspace/branches/851041e5-ec06-4497-96da-4631434ad03c/odd_cycle_independent_check.py and adjacent odd_cycle_independent_check.txt. Neither bounded experiment substitutes for the all-size proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary literature gives normalized integer potentials with connected tight edges, and simpliciality in the absence of even cycles. The tree record e112c873390a, proof eq. (7), gives the intrinsic Euclidean facet area of every signed tree-root simplex via its normalized normal.",
+          "Distinct same-day SCOPE-a-parity-sharp-vertex-generation-law-for-cycle-symmetric-edge-po--89e09ff50a3e studies an affine vertex-generation index, not this metric moment."
+        ],
+        "reasoning": "The primary classification supplies the shape and exact facet sampling; lattice-normalized volumes alone do not supply Euclidean area. The tree metric formula applies deterministically to each odd-cycle facet once its unique inactive edge is deleted. No conclusion of absence is drawn from a broad websearch that produced no useful source.",
+        "searches": [
+          "Resultary: symmetric edge polytope facet-area Wiener identity Brownian surface separation tree root polytopes",
+          "Websearch: \"symmetric edge polytope\" \"facet area\" tree Wiener Brownian bridge odd cycle Euclidean",
+          "arXiv:1807.07678, Thm. 3.1; arXiv:1910.05193, Thm. 3.1; arXiv:2107.12315, Cor. 14"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–97, VERIFICATION.md, and verify_odd_cycle.py inspected; uploaded code not run",
+        "Resultary mirror: fa24b8aee526, e112c873390a, 89e09ff50a3e, d1d7269402d0, 0081854c3275",
+        "arXiv:1807.07678, 1910.05193, 2107.12315"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior cycle result gives finite normalized squared norm means bounded by 1/12 and weak convergence to the periodic bridge functional, with the known balanced-gradient count. The tree result supplies the deterministic area formula, path limit mean c_path and path count 2^(n−1)."
+        ],
+        "reasoning": "Bounded second moments of sqrt(X_n)/n from the prior cycle mean imply uniform integrability and give the cycle mean limit E sqrt(Y). The exact facet-count ratio is n times the balanced central-binomial probability, asymptotic to sqrt(2n/pi). Thus the remaining displayed surface comparison and constant follow by deterministic rescaling, uniform integrability and standard asymptotics, without solving a remaining geometric or probabilistic gap.",
+        "searches": [
+          "fa24b8aee526, Finding and proof steps 1–3; e112c873390a, eqs. (2), (4)–(7)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-a-parity-sharp-farthest-facet-law-and-a-watson-limit-for-cycle-s--fa24b8aee526, Finding parts 2–3 and assumptions, offset 947: X_n=||u_F||², E X_n=(n²−1)/12 for odd n, X_n/n² tends to the stated centered bridge functional with exactly the same Laplace transform, 1/12 mean and 1/360 variance. Proof step 3, offset 5543: uniform balanced gradients with an inserted zero for odd n."
+        ],
+        "reasoning": "The normalized normal u_F is exactly the normal h used in the frozen area computation. The frozen scaled squared area equals X_n/n² facet by facet; multiply the prior finite moment by n/((n−2)!)² for the unscaled result. This is not a date inference or the bound record's search self-hit.",
+        "searches": [
+          "Resultary: odd cycle symmetric edge polytope squared Euclidean facet area balanced bridge Brownian bridge",
+          "Resultary: cycle symmetric edge polytope Brownian bridge facet volume area limit"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact closed earlier tables in formula form: the former gives the parity-resolved squared normal means, including the target odd sequence; the latter gives squared path area via the Wiener index n(n²−1)/6 and the surface-area sum identity. The same-day linked-snake result d1d7269402d0 and color-stretched unsigned even-cycle result 0081854c3275 give exact areas for other polytopes."
+        ],
+        "reasoning": "The first two formulae generate all finite mean entries and their exact one-half ratio, stronger than a small-value match. Different type-C linked snakes and unsigned even-cycle edge polytopes have no table transfer to this claim.",
+        "searches": [
+          "Resultary: symmetric edge polytope path cycle facet area sum surface area exact mean squared area",
+          "fa24b8aee526, Finding part 3; e112c873390a, equations (1)–(2)"
+        ]
+      },
+      "rationale": "The earlier November 17 cycle record proves the same typical-facet Brownian bridge law and states the same exact odd-cycle squared normal moment on the same actual facets in the same Euclidean metric. Every odd-cycle facet is itself a facet of the path root polytope obtained by dropping its inactive edge, with identical signed-root vertices and normalized normal. The earlier October path/tree work gives the exact deterministic area conversion for that facet. Normalized squared area is therefore exactly the earlier normalized normal statistic, not a different random variable or new manifestation requiring a new probabilistic result. The separately displayed surface ratio is not stated in the decisive passages but follows from their exact counts, mean/limit results, uniform integrability, and Stirling. No substantive distinct claim survives on that narrower comparison.",
+      "residual_risks": [
+        "The earliest historical source for the normal moments or an explicit printed cycle-to-path ratio is not settled; neither affects the direct implication from inspected results.",
+        "The general literature search was bounded; no whole-literature negative inference is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive earlier equivalent coverage, including balanced bridge parametrization and exact squared-normal mean",
+          "evidence": [
+            "Normals satisfy <u_F,x>=1 in the inherited metric; X_n/n² has the stated bridge limit under uniform actual facets; the exact odd moment (n²−1)/12 is credited there as prior cactus coverage."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-parity-sharp-farthest-facet-law-and-a-watson-limit-for-cycle-s--fa24b8aee526/RESULT.md",
+          "material_read": "Finding parts 2–3 and Assumptions (offset 947 onward), proof Step 3 (offset 5543 onward)",
+          "method": "Resultary local-mirror passages",
+          "title": "A parity-sharp farthest-facet law and a Watson limit for cycle symmetric-edge polytopes",
+          "trigger": "Earlier identical cycle polytope, metric, facet law, and bridge functional under normal duality"
+        },
+        {
+          "assessment": "Supplies exact transfer law and path constant",
+          "evidence": [
+            "Every signed tree-root facet has area sqrt(n)||h||/(n−2)!; the path result gives the unconditioned Brownian-motion law and c_path=0.3781319637…."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-facet-area-wiener-identity-and-brownian-surface-separation-for-t--e112c873390a/RESULT.md",
+          "material_read": "Finding eqs. (1)–(6), offset 553 onward; Proof eq. (7), offset 2584 onward",
+          "method": "Resultary local-mirror passages",
+          "title": "Facet-area Wiener identity and Brownian surface separation for tree root polytopes",
+          "trigger": "Supplies the deterministic facet metric and prior path side of the comparison"
+        },
+        {
+          "assessment": "Provides facet classification and lattice facts, not the claimed Euclidean area asymptotic in those passages",
+          "evidence": [
+            "Integer potentials with edge differences bounded by one and connected tight edges characterize the facets."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1807.07678",
+          "material_read": "Theorem 3.1, p. 6, offset 21543; Corollary 3.2",
+          "method": "OA PDF statements",
+          "title": "Arithmetic aspects of symmetric edge polytopes",
+          "trigger": "Cited foundational facet classification"
+        },
+        {
+          "assessment": "Tight-edge characterization and lattice-normalized volume, distinct from intrinsic metric area",
+          "evidence": [
+            "Theorem uses connected tight-edge spanning subgraphs; unimodular triangulations are lattice results."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1910.05193",
+          "material_read": "Theorem 3.1, p. 7, offset 24224, and following lattice discussion",
+          "method": "OA PDF passages",
+          "title": "Many faces of symmetric edge polytopes",
+          "trigger": "Primary facet and volume comparison"
+        },
+        {
+          "assessment": "Supplies prior facet structure, not the metric distribution",
+          "evidence": [
+            "The symmetric-edge polytope is simplicial iff the graph has no even cycle."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2107.12315",
+          "material_read": "Corollary 14, p. 12, offset 43674",
+          "method": "OA PDF statement",
+          "title": "Facets and facet subgraphs of symmetric edge polytopes",
+          "trigger": "General simpliciality for cycle graphs"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Its odd-cycle generation index is 1/(n−1), unrelated to its intrinsic facet areas."
+          ],
+          "identifier_or_url": "SCOPE-a-parity-sharp-vertex-generation-law-for-cycle-symmetric-edge-po--89e09ff50a3e",
+          "material_read": "Finding and odd-cycle simplex discussion, offsets 112 and 8751",
+          "method": "Resultary local mirror",
+          "title": "A parity-sharp vertex-generation law for cycle symmetric-edge polytopes",
+          "trigger": "Distinct same-day same object match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Uniform-facet geometry on a natural graph family is a worthwhile subject, but this submitted exact moment and limit are a metric renaming of an earlier random statistic by an existing path-facet identity. The half-factor and surface coefficient are directly determined by the earlier formulas. The useful geometric interpretation does not yield an independently unresolved, nonmechanical precise fact in this submission.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

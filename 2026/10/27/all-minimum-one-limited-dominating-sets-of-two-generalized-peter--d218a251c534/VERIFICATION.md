@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,10 +21,8 @@
 
 # Reproduction
 
-Place `verify.py` in the same directory and run `python3 verify.py` on Python 3 without third-party libraries. The program rebuilds every candidate transition from the two local neighborhood equalities, independently computes strongly connected components, verifies that every cyclic component is a simple directed cycle of the asserted size, and checks exact directed-closed-walk counts for selected larger orders. Its separate brute-force traversal checks all two-class labellings of the original graph for several small orders. A successful complete run prints `VERIFY_OK`.
-
-The global conclusion follows from the bijection between all cyclic length-\(n\) walks and all labelled minimum sets, together with exhaustive finite-state enumeration. The direct small-order enumeration alone is not used to justify the result for arbitrary \(n\). The finite enumeration has \(16\) or \(256\) states and tests \(4\) successors per state. There is no numerical floating-point tolerance or solver dependency.
+Run `python3 verify.py` with standard-library Python 3. It enumerates all 16 two-column states and their four candidate successors, finds 10 allowed arcs, and checks for exactly two loops and one directed four-cycle in cyclic strongly connected components. Its direct neighbourhood check enumerates all vertex labellings on circular ladders with circumferences 3 through 8 and checks the complete solution sets. The all-circumference proof instead uses propagation from a crossing spoke and the period-four relation when no spoke crosses.
 
 # Boundaries
 
-The proof and checker use \(n\ge3\) for \(k=1\), and \(n\ge5\) for \(k=2\), ensuring that inner predecessors/successors and outer predecessors/successors are distinct. Counts refer to labelled subsets, including both a set and its complement. An external independent audit has not been performed.
+The circumference is at least three, and the count distinguishes complementary vertex subsets. Only circular ladders are included.

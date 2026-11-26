@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:53:03.777245Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding, scope, and Proof, lines 4–93",
+        "VERIFICATION.md and verify.py (inspection only)",
+        "/workspace/branches/335b7beb-edef-4efa-8329-08ce08c4310d/independent_check.py",
+        "NIST DLMF 18.16.20"
+      ],
+      "rationale": "The price bound gives ηΣw_i≤1, so every diagonal of P is nonnegative; off-diagonals are nonnegative and row sums are one. The leaf recurrence for L^k e₀ produces negative monic degree-k evaluations at w_i with zero constant term and common lower coefficients. Eliminating earlier powers yields the weighted Vandermonde; replacing L by I−ηL multiplies the Krylov determinant by (−η)^d, then squaring gives the Gramian determinant. Fewer columns cannot give full rank. Compactness and the existence of a distinct positive allocation exclude all collisions and zero weights at a maximum. Swapping a dearer larger conductance reduces cost, and rescaling up strictly increases the positive homogeneous determinant. On the reverse-priced ordered chamber, the log of the unsquared objective is strictly concave, since the log w_i part has negative-definite Hessian and the log gaps are concave. Thus stationarity suffices and gives uniqueness up to tied-price permutations, including the one-spoke case. Pairing the weighted first-order terms gives λB=d. For equal prices the Laguerre ODE gives the same stationarity equations after scaling by B/[c m(m+1)], and the monic root product and discriminant give the stated maximum. In the two-leaf case the stationarity numerator in t=w₂/w₁ is −c₂t²+2(c₁+c₂)t−c₁, yielding the stated root t>1. Fresh checks passed exact-rational Gramian identities through m=6 including a zero-weight case, Laguerre identities through degree 6, and an exact unequal-price KKT example at m=3; the equal-price two-leaf value is 1/108. The frozen checker was inspected but not run.",
+      "residual_risks": [
+        "The fresh tests are bounded; strict concavity and the determinant argument, not testing, justify arbitrary prices and sizes.",
+        "The determinant is a squared volume factor and does not certify other Gramian criteria or optima at a longer horizon."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pasqualetti–Zampieri–Bullo discuss the determinant as a reachable-volume metric alongside other Gramian criteria; the exact volume factor is its square root.",
+          "Laguerre stationarity follows by evaluating the polynomial ODE at its zeros; DLMF tabulates the discriminant for general α."
+        ],
+        "reasoning": "These broader methods cover the volume interpretation and special-function inputs. Equal-price Laguerre equilibria have one common right-hand side, rather than arbitrary distinct c_i, and do not assign adaptive weights to prices. Full-text access limits on additional cited papers are not negative evidence.",
+        "searches": [
+          "arXiv:1308.1201, §II",
+          "DLMF 18.16.20 and frozen Laguerre ODE calculation",
+          "DOI:10.1016/S0377-0427(00)00661-0",
+          "DOI:10.1109/TAC.2012.2204155"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md, lines 11–39 and 95–108",
+        "Resultary 860ca1cdc9c7 and 1ddd581661b4",
+        "arXiv:1308.1201",
+        "DLMF 18.16.20"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Transpose the prior star Krylov matrix, replace each power of L by the corresponding power of I−ηL through a triangular column change, and use det(CCᵀ)=det(C)². The frozen minimum-horizon determinant factor is thereby mechanically implied.",
+          "At equal prices Laguerre root stationarity and the classical discriminant specialize to the frozen optimum once the ordered objective's strict concavity is used."
+        ],
+        "reasoning": "No novelty is assigned to an algebraic change of normalization or a classical discriminant. For general prices the budget-lowering permutation argument and the strict concavity on the surviving chamber together resolve a global search not required by the earlier fixed-weight or common-price results.",
+        "searches": [
+          "Resultary 860ca1cdc9c7, §2 hub proof and sensor objective",
+          "DLMF 18.16.20",
+          "arXiv:1308.1201, §II"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the same symmetric weighted star, 860ca1cdc9c7 gives |det O₀|=(∏w_i)∏|w_a−w_b| without requiring distinctness. Hub controllability is the transpose of that observability Krylov matrix.",
+          "The evaluation matrix with columns w_i through w_i^m recasts design as a weighted Vandermonde maximum under a linear budget. A Vandermonde condition-number optimum is a different objective."
+        ],
+        "reasoning": "The observability–controllability reduction establishes real exact coverage of the determinant factor, not merely a similar-looking polynomial. The distinct question is where that factor is maximal as the conductances, rather than the choice of hub or leaf sensor, vary at arbitrary prices.",
+        "searches": [
+          "Local Resultary: weighted star D-optimal sensor, reachability volume and priced conductance; 860ca1cdc9c7 and 1ddd581661b4",
+          "weighted star Laplacian controllability Vandermonde determinant D-optimal unequal edge prices budget star conductances Gramian",
+          "DOI:10.1007/BF01397726"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "860ca1cdc9c7 supplies the entire exact hub Laplacian determinant expression and optimizes sensor location; 1ddd581661b4 gives a factorization on a cycle with one changed edge.",
+          "At α=1 the DLMF formula gives the displayed monic discriminant after multiplying by (m!)^(2m−2) for monic normalization."
+        ],
+        "reasoning": "The exact factors have coverage, but neither those expressions nor their numerical evaluations supply the all-price conductance solution and its uniqueness across order chambers.",
+        "searches": [
+          "Resultary 860ca1cdc9c7 and 1ddd581661b4, exact determinant identities",
+          "NIST DLMF 18.16.20, Laguerre discriminant"
+        ]
+      },
+      "rationale": "The exact hub Laplacian Krylov factor is explicitly covered by a prior indexed observability result, and the stated discrete Gramian factor follows immediately by symmetry, triangular change of powers and squaring. The equal-price root equilibrium and discriminant are classical. The whole all-price theorem is not covered by those inputs: its distinct contribution is globally solving the conductance design for arbitrary linear prices, eliminating other order chambers and characterizing the unique reverse-priced solution. Sensor-location optimization at fixed weights, the classical equal-price root identity, and Vandermonde conditioning do not give that conclusion.",
+      "residual_risks": [
+        "The full texts of Sundaram–Hadjicostis (10.1109/TAC.2012.2204155), Grünbaum (10.1016/S0377-0427(00)00661-0) and Gautschi (10.1007/BF01397726) were not retrieved in the bounded attempts; the specific directed example and node-at-zero statement were not relied on.",
+        "An equivalent arbitrary-price determinant design under different optimization terminology remains a priority risk. No priority claim is based on the empty targeted search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct determinant coverage by duality and triangular transform, not the priced conductance optimum",
+          "evidence": [
+            "The minor reduces to columns of w_i through w_i^m with the exact absolute determinant formula."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-complete-d-optimal-single-sensor-classification-on-weighted-di--860ca1cdc9c7/RESULT.md",
+          "material_read": "§2 hub determinant proof, mirror offsets 4950–6050, and sensor objective",
+          "method": "Local Resultary and mirrored text",
+          "title": "A complete D-optimal single-sensor classification on weighted diffusive stars",
+          "trigger": "Same star and a Vandermonde formula for its Krylov matrix"
+        },
+        {
+          "assessment": "Different graph and no priced conductance optimization",
+          "evidence": [
+            "The formula concerns a perturbation of one cycle edge and does not assert this stochastic minimum-horizon design."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-reachability-volume-factorization-for-a-cycle-with-one-wei--1ddd581661b4/RESULT.md",
+          "material_read": "Mirrored Finding and scope",
+          "method": "Local Resultary and mirror",
+          "title": "Exact reachability-volume factorization for a cycle with one weighted edge",
+          "trigger": "Closest other exact reachability/Krylov volume formula"
+        },
+        {
+          "assessment": "General metric antecedent",
+          "evidence": [
+            "The text discusses det W as a reachable-volume criterion, along with minimum-eigenvalue and inverse-trace criteria."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1308.1201",
+          "material_read": "p. 3 §II, OA offset 19450, reachable-energy volume discussion",
+          "method": "Primary PDF passage",
+          "title": "Controllability Metrics, Limitations and Algorithms for Complex Networks",
+          "trigger": "Previously established use of Gramian determinant"
+        },
+        {
+          "assessment": "Exact classical discriminant coverage after scaling to monic",
+          "evidence": [
+            "The general factors include j^(j−2m+2)(j+α)^(j−1); monic scaling yields j^j(j+1)^(j−1) at α=1."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/18.16.E20",
+          "material_read": "§18.16(vii), web offsets 14230–16279, Laguerre equation 18.16.20",
+          "method": "Handbook full equation and attribution to Ismail (2009), (3.4.15)",
+          "title": "NIST Digital Library of Mathematical Functions, Zeros and Discriminants",
+          "trigger": "Exact Laguerre factor used in the equal-price maximum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 16–23 and 57–67",
+        "Resultary 860ca1cdc9c7, hub determinant and fixed-weight sensor problem"
+      ],
+      "rationale": "The arbitrary price vector is a natural constraint for conductance design. A determinant factor alone leaves many disjoint positive chambers; the inverse price assignment and strict uniqueness reduce the global problem to a single exact system without combinatorial search. That operational mathematical reduction is the valuable part, independently of the known Krylov and Laguerre factors.",
+      "residual_risks": [
+        "The exact characterization does not supply a detailed numerical convergence or perturbation analysis, and the transfer to other horizons or objectives is unproved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

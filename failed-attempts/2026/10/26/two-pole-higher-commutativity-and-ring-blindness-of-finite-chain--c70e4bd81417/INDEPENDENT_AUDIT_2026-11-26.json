@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:35:34.119723Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The commutator is the determinant of the projected two coordinates, and each central coordinate is free. A unit pivot in a zero-minor matrix yields a primitive outer product unique up to a unit. If the minimum valuation is s<m/2, the reduced matrix over the length m-2s quotient is primitive and the lift multiplicity is q^(2rs); every matrix with valuations at least ceil(m/2) contributes automatically. Summing the geometric progression in either parity gives the stated two terms, also at r=1. Burnside gives beta_s=T_(s+1)/|G| including beta_0=1. The two poles are distinct and have nonzero coefficients; their reciprocal locations recover q,m. Derived subgroups are the additive rings, with exponents p^m and p, excluding isoclinism even at p=2. Independent exact counts of projected tuples over Z/4Z and F_2[e]/(e^2) gave 16,88,400,1696 at arities 1–4; an additional F_4[e]/(e^2) check gave 5056 pairs. These are spot checks, not an all-ring proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Feng et al. count matrices of every prescribed Smith shape for every finite chain ring, including rectangular matrices. For a 2-by-r matrix over a length h quotient, constant target shape (1,...,1) and constant ambient row shape (r,...,r) give Q=(q+1)(q^r-1)q^((r+1)(h-1)) from Eqs. (5) and (11).",
+          "The group literature supplies general rationality, finite spectra, asymptotic results and finite-field counts; those sources alone do not supply this longer-ring evaluation."
+        ],
+        "reasoning": "The qualifying primitive shapes are exactly free rank one over the relevant reduced quotient. The earlier matrix theorem evaluates them uniformly in all the same ring parameters, not merely over fields or integer residue rings.",
+        "searches": [
+          "arXiv:1304.2523v2, Theorem 2 Eq. (11), shape definition and Eq. (5)",
+          "arXiv:1905.07957v1, Section 2 Eq. (6); arXiv:2605.02071, Theorem 4.1",
+          "arXiv:2006.01493v1 and arXiv:2605.17171v1, finite-field unitriangular/Heisenberg cases"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1304.2523v2",
+        "Resultary 09fc688bed1d and 8fae3394a05c",
+        "arXiv:1905.07957v1, 2006.01493v1, 2605.02071 and 2605.17171v1",
+        "Frozen result and verification evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For minimum valuation s<m/2, use the constant shape (1,...,1) in length h=m-2s and multiply by q^(2rs). The other stratum contributes q^(2r floor(m/2)). The summands have factor (q+1)q^(m-1-2s) times q^(mr)-q^((m-1)r). Summing this geometric progression gives exactly the frozen formula.",
+          "Multiplication by q^(mr), normalization by |G|^r, and Burnside give all displayed group counts from that specialization. The ratio of reciprocal poles is immediately q. The earlier commuting-graph equivalence separately yields the equality family."
+        ],
+        "reasoning": "This is routine restriction and summation of a known exact count, not merely application of a broad existence framework. The reconstruction is algebraically forced by the resulting two terms; there is no distinct new centerpiece to retain by dropping the known example.",
+        "searches": [
+          "arXiv:1304.2523v2, Theorem 2 compared with frozen valuation stratification",
+          "Resultary 09fc688bed1d compared with the original nonisoclinic equality claim"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In UT_3, a projected tuple is a 2-by-r zero-minor matrix. For Smith exponents e1<=e2 (pad zero diagonal entries with exponent m), the minor condition is exactly e1+e2>=m, equivalent to sum of its shape entries <=m.",
+          "Resultary 8fae3394a05c uses the same determinant with a free third coordinate in a triangular algebra and states the identical raw count. It is postdated and does not itself decide priority."
+        ],
+        "reasoning": "The minor condition is invariant under invertible row/column operations and selecting Smith shapes completely specifies it. Apparent changes from group tuples to matrix counts are an exact reduction, not a different counting problem.",
+        "searches": [
+          "Matrix Smith normal form distribution uniform finite chain ring arbitrary row column number prescribed invariant factors",
+          "Local Resultary: higher commutativity over finite chain rings and Heisenberg commuting graphs",
+          "Local Resultary: commuting tuple counts for 2-by-2 triangular algebras"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "09fc688bed1d explicitly states commuting-graph isomorphism for the same q,m and states the same nonisoclinic Z/p^mZ vs F_p[t]/(t^m) family.",
+          "8fae3394a05c states the identical raw formula for triangular 2-by-2 algebras but is postdated."
+        ],
+        "reasoning": "Isomorphic complete commuting relations preserve all ordered commuting-tuple counts and, by Burnside and equal group orders, simultaneous-conjugacy counts. That predated graph result does not supply explicit pole locations or residues by itself.",
+        "searches": [
+          "Local Resultary 2026/10/25/SCOPE-heisenberg-commuting-graphs-over-finite-chain-rings-recover-exac--09fc688bed1d",
+          "Local Resultary 2026/11/2/SCOPE-two-pole-commuting-tuple-and-clique-enumerators-for-triangular-a--8fae3394a05c"
+        ]
+      },
+      "rationale": "Both components are covered at statement/implication level. The predated Resultary commuting-graph theorem establishes the same mixed/equal-characteristic nonisoclinic series-equivalent family. Independently, the precise count is a routine two-row specialization of Feng–Nobrega–Kschischang–Silva's stronger arbitrary-shape count over finite chain rings; after evaluating it, the Burnside and pole consequences are immediate. These prior results do not print the exact same group generating function, but their concrete implication suffices. This decision does not rely on the unidentified earlier count mentioned by the indexed record.",
+      "residual_risks": [
+        "The earlier all-arity group count mentioned without a named source in Resultary 09fc688bed1d was not identified; the decision rests on the inspected matrix theorem and the inspected graph statement, independently of that attribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger exact enumeration implies the frozen numerical formula",
+          "evidence": "Eq. (11) multiplies |R^(n x kappa)| by the full-column-rank probability and the Eq. (5) module Gaussian coefficient. For n=2, kappa=(1,...,1), mu=(r,...,r) this yields the frozen primitive stratum count.",
+          "identifier_or_url": "https://arxiv.org/abs/1304.2523v2",
+          "material_read": "PDF pp. 7–9, Eq. (5), Smith-normal-form definition and shape relation; pp. 17–18, Theorem 2 Eq. (11)",
+          "method": "Primary OA PDF passages, offsets 24680, 30643, 63120 and Smith normal form locations",
+          "title": "Communication over Finite-Chain-Ring Matrix Channels",
+          "trigger": "General enumeration by Smith shape could already count all projected commuting tuples"
+        },
+        {
+          "assessment": "Predated stronger relation for the matching-series family",
+          "evidence": "Commutes-with graph isomorphism for same q,m and the identical characteristic comparison; all-arity equality follows.",
+          "identifier_or_url": "Resultary 09fc688bed1d",
+          "material_read": "Finding and Relationship to prior work (offsets 0 and 9000)",
+          "method": "Local Resultary mirror",
+          "title": "Heisenberg commuting graphs over finite chain rings recover exact parameters",
+          "trigger": "Same groups and same nonisoclinic families"
+        },
+        {
+          "assessment": "Postdated, not relied on for precoverage",
+          "evidence": "Same closed tuple-count formula and equivalent zero-minor condition.",
+          "identifier_or_url": "Resultary 8fae3394a05c",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Two-pole commuting tuple and clique enumerators for triangular algebras",
+          "trigger": "Exact mathematical twin via commuting determinants"
+        },
+        {
+          "assessment": "General rationality and series framework",
+          "evidence": "Commuting orbit series and normalized isoclinism invariance; recursive formula, not the evaluated ring case.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.07957v1",
+          "material_read": "Section 1 pp. 1–2; Section 2 Eq. (6), p. 4",
+          "method": "Primary OA PDF passages",
+          "title": "Simultaneous Conjugacy Classes as Combinatorial Invariants of Finite Groups",
+          "trigger": "Equivalent orbit series"
+        },
+        {
+          "assessment": "General theory, not the prior evaluated matrix count",
+          "evidence": "Orbit relation, finite spectra and a dominant-abelian-subgroup asymptotic.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.02071",
+          "material_read": "Introduction p. 2, Theorem 4.1 p. 11",
+          "method": "Primary OA PDF passages",
+          "title": "Higher Commutativity in Finite Groups: Exact Asymptotics and Finite Spectrum",
+          "trigger": "Potential general pole and group-count coverage"
+        },
+        {
+          "assessment": "Known field boundary, not m>=2",
+          "evidence": "First gives low arities for finite-field UT_3; second gives an all-arity finite-field Heisenberg formula.",
+          "identifier_or_url": "arXiv:2006.01493v1; arXiv:2605.17171v1",
+          "material_read": "2006.01493 p. 1 and p. 116; 2605.17171 pp. 1 and 3",
+          "method": "Primary OA PDF passages",
+          "title": "Branching rules and commuting probabilities for Triangular and Unitriangular matrices; Higher Commutativity in Finite Groups, Rigidity, Extremal Bounds, and Heisenberg-Type Families",
+          "trigger": "Exact field or Heisenberg analogues"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The commuting hierarchy and coefficient-ring comparison are natural questions, and the direct pivot proof is a useful elementary presentation. But the claimed exact invariant is mechanically implied by a prior explicit enumeration, and the same ring-blind family already follows from an exact stronger graph result. The pole reconstruction is immediate algebra and does not provide a separate unknown structural result that would justify a substantive repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

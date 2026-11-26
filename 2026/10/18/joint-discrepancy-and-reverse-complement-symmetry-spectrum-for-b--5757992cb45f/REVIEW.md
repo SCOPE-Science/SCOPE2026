@@ -1,15 +1,21 @@
-# Scientific review of the order-five CR-discrepancy classification
+# Independent mathematical audit
 
-## Correctness: PASS
-All sixteen-bit Boolean feedback tables are enumerated, and a short bijection establishes that the accepted tables correspond one-to-one to binary order-five de Bruijn rotation classes. The circular discrepancy equals the range of prefix sums because every de Bruijn period is symbol-balanced. Canonical rotation comparisons measure the action of complement and reversal exactly. The resulting 2,048 cycles split into 64 reverse-complement-fixed and 1,984 other classes; the orbit count follows by exact group-size division. A separate enumeration through anti-palindromic half-words independently reproduces all four CR-fixed discrepancy cells, providing corroboration of the central classification.
+## correctness
 
-## Originality: PASS with priority risk
-Chang--Wang's original full-text CR characterization and divisibility result contain no discrepancy-by-symmetry spectrum; Gabric--Sawada's discrepancy paper and the minimum-discrepancy work of Álvarez and colleagues do not state these CR-conditioned frequencies. Earlier calculations already contained the marginal order-five histogram and the minimal-discrepancy group-orbit split; both are credited. The additional joint cells at discrepancy six through eight and the complete group-orbit distribution are not consequences of those previously known marginals, and exact comparisons yielded no matching statement. Unindexed equivalent numerical enumerations remain a genuine priority risk.
+PASS
 
-## Mathematical value: PASS
-Two separately motivated properties of de Bruijn cycles—low cyclic symbol imbalance and reverse-complement symmetry—are classified jointly at the first nontrivial odd order supporting a mixed discrepancy spectrum. The exact result reveals that 16 of the 64 symmetry-constrained cycles attain the optimum, while the unrestricted optimum comprises 224 of 2,048 cycles. The complete table also determines all orbit types at nonoptimal values, supporting precise selection and benchmarking of balanced symmetry-constrained sequences. It is a naturally specified finite complete classification, not a sample, a renamed bound, or an arbitrarily chosen witness count. No extension to arbitrary orders is claimed.
+A valid length-32 cycle traverses all 32 five-bit states via a permutation. For each four-bit tail the two incoming first-bit choices must append opposite bits, giving a unique feedback truth table. A full orbit from 00000 is therefore both necessary and sufficient, without duplicate rotations. The balance of the period makes its maximum absolute circular-factor imbalance the prefix-sum range, including when a factor wraps. Independently, exhaustive Euler-tour traversal of the four-bit graph, with five-bit edges and 00000 first, reproduced the claim using direct circular-factor discrepancy. Every cyclic class has this single anchor, and the search tries each unused outgoing edge and requires closure after all 32 edges. It visited 92,636 search nodes and accepted 2,048 tours, with a direct five-factor check on each. At D=5,6,7,8 it obtained total counts (224,688,912,224), CR counts (16,16,24,8), and no individually complement- or reversal-fixed cycle; direct orbit deduplication gave sizes 2 and 4 with counts (8,8,12,4) and (52,168,222,54), respectively. Equivalently the order-four action has stabilizer {1,cr} precisely for CR-fixed classes, and otherwise trivial stabilizer. The total is 528. All four literal witness strings in RESULT.md also passed direct tests. Replay the bounded independent enumeration with `python3 /workspace/branches/4c3a7688-cbdf-4235-8dab-7616449dde75/independent_edge_census.py` (without --limit); the saved output is independent_edge_census.txt next to that file. The supplied scripts were inspected, not executed. The half-word enumeration relies on the fixed-point-free reflected index involution for a CR period (its reflection parameter is odd, hence can be shifted to 31), and exhausts only the CR subset. No claim at another order follows.
 
-## Boundary and literature
-The theorem applies only to binary order-five cycles up to rotation, with circular absolute symbol discrepancy and the complement/reversal symmetry group. It does not subsume earlier work on existence, minimum discrepancy, or feedback constructions, and it does not establish larger-order distributions. Sources: Chang--Wang arXiv:2408.01794; Gabric--Sawada arXiv:2005.01638; Álvarez et al. arXiv:2407.17367. Exact programs `verify_fsr.py` and `verify_halfwords.py` provide reproducible finite certificates.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The unrestricted order-five marginal and the D=5 orbit split are explicitly covered by the earlier exact census, and the CR characterization is prior work. Accept the remaining cross-classification: the nonminimal discrepancy strata conditioned on CR and their orbit counts. None of the strongest examined statements gives those cells or fixes them via its stated marginal data.
+
+## value
+
+PASS
+
+Reverse-complement symmetry selects an established class of de Bruijn cycles, and circular discrepancy is a natural quantitative balance criterion within that class. The nonminimal cells tell how many distinct symmetry-constrained cycles and orbits exist at each feasible imbalance, information that neither an optimal witness nor the unrestricted marginal supplies. This is a useful complete finite benchmark at a specified natural order, not a claim that the previously known minima or marginals are new or that the pattern persists at larger orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

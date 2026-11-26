@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The four exact Klein–hyperboloid side-distance inequalities determine the superlevel set, and the hyperbolic area element is \((1-x^2-y^2)^{-3/2}\,dx\,dy\). For fixed nonsquare shapes, three active contacts give two reflected triangular blow-ups with the stated Jacobians and coefficients; at the square, four contacts give a rescaled square. The intermediate family has two separate Taylor orders, giving a bounded parabolic region, an explicit integral, and an \(L^1\) density limit. Nine direct one-dimensional quadrature diagnostics of the exact set areas independently approach the claimed limits. The numerical checks are not a substitute for proof. The results make no joint-uniform remainder assertions outside their quantified domains.
+PASS
 
-## Originality
+The hyperboloid signed distance to the lines x=±c, y=±s gives the stated minimum after division by sqrt(1-x^2-y^2); these lines intersect the disk in the complete ideal sides. The Klein area density and total area 2π give the normalization. For an independent localization check, in the first quadrant let α=c-x, β=s-y and τ=min(α/s,β/c). The squared disk factor is α(2c-α)+β(2s-β), increasing separately on the allowed coordinate intervals. It is at least 4csτ-τ² with equality on α=sτ, β=cτ. Thus sinh(clearance)≤sqrt(τ/(4cs-τ)), increasing up to τ=s/c. This recovers the maximizing centers and radius, and the same bound tends uniformly to zero at the moving ideal corners when c is near the square. At a fixed right maximizer, the first-order inequalities for the displacements X,y give X≤U h+O(h²+X²+y²) and |y|≤2cs h+[c(2c²-1)/(s(4c²-1))]X+O(h²+X²+y²), with positive X coefficient in the latter. They imply |X|+|y|=O(h) by absorption after localization. The triangle has area s³(4c²-1)³/[c³(2c²-1)], and multiplying by the local area factor [1-x_*²]^(-3/2), two lobes, and 1/(2π) gives the fixed nonsquare coefficient. The square gives |x|,|y|=O(h) and the stated unit-half-width square. In the drifting shape, δ=sqrt(h) and the exact inequalities imply |x|=O(δ+x²+y²), |y|=O(δ²+x²+y²); first absorb in the sum, then apply its O(δ) bound to the second to get the anisotropic localization. The vertical-side first-order constraint is |u|≤2sqrt(2)λ, and the horizontal-side second-order constraint is |v|≤1+u²/(2sqrt(2))-2sqrt(2)λ². On bounded transformed supports, the constraint boundaries have measure zero and the area density converges uniformly; after removing the coordinate Jacobian and constant area normalization, dominated convergence and division by the limiting area give TV, not just weak convergence. Integrating twice the positive height yields the given area, the pinch at λ=2^(-3/4), and the 1/λ large-λ asymptotic. This is not a uniform two-parameter result. I inspected VERIFICATION.md and the SciPy quadrature artifact; integration of the Klein density there is a finite diagnostic and the argument here does not rely on its local integration windows or a script execution.
 
-PASS on the inspected evidence, with provisional historical priority. The closest full published quadrilateral geometry result computes the optimal incircle and its center set but not rare clearance area or a near-square scaling law. The closest published ideal-polygon boundary-distance result studies \(D\downarrow0\), not \(D\uparrow\rho\). Izmestiev's inspected 2014 primary full text develops cross-ratios and Klein geometry, not the probability claim. Xu's 2014 abstract studies a different sampling experiment. No inspected result supplies a dominating tube-volume theorem that evaluates the stated constants or parabolic pinch; undiscovered specialized parallel-set literature remains a residual risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The sharp singular coefficient demonstrates failure of fixed-shape asymptotic uniformity, while a motivated critical deformation resolves it with a nontrivial topology change of conditioned rare-point geometry and a nonanalytic \(3/2\)-power profile. The exact coefficients quantify a natural geometric invariant (rare deep interior points) of the complete one-parameter family of ideal quadrilaterals. The work is more than rephrasing its inball classification; it requires an anisotropic second-order blow-up and exact area integration.
+The distinct contribution is the nonsquare upper tail and anisotropic near-square spatial law with its explicit area profile and pinch. The inradius and maximizing centers are existing coverage, as is the scalar square coefficient under the separately indexed complete regular-polygon law. The square is a benchmark, not a distinct originality finding. The same-day catalogue dates are not evidence of priority in either direction.
 
-## Limitations and references
+## value
 
-Independent review and an exhaustive priority audit have not been performed. References: Izmestiev, arXiv:1408.2247 (2014); Xu, arXiv:1410.4052 (2014); the previously published two-inball classification of ideal quadrilaterals (2026); and the previously published small-clearance law for ideal polygons (2026). The two published recent results were inspected in their full readable versions and distinguished by exact implication, not title.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The divergent fixed-nonsquare coefficient poses a concrete nonuniformity question when the two maximizing disks merge. The crossover scale resolves it with an explicit probability constant and the full conditional spatial law. Its pinch and nonanalytic area turn a symmetry-breaking statement about maximizers into a quantitative statement about neighborhoods of near-maximizers. The square probability alone is not the basis for this value judgment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

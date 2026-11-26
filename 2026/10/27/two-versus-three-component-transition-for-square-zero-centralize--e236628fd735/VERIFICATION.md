@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The coordinate model uses the \(k[t]\)-linear endomorphism algebra of \(k[t]/t^n\oplus k[t]/t^2\) for \(n\ge4\). The square equations are derived explicitly in `RESULT.md`; the two parity reductions give the claimed point counts and component decompositions by elementary algebraic-geometry arguments.
+# Independent mathematical audit
 
-Run `python3 check_n2_squarezero.py`. Its coordinate enumeration checks every scalar block parameter for seven cases with \(q=2,3\), and its second matrix construction checks squaring and commutation in ordinary matrices for three cases. Expected markers are `NONHOOK_SQUARE_ZERO_COUNTS_OK` and `MATRIX_MODEL_CROSSCHECK_OK`.
+## correctness
 
-No finite enumeration proves the formula for all finite fields. The universal conclusion rests on the symbolic equations and valuation analysis. No independent expert check, proof-assistant certification, or check of the potentially nonreduced defining scheme is claimed.
+PASS
+
+Multiplication of the four k[t]-module blocks gives a²+t^(n−2)bc=0 in R_n, b(a+d)=c(a+d)=0 in R_2, and d²=0 in R_2 because n≥4. In particular d_0=0; the lowest nonzero coefficient of a² cannot be cancelled below t^(n−2), even in characteristic two. For n=2h this leaves the equations x²+BC=2xy+BV+CU=δB=δC=0 and h−1 free coefficients, with δ=d_1+x when n=4 and δ=d_1 otherwise. The component B=C=x=0 is affine; the branch δ=0 is a dimension-four complete intersection whose B≠0 open is irreducible (solve for C,V) and whose B=0 complement has dimension at most three (x=0, CU=0). For n=2h+1 one has BC=0, x²+BV+CU=0 and δB=δC=0, with h free coefficients; the three branches are the affine B=C=x=0 branch and the two geometrically irreducible quadratic cones with a free coordinate. The quadratic cone equations are primitive linear polynomials in one of B,C,U,V over the polynomial ring in the remaining variables, so this holds in characteristic two. The stated intersections follow as reduced varieties; this makes no scheme-theoretic assertion about the sum of the odd cone ideals. Partitioning field points by B=C=0 versus its complement gives q^(h−1)[q^4+(q²−1)q²] or q^h[q³+2(q−1)q²] as stated. A separate binary commutator-kernel calculation (python3 /workspace/branches/independent_checks.py) gave 56,64,112,128 for n=4,5,6,7, respectively. The proof, not that finite check or the reported original runs, supplies every-field and every-q validity.
+
+## originality
+
+PASS
+
+The strongest inspected related results give Jordan-type existence, simultaneous normal forms, adjacent square-zero rank strata, or other fixed centralizer counts. None settles the reduced components and the unrestricted labeled point count for this fixed block pair. The assessment is bounded, not a publication-priority guarantee.
+
+## value
+
+PASS
+
+For the first short block beyond the hook, the square-zero constraint results in a parity change in the number of components, not merely their coordinates. The common intersection and uniform dimensions and labeled point counts are natural exact invariants of this fixed-centralizer fiber, including in characteristic two. They answer different questions from knowing which similarity types occur.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

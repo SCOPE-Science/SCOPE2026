@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:47:13.296311Z",
+  "axes": {
+    "correctness": {
+      "rationale": "All stated labelled state counts, edge counts, component orders, component radii/diameters, eccentricities and all 36 positive-distance histogram coefficients were reproduced independently, without executing the deposited checker. All assignments in the named palette are candidates, including those that leave a colour unused. The cube symmetries and palette permutations preserve shortest paths; taking one full-graph BFS per genuine symmetry orbit and weighting by its cardinality counts each ordered pair once, and dividing by two then counts unordered pairs at positive distance. In particular the three concluding bins were 279, 15198 and 85870, and every nonisolated state had eccentricity 12. The four-colour isolation assertion also follows without computation: a proper colouring is frozen iff each vertex has three differently coloured neighbours, i.e. all vertices at distances one and two have distinct colours. This is equivalent to rainbow squares. The colour classes must then be the four antipodal pairs, giving 4! = 24 colourings in one colour-renaming orbit. At k=2 the connected bipartite cube gives two isolated assignments. This is exhaustive only for the stated finite domain and is not formal verification.",
+      "replay": "python3 /workspace/branches/3c55299a-28b7-4296-8d1f-c1060fc8ca88/rebuild_q3.py; full_run.jsonl in the same directory records all coefficients.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Feghali–Johnson–Paulusma prove that for connected graphs of maximum degree at least three, any two nonfrozen (Delta+1)-colourings lie at finite distance O(n^2). This gives a single mobile four-colour component on Q3; a two-colouring with spare colours witnesses that it exists.",
+          "The subcubic n+mu diameter theorem gives 12 for Q3 at every k>=5, and the general k>=Delta+2 threshold gives connectivity.",
+          "The broader n+mu conjecture in arXiv:2412.19695 is about diameter, not pointwise eccentricity or the full metric distribution."
+        ],
+        "reasoning": "Credit the implied mobile-component pattern at k=4 and connectivity and global diameter at k=5. These general results give neither the exact metric of the mobile k=4 component nor that every k=5 state attains the global diameter as an eccentricity.",
+        "searches": [
+          "arXiv:1501.05800, Theorem 2",
+          "arXiv:2611.17022v1, Proposition 2(iv)",
+          "arXiv:2412.19695, p. 4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:dcf86ea4c29a",
+        "arXiv:1501.05800",
+        "arXiv:2611.17022v1",
+        "arXiv:1206.3202",
+        "arXiv:2412.19695",
+        "De Meyer, Discrete Mathematics 349(8), 115155 (indirect statement only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited earlier results supply finite distances between nonfrozen states at k=4, the k=5 diameter, and a rainbow frozen example; none asserts equieccentricity or counts distances.",
+          "The two-colour row is an immediate bipartiteness check and is not a contribution on its own."
+        ],
+        "reasoning": "A largest distance achieved somewhere does not give every state's maximum distance, nor how many pairs realize any given distance. The new contribution is the joint exact metric census in this finite natural example.",
+        "searches": [
+          "arXiv:1501.05800, Theorem 2",
+          "arXiv:2611.17022v1, Proposition 2(iv)",
+          "arXiv:1206.3202, Remark 1.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest exact Resultary hit is the assigned finding itself, not independent prior evidence.",
+          "Galvin gives a frozen four-colouring via rainbow cube faces."
+        ],
+        "reasoning": "The same move graph can be presented as the support of single-site Glauber dynamics; an example of a frozen state does not specify the eccentricity function or distance distribution.",
+        "searches": [
+          "Resultary: Q3 cube proper-colouring Glauber dynamics/recolouring by named palettes 2–5, components, eccentricities and all-distance census",
+          "arXiv:1206.3202, Remark 1.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct matching exact Q3 metric table surfaced in the ranked Resultary material; the identically matching record is the frozen assignment.",
+          "The inspected papers establish numerical diameter or examples, not the three labelled finite-distance arrays."
+        ],
+        "reasoning": "The counts depend on the named palette and positive finite distances within components. A diameter, frozen witness or count on a different source graph does not encode these bins.",
+        "searches": [
+          "Resultary palette-specific comparisons for Q3; 24 frozen/2628 mobile at k=4 and 85870 diametral pairs at k=5",
+          "arXiv:2611.17022v1 and arXiv:1206.3202, cube-specific and diameter passages"
+        ]
+      },
+      "rationale": "Pass for the complete pointwise and pair-distance census, not for basic connectivity or frozen-colouring facts in isolation. In addition to the credited five-colour diameter and frozen example, the four-colour split into isolates plus a unique mobile component is already a consequence of a general recolouring theorem. No inspected statement gives or mechanically determines the simultaneous self-centredness or the full three histograms without a new metric analysis of the finite state graphs.",
+      "residual_risks": [
+        "No full-text inspection of De Meyer's paper; its verified diameter coverage is explicitly credited.",
+        "The bounded indexed comparison cannot exclude unpublished or differently indexed finite distance tables."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers unique mobile component at k=4, not the exact metrics",
+          "evidence": "Theorem 2 gives d_{Delta+1}(alpha,beta)=O(n^2) for two nonfrozen colourings of a connected graph with Delta>=3.",
+          "identifier_or_url": "https://arxiv.org/pdf/1501.05800",
+          "material_read": "p. 4, Theorem 2 and immediately following implications; p. 3 frozen-state definition",
+          "method": "OA PDF targeted passage and bounded reading",
+          "title": "A reconfigurations analogue of Brooks' theorem and its consequences",
+          "trigger": "General theorem could imply the critical-palette component structure"
+        },
+        {
+          "assessment": "Covers k=5 connectivity and diameter, not all-state metrics",
+          "evidence": "For Delta<=3 and k>=Delta+2 the statement gives diam R_k(G)=n+mu; n=8 and mu=4 for Q3.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.17022v1",
+          "material_read": "p. 2, connectedness threshold and Proposition 2(iv)",
+          "method": "OA PDF targeted reading",
+          "title": "Large diameter for (Delta+2)-colouring reconfiguration",
+          "trigger": "Matching known subcubic exact diameter"
+        },
+        {
+          "assessment": "Explicit frozen example in the correct graph and palette",
+          "evidence": "It constructs a frozen four-colouring of Q3 by extending a vertex-and-neighbours assignment to rainbow square faces.",
+          "identifier_or_url": "https://arxiv.org/pdf/1206.3202",
+          "material_read": "p. 7, Remark 1.6",
+          "method": "OA PDF targeted reading",
+          "title": "Sampling 3-colourings of regular bipartite graphs",
+          "trigger": "Same cube and frozen four-colour dynamics"
+        },
+        {
+          "assessment": "The inspected diameter conjecture is not the exact Q3 metric census",
+          "evidence": "The passage discusses the general n+mu equality for k>=Delta+2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2412.19695",
+          "material_read": "p. 4 n+mu diameter discussion",
+          "method": "OA PDF targeted reading",
+          "title": "Sharp Bounds on Lengths of Linear Recolouring Sequences",
+          "trigger": "Potential general exact distance result"
+        },
+        {
+          "assessment": "Identical record, not independent prior coverage",
+          "evidence": "Same assigned record identifier, palette range, frozen and metric counts.",
+          "identifier_or_url": "Resultary:dcf86ea4c29a",
+          "material_read": "Ranked summary compared to assigned RESULT.md",
+          "method": "Local Resultary search and frozen Finding comparison",
+          "title": "Complete component and distance geometry of cube recolouring at two through five colours",
+          "trigger": "Top same-parameter Resultary match"
+        },
+        {
+          "assessment": "Subcubic diameter credited; further coverage in the primary paper not determined",
+          "evidence": "The OA citing source attributes the subcubic diameter statement to De Meyer.",
+          "identifier_or_url": "Discrete Mathematics 349(8), 115155 (De Meyer)",
+          "material_read": "Bibliographic identification and attribution via arXiv:2611.17022v1; no primary full text inspected",
+          "method": "Publisher landing-page access attempt; read the exact statement in the OA citing paper",
+          "title": "Optimal list recoloring of subcubic graphs and complete multipartite graphs",
+          "trigger": "Original attribution of the subcubic diameter theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smallest cubic hypercube is a natural test case at the sharp frozen-colouring threshold. The same eccentricity at every mobile state across the three different palette regimes is a precise, nontrivial observation beyond the known global diameter. The exhaustive distributions supply a baseline for comparing typical, extremal and pointwise recolouring distances; neither the trivial k=2 row nor rediscovering the k=5 diameter by itself would justify acceptance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:50:05.043444Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–87; exact analytical replay",
+        "Frozen VERIFICATION.md and verify.py, inspected without running the uploaded program"
+      ],
+      "rationale": "In the stipulated tree growth, a vertex born at m+1 succeeds exactly when it chooses one of the S_m members and retains its edge, so its conditional success probability is pS_m/m. This gives the mean product and the martingale S_m/A_m. Applying the same transition to s(s+1), whose unit increment is 2(s+1), gives E[S_m(S_m+1)]=2B_m. At birth j, E[I_j S_j]=p E[S_{j−1}(S_{j−1}+1)]/(j−1); dividing by P(I_j=1)=pA_{j−1}/(j−1) gives the stated ratio at j. Conditioning the martingale on this event preserves the ratio at all m≥j, and applying the next-birth transition gives it at every k>j. This also proves the joint marginal formula. Direct product cancellation gives R₂=2/(1+p)>1 and R_{j+1}/R_j=1+p(1−p)/((j−1+p)(j+p))>1; gamma-ratio asymptotics give the stated finite limit. The exclusion of p=0 matters for conditioning, and p=1 would remove strictness.",
+      "residual_risks": [
+        "The finite census is exhaustive only at its named sizes and p values. The proof is about one marked birth and the conditional first moment, not a full conditional distribution or multiple-mark law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kürsten gives E S_n=A_n and E S_n²=2B_n−A_n in gamma notation.",
+          "The published linear one-step transition determines normalized conditional mean propagation at any horizon, including for arbitrary past events."
+        ],
+        "reasoning": "Since I_j is the binary increment, its product with S_j needs no distinct two-time moment theorem: the diagonal time-j and time-(j−1) moment difference is exact. The transition supplies propagation without any additional joint distribution assumption.",
+        "searches": [
+          "Kürsten arXiv:1512.05275, Eqs. (13) and (44), and adjacent correlation passage",
+          "Baur–Bertoin §2.1",
+          "Zheng Eq. (2.1)"
+        ]
+      },
+      "checked_sources": [
+        "Kürsten Eqs. (13), (44)–(46)",
+        "Baur–Bertoin §2.1",
+        "Zheng Eq. (2.1) and Proposition 2.1",
+        "Resultary ba4f1c497f72 and 19dd2436af96"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first two moments of the same process are already exact; Eq. (45) is a different aggregate child-cluster correlation, not evidence of an explicit labelled result.",
+          "The identity 2I_jS_j=S_j²−S_{j−1}²+I_j is exact for any 0/1 increment. ΔB=(2p/(j−1))B_{j−1} and ΔA=(p/(j−1))A_{j−1} in the published gamma formulas."
+        ],
+        "reasoning": "The diagonal times suffice, with no new moment calculation. Linear regression gives lag independence and the ratio of consecutive evaluations is the displayed positive rational expression; the limiting gamma constant is the same large-index ratio of already known products.",
+        "searches": [
+          "Kürsten Eqs. (13), (44)–(46); Baur–Bertoin urn dynamics; Zheng Eq. (2.1) and Proposition 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Baur–Bertoin represent the root size as the red count, with red increase probability p times the fraction red.",
+          "Zheng identifies the whole labelled partition process with the Simon-type restaurant, using the table birth weight pN_j^{(n)}/n."
+        ],
+        "reasoning": "Membership of birth j is the unit increment of this very first-cluster or first-table size; the urn and restaurant aliases preserve the marked labels, not just terminal sizes.",
+        "searches": [
+          "Bernoulli recursive-tree percolation labelled membership; Hoppe urn and Simon first-table aliases",
+          "Baur–Bertoin arXiv:1406.2238 §2.1",
+          "Zheng arXiv:2606.01881 §2 Eq. (2.1) and Proposition 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ba4f1c497f72, Exact Markov transitions, gives pc/n and aggregate size/frontier moments.",
+          "19dd2436af96 treats root-size factorial moments conditional on a deletion total; that index is not a marked successful birth."
+        ],
+        "reasoning": "Neither passage is an explicit table of labelled correlations, and finite tables would not settle the arbitrary-index claim. The exact prior coverage comes instead from the two published all-index moment formulas and transition.",
+        "searches": [
+          "Resultary: labelled Palm amplification, percolated recursive-tree root cluster, Simon process; exact frontier record ba4f1c497f72 and microcanonical record 19dd2436af96"
+        ]
+      },
+      "rationale": "The displayed marked statement was not found printed verbatim, but its exact ratio is a direct finite difference of the already published exact first and second root-size moments in this same process. Writing D_j=E[S_j²], the pointwise identity 2 I_j S_j=S_j²−S_{j−1}²+I_j implies R_j=(D_j−D_{j−1}+A_j−A_{j−1})/[2(A_j−A_{j−1})A_j]. Kürsten's Eqs. (13), (44) reduce this mechanically to (B_j−B_{j−1})/[(A_j−A_{j−1})A_j]. The prior Hoppe/Simon transition makes S_m/A_m a martingale and gives the unconditional birth intensity, so the same number applies to future expected size and to any later birth probability. The age order, positivity and limit are direct arithmetic of these known products, not further independent properties needed to obtain the exact result. This is a finding of prior implication, not an allegation that the frozen formula is false or that a cited paper explicitly states it.",
+      "residual_risks": [
+        "An explicit older marked-urn formulation may also exist, but the decision needs no negative claim about search coverage and does not depend on finding that wording."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same marked size-increment dynamics",
+          "evidence": "Uniform draw and red addition only after a red draw with probability p.",
+          "identifier_or_url": "https://arxiv.org/pdf/1406.2238",
+          "material_read": "§2.1 p. 4, offsets 8787–10963",
+          "method": "OA PDF bounded passage",
+          "title": "Cutting edges at random in large recursive trees",
+          "trigger": "Equivalent reinforced urn and conditional propagation"
+        },
+        {
+          "assessment": "Same finite root-size first and second moments in gamma form",
+          "evidence": "Eq. (13) is Γ(N+p)/(Γ(1+p)Γ(N)); Eq. (44) equals 2B_N−A_N after using Γ(1+x)=xΓ(x).",
+          "identifier_or_url": "https://arxiv.org/pdf/1512.05275",
+          "material_read": "Eq. (13), p. 5 (around offset 33035); Eqs. (43)–(46), p. 8 (offsets 58900–63550)",
+          "method": "OA PDF formula locate and bounded neighboring passage",
+          "title": "Random Recursive Trees and the Elephant Random Walk",
+          "trigger": "Exact root-size moments can determine the observed binary increment"
+        },
+        {
+          "assessment": "Prior exact process equivalence including birth labels",
+          "evidence": "First-table occupancy probability is p times current table size divided by n, and the whole partition process is identified with the percolation process.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.01881",
+          "material_read": "§2, p. 3 Eq. (2.1) offset about 10191; Proposition 2.1 p. 4 offsets 11890–14073",
+          "method": "OA PDF bounded passage",
+          "title": "Can the root cluster remain largest forever in random recursive tree percolation?",
+          "trigger": "Potentially stronger labelled partition representation"
+        },
+        {
+          "assessment": "Same transition and aggregate observables; no separately stated marked amplifier in passage",
+          "evidence": "Transition pc/n for root component growth.",
+          "identifier_or_url": "Resultary ba4f1c497f72",
+          "material_read": "RESULT.md Proof, Exact Markov transitions, offset 2300 onward",
+          "method": "Local Resultary mirror",
+          "title": "Exact frontier law and Gaussian fluctuations for percolated recursive trees",
+          "trigger": "Close indexed root-size growth theorem"
+        },
+        {
+          "assessment": "Marking concerns total deletions rather than a birth event",
+          "evidence": "Fixed-deletion factorial moments and a total-cut-count recurrence.",
+          "identifier_or_url": "Resultary 19dd2436af96",
+          "material_read": "Finding and fixed-deletion moment construction",
+          "method": "Local Resultary comparison",
+          "title": "Microcanonical root-cluster universality in random recursive trees",
+          "trigger": "Exact factorial moments with a marking parameter"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Prior first and second moment formulas, with binary-increment reduction",
+        "Prior first-table transition"
+      ],
+      "rationale": "Birth-conditioned correlation is a natural observable and the interpretation is useful, but this record's narrow exact invariant is mechanically determined by known moments and one-step linear regression. The age comparison adds just cancellation in the resulting products; the work neither closes an independent exact-moment gap nor establishes a higher-order conditional law that would require new information about the process.",
+      "residual_risks": [
+        "The disposition does not assess unclaimed higher-order or nonuniform-parent variants, which need not reduce to these two moments."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

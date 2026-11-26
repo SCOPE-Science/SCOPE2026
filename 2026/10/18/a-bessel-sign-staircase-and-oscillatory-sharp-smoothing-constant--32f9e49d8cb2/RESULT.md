@@ -6,15 +6,15 @@ Let \(\Delta f(k)=f(k+1)-2f(k)+f(k-1)\) on sequences indexed by \(\mathbb Z\), a
 \[
 N(t)=\|\Delta W_t\|_{\ell^\infty(\mathbb Z)\to\ell^\infty(\mathbb Z)}=\|\Delta W_t\|_{\ell^1(\mathbb Z)\to\ell^1(\mathbb Z)}.
 \]
-Write \(I_n\) for the modified Bessel function of the first kind (nonnegative integer order). Then
+Write \(I_n\) for the modified Bessel function of the first kind (nonnegative integer order). The exact calculation used here is
 \[
 N(t)=4e^{-2t}\max_{m\in\mathbb Z_{\ge0}}\bigl(I_m(2t)-I_{m+1}(2t)\bigr).
 \]
-For every integer \(m\ge1\), exactly one number \(x_m>m^2\) satisfies \(I_m'(x_m)=I_m(x_m)\). Put \(\tau_0=0\), \(\tau_m=x_m/2\). These times increase strictly to infinity, with
+The peak switches at \(\tau_m=x_m/2\), where \(x_m>m^2\) is the unique solution of \(I_m'(x_m)=I_m(x_m)\), \(m\ge 1\). The exact formula and switching staircase follow from the discrete-Gaussian gradient-peak result [6] by telescoping the second difference; a self-contained derivation is included below. The new asymptotic statement concerns the switch displacement and its effect on the temporal norm. In detail, the switches obey
 \[
 \tau_m=\frac{m^2}{2}+\frac14+O(m^{-2})\qquad(m\to\infty).
 \]
-On \(\tau_m<t<\tau_{m+1}\), the maximum in the exact norm formula occurs uniquely at index \(m\). At \(t=\tau_m\), the two adjacent indices \(m-1,m\) tie. Consequently the sharp \(\ell^\infty\) input is the sign of the time-derivative heat kernel: it is negative on a finite central interval and positive outside (translated or globally negated), with freedom on zeros.
+On \(\tau_m<t<\tau_{m+1}\), the maximum in the exact norm formula occurs uniquely at index \(m\). At \(t=\tau_m\), the two adjacent indices \(m-1,m\) tie. An extremizing \(\ell^\infty\) input is the sign of the time-derivative heat kernel: it is negative on a finite central interval and positive off that interval and the possible boundary zeros. Its translates and multiples by scalars of modulus one also extremize, with any values of modulus at most one at the corresponding kernel zeros. This describes equality at a specified output site, not an exhaustive classification of inputs whose output supremum need not be attained at a site.
 
 Set \(C=\sqrt{2/(\pi e)}\) and \(\rho(t)=\operatorname{dist}(\sqrt{2t},\mathbb Z+\tfrac12)\), where \(0\le\rho(t)\le\tfrac12\). Then
 \[
@@ -43,13 +43,13 @@ For all \(n\ge0\), \(L_{n+1}>L_n\). Indeed the difference is positive near zero 
 \[
 \sum_{n=-m}^mH_t(n)=2\bigl(G_t(m+1)-G_t(m)\bigr).
 \]
-Since \(\sum_n H_t(n)=0\), the total variation is \(-2\) times this negative mass, namely \(4(G_t(m)-G_t(m+1))\). The same identity holds at a tie. This proves the formula, the staircase, and the input classification.
+Since \(\sum_n H_t(n)=0\), the total variation is \(-2\) times this negative mass, namely \(4(G_t(m)-G_t(m+1))\). The same identity holds at a tie. For \(D_j=G_t(j)-G_t(j+1)\), the consecutive difference \(D_{j-1}-D_j=H_t(j)\) for \(j\ge1\) gives exactly the claimed maximizing indices, by the strict signs and the possible single zero on the positive half-line. For \(\|f\|_\infty\le1\), equality \(|(H_t*f)(k)|=\sum_n|H_t(n)|\) at a given site \(k\) requires and suffices that \(f(k-n)=\lambda\operatorname{sgn}H_t(n)\) at every nonzero kernel entry, for one scalar \(|\lambda|=1\): equality requires both unit modulus and a common phase of all nonzero summands. Taking this input at \(k=0\) attains the operator norm.
 
 **4. Threshold asymptotics.** Let \(h=x^{-1/2}\), \(u=nh\), and \(\phi(u)=(2\pi)^{-1/2}e^{-u^2/2}\). Fourier inversion gives
 \[
 G_{x/2}(n)=\frac1{2\pi}\int_{-\pi}^{\pi}e^{x(\cos\theta-1)}e^{-in\theta}\,d\theta.
 \]
-Substitute \(\theta=hs\) and expand the exponent, splitting at a slowly growing \(|s|\) and bounding the remainder by Gaussian domination. Uniformly for \(u\) in compact sets, including the required finite numbers of \(u\)-derivatives, this yields
+Substitute \(\theta=hs\) and split at \(|s|=h^{-1/10}\). On the outer region, \(1-\cos(hs)\ge 2h^2s^2/\pi^2\) makes the integral negligible to every power of \(h\), even after inserting any fixed power of \(s\) from differentiation in \(u=nh\). On the inner region the exponential after removing \(e^{-s^2/2}\) is the expansion of \(\exp(h^2s^4/24-h^4s^6/720+O(h^6s^8))\), with remainder bounded by \(h^6\) times a fixed polynomial in \(|s|\). The scaled integral thus gives the following uniformly on compact sets, including the required finite numbers of \(u\)-derivatives:
 \[
 G_{x/2}(n)=h\left[\phi(u)+\frac{h^2}{24}\phi^{(4)}(u)+h^4\left(\frac{\phi^{(6)}(u)}{720}+\frac{\phi^{(8)}(u)}{1152}\right)+O(h^6)\right].
 \]
@@ -64,7 +64,7 @@ where \(\operatorname{He}_j\) are the probabilists' Hermite polynomials. At \(u=
 G_{x/2}(m)-G_{x/2}(m+1)
 =h^2\phi(v)\left[v+\frac{h^2}{24}\bigl(\operatorname{He}_3(v)+\operatorname{He}_5(v)\bigr)+O(h^4)\right].
 \]
-The maximizing staircase index obeys \(m+1/2=\sqrt x+O(1)\) by the threshold expansion, and its squared deviation \((m+1/2-\sqrt x)^2\) differs from \(\rho(x/2)^2\) by at most \(O(x^{-1/2})\): the transition times differ from the nearest-midpoint rounding boundaries \(x=m^2\) by a bounded amount. With \(v=1+h\delta\), the function \(v\phi(v)\) has a strict quadratic maximum at \(v=1\), while \(\operatorname{He}_3(1)+\operatorname{He}_5(1)=4\). It follows uniformly that
+The maximizing staircase index obeys \(m+1/2=\sqrt x+O(1)\) by the threshold expansion. Except in a bounded-width neighborhood of a switch boundary \(x=j^2\), it selects the nearest half-integer to \(\sqrt x\). In such a neighborhood the only possible alternative to the nearest half-integer is across that boundary, between \(j-1/2\) and \(j+1/2\). The difference of their squared distances to \(\sqrt x\) is at most \(2|\sqrt x-j|=O(x^{-1/2})\), including at a tie. Thus the selected squared deviation is \(\rho(x/2)^2+O(x^{-1/2})\). With \(\delta=m+1/2-\sqrt x\), \(v=1+h\delta\), one has \(v\phi(v)=\phi(1)(1-h^2\delta^2+O(h^3))\), while \(\operatorname{He}_3(1)+\operatorname{He}_5(1)=4\). It follows uniformly that
 \[
 G_{x/2}(m)-G_{x/2}(m+1)
 =h^2\phi(1)\left[1+h^2\left(\frac16-\rho(x/2)^2\right)+O(h^3)\right].
@@ -73,15 +73,15 @@ Multiplying by four and substituting \(x=2t\) proves the claimed time expansion.
 
 ## Verification
 
-The independent finite computations available in `check.py` evaluate Bessel values by a convergent positive power series, compare the telescoped expression with a direct \(\ell^1\)-sum of the signed heat derivative, locate several thresholds by scalar bracketing, and check the large-time coefficients and phase-index predictions. Executing `python3 check.py` reported **134 passed finite assertions**. This checker illustrates and independently stress-tests normalizations but is not used to replace the analytical argument for all dimensions, integer orders, or real times.
+The finite computations available in `check.py` evaluate the heat kernel by periodic Fourier quadrature, compare the telescoped expression with a truncated \(\ell^1\)-sum of the signed heat derivative, locate several thresholds by scalar bracketing, and check the large-time expansion at selected times. Executing `python3 check.py` originally reported **134 passed finite assertions**. These numerical tests illustrate and stress-test the normalization; they do not replace the all-time and all-order analytic argument on \(\mathbb Z\).
 
 ## Relationship to prior work
 
-The Bessel representation of the integer-lattice heat kernel is classical and is used in Grünbaum–Iliev (2002) and explicitly by Ciaurri et al. (2014); no novelty is asserted for it. Ignat (2006) studies positivity and qualitative bounds for discrete heat schemes. Abadias–de León-Contreras (2022), Lemmas 2.4–2.6 and Remark 2.7, give spatial-difference bounds of the form \(\|\delta^lG_t\|_{\ell^1}\lesssim t^{-l/2}\) and connect even differences to time derivatives. Those generic bounds do not state the exact norm, the sequence of unique Bessel sign changes, or the second-order lattice oscillations. These three combined sharpenings are the subject of this finding. Abadias, González-Camus, Miana and Pozo (2021), Theorem 4.3(iii), prove the corresponding \(\ell^1\)-norm bound \(\|\Delta G_t\|_1\lesssim t^{-1}\), and their Section 7.2 explicitly discusses extending finite-difference order estimates. Their inspected full text does not compute the sharp coefficient, determine the Bessel sign staircase, or give the oscillatory second-order law. No novelty is claimed for their decay rate.
+The Bessel heat kernel is classical [1,3]. Abadias, González-Camus, Miana and Pozo [5, Theorem 4.3(iii)] give \(\|\Delta G_t\|_1\lesssim t^{-1}\), and their Section 7.2 discusses finite-difference estimates. The exact spatial-gradient peak theorem [6] gives a unique positive zero of \(I_n-2I_{n+1}+I_{n+2}\), its strict quadratic brackets, and the maximizing-index switches for the largest heat-kernel first difference at the same time scale. At \(n=m-1\) this second difference equals \(2(I'_m-I_m)\); its sign geometry and a discrete telescope already imply the temporal norm formula and switching staircase above. Neither the heat kernel, exact all-time formula, staircase nor qualitative decay rate is claimed as new. The additional finding is the refined threshold displacement and the oscillatory second-order sharp norm, not provided by the quadratic brackets or the peak theorem in [6]. This is a statement comparison, not an assertion of priority between the records.
 
 ## Limitations
 
-No statement is made for general inhomogeneous graphs, higher-dimensional lattices, nonlinear diffusion, or the full range of \(\ell^p\)-operator norms. The error term in the large-time formula is not claimed to be optimal. Even comparison with relevant accessible primary papers cannot establish global priority; historical equivalent statements under Bessel-ratio, Skellam signed total-variation or semigroup time-derivative terminology remain a bibliographic risk. The result has received a self-review only, not independent review.
+No statement is made for general inhomogeneous graphs, higher-dimensional lattices, nonlinear diffusion, or the full range of \(\ell^p\)-operator norms. The error term in the large-time formula is not claimed to be optimal. The source comparison is bounded; equivalent asymptotics under Bessel-ratio, Skellam signed-total-variation or semigroup time-derivative terminology remain possible.
 
 ## References
 
@@ -90,3 +90,4 @@ No statement is made for general inhomogeneous graphs, higher-dimensional lattic
 3. Ó. Ciaurri, T. A. Gillespie, L. Roncal, J. L. Torrea and J. L. Varona, *Harmonic Analysis associated with a discrete Laplacian*, arXiv:1401.2091 (first posted 2014-01-09), https://arxiv.org/abs/1401.2091 .
 4. L. Abadias and J. de León-Contreras, *Discrete Hölder spaces and their characterization via semigroups associated with the discrete Laplacian and kernel estimates*, DOI:10.1007/s00028-022-00851-1 (2022).
 5. L. Abadias et al., *Large time behaviour for the heat equation on Z, moments and decay rates*, DOI:10.1016/j.jmaa.2021.125137 (2021; author manuscript at arXiv:2401.16377 posted in 2024 and inspected).
+6. *Exact switching staircase for discrete-Gaussian gradient peaks*, Resultary 14f278a0557c, Finding and Limitations. https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-switching-staircase-for-discrete-gaussian-gradient-peaks--14f278a0557c

@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:11:20.131799Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At the j-th selected position, the number of preceding unselected letters is even because the source and selected word alternate in the same phase. Thus no deletion can split the two letters of a paired residual block. Its type is the parity of the number of selected letters already read. With type zero at both boundaries, each run of ba blocks needs two parity changes, each costing a selected letter. Conversely one selected letter at each change and all remaining letters appended in pairs builds the required alternating source. The 2j endpoints of j runs choose 2j of r+1 gaps; Pascal's identity gives the second sum. The maximum run count ceil(r/2), the fixed-k leading term, and k=0 or r=0 agree with the statement. A separate recursive embedding enumeration matched the entire sets in all 66 cases 0 <= k <= n <= 10, totaling 1068 distinct residuals across cases. This finite replay is corroboration, not the proof.",
+      "replay_paths": [
+        "/workspace/branches/cec31df6-b288-4512-a458-21f04876d24d/independent_replay.py",
+        "/workspace/branches/cec31df6-b288-4512-a458-21f04876d24d/replay_n10_output.txt"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact fiber theorem gives positive multiplicity precisely for paired residuals with transition number T at most the deletion length d (appending a parity-dependent last symbol only when the residual length is odd)."
+        ],
+        "reasoning": "Use host length 2n and deleted length 2k, with a,b relabelled 0,1. The residual is even, both endpoint types are zero and T is twice the number of ba runs, giving the frozen condition exactly. The broader result also counts every embedding with that residual.",
+        "searches": [
+          "Resultary: alternating-prefix deletion fibers; 2026/11/22/SCOPE-parity-unified-exact-deletion-fiber-multiplicities-of-alternatin--762092a60cc7/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–32; VERIFICATION.md and supplied checks as recorded evidence",
+        "Resultary 2026/11/2 record d7ef6cdd9c92, Finding",
+        "Resultary 2026/11/22 record 762092a60cc7, Finding",
+        "arXiv:2603.20790 §5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The motivating paper's conclusion asks for a closed formula in specific cases. The later catalogue fiber formula, unlike a general membership algorithm, gives an explicit support condition and exact histogram that specialize directly."
+        ],
+        "reasoning": "Computability of the complements in the motivating paper does not itself imply the closed form. Taking the support of the even-even fiber specialization does imply the entire claimed classification, and the separate exact match states it outright.",
+        "searches": [
+          "arXiv:2603.20790, §5; Resultary records d7ef6cdd9c92 and 762092a60cc7, Find­ings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Finding: for w=(ab)^(m+k) and u=(ab)^k, a word of m blocks from {ab,ba} occurs if and only if its reversed-block run count is at most k."
+        ],
+        "reasoning": "Substitute m=n-k; reversed-block runs are exactly the frozen encoding's one-runs. Both count sets of distinct words, not embeddings, and include empty boundary cases.",
+        "searches": [
+          "Resultary: alternating binary deletion complements, reversed-block runs, binomial tail; 2026/11/2/SCOPE-binomial-tail-law-for-complements-of-alternating-words--d7ef6cdd9c92/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 2 catalogue entry states both exact sums for all m,k and allows every block word exactly when m <= 2k. OEIS A000124 is only the numerical comparison documented in the frozen record for k=1."
+        ],
+        "reasoning": "The duplicate catalogue formula establishes exact coverage without relying on the one-parameter numerical match; taking the highest-degree term of that same sum also yields the frozen fixed-k asymptotic.",
+        "searches": [
+          "Resultary record d7ef6cdd9c92, exact classification and displayed binomial sums; frozen RESULT.md reference to OEIS A000124"
+        ]
+      },
+      "rationale": "Distinct indexed results cover the entire frozen finding. The November 2 record has the same all-parameter complement language, two binomial sums and saturation threshold; the November 22 record independently supplies a dominating claim at the statement level by classifying positional multiplicities for all alternating prefixes. This is a finding of equivalent catalogue coverage, not a finding of earlier publication or copying: both identified catalogue paths are later than the frozen October 18 path.",
+      "residual_risks": [
+        "No claim of historical priority is made; catalogue dates and mathematical equivalence do not establish a chronology of discovery. Earlier unindexed equivalents were not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage",
+          "evidence": [
+            "m residual blocks; at most k reversed-block runs; both binomial sums; saturation iff m <= 2k."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-binomial-tail-law-for-complements-of-alternating-words--d7ef6cdd9c92/RESULT.md",
+          "material_read": "Finding and scope, offset 0",
+          "method": "Local mirror statement read",
+          "title": "Binomial-tail law for complements of alternating words",
+          "trigger": "Exact all-parameter match"
+        },
+        {
+          "assessment": "Broader coverage",
+          "evidence": [
+            "Exact multiplicity binomial(ell+(d-T)/2,ell) when T <= d; all other words have multiplicity zero."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-parity-unified-exact-deletion-fiber-multiplicities-of-alternatin--762092a60cc7/RESULT.md",
+          "material_read": "Finding and scope, offset 0",
+          "method": "Local mirror statement read",
+          "title": "Parity-unified exact deletion-fiber multiplicities of alternating binary prefixes",
+          "trigger": "Potential dominating theorem"
+        },
+        {
+          "assessment": "Motivates exact special-case counts; inspected conclusion is not an exact formula",
+          "evidence": [
+            "The conclusion identifies closed formulas in specific cases as an open direction."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.20790",
+          "material_read": "§5 Conclusion, around offset 92500",
+          "method": "Open-access full-text passage",
+          "title": "(Sets of) Complement Scattered Factors",
+          "trigger": "Closest cited primary literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Scientifically useful as a complete residual-language classification for a natural special case of complement scattered factors, not just a small table or a count of embeddings. The run criterion gives a direct membership and embedding construction, and the saturation boundary marks the change to full support. This merit does not create a distinct contribution on top of the equivalent and broader indexed results.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

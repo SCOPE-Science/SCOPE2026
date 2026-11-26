@@ -1,19 +1,21 @@
-# Scientific review: sharp three-site positivity recovery
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is explicitly \(0<\alpha\le2\), any \(h>0\), and the three-site principal restriction of Fourier multiplier \(|\xi|^\alpha\). The coefficient integrals determine a positive definite symmetric Toeplitz matrix. Integration by parts proves signs of the first and second offdiagonal coefficients, including \(0<g<b\) for \(\alpha>1\). A symmetric–antisymmetric block diagonalization gives every matrix-exponential entry. The one questionable offdiagonal is controlled by a strictly convex two-exponential scalar function: its derivative at zero is strictly negative and its long-time limit is positive, so one positive crossing and no return are proved. The isolated nonnegative time zero is included. Taylor expansion at \(\alpha=1\) plus a cosine-integral identity yields the threshold and negative-dip constants. The executable verifier independently evaluates the defining Fourier integrals and agrees with matrix exponentials for all 461 tested check groups. Finite tests are not substituted for all-parameter proofs.
+PASS
 
-## Originality — PASS, with publication-priority caveat
+The dimensionless Toeplitz matrix is positive definite by the integral of a squared trigonometric polynomial against the positive symbol. Integration by parts gives b>0 and pairing the two halves of the c₂ sine integral makes the sign of g the sign of α−1. The integral for b−g has positive integrand proportional to θ^(α−1) sinθ(1+cosθ), so 0<g<b and Δ>3g/2 for α>1. For α≤1 the shifted nonnegative generator has a positive path between any two sites, giving strictly positive entries at every positive time. In symmetric and antisymmetric outer-site coordinates the exponential leaves only entry 13 (and its transpose) able to change sign. It is one half of exp(−(a−g)τ) times H(τ), where H is the stated convex combination of exp((Δ−3g/2)τ) and exp(−(Δ+3g/2)τ), minus one. H has H(0)=0, H′(0)=−2g<0, H″>0 and diverges to +∞, proving exactly one positive crossing. For the asymptotics, g′(1)=Z/(4π) by integrating logθ against sin(2θ), and b(1)=2/π. The analytic continuation of P₁₃/τ to τ=0 is −g+(b²+2ag)τ/2+O(τ²). The implicit function theorem gives the positive root slope πZ/8 and the quadratic error. The analogous derivative equation gives the minimizing slope πZ/16; the negative interval shrinks to zero and the entry is strictly convex on it for α close to one. Substituting gives the dip coefficient −Z²/128. The stated h scaling and α=2 Fourier coefficients are consistent, and independent bisection of the endpoint equation agrees with 0.261185173260985 to its quoted precision.
 
-Huang–Oberman (2016, arXiv:1611.00164, Sections 4.1–4.2 and 5.1) **already establishes** the exact-symbol spectral weights and reports their negative signs for orders exceeding one; that qualitative positivity obstruction is therefore not new. Zhou–Zhang (2023, arXiv:2311.07814, Sections 2–3) studies the same exact-symbol Toeplitz discretization, not the exact three-site semigroup crossing. Noutsos–Tsatsomeros (2008, doi:10.1137/070693850, Sections 2–4) defines the general exponential positivity index and illustrates it with other matrices; Daners–Glück–Kennedy (2015, arXiv:1511.09020, Section 6.1) gives general finite-dimensional spectral criteria for eventual positivity. Chen et al. (2020, arXiv:2009.03581, Section VI) concerns signed Laplacians and general eventual positivity. Those works imply or explain qualitative failure and eventual recovery, **not** the particular unique sharp three-site onset, its exact scalar equation, its \(\alpha\downarrow1\) linear coefficient or its sharp quadratic negative excursion. Actual alias, parameter and implication searches found no directly dominating published formula. A broader unpublished or earlier special-case diagonalization may exist; no independent priority certification is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-The first positive distance-two coupling in this standard nonlocal stencil occurs at three sites, so three is a motivated minimal test of the continuous-time discrete maximum principle, not an arbitrary numerical slice. Existing warnings about negative Fourier weights do not specify whether or when the resulting exact semigroup ceases to violate positivity. The result supplies a complete sharp time set, including the surprising isolated positive time \(t=0\), and resolves the near-boundary scaling of both duration and severity of the negative response. The exact threshold can be used as a small-grid verification benchmark for semigroup evaluation and numerical fractional diffusion, without claiming a general multi-site guarantee or practical severity at finite precision.
+The supported distinct claim is the exact entrywise recovery law and its two transition constants for the three-site principal restriction of the exact Fourier symbol. Neither the stencil/sign split nor the concept or qualitative conclusion of eventual positivity is credited as new. An earlier graph-heat result includes the three-vertex path but uses a provably different generator.
 
-## Closest literature and limits
+## value
 
-The starting coefficient facts are from Huang–Oberman (2016). General eventual semigroup positivity and its index predate this result (Noutsos–Tsatsomeros 2008; Daners–Glück–Kennedy 2015). Full or targeted primary-text examination found no direct same-family classification; the remaining originality risk concerns specialized three-by-three Toeplitz exponentials and prior finite-dimensional index examples. The claim is analytically restricted to the stated three-site, continuous-time exact-symbol matrix. No independent human or computer-formal verification occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Three sites are the first principal restriction that includes the second-neighbor coefficient, which is responsible for the positivity loss. This is a natural minimal model where the distinction from a spectral graph power matters. The exact last negative interval and its shrinking duration and depth quantify a transient that the qualitative eventual-positivity theory does not resolve.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

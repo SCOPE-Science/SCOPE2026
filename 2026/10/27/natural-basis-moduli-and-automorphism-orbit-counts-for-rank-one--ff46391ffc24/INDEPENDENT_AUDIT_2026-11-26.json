@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:53:23.012598Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–38",
+        "Frozen VERIFICATION.md, lines 18–23; verify.py, lines 7–48 (read, not executed)"
+      ],
+      "rationale": "In a natural basis the form B is diagonal with both entries nonzero by nondegeneracy. A basis up to separately rescaling and reordering is an unordered pair of transverse orthogonal lines; orthogonal complementation on nonisotropic lines is a fixed-point-free involution. Rescaling u rescales B, changing its determinant by a square and leaving B(u,u)=0 invariant. An automorphism has Tu=cu and B(Tx,Ty)=cB(x,y). If B(u,u)≠0 then c=1 and T is ±1 on the orthogonal line while fixing u. If B(u,u)=0, choose an isotropic v with B(u,v)=1 by subtracting B(v,v)u/2 from a suitably normalized mate. The same equations force Tv=v, and all nonzero c are allowed. There are at most two exceptional isotropic lines over an infinite field, giving infinitude; dimension one has only one basis class under scaling. Over an odd finite field the isotropic line count is 1+χ(-Δ), giving N. In the hyperbolic coordinates L_t=K(u+tv), complementation sends t to -t and the automorphism sends t to t/c, proving transitivity. For nonisotropic u, the reflection fixes the coordinate pair. Any other fixed pair must be swapped; orthogonality of u+tv and u-tv requires t²=B(u,u)/B(v,v), and such lines are nonisotropic because their norm is 2B(u,u)≠0. Two roots give one pair exactly when χ(Δ)=1. Burnside gives the claimed O and the fixed-point count, including the small fields.",
+      "residual_risks": [
+        "The package enumerates examples over prime fields, not all odd prime powers. The projective-line and character arguments establish the general count, including nonprime odd fields; the structure argument also applies in characteristic zero."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A5 in §2.5 has isotropic derived generator and automorphism group K× in characteristic not two; §2.8 and Table 1 give μ2 for A8,alpha.",
+          "The survey asks explicitly whether infinitely many natural bases modulo the stated equivalence occur with finite automorphism group. Its Proposition 14 supplies a different example with orthogonal automorphism symmetry; its n=2 case has infinite automorphism group over infinite fields."
+        ],
+        "reasoning": "The 2024 group classifications cover both group-type outputs, not just the μ2 case credited in the frozen record. The finite-group example uses the known A8,1 and the form argument, so it is a concise answer to the survey question, not credit for a new automorphism computation. The group table does not enumerate orbits of the action on the orthogonal pairs.",
+        "searches": [
+          "Cabrera Casado et al., arXiv:2407.15769v2, A5 and A8,alpha",
+          "Kaygorodov–Martín González–Viruel arXiv:2610.22248, Question 14 and Proposition 14"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.22248, 2103.01625, 2006.14460 and 2407.15769v2, passages specified above",
+        "Resultary rank-one basis-count and minimal trivial-group dimension comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known automorphism matrices allow the action to be computed but neither their group orders nor the number N specifies the number of fixed unordered pairs. The orbit calculation needs the transverse pair exchanged by the reflection, which exists precisely when χ(Δ)=+1 in the nonisotropic-generator case."
+        ],
+        "reasoning": "Group type and N alone do not determine the orbit count: even with the same split binary form N and δ=0 versus δ≠0 are different action regimes. For δ≠0 the missing incidence question asks when the reflected line equals the orthogonal line. Burnside is standard; the supported new exact invariant is the resulting census with the determinant-character condition, not a new method or basis-equivalence criterion.",
+        "searches": [
+          "arXiv:2407.15769v2 §§2.5, 2.8 and Table 1 together with Resultary b82d0cd6a8f9",
+          "arXiv:2610.22248 Proposition 14 and Question 14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brache et al. present rank-one-square products as a symmetric bilinear form times a generator and organize cases by the generator's annihilator and isotropy behavior.",
+          "Boudi et al. give a natural-basis extension criterion in orthogonal-vector language."
+        ],
+        "reasoning": "Unordered orthogonal decompositions and bases modulo scaling and reordering are the same here. That reduction is old. The additional quotient by algebra automorphisms fixes the multiplication and is not the same as allowing all orthogonal transformations or classifying the algebras up to isomorphism.",
+        "searches": [
+          "Rank-one evolution algebra, one-dimensional square, natural/projective orthogonal basis classes and automorphism orbits",
+          "Brache et al., arXiv:2103.01625; Boudi et al., arXiv:2006.14460 Proposition 2.16"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary b82d0cd6a8f9 gives m/2 pairs by orthogonal complementation, where m=q+1−epsilon(B). In odd characteristic epsilon(B)=1+χ(-Δ), so m/2 is exactly N(E).",
+          "Resultary f9e39534bc6b addresses the minimum dimension with trivial automorphism group, a stronger condition than finite. The published group table gives both group types but no automorphism-orbit counts."
+        ],
+        "reasoning": "The basis count is demonstrable exact overlap, not just a similar title. The order of indexed records does not settle priority. The graph-count finding does not give the second quotient or its character-dependent fixed pairs; the trivial-group minimum concerns a different problem.",
+        "searches": [
+          "Resultary rank-one moduli, orthogonal natural-basis graph counts, finite automorphism group; records b82d0cd6a8f9 and f9e39534bc6b",
+          "arXiv:2407.15769v2 Table 1"
+        ]
+      },
+      "rationale": "The exact Aut(E)-orbit census and its fixed-pair refinement are the supported distinct content of the joint theorem. The automorphism types are already known, the form and orthogonal-pair description use established machinery, and a distinct indexed record explicitly contains the same moduli description and N(E). Do not award separate novelty for those components. No inspected statement supplies the extra involution fixed-pair count and O(E) across both generator types. The available survey comparison supports the relevance of the finite-group example, not novelty of its algebra or automorphisms.",
+      "residual_risks": [
+        "The frozen related-work discussion should credit the A5 K× case alongside A8,alpha; no novelty credit is given here for either group calculation or for N(E) independently.",
+        "The comparison is bounded. A more general classification of orthogonal decompositions with a distinguished generator could contain the fixed-pair census; no such implication was verified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Question expressly asks the relevant coexistence; Proposition 14 does not supply the finite-group example.",
+          "evidence": [
+            "The construction A_n with dim n+1 has automorphism group O(V,b); the survey notes infinitude for n=2 over infinite fields."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.22248",
+          "material_read": "Question 14 p. 22 near 77971 and Proposition 14 p. 13 near 48059",
+          "method": "Inspect bounded passages of open primary text",
+          "title": "Evolution algebras: a survey of results and a list of open problems",
+          "trigger": "The stated open question about infinitely many bases and a finite group"
+        },
+        {
+          "assessment": "Verifies the prior form and structural split, not a full-document exclusion of this census.",
+          "evidence": [
+            "One-dimensional square is presented by xy=⟨x,y⟩a; the classification separates generator annihilator, isotropic and anisotropic possibilities."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2103.01625",
+          "material_read": "Abstract p. 1 near offset 0",
+          "method": "Inspect bounded passage of open primary text",
+          "title": "Evolution algebras with one-dimensional square",
+          "trigger": "Potential prior rank-one form and isotropy reduction"
+        },
+        {
+          "assessment": "Known orthogonality-based basis criterion, not the orbit refinement.",
+          "evidence": [
+            "Natural-basis extension is stated using orthogonal vectors."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2006.14460",
+          "material_read": "Proposition 2.16 p. 8 near offset 24762",
+          "method": "Inspect bounded passage of open primary text",
+          "title": "Natural families in evolution algebras",
+          "trigger": "Orthogonal decomposition as natural-basis framework"
+        },
+        {
+          "assessment": "Both automorphism types are established prior results; the inspected passages do not supply the counts of automorphism orbits on basis classes.",
+          "evidence": [
+            "The isotropic-generator A5 has K× in characteristic not two. A8,alpha with both squares on Ke1 has μ2, so C2 on K-points in characteristic not two."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.15769v2",
+          "material_read": "§2.5 p. 5 near offset 19737, §2.8 p. 7 and Table 1 p. 8 near offset 27605",
+          "method": "Inspect bounded primary full-text passages",
+          "title": "Hopf algebras and associative representations of two-dimensional evolution algebras",
+          "trigger": "Same two-dimensional rank-one examples and automorphism groups"
+        },
+        {
+          "assessment": "Equivalent projective-pair description and N(E); no displayed O(E) or reflection-fixed-pair count in the inspected result.",
+          "evidence": [
+            "The map L↦L-perp pairs the m=q+1−epsilon(B) nonisotropic lines, giving m/2 basis classes; this is the same N(E) in odd characteristic."
+          ],
+          "identifier_or_url": "Resultary: 2026/11/2/SCOPE-all-field-natural-basis-graph-counts-for-two-dimensional-rank-on--b82d0cd6a8f9",
+          "material_read": "RESULT.md offsets 0–5234 and 5234–9650",
+          "method": "Bounded local mirror passage inspection",
+          "title": "All-field natural-basis graph counts for two-dimensional rank-one evolution algebras",
+          "trigger": "Exact orthogonal-pair moduli and finite census overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings lines 4–20 and proof lines 25–38",
+        "arXiv:2610.22248, Question 14"
+      ],
+      "rationale": "The equivalence by scaling and reordering is the one singled out by the survey. Computing how many of those bases remain inequivalent after intrinsic symmetry answers a further natural classification question, which knowing the group and the total number of bases does not settle. For example, a hyperbolic form over F7 gives three basis classes for either generator type, while an isotropic generator leaves one automorphism orbit and a nonisotropic one leaves two. The count distinguishes a concrete effect of the distinguished derived line, rather than tabulating illustrative prime-field examples.",
+      "residual_risks": [
+        "This is a classification of naturally marked decompositions up to the stated equivalences in dimension two, not an all-dimensional or characteristic-two moduli theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

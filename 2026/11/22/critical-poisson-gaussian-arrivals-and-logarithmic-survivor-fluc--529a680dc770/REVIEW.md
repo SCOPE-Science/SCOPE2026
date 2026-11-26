@@ -1,26 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The scope specifies independent Brownian motions with generator \(D\partial_x^2\), fixed initial source distance, independent exponential killing and \(q_N=\log N+c\). The analytic proof reconstructs the established defective hitting density and its normalization, changes variables to the exact successful-arrival mark density, and derives an **integrated** Edgeworth expansion with exponentially controlled tails. This yields the explicit \(0.3775032500\ldots\) first-order single-mark total-variation constant. A binomial–Poisson count coupling and the event of exactly one mark in the sign-positive density region give two-sided, process-level total-variation bounds. Finally an exact conditional-binomial formula for the population still diffusing at the first success, followed by uniform concentration on tight arrival-time windows, establishes the joint logarithmic-survivor limit. The independent numerical checker exercises 239 finite consistency conditions; none is used as proof of a limit.
+PASS
 
-## Originality — PASS, qualified
+Reflection and independent killing give the defective Brownian hitting density and Laplace transform. The standardized conditional density is φ(v) times (1+v/√q)^(−3/2) exp(v³/[2√q(1+v/√q)]) on v>−√q. On |v|≤q^(1/12) its linear correction is (v³−3v)/(2√q) with the stated integrable Gaussian-weighted remainder. The exact conditional MGF satisfies log M_q(t)≤t² for |t|≤√q/4, so ±q^(1/12)/2 as Chernoff parameters control the complement. Thus the first-order absolute integral is E|Z³−3Z|/(4√q), yielding the positive stated C_*. The binomial success count with p=m/N and iid conditional marks may be coupled first in its count and then in its marks, giving the bound mδ_q+m²/N. The one-point sector over the sign-positive density set gives the lower bound, because its binomial/Poisson mass difference is O_m(N^−1). The min distribution follows from the exact absence-of-points formula and subtraction of the no-success atom. Given the first successful particle and time, the other particles are independently conditioned on no success by that time; being alive and unabsorbed is a subset of that event, giving the ratio in Eq. (5). Compact success-conditioned mark windows force the conditional binomial mean to infinity uniformly and give log mean log N−q/2−v√q/2+o(1), with vanishing relative count error. Tightness then yields the joint limit including vanishing probability of no other live searcher. This gives a process-level order, not a process-level leading constant. The live population is √N times a random subpower factor, not Θ(√N) in the sense of a multiplicatively tight ratio.
 
-Meerson–Redner (2015) is the decisive same-model predecessor: it gives the one-particle hitting density, the full success probability, the threshold of mortal redundancy, conditional moments and finite-population success formula, which are all **prior inputs**. Paquin-Lefebvre–Delbreil–Holcman (2026) gives general finite-population first-exit and surviving-population identities, especially their Section 2.3; these identities include the exact conditional-survivor binomial mechanism and are credited. Skorski (2023) already gives standardized inverse-Gaussian normal approximation of total-variation order \(q^{-1/2}\). A published-finding corpus paper on continually *recruited* mortal searchers gives a different immigration arrival process with a distinct critical exponential waiting law. No examined full text or targeted published-finding corpus comparison stated the combined synchronized critical marked-arrival law, its **exact single-mark total-variation coefficient and sharp whole-cloud order**, or the perfectly coupled first-arrival/logarithmic-survivor limit. These new claims are not a reassertion of the known success threshold or of standard qualitative normal/Poisson approximation.
+## originality
 
-The principal originality risk is that the new asymptotic may be implicit in the strong classical *finite-parameter* formulas and standard rare-event/normal-approximation machinery, or in an unlocated work. The absence of a matching search result is not proof of novelty. No independent literature or scientific audit has been performed.
+PASS
 
-## Value — PASS
+The success threshold, scalar Poisson count/empty atom at fixed m, conditional inverse-Gaussian law, single-mark TV order, and finite-N first-arrival survivor-count formulas are known or direct implications of known results. The supported distinct claims are the explicit first-order single-mark TV coefficient, the two-sided sharp whole-cloud comparison at synchronized critical scaling, and the tied first-arrival/logarithmic live-count law. No inspected result establishes those new conclusions under the same assumptions. This is a bounded assessment, not a priority claim for standard marking or normal approximation machinery.
 
-The critical window is motivated by the competing particle-number and mortality scales at which the expected number of successful arrivals stays finite. In this physically natural regime, conditional first-arrival time alone hides the population-level randomness: the newly identified log survivor-count fluctuation is deterministically the **negative** of the limiting first-arrival mark. The sharp process-level total-variation order provides a quantitative approximation for **all** successful arrival order statistics at a finite population, while the explicit \(C_*\) is a reference normalization. This closes a distribution-level and population-response gap left by fixed-killing large-population formulas, without asserting robustness to interactions, heterogeneous killing or measurement noise.
+## value
 
-## Closest sources and scientific boundaries
+PASS
 
-- Meerson and Redner (2015), *Mortality, Redundancy, and Diversity in Stochastic Search*, DOI:10.1103/PhysRevLett.114.198101 — same geometry, known exact single-particle and survival data.
-- Paquin-Lefebvre, Delbreil and Holcman (2026), arXiv:2611.14375v1 — general finite-\(N\) flux, survivor distribution and fixed-killing asymptotics; the motivating new work is restricted to a different joint scaling.
-- Skorski (2023), *Normality of Inverse Gaussian* — established order of qualitative Gaussian approximation in total variation.
-- *Sharp mortality–recruitment threshold for first arrivals of independent Brownian searchers* (2026), published-finding corpus — distinct continuous recruitment process with almost-sure eventual arrival.
+The natural window keeps the eventual number of successes nondegenerate. A sharp whole-cloud approximation quantifies errors for all successful-arrival statistics, while the joint live-count limit gives an informative population response that a first-hitting-time law alone misses. At a given first-arrival mark, the log count resolves a diverging fluctuation scale despite vanishing relative binomial noise. The value is in this quantitative joint description, not in the known threshold.
 
-No stability, robustness, empirical validation, or higher-dimensional extension is claimed. An implicit prior equivalent remains possible; independent publication-priority evaluation is necessary.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

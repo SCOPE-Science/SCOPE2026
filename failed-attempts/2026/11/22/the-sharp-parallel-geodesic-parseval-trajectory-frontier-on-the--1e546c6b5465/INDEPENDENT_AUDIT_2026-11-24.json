@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:36:27.920690Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof, lines 3–48",
+        "Frozen VERIFICATION.md, lines 19–23; check_torus.py, lines 6–39"
+      ],
+      "rationale": "The longitudinal fibers in the square are chains in the primitive direction (q,-p). The longest has h+1 entries, h=floor(2N/s): its end-to-end maximum coordinate displacement is hs, and any such integer segment fits by separate coordinate translations. Each loop gives at most one Fourier coefficient on that fiber, so fewer than h+1 loops cannot give injectivity at any offsets. Bezout transverse coordinates give distinct equally spaced offsets whose root sum kills every nonzero alias step |r|<=h when L>=h+1. This proves Parseval with the given Haar and arclength probability normalization. The least feasible integer s is s_L=1+floor(2N/L). For s_L>=2, primitiveness forces the other coordinate nonzero and the minimum squared winding is s_L^2+1, with equality precisely for signed coordinate permutations of (s_L,1). When s_L=1 the unit axes attain the minimum. For L<=2N, Ls_L>=2N+1 and the length is strictly larger than 2pi(2N+1); otherwise it is 2pi L, uniquely minimized at L=2N+1. The checker was inspected, not executed; its 12,544 alias cases are corroboration, not the proof.",
+      "residual_risks": [
+        "The proof is for distinct parallel complete primitive loops with equal probabilities and excludes transit between loops and arbitrary mixed-direction or curved designs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The distinct multi-direction record allows arbitrary positive component weights and mixed primitive slopes and proves that exactness holds in every direction separately, each with at least T_v+1 loops.",
+          "Ehler's sharp single-curve result and Kunis's Korobov quadrature treat one connected winding; the Euclidean parallel-line criterion treats a different signal space and norm comparison."
+        ],
+        "reasoning": "The genuinely covering source is the multi-direction result with arbitrary positive weights; the connected and Euclidean results provide context but are not themselves the disconnected classification.",
+        "searches": [
+          "2026/11/22/SCOPE-rigidity-and-sharp-arclength-of-positive-multi-direction-geodesi--feb376e38a6d",
+          "arXiv:2611.03362, Theorem 2.1",
+          "arXiv:2608.11915, Theorem 4.1",
+          "arXiv:2005.11193, Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary multi-direction and connected-rigidity records listed above",
+        "Ehler (2026), Theorem 2.1; Kunis (2026), Theorem 4.1; Rashkovskii–Ulanovskii–Zlotnikov (2020), parallel-line theorem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Before imposing exactness, the displayed (T_v+1)-square moment block already factors into L outer products. It is the Gram block of a full chain of T_v+1 frequencies separated by (q,-p); such a chain fits in the square because T_v max(|p|,|q|)<=2N.",
+          "If L<T_v+1, the block is singular for every offset, which yields noninjectivity, not only failure of exactness. Conversely the moment criterion yields exactness from regular L-gon offsets when L>T_v.",
+          "Solving L>T_v for s gives s>=1+floor(2N/L); the shortest primitive vector above that integer floor is a coordinate direction if the floor expression is 1, and otherwise a signed permutation of (s_L,1)."
+        ],
+        "reasoning": "The extra rank and fixed-count length statements not printed verbatim in the stronger result follow directly from its factorization and criterion; no new estimate or extremal mechanism is needed. The stronger result's anonymous attribution makes bibliographic priority uncertain, not the implication.",
+        "searches": [
+          "2026/11/22/SCOPE-rigidity-and-sharp-arclength-of-positive-multi-direction-geodesi--feb376e38a6d, proof steps 1–4, Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The stronger record's scope and proof steps 1–3 identify exact L2 energy with vanishing transverse moments for orders 1 through T_v=floor(2N/max(|p|,|q|)).",
+          "With one direction and equal weights its condition is exactly vanishing off-diagonal entries of the parallel-family Gram matrix, by polarization."
+        ],
+        "reasoning": "The moment conditions are the same Gram conditions in another form, not merely a title or parameter match. For L>=T_v+1 the regular L-gon kills the entire required moment range.",
+        "searches": [
+          "Resultary: torus Parseval parallel primitive loops; box-Fourier design curves",
+          "2026/11/22/SCOPE-rigidity-and-sharp-arclength-of-positive-multi-direction-geodesi--feb376e38a6d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The multi-direction record gives the exact absolute length 2pi(2N+1) and the same coordinate-circle family with equal weights and spacing.",
+          "The connected rigidity catalogue record concerns shortest single curves rather than the restricted loop frontier."
+        ],
+        "reasoning": "There is no computational table to certify here, but the catalogue contains an explicit closed-form match for the global extremum. Nonappearance of the fixed-L formula verbatim does not prevent its direct implication.",
+        "searches": [
+          "Resultary: shortest torus box-Fourier design curve or parallel geodesic acquisition",
+          "2026/11/22/SCOPE-rigidity-of-every-shortest-box-fourier-design-curve-on-a-torus--9ae56ebdbb37",
+          "2026/11/22/SCOPE-rigidity-and-sharp-arclength-of-positive-multi-direction-geodesi--feb376e38a6d"
+        ]
+      },
+      "rationale": "The asserted distinct Parseval frontier is covered, at the statement/implication level, by the distinct indexed positive multi-direction geodesic design theorem: its one-direction moment criterion and rank factorization yield the threshold, arbitrary-offset obstruction, and fixed-L cost by elementary specialization. It also expressly gives the same global optimum. This is a finding of material theorem overlap, not a historical-priority finding: both entries carry the same UTC date, and the stronger record acknowledges a pre-existing parallel calculation without identifying its source. That acknowledgment could refer to the submitted calculation; the date and anonymous reference do not independently settle origin. The negative decision is based on the scope of extant mathematical coverage, not on which entry was first.",
+      "residual_risks": [
+        "Relative priority and whether the multi-direction record's anonymous pre-existing calculation refers specifically to this record were not established. The originality failure is theorem coverage, not an allegation about provenance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the global optimum; its one-direction consequence covers the parallel theorem",
+          "evidence": [
+            "Exact transverse moment criterion, per-direction rank bound and equality description; the same global optimal coordinate circles; anonymous acknowledgment of an earlier parallel calculation."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-rigidity-and-sharp-arclength-of-positive-multi-direction-geodesi--feb376e38a6d",
+          "material_read": "RESULT.md finding, scope, proof steps 1–4 and Relationship to prior work, local-mirror offsets 0, 6340 and 7275",
+          "method": "Configured Resultary lookup and local-mirror primary text",
+          "title": "Rigidity and sharp arclength of positive multi-direction geodesic Fourier designs on the flat torus",
+          "trigger": "Same torus, box band and L2 exactness, for a wider design class"
+        },
+        {
+          "assessment": "Sharp connected bound, not a multi-loop bound",
+          "evidence": [
+            "Rescaled to this torus at t=2N, the sharp connected length is 2pi sqrt((2N+1)^2+1)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.03362",
+          "material_read": "Section 2, Theorem 2.1, PDF p. 3, OA offset 6200",
+          "method": "OA primary PDF text",
+          "title": "Optimal bounds for design curves on the torus",
+          "trigger": "Sharp torus length benchmark"
+        },
+        {
+          "assessment": "Single Korobov curve comparison",
+          "evidence": [
+            "Exact integration on one Korobov winding does not state a fixed-L disconnected family result."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.11915",
+          "material_read": "Theorem 4.1, PDF p. 12, OA offset 36800",
+          "method": "OA primary PDF text",
+          "title": "Positive quadrature and mobile sampling of multivariate trigonometric polynomials",
+          "trigger": "Winding-based quadrature exactness"
+        },
+        {
+          "assessment": "Different Euclidean sampling problem",
+          "evidence": [
+            "Parallel-line density criterion for Euclidean Bernstein spaces, not finite torus Parseval."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2005.11193",
+          "material_read": "The parallel-line theorem passage, OA offset 8940",
+          "method": "OA primary PDF text",
+          "title": "On 2-dimensional mobile sampling",
+          "trigger": "Parallel sampling trajectories"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 20–32 and 36–48",
+        "Multi-direction geodesic design record, moment rank and arclength proof"
+      ],
+      "rationale": "The parallel loop count versus winding cost is a natural acquisition benchmark. The covered global optimum is useful, but as a distinct exact contribution this record gives only the one-direction specialization of the stronger moment criterion and rank block plus a primitive integer-vector minimization. The fixed-L expression and the no-offset obstruction do not add a substantive new invariant or bound beyond that coverage. This does not diminish the usefulness of the benchmark itself.",
+      "residual_risks": [
+        "No claim about connecting cost or about general trajectories is accepted or rejected by this comparison."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

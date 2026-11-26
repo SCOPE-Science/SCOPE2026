@@ -1,20 +1,21 @@
-# Review of exact one-bit Brownian occupation sampling
+# Independent mathematical audit
 
-## Correctness — PASS
-The target, likelihood, measurement alphabet and loss are explicit. The Gaussian two-sign formula gives the complete conditional mean because a fair sign has only two outcomes. The occupation variance is obtained from a convergent double integral and equals \(1/8\). Two elementary integrations produce the scalar information score \(F\); its strict negative second derivative and positive/negative first-derivative boundary signs prove a unique maximizer globally, including the endpoint exclusion. At the optimizer the nontrivial radical terms cancel, giving the exact risk. The limiting expansions follow from the Taylor expansion of the explicitly defined auxiliary function. The standalone checker reproduced the split integral and the stated constants; random comparisons do not substitute for the analytic proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The nearest explicitly inspected primary literature concerns continuous-valued observations on high-frequency meshes (Altmeyer 2017; Ivanovs–Podolskij 2020; Altmeyer–Le Guével 2021) or one-bit channel estimation of Gaussian targets (Fesl–Koller–Utschick 2022). Neither inspected statement supplies the complete time- and signal-to-noise-dependent design for the *nonlinear positive occupation integral* from one sign bit. Classical Gaussian orthant formulas and the arcsine occupation variance are acknowledged prior results and are not claimed as contributions. No identical theorem was identified in targeted literature/index comparisons, but that does not prove unique historical priority; an earlier equivalent under different terminology is a residual risk.
+PASS
 
-## Value — PASS
-The precise choice of one-bit sensing time is a natural finite-information analogue of stochastic occupation quadrature. The theorem answers every finite relative-noise level and provides an exactly quantified information floor: in the noiseless case, just one bit explains more than \(66\%\) of the variance; under vanishing signal-to-noise ratio the favored time converges to \(9/16\), rather than the noiseless \(16/(16+\pi^2)\). The ratio and noise model specify the domain in which this is mathematically and practically meaningful. The result is not a general theorem for all quantizers or noise models.
+With independent pre-threshold noise of variance eta*x, the correlation at time t is a times sqrt(min(t,x)/max(t,x)), where a=(1+eta)^(-1/2). The Gaussian sign identity and the fair bit give E[Q|S]=1/2+S F(x,a)/pi, with F the integral of the arcsine of that correlation. The same sign identity, integrating over 0<s<t<1 with s=tu, gives Var(Q)=1/8; projection proves that maximizing positive F is equivalent to minimizing risk. Integration by parts on both pieces gives F=arcsin(a sqrt(x))+a sqrt(x(1-a^2 x))-a k(a)x, where k(a)=sqrt(1-a^2)+integral_0^1 u^2/sqrt(1-a^2 u^2) du, including the integrable a=1 endpoint. Thus F'=a(sqrt(1/x-a^2)-k(a)) strictly decreases on (0,1), tends to +infinity at zero, and has negative left limit at one because the integral in k is positive. The unique optimum is x=(a^2+k^2)^(-1), where the last two terms of F cancel and the arcsine equals arctan(a/k). At a=1 k=pi/4; expansion k=4/3-(2/5)a^2-(1/14)a^4+O(a^6) gives the stated high-noise corrections. A fresh split quadrature at eta=0,1,99 matched the score to 9e-37 and gave the stated noiseless risk 0.04201127713216669; stationarity residuals were below 8e-37. Replay: python /workspace/branches/e97b0d37-7e51-48fc-98e8-b1c6d81e4309/brownian_one_bit_repro.py.
 
-## Closest literature and limitations
-- Altmeyer (2017), https://arxiv.org/abs/1706.03418 : occupation-integral approximation from preselected full observations and asymptotic rates, not one-bit time optimization.
-- Ivanovs and Podolskij (2020), https://arxiv.org/abs/2001.02517 : conditional-mean estimators from full high-frequency Lévy data.
-- Altmeyer and Le Guével (2021), https://arxiv.org/abs/2108.11632 : high-frequency conditional risk for stable-process occupation and local times.
-- Fesl, Koller and Utschick (2022), https://arxiv.org/abs/2212.04470 : one-bit Gaussian channel estimators, not this nonlinear path-functional/time-design problem.
+## originality
 
-Fixed zero comparator, independent Gaussian prequantization noise with variance proportional to measurement-time variance, exactly one predetermined bit, and an unconditional Bayesian risk are substantive restrictions. Publication-priority searches are not exhaustive. No independent mathematical review has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The supported distinct claim is the unique optimal deterministic time and exact estimator/risk for one threshold-zero Brownian-motion sign bit across all finite relative Gaussian noise levels, including zero noise. Neither the strongest same-day analogues nor the checked primary passages were shown to determine this design. The Gaussian arcsine identity, Bayes projection and occupation variance are not novelty claims.
+
+## value
+
+PASS
+
+Design is nontrivial because the sensor's marginal pre-quantization signal-to-noise ratio is fixed across candidate times but the bit's information about the entire occupation functional is not. The formulas give a reproducible calibration and a risk benchmark for the minimum-information design, show the noiseless bit alone explains about 66.39% of occupation variance, and quantify both limiting time and vanishing information at high noise. A full-valued-snapshot benchmark does not answer this question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

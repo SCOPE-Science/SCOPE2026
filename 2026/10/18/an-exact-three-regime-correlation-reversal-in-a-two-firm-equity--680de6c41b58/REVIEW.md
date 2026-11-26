@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Four default-indicator states are solved via an invertible two-by-two linear system for every \(0\le c<1\). For zero and two primitive shocks, the maximal states have respectively zero and two defaults. With one shock, the fully solvent state exists exactly at and beyond the full-solvency threshold, whereas the mixed one-default state is feasible exactly when the explicit quadratic \(F(c)\) is nonnegative. Its strictly convex root and the sign at the full-solvency threshold give the sharp three-case classification and endpoint behavior. Shock-law conditioning then gives the stated derivative. The executable checker passed 7,659 exact-rational and symbolic assertions; those finite checks do not replace the algebraic proof.
+PASS
 
-## Originality — PASS, with publication-priority reservations
+Diagonalizing the 2×2 surplus equations into sum and contrast gives the four assigned-indicator solutions and makes the feasibility test exhaustive. The inverse is entrywise nonnegative, so fewer distress indicators raise values. Both-high is maximal solvent; both-low is uniquely both insolvent. For one low firm the all-solvent candidate is feasible iff A>B and c≥B/A. Before then the low firm cannot be solvent in any candidate; the single-default candidate is feasible iff F(c)≥0 and dominates both-default if available. If F<0 both-default is feasible and unique, since both valuations fall below threshold. Convexity with opposite endpoint signs isolates one root; F(B/A)=(B/A)(βcrit−β), giving the strict interval condition and, at equality, no two-default band. Fixed marginals give event weights (1−2p+q,p−q,p−q,q), with max(0,2p−1)≤q≤p and 0<p<1. The affine slope is 2p(1−p)(1−d), including one-sided endpoint interpretation; the rational example's lowest possible value bound is 1/470 on the stated c interval.
 
-The source by Dasaratha, Venkatesh and Vohra supplies the general thresholded equity equation and default-configuration mechanism. Their general algebra is not claimed as new; no full-parameter symmetric binary-shock trichotomy or explicit correlation-slope reversal was found in the inspected sections. Petrone and Latora already report negative correlation effects in a multi-period two-bank credit-risk setting, and Weber and Weske discuss nonmonotonic network effects with bankruptcy costs: the qualitative effects are prior art. The assessed result concerns exact boundaries, a three-regime slope, and an explicitly normalized static equity model. The possibility that broader work subsumes this classification remains a material risk; absence from searches does not prove priority.
+## originality
 
-## Value — PASS
+PASS
 
-Shock dependence and financial integration are distinct systemic-risk parameters. The exact classification shows that a zero correlation effect can become negative then positive under stronger reciprocal ownership, with a sharp condition for the intermediate region, an exact interval of admissible coupling and a positive-book-value example. It identifies a substantive mechanism and the boundaries of a comparative-static inference rather than an arbitrary parameter slice.
+Existing network models already establish the static valuation machinery, nonmonotone integration effects and negative correlation effects for other statistics. The distinct conclusion is the exact joint classification for the normalized two-firm path and maximal-equilibrium expected default count, with phase ties and the strict distress-cost condition. No inspected source implies the complete classification without the new consistency inequalities.
 
-## Scope and residual risks
+## value
 
-The result is static and uses maximal-equilibrium selection. It is not a theorem about causal intervention, other default-clearing rules, expected monetary loss, arbitrary dependence beyond binary exchangeability, or general financial networks. Prior general fixed-point results and uninspected related treatments may imply some or all of the parameter classification. The example does not constitute an empirical validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The normalized integration path keeps the symmetric no-shock valuation fixed. Along that controlled comparison the exact condition for a distress interval separates no effect, negative effect and positive effect of correlation, and the positive-valuation example rules out negative book value as a necessary artifact. This supplies a transparent analytic benchmark distinguishing conditional contagion from direct joint shocks, beyond a single numerical witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

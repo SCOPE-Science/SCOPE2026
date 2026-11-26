@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof begins with the actual ring multiplication and excludes zero, units and loops precisely. Three vertex types and all arc relations are exhaustive. The complex vector space splits into per-fiber mean-zero spaces, a central mean-zero space, nonuniform slope spaces, and a three-dimensional uniform quotient. This yields the complete Jordan similarity class, including the explicit \(q-1\) nilpotent two-chains. The cubic determinant and discriminant have been checked symbolically, and the proof checks the boundary \(q=2\). Exact direct multiplication and characteristic polynomial/rank checks passed for \(q=2,3,4,5\), including the nonprime field case. No finite enumeration is used to prove the universal assertion. Risk: comparisons use complex rather than modular matrix ranks, which is stated explicitly.
+## correctness
 
-## Originality — PASS, with residual risk
-Li–Tucci's 2013 graph description is prior work and is credited. Hemati's 2020 spectral example uses a symmetric underlying graph, not the present directed adjacency. Mönius's 2020/2021 paper handles commutative rings. published-finding corpus and targeted source queries did not locate a covering all-field directed Jordan/rank theorem. However the inaccessible complete 2013 Li–Tucci paper is highly pertinent: its claim of full graph structure could entail an easier path to this result. This is an explicit priority risk, not a uniqueness certification.
+PASS
 
-## Value — PASS
-The complex Jordan form of a directed graph is strictly richer than its adjacency eigenvalues because its nilpotent chains govern repeated arc propagation. Here the rank collapses from \(2q\) after one step to exactly \(q+1\) for **every** later walk length, while the vertex count grows quadratically and the graph remains strongly connected. This provides a compact structural invariant for a natural noncommutative ring graph and a concrete comparison point for directed versus symmetrized zero-divisor graphs. It is not a change of notation or a finite table.
+For k=q−1, there are qk vertices of each nonzero-diagonal type A and B and k strictly upper-triangular nonzero vertices C. The product coordinates (ad,ae+bf,cf) give A_t→B_{−t}, B→A,C and C→A,C with its own loop deleted. Those arcs prove strong connectivity, also at q=2. Independent contrasts within A and B slope fibers are killed, and the contrast on C is acted on by −I. On fiber constants the B-slope contrasts map isomorphically, by k times slope reversal, to the A-slope contrasts, which are killed. Since the decomposition into contrasts and constants is direct over C, this gives q−1 length-two zero blocks and 2q(q−2) length-one zero blocks. The remaining uniform quotient has rows (0,k,0), (qk,0,k), (qk,0,k−1); its polynomial is the stated cubic, with P(0)=−qk² and P(−1)=1−q. To verify simplicity independently of the discriminant expansion, for q≥4 use P(−2)=q(k²−4)>0 and the signs at −∞, −1 and +∞ to separate three roots. For q=3, P(−2)=0 and P′(−2)=4, so there is a positive value just to the right of −2 and the two other roots are separated by −1. For q=2, z³−2z−2 and 3z²−2 have no common zero. The nonzero spectrum contributes q+1 to every power rank and the length-two zero chains contribute q−1 only to rank A. An independent replay by exact triple enumeration, polynomial and power-rank calculations for q=2,3,5 gave (rank A, rank A², rank A³)=(4,3,3),(6,4,4),(10,6,6). The supplied checker and saved q=2,3,4,5 output were inspected but not executed; q=4 output is recorded evidence only. The invariant decomposition, not any finite replay, proves the universal result.
 
-## Literature boundary and limitations
-The paper by Li–Tucci was not materially available beyond the public first-page abstract and DOI record; its baseline vertex/arc description was deliberately not passed off as new. The result is limited to \(\operatorname{UT}_2(\mathbb F_q)\), loopless directed graphs and complex adjacency. Independent verification is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The directed graph structure itself is established prior work. The supported distinct claim is the loopless adjacency's all-q complex Jordan decomposition, especially the length-two zero chains invisible to the cubic quotient. The closest accessible spectral comparisons are symmetric matrices for different graph conventions, and no inspected earlier theorem supplies the complete directed block counts or stabilized ranks.
+
+## value
+
+PASS
+
+This gives a complete invariant of a standard directed ring graph, not just a quotient spectrum or a small-order table. Despite quadratic vertex count and strong connectivity, the adjacency has linear rank, a quantified nonsemisimple part, and stabilization of rank at its second power. Knowing only the polynomial would miss that behavior. The formulas resolve such questions uniformly, including nonprime finite fields.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

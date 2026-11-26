@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Legendre antiderivative recurrence gives the two-diagonal coefficient matrix with an exact rational Gram diagonal. Its telescoping trace proves the full Hilbert–Schmidt identity, not merely a finite truncation. The finite-window moment method establishes the continuous symbol law for a polynomial basis; Weierstrass approximation extends it to every fixed real Schatten exponent. Weighted-shift tail bounds, uniform in the moment cutoff, control passage from windows to the infinite operator. The same density estimate yields arbitrarily many top singular values near the sharp shift upper bound. A finite-rank comparison with the classical Volterra spectrum proves the fixed-cutoff Schatten threshold. The standalone checker independently recalculates 3,054 identities and finite witnesses, but does not certify the infinite argument.
+PASS
 
-## Originality — PASS, with residual priority risk
+In the orthonormal shifted Legendre basis the endpoint constants in the antiderivative cancel at x=0, and for n>=m>=1 the only coefficients are a_n at n+1 and -a_(n-1) at n-1. The squared column norm is [1/(2n-1)-1/(2n+3)]/8, giving the full Hilbert–Schmidt identity by telescoping. The window Gram matrix is the compression to m<=n<=floor(Rm). For a fixed power j, only paths with steps 0 and +/-2 closing at n contribute to its trace. The scaled entries on each such path are uniformly those of the frozen coefficients at n/m up to o(1) away from O(j) boundary sites; integrating their Fourier symbol picks the closing paths. This gives the stated bulk symbol, including both parity sectors, with normalization 1/m. The shift norm bound makes continuous functional calculus by polynomial approximation valid on a common spectral interval. For p>1 the removed columns have Schatten norm O((Rm)^(1/p-1)); the triangle inequality for the rescaled norms followed by R to infinity justifies the global moment limit. The angular beta integral gives the gamma constant. For finite m, JP_<m has rank at most m and the classical unfiltered Volterra sequence and index interlacing squeeze the tail to 1/(pi j), proving the membership threshold. For the fixed-k edge, the two shift norms give limsup at most 1/2 and a nonnegative continuous function supported above any positive squared threshold below 1/4 detects linearly many window values there. Min–max transfers that lower bound to the full operator. Independent replay: python3 /workspace/review_checks.py 5 checks the first six values at three finite truncations against a separate Bessel-zero characterization, and the finite-window moments for real p=1.25, 2 and 3.7 at R=3. The check is corroboration only; the frozen checker and recorded output were inspected, not executed.
 
-The exact Volterra singular-value sequence and Legendre polynomial antiderivative relation are prior background, not new claims. The inspected 2014 Legendre pseudospectral article concerns finite collocation and convergence for nonlinear Volterra systems. The 2018 Stenger integration-operator paper and 2019 Gutleb–Olver sparse spectral study concern finite computational representations. Generalized locally Toeplitz spectral distribution theory supplies a broad context for the *finite-window bulk symbol*, which is not claimed as a new abstract principle. The distinguishable combined contribution is the infinite-dimensional polynomial-moment annihilator \(T_m\), its exact entire Hilbert–Schmidt energy for every cutoff, all-real-exponent global Schatten-mass constants with a controlled infinite tail, and the no-outlier proof for each fixed top singular value. No equal or dominating statement was identified in the inspected material and checked research records, but an undiscovered specialization of older GLT or operator-approximation work remains possible. This is a self-review, not a proof of global historical uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-Moment annihilation is a natural preprocessing operation in spectral approximation and residual smoothing. The sharp \(1/(2m)\) operator attenuation, exact total-square energy, and full \(p>1\) Schatten-mass law give distinct, nontrivial quantitative information about how suppressing polynomial modes changes the entire integration spectrum. The fixed-index edge result in particular cannot follow merely from a finite-window empirical density without an outlier bound. No unspecified downstream theorem or numerical speedup is claimed.
+The supported distinct contribution is the quantitative spectrum of the high-degree orthogonal input restriction, especially the global all-real-p mass and the fixed-rank edge for that family, not a new abstract spectral-distribution theorem. Classical Volterra, general finite-window symbol methods, and exact/even-power Bessel-zero identities already cover proof ingredients or numerical constants under a reduction; the old sources inspected do not provide the operator identification with those constants. Closest plausible partial coverage and access limits are recorded below.
 
-## Limitations and source coverage
+## value
 
-The result is restricted to the unweighted interval, orthogonal polynomial cutoff, and fixed \(p,k\). The 2003 general spectral-distribution framework is compared through its accessible abstract, not represented as fully inspected; the 1996 Volterra singular-value work was read at abstract level. Independently checking the historical literature and all infinite-dimensional arguments remains advisable.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Polynomial orthogonality is a canonical spectral preprocessing choice distinct from best rank-m approximation. The sharp worst-case attenuation and all-real Schatten profile quantify both the extremal and distributed residual integration errors, and the exact square mass provides an all-cutoff normalization. The density plus separate outlier and infinite-tail controls address a substantive family of infinite operators, not a finite numerical table or routine reparameterization of the ordinary Volterra spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

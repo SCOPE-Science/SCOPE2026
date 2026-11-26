@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:55:29.833813Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions and Proof; VERIFICATION.md and verify_paley13_ind2.py inspected, not executed",
+        "Independent exact replay: python /workspace/branches/independent_replay.py 5"
+      ],
+      "rationale": "The excluded triples are exactly those inducing at least two edges. Independent exhaustive enumeration by this criterion gives (13,78,143,78) with no higher faces; all triangles extend to tetrahedra, and every edge does as well. Collapsing the star spanning tree at 0 presents π₁ by the 66 remaining edges. A basepoint triangle kills its opposite edge; whenever two edges of a further triangle are killed, its relator kills the third. Independent batch closure kills 33 then 66 generators, so the inclusion of the two-skeleton into X gives trivial π₁. Both signed boundary matrices were independently computed and reduced to Smith form over ZZ. For d₃ there are 76 unit factors and two zero columns, and for d₂ the rank is 66. The d₃ image is saturated in C₂, hence also in ker d₂, so H₂ is free of rank 1; ker d₃ is free of rank 2. The simply connected two-skeleton is homotopy equivalent to a wedge of 77 two-spheres by Hurewicz and homology Whitehead. There the attaching maps of the 78 three-cells are classified by their H₂ degrees. The map to ker d₂ has rank 76 and primitive image, so invertible integral basis changes, realized on the sphere wedges, reduce the attachments to 76 identity maps and two constant ones. The homotopy cofiber is precisely one two-sphere and two three-spheres. H₂ remains nonzero over every field; the empty-face link is X itself, so the Cohen–Macaulay vanishing criterion in dimension three fails, and pure shellability is impossible.",
+      "residual_risks": [
+        "The reuse of integer Smith data for attaching maps relies on verified simple connectivity. No classification of other Paley graphs, parameters, or equivariant homotopy is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected general papers supply framework, connectivity, and graph-family results including paths, cycles, multipartite graphs and chordal graphs; their inspected passages do not classify this Paley complex. The Nov. 1 Finding directly classifies the same complex and also identifies the affine action on integral homology."
+        ],
+        "reasoning": "General family work is not the reason for rejection. The distinct graph-specific theorem dominates the frozen claim: one may forget the affine-action data and recover all the frozen nonequivariant conclusions.",
+        "searches": [
+          "arXiv:2001.05448 pp. 1–2; arXiv:2001.06775 p. 1; arXiv:2106.10863 p. 4; arXiv:2307.13271 p. 2",
+          "Resultary fb8d1ed310a1 Finding and Proof §§1–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local mirror: f86dc7e30022, 6f1ce5e54af4, fb8d1ed310a1 (distinct records)",
+        "Primary literature: arXiv:2106.10863, 2001.05448, 2001.06775, 2307.13271 and 0808.0739 (bounded relevant passages)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day main proof is for Δ₃(P₁₃)≃S⁷∨S⁷∨S⁸. Combinatorial Alexander duality on 13 vertices gives H̃_i(K;Z)≅H̃^(10−i)(Δ₃;Z), so it already gives free ranks 1 and 2 in degrees 2 and 3 of K and hence of the frozen complex. It does not give π₁(K), and its purity assertion is about Δ₃ rather than K.",
+          "The Oct. 25 Finding explicitly proves K≃S²∨S³∨S³. The Nov. 1 Finding explicitly gives the full frozen theorem for the same residue graph and component-size rule. Full coverage is based on these distinct sources, not on a date or the identical frozen entry."
+        ],
+        "reasoning": "Homology of an Alexander dual does not generally determine its homotopy type; do not promote the same-day record to full coverage. The later-keyed exact statements supply the rest as an equivalent and a direct match respectively, without establishing historical ordering.",
+        "searches": [
+          "Resultary same-day f86dc7e30022 Finding, Proof, dual checker and expected output; Oct. 25 6f1ce5e54af4 Finding and Assumptions; Nov. 1 fb8d1ed310a1 Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The dual K of the ordinary three-cut complex consists of sets with every triple connected. Multiplication by 2 mod 13 sends the nonzero squares to the nonsquares and turns each induced connected triple into a disconnected one, and conversely. Thus K is carried exactly to sets with no connected triple, i.e. Ind_2(P_13).",
+          "Abdelmalek et al. identify Ind_r(G) with the independence complex of the hypergraph of connected (r+1)-sets; Carnero Bravo names the r=2 construction F_1(G)."
+        ],
+        "reasoning": "This is a simplicial isomorphism, not just an f-vector or Betti-number coincidence. The wedge theorem for K genuinely covers the frozen homotopy type, and the Nov. 1 dissociation/forest-filtration result also matches the complex without any relabeling.",
+        "searches": [
+          "Resultary Paley 13 two-independence/dissociation complex, F_1(Paley13), connected triples, and mixed wedge",
+          "Resultary 6f1ce5e54af4; arXiv:2106.10863 Def. 2.5 and Prop. 2.6; arXiv:2307.13271 PDF p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day dual checker enumerates exactly (1,13,78,143,78) with the empty simplex, and checks mod-prime boundary ranks at six primes, not integral Smith factors or π₁. The Nov. 1 source verifies exactly 78 maximal tetrahedra and no smaller facets for the identical face rule."
+        ],
+        "reasoning": "The face data and exact purity statement are already available for the same complex. The six-field computation must not be mistaken for an integral torsion certificate or a homotopy test.",
+        "searches": [
+          "Resultary exact Paley-13 topology, 13/78/143/78, tetrahedra and mixed sphere ranks",
+          "Resultary f86dc7e30022 verify_alexander_dual.py and expected_dual_output.txt; fb8d1ed310a1 Proof §1"
+        ]
+      },
+      "rationale": "Demonstrable redundant coverage, not a mistake in the theorem or a finding about who was first. A distinct Resultary record (fb8d1ed310a1) states the identical labeled-graph theorem, including purity, 78 tetrahedral facets, the mixed wedge and nonshellability, and extends it with affine integral homology modules. Another distinct record (6f1ce5e54af4) proves exactly the wedge for a simplicially isomorphic complex via the ordinary three-cut Alexander dual. The strongest same-day result (f86dc7e30022) already gives the same face vector and implies the integral homology by duality, but does not by itself establish purity or simple connectivity of the dual. No noncovered theorem remains in the frozen claim after the exact matches are credited. The Oct. 25 and Nov. 1 catalog keys are later than the frozen Oct. 18 key; neither those dates nor the same-day date establishes actual priority. This verdict is about statement-level coverage in the audited corpus, not a claim that the frozen record was historically second.",
+      "residual_risks": [
+        "The focused public search did not locate an earlier exact statement. No assertion of first discovery, copying or relative publication order follows from these comparisons. The same-day source alone supplies only partial coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial exact coverage",
+          "evidence": "Main proof: integral ordinary three-cut wedge S⁷∨S⁷∨S⁸. The dual has the matching face counts and mod-prime ranks, while integral homology follows by Alexander duality. The read materials do not certify simple connectivity or purity of the dual.",
+          "identifier_or_url": "2026/10/18/SCOPE-integral-mixed-dimensional-homotopy-of-the-paley-thirteen-vertex--f86dc7e30022",
+          "material_read": "RESULT.md offsets 0–about 4600; verify_alexander_dual.py and expected_dual_output.txt from offset 0",
+          "method": "Resultary local mirror; scripts inspected only",
+          "title": "Integral mixed-dimensional homotopy of the Paley thirteen-vertex three-cut complex",
+          "trigger": "Strongest distinct same-day comparison with an Alexander-dual artifact"
+        },
+        {
+          "assessment": "Equivalent homotopy coverage after Paley complementation",
+          "evidence": "The dual is specified by connected triples and has 78 tetrahedra and the mixed wedge S²∨S³∨S³. Multiplication by the nonsquare 2 identifies it with the frozen complex.",
+          "identifier_or_url": "2026/10/25/SCOPE-the-ordinary-three-cut-complex-of-the-paley-graph-on-thirteen-ve--6f1ce5e54af4",
+          "material_read": "RESULT.md offset 0: Finding, Assumptions and Proof §1 opening",
+          "method": "Resultary local mirror",
+          "title": "The ordinary three-cut complex of the Paley graph on thirteen vertices",
+          "trigger": "Exact wedge for an isomorphic object"
+        },
+        {
+          "assessment": "Exact coverage plus additional affine homology information; date key is not priority evidence",
+          "evidence": "The same residue graph and face rule have precisely 78 maximal tetrahedra, pure dimension three, the same wedge, and nonshellability. The equivariant homology statement extends rather than weakens the frozen claim.",
+          "identifier_or_url": "2026/11/1/SCOPE-mixed-sphere-homotopy-and-affine-integral-homology-of-the-paley--fb8d1ed310a1",
+          "material_read": "RESULT.md offset 0: Finding, Assumptions, Proof §1 and beginning of §2",
+          "method": "Resultary local mirror",
+          "title": "Mixed sphere homotopy and affine integral homology of the Paley-thirteen dissociation complex",
+          "trigger": "Strongest exact match to the whole finding"
+        },
+        {
+          "assessment": "Equivalent generic construction; not the source of the exact Paley calculation",
+          "evidence": "Ind(Con_r(G))=Ind_r(G); specializing r=2 gives exactly the connected-triple hypergraph presentation.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.10863",
+          "material_read": "PDF p. 4 Def. 2.5 and Prop. 2.6, offset 11650",
+          "method": "OA PDF",
+          "title": "Chordal graphs, higher independence and vertex decomposable complexes",
+          "trigger": "General connected-triple description and shellability overlap"
+        },
+        {
+          "assessment": "General connectivity and chordal-graph wedge results, not this exact homotopy classification in the read material",
+          "evidence": "The exact wedge-or-contractible statement in the inspected passage assumes chordal input; the Paley graph is not in that class.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.06775",
+          "material_read": "PDF p. 1, offset 0",
+          "method": "OA PDF",
+          "title": "Distance r-domination number and r-independence complexes of graphs",
+          "trigger": "Possible general connectivity or wedge theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof and Limitations; Resultary fb8d1ed310a1 and 6f1ce5e54af4 Findings"
+      ],
+      "rationale": "The invariant is well motivated: a canonical strongly regular graph yields a concrete pure nonshellable witness with mixed homotopy dimensions. But the frozen contribution gives only the already-covered exact graph-specific result, not an additional needed invariant or a distinct boundary. The alternate computation corroborates correctness; the frozen record does not claim a reusable new method or recover a fact missing from the stronger exact classification. This is failure of distinct scientific contribution, not dismissal of small exact topology or of the example's illustrative value.",
+      "residual_risks": [
+        "No conclusion about historical credit or the value of independently reproducing the computation for teaching or verification."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

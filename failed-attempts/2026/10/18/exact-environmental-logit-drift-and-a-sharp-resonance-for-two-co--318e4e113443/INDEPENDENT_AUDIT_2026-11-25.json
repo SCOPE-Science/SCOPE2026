@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:25:48.754997Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cited environmental equations give logit derivatives (1+theta_1)x-1, (1+theta_2)y-1 and (1+theta_12)(x+y)/2-1. The coefficient choices cancel both strategy variables exactly, leaving a+b-1. The logistic coordinate factors and bounded vector field give finite-time interiority and global existence. In each sign case, if d is the minimum of the three indicated boundary distances, then d^(1+a+b) is at most the product of their respective powers; the odds identity bounds the product since its complementary product is at most one. This gives the stated rate and confines omega-limits to the appropriate closed union, not to a specified face. Translation invariance of the pushed-forward probability under any fixed nonzero time step contradicts equal masses on a countable partition of disjoint translates; the proof requires no compact support. The resonance is the stated harmonic mean. At resonance the proposed admissible payoffs give G=1-2n; evaluating at the two within-community strategy thresholds and three environmental halves makes all five derivatives vanish. The given one-parameter equilibrium variant also checks. Independently rederived the identities and both Figure 8 anchors, sigma=7/8 and 55/728. Inspected the frozen verification script and reproducibility notes without executing the upload; the recorded numerical trajectories are illustrative, not proof of the global conclusion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The model paper confirms the full asymmetric five-coordinate ODE and uses the equivalent sign threshold in boundary stability conditions, but those stability conditions are local.",
+          "Tilman et al. use a scalar renewing or decaying environmental resource, not this three-environment system.",
+          "The harmonic-feedback result applies for strategies in the closed intervals as long as the environments are interior; its signed bound is logistic, hence at least as strong as the frozen exponential bound."
+        ],
+        "reasoning": "The primary model is not credited with the explicit global theorem solely from its local table, but the stronger indexed global bound actually covers the full claimed parameter and initial-value regime.",
+        "searches": [
+          "Betz–Fu–Masuda arXiv:2404.17082v2, Section 5 and Appendix G",
+          "Tilman–Plotkin–Akçay, Nature Communications 11, 915 (2020)",
+          "Resultary 9cfc61cfc2aa, Finding and scope"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification.py",
+        "Betz–Fu–Masuda arXiv:2404.17082v2",
+        "Resultary 9cfc61cfc2aa and 55fe6065bbf9, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "Tilman et al., DOI 10.1038/s41467-020-14531-6",
+        "Weitz et al., PMCID PMC5127343 (attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reciprocal-weight envelope becomes d <= 1/(1+exp(|H(t)|/(1+a+b))) when the drift and current observable have the matching sign; more generally use the signed H(t) for each sign of sigma. In each case 1/(1+exp(s)) <= exp(-s) for every real s.",
+          "The previously covered escape forces d(Phi_t(z)) to zero for each interior z, where d is bounded and strictly positive at all interior points."
+        ],
+        "reasoning": "The claimed exponential bounds are direct relaxations of the logistic bounds. By invariance and bounded convergence, any interior invariant probability would have integral of d equal to zero, impossible because d is strictly positive there. The apparently broader measure claim therefore does not leave a distinct scientific remainder; the same conclusion follows from the covered translation law.",
+        "searches": [
+          "Resultary 9cfc61cfc2aa, signed boundary envelope and attainment",
+          "Resultary 55fe6065bbf9, directed boundary selection and resonance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The harmonic-feedback record defines u_i=1/(1+theta_i), H_R=u_1 logit(n_1)+u_2 logit(n_2)-2u_12 logit(n_12), Delta=2u_12-u_1-u_2 and W=u_1+u_2+2u_12.",
+          "The feedback-resonance boundary record defines the identical a,b and logit combination as the frozen result."
+        ],
+        "reasoning": "H_R=-2u_12 H, Delta=-2u_12 sigma and W=2u_12(1+a+b). Hence the sign switch, weights, rate and marked faces coincide after conversion. The second record has kappa=sigma algebraically.",
+        "searches": [
+          "Resultary: harmonic-feedback resonance and exponential environmental escape, 9cfc61cfc2aa",
+          "Resultary: feedback-resonance boundary and interior recurrence, 55fe6065bbf9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Appendix G's inequality theta_1+theta_2+2 theta_1 theta_2>theta_12(2+theta_1+theta_2) is precisely sigma<0; it appears as a boundary-equilibrium local stability condition. Figure 8 supplies both tested feedback triples.",
+          "Both distinct indexed findings explicitly state the exact affine logit law and the same resonant feedback equality, directed escape and realizability at resonance."
+        ],
+        "reasoning": "The local stability catalogue is not a global face-selection theorem and its lack of an interior row does not disprove a degenerate resonant family. The distinct indexed results are decisive for global coverage regardless of catalogue dating.",
+        "searches": [
+          "Betz–Fu–Masuda Figure 8 caption and Appendix G Table 2",
+          "Resultary 9cfc61cfc2aa and 55fe6065bbf9"
+        ]
+      },
+      "rationale": "Two distinct indexed results cover this exact system and its global resonance law. The reciprocal-weight formulation of the first is a constant multiple of the frozen observable and gives a stronger logistic distance bound, a wider initial-state domain, and resonant equilibrium realizability. The second uses precisely the same observable and feedback threshold. Even reading their support exclusions conservatively as proved only for compact support, excluding all interior invariant probabilities follows at once from the already-covered face bound or translation law. This is demonstrable coverage, not a chronological priority judgment.",
+      "residual_risks": [
+        "Catalogue dates alone give no independent chronology or priority conclusion.",
+        "Could not check Weitz et al.'s decisive full-text passage; exact coverage does not depend on it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms the system and correct figure anchors; local stability is not equivalent to the stated global theorem",
+          "evidence": [
+            "The three environmental rates use x, y and their arithmetic mean, respectively; the sign threshold is present in the boundary rows."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2404.17082v2",
+          "material_read": "Section 5, Figure 8 caption, Appendix G Table 2",
+          "method": "OA author's HTML offsets about 8200 and 47750; PDF final table rows near offset 134588, pp. 43–45",
+          "title": "Evolutionary game dynamics with environmental feedback in a network with two communities",
+          "trigger": "Primary ODE and closest local-equilibrium comparison"
+        },
+        {
+          "assessment": "Same drift, stronger distance estimate, same resonance and attainment",
+          "evidence": [
+            "Reciprocal-weight H and Delta; signed logistic envelope; admissible strictly interior equilibrium continuum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/26/SCOPE-harmonic-feedback-resonance-and-exponential-environmental-escape--9cfc61cfc2aa/RESULT.md",
+          "material_read": "Finding, scope, cancellation, face bound and resonant construction, offsets 0–7207",
+          "method": "Resultary search and local mirror",
+          "title": "Harmonic-feedback resonance and exponential environmental escape in a two-community game",
+          "trigger": "Strongest exact match under rescaling"
+        },
+        {
+          "assessment": "Exact drift, threshold and directed neighborhoods in the same model",
+          "evidence": [
+            "Uses the same a,b; gives signed neighborhoods of exactly the same faces and a resonant equilibrium continuum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/2/SCOPE-a-feedback-resonance-boundary-forbids-interior-recurrence-in-two--55fe6065bbf9/RESULT.md",
+          "material_read": "Finding, assumptions and relevant proof, offsets 0–6935",
+          "method": "Resultary search and local mirror",
+          "title": "A feedback-resonance boundary forbids interior recurrence in two-community eco-evolutionary games",
+          "trigger": "Same observable and directed recurrence obstruction"
+        },
+        {
+          "assessment": "Different environmental-state structure in the inspected model",
+          "evidence": [
+            "Two-strategy payoff interpolation with a scalar renewing or decaying resource."
+          ],
+          "identifier_or_url": "https://www.nature.com/articles/s41467-020-14531-6",
+          "material_read": "Model passages, pp. 1–2",
+          "method": "OA full-text passages, offsets 0–9939",
+          "title": "Evolutionary games with environmental feedbacks",
+          "trigger": "Potentially broader approach to environment feedback"
+        },
+        {
+          "assessment": "Unresolved comparison, not negative evidence or a reason for failure",
+          "evidence": [
+            "The frozen result reports a different well-mixed model; the original text was not independently checked here."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5127343/",
+          "material_read": "No readable decisive original passage recovered in this audit",
+          "method": "Lawful PMC and alternative PDF retrieval attempts; the PDF route returned 403",
+          "title": "An oscillating tragedy of the commons in replicator dynamics with game-environment feedback",
+          "trigger": "Related feedback oscillation and no-cycle comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The dynamical question and the exact directed face result are well motivated, particularly for interpreting oscillatory simulations. As an independent finding here, the main result duplicates a stronger envelope and the same resonance law. Dropping compact support from the measure formulation is a direct consequence of that already-covered escape, rather than a separate advance.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

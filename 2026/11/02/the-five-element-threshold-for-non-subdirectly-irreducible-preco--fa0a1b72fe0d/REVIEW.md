@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof uses the established finite-chain ceiling normal form, with its algebraic content reconstructed from P1--P5; it exhausts all convex congruences for the six five-point operations and proves the two disjoint one-pair congruences for a uniform infinite family. The standalone checker retests the original defining axioms and interval partitions, not just the published normal-form description. Finite checks cover the sharp minimum; the all-size construction is proved algebraically.
+PASS
 
-## Originality
+The conditional rows are monotone, extensive below their antecedent, and fix their own image by importation; each is therefore the ceiling to its fixed points. Importation gives nesting and conversely follows from nesting. Semicomplementation forces the Heyting-chain negation. Every lattice congruence is a convex partition. An independent enumeration tested compatibility separately in both coordinates on the adjacent pairs generating each partition; it reproduced every displayed mask set, yielding total/SI counts (1,1), (1,1), (2,2), (6,4). The nonidentity masks have OR 15 in exactly the third and sixth size-five cases. For every n≥5 the single changed Heyting-table entry makes rows 1 and 2 coincide while preserving the two adjacent-pair congruences merging 1 with 2 and n−2 with n−1 respectively. Checking both input coordinates gives compatibility, and their intersection is identity. This last step is unbounded, not empirical.
 
-PASS within inspected evidence. Chen introduces the algebraic hierarchy; the published finite-chain normal-form and factorial results already classify the underlying operations but do not compute their congruence systems or subdirect-irreducibility threshold. Relevant published-finding corpus searches and source texts were checked for implication-level overlap. The previously established factorial and normal-form results are explicitly treated as prior inputs, not as new findings. Residual risk: older congruence-theoretic literature may contain the same boundary under other terminology.
+## originality
 
-## Value
+PASS
 
-PASS. Subdirect irreducibility controls the irreducible factors in algebraic representations and is a natural structural test of how the new conditional affects familiar chain semantics. The result gives the exact first failure, an exhaustive classification at the boundary, and witnesses in every larger finite size; it distinguishes expansions that have identical intuitionistic negation reducts. It does not assert a general SI counting formula.
+Pass is limited to the sharp subdirect-irreducibility threshold, the SI split of the size-five census, and the witness in every larger size. The row form, T=F on chains, factorial totals, and negation are not credited as distinct results. No inspected prior result classifies SI for this signature or gives the obstruction.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This is a natural sharp boundary on an unrestricted family of finite chains, not an arbitrary small census. The explicit obstruction persisting at every larger size identifies how changing one entry of implication can destroy the monolith without changing the negation. It gives a usable test case for congruence and subdirect decomposition questions in the F signature.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

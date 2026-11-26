@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,7 +21,7 @@
 
 # Verification and limits
 
-The exact-rational `verify.py` is self-contained and checks the disease-free equilibrium, control threshold, right/left critical eigenvectors, demographic center tangent, quadratic infected-mass expansion, sharp global-bound gap, and all five exact asymptotic coefficients for one strictly admissible rational parameter set. Execute with `python3 verify.py`; successful execution prints a single PASS line. The executable is a finite witness check, **not** a proof for all parameters. The general proof is the comparison-plus-positive-mass argument followed by one-dimensional center manifold analysis in `RESULT.md`.
+The exact-rational `verify.py` is self-contained and checks the disease-free equilibrium, control threshold, right/left critical eigenvectors, demographic center tangent, quadratic infected-mass expansion, sharp global-bound gap, and all five exact asymptotic coefficients for one strictly admissible rational parameter set. Execute with `python3 verify.py`; successful execution prints a single PASS line. The executable is a finite witness check, **not** a proof for all parameters. The general proof in `RESULT.md` uses demographic comparison and positive-mass dissipation for global convergence, then stable spectral projection and the quadratic mass identity for the critical profile.
 
 The algebraic proof requires all listed rates strictly positive, \(0<p<1\), and \(g(C)=C/(\kappa+C)\). Its critical asymptotic applies exactly when initial total infection in \((E,I,C)\) is positive. At \(\mathcal R_c>1\), instability excludes global disease-free stability. The reference source's global bound \(\mathcal J_c\le1\) is genuinely more restrictive in the rational witness: \(\mathcal J_c=35/24\) while \(\mathcal R_c=1\).
 

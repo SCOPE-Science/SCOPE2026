@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact covariance identity \(\mathbb E[X_iX_j]=q^{|N_i\cup N_j|}\) gives the variance formula. Matching both guild degree multisets fixes the number of plant pairs and their summed union sizes, forcing a double root at \(q=1\). For at most three pollinators this yields a one-sign polynomial on \((0,1)\). For four pollinators, the checker exhaustively compares all possible values of the two controlling pair-union counts when there are at most four plants: \(53\) feature comparisons across \(2747\) nonisolated row-multisets; a separate ordered-matrix enumeration confirms the classification. Exact union counts and rational outcome enumeration verify the five-plant witness and threshold. The finite census is sufficient for the finite cutoff, not claimed as an unrestricted proof.
+PASS
 
-## Originality — PASS, with residual risk
+Independence gives E[X_i]=q^|N_i| and E[X_i X_j]=q^|N_i∪N_j|. Same plant margins cancel the mean terms; same pollinator margins fix the total pair-intersection size by summing binom(deg(j),2). Thus the difference of pair-union polynomials has zero constant term, value and derivative zero at q=1, and degree ≤r. For r≤3 it is a constant times q(1−q)^2, ruling out an interior strict sign reversal without a plant-count bound. For r=4 one residual factor is linear, a+bq, with a switch exactly when a(a+b)<0. Independently enumerated ordered positive-margin incidence matrices and expanded their exact E[X²] polynomials from the 16 loss outcomes rather than forming pair unions. The admissible counts for m=1–4 were 1,79,2161,41503, with 1,8,33,103 margin classes and 0,0,5,48 distinct polynomial comparisons. There were no switches. The displayed witness has the claimed matching labeled margins, equal mean 2q+3q² and the variance difference with coefficients (0,2,−8,10,−4), giving the strict switch at q=1/2 and ties at the stated three points. This proves the nested minimum: four pollinators, then five plants at exactly four pollinators.
 
-The inspected Memmott–Waser–Price 2004 primary text models random pollinator removal and examines mean species-loss curves rather than bidegree-matched variance crossings. Pastor et al. 2012 studies simulated robustness indices against topology, not an exact second-moment equivalence-class comparison. Bane et al. 2018 studies robustness distributions under different stochastic removal rules, not this exact parameter-conditioned coextinction-count variance. The Kaiser-Bunbury et al. 2010 article is highly relevant to rewiring but only its abstract and supporting-material descriptions were accessible; no whole-document noncoverage conclusion is made for it. The database and literature queries described in AUDIT.json found no stronger or equivalent theorem, which is evidence of noncoverage among checked material rather than proof of global novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Variance of secondary species loss distinguishes concentrated simultaneous extinctions from diffuse loss risk even when the expected number lost is unchanged. The theorem identifies the smallest pollinator guild for which degree-preserving rewiring can change which network has larger coextinction volatility as the environmental extinction pressure varies; it provides an exact four-pollinator/five-plant witness and excludes all smaller systems in the stated senses. The claim is structural, not a field estimate or an assertion that variance alone measures conservation value.
+The supported distinct claim is the sharp pollinator-first minimum (four regardless of plant count, five plants at that pollinator minimum). A separate indexed nine-total-species theorem in the same iid model subsumes the finite non-reversal statement at four pollinators and at most four plants, and contains the same covariance identity. It does not bound three pollinators at unrestricted plant count or exhibit reversal with four pollinators. Its displayed five-pollinator witness does not become the frozen witness by transposition: the two degree-multiset pairs differ, and swapping the guilds changes the loss variable. No inspected source supplies the full nested minimum. This is not a determination of historical priority.
 
-## Closest literature and limitations
+## value
 
-The main historical sources are Memmott–Waser–Price (2004), Pastor et al. (2012), Kaiser-Bunbury et al. (2010), and Bane et al. (2018), identified by DOI in RESULT.md. The model excludes ecological feedback, unequal primary risks and species rewiring; the 2010 full-text access limitation and possibly unindexed stronger results are residual originality risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Equal degree margins fix the expectation and constrain pair intersections, yet can leave even the direction of the variance comparison sensitive to the risk parameter. The sharp number of independently lost primary species needed for this phenomenon isolates a model-specific boundary, and the unconditional three-pollinator obstruction explains why no larger plant guild can lower it. This is more informative than another nine-total-species example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

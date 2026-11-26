@@ -1,97 +1,64 @@
 # Sharp high-concentration Gabor conditioning for integer-order Matérn windows
 
 ## Finding
-For every fixed integer \(m\ge2\), the optimal lower frame bound of the redundancy-two Gabor system associated with the origin-normalized, symmetric integer-order Matérn window obeys
+
+For each fixed integer \(m\ge2\), the optimal bounds of the redundancy-two Gabor frame with the origin-normalized Matérn window defined below satisfy
 \[
- A_m(\lambda)\sim 4\left(\frac{(m-1)!}{(2m-2)!}\right)^2\lambda^{2m-2}e^{-\lambda},\qquad \lambda\to\infty.
+A_m(\lambda)\sim 4\left(\frac{(m-1)!}{(2m-2)!}\right)^2\lambda^{2m-2}e^{-\lambda},\qquad B_m(\lambda)\longrightarrow 2\qquad(\lambda\to\infty).
 \]
-Its upper frame bound satisfies \(B_m(\lambda)\to2\), and therefore
+Consequently
 \[
- \frac{B_m(\lambda)}{A_m(\lambda)}\sim
- \frac{((2m-2)!)^2}{2((m-1)!)^2}\frac{e^\lambda}{\lambda^{2m-2}}.
+\frac{B_m(\lambda)}{A_m(\lambda)}\sim
+\frac{((2m-2)!)^2}{2((m-1)!)^2}\frac{e^\lambda}{\lambda^{2m-2}}.
 \]
-For any minimizing sequence of Zak fibers, the time coordinate converges to the midpoint \(1/2\) modulo integer translation. The power of \(\lambda\) and its factorial constant depend explicitly on the Matérn order.
+The minimizing time coordinate approaches \(1/2\) modulo integers. Precisely, if \(\lambda_j\to\infty\) and the Zak fibers \((x_j,\omega_j)\) satisfy \(S_{m,\lambda_j}(x_j,\omega_j)/A_m(\lambda_j)\to1\), then \(\operatorname{dist}(x_j,1/2+\mathbb Z)\to0\). This includes exact minimizers. Localization is not asserted for a vanishing **absolute** gap: the symbol can tend to zero at a fixed time coordinate away from the midpoint.
 
 ## Assumptions and scope
-Let \(m\in\{2,3,\ldots\}\), \(n=m-1\), and \(\lambda>0\). Write
-\[
- P_n(s)=\frac{n!}{(2n)!}\sum_{j=0}^{n}\frac{(2n-j)!}{(n-j)!j!}(2s)^j,
- \qquad g_{m,\lambda}(t)=e^{-\lambda|t|}P_n(\lambda|t|).
-\]
-In particular, \(P_n(0)=1\), and its leading coefficient is \(2^nn!/(2n)!\). The Fourier transform of this window is a positive constant multiple of \((\lambda^2+4\pi^2\xi^2)^{-m}\); equivalently, it is the normalized \(m\)-fold convolution of a symmetric Laplace density. This identification motivates the designation integer-order Matérn or Bessel-potential window. We use the time translation \(T_kf(t)=f(t-k)\) and frequency modulation \(M_{j/2}f(t)=e^{\pi ijt}f(t)\), and the Fourier sign convention \(e^{2\pi i k\omega}\) for the Zak transform.
 
-Precisely, \(A_m(\lambda)\) is the largest positive number, and \(B_m(\lambda)\) the smallest finite number, such that
+Let \(n=m-1\), \(\lambda>0\), and
 \[
- A_m(\lambda)\|f\|_2^2\le \sum_{j,k\in\mathbb Z}|\langle f,M_{j/2}T_kg_{m,\lambda}\rangle|^2\le B_m(\lambda)\|f\|_2^2
+P_n(s)=\frac{n!}{(2n)!}\sum_{j=0}^{n}\frac{(2n-j)!}{(n-j)!j!}(2s)^j,
+\qquad g_{m,\lambda}(t)=e^{-\lambda|t|}P_n(\lambda|t|).
 \]
-for every \(f\in L^2(\mathbb R)\). Here \(m\) remains fixed when \(\lambda\) diverges. The normalizations of both the window and the Gabor lattice are essential to the displayed constants.
+Then \(g_{m,\lambda}(0)=1\). The Fourier transform (with cycles per unit time) is proportional to \((\lambda^2+4\pi^2\xi^2)^{-m}\); the window is an \(m\)-fold convolution power of a symmetric Laplace density rescaled to have value one at zero, not to have integral one. Translations are \(T_kf(t)=f(t-k)\) and modulations are \(M_{j/2}f(t)=e^{\pi ijt}f(t)\). The numbers \(A_m(\lambda)\) and \(B_m(\lambda)\) are the largest lower and smallest upper constants in
+\[
+A_m(\lambda)\|f\|_2^2\le\sum_{j,k\in\mathbb Z}|\langle f,M_{j/2}T_k g_{m,\lambda}\rangle|^2\le B_m(\lambda)\|f\|_2^2,\qquad f\in L^2(\mathbb R).
+\]
 
 ## Proof
-**1. Exact scalar Zak symbol.** The exponentially decaying window permits the absolutely and uniformly convergent Zak series
-\[Z_{m,\lambda}(x,\omega)=\sum_{k\in\mathbb Z}g_{m,\lambda}(x-k)e^{2\pi i k\omega}.\]
-The standard integer-oversampling Zak diagonalization (with translation step one and modulation step one-half) gives the *optimal*, not merely admissible, bounds
-\[
- A_m(\lambda)=\min_{x,\omega\in[0,1]}S_{m,\lambda}(x,\omega),\qquad
- B_m(\lambda)=\max_{x,\omega\in[0,1]}S_{m,\lambda}(x,\omega),
-\]
-where
-\[S_{m,\lambda}(x,\omega)=|Z_{m,\lambda}(x,\omega)|^2+|Z_{m,\lambda}(x,\omega+\tfrac12)|^2.\]
-Writing \(E=\sum_{k\in2\mathbb Z}g(x-k)e^{2\pi i k\omega}\) and \(O=\sum_{k\in2\mathbb Z+1}g(x-k)e^{2\pi i k\omega}\) gives exactly
-\[S_{m,\lambda}(x,\omega)=2(|E|^2+|O|^2).\]
-Quasiperiodicity and the evenness of the real window permit restriction to \(0\le x\le1/2\). Existence of the frame for every \(\lambda>0\) also follows from total positivity and the density-two lattice, but it will follow directly from the symbol for sufficiently large \(\lambda\), the only regime needed here.
 
-**2. Monotonicity and scales.** The polynomial has positive coefficients \(a_j\), with
-\[(j+1)a_{j+1}/a_j=2(n-j)/(2n-j)\le1\quad(0\le j<n).\]
-Thus \(s\mapsto e^{-s}P_n(s)\) is nonincreasing, positive, and at most one. On any fixed compact interval of positive \(t\), as \(\lambda\to\infty\),
+**Zak symbol.** Write \(g=g_{m,\lambda}\) and use \(Zg(x,\omega)=\sum_{k\in\mathbb Z}g(x-k)e^{2\pi i k\omega}\), uniformly convergent on a fundamental square. The Zak transform is unitary from \(L^2(\mathbb R)\) to \(L^2([0,1]^2)\). Under this transform, translations act by \(e^{-2\pi i k\omega}\) and integer modulations act by \(e^{2\pi i q x}\); modulation by \(1/2\) additionally shifts \(\omega\) by \(-1/2\) and multiplies by \(e^{\pi i x}\). Applying Fourier Parseval separately to the even and odd modulations thus makes the frame quadratic form multiplication by
 \[
- g_{m,\lambda}(t)=\frac{2^nn!}{(2n)!}(\lambda t)^ne^{-\lambda t}(1+O_{m,t}(\lambda^{-1})),
+S_{m,\lambda}(x,\omega)=|Zg(x,\omega)|^2+|Zg(x,\omega+1/2)|^2=2(|E|^2+|O|^2),
 \]
-with a *uniform* relative remainder when the interval stays away from zero. In particular,
-\[h_\lambda:=g_{m,\lambda}(1/2)\sim\frac{n!}{(2n)!}\lambda^ne^{-\lambda/2}.\]
-For the rest of the proof, constants in the asymptotic notation may depend on fixed \(m\), but not on the Zak parameters.
+where \(E,O\) are the even- and odd-translate sums in \(Zg(x,\omega)\), respectively. Its minimum and maximum are the optimal bounds by continuity. The reciprocal Fourier transform factors into \(m\) factors of each sign \((1\pm 2\pi i\xi/\lambda)\) up to a positive constant, so the finite-type totally positive window frame theorem also guarantees the lower bound is positive at every \(\lambda>0\) on this density-two lattice. Positivity at large \(\lambda\) follows directly below. By periodicity and evenness the time coordinate may be restricted to \([0,1/2]\).
 
-**3. Uniform separation of nearest lattice translates.** For \(0\le x\le1/4\), the nearest even translate has \(k=0\); all other even translates lie at distance at least \(7/4\). Uniform geometric tail estimation gives
+**Window and translate estimates.** If \(a_j\) is the coefficient of \(s^j\) in \(P_n\), then \((j+1)a_{j+1}/a_j=2(n-j)/(2n-j)\le1\). Thus \(0<g(t)\le1\) and \(g\) is nonincreasing for \(t\ge0\). For \(t\) in any positive compact interval bounded away from zero,
 \[
- E(x,\omega)=g(x)+O_m(\lambda^ne^{-7\lambda/4}).
+g(t)=\frac{2^nn!}{(2n)!}(\lambda t)^ne^{-\lambda t}(1+O(\lambda^{-1})).
 \]
-Consequently \(|E(x,\omega)|\ge g(1/4)-O_m(\lambda^ne^{-7\lambda/4})\), and
-\[\inf_{0\le x\le1/4,\,\omega}S(x,\omega)/h_\lambda^2\to+\infty.\]
-Here and below we omit the fixed subscripts on \(g,E,O,S\).
+In particular \(h_\lambda:=g(1/2)\sim (n!/(2n)!)\lambda^n e^{-\lambda/2}\). All bounds here are for fixed \(m\). For any fixed positive minimal distance \(b\), the translate tails beginning at distance at least \(b\) are bounded in modulus by \(O(\lambda^n e^{-b\lambda})\) uniformly in the Zak frequency: bound the polynomial by \(C(1+\lambda t)^n\) and sum the exponential at linearly increasing distances.
 
-For \(1/4\le x\le1/2\), the nearest even and odd translates are respectively \(k=0\) and \(k=1\). All other even translates are at distance at least \(3/2\), and all other odd translates at distance at least \(5/4\). Thus, uniformly in both Zak parameters,
+On \([0,1/4]\), the nearest even translate is \(k=0\), and the remainder has distance at least \(7/4\); thus \(E=g(x)+O(\lambda^ne^{-7\lambda/4})\). In particular \(|E|\ge g(1/4)-O(\lambda^ne^{-7\lambda/4})\), so the infimum of \(S/h_\lambda^2\) there tends to infinity. On \([1/4,1/2]\) the nearest even and odd translates are at \(k=0,1\) respectively. The remainders satisfy
 \[
- E(x,\omega)=g(x)+O_m(\lambda^ne^{-3\lambda/2}),
- \qquad O(x,\omega)=e^{2\pi i\omega}g(1-x)+O_m(\lambda^ne^{-5\lambda/4}).
+E=g(x)+O(\lambda^ne^{-3\lambda/2}),\qquad
+O=e^{2\pi i\omega}g(1-x)+O(\lambda^ne^{-5\lambda/4}).
 \]
-Because both leading terms are bounded on this interval by a fixed multiple of \(g(1/4)\), these estimates imply the additive expansion
+Both principal terms are at most \(g(1/4)\) in modulus, so squaring gives uniformly
 \[
- S(x,\omega)=2\big(g(x)^2+g(1-x)^2\big)+o(h_\lambda^2)
+S_{m,\lambda}(x,\omega)=2(g(x)^2+g(1-x)^2)+o(h_\lambda^2).
 \]
-uniformly for \(x\in[1/4,1/2]\) and \(\omega\in[0,1]\). The error is exponentially smaller than \(h_\lambda^2\).
 
-**4. The sharp minimum.** Let \(q_n(s)=e^{-2s}P_n(s)^2\). Direct differentiation shows
-\[
- q_n''(s)=e^{-2s}\bigl(4P_n(s)^2-8P_n(s)P_n'(s)+2P_n'(s)^2+2P_n(s)P_n''(s)\bigr).
-\]
-Since \(P_n(s)\) has strictly positive leading coefficient and fixed degree, the expression in parentheses is \(4P_n(s)^2(1+O_n(s^{-1}))>0\) for all sufficiently large positive \(s\). Hence for sufficiently large \(\lambda\), the function \(t\mapsto g(t)^2=q_n(\lambda t)\) is convex on \([1/4,3/4]\). Jensen's inequality gives
-\[g(x)^2+g(1-x)^2\ge2g(1/2)^2=2h_\lambda^2\qquad(1/4\le x\le1/2).\]
-Combining this inequality with Step 3 and the divergent lower bound on \([0,1/4]\) establishes \(S\ge4h_\lambda^2+o(h_\lambda^2)\) uniformly on a Zak fundamental domain. At \(x=1/2\) the Step-3 estimate yields \(S(1/2,\omega)=4h_\lambda^2+o(h_\lambda^2)\) uniformly in \(\omega\). Therefore
-\[A_m(\lambda)\sim 4h_\lambda^2\sim4\left(\frac{n!}{(2n)!}\right)^2\lambda^{2n}e^{-\lambda}.\]
-Furthermore, for any fixed \(\varepsilon>0\), the nearest even translate when \(0\le x\le1/2-\varepsilon\) yields a lower symbol scale exponentially larger than \(h_\lambda^2\). The minimizing time coordinates must consequently approach \(1/2\), proving localization.
+**Minimum and localization.** For \(t\in[1/4,3/4]\), \(g(t)^2=q_n(\lambda t)\) where \(q_n(s)=e^{-2s}P_n(s)^2\). The expression \(e^{2s}q_n''(s)\) is a polynomial with leading term \(4P_n(s)^2\) (the terms involving derivatives have lower degree), hence is positive for large \(s\). Thus \(g^2\) is convex on this interval for large \(\lambda\); Jensen gives \(g(x)^2+g(1-x)^2\ge2h_\lambda^2\). The uniform remainder bound and the larger symbol scale on \([0,1/4]\) give the lower estimate \(A_m(\lambda)\ge4h_\lambda^2-o(h_\lambda^2)\); evaluation at \(x=1/2\) gives the matching upper estimate. For any fixed \(0<\varepsilon<1/4\), on \([1/4,1/2-\varepsilon]\) the ratio \(g(x)/h_\lambda\) diverges uniformly by monotonicity and the fixed-positive-distance asymptotic. Together with the earlier estimate on \([0,1/4]\) this makes \(S/A_m(\lambda)\) diverge uniformly away from the midpoint, proving the stated relative localization. By contrast, \(x=1/4\) at any fixed \(\omega\) has \(S_{m,\lambda}(x,\omega)\to0\), and hence an absolute gap tending to zero without localization.
 
-**5. The sharp maximum.** On \([0,1/4]\), the same uniform tail separation gives \(E=g(x)+o(1)\) and \(O=o(1)\). Since \(0<g(x)\le1\), it follows that \(S\le2+o(1)\) there. On \([1/4,1/2]\), the uniform expansions of Step 3 give \(E=o(1)\) and \(O=o(1)\), hence \(S=o(1)\) on that interval. Therefore \(B_m(\lambda)\le2+o(1)\); evaluating at \((x,\omega)=(0,0)\) gives \(B_m(\lambda)\ge2+o(1)\). Thus \(B_m(\lambda)\to2\), and division by the positive lower-bound asymptotic completes the condition-number formula. \(\square\)
+**Maximum.** On \([0,1/4]\) the odd translates all have distance at least \(3/4\), so \(E=g(x)+o(1)\), \(O=o(1)\) uniformly. Since \(g(x)\le1\), this gives \(S\le2+o(1)\) there. On \([1/4,1/2]\) both translate sums are \(o(1)\). At \((0,0)\) the symbol is \(2+o(1)\) since \(g(0)=1\). Thus \(B_m(\lambda)\to2\). Combining with \(A_m(\lambda)\sim4h_\lambda^2\) proves the ratio asymptotic.
 
 ## Verification
-The accompanying standalone `CHECK.py` evaluates the defining coefficients exactly using integer-rational arithmetic, verifies their monotonicity inequalities, and independently evaluates the two Zak channels by truncating the absolutely convergent translate sums. It tests degrees \(m=2,3,4,5,6\) and a range of positive \(\lambda\). Output `MATERN_GABOR_ASYMPTOTICS_CHECKS_PASSED 17300` was obtained from the extracted script. These numerical grids are finite consistency checks only: they do **not** establish the universal minimization, the exact sharp bound, or the asymptotic limits. Those statements follow from the full uniform estimates in the proof.
 
-## Relationship to prior work
-Pont, Gröchenig, Liehr, Shafkulovska, and Taylor (arXiv:2608.04992; first public 2026-08-05) solve the qualitative frame-set problem for continuous integrable totally positive windows. This guarantees positivity of the lower bound at every subcritical lattice density, but does not specify the sharp high-decay constant for the present integer-order Matérn family. Kloos and Stöckler (arXiv:1311.7359) give Zak methods and separate quantitative work for two-sided exponential windows. Faulhuber and Shafkulovska (arXiv:2204.02917) optimize frame bounds for other windows including two-sided exponentials; their stated model is the first-order exponential rather than the higher convolution powers studied here. Ghosh and Antony Selvan (arXiv:2304.11322) present sampling-theoretic sufficient regions and bounds, not these sharp fixed-lattice concentration limits. The Zak representation and its normalization are established tools and are not claimed to be new. The contribution is the evaluated all-integer-order sharp exponential-polynomial stability law and time-fiber localization.
+The supplied `CHECK.py` (`python CHECK.py`) checks polynomial coefficient ratios with integer-rational arithmetic and samples the two Zak sums with finite truncations for orders \(2\) through \(6\). The reported check is finite consistency evidence, not a proof of optimality, localization, or the limit for every fixed order. Those follow from the uniform estimates above.
 
-## Limitations
-The order \(m\) is fixed before taking \(\lambda\to\infty\); no joint-order uniformity is claimed. The constants use origin-normalized windows \(g(0)=1\); rescaling a window changes the frame bounds by the square of the scaling factor. The lattice has translation step exactly one and modulation step exactly one-half. No finite-\(\lambda\) exact extremizer classification or other-lattice optimization is established. A synonymous result could be hidden in earlier special-function frame-bound literature; priority has not undergone independent external audit.
+## Relationship to prior work and limitations
 
-## References
-1. J. de Dios Pont, K. Gröchenig, L. Liehr, I. Shafkulovska, M. A. Taylor, *Gabor Frames of Totally Positive Functions: A Complete Characterization*, arXiv:2608.04992 (first public 2026-08-05), https://arxiv.org/abs/2608.04992.
-2. T. Kloos, J. Stöckler, *Zak transforms and Gabor frames of totally positive functions and exponential B-splines*, arXiv:1311.7359 (2013), https://arxiv.org/abs/1311.7359.
-3. M. Faulhuber, I. Shafkulovska, *Gabor frame bound optimizations*, arXiv:2204.02917 (2022/2023), https://arxiv.org/html/2204.02917v2.
-4. R. Ghosh, A. Antony Selvan, *On Gabor frames generated by B-splines, totally positive functions, and Hermite functions*, arXiv:2304.11322 (2023), https://arxiv.org/abs/2304.11322.
+Kloos and Stöckler, [Zak transforms and Gabor frames of totally positive functions and exponential B-splines](https://arxiv.org/abs/1311.7359), treat finite-type totally positive windows and quantitative near-critical-density bounds for the first-order exponential. De Dios Pont, Gröchenig, Liehr, Shafkulovska, and Taylor, [Gabor Frames of Totally Positive Functions: A Complete Characterization](https://arxiv.org/abs/2608.04992), give the general qualitative frame-set theorem. Faulhuber and Shafkulovska, [Gabor frame bound optimizations](https://arxiv.org/abs/2204.02917), optimize lattice parameters for other windows including the two-sided exponential. Ghosh and Antony Selvan, [On Gabor frames generated by B-splines, totally positive functions, and Hermite functions](https://arxiv.org/abs/2304.11322), study sufficient frame regions and existence. The exact [asymmetric two-sided exponential bound](https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-sharp-redundancy-two-gabor-bounds-for-asymmetric-two-sided--400c3e36998f) gives the equal-rate first-order limit on this same lattice. The contribution here is the sharp concentration law in the higher convolution orders at the fixed lattice, not frame existence, order one, or the Zak representation.
+
+There is no claim for varying \(m\), other lattices or window normalizations, nor for exact finite-\(\lambda\) extremal fibers. The estimates do not classify the minimizing frequency coordinate.

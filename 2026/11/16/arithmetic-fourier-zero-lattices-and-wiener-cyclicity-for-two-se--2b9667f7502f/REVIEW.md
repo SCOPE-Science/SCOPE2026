@@ -1,15 +1,21 @@
-# Review: arithmetic Fourier zeros and translation cyclicity
+# Independent mathematical audit
 
-## Correctness — PASS
-Direct integration gives a sum of two real sine amplitudes separated by a unit complex phase. Vanishing forces either both sines to vanish or the phase to be one of the two signs; the sum/difference sine congruences yield exactly the three stated families. The derivative of the resulting analytic bracket has nonzero imaginary part at non-common-sine zeros; unequal interval lengths prevent cancellation of the derivative at common-sine zeros, and the equal-length factorization gives exactly the stated double roots. Rational denominator parity decides when the difference family is nonempty. The measure-zero/meagreness and two Wiener cyclicity statements follow from these exact conditions and the classical Wiener Tauberian theorem. A standalone script passed 9,000 finite rational parameter-frequency tests, without being used to infer infinite completeness.
+## correctness
 
-## Originality — PASS relative to inspected literature
-The closest motivating 2026 study addresses recovery of two-interval shapes from full Fourier intensities; accessible abstract and indexed summaries do not state these complete real-zero parity lattices or the resulting exact Wiener-cyclicity parameter criterion. Published related results on fourth-order Fourier-intensity jets and exponential Riesz-basis conditioning of two separated intervals address different invariants. A semantically targeted published-result search, including zero sets, Wiener cyclicity, ratio parity and equivalent terminology, did not surface an implication subsuming this theorem. The inaccessible original full manuscript and possibly older two-interval translate-density literature remain genuine residual originality risks; absence from search is not a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-Complete cyclic/noncyclic classification for the smallest disconnected positive compact-support window family determines the exact threshold between dense and non-dense translation spans in the endpoint-sensitive \(L^1(\mathbb R)\) setting. The parity restriction for the third resonance, exact multiplicities, dense yet null noncyclic parameters, and universal \(L^2\)-cyclicity provide a structurally different picture from mere generic nonvanishing, with direct relevance to translation approximation and Wiener-type synthesis. This is a natural complete parametric invariant, not an arbitrary numerical slice.
+The repaired RESULT.md and SLOGAN.txt in repairs/4 credit the prior zero-set theorem and focus on the local Taylor law. The three families are indeed complete: write the endpoint equation as 1+v=u+w for four unit complex numbers. When the common sum is nonzero it determines the unordered pair by its midpoint on the unit circle, so the equal pairs produce Z_0 or Z_+; when it is zero, v=-1,w=-u, producing precisely Z_-. The origin is not a zero. Differentiation gives xi_0 times the slope as a*u-(a+d)*v+(a+b+d)*w; using respectively (u=1,v=w), (v=u,w=1), and (v=-1,w=-u) gives the exact three slopes, agreeing on overlaps. Their reverse-triangle bounds give |a-b| globally for a≠b, with equality at (1,2,1/2), xi_0=1; the Z_+ row actually gives at least a+b. In the equal-length case only Z_0 intersect Z_- can annul the derivative, with phases (1,-1,-1). The endpoint numerator has second derivative -8*pi^2*a*(a+d) there, yielding the claimed nonzero quadratic coefficient and the quartic intensity law. Double zeros require the equal-length phase ratio 2(a+d)/a to have odd reduced numerator; the zeros then have a*xi_0 an odd multiple of its denominator. The contextual Wiener criterion is as stated: the first two resonance planes require rational length or gap ratios, the third requires an odd integer multiple of the relevant ratio, and L2 cyclicity follows from isolated real zeros of a nonzero entire transform. The repaired exact cyclotomic checker repairs/4/verify_multiplicity.py, with replay at evidence/4/replay.txt, independently checks the formulas and all orders on 2,592 rational grid cases, including 402 simple and 24 double zeros; no inference to arbitrary real parameters uses that grid.
 
-## Closest literature and limitations
-Xia–Xu, arXiv:2606.19855, first submitted June 18, 2026, concerns Fourier phase retrieval of finite interval unions. The original full manuscript was inaccessible; only its abstract and indexed scientific description were read. The classical Wiener theorem supplies a general equivalence and does not give the parameter arithmetic. Published related exact two-interval finite-jet and Fourier-basis-conditioning results involve different questions. Only two unweighted disjoint intervals and real Fourier zeros are classified; no conditioning, complex-zero or discrete-translation conclusion is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The frozen central zero-set claim is already in Łaba's Lemma 3.1; the stated Wiener cyclicity classification is a direct corollary and is not accepted as original. The surviving repaired result concerns the exact Taylor law at a zero: branch-dependent slopes with a sharp all-family lower slope bound for unequal lengths and the double-zero quadratic coefficient for equal lengths. This quantitative local invariant was not supplied by the inspected earlier classification, phase retrieval theorem, or Riesz result.
+
+## value
+
+PASS
+
+Knowing a compact-window frequency null does not indicate how quickly amplitude recovers nearby. The revised result supplies an exact quantitative answer on the smallest disconnected indicator family: an all-null slope lower bound tied sharply to the length asymmetry, and the exceptional equal-length law switching the local intensity scale from quadratic to quartic with a computed coefficient. Root orders and strengths are natural invariants for conditioning near zeros. The value is not a repeat of the known real-zero/cyclicity classification or an added finite certificate alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

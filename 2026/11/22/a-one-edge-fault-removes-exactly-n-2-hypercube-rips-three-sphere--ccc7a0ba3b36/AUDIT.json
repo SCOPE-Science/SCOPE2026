@@ -1,124 +1,111 @@
 {
   "correctness": {
-    "rationale": "All distances other than the two endpoints are unchanged by one edge fault. The lost-edge link is two cliques joined by n-1 rungs, so its integral H1 has a basis of n-2 four-cycles. The pair relative H3 is that free lattice, and coordinate three-subcube cross-polytope spheres map onto its primitive basis. The exact sequence, simple connectivity of the edge-star intersection, Hurewicz, and Whitehead establish an integral wedge of c_n-(n-2) 3-spheres for every n>=3. The formula for c_n is the explicitly inspected Adamaszek-Adams theorem. The persistence comparison uses the Adams-Virk nullhomotopy of consecutive intact-cube Rips inclusions. Standalone BFS and GF(2) chain checks of n=3..6 independently match all indicated finite ranks. The computations are not the all-dimensional proof.",
+    "checked_sources": [
+      "RESULT.md proof",
+      "Adamaszek–Adams Theorem 1",
+      "Adams–Virk Proposition 3.3",
+      "Independent finite graph-distance and radius-two clique calculations in dimensions 3–6"
+    ],
+    "rationale": "Reverse coordinate orders give two geodesics with disjoint interiors when the original distance is at least two; precisely the faulty endpoint distance changes. At scale two the relative chain complex is the augmented link complex shifted by two, and the coordinate three-cube spheres give unit-coefficient basis images in its third relative homology. The pair sequence and simply connected homology Whitehead argument establish the faulted wedge type. In the persistence comparison the positive-degree stages below radius three have free homology and no continuing maps; they split as interval summands over the integers, with a common tail not assumed free. Over fields the whole comparison is one of barcodes.",
+    "residual_risks": [
+      "No general assertion about torsion in the common integral tail; finite field calculations cannot resolve torsion."
+    ],
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "arXiv:2309.06222, Proposition 3.3: successive inclusions of intact-cube Rips complexes are nullhomotopic",
-        "arXiv:2309.06222, Theorem 4.1: cross-polytopal classes supply lower bounds for intact Hamming cubes",
-        "arXiv:2408.01288 abstract: dimensions of facets for intact Hamming cubes"
+        "The established sphere enumeration and nullhomotopy statements are for intact cubes. The known coordinate three-subcube classes exist before any perturbation."
       ],
-      "reasoning": "The stronger general theorems inspected give information for intact Hamming cubes, and do not compute the topology of a recomputed shortest-path metric after removing one graph edge. The new link-lattice surjection is needed to transfer the homotopy count.",
+      "reasoning": "Those statements furnish inputs but do not identify the integral relative map or the surviving homotopy type after the fault.",
       "searches": [
-        "hypercube Vietoris Rips complex deletion stability graph perturbation edge",
-        "\"Vietoris-Rips\" \"edge removal\" \"hypercube\"",
-        "graph metric perturbation single edge hypercube radius 2 crosspolytope 3cube cycle link"
+        "Adamaszek–Adams Theorem 1",
+        "Adams–Virk Theorem 2.4, Proposition 3.3 and Section 4"
       ]
     },
     "checked_sources": [
-      "arXiv:2103.01040, first public 2021-03-01, theorem and proof of intact scale-two Rips",
-      "arXiv:2309.06222, first public 2023-09-12, intact cross-polytopal generators and scale inclusions",
-      "arXiv:2202.02756, first public 2022-02-06, published scale-three intact-cube results (abstract and summary)",
-      "arXiv:2408.01288, first public 2024-08-02, facet theory for intact cube (abstract only)",
-      "arXiv:2606.20784, first public 2026-06-18, intact-cube group-action homology (abstract only)",
-      "Indexed published findings on Hamming-cube scale-three fixed loci, coordinate symmetries and cut complexes, contrasted with a graph-edge fault"
+      "Adamaszek–Adams; Adams–Virk; Resultary two-point-puncture comparison; primary and Resultary searches"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "Adamaszek-Adams, arXiv:2103.01040, Theorem 1 and proof pp. 6-9",
-        "Adams-Virk, arXiv:2309.06222, Theorem 2.4, Proposition 3.3 and Section 4",
-        "The faulted graph changes the endpoint distance from 1 to 3, while the intact Rips complex includes the endpoint edge and all cofaces"
+        "The intact wedge count and vanishing of the scale-two-to-three map were already established. The new primitive map is from the intact wedge's third integral homology onto the cycle lattice of this specific link."
       ],
-      "reasoning": "The intact wedge theorem implies c_n but neither the relative map nor its surjectivity. The prior cross-polytope class theorem asserts the existence of independent intact classes, but does not identify their primitive edge-link images or the exact disappearance of n-2 classes under recomputed edge deletion. Those are established directly here.",
+      "reasoning": "It is this relative map and the simply connected attachment that give the exact fault loss; intact nullhomotopy alone says nothing about the early fault ranks.",
       "searches": [
-        "Adamaszek Adams Vietoris Rips complexes hypercube graphs scale two c_n wedge spheres paper arxiv 2022",
-        "\"Vietoris-Rips\" \"edge removal\" \"hypercube\"",
-        "hypercube Q_n minus edge metric Rips complex at radius two c_n-n+2 spheres"
+        "arXiv:2103.01040 Theorem 1; arXiv:2309.06222 Theorem 2.4 and Proposition 3.3"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "arXiv:2103.01040, Theorem 1: intact scale-two Hamming metric only",
-        "The nearest indexed edge-deletion results concerned matching complexes or distance-projection norms on other graphs, not a single-edge cubical Rips complex"
+        "At scale two the same problem is removal of a single adjacency and all faces containing it from the intact flag complex; all vertices remain. The indexed two-point puncture keeps Hamming distance on a smaller vertex set."
       ],
-      "reasoning": "The faulty-cube metric is equal to the intact metric except for one endpoint pair; this is an edge-star deletion of a flag complex, not a deletion of a vertex, quotient, coordinate fixed space, or unchanged Hamming metric. Searches exposed no equivalent complete homotopy classification.",
+      "reasoning": "A vertex-puncture theorem does not apply to the missing adjacency on the original vertex set.",
       "searches": [
-        "hypercube graph deletion of single edge Vietoris Rips radius two homology link edge",
-        "edge-fault Vietoris Rips complex hypercube Q_n shortest path metric wedge spheres",
-        "\"edge-deleted\" \"hypercube\" \"Vietoris-Rips\"",
-        "\"faulty hypercube\" \"Rips\" \"homotopy\"",
-        "single faulty cube edge removes n minus two three-sphere summands Vietoris Rips scale two"
+        "Vietoris Rips hypercube single edge deletion graph metric scale 2 one missing edge Adamaszek Adams Virk edge link cross polytope",
+        "Resultary: hypercube single edge deletion fault recomputed distance Vietoris Rips scale two three spheres link"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "arXiv:2103.01040, Table 1 lists only intact Q_n scale-0,1,2 stages",
-        "arXiv:2309.06222, Table 1 and Theorem 2.4 reproduce intact rank c_n, not faulty ranks",
-        "Finite checker independently yields faulty H3 ranks 0,7,46,205 at dimensions 3,4,5,6"
+        "The matching indexed result concerns this same finding. Other retrieved exact computations were for distinct graphs or vertex-puncture models."
       ],
-      "reasoning": "An intact-cube table is not an exact fault-response table. No indexed table with faulty ranks c_n-(n-2) was identified. Search absence alone is not used as proof of originality.",
+      "reasoning": "Neither intact sphere counts nor fault ranks for a different operation constitute a table for the recomputed graph metric.",
       "searches": [
-        "hypercube Q_n minus edge metric Rips complex at radius two c_n-n+2 spheres",
-        "\"hypercube\" \"deleted edge\" \"clique complex\" \"scale two\"",
-        "\"Vietoris-Rips\" \"edge removal\" \"hypercube\""
+        "Resultary: hypercube single edge deletion fault recomputed distance Vietoris Rips scale two three spheres link"
       ]
     },
-    "rationale": "The closest primary literature classifies the intact Hamming-cube Rips complex and its cross-polytopal generators; none of the inspected statements gives the edge-faulted graph-metric complex or the exact primitive rank-loss comparison. Searches for missing-edge, edge-fault, cube graph metric, link, and the c_n-(n-2) formula did not find an indexed equivalent. The structural primitive-link map is the mathematical gap, not a renamed intact-cube result. An unindexed or inaccessible stronger result is an explicit residual risk.",
+    "rationale": "The comparison uses known intact-scale results; neither those results nor the inspected vertex-puncture result gives the rank and homotopy loss for the recomputed metric after deleting a graph edge.",
     "residual_risks": [
-      "Unindexed literature or unpublished calculations could contain the precise edge-faulted homotopy theorem.",
-      "Relevant facet and equivariant papers beyond available primary full-text portions may contain an unreported implication; their abstracts do not indicate edge faults.",
-      "published-finding corpus and search retrieval rank results by relevance; this does not establish uniqueness."
+      "Equivalent earlier work on one adjacency of the squared cube might not be indexed under graph-metric Rips terminology."
     ],
     "source_inspections": [
       {
-        "assessment": "INSPECTED_INTACT_ONLY: classifies Q_n with Hamming metric and gives c_n; no one-edge-fault homotopy assertion",
+        "assessment": "Intact theorem is an input",
         "evidence": [
-          "Theorem 1 requires n>=3 and gives VR(Q_n;2) as a c_n-fold wedge of S^3",
-          "Theorem 8 inductively builds the intact complex and counts third-homology sphere summands"
+          "The intact Rips complex is a wedge of c_n three-spheres."
         ],
         "identifier_or_url": "https://arxiv.org/pdf/2103.01040",
-        "material_read": "Theorem 1, definitions and graph conventions, Lemma 7, Theorem 8, and the proof of Theorem 1 (PDF pages 1-9 including page images 6-9)",
-        "method": "Primary arXiv PDF text and page images; formula and hypotheses compared directly",
-        "title": "On Vietoris--Rips complexes of hypercube graphs",
-        "trigger": "Same metric space before perturbation; theorem furnishing the known intact wedge count"
+        "material_read": "Abstract and Theorem 1 (corroborated by its restatement in Adams–Virk Theorem 2.4)",
+        "method": "Open-access primary PDF and HTML",
+        "title": "On Vietoris–Rips complexes of hypercube graphs",
+        "trigger": "Intact scale-two homotopy classification"
       },
       {
-        "assessment": "INSPECTED_INTACT_ONLY: nullhomotopy of scale inclusions and generators in intact cubes; no deletion perturbation or relative link map",
+        "assessment": "Intact inclusions and generator construction are inputs, not the fault computation",
         "evidence": [
-          "Theorem 2.4 reproduces intact-cube c_n wedge theorem",
-          "Proposition 3.3 proves each intact scale inclusion r to r+1 is nullhomotopic",
-          "Section 4 constructs cross-polytopal fundamental cycles in coordinate subcubes"
+          "Successive intact scale inclusions are nullhomotopic."
         ],
-        "identifier_or_url": "https://arxiv.org/pdf/2309.06222",
-        "material_read": "Introduction and stated Theorem 2.4, Section 3.2 Proposition 3.3, Section 4 cross-polytope description, and relevant generator comparisons in Section 6",
-        "method": "Primary arXiv PDF text and selected original page images",
+        "identifier_or_url": "https://arxiv.org/html/2309.06222",
+        "material_read": "Abstract, Theorem 2.4, Proposition 3.3 and cross-polytopal generator passages",
+        "method": "Open-access primary HTML",
         "title": "Lower bounds on the homology of Vietoris–Rips complexes of hypercube graphs",
-        "trigger": "Stronger homology and cross-polytope coverage for the intact-cube spaces"
+        "trigger": "Generators and scale maps"
       },
       {
-        "assessment": "ABSTRACT_ONLY: addresses intact-cube facet dimensions, with residual full-text coverage uncertainty",
+        "assessment": "Different metric and perturbation",
         "evidence": [
-          "The abstract states results on facets of VR(Q_n;r) under the Hamming metric"
+          "Deletes two words without recomputing the original Hamming metric, only for n=3–6."
         ],
-        "identifier_or_url": "https://arxiv.org/abs/2408.01288",
-        "material_read": "Abstract and publication metadata only; attempted primary PDF retrieval was unavailable",
-        "method": "Primary arXiv abstract and publisher summary; no claim to full-text inspection",
-        "title": "Facets in the Vietoris–Rips complexes of hypercubes",
-        "trigger": "Potentially broader combinatorial facet theory on the same intact base space"
+        "identifier_or_url": "2026/11/22/SCOPE-two-point-punctures-of-scale-two-binary-hypercube-rips-complexes--dfe91b2e6ea1",
+        "material_read": "Finding, scope and proof outline in RESULT.md",
+        "method": "Resultary local mirror",
+        "title": "Two-point punctures of scale-two binary hypercube Rips complexes through dimension six",
+        "trigger": "Comparable perturbation of the scale-two space"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
-  "schema_version": 1,
-  "scope_run_id": "ccc7a0ba-3b36-42d6-a2fa-1edc989b7b03",
+  "previously_published_pending_reaudit": false,
   "value": {
-    "rationale": "The source-motivated question asks how robust the Hamming-cube Rips topology is to removing a single graph connection and recomputing all metric distances. For every cube dimension, the exact loss is one circle at radius 1 and n-2 integral 3-sphere summands at radius 2, with all remaining barcode intervals unchanged. The nontrivial primitive edge-link computation explains the dimension-dependent response. This is a natural infinite-family stability classification, not a textbook renaming, arbitrary slice or numerical-only count.",
+    "checked_sources": [
+      "RESULT.md, statements and proof; intact wedge count from Adamaszek–Adams"
+    ],
+    "rationale": "An arbitrary-dimensional response to a natural metric fault, with exact sphere loss and a primitive integral explanation, plus a coefficient-precise early-stage persistence comparison.",
+    "residual_risks": [
+      "Not a multiple-fault or higher-scale classification."
+    ],
     "status": "PASS"
   }
 }

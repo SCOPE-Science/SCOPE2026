@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:04:25.897234Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, certificate.json and verify.py (inspected, not executed)",
+        "Baranwal et al., arXiv:2209.09223v1, Theorem 11, Proposition 18 and proof of Theorem 19",
+        "Independent exact determinant, bounded cyclic enumeration and symbolic run count"
+      ],
+      "rationale": "Baranwal et al. Proposition 18 excludes 001011 from periodic good points (an occurrence forces the nonperiodic exceptional configuration); complementation excludes 110100. The proof of their Theorem 19 supplies the exact remaining finite forbidden set F and its equivalent difference windows G. The local equivalence works for periodic windows even at lengths shorter than the forbidden words. Each allowed cyclic difference code is all zero or has one-runs of length two or four separated by at least two zeros; the all-one code is forbidden. Its parity is even, so integration by XOR gives exactly two complementary origin-marked periodic lifts. The independently reconstructed ten-state code graph has det(I-zA)=1-z-z^4-z^6 by exact signed-subset determinant and agrees with exhaustive cyclic counts through n=12. Alternatively, independently count codes with k>0 one-runs by marking a run start. Each length-n code can be marked in k ways, and there are n coordinate choices for the mark followed by k blocks of generating function W=(z^4+z^6)/(1-z). Thus nonconstant codes contribute sum_{k>=1} W^k/k to sum C_n z^n/n, and all-zero codes contribute -log(1-z). This gives -log(1-z-z^4-z^6), and the two lifts square the zeta denominator. Formal logarithmic differentiation and inversion of P_n=sum_{d|n}d O_d give the stated enumerators. The first 16 counts agree. Only zero difference codes occur at lengths 1–3, and 11 followed by n-2 zeros has least period n for n>=4 (one cyclic one-run start); a lift's period would also be a period of its differences. This proves the claimed least periods for all n. Replay: the frozen verify.py and certificate.json specify the finite graph/count checks; the independent computation constructed the length-four graph directly from G and used a signed-subset determinant rather than Newton identities. The separate F-matrix certificate was inspected, not required for the all-n proof above.",
+      "residual_risks": [
+        "Bounded direct antisquare tests are not substitutes for the all-orders language reduction. The zeta does not claim the entire good shift is of finite type or count its nonperiodic points.",
+        "Strict attribution: Theorem 19 formally states finite-word growth; its proof supplies the forbidden languages and finite-word recurrence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baranwal et al. give the minimal forbidden patterns, describe the exceptional configurations, and derive a linear finite-word recurrence.",
+          "Currie et al. forbid occurrence of both a factor and its complement, not contiguous antisquares.",
+          "The later weight-refined record has denominator factors 1-z-uz^4-u^2z^6 and 1-uz-u^3z^4-u^4z^6; setting u=1 recovers the exact zeta."
+        ],
+        "reasoning": "The later weight formula genuinely specializes; the earlier finite-word growth result and different complement language do not enumerate these marked periodic points.",
+        "searches": [
+          "Baranwal et al., arXiv:2209.09223v1, Theorem 11, Proposition 18, and proof of Theorem 19",
+          "Currie et al., arXiv:2209.09598v2, abstract/introduction",
+          "Local Resultary lookup for weight-refined circular antisquare zeta, record ending 585d5e7587a7"
+        ]
+      },
+      "checked_sources": [
+        "Baranwal et al., arXiv:2209.09223v1",
+        "Currie et al., arXiv:2209.09598v2",
+        "Three later overlapping local Resultary/SCOPE findings",
+        "Bounded primary-literature search returning the Baranwal et al. paper"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior recurrence appends 0,1100,111100 to finite words ending in 00 and yields the same polynomial. It counts linear words with a terminal restriction, not cycles with a marked origin.",
+          "The exception theorem supplies the input for identifying the periodic language; the cyclic parity closure and exact trace/renewal calculation still have to be established."
+        ],
+        "reasoning": "An available presentation makes the new invariant computable but the finite-word recurrence is not a fixed-point enumeration or an already-evaluated zeta formula. Passing to cyclic codes requires a separate closure and multiplicity argument and a new exact closed-walk or marked-run computation, plus a primitive-period witness for all lengths in the support.",
+        "searches": [
+          "arXiv:2209.09223v1, pp. 17–18, proof of Theorem 19: Pansiot runs, suffixes and recurrence",
+          "arXiv:2209.09223v1, Proposition 18"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed orbit-law finding ending 29a622fd334c states 1/((1+z^3)^2(1-z-z^3)^2) for the same shift.",
+          "Its denominator equals (1-z-z^4-z^6)^2 since (1+z^3)(1-z-z^3)=1-z-z^4-z^6. Its indexed date is later."
+        ],
+        "reasoning": "The two rational expressions are algebraically identical, not just growth-equivalent. The exact indexed overlap is accounted for without treating its later path date as evidence of earlier dissemination or inferring worldwide priority.",
+        "searches": [
+          "Local Resultary lookup for periodic good binary words, circular antisquares, and periodic-orbit zeta",
+          "Websearch: binary good words antisquares Baranwal Currie Mol periodic antisquare Artin Mazur zeta periodic points least periods Pansiot supergolden -Resultary"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At transition variable u=1 the first indexed finding gives the same fixed-point generating function and a Möbius primitive-necklace formula. The second gives the equivalent zeta and primitive-orbit formula. Both are indexed later than the assigned finding."
+        ],
+        "reasoning": "These are exact matches for the unrefined enumeration (and would imply its least-period support even without stating the support separately). Their agreement is material; no earlier equivalent exact database statement was identified in the bounded checks.",
+        "searches": [
+          "Resultary 2026/10/25/SCOPE-exact-transition-refined-census-of-periodic-binary-antisquare-av--379da1cc57ba",
+          "Resultary 2026/10/25/SCOPE-two-maximal-entropy-phases-and-an-exact-periodic-orbit-law-for-a--29a622fd334c"
+        ]
+      },
+      "rationale": "Credit the published finite forbidden sets, exceptional-point result, Pansiot runs and the characteristic polynomial. The distinct checked result is the all-period periodic-point zeta with the two-lift normalization and the complete least-period set. Exact and refined reappearances in later-dated indexed findings are material overlaps, but the inspected evidence does not establish that they were prior to this finding.",
+      "residual_risks": [
+        "An earlier nonindexed or differently phrased periodic observation is plausible given the published code language. The comparisons do not prove absolute novelty or establish the history of dissemination of later indexed results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the periodic-language ingredients, not the periodic invariant in the inspected statements",
+          "evidence": "Proposition 18 forces the exceptional nonperiodic word; the proof of Theorem 19 gives F, G, the run restrictions, and a recurrence for finite code words ending in 00.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.09223v1",
+          "material_read": "Theorem 11 (p. 13, offset 34918), Proposition 18 and proof of Theorem 19 (pp. 17–18, offsets 46573–50491)",
+          "method": "Lawful OA PDF locators and bounded passages",
+          "title": "Antisquares and Critical Exponents",
+          "trigger": "Same good shift and Pansiot count with potentially stronger coverage"
+        },
+        {
+          "assessment": "Different forbidden-factor relation",
+          "evidence": "A factor and its complement may not both occur, regardless of adjacency; this is not exclusion of adjacent complementary factors of order at least two.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.09598v2",
+          "material_read": "Abstract and introduction, p. 1, offset 0",
+          "method": "Lawful OA PDF scope passage",
+          "title": "Complement Avoidance in Binary Words",
+          "trigger": "Potential alternative formulation of the avoidance class"
+        },
+        {
+          "assessment": "Genuine same-shift exact coverage, indexed later",
+          "evidence": "The transition refinement specializes to the fixed-point generating function, and the other zeta is identical after multiplying its two displayed factors.",
+          "identifier_or_url": "Resultary findings ending 379da1cc57ba and 29a622fd334c",
+          "material_read": "Mirrored Findings at offset 0, including the fixed-point and primitive-orbit formulas",
+          "method": "Local Resultary lookup and local mirror passages",
+          "title": "Exact transition-refined census of periodic binary antisquare-avoiding words; Two maximal-entropy phases and an exact periodic orbit law for a good binary shift",
+          "trigger": "Same cyclic objects and exact enumerators"
+        },
+        {
+          "assessment": "Later indexed specialization match",
+          "evidence": "Both denominator factors become 1-z-z^4-z^6 at u=1.",
+          "identifier_or_url": "2026/11/8/SCOPE-constant-weight-rigidity-and-exact-spectra-of-circular-antisquar--585d5e7587a7",
+          "material_read": "Mirrored weight-refined zeta passage, offset 4164",
+          "method": "Local Resultary lookup and local mirror passage",
+          "title": "Constant-weight rigidity and exact spectra of circular antisquare-avoiding words",
+          "trigger": "Stronger exact weight-refined enumerator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Baranwal et al. finite-word growth result and reduction",
+        "Independent periodic count and primitive-period argument"
+      ],
+      "rationale": "Marked periodic points and primitive periods are natural invariants of this two-sided avoidance shift. The exact rational zeta and least-period support answer questions the finite-word growth rate alone cannot answer: which orbit lengths occur and how many marked or primitive orbits there are at every length. The cyclic lifting multiplicity and the separation of exceptional nonperiodic words make the calculation specific to this shift, rather than a restatement of its published growth polynomial.",
+      "residual_risks": [
+        "This is a periodic classification only, not a description of the nonperiodic dynamics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

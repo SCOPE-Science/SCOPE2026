@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:42:50.691355Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen sign, scaled-node and amplification claims are correct, but its unconditional assertion (RESULT.md lines 54 and 77, also in REVIEW.md and METADATA.json) that constant normalization destroys kernel-translate exactness is false. At ell=sqrt(3) and a²=24 log(5/4), t=(4/5)^4, u=(4/5)^3 and c=sqrt(3)/2. Substitution in S=c[1+2(u-t)/((1-t)(1+t)^2)] gives S²=113167253586821281/109369216915761708>1 by exact rational arithmetic. As a tends to infinity at the same ell, S tends to c<1, so some finite spacing has S=1 and normalization does nothing. /workspace/repairs/3/ replaces the three affected files and preserves the frozen source. Reassessment of the repaired claim: subtracting t times the center row from the outer row leaves (1-t²)^2 w=c(u-t)>0. The sign of v is that of log cosh(y)-y/[2(1+ell²)]; y tanh(y)-log cosh(y) grows from zero, so the scaled logarithm increases from 0 to 2 and crosses exactly once. Integrating tanh(y)>y/(1+y) gives h(y)>y/(1+y) and hence a_*<1; also h(2)>1 gives y_*<2. At ell²>=1/2 the scaled GH radius squared is at least 1, and at ell²<=1/2 it is at least 2ell², so positivity is strict in both cases. Solving the monotone node-scale relation gives the stated alpha cutoff. The Gram system tensorizes; rescaling multiplies each strictly positive exact kernel mean by S^(-d), hence preserves exactness iff S=1. The absolute-mass/total-mass ratio to the d-th power is attained by the signs of the weights. Taylor expansion gives w~c³/(2a²) and S→c+c³/(2ell²), verifying the amplification prefactor. The limits of the sign frontier follow from h(y)=y+O(y³) at zero and continuity at its level 1. Frozen verify.py was inspected, not executed; the universal checks are algebraic. This is a three-node fixed-target result, not an RKHS error or higher-order positivity theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 1 of arXiv:1812.08509 requires locally variance-optimal nodes in a totally positive kernel setting; Section 3.7 treats scaled GH positivity as numerical evidence.",
+          "arXiv:1906.02096 gives polynomial-rule convergence in the flat limit, not finite-scale sign control."
+        ],
+        "reasoning": "Neither local variance stationarity of the prescribed nodes nor an all-bandwidth implication is provided. The later scale-mixture record does cover the unregularized sign boundary, as distinguished below.",
+        "searches": [
+          "Resultary (limit 20): positivity of exact Gaussian kernel quadrature weights at three scaled Gauss-Hermite nodes all length scales",
+          "arXiv:1812.08509 Corollary 1 and Section 3.7",
+          "arXiv:1906.02096 Section 1.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1803.09532",
+        "arXiv:1812.08509",
+        "arXiv:1906.02096",
+        "Resultary: bf59562e8e52, 2b6fb9925f9d, 4abd02fc5f66"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The scaled-GH paper describes exact positivity as suggested by experiments. The local-optimum theorem does not certify these grid points. Setting the later scale-mixture result's mixture to a single unit variance and nugget to zero gives the spacing-boundary case."
+        ],
+        "reasoning": "No inspected earlier statement proves or mechanically implies the sharp exact classification or the natural-node strict inequality at every bandwidth. The later record is a real implication for the spacing part, not a finding of earlier priority or a proof of the distinct natural-node assertion.",
+        "searches": [
+          "arXiv:1803.09532 introduction, Theorem 2.2 and Section 2.4",
+          "arXiv:1812.08509 Corollary 1 and Section 3.7",
+          "SCOPE 4abd02fc5f66 mirror RESULT.md, offsets 0–9797"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 2.2 integrates the first Mercer eigenfunctions and does not solve the original Gram system. SCOPE 2b6fb9925f9d likewise proves positivity for the approximate construction, not for the exact weights.",
+          "The normalized tensor norm is the total variation of a signed mass-one discrete measure."
+        ],
+        "reasoning": "The two weight systems are inequivalent. Generic multiplicative total variation is established background; the explicit growth rate comes from the model-specific sign boundary and exact weights.",
+        "searches": [
+          "Resultary (limit 20): truncated Mercer approximate weights Gaussian kernel scaled Gauss-Hermite nodes positivity compared to exact weights",
+          "Resultary (limit 20): normalized tensor product signed quadrature weights total variation l1 amplification positivity Gaussian kernel quadrature",
+          "arXiv:1803.09532 Theorem 2.2 and Section 2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE bf59562e8e52 uses the uniform target on [-1,1] and varies shape at fixed spacing. SCOPE 4abd02fc5f66 treats Gaussian scale mixtures and nugget regularization, including zero nugget; its spacing result covers the single Gaussian case. The former is indexed under 2026/11/2 and the latter under 2026/11/22, both after the assigned 2026/10/19 record."
+        ],
+        "reasoning": "A matching three-node geometry does not identify the target or parameter. Credit substantive overlap where specialization actually applies; the later indexed dates do not establish an antecedent.",
+        "searches": [
+          "Resultary (limit 20): three symmetric nodes {-a,0,a} Gaussian kernel quadrature exact kernel weights center sign threshold Gaussian measure N(0,1)",
+          "Resultary (limit 20): positivity of exact Gaussian kernel quadrature weights at three scaled Gauss-Hermite nodes all length scales"
+        ]
+      },
+      "rationale": "Only the exact fixed-target sign boundary and the all-bandwidth natural three-node guarantee with their quantitative consequences receive credit. Prior work observed positivity numerically and proved formulas for a different, Mercer-truncated rule. A later generalization does cover the spacing boundary; its indexed date is later, not evidence of prior coverage. Tensor factorization, absolute-mass norm and the elementary normalization qualification are not independent originality claims.",
+      "residual_risks": [
+        "The capped semantic queries and targeted OA checks are not exhaustive; a specialized exact Gaussian radial-basis quadrature calculation could predate the record.",
+        "Dedicated general web search was deferred; the available evidence consists of primary OA passages and the local indexed comparisons, not an unsuccessful broader search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct empirical antecedent; different proved weights",
+          "evidence": "The introduction says experiments suggest exact and approximate positivity; Theorem 2.2 concerns the truncated Mercer rule.",
+          "identifier_or_url": "https://arxiv.org/pdf/1803.09532",
+          "material_read": "PDF pp. 3, 8–9: introduction, Theorem 2.2 and Section 2.4",
+          "method": "OA PDF targeted passage inspection",
+          "title": "Gaussian kernel quadrature at scaled Gauss–Hermite nodes",
+          "trigger": "Same natural scaled nodes and positivity question"
+        },
+        {
+          "assessment": "Does not imply the fixed-grid theorem",
+          "evidence": "Corollary 1 assumes posterior variance stationarity; Section 3.7 describes scaled GH positivity as numerical evidence.",
+          "identifier_or_url": "https://arxiv.org/pdf/1812.08509",
+          "material_read": "PDF pp. 4 and 9: local optimality definition, Corollary 1 and Section 3.7",
+          "method": "OA PDF targeted passage inspection",
+          "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+          "trigger": "Plausible general positivity theorem"
+        },
+        {
+          "assessment": "Limiting result, not finite-scale classification",
+          "evidence": "Convergence to polynomial-exact weights as the kernel flattens supplies no full spacing sign law.",
+          "identifier_or_url": "https://arxiv.org/pdf/1906.02096",
+          "material_read": "PDF p. 4, Section 1.2",
+          "method": "OA PDF targeted passage inspection",
+          "title": "Worst-case optimal approximation with increasingly flat Gaussian kernels",
+          "trigger": "Plausible bandwidth or flat-limit implication"
+        },
+        {
+          "assessment": "Later indexed broader coverage of the spacing threshold",
+          "evidence": "Zero nugget and a single standard-Gaussian scale reduce the unique spacing crossing to this rule.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-universal-reentrant-positivity-law-for-three-node-gaussian-ker--4abd02fc5f66",
+          "material_read": "RESULT.md offsets 0–6387 and 6300–9797",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "A universal reentrant positivity law for three-node Gaussian kernel quadrature",
+          "trigger": "Strongest covering indexed result"
+        },
+        {
+          "assessment": "Different weight definition",
+          "evidence": "The sum-of-squares theorem is about the Mercer-truncated approximation and explicitly distinguishes exact Gram weights.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-universal-positivity-and-sum-of-squares-structure-for-herm--2b6fb9925f9d",
+          "material_read": "RESULT.md offsets 0–6482",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Sharp universal positivity and sum-of-squares structure for Hermite weights",
+          "trigger": "Scaled GH positivity at every order"
+        },
+        {
+          "assessment": "Related, different target and varying parameter",
+          "evidence": "Uses the uniform target on [-1,1], and varies Gaussian shape at fixed spacing.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-one-crossing-positivity-diagram-for-symmetric-three-node-gauss--bf59562e8e52",
+          "material_read": "RESULT.md offsets 0–6331",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "A one-crossing positivity diagram for symmetric three-node Gaussian quadrature",
+          "trigger": "Exact one-crossing at the same node geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Three symmetric nodes are the first symmetric grid capable of a negative weight. They supply a necessary-and-sufficient spacing rule for stable mass-one nodal integration and rigorously settle the first nontrivial symmetric case of the empirical scaled-GH observation. The exact coalescence coefficient explains when tensor products amplify bounded nodal perturbations, without claiming anything about RKHS error or matrix conditioning. The normalization repair preserves all of this; the exception itself is not assigned separate value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

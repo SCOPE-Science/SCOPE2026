@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The maximum of \(13\) is the orbit bound from the \(26\) non-self-negative ternary triples; a displayed word attains it. Every maximum cycle chooses exactly one triple from each of \(13\) complementary pairs, and such a choice supports precisely its Euler-circuit realizations. The package exhausts all \(8192\) choices, finds \(60\) connected balanced digraphs, uses exact integer directed-tree cofactors and the BEST theorem to obtain \(288\) cycles, and separately tests all \(1,594,323\) indexed words to obtain the same count. The independent direct test also produces the \(72\) symmetry orbits. The computation is a finite complete proof; no infinite conclusion is inferred from sampling.
+## correctness
 
-## Originality — PASS against the inspected accessible evidence
-Mitchell and Wild (arXiv:2603.25286, first posted 2026-03-26) establish the period and existence but do not enumerate all maximum ternary span-three cycles. The inspected published span-two involution classification has a strictly shorter window length and does not count maximizers. The inspected ternary order-three orientable-cycle classification pairs windows by reversal rather than modular negation and counts length-nine cycles, whereas the present cycles have length thirteen. Actual searches for negative-avoiding ternary optimizer enumeration and its complementary-window and Euler-tour aliases found no equivalent result. Residual risk: an unindexed enumeration could establish the same integer or a stronger classification.
+PASS
 
-## Value — PASS
-A maximal negative-avoiding cycle uses every admissible observed three-window class once, a natural extremal design problem for phase/location encoding. The motivating recent paper proves existence but leaves the size and symmetry of this design space undetermined. Determining all \(288\) optimal cyclic designs, their \(72\) symmetry classes and the graph-degree/tour-count spectrum is a complete natural classification at the smallest span beyond the separately understood two-window setting. It is not presented as a new period bound, an asymptotic improvement, or a claim of practical optimization. The restriction to one alphabet and span is explicit.
+There are thirteen nonzero negation pairs, giving the upper bound; the displayed word attains it. Feasible maximal words correspond bijectively to distinct labeled cyclic edge tours of complete pair selections. A balanced graph with connected active undirected support is strongly connected on that support; loops count toward degrees but cancel from the tree Laplacian. In the BEST formula one can fix a single outgoing edge at the active root, rather than multiply by the root degree. A separately written enumeration fixing the minimum chosen edge and tracing feasible unused-edge paths, without determinants or BEST, exhausted all 8192 selections and reproduced 8120 unbalanced, 12 balanced disconnected, 60 Eulerian and the full tours/degree histograms. It obtained 288 distinct rotation classes, 3744 indexed words (the distinct windows force least period 13), and 72 orbits of size four. Independently, negation cannot preserve a selected edge set. Reversal would require an index reflection of thirteen edge positions, which has only one fixed edge, whereas a full selector contains four palindromic triples. Negated reversal sends each selected palindrome to its forbidden negative. These facts also explain freeness without computation.
 
-## Sources and remaining limits
-Primary source: Mitchell and Wild, *Negative Avoiding Sequences*, arXiv:2603.25286, especially Definitions 1.3 and 3.3, Theorems 3.2 and 4.1, Example 4.1 and Sections 5–8. Closest published comparisons: *Sharp length of involution-avoiding cyclic two-window words* (2026-10-18) and *Complete classification of maximum ternary order-three orientable cycles* (2026-11-08), whose complete result statements were read. This is an exhaustive finite computation, not an all-length theorem. Unindexed equivalent work and human verification remain open risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The bound, existence and antinegative Euler subgraph representation are prior. The complete cyclic-tour census, orbit count and selector refinement are not furnished by the strongest inspected sources under equivalent definitions.
+
+## value
+
+PASS
+
+The first ternary three-window optimizer problem asks for all positional cyclic designs achieving the exact distinguishability bound, not a single witness. The counts distinguish the design space, its actual symmetries and how differently eligible balanced supports contribute. The finite cutoff is fixed by the extremal problem; it is not an arbitrary truncation or a claim of practical performance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

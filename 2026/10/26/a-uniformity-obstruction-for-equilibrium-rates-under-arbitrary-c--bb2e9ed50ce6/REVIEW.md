@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The cohort wealth equation, bounded primitives, and Grönwall's inequality give a uniform cohort bound \(B\). Differentiation of the smooth age-weighted aggregate yields \(\|K'\|_\infty\le 3B/L+MB+\eta_0+\kappa\). The positive family \(K_\omega(t)=1+(1/2)\sin(\omega t)\) has derivative norm \(\omega/2\), proving the impossibility of a single bound for all frequencies. Primary evidence: [arXiv full text](https://arxiv.org/html/2509.05170v2), §2 and §5, Theorem 5.13.
+## correctness
 
-**Originality (O): PASS.** Four literature-database searches targeted the exact paper, OLG equilibrium rates, natural borrowing limits, and MSC 91B74 aliases. The closest returned items concern a different financial flow, the Huang–Li stationary finance model, and an age-structured population model; none implies the capital-profile obstruction. The paper itself was inspected at the level of the model equations and Theorem 5.13. This is a bounded novelty assessment, not a claim that failed search proves novelty.
+PASS
 
-**Value (V): PASS.** The result supplies a necessary regularity condition for an existence theorem with an exogenous capital-supply path. It gives a concrete remedy: restrict the admissible profiles or let the lifespan/rate bound depend on a derivative norm of \(K\). The conclusion is not a routine formula evaluation; it exposes a quantifier-level obstruction to uniform equilibrium control.
+For a fixed L and sup-rate bound M, integrate the cohort equation from birth and bound |η₀−c|≤η₀+κ. Grönwall bounds every cohort wealth path in absolute value by B=(|w₀|+L(η₀+κ))e^{ML}, and its a.e. derivative in absolute value by MB+η₀+κ. The birth-index integrand ρ(t−b)E[w_t^b] can be extended by zero outside b≤t≤b+L, with no jump because ρ vanishes at both endpoints. Its weak time derivative on the life interval is the product-rule sum; Fubini and the bounds permit integration in b, including for merely measurable bounded consumption. The derivative of aggregate wealth thus has essential-supremum bound B∫|ρ′|+MB+η₀+κ=3B/L+MB+η₀+κ. At equilibrium with a C¹ target the bound holds pointwise by continuity. Every sinusoid in the stated family has the same upper/lower range bounds and derivative norm ω/2, which can exceed that bound even on any fixed interval of positive length with a suitable phase. The v2 source hypotheses allow constant wealth at birth and deterministic constant income; Assumption 2.8 and optimal consumption (2.19) provide the cap, and (5.8)–(5.10) give the stationary density class on the moving support. The zero extension of the quadratic density is Lipschitz, not globally C¹; if global C¹ across both edges is imposed, the same proof applies to the normalized quartic density 30a²(L−a)²/L⁵ with derivative L¹ norm 15/(4L). The displayed bound is for the frozen quadratic on its natural support. This is an analytic replay, not an existence proof or a numerical search.
 
-**Closest literature and limitations.** Chen et al., “Stochastic Analysis of Overlapping Generations Models Under Incomplete Markets,” arXiv:2509.05170, first submitted 5 September 2025. The proof covers a stationary smooth age-density flow, constant bounded income, bounded consumption, and a bounded rate. It does not establish a corrected existence theorem for a particular high-frequency profile. If the displayed parameter dependencies were intended to include \(K\) implicitly, the result identifies the necessary missing dependency.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The proof in the primary work already displays K-level dependence for constant K; do not credit a generic observation of omitted K from the theorem's constants as new. The supported distinct result is the explicit derivative-based obstruction to uniformity across time-varying profiles, including uniformly bounded and uniformly positive profiles of identical range.
+
+## value
+
+PASS
+
+The counterexample isolates a meaningful missing uniformity hypothesis in an equilibrium theorem: bounding the range of an exogenous capital supply cannot control the cohort aggregate's attainable time variation. The explicit primitive-dependent derivative ceiling identifies the kind of profile control needed, or why the constants must be permitted to depend on more than levels. This is a concrete use of an elementary estimate against a consequential quantifier, not presented as a new differential inequality method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

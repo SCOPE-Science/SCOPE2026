@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every source and complete received set is regenerated for every layer through seven steps. Exact bitset clique-search with a proved coloring upper bound supplies integer maxima; explicit codebooks attain them. Nonnegative rational primal and dual vectors in `certificates.json` are checked against *all* output and source constraints, with matching objectives. Both upper and lower bounds and all 19 component certificates are replayed by standard-library `verify.py`. The full recomputed values are in `RESULT.md`. The proof is finite and makes no larger-length assertion.
+PASS
 
-## Originality — PASS, qualified
+An at-most-one swap preserves symbol counts, so both packings add over the number k of U steps, also the number of D steps. Independently reconstructed the allowed excursions using an extendable nonnegative-prefix recursion, and constructed every unchanged or swapped output without applying a prefix test to outputs. Rebuilt output incidence and checked all explicit codebook, rational primal and rational dual inequalities and objective equalities for the 19 layers. For the integer upper bounds, independently used memoized recursion on surviving sources: at a common output of two or more surviving sources a packing chooses either none or exactly one of those sources. In the chosen branch remove that source and every source intersecting its ball; when no such output remains all remaining sources are jointly feasible. The alternatives are exhaustive, and in all layers the resulting exact maximum matches the codebook size. Source counts are 1,2,4,9,21,51,127; M is 1,2,2,4,7,14,28 and P is 1,2,2,4,7,71/5,5515/182. At n=6 the gap is 1/5 and the floor still equals 14; at n=7 it is 30, strictly above 28. In the length-seven layers k=0,1,2,3 the integer maxima are 1,6,14,7 and the fractional maxima 1,6,2785/182,8. Replay: python3 /workspace/review-evidence/channels.py swap; see swaps.log in the same directory. This examines only single adjacent exchanges through length seven.
 
-The closest checked primary sources are Barcucci et al., arXiv:1410.4710 (Motzkin-path cross-bifix-free constructions); Buzaglo et al., arXiv:1311.7113 (unrestricted multipermutation Kendall-metric codes); Kulkarni and Kiyavash, arXiv:1211.3128 (fractional packing for deletion channels); and Kovačević et al., arXiv:2509.06692 (unrestricted q-ary adjacent-transposition bounds). The full relevant mathematical sections were compared by exact source constraint, error operation and prior-result implication. None of their inspected statements determines the exact integer and fractional Motzkin swap-code capacities. Related earlier results for Dyck subfamilies, non-overlap, and constrained deletion channels address proper subfamilies or different information channels; they do not entail the mixed-horizontal-step capacities. Residual risk: an unindexed equivalent earlier computation cannot be excluded.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result locates the first loss of tightness of the fractional receiver-shadow relaxation for a natural three-step path source (length six) and the first failure even after taking its integer floor (length seven). The explicit sharp deficit and rational witnesses give a concrete small-block benchmark for constrained reordering-error codes, rather than a routine restatement of a known bound.
+The exact Resultary hit on the full table is the assigned record itself. There is material partial coverage: the no-horizontal layers are the same as previously indexed Dyck swap layers, and an unrestricted multipermutation result uses the same channel for one host composition. The initial gap and the first floor failure need the layers with horizontal steps that those results do not determine. The literature comparison is bounded and not a priority assertion.
 
-## Limitations
+## value
 
-The result is restricted to positive lengths through seven, one adjacent swap at most, and the single uncolored Motzkin step alphabet. It is not an asymptotic theorem. No independent external mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The comparison isolates a practical distinction for exact coding bounds: the first nonintegral relaxation advantage is small enough to disappear under flooring, whereas at the next length the floor exceeds the best code by two. The complete preceding lengths and preservation of the genuine receiver alphabet make this a sharp boundary for the natural packing model, not merely a fractional example with a cherry-picked source subset. The composition data locate which types of paths cause the failure and give a benchmark for stronger upper bounds, without implying a larger-length law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

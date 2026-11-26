@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:34:14.488503Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the auxiliary graph of selected unordered pairs, token conflicts are exactly two incident auxiliary edges whose other endpoints are adjacent in the base graph. Hence each auxiliary neighborhood is a base coclique. Both bases have cocliques of size four and none of size five, so degree sum bounds the size by 32; equality requires four neighbors at every vertex and the reciprocity of those neighbor choices. Independently reimplemented the exhaustive census in /workspace/audit_replay/token_census.py: assign the rows in fixed vertex order, with each new row indexed by the lower-bit pattern prescribed by all previous rows. This bijectively enumerates every reciprocal assignment, with no assumption about its type. The script verifies the quotient by identical open neighborhoods has respectively four size-four classes inducing two disjoint edges, or eight size-two classes inducing a single cycle; checked complete joins across quotient edges and absence of intra-class edges. Independently enumerated the entire base automorphism group by extending injective partial vertex maps preserving both adjacency and nonadjacency. Replay with python3 returned 24/16 base four-cocliques, 144/54 order-32 solutions, base group orders 1152/192, type counts (72,72)/(30,24) in the stated order, and precisely the claimed typed orbit sizes. This checks the full base actions, not any assertion about the token graphs' own full groups. The inspected frozen verifier's different CSP ordering is consistent. Cospectrality itself follows from the cited strongly regular symmetric-square theorem under exactly this unordered-pair definition.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The strongly regular theorem gives the common spectrum for (16,6,2,2) but does not count independent sets.",
+          "De Alba et al. give independence/matching results for other specific graph families; the independence formula for complete bipartite bases does not apply to these nonbipartite bases.",
+          "The indexed excerpt for On the 2-token graph of a graph announces a lower bound, not an extremal-set enumeration."
+        ],
+        "reasoning": "The established common spectrum is not a route to the distinct leading coefficients. The accessible bounds and families do not give the classifications, and inaccessible passages do not warrant a whole-paper negative claim.",
+        "searches": [
+          "arXiv:math/0507251, strongly regular symmetric-square theorem",
+          "arXiv:1606.06370, §1.2 and family-specific results",
+          "doi:10.1016/j.akcej.2019.05.002, indexed theorem excerpt"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Independent replay audit_replay/token_census.py",
+        "arXiv:math/0507251",
+        "arXiv:1606.06370",
+        "Resultary 41bf4d1d3187, 1558a7631255 and a5582ca1e324",
+        "doi:10.1016/j.akcej.2019.05.002 (excerpt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The base polynomials give alpha=4 and the maxima of 24/16 four-cocliques. Via the local-capacity argument these imply the upper bound 32, not its attainability or the compatible choices.",
+          "Marked rook stabilizer orbits concern base vertices, not the action on reciprocal systems of coclique neighborhoods."
+        ],
+        "reasoning": "Obtaining the 144 versus 54 labeled configurations and their orbit partitions requires enforcing reciprocity across all vertices and classifying the resulting systems; it is not a number or orbit size obtainable by specialization of the cited symmetric-square or base invariants.",
+        "searches": [
+          "Resultary record 41bf4d1d3187, Finding and base independence polynomials",
+          "Symmetric Squares of Graphs, strongly regular theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Audenaert et al. use the same unordered-subset and symmetric-difference definition for symmetric squares.",
+          "The independence-polynomial leading coefficient of each square counts exactly its labeled maximum cocliques; base-graph independence polynomials count different families."
+        ],
+        "reasoning": "Symmetric square and two-token graph are equivalent names here, not different models; likewise a maximum-coclique count and a leading independence coefficient in the square are the same invariant. No matching earlier census was found under these formulations.",
+        "searches": [
+          "Resultary: rook and Shrikhande two-token / symmetric-square maximum independent-set counts and symmetry orbits",
+          "arXiv:math/0507251, §1 and §7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "41bf4d1d3187 contains the base independence polynomials; 1558a7631255 counts induced matchings of the base graphs; a5582ca1e324 treats marked-cell stabilizer orbits in the base rook graph."
+        ],
+        "reasoning": "These indexed exact invariants are for different objects or actions. In particular 32 maximum induced matchings in the base Shrikhande graph is not a two-token independence statistic. Bounded catalogue queries yielded no exact square census, which does not prove global absence.",
+        "searches": [
+          "Resultary: Shrikhande / 4×4 rook, independence polynomial, maximum cocliques, 2-token census and base-automorphism orbits",
+          "Resultary 41bf4d1d3187, 1558a7631255 and a5582ca1e324"
+        ]
+      },
+      "rationale": "The supported distinct result is the exact extremal-set census, with structural types and base-group orbits, on the specified known cospectral pair. Cospectrality and base coclique data are prior; even if a less accessible source turns out to give the independence numbers, that alone does not cover the census or structure.",
+      "residual_risks": [
+        "The 2019 primary full text remains inaccessible after lawful attempts, leaving the numerical alpha implication unresolved for that paper. Bounded searches do not certify priority or exclude an earlier unindexed census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established cospectrality, not the census.",
+          "evidence": "Edges of the symmetric power use symmetric difference a base edge, and symmetric squares of equal-parameter SRGs have equal spectra.",
+          "identifier_or_url": "https://arxiv.org/html/math/0507251v1",
+          "material_read": "Abstract, §1 definition and theorem statement (OA offset about 450); §7 More Cospectral (about 26500).",
+          "method": "Original OA passage comparison.",
+          "title": "Symmetric Squares of Graphs",
+          "trigger": "Identical pair via the same SRG parameters and alternative name for token graphs."
+        },
+        {
+          "assessment": "Specified graph families do not give this census.",
+          "evidence": "The independence examples and formulas use bases such as complete bipartite graphs and cycles, with paths and stars treated later.",
+          "identifier_or_url": "https://arxiv.org/abs/1606.06370",
+          "material_read": "§1.2 pp. 3–4, OA offsets about 8500–10432, and relevant graph family scope.",
+          "method": "OA PDF passages.",
+          "title": "Independence and matching numbers of some token graphs",
+          "trigger": "Possible covering theorem for independence of symmetric squares."
+        },
+        {
+          "assessment": "Counts base cocliques, not square cocliques.",
+          "evidence": "Base independence polynomials give leading counts 24 and 16 at degree four.",
+          "identifier_or_url": "2026/10/11/SCOPE-independence-complexes-of-the-shrikhande-and-4-times4-rook-graph--41bf4d1d3187",
+          "material_read": "RESULT.md, Finding from offset 0.",
+          "method": "Bounded original local-mirror passage.",
+          "title": "Independence complexes of the Shrikhande and 4×4 rook graph have different sphere-wedge homotopy types",
+          "trigger": "Exact same bases and independence invariant."
+        },
+        {
+          "assessment": "A base induced-matching census is not a two-token independent-set census.",
+          "evidence": "Includes 32 maximum induced matchings in the base Shrikhande graph.",
+          "identifier_or_url": "2026/10/25/SCOPE-induced-matching-polynomials-and-optimal-exchange-geometry-of-th--1558a7631255",
+          "material_read": "RESULT.md, Finding from offset 0.",
+          "method": "Bounded original local-mirror passage.",
+          "title": "Induced matching polynomials and optimal exchange geometry",
+          "trigger": "Near catalogue match for exact extremal-set counts on the same pair."
+        },
+        {
+          "assessment": "Different action and classified objects.",
+          "evidence": "Pointwise stabilizer orbits of base cells after marking, not orbits of families of 32 token states.",
+          "identifier_or_url": "2026/10/26/SCOPE-two-rounds-of-counting-refinement-recover-every-marked-rook-grap--a5582ca1e324",
+          "material_read": "RESULT.md, Finding from offset 0.",
+          "method": "Bounded original local-mirror passage.",
+          "title": "Two rounds of counting refinement recover every marked rook graph orbit",
+          "trigger": "Same base and closely named orbit classification; exact comparison independent of same-day ordering."
+        },
+        {
+          "assessment": "Unresolved for possible implications about numerical independence bounds, not claimed to be noncovering in full.",
+          "evidence": "Excerpt announces a lower bound for alpha(F2(G)); no accessible passage giving this pair's census, types or group orbits.",
+          "identifier_or_url": "https://doi.org/10.1016/j.akcej.2019.05.002",
+          "material_read": "Indexed excerpt only; publisher returned 403 and DOI lookup did not locate an identified lawful repository copy.",
+          "method": "Lawful OA attempts followed by bounded inspection of indexed evidence.",
+          "title": "On the 2-token graph of a graph",
+          "trigger": "Highly relevant title and indexed independence bound."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical equal-parameter, cospectral pair motivates the exact comparison before computation. The same maximum size but different leading independence coefficients gives a concrete separation on symmetric squares, and the two auxiliary-graph types with full base-action refinements make the result useful beyond the raw coefficients for anyone studying the extremal configurations. The enumeration is complete for the specified natural pair and is not extrapolated.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

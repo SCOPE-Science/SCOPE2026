@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:19:10.390893Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a one-sided +L barrier, reflection gives single survival erf(sqrt(c/t)), c=L²/(4D); independence and renewal occupation give age density S_1(t)^N/μ_N, killed product law given age, and binomial count given age. The survival integral is finite iff N>2 by t^(−N/2) at infinity. In u=t log(N)/c, Mills' estimate gives −log S_N=(1+o(1))sqrt(u/(π log N)) N^(1−1/u) locally uniformly, and μ_N∼c/log N by the step at u=1 plus the uniform age-tail bound at RESULT.md lines 59–65. For U fixed, the reflected image integral is O(N^(−1/U)/sqrt(log N)) uniformly on u≤U since 2sqrt(log(N)/u)−ell/sqrt(u)≥sqrt(log(N)/u) eventually; the survival normalization has the same error. Taking δ=N^(−β), 0<β<1/(2uκ), choose U>uκ with 1/U>β. This makes the error o(δ), so young ages up to uκ−δ have success-count lower tail bounded by exp(−const Nδ²), whereas the window [uκ+δ,uκ+2δ] has the desired count with probability 1−o(1), including integer rounding. The two bounding survival exponents agree to relative o(1) because δ log N→0, and the logarithms of the mixing density normalization and window width are negligible. A fixed younger age gap incurs a cost exp(−const N); a fixed older gap raises the stretched-exponential power, so dividing by the sharp rare-event estimate proves conditional localization. The assumptions exclude a crossover near the hard edge, not a uniform rare-event law.",
+      "reproduction": "python3 /workspace/reproductions/05_reset.py uses adaptive truncated quadrature with stable tail evaluation for ell=1, kappa=0.7. At N=300,3000,30000,300000 the rate/scale ratios are 1.281032,1.149778,1.053223,0.999952 and conditional scaled-age means 1.784559,1.820636,1.844973,1.855801 against uκ=1.861861. Numerical diagnostics only; no finite calculation proves the logarithmic equivalent or concentration. Frozen verify.py inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen attribution credits the exact finite-population mixture and limiting support κ≥erf(ell) to arXiv:2512.00440, Eqs. (10)–(15), (36)–(38). The generic conditional-independence framework is also credited. Exact primary passages of the first work were not retrieved."
+        ],
+        "reasoning": "The limiting hard edge gives a vanishing probability below it, but does not quantify its finite-population rate. Conditional independence gives a useful reduction, not a ready large-deviation theorem for a population-dependent renewal clock and shrinking interval.",
+        "searches": [
+          "Biroli–Majumdar–Schehr, First Passage Resetting Gas, arXiv:2512.00440",
+          "Biroli et al., conditional independence framework, arXiv:2307.15351 cited in RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Resultary matching record and distinct records c03a80e1262c and 4cfb2c3e2c2e (summaries)",
+        "arXiv:2512.00440 (retrieval attempted; frozen attribution distinguishes the known input)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At a fixed u>1 the first-passage survival has the relevant stretched-exponential cost; locating the effective boundary requires the binomial law. A fixed upper/lower age bracket changes the power of N, and does not by itself prove the coefficient."
+        ],
+        "reasoning": "The claimed scale is extractable from the known exact mixture but not a direct age-tail substitution: uniform kernel control and a shrinking window set by both survival and count concentration are needed. The second statement also identifies which ages actually carry the count event.",
+        "searches": [
+          "RESULT.md lines 33–81 compared with the mixture and hard-edge laws attributed to arXiv:2512.00440",
+          "Resultary c03a80e1262c and 4cfb2c3e2c2e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The identical Resultary match 2026/11/22/SCOPE-stretched-exponential-rarefaction-below-the-counting-statistics--66bddc461124 is the assigned record.",
+          "Resultary c03a80e1262c treats far-left fixed-population k-point tails and a conditional Gamma inverse-age limit; 4cfb2c3e2c2e treats occupancy beyond −L with a log N scale."
+        ],
+        "reasoning": "Neither switching the physical threshold side nor expressing the observable as a complement transforms a fixed-number far-left position tail or an opposite-threshold tally into a macroscopic count deficit in the symmetric interval of width O((log N)^(−1/2)).",
+        "searches": [
+          "Resultary: first-passage resetting gas below counting hard edge, rare central-count deficiency and selected reset age",
+          "arXiv:2512.00440, full-counting statistics and age passages"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact rate and selected age appear in the matching assigned record. The closest distinct indexed statements compute different quantities. The prior limiting count distribution is credited as input, not as a table of subedge probabilities."
+        ],
+        "reasoning": "A vanishing entry in a limit law or a finite numerical table cannot establish the moving-age logarithmic equivalent for every fixed subedge κ, nor the conditional localization.",
+        "searches": [
+          "Resultary: Brownian gas hard-edge rarefaction and age-conditioned tails",
+          "arXiv:2512.00440, counting-statistics statements"
+        ]
+      },
+      "rationale": "Credit the finite-population subedge logarithmic equivalent and its selected age under one-sided collective resets, not the exact stationary mixture or limiting hard edge. The closest related indexed statements concern different observables and do not supply equivalent coverage. The primary paper's passage-level comparison remains access-limited.",
+      "residual_risks": [
+        "The same-model primary text and supplements were not checked at passage level due to OA timeouts. Indexed summaries of related records do not rule out an equivalent finer result in their full text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit the attributed model, mixture and hard edge; not a full-paper noncoverage assessment.",
+          "evidence": [
+            "The frozen comparison identifies the limiting support κ≥erf(ell) and distinguishes the finite-size subedge rate from it. All exact primary-passage attempts timed out."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2512.00440",
+          "material_read": "Frozen attribution at RESULT.md lines 87–99, pointing to Eqs. (10)–(15), (36)–(38); no primary equation passage retrieved.",
+          "method": "Attempted OA retrieval of arXiv abstract, HTML, PDF and identified ar5iv alternate",
+          "title": "First Passage Resetting Gas",
+          "trigger": "Same reset system, mixture and limiting count edge"
+        },
+        {
+          "assessment": "Different conditioning event and age scaling in the evidence seen.",
+          "evidence": [
+            "Fixed-population far-left k-point tails and a Gamma limit for inverse reset age."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-multivariate-pareto-excursions-and-a-gamma-reset-age-law-in-a-fi--c03a80e1262c",
+          "material_read": "Resultary indexed summary only",
+          "method": "Local Resultary search",
+          "title": "Multivariate Pareto excursions and a Gamma reset-age law in a first-passage-resetting Brownian gas",
+          "trigger": "Same model, conditional rare reset age"
+        },
+        {
+          "assessment": "Distinct observable and rate in the evidence seen.",
+          "evidence": [
+            "Occupation beyond −L, logarithmic scaling and an age boundary layer instead of a macroscopic central count deficiency."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-logarithmic-mirror-threshold-occupations-in-a-first-passage-rese--4cfb2c3e2c2e",
+          "material_read": "Resultary indexed summary only",
+          "method": "Local Resultary search",
+          "title": "Logarithmic mirror-threshold occupations in a first-passage resetting Brownian gas",
+          "trigger": "Same model and rare occupancy statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The zero below the limiting support hides a continuum of stretched-exponential powers and the mechanism producing a rare low count. Resolving the coefficient as well as the unusually old selected age distinguishes the result from typical-age binomial fluctuations and from a hard-edge statement alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:16:46.310153Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Steiner-normalized wedge sum equals 2^(dk)/k! times the with-replacement mean, since zero and repeated columns contribute zero. Grouping the Boolean rows by pattern gives the exact multinomial formula, including singular cases. The population Gram matrix is M=(I+11^T)/4. For a row, put U=xi^T M^(-1)xi and let S be the sum of k independent signs. Then U-k=(2S-(S^2-k))/(k+1); E S^2=k, E S^3=0 and E S^4=3k^2-2k give Var(U)=2k/(k+1). For the whitened centered sample Gram matrix H, E(tr H)^2=Var(U)/d and E tr(H^2)=(E U^2-k)/d. The coefficients 1/8 and -1/4 of those terms in sqrt(det(I+H)) give relative correction -k^3/[4(k+1)d]; its linear term and the scalar CLT yield variance k/(2·4^k). A fixed positive-definite neighborhood has exponentially small exceptional probability by entrywise bounded-variable concentration; the Gram determinant is bounded outside it for fixed k. Taylor through degree three suffices: centering gives cubic expectation O_k(d^-2) and fourth absolute moment O_k(d^-2), proving the claimed remainder. Division by the k=1 expansion yields (4), including -5/(12d) at k=2. Independent exact determinant-multiplicity comparisons passed in 15 prespecified finite cases; finite binomial moment checks passed at k=1 through 10. These corroborate the arithmetic, not the limit proofs. Replay: python3 /workspace/branches/f04aeafb-7f50-468b-902d-3d0a846f7f74/finite_repro.py; see finite_repro_results.txt in that directory. The frozen verifier was read as evidence, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general zonotope formula gives an unweighted wedge sum over generator subsets; the zonoid framework relates intrinsic volumes and random wedge expectations generally.",
+          "The bounded Gram literature lookup returned growing-dimensional spectral-law results, not a fixed-k explicit second term for this square-root determinant."
+        ],
+        "reasoning": "The general identities cover the exact reduction, not the Bernoulli-specific second-order mean or linearized variance. The delta method is a general proof technique, not the asserted parameter-specific evaluations.",
+        "searches": [
+          "arXiv:2206.03204, Corollary 1 (4)",
+          "arXiv:2109.14996, Theorem 5.2",
+          "Fixed-order Bernoulli Gram literature lookup"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Proof and Verification; VERIFICATION.md; verify.py",
+        "arXiv:2206.03204",
+        "arXiv:2109.14996",
+        "arXiv:2205.13309",
+        "Resultary record 2340ba500941 and target self-match d76cbb96ec04"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior wedge sum plus counting and pattern grouping already yields (3). The remaining proof computes the population noncentral matrix, the whitened scalar fourth moment and the fixed-dimension Taylor correction.",
+          "Neither the width formula nor graph face enumeration recovers those Bernoulli Gram moments."
+        ],
+        "reasoning": "Credit the prior identity and direct use. The new evaluated bias and variance provide the distinct content; no observed source supplies them by simple substitution.",
+        "searches": [
+          "Joós–Lángi Corollary 1 (4)",
+          "Breiding–Bürgisser–Lerario–Mathis Theorem 5.2",
+          "White Whale record 2340ba500941"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact probabilistic reformulation is the square root of a noncentral Bernoulli sample-Gram determinant, not the determinant or an eigenvalue statistic in a growing-aspect-ratio regime.",
+          "SCOPE-diagonal-sufficiency-and-nonconcentrating-spherical-widths-of-th--2340ba500941, RESULT.md width calculation: same generators, random-direction support widths and a +1/(8d) spherical-mean correction, not generator-wedge volumes."
+        ],
+        "reasoning": "A direction sampled from the sphere to measure a width is not k independent Boolean columns; the shared zonotope and a 1/d correction do not make these asymptotics equivalent.",
+        "searches": [
+          "Resultary: White Whale intrinsic volumes, Boolean wedge fluctuations and widths",
+          "Literature: fixed-k noncentral Bernoulli Gram determinants",
+          "arXiv:2109.14996"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-fixed-order-intrinsic-volumes-and-gaussian-wedge-fluctuations-of--d76cbb96ec04 is the assigned record itself.",
+          "The distinct closest record 2340ba500941 is about widths. Sizing the White Whale counts vertices and edges; these are not tabulations of Euclidean intrinsic volumes or the limiting wedge variance."
+        ],
+        "reasoning": "No examined distinct table or catalogue record supplies the all-fixed-k constants; exact finite V_k checks cannot determine those asymptotics.",
+        "searches": [
+          "Resultary: fixed-order White Whale intrinsic volumes / Gaussian wedge fluctuations",
+          "arXiv:2205.13309"
+        ]
+      },
+      "rationale": "Pass applies to the fixed-order Boolean-specific asymptotic coefficients and wedge fluctuation law, not to the established intrinsic-volume identity or its direct multinomial specialization. Compared sources do not give the same constants and law or a stronger result already determining them without the row-moment calculation. Historical priority remains provisional.",
+      "residual_risks": [
+        "Unindexed fixed-dimensional work on noncentral Bernoulli Gram determinant moments may contain equivalent asymptotic constants.",
+        "Some bounded OA offset reads timed out; no whole-document absence conclusion is based on those reads."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the general exact wedge sum, not the asymptotics",
+          "evidence": "V_k of a zonotope is a sum of k-fold wedge norms over distinct generator subsets.",
+          "identifier_or_url": "https://arxiv.org/pdf/2206.03204",
+          "material_read": "PDF p. 5, Corollary 1, equation (4), OA offset 16836",
+          "method": "Lawful OA PDF locate and bounded read",
+          "title": "Isoperimetric Problems for Zonotopes",
+          "trigger": "Exact intrinsic-volume starting identity"
+        },
+        {
+          "assessment": "Positive overlap for intrinsic volumes and general wedge expectations; no whole-paper noncoverage inferred from the timed-out passage",
+          "evidence": "The located theorem is the zonoid intrinsic-volume identity, while the read introduction frames random determinant expectations generally.",
+          "identifier_or_url": "https://arxiv.org/pdf/2109.14996",
+          "material_read": "PDF introduction p. 2, offset 7223; locator excerpt of Theorem 5.2 on p. 29, offset 108506; bounded opening of the latter timed out",
+          "method": "Lawful OA PDF bounded read and theorem locator",
+          "title": "The Zonoid Algebra, Generalized Mixed Volumes, and Random Determinants",
+          "trigger": "Potential broader random wedge formula"
+        },
+        {
+          "assessment": "Establishes matching object and advertised enumerative invariants, not a full-text exclusion",
+          "evidence": "Minkowski sum of the 2^d-1 nonzero Boolean segments; studies vertex and edge enumeration.",
+          "identifier_or_url": "https://arxiv.org/pdf/2205.13309",
+          "material_read": "PDF p. 1 abstract locator offset 2036; bounded reopening timed out",
+          "method": "Lawful OA PDF abstract locator",
+          "title": "Sizing the White Whale",
+          "trigger": "Same zonotope and generator convention"
+        },
+        {
+          "assessment": "Same zonotope, different statistic and sampling",
+          "evidence": "Spherical-direction widths with diagonal reduction and +1/(8d) mean correction.",
+          "identifier_or_url": "2026/10/25/SCOPE-diagonal-sufficiency-and-nonconcentrating-spherical-widths-of-th--2340ba500941",
+          "material_read": "RESULT.md width and mean-correction passage, mirror offset 93",
+          "method": "Resultary and local mirror statement inspection",
+          "title": "Diagonal sufficiency and nonconcentrating spherical widths of the White Whale",
+          "trigger": "Closest distinct local catalogue record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural Boolean-generator zonotope has many highly nonorthogonal directions. The normalized intrinsic volumes quantify the surviving alignment (already sqrt(3)/2 at order two), and the explicit bias and fluctuation scale distinguish the fixed-order geometry from the established general wedge identity or a leading-order law of large numbers. These are reusable Euclidean invariants with a clear fixed-k scope.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

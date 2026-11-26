@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:35:29.256878Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I rechecked the complete repaired RESULT.md and SLOGAN.txt in /workspace/repairs/1/. Scalar opposite-sign returns satisfy a memory consistency relation ruling out unequal magnitudes; each crossed coordinate contributes zero or ±(h/2−ε/a) and the global sign quotient gives the credited census, with no additional coordinate option at equality. The active half-return block has determinant β and trace s=−1+3β+2(1−β)/q, q=ha/(2ε)>1; conjugation by the sign flip gives its square as the return derivative. The three strict Schur inequalities hold on 3β−1<s<1+β. At zero the relative derivative follows from the O(|x|√v⁺) error term, so the frozen text's 'every cycle' smoothness description is corrected: only all-active cycles have strictly positive memory in all coordinates. The repaired proof supplies the two zero-coordinate multipliers, a local expansion/contraction argument in the actual state space, and the product count of 2^(k−1) attracting cycles off threshold equalities. At their positive-memory states the implicit function argument persists under small symmetric Hessian perturbations. The determinant lower bound is attained exactly at |s|≤2√β; monotone s(q) gives the stated q_− and q_+ (finite upper edge only when β<1/9). The intersection of the rescaled bands is precisely the inclusive curvature cutoff; if empty, the spectral radius stays strictly above β even at the infimum by its endpoint limits and continuity. Replay: python /workspace/checks/1.py (SymPy symbolic Jacobian and exact samples). At β=1/16 it gives endpoints 10/7 and 6, ratio 21/5; a mixed cycle with h=3, ε=1 and curvatures 1 and 3/5 has radius 16/25 even though its nonzero block is on the plateau. Frozen verify.py and its output were read, not executed. The spectral optimum concerns all-active cycles, not critical boundary stability, a mixed-orbit global optimum, or a uniform pure-power norm estimate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.2 covers all positive-definite A and immediately covers the diagonal count",
+          "Theorem 5.7 covers near-threshold stability with assumptions from Lemma 5.5; Theorems 5.9–5.10 give eventual large-step branches near admissible corners",
+          "Dereich–Jentzen analyze stochastic optimization error bounds"
+        ],
+        "reasoning": "Diagonal sign corners being admissible already gives the eventual branch count modulo sign, but not exact attraction for every crossed coordinate off thresholds. The near-threshold critical multiplier expansion does not give the full-h spectrum or simultaneous plateau.",
+        "searches": [
+          "arXiv:2610.30078v1 Theorems 5.2, 5.3, 5.7, 5.9–5.10",
+          "arXiv:2608.30382v1 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and support files; repaired RESULT.md and SLOGAN.txt",
+        "arXiv:2610.30078v1, 2605.06821v1, 2608.30382v1",
+        "Resultary 25f4b1ac7763, 779e48cdeae5, a80d03e85890"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq. (22) becomes 2X_i=a_iX_i/(a_i|X_i|+ε/h); the separated solution set is a product of sets of cardinalities 3 or 1, with the zero vector excluded before quotienting by global sign",
+          "Theorem 5.7 uses K² and an explicit derivative for a near-threshold Floquet analysis"
+        ],
+        "reasoning": "This directly subsumes the census and establishes the symmetry device, so the repair removes both as distinct claims. The exact diagonal half-return coefficients still require the block analysis, and the global Schur inequalities and sharp intersection of plateau bands do not follow just from local branch theory.",
+        "searches": [
+          "Loh arXiv:2610.30078v1 p. 13 Eq. (22), p. 16 Theorem 5.7 and derivative proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Loh uses X=x/h, W=√v/h and c=ε/h, giving the same current-memory map; Theorem 5.2 identifies antipodal cycles with exact nonzero solutions modulo global sign",
+          "Regis–Chewi equations (24)–(34) and (179)–(190) concern the update and a continuous rod-flow model",
+          "Resultary 779e48cdeae5 instead uses one-step-lag memory in its position denominator"
+        ],
+        "reasoning": "Coordinate normalization does not make the census new. However, a rod-flow equilibrium is not a two-step return spectrum, and stale-memory and memoryless maps need not share the same stability blocks.",
+        "searches": [
+          "Loh et al. arXiv:2610.30078v1, §5 Eq. (22), normalized epsilon-outside RMSProp",
+          "Regis–Chewi arXiv:2605.06821v1, §5 and Appendix D.2.2",
+          "Resultary: diagonal RMSProp two-cycles, attracting multistability and return spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "25f4b1ac7763 studies a memoryless circle map and transition to an attracting cycle",
+          "779e48cdeae5 studies update-order instability with lagged memory",
+          "a80d03e85890 treats critical scalar relaxation at the threshold"
+        ],
+        "reasoning": "The strongest nonidentical indexed neighbors concern different maps or the critical fixed point, not the same full-state spectral-radius and common-stepsize condition. A same-day alternating-stepsize index hit (6086a09c45ce) lacked accessible mirror text and was not used as evidence against overlap.",
+        "searches": [
+          "Local Resultary: period-two RMSProp stability and sharp threshold, including current-memory, critical and lagged variants"
+        ]
+      },
+      "rationale": "The frozen originality assessment was too broad: the exact total orbit census is already covered as an immediate corollary of Loh et al. Theorem 5.2, even if the specialized formula is not printed. The complete repair explicitly credits that result, the sign-symmetry factorization and the prior near-threshold and large-step branches, and claims only the surviving exact diagonal full-step stability and sharp all-active spectrum/curvature gate. These were not supplied or subsumed by the strongest inspected statements. PASS applies to that repaired contribution, not to the original novelty claim for the census.",
+      "residual_risks": [
+        "A specialized earlier return-spectrum or spectral-optimization calculation could cover the remaining claim. The primary search was unavailable; retrieved exact-matching papers and local-index comparisons support the bounded verdict, not exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Immediate coverage of the diagonal census, partial stability and branch overlap; no inspected exact global plateau",
+          "evidence": [
+            "2X=AX/(|AX|+c) componentwise, c=ε/h; cycles modulo X∼−X",
+            "K² factorization, derivative and local Floquet expansion",
+            "Eventual admissible-corner branches"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.30078v1",
+          "material_read": "§5 pp. 13–14 including Lemma 5.1, Theorems 5.2–5.3 and Eq. (22); pp. 16–17 Theorem 5.7 and start of proof; p. 18 Theorems 5.9–5.10",
+          "method": "OA PDF text; decisive normalization, equation and symmetry passages checked directly",
+          "title": "The Dynamics of RMSProp Beyond the Stability Threshold",
+          "trigger": "Same epsilon-outside autonomous update and stronger period-two reduction"
+        },
+        {
+          "assessment": "Continuous model, not the discrete stability/plateau result",
+          "evidence": [
+            "Quadratic-loss rod-flow values Σ*=η²/4 and ν̄*=S²η²/4"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.06821v1",
+          "material_read": "§5 Eqs. (24)–(34), OA offsets 18700–23689; Appendix D.2.2 Eqs. (179)–(190), offsets 115800–119800",
+          "method": "OA HTML text",
+          "title": "A Rod Flow Model for Adam at the Edge of Stability",
+          "trigger": "Related RMSProp oscillatory dynamics and fixed point"
+        },
+        {
+          "assessment": "Stochastic optimization regime, not the deterministic orbit result in inspected material",
+          "evidence": [
+            "Error bounds uniform in hyperparameters"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2608.30382",
+          "material_read": "Abstract, offset 0",
+          "method": "OA HTML text",
+          "title": "Convergence rates for the RMSprop optimizer with full control of the hyperparameters",
+          "trigger": "Hyperparameter-dependent rates might imply the claimed optimum"
+        },
+        {
+          "assessment": "Different map or exact-threshold fixed point",
+          "evidence": [
+            "Circle and memoryless update; stale v_t instead of v_(t+1); critical relaxation rather than prime-period-two spectrum"
+          ],
+          "identifier_or_url": "Resultary 25f4b1ac7763, 779e48cdeae5, a80d03e85890",
+          "material_read": "Relevant findings and the map/parameter distinctions",
+          "method": "Local Resultary comparison",
+          "title": "Related memoryless, one-step-lag and critical scalar RMSProp results",
+          "trigger": "Close indexed map variants and threshold work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repair isolates the exact attractor count at all noncritical stepsizes and the sharp attainable local linear rate for the diagonal family. The coupled condition-number bound gives an actionable distinction between an individual block's optimal rate and joint attainability at a single stepsize. This remains useful beyond known existence and near-threshold stability, without counting the prior orbit census as an independent contribution or implying global attraction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

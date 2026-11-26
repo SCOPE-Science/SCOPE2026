@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:46:46.010605Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–35 and 39–64; VERIFICATION.md; verify.py lines 11–47 (symbolic reduction and numerical witness) and 49–85 (seeded samples).",
+        "Independent polynomial bisection replay: /workspace/branches/independent_checks.py, arps_witness()."
+      ],
+      "rationale": "Under 0<b₁<b₂<1, 0<D₁<D₂ and 0<r<min(1,ρ∞), integrate f_i directly to get F_i and the finite lifetime limits. The rate ratio k=f₂/f₁ starts at 1, tends to infinity, and has log derivative with strictly positive denominator and affine numerator of positive slope, with unique zero t_R>0. In particular k''(t_R)>0. For H=F₁k−F₂, cancellation gives H'=F₁k'. Thus H starts at 0, falls below 0 through t_R, then rises strictly to infinity (F₁ has positive finite limit and k diverges). Its only positive zero t_C lies strictly after t_R. Since G'=f₁H/F₁², G has the stated unique minimum with G''(t_C)=(f₁/F₁)k'(t_C)>0. The endpoint values of G and G(t_C)=k(t_C)>k(t_R) prove the strict threshold chain. Positivity of f₁,F₁ and the endpoint inequalities give precisely the five strict/tangency cases, excluding the trivial cumulative tie at t=0. At the upward cumulative zero the production difference is positive, and at the downward zero it is negative; with exactly two rate zeros and their sign pattern this forces u₁<v₁<u₂<v₂. Expanding each ratio at its nondegenerate minimum gives the stated two square-root separations. For the rational witness I reduced to z=(1+3t/2)^(1/3) and verified the quartic with its unique positive root >1, the exact sign 2·4^(−1/3)−6/5>0 at t=2, and the crossing root numerics independently: r_C≈0.7139563503876054 and times 0.3144333012, 0.8855289990, 7.5268560670, 55.8267551899.",
+      "residual_risks": [
+        "Seeded checks are author corroboration, not an independent universal argument; the positivity witness is proved by the exact rational comparison in RESULT.md, not by the numerical sign assertion in verify.py. Endpoint parameter degeneracies, interacting wells and real-well forecasting are outside the hypotheses."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pinelis applies to f/g with derivative quotient f′/g′ and sign gg′. Substituting f=F₂ and g=F₁ gives gg′>0 and derivative quotient k. The general rules transfer monotonicity patterns; the author's statement explicitly allows endpoint-only monotonic cases, which must be excluded to get a strict interior transition."
+        ],
+        "reasoning": "Credit the general quotient-shape implication, not merely a similar proof trick. By itself it neither identifies the admissible ordered-Arps domain of two nondegenerate minima nor orders their threshold levels against both physical endpoints. Those features require the Arps-specific log-ratio derivative, finite integrated endpoints and the ∞ tail of k, and stationarity analysis at the cumulative minimum.",
+        "searches": [
+          "Pinelis arXiv:math/0611662v1, p. 1 Table 1 and cited Proposition 1.9/Remark 1.14 of the 2001 oscillation paper",
+          "Pinelis 2001 JIPAM 2(3) Article 33, EUDML 122103 and identified OA copies"
+        ]
+      },
+      "checked_sources": [
+        "Pinelis arXiv:math/0611662v1, with targeted comparison to author-cited 2001 work",
+        "Adeboye–Ubani–Oribayo 2011 OA model and tables",
+        "Local Resultary search including 6115f6219bc8",
+        "Bounded attempts for Arps and Fekete"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pinelis gives abstract ratio shapes; H=F₁k−F₂ identifies the actual crossover of derivatives here. It is negative at t_R and diverges to +∞ by the finite-recovery ordered Arps hypotheses. At t_C, equality G=k with k strictly on its ascending branch yields the strict exclusion of equal threshold levels. The theorem compares those levels with r<min(1,ρ∞), and crossing interlacing uses signs of C₁′−C₂′, while the onset uses nonzero second derivatives."
+        ],
+        "reasoning": "The generic shape, fold expansion and interlacing argument once the crossings exist are standard. The distinct result assessed is the complete paired classification across the natural admissible Arps parameter range: strict separation of the two thresholds below both endpoint ratios, and hence a guaranteed nonempty double-reversal regime for every strictly ordered parameter pair. Neither the inspected oilfield model nor the quotient monotonicity statement directly supplies this joint existence and threshold result under those physical constraints.",
+        "searches": [
+          "Pinelis arXiv:math/0611662v1, p. 1 and pp. 1–2 discussion of strict patterns; compare frozen RESULT.md lines 39–64",
+          "Adeboye–Ubani–Oribayo 2011 model equations, Tables 1–2 and conclusion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The candidate's normalized level problem is k(t)=r versus its f₁-weighted average G(t)=r. The closest Resultary two-well hit, 6115f6219bc8, compares scheduling for end-of-interval stream depletion instead. The inspected petroleum model forecasts defined multi-well aggregates with interaction, not two independent standard Arps functions as competing rates and volumes."
+        ],
+        "reasoning": "Normalized initial-rate and rate-ratio descriptions are equivalent for this theorem; changing comparison target to stream depletion, an aggregate trajectory or a modified decline curve is not. Neither retrieved neighbouring result gives the two rank functions or their admissible thresholds.",
+        "searches": [
+          "Resultary semantic comparison: ordered Arps hyperbolic decline, instantaneous rate versus cumulative ranking, finite ultimate recovery, two positive crossings",
+          "Adeboye–Ubani–Oribayo 10.1007/s13202-011-0009-3, model development and conclusions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The available tables fit reservoir-level modified decline parameters; they do not encode two levels of normalized r or the witness's four crossings. The closest Resultary hit concerns a scheduling reversal in a different system. The original Arps full text and Fekete manual were not accessible in these checks."
+        ],
+        "reasoning": "The standard family and its integrated formula were treated as known data. No inspected exact table matches the comparison over two independent wells; inaccessible sources are not counted as excluding one. The witness computation illustrates the theorem and is not relied on as an isolated new tabulated constant.",
+        "searches": [
+          "Adeboye–Ubani–Oribayo 2011 Tables 1–2, p. 85; Resultary search for Arps threshold and rate/cumulative crossings",
+          "Arps 10.2118/945228-G and Fekete 2010 decline-curve references"
+        ]
+      },
+      "rationale": "The supported distinct claim is the sharp joint ranking classification for the ordered finite-recovery Arps pair, including a nonempty domain of double cumulative reversal despite inferior initial and lifetime production. The standard Arps family, quotient shape rules and generic square-root fold are not independently novel. The closest quotient and reservoir results furnish tools or related models, not an exact classification that already covers the joint two-threshold Arps claim.",
+      "residual_risks": [
+        "No claim of absolute priority. Uninspected historical decline manuals, Arps full text and the original Pinelis oscillation applications could affect the comparison. General monotonicity theory is explicitly credited; inaccessible full texts and catalogue misses are not evidence of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General quotient-pattern coverage; not a two-threshold Arps specification",
+          "evidence": "Derivative quotient and sign of gg′ control pattern, with possible endpoint turns; strict variants are noted.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0611662",
+          "material_read": "p. 1 definitions, Table 1 and surrounding discussion, offsets 230–4654; p. 5 reference to 2001 Proposition 1.9 and Remark 1.14",
+          "method": "OA PDF inspection and substitution f=F₂, g=F₁",
+          "title": "Non-strict l’Hospital-Type Rules for Monotonicity: Intervals of Constancy",
+          "trigger": "Potential broader quotient theorem covering the cumulative shape"
+        },
+        {
+          "assessment": "General framework supported by author follow-up; no basis for whole-paper exclusion",
+          "evidence": "JIPAM 2(3), Article 33; identified OA routes returned access errors or timeouts.",
+          "identifier_or_url": "https://eudml.org/doc/122103",
+          "material_read": "Bibliographic match and the 2006 author's summary of the noted proposition; original full text not inspected",
+          "method": "Primary-source search and lawful OA attempts at EUDML, journal mirrors and author PDF copy",
+          "title": "L'Hospital Type Rules for Oscillation, with Applications",
+          "trigger": "Original source of the stronger pattern rule cited by the 2006 follow-up"
+        },
+        {
+          "assessment": "Different scope and aggregate quantity",
+          "evidence": "Modified aggregate-reservoir forecast and fits to two multi-well reservoir systems, not individual pairwise ranking phases.",
+          "identifier_or_url": "10.1007/s13202-011-0009-3",
+          "material_read": "Abstract p. 81; model development pp. 83–84, OA offsets 15000–19000; Tables 1–2 p. 85 around 22924; conclusion p. 86 around 27500",
+          "method": "Springer OA PDF inspection",
+          "title": "Prediction of reservoir performance in multi-well systems using modified hyperbolic model",
+          "trigger": "Plausible petroleum pair-comparison model and tables"
+        },
+        {
+          "assessment": "Foundational setting; exact historical comparison unresolved",
+          "evidence": "OnePetro access was denied; no claim about the inaccessible contents.",
+          "identifier_or_url": "10.2118/945228-G",
+          "material_read": "Bibliographic identification and standard family as cited; full text not inspected",
+          "method": "Identified source retrieval attempt",
+          "title": "Analysis of Decline Curves",
+          "trigger": "Foundational primary Arps source, plausible historical coverage"
+        },
+        {
+          "assessment": "Unresolved historical comparison",
+          "evidence": "Both retrieval routes timed out; this is not evidence against coverage.",
+          "identifier_or_url": "https://www.pandai.com/faq/decline_curve_analysis.fekete.pdf",
+          "material_read": "Frozen citation only; no full-text access in this review",
+          "method": "Identified cited PDF tried on both configured routes",
+          "title": "Decline Curve Analysis",
+          "trigger": "Potential rate/cumulative comparison and exact guidance tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–31, 51–64, 74–76; exact witness comparison."
+      ],
+      "rationale": "Current rate and cumulative recovery are both natural performance metrics. Even with the worse initial rate and worse lifetime volume, the first well can be ahead cumulatively over exactly one bounded interval. The sharp split between two rate reversals alone and two reversals of both rankings is a full qualitative classification for every ordered admissible pair, not a numerical curiosity at a handpicked parameter. The exact witness verifies feasibility without field or interaction assumptions; the onset quantifies how the two measurable crossing times emerge.",
+      "residual_risks": [
+        "Structural significance is for the deterministic fixed-parameter model only. It is not an empirical production forecast or support for a new general quotient theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

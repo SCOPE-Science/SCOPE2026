@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:26:40.775702Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–97; VERIFICATION.md and verify_covariance.py inspected without execution",
+        "Independent equilibrium-age, differentiation, Jensen, spectral and tail arguments"
+      ],
+      "rationale": "In equilibrium the length-biased interval and its uniform age give (2D/m) E integral_0^(L-h)_+ a da. If a reset intervenes the product has zero conditional expectation by independence. Dominated right differentiation gives C'_+(0)=-2D and C''_+(h)=(2D/m)Pr(L>h), including atoms. Integrating over the stationary square window yields the stated triangular kernel and both branches of Phi_T. Its second derivative at positive l is l(2T-l) for l<T and T^2 for l>=T, proving strict Jensen; evaluation at m and at the exponential law verifies the two variances and limiting ratio. Integration by parts is valid because C,C' decay and C' is absolutely continuous with integrable derivative; this gives the stated spectral expression. It is strictly positive for every real nonzero frequency under L>0, since sin z/z<1 for z!=0; the proof's aside about possible zeros is not an existence claim of the Finding. One may also obtain the absolutely continuous spectral measure directly by mixing, over L, the nonnegative transforms of the triangular kernels (L-|h|)_+^2, whose masses integrate to C(0). Monotone convergence yields the extended third-moment limit, and direct integration of the power-law tail against (z-h) and then the triangular averaging weight gives the stated constants, including the logarithmic critical case.",
+      "residual_risks": [
+        "The conclusions use the exact stationary covariance and do not imply identification from noisy data, or characterize nonstationary sharp reset initialization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Flaquer-Galmés et al. minimize the one-time stationary second moment, not the finite-window signed average, and do not address the uniform-phase initialization in that comparison.",
+          "Majumdar–Oshanin treat Poisson resets; De Mauro et al.'s inspected introductory observables are spatial gas statistics.",
+          "The general fresh-renewal result is related but does not directly cover the equilibrium assumptions."
+        ],
+        "reasoning": "Neither the same reset process with different initialization nor a distinct observable proves the stated window theorem directly. The materially equivalent equilibrium covariance is instead in the prior catalog entry.",
+        "searches": [
+          "arXiv:2306.13621 §V.B–C",
+          "arXiv:1806.03435 §II",
+          "arXiv:2509.06658 introduction",
+          "DOI:10.1088/1367-2630/adee40 §3.1.3"
+        ]
+      },
+      "checked_sources": [
+        "Prior Resultary Finding and Proof; four primary-paper passages indicated above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "C'_+(0) determines D immediately from the prior kernel, and C''_+(0) then gives the mean.",
+          "The pointwise Jensen comparison of the prior kernels yields the sharp window ordering on integration; equality is excluded by the lag-zero gap and continuity.",
+          "Monotone convergence gives lim T V_T=S(0); the remaining power-law prefactors follow by integrating the power-law tail twice for the covariance and against the window weight for the variance."
+        ],
+        "reasoning": "The optimizer is a short direct implication even though it was not explicitly stated in the passages read; the exact stationary formula, inverse identification and main threshold are already covered.",
+        "searches": [
+          "Compare prior Resultary covariance/curvature and zero-frequency identity with frozen Finding and § Proof (2)–(5)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The synchronously reset gas record's one-particle covariance has the same D/EW times expected squared residual kernel, in a two-sided stationary clock with a second moment.",
+          "The 2025 series representation starts at a reset and its general autocorrelation formulas are for fresh initialization."
+        ],
+        "reasoning": "A tagged coordinate of the stationary gas is exactly the relevant process. A general fresh-renewal correlation, by contrast, is not by itself an equilibrium theorem and requires care for lattice clocks.",
+        "searches": [
+          "Resultary: stationary renewal Brownian reset covariance, temporal spectroscopy, identifiability and sharp clock",
+          "Taźbierski–Metzler–Magdziarz, DOI:10.1088/1367-2630/adee40, Eq. (1) and §3.1.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/27/SCOPE-temporal-spectroscopy-and-renewal-law-identifiability-in-a-synch--dfa7ae68742e, Finding and Proof: covariance formula, normalized right curvature and third-moment threshold S(0)=2D E W^3/(3 E W)."
+        ],
+        "reasoning": "This is a match of formulas and assumptions in a different catalog record, not a table of numerical cases or a title-only match.",
+        "searches": [
+          "Resultary: general renewal-law recovery from stationary Brownian-reset autocovariance and power spectrum"
+        ]
+      },
+      "rationale": "A distinct prior catalog record gives the same equilibrium covariance, atom-sensitive recovery and third-moment spectral threshold. Unknown diffusivity follows by evaluation at lag zero. The distinct-window wording and explicit constants are not found as stated in the examined prior work, but the all-window optimizer is a routine consequence of the exact prior kernel: Jensen gives C_L(h)>=C_m(h) at every h; for nonconstant L the inequality is strict at h=0 by strict second-moment Jensen and hence on a nontrivial interval by continuity. The positive triangular window weight gives strictness for every T. The additional extended limits and power-law constants are direct integrals of the same kernel, not a substantially new claim in this package.",
+      "residual_risks": [
+        "Bounded comparisons do not determine historical priority or exclude a prior paper explicitly stating the uniform-phase all-window optimum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct exact coverage of covariance, tail inversion and spectral threshold; window optimum is an implication",
+          "evidence": "Same squared residual kernel and right-curvature recovery; finite zero-frequency value exactly at finite third moment.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/27/SCOPE-temporal-spectroscopy-and-renewal-law-identifiability-in-a-synch--dfa7ae68742e",
+          "material_read": "RESULT.md, Finding and Proof",
+          "method": "Local Resultary mirror",
+          "title": "Temporal spectroscopy and renewal-law identifiability in a synchronously reset Brownian gas",
+          "trigger": "Exact general equilibrium covariance and inverse candidate"
+        },
+        {
+          "assessment": "Relevant general fresh-initialization formulas, not the equilibrium theorem as stated",
+          "evidence": "Sets initial reset at time zero and gives finite-time general renewal autocorrelations.",
+          "identifier_or_url": "https://doi.org/10.1088/1367-2630/adee40",
+          "material_read": "Eq. (1), p. 3; §3.1.3, Eqs. (31)–(32), p. 8",
+          "method": "Open primary paper",
+          "title": "Series representation approach to stochastic processes with complete and incomplete renewal resetting",
+          "trigger": "General reset-time autocorrelation in independent primary literature"
+        },
+        {
+          "assessment": "Direct sharp-clock result for a different observable",
+          "evidence": "Optimizes steady-state spatial second moment; the lattice/uniform-phase equilibrium construction of the frozen result is not that setup.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.13621",
+          "material_read": "§V.B Eq. (40), p. 7 and §V.C, p. 8",
+          "method": "Open primary paper",
+          "title": "Ergodic properties of Brownian motion under stochastic resetting",
+          "trigger": "Sharp-clock optimum at fixed mean"
+        },
+        {
+          "assessment": "Poisson special case",
+          "evidence": "Transient Brownian formula approaches the stationary exponential covariance.",
+          "identifier_or_url": "https://arxiv.org/abs/1806.03435",
+          "material_read": "§II Eqs. (4)–(5), pp. 3–4",
+          "method": "Open primary paper",
+          "title": "Spectral content of fractional Brownian motion with stochastic reset",
+          "trigger": "Prior covariance and spectrum"
+        },
+        {
+          "assessment": "What was inspected addresses different observables",
+          "evidence": "Spatial order, gaps and counting statistics rather than tagged-particle two-time covariance.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.06658",
+          "material_read": "pp. 1–2, introductory observables",
+          "method": "Open primary paper",
+          "title": "De Mauro et al., non-Poisson synchronous reset gas study",
+          "trigger": "Shared non-Poisson gas setting"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and limitations; prior Resultary covariance and threshold; §V of arXiv:2306.13621 for the one-time comparison"
+      ],
+      "rationale": "Exact covariance recovery and the third-moment boundary would be useful for this model, but those facts are already present in an equivalent setting. The remaining assertion is an informative interpretation of that kernel, not an independent advance here: pointwise convexity already gives the simultaneous clock ordering, and triangular integration gives the displayed finite-window and asymptotic constants. No new result on estimation, another observable, or a less restrictive reset model is established.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

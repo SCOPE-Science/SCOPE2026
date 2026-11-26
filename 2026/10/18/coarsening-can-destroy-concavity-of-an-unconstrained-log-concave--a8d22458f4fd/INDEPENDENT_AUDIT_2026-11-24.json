@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:34:05.745667Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–24 and 27–74",
+        "VERIFICATION.md and certificate_knots.py (inspected, not executed)",
+        "/workspace/branches/independent_replay.py, fits()"
+      ],
+      "rationale": "The fine nodal slopes 3, 0, −1/4, −1/2 are strictly decreasing at the knots. The fine score vanishes by construction and the log-normalizer's hat covariance is positive definite modulo constants. For the full log-concave class, restriction to the data interval and replacement by the secant interpolant through the log values at the sites cannot increase the normalizing integral; positive mass outside or a positive gap from the interpolant on a set of positive measure makes the likelihood comparison strict. This proves uniqueness of the normalized density (up to null sets). Coarse hat moments are exactly the corresponding fine-density moments, since every coarse hat is its own fine-grid interpolant. An independent rational integration using the Bernstein expansion of each affine power enclosed the three coarse score coordinates at the trial point (approximately 5.096e−9, −4.360e−9 and −2.799e−9); each interval lies inside (−10⁻⁶,10⁻⁶). Direct integration of the centered Gram matrix reproduced leading minors 27/80, 457/7200, 257/108000 after subtracting I/10. The density lower bound 1/40 on the radius-1/100 ball multiplies the Lebesgue variance lower bound (minimize the squared deviation over constants), yielding Hessian >I/400. The objective increases by more than 21/200000000 on the sphere, giving an interior critical point, unique globally by strict convexity. The slope jump is strictly greater than 488249/2500000 after bounding the trial-point displacement, and normalization does not change the jump. Replay: python /workspace/branches/independent_replay.py 2.",
+      "residual_risks": [
+        "Only this weighted one-dimensional example is certified. The coarse model does not impose concavity; this is not a statement about its concavity-constrained fit or a specific unweighted sample."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.2 proves that an open set of weights realizes a prescribed regular subdivision; Lemma 3.4 concerns producing weights for a relevant height vector. Neither jointly controls the old and new optimizers at the same weights.",
+          "The accessible default arXiv PDF still poses the universal claim as a question. Only bibliographic or landing material was accessible for the separate corrigendum."
+        ],
+        "reasoning": "Realizability explains the reverse construction of the fine fit but not the certified failure of concavity at its coarse projection.",
+        "searches": [
+          "Robeva–Sturmfels–Uhler arXiv:1704.01910 Theorem 1.2 and Lemma 3.4",
+          "Grosdos et al. arXiv:2003.04840 and DOI 10.1016/j.aam.2024.102777 corrigendum"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2003.04840",
+        "arXiv:1704.01910",
+        "DOI 10.1016/j.aam.2024.102777 landing metadata",
+        "Resultary bbedf9102cac, 690479cf790f and 2b4e17f6324e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Example 2.8 uses weights (3,4,5,2,1)/15 with an optimal two-cell subdivision; merging those two cells gives a concave fit. The exact implication about all coarser subdivisions immediately following the example is explicitly left open.",
+          "The frozen witness instead has four optimal pieces and the same weights are used on both partitions; the new upward jump is at knot 3 after deleting knot 1."
+        ],
+        "reasoning": "Sharing the sites or deriving the fine fit from a known realizability result does not mechanically give the sign of the new slope jump.",
+        "searches": [
+          "Grosdos et al. Section 2 pp. 9–10, offsets 26467 and 32252",
+          "Robeva et al. Theorem 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source's f*_Delta is the unrestricted exponential fit on a prescribed partition; the fixed-weight coarse hat-moment equations in the frozen proof are that same maximization up to normalization.",
+          "The original paper's nonconcave fit is labeled incompatible with its optimal subdivision, while the tested actual coarsening is concave."
+        ],
+        "reasoning": "The reformulation as log-spline moment matching does not change the antecedent or the optimizer. Only the genuinely nested partition supplies a counterexample.",
+        "searches": [
+          "Grosdos et al. arXiv:2003.04840, Section 2 and Example 2.8",
+          "Resultary fixed-weight log-concave density MLE, unconstrained fit after knot deletion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Local Finding passages concern pooling consecutive outcomes of an already ultra-log-concave mass function, a Poincaré recurrence bisection, and parametric EBR log-curvature, respectively."
+        ],
+        "reasoning": "None of these inspected statements concerns a pair of nested maximum-likelihood fits for fixed observations and weights.",
+        "searches": [
+          "Resultary fixed-weight coarse log-concave log-spline MLE counterexample",
+          "Resultary bbedf9102cac, 690479cf790f, 2b4e17f6324e"
+        ]
+      },
+      "rationale": "On the inspected evidence this is a distinct counterexample on the fixed-weight implication explicitly left open by Grosdos et al. Their old nonconcave fit is on an incompatible, not coarser, subdivision. Realizability of another subdivision by changing the weights cannot refute or settle the fixed-weight claim. The inaccessible corrigendum leaves a concrete priority risk, not evidence of coverage.",
+      "residual_risks": [
+        "The corrigendum was not available as full text; it could address this question.",
+        "An unlocated equivalent example in exponential-family projection literature is possible. Search results do not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Question confirmed; example does not cover",
+          "evidence": "The coarse example is concave; the nonconcave example is not a coarsening; the general implication is left open.",
+          "identifier_or_url": "https://arxiv.org/pdf/2003.04840",
+          "material_read": "Section 2, pp. 9–10, Example 2.8 and discussion of coarser and incompatible subdivisions; PDF offsets 26467 and 32252",
+          "method": "Bounded open PDF passages",
+          "title": "Exact solutions in log-concave maximum likelihood estimation",
+          "trigger": "Exact motivating question and closest existing example"
+        },
+        {
+          "assessment": "Inspected statements do not cover",
+          "evidence": "They choose weights to realize a subdivision or a relevant height, rather than preserve fixed weights for simultaneous fits.",
+          "identifier_or_url": "https://arxiv.org/pdf/1704.01910",
+          "material_read": "Theorem 1.2 and Lemma 3.4 statements, pp. 3 and 10",
+          "method": "Open PDF literal locators and statement passages",
+          "title": "Geometry of log-concave density estimation",
+          "trigger": "Broader regular-subdivision theorem and reverse weight construction"
+        },
+        {
+          "assessment": "Full text inaccessible; no coverage determination",
+          "evidence": "Metadata establishes the corrigendum exists, not its mathematical content.",
+          "identifier_or_url": "https://doi.org/10.1016/j.aam.2024.102777",
+          "material_read": "Publication metadata and landing material only",
+          "method": "DOI and official page attempts and bounded search for lawful copy",
+          "title": "Corrigendum to Exact solutions in log-concave maximum likelihood estimation",
+          "trigger": "Later possible answer to the exact question"
+        },
+        {
+          "assessment": "Different problems",
+          "evidence": "Pooling a mass function, bisection of a recurrence and parametric density curvature do not give the two fixed-weight optimizers.",
+          "identifier_or_url": "Resultary:bbedf9102cac; Resultary:690479cf790f; Resultary:2b4e17f6324e",
+          "material_read": "Each Finding, local mirror at offset 0",
+          "method": "Local search and bounded mirror reading",
+          "title": "Equal-block coarsening preserves ultra-log-concavity; Optimality of equal bisection in the large-negative-γ Poincaré recurrence; The EBR log-concavity theorem fails in its claimed parameter region",
+          "trigger": "Closest published-record results by coarsening and curvature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 12–16 and 33–71",
+        "arXiv:2003.04840 Section 2, p. 10"
+      ],
+      "rationale": "The witness answers a precise published question about a natural knot-deletion heuristic. It shows that even starting with strictly decreasing slopes at every fine interior knot does not ensure a concave unrestricted reduced fit, and the failure can occur at a retained knot away from the removed one. The exact certificate resolves that substantive issue without a numerical concavity tolerance or a change of weights.",
+      "residual_risks": [
+        "Does not classify which coarsenings preserve concavity or cover higher dimensions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

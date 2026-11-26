@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The theorem concerns pointwise Jordan variation; the exact martingale step decomposition controls every interior jump by one of the two endpoint steps. Symmetric beta-binomial mixing turns the endpoint error into half the absorbing chain's survival mass. The finite-rate eigenstructure and Perron projection yield the stated asymptotic prefactor. All boundary and \(n=2\) cases are included. An exact-rational checker exercised 10,912 finite inequalities, but the infinite quantifiers are settled analytically.
+PASS
 
-## Originality
+RESULT.md lines 5–55 hold for real pointwise Jordan-BV data, not a.e. classes. For a nodal unit jump the binomial martingale expresses its defect as two signed interior-state sums. Dominating their weights by the appropriate first- or last-cell step gives an integrated bound, strict for every interior step because both sums are positive on (0,1). Reflection equalizes the two endpoint integrals. The endpoint residuals have opposite signs throughout the open interval, hence equality requires only the two endpoint increments, with product nonpositive, and no variation beyond the nodal sum. For n=2 the empty interior restriction and the opposite-sign test still apply. The beta integral gives a uniform state at time one, so reflection makes the norm half the surviving mass after r−1 further transitions. One-step absorption makes it strictly decrease. The positive eigenvector h=x(1−x) gives λ=(n−1)/n; normalizing the Perron projection by p·h and using Σh=(n²−1)/(6n) gives λ^r/(12a_n) at fixed n. The frozen checker was inspected, not run. Separate exact-rational evidence: 56 formula/integral comparisons and 17,640 endpoint tests for n=2–8, r=1–8, and positive left eigenvector checks for n=2–6; replay evidence in /workspace/branches/7bfec47a-991a-477e-b34c-8b0442ffea76/record1_independent_check.txt and record1_perron_check.txt. These finite checks do not establish the universal result; the proof does.
 
-**PASS, with residual priority uncertainty.** The 1967 original establishes convergence, and the 1999/2000 eigenstructure gives standard eigenvalues and eigenfunctions. Neither inspected result supplies the sharp integrated endpoint-interpolation defect for every finite iteration or classifies all nodal BV extremizers. A related existing result concerns output total variation under equal endpoint values, a different norm and domain and thus does not imply this statement. Exact and alias-based research-record searches found no direct duplicate. Undiscovered earlier martingale-kernel norm formulas remain possible.
+## originality
 
-## Value
+PASS
 
-**PASS.** For iterated positive approximation operators, ordinary convergence does not identify the worst BV input, a usable exact finite-iteration constant or a sharp normalized long-time amplitude. This theorem provides all three via an interpretable fixation-survival probability, including a rigid first/last sampling-cell extremizer rule. It gives an exact benchmark for stopping an iterated Bernstein smoother under bounded-variation uncertainty rather than a numerical or isolated-degree observation.
+In the compared sources, the exact sharp finite-iterate integrated endpoint-interpolation defect and its equality class are distinct; neither Bernstein iteration convergence nor the Bernstein eigenstructure is claimed new. The amplitude is the consequence of the sharp norm identity combined with prior spectral theory.
 
-## Limitations
+## value
 
-The spectral asymptotic is degreewise, not uniform in degree. Sample values require pointwise Jordan variation. The 1967 date is a bibliographic source date and its exact calendar day is unconfirmed by the journal issue.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact operator norm, its full equality class, and a sharp convergence amplitude answer a natural quantitative question left open by qualitative endpoint convergence. The strict endpoint dominance explains why genuinely interior jumps cannot be worst cases, and supplies a useful general method rather than just a numerical decay rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

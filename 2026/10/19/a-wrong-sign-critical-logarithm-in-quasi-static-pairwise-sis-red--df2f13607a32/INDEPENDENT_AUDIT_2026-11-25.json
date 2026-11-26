@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:44:31.355465Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At the critical parameter, use time γt and shift p=p_c+y. With β=n/(n−1) and λ=(2n−1)/(n−1), the two vector-field components are βiy and −λy−βy²−2(p_c+y)²i/(1−i). The common graph slope is a=−2p_c²/λ; solving the nullcline gives b_q=(−βa²−4p_c a−2p_c²)/λ, and solving invariance gives b_h=b_q−βa²/λ. Thus both positive trajectories have leading damping A=−βa, but the cubic coefficients are C=βb with different b. In the full system the transverse error obeys e′=(−λ+O(i)+O(e))e. In a small tube about the center graph this gives exponential decay, and i′≤β|e|i since the graph drift is nonpositive for small i≥0; the integrated bound i≤i(0)exp(const·|e(0)|) closes the small-tube argument for all sufficiently small positive initial states. For u=1/i, the error is O(u⁻²)+O(eu) in u′=A−C/u+error. Grönwall first gives u=O(1+t); positivity, local attraction and transverse decay then yield u∼At, followed by u=At+O(log t). Subtracting both the linear and logarithmic terms leaves an integrable derivative and finite constant. The same argument omits e on the nullcline reduction. Time rescaling alters the linear coefficient and constant, not −C/A. The nullcline and full linearization use the same p-root at i=0, hence the same threshold; the n=3 coefficient does not reverse sign, and the stated cubic numerator is positive and increasing for n≥4. Independent bounded symbolic replay: /workspace/branches/independent_replay.py, log_correction(); this checks coefficients, not the infinite-time limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic methods yield the scalar coefficient −C/A once the slow cubic coefficient is known. Resultary 019a903690b9, 2026-11-22, compares a different three-dimensional adaptive pair closure with t⁻¹/² leading decay and a t⁻¹ correction gap; Resultary 3dbf6638e1f1, 2026-11-08, finds reciprocal-prevalence logarithms in a different prevalence-responsive adaptive system."
+        ],
+        "reasoning": "The adaptive examples have different fast/slow dynamics and/or a different degeneracy. Neither is a general theorem specifying C for both graphs of the frozen fixed-degree model.",
+        "searches": [
+          "Literature: center manifold versus fast nullcline quasi-steady-state reduction higher-order coefficients critical slow-fast system",
+          "Literature: critical ordinary differential equation x'=-a x^2+b x^3 reciprocal solution logarithmic correction asymptotic center manifold"
+        ]
+      },
+      "checked_sources": [
+        "Hébert-Dufresne–Simon–Kiss arXiv:2610.05467v1",
+        "Resultary 019a903690b9",
+        "Resultary 3dbf6638e1f1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact root (22) permits a higher-order Taylor expansion on the nullcline. The primary calculation uses its first derivative (26) to obtain the first-order effective infection term. It does not impose the center-graph invariance equation in the inspected reduction and appendix passages."
+        ],
+        "reasoning": "The scalar-side coefficient can be deduced by expanding the published root, but the root does not produce the full coefficient: the missing quadratic curvature is −βa²/λ, nonzero on this parameter range. Verifying the difference for full positive trajectories further requires controlling the transverse mode and integrable remainder.",
+        "searches": [
+          "Literature: Fast-variable reduction to complex contagion unifies epidemic models SIS pairwise equations critical threshold quasi-static",
+          "arXiv:2610.05467v1 §3 and Appendix §6.2.1, including Eqs. (22) and (26)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cited arXiv:2610.05467v1 Appendix §6.2.1 Eqs. (17)–(18), (22) and (26) give the same (i,p) equations, the same nullcline and its first derivative at threshold."
+        ],
+        "reasoning": "A prevalence expansion with a t⁻² log t term is equivalent to the audited inverse-prevalence logarithm after inversion; the inspected exact-model comparison gives the threshold and first-order effective rate instead, not that subleading trajectory term.",
+        "searches": [
+          "Resultary: critical logarithmic reciprocal-prevalence correction full pair-closed SIS fast nullcline opposite sign degree n≥4 center manifold",
+          "Resultary: A wrong-sign critical logarithm in quasi-static pairwise SIS reduction",
+          "Literature: pairwise SIS critical extinction ‘log t’ reciprocal prevalence center manifold fast nullcline"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact coefficient match was verified in the bounded ranked search. The relevant Table 1 is a table of first-order effective infection terms; it already contains the coefficient giving γA_n in the reduced equation."
+        ],
+        "reasoning": "Knowing the leading damping does not determine the slow cubic coefficient; the matched table is not a table of either logarithmic coefficient or their difference.",
+        "searches": [
+          "Resultary: pair-closed SIS n=4 full logarithmic coefficient 13/49 quasi-static coefficient -1/98 gap 27/98",
+          "arXiv:2610.05467v1 Table 1, p. 8"
+        ]
+      },
+      "rationale": "The precise pair closure, critical parameter, nullcline and leading coefficient are inherited. The supported contribution is the exact difference between critical reciprocal-prevalence logarithms for the full and quasi-static systems, including the uniform-in-integer-degree sign reversal for n≥4. Neither generic normal-form theory nor the cited reduction supplies the exact comparison without the invariance calculation.",
+      "residual_risks": [
+        "A prior normal-form treatment of the same equations could state an equivalent t⁻² log t prevalence expansion; the bounded searches do not rule it out. Deferred searches are not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS equations, threshold, nullcline and first-order term, not the full-versus-nullcline logarithm",
+          "evidence": "Eqs. (17)–(18), (22), (26) fix the model, root and slope −2(n−1)^3/[n²(2n−1)]; Table 1 has β_eff=γ−γA_n i+O(i²).",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.05467v1",
+          "material_read": "§3 around offset 25700, Table 1 p. 8 near offset 33500, Appendix §6.2.1 pp. 16–17 offsets 62000–68338",
+          "method": "Bounded arXiv PDF full-text passages",
+          "title": "Fast-variable reduction to complex contagion unifies epidemic models",
+          "trigger": "Exact same model and reduction"
+        },
+        {
+          "assessment": "Later analogous statement for a different system",
+          "evidence": "Three-dimensional adaptive closure, t⁻¹/² decay and t⁻¹ correction gap 1/(4γ); not the audited critical reciprocal logarithm.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-universal-second-order-bias-in-quasi-static-adaptive-sis-clear--019a903690b9",
+          "material_read": "RESULT.md Finding and model scope",
+          "method": "Bounded local-mirror passage",
+          "title": "A universal second-order bias in quasi-static adaptive SIS clearance",
+          "trigger": "Closest full versus quasi-static correction comparison"
+        },
+        {
+          "assessment": "Later result in a different prevalence-responsive model",
+          "evidence": "Curvature changes the logarithm in its adaptive dynamics, with no matching full/nullcline pair of degree-dependent coefficients.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-critical-adaptive-sis-clearance-exact-two-term-law-and-a-curvatu--3dbf6638e1f1",
+          "material_read": "RESULT.md Finding and model scope",
+          "method": "Bounded local-mirror passage",
+          "title": "Critical adaptive SIS clearance: exact two-term law and a curvature effect",
+          "trigger": "Closest reciprocal-prevalence logarithm analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full and quasi-static ODEs have the same threshold and leading critical decay, yet for all n≥4 the reduction reverses the first logarithmic correction. The exact coefficient gap isolates a concrete limitation of the fast-nullcline approximation that cannot be seen from threshold or leading-order tests. This is a local benchmark for the deterministic closure, not a claim about stochastic network extinction or real pathogens.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

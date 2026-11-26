@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness: PASS
-The affine space, projected incidence representation, normalization of squared semiaxes, and all quantifiers \(n\ge4\) are fixed explicitly. The symmetric-group action reduces invariant shapes to two eigenspaces, while a direct positive John first/second contact-moment decomposition proves **unrestricted** optimality. Each cut inequality is checked symbolically by its cardinality; the monotone-then-antimonotone normalized facet-distance profile proves all constraints for \(n\ge6\), and both exceptional small orders are substituted explicitly. Exact rational computations substantiate finite cases but are not substituted for the general proof.
+## correctness
 
-## Originality: PASS, with remaining search risk
-The closest mathematical results address spanning-tree facets, connected-matroid Euclidean inballs, Minkowski centers of the same spanning-tree body, general John contact criteria, metric-polytope ellipsoids, and the John ellipsoid of fixed-cardinality assignment polytopes. The same-object Minkowski theorem is about an **affine reflection asymmetry invariant**; the general connected-matroid result is about a **ball**, not a determinant-maximizing ellipsoid. The metric-polytope and assignment-polytope theorems apply to different convex bodies. No inspected statement implies the explicit anisotropic spectrum, the all-order roundness boundary, and full spanning-tree facet contact list. An equivalent older ellipsoid or optimal-design result remains possible; unsuccessful search does not prove priority.
+PASS
 
-## Mathematical value: PASS
-A natural graphic matroid base polytope has exponentially many rank inequalities but its exact John ellipsoid is controlled by just two invariant spectral components and a sharp finite-order threshold. The transition from a genuinely anisotropic ellipsoid at orders four and five to a round ellipsoid at every order six and above, with a collapse of tangent facets to the coordinate orbit, is a nontrivial structural classification. Positive exact John weights strengthen scalar inradius information to global volume optimality. This is more than a routine reparameterization of a known scalar radius.
+In the intrinsic edge-sum hyperplane the incidence identity BBᵀ=(n−2)I+11ᵀ gives the two stated orthogonal components. Coordinate normals have projected energies 2/n and (n−3)/(n−1), and subset normals have U-energy ||Bv−mean(Bv)1||²/(n−2); subtracting from ||v−mean(v)1||² gives the W-energy. Subset slacks are (s−1)(n−s)/n. For the round candidate the squared distances to these hyperplanes are minimized at s=2 or n−1 because their logarithmic derivative strictly decreases; the co-singleton endpoint is the smaller of the two. Its distance exceeds the coordinate radius exactly for integers n≥6 in scope. For n=4,5 the co-singleton cap binds together with the coordinate bound; substituting gives precisely the listed tangencies. The coordinate and subset inequalities in the stated contact list are genuine facets: the coordinate face is the base polytope for K_n with an edge deleted, which has connected cycle matroid for n≥4; a tight subset face factors into base polytopes of the restriction to K_s and the contraction, which has s parallel spokes for each remaining vertex plus its edges to the other remaining vertices. Both factors are matroid-connected (including the one-element restriction), so their dimensions add to m−2. Centered coordinate normals have zero sum and frame operator I; co-singleton normals are the negatives of centered incidence rows, with zero sum and frame operator (n−2)Π_U. After the shape transform and slack normalization, the listed weights give moments 0 and I, including the n=4 certificate using a subset of all contacts; this proves global, not merely symmetric, optimality. Volume follows from the multiplicities, and the n=3 regular triangle has squared inradius 1/6. An independently written rational check (`python3 -B /workspace/branches/bounded_review_checks.py 3`) evaluated actual labeled subset inequalities and matrix moments for n=4 through 10. Neither that finite check nor the supplied, inspected but unexecuted verifier is the all-order proof.
 
-## Limitations and closest literature
-The result concerns complete graphs only and depends on the ambient edge-coordinate Euclidean metric. Classical Edmonds/Chaourar graphic facet inequalities and John contact criteria are prerequisites, not independently claimed discoveries. The non-matching names and terminology in early work leave residual literature-priority risk. The exact-arithmetic checker verifies finite cases; unrestricted correctness rests on the analytic inequalities and contact identities. Independent mathematical audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of inspected evidence for the explicit complete-graph classification including both exceptional anisotropic spectra and the full contact data. The identified results concern facets, reconstruction, a universal optimality criterion, and the ellipsoid of a different body. A sharp inball theorem may help yield the round range via comparison with the containing coordinate simplex, but an inball alone does not determine the anisotropic spectra or their certificate. No specific prior statement covering the full classification was identified.
+
+## value
+
+PASS
+
+The precise intrinsic John geometry of a canonical graphic matroid body is useful beyond a radius calculation. A sharp change occurs at order six, and the full-dimensional certificate explains why exponentially many other facet inequalities do not control the round optimum. For the exceptional orders it certifies unequal principal directions and their exact scales, information an inball cannot provide.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

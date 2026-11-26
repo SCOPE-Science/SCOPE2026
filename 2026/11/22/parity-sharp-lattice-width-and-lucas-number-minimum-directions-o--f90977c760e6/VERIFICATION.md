@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The proof is analytic and covers all integer dimensions \(n\ge3\) and integer weights \(w\ge2\). Its critical exceptional case is the exclusion of a three-symbol, range-two minimizing normal at \(w=2\) and odd \(n\); the five permitted adjacent transitions imply a constant word or a two-periodic one, so neither can occur under the exceptional hypotheses.
+# Independent mathematical audit
 
-Run `python3 verify_width.py`. In the saved package, this standard-library script completed 306,168 bounded primitive-direction comparisons and 352 equality cases without assertion failure, over \(3\le n\le8\), \(2\le w\le5\), and coefficient ranges at most three. These computations are supplementary finite tests, not independent or infinite certification. The lower bound, equality cases, and Lucas-number count rely on the full written proof.
+## correctness
+
+PASS
+
+The orbit matrix has determinant 1−(−w)^n and column sum w+1, so the affine hull is the full sum hyperplane. Using the basis e_i−e_0 of its lattice differences gives all integer coefficient vectors modulo constants. An entry attaining M gives a predecessor evaluation at least m+wM; an entry attaining m gives one at most M+wm. Width is thus ≥(w−1)(M−m). Even order attains this at coefficient range one by alternation. At odd order the coordinate indicator gives width w and range ≥2 is excluded by the bound except for w=2, range two. In that exception width ≤2 forces the shifted evaluations into [2,4]; a 2 must be preceded by 0 and a 0 by 2. Following predecessors cyclically then forces even order, excluding the exception. For binary coefficients, the mixed transitions both occur and yield 1 and w; exactly one equal transition type gives width w, both give w+1, and no equal transitions yields the even alternating optimum. At odd n, complementing thus gives a unique nonempty no-11 representative modulo reversal; it is primitive because an intrinsic difference of coefficients is one. Splitting the independent-set count by occupancy of one vertex gives F_(n+1)+F_(n−1)=L_n; subtract the empty support. These arguments include n=3 and w=2. A separate bounded ternary enumeration at w=2 for n=3,4,5,7,9 gave counts 3,1,10,28,75, respectively. The frozen Python checker was inspected, not executed; finite results are not needed for the exhaustive symbolic classification.
+
+## originality
+
+PASS
+
+The same graph-polytope construction is known and the Doolittle–Katthän–Nill–Santos width theorem covers particular lattice-equivalent members, including P_(4,2) and P_(5,2). Those widths are not credited as new. The distinct contribution is the uniform width and complete primitive-direction classification for this weighted nonnegative orbit family, in particular the Lucas census rather than simply the value of the width. The compared circulant width theorem demonstrably does not transfer to the whole family and does not state this census.
+
+## value
+
+PASS
+
+The simplices come from a known integer-polytope construction; the intrinsic width controls their thinnest integral slabs. The parity distinction is stronger for extremizing directions than for the width itself: on changing parity a unique unoriented direction becomes a canonical family of independent sets with exponential Lucas growth. The range-two obstruction at w=2 is necessary for completeness rather than a cosmetic special case. The reusable exact census and parity structure are not a rounded numerical or known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

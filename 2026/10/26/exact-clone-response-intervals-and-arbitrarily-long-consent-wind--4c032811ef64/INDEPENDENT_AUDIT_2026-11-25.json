@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:49:58.641159Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 13–100; reconstructed inequalities and profile",
+        "Frozen VERIFICATION.md, lines 19–25; check.py, lines 9–99, inspected, not executed"
+      ],
+      "rationale": "Adjacent copies increase the candidate count by t and the unanimous-better count for a coalition S by t times the indicator that d originally belonged to that set. The disapprovers of c and its support s do not change. The weak nonblocking inequality is s(m-b_S)-|S|m + t[s(1-chi_S)-|S|] >= 0. Strict majority makes the coefficient positive when chi_S=0 and negative when chi_S=1, giving the stated integer endpoints, including equality, no-disapprover, and empty-interval cases. In the five-voter construction, the approval sets are top segments and the only possible coalitions are the two dissenters individually and together. Their unanimous-better counts are h+2+t, 2h+2, and 3; nonblocking reduces to t<=3h-2, t>=1, and t>=7-3h. The last constraint is redundant for h>=2. Thus the two switches and the interval length follow for all h, not by extrapolating the reported tests.",
+      "residual_risks": [
+        "The check.py comparison is a reported finite regression check, not an independent reproduction or the basis for the universal result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 4 guarantees exclusion remains exclusion when adding a disapproving voter.",
+          "Proposition 15 excludes clone independence for core-consistent rules."
+        ],
+        "reasoning": "Adding a voter can change the blocking coalitions; adding a candidate changes their unanimous-better measure. Failure of a rule axiom does not imply the fixed-approval, fixed-electorate window or its arbitrary length.",
+        "searches": [
+          "Dong et al., arXiv:2609.10759, p. 9, Proposition 4",
+          "Ianovski–Kondratev, arXiv:2003.09153v4, p. 9"
+        ]
+      },
+      "checked_sources": [
+        "Dong et al., arXiv:2609.10759",
+        "Ianovski–Kondratev, arXiv:2003.09153v4",
+        "Resultary local search and the two original findings identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Multiplication by m+t in Definition 8 gives the affine inequalities immediately.",
+          "The two-front finite reduction uses voters who approve every member of a candidate subset, not strict comparisons between alternatives in the same approval tier."
+        ],
+        "reasoning": "The interval calculus should not be sold as a deeper independent theorem than its definition, but it gives no existence of feasible profiles with both an exclusion-imposing lower bound and a later exclusion-imposing upper bound. The witness constructs these using two opposed dissenters while controlling their joint coalition; neither prior reduction nor the one-step ordinal counterexample establishes that.",
+        "searches": [
+          "Dong et al., Definition 8; Ianovski–Kondratev, Proposition 15 and its proof; Resultary two-front Finding and exact finite reduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Finite uniform candidate measure replaces mu(B_S(c)) by |B_S(c)|/m.",
+          "The ordinary ordinal core example changes the set from {a,b} to {b} after cloning b once."
+        ],
+        "reasoning": "The definition is the exact starting point; the ordinal example is neither approval-weighted nor equivalent to a finite window with two switches under repeated cloning.",
+        "searches": [
+          "Dong et al., arXiv:2609.10759, Definition 8",
+          "Ianovski–Kondratev, arXiv:2003.09153v4, Proposition 15",
+          "Primary-literature lookup for AWVC, proportional veto core, and repeated candidate cloning"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026-11-08 Finding gives a probability and asymptotic rate for AWVC nonemptiness with three alternatives and top-choice approval.",
+          "The 2026-11-02 Finding gives a probability phase diagram at fixed candidate count, with independent approval bits, and an exact coalition reduction under binary utilities."
+        ],
+        "reasoning": "Neither exact result treats the deterministic mutation of one fixed profile by approval-identical adjacent candidates. The fixed-candidate and independence assumptions are material, not merely different terminology.",
+        "searches": [
+          "Resultary semantic lookup for AWVC, clone response and acceptance windows; compared the 2026-11-02 two-front and 2026-11-08 rare-event findings"
+        ]
+      },
+      "rationale": "The affine interval is a direct specialization of the published AWVC definition, and qualitative clone sensitivity of the ordinary veto core is known. The supported distinction is the exact two-switch, arbitrarily long finite acceptance window for an unchanged majority-approved alternative with a fixed five-voter electorate, together with the endpoint characterization in which it sits. The inspected sources neither state that construction nor prove a stronger statement that yields it.",
+      "residual_risks": [
+        "Bounded search does not establish publication priority. Additional full-text keyword lookups in Dong et al. timed out; the decision relies on the read passages and comparisons, not their absence elsewhere."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact criterion is prior; voter monotonicity does not cover candidate clones",
+          "evidence": [
+            "Definition 8 requires all members to disapprove and |S|/s_c > 1-mu(B_S(c)); Proposition 4 adds a disapproving voter."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.10759",
+          "material_read": "p. 9, Definition 8 and Proposition 4 (text offsets 34425 and 35871)",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Where Should Society Draw the Line? A Social Choice Approach to Collective Consent",
+          "trigger": "Source of the AWVC criterion, plausible direct prior coverage"
+        },
+        {
+          "assessment": "Qualitative one-step clone precedent, not the AWVC result",
+          "evidence": [
+            "The two stated veto cores are {a,b} and {b} after adding a clone of b."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2003.09153v4",
+          "material_read": "p. 9, Proposition 15 and proof (text offset 28585)",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Computing the Proportional Veto Core",
+          "trigger": "Known independence-of-clones obstruction"
+        },
+        {
+          "assessment": "Uses binary utilities and independent approval bits; different parameter and theorem",
+          "evidence": [
+            "For fixed m, the asymptotic variable is n; its finite reduction uses approval intersections h_T."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-two-front-phase-transition-for-random-approval-weighted-veto-c--f870ddfb3e53/RESULT.md",
+          "material_read": "Finding and exact finite-electorate criterion, offsets 70–1896",
+          "method": "Local mirror, original RESULT.md",
+          "title": "A two-front phase transition for random approval-weighted veto consent",
+          "trigger": "Closest exact finite alternative AWVC reduction in ranked results"
+        },
+        {
+          "assessment": "Nonemptiness probability in a random fixed-three-alternative model; does not cover clones",
+          "evidence": [
+            "Each voter independently draws a uniform strict ranking and approves only their top choice."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-rare-event-law-for-approval-weighted-veto-consent-with-three-alt--e5812465f4d1/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 70–1801",
+          "method": "Local mirror, original RESULT.md",
+          "title": "Rare-event law for approval-weighted veto consent with three alternatives",
+          "trigger": "Other exact AWVC finding in ranked results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 39–100",
+        "Dong et al., Definition 8; Ianovski–Kondratev, Proposition 15"
+      ],
+      "rationale": "This is a precise robustness obstruction for a defined consent correspondence, not just a generic failure of clone independence. With approvals of the target, every old comparison, and the five-person electorate fixed, cloning restores consent and then destroys it, with an arbitrarily long intervening interval. The sharp endpoints and the three-coalition construction explain how two competing forms of blocking produce the switches. The initial number of alternatives grows with h; the claim is not about typical elections or downstream winner selection.",
+      "residual_risks": [
+        "The witness is deliberately constructed; no empirical or probabilistic claim follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

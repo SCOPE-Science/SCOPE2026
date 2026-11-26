@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-Run `python verify.py` with SymPy installed. This directly checks the Padé Maclaurin terms through degree four, the first four derivative factorizations, all five-state Jordan entries, all four absorbing-column expressions, conservation of row sums, the threshold derivative, and a certified rational root enclosure \(0.49660<h_*<0.49661\). It additionally tests 192 rational examples on acyclic graphs with at most three forward layers. Actual result from the supplied standalone checker:
+## correctness
 
-```
-VERIFY_OK exact_formula+derivative+root+small_graph_trials 192
-```
+PASS
 
-The general assertions are proved analytically in RESULT.md by the divided-difference path expansion and a shortest-path Taylor argument. No finite simulation can certify these quantified claims. The positivity threshold refers exclusively to the specific five-state witness in exact arithmetic. Historical priority and generalizations to cyclic generators remain unresolved outside the stated theorem.
+With y=1+x and D=1+y² the first three z-derivatives at z=-x have numerators 4y, 4(3y²-1), and 48y(y²-1) over D²,D³,D⁴. They give nonnegative divided differences through order three by simplex integration, including coincident nodes. Triangular resolvent expansion therefore gives positivity for every DAG of the stated depth. For a four-state shortest route of length three, any four-transition walk would contain a removable repetition; thus Q⁴ contributes only three transitions and a negative hold (at least the source), giving strict positivity from the coefficient -1/4 when the cubic coefficient vanishes. Shorter routes use coefficients 1 and 1/2, unreachable entries are zero by reachability block structure, and conservation follows from Q1=0. For the five-state witness invert the transient denominator D I/2 - h(1+h)N + h²N²/2 modulo N⁴. Transient coefficients agree with the derivative expressions. Subtracting their partial sums from 1 gives the four absorbing numerators over D to powers 1 through 4: h(h+2), h²(h²+4h+2), h⁴(h²+6h+6), h⁴(h⁴+8h³+12h²-4). The last quartic is strictly increasing on h>0 and crosses zero exactly once. The transient block has three internal superdiagonal ones, not four as one incidental sentence says; the displayed generator and N⁴=0 calculation are correct.
+
+## originality
+
+PASS
+
+Bounded best-of-knowledge assessment of the joint topology/minimality/exact-threshold theorem; the map and eventual-positivity framework are not new.
+
+## value
+
+PASS
+
+The graph-depth condition gives an all-step guarantee at arbitrary dimension and rates, and the exact minimal witness quantifies a reliability failure for a natural L-stable alternative to the exponential. Neither is a full-solver guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

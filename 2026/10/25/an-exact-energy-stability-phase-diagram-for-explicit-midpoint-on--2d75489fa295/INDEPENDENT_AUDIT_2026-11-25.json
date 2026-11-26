@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:48:11.350165Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In dimensionless variables R has diagonal entries 1−x+(1−t)x²/2 and 1−tx²/2, and skew off-diagonals ±√t x(1−x/2). The polynomial replay verifies the pivotal entries and determinant of Q=I−RᵀR. For x>0 the diagonal bound requires x≤4/(1+t). For t<1 the increasing cubic's root is strictly below that bound and the bound is strictly below 2/t, so the determinant changes sign only once in the relevant interval. For t>1 one has 2/t<4/(1+t)<ξ(t), with the first zero now at 2/t. At t=1 both coincide and R=−I at x=2. Thus Q is positive definite at all strictly interior positive steps, and the boundary with t≠1 has a positive second diagonal and determinant zero, hence one singular value equal to one but not two. At x=0 R=I. Writing g=x[(tx−1)²+3]−8 immediately bounds the root by 8/3 with equality only at t=3/8; the reciprocal branch cannot reach this value. For spectral stability the eigenvalues of L/a solve λ²+λ+t=0. On the real branch the larger-magnitude negative eigenvalue must satisfy xλ≥−2, including the repeated eigenvalue at t=1/4. On the complex branch the squared scalar-amplifier defect is x/4 times the stated increasing cubic. On the real branch g_t(S)>0 for t>0; on the complex branch the spectral cubic evaluated at E gives 4−2E<0 for 1/4<t<1 and 4(1/t−1)<0 for t>1. Equality occurs at t=1. Rescaling the spectral cubic by x=c t^(−2/3) gives a cubic converging on bounded c to c³−4, whose positive root is bracketed by continuity and monotonicity. This gives the claimed constant and exponent of the ratio. No eigenvalue argument here asserts monotone energy along arbitrary repeated steps outside E.",
+      "replay": {
+        "command": "node /workspace/review-evidence/midpoint-defect.js",
+        "result": "Fresh coefficient arithmetic in x and r=√t, using 2R and 4Q, returns true for Q22, Q12 and det. An independent rational replay also confirmed R=−I at (1,2), the rank-one energy defect at (3/8,8/3), and the spectral cubic value −63/20 at t=100, x=1/20, outside E=1/50. Supplied source code was inspected, not executed. These checks address identities and boundary examples; the sign arguments establish the parameter-uniform result."
+      },
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The hypocoercivity results concern sufficiently small steps, with the index/order relation a central condition; for the present normalized matrix the rank-one damping and its first skew translate span both directions.",
+          "Sun–Wei–Wu's discrete energy identity applies to the oscillator and to RK2, and can be specialized to obtain the energy defect, but the inspected general criteria do not give the optimizer, spectral crossing or their quantitative comparison.",
+          "Sun–Shu modify the method for strong stability. The convex gradient-system contractivity result instead asks for uniform performance on a different class."
+        ],
+        "reasoning": "Small-step criteria and general identities establish local or framework-level coverage, not the sharp finite crossing including no later windows. Standard scalar RK stability knowledge supplies the polynomial to test but not the comparison with the matrix norm along the entire family.",
+        "searches": [
+          "arXiv:2308.05689v1, strong-stability definition and Theorem 0.2.2 discussion",
+          "arXiv:2310.19758v1, abstract and Definition 1",
+          "arXiv:2201.06501, general energy-identity and stability passages",
+          "arXiv:1912.11596 and arXiv:1909.09971"
+        ]
+      },
+      "checked_sources": [
+        "Resultary mirror c4ff16d39c20 and 178c00968abe",
+        "arXiv:2308.05689v1",
+        "arXiv:2310.19758v1",
+        "arXiv:2201.06501",
+        "arXiv:1912.11596",
+        "arXiv:1909.09971"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "After orthogonal conjugation the mirrored determinant sign analysis and completed-square cubic are the same as the energy part of the frozen result.",
+          "The mirror's spectral observation fixes t=3/8 and x=8/3. The frozen comparison needs the positive-root spectral boundary, its ordering relative to E at every coupling, and its distinct t^(−2/3) scale versus energy t^(−1)."
+        ],
+        "reasoning": "The energy subtheorem is demonstrably covered as a statement of another record. Its one-point spectral observation does not imply an unbounded separation. Energy identities may give the defect on specialization, but give neither existence nor size of a spectral-versus-energy gap without separate boundary analysis.",
+        "searches": [
+          "Mirrored RESULT.md c4ff16d39c20, Finding and Proof",
+          "arXiv:2308.05689v1, §§0.1–0.2 and proof of Theorem 0.2.2",
+          "arXiv:2201.06501, seminegative energy laws and stability passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In c4ff16d39c20 a 90-degree orthogonal change of basis moves the rank-one damping from the first coordinate to the second while preserving the skew part. Under γ=a and ω=b, z=x and v=t. Its root equation q[(vq−1)²+3]=8 is exactly g_t(x)=0.",
+          "Passing from real to complex vector tests does not change the induced norm of a real matrix. The branch change, optimizer (3/8,8/3) and −I resonance coincide."
+        ],
+        "reasoning": "These are the same energy-frontier theorem, not merely analogous oscillator results. The later mirror reports a spectral-radius comparison at the energy optimum, not the spectral stability threshold throughout the family.",
+        "searches": [
+          "Resultary: exact RK2 energy contraction or nonexpansion frontiers for planar damped oscillators",
+          "Mirrored RESULT.md c4ff16d39c20, Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c4ff16d39c20 contains the exact energy curve and optimum, with spectral radius 1/3 at the optimum, but not the S(t) frontier or asymptotic ratio in inspected passages.",
+          "178c00968abe is the same continuous oscillator with classical RK4 and classifies exact isometry steps, not the RK2 comparison. Frozen RESULT.md already credits the fixed-ratio t=1 case; the separate source was not independently located."
+        ],
+        "reasoning": "Exact catalogue overlap exists for E, even without a numerical table; neither record supplies the all-ratio E versus S result. Do not infer that unlocated fixed-ratio or alternate-instability examples do not exist.",
+        "searches": [
+          "Resultary: explicit midpoint/RK2 energy frontier, special oscillator ratios and isometric RK steps",
+          "Mirrored Results c4ff16d39c20 and 178c00968abe"
+        ]
+      },
+      "rationale": "The combined energy-versus-spectral phase diagram is distinct on the evidence inspected: in particular the exact spectral frontier relative to E for all t and its asymptotically unbounded gap were not covered by the strongest matching statements. Do not credit the energy frontier, unique optimum or −I resonance as distinct from indexed record c4ff16d39c20: they are exact overlaps. The index dates do not resolve provenance or priority. The frozen result already includes the all-ratio comparison, so this decision does not add a replacement claim.",
+      "residual_risks": [
+        "The exact overlap for E and its maximum does not resolve independent provenance or priority. The separate t=1 multi-order and exact-splitting sources mentioned in the frozen text were not identified. The targeted websearch did not yield a usable additional source; broader identities or oscillator comparisons outside the inspected passages could cover more than was established here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of E, its optimizer and the resonance, not the full spectral frontier and ratio on inspected material",
+          "evidence": [
+            "H(v)=q(v) for v<1 and 2/v for v≥1, with q[(vq−1)²+3]=8; max 8/3 uniquely at v=3/8. Spectral radius 1/3 at the optimum; R=−I at v=1,z=2."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-energy-contraction-frontier-for-explicit-rk2-on-damped-o--c4ff16d39c20",
+          "material_read": "Mirrored RESULT.md Finding and Proof, including offsets 0–2821, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and local mirror statement-level inspection",
+          "title": "A sharp energy-contraction frontier for explicit RK2 on damped oscillators",
+          "trigger": "Direct match on method, dimensionless regimes and unique optimum"
+        },
+        {
+          "assessment": "Different integration polynomial and narrower isometry question",
+          "evidence": [
+            "Classifies R4=±I, not RK2 nonexpansiveness and its spectral gap."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-the-two-exact-isometries-of-classical-rk4-on-rank-one-damped-pla--178c00968abe",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Resultary search and local mirror reading",
+          "title": "The two exact isometries of classical RK4 on rank-one damped planar oscillators",
+          "trigger": "Same continuous matrix and isometry language"
+        },
+        {
+          "assessment": "Local strong stability; no matching all-step comparison in the read passages",
+          "evidence": [
+            "Definition uses sufficiently small times; hypocoercivity index controls the short-time matrix norm."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2308.05689v1",
+          "material_read": "Abstract and §0.1 offsets 378–5221; small-step definition/discussion around 7823, 10108 and 14489; short-time proof passage around 47343",
+          "method": "Primary OA HTML, literal locator and relevant passages",
+          "title": "Necessary and sufficient conditions for strong stability of explicit Runge–Kutta methods",
+          "trigger": "General structural theorem on explicit RK strong stability"
+        },
+        {
+          "assessment": "Hypocoercivity and method-order comparison, not a finite-step calculation in inspected material",
+          "evidence": [
+            "The opening strong-stability discussion gives a structural dependence on hypocoercivity and order."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.19758",
+          "material_read": "Abstract and Definition 1, p. 1, offsets 0–5465",
+          "method": "Primary OA PDF passages",
+          "title": "Hypocoercivity for Linear ODEs and Strong Stability for Runge–Kutta Methods",
+          "trigger": "Related strong-stability theorem and possible implications"
+        },
+        {
+          "assessment": "Energy-identity framework covers the algebraic setup; no sharp all-t coupled result in the passages examined",
+          "evidence": [
+            "A universal discrete energy polynomial yields weak and strong stability criteria for seminegative systems; the checked small-step estimate does not identify a maximal allowable step."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2201.06501",
+          "material_read": "§1.1 offsets 2721–5652, p. 3 offsets 12400–15113, and small-step stability passage around 44336",
+          "method": "Primary OA PDF passages",
+          "title": "On Energy Laws and Stability of Runge–Kutta Methods for Linear Seminegative Problems",
+          "trigger": "General discrete energy formula that applies to this matrix and method"
+        },
+        {
+          "assessment": "Modified methods, not the frozen unmodified method",
+          "evidence": [
+            "Superviscosity or filtering is used to enforce strong stability."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1912.11596",
+          "material_read": "Abstract, p. 1, offsets 0–2451",
+          "method": "Primary OA PDF passage",
+          "title": "Enforcing strong stability of explicit Runge–Kutta methods with superviscosity",
+          "trigger": "Alternative strong-stability result for explicit RK"
+        },
+        {
+          "assessment": "Different class and uniform quantifier",
+          "evidence": [
+            "The second-order Runge method has no uniform convex-contractivity interval for all systems in its class; the present oscillator has a skew component and is not a convex gradient system."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1909.09971",
+          "material_read": "§1, p. 2, around extraction offset 7464",
+          "method": "Primary OA PDF passage",
+          "title": "Contractivity of Runge–Kutta methods for convex gradient systems",
+          "trigger": "Possible second-order contractivity overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This canonical damped oscillator isolates the difference between one-step physical-norm contraction and the scalar absolute-stability test for a standard integrator. The exact two thresholds let a researcher distinguish these requirements for any coupling; the asymptotic shows that choosing the spectral step can miss the one-step condition by an arbitrarily large factor, not merely at a hand-picked instance. The scientific value is the sharp quantitative comparison, not reusing the known scalar stability polynomial or reporting a single optimal norm computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

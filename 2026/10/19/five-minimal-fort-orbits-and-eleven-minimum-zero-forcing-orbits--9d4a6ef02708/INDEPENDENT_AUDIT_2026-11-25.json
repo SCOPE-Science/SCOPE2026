@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:40:58.699711Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Repaired claim: the monotone parallel color-change map reaches all vertices exactly when an ordinary forcing process can. A synchronous batch can be sequentialized by skipping already black targets, and the synchronous terminal set is closed under every possible legal force, so no sequential solution can escape it. Upward closure makes successful single-vertex deletions the exact test against inclusion-minimality. Xor translations and coordinate permutations give all 384 automorphisms: once 0 and its neighbors are fixed, each higher-layer vertex is forced by its predecessor supports. An independent exact replay in `/workspace/branches/0963b538-613f-4568-a887-077afec5d42b/q4_independent_check.py` inspected all 65,536 subsets and agreed mask-by-mask between direct forcing and the complement-fort test, including the original five fort orbits and the forcing polynomial. Its saved `q4_independent_check.json` lists the 11 least forcing representatives, their sizes and times, and confirms exactly 2360 inclusion-minimal sets, all size 8. Inspected the frozen proof, verification scripts and representative table without running the frozen scripts. The corrected package `/workspace/repairs/1/` narrows the finding to the forcing-side census and omits the fort theorem and the aggregate polynomial. Its new checker, `python3 /workspace/repairs/1/verify_minimum_orbits.py`, was executed: 'Checked 65536 subsets: 2360 minimum sets, 11 orbits.' It additionally checks constant synchronous time throughout each orbit, validates the complete corrected table, and gives the four totals 8, 816, 1152 and 384. This is exact finite exhaustion for Q4, not a proof for all cubes. No mathematical falsity was found in the original claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 3.9 gives two types of smallest forts and the Conclusion reports 348 minimal forts. Section 4 gives examples realizing synchronous times 1–4, not their frequencies. The Conclusion explicitly leaves the complete minimum-set census open.",
+          "The scalar cube formula Z(Q_d)=2^(d-1) is credited in the frozen package to AIM Minimum Rank – Special Graphs Work Group, DOI 10.1016/j.laa.2007.10.009; no claim of novelty for Z(Q4)=8."
+        ],
+        "reasoning": "An all-dimensional scalar minimum sets the lowest size but neither establishes that every inclusion-minimal set is minimum nor gives its orbits. Bounds or examples for possible times do not enumerate sets with each time. The well-forced tree characterization does not apply to a cube.",
+        "searches": [
+          "arXiv:2507.10826v1 Proposition 3.9, §4 and Conclusion",
+          "arXiv:2312.14298v1 abstract and introduction",
+          "Literature search on hypercube zero forcing orbits and synchronous propagation time"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4b4a85b72c98 actual mirrored finding and proof",
+        "arXiv:2507.10826v1",
+        "arXiv:2208.12899",
+        "arXiv:2312.14298v1",
+        "Lawrence eScholarship item 5tb6c0t8 and AIM DOI 10.1016/j.laa.2007.10.009 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known example constructions show all four times can occur but give no multiplicity for any time. The aggregate probability formula contains only cardinality counts. The indexed fort proof partitions forts, not mask-by-mask forcing time data or automorphism equivalences on forcing sets."
+        ],
+        "reasoning": "The lost labelled and time information cannot be recovered from the aggregate probability curve by coefficient extraction. Although the full fort family yields a forcing decision predicate by duality, the asserted minimal-transversal orbits and time counts are additional combinatorial and dynamical information, not a direct numeric specialization of the prior tables. Their exhaustive determination is the surviving contribution.",
+        "searches": [
+          "arXiv:2507.10826v1 Section 4 and Conclusion",
+          "arXiv:2208.12899 Figure 2 and Equation (1)",
+          "Resultary 4b4a85b72c98 Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 4b4a85b72c98 gives the original fort spectrum and all five representative masks 278, 828, 1632, 6634, 7140 with identical sizes, but does not classify minimal zero-forcing sets.",
+          "Brimkov–Cameron–Grubbs distinguish minimum-cardinality forts from inclusion-minimal forts, and their Conclusion distinguishes the fort problem from complete enumeration of minimum zero-forcing sets.",
+          "Grood et al. use the same notion of well-forcedness, but their main characterization and algorithm concern trees."
+        ],
+        "reasoning": "The covered fort portion is explicitly removed. The zero-forcing family is the transversal family of the minimal-fort hypergraph, and its inclusion-minimal members are its minimal transversals. The fort comparator does not list these transversals, the forcing orbits, or the synchronous times. Producing that refined census requires an additional enumeration, not treating the five fort orbit rows as the orbit rows of a dual family.",
+        "searches": [
+          "Resultary Q4 minimal fort orbit and minimum zero-forcing orbit classifications",
+          "arXiv:2507.10826v1 fort duality and minimum-set census comparison",
+          "Literature: 'well-forced' + hypercube + inclusion-minimal zero forcing sets; arXiv:2312.14298v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirrored table gives all five exact fort classes, now excluded from the repaired finding. The exact Q4 probability curve in Curtis et al. encodes the zero-forcing polynomial via the basis p^k(1-p)^(16-k); the plot does not list generating subsets.",
+          "The Lawrence thesis itself was unavailable on the attempted lawful routes; the Curtis et al. article suffices to establish exact aggregate-curve coverage."
+        ],
+        "reasoning": "Size counts alone do not specify which masks are the 2360 minimum forcing sets or which larger successful masks have no successful deletion, and cannot specify their times. No exact table covering the retained eleven orbits and their synchronous times was found in the checked sources.",
+        "searches": [
+          "Resultary 4b4a85b72c98",
+          "arXiv:2208.12899 Figure 2 and Equation (1)",
+          "Lawrence dissertation Chapter 5 Figure 5.2, eScholarship item 5tb6c0t8"
+        ]
+      },
+      "rationale": "For the repaired finding only. The original combined claim cannot pass as a distinct contribution in full: the exact five-orbit minimal-fort classification is also covered, with identical masks and orbit sizes, by the distinct indexed record 4b4a85b72c98. Its later catalogue label does not settle historical priority and is not used to infer priority. Remove that component and the already encoded aggregate size polynomial as findings. The exact eleven-orbit forcing census, its time multiplicities, and the absence of larger inclusion-minimal forcing sets survive the comparisons below.",
+      "residual_risks": [
+        "Unindexed calculations or supplemental labelled-set datasets might contain the same forcing census. The inspected aggregate probability curve cannot decide that issue.",
+        "The Lawrence figure and AIM theorem were not independently read in those originals; neither is used to claim novelty. Catalogue dates do not establish historical precedence for the fort classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap with original fort component; not the same catalogue record and not evidence for historical priority based on pathname. No coverage of the repaired forcing-orbit census.",
+          "evidence": "28 z^4 + 32 z^6 + 288 z^8, with the same five representative masks and orbit sizes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-five-orbit-types-of-inclusion-minimal-forts-of-q-4--4b4a85b72c98/RESULT.md",
+          "material_read": "Finding, scope and proof, mirror offsets 0–4109.",
+          "method": "Actual locally mirrored manuscript passage.",
+          "title": "Five orbit types of inclusion-minimal forts of Q4",
+          "trigger": "Exact five-orbit table for the identical fort predicate and graph."
+        },
+        {
+          "assessment": "Known smallest forts, total inclusion-minimal fort count, possible time range and examples; an exhaustive minimum-set census is explicitly left open.",
+          "evidence": "Neighborhood and one other automorphism type for smallest forts; 348 computational total; realizations of times 1 through 4.",
+          "identifier_or_url": "arXiv:2507.10826v1",
+          "material_read": "Proposition 3.9 on PDF p. 9 (OA offset 29162), time examples in §4 on pp. 11–12 (offset 33590), Corollary 4.2 (offset 39269), and Conclusion p. 17 (around 52709 and 53989).",
+          "method": "Original OA PDF passages.",
+          "title": "On the forts and related parameters of the hypercube graph",
+          "trigger": "Directly compares the same graph, forts, minimum forcing and propagation time."
+        },
+        {
+          "assessment": "Aggregate size polynomial covered as an invariant; orbit and time data not specified by the aggregate representation.",
+          "evidence": "Exact curve for the 16-vertex hypercube and expansion in p^k(1-p)^(n-k).",
+          "identifier_or_url": "arXiv:2208.12899",
+          "material_read": "Figure 2 on PDF p. 3, OA read around offset 8500; Equation (1) on following page.",
+          "method": "Original OA PDF figure and associated formula.",
+          "title": "Zero forcing with random sets",
+          "trigger": "Exact Q4 random-forcing probability potentially encodes the original aggregate polynomial."
+        },
+        {
+          "assessment": "Definition agrees; advertised main classification concerns trees, not Q4.",
+          "evidence": "A graph is well-forced if all minimal zero-forcing sets have minimum size; main characterization and algorithm are for trees.",
+          "identifier_or_url": "https://arxiv.org/html/2312.14298v1",
+          "material_read": "Abstract and start of §1, OA offsets 0–2839; literal hypercube locate returned no hits.",
+          "method": "Original OA HTML statement; keyword miss not treated as full-document proof of noncoverage.",
+          "title": "Well-forced graphs",
+          "trigger": "Plausible general coverage for absence of larger inclusion-minimal forcing sets."
+        },
+        {
+          "assessment": "Access limitation only, not evidence of noncoverage; compared the Curtis et al. exact aggregate instead.",
+          "evidence": "No independent evidence drawn from the figure in this thesis.",
+          "identifier_or_url": "https://escholarship.org/uc/item/5tb6c0t8",
+          "material_read": "No full-text passage obtained; cited Chapter 5 Figure 5.2 not independently inspected.",
+          "method": "Direct and alternate lawful OA attempts returned HTTP 403.",
+          "title": "Simplicial Reaction Networks and Dynamics on Graphs",
+          "trigger": "Frozen reference for the same aggregate probability curve."
+        },
+        {
+          "assessment": "Full-text limitation only; scalar formula not retained as a novel claim and Q4 value independently computed.",
+          "evidence": "No full-text conclusion drawn about the scope beyond the frozen citation.",
+          "identifier_or_url": "DOI 10.1016/j.laa.2007.10.009",
+          "material_read": "Landing page only; scalar theorem passage not obtained by repository routes.",
+          "method": "Lawful DOI and repository retrieval attempts.",
+          "title": "Zero forcing sets and the minimum rank of graphs",
+          "trigger": "Foundational scalar cube value credited in the frozen record."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired finite census answers the published question of enumerating minimum sets on a natural symmetry-rich graph. It supplies automorphism classes and exact times per class, information not delivered by the scalar minimum, aggregate polynomial or examples exhibiting a range. The proof that no larger inclusion-minimal set occurs makes the eleven classes exhaustive also for inclusion-minimal forcing, not just for one selected cardinality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

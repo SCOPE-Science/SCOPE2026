@@ -1,0 +1,179 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:57:02.558017Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A direct replay conditions on each candidate cycle indicator being one. A vertex off the cycle retains its Bin(m,1/2) degree law; a vertex on the cycle has one incident win and one incident loss fixed, with its other m-2 edges still fair and independent, so has degree 1+S with S~Bin(m-2,1/2). There are (n) falling ell divided by ell candidate oriented cycles (rotation only), each present with probability 2^{-ell}. Summing their covariances gives (n) falling ell /2^ell times [E f(1+S)-E f(D)]. The identity d(m-d)p_m(d)=m(m-1)p_{m-2}(d-1)/4 converts this to (1), including ell=n. The scalar multiplier is positive for every ell; the covariance with H0 is nonzero since m>=2 and D(m-D)=0 at D=0 but has positive mean. Thus the cross-covariance rank is exactly one, and residual orthogonality is only linear, not independence. The degree-class covariance follows from 4d(m-d)-m(m-1)=m-(2d-m)^2; its equality roots are integers exactly for square m, by parity. For the threshold let T_j=P(S>=j). Because D has the law of S plus an independent Bin(2,1/2), the expectation difference is (2T_{k-1}-T_k-T_{k-2})/4, equal to (p_{m-2}(k-1)-p_{m-2}(k-2))/4. The ratio of successive masses in the interior is (m-k)/(k-1), giving the cutoff 2k=n, with the endpoint signs from one mass vanishing. At n=3, two cyclic and six transitive orientations give Cov(C3,H0)=-3/16 and threshold covariances +3/16,-3/16, consistent with the formulas. The source file verification/check_cycles.py was found inside the nested directory and inspected, not executed. Its stated checks are finite (all orientations through n=6 and a bounded sign test); the all-length formulas follow from the exact conditioning argument, not those finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Andersson's abstract uses precisely the fair-tournament law but describes normalized asymptotic distributions for motif counts, not a finite mixed covariance statement in the accessible material; primary full text remains unresolved. Butts was cited as a possible directed-graph cycle census comparison; no technical text was obtainable to check a fair-tournament specialization. Komarov–Mackey's Theorem 2.1 uses deterministic edge scores to count five-cycles. Linial–Morgenstern relate deterministic cycle densities and extremal ranges."
+        ],
+        "reasoning": "A general exact star-versus-cycle formula could subsume this result. The titles and abstracts do not decide that possibility. Independent Bernoulli directed edges would in any event require an argument for the one-arc-per-pair tournament law; deterministic edge-score counts would need an additional mixed expectation calculation.",
+        "searches": [
+          "Andersson 1998 subgraph counts random tournaments orthogonal decomposition outdegree score statistic covariance directed cycles conditional expectation stars full text probability moment",
+          "Butts 2006 Cycle Census Statistics for Exponential Random Graph Models, eScholarship item 4719h8d2",
+          "Linial–Morgenstern arXiv:1405.1576",
+          "Komarov–Mackey arXiv:1410.6828 Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary October 12, October 18, and November 2 tournament results",
+        "Beineke–Harary 1965",
+        "Linial–Morgenstern arXiv:1405.1576",
+        "Komarov–Mackey arXiv:1410.6828",
+        "Kuo–Liu–Ribas–Zhou Theorem 1.4",
+        "Butts 2006 and Andersson 1998/2000 limited access"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical deterministic identity C3=binom(n,3)-sum_v binom(D_v,2) puts centered C3 in the score-class span, but alone does not imply orthogonality for longer cycles. The October 18 four-cycle residual is a sum of terms on four-sets S, each conditionally mean-zero given any induced subtournament on at most three vertices of S. When v is in S, the contribution of S to D_v is determined by the two or three incident edge indicators, not all by a single induced triple. Instead expand the conditional expectation of f(D_v) given those at most three incident edges into multilinear monomials. The terms of degree at most two are orthogonal to the residual by the induced-triple property; the degree-three term is odd under global reversal when expressed in centered edge signs, whereas the four-cycle residual is invariant under reversal. For v outside S the incident edges are independent. Thus the earlier decomposition implies the ell=4 coefficient (n-3)/2 against C3 and, together with the triangle law, its degree and threshold covariances."
+        ],
+        "reasoning": "This is actual implied coverage at ell=4, not just a resemblance of cycle questions. Neither the triangle identity nor this four-vertex decomposition controls every higher length. The all-length conditioning establishes a single exact coefficient, not only a bound or asymptotic rate.",
+        "searches": [
+          "Beineke–Harary DOI 10.4153/CMB-1965-035-x pp. 492–493",
+          "2026/10/18/SCOPE-exact-orthogonal-decomposition-of-three-and-four-cycle-counts-in--3b4b1b16fef5, Finding and Proof",
+          "2026/10/12/SCOPE-cyclic-triangle-covariance-flips-exactly-at-one-score-standard-d--1081233588c2, equations (1)–(3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier October 12 equations (1)–(3) already give the arbitrary-additive-statistic law and class sign boundary for triangles. Since every additive score statistic is a linear combination of histogram entries, the November 2 exact bin formula is equivalent to the frozen master law; its prefactor (n) falling ell /[m(m-1)2^ell] is n(m-2) falling (ell-3)/2^ell. The threshold formula is the corresponding sum over classes."
+        ],
+        "reasoning": "Class covariances, linear residual orthogonality and the rank-one form are equivalent descriptions of this cross-covariance, without interpreting it as projection onto all functions of the histogram. The documented all-length match is later.",
+        "searches": [
+          "Resultary: fair tournament all-length cycle counts against arbitrary additive outdegree statistics and rank-one score covariance",
+          "2026/10/12/SCOPE-cyclic-triangle-covariance-flips-exactly-at-one-score-standard-d--1081233588c2",
+          "2026/11/2/SCOPE-score-profile-projection-rigidity-and-square-root-covariance-pha--4b9c5be28426"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "There is exact earlier triangle coverage and an exact later formula for every n, ell, d. Kuo et al. bound tournament cardinalities at a prescribed number of restricted cycles, not joint covariances with score classes. The five-vertex motif census around the five-cycle edge-score formula counts motifs, not the mixed covariance indexed by all n, ell and d."
+        ],
+        "reasoning": "A finite motif or fixed-cycle count table is a different invariant from the simultaneous exact mixed covariance and sign law. The later exact match is not just numerical alignment.",
+        "searches": [
+          "Resultary: exact cycle-length by score-class covariance and threshold signs",
+          "2026/11/2/SCOPE-score-profile-projection-rigidity-and-square-root-covariance-pha--4b9c5be28426, Finding",
+          "Kuo–Liu–Ribas–Zhou DOI 10.4153/S000843951900016X, Theorem 1.4",
+          "arXiv:1410.6828 Theorem 2.1 and surrounding edge-score census"
+        ]
+      },
+      "rationale": "The triangle specialization is explicitly covered by the earlier October 12 indexed result; the four-cycle specialization also follows from the October 18 indexed orthogonal decomposition, as shown below. The supported distinct claim is the single exact all-length formula for the mixed score covariances, including lengths at least five and their exact degree/threshold signs and residuals. A later November 2 record matches the full score covariance and projection and implies threshold signs; that is documentary overlap, not antecedent coverage. The earlier published results examined concern different moment, extremal or deterministic quantities and do not establish the full claim in the inspected statements.",
+      "residual_risks": [
+        "Uninspected Butts and Andersson full results could contain general exact mixed-moment tools with relevant implications. Access failure is not evidence of noncoverage.",
+        "The relationship to the later indexed all-length overlap is not established. No historical priority or exclusivity is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact earlier triangle specialization",
+          "evidence": [
+            "Arbitrary additive score covariance and exact class sign boundary."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-cyclic-triangle-covariance-flips-exactly-at-one-score-standard-d--1081233588c2",
+          "material_read": "RESULT.md Finding, mirror offset 0, equations (1)–(3)",
+          "method": "Resultary and local-mirror comparison",
+          "title": "Cyclic-triangle covariance flips exactly at one score standard deviation",
+          "trigger": "Same mixed score covariance at ell=3"
+        },
+        {
+          "assessment": "Earlier implies ell=4, not all lengths",
+          "evidence": [
+            "Centered four-cycle count equals (n-3)/2 times centered triangles plus a sum of locally degenerate residuals on four-sets."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-orthogonal-decomposition-of-three-and-four-cycle-counts-in--3b4b1b16fef5",
+          "material_read": "Finding and Proof at mirror offset 0; prior work near offset 5971",
+          "method": "Resultary/local mirror and conditional star-sign argument",
+          "title": "Exact orthogonal decomposition of three- and four-cycle counts",
+          "trigger": "Earlier residual orthogonality could imply ell=4"
+        },
+        {
+          "assessment": "Later full coverage of the master law and class signs; thresholds follow by summation",
+          "evidence": [
+            "Both exact bin formula and centered-cycle projection; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-score-profile-projection-rigidity-and-square-root-covariance-pha--4b9c5be28426",
+          "material_read": "Finding and start of Proof, mirror offsets 0–2990",
+          "method": "Resultary and direct local-mirror comparison",
+          "title": "Score-profile projection rigidity and square-root covariance phases for directed cycles",
+          "trigger": "Potential exact all-length match"
+        },
+        {
+          "assessment": "Degree-determined triangles; not the higher-length covariance law",
+          "evidence": [
+            "Transitive triples counted by sum of binom(D_v,2)."
+          ],
+          "identifier_or_url": "https://doi.org/10.4153/CMB-1965-035-x",
+          "material_read": "Primary pp. 492–493, OA offset 0",
+          "method": "OA PDF passage comparison",
+          "title": "The Maximum Number of Strongly Connected Subtournaments",
+          "trigger": "Earliest located classical deterministic triangle identity"
+        },
+        {
+          "assessment": "Deterministic density/extremal relationship, not finite score covariance",
+          "evidence": [
+            "The observation relates four-vertex tournament densities."
+          ],
+          "identifier_or_url": "arXiv:1405.1576",
+          "material_read": "Abstract p. 1 and Observation 1.2 p. 2",
+          "method": "OA passage comparison",
+          "title": "On the number of 4-cycles in a tournament",
+          "trigger": "Four versus three cycles"
+        },
+        {
+          "assessment": "Richer edge-score deterministic formula at one length; not the stated all-length moment law",
+          "evidence": [
+            "Four edge-score variables determine the five-cycle count."
+          ],
+          "identifier_or_url": "arXiv:1410.6828",
+          "material_read": "PDF pp. 3–4, edge scores and Theorem 2.1, around offsets 6800–8400",
+          "method": "OA passage comparison",
+          "title": "On the number of 5-cycles in a tournament",
+          "trigger": "Exact longer-cycle formula in score data"
+        },
+        {
+          "assessment": "Different distributional quantity",
+          "evidence": [
+            "Upper bounds for the number of tournaments containing exactly k restricted r-cycles."
+          ],
+          "identifier_or_url": "https://doi.org/10.4153/S000843951900016X",
+          "material_read": "OA abstract p. 1 and Theorem 1.4 p. 3, around offsets 0 and 9700",
+          "method": "OA passage comparison",
+          "title": "The Shifted Turán Sieve Method on Tournaments",
+          "trigger": "Quantitative distributions of tournament cycle counts"
+        },
+        {
+          "assessment": "Unresolved specialization risk",
+          "evidence": [
+            "The accessible material does not permit a statement-level scope conclusion."
+          ],
+          "identifier_or_url": "https://escholarship.org/uc/item/4719h8d2",
+          "material_read": "Citation and title; no technical passage obtained",
+          "method": "Lawful OA retrieval of item/download/direct PDF; all denied",
+          "title": "Cycle Census Statistics for Exponential Random Graph Models",
+          "trigger": "Potential general cycle moment formula"
+        },
+        {
+          "assessment": "Precise theorem-level implication unresolved",
+          "evidence": [
+            "Abstract describes asymptotic normalized motif-count distributions for the fair tournament. Related Small variance of subgraph counts in a random tournament (2000), PII S0167715200000419, was identified but the publisher denied full access."
+          ],
+          "identifier_or_url": "https://uu.diva-portal.org/smash/record.jsf?pid=diva2:54853 (Andersson 1998, RSA 13, 249–260)",
+          "material_read": "Publisher and repository identification and abstract excerpts; no primary full text obtained",
+          "method": "DOI and alternative institutional source via focused literature lookup; institutional retrieval timed out and DOI denied",
+          "title": "On the asymptotic distributions of subgraph counts in a random tournament",
+          "trigger": "Same fair model, possible general orthogonal-moment machinery"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-length law collapses the linear dependence between the full cycle-count vector and the full additive score profile to one direction, including up to Hamiltonian cycles. The exact finite-size degree and threshold signs give the direction of dependence and its zero boundary for each length, beyond known triangle and four-cycle cases. This is an exact joint invariant for two naturally used diagnostics, not just a marginal moment or finite recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:32:15.909586Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–60, VERIFICATION.md and proof_check.py (read, not executed)",
+        "Independent finite check: form T_a by pullback through the three listed maps, close {0001} under all T_a, put w=8 rho v, L=min(0,w-5), U=max(0,w-6) except U(1101)=1. For each v,a check the two slacks using the prefix sum of the weights of T_j v, then evaluate the four root slacks. The special upper-state slacks in order a=0,1,2 are 2,0,0.",
+        "Zhou arXiv:2611.07446v1, Theorems 1.1 and 1.4 and §6.1"
+      ],
+      "rationale": "Reading ordinary trits low-to-high, the carry after each step is the difference between the read input and its forced output digits divided by the corresponding power of three. Since D is a complete residue system and its digits are nonnegative, inputs below 3^N are representable iff the carry after N trits is zero. The independently reconstructed maps on (-3,-2,-1,0) are (-1,-1,-2,0), (-1,-2,0,0), (-2,0,0,-1). The word 021 resets every state, and the stationary weights scaled by eight are (0,1,2,5). For a fixed most-significant prefix, the unconditioned low-trit block approaches this law; the prefix imposes successive Boolean pullbacks of the terminal zero test. This proves the stated cylinder-mass recursion, with H_e=8F; each depth-m cylinder has mass at most 8*3^(-m), giving continuity. Independent integer enumeration regenerated 14 states and all 42 transitions; the minimum slack of each of the two families of 42 barrier inequalities was 0, and each of the four restricted-root inequalities had zero slack. Induction on ternary endpoints and continuity yield the barriers for all t in [1/3,1]. The root first-level weights are 5,7,3, so F(1/3)=5/24 and F(2/3)=1/2. Dividing by t gives 5/8 and 3/4; a full log-period lies in this interval, with the claimed attaining phases (no uniqueness needed). Zhou's Theorem 1.1 gives the continuous profile and O(1) count error in the complete-residue case. Theorem 1.4 applies since gcd(0,1,5)=1 and gives the same prime-proportion profile up to O(1/log X). Taking sequences X=3^(m+u) proves both sharp prime limits.",
+      "residual_risks": [
+        "The prime result uses the cited prime-transfer theorem; the review checks its statement and hypotheses rather than reproving the analytic number theory. The proof concerns only the stated digit set."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhou supplies a profile and a prime asymptotic uniformly in phase, already including this exact example. The older tile full texts were not recovered."
+        ],
+        "reasoning": "A theorem supplying a continuous profile and its transfer does not ensure a given range until the profile is bounded for every phase. A stronger historical tile calculation would be material if it implied these bounds.",
+        "searches": [
+          "Zhou Theorems 1.1 and 1.4, Proposition 5.4, Section 6.1",
+          "Lawful OA lookup for Lagarias–Wang DOI 10.1112/jlms/54.1.161 and Gabardo–Yu DOI 10.1112/S0024610706022915"
+        ]
+      },
+      "checked_sources": [
+        "Resultary index; exact self-match identified separately",
+        "Zhou arXiv:2611.07446v1",
+        "Frozen proof and references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two ratios can be computed at special phases from the first cylinder weights, but that does not show they are extrema. The fourteen-state barrier gives inequalities on all ternary subcylinders, not just the special values."
+        ],
+        "reasoning": "The bounds require a new all-phase comparison beyond tabulating carry transitions or applying prime transfer to two sequences.",
+        "searches": [
+          "Zhou §6.1 and Theorem 1.4 versus frozen RESULT.md lines 26–57"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "By the transfer theorem the prime liminf and limsup are exactly the minimum and maximum of the continuous profile. On a fundamental interval the profile is F(t)/t, where F is the limiting cumulative count."
+        ],
+        "reasoning": "Prime limits, profile bounds and cumulative-count slope bounds are equivalent formulations of the same new numerical extremal problem; the transfer itself is not new.",
+        "searches": [
+          "Resultary: ternary digits {0,1,5}, dilation-periodic profile extrema and prime oscillation",
+          "Zhou arXiv:2611.07446v1, Theorems 1.1 and 1.4, §6.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit is the present record. The closest distinct same-day entry concerns boundary dimension and a prefix generating function; its full statement was not accessed. Zhou tabulates carry transitions and a reset word but does not tabulate these extrema in the inspected example."
+        ],
+        "reasoning": "A matching digit set and transition table are not an extremal classification. The distinct catalogue summary is evidence about its indexed claim only, not a full-text exclusion.",
+        "searches": [
+          "Resultary: digit set 0,1,5, carry states, prime-density extrema and boundary dimension",
+          "Zhou §6.1 example table"
+        ]
+      },
+      "rationale": "The periodicity, prime-transfer theorem, and exact digit-system example are due to Zhou. The added result is the sharp image of the profile and particular attaining phases, hence sharp prime-density liminf and limsup. The inspected prior statements and the related catalogue summary do not derive those all-phase inequalities.",
+      "residual_risks": [
+        "The closely related same-day full text and the two identified older tile texts could not be compared; a historical exact derivation using tile geometry remains possible. No priority inferred from date alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers carry model, scaling/profile and prime transfer; the exact example passage does not give global extrema.",
+          "evidence": [
+            "Theorem 1.4 gives prime proportions equal to the periodic profile up to O(1/log x); the example gives the zero-synchronizing word 021 and the same asymptotics."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.07446",
+          "material_read": "v1 Theorem 1.1 p. 2, complete-residue condition (1.6) p. 3, Theorem 1.4 p. 4, Proposition 5.4 p. 17 and §6.1 p. 19",
+          "method": "Primary PDF passages; exact hypothesis and implication comparison",
+          "title": "Periodic counting, carry synchronization, and primes in nonstandard numeration systems",
+          "trigger": "Exact digit set and analytic transfer"
+        },
+        {
+          "assessment": "Different indexed invariant; full overlap unresolved.",
+          "evidence": [
+            "Summary concerns boundary dimension and a prefix generating function rather than values of the profile or prime proportions."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-pell-growth-boundary-dimension-of-the-ternary-nonstandard-digit--2d6a2bd91774",
+          "material_read": "Catalogue summary only; local mirror lookup did not complete",
+          "method": "Indexed statement comparison followed by targeted original retrieval attempt",
+          "title": "Pell growth and boundary dimension of the ternary nonstandard digit system",
+          "trigger": "Closest distinct Resultary hit, identical digit system"
+        },
+        {
+          "assessment": "No full statement-level coverage conclusion.",
+          "evidence": [
+            "These are the broader historical tile references named by the frozen record."
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/jlms/54.1.161; https://doi.org/10.1112/S0024610706022915",
+          "material_read": "Bibliographic identifications, not full texts",
+          "method": "Attempted lawful DOI and repository retrieval",
+          "title": "Integral Self-Affine Tiles in R^n. I. Standard and Nonstandard Digit Sets; Natural Tiling, Lattice Tiling and Lebesgue Measure of Integral Self-Affine Tiles",
+          "trigger": "Potential general tile-based derivation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Zhou §6.1 and Theorem 1.4; independently checked frozen barrier"
+      ],
+      "rationale": "For the primary nonstandard ternary example in the motivating paper, qualitative oscillation leaves its entire attainable numerical range unknown. The exact two endpoints and explicit attaining subsequences answer that natural question for both the integer profile and the primes; the finite certificate supplies bounds valid at every real phase.",
+      "residual_risks": [
+        "No general extremal law or classification of all attaining phases is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-A binary16 midpoint calculation proves the exact reflected transition for all states and the sharp absolute norm ceiling. The real-arithmetic energy expansion gives orthogonal centered pair interactions and exactly \(2N(N-1)/m\) variance. Binomial occupancies and convergence of a finite irreducible aperiodic reflected chain prove the joint uniform limit. The standalone checker exhaustively tests 16,388 binary16 transitions, four finite exact sketch probability spaces, and the stationary second moment. Those computations corroborate a separately provided infinite proof. The statement applies only to the model and ranges in the theorem.
+## correctness
 
-## Originality — PASS, with residual risk
-Targeted semantic searches on paper identity, CountSketch/SparseStack binary16 ties-to-even accumulation, finite-state reflecting dynamics, deterministic subspace-embedding failure, and expected stationary energy were compared by actual mathematical content. The closest directly relevant full-text sources were Jeendgar–Flint–Anzt (arXiv:2606.20195v1, accessible PDF Sections 3–6 inspected) and Carson–Daužickaitė (arXiv:2410.06319v2, accessible PDF Sections 2–3, proofs, and conclusions inspected). The former reports measurements only for bounded input heights; the latter has general sufficient mixed-precision bounds without this exact one-dimensional signed-bucket law. A related stochastic signSGD result has a different transition kernel and invariant binomial law. This does not establish absolute novelty against all literature; a more specialized unpublished or unindexed low-precision reduction treatment may exist.
+PASS
 
-## Value — PASS
-The sharp *absolute energy barrier* separates reliable exact sparse embeddings from a deterministic precision-induced failure on maximally diffuse leverage scores, a regime absent from the motivating finite benchmarks. The uniform reflected-law limit adds a quantitative prediction of the low-precision noise floor and shows the problem is an accumulator-state effect rather than a high-coherence collision pathology. This supplies a concrete boundary condition for safe sketch dimensions, input scaling and accumulation precision. No practical failure claim is made for the published experimental sizes.
+Put h=1/sqrt(ζ) in {1,1/2}. Every jh for |j|≤2048 is representable. At the boundary the outward exact sum is the midpoint between ±2048h and ±2050h, and the former encodes the even low significand bit; inward updates are exact. Thus the scaled walk clips at ±2048 for any ordering. A separate exhaustive binary16 check of all 16388 state-direction cases matched this rule. Summing squares gives the pointwise ceiling, and assigning at least 2048 positive updates to each bucket in each layer attains it for N≥2048b. The strict N inequality ensures lower-embedding failure without any probability estimate. For the exact sketch, diagonal terms sum to N and unordered signed collisions have coefficient 2/ζ; distinct terms are orthogonal because some independent fair sign appears only once. There are ζ binom(N,2) terms each of second moment 1/b, giving 2N(N−1)/m and the stated Chebyshev bound. For the limiting law, conditional on the hashes and with sign-blind processing order, the bucket sign strings use disjoint independent signs. The clipped chain is symmetric, irreducible and aperiodic thanks to endpoint self-loops; one inward update exits an endpoint, so saturation is not absorption under fair signs. Each count is Bin(N,1/b); the minimum tends to infinity in probability for fixed m, and a sum of the individual conditional total-variation errors bounds the product error. This proves joint convergence despite dependent counts within layers. Finite support permits expectation convergence, and the exact uniform second moment of the scaled integer state is 1398784. Replay: compare RN binary16 serialization of (j±1)h against h·clip(j±1) for every allowed j and both h, then apply the bounded-state chain and collision expansion; the frozen script and stored output were inspected, not executed.
 
-## Literature and scope limits
-The finite-state mechanism depends on exactly representable \(1\) or \(1/2\) signed increments, binary16 midpoint ties-to-even and fixed output dimension. No general guarantee for different rounding modes, data amplitudes or hardware ordering is asserted. No independent scientific audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the sharp absolute binary16 energy ceiling and consequent certain rank-one distortion in the same signed-sketch setting as the finite experiments, quantified further by its joint product-uniform limit. Standard midpoint stagnation, reflected-chain equilibrium, and exact arithmetic sketch moments are not claimed independently new. The b=2 exact Gram law is already covered more strongly by an earlier record.
+
+## value
+
+PASS
+
+This supplies a concrete failure witness on the all-ones equal-leverage direction, for a specified sketch actually used in the motivating GPU study. In a regime with real-arithmetic norm preservation at high probability, it shows certain lower-norm failure without skewed leverage or overflow. The sharp ceiling separates a discrete accumulator constraint from the ordinary collision variance, and the joint stationary law predicts the scale of the asymptotic rounded energy rather than just warning that errors may grow.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review of the announcement-necessity frame correspondence
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact statement quantifies over all nonempty preorder frames, arbitrary modal relations, persistent valuations and all announcement formulas under explicitly given forcing clauses. Expanding the two sides yields the two upset conditions \(L_s\) and \(H_s\). The latter always implies the former. The proposed first-order criterion converts an arbitrary alleged counterexample to \(H_s\) into a surviving successor below its terminal world, proving the converse. If the criterion fails, the explicit atomic valuation \(P=\uparrow\{v\}\cup\uparrow\{w\}\) and \(Q=\uparrow(R[\uparrow\{v\}]\cap P)\) makes the left side true and the right false. This proof works for infinite and nonantisymmetric preorders. The standalone direct forcing-clause checker covers every preorder and relation through three worlds and all relations on fixed four-world chains. Its finite output confirms but is not a substitute for the proof.
+PASS
 
-## Originality — PASS within inspected sources
+Let P be the announcement upset and Q the truth upset of B on the restriction, viewed in the original frame; Q remains upward closed since P is an upset. At s in P, write T=R[up(s)]. Using the stated future-world necessity, the left side tests T intersect P contained in Q, while the right tests up(T) intersect P contained in Q. Outside P each evaluation is the corresponding test over future s in P. Thus frame validity is equivalent to up(T intersect P)=up(T) intersect P for all s in P and all upsets P: necessity can already be tested with atoms p=P and q=up(T intersect P), and equality suffices for any formulas. For w in up(T) intersect P choose v>=s and vRu<=w; AR gives v'>=v and u'<=w with v'Ru' and u' above v or w. This puts u' in T intersect P. Conversely if AR fails at vRu<=w, set s=v and P=up(v) union up(w); then w lies in up(T) intersect P, but not in up(T intersect P) by absence of the AR witness. This yields the atomic countervaluation and proves all-cardinalities equivalence, including nonantisymmetric preorders and the empty announcement upset. Forward confluence witnesses AR by u'=w. On 0<1 the sole arrow 0R0 satisfies AR but violates forward confluence; the sole arrow 1R0 fails AR with p={1}, q empty. Reflexivity rules out a one-world counterexample. Independently evaluating restriction, box and implication with bitset operations (python /workspace/review-work/check-announcement.py) reproduced the all-labelled-preorder triples (1,2,2), (4,64,56), (29,14848,9571), and the fixed-chain pairs of valid and strictly nonconfluent valid counts (12,1), (224,26), (14592,1215). The finite census does not prove the unrestricted correspondence.
 
-The November 10, 2026 minimal intuitionistic announcement paper gives the same forcing clauses, notes that the **traditional** necessity reduction can fail without confluence, and proposes a different universally sound relativized-necessity reduction. It does not derive an exact frame condition for the traditional schema. The 2014 IPAL treatment proves the traditional equation under stricter model assumptions, not an if-and-only-if characterization over all arbitrary birelational frames. Two accessible published exact frame-correspondence results for Box Excluded Middle were compared in full; they characterize a different static modal axiom and impose a different modal persistence framework. The tested two-atom atomic characterization and the refinement disjunction are not supplied by these works. Actual published-finding corpus searches were checked for source name, exact schema, confluence, corresponding aliases and broader statements. This is best-knowledge originality; historical priority remains subject to independent review.
+## originality
 
-## Value — PASS
+PASS
 
-The question is explicitly motivated by the failure of a widely used traditional reduction axiom when confluence assumptions are removed. The result gives a precise replacement for an overstrong structural hypothesis, extends validity to an identifiable additional class of frames, and reduces an infinite substitutional test to one two-atom formula and one elementary first-order frame condition. The sharp two-world separating examples and reproducible exhaustive finite cross-checks delimit the improvement. This is a substantive frame-correspondence classification, not a routine enumeration or merely a change of notation.
+In the directly inspected work introducing the same arbitrary-birelational semantics, the traditional reduction is identified as not universally valid, and a different relativized-necessity equation is supplied. It does not identify the validity class of the traditional equation. The strongest indexed static correspondence and confluence findings have different hypotheses or formulas, leaving the exact AR condition, two-atom test and strict forward-confluence comparison distinct within the examined evidence.
 
-## Closest literature and limitations
+## value
 
-Balbiani–van Ditmarsch–Gencer–Lerouvillois (2026), arXiv:2611.14408, Introduction and Sections 3–4; Ma–Palmigiano–Sadrzadeh (2014), Section 6.3 and Lemma 35; and the two published Box Excluded Middle correspondence records dated 2026-10-12 and 2026-10-18. The exact condition is relative to the specified intuitionistic future-world necessity semantics. It is not a new completeness theorem and is not claimed to classify all alternative announcement or modality semantics. Computational checks are finite; the infinite case is symbolic. Earlier unindexed equivalent frame correspondence results remain a residual priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This pinpoints exactly when a named reduction remains sound after removing structural hypotheses, rather than just giving a counterexample. The equivalence with a single atomic test and the strict two-world separation make the condition usable for frame analysis and distinguish it from forward confluence. The result is an all-cardinalities correspondence, not merely a finite enumeration or a claim about full eliminability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

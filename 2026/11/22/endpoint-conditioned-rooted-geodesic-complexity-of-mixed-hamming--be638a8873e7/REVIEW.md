@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The geodesic reachability order in a Cartesian product of complete graphs has the explicit coordinatewise criterion \(x\preceq_r y\) iff each coordinate of \(x\) equals the root symbol or the corresponding symbol of \(y\). Every rooted geodesic is a chain and every chain embeds in one rooted geodesic. On an endpoint geodesic, two chronological vertices are incomparable exactly when their intervening coordinate updates include a nonroot replacement or both an addition and an erasure. Counting disjoint charged segments gives the upper bound, and ordering alternating erasure/addition pairs followed by replacements attains it. Optimizing the numbers of transitions gives the mixed-factor formula for every root. Small exhaustive computations independently confirm both formulas; finite checks are supporting evidence, not the infinite proof.
+PASS
 
-## Originality — PASS (qualified)
+A rooted Hamming geodesic only activates root coordinates and keeps every activated symbol fixed. Thus reachability is x<=_r y iff every nonroot coordinate of x is the same in y, and any chain can be realized by concatenating successive activations. Dilworth gives equality of minimal rooted cover size and antichain width on the target path (overlaps in covers cause no issue, since every vertex can be assigned to one covering chain). An endpoint geodesic changes each differing coordinate once. Two vertices along it are incomparable exactly when their intervening segment has a replacement or both adding and erasing. Therefore the consecutive disjoint segments of an m-vertex antichain consume at least m-1 distinct replacements or disjoint erasure/addition pairs, bounding m by 1+h+min(e,a). A path ordering the min(e,a) disjoint pairs and then all replacements achieves this width by selecting the start and the vertex after each pair or replacement, before unused changes. This works also with no changes, yielding cover size one. Globally, h<=t and e+a<=b+t-h give h+min(e,a)<=floor((b+t+h)/2)<=t+floor(b/2). Set all t nonbinary coordinates to replacements and use disjoint erasure and addition sets of floor(b/2) binary coordinates to attain it for each root. The terminal formula concerns the maximum over geodesic orders, not each path, and the graph parameter covers one geodesic at a time, not all vertices at once.
 
-The closest published works are Chakraborty et al., ISAAC 2022, DOI 10.4230/LIPIcs.ISAAC.2022.12, and Chakraborty et al., MFCS 2023, DOI 10.4230/LIPIcs.MFCS.2023.32 / arXiv:2301.00278. The 2022 work defines the antichain parameter and proves approximation results; the 2023 work defines the rooted-path version and proves equivalence and general bounds. Their inspected texts do not give the fixed-terminal formula or mixed Hamming product law. A prior homogeneous Hamming-graph computation already determines the all-binary and all-nonbinary uniform-alphabet specializations; these are recognized as prior coverage and excluded from the new theorem's claim. Searches for equivalent formulations and mixed-factor coverage found no dominating statement. This is a best-knowledge assessment; absence from indexed sources does not establish absolute priority, and some unindexed work may remain.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem computes a natural distance-based structural parameter on all heterogeneous Hamming products, where binary and larger alphabets interact rather than behave uniformly. The terminal-conditioned refinement is stronger than a scalar formula: it gives the exact extremal cost of covering the vertices of a path between prescribed terminals, and explains both the one-per-replacement and one-per-addition/erasure-pair mechanisms. Mixed products model networks with Boolean and categorical coordinate links; the result supplies sharp certificates for their rooted shortest-path routing complexity. This is not a re-enumeration of the previously known homogeneous case.
+The rooted cover and antichain-width equivalence are established and credited, as is the general distinction between fixing a root and demanding the bound for every root. The checked primary statements do not supply the mixed-clique width or the fixed-terminal maximum. The latter gives the algebraic reason that a replacement contributes one unit and other changes contribute in pairs, rather than just recasting the standard antichain formulation.
 
-## Closest literature and limitations
+## value
 
-The original isometric path cover number (covering the entire graph by shortest paths) differs from covering each individual shortest path by paths with a common root. Results about the former do not imply the latter. A relevant later strong-isometric-path-complexity paper concerns broad structural graph classes and operators rather than an exact terminal-conditioned mixed Hamming formula. Independently indexed publication priority cannot be guaranteed. The proof does not classify every maximizing coordinate permutation or extend to Cartesian products with noncomplete factors. Finite tests cannot prove the unrestricted statement.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result evaluates a natural rooted single-path invariant exactly on a family where two types of complete-graph factors coexist. The terminal-conditioned result is stronger than a table of product values: it identifies how endpoint choices constrain the adversarial order and gives both a tight upper bound and an attaining geodesic. One can use the formula without enumerating product vertices or geodesics. This does not settle analogous questions for arbitrary Cartesian products.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

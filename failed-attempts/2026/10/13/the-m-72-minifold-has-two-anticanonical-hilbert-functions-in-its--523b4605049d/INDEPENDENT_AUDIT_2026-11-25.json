@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:34:14.970171Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With column coordinates and χ(x,y)=xᵗAy, Serre duality gives AS*=Aᵗ, and the shift by 3 gives T*=−A⁻ᵗA. The geometric-helix input is substantive: Loginov–Orlov give the periodic standard helix and state in the proof of Proposition 3.7 that the right dual of a full geometric helix also generates a geometric helix. For p>0 this kills the nonzero-degree Hom terms; for p=0 exceptionality suffices. Independent exact matrix replay from both printed matrices, without running the uploaded script, computed N=T*−I and found N⁴=0 for each. For the four right-dual terms the diagonals of ANᵏ, k=0,1,2,3, give the tuples (1,38,108,72), (1,146,432,288), (1,146,432,288), (1,38,108,72); they give (1,38,108,72) for every standard term. The binomial identity therefore proves the cubics for every integer p≥0, not just samples. Multiplying the resulting series by (1−t)^4 gives the displayed numerators (1,35,35,1) and (1,143,143,1). Both functions equal 1 at p=0; the claim is two distinct functions. Reviewed frozen RESULT.md lines 85–150, VERIFICATION.md, verify.py and VERIFY.txt; the matrix replay verifies pairings and does not replace the geometric-helix input.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eq. (2.6) gives all binomial coefficients as Euler pairings for powers of T*−I; Eq. (3.2) determines T* from the Euler matrix",
+          "Proposition 3.7 proof explicitly invokes a geometric helix for the right dual"
+        ],
+        "reasoning": "The assertion of degree three alone would not cover coefficient variation. It is the broader exact formula plus the vanishing, not degree invariance, that specializes to every claimed Hilbert function.",
+        "searches": [
+          "arXiv:2609.39766v1 Proposition 2.8 and Eq. (2.6); Eqs. (3.2)–(3.3); Proposition 3.7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.39766v1",
+        "Resultary polynomial, numerator and M72 queries; distinct record --0f58763262cf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "(2.6) specializes to hᵢ(p)=Σₖ binom(p,k) (A(T*−I)ᵏ)ᵢᵢ, with k=0,1,2,3",
+          "p. 39 gives exactly the right-dual A used here"
+        ],
+        "reasoning": "Substitution of those 4×4 matrices yields the two coefficient tuples by prescribed matrix arithmetic. Expansion and summing cubics yields the series; comparing the k=3 entries yields the ratio four. Neither the numerical output nor its example of noninvariance requires extending the prior theorem, determining new input data, or proving new vanishing.",
+        "searches": [
+          "arXiv:2609.39766v1 §7.2 (specified input) and §§2.2, 3.1–3.2 (exact formulas and vanishing)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Loginov–Orlov §7.2 prints the first polynomial for P₀; the exact middle cubic and its rational numerator were not found verbatim in the compared sources"
+        ],
+        "reasoning": "The binomial coefficients, cubics and rational Hilbert series specify the same two functions. The absence of the middle cubic verbatim does not avoid coverage by the exact matrix formula.",
+        "searches": [
+          "Resultary: 48p³+72p²+26p+1",
+          "Resultary: 1+143t+143t²+t³",
+          "Resultary: M72 right-dual Hilbert function and object dependence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "§7.2 displays both exact input matrices and the standard P₀ invariant",
+          "Distinct Resultary SCOPE-euler-degree-is-the-torsion-order-of-the-numerical-serre-coxeter--0f58763262cf, Finding, studies torsion of coker(T−I) in mutation classes including degree 72"
+        ],
+        "reasoning": "The nearest indexed claim concerns Smith groups, not the same arithmetic invariant; sharing T and the degree-72 class is not equivalence. The paper's two exact matrices are not a Hilbert table, but are all the numerical data needed by its own closed formula.",
+        "searches": [
+          "Resultary: M72 Hilbert polynomial, right-dual Euler matrix, 143 numerator",
+          "arXiv:2609.39766v1 §7.2 p. 39"
+        ]
+      },
+      "rationale": "The right-dual cubics are not printed verbatim, but the same primary paper gives this exact right-dual matrix, the geometric-helix input and an exact general Hilbert-function formula, including how to form its matrix coefficients. The frozen result is the direct finite evaluation of those published results on their published example, rather than a new invariant requiring a further mathematical argument. This is implication coverage, not a claim that the authors tabulated the two right-dual cubics.",
+      "residual_risks": [
+        "Bounded search does not establish whether the expanded cubics appeared elsewhere verbatim; the implication-coverage decision does not require that.",
+        "The statement and replay are limited to these two collections and do not identify the anticanonical graded algebras."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the right-dual calculation by direct specialization; the expressed degree invariance is a separate result.",
+          "evidence": "The proof of Proposition 3.7 says the right dual also generates a geometric helix; §7.2 explicitly displays both matrices and computes the P₀ polynomial from the second Veronese algebra.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.39766v1",
+          "material_read": "Proposition 2.8 and (2.6), pp. 13–14 (offset 46100 onward); §§3.1–3.2 Eqs. (3.2)–(3.3) and proof of Proposition 3.7 (offset 72350 onward); §7.2 pp. 38–39 (offset 132200 onward)",
+          "method": "Matched the input matrices and checked specialization of the exact formula and dual geometric-helix passage.",
+          "title": "Non-commutative Fano varieties and three-dimensional minifolds",
+          "trigger": "Exact minifold, collections, and general anticanonical Hilbert-function formula"
+        },
+        {
+          "assessment": "Shares numerical Serre data but does not compute the same Hilbert functions.",
+          "evidence": "The invariant is torsion of coker(T−I), rather than the diagonal Euler pairings with powers of T−I.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-euler-degree-is-the-torsion-order-of-the-numerical-serre-coxeter--0f58763262cf",
+          "material_read": "Local-mirror RESULT.md, finding on torsion and Smith groups",
+          "method": "Compared which matrix invariant and which categorical conclusion it gives.",
+          "title": "Euler degree is the torsion order of the numerical Serre–Coxeter cokernel",
+          "trigger": "Closest distinct indexed overlap in the same mutation classes"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The distinction between Hilbert dimension and the full Hilbert polynomial is meaningful, but this exact narrow example is mechanically determined by already published matrices and the authors' explicit Hilbert-function formula. The record evaluates and compares those outputs; it does not supply a further obstruction, general criterion, or mathematically new input that would make the calculation an independently valuable exact finding under the stated standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

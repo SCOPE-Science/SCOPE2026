@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:52:36.590693Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–71; VERIFICATION.md and verify_loday_angles.py inspected, not executed.",
+        "Independent bounded replay: python3 /tmp/opencode/review-loday-5.py used noncrossing polygon diagonals and matched signed rational squared-cosine multiplicities for n=3 through 16."
+      ],
+      "rationale": "With the stipulated Loday embedding and known path-tubing face lattice, each ridge is exactly a pair of nested or disjoint separated proper intervals. Using [p,q]↦(p−1,q+1) gives the equivalent test of noncrossing diagonals of an (n+2)-gon. Projection of the facet normal to the sum-zero tangent space gives its signed cosine (n|I∩J|−|I||J|)/sqrt(|I||J|(n−|I|)(n−|J|)). Nested pairs have positive outward cosine and hence obtuse interior angle; disjoint pairs have the opposite signs. The complementary length substitution c=n−b exchanges the angle supports, not the multiplicities. Place the outer interval and then the inner interval to recover (n−b+1)(b−a+1); for two intervals in left-to-right order the positive separation gap gives binom(n−a−c+1,2). Independently, the acute total is the number of four distinct cuts from n+1; the total ridge count is binom((n+2)(n−1)/2,2)−binom(n+2,4), subtracting one crossing for each four polygon vertices. These give all stated totals and the precise deficit. A uniform acute ridge is a uniform distinct cut quadruple. For the nested branch, only O(n³) pairs share a cut, and only O(n²) quadruples would use the forbidden full outer interval. Scaling by n yields uniform continuous order statistics and the five spacings. Substitution gives both displayed laws, with the two branches asymptotically equally likely and denominators positive almost surely. The Dirichlet vector is on the intrinsic four-dimensional simplex in five coordinates (the phrase ‘five-dimensional simplex’ is imprecise); the open angle ranges are probability-one ranges, not claims that the topological supports omit their endpoints.",
+      "residual_risks": [
+        "The replay is finite and does not certify convergence. The supplied NumPy script tracks cosine levels as sets and branch totals, not every aggregated per-angle frequency independently; the independent replay does compare the per-angle multiset."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The survey supplies both the fixed realization and nested/disjoint-nonadjacent compatibility; the normal fan provides directions of individual facets.",
+          "The non-equivalent-realizations paper compares families via polyhedral and fan structure; Rost gives a low-dimensional projection, not a census."
+        ],
+        "reasoning": "The general results supply the incidence and directions from which the dot products are derived. They do not supply the incidence distribution of the signed cosines or the two spacing regimes. Affine equivalence does not preserve angles.",
+        "searches": [
+          "Celebrating Loday’s associahedron, interval facet realization and graph-associahedron tubing and fan descriptions",
+          "Many non-equivalent realizations of the associahedron",
+          "Rost Loday projection examples"
+        ]
+      },
+      "checked_sources": [
+        "Resultary cyclohedron and Loday edge spectra; Loday; Pilaud–Santos–Ziegler; Ceballos–Santos–Ziegler; Rost."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Loday §2.10 computes Euclidean edge increments. In the target, the nested and separated placement counts determine different conditional sampling weights; four distinct path cuts yield five spacings, with a different map into the angle for each branch."
+        ],
+        "reasoning": "Counting the individual normal pairs by path placement and identifying their asymptotic sampling law is a separate derivation, not a specialization or reindexing of the prior metric spectra.",
+        "searches": [
+          "Loday §2.10, Pilaud–Santos–Ziegler pp. 2, 5, 19; Resultary cyclohedron and Loday edge laws"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct same-day cyclohedron Finding has both corresponding angle formulas; its building set uses cyclic tubes, not path intervals, and the two limit weights are 1/3 and 2/3 rather than halves.",
+          "The 2026-11-17 Loday Euclidean edge spectrum record uses the same embedding but treats edges and a length-weighted Dirichlet law, not facets meeting in ridges."
+        ],
+        "reasoning": "Changing the leaf versus coordinate index, or rewriting the formula using projected indicator normals, does not turn edge lengths or cyclic-tube ridges into this path-ridge census.",
+        "searches": [
+          "Resultary: Loday Euclidean spectrum, ridge dihedral angles, Dirichlet spacings, cyclohedra",
+          "Loday arXiv:math/0212126; Pilaud–Santos–Ziegler arXiv:2305.08471"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The close edge-spectrum result enumerates another geometric statistic; the cyclic analog enumerates a different family, with a four-spacing limit. Survey uses of ‘dihedral’ are combinatorial symmetries, not a Euclidean angle table."
+        ],
+        "reasoning": "No matching exact path-ridge angle table was substantiated. The known face count alone cannot identify the multiset.",
+        "searches": [
+          "Resultary Loday exact Euclidean edge spectrum and simplex-sum cyclohedron ridge-angle Findings",
+          "Primary Loday and survey passages located for dihedral terminology and metric formulas"
+        ]
+      },
+      "rationale": "The facet geometry and pairwise normal formula are standard ingredients and the all-ridge count is a standard face count. The distinct contribution is the complete signed angle multiset with its branch-resolved multiplicities and the limiting distribution for uniform ridges of this Euclidean embedding. The cyclohedron near match has the same individual angle formulas but different multiplicities and a different limiting law.",
+      "residual_risks": [
+        "A result under a different embedding or interval convention requires an isometry and statistic-level comparison. Searches and passages are bounded, and same-day dating does not determine priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact angle-formula overlap for respective lengths, not multiplicities or law",
+          "evidence": [
+            "Cyclic tubing and four spacings; limiting acute weight 1/3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-acute-obtuse-reflection-dominance-and-a-dirichlet-ridge-angle-la--70b940e73d55",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Acute–obtuse reflection dominance and a Dirichlet ridge-angle law for simplex-sum cyclohedra",
+          "trigger": "Same-day structural near match with identical angular formulas"
+        },
+        {
+          "assessment": "Distinct edge-length statistic and sampling measure",
+          "evidence": [
+            "Length-weighted Dirichlet(1/2,1/2,1/2) limit; not uniform ridge sampling."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-euclidean-edge-spectrum-and-a-dirichlet-length-condensatio--f3adcce77e2f",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact Euclidean edge spectrum and a Dirichlet length-condensation law for Loday associahedra",
+          "trigger": "Closest same-embedding metric census"
+        },
+        {
+          "assessment": "Covers facet and incidence background",
+          "evidence": [
+            "Interval facets, binary-tree coordinates and normal fan; tubes coexist when nested or disjoint nonadjacent."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2305.08471",
+          "material_read": "PDF pp. 2, 5, 19; offsets 7350, 23591, 88144",
+          "method": "OA full-text passages",
+          "title": "Celebrating Loday’s associahedron",
+          "trigger": "Same realization and general path-tubing normal fan"
+        },
+        {
+          "assessment": "Euclidean edge formula, not dihedral ridges",
+          "evidence": [
+            "For a covering move, edge length is sqrt(2) a_i b_j."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0212126",
+          "material_read": "§2.10, PDF p. 11 (OA offset 137400)",
+          "method": "OA full-text passage",
+          "title": "Realization of the Stasheff polytope",
+          "trigger": "Original realization and metric calculations"
+        },
+        {
+          "assessment": "Compares families and normal fans; inspected dihedral passages concern symmetries",
+          "evidence": [
+            "Does not identify Euclidean ridge frequencies in the inspected material."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1109.5544",
+          "material_read": "Abstract, PDF p. 1, offset 0; bounded dihedral-term lookup",
+          "method": "OA full-text passages",
+          "title": "Many non-equivalent realizations of the associahedron",
+          "trigger": "Plausible realization-level metric comparison"
+        },
+        {
+          "assessment": "Orthogonal projection illustration, not an all-n table",
+          "evidence": [
+            "Three-dimensional projection of a Loday realization."
+          ],
+          "identifier_or_url": "https://www.math.uni-bielefeld.de/~rost/associahedron-loday-projections/assoc-L3O.html",
+          "material_read": "Projection page offsets 14–928",
+          "method": "OA web page",
+          "title": "The Loday realization of the associahedron (projections)",
+          "trigger": "Low-dimensional metric visualization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–36 and 64–71; cyclic and edge-spectrum comparisons above."
+      ],
+      "rationale": "The full multiset gives quantitative shape information not encoded by the combinatorial type or an edge census. The reflected support with unequal incidence and the explicit branch-resolved weak limit specify which angular deviations occur and how often for a natural ridge sampling rule.",
+      "residual_risks": [
+        "Value is realization-specific and does not assert the same law for arbitrary affine images or size-weighted ridges."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

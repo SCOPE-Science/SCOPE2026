@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:44:34.635934Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Steps 1–3, CHECK.py (static only), CHECK_OUTPUT.txt",
+        "/workspace/branches/ee8a28c9-c596-4872-b566-07839191f1ac/cycle_vertex_repro.py"
+      ],
+      "rationale": "In H_n the only dependence of the oriented roots is their sum, so the polar is the zero-sum cube section. At a polar vertex at most one coordinate is unsaturated. The sign sum forces precisely one zero at odd n and balanced saturated signs at even n. The odd facets are simplices; at even n the sole dependence yields coincident barycenters of the two equal-size vertex blocks and complementary directions, giving the centered free sum. Independently, in the free-sum model let a=−p min x and b=−q min y; the gauge is a+b and slack is s=1−a−b. Shifting toward a block vertex gives exactly t≤x_k−min x+s/p (or the y version), since the other coordinate inequalities only become easier. The block ranges are at least a/(p−1), b/(q−1). At least one is ≥(1−s)/d where d=p+q−2. Since p,q≤d, adding the appropriate slack term gives coverage at t=1/d. The one-minimum/equal-other-coordinates witness has both ranges 1/d and s=0, excluding every greater t<1; t=1 excludes it because it is not a vertex. A supporting functional shows face inheritance for t in (0,1), and every covering translate at the proposed t≤1/2 contains the center of P_n, giving radial extension from the covered boundary. This also handles n=3,4. Scaling the equality by 1/t gives c=1/t−1. The u_i versus ν_i notation mismatch in the free-sum model is evident from context and has no mathematical effect.",
+      "residual_risks": [
+        "Replay with python3 /workspace/branches/ee8a28c9-c596-4872-b566-07839191f1ac/cycle_vertex_repro.py. Bounded checks gave facet counts 6,6,30,20,140,70,630,252 at n=3,...,10 and checked complementary even-facet ranks and common barycenters. For Q_(2,3) an exact witness is covered at 1/3 and not at 10003/30000. The all-size cover and obstruction rest on the proof; uploaded code was not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Remark 5.2: if −P⊆(d−1)P in dimension d then the whole polytope is 1/d-vertex generated, using that facets are 1/d-vertex generated. Lemma 2.2 transfers coverage to faces. The centered simplex identity −u_i=∑_(j≠i) u_j verifies the inclusion for the free sum directly. Meyer's recent finiteness criteria are not needed for this exact deduction."
+        ],
+        "reasoning": "This is a direct application of the explicit sufficient condition for the sharp lower bound; a simplex facet makes it sharp by the same prior paper. The asymmetric remark, not just the symmetric boundary lemma, covers even-cycle facets.",
+        "searches": [
+          "arXiv:2407.20604, pp. 4 and 12, Lemmas 2.2, 5.1, and Remark 5.2",
+          "arXiv:2610.26744, Theorems 1.1–1.3",
+          "arXiv:2107.12315, §4"
+        ]
+      },
+      "checked_sources": [
+        "Artstein-Avidan–Falah–Slomka, Remark 5.2 and Lemmas 2.2, 5.1",
+        "Chen–Davis–Korchevskaia, §4; Meyer, Theorems 1.1–1.3",
+        "Local Resultary searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known odd cycle facets are simplices; the balanced even sign patterns have the unique equal-barycenter circuit. In the even facet model −P⊆(d−1)P, and omitting one vertex in each block gives a simplex facet, so λ=1/d without a new covering estimate. The centrally symmetric cycle polytope has a threshold equal to its worst facet threshold by the cited prior lemmas in their applicable interval."
+        ],
+        "reasoning": "The odd weight is 1/(n−1) by simplex facets; for the even facets d=n−2, so the prior implication gives 1/(n−2). Both then lift. The free-sum calculation and the two parity cases are covered by this chain even if not printed in the prior sources as named corollaries.",
+        "searches": [
+          "arXiv:2407.20604 Remark 5.2 and Lemmas 2.2, 5.1",
+          "arXiv:2107.12315 §4, previous cycle facet classification and face-subgraph dependence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The vertex ratio and Schneider index are equivalent by c(V)=1/λ−1. The prior result is in the vertex-generation normalization, so neither the alternate affine covering terminology nor the Schneider conversion changes coverage."
+        ],
+        "reasoning": "The numerical Schneider corollary is entirely determined by the prior normalized covering result once the same family is identified.",
+        "searches": [
+          "cycle symmetric edge polytope vertex generation Schneider non-convexity convexification index even odd cycle free sum two simplices vertex generated polytopes",
+          "Resultary: vertex-generation weight Schneider index symmetric edge polytope cycle facets centered free sum simplices",
+          "arXiv:2407.20604, Definition 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching search hit was the frozen Resultary record. Related index hits on shifted Ehrhart data, weighted-cycle facet structure and Minkowski decomposition treat different quantities. The checked facet papers provide sign/facet information rather than a table of λ."
+        ],
+        "reasoning": "An earlier matching numerical table was not identified and is unnecessary: a stronger prior theorem with a direct application already supplies coverage.",
+        "searches": [
+          "Resultary: vertex-generation weight Schneider index symmetric edge polytope cycle facets centered free sum simplices",
+          "cycle symmetric edge polytope Schneider non-convexity convexification index even odd cycle"
+        ]
+      },
+      "rationale": "The result is correct but the threshold for the auxiliary free sum, and therefore the cycle law, follow directly from a stronger published covering criterion that the dossier overlooked: Artstein-Avidan–Falah–Slomka Remark 5.2, immediately after Lemma 5.1. For P=Q_(p,q) of dimension d=p+q−2, each negative simplex vertex belongs to (p−1) times its own centered simplex (respectively q−1), since its negative is the sum of the remaining vertices. Thus −P⊆(d−1)P, and the prior criterion yields λ(P)≥1/d. To get equality, expose all but one vertex from each simplex by a functional equal to 1 on those vertices and to −(p−1), respectively −(q−1), on the omitted ones. The d exposed vertices are linearly independent in the complementary blocks (each proper subset of centered simplex vertices is linearly independent), giving a simplex facet with λ=1/d. Prior Lemma 2.2 forces the reverse inequality. Substituting this into the known cycle facet structure and applying the same paper's Lemmas 2.2 and 5.1 gives the whole frozen result. An exact pointwise gauge proof is an alternative verification of this application, not evidence that the thresholds were outside the prior theorem's coverage.",
+      "residual_risks": [
+        "This is a finding of coverage by implication, not a claim that the prior literature printed the exact cycle expression or that a historical first statement was identified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive mathematical coverage of the free-sum and global thresholds",
+          "evidence": [
+            "Remark 5.2 says it suffices for the radial argument that −λP⊆(1−λ)P, and explicitly concludes 1/d-vertex generation from −P⊆(d−1)P.",
+            "Lemma 2.2 preserves generation on a face; Lemma 5.1 lifts boundary coverage for centrally symmetric P."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.20604",
+          "material_read": "Definition context, Lemma 2.2 and proof (p. 4), Lemma 5.1 and Remark 5.2 (p. 12)",
+          "method": "Primary PDF text and direct substitution into the sufficient condition; tested sharpness via a simplex facet",
+          "title": "Vertex generated polytopes",
+          "trigger": "Plausible stronger covering criterion under the same normalization"
+        },
+        {
+          "assessment": "Establishes antecedents for the facet structure, not needed as a source for the covering criterion",
+          "evidence": [
+            "The discussion notes earlier explicit descriptions of cycle facets and relates face/facet subgraphs to bipartite subgraphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2107.12315",
+          "material_read": "§4 introduction and face/facet subgraph discussion around open-text offset 13000–20974",
+          "method": "Compared the prior cycle facet context against the directly reconstructed polar sign characterization",
+          "title": "Facets and facet subgraphs of symmetric edge polytopes",
+          "trigger": "Prior facet geometry for the same graph polytope"
+        },
+        {
+          "assessment": "The inspected main statements characterize finiteness, whereas the direct sharp implication comes from the earlier asymmetry remark",
+          "evidence": [
+            "Theorem 1.1 concerns finiteness of c^(K)(A) via uniform face radii; Theorem 1.3 treats finiteness for polytope inputs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.26744",
+          "material_read": "Abstract and Theorems 1.1–1.3; selected proof passages on exposed-face coverings",
+          "method": "Checked earlier paper's conclusions against the exact threshold, not just its title",
+          "title": "Finite convexification by Minkowski summation",
+          "trigger": "Recent plausible broader convexification result flagged inaccessible in the frozen dossier"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen theorem and free-sum lemma; prior Remark 5.2 and face inheritance"
+      ],
+      "rationale": "The invariant is natural and the parity effect pedagogically useful, but all stated sharp thresholds are mechanically implied by the known facet and asymmetry criteria. The explicit centered-simplex gauge substitution is routine and is not developed into a separately useful new theorem beyond those thresholds. Thus the frozen package does not establish a new exact invariant or substantial surviving claim.",
+      "residual_risks": [
+        "This does not rule out other interesting vertex-covering refinements for cycles or noncentered free sums; none is claimed here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

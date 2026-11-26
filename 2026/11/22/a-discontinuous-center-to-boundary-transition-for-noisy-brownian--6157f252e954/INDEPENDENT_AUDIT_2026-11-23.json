@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:37:28.563735Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the Gaussian gain using C(s)=(1-q)s-(s-t)_+^2/(2h)+(s-t-h)_+^2/(2h), q=t+h/2. Split integration recovers V=(3-2h)/12-z and I=(5-5h^2+2h^3)/240+(h^2-2)z/12+z^2/3 for z=(q-1/2)^2. The derivative numerator for I/(M-z) increases strictly since H'=2(M-z)/3>0. Thus interior displacements cannot tie either maximizing endpoint; the two distinct reflected boundary starts correspond to the same far endpoint in z. Clearing the positive endpoint denominators gives the stated bracket h(35h-14h^2-20)-60η(1+2h-2h^2). This establishes all strict regimes including h=h_c with positive noise, as well as the three-way tie. Exact substitution gives 779/87600 and both printed rational gains. Read the frozen result and all supporting files, including verify.py (symbolic checks and direct-kernel quadratures, not executed). The replay for the mathematical result is the piecewise covariance, polynomial integration, and sign test above, not the finite sample of quadratures. No claim for h=0, h=1, other window profiles or adaptive sensors.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Purdue dissertation catalog specifies finitely many point observations and BLUE reconstruction at unsampled points.",
+          "The 1996 Optimal designs for approximating the path of a stochastic process abstract gives L2 path projection from centered process point values."
+        ],
+        "reasoning": "These are close on target, but neither inspected statement covers a single noisy box-functional. Gaussian trace optimization formulates the score; the special polynomial and the comparison on the full feasible interval still have to be established.",
+        "searches": [
+          "Web: Mukherjee optimal designs estimating path of a stochastic process Brownian bridge integrated mean squared error interval average observation optimal design exposure window",
+          "arXiv:1604.05375, Section 2"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1604.05375",
+        "https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+        "https://www.sciencedirect.com/science/article/pii/0378375895000178",
+        "https://arxiv.org/pdf/2210.15959 (indexed statement)",
+        "Resultary f8539d0767e8, e704fde78f2f, 41e0234034fd and 6157f252e954 (indexed statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (10) optimizes an integrated covariance quadratic form for a fixed number of point locations.",
+          "The finite-exposure Brownian-motion record e704fde78f2f has an unpinned terminal end and reports an interior-to-terminal transition; f8539d0767e8 reports endpoint-to-interior behavior for a scalar signed moment of a bridge."
+        ],
+        "reasoning": "Neither discretizing an average by many points nor replacing the kernel or loss transfers exact optimizer identities or the exact equality case. The quartic covariance norm and increasing derivative numerator are the essential additional computations.",
+        "searches": [
+          "arXiv:1604.05375, eqs. (1), (6), (10)",
+          "Resultary window-placement results f8539d0767e8 and e704fde78f2f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ji–Müller §2 uses the integrated prediction criterion; the sensor model in (1) is point evaluation plus noise.",
+          "Resultary f8539d0767e8 uses the same moving footprint but recovers a signed first polynomial moment."
+        ],
+        "reasoning": "Averaging over a physical window changes the covariance profile, and the trace over all path coordinates is not a single scalar moment loss. The two gain numerators integrate different quantities and need not order windows in the same way.",
+        "searches": [
+          "Web: Brownian bridge integrated posterior variance optimal interval average window location noisy fixed width design center boundary linear functional sampling Ji Müller Mukherjee",
+          "Resultary: Brownian bridge noisy fixed-width interval average integrated posterior path variance centered versus boundary window"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact phase law surfaced as the audited record itself, 6157f252e954; related hits included f8539d0767e8 and 41e0234034fd, with a different target or a two-point sensor family.",
+          "The surfaced Brownian Bridge kernel interpolation article concerns placement of interpolation points, not an exact fixed-window noise boundary."
+        ],
+        "reasoning": "No independent exact table or equivalent boundary was identified in these results. A self-hit is not corroboration or evidence of earlier priority.",
+        "searches": [
+          "Resultary: Brownian bridge noisy fixed-width interval average integrated posterior path variance centered versus boundary window",
+          "Web: Brownian bridge integrated posterior variance optimal interval average window location noisy fixed width design center boundary linear functional sampling Ji Müller Mukherjee"
+        ]
+      },
+      "rationale": "The inspected statements furnish the Gaussian criterion or solve point-sampling and scalar-moment problems; they do not give the placement phase diagram for this window sensor and trace loss. This is an evidence-qualified assessment, not a priority certificate.",
+      "residual_risks": [
+        "Only catalog/abstract evidence for older path-design work; no whole-dissertation exclusion.",
+        "Indexed related records do not rule out other statements in their full text; unindexed functional-sensor work can affect priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covariance machinery applies in spirit; the point-location theorem is not a window placement theorem",
+          "evidence": [
+            "Equation (1) uses X(t_j)+e_j; (6) is integrated squared recovery error; (10) uses the point covariance vector."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1604.05375",
+          "material_read": "Primary PDF abstract, observation model and Section 2 through equation (10)",
+          "method": "Read extracted primary PDF text",
+          "title": "Optimal Designs for Longitudinal and Functional Data",
+          "trigger": "Same integrated trajectory prediction loss"
+        },
+        {
+          "assessment": "Point observations in exposed statement; other dissertation material not ruled out",
+          "evidence": [
+            "The sample is at finitely many design points and used to predict unsampled process values."
+          ],
+          "identifier_or_url": "https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+          "material_read": "Public abstract returned in targeted search only",
+          "method": "Catalog abstract comparison",
+          "title": "Optimal designs for estimating the path of a stochastic process",
+          "trigger": "Historical trajectory design for Brownian priors"
+        },
+        {
+          "assessment": "The indexed result addresses a different loss; no whole-document exclusion",
+          "evidence": [
+            "The target is the signed first polynomial moment; the interior solutions occur in reflected pairs."
+          ],
+          "identifier_or_url": "Resultary f8539d0767e8",
+          "material_read": "Indexed scientific statement only; raw full-text retrieval unavailable",
+          "method": "Resultary search and attempted lawful primary retrieval",
+          "title": "An exact noise-driven footprint transition for Brownian-bridge moment sensing",
+          "trigger": "Identical sensing family and bridge kernel"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "One fixed exposure and integrated recovery error are natural restrictions. The theorem excludes continuously departing asymmetric optimizers and distinguishes a genuine jump and exact three-way tie from an intuition based on reflection symmetry. The guarantee is structural across the full width/noise domain; small absolute gain in some regimes does not establish practical superiority.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

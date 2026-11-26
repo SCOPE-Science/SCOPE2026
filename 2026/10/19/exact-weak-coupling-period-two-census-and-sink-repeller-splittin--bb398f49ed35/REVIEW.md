@@ -1,19 +1,21 @@
-# Scientific review: weak-coupling period-two cycles in a memristive Lozi map
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full-space period-two recurrence forces opposite signed inputs; since \(b>0\) and \(k<1\), the two corresponding first coordinates have opposite signs. The resulting exact algebraic elimination gives the only possible cycles \((-t,t,z)\leftrightarrow(1,-t,z+t)\). Each sine-phase solution has one and only one positive amplitude because the scalar derivative has the global positive lower bound \((1-3k)/(1-k)\). This proves the complete \(0,1,2\) phase-quotient census. The two-step Jacobian's symbolic first-order coefficients prove the sink/repeller split for sufficiently small \(k>0\) at \(b=1\). The packaged checker passed 640 supplementary symbolic and numerical assertions. Neither numerical sampling nor this self-review substitutes for independent validation.
+PASS
 
-## Originality — PASS, subject to priority uncertainty
+In real phase space the return equation forces opposite y coordinates; zero would force both x coordinates to vanish and contradict the first recurrence. Ordering by positive y=t makes x_0<0<x_1 for k<1, and the two linear x equations at a=1 give x_0=-t and x_1=1. The remaining recurrences are exactly the two displayed scalar equations, both necessary and sufficient. Within the sine wedge the amplitude can only lie in [b/(1+k), b/(1-k)]; on [0,b/(1-k)] the derivative of t(1+k sin(z+t)) is at least (1-3k)/(1-k)>0 and the endpoint values bracket b. This exhausts the real orbits modulo simultaneous translation, including the one-phase wedge edges. The fixed-point equations are inconsistent. At b=1 the simple unperturbed roots are 1 and exp(±iπ/3). Taking the eigenvalue derivative and using the product determinant gives slopes 2 cos z and (sin 1+cos 1-1)cos z/2 for the real root and conjugate-pair modulus, respectively, so the claimed hyperbolic types and their local continuation follow. Independent Jacobian recomputation agrees; at k=0.01 the return moduli were about (0.979720,0.998211,0.998211) at π and (1.002020,1.002020,1.019727) at zero. The frozen verifier was inspected, not executed; the finite sample does not prove the parameter theorem.
 
-The closest work is Wang–Gu–Rong–Xu–Zhang, *Mathematics* 10 (2022), 3426, DOI 10.3390/math10193426: it defines the same three-dimensional map, proves no fixed point, and presents numerical period and attractor diagrams. Its reviewed sections do not contain the low-gain exact period-two phase wedge, unique-amplitude theorem, or two separate three-dimensional Floquet stability types. The later Lozi survey, *Algorithms* 16 (2023), 491, DOI 10.3390/a16100491, reproduces the map and numerical observations without a corresponding classification in the inspected passages. Similarity and bibliographic searches did not identify an implying result. An unindexed mathematical antecedent remains possible, and not every related full article was inspectable.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first primitive period in a map with no equilibria is naturally motivated by numerical hidden periodic attractors. The exact parameter census replaces sample-based diagrams with an all-orbit theorem, while the coexistence of one hyperbolic sink and one hyperbolic repeller gives a concrete, genuinely three-dimensional stability distinction at identical parameter values. This is more substantive than recomputing a known sample cycle.
+The same map and absence of fixed points are known; the exhaustive low-gain phase and amplitude classification and the opposite hyperbolic types are not established by the closest inspected assertions. No equivalent claim was established in the bounded comparison.
 
-## Limitations
+## value
 
-Only \(a=1\), \(b>0\), and \(0<k<1/3\) are fully counted. The stability dichotomy holds for sufficiently small positive coupling near the central line, and neither all longer periods nor all attractors are classified. Uniform high-gain behavior, optimality of the technical \(1/3\) bound and exhaustive priority are not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact census distinguishes no orbit, the wedge-edge orbit, and two interior orbits globally, independent of any choice of numerical basin. A repelling cycle can evade ordinary forward simulations; showing its robust coexistence with a sink in this fixed-point-free map gives additional dynamical information. The wedge is valid on the stated low-gain range, while stability is only local in parameter near sufficiently small central-line gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:28:00.527293Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For consistent data the entire solution set is the intersection of an open box with the affine system c_j f_e + Q_ej d_j = 1. Use differences of any two solutions and set z_e=Δf_e, z_j=−Δd_j: each edge gives z_e=(Q_ej/c_j)z_j. In a component, all values are determined by one root value using nonzero edge multipliers. On a cycle the multiplier is exactly H_C, so any nonunit gain forces all differences to zero. Conversely if all simple cycles have unit gain, all non-tree edge constraints hold for any propagated root value, by the fundamental cycles; an isolated epoch or band contributes a free coordinate as well. Thus the kernel dimension is exactly the number of components having no nonunit cycle, including isolated vertices. Strict inequalities permit small nonzero perturbations in any kernel direction. For fixed contrasts, a monochromatic cycle telescopes. In a mixed simple cycle choose an epoch between two differently contrasted consecutive bands. Setting all other epochs to f0 and varying that epoch alone to f0+s gives an H_C with two factors whose ratio is 1 at s=0 but not for s≠0: the two slopes c/(1−cf0) differ. Hence each selected mixed cycle supplies a nonzero polynomial after clearing positive denominators; taking one per component and the product proves the generic result. This handles repeated labels, including differently labeled monochromatic cycles connected only at an articulation. Any successful component needs a cycle and at least as many edges as vertices, and the mixed K2,2 with pendant attachments is a spanning unicyclic witness with exactly the lower-bound count. Deleting any edge leaves a forest; a singleton side cannot support any cycle. Recomputed Q=(95/2,45,34,28) and H=153/133 for the witness; in the four-cycle the root denominator r1−r2 has numerator (c2−c1)(f2−f1) over the positive product (1−c1f1)(1−c2f1). Independent replay `python3 /workspace/reviews/1-check.py`: exact Fraction elimination versus directly enumerated cycles for all 512 masks of K3,3 under each of nine coverage/contrast regimes (4608 cases), three disconnected two-component observations, and the rational witness. Correctness rests on the algebra, not finite enumeration. No identifiability for out-of-model data, boundary parameters, or noisy conditioning is certified. Frozen script inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General gain-graph balance and canonical-frame theory works for arbitrary nonzero edge gains; thus part (i) uses a direct specialization, not a stronger conclusion about gain graphs. Ling–Strohmer's repeated sensing, diverse-input and snapshot models use a shared diagonal calibration and establish recovery/stability under other sensing hypotheses."
+        ],
+        "reasoning": "The general gain model allows nonunit holonomy on an otherwise monochromatic pattern and does not impose any contrast labels or tied epoch parameters; genericity over independent gains would give the wrong graph-only test on these data. Nominal inclusion in a general bilinear inverse family similarly does not imply applicability of its sensing theorems. Unavailable searches establish no noncoverage.",
+        "searches": [
+          "Zaslavsky Lectures on Gain Graphs and Hyperplane Arrangements, Lectures 0–2; arXiv:1609.05574v4 §1.1",
+          "arXiv:1611.04196v3 §1.2 and §2.1–2.2",
+          "Web: unocculted spots transit stellar contamination known contrast multi epoch identifiability spot covering fraction Planet depth exact self calibration cycle gain graph frame matroid bilinear (unavailable)",
+          "Web: known contrast time dependent transit light source effect multi epoch depth starspot filling factor exact calibration eliminate intrinsic transit depth two wavelength two epoch gain graph (unavailable)"
+        ]
+      },
+      "checked_sources": [
+        "Zaslavsky Lectures 0–2 and arXiv:1609.05574v4",
+        "arXiv:2311.16864v1, arXiv:2412.16541v1, arXiv:1611.04196v3",
+        "Resultary hits as summaries only",
+        "Frozen RESULT.md, AUDIT.json, REVIEW.md, METADATA.json, SLOGAN.txt, VERIFICATION.md, verify_chromatic_cycles.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The forward formula plus gain-graph algebra directly yields the exact observed-gain test after homogeneous reduction and openness. It also gives the edge≥vertex lower bound once uniqueness is demanded. It does not automatically select a successful design when gains have the shared physical form (1−c_j f_e)/(c_j d_j).",
+          "Every monochromatic cycle is identically balanced; for each mixed simple cycle the single varying epoch argument proves it is generically unbalanced. This identifies the constrained balance class rather than applying an assumption of generic independent edge gains.",
+          "Rathcke's ratio takes two different planets' nearly contemporaneous spectra and rescales using the reference spectrum; this does not imply a known-contrast one-target depth-only design."
+        ],
+        "reasoning": "The surviving result requires a model-specific determination of exactly which cycles are forced to balance and a construction that achieves the count under that criterion. The graph rank step and generic lower bound are not separate novelty claims.",
+        "searches": [
+          "SAGE arXiv:2311.16864v1 Eq. (3)–(4), §4.2",
+          "Rathcke arXiv:2412.16541v1 §III.2",
+          "Zaslavsky Lectures 0–2 and Funk–Pivotto–Slilaty arXiv:1609.05574v4 §1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The homogeneous equations z_e=(Q_ej/c_j)z_j are exactly two-term conditions for a multiplicative gain graph over the reals. The product around an oriented epoch–band cycle is H_C (band contrasts cancel in the ratios); unit product is balance, not a new invariant.",
+          "The Resultary query returned the frozen claim, a three-channel Planck-inversion item with unknown spot temperature and achromatic intrinsic depth, and other distinct stellar-contamination results. An indexed title or summary is not full-text evidence."
+        ],
+        "reasoning": "The equivalence to the canonical frame matrix is exact up to transposition, row/column scaling and the difference-variable sign; it covers the fixed-data rank portion. Related single-epoch/unknown-contrast claims and other physical models do not give the equal/unequal known contrast test in arbitrary sparse schedules.",
+        "searches": [
+          "Resultary: stellar contamination transit depth known contrast spot filling factor sparse identifiability chromatic cycles bipartite graph self calibration",
+          "Web: Zaslavsky gain graph canonical frame matrix rank vertices balanced components gain graph theorem biased graphs representation",
+          "arXiv:1609.05574v4 §1.1; Zaslavsky Lectures 0–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SAGE already gives the exact forward correction and tables of photometric spot retrieval parameters; those are not a table of identifying depth-only schedules. Rathcke et al. report an observed empirical correction using an anchor planet, not an observation-pattern lookup. The most similar repository items in the results use different unknowns and observing rules."
+        ],
+        "reasoning": "A close numerical or astronomical setup (e.g., a minimum number of bands for another inverse, two planets, or known contrast with extra light curves) is not an enumerated instance of the same graph observation theorem. No exact table is needed for the algebra; the comparison is limited to actually inspected material.",
+        "searches": [
+          "Resultary query above",
+          "SAGE arXiv:2311.16864v1 §2.5 and §4.2",
+          "Rathcke et al. arXiv:2412.16541v1 §III.2"
+        ]
+      },
+      "rationale": "Best of knowledge, the original contribution here is the model-specific mixed-contrast criterion on the unweighted schedule before data are taken, and the resulting sharp sparse design. The forward law, conversion of some calibration problems to linear solves, and the fixed-data unbalanced-cycle rank test as mathematics are prior art. In particular, part (i) is a direct application of two-term gain-graph rank to the difference variables and is covered as a general method; do not claim an independent new gain-graph theorem or new general inversion method. The fixed-data theorem does not identify which cycles are generically balanced when all gains obey the constrained starspot law, and it does not supply the bichromatic optimal design without that step. A future revision should explicitly credit the gain-graph equivalence beside the forward-model citation. Wider astronomical originality remains qualified.",
+      "residual_risks": [
+        "Stronger astronomical overlap outside inspected sources not ruled out; substantive astronomical web searches were unavailable.",
+        "The originality judgment is limited to the constrained contrast-label/schedule result. Fixed-data gain-graph full rank is definitely covered; attribution is recommended where this standard step is used."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior mathematical framework and rank obstruction; it does not give the contrast-label balance classification for the constrained model.",
+          "evidence": [
+            "Lecture 0 gives the two-term hyperplane model, product 1 balance and example forcing zero coordinates; Lecture 1 Proposition 13 gives forest switching; Lecture 2 Definition 14 defines the arrangement."
+          ],
+          "identifier_or_url": "https://people.math.binghamton.edu/zaslav/Tpapers/gaingraphs-lecture-notes.pdf",
+          "material_read": "Primary text of Lectures 0–2 through the two-term arrangement definitions, including the worked cycle and switching-to-a-forest discussion.",
+          "method": "Translated the epoch–band difference equations and product of edge gains into the arrangement notation.",
+          "title": "Lectures on Gain Graphs and Hyperplane Arrangements",
+          "trigger": "Identical two-term homogeneous system and nonunit cycle test."
+        },
+        {
+          "assessment": "Confirms the prior equivalence of fixed-data rank with gain-graph balance; does not treat model-restricted gains.",
+          "evidence": [
+            "§1.1 gives entries 1 and −g at the endpoints of an edge with gain g, and identifies this as the canonical frame matrix."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1609.05574v4",
+          "material_read": "Primary PDF abstract and §1.1 with matrix entries and credit to earlier Zaslavsky results.",
+          "method": "Compared rows and columns with the transpose of the epoch–band coefficient matrix after sign and scale normalization; no use of the paper's new 3-connected converse.",
+          "title": "Matrix representations of frame and lifted-graphic matroids correspond to gain functions",
+          "trigger": "General canonical frame matrix representing the same homogeneous coefficients."
+        },
+        {
+          "assessment": "Covers the forward model, including time variation; the inspected inversion conditions are different.",
+          "evidence": [
+            "Eq. (3)–(4) exactly gives d_j/(1−c_j f_e) with c_j=1−F_active/F_clear. The fixed-contrast retrieval example uses rotational TESS photometry and auxiliary modeling."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2311.16864v1",
+          "material_read": "Primary HTML abstract, §2 through §2.5, and §4.1–4.2.",
+          "method": "Matched the contrast convention and checked data inputs of the retrieval against the sparse depth-only assumptions.",
+          "title": "SAGE: A tool to constrain impacts of stellar activity on transmission spectroscopy",
+          "trigger": "Exact contamination forward law with epoch variation."
+        },
+        {
+          "assessment": "Reference-planet correction, not mixed-contrast schedule support.",
+          "evidence": [
+            "§III.2 divides two nearly contemporaneous spectra, scales with the anchor's weighted mean depth and assumes coinciding contamination."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2412.16541v1",
+          "material_read": "Primary HTML introduction, §III.1–III.2, §IV.2 and conclusions.",
+          "method": "Compared observables and assumptions underlying Fig. 3 and the ratio correction.",
+          "title": "Stellar Contamination Correction Using Back-to-Back Transits of TRAPPIST-1 b and c",
+          "trigger": "Closely related empirical epoch-based transit correction."
+        },
+        {
+          "assessment": "Prior linear inverse technique; the inspected architectures and sampling discussion do not give the mixed-contrast schedule theorem.",
+          "evidence": [
+            "Eqs. (2.1)–(2.3) describe full repeated/different input architectures, using invertible diagonal calibration in §2.2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1611.04196v3",
+          "material_read": "Primary PDF introduction, §1.2 and §2.1–2.2 setup and linearizing move.",
+          "method": "Compared its matrices, unknown scaling and input design with sparse fixed incidence and exactly known contrast.",
+          "title": "Self-Calibration and Bilinear Inverse Problems via Linear Least Squares",
+          "trigger": "Possible domination by a general self-calibration result."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A scheduler can decide generic uniqueness before seeing any depths, even with missing bands, repeated contrast labels and disconnected observation patterns. The result distinguishes separated monochromatic cycles from a genuinely mixed cycle, finds an attainable count rather than only counting unknowns, and specifies why the measurement-minimal design has no one-measurement redundancy. This is a useful exact design boundary for the stipulated model, not a new general rank theorem, a field validation, or an endorsement of using the least number of observations with noisy data.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review: exact subcritical Hopf threshold
+# Independent mathematical audit
 
-**Correctness (C) — PASS.** The fixed-point equations, full Jacobian polynomial, Routh–Hurwitz determinant, imaginary pair and crossing derivative are elementary exact identities. The nonstandard step is the cubic Hopf coefficient. The explicitly normalized adjoint eigenvectors, Hessian and inverse-matrix formula yield a strictly positive factorization for every \(b>0\). The standalone symbolic checker reconstructs the calculation. The standard nondegenerate Hopf theorem then gives two symmetry-related saddle periodic orbits on the \(k<10\) side. No global dynamics follow.
+## correctness
 
-**Originality (O) — PASS, with residual risk.** The 2022 source defines the same model and numerically varies \(k\); both facts are credited. The closest available research record proves an invariant-measure recurrence shell in this *same* flow, which has no implication for its Hopf coefficient. A second close record concerns the different Yan–Jie–Zhang field. Targeted searches under source authors, equations, exact threshold, Lyapunov coefficient and aliases did not identify the same exact theorem. The original publisher article was available in substantial indexed sections but not as a retrievable full document; unseen portions and supplementary work remain a genuine priority risk.
+PASS
 
-**Value (V) — PASS.** The numerical \(k\)-sweep of an actual hidden-attractor model contains a natural threshold where *both* source equilibria lose stability. The exact location independent of \(b\), crossing speed and provably positive cubic coefficient distinguish a local subcritical transition from a stable-cycle onset. The local saddle periodic orbits can help formulate later basin-boundary analyses, although none is proved here. This adds structural interpretation beyond a rephrased Routh inequality.
+Independently derived the Jacobian on the moving equilibrium and characteristic polynomial λ³+22λ²+b(k+2)λ/(k+1)+24b. The positive coefficients and Routh first-column signs give no right-half-plane roots below 10 and two above 10; above 10 neither a positive real root nor an imaginary pair is possible. At 10 the factors are λ+22 and λ²+12b/11, with simple roots for every b>0. Implicit differentiation with respect to k on the moving equilibrium gives the crossing b/(5324+12b). Independently recomputed the Lyapunov coefficient from the field Hessians and the resolvents by adjugates. In the replay, if ν=iω and A is the critical Jacobian, Π=(A+22I)(A+νI)/((ν+22)2ν) is the spectral projector. Normalize q=Πe_z/Π_zz; the row e_zᵀΠ then gives the correctly paired left functional with value 1 on q. This gives exactly the frozen positive formula for ℓ₁ as well as the crossing. The positive radial cubic and positive crossing give a nondegenerate subcritical branch for k<10 sufficiently close to 10 at each fixed b. The critical equilibrium itself is unstable by the repelling cubic on its center manifold. The small branch has radial expansion and contraction in the transverse direction continuing −22, in addition to the neutral orbit direction. The reflection maps the entire branch to the one near the other distinct equilibrium. No uniform k-neighborhood in b is asserted; b=0 is excluded and the critical frequency vanishes there. Replay: python review_evidence/finite_checks.py, section labelled 1, for the crossing and coefficient; local branch and Floquet claims use the Hopf theorem, not direct orbit numerics.
 
-The normal-form coefficient uses \(q_z=1\) and a declared convention; rescaling changes the numerical value but not its sign. A full-document priority comparison and independent validation remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the nonlinear exact subcritical Hopf theorem, including the uniform sign, normalized coefficient and local saddle-cycle consequence. The linear stability cutoff k=10 is already implied exactly by the original DOI's general Routh–Hurwitz criterion, not merely suggested by its numerical scan. The original and strongest same-flow recurrence comparator do not supply the nonlinear conclusion in the inspected passages. Do not count the equilibrium formula, linear criterion, or its cutoff specialization as original. One named related Physica D source remains a priority risk.
+
+## value
+
+PASS
+
+For a fixed published model the exact all-b sign distinguishes a local saddle branch on the stable-equilibrium side from supercritical stable-cycle onset or a change of Hopf criticality as b varies. That geometric information is not supplied by the known linear boundary, sweep, or coded attractor orbits. It informs local stability and future basin questions without claiming a basin boundary or chaos theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:45:19.557365Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–63",
+        "Frozen VERIFICATION.md lines 19–23 and verify.py lines 10–77, read but not executed",
+        "Independent bounded divisor scan: n=90,126,198,234,350,550,650; surpluses 54,60,72,78,44,16,2 respectively"
+      ],
+      "rationale": "Multiplicativity gives Δ=(3+3p−p²)q+3(p²+p+1). Also σ(n)/n≤(3/2)(13/9)(6/5)=13/5<3, so an omitted divisor cannot equal n. For p≥7 the negative q-coefficient and q≥p+2 give the bound −p³+4p²+12p+9, negative at 7 and strictly decreasing thereafter. For p=5, Δ=93−7q and Δ≥3 force q∈{7,11}. For p=3 the divisor split is A∪qB with A={1,2,3,6,9,18}, B={1,2,3,6,9}; for q≥17, two A terms are too small, mixed pairs are either below 3q+39 (b≤3) or above it (b≥6), and two qB terms require q|39. The q=13 boundary has no two distinct B coefficients summing to 6, and no mixed or A-only witnesses. Independently scanning the divisors d=1,…,n and testing d<Δ−d and (Δ−d)|n reproduced the unique pairs for 90,126,198,550 and no pairs for 234,350,650. The proof, not the finite scan, gives the unbounded classification.",
+      "residual_risks": [
+        "The packaged 4,371-pair regression was not rerun and is not needed for the exclusion proof.",
+        "Exactly two distinct omitted divisors and p<q are essential to the assessed statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The four-factor-layer Finding classifies the whole ω=3, Ω=4 layer as ten numbers; every 2p²q here has ω=3, Ω=4.",
+          "Both cited papers have complete theorems only for two distinct prime factors. The indexed 2pq classification requires squarefreeness and leaves this layer out."
+        ],
+        "reasoning": "Only the four-factor theorem dominates the frozen scope; no arbitrary-exponent three-prime theorem was established by the inspected literature.",
+        "searches": [
+          "Resultary four-factor layer 7d2c76c9ad9a and squarefree layer ab9cfade94ac",
+          "arXiv:2310.01305, Theorems 1–2",
+          "arXiv:2508.06651v3, abstract and §6.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary four-factor layer 7d2c76c9ad9a",
+        "Resultary squarefree three-prime layer ab9cfade94ac",
+        "arXiv:2310.01305",
+        "arXiv:2508.06651v3",
+        "OEIS A341475"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The former explicitly identifies the four 2p²q cases and attributes them to a 2p²q classification; the latter gives only 30 and 66 in form 2pq."
+        ],
+        "reasoning": "Filtering the broader classified list for exponent pattern (1,2,1) with p<q and reading the omissions is sufficient, not a new computation or bound. The attribution does not establish relative publication order.",
+        "searches": [
+          "Four-factor-layer RESULT.md, Finding and Relationship to prior work",
+          "Squarefree three-prime RESULT.md, Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 7d2c76c9ad9a displays the same four cases and unique omitted pairs for form 2p²q, with the same prime ordering and distinct omission condition."
+        ],
+        "reasoning": "The exact condition is σ(n)−2n=d₁+d₂, with unequal divisors. The four-factor result is not a merely similarly worded two-prime or squarefree theorem.",
+        "searches": [
+          "Resultary: three-prime 2-near-perfect and squarefree/squareful classifications",
+          "Primary literature: \"2-near-perfect\" \"three prime factors\" classification exponents 2p^2q",
+          "Resultary four-factor-layer RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A341475 lists all four numbers in a bounded list, and the multiprime example table gives the omitted pairs for 90 and 126. The indexed four-factor theorem supplies all four omitted pairs as part of its exhaustive result."
+        ],
+        "reasoning": "Numerical membership does not prove exclusion of other primes or uniqueness; the exhaustive layer comparison does.",
+        "searches": [
+          "OEIS A341475 sequence data, Comments and Program",
+          "arXiv:2508.06651v3 §6.2 example table",
+          "Resultary four-factor-layer Finding"
+        ]
+      },
+      "rationale": "A distinct indexed theorem classifies all 2-near-perfect integers with three distinct prime factors and four prime factors with multiplicity. Restricting its list to the repeated smaller odd prime gives exactly the four frozen values and exactly the same omissions. The records share a date; this is demonstrable statement-level coverage, not a conclusion about chronology, independent discovery or direction of dependence. The earlier examples and OEIS alone would not justify this decision.",
+      "residual_risks": [
+        "Same-day dates and the broader record's attribution do not establish which construction was obtained first.",
+        "The external search does not prove absence of another broader classification; the inspected result already establishes coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct broader coverage; priority unresolved",
+          "evidence": [
+            "Ten values for ω=3, Ω=4; 2p²q rows give 90:{9,45}, 126:{18,42}, 198:{6,66}, 550:{5,11}."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-four-factor-layer-of-three-prime-2-near-perfect-integers--7d2c76c9ad9a/RESULT.md",
+          "material_read": "Finding at offsets 0–6651 and Relationship to prior work at offset 6400 onward; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Published-record search and local mirror reading",
+          "title": "The four-factor layer of three-prime 2-near-perfect integers",
+          "trigger": "Potential exhaustive coverage for ω=3 and Ω=4"
+        },
+        {
+          "assessment": "Two-prime support only",
+          "evidence": [
+            "The relevant families are 2^k p^i with i=1 or 2; the i=2 list is 18,36,200."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2310.01305",
+          "material_read": "Abstract and Theorems 1–2, HTML offsets 0–5984",
+          "method": "Lawful arXiv full-text reading",
+          "title": "On 2-Near Perfect Numbers",
+          "trigger": "Classification with a squared odd prime"
+        },
+        {
+          "assessment": "Examples overlap; theorem scope does not",
+          "evidence": [
+            "§6.2 includes 90 and 126 with the same omissions and identifies three-distinct-prime classifications as a next problem."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2508.06651v3",
+          "material_read": "Abstract, offsets 0–4443; §6.2, offsets 48500–52426",
+          "method": "Lawful arXiv full-text reading",
+          "title": "Complete Characterization of 2-Near Perfect Numbers with 2 Distinct Prime Factors",
+          "trigger": "Recent complete theorem and multiprime discussion"
+        },
+        {
+          "assessment": "Related squarefree layer only",
+          "evidence": [
+            "Classifies 2pq as 30 and 66, expressly leaving nonsquarefree cases outside the scope."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-squarefree-2-near-perfect-numbers-with-three-prime-factors--ab9cfade94ac/RESULT.md",
+          "material_read": "RESULT.md Finding and assumptions, offsets 0–4802",
+          "method": "Published-record search and local mirror reading",
+          "title": "Squarefree 2-near-perfect numbers with three prime factors",
+          "trigger": "Same three-prime support and exact exclusion argument"
+        },
+        {
+          "assessment": "Known finite membership, not an unbounded theorem",
+          "evidence": [
+            "All four terms occur in the list; program limit 1782."
+          ],
+          "identifier_or_url": "https://oeis.org/A341475",
+          "material_read": "Displayed sequence data, Comments and Program",
+          "method": "Public OEIS entry reading",
+          "title": "2-near-perfect numbers",
+          "trigger": "Exact numerical membership"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–63",
+        "Four-factor-layer RESULT.md Finding and same four omitted-divisor pairs"
+      ],
+      "rationale": "The first squareful three-prime slice is natural, and an unbounded proof is mathematically more useful than finite membership. As a distinct contribution relative to the inspected four-factor classification, however, this package contributes no additional cases, exclusions, or witnesses. Its elementary exclusion method does not establish a further bound or regime beyond the already covered slice.",
+      "residual_risks": [
+        "This assesses distinct contribution, not the value or historical credit of obtaining the classification in the first place."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

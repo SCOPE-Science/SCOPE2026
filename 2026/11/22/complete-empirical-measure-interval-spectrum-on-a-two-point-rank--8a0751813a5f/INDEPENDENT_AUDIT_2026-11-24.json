@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:41:54.240443Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–67, VERIFICATION.md, lines 19–22, and CHECK.py, lines 12–66 (inspected, not executed). CHECK.py actually checks four nontrivial intervals; line 70 of RESULT.md understates this by one.",
+        "Independent exact finite replay: /workspace/branches/90f31f6b-b4ec-4a34-82fa-fd830710792c/replay_record3.py and record3_replay.txt in the same directory. Verified minimal thresholds for five stages of [1/4,3/4], [0,1], [0,1/2], [1/2,1], and finite singleton-frequency samples. In particular the first pairs (3,6),(14,35) for [1/4,3/4] agree."
+      ],
+      "rationale": "Isolated points are dense in a countable compact metric space by Baire, and each is on the dense orbit. That orbit has no repetition. For y in X′, there are distinct isolated orbit points tending to y, whose images are distinct by nonrepetition; their limit Ty is therefore nonisolated. This suffices for derivative invariance, without needing to assume that the images are isolated. In fact each orbit point is isolated: the preimage under the corresponding iterate of any later isolated point is an open set meeting the dense orbit at only that earlier point. A lower-rank cycle Q would have a clopen neighborhood U with U∩X′=Q. Since Q maps into U, the set of points in U that map into its clopen complement is compact and disjoint from X′, hence finite. The dense nonrepeating orbit visits infinitely many isolated points on each side of U, requiring infinitely many distinct exits, a contradiction. Recurrence forces every positive atom of an invariant probability to be periodic, leaving exactly the simplex of mixtures of the two fixed Diracs. Empirical limits are invariant by telescoping, and compactness and vanishing successive jumps force a connected nonempty cluster set, hence a unique closed interval in the mixture parameter. In the construction for a<b, each new run crosses its interior target with error at most the final length reciprocal; the target gap is bounded away from zero, so each run's length tends to infinity. Hence the prefix zero frequency has liminf a and limsup b. The quadratic paired lengths give singleton frequencies, including 0 and 1 by using a linear minority run. Diverging runs imply that every limit of distinct shifts has at most one change, and each one-change sequence and each constant is obtained by choosing starting positions in late runs. A prefix with two changes appears only at finitely many positions; since there is no periodic tail, each such shift can be isolated by a longer prefix. This proves precisely the asserted derivatives, countability and ordinal type. The o(N) changes imply that outside o(N) starting positions, every fixed observation window is constant, giving the required weak-star comparison to the zero-frequency mixture. No surjectivity is needed.",
+      "residual_risks": [
+        "The finite arithmetic checks certify neither the infinite rank calculation nor the continuum of intervals. Those follow from the run limit and frequency arguments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pérez-Remolina–Uzcátegui-Aylwin show existence of dense-orbit maps and a conjugacy dichotomy, not the limits of time averages. García-Ferreira et al. give lower-rank periodicity restrictions and a fixed top point in the single-top-point setting. The cited specification paper was not materially accessible in this review."
+        ],
+        "reasoning": "Known existence and ordinal restrictions do not construct a specified interval with two fixed top points on the stated type. Even an ambient shift specification result prescribing empirical measures would need a separate proof that the selected orbit has a countable rank-two closure and no other invariant atoms; that control is essential here.",
+        "searches": [
+          "arXiv:2611.17315v1, Theorems A and B",
+          "arXiv:1611.08290, Lemmas 3.1–3.2",
+          "Sigmund, DOI 10.1090/S0002-9947-1974-0352411-X"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, symbolic realization and prior-work sections; Resultary searches and strongest distinct indexed Finding above",
+        "Pérez-Remolina–Uzcátegui-Aylwin, García-Ferreira et al., Barwell et al.; Sigmund bibliographic identification only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lower-rank periodicity argument and empirical connectedness lead to an upper bound on possible empirical sets. The construction must additionally tune every endpoint pair while keeping both runs divergent, a prescribed rank-two derivative and the full stationary simplex unchanged."
+        ],
+        "reasoning": "The realization is not a formal consequence of connectedness, existence of a dense orbit, or a description of topological limit points. Those ingredients are credited without identifying their conclusions with the full necessity-and-realization statement.",
+        "searches": [
+          "Pérez-Remolina–Uzcátegui-Aylwin, Theorems A/B; García-Ferreira et al., Lemmas 3.1–3.2; topological omega-limit theorem; related fixed-type polynomial entropy Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the binary realizations the mixture parameter is exactly the limiting prefix zero frequency. A topological omega-limit characterization instead concerns the cluster set of shifts themselves, not their relative visit times. For these words the possible limit shifts are independent of [a,b], whereas the empirical interval varies."
+        ],
+        "reasoning": "Symbol-frequency realization is an equivalent formulation after controlling the full weak-star limit by the rare boundaries. Knowing the same possible symbolic orbit-limit points does not determine empirical frequencies.",
+        "searches": [
+          "Resultary: countable compact dense orbit, empirical-measure intervals, fixed top derivative, sparse binary runs and historic orbit frequencies",
+          "Barwell–Good–Knight–Raines, DOI 10.1017/S014338570808108X"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit is the assigned record 8a0751813a5f and is not independent evidence. A distinct same-day record gives a continuum of polynomial entropies on omega²+1 via binary markers, with one fixed point and a unique invariant measure, not the two-point derivative or any nontrivial empirical interval."
+        ],
+        "reasoning": "No distinct exact classification or table was found in the ranked results. This theoretical continuum is not a finite sequence lookup. The same-day record was compared by invariant and hypotheses, not excluded by date.",
+        "searches": [
+          "Resultary exact empirical-measure spectrum and fixed countable compact qualitative invariant matches"
+        ]
+      },
+      "rationale": "The distinctive claim is exact realization of every closed interval in a prescribed two-atom invariant probability simplex on the one countable compact type, together with the necessity statement under the fixed-top-point assumptions. Connected empirical cluster sets and periodicity restrictions are ingredients, not separate novelty claims.",
+      "residual_risks": [
+        "The bounded comparisons cannot exclude earlier equivalent sparse-run or historic-point realizations.",
+        "Sigmund full text was not inspected, and the same-day ranking establishes no priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Existence and topological-conjugacy comparison",
+          "evidence": "Every compact metric countable space admits a dense-orbit map; nonempty second derivative allows continuum many nonconjugate maps. These statements do not prescribe empirical intervals.",
+          "identifier_or_url": "https://arxiv.org/html/2611.17315v1",
+          "material_read": "§1, Theorems A and B, offsets 2397–6888",
+          "method": "Bounded OA HTML",
+          "title": "Countable dynamical systems with a dense orbit",
+          "trigger": "Broad dense-orbit classification on the same category of compacta"
+        },
+        {
+          "assessment": "Prior lower-rank periodicity ingredient in a one-top-point setting",
+          "evidence": "Gives dense-orbit nonperiodicity restrictions; Lemma 3.2(ii) fixes the unique top point in its ordinal setting, not a classification of two-top-point empirical intervals.",
+          "identifier_or_url": "https://arxiv.org/pdf/1611.08290",
+          "material_read": "PDF pp. 7–8, Lemmas 3.1–3.2 (starting at extracted offset 19197)",
+          "method": "Bounded OA PDF text",
+          "title": "Cardinality of the Ellis semigroup on compact metric countable spaces",
+          "trigger": "Possible stronger periodicity or derivative restrictions"
+        },
+        {
+          "assessment": "Different invariant in the inspected claim",
+          "evidence": "Characterizes topological omega-limit sets in shifts of finite type by internal chain transitivity, not weak-star Cesàro cluster sets on fixed countable types.",
+          "identifier_or_url": "https://doi.org/10.1017/S014338570808108X",
+          "material_read": "PDF p. 1, main characterization summary, at offset 0",
+          "method": "Bounded public PDF text",
+          "title": "A characterization of omega-limit sets in shift spaces",
+          "trigger": "Symbolic accumulation on sparse shift orbit closures"
+        },
+        {
+          "assessment": "Exact full-text comparison unresolved",
+          "evidence": "The frozen comparison concerns ambient systems with specification; unavailable text does not prove absence of possible earlier relevant constructions.",
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9947-1974-0352411-X",
+          "material_read": "Bibliographic identification only in this review; no theorem passage retrieved",
+          "method": "Bounded lawful DOI and PDF attempts",
+          "title": "On dynamical systems with the specification property",
+          "trigger": "Plausible general realization of statistical limit sets"
+        },
+        {
+          "assessment": "Relevant construction style, different derivative and invariant",
+          "evidence": "The marker construction concerns polynomial entropy on omega²+1 and has one fixed point and one invariant probability.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-continuum-of-polynomial-entropies-on-a-fixed-countable-compact--4ca995fc3b30",
+          "material_read": "Finding, local-mirror RESULT.md, offset 0",
+          "method": "Published record via local mirror",
+          "title": "A continuum of polynomial entropies on a fixed countable compactum",
+          "trigger": "Distinct same-day sparse binary construction varying an invariant on a fixed countable type"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen necessity and realization proofs; countable dense-orbit and fixed-type symbolic comparison Findings"
+      ],
+      "rationale": "The result isolates a natural statistical invariant of dense-orbit systems. It makes the possible variation exact on a fixed countable compact type while leaving the entire invariant probability simplex fixed. It includes genericity for either endpoint or any mixture, true interval-valued historic behavior, and the maximal interval, rather than only one example of nonconvergence.",
+      "residual_risks": [
+        "The maps vary with the prescribed interval. The statement does not classify surjective realizations or larger or permuted top derivatives."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

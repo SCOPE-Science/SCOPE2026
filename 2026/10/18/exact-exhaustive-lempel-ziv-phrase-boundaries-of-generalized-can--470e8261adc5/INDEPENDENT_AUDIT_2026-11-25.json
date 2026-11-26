@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:13:08.600312Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The recurrence W_(m+1)=W_m 0^((q−2)q^m) W_m proves the digit criterion and longest internal gap. At L=q^m the first three nonzero L-blocks start at 0,(q−1)L,q(q−1)L; the two intervening zero gaps have lengths (q−2)L and q(q−2)L. At A_m=(q−1)L+1 the proper prefix ending in (q−2)L zeros is seen at 1, but an earlier full copy would require (q−2)L+1 zeros after an earlier 1. The last 1 in the suffix for m≥1 lies at the end of the second block, and no preceding 1 has that gap. At m=0 the phrase is the first 0^(q−1) and its shorter prefix is seen at 1. At B_m=2(q−1)L+1 the all-zero proper prefix of length R−1, R=(q−1)(q−2)L, is seen starting at qL; the next 1 is at q(q−1)L. An earlier full copy would end at an earlier 1 preceded by at least R−1 zeros, exceeding the maximum (q−2)L except at q=3,m=0 where 01 was indeed seen earlier. Exact end indices telescope from A_m to B_m to A_(m+1). The initial q≥4 base reaches A_0=q; the checked ternary prefix parses as 1|0|100|0101|0000|000001 with the last ending just before 19. In particular 010 occurs at 1 but 0101 does not occur before 5. Infinite starts restricted to indices <q^k count finite phrases, because only the last can truncate; counting scales gives 2k+2 or 2k+1 and the stated small-depth counts. Inspection of frozen verify_parsing.py confirms its truncated search window enforces j<i with overlap allowed. Its prediction helper seeds unfiltered initial indices and is only called at the selected long lengths, so the supplied test does not establish small-prefix cases. An independent Z-function reparse agreed on 294 prefixes including the small and truncated regimes; replay python3 /workspace/branches/independent_finite_checks.py (check 3). Neither finite test replaces the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Constantinescu–Ilie Theorem 1 p. 11, offset about 32000, gives Θ(log n) for nonperiodic fixed points of exponentially growing morphisms.",
+          "Berstel–Savelli advertises other explicitly parsed morphic words, with a different factorization rule."
+        ],
+        "reasoning": "Logarithmic order does apply as context but does not specify either run of boundary locations, the offset in the exact depth count, or the exceptional q=3 beginning. The alternate factorization is not a theorem covering this exhaustive parsing.",
+        "searches": [
+          "10.1137/050646846 journal Theorem 1 and section 3",
+          "10.1007/11821069_14 abstract"
+        ]
+      },
+      "checked_sources": [
+        "10.1137/050646846",
+        "10.1007/11821069_14",
+        "10.1109/TIT.1976.1055501 (not retrieved)",
+        "arXiv:2409.12146",
+        "Resultary:82f7c56b9823"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The radix-marker and Cantor schedules share an initial segment but the sixth start at q=3 is 15 for the marker versus 13 here; for q≥4 it is q² versus (q−1)q+1 here.",
+          "The prior asymptotic equivalence class is compatible with distinct exact schedules such as these."
+        ],
+        "reasoning": "Containment of marker positions is not equivalence of exhaustive parses; adding other 1s changes prior occurrences and hence novelty. Neither the exact schedule on that particular subpattern nor a general Θ(log n) theorem yields the phase breakpoints.",
+        "searches": [
+          "https://www.csd.uwo.ca/~ilie/SIDMA07.pdf Theorem 1",
+          "Resultary:82f7c56b9823 exact finding and hypotheses"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Constantinescu–Ilie p. 3, offset about 8100, define a new factor as not occurring before though all proper prefixes do; their history rules give the j<i overlapping test.",
+          "Berstel–Savelli accessible abstract concerns Crochemore factorization on characteristic Sturmian, (generalized) Thue–Morse, and period doubling words; arXiv:2409.12146 concerns longest-copy LZ77."
+        ],
+        "reasoning": "The shortest-new-factor formulation agrees with the earlier exhaustive history but is not interchangeable with longest-old-factor or dictionary parsing. Exact formulas for other parsing rules would require checking transformations of the actual starts, not just using a similar name.",
+        "searches": [
+          "\"generalized Cantor\" \"Lempel-Ziv\" phrase factorization exhaustive history",
+          "https://www.csd.uwo.ca/~ilie/SIDMA07.pdf section 3",
+          "10.1007/11821069_14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "82f7c56b9823 RESULT.md Finding and Assumptions, local mirror offset 0, gives exact starts and 2 log_b N+O_b(1) for b≥3 under the same overlap convention, on words marked precisely at b^j−1.",
+          "Other indexed LZ78 phrase counts concern dictionaries and different words."
+        ],
+        "reasoning": "The strongest exact catalogue hit is structurally close, and its marker 1-positions are contained in the target's, but the object is not the same word and the result is dated later. Bounded catalogue searches do not prove absence.",
+        "searches": [
+          "Resultary similarity searches for generalized Cantor words and exhaustive-history boundary formulas",
+          "Resultary: Exact Ziv–Lempel parsing of radix-power marker words",
+          "Resultary:82f7c56b9823"
+        ]
+      },
+      "rationale": "Credit the earlier exhaustive-history convention and general logarithmic complexity class. The inspected literature and closest exact analogue do not determine the two Cantor-family boundary progressions and their ternary exception or the exact depth counts. Novelty assessment is for those explicit sharp details under the precise parsing convention.",
+      "residual_risks": [
+        "No full-text Berstel–Savelli or Lempel–Ziv 1976 comparison; no negative inference is drawn from failed access.",
+        "An unindexed source using different Cantor-word terminology or definition conventions could contain an equivalent exact parse."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definition and asymptotic coverage, not the exact Cantor parse",
+          "evidence": [
+            "Novel whole factor although proper prefixes occur; Θ(log n) in the relevant exponential nonperiodic class."
+          ],
+          "identifier_or_url": "https://www.csd.uwo.ca/~ilie/SIDMA07.pdf",
+          "material_read": "Author journal PDF p. 3 at offset ~8100 and Theorem 1 p. 11 at ~32000",
+          "method": "OA PDF passages",
+          "title": "The Lempel–Ziv Complexity of Fixed Points of Morphisms",
+          "trigger": "Same convention and broad morphic fixed-point theorem"
+        },
+        {
+          "assessment": "Same rule and overlapping early boundaries on a different, later-indexed word; schedules demonstrably diverge",
+          "evidence": [
+            "Ones iff n=b^j−1, with exact phrase boundaries and logarithmic complexity."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-ziv-lempel-parsing-of-radix-power-marker-words--82f7c56b9823",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions at offset 0",
+          "method": "Local Resultary and mirror passage",
+          "title": "Exact Ziv–Lempel parsing of radix-power marker words",
+          "trigger": "Closest exact same-convention catalogue record"
+        },
+        {
+          "assessment": "Abstract uses a different factorization and does not establish the claimed Cantor result; full-text inference unwarranted",
+          "evidence": [
+            "The named examples include characteristic Sturmian, generalized Thue–Morse and period doubling words."
+          ],
+          "identifier_or_url": "https://link.springer.com/chapter/10.1007/11821069_14",
+          "material_read": "Public abstract only; full text not reached",
+          "method": "Publisher landing abstract and bounded OA retrieval",
+          "title": "Crochemore Factorization of Sturmian and Other Infinite Words",
+          "trigger": "Potential exact alternate parsing of morphic examples"
+        },
+        {
+          "assessment": "No full-text claim comparison made; convention verified in the accessible Constantinescu–Ilie paper",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1109/TIT.1976.1055501",
+          "material_read": "Identifier and retrieval result only; no primary scientific passage",
+          "method": "Bounded OA retrieval",
+          "title": "On the Complexity of Finite Sequences",
+          "trigger": "Original LZ76 convention reference"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These sparse uniform morphic fixed points provide a natural test of exhaustive compression history beyond size-order statements. Knowing every boundary reveals which marker-ended and zero-run innovations determine the parsing and identifies an exceptional base with different early phases and additive complexity. That information permits exact prefix counts and benchmarks parsers with overlap; it does not purport to give a new compression algorithm.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:22:52.521657Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The branch recursion is L_{n+1} =d Z+log(1+exp L_n) with independent inputs. For a positive shift, the density ratio f(x-u)/f(x) is strictly increasing by strict concavity of log f, establishing the base case. For the inductive step, an increasing bijection onto the transformed support preserves the density-ratio inequality. Splitting the determinant of the two convolution densities into u<v and u>v gives over u<v the product of the strictly positive translation-kernel determinant and the strictly positive ordered input-density determinant. The positive bounded increment density and probability inputs justify these integrations. For adjacent sites, independence of the two branches and the isolated edge, and pairing Y with 1/Y, give the antisymmetric kernel of lines 34–39. On u<v that kernel has positive sign for Y≠1 and the density difference has the same sign. The expectation is well-defined since the starting difference is between two normalized probabilities. The branch of length zero is deterministic 1, the equal-length center cancels, and reversing and negating all iid symmetric increments proves reflection. Scaling nondegenerate disorder by any finite β>0 preserves the hypotheses; the β=0 case is uniform. This is only the restricted classical single-wall law. Gaussian quadrature checks were inspected but not used as proof or rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 1986 bibliographic/abstract material concerns preservation of likelihood-ratio order under convolution; the whole paper was unavailable. The 2022 supplement uses direct sums for a two-point law and approximations for the continuous problem, not an ordering theorem for arbitrary strictly log-concave densities."
+        ],
+        "reasoning": "A generic convolution-order premise does not supply the recursive branch comparison together with the reciprocal-symmetry pairing needed to transfer that order to normalized adjacent Gibbs weights. No inspected broader theorem states that conclusion.",
+        "searches": [
+          "Likelihood-ratio convolution order, DOI 10.1016/0304-4149(86)90039-6",
+          "Official 2022 supplementary PDF, §§2.3–2.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2006.07685; DOI 10.1038/s41534-022-00580-w official supplement",
+        "arXiv:2610.40504v1",
+        "DOI 10.1016/0304-4149(86)90039-6 (limited material)",
+        "Resultary single-wall equivalence search; identity match 2e1fcbf745a9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The small-temperature-parameter expansion is justified only for β√N times the field scale small. The arcsine comparison concerns the zero-temperature limit. The 2026 intermediate-temperature profiles use Monte Carlo."
+        ],
+        "reasoning": "Even strict order in two limiting regimes, if known, does not preclude crossings at intermediate temperatures. The antisymmetric identity and strict branch ordering supply a sign for each pair without a temperature expansion.",
+        "searches": [
+          "arXiv:2006.07685 p. 4 Eq. (6) and p. 5 regime of validity",
+          "arXiv:2610.40504v1 p. 3–4 Eqs. (6)–(8) and temperature limits",
+          "Official 2022 supplement §2.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two Ising works concern the same phenomenon and quenched normalization before taking the disorder average. The 2022 high-temperature expansion and the 2026 Monte Carlo law are the closest comparisons. The matching Resultary entry is the identical assigned record, not another source."
+        ],
+        "reasoning": "The random-walk softmax and pinned Ising wall are the same observable. Observed or leading-order boundary enhancement does not establish a strict nearest-neighbor inequality simultaneously at every positive temperature.",
+        "searches": [
+          "Resultary: all-temperature strict single-wall Gibbs order, boundary versus center, and normalized exponential random-walk weights",
+          "Chancellor et al., arXiv:2006.07685 Eq. (6) and official supplement §§2.3–2.4",
+          "Chowdhury et al., arXiv:2610.40504v1 §§II.B–C"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The supplementary sums and plotted profiles are for specific distributions or parameters; the supplied checker tests only selected Gaussian sizes and scales."
+        ],
+        "reasoning": "The new claim is an inequality over all lengths and a continuum of temperatures and laws, not a tabulation of numerical weights. The finite profiles were checked as overlaps, not treated as a database with the claimed coverage.",
+        "searches": [
+          "Official 2022 supplement §2.3, Eqs. (11)–(12) and Fig. 7; 2026 preprint §§II.B–C; frozen quadrature checker"
+        ]
+      },
+      "rationale": "The supported distinct claim is an adjacent strict order at every finite positive inverse temperature for the specified class of continuous disorder, not discovery of the U-shaped profile. The closest Ising studies and the relevant 2022 supplement were inspected; their asymptotic, approximate, and finite numerical results do not give this order.",
+      "residual_risks": [
+        "Full text of the 1986 likelihood-ratio paper was not retrieved; a wider applied theorem or another older occurrence cannot be excluded by bounded searches.",
+        "The relevant 2022 supplementary sections were inspected, resolving the particular access concern stated in the frozen record; this is not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Physical bias and high-temperature expansion covered; universal strict order not implied",
+          "evidence": [
+            "Eq. (6) gives a second-order parabolic profile, with β√N times the field scale required to be small."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2006.07685",
+          "material_read": "Theoretical Analysis, pp. 4–5, Eq. (6) and approximation regime",
+          "method": "Read the OA preprint passages",
+          "title": "Error measurements for a quantum annealer using the one-dimensional Ising model with twisted boundaries",
+          "trigger": "Early primary study of the same boundary bias"
+        },
+        {
+          "assessment": "Relevant passages were accessible and do not provide the claimed inequality",
+          "evidence": [
+            "Finite-temperature discussion uses a two-point finite sum and a mean-field replacement approximation. The zero-temperature discussion uses Gaussian and minimum-site product approximations with sampling comparisons."
+          ],
+          "identifier_or_url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41534-022-00580-w/MediaObjects/41534_2022_580_MOESM1_ESM.pdf",
+          "material_read": "§2.3 pp. 6–8, Eqs. (11)–(12) and Fig. 7; §2.4 pp. 8–9, Eqs. (13)–(15)",
+          "method": "Read the official OA supplementary PDF",
+          "title": "Supplementary Information to Error measurements for a quantum annealer using the one-dimensional Ising model with twisted boundaries",
+          "trigger": "Plausible earlier all-temperature proof in the supplement"
+        },
+        {
+          "assessment": "Model and numerical/limiting U shape covered; strict universal order not shown there",
+          "evidence": [
+            "The disorder average is estimated by Monte Carlo; cold arcsine and hot uniform behavior are discussed."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.40504",
+          "material_read": "v1 §§II.B–C, pp. 3–4, Eqs. (6)–(8)",
+          "method": "Read OA preprint passages and compare normalization and quantifiers",
+          "title": "Using domain walls to benchmark fast quantum anneals",
+          "trigger": "Same single-wall random-walk Gibbs model"
+        },
+        {
+          "assessment": "Generic method acknowledged, exact full-text hypotheses or additional applications unverified",
+          "evidence": [
+            "The indexed subject is preservation of likelihood-ratio ordering under convolution; the candidate independently proves the needed strict kernel claim."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0304-4149(86)90039-6",
+          "material_read": "Available landing-page/abstract information only",
+          "method": "Lawful OA and publisher retrieval; full text not obtained",
+          "title": "The Preservation of Likelihood Ratio Ordering under Convolution",
+          "trigger": "Generic convolution-order theorem underlying one proof step"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It turns a known experimental/asymptotic physical bias into a strict, site-by-site order, including intermediate temperatures and non-Gaussian log-concave disorder. The proof provides a useful mechanism for why the order persists after quenched normalization. It neither extrapolates a sampled U shape nor merely imports the limiting arcsine law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

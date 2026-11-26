@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:01:30.251484Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For r=1−q, column i in any sweep assigns mass at least q to i and rq to i+1 by the paths with zero or exactly one move. On a triangle any two such column supports overlap with mass at least rq, giving a uniform l1 contraction ≤1−rq on zero-sum vectors. This yields existence, uniqueness and convergence of the invariant probability law by contraction of the induced Markov operator on simplex laws in Wasserstein distance. Cyclic symmetry gives mean u and covariance VΠ/2: a symmetric circulant matrix with zero row sums is determined by its trace. The new permutation is independent of the state, so the stationary trace identity is V=aV+b with zero mixed terms. Independently evaluating the two representatives of the cyclic order classes gives b=r⁴(2+r+r²)/9 and 1−a=rD/3. The deterministic equilibria have weights (1,q,q) and (1,q,1), up to rotation. Direct symbolic substitution (`python3 /workspace/independent_checks.py 1`) reproduces both difference factorizations and q*=0.446703077326570687…, h*=0.805861161624800910…. D=q³(q²−3q+4)+q(6−q)+2>0; F′=4q+8+q²(1−q)(3−5q)>0 on (0,1), and F has opposite endpoint signs. The worst-order error difference is strictly negative because 2q⁴−6q³+7q²+2q+1>0 there. Endpoint substitution yields the limits and, with r∼h, the two small-step leading terms. This is a statement about a law of probability vectors and their mean-square error, not CTMC sample paths or almost-sure convergence to u.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Markov-splitting article compares path laws by relative entropy and considers bounds on stationary observables. The graph-Laplacian article supplies a general positivity-preserving setup. The quantum product-formula articles analyze randomized orders or Hamiltonian terms and finite-time simulation error."
+        ],
+        "reasoning": "Neither path-law relative entropy nor quantum finite-time error gives the exact invariant trace for the random affine recursion of simplex-valued integrator states. General covariance recursions are standard ingredients; the solved triangle statistic and sharp comparison are the checked distinct result.",
+        "searches": [
+          "arXiv:1511.08240v2, §3.1, long-time splitting errors and observables",
+          "arXiv:2102.08242v2, positivity-preserving graph-Laplacian exponential integration",
+          "arXiv:1805.08385v2, §3, randomized product formulas",
+          "arXiv:2109.07987v1, randomized Trotter bias/variance"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: 24db677c7fa4, 7f19d5bc5d02 and 543ac65eaf32",
+        "arXiv:1511.08240v2",
+        "arXiv:2102.08242v2",
+        "arXiv:1805.08385v2",
+        "arXiv:2109.07987v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two deterministic biases really do follow by specialization of the ascent theorem. Its uniform mean identifies no covariance coefficient for a mixture across different ascent classes. The other crossover changes both the generators and splitting/metric; the two-state invariant-law result changes the transition law and dimension."
+        ],
+        "reasoning": "The fixed-order algebra and rotational unbiasedness are covered in part; the two class contributions to trace contraction and forcing under the full iid sweep and their resulting crossover are not obtained by specializing those statements. The distinct catalogue entries bear later listed dates; this is overlap assessment, not an inference about priority.",
+        "searches": [
+          "Resultary entry 24db677c7fa4, Finding and random cyclic rotation passage",
+          "Resultary entries 7f19d5bc5d02 and 543ac65eaf32, Finding and hypotheses",
+          "arXiv:1511.08240v2 §3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary entry 24db677c7fa4 gives the exact fixed-order cyclic-ascent equilibrium for a uniform directed cycle; its n=3 cases m=1,2 yield exactly B_min and B_max. Its random-order result samples rotations of a fixed order and gives a uniform stationary mean, not a formula for the stationary covariance of the full-permutation mixture."
+        ],
+        "reasoning": "Ascent count is an exact alternate labeling of the fixed-order classes, but selecting one cyclic orbit does not generate all six orders. Averaging to the same mean does not determine a second moment.",
+        "searches": [
+          "Resultary: stationary error, exact invariant bias and randomized splitting on directed cycles",
+          "randomized product splitting Markov generators random order permutations stationary invariant law covariance long-time error directed cycle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Entries 7f19d5bc5d02 and 543ac65eaf32 give substantial but different exact results: a fixed Lie-versus-Strang total-variation crossover at rates 1:2:2 and an invariant law and variance for a two-state random single-subgenerator scheme. The closest 24db677c7fa4 entry has exact stationary data only for the deterministic bias/rotational mean components of the comparison. The targeted primary-literature web results were off-topic, not evidence of absence."
+        ],
+        "reasoning": "The same word 'crossover' or exact stationarity for a different map is not a tabulation of the all-order Euclidean MSE comparison. No matching exact entry for that full comparison was identified.",
+        "searches": [
+          "Resultary: triangle/three-state stationary splitting crossover; stationary law and exact variance for randomized splitting"
+        ]
+      },
+      "rationale": "The closest distinct catalogue result genuinely covers both deterministic biases via a stronger cyclic-ascent formula, and also explains an unbiased mean under cyclic rotations of one order. The distinct finding retained here is the exact invariant second moment for iid uniform draws over both order classes and its sharp comparison to the best fixed order at equal sweep cost. Neither those matched results nor the inspected literature gives that moment or crossover. The deterministic formulas and use of random ordering in themselves are not credited as distinct contributions.",
+      "residual_risks": [
+        "The broader splitting literature is not exhausted. In particular, Speth et al.'s related balanced-splitting paper (DOI:10.1137/120878641) was abstract-only in the frozen comparison, not excluded by independent whole-text review. A specialized random-matrix or affine-recursion source could contain an equivalent example. No historical priority conclusion is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers both deterministic bias values, but not the all-order stationary MSE or crossover.",
+          "evidence": [
+            "Two n=3 ascent classes have m=1 and m=2, yielding the two biases. Rotational randomization is restricted to rotations of a fixed order and gives an unbiased mean."
+          ],
+          "identifier_or_url": "Resultary: 2026/11/8/SCOPE-an-exact-cyclic-ascent-law-for-invariant-bias-in-ordered-markov--24db677c7fa4/RESULT.md",
+          "material_read": "Finding and assumptions at offset 0, random cyclic rotations near offset 4855; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "method": "Compared exact equilibrium weights at n=3 and the set of allowed random permutations.",
+          "title": "An exact cyclic ascent law for invariant bias in ordered Markov splitting",
+          "trigger": "Same directed unit-rate cycle, ordered exact edge sweeps and stationary bias."
+        },
+        {
+          "assessment": "Related exact phenomena but not equivalent formulations or encompassing results.",
+          "evidence": [
+            "First: deterministic Lie and Strang, rates 1:2:2, total variation. Second: a two-state scheme with one importance-scaled subgenerator sampled per step."
+          ],
+          "identifier_or_url": "Resultary: 7f19d5bc5d02; 543ac65eaf32",
+          "material_read": "Opening Finding and setup of both RESULT.md files, offset 0.",
+          "method": "Compared rates, dimension, transition distribution and metric.",
+          "title": "Sharp stationary error crossover for Lie and Strang splitting; Unique mean-exact calibration and a Cantor stationary law",
+          "trigger": "Nearest exact crossover and random invariant-statistic variants."
+        },
+        {
+          "assessment": "Long-time methodology, not a matching stationary random-vector second moment in the inspected sections.",
+          "evidence": [
+            "Their observables include relative entropy of split CTMC path laws and bounds on errors in stationary expectations, not expectation of the squared distance of a random vector of probabilities."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1511.08240v2",
+          "material_read": "Introduction p. 1 and §3.1, pp. 9–10, PDF text offsets 0 and near 32200.",
+          "method": "Compared operator setup, stationary observables and relative-entropy definitions with the distribution-vector recursion.",
+          "title": "Information metrics for long-time errors in splitting schemes for stochastic dynamics and parallel KMC",
+          "trigger": "Closest cited primary study of long-time stochastic Markov splitting errors."
+        },
+        {
+          "assessment": "Prior positivity methodology; the inspected passage is not a stationary covariance calculation.",
+          "evidence": [
+            "A graph-Laplacian representation is used to construct positivity-preserving schemes for a broad class of ODEs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2102.08242v2",
+          "material_read": "Primary introduction on p. 1 (offset 0).",
+          "method": "Checked the advertised methods and Markov/master-equation application scope.",
+          "title": "Positivity-preserving methods for ordinary differential equations",
+          "trigger": "Originating graph-Laplacian numerical integration framework."
+        },
+        {
+          "assessment": "Randomized product-formula motivation, not the stochastic-simplex equilibrium comparison.",
+          "evidence": [
+            "The first randomizes orders of Hermitian summands; the second samples Hamiltonian terms and studies finite-time mean-square error split into bias and variance."
+          ],
+          "identifier_or_url": "arXiv:1805.08385v2; arXiv:2109.07987v1",
+          "material_read": "First paper p. 1 and §3 p. 6 (offsets 0 and near 25315); second p. 1 (offsets 1179–1740).",
+          "method": "Read targeted primary passages on sampling laws and their metrics and time horizons.",
+          "title": "Faster quantum simulation by randomization; A partially random Trotter algorithm for quantum Hamiltonian simulations",
+          "trigger": "Exact same general idea of randomizing noncommuting exponential products, or using a bias/variance analysis."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At identical work per step on a natural minimal directed Markov cycle, unbiasedness in mean is not sufficient for a smaller stationary squared error: the randomized method improves the small-step order but loses to a fixed order for sufficiently large steps. The exact crossover and fluctuation law's second moment provide a substantive benchmark for long-time splitting design. No generalization to larger graphs, unequal rates or other errors is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

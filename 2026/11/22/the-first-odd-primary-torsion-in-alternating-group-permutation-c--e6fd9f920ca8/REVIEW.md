@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is all even permutations of six labels, not the up-down class. Every five-letter word has three even completions, so the four-skeleton is the full injective-word skeleton. A standard top-concentration theorem gives the lower-chain exactness. The packaged `verify_a6.py` constructs the 720-by-360 signed boundary, makes 354 exact unit pivots, and computes the remaining Smith factors (1,1,1,1,1,3). All 360 columns have independent rational images and exactly one order-three elementary divisor. The homology consequently has 95 free generators plus one order-three class in degree four. Independent modular ranks match.
+## correctness
 
-## Originality — PASS (with priority risk)
-The November 2026 fundamental-group theorem does not imply higher integral homology. The earlier full-complex topology gives only low-degree acyclicity, not the index of this half-facet boundary. The closest indexed result for alternating-group complexes explicitly computes four and five letters, with two-primary torsion only; its theorem cannot imply the six-letter Smith factor three. Other meaning and alias searches revealed no six-letter three-primary computation. The full closely related published record was unavailable; an unindexed equivalent remains possible.
+PASS
 
-## Value — PASS
-The whole alternating group is a canonical generating family, and previously observed two-primary torsion makes its next integral torsion prime a natural structural question. A precise three-primary class at six letters identifies a sharp early change in the torsion spectrum, not an arbitrary subfamily or an unexplained rank computation. A reproducible complete integral calculation, rather than characteristic-only ranks, resolves it.
+Adjacent positions of the missing letter toggle parity, so the entire four-skeleton agrees with the full six-letter injective-word complex. Its standard reduced acyclicity below dimension five gives successive boundary ranks 5,25,95,265 and a degree-four cycle lattice of rank 455. Independently reconstructed the top boundary by inserting the missing letter a into each face f in positions j with j congruent to inv(f)+a modulo 2 (labels start at 0). The signed entries in a fixed row therefore have the same sign; row sign changes give the unsigned incidence used for a fresh whole-matrix FLINT Smith computation. It gave 359 unit factors and one 3 for the 720 by 360 matrix. There is no top kernel; C4/ker(d4) is free, so H4 has exactly the Smith torsion and free rank 455−360=95. Independently, the same calculation for n=3,4,5 gave respectively 3 units, 11 units and one 2, and 56 units and four 2s; n=1,2 give a point and an interval. This establishes the least-size assertion, not just the n=6 case.
 
-## Limits
-No universal odd-primary theorem, integral equivariant module, or space-level homotopy classification is claimed. The published four-and-five-letter comparison was accessible as an indexed theorem, not as a full-text proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the full integral six-letter calculation and resulting first odd-primary occurrence, not the injective-word framework or the earlier A4/A5 cases. Available statements give no equal or dominating integral computation in that same complex. This is a best-of-knowledge conclusion, not a priority guarantee.
+
+## value
+
+PASS
+
+This is the next natural member of the alternating-group subcomplex sequence with known two-primary examples, computing the integral invariant that distinguishes genuinely new torsion from a change in rank. The first odd prime arises in the top-boundary lattice even though the lower skeleton is unchanged. It is an independently useful exact base case and rules out a 2-primary-only pattern; neither conclusion is a formal consequence of the previous sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

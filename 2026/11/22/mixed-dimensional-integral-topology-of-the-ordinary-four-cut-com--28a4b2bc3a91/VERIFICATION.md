@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the dual homotopy calculation
+# Independent mathematical audit
 
-The self-contained file `CHECK.py` is executable with a standard Python 3 interpreter and no dependencies. Its output in `CHECK_OUTPUT.txt` comes from running the enclosed file, not from a previously saved calculation.
+## correctness
 
-The program exhaustively classifies all connected induced quadruples in \(H(3,3)\), then all higher dual faces by codimension-one membership. It confirms the face cardinalities \((27,351,2925,1593,324,54,0)\), constructs all 1,877 matched pairs and checks all 17,793 oriented Hasse cover relations for acyclicity. The critical cells are one 0-cell, 1,398 2-cells and 121 3-cells.
+PASS
 
-Exact signed gradient-boundary recursion produces a 1,398-by-121 integer Morse matrix with 264 nonzero entries. Fraction-based rank elimination gives 12, and integer Bareiss elimination on the specific 12-by-12 minor in `RESULT.md` gives determinant \(-1\). Therefore all nonzero Smith invariants are units; the calculation is not merely over a finite field. The raw uncollapsed simplicial complex is independently checked over \(\mathbb F_2\), with boundary ranks \((26,325,1214,270,54)\), agreeing with the resulting integral ranks. Direct Euler-characteristic agreement provides an additional test.
+Alexander dual membership is exactly the absence of a disconnected four-subset, with every subset of size at most three present. I regenerated the complex using graph-coordinate adjacency, independent induced-subgraph searches, and a direct all-quadruples test for larger candidates. The counts by cardinality were (27,351,2925,1593,324,54) with no larger faces. Independent pivot matching and complete topological sort reproduced 1877 pairs and all 17793 Hasse incidences on 5274 faces, leaving (1,1398,121) critical cells in dimensions (0,2,3). Exact signed unit eliminations of matched simplicial boundary entries independently gave 264 nonzeros on 24 rows and 84 columns, rank 12 over Q, and determinant -1 for the specified 12-by-12 minor. The Morse boundary therefore has twelve unit Smith entries; rank alone would not suffice. The Morse CW space is the homotopy cofiber of a map from a wedge of 121 two-spheres to a wedge of 1398 two-spheres; each component is determined by its degree vector by Hurewicz. Unimodular changes of bases are realized by homotopy equivalences on these wedges, reducing the map to twelve identities and zero on the other summands. The cofiber thus has 1386 two-spheres and 109 three-spheres. Integral Alexander duality with shift 24 gives original ranks 109 and 1386 in degrees 21 and 22, without other reduced groups. All facets have dimension 22, and the free nonzero lower homology obstructs shellability.
 
-To replay: place `CHECK.py` in the working directory and execute `python3 CHECK.py`. Compare stdout to `CHECK_OUTPUT.txt`. No external computations or hidden input files are required. This checks the exact finite numerical certificate; the passage to homotopy uses the standard acyclic-matching theorem, the integer degree classification of maps to wedges of 2-spheres, and combinatorial Alexander duality. Independent validation has not been performed.
+## originality
+
+PASS
+
+The strongest actual exact-graph statements are at ordinary cut threshold three. The strongest inspected four-cut cases are other Cartesian products, including two-factor rook graphs and path grids. No inspected theorem supplies this three-factor ternary ordinary four-cut wedge or its homology consequences; the catalogue self-match is the frozen record, not separate coverage.
+
+## value
+
+PASS
+
+The smallest Hamming graph with three fully ternary clique factors is a natural comparison point for exact four-cut topology after the three-cut classification and the smaller rook-board computations. Complete integral topology of its dual is useful beyond a field-rank table: the primitive boundary calculation settles absence of torsion, and the 109 lower-degree original classes give a concrete obstruction to shellability. The distinction between threshold three and four or between two and three clique factors is mathematical rather than a relabeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

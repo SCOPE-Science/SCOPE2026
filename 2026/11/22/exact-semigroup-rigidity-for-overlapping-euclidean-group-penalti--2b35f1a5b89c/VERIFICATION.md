@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The complete analytic proof and all hypotheses are in `RESULT.md`. The included `checker.py` (Python, NumPy, SciPy) checks exact derivational consequences and numerical finite cases; invoke `python checker.py`. Its preparation-time execution returned `PASS: 1044 supplementary assertions; exact symbolic coefficients proved in RESULT.md`.
+## correctness
 
-The checker verifies the exact small-instance Hessian-gradient identities to numerical precision; a direct symbolic differentiation of the two norms gives \(\nabla F=(1/\sqrt2,\sqrt2,1/\sqrt2)\), \(H\nabla F=(-1/4,1/2,-1/4)\), and \(\nabla F^{\mathsf T}H\nabla F=\sqrt2/4\). It also verifies convergence of the normalized finite-step split to that coefficient, all tested group families on at most three coordinates, sampled four-coordinate families, constructive unequal-ratio witnesses, and exact radial shrinkage for disjoint blocks.
+PASS
 
-No amount of numerical sampling certifies the all-dimensional iff statement; it follows from the positive-semidefinite Hessian argument and the explicit one-coordinate witness in the proof. The local \(O_x(h^3)\) remainder is justified by analyticity and the implicit function theorem near strictly positive inputs, not estimated by regression. Independent validation is not performed.
+Positive weights and the quadratic term give a unique proximal map. In the disjoint case, combine duplicate weights; radial soft thresholding subtracts t times the aggregate weight from the radius with a floor at zero, which composes additively, including zero blocks and coordinates in no group. At strictly positive x the implicit proximal equation gives T_h(x)=x-hg+h²Hg+O(h³), g=grad F(x), H=Hess F(x). The solution is analytic jointly in input and step nearby, so the two-step and one-double-step expansions have h² coefficients 3Hg and 4Hg. Each Hessian group term is a positive scalar times the orthogonal projection onto the within-group tangent space perpendicular to x_G. Consequently Hg=0 requires g_i/x_i constant within every group. Any unequal intersecting groups provide a pair i,j in one group distinguished by another, oriented so that a group contains i but not j. Increasing x_i with the other coordinates set to 1 makes the sum of i-only contributions to g_i/x_i tend to zero and leaves the j-only sum fixed; if that fixed sum is zero then the i-only sum stays strictly positive at every finite x_i. Thus the two ratios differ at a finite positive witness, making the Hessian quadratic form and Hg nonzero. This includes proper nesting and singleton groups. Independent symbolic differentiation (/workspace/replay/local_formulas.py) confirms the stated crossing-pair coefficient and the nested two-coordinate obstruction. The frozen checker does not exhaust all distinct group families on three coordinates: it caps family size at four in n<=3. The accompanying all-family language about numerical checks should be read with that limit; the proof, not sampling, proves the all-family theorem. No claim is made for the latent penalty or non-Euclidean group norms.
+
+## originality
+
+PASS
+
+Closest inspected prior work supplies direct group penalty algorithms, projection duality or a general gradient-flow criterion. Neither the individual principles nor the same-day classifications for different penalties give this necessary and sufficient group-incidence condition with its local obstruction.
+
+## value
+
+PASS
+
+The classification determines exactly when repeated parameterized regularization can be replaced by a single step for a standard penalty. The necessity includes overlaps for which the individual proximal map is easy to compute, and the explicit defect witnesses show failure already at arbitrarily small steps, uniformly as a qualitative assertion over all positive weight choices. This is a structural result rather than a generic statement that resolvents need not compose.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

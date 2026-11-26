@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:43:10.593094Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–31; frozen VERIFICATION.md, verify.py and direct_check.cpp (inspected, not executed)",
+        "Independent reproduction and output: /workspace/branches/931aafcd-904b-4f65-96ab-33ccc693e232/independent_check.py and independent_check.txt",
+        "Independent low-weight transform: for multiplicities B_w of the enumerated dual, A_r = 3^(−10) sum_w B_w sum_j (−1)^j binom(w,j) 2^(r−j) binom(242−w,r−j), for r=0..4"
+      ],
+      "rationale": "An independent field implementation verified the primitive power cycle and rank 10 for the two-zero parity checks on 242 coordinates. Matching oriented pairs of signed two-position syndromes with inverse syndromes on disjoint supports gave 145200, 203280, 261360 ordered matches. Every weight-four word has exactly three unordered two-plus-two partitions and two orders of the parts, hence the exact counts are 24200, 33880, 43560. As a second calculation, enumerating each 3^10-word dual and independently evaluating the ternary MacWilliams coefficients for weights 0 through 4 gave (1,0,0,0,24200), (1,0,0,0,33880), (1,0,0,0,43560), respectively. This also confirms minimum distance four without inferring it from the pair-bucket calculation alone. If two codewords of weight four on a common support were independent, a linear combination would cancel a nonzero position and give a nonzero word of weight at most three. Thus each support has exactly two scalar representatives, giving the three asserted support counts. Monomial maps preserve weight multiplicities, so the distinct counts establish pairwise inequivalence among the three codes.",
+      "residual_risks": [
+        "These are exact finite counts for these three codes alone. No full classification of optimal length-242 ternary cyclic codes or conclusion for other extension degrees follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Table 1 lists the distance-four families e=2,16,20 under hypotheses including m=5. Li et al. give generator polynomials and [242,232,4] parameters for the two exact examples at e=16 and e=20.",
+          "The journal-copy occurrences located for weight distribution are in its references, not a distribution for either target code; the construction examples inspected give parameters and polynomials."
+        ],
+        "reasoning": "Generator polynomials identify which codes to compute but do not determine the explicit weight-four coefficient by specialization of an available enumerator for these larger parameters. A further exact syndrome or dual spectrum calculation is needed. Prior distance and dimension are separately credited.",
+        "searches": [
+          "Bao–Zou arXiv:2601.12427, Table 1",
+          "Li et al. arXiv:1309.1218, Corollary 6 and Examples 7–8; journal author copy ffa144.pdf, targeted weight distribution search"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary ranked searches; mirrored cf17cf72ef0d",
+        "arXiv:2601.12427, 1309.1218, 1308.5373, 1305.0061; Li et al. journal author copy"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For e=2, 123^(−1)=61 mod 242 and 122·61=182 mod 242. The previously published dual spectrum for that alias yields the exact coefficient and support count.",
+          "The e=16 and e=20 counts 33880 and 43560 arise from separate new exact calculations in the comparison. All three e values are known optimal distance-four constructions, but those parameters do not force a common or different A_4."
+        ],
+        "reasoning": "The weight-preserving equivalence and MacWilliams show that recomputing e=2 alone would be covered. The strongest inspected sources do not supply the other two coefficients or a theorem from which this three-way inequivalence automatically follows. The finding's value and originality are carried by the residual comparative facts.",
+        "searches": [
+          "Compare Ding–Gao–Zhou Example 4.5 with the monomial alias and MacWilliams transform; compare Li et al. Examples 7–8 and Bao–Zou Table 1 with the independent e=16 and e=20 coefficients"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Frobenius cosets of 2, 16, 20 are {2,6,18,54,162}, {16,48,144,190,86}, {20,60,180,56,168}; replacing an exponent by a coset-mate leaves the check unchanged. There is also a monomial alias: multiply coordinate j by (−1)^j, shifting the two exponents to 122 and e+121, then swap the checks and use the coordinate permutation j=k(e+121)^(−1) mod 242. This gives exponents 1 and 122(e+121)^(−1) mod 242, namely 182, 174, 236 in order.",
+          "The trace code defined in §III of Ding–Gao–Zhou is the dual of the two checks by nondegeneracy of the trace pairing. Thus its Example 4.5 at v=182 supplies the exact dual spectrum for a monomial alias of the target e=2.",
+          "Ding–Helleseth's e=4 example has the same dual weight enumerator, but weight enumerator agreement does not show equivalence to that example."
+        ],
+        "reasoning": "Compared both exponents and duality conventions. Applying MacWilliams to the known v=182 distribution yields 24200 exactly for e=2; this is real prior coverage of one component. No enumerator for e=16 or e=20 under the inspected aliases was identified. The known three-weight dual examples cannot be identical to either 11-nonzero-weight dual in the independent computation.",
+        "searches": [
+          "Ding–Gao–Zhou arXiv:1308.5373, §III, Example 4.5 and Theorem 4.6",
+          "Ding–Helleseth arXiv:1305.0061, Example 7.2",
+          "Ternary cyclic code length 242 weight distribution, exponents 16, 20, 174, 236 and counts 33880, 43560"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact triple was identified in the ranked local searches. The same-day mirrored entry cf17cf72ef0d concerns dimension 4 and length q²−1 (at q=3, length 8), not these codes.",
+          "The published example tables do give the three-weight dual distribution for the e=2 alias and for the separate e=4 example; general best-known parameter tables are not multiplicity tables for e=16 or e=20."
+        ],
+        "reasoning": "The exact published example covers the baseline coefficient. Matching length, dimension and minimum distance does not transfer A_4 to different codes, as the independently confirmed examples here demonstrate.",
+        "searches": [
+          "Local Resultary: length-242 ternary two-zero weight-four multiplicities and the count triple",
+          "Bao–Zou Table 1; Ding–Gao–Zhou Example 4.5; Ding–Helleseth Example 7.2 and their best-known code table references"
+        ]
+      },
+      "rationale": "Pass for the comparative claim, with explicit partial prior coverage: the e=2 multiplicity is already implied by an earlier full dual spectrum for the monomially equivalent exponent v=182, not merely by a coincident number. The weight-four counts for e=16 and e=20 and the resulting three-way distinction are not supplied or implied by the inspected construction theorems, tables, and spectrum examples. Their independent computation adds nonredundant facts; this is not a novelty pass for all three coefficients separately.",
+      "residual_risks": [
+        "No global priority statement. Unindexed code tables or an equivalence through a different exponent family could disclose earlier e=16 or e=20 coverage.",
+        "The identical e=4 spectrum does not decide its equivalence to e=2."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the parameter regime, not the comparative multiplicities",
+          "evidence": [
+            "m=5 satisfies the conditions for e=2,16,20"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2601.12427",
+          "material_read": "p. 2, Table 1, text offset 6300",
+          "method": "OA PDF, hypothesis and invariant comparison",
+          "title": "Counterexamples, Constructions, and Nonexistence Results for Optimal Ternary Cyclic Codes",
+          "trigger": "Recent table covering all three exponents"
+        },
+        {
+          "assessment": "Identifies the two codes, not their weight-four counts in inspected passages",
+          "evidence": [
+            "Parameters and generator polynomials for both [242,232,4] examples"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1309.1218; https://cse.hkust.edu.hk/faculty/cding/JOURNALS/ffa144.pdf",
+          "material_read": "ArXiv Corollary 6 and Example 7, p. 8 offset 33100, and Example 8, p. 9 offset 37400; journal author copy targeted distribution locations on references page",
+          "method": "Lawful OA primary passages and parameter/output comparison",
+          "title": "Optimal Ternary Cyclic Codes with Minimum Distance Four and Five",
+          "trigger": "Exact target m=5 e=16 and e=20 constructions"
+        },
+        {
+          "assessment": "Directly implies the e=2 coefficient via an equivalent code, not the e=16 and e=20 values",
+          "evidence": [
+            "Example 4.5 at m=5, v=182 gives 1+21780y^153+19844y^162+17424y^171"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1308.5373",
+          "material_read": "§III trace code definition, p. 2 offset 4800; Example 4.5 p. 4 and Theorem 4.6 p. 5 within offsets 15550–18712",
+          "method": "Lawful OA PDF, verify trace/parity-check duality and derive monomial alias",
+          "title": "Five Families of Three-Weight Ternary Cyclic Codes and Their Duals",
+          "trigger": "Exact dual distribution and potentially equivalent exponent 182"
+        },
+        {
+          "assessment": "Same spectrum at e=4, with no equivalence to e=4 inferred from it",
+          "evidence": [
+            "Dual polynomial 1+21780y^153+19844y^162+17424y^171"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1305.0061",
+          "material_read": "Example 7.2, PDF p. 9, text passage starting at offset 31100",
+          "method": "Lawful OA PDF and full spectrum comparison",
+          "title": "Optimal Ternary Cyclic Codes from Monomials",
+          "trigger": "Length-242 exact dual spectrum"
+        },
+        {
+          "assessment": "Different family and invariant, not discounted on account of date",
+          "evidence": [
+            "Dimension 4, length q²−1, and a covering-structure claim"
+          ],
+          "identifier_or_url": "Resultary 2026/10/13/SCOPE-all-two-zero-cyclic-codes-in-theorem-6-have-the-same-covering-st--cf17cf72ef0d",
+          "material_read": "Mirrored RESULT.md finding, offset 0",
+          "method": "Local mirror and code-parameter comparison",
+          "title": "All two-zero cyclic codes in Theorem 6 have the same covering structure",
+          "trigger": "Same-day two-zero code match in local search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions and limitations",
+        "Bao–Zou Table 1; Li et al., length-242 examples",
+        "Ding–Gao–Zhou Example 4.5 and the independent comparative calculation"
+      ],
+      "rationale": "The choice is a comparison of canonical distance-four construction families at a common small nondegenerate admissible extension degree, not a search for an arbitrary anomalous length. At equal length, dimension and minimum distance, the exact leading weight coefficient tracks the multiplicity of minimum words and supports, and here separates three codes up to monomial equivalence by a concrete invariant. The previously covered e=2 value serves only as a baseline. The two residual exact coefficients and their inequivalence consequences are useful for identifying and comparing optimal constructions even without a general weight-distribution theorem.",
+      "residual_risks": [
+        "No claims of improved minimum distance, all-weight classification, design structure, or inequivalence of additional families."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

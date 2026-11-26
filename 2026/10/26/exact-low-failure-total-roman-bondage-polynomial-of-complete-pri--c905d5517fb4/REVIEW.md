@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The weight-four characterization is proved from the possible label multiplicities, not assumed from numerical experiments. In the clique prism, exactly the matching rungs are adjacent dominating pairs. Each removed edge destroys precisely the rungs corresponding to its endpoint indices. Every deletion set of size below the original minimum degree leaves the graph isolate-free, making the inclusion-exclusion enumeration exact. The edge-count and minimum-set classification cover every possible index-degree pattern. The standalone checker independently enumerated 459723 eligible-size edge sets and separately tested 743 full total Roman labelling problems on small graphs. Risk: the certificate is a mathematical proof and self-review, not independent peer validation.
+PASS
 
-## Originality — PASS, subject to residual bibliographic risk
+On at least six vertices with no universal vertex a total Roman dominating function of weight ≤3 is impossible: it needs a 2 and a neighboring positive, and the only remaining feasible weight pattern would make the 2 universal. A weight-four pattern 2+2 is an adjacent dominating pair, and a 2+1+1 pattern also has such a pair by taking the 2 and any positive neighbor; the other positive vertex must meet one of that pair. Only rungs dominate as adjacent pairs in the complete prism, since a same-layer edge misses the opposite layer at any third index. A surviving rung loses domination exactly when a respective endpoint loses an incident clique edge, or loses adjacency when its own edge is deleted. Fewer than n deletions cannot isolate a degree-n vertex. Requiring each rung index to be hit gives inclusion–exclusion on untouched indices with exactly (n−j)² admissible edges, counting labelled edge subsets by size. The minimum covers are a layer-colored perfect matching for even n, or for odd n one rung and a matching or a three-index path and a matching; counting these cases gives the two closed multiplicities. For n=2 the excluded C4 case indeed cannot increase above its order. In a fresh direct minimization over {0,1,2}-labelings every graph with k<n was checked for n=3 (46 graphs) and n=4 (697 graphs), yielding (0,0,18) and (0,0,12,248). Replay files: /workspace/branches/5c87dcc1-ad4d-41a3-903a-9911a4872235/direct_replay.py, direct_replay_n3.txt and direct_replay_n4.txt. The uploaded verifier and its output were inspected, not executed, and finite replays are not the general proof.
 
-The 2026 foundational paper already establishes the low-weight characterization and its total-bondage equivalence, and these are expressly credited. Its full introductory, preliminary and result sections cover general conditions and other named graph families, not the matched-clique prism's complete low-deletion failure profile. The 2025 full-text study of k-total bondage gives exact results for paths/cycles, wheels, complete and complete bipartite graphs plus general constructions; none implies the all-coefficient prism statement. A published different Roman {3}-domination result on prisms and published mixed-metric prism work concern other invariants. The genuinely assessed new content is the exact low-failure coefficient distribution and parity-dependent multiplicity, not inclusion-exclusion alone. Risk: a mathematically equivalent distribution may exist under older total-bondage/reliability terminology or in an unindexed source.
+## originality
 
-## Value — PASS
+PASS
 
-The exact number of edge failures that force an additional total Roman resource, at every failure size below the first possible vertex-isolation threshold, is a natural robustness invariant. The two-clique prism is an unbounded, symmetric, noncomplete family for which the full profile reduces to an index-cover polynomial. The closed minimum-failure census distinguishes two different structural types at odd order and gives exact finite-failure probabilities. Both the entire low-degree profile and the minimum-multiplicity formulas add information not supplied by the previously published weight-four equivalence. Risk: the result is limited to this graph family and below-threshold failure sizes; no claims of universality or applications beyond the stated invariant are made.
+The adjacent-dominating-pair criterion and equality with ordinary total bondage at weight four are prior, and the resulting edge-cover inclusion–exclusion is standard. The observed distinct result is the exact failure profile in the labelled matched-clique prism: its prism-specific coverage equivalence, the full deletion-size distribution below minimum degree, and the minimum multiplicities. No inspected existing theorem already gives this profile.
 
-## Closest literature and limitations
+## value
 
-The closest primary work is *Total Roman bondage number of a graph* (2026), particularly Proposition 4 and Corollary 8. *The k-Total Bondage Number of a Graph* (2025) concerns a neighboring notion and general graph classes, but gives no count of all damaging deletion sets on these prisms. Earlier surveys explain the robustness motivation. No full enumeration is asserted for deletion sizes at least the original degree, where vertex isolation must be handled separately. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The cutoff k<n is the largest uniform window in which edge deletion cannot isolate a vertex, not an arbitrary truncation. The full profile gives failure probabilities at each size in that window and distinguishes robustness of the crown of rung defenders from the single minimum-size threshold. The closed minimum multiplicities quantify a genuine parity distinction on a standard graph family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:32:42.742053Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and §§1–4; VERIFICATION.md, verify.py and verification_output.txt (inspected, not executed)",
+        "Independent exhaustive small replay: set each two-in/two-out suffix switch to 0 or 1, follow the 0ⁿ edge until it returns, retain permutations whose 0ⁿ orbit has length Σ_{j≤k} C(n,j), and union their traversed next-windows for 1≤k≤n≤5."
+      ],
+      "rationale": "The length-n admissible words label the edges of a strongly connected balanced overlap digraph; append zeros to reach the zero vertex and then append the bits of any target. At a vertex of interior weight k the sole transition is forced and occurs in an Euler circuit. At weight less than k the choice is rotation or cross. All-rotation splits the edge set into necklace cycles. A switch at v transposes successors on the two rotation classes [0v],[1v]. Each tree edge joins two distinct current cycles, so spanning trees with a prescribed included or avoided edge realize respectively the cross or rotation pairing. If the edge is a bridge, switching elsewhere cannot move between the two sides in the decomposition into necklace classes, so the rotation pairing at that edge is impossible. For a weight-m necklace, downward edges are one-position orbits under its rotation stabilizer; there is a unique downward edge exactly when its primitive period contains one 1. Two downward edges give a detour via the connected lower layers, even for parallel edges. A unique downward edge at intermediate 2≤m<k is not a bridge: add a 1 immediately after an old 1 and delete that old 1, changing two cyclic gaps from d,d to d−1,d+1; deleting the new 1 from this modified necklace reaches the same lower neighbor. The all-zero necklace and the evenly spaced top layer when k divides n give exactly the stated bridges, coinciding for k=1. Each bridge forbids two rotation windows. Counting candidates by weight gives the displayed binomial formula. Independent brute enumeration of all binary successor permutations for each of the 15 pairs 1≤k≤n≤5 tested the union directly and matched the forbidden lists, including the two omissions 00 and 11 at n=k=1.",
+      "residual_risks": [
+        "The frozen Finding's prose about the four ordinary endpoint omissions should be read for n=k≥2. The explicit classification, formula and proof at n=k=1 correctly give two. Finite replays are supplemental; the all-n result is the bridge proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2011 paper defines precisely the weight≤k factor language and constructs cycles. The 2013 weight-range gluing construction treats a broader collection of languages, and the 2016 abstract presents broader construction principles."
+        ],
+        "reasoning": "Broader coverage for existence or construction does not give every admissible consecutive edge pair that can occur in at least one full cycle. Even standard spanning-tree cycle joining needs the edge-by-edge bridge classification for this family.",
+        "searches": [
+          "Sawada–Stevens–Williams, De Bruijn Sequences for the Binary Strings with Maximum Density",
+          "Sawada–Williams–Wong, Universal Cycles for Weight-Range Binary Strings, §4",
+          "Sawada–Williams–Wong, Generalizing the Classic Greedy and Necklace Constructions of de Bruijn Sequences and Universal Cycles"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact unrestricted support, weight-at-most-two cycle parametrization, and three-window deficit records",
+        "Maximum-density WALCOM 2011 paper; weight-range IWOCA 2013 paper; generalized necklace constructions EJC 2016 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The weight-two prior enumerates all cycles from independent singleton last-exit decisions, so reconstruction and scanning can recover the support within that slice. The 2011 and 2013 results give existence/construction rather than mandatory switches for every bounded-density family."
+        ],
+        "reasoning": "For an intermediate-weight evenly spaced necklace the potential forced switch disappears by using a higher layer. Proving this detour for every m<k, while proving the evenly spaced top-layer bridge survives exactly when k divides n, is additional graph structure not obtained by substituting a parameter in the inspected prior results.",
+        "searches": [
+          "Original unrestricted Resultary Finding",
+          "Weight-at-most-two Resultary Finding and last-exit proof",
+          "2011 construction and 2013 gluing passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/10/18/SCOPE-exact-next-order-factor-support-across-de-bruijn-cycles--02203ca2da50 gives the identical union-support omissions for unrestricted binary order n≥2, plus a different larger-alphabet result.",
+          "The earlier weight-at-most-two Boolean-cube record completely parametrizes cycles for that single density bound; a same-day three-window deficit record counts missing n-windows in shorter incomplete circles instead."
+        ],
+        "reasoning": "The Euler-transition and necklace-bridge reformulations refer to the union of length-(n+1) supports in full universal cycles. The ordinary case is exactly equivalent only at k=n and is credited. A deficit in an incomplete order-n circle is a different observable.",
+        "searches": [
+          "Resultary queries for exact next-order support of binary de Bruijn cycles and weight-at-most-two universal-cycle parametrizations",
+          "Sawada–Stevens–Williams (2011), maximum-density binary de Bruijn cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The unrestricted exact prior list is the two constant words and 01^{n−1}0, 10^{n−1}1 (n≥2). The Boolean-cube record gives 2^⌊(n−1)/2⌋ cycle counts and reconstruction at bound 2, not a support table for arbitrary bounds."
+        ],
+        "reasoning": "The prior exact endpoint and the small-bound reconstruction cannot answer the exact support list or count for general intermediate k. The new theorem does not re-credit exact ordinary counts/omissions or enumeration at k=2.",
+        "searches": [
+          "Resultary exact next-order factor support and bounded-density cycle counts",
+          "Resultary Boolean-cube parametrization of weight-at-most-two cycles"
+        ]
+      },
+      "rationale": "Existence, standard joining machinery, the unrestricted endpoint and the complete cycle parametrization for bound 2 are prior. The distinct claim is the uniform explicit classification of transitions over all weight bounds, in particular the nontrivial k<n divisibility condition in the general bound and the resulting closed support count. Known existence algorithms produce particular cycles; they do not classify which transitions can be forced or avoided over the family.",
+      "residual_risks": [
+        "The comparison is bounded; an unindexed cycle-adjacency bridge classification could overlap. Some broader construction literature was inspected only at the cited passages, not exhaustively."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same language and existence antecedent; no support classification established by inspected material",
+          "evidence": [
+            "Defines B(n,m) as the union of weight layers 0 through m; constructs cycles for those languages."
+          ],
+          "identifier_or_url": "https://www.socs.uoguelph.ca/~sawada/papers/max_density.pdf",
+          "material_read": "Abstract and §1, PDF p. 1; §2 necklace and primitive prefix definitions, p. 2",
+          "method": "OA primary PDF, targeted passages",
+          "title": "De Bruijn Sequences for the Binary Strings with Maximum Density",
+          "trigger": "Primary construction paper on the identical weight-bounded language"
+        },
+        {
+          "assessment": "Weight-range construction, not a classification of prohibited transitions",
+          "evidence": [
+            "Uses gluing to construct universal cycles for weight ranges."
+          ],
+          "identifier_or_url": "https://www.socs.uoguelph.ca/~sawada/papers/den-range.pdf",
+          "material_read": "PDF p. 1 near offset 1783 and §4 near offset 9890",
+          "method": "OA primary PDF passages",
+          "title": "Universal Cycles for Weight-Range Binary Strings",
+          "trigger": "Broader language range and gluing technique"
+        },
+        {
+          "assessment": "Broader construction background in the inspected passage; no whole-paper exclusion inferred from this passage alone",
+          "evidence": [
+            "Describes generalized greedy and necklace constructions for universal cycles."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v23i1p24/pdf/",
+          "material_read": "Abstract, PDF p. 1",
+          "method": "OA primary PDF passage",
+          "title": "Generalizing the Classic Greedy and Necklace Constructions of de Bruijn Sequences and Universal Cycles",
+          "trigger": "Potential general necklace-construction implication"
+        },
+        {
+          "assessment": "Exact prior overlap at unrestricted n=k, not the intermediate bounds",
+          "evidence": [
+            "For ordinary binary n≥2 it excludes precisely the two constants and 01^{n−1}0, 10^{n−1}1; nonbinary case also treated."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-next-order-factor-support-across-de-bruijn-cycles--02203ca2da50",
+          "material_read": "Finding, local mirror RESULT.md around offset 173",
+          "method": "Resultary search and local mirror original",
+          "title": "Exact next-order factor support across de Bruijn cycles",
+          "trigger": "Identical union-support observable"
+        },
+        {
+          "assessment": "Complete parametrization, hence algorithmic support coverage for k=2 only",
+          "evidence": [
+            "Low singleton indices have forced zero-edges, high singleton indices take independent binary choices; the last-exit traversal reconstructs the cycles."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-boolean-cube-enumeration-of-binary-weight-at-most-two-universa--a6349247ec63",
+          "material_read": "Finding, assumptions and arborescence proof, local mirror RESULT.md offsets 80–5250",
+          "method": "Resultary search and local mirror original",
+          "title": "A Boolean-cube enumeration of binary weight-at-most-two universal cycles",
+          "trigger": "Exact full-family result for an intermediate density bound"
+        },
+        {
+          "assessment": "Different length and missing-window notion; date is not a priority decision",
+          "evidence": [
+            "Counts circles of length 2ⁿ−3 with distinct n-factors and classifies triples of missing n-factors."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-exact-three-window-deficit-count-for-binary-de-bruijn-cycles--0692287bae41",
+          "material_read": "Finding from local mirror RESULT.md offset 0",
+          "method": "Resultary search and local mirror original",
+          "title": "The exact three-window deficit count for binary de Bruijn cycles",
+          "trigger": "Close semantic result on omissions in binary circles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and bridge proof",
+        "2011 existence antecedent and unrestricted support comparator"
+      ],
+      "rationale": "It gives a complete local-extension criterion for a standard family of constrained universal cycles: aside from the base forced transitions, precisely an evenly spaced saturated configuration creates extra exclusions and only under a divisibility condition. The bridge certificate also gives a concrete construction of a cycle realizing any one allowed transition, not just a count or an assertion that some cycles exist. This resolves a natural extension question throughout the bounded-density range.",
+      "residual_risks": [
+        "No assertion about the number of realizing cycles, joint realizability of several windows, or presence in every individual cycle."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

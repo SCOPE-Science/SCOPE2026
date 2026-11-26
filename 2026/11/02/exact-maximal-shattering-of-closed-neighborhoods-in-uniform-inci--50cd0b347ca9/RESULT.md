@@ -36,7 +36,7 @@ There is also a sharp rank-two adaptive separation:
 \]
 Hence for every \(n\ge4\), rank two has \(\operatorname{VCdim}=2\) but \(\operatorname{Ldim}=3\). No all-rank formula for Littlestone dimension is claimed.
 
-For comparison, the corresponding **open** neighborhoods of the same graph have VC dimension \(\min\{k,n-k\}\). Thus adding the center to each neighborhood can raise VC dimension by two: for example whenever \(k=n-1\ge3\), it changes from one to three.
+For comparison, the corresponding **open** neighborhoods of the same graph have VC dimension \(\min\{k,n-k+1\}\). Thus adding the center to each neighborhood raises VC dimension by at most one: for example whenever \(k=n-1\ge3\), it changes from two to three.
 
 ## Assumptions and scope
 
@@ -104,7 +104,7 @@ Suppose \(n\ge4\). An initial query at a block \(B=\{i,j\}\) has just three posi
 
 For the matching lower bound, first query point \(i\). In the positive branch query the block \(\{i,j\}\): its positive branch contains \(H_i\) and \(H_{\{i,j\}}\), distinguished by querying point \(j\); its negative branch contains the \(n-2\ge2\) hypotheses \(H_{\{i,\ell\}}\) for \(\ell\notin\{i,j\}\), distinguished by a further point query. Thus the initial positive branch admits depth two. The initial negative branch contains, on the remaining point and block coordinates, precisely the closed neighborhoods of \(I(n-1,2)\). Since this smaller graph has VC dimension two by the established result, it also admits online depth two. Joining the branches gives depth three, as required.
 
-**7. Open-neighborhood comparison.** Open neighborhoods of a bipartite graph lie entirely on the part opposite their centers, so a shattered support of size at least two lies in one part. For point supports of size \(s\), all traces are realized by \(k\)-blocks exactly when \(s\le\min\{k,n-k\}\). For block supports of size \(s\ge2\), every binary signature must occur among the \(n\) points. Each block and its complement must therefore contain at least \(2^{s-1}\) points; as \(2^{s-1}\ge s\), such a support cannot exceed \(\min\{k,n-k\}\). The point construction gives equality. This comparison does not use the closed-neighborhood theorem.
+**7. Open-neighborhood comparison.** Open neighborhoods of a bipartite graph lie entirely on the part opposite their centers, so a shattered support of size at least two lies in one part. For a point support of size \(s\ge2\), only block centers can realize nonempty traces. The full trace requires \(s\le k\), and a singleton trace requires \(k-1\le n-s\). Conversely these two inequalities permit every nonempty trace \(T\) by taking a block with \(|T|\) prescribed points and \(k-|T|\) points outside the support. A point center gives the empty trace. For a block support of size \(s\ge2\), every **nonempty** binary signature must occur among the \(n\) points. Each selected block must contain at least \(2^{s-1}\) points, and its complement at least \(2^{s-1}-1\) points. Since \(2^{s-1}\ge s\), the resulting bound is \(s\le\min\{k,n-k+1\}\). The point construction gives equality. This comparison does not use the closed-neighborhood theorem.
 
 ## Verification
 

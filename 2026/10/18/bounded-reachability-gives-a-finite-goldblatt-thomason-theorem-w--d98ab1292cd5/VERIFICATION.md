@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,4 @@
 }
 ---
 
-# Verification
-
-Execute `python3 verify.py` with a standard Python 3 interpreter. The checker enumerates all binary relations on one or two points and the values \(h=0,1,2\), tests frame-radius membership, and compares two independently implemented finite conditions: whether a rooted surjective bounded morphism exists, and whether a root diagram has a satisfying valuation. There are exactly 2,412 comparisons. The run prints `BOUNDED_MODAL_VERIFY_OK 2412`.
-
-The theorem's general validity is established by the proof's path-lifting, finite-depth diagram, and closure argument; enumeration only corroborates those steps for tiny carriers. The same checker also tests the terminal self-loop versus deadend witness for the sharpness boundary. No formal proof-assistant certificate or independent scientific audit is claimed.
+Run `python3 CHECK.py` for all pointed depth types over one atom and evaluation of the specific separator for both frames at each \(h=0,\ldots,6\). The checker uses componentwise truth and finite type recursion. A symbolic transfer across the two paths establishes equivalence for every depth-at-most-\(h\) formula over any finite atom set. The finite checker does not prove that unrestricted statement or the general diagram upper bound.

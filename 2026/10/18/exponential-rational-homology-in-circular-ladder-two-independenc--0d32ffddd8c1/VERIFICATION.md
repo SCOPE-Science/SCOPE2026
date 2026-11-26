@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The stand-alone `verify_prism.py` requires Python 3.9 or later and SymPy (see `requirements.txt`). Run `python verify_prism.py` in the directory containing both files. An observed successful execution prints `VERIFIED_CIRCULAR_LADDER_SIGNED_HIGHER_INDEPENDENCE` with markers for the exact symbolic characteristic polynomial, independent exhaustive enumeration at all lengths three through eight, the integer signed values at all indices one through nineteen, and exact rational root certificates.
+# Independent mathematical audit
 
-The checker constructs a sixteen-by-sixteen polynomial matrix, symbolically factors its characteristic polynomial, and directly compares it to the stated product. Its independent enumeration inspects every vertex subset of the graphs of order six through sixteen and compares the **entire** face-count coefficient vectors to transfer-matrix traces. It recomputes the integer recurrence samples and uses rational comparisons to bound the nonleading roots and the complete error at exponent twenty.
+## correctness
 
-All-parameter correctness rests on the explicit transfer-bijection and analytic inequalities proved in the result, not on finite computations alone. The checker does not compute individual homology groups, torsion, full homotopy types, or independent mathematical validation.
+PASS
+
+The replacement credits the earlier complete polynomial identity and specializes it at −1: the logarithmic derivative is the power sum of the six reciprocal-factor roots, which produces the integer recurrence. Independently reconstructed a six-state run automaton: a doubled column has two empty neighbors and each same-layer singleton run has length at most two. A valid indexed cyclic word has exactly one based run walk (when there are only singletons, not all are equal), so its trace gives the enumerator. Its characteristic polynomial equals the reported nonzero factor; traces for all n≥3 uniquely determine the nonzero spectrum, by Vandermonde on distinct nonzero roots. Independent forbidden-vertex-triple enumeration matched whole polynomials for n=3..6. Recomputed all signed values 3..19 and the exact rational brackets and error certificate at n=20 (error ratio <2/3); monotone decay makes the latter uniform. Euler–Poincaré gives the repaired homology lower bound and noncontractibility. Replay: python /workspace/reproduce_frozen.py 3. Only the explicit case checks are finite; the run bijection and sign argument justify all n.
+
+## originality
+
+PASS
+
+The narrowed claim is the all-length sign determination and the consequent nonvanishing and explicit quantitative lower bound for total rational homology, not the complete polynomial, the transfer determinant, the signed recurrence, or the dominant root taken as standalone discoveries. The strongest verified earlier source supplies the exact input, but does not compare the signed power sums uniformly, exclude zero at all sizes or derive the explicit Betti bound. A substantially overlapping later record is credited. No absolute priority is asserted.
+
+## value
+
+PASS
+
+After removing the known polynomial contribution, the exact sign pattern rules out contractibility at every size of a natural infinite family of nonchordal cubic graphs. The uniform explicit exponential Betti bound gives a topological consequence beyond finite samples or eventual positivity. The result does not claim a homotopy classification or individual Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

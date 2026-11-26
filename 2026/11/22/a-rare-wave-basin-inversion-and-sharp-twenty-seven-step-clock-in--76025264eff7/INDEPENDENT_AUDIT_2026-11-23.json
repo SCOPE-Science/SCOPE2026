@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:02:16.589311Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Assumptions §§ on graph, transition and encoding",
+        "Frozen VERIFICATION.md, both C++ sources, both archived outputs, joint_census.csv and both Python checkers (inspected only)",
+        "Independent /workspace/replay_frucht.py and /workspace/replay_frucht.log. Replay with python /workspace/replay_frucht.py /workspace/source/2026/11/22/a-rare-wave-basin-inversion-and-sharp-twenty-seven-step-clock-in--76025264eff7"
+      ],
+      "rationale": "Independently enumerated all 16,777,216 states from the frozen edge list with the synchronous bit-plane update; checked its transition on a separate scalar implementation and verified the 18-edge relabelling to LCF. The full image of F^32 contains exactly 4,159 states and I verified that F permutes this image, proving that it consists precisely of all periodic states. Cycle tracing on the image gives least periods and orbit labels. The F^32 image of each start determines its basin; iterative preimages of the periodic set give exact first-entry layers. The replay matches all 72 nonempty histogram cells, orbit counts (1,1024,10,2) at periods (1,4,5,6), all period basin totals and maximum entry times, the listed individual sizes at periods 5 and 6, and the range from 9 to 373631 at period 4. The strict comparison is 385193>373631. Exactly 18 starts first enter at 27, all with period 4; witness 5999879 first repeats at step 31, returning to state 3222501 first reached at 27. The lcm of the periods is 60, so F^87=F^27 follows. This exhaustive method does not use either supplied C++ enumerator or its output to construct the census.",
+      "residual_risks": [
+        "Census applies only to this graph and simultaneous four-state threshold-one rule. The archived C++ reports summarize period-4 basin sizes with count, range and total, not a raw list of 1024 sizes; that suffices for the frozen inequality and table and is not evidence of a cellwise printed basin list."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fisch–Gravner–Griffeath define parallel multicolor contact excitation, but do not give this Frucht table in the checked passages.",
+          "Doba's finite-graph rule and the arbitrary-graph Gravner–Lyu–Sivakoff result use three colors."
+        ],
+        "reasoning": "The general model encompasses this local rule, but its definition is not a stronger theorem about its individual recurrent basins. The finite-graph results have a narrower color count and do not cover this instance.",
+        "searches": [
+          "Fisch–Gravner–Griffeath arXiv:patt-sol/9304001 §1",
+          "Doba, The Time Evolution of a Greenberg–Hastings Cellular Automaton on a Finite Graph (2018), §2",
+          "Gravner–Lyu–Sivakoff arXiv:1610.07320v1, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Fisch–Gravner–Griffeath arXiv:patt-sol/9304001",
+        "Doba (2018), §2",
+        "Gravner–Lyu–Sivakoff arXiv:1610.07320v1",
+        "Resultary 76025264eff7, 7b215d08f374, 924e4654e069, b5fce197f102 and 9ac3197a4c9b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-edge, three-state map advances state 2 to rest, not through a third refractory state. The same-rule Chvátal graph is 4-regular with 24 edges, while Frucht is cubic with 18.",
+          "The prism result describes unequal five-cycle basins and Petersen reports separate aggregate period populations."
+        ],
+        "reasoning": "Neither different state spaces nor different graphs give equivalent maps by relabelling, and neither unequal basins nor a comparison of aggregate masses implies all-pairs strict separation among individual basins. Knowing how to enumerate a functional graph is not knowing the result of its Frucht census.",
+        "searches": [
+          "Doba §2; Gravner–Lyu–Sivakoff arXiv:1610.07320 abstract",
+          "Resultary 7b215d08f374, b5fce197f102, 9ac3197a4c9b, 924e4654e069"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "76025264eff7 is the indexed copy of the assigned record, not a second enumeration.",
+          "7b215d08f374 uses the identical labelled Frucht edges and the threshold-one three-state rule; sharp entry is 21 with three maximizers and the period set is 1,3,4,5,6,7,8."
+        ],
+        "reasoning": "The explicit relabelling verifies equivalence of the edge list and LCF graph, but not equivalence between different color counts or state spaces.",
+        "searches": [
+          "Resultary same-map checks on four-state threshold-one Frucht/LCF excitation, 27-entry and five-/four-cycle basin inversion",
+          "Resultary 76025264eff7 and 7b215d08f374 Finding passages"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct same-map histogram or basin table was identified among the returned hits. The exact indexed hit is the record itself.",
+          "924e4654e069 has 29,602 primitive four-cycles and sharp entry 12 on Chvátal. b5fce197f102 gives 530 four-cycles, six five-cycles and sharp entry 8 on the pentagonal prism. 9ac3197a4c9b gives 90 four-cycles and 30 five-cycles and sharp entry 11 on Petersen."
+        ],
+        "reasoning": "A same vertex count (Chvátal) or the same rule on another cubic graph (prism, Petersen) is not a source of this Frucht table. The closest same-day result supplies individual sizes for the six five-cycles of a different graph, not the claimed Frucht separation.",
+        "searches": [
+          "Resultary Frucht same-map and neighboring graph census checks",
+          "Resultary 7b215d08f374, 924e4654e069, b5fce197f102 and 9ac3197a4c9b Finding passages"
+        ]
+      },
+      "rationale": "No inspected result contains the same four-state Frucht map census or implies its sharp transient and strict per-orbit separation. The exact catalogue match is the assigned record itself. Same-graph results use a different refractory chain; same-rule results on other canonical graphs have demonstrably different directed state graphs and observables. The update rule and use of exhaustive functional-graph enumeration are prior methods, not novel claims.",
+      "residual_risks": [
+        "Bounded searches do not exclude unindexed earlier enumerations. The Durrett–Griffeath arXiv PDF was unavailable via the attempted lawful retrieval; that is not negative evidence. Same-day date alone says nothing about precedence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model precedent, not the Frucht classification",
+          "evidence": "Parallel threshold rule, contact at zero, automatic color advance otherwise.",
+          "identifier_or_url": "https://arxiv.org/abs/patt-sol/9304001",
+          "material_read": "§1, p. 1, rendered offset 530",
+          "method": "OA full-text passage",
+          "title": "Threshold-range scaling of excitable cellular automata",
+          "trigger": "Multicolor GH model precedent"
+        },
+        {
+          "assessment": "Different color count",
+          "evidence": "Threshold-one rule on a graph with states {0,1,2}.",
+          "identifier_or_url": "Nobutaka Doba (2018), pp. 102–103",
+          "material_read": "§2, pp. 102–103, rendered offset 3900",
+          "method": "OA PDF passage",
+          "title": "The Time Evolution of a Greenberg–Hastings Cellular Automaton on a Finite Graph",
+          "trigger": "Potential covering finite-graph analysis"
+        },
+        {
+          "assessment": "Scope excludes four colors",
+          "evidence": "Studies three-color GHM and CCA on arbitrary graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/1610.07320v1",
+          "material_read": "Abstract, p. 1, offset 0",
+          "method": "OA PDF passage",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Potential broader arbitrary-graph result"
+        },
+        {
+          "assessment": "Different number of states",
+          "evidence": "Three-state rule; seven recurrent periods and sharp entry time 21.",
+          "identifier_or_url": "Resultary 7b215d08f374",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror full-text passage",
+          "title": "A twenty-one-step excitation transient on the asymmetric Frucht graph",
+          "trigger": "Same labelled graph and sharp recurrence observable"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": "Only periods 1 and 4; 29,602 four-cycles and sharp entry 12.",
+          "identifier_or_url": "Resultary 924e4654e069",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror full-text passage",
+          "title": "Four-state Chvátal excitation: period collapse and six extremal starts",
+          "trigger": "Same rule and vertex count"
+        },
+        {
+          "assessment": "Different graph; no same Frucht basin comparison",
+          "evidence": "Pentagonal prism, sharp entry 8; six five-cycle basins of sizes 1280 or 7355.",
+          "identifier_or_url": "Resultary b5fce197f102",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror full-text passage",
+          "title": "Eight-step relaxation and unequal five-wave basins in four-state excitation",
+          "trigger": "Same-day four-state individual-basin analogue"
+        },
+        {
+          "assessment": "Different graph and only aggregate comparison in the cited passage",
+          "evidence": "Petersen graph, 90 four-cycles with aggregate basin 90,600; 30 five-cycles with 528,840.",
+          "identifier_or_url": "Resultary 9ac3197a4c9b",
+          "material_read": "RESULT.md Finding and threshold-one basin passage at offset 6269",
+          "method": "Local mirror full-text passages",
+          "title": "Five-cycle survival and two four-cycle symmetry types in four-state excitation",
+          "trigger": "Four-state wave census with the same competing periods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and scope",
+        "Independent exhaustive histogram, basin range and extremal-start output /workspace/replay_frucht.log",
+        "Resultary same-graph three-state and nearby four-state comparisons"
+      ],
+      "rationale": "The canonical asymmetric cubic graph is a motivated finite test of excitable dynamics without nontrivial graph automorphisms. The full entry-time/period law and sharp uniform cutoff are useful exact benchmarks. More specifically, period counts favor four-cycles 1024 to 10 while every period-five orbit individually beats every period-four orbit in basin weight. This is a structural separation about uniformly sampled starts that could not be read off from recurrent-state counts or an aggregate comparison.",
+      "residual_risks": [
+        "The result does not explain the basin separation via a general mechanism or imply a pattern across graphs or refractory counts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

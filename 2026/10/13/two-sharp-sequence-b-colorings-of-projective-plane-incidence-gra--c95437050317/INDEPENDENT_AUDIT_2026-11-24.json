@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:26:18.224804Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I recomputed the incidence graph and tested every supplied color and every vertex with a separate checker, python /workspace/checks/4.py <frozen certificates.json>. For F4 the nonzero labels were multiplied as powers of a generator of order three and added by XOR. The reconstructed graphs have (26,52) and (42,105) vertices and edges, all degrees 4 and 5 respectively, no color conflicts, and exactly the stated dominating-vertex pairs in each color. Any dominating vertex in a proper k-coloring needs k-1 neighbors, proving the matching upper bound. Each pair of points has exactly one common line, excluding 4-cycles; example 6-cycles from the check are [0,17,1,13,4,14] and [0,26,1,21,5,22] in the respective labelings. The two-sided breadth-two expansion from an edge in a d-regular girth-six graph gives the order bound 2(1+(d-1)+(d-1)^2), attained here. This checks these two instances only, not all colorings or field orders.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Thm. 5.3 requires girth at least 7; Thm. 5.4 permits girth 6 for cubic graphs. Conjecture 5.5 extends to all regular degrees at least three with girth at least six."
+        ],
+        "reasoning": "The audited graphs have girth exactly six and degrees four and five. Neither proved theorem applies. The conjecture predicts the lower bounds and would imply the equalities with the degree bound if proved, but supplies neither a proof nor these exact-two witnesses.",
+        "searches": [
+          "arXiv:2609.08484 Theorems 5.3, 5.4 and Conjecture 5.5"
+        ]
+      },
+      "checked_sources": [
+        "Jakovac–Lang arXiv:2609.08484 §2 and §5",
+        "Resultary 29c49fb8469d and 30764919deff original Findings",
+        "Resultary 4180b85d8592 index summary only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proved hypotheses exclude both graphs. The closest same-family Finding concerns a minimum number of dominated classes, and the same-sequence Finding concerns a crown graph of a different adjacency structure."
+        ],
+        "reasoning": "The degree bound proves only nonexistence above d+1; it cannot give a proper coloring saturating the bound with multiple witnesses. No compared theorem implies the exact finite cases.",
+        "searches": [
+          "Jakovac–Lang Theorems 5.3–5.4 versus Conjecture 5.5",
+          "Resultary original Findings 29c49fb8469d and 30764919deff"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closed-neighborhood CDV definition in §2 of Jakovac–Lang is equivalent to the open-neighborhood other-colors definition for proper coloring. Their all-twos sequence uses at least two, not exactly two.",
+          "Indexed crown-graph all-twos spectra impose the same coloring requirement on a different graph family."
+        ],
+        "reasoning": "The ordinary one-witness b-coloring and dominated colorings do not encode two CDVs per color. Swapping points and lines preserves the same graph and condition, not a new case. The exact counts in these certificates provide the lower bound for the same all-twos sequence condition as in the paper.",
+        "searches": [
+          "Jakovac–Lang arXiv:2609.08484 Definition 2.1 and CDV definition",
+          "sequence b-coloring of projective-plane Levi graphs; two CDVs per color"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 29c49fb8469d treats a distinct dominated-coloring invariant on the same graph family; 30764919deff computes the same sequence condition on crown graphs.",
+          "The same-day PG(2,3) index entry 4180b85d8592 describes induced matching, not a coloring table. Its exact mirrored content was unavailable. The targeted primary-text searches did not locate named projective-plane examples."
+        ],
+        "reasoning": "Shared graph family or a shared sequence on another family is not an exact table match. Neither priority nor noncoverage follows from an index date or from a keyword miss.",
+        "searches": [
+          "Resultary search: projective plane Levi graph; sequence b-coloring; two color-dominating vertices",
+          "Jakovac–Lang arXiv PDF searches for 'projective plane' and 'Levi graph'"
+        ]
+      },
+      "rationale": "The two explicitly certified sharp instances are supported as distinct after full-text inspection of the motivating paper and statement-level comparison of the closest indexed results. The broad property is conjectured already, and its definition and degree bound are not new.",
+      "residual_risks": [
+        "The exact mirrored text of the same-day PG(2,3) match was unavailable. Unindexed finite certificates or a broader unlocated theorem are not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "definitions and prediction covered, not the proved instances",
+          "evidence": [
+            "Thm. 5.3: d-regular, d>=3, girth>=7. Thm. 5.4: cubic, girth>=6. Conj. 5.5: d-regular, d>=3, girth>=6."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.08484",
+          "material_read": "§2, Def. 2.1 p. 3; Thm. 5.3 p. 13, Thm. 5.4 p. 14, Conj. 5.5 p. 15",
+          "method": "arXiv PDF bounded passages and keyword checks",
+          "title": "Sequence b-colorings in graphs",
+          "trigger": "same notion and plausible stronger girth/degree result"
+        },
+        {
+          "assessment": "different invariant",
+          "evidence": [
+            "Studies chi_dom=2(q+1) and optimal dominated colorings where a class lies in a vertex neighborhood."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-pencil-rigidity-and-recoloring-components-of-dominated-colorings--29c49fb8469d",
+          "material_read": "original RESULT.md Finding, offset 0",
+          "method": "Resultary lookup and local mirror passage",
+          "title": "Pencil rigidity and recoloring components of dominated colorings in finite projective planes",
+          "trigger": "same projective-plane graph family"
+        },
+        {
+          "assessment": "same condition, different graphs",
+          "evidence": [
+            "The all-twos sequence has spectrum {2,n} on crown graphs, not projective-plane incidence graphs."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-two-point-sequence-b-spectrum-of-crown-graphs--30764919deff",
+          "material_read": "original RESULT.md Finding, offset 0",
+          "method": "Resultary lookup and local mirror passage",
+          "title": "Two-point sequence b-spectrum of crown graphs",
+          "trigger": "same sequence condition on regular bipartite graphs"
+        },
+        {
+          "assessment": "summary indicates a different invariant; exact text not verified",
+          "evidence": [
+            "The summary describes matching and saturation spectra rather than proper colorings with two CDVs per color."
+          ],
+          "identifier_or_url": "4180b85d8592",
+          "material_read": "index summary only",
+          "method": "Resultary lookup; original mirrored passage unavailable",
+          "title": "Induced-matching and saturation spectra of the order-three projective-plane Levi graph",
+          "trigger": "same-day same graph PG(2,3)"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These are minimum-order regular degree-four and degree-five girth-six examples, at the first degrees outside the known cubic case. The explicit proper colorings attain the degree bound with two dominating vertices per color, settling the motivating conjecture on two structurally natural boundary instances. The certificates are useful benchmarks and do not assert a general girth-six theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

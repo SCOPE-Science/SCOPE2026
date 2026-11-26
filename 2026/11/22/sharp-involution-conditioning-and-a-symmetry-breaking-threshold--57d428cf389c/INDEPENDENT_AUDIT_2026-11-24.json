@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:13:25.071964Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the exhaustion and the sharp calculation. An anticommuting involution preserves ker N_c and ker N_c², hence is triangular. Up to overall sign its diagonal is (1,-1,1), its adjacent entries x,z satisfy x+z=-2c, and its (1,3) entry is -xz/2; these equations also suffice. The rank-one projection P=(I-J)/2 has norm p=sqrt((1+|x|²/4)(1+|z|²/4)). In an orthonormal range/kernel-complement block the reflection has a 2-by-2 block with diagonal -1,1 and off-diagonal magnitude 2 sqrt(p²-1); its largest singular value is p+sqrt(p²-1). For c≠0, shrinking the two moduli to a sum of |c| and aligning with -c strictly improves any strict triangle inequality. On that boundary p²=|c|²+(rs-1)² and rs runs through [0,|c|²/4]. This proves attainment and all equality cases including c=0 and the merged pair at |c|=2. J^{-1}=J gives squared condition number; the derivative jump is in the second derivative, since p and p' match at 2 with unequal p''. The one-sided construction has p=sqrt(1+|c|²) and is strictly worse for c≠0. Frozen RESULT.md §§1–4 are analytically sufficient. CHECK.py was inspected, not run; it tests finite samples and symbolic feasible-family identities, not continuum optimality. No formal or expert certification is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aouichaoui abstract, PDF preview lines 7–21: commutator lengths and order-three examples separating similarity from involutive similarity; identifies the antecedent questions in the 2023 paper.",
+          "Frozen RESULT.md lines 88–90 reports a §4 one-sided construction in the wider block family and acknowledges incomplete 2023 coverage."
+        ],
+        "reasoning": "A theorem over a broader block family would dominate only if it supplied the norm optimum or a theorem implying it. Qualitative existence/nonexistence on that family does not. The available evidence does not show a stronger norm-minimization theorem; the unrestricted full texts could not be checked.",
+        "searches": [
+          "Primary-literature lookup on anticommuting involutions for three-step nilpotents and optimal spectral norm",
+          "arXiv:2611.01316v1",
+          "doi:10.1016/j.jfa.2023.109854"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, AUDIT.json, REVIEW.md, METADATA.json, SLOGAN.txt, VERIFICATION.md and CHECK.py",
+        "arXiv:2611.01316v1 (abstract and start of §1)",
+        "doi:10.1016/j.jfa.2023.109854 (indirect comparison)",
+        "Resultary records 57d428cf389c, a78b15a3d4a1 and 00a25760cd57"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-sided scalar construction described by the frozen comparison uses one zero adjacent parameter; direct evaluation gives norm |c|+sqrt(1+|c|²).",
+          "The sharp optimum instead uses rs=min(1,|c|²/4) and neither radius is zero for c≠0."
+        ],
+        "reasoning": "The available antecedent construction does not realize the optimum at any positive shortcut, let alone distinguish the two symmetry-broken equality cases. The optimization adds the sharp lower bound and the missing classification.",
+        "searches": [
+          "arXiv:2611.01316v1 §4 (citation and alternate PDF)",
+          "RESULT.md lines 70–90",
+          "Resultary 00a25760cd57"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aouichaoui's abstract explicitly treats similarity to the negative and bounded anticommuting involutions as different questions.",
+          "RESULT.md proof §§1–3 gives the exact reduction to the norm of a rank-one oblique projection under x+z=-2c."
+        ],
+        "reasoning": "Replacing J with I-2P is an algebraic equivalence, but known involution–idempotent correspondence does not determine the best P under that constraint. Unrestricted similarity and the existence of an involution do not give the norm of the best involution.",
+        "searches": [
+          "Resultary: sharp involution conditioning and symmetry breaking for three-step nilpotents",
+          "arXiv:2611.01316v1",
+          "doi:10.11648/j.mcs.20170206.11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact ranked match 57d428cf389c is the frozen article itself.",
+          "a78b15a3d4a1 counts rank-one matrix factorizations over finite fields; 00a25760cd57 treats an affine Jordan norm pencil."
+        ],
+        "reasoning": "The self-match is not independent prior coverage. The nearby finite-field result does not address Euclidean operator norm; an affine pencil of a fixed Jordan block is a different optimization from varying an involutive intertwiner with a complex sum constraint. No distinct matching entry surfaced in the ranked checks.",
+        "searches": [
+          "Resultary: least norm of anticommuting involutions for a 3-by-3 nilpotent with complex shortcut",
+          "57d428cf389c",
+          "a78b15a3d4a1",
+          "00a25760cd57"
+        ]
+      },
+      "rationale": "The supported distinct result is the sharp scalar spectral-norm optimum, its full minimizing set over complex involutions and its transition. The general qualitative anticommutation and involution–projection reduction are antecedents, not new claims. Ranked comparisons disclosed no distinct equivalent. This is a best-of-knowledge decision, not a priority guarantee.",
+      "residual_risks": [
+        "No independent full-text inspection of Aouichaoui §4 or the 2023 comparator after the bounded retrieval attempts.",
+        "Projection or matrix optimization treatments may contain an equivalent unconventionally indexed norm problem; ranked checks are not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative and length overlaps verified; §4 quantitative coverage not independently settled",
+          "evidence": [
+            "Abstract lines 7–21 on order-three nilpotents and bounded involutions; frozen RESULT.md line 88 on the one-sided construction"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.01316v1",
+          "material_read": "Original PDF abstract and start of §1; frozen record's §4 comparison",
+          "method": "Lawful alternate arXiv PDF extraction after primary passage retrieval did not complete",
+          "title": "Optimal lengths of commutators of idempotents and similarity of nilpotent operators to their negatives",
+          "trigger": "Same three-step sign symmetry; plausible stronger block result"
+        },
+        {
+          "assessment": "Quantitative coverage unresolved, not a full-text exclusion",
+          "evidence": [
+            "The abstract identifies related qualitative involution questions (including §2.9 of the 2023 paper)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jfa.2023.109854",
+          "material_read": "Indirect primary citation and description of the questions; frozen discussion",
+          "method": "Aouichaoui abstract lines 19–21 and frozen RESULT.md line 90; primary retrieval unsuccessful",
+          "title": "Around the closure of the set of commutators of idempotents in B(H): Biquasitriangularity and factorisation",
+          "trigger": "Earlier source of related similarity and factorisation questions"
+        },
+        {
+          "assessment": "Self-match and related but distinct invariants",
+          "evidence": [
+            "Rank-one finite-field factorization and affine Jordan pencil summaries do not assert this constrained Euclidean norm."
+          ],
+          "identifier_or_url": "57d428cf389c, a78b15a3d4a1, 00a25760cd57",
+          "material_read": "Ranked statements; frozen exact self-match proof §§1–4",
+          "method": "Local semantic lookup and comparison with frozen statement",
+          "title": "Resultary comparison entries",
+          "trigger": "Exact, specialized, and rearranged formulation check"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A qualitative sign symmetry does not measure how much distortion its implementation costs. The normalized three-step complex chain is a natural first case in which an extra coupling remains, and the least norm and the implementers are useful in comparing norm-controlled sign similarities. The two-to-one split of optimizers modulo sign and the optimal condition number are substantive, not just an explicit evaluation of the canonical construction. No claim is made for arbitrary block sizes or unrestricted similarities.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

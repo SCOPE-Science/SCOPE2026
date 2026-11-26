@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:15:23.703577Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The beta integral gives ||z^k||²=k!/(β+1)_k. The normalized double derivative has t^j coefficient (β+1)_{j+m} binom(j+m,m)^2/(j+m)!, giving the stated prefactor and Euler transform. Pfaff gives Q=(1−t)^m P_m^(0,β)((1+t)/(1−t)); the Cayley map takes positive Jacobi roots precisely into the attainable negative scalar interval (−1,0), excluding x=0. Orthogonality of the divided monic polynomials gives the derivative formula with a positive integrand, also valid near β=0; Legendre parity and the large-β collapse toward x=1 prove all crossings and their simplicity. Directly T_2=(β²−β−4)/2 and T_3=β(−β²+3β+16)/6. In the large-order recurrence, uniform convergence of the off-diagonals applies to the actual entries j=1,...,m−1, not to the artificial a_m=0. At the last row the missing link can only improve the Gershgorin lower bound; the last o(m) but divergent block has the limiting constant coefficients, and alternating sine vectors attain the limiting lower edge. This proves h(c) and by monotonicity the strict two-sided threshold statements. Fixed-order hypergeometric coefficients differ from Laguerre by O_m(β^-1); simplicity and the Cayley map give the stated O_m(β^-2) refinement. Independent bounded replay: python /workspace/reproductions/check.py 4 (252 exact kernel coefficients, m=2,3 crossings, high-order and Laguerre spectrum samples). The finite spectra corroborate but do not prove the limits. The frozen CHECK.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gehlawat–Jain–Sarkar give the general derivative-series Gram representation.",
+          "DLMF confirms strict monotonicity in β and the fixed-m Jacobi-to-Laguerre limit.",
+          "Moak–Saff–Varga addresses varying parameters; the full extreme-zero statement was not retrieved."
+        ],
+        "reasoning": "The general derivative construction does not settle zeros, and the cited polynomial facts do not alone give the finite crossing classification for this weighted kernel. No originality credit is assigned to the classical asymptotic framework.",
+        "searches": [
+          "arXiv:2608.13193v1 §2",
+          "DLMF §§18.7(iii),18.16(ii)",
+          "10.1090/S0002-9947-1979-0520565-6"
+        ]
+      },
+      "checked_sources": [
+        "98259fe7e47b",
+        "6d0c18762b57",
+        "arXiv:2608.13193v1",
+        "DLMF §§18.7, 18.16",
+        "10.1090/S0002-9947-1979-0520565-6 (full text not retrieved)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general kernel representation permits computing the weighted numerator, but does not classify its attainable zeros.",
+          "The monotonicity and contraction results imply corresponding polynomial motion and leading fixed-order scaling after the Cayley change; they do not assert the number or simplicity of positive parameter thresholds or exclusion at their values."
+        ],
+        "reasoning": "The exact phase count uses the initial Legendre count, strict crossing derivatives, positive eventual roots, and the open-disk cutoff, not just a known fixed-weight theorem or a larger kernel-domain assertion. The sharp asymptotic interpretation is a polynomial-edge corollary once that edge is given.",
+        "searches": [
+          "arXiv:2608.13193v1 Def. 2.6 and Thm. 2.7",
+          "98259fe7e47b RESULT.md",
+          "DLMF 18.7.21 and §18.16(ii)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The β=1 numerator and fibre count are already explicit in 98259fe7e47b.",
+          "Under the exact Cayley equivalence the disk phase law is the count of positive roots of P_m^(0,β), and transitions are positive parameter zeros of P_m^(0,β)(0)."
+        ],
+        "reasoning": "A fixed-β numerator and zero count are a slice, not the full family; classical root motion is credited rather than claimed as a novel rephrasing.",
+        "searches": [
+          "Resultary: weighted pure equal-order Bergman jet Gram kernel zero fibres Jacobi threshold",
+          "2026/10/11/SCOPE-exact-zero-fibres-of-pure-jet-bergman-gram-kernels-on-the-disk--98259fe7e47b",
+          "DLMF §18.16(ii)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact assigned-record hit is not independent prior evidence.",
+          "6d0c18762b57 treats the ordinary kernel for |z|^{2(t−1)}(1−|z|²)^m, not equal-order derivative Gram kernels.",
+          "The related unweighted entry tabulates the β=1 result only."
+        ],
+        "reasoning": "No matching indexed exact transition sequence or all-weight threshold law surfaced; the same-day result is separated by its operator and weight, not by its date.",
+        "searches": [
+          "Resultary: β-dependent weighted disk derivative Gram zero counts and last Jacobi transition ratio",
+          "2026/11/8/SCOPE-the-first-reentrant-boundary-order-for-jacobi-weighted-disk-kern--6d0c18762b57"
+        ]
+      },
+      "rationale": "Pass for the complete arbitrary-weight disk pure-jet zero-fibre phase law as an application, not for Jacobi monotonicity, the leading Laguerre contraction, the unweighted case, the general differential Gram representation, or the varying-Jacobi endpoint as a standalone originality claim. The strongest earlier disk record fixes β=1; the classical results supply components of the proof, while the finite weight threshold sequence and strict accessibility count for this kernel were not identified as a covered result.",
+      "residual_risks": [
+        "A stronger weighted disk jet application or explicit Jacobi parameter-crossing table might be unindexed.",
+        "Moak–Saff–Varga full text was not retrieved; the exact status of the edge in that paper was not determined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers unweighted case only",
+          "evidence": [
+            "β=1 polynomial and ceil(m/2) accessible roots."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-exact-zero-fibres-of-pure-jet-bergman-gram-kernels-on-the-disk--98259fe7e47b",
+          "material_read": "RESULT.md opening finding, offset 0",
+          "method": "Local mirror read",
+          "title": "Exact zero fibres of pure-jet Bergman Gram kernels on the disk",
+          "trigger": "Same disk and jet operator"
+        },
+        {
+          "assessment": "Different radial weight family and ordinary kernel",
+          "evidence": [
+            "Weight |z|^{2(t−1)}(1−|z|²)^m; no pure jet specialization."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-the-first-reentrant-boundary-order-for-jacobi-weighted-disk-kern--6d0c18762b57",
+          "material_read": "RESULT.md opening finding, offset 0",
+          "method": "Local mirror read",
+          "title": "The first reentrant boundary order for Jacobi-weighted disk kernels",
+          "trigger": "Indexed weighted disk zero classification"
+        },
+        {
+          "assessment": "General construction covered; inspected passages do not contain weight thresholds",
+          "evidence": [
+            "Def. 2.6 and Thm. 2.7 provide series and positive definiteness; described explicit examples are on the upper half-plane."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.13193v1",
+          "material_read": "Introduction p.3; §2 Def. 2.6 and Thm. 2.7 p.7",
+          "method": "Targeted OA PDF passages",
+          "title": "A Canonical Positive Definite Kernel Associated with the ξ-Bergman Kernel",
+          "trigger": "General differential Gram construction"
+        },
+        {
+          "assessment": "Classical coverage of two ingredients",
+          "evidence": [
+            "Zero angles decrease strictly with β; P_m^(α,β)(1−2u/β) tends to L_m^(α)(u)."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/18.16#ii",
+          "material_read": "§18.16(ii) after (18.16.1), and §18.7(iii) (18.7.21)",
+          "method": "Targeted OA web passages",
+          "title": "NIST Digital Library of Mathematical Functions: Jacobi polynomials",
+          "trigger": "Equivalent Jacobi monotonicity and Laguerre contraction"
+        },
+        {
+          "assessment": "No finding of non-coverage for the edge; do not credit separate novelty",
+          "evidence": [
+            "Full result on p.159–162 not inspected."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9947-1979-0520565-6",
+          "material_read": "Bibliographic identification only; AMS full text denied access",
+          "method": "Targeted OA attempt",
+          "title": "On the zeros of Jacobi polynomials with varying parameters",
+          "trigger": "Plausible implication of h(c) and hence the final-threshold ratio"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural weighted differential-evaluation kernel has an exact all-order census of accessible off-diagonal zero fibres, including how many transitions there are, precisely where they occur, and why each threshold excludes the incoming fibre. This is more informative than merely computing the kernel or specializing a fixed-weight zero count; the linear scale of the final transition quantifies when all fibres are available.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

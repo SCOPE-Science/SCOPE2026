@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** Dissipativity identifies real eigenvalues precisely with zeros at the defect. The cut-chain spectral intersection yields the complete sine-ratio classification. An exact cyclotomic division certificate exhausts the finite sharp-cutoff range; a four-site characteristic identity and direct norm sum prove the infinite quartet and retention law. The exact checker and independent finite-matrix corroboration both execute. No finite experiment is treated as an infinite proof.
+## correctness
 
-**Originality — PASS, with stated residual risk.** The 2023/2024 localized-loss SSH paper supplies the chain and an implicit Chebyshev secular equation but does not extract the collision criterion, exhaustive first unequal-bond quartet, or endpoint retention. A 2023 dissipative SSH paper treats a different parity/defect arrangement; a 2026 localized-loss analysis already states the general nodal criterion, which is explicitly excluded from the novelty claim. The asserted new finite-arithmetic classification and sharp quantum survival statement are not implied *as established results* by these existing generic statements without further algebra and new exact exhaustive analysis. Search did not establish uniqueness across all unpublished or unindexed papers.
+PASS
 
-**Mathematical value — PASS.** More than merely observing a dark state, the result determines the entire dark spectrum, the first lattice size at which dimerization can protect a four-dimensional subspace, and an infinite family with a loss-rate-independent and exactly normalized endpoint retention probability. The minimum-size question is intrinsic to multiplet protection, not an arbitrary numerical slice. An exact finite answer and its infinite companion supply structural information for dissipative state preparation.
+For a right eigenvector the imaginary part of its Rayleigh quotient is minus Gamma times the normalized loss-site weight. A real eigenvector therefore belongs to the clean chain and has a node at the loss; the two cut Jacobi eigenvectors can be joined uniquely at any shared eigenvalue because their endpoint amplitudes cannot vanish. The odd right segment's nonzero squared energies come from its L−1 dimensional Toeplitz block with diagonal a²+b² and off-diagonal ab, and the even left segment's normalized squared-energy determinant is U_u(t)+r U_{u−1}(t), with an endpoint diagonal shift −b². The consecutive U polynomials cannot both vanish, and the left coupling block is invertible, giving the stated positive-ratio test with no zero-mode or endpoint exceptions. Independently of the frozen angle-pair checker, I enumerated all 78 interior (N,s) pairs for N≤14 with a resultant in t against U_{L−1}(t). Its linear factors over the right-hand roots each encode one possible r, or are nonzero constants for vanishing denominators. Exact gcd with its derivative, rational factorization and real-root counts gave repeated positive ratios only at r=1 for N≤13 (at N=7,10,12,13), and r=√2 at N=14,s=3, with multiplicity two. For the infinite family the two right angles are 5π/12 and 11π/12 at every length, and the left block has only four eigenvalues, with squared energies z=a⁻²E²=2±√3. At a=1 and A_1=1 the left norm is 2+2z; each run of 12 right cells contributes 48 since exp(2iθ) has order 12 and the squared sinusoidal amplitude is 4 on each sublattice before averaging. The real modes reduce the lossy operator and the complement decays even with Jordan blocks. Summing the four inverse squared norms gives Eq. (2), including 9/121 at m=1.
 
-**Closest literature and limitations.** Li et al. (arXiv:2312.03054) provide the underlying lossy SSH model and secular polynomial; Yang et al. (arXiv:2305.00031) and Wang–Zhang (arXiv:2607.10218) explain dark-state mechanisms in related regimes. The result requires positive alternating hoppings, an even open chain, one odd-site loss and single-excitation no-jump dynamics. General disorder, many-body states and nonlinear effects are unproved. Equivalent identities in unindexed spectral literature cannot be ruled out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit is for the sharp unequal-bond lower cutoff and the exact first-site no-jump survival law, not the nodal condition, complete ratio test, existence of the N=14 quartet or the length-multiple construction alone. The closest distinct indexed record explicitly contains the complete ratio test and the N=14 example, from which lifting the angles to L=12m is immediate. Neither absence of a nonunit collision at every smaller N nor the explicit endpoint-weight law was supplied by the inspected comparison passages. Their proofs require respectively a separate exact exhaustion and a normalized eigenvector computation. The matching catalog path carries the same date as the frozen path, with no inferred chronological priority.
+
+## value
+
+PASS
+
+The cutoff addresses the first size at which true bond alternation supports more than a single chiral pair under one local loss, separating a nonuniform effect from the unit-ratio coincidences. The exact first-site probability is a dynamical distinction not provided by counting dark states; it gives nonzero retention at each commensurate length while quantifying its decay as 1/(12m). These make the exact exclusion and probability useful beyond displaying one solvable example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

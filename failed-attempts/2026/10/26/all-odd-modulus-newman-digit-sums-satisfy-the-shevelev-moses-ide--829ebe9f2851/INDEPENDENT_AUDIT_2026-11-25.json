@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:22:28.742103Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Digit concatenation gives S(bx)=BS(x) at every nonnegative integer cutoff, since b=-1 modulo n. For z an nth root of unity, B takes the z Fourier mode to the z^{-1} mode with factor (1-z^{-1})/(1+z). Hence B² has eigenvalue -((z-1)/(z+1))²; odd n prevents a zero denominator, including when n is composite. The odd part of the binomial expansion kills every nonconstant mode because ((1+u)/(1-u))^n=z^n=1, while P_n(0)=n on the constant mode. This proves P_n(B²)=J_n, then the residue identities. Pairing 2k with 2k+1 gives cancellation with no carry in the even base, including the empty x=0 case. The proof is independent of the finite checks. The inspected verify.py implements exact Horner tests through n=41 and direct digit tests only for residue zero at n=3,5,7; VERIFICATION.md gives expected output, not an independent execution. No uploaded code was run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The tangent-power paper gives a residue-zero full-block formula and the same polynomial up to a sign. The large-period paper gives the transfer recurrence and the total parity sum."
+        ],
+        "reasoning": "These are strong algebraic antecedents, but their inspected statements do not explicitly give the final arbitrary-cutoff vector identity. Exact catalogue coverage independently resolves the check.",
+        "searches": [
+          "arXiv:1207.0404, full-block tangent-power formula and tangent-root polynomial",
+          "arXiv:1209.5705, digit-transfer relations"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary b63c3068a659",
+        "arXiv:1209.5705",
+        "arXiv:1207.0404",
+        "OEIS A091042"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Identify i with a and B with B_n. The earlier-indexed result states the same binomial residue identity, evaluates its right side at even and odd cutoffs, and states P_n(B²)=J_n."
+        ],
+        "reasoning": "Each frozen assertion follows immediately from the corresponding published assertion with variable renaming only; there is no surviving additional case or theorem to repair.",
+        "searches": [
+          "Resultary matching RESULT.md, Finding equations (1)–(2) and matrix definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary Finding equations (1) and (2) match both frozen statements, and its matrix defined by a_{(r+s) mod n} has exactly the same entries.",
+          "In arXiv:1209.5705, (15) treats residue zero and (74) poses all residues for positive integer cutoffs. The trivial cutoff x=0 is already in the matching Resultary record."
+        ],
+        "reasoning": "The match is mathematical, not just a conjecture name: the domains, coefficients, cutoff exponents, residue quantifiers, and matrix statement coincide.",
+        "searches": [
+          "Resultary: odd-modulus Newman digit sums and Shevelev–Moses all-residue spectral projector",
+          "arXiv:1209.5705, equations (15), (38), (40), (74)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A091042 records related Pascal-triangle polynomial and full-block recurrence data.",
+          "Resultary 2026/10/18/SCOPE-a-universal-spectral-projector-resolves-the-odd-modulus-newman-d--b63c3068a659 states the exact unbounded result."
+        ],
+        "reasoning": "The OEIS entry is partial overlap, not a proof of the complete formula. The exact catalogue match is decisive.",
+        "searches": [
+          "OEIS A091042",
+          "Resultary: exact all-residue identity and P_n(B²)=J_n"
+        ]
+      },
+      "rationale": "A distinct published Resultary record already contains both exact claims, including the matrix identity with the same entries and normalization, every odd modulus, all residues and x=0. The distinct record establishes coverage, not a conclusion about who first proved it. The 2012 works supply important antecedents, but they are not the basis of the duplicate decision.",
+      "residual_risks": [
+        "This decision establishes exact catalogue overlap, not authorship, public precedence inferred from path dates, or exhaustive external literature priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage by a distinct indexed record",
+          "evidence": [
+            "Finding equations (1)–(2); all i and x≥0; B_{r,s}=a_{(r+s) mod n}."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-universal-spectral-projector-resolves-the-odd-modulus-newman-d--b63c3068a659/RESULT.md",
+          "material_read": "Finding, assumptions, matrix definition and digit transfer at offsets 0–2550; proof passages also compared",
+          "method": "Resultary search followed by local-mirror full text, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A universal spectral projector resolves the odd-modulus Newman digit-sum conjecture",
+          "trigger": "Exact Resultary hit on both statements"
+        },
+        {
+          "assessment": "Exact conjectural formulation and prior ingredients, with n=3,5 proved for (15)",
+          "evidence": [
+            "Equation (15) is residue zero; equation (74) is the separate all-residue conjecture."
+          ],
+          "identifier_or_url": "arXiv:1209.5705",
+          "material_read": "v3 PDF pp. 3, 6–7, 14, equations (15), (38), (40), (74); v1 date header",
+          "method": "Open arXiv full text",
+          "title": "A family of digit functions with large periods",
+          "trigger": "Original conjecture and potential solution"
+        },
+        {
+          "assessment": "Full-block scalar result and polynomial antecedent",
+          "evidence": [
+            "Tangent-square roots and sum at cutoff b^{2p}, rather than the stated arbitrary-cutoff vector formula."
+          ],
+          "identifier_or_url": "arXiv:1207.0404",
+          "material_read": "Sections 2–3, equations (10)–(11), PDF pp. 2–3",
+          "method": "Open arXiv full text",
+          "title": "Tangent power sums and their applications",
+          "trigger": "Potential full-block antecedent"
+        },
+        {
+          "assessment": "Partial full-block coverage",
+          "evidence": [
+            "The listed recurrence concerns full base blocks."
+          ],
+          "identifier_or_url": "https://oeis.org/A091042",
+          "material_read": "Comments on the polynomial and digit-sum recurrence",
+          "method": "Open entry text",
+          "title": "OEIS A091042",
+          "trigger": "Exact sequence or recurrence coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A uniform proof of the Shevelev–Moses conjectures is intrinsically worthwhile, but this record supplies no additional theorem, parameter range, or independent method beyond the matching spectral-projector record. The finite verifier does not add a new mathematical claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

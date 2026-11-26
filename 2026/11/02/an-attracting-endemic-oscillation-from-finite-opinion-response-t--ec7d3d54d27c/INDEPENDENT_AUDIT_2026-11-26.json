@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:40:51.785763Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 20–76 and VERIFICATION.md",
+        "Frozen verification/check_hopf.py, README.txt and requirements.txt (inspected, not executed)",
+        "Independent Taylor expansion and exact symbolic coefficient reduction (replay method above)"
+      ],
+      "rationale": "For L=log(3) and a=3/16 the given point balances the prevalence equation and has opinion argument -L/2 with tanh=-1/2. The Jacobian has rows (-a,a) and (-9/(32*tau),H/tau); 0<H<9/32 is certified by the rational L enclosure. Its determinant is a(9/32-H)/tau>0 for every tau>0. The trace vanishes at tau_H=H/a, decreases through zero, and gives the displayed stability sides and omega^2. Independently expanded the prevalence jet -aU+aV-(3/8)U^2-(3/4)U^2 V in centered coordinates and the opinion-argument increment h=-3U/8+(L+3/8)V+(3/4)UV-(9/8)V^2+(3/4)V^3. Using the tanh addition law gives -1/2+3h/4+3h^2/8-h^3/16 through cubic order. Substitute U=X, V=X-omega Y/a, transform the second component by a(F-G)/omega, and extract derivatives as i!j! times the coefficients of X^iY^j. Reducing the Lyapunov expression algebraically by omega^2=9(4-3L)/(32(24L-23)) reproduces the frozen rational function exactly. The log atanh series with a geometric tail yields 1.0986<L<1.0987, where the frozen centered quartic bound is >1700 and the denominator is negative; ell_1 is strictly negative. The planar Hopf theorem applies with real-part derivative -H/(2*tau_H^2), giving an attracting local cycle for every sufficiently close tau below tau_H, with frequency limit in physical time and the stated interior by proximity to (1/2,-1/2).",
+      "residual_risks": [
+        "No explicit width of the local parameter interval or global cycle claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhou–Levin–Leonard report Hopf and stable cycles in heterogeneous actSIS with filtered prevalence. Bizyaeva et al. analyze a network with additional filter states. Götz et al. describe periodic patterns and chaos in a continuum opinion-class model and credit earlier information/delay-related Hopf work."
+        ],
+        "reasoning": "These are material precedents for oscillation; the inspected hypotheses or equations do not give the frozen specific two-state dynamics or a general result covering its nonlinear coefficient. The earlier two cited articles could not be compared beyond lawful available evidence.",
+        "searches": [
+          "arXiv:2007.01424 abstract and four-state Hopf passage",
+          "arXiv:2311.02204 abstract and model equations",
+          "arXiv:2410.08030 §2 and its introduction and references [16], [24]"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2410.12993v1, 2007.01424, 2311.02204, 2410.08030",
+        "The cited older articles through the above accessible material",
+        "Local Resultary records a99104fa3bee, 901deed28d77, f89515c530da"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The defining equations and strong peer pressure are prior; the actSIS condition is for a nonidentical filter and heterogeneous Jacobian. The catalogue extinction result has different equilibrium and parameter regime."
+        ],
+        "reasoning": "The same-model equations provide the starting point but do not themselves decide the sign of the transformed cubic coefficient. The inspected different-model results do not specialize to this equilibrium's crossing and criticality.",
+        "searches": [
+          "arXiv:2410.12993v1 equations (2)–(3) and §IV-B",
+          "arXiv:2007.01424 Hopf conditions",
+          "Mirrored Resultary critical risk-averse extinction and opposite-criticalities Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source equations (2)–(3) are the same after renaming tau_x to tau. §IV-B leaves strong-peer-pressure equilibrium and bifurcation analysis to future work.",
+          "Among the returned catalogue hits, the same-model critical risk-averse work is an extinction asymptotic at beta=delta and u_0=1, not an endemic result."
+        ],
+        "reasoning": "The correct equivalence comparison is the same scalar opinion tanh feedback and single-prevalence equation, possibly after renaming the timescale. No matching supercritical endemic Hopf statement was identified there; an empty primary query alone supplies no evidence of absence.",
+        "searches": [
+          "Local Resultary search for homogeneous nonlinear-opinion SIS bifurcations and attracting cycles",
+          "Primary query: finite opinion-response time homogeneous NOD-SIS Hopf oscillation Opinion-driven risk perception",
+          "arXiv:2410.12993v1 §§III and IV-B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The triadic index record has exact opposite Hopf criticalities in three-community dynamics on a synchronous manifold; the reentrant record has spectral crossings in a different two-opinion switching system with no periodic-orbit claim. The original same-model source's strong-peer-pressure numeric passage is not a certificate at this parameter slice."
+        ],
+        "reasoning": "A covering example or table would need the same equations and specify a supercritical Hopf or provide all equivalent data, not merely a crossing or cycle in other epidemic equations. None was identified in the inspected corpus material.",
+        "searches": [
+          "Local Resultary on endemic Hopf parameter examples, NOD-SIS, and exact onset/stability",
+          "Mirrored Findings for 2026/11/8 triadic Hopf and 2026/11/22 reentrant spectral stability",
+          "arXiv:2410.12993v1 §IV-B"
+        ]
+      },
+      "rationale": "The supported distinct finding is an exact nondegenerate supercritical Hopf in the original homogeneous two-state NOD-SIS equations, not the introduction of endemic oscillations or behavioral Hopf bifurcations generally.",
+      "residual_risks": [
+        "The lawful retrieval attempts did not yield full primary texts of the 2009 and 2015 articles. Related single-population formulations are not exhaustively ruled out.",
+        "Catalogue dates are not proof of priority; the comparisons above are based on the equations and conclusions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same dynamics; inspected text does not give the bifurcation",
+          "evidence": [
+            "§IV-B leaves equilibrium and bifurcation analysis under strong peer pressure for future work."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2410.12993v1",
+          "material_read": "§III equations (2)–(3), offset 10350; §IV-B, offset 32905",
+          "method": "OA HTML passages",
+          "title": "Opinion-driven risk perception and reaction in SIS epidemics",
+          "trigger": "Exact single-population model and its finite opinion time"
+        },
+        {
+          "assessment": "Behavioral Hopf precedes this; different model",
+          "evidence": [
+            "Risk-tolerators and risk-averters, a prevalence filter, and a four-state Jacobian in the detailed comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2007.01424",
+          "material_read": "Abstract offset 1974 and Hopf passage offset 32400",
+          "method": "OA HTML passages",
+          "title": "Active Control and Sustained Oscillations in actSIS Epidemic Dynamics",
+          "trigger": "Closest prior behavioral SIS Hopf and stable cycles"
+        },
+        {
+          "assessment": "No same-equation Hopf evidence in inspected passages",
+          "evidence": [
+            "Sparse communication changes stability of network dynamics with filtered-prevalence states."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2311.02204",
+          "material_read": "Abstract offset 1800 and model equations offset 13500",
+          "method": "OA HTML passages",
+          "title": "Active risk aversion in SIS epidemics on networks",
+          "trigger": "Risk aversion and secondary instability"
+        },
+        {
+          "assessment": "Related oscillations in continuum opinion classes, not the frozen two-state model",
+          "evidence": [
+            "Uses a q-voter opinion distribution; introduction credits earlier supercritical-Hopf examples."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2410.08030",
+          "material_read": "Abstract offset 0; introduction and §2 around 5520; references around 49700–52000",
+          "method": "OA HTML passages",
+          "title": "Chaos in opinion-driven disease dynamics",
+          "trigger": "Behavioral epidemic oscillations and older sources"
+        },
+        {
+          "assessment": "Broader prior art, exact primary equation comparison unresolved",
+          "evidence": [
+            "Götz et al. describe supercritical-Hopf oscillations in these earlier reports; that account is not evidence of an exact match."
+          ],
+          "identifier_or_url": "DOIs 10.1016/j.jtbi.2008.10.019 and 10.1016/j.amc.2014.11.091",
+          "material_read": "Götz et al. introduction and references [16] and [24]; publisher full texts not obtained",
+          "method": "OA citation inspection and lawful publisher/PDF retrieval attempts",
+          "title": "Information-related changes in contact patterns may trigger oscillations in the endemic prevalence of infectious diseases; Awareness programs control infectious disease – Multiple delay induced mathematical model",
+          "trigger": "Older closely related supercritical-Hopf precedents cited by Götz et al."
+        },
+        {
+          "assessment": "Material comparisons but no equivalent statement",
+          "evidence": [
+            "Extinction at beta=delta,u_0=1; triadic three-community synchronous Hopf examples; two-opinion switching spectral crossings without a cycle theorem."
+          ],
+          "identifier_or_url": "Resultary catalogue records a99104fa3bee, 901deed28d77 and f89515c530da",
+          "material_read": "Mirrored RESULT.md Findings for all three hits",
+          "method": "Local Resultary search and mirror passages",
+          "title": "Critical risk-averse opinion turns SIS extinction into a stretched exponential; Opposite Hopf criticalities in a triadic SIS–opinion model; Reentrant spectral stability of an asymmetric endemic state in an opinion–SIS model",
+          "trigger": "Same-model asymptotics and exact nearby indexed Hopf examples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and local proof",
+        "arXiv:2410.12993v1 §IV-B",
+        "arXiv:2007.01424 model and Hopf passages"
+      ],
+      "rationale": "The calculation answers a concrete dynamical question left open for the source model: two homogeneous unforced state variables suffice for an attracting endemic oscillation, with both criticality and parameter side certified analytically. Finding a pair of imaginary eigenvalues alone would not give that conclusion.",
+      "residual_risks": [
+        "It is a local model result, not a global stability or empirical claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

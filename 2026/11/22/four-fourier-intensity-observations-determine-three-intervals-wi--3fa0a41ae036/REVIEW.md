@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Formula (1) follows by subtracting two equal holes from the span. The measurement at zero recovers total occupied length and gap length; the whole-span Fourier zero reduces candidate hole-center spacings to one of two branches. In the direct branch the second derivative determines the reflection parameter. In the complementary branch, the second- and fourth-order Taylor coefficients factor as (3), whose positive factors rule out a distinct candidate. The accompanying symbolic identities and direct-integral checks were replayed. The result applies to all strictly positive real lengths, not only the tested values.
+## correctness
 
-**Originality — PASS within inspected evidence.** General finite-union phase retrieval and homometry admit three-interval ambiguities. Neither the available abstract of arXiv:2606.19855 nor accessible covariogram summaries contain this equal-hole finite-observation theorem; the equal-occupied-width and unrestricted three-block variants are different statements and do not logically imply it. The inaccessible full recent preprint and the breadth of older inverse-covariogram literature remain material bibliography risks, not assertions of definitive global novelty.
+PASS
 
-**Value — PASS.** A natural geometric symmetry constraint (equal holes) restores exact identifiability for arbitrary real occupied lengths in a class where unrestricted data can be nonunique. Four scalar observations—rather than a full Fourier-intensity curve—suffice; the proof identifies precisely why the complementary-spacing branch is impossible. The theorem does not cover noisy data, different spans, unequal gaps, or additional components.
+The complement transform is a single common sinc factor times the sum of the two hole-center phases. The center midpoint offset is h=(a−c)/2, and separation D=b+g, giving the stated intensity identity. DC and known span determine g. The occupied-span transform vanishes at 2π/L, so the sample gives cos²(πD/L) with a nonzero prefactor, hence just D and L−D. For each fixed candidate D, the second derivative determines h² with coefficient 4Lg. For the complementary candidate, set v=a+c and H=h²; the second-order comparison forces H'=H+(b²−v²)/4. Expanding the even analytic difference after factoring out the sinc terms, the fourth coefficient is (b−v)(b+v+3g)(H−v²/4)/24. Here H−v²/4=−ac<0; the prefactor at zero is nonzero, and the lower coefficient has already vanished. Thus the fourth derivative eliminates any genuinely different complementary candidate, including all admissible symmetric and D=L/2 cases. The remaining sign of h is exactly reflection; the phase-magnitude data are translation invariant.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct claim is global injectivity in the known-span equal-gap three-interval family from these specific four measurements. Neither general full-spectrum phase retrieval, full-spectrum nonuniqueness for unequal gaps, nor the inspected equal-occupied-width or two-interval finite-jet results give that injectivity.
+
+## value
+
+PASS
+
+The natural equal-gap restriction salvages recovery in a component count where even full magnitudes can fail generically as a uniqueness guarantee on the unrestricted class. The proof gives a two-candidate inversion rather than merely establishing abstract uniqueness. The final derivative actually resolves a live ambiguity: at L=9 and g=1, (a,b,c)=(3/2,4,3/2) and ((4+√7)/2,3,(4−√7)/2) match DC, the fundamental intensity and the second derivative but differ in the fourth derivative. This is not a claim of optimal measurement count over all possible designs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

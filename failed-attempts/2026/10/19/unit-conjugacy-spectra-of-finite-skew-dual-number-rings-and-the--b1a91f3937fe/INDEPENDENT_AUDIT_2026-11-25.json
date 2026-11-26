@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:18:00.314641Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing elements as a+bε, multiplication is (a,b)(c,d)=(ac,ad+bσ(c)); units are exactly those with nonzero residue and the radical is square-zero. Direct multiplication with an inverse gives the stated inner action. When σ(a)≠a the translating d can reach every second coefficient, so each such a gives one orbit of size q. When σ(a)=a, the multiplier subgroup is the image of c↦c/σ(c), of size (q−1)/(q₀−1), acting freely on nonzero coefficients and fixing zero. This gives the stated distribution, with singleton rows combined in the identity case; q+q₀²−q₀ is strictly increasing in q₀. The action on the radical bimodule forces τρ=ρσ for an isomorphism inducing residue-field automorphism ρ, hence σ=τ because the Galois group is abelian. The map (a,b)↦(a,σ⁻¹(b)) reverses products into the inverse twist, proving the anti-isomorphism criterion. All nonzero zero divisors lie in the radical and all their products vanish. The commutation equation has q² solutions in (b,d) when both residues are fixed, and q otherwise, including the identity twist as probability 1. Exponents 1 and 2 mod 5 have fixed field F₂, are unequal, and are not negatives. New exact enumeration by direct stabilizer tests in /workspace/reproductions/34_pairs_and_rings.py independently reproduced {1:2,31:2,32:30} and 36,736 commuting ordered pairs for each F₃₂ twist and 1024 singleton orbits for the identity. Frozen VERIFICATION.md and verify.py were read, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact earlier subrings are C_λ={c+λ(1−σ)(c)u:c∈K} for nonfixed residue, C_∞=K^σ⊕Ku for fixed residue and nonzero radical coefficient, and R for the center. The earlier result also classifies commutator-preserving equivalences, full fibers and centralizers. Split quiver catalog results cover complete ring conjugacy (loopless) or unit-group conjugacy (allowing loops), not the twisted family directly."
+        ],
+        "reasoning": "These are exact subrings rather than just cardinalities, so one can read their unit slices by excluding residue zero. No further structural theorem is needed to obtain unit stabilizers or their orbit multiplicities.",
+        "searches": [
+          "Resultary f0ac7081af1a, Finding (a)–(c), and Centers and centralizers",
+          "Resultary f79766dd4bb5 and 17f3f95e6cb8, Findings and scope"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f0ac7081af1a",
+        "Resultary f79766dd4bb5",
+        "Resultary 17f3f95e6cb8",
+        "Resultary 0a4181d7ad6d",
+        "arXiv:1706.04283",
+        "arXiv:2604.23423",
+        "arXiv:1803.04111"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The three explicit centralizer subrings have q−1, q(q₀−1), and q(q−1) units, respectively. The corresponding sectors have q(q−q₀), q₀(q−1), and q₀ elements. The frozen action is conjugation by the q(q−1) units; its stabilizer at x consists exactly of the units in the ring centralizer of x."
+        ],
+        "reasoning": "Dividing group order by the three stabilizer orders gives orbit sizes q, (q−1)/(q₀−1), and 1; dividing each sector's element count by its orbit size gives exactly the frozen multiplicities. Identity twist is commutative, and the zero-divisor graph follows from radical square-zero. The probability and exact twist witness are already stated in the same direct comparator.",
+        "searches": [
+          "Resultary f0ac7081af1a, proof of Centers and centralizers near offsets 3733–4427",
+          "arXiv:1803.04111 and arXiv:2604.23423, contextual comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fixed-field record uses exactly K⊕Ku with ua=σ(a)u and u²=0. Baumbaugh–Manganiello use σ-conjugation on field elements, not the ring action; its scalar image/coset computation accounts only for the fixed-residue multiplier ingredient. The quiver records treat ordinary split quiver settings rather than this nontrivial twisted field-bimodule."
+        ],
+        "reasoning": "Under K=F and s=q₀ the rings of f0ac7081af1a are identical to the nontrivial frozen twists. By contrast, neither resemblance to additive or evaluation conjugacy nor an analogous split quiver theorem by itself is proof of equivalence.",
+        "searches": [
+          "Resultary f0ac7081af1a, fixed fields and skew square-zero rings",
+          "arXiv:1706.04283 §2, skew-polynomial conjugacy",
+          "Resultary f79766dd4bb5 and 17f3f95e6cb8, radical-square-zero inner conjugacy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same F₃₂ exponents 1 and 2 and their non-(anti)isomorphism and identical commuting probabilities are explicit in f0ac7081af1a. The affine-group result at length one gives class counts 1,1,30 at sizes 1,31,32 for AGL(1,32)."
+        ],
+        "reasoning": "For F₃₂ with q₀=2 the scalar action c/σ(c) is the full nonzero scalar action, so the cited affine table covers the unit slice. Nonunit elements are the radical; zero is fixed and all 31 nonzero coefficients form one orbit. This reproduces the precise frozen F₃₂ table; it does not assert that the entire ring action is the affine-group action on its own units.",
+        "searches": [
+          "Resultary f0ac7081af1a, exact q=32 witness and centralizer table",
+          "Resultary 0a4181d7ad6d, affine group conjugacy with chain length one"
+        ]
+      },
+      "rationale": "The exact orbit table is mechanically implied by the explicit centralizer subrings for the same rings in indexed result f0ac7081af1a. Intersect them with units and use orbit–stabilizer; both the cardinality of each element sector and the stabilizer orders are obtained directly. That record also states the same isomorphism and anti-isomorphism criteria, commuting probability and precise F₃₂ collision of commutator invariants (with the zero divisors in the same square-zero radical). The commutative identity twist adds only singleton orbits. The orbit table need not be literally printed in that source for coverage, and no conclusion about priority is inferred from catalogue dates.",
+      "residual_risks": [
+        "The scope of external publication overlap is not exhaustive; catalogue entries do not by themselves establish scholarly priority or independence.",
+        "General group-conjugacy equivalences outside the reviewed affine specialization were not classified and are not needed for the direct implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full nontrivial-twist coverage by direct orbit–stabilizer computation",
+          "evidence": "Exhibits C_λ and C_∞ as actual subrings in coordinates, states the isomorphism/anti-isomorphism conditions, identical commuting probability, and same two F₃₂ twists.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/12/SCOPE-fixed-fields-classify-commutator-structures-of-skew-square-zero--f0ac7081af1a/RESULT.md",
+          "material_read": "Finding (a)–(c), scope and proof of centers and centralizers, including offsets 0–4306 and continuation near 4372",
+          "method": "Local index and mirror",
+          "title": "Fixed fields classify commutator structures of skew square-zero finite rings",
+          "trigger": "Identical family, collision witness and explicit centralizers"
+        },
+        {
+          "assessment": "Prior scalar-quotient ingredient, not the all-ring unit action",
+          "evidence": "Defines field-element conjugation a^c=(σ(c)a+δ(c))c⁻¹ and the resulting Frobenius multiplicative cosets at δ=0.",
+          "identifier_or_url": "https://arxiv.org/pdf/1706.04283",
+          "material_read": "§2, p. 6, offsets approximately 16400–19895",
+          "method": "OA primary passages",
+          "title": "Matroidal Root Structure of Skew Polynomials over Finite Fields",
+          "trigger": "Possibly equivalent σ-conjugacy classification"
+        },
+        {
+          "assessment": "Analogues, not the decisive match",
+          "evidence": "The first treats split loopless radical-square-zero quiver algebras; the second treats unit-group classes, including loop cases, in an ordinary split quiver setting.",
+          "identifier_or_url": "Resultary f79766dd4bb5; Resultary 17f3f95e6cb8",
+          "material_read": "Findings and scope at offsets 0–4994 and 0–3931, respectively",
+          "method": "Local index and mirror",
+          "title": "Tutte evaluations and full inner conjugacy spectra of radical-square-zero algebras; Conjugacy class size spectrum of radical-square-zero quiver unit groups",
+          "trigger": "Related complete orbit and class-size results under alternative algebra formalisms"
+        },
+        {
+          "assessment": "Length-one specialization covers the unit slice for q₀=2",
+          "evidence": "For the field of size 32 the affine classification has one size-one class, one size-31 class and 30 size-32 classes.",
+          "identifier_or_url": "Resultary 0a4181d7ad6d",
+          "material_read": "Finding, offsets 0–3748",
+          "method": "Local index and mirror",
+          "title": "Conjugacy and ordinary character spectra of affine groups over finite chain rings",
+          "trigger": "Semidirect product comparison for the F₃₂ unit group"
+        },
+        {
+          "assessment": "Context, not the decisive exact orbit coverage",
+          "evidence": "The first bounds ring size by the number of two-sided zero divisors; the second concerns commuting probability and centralizer counts.",
+          "identifier_or_url": "arXiv:2604.23423; arXiv:1803.04111",
+          "material_read": "p. 1 in each, definition and main scope",
+          "method": "OA primary passages",
+          "title": "Rings with Finitely Many Zero Divisors; Commuting probabilities of n-centralizer finite rings",
+          "trigger": "Frozen references for zero-divisor and commuting-probability precedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The action on all ring elements is a natural invariant, but the complete displayed sizes are just the unit indices of already explicit centralizer subrings, with known sector multiplicities. The motivating F₃₂ ambiguity uses the same already identified witness and the same isomorphism criteria; the zero-divisor graph and the commutative endpoint add no independently needed new result. No valuable distinct remainder of the frozen claim was identified.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

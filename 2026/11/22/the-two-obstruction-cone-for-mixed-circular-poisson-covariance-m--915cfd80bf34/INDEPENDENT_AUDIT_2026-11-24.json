@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:13:28.175044Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–90; VERIFICATION.md and CHECKER.py inspected without execution",
+        "Complete repaired RESULT.md, especially the example, odd-sector ground-state argument, and antipodal-test derivation",
+        "Independent replay: python3 /workspace/branches/reproduce_4.py; output /workspace/branches/reproduce_4.txt"
+      ],
+      "rationale": "The original antipodal-pair claim at r=1/2, a=−1/4, c=1 is false if it refers to positivity of the whole pair: 4/5 tests only the antisymmetric vector. For u=b cos(2x), the eigenvalues of the antipodal Gram matrix are (p+q)(a+(c+u)/μ) and (p−q)(a+μ(c+u)), with p=P_r(0), q=P_r(π). Requiring both yields |b|≤min(c+μa,c+a/μ)=11/16 in the example. In particular b=4/5 and x=π/2 give eigenvalue −3/10. The complete corrected result derives both eigenvalues; 67/100 still satisfies every antipodal test and violates the full PSD bound. Independent exact evaluation recovers the indicated eight-site energy −1217/1275 and minimum diagonal 6/25. The main theorem survives unchanged: direct Fourier expansion gives even/odd Jacobi sectors, and approximating trigonometric-polynomial densities by atomic measures proves necessity on all weighted finitely supported Fourier vectors. The repaired odd-sector argument uses a positive eigenvector supported with geometric tails of ratio r and the sum-of-squares ground-state identity; sign alternation gives the opposite extremum. The even-sector bulk bottom is h−|b|; an attractive defect −cδ yields h−sqrt(b²+c²δ²) by matching the unique decaying solution on the two tails and the origin, and a nonattractive defect cannot lower the bottom. The diagonal b=0 case gives the same formula. At odd equality an antipodal antisymmetric vector is null (or the b=h=0 kernel is constant). At strict odd margin a possible even zero mode has ratio |t|<r per step of two indices, so its unweighted even Fourier sequence tends to zero despite F_0≠0. Cesàro orthogonality rules this out for finite atomic measures, including the b=0 constant-Fourier-mode nullspace. Fourier uniqueness excludes the zero sequence for a nonzero distinct-site vector. This checks the repaired theorem, example, and endpoints without a finite-to-infinite extrapolation.",
+      "residual_risks": [
+        "The scope is the given first-harmonic mixed kernel at a fixed 0<r<1; distinct-site strictness is not a uniform lower bound across node sets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Circle 2×2 coefficient blocks in Buhmann–Jäger; diagonal expansions in Guella–Jäger; sphere coefficient-operator tests in Jäger"
+        ],
+        "reasoning": "These inspected frameworks test particular coefficient forms or lay out general operator criteria. They do not evaluate this two-sided pair of Jacobi defects, and the diagonal criterion cannot directly classify a nonzero off-diagonal coupling b.",
+        "searches": [
+          "Exact-formula primary literature query on the mixed circular Poisson covariance cone",
+          "arXiv:2105.02586 §5; arXiv:2205.07396 Theorem 2.1; arXiv:2005.02798 Theorems 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen and repaired prior-work discussion",
+        "Local mirror and OA passages above",
+        "Related local records d53f1b363054 (multiscale stationary), 2b716c1f3027 (affine sphere), 41f32ef1c29b (zonal dipole–quadrupole sphere)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At a<0, c>0 an attractive even-sector bound competes with the odd strong-bond bound",
+          "For r=1/2, a=−1/4, c=1, 67/100 passes both antipodal pair tests but has a negative eight-site energy"
+        ],
+        "reasoning": "Neither slice identifies the interaction of b and c in the even defect eigenvalue, or excludes its decaying null vector from finite-node measures. Operator-positivity frameworks reduce the problem but do not give those sharp bounds or the finite-site boundary conclusion.",
+        "searches": [
+          "Earlier circle harmonic modulation, same-day stationary finite-knot, and product-Poisson torus records; inspected primary Fourier-operator criteria"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-sharp-harmonic-modulation-cutoff-and-polygonal-singularities-for--0f4219b7a6a9",
+          "SCOPE-finite-knot-positivity-cones-for-signed-periodic-poisson-covaria--2dc7842600c0",
+          "SCOPE-two-facet-poisson-covariance-cones-on-the-torus-and-graph-cycle--aeb344036a45"
+        ],
+        "reasoning": "Taking c=0 and scaling by a>0 matches the earlier harmonic cutoff; taking b=0 matches a stationary signed mask. The product-Poisson torus cone is stationary on a different domain and is not a reformulation of the present circle with a nonzero sum-angle Fourier coupling.",
+        "searches": [
+          "Resultary local mirror: circle Poisson harmonic sum-angle modulation, signed stationary Fourier knots, sum/difference Poisson cones"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For b=0, the same-day stationary mask table gives u_0=a+rc, u_1=rh with strictness iff u_1>0 in the cone",
+          "For c=0 the earlier exact cutoff 2r/(1+r²) equals 1/μ"
+        ],
+        "reasoning": "This is demonstrated exact coverage of slices, not a match for b and c both nonzero. The related multi-scale stationary finite-knot record excludes the one-scale setting and has no sum-angle modulation.",
+        "searches": [
+          "Resultary local mirror: exact signed periodic Poisson finite-knot cones, harmonic modulation cutoff and two-facet Poisson cones"
+        ]
+      },
+      "rationale": "The repaired result credits two exact overlaps: the earlier c=0 sum-angle harmonic model and the same-day b=0 stationary finite-knot classification. The latter is exact present coverage of the stationary slice, not evidence of any within-day ordering. The supported distinct claim is the full sharp mixed nonstationary cone and its strict even-sector boundary, not either specialization, the general Fourier framework, or the elementary corrected antipodal bound.",
+      "residual_risks": [
+        "Same-day priority for the stationary slice is not known; the repair credits the overlap without asserting priority.",
+        "An unindexed equivalent Jacobi or covariance calculation remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers c=0, a>0 after scaling and k=1, not the mixed cone",
+          "evidence": "Threshold |ε|≤2r^k/(1+r^(2k)) and exact boundary singularities for the harmonic model.",
+          "identifier_or_url": "SCOPE-sharp-harmonic-modulation-cutoff-and-polygonal-singularities-for--0f4219b7a6a9",
+          "material_read": "RESULT.md offsets 166–3708 and relationship passage at 6691",
+          "method": "Local mirror bounded passages",
+          "title": "Sharp harmonic-modulation cutoff and polygonal singularities for circle Poisson covariances",
+          "trigger": "Exact c=0 overlap"
+        },
+        {
+          "assessment": "Covers stationary specialization; no same-day priority inferred",
+          "evidence": "PSD iff stationary Fourier knots are nonnegative, strict iff the top knot is positive; Q(t)=a+c cos(t) gives precisely the two stated knots.",
+          "identifier_or_url": "SCOPE-finite-knot-positivity-cones-for-signed-periodic-poisson-covaria--2dc7842600c0",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror bounded passage",
+          "title": "Finite-knot positivity cones for signed periodic Poisson covariances",
+          "trigger": "Same-day exact b=0 overlap"
+        },
+        {
+          "assessment": "Different domain and stationarity",
+          "evidence": "Product-Poisson stationary model on T² with a two-facet cone and boundary strictness, not the single-circle nonstationary form.",
+          "identifier_or_url": "SCOPE-two-facet-poisson-covariance-cones-on-the-torus-and-graph-cycle--aeb344036a45",
+          "material_read": "Local RESULT.md finding",
+          "method": "Local mirror passage",
+          "title": "Two-facet Poisson covariance cones on the torus and graph cycles",
+          "trigger": "Possible sum/difference reformulation"
+        },
+        {
+          "assessment": "Framework rather than mixed-kernel cone",
+          "evidence": "Circle coefficient blocks and arithmetic-progression strictness criteria for the stated class.",
+          "identifier_or_url": "arXiv:2105.02586",
+          "material_read": "§5 including Theorems 5–6, OA offsets 69773–73969",
+          "method": "OA bounded passages",
+          "title": "Strict Positive Definiteness of Convolutional and Axially Symmetric Kernels on d-Dimensional Spheres",
+          "trigger": "Relevant circle Fourier framework"
+        },
+        {
+          "assessment": "Diagonal expansion, not the full mixed problem",
+          "evidence": "The stated expansion uses diagonal Laplace–Beltrami eigenfunction terms, unlike the b≠0 coefficient matrix.",
+          "identifier_or_url": "arXiv:2205.07396",
+          "material_read": "Form (3) and Theorem 2.1, OA offsets 3000–6489 and 6712–10856",
+          "method": "OA bounded passages",
+          "title": "Strictly positive definite non-isotropic kernels on two-point homogeneous manifolds: the asymptotic approach",
+          "trigger": "Potential strictness coverage"
+        },
+        {
+          "assessment": "Broader harmonic framework for a different domain",
+          "evidence": "Operator-matrix tests on S² do not compute the present circle-sector lower bounds.",
+          "identifier_or_url": "arXiv:2005.02798",
+          "material_read": "Theorems 1–2 and coefficient-block discussion, OA offsets 12808 and 23065",
+          "method": "OA bounded passages",
+          "title": "Strictly positive definite kernels on the 2-sphere: beyond radial symmetry",
+          "trigger": "General operator criteria"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding and Fourier, strictness and antipodal proofs",
+        "Independent eight-site replay"
+      ],
+      "rationale": "The full criterion distinguishes two genuinely different obstructions for a natural radial-plus-nonstationary covariance model. It explains why strict positivity on every finite set can persist at a sharp operator boundary and supplies a finite negative witness just outside the admissible region which passes all antipodal tests. The corrected example strengthens the interpretation without changing the theorem.",
+      "residual_risks": [
+        "It does not classify arbitrary modulations or finite witnesses for all exterior parameters."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

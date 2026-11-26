@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:34:55.696910Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With selected originals A and omitted originals C, edge-nodes inside A are impossible (induced degree two), and all edge-nodes inside C must be selected since otherwise they could be added as isolated vertices. Each chosen original with a neighbor in C needs exactly one chosen crossing edge-node, by addability and the degree bound. An omitted original is blocked exactly when it has at least two selected C–C edge-nodes or has a selected crossing neighbor that would acquire a second endpoint. This is precisely the required image condition at degrees zero and one. The same obstructions prove the converse and the exponents, with empty domains and isolated originals handled. In the biclique, omission counts s,t yield independent shore maps; when a target shore is nonempty, it must be hit surjectively iff its vertices have omitted-induced degree at most one. For a=2, s=0 contributes (1+b(b−1))z^(b+2)+bz^(b+3), s=1 contributes (2+2b)z^(2b+1), and s=2 contributes [2^b−2+b(2^(b−1)−2)+sum_{t=2}^b binom(b,t)2^(b−t)]z^(2b). This proves the claimed four-term expression with addition at coincident exponents. At b≥5 all four coefficients are positive and their exponents strictly increase, giving the stated gap; summing gives 3^b+b²+1. The graph is connected and bipartite, with subdivision vertices of degree two and independent originals, so is 2-degenerate. Independent replay: python3 /workspace/branches/14513289-c07e-48dd-bed6-0acccec146b8/independent_check.py --full (75 labeled base graphs through order four, nine small bicliques, and direct K_(2,b) through b=6); K_(2,6) yielded {8:31,9:6,12:715,13:14}. The finite sets of maximal masks were checked against the structural construction. The supplied successful-output record is distinct evidence, not the basis for the present all-order proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tu–Li–Du p. 1 gives extremal upper bounds on the total number of maximal or maximum sets by order, including for triangle-free graphs. The available Duginov and Orlovich abstract material involves extremal cardinalities or computational complexity."
+        ],
+        "reasoning": "A total-count bound does not resolve coefficients or holes in the support. Neither an optimization procedure nor hardness gives a uniform closed support formula on this family. No whole-paper scope claim is made for unavailable texts.",
+        "searches": [
+          "Resultary maximal dissociation sets one-fold edge subdivision structural bijection selected original vertices crossing edges",
+          "Tu–Li–Du arXiv:2103.01402v1 dissociation",
+          "Orlovich et al. DOI 10.1016/j.dam.2011.04.023",
+          "Duginov et al. DOI 10.21538/0134-4889-2022-28-2-114-142"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3a1144b1760f, d94ae62f6ccd and ea494ab50b5c",
+        "Tu–Li–Du arXiv:2103.01402v1 p. 1",
+        "Duginov et al., Math-Net timm1909 abstract",
+        "Orlovich et al. DOI 10.1016/j.dam.2011.04.023 landing/abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The set of all original vertices is a maximal dissociation set but induces an empty matching, which is not maximal as an induced matching in a nonempty subdivision. Maximal independent sets exclude the permitted single edges and can have different extension obstructions."
+        ],
+        "reasoning": "One cannot obtain the claimed polynomial by turning the matching size into endpoint count or by identifying independent domination with degree-one maximality. The independent crossing choices are necessary to classify the counted sets.",
+        "searches": [
+          "Resultary 2026/11/2/SCOPE-maximal-induced-matchings-of-complete-graph-incidence-families-e--3a1144b1760f",
+          "Resultary 2026/11/2/SCOPE-independent-domination-of-subdivided-bicliques-exact-polynomials--d94ae62f6ccd",
+          "Resultary 2026/11/2/SCOPE-dissociation-and-maximal-set-polynomials-of-bicliques-with-a-del--ea494ab50b5c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complement hits every three-vertex path exactly when the set induces maximum degree at most one, and maximality becomes inclusion-minimality of the cover.",
+          "The graph S(K_(2,b)) is a multi-theta with b paths of length four, not an ordinary three-path theta except at b=3.",
+          "Duginov et al.'s publisher abstract concerns minimum/maximum-size estimates, hardness and a tree algorithm; its full results were not accessible."
+        ],
+        "reasoning": "A minimal 3-path vertex-cover cardinality formula would cover the same claim by reversing degrees against the graph order; a maximal induced matching is only the edge part of a dissociation set and need not be maximal as a matching.",
+        "searches": [
+          "Resultary minimal 3-path vertex cover edge subdivision complement dissociation set theta graph cardinality",
+          "Resultary S(K2,b) maximal dissociation sets exact support b+2 b+3 2b 2b+1 theta graph length four paths",
+          "minimal 3-path vertex covers maximal dissociation sets subdivision complete bipartite exact sizes cardinality polynomial subdivided bicliques theta graphs Duginov structural algorithmic dissociating sets 2022 114 142"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 3a1144b1760f gives support {2,b} for maximal induced matchings in I(K_(2,b)) for b≥4; d94ae62f6ccd counts independent dominating sets on S(K_(a,b)); ea494ab50b5c counts maximal dissociation sets on bicliques with deleted matchings."
+        ],
+        "reasoning": "The closest hits share either graph or invariant but not both. Their support formulas do not give the four degrees with the stated coefficients.",
+        "searches": [
+          "Resultary maximal dissociation sets subdivision complete bipartite cardinality polynomial support gaps K2,b",
+          "Resultary S(K2,b) maximal dissociation sets exact support b+2 b+3 2b 2b+1 theta graph length four paths"
+        ]
+      },
+      "rationale": "The closest same-family catalogue statements enumerate maximal induced matchings or maximal independent sets. The closest same-set catalogue statement treats deleting a matching from a biclique, not subdividing the biclique. The inspected literature and catalogue results do not supply the selected-original/crossing-edge bijection or its precise cardinality support for this family. This is a best-of-available-evidence distinction, not a publication-priority conclusion.",
+      "residual_risks": [
+        "The Duginov and Orlovich full texts were not inspected; theorem-level comparison for those papers remains open. The identified Math-Net PDF was tried, not treated as read.",
+        "Equivalent work on minimal 3-path covers or subdivided multi-theta graphs may be indexed differently. Distinct same-day records were compared by content, not chronology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong overlap in family, different counted object",
+          "evidence": "Maximal induced matchings are edge subsets; sizes 2 and b for I(K_(2,b)) and b≥4.",
+          "identifier_or_url": "2026/11/2/SCOPE-maximal-induced-matchings-of-complete-graph-incidence-families-e--3a1144b1760f",
+          "material_read": "RESULT.md Finding around offset 350",
+          "method": "Local Resultary mirror",
+          "title": "Maximal induced matchings of complete graph incidence families",
+          "trigger": "Same I(K_(a,b)) graph and support-gap phenomenon"
+        },
+        {
+          "assessment": "Different set property",
+          "evidence": "Full-subdivision polynomial counts maximal independent sets.",
+          "identifier_or_url": "2026/11/2/SCOPE-independent-domination-of-subdivided-bicliques-exact-polynomials--d94ae62f6ccd",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Independent domination of subdivided bicliques",
+          "trigger": "Same graph and maximal-set polynomial"
+        },
+        {
+          "assessment": "Different graph construction",
+          "evidence": "Deletes matching edges instead of replacing every edge by a two-edge path.",
+          "identifier_or_url": "2026/11/2/SCOPE-dissociation-and-maximal-set-polynomials-of-bicliques-with-a-del--ea494ab50b5c",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Dissociation and maximal set polynomials of bicliques with a deleted matching",
+          "trigger": "Same set property and a related gap"
+        },
+        {
+          "assessment": "Aggregate bounds, not an exact subdivision enumerator",
+          "evidence": "Sharp aggregate upper bounds as a function of graph order.",
+          "identifier_or_url": "https://arxiv.org/pdf/2103.01402v1",
+          "material_read": "PDF p. 1, offset 1127",
+          "method": "OA PDF",
+          "title": "Maximal and Maximum Dissociation Sets in General and Triangle-Free Graphs",
+          "trigger": "General results for same set property and containing graph class"
+        },
+        {
+          "assessment": "Partial comparison only; exact PDF link unavailable through the access routes",
+          "evidence": "Abstract states smallest/largest-size estimates, NP-hardness in several graph classes and a linear tree algorithm.",
+          "identifier_or_url": "https://doi.org/10.21538/0134-4889-2022-28-2-114-142",
+          "material_read": "Official Math-Net abstract, offset 650–2894; full text not read",
+          "method": "OA DOI and identified Math-Net timm1909 PDF attempts; official abstract read",
+          "title": "Structural and algorithmic properties of maximal dissociating sets in graphs",
+          "trigger": "Structural results on the same maximal objects"
+        },
+        {
+          "assessment": "Restricted comparison, full text not read",
+          "evidence": "Studies complexity of dissociation-set problems; abstract access does not settle detailed family-specific scope.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2011.04.023",
+          "material_read": "Publisher landing/abstract material only",
+          "method": "OA access attempt",
+          "title": "The complexity of dissociation set problems in graphs",
+          "trigger": "Maximum and minimum-maximal dissociation problems"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The bijection gives an explicit structural enumeration on every one-fold subdivision and a genuine closed form on bicliques. The four degrees isolate an unbounded internal gap for connected bipartite 2-degenerate graphs, a meaningful sparsity constraint; it is not just a total-count improvement or a re-encoding of another type of maximal set.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

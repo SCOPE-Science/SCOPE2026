@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact Zeckendorf-gap recursion from Chow–Slattery gives a two-component parity update depending only on gaps modulo four. A fully defined 84-state deterministic machine tracks it. Its integral transition matrix satisfies a reproducible period-two vector identity \(T^2w=w\), together with \(e^Tw=e^TTw=0\), for \(w=(T^5-2T^4+T^3-2T+2I)u\). This verifies the claimed order-five recurrence for every index, with exact initial values; rational generating functions and asymptotics follow. The standalone checker also verifies 17,711 individual coefficients by an independent partition dynamic program. Risk: the derivation uses an established recursion as a cited theorem; there has been no independent external proof review.
+## correctness
 
-**Originality — PASS, subject to normal priority uncertainty.** Chow–Slattery (2021) and Robbins (1996) supply the pointwise partition recursion, not the Fibonacci-window *parity-support count*. Robbins (1998) establishes infinitely many parity changes, which is strictly weaker. Sanna (2025) establishes positive moment growth, not an odd-value support formula. Coons–Kristensen–Laursen (2026) gives refined ordinary partial sums, not the parity support. Searches against recorded similar statements and existing sequence/database material revealed no exact five-term count recurrence or the same exponent. Risk: an implicit older specialization of an automaton enumeration or an unindexed result could have priority; the reviewed sources do not logically preclude that possibility.
+PASS
 
-**Mathematical value — PASS.** The structural gap between ubiquitous representations and sparse odd representation *multiplicity* is a natural arithmetic question. This exact five-term recurrence, rational series, and sharp global exponent provide nontrivial information not implied by the known positive moment estimates. The result also establishes density zero for a natural Fibonacci-representation parity set; it is not merely an example sequence or small enumeration. Limitations: no general-cutoff asymptotic constant or full higher-adic valuation profile is claimed.
+The Zeckendorf cutoff F_(k+2) corresponds to words of length k on indices 2 through k+1, with F_2 the only copy of 1. I reconstructed the generating function without relying on the 84-state certificate. Put L=1-z^4 and let A=z^4/L, B=z^5/L, C=z^2/L, D=z^3/L weight allowed gaps congruent to 0,1,2,3 mod 4. With P_10, P_01, P_11 the accepting extension series from the three nonzero parity pairs, the published count recursion modulo two gives P_10=1+(A+B)P_11+(C+D)P_01, P_01=(A+C)P_10, and P_11=1+(A+D)P_01+(B+C)P_11; the zero pair is absorbing and rejecting. The first selection at index j has weight z^(j-1); indices 2,3 mod 4 begin at 11 and 0,1 mod 4 at 01. The empty word and free final zeros give the full series [1+((z+z^2)P_11+(z^3+z^4)P_01)/L]/(1-z)=(1+z)P_11/(1-z). Eliminating the other two states gives P_11=(1-2z^4)/(1-z^2-2z^4-2z^5), which simplifies to the claimed series and implies the recurrence for all k>=5. Separately, a fresh subset-sum DP through cutoff 987 gave B_0 through B_14 as 1,2,3,4,5,8,13,20,29,44,69,108,165,252,389, with the ten recurrence residuals zero. The DP is a finite check only: start with weight 1 at sum zero and add each distinct part through 610 by descending-sum updates, then sum the odd entries below each Fibonacci cutoff. The cubic in the characteristic variable is strictly increasing on the reals and has its real root alpha between sqrt(2) and phi; its complex conjugate roots have modulus sqrt(2/alpha)<alpha. The two remaining characteristic roots are +/-1. The leading pole is simple and uncancelled, hence gives the stated residue and asymptotic; monotone comparison of consecutive Fibonacci cutoffs and Binet's formula give the all-real-cutoff Theta bound, not a universal leading constant. The supplied checker was inspected, not executed; the package does not attest external or formal verification.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The theorem under review is the exact odd-support cutoff series (and its sharp power exponent), not the pointwise partition recurrence or the finite-state approach in itself. The strongest inspected comparisons give recurrence ingredients, qualitative parity changes, moment/sum growth, fixed-value fibers, or parity laws for different partition functions. None established coverage of the claimed odd-support count. This is a bounded statement-level assessment, not a priority determination.
+
+## value
+
+PASS
+
+For a classical partition function, parity is a natural arithmetic statistic distinct from its mean and moments. The theorem measures the full odd set, establishes density zero with an exponent close to but below one, and gives an exact count on the natural Fibonacci windows. This is a quantitative conclusion not provided by knowing that parity changes infinitely often or by merely recognizing parity in a finite automaton.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

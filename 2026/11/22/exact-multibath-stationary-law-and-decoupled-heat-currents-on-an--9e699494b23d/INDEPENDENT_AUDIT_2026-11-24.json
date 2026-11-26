@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:26:11.610032Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_heterogeneous.py"
+      ],
+      "rationale": "Hub redraw at rate c contributes −cC to the generator (effective flip rate c/2); leaf i contributes ℓ_i(t_i C−σ_i). Acting on the two Walsh monomials for each subset gives the two triangular equations, with only lower-order terms in the numerators. Positivity of the spin-flip rates implies irreducibility, so inversion of configuration indicators indeed recovers the unique stationary law. The singleton and pair equations give the claimed positive cross-leaf correlations and the ratio 1+2c/(ℓ_i+ℓ_j). A leaf redraw changes only its bond contribution; the resulting mean energy inflow is J_iℓ_i(B_{i}−t_i), proving the individual negative current, hub balance and positive entropy production under the stated convention. For common leaf rate ℓ, conditional on the stationary hub past each leaf has mean t_i Z by its independent exponential age. An independent check of the beta law uses the generator on Z^k and CZ^k: E[C Z^k]=E[Z^{k+1}], and E[Z^{k+1}]=k E[Z^{k−1}]/(k+c/ℓ) for k≥1, with E[Z]=0. These are the moments of the claimed beta density and its sign-resolved law; compact support determines the distribution. The conditional variance of the homogeneous empirical mean is at most 1/n, giving the asserted limit and variance.",
+      "replay": "python3 /tmp/opencode/frozen_nov24_replay.py 3; independent exact elimination of a 16-state rational generator, comparing all subset moments and computing the currents directly from state transitions and energy differences. Leaf currents were −6/29, −525/1504 and −343/306, canceled by the hub current. Frozen verifier was read but not executed.",
+      "residual_risks": [
+        "The computational check is finite; the proof depends on the autonomous hub and independent refresh clocks. The beta representation is only asserted at common leaf rates; the finite subset hierarchy allows heterogeneous rates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cox–Peres–Steif allow copy-rate weights but their fair noise is common and their star theorem addresses mixing. The inspected Caligiuri–Galla PDMP is an infinite-population switching-environment description. The Granovsky–Madras full text was not accessible in the bounded lookup."
+        ],
+        "reasoning": "Those inspected results do not give the general labeled stationary law and its energy currents. More general site-dependent noisy-voter duality or Markov-modulated binary models remain plausible sources of partial overlap.",
+        "searches": [
+          "Granovsky–Madras DOI 10.1016/0304-4149(94)00035-R; Cox–Peres–Steif arXiv:1408.5122; Caligiuri–Galla arXiv:2305.19096"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 30693f2b8577, e9b7e6a1abe7 and 2bd73b7fe9bf",
+        "arXiv:1408.5122 and arXiv:2305.19096",
+        "Granovsky–Madras DOI landing page only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exchangeability in the mirrored star lets its binomial inversion determine the labeled distribution for the exact subfamily above. The finite heterogeneous recursion does not use that symmetry. The filtered-telegraph beta law already supplies the common-filter distribution; the bond-current equation and arbitrary-rate heterogeneous law are not stated there."
+        ],
+        "reasoning": "Do not credit the homogeneous stationary law or beta law itself. Neither inspected general mixing nor limiting-PDMP results imply the joint heterogeneous finite stationary formula plus thermodynamic decoupling.",
+        "searches": [
+          "Resultary 30693f2b8577, Finding and Model; arXiv:1408.5122 star section; arXiv:2305.19096 switching-environment model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A heat-bath leaf refresh is equivalent in law to copying the hub at rate ℓ_i t_i plus a fair redraw at rate ℓ_i(1−t_i). The mirrored noisy-voter law instead uses one shared fair-redraw rate and one shared leaf-copying rate."
+        ],
+        "reasoning": "At zero hub copying the mirrored law gives the target stationary law for c=η, ℓ=α+η and t=α/(α+η), identical for every leaf. One global rescaling cannot produce arbitrary site-dependent copy and noise rates; this is real overlap but not equivalence of families.",
+        "searches": [
+          "Resultary: triangular stationary noisy-voter star; autonomous hub Ising multibath leaf correlations and currents",
+          "arXiv:1408.5122, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching 2026/11/22 multibath-star record was the frozen item itself. Distinct hits include 30693f2b8577, e9b7e6a1abe7 and 2bd73b7fe9bf."
+        ],
+        "reasoning": "The first distinct catalogue hit covers a subfamily; the other two have triangle and ring couplings respectively, not a target-law table or theorem for independent leaf clocks around a fair autonomous hub.",
+        "searches": [
+          "Resultary: Ising star, three-terminal heat law, Glauber-ring baths and triangular noisy voters"
+        ]
+      },
+      "rationale": "The supported distinct claim is the explicit arbitrary-heterogeneity joint law together with the multibath energy-current identities. The homogeneous noisy-voter specialization and the classical beta filtering phenomenon are prior coverage, not novel in isolation.",
+      "residual_risks": [
+        "General heterogeneous noisy-voter duality and the Markov-modulated binary population literature may contain an equivalent stationary-law result; the Granovsky–Madras primary theorem was not retrieved. The bounded literature search is not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact restricted subfamily",
+          "evidence": "Common leaf copying α, shared noise η, and hub copying β≥0; triangular count moments and binomial inversion. At β=0, c=η and t=1−c/ℓ.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-an-exact-triangular-stationary-law-recursion-for-noisy-voters-on--30693f2b8577",
+          "material_read": "RESULT.md offsets 0–7049 and 7049–11040",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "An exact triangular stationary-law recursion for noisy voters on a star",
+          "trigger": "Same geometry and proposed stationary recursion"
+        },
+        {
+          "assessment": "Related dynamics; not the joint stationary/current theorem",
+          "evidence": "Copying at q(x,y) plus fair redraws at unit rate per site; star analysis concerns mixing.",
+          "identifier_or_url": "https://arxiv.org/pdf/1408.5122",
+          "material_read": "p. 1 offset 0; star result p. 4 offset 11800",
+          "method": "Open-access primary PDF passages",
+          "title": "Cutoff for the noisy voter model",
+          "trigger": "General noisy-voter generator and explicit star analysis"
+        },
+        {
+          "assessment": "Related limiting process, not a statement of the finite heterogeneous star law",
+          "evidence": "The inspected PDMP describes an infinite population subject to environmental modulation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2305.19096",
+          "material_read": "Model passage at extraction offset 11200",
+          "method": "Open-access primary PDF passage",
+          "title": "Noisy voter models in switching environments",
+          "trigger": "Switching-environment mixture and beta-law precedents"
+        },
+        {
+          "assessment": "Full-text implication unresolved",
+          "evidence": "No accessible theorem passage establishing or excluding the required site-dependent specialization.",
+          "identifier_or_url": "https://doi.org/10.1016/0304-4149(94)00035-R",
+          "material_read": "Landing page/abstract only",
+          "method": "Bounded lawful DOI retrieval",
+          "title": "The noisy voter model",
+          "trigger": "Possible general duality coverage referenced by the mirrored noisy-voter theorem"
+        },
+        {
+          "assessment": "Different coupling geometry and current law",
+          "evidence": "Three equal-coupling spins on a triangle, unit-rate updates, conductance and rectification rather than independent-hub leaf currents.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-three-terminal-heat-law-and-sharp-rectification-bound-on-a--e9b7e6a1abe7",
+          "material_read": "Mirrored Finding and assumptions",
+          "method": "Local Resultary and mirror",
+          "title": "Exact three-terminal heat law and sharp rectification bound on an Ising triangle",
+          "trigger": "Distinct same-day heat-bath transport result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, current identities and full subset hierarchy; mirrored homogeneous comparison"
+      ],
+      "rationale": "The result gives an exact joint law in a natural finite nonequilibrium benchmark, with arbitrary reservoir and clock parameters and no leaf exchangeability assumption. The analytic separation between nonzero cross-leaf correlation and decoupled individual energy currents provides a concrete diagnostic for more strongly interacting models. The classical beta law by itself is not the contribution.",
+      "residual_risks": [
+        "Decoupling is structural for this autonomous hub, not an assertion about arbitrary multibath Ising networks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

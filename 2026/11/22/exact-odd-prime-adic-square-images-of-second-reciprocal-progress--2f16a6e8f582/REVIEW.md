@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every odd prime \(p\mid d\) and \(p\nmid c\), the power-sum polynomial expansion has coefficients bounded below in valuation by \(-\lfloor\log_p(m+1)\rfloor\). As \(m\nu_p(d)-\lfloor\log_p(m+1)\rfloor\ge1\) for \(m\ge1\), the two harmonic power sums interpolate in the integral restricted power-series algebra and the second symmetric sum is a coefficientwise \(p\)-perturbation of \(x(x-1)/(2c^2)\). A global contraction produces exactly one derivative root, and an integral square-root coordinate produces a bijective isometry, establishing the image, all fibers, and their Haar measure. Complete finite enumerations independently corroborate nine parameter/depth cases; they are not used to infer the infinite conclusion.
+PASS
 
-## Originality — PASS (historical priority qualified)
+The sum of i^m for 0≤i<n is interpolated by expanding i^m in falling factorials and summing them, with coefficients of denominator at most p^floor(log_p(m+1)) in p-adic valuation. Each m≥1 term of the geometric/binomial expansion for H_s, s=1,2, therefore has coefficient valuations at least m−floor(log_p(m+1))≥1, tending to infinity, including at p=3. This proves actual restricted-series convergence with H_s=x/c^s modulo p on coefficients. Newton's identity gives F=x(x−1)/(2c²)+pR. By density this is the unique continuous, hence unique analytic, interpolation. The map x−c²F′(x) is a contraction since R′ is integral restricted, giving the unique critical point α reducing to 1/2; substituting gives the stated unit critical value modulo p. Translating by α makes the difference from A into z² times a restricted analytic unit congruent to (2c²)⁻¹ on coefficients. The binomial square root of that unit after scaling by 2c² is in 1+p times the restricted algebra, since 1/2 is p-adic integral. Thus the normalized critical coordinate is z+pV(z), an isometry onto by contraction. This preserves uniform residue classes and gives the exact root counts, attainable residues and shell measure. For a nonzero shift t with v_p(t)<k the first factor in the difference of the squares has valuation v_p(t); modulo p the sum factor is 2(x−α)+t and can be made a unit by choosing an integer x. This proves the exact p^k period and the asserted densities.
 
-The same-object full text of Wang–Hong (arXiv:1311.1389, November 6, 2013) proves nonintegrality of elementary symmetric sums, using a prime dividing some progression denominators; it contains neither the prime-dividing-step analytic interpolation nor its complete square-image/fiber classification. Boyd (1994) studies ordinary harmonic partial sums. Jiang–Hong (2022) concerns arithmetic-progression integrality; only the abstract was accessible, so overlap cannot be ruled out from its unavailable full text. Published-record queries for equivalent image descriptions, square-normal-form reductions, and finite fiber tables yielded no covering statement. Generic nonarchimedean Morse methods explain the analytic technique but do not by themselves identify the arithmetic interpolation and its integral global coordinate. A pre-existing specialized application remains possible; the searches do not establish historical uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The coefficient sequence is the natural second elementary symmetric companion to arithmetic-progression harmonic sums already studied for integrality. At primes dividing the progression step, the exact modular image and every finite-depth fiber were not supplied by that literature. The quadratic critical point leads to a complete, all-prime family with a surprising universal normalized image measure \(p/(2(p+1))\), a sharp classification of attained residues, and exact frequencies. These are natural local-representability invariants, not arbitrary finite slices or a claim about a new general Morse lemma.
+The underlying elementary symmetric sums are known. The supported distinct claim is the global isometric square normal form for the regular primes dividing the progression step, with all modular fibers, periods and density. The strongest inspected exact-sequence literature treats integrality, and the strongest indexed square-image analogues concern different functions. General Morse normal forms and quadratic residue counts are not credited as new. This is a bounded evidence judgment, not a claim of demonstrated priority.
 
-## Limits and closest sources
+## value
 
-The proof covers all odd primes with \(p\mid d\) and \(p\nmid c\), but not the prime two or singular denominators. The numerical center \(A\) is a well-defined computable \(p\)-adic critical value. The generic Morse normal form is prior methodology; historical priority of the specialized invariant remains qualified, particularly owing to the inaccessible 2022 paper. No independent assessment has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem describes the entire local distribution of a known arithmetic sequence in the unit-denominator regime where integrality results do not resolve it. The global analytic square coordinate is useful on its own: it gives one explicit obstruction at every precision, with exact densities, and the proof works uniformly even at the smallest odd prime. The square-root counts alone are routine, but obtaining the uniform global analytic shape from reciprocal progression sums is substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

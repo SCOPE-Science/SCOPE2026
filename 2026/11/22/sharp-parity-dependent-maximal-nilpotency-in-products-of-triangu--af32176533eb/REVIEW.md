@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The strict triangular filtration proves the sharp upper bound. First- and second-superdiagonal path formulas determine all potentially surviving top-power entries. Conditioning on the first zero on one parity and the last zero on the other yields a uniform-linear-form dichotomy, whose complete sum proves the exact expression. Two independent finite enumerations agree with the formula in characteristic two and odd characteristic; these checks are supporting evidence, not a universal proof.
+## correctness
 
-**Originality (PASS, qualified).** The prior full-upper-triangular-product result treats a different sampling measure and a different maximal-index event, and explicitly states it does not cover multiplying two already nilpotent matrices. Uniform single-matrix Jordan polynomial tables do not determine the factorization-weighted law. Full texts or relevant sections of both closest comparisons were examined. An unlocated weighted-product theorem remains a material priority risk.
+PASS
 
-**Value (PASS).** The sharp maximal-index event is an intrinsic natural statistic of a product in the nilpotent radical. Its exactly calculated even–odd discrepancy is of linear relative order, not just a low-dimensional numerical curiosity; the result quantifies how product factorization changes extremal nilpotency across all sizes and finite fields.
+Every step in a path for (AB)^r advances by at least 2. The common choice of A and B with only unit first superdiagonals realizes the sharp bound (no cancellation). In odd dimensions exactly one all-two path can contribute to the last nonzero power, and the required 2N coordinates are independent. In even dimensions only the two all-two products U,V and a single corner sum W are relevant. The latter uses one jump of size three; its j-th linear term survives the t-products exactly for R≤j≤L when U=V=0. If R<L, choose j=L: b_(2L+1) is nonzero because t_(2L) is nonzero (L>R), and the surviving second-band coordinate of A is unique to that term. If R=L, the two endpoint coefficients have independent conditional zero probabilities q/(2q−1): each is the zero component of a pair of independent uniform scalars conditioned on product zero. Thus the conditional probability of nonzero rank is η there, zero when R>L, and one when R<L. A nonzero linear form in independent uniform second-band coordinates hits nonzero with probability 1−1/q, accounting for field cancellation. Independence of odd and even t-products gives the weights f²s^(L−1+N−R), which sum to the displayed even formula. Summing the geometric series at fixed q yields C_q and C_2=s=1/4. Independent `python3 /workspace/reproduce_reviews.py` multiplies matrices and finds exact agreement at (n,q)=(4,2),(4,3),(4,4),(5,2),(6,2), including 927/1024 over F_4 represented by the binary polynomial x²+x+1. Only coordinates on the first two bands that can enter a product path are enumerated. The path argument proves the universal claim, not the finite replay.
 
-**Limitations.** The theorem does not classify all Jordan types; its probability law requires independent uniform strict upper triangular factors. The finite checks do not establish the proof at infinite dimension.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The sharp filtration bound, odd single-path observation, and small exact counts are not separately novel. The supported distinct contribution is the all-dimension factorization-weighted extremal law, in particular the even cancellation term and resulting fixed-field linear parity factor for independent radical products. Checked results with matching graph/filtration structure, extremal terminology, or small n do not imply this law.
+
+## value
+
+PASS
+
+Maximal index is a natural extreme statistic of a nilradical product. The formula separates the effect of a unique length-three detour from field cancellation and finds a parity enhancement of linear relative order at equal maximal index. It quantifies a rare-event law not recoverable by treating the product as one uniformly sampled nilpotent matrix. This does not claim the whole product Jordan distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a global optimizer classification for the normalized Gaussian Fock coherent-state overlap, not merely a stationary-point count. The reproducing property reduces it to an explicit real-valued objective. Exact completion of the angular square bounds the objective uniformly and proves global optimality of the nonreal pair whenever it exists. Exact real and imaginary stationary equations show that no other off-real critical point exists. On the real axis, strict logarithmic concavity between the two simple polynomial zeros gives exactly three real critical maxima. The necessary angular inequalities, together with the exact resultant \(-a(a+4)(a^3-2a^2-7a+4)\), eliminate all but one real candidate outside the two thresholds. All endpoints and scalar-normalization conventions are stated. Independent symbolic checks verified the square identity and resultant; the included standalone numerical checker passed 118,354 finite diagnostics. Finite diagnostics alone are not a proof.
+## correctness
 
-## Originality — PASS (best-knowledge)
-Exact-claim and alias searches among indexed mathematical results, available previously published findings, and literature found no theorem implying this complete two-threshold reentrant optimal-site classification for the fixed quadratic \(1+a z-a z^2\). Closest inspected primary texts develop Fock coherent kernels and superpositions (Alpay et al., 2023), density-based multiple Fock sampling (Escudero et al., 2021), and convex mixtures of fixed quantum states (Zhang et al., 2021, abstract only). Closest indexed results concerning Gaussian peak bifurcations use different objects: \(\cosh(az)\), \(z^n-a\) for \(n\ge3\), or \((z^n-a)(z^n-b)\) for \(n\ge3\). One previous analytic Bergman-disk sparse-binomial approximation concerns a different kernel and lacks the quadratic interference term. Full texts of two indexed mathematical findings were not accessible; this is a residual historical-priority risk, not evidence of noncoverage. Absolute uniqueness in the full mathematical literature is not certified.
+PASS
 
-## Mathematical value — PASS
-The balanced three-mode polynomial is the simplest nontrivial coherent-state target with competing odd/even excitations and opposite phases. Its globally best single-kernel approximation has *two* continuous symmetry changes, not the monotone single threshold familiar in simple one-mode or rotationally symmetric examples. The exact thresholds, complete optimizer sets, square-root splitting laws and explicit middle-regime capture energy make the classification a useful closed-form reference for coherent-state compression and Husimi-intensity peak geometry. The result is not an arbitrary numerical slice or a restatement of the point-evaluation identity: global classification requires an exact angular envelope and elimination of competing real critical branches.
+Orthogonal projection at a fixed normalized site captures Q=e^{-|w|^2}|f_a(w)|^2, and ||f_a||^2=1+3a^2. For w=x+iy, u=|w|^2, the angular identity is (1+a/4)(1+au)^2-4a(x-(1-au)/4)^2. The upper radial envelope is uniquely maximized at u*=2-1/a when a>1/2. Stationarity at nonzeros, conjugate(w)f=f', forces u=u* and x=(1-a)/2 if y is nonzero. Thus y^2=-h(a)/(4a); the two simple positive roots give precisely the feasible saturation interval, with one point at each endpoint. Strict log concavity gives exactly one real maximum in each interval separated by the polynomial zeros, and the rightmost x3>1 violates the angular condition D=1-a*x^2-4x>=0. On the other two branches, the resultant is -a(a+4)h(a), and D=0 forces x=(1-a)/2 by factoring the stationary equation after substitution. This x lies on the middle branch at the lower root and the left branch at the upper root: at D=0, f=(a+4)x, determining its sign, and x<0 is left of the zeros if f<0. The resultant is a nonzero factor times the product of D over the three analytic stationary branches; simple resultant zeros and the unique common root ensure the corresponding D changes sign. Both branch values of D are positive for small a: x2~a, while x1~-1/sqrt(a) from the logarithmic stationarity equation x=1/(x-zeta_-)+1/(x-zeta_+), which bounds |x1-zeta_-| by 2/|x1|. Therefore the sole angular-admissible candidate in either outer regime is the claimed one. Evaluating the envelope gives M, and Taylor expansion at each simple root gives the square-root law. Replay `python /workspace/independent_checks.py 1` verified the exact stationary and angular identities, the resultant and the displayed decimals.
 
-## Scope and limitations
-Only \(a>0\) and the balanced coefficient path \(1+a z-a z^2\) are covered. The analysis is for free scalar multiples of one normalized coherent kernel, not convex mixtures or optimal combinations of two kernels. No independent mathematical audit has been performed; priority remains best-knowledge rather than absolute.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest distinct indexed result has strikingly similar angular algebra but concerns the disk and another coefficient family; its inspected theorem gives one positive-real merger and cannot furnish the two Fock mergers. The cited primary Fock passages supply kernels and shifts, not the optimum classification. This judgment is bounded by inspected texts and retrievable indexed evidence.
+
+## value
+
+PASS
+
+This balanced vacuum/one-quantum/two-quantum coefficient path exposes competition between the linear and quadratic terms in the optimal coherent approximation. It is a complete nonmonotone global example: a positive-real optimum splits into a conjugate pair and recombines on the negative real axis. Exact thresholds, endpoint coalescence speeds and captured norm make it a useful check on global coherent approximation or Husimi-peak calculations, beyond routine projection at a fixed site.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

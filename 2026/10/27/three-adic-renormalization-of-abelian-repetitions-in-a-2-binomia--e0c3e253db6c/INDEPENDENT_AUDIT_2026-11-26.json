@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:19:25.370573Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every k, the repeated central choice is the unique residue p=(3^k-1)/2 not fixed by the last k ternary digits. The other residues pair by digit complementation and contribute p ones in every length-3^k interval, aligned or not. The central position has index 3^k ceil((i-p)/3^k)+p, and shifting the start by j*3^k adds j to the decoded index. Any three consecutive decoded letters include a fixed 0 and a fixed 1. The equality coding is (1-z_r,z_r,0), so each aligned triple of indicators contributes exactly one square. Repeating each decoded index 3^k times apart from bounded ends preserves its density for fixed k. For the letter density, D(N)=2 sum_{a<N} z_a-N satisfies D(3r)=D(r), D(3r+1)=D(r)-1, D(3r+2)=D(r)+2z_r-2, giving D(N)=O(log(N+1)). The k=0 case is the letter-level identity. This proves the all-start and all-scale claims. The supplied checker was inspected, not executed; its bounded tests do not prove the density or the universal claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cassaigne et al. frame bounded Abelian complexity and power avoidance in binary words; the dyadic record proves analogous renormalization for a generalized period-doubling family."
+        ],
+        "reasoning": "The inspected general framing does not yield this word's exact distribution, and the dyadic family's lengths and substitution do not specialize to the shared outer letters of 001/011.",
+        "searches": [
+          "arXiv:1005.2514v1, p. 1",
+          "Resultary: 2026/11/8/SCOPE-dyadic-abelian-power-renormalization-and-exact-power-of-two-spec--92920ef7ba7e"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1310.4743v1",
+        "arXiv:1005.2514v1",
+        "Resultary records 92920ef7ba7e, 9dcba1932d7a, ea6d16472081 and e7fed85fd174"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior morphism matrix transforms extended Parikh vectors of aligned images; 2-binomial equivalence refines Abelian equivalence."
+        ],
+        "reasoning": "The prior avoidance does not forbid cubes whose blocks agree just in letter counts, and the aligned-image relation does not assert how every offset selects a single ancestor. The single-free-residue argument is the additional structure giving the Abelian consequences.",
+        "searches": [
+          "arXiv:1310.4743v1, §3 p. 5, including Proposition 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rao–Rigo–Salimov §3 gives precisely 001/011 but studies scattered subwords through length two. The Mephisto Waltz record uses 001/110 and gives positive triadic Abelian-cube densities."
+        ],
+        "reasoning": "Neither 2-binomial avoidance nor triadic cubes in a word with a different second image is an equivalent reformulation of the Abelian recurrence and densities here.",
+        "searches": [
+          "arXiv:1310.4743v1, pp. 1–2 and §3 (same fixed point and equivalences)",
+          "Resultary: 2026/11/8/SCOPE-triadic-abelian-power-spectrum-and-cube-densities-of-the-mephist--9dcba1932d7a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ternary digit-two parity record has 2k+2 Parikh classes at length 3^k for 001/110; the complementary binary family likewise takes 001/110 at b=3."
+        ],
+        "reasoning": "These exact indexed calculations do not tabulate the same word; even a complexity count alone need not determine adjacency or frequencies. No exact covering entry was established by the bounded comparison.",
+        "searches": [
+          "Resultary: 2026/11/8/SCOPE-sharp-abelian-complexity-envelope-for-ternary-digit-two-parity--ea6d16472081",
+          "Resultary: 2026/11/8/SCOPE-exact-substitution-scale-abelian-complexity-of-complementary-bin--e7fed85fd174"
+        ]
+      },
+      "rationale": "The word and its 2-binomial-cube avoidance are prior. The supported distinct contribution is the arbitrary-offset exact Parikh-window law and its Abelian repetition and frequency consequences at substitution scales, not the construction or any unrestricted Abelian-cube claim.",
+      "residual_risks": [
+        "Priority is best-of-knowledge; other analyses of the same word under Toeplitz, digit-rule or substitution aliases could contain equivalent statements.",
+        "The broader bounded-complexity source was inspected only at the opening; no whole-document absence is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the word and stricter avoidance, not the asserted Abelian theorem in the inspected statements",
+          "evidence": [
+            "Section 3 defines h(0)=001 and h(1)=011 and derives 2-binomial cube-freeness of h^omega(0); Proposition 2 concerns extended Parikh vectors of h(u)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1310.4743v1",
+          "material_read": "Definition of the equivalence, pp. 1–2; §3 opening and propositions on p. 5, PDF text offset 21232 onward",
+          "method": "Open primary PDF, locate 001, read bounded passage by offset",
+          "title": "Avoiding 2-binomial squares and cubes",
+          "trigger": "Same morphism and avoidance question"
+        },
+        {
+          "assessment": "Context, not affirmative coverage of this formula; not a whole-paper absence claim",
+          "evidence": [
+            "The opening concerns general bounded Abelian complexity and avoidance, rather than an exact window lift for the given morphism."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1005.2514v1",
+          "material_read": "p. 1 framing and scope",
+          "method": "Bounded open primary PDF inspection",
+          "title": "Avoiding Abelian Powers in Binary Words with Bounded Abelian Complexity",
+          "trigger": "Possible broader Abelian avoidance theorem"
+        },
+        {
+          "assessment": "Different fixed points; mathematical comparison does not rely on record dates",
+          "evidence": [
+            "The dyadic result uses period doubling; the three triadic comparisons use 001/110, not 001/011."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8 records 92920ef7ba7e, 9dcba1932d7a, ea6d16472081, e7fed85fd174",
+          "material_read": "Each matching Finding",
+          "method": "Local Resultary search and bounded mirrored statement inspection",
+          "title": "Related indexed dyadic and triadic exact Abelian-power and complexity findings",
+          "trigger": "Potential aliases or broader exact renormalization/count tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a naturally motivated exact invariant of an established avoidance word: an arbitrary-offset renormalization specifies both possible Parikh classes, all square positions at infinitely many natural scales and their frequency, and excludes every triple at those scales. It answers a weaker-equivalence question left open by the stricter avoidance theorem, rather than just enumerating a prefix or treating a hand-picked scale.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

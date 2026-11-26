@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:50:47.505858Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 6–63; VERIFICATION.md; requirements.txt; verify_unitrows.py",
+        "Independent rational replay /workspace/branches/independent_reproduce.py"
+      ],
+      "rationale": "For an admissible error e, cancellation of the projected row norm against its sampling probability gives the exact decrease ||AP_I e||²/F(I); a least-eigenvalue vector proves sharpness. The four classes have multiplicities 4, 8, 2, 1 and positive spectra respectively (2c²,2s²), (2,4c²s²), (2,2c²,2s²), and (2,2). This gives exactly the stated score minimizers and unique rate maximizer throughout 0<s<1/√2. For the specified common x*, optimal-rate constraints leave error −e2 and each raw draw hits it with probability 1/2; ID constraints leave −e4, have first squared norm c², and from then on a switch of the row multiplies squared norm by (c²−s²)² with conditional probability 1/2. Rejection enforces switching once a row has been used; the optimal-rate system instead stops at the first accepted update. These are different clocks. Independently reproduced 60 projected spectra and 112 exact moment identities using rational projections and branching, with zero projected rows removed before division; replay `python3 /workspace/branches/independent_reproduce.py` (section 5). The packaged verifier was inspected, not executed; it constructs an update operator even at zero projected norm, so filtering is advisable. The finite replay corroborates rather than proves the full parameter and time laws.",
+      "residual_risks": [
+        "Applies to the specified exact arithmetic, consistent, singleton sampling protocol; no floating-point or runtime conclusion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general surrogate is proposed for arbitrary constraint sets; the October 13 source treats a non-unit, three-row, singleton-constraint system and counts raw rejected proposals."
+        ],
+        "reasoning": "A general fixed-set upper bound does not identify both global selectors. An overhead lower bound for a singleton neither specializes to the normalized two-row comparison nor predicts an accepted-update slowdown.",
+        "searches": [
+          "arXiv:2605.29304v1 §3.2",
+          "Resultary 2026/10/13 record 5c14167b84fb, RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.29304v1",
+        "Resultary 5c14167b84fb and self-match comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary source offers a computationally feasible surrogate, not a theorem equating its optimizer with the rate optimizer. The older example separates raw proposal cost while accepted-step counts agree."
+        ],
+        "reasoning": "Applying the general bound to an already constructed A would give an inequality. It neither supplies that construction nor the sharp global optima and actual mean-square trajectories.",
+        "searches": [
+          "arXiv:2605.29304v1 Remarks 3.1 and 3.3 and §3.2",
+          "5c14167b84fb claim and accepted-step qualification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun et al. give projected-norm sampling and the trace-scaled least-positive-singular-value rate; their Frobenius minimization is explicitly a surrogate."
+        ],
+        "reasoning": "In residual Gram terms the objectives are trace minimization versus maximizing the least eigenvalue divided by trace. The prior rate expression exposes that distinction but does not establish the normalized, unbounded optimizer reversal or exact paths.",
+        "searches": [
+          "Resultary semantic lookup for normalized Frobenius-selected constraints versus projected Kaczmarz progress and trajectories",
+          "arXiv:2605.29304v1 Remarks 3.1 and 3.3, §3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The highest match was the frozen record itself; the strongest distinct identified match has both choices solve in one accepted update."
+        ],
+        "reasoning": "The distinct source is not an equivalent enumeration of the fifteen two-row selections or of the two compared moment laws. This is bounded evidence, not an exhaustive negative result.",
+        "searches": [
+          "Resultary semantic lookup using unit rows, row ID, rate-optimal constraints and exact trajectories",
+          "Record 5c14167b84fb local-mirror RESULT.md offsets 0–6509"
+        ]
+      },
+      "rationale": "The substantive unpreempted claim is the unit-normalized rank-two exact optimizer separation plus realized trajectory separation, not the general rate formula, the row-ID surrogate, or the general possibility of Frobenius selection regret. The prior singleton rejection-overhead example is real conceptual overlap but measures a different phenomenon.",
+      "residual_risks": [
+        "Broader historical subset-selection and solver-conditioning literature was not searched exhaustively; an additional outside literature lookup did not run. No inference from the unavailable search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the general algorithm, contraction factor and row-ID motivation, not the normalized counterexample in the inspected material",
+          "evidence": [
+            "Projected-row weights and contraction quotient in the Remarks; computationally feasible surrogate in §3.2."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.29304v1",
+          "material_read": "Remarks 3.1 and 3.3, §3.2, OA text near offsets 37200 and 41800",
+          "method": "Primary OA full-text passages",
+          "title": "On subspace-constrained preconditioning for randomized iterative methods",
+          "trigger": "Same rate and surrogate"
+        },
+        {
+          "assessment": "Real conceptual overlap but different normalization, constraint count and cost invariant",
+          "evidence": [
+            "Three rows, singleton constraint, unbounded raw rejected proposals; both alternatives finish in one effective update."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-unbounded-rejected-draw-cost-of-frobenius-selected-subspace-cons--5c14167b84fb",
+          "material_read": "RESULT.md offsets 0–6509, local revision 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary retrieval, local mirror and statement comparison",
+          "title": "Unbounded rejected-draw cost of Frobenius-selected subspace constraints",
+          "trigger": "Strongest distinct indexed counterexample on the same surrogate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 37–69",
+        "Sun–Qi–Han–Xie §3.2"
+      ],
+      "rationale": "The family tests a practically motivated surrogate at its global optimum. Unit rows remove trivial rescaling, and the exact expected errors demonstrate a genuine convergence penalty, not just a worse guarantee. The duplicated strong rows and nearly parallel weak-direction pair isolate what a rate-aware selector should detect.",
+      "residual_risks": [
+        "One structured family; no claim about heuristic running time, other block sizes or acceleration."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:36:11.209719Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–38, VERIFICATION.md, checker.py (inspected, not run)"
+      ],
+      "rationale": "At a prefix, the number of copies that could emit the next block is at most the floor of the previous-stage count divided by its block length. Conversely assign successive occurrences of each letter to the numbered copies in full batches: each batch's first and all subsequent occurrences are read only after the preceding block of that copy has completed by the inequality at that prefix. The specified terminal counts complete all copies. Feasible count vectors are all reachable by sorted prefixes and have accepting completions by appending the missing occurrences in stage order. Distinct vectors require different suffix Parikh vectors, so these residuals and the dead residual are all distinct. Writing counts as p_j t_j+r_j gives decreasing weak levels; equality of adjacent levels forces residue zero at the lower stage, while a strict drop allows all residues. For a drop set J, if t_1<k the multiplicity is p_1 times the product over J with binomial(k,|J|+1) choices of levels, and if t_1=k the multiplicity is just the product over J with binomial(k,|J|) choices. This enumerates all subsets with and without stage 1, giving the elementary-symmetric sum plus one sink. For k=0 there is precisely an accepting start and sink since d>=1; d=1 gives the singleton one-letter chain and sink. The unit case follows by Vandermonde and all claimed corollaries follow algebraically.",
+      "residual_risks": [
+        "No extension to stages with reused letters or nonidentical inputs follows from this count-vector construction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Biegler et al. give exact counts for specified pairs of periodic words over a nonrepeating period and an O(|u||v|) bound for a block-ordered period. Brzozowski et al. concern worst-case bounds on binary shuffle of regular languages. Hoffmann addresses unbounded iteration with commutative closure."
+        ],
+        "reasoning": "These bounds and regularity characterizations do not determine exact minimal size for each member of the fixed finite-k family. Exact count in a pair subcase does not supply the all-k polynomial.",
+        "searches": [
+          "Biegler–Daley–McQuillan arXiv:0907.5111 Theorems 10 and 12",
+          "Brzozowski et al. arXiv:1512.01187v3 abstract",
+          "Hoffmann arXiv:2008.05420v3 Theorem 9 and arXiv:2103.09587v2 Theorem 26"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and above mirror passages",
+        "arXiv:0907.5111, 1512.01187v3, 2008.05420v3 and 2103.09587v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ordered-period hypothesis is close in Theorem 12, but its output is only a two-input upper bound; the indexed binary four-run threshold does not count residuals."
+        ],
+        "reasoning": "The exact feasible-prefix quotient count needs reachability, distinguishing suffix contents and the weighted level enumeration for arbitrary k; it is not entailed by the inspected bound or restricted recognition criteria.",
+        "searches": [
+          "Biegler et al., arXiv:0907.5111 §4.2, Theorem 12",
+          "Hoffmann arXiv:2103.09587v2 Theorem 26",
+          "Mirrored four-run binary shuffle Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed four-run binary classification uses ceil(b/B)<=floor(a/A) when 0^a1^b0^c1^d is tested as the shuffle of q copies of 0^A1^B with the required total counts."
+        ],
+        "reasoning": "That condition is exactly the frozen rule's restrictive prefix on those four-run inputs. It is overlap on a restricted binary membership problem, not the arbitrary-alphabet all-prefix result or minimal DFA formula; catalogue date is not evidence of priority.",
+        "searches": [
+          "Local Resultary search on exact automata for repeated ordered-block-word shuffle and prefix-count membership",
+          "Primary literature search for finite shuffle powers and exact automata",
+          "Resultary 2026/11/8/SCOPE-four-run-binary-shuffle-powers-exact-classification-enumeration--9f2f21b3d6b2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two-phase indexed formula (a+1)(c+1)+(b+1)(d+1) concerns 0^a1^b shuffled with 1^c0^d, not identical copies. The inspected periodic binary-shuffle theorems do not give the target parameterized enumeration."
+        ],
+        "reasoning": "No equivalent exact catalogue formula for the all-k count was found in these nearest records; this does not exclude individual table entries or uninspected enumerations.",
+        "searches": [
+          "Closest exact-state Resultary record 2026/10/26/SCOPE-two-phase-normal-form-and-exact-dfa-complexity-of-opposite-run-b--6dd602f692b0",
+          "arXiv:0907.5111 Theorems 10 and 12"
+        ]
+      },
+      "rationale": "The inspected overlap concerns two-copy special cases and bounds, or a restricted membership implication, not the exact arbitrary-k complete-minimum law with positive ordered-block lengths.",
+      "residual_risks": [
+        "Equivalent counts under lattice-word or parallel-trace terminology were not exhaustively ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest ordered-block upper bound, not the all-k count",
+          "evidence": [
+            "Theorem 12 gives O(|u||v|) for two words built from a positive ordered-block period."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0907.5111",
+          "material_read": "§4.1 Theorem 10 p.6 offset 25800 and §4.2 Theorem 12 p.8 offset 35776",
+          "method": "OA PDF passages",
+          "title": "On the Shuffle Automaton Size for Words",
+          "trigger": "Ordered-block periods and exact counts for two shuffled words"
+        },
+        {
+          "assessment": "General worst-case result has distinct quantifiers",
+          "evidence": [
+            "Worst-case upper bound on two-language shuffle and tightness discussion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1512.01187v3",
+          "material_read": "Abstract, p.1 offset 0",
+          "method": "OA PDF passage",
+          "title": "On the State Complexity of the Shuffle of Regular Languages",
+          "trigger": "Potential dominating shuffle-state theorem"
+        },
+        {
+          "assessment": "Unbounded/commutative iteration, not fixed k",
+          "evidence": [
+            "Regularity criterion after commutative closure of a finite language."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2103.09587v2",
+          "material_read": "Theorem 26, p.10 offset 27580",
+          "method": "OA PDF passage",
+          "title": "Regularity Conditions for Iterated Shuffle on Commutative Regular Languages",
+          "trigger": "Iterated shuffle of a finite language"
+        },
+        {
+          "assessment": "Constructive bound in a different class and iteration regime",
+          "evidence": [
+            "Bound for iterated shuffle of the commutative closure of a group language."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2008.05420v3",
+          "material_read": "Theorem 9, pp.6–7 offset 14535",
+          "method": "OA PDF passage",
+          "title": "The Commutative Closure of Shuffle Languages over Group Languages is Regular",
+          "trigger": "Bound on an iterated shuffle automaton"
+        },
+        {
+          "assessment": "Restricted binary membership overlap, no state-count coverage",
+          "evidence": [
+            "The four-run threshold branch contains ceil(b/B)<=floor(a/A) for common root 0^A1^B."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-four-run-binary-shuffle-powers-exact-classification-enumeration--9f2f21b3d6b2",
+          "material_read": "Mirrored RESULT.md offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror",
+          "title": "Four-run binary shuffle powers: exact classification and enumeration",
+          "trigger": "Identical-copy prefix-membership overlap"
+        },
+        {
+          "assessment": "Exact calculation for different input words",
+          "evidence": [
+            "The inputs have opposite letter order and need not be identical; exact formula has a different domain."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-two-phase-normal-form-and-exact-dfa-complexity-of-opposite-run-b--6dd602f692b0",
+          "material_read": "Mirrored RESULT.md Finding, same snapshot",
+          "method": "Local Resultary mirror",
+          "title": "Two-phase normal form and exact DFA complexity of opposite-run binary shuffles",
+          "trigger": "Exact complete-DFA count for block-word shuffles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "arXiv:0907.5111 Theorem 12"
+      ],
+      "rationale": "An exact minimum for a natural parametrized family of finite shuffle languages improves on a size estimate and explains the symmetry under block permutations despite ordered membership. The prefix test and residual characterization give both recognition and a sharp automaton lower bound.",
+      "residual_risks": [
+        "This is a structured fixed-copy family, not a new worst-case bound for arbitrary word shuffles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Mathematical review: central-square involution spectra
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof fixes the finite-group and rank quantifiers, identifies each local corner by its labelled matrix units, and shows that equality of conjugation functions forces a single common central multiplier, rather than unrelated central multipliers at different coordinates. The rank formula follows from the free central action. A self-inverse class must have a permutation with only fixed points and transpositions; all two-cycle label products and all fixed-point squares must agree on one central value. This yields the central-square-root sum without assuming divisibility term-by-term. The abelian simplification uses the kernel and image of the square map. The standalone finite checker directly enumerates projective classes and their inverses for six groups and compares actual matrix-unit conjugation signatures in selected cases. These finite checks do not prove the unrestricted theorem.
+## correctness
 
-## Originality
-PASS, with historical-priority qualification. Araújo et al. (2026), Remark 3.11, and Kinyon–Stanovský (original preprint 2022), Theorem 1.2, already give the general partial-inner/central-congruence mechanism. The unlabelled symmetric inverse monoid special case is explicitly known. The present claim does **not** relabel this general fact as new: it computes the exact central-gauge fibers for labelled rook wreath monoids, counts self-inverse classes by central square roots for every finite group and every rank, and identifies the abelian two-torsion distinction. In the inspected original texts these exact formulas were not found. Related published results on completely zero-simple semigroups and on partial automorphisms of fences concern different underlying monoids. An unindexed projective-wreath cycle-index treatment could cover the enumeration and is the principal remaining originality risk.
+PASS
 
-## Mathematical value
-PASS. Self-inverse elements are a structural invariant of finite inverse monoids, and the sharp distinction between a common central multiplier and independent local central multipliers controls the full enumeration. The example \(C_4\) versus \(C_2^2\) proves that the involution spectrum detects two-torsion invisible in the entire rank-size polynomial; this is a motivated limitation of coarse structural data, not a discretionary numerical slice. The all-groups formula includes nonabelian central square-root effects and is reusable for groups given by multiplication tables.
+The frozen RESULT.md line 46 incorrectly says the matrix units and zero exhaust every local corner; a corner of rank at least two also contains maps with several arrows. The corrected RESULT.md fixes the sufficiency proof: using the explicit path-label convention, an arrow b→c with label x is transported to the corresponding source endpoints and has label gamma_b x gamma_c^(-1). This applies separately to every arrow of an arbitrary partial map and hence determines the whole output. Loops recover central label ratios; units with label 1 identify those ratios across points. The corrected text also handles the direction of conjugation: composing ordinary right-to-left, u mapped to conjugation by u^(-1) reverses multiplication, while indexing the same image by inverse representatives gives the quotient homomorphism. The fibers and all claimed formulas are unchanged. At each positive rank the common central action is free. Self-inversion forces equal supports and an underlying permutation of square one; for each z in the center an ordered pair of transposition labels has |G| solutions to the two product equations with common value z, and each fixed-point label has rho_G(z) solutions. The common value is unique at positive rank and can change when relabelling, so summation precedes division. Rank zero is a singleton. The abelian squaring fibers and the difference-coordinate description of the local rank-two group give the stated torsion separation. The supplied checker and output, not executed in this review, agree with hand checks (C4, C2² and S3 give 6, 8 and 22 self-inverse elements per rank-two support). The corrected proof establishes the all-rank result; there was no change to the checker or its test scope.
 
-## Closest literature and limits
-The central-congruence machinery and its symmetric-inverse-monoid case are credited as prior work. The earlier wreath-product literature provides context for the labelled rook monoid but was not found to give this quotient involution count. The proof works for every finite label group, while computation verifies only the enumerated small test cases. Independent mathematical audit has not been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported claim is the explicit rook-wreath fiber together with the ordinary self-inverse spectrum controlled by central square-root moments. The general partial-inner map, its central-congruence mechanism, and ordinary wreath-product cycle bookkeeping are prior ingredients, not themselves claims of novelty. The repaired proof has the same quantitative scope and clarifies a genuinely different projective involution comparator.
+
+## value
+
+PASS
+
+This gives a natural all-support enumeration in the partial-inner monoid for arbitrary finite label groups. Ordinary rank counts forget central square-root data, whereas the self-inverse spectrum detects them through moments. The two order-four abelian groups witness a difference even when every rank cardinality agrees. Counting a diagonal center globally, rather than quotienting labels independently, is essential to the exact formula. The point is the distribution and its separating power, not the abstract central-congruence theorem alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

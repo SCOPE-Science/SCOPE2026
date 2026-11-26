@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:54:00.205196Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–70",
+        "Lugo arXiv:0911.3604 §§4, 5, 7",
+        "VERIFICATION.md and verify_involutions.py inspected, not executed; independent enumeration through seven labels"
+      ],
+      "rationale": "For the unrestricted uniform ordered pair, alternating paths have exponential weights 1 for odd size and 1/2 per endpoint class for even size; even graph cycles have weight 1/k including k=2. Removing an ordered tuple of specified components leaves the coefficient ratio b_{n−s}/b_n. Lugo's positive coefficient asymptotic yields the uniform e^{-s/√n}(1+o(1)) ratio for s=O(√n log n), by the square-root expansion and the uniform prefactor. For s≤n/2 the ratio is bounded by C e^{-s/√n}; for s>n/2 even multiplying the exponentially small bound by a fixed polynomial in n does not affect factorial moment sums. Disjoint marked-window mixed factorial moments factorize, and odd/even lattice sums each have half the total weight, giving the three Poisson intensities. The first-moment upper-tail bound gives tightness at the top, the cycle weight 1/k makes large alternating cycles negligible, and the equal-size ordered-path pair bound is O(n^{-1/2}) above each fixed low height cutoff. Since a path yields one permutation cycle of its own size, while an even graph cycle gives two of half its size, this establishes the maximum and top mark conclusions. An independently implemented bounded check covered 60,397 ordered pairs through n=7 and verified 106 exact marked component/coefficient identities; the 60,528 in the frozen narrative counts assertions in its supplied script, not pairs.",
+      "residual_risks": [
+        "No explicit rate for the full marked process or any assertion about the fixed-point-conditioned model; bounded enumeration does not certify the infinite limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Panagiotou–Ramzews gives Gumbel for this expansive assembly. Its saddle after undoing the tilt is exp(−η_n) with η_n=n^{-1/2}+O(n^{-1}); here zC′(z)=η^{-2}+O(η^{-1}) and C(z)=η^{-1}+O(log(1/η)), with C(z)=log B(z). Theorem 1.2's threshold is thus √n(log√n+x)+o(√n).",
+          "Equations (3.27)–(3.28) supply moving-window joint occupancy and uniform upper bounds, not just a marginal limit for the maximum.",
+          "Lugo's and Roberts–Vivaldi's fixed-point-conditioned formulas by themselves do not give this unrestricted marked PPP."
+        ],
+        "reasoning": "The expansive theorem and its verified estimates cover this special case and much more. The fixed-point-conditioned results are relevant comparators, not the basis of the failure.",
+        "searches": [
+          "arXiv:2208.00925 Theorem 1.2 and proof §3.2.2",
+          "Lugo arXiv:0911.3604 §6",
+          "Roberts–Vivaldi arXiv:0905.4135 §2",
+          "Flajolet–Sedgewick, Analytic Combinatorics §III.8.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2208.00925",
+        "arXiv:0911.3604",
+        "arXiv:0905.4135",
+        "Analytic Combinatorics §III.8.1",
+        "Resultary e2ec350e7d45 and self-match 594d94b6f31b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For each fixed number r of distinct occupied sizes in bounded extreme windows, (3.27) gives their joint probability as (1+o(1))∏ c_k exp(−η_n k) after undoing the tilt. The bounded windows are O(√n) wide, hence o of the lower threshold. One may sum over any specified parity and any disjoint windows, not just over consecutive sizes.",
+          "Summing those products gives the mixed Poisson factorial moments of occupied-size counts, with lattice weights 1/2 for odd and 1/2 for even. Diagonals in the product sums vanish since every extreme site has weight O(n^{-1/2}). Actual multiple components of the same size vanish in probability by the assembly second factorial identity and the coefficient bound: the sum of squared extreme-site weights is O(n^{-1/2}). The uniform upper bound controls the height tail beyond a fixed upper cutoff.",
+          "Conditional on the sizes, component types are independent allocations. At odd sizes all components are paths of type O; at even sizes the unnormalized weights are 1/2, 1/2 and 1/k for S, T and graph cycles. Summing cycle expectations gives O(1/(√n log n)); the other two allocations are equiprobable and give the independent marked intensities 1/4 each. The unique top mark and height distribution and the product-cycle interpretation then follow."
+        ],
+        "reasoning": "This is a direct specialization of the prior moving-window estimates plus already known type weights, not an attempt to infer microscopic parity just from a continuous unmarked PPP. It covers the whole marked point-process conclusion as well as the maximum.",
+        "searches": [
+          "arXiv:2208.00925 §3.2.2, (3.27)–(3.28) and (3.35)–(3.38)",
+          "arXiv:0911.3604 §4 Theorem 4.1 and Corollaries 4.2–4.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The pair of involutions is a labelled assembly with connected weights c_k=1+1_{k even}/k and occupation-vector law proportional to ∏_k c_k^{N_k}/N_k! on ∑kN_k=n.",
+          "Replacing c_k with ρ^{-k}c_k for any fixed 0<ρ<1 multiplies the occupation weight by the same ρ^{-n} for all vectors. It gives precisely the expansive α=1, radius ρ, labelled C-set case of their theorem, with slowly varying h(k)=c_k→1."
+        ],
+        "reasoning": "Taking the original radius as 1 would obscure that the cited labelled case applies: the harmless exponential tilt moves the radius to ρ with no change of the conditioned model or of the color probabilities.",
+        "searches": [
+          "Lugo arXiv:0911.3604 §§4 and 7",
+          "Panagiotou–Ramzews arXiv:2208.00925, definitions (1.1)–(1.2), Theorem 1.2, and equations (3.27)–(3.28)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact title match is the assigned record; the separate same-day single-involution record concerns deletion diversity under prescribed fixed-point counts, not the product extremes.",
+          "Lugo's exact component enumeration already supplies the individual bin and type weights used both here and in the expansive-assembly specialization."
+        ],
+        "reasoning": "No exact finite table is needed to establish coverage of the asymptotic claim; the decisive source has stronger local asymptotic estimates, and the indexed lookups do not supply an independent identical record.",
+        "searches": [
+          "Resultary lookup for random involution product largest cycles and alternating path extreme marks",
+          "2026/11/22/SCOPE-marked-gumbel-extremes-for-products-of-two-uniform-involutions--594d94b6f31b",
+          "2026/11/22/SCOPE-a-fixed-point-phase-and-independent-poisson-mechanisms-for-one-d--e2ec350e7d45"
+        ]
+      },
+      "rationale": "The finding is correct but already follows from the published largest-cluster and discrete joint extreme-occupancy estimates of Panagiotou–Ramzews (2022), applied to the Lugo assembly, followed by exact conditional coloring. This is not merely prior coverage of a scalar Gumbel law: their estimates apply to arbitrary distinct sizes in the moving extreme window, which retains the parity information. They give the Poisson joint law for counts on disjoint windows intersected with odd and even sites; the remaining subdivision is independent thinning with known weights. No substantive distinct claim survives in the bound finding.",
+      "residual_risks": [
+        "The primary expansive paper need not state these specific involution labels; the implication uses its exact lattice occupancy estimates and the independent Lugo component classification. No priority is inferred from the same-date Resultary hits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covering after a distribution-preserving exponential tilt and the already known conditional allocation of colors",
+          "evidence": "Theorem 1.2 includes labelled C-sets for ρ<1; proof compares all joint occupancies of distinct sizes above s_n in an o(s_n) range to products of tilted component weights, with a uniform upper bound; the proof gives coefficient-ratio bounds used for extreme repeats.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.00925",
+          "material_read": "Model and (1.2), offset 6500; expansiveness (1.7), (1.8) and real-weight note at offsets 14784–20505; Theorems 1.1 and 1.2, PDF pp. 5–6, offsets 20505 and 25900; proof §3.2.2 (3.27)–(3.28), p. 20, offset 92400; coefficient bounds (3.35)–(3.38), pp. 22–23, offset 104300",
+          "method": "Open-access primary PDF (arXiv v1, 2022), theorem and decisive proof passages read by offset",
+          "title": "Cluster Statistics in Expansive Combinatorial Structures",
+          "trigger": "Potential covering largest-component and discrete occupation theorem for expansive labelled assemblies"
+        },
+        {
+          "assessment": "Known exact assembly and correspondence; together with the expansive theorem yields the specialization",
+          "evidence": "Coloured path/even-cycle generating function, graph to permutation cycle correspondence, fixed-size marginals and b_n asymptotics.",
+          "identifier_or_url": "https://arxiv.org/pdf/0911.3604",
+          "material_read": "§4 Theorem 4.1, Corollaries 4.2–4.3 and §5 Theorem 5.1, pp. 5–7, offset 22800; §6, pp. 8–9, offset 30000; §7 Theorem 7.1, pp. 9–10, offset 34200",
+          "method": "Open-access primary PDF",
+          "title": "The cycle structure of compositions of random involutions",
+          "trigger": "Exact same model, generating function and component types"
+        },
+        {
+          "assessment": "Related conditioned model, not by itself the unrestricted marked extreme theorem",
+          "evidence": "Prescribed fixed-point counts g,h and aggregate period profile.",
+          "identifier_or_url": "https://arxiv.org/pdf/0905.4135",
+          "material_read": "§2, pp. 4–6, offset 13500",
+          "method": "Open-access primary PDF",
+          "title": "A combinatorial model for reversible rational maps over finite fields",
+          "trigger": "Reversible product model with period statistics"
+        },
+        {
+          "assessment": "General generating-function technique; not the decisive coverage",
+          "evidence": "Largest-component bounds by truncating the component generating function.",
+          "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/book.pdf",
+          "material_read": "§III.8.1, pp. 215–216, offset 787400",
+          "method": "Open-access primary book",
+          "title": "Analytic Combinatorics",
+          "trigger": "General largest-component techniques"
+        },
+        {
+          "assessment": "Not the same model or limit",
+          "evidence": "Single involution with prescribed fixed points, and deletion diversity rather than extremes of a two-involution product.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-fixed-point-phase-and-independent-poisson-mechanisms-for-one-d--e2ec350e7d45",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A fixed-point phase and independent Poisson mechanisms for one-deletion diversity",
+          "trigger": "Distinct indexed same-day involution and Poisson hit"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof",
+        "Panagiotou–Ramzews Theorem 1.2 and proof (3.27)–(3.38)",
+        "Lugo §4 component types and permutation-cycle correspondence"
+      ],
+      "rationale": "The maximum period is a meaningful observable, and the specialization is correct. But the bound claim adds only a standard application of published local extreme-assembly estimates, a parity Riemann sum and known independent type allocation. It gives no new extremal mechanism, quantitative control beyond what supports that specialization, or independent geometric/dynamical conclusion not accessible from those inputs. The tie and graph-cycle bounds are routine consequences of the same coefficient estimates. No genuinely separate valuable remainder within the assigned claim was established, so no repair is submitted.",
+      "residual_risks": [
+        "This does not say longest reversible periods are unimportant, only that this bound claim does not advance their analysis beyond applying existing results."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

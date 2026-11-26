@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:53:12.584163Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Steps 1–5, VERIFICATION.md and verify.py (read only)",
+        "Canfield–Janson–Zeilberger arXiv:0908.2089, p. 14, Theorem 4.5 and Eq. (4.9), definition of N_* on p. 4",
+        "Independent finite replay: /tmp/opencode/scope_independent_cert.py, binary()"
+      ],
+      "rationale": "The profile reduces exactly to one count and the number of 10 pairs. The two word weights in a common fiber depend only on its one count, giving the exact s^(2n) tilt to equal bias t=sqrt(pq)/s. The Canfield–Janson–Zeilberger local estimate applies with min(k,n-k) of order n, uniformly in the central binomial band. Replacing each inversion mass function by its lattice Gaussian changes its square-sum by at most the uniform error times the sum of the two masses, giving (2 sqrt(pi) sigma)^-1 to relative o(1), without summing errors over the full support. Off-band squared binomial masses are exponentially small. Parseval and expansion at the sole maximum give the composition factor (2 sqrt(pi n t(1-t)))^-1. Multiplying with sigma^2=k(n-k)(n+1)/12 gives sqrt(3)/(2 pi n^2 t(1-t)); t(1-t)=sqrt(pq(1-p)(1-q))/s². Direct enumeration through n=10 using (number of ones, sum of their positions) and rational exact weighting confirms the tilt at p=1/5, q=1/2, t=1/3, s²=9/10. The Gaussian binomial named in Step 3 is the unnormalized enumerator (the probability generating function divides by binomial(n,k)); the proof uses the correctly normalized mass throughout.",
+      "residual_risks": [
+        "Fixed p,q strictly between 0 and 1; no boundary-uniform asymptotic. Finite enumeration is corroboration, not proof of the limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Mahonian LLT is one-dimensional conditional on the composition, uniform over inversion values.",
+          "The Gaussian-binomial class-size distribution determines finite weighted sums but does not evaluate their n-asymptotic.",
+          "A focused bivariate-LLT lookup did not identify a stronger applicable result."
+        ],
+        "reasoning": "Neither theorem as inspected already supplies this profile collision at random composition and fixed unequal biases. The published LLT is a substantial reused input, not a claimed novel LLT.",
+        "searches": [
+          "Bivariate local limit for random (K,I) or the number and sum of Bernoulli positions; arXiv:0908.2089 Theorem 4.5",
+          "Golafshan arXiv:2606.23426 §5.2 Corollaries 5–6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0908.2089, arXiv:2606.23426, arXiv:2510.07159",
+        "Resultary c55c8f624ee6 and d2f0e941a5ae"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known class frequencies give exact finite pair sums and the LLT gives the conditional inversion factor.",
+          "The fair-square calculation combines the same two factors only at fair bias."
+        ],
+        "reasoning": "To pass from the available conditional result to the full law requires uniform conversion to a square-sum, the asymptotic composition collision factor at the tilted bias, exponential control of off-band compositions, and the exact source transfer. The tilt alone cannot replace an equal-but-biased law by the fair law.",
+        "searches": [
+          "Canfield–Janson–Zeilberger Thm. 4.5; Golafshan §5.2; Resultary fair binary 2-binomial square proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary c55c8f624ee6 states exactly 2 sqrt(3)/(pi n²) for fair-source collisions expressed as length-2n binary squares. This is the same observable for p=q=1/2.",
+          "Richomme describes fixed-composition two-binomial classes by integer partitions; 'fair words' in that paper are words with equal ab and ba counts, not independent fair Bernoulli samples."
+        ],
+        "reasoning": "The fair-square density is a genuine overlapping specialization, not just terminological similarity. It is a distinct later catalogue record and does not imply arbitrary fixed biases or the cross-source law.",
+        "searches": [
+          "Binary two-binomial squares/density; complete scattered-pair profiles as one count and inversion or sum-of-positions coordinates",
+          "Resultary c55c8f624ee6; Richomme arXiv:2510.07159"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later square-density record gives both the exact fair Gaussian-binomial sum and the matching fair leading constant.",
+          "The predated d2f0e941a5ae record concerns one-dimensional common-bias integer-weighted Bernoulli collision profiles and their bias structure.",
+          "Explicit finite fiber sizes are known, but not a table with the fixed interior two-bias limiting formula."
+        ],
+        "reasoning": "The one-dimensional bias result does not evaluate a two-coordinate equal-profile event with different sources at this scale. The exact fair overlap is credited separately.",
+        "searches": [
+          "Local Resultary semantic search and mirror: c55c8f624ee6 and d2f0e941a5ae",
+          "Golafshan Corollaries 5–6, exact class-size distribution"
+        ]
+      },
+      "rationale": "Predated sources inspected give exact combinatorial fiber descriptions or a fixed-composition inversion LLT, not the full two-source sharp limit. A distinct later Resultary record is materially equivalent in the fair case and uses the same asymptotic route there; it is not evidence of independent priority. The full claim includes fixed biased and unequal sources with an exact affinity transfer and remains distinct.",
+      "residual_risks": [
+        "A differently phrased local limit or unpublished power-sum asymptotic could imply the result. Richomme was not assessed exhaustively. There is no established independent provenance for the later fair-case duplication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies conditional inversion LLT, not the full collision",
+          "evidence": "Gaussian point masses with O(1/(N_* sigma)) under the stated composition condition, fulfilled by central binary counts.",
+          "identifier_or_url": "https://arxiv.org/abs/0908.2089",
+          "material_read": "PDF pp. 4,14, definition of N_*, Theorem 4.5 and Eq. (4.9)",
+          "method": "Lawful OA primary PDF passages",
+          "title": "The Mahonian probability distribution on words is asymptotically normal",
+          "trigger": "Closest broader local limit result, and necessary proof input"
+        },
+        {
+          "assessment": "Exact finite class counts and sizes, not the sharp claimed asymptotic",
+          "evidence": "Gaussian-binomial coefficients give class sizes; the distribution polynomial enumerates those sizes.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.23426",
+          "material_read": "PDF pp. 14–15, §5.2 Corollaries 5–6",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Binary binomial equivalence via hyperplane arrangements",
+          "trigger": "Possibly an exact class-size distribution or collision table yielding prior coverage"
+        },
+        {
+          "assessment": "Observed partition structure and a distinct notion of fair words; not an exhaustive whole-document coverage determination",
+          "evidence": "The abstract defines fair words by ab=ba multiplicities and describes class graphs via bounded integer partitions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2510.07159",
+          "material_read": "PDF p. 1 abstract and contents; literal search for asymptotic",
+          "method": "Lawful OA primary PDF, bounded passages",
+          "title": "On some 2-binomial coefficients of binary words: geometrical interpretation, partitions of integers, and fair words",
+          "trigger": "Binary class structure and fair-word terminology could mask an equivalent formulation"
+        },
+        {
+          "assessment": "Exact fair-case coverage in a distinct later dated record; no conclusion about common provenance",
+          "evidence": "Two independent fair halves collide with leading constant 2 sqrt(3)/pi at scale n^-2; the calculation uses the same conditional inversion LLT.",
+          "identifier_or_url": "Resultary c55c8f624ee6",
+          "material_read": "Finding and Proof, exact sum and asymptotic",
+          "method": "Local Resultary search and mirror",
+          "title": "Sharp asymptotic density of binary 2-binomial squares",
+          "trigger": "Exact fair specialization of the frozen finding"
+        },
+        {
+          "assessment": "Different one-dimensional common-bias observable",
+          "evidence": "Concerns collision positivity/bias for integer-weighted sums, not this bivariate profile asymptotic.",
+          "identifier_or_url": "Resultary d2f0e941a5ae",
+          "material_read": "Finding and definitions of the collision observable",
+          "method": "Local Resultary search and mirror",
+          "title": "Complete collision profile positivity for overlapping Bernoulli sums",
+          "trigger": "Predated biased Bernoulli collision result that could provide broader coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, proof and class-count comparison",
+        "Golafshan §5.2",
+        "Resultary c55c8f624ee6 fair-case comparison"
+      ],
+      "rationale": "The sharp formula quantifies the collision risk of a standard finite subsequence profile, distinguishing quadratically many effective fair profiles from cubically many possible profiles. On unequal sources it gives both the exact exponential distinguishability rate and the polynomial correction, from the same statistic and without selecting special parameters. The exact tilted constant goes beyond a generic rate or repackaged fiber count.",
+      "residual_risks": [
+        "This is an asymptotic for collisions, not a general information recovery theorem or a uniform estimate for near-degenerate sources."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

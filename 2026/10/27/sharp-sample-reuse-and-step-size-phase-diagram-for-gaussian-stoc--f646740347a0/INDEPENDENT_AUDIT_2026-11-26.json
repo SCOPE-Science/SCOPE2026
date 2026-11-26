@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:29:09.712052Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–90; VERIFICATION.md, lines 19–23; verify.py"
+      ],
+      "rationale": "Using J²=−I, the corrector is multiplication by (1−η²W₁W₂)I−ηW₂J; since z and Jz are orthogonal and have the same norm, the squared norms differ by the stated scalar multiplier. Writing W_i=a+ξ_i gives the second moments directly; the centered fourth mixed moment is v²+2(ρv)², the odd moments vanish, and expansion gives H_ρ, including the degenerate Gaussian at ρ=1. The current pair is independent of z_n, though W₂ need not be conditionally unbiased at the predictor, so the expected multiplier iterates exactly. With s=η²>0 the difference from one is s(sH_ρ−D_ρ), and H_ρ>0. Equality leaves the mean-square error unchanged, so the stability inequalities are strict. At fixed stable ρ the optimal s is D_ρ/(2H_ρ). At fixed s the factor is strictly convex in ρ, with derivative 2vs[−1+2s(a²+ρv)]; projection of its zero gives the three stated regimes, including equality at the endpoints. The witness has ρ=5/12 and factors 26437/31250, 26462/31250 and 26486/31250 for interior, independent and identical sampling respectively. For two Gaussian averages with k common observations the covariance is kτ²/B², giving v=τ²/B, ρ=k/B, and the stated strict criterion. The analytic calculation establishes all parameters; the provided code and recorded output were inspected, not executed.",
+      "residual_risks": [
+        "This is a mean-square last-iterate statement for jointly Gaussian multiplier pairs with equal steps, not almost-sure convergence or a guarantee for arbitrary coupling choices. The continuous optimizer describes the correlation family; fixed finite B permits only the discrete overlaps k/B."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gorbunov et al. allow broad oracle sampling and give sufficient estimates with a smaller corrector step. Li et al. give convergence results for averaged iterates with a same-sample bilinear method. Later 7e624dada25f gives the exact multiplier for arbitrary iid pairs with common marginals and finite fourth moments."
+        ],
+        "reasoning": "The first two guarantees do not cover the present equal-step exact last-iterate optimum. The later moment identity and earlier scalar proof reduce the Gaussian factor to explicit moments, but do not optimize over the Gaussian correlation path; optimization over mixtures in the space of joint laws is a different feasible set.",
+        "searches": [
+          "Gorbunov et al. arXiv:2111.08611 §3 and Theorem 3.1; Li et al. arXiv:2107.00464 Theorem 3.1; Resultary 1eae25261845 and 7e624dada25f"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1eae25261845, 2b6eab28d021, 002177710edb, 7e624dada25f, a79434e38772",
+        "arXiv:2608.06182v1; arXiv:2111.08611; arXiv:2107.00464",
+        "Frozen RESULT.md, lines 92–106"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier scalar proof explicitly gives 1−2s E[XY]+s E[Y²]+s² E[X²Y²]. In its two-point law the moments are affine in the off-diagonal mass, so its optimum is at an endpoint except for ties. Under joint Gaussianity, E[X²Y²] includes 2ρ²v² and the derivative of the factor changes sign inside the allowed interval for an open range of steps."
+        ],
+        "reasoning": "Direct reuse of the earlier formula with Wick moments covers the factor and associated stability inequality; those are ingredients, not independent novelty. A discrete coupling-reversal threshold does not give the new interior Gaussian regime: it misses the varying quadratic term and cannot even witness a strict interior optimum. The stated exact regime and contracting comparison are for fixed Gaussian overlap, not minimization over all possible pair laws.",
+        "searches": [
+          "1eae25261845 §Proof offsets 2400–5944; 7e624dada25f §Finding; Yoon–Loizou §3 and §3.12; frozen Gaussian moment and optimization steps"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier 1eae25261845 derives the same direction-independent expected moment multiplier in the proof, with an affine optimization for a two-point law. Later 7e624dada25f states the arbitrary-common-marginal multiplier and illustrates a Bernoulli reuse coupling. Yoon–Loizou distinguish independent and identical samples but the inspected failure example is for a diminishing schedule."
+        ],
+        "reasoning": "Whole-draw Bernoulli reuse of Gaussian marginals has fourth-moment term (1+2ρ)v², not (1+2ρ²)v². Equal marginals and correlation do not make those two stochastic processes equivalent. The exact earlier multiplier is shared; the joint Gaussian optimization is not.",
+        "searches": [
+          "Resultary: same/independent/partial sample reuse, stochastic extragradient, coupling-reversal and interior Gaussian optimizer; 1eae25261845, 2b6eab28d021, 7e624dada25f",
+          "Yoon–Loizou arXiv:2608.06182v1 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier records give exact two-point endpoint/antithetic thresholds. Later 002177710edb compares discrete couplings for slopes 1 and 2; a79434e38772 gives an interior optimum for the stationary error of a strongly monotone affine two-operator example. The later generic table/formula in 7e624dada25f does not state the jointly Gaussian optimum."
+        ],
+        "reasoning": "This is a symbolic family optimization, not an enumeration. Matching exact endpoint formulas or another interior optimum under a different objective is not an exact formula lookup for the Gaussian phase diagram. No such exact optimizer was found in the inspected sources.",
+        "searches": [
+          "Resultary indexed exact extragradient factors and coupling thresholds: 1eae25261845, 2b6eab28d021, 002177710edb, 7e624dada25f, a79434e38772"
+        ]
+      },
+      "rationale": "The generic equal-step scalar norm multiplier, its expectation, and the sign test for stability follow from the earlier Resultary coupling-reversal result's proof. The Gaussian polynomial and noise threshold follow by substituting standard Gaussian moments, so neither the generic formula nor its algebraic sign test is credited as independent novelty. The supported distinct claim is the sharp, sometimes strictly interior correlation optimum for jointly Gaussian coefficients, with a contracting parameter regime where both endpoint policies are worse. The strongest earlier optimizations use fixed two-point laws with an affine dependence on the coupling parameter, and do not cover this nonlinear Gaussian family. Later generic formula coverage and the different Bernoulli whole-sample reuse policy do not establish earlier coverage of that optimizer.",
+      "residual_risks": [
+        "The original Yoon–Loizou HTML was available in this review, but the comparison was bounded. No priority is claimed for the generic multiplier or the standard Gaussian moment expansion, and other unindexed specializations are not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior exact proof ingredient and optimal endpoint policy for a different marginal family",
+          "evidence": "Skew step multiplies squared norm by (1−sXY)²+sY² for each pair; the two-point joint-law parameter enters its expectation affinely.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-a-sharp-coupling-reversal-frontier-for-stochastic-extragradient--1eae25261845/RESULT.md",
+          "material_read": "§Finding and Proof, offsets 300–5944",
+          "method": "Configured local-mirror bounded passages",
+          "title": "A sharp coupling-reversal frontier for stochastic extragradient",
+          "trigger": "Strongest earlier exact scalar and coupling-optimization match"
+        },
+        {
+          "assessment": "Different two-point, discrete, or stationary-error problems",
+          "evidence": "The first two use discrete slopes; the third's interior optimum is for affine two-operator noise with stationary root error, not the expected Gaussian last-iterate multiplier.",
+          "identifier_or_url": "Resultary 2b6eab28d021; 002177710edb; a79434e38772",
+          "material_read": "§Findings, offsets 850–4328; 800–3456; 0–2998 respectively",
+          "method": "Configured local-mirror bounded passages",
+          "title": "Sharp antithetic pairing and the φ/√φ stability cutoff; Two distinct optimal-coupling transitions; Curvature heterogeneity permits an interior-optimal two-stage policy",
+          "trigger": "Exact coupling thresholds and possible earlier/equivalent interior optimizer"
+        },
+        {
+          "assessment": "Later formula coverage; different partial-reuse model",
+          "evidence": "Arbitrary pair law gives the generic power identity. Reusing a whole draw with probability ρ makes its mixed moments affine in ρ, unlike overlapping Gaussian averages.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-one-half-sample-reuse-threshold-for-stochastic-extragrad--7e624dada25f/RESULT.md",
+          "material_read": "§Finding, equal-marginal pair formula and Bernoulli coupling specialization",
+          "method": "Configured local-mirror bounded passages",
+          "title": "A sharp one-half sample-reuse threshold for stochastic extragradient",
+          "trigger": "Generic pair-law formula and same threshold phrase"
+        },
+        {
+          "assessment": "Relevant endpoint-method distinction, no equivalent Gaussian optimizer in the inspected passages",
+          "evidence": "Same-sample corrector need not be conditionally unbiased; the inspected failure example uses diminishing square-summable steps.",
+          "identifier_or_url": "https://arxiv.org/html/2608.06182v1",
+          "material_read": "Abstract; §3 offsets 47000–49139; §3.12 offsets 146800–149551",
+          "method": "Bounded OA HTML passage reads",
+          "title": "On Same-Sample and Independent-Sample Stochastic Extragradient for Monotone Variational Inequalities",
+          "trigger": "Closest cited same-/independent-sample study; exact full-text comparison was missing in frozen source"
+        },
+        {
+          "assessment": "Sufficient guarantees, not this equal-step exact phase diagram",
+          "evidence": "Theorem 3.1 treats γ₂=αγ₁ with α≤1/4 under sampling assumptions.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.08611",
+          "material_read": "PDF §3 pp. 2, 5; Theorem 3.1 p. 7",
+          "method": "Bounded OA PDF inspection",
+          "title": "Stochastic Extragradient: General Analysis and Improved Rates",
+          "trigger": "Possible arbitrary-sampling theorem covering partial reuse"
+        },
+        {
+          "assessment": "Covers same-sample bilinear methods and averaged-iterate estimates, not the Gaussian pair optimizer",
+          "evidence": "The shared-sample algorithm and averaged-iterate result do not parameterize Gaussian correlation between calls.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.00464",
+          "material_read": "PDF p. 2 method, p. 5 Theorem 3.1, p. 13 Gaussian example passage",
+          "method": "Bounded OA PDF inspection",
+          "title": "On the Convergence of Stochastic Extragradient for Bilinear Games using Restarted Iteration Averaging",
+          "trigger": "Closest bilinear SEG setting and Gaussian examples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 19–45 and 71–86; Resultary 1eae25261845 §Proof"
+      ],
+      "rationale": "With fixed Gaussian marginals and exact minibatch overlap, greater reuse increases stabilizing second-order damping but also increases the fourth-order cost nonlinearly. It is useful to know that partially overlapping batches can strictly beat both named endpoint policies even when all three contract, rather than merely locating a crossover between endpoints. The threshold gives an exact benchmark for the equal-step algorithm under a concrete sampling design; it does not depend on the small numerical gain of the illustrative example.",
+      "residual_risks": [
+        "This is not optimization over all couplings, unequal steps, or computational cost; it compares the numerical factor at a fixed step and fixed marginal variance."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

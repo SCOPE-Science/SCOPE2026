@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:03:16.985737Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–84",
+        "Repaired RESULT.md Finding, scope and Proof",
+        "verify_wheel.py (read-only)",
+        "VERIFICATION.md lines 3–14"
+      ],
+      "rationale": "Both the frozen and repaired mathematics handle the specified wheel, not a static percolation model. The exact target time is the minimum over independent spoke delays plus weighted rim distance. On the line, the exponential edge sums on the two disjoint rays are Poisson arrival epochs. The Laplace functional gives J_beta(t)=exp(-beta*t+(beta/alpha)(1-exp(-alpha*t))) per ray, and the root seed contributes exp(-alpha*t), giving the stated marginal. At R=ceil(log^2 n), omission of a successful path requires at least R consecutive rim steps by time t, with superpolynomially small probability since beta_n*t=O(log n) in each window. For sites at distance at most 2R the two outward rays of length R in the complementary arc and the root seeds are disjoint; requiring protection from these independent sources bounds pair survival by exp(-2 alpha t)(J_beta(t)+epsilon_n)^2. Together with the 4R dependency degree this gives vanishing Chen–Stein pair terms O(R n^(-alpha/(alpha+2 beta))) at fixed beta and O(R/n) in the weak window, plus O(R/n) single-site terms. Substitution gives the means e^(-x) and e^(-x-2c/alpha). The zero-count event gives the completion cdf, with the signs of both Gumbel centering constants checked; the reverse implication is not asserted in the repair. The star boundary is an independent maximum, and in the supercritical weak regime the union bound at t=(log n-K)/alpha gives escape left since the expected survivor count tends to zero. The finite checker was inspected, not executed; the Poisson and Gumbel convergence are analytic.",
+      "residual_risks": [
+        "No exact finite-wheel completion law, unrestricted growing-rate estimate, or Gumbel moment convergence is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Bass paper gives exact consecutive-block nonadoption relations and a marginal recursion.",
+          "Renlund's propagation-speed result concerns width-two ladders, and the local uniform Poisson flooding result uses disjoint clique petals."
+        ],
+        "reasoning": "Consecutive-block and marginal formulas are directly relevant but do not give an all-pairs dependency estimate or terminal-window process for this cycle. The clique and ladder geometries do not dominate the overlapping neighborhoods on a wheel.",
+        "searches": [
+          "Fibich–Levin–Yakir §§3.3–3.4, equations (3.7), (3.9), (4.3)–(4.6)",
+          "arXiv:1102.4744",
+          "Resultary SCOPE-a-uniform-double-logarithmic-gumbel-law-for-first-passage-floodi--b38bb38e62e1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary and cited mirror findings",
+        "Fibich–Levin–Yakir (2019)",
+        "Fibich–Gibori (2010; cited passage and access-limited original)",
+        "arXiv:1102.4744",
+        "Repaired RESULT.md prior-work section"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taking the infinite-size limit in S'(t;M)+(p+q)S(t;M)=q e^(-pt) S(t;M-1) recovers the line marginal with p=alpha, q=2 beta.",
+          "The terminal proof additionally needs a moving-window locality bound and two-site suppression to control the full rare count; a mean alone cannot exclude a compound-Poisson alternative."
+        ],
+        "reasoning": "The marginal and its associated candidate intensity are mechanically covered; the claimed count distribution, zero-count completion law, and crossover combining that distribution with its limiting mean are not mechanical consequences of the inspected results.",
+        "searches": [
+          "Fibich–Levin–Yakir §4.1 (4.3)–(4.6)",
+          "Fibich–Levin–Yakir §§3.3–3.4 joint survival identities",
+          "Resultary clique-bouquet and slow-vertex findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-sided circle has an external hazard p plus q/2 for each adopted neighbor. With p=alpha and q=2 beta_n this is exactly the wheel's rim infection process.",
+          "The section on periodic diffusion gives an exact finite-size recursion for marginal survival, including the two-sided model."
+        ],
+        "reasoning": "Treat last adoption and wheel flooding as the same observable after this reduction, not different models. Credit known marginal coverage; the inspected recursion is not a count or completion limit.",
+        "searches": [
+          "stochastic discrete Bass model homogeneous one dimensional circle ring final adoption completion time Gumbel last adopter Poisson Fibich exact nonadoption probability two-sided",
+          "Fibich Gibori aggregate diffusion spatial structure exact two sided Bass circle Fibich Golan boundary effects Bass model one dimensional ring exact paper arxiv",
+          "Fibich–Levin–Yakir §2.2 and §4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary match is the assigned record, not a distinct result.",
+          "Closest distinct crossover records have a log-log shift for disjoint clique petals, or a complete graph with one slow target and a max-type limit. The wheel-topology match is static bond percolation."
+        ],
+        "reasoning": "Matching topology, matching window scale, and matching extremal law in different objects do not produce an exact duplicate. No distinct exact terminal-count record was identified.",
+        "searches": [
+          "Resultary SCOPE-poisson-terminal-infections-and-a-weak-rim-crossover-on-exponent--4079efddab33",
+          "SCOPE-contact-rate-resonance-and-a-crossover-law-for-si-completion-on--d8bf955f8226",
+          "SCOPE-a-logarithmic-slow-vertex-crossover-in-complete-graph-si-floodin--8c8e1258d129",
+          "SCOPE-a-two-rate-wheel-percolation-limit-with-explicit-full-connectivi--30f8efea579b"
+        ]
+      },
+      "rationale": "The repair credits a materially stronger and closer source than the frozen comparison: the identical rim process is the two-sided discrete Bass circle, whose exact finite-circle marginal and survival identities are established. The infinite-line marginal follows from the known finite marginal recursion, so it is not credited as distinct. The surviving independent contribution is the Poisson law of the terminal survivor count and the resulting fixed-rate completion limit and weak-rim crossover. No inspected stronger theorem covered these joint and moving-window assertions.",
+      "residual_risks": [
+        "Uninspected portions of the original 2010 paper or unindexed discrete Bass completion-time literature could contain additional joint or terminal results; failed direct access was not used as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the model, consecutive-block identities and exact finite-circle one-point survival. Marginal line formula is a consequence; inspected statements do not give terminal count convergence.",
+          "evidence": "§2 gives the q/2 nearest-neighbor influence in D=1. Eqs. (4.3)–(4.6) give the exact survival recursion, noted to hold for two-sided as well as one-sided diffusion.",
+          "identifier_or_url": "https://www.math.tau.ac.il/~fibich/Manuscripts/Bass_boundary_SIAP19.pdf",
+          "material_read": "§2 and §2.2 (PDF pp. 3–4, offsets 23440 and 28700); Lemmas 3.10–3.11 and §4.1 (PDF pp. 9–12, offsets 98780, 106200–114192, 116100–123968); bibliography [8]",
+          "method": "Lawful author-hosted primary PDF, literal search followed by offset inspection",
+          "title": "Boundary Effects in the Discrete Bass Model",
+          "trigger": "Exactly equivalent two-sided discrete Bass circle"
+        },
+        {
+          "assessment": "Credit the earlier marginal coverage documented by the 2019 paper; exact detailed scope of the 2010 original not independently verified",
+          "evidence": "The 2019 paper attributes the finite-circle adopted-fraction and the two-sided/one-sided block survival results to Fibich–Gibori.",
+          "identifier_or_url": "https://doi.org/10.1287/opre.1100.0818",
+          "material_read": "Attribution in the 2019 paper §4.1 and reference [8]; original publisher retrieval denied",
+          "method": "Primary citing passage and lawful publisher OA attempt",
+          "title": "Aggregate diffusion dynamics in agent-based models with a spatial structure",
+          "trigger": "Original discrete Bass circle calculation cited by the inspected 2019 primary source"
+        },
+        {
+          "assessment": "Different geometry and statistic",
+          "evidence": "Width-two ladder propagation speed, not a hub-rooted cycle completion law.",
+          "identifier_or_url": "https://arxiv.org/abs/1102.4744",
+          "material_read": "PDF pp. 3–4, opening §3, offset 6500",
+          "method": "OA primary PDF passage inspection",
+          "title": "First-passage percolation on ladder-like graphs with heterogeneous exponential times",
+          "trigger": "Nearest-neighbor exponential growth and infection variables"
+        },
+        {
+          "assessment": "Similar window scaling, genuinely different law and geometry",
+          "evidence": "Disjoint clique petals and a log-log term, rather than a connected cycle rim and the finite shift here.",
+          "identifier_or_url": "2026/11/2/SCOPE-contact-rate-resonance-and-a-crossover-law-for-si-completion-on--d8bf955f8226",
+          "material_read": "Mirror Finding and Assumptions, offset 0",
+          "method": "Local Resultary and mirror passage inspection",
+          "title": "Contact rate resonance and a crossover law for SI completion on clique bouquets",
+          "trigger": "Closest distinct Resultary rate-window Gumbel analogue"
+        },
+        {
+          "assessment": "Strong result for disjoint clique petals only",
+          "evidence": "Independent petals do not give the cluster bound required on a cycle.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-uniform-double-logarithmic-gumbel-law-for-first-passage-floodi--b38bb38e62e1",
+          "material_read": "Mirror Finding and Assumptions, offset 0",
+          "method": "Local Resultary and mirror passage inspection",
+          "title": "A uniform double-logarithmic Gumbel law for first-passage flooding",
+          "trigger": "Strongest local uniform Gumbel and marked-Poisson analogue"
+        },
+        {
+          "assessment": "Different geometry, scaling observable and law",
+          "evidence": "A single slow vertex in a complete graph gives a max-type law for completion time divided by log N.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-logarithmic-slow-vertex-crossover-in-complete-graph-si-floodin--8c8e1258d129",
+          "material_read": "Mirror Finding, offset 0",
+          "method": "Local Resultary and mirror passage inspection",
+          "title": "A logarithmic slow-vertex crossover in complete-graph SI flooding",
+          "trigger": "Distinct same-day logarithmic-rate crossover"
+        },
+        {
+          "assessment": "Static connectivity, not cumulative first-passage times",
+          "evidence": "Independent bond retention governs hub connectivity, not exponential path sums or a time-dependent count.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-two-rate-wheel-percolation-limit-with-explicit-full-connectivi--30f8efea579b",
+          "material_read": "Mirror Finding and Assumptions, offset 0",
+          "method": "Local Resultary and mirror passage inspection",
+          "title": "A two-rate wheel percolation limit with explicit full connectivity",
+          "trigger": "Exact wheel geometry and two edge parameters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding and rare-count proof",
+        "Bass finite-circle marginal recursion (4.3)–(4.6)",
+        "Distinct local flooding analogues"
+      ],
+      "rationale": "Mean diffusion on the same ring was already tractable, but the statistics of the last nonadopters depend on possible clustering. Proving a Poisson survivor law on the logarithmic time window resolves that issue for this geometry and identifies a sharp, natural weak-interaction scale and explicit completion-time shifts relative to the exact star boundary. This is more than renaming the model or rederiving its expected adoption curve.",
+      "residual_risks": [
+        "The substantive contribution is terminal statistics on the specified stochastic ring, not a new adoption model or a general network result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

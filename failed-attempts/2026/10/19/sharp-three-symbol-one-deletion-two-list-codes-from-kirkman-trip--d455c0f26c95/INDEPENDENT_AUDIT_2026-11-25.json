@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:34:35.523756Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, including the local word templates and equality cases",
+        "VERIFICATION.md and verify.py (inspected, not executed)",
+        "Lawfully inspected overlapping Steiner-admissible record eebc56a7fc03, §3, for the same classical Kirkman-system existence dependency"
+      ],
+      "rationale": "Count each diagonal output with weight 2 and each off-diagonal output with weight 1. The total weighted incidence is at most 2q²+2q. Each constant word uses weight 2 and each other word uses at least 3, giving 3|C|≤2q²+2q+p≤2q²+3q for p constants. In an unselected Steiner block the four distinct permutations are two reversal pairs; each reversal pair supplies each ordered off-diagonal pair exactly once. For a selected ordered block (a,b,c), the three distinct words abc,bca,cab cover ab,bc,ca twice and ac,ba,cb once; aac,bba,ccb supply exactly the latter three missing off-diagonal incidences and add aa,bb,cc once each. Blocks share no unordered pair, and the selected parallel class covers all letters exactly once, so adding all constants gives two incidences at every output without duplicate words. The classical existence theorem for resolvable Steiner triple systems supplies a design for every q≥3 with q≡3 mod 6. In that congruence class the weighted upper bound is integral without loss by rounding. Sharpness forces every output saturated, all constants present and every nonconstant word to use exactly weight 3. A two-letter word can then only have an adjacent repeat; each doubled letter occurs in exactly one such word because its diagonal has one remaining incidence. This verifies the capacity and stated necessary rigidity.",
+      "residual_risks": [
+        "The original Ray-Chaudhuri–Wilson full text was not obtained; the proof uses their standard resolvable Steiner triple-system theorem. The finite checker covers only orders 3 and 9; no capacity is asserted outside the stated congruence class."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed theorem proves q+floor(2q²/3) as a bound for all q and exact for q≡1 or 3 mod 6, including the full assigned range. The finite-length Kiah–Wei–Zeng converse, optimized at n=3,t=1,L=2 over its permitted thresholds, gives q²+q instead."
+        ],
+        "reasoning": "The general list converse is weaker at these parameters and does not settle the result. The distinct indexed exact theorem really dominates the assigned range, rather than just matching q=3 or q=9.",
+        "searches": [
+          "Resultary eebc56a7fc03, Finding and §§1–3",
+          "Kiah–Wei–Zeng, arXiv:2609.21395v1, Theorem 23, PDF p. 25"
+        ]
+      },
+      "checked_sources": [
+        "Resultary eebc56a7fc03 exact theorem and proof passages",
+        "arXiv:2609.21395v1 Theorem 23",
+        "arXiv:1008.1343 §3",
+        "Ray-Chaudhuri–Wilson bibliographic attribution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed upper bound uses I=c+2d+3e≤2q² with c≤q and c+d≤2q, where c,d,e count words with 1,2,3 distinct outputs. At integral equality for q≡3 mod 6, it forces I=2q² and c=d=q. Therefore every output is saturated; all constants appear and the q two-output words consume the q remaining diagonal incidences. A separated repeat has three outputs and a diagonal, so it cannot be present. The indexed construction substitutes three adjacent-repeat words for one of four permutations on each selected Steiner block and works on any Kirkman system."
+        ],
+        "reasoning": "The indexed Finding does not phrase rigidity as an optimizer theorem, but it follows mechanically from equality in its bound and the listed word types. The fresh choice of concrete words on selected triples leaves the mathematical guarantees unchanged. The older directed-packing formulation alone is not used as proof of the exact capacity.",
+        "searches": [
+          "Resultary eebc56a7fc03, §1 upper bound and §§2–3 construction",
+          "Chee–Ge–Ling, arXiv:1008.1343, §3 index-λ directed packing framework"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Chee–Ge–Ling definition of DP(q,n,λ) with vector blocks and ordered pairs is the same pair-incidence model at n=3, λ=2. Their displayed deletion-code equivalences are presented for unique decoding. The indexed theorem uses the identical set-valued deletion shadow and list constraint, with maximum called M₂(q,3,1)."
+        ],
+        "reasoning": "Counting incidences in distinct blocks, not deletion positions, is the key equivalence. A simple index-two directed packing in this sense is exactly the problem; a restricted packing of distinct-letter triples or a unique-decoding packing by itself is not.",
+        "searches": [
+          "Chee–Ge–Ling, arXiv:1008.1343, §3, directed packings and Propositions 3.3–3.4",
+          "SCOPE-sharp-two-list-one-deletion-capacity-at-length-three-for-steiner--eebc56a7fc03, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A direct capacity formula is indexed for all the assigned alphabet sizes, and the indexed construction produces multiplicity two for every received pair by taking m=q/3 disjoint triples from a Kirkman system."
+        ],
+        "reasoning": "Exact coverage comes from a matching theorem and equality witness uniformly in q, stronger evidence than matching finite code sizes in an enumeration.",
+        "searches": [
+          "Local Resultary length-three list-two deletion/Steiner capacity search",
+          "SCOPE-sharp-two-list-one-deletion-capacity-at-length-three-for-steiner--eebc56a7fc03, Finding and construction at offsets 0 and 2500"
+        ]
+      },
+      "rationale": "A distinct indexed theorem covers the exact same bound, the sharp capacity on the entire assigned congruence class, and its attainment by a construction from any Kirkman system. Its incidence inequalities force the remaining rigidity immediately. The alternate local six-word template is a correct variant, not a new mathematical capability. This is verified coverage; the later displayed date of the overlapping record does not determine publication priority or provenance.",
+      "residual_risks": [
+        "The verified exact overlap is not evidence of earlier publication, independent discovery or transmission between the two results. The original existence paper was not retrieved in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers capacity and uniform exact-output construction; equality conditions are implied",
+          "evidence": "Same optimization for q≡1,3 mod 6, same universal bound, and incidence proof forcing all diagonal and off-diagonal capacities at equality in the assigned class.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-two-list-one-deletion-capacity-at-length-three-for-steiner--eebc56a7fc03/RESULT.md",
+          "material_read": "Finding, assumptions, incidence converse and construction, offsets 0 and 2500; prior-work and limitations passage, offset 5822",
+          "method": "Local Resultary mirror",
+          "title": "Sharp two-list one-deletion capacity at length three for Steiner-admissible alphabets",
+          "trigger": "Exact indexed match and stronger parameter coverage"
+        },
+        {
+          "assessment": "Weaker bound for these parameters",
+          "evidence": "n=3,t=1,L=2 yields q²+q at the best permitted threshold r=1.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.21395v1",
+          "material_read": "Theorem 23, PDF p. 25, offset 92000",
+          "method": "Lawful OA theorem passage",
+          "title": "Constant-List Insertion–Deletion Codes: New Bounds and an Improvement of Levenshtein's Lower Bound",
+          "trigger": "General finite-length converse for the same list-decoding model"
+        },
+        {
+          "assessment": "Equivalent formulation; cited unique-decoding propositions do not supply list-two cardinalities",
+          "evidence": "Ordinary directed packing counts ordered pair membership across vector blocks; perfect packings require exact index, while the displayed coding propositions specialize to λ=1.",
+          "identifier_or_url": "https://arxiv.org/pdf/1008.1343",
+          "material_read": "§3 definitions and Propositions 3.3–3.4, PDF pp. 4–5; bounded passages at offsets 15470 and 17950",
+          "method": "Lawful OA PDF passages",
+          "title": "Spectrum of Sizes for Perfect Deletion-Correcting Codes",
+          "trigger": "Equivalent directed packing language that includes a general index λ"
+        },
+        {
+          "assessment": "Supplies the underlying designs, not a deletion-code capacity result established from this inspection",
+          "evidence": "The indexed proof uses a resolvable Steiner triple system for every q≡3 mod 6 and its class of q/3 disjoint triples.",
+          "identifier_or_url": "Proc. Sympos. Pure Math. 19 (1971), 187–203",
+          "material_read": "Primary full text not retrieved; bibliographic attribution and use of the result in the distinct indexed construction, §3",
+          "method": "Bounded lawful lookup and secondary theorem attribution",
+          "title": "Solution of Kirkman's Schoolgirl Problem",
+          "trigger": "Classical resolvable-design existence dependency"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen exact capacity, templates and optimizer constraints",
+        "Resultary eebc56a7fc03, inequality chain and exact construction"
+      ],
+      "rationale": "The short-block capacity is a natural useful quantity in isolation. Against the verified stronger theorem, the residual explicit observation is the unavoidable equality case of the same two resource bounds, and the different concrete block template has the same parameters and guarantees. The record adds no further independent classification or capability beyond that verified mathematical coverage.",
+      "residual_risks": [
+        "This does not address a full classification of optimal codes or capacities in unclaimed alphabet classes."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:00:14.965156Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–89",
+        "Frozen VERIFICATION.md and verify.py"
+      ],
+      "rationale": "The stated theorem is correct. In each Schur step the pivot is positive and the update subtracts a strictly positive amount exactly for a pair of surviving neighbours of the pivot; off-diagonal entries never become positive or cancel. The symbolic fill-path criterion on a tree requires all d-1 internal vertices of the unique path to precede both endpoints, which occupy the last two of d+1 relative positions. This gives 2/[d(d+1)] and the distance sum. The upper bound is the nonedge count times 1/3, with equality exactly when all nonedges are at distance two. Deleting a leaf leaves old distances unchanged; the sorted distances d_j from that leaf satisfy d_1=1 and d_j<=j (take a shortest path to a farthest vertex). Thus its contribution is at least sum_{j=2}^{n-1} 2/[j(j+1)]=1-2/n. Equality requires a vertex at distance n-1 from the leaf, and paths attain it. For the path, the surviving graph is a path at every step. Given the entire elimination history, the next vertex with k remaining is uniform and exactly k-2 of the k choices create one new fill edge. The conditional probability does not depend on the history, which gives the independent Bernoulli factors and the claimed PGF. Their mean, variance, and products for the extreme probabilities give the formulas, and bounded summands with variance 2 log n+O(1) give Lindeberg's condition. For the star, only elimination of the center can create fill; it joins the K remaining leaves, with K uniform. At n=2,3 the two extremal trees coincide. There is a local proof error at frozen line 73: inserting the largest value can destroy earlier records; inserting the smallest value gives exactly the claimed recurrence. The direct conditional path proof above independently establishes the theorem without that sentence. No repaired package is proposed for an otherwise non-passing finding.",
+      "residual_risks": [
+        "The reported 258852 assertions are recorded finite checks, not independently replayed. No formal verification is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fill-path theory is stated for general sparsity graphs. The MATCH Corollary 2.2 minimizes weighted distance sums with nonnegative nondecreasing weight among trees of a fixed degree sequence; that constraint does not itself settle the all-tree extrema here. Resultary 2484223143f3 gives the exact fill law on all complete multipartite SPD M-matrix patterns under uniform ordering."
+        ],
+        "reasoning": "The same fill-path test specializes without a new structural condition. The general multipartite law covers the star, not arbitrary trees; the fixed-degree distance theorem is relevant context but is not used as an unsupported implication across degree sequences.",
+        "searches": [
+          "Classical fill path: Rose–Tarjan–Lueker, DOI 10.1137/0205021; Scott–Tůma, §4.2",
+          "Schmuck–Wagner–Wang, Greedy trees, caterpillars, and Wiener-type graph invariants, Corollary 2.2",
+          "Resultary 2484223143f3 complete multipartite fill"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 54–104",
+        "DOIs 10.1007/978-3-031-25820-6_4 and 10.1137/0205021 (the latter not retrieved)",
+        "arXiv:2210.08789v1, 2011.07769v4",
+        "MATCH 68 (2012), 273–292",
+        "Resultary 2484223143f3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Given fill paths, the rank count is 2(d-1)!/(d+1)!, and expectation is linear. For any decreasing distance weight, deleting a leaf gives d_j<=j and hence the path bound by induction; the star puts every nonedge at minimum allowed distance. The particular weight reduces the path sum to a telescoping harmonic expression. Specializing Jin to the two record marks and substituting the complementary exponent yields the path PGF; the Bernoulli factors then yield moments and CLT."
+        ],
+        "reasoning": "This separates precise prior coverage from elementary deductions. The expected bounds, even without an exact prior printed expression, require only the standard criterion, simple distance domination, and summation. No unverified search hit is needed to make the implication.",
+        "searches": [
+          "Scott–Tůma fill paths; Jin Theorem 4; 2484223143f3 Finding; compared to frozen proof §§1–5",
+          "Tree distance distribution / kth graph power minimum size; compare MATCH Corollary 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Scott–Tůma's proof of Theorem 4.5 uses the correspondence of factor-graph edges with original edges or fill-paths and states the broader ancestry reachability characterization. Jin's Theorem 4 includes joint left-to-right and right-to-left maxima, together with other permutation statistics."
+        ],
+        "reasoning": "On the path, an eliminated vertex contributes zero exactly when it is a left or right rank record, their only common member being the maximum. Thus F=n+1-L-R converts the known marginal directly. On a tree, the fill-path event is simply the last-two-ranks event on a unique path.",
+        "searches": [
+          "Scott–Tůma, chapter DOI 10.1007/978-3-031-25820-6_4, fill-path and reachability",
+          "Jin, arXiv:2210.08789v1, left and right maxima"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Finding of 2484223143f3 yields F=binomial(K,2) with K uniform on 0 through n-1 for K_(1,n-1), including the stated mean. Its UTC catalogue date is the same as the frozen record's. No inspected exact-source entry gave the entire tree expectation package in this terminology."
+        ],
+        "reasoning": "The star distribution matches in object, matrix class, randomization, and counted statistic. The absence of an entry for the whole package does not exclude implication by the available structural facts.",
+        "searches": [
+          "Resultary random-order symbolic fill, tree path star and complete multipartite: 2484223143f3",
+          "Primary search: 2/[d(d+1)] tree elimination fill probability random order Cholesky tree path star fill"
+        ]
+      },
+      "rationale": "The exact pair probability and hence the distance-weighted expectation are immediate from the classical fill-path criterion and one relative-rank count. The sharp extrema follow by elementary ordering of tree distances, the path distribution is a relabelled two-sided record law, and the star law is an exact case of a distinct catalogue result. No separate nonroutine fill theorem remains. This is an implication assessment, not an assertion that a prior text printed the entire package or that the same-day record has chronological priority.",
+      "residual_risks": [
+        "An exact earlier printing of the full tree package was not established. The classic 1976 full text was not accessible in this review.",
+        "No priority inference is drawn between same-date catalogue records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General reachability and underlying fill-path precedent; no random-tree mean attributed",
+          "evidence": "A factor edge corresponds to an original edge or a fill-path; connectivity in a leading subgraph characterizes elimination-tree ancestry",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-25820-6_4",
+          "material_read": "Theorem 4.5 and proof, pp. 57–58 (OA text around offsets 14400–16103)",
+          "method": "OA PDF passage",
+          "title": "Sparse Cholesky Solver: The Symbolic Phase",
+          "trigger": "Classical symbolic fill condition"
+        },
+        {
+          "assessment": "No statement claimed beyond what is corroborated by accessible classic fill-path material",
+          "evidence": "Whether this article prints the random-tree specialization is unresolved",
+          "identifier_or_url": "https://doi.org/10.1137/0205021",
+          "material_read": "Citation only; DOI access blocked and lawful repository search did not locate a copy",
+          "method": "DOI retrieval and alternate-copy search",
+          "title": "Algorithmic Aspects of Vertex Elimination on Graphs",
+          "trigger": "Original classical fill-in reference cited by the frozen record"
+        },
+        {
+          "assessment": "Covers the two-sided record marginal, not Cholesky terminology",
+          "evidence": "Joint generating function includes both types of maxima",
+          "identifier_or_url": "https://arxiv.org/abs/2210.08789v1",
+          "material_read": "Theorem 4, pp. 3–4, OA offsets 12800–17262",
+          "method": "OA PDF passage",
+          "title": "Symmetric generating functions and Euler-Stirling statistics on permutations",
+          "trigger": "Prior joint two-sided record law"
+        },
+        {
+          "assessment": "Related weighted invariant, different optimization domain",
+          "evidence": "For nonnegative nondecreasing f, greedy tree minimizes W_f over a given degree sequence",
+          "identifier_or_url": "https://match.pmf.kg.ac.rs/electronic_versions/Match68/n1/match68n1_273-292.pdf",
+          "material_read": "Corollary 2.2, PDF p. 5, around offset 11716",
+          "method": "OA PDF passage",
+          "title": "Greedy trees, caterpillars, and Wiener-type graph invariants",
+          "trigger": "Possible broader weighted-distance extremal theorem"
+        },
+        {
+          "assessment": "Exact star overlap; no priority inferred from equal catalogue dates",
+          "evidence": "Full complete-multipartite fill distribution under uniform ordering",
+          "identifier_or_url": "Resultary 2484223143f3",
+          "material_read": "Finding",
+          "method": "Resultary local catalogue and source comparison",
+          "title": "A first-run law and geometric near-maximal fill for complete multipartite patterns",
+          "trigger": "Exact star law as a specialization"
+        },
+        {
+          "assessment": "Different randomization and output",
+          "evidence": "Samples clique edges for an approximate factorization; not exact symbolic fill for a uniform permutation",
+          "identifier_or_url": "https://arxiv.org/abs/2011.07769v4",
+          "material_read": "p. 1",
+          "method": "OA PDF passage",
+          "title": "RCHOL: Randomized Cholesky Factorization for Solving SDD Linear Systems",
+          "trigger": "Potential overlap from randomized sparse factorization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–50 and 93–97",
+        "Jin Theorem 4; Resultary 2484223143f3"
+      ],
+      "rationale": "Random-order fill is a natural baseline, and contrasting linear and quadratic means is pedagogically useful. But the proposed standalone results amount to a relative-permutation count in the standard deterministic criterion, a telescoping evaluation under elementary distance domination, and elementary or already covered path and star laws. The frozen claim has no additional nonroutine algorithmic, distributional, or structural conclusion after those deductions.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

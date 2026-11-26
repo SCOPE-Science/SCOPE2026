@@ -2,9 +2,9 @@
 
 ## Finding
 
-In the finite-community Multi-technology AdopTion-opinion co-Evolution (MATE) model, **every physically admissible trajectory with any initially non-susceptible mass** eventually has a uniformly positive adopter fraction for *every* technology at *every* community. Simultaneously, the fraction never adopting any technology decreases geometrically to zero at every community. These conclusions hold with **arbitrarily strong admissible opinion–adoption feedback**, with no equilibrium uniqueness, convergence, weak-coupling, or aperiodicity assumption on the physical network.
+In the finite-community Multi-technology AdopTion-opinion co-Evolution (MATE) model, every physically admissible trajectory with any initially non-susceptible mass eventually has a uniformly positive adopter fraction for every technology at every community. The fraction never adopting any technology decreases geometrically to zero at every community. These conclusions hold at every admissible opinion–adoption feedback strength, with no equilibrium uniqueness, convergence, weak-coupling, or physical-network aperiodicity assumption. Full adoption here means depletion of the never-adopted class, not disappearance of dissatisfaction.
 
-Here is an explicit universal, though deliberately conservative, bound. Let the model have \(n\ge1\) communities and \(m\ge2\) technologies, and put
+Let there be \(n\ge1\) communities and \(m\ge2\) technologies. Define
 \[
 \begin{aligned}
  b_i(t)&=1-s_i(t)=\sum_{k=1}^m(a_i^{[k]}(t)+d_i^{[k]}(t)),\\
@@ -19,16 +19,16 @@ Here is an explicit universal, though deliberately conservative, bound. Let the 
  \rho&=\beta_*x_*\eta B,\qquad T=6(n-1)+5.
 \end{aligned}
 \]
-All constants \(q,\eta,c,B,\rho\) are strictly positive and at most one. For every community \(i\), technology \(k\), and integer \(t\ge T\),
+The constants \(q,\eta,c,B,\rho\) belong to \((0,1]\). For every \(i,k\) and integer \(t\ge T\),
 \[
  \boxed{\quad a_i^{[k]}(t)\ge\eta B,\qquad
  s_i(t)\le s_i(T)(1-\rho)^{t-T}.\quad}
 \]
-Also \(d_i^{[k]}(t)\ge\delta_*\eta B\) for every integer \(t\ge T+1\). The initial seed may consist exclusively of dissatisfied people and may be confined to one community.
+Also \(d_i^{[k]}(t)\ge\delta_*\eta B\) for \(t\ge T+1\). The initial seed may consist exclusively of dissatisfied people and may be confined to one community.
 
 ## Assumptions and scope
 
-The state in community \(i\) consists of \(s_i,a_i^{[k]},d_i^{[k]}\in[0,1]\), normalized by \(s_i+\sum_k(a_i^{[k]}+d_i^{[k]})=1\), and opinion coordinates \(x_i^{[k]}\in[0,1]\). Here \(W\) and \(\widetilde W\) are row-stochastic; the nonnegative physical-contact matrix \(W\) is irreducible. Each \(p_i^{[k]}>0\), each \(\beta_i^{[k]},\gamma_i^{[k]},\delta_i^{[k]}>0\), with \(\delta_i^{[k]}\le1\), \(\sum_k\beta_i^{[k]}\le1\), and \(\sum_k\gamma_i^{[k]}\le1\). Opinion weights \(\lambda_i^{[k]},\xi_i^{[k]}\ge0\) satisfy \(\lambda_i^{[k]}+\xi_i^{[k]}<1\). All coefficients are time-independent; initial data may have arbitrary admissible opinions, including zeros. These are the corresponding positive-rate conditions of the cited MATE equations. There is no assumption about the numerical strength of \(\xi\) beyond admissibility.
+The fractions in community \(i\) are nonnegative, with \(s_i+\sum_k(a_i^{[k]}+d_i^{[k]})=1\). The opinions \(x_i^{[k]}\) are in \([0,1]\), and each innate opinion satisfies **\(0<p_i^{[k]}\le1\)**. Both \(W\) and \(\widetilde W\) are nonnegative row-stochastic matrices, and \(W\) is irreducible. All \(\beta_i^{[k]},\gamma_i^{[k]},\delta_i^{[k]}\) are positive, with \(\delta_i^{[k]}\le1\), \(\sum_k\beta_i^{[k]}\le1\), and \(\sum_k\gamma_i^{[k]}\le1\). Opinion weights \(\lambda_i^{[k]},\xi_i^{[k]}\ge0\) satisfy \(\lambda_i^{[k]}+\xi_i^{[k]}<1\). Coefficients are time-independent, and initial opinions may vanish.
 
 The update equations for each \(i,k\) are
 \[
@@ -46,52 +46,42 @@ The result concerns the deterministic discrete-time community mean-field model, 
 
 ## Proof
 
-**1. Uniform opinion floor and monotone seed mass.** Nonnegativity and the last update show \(x_i^{[k]}(t)\ge x_*>0\) for all \(t\ge1\). Conservation and the susceptible equation give \(b_i(t+1)\ge b_i(t)\), with initial mass \(b_*>0\) at some community \(j\).
+**1. Admissibility, opinion floor and monotone seed mass.** The opinion update is a convex combination of inputs in \([0,1]\). All fraction updates are nonnegative by the rate bounds, and the total fraction is conserved by cancellation of the inflows and outflows. Thus every admissible initial state remains admissible. Nonnegativity in the opinion update gives \(x_i^{[k]}(t)\ge x_*>0\) for all \(t\ge1\). The susceptible equation gives \(b_i(t+1)\ge b_i(t)\).
 
-**2. Four-step local mixing, for every technology.** At each community, discard the nonnegative inflow from susceptible adoption and consider only transitions among \(A_1,\ldots,A_m,D_1,\ldots,D_m\). The resulting time-dependent \(2m\)-state transition matrix is column-stochastic. Available transitions are \(A_k\to D_k\) with probability \(\delta_i^{[k]}\), \(D_k\to A_r\) for \(r\ne k\) with probability \(\gamma_i^{[r]}x_i^{[r]}\), and \(D_k\to D_k\) with probability \(1-\sum_{r\ne k}\gamma_i^{[r]}x_i^{[r]}\). Their respective probabilities are at least \(\delta_*\), \(\gamma_*x_*\), and \(\gamma_*\), so each is at least \(q\). Fix a target \(A_r\) and choose any \(\ell\ne r\) (possible because \(m\ge2\)). From each initial state there is a four-step path to \(A_r\):
+**2. Four-step local mixing, for every technology.** Discard nonnegative susceptible inflow and consider only transitions among \(A_1,\ldots,A_m,D_1,\ldots,D_m\) at a fixed community. The resulting time-dependent matrix is column-stochastic. For \(t\ge1\) the edges \(A_k\to D_k\) and \(D_k\to A_r\) for \(r\ne k\) have probabilities at least \(\delta_*\) and \(\gamma_*x_*\), respectively. Also \(D_k\to D_k\) has probability \(1-\sum_{r\ne k}\gamma_i^{[r]}x_i^{[r]}(t)\ge\gamma_i^{[k]}\ge\gamma_*\). All these edges have probability at least \(q\). Fix a target \(A_r\) and any \(\ell\ne r\). The following are four-step paths to \(A_r\):
 
 - \(A_r\to D_r\to A_\ell\to D_\ell\to A_r\);
 - \(D_r\to D_r\to A_\ell\to D_\ell\to A_r\);
-- \(A_k\to D_k\to D_k\to D_k\to A_r\) when \(k\ne r\);
-- \(D_k\to D_k\to D_k\to D_k\to A_r\) when \(k\ne r\).
+- \(A_k\to D_k\to D_k\to D_k\to A_r\) for \(k\ne r\);
+- \(D_k\to D_k\to D_k\to D_k\to A_r\) for \(k\ne r\).
 
-All four transitions in each path have probability at least \(q\). Thus the \(A_r\)-row of every four-consecutive-step transition product is entrywise at least \(\eta=q^4\). Because new susceptible inflow is nonnegative, for each \(i,r\) and integer \(t\ge1\),
+Thus the \(A_r\) row of each four-consecutive-step product, beginning at time \(t\ge1\), is entrywise at least \(\eta=q^4\). Adding back the nonnegative inflows gives
 \[
- \boxed{\ a_i^{[r]}(t+4)\ge\eta b_i(t).\ }
+ a_i^{[r]}(t+4)\ge\eta b_i(t),\qquad t\ge1.
 \]
-This step does not require slowly changing opinions or convergence of the local transition products.
 
-**3. Seed propagation over the physical network.** Let \(j\) attain \(b_j(0)=b_*\). By monotonicity, \(a_j^{[r]}(t)\ge\eta b_*\) for every \(t\ge5\). Define a directed edge \(u\to v\) exactly when \(W_{vu}>0\). Strong connectivity makes every vertex reachable from \(j\) by a path of length at most \(n-1\). Suppose along such a path a vertex \(u\) at depth \(\ell-1\) has \(b_u(t)\ge b_*c^{\ell-1}\) whenever \(t\ge6(\ell-1)\). At time \(t_0=6(\ell-1)+5\), step 2 gives \(a_u^{[r]}(t_0)\ge\eta b_*c^{\ell-1}\), where \(r\) is any fixed technology. The susceptible update at its neighbor \(v\), using \(s_v=1-b_v\), therefore yields
+**3. Seed propagation over the physical network.** Pick \(j\) with \(b_j(0)=b_*\). Use the orientation \(u\to v\) when \(W_{vu}>0\). Strong connectivity makes every vertex reachable from \(j\) within \(n-1\) edges. Suppose the previous vertex \(u\) on a path has \(b_u(t)\ge b_*c^{\ell-1}\) for \(t\ge6(\ell-1)\). At \(t_0=6(\ell-1)+5\), Part 2 gives \(a_u^{[r]}(t_0)\ge\eta b_*c^{\ell-1}\) for any fixed \(r\). Write \(L=\beta_*x_*W_{vu}\eta b_*c^{\ell-1}\in[0,1]\). The susceptible hazard at the next vertex \(v\) is at least \(L\). Hence
 \[
-\begin{aligned}
- b_v(t_0+1)&\ge b_v(t_0)+(1-b_v(t_0))\beta_*x_*W_{vu}\eta b_*c^{\ell-1}\\
- &\ge c b_*c^{\ell-1}=b_*c^\ell.
-\end{aligned}
+ b_v(t_0+1)\ge b_v(t_0)+(1-b_v(t_0))L\ge L\ge b_*c^\ell.
 \]
-The last inequality uses \(0\le b_v\le1\) and \(\beta_*x_*W_{vu}\eta b_*c^{\ell-1}\le1\). Monotonicity propagates this bound to all later times. Induction gives \(b_i(t)\ge B=b_*c^{n-1}\) for every \(i\) and all \(t\ge6(n-1)\); this also covers the trivial one-community case.
+The bound persists by monotonicity. Starting with \(j\) and using \(c\le1\), induction gives \(b_i(t)\ge B\) for every \(i\) when \(t\ge6(n-1)\), including \(n=1\).
 
-**4. Uniform coexistence and geometric susceptible depletion.** Applying step 2 after the graph-propagation time yields \(a_i^{[k]}(t)\ge\eta B\) whenever \(t\ge T=6(n-1)+5\), for every technology and node. Row-stochasticity then implies \((Wa^{[k]}(t))_i\ge\eta B\). Taking just one technology in the nonnegative susceptible hazard,
-\[
- s_i(t+1)\le(1-\beta_*x_*\eta B)s_i(t)=(1-\rho)s_i(t),\qquad t\ge T.
-\]
-Iteration proves the stated geometric bound. Finally \(d_i^{[k]}(t+1)\ge\delta_i^{[k]}a_i^{[k]}(t)\ge\delta_*\eta B\), proving uniform persistence of the dissatisfied compartments as well.
+**4. Uniform coexistence and geometric susceptible depletion.** For \(t\ge T\), Part 2 applied at \(t-4\) gives \(a_i^{[k]}(t)\ge\eta B\) and row-stochasticity gives \((Wa^{[k]}(t))_i\ge\eta B\). One technology alone supplies a hazard at least \(\beta_*x_*\eta B=\rho\). Therefore \(s_i(t+1)\le(1-\rho)s_i(t)\), and iteration proves the claimed bound. The dissatisfaction update gives \(d_i^{[k]}(t+1)\ge\delta_i^{[k]}a_i^{[k]}(t)\ge\delta_*\eta B\).
 
 ## Verification
 
-The accompanying `verify_mate_persistence.py` uses exact rational arithmetic to form four successive, independently varying local switching matrices and verifies their relevant adopter-row lower bound in 6,300 component comparisons, for two through six technologies. It also runs the full coupled model on a two-community, three-technology directed-contact example with nonzero opinion feedback, checking state conservation and 738 specified four-step, propagation and geometric comparisons. The exact four-step path proof, rather than finite simulation, establishes the all-size, all-time theorem. Execute with `python verify_mate_persistence.py` using Python's standard library.
+The accompanying `verify_mate_persistence.py` specifies 6,300 rational four-step matrix comparisons for two through six technologies and 738 numerical comparisons for a two-community, three-technology coupled example. These are checks of orientation, indexing and finite examples, not an all-size or all-time certificate. The analytic four-step bound and graph induction establish the theorem.
 
 ## Relationship to prior work
 
-Alutto, Dabbene, Fontan, Johansson and Ravazzi (arXiv:2611.04407v1) introduce the multitechnology MATE model, derive its equilibrium structure (Theorems 3.1–3.4) and prove convergence to a unique adoption-diffused equilibrium under a stringent **weak opinion-feedback condition** (Theorem 3.5). Their Appendix B.6 derives three-step mixing toward a dissatisfied state for a *different purpose*. The theorem above instead proves uniform all-technology persistence and a quantified rate of full susceptible depletion for **every** admissible feedback strength, including regimes where multiple adoption-diffused equilibria can occur and full-state convergence has not been established. It neither asserts global convergence of all compartments nor reclaims the local mixing technique as new.
-
-Their earlier two-technology model (arXiv:2601.16719v1) proves existence and uniqueness of a coexistence equilibrium, not the graph-wide all-initial-condition quantitative persistence and depletion bound. The general stochastic-matrix theory surveyed by Ipsen and Selee (2011) supplies established mixing machinery but does not independently identify the adoption-model transmission mechanism or the explicit network saturation theorem. Thus the scientific contribution is the **unconditional global network implication**, not irreducibility, geometric iteration or a standard Doeblin argument in isolation.
+Alutto, Dabbene, Fontan, Johansson and Ravazzi (arXiv:2611.04407v1) introduce the multitechnology MATE model and analyze its equilibrium structure. Their Theorem 3 gives convergence to a unique adoption-diffused equilibrium under condition (11), which also implies eventual persistence and depletion in that regime. Appendix B.6 uses three-step local minorization toward a dissatisfied state; appending a switch yields a local adopter minorization as well. The claim here is the quantitative network consequence for every admissible feedback strength and any nonzero seed. It establishes neither convergence of all compartments nor a new local mixing technique. The earlier two-technology model (arXiv:2601.16719v1) studies coexistence equilibria. The network consequence here uses the susceptible hazard and monotone non-susceptible mass to turn local mixing into a trajectory-wide bound.
 
 ## Limitations
 
-The constants are sufficient and can be numerically very conservative; no optimal mixing length or sharp decay exponent is claimed. The theorem requires strictly positive baseline predispositions, switching probabilities and dissatisfaction, a finite irreducible physical network, and nonzero initial non-susceptible mass. Removing any of these assumptions can permit a technology or a community to remain unadopted. It does not ensure convergence of adoption shares or opinions to a single equilibrium, excludes stochastic finite-population fluctuations, and does not predict practical adoption times from uncertain fitted parameters. Historical priority remains subject to independent literature review.
+The constants can be very conservative and deteriorate with the number of communities and the initial seed. No optimal mixing length or decay exponent is claimed. The result does not imply convergence of the opinion or adoption shares, and does not address stochastic finite populations or the removal of the positivity and graph assumptions.
 
 ## References
 
-1. M. Alutto, F. Dabbene, A. Fontan, K. H. Johansson and C. Ravazzi, *Competition, Switching, and Control in Coupled Adoption-Opinion Dynamics*, arXiv:2611.04407v1, 3 November 2026, https://arxiv.org/abs/2611.04407 . Specifically §2, §3 and Appendix B.6.
-2. M. Alutto, F. Dabbene, A. Fontan, K. H. Johansson and C. Ravazzi, *On a Coupled Adoption-Opinion Framework for Competing Innovations*, arXiv:2601.16719v1, 23 January 2026, https://arxiv.org/abs/2601.16719 . Specifically §§2–3.
-3. I. C. F. Ipsen and T. M. Selee, *Ergodicity Coefficients Defined by Vector Norms*, SIAM Journal on Matrix Analysis and Applications 32 (2011), 153–200, https://doi.org/10.1137/090752948 .
+1. M. Alutto, F. Dabbene, A. Fontan, K. H. Johansson and C. Ravazzi, *Competition, Switching, and Control in Coupled Adoption-Opinion Dynamics*, arXiv:2611.04407v1, https://arxiv.org/abs/2611.04407, §§2–3 and Appendix B.6.
+2. M. Alutto, F. Dabbene, A. Fontan, K. H. Johansson and C. Ravazzi, *On a Coupled Adoption-Opinion Framework for Competing Innovations*, arXiv:2601.16719v1, https://arxiv.org/abs/2601.16719.
+3. I. C. F. Ipsen and T. M. Selee, *Ergodicity Coefficients Defined by Vector Norms*, SIAM Journal on Matrix Analysis and Applications 32 (2011), 153–200, https://doi.org/10.1137/090752948.

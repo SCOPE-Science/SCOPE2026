@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:29:22.011940Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, §Proof steps 1–4; VERIFICATION.md and verify_primitive_ramanujan_smith.py, inspected without executing the submitted script.",
+        "Independent bounded modular-pivot replay at n=1,4,8,27,30,75,105,125,180,231 in /workspace/branches/independent_smith_checks.py (ramanujan); separate exact integer Smith check for 1≤n≤12 in /workspace/branches/951b5ff9-6258-4f9e-9b66-86dbfc2641c7/record3_independent_check.py."
+      ],
+      "rationale": "At a prime, the unit Gram matrix is the reduced complete-graph Laplacian pI_(p−1)−J_(p−1). Adjoining a zero yields a matrix integrally equivalent to pI_p−J_p by replacing its last row and column by their sums; this verifies the asserted nonzero Smith list, including p=2. At p^e with e≥2, the prime-power Ramanujan identity gives exactly p^(e−2)(p−1) identical blocks p^(e−1)(pI_p−J_p) because each retained residue class modulo p^(e−1) is present in full. Tensoring the integral local equivalences by CRT preserves unimodularity. For a given p the valuation e−1 occurs on R_n/(p−1) positive factors, the rest have valuation e, and sorting valuation lists separately produces the claimed chain. This proves the rank, zero block, torsion order and exponent formula. Positivity in the squarefree case is Gram positivity at full rank. The 1×1 calculation at n=1 is consistent.",
+      "residual_risks": [
+        "Finite replay is corroborative. The proof, not the replay, establishes every modulus and the absence of other torsion primes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "0bffd4ff77aa gives the block p^(e−1)(pI_p−J_p) for every full congruence class, its individual Smith form, the CRT factorization and the local-to-global sorting rule.",
+          "Fowler–Garcia–Karaali give the Ramanujan evaluation/multiplicativity and divisor-indexed tensor construction; the divisor-indexed Smith results are not the same matrix."
+        ],
+        "reasoning": "The decisive coverage is in the broader full-residue block calculation, not in a principle that a whole matrix's Smith factors determine arbitrary principal slices. The units slice retains entire local blocks or the standard reduced complete-graph Laplacian.",
+        "searches": [
+          "Resultary 0bffd4ff77aa, Ramanujan convolution circulants, Proof §§1–4",
+          "Resultary divisor-indexed Smith and Gram records 3189e6142132 and 1831f22124b8; Fowler–Garcia–Karaali arXiv:1201.1060"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e9c768339b6f, 0bffd4ff77aa, 1831f22124b8, 3189e6142132 and 20e0e854a01d",
+        "arXiv:1201.1060 and arXiv:2409.09793v4; DOI 10.1007/s00013-021-01643-8; access attempt for DOI 10.1016/j.laa.2008.04.043"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For e≥2 retain only blocks whose label is a unit modulo p^(e−1), a multiplicity change from p^(e−1) to φ(p^(e−1)); all factors of each retained block are unchanged.",
+          "For e=1 the entire local matrix A=pI_p−J_p has zero row and column sums. Replacing the last row by the sum of rows and the last column by the sum of columns puts A into G_p ⊕ (0) without changing a single entry of G_p. Hence the earlier block theorem gives every positive factor for this remaining case too.",
+          "The CRT unit subset is a Cartesian product; the earlier primewise valuation argument gives the identical breakpoint formula with the new number of retained factors. This also covers the even prime without relying on the odd Fourier paper."
+        ],
+        "reasoning": "No nontrivial new reduction or integral invariant is needed after the prior block theorem. This direct derivation also supplies the consequences about rank, determinant, torsion order, and exponent.",
+        "searches": [
+          "Resultary 0bffd4ff77aa, RESULT.md mirror offsets 1965–5127; e9c768339b6f, offsets 3901–5452 and rank/global formulation",
+          "arXiv:1201.1060; DOI 10.1007/s00013-021-01643-8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary e9c768339b6f, Proof §1, explicitly identifies the normalized local Gram entries and both types of unit-indexed Gram blocks at odd primes.",
+          "G_n=F_(U_n)F_(U_n)*; permuting b to −b also identifies its integer Smith problem with the trace pairing on the listed primitive powers, accounting for any integral relations. At nonsquarefree moduli the product of nonzero Gram eigenvalues need not be the torsion order; G_4 has eigenvalue 4 and positive Smith factor 2."
+        ],
+        "reasoning": "The normalized spectral literature is on the same Gram object at odd moduli, albeit with a different invariant. Rank or pseudodeterminant alone is not the relevant coverage; the exact local block and its integral Smith calculation are.",
+        "searches": [
+          "Resultary: primitive-position Ramanujan Gram, unit-indexed Fourier minors, full-residue Ramanujan Smith",
+          "Focused unit-indexed primitive Fourier submatrix/discriminant literature search; arXiv:2409.09793v4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e9c768339b6f tabulates the rank and spectra of the same odd-modulus Fourier compression, not a Smith list. 0bffd4ff77aa tabulates the exact local Smith blocks. Same-day 20e0e854a01d classifies a different gcd kernel at p²."
+        ],
+        "reasoning": "There need not be a separate table spelling out the unit-indexed global list: the exact tabulated local forms and their multiplicities yield it. The neighboring gcd example is not equivalent and does not enter that implication.",
+        "searches": [
+          "Resultary semantic searches for Smith forms of unit/primitively indexed Ramanujan Gram matrices and neighboring unit-restricted difference kernels"
+        ]
+      },
+      "rationale": "The full-residue theorem's numerical invariant factors alone would not determine arbitrary principal Smith submatrices, but its published proof gives a blockwise integral calculation that determines this particular restriction mechanically. At e≥2 units retain a known number of whole, already-classified blocks. At e=1 they retain precisely the reduced Laplacian, with the already-classified nonzero block (delete one row/column after two sum replacements). The CRT and primewise assembly are the same as those in the full-residue proof. This establishes corollary-level coverage of the complete claimed classification, not just of its spectrum or rank.",
+      "residual_risks": [
+        "Earlier history of the exact unit-index rank or trace formulation was not settled; the finding is rejected for a verified mathematical implication, not for any inaccessible source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies the unit restriction via the structure proved, not via arbitrary principal restriction of a Smith diagonal",
+          "evidence": "The local complete-graph block SNF is 1,p repeated p−2 times,0 before scaling; CRT tensors and sorts nonzero factor valuations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-complete-smith-form-of-ramanujan-sum-convolution-circulants--0bffd4ff77aa/RESULT.md",
+          "material_read": "Finding, scope and Proof §§1–4 (mirror offsets 1965–5127 for proof)",
+          "method": "Local mirror; read and checked exact block reduction",
+          "title": "Complete Smith form of Ramanujan-sum convolution circulants",
+          "trigger": "Same kernel with full residue domain, strongest candidate to imply unit factors"
+        },
+        {
+          "assessment": "Same Gram object at odd moduli; proves block structure, not itself a Smith table",
+          "evidence": "Normalized Gram is I−J/p at k=1 and a sum of I_p−J_p/p over the retained unit-labelled fibers at k≥2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-complete-eigenphase-spectrum-of-primitive-index-fourier-minors-o--e9c768339b6f/RESULT.md",
+          "material_read": "Finding/rank; Proof §1, offsets 3901–5452, and global formulation",
+          "method": "Local mirror statement and proof comparison",
+          "title": "Complete eigenphase spectrum of primitive-index Fourier minors over odd moduli",
+          "trigger": "Exact primitive-position Fourier submatrix at odd n"
+        },
+        {
+          "assessment": "Classical inputs; different divisor-indexed supercharacter transform",
+          "evidence": "Evaluations and multiplicativity are shared but a divisor-indexed table is not a unit Gram.",
+          "identifier_or_url": "https://arxiv.org/pdf/1201.1060",
+          "material_read": "Prime-power evaluation PDF p. 7; Thms. 3.1 and 3.5, PDF pp. 11–12",
+          "method": "Lawful OA full-text passages",
+          "title": "Ramanujan sums as supercharacters",
+          "trigger": "Prime-power and CRT Ramanujan identities"
+        },
+        {
+          "assessment": "Different determinant",
+          "evidence": "The indices are divisors of n, not residues that are units modulo n.",
+          "identifier_or_url": "10.1007/s00013-021-01643-8",
+          "material_read": "Theorem 1, OA PDF pp. 1–2",
+          "method": "Lawful OA full-text passage",
+          "title": "A determinant involving Ramanujan sums and So’s conjecture",
+          "trigger": "Potential earlier determinant formula"
+        },
+        {
+          "assessment": "Nonvanishing context, not the local integral calculation",
+          "evidence": "Nonvanishing for certain minor sizes and existence of vanishing minors do not determine the integral Smith factors of this Gram matrix.",
+          "identifier_or_url": "https://arxiv.org/html/2409.09793v4",
+          "material_read": "Theorems 1.1–1.2, around offset 5000",
+          "method": "Lawful HTML full-text passages",
+          "title": "On the principal minors of Fourier matrices",
+          "trigger": "Possible general principal-minor result covering primitive positions"
+        },
+        {
+          "assessment": "Unresolved possible rank coverage, not used to determine disposition",
+          "evidence": "Cannot verify whether the exact primitive index set is treated; determinate Smith coverage follows independently from the inspected full-circulant proof.",
+          "identifier_or_url": "10.1016/j.laa.2008.04.043",
+          "material_read": "Bibliographic citation only; technical-report link and DOI did not yield lawful full text",
+          "method": "DOI and identified report-page access attempt",
+          "title": "Rank-deficient submatrices of Fourier matrices",
+          "trigger": "Possible earlier exact primitive-index rank result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; earlier blockwise integral calculation in 0bffd4ff77aa and the primitive-position blocks in e9c768339b6f"
+      ],
+      "rationale": "Primitive-position sampling is natural and integral torsion is distinct from spectral data. But for this slice every needed local integral factor is already in the broader computation: the restriction removes whole copies or the single zero direction, then repeats the same CRT assembly. The explicit restatement is useful as an expository corollary, not a non-mechanically-implied exact invariant under the review criterion. The consequences are formal and do not leave a distinct surviving mathematical remainder to repair.",
+      "residual_risks": [
+        "This is a judgment about the submitted classification, not about the potential value of Smith invariants for genuinely new index masks."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

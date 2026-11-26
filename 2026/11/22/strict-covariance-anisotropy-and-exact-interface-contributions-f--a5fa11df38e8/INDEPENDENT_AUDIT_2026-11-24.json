@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:35:22.049033Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–102",
+        "Frozen VERIFICATION.md and verify.py",
+        "Independent antiderivative evaluation of the three-ball example"
+      ],
+      "rationale": "The axial interval is [max_i(c_i−R_i), min_i(c_i+R_i)] with positive length. Its squared section radius f=-z²+g has g the lower envelope of affine functions with slopes 2c_i; it is positive inside and zero at both ends. The effective center C=g′/2 is nonincreasing; duplicate lines and point ties do not contribute. The density of Z is proportional to f^h with h=(d−1)/2 and the transverse conditional variance is f/(d+1) by uniform ball integration, also valid for interval slices at d=2. Thus (f^(h+1))′=(d+1)(C−z)f^h. Multiplying by z−E[Z] and integrating by parts gives the gap −Cov(Z,C(Z)); continuity cancels all inner boundary terms. Expressing C as a constant minus its positive jumps times 1_{Z>t_j} gives the exact interface contributions. Each has positive masses on both sides and strictly ordered conditional means. No jumps force g affine; the two endpoint zeros reconstruct the entire generating ball, and conversely a ball is isotropic. For the stated three-ball example, direct polynomial antiderivatives give ∫f=17/6, ∫z²f=139/240, ∫f²=191/40, and ∫_{1/2}^1 z f=59/192. With centroid zero these yield the stated variances, difference 59/272 and two equal interface terms 59/544. In the wider absolutely continuous profile class the same integration by parts is valid, and a nonconstant a.e. decreasing C gives strictness by independent pairs. The bundled script was inspected, not executed.",
+      "residual_risks": [
+        "The discrete jump representation needs the finite effective envelope; the broader profile observation does not assert finitely many interfaces.",
+        "No conclusion about noncollinear centers or nonuniform densities."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bezdek and Drach–Tatarko compare inradius, volume or intrinsic-volume quantities, not the centered covariance eigenvalues",
+          "Diaz–Herrera–Martinez Eqs. (3), (6) give moment integrals about axial and perpendicular axes"
+        ],
+        "reasoning": "A geometric valuation bound gives no centered axial/transverse variance comparison here. The general inertia integrals may be used to compute the moments but do not state the concave-envelope sign or its equality and jump decomposition.",
+        "searches": [
+          "Bezdek arXiv:1912.05118, ball-body volumetric theorems",
+          "Drach–Tatarko arXiv:2303.02294, curvature-constrained extremality statements",
+          "Diaz–Herrera–Martinez arXiv:physics/0507172, inertia formulas"
+        ]
+      },
+      "checked_sources": [
+        "Resultary dbb6d001c487 and 3f7b7b7ccd99",
+        "arXiv:1912.05118, 2303.02294 and physics/0507172"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known lens gap uses midpoint symmetry; the isotropic-constant result explicitly excludes unequal and multiple disks",
+          "Classical slice integrals supply v_parallel and v_perp separately, not their gap in terms of effective center jumps"
+        ],
+        "reasoning": "Subtracting raw moments of slices is not a sign argument and ignores the generally noncentral centroid. The extra step here is integrating against z−E[Z] to obtain −Cov(Z,C(Z)) and resolving the monotone C into individually positive centered jump terms.",
+        "searches": [
+          "Resultary dbb6d001c487 and 3f7b7b7ccd99, actual findings and limitations",
+          "Diaz–Herrera–Martinez Eqs. (3), (6)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "dbb6d001c487 gives exact gap a E|X_1| for centers ±a of two congruent balls and strictness away from coincidence",
+          "3f7b7b7ccd99 is a same-day planar congruent-disk lens result on det(Cov)/area²"
+        ],
+        "reasoning": "In the congruent lens the only jump has size 2a and p=1/2, and the conditional means differ by 2 E|Z|, so the formulas coincide exactly. The determinant in the planar result is a product of the variances; its monotonicity does not determine their ordering. The same date does not imply priority.",
+        "searches": [
+          "Resultary: symmetric-lens covariance anisotropy, rotational-body variance, f+z² profiles and multiball interface formulas",
+          "Resultary dbb6d001c487 and 3f7b7b7ccd99"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact lens formula covers one symmetric switch. No matched exact result in the lookup covers an arbitrary sequence of effective switches; the three-ball fractions are an example, not the claimed invariant's full domain."
+        ],
+        "reasoning": "Exact values on a lens family or fixed three-ball example cannot determine a covariance gap depending on the full marginal law and active profile for arbitrary unequal radii and center locations.",
+        "searches": [
+          "Resultary exact lens covariance and multiball interface lookup",
+          "dbb6d001c487 §Finding and Proof §§1–4; frozen three-ball example"
+        ]
+      },
+      "rationale": "The known congruent two-ball lens gap is an exact special case, not independently new. The present result adds finite many active pieces, arbitrary radii and an exact centered contribution from every actual center jump. None of the inspected statements supplies this wider covariance ordering, equality criterion and additive formula together, or makes them a specialization of a known broader covariance comparison.",
+      "residual_risks": [
+        "No inference of whole-document absence from keyword misses or an unproductive broad search. Mechanically related older moment inequalities could be indexed under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact special-case coverage for two congruent balls",
+          "evidence": "Gap a E|X_1|, strict anisotropy for a>0, and additional lens ratio results.",
+          "identifier_or_url": "dbb6d001c487",
+          "material_read": "RESULT.md, Finding and Proof §§1–4, from offset 0; relationship section near offset 7400",
+          "method": "Local indexed mirror",
+          "title": "Sharp covariance anisotropy law for symmetric Euclidean ball lenses",
+          "trigger": "Exact gap for intersections with collinear centers"
+        },
+        {
+          "assessment": "Different functional and narrow lens class",
+          "evidence": "det(Cov)/area² for congruent disk lenses; excludes unequal-radius, three-disk and higher-dimensional analogues.",
+          "identifier_or_url": "3f7b7b7ccd99",
+          "material_read": "RESULT.md Finding, offset 0, and limitations near offset 8200",
+          "method": "Local indexed mirror",
+          "title": "Strict isotropic-constant monotonicity for symmetric planar disk lenses",
+          "trigger": "Same-day related covariance result"
+        },
+        {
+          "assessment": "Inspected inradius and intrinsic-volume statements do not imply the centered variance comparison",
+          "evidence": "Lens inradius extremality at fixed volume and intrinsic-volume constraints.",
+          "identifier_or_url": "https://arxiv.org/abs/1912.05118",
+          "material_read": "PDF p. 1, abstract near offset 600; covariance locator search",
+          "method": "Open primary PDF",
+          "title": "Volumetric bounds for intersections of congruent balls",
+          "trigger": "Broader related ball-body theory"
+        },
+        {
+          "assessment": "Inspected statements concern valuations, not covariance; literal misses do not exclude an equivalent theorem",
+          "evidence": "Volume and inradius extremality for λ-convex lenses.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.02294",
+          "material_read": "PDF p. 1, abstract near offset 650; covariance and variance locator searches",
+          "method": "Open primary PDF (accessible in this review)",
+          "title": "Reverse isoperimetric problems under curvature constraints",
+          "trigger": "Potential stronger lens extremality with curvature conditions"
+        },
+        {
+          "assessment": "Known general integration technique; no sign or jump statement in these passages",
+          "evidence": "Generating-curve formulas for moments of inertia about axial and perpendicular axes.",
+          "identifier_or_url": "https://arxiv.org/abs/physics/0507172",
+          "material_read": "PDF pp. 1–2, Eqs. (3), (6), text near offsets 6100–10269",
+          "method": "Open primary PDF",
+          "title": "Moments of inertia for solids of revolution and variational methods",
+          "trigger": "General method might contain a stronger covariance identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–29 and 55–102",
+        "Resultary dbb6d001c487"
+      ],
+      "rationale": "The sign and ball rigidity describe a natural class of uniform bodies without assuming a midpoint centroid or even equal radii. More informative than simply integrating sectional geometry, the exact noncancelling formula tells which effective geometric changes generate the anisotropy, and the three-active-ball example demonstrates genuinely additive behavior beyond the known lens case.",
+      "residual_risks": [
+        "No optimum anisotropy at fixed volume or general axis theorem for noncollinear intersections is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

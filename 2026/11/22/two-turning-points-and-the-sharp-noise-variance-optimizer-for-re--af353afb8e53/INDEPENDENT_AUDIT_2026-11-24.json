@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:47:49.434362Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–73",
+        "Frozen VERIFICATION.md and verify.py (inspected; reported finite run not repeated)",
+        "Independent bounded diagnostic: python /tmp/opencode/frozen_1_5_review_checks.py (record 3 block)"
+      ],
+      "rationale": "The centered sum and difference of the two adjacent increments have per-draw variances 2a and 18a(1−2a), respectively; by reflection the increments have equal variance. This recovers v=a(5−9a), c=a(9a−4) and the strictly increasing correlation coordinate r from −4/5 to 1. The categorical CLT and a uniform fourth-moment bound for normalized sums justify convergence of both first and second moments of the absolute-value statistic. The folded-Gaussian product moment yields the stated V. Differentiating in r gives the stated positive-prefactor multiple of H, and differentiating twice gives H″=(1+r)(15+4r−10r²)/(1−r²)^(3/2), strictly positive since the quadratic is concave and positive at both ends. The signs at −4/5, 0 and 1 are +,−,+; strict convexity excludes a third root and yields the three monotonicity intervals. At a=1/2 the edges coincide, giving 1−2/π, and a=0 gives zero. At a=1/4 the two individual folded variances already sum to (11/8)(1−2/π), and their covariance is nonnegative. The first interior stationary point is therefore the unique global maximum including the endpoints. Direct 55-digit numerical differentiation and root finding in a reproduce both stated extrema and variance values independently of root finding on H.",
+      "residual_risks": [
+        "The numerics corroborate the decimals, not uniqueness. The theorem fixes a while N grows and is on the reflection-symmetric line for the matched-reference open chain; it does not imply a finite-N or full-simplex optimizer."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Part 4's fixed-n fixed-p theorem already covers the coefficient, but its explicit symmetric comb proposition needs even n≥4; Theorem 6.3 gives the three-bin variance ingredient, not a shape classification.",
+          "Part 5 treats cyclic variation and the inspected general nonuniform proposition is for n≥5; the uniform n=3 examples do not yield an open-chain nonuniform optimizer."
+        ],
+        "reasoning": "The broader result covers the coefficient even though it does not print the two masses or their stationary values. Its inspected formulas still require nontrivial control of the derivative on the full allowed interval to establish the distinct claim.",
+        "searches": [
+          "arXiv:2611.09592v1 p. 2, Proposition 4.2 and Theorem 6.3",
+          "arXiv:2611.14735 §5 and Proposition 5.4",
+          "Nabeya (1951) absolute moment as reproduced in Part 4"
+        ]
+      },
+      "checked_sources": [
+        "Banić–Elezović Parts 4 and 5 primary passages",
+        "Four mirrored Resultary records listed above",
+        "Part 4 discussion of the classical Hoel–Kamat benchmark; historical originals not accessed in full"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitution into Part 4 recovers the coefficient. The frozen proof adds strict convexity of the derivative numerator and an interior-versus-endpoint comparison; the even-comb proposition and cyclic profile cannot be used in place of those steps."
+        ],
+        "reasoning": "The novelty decision is on exact optimization and nonmonotonicity, not on having a formula from which one can numerically approximate a maximizer. The proof that precisely two stationary points exist and only the first is globally optimal is not a parameter substitution into the inspected prior results.",
+        "searches": [
+          "Part 4 Theorem 6.3 and Proposition 4.2; Part 5 matched cyclic variance; Resultary 8c85bf59ed2c Finding and profile"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Part 4 gives the same open-chain coefficient after substituting p=(a,1−2a,a), whether the parameter is mass or correlation.",
+          "Same-date 8c85bf59ed2c gives three-bin profile information (local maximum at uniformity, boundary comparison, interior minimum) for the cyclic statistic."
+        ],
+        "reasoning": "Reparametrizing by correlation does not make the coefficient new. Passing from the cyclic to the open chain, however, drops a nonconstant and correlated wrap-around edge, changing the variance and the optimization problem. The exact stationary-point theorem in the open-chain model does not follow by a relabelling.",
+        "searches": [
+          "Local Resultary matched-null multinomial histogram variance and optimizer comparison, especially 8c85bf59ed2c",
+          "Banić–Elezović Part 4, arXiv:2611.09592v1, fixed-bin theorem and Theorem 6.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Retrieved exact formulae cover the cyclic profile, a uniform high-load variance limit with growing bin count, uniform fixed-bin large deviations, or power under alternating alternatives. The three-bin moment formula itself is available in Part 4."
+        ],
+        "reasoning": "An exact table of folded moments or variances is relevant to the coefficient, but is not a table of extrema for this path. The inspected exact profile results involve different statistics or limits and do not give the frozen pair or the two-root property.",
+        "searches": [
+          "Local Resultary related exact profiles and limits: 8c85bf59ed2c, e29f4fd136bb, 27e1ac5a78fb, 64fc289d5380",
+          "Part 4 §4.2 and §6; historical mean successive difference references through inspected Part 4 discussion"
+        ]
+      },
+      "rationale": "The limiting variance coefficient is already implied by the general Banić–Elezović open-chain theorem (and uses a classical Gaussian folded moment). The supported distinct claim is the exact stationary-point count and global extremum classification along the chosen symmetric path. The strongest catalogue analogue concerns the cyclic statistic with three edges. It cannot determine the open-chain turning points, and the known general variance theorem does not state this optimizer or its analytic characterization.",
+      "residual_risks": [
+        "The historical folded-moment and successive-difference originals were not fully inspected. Unindexed earlier optimization of exactly this profile remains possible. No same-day priority is inferred for the distinct cyclic result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the coefficient, not the inspected optimization",
+          "evidence": "Fixed-bin matched open-chain folded variance, with explicit three-bin treatment; symmetric comb proposition requires even n≥4.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.09592",
+          "material_read": "v1 p. 2 (offset 3397), pp. 23–24 Proposition 4.2, p. 37 Theorem 6.3 (offset about 118900)",
+          "method": "Open primary PDF passages",
+          "title": "Discrete total variation under the multinomial, Part 4: variance under a general distribution",
+          "trigger": "Direct broader theorem for the identical coefficient"
+        },
+        {
+          "assessment": "Different edge set",
+          "evidence": "Includes the wrap-around edge; Proposition 5.4 has n≥5, not the two-edge three-bin problem.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.14735",
+          "material_read": "§5, pp. 22–23, matched nonuniform cyclic discussion and Proposition 5.4",
+          "method": "Open primary PDF passages",
+          "title": "Discrete total variation under the multinomial, Part 5: cyclic total variation",
+          "trigger": "Same framework with potentially related symmetric profiles"
+        },
+        {
+          "assessment": "Material symmetric three-bin analogue, not equivalent",
+          "evidence": "Three-edge cycle; local uniform maximum, boundary comparison and interior minimum along its symmetric segment, not exact stationary-point count for the open chain.",
+          "identifier_or_url": "Resultary 2026/11/22 8c85bf59ed2c",
+          "material_read": "RESULT.md Finding, offset 0, and additional profile around offset 4984",
+          "method": "Local catalogue search and original mirrored text",
+          "title": "Local uniform optimality and global majorization failure for cyclic histogram variation",
+          "trigger": "Closest catalogue optimizer overlap"
+        },
+        {
+          "assessment": "Different scaling and profile",
+          "evidence": "Uniform uncentered statistic with number of bins and counts both growing and a high-load limit.",
+          "identifier_or_url": "Resultary 2026/10/18 e29f4fd136bb",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Original mirrored text",
+          "title": "Conditioning removes a leading variance term from multinomial histogram variation",
+          "trigger": "Exact same-path variance-related catalogue hit"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": "Uniform uncentered upper-tail large deviations and alternating comb minimizers, not matched-null variance.",
+          "identifier_or_url": "Resultary 2026/10/18 27e1ac5a78fb",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Original mirrored text",
+          "title": "Sharp fixed-bin large deviations for histogram total variation",
+          "trigger": "Fixed-bin histogram shape optimization"
+        },
+        {
+          "assessment": "Different objective and profiles",
+          "evidence": "Even-bin local alternatives and an iterated-limit comparison of power.",
+          "identifier_or_url": "Resultary 2026/10/26 64fc289d5380",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Original mirrored text",
+          "title": "Exact two-statistic Gaussian power law for alternating multinomial alternatives",
+          "trigger": "Gaussian histogram variation with a profile family"
+        },
+        {
+          "assessment": "The folded moment is background, not claimed new",
+          "evidence": "The accessible Part 4 formula supplies the covariance function; inability to inspect the original scan is not evidence about its full contents.",
+          "identifier_or_url": "https://www.ism.ac.jp/editsec/aism/pdf/003_1_0002.pdf",
+          "material_read": "Formula as reproduced in Banić–Elezović Part 4 p. 2; original not inspected in usable full text",
+          "method": "Bounded access to official scan and alternate publisher routes, plus derivation check",
+          "title": "Absolute moments in 2-dimensional normal distribution",
+          "trigger": "Classical source of the folded Gaussian moment"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, scope and Proof §§3–4",
+        "Part 4 comparison for the already known coefficient; Resultary 8c85bf59ed2c for the different cyclic benchmark"
+      ],
+      "rationale": "The three-bin reflection-symmetric line is the smallest matched-reference path with two interacting edges and a varying interior mass. The exact worst-case leading variance and the second turning point give a useful small-model calibration benchmark: depleting the center bin past the minimum increases, rather than further decreases, the leading null noise. The result is a complete global shape comparison, not a computed value at an arbitrary test point or recomputation of the known variance coefficient.",
+      "residual_risks": [
+        "No claim of optimal power, a finite-sample cutoff, or a worst-case profile outside the stated symmetric family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

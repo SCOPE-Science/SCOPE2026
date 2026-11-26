@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Run `python3 check_bruteforce.py` and `python3 check_dynamic.py` with standard Python 3. Their outputs must be exactly `BRUTEFORCE_OK words 48619 classes 1377` and `DYNAMIC_OK classes 6253 compositions 169`.
+## correctness
 
-The brute-force enumeration directly constructs every binary word for each composition with at most eight letters of either type, scans for scattered `abbab`, and independently computes the scattered `ab` count. Its class histogram checks the asserted exact numerator including the zero-count boundary.
+PASS
 
-The independent dynamic checker builds words through a six-state greedy subsequence automaton while updating the `ab` count on appending `b`. A separate Gaussian recursion calculates the class denominator. It checks the numerator, denominator, unrefined total, and exact maximum for every composition with up to twelve letters of either type. The two methods have different counting structures; their agreement is finite corroboration. The unrestricted result rests on the explicit partition correspondence and positive-row spread criterion in `RESULT.md`. No independent external audit has been performed.
+Independently checked the all-parameter proof. With the a's in their word order, recording the number of b's after each a gives a weakly decreasing list in [0,B]; the first gap, successive gaps and last gap recover the word uniquely and the sum is exactly C=#ab. The two a's in an abbab embedding need a drop of at least two between their parts and a positive second part. Such a pair exists exactly when the largest and smallest positive parts differ by at least two. For C>0 and fixed positive-part count r there is precisely one balanced partition, with quotient and remainder of C by r allocating its positive parts. It fits exactly when ceil(C/B)<=r<=min(A,C); the interval is nonempty by C<=AB and B>=1. For C=0 the unique word is b^B a^A, including zero letter counts and the empty word. Summing over r yields the generating polynomial and total; the count is nondecreasing up to C=A and nonincreasing thereafter, and the Gaussian area enumerator gives the probability denominator. The class (4,4,8) indeed contains eight bounded partitions, of which three are balanced. The supplied finite checkers were inspected without execution; correctness rests on the bijection and classification, not the recorded checker outputs. No other patterns or alphabets are proved.
+
+## originality
+
+PASS
+
+The available strongest related statements do not cover the exact count for abbab. The bounded judgment is for the balanced-positive-part criterion and exact numerator, not the known partition encoding or general approximation methods; one plausible cited record was not retrievable and is an explicit residual risk.
+
+## value
+
+PASS
+
+This solves an exact conditional-subsequence enumeration problem in the established binary Parikh-class setting for a nontrivial five-letter pattern. The explicit numerator yields the probability, a uniform non-forcing theorem, and a sharp class maximum for unrestricted compositions; the balanced-parts mechanism is more informative than a finite table or a general-purpose automaton recurrence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

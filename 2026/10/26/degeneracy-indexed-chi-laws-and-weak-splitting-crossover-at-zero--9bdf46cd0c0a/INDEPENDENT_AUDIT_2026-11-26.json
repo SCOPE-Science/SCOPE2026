@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:11:51.645834Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the directed finite ring, each feasible predecessor feeding site i has stationary weight ratio a_i/a_(i-1), so after multiplying by the predecessor jump rate its incoming flux divided by the proposed weight is a_i, exactly the total-outflow contribution indexed by a nonempty site i. Irreducibility gives uniqueness. Summing ordinary-site occupations at fixed slow vector k gives binom(L+N-|k|-1,N-|k|); the proposed negative-binomial identity follows after multiplying by the common factor q^N(1-q)^L. The geometric summands have span one, mean rho_c and variance v, so the lattice local CLT gives the uniform compact approximation, including the boundary k_j=0; the floor changes the scaled displacement by O(L^-1/2). For a uniform tail proof use the mode m=floor(t) with t=q(L-1)/(1-q). Below it, mass(b-1)/mass(b)=b/[q(L+b-1)] decreases when stepping down, and 1-ratio is at least c(t-b)/L for 1<=b<=m. Multiply the ratios using log x<=-(1-x), sum the linear deficits, and use the local-CLT supremum O(L^-1/2) at the mode and globally. Since t differs from rho_c L by O(1), this yields the stated one-sided Gaussian envelope. Counting r-tuples with total s and multiplying the envelope by the weak tilt and any fixed polynomial gives an integrable polynomial times a Gaussian in s/sqrt(L). Compact Riemann sums with this tail control give the positive finite normalizer, weak limit and polynomial moment convergence. The s/share Jacobian is s^(r-1), so zero shift and tilt give the normalized chi_r and independent uniform Dirichlet shares; for r=2 integration over the second site's mass gives the stated h_theta and conditional law for either tilt sign and continuously at zero. The frozen checker was inspected, not executed: its scaling samples use round rather than the theorem's floor (a bounded displacement), and its balance and finite comparisons are corroboration, not the limit proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The growing-collection result assumes r_M tends to infinity with r_M/M tending to zero; it has aggregate scale sqrt(M*r_M) and exponential individual occupations.",
+          "Armendáriz–Grosskinsky–Loulakis analyze homogeneous occupation-dependent rates and one-site localization at the critical threshold. Angel–Evans–Mukamel explicitly treat one defect.",
+          "Godrèche–Luck treat site disorder and maximal weight; the cited many-defect Zeng title is directly plausible but no full text was available."
+        ],
+        "reasoning": "A diverging defect count is not a stronger theorem that includes fixed r. Occupation-dependent rates and one-site localization do not yield a finite-dimensional delocalized share law. The available site-rate product framework is general, but the critical-scale joint limit also requires the local limit and uniform moment argument.",
+        "searches": [
+          "Resultary 4e472521f69e, Finding",
+          "arXiv:0912.1793 §2",
+          "arXiv:1209.4749 pp.3,12",
+          "arXiv:cond-mat/0401262 pp.1–2",
+          "Zeng DOI 10.4028/www.scientific.net/AMR.977.191"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, critical_defects_verify.py",
+        "Resultary 266d4e97dde7 and 4e472521f69e",
+        "arXiv:cond-mat/0401262, 1209.4749, 0912.1793 and 1511.01610 as scoped above",
+        "Zeng DOI retrieval boundary only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Godrèche–Luck take weak inhomogeneity epsilon=O(1/N) for two sites with total mass fixed and theta=N*epsilon.",
+          "The cutoff negative-binomial input is prior, but the mass at a vector of slow sites is weighted by its individual tilt and a local bulk mass, then summed over an r-dimensional orthant.",
+          "The later two-site result implies the full r=2 density with the common-shift identity, but not r>2."
+        ],
+        "reasoning": "For several equivalent sites the compositions add the s^(r-1) phase-space factor, which is absent for one ground mode; independent splitting changes the entire joint density. A conditional two-site tilt and the one-ground-mode cutoff do not themselves imply the full claim at the stated hypotheses.",
+        "searches": [
+          "Godrèche–Luck Appendix A, pp.30–31",
+          "Kocharovsky–Kocharovsky §IX, p.21",
+          "Resultary 266d4e97dde7 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 266d4e97dde7 gives the same critical joint density with two slow sites, one weakly detuned, after swapping the sites.",
+          "For the limiting formula a common tilt c shifts lambda to lambda+vc up to a factor independent of y, so a one-detuned-site formula covers the two-tilt r=2 law at varying lambda.",
+          "The canonical Bose-gas passage uses a negative-binomial cutoff with degeneracy of the excited level, not a joint law for several competing ground modes."
+        ],
+        "reasoning": "Ground-mode occupancy is the relevant canonical analogy. Conditioning the two-site law on its total removes the Gaussian bulk factor and gives the known sharing tilt, but a fixed conditional distribution alone does not yield the fluctuating total or the general joint law. The later indexed r=2 identity is exact overlap, not the same arbitrary fixed-r claim.",
+        "searches": [
+          "Resultary: critical canonical multi-defect zero-range process and competing slow-site condensates",
+          "Godrèche–Luck arXiv:1209.4749 Appendix A",
+          "Kocharovsky–Kocharovsky arXiv:1511.01610 §IX"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed two-site Finding explicitly gives the critical joint density and critical Rayleigh total, whereas the growing-defect Finding gives a different limiting regime.",
+          "Equations (108)–(109) are exact noncondensate cutoff weights in the two-level trap with one ground level."
+        ],
+        "reasoning": "The indexed two-site special case matches an exact part of the frozen law, but neither exact comparison supplies chi_r and Dirichlet shares for arbitrary fixed r with independently variable tilts. This is an analytic family of laws, not a finite catalog; no database-table exclusion is inferred beyond these comparisons.",
+        "searches": [
+          "Resultary 266d4e97dde7 and 4e472521f69e Findings",
+          "Kocharovsky–Kocharovsky §IX Eqs. (108)–(109)"
+        ]
+      },
+      "rationale": "The supported distinct result is the joint canonical critical-window law for an arbitrary fixed finite set of slow sites with separate weak splittings, moment control, and its chi_r/share consequence. Prior canonical product weights, fixed-total two-site sharing and single-defect finite-size analyses are not new here. The closest indexed two-site result is exactly overlapping at r=2 after reparametrization but dated later and does not supply the arbitrary fixed-r family. A plausible 2014 many-defect paper remains an access risk, not verified coverage.",
+      "residual_risks": [
+        "Zeng full text remains unavailable in the inspected lawful routes; the many-defect claim cannot be excluded from the title/metadata.",
+        "A broader canonical theorem for several degenerate low-energy modes could imply part of the law. No historical priority claim is made. The visible later indexed two-site overlap is credited without inferring unseen publication order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Later dated partial exact coverage; not arbitrary fixed r",
+          "evidence": "Two-site rates q exp(-theta/sqrt L), q; mass displacement h sqrt L; corresponding joint critical density and equal-rate critical Rayleigh law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-two-scaling-windows-for-competing-slow-site-condensates-in-a-zer--266d4e97dde7/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror text",
+          "title": "Two scaling windows for competing slow-site condensates in a zero-range process",
+          "trigger": "Same critical window, exact r=2 overlap"
+        },
+        {
+          "assessment": "Noncomparable growing-count hypothesis",
+          "evidence": "r_M tends to infinity, with r_M/M tending to zero; aggregate scale sqrt(M*r_M).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-mesoscopic-mass-and-extremal-occupancy-at-a-growing-collection-o--4e472521f69e/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror text",
+          "title": "Mesoscopic mass and extremal occupancy at a growing collection of slow sites",
+          "trigger": "Multi-site critical condensation, possible broader coverage"
+        },
+        {
+          "assessment": "Exact background law, different location of the degeneracy",
+          "evidence": "One ground level at zero; an excited level with arbitrary degeneracy g yields noncondensate negative-binomial totals.",
+          "identifier_or_url": "https://arxiv.org/abs/1511.01610",
+          "material_read": "§IX p.21, offset 173250, Eqs. (108)–(109)",
+          "method": "Bounded OA primary text",
+          "title": "Analytical theory of mesoscopic Bose-Einstein condensation in ideal gas",
+          "trigger": "Canonical cutoff with potential degeneracy overlap"
+        },
+        {
+          "assessment": "Different rate mechanism and localization regime",
+          "evidence": "Homogeneous occupation-dependent model, with critical condensate concentrated on a single site.",
+          "identifier_or_url": "https://arxiv.org/abs/0912.1793",
+          "material_read": "§2 p.3, offset 9850",
+          "method": "Bounded OA primary text",
+          "title": "Zero Range Condensation at Criticality",
+          "trigger": "Critical-onset fluctuation theorem"
+        },
+        {
+          "assessment": "Prior product framework and conditional two-site tilt, not the fluctuating-background joint law",
+          "evidence": "Disorder model with single-particle weights; Appendix A fixes two-site mass N and resolves comparable occupancies at epsilon=O(1/N).",
+          "identifier_or_url": "https://arxiv.org/abs/1209.4749",
+          "material_read": "pp.3,12, offsets 8200 and 36100; Appendix A pp.30–31, offset 96892",
+          "method": "Bounded OA primary text",
+          "title": "Condensation in the inhomogeneous zero-range process: an interplay between interaction and diffusion disorder",
+          "trigger": "Occupation-independent site rates and weak competition"
+        },
+        {
+          "assessment": "One slow site, no general finite collection competition law established by the inspected text",
+          "evidence": "Explicitly restricts to a single defect site and studies canonical finite-size effects.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0401262",
+          "material_read": "pp.1–2, offsets 1433 and 5578",
+          "method": "Bounded OA primary text",
+          "title": "Condensation Transitions in a One-Dimensional Zero-Range Process with a Single Defect Site",
+          "trigger": "Single-defect canonical finite-size onset"
+        },
+        {
+          "assessment": "Coverage unresolved; not negative evidence",
+          "evidence": "Title matches the broad objects, but no theorem available to compare fixed r, the critical window, or joint occupancies.",
+          "identifier_or_url": "https://doi.org/10.4028/www.scientific.net/AMR.977.191",
+          "material_read": "Bibliographic title and frozen record's abstract-access note at RESULT.md line 99; no independent full text read",
+          "method": "Bounded OA attempts at DOI and publisher, HTTP 403; no lawful repository copy identified",
+          "title": "Research on Thermal Balance with Critical Density in the Zero-Range Process with many Defect Sites",
+          "trigger": "Plausible direct many-defect critical-regime precursor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fixed degeneracy changes the critical bulk deficit law from a truncated Gaussian into a chi family, with an independent share vector only in the symmetric case described. The full finite-dimensional weak-splitting window quantifies competition on the scale where the macroscopic background still fluctuates. The moment conclusion and arbitrary fixed number of competing sites make this a useful equilibrium benchmark beyond a two-site computation or a restatement of product stationarity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

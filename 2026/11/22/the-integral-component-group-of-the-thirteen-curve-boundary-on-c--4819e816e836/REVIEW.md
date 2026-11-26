@@ -1,15 +1,21 @@
-# Review of the thirteen-curve Cayley boundary component group
+# Independent mathematical audit
 
-## Correctness — PASS
-The six-point blow-up intersection form gives precisely thirteen rational negative curves with twenty-one transverse nodes, and genus nine. The \(K_4\) incidence block identities yield the exact characteristic polynomial and order \(7^3 13^2\). The reduced Laplacian has rank nine modulo seven and ten modulo thirteen, so its 7-primary rank is three and its 13-primary rank is two. These ranks exhaust the prime valuations of the order, proving the entire integral group, not just the order. A standard-library checker independently rebuilds the divisor intersection graph, computes the polynomial, exact determinants for three roots and modular ranks. The conditional Néron interpretation follows the regular semistable degree-class-group theorem.
+## correctness
 
-## Originality — PASS, with residual historical risk
-The exact same Cayley minimal resolution appears in Hassett's geometric discussion, Derenthal and collaborators' \(4A_1\) Cox-ring theorem, and a published complete Zariski-chamber support calculation. Their respectively geometrical, Cox-ring, and support-count results do not state this reduced graph-Laplacian cokernel or determine its invariant factors as a theorem. Busonero–Melo–Stoppino's degree-class-group framework applies but does not evaluate this graph. Exact and alias searches of mathematical literature and published research records found no covering result. This does not exclude an unindexed or differently named older computation.
+PASS
 
-## Mathematical value — PASS
-The complete negative-curve divisor is intrinsic to the maximally nodal cubic resolution and gives a natural stable genus-nine curve. Its noncyclic integral component group supplies degeneration information strictly finer than component counts and spanning-tree order; the 7- and 13-primary multiplicities are the substantive arithmetic fact. No arbitrary parameter choice or unmotivated slice is needed.
+The four lines in general position are projectively equivalent over C to x=0, y=0, z=0, x+y+z=0. Recomputing the complete quadrangle by cross products gives six distinct base points and three distinct diagonal intersections off the base locus; common blown-up points of distinct lines separate into distinct direction points on the exceptional curve. The thirteen listed curves are all negative curves: −K=H+(sum R_i)/2 is nef, adjunction forces negative irreducible curves into (self-intersection, anticanonical degree)=(−1,1) or (−2,0), and Cauchy in the plane multiplicities gives degree at most two. Each five-element subset of the base points contains an original collinear triple, excluding the conic possibility. The incidence graph is connected with 21 nodes and thirteen rational components whose valencies are three or four, hence stable of genus nine. Over Q and in characteristics 7 and 13 the stated decomposition follows from QQᵗ=2I+J, PPᵗ=2I and QPᵗ=J: on the edge space the images of zero-sum vertex and matching spaces are orthogonal and have nondegenerate forms, and the constant line splits off (dimension six altogether). The constant block has rank two over both finite fields, the repeated vertex block has determinant seven, and the repeated matching block determinant thirteen. Hence the reduced nullities are three and two, exhausting the determinant valuations and forcing elementary primary groups. Fresh exact Smith reductions at two roots independently yield 1^9,7,91,91, determinant 57967, and the asserted polynomial. The Néron statement is valid under the specified regular split unit-thickness hypothesis; no fibration on X is inferred.
 
-## Scope and limitations
-The geometric claim is over \(\mathbb C\). The Néron identification requires a proper regular split semistable smoothing with unit thicknesses. The result is not a statement about the Picard group of the ambient surface, arbitrary nodal cubic configurations, nonregular models, or arithmetic descent. Historical priority remains provisional pending independent specialist inspection.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest checked overlap is the published chamber-support computation on the very same resolution, with the same thirteen curves and a K4/perfect-matching model. It enumerates negative-definite supports, not eigenvalues, prime-local ranks or the integral Laplacian cokernel. The geometric resolution and general degree-class-group theorem are likewise known, but do not solve the specific integral calculation. No exact coverage was established in the bounded comparisons.
+
+## value
+
+PASS
+
+This is the whole canonical negative-curve boundary of a geometrically distinguished singular cubic resolution, not a selected induced subgraph. Its integral component group is an exact invariant a user of this genus-nine degeneration can need; the two local ranks prove that all 7- and 13-primary factors are elementary, which the spanning-tree count alone cannot do. The rational and prime-local block argument also explains where the two primary parts come from. Neither a known chamber support count nor the Picard torus of the singular nine-line divisor substitutes for this result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

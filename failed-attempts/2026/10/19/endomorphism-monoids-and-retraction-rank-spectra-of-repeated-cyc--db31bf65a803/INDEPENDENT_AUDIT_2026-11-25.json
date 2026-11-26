@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:13:50.026632Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Replayed RESULT.md lines 23–53 for F_q-linear multiplication-preserving maps, without a unitality condition. Each cycle is simple: multiplication by a basis vector isolates any nonzero coefficient in an ideal and iterated squares recover the basis. Projecting a homomorphism onto a target cycle, a nonzero restriction to one source cycle therefore injects and is surjective by equal dimension. Two surjective restrictions would force every product in the target to be zero because the source summands annihilate each other, a contradiction. For each active target the resulting isomorphism has one nonzero per matrix row by disjoint-product preservation and the independence of the target basis squares; the cyclic square equations force a shift and coefficients c,c²,…, with c^(2^ℓ−1)=1. Thus h=ℓg labels per source/target pair and (1+rh)^r maps. In a composition-idempotent map each selected source must select itself with the identity label, by cancellation in the group of isomorphisms; conversely these conditions suffice. With k identity loops all other targets independently have 1+kh choices, and projection onto the fixed cycles identifies the image with their direct sum, even when the image is embedded diagonally. This proves the histogram, image type and all ranks, including the zero map, singletons and characteristic two. Independently, all 65536 binary 4×4 matrices at ℓ=r=2 gave 25 homomorphisms and histogram (1,6,1) at ranks (0,2,4); ℓ=1,r=2 over F₂ gave 9 maps and (1,4,1). Replay files: /workspace/branches/e3bed96e-bee5-46fb-82aa-cd18b001524c/record2_independent_enum.py and record2_independent_enum.txt in the same directory. Frozen verify.py was read, not executed; finite checks do not establish the general theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general Hom theorem allows different length lists and assigns each target either zero or a single compatible source of divisor length, with m gcd(q−1,2^n−1) labels for source length m and target length n.",
+          "The field-arithmetic retraction theorem gives the exact idempotent rank polynomial for arbitrary cycle multiplicities. Sriwongsa–Zou prove monomiality and phase/diagonal structure for units; Wei–Zou count isomorphism classes, not homomorphisms."
+        ],
+        "reasoning": "Choose both length lists to consist of r copies of ℓ in the Hom theorem. Choose c_ℓ=r, c_n=0 for n≠ℓ in the retraction theorem. These include the full scope of the frozen count and structure; the unit/isomorphism-class sources alone would not.",
+        "searches": [
+          "f14321710094 RESULT.md, Finding and single target-cycle support lemma",
+          "33c828f2883c RESULT.md, Eq. (1) and proof §§1–2",
+          "arXiv:2202.01333v2, Thms. 2.1, 2.2, 4.1; arXiv:2310.12368v1, Cor. 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and accompanying record evidence",
+        "Resultary f14321710094 and 33c828f2883c; attempted 46b24971b86b",
+        "arXiv:2202.01333v2, 1803.11415v1, 2310.12368v1, math/0303028v2 and Konieczny DOI 10.1017/S0017089599970301"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed general proof requires identity labels on exactly the selected fixed cycles, then counts zero and each compatible fixed-source label independently. The older wreath-product theorem enumerates labelled full-transformation idempotents, yielding binom(d,k)(kh)^(d−k) on d participating points."
+        ],
+        "reasoning": "The indexed proof specializes to the same root rule and rank spectrum. Projecting a retract onto its fixed cycles makes its image algebra the claimed direct sum, so the image observation is not a distinct remainder. Also, once the partial wreath model is identified, restrict an idempotent to its defined domain of size d, use the older full-wreath count there, and sum over domain choices. For k>0 this gives Σ_d binom(r,d)binom(d,k)(kh)^(d−k)=binom(r,k)(1+kh)^(r−k); k=0 is the zero map. Thus the zero-inclusive combinatorics is a binomial transform of the known full-domain enumeration, not a new enumerative mechanism.",
+        "searches": [
+          "33c828f2883c Proof §2, idempotents and fixed-cycle labels",
+          "Krattenthaler–Müller arXiv:math/0303028v2, Theorem 1, α=1 and β=2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen map is encoded, with arrows from target to source, by a partial transformation of the cycle set with an automorphism label on each defined arrow. The composition and identity loop rule are the group-labelled partial transformation rules.",
+          "Konieczny describes the support skeleton for partial maps commuting with permutations; his theorem does not add the finite-field scalar labels. The overlap at g=1 uses ordinary cyclic phases only."
+        ],
+        "reasoning": "Ordinary full transformation wreath products are not identical to this partial monoid; undefined components encode zero. The two exact Resultary claims use the same algebra, target orientation and linear rank, whereas idempotent algebra elements and automorphism-only results do not.",
+        "searches": [
+          "Resultary: evolution algebras homomorphisms support row sparse perfect evolution algebra",
+          "Resultary: partial wreath transformation monoid idempotent element count rank roots",
+          "Konieczny DOI 10.1017/S0017089599970301, Thm. 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "In f14321710094 all A_j=rℓ and γ_q(n_j)=g, giving exactly (1+rℓg)^r. In 33c828f2883c the single factor at rank kℓ is binom(r,k)(1+kℓg)^(r−k), with precisely the same all-field and zero-map conventions. Retrieval of the separate permutation-centralizer record 46b24971b86b did not yield its primary statement."
+        ],
+        "reasoning": "These are exact symbolic database matches by specialization, not coincidences between a few tabulated integers. The unverified additional hit is not used to decide coverage.",
+        "searches": [
+          "Indexed exact Hom count f14321710094, Finding",
+          "Indexed exact retraction polynomial 33c828f2883c, Eq. (1)",
+          "Resultary 46b24971b86b, permutation-centralizer rank enumeration lookup"
+        ]
+      },
+      "rationale": "Both findings are direct cases of distinct, inspected indexed records with arbitrary cycle lengths, not just analogous results: f14321710094 covers the normal form/count and 33c828f2883c covers the composition-idempotent rank polynomial. Their more general statements specialize without adding a hypothesis or changing the notion of rank. This is stronger-theorem coverage in the inspected corpus, not a determination of priority from the later catalogue dates.",
+      "residual_risks": [
+        "The two decisive indexed catalogue paths are later than the frozen path. The comparison establishes substantive coverage, not priority, chronology of discovery or independent publication.",
+        "The separate permutation-centralizer record 46b24971b86b was not retrieved; its exact implications are unresolved and not needed for the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact broader coverage of the first finding",
+          "evidence": "Product Hom formula and independent cycle choices specialize to arbitrary endomorphisms of r equal cycles.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-complete-homomorphism-counts-and-rank-distributions-for-permutat--f14321710094/RESULT.md",
+          "material_read": "Finding, assumptions and proof support/phase classification in offsets 0–6986",
+          "method": "Local Resultary mirror",
+          "title": "Complete homomorphism counts and rank distributions for permutation evolution algebras",
+          "trigger": "General noninvertible Hom classification for the identical algebras"
+        },
+        {
+          "assessment": "Exact broader coverage of the second finding",
+          "evidence": "For c_ℓ=r and other multiplicities zero, d=kℓ and B_ℓ=1+kℓg. The fixed-cycle condition is identity, with the same other target choices.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-field-arithmetic-retraction-and-regularity-spectra-of-permutatio--33c828f2883c/RESULT.md",
+          "material_read": "Finding, assumptions and proof §§1–2, especially Eq. (1), offsets 0–6279",
+          "method": "Local Resultary mirror",
+          "title": "Field-arithmetic retraction and regularity spectra of permutation evolution algebras",
+          "trigger": "Same rank-stratified composition-idempotent enumerator"
+        },
+        {
+          "assessment": "Unit structure and cyclic case, not full endomorphisms",
+          "evidence": "Diagonal root equations and graph-automorphism quotient; the stated cyclic semidirect product uses algebraically closed characteristic zero.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.01333",
+          "material_read": "v2 Thms. 2.1–2.2 and 4.1, pp. 3–5 and 11–12, offsets 6800, 11000, 28800",
+          "method": "Lawful OA primary PDF",
+          "title": "On Automorphism Groups of Idempotent Evolution Algebras (Sriwongsa and Zou)",
+          "trigger": "Perfect-algebra monomiality and cyclic automorphism groups"
+        },
+        {
+          "assessment": "Different idempotence question",
+          "evidence": "Idempotent algebra elements rather than composition-idempotent linear endomorphisms.",
+          "identifier_or_url": "https://arxiv.org/pdf/1803.11415v1",
+          "material_read": "Abstract and §3 comparison",
+          "method": "Lawful OA primary PDF",
+          "title": "On absolute nilpotent and idempotent elements of an evolution algebra corresponding to permutations (Narkuziyev)",
+          "trigger": "Same cycle algebras and word idempotent"
+        },
+        {
+          "assessment": "Different object counted",
+          "evidence": "Counts isomorphism classes via group-action orbits, not the maps of an algebra.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.12368",
+          "material_read": "v1 Cor. 1.1, pp. 3–4, offset 6900",
+          "method": "Lawful OA primary PDF",
+          "title": "Isomorphism Classes of Idempotent Evolution Algebras (Wei and Zou)",
+          "trigger": "Finite fields and exact evolution-algebra enumeration"
+        },
+        {
+          "assessment": "Structural analogue without general field labels",
+          "evidence": "Cycle-domain and divisibility restrictions; later theorem concerns regularity, not the finite-field retraction histogram.",
+          "identifier_or_url": "https://doi.org/10.1017/S0017089599970301",
+          "material_read": "Thms. 2.1 and 4.1, pp. 2 and 8, offsets 4162 and 28500",
+          "method": "Lawful OA primary passages",
+          "title": "Green's relations and regularity in centralizers of permutations (Konieczny)",
+          "trigger": "Partial transformations on entire permutation cycles"
+        },
+        {
+          "assessment": "Full-domain labelled idempotent enumeration",
+          "evidence": "Equation X^α=X^β with component-size restrictions; α=1, β=2 gives the underlying full-domain count after fixing the number of components.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0303028",
+          "material_read": "v2 Theorem 1, p. 5, offset 17400",
+          "method": "Lawful OA primary PDF",
+          "title": "Krattenthaler–Müller wreath-product equation enumeration",
+          "trigger": "Idempotents in a group wreath product with transformations"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The labelled partial-cycle formulation is useful in the broader setting, but the frozen contribution as a standalone finding is a constant-length substitution into the covered Hom and retraction classifications. The image-type observation follows by projecting onto the identity roots, and the count has the ordinary full-domain-plus-zero derivation once the labels are known. No separate unknown invariant, classification mechanism or application is established by recomputing this slice.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

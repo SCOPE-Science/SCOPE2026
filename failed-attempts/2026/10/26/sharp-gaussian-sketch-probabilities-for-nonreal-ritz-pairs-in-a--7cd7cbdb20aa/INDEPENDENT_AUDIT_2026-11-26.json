@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:48:27.823589Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–86",
+        "Frozen VERIFICATION.md, lines 3–25; verify.py, lines 14–115"
+      ],
+      "rationale": "Verified the fixed real iid Gaussian model in RESULT.md lines 5–78. Full column rank holds a.s. already at ℓ=2. The residual contributes only c times the regression vector in column two; conditioning on the Gaussian Gram matrix and integrating its Wishart density gives ν(1+||w||²)^(-(ν+2)/2)/(2π), ν=ℓ−1. Polar integration gives radial survival (1+r²/c²)^(-ν/2) for cw. With (x,y)=cw the discriminant is y²+4b(b+x); its negative region has closest radius b, and the negative circle-intersection coordinate there is 2b−sqrt(r²+8b²). This gives exactly the stated angular fraction and an open set of strictly positive probability. At r=b+z the arccos argument is 1−2z/(3b)+O(z²), giving 2sqrt(z)/(π sqrt(3b)); the logarithmic radial exponent has local slope b/(b²+c²) after the factor 1/2. Substitution z=v/ν gives Γ(3/2) and the stated prefactor. Beyond a fixed neighborhood the entire radial probability is bounded by the strictly smaller survival at its boundary. The diagonal shift cancels, and in ambient dimension two full rank reduces the sketch to ordinary symmetric Rayleigh–Ritz. The exact rational witness was checked from its normal equations. The frozen script was read, not executed; diagnostics are not needed for the proof.",
+      "residual_risks": [
+        "No claim for structured sketches, finite arithmetic, increasing Krylov dimension, or coupling ratios varying with ℓ."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The catalogue theorem permits arbitrary positive definite padding D and the required Ritz block and couplings. The mapped Schur inequality is d>c²d/(d²−b²), equivalent to the frozen SPD condition.",
+          "The primary literature already establishes the qualitative nonreal phenomenon and related last-column structure, not the law in the inspected passages."
+        ],
+        "reasoning": "Padding permits even a strictly dimension-reducing version without changing which Gaussian columns or which axially symmetric regression event are involved. The assigned model is within the quantitative theorem, up to its immediate two-row endpoint.",
+        "searches": [
+          "Resultary record 71e006218203, Assumptions and scope",
+          "Nakatsukasa–Tropp arXiv:2111.00113, §§6.7–6.8",
+          "Liu–Liu arXiv:2610.22261, p. 5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 71e006218203 and 86f8010d501f",
+        "arXiv:2111.00113",
+        "arXiv:2610.22261",
+        "arXiv:2311.14206, abstract",
+        "arXiv:2306.06481, Ritz-value passages pp. 6 and 12"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed proof explicitly states s≥2 in its regression density calculation; its parabola inequality and angular quadrature have no further dependence on the row lower cutoff.",
+          "The classical qualitative result alone does not give the rate, but the indexed result gives both exponent and prefactor after orthogonal rotation."
+        ],
+        "reasoning": "Fixed-radius rather than fixed-angle integration is Fubini applied to the identical event; the different notation and later catalogue path do not negate demonstrated mathematical coverage or settle chronology.",
+        "searches": [
+          "Resultary 71e006218203, Proof §§1–4",
+          "Nakatsukasa–Tropp arXiv:2111.00113, §6.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both formulations integrate the same parabola region against the same isotropic Student density after b_ext=−w₁, u=w₂, h=b/c.",
+          "The indexed prefactor with s rows equals the frozen prefactor times sqrt((s−1)/s), which tends to one."
+        ],
+        "reasoning": "This is an orthogonal similarity preserving the event, not an analogy based on the same exponent.",
+        "searches": [
+          "Resultary: Gaussian sketched Ritz pairs, nonreal pair probability and sharp asymptotic",
+          "Resultary record 71e006218203, Finding and Proof §§1–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "71e006218203 is an exact all-parameter indexed formula, not just agreement with samples.",
+          "86f8010d501f gives a 1/4 bound for a uniformly oriented fixed-length cross-coupling ensemble, not Gaussian sketches."
+        ],
+        "reasoning": "The fixed-length bound is not exact Gaussian coverage; the other indexed formula covers the continuous family without a numeric table.",
+        "searches": [
+          "Resultary exact probability and fixed Gaussian sketched-Ritz models; records 71e006218203 and 86f8010d501f"
+        ]
+      },
+      "rationale": "The central quantitative claim, not just the qualitative possibility of nonreal eigenvalues, has equivalent coverage in the distinct indexed record 71e006218203. Its catalogue path is later-dated than the assigned path, so this is a finding of demonstrated statement coverage, not a finding that the assigned authors derived it later, public priority, or provenance. Rotate the two trial coordinates with columns (-1,1)/sqrt(2) and (1,1)/sqrt(2): the model becomes the indexed one with α=d−b, δ=2b, t=c/sqrt(2), μ=d, h=b/c. Gaussian rotation invariance and equivariance of the full-rank pseudoinverse preserve the sketched eigenvalues. The indexed parabola b_ext>h+u²/(4h) uses b_ext=−w₁ and u=w₂, so both integrals compute exactly the same probability by integrating in a different order. Its q/(h sqrt(3πs)) q^(−s/2), q=1+h² and s=ℓ, is the same leading term with ν=s−1. Although its theorem is phrased for s≥3, its density step explicitly holds for s≥2 and both subsequent exact integration steps apply unchanged at two rows. Neither the alternate quadrature nor this boundary repackaging separates the main result.",
+      "residual_risks": [
+        "The primary search returned no useful new lead; this was not used as evidence of absence.",
+        "Catalogue path dates alone do not determine priority or provenance; coverage here follows from the exact transformation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage of the main quantitative claim; priority not determined",
+          "evidence": "The diagonal trial block and equal couplings arise by rotating the frozen trial plane. The two formulae integrate the same Student parabola; the same exponent and sharp prefactor result.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exponential-suppression-of-nonreal-sketched-ritz-pairs-in-a-fixe--71e006218203/RESULT.md",
+          "material_read": "Finding, Assumptions and Proof §§1–4, offsets 0–6193",
+          "method": "Resultary search, bounded local mirror reads and algebraic specialization",
+          "title": "Exponential suppression of nonreal sketched Ritz pairs in a fixed symmetric model",
+          "trigger": "Same Gaussian two-column compression with exact integral and sharp exponent"
+        },
+        {
+          "assessment": "Qualitative prior art",
+          "evidence": "The Krylov perturbation is supported on the last column and nonreal eigenvalues can appear even for symmetric input; the inspected passage does not give the Gaussian law.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.00113",
+          "material_read": "PDF p. 19, §§6.7–6.8",
+          "method": "OA passage comparison",
+          "title": "Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+          "trigger": "Prior sRR construction and nonreal eigenvalues"
+        },
+        {
+          "assessment": "Qualitative overlap only in inspected material",
+          "evidence": "Nonreal eigenpairs for SPD input motivate real-Schur processing; no probability or rate is stated there.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.22261",
+          "material_read": "PDF p. 5, offset 16498",
+          "method": "OA passage comparison",
+          "title": "Liu–Liu, arXiv:2610.22261",
+          "trigger": "SPD input and nonreal sketched compression"
+        },
+        {
+          "assessment": "Different ensemble",
+          "evidence": "Uses uniformly oriented fixed-length coupling, not the Gaussian regression's random radial component.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-one-quarter-law-for-nonreal-sketched-ritz-pairs--86f8010d501f/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "A sharp one-quarter law for nonreal sketched Ritz pairs",
+          "trigger": "Different exact probability statement for the same type of spectral event"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§2–4",
+        "Resultary record 71e006218203, Finding and Proof §§1–4"
+      ],
+      "rationale": "A sharp rare-event benchmark for Gaussian sRR is a worthwhile quantity. As a distinct finding, however, the frozen record supplies the same benchmark as the equivalent indexed model. The alternative integration order, automatic two-row endpoint, and elementary invariant-subspace minimality observation do not provide a separate unknown benchmark or a substantive extension. The negative assessment concerns the added result, not the importance of quantifying the event.",
+      "residual_risks": [
+        "A different parameter regime or an independently justified numerical or structural consequence could be valuable, but is not a surviving claim of this frozen record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

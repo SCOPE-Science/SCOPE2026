@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:36:02.948722Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–35",
+        "Frozen VERIFICATION.md, verify.cpp and verify_independent.py (read, not executed)",
+        "Independent exhaustive replay: /workspace/branches/a7956f66-34ea-48b4-ae8a-a9ea98ad58e0/independent_rank1_census.py"
+      ],
+      "rationale": "In the language with equality and two named strict total orders, a quantifier-free two-variable formula is a Boolean combination of equality and the four strict quadrants. Rank one permits only nonnested quantification, so the four existence bits determine the pointed one-variable type, and each bit is separately definable. For n>1 the first-order endpoints contribute at most two types. An interior point has nonempty sets of left and right bits, giving nine options, but masks 6 and 9 cannot coexist: whichever comes first, one requires the second point above it and the other requires it below. Thus at most eight interior masks occur; n=1 has only mask 0. At equality the eight interior masks must include the value-minimum and value-maximum masks 10 and 5, so both endpoints have vertical witnesses in each direction, forcing masks 12 and 3. All interior candidates except exactly one of 6 and 9 occur, recovering the two spectra without enumeration. Direct quadrant comparisons give ten distinct masks for the exhibited ten-point witness, and fewer points cannot realize ten types. An independent exhaustive run tested all 3,628,800 permutations of size ten, obtained 164 occurrences of each signature (0xfce8 and 0xfea8), and partitioned the 328 maximizers by the eight coordinate symmetries into ten size-four and 36 size-eight orbits. The eight transformations preserve extremality, but do not identify the names of the orders in the logical result.",
+      "residual_risks": [
+        "The finite replay certifies the specified size-ten census only. The universal bound is analytic and uses the stated uncolored, parameter-free language."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Linman–Pinsker consider the Fraïssé limit of two-order structures and its reducts; Albert–Bouvel–Féray develop TOTO and TOOB and apply Ehrenfeucht–Fraïssé games to expressibility.",
+          "The one-type profile hits count complete types over named parameters in infinite structures; the monotone two-order example also adds a binary relation R."
+        ],
+        "reasoning": "Neither a reduct or expressibility classification nor a parameterized complete-type count determines how many pointed rank-one types coexist in one finite, parameter-free permutation.",
+        "searches": [
+          "arXiv:1405.4297, introduction",
+          "arXiv:1808.05459, introduction and §4.1",
+          "Resultary:5c6744671985 and ee696f008d98"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 37–45",
+        "Resultary:7fe7e8086c11 with certificate, 6881f13fc4cb, 5c6744671985 and ee696f008d98",
+        "arXiv:1405.4297 and 1808.05459"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Separable closure under direct and skew sums does not control all permutations; 7fe7e8086c11 itself gives a nonseparable five-point permutation with a mask spectrum not realized by any separable permutation.",
+          "The later random-permutation result gives a typical nine-mask spectrum and a concentration bound; it does not give a sharp deterministic maximum or count the maximizers at the minimal length."
+        ],
+        "reasoning": "The prior witnesses already imply attainability of both signatures. The universal incompatibility of 6 and 9, with control of the endpoint types over arbitrary permutations, supplies the unrestricted upper bound, and the all-permutation census goes beyond the restricted minimum-length table.",
+        "searches": [
+          "Resultary:7fe7e8086c11, rank-two invariant and finite closure proof",
+          "Resultary:6881f13fc4cb, Finding",
+          "arXiv:1808.05459, EF-game method"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "7fe7e8086c11 states for all nonempty finite permutations that rank-two sentence equivalence is exactly equality of their sets of occupied-quadrant masks. Its proof first establishes the pointed rank-one reduction.",
+          "6881f13fc4cb states the same invariant and classifies the high-probability rank-two theory rather than the extremal cardinality and census."
+        ],
+        "reasoning": "The subject can be rephrased as maximizing the cardinality of a rank-two signature. The signature is a set of realized pointed types; the number of such signatures over a permutation class is a different statistic from maximizing their size.",
+        "searches": [
+          "Resultary: two named orders, pointed rank-one types, occupied quadrants and rank-two sentence signatures",
+          "Resultary:7fe7e8086c11 and 6881f13fc4cb"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day separable certificate explicitly lists states 64744 and 65192 with shortest representatives of length ten. These are exactly 0xfce8 and 0xfea8; its quadrant bit order is reversed, and both sets are invariant under that reversal.",
+          "That certificate gives the minimum representative length of each reachable separable state and explicit witnesses, not the multiplicities of all size-ten realizations or unrestricted dihedral orbits."
+        ],
+        "reasoning": "This is exact table coverage for both masks and their realization, not a coincidental match of the number ten. It does not count all realizations of either state in the full permutation class.",
+        "searches": [
+          "Resultary:7fe7e8086c11, Finding and permutation_rank2_certificate.json",
+          "Resultary:6881f13fc4cb, Finding",
+          "Exact comparators: 0xfce8, 0xfea8 and 328 ten-point extremizers"
+        ]
+      },
+      "rationale": "The four-quadrant logical reduction and even the occurrence of both ten-mask signatures have material coverage in a distinct same-day Resultary record on separable permutations. Neither is credited as separately distinct. The supported contribution is the sharp universal bound on within-structure rank-one diversity over all permutations, together with the census of its unrestricted size-ten extremizers and the symmetry-orbit refinement. The separable classification does not cover arbitrary permutations or give those multiplicities. No equivalent unrestricted bound plus census was substantiated in the bounded comparison; the same-day date does not resolve priority.",
+      "residual_risks": [
+        "The exact same-day signature overlap is documented but relative priority is unresolved. The primary-source reading was targeted, not a whole-document exclusion.",
+        "Earlier unindexed tabulations of permutation signatures or extremizers remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact logical invariant and both extremal mask sets covered, with scope distinction on classification and counting",
+          "evidence": [
+            "The rank-two invariant characterization is stated for all permutations. The 226-state closure and shortest witnesses have separable scope; entries 64744 and 65192 have min_length 10. The source exhibits a signature outside that closure."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exactly-226-rank-two-theories-of-separable-permutations-and-a-sh--7fe7e8086c11",
+          "material_read": "RESULT.md, Finding, assumptions, invariant, composition and closure proof; certificate's two length-ten entries",
+          "method": "Local mirror, RESULT.md offsets 0–6547 and permutation_rank2_certificate.json offsets 56020–57183",
+          "title": "Exactly 226 rank-two theories of separable permutations and a sharp ten-point bound",
+          "trigger": "Distinct same-day ten-point and quadrant-spectra match"
+        },
+        {
+          "assessment": "Same mask reduction, different probabilistic claim, later-dated",
+          "evidence": [
+            "The limiting signature is {3,5,7,10,11,12,13,14,15}; a shortest representative has length nine."
+          ],
+          "identifier_or_url": "Resultary:6881f13fc4cb",
+          "material_read": "RESULT.md, Finding and assumptions",
+          "method": "Local mirror, offset 0–2300",
+          "title": "Sharp rank-two stabilization for uniformly random permutations",
+          "trigger": "Unrestricted permutations with the same local model and equivalence"
+        },
+        {
+          "assessment": "Inspected passage concerns the infinite limit and reduct classification, not the finite extremal census",
+          "evidence": [
+            "It describes the two-order Fraïssé limit and classification of the 39 closed supergroups of its automorphism group."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1405.4297",
+          "material_read": "Introduction, p. 1",
+          "method": "Lawful OA PDF, offset 309",
+          "title": "Permutations on the Random Permutation",
+          "trigger": "Older logical analysis of the homogeneous two-order structure"
+        },
+        {
+          "assessment": "Same logical setting and method precedent, but the inspected passages do not give the unrestricted size-ten census",
+          "evidence": [
+            "TOTO treats permutations by position and value orders; §4 introduces EF games to prove inexpressibility."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1808.05459",
+          "material_read": "Abstract/introduction and opening of §4–4.1 on EF games",
+          "method": "Lawful OA PDF, offsets 0 and 60700–62759",
+          "title": "Two First-Order Logics of Permutations",
+          "trigger": "Prior finite two-order language and rank methods"
+        },
+        {
+          "assessment": "Different infinite structure/parameter quantifiers; later-dated",
+          "evidence": [
+            "Complete nonalgebraic one-types over n parameters correspond to (n+1)^2 insertion-gap pairs, not types co-realized in one finite structure without parameters."
+          ],
+          "identifier_or_url": "Resultary:5c6744671985",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local mirror, offset 0",
+          "title": "Sharp all-grade envelopes for one-point disagreement types in the random permutation",
+          "trigger": "Potential full-type comparison over parameters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof and size-ten census",
+        "Resultary:7fe7e8086c11, restricted scope and certificate"
+      ],
+      "rationale": "This is the maximum simultaneous local logical diversity in the natural two-order permutation language. The gap between the nine formal interior options and eight compatible ones explains a global obstruction not captured by looking at one point or by counting signature classes. Size ten is the forced minimal equality layer, not an arbitrary enumeration cutoff. Counting and quotienting all its realizations describes the complete equality layer up to geometric symmetries, rather than merely reprinting the two known signature witnesses.",
+      "residual_risks": [
+        "The result does not classify rank-two sentence theories or extremizers of all sizes up to isomorphism."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Review of the sharp four-circle maximin perimeter finding
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The proof uses fourteen feasible mixed sign patterns, eight triangular and six quadrilateral regions, and a one-to-one triangle–quadrilateral edge incidence. Hence the eight triangular perimeters total exactly \(8\pi\), giving the universal upper bound. Equality of all eight triangular perimeters is inverted by spherical polarity and the unit-triple solid-angle identity to four *linear* Gram equations; their solution is precisely the orthogonal disphenoid sign-normal family. The three antipodal quadrilateral pairs have polar rectangles with areas \(4\arctan(bc/a)\), \(4\arctan(ac/b)\), and \(4\arctan(ab/c)\), yielding all necessary and sufficient inequalities. The separate standard-library checker reconstructed 900 nondegenerate arrangements and verified all local formulas within numerical tolerance; only the analytic proof establishes the infinite claim. No degenerate three-concurrent arrangements are included.
+PASS
 
-## Originality (O): PASS, historically provisional
+Every triple of normals is independent. Orient the uniquely dependent four-tuple so its coefficients are positive. A strict sign chamber is impossible exactly when its signed normals have a nonzero nonnegative dependence, hence exactly the two constant signs are excluded. A singleton-sign constraint follows from the other three. In a two-two chamber every hyperplane is a facet: feasible witnesses for opposite signs of that coordinate can be joined, keeping the other three inequalities strict. Thus the eight triangles and six quadrilaterals meet along edges always of mixed type, so triangular perimeters total 8π and the minimum is at most π. If the minimum equals π all triangles have perimeter π; polarity gives four normal-triple areas of π. The solid-angle formula has positive determinant magnitude and returns area π precisely when 1 plus the three pairwise dots vanishes. Subtracting the four equations yields equal opposite-pair Gram entries and the sum −1. The Gram matrix is realized by the stated sign pattern with positive a,b,c and squares summing to one; congruence is orthogonal since each triple spans. Conversely this Gram condition makes all triangles have perimeter π. The polar of the ++−− chamber is the radial rectangle at x=a. Integrating (1+s²+t²)^(-3/2) over the rectangle uses the mixed primitive arctan(st/sqrt(1+s²+t²)); its area is 4 arctan(bc/a) after unit normalization. Cyclic permutations and antipodal symmetry give all quadrilateral perimeters. Monotonicity of arctan gives exactly the three non-strict constraints. The regular point satisfies them strictly, and the unordered (a,b,c) are determined by the normal Gram data up to permutation, so a two-dimensional family survives modulo isometry. The boundary, including an additional quadrilateral of perimeter π, is allowed.
 
-Bhowmick (2026) treats the smallest **area** of cells; Bezdek–Lángi (2022/24) treat inradius/circumradius, and provide the combinatorics used here. Classical spherical polarity and solid-angle formulas are credited. The simple \(\pi\) upper bound follows from earlier combinatorics and is not presented as the sole novelty. The new contribution is the *complete* optimizer classification, including a two-dimensional equality family and a sharp three-inequality boundary derived from exact quadrilateral perimeters. Searches for equivalent minimum-perimeter theorems, dual formulations, stronger prior coverage and tables found none; historical priority remains subject to unindexed older work.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-This is a natural sharp extremal invariant of the smallest cell in the first nontrivial nondegenerate four-circle arrangement. Unlike area or covering criteria, the perimeter criterion possesses a continuous two-dimensional optimizer region rather than a rigid regular configuration. The statement completely characterizes when the three quadrilateral orbits cease to be limiting; the explicit geometry supplies a reusable boundary classification, not only an isolated numeric bound. The known easy average bound alone would have been low value, so acceptance rests on the complete non-rigid equality theorem.
+Best-of-knowledge pass for the complete nonrigid optimizing region and its exact quadrilateral profile for the geodesic perimeter objective. Credit established incidence and polar/solid-angle methods. The π upper bound is short once the incidence sum is known; that observation is not the sole novel contribution.
 
-## Scientific limitations
+## value
 
-Only four circles with no three concurrent and geodesic cell perimeters are treated. The standalone checks are finite floating-point corroboration, not a formal proof. A non-exhaustive literature search cannot certify global historical novelty.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural extremal question for the first four-circle arrangement with two cell types has an explicit, exhaustive equality set. Nonrigidity distinguishes perimeter optimization from nearby rigid area problems, and the quadrilateral formulas give an exact membership test including boundary cases. This is substantive beyond the incidence-average proof of the bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

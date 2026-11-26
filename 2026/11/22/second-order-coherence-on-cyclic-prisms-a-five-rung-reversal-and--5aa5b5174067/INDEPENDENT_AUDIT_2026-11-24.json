@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:38:45.472908Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the mean-zero space, the trace of A^(-p) has a strictly positive spectral Hessian for p=1,2 (use the continuous divided difference also at repeated eigenvalues). Off-diagonals identify the weights, loss of connectivity sends an eigenvalue to zero, and uniqueness forces invariance under layer exchange and rotation. Removing either whole orbit disconnects the network, so both weights are positive. The symmetric/antisymmetric Fourier spectrum is a*mu_k and a*mu_k+2b; differentiation under m(2a+b)=1 gives S_p-R_p, where R_p decreases strictly from infinity to zero. Independently reproduced all six small-m sign/equality certificates by rational matrix inversion in /workspace/frozen_review_arithmetic.py (SymPy, no frozen code executed). For m>=7 the zero mode gives t_1>sqrt(12/(m^2-1)) >=30/(m^2+11) using (m^2-49)(m^2-4)>=0. The same barrier holds by the small-case certificates at 5 and 6. Then R_2(t_1)<R_1(t_1)/(2t_1)<S_2, giving the entire finite-size comparison. For t->0 and m*sqrt(t)->infinity, the rescaled Fourier sums are Riemann sums at the two ends of the band: T_q ~ m*(2t)^(1/2-q)/(2*pi) times the integral of (1+x^2)^(-q) over the line. Sine bounds control the tails. Thus R_1~m*(2t)^(-3/2), R_2~3m*(2t)^(-5/2)/4; monotone bracketing at the two trial scales gives c_1 and c_2. Substituting into the budget-normalized trace yields the c_2/108 correction and the larger c_1/180 regret coefficient as stated. The bounded replay checks arithmetic, not the infinite-family argument or provenance. Read the frozen result, verification note and script; no formal verification claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Index 8a4a15cc3c55 covers the same unrestricted unit-budget prism for real p>0 and gives exponent 2(2p-1)/(2p+1) for p>1/2, with endpoints described as previously known. At p=2 this equals 6/5; at p=1 it equals 2/3.",
+          "The independently available first-moment index 58e191d42f66 gives a rung-to-ring ratio of order m^(-2/3)."
+        ],
+        "reasoning": "Direct broader coverage for the power laws. The broad indexed statement, even specialized at both endpoints, does not classify their finite crossings. Full-text overlap on the constants and regret remains open.",
+        "searches": [
+          "Resultary: A half-order allocation transition for inverse-Laplacian spectral moments on cyclic prisms",
+          "Targeted mirror read for 8a4a15cc3c55 and cited first-order records",
+          "Cited literature: Patterson–Bamieh; Ghosh–Boyd–Saberi; Cinkir"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md §§1–6 and references; VERIFICATION.md; verify.py",
+        "Resultary entries 5aa5b5174067, 8a4a15cc3c55 and 58e191d42f66",
+        "Targeted OA attempts for the same-day mirror, first-order mirrors and cited papers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ratio of the order-two and order-one asymptotic scales tends to zero, so eventual second-order underinvestment is already implied by the two laws. The signs at m=3,4,5,6 and uniform barrier for m>=7 require additional information."
+        ],
+        "reasoning": "Credit both eventual ordering and the overlapping exponent; accept the all-size reversal as the distinct theorem. The leading regret is obtained by combining the allocation laws with the spectral objective, not presented here as independent grounds for priority.",
+        "searches": [
+          "8a4a15cc3c55 indexed all-p law",
+          "58e191d42f66 indexed first-order law",
+          "Frozen RESULT.md §§2–5 and references"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact-index hit 5aa5b5174067 is the assigned record itself. First-inverse-moment effective resistance is proportional to F_1 for fixed vertex count, not F_2. Fixed prism resistances and spectra do not compare optimizers under edge redistribution."
+        ],
+        "reasoning": "Compared both raw spectral-trace and coherence/total-resistance formulations on C_m square K_2, and normalized equivalent homogeneous objectives. The first-order baseline is not the order-two comparison.",
+        "searches": [
+          "Resultary: second-order cyclic-prism coherence and inverse-Laplacian optimization; finite five-rung reversal",
+          "Literature search: cyclic prisms, Laplacian inverse moments and conductance design",
+          "Frozen RESULT.md sections 1–3, 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The returned exact finite ordering is 5aa5b5174067, the assigned record; the materially related all-p result supplies an exponent, not a finite-ordering table in its available entry."
+        ],
+        "reasoning": "Searched the relevant indexed result corpus. A finite graph eigenvalue table for fixed weights would not certify inequalities between continuous optimizers for every prism size.",
+        "searches": [
+          "Resultary: five-rung reversal, six-fifths allocation and spectral regret; exact title lookup for 8a4a15cc3c55"
+        ]
+      },
+      "rationale": "Pass for the exact all-size first-versus-second ordering (including equality only at m=4), not as an exclusive priority claim for the fractional exponent or for inverse-trace design. The general real-p same-day record demonstrably covers the m^(-6/5) allocation exponent as a specialization; its indexed wording treats the endpoint laws as known and establishes no same-day priority. The available asymptotic comparison gives eventual order, not the finite reversal threshold or the exceptional small sizes. No checked prior statement supplies the latter. The exact scope of overlap in the asymptotic constants and regret is less secure than for the threshold.",
+      "residual_risks": [
+        "The same-day general-p text was unavailable after targeted mirror attempts. The index proves exponent overlap but does not resolve priority, the exact asymptotic constant, regret, or incidental discussion of finite reversals in that text.",
+        "Primary design/coherence texts were not available at decisive passages; scientific distinctions are limited to the descriptions and indexed statements actually available."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Demonstrated exponent overlap; finite threshold not established by accessible material",
+          "evidence": "Summary: the unrestricted unit-budget optimum above p=1/2 follows m^(-2(2p-1)/(2p+1)); known endpoint laws not claimed as new.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-half-order-allocation-transition-for-inverse-laplacian-spectra--8a4a15cc3c55",
+          "material_read": "Resultary title and summary; targeted RESULT.md passage could not be retrieved",
+          "method": "Resultary exact query; targeted local-mirror OA passage lookup",
+          "title": "A half-order allocation transition for inverse Laplacian spectral moments on cyclic prisms",
+          "trigger": "Same graph, objective family, normalization and dominant parameter"
+        },
+        {
+          "assessment": "First-order baseline overlap",
+          "evidence": "The summary optimizes total effective resistance and gives the two-thirds rung exponent.",
+          "identifier_or_url": "2026/11/2/SCOPE-mesoscopic-rung-allocation-in-resistance-optimal-prism-networks--58e191d42f66",
+          "material_read": "Index summary only; mirror passage not retrieved",
+          "method": "Resultary and targeted mirror lookup",
+          "title": "Mesoscopic rung allocation in resistance-optimal prism networks",
+          "trigger": "Same prism and design, one endpoint objective"
+        },
+        {
+          "assessment": "Reported first-order overlap; no full-text exclusion",
+          "evidence": "The frozen source credits the first-moment calculation and m^(-2/3) law to the cited results.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-two-thirds-power-law-for-resistance-optimal-rung-investment-in--9aa86612587c",
+          "material_read": "Frozen RESULT.md lines 137 and 149; outside full-text attempt unsuccessful",
+          "method": "Exact cited record lookup",
+          "title": "A two-thirds-power law for resistance-optimal rung investment in prism networks",
+          "trigger": "Cited first-order baseline"
+        },
+        {
+          "assessment": "Credited definition; exact external coverage not determined from full text",
+          "evidence": "Frozen RESULT.md line 135 credits the squared-inverse spectral moment, with different design questions.",
+          "identifier_or_url": "https://arxiv.org/abs/1310.2592",
+          "material_read": "Frozen bibliographic description only; OA full-text attempts did not return the relevant passages",
+          "method": "Targeted OA HTML/PDF requests",
+          "title": "Consensus and Coherence in Fractal Networks",
+          "trigger": "Same second-order coherence objective"
+        },
+        {
+          "assessment": "Credited first-order framework; no full-text exclusion",
+          "evidence": "The cited objective is total effective resistance, proportional to the first, not second, inverse moment.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "Frozen bibliographic description; direct OA PDF and identified Stanford page did not yield text",
+          "method": "Targeted OA PDF and public page lookups",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Unrestricted budgeted conductance design"
+        },
+        {
+          "assessment": "Relevant fixed-weight baseline, not verified at full-text level",
+          "evidence": "Frozen RESULT.md line 135 describes resistances and the Kirchhoff index of fixed unweighted prisms.",
+          "identifier_or_url": "https://arxiv.org/abs/1704.03429",
+          "material_read": "Frozen bibliographic description only; targeted OA lookup unsuccessful",
+          "method": "Targeted OA lookup",
+          "title": "Effective Resistances and Kirchhoff Index of Prism Graphs",
+          "trigger": "Same graph and resistance invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The threshold tells a designer exactly when a first-order optimum over- or underinvests in rungs relative to second-order coherence. It resolves the entire natural prism family under unrestricted allocation, with a genuine small-size exception and a cube equality that large-size power laws alone cannot predict. The regret analysis further identifies why absolute losses can grow despite vanishing relative losses.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

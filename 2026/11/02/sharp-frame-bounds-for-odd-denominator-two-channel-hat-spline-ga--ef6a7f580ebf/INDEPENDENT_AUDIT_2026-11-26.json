@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:08:48.514256Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 25–88, VERIFICATION.md and CHECK.py (inspected, not executed)",
+        "/workspace/review_evidence/5.js (exact centered-window replay)",
+        "/workspace/repairs/5/RESULT.md"
+      ],
+      "rationale": "The frozen proof used the centered hat in the Walnut coefficients but evaluated the sums for the translated hat: at q=3, t=0 the actual centered D(t),D(t+1) are 11/9,8/9, not 8/9,11/9. Both coefficient pairs are interchanged; this leaves trace, squared diagonal difference and off-diagonal modulus invariant. The repair explicitly works with the unitary-equivalent translated hat, reconstructs the finite sums by branch counts, endpoint sums and quadratic coefficients, and derives the two-channel matrix with no normalization change. Nonnegative products optimize both spectral edges at phase zero. The derivative gap 24(q²−1)>0 makes both extreme-phase branches strictly increasing in w, and continuity gives the stated essential extrema and sharp bounds. Recomputed 1248 centered coefficient identities in integer arithmetic; the general proof is symbolic, not extrapolated from the samples.",
+      "residual_risks": [
+        "Only odd q≥3 at unit modulation spacing; no conclusion about other reduced fractions or about dual-window localization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stangl–Frederick require ab=1/q, b≥3/2, and explicitly distinguish the problem for p>1. Theorem 1 of Atindehou et al. treats specified frame-set regions with b>1, not sharp bounds at b=1."
+        ],
+        "reasoning": "Scaling preserves the product, and 2/q for odd q is in lowest terms with numerator two. Qualitative frame-set inclusions alone cannot give spectral extrema.",
+        "searches": [
+          "arXiv:2609.00481v2 Theorem 3",
+          "arXiv:1806.05614 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked searches and local 08edf77a8415",
+        "arXiv:2609.00481v2",
+        "arXiv:1806.05614"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same-density valid estimates cannot determine the sharp spectral edges under a different fixed-window sampling. A two-channel matrix description leaves the continuous phase and base-point optimization unsolved."
+        ],
+        "reasoning": "The exact slope certificate and endpoint optimization are substantive work beyond substituting into a stated prior sharp result.",
+        "searches": [
+          "Resultary:08edf77a8415 Finding",
+          "arXiv:2609.00481v2 Theorem 3 and p>1 discussion",
+          "arXiv:1806.05614 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Translating the centered hat by one gives the standard second-order spline without changing bounds. The strongest Resultary neighbor 08edf77a8415 fixes the hat at b=5/2, not b=1."
+        ],
+        "reasoning": "Translation is a true equivalence; dilation that changes b changes the window as well and does not transfer fixed-hat bounds from the neighbor.",
+        "searches": [
+          "Resultary: odd-denominator two-channel hat/B-spline frame bounds; unit modulation; Walnut/Zak fiber",
+          "arXiv:1806.05614"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue searches did not expose matching formulas; the strongest related RESULT.md gives valid, not optimal, bounds at (4/(5q),5/2)."
+        ],
+        "reasoning": "No exact table or formulas for the same operator were found in the inspected results; ranked results are not exhaustive.",
+        "searches": [
+          "Resultary: exact A_q and B_q formulas; q odd with b=1",
+          "Resultary:08edf77a8415"
+        ]
+      },
+      "rationale": "The inspected same-density and same-window work does not give the exact fixed-hat, b=1 spectral edges. The supported contribution is sharp bounds and conditioning, not qualitative frame membership or the general fiber representation.",
+      "residual_risks": [
+        "The literature comparison is bounded; equivalent formulas in older or incompletely indexed work cannot be ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "different b; nonsharp estimates",
+          "evidence": "The fixed hat is sampled at (4/(5q),5/2), and the displayed constants are valid bounds, not optimized spectral edges.",
+          "identifier_or_url": "Resultary:08edf77a8415",
+          "material_read": "local RESULT.md opening finding, offset 0",
+          "method": "bounded local mirror passage",
+          "title": "Uniform quantitative frames on the odd-denominator two-channel family",
+          "trigger": "strongest same-window/same-density catalogue match"
+        },
+        {
+          "assessment": "numerator-one result does not cover the odd-denominator numerator-two family",
+          "evidence": "Theorem requires ab=1/q, b≥3/2 and discusses needing the full p×q matrix for p>1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.00481v2",
+          "material_read": "Theorem 3 and numerator discussion, pp. 2–3, offsets about 7300–8050",
+          "method": "open primary PDF",
+          "title": "The frameset of the second-order B-Spline along ab=1/q",
+          "trigger": "same spline and rational oversampling"
+        },
+        {
+          "assessment": "different region and qualitative type of claim",
+          "evidence": "The displayed Γ₃ and Λ regions require b>1 and do not provide the optimal inequalities at b=1.",
+          "identifier_or_url": "https://arxiv.org/pdf/1806.05614",
+          "material_read": "Theorem 1, p. 2, offset about 6200",
+          "method": "open primary PDF",
+          "title": "On the frame set of the second-order B-spline",
+          "trigger": "frame-set statements in the equivalent spline convention"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected fiber proof and explicit sharp inequalities",
+        "Resultary:08edf77a8415",
+        "arXiv:2609.00481v2"
+      ],
+      "rationale": "The smallest genuinely two-channel reduced numerator is a natural exact spectral benchmark beyond integer oversampling. Both optimal edges, not just positivity, give usable noise/stability constants and exhibit a nontrivial universal conditioning limit of three. The thin but structured family is infinite, and the proof identifies distinct controlling base points for the two edges.",
+      "residual_risks": [
+        "The conditioning result is for the frame operator; the analysis operator's condition number would be its square root."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

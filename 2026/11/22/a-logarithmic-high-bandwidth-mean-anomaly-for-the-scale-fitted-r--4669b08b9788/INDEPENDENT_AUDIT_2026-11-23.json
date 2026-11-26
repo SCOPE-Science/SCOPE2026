@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:29:16.365276Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalizing the iid Rayleigh squares by their sum gives the uniform Dirichlet simplex, with fitted coordinates Y_i=sqrt(2n U_i) and exact marginal density c_n y(1-y^2/(2n))^(n-2). Below the sample minimum the statistic's integrand before squaring is exactly t times the sample mean of Y_i-1/Y_i. Beyond this random positive cutoff the uniformly bounded kernels contribute an exponentially negligible piece for that sample. For W_i=1/Y_i, the marginal tail at r is c_n/(2r^2)+O_n(r^(-4)); the probability of two coordinates at any fixed positive fractions of r is O_n(r^(-4)), and is zero for large r when n=2. Inclusion-exclusion and the bound that a sum above r with maximum at most (1-delta)r requires two such coordinates give the sharp sum-tail constant. The bounded sum of Y_i does not change it; squaring and rescaling give c_n/z and the positive-moment threshold q<1. For the finite-bandwidth mean, the diagonal kernel contributes c_n t^2 log(1/t)+O_n(t^2): on Y<t the bounded kernel contributes O_n(t^2), and on Y>=t the reciprocal-square times the marginal density is c_n/y+O_n(y). The cross kernels contribute only O_n(t^2) since |g_y(t)|/t is bounded by a constant times 1+1/y and the exact Dirichlet mixed inverse moment for i!=j is pi(n-1)/(2n), including the n=2 beta-integral case. Tonelli and the integral of s^2 exp(-s), equal to 2, give the stated 2c_n coefficient, without an interchange of mean and samplewise limit. Fixed positive a has finite expectation by the uniform kernel bound; no joint n,a or nonpositive moment claim is needed. The packaged two-coordinate quadrature and deterministic sample checks were read as diagnostics, not executed or used as infinite-parameter proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fixed-point framework covers construction of empirical weighted goodness-of-fit distances for parametric families, including nonnegative support.",
+          "The original Rayleigh Theorem 1 is an n-to-infinity Gaussian quadratic norm with fixed positive a. Gamma's score uses the scale and shape in a different kernel."
+        ],
+        "reasoning": "These sources cover test construction, not the finite Dirichlet inverse-coordinate behavior as the Laplace parameter increases. A general Abelian transform would only integrate a proved small-t second-moment expansion; it does not supply the expansion or the tail equivalence.",
+        "searches": [
+          "Betsch–Ebner arXiv:1810.06226 Section 7 and Gamma example",
+          "Betsch–Ebner arXiv:1806.06028 Theorems 1.1 and 1.2 and empirical discrepancy discussion",
+          "Grobler–Bothma–Allison Section 3 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Grobler–Bothma–Allison (2022), Sections 2–4",
+        "Betsch–Ebner arXiv:1810.06226 Section 7",
+        "Betsch–Ebner arXiv:1806.06028 relevant characterization passages",
+        "Resultary large exponential-weight and reciprocal Dirichlet queries",
+        "Focused primary-literature search on the identified statistic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixing the realized sample and inserting t below its sample minimum in Eq. (5) already gives the samplewise asymptotic by elementary integration. This part alone is not a substantive new consequence.",
+          "Averaging that samplewise expansion is invalid: the endpoint has infinite mean. The finite inverse mixed moments and nonintegrable diagonal asymptotics instead give a separate logarithmic cutoff analysis."
+        ],
+        "reasoning": "The new content is precisely the analysis bridging finite-a integrable statistics and the nonintegrable limiting variable. The fixed-bandwidth Gaussian limit at large n cannot be substituted for this fixed-n analysis.",
+        "searches": [
+          "10.3390/math10081316 Section 2 Eq. (5) versus Section 3 Theorem 1",
+          "arXiv:1810.06226 Section 7 empirical construction",
+          "Resultary high-bandwidth Rayleigh and inverse-Dirichlet tail searches"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published Eq. (5), with exponential weight and MLE-standardized Y_i, is the identical statistic.",
+          "Squaring Rayleigh observations gives exponential data but not the same empirical discrepancy after substitution: the Rayleigh kernel contains min(y,t) and y-1/y, not the exponential-scale min(y^2,t^2) kernel. The closest index hits on logistic Stein and Weibull min-characteristic tests use different operators and weights."
+        ],
+        "reasoning": "The alias large Laplace parameter and the reciprocal Dirichlet endpoint are more precise comparisons than a bandwidth label. Related fitted exponential or Weibull statistics are not equivalent to this kernel or to its singular mean.",
+        "searches": [
+          "Resultary: Rayleigh goodness of fit scale fitted Stein min empirical fixed point high bandwidth large exponential weight logarithmic mean heavy tail Dirichlet",
+          "Resultary: Grobler Bothma Allison Rayleigh limit fixed sample Laplace mean logarithmic a^3 normalized singular Dirichlet inverse tail",
+          "Web: Rayleigh Stein Grobler 1316 large tuning parameter asymptotic limit logarithmic degree high bandwidth fixed sample size Rayleigh goodness fit",
+          "Grobler–Bothma–Allison Eq. (5)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original fixed-tuning tables compare simulated test power, including for a=1 and a=5, not the fixed-n asymptotic mean or tail coefficient. The index surfaced this same record and distinct high-weight or small-coordinate results, not a second exact evaluation."
+        ],
+        "reasoning": "Finite power values, or heavy tails of other inverse-normalized observables, do not determine this statistic's limiting positive moments or the coefficient of log a. Search coverage is bounded.",
+        "searches": [
+          "Grobler–Bothma–Allison Section 4 fixed-tuning simulations",
+          "Resultary fixed-sample high-Laplace Rayleigh and singular Dirichlet searches",
+          "Web: Rayleigh Stein Grobler 1316 large tuning parameter asymptotic limit"
+        ]
+      },
+      "rationale": "The original statistic, fitting rule, and general fixed-point framework are established; the pointwise endpoint is a short consequence of the published definition. The contribution is the joint characterization of the sharp tail, positive-moment transition and logarithmic prelimit mean for that exact fitted statistic. Neither the opposite-order limit nor the other high-weight statistics located cover these null constants.",
+      "residual_risks": [
+        "A wider fixed-n endpoint-regular-variation theorem for scale-fitted tests could subsume part of the calculation.",
+        "A Rayleigh-specific or normalized-spacing calculation under different variable conventions could have been missed. The independent comparison is not exhaustive and does not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the statistic and earlier large-sample null theory, not the particular fixed-n tail and mean result in the inspected sections",
+          "evidence": "Eq. (5) integrates the squared fitted discrepancy against exp(-at). Theorem 1 is a Hilbert-space Gaussian limit as n grows; simulations compare selected fixed a.",
+          "identifier_or_url": "https://doi.org/10.3390/math10081316",
+          "material_read": "Open publisher PDF via mdpi-res.com: Section 2 fitted discrepancy, Eq. (5) and exponential weight; Section 3 null asymptotics; Section 4 fixed tuning and comparison passages",
+          "method": "Matched the defining integral, scope of Theorem 1 and tuning of the power experiments",
+          "title": "Testing for the Rayleigh Distribution: A New Test with Comparisons to Tests for Exponentiality Based on Transformed Data",
+          "trigger": "Identical statistic and strongest possible asymptotic overlap"
+        },
+        {
+          "assessment": "Supplies the known construction, not the claimed finite-n coefficients in the inspected material",
+          "evidence": "Section 7 builds tests by a metric distance between empirical transformed and empirical distribution functions and illustrates scale fitting in the Gamma family.",
+          "identifier_or_url": "https://arxiv.org/pdf/1810.06226",
+          "material_read": "Open PDF introduction and Section 7 empirical-test construction and Gamma example",
+          "method": "Compared general empirical transformation, scaling and discrepancy to the fitted Rayleigh endpoint",
+          "title": "Fixed point characterizations of continuous univariate probability distributions and their applications",
+          "trigger": "Potentially broader Stein fixed-point class and weighted test theory"
+        },
+        {
+          "assessment": "Law transformation does not identify the two test statistics; no whole-document absence inference needed",
+          "evidence": "The Gamma score in the fixed-point expression is 1/lambda-(k-1)/x, not the Rayleigh fitted score y-1/y; collapsing to an exponential changes the small-coordinate singularity.",
+          "identifier_or_url": "https://arxiv.org/pdf/1806.06028",
+          "material_read": "Open PDF fixed-point characterization and adjacent empirical methodology passages",
+          "method": "Compared the score on Gamma data to the Rayleigh-scale min kernel",
+          "title": "A new characterization of the Gamma distribution and associated goodness of fit tests",
+          "trigger": "Rayleigh-square exponential/Gamma equivalence might conceal an equivalent test"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact boundary behavior quantifies a failure of mean calibration for a published tuning family: an almost-sure finite scale limit coexists with logarithmically divergent normalized means, and rare near-zero observations set the constant and moment transition. Neither pointwise integration alone nor a finite power comparison addresses that phenomenon. The result is an idealized null calibration benchmark, not a choice of bandwidth, power theorem or simultaneous large-sample approximation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

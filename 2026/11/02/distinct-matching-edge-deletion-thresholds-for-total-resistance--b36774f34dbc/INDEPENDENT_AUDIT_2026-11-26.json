@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:39:31.737932Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The reduced Laplacian H on the mean-zero subspace affinely and injectively encodes every individual conductance, since the full Laplacian is zero on constants and its off-diagonals recover the weights. Trace-inverse is strictly convex there (in an eigenbasis its directional Hessian is a positive sum of squares), and logdet strictly concave. The price simplex is compact, has a connected feasible point, and approaching a singular H sends the resistance sum to infinity and the tree enumerator to zero. Thus each optimum exists with connected support and is unique in the full variables. The pair symmetries then force its two weights, with b>0 by connectivity. On pair-constant mean-zero and pair-antisymmetric spaces the respective eigenvalues are x=2mb and y=2b(m−1+t), of multiplicities m−1 and m. These give the stated trace-inverse times 2m and determinant divided by 2m; the price constraint yields b=B/[m(Pt+2(m−1)Q)]. Independently, the benefit gradient along a matching edge has squared incidence norm 2 entirely in the y-space, while a nonmatching edge has squared norm 1 in each space. Thus the matching versus nonmatching marginal-benefit ratios are 2x²/(x²+y²) for A and 2x/(x+y) for D. They strictly decrease with t≥0; the positive optimum sets its ratio equal to r, and deletion is optimal precisely when r is at least the ratio at t=0. The gradient test is sufficient by the full-space curvature; equality at a threshold still gives a unique boundary optimum. This yields both exact roots, the ordered gap 2m(m−1)/[(2m−1)(2m²−2m+1)], and the interval including its D endpoint but not its A endpoint. For fixed γ the two unclipped roots at r=1+γ/m expand as 1−γ+O(1/m) and 1−2γ+O(1/m), and clipping at zero gives the limits including γ=1 and 1/2. No computation is needed for the all-m result. The supplied rational checks and their limits were inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghosh–Boyd–Saberi treat equal-price global resistance design, its support conditions, and the uniform complete-graph case. Tovar et al. derive price-dependent marginal support tests and a triangle cutoff. Klee–Stamps use determinant methods to enumerate weighted trees.",
+          "A search hit addresses a discrete subgraph/edge-budget problem; access only to snippets did not suffice for a whole-paper comparison."
+        ],
+        "reasoning": "General uniqueness and marginal criteria supply methods, not an exact optimal determinant response for continuously priced edges in this topology. An equal-price optimum is only r=1, and the priced-triangle example is neither both objectives nor a perfect-matching family.",
+        "searches": [
+          "Ghosh–Boyd–Saberi, SIAM Review 50 (2008)",
+          "Tovar et al., arXiv:2610.03627",
+          "Klee–Stamps, arXiv:1903.03575",
+          "perfect matching total effective resistance conductance design cost optimal spanning tree matching edge deletion threshold complete graph"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–90 and supporting verification files",
+        "Indexed records cf3b1355b128, b65b2ff40797, 1ae0e33a18ed and 78a63c5af6f2",
+        "Ghosh–Boyd–Saberi SIAM Review 50 (2008)",
+        "Tovar et al. arXiv:2610.03627",
+        "Klee–Stamps arXiv:1903.03575"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known resistance theorem establishes one side of the support comparison. Matrix–Tree gives the determinant objective; the same-day bipartite comparison solves a different orbit spectrum."
+        ],
+        "reasoning": "In the complete graph the inverse and inverse-square marginal ratios differ because nonmatching incidence splits across the pair-constant and pair-antisymmetric spaces while matching incidence does not. One must evaluate the D ratio in this topology and prove where it lies relative to the known A ratio, including the two different first-order constants. Neither the known A solution nor the published general tools give that joint exact response without the new optimization and comparison.",
+        "searches": [
+          "Resultary cf3b1355b128; b65b2ff40797; 1ae0e33a18ed",
+          "Ghosh–Boyd–Saberi pp. 39, 51–52, 61–62; Klee–Stamps p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier priced-matching Kirchhoff-index record gives threshold N²/(N²−2N+2) and ratio N sqrt((2−r)/r)/2−(N−2)/2 for the complete graph.",
+          "The same-topology worst-pair record gives threshold 2 and permits multiple optima at equality."
+        ],
+        "reasoning": "Set N=2m: the first formula and weights are exactly the frozen A component, not just a similar transition. Worst-pair resistance is a maximum rather than the summed Kirchhoff index and does not yield either threshold of the comparison. Logdet on the mean-zero space is equivalent to maximizing total weighted spanning-tree count, not to maximizing a single tree's weight.",
+        "searches": [
+          "Resultary: SCOPE-a-sharp-matching-price-transition-in-resistance-optimized-comple--cf3b1355b128",
+          "Resultary: SCOPE-sharp-worst-pair-resistance-design-for-complete-graphs-with-pric--78a63c5af6f2",
+          "Kirchhoff index, trace-inverse A design; Matrix–Tree, logdet D design"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact A response and threshold are matched by cf3b1355b128. The A/D and determinant-only matching results for K_{m,m} have a determinant threshold m(2m−3)/[(m−2)(2m−1)] on their stated nondegenerate range, not 2m/(2m−1)."
+        ],
+        "reasoning": "Equal vertex counts and matchings do not identify the two graph families: the bipartite case excludes all within-part edges and has a different Laplacian and price simplex. Its formulas are not numerically equal, and none of the inspected records gives the joint thresholds for K_{2m}.",
+        "searches": [
+          "Resultary cf3b1355b128, Finding",
+          "Resultary b65b2ff40797 and 1ae0e33a18ed, Findings"
+        ]
+      },
+      "rationale": "Pass for the exact A-versus-D comparison on the complete graph: the D-optimal price response, the strict disagreement interval with its endpoints, and its critical scaling. The A-optimal conductances and threshold in isolation are exactly covered by an earlier indexed result and receive no originality credit. The matching spectrum and generic convex-design methods are background. The strongest similar A/D theorem uses a complete bipartite graph and does not imply the determinant response or support interval for K_{2m}. No historical priority beyond the inspected evidence is claimed.",
+      "residual_risks": [
+        "A specialized determinant-design formula on the same complete graph might exist outside the inspected sources.",
+        "A discrete edge-budget search hit was not available for decisive full-text comparison; snippets do not justify excluding all related literature.",
+        "Dates do not assign priority among same-day records; the exact earlier A-component overlap is already credited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Complete coverage of the A component; not the determinant comparison",
+          "evidence": "N²/(N²−2N+2) and the same price-dependent weight ratio after N=2m.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-sharp-matching-price-transition-in-resistance-optimized-comple--cf3b1355b128/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Configured index and local mirror text",
+          "title": "A sharp matching-price transition in resistance-optimized complete graphs",
+          "trigger": "Most direct exact overlap in graph, price and total-resistance objective"
+        },
+        {
+          "assessment": "Different graph, thresholds and spectral conditions; no priority assigned based on date",
+          "evidence": "Both objectives on K_{m,m}; determinant threshold m(2m−3)/[(m−2)(2m−1)].",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-an-a-versus-d-support-gap-for-a-priced-perfect-matching-in-compl--b65b2ff40797/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Configured index and local mirror text",
+          "title": "An A versus D support gap for a priced perfect matching in complete bipartite graphs",
+          "trigger": "Strongest same-day A/D support-gap analogy"
+        },
+        {
+          "assessment": "Bipartite design, not the complete-graph D response",
+          "evidence": "Exact determinant deletion threshold for K_{n,n}, as in the matching bipartite comparison.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-price-threshold-deletion-of-a-perfect-matching-in-determinant-op--1ae0e33a18ed/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Configured index and local mirror text",
+          "title": "Price-threshold deletion of a perfect matching in determinant-optimal networks",
+          "trigger": "Earlier exact determinant support threshold for a priced matching"
+        },
+        {
+          "assessment": "Different objective and support transition",
+          "evidence": "Worst-pair rather than total resistance; threshold r=2 with both types of support optimal at equality.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-worst-pair-resistance-design-for-complete-graphs-with-pric--78a63c5af6f2/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Configured index and local mirror text",
+          "title": "Sharp worst-pair resistance design for complete graphs with priced matching edges",
+          "trigger": "Same topology and edge-price partition"
+        },
+        {
+          "assessment": "Foundational A-design methods and uniform-price special case",
+          "evidence": "General convexity/uniqueness and KKT, and uniform optimum for the equal-price complete graph.",
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "pp. 39, 51–52, 61–62",
+          "method": "Lawful OA PDF located passages",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "General conductance design, strict convexity and support optimality"
+        },
+        {
+          "assessment": "Marginal-price background; no exact complete-graph A/D comparison in inspected passages",
+          "evidence": "Power-law cost model, marginal support criterion and priced-triangle cutoff.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.03627",
+          "material_read": "PDF pp. 1, 3–4, offsets 0, 16731, 21715",
+          "method": "Lawful OA PDF located passages",
+          "title": "Cost convexity controls the architecture of resistance-optimal networks",
+          "trigger": "General price-dependent resistance support thresholds"
+        },
+        {
+          "assessment": "Enumeration framework, not this price-dependent optimal response",
+          "evidence": "Determinant methods for computing weighted spanning-tree enumerators.",
+          "identifier_or_url": "https://arxiv.org/abs/1903.03575",
+          "material_read": "PDF p. 1, description of Matrix–Tree and weighted enumeration methods",
+          "method": "Lawful OA PDF located passage",
+          "title": "Linear algebraic techniques for weighted spanning tree enumeration",
+          "trigger": "Exact determinant identities for weighted spanning trees"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The determinant threshold is useful precisely because comparing it with the known resistance threshold predicts a change of support in one unrestricted optimal design but not the other, despite identical prices and topology. The full ratios and distinct first-order surcharges quantify that discrepancy near uniform prices, rather than merely asserting that A- and D-optimal weights may differ. The known resistance calculation is supporting context, not independent value credit.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

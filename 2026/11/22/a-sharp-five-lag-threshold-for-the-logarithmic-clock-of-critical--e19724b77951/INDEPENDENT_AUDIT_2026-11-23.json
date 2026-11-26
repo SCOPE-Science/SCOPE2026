@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:58:24.874847Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After m+1 updates all coordinates are in [−1,1]; the window maximum M obeys M_(n+m+1)≤sin M_n and hence tends to zero. For positive histories the window minimum a satisfies a_(n+1)≥sin a_n. The scalar sine iterates have inverse-square increments tending to 1/3, giving upper and lower bounds of order n^(−1/2) by the two comparisons. Dividing the companion characteristic equation by λ^(m+1) rules out |λ|>1; equality on the circle and w0>0 force λ=1, simple since P′(1)=W. Independently of the stable-fiber assertion, one can track the polynomial return f(t)=t+At³+Bt⁵ directly: for the lag map T let Φ(t)=(t,f⁻¹(t),…,f⁻ᵐ(t)). The displayed inverse-iterate jets give TΦ(t)−Φ(f(t))=O(t⁷) when W A=−1/6 and W B=3(μ+ν)A²/2+μA/2+1/120. For the actual state X_n subtract Φ(z_n), obtaining a transverse error E_n with newest coordinate zero. The derivative of the error map in E at zero is the companion map followed by projection along the unit eigenvector onto this hyperplane; it represents the stable quotient. In an adapted norm it is contracting, and remains so locally. Therefore ||E_(n+1)||≤ρ||E_n||+O(n^(−7/2)), with ρ<1, and geometric convolution gives E_n=O(n^(−7/2)). Thus z_(n+1)=f(z_n)+O(n^(−7/2)), inducing only O(n^(−2)) error in the reciprocal-square increment. First summation gives z_n^(−2)=n/(3W)+O(log n); the error after subtracting 1/(3W)+K/n from its increment is O(log n/n²). This proves a finite constant, not merely a bounded remainder. Algebra gives K=3W(3A²−2B). The bound ν≤mμ gives a strictly positive numerator through m=3 (discriminant already negative at m=3); at m=4 the lower bound is (3μ−2)² and equality requires endpoint support and μ=2/3. The two μ=1 examples give −1/20 and 11/80 as stated. The checker was inspected, not run. The fine expansion is not for general sign-changing histories. In the motivating map the active m=2 case of the theorem additionally requires −γ>0 and β1>0, as already required by its endpoint hypotheses.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "c420e9a2eb1c proves a finite-part inverse-linear clock for a rational recurrence with the oldest term x_(n−4) and parameter-dependent cancellation.",
+          "5217b0208b7b proves an inverse-square finite-part clock for u_(n+1)=(u_n+u_(n−1))/(2+u_nu_(n−1)).",
+          "2e7a51efdb8a gives a local clock off a strong-stable leaf in one signed two-lag family."
+        ],
+        "reasoning": "A general scalar parabolic normal form explains why a logarithm and finite part can occur; it does not compute the sine-specific lag jet or optimize over admissible moments. The inspected fixed recurrences and qualitative map analysis do not supply that broader theorem.",
+        "searches": [
+          "Resultary critical recurrence finite-part clocks: c420e9a2eb1c, 5217b0208b7b, 2e7a51efdb8a",
+          "Focused primary search for discrete critical weighted delay moment/logarithmic asymptotics",
+          "Almatroud et al., p. 3, Eqs. (1)–(2)"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.3390/sym16081093, p. 3, Eq. (2)",
+        "Resultary 2e7a51efdb8a, c420e9a2eb1c, 5217b0208b7b, decisive mirrored passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rational inverse-linear clock cancels at b=15, not on an extremizing nonnegative lag distribution.",
+          "To obtain the frozen horizon boundary one needs the sine-specific numerator and the equality case of ν≤mμ. The other records hold for fixed lags and neither quantify over all such distributions nor exhibit first negativity at lag five."
+        ],
+        "reasoning": "A similar asymptotic form and a matching coefficient for a one-parameter signed recurrence do not imply the lag-moment classification, its uniqueness at m=4, or sharpness at m=5.",
+        "searches": [
+          "2e7a51efdb8a Finding, Proof steps 1–4",
+          "c420e9a2eb1c and 5217b0208b7b Findings/Assumptions",
+          "Almatroud et al. PDF p. 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eliminating the auxiliary coordinates in the flip map and taking s_n=(−1)^n z_n gives weights (1,b,−b) in the sine recurrence. Its moments are μ=−b, ν=−3b and W=1−b; inserting these algebraically into K gives exactly (9b²+7b+4)/(20(1−b)²), the flip record's coefficient.",
+          "The flip record uses U=(z−bx)/(1−b). Its smooth center embedding has z=U+cU³+O(U⁵) up to exponential tracking, so the inverse-square change can shift the constant but not the linear and logarithmic coefficients.",
+          "The displayed Almatroud map supplies the m=2 recurrence by elimination, under the stated sign and critical-sum restrictions."
+        ],
+        "reasoning": "There is real normal-form overlap, not merely different notation or a different multiplier. The flip result has a negative oldest-lag weight after the equivalence and fixes lag horizon two; it is not an instance of, or a general covering theorem for, the frozen nonnegative family. The motivating map gives the recurrence rather than the clock.",
+        "searches": [
+          "Resultary 2e7a51efdb8a, RESULT.md offsets 0–5055",
+          "Almatroud et al., DOI 10.3390/sym16081093, p. 3, map (2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact coefficients in these records are (b−15)/(b+5)² for an inverse-linear clock, 1/6 for the synchronous rational recurrence, and (9b²+7b+4)/(20(1−b)²) for the signed flip family, respectively."
+        ],
+        "reasoning": "These are substantive exact catalogue comparisons, but not a table of K over nonnegative weights or an exact horizon classification. The flip coefficient matches only after the signed specialization described above.",
+        "searches": [
+          "Resultary mirrored Findings c420e9a2eb1c offsets 0–2701, 5217b0208b7b offsets 0–3435, and 2e7a51efdb8a offsets 0–5055"
+        ]
+      },
+      "rationale": "The inverse-square parabolic clock and summation to a finite constant are not new in general. The supported advance is the dependence on both lag moments throughout the nonnegative finite-memory family, and the resulting sharp sign and cancellation thresholds. The closest inspected sinusoidal flip record yields the very same algebraic coefficient after sign alternation in a signed two-lag specialization outside this domain; it does not give the arbitrary nonnegative kernels or the horizon threshold. The same-day comparisons do not establish precedence.",
+      "residual_risks": [
+        "Related same-day catalogue dates do not establish order; their verified overlap and distinctions are mathematical, not claims of priority.",
+        "No exhaustive survey of specialized discrete parabolic delay literature; a broader theorem covering the same jet coefficients may be unindexed. A search miss is not evidence of nonexistence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Map (2), not the separately displayed scalar Eq. (1), induces the claimed weighted sine recurrence. Checked passages do not give a parabolic moment clock.",
+          "evidence": [
+            "After two shifts, y2(n)=sin z_(n−1), y1(n)=sin z_(n−2); the newest sine coefficient is −γ."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym16081093",
+          "material_read": "OA PDF p. 3, displayed Eqs. (1)–(2), at extracted offset 11833 and associated map/stability discussion.",
+          "method": "Open-access original passage extraction and algebraic elimination.",
+          "title": "Multistability, Chaos, and Synchronization in Novel Symmetric Difference Equation",
+          "trigger": "Original displayed three-dimensional sine map motivating the m=2 member."
+        },
+        {
+          "assessment": "Exact algebraic overlap for signed weights (1,b,−b), not a theorem for the frozen admissible weight cone or its lag threshold.",
+          "evidence": [
+            "Map F_b=(y,sin z,b(x+y)−sin z) has neutral multiplier −1; its physical amplitude has coefficient (9b²+7b+4)/(20(1−b)²)."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-a-logarithmic-critical-flip-clock-in-a-three-dimensional-sinusoi--2e7a51efdb8a",
+          "material_read": "Mirrored RESULT.md Finding, Assumptions, and Proof steps 1–4; extracted offsets 0–5055.",
+          "method": "Local Resultary discovery, mirror passage inspection, and sign-alternation comparison.",
+          "title": "A logarithmic critical-flip clock in a three-dimensional sinusoidal recurrence",
+          "trigger": "Nearly identical sine map and finite logarithmic clock; possible conjugate recurrence and exact coefficient overlap."
+        },
+        {
+          "assessment": "Different drift order, nonlinear map and cancellation criterion.",
+          "evidence": [
+            "Inverse-linear clock with coefficient (b−15)/(b+5)² for (b x_n+x_(n−4))/(b+1+x_(n−1))."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-a-critical-inverse-linear-clock-and-a-sharp-logarithm-cancellati--c420e9a2eb1c",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions, offsets 0–2701.",
+          "method": "Local Resultary discovery and mirror passage inspection.",
+          "title": "A critical inverse-linear clock and a sharp logarithm cancellation",
+          "trigger": "Critical discrete lag clock and exact log cancellation."
+        },
+        {
+          "assessment": "Nearby method and conclusion for a rational map with no freely distributed sine lags.",
+          "evidence": [
+            "The synchronous recurrence has inverse-square linear coefficient 2/3 and logarithmic coefficient 1/6."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-a-universal-logarithmic-extinction-clock-on-the-synchronous-crit--5217b0208b7b",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions, offsets 0–3435.",
+          "method": "Local Resultary discovery and mirror passage inspection.",
+          "title": "A universal logarithmic extinction clock on the synchronous critical branch",
+          "trigger": "Inverse-square logarithmic extinction with a finite constant in discrete delay dynamics."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The leading rate alone cannot distinguish kernels with the same mean lag, while the exact second asymptotic coefficient does and can even have opposite signs for the same mean. The lag-four cancellation and first attainable negative sign at lag five are sharp structural facts across the kernel family, not just observations of a selected trajectory. No claim about mixed-sign clocks, noisy delays, or uniformity across approaching stability boundaries is needed for this value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

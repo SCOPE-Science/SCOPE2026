@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness:** PASS. Classical prolate commutation identifies the top sinc eigenfunction with the positive even Sturm–Liouville ground state. The normalized Fourier transform identity yields the exact logarithmic bandwidth derivative. The differentiated Sturm–Liouville Wronskian has a single-sign-change integrand and zero endpoint flux, hence strictly negative interior flux; this forces the normalized endpoint value to decrease. A Rayleigh trial constant yields strict spatial monotonicity and an endpoint mass below one half. These facts prove the global second-derivative sign.
+## correctness
 
-**Originality:** PASS under bounded current-literature and mathematical-record checks; unresolved historical-priority risk. Abreu and Speckbacher (arXiv:2607.19192) optimize the *shape* of a concentration set at fixed measure and do not establish a strict bandwidth curvature law. The closest published mathematical-record entry concerns detached-interval perturbations, not this parameter derivative. Older prolate theory supplies commutation and spectral computations; an equivalent inequality in older specialist literature cannot be excluded.
+PASS
 
-**Value:** PASS. Strict concavity for every positive bandwidth is a structural global diminishing-returns theorem for an optimal infinite-dimensional concentration problem, rather than a finite expansion or direct rewriting of a known eigenvalue formula. Its endpoint-amplitude monotonicity may be used to compare marginal concentration performance across all scales.
+The classical simple ordered prolate modes identify the top normalized sinc eigenfunction with the no-node Sturm–Liouville mode. In unweighted Lebesgue normalization F_c^*F_c=(2π/c)K_c; differentiating the sinc kernel gives the cosine kernel divided by π. The finite-Fourier equation at x=1 and Hellmann–Feynman therefore give Λ'=2Λb/c. The smooth simple differential eigenfunction branch in L² is also smooth up to the endpoints, by expressing it as F_c applied to the branch divided by its nonzero Fourier eigenvalue. Its endpoint value does not vanish: if it were zero, pψ'(x)=−∫_x^1(qt²−χ)ψ(t)dt would bound |ψ'| by a constant times the supremum of |ψ| on a short endpoint interval; integrating would force ψ to vanish there. For q=c², differentiating the differential equation gives W'= (x²−m_q)ψ², with W(0)=W(1)=0 by evenness, normalization/mean, and endpoint regularity. The integrand changes sign once, so W<0 in 0<x<1. Thus ∂_q log(ψ_q(x)/ψ_q(1))=−∫_x^1 W/(pψ_q²)>0 for x<1; the quotient has a finite endpoint limit since W vanishes linearly and ψ_q(1)>0. Differentiating the squared normalized ratio integral explicitly gives ∂_q(1/b)>0, not just weak monotonicity. Also 0<χ<=q/3 and the same single-sign-change argument applied to (pψ')' gives ψ strictly decreasing spatially, hence 0<b<1/2. Differentiating Λ' then gives strict concavity for every c>0. Analytical replay: RESULT.md lines 23–61; no required numerical claim. The reported Nyström checks are consistency only and were not replayed.
 
-**Scope:** One-dimensional symmetric intervals and only the simple leading prolate eigenvalue. Numerical spot checks are not proofs; no conclusions for higher eigenvalues or arbitrary frequency masks are asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classical eigenfunction correspondence and first derivative identity are inputs, not the distinct result. The actual primary and indexed passages inspected do not give the strict bandwidth derivative of the normalized endpoint amplitude or the resulting strict concavity of the top concentration eigenvalue. Nearby spatial-endpoint, shape-optimization, and eigenvalue-index-decay results have different quantifiers. This bounded pass does not settle exhaustive historical priority.
+
+## value
+
+PASS
+
+Strict diminishing marginal gain across the entire bandwidth range is a meaningful qualitative control of the canonical optimal concentration profile. The Wronskian comparison gives a short structural reason and a stronger strict endpoint-amplitude statement, rather than extrapolating asymptotics, pointwise monotonicity, or numerical checks. The result is expressly confined to the leading one-interval mode.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

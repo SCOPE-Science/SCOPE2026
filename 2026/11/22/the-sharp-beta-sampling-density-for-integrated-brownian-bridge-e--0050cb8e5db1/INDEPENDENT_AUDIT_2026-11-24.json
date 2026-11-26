@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:17:33.828091Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–26 and 29–66; VERIFICATION.md, verify.py and verification_output.txt (recorded tests inspected, uploaded script not executed)",
+        "Independent covariance integration, Hölder and uniform quantile gap bound; independent numerical beta evaluation"
+      ],
+      "rationale": "The posterior is its linear interpolant plus independent Gaussian bridges in the positive gaps. On [a,b] of length ℓ, let U=B_a and D=B_b−B_a. Their covariance is −aℓ and Var(D)=ℓ(1−ℓ), so the interpolant covariance at offsets u,v is a(1−a)−a(u+v)+(1/ℓ−1)uv. Wick's rule gives conditional-mean risk 2∬C²+4∬C(K−C); triangle integration gives ℓ⁴/90 and a(1−b)ℓ³/12+(1−ℓ)ℓ⁴/45, respectively for the two unweighted integrals. This yields the frozen formula, with zero-length gaps contributing zero. The uniform grid gives (5m²−5m+2)/(90m⁴) for m=n+1. Near-minimizers have maximum gap tending to zero since the remainder is at least ℓ⁴/45 per gap and the grid gives O(m⁻²) total risk. Discrete Hölder yields the cube of the converging Riemann sum of [a(1−b)]^{1/3}ℓ as a lower bound for 3m²R. For attainment, put g(t)=[t(1−t)]^{1/3} and I=∫g. On every equal-g-mass gap, a(1−b)ℓ³≤(∫gap g)³=(I/m)³. On the middle half of any gap, t(1−t)≥ℓ/8, so equal mass also forces maximum gap O(m⁻³⁄⁴), and ∑ℓ⁴≤(max ℓ)³=o(m⁻²). This establishes the same limsup directly, including the endpoints. Independent evaluation gives 0.0496233141903951098 and a 10.6780344572888 percent improvement over 1/18.",
+      "residual_risks": [
+        "The result concerns noiseless deterministic nonadaptive point readings of the pinned standard bridge. 1/18 is the scaled uniform-grid limit, not its finite risk.",
+        "No finite-budget quantile optimality, uniqueness, or adaptive/noisy result is inferred. The recorded numerical examples alone do not prove the asymptotic theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Altmeyer's introduction treats ∫f(X_t) with equidistant data and explains risk rates and conditional-expectation lower bounds, rather than optimizing arbitrary nonuniform designs for this bridge.",
+          "Müller-Gronbach §3.2 Theorem 1(iii) gives a cube-root weighted constant for deterministic observations of the driving Brownian motion of a regular scalar SDE; §2 requires uniform regularity, and these are not observations of the pinned bridge. The bridge innovation representation has singular endpoint drift, and augmenting with integrated energy does not directly give the scalar terminal theorem under its hypotheses.",
+          "Benhenni–Cambanis is a close linear-process quadrature lead, but usable primary body text was not recovered. Its identity and retrieval limitation do not decide coverage."
+        ],
+        "reasoning": "The inspected broad methods explain why this type of density can arise, but their stated assumptions, observations and optimized classes do not directly specialize to the exact risk or both sides of this sharp design optimum.",
+        "searches": [
+          "Sacks Ylvisaker asymptotically optimal quadrature covariance derivative jump sampling density cube root stochastic process general weights 1970 designs integral second moments",
+          "Sampling Designs for Estimating Integrals of Stochastic Processes 1992 pdf Benhenni Cambanis derivative jump density asymptotically optimal quadrature",
+          "Müller-Gronbach optimal pointwise approximation of SDEs Brownian motion at discrete points deterministic sampling terminal asymptotic constant regularity",
+          "Altmeyer arXiv:1706.03418v3 introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5b6200720fdd and b0b2e0435862",
+        "Altmeyer arXiv:1706.03418",
+        "Müller-Gronbach arXiv:math/0503531",
+        "Foster–Lyons–Oberhauser, Santin, Cui–Chronopoulou"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected two-site formula fixes the risk at n=2 but places no constraint on possible improvements at increasing budgets. The stochastic quadrature and SDE constants use different data or hypotheses. The known cube-root rule is compatible with the Beta candidate, but does not give the lower bound for nonlinear estimators from signed readings.",
+          "Polynomial Brownian approximations use non-point information; fractional Brownian path reconstruction minimizes an integrated pointwise loss rather than error of the scalar integrated square."
+        ],
+        "reasoning": "Deriving the exact gap expression and ensuring the sharp lower bound over all deterministic grids, with vanishing endpoint weight, are the extra steps needed here. No inspected result renders those direct substitutions.",
+        "searches": [
+          "Resultary 5b6200720fdd proof equations (1)–(4)",
+          "Müller-Gronbach Theorem 1(iii) and conditions (A)–(B)",
+          "Santin Theorem 5; Foster–Lyons–Oberhauser Theorem 3.7; Cui–Chronopoulou deterministic criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target is an occupation functional with f(x)=x². Linear quadrature of X_t=B_t²−t(1−t) uses covariance 2K(s,t)² with diagonal first-derivative jump in magnitude 4t(1−t), so the classical cube-root weighting predicts the same candidate density. But even observing squared values exactly does not determine B_aB_b; the full bridge conditional mean has this term.",
+          "The Brownian-bridge interpolation power function controls path interpolation, not risk for Q."
+        ],
+        "reasoning": "Square-process quadrature is a substantive close analogue, not an exact information-and-loss equivalence. A bound for linear combinations of squares cannot serve directly as a lower bound for all estimators from signed bridge readings.",
+        "searches": [
+          "optimal deterministic sampling asymptotic approximation occupation time integral nonlinear function Brownian bridge quadrature optimal weights Müller-Gronbach Ritter integrated square",
+          "Local Resultary Brownian bridge quadratic path energy and point observation comparison; arXiv:2210.15959 Theorem 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct same-day Resultary 5b6200720fdd proves the optimum of the identical bridge target and squared-loss problem for exactly two readings. Its equations (1)–(4) give a two-reading covariance-matrix formula, not the all-budget gap formula or asymptotic design.",
+          "Resultary b0b2e0435862 studies Brownian motion with Gaussian Legendre coefficient information, not deterministic point readings of a bridge."
+        ],
+        "reasoning": "Credit material exact overlap at budget two, irrespective of same-day ordering. Neither a fixed budget nor another observation scheme supplies the all-design limit.",
+        "searches": [
+          "Local Resultary same-functional two-reading and Legendre-information comparisons; records 5b6200720fdd and b0b2e0435862"
+        ]
+      },
+      "rationale": "Credit the previous exact two-reading case, established smooth-functional quadrature and the classical cube-root design mechanism. The supported distinction is the elementary all-design gap identity and a sharp optimum over arbitrary deterministic bridge point designs with the full nonlinear conditional mean, including endpoint control. A matching curve of the local density in another information class is not by itself a lower bound for the richer conditional-mean problem.",
+      "residual_risks": [
+        "Classical linear quadrature and nonlinear optimal-design literature may contain a more general reduction; Benhenni–Cambanis full text was unavailable. The similar density rule is not claimed as a new general design principle.",
+        "Bounded source comparisons do not establish historical priority; the fixed-two-reading overlap is substantial but not equivalent to the asymptotic claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers fixed n=2, not variable n or the asymptotic density.",
+          "evidence": [
+            "Equations (1)–(4) condition on exactly U,V and express R(x,y) by a 2-by-2 covariance trace."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-globally-optimal-two-point-observation-of-brownian-bridge-quadra--5b6200720fdd/RESULT.md",
+          "material_read": "Finding, and proof offsets 2200–5021 (equations (1)–(10))",
+          "method": "Local Resultary search and bounded local mirror read",
+          "title": "Globally optimal two-point observation of Brownian-bridge quadratic energy",
+          "trigger": "Same bridge, functional, information and loss"
+        },
+        {
+          "assessment": "Same class of functionals, but the inspected problem uses an equidistant mesh and treats rates; it does not provide a sharp variable-grid beta optimum.",
+          "evidence": [
+            "Sets t_k=kΔ_n and uses conditional expectation for L² lower bounds for Brownian motion on this observation mesh."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1706.03418v3",
+          "material_read": "Introduction, PDF pp. 1–3, offsets 2400–7293; later v4 abstract and introduction",
+          "method": "Lawful primary OA PDF bounded passages",
+          "title": "Approximation of occupation time functionals",
+          "trigger": "General nonlinear scalar functional from discrete path observations"
+        },
+        {
+          "assessment": "Mathematically close cube-root formula, but the object, observation process and regularity assumptions prevent direct specialization.",
+          "evidence": [
+            "(A)–(B) specify scalar coefficient regularity across [0,1]; §3 observes W; Theorem 1(iii) uses the integrated cube root of E|Y(t)|² for its weighting process."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0503531",
+          "material_read": "§§2–3, PDF pp. 5–8, offsets 13610–16248 and 20400–23487",
+          "method": "Lawful OA primary PDF bounded passages",
+          "title": "Optimal pointwise approximation of SDEs based on Brownian motion at discrete points",
+          "trigger": "Sharp nonlinear terminal approximation constants, including deterministic design"
+        },
+        {
+          "assessment": "Potentially close linear quadrature; no whole-document coverage verdict drawn from failed access or snippets.",
+          "evidence": [
+            "The significance of the possible linear route was checked mathematically using covariance 2K² and the signed endpoint product in the conditional estimator."
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/aos/1176348517",
+          "material_read": "Bibliographic and scope lead only; no usable primary body passage obtained",
+          "method": "Bounded direct and VPN attempts at publisher article/PDF, download endpoint and identified public alternate listing",
+          "title": "Sampling Designs for Estimating Integrals of Stochastic Processes",
+          "trigger": "Sacks–Ylvisaker-type optimal linear quadrature could suggest a cube-root node law for the centered square process"
+        },
+        {
+          "assessment": "Respectively different observations, a kernel interpolation norm, and integrated path reconstruction loss.",
+          "evidence": [
+            "Santin minimizes an L∞ power function; Cui–Chronopoulou uses E∫(x_s−x̂_s)²ds. Neither is the risk of the scalar energy estimator."
+          ],
+          "identifier_or_url": "arXiv:1904.06998; arXiv:2210.15959; arXiv:2304.07661",
+          "material_read": "Foster–Lyons–Oberhauser p. 1 and Theorem 3.7 p. 16; Santin Theorem 5 p. 5; Cui–Chronopoulou sampling criterion p. 4",
+          "method": "Bounded lawful OA PDF passages",
+          "title": "An optimal polynomial approximation of Brownian motion; Equally spaced points are optimal for Brownian Bridge kernel interpolation; Optimal Sampling for Estimation of Fractional Brownian Motion",
+          "trigger": "Overlapping Gaussian laws or sampling/design objectives"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen gap and asymptotic formulas, independent proof and numerical evaluation",
+        "Resultary 5b6200720fdd fixed-budget baseline; Santin's distinct equal-spacing objective"
+      ],
+      "rationale": "For a canonical nonlinear Gaussian path functional, the theorem gives an exact risk evaluable on any mesh, proves an optimum for the leading risk over all deterministic designs and provides simple attaining nodes. The nonuniform design gives a quantified 10.68 percent gain relative to the natural equally spaced benchmark. That is a useful design result even though the underlying cube-root mechanism is familiar and it does not optimize each fixed budget.",
+      "residual_risks": [
+        "Practical gain is for this idealized risk and observation model; it is not a claim of robustness under noise or model misspecification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

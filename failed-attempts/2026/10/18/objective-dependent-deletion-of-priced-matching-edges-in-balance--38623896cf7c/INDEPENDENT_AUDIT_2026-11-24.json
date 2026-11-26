@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:56:10.124043Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py"
+      ],
+      "rationale": "On the space perpendicular to the constant vector, connected weights give a positive definite Laplacian. The inverse trace is strictly convex: its second derivative in direction H is twice the squared Frobenius norm of A^(-1/2) H A^(-1), and off-diagonal entries recover edge weights, so a nonzero edge direction gives a nonzero H. The feasible budget simplex is compact; approaching disconnection makes the inverse trace diverge. Thus averaging over simultaneous permutations of matched indices fixes the unique minimizer and gives only weights a,b, with a>0. On the constant and zero-sum parts of both bipartitions the off-diagonal block aJ+(b−a)I yields eigenvalues 0, 2((n−1)a+b), na and (n−2)a+2b, the last two each with multiplicity n−1. This gives the displayed budget and all-pairs resistance formulas, including the zero-matching boundary. For N=2(n−1)X^(-2)+(2Y²)^(-1) and D=1/n+(n−2)X^(-2)+(2Y²)^(-1), independent differentiation gives (n−1)(tD−N) after removing the constant factor. The cross term of N'D−ND' is n(X−2Y)/(X³Y³)=−n²/(X³Y³), and N'/n is negative, so N/D decreases to zero. Equality at T_n(0) gives only r=0, and T_n(1)=1. For the determinant, log-det is strictly concave in affine weights (or in b on its feasible segment), not asserted concave after changing to r. The matrix-tree product gives the stated τ. At r=0 the derivative is 2(n−1)/(n−2)+1/(n−1)−(2n−1)t/(n−1). The sign transfers to b; strict concavity includes equality on the deleted side. Subtraction gives the claimed positive gap, and expansion gives n^(-1)+O(n^(-2)). For fixed t<1, nN(cn) tends to 2/(1+2c)² and nD(cn) to 1+1/(1+2c)²; monotone bracketing at fixed c on either side of c_t proves convergence and the budget-share limit. For t>1 the threshold tends to 1. The supplied symbolic/numerical checker was read, not run; the independent checks are analytic.",
+      "residual_risks": [
+        "Only balanced complete bipartite graphs with this one two-price partition, n≥3, B>0 and t>0. The determinant threshold concerns maximizing weighted tree count, not maximizing algebraic connectivity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "6a54dc4c69eb gives thresholds for the inverse-spectral-moment family, whose p=1 and p=0 cases are A/resistance and D/determinant.",
+          "Ghosh–Boyd–Saberi develop strict convexity and uniqueness for unpriced fixed-graph resistance allocation."
+        ],
+        "reasoning": "The spectral-moment result specializes to the same two thresholds. The general resistance-allocation framework alone does not state the exact family comparison.",
+        "searches": [
+          "Local Resultary: spectral-moment price hierarchy",
+          "Ghosh–Boyd–Saberi, DOI:10.1137/050645452"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 203ba798113c, 1ae0e33a18ed, b65b2ff40797 and 6a54dc4c69eb",
+        "DOI:10.1137/050645452",
+        "arXiv:1904.07766"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier resistance result includes fixed-t ratio, eventual deletion, equal prices, and a stronger critical-window law. The separate D and gap results state the other core assertions."
+        ],
+        "reasoning": "From r*/n→c_t, substitution into tr*/(n−1+tr*) gives the claimed share. The first-order gap expansion follows immediately from the exact covered gap. No surviving nontrivial claim remains after these comparisons.",
+        "searches": [
+          "203ba798113c actual Finding and asymptotics",
+          "1ae0e33a18ed Finding",
+          "b65b2ff40797 Finding and critical scaling"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "203ba798113c has the same n,t domain, resistance cutoff, minimizer, stationarity equation, optimum and fixed-price ratio limit; it calls the matching weight a and the ordinary weight b.",
+          "b65b2ff40797 states the identical A-versus-D support interval and exact gap."
+        ],
+        "reasoning": "In 203ba798113c set x=r, reverse the names of the weights and rescale all weights by B. The stationarity equation becomes (n−1)(tD_n−N_n)=0; the minimum scales by B^(-1).",
+        "searches": [
+          "Local Resultary: matching price deletion, priced balanced bicliques, A- and D-optimal support"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "203ba798113c and 1ae0e33a18ed explicitly display the individual rational cutoffs, and b65b2ff40797 explicitly displays the positive rational gap and support interval.",
+          "Ge–Dong count trees and study resistance in graphs containing or deleting a designated matching structurally."
+        ],
+        "reasoning": "A formula for the structurally deleted graph is not an optimization threshold. The exact indexed formulas, unlike the structural counts, resolve the posed decision at every n.",
+        "searches": [
+          "Local Resultary exact threshold and support-gap records",
+          "Ge–Dong arXiv:1904.07766"
+        ]
+      },
+      "rationale": "The actual resistance-optimization package is already present in an earlier indexed record under a reversed a,b convention and B=1. The apparent additions do not leave a distinct scientific claim in the inspected catalogue: the exact determinant cutoff and the exact comparative support interval and gap are explicitly present in distinct records, and a broader spectral-moment record includes both thresholds. This is verified content coverage. It is not a claim that the later catalogue entries have chronological priority or that the results are externally peer reviewed. The explicit matched budget-share expression and arbitrary B are immediate changes of normalization, not new results.",
+      "residual_risks": [
+        "Johnson–Walters DOI:10.1112/mtk.12278 was not available at full text; DOI:10.1016/j.dam.2021.09.008 was accessible only as a landing page/abstract. No claim about their full scope or universal external priority is made. The decision rests on inspected catalogue coverage, not on access limitations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact earlier A-optimum coverage with a stronger boundary law",
+          "evidence": [
+            "Identical rational threshold and conductances after reversing a,b; identical fixed-t ratio limit."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-the-matching-price-deletion-frontier-for-resistance-optimal-bala--203ba798113c",
+          "material_read": "Finding and large-order and critical-window statements",
+          "method": "Local Resultary search and mirror read",
+          "title": "The matching-price deletion frontier for resistance-optimal balanced bicliques",
+          "trigger": "Identical problem with unit budget"
+        },
+        {
+          "assessment": "Exact D-threshold coverage in later dated distinct record",
+          "evidence": [
+            "Same cutoff n(2n−3)/[(n−2)(2n−1)] for unrestricted conductance allocation."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-price-threshold-deletion-of-a-perfect-matching-in-determinant-op--1ae0e33a18ed",
+          "material_read": "Finding, offsets 0–4951",
+          "method": "Local Resultary search and mirror read",
+          "title": "Price threshold deletion of a perfect matching in determinant optimization",
+          "trigger": "Exact D threshold"
+        },
+        {
+          "assessment": "Exact comparative coverage, not evidence of earlier priority",
+          "evidence": [
+            "Same thresholds, exact rational difference and interval of different optimal supports."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-an-a-versus-d-support-gap-for-a-priced-perfect-matching-in-compl--b65b2ff40797",
+          "material_read": "Finding and critical scaling, offsets 0–2391",
+          "method": "Local Resultary search and mirror read",
+          "title": "An A-versus-D support gap for a priced perfect matching",
+          "trigger": "Exact comparative result"
+        },
+        {
+          "assessment": "Broader later catalogue coverage",
+          "evidence": [
+            "Moment-order p=1 and endpoint p=0 recover these thresholds."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-spectral-moment-price-hierarchy-on-matching-priced-balanced-bipa--6a54dc4c69eb",
+          "material_read": "Finding, offsets 0–3694",
+          "method": "Local Resultary search and mirror read",
+          "title": "Spectral-moment price hierarchy on matching-priced balanced bipartite graphs",
+          "trigger": "Stronger family of objectives"
+        },
+        {
+          "assessment": "General framework, not the two-price thresholds",
+          "evidence": [
+            "Unpriced simplex and strict uniqueness; worked families include trees, wheels and barbells."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/050645452",
+          "material_read": "Abstract, §1 and strict convexity in §4, pp. 37–39 and 51",
+          "method": "Lawful OA primary PDF passage inspection",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Prior convex framework"
+        },
+        {
+          "assessment": "Structural deletion rather than optimized priced deletion",
+          "evidence": [
+            "Counts trees containing a matching and studies resistance after the matching is removed from the graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1904.07766",
+          "material_read": "Abstract and §1, PDF pp. 1–2",
+          "method": "OA primary PDF passage inspection",
+          "title": "Spanning trees in complete bipartite graphs and resistance distance in nearly complete bipartite graphs",
+          "trigger": "Same graph family and distinguished matching"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Exact A-versus-D comparison in Resultary b65b2ff40797"
+      ],
+      "rationale": "The mathematical question is motivated: the same cost classes yield different support under standard resistance and tree-determinant criteria, and the explicit nonempty price interval gives actionable information beyond uniqueness or symmetry. This assesses the substance of the comparison, not the originality of this rendition. Changing B by scaling or restating a known ratio as a budget share does not in itself add value.",
+      "residual_risks": [
+        "No standalone new remainder is established that would justify repair."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:26:04.452235Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–45 and accompanying verification materials",
+        "/workspace/branches/2fec2d78-9155-4d20-be47-2b79a24a88b4/reproduce_census.py",
+        "/workspace/branches/2fec2d78-9155-4d20-be47-2b79a24a88b4/reproduce_census_output.txt"
+      ],
+      "rationale": "For labeled, linear binary words, the overlap graph identifies words with walks and lossless words with trails. A covering walk must cross SCCs in a single acyclic chain and can use only one intercomponent edge at each crossing. Conversely, internal reachability suffices to cover the edges in each SCC between the specified entry and exit. The frozen finite reachability proof is not limited by word length. An independent per-support enumeration using the SCC-chain criterion and the directed Euler criterion reproduced both tables: 121/121 realizable/lossless at k=3 and 5921/2611 at k=4. It recovered exactly the two stated complement-related minimum supports and reproduced both explicit words. For the first support, the entry and exit edges force the 010→101 edge to be taken before and after the 101→010 return. At k=1 every nonempty support is spelled without repetition. At k=2 any realizable support with no crossing consists of one loop; with crossings, traverse the one or two crossing edges once and any selected loops on the first visit to their vertex. Thus the title's 'first' is also valid for k starting at 1.",
+      "residual_risks": [
+        "The exhaustive tables cover only k=3 and k=4 for the labeled binary linear model."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alanko and Pérez-López's Theorem 3 treats complexity of counting distinct k-mers on graph walks.",
+          "The parity-periodic capacity Finding counts fixed-length three-factor presence profiles."
+        ],
+        "reasoning": "Neither a general counting framework nor length-indexed information for k=3 gives the support census with the unique-use comparison at k=4.",
+        "searches": [
+          "arXiv:2509.22885v2",
+          "Resultary 2bfde287f090"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2509.22885v2",
+        "arXiv:2608.20018v2",
+        "Resultary bcc1ebef8280",
+        "Resultary 7044900c1ee8",
+        "Resultary c5ea7e549c82",
+        "Resultary 2bfde287f090",
+        "Resultary 152536a5a424 (index only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An Euler criterion gives a test for each proposed support; the fixed-length presence comparison studies existence of representing words at prescribed lengths."
+        ],
+        "reasoning": "Neither establishes the aggregate comparison or identifies the sharp witnesses without additional classification or exhaustive work. The three-gram presence model overlaps and is not relied on as a wholly new model.",
+        "searches": [
+          "arXiv:2608.20018v2, Eulerian example p. 4",
+          "Resultary 2bfde287f090 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chukhin et al., pp. 2 and 4, use linear spectra and Eulerian walks in a greedy superstring analysis.",
+          "The three Resultary findings count multiplicity vectors at fixed word lengths."
+        ],
+        "reasoning": "A nonnegative multiplicity vector, its nonzero-coordinate support, and the restriction to 0/1 multiplicities are different counting problems. The spectrum translation is prior; the equality or separation of the two support families is not established by those statements.",
+        "searches": [
+          "arXiv:2608.20018v2",
+          "Resultary bcc1ebef8280, 7044900c1ee8, c5ea7e549c82"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The accessible Findings' tables count profiles indexed by word length, not the two support families at k=4.",
+          "The 152536a5a424 index summary concerns deleting exactly three factors; full Finding unavailable."
+        ],
+        "reasoning": "No inspected table enumerates the two four-gram support families by cardinality or gives their two size-four differences. The deletion-index hit remains a limited access risk, not negative full-text evidence.",
+        "searches": [
+          "Resultary binary factor presence and multispectrum comparisons: 2bfde287f090, bcc1ebef8280, 7044900c1ee8, c5ea7e549c82, 152536a5a424"
+        ]
+      },
+      "rationale": "The walk/trail translation and Euler criterion are standard. The supported distinct contribution is the exact comparison between unconstrained multiplicity and unique traversal for binary supports, particularly the first separation at k=4 and its sharp witnesses. The strongest inspected presence-profile record directly overlaps the three-gram model but gives length-indexed capacities and does not cover the four-gram result. Neither inspected primary result supplies the finite census or obstruction.",
+      "residual_risks": [
+        "The three-deletion Finding was not available for full statement comparison.",
+        "Unindexed enumerations or an equivalent published table outside these searches are not excluded. No relative priority is inferred from same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related framework, not covering the exact result",
+          "evidence": [
+            "Complexity of distinct-k-mer counting on graph walks."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.22885v2",
+          "material_read": "p. 1 abstract; Theorem 3, p. 4, offset 13111",
+          "method": "Primary full text, bounded passages",
+          "title": "Computing k-mers in Graphs",
+          "trigger": "Counts distinct k-mers on walks"
+        },
+        {
+          "assessment": "Prior formulation, different problem",
+          "evidence": [
+            "Greedy shortest-superstring approximation, not enumeration of realizable versus trail supports."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.20018v2",
+          "material_read": "p. 2 definition, offset 8329; p. 4 Eulerian example, offset 14463",
+          "method": "Primary full text, bounded passages",
+          "title": "The Greedy Superstring Algorithm Achieves Ratio 2 for Strings of Length 6 Already",
+          "trigger": "Same spectrum and overlap graph"
+        },
+        {
+          "assessment": "Adjacent multiplicity-preserving results",
+          "evidence": [
+            "Their outputs count multiplicity profiles, not the four-gram support obstruction."
+          ],
+          "identifier_or_url": "Resultary bcc1ebef8280; 7044900c1ee8; c5ea7e549c82",
+          "material_read": "Each Finding at offset 0",
+          "method": "Resultary search and local source mirror",
+          "title": "Three binary three-gram multispectrum capacity findings",
+          "trigger": "Same alphabet, order and Euler profile machinery"
+        },
+        {
+          "assessment": "Direct k=3 model overlap, no coverage of the main k=4 result",
+          "evidence": [
+            "Capacity at each fixed length, with parity exceptions, not a statement about the minimal k=4 obstructions."
+          ],
+          "identifier_or_url": "Resultary 2bfde287f090",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary search and local source mirror",
+          "title": "Sharp parity-periodic capacity of binary three-factor presence spectra",
+          "trigger": "Direct intersection in presence rather than multiplicity"
+        },
+        {
+          "assessment": "Limited comparison; not a whole-document determination",
+          "evidence": [
+            "Summary singles out feasibility after deleting three factors."
+          ],
+          "identifier_or_url": "Resultary 152536a5a424",
+          "material_read": "Indexed summary only",
+          "method": "Resultary search; matching full record unavailable in local mirror",
+          "title": "Exact universal word probability after three binary factor deletions",
+          "trigger": "Potential same Euler-trail feasibility under deletions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–27, 35–45"
+      ],
+      "rationale": "This answers the natural exact-reconstruction question of when a feasible presence set first forces redundancy. The exhaustive separation turns the lossless/repeated distinction into an exact, testable boundary rather than an arbitrary sample of words. The two minimum witnesses locate the onset and the table makes its scale explicit.",
+      "residual_risks": [
+        "Finite binary boundary result, not a general census or a new Euler criterion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

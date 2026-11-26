@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:06:02.767433Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a four-consecutive-input binary rule, the length-three input suffix is the complete state for extending a free input block. Start from all eight suffixes; following an output word by taking every matching appended-bit edge gives exactly its possible terminal suffixes. The empty subset is therefore equivalent to absence, and breadth-first search gives the least length. If no empty subset is reachable, every finite word occurs. For any specified bilateral output, the closed nonempty constraints for growing windows then have a common preimage by compactness. An independently written exhaustive implementation (replay: python3 /workspace/branches/6ff72d77-5aa8-42e3-832c-8993681940cb/independent_census.py; full-run.log in the same directory) reproduced all histogram bins from all 65,536 tables, including 0 at 15 and 582 at infinity. The maximal finite length was 18, attained by 5482, 22184, 43351 and 60053. Each has zero missing words at length 17 and eight at 18; both stated witnesses were independently checked for both rules to which each was assigned. Fullness at length 17 implies fullness at shorter lengths. The uploaded scripts were inspected, not executed; the independent check requires neither periodic boundaries nor extrapolation from a rule sample.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gravner–Kulhanek give a balance-based surjectivity probability bound and asymptotic results for finite collections of periodic configurations. Fukś–Skelton classify surjectivity for the relevant four-input family."
+        ],
+        "reasoning": "Even a complete yes/no surjectivity classification does not distinguish any two finite minimal lengths. A probability bound or periodic-configuration asymptotic does not give the required binary four-input extremal length or distribution.",
+        "searches": [
+          "Gravner–Kulhanek, arXiv:2610.31764, pp. 64–65",
+          "Fukś–Skelton, §2.1"
+        ]
+      },
+      "checked_sources": [
+        "Fukś–Skelton PDF, §2.1 and Table 1",
+        "Gravner–Kulhanek arXiv:2610.31764, pp. 64–65",
+        "Resultary record 025e46223371 and indexed self-match",
+        "Primary lookup on four-site CA first forbidden lengths"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Determinization supplies a finite search and an a priori 256-state limit, while surjectivity counts distinguish absence of the empty state from its reachability, not when it is reached."
+        ],
+        "reasoning": "Knowing the standard recognition method or the infinity count does not yield a sharp bound of 18, the empty length-15 stratum, or the equality cases without new exact enumeration or a stronger result. No inspected table directly supplies those finite facts.",
+        "searches": [
+          "Fukś–Skelton §2.1 and Table 1",
+          "Gravner–Kulhanek Propositions 42–43 and Corollary 44",
+          "Resultary alternating-pair horizon Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The relevant quantity is shortest distance to the empty subset in the deterministic recognizer for finite image words. The closest distinct Resultary horizon result concerns alternating rule pairs on even rings with number conservation."
+        ],
+        "reasoning": "A table of shortest rejected labels for the same complete rule family would be equivalent regardless of rule-number symmetries. A ring obstruction for restricted alternating systems or a fixed periodic configuration without a preimage does not by itself give the length of a shortest absent spatial word with free boundaries.",
+        "searches": [
+          "Primary lookup on four-input/four-neighbor binary cellular automata and shortest Garden-of-Eden/forbidden word lengths",
+          "Resultary lookup on first absent block and Garden-of-Eden obstruction horizon"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The historical row lists 65,536 four-site rules, 518 permutive surjective rules, 64 other surjective rules and 582 surjective rules total. The distinct Resultary table is for 174 alternating even/odd rule pairs in a number-conserving ring family."
+        ],
+        "reasoning": "The historical aggregate matches the infinity bin exactly. It has no finite length bins, and the alternating-pair census does not index the same maps. The indexed copy of this finding is not independent coverage.",
+        "searches": [
+          "Fukś–Skelton Table 1, four-site row",
+          "Resultary lookup for four-input shortest forbidden block census, including SCOPE-a-sharp-three-pair-garden-of-eden-test-and-sixteen-surjective-al--025e46223371"
+        ]
+      },
+      "rationale": "On the inspected evidence, the new result is the exact distribution of minimal absent lengths, including the sharp finite cutoff and its equality cases. The automaton method and the number 582 of surjective rules are not credited as new.",
+      "residual_risks": [
+        "Older computational tables or an unindexed equivalent classification could give the same finite distribution under another rule convention. The primary keyword lookup returned no useful candidate for that claim; this is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers infinity bin, not absent-length census",
+          "evidence": "The four-site row has 518 permutive plus 64 non-permutive surjections, but does not stratify the remaining 64,954 rules by first forbidden length.",
+          "identifier_or_url": "https://worldcomp-proceedings.com/proc/p2012/CSC2550.pdf",
+          "material_read": "§2.1 and Table 1, PDF p. 3",
+          "method": "OA PDF text around offset 12898",
+          "title": "Classification of two-dimensional binary cellular automata with respect to surjectivity",
+          "trigger": "Exact prior rule count on the same four-site binary family"
+        },
+        {
+          "assessment": "Related random and asymptotic statements",
+          "evidence": "The surjectivity bound comes from the local rule balance condition; the subsequent result concerns the probability of simultaneous preimages for finite collections of periodic configurations in the large-parameter limit.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.31764",
+          "material_read": "pp. 64–65, Propositions 42–43 and Corollary 44",
+          "method": "OA PDF text, opened at offset 154040",
+          "title": "Random Cellular Automata and deBruijn Graphs",
+          "trigger": "Labeled de Bruijn image analysis and random CA surjectivity"
+        },
+        {
+          "assessment": "Different update family and boundary",
+          "evidence": "The bound of three two-cell symbols applies to nonsurjective alternating rule pairs from a 174-pair number-conserving family on even rings.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-three-pair-garden-of-eden-test-and-sixteen-surjective-al--025e46223371",
+          "material_read": "Finding in RESULT.md",
+          "method": "Local published mirror",
+          "title": "A sharp three-pair Garden-of-Eden test and sixteen surjective alternating rules",
+          "trigger": "Exact obstruction horizon and surjective-rule census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A uniform minimal-obstruction cutoff gives the exact block length sufficient to test surjectivity for every four-input binary rule and shows why a length-17 test is insufficient. Four inputs are the next full binary family beyond three-input elementary rules; the census supplies a reproducible baseline with sharp witnesses and a missing interior length, not merely a rerun of the known Boolean surjectivity census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

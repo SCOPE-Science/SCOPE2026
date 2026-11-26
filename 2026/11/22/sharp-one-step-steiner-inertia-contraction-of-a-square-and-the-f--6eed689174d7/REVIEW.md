@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The rectangle profile is reconstructed from explicitly identified slice intersections in orthonormal coordinates. For every fiber, the polar-moment difference is exactly its length multiplied by the square of its center displacement. Exact integration proves the rational formula for one geometric regime; coordinate interchange covers the other without losing boundary cases. For squares the expression factors as a cubic on a compact interval, with a unique nonzero maximum at reciprocal slope magnitude \(1/3\). The standalone exact symbolic integration, independent polygon-line numerical integration and symmetry-endpoint checks passed 89 assertions. Finite numerical checks are supplementary; the analytical argument establishes all positive half-side parameters and directions in the stated planar domain.
+## correctness
 
-## Originality — PASS, provisional
-The known general decrease of inertia under Steiner symmetrization does not determine which direction gives the largest one-step decrease. The inspected articles by Basit–Lángi and Izmestiev use symmetrization in broader geometric optimization without giving the directional rectangle expression. Bianchi–Burchard–Gronchi–Volčić's primary paper emphasizes convergence in shape and general strict decrease; its identified results do not imply the sharp square angle. Published work on the angular response of triangular \(\lambda\)-Steiner symmetrization concerns triangles and expected rather than exact directional polar inertia. Mathematical-implication comparisons and the stated published-finding corpus and web searches did not reveal an equivalent stronger result. This does not exclude unindexed classical inertia calculations or future independent priority review.
+PASS
 
-## Mathematical value — PASS
-The direction of maximal moment descent is a natural optimization choice when applying Steiner symmetrization, whose strict decrease is a standard tool in convex geometry. Even for a square, the maximizing line is neither a coordinate/reflection line nor a diagonal; it has slope magnitude \(1/3\) or \(3\). The sharp fraction \(1/27\) supplies an exact quantitative benchmark, while the full two-branch formula makes every rectangle's one-step response computable. These are geometric quantities determined by a canonical operation, not arbitrary parameter slices or merely restated monotonicity. No global convergence-rate or unrestricted optimality claim is made.
+The moment difference on a section of length L and midpoint m is Lm²; the longitudinal moment cancels. I independently integrated the central and tail pieces in RESULT.md. With c=cos(theta), s=sin(theta), A=ac, B=bs, D=A−B and k=c²−s², the central contribution is 4BsD³/(3c³). Changing tail variable to y=A+B−z gives (2B²P²−16B³Pk/3+4B⁴k²)/(2c³s³), with P=2(c²B−s²A). Expansion at s=tc gives the displayed first branch. Exchange of axes, reflection and continuity cover the other branch, the separating angle and the coordinate axes. For the square the expression is 2h⁴u(1−u)²/3 with a unique maximizing u=1/3. Division by 8h⁴/3 yields 1/27, and the four slopes account for every equality axis. Read the checker and VERIFICATION.md; the 89 assertions are frozen recorded evidence, not a new execution or formal certification.
 
-## Closest literature and residual limits
-Basit–Lángi 2022 is the in-window starting paper, and Bianchi and coauthors supply the older general moment-descent result. Izmestiev 2023 provides a complementary moment-of-inertia argument. An inaccessible full text of *Symmetrization in geometry* (2016) and possible engineering-literature formulae are residual priority risks. A text search and mathematical comparison do not amount to exhaustive novelty certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the explicit piecewise rectangle profile and sharp single-direction square optimum. General monotonicity and the fiber parallel-axis identity do not count as new. No inspected result supplies the same profile or a stronger theorem giving its exact optimum.
+
+## value
+
+PASS
+
+Quantifying how much one Euclidean Steiner step actually reduces inertia is a natural question for direction selection; qualitative descent does not answer it. The entire directional function covers every aspect ratio and the square supplies a sharp benchmark, with symmetry directions giving zero loss and non-obvious best directions giving positive loss. No iterative convergence rate or optimum for every unequal rectangle is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The eighteen labelled-state weights satisfy every finite-generator balance equation, have total mass one, and form the unique stationary law by irreducibility. The neighbor-gated result follows from the published canonical factorization; its specialization is checked explicitly. The difference factors into a strictly positive rational function for every positive rate. The minimality lemma follows from the structure of OFF-clock creation. A standard-library rational checker recomputes the generator and all balances.
+## correctness
 
-**Originality: PASS within inspected literature, with residual risk.** The original clock-reset model was introduced in 2009. The 2012 exact factorization theorem is for a neighbor-conditioned activation rule that differs from independent clocks once two occupied sites are OFF. Their rules coincide for at most one particle or at most two sites but differ at the three-site two-particle boundary. The exact original three-site stationary mass and signed difference are not implied by that factorization. The 2015 open-boundary model gives one-site exact laws and mean-field multi-site analysis, not this closed canonical stationary comparison. Earlier finite-state enumerations may nevertheless exist.
+PASS
 
-**Mathematical value: PASS.** The smallest model where two recognized on–off processes cease to coincide is a motivated sharp boundary for whether exact factorization may be transferred to the original process. A positive all-rate difference and its slow-/fast-clock scaling quantify the failure, rather than merely giving a finite counterexample at one parameter.
+In the repaired active class, empty sites remain ON, and on the triangle every occupied OFF can activate because it has an empty ON neighbor. All-ON configurations communicate by alternating hops with activation; choosing hop destinations realizes all five phase/occupation types and their relabelings. Independently constructed and solved the exact five-state lumped chains. The only rate difference is the escape rate from the split state with both occupied clocks OFF, 2c versus c. With escape rate αc, collision mass is (c+1)(c+2) divided by (c+1)(c+2)+2/α+4c+2c². This yields both stated stationary laws for all c>0 and the positive factorized gap, tending to 1/6 at zero and decaying as 1/(9c²). With all clocks initially ON, there is at most one OFF site when there is one particle (OFF implies occupied) or when there are only two sites (every hop leaves an ON source). Hence all eligible neighbors are ON in the smaller cases. The repair excludes all-OFF absorbing states rather than asserting they do not exist. Replay: python3 /workspace/branches/reproduce_triangle_seasons.py, output /workspace/branches/triangle_seasons_reproduction.txt.
 
-**Limits:** Only three sites and two particles; no statement about general system sizes or thermodynamic condensation. No independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The corrected scope matches the physically active class of the exact symmetric-ring model in the literature and does not reclaim the known gated canonical law. The supported contribution is the finite original-model stationary collision probability and its strict signed discrepancy at the first active-class size. The exact gated product law and mean-field behavior of the original model do not determine this difference.
+
+## value
+
+PASS
+
+The repaired finite boundary case pinpoints when the solvable neighbor-gated surrogate first changes a natural stationary observable, holding all hopping and reset rules fixed. The all-rate sign and distinct slow- and fast-clock scales distinguish physical neighbor gating from an artifact of an arbitrarily chosen absorbing start. This is a useful exact benchmark even without a general-size inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

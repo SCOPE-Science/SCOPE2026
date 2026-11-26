@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:14:20.660058Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–27",
+        "VERIFICATION.md, lines 18–22",
+        "q4_gp_verifier.py inspected without running",
+        "Independent replay: python3 /workspace/branches/bounded_replay.py q4"
+      ],
+      "rationale": "A binary point lies between the endpoints in graph distance exactly if it agrees with them on every coordinate where they agree; on the other coordinates either bit incurs one step in total. The independent replay uses this coordinate predicate and grows sorted faces by admissible single-vertex extension, rather than running the uploaded script. It finds 400 forbidden triples and nonempty levels of sizes (16,120,160,120,16) followed by an empty level. Using the stated pivot order on the resulting tuple faces, pair all eligible cells at each pivot: no conflict is possible within a pivot because the upper partner uniquely determines the lower one by deletion. The replay finds 191 pairs and unpaired cell counts (1,40,0,9,0) by dimension. It orients every one of the 1,280 nonempty-face codimension-one incidences according to the matching and uses depth-first cycle detection; all 432 faces are visited with no directed cycle. Forman's theorem therefore produces a CW model with one zero-cell, forty one-cells, no two-cells, nine three-cells, and no higher cells. Each three-cell attaches to the graph by a map from S². The universal cover of the graph is a tree, so every such map is nullhomotopic. Consequently the CW model is a wedge of forty circles and nine three-spheres, not just a match of Betti numbers. This is a complete finite certificate for the specified cube.",
+      "residual_risks": [
+        "The specified matching and complete enumeration concern only Q4; they do not certify a result for larger cubes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Korže–Vesel give exact extremal values in small hypercube dimensions and bounds for larger ones. Klavžar–Rall–Yero introduce the generalized geodesic length threshold. A same-day Resultary GP wedge calculation 91020a49d170 treats the Heawood graph."
+        ],
+        "reasoning": "The broader extremal results concern the size of the largest face, not the incidence or attaching maps of the whole complex. The Heawood topology is an analogue for a different graph, not a theorem for all graphs or cubes.",
+        "searches": [
+          "Korže–Vesel DOI 10.1007/s00009-023-02416-z Section 4 and Table 1",
+          "Klavžar–Rall–Yero arXiv:2005.08095 §1",
+          "Resultary: homotopy results across geodesic general-position complexes"
+        ]
+      },
+      "checked_sources": [
+        "Korže–Vesel 2023 §4",
+        "Klavžar–Rall–Yero 2021 §1",
+        "Körner 1995 publisher and repository attempted",
+        "Resultary 29e22ad1c63e, 91020a49d170, 7d66b9444862"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The higher-independence complex permits faces whose induced components have size at most two and has homotopy wedge of sixteen three-spheres and one four-sphere. The Heawood GP complex has a wedge of twenty-one circles and six three-spheres. The same-day four-by-four rook GP result is on K4 square K4, not Q4."
+        ],
+        "reasoning": "Cube vertex count or graph-geodesic terminology alone does not identify a complex, and known maximal face size does not imply the acyclic matching, free fundamental group, or dimensions of the sphere summands. None of these inspected claims mechanically implies the target wedge.",
+        "searches": [
+          "Resultary 29e22ad1c63e, 91020a49d170 and 7d66b9444862",
+          "Korže–Vesel exact hypercube extrema"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Korže–Vesel's coordinate criterion for w not in I(u,v) requires some coordinate with w_i≠u_i=v_i, giving precisely the condition used in the audit. This is binary (2,1)-separation: for each named point in a triple, some coordinate separates it from the other two. General d-position also agrees at d=4 on Q4."
+        ],
+        "reasoning": "The cubical separating-system formulation and diameter-threshold general d-position are alternate descriptions of the same subsets; Euclidean noncollinearity is not. No retrieved statement under these aliases supplies the matching homotopy type. Körner is an unresolved older full-text lead, not negative evidence.",
+        "searches": [
+          "Resultary: graph-geodesic general position, four-dimensional binary cube and Hamming nonbetweenness",
+          "Web: binary four-cube enumeration, (2,1)-separating systems, frameproof code terminology and Körner's Hamming-space work",
+          "Korže–Vesel §4; Klavžar–Rall–Yero §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 gives gp(Q4)=5, so dimension four and absence of higher faces are already known. The exact Resultary match 74d08503ff46 is the assigned result itself. The nearby Q4 entry 29e22ad1c63e gives (16,120,464,964,960,440,80,10) for higher independence, not the reviewed vector."
+        ],
+        "reasoning": "The extremal table fixes the index of the last nonzero coefficient and not its value. No exact all-face or homotopy table for the reviewed face predicate was retrieved.",
+        "searches": [
+          "Korže–Vesel Table 1 exact Q4 entry",
+          "Resultary: Q4 face counts 16,120,160,120,16 and wedge of forty circles and nine three-spheres",
+          "Web: exact small binary separating-set enumeration with those parameters"
+        ]
+      },
+      "rationale": "The predicate, its coordinate criterion and maximum face size were known. The inspected literature and catalogue results do not cover the full face vector and this homotopy type for the graph-geodesic complex on Q4. The closest older same-cube topological result uses a different face rule. The comparison is bounded and does not establish universal priority.",
+      "residual_risks": [
+        "The older Hamming-space full text and other unindexed equivalents were not available for exhaustive comparison.",
+        "The similar same-day catalogue results do not establish order or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same predicate and maximal size exactly covered; no matching all-face vector or wedge in the inspected results",
+          "evidence": [
+            "gp(Q4)=5; values through dimension seven are exact; cubical interval criterion and link to (2,1)-separating systems."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00009-023-02416-z",
+          "material_read": "Publisher PDF p. 2 predicate; §4 pp. 10–11, offsets 28900 and 31000, including Table 1 and the coordinate criterion",
+          "method": "Primary OA PDF passage comparison",
+          "title": "General Position Sets in Two Families of Cartesian Product Graphs",
+          "trigger": "Same forbidden triples on Q_h and exact small-cube results"
+        },
+        {
+          "assessment": "Defines the same predicate under specialization, does not give the reviewed homotopy",
+          "evidence": [
+            "For d at least the diameter, general d-position is ordinary general position."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2005.08095",
+          "material_read": "§1, PDF pp. 2–3, offset 3150, and Hamming-space reference on p. 15",
+          "method": "Primary OA PDF statement comparison",
+          "title": "General d-position sets",
+          "trigger": "Generalized predicate specializes at the cube diameter"
+        },
+        {
+          "assessment": "Coverage of the exact vector or topology unresolved",
+          "evidence": [
+            "Both routes were inaccessible. The paper is cited in the later work on general position; that citation does not establish what exact data its full text contains."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/0097316595900195 ; https://iris.uniroma1.it/handle/11573/16153",
+          "material_read": "Bibliographic identification and citations only; no full text retrieved",
+          "method": "Attempted publisher and identified university-repository copy via OA reader",
+          "title": "On the extremal combinatorics of the Hamming space",
+          "trigger": "Older cited primary Hamming-space work plausibly using an equivalent separating predicate"
+        },
+        {
+          "assessment": "Different face predicate or different graph",
+          "evidence": [
+            "Higher independence constrains induced component orders; the two geodesic entries use the Heawood and rook graphs rather than the binary cube."
+          ],
+          "identifier_or_url": "Resultary 29e22ad1c63e, 91020a49d170, 7d66b9444862",
+          "material_read": "Mirrored Findings for the listed entries, including the Q4 higher-independence definition and f-vector",
+          "method": "Resultary lookup and direct statement comparison",
+          "title": "Mixed-dimensional higher independence and full symmetry of the four-cube; Mixed-dimensional sphere-wedge homotopy of the Heawood general-position complex; Ninety-eight three-spheres and one four-sphere in the four-by-four rook graph",
+          "trigger": "Closely matched object size, functor or wedge result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and matching",
+        "Korže–Vesel hypercube extrema",
+        "Independent exact matching replay"
+      ],
+      "rationale": "This is a canonical binary cube and the simplicial complex of every graph-geodesic general-position configuration, not an arbitrary subset of cases. The exact topology gives a free fundamental group of rank forty and nine 3-sphere summands, information absent from the known extremal size. The explicit acyclic certificate gives future computations a reproducible small-cube benchmark with higher cells and an actual homotopy identification rather than only an Euler characteristic.",
+      "residual_risks": [
+        "No assertion that this is the first cube with a particular feature, or that the method gives a formula for arbitrary cube dimension."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

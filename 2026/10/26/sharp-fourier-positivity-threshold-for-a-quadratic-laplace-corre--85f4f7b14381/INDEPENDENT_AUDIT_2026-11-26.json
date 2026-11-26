@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:23:54.224855Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–55",
+        "Frozen VERIFICATION.md and CHECK.py (read but not executed)",
+        "/workspace/audit_work/fourier_reproduce.py and fourier_reproduce.out (independent exact transform ratio and square certificate)"
+      ],
+      "rationale": "In the stated unnormalized convention, the two diagonal coordinates separate the base transform F_a=8a²/((a²+X)(a²+Y)), X=(ξ−η)² and Y=(ξ+η)². Exponential domination justifies two derivatives in a. Independently, with u=1/(1+X), v=1/(1+Y), the ratio of the correction transform to F_1 is E=−13/6+6(u+v−5/6)²+2(u−v)². Thus the transform is F_1(1+cE); the unique minimizing pair u=v=5/12 is attainable and gives exactly X=Y=7/5, hence the four stated zeros and immediate failure beyond the threshold. E is bounded on (0,1]², so integrability follows by comparison with the product form of F_1. By Bochner and Fourier inversion the signed density determines positive semidefiniteness, and in the allowed range it is positive almost everywhere. For distinct sites a nonzero finite exponential sum does not vanish identically (restrict to a line with distinct projected sites), giving a strictly positive Gram form. The radial derivative is e^(−r)[−1+c(2r−r²)], nonpositive for c≤1 and strictly negative except for the isolated stationary radius at c=1. This proves the contrast and all asserted boundary cases for c≥0.",
+      "residual_risks": [
+        "The stated if-and-only-if is for c≥0; do not read it as a claim about negative c. The check uses the two-dimensional square norm."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xu reports the classical L¹ positive-definiteness characterization, and Theorem 1.2 gives a mixture sufficient condition for a different, hexagonal norm.",
+          "The indexed Euclidean cone allows both linear and quadratic corrections in all dimensions, but uses L² radial geometry."
+        ],
+        "reasoning": "General characterizations reduce the question to positivity of a transform but do not solve its exact optimization. The Euclidean result is broader in parameters and dimension, not in norm geometry.",
+        "searches": [
+          "Xu pp. 2–3 and Theorem 1.2",
+          "Berens–Xu 1997, characterization cited by Xu",
+          "Resultary 42ccd73628d2"
+        ]
+      },
+      "checked_sources": [
+        "Configured Resultary lookup and record 42ccd73628d2",
+        "Yuan Xu arXiv:1508.07615",
+        "Berens–Xu 1997 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sharper Euclidean cone gives 20/27 and a circle at radius √(7/3), not 6/13 and four axis points.",
+          "Neither Bochner's criterion nor the L¹-mixture characterization locates the constrained minimum of the correction multiplier."
+        ],
+        "reasoning": "The explicit all-frequency optimization and zero geometry are necessary beyond applying a known criterion or changing norm notation.",
+        "searches": [
+          "Xu pp. 2–3 primary passages",
+          "Resultary 42ccd73628d2 concrete planar specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The diagonal change of variables identifies the square family with the planar L¹ family up to rescaling; Xu explicitly describes this geometry.",
+          "Positive Laplace mixtures establish the base family but do not optimize the signed parameter differentiation that produces the quadratic correction."
+        ],
+        "reasoning": "A source for the explicit L¹ quadratic-exponential cutoff would also cover the present theorem; the inspected characterization does not give that cutoff.",
+        "searches": [
+          "Configured Resultary square-norm and quadratic-exponential covariance lookup",
+          "Yuan Xu arXiv:1508.07615, pp. 2–3, L¹/square formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The materially overlapping catalogue result is 42ccd73628d2, whose planar Euclidean positive quadratic cutoff is 20/27 with a circular zero set.",
+          "No matching square-norm value and critical zero set were verified among the inspected hits."
+        ],
+        "reasoning": "The entry being checked is an exact spectral threshold, not a census; the near catalogue entry has different value and zero geometry. Lack of an exact indexed hit does not establish priority.",
+        "searches": [
+          "Configured Resultary lookup for the square/planar L¹ covariance family and the quadratic-exponential sharp boundary"
+        ]
+      },
+      "rationale": "The sharp square-norm boundary and four-point zero set survive comparison with general norm-radial characterizations and the same-day Euclidean covariance cone. The planar L¹/square change of variables and the base Laplace transform are known. The distinct content is the optimized correction and its critical frequencies, not a general radial characterization.",
+      "residual_risks": [
+        "The full 1997 work was not retrievable in the bounded comparison; a worked equivalent example there or elsewhere remains possible.",
+        "Same-day record dates do not establish order, and the inspected source set is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant general framework, different explicit results",
+          "evidence": "The introduction reports the L¹ representation and planar square equivalence. Theorem 1.2 is only a sufficient mixture condition in the hexagonal geometry.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.07615",
+          "material_read": "Introduction and p. 3 Theorem 1.2, PDF extraction offsets 7407–14000",
+          "method": "Bounded OA primary PDF inspection",
+          "title": "Positivity and Fourier integrals over regular hexagon",
+          "trigger": "Equivalent L¹ and square-radial characterization"
+        },
+        {
+          "assessment": "Material same-day neighboring result, not an equivalent specialization",
+          "evidence": "Euclidean r gives positive endpoint 20/27 for d=2 and no linear correction, with a spectral zero circle, not the square-norm value/geometry.",
+          "identifier_or_url": "Resultary 42ccd73628d2, 2026/10/26",
+          "material_read": "Mirrored RESULT.md theorem and planar Euclidean specialization",
+          "method": "Local Resultary search and mirror statement inspection",
+          "title": "The sharp quadratic-exponential radial covariance cone in every dimension",
+          "trigger": "Exact same radial correction family with a different norm"
+        },
+        {
+          "assessment": "Incomplete direct access; no assertion about the whole article",
+          "evidence": "Abstract access did not establish whether any exact quadratic-exponential example is treated. Xu's text supports the general characterization comparison.",
+          "identifier_or_url": "Berens–Xu (1997), as cited in Yuan Xu arXiv:1508.07615",
+          "material_read": "Publisher abstract only; relevant characterization as reported in Xu pp. 2–3",
+          "method": "Lawful OA retrieval attempt and bounded inspection of Xu's account",
+          "title": "Berens–Xu 1997 article cited for the L¹ characterization",
+          "trigger": "Original cited characterization in equivalent geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and monotonicity proof",
+        "Independent completed-square certificate",
+        "Xu characterization and Euclidean catalogue comparison"
+      ],
+      "rationale": "The square kernel is a natural separable Laplace example after a diagonal change of coordinates. The sharp coefficient tells exactly when a positive decreasing profile stops defining a covariance kernel, and the isolated zeros distinguish the first loss of spectral positivity from loss of strict finite-site definiteness. These are useful concrete properties not furnished by an abstract admissibility criterion.",
+      "residual_risks": [
+        "This is a two-dimensional one-parameter result, not a classification for arbitrary norms or profiles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

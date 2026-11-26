@@ -1,15 +1,21 @@
-# Review of the characteristic-eleven five-branch cyclic-quintic Hasse divisor
+# Independent mathematical audit
 
-## Correctness — PASS
-The plane quintic is smooth whenever the five branch points are distinct; its genus-six adjoint basis has blocks of sizes \(1,2,3\). The Cartier coefficient-extraction identity in characteristic \(11\) yields an exact polynomial determinant with a squared quartic factor, not a numerical interpolation. Symbolic polynomial arithmetic verifies all three block factorizations, the squarefreeness of the quartic, and the nonvanishing of the remaining two-dimensional block on the smooth locus. Exact independent finite-field representations verify the \(72\) prime-field ordinary pairs, the \(14,042\)-pair quadratic-field census, the \(210\) exceptions, their stable \(11\)-rank, and the complete branch-configuration orbit decomposition. The attached checker reproduces each step.
+## correctness
 
-## Originality — PASS, qualified
-Badr–Lorenzo García (2017, arXiv:1701.06065, Lemma 3.3) describes the five-branch plane-quintic model under characteristic assumptions excluding \(11\), but provides neither its characteristic-eleven Hasse polynomial nor this arithmetic and orbit census. Ohashi (2026, arXiv:2605.29624) studies superspeciality for different high-symmetry quintics, including the order-eight and order-ten families, with stated restrictions on the prime characteristic. The closest published mathematical-record comparisons concern four-branch cyclic-quintic genus-four covers and one-parameter, order-ten genus-six covers; neither statement entails the full two-parameter, five-simple-branch characteristic-eleven divisor or the split-branch counts. Historical completeness of the literature search is not guaranteed, and some adjacent indexed records could not be inspected in full.
+PASS
 
-## Value — PASS
-The five-point branch configuration is a natural two-dimensional geometric parameter space. An explicit **double Hasse divisor** on that space, together with the prime-field ordinarity obstruction and the exact three-orbit quadratic-field boundary, constitutes a complete structural and arithmetic result about this family, not an isolated point-count example. The arithmetic statement distinguishes \(\mathbb F_{11}\) from \(\mathbb F_{121}\), and the geometric statement holds over the algebraic closure. Its applicability to equal local Kummer exponents is clear and the exact branch orbit classes are intrinsic to the marked five-point problem.
+Simple roots give smoothness at the finite ramification points, the Y derivative handles the other affine points, and the Z derivative handles infinity. The order of x, y and dx at infinity is -5, -4 and -6, respectively; at finite branch points dx has order 4. These orders give the stated six independent holomorphic forms. Rewriting with denominator y^(11j) and extracting exponents 11k+10 gives the three coefficient blocks. Independent multinomial extraction, exact determinants, gcd and localized ideal calculation reproduce the factors and show middle block rank exactly one on the support; the other ranks there are zero and three. H=0 is reduced; the map from the ordered coordinates (a,b) to (s,t) is étale away from the discriminant, so pullback does not change the multiplicity two. The divisor uses the linearized Frobenius determinant, not entrywise rooted functions on parameter space. Over F121 the square of the semilinear middle block is represented, up to conjugation by field Frobenius, by B3 times its field conjugate. Its rank one and nonzero trace imply that powers have rank one. A replay over a third quadratic presentation verifies 72 and 0 over F11, 13832 and 210 over F121, and relabeling by four generating adjacent swaps gives orbit sizes 30,60,120.
 
-## Scope and residual limitations
-The listed parameter pairs are ordered presentations, not a count of arithmetic curve isomorphism classes. The stable \(11\)-rank classification is asserted only for the quadratic-field exceptional points. A characteristic-eleven extension of the entire automorphism classification of the 2017 source, an independent mathematical audit, the full Newton polygon, and a complete priority census are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the existing five-branch model and the related doubled-divisor examples. The distinct result is the explicit characteristic-11 two-parameter Hasse divisor with its geometric rank and split-field arithmetic stratification. Nothing in the accessible comparisons supplies those statements for this family.
+
+## value
+
+PASS
+
+The full smooth two-dimensional five-point configuration family is natural. The multiplicity, rank rigidity, and contrasting split-field censuses provide more than an example or a rerun of a published arithmetic table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

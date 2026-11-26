@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:33:35.238959Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Assumptions and Proof Steps 1–6",
+        "Frozen VERIFICATION.md, full_checker.py (read only), and full_checker_output.txt (recorded evidence)",
+        "/workspace/branches/3f8dbacf-43fe-4c07-8003-be642801a940/bounded_trace_enum.py and trace_enum_output.txt (independent replay)"
+      ],
+      "rationale": "Even cut parity forces the two rail edges at each cut to occur together; matchings are exactly monomer–dimer tilings of the column path. Both rails at one cut cannot be shattered together, adjacent selected cuts conflict, and their endpoints cannot carry queried rungs. Forcing all selected rail queries to one reduces the remaining rung traces to disjoint intervals. A maximal alternating run beginning and ending with one has more queried columns than available neighbors: force its rungs absent and every other queried rung present. No two absent columns in the run are adjacent, and any outside neighbor of an endpoint is a queried rung forced present, so the trace is impossible. In all other runs, adjacent pairs within the run saturate the ones using distinct zeros. These pairs and selected rail cuts are disjoint and may each independently be tiled with a dimer or two monomers, proving the converse with all physical labels accounted for. The alternating-run transfer matrix gives R=1/(1-t-2zt^2+zt^3); inserting selected rails between interval factors gives R/(1-2zt^2 R) and exactly the claimed series. Expanding 4-t=3+(1-t) proves the coefficient formula, bounds and leading terms, including the empty-width convention. At n=6 the two central rungs are shattered; adjoining any rung makes a forbidden run and the only nonincident rail cuts (1 and 5) make a boundary singleton run. Cuts 1,3,5 give a shattered triple. An independent graph-based replay compared 1170 physical supports through width four and verified the size-two facet against all 14 one-edge extensions at width six.",
+      "residual_risks": [
+        "The independent enumeration is bounded and does not independently rerun the full frozen checker. The arbitrary-width verification rests on the proved trace criterion and formal series, not extrapolation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The bipartite matching shattering criterion in e1690cca5815 queries vertex coverage by arbitrary matchings, not original edge membership in perfect matchings.",
+          "The full enumerators in records d84d57a040aa and 3a70e5b20052 concern a complete bipartite or complete host with one perfect matching removed. The crossing-parity record imposes a different concept restriction on a complete host."
+        ],
+        "reasoning": "Those host classes and query universes do not specialize to arbitrary open ladder widths with the same shattering operation.",
+        "searches": [
+          "Resultary e1690cca5815, d84d57a040aa, 3a70e5b20052 and 51a4905acdf5",
+          "Primary literature search for perfect matching shattering and ladder support enumerators"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Relationship to prior work",
+        "Resultary local mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4, records identified above",
+        "Primary OA papers by Tratnik–Ye and Johnson",
+        "Bounded primary web search for ladder edge-query shattering; no useful direct source returned"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The scalar dimension determines the degree but not the coefficients or maximal face sizes. Rail duplication and the rung partners across residual intervals require a trace criterion.",
+          "The Zhang–Zhang/Clar-covering correspondence is with induced cubes, not with projections to selected physical rails and rungs."
+        ],
+        "reasoning": "The new count is not the Fibonacci matching count in different variables. The support-level obstruction and interval decomposition are additional arguments.",
+        "searches": [
+          "Resultary c420d89cdd55 Finding and tiling proof",
+          "Tratnik–Ye Section 2 and Theorem 1.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The tiling model in record c420d89cdd55 is equivalent to the present perfect-matching concept family, but its theorem counts matchings and gives dimensions.",
+          "Resonance graphs count induced cubes of matchings related by face flips, rather than coordinate supports. For width two the flip graph is K2 with cube polynomial 2+z, whereas the physical shattering polynomial is 1+4z.",
+          "Johnson's binary-string traces come from translations/substrings of a string, not this finite ladder matching family."
+        ],
+        "reasoning": "The dimer translation preserves physical query multiplicity only when rails are counted separately; neither ordinary cube polynomials nor string translations enumerate those supports.",
+        "searches": [
+          "Resultary semantic search for ladder perfect matching physical edge traces and shattering enumerator",
+          "Tratnik–Ye arXiv:1710.00761, abstract, Section 2 and Theorem 1.3",
+          "Johnson arXiv:2101.06490, Section 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-family earlier theorem gives floor(n/2), not the face counts.",
+          "The same-day ladder result 7802b3962b3c uses simple-cycle concepts and reports no shattered triples; the present family has shattered triples at width six. The same-day deranged-pairing result concerns a pure complex on a different graph."
+        ],
+        "reasoning": "The inspected same-day claims differ on the scientific objects, not just the publication date. No distinct inspected record supplies the exact ladder shattering coefficients or the nonpurity witness.",
+        "searches": [
+          "Resultary exact-family lookup c420d89cdd55 and distinct same-day matches 7802b3962b3c, 3a70e5b20052 and 51a4905acdf5"
+        ]
+      },
+      "rationale": "The same-family prior work establishes the scalar VC dimension, count of matchings, and tiling reduction. The full mixed physical-support criterion, all-width polynomial, and nonpurity are not given by those results or by the inspected related matching and flip-graph results. This is a bounded priority assessment.",
+      "residual_risks": [
+        "Equivalent characterization or enumeration in unindexed matching or learning literature is not excluded. The search result alone is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior scalar result, not a face enumerator",
+          "evidence": "Gives floor(n/2), a Fibonacci matching count and adaptive dimension.",
+          "identifier_or_url": "2026/11/2/...c420d89cdd55",
+          "material_read": "RESULT.md Finding and column-tiling comparison",
+          "method": "Resultary lookup and local mirror",
+          "title": "Exact VC dimension and linear online shattering gap for matching-covered ladders",
+          "trigger": "Exact host, matching family and queries"
+        },
+        {
+          "assessment": "Different concept family",
+          "evidence": "Uses simple cycles and a degree-two polynomial, with no shattered triples.",
+          "identifier_or_url": "2026/11/22/...7802b3962b3c",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary lookup and local mirror",
+          "title": "Cycle-incidence shattering on ladders",
+          "trigger": "Distinct same-day hit for the same host and full support enumeration"
+        },
+        {
+          "assessment": "Different host, pure complex",
+          "evidence": "Deletes one perfect matching from K_{2n}; its classification does not cover the ladder.",
+          "identifier_or_url": "2026/11/22/...3a70e5b20052",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary lookup and local mirror",
+          "title": "Complete Boolean shattering of deranged pairings: a pure complex",
+          "trigger": "Distinct same-day full edge-query polynomial of perfect matchings"
+        },
+        {
+          "assessment": "Vertex, not edge, queries",
+          "evidence": "Traces concern vertices covered by arbitrary matchings.",
+          "identifier_or_url": "2026/11/8/...e1690cca5815",
+          "material_read": "RESULT.md criterion and assumptions",
+          "method": "Resultary lookup and local mirror",
+          "title": "Shattering by matching-covered vertices in bipartite graphs",
+          "trigger": "Potentially dominating bipartite shattering theorem"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Counts induced hypercubes of the resonance graph and relates them to Clar covers.",
+          "identifier_or_url": "https://arxiv.org/abs/1710.00761",
+          "material_read": "Abstract p. 1, Section 2 p. 3, OA offsets 0, 9376 and 11262",
+          "method": "Primary OA PDF passages",
+          "title": "Resonance Graphs and Perfect Matchings of Graphs on Surfaces",
+          "trigger": "Related cube and matching enumerators"
+        },
+        {
+          "assessment": "Different concept family",
+          "evidence": "Unary predicates for P(x+y) and families from finite substrings, not traces of physical edges in ladder matchings.",
+          "identifier_or_url": "https://arxiv.org/abs/2101.06490",
+          "material_read": "Abstract and Section 2, OA offsets 992–1491 and 10131",
+          "method": "Primary OA PDF passages",
+          "title": "Binary strings of finite VC dimension",
+          "trigger": "Binary words and VC traces"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, support criterion and width-six example",
+        "Exact same-family scalar prior result c420d89cdd55",
+        "Independent width-six trace check"
+      ],
+      "rationale": "An all-width enumerator and exact support-level criterion for the standard open ladder answer materially more than the known rank: they decide which physical queries can coexist and give all face numbers. The first supplied nonpurity witness shows why maximum cardinality is not a complete description of maximal query patterns. The result is not simply a count of matchings or resonance cubes.",
+      "residual_risks": [
+        "No general grid-width result, cyclic-ladder classification, or all-width formula for facets by size is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

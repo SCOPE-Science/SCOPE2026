@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:13:08.466968Z",
+  "axes": {
+    "correctness": {
+      "boundary_check": "For x=Q−1, the initial triple (x,−1,−1) yields (P_3,P_2)=(−1,x). Each subsequent triple (x,x,−1) takes (u,v) to (xu,(1+x)u+xv). After j=k−1 such triples followed by the final x, the multiplier is x^j(x+1)(x−1−j)=Q(Q−k−1)(Q−1)^(k−1); the formula also follows directly at j=0. Hence every group of order k+1 admits an additional zero for k≥1 with first character trivial; this does not classify the subthreshold kernel. At q=k+2 the fraction tends to exp(−1). The frozen finite checker was inspected without execution; the algebraic reconstruction is the unrestricted proof.",
+      "rationale": "Unnormalized convolution on all of H^n diagonalizes in the character basis. Orthogonality at a supported site gives q−1 or −1, so the multiplier is the path independent-set sum with P_i=P_(i−1)+a_i P_(i−2), P_0=P_(−1)=1. Reducing all activities modulo q gives the 6-periodic sequence 1,0,−1,−1,0,1 starting at i=0. The nonzero residues ±1 exclude zeros off n≡1 mod 3 without requiring q prime. For n=3k+1 use an indeterminate Q in place of q. The constant term vanishes; differentiating in each trivial-coordinate activity at all activities −1 splits the occupied-site weight into segments j−2 and n−j−1. The product is zero unless j≡1 mod 3, where it is (−1)^k, including empty end segments. Thus a zero at q requires q|t for the number t of trivial designated sites. At q≥k+2 this forces t=0. Conversely specified activities −1 at the designated sites propagate P_1=0 to every P_(3h+1), regardless of the two intervening activities. Counting character choices gives nullity q^(2k)(q−1)^(k+1) and the stated rank and fraction (also valid at k=0).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The hard-core source gives the multivariate partition-function framework and studies roots for recursively defined graph sequences. The path-powers and generalized Fibonacci-cube references concern cardinalities and graph isomorphisms."
+        ],
+        "reasoning": "Neither a general definition nor combinatorial Fibonacci-cube counts imply nonvanishing for the mixed site activities or identify the designated-coordinate zero modes.",
+        "searches": [
+          "Hlushchanka–Peters arXiv:2609.35102, hard-core partition functions and zero theory",
+          "Codara–D’Antona arXiv:1210.5561 §2; Azarija et al. arXiv:1402.6377, generalized Fibonacci cubes"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Local Resultary: self-match, Dyck paths, restricted interpolation, cycle independent sets, and cycle nonadjacent pairs",
+        "arXiv:1210.5561; arXiv:1402.6377; arXiv:1608.03522; arXiv:2609.35102"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The all-negative period in the binary Dyck proof readily extends to congruences modulo q, since both site weights reduce to −1. It is identically zero in the target singular residue and then gives no character criterion. The audited proof extracts a second layer (divisibility of the count of trivial designated sites) and constructs prescribed mixed activities giving a boundary zero with t>0."
+        ],
+        "reasoning": "The easy off-residue part is close to prior implication and is not the basis for a pass. The exact mixed-site classification for high alphabets and the optimal q boundary are not implications of the examined binary sign law, cardinality results, or restricted interpolation formulas.",
+        "searches": [
+          "Height-three Dyck Resultary proof: Signed independence recurrence; hard-core zero literature and Fibonacci signed recurrences"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The height-three Dyck record reduces its Walsh multipliers to signed Fibonacci path sums with weights ±1, writes the same recurrence, and explicitly gives the six-cycle at all activities −1. The cutoff theorem concerns the root of the integer specialization with values Q−1 and −1 and the full zero support, not just the smallest binary nonzero multiplier."
+        ],
+        "reasoning": "These multiplier formulations genuinely overlap in the binary encoded path regime. The signed recurrence and its mod-three obstruction are not new; that case does not give the leading-in-Q coefficient test and constructive sharpness for all higher alphabets.",
+        "searches": [
+          "Resultary: signed independent-set sum, Walsh Fourier zero, Fibonacci path words and height-three Dyck paths",
+          "Primary search: site-weighted independent-set polynomial and signed hard-core continuants"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact top hit is the audited record itself. A cycle-independent-set record gives a mod-three Boolean Walsh invertibility law on cycles. A distinct same-day mod-eight result treats only independent pairs on a cycle. Graph-exclusion Fourier interpolation studies a matrix restricted to support rather than convolution on H^n."
+        ],
+        "reasoning": "Those exact rank and invertibility entries count different zero patterns or analyze different operators; the earlier binary Dyck table enumerates finite binary instances and does not supply the higher-alphabet formula.",
+        "searches": [
+          "Resultary: exact Fourier nullity for hard-core paths at q≥k+2, cycle independent-set convolution, restricted graph exclusion Fourier matrices"
+        ]
+      },
+      "rationale": "The binary signed recurrence, its six-cycle and the related binary invertibility residue already appear in prior catalogue work. The supported distinct result is the sharp higher-alphabet classification of the kernel in the singular residue, including the explicit extra-zero boundary witnesses. The checked partition-function and graph papers do not give that classification.",
+      "residual_risks": [
+        "An equivalent exact classification under signed continuants or site-dependent hard-core zero terminology might be missed by bounded retrieval. The signed recurrence and the off-residue congruence analogy are credited, and there is no claim of priority for them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Binary equivalent recurrence and residue obstruction; no mixed higher-alphabet kernel classification",
+          "evidence": [
+            "Weights are ±1, and the proof explicitly uses the 1,0,−1,−1,0,1 period and signed-sum parity."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-fourier-recovery-and-a-cubic-minimum-zero-threshold-for-height-t--51de04f7e6b4",
+          "material_read": "Finding and Signed independence recurrence, mirror offsets 3600–5918 for proof",
+          "method": "Local Resultary mirror and equation comparison",
+          "title": "Fourier recovery and a cubic minimum-zero threshold for height-three Dyck paths",
+          "trigger": "Closest overlap: exact Walsh recurrence and three-residue zero law"
+        },
+        {
+          "assessment": "Cycle instead of path; restricted pairs or interpolation matrix instead of full independent-support convolution",
+          "evidence": [
+            "The all-independent-set cycle result has a Boolean mod-three law; the same-day result is Boolean and only for independent pairs; the interpolation theorem uses residual-graph independence polynomials for inverse entries."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-cycle-independent-sets-a-modulo-three-fourier-invertibility-law--acf4a6fabe72; 2026/11/22/SCOPE-a-mod-eight-fourier-rank-law-for-nonadjacent-pairs-of-a-cycle--3bd0dc9a1e20; 2026/11/8/SCOPE-graph-exclusion-fourier-interpolation-universal-invertibility-an--0cb9494a16e7",
+          "material_read": "Finding in each local mirrored RESULT.md",
+          "method": "Local Resultary statement comparisons",
+          "title": "Related Fourier rank and interpolation findings",
+          "trigger": "Similar exact Fourier laws and independence-polynomial formulas"
+        },
+        {
+          "assessment": "Combinatorial counts rather than Fourier zero modes",
+          "evidence": [
+            "At path power h=1 the independent sets are encoded by binary Fibonacci strings."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1210.5561",
+          "material_read": "§2, p. 3 (offsets 10600–12772)",
+          "method": "Primary OA PDF, bounded passage",
+          "title": "On the independent subsets of powers of paths and cycles",
+          "trigger": "Fibonacci/path independent sets and possible exact formulas"
+        },
+        {
+          "assessment": "Graph isomorphism setting, not Fourier convolution",
+          "evidence": [
+            "Avoiding 11 gives the ordinary Fibonacci cube in their graph definition."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1402.6377",
+          "material_read": "p. 2 (offsets 4660–6884)",
+          "method": "Primary OA PDF, bounded passage",
+          "title": "On Isomorphism Classes of Generalized Fibonacci Cubes",
+          "trigger": "Equivalent forbidden-pattern model"
+        },
+        {
+          "assessment": "Recurrence analogy only",
+          "evidence": [
+            "Studies random signs and Fibonacci sequence pairs, not a path Fourier spectrum."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1608.03522",
+          "material_read": "p. 1 (near offset 1940)",
+          "method": "Primary OA PDF, bounded passage",
+          "title": "On (a,b) Pairs in Random Fibonacci Sequences",
+          "trigger": "Signed Fibonacci recurrence terminology"
+        },
+        {
+          "assessment": "Broader partition-function setting; no identified implication for these prescribed activity patterns",
+          "evidence": [
+            "Defines the weighted hard-core partition function; addresses recursive graph sequences. A failed literal locator was not treated as excluding coverage elsewhere."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.35102",
+          "material_read": "pp. 1 and 5 (around offsets 3950 and 19900), definitions and setting",
+          "method": "Primary OA PDF, relevant passages and literal locators",
+          "title": "Hlushchanka–Peters work on independence polynomial zeros",
+          "trigger": "Possible stronger theorem on weighted hard-core zeros"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A full kernel characterization for all abelian alphabet structures of a given order determines exactly which Fourier modes are lost. The sharp boundary separates structural zeros from additional arithmetic cancellations and explains a nonvanishing limiting fraction of lost modes at threshold. This is more informative than an isolated determinant evaluation or a recurrence reformulation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

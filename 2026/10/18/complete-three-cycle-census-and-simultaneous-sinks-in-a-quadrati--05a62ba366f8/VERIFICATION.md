@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run `python3 CHECK.py` with Python 3.9 or later from the directory containing the extracted files. It requires only the standard-library `fractions` and `itertools` modules. The script terminates with a success message after exact integer/rational assertions; any assertion failure instead raises an exception and prevents the success message.
+## correctness
 
-The script verifies the rational witness coordinates and parameters, all six orderings of the scalar recurrence, both orientation-specific three-step matrices, their exact trace/determinant, six strict Schur stability inequalities, the canonical cycle equations and unit multipliers at the two critical rational parameters, the doubly zero return multiplier at a separate canonical parameter, and exact signs around the two phase transitions. These are finite reproducible calculations, not exhaustive searches over the continuum of parameters.
+PASS
 
-The infinite mathematical assertions are established in `RESULT.md`: the equality-pattern partition exhausts all real period-three triples; cyclic subtraction and Viète's theorem yield the only possible all-distinct cubic; its discriminant gives an exact existence criterion; conversely every real simple-root ordering solves the original equations; and a simple real cubic level-set analysis yields the two-equal orbit count. The 3D Jacobian has one additional zero multiplier relative to the planar recurrence, with no assumption of pointwise nilpotence for the nonlinearly conjugate normal form.
+The scalar recurrence retains all periodic states because the first coordinate of the three-dimensional state is forced by the preceding pair. Equal coordinates give only the fixed point or the cyclic form (nu,s,s) with a(s−nu)(s+nu)^2=1; its level-set count changes at k=27/32. For distinct A,B,C, subtracting the recurrence equations and dividing by the actual nonzero differences forces (S−t)(Q−3t^2)=−1/a at each of the three roots. Coefficient comparison gives P=−S^2, Q=3S^2 and R=−S^3−1/(3a). Newton sums give the squared-difference sum −4S/a and hence S=3nu/5. Conversely these relations make all three recurrence residuals equal with zero sum, for each ordering. The cubic discriminant is −3(96a nu^3+125)/(125a^2); strict positivity gives precisely two cyclic classes, with no distinct branch at equality. On the repeated-coordinate branch the planar trace is 16s^2/(s+nu)^2 and determinant zero, giving the claimed strict stability interval for the middle root only. Direct rational perturbation propagation at a=6331625/4572288, nu=−1 reproduces both orientation-specific trace/determinant pairs and the strict Schur tests. The three-dimensional derivative has a zero extra multiplier; simple roots and strict Schur inequalities persist on an open parameter neighborhood.
 
-No independent audit or validation has been conducted. The lawful arXiv original was inspected in detail; the subsequent journal version's full text and some potentially unindexed equivalent historical results were unavailable or not exhaustively checked. Hyperbolicity is proved explicitly at the rational example and hence on an unspecified open neighborhood only; the result does not provide a full attracting-region classification in the five-cycle phase.
+## originality
+
+PASS
+
+The normal form, one constructed three-cycle and analysis of its multiplier have direct primary precedent. Two distinct hyperbolic period-three sinks with all-distinct heights at one quadratic parameter, together with the all-distinct-branch exhaustion and exact onset, are supported as the distinct contribution relative to verified earlier material. Later indexed findings exactly overlap the count after rescaling; the strongest retrieved one does not assert attraction. No claim of historical uniqueness is made.
+
+## value
+
+PASS
+
+The census answers a natural uniqueness question for the simplest quadratic defining polynomial in a studied family. The second threshold reveals two previously unaccounted cyclic orientations, and the exact witness proves stable coexistence, persisting under perturbation despite the strong nilpotence restriction in the original coordinates. Counting only the repeated-coordinate branch would miss both phenomena.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

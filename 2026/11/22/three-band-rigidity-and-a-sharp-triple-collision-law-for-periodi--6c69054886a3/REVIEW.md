@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. A unitary length-\(m\) Fourier transform across the repeated three-node cells reduces the complete \(N\times N\) Fourier sampling matrix to identical \(3\times3\) Vandermonde fibers. Its gauged Gram matrix has one antisymmetric eigenvector and a quadratic symmetric block. The eigenvalue ordering is proved from \(a>0\), \(a-b>0\), and \(a+b=2a\cos\theta\); this gives exactly one upper-eigenvalue crossing at \(\varepsilon=1/4\). Taylor expansion proves the collision coefficients uniformly in grid size. Direct full-matrix moment checks agree with the bands at 88 finite test instances, but the proof is analytic.
+PASS
 
-## Originality
+Checked both the frozen mathematics and the revised exact-spectrum claim in /workspace/repairs/1/RESULT.md. In the exponent with k=q+sm, s times j is integral, so the cell DFT selects q exactly and leaves the normalized three-row block after a unit phase is removed. Centering the frequencies to −1,0,1 gives a real Gram matrix with adjacent entry a and endpoint entry b. Reflection gives the stated one-dimensional odd and two-dimensional even restrictions, and their dimensions yield the m-fold levels. The Vandermonde nodes are distinct before ε=1, making every level positive. Setting c=cos θ gives a−b=2(1−c)(1+2c)/3>0 in the open interval. Then Δ>3b/2 when b>0, ensuring that the odd level exceeds the lower even level, and for b<0 the upper-branch difference has the sign of 2(a−b)(a+b), with a+b=2ac. For b≥0 the upper even wins and c must be positive; hence the unique interior crossing is c=0, i.e. ε=1/4. Substitution gives (1/3,4/3,4/3); at ε=0 the Gram is the identity and at ε=1 it is all ones, giving rank m. The lower and upper comparisons establish the exact piecewise condition number. For the corroborating collision calculation, the Vandermonde product is (2 sin(θ/2))^4(2 sin θ)^2/27, leading 4θ^6/27; dividing by the odd level of order 4θ²/3 and the upper even level tending to 3 gives θ^4/27 for the least squared level, with even O(θ²) relative error. This independently verifies the constants and uniformity without relying on the finite power-sum tests. The inspected checker.py is standard-library only and was not executed. Scope is consecutive frequencies, equal weights and this symmetry, with no arbitrary-jitter extension.
 
-PASS relative to the examined primary work and available mathematical records. Chen--Lin--Zhang (arXiv:2608.21960, inspected full text, introduction, Theorems 1.2/1.4 and concluding comparisons) establish general nonuniform Fourier matrix estimates, not the present exact repeated triple-fiber spectrum. Strohmer--Tanner (SIAM J. Numer. Anal. 44, 2006, full accessible article, reconstruction and conditioning sections) address periodic nonuniform sampling broadly without the precise three-band or quarter-threshold statement. Closest publicly indexed comparisons cover alternating two-point perturbations, two-point collisions, or different frequency supports. The standard polyphase technique itself is classical, and the residual possibility of an unindexed equivalent three-channel calculation remains.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The complete three-band calculation applies simultaneously to all grid sizes divisible by three, singles out the exact spectral crossing at the quarter-grid perturbation, and identifies a sharp second-order singular-value collapse with its universal coefficient. The quadratic triple-cluster instability differs structurally from single-pair coalescence and directly quantifies Fourier interpolation noise amplification.
+The frozen finding's separate advertised sharp leading collision law does not pass as a distinct contribution: the 2026-11-08 midpoint theorem gives both leading constants by exact unitary reduction and rescaling. This is established coverage, not a correctness defect or an inference from failed retrieval. The repaired finding is the exact repeated three-band spectrum and quarter-grid ordering transition over the full displacement interval. The collision expansion is retained only as a credited check and consequence. No inspected source yields the repaired spectrum and branch comparison, which are not implied by prior limiting constants or order bounds.
 
-## Scope and risks
+## value
 
-The calculation is limited to a symmetric, equal-weight, three-periodic sampling configuration and consecutive Fourier frequencies. It is not an optimal design theorem over all perturbations. Earlier polyphase-filterbank treatments may contain equivalent algebra without using the present terminology.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The revised result gives a complete conditioning diagnostic for the natural three-site extension of a periodically interleaved Fourier grid. A practitioner can identify the least stable mode and which parity controls the norm at any displacement, across all critically sampled grid sizes, rather than knowing only that instability develops at a triple collision. The interior change of maximizing mode is a concrete spectral boundary not detected in the known collision limits. This is an exact narrow invariant, not credit for a standard Fourier decomposition or for rederiving a known leading constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

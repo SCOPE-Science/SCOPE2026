@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:10:58.159813Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reduction of J to a leading identity is by compatible invertible row and column changes, preserving the product. The equations are P²=PQ=RP=RQ=0, with S free. For nonzero P its image and kernel agree in one line W, and the incidence construction contains the point. At P=0 a line exists whenever Q and R both have rank ≤1 and RQ=0; otherwise one has rank two and the other vanishes. The line incidence is a vector bundle over P¹ of fiber dimension 1+a+b+ab, with closed image by proper projection and a unique line on a dense open subset. Each side linear space is a maximal irreducible set precisely when its rank-two stratum exists. Comparing dimensions gives the balance transition; the reduced intersections are rank-one-or-less cones times the free block, with the common intersection the free block alone. Over F_q every nonzero incidence triple has a unique rational line, while the zero triple with arbitrary S accounts for all coincidences of the q+1 fibers. Two disjoint full-rank escape strata give the other summands and vanish automatically for a,b<2. The independent q=2,a=b=1 multiplication check gives 44 out of 512 (branches/fa54b8c9-826c-4ee4-8afc-4d5a152a2006/bounded_count.py and bounded_count.txt); captured frozen output reports eight small cases including (2,2,2)→1696 and a size-four field case. Frozen code was inspected, not executed. Neither these checks nor the proof assert scheme reducedness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 3.7 says components are the closures of the top strata whose generic (dimension of top, dimension of socle) pairs are minimal in coordinatewise order. Write c=rank[P Q] and r_i=min(a,2−i). For c=0 the generic top and socle vectors are (b,2,a−r_0) and (b,2−r_0,a). For c=1 they are (b,1,a−r_1) and (max(b−1,0),1,a). For c=2, feasible exactly when b≥2, they are (b,0,a) and (b−2,2,a). These pairs are achieved by maximal ranks in each case.",
+          "The c=1 and feasible c=2 pairs are minimal; the c=0 pair is dominated precisely when a≤1. The c=1 closure is the line incidence; the other surviving closures are the stated linear spaces."
+        ],
+        "reasoning": "The broader theorem computes precisely 1+1_{a≥2}+1_{b≥2}, not just an upper bound. The line choice and the allowed maps on its quotient give the component dimension, the rank conditions give all intersections, and comparing these dimensions is arithmetic. Dolinka–East supplies the sandwich setting, not this coverage.",
+        "searches": [
+          "The geometry of finite dimensional algebras with vanishing radical square, arXiv:1407.3045, Theorems 3.2 and 3.6 and Corollary 3.7",
+          "Dolinka–East arXiv:1503.03139"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_rank2.py, check-rank2-output.txt",
+        "Bleher–Chinburg–Huisgen-Zimmermann arXiv:1407.3045",
+        "Dolinka–East arXiv:1503.03139",
+        "De Concini–Strickland DOI 10.1016/S0001-8708(81)80004-7 (publisher excerpt)",
+        "Resultary 879616fbde2e, 0e6f8541078f, c3993cce10c6, 866e5ef87ff9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strongest comparison is the exact radical-square-zero quiver, not the fixed P=0 subproblem. Each rank image W is the central radical space. Fixing W leaves precisely the above surjective incoming matrix and unrestricted outgoing quotient map; at c=1 this is the ordinary Grassmann line incidence.",
+          "Theorem 3.6 supplies the containment test that removes the would-be linear components in dimensions zero and one, and Corollary 3.7 supplies the component classification. The remaining intersection descriptions follow by setting either Q or R to zero, leaving the rank-at-most-one determinantal cone."
+        ],
+        "reasoning": "The original core is covered even though the exact sandwich notation and coefficients do not appear in the theorem. The finite-field formula and balance statement do not require an additional nonroutine theorem once the rank spaces and their dimensions are written out.",
+        "searches": [
+          "Bleher–Chinburg–Huisgen-Zimmermann arXiv:1407.3045 §§2–3, component theorem and closure criterion",
+          "De Concini–Strickland DOI 10.1016/S0001-8708(81)80004-7 and Dolinka–East arXiv:1503.03139"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Use a three-vertex quiver with maps Q from a source of dimension b to the central vertex of dimension 2, a loop P there, and R from the central vertex to a sink of dimension a. Quotient by all length-two paths: the full relation list is exactly P²,PQ,RP,RQ. The sandwich locus is this affine representation variety times affine ab-space.",
+          "De Concini–Strickland's varieties of complexes are relevant to P=0 only; the quiver identification, in contrast, preserves the central loop and the nonzero-P stratum."
+        ],
+        "reasoning": "This reduction is equality of matrix equations for the reduced varieties, not an analogy or a comparison to the zero-composition slice. The known representation-variety theorem therefore applies to the full claimed geometric object in each characteristic.",
+        "searches": [
+          "radical square zero algebras J squared 0 irreducible components representation varieties minimal pairs top socle finite quiver modules",
+          "Resultary: fixed rank-two sandwich zero-square varieties, Munn rings and zero-product fibers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact match 879616fbde2e is the assigned record. Distinct 2026/10/12 0e6f8541078f (local Finding offset 0) counts fibers of (A,B,R)↦ARB subject to AB=0, by output rank; distinct c3993cce10c6 has variable idempotent P and nilpotent N with PNP=0. The same-day 866e5ef87ff9 treats power-map fibers of a rank-one rectangular-band algebra.",
+          "For the very same radical-image stratification c=dim W with W=im[P Q], each subspace W contributes a surjection from a (b+2−c)-dimensional space onto W, and any map from a (2−c)-dimensional space to the sink. Thus the three point contributions before the free q^(ab) factor are q^(2a), (q+1)(q^(b+1)−1)q^a, and (q^b−1)(q^b−q). Their sum is algebraically the frozen polynomial."
+        ],
+        "reasoning": "No distinct matching indexed table was used as prior evidence; the formula is mechanically computed by the standard count of choices of a subspace and a surjective finite-field matrix in the already identified strata. The symmetric decomposition into line fibers and escapes is another way to arrange these terms.",
+        "searches": [
+          "Resultary: zero square rectangular sandwich classification, exact finite-field rank-two map fibers, square-zero sandwich representations"
+        ]
+      },
+      "rationale": "The main geometric classification is a direct special case of the published radical-square-zero representation-variety component theorem (Bleher–Chinburg–Huisgen-Zimmermann, Corollary 3.7), under an exact quiver identification including P≠0. The dimensions, intersections and explicit rational-point expression are immediate rank-stratum computations in the same model; the point-count expression is not asserted to be printed there. This is affirmative mathematical coverage of the structural classification, not a failure to retrieve an older paper.",
+      "residual_risks": [
+        "Exact historical priority for this particular formula is not established; the 1981 paper was not available in full and Munn-ring literature was not exhaustively surveyed. The decision does not require inferring anything from those access limits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive broader geometric coverage via the three-vertex quiver",
+          "evidence": [
+            "Theorem 3.2 states the truncated-path stratum framework; Theorem 3.6 compares closures using generic top/socle; Corollary 3.7 gives exactly the components through minimal pairs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1407.3045",
+          "material_read": "Introduction pp. 1–2, Theorem 3.2 p. 7, Theorem 3.6 p. 10, Corollary 3.7 p. 11 and its proof",
+          "method": "Lawful OA PDF, located theorem and read its surrounding passage",
+          "title": "The geometry of finite dimensional algebras with vanishing radical square",
+          "trigger": "The sandwich equations match a radical-square-zero quiver with a loop"
+        },
+        {
+          "assessment": "Same algebraic setting, not the decisive component theorem",
+          "evidence": [
+            "Defines X⋆Y=XAY and discusses Munn rings/rectangular matrix semigroups, regular elements and idempotents."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1503.03139",
+          "material_read": "Introduction pp. 1–2, OA offsets 1458 and 4061; abstract",
+          "method": "Lawful OA PDF",
+          "title": "Semigroups of rectangular matrices under a sandwich operation",
+          "trigger": "Same sandwich product and generalized Munn matrices"
+        },
+        {
+          "assessment": "Scope beyond the known complex slice unresolved and unnecessary to the decision",
+          "evidence": [
+            "The publisher excerpt describes characteristic-free varieties of complexes. The zero composition RQ=0 is the corresponding closed slice here."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0001-8708(81)80004-7",
+          "material_read": "Bibliographic information and publisher excerpt; full text not obtained",
+          "method": "Lawful publisher/OA attempts returned 403",
+          "title": "On the variety of complexes",
+          "trigger": "Classical precedent for the P=0 zero-composition slice"
+        },
+        {
+          "assessment": "Different map and invariant, not the reason for rejection",
+          "evidence": [
+            "Counts fibers of ARB with AB=0 by rank of the output matrix."
+          ],
+          "identifier_or_url": "Resultary:0e6f8541078f",
+          "material_read": "Local RESULT.md Finding, offset 0",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Exact finite-field fibers of the zero-product sandwich map",
+          "trigger": "Strongest distinct indexed finite-field sandwich overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The locus is a natural object and the elementary proof is usable as an example, but the proposed structural theorem is an immediate specialization of the existing general classification. The dimension change is a comparison of three linear expressions after removing the free factor, and the count that could otherwise remain as an exact invariant has the three standard Grassmann/surjection terms with no further nonmechanical step. No distinct substantial claim remains for a research repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

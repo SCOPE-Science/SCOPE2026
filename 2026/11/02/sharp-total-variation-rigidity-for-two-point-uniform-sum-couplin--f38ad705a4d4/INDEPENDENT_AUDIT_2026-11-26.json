@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:08:44.996226Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–34; VERIFICATION.md, verify_stability.py and recorded verification_output.txt inspected, supplied script not executed",
+        "Section 1 of /workspace/independent_checks.py independently checks the sharp defect/mismatch counts on paired residue slices with residue-changing failure, k=2,…,9."
+      ],
+      "rationale": "After reflecting Y, the successful edges are adjacent indices at the same residue in (0,h). Each restricted edge measure has a density dominated by its uniform source and target marginal densities; failed mass need not preserve residues. On either path, ordered from the row endpoint, the canonical density g_i, other density a_i and failure f_i obey g_i+a_i+f_i=1 and g_(i−1)+a_i≤1 with a_0=0. Thus a_i≤sum_{j<i} f_j, and integrating over both paths gives B≤(k−1)F. The restriction to the canonical graph is dominated by the canonical law because both first marginals are uniform and the graph has one image per source. Under the specified sup convention TV is exactly B+F. The witness permutes columns on a residue set of any asserted measure: the wrap edge fails for k≥2, k−1 additional rows succeed noncanonically, and the other path is untouched. At k=1 there are no other successful edges; uniqueness follows at F=0 and all-coupling equality holds at k=1.",
+      "residual_risks": [
+        "The finite permutations are not a test of arbitrary continuous couplings. The density argument and the explicit measure-preserving construction cover them. No formal verification or expert attestation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Exact-distance capacity addresses arbitrary distances but just optimizes success mass; the two-distance composition theorem imposes exchangeability and exact support on two distances. Eckstein–Nutz controls regularized OT in Wasserstein distances."
+        ],
+        "reasoning": "Broader distance parameter ranges and general regularized stability concern different conditions or metrics and do not specialize to the assertion about arbitrary failed mass and TV.",
+        "searches": [
+          "Resultary e7fa2648f14a and 3c501b829a9e",
+          "arXiv:2110.06798v3, stability estimates"
+        ]
+      },
+      "checked_sources": [
+        "Ranked Resultary matches above",
+        "ArXiv primary-source passages above",
+        "General literature query did not produce a useful additional comparator"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full success forces the unique path matching by endpoint saturation, a close consequence of the chain decomposition. Quantitative propagation of row shortages on both paths and matching the k-to-one variation/defect witness require additional arguments."
+        ],
+        "reasoning": "The zero-defect implication and standard matching machinery are not advertised as new on their own. The exact defect factor and nonuniformity are the distinct claim.",
+        "searches": [
+          "Resultary capacity e7fa2648f14a, composition 3c501b829a9e and assignment 26031c5fe2ee",
+          "Mao–Wang–Wang arXiv:1811.11981, Theorem 3.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reflection preserves TV and takes the two exact sums to |X−V|=h. The indexed exact-distance capacity theorem includes h=1/(2k), with adjacent chain swaps. Mao–Wang–Wang's two-point-law condition is 1/(2h) integer."
+        ],
+        "reasoning": "Feasibility and maximizing exact-distance mass are reformulations of the zero-defect existence question, not of stability toward the unique graph when the defect is positive.",
+        "searches": [
+          "Resultary reflected uniform distance, exact-distance capacity, copula stability and chain matching",
+          "arXiv:2610.24197v1 §2.3; arXiv:1811.11981 Theorem 3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The four-atom assignment lists feasibility in one finite set of sums, including the k=2 zero-defect law. The two-point theorem characterizes attainable laws. No inspected entry gives the sharp TV/defect ratio."
+        ],
+        "reasoning": "A feasible sum-mass vector does not tabulate the entire copula or its distance to a graph. Small finite assignment data also cannot fix the sharp coefficient for unbounded k.",
+        "searches": [
+          "Resultary fractional-residue finite assignment and four-atom polytope 26031c5fe2ee",
+          "Chaudhary–Khandelwal Theorem 3 and Corollary 34"
+        ]
+      },
+      "rationale": "Exact sum feasibility and the canonical matching at reciprocal spacings have available coverage. I did not find equivalent coverage of the quantitative coupling-level TV bound, its sharp factor, or the corresponding witnesses, and the strongest inspected results do not imply these mechanically. The pass is for sharp copula rigidity/stability, not two-atom feasibility or the adjacent swap construction on its own.",
+      "residual_risks": [
+        "Search was bounded; a prior sharp matching-stability formulation or unindexed argument could exist. No historical priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same attainable sum-law question, not TV stability",
+          "evidence": "Results on attainable sum laws, including two- and three-point laws, do not identify a whole-law defect-to-TV estimate.",
+          "identifier_or_url": "https://arxiv.org/html/2610.24197v1",
+          "material_read": "§2.3 Theorem 3 and §6 Corollary 34, offsets 14400 and 106450",
+          "method": "Lawful OA passage",
+          "title": "Sums of two dependent uniform random variables: a characterization by joint tail bounds",
+          "trigger": "Same uniform sum and two-atom laws"
+        },
+        {
+          "assessment": "Covers feasibility",
+          "evidence": "A mean-one two-atom sum law with gap b is feasible iff 1/b is a positive integer; here b=2h, with equal atom masses.",
+          "identifier_or_url": "https://arxiv.org/abs/1811.11981",
+          "material_read": "Theorem 3.4, offset 17800",
+          "method": "Lawful OA full-text passage",
+          "title": "Sums of standard uniform random variables",
+          "trigger": "Earlier two-atom feasibility characterization"
+        },
+        {
+          "assessment": "Different type of stability",
+          "evidence": "Wasserstein and entropic regularization setting, not exact two-level support and TV.",
+          "identifier_or_url": "https://arxiv.org/abs/2110.06798v3",
+          "material_read": "Abstract (p. 1), Lemma 3.10 proof (p. 20)",
+          "method": "Lawful OA PDF passages",
+          "title": "Quantitative Stability of Regularized Optimal Transport and Convergence of Sinkhorn's Algorithm",
+          "trigger": "Potential broader transport-stability theorem"
+        },
+        {
+          "assessment": "Covers the full-success capacity and construction; not TV stability",
+          "evidence": "The capacity gives one at h=1/(2k) via adjacent swaps; the record does not claim uniqueness or analyze arbitrary defects via distance to the graph.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-parity-cusps-for-exact-distance-copula-capacity--e7fa2648f14a",
+          "material_read": "Finding, chain-swap construction and scope of maximizers",
+          "method": "Resultary local mirror",
+          "title": "Sharp parity cusps for exact-distance copula capacity",
+          "trigger": "Same reflected graph and maximum success event"
+        },
+        {
+          "assessment": "Covers the zero-defect sum-mass vector at k=2",
+          "evidence": "Four allowed sums 1/4,3/4,5/4,7/4 with the audited masses 0,1/2,1/2,0 as one case.",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-four-atom-feasibility-polytope-for-two-uniform-marginals--26031c5fe2ee",
+          "material_read": "Finding and common-fractional-part assignment",
+          "method": "Resultary local mirror",
+          "title": "Exact four-atom feasibility polytope for two uniform marginals",
+          "trigger": "Same residue assignment at k=2"
+        },
+        {
+          "assessment": "Different restrictions and quantity",
+          "evidence": "Exchangeable couplings supported on distances d or 2d, with specified long-jump probabilities and involutions.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-two-distance-composition-law-for-exchangeable-uniform-coup--3c501b829a9e",
+          "material_read": "Finding and assumptions",
+          "method": "Resultary local mirror",
+          "title": "Sharp two-distance composition law for exchangeable uniform couplings",
+          "trigger": "Exact-distance stability-adjacent classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and sharpness construction; capacity/feasibility comparisons above"
+      ],
+      "rationale": "The result answers an inverse question left open by attainable sum laws: how reliably almost perfect support on two exact sums identifies the whole coupling. The sharp dependence on level spacing shows that vanishing defect can coexist with a TV discrepancy of one half as the levels approach one another. This is a quantitative distinction, not only a feasibility example or a finite check.",
+      "residual_risks": [
+        "The theorem concerns exact levels and fixed uniform marginals, not tolerance bands, perturbed marginals, or experimental noise."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

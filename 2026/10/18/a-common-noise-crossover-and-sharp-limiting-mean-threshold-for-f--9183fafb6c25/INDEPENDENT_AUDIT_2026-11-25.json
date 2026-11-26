@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:00:11.049082Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, assumptions, Lemma 1 and first-arrival/spectral proof",
+        "Frozen VERIFICATION.md and verify.py, inspected without execution"
+      ],
+      "rationale": "Independent Gaussian maxima at each positive mesh point divided by √(2 log N) converge to √t by the two-sided normal tail asymptotics. The Brownian reflection bound plus the union bound over N paths and a fixed mesh gives maximum normalized increments ≤ε with probability tending to one when mesh width δ<ε². This also handles t=0 and proves uniform convergence in probability on compacts. The exact minimum process is ℓ+√(2Dρ_N)B₀−2√(Dq_N)Y_N. If q_N→a<∞ then ρ_N→1 and the limit starts positive and hits in finite time, no later than the ordinary Brownian hit. Strong Markov and local Brownian downward oscillations at the first hit dominate the local O(h) barrier increment, ensuring continuity of the first-crossing map. In the divergent regime, rescaling time by ℓ²/(4Dq_N) gives a common noise coefficient at most (2q_N)⁻¹ᐟ² and the uniform deterministic limit 1−√u, whose crossing is strict. For survival of T_a set b=√(2a), c=ℓ/√(2D); logarithmic time makes the boundary b−ce^(−s/2) for the stationary OU process. The killed generator is unitarily equivalent to the Dirichlet confining Schrödinger operator −∂²/2+x²/8−1/4. This gives discrete spectrum and a positive ground state. Moving the wall gives continuous eigenvalues via translation and the variational principle, and strict domain monotonicity follows because a zero extension cannot be the positive ground state on the larger domain. The upper survival bound uses the fixed wall b−ε from a sufficiently late time. The lower bound starts at a finite time in a compact interval above b, with positive prior survival probability (use a Brownian tube around a steep linear path starting at zero and staying strictly above b√r−c); the initial surviving submeasure is dominated by the stationary Gaussian and has positive ground-state overlap. Killing at b then gives a bound C t^(−λ(b)), which is essential at the critical exponent. Lower and upper bounds yield the claimed logarithmic exponent. On (1,∞), x²−1 is a positive Dirichlet eigenfunction with eigenvalue 1, so monotonicity gives finite mean precisely at b>1, including divergence at equality.",
+      "residual_risks": [
+        "The threshold concerns only the limiting random variable. No uniform integrability or finite-N mean result follows. The verification script's Gaussian quadrature and OU finite differences are numerical; fixed-time positivity is not first-passage survival."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bao identifies the independent 1/log N scale. Hass–Corwin–Corwin use a short-range random field in space-time, not one additive common Brownian component. Guillaume's accessible description treats finite-horizon ordering in correlated arithmetic Brownian motions. The Denisov et al. abstract credits earlier square-root-boundary results of Novikov and Uchiyama."
+        ],
+        "reasoning": "Neither a stronger independent-particle result nor a finite-horizon ordering formula alone yields the simultaneous growing-N and near-perfect-correlation limit. The square-root-boundary work is relevant to the tail component and is credited without asserting what unread sections prove.",
+        "searches": [
+          "Bao arXiv:2607.22528v1, introduction and setup",
+          "Hass–Corwin–Corwin arXiv:2308.01267, abstract and introduction",
+          "Guillaume and Metzler cited DOI routes",
+          "Exact title search for Crossing an Asymptotically Square-Root Boundary, Springer PDF and Math-Net tm:4241 lawful alternates"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and three mirrored findings",
+        "Bao and Hass–Corwin–Corwin primary sections",
+        "Denisov et al. abstract; Guillaume abstract; Metzler bibliographic record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bao's factorized independent survival and arrival scale correspond to ρ_N=0. Rate/moment results driven by a random diffusivity or forcing field do not give the uniform private-noise path envelope plus common Brownian limit. Brownian square-root-boundary theorems can provide survival information once the limiting process is derived."
+        ],
+        "reasoning": "An equivalence or broader prior would need to yield that process and the strict first-crossing limit for all deterministic q_N→a, not merely a prior OU exponent, an independent case, or a similar threshold. No inspected statement establishes this implication.",
+        "searches": [
+          "arXiv:2607.22528v1 HTML offsets 0 and 2550",
+          "arXiv:2308.01267 HTML offsets 0 and 3000",
+          "Denisov et al. DOI abstract and attempted full-text routes; Resultary mirrored f481512ee1e6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After the common factor is isolated, q_N determines the weight of the normalized extremal Brownian path. The finite crossover limit is first passage from above to b√t−c by B₀, equivalently first passage from below to c−b√t by −B₀. This is a square-root-boundary problem, not a new type of Brownian boundary law."
+        ],
+        "reasoning": "Comparing Gaussian orthant exits, a common additive factor, and reflected moving barriers tests equivalent descriptions while separating the old one-particle question from the new scaling input.",
+        "searches": [
+          "Direct common-factor and near-perfect-equicorrelation formulation; Guillaume DOI 10.3390/appliedmath6030045; Metzler DOI 10.1016/j.spl.2009.11.001",
+          "Denisov–Hinrichs–Sakhanenko–Wachtel DOI 10.1134/S0081543822010096",
+          "Brownian one-sided first passage c sqrt t minus a square root boundary exact expectation, Uchiyama/Novikov/Denisov"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f481512ee1e6 gives a moment condition for independent frozen block diffusivities; 2f684bcae431 is a mortality/recruitment threshold for independent searchers; 04868fbce99a gives survival covariance for a common Poisson reset clock."
+        ],
+        "reasoning": "The shared input, asymptotic parameters and target observables differ materially. The two same-day records were compared by statement, not assumed earlier or later. No exact match appeared in the bounded queries.",
+        "searches": [
+          "Resultary local exact-title and close-phrase searches for common Brownian noise crossover and limiting first-arrival mean threshold; inspected f481512ee1e6, 2f684bcae431 and 04868fbce99a"
+        ]
+      },
+      "rationale": "The distinct claim is the equicorrelated Brownian common-noise crossover driven by (1−ρ_N)log N under a common coupling and its identification with a square-root-barrier first-passage law, together with the concentration regime. Treat the square-root-boundary tail problem and eigenvalue/mean argument as classical background applied to that limit, not as a standalone novelty claim. The independent-search scale and several different shared environments are already known; no inspected statement or demonstrated implication covers the specified growing-N crossover.",
+      "residual_risks": [
+        "The detailed geometric-exit papers and Denisov et al. theorem could not be read in full through the tried routes. No independent originality is assigned to the square-root-boundary tail or moment threshold viewed by itself; exact historical attribution of that part remains open."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Independent limiting scale prior, not the crossover",
+          "evidence": [
+            "Independence gives P(T_N>t)=Q₁(t)^N and a scale ℓ₀²/(4D log N)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2607.22528v1",
+          "material_read": "Introduction and independent setup, HTML offsets 0 and 2550",
+          "method": "Targeted open primary HTML",
+          "title": "Extreme First-Passage Time of Many Interacting Particles",
+          "trigger": "Independent scale and interacting-particle comparison"
+        },
+        {
+          "assessment": "Common random field, not global additive equicorrelated Brownian noise",
+          "evidence": [
+            "Specifies a short-range space-time random forcing field and altered extreme first-passage statistics."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2308.01267",
+          "material_read": "Abstract and introduction, HTML offsets 0 and 3000",
+          "method": "Targeted open primary HTML",
+          "title": "First Passage Time for Many Particle Diffusion in Space-Time Random Environments",
+          "trigger": "Shared-environment extreme passage"
+        },
+        {
+          "assessment": "Substantively related classical tail theory; exact published characterization unresolved, not negative evidence",
+          "evidence": [
+            "The abstract says it determines first-passage tails for boundaries of order c√t and generalizes results of Novikov and Uchiyama."
+          ],
+          "identifier_or_url": "https://doi.org/10.1134/S0081543822010096 ; Math-Net tm:4241",
+          "material_read": "Accessible original abstract only; no theorem text obtained",
+          "method": "Publisher abstract; PDF and identified Math-Net open full-text route attempted without success",
+          "title": "Crossing an Asymptotically Square-Root Boundary by the Brownian Motion",
+          "trigger": "Potential stronger theorem for the limiting boundary law"
+        },
+        {
+          "assessment": "Adjacent topic; unresolved detailed overlap",
+          "evidence": [
+            "Guillaume's accessible description focuses on preservation of an ordering with heterogeneous parameters over finite time. No exact Metzler theorem is inferred."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/appliedmath6030045 ; https://doi.org/10.1016/j.spl.2009.11.001",
+          "material_read": "Guillaume surfaced abstract; Metzler bibliographic record only",
+          "method": "DOI/article and PDF retrieval attempts did not return usable full text",
+          "title": "Survival Probabilities for Correlated Drifted Brownian Motions via Exit from Simplicial Cones; On the first passage problem for correlated Brownian motion",
+          "trigger": "Correlated finite-dimensional exits that might specialize or scale to the setup"
+        },
+        {
+          "assessment": "Partial topic overlap, not the same model or limit",
+          "evidence": [
+            "The closest moment-transition record uses time-frozen diffusivity, and the same-day comparators involve death/recruitment or shared resetting respectively."
+          ],
+          "identifier_or_url": "Resultary f481512ee1e6, 2f684bcae431 and 04868fbce99a",
+          "material_read": "Findings from mirrored RESULT.md files, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Related shared-environment Brownian search records",
+          "trigger": "Indexed conditional/shared-environment thresholds or correlations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md crossover, concentration and limiting-law tail statements",
+        "Independent-search and shared random-field literature comparisons"
+      ],
+      "rationale": "The result tells when many Brownian searches average away their independent fluctuations yet retain order-one environmental randomness in the fastest time. It identifies the scale at which the usual accelerating independent limit gives way to a nondegenerate random law, and the sharp moment consequence makes that law qualitatively interpretable. This is more informative than pointwise Gaussian extremes or a fixed-number correlation calculation.",
+      "residual_risks": [
+        "Restricted to additive global Brownian noise with equicorrelation, common initial distance and zero drift; no extrapolation to general dependent populations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

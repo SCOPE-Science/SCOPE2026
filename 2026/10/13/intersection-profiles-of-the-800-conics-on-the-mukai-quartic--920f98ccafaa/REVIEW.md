@@ -1,15 +1,21 @@
-# Review of Intersection profiles of the 800 conics on the Mukai quartic
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the exact finite Leech-lattice model used in the 2021 construction. The checker verifies the extended Golay weight enumerator, the Gram matrix of the five source vectors, the three families of all \(196560\) minimal Leech vectors, and the five conic constraints. It obtains exactly \(800\) vectors, then exhausts all \(319600\) unordered pairs using the proved formula \(C_\ell\cdot C_m=2-\ell\cdot m\). It independently checks the global census, both local profiles, the two-class quotient counts, and the perfect matching at intersection number \(4\). The only non-computational projective-orbit input is Naskręcki's published \(160+160+480\) decomposition.
+## correctness
 
-## Originality
-PASS, with an explicit ancillary-data risk. Three focused semantic searches for the Mukai/Barth--Bauer quartic, the numerical profiles, pairwise intersection multiplicities, and the \(160+160+480\) orbit decomposition returned no implication-equivalent finding. The 2021 construction gives the 800 Leech classes but not the displayed full intersection census. Naskręcki gives explicit equations and the three projective orbits but only displays an intersection graph for a selected 20-conic basis. The 2024 classification treats configurations graph-theoretically. Its version-1 main text and the later companion PDF `4tab.pdf` were checked for the distinctive profile numbers without locating the claim; the exposed `GAP/2/4Leech.txt` reconstructs the Leech vectors and duality but does not state the profile. Other ancillary files could still encode equivalent data and remain a stated residual risk.
+PASS
 
-## Value
-PASS. The extremal 800-conic quartic is unique up to projective equivalence, so the complete intersection census is a canonical invariant of the extremal configuration. The result does more than recount known conics: it identifies exactly two geometric local types, aligns the unique \(480\)-type with the known projective orbit decomposition, and isolates the residual plane-section involution as the \(400\)-edge multiplicity-\(4\) matching. These data organize the full 800-object configuration in a way useful for its automorphism, lattice, and graph structure.
+The replay uses all five actual vectors of Degtyarev's Table 1, not an arbitrary realization of their Gram matrix. The ordered five coordinates and octad with intersection {1,2,4,5} are unique up to M24 in the source. The independent integer replay constructs the extended Golay code and all three minimal-vector families, applies the five pairings, and gets 800 distinct conic vectors (192 Golay type, 608 octad type). In the published Néron–Severi realization, x_l=l-hbar/2 is orthogonal to hbar, the lattice form on this summand changes sign, and h^2=4, so C_l.C_m=1-x_l.x_m=2-l.m. The replay exhausts 319600 unordered pairs and returns (72240,174720,72240,400) in multiplicity order (0,1,2,4). It recovers 480 copies of (179,440,179,1) and 320 copies of (183,432,183,1), and its second pass confirms A/A (115,248,115,1), A/B (64,192,64,0), B/B (87,144,87,1), B/A (96,288,96,0). The residual vector hbar-l satisfies all constraints, has norm four, and is distinct from l. Its conic class is h-C_l; their sum is a plane section because the Picard and Néron–Severi groups agree on this K3 and every section of its hyperplane line bundle comes from a plane. Equality in the Cauchy inequality for the norm-three projected vectors shows that intersection four forces this residual partner. For nonresidual distinct pairs, the Leech minimum bounds l.m and l.(hbar-m) each above by two, so 0<=l.m<=2, an independent check of the allowable values. Projective automorphisms preserve profiles: the published 480-orbit fills A and the two 160-orbits exhaust B. The profile class B is not asserted to be a single automorphism orbit.
 
-## Closest literature and limitations
-The closest sources are arXiv:2102.08163v1, which supplies the Leech-lattice construction; arXiv:2108.13402v1, which supplies explicit equations and the \(160+160+480\) projective orbit decomposition; and arXiv:2407.00493v1, which proves the extremal uniqueness and discusses large conic configurations as graphs. The 2024 arXiv record exposes a large ancillary computational corpus. The companion PDF and the directly relevant Leech initialization code were inspected, but the remaining files were not exhaustively read, so the originality assessment does not assert whole-corpus noncoverage.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the full typed pair census and local/cross-class profiles of this extremal quartic. The residual involution and the 400-plane count are covered and get no separate originality credit. The primary vector tables and orbit sizes alone do not supply the typed pair multiplicities, and the strongest inspected matching records on planes do not cover the rest of the census. The actual available statements are sufficient to distinguish the complete profile, subject to a residual risk from the uninspected extent of the classification's ancillary corpus.
+
+## value
+
+PASS
+
+The configuration is the unique extremal 800-conic quartic, and numerical intersection products are intrinsic to its curve configuration. The complete profile and two-class quotient supply precise constraints for incidence and automorphism calculations: they distinguish the large projective orbit purely numerically and show that the two smaller orbits are not distinguished by this invariant. This is a full, motivated exact invariant, not a sample, the known residual count, or a recomputation of an inspected table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

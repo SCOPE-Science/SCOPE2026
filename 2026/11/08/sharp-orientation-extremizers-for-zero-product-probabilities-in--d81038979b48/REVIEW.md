@@ -1,15 +1,21 @@
-# Review of Sharp orientation extremizers for zero-product probabilities in radical-square-zero quiver algebras
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof starts with explicit vertex and arrow multiplication, obtains the positive subgraph count and proves a sharp termwise maximum on bipartite graphs. On paths a selected edge subset decomposes into runs; the mixed/pure internal-vertex weight determines both strict extremizers. Two explicit transfer matrices give the recurrences, while a direct characteristic-polynomial comparison establishes the distinct leading exponential rates. The standalone `verify.py` was executed successfully against actual finite algebra multiplications. Finite tests corroborate but do not replace the algebraic proof.
+## correctness
 
-## Originality — PASS relative to inspected sources
-A pre-existing all-quiver right-annihilator spectrum formula gives every fixed-orientation zero-product count; the counting expansion is therefore treated as a supporting lemma, **not** as a new counting result. Earlier cycle-specific transfer laws also yield individual orientation contrasts, not this path optimization. The assessed new assertion is the complete source–sink maximization for all bipartite graphs, the exact unique extrema for every path, and the strict two-rate exponential separation. Shumyatsky–Vannacci (2023) treat structural probability consequences; Dolžan (2025) treats semisimple/local families; neither asserts the extremizers. Unidentified stronger weighted-graph orientation results remain a genuine priority risk.
+PASS
 
-## Mathematical value — PASS
-Which orientation extremizes the probability of zero multiplication is a natural comparative invariant for quiver algebras having identical underlying undirected graph and algebra dimension. The classification over all path lengths and finite fields, together with two explicit asymptotic decay constants, is a substantive structural and asymptotic boundary rather than a restatement of finite count tables.
+Condition on diagonal coordinate pairs (a_v,b_v) with a_v b_v=0. Each arrow equation gives a factor q times [1+(q-1)1_{a_u=b_v=0}], independently, so summation over the selected labelled arrows yields the stated q^(-2n-m) normalization and the three vertex factors 2q-1, q, 1. Bipartite source–sink orientations attain the termwise bound; one incoming and one outgoing selected arrow give strict deficiency in any other orientation. On a path only interior vertices of selected runs can change their factors: a passage gives 1 and a turn gives q. Selecting the two edges at a nonconforming vertex proves strictness, with n=1,2 separately tied. The three-state directed transfer weights are the arrow factor times the multiplicity of the next diagonal state; the alternating two-state weights are the vertex factor times (q-1) when the next edge is selected, with zero boundary indicators. Their quadratic factors give the displayed recurrences and initial values, with the zero eigenvalue in the directed matrix handled by the initial L_3 check. In the spectral comparison, P_U(lambda_L,+)=(q-1)^2(2q-1-lambda_L,+)<0 and P_U(2q-1)<0, giving strict root separation and positive leading amplitudes. Multiplying the path probabilities by q^(2(n+m)) yields the stated pair counts. A hand expansion at n=3,q=2 gives 27+24+4 versus 27+24+8 over 256.
 
-## Sources and limitations
-Relevant source texts: Khasraw, arXiv:1810.13312v1; Vaso, arXiv:2105.05830v1; Shumyatsky–Vannacci, arXiv:2307.12633v1; Dolžan, arXiv:2504.12886v1; and the accessible abstract of Dolžan 2022 (DOI 10.1017/S0004972721001246). The earlier all-quiver annihilator-spectrum statement and oriented-cycle count must not be presented as newly discovered here. The path minimum is not asserted for general bipartite graphs. Unseen stronger literature could affect novelty. No independent mathematical validation has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the orientation comparison with equality on bipartite multigraphs and both path extremizers with their exponential gap. The all-quiver count, the count at the source–sink orientation, and the directed bulk Perron root after scaling are covered ingredients, not standalone novelty. The checked prior records do not establish that these scores are strict extrema over competing orientations, the path endpoint normalizations, or the comparison of the two path growth rates.
+
+## value
+
+PASS
+
+For a fixed underlying graph and fixed algebra dimension, the one-sided invariant can still detect how arrows are oriented. The result specifies exactly which orientations maximize it on bipartite multigraphs, and shows for paths that the difference between optimum and pessimum is exponential, not just an isolated finite example. The exact equality conditions and both path endpoint rates are the useful new content; generic annihilator counting is not the value claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

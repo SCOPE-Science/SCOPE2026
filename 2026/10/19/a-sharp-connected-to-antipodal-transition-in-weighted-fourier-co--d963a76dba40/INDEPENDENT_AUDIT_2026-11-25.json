@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:10:31.773046Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Pass on /workspace/repairs/5/RESULT.md, not on the frozen proof as printed. Frozen line 54 doubles the first-mode term at opposite centers; the factor must be p(1+c)(1−y). Indeed, (sin a−sin b)²=(1+cos(a+b))(1−cos(a−b)). The erroneous expression already gives the wrong one-arc limit at y=c, whereas the corrected expression gives the printed arc value. The repair also limits the first strict convexity comparison to interior separations, not the antipodal endpoint. Weak-* compactness gives attainment; at any maximizer the nonzero first variation must be maximized as a linear functional, so thresholding its nonconstant degree-two polynomial forces a binary upper-level set of at most two arcs modulo null sets. Complementation reduces to α≤1/2. For fixed positive widths the energy is strictly convex in cos d, so only touching and antipodal centers need be considered. At the latter it is strictly convex in y on [c,1], leaving only the single-arc limit and the equal antipodal pair, including exactly both geometries at a tie. The Toeplitz trace-square calculation counts both directions for each pair and gives the printed weights. The supporting script was inspected, not executed; it checks direct integrations but does not check the erroneous simplified polynomial. Independent exact identities and endpoints were replayed in /workspace/branches/dc685221-6e30-4cd7-9b46-7640afa92cb9/record5_exact_replay.py. The replay is algebraic, not a substitute for the compactness and equality arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The circle interval theorem maximizes the largest eigenvalue for unweighted analytic polynomial compression at all degrees. The near-indexed soft-mask theorem on span{1,e^{it}} maximizes a first moment and gives stability. The geometric eigenvalue bounds address a different spectral question."
+        ],
+        "reasoning": "Even broad unweighted degree coverage does not turn a weighted trace square into a function of the unweighted eigenvalues; the first-mode stability result has no second-harmonic choice.",
+        "searches": [
+          "arXiv:2607.19192 Theorems 1.1 and 2.1, equation (6)",
+          "arXiv:2301.11685, OA abstract p. 1",
+          "SCOPE-20261018-1d3091d9c873, RESULT.md offsets 373–549 and 2348"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py; corrected RESULT.md",
+        "arXiv:2607.19192, 2609.12226 and 2301.11685 (specified sections/passages)",
+        "Resultary SCOPE-20261018-1d3091d9c873, SCOPE-20260919-bbf7e58277be, SCOPE-20261108-900ee56c5370"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At N=2 the unweighted interval theorem bounds the largest eigenvalue; applying it to complements using T_E+T_{E^c}=I bounds the smallest from below. Equal trace then gives three-dimensional eigenvalue majorization and the unweighted trace-square bound. An unweighted gives no rule for the relative orientation of its eigenvectors and a fixed nonconstant diagonal gain."
+        ],
+        "reasoning": "Credit that actual unweighted implication, but it cannot imply the arbitrary gain result by spectral majorization. For instance α=1/2, g_0=g_2=1 and 0<g_1<1/2 have a strictly better equal antipodal pair than any single arc. Varying that same g_1 across 1/2 crosses the exact threshold.",
+        "searches": [
+          "Abreu–Speckbacher, arXiv:2607.19192 §2, offsets 12150–14459",
+          "Mayeli, arXiv:2609.12226 Proposition 4.1",
+          "SCOPE-20261018-1d3091d9c873, two-mode spectral objective"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The double-integral kernel is K; K′(t)=−sin t(p+4q cos t). It is not decreasing on [0,π] in the pair-optimal regime. The inspected Mayeli identity is an unweighted autocorrelation/trace-defect formula."
+        ],
+        "reasoning": "A decreasing-kernel rearrangement can yield an interval in the monotone regime, not the full transition. Rewriting the objective as a finite trace defect is an equivalence, but the known trace-defect identity itself does not optimize this weighted objective.",
+        "searches": [
+          "Resultary: weighted first and second Fourier coefficients, antipodal transition, soft masks, finite weighted Toeplitz trace defect",
+          "Circular rearrangement comparison for K(t)=p cos t+q cos 2t",
+          "arXiv:2609.12226, Proposition 4.1 and Remark 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest returned passages give phase-centered interval rigidity for a first harmonic, sharp growth rates of unweighted trace defects, and least-eigenvalue optimization over prescribed equal two-arc masks. The latter gives antipodal centers in one bandwidth, not a comparison to connected or arbitrary soft masks. No matching exact threshold plus equality classification was identified among inspected passages."
+        ],
+        "reasoning": "An antipodal extremum within an imposed two-arc family is not the same optimum over all bounded masks, and rank-limited results cannot certify exhaustive absence.",
+        "searches": [
+          "Resultary: weighted c1 and c2, exact arc-to-antipodal threshold, exact frozen title and same-day search",
+          "SCOPE-20261018-1d3091d9c873; SCOPE-20260919-bbf7e58277be; SCOPE-20261108-900ee56c5370"
+        ]
+      },
+      "rationale": "The corrected two-frequency weighted maximum and complete equality transition are distinct from the strongest inspected first-mode rigidity and unweighted spectral results. The unweighted three-site arc conclusion is already implied by Abreu–Speckbacher and complements, and is not counted as original. Weighted two-arc superiority is the verified distinction. The comparison supports this scope to the best of current knowledge, not a universal priority claim.",
+      "residual_risks": [
+        "Ranked searches do not exclude unlocated equivalent two-frequency inequalities or diagonal-gain finite Toeplitz results.",
+        "Some comparisons use only the stated primary opening or relevant bounded passages; no whole-document absence is claimed. Unweighted interval optimality is affirmatively credited to the known implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implies unweighted three-site trace-square interval optimality; not the weighted transition",
+          "evidence": "Theorem 2.1 compares λmax(T_E) to λmax(T_I) for a same-measure circle interval, for every degree N. Equation (6) gives extremal eigenvalue complementarity.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.19192",
+          "material_read": "Theorem 1.1 locator p. 1 offset 5326; §2 Theorem 2.1 and complement identity (6), offsets 12150–14459",
+          "method": "OA primary PDF, locator and bounded section read",
+          "title": "Optimal concentration in the Paley-Wiener space",
+          "trigger": "Closest general theorem on interval-optimal circle concentration"
+        },
+        {
+          "assessment": "Unweighted defect identity and complement symmetry; no gain optimization in inspected statement",
+          "evidence": "D(Ω,S)=½∑_k |ĉ(k)|² #(Ω△(Ω−k)) for the mask indicator coefficients.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.12226",
+          "material_read": "Proposition 4.1 and Remark 4.2, p. 6 near offset 22312",
+          "method": "OA PDF targeted passages",
+          "title": "Trace-defect bounds for discrete Fourier concentration operators",
+          "trigger": "Exact trace-defect identity might reformulate or subsume weighted optimization"
+        },
+        {
+          "assessment": "Different objective despite similar geometry and phrasing",
+          "evidence": "Two basis functions 1,e^{it}; λ(w)=a/π+|Z(w)|/(2π) is a largest-eigenvalue/first-moment objective, not a weighted sum of squared first and second coefficients.",
+          "identifier_or_url": "SCOPE-20261018-1d3091d9c873",
+          "material_read": "Mirrored RESULT.md decisive passages near offsets 373–549 and 2348; wider read timed out",
+          "method": "Local mirror targeted literal queries",
+          "title": "Sharp phase-centred stability and bang-bang rigidity for two-mode Fourier concentration",
+          "trigger": "Close indexed title, interval rigidity for soft masks"
+        },
+        {
+          "assessment": "Different admissible family and criterion; date is not a priority determination",
+          "evidence": "Optimizes the least eigenvalue among masks already prescribed to be two equal arcs; opposite centers optimize at bandwidth m=1.",
+          "identifier_or_url": "SCOPE-20261108-900ee56c5370",
+          "material_read": "Mirrored RESULT.md opening at offset 0",
+          "method": "Local mirror passage",
+          "title": "Sharp two-arc Fourier observability",
+          "trigger": "Antipodal optimization in indexed result"
+        },
+        {
+          "assessment": "Different invariant and optimization regime",
+          "evidence": "Attainment of regularity-dependent trace-defect growth rates, not weighted finite mask extremizers.",
+          "identifier_or_url": "SCOPE-20260919-bbf7e58277be",
+          "material_read": "Mirrored RESULT.md opening at offset 0",
+          "method": "Local mirror passage",
+          "title": "Sharpness of all fractional trace-defect regimes for discrete Fourier concentration",
+          "trigger": "Closest indexed trace-defect finding"
+        },
+        {
+          "assessment": "Abstract is about geometric eigenvalue bounds; no whole-document exclusion inferred",
+          "evidence": "Bounds eigenvalues away from 0 and 1, not gain-dependent connectedness in the abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.11685",
+          "material_read": "OA PDF abstract, p. 1 offset 0",
+          "method": "OA targeted abstract read",
+          "title": "Eigenvalue estimates for Fourier concentration operators on two domains",
+          "trigger": "Possible geometric spectral coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired theorem solves a natural three-site spectral-mask design problem, predicts a genuine connectivity transition caused by diagonal gain imbalance, and classifies all extremizers, including the tie and arbitrary soft masks. Correcting the coefficient preserves this substantive global result; finite tests alone would not justify it.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

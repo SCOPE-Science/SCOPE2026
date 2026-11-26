@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two contraction maps have disjoint first-level images, so equal-count words yield disjoint cylinders with exactly equal weights. The proof reconstructs the exact translation recurrence, the Parseval relation on normalized cylinder indicators, the circle moment measure with an atom at one, and the Dirichlet-polynomial atom bound. The verified finite computations show that all integers through \(3163276\) and \(92380\) are represented as differences in the two specified finite sets, respectively. Rational comparisons and unimodality of the two obstruction functions give the open algebraic interval without any numerical endpoint assumptions. The checker has been executed from the actual package, and only the new finite evidence has been assessed.
+## correctness
 
-## Originality — PASS relative to the searched and inspected evidence
-Mao and Wu's 13 November 2026 primary paper (arXiv:2611.18106v1) is the decisive closest source. Its full HTML text was examined for theorem statements, the cylinder lemma, exact recurrence, finite certificates, proofs and open questions. The published excluded interval is \([1/3,5/6]\); the new result excludes \((\alpha,\beta)\) and has strictly larger coverage at both ends. The new integer certificates use different cylinder families, \((9,9)\) and \((11,5)\), and are not simply a restatement of that theorem. Related published results for the golden-mean system and equal-ratio product-form measures do not imply the result for these contractions. Searches of indexed mathematical findings found only distinct systems and invariants. Negative searches are not a general uniqueness proof.
+PASS
 
-## Value — PASS
-The recent paper explicitly leaves all weights outside \([1/3,5/6]\) open. The new exact algebraic thresholds extend the certified non-spectral region from length \(1/2\) to approximately \(0.603355\), a greater than twenty-percent enlargement. This narrows a natural all-weight conjecture for a fixed, motivated incommensurable iterated-function system and supplies independent reusable finite combinatorial certificates, without claiming an optimal global cutoff.
+Equal-count, hence equal-length, words yield disjoint cylinder pieces with common scale 1/(2^m 3^n) and mass M=p^m(1-p)^n; prefixing proves the offset recurrence. For a hypothesized orthonormal exponential basis translated to contain zero, Parseval for the normalized cylinder indicators gives a circle probability with the asserted difference moments zero and mass at least M at 1. Integrating the nonnegative squared Dirichlet polynomial gives (L+1)M<=1 for a complete difference interval [-L,L]. The independent exact reproduction check_certificates.py, not the frozen script, recovers for (9,9) and (11,5) the cardinalities 48620 and 4368, maxima 5028751 and 247687, and first gaps 3163277 and 92381; all rational signs at the two brackets and 2/3 were checked. The first mass polynomial exceeds one on (alpha,2/3] and the second on [2/3,beta), proving the open interval, strictly larger than the previous closed interval. Read VERIFICATION.md and verify_differences.py without executing the uploaded script. The claim is scoped to the open interval and is not an assertion of endpoint optimality: in fact 195913-11151=2*92381 in A_(11,5)-A_(11,5), so equality at beta would force sigma onto the 92381st roots of unity by equality in the Dirichlet-polynomial bound, contradicting the zero moment at twice 92381. This optional endpoint strengthening does not enter the stated theorem.
 
-## Closest sources and limits
-The mathematical argument specializes the general finite-cylinder principle of arXiv:2611.18106v1 but proves new quantitative instances. The source does not treat the newly covered weight ranges. Unindexed equivalent bounds remain a residual bibliographic risk; no independent audit has been performed, and no assertion is made for the algebraic endpoints or remaining parameter regions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The novel evidence is the pair of large exact difference certificates and the resulting two-sided system-specific extension. The recurrence, equal-cylinder obstruction and original weight interval are prior work.
+
+## value
+
+PASS
+
+Quantitatively enlarges a named same-system non-spectrality theorem at both ends, and does so by substantial exact difference certificates rather than a tolerance-level endpoint gain. The algebraic exclusions constrain attempts at the motivating all-weights conjecture and provide independently reusable certificates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:41:45.150646Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§1–4 of Proof; VERIFICATION.md; verify.py, inspected statically"
+      ],
+      "rationale": "For D=U−V the unique scalar root z=Q(b(2z−1)) exists by continuity, monotonicity and opposite endpoint signs. The private payoff difference gives b=a; sorting the largest D first and differentiating a[z²+(1−z)²] gives b=2a for the planner. The sorted intrinsic-value derivative is the strictly decreasing upper quantile of D on the interior, with limiting derivatives ±1, so the planner's root gives the unique maximizing share. For a root above one half, t=b(2z−1) is in (0,1) and Q(t)<1−t, since {D>t} is contained in {U>t} with positive mass in the omitted open part. Reflection gives Q(−s)>s for the lower half. For a target in the upper half of the open interval, t<1−z. Choose z−<z<z+ so close that t lies strictly between both rotations' two support values −z± and 1−z±; these laws have tail masses z± at t. Adding independent wrapped noise gives positive smooth densities uniform in both margins, with limiting tails at t by a.s. convergence off a zero-probability wrap boundary and no atom at t. Mixture now attains the exact tail z. Reflection and independence fill the remaining shares. For the same law, doubling b keeps the root on the same side of one half (the sign at one half is unchanged) and moves it strictly inward, including if the doubled threshold is outside (−1,1). The identified sets are separate, not a Cartesian product claim.",
+      "residual_risks": [
+        "The grid checker tests explicit interval inequalities for x, but not independently for y at 2a; discrete ties can also make bisection locate a sign change rather than a continuous fixed point. Its tolerance checks are supplementary and do not certify the two exact intervals. The independent analytic verification does not depend on them."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Su–Mehr–Sastry gives threshold conditions and generalized marginal-cost conditions that specialize to the two fixed-point equations.",
+          "Bhattacharya–Makiranta studies equilibrium uniqueness under negative externalities and identification from choice data with unrestricted joint preference types at the outset."
+        ],
+        "reasoning": "These results cover model-level ingredients for a fixed population law, not the full range of roots while varying that law with two fixed uniform marginals and requiring a positive smooth density. The frozen description of the second paper as using a given joint law should be understood as uniqueness for a specified population law, not a restriction that the law is known to the observer.",
+        "searches": [
+          "arXiv:2607.03625, Theorem 1 and Corollary 3",
+          "arXiv:2611.07787, abstract and model/uniqueness passages"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and companion files",
+        "Resultary records 035ea13c160f and 26031c5fe2ee",
+        "arXiv:2607.03625",
+        "arXiv:2611.07787",
+        "arXiv:2405.08806",
+        "DOI 10.1137/1126086 (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The equilibrium equation and social doubling of b follow from prior conditions; sharp unrestricted-coupling tail envelopes are likewise prior. Zhang–Richardson explicitly distinguishes pointwise sharp bounds from attainment.",
+          "This result targets a different quantifier: for each desired interior z, construct an admissible density with tail exactly z at the endogenous threshold b(2z−1)."
+        ],
+        "reasoning": "The prior statements imply ingredients and do not supply that restricted-class exact root construction. In particular their sharpness distinction precludes equating an infimum/supremum for arbitrary couplings with attained root values for positive smooth densities.",
+        "searches": [
+          "arXiv:2607.03625, Theorem 1 and Corollary 3",
+          "arXiv:2405.08806, fixed-marginal bound formulas and attainability discussion, pp. 7–8",
+          "Web: \"Estimates for the distribution function of a sum of two random variables when the marginal distributions are fixed\" Makarov 1982 full text PDF"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact-title Resultary record with suffix 035ea13c160f is this same result, not a distinct result.",
+          "Replacing V by 1−V converts D into a fixed-uniform-marginal sum minus one; the sharp tail bounds then fall under Makarov-type results."
+        ],
+        "reasoning": "The sum/difference duality covers the distributional outer estimates but a sharp threshold bound over all couplings does not by itself give exact attainment at every interior root by strictly positive smooth copulas. The latter uses both atom-avoiding bracketing and exact tail interpolation.",
+        "searches": [
+          "Resultary: two uniform valuation marginals unknown copula dependence congestion game equilibrium optimal shares smooth positive fixed point planner more balanced",
+          "Resultary: sharp fixed marginal dependence bounds equilibrium share planner congestion positive smooth copula",
+          "arXiv:2405.08806, §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact indexed match is the record under review itself. The separate four-atom theorem characterizes finite mass vectors on {1/4,3/4,5/4,7/4} for U+(1−V), requiring mean one and outer masses at most one quarter."
+        ],
+        "reasoning": "A discrete feasibility polytope at four fixed support points does not tabulate the interval of share roots for arbitrary real b>0 under smooth positive couplings. There is no finite list of congestion parameters whose lookup would establish the finding.",
+        "searches": [
+          "Both Resultary searches in equivalent_formulations",
+          "Resultary 2026/10/12/SCOPE-exact-four-atom-feasibility-polytope-for-two-uniform-marginals--26031c5fe2ee/RESULT.md, Finding"
+        ]
+      },
+      "rationale": "The supported distinct statement is exact smooth-positive attainment of every interior endogenous share, strict endpoint exclusion, and the resulting dependence-robust identification for both private and social shares. Neither the congestion threshold characterization nor fixed-marginal tail bounds are new. The same-copula balancing is an elementary but useful comparative-static consequence, not the sole basis for originality.",
+      "residual_risks": [
+        "Original Makarov full text was not available in the inspection; its known bounds are credited through a primary modern treatment. Priority is bounded by inspected statements and searches, not established universally."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers threshold and marginal-cost characterizations, not the inspected claim's robust identified sets",
+          "evidence": "Theorem 1 relates each outcome mass to its threshold-defined valuation region; Corollary 3 uses marginal resource costs for uncapacitated separable utility.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.03625",
+          "material_read": "Abstract, Theorem 1 p. 7 (extraction offset 49070), Corollary 3 p. 12 (offset 91750)",
+          "method": "OA PDF passage reads",
+          "title": "Congestion Games with Heterogeneous Valuations: An Optimal Transport Approach",
+          "trigger": "Originating heterogeneous valuation model and possible stronger coverage"
+        },
+        {
+          "assessment": "Different identification experiment",
+          "evidence": "Relative congestion dominance and continuous types underlie uniqueness; observed choices, not only fixed one-dimensional marginals, are used for identification.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.07787",
+          "material_read": "Abstract and pp. 4–5 model/uniqueness discussion, extraction offsets 10300, 14200",
+          "method": "OA PDF passage reads",
+          "title": "Discrete Choice under Congestion: Equilibrium and Welfare",
+          "trigger": "Potential broader equilibrium uniqueness and identification"
+        },
+        {
+          "assessment": "Covers tail envelopes, not smooth-copula root attainability",
+          "evidence": "The analysis distinguishes sharp infimum/supremum bounds from attainment and covers differences by marginal transformation.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.08806",
+          "material_read": "Introduction and pp. 7–8 fixed-marginal formulas and sharpness, extraction offsets 15700–18817",
+          "method": "OA PDF passage reads",
+          "title": "Bounds on the Distribution of a Sum of Two Random Variables",
+          "trigger": "General sharp fixed-marginal sum/difference bounds"
+        },
+        {
+          "assessment": "Access risk; known distributional ingredient credited",
+          "evidence": "Original DOI retrieval did not provide primary text; Zhang–Richardson gives and discusses the bounds.",
+          "identifier_or_url": "https://doi.org/10.1137/1126086",
+          "material_read": "Bibliographic publisher result only; original full text unavailable",
+          "method": "Targeted literature query and lawful OA retrieval attempts; mathematical bounds compared using the later OA treatment",
+          "title": "Estimates for the distribution function of a sum of two random variables when the marginal distributions are fixed",
+          "trigger": "Original fixed-marginal bounds"
+        },
+        {
+          "assessment": "Different support and classification",
+          "evidence": "Exactly four prescribed candidate support points; feasibility constraints concern outer masses and mean, not smooth threshold choice.",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-four-atom-feasibility-polytope-for-two-uniform-marginals--26031c5fe2ee",
+          "material_read": "RESULT.md, Finding and scope, offset 66",
+          "method": "Resultary search and bounded local mirror read",
+          "title": "Exact four-atom feasibility polytope for two uniform marginals",
+          "trigger": "Closest separate indexed fixed-marginal result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Limitations; Su–Mehr–Sastry aggregate-flow and marginal-cost characterizations"
+      ],
+      "rationale": "With only two known valuation marginals, point predictions for congestion allocation need not be identified. Exact open ranges answer how large the ambiguity is, show that requiring everywhere-positive smooth density does not reduce the attainable interior, and distinguish what is robustly true of planner balance for a fixed law from the separately attainable shares. This is a complete, motivated identification calculation, not simulation or a general welfare claim.",
+      "residual_risks": [
+        "No joint (x,y) attainable region, empirical claim, or law-independent computation of the optimal share is implied by the balancing result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:16:20.261200Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–92",
+        "Frozen VERIFICATION.md, verify_orthant.py and verification_output.txt, including the 3D quadrature and symbolic identities"
+      ],
+      "rationale": "For probability-normalized sphere measure, squared coordinates are Dirichlet with all parameters 1/2 and the independent signs give an orthant factor 2^-n. On the full-sphere orthonormal traceless diagonal and off-diagonal bases, the rescaled diagonal block is identity. For edge pairs the moments give 1, s, s² for equal, adjacent and disjoint pairs, hence B=(1−s)²I+s(1−s)R*R+s²J with unsigned incidence R. In the mixed moment the terms with a diagonal index on the edge have twice the generic moment; after summing the generic part against the traceless coefficients, the cross block is (s/√2)R*. Since RR*=(n−2)I+J_n, constants give T and ker R gives e with the stated dimension (zero at n=3). On the sum-zero image normalization of R* supplies √(n−2), giving n−1 identical 2-by-2 blocks with entries 1,b,b,a. The dimensions exhaust the complex harmonic space. Both T−1 and T−a exceed b; the shifted determinant at e is (n−2)s²(2s²−6s+3)/2<0 at s=2/π. Thus the top mode is unique up to scalar, and the spectral gap controls the orthogonal component sharply, with equality on any second-branch vector. The expansion T=(s²/2)n²+O(n), a=ns(1−s)+O(1), b=O(√n), gives r_+=ns(1−s)+O(1) from the quadratic eigenvalue formula for large n. It yields both stated limits, including s/[2(1−s)]=1/(π−2) for the top-to-second coefficient.",
+      "residual_risks": [
+        "The archived finite numerical and symbolic tests were inspected, not run; the all-dimensional conclusion rests on the normalized moment, incidence and spectral arguments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General-region Slepian concentration matrices, colatitude–longitude regions on S², and spin-weighted extensions supply the procedure. An S² octant is a colatitude–longitude patch, but that procedure alone does not state this all-dimensional diagonalization."
+        ],
+        "reasoning": "These primary sources cover the problem framework and a way to form special-case matrices. The separate indexed exact-spectrum record, not general Slepian machinery, establishes coverage.",
+        "searches": [
+          "arXiv:math/0408424, §4",
+          "arXiv:1608.03031, §III",
+          "arXiv:2103.14650, §§3.1 and 4.1",
+          "arXiv:2010.07266, §II-D"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 043aca2fd738",
+        "arXiv:math/0408424",
+        "arXiv:1608.03031",
+        "arXiv:2103.14650",
+        "arXiv:2010.07266"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched full spectrum gives the second eigenvalue and its eigenspace, so the spectral theorem gives the sharp inequality on the orthogonal complement with gap 2^-n(T−r_+). The matched top branch has leading coefficient s²/2 and the matched 2-by-2 block has a=ns(1−s)+O(1) and b²=O(n), yielding both frozen limits."
+        ],
+        "reasoning": "The alternate choice of comparing top to second rather than top to bottom uses a different ratio, but only takes leading terms of the already explicit branches. It is mechanically implied, not a separate exact spectral result.",
+        "searches": [
+          "Resultary 043aca2fd738, Finding and proof offsets 4270 and 8496"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matrix of regional quadratic inner products in a full-sphere orthonormal basis represents the compression of the region indicator. Its top eigenvalue equals the maximal Rayleigh concentration quotient. The matched record uses the same probability-normalized pure degree-two space and the same orthant."
+        ],
+        "reasoning": "Concentration matrix, multiplicative indicator compression and concentration quotient identify the same problem once the basis is restricted to degree two. A band that also includes degrees zero and one is a different space.",
+        "searches": [
+          "arXiv:math/0408424, §4, Eq. (4.7)",
+          "arXiv:2010.07266, §II-D",
+          "Resultary 043aca2fd738, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected matched RESULT.md states the same top value, residual branch e, and two eigenvalues of the block with off-diagonal s√((n−2)/2) and lower-right entry e+s(1−s)(n−2)=a. Multiplicities, ordering and unique top mode agree."
+        ],
+        "reasoning": "This is exact theorem overlap at every admitted dimension, not an isolated octant numerical value or overlap just in the top eigenvalue.",
+        "searches": [
+          "Local Resultary search for the exact degree-two orthant Slepian spectrum; 2026/11/8/SCOPE-exact-quadratic-spherical-orthant-concentration-and-a-sharp-dime--043aca2fd738"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record supplies exactly the same complete spectrum, strict ordering and top eigenspace on the same exact-degree-two orthant problem. The claimed stability constant and both limits are direct consequences of that explicit spectrum. Its explicitly stated condition-number asymptotic compares top and bottom instead of top and second, but the data for the frozen ratio is already present. No substantive uncovered conclusion was identified. The later date on the matching catalog path is not evidence of priority, dependence or earlier publication.",
+      "residual_risks": [
+        "The Resultary overlap establishes coverage, not chronology or dependence. The targeted literature search returned an adjacent but irrelevant orthant result and supplies no negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EQUIVALENT_SPECTRUM_AND_IMPLIED_COROLLARIES",
+          "evidence": [
+            "Same complete spectrum, top mode and ordering; the sharp second-branch gap and the top-to-second asymptotic follow directly."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-quadratic-spherical-orthant-concentration-and-a-sharp-dime--043aca2fd738/RESULT.md",
+          "material_read": "Finding offset 0; proof offsets 4270 and 8496; local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror, aligning branches and reducing the 2-by-2 coefficient",
+          "title": "Exact quadratic spherical orthant concentration and a sharp dimension-dependent spectral result",
+          "trigger": "Matching exact pure-degree-two orthant concentration invariant and spectral branches"
+        },
+        {
+          "assessment": "GENERAL_FRAMEWORK",
+          "evidence": [
+            "The inspected bandlimited eigenproblem does not provide an exact pure-degree-two orthant diagonalization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0408424",
+          "material_read": "Abstract, p. 1, offset 0; §4, p. 9, offset 30664, Eq. (4.7)",
+          "method": "OA submitted arXiv PDF after publisher DOI 10.1137/S0036144504445765 returned 403",
+          "title": "Spatiospectral Concentration on a Sphere",
+          "trigger": "General spherical Slepian concentration and possible explicit cases"
+        },
+        {
+          "assessment": "LOW_DIMENSIONAL_MATRIX_FRAMEWORK_NOT_EXACT_FORMULA",
+          "evidence": [
+            "The regional matrix applies to the S² octant, but is not the frozen all-dimensional exact-degree spectrum."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1608.03031",
+          "material_read": "Abstract, p. 1, offset 0; §III, pp. 1529–1530, offsets 19666 and 23634",
+          "method": "OA PDF, compare patch, band and matrix formula",
+          "title": "Slepian Spatial-Spectral Concentration Problem on the Sphere: Analytical Formulation for Limited Colatitude-Longitude Spatial Region",
+          "trigger": "The spherical octant is an allowed colatitude–longitude patch"
+        },
+        {
+          "assessment": "GENERAL_FRAMEWORK",
+          "evidence": [
+            "Spin weight zero recovers scalar concentration; no orthant quadratic formula is provided in these passages."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2103.14650",
+          "material_read": "§3.1, pp. 13–14, offsets 53558 and 57477; §4.1, p. 25, offset 118656",
+          "method": "OA PDF passages on the spin-weighted and scalar constructions",
+          "title": "A Unified Approach to Scalar, Vector, and Tensor Slepian Functions on the Sphere and Their Construction by a Commuting Operator",
+          "trigger": "General-region concentration and scope of the scalar specialization"
+        },
+        {
+          "assessment": "ADJACENT_CAP_AND_BANDLIMITED_RESULTS",
+          "evidence": [
+            "The zonal treatment is for polar caps; the inspected eigenproblem is bandlimited on S² rather than all orthants in exact degree two."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2010.07266",
+          "material_read": "Abstract, p. 1, offsets 0 and 3086; §II-D, pp. 3–4, offsets 19732–27712",
+          "method": "OA PDF; compare quotient and region used for the zonal case",
+          "title": "Spatial-Slepian Transform on the Sphere",
+          "trigger": "Zonal concentration functions and related eigenproblem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 15–41 and 79–92",
+        "Resultary 043aca2fd738, Finding and proof"
+      ],
+      "rationale": "The exact spectrum is naturally motivated and mathematically useful, but the frozen record does not add an independently useful invariant to the matched calculation. Its extra gap and spectral-ratio statements are a standard spectral-theorem deduction and leading-term computation from explicitly known branches, not further orthant analysis.",
+      "residual_risks": [
+        "This is an assessment of incremental contribution, not a claim that the underlying orthant concentration theorem has no mathematical value."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

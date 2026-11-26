@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:10:50.047566Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 12–84",
+        "VERIFICATION.md",
+        "CHECK.py inspected",
+        "/workspace/repairs/3/RESULT.md, final Finding and Proof"
+      ],
+      "rationale": "The original line 22 incorrectly uses a strict inequality for survival from sufficiently large initial biomass; the double-root case in its own theorem is a counterexample. The complete corrected RESULT.md uses ≤ there, retains strict < for the two-state regime, and explicitly gives survival at and above the semistable state at equality. Independently, G(x)−x has the sign of b−B_a(x), where B_a=((1+a²)x+2/x+1/x³)/a² is strictly convex, diverges at both ends, and has one minimum. At positive tangency, writing y=F_a(x), the derivative of G is 4/[(1+x²)(1+y²)]=1; put s=xy=4/(ab). Then x²+y²=3−s² and a−b=(y−x)(3+s)/s², which gives (a−b)²=(1−s)(3+s)³/s⁴ and H=0. For fixed a, H as a quadratic in b² has negative constant term and exactly one positive zero, hence its sign gives the three root regimes. The quartic discriminant also checks by substituting A=1+a², B=−ba² into 256A(A−1)²+(288A−32)B²−27B⁴ for Ax⁴+Bx³+2x²+1. Bounded, increasing G cannot cross a fixed point, so displacement signs determine all basins, including strict downward approach from above the double root and extinction below it. The odd-year limits follow by continuity of F_a. Substitution at fixed g gives H=(g²−4)(3g²+4)³−1024g² sinh² θ, so the repaired inclusive survival cutoff and exclusive two-state cutoff follow. The exact equal-product examples 132571 and −178229 check. The source checker was inspected, not executed.",
+      "residual_risks": [
+        "Proof concerns exactly deterministic alternating positive coefficients and nonnegative initial biomass. At equality attraction is strictly one-sided; it is not a robust survival regime under parameter perturbation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The older Elaydi–Sacker title and repository/publisher records were located, but primary body retrieval failed. The frozen work attributes periodic Allee theory and rational maps to it.",
+          "Frozen lines 89–90 distinguish the cited period-two unimodal treatment; F_r′(x)>0 on the whole positive axis.",
+          "The nearest indexed basin record a6ac2c88779b treats kx²(1−x)."
+        ],
+        "reasoning": "A framework for periodic Allee maps, or a unimodal theorem, is not by itself a theorem giving this monotone family’s exact parameter threshold. A broader same-family result was not ruled out by these retrievals.",
+        "searches": [
+          "Primary web search: Elaydi and Sacker, Population models with Allee effect: a new model",
+          "Resultary: periodic Allee and basins",
+          "DOIs 10.1080/17513750903377434 and 10.1023/10236190902794951"
+        ]
+      },
+      "checked_sources": [
+        "Resultary map, contrast, periodic-basin, and discriminant searches",
+        "Primary title/repository evidence for Elaydi–Sacker",
+        "Frozen prior-work citations and passages, with independent retrieval limits above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Frozen RESULT.md lines 89–93 credit autonomous sigmoid, competitive-system and stochastic Allee precedents; the cited full bodies were not recovered in this review.",
+          "The implicit minimum determines b as a function of a, whereas the explicit symmetric H and fixed-product cutoff also classify contrast at constant g."
+        ],
+        "reasoning": "Qualitative root-count or convergence theory alone does not entail the exact symmetric parameter surface. A verified prior explicit threshold for the same two-season rational map would cover the relevant contribution even in another parametrization.",
+        "searches": [
+          "Resultary: periodic Allee/basin and exact-map searches",
+          "Elaydi–Sacker DOI; Brett–Kulenović DOI 10.1186/1687-1847-2014-307; Roth–Schreiber arXiv:1405.1686"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fixed-geometric-mean search surfaced 439b94b28941, the identical assigned record.",
+          "The other strong candidates were cubic Allee (924a32e82e64) or quadratic/Ricker seasonal maps."
+        ],
+        "reasoning": "The fixed-point equation B_a(x)=b and H=0 are equivalent descriptions of the same double-root boundary. A different seasonal map family does not imply this symmetric polynomial.",
+        "searches": [
+          "Resultary: F_r(x)=r x²/(1+x²) alternating two environments",
+          "Resultary: fixed-geometric-mean contrast",
+          "Resultary: two-period composition/discriminant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The explicit threshold, including equality, is indexed in 439b94b28941 (self-match); the nearby alternating quadratic entry 52cd092e2563 concerns a different model."
+        ],
+        "reasoning": "Indexed exact claims were compared as mathematical objects, not counted as independent corroboration. No inspected independent parametrization or table covers this continuum of a,b and initial data.",
+        "searches": [
+          "Resultary: fixed-geometric-mean contrast",
+          "Resultary: two-period composition/discriminant"
+        ]
+      },
+      "rationale": "The supported claim is the explicit symmetric contrast polynomial and its exact complete basins for this particular alternating sigmoid. The generic monotone-map argument and the homogeneous Allee threshold are standard and are not credited as new. No observed independent claim implies the exact contrast boundary; external same-family access limitations remain.",
+      "residual_risks": [
+        "The Elaydi–Sacker repository/publisher full text and other older full bodies were not independently accessible. A broader theorem for the same alternating rational Allee family remains a meaningful priority risk, not an adverse finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Do not rule out older same-family work without text; no retrieved statement covers the polynomial and contrast cutoff.",
+          "evidence": [
+            "The bound discussion says its inspected text does not give the symmetric polynomial or contrast classification; this is a recorded comparison, not newly extracted text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/17513750903377434",
+          "material_read": "Indexed title and repository/publisher links; frozen RESULT.md lines 89–93 description only",
+          "method": "Primary web lookup, lawful OA/repository retrieval attempted",
+          "title": "Population models with Allee effect: a new model",
+          "trigger": "Older periodic rational Allee framework; closest plausible family overlap"
+        },
+        {
+          "assessment": "Its described unimodal subclass differs from the globally increasing map here.",
+          "evidence": [
+            "F_r′(x)=2rx/(1+x²)²>0 for x>0."
+          ],
+          "identifier_or_url": "https://doi.org/10.1023/10236190902794951",
+          "material_read": "Bound RESULT.md line 90 comparison",
+          "method": "Read frozen prior-work evidence; no independent body passage",
+          "title": "Non-autonomous periodic systems with Allee effects",
+          "trigger": "Two-period Allee composition"
+        },
+        {
+          "assessment": "Self-match only.",
+          "evidence": [
+            "Same symmetric H, same equality state and same fixed-g thresholds."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-seasonal-contrast-extinction-boundary-for-a-sigmoid-allee--439b94b28941",
+          "material_read": "Indexed comparison and bound finding",
+          "method": "Resultary and frozen record",
+          "title": "Sharp seasonal-contrast extinction boundary for a sigmoid Allee population",
+          "trigger": "Exact indexed H and basin match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected Finding and global-basin proof",
+        "Exact contrasting ab=9 instances in frozen RESULT.md"
+      ],
+      "rationale": "The exact surface settles whether two environments with the same geometric mean can nonetheless lie on opposite sides of total extinction. The threshold and all initial-condition basins, including positive survival at equality, go beyond a qualitative fixed-point count and supply a usable benchmark for the standard saturating response.",
+      "residual_risks": [
+        "This idealized deterministic result does not support a field or stochastic survival forecast."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

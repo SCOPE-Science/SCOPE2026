@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:48:30.714376Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A connected cactus has a tree of vertex/block incidences. Pruning an end block leaves a smaller cactus, or a singleton when there is only one block; edge and cycle augmentations are exactly the inverse operations and preserve the cactus condition. In the canonical rooted encoding an edge has one child and a cycle's rooted cyclic order is preserved up to reversal. Sorting branch encodings and minimizing over all roots therefore gives precisely one code per isomorphism type, including for one-vertex cacti. With a global palette the old color embedded in the new key makes the union partition refine monotonically; a step with unchanged class count is stable. Comparing histograms then gives exactly C²-equivalence. Separate standard-library enumeration and exact color refinement reproduced the cactus counts (1,1,2,4,9,23,63,188,596,1979,6804,24118), no collisions through order 11, and only two doubletons at order 12, giving 24,116 classes including 24,114 singletons. It emitted the exact four frozen graph6 strings. The two distinct representatives per class are nonisomorphic; the first pair also has different multiset of block sizes. These are pairs within connected cacti, not a test for partners outside the class. The frozen script only asserts the expected number of collisions conditional on finding any, but its output and the unconditional independent census both show the two at order 12.",
+      "replay_paths": [
+        "/workspace/branches/caf8230e-9ef9-4474-b418-cd4e7c671af9/census_independent.py",
+        "/workspace/branches/caf8230e-9ef9-4474-b418-cd4e7c671af9/census_independent_output.txt"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General C² identification theory addresses arbitrary graph partners. The earlier connected-block-graph result has bridge-joined triangles equivalent to a theta graph; the leafless bicyclic classification also describes theta–barbell pairs."
+        ],
+        "reasoning": "A theta graph is not a cactus: its paths between branch vertices give cycles sharing edges, so its containing block is not a cycle. The barbell partner can be a cactus, but these examples do not lower the threshold for two cacti. The two target doubletons also have cycle rank three, outside the bicyclic regime.",
+        "searches": [
+          "arXiv:1503.08792 Theorem 17; arXiv:1502.01255 global amenability",
+          "Resultary 251f0b549b8d and 5e8b2e05aed9"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "arXiv:1502.01255 and 1503.08792",
+        "OEIS A000083",
+        "Resultary eb2c873dd60a, 251f0b549b8d and 5e8b2e05aed9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stable equitable data give the pairwise criterion. Global identification, when it holds, excludes all twins; failure permits a witness outside the candidate class, as the six-vertex example demonstrates."
+        ],
+        "reasoning": "The general results supply a decision method, not the within-family first obstruction and complete multiplicities. Neither global failure nor the known within-bicyclic doubletons settle the order-12 census with both graphs cacti.",
+        "searches": [
+          "Arvind–Köbler–Rattan–Verbitsky arXiv:1502.01255; Kiefer–Schweitzer–Selman arXiv:1503.08792 Theorem 17; Resultary 251f0b549b8d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Arvind et al. p. 2 state the logical criterion and global amenability definition. Kiefer et al. p. 5 relate C²-partitions to coarsest equitable partitions."
+        ],
+        "reasoning": "Changing the language of the test does not change the stable equivalence classes when colors are synchronized. The proposed threshold quantifies over pairs within the cactus class, not the existence of a nonisomorphic partner of any type.",
+        "searches": [
+          "C² counting logic, color refinement, equitable partitions and fractional isomorphism; arXiv:1502.01255 and arXiv:1503.08792"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A000083 contains the graph counts through the 24,118 cacti at order 12. eb2c873dd60a repeats the frozen refinement partition. 5e8b2e05aed9 gives a distinct doubleton classification restricted to leafless bicyclic graphs."
+        ],
+        "reasoning": "The count of objects does not determine the count of stable-color classes. The exact indexed match is the same finding; the distinct earlier doubleton calculation is for a domain whose twin pairs are not both cacti.",
+        "searches": [
+          "OEIS A000083, unlabelled mixed Husimi trees / polygonal cacti",
+          "Resultary eb2c873dd60a; 5e8b2e05aed9"
+        ]
+      },
+      "rationale": "The established statement is the minimum order and exact doubleton census when both graphs are connected cacti. Global nonidentification and leafless bicyclic doubleton classifications give genuinely close earlier examples with one cactus, but not two. Known cactus totals and general color-refinement theory are prerequisites, not this census. The exact catalogue match is the record under review, not a distinct antecedent.",
+      "residual_risks": [
+        "A specialized unlocated table on cactus twins or their universal covers could overlap. The bounded primary search does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General criterion and different quantifier for amenability",
+          "evidence": "Amenability tests against all nonisomorphic graphs.",
+          "identifier_or_url": "arXiv:1502.01255",
+          "material_read": "p. 2 near OA offset 3950",
+          "method": "OA full-text passage",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "Color refinement, counting logic and amenability"
+        },
+        {
+          "assessment": "Global identification characterization, not this relative census",
+          "evidence": "C² partition is the coarsest equitable partition, with a broader identification theorem.",
+          "identifier_or_url": "arXiv:1503.08792",
+          "material_read": "p. 5 near offset 14500 and Theorem 17 p. 16 near offset 46800",
+          "method": "OA full-text passages",
+          "title": "Graphs Identified by Logics with Counting",
+          "trigger": "General C² identification could give stronger coverage"
+        },
+        {
+          "assessment": "Covered counts of cacti, not their refinement partition",
+          "evidence": "Includes the count 24,118 at order 12.",
+          "identifier_or_url": "https://oeis.org/A000083",
+          "material_read": "Sequence terms near page offset 340",
+          "method": "OA sequence page",
+          "title": "Number of mixed Husimi trees with n nodes; or polygonal cacti with bridges",
+          "trigger": "Exact cactus database"
+        },
+        {
+          "assessment": "Global ambiguity with non-cactus partner",
+          "evidence": "Bridge-joined triangles are equivalent to a theta graph.",
+          "identifier_or_url": "Resultary 251f0b549b8d",
+          "material_read": "RESULT.md finding and witness statements",
+          "method": "Local mirror passages",
+          "title": "First global counting-logic ambiguity among connected block graphs",
+          "trigger": "Small earlier cactus witness with a twin"
+        },
+        {
+          "assessment": "Genuine scope overlap, not two cacti",
+          "evidence": "Each doubleton is a theta and a barbell; the theta is excluded.",
+          "identifier_or_url": "Resultary 5e8b2e05aed9",
+          "material_read": "RESULT.md hypotheses and doubleton form",
+          "method": "Local mirror passages",
+          "title": "Colour refinement on leafless bicyclic graphs: a complete doublet classification",
+          "trigger": "Earlier exact collision classification"
+        },
+        {
+          "assessment": "Same result",
+          "evidence": "Identical threshold and two-pair census.",
+          "identifier_or_url": "Resultary eb2c873dd60a",
+          "material_read": "RESULT.md finding",
+          "method": "Local mirror passage",
+          "title": "First counting-logic ambiguity among connected cactus graphs",
+          "trigger": "Exact catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Connected cacti provide an elementary extension of trees in which cycles may change what counting logic can distinguish. Knowing the first order at which two members of the class agree on all C² sentences is useful separately from global nonidentification; the prior six-vertex cactus with a non-cactus twin shows why those questions differ. The sharp cutoff and two explicit, structurally different types of collisions give exact benchmarks for structural extensions of tree identification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

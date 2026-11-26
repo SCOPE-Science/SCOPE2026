@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:13:55.173834Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–4",
+        "Frozen VERIFICATION.md and CHECK.py (read, not executed)",
+        "Alternative deduction from Rødseth–Sellers 2001, Lemmas 2 and 6 and Eq. (29)"
+      ],
+      "rationale": "The ordinary uncoloured partition series satisfies B(q)=B(q^m)/(1−q). Write G_r(q)=sum_{n≥1} b_m(m^r n−1)q^n. The recurrence for B gives G₁=qB/(1−q) and extraction gives G_r=B A_r with A₁=q/(1−q) and A_{r+1}=U_m(A_r/(1−q)). For a_r(x) the polynomial coefficient sequence of A_r, a₂(x)=mx and a_{r+1}(x)=sum_{j=1}^{mx}a_r(j). The normalization h_r=2^{r−2}a_r/m^{r−1} has h₂=x and is iterated by T_m f=(2/m)sum_{j=1}^{mx}f(j). In the monomial basis the Faulhaber coefficient of x^t in T_m x^k is 2m^{t−1} binom(k,t−1)B_{k+1−t}/t with the B₁ sign convention for sums starting at 1. Since 2B_j is dyadically integral, its coefficient valuation is ≥(t−1)a−ν₂(t)≥0. The Bernoulli bound also follows from vanishing of odd B_j beyond B₁ and the Bernoulli recursion at even j, which divides by the odd j+1. As T_m x=x+mx², h_r≡x modulo 2^a coefficientwise. Substituting in G_r and removing the odd factor (m/2^a)^{r−1} mod 2 gives the stated convolution and integer divisibility at every r≥2. At n=1 the convolution is b_m(0)=1, so the exponent is attained, including for m=2 and for all even non-prime-power bases. No finite checker run is needed to justify the infinite claim. The originality failure is not a counterexample to this proof.",
+      "residual_risks": [
+        "The modulus statement concerns precisely the ordinary uncoloured family at m^r n−1; it does not establish valuations when the convolution is even or treat coloured partitions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rødseth–Sellers Theorem 1 gives the known lower modulus D_R on this branch, as well as branches with other shifts. The proof's kernel information is stronger than that theorem statement.",
+          "Żmija's varying-base theorem yields dyadic exponent sum_{s=1}^{r−1} max(a−floor(log₂ s),0) here. It is no stronger than e_{m,r}, and is smaller for a≥2 and r≥5; that theorem alone is not normalized parity.",
+          "Churchhouse's known binary valuation criterion already gives ν₂(b₂(2^r n−1))=1: neither 2^r n−1 nor 2^r n−2 is a positive multiple of 4 when r≥2."
+        ],
+        "reasoning": "The binary overlap and the universal divisor are prior independently of the full implication. The decisive broader coverage is not a guessed extrapolation from them; it is the same constant-base zero-shift kernel in the prior proof.",
+        "searches": [
+          "Rødseth–Sellers Theorems 1–2 and proofs, including the σ_R=0 branch credited to Gupta",
+          "Żmija arXiv:2403.04495 Theorem 1.3",
+          "Ulas–Żmija arXiv:1809.04628 introduction, Churchhouse's ordinary binary valuation result"
+        ]
+      },
+      "checked_sources": [
+        "Rødseth–Sellers 2001, decisive primary full-text proof passages",
+        "Żmija arXiv:2403.04495 Theorem 1.3",
+        "Ulas–Żmija arXiv:1809.04628 introduction",
+        "Resultary/SCOPE 22cb76063f0d, 9f08fd865d9d and a4362220d5df"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Use their Eq. (29): D_i divides H_i in integer series. Lemma 2 writes H_R=m^(R(R+1)/2) h_R−sum_{1≤i<R} β_R(i)H_i, where h_R=q/(1−q)^(R+1) in the prior notation and m^(R−i)/2 divides β_R(i). For R≥2 the first term vanishes mod 2D_R. Every term with i≤R−2 vanishes too: (m^(R−i)/2)D_i=2^(R−1−i)D_R.",
+          "For i=R−1 the same proof gives β_R(R−1) ≡ β_{R−1}(R−2)−α_R(R−1) (mod m^(R−1)), using β_{R−1}(R−1)=1. Equation (10) has α_R(R−1)=−(R−1)(m−1)m^(R−1)/2, divisible by m for even m and R≥3. The base is β₂(1)=binom(m,2)≡m/2 (mod m). Hence β_R(R−1)/(m/2) is odd for every R≥2.",
+          "It follows that H_R/D_R ≡ H_{R−1}/D_{R−1} (mod 2), with H₁/D₁=q/(1−q)^2. Multiplication by B_m in the unshifted factorization gives exactly sum_{j=1}^n j b_m(n−j) mod 2. At n=1 it is one, so the same calculation proves sharpness."
+        ],
+        "reasoning": "No new hypothesis or sharp estimate is needed: Lemma 2's off-diagonal bounds eliminate all but one term, and its published recurrence fixes that term modulo 2. This is demonstrable prior implication of the complete Finding, even though Theorem 1 does not explicitly print the normalized convolution.",
+        "searches": [
+          "Rødseth–Sellers §3, Eq. (10), Lemma 2 (14)–(15) and its recurrence; Lemma 6 and §4 Eq. (29)",
+          "Compare frozen normalization to their D_R coefficient divisibility"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Their b_m(mN−1)=b_m(mN−m) transfers the full target to b_m(m^r n−m). Put R=r−1. With all shifts ε_i zero, K_R=H_R by (13) and (24). Lemma 6, Eq. (27), gives the target series B_m H_R after coefficientwise limit in the part-size cutoff.",
+          "In the prior notation H₁=m q/(1−q)^2; the kernel q/(1−q)^2 has coefficient j at q^j. Write D_R=m^R/2^{R−1}; ν₂(D_R)=e_{m,r} and D_R/2^{e_{m,r}} is odd."
+        ],
+        "reasoning": "The shift by one versus by m is the same progression of counts; the normalization differs at most by an odd factor modulo 2. Identifying the kernel reformulation is decisive for matching the entire parity law.",
+        "searches": [
+          "Targeted Resultary search for even-base all-ones m-ary partitions, normalized parity and exact valuations",
+          "Rødseth–Sellers 2001 §1, flat-block identity; Eqs. (13), (24), (27)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit 22cb76063f0d is the assigned record. The all-ones analogue a4362220d5df requires odd m≥5 coprime to 6 and does not contain the even domain.",
+          "In 9f08fd865d9d the (0,0) branch is b_m(m⁴n−m). Its proof gives kernel k₃(j)=(m³/12)j(mj+1)(m(2mj+1)+3); for even m the normalized kernel k₃(j)/2^(3a−2) has parity j. Convolution and the flat-block identity therefore cover the whole r=4 slice, not just n=1 or the lower bound."
+        ],
+        "reasoning": "Fixed-depth overlap is real and implicit in the checked source, not evidence by title; the separate 2001 proof shows arbitrary-depth coverage.",
+        "searches": [
+          "Resultary exact parity/sharp valuation search, 50 results; local mirrors a4362220d5df and 9f08fd865d9d"
+        ]
+      },
+      "rationale": "The full normalized parity claim, not just the universal divisor, is a direct consequence of Rødseth–Sellers' published kernel identities and coefficient bounds (2001). Passing to one bit above their published divisibility bound leaves only the adjacent-kernel term in Lemma 2, whose coefficient after normalization is odd by the recurrence in its proof and Eq. (10). This yields the entire claimed convolution for all even m, all r≥2 and all multipliers n, including the all-ones exact valuation. The alternative Bernoulli-operator proof is valid, but its theorem as stated in the Finding is already covered by that prior machinery.",
+      "residual_risks": [
+        "Bibliographic priority is not claimed exhaustively; the demonstrated implication from one accessible prior paper suffices for coverage. The exact parity corollary need not have been separately printed there."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct implication of the entire Finding, not merely the base divisor.",
+          "evidence": "The flat-block identity and zero-shift series give B_m H_R; Lemma 2 gives the triangular expansion and bounds, and its proof supplies the adjacent coefficient recurrence displayed in the implication check.",
+          "identifier_or_url": "https://www.d.umn.edu/~jsellers/p14.pdf (DOI 10.1006/jnth.2000.2594)",
+          "material_read": "Author PDF §1 and Theorems 1–2 (OA offsets 0–6193); §3 Eq. (10), (13), Lemma 2 and its proof (9750–16295), Eq. (24) and Lemma 6 (21870–27397); §4 Eq. (29) (around 27390)",
+          "method": "Bounded primary author-PDF review; statement and proof comparison",
+          "title": "On m-ary Partition Function Congruences: A Fresh Look at a Past Problem",
+          "trigger": "Classical divisor and potentially stronger information in the proof for exactly the same progression"
+        },
+        {
+          "assessment": "Relevant extraction framework and divisibility but not the complete normalized parity by this theorem.",
+          "evidence": "Product of M(m_t,t−1), with M(x,s)=x/gcd(x,lcm(1,…,s)), gives the stated lower exponent comparison.",
+          "identifier_or_url": "https://arxiv.org/pdf/2403.04495",
+          "material_read": "Theorem 1.3, p. 3, OA offsets 9700–12023",
+          "method": "OA primary PDF passage",
+          "title": "High order congruences for M-ary partitions",
+          "trigger": "General variable-base congruence could imply additional normalized bits"
+        },
+        {
+          "assessment": "Confirms prior exact ordinary binary slice; coloured results have different hypotheses.",
+          "evidence": "For n≥2 the ordinary binary valuation is 2 only if the argument or its predecessor is a positive power of 4 times an odd integer; otherwise 1.",
+          "identifier_or_url": "https://arxiv.org/pdf/1809.04628",
+          "material_read": "Abstract and introduction, especially Churchhouse summary p. 2, OA offsets 5189–6438",
+          "method": "OA primary PDF passages; checked attribution of classical uncoloured result",
+          "title": "On p-adic valuations of colored p-ary partitions",
+          "trigger": "Previously known valuations in the binary or coloured subdomains"
+        },
+        {
+          "assessment": "Its explicit kernel implies the whole r=4 slice.",
+          "evidence": "Zero-shift branch and displayed k₃(j) formula; dividing by 2^(3a−2) leaves j modulo 2.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-universal-gcds-for-the-four-depth-three-branches-of-m-ary--9f08fd865d9d",
+          "material_read": "Finding and proof §§1–2, local-mirror offsets 0–4992",
+          "method": "Configured Resultary search and bounded local mirror",
+          "title": "Sharp universal gcds for the four depth-three branches of m-ary partition congruences",
+          "trigger": "Same even-base progression at a fixed depth, with stronger information possibly in the proof"
+        },
+        {
+          "assessment": "Analogue on a disjoint base domain, not evidence against the even-base theorem.",
+          "evidence": "For odd m≥5 coprime to 6 it gives b_m(m^r−1) ≡ m^(r−1)((m+1)/2)^(r−2) modulo m^r.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-leading-m-adic-units-for-all-ones-m-ary-partition-indices--a4362220d5df",
+          "material_read": "Finding in local mirror",
+          "method": "Configured Resultary search and bounded local mirror",
+          "title": "Sharp leading m-adic units for all-ones m-ary partition indices",
+          "trigger": "All-ones indexing and leading units closely match the object"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and scope",
+        "Rødseth–Sellers Lemma 2, Eq. (10), Lemma 6 and Eq. (29), with prior-implication calculation"
+      ],
+      "rationale": "The index progression and the sharpness question are well motivated. But the exact invariant offered as the contribution is a routine one-bit refinement of the existing published triangular recurrence, with no distinct valuation case left outside that implication. The Bernoulli proof is an alternative explanation of the same Finding; the record does not establish an independently needed new theorem or a new use of the method beyond its parity and sharpness claim. No narrower surviving claim from this Finding is supplied as a repair.",
+      "residual_risks": [
+        "This judgement is for the actual frozen claim, not for possible future generalizations of the dyadic operator."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:25:01.797481Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–3, VERIFICATION.md, inspected check_shell.py and check_polynomial.py",
+        "Independent replay: /workspace/branches/9cf3a2b8-4c03-43ce-aefc-5e41dc7aad9b/replay_shell.py"
+      ],
+      "rationale": "Girth sixteen forces one backward neighbor through shell seven; bipartiteness and diameter force every neighbor of a shell-eight vertex backward. With both degrees odd the incidence counts give the stated shell action, with all nine shell indicators nonzero and independent. Each root vector then has a degree-nine cyclic module with annihilator X^7(X+1)^2, and the root vectors span the graph module. On an adjacency cyclic block the temporal relation z²+Xz+1=0 lets one eliminate X=z+z^{-1}; at zero the block becomes (z+1)^{2j}, and at one it becomes (z²+z+1)^j, whether or not the latter quadratic splits. Orders 16 and 6 combine to 48. On the largest two blocks one can choose each subordinate primary period and take least common multiples on their sums. Multiplicities in z^n+1 give the stated nullities and Möbius inversion then counts primitive orbits. Independent shell-module replay found the stated polynomial, order, all ten nullities (1,2,3,4,6,8,8,14,12,18) in increasing divisor order, and positive primitive populations agreeing with the frozen witness counts.",
+      "residual_risks": [
+        "Replay is on the radial witness only. The argument is conditional on existence of the geometry and gives full-graph counts in terms of ranks, not full-graph ranks from parameters."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The intersection counts are stated for semiregular generalized polygons of arbitrary diameter and do not require equal point and line degrees. The hexagon proof states the temporal formulas for arbitrary adjacency block length j, independent of diameter."
+        ],
+        "reasoning": "In odd local degrees the same rooted calculation gives X^(d-1)(X+1)^2; d=8 is direct specialization. The temporal transfer then uses j=7 and j=2, giving the same orders that d=6 with j=5 and j=2 already exhibits. Vlasov supplies the more general reversible recursion, not the computed clock by itself.",
+        "searches": [
+          "arXiv:2504.21488v2 §2.2 Example 2.2.1",
+          "arXiv:2210.07139 Lemma 2.2",
+          "arXiv:1311.4297 §3 Eq. (2) and §4",
+          "Resultary --ad27528ba82a Proof"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2504.21488v2, arXiv:2210.07139, arXiv:1311.4297, arXiv:0704.2845",
+        "DOI:10.1016/j.disc.2015.04.022",
+        "Resultary --ad27528ba82a, --75c3ef5a39ad, --914535ff5fe5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For an arbitrary adjacency zero-block length j, the hexagon proof gives a unipotent block of length 2j, order 2^ceil(log2(2j)); for a one-block of length j it gives (z²+z+1)^j and order 3 times 2^ceil(log2 j). It explicitly gives the all-divisor realization argument and the multiplicity-in-z^n+1 census. The arbitrary-diameter intersection counts give the new input j=7 by the same parity reduction over either root type."
+        ],
+        "reasoning": "The dyadic plateau is the equality ceil(log2 10)=ceil(log2 14)=4. Fixed-space dimensions and primitive counts are the already described primary-block nullity and Möbius calculation on the specialized ranks, including on the two explicit radial blocks. No further independent invariant beyond this substitution is established.",
+        "searches": [
+          "arXiv:2504.21488v2 Example 2.2.1",
+          "arXiv:2210.07139 Lemma 2.2 proof",
+          "Resultary --ad27528ba82a sections Distance-polynomial identity, Sharp minimal polynomials, Passage to the two-level wave, Orbit census"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "New Constructions of Distance-Biregular Graphs, Example 2.2.1, gives all backward and forward intersection counts for an arbitrary generalized polygon, for a root of either type. Polynomial Characterizations of Distance-Biregular Graphs, Lemma 2.2 proof, identifies the action of adjacency on the distance indicators with those counts."
+        ],
+        "reasoning": "The integer matrix identity in the latter proof reduces modulo two (no need to reduce real spectral polynomials). In the former example put d=8 and both degrees odd: b_0=1, b_1 through b_7=0, and c_1 through c_8=1 modulo two. This is exactly the frozen nine-shell operator in column convention. Its companion-type relations directly give the local polynomial X^7(X+1)^2 and show sharpness by the nine disjoint indicators, which generate the rooted cyclic module. Varying the root gives the full-graph result.",
+        "searches": [
+          "generalized polygons distance biregular incidence graph adjacency minimal polynomial characteristic 2 intersection matrix generalized octagon parity",
+          "Resultary: generalized-polygon parity-separated reversible wave clocks and rank-resolved orbit counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned octagon record itself surfaced; the distinct hexagon entry gives the same temporal order and divisor set with X^5(X+1)^2, and the quadrangle and partial-geometry entries give other clocks."
+        ],
+        "reasoning": "These are not exact octagon lookup hits. In particular the same value 48 alone would not establish coverage; the decisive comparison is the generic intersection and temporal formulas, not a table match.",
+        "searches": [
+          "Resultary: even-order hexagon, generalized quadrangle and partial geometry wave clocks",
+          "Resultary --ad27528ba82a Finding and Proof"
+        ]
+      },
+      "rationale": "The exact octagon statement was not located verbatim, but its asserted mathematical content is mechanically obtained from the published arbitrary-diameter generalized-polygon intersection counts and local shell recurrence, followed by the already stated general primary-block clock and fixed-space calculation. The octagon introduces no new intersection coefficient, temporal case or evaluation of the graph-dependent ranks. This finding concerns implication-level coverage, not a claim about which same-date catalogue item came first.",
+      "residual_risks": [
+        "The reviewed comparison establishes mechanical implication, not a claim that an earlier source printed the exact octagon tuple. Same-day catalogue chronology is unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives the needed general intersection counts integrally",
+          "evidence": "For all 1<=i<d, c_i=1 and b_i is the appropriate valency minus one; c_d is the full shell-d valency and b_0 is the root valency; swap valencies for the opposite root type.",
+          "identifier_or_url": "https://arxiv.org/html/2504.21488v2",
+          "material_read": "§2.2, Example 2.2.1, offsets 11600–14371",
+          "method": "OA full-text HTML passage",
+          "title": "New Constructions of Distance-Biregular Graphs",
+          "trigger": "A general theorem covering the exact incidence graphs"
+        },
+        {
+          "assessment": "Provides the integer-count recurrence used in the specialization",
+          "evidence": "A A_i e_u=b_{i-1}A_{i-1}e_u+a_i A_i e_u+c_{i+1}A_{i+1}e_u, as shown by taking entries and counting neighbors.",
+          "identifier_or_url": "https://arxiv.org/pdf/2210.07139",
+          "material_read": "§2.2, Lemma 2.2 proof, PDF p. 5, offsets 10020–12197",
+          "method": "OA full-text PDF passage",
+          "title": "Polynomial Characterizations of Distance-Biregular Graphs",
+          "trigger": "General local-distance operator identity"
+        },
+        {
+          "assessment": "Different graph diameter but substantially the same specialized proof and general temporal block consequences; no chronological priority inferred",
+          "evidence": "Even q gives X^5(X+1)^2, order 48 and all divisor periods; proof gives the general formula for each j and counts returns from primary multiplicities.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-parity-separated-reversible-wave-clocks-on-finite-generalized-he--ad27528ba82a/RESULT.md",
+          "material_read": "Finding, and proof offsets 2600–6600",
+          "method": "Local mirrored result text",
+          "title": "Parity-separated reversible wave clocks on finite generalized hexagons",
+          "trigger": "Same clock, same underlying recurrence and rank census"
+        },
+        {
+          "assessment": "General framework, not an octagon computation",
+          "evidence": "Gives update (s,s') -> (f[s] minus s',s), which yields the frozen map for a linear rule in characteristic two.",
+          "identifier_or_url": "https://arxiv.org/abs/1311.4297",
+          "material_read": "§3 Eq. (2), PDF p. 2, and §4 Eqs. (5)–(7)",
+          "method": "OA PDF passages",
+          "title": "On generalization of reversible second-order cellular automata",
+          "trigger": "Equivalent reversible update"
+        },
+        {
+          "assessment": "Structural geometry, not a clock or orbit census",
+          "evidence": "Studies flag-transitive, point- and line-primitive examples.",
+          "identifier_or_url": "https://arxiv.org/abs/0704.2845",
+          "material_read": "Abstract and §1, PDF p. 1",
+          "method": "OA PDF passages",
+          "title": "Primitive flag-transitive generalized hexagons and octagons",
+          "trigger": "Same incidence geometry"
+        },
+        {
+          "assessment": "Uniqueness in a narrower geometric setting, not the clock claim",
+          "evidence": "Uses an additional suboctagon assumption for the (2,4) geometry.",
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2015.04.022",
+          "material_read": "Abstract and §1, p. 1",
+          "method": "OA full-text passage",
+          "title": "The uniqueness of a certain generalized octagon of order (2,4)",
+          "trigger": "Same geometry at the smallest parameter pair"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Proof and Limitations",
+        "General intersection identity and same-clock hexagon comparison cited above",
+        "Independent radial-module replay"
+      ],
+      "rationale": "Octagons are a natural test case, and the submitted calculation is a useful illustration. But the plateau and witness counts are immediate evaluations of the general odd-degree intersection and primary-block framework; the work leaves the potentially interesting full-graph modular ranks as inputs. Neither the changed diameter nor an extra tabulation provides a separate substantive exact invariant here.",
+      "residual_risks": [
+        "This is a judgment on the submitted claim; it does not exclude a substantive octagon-specific result that evaluates presently unevaluated ranks."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:24:05.873467Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–34 and 36–100",
+        "VERIFICATION.md lines 3–14 and 18–26",
+        "check.py lines 11–102"
+      ],
+      "rationale": "Ranking n labeled independent uniform endpoint pairs gives exactly 2^n n! equally likely rank assignments for each matching. For the two centered order-two kernels, write the three gaps (u,v-u,1-v) as (l,b,r), which is Dirichlet(1,1,1). The conditional probabilities are 2b(1-b) and b²+2lr. The simplex moment formula E[l^i b^j r^k]=2 i!j!k!/(i+j+k+2)! gives mean 1/3 for each, raw second moments 2/15, and raw mixed moment 1/9. Consequently their first-projection covariance is I/45. For the same chord pair the indicators are exclusive, with covariance −1/9; the canonical remainder per pair has marginal variance 8/45. Its distinct pair terms are uncorrelated, also when sharing one endpoint index, by conditional centering. Thus the C,N variances are n(n−1)(n+3)/45 and their covariance −n(n−1)/18, giving the claimed correlation and the stated matrix by A=binomial(n,2)−C−N. The n=2 matrix agrees with a uniform one-hot vector. The canonical remainder has second moment O(n²), so multivariate iid CLT on the first projections and the deterministic alignment identity give the asserted singular trivariate limit. A separate exact enumeration checked all nine entries and means for n=2,3,4,5; the frozen script was read, not executed. The recorded verification is finite corroboration, not an asymptotic proof or formal verification.",
+      "residual_risks": [
+        "Model is uniform fixed-size matchings, not general diagrams or maximal crossing/nesting sizes. No formal certificate was assessed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kasraoui–Zeng give the full bivariate enumerator; Chen et al. give the symmetry under interchange; Paguyo and Arenas-Velilla et al. establish marginal crossing CLTs."
+        ],
+        "reasoning": "The enumerator strictly encodes all finite moments. Symmetry and a marginal CLT do not alone establish joint Gaussianity or limiting independence; the inspected Resultary statements supply the actual joint claim.",
+        "searches": [
+          "arXiv:math/0601081 Proposition 3.8",
+          "arXiv:math/0501230 Corollary 4",
+          "arXiv:2104.01134",
+          "arXiv:2308.11570"
+        ]
+      },
+      "checked_sources": [
+        "The two Resultary statements and four OA primary passages listed in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier bivariate theorem plus C+N+A=binomial(n,2) determines the full covariance and limit. In particular Cov(C,A)=−Var(C)−Cov(C,N) and the normalized centered A is exactly the negative sum of the other coordinates."
+        ],
+        "reasoning": "The alignment extension is mechanical; neither it nor re-evaluating finite moments preserves a distinct research claim here.",
+        "searches": [
+          "Matching crossing–nesting Resultary passages at the two catalogue identifiers",
+          "arXiv:math/0601081 p. 11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both inspected findings give the uniform-matching bivariate limit with independent N(0,1/45) coordinates, the same means and exact covariance. The October 18 finding also gives orthogonal first projections."
+        ],
+        "reasoning": "These are the identical pair counts, not maxima; adding alignment leaves exactly the same two degrees of freedom.",
+        "searches": [
+          "Resultary local lookup for asymptotic independence of crossing and nesting pair counts",
+          "2026/10/18/SCOPE-asymptotically-independent-crossing-and-nesting-pair-counts-in-r--60cf7c959c73",
+          "2026/10/13/SCOPE-asymptotic-independence-of-crossing-and-nesting-counts-in-unifor--5803970b1b8b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 13 and October 18 catalogue entries contain the exact bivariate formulas for general n, not just tabulated small n. Proposition 3.8 gives a generating function in all n."
+        ],
+        "reasoning": "No standalone numerical table is needed: the closed all-n formula entries constitute stronger exact coverage, and the generating function permits mixed derivative evaluations.",
+        "searches": [
+          "Resultary local exact-claim comparison for crossing and nesting pair-count covariance and Gaussian independence",
+          "Kasraoui–Zeng, Proposition 3.8"
+        ]
+      },
+      "rationale": "Two distinct Resultary statements already materially cover the bivariate theorem in the identical uniform matching model, including the October 18 record's same orthogonality mechanism. The explicit third row/column and third limit coordinate are linear consequences of the previously stated bivariate theorem and the published pair-count identity. This is a statement-level coverage decision, not a claim of historical authorship or priority.",
+      "residual_risks": [
+        "The bounded comparison does not establish earliest historical priority; additional derivations or sources are possible. This does not weaken the demonstrated equivalent coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers principal bivariate finding and mechanism",
+          "evidence": "Uniform matching, covariance −n(n−1)/18, correlation −5/[2(n+3)], diagonal first-projection covariance and independent Gaussian limit.",
+          "identifier_or_url": "2026/10/18/SCOPE-asymptotically-independent-crossing-and-nesting-pair-counts-in-r--60cf7c959c73",
+          "material_read": "Finding and first-projection argument",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Asymptotically independent crossing and nesting pair counts in random matchings",
+          "trigger": "Same-model catalogue hit"
+        },
+        {
+          "assessment": "Covers principal bivariate finding",
+          "evidence": "Same bivariate finite formulas and independent Gaussian pair limit.",
+          "identifier_or_url": "2026/10/13/SCOPE-asymptotic-independence-of-crossing-and-nesting-counts-in-unifor--5803970b1b8b",
+          "material_read": "Finding and comparison to earlier joint enumerator",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Asymptotic independence of crossing and nesting counts in uniform matchings",
+          "trigger": "Second same-model catalogue hit"
+        },
+        {
+          "assessment": "Finite joint law encoded",
+          "evidence": "L_n(p,q) sums p^cr q^ne over matchings; its continued fraction is given and cr+ne+al=binomial(n,2).",
+          "identifier_or_url": "https://arxiv.org/abs/math/0601081",
+          "material_read": "PDF p. 11, offset 30700, Proposition 3.8 and surrounding definitions",
+          "method": "OA full text, bounded passage",
+          "title": "Distribution of crossings, nestings and alignments of two edges in matchings and partitions",
+          "trigger": "Stronger finite enumerator"
+        },
+        {
+          "assessment": "Symmetry only in the inspected result",
+          "evidence": "The joint pair-count distribution is unchanged by interchanging crossing and nesting.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0501230",
+          "material_read": "PDF p. 4, offset 11324, Corollary 4",
+          "method": "OA full text, bounded passage",
+          "title": "Crossings and nestings of matchings and partitions",
+          "trigger": "Possible distributional coverage"
+        },
+        {
+          "assessment": "Marginal crossing CLT",
+          "evidence": "A normal approximation with rate is given for the crossing statistic alone.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.01134",
+          "material_read": "PDF pp. 2–3, offset 6276",
+          "method": "OA full text, bounded passage",
+          "title": "Convergence rates of limit theorems in random chord diagrams",
+          "trigger": "Same uniform chord model CLT"
+        },
+        {
+          "assessment": "One-dimensional crossing CLT in inspected result",
+          "evidence": "The theorem concerns the number of crossings of a random embedding, not jointly nesting counts.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.11570",
+          "material_read": "PDF p. 2, offset 7923",
+          "method": "OA full text, bounded passage",
+          "title": "Central limit theorem for crossings in randomly embedded graphs",
+          "trigger": "Broader graph model and cited motivation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Relationship to prior work",
+        "Core bivariate Resultary findings and the alignment identity in Kasraoui–Zeng"
+      ],
+      "rationale": "The contrast between finite negative correlation and limiting independence is a meaningful question, and orthogonal projections explain it. But those are already present together in a matched result. The only apparent extension is to a deterministic third coordinate, which requires neither a new estimate nor a new phenomenon. A pedagogical restatement and explicit matrix are insufficient as a surviving distinct finding.",
+      "residual_risks": [
+        "No assessment of a different model or different matching statistic is implied."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

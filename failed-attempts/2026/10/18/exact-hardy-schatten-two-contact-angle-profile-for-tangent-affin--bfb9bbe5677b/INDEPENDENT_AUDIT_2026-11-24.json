@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:35:36.172588Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent calculation with the frozen H² Hardy norm and the stated forward product. Input phases are removed by outer unitaries, and only the relative image phase remains. Parseval on the two-variable coefficient kernel gives the mean squared modulus on the torus whenever the image contacts are distinct; the denominator is then bounded away from zero there. Integrating one variable gives 1/(|A|²−|B|²), with A=1−(1−b)e^(iδ)(1−a+ae^(it)) and B=be^(iδ)(1−a+ae^(it)). In the trigonometric denominator C+P cos t+Q sin t, put h=1−cosδ and C₀=2a(a+b−2ab). Then C=C₀+2(1−a)(1−b)h, P=−C₀+2a(1−b)h, Q²=4a²(1−b)²(2h−h²). Expanding C²−P²−Q² gives the frozen discriminant. At common contacts the singly integrated denominator is C₀(1−cos t); Fatou on radial kernels proves divergence. The strict angular law and compact-parameter quadratic error follow from the sine and positive square-root factors. The quadrature script was inspected, not rerun; it is finite and does not certify the collision statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-order Hardy theorem gives membership in every S_p precisely when the linear-fractional symbols have no common image value on the unit circle. The weighted Dirichlet theorem uses the same condition on its scale. The general Hardy S₂ counting-function integral is a criterion, not an evaluated affine norm."
+        ],
+        "reasoning": "The frozen affine domains meet the Hardy theorem’s hypotheses, so collision divergence and separated membership are already covered. Neither membership nor the analogous reverse criterion supplies the numerical profile by itself.",
+        "searches": [
+          "Leng–Zhao arXiv:2610.15472, Theorem 3.4(a), Theorem 3.18 and Remark 3.19",
+          "He–Yan–Zhang–Zhao arXiv:2609.29897, Theorem 3.4"
+        ]
+      },
+      "checked_sources": [
+        "Leng–Zhao arXiv:2610.15472",
+        "He–Yan–Zhang–Zhao arXiv:2609.29897",
+        "Clifford–Zheng MR 1757084 (bibliographic/cited material only)",
+        "Local Resultary and published SCOPE separated-cross-product, monomial and affine-commutator comparisons",
+        "Frozen RESULT.md, VERIFICATION.md and check.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On z^n the weighted composition map from Theorem 3.1 gives output (d̄φ)^n/(1−c̄φ)^(n+1). For separated contacts its squared norm summed over n equals the circle mean of [|1−c̄φ|²−|dφ|²]⁻¹. With φ affine, this denominator has only its constant and first harmonics. The classical circle formula gives the radical after exact expansion. Proposition 3.22 instead concerns tr(CφCψ*) and is not confused here with tr(T*T)."
+        ],
+        "reasoning": "This is a direct evaluation from the known adjoint theorem by geometric summation and a classical circle integral, with no new operator estimate. Cancellation of the constant term of the discriminant at contact gives the stated asymptotic; the strict angular minimum is immediate from the factorization.",
+        "searches": [
+          "Leng–Zhao Theorem 3.1, citing Cowen–MacCluer Theorem 9.2",
+          "Leng–Zhao Proposition 3.22",
+          "Frozen RESULT.md lines 38–72"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For ψ(z)=c+dz the theorem gives Cψ* as multiplication by (1−c̄z)⁻¹ followed by composition with d̄z/(1−c̄z). The product CφCψ* is thus a single weighted composition operator. This is the same kernel as the original’s two-variable kernel after summing the geometric series."
+        ],
+        "reasoning": "The Hardy adjoint reduction is exact for affine ψ because its right Toeplitz factor is the identity. The order matters: the corresponding reversed product is not transformed by this argument into a single weighted composition operator.",
+        "searches": [
+          "Resultary: affine Hardy composition-adjoint product exact Hilbert–Schmidt contact-angle norm",
+          "Leng–Zhao, arXiv:2610.15472, §3.1 Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected separated cross-products finding gives singular-value upper bounds and an opposite-order input-contact condition, not an exact affine Hardy S₂ norm. The same-day monomial finding classifies operators C_k* C_m, a different product and family. The classical mean of (C+P cos t+Q sin t)⁻¹ is exactly (C²−P²−Q²)^(−1/2) for C>√(P²+Q²)."
+        ],
+        "reasoning": "No exact catalogue entry for this angle law was confirmed. The classical integral already evaluates the one-circle problem exposed by the known adjoint form; the catalogue overlaps are not the reason for failure.",
+        "searches": [
+          "Resultary: separated composition cross-products and Schatten singular values",
+          "Resultary: exact affine composition-product norms and monomial Hardy adjoint products",
+          "Frozen RESULT.md equation (2) and classical reciprocal-circle integral"
+        ]
+      },
+      "rationale": "No earlier printing of the precise radical was established. However, the published Hardy linear-fractional adjoint theorem specializes at once to a single weighted composition operator for affine ψ. Its Hilbert–Schmidt square is a geometric sum over the monomial basis, namely the reciprocal of a first-degree trigonometric polynomial integrated once. Applying the classical reciprocal-circle integral and expanding its discriminant gives the exact frozen function, not just the older membership dichotomy. The monotonicity and singular coefficient require only substitution and Taylor expansion. The decision is based on this exact implication, not on any inaccessible source.",
+      "residual_risks": [
+        "The bounded searches and unavailable 1999 full text do not determine priority for an explicit printing of the radical. They are not used to infer absence. The exact mechanical implication is independently checkable from the published Hardy adjoint representation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative Hardy result is explicit; quantitative law follows by the exact adjoint representation and elementary integration",
+          "evidence": [
+            "Theorem 3.1 represents the adjoint as T_g C_τ T_h*; for affine symbols h=1.",
+            "Theorem 3.4(a) uses common image boundary values, whereas 3.4(b) uses input preimages."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.15472",
+          "material_read": "Theorems 3.1 and 3.4, p. 11 (offset 36900); Theorem 3.18 and Remark 3.19, pp. 22–23 (offsets 82112, 87000); Proposition 3.22, pp. 25–26 (offset 94450)",
+          "method": "Primary PDF passage inspection and affine specialization",
+          "title": "Schatten class membership of products of composition operators and their adjoints",
+          "trigger": "Exactly the same Hardy forward product and a possible quantitative reduction"
+        },
+        {
+          "assessment": "Qualitative analogue; the exact quantitative comparison rests on the Hardy result",
+          "evidence": [
+            "Theorem 3.4 tests φ(T)∩ψ(T)∩T and states membership for all positive exponents when this intersection is empty."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.29897",
+          "material_read": "Introduction, p. 3, offset 8940; §3 Theorem 3.4 and Remark 3.5, p. 13, offset 39948",
+          "method": "Primary PDF statement and hypotheses comparison",
+          "title": "Some Properties of Products of Linear Fractional Composition Operators on Weighted Dirichlet Spaces",
+          "trigger": "Same forward product with linear-fractional symbols and boundary criterion"
+        },
+        {
+          "assessment": "No claim about the full 1999 text or whether it prints the radical",
+          "evidence": [
+            "Leng–Zhao attributes the forward and reverse compactness reductions to Clifford–Zheng."
+          ],
+          "identifier_or_url": "Indiana Univ. Math. J. 48(4), 1585–1616 (1999), MR 1757084",
+          "material_read": "Bibliographic identification and the cited summary/lemma in the two inspected primary papers; DOI retrieval did not return the older paper",
+          "method": "Lawful retrieval attempt and checked bibliographic cross-reference",
+          "title": "Composition operators on the Hardy space",
+          "trigger": "Earlier closely matching study of Hardy composition products"
+        },
+        {
+          "assessment": "Different quantitative bound and opposite-order linear-fractional criterion",
+          "evidence": [
+            "Its named separation criterion is for Cψ* Cφ and tests the input contact sets."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-exponential-schatten-smoothing-for-separated-composition-cross-p--203543319e93",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Local Resultary search and mirror lookup",
+          "title": "Exponential Schatten smoothing for separated composition cross-products",
+          "trigger": "Closest published indexed comparison on separation and Schatten norms"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp collision scale is a sensible quantitative question and the exact formula is convenient. Here the supported gain is a direct substitution into a known exact operator representation and one classical harmonic integral, followed by monotonicity and a Taylor coefficient. It is not an independently undetermined exact invariant or a new estimate near collision.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

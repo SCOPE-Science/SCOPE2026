@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:50:53.212492Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each inverse insertion (choose a missing value, lift child values, insert at a chosen position) produces a parent, and every deletion witness is obtained this way. Deduplication within each child bucket ensures each unordered pair receives one increment per distinct shared child. Thus the positive counters are exactly the desired intersection sizes, and omitted zero-overlap pairs cannot maximize. An independently written exact enumerator reproduced both incidence maps, all histograms, maxima (2,4,4,4,4,4), counts (6,1,4,18,96,600) and set equality of the entire extremal set with the proposed construction for n=4,...,8. The n=8 histogram for positive intersections of sizes 1,2,3,4 is (5521776,324432,320,600). For n=3, the four nonmonotone permutations have both children, giving six pairs. The four deletions in each block give the same four different local patterns. Contiguity in position preserves the outside pattern and consecutive block values leave each outside letter below or above the entire block, so the agreement extends to four different global children for all n>=4. All four block positions change and all other entries coincide, so the differing interval and value range are recoverable; counting the block as one atom gives (n-3)(n-3)!. This is no upper bound or classification past n=8. The frozen verify.py was inspected only. Independent replay: /workspace/branches/948953eb-8454-4d5c-9704-101c109a7983/independent_check.py (Python 3.12.3, NumPy 2.5.3; accepts --min-n and --max-n); the retained independent_check_n3-8.jsonl and independent_check_notes.md in that directory give the exact counts, set comparisons and recorded runs. Pair keys are exact uint32 with two 16-bit lexicographic IDs, safe since 8! < 2^16.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wu et al. Lemma 2 bounds the number of permutation-invariant deletion parents of any one child, allowing multiple deletions. Sun–Ge Theorem 1.1 bounds raw fixed-alphabet deletion intersections; its one-deletion bound for distinct strings is two."
+        ],
+        "reasoning": "The parent-bound direction is reversed from counting children shared by two parents. Standardizing survivors can merge different raw words; the fixed-alphabet raw ball result does not dominate the standardized problem.",
+        "searches": [
+          "arXiv:2609.37578 §II-A",
+          "arXiv:2606.25822 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and check_output.txt (frozen code inspected only)",
+        "Independent code and logged data, linked in correctness",
+        "DOIs 10.37236/10403, 10.37236/1149",
+        "arXiv:2609.37578 and 2606.25822",
+        "Resultary SCOPE026 and bounded catalogue searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Always |set deck intersection| <= |multiset deck intersection|. At n=7,8 the verified prior table only gives the upper bound five by this comparison; pairs with multiset overlap exactly four are not listed as maximizers there. The frozen local replacement guarantees four distinct common children."
+        ],
+        "reasoning": "Full-deck injectivity does not fix a partial intersection maximum, and the exact weaker multiset bounds and their equality cases do not determine which nonmaximal multiset pairs have four distinct overlaps. The distinct census checks the upper bound and equality classification on all relevant pairs, not just on those prior maxima.",
+        "searches": [
+          "Smith Proposition 2.1",
+          "Gouveia–Lehtonen Definition 3 and Tables 1–2",
+          "Wu et al. Lemma 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Smith Proposition 2.1 addresses injectivity of the complete minor set for n>=5. Gouveia–Lehtonen Definition 3 concerns intersections of multiset decks. The nearest checked catalogue record 2026/9/15/SCOPE026 counts agreement in positions."
+        ],
+        "reasoning": "A standardized one-deletion child is an (n-1)-minor, but reconstruction from entire sets and positional agreement are not this partial set-intersection extremal problem; multiset cardinality can exceed distinct cardinality.",
+        "searches": [
+          "Resultary searches for distinct standardized one-deletion shadow overlap of permutation pairs, k-card subsets and 2413/3142 extremizers (top 50 and top 100)",
+          "Smith DOI 10.37236/1149",
+          "Gouveia–Lehtonen DOI 10.37236/10403"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 gives multiset maxima (3,4,4,4,5,5) for n=3,...,8; Table 2 lists the n<=8 multiset maximizers up to the paper's symmetries. It includes 2413/3142 at n=4 and the four n=5 construction pairs after symmetry expansion, plus two additional n=5 multiset maximizers."
+        ],
+        "reasoning": "At n=4,...,6 the multiset maximum four and the construction force M_n=4; their multiset-maximal list can be filtered to check the distinct extremal pairs in that range. At n=7,8 the two maxima differ, so their table of five-card ties cannot supply the distinct equality sets at four. The checked catalogue near-hit is unrelated.",
+        "searches": [
+          "Gouveia–Lehtonen Tables 1–2 (DOI 10.37236/10403)",
+          "Resultary semantic catalogue comparisons (top 50 and top 100)"
+        ]
+      },
+      "rationale": "The supported distinction is the finite distinct-shadow extremal profile and complete equality sets, chiefly the n=7 and n=8 results. Earlier multiset extrema substantially overlap in small orders; neither the known 2413/3142 collision nor those overlapping small-order upper bounds are credited as new. At n=7 and n=8 the prior multiset bound is five, whereas the distinct bound is four. The multiset-maximal pair table does not classify all pairs with four distinct common children; the distinct optimum and its equality set require additional work. No exact distinct-shadow match was found in the bounded comparisons.",
+      "residual_risks": [
+        "The bounded searches do not exclude an older equivalent distinct-shadow census under other reconstruction or channel terminology. The established multiset overlap already limits originality of the small cases; no credit is claimed for prior full-deck injectivity or multiset classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlapping multiset problem, with some exact small-order implications but not the frozen higher-order classification",
+          "evidence": [
+            "Multiset maxima 3,4,4,4,5,5 and known 2413/3142 pair at n=4."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/10403",
+          "material_read": "Definition 3 and Table 1, PDF p. 4 text offset ~9800; discussion of extremizers and Table 2, pp. 5–6, offsets ~12779 and ~15650",
+          "method": "Open-access journal PDF",
+          "title": "Permutation Reconstruction From a Few Large Patterns",
+          "trigger": "Exact maxima and extremal pair tables at the same lengths"
+        },
+        {
+          "assessment": "Whole-deck reconstruction, not maximum distinct partial overlap",
+          "evidence": [
+            "An n>=5 permutation is determined by its complete (n-1)-minor set."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/1149",
+          "material_read": "Proposition 2.1, PDF p. 2, text offset ~3600",
+          "method": "Open-access journal PDF",
+          "title": "Permutation Reconstruction",
+          "trigger": "Known reconstruction statement on the same distinct child sets"
+        },
+        {
+          "assessment": "Channel definition and parent-count bound, not a two-parent shadow cap",
+          "evidence": [
+            "Standardizes survivors; the lemma bounds parents of a fixed child by t! times the squared relevant binomial coefficient."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.37578",
+          "material_read": "Abstract and §II-A Lemma 2, PDF pp. 1 and 4–5, text offset ~19500 for Lemma 2",
+          "method": "Open-access primary PDF",
+          "title": "Order-Optimal Systematic Permutation Codes for Correcting t Deletions",
+          "trigger": "Same permutation-invariant deletion channel"
+        },
+        {
+          "assessment": "Raw string outputs, so no direct upper bound after rank standardization",
+          "evidence": [
+            "For one deletion from distinct words its raw-output bound is two."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.25822",
+          "material_read": "Theorem 1.1, PDF p. 3, text offset ~13624",
+          "method": "Open-access primary PDF",
+          "title": "Extremal Deletion-Ball Intersections under Run-Count and Lower-Order Deletion-Ball Intersection Constraints",
+          "trigger": "Potential broader deletion-ball intersection theorem"
+        },
+        {
+          "assessment": "Different notion of intersection",
+          "evidence": [
+            "Intersection means identical positions rather than common standardized deletion descendants."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/15/SCOPE026",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Resultary record on large 2-intersecting permutation families",
+          "trigger": "Closest catalogue hit by terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Distinct possible standardized channel outputs, rather than deletion-position multiplicities, parameterize worst-case ambiguity in reconstruction from different received words. The finite range directly resolves the distinct analogue of a published length-eight multiset census, including its first two lengths where the multiset cap of five is not sharp. The exhaustive equality sets isolate a structural local obstruction rather than only reporting six numbers; the result gives a precise finite baseline for testing larger-length bounds. The scope does not assert an eventual cutoff or an all-length upper bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

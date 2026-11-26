@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:52:03.179279Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–86",
+        "Frozen check.py and VERIFICATION.md, inspected as text"
+      ],
+      "rationale": "Atomlessness removes ties and the probability-integral transform preserves the joint rank law, so independent mean-one exponentials may be used. A loss is the deleted row's first entry beating the surviving minimum in its column. An arrival is a surviving column minimum that also beats its other row entries and is beaten by the deleted entry in that column. Integration gives the stated means. The mixed moment counts same-column events (n/[2(3n−2)] in total) and distinct-column events. In the latter integrand the crossing entry constrained by both events is counted only once, at the larger threshold y. Changing variables to x,z−x,y−z gives factors with rates 4n−4, 2n−1, 2n−2; multiplying by n−1 row choices and n(n−1) column pairs gives n/[8(2n−1)]. The covariance identity and positivity then follow. For a rigorous marking check, select all columns with nU_j≤M using only deleted-row data, so their number is tight and the unselected surviving array is still independent. The selected minima rescaled by n are tight and have independent uniform minimizing row labels, distinct with probability tending to one. Restrict their scaled minima to a fixed bounded range temporarily. Conditional on their minima and labels, each crossing surviving entry has an exponential residual above its column minimum; the chance any crossing changes a mark is O(1/n) with the count and range bounded. Outside the selected columns the tested rows are distinct and independent, and each mark has probability exp(−(n−number selected)y/n) before crossings, tending to exp(−y). The scaled strip has the stated limiting Poisson intensity. The expected number of potential arrivals with x>M is exactly e^(−M), and the first x lies outside with that same probability, so truncation can be removed. Independent marking gives arrival intensity (1/2)e^(−2x); conditional on the first x, loss probability is e^(−x), joint loss/arrival probability (1/2)e^(−2x), and later arrivals have independent Poisson mean e^(−2x)/4. Integration with u=e^(−x) and the derivative of u exp((t−1)u²/4) give the stated joint PGF. Arrival counts are dominated by the number of columns where U_j<Y_j, a Binomial(n,1/n), giving uniform higher moments and justifying the limiting covariance, conditional means, and variance of A_n−L_n. Frozen checker read but not run.",
+      "residual_risks": [
+        "No quantitative rate for the joint limit or extension to correlated entries or multiple-row deletion. The frozen finite enumeration and quadrature are supplementary, not the limit proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original inspected Resultary passages cover near-total cell refresh with retained/replaced common minima, and two-payoff best-response processes with their own marked counts. The two regular-minimality references and the nearest-neighbor article are plausible historical comparisons; full text was not retrieved despite publisher and alternate-route attempts."
+        ],
+        "reasoning": "No verified theorem among these passages includes deterministic deletion of an entire row with no refresh elsewhere. Specific historical subclaims not verified in originals remain uncertain.",
+        "searches": [
+          "Resultary de6d9e209f34 and d76c94dd4ebd",
+          "DOI 10.3389/fpsyg.2010.00211",
+          "DOI 10.1016/j.jmp.2010.12.002",
+          "Pittel–Weishaar DOI 10.1002/(SICI)1098-2418(199910/12)15:3/4<279::AID-RSA6>3.0.CO;2-J",
+          "Primary search for Pittel–Weishaar title and author-hosted regular-minimality papers"
+        ]
+      },
+      "checked_sources": [
+        "Frozen record and supports",
+        "Original Baldi–Rinott–Stein passage and arXiv:1211.2284",
+        "Resultary 355cf7f112df, de6d9e209f34, d76c94dd4ebd",
+        "Historical references and access limits as listed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "By exchangeability E L_n is the original mean divided by n; the two hypergeometric means plus the identity K'_n−K_n=A_n−L_n also imply E A_n. The refresh result has Poisson(1/4) for one different count and its stated limiting pair is independent. Here the first scaled point participates in both observables and causes strictly positive limiting covariance."
+        ],
+        "reasoning": "Credit the exact marginal implications. They cannot establish the mixed moment or the dependence, which require crossing constraints and the first-column marking computation. The refresh and independent-payoff limits are not stronger theorems specializing to this coupled law.",
+        "searches": [
+          "Resultary 355cf7f112df, de6d9e209f34 and d76c94dd4ebd, Findings",
+          "Frozen RESULT.md, proof of the mixed moment and first-point decomposition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Simultaneous row/column minima are local minima on the matrix rook graph, equivalently pure equilibria of one shared payoff after sign reversal. The classical count is for one undeleted graph; the k=1 local maxima context is also an unperturbed count."
+        ],
+        "reasoning": "Deleting the row restricts the graph and reuses the same costs. The object sought is a coupled birth/loss law, not the count before or after restriction separately.",
+        "searches": [
+          "Resultary: reciprocal minima row deletion, sensitivity, mutual extrema and random best-response equilibria",
+          "Baldi–Rinott–Stein (1989), matrix-game example p. 729",
+          "Bhamidi–Dey–Nobel arXiv:1211.2284, k=1 discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed hypergeometric law, with order reversal for minima and (r,c)=(n,n) or (n−1,n), gives both before and after total-count marginals. The classical square formulas likewise cover the original mean and variance."
+        ],
+        "reasoning": "These are meaningful exact overlaps but give no table or formula for the joint law of losses and arrivals in a nested pair of arrays. In particular two marginal laws do not fix the distribution or variance of the difference under the specified coupling.",
+        "searches": [
+          "Resultary 355cf7f112df, exact hypergeometric law for mutual row–column maxima",
+          "Baldi–Rinott–Stein, original matrix-game example"
+        ]
+      },
+      "rationale": "The supported distinct claim is the dependence between lost and born reciprocal minima for a single deleted row, including its exact mixed moment and limiting joint PGF. Whole-array reciprocal-minimum laws and first moments of total counts are established comparisons, and the two elementary marginal expectation computations are not the basis for this decision. Same-day refresh results overlap in technique and one Poisson mean but concern different couplings and observables. The historical full-text limitations below are not treated as absence of prior coverage.",
+      "residual_risks": [
+        "Full-text comparison incomplete for 1999 nearest-neighbor and 2010/2011 regular-minimality papers. Bounded evidence supports the distinction but cannot determine historical priority or rule out implicit unindexed coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers one-array invariant",
+          "evidence": "Common continuous costs and explicit square-matrix equilibrium count mean and variance, without the specified deletion coupling in the inspected passages.",
+          "identifier_or_url": "https://proceedings.neurips.cc/paper/1989/file/d947bf06a885db0d477d707121934ff8-Paper.pdf",
+          "material_read": "pp. 728–729, offsets 2700 and 5233",
+          "method": "Open-access original",
+          "title": "On the Distribution of the Number of Local Minima of a Random Function on a Graph",
+          "trigger": "Graph-local minima equivalent to reciprocal matrix minima"
+        },
+        {
+          "assessment": "Classical unperturbed count limit",
+          "evidence": "Attributes k=1 local-maxima CLT to earlier graph-local-maxima work.",
+          "identifier_or_url": "https://arxiv.org/abs/1211.2284",
+          "material_read": "Title and p. 10, k=1 discussion, offset 35346",
+          "method": "Open-access original",
+          "title": "Energy landscape for large average submatrix detection problems in Gaussian random matrices",
+          "trigger": "Alternative maxima formulation at k=1"
+        },
+        {
+          "assessment": "Partial exact overlap via order reversal; no coupled deletion result in the inspected claim",
+          "evidence": "Total K for an r-by-c array is Hypergeom(r+c−1,r,c).",
+          "identifier_or_url": "2026/11/22/SCOPE-an-exact-hypergeometric-law-for-mutual-row-column-maxima--355cf7f112df",
+          "material_read": "Finding, offset 63",
+          "method": "Local mirror",
+          "title": "An exact hypergeometric law for mutual row–column maxima",
+          "trigger": "Exact finite law of the two uncoupled total-count marginals"
+        },
+        {
+          "assessment": "Different perturbation and variables",
+          "evidence": "A near-total refresh scaling gives independent Poisson(c/4) and Poisson(1/4) for common retained and replaced minima, rather than dependent loss and arrival counts of a deleted row.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-two-type-marked-poisson-law-for-reciprocal-minima-surviving-ne--de6d9e209f34",
+          "material_read": "Finding, offset 94",
+          "method": "Local mirror",
+          "title": "A two-type marked Poisson law for reciprocal minima surviving near-total matrix refresh",
+          "trigger": "Strong indexed perturbation and marked Poisson overlap"
+        },
+        {
+          "assessment": "Different payoff and coupling model",
+          "evidence": "Two-payoff best-response tables and common/only-version counts, not reused entries in a common-payoff matrix with one row removed.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-agreement-factorization-and-marked-poisson-persistence-of--d76c94dd4ebd",
+          "material_read": "Finding, offset 102",
+          "method": "Local mirror",
+          "title": "Exact agreement factorization and marked Poisson persistence of random best-response equilibria",
+          "trigger": "Equivalent equilibrium vocabulary and overlapping perturbation theme"
+        },
+        {
+          "assessment": "Full scope unresolved; do not infer noncoverage from retrieval failure",
+          "evidence": "Frozen comparison describes an all-or-nothing event and a count of violations, respectively; exact equivalence of the latter count and any deletion provisions were not verified.",
+          "identifier_or_url": "10.3389/fpsyg.2010.00211; 10.1016/j.jmp.2010.12.002",
+          "material_read": "Frozen RESULT.md line 94 characterizations and available landing-level material; original full texts not obtained",
+          "method": "Bounded publisher and identified author-page retrieval attempts",
+          "title": "Matrices Satisfying Regular Minimality; Matrices with a given number of violations of Regular Minimality",
+          "trigger": "Potentially equivalent older reciprocal matching and violation counts"
+        },
+        {
+          "assessment": "Possible historical overlap unresolved",
+          "evidence": "Frozen source describes matching and connectivity; this is not an independent verification of the paper's detailed scope.",
+          "identifier_or_url": "10.1002/(SICI)1098-2418(199910/12)15:3/4<279::AID-RSA6>3.0.CO;2-J",
+          "material_read": "Bibliographic hit and frozen source's abstract characterization only; original passage not retrieved",
+          "method": "Bounded primary search and publisher retrieval attempt",
+          "title": "The random bipartite nearest neighbor graphs",
+          "trigger": "Potential earlier same-model nearest-neighbor comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and marked Poisson proof",
+        "Baldi–Rinott–Stein local-minimum count example",
+        "Resultary exact one-array and refresh comparisons"
+      ],
+      "rationale": "One row deletion is a natural local perturbation of a classical mutual-nearest-choice count. Its effect is an order-one random increment with a nontrivial dependence between losses and births: assuming independence from the marginal limits gives the wrong variance and misses the conditional arrival means 11/24 versus 1/24. The exact mixed moment and dependent joint law quantify that sensitivity, which the known single-matrix distributions cannot predict.",
+      "residual_risks": [
+        "No claim that the marked Poisson mechanism automatically extends to arbitrary perturbations or that the joint limit yields a quantitative error bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

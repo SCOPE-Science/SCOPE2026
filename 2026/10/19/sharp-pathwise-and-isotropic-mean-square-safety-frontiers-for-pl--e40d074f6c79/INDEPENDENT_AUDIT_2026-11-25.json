@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:38:31.486225Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–64; VERIFICATION.md and verify.py inspected, not executed",
+        "Brust–Saunders arXiv:2207.07615 Eq. (1.8); arXiv:2407.00746 §2 and residual-history algorithm"
+      ],
+      "rationale": "The first sketch imposes r₀ᵀr₁=0 and gives r₁=(I−αA²)r₀ with α=||r₀||²/(r₀ᵀA²r₀). Put P=a², Q=b² and s=P cos²θ+Q sin²θ. In the eigenbasis the relative norm is (κ²−1)t/(κ²+t²) with t=|tan θ|; differentiation gives the maximum at t=κ for κ>1, with zero residual for κ=1. As an independent check on the angular mean, the squared relative norm is (P+Q)/s−PQ/s²−1. Integrating over uniform θ gives E[1/s]=1/√(PQ) by the tangent substitution, and differentiating with a common shift in P,Q gives E[1/s²]=(P+Q)/(2(PQ)^(3/2)). Thus the mean is (κ−1)²/(2κ). The strict increase set is between the two positive roots of t²−(κ²−1)t+κ² when κ>1+√2. Integrating the half-Cauchy direction law and using the root product κ² gives the stated arctangent and limit; the event is empty at equality and below. If r₁≠0, the orthogonal r₀,r₁ span the plane and force r₂=0 in the next exact sketch projection. Eigenvalue signs disappear through A².",
+      "residual_risks": [
+        "The computed mean is a directional average over an isotropic initial residual, not a conditional average over later sketches. This is exact arithmetic; the supplied rational checks and quadrature are not a universal certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general PLSS framework proves residual orthogonality and finite termination.",
+          "Classical Kantorovich control gives a sharp spectral extremal gain. The related indexed three-mode steepest-descent record treats two-step Euclidean iterate error, not the random first residual norm."
+        ],
+        "reasoning": "Broader PLSS and spectral extremal theory explains the deterministic pieces but does not supply the angularly averaged factor or growth probability.",
+        "searches": [
+          "Brust–Saunders arXiv:2207.07615 and 2407.00746",
+          "Resultary e0c764d6ed12",
+          "Web lookup for exact steepest descent and random initial residual gain"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7198bd602fa7 and e0c764d6ed12",
+        "arXiv:2207.07615",
+        "arXiv:2407.00746"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The equality family identifies a maximizing direction but not a directional distribution. The sketch formulas specify a deterministic transform of the initial direction.",
+          "Computing the distinct stochastic frontier requires averaging the squared relative residual; computing the growth probability requires finding both roots and integrating the angular window."
+        ],
+        "reasoning": "The stochastic quantities are not a bound substitution, nor are they implied by finite termination. The new calculation concerns distinct exact observables of the known map.",
+        "searches": [
+          "Resultary 7198bd602fa7 Finding and planar equality family; arXiv:2407.00746 §§2.1, 2.2, 2.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Steepest descent for H=A² uses exactly the same residual step with exact line search and initial residual r₀.",
+          "For first-step LSQR with a forward model B, the initial normal residual g=Bᵀr and the residual-minimizing update along g give g⁺=(I−αBᵀB)g with α=||g||²/||Bg||². Taking B=A yields the same planar map. The indexed LSQR/LSMR comparison already gives the claimed extremal factor and threshold."
+        ],
+        "reasoning": "Credit the deterministic law and sharp frontier even across algorithm/residual naming; the exact isotropic evaluation and measure of the growth set were not in the matched statement.",
+        "searches": [
+          "Resultary isotropic/random initial residual, exact-line-search steepest descent, Kantorovich and angular growth",
+          "Resultary 7198bd602fa7; arXiv:2207.07615 Eq. (1.8)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest indexed match 7198bd602fa7 supplies the deterministic 1+√2 threshold, not an exact match for the mean-square 2+√3 threshold or the growth probability."
+        ],
+        "reasoning": "The relevant exact-match venue is a mathematical-result index; classical angular integrals are standard building blocks, not a table of these solver probabilities.",
+        "searches": [
+          "Resultary queries for random/isotropic initial residual, first-step gain, orientation and exact-line-search aliases"
+        ]
+      },
+      "rationale": "The update is an exact steepest-descent residual map and its deterministic extremum is prior coverage; the two-step termination is also prior. The strongest earlier indexed match already gives the same deterministic frontier for an equivalent first-step LSQR normal-residual map in the planar symmetric case. The supported distinct result is the exact isotropic squared mean, its different sharp frontier, and the angular probability of strict growth. The earlier deterministic extremum does not determine an angular mean or the measure of the expanding set.",
+      "residual_risks": [
+        "The bounded search does not exclude equivalent isotropic calculations in broader steepest-descent, LSQR, or sketch-and-project literature. No novelty credit assigned to the maximum, its threshold, or finite termination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the deterministic extremum/frontier under the first-step map equivalence; not the distributional evaluations",
+          "evidence": [
+            "The LSQR normal-residual extremal gain is (κ²−1)/(2κ), with strict growth possible for κ>1+√2."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-sharp-first-step-normal-residual-separation-between-lsqr-and-lsm--7198bd602fa7/RESULT.md",
+          "material_read": "Finding and two-dimensional equality family",
+          "method": "Local Resultary mirror exact record",
+          "title": "Sharp first-step normal-residual separation between LSQR and LSMR",
+          "trigger": "Strongest indexed earlier equivalent deterministic result"
+        },
+        {
+          "assessment": "Provides the Euclidean minimum-correction map, not the new angular quantities",
+          "evidence": [
+            "Specializing to S₁=r₀, B=I gives the first-step residual map."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2207.07615",
+          "material_read": "Equation (1.8), p. 2, offset about 4000",
+          "method": "OA primary PDF passage",
+          "title": "PLSS: A Projected Linear Systems Solver",
+          "trigger": "Exact original update"
+        },
+        {
+          "assessment": "Residual orthogonality and finite termination already supplied",
+          "evidence": [
+            "The next sketch uses the residual history, so the ordinary planar rank proof is a specialization of the known theory."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.00746",
+          "material_read": "§2.1 Eq. (2.4), §2.2, §2.5 Eq. (2.7) p. 5, and residual algorithm p. 11",
+          "method": "OA primary PDF passages",
+          "title": "Structured Sketching for Linear Systems",
+          "trigger": "Broader coverage and finite termination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–17 and 39–64",
+        "Earlier deterministic frontier, Resultary 7198bd602fa7"
+      ],
+      "rationale": "The planar isotropic law shows a real distinction between pathwise safety and mean-square safety for the same residual step: an interval of condition numbers permits a nonzero fraction of expanding directions even while the mean contracts, and the probability formula quantifies that fraction. These exact benchmarks address distinct notions of residual safety in the minimal dimension where they can differ, without confusing finite termination with monotonicity.",
+      "residual_risks": [
+        "No claim about dimensions above two, solution-error contraction, finite precision, or averaging over later directions or different initialization laws."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

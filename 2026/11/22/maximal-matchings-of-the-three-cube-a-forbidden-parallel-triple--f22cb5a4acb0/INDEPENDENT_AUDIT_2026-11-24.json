@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:21:29.374512Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–23 and 25–67",
+        "VERIFICATION.md, verify.py, verify.cpp, and both frozen output files (inspected, not executed)",
+        "Replay: python3 /workspace/branches/5775e5da-c5b7-4f4b-8da7-b615ad48a291/independent_check.py; recorded independent_check_output.txt alongside it"
+      ],
+      "rationale": "For the 12-edge simple cube, maximality requires the unmatched vertices to be independent, not that the matching be perfect. The independently written exhaustive check recovered 9 perfect and 8 nonperfect maximal matchings and checked all 4096 support traces. It recovered exactly the disjoint supports of size at most three other than co-directional triples, with f-polynomial 1+12z+42z²+32z³ and facet orbits 6, 24, 8. Each first positive branch has 5 hypotheses, fewer than the 8 a depth-four tree requires on that branch; any shattered triple gives depth three. The one-skeleton is connected: for any two cube edges there is an edge disjoint from both, since at most ten of the twelve edges can meet their endpoints. The signed degree-two boundary has exact rank 25 and the specified minor has determinant +1; the image is primitive, so H₁ has no torsion and rank 42−11−25=6, and the free H₂ has rank 32−25=7. The finite certificate exhausts this cube only and asserts no homotopy decomposition.",
+      "residual_risks": [
+        "The rank and integral primitivity are verified for this finite matrix only; they provide no extension to larger cubes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former states enumerative and distributional results for maximal-matching sizes in graph classes; the latter bounds neighborhood-formula VC dimensions."
+        ],
+        "reasoning": "A size census does not specify all traces on a chosen edge subset. Neighborhood-dimension bounds for Hamming graphs do not cover this distinct incidence relation.",
+        "searches": [
+          "10.4230/LIPIcs.AofA.2018.18",
+          "arXiv:2007.16042"
+        ]
+      },
+      "checked_sources": [
+        "Resultary results and bound mirror passages",
+        "DOI 10.4230/LIPIcs.AofA.2018.18",
+        "arXiv:2007.16042",
+        "RESULT.md, lines 69–80"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ordinary matching topology retains parallel triples and perfect matchings. The deranged-pairing theorem treats a different ambient graph and a different hypothesis family. The shared number 3 in the neighborhood VC calculation does not include an adaptive bound here."
+        ],
+        "reasoning": "None determines which traces maximal cube matchings omit or the integral boundary image after removal of the forbidden supports. The adaptive upper bound uses the cube incidence frequency under this hypothesis class.",
+        "searches": [
+          "Ordinary cube matching complex 79d70fe8b67e and complete Boolean shattering of deranged pairings 3a70e5b20052",
+          "arXiv:2007.16042"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The clique-independent-set dual presentation uses maximal independent sets of the cuboctahedral line graph. The ordinary independence complex in that presentation includes all independent sets and is not the trace complex.",
+          "The deranged-pairing result uses perfect matchings of a complete graph with a prescribed pairing deleted; the Hamming result uses open neighborhoods, not matchings."
+        ],
+        "reasoning": "Neither changing notation to the line graph nor identifying Q3 as a Hamming graph makes the compared concept families equivalent.",
+        "searches": [
+          "Resultary semantic comparison: Q3 maximal matchings, shattering, facet orbits and integral homology",
+          "2026/11/22/SCOPE-complete-boolean-shattering-of-deranged-pairings-a-pure-complex--3a70e5b20052",
+          "arXiv:2007.16042"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match is the frozen record itself, not independent precedent. The distinct earlier cube record reports a wedge of four 2-spheres for the ordinary matching complex."
+        ],
+        "reasoning": "The earlier exact invariant has a different simplex predicate. The frozen trace complex is a proper subcomplex, missing the forbidden triangles and all tetrahedra, and its homology is not that earlier invariant.",
+        "searches": [
+          "Resultary: Q3 forbidden parallel triple, edge-query shattering and Betti ranks",
+          "2026/10/11/SCOPE-the-cube-matching-complex-is-bigvee-4-s-2--79d70fe8b67e",
+          "2026/11/22/SCOPE-maximal-matchings-of-the-three-cube-a-forbidden-parallel-triple--f22cb5a4acb0"
+        ]
+      },
+      "rationale": "The actual overlap is in the underlying matchings, ordinary matching complex, or dimension of a different concept class. None of the inspected comparisons covers the specific trace obstruction together with its facet orbits and integral shattering homology. The census of matchings itself is not treated as original.",
+      "residual_risks": [
+        "General websearch did not return a close primary match and is not evidence of absence. Primary-paper inspections here address the stated antecedents, not exhaustive historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Enumerative antecedent; inspected passage does not cover trace supports",
+          "evidence": "The stated statistics concern numbers and sizes of maximal configurations.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.AofA.2018.18",
+          "material_read": "Abstract, PDF p. 1, text offset 567",
+          "method": "Lawful OA PDF",
+          "title": "Maximal Independent Sets and Maximal Matchings in Series-Parallel and Related Graph Classes",
+          "trigger": "maximal-matching enumeration"
+        },
+        {
+          "assessment": "Different set system",
+          "evidence": "The VC result is for the neighborhood formula.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.16042",
+          "material_read": "Abstract, PDF p. 1, text offset 0",
+          "method": "Lawful OA preprint",
+          "title": "Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "VC dimension 3 on Hamming graphs"
+        },
+        {
+          "assessment": "Underlying ordinary complex, not shattering",
+          "evidence": "All partial matchings are simplices, with homotopy a wedge of four 2-spheres.",
+          "identifier_or_url": "2026/10/11/SCOPE-the-cube-matching-complex-is-bigvee-4-s-2--79d70fe8b67e",
+          "material_read": "Matching-complex definition and homotopy finding",
+          "method": "Resultary and local mirror comparison",
+          "title": "The cube matching complex is a wedge of four two-spheres",
+          "trigger": "same graph and matching topology"
+        },
+        {
+          "assessment": "Related distinct result, regardless of same-day ordering",
+          "evidence": "Perfect matchings of a complete graph with a fixed pairing removed yield a different, pure complex.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-boolean-shattering-of-deranged-pairings-a-pure-complex--3a70e5b20052",
+          "material_read": "Hypothesis family and support theorem",
+          "method": "Resultary and local mirror comparison",
+          "title": "Complete Boolean shattering of deranged pairings",
+          "trigger": "matching membership traces"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Ordinary cube matching complex 79d70fe8b67e"
+      ],
+      "rationale": "The natural smallest three-dimensional cube gives a complete test of whether feasible matching supports also realize every deletion pattern. The single geometric obstruction among three-matchings and the six stranded pair facets explain failure of purity; the simultaneous free H₁ and H₂ distinguish the trace complex from the ordinary matching complex. These exact facts can serve as a baseline for larger cube edge-query systems rather than merely counting known matchings.",
+      "residual_risks": [
+        "No higher-cube extension or homotopy-type claim for the trace complex."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

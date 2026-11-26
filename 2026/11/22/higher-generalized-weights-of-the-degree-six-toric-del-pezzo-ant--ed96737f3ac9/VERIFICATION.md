@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the higher toric-hexagon weights
+# Independent mathematical audit
 
-The package contains standalone `verify_hexagon_higher.py` and its actual output `verify_output.txt`. The exact integer Newton check enumerates all \(127\) nonempty subsets of the seven lattice exponents, computes translation-normalized convex hulls, tests the complete finite translation box, and verifies that only three primitive segment and two unimodular triangle shapes admit at least three residual monomials. Every segment case has a four-point unit-square residual and every triangle case has a three-point unit-triangle residual. These are exactly the cases needed for a common gcd of three or four independent sections.
+## correctness
 
-For the field of five elements the checker forms the complete \(16\)-row, seven-column evaluation matrix. Every one of its \(8,008\) choices of six rows has rank at least five, and every one of its \(4,368\) choices of five rows has rank at least four. Modular Gaussian elimination is performed exactly, without floating-point computations. It also verifies the fiber-plus-one and fiber-only sharp constructions for fields of sizes five, seven, and eleven. The checker completed and printed `HEXAGON_HIGHER_WEIGHTS_VERIFIED`.
+PASS
 
-The infinite-family proof does **not** rest on finite-field sampling: it uses the exact Newton classification, the degree-six intersection bound when the linear system has no fixed curve, the Segre residual geometry when it has a fixed ruling fiber, and linear independence of any three distinct torus evaluation rows. The only separate finite characteristic check needed in the stated domain is \(q=5\); no impossibility claim is inferred from a timeout or partial enumeration. Independent audit is not performed.
+Evaluation is injective by distinct character residues modulo q−1. A gcd polygon Q leaves the residual translate set R(Q). Here is an independent classification: by the hexagon symmetries any width-two direction among x,y,x+y can be taken to be x. It fixes the x translation; to permit three distinct y translations in the width-two hexagon, Q would need zero widths in y and x+y, impossible. With all three widths at most one, translate the x,y minima to zero. The unit square allows only horizontal, vertical and anti-diagonal primitive segments and the two triangles not spanning both (0,0) and (1,1). The strip constraints directly give residual unit parallelograms or unit triangles respectively. The segment gcd vanishes on q−1 torus points and the residual Segre map is injective, so three residual sections have at most one further common zero and four have none. A triangle contributes q−2 points and its full residual space has no common zero. If there is no common Laurent factor, choose two generic combinations over the algebraic closure without a shared torus curve (a common geometric factor would descend by taking its conjugate orbit). The isolated-torus mixed-area bound is six, sufficient for q≥7; the alternative projective wording 'length six' should not be read literally if boundary components are fixed. For q=5 multiplication by a torus element scales evaluation columns and lets one normalize a point to (1,1). Independent column-space elimination gives minima four and five over all 1365 normalized five-point and 3003 normalized six-point sets. For sharpness, the whole residual space for x−a gives precisely the fiber; its kernel of evaluation at an off-fiber point gives that point and the fiber. For r≥5, any three distinct rows are independent via Vandermonde on distinct x or y, or the columns 1,x,y when precisely two x coordinates agree. Thus the five maxima and weights follow.
+
+## originality
+
+PASS
+
+The meaningful new content is the sharp three- and four-section maxima for this seven-character code on the split torus, including q=5. Earlier d₂ is credited, and the last three weights follow by a simple independent-row argument. Matching numbers in other codes do not give these bounds.
+
+## value
+
+PASS
+
+The generalized weights describe linear-section incidence of a natural toric evaluation embedding. The sharp change from a fiber plus one point to a fiber alone is useful information beyond the ordinary distance and d₂, and the all-field result resolves the genuine small-field gap in the intersection bound. The elementary last three weights complete the remaining hierarchy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

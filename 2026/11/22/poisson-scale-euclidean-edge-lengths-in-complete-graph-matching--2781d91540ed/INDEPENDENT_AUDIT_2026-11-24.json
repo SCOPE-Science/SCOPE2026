@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:56:32.278702Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–54",
+        "verify_matching_metric.py (read-only)",
+        "VERIFICATION.md lines 3–14"
+      ],
+      "rationale": "A disconnected symmetric difference lets one toggle a proper subset of components, giving a distinct midpoint representation and ruling out adjacency. For one component, fix common coordinates to 1 and coordinates outside the union to 0, and impose tight matching degree constraints at internal path vertices or all cycle vertices. This face has one free alternating coordinate and hence is just the segment. Binary coordinates make squared length the number of toggled edges. Choosing j old matched pairs, arranging and orienting them yields the counts: divide by 2 for reversal with two matched endpoints; start at the chosen uncovered endpoint with one uncovered endpoint; fix an orientation of the two chosen uncovered labels with two uncovered endpoints; and use cyclic order modulo reversal for cycles. The lengths are 2j-1, 2j, 2j+1, 2j respectively. A single uncovered pair uses no matched edges, and a j=2 cycle has two reconnections. Write a_k=2^(k-1)k!: normalized path weight for j=k-r is (2^r r!)^(-1) times 1, 2s or s(s-1). The j=0 weight is negligible, and normalized cycles are negligible by the 1/j factor at j>k/2 and the factorial tail otherwise. This yields the asserted degree equivalent, independent Poisson(1/2) defect and three-point offset, with denominator s^2+s+1, and the length normalization. This review used an analytical proof reconstruction rather than running the supplied checker.",
+      "residual_risks": [
+        "The asymptotic statements require fixed s and uniform distinct neighbors; no varying-s or weighted metric assertion was checked."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abreu et al. give a general-graph decomposition d(M)=nu_P(M)+nu_C(M), where nu_P sums the three admissible path classes.",
+          "Merino–Mütze give a traversal with alternating paths of length at most three."
+        ],
+        "reasoning": "The general adjacency/count decomposition is credited, but gives neither evaluated length multiplicities nor fixed-s factorial concentration. Existence of a short-edge traversal is not a uniform-neighbor distribution theorem.",
+        "searches": [
+          "arXiv:1701.06210v1 Theorem 2.3",
+          "arXiv:2304.08567 printed p. 9"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary and the cited mirror records",
+        "arXiv:1701.06210v1",
+        "arXiv:2304.08567"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Abreu framework supplies H(1) as a sum of path and cycle counts but does not evaluate those counts by j on K_n.",
+          "The frozen reconstruction uses a complete-graph orientation quotient, a factorial tail and negligible cycle weight to obtain the independent offset."
+        ],
+        "reasoning": "The exact polynomial can be derived naturally by specializing the known framework, but the specific normalized limit and weights require the evaluated counts and a concentration argument absent from the inspected work.",
+        "searches": [
+          "arXiv:1701.06210v1 §2, PDF pp. 7–8",
+          "Resultary SCOPE-exact-edge-length-spectrum-and-metric-invisibility-of-adjacency--5eef45b9fbeb"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Abreu et al.'s oo, oc, cc paths and good cycles coincide with the four families; their Theorem 2.3 counts the degree without lengths.",
+          "The derangement matching result has a global uniform-edge Poisson(1) deficit in a different polytope."
+        ],
+        "reasoning": "The squared-distance polynomial is a length-marked alternating-exchange count. An unweighted degree or a global law on the derangement polytope is not the fixed-vertex complete-graph distribution.",
+        "searches": [
+          "arXiv:1701.06210v1 §2",
+          "Resultary SCOPE-exact-edge-length-spectrum-and-metric-invisibility-of-adjacency--5eef45b9fbeb"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The top mirror record at offset 0 repeats the bound finding exactly under the same identifier suffix.",
+          "The distinct derangement record, Finding at offset 0, has a different object and Poisson(1) law."
+        ],
+        "reasoning": "The exact lookup match is the assigned record itself; the distinct analogue does not supply the local invariant checked here.",
+        "searches": [
+          "Resultary SCOPE-poisson-scale-euclidean-edge-lengths-in-complete-graph-matching--2781d91540ed",
+          "Resultary SCOPE-exact-edge-length-spectrum-and-metric-invisibility-of-adjacency--5eef45b9fbeb"
+        ]
+      },
+      "rationale": "The established matching adjacency framework and its four path/cycle classes are prior work. The complete-graph multiplicities are a direct refinement of that framework, not an independent adjacency theorem. The validated distinct contribution is the local metric distribution and its explicit Poisson-scale fixed-s limit with parity and endpoint-type dependence, which is not equivalent to the closest checked local or published results.",
+      "residual_risks": [
+        "Bounded priority search; an unindexed complete-graph length refinement or fixed-defect enumeration may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong prior framework and unweighted degree; not the evaluated local limit",
+          "evidence": "The theorem adds the three path families and the cycle family without weighting by length.",
+          "identifier_or_url": "https://arxiv.org/abs/1701.06210v1",
+          "material_read": "§2, PDF pp. 7–8, Theorem 2.3 and definitions, extraction offsets 10800–16749",
+          "method": "OA primary PDF passage inspection",
+          "title": "On the vertex degrees of the skeleton of the matching polytope of a graph",
+          "trigger": "Same matching polytope and alternating path/cycle counts"
+        },
+        {
+          "assessment": "Different question",
+          "evidence": "The traversal chooses paths of length at most three; it does not sample all incident edges.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.08567",
+          "material_read": "Printed p. 9, extraction offset 38600",
+          "method": "OA primary PDF passage inspection",
+          "title": "Traversing combinatorial 0/1-polytopes via optimization",
+          "trigger": "Same polytope and alternating exchange lengths"
+        },
+        {
+          "assessment": "Distinct geometry and sampling",
+          "evidence": "Gives a global edge histogram and Poisson(1) deficit in the derangement matching polytope, not a local fixed-s alternating exchange law.",
+          "identifier_or_url": "2026/11/17/SCOPE-exact-edge-length-spectrum-and-metric-invisibility-of-adjacency--5eef45b9fbeb",
+          "material_read": "Mirror RESULT.md Finding at offset 0",
+          "method": "Local Resultary and mirror inspection",
+          "title": "Exact edge-length spectrum and metric invisibility of adjacency in derangement matching polytopes",
+          "trigger": "Closest distinct Resultary edge-length and Poisson-deficit analogue"
+        },
+        {
+          "assessment": "Identical assigned record, not distinct prior evidence",
+          "evidence": "The polynomial, deficit and degree equivalent coincide.",
+          "identifier_or_url": "2026/11/22/SCOPE-poisson-scale-euclidean-edge-lengths-in-complete-graph-matching--2781d91540ed",
+          "material_read": "Mirror RESULT.md Finding at offset 0",
+          "method": "Local Resultary and mirror inspection",
+          "title": "Poisson-scale Euclidean edge lengths in complete-graph matching polytopes",
+          "trigger": "Exact Resultary match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof Steps 2–4",
+        "Abreu et al. Theorem 2.3",
+        "Merino–Mütze matching traversal passage"
+      ],
+      "rationale": "The question concerns the lengths in the actual one-skeleton rather than a chosen edit graph. The explicit limiting law distinguishes typical long exchanges from short-exchange traversals and gives endpoint-type and parity effects invisible to a degree count or a leading-order length estimate. The finite enumerator also gives the complete local spectrum rather than isolated counts.",
+      "residual_risks": [
+        "The finite-count method is a natural specialization of known adjacency enumeration; the sharp metric law is the substantive contribution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

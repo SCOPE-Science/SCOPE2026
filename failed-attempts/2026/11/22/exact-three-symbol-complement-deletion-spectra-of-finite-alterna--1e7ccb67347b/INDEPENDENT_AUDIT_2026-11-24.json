@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:04:17.646417Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently proved the table without extrapolation or executing the frozen scripts. A residual fixes the parity of every deletion gap (initial, between surviving letters, and terminal) because the host alternates and both endpoints are prescribed. For the empty residual there is just one odd gap. Three deletions therefore give either three odd gaps, all singletons, or one odd gap. With three odd gaps the embedding is unique, and counting isolated deletion positions reduces to three nonnegative slack variables: the first position starts at 1+u1, the minimal successive distances are 2+[u1≠u2] and 2+[u2≠u3], and the last allowable position is the largest index of parity carrying u3. Increments come in twos. With one odd gap q (number of retained letters before it), the base pattern is the bit b=q mod 2. The extra pair can be in q (giving b,1−b,b), in an earlier gap j<q (giving j mod 2, its opposite, b), or in a later gap j>q (giving b, (j+1) mod 2, its opposite). Count distinct q, not the positions of the extra pair. In order 000,001,010,011,100,101,110,111 the one-odd-gap counts are (0,n−1,n−1,n−1,n−2,n−1,n−2,0) on E_n and (0,n−1,n,n−1,n−1,n−1,n−1,0) on O_n. Adding the isolated counts gives the stated 16 polynomials via Pascal, including O_1 and E_2. Multiplying the resulting binomial series by (1−z)^4 gives the frozen numerators, and subtracting the indicated rows gives the unit gaps. The frozen interleaving DFA and Cayley–Hamilton certificate also correctly distinguish residuals from embeddings.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "4b5c91af95ea treats all two-run patterns 0^a1^b with a+b≥3 on E_n and gives C=binom(n,a+b)+binom(n−1,a+b−2) in the nonempty regime.",
+          "762092a60cc7 treats every alternating-prefix deletion from an alternating-prefix host at both parities; at length d=3 its number of outputs is binom(ell+1,1)+binom(ell+1,3), ell=floor((host length−3)/2).",
+          "Fixed composition 4b7dc91ebfc9 forgets deleted order; arbitrary-pattern 9da10a722a15 assumes alphabet size at least 3 and deletion length q+1. The primary general fixed-input algorithm is not itself a table."
+        ],
+        "reasoning": "The first two stronger exact fiber theorems, in combination with elementary residual bijections, cover the target. The composition and larger-alphabet papers are not needed for coverage.",
+        "searches": [
+          "Resultary 4b5c91af95ea, 762092a60cc7, e046ddbbf6b9, 4b7dc91ebfc9 and 9da10a722a15; original Findings",
+          "arXiv:2603.20790v1 §§3–5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.20790v1",
+        "Resultary 4b5c91af95ea",
+        "Resultary 762092a60cc7",
+        "Resultary e046ddbbf6b9",
+        "Resultary 4b7dc91ebfc9",
+        "Resultary 9da10a722a15",
+        "Resultary 1e7ccb67347b (identity only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even host: 001 and 011 are the two-run formula at k=3. For 100 and 110 the leading 0 and trailing 1 are both forced retained; trim both and complement to obtain E_(n−1) with 011 or 001, respectively. For 010 use the alternating-prefix theorem with d=3; reverse-complement gives 101 on the same E_n.",
+          "Odd host: for 001 and 011 the terminal 0 is forced retained, so trim to E_n. Reverse the palindromic O_n to cover 100 and 110. For 010 use d=3 directly. For 101 both end zeros are forced retained; trim and complement to O_(n−1) with pattern 010 (n=1 has no such embedding).",
+          "For 000 or 111, every chosen triple among positions carrying the bit has a distinct residual because the opposite bit survives at every separator. This gives the constant-pattern binomials directly."
+        ],
+        "reasoning": "Substitution and Pascal's identity give every frozen row, including the zero-embedding cases. The differences of the covered rows are 1 and the rational generating functions are binomial-series sums. Neither is an independently uncovered invariant.",
+        "searches": [
+          "Original Resultary Findings 4b5c91af95ea at offset 0 and 762092a60cc7 at offset 0; checked endpoint hypotheses"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The full fiber histogram determines the number of distinct outputs by summing over positive fiber sizes, so a multiplicity theorem can cover a residual-set count without duplicating its wording.",
+          "Reversal and bit complement are bijections on embeddings and residuals; trimming forced survivors is also bijective on residuals."
+        ],
+        "reasoning": "Equivalence tests must transport both the host and deleted pattern, not just match compositions. These transports account for the ostensibly missing phase and orientation cases.",
+        "searches": [
+          "Resultary ordered triple deletion / complement scattered factors / alternating-host residual and fiber searches",
+          "Adamson–Fleischmann–Huch arXiv:2603.20790v1 §§3–5",
+          "Resultary 4b5c91af95ea and 762092a60cc7, original Findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1e7ccb67347b is the audited record, not evidence against itself. The distinct comparator IDs 4b5c91af95ea, 762092a60cc7 and e046ddbbf6b9 have direct exact count/fiber formulas; e046ddbbf6b9 explicitly gives the even-host 010 and 101 rows for n≥3."
+        ],
+        "reasoning": "No need to find a table in the same display format: the exact indexed formulas supply all nonconstant-pattern rows after the reductions below. No relative priority is assumed from the shared date.",
+        "searches": [
+          "Local Resultary queries for alternating triple-deletion spectra, same-day fiber spectra and order-sensitive phase gaps",
+          "Bounded primary-literature web query on ordered alternating complement factors"
+        ]
+      },
+      "rationale": "The distinct same-day Resultary records 4b5c91af95ea and 762092a60cc7 jointly cover the cardinality classification via forced endpoints, bit complement, reversal, and elementary one-letter-position counting. This is demonstrated mathematical coverage, not a claim that publication order or authorship can be inferred from the date. The generating functions and unit gaps follow mechanically from the covered cardinalities. No independent all-pattern mathematical remainder remains within the Finding.",
+      "residual_risks": [
+        "Relative priority among same-date entries was not inferred or adjudicated. Older or unindexed coverage is possible but immaterial to the demonstrated statement-level overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MATERIAL_COVERAGE_VIA_REDUCTIONS",
+          "evidence": [
+            "For n≥k−1 its exact cardinality is binom(n,k)+binom(n−1,k−2); for smaller n the set is empty."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-split-invariant-complement-fiber-spectrum-for-two-run-deletions--4b5c91af95ea/RESULT.md",
+          "material_read": "Finding, Assumptions, and beginning of proof, offsets 0–3478",
+          "method": "Configured local mirror; compared exact scope and formula",
+          "title": "Split-invariant complement-fiber spectrum for two-run deletions from alternating words",
+          "trigger": "Same-day stronger ordered-deletion theorem"
+        },
+        {
+          "assessment": "MATERIAL_COVERAGE_VIA_REDUCTIONS",
+          "evidence": [
+            "Covers both source parities and includes the empty residual, counting all residuals by a parity-restricted binomial sum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-parity-unified-exact-deletion-fiber-multiplicities-of-alternatin--762092a60cc7/RESULT.md",
+          "material_read": "Finding and Assumptions, offsets 0–3284, including d=3 specialization",
+          "method": "Configured local mirror; compared exact scope and formula",
+          "title": "Parity-unified exact deletion-fiber multiplicities of alternating binary prefixes",
+          "trigger": "Same-day broader alternating-pattern theorem"
+        },
+        {
+          "assessment": "DIRECT_PARTIAL_COVERAGE",
+          "evidence": [
+            "Even-host 010 and 101 give binom(n−1,3)+n−1; the histogram is strictly more informative."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-point-collision-spectrum-for-alternating-words-with-a-scatte--e046ddbbf6b9/RESULT.md",
+          "material_read": "Finding and Assumptions, offsets 0–2947",
+          "method": "Configured local mirror",
+          "title": "Two-point collision spectrum for alternating words with a scattered 010 deletion",
+          "trigger": "Exact same-day even-host subset"
+        },
+        {
+          "assessment": "DEFINITIONS_AND_FIXED_INPUT_ALGORITHMS",
+          "evidence": [
+            "The conclusion leaves closed formulas in specific cases open; no claimed all-length table in the inspected results."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.20790v1",
+          "material_read": "§3 at offset 20648, §4 at 53882, and conclusion at 92453",
+          "method": "Open-access full-text relevant-section inspection",
+          "title": "(Sets of) Complement Scattered Factors",
+          "trigger": "Primary source and possible broader counting formula"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Order-sensitive residual cardinalities are a natural statistic and the table can be handy as a reference. As a proposed distinct finding, however, all entries and both gap identities mechanically follow from the stronger exact spectra and elementary bijections. The frozen claim does not establish a substantive new invariant or general deletion method to repair around.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

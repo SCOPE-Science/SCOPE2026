@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:02:23.412852Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, §§1–5",
+        "Frozen VERIFICATION.md and verify_cayley.py (inspected)",
+        "audit-checks/cayley.py (written and run)"
+      ],
+      "rationale": "The weighted signed cofactor is the unnormalized tree character sum by the polynomial matrix-tree identity, and on the constants' orthogonal complement its Laplacian is nI-2L_S. The resulting product divided by n holds also when extra zero eigenvalues occur. For k positive, each nontrivial component has v<=k+1 and Laplacian norm at most v by the complementary Laplacian identity. Equality k+1 requires a component with all k edges, v=k+1, hence a tree with disconnected complement. The complement components force all cross edges in the tree, and a cut with both sides of size at least two would make a four-cycle; the tree is therefore a star. Conversely a star reaches the bound. This independently gives exactly the subcritical positivity and the equality case; the empty support is positive by Cayley. On k-edge stars the remaining nonzero spectrum is k-1 copies of 1, which gives the stated product and the strict negative witness at k=m. Modulo two every tree contributes 1, giving odd nonzero coefficients at odd n, and the unnormalized characters diagonalize the operator. The case n=4 counts six edges without doubling; higher first-zero stars have unique centers. Independently written audit-checks/cayley.py checks all supports through the boundary at n=4,6,8,10 via incidence-Gram determinants, giving 6,60,280,1260 zeros and the claimed negative-star coefficients at n=4,6,8; these are corroboration, not the general proof.",
+      "residual_risks": [
+        "No classification of higher-degree zeros or even-order total rank is established or claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mallik gives the general signed cofactor; Klee–Stamps Theorem 2 instead uses vertex-product weights; Farber–Kaminer Theorem 2 bounds ordered Laplacian eigenvalues via degree data.",
+          "44e28ad20e0e gives the eigenvalue product for arbitrary frequency supports, including signed singular cases."
+        ],
+        "reasoning": "The general cofactor framework covers the algebraic reduction but does not by itself give the extremizers. The exact catalog theorem applies without restrictive vertex-product weights.",
+        "searches": [
+          "Primary literature on signed tree sums and sharp Laplacian equality",
+          "arXiv:1903.03575, Theorem 2; arXiv:1106.0769, Theorem 2; arXiv:2210.03711, Theorem 3.6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary IDs 44e28ad20e0e and e2c0b7b0a6e5",
+        "arXiv:2210.03711",
+        "arXiv:1903.03575",
+        "arXiv:1106.0769",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior eq. (1) is precisely the product of n-2lambda on the n-1 nonconstant directions, divided by n.",
+          "A star has k+1 once, 1 repeated k-1 times, and remaining eigenvalues zero. For k=m only the first factor is negative; earlier nonnegativity is in the prior theorem."
+        ],
+        "reasoning": "The omission of the explicit star formula and the degree-m negative example in the prior Finding leaves only a mechanical specialization, not a distinct scientific result.",
+        "searches": [
+          "44e28ad20e0e, Proof equation (1) and the following sparse component argument",
+          "Frozen RESULT.md, star formula and first-negative-degree conclusion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "44e28ad20e0e, Finding, spells out the same unnormalized character sum with signed edge weights; its parity-bias interpretation divides by the positive n^(n-2) only.",
+          "Mallik Theorem 3.6 identifies the net signed-Laplacian cofactor with positive-minus-negative spanning tree counts."
+        ],
+        "reasoning": "The Fourier multiplier, signed tree difference and signed parity bias have exactly the same zeros and signs; being coefficients of a convolution changes no mathematics of the boundary.",
+        "searches": [
+          "Resultary: complete-graph spanning trees, sharp first Walsh cancellation and edge support stars",
+          "Mallik arXiv:2210.03711, Theorem 3.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "44e28ad20e0e (11/16), mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, RESULT.md offsets 0–3496: odd parity, even threshold m-1 with exactly stars and counts 6 or n*binomial(n-1,m-1).",
+          "e2c0b7b0a6e5 concerns nonzero gaps and odd invertibility, a different aim from first-zero equality cases."
+        ],
+        "reasoning": "This is a distinct earlier exact record, not a self-hit or merely a similar table of small cases.",
+        "searches": [
+          "Resultary complete-graph spanning-tree first Walsh cancellation threshold and nonzero Walsh gaps"
+        ]
+      },
+      "rationale": "The distinct 11/16 Resultary record 44e28ad20e0e already proves the exact first-zero boundary, positivity below it, all equality cases and counts, and odd-order nonvanishing, with the same normalization and complete-graph tree slice. Convolution invertibility repackages that conclusion. The new presentation's explicit star multipliers and first negative star are not stated there, but are direct substitutions of the elementary star spectrum into its existing equation (1), with the lower bound on the first possible negative degree already supplied by its theorem. This is established coverage of the central claim and a routine implication for the added formulas, not merely similarity or an unavailable-paper concern.",
+      "residual_risks": [
+        "The bounded primary-literature search does not settle earlier historical priority; the established exact catalog coverage suffices for the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact claim coverage and direct implication of additional star cases",
+          "evidence": [
+            "Same signed sum, odd parity, even order cutoff at p-1, equality iff star with isolates, and same counts. Equation (1) is the product used for the later extra claim."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-the-sharp-first-walsh-cancellation-threshold-for-complete-graph--44e28ad20e0e/RESULT.md",
+          "material_read": "Finding, assumptions and proof equation (1), offsets 0–3496; companion proof passages 3700–7485",
+          "method": "Bounded local mirror read",
+          "title": "The sharp first Walsh cancellation threshold for complete-graph spanning trees",
+          "trigger": "Exact boundary theorem match"
+        },
+        {
+          "assessment": "Exact general cofactor mechanism",
+          "evidence": [
+            "Its cofactor equals positive trees minus negative trees, allowing arbitrary frequencies as negative edges."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2210.03711",
+          "material_read": "Theorem 3.6, PDF p. 9, offset 25598",
+          "method": "Locate and inspect theorem passage in OA PDF",
+          "title": "Matrix tree theorem for the net Laplacian matrix of a signed graph",
+          "trigger": "General signed tree difference"
+        },
+        {
+          "assessment": "Assumes vertex-product edge weights",
+          "evidence": [
+            "The stated complete-graph formula specifies weights x_i x_j, not an arbitrary edge signing."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1903.03575",
+          "material_read": "Theorem 2, PDF p. 4, offset 10957",
+          "method": "Inspect bounded OA passage",
+          "title": "Linear algebraic techniques for weighted spanning tree enumeration",
+          "trigger": "Same complete host and weighted multiplier"
+        },
+        {
+          "assessment": "Degree/eigenvalue comparison; does not supply the claimed Walsh classification in the inspected passage",
+          "evidence": [
+            "The theorem bounds ordered Laplacian eigenvalues using degree data."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1106.0769",
+          "material_read": "Theorem 2, PDF p. 1 offset 4232",
+          "method": "Inspect bounded OA passage",
+          "title": "Upper bound for the Laplacian eigenvalues of a graph",
+          "trigger": "Laplacian extremal bound"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and §5",
+        "44e28ad20e0e, Finding and equation (1)"
+      ],
+      "rationale": "The original first exact parity-cancellation boundary is a well-motivated question, but it is already resolved in the matched record. The incremental negative witness and star coefficient are mechanical evaluations of that record's existing spectral product on a textbook star, and invertibility is standard Fourier diagonalization. No independently valuable uncovered remainder has been established here.",
+      "residual_risks": [
+        "No claim about the value of wider, not-reviewed Walsh spectrum problems."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:43:54.319890Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Equalize the two nonzero perpendicular image lengths by shrinking the input columns to the smaller image length. In the orthonormal image coordinates this gives QS=rI and r≤1/||S⁻¹||. Rescaling either column outward to the sphere multiplies S⁻¹ on the left by a Euclidean diagonal contraction, so it cannot decrease the reciprocal, and Q=S⁻¹/||S⁻¹|| attains it for each independent sphere pair. Dependent pairs have reciprocal continuously extended as zero by the determinant formula. Evaluation on the six hexagon vertices gives denominator max(||row 1 of S||₂,||row 2 of S||₂,||row 1 + row 2||₂), with numerator |det S|. The stated rotation, reflection and sign changes reduce to the same edge (bound 1/√2) or columns (1,−s),(−t,1). Put 0≤s≤t. The two active denominators are A=√(1+t²) and B=√((1−s)²+(1−t)²). The score using A decreases with s; using B it increases, since the derivative numerator is (1−t)(1−s−t+t²)≥0 wherever B is active. For t≤τ=2−√3 the best is s=t, with score (1+t)/√2; for t≥1/2 the best is s=0, with score ≤2/√5. Between these cutoffs the best is s=1−√(2t), and the sign of the total derivative is that of −1−t+√(2t)(3+t²)/2, an increasing function there, so the maximum is at an endpoint. The difference in squared endpoint scores is (26−15√3)/5>0. At s=t=τ the three vertex norm constraints agree, and the claimed inverse matrix sends the columns to perpendicular vectors of length (1+τ)/√2=(3−√3)/√2. This covers the real norms and all degenerate edge cases. The uploaded floating-point diagnostics were read, not used as proof or executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The tensor theorem supplies a one-sided comparison and a criterion for equality at unit contact, and the example rules out unit contacts by the vertex geometry and compactness.",
+          "The exact tensor result is C_NJ=1+√3/2, a different functional."
+        ],
+        "reasoning": "The broader tensor criterion settles failure of unit contact but has no assertion of equality in the comparison for nonunit contact.",
+        "searches": [
+          "Primary literature search on the hexagonal orthogonal-contact index and hexagon tensor constants",
+          "arXiv:2609.37503, Theorem 3.11 and Example 3.12",
+          "Resultary 68b57cfda35b"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_hexagonal_contact.py",
+        "arXiv:2609.37503",
+        "Resultary 68b57cfda35b and 19a906569c60"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The comparison C_NJ≥2ω_perp² gives only ω_perp≤√((2+√3)/4) using the exact tensor value; the reciprocal Euclidean distortion gives ω_perp≥√3/2. Both bounds are strict relative to the proved optimum."
+        ],
+        "reasoning": "Known values bound rather than force the optimum; the edge-pair optimization is needed to get both a matching bound and an extremizer.",
+        "searches": [
+          "arXiv:2609.37503, equation (7), comparison (8) and Example 3.12",
+          "Resultary 68b57cfda35b and 19a906569c60, exact Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (7) defines the same index and Example 3.12 uses the same norm. The exact rank-one-free optimization is B₁²⊂S⁻¹B_G⊂ρ⁻¹B₂² with sphere columns; the Euclidean Banach–Mazur profile instead sandwiches B_G between homothetic ellipses."
+        ],
+        "reasoning": "This reformulation tests for geometric aliases of the target while distinguishing them from the usual two-ellipse optimization. The latter value 2/√3 yields the lower estimate √3/2, strictly less than the contact index.",
+        "searches": [
+          "Resultary orthogonal-contact index and ellipse/square formulations for the affine-regular hexagon",
+          "Zhang–Xu–Liu–Li, arXiv:2609.37503, equation (7) and Example 3.12",
+          "Resultary 19a906569c60"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-value hit 6a6bb857f2f8 is the identical assigned record. The other exact records tabulate tensor distortion and ordinary Euclidean Banach–Mazur distance, respectively."
+        ],
+        "reasoning": "Neither exact neighboring invariant is interchangeable with this one, even though the underlying norm is the same.",
+        "searches": [
+          "Resultary exact orthogonal-contact score for the affine-regular hexagon and related exact hexagon constants; hits 6a6bb857f2f8, 68b57cfda35b and 19a906569c60"
+        ]
+      },
+      "rationale": "The same invariant and hexagon were previously studied, with the strict inequality below one already established. The supported new content is the sharp value and attaining contraction, not the failure of unit contact itself. No examined prior result fixes the sharp number.",
+      "residual_risks": [
+        "The older Praetorius distance-ellipsoid paper was not available in the direct open-access attempt; equivalent results in classical convex geometry or unindexed sources cannot be excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap on definition and strict inequality below one; no sharp value in the example",
+          "evidence": "The example excludes two orthogonal unit contacts for H₆ and gives ω_perp(H₆)<1 without an explicit sharp constant or optimizer.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.37503",
+          "material_read": "Equation (7) and comparison (8), p. 7; Example 3.12 and its proof, p. 8",
+          "method": "Located and read bounded passages in the open paper",
+          "title": "Von Neumann–Jordan Constants in Banach Tensor Products",
+          "trigger": "Same invariant and same hexagon"
+        },
+        {
+          "assessment": "Distinct tensor constant",
+          "evidence": "C_NJ=1+√3/2 combined with the one-sided primary comparison only gives the weaker upper bound.",
+          "identifier_or_url": "Resultary 68b57cfda35b",
+          "material_read": "Finding on C_NJ in RESULT.md",
+          "method": "Read matching record in local mirror",
+          "title": "Exact von Neumann–Jordan constant of Hilbert–hexagon tensor products",
+          "trigger": "Exact constant for the same geometry"
+        },
+        {
+          "assessment": "Distinct ellipsoidal optimization",
+          "evidence": "The Euclidean distance equals 2/√3 for this hexagon; its reciprocal lower estimate does not reach the contact optimum.",
+          "identifier_or_url": "Resultary 19a906569c60",
+          "material_read": "Finding, assumptions and limitations in RESULT.md",
+          "method": "Read matching record in local mirror",
+          "title": "Euclidean Banach–Mazur profile of a classical hexagonal family",
+          "trigger": "Exact affine-regular hexagon ellipsoid result"
+        },
+        {
+          "assessment": "Unresolved residual bibliographic risk",
+          "evidence": "Named as a comparison for distance ellipsoids; no statement-level evidence obtained to decide overlap.",
+          "identifier_or_url": "https://doi.org/10.4064/cm93-1-5",
+          "material_read": "No full text retrieved",
+          "method": "Direct open-access DOI retrieval attempt",
+          "title": "Remarks and examples concerning distance ellipsoids",
+          "trigger": "Older distance-ellipsoid reference named in comparison record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the exact attained optimum of a pre-existing contact invariant on its motivating non-Euclidean test plane. It makes the qualitative obstruction quantitative and sharp even though the standard exact distortion and tensor constants only bound it. Both the numerical gap and extremizing contraction are useful as benchmarks for comparisons of these invariants.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

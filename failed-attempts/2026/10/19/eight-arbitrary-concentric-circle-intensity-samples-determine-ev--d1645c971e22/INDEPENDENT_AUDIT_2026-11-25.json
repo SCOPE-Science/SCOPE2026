@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:33:15.184272Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof; VERIFICATION.md; verify.py and verification-output.txt (read, not executed)",
+        "python3 -B /workspace/independent_checks.py 4: computed 20 exact rational lifts at five radii in clustered and separated angular configurations. Verified rank eight, the stated line, and exact equality for a constructed indefinite rank-two matrix. The frozen script computes the formula and checks positivity; the independent test also evaluates the minimizing matrix's actual squared angle."
+      ],
+      "rationale": "On the first circle the lift is a Laurent polynomial of degree at most two in each direction, hence vanishes identically if it vanishes at five distinct sites. This gives H02=0, H01+H12=0 and trace H=0. At radius R the second harmonic is then absent and three distinct sites kill the remaining Laurent polynomial of degree one, including the off-diagonal term with coefficient R(1-R²). The two diagonal equations have exactly the line spanned by (R²,−1−R²,1) as their kernel. This generator has rank three, excluding a nonzero rank-at-most-two difference of vector lifts, including for zero coefficients. For at most seven measurements the real Hermitian kernel has dimension at least two. If the measurement vectors span, the kernel has no nonzero semidefinite matrix; the odd determinant on a circle in a two-dimensional kernel subspace forces a singular indefinite rank-two difference, proving noninjectivity. If the vectors do not span, a nonzero vector is indistinguishable from zero. Equal radii and repeated nodes fail by the one-circle rank bound and the seven-effective-measurement bound, respectively. For a nonzero rank-at-most-two H and its unit null vector v, the squared distance from D_R to the line of H is at least min(1,R⁴), since (D_R−tH)v=D_Rv. The ratio in the claim is this distance divided by ||D_R||_F². Removing the least absolute eigencomponent gives equality at an indefinite rank-two H. This is a kernel-angle estimate, not a uniform bound on measured output norms.",
+      "residual_risks": [
+        "Noise amplification depends on sampling angles. The sharp constant is stated in the normalized first-radius coefficient convention and does not imply angularly uniform output conditioning."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pohl presentation p. 18 states the arbitrary-degree recovery theorem.",
+          "Saving phase, Theorems 11 and 12(a): a phase-injective dimension-three Hermitian lift has kernel either zero or a nonsingular line; fewer than eight measurements cannot be injective.",
+          "Chalendar–Partington Theorems 2.11 and 2.16 concern finite Blaschke products and uniqueness on entire suitable circles, respectively. Jaming–Rathmair Proposition 3.2 uses derivative magnitudes as well as function magnitudes."
+        ],
+        "reasoning": "The first two give arbitrary placement and global necessity in combination. The latter comparisons are related but do not give that same finite phase-recovery design.",
+        "searches": [
+          "Pohl–Li–Boche arbitrary-degree concentric sampling",
+          "Bandeira–Cahill–Mixon–Nelson arXiv:1302.4618",
+          "Chalendar–Partington arXiv:2403.16255",
+          "Jaming–Rathmair arXiv:2205.08753"
+        ]
+      },
+      "checked_sources": [
+        "TUM-hosted SampTA 2017 author presentation",
+        "arXiv:1302.4618",
+        "arXiv:1302.5487",
+        "arXiv:2403.16255",
+        "arXiv:2205.08753",
+        "Three inspected related Resultary records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The diagonal lift of D_R equals (|z|²−1)(|z|²−R²). It is in the kernel for any sampling configuration. Known phase injectivity and the dimension-three kernel criterion force this to be the whole kernel.",
+          "As min over rank-at-most-two X of ||D_R−X||_F² is min(1,R⁴), the normalized squared distance from the kernel line to the rank-two cone is exactly min(1,R⁴)/[2(R⁴+R²+1)]. This follows by taking a null vector of X for the lower bound and deleting the smallest absolute eigencomponent for equality."
+        ],
+        "reasoning": "The kernel and sharp angle do not require a new theorem once prior uniqueness and the lift criterion are combined. The balanced-ring spectral calculations concern a different output bound and are not claimed to state this angle. Repeated sites give at most seven independent measurements and equality of radii forces at most a five-dimensional lift image, so the necessity statements also follow directly.",
+        "searches": [
+          "Pohl theorem plus Theorems 11–12 of Saving phase; exact kernel in the two-circle positive-semidefinite fibers record; sharp rank-two angle versus exact singular values in regular-ring records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The TUM presentation pp. 14, 17–18 specifies distinct arbitrary nodes, a polynomial with n+1 coefficients, and 2n+1 outer plus 2n−1 inner magnitudes for 0<r<1.",
+          "Theorem 2.3 of Bodmann–Hammen also attains eight in dimension three but uses intersecting circles and a different placement."
+        ],
+        "reasoning": "Squaring nonnegative magnitudes changes no equality constraints. Take n=2 in Pohl–Li–Boche. If R>1, the involution p(z) ↦ z² overline(p(1/overline(z))) sends the radii 1 and R to 1 and 1/R; the magnitudes on reciprocal sites have only known nonzero scale factors. Thus restricting the prior theorem to R<1 loses nothing.",
+        "searches": [
+          "Pohl–Li–Boche, Phase Retrieval in Spaces of Analytic Functions on the Unit Disk, author presentation and proceedings DOI 10.1109/SAMPTA.2017.8024411",
+          "Bodmann–Hammen arXiv:1302.5487, Theorem 2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Two distinct 2026/10/18 indexed regular-ring results give a sine criterion for the balanced 4+4 quadratic design; their hypotheses differ from arbitrary 5+3 sampling.",
+          "2026/11/8/SCOPE-exact-positive-semidefinite-fibers-of-two-circle-quadratic-inten--caccdc0a6487 states the exact same kernel line at radii 1 and R with five equally spaced points on each circle, using ten sites."
+        ],
+        "reasoning": "The later ten-site record overlaps on the lifted kernel for its design; neither it nor the balanced grid gives the arbitrary eight-site theorem by design substitution. The decisive arbitrary eight-site coverage comes from the author presentation.",
+        "searches": [
+          "Resultary two concentric circles and polynomial phase-retrieval allocation",
+          "Resultary exact quadratic two-circle lifted kernel and angular criteria"
+        ]
+      },
+      "rationale": "Pohl–Li–Boche's 2017 author presentation states the arbitrary concentric allocation 2n+1 and 2n−1 for polynomials of degree at most n, giving exactly the frozen five-plus-three sampling theorem. Bandeira–Cahill–Mixon–Nelson's theorems give the already-known eight-measurement necessity and the same nullity/odd-determinant criterion in dimension three. The kernel line is a direct consequence: D_R annihilates evaluations identically on both circles, and known phase injectivity forces nullity at most one. The exact angle, not printed in those passages, is then the standard best rank-two Frobenius approximation error of D_R relative to its norm, attained by deleting one eigencomponent. There is no distinct supported contribution in these specializations.",
+      "residual_risks": [
+        "Proceedings text itself was not accessed; recovery coverage is established by the inspected author presentation, not inferred from the proceedings metadata. No claim that the numerical angle constant is printed in the inspected literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUBSUMES RECOVERY",
+          "evidence": "Arbitrary degree-n polynomial written with n+1 coefficients, arbitrary distinct outer sites and interior concentric sites, 2n+1 plus 2n−1 amplitudes yield recovery up to a unitary constant.",
+          "identifier_or_url": "https://www.ce.cit.tum.de/fileadmin/w00cgn/lti/pdf/vortraege/Pohl-Phase_Retrieval_in_Spaces_of_Analytic_Functions_on_the_Unit_Disk.pdf",
+          "material_read": "Author presentation pp. 13–14 and 17–18, offsets 20780 and 26650",
+          "method": "Open TUM-hosted author presentation",
+          "title": "Phase Retrieval in Spaces of Analytic Functions on the Unit Disk",
+          "trigger": "Exact arbitrary two-concentric-circle sampling design"
+        },
+        {
+          "assessment": "ACCESS LIMIT ONLY",
+          "evidence": "No claim based on unread proceedings; the theorem in the TUM presentation is the direct coverage evidence.",
+          "identifier_or_url": "https://doi.org/10.1109/SAMPTA.2017.8024411",
+          "material_read": "Proceedings full text not accessible; the separate author presentation is described above",
+          "method": "Publisher DOI and lawful alternate-copy attempts",
+          "title": "Phase retrieval in spaces of analytic functions on the unit disk",
+          "trigger": "Proceedings version of the exact matching author presentation"
+        },
+        {
+          "assessment": "DIRECT COVERAGE",
+          "evidence": "The HMW test excludes kernel dimensions at least two by the intermediate value theorem applied to det(A cos t+B sin t); Theorem 12(a) explicitly rules out N<8.",
+          "identifier_or_url": "https://arxiv.org/pdf/1302.4618",
+          "material_read": "Theorem 11 and proof, Theorem 12(a), pp. 8–9, offset 39000",
+          "method": "Open primary PDF",
+          "title": "Saving phase: Injectivity and stability for phase retrieval",
+          "trigger": "Exact complex dimension-three lower bound and lift obstruction"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "Different intersecting-circle design, not arbitrary placements on unequal concentric circles.",
+          "identifier_or_url": "https://arxiv.org/html/1302.5487v1",
+          "material_read": "Theorem 2.3, offset 8202",
+          "method": "Open primary HTML",
+          "title": "Stable phase retrieval with low-redundancy frames",
+          "trigger": "Other 2d−1 plus 2d−3 sample construction"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "Finite Blaschke-product criterion and entire-circle uniqueness are not the finite arbitrary quadratic design.",
+          "identifier_or_url": "https://arxiv.org/pdf/2403.16255",
+          "material_read": "Theorem 2.11 p. 7 offset 14180 and Theorem 2.16 p. 11 offset 22003",
+          "method": "Open primary PDF",
+          "title": "Phase retrieval on circles and lines",
+          "trigger": "Two-circle intensity uniqueness"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "Uses magnitudes of trigonometric polynomials and their derivatives at grid locations.",
+          "identifier_or_url": "https://arxiv.org/pdf/2205.08753",
+          "material_read": "Proposition 3.2, p. 11 offset 39789",
+          "method": "Open primary PDF",
+          "title": "Uniqueness of phase retrieval from three measurements",
+          "trigger": "Polynomial intensity count comparison"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "Two regular rings of 2d points with a sine criterion, so d=2 gives a specific 4+4 design.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-angular-criterion-for-balanced-two-circle-phaseless-polyno--12ae1d0f43de",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary mirror",
+          "title": "Sharp angular criterion for balanced two-circle phaseless polynomial sampling",
+          "trigger": "Nearby exact two-circle criterion"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "Equivalent regular 4+4 quadratic sine criterion; its comparison independently points to the asymmetric Pohl–Li–Boche allocation.",
+          "identifier_or_url": "2026/10/18/SCOPE-complete-two-polygon-phase-retrieval-criterion-for-polynomials-o--0026bf390afd",
+          "material_read": "RESULT.md Finding offset 0 and prior comparison around offset 5978",
+          "method": "Resultary mirror",
+          "title": "Complete two-polygon phase-retrieval criterion for polynomials on concentric circles",
+          "trigger": "Distinct balanced same-day criterion and cited asymmetric literature"
+        },
+        {
+          "assessment": "PARTIAL COVERAGE",
+          "evidence": "Five equally spaced points on each circle give generator diag(r²s²,−(r²+s²),1), which at r=1 is D_R. This is a different, ten-site design and a later displayed catalogue date.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-positive-semidefinite-fibers-of-two-circle-quadratic-inten--caccdc0a6487",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary mirror",
+          "title": "Exact positive-semidefinite fibers of two-circle quadratic intensities",
+          "trigger": "Exact kernel coincidence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding and Proof; exact prior recovery and lower-bound passages; Frobenius angle implication in originality"
+      ],
+      "rationale": "The design is useful, but the central arbitrary 5+3 recovery result and its global minimum are already covered. The explicit obstruction line follows from one diagonal polynomial and the known nullity criterion. The sharp normalized kernel distance then just evaluates a standard rank-truncation identity on that diagonal matrix; it controls neither the angular conditioning nor a distinct sampling phenomenon. There is no genuine surviving value-bearing remainder to repair without adding new mathematics.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

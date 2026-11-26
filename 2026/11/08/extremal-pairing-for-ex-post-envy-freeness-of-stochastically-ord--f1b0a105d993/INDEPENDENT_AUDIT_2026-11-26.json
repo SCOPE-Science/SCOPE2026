@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:07:51.739610Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§Finding, Assumptions and scope, Proof, and Verification",
+        "VERIFICATION.md",
+        "verify.py",
+        "Replay: python3 /workspace/branches/replay_pairing.py"
+      ],
+      "rationale": "If independent A and B satisfy A≥st B, replace A by an independent copy of B and −B by an independent copy of −A in turn to obtain A−B≥st B−A. For the differences between paired sums, the disjoint item differences are independent and the background difference T=U−V is independent and symmetric. Reversing X₂−X₃ in the comparison for p₁₂ gives p₁₃; reversing both disjoint differences in the comparison for p₁₃ gives its negative in law and hence p₁₃≥1/2. Reversing X₃−X₄ gives p₁₄≤p₁₃, and reversing the other difference in the p₁₄ comparison gives 1−p₁₃≤p₁₄. There are no ties by independence and atomlessness, and the two agents' independent non-envy events have complementary probabilities. The ranking follows from 1/4−(p−1/2)². A fresh exact sign-sum enumeration reproduced 1,764 ordered chains and 3,528 comparisons; a separate Laplace-transform calculation and comparison thresholds −5, 7, 11 in the means-only example reproduced all six stated win probabilities. The jitter in that example cannot change any comparison sign.",
+      "residual_risks": [
+        "Finite chains, with half-ties corresponding to independent small continuous jitter, are a diagnostic only. The theorem needs independence across agents for the probability product and a fixed equal-law background on both sides."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 4.2 and 4.5 require a common convolution-power family; Proposition 5.6 requires symmetry.",
+          "Aloisio et al. study expected maximum envy and randomized allocations."
+        ],
+        "reasoning": "Results allowing more goods or different allocation sizes do not dominate this theorem: they impose further law/ex-ante conditions or optimize another objective. General FSD ordering does not imply a common generator or symmetry.",
+        "searches": [
+          "arXiv:2610.34906 Theorems 4.2, 4.5 and Proposition 5.6",
+          "Aloisio et al., AAMAS 2024 §§2–3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary thematic lookup and two distinct matches",
+        "arXiv:2610.34906",
+        "Aloisio et al., AAMAS 2024"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known unconditional ranking asserted there is not for arbitrary heterogeneous FSD chains; the inspected ex-ante-to-ex-post results concern allocations satisfying ex-ante EF.",
+          "The one-parameter exponential analysis already yields a matching optimum on its stated branch, but does not imply the general order or identify the strongest-with-second-strongest split as the minimum for all admissible laws."
+        ],
+        "reasoning": "Convolution preserving FSD is a standard input, but obtaining the symmetric interval [1−p₁₃,p₁₃] uses two comparisons of disjoint differences and gives the needed ordering even when expectations do not balance.",
+        "searches": [
+          "Igarashi–Oh Theorems 4.2 and 4.5 and Proposition 5.6",
+          "Resultary exponential lottery fairness boundary, 59bd0565e416"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact catalogue match is the frozen record itself.",
+          "The primary source compares ex-ante and ex-post envy-freeness, with ex-post EF probabilities for the same two-agent model but no matching three-pairing ordering in the inspected results."
+        ],
+        "reasoning": "Maximizing the product of complementary win probabilities is equivalent to minimizing the absolute win bias; the reviewed paper's ex-ante utility balance is a different criterion and may not exist among the three splits.",
+        "searches": [
+          "Resultary: extremal pairing for ex-post envy-freeness of stochastically ordered lottery goods",
+          "Igarashi–Oh arXiv:2610.34906 §§4–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exponential family (1,2,t,t+3) includes a branch whose optimal two-two allocation is the extreme pairing.",
+          "The Bernoulli threshold record has an atomic four-good example with a two-two split beating a one-three split, not a ranking of the three two-two choices."
+        ],
+        "reasoning": "These are actual overlapping four-good settings, not independent exact tables for the theorem's distribution-free ranking. The exponential special-case overlap is credited without inferring chronology from same-day listing.",
+        "searches": [
+          "Resultary: four-good lotteries and ex-post envy-freeness",
+          "Resultary record 59bd0565e416; record a329fdbf820d"
+        ]
+      },
+      "rationale": "The distinct claim is the complete fixed two-two ordering for general FSD-ordered independent atomless laws, with an independent equal-law background and no need for an ex-ante envy-free split. The stochastic-order lemma, the probability product, and examples confined to previously covered law families are not separate novelty claims.",
+      "residual_risks": [
+        "The comparison is bounded; a general rearrangement result under different terminology could have been missed. No independent priority inference is made from same-day catalogue entries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related results with different hypotheses",
+          "evidence": [
+            "Theorems 4.2 and 4.5 use common convolution powers, with a log-concave generator in Theorem 4.5; Proposition 5.6 assumes non-atomic symmetric laws. They address ex-ante EF allocations."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.34906",
+          "material_read": "Theorems 4.2 and 4.5 and Proposition 5.6, text around offsets 20600, 30200, 46700",
+          "method": "Targeted OA full-text passages",
+          "title": "Fair Division of Lotteries",
+          "trigger": "Exact model and objective; closest general optimality results"
+        },
+        {
+          "assessment": "Different objective and allocation setting",
+          "evidence": [
+            "Expected maximum envy is the objective; the guarantees include randomized allocations."
+          ],
+          "identifier_or_url": "https://aamas.csc.liv.ac.uk/Proceedings/aamas2024/pdfs/p2120.pdf",
+          "material_read": "Abstract and overview pp. 2120–2121; §§2–3; text around offsets 2700, 8200, 13200",
+          "method": "Targeted OA PDF text",
+          "title": "Approximately Fair Allocation of Indivisible Items with Random Valuations",
+          "trigger": "Related fairness with random valuations"
+        },
+        {
+          "assessment": "Special-case overlap, independent priority not resolved",
+          "evidence": [
+            "For exponential means (1,2,t,t+3), the extreme pairing is best on the relevant branch of a comparison that also includes one-three splits."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exponential-lottery-fairness-a-sharp-four-good-boundary-and-a-cu--59bd0565e416",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exponential lottery fairness: a sharp four-good boundary",
+          "trigger": "Four continuous goods and same objective"
+        },
+        {
+          "assessment": "Atomic example and a different allocation comparison",
+          "evidence": [
+            "With r=3 the ex-ante EF one-three split is beaten by a two-two split; the three ordinary laws are identical."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-bernoulli-threshold-for-ex-ante-fairness-versus-ex-post--a329fdbf820d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "A sharp Bernoulli threshold for ex-ante fairness versus ex-post envy-freeness",
+          "trigger": "Four-good comparisons of exact ex-post fairness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md §§Finding, Proof, and Relationship to prior work"
+      ],
+      "rationale": "This solves a natural smallest pairing problem with three distinct choices: a practitioner can rank the fixed allocations from stochastic dominance alone without knowing either bundle-sum distribution or finding an ex-ante fair allocation. The matched-background extension and the strictly means-ordered counterexample clarify when the recommendation is useful and when it is not.",
+      "residual_risks": [
+        "This does not optimize across arbitrary split sizes, correlated valuations or unequal-law backgrounds."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

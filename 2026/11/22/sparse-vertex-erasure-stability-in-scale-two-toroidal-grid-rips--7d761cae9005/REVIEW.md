@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. All hypotheses and metrics are explicit: inclusive scale two, inherited distances, both cyclic dimensions at least seven, pairwise deleted-vertex separation at least three. The complete 12-vertex link has nine explicitly listed facets and a verified 35-pair collapse. Coning its free-face pairs with a vertex and removing the final edge yields 36 actual elementary simplicial collapses. Separation makes link data invariant under previous deletions. Local incidence counts derive the global face vector and exact face losses. The constructed modulo-five erasure and the adjacent-pair Euler obstruction are checked directly. The package replays the certificate on four torus sizes; the infinite proof is the local classification and lifting lemma, not extrapolation from experiments.
+## correctness
 
-## Originality
-PASS with residual priority uncertainty. The 2025 Adams et al. torus-grid paper proves unpunctured homotopy results, and the 2026 full rectangular phase diagram proves the unpunctured torus type and a different collapse to a triangulation retaining every grid vertex. Neither inspected full text states a direct induced-subcomplex collapse after an arbitrary distance-separated family of deleted vertices, the fixed 36-pair vertex budget, or the large-face-reduction construction. Searches of equivalent graph-power, punctured-grid, induced-complex and simplicial-collapse terminology identified no logically dominating theorem. These are claim-to-implication comparisons, not a uniqueness certificate. The argument that such deletions are benign may be within reach of general collapsibility lemmas; specific published overlap could remain unidentified.
+PASS
 
-## Mathematical value
-PASS. The result supplies exact simple-homotopy preservation under prescribed metric sampling loss, with a concrete combinatorial collapse algorithm and 20% vertex / 60% simplex reductions in natural periodic examples. Unlike merely recomputing the already known torus homotopy type, it gives a stable induced-subcomplex inclusion and sharp contrast with adjacent erasures. It is useful as a model of certified topological simplification of metric Rips complexes, with exact computational savings and no dependence on a field.
+The inclusive scale-two flag complex has the same twelve-vertex link as the infinite square grid: all candidate coordinate differences are at most four, and wrapping in factors of size at least seven cannot turn a cyclic coordinate distance into one or two unless the original absolute difference already was one or two. Independently enumerated all link subsets, recovered the nine facets and face vector (1,12,30,24,5) including the empty face, and verified that each of the 35 recorded lower faces has exactly its paired upper face as a proper coface at that step. Replay: python3 /workspace/independent_checks.py 2, reading only the frozen JSON certificate. Coning each pair with the center preserves freeness in the full complex; the last pair removes the edge to the surviving link vertex along with the center. No deleted vertex belongs to another deleted vertex's link, so all subsequent links are intact. Incidence counting gives (mn,6mn,10mn,6mn,mn); the 72 faces per deleted vertex are disjoint across S. The modulo-five kernel is well defined and its defining functional is nonzero on every length-one or length-two displacement, giving the claimed one-fifth and three-fifths ratios. After one deletion the neighboring link loses one axial vertex and has face vector (11,24,16,3), hence Euler characteristic zero and deletion lowers the ambient Euler characteristic by one. The unpunctured torus conclusion is also independently derivable: each axial distance-two edge has common neighbors only in its midpoint diamond. Within each such edge's star, pair all faces containing the edge but not the midpoint with their midpoint extensions, in descending size; first do horizontal, then vertical edges. Remaining diamond faces are in full unit-square tetrahedra. These meet along ordinary grid edges or vertices; two elementary pairs per square remove the tetrahedron and one diagonal, leaving the triangulated torus. An elementary pair requires a free codimension-one face with unique maximal coface, not that the latter have only one possible free face; the certificate uses the correct condition. Distances in the induced complex are inherited, not recomputed.
 
-## Limits and sources
-Primary: Adams et al., *Vietoris–Rips complexes of torus grids*, arXiv:2502.07134 (2025), full HTML Sections 4–5. Closest published statement: *A complete scale-two Rips homotopy phase diagram for rectangular tori of circumference at least five* (2026), full `RESULT.md`, including its explicit full-complex collapse. The new statement only treats inherited-distance scale two and pairwise distance-three deletions on two-dimensional rectangular tori of circumference at least seven. Similar unindexed work remains possible. Independent audit has not been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the unpunctured torus type and the all-vertex triangulation collapse to earlier work. The distinct result is a direct collapse to the prescribed induced subcomplex for every separated S, with exact face accounting and a closely matched obstruction. The standard cone-lifting argument does not supply the essential local link collapse. On the examined evidence, none of the nearby statements implies this prescribed-target result; the relevant inaccessible proof details remain an explicit priority risk.
+
+## value
+
+PASS
+
+The result answers whether the inclusion of a prescribed, potentially extensively punctured flag subcomplex is itself a simple homotopy equivalence. It removes 60% of faces in a natural periodic pattern, has an explicit finite local construction, and exposes failure already for two adjacent holes. These are useful exact stability and compression statements, not another unpunctured type computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

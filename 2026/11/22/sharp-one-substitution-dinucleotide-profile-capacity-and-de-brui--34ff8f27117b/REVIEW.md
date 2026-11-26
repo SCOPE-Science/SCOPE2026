@@ -1,15 +1,21 @@
-# Scientific review: sharp one-substitution dinucleotide-profile capacity
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The local matrix identity for replacing one interior symbol accounts for both deleted and newly created adjacent edges. Row and column sums distinguish ordered replacements and boundary mutations; a support argument shows precisely one pair of interior contexts collide for each replacement. For \(q\ge3\) every triple has a mutation change vector unique to that triple, so maximality forces all \(q^3\) trigrams and length at least \(q^3+2\). De Bruijn linearizations meet the bound, and the directed Matrix-Tree/BEST calculation counts the indexed maximizers. Three separate executable checks corroborate local collisions, direct word-level substitution, and the de Bruijn count. The checker outputs cannot independently certify arbitrary parameters; those rely on the explicit proof.
+## correctness
 
-## Originality (O): PASS against inspected literature, with residual priority risk
-The 2013 context-dependent dinucleotide mutation study already provides the elementary local mutation accounting, which is expressly credited. En Gad (2026) treats substring-count hashes for error-correcting codes, not a sharp local substitution-profile sphere formula. Kiah–Puleo–Milenkovic (2015) treat global sequence profiles and coding. He–Kari–Millan Arias (2025) treat profile/Eulerian correspondences. Three relevant published exact enumerations (binary one-deletion, binary one-insertion, ternary global bigram profiles) were inspected in full and distinguish different operations or different quantifier order. The searches did not reveal the claimed q-ary substitution bound, de Bruijn first-attainment rigidity or maximizer count; unindexed Markov-type or histogram calculations cannot be excluded.
+PASS
 
-## Value (V): PASS
-The precise object is the one-substitution observation ball of a fixed word under full oriented two-gram multiplicities, which is a natural noisy-read channel. Knowing its maximum alone does not identify when it can be achieved: the first-attainment theorem links a source length cutoff to complete coverage of trigrams, and the extremizer count describes all optimally diverse shortest sources. The result is an exact infinite-alphabet-family capacity and a sharp structural classification, not a routine recomputation of the global number of profiles.
+The final /workspace/repairs/3/RESULT.md uses full directed bigram multiplicities for one genuine replacement in a linear word. Row and column marginals recover the ordered interior replacement; their nonzero pattern separates both ends. For a fixed b→d, comparing support in the equation R_a−R_a′=C_c′−C_c forces both changed neighbor pairs to lie in {b,d}; direct evaluation gives exactly one double fiber and q²−1 interior outcomes. When q≥3 each literal triple has a private difference for some replacement, forcing n−2≥q³ at equality; covering all triples suffices and is preserved under padding. For the count, A²=J and equal row/column degrees give q²−1 nonzero Laplacian eigenvalues q counted with multiplicity. The equal Matrix-Tree cofactors are q^(q²−3). Fixing a first triple arc selects one representative per cyclic Euler tour, and BEST followed by q³ distinct starts gives (q!)^(q²) linear words. The original limitation incorrectly attributed binary behavior to extra collisions; the repaired statement correctly identifies the loss of the third-letter private-context argument. Fresh full-profile enumeration at length 8 found 00010111 attaining 8 distinct results, consistent with the frozen outputs. The analytic proof and correction were rechecked; supplied scripts/outputs were inspected, not executed.
 
-## Boundaries and independent validation
-The all-length bound and sharp saturation apply to \(q\ge3\), with no claim of all shorter-length spectra or coding-capacity improvement. Historical priority remains subject to independent literature review; the scripts are finite corroboration rather than proof of the infinite theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct result is exact maximum cardinality of the fixed-source one-substitution bigram image and the sharp necessity/sufficiency of complete triple coverage. The equality-case count uses the known de Bruijn count and is not a novel independent enumeration of de Bruijn cycles. No inspected competing claim covers the collision census and structural cutoff.
+
+## value
+
+PASS
+
+An exact mutation-observation capacity for overlapping bigrams quantifies a genuine compression collision effect not answered by the Hamming ball size. The first saturation length and rigidity link observation diversity to complete triple coverage, giving a meaningful source-design cutoff and characterization. The binary clarification does not change these q≥3 results, and no generic code-size claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

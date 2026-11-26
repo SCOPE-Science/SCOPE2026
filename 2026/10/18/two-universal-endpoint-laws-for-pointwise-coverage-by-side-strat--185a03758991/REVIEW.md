@@ -1,21 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim has the exact domain of a nondegenerate parallelogram with four independent uniform-arclength samples, one per side. Affine normalization is justified because each edge is traversed at constant speed. The square-minus-hull decomposition gives the exact four-corner coverage identity, and direct one-variable integration supplies the corner probability. Reflection/exchange symmetry reduces the full depth to one wedge. Explicit positive partial derivatives make the center the unique point with coverage one. A uniform second-order Taylor expansion establishes the upper-depth level-area asymptotic; a monotone slice-width argument with a separate shrinking-corner bound establishes the logarithmically corrected lower-depth level-area asymptotic. The constants are \(\pi/4\) and \(4\), respectively, for **the distribution of the coverage depth** at an independent area-uniform location.
+PASS
 
-A standalone checker passes 3000 formula comparisons, 330000 direct hull-containment trials (also under a skew affine map), and finite quadrature checks near both endpoints. Those checks support the derivation; they cannot prove its all-parameter identities or infinitesimal asymptotics.
+A nonsingular affine map preserves the four independent uniform side parameters, containment, and normalized area. On the square the four omitted corner triangles have disjoint interiors. Conditioning on one intercept gives the stated corner integral and summing the two active corners in the wedge gives the frozen depth formula, with continuous zero depth on the boundary. Both wedge derivatives are positive where needed to reach the unique maximum at the center. There the logarithms expand to give a uniform quadratic deficit with coefficient 4 in both affine coordinates; localization and disk comparison give the upper coefficient π/4. On y≥η>0 the inverse low-depth width is uniformly ε/log(1/ε). For y≤√ε the inequality D≥2x bounds the area by O(ε^1.5), and for √ε≤y≤η the further log(y/x) term bounds the scaled width by 2. Eight wedges therefore give the lower coefficient 4. This proves the two limits for the pointwise depth at an independent area-uniform point, not for the area of the random hull. The frozen checker.py and VERIFICATION.md were inspected, not executed; reported Monte Carlo and numerical integration are supplementary only.
 
-## Originality — PASS, qualified
+## originality
 
-Maesumi's 2018 triangle paper examines the area distribution of a three-side sample and contains no parallelogram-specific pointwise coverage field or depth-level endpoint laws. Reitzner, Schütt and Werner's 2019 preprint studies pooled-boundary samples and asymptotic polytope volume/face counts; those statements do not imply the present stratified finite-four-point conditional coverage-depth distribution. Closest related calculations involving triangular inclusion depth reuse the same elementary corner probability; no novelty is attributed to that integration. Previously treated quadrilateral **area** mean, variance, and density also do not determine the distribution of pointwise conditional inclusion probabilities. Searches using spatial depth, corner probability, four independent side samples, level areas, and logarithmic lower-depth rates disclosed no equivalent statement. Exact publication priority remains uncertain because literature search is not exhaustive.
+PASS
 
-## Mathematical value — PASS
+Best-of-knowledge pass for the four-side depth-level result, with the exact depth field providing its derivation. The closest same-date triangular profile contains the identical elementary corner calculation, which receives no originality credit. Applying it around the square is direct; the claim of interest is the resulting full four-side field with its two sharp area-of-level-set laws. No inspected source gives or implies those endpoint evaluations in this model.
 
-Pointwise convex-hull inclusion is a natural coverage diagnostic distinct from the area of a random hull. The theorem determines the whole spatial coverage field in an affine-invariant family, proves that only the center has certain inclusion, and resolves both extremes of the induced depth histogram. The lower tail has width \(\varepsilon/\log(1/\varepsilon)\) from host edges, whereas the near-certain superlevel region has area proportional to \(\varepsilon\) around the center. These quantitatively different regimes are not fixed by the known mean-area identity. The sharp coefficients are attached to a natural continuous coverage statistic, not to an arbitrary finite computation.
+## value
 
-## Boundaries and residual risks
+PASS
 
-No assertion concerns general quadrilaterals, pooled-boundary independent samples, other densities, other dimensions, or the distribution of the hull's random area. Near-certain contours are circular only in affine coordinates. Unindexed equivalent literature and unexamined portions of less closely related sources remain originality risks. Independent review is needed before treating this as an externally certified new mathematical result.
+For a natural sampling model these quantify where almost no realizations and where nearly all realizations cover an independent location. The exact constants and distinct boundary and center rates are not supplied by the expected hull area or an area density. The lower limit in particular must control the corners, where naive uniform edge inversion fails.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

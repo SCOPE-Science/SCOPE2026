@@ -1,9 +1,21 @@
-# Review of the binary unbordered-conjugate frequency census
+# Independent mathematical audit
 
-**Correctness (PASS).** The supplied generator traverses all binary necklaces of lengths \(1\)–\(28\) with orbit weights (period for nonprimitive words; full length for primitive words) and an exhaustive border test at every rotation. The mathematical FKM necklace generation theorem and the short-border equivalence justify exhaustion. An independently written word-by-word bitmask enumerator matches every bin for lengths \(1\)–\(25\); every row through \(28\) matches exact total counts, Möbius nonprimitive counts, and the classical first-moment identity. Exact rational arithmetic yields the stated variance. The last three rows were not independently checked by a full second exhaustive enumeration.
+## correctness
 
-**Originality (PASS with residual bibliographic risks).** Clokie, Gabrić and Shallit (arXiv:1904.08187) determine maximum, support, and mean but not the complete finite frequency distribution. Holub and Müller (arXiv:1504.02222) classify restricted unbordered-conjugate patterns. Harju and Nowotka’s border-correlation image counts, including OEIS A091838, do not state preimage-fiber weights. OEIS A321162 records only the maximum. Rivals and Wang’s 2024 pair-overlap populations are a distinct statistic. A full reading of the 2004 original binary correlation paper was not obtained, and unindexed equivalent tables remain possible.
+PASS
 
-**Value (PASS).** This is an exhaustive distributional classification, not an isolated value: its \(28\) finite laws refine known first-moment/maximum theory for exactly the same random variable, supply higher moments including an exact variance, and provide reproducible benchmark data against which to test asymptotic conjectures. This work does not claim an all-length formula or a theorem based on finite samples.
+The frozen FKM recursion enumerates binary necklaces once; its terminal period p is the size of the labeled rotation orbit. For p<n the word and all its rotations are proper powers and hence bordered. For p=n the count of unbordered starting positions is constant on the orbit, so adding n to its bin is correct. Testing borders only through floor(n/2) loses none: a longer border gives period d=n−b<n/2, and using the largest positive multiple of d less than n gives a border of length at most d. An independently written direct exhaustive computation visited every labeled binary word at every length 1–28, without orbit weights. For each border length b it located runs of b consecutive cyclic equalities between bits at distance b, marking the corresponding rotation starts at the shifted positions. Counting unmarked starts reproduced all 29 CSV columns in each of the 28 rows, including every cell at lengths 26–28. At n=28 the first and second raw sums are 2,012,861,088 and 15,596,094,136; division by 2^28 and subtraction of the squared mean yield the stated exact mean and variance. The highest nonzero index is 13 with 5,040 words. Row totals, zero bins and first moments agreed with independent identities. At n=1 both words are unbordered; for n≥2, a nonprimitive word has none and the lexicographically least and greatest rotations of a primitive word are distinct unbordered words, consistent with the missing j=1 bin.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct claim is the full labeled-word frequency census through 28, including the second moment and extremal multiplicity, not the maximum value 13, the known first moment, or the absence of singleton fibers. Inspected related results cover support, maximum, zero count, first moment, or composition-restricted fibers. None supplies or mechanically determines the remaining unrestricted table at this cutoff on the evidence inspected.
+
+## value
+
+PASS
+
+The statistic is motivated by the established extremal and mean problems for unbordered conjugates: they leave open how typical or rare any number of unbordered starts is. The table measures this variation across all labeled binary words at 28 consecutive lengths. At n=28 alone it distinguishes a central bin of 73,564,148 words at j=8 from just 5,040 of 2^28 words at the known maximum. A researcher studying dependence between rotations, exact moments or near-extremal populations can use these actual frequencies; neither the first moment nor a low-weight slice supplies them. The bounded cutoff is a reproducible complete census, not a substitute for an asymptotic distribution theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

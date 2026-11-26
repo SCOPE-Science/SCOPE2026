@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:43:14.598603Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–69",
+        "Frozen VERIFICATION.md, lines 19–27 and check.py, lines 9–64"
+      ],
+      "rationale": "Every semigroup element has a unique expression j b + k a with 0≤j<a and k≥0; subtracting the resulting Hilbert series from 1/(1−z) gives the gap polynomial. At a nonidentity m-root only one generator factor can vanish. Cancelling 1−z^a when z^a=1 gives b/(1−z^b), with the symmetric limit at z^b=1. A legal b-step changes only the mean and the modes in the nonidentity d-root subgroup, there by −m/(1−z^b). In the sawtooth inversion sum S_j=Σ_{w^d=1,w≠1} w^(−j)/(1−w), conjugate pairing gives S_0=(d−1)/2, and S_j−S_(j−1)=−1 for 1≤j<d; relabel w=z^b. The genus change then gives the claimed shift. For integrality, a and d have the same parity: if a is even both b and b+m must be odd for a legal shift, so d is even. The symmetric step is identical upon exchange. In the full decomposition, divisibility subgroups are disjoint away from 1 and the residual depends only on a,b modulo m. Each nonzero root denominator has modulus at least 4/m, and each two-factor numerator at most 2. Thus |R(r)|≤m/4+m²/8. CRT realizes both simultaneous extremes of the two independent centered residues; the oscillation of the residual bounds the error in their range. When m divides a and b≡1, every nonidentity Fourier mode reduces to (1−b)/(1−z), which inverts to the claimed exact histogram. The progressions concern admissible pairs, not walks through noncoprime intermediates.",
+      "residual_risks": [
+        "The direct representability comparisons in the package are recorded finite checks and were not replayed; the uniform result follows analytically.",
+        "The error bound is not claimed optimal."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Komatsu–Zhang's zeroth weighted moment gives the full nonidentity Fourier data, with the second resonant subgroup handled by exchanging the generators; the mean is the genus.",
+          "Shor characterizes equality of all counts: gcd(ab,m)=1 and at least one generator is 1 modulo m."
+        ],
+        "reasoning": "Fourier inversion of the weighted results already computes arbitrary histograms, including nonunit cases. The balance criterion gives no nonzero discrepancy magnitude. The inspected weighted formulas do not organize the parameter dependence into two simultaneously optimized slopes or prove the uniform error on the range.",
+        "searches": [
+          "arXiv:2105.08274, Theorems 2–3; arXiv:2101.01760, Corollary 5.8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verification notes",
+        "arXiv:1705.04256",
+        "arXiv:2105.08274",
+        "arXiv:2101.01760",
+        "Resultary c8146cc1af10"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published zeroth moments already give the exact resonant modes. Subtracting shifted modes and explicitly summing a finite sawtooth yields the shift; the arithmetic histogram follows by the same summation when one subgroup is the entire root set.",
+          "The weighted moments give exact values per parameter but no CRT maximization of the two slopes with an error uniform in both generators in the inspected passages."
+        ],
+        "reasoning": "The elementary shift and histogram consequences are closely tied to prior Fourier data and are not independent grounds for this pass. The distinct claim is the structural law across varied nonunit parameters, especially the exact additive leading coefficient for the optimized discrepancy and the uniform residual control; it requires the separation and simultaneous optimization of resonant terms rather than plugging in a single set of parameters.",
+        "searches": [
+          "Compare arXiv:2105.08274 Theorems 2–3 and Resultary c8146cc1af10 to the frozen RESULT.md lines 37–69"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general Apéry summation identity specializes to Tuenter's binary-gap difference identity; with f(n)=z^n it gives the same rational gap polynomial.",
+          "Shor treats modular equidistribution using a gap-polynomial congruence."
+        ],
+        "reasoning": "Apéry strips, the gap polynomial and root-of-unity evaluation encode the same gap data; none is an original starting point. Comparing the Fourier poles as the generators vary, and controlling the discrepancy, is the structural claim at issue.",
+        "searches": [
+          "Primary literature: nonunit residues of binary-semigroup gaps; Apéry and Tuenter identities",
+          "arXiv:1705.04256, Theorem 2.3 and Corollary 2.6; arXiv:2101.01760, Theorem 3.3 and Corollary 3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct same-day Resultary record c8146cc1af10 gives a residue histogram from generator residues and genus when gcd(ab,m)=1, with discrepancy ≤ceil(m/4). It excludes nonunit cases."
+        ],
+        "reasoning": "This is direct partial coverage even without knowing the dates' internal order: the histogram plus genus implies both proposed unit shifts, and its unit bound is stronger. It does not cover the structural nonunit law, varying resonant subgroup contributions, or the m|a specialization.",
+        "searches": [
+          "Resultary: exact nonunit residue-gap histogram, generator increments and discrepancy"
+        ]
+      },
+      "rationale": "Distinct supported content is the structural all-modulus transfer and the simultaneous sharp nonunit leading discrepancy, not raw histogram computability or the unit-modulus case. The full Fourier data are prior, and a distinct same-day record covers the unit shift as a corollary and improves the bound there. Neither supplies the uniform structural comparison of both nonunit resonances found here.",
+      "residual_risks": [
+        "The same-day records' chronological order is not established or needed to credit unit-regime coverage.",
+        "An earlier explicit finite-difference or leading-discrepancy derivation from the weighted data may exist. A targeted Moree survey retrieval timed out; no negative claim is made about its contents."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the exact gap-polynomial foundation; no parameter-step or discrepancy law stated there.",
+          "evidence": "For binary gaps, sums of f(n+a)−f(n) equal the difference between f(nb) and f(n) summed over 1≤n<a.",
+          "identifier_or_url": "https://arxiv.org/abs/1705.04256",
+          "material_read": "Theorem 2.3 and Corollary 2.6, pp. 3–5",
+          "method": "OA primary PDF passages",
+          "title": "Characterizations of Numerical Semigroup Complements via Apéry Sets",
+          "trigger": "General Apéry and binary Tuenter gap identities"
+        },
+        {
+          "assessment": "Substantial overlap: all Fourier input data, not an explicit uniform optimization theorem.",
+          "evidence": "Zeroth complex-weighted sums in both the nonresonant and single-resonant cases recover G at every nonidentity m-root after interchanging a,b as needed.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.08274",
+          "material_read": "Theorems 2–3, pp. 9–10",
+          "method": "OA primary PDF passages",
+          "title": "Weighted Sylvester sums on the Frobenius set",
+          "trigger": "Weighted formulas plausibly cover full nonunit histograms"
+        },
+        {
+          "assessment": "Exact zero-discrepancy criterion, not the magnitude of nonunit imbalance.",
+          "evidence": "For two generators, equality of all residue counts requires gcd(ab,m)=1 and at least one generator congruent to 1 modulo m, and those conditions suffice.",
+          "identifier_or_url": "https://arxiv.org/abs/2101.01760",
+          "material_read": "Theorem 3.3, Corollary 3.4, root-of-unity criteria, and Corollary 5.8, pp. 7–9, 16–17",
+          "method": "OA primary PDF passages",
+          "title": "Equidistribution of Numerical Semigroup Gaps Modulo m",
+          "trigger": "Exact balance criterion and common Fourier formulation"
+        },
+        {
+          "assessment": "Covers unit-step corollaries and gives a stronger unit bound; does not cover nonunit moduli.",
+          "evidence": "Reconstructs histogram from residues and genus when gcd(ab,m)=1 and bounds the range by ceil(m/4).",
+          "identifier_or_url": "2026/11/22/SCOPE-uniform-near-quarter-modulus-balance-for-two-generator-numerical--c8146cc1af10",
+          "material_read": "RESULT.md Finding and restriction to the unit regime, from offset 0",
+          "method": "Local mirror text",
+          "title": "Uniform near-quarter-modulus balance for two-generator numerical semigroups",
+          "trigger": "Distinct same-day residue histogram and discrepancy result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 6–27 and 54–69",
+        "Resultary c8146cc1af10 (unit benchmark)"
+      ],
+      "rationale": "For a natural gap distribution, nonunit moduli need not just spoil exact balance: each resonant generator contributes its own independent linear slope to the maximum imbalance, uniformly over unrestricted generator sizes. This separates two arithmetic sources of bias and predicts legal changes without recomputing gaps; the divisibility histogram gives an exact boundary case. A sharper bound in the unit case is already available and is not the reason for the value finding.",
+      "residual_risks": [
+        "The bound need not be optimal, and no analogous error theorem is established for more generators."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

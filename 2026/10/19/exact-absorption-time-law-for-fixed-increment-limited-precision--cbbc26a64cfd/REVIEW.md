@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Claim reviewed:** Exact absorption-time law for fixed-increment limited-precision stochastic summation.
+## correctness
 
-**Correctness — PASS.** The \(p+r\) truncation of an exact state-plus-small-increment is a binade-constant truncated increment. The induced chain has one upward neighbor per state and a common positive success probability within each binade, followed by a zero-probability absorbing boundary. The count of grid edges and independent geometric waiting times prove the negative-binomial convolution, moments, deterministic endpoint, and ideal-rounding separation. Exact rational verification of 62,496 states supports the local algebra but is not an infinite proof.
+PASS
 
-**Originality — PASS (best knowledge, not an independence certificate).** El Arar et al. (arXiv:2408.03069 and arXiv:2603.24161) supply the prior operator and finite-length error analysis. The 2025 stochastic-neuromorphic paper already identifies small-update guard-bit loss; that phenomenon is not claimed as new. Fitzgibbon–Felix compare different few-bit implementations and bias corrections. The distinctive claim is the sharp stopping barrier, at-most-\(r\)-binade classification, entire negative-binomial convolution, and exact moments for persistent fixed increments. Targeted statement/implication searches in the published mathematical literature and primary-source full-text comparisons found no dominating result. Earlier equivalent specialized probability laws remain possible.
+At each p-grid point in binade k the strict a < u_E <= u_k bound keeps the exact sum below the next grid point, including the last point before a power of two. Deterministic guard truncation keeps exactly floor(a/v_k) guard units. Hence the first binade losing every unit starts at L=E+1+floor(log2(a/v_E)), including exact threshold equality cases. Before L each upward probability q_k is positive, constant over the 2^(p-1) increments in that binade. The independent trial stream regenerates at each first upward passage; geometric waiting times therefore give the stated independent negative-binomial convolution, PGF and moments. In ideal rounding all one-state passage times are finite almost surely, and their countable intersection gives divergence in the stipulated unbounded-exponent model. An independent exact forward propagation on enumerated p- and guard grids matched probability coefficients through t=30 in two three-binade cases (one at a guard threshold); this supplements, not replaces, the proof.
 
-**Mathematical value — PASS.** The finding quantifies when finite guard-bit stochastic updates will cease to accumulate altogether and exactly how many iterations precede that event. This is a natural benchmark in the design of biased limited-precision stochastic arithmetic, particularly when many small updates are accumulated. It is not claimed to generalize to sticky-bit corrected implementations.
+## originality
 
-**Limits.** Positive \(p\)-representable fixed addends in the stated interval; \(p+r\) truncation toward zero; independent draws; unbounded normal exponents; no subnormals or sticky correction. General varying-input, practical runtime, and hardware-specific conclusions are unproved. Literature uniqueness is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Prior operator definitions, small-addend loss and stagnation are not novel. The inspected results do not give the absorbing exponent together with the full fixed-increment binade passage law in the frozen model.
+
+## value
+
+PASS
+
+A fixed increment is a natural recursive-summation stress test, not an arbitrary numerical slice. The result separates an infinite-time failure from the known local bias: it says exactly where the sum stalls and quantifies when, including an exact exponentially large mean delay at the first guard threshold. The law is useful when assessing whether finite-horizon progress masks eventual stagnation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

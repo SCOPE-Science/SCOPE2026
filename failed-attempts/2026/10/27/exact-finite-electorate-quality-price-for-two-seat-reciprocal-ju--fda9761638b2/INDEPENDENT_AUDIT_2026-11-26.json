@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:24:01.790392Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a two-seat committee W, a violating group exists for a candidate c if and only if the entire unrepresented part of c's support has size at least n/(2h_c), including equality. If a top pair (a,b) violates, choose any such witness with s supporters in that unrepresented part. At least one voter supports a, so s<=n-1 and h_c>=tau=n/[2(n-1)]. The witness group has at least n/2 members, all of whom approve c. These voters and at least one supporter of a outside the group make (a,c) represent a strict majority, even when n is even and h_c=1. So (a,c) is rJR. With alpha=h_a>=beta=h_b and alpha<=1, the price is at most (alpha+beta)/(alpha+h_c)<=2alpha/(alpha+tau)<=2/(1+tau). The three-candidate profile with one voter for both unit candidates and n-1 for the tau candidate attains the price, including n=2; subtracting it from 4/3 gives 4/[3(3n-2)]. At equality for n>=3 every top pair violates, and the inequality chain forces beta=alpha=1 and h_c=tau, whence s=n-1. The remaining voter approves both top candidates, and may or may not approve c. The source has a minor mislabeling of which step forces which equality, not a logical gap. I inspected checker.cpp and VERIFICATION.md, not running the submitted code. An independent exact replay at /workspace/branches/two_seat_replay.py directly compared group and supporter criteria on 96,875 exhaustive grid profiles, 400 sampled profiles and nine exact sharpness examples (n=2 through 10) and checked the necessary conditions at sampled equality. One tested n=3 example adds a 7/8-quality candidate supported by the same bloc as the 3/4 candidate; it preserves the geometry but raises the best rJR fraction to 15/16. Finite checks do not establish the universal result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "BD&KU prove the uniform 3/4 retention and an asymptotic sharpness profile; that profile at epsilon=1/[2(n-1)] is exactly the frozen witness for n>=3.",
+          "5ea6dcb6a811 reserves d=1 as covered and proves the different d>=2 support frontier. 44146502d80d is a minimum-quality-floor rather than a fixed-n theorem."
+        ],
+        "reasoning": "The primary work supplies the witness and broader asymptotic guarantee, not the universal fixed-n optimum. Neither indexed parameter strengthening alone asserts equality geometry at d=1; the comparison to the actual ecfe633c0898 constructive proof is decisive.",
+        "searches": [
+          "BD&KU arXiv:2609.08830v1 Definitions 5.1–5.3, Theorem 5.5, Proposition 5.6, Appendix G Example G.1",
+          "Resultary 5ea6dcb6a811 minimum support and 44146502d80d candidate quality floor"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.cpp and METADATA.json",
+        "Frozen ecfe633c0898",
+        "arXiv:2609.08830v1",
+        "Resultary 5ea6dcb6a811 and 44146502d80d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For every optimal pair and every violating approval witness d, ecfe633c0898 proves a fair pair (a,d) with fraction at least (alpha+h_d)/(alpha+beta)>= (alpha+tau)/(alpha+beta)>= (1+tau)/2. These bounds must all be tight at an extremizer.",
+          "The primary example describes a single equality profile, not all necessary geometry."
+        ],
+        "reasoning": "Tightness gives h_d=tau, beta=1, and alpha=beta, thus equality in s<=n-1 as well. The necessary geometry is an immediate consequence of the stronger witness-dependent inequalities, not an independent extremizer classification.",
+        "searches": [
+          "Frozen ecfe633c0898 RESULT.md lines 22–53, especially the nonnegative slack identity",
+          "arXiv:2609.08830v1, Appendix G Example G.1, around OA offset 156376"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "ecfe633c0898 gives inf best rJR quality / unrestricted optimum = (3n-2)/[4(n-1)] at each fixed n, attained under the same support and quality hypotheses.",
+          "The 5ea6dcb6a811 relationship paragraph prints the reciprocal price but attributes it to a same-titled finite-electorate finding, not a newly derived theorem there."
+        ],
+        "reasoning": "All compared qualities are positive and the infimum is attained; inversion gives this record's precise supremum and its attainment. The titled citation is not counted as a second independent proof or assigned a priority based on its internal identifier.",
+        "searches": [
+          "Frozen ecfe633c0898 Finding and Lemmas 1–2",
+          "Resultary: aaaa6781-69eb-4ef4-8cc4-991f32faff24 Exact finite-electorate quality price for two-seat reciprocal justified representation necessary equality geometry maximally unrepresented bloc"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirror explicitly records 4(n-1)/(3n-2) as a previously covered d=1 baseline and cites a finding with this record's exact title; the UUID in that citation is not the frozen package's run identifier.",
+          "The frozen sibling provides the corresponding exact closed form and the constructive proof."
+        ],
+        "reasoning": "A symbolic formula covering every n is more decisive than a table. The baseline attribution does not separately establish the scope of the equality claim, which was checked against the sibling proof.",
+        "searches": [
+          "Resultary: two seat reciprocal EJR JR instance-wise equal maximum quality exact fixed n frontier 3n-2 / 4(n-1) universal quality-one candidates one replacement",
+          "Local mirror 5ea6dcb6a811, offsets 4750–6974"
+        ]
+      },
+      "rationale": "The exact price is the reciprocal of the rJR part of the distinct frozen record ecfe633c0898 on the identical domain. The equality geometry is not stated there as a conclusion, but is a direct equality-case reading of its stronger constructive inequality for any optimal pair and any violating witness. Its equations (lines 27–41) have h_c>=tau and the nonnegative slack (1-tau)(alpha-beta)+2tau(1-beta). Extremality forces that slack and h_c-tau to vanish; for n>=3 this forces both top qualities to be one, and the budget equality then forces s=n-1. No materially independent theorem remains after the comparison. This assesses equivalent coverage, not priority between the same-day records.",
+      "residual_risks": [
+        "Same-day discovery/publication priority not established; title and UUID attribution do not prove identity with a separate indexed proof.",
+        "Bounded originality review, not a comprehensive literature search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact quotient overlap and mechanical implication of the extra equality necessity from the constructive proof; no inferred order",
+          "evidence": [
+            "Lines 22–41 give the witness quality floor and factor the sharp-ratio slack."
+          ],
+          "identifier_or_url": "ecfe633c0898 (frozen record 4)",
+          "material_read": "RESULT.md Finding, assumptions, Lemmas 1–3 and sharpness, lines 3–53",
+          "method": "Read frozen source",
+          "title": "Exact finite-electorate quality frontier for two-seat reciprocal representation",
+          "trigger": "Same electorate size, same reciprocal-JR domain, inverted ratio"
+        },
+        {
+          "assessment": "Already supplies unrestricted ratio and extremal witness recipe; no fixed-n universal inequality or equality characterization in those passages",
+          "evidence": [
+            "For k=2 its witness has a bloc of n-1 voters approving only the quality 1/2+epsilon candidate, and n=ceil(1/(2epsilon))+1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.08830v1",
+          "material_read": "Definitions 5.1–5.3 pp. 13–14, Theorem 5.5 p. 15, Proposition 5.6 p. 16, Appendix G Example G.1 p. 41",
+          "method": "Located passages in lawful primary PDF, offsets 55889, 56872, 59479, 62179, 65149 and 156376",
+          "title": "Approval-Based Multiwinner Voting with Candidate Qualities",
+          "trigger": "Primary model and known tight example"
+        },
+        {
+          "assessment": "Theorem excludes d=1; reference names this exact title but is not a separate proof for d=1",
+          "evidence": [
+            "The paragraph says the d=1 price 4(n-1)/(3n-2) was covered and identifies the title; it states no all-extremizer result."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-minimum-support-quality-frontier-for-two-seat-reciprocal-r--5ea6dcb6a811/RESULT.md",
+          "material_read": "Finding and Relationship to prior work/References, offsets 4750–6974 for the attribution",
+          "method": "Read local mirror at 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact minimum-support quality frontier for two-seat reciprocal representation",
+          "trigger": "Same parameter formula at d=1 with plausible separate indexed coverage"
+        },
+        {
+          "assessment": "Different restriction and optimization over electorate sizes",
+          "evidence": [
+            "It gives a 3/4 plateau for quality floors at most 1/2; that does not yield the strict finite-n correction."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-quality-floor-frontier-for-reciprocal-proportional-committ--44146502d80d",
+          "material_read": "Finding: minimum-quality parameter and sharp retention statement",
+          "method": "Read matching local-mirror record",
+          "title": "Sharp quality-floor frontier for reciprocal proportional committee elections",
+          "trigger": "Alternate parameter and objective formulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact fixed-n frontier is a meaningful refinement of a limiting guarantee, but taking its reciprocal adds no independent information. The described geometry simply records which inequalities must be tight in the already available constructive bound; it neither adds an independent obstruction nor classifies sufficiency among more general profiles. There is no substantively distinct remainder to repair here.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

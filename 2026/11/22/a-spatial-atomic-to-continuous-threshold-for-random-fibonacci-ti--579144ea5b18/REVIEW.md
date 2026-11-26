@@ -1,12 +1,21 @@
-# Scientific review: spatial failure-probability law
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The claim defines the probability being spatially sampled separately from the independent placement randomness. An integer annulus has exactly the last coordinate weight many targets. The exact finite histogram follows by splitting the highest bit and counting gaps between consecutive lower subset sums; the binary carry at rank \(t\) produces gap \(g_{\nu_2(t)}\). The ratio limit gives the gap asymptotic. In the superdoubling case the proposed atomic masses sum to one, giving total variation convergence on a shared countable support. At the doubling boundary a reversed-bit coupling converges to uniform binary expansion, and uniform convergence of its CDF proves the continuous law. The Fibonacci root identity makes the proposed specialization exact. The mean is computed by averaging distances of the lower subset sums. The bundled checker passes 845 finite exact assertions and floating-point diagnostics; it does not prove infinite claims. Principal risk: none identified in the proof under the stated hypotheses.
+## correctness
 
-## Originality (O): PASS against inspected material
-Amit et al., arXiv:2611.08317v1, provides the binary ordering and fixed-target coverage probability, but not spatial frequency of first-feasible failure parameters for a target uniformly drawn from its feasible annulus. The published note *Complete subsequential covering-time laws for random Fibonacci tilings* classifies all attainable centered covering-time laws for chosen targets; this does not imply the measure of the set of target distances producing each parameter. The present exact gap-length histogram and limiting atomic/continuous threshold require additional counting and spatial averaging. General superincreasing knapsack order and the Cantor distribution are known, and not claimed new. Targeted published-record and primary-literature searches found no identified prior implication of the full claim. Residual risk: an earlier result under knapsack gap-statistics or Cantor staircase pushforward terminology may yield this law; no global priority guarantee is claimed.
+PASS
 
-## Mathematical value (V): PASS
-The fixed-target geometric delay law leaves open how much of the spatial domain has each conditional success or failure probability. The exact histogram answers that distributional question at every finite feasible scale; the sharp limit says that infinitely many dense dyadic values occur with explicit nonzero target-frequency masses. The universal boundary at ratio two separates discrete and continuous spatial heterogeneity, and the dimension-dependent largest atom \(2-\rho_d\) gives a geometric quantity with direct interpretation. These are structural descriptions of natural target sampling, rather than arbitrary finite tabulations or recomputations of fixed-target probabilities. Scope is limited to one coordinate and independent fair flips.
+The sampling is over the lattice distances in one coordinate's first-feasible annulus; the placement flips have already been averaged out. There are exactly w[m-1] sampled distances. The absent top bit always fails. With the top bit present, the initial plateau has length w[m-1]-W[m-1], and the plateau at rank t>=1 has length s[t]-s[t-1]=g[v2(t)] by binary carry. This also handles m=1 and the strict inequality at the right endpoint. Averaging the upper-half contribution over lower subset sums yields W[m-1]/(4w[m-1]) above 1/2. Eventual geometric domination gives W[n]/w[n] -> 1/(Q-1); for Q>2 the fixed-rank dyadic masses converge with total limiting mass one, proving TV convergence. At Q=2 the reversed coefficient sequence converges in l1 to the fair binary coefficients; the limiting CDF is continuous so CDF convergence is uniform, and the independent rescaled lattice threshold tends to uniform on [0,1]. This proves the asserted weak limit; TV distance to the continuous limit is one under the event-supremum convention. For Fibonacci weights, F[n+d]=F[n+d-1]+F[n]>2F[n] on the sampled subsequence, and the primitive recurrence has dominant root rho_d. The identity rho_d^d-1=1/(rho_d-1) gives the claimed atom and mean. Independently enumerated the order-two phase w=(2,5,13,34,89): the sixteen plateau lengths start 35,2,3,2,6,2,3,2,14, agree with the carry formula and sum to 89. The packaged check.py was inspected, not executed; its enumeration and finite diagnostics are not proofs of the limits.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Pass for the spatially sampled finite rank-frequency law together with the asymptotic ratio classification, not for Fibonacci tiling, binary ranking, fixed-target failure probabilities, or the plateau geometry of classical self-similar Cantor CDFs. The closest fixed-target and occupation results do not average this observable over the feasibility annulus.
+
+## value
+
+PASS
+
+Uniform annular sampling is a natural way to turn pointwise tiling risk into spatial frequency. The complete finite law plus the sharp ratio boundary identifies when risk is carried by dense atoms with explicit masses and when it is continuously spread; the largest Fibonacci atom gives a direct dimension-dependent frequency. This is more than a list of attainable risks and requires neither a multidimensional coverage interpretation nor a priority claim for Cantor distributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

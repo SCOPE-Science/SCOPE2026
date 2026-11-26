@@ -6,17 +6,17 @@
 
 \[\operatorname{cl}_{\Bbbk}(N(G))=n.\]
 
-In particular, this invariant is independent of the edge set: it has the same value for the torus associated with the edgeless graph and for the nilmanifold of the complete graph on the same vertex set. An explicit orientation-independent construction (up to a choice of an endpoint for each edge) gives \(n\) classes whose product is the top cohomology class.
+In particular, this invariant is independent of the edge set: it has the same value for the torus associated with the edgeless graph and for the nilmanifold of the complete graph on the same vertex set. Choosing one endpoint for each edge gives \(n\) explicit real classes whose product generates top cohomology. A product of \(n\) rational classes generating rational top cohomology exists for every lattice, without identifying those classes with the displayed invariant forms.
 
 ## Assumptions and scope
 
 The graph is simple, with no loops or parallel edges. Isolated vertices are permitted. All generators in the exterior cochain algebra have cohomological degree one, and the differential is the usual graded derivation with \(d^2=0\). Coefficients have characteristic zero. The nilmanifold is a compact quotient of the simply connected real nilpotent Lie group associated with the graphical Lie algebra, using any lattice. Nomizu’s comparison identifies the **real** de Rham cohomology ring with the real Chevalley–Eilenberg model. For an arbitrary lattice, the particular invariant forms below need not individually represent rational cohomology classes; equality of rational and real cup-length instead follows by change of coefficients and multilinearity.
 
-Put \(V=\{1,\ldots,n\}\), and let \(m=|E|\). The Chevalley–Eilenberg differential graded algebra is
+Put \(V=\{1,\ldots,n\}\), and let \(m=|E|\). For the invariant-form calculation set \(\Bbbk=\mathbb R\). The Chevalley–Eilenberg differential graded algebra is
 
 \[A_G=\big(\Lambda_{\Bbbk}(x_1,\ldots,x_n,y_e\ (e\in E)),d\big),\qquad dx_i=0,\quad dy_{\{i,j\}}=x_i\wedge x_j\quad(i<j),\]
 
-with an immaterial consistent choice of signs for edge generators. Its cohomology algebra is the (rational or real) cohomology algebra of \(N(G)\). In particular the manifold has dimension \(n+m\).
+with an immaterial consistent choice of signs for edge generators. Its real cohomology algebra is \(H^*(N(G);\mathbb R)\), and the manifold has dimension \(n+m\). Replacing \(\mathbb R\) by \(\mathbb Q\) in the displayed graph presentation need not give the rational cohomology ring for an arbitrary lattice. The rational cup-length follows instead from Step 4.
 
 ## Proof
 

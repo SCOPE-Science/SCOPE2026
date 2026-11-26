@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:15:04.807883Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The homogeneous partials prove smoothness. Over F4 the affine counts are two for each x, and infinity adds one, so both F4-Frobenius eigenvalues equal -2 and their cubes give 81 curve points over F64. The tangent polynomial h^2(h+a+a^4) at an affine curve point shows that a flex has a in F4; its y also lies in F4 since the two solutions of y^2+y=a^3 already lie there. Infinity is a flex as well. The 72 nonflex tangents each have one distinct rational residual point, and every two-point line is such a tangent because the third intersection after two rational points is rational. Counting pairs yields 1056 trisecants. Directly reproduced the exhaustive finite census by an independent pair-join method, replay python3 /workspace/check_secants.py. The implementation uses the reciprocal modulus u^6+u^5+1 (inversion of the residue generator gives the specified field presentation), checks inverses, forms each distinct secant by normalizing a projective cross product of two of the 81 enumerated points, and recognizes trisecants by exactly three unordered pairs sharing that join. It walks each trisecant's 65 points by affine slope or vertical parameter and includes points at infinity. It returned exterior counts 11:72,14:648,16:2052,17:864,18:432,26:12, interior 39:72,40:9, line counts 1080,1953,72,1056, and exact set equality of the 26-locus with the exterior subplane calculated by u^4=u. The test of the 40-locus also matched the nine subplane curve points. This is exhaustive in the fixed plane only; the uploaded verifier's two methods were inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Table 99 concerns complete (n,3)-arcs and lists an n=81, j^(-1)=0 entry over F64, not its exterior multiplicities.",
+          "The Hermitian completeness theorems inspected address extension degree greater than three, or degree three at sufficiently large q with a bound for a class of points."
+        ],
+        "reasoning": "These sources motivate the exact result but the inspected broader completeness and bounds do not determine the six frequencies or extremal locus at q=2 and extension degree three. The separate Resultary match, not broader completeness, decides originality.",
+        "searches": [
+          "arXiv:1510.08375 Table 99",
+          "arXiv:2302.10162 Introduction and Theorem 7.2",
+          "DOI 10.1007/s10801-025-01456-w Main Theorem and §3.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 93d11627de18",
+        "arXiv:1510.08375",
+        "arXiv:2302.10162",
+        "DOI 10.1007/s10801-025-01456-w"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior table includes minimum 11 and maximum 26 and their supports in the same external-point set; its proof likewise enumerates 81 curve points."
+        ],
+        "reasoning": "The minimum follows from the least table row. The 1056 trisecants also follow by dividing the exterior incidence sum by 62, the external points per trisecant. The context counts on the curve and of other types of lines are routine tangent/pair/incidence calculations, not independent scientific gaps left by the exact exterior result.",
+        "searches": [
+          "Resultary 93d11627de18, Finding, scope and opening proof at offsets 0–2468",
+          "Exact comparison with frozen RESULT.md §§Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior statement defines N(P) by completely split distinct rational fibers of the projection from an external P on Y²Z+YZ²=X³, and explicitly equates it with the distinct rational trisecant count."
+        ],
+        "reasoning": "In characteristic two the equations agree; the field, plane, pointwise pencil and unique subfield embedding are the same. Each line through the center is one target point of the pencil, and N(P)=s(P).",
+        "searches": [
+          "Resultary exact Hermitian cubic F64 trisecant histogram and projection splitting-fiber comparison",
+          "Resultary 93d11627de18, Finding and Assumptions, offsets 0–2468"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "93d11627de18 gives all six row counts for the 4080 marked exterior centers and explicitly identifies all twelve centers with value 26 as precisely the F4-subplane complement."
+        ],
+        "reasoning": "This is direct tabular and geometric coverage, not just a numerical collision of parameters or equality of the size of the max locus.",
+        "searches": [
+          "Resultary local semantic search, exact exterior multiplicities 11,14,16,17,18,26 over PG(2,64)",
+          "Resultary 93d11627de18, Finding, offsets 0–1700",
+          "Bartoli–Marcugini–Pambianco Table 99 p. 128"
+        ]
+      },
+      "rationale": "A distinct indexed record, 93d11627de18, states the same complete exterior table and the same marked twelve-point locus for the same cubic and field. Projection fibers are simply the pencil's line sections, so the alternate terminology changes no invariant. The ancillary line and on-curve counts do not provide a separately meaningful new finding.",
+      "residual_risks": [
+        "A limited additional literature search was uninformative and yields no evidence of absence; the exact catalogue overlap decides the review without a claim about earliest historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage",
+          "evidence": [
+            "Same fixed plane, curve and field and same distinct-line meaning; table 11:72,14:648,16:2052,17:864,18:432,26:12; maximum locus PG(2,F4) minus E(F4)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-splitting-fiber-stratification-of-projections-of-a-hermiti--93d11627de18/RESULT.md",
+          "material_read": "Finding, Assumptions and opening proof, offsets 0–2468",
+          "method": "Local full-text mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact splitting-fiber stratification of projections of a Hermitian elliptic cubic over F64",
+          "trigger": "Exact exterior multiplicity and locus overlap"
+        },
+        {
+          "assessment": "Prior complete arc of the same size and j type; displayed passage does not identify the exact model or count all exterior multiplicities",
+          "evidence": [
+            "Table heading q=64, non-singular cubic curves giving complete (n,3)-arcs; n=81 and j^(-1)=0 entry."
+          ],
+          "identifier_or_url": "arXiv:1510.08375",
+          "material_read": "PDF p. 1 and Table 99 p. 128, offsets 1000 and 312570",
+          "method": "Primary OA PDF passages",
+          "title": "Completeness of cubic curves in PG(2,q), q≤81",
+          "trigger": "Finite-field completeness table at q=64"
+        },
+        {
+          "assessment": "Relevant family but theorem's extension range differs",
+          "evidence": [
+            "Introduction flags r=3; Theorem 7.2 gives completeness for r>3."
+          ],
+          "identifier_or_url": "arXiv:2302.10162",
+          "material_read": "Introduction offsets 10000–13898 and Theorem 7.2 p. 17 offset 73680",
+          "method": "Primary OA PDF passages",
+          "title": "Algebraic approach to the completeness problem for (k,n)-arcs in planes over finite fields",
+          "trigger": "Potential stronger theorem on Hermitian extension-plane arcs"
+        },
+        {
+          "assessment": "Asymptotic result, not the exact small-field table",
+          "evidence": [
+            "Completeness at sufficiently large q; q³-scale bound for a class of points."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10801-025-01456-w",
+          "material_read": "Main Theorem p. 2 offset 3414; §3.1 pp. 5–6 offsets 14170–16589",
+          "method": "Primary OA passages",
+          "title": "Complete (k,q+1)-arcs in PG(2,F_(q^6)) from the Hermitian curve",
+          "trigger": "Degree-three Hermitian extension covering bound"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The number of trisecants is a natural and motivated refinement of arc completeness, and the exact max locus is mathematically useful. But both facts and the complete census are already known in the distinct indexed record. An independent computation confirms them without adding new mathematics; flux through the remaining line classes is a routine incidence deduction. No repair is proposed.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review of the quadratic period-three census
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim quantifies over all real \(a>0\) and \(\nu\), and distinguishes primitive scalar three-periodic triples by their coordinate-equality pattern. The two-equal case reduces equivalently to the single real cubic \(a(s-\nu)(s+\nu)^2=1\), with explicit critical values from its extrema. In the all-distinct case, subtraction of the three recurrence equations forces a unique cubic whose discriminant has the sign of \(-96a\nu^3-125\). Viète identities show that every permutation of three distinct real roots also satisfies the original equations, proving sufficiency, not merely necessity. The full six permutations comprise exactly two cyclic orbits. The unique fixed point is excluded explicitly. The stability statement for the two-equal middle branch follows from exact return multipliers. For the two all-distinct sinks, exact fraction evaluations show every strict quadratic Schur inequality at one parameter and hence establish an open coexistence region. All critical rational identities and return matrices can be replayed by running `python3 CHECK.py`. The finite checks corroborate the algebra but the proof, not sampling, establishes global exhaustiveness.
+## correctness
 
-## Originality — PASS, with historical uncertainty
-The principal source [1] already proves that the encompassing map has a unique fixed point and no primitive two-cycle and establishes existence of certain three-cycles with two equal scalar coordinates. Its arXiv Sections 2–3 and conclusions were inspected against the precise global claim. They do not give an all-parameter primitive three-cycle census, the discriminant threshold for pairwise-distinct-coordinate cycles, or a pair of distinct attracting three-cycles. The related full published research record [3] is about four-cycles and a polynomial-degree threshold: neither statement implies the new three-cycle count. Chamberland [2] considers a narrower earlier nilpotent-Jacobian class, not the same quadratic census. The journal revision of [1] was not fully inspected; its potential differences, and inaccessible unindexed work, remain residual priority risks. These searches do not establish a formal absence-of-prior-work theorem.
+PASS
 
-## Mathematical value — PASS
-The originating family was introduced to explore periodic orbit richness despite pointwise Jacobian nilpotence, and previously supplied an existence theorem rather than a cycle count. Determining the full primitive three-cycle phase diagram on its natural quadratic slice separates a genuine repeated-root transition from the onset of two orientation-distinct cycles, with a maximal count of five and a mathematically surprising example of simultaneous sinks. The exact threshold and rational coexistence witness give reusable benchmarks for later studies of polynomial recurrences, multistability and basin geometry. The assertion is a focused complete period-three classification, not a global orbit classification or an unsupported generic-dynamics theorem.
+The scalar recurrence retains all periodic states because the first coordinate of the three-dimensional state is forced by the preceding pair. Equal coordinates give only the fixed point or the cyclic form (nu,s,s) with a(s−nu)(s+nu)^2=1; its level-set count changes at k=27/32. For distinct A,B,C, subtracting the recurrence equations and dividing by the actual nonzero differences forces (S−t)(Q−3t^2)=−1/a at each of the three roots. Coefficient comparison gives P=−S^2, Q=3S^2 and R=−S^3−1/(3a). Newton sums give the squared-difference sum −4S/a and hence S=3nu/5. Conversely these relations make all three recurrence residuals equal with zero sum, for each ordering. The cubic discriminant is −3(96a nu^3+125)/(125a^2); strict positivity gives precisely two cyclic classes, with no distinct branch at equality. On the repeated-coordinate branch the planar trace is 16s^2/(s+nu)^2 and determinant zero, giving the claimed strict stability interval for the middle root only. Direct rational perturbation propagation at a=6331625/4572288, nu=−1 reproduces both orientation-specific trace/determinant pairs and the strict Schur tests. The three-dimensional derivative has a zero extra multiplier; simple roots and strict Schur inequalities persist on an open parameter neighborhood.
 
-## Closest literature and risks
-The most relevant primary work is Castañeda–Rebollo-Perdomo, arXiv:2209.06986v1 (September 15, 2022). Chamberland (2006) supplies earlier related results. The public four-cycle degree-threshold analysis cited as [3] shares the normal form but not the period or conclusion. Potential unseen journal-version differences and other unindexed coverage remain. No higher-period count, basin classification or global all-distinct stability interval is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The normal form, one constructed three-cycle and analysis of its multiplier have direct primary precedent. Two distinct hyperbolic period-three sinks with all-distinct heights at one quadratic parameter, together with the all-distinct-branch exhaustion and exact onset, are supported as the distinct contribution relative to verified earlier material. Later indexed findings exactly overlap the count after rescaling; the strongest retrieved one does not assert attraction. No claim of historical uniqueness is made.
+
+## value
+
+PASS
+
+The census answers a natural uniqueness question for the simplest quadratic defining polynomial in a studied family. The second threshold reveals two previously unaccounted cyclic orientations, and the exact witness proves stable coexistence, persisting under perturbation despite the strong nilpotence restriction in the original coordinates. Counting only the repeated-coordinate branch would miss both phenomena.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

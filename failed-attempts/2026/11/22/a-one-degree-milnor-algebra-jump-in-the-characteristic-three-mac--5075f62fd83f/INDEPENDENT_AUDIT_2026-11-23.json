@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:03:45.609702Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The labeled specialization t=-1 is exactly the eight-factor product, up to units. An independent finite-field replay found eight zero triple determinants in the quadratic integral model and norm one for the other 48; the zero triples share no pair and all reduced lines are distinct. This gives eight ordinary triples and four nodes in both characteristics. The local Tjurina length at a triple is four even in characteristic three: after a linear change and removing a unit take f=uv(u-v), and with w=u+v the Tjurina ideal is (uw,w²,u³), with basis 1,u,w,u². The node has length one. The replay reconstructed the cubic and quintic syzygies and primitive relation, dimensions [0,0,0,1,3,8] through coefficient degree five, all nine stated grevlex leaders and the exact all-degree numerator 1-3T^7+T^10+2T^12-T^13. The exhibited relation spans the relation module over the fraction field because U and B are independent; primitivity and unique factorization force polynomial multiples over S. The submodule presentation has the full Hilbert numerator, so its graded quotient in the full syzygy module vanishes; all differentials have positive-degree entries, giving minimality. Flat field extension preserves the result and minimality. The complex comparator follows from the cited nearly-free exponents (4,4) in Proposition 2.1 combined with Theorem 1.6, and its numerator is 1-3T^7+3T^11-T^12. Their difference is T^10(1-T)^3, so dimensions are 37 and 36 in degree ten and equal elsewhere. Supplied verify.py was inspected, not executed. Separate replay: branches/3201ff35-2dcd-45cd-be5c-f76b4ce78a4c/replay.py and replay.log. The calculation concerns only this model and the unsaturated homogeneous quotient.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yoshinaga Theorems 4 and 10: an F_q rank-three arrangement with empty vector complement is free with exponents (1,q,|A|-q-1); for |A|≥2q freeness forces empty complement.",
+          "Abe Theorem 1.4, over a field: the single-hyperplane deletion A' of a free arrangement is free or strictly plus-one generated with the free arrangement's exponents and level |A'|-|A^H|.",
+          "Burity–Simis–Tohaneanu arXiv:2101.02735v1, Theorem 2.10 and Proposition 2.14, provides adjacent Jacobian-ideal structure but is not the theorem yielding the shifts used here."
+        ],
+        "reasoning": "The finite-field and deletion criteria apply together to the exact arrangement. They cover the full minimal module resolution, in contrast to adjacent statements about local algebras, linear type or the entire projective-plane line arrangement.",
+        "searches": [
+          "Primary search: Masahiko Yoshinaga free arrangements over finite field characteristic polynomial chi q =0 rank 3 arxiv",
+          "Yoshinaga arXiv:math/0606005v1, Theorems 4 and 10",
+          "Abe arXiv:1808.04697, Theorem 1.4",
+          "Resultary: generic line arrangements over F3 Jacobian ideal Milnor algebra Betti numbers"
+        ]
+      },
+      "checked_sources": [
+        "Yoshinaga arXiv:math/0606005v1; Abe arXiv:1808.04697",
+        "Nazir–Yoshinaga Example 4.3; Malara–Pokora–Tutaj-Gasińska Theorem 1.6, Proposition 2.1 and §6",
+        "Burity–Simis–Tohaneanu arXiv:2101.02735v1",
+        "Local Resultary 1ea7e47cec9a, f81f7e49ee08, 3e816ee2ce16 and assigned-record self-match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Over F3 any point with z≠0 has x=0 or x=±z, so the original arrangement A covers it. At z=0 the only remaining projective direction is [1:-1:0]. Thus B=A∪{z=0} has empty complement and nine planes; A has eight planes and nonempty complement. By Yoshinaga, B is free with exponents (1,3,5), and A is not free since 8≥2·3.",
+          "In H={z=0}, all nine-plane restriction forms other than H reduce up to units to x, y, x-y, so |B^H|=3. By Abe, A has strictly plus-one exponents (1,3,5) and level 8-3=5. Definition 1.1 gives a unique minimal relation at degree 6 on the degree-1,3,5,5 derivation generators. Splitting off Euler gives AR(F) with degrees 3,5,5 and that relation; shifting by 7 yields the claimed Milnor resolution over F3, hence after scalar extension.",
+          "The two linear relation coefficients and one cubic are exactly the degrees forced by that presentation. The characteristic-zero numerator follows by the previously published nearly-free resolution, so the displayed isolated Hilbert jump is plain subtraction."
+        ],
+        "reasoning": "The approach gives the displayed Betti shifts and the Hilbert difference without computing a Gröbner basis, a new nonstandard theorem or a search-dependent negative inference. The only specific input beyond the existing theorems and published model is the evident completion by z=0 and its three distinct restriction lines.",
+        "searches": [
+          "arXiv:math/0606005v1, Theorem 4 and Theorem 10; OA offsets 0–7190 and 11200–15170",
+          "arXiv:1808.04697, Definition 1.1 and Theorem 1.4, OA opening excerpt offset 0–7993",
+          "DOI 10.1007/s10711-021-00602-5, Theorem 1.6, Proposition 2.1 and §6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Abe arXiv:1808.04697, Definition 1.1 and Theorem 1.4, characterizes the graded logarithmic module of a nonfree single-hyperplane deletion from a free arrangement.",
+          "Since 8 is invertible in characteristic three, D(A)=S(-1)⊕AR(F) by splitting off the Euler derivation: for theta in D(A), subtract (theta(F)/(8F))E. Squarefreeness makes logarithmic tangency equivalent to theta(F) being divisible by F.",
+          "Nazir–Yoshinaga Example 4.3 p. 929 supplies the complex normal form; Möbius–Kantor hits in the bounded queries concerned graph configurations/homology rather than this Jacobian module."
+        ],
+        "reasoning": "A minimal logarithmic-derivation resolution translates exactly into the graded Jacobian-syzygy resolution in this model, since the Euler summand is free and n=8 is prime to 3. Coverage is not limited to matching lattice names or to local Tjurina modules.",
+        "searches": [
+          "Resultary: MacLane arrangement characteristic three Jacobian syzygy Milnor Hilbert series",
+          "Resultary: Möbius-Kantor arrangement characteristic three Jacobian syzygies Hilbert series",
+          "Resultary: positive characteristic line arrangements Jacobian syzygy degrees Milnor algebra theorem",
+          "Primary search: Takuro Abe finite field line arrangements F3 deleting lines complete projective plane plus-one generated logarithmic derivations finite fields exponents classification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bounded local search returned the assigned record as the exact characteristic-three Betti/Hilbert-table hit. The read nonself records 1ea7e47cec9a, f81f7e49ee08 and 3e816ee2ce16 concern a different conic–line divisor outside characteristic three, local Tjurina algebras, and the complete finite-field hyperplane arrangement with dimension at least four, respectively.",
+          "Malara–Pokora–Tutaj-Gasińska Theorem 1.6 and Proposition 2.1 already supply the exact complex comparison shifts."
+        ],
+        "reasoning": "No independently printed exact characteristic-three table is necessary for prior coverage: the two broader results compute all of its entries by one small restriction count and two substitutions. The ranked searches do not prove that no such table exists.",
+        "searches": [
+          "Resultary: MacLane exact Milnor algebra Hilbert numerator graded Betti table characteristic 3",
+          "Resultary: Möbius Kantor arrangement Jacobian ideal characteristic three Betti table",
+          "Resultary: arrangement over F3 Milnor algebra Hilbert series graded resolution"
+        ]
+      },
+      "rationale": "The stated characteristic-three minimal resolution, not merely its nonfreeness or low-degree Frobenius syzygy, is mechanically implied by existing finite-field freeness and free-deletion theorems. Adjoining z=0 covers all F3 points, and deleting it leaves a nonfree arrangement with a three-line restriction. Yoshinaga and Abe therefore directly give the exact graded shifts. The characteristic-zero comparator is already known; subtraction gives the degree-ten invariant without a new ingredient. No earlier exact MacLane table was located; direct implication is the decisive prior coverage.",
+      "residual_risks": [
+        "An exact published characteristic-three table might exist outside the bounded searches. This does not undermine the positive coverage by explicit stronger theorems.",
+        "No assertion is made about other arithmetic models, other primes or priority for a particular certificate implementation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive: determines free exponents of the nine-line completion and nonfreeness of the original",
+          "evidence": "Theorem 10(1) gives exponents (1,q,|A|-q-1) when chi(A,q)=0; (2) gives the converse implication to chi(A,q)=0 for free arrangements of size at least 2q. Theorem 4 identifies chi(A,q) with complement size.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0606005v1",
+          "material_read": "§§2–4, especially Theorems 2, 4, 10; extracted offsets 0–7190 and 11200–15170",
+          "method": "Lawful OA PDF, bounded read",
+          "title": "Free Arrangements over Finite Field",
+          "trigger": "Coverage of a characteristic-three completion by a single missing line"
+        },
+        {
+          "assessment": "Decisive: full graded logarithmic presentation immediately recovers the target gradient shifts",
+          "evidence": "Theorem 1.4 gives strictly plus-one exponents of the free arrangement and level |A'|-|A^H| for its nonfree deletion; Definition 1.1 gives the degree-level-plus-one relation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1808.04697",
+          "material_read": "Introduction, Definition 1.1, Remark 1.2 and Theorem 1.4, opening excerpt offsets 0–7993",
+          "method": "Lawful OA PDF, bounded read",
+          "title": "Plus-one generated and next to free arrangements of hyperplanes",
+          "trigger": "Full resolution of nonfree deletions from a free completion"
+        },
+        {
+          "assessment": "Provides complex normal form and labeled realization components, not the gradient table",
+          "evidence": "The eight-line forms use the roots of t²-t+1, and the two labeled realizations modulo projectivity are conjugate.",
+          "identifier_or_url": "https://www.numdam.org/article/ASNSP_2012_5_11_4_921_0.pdf",
+          "material_read": "Example 4.3 p. 929 and continuation pp. 930–933",
+          "method": "Lawful OA published PDF",
+          "title": "On the connectivity of the realization spaces of line arrangements",
+          "trigger": "Origin and equivalence of the two complex normal forms"
+        },
+        {
+          "assessment": "Exact known complex comparison, not a characteristic-three claim",
+          "evidence": "Proposition 2.1 identifies NF_3 with MacLane and nearly-free exponents (4,4); Theorem 1.6 supplies the degree-12,11,7 shifts; Section 6 prints the eight-line equation.",
+          "identifier_or_url": "https://doi.org/10.1007/s10711-021-00602-5",
+          "material_read": "Theorem 1.6 p. 51, Proposition 2.1 pp. 52–53, §6 p. 61",
+          "method": "Lawful publisher OA PDF",
+          "title": "On 3-syzygy and unexpected plane curves",
+          "trigger": "Exact characteristic-zero resolution comparator"
+        },
+        {
+          "assessment": "Adjacent structure, not the source of the explicit computation",
+          "evidence": "Rank-three linear type and general reduction facts with characteristic provisos do not state the MacLane shifts.",
+          "identifier_or_url": "https://arxiv.org/abs/2101.02735",
+          "material_read": "Introduction p. 3, Theorem 2.10 pp. 12–13 and Proposition 2.14 p. 14",
+          "method": "Lawful OA primary text",
+          "title": "On the Jacobian ideal of central arrangements",
+          "trigger": "Broader rank-three small-characteristic Jacobian ideals"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The MacLane arrangement and its global-versus-local comparison are well motivated, and the independent computation is a useful reproducibility check. But the claimed exact invariant is already mechanically implied by stronger published results, with the characteristic-zero comparator already explicit. Recomputing that consequence by a different certificate does not constitute a separately valuable new finding under the exact-invariant standard; no nonroutine remainder is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:52:29.623994Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For ordered real rates and ordered time nodes, the exponential evaluation determinants never vanish by the Rolle-induction Chebyshev argument; their signs agree by the coalescent Vandermonde limit. Andréief's identity on the ordered simplex gives positive minors of K_T for all T>0. Gram positivity and the cofactor rule give the strict checkerboard inverse. For all-nonzero b, the Rayleigh quotient of the inverse frame matrix at Db is exactly s_T; a zero coordinate instead gives bound zero. For q_i=(R_T 1)_i/s_T, the difference diag(R_T 1)−R_T is a weighted graph Laplacian, hence positive semidefinite with kernel containing 1. Conjugation by diag(1/√q_i) shows the attaining inverse has largest eigenvalue s_T. Equality in the original Rayleigh quotient forces b_i²=q_i, and signs are a similarity. For small T the Taylor-coordinate Gram can be written as M diag(T^(k+1/2)) H_T diag(T^(k+1/2)) M^T where H_T→H, the positive Hilbert matrix, and M_{ik}=(−λ_i)^k/k!. In the inverse multiplied by T^(2n−1) only the (n−1,n−1) Hilbert-inverse corner survives. Lagrange leading coefficients give the β vector with factor (−1)^(n−1)(n−1)!; the reciprocal monic shifted-Legendre norm gives the remaining (2n−1) binom(2n−2,n−1)^2. The alternating β signs yield the two stated limits, and continuity of inversion at the positive Cauchy Gram gives the long-window result. For n=1 everything reduces to (1−e^(−2λ_1 T))/(2λ_1) and b=±1. Read but did not run the uploaded verifier; the all-horizon argument is analytical, not a numerical inference.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The semigroup-frame comparison addresses existence and frame-vector characterization; the actuator covariance relaxation in Trélat–Zuazua varies all positive semidefinite trace-one matrices and is not the scalar problem.",
+          "Trélat–Zuazua Theorem 2.4 and Proposition 2.6 already give the small-time scalar value, weights and small-horizon uniqueness in the real normal simple-spectrum case. Chen–Belabbas Theorem 1 gives the exact infinite-horizon scalar value and normalized Cauchy-inverse weights under the stated real symmetric hypotheses."
+        ],
+        "reasoning": "Do not mistake a relaxed all-ranks optimum or a frame existence theorem for scalar coverage. The two exact limiting results really are covered under specialization, whereas finite-T coverage follows separately via the discrete-orbit statement and limit.",
+        "searches": [
+          "Bailey–Gallardo-Gutiérrez–Partington arXiv:2611.13867v1 introduction and §3",
+          "Trélat–Zuazua arXiv:2609.37081 Theorem 2.4 and Propositions 2.6, 2.9",
+          "Chen–Belabbas arXiv:1610.08885 Theorem 1 and §2.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Local Resultary target and f73c92c23f4a",
+        "arXiv:1610.08885",
+        "arXiv:2609.37081",
+        "arXiv:2609.37077",
+        "arXiv:2611.13867v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chen–Belabbas' published proof uses the positive signed-Cauchy-inverse row sums to solve the eigenvector equations and yields exactly the counterpart row-sum formula; it does not itself assert a theorem for continuous finite T.",
+          "The discrete source explicitly uses the same Rayleigh saturation and positive inverse eigenvector argument. After passage of the kernel to Lebesgue measure, the only sign check needed for strictness is the usual exponential determinant sign, via continuous rather than finite Cauchy–Binet."
+        ],
+        "reasoning": "The finite-window result is mechanically supplied by dense sampling plus standard Gram and equality arguments; positivity and normalization do not hide a distinct optimization principle. The separately known asymptotic coefficients do not rescue originality.",
+        "searches": [
+          "Chen–Belabbas PDF §2.3, Corollary 2 proof, offset 37500",
+          "f73c92c23f4a RESULT.md proof §§1–3, offset 0",
+          "Trélat–Zuazua scalar asymptotic theorem and proposition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The discrete theorem allows arbitrary distinct nodes a_i∈(0,1), N≥n−1, and gives the reciprocal signed-inverse sum and normalized row sums, with unique magnitudes and arbitrary phases.",
+          "Set h=T/N and a_i=exp(−hλ_i) (reverse indices for the specified increasing order; reversing changes the checkerboard signs only by a common phase). Then h C_N→K_T by Riemann sums and (h C_N)^−1→K_T^−1. The h-scaled discrete Gram operators converge uniformly over unit b, so their maximal least eigenvalues converge too; the discrete optimal normalized weights converge to the displayed normalized signed-inverse row sums."
+        ],
+        "reasoning": "This proves exact coverage of the finite-window value and an attaining weight vector for every T>0. Strict positivity of the continuous inverse follows by the standard continuous Cauchy–Binet sign argument; as in the discrete proof, equality in the inverse Rayleigh bound forces those weights, so uniqueness does not require inferring uniqueness merely from a limit of optimizers. The n=1 scalar integral is elementary.",
+        "searches": [
+          "Local Resultary: finite-window diagonal contraction lower frame bound and spectral-optimal sensor amplitudes checkerboard inverse",
+          "f73c92c23f4a RESULT.md, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target appeared as a self-match; the distinct f73c92c23f4a gives exact closed formulae for both spectral optimum and optimizers, not merely numerical examples.",
+          "The separate index entry bears the same date, which does not establish order of discovery or release."
+        ],
+        "reasoning": "This problem concerns an all-input symbolic formula rather than an isolated database coefficient. Compare the actual indexed formula and quantifiers, including the sampled-to-continuous limit, not the numerical two- or three-mode examples or the title.",
+        "searches": [
+          "Local Resultary finite-window lower-frame optimizer; checkerboard signed inverse row sums; discrete diagonal operator orbits",
+          "Local-mirror full text of f73c92c23f4a"
+        ]
+      },
+      "rationale": "The main all-horizon formula is a direct dense-uniform-sampling consequence of the distinct same-day discrete-orbit theorem f73c92c23f4a, not just an analogous formula. Its inverse-matrix proof implements the same checkerboard/Rayleigh/eigenvector reduction. Exact statement coverage is demonstrable without assigning within-day priority. The remaining long- and short-window statements are already covered by Chen–Belabbas and Trélat–Zuazua respectively; there is no supported distinct remainder in the frozen claim.",
+      "residual_risks": [
+        "Publication order within the shared date is undetermined. The coverage assessment is mathematical and does not allege copying.",
+        "Older general diagonal-majorant or E-optimal-design antecedents may exist; this verdict does not depend on unverified sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage via dense uniform sampling, with independent standard strictness and uniqueness check; no claim of priority within the day",
+          "evidence": [
+            "It establishes both the reciprocal sum and the equality iff normalized row-sum weights for every N≥n−1 and any strict positive diagonal contraction."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-spectral-optimal-sensor-amplitudes-for-positive-diagonal-o--f73c92c23f4a/RESULT.md",
+          "material_read": "Finding, assumptions and proof §§1–3, offset 0 through 4995",
+          "method": "Local Resultary search and exact mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact spectral-optimal sensor amplitudes for positive diagonal operator orbits",
+          "trigger": "Same exact optimizer and sign pattern for finite discrete horizons"
+        },
+        {
+          "assessment": "Exact infinite-horizon coverage and strong method overlap, not a direct finite-horizon theorem",
+          "evidence": [
+            "The Cauchy inverse's checkerboard signs, total signed inverse sum, and normalized signed inverse row sums are explicit."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1610.08885",
+          "material_read": "Setup p. 2; Theorem 1 p. 3; §2.3 Corollary 2 proof p. 5, PDF offset 37500",
+          "method": "Targeted OA PDF",
+          "title": "Optimal actuator design for minimizing the worst-case control energy",
+          "trigger": "Identical matrix scaling in the infinite-horizon scalar problem"
+        },
+        {
+          "assessment": "Covers exact limiting constants/weights and local scalar uniqueness; the inspected all-horizon relaxed result is not the scalar optimizer",
+          "evidence": [
+            "Specializing real normal simple spectra to −diag(λ_i) gives the β weights and the same leading power and value constant."
+          ],
+          "identifier_or_url": "https://dcn.nat.fau.eu/wp-content/uploads/actuator.pdf",
+          "material_read": "Theorem 2.4 p. 7 offset 24100, Proposition 2.6 p. 8 offset 28450, covariance optimization p. 5 and Proposition 2.9 p. 11",
+          "method": "Targeted lawful OA PDF",
+          "title": "Optimal Actuator Design across Ranks and Control Horizons",
+          "trigger": "Same finite-horizon actuator objective and limiting coefficients"
+        },
+        {
+          "assessment": "Fixed-pair expansions, not itself optimization over b",
+          "evidence": [
+            "The scalar design comparison is supplied by the separate rank/horizon paper."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.37077",
+          "material_read": "Theorem 1 p. 3 offset 10750",
+          "method": "Targeted OA PDF",
+          "title": "Two-term small-time spectral expansions for controllability Gramians",
+          "trigger": "Possible prior direct small-window spectral result"
+        },
+        {
+          "assessment": "Existence/frame characterization, not the exact optimizer",
+          "evidence": [
+            "The inspected cogenerator and frame-vector results do not optimize modal amplitudes."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.13867v1",
+          "material_read": "Introduction and §3",
+          "method": "Targeted OA passage",
+          "title": "Frames Associated with C0-Semigroups",
+          "trigger": "Same semigroup frame terminology and existence problem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The continuous finite-window design is naturally motivated and the formula is useful, but the frozen standalone contribution adds no independent mathematical gap beyond the exact sampled-orbit design and the already established horizon limits: pass the Gram to its Riemann limit, apply the same signed-inverse scaling, and use the standard determinant sign for strictness. As an independent finding, a mechanically obtained invariant with no new threshold or optimization phenomenon does not meet the value criterion.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

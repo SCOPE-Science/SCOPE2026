@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducibility and check limits
+# Independent mathematical audit
 
-Run the two standard-library scripts with Python 3.9 or later:
+## correctness
 
-```
-python3 verify_permutations.py
-python3 verify_cube_paths.py
-```
+PASS
 
-`verify_permutations.py` checks all unordered pairs of forbidden proper nonempty subsets up to coordinate relabeling. Every orbit is classified by the cardinalities of the two forbidden sets and their intersection. It enumerates all \(n!\) permutations, builds the full adjacent-position-swap graph, removes disallowed prefixes, and counts components. Expected orbit counts in dimensions three through eight: 4, 10, 19, 32, 49, 71. The only disconnected orbit in that range occurs at dimension three with cardinalities \((1,2,0)\) and has two one-vertex components. It additionally compares every entry of the ten-row dimension-four table in `RESULT.md` against hard-coded expected counts.
+A length-n antipodal path adds each coordinate once, and changing one internal vertex exchanges the two coordinates on either side of that vertex. The computational Q4 base was independently reproduced directly in cube-path coordinates for all 106 fault sets of size 0–2, including the ten tabulated pair types; every allowed graph is nonempty and connected. In the induction, any first letter not itself forbidden leaves nonempty proper suffix faults only from the original sets containing that letter; induction gives a nonempty connected fiber. A proposed bridge uses the same suffix after (s,t) and (t,s); its two singleton sets and common doubleton are allowed. Each further forbidden set can exclude at most a 1/(n-2) proportion of suffixes, since its residual size lies between 1 and n-3. Thus two faults cannot block the bridge for n>=5. The fiber graph has at least n-2 vertices and loses fewer edges than its minimum complete-graph cut, so the connected fibers join into one component. In Q3 the only two remaining paths after forbidding {0} and {1,2} differ in both internal vertices; the independent enumeration confirmed exactly this obstruction.
 
-`verify_cube_paths.py` independently enumerates all length-\(n\) monotone cube paths as sequences of bitmask vertices, compares each pair of paths by their entire sequence of intermediate nodes, and builds one-vertex rerouting adjacency directly. It checks **every** fault set of sizes zero, one and two in dimensions two through six. Counts of such fault sets for \(n=2,3,4,5,6\) are respectively 4, 22, 106, 466, 1954. The graph is connected for every case in dimensions four through six, with three disconnected cases at dimension three and one no-route case at dimension two.
+## originality
 
-The exhaustive checks establish the finite dimension-four induction base and expose the sharp dimension-three counterexample. They do not verify any dimension beyond eight and are not presented as an infinite proof. The independent mathematical induction is given in `RESULT.md`. No external validation was performed.
+PASS
+
+The known fault-free permutahedral representation and the one-fault result are not claimed as novel. The inspected sources do not cover connectivity after two arbitrary internal faults, for which the missing bridges must be controlled simultaneously and Q3 has a genuine counterexample.
+
+## value
+
+PASS
+
+The result guarantees that all currently feasible shortest antipodal routes can be transformed into one another without sacrificing optimal length or traversing either fault. This is stronger than existence of one survivor and is not inherited from fault-free sorting. A small counterexample identifies the exact minimum dimension for the guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

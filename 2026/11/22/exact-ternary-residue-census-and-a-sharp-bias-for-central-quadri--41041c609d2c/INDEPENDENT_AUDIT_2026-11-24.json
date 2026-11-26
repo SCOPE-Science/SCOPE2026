@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:06:33.211183Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Frobenius factorization gives the stated carry transitions in F_3; the parity-conditioned starts encode twice the floor of 3n/2, and the parity filter counts each ternary word exactly once, including zero. Integral transitions stay in the five carries −2 through 2. The independently rebuilt graphs have 8 and 10 states and the stated counts satisfy the candidate recurrences through L=25. After multiplying the candidate annihilators by the combined graph's degree-18 characteristic polynomial, zero initial differences of lengths 20 and 21 suffice for equality at all levels. A direct algebraic check collapses the two sign partners in the tables: let h=1 for support, h=−1 for signed count, and let A,C,D be the continuation series at even-branch states 0,2,1. They satisfy A=1+z(A+C+D), C=1+z(2A+hD), D=hz(A+D). The odd start contributes zA/(1−hz), by its two transient states. Eliminating gives total (1+z)(1+(1−h)z)/(1−(1+h)z−2z²+(2h−1)z³), which is exactly the pair of claimed series. The bias recurrence is positive and its positive root dominates because the other two roots are conjugate with modulus √(3/ρ)<ρ; the numerator is positive at the dominant pole. Direct polynomial multiplication for all n<729 independently agreed on every full block through L=6. Replay: direct_polymul_check.py and independent_transfer_check.py in /workspace/branches/810b7590-de31-41ce-8264-3d2c524b9080. Uploaded code was not executed. No assertion is made for arbitrary cutoffs or higher prime powers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The automata paper gives generic prime-power residue computation and examples for Catalan, Motzkin and Delannoy. The inspected quadrinomial congruence results take primes at least five at selected indices."
+        ],
+        "reasoning": "The latter hypotheses do not include the asserted complete ternary blocks. The general algorithm does not by itself give the evaluated Fibonacci law, signed rational series, or their spectral comparison.",
+        "searches": [
+          "Rowland–Zeilberger Meta-Automation, abstract and examples p. 1",
+          "Mechacha arXiv:2307.16768, Theorem A",
+          "Belbachir–Otmani A27 pp. 3–4"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A005190",
+        "Smith–Hoggatt Fibonacci Quarterly 17(3) 264–269",
+        "arXiv:2307.16768",
+        "Integers 23 A27",
+        "Rowland–Zeilberger Meta-Automation",
+        "Resultary e40402e704ea"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing methods construct per-index modular data and could be specialized. The finding verifies the actual two parity graphs and evaluates two different weightings; the four-ary binomial law uses a different coefficient predicate."
+        ],
+        "reasoning": "Neither the ordinary scalar sequence recurrence nor generic automaton existence forces the specific two generating functions. Deriving the accepted all-L statement needs the reachable transitions and elimination or verified recurrence certificate for both weightings.",
+        "searches": [
+          "Rowland–Zeilberger Meta-Automation p. 1",
+          "Smith–Hoggatt pages 266–267 recurrence passages",
+          "Resultary e40402e704ea Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A005190 is exactly the base sequence, including the symmetric pair of centers for odd n. The κ_n in A27 is Q_(2n), rather than Q_n at every index. Resultary e40402e704ea counts binom(4n,n) residues."
+        ],
+        "reasoning": "An even-subsequence congruence or a signed law for binom(4n,n) is not an alias of the full central quadrinomial census.",
+        "searches": [
+          "OEIS A005190 central quadrinomial / maximal coefficient",
+          "Belbachir–Otmani A27 pp. 3–4, κ_n central coefficient",
+          "Local Resultary signed ternary-block bias"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A005190 and the classical recurrence tables concern ordinary coefficient sequences. The exact Resultary match is the frozen finding itself; the independently indexed signed-bias record e40402e704ea concerns a different sequence."
+        ],
+        "reasoning": "Computability of a finite list of residues from integer tables is not the all-level residue census or a table of its two rational sequences.",
+        "searches": [
+          "OEIS A005190 full entry",
+          "Smith–Hoggatt pp. 266–267",
+          "Local Resultary central quadrinomial ternary census and signed-bias records"
+        ]
+      },
+      "rationale": "The supported new content is the evaluated all-level ternary-block census for the central quadrinomial sequence, in particular the signed secondary term alongside the Fibonacci support. The base sequence and generic congruence-automaton construction are known. None of the examined exact matches for the underlying sequence, alternate indexing, special-index congruences, or general automata provides the evaluated paired counts. This bounded assessment does not establish historical priority.",
+      "residual_risks": [
+        "An earlier explicit census or equivalent evaluated automaton could be present in an uninspected companion output or unindexed source.",
+        "The same-day date of a related Resultary result provides no evidence of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identifies base sequence and ordinary recurrence, not checked census formulas.",
+          "evidence": "The central index is floor(3n/2) for the four-term power.",
+          "identifier_or_url": "https://oeis.org/A005190",
+          "material_read": "Entry at offset 0",
+          "method": "Bounded OA database entry inspection",
+          "title": "Central quadrinomial coefficients",
+          "trigger": "Exact sequence alias and potential existing census"
+        },
+        {
+          "assessment": "Classical ordinary integer recurrences for related coefficient sequences, no target census in checked material.",
+          "evidence": "Comparison with central values and tabulation of recurrence equations.",
+          "identifier_or_url": "https://www.fq.math.ca/Scanned/17-3/smith.pdf",
+          "material_read": "pp. 266–267 (OA offsets 4638, 7600)",
+          "method": "OA PDF recurrence passages",
+          "title": "A Study of the Maximal Values in Pascal's Quadrinomial Triangle",
+          "trigger": "Classical maximal coefficient recurrences"
+        },
+        {
+          "assessment": "Selected p² congruences for p≥5.",
+          "evidence": "Prime and coefficient-index hypotheses exclude the claimed complete mod-three blocks.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.16768",
+          "material_read": "Abstract p. 1 and Theorem A p. 2 (OA offsets 530 and 6700)",
+          "method": "OA PDF bounded theorem inspection",
+          "title": "Congruences concerning quadrinomial coefficients",
+          "trigger": "Same coefficient family, congruences"
+        },
+        {
+          "assessment": "Related central-even values under selected congruences for p≥5.",
+          "evidence": "κ_n=[x^(3n)](1+x+x²+x³)^(2n).",
+          "identifier_or_url": "https://math.colgate.edu/~integers/x27/x27.pdf",
+          "material_read": "pp. 3–4 (OA offsets 7100–7800)",
+          "method": "OA PDF definitions and congruence passages",
+          "title": "Quadrinomial-Like Versions for Wolstenholme, Morley and Glaisher Congruences",
+          "trigger": "Central-even coefficients under alternative indexing"
+        },
+        {
+          "assessment": "Generic algorithm; its evaluated examples on this page are for other sequences, not a claim about all appendices or output files.",
+          "evidence": "Automatically generated congruence automata determine individual terms modulo prime powers.",
+          "identifier_or_url": "https://sites.math.rutgers.edu/~zeilberg/mamarim/mamarimPDF/meta.pdf",
+          "material_read": "p. 1, abstract, software description and examples (OA offsets 0–3369)",
+          "method": "OA PDF bounded passage inspection",
+          "title": "A Case Study in Meta-Automation: Automatic Generation of Congruence Automata For Combinatorial Sequences",
+          "trigger": "General automatic congruence method that might cover exact census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete ternary blocks are the natural padded-digit sample space, and the central coefficient is a standard object. The count determines all three residues at every depth and separates the nonzero-support rate from the strictly smaller but positive bias rate, a feature genuinely beyond a nonvanishing census or ordinary sequence table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

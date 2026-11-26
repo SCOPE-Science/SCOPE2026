@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:04:25.431687Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–83",
+        "Frozen VERIFICATION.md and verification/verify.py",
+        "/workspace/review-evidence/4-replay.py (python3, exact labelled subset check)"
+      ],
+      "rationale": "For any unpinned cycle, a non-target initial opinion on its vertices persists: those vertices and their two cycle neighbors supply three equal inputs even in the presence of chords; solve the remaining equations with these coordinates fixed and invoke uniqueness. Conversely, order unpinned forest vertices by leaf removal. The jth one sees at least three inputs from pins or earlier removals; a five-input median is between the extreme values of any three inputs. In the shifted, exponentially rescaled coordinates y_i=e^t(x_i−u), pinned values are constant and unpinned derivatives equal the corresponding median of y. Induction and integration give |y_{v_j}|≤R∑_{ℓ=0}^j t^ℓ/ℓ!, proving the all-initial-state bound. In C_n² a triple of consecutive unpinned sites is a triangle. With no such triple, each unpinned edge joins cyclically consecutive unpinned sites, since a length-two shorter arc spanning a third unpin would be such a triple. With no adjacent pins, these consecutive pairs all join into a cycle on at least three unpinned sites; an adjacent pin pair breaks that cycle (zero, one or two unpinned sites are already acyclic). This includes n=5,6, no pins and all pins. The pin bound n≤3p−2 is attained by the stated gap list. Counting ordered deficits from 3 gives p ordered lists at deficit 2, p(p−1) at deficit 3, and binomial(p,2)+p binomial(p−1,2) at deficit 4; from labelled first pins the conversion is n/p. An independent disjoint-set replay counted all 524,256 labelled subsets for n=5…18 and reproduced the forest/gap equivalence and all optimum counts. The frozen verification/verify.py was located and inspected, not run.",
+      "residual_risks": [
+        "The finite replay supplements the all-n proof. The trajectory result is a uniform upper bound, not a claim of a sharp polynomial degree per layout."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Han et al. characterize global control by intersection of every cohesive set. Zhang et al. prove a related no-unprejudiced-cohesive-set condition in discrete time."
+        ],
+        "reasoning": "In the uniform self-plus-four model cohesion reduces to minimum induced degree two, so the forest equivalence follows immediately from Han. Their qualitative theorem does not give the cyclic gap classification, the labelled optimum count or the claimed time profile.",
+        "searches": [
+          "arXiv:2404.16318v3 Definition 3, Section 4 Proposition 14",
+          "arXiv:2408.01899v1 Theorem 4.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2404.16318v3",
+        "arXiv:2408.01899v1",
+        "Bau–Beineke 2002, p. 285",
+        "Pike–Zou DOI 10.1137/S089548010444016X (title only)",
+        "Resultary --a06a1735df72, --27af5da49cb2, --2287208f4b56 and --55e496b64072 (last catalogue comparison)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The forest criterion is prior by specialization. General decycling terminology does not count pin layouts, and Han's stated all-initial-state criterion does not bound time-dependent deviations.",
+          "The cited Cartesian-product paper could not be read in lawful OA, and its title alone does not decide coverage."
+        ],
+        "reasoning": "A comparison against the existing qualitative result leaves a graph-specific combinatorial problem and a quantitative comparison estimate. Neither the inspected general statements nor the same-graph Results mechanically yield those claims.",
+        "searches": [
+          "arXiv:2404.16318v3 Proposition 14",
+          "Decycling-number original sources and exact square-of-cycle family search",
+          "Resultary squared-cycle fort and zero-forcing Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Decycling and feedback vertex sets are equivalent to complementing an induced forest. The indexed fort, zero-forcing and locating families use different subset properties; the linear Laplacian result uses Kalman controllability rather than the median."
+        ],
+        "reasoning": "The appropriate equivalent graph problem is decycling, not other sparse vertex-placement problems in C_n². The indexed fort minimum ceil(n/3) and its length-four gaps demonstrate a distinct set property, not a renaming.",
+        "searches": [
+          "Square of a cycle / squared cycle decycling number, feedback vertex set and maximum induced forest",
+          "Bau–Beineke, The decycling number of graphs, p. 285",
+          "Resultary --a06a1735df72, --27af5da49cb2, --2287208f4b56 and --55e496b64072"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The squared-cycle fort record counts forts with different gap rules. The indexed ordinary zero-forcing record has count 3n and size 4 for n≥7. The error-detecting locating record has yet another defining property."
+        ],
+        "reasoning": "These are the closest same-object censuses, but none enumerates the feedback vertex family. The exact count here is all-order and labels rotations as distinct layouts, not just a finite minimum-size table.",
+        "searches": [
+          "Resultary same-graph cyclic gap classifications and labelled optimal set counts",
+          "Resultary --a06a1735df72, --27af5da49cb2 and --2287208f4b56"
+        ]
+      },
+      "rationale": "The forest criterion is a direct consequence of Han et al.'s general cohesive-set criterion and is credited as such. The distinct supported content is the cyclic gap characterization and exact labelled optimum-layout census together with the explicit global time envelope. No inspected exact decycling result or same-graph set census supplies these claims.",
+      "residual_risks": [
+        "Specialist circulant or graph-power literature could contain exact decycling or enumeration formulas; targeted retrieval did not settle the whole literature. The exact time envelope could have an unindexed analogue. No priority claim for the general criterion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior implication for forest equivalence, not census or time envelope",
+          "evidence": "The within-set weight threshold is one half; target convergence for all initial opinions occurs iff the manipulated set intersects every cohesive set.",
+          "identifier_or_url": "https://arxiv.org/html/2404.16318v3",
+          "material_read": "HTML Definition 3 near offset 19183 and Section 4 Proposition 14 near offsets 44400–48122",
+          "method": "OA passage lookup and bounded reading",
+          "title": "Modeling, Analysis, and Control of Continuous-Time Weighted-Median Opinion Dynamics",
+          "trigger": "Same dynamics and general criterion"
+        },
+        {
+          "assessment": "Discrete-time qualitative overlap",
+          "evidence": "All-initial-state convergence is equivalent to nonexistence of a cohesive set made only of unprejudiced agents; this is not a cycle-square enumeration or continuous-time estimate.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.01899v1",
+          "material_read": "PDF p. 5 Theorem 4.1 near offset 45000",
+          "method": "OA passage lookup and bounded reading",
+          "title": "Convergence Analysis of Weighted-Median Opinion Dynamics with Prejudice",
+          "trigger": "Related prejudice criterion"
+        },
+        {
+          "assessment": "Supports the formulation; only the inspected passage is compared",
+          "evidence": "A decycling set removes all cycles, with complement an induced forest.",
+          "identifier_or_url": "Australasian Journal of Combinatorics 25 (2002), 285–298",
+          "material_read": "PDF p. 1 near offset 0, definitions and motivation",
+          "method": "OA bounded passage reading",
+          "title": "The decycling number of graphs",
+          "trigger": "Equivalent formulation as a feedback vertex set or maximum induced forest"
+        },
+        {
+          "assessment": "Full-text coverage unresolved; not evidence of nonoverlap",
+          "evidence": "Title concerns Cartesian products, not directly the square of one cycle.",
+          "identifier_or_url": "https://doi.org/10.1137/S089548010444016X",
+          "material_read": "Title and reference only; not full text",
+          "method": "Lawful OA retrieval attempted; 403 and no alternate repository copy located",
+          "title": "Decycling Cartesian Products of Two Cycles",
+          "trigger": "Cited graph-family decycling comparison"
+        },
+        {
+          "assessment": "Same graph, different subset property and optimum",
+          "evidence": "It finds fort size ceil(n/3) and permits gaps 1–4 with constraints around gap four, unlike the forest condition.",
+          "identifier_or_url": "2026/10/26/SCOPE-minimum-forts-of-squared-cycles-a-cyclic-gap-classification-and--a06a1735df72",
+          "material_read": "Mirrored RESULT.md Finding near offset 0",
+          "method": "Resultary query and local mirror passage",
+          "title": "Minimum forts of squared cycles: a cyclic gap classification",
+          "trigger": "Same graph, closest exact gap/census structure"
+        },
+        {
+          "assessment": "Different control rule and family",
+          "evidence": "For ordinary zero forcing on squared cycles, n≥7, the number of labelled size-four optima is 3n.",
+          "identifier_or_url": "2026/10/18/SCOPE-minimum-zero-forcing-set-census-and-token-jumping-connectivity-o--27af5da49cb2",
+          "material_read": "Mirrored RESULT.md Finding near offset 0",
+          "method": "Resultary query and local mirror passage",
+          "title": "Minimum zero-forcing set census and token-jumping connectivity on cycle powers",
+          "trigger": "Same-graph census of all minimum controlling sets"
+        },
+        {
+          "assessment": "Different set constraints",
+          "evidence": "It counts error-detecting locating sets, not sets deleting all unpinned cycles.",
+          "identifier_or_url": "2026/10/18/SCOPE-error-detecting-open-locating-sets-in-cycle-squares-a-four-perio--2287208f4b56",
+          "material_read": "Mirrored RESULT.md Finding near offset 0",
+          "method": "Resultary query and local mirror passage",
+          "title": "Error-detecting open locating sets in cycle squares",
+          "trigger": "Same-graph exact vertex subset counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "arXiv:2404.16318v3 Proposition 14",
+        "Independent exact subset replay"
+      ],
+      "rationale": "The squared ring is a basic structured nonlinear control example where pin count alone is misleading: an evenly spaced layout can leave a winding cycle while a well-placed adjacent pair breaks it. The formula for every effective gap layout and exact counts among minimum-size layouts give concrete feasibility and robustness information. The all-time uniform bound separately supplies a quantitative guarantee on arbitrary four-regular networks with forest complements; the prior qualitative criterion by itself cannot do that.",
+      "residual_risks": [
+        "The envelope can be loose, and the results are specific to the fixed-target dynamics with uniform self and neighbor weights."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

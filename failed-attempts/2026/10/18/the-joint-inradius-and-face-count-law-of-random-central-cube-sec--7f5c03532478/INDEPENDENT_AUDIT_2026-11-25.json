@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:22:49.662097Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–74",
+        "Frozen VERIFICATION.md",
+        "Frozen verify_joint_cube_section.py"
+      ],
+      "rationale": "Central symmetry lets an inscribed disk be centered at zero, and projection of the coordinate normals to the plane makes the inradius (1-z^2)^(-1/2), z=min_i|U_i|. With a>=b>=z, strict a<b+z is exactly the hexagon criterion: all three pairs of cube faces then meet the plane in segments through their relative interiors. If a>b+z the largest-coordinate faces miss the plane and the other pairs give four edges. The tied generic boundary has zero Haar mass. On one sign/order chamber parametrize the other two components as sqrt(1-z^2)(cos t,sin t); the area element is dz dt and t ranges from theta(z) to pi/4. The six-edge subinterval begins at max(theta, pi/4-phi); the crossover a=2z,b=z is z=1/sqrt(6). The 48 sectors have normalization 12/pi times their angular lengths, giving both subdensities and no atoms. Direct differentiation gives the stated Jacobian in R. If z>1/sqrt(6), a>=b+z would force 1>=6 z^2, impossible, so the all-direction claim holds even for nongeneric normals. At (a,b,z)=(2,1,1)/sqrt(6) the largest-coordinate pair meets only at two opposite vertices and the other pairs supply four edges, giving the sharp bound. The conditional probability is strictly increasing below the cutoff, then constant one, not strictly increasing on the whole support. The claimed strict association still follows: for any nondecreasing g not essentially constant, a level separating values on positive-measure lower and upper sets permits pairs with the lower radius also below the cutoff. Both differences in the independent-copy covariance product are then strictly positive on a positive-measure set. The finite clipping/quadrature checker was inspected but not run or treated as a continuum proof.",
+      "residual_risks": [
+        "Density-based conditional statements use the specified version; no claim is made for off-center sections, other dimensions, or non-Haar normals."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lonke and 45d2a55425d4 determine an unconditional four/six probability; the latter enlarges the aspect-ratio range.",
+          "The octahedral projection inradius is reciprocal to the cube section's circumradius, not its inradius. d6f7b88698a5 conditions on width, a different metric variable.",
+          "9f3bd844588d provides a stronger orientation-resolved description on the same cube and same Haar law."
+        ],
+        "reasoning": "A broader shape range for the unconditional marginal does not cover conditioning on inradius. The exact density on the orientation chamber plus the already solved branch boundary does cover it.",
+        "searches": [
+          "Lonke arXiv:math/9812123, Propositions 2.2 and 2.5",
+          "Resultary 45d2a55425d4, 5fbcddcea5e5 and d6f7b88698a5: boxes, polar octahedron, width-conditioned count"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 53–94",
+        "arXiv:math/9812123",
+        "Resultary 9f3bd844588d, 45d2a55425d4, 5fbcddcea5e5, b99ef11a8301 and d6f7b88698a5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In 9f3bd844588d the joint dh dt density is 12/[pi(1+h^2)^(3/2)]. Thus after dz=(1+h^2)^(-3/2)dh the frozen type densities are 12/pi times gamma-arcsin h or pi/4-gamma, exactly as stated.",
+          "Gamma equals the lower endpoint at h=1/sqrt(5), which is R=sqrt(6/5). Below it the hexagonal interval grows and total interval shrinks, giving strict conditional monotonicity."
+        ],
+        "reasoning": "The exact law follows by angular marginalization and coordinate transformation, without calculating a new orientation boundary. The association is the scalar monotone-covariance identity applied to the same conditional probability.",
+        "searches": [
+          "Resultary 9f3bd844588d Proof §§2–4 and Finding",
+          "Frozen RESULT.md angular densities, lines 13–33 and 53–70"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "9f3bd844588d uses h=sqrt(R^2-1), and conditions on a uniform angle on [arcsin h, pi/4]. It splits the allowed angles at gamma=pi/4-arcsin(h/sqrt(2)) up to h=1/sqrt(5), then at the lower endpoint.",
+          "Its Section 2 distinguishes c>=a+b (four intersected cube edges in the largest-normal coordinate direction, generically) from c<a+b (six intersections)."
+        ],
+        "reasoning": "In frozen coordinates z=h/sqrt(1+h^2). The branch intervals are exactly the four- and six-edge regions at fixed z. Despite the other title referring to diameter, the decisive type information is explicitly retained in the proof.",
+        "searches": [
+          "Resultary: central cube section joint inradius and face count, conditional diameter and two-radius phase diagram",
+          "Resultary 9f3bd844588d Finding and Proof §§2–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The listed equal-edge hexagon probability is an unconditional scalar, also covered by Lonke and the box result. b99ef11a8301 provides an exact inradius marginal, without a type split.",
+          "9f3bd844588d gives an exact joint latent density and exact boundary, not just sampled entries or a scalar tabulation."
+        ],
+        "reasoning": "The two one-dimensional marginals do not uniquely specify a coupling. The orientation-resolved formula does; no exact two-column type table needs to be displayed separately for coverage.",
+        "searches": [
+          "OEIS A349605 cited in the frozen record",
+          "Resultary 45d2a55425d4 and b99ef11a8301, marginal formulas",
+          "Resultary 9f3bd844588d, exact f_H and angular cut"
+        ]
+      },
+      "rationale": "The distinct indexed two-radius result 9f3bd844588d establishes the exact Haar density in the minimum-coordinate/inradius coordinate and angular variable, and establishes the two angular branches and their exact cut point. The same proof identifies the branches with the quadrilateral and hexagonal geometries. Integrating its joint angle density over those two already determined intervals and changing variables gives exactly the frozen type subdensities, conditional probability, and cutoff. The additional monotonicity and positive association are immediate consequences of this probability formula. This is demonstrated same-object mathematical coverage, not a conclusion based on either marginal alone. The catalogue lists both records on the same day, so no historical order is inferred.",
+      "residual_risks": [
+        "Historical precedence between the close same-day records is unestablished. The unavailable primary-literature search is not evidence of absence and is not the basis of failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies exact frozen type subdensities and cutoff",
+          "evidence": "Haar density 12/[pi(1+h^2)^(3/2)] on the angle chamber, with type boundary cos t-sin t=h and its crossover at h=1/sqrt(5).",
+          "identifier_or_url": "2026/10/18/SCOPE-conditional-diameter-law-and-sharp-two-radius-phase-diagram-for--9f3bd844588d",
+          "material_read": "Finding, Assumptions and Proof §§2–4, offsets 0 and 3768",
+          "method": "Targeted local mirrored RESULT.md inspection",
+          "title": "Conditional diameter law and sharp two-radius phase diagram for central cube sections",
+          "trigger": "Same cube and Haar law; exact fixed-inradius quadrilateral and hexagonal branches"
+        },
+        {
+          "assessment": "Unconditional polygon-type law only in inspected result",
+          "evidence": "Expected number of vertices and dimension-three comparison determine the four/six marginal, not a law stratified by radius.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/9812123",
+          "material_read": "PDF p. 6 Proposition 2.2 and pp. 8–9 Proposition 2.5 and n=3 remark, offsets 12100 and 17900",
+          "method": "Targeted primary PDF inspection",
+          "title": "On Random Sections of the Cube",
+          "trigger": "Known central-section edge count"
+        },
+        {
+          "assessment": "Exact unconditional hexagon probability for all aspect ratios",
+          "evidence": "Contains the cube marginal as a known equal-edge case, without conditioning it on radius.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4",
+          "material_read": "Finding and Relationship to prior work, offsets 0 and 6800",
+          "method": "Targeted local mirrored RESULT.md inspection",
+          "title": "Exact Haar hexagon law and cubic rigidity for central sections of rectangular boxes",
+          "trigger": "Possible larger-family covering law for rectangular boxes"
+        },
+        {
+          "assessment": "Different invariant and no type coupling",
+          "evidence": "The reciprocal radius equals the maximum Euclidean norm in the central square-cube section, hence the section circumradius.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-inradius-law-for-random-planar-projections-of-the-regular--5fbcddcea5e5",
+          "material_read": "Finding and polar identification, offset 0",
+          "method": "Targeted local mirrored RESULT.md inspection",
+          "title": "Exact inradius law for random planar projections of the regular octahedron",
+          "trigger": "Possible equivalence by polarity"
+        },
+        {
+          "assessment": "Covers the inradius statistic and inradius marginal; not the joint type split",
+          "evidence": "Inradius via the smallest absolute normal coordinate, with an exact finite-dimensional marginal.",
+          "identifier_or_url": "2026/11/1/SCOPE-cubic-scale-inradius-fluctuations-and-full-incenter-loci-of-rand--b99ef11a8301",
+          "material_read": "Finding, offset 0",
+          "method": "Targeted local mirrored RESULT.md inspection",
+          "title": "Cubic-scale inradius fluctuations and full incenter loci of random cube sections",
+          "trigger": "Coordinate-order-statistic route to the radius law"
+        },
+        {
+          "assessment": "Different conditioning variable",
+          "evidence": "Conditions on width rather than intrinsic inradius.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-three-phase-conditional-face-count-law-for-random-central-sect--d6f7b88698a5",
+          "material_read": "Finding and later comparison passage, offsets 0 and 8100",
+          "method": "Targeted local mirrored RESULT.md inspection",
+          "title": "A three-phase conditional face-count law for random central cube sections",
+          "trigger": "Possible directly matching conditional face count"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 13–33 and 53–70",
+        "Resultary 9f3bd844588d, Finding and Proof §§2–4"
+      ],
+      "rationale": "The relationship between a metric invariant and the combinatorial type is a natural question. Here the prior-compared orientation density, type boundary and crossover already supply the full exact answer by interval lengths. The additional strict association is a routine monotone-function consequence, not a further independent geometric phenomenon at this scope.",
+      "residual_risks": [
+        "This assesses the incremental result at the stated cube and Haar law, not the merit of corresponding open questions for other shapes."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

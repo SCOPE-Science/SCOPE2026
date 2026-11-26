@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The normalized source/target Gaussian Fock monomials give the exact diagonal coefficient \(u^n q_n(x)\), with \(q_n\) the Poisson upper tail. Factorial decay proves compactness and membership in every positive Schatten class. Strict decrease of successive Poisson-tail ratios proves the complete adjacent-mode staircase; uniform Poisson large-deviation estimates and Stirling supply the sharp large-radius norm constant, not just its logarithm. The standalone checker produced 674 finite passing assertions, all supplemental to the proof.
+## correctness
 
-## Originality: PASS (historical-priority risk retained)
-The closest general source is Kisil, arXiv:2108.13710 (2021), whose inspected full paper gives cross-Toeplitz symbolic calculus, but no disk-cutoff asymptotic. Galbis, arXiv:2102.02031 (2021), and Ma--Yan--Zheng--Zhu, arXiv:2603.04051 (2026), give radial Fock norm bounds and sharp equal-weight disk-indicator results. This finding expressly acknowledges the \(u=1\) case as known. Its new assertion is the cross-weight disk transfer's strict thresholds and full leading mismatch asymptotic including the inverse-square-root constant. Related complete published mathematical findings on full Gaussian projections and inter-Landau disk transfer were inspected, with different kernels and spectral laws. A possible older formulation as a radial Toeplitz operator with truncated exponential symbol remains the main residual priority risk. Fang--Tien, arXiv:2610.41461, was available only by abstract.
+PASS
 
-## Mathematical value: PASS
-The mismatch problem has a natural operator-theoretic interpretation: a disk makes the potentially unbounded inclusion between differently weighted Gaussian Fock spaces compact, yet the norm can grow exponentially with disk area. The theorem determines its exact sharp stability cost, the maximizing angular degree, and the exponentially sensitive first mode change. These facts distinguish how local observation interacts with Hilbert-space mismatch; the result does not rely on an unrelated finite table.
+Angular orthogonality in the target measure gives positive diagonal coefficients u^n∫_0^x t^n e^(−t)dt/n!=u^n q_n(x); factorial tail bounds give every positive Schatten exponent and positivity gives injectivity. Writing p_k for the Poisson masses, q_n/p_{n+1} is 1 plus a sum of strictly decreasing positive terms in n and tends to 1, so q_{n+1}/q_n decreases strictly to 0. It follows that only a single degree or two adjacent degrees maximize. At a tie the norm-attaining vectors form the span of the two normalized monomials, not just two lines. The ratio q_0/q_1 gives the exact first threshold and its stated expansion. Independently, if p'_k is the mass of Pois(ux), then e^{−x(u−1)}a_n=Σ_{j≥1}u^{−j}p'_{n+j}. The largest Poisson mass is asymptotic to (2πux)^(−1/2); this supplies an upper bound multiplied by Σ_{j≥1}u^{−j}=1/(u−1). Taking n=floor(ux), each fixed j attains the same leading mass, and geometric domination gives the matching lower bound. For n≥(u+ε)x all terms have exponentially small masses. For n≤(u−ε)x the terms with j≤εx/2 have exponentially small masses and the remaining geometric tail is exponentially small. Thus every maximizing n_x/x tends to u, with no lattice prefactor. The displayed radial Toeplitz symbol has the same coefficients by rescaling the radial integral.
 
-## Scope and verification limits
-One complex dimension and concentric hard disks only. The large-radius norm formula fixes \(u>1\). The monomial-indexed coefficients require decreasing rearrangement to obtain the ordered singular-value list. Checks against prior literature are not proof of historical first publication. The finite tests do not certify the infinite-dimensional proof. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct content is the quantified modal transition and the sharp fixed-mismatch maximum with its prefactor and moving maximizing mode. The raw spectrum is already an immediate implication of the generic radial moment formula after explicit unitary dilation, and u=1 is explicitly known; neither is credited independently. Standard Poisson estimates and log-concavity furnish ingredients, but the inspected sources do not give the maximum, its exact threshold or the norm and degree result for this weighted family. In particular a local tail equivalent does not alone control the maximum over all degrees.
+
+## value
+
+PASS
+
+A concentric cutoff is a natural regularization of an otherwise unbounded cross-weight inclusion. The exponentially small first transition interval, exact neighboring-degree thresholds and the nontrivial power and coefficient multiplying the fixed-mismatch exponential distinguish the behavior of its worst mode. These are useful sharp data beyond a known diagonalization or exponential-order estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

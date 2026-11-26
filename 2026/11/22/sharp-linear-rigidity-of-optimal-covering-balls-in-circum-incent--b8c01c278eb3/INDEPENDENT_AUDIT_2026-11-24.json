@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:55:43.091832Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an origin-containing ball write t=|z|<=T. Each p_i=rho*u_i is on the union boundary: for j!=i its squared distance to c_j is 1, and moving radially outwards increases that distance by the squared outward displacement; for j=i the distance is already strictly larger. Each proposed optimal ball satisfies |x|^2<=c_j·x, so if |x|>rho then |x-c_j|^2<=4M^2-|x|^2<1. The bound h<=1/n also follows by summing the barycentric weights of 0, each at least h/(1+h). Thus T^2<=rho^2+t^2-2rho*t*g(w), where w=z/t if t>0 and the product is zero if t=0. Since t<=T and g>=h this forces t<=M. The resulting convex upper bound f(t)=rho^2+t^2-2rho*h*t is strictly below M^2 for t<M, so equality requires t=M and g(w)=h. The latter means that the insphere touches the supporting plane in the relative interior of a facet; these directions are exactly N. The tangent facet polygon in its (n-1)-dimensional plane contains the contact point in its relative interior, so it gives a positive linear support term near each normal, dominating the quadratic normal loss. Compactness away from N proves kappa>0. For d=M^2-T^2<=2M epsilon, the factorization M^2-f(t)=(M-t)(M+t-2rho*h) gives M-t<=2 epsilon/(1-4h^2), hence t>=M/2 in the prescribed range. The angular deficit is g(w)-h<=d/(2rho*t)<=2 epsilon/rho. The triangle inequality yields the displayed bound at all stated epsilons, including zero. A homothet centered along n_j has distance exactly M-T from MN: its squared distance to any other Mn_l exceeds (M-T)^2 by MT|n_j-n_l|^2. Analytic verification is decisive. The read-only inspection of check_geometry.py shows checks on one tetrahedron and sampled nonnegativity of support, not a certified uniform linear bound; no frozen script was executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nour treats the exact finite union for a simplex with coincident centers and gives a universal inequality for every admissible ball without a near-optimal bound.",
+          "The distinct concentric simplex-union Čech record in Resultary concerns barcode/void-death data, not the centers of balls with an extra origin-containment requirement, in its available statement."
+        ],
+        "reasoning": "The prior universal inequality is an input but needs a simplex-specific linear angular estimate. Topological death data as described do not entail a bound on all the near-maximal origin-containing centers.",
+        "searches": [
+          "arXiv:2611.14181v1, Lemmas 2.1–2.2 and Theorem 2.3",
+          "Resultary: simplex ball-union rigidity"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.14181v1 Section 2",
+        "Resultary:b8c01c278eb3 (assigned entry)",
+        "Resultary:a9256263c165 (summary only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equality in Nour's bound yields t=M and g=h for n>=3; supporting-plane tangency then identifies a facet normal. Shrinking an already displayed feasible ball proves the obstruction to an exponent above one.",
+          "The explicit bound for positive epsilon additionally uses kappa>0 and separates the support loss from the radial loss."
+        ],
+        "reasoning": "Neither the direct equality corollary nor the homothety by itself warrants priority for the whole result. The new mathematical content is the finite, explicit linear upper bound, not the lower-bound witness considered in isolation.",
+        "searches": [
+          "arXiv:2611.14181v1, equations (2.2), (2.5) and proof of Theorem 2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The geometric deficit is equivalent here to joint radial and angular control via the vertex-support inequality. Nour gives its exact starting inequality and feasible centers; his Section 2 does not give the angular error modulus.",
+          "Resultary returns the assigned record with the same quantitative statement, not a second source."
+        ],
+        "reasoning": "Comparing the near-extremal-center formulation with the support-deficit formulation leaves a distinct quantitative fixed-simplex claim; restating the maximum radius or listing attaining centers would not be distinct.",
+        "searches": [
+          "Resultary: simplex-union origin-containing covering balls, optimizer rigidity and linear stability",
+          "arXiv:2611.14181v1, Section 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact formula and stability wording match the assigned entry itself. The other indexed hit has a different invariant in its summary."
+        ],
+        "reasoning": "No finite table of dimensions or examples could establish this continuously parametrized fixed-simplex estimate; the exact indexed comparison checked whether another entry states it. For the related distinct record only the summary was available.",
+        "searches": [
+          "Resultary record b8c01c278eb3",
+          "Resultary record a9256263c165"
+        ]
+      },
+      "rationale": "Credit Nour with the exact radius, the displayed attaining balls and the inequality that almost immediately gives optimizer exhaustiveness. The sharpness witness also follows directly from Nour's feasible balls. The distinct supported contribution is the explicit linear bound for every admissible near-optimizer of a fixed simplex, obtained by adding a quantitative angular support gap; neither Nour nor the available comparison records establish that bound.",
+      "residual_risks": [
+        "Full text of the distinct Čech topology record was not retrieved.",
+        "Equivalent quantitative stability could exist in an unindexed treatment of equality in Nour's inequality or in a specialized convex-geometric error bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Radius and feasible centers are prior. Exhaustiveness and the sharpness obstruction are short deductions. No stated angular modulus or explicit combined stability estimate in the inspected theorem and proof.",
+          "evidence": [
+            "Equation (2.2): h<=1/n and max_i <z,u_i>>=h|z|.",
+            "Equation (2.5) uses p_i=rho*u_i to bound every admissible ball; Theorem 2.3 gives M and the balls with centers c_j/2."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.14181v1",
+          "material_read": "Section 2: Lemma 2.1, the boundary contact construction, Theorem 2.3 and the bound in its proof (OA text windows near offsets 8900 and 11900–18399).",
+          "method": "Primary open HTML, passage-level comparison; rechecked the consequences of equality independently.",
+          "title": "A counterexample to the strong version of the union of uniform closed balls conjecture in dimensions three and higher",
+          "trigger": "Exact same union, geometry, maximum radius and achieving balls."
+        },
+        {
+          "assessment": "Summary concerns Čech persistence and void death for a tetrahedral construction; no claimed near-extremal-center estimate in the material available.",
+          "evidence": [
+            "Barcode/void-death inference rather than quantitative containment of balls containing the origin."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-ball-union-topology-and-inverse-ech-rigidity-of-concentric--a9256263c165",
+          "material_read": "Resultary indexed summary; attempted local-mirror full text did not return.",
+          "method": "Compared the available mathematical statement, not chronology.",
+          "title": "Exact ball-union topology and inverse Čech rigidity of concentric simplex unions",
+          "trigger": "A distinct result on the same Nour construction might imply a geometric rigidity bound."
+        },
+        {
+          "assessment": "Identical assigned finding, not another result.",
+          "evidence": [
+            "Same facet-labeled optimizer set and sharp linear bound."
+          ],
+          "identifier_or_url": "Resultary:b8c01c278eb3",
+          "material_read": "Resultary summary and assigned RESULT.md.",
+          "method": "Identity and statement comparison.",
+          "title": "Sharp linear rigidity of optimal covering balls in circum-incenter simplex unions",
+          "trigger": "Exact indexed match."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The known optimal radius does not tell how sensitive all near-maximal balls are to a radius error. The estimate quantitatively localizes an unrestricted candidate center to one of finitely many facet directions in the nonconvex union, with the best possible exponent and a computable fixed-shape constant. No uniform stability under degenerating simplex shapes is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

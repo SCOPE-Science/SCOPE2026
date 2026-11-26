@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The forward map follows by solving the exponentially attenuated half-line reaction–diffusion boundary equation using decaying \(K_1\) Bessel solutions. The global inverse rests on a proved strict geometric-concavity statement for \(K_0/K_1\): an explicit Riccati derivative reduces its sign to \(H>0\), and the derivative at every hypothetical zero is strictly negative while both endpoint signs are positive. Consequently the two-rate ratio is an onto, strictly decreasing bijection of the positive mixing variable onto the claimed open ratio interval. The reconstruction formulas verify existence and uniqueness; an arbitrary positive mixing variable produces a continuum from one uptake. The numeric checker passed 18,012 finite assertions but is not an infinite proof. A remaining physical risk is that experimentally modifying reaction may alter transport too.
+PASS
 
-## Originality — PASS on inspected evidence
+With y=x exp(z/(2ℓ)) and C=yW, the forward ODE becomes y²W''+yW'−(y²+1)W=0. Only K₁ satisfies decay, and (yK₁)'=−yK₀ ensures decreasing positive C and gives U=√(D₀k)F(x), F=K₀/K₁∈(0,1). The water-side correction is exactly T=k_m v/(k_m−v)=θU; positive finite parameters require 0<v<k_m. The Riccati equation gives E=xF'/F=1+x(F−1/F) and E'=2F+x(F²−F⁻²)=−H/F². The small-x expansion gives H=x+o(x); the large-x coefficients of F are 1, −1/2, 3/8, −3/8 in successive powers of 1/x, yielding H=1/(2x²)+O(x⁻³). At a zero of H, F'=(1−F²)²/(2F²), which gives H'=−2(1−F²)²/(1+F²)<0. All zeros would cross downward, impossible given positivity at both ends. Thus for r=√(k₂/k₁)>1, the log derivative of R(x)=rF(rx)/F(x) is [E(rx)−E(x)]/x<0; the small-x x log(1/x) behavior and large-x F→1 give the unattained endpoints r² and r. Every corrected ratio inside the open interval gives a unique x, then direct positive reconstruction of D₀ and ℓ from T₁. With only one admissible reading, letting x vary over (0,∞) yields the entire continuous ambiguity family of distinct pairs. The supplied SciPy checker was inspected, not run; its root bracket and tests cover bounded ranges and are not a proof or a universal implementation guarantee.
 
-The central primary predecessor is Monofy et al. (2024), DOI 10.1029/2024AV001373, whose full open paper supplies the *forward* Bessel flux and focuses on inferring reaction rates from independently estimated transport parameters. This does not imply the *inverse* from two independently known reaction rates, the strict feasible data window, or minimum observation count without the additional monotonic-ratio argument. Bottacin-Busolin (2019), DOI 10.1029/2019WR025697, studies conservative breakthrough-curve equifinality under uncertain stream geometry. Segura (2021), DOI 10.1007/s00025-021-01531-1, provides prior general Riccati/Bessel-ratio theory and could yield parts of the auxiliary monotonicity. Kaltenbacher–Rundell (2021), arXiv:2101.06656, uses time-dependent richer inverse data. Relevant published research records searched by statement and parameter implication returned no covering theorem. Historical priority is provisional: an uninspected older Bessel-admittance inverse could subsume the result, and the ESSOAr preprint was not independently inspected beyond metadata (the same paper's OA journal text was inspected).
+## originality
 
-## Value — PASS
+PASS
 
-The main environmental model independently regresses the reference mixing parameters and infers the reaction constants. When instead two reaction rates are controlled or known, the theorem supplies a minimal, global, experimentally interpretable alternative: exactly two corrected scalar uptake readings and an if-and-only-if model-consistency test. The admissible interval is sharp, not a numerically chosen slice, and the nonidentifiability from one reading distinguishes necessary data from redundant replication. It establishes a benchmark rather than field-validated precision.
+The forward bed model and Bessel identities are credited as inputs. What survives the bounded comparison is global scale identification from two known reaction rates, the sharp data interval, and one-reading minimality. No retrieved stronger statement supplied the required geometric concavity of this particular Bessel ratio or the exact inverse design. Relevant unavailable texts are identified below and are not negative evidence.
 
-## Scientific limitations
+## value
 
-Exact homogeneity across interventions, positive known transfer and porosity, infinite bed depth, no noise and no extra reactions are necessary for the stated theorem. Historical novelty is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+In a motivated two-parameter uptake model, the exact range separates physically incompatible readings from uniquely identifying readings and tells which perturbation is needed to break the continuous one-reading ambiguity. The strict interval is stronger than local Jacobian nonsingularity: it describes the whole attainable data set including singular endpoint behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

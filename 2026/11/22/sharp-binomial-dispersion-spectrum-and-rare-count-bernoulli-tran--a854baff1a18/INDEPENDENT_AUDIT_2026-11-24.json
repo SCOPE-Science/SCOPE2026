@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:33:28.571408Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The normalized weight uses a genuinely standardized parent variable, and numerator and baseline masses are strictly positive. Thus 0<m<n and v>0. The identity v=m(n-m)-E[Y(n-Y)] gives the strict upper ratio n since k=1 has positive mass for n>=2. For fixed n,alpha,q write c=n alpha. The first and second factorial moments of the beta-binomial give mu=c/beta+O(beta^-2), b_0=1-c/beta+O(beta^-2), and total mass above one O(beta^-2); the variance is c/beta+O(beta^-2). The standardized quadratic factor is O(beta) on the fixed support, so after weighting the tail above one is O(beta^-1). At zero, mu/sigma=sqrt(c) beta^-1/2+O(beta^-3/2); the signed excess over 2/(2+q^2) is 2q sqrt(c)/(2+q^2) times beta^-1/2 plus O(beta^-1). Normalization gives the opposite excess at one. The half-L1 formula yields the stated absolute coefficient, for either sign of q. Fixed nonzero q makes the limit denominator positive, yielding the stated ratio 2n/(2n+(n-1)q^2). Taking q to infinity after choosing a sufficiently large finite beta for each q approaches zero without requiring a uniform error bound. On the q=0 line the exact standard ratio (n+alpha+beta)/(1+alpha+beta) exceeds one and approaches n for alpha=beta tending to zero. Continuity on the connected parameter domain now yields all intermediate values (not a range at fixed mean). The verification notes and rational/float checker were inspected, not executed; the supplied rational witness and reported TV checks are finite diagnostics and are not required for the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 in the shifted-Poisson paper applies the same standardized quadratic transformation to any parent with finite mean and variance. Its examples allow Var/mean above or below one for a weighted Poisson parent. Simone's introduction discusses both types of dispersion in a different bounded-support mixture family."
+        ],
+        "reasoning": "The broad weighting theorem gives normalization and the pmf construction, but no asymptotic statement on a degenerating beta-binomial parent. A Poisson Fano factor or dispersion in a different bounded family does not determine the equimean-binomial spectrum here.",
+        "searches": [
+          "Gómez-Déniz et al. 2020 Theorem 1 and dispersion discussion",
+          "Simone 2022 finite mixtures of discretized Beta models"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_dispersion.py",
+        "Reyes et al. Axioms 13 (2024) 662; Gómez-Déniz et al. Symmetry 12 (2020) 442; Simone TEST 31 (2022) 828–855",
+        "Resultary a854baff1a18, 55a6d55ccee1, 41c5de93e28d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Corollary 1 gives an exact Bernoulli law only at n=1. Proposition 2 gives raw moments in terms of beta-binomial moments, and does not optimize or take the singular beta limit. The general quadratic transformation is normalized at each finite parameter."
+        ],
+        "reasoning": "Finite moments describe a ratio at any chosen triple but do not determine its extrema. Ordinary weak convergence of the parent to zero cannot be passed through a weight with diverging standardization; the surviving unit mass and O(beta^-1/2) signed correction must be proved. The fixed-n>=2 result is not the prior n=1 case.",
+        "searches": [
+          "Reyes et al. Corollary 1, Proposition 2 and Figure 3 discussion",
+          "Gómez-Déniz et al. Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (3) uses exactly the submitted standardized quadratic weight on the beta-binomial and the same mean and standard deviation. Fig. 3 discusses dispersion relative to the unweighted beta-binomial at fixed shape parameters."
+        ],
+        "reasoning": "The identical pmf establishes prior coverage of the family, not of its global spectrum. A comparison to q=0 at fixed shape does not answer whether a different, equimean binomial has larger variance.",
+        "searches": [
+          "Resultary: bimodal beta-binomial equimean dispersion; standardized quadratic beta-binomial rare-count or Bernoulli limits",
+          "Reyes et al. 2024 §2.1 Prop. 1 and Fig. 3 discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact indexed result a854baff1a18 is the frozen record. Nearby 55a6d55ccee1 concerns identifiability of a continuous tilted beta density and 41c5de93e28d concerns cumulants of Bernoulli-plus-negative-binomial counts. The prior BBB article gives selected plots and finite moment identities."
+        ],
+        "reasoning": "This is a continuous-parameter extremal and asymptotic theorem, not a lookup of an example dispersion value. The nearby indexed findings and the prior plotted parameter slices do not give it.",
+        "searches": [
+          "Resultary: exact equimean-binomial dispersion spectrum, rare-count BBB transition, quadratic-tilt beta families",
+          "Reyes et al. 2024 finite moment identities and dispersion illustrations"
+        ]
+      },
+      "rationale": "The weighted law and its exact finite moments are prior, as is the general standardized quadratic weighting; credit Reyes et al. for the beta-binomial specialization, not for inventing that weight. The universal support bound is also standard. The checked prior results do not give the attainable equimean-binomial range or the fixed-tilt rare-count Bernoulli law with its sharp TV expansion. The exact indexed match is this record itself. This is a best-of-knowledge decision for those distinct conclusions.",
+      "residual_risks": [
+        "The earliest attribution of the general weight was not independently established from the cited Elal-Olivero 2010 full text; the review credits the weighting as already prior.",
+        "An unlocated specialization or general singular-tilt theorem could overlap; the bounded source comparison does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and prior moments; distinct Bernoulli case and dispersion baseline",
+          "evidence": "n=1 is Bernoulli; Fig. 3 reports comparison to q=0 beta-binomial; introduction attributes weighting background to Elal-Olivero and prior Poisson work.",
+          "identifier_or_url": "https://doi.org/10.3390/axioms13100662",
+          "material_read": "Introduction pp. 2–3; §2.1 Proposition 1 Eq. (3) p. 3; Corollary 1 and Proposition 2 p. 5; Figure 3 discussion p. 8",
+          "method": "OA primary PDF, offsets 8700, 12368, 20500, 24469, 35984",
+          "title": "A Bimodal Extension of the Beta-Binomial Distribution with Applications",
+          "trigger": "Exact BBB model and plausible prior dispersion or Bernoulli result"
+        },
+        {
+          "assessment": "Covers the weighting transformation generally, but different application and benchmark",
+          "evidence": "Standard quadratic factor for finite-variance parents; Poisson example compares variance to mean.",
+          "identifier_or_url": "https://doi.org/10.3390/sym12030442",
+          "material_read": "Theorem 1 p. 3; dispersion index discussion p. 5",
+          "method": "OA primary PDF, offsets 8050, 19249–20871",
+          "title": "A Bimodal Discrete Shifted Poisson Distribution. A Case Study of Tourists' Length of Stay",
+          "trigger": "Broader exact quadratic weighting and underdispersion claim"
+        },
+        {
+          "assessment": "Related motivation, distinct family",
+          "evidence": "A discretized-Beta family may be under- or overdispersed, without the frozen BBB limit or range.",
+          "identifier_or_url": "https://doi.org/10.1007/s11749-022-00800-7",
+          "material_read": "Opening dispersion discussion, PDF p. 3",
+          "method": "OA primary PDF, near offset 6300",
+          "title": "On finite mixtures of Discretized Beta model for ordered responses",
+          "trigger": "Bounded-support dispersion on a related beta construction"
+        },
+        {
+          "assessment": "Identical record",
+          "evidence": "Same (0,n) spectrum and fixed-q large-beta law.",
+          "identifier_or_url": "Resultary a854baff1a18",
+          "material_read": "Finding and scope, frozen RESULT.md lines 3–43",
+          "method": "Catalogue match to frozen original",
+          "title": "Sharp binomial-dispersion spectrum and rare-count Bernoulli transition in the bimodal beta-binomial family",
+          "trigger": "Exact indexed match"
+        },
+        {
+          "assessment": "Related transformation; continuous model and different question",
+          "evidence": "Identifiability fibers and Fisher rank for the continuous weighted beta density.",
+          "identifier_or_url": "Resultary 55a6d55ccee1",
+          "material_read": "Original finding and model definition",
+          "method": "Local Resultary mirror",
+          "title": "Exact global identifiability fibers and information rank of the weighted beta family",
+          "trigger": "Related quadratic weighting"
+        },
+        {
+          "assessment": "Distinct count family and invariant",
+          "evidence": "Factorial cumulant feasibility of a Bernoulli plus negative binomial count.",
+          "identifier_or_url": "Resultary 41c5de93e28d",
+          "material_read": "Original finding and model definition",
+          "method": "Local Resultary mirror",
+          "title": "A complete three-cumulant feasibility region for Bernoulli–negative-binomial counts",
+          "trigger": "Related exact feasibility region and Bernoulli count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The equimean-binomial comparison distinguishes this extension from ordinary beta-binomial mixtures, which cannot be strictly underdispersed. The full attainable range gives an interpretable flexibility criterion relative to a standard baseline, and the sharp boundary law identifies how a disappearing parent count leaves a nondegenerate weighted limit. It shows underdispersion even at arbitrarily small fixed nonzero tilt, not just at a handpicked numerical parameter.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

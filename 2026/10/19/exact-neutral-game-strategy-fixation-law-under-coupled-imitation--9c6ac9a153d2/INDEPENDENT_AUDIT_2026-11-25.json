@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:06:44.027013Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 3–78",
+        "VERIFICATION.md, lines 19–25",
+        "neutral_coupled_traits_checker.py, lines 9–112",
+        "Sadekar et al., arXiv:2311.11128, accessible version Eq. 5 and associated sampling paragraph"
+      ],
+      "rationale": "An independent backward check tracks the initial ancestors of one strategy and one game label sampled at time t from independently uniform individuals. Write a=p_s/2, b=p_g/2. When the two current ancestral carriers coincide, going one step backward separates them if that carrier was focal, its model was distinct and exactly one trait copied; the probability is s=(N−1)(a+b−2ab)/N². For distinct carriers, the probability of joining is j=(a+b)/N²: either carrier was focal, had the other as model and copied the tracked trait. The two-state chain starts with coincident probability 1/N; after t steps that probability is π+(1/N−π)(1−s−j)^t with π=j/(s+j). Exchangeability gives a uniform individual conditional on coincidence and a uniform ordered distinct pair otherwise. Their initial joint label probabilities are h_sg and (N r_s q_g−h_sg)/(N−1). Substituting these gives the stated transient formula with λ=s+j and θ=(Nπ−1)/(N−1)=2ab/[N(a+b−2ab)+2ab], exactly the coefficient in the original propensities. A prescribed block where all other individuals in turn copy both traits from individual 1 has uniformly positive probability, yielding almost-sure joint consensus. Bounded convergence turns the transient limit into the fixation law for each arbitrary pair of labels. Excluding self multiplies both nonzero ancestry transition probabilities by N/(N−1), giving the same terminal law and the faster discrete-time rate. Finally, θ is strictly increasing in a and b; differentiating in a gives 2Nb²/[N(a+b−2ab)+2ab]². The maximum at a=b=1/2 is exactly 1/(N+1).",
+      "residual_risks": [
+        "Source checker was read, not run. The finite binary checks corroborate the terminal law, not the arbitrary-label or finite-time claims by themselves. The accessible preprint validates the well-mixed mechanism; the journal equation number was not checked directly."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kamm et al. propagate a Moran distribution from a stationary starting law in Eq. (2); their Theorem 1 computes the coalescent's two-locus sampling probability under variable sizes using stationary initialization and continuous-time matrix exponentials. The two-layer voter paper treats another copying rule. Sadekar et al. cover positive selection and structured networks as well as the well-mixed case, but the inspected mechanism does not supply the fixation formula."
+        ],
+        "reasoning": "The prior theorem's stationary initial law does not cover the arbitrary deterministic initial haplotype table and its dependence on h_sg. Turning mutation off in its stationary-start scheme does not produce those arbitrary initial configurations. Nor can the continuous-time exponential be specialized to the geometric factor for the shared-pair discrete chain without a new kernel identification and reduction.",
+        "searches": [
+          "Kamm et al., DOI 10.1534/genetics.115.184820, preprint §§2.2–2.3 and Theorem 1",
+          "Vega-Oliveros et al., arXiv:2201.02218 §II",
+          "Sadekar et al., arXiv:2311.11128 p. 3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2311.11128",
+        "arXiv:2201.02218",
+        "arXiv:1510.06017",
+        "Resultary 2059ee2e3762 and 105e89e100fd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact earlier Fermi rule specializes to a=p_s/2 and b=p_g/2. Standard two-locus ancestry supplies the idea of coalescing and splitting carriers. The exact two-state transition probabilities for this shared-pair update must still be identified, then combined with a deterministic initial label table and the absorption argument. None of the inspected earlier statements gives this exact fixed-initial-data solution or its discrete-step dependence."
+        ],
+        "reasoning": "Credit the previously specified model and the established ancestry framework. The distinct contribution is the quantitative evaluation, not the abstract two-state chain solution or the discovery that linked traits can correlate. A matrix propagation formula for a stationary-start comparison model is not a scalar evaluated fixation law for this different initialization and update rule.",
+        "searches": [
+          "Sadekar et al., arXiv:2311.11128 preprint Eq. 5",
+          "Kamm et al., arXiv:1510.06017 §2.3 Eq. (2) and Theorem 1",
+          "Resultary 2059ee2e3762, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sadekar et al. use the same ordered pair and independent game/strategy decisions: the accessible preprint rule gives Π=1/2 at zero strength. Vega-Oliveros et al. instead use separate neighbors and tolerance-dependent copying. Kamm et al.'s finite Moran process uses whole-haplotype overwrites and reciprocal crossovers; the earlier voter catalog hit uses coalescing walkers to compute same-attribute stationary covariances on an infinite tree."
+        ],
+        "reasoning": "Both continuous-time clone/crossover ancestry and the discrete co-imitation ancestry can be reduced to two coincidence states for one sampled lineage per trait. The transition mechanisms differ: clone events can merge distinct carriers and swaps can separate a common carrier, whereas here single-trait copies do both and only one forward individual is updated. The two-state generator can be rate matched to the co-imitation transition matrix minus the identity, but that does not identify the full forward chains or the discrete-time law with the continuous-time one. The exact well-mixed neutral update is indeed an earlier model specialization, not a new model.",
+        "searches": [
+          "arXiv:2311.11128, Fermi update and well-mixed pair sampling",
+          "arXiv:1510.06017, two-locus coalescent and finite Moran model §§2.2–2.3",
+          "arXiv:2201.02218, two-layer voter dynamics §II",
+          "Resultary 2059ee2e3762"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected catalog entries compute stationary pair correlations for infinite-tree broadcast voters and for competing zealots on a bipartite network, respectively. Kamm et al. generate tables of two-locus sampling likelihoods under their demographic model, not fixed-label terminal probabilities for independent co-imitation."
+        ],
+        "reasoning": "These are different exact functions of different systems. A matching law must retain the distinction between independent versus shared sampling of the two initial labels and express the weights for the given finite N and copy propensities; none of the inspected tables has those semantics.",
+        "searches": [
+          "Resultary broadcast voters on regular trees, 2059ee2e3762",
+          "Resultary competing zealots, 105e89e100fd",
+          "Kamm et al., arXiv:1510.06017, likelihood tables and Theorem 1"
+        ]
+      },
+      "rationale": "The supported distinct result is the explicit terminal joint table for arbitrary fixed initial paired labels and the discrete-step rate for the same neutral co-imitation mechanism. Ancestor separation/coincidence is standard, and the inspected two-locus Moran process even gives an analogous two-state calculation after rate matching. Its stated sampling theorems have different initialization and dynamics, however, and do not give the fixed-initial-data co-imitation law by substitution into their hypotheses. The model source supplies the exact update mechanism but not the neutral law.",
+      "residual_risks": [
+        "An unexamined two-locus fixation or shared-update voter result could contain an equivalent finite-time or terminal identity. Journal-version equation numbering in Sadekar et al. could not be checked; the accessible preprint establishes the mechanism directly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model overlap in the well-mixed neutral regime, not the terminal law",
+          "evidence": "The product-form decisions have conditional probabilities p_sΠ and p_gΠ with one shared pair; Π=1/2 at zero strength. Structured models choose a neighbor instead. The 403 journal PDF did not establish the journal numbering cited as Eq. 11.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.11128",
+          "material_read": "Accessible preprint p. 3, offsets 19800–24724, Fermi rule, Eq. 5 and focal/model sampling described there",
+          "method": "Lawful OA PDF passages; journal PDF attempted separately",
+          "title": "Evolutionary game selection creates cooperative environments",
+          "trigger": "Defines the parent imitation model"
+        },
+        {
+          "assessment": "Different generator",
+          "evidence": "Separate neighbors in the layers and tolerance-dependent adoption, rather than two conditionally independent decisions with the same ordered pair.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.02218",
+          "material_read": "§II, PDF pp. 5–6 near offset 7900",
+          "method": "Lawful OA PDF passage",
+          "title": "Bi-layer voter model: Modeling intolerant/tolerant positions and bots in opinion dynamics",
+          "trigger": "Related two-trait consensus model"
+        },
+        {
+          "assessment": "Related two-locus ancestry machinery and sampling likelihood, not a direct theorem for this fixed-initial-data fixation and transient law",
+          "evidence": "A crossover swaps genetic material at both endpoints and a copying event copies the entire haplotype. Eq. (2) starts from the stationary configuration distribution and samples without replacement; Theorem 1 likewise initializes through stationary distributions to compute the coalescent sampling law.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.06017; 10.1534/genetics.115.184820",
+          "material_read": "arXiv PDF §§2.2–2.3, especially offsets 18590–21990 (Moran generator and Eq. (2)); §3.1 around offset 26270 (Theorem 1)",
+          "method": "Lawful DOI-to-arXiv recovery and bounded PDF passages",
+          "title": "Two-Locus Likelihoods Under Variable Population Size and Fine-Scale Recombination Rate Estimation",
+          "trigger": "Potential stronger two-locus theorem or equivalent lineage process"
+        },
+        {
+          "assessment": "Nearby ancestry technique on a distinct model",
+          "evidence": "Two-site stationary correlations for a binary broadcast voter process on an infinite regular tree, not two separately copied attributes in finite consensus.",
+          "identifier_or_url": "2059ee2e3762",
+          "material_read": "2026-10-18 RESULT.md, Finding at offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Exact stationary two-point correlations for broadcast voters on regular trees",
+          "trigger": "Potential exact voter ancestry overlap"
+        },
+        {
+          "assessment": "Later nearby stationary result for a different system",
+          "evidence": "Complete bipartite voter network with fixed zealots and a stationary pair covariance, not the frozen joint absorption problem.",
+          "identifier_or_url": "105e89e100fd",
+          "material_read": "2026-11-02 RESULT.md, Finding",
+          "method": "Resultary search and local mirror",
+          "title": "An exact correlation law and a beta limit for competing zealots",
+          "trigger": "Possible exact voter correlation formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Findings, sharpness and limitations",
+        "Sadekar et al., arXiv:2311.11128, well-mixed imitation mechanism"
+      ],
+      "rationale": "The exact joint table separates association caused solely by shared neutral copying from association that would require selection. The coefficient quantifies the effect at any N and propensity pair, with a sharp maximum, while the transient identity measures how long that dependence takes to build up under either pair-sampling convention. This supplies a useful comparison for the already studied coevolving game/strategy model, not merely a proof that consensus occurs.",
+      "residual_risks": [
+        "The benchmark does not apply unchanged to nonzero selection, structured graphs, mutation, or separately sampled models for the two attributes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Review of the two-window weak-connectedness probability law
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof identifies the modal axiom with semicomplete outneighborhoods. The sparse threshold follows from independent rare high-outdegree rows; near completeness the relevant independent rare objects are mutually missing dyads, almost surely each with common predecessors. The intermediate region follows from a fork variance bound and a missing-dyad concentration bound. Exact finite checking verifies the equivalence for all loop-free relations on at most four worlds and all valuations, not the infinite limits.
+## correctness
 
-**Originality — PASS, with uncertainty.** The FO weak-connectedness correspondence and graph-theoretic semicomplete-neighborhood notion are not claimed as new. Santschi and Vooijs (2026) study finite-width model theory, not independent-edge random validity. Bang-Jensen's stronger two-sided local semicompleteness and Erdős--Palmer--Robinson's undirected local connectivity are related but not equivalent to the two-window law. Semantic searches of published research records and primary literature did not reveal an identical complete probability theorem. A general rare-pattern theorem could subsume pieces; the historical-priority determination is not independent or exhaustive.
+PASS
 
-**Value — PASS.** The sharp distinct scales \(n^{-3/2}\) and \(1-n^{-1}\), a common Poisson interpolation, and an invalidity region quantify how modal frame validity can disappear and reappear. The different rare-obstruction geometries explain the asymmetric scales and supply a natural benchmark for random finite Kripke-frame semantics.
+At any world, witnesses for the two diamonds either coincide or are related in one of the two directions. Singleton valuations on a distinct incomparable successor pair prove the converse. In the sparse window the independent rows give a binomial count of vertices with outdegree ≥2, with total mean tending to c²/2; the incidence expectation of comparable forks is n C(n−1,2)p²(2p−p²)=o(1). In the dense window independent unordered dyads give a binomial count of mutually missing pairs with the same limiting mean. For each missing dyad the independent common-predecessor trials fail with probability (1−p²)^(n−2); the expected number of such unwitnessed missing dyads tends to zero. Both arguments include c=0. In the intermediate region the variance of all forks divided by the squared mean is O((n³p²)^−1+(n²p)^−1), using that only pairs of forks in one outgoing row sharing an arc contribute covariance. For p<ε, concentration plus Markov on the comparable forks bounds validity by o(1)+4ε. For p≥ε, missing dyads have diverging expected count and the probability any lacks a common predecessor is ≤n²exp(−ε²(n−2)); sending ε to zero covers oscillatory sequences satisfying the two divergence bounds. Independent full finite enumeration of all valuations and the structural condition reproduced counts 1/1, 4/4, 52/64, 1907/4096 for n=1,2,3,4.
 
-No conclusion concerns random transitive or reflexive frames, and no complete priority guarantee or independent verification is supplied.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact deterministic modal correspondence is classical and is not credited as new. The supported distinct finding is the combined independent-arc two-ended probability diagram for the one-sided condition, including the different obstruction counts and scalings at opposite ends and the full vanishing intermediate region.
+
+## value
+
+PASS
+
+The standard modal axiom gives a natural test case where validity disappears and returns as the arc density grows. The two different powers and common curve distinguish isolated outdegree obstructions from many forks clustered on one rare missing pair; counting raw forks at both boundaries would miss that distinction. The intermediate proof completes the classification rather than only evaluating two special-density examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

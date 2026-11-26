@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:46:25.190962Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and static inspection of check_binary_hyperbola_3step.py",
+        "Retained independent algebra and field counts documented in /workspace/previous/3/review.json"
+      ],
+      "rationale": "Retain the validated correctness reconstruction. For target (1,c), set u=x+y, v=xy, z=u+1: the reciprocal condition is v(cu+c+1)=u(u+1). Off c=0,1 the three excluded u-values are 0, (c+1)/c, 1; at each remaining u the quadratic for x,y splits into two distinct nonzero roots exactly at absolute trace zero. The two simple rational poles have different exponent two each, giving genus one; they each contribute one rational point. The regular fibers at 1 and infinity contribute two points each, making the correction six. Hasse gives a positive generic count for q≥16. The axes reduce to the absolute trace of 1+1/u excluding the inverse indices zero and one; origin returns correspond to nontrivial cube roots of unity; on the generating hyperbola the repeated-step count is exactly 3q−5. The retained independent XOR and polynomial-product enumeration gave exact-three supports 1,4,42,256,1023 and at-most-three supports 2,4,64,256,1024 for q=2,4,8,16,32, and R3(1,c)=6,19,6,0,6,0,6,0 in the specified basis at q=8. For the infinite ranges the preceding algebra and Hasse, not the samples, prove support. Two steps never give a nonzero axis target, so once connected the diameter is exactly three. The small-field Frobenius graph explains disconnection for q=2,4.",
+      "residual_risks": [
+        "The genus-one count is only for c≠0,1; exact-three support and graph distance at most three must not be identified. For q=2 and q=4 the syndrome map is not surjective into the stated two-coordinate space."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2022 covering-radius paper states binary radius 3 as previously known and gives the identical check matrix and minimum-column characterization. It cites Dodunekov (1986), Theorem 2, and Moreno for this. Its introduction writes m≥2, which cannot be used at m=2 (the binary matrix there has rank two and its three columns are all the nonzero syndromes of its image); the claimed correspondence and known radius three are used here for m≥3.",
+          "Li–Xiong study simultaneous boundary-value trace conditions in their generalized covering-radius proof. For binary q in their notation and t=1, their exact trace count specializes to this single target pairing problem. The size hypothesis for positivity does not constrain the validity of the algebraic quadratic/trace identity."
+        ],
+        "reasoning": "The general covering theorem handles at-most-three reachability; the exact count embedded in the generalized proof supplies the stronger generic, pointwise overlap. The distinction between these two implications is essential.",
+        "searches": [
+          "Li–Xiong arXiv:2608.29906v2, §3.2 Lemma 5, Proposition 3, Appendix A Proposition 7",
+          "Shi–Helleseth–Özbudak–Solé 2022 §I and bibliography [7]",
+          "Forey–Fresán–Kowalski–Wigderson arXiv:2511.21351v1 §3"
+        ]
+      },
+      "checked_sources": [
+        "Li–Xiong arXiv:2608.29906v2",
+        "Shi–Helleseth–Özbudak–Solé 2022 author manuscript",
+        "Lisoněk 2008 public abstract",
+        "Forey–Fresán–Kowalski–Wigderson arXiv:2511.21351v1",
+        "Error Correction Zoo Melas entry and relevant Resultary indexed claims"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write X=z for Li–Xiong's distinguished summand and normalize a_1=1, b_1=c. Their rational function is R(X)=X/((cX+1)(X+1)), off E={0,1,1/c}. Setting X=u+1 gives exactly (u+1)/(u(cu+c+1)) and the same excluded points. For c≠0,1 every genuine triple has X outside E, and a trace-zero X gives exactly two ordered roots from their eq. (7); thus the frozen count is exactly 2N in their eq. (17), which at t=1 reads |F∖E|+Σ_{X∉E}(-1)^Tr(R(X)).",
+          "In the same curve's smooth completion, X=1,1/c each add one point and X=0,∞ each add two. The two-simple-pole genus-one identity and Hasse then give #E_c−6 and the bound, with no new curve or point-count problem. At c=1 only repeated steps give solutions and the exact count is immediate from the two-root factorization; setting the inverse target to zero in the elementary equation gives the half-field trace count with exclusions; both-zero return uses the cube roots. The q=8 table is an evaluation in one eight-element field of the resulting exact criterion, not an additional structural result."
+        ],
+        "reasoning": "This is a concrete equivalence of functions, domains and multiplicities, not an extrapolation from known diameter or a failure to get a paper. The remaining computations after the specialization are just fibers at omitted points and elementary degenerate cases.",
+        "searches": [
+          "Li–Xiong arXiv:2608.29906v2, Proposition 3 eq. (7) and Appendix A Proposition 7 eq. (17), one-target specialization",
+          "Shi et al. §I eq. (1) and binary covering-radius statement",
+          "Frozen generic and exceptional clauses"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The binary Melas parity-check columns are the same steps h(x)=(x,x⁻¹). At syndrome s, R3(s)=6 A3(s)+(3q−5)1_{s∈S}, where A3 counts all binary vectors of weight three in the fiber; repeated ordered triples give the second term. A weight-three coset-leader count alone is not generally an all-fiber A3 count.",
+          "The minimum syndrome weight is Cayley distance from zero. For m≥3, the two reciprocal primitive roots have separate Frobenius orbits of size m (2^j cannot equal −1 modulo 2^m−1 for 0≤j<m), so the binary parity check has rank 2m. Thus the coding equivalence is for the full vertex group, not only one connected component.",
+          "For c≠0,1 the equivalent Kloosterman expression is q−5+(-1)^Tr(1/(c+1)) K(c/(c+1)^4), with K(A)=Σ_{t≠0}(-1)^Tr(t+A/t). This follows by sending the two rational poles to 0 and infinity and scaling; it is not used to infer all-fiber coverage from a coset-leader abstract."
+        ],
+        "reasoning": "Translate between ordered representation numbers and binary syndromes rather than matching the titles. The previously cited same-graph spectral work is not the decisive overlap.",
+        "searches": [
+          "Binary Melas covering radius, weight-three syndrome counts, Kloosterman sums and elliptic curves",
+          "Li–Xiong arXiv:2608.29906v2, §2 parity-check matrix, §3.2 and Appendix A",
+          "Shi–Helleseth–Özbudak–Solé, Covering Radius of Melas Codes, §I eq. (1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit is the frozen record 54b1d9c6b69a. Distinct indexed matches: 7b6d5a6ea1b8 studies coordinate-access costs of three-dimensional syndrome spaces of length-15 Melas, not number of representatives in one fiber; d7c0719593b0 studies distinct three-sums on a split hyperbola in characteristic at least five.",
+          "Lisoněk's publisher abstract states counting leaders of distance-three cosets of the binary Melas code in connection with Kloosterman divisibility for odd m; this alone is not an all-target table.",
+          "Li–Xiong's eq. (17) is an exact character-sum formula over the same three-exclusion domain, prior even without a ready-made printed q=8 support table."
+        ],
+        "reasoning": "Do not infer exact overlap from similar catalogue summaries or from an odd-m leader count. The exact prior fiber calculation, rather than a database hit or literal small-field table, is decisive.",
+        "searches": [
+          "Resultary: binary Melas and three-step hyperbola/syndrome support or exact elliptic three-sums",
+          "Li–Xiong Appendix A eq. (17)",
+          "Lisoněk, doi:10.1007/s10623-008-9171-0"
+        ]
+      },
+      "rationale": "The diameter is the already known binary Melas covering radius. The direct coding comparison also resolves the main count, not just diameter: Li–Xiong Proposition 3, eq. (7), and Appendix A Proposition 7, eq. (17), give the identical punctured-field trace-fiber count after t=1 and a translation of the remaining coordinate. For generic targets each accepted coordinate yields exactly two ordered quadratic roots, and completing that same Artin–Schreier equation adds the six immediate fibers. Thus the principal exact numerical invariant and elliptic mechanism are a routine restatement of an existing count, even though the older paper uses it toward existence bounds and does not print the frozen full support table. The remaining singular targets and small-field entries are elementary boundary evaluations of the same equations, not a distinct substantive remainder.",
+      "residual_risks": [
+        "Lisoněk's full article and the original 1986 covering-radius theorem were not inspected; they could establish still earlier or more explicit overlap. Neither absence nor the failure decision rests on unavailable material. The 2026 exact published calculation is directly verified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact generic fiber-count equivalence, beyond a covering-radius or analogous-curve comparison",
+          "evidence": [
+            "Eq. (7) gives a quadratic with coefficient X+a_i and trace-test R_i; Eq. (17) evaluates 2^t N as the sum of the trace indicators expanded by additive characters. For t=1 and a_i=1,b_i=c the map and exclusions are identical to the frozen ones."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2608.29906v2",
+          "material_read": "§2 parity-check matrix H^(m,q)_{1,−1}, §3.2 Lemma 5 and Proposition 3 eq. (7), Appendix A Proposition 7 definition of R_i and eq. (17), and the subsequent pole/character-sum bound",
+          "method": "Primary OA HTML; opened relevant passages by query and offset, then specialized base field and t=1 and changed X to u+1",
+          "title": "The generalized covering radii of Melas codes",
+          "trigger": "Same reciprocal-root syndrome matrix and simultaneous small-column representations"
+        },
+        {
+          "assessment": "Reports known binary radius three for the nondegenerate orders; not itself a source for the stronger binary all-fiber result in the passages inspected",
+          "evidence": [
+            "Eq. (1) uses columns (α^j,α^(−j)); §I refers to Dodunekov 1986 Theorem 2 for the binary radius three. The 2022 account is not used for its erroneous m=2 boundary wording."
+          ],
+          "identifier_or_url": "https://open.metu.edu.tr/handle/11511/97724 ; HAL hal-03581341",
+          "material_read": "Primary author manuscript §I, eq. (1), minimum-column characterization and binary radius citation; bibliography [7] and the conclusion",
+          "method": "Lawful university copy; compared exact syndrome columns and range, keeping m=2 separate",
+          "title": "Covering Radius of Melas Codes",
+          "trigger": "Known ordinary binary covering radius equals graph diameter on full syndromes"
+        },
+        {
+          "assessment": "Substantial antecedent for leader counts; abstract alone does not settle count coverage at lower-distance cosets, even m or small fields",
+          "evidence": [
+            "Abstract explicitly says coset leaders for cosets of weight 3 and Kloosterman divisibility over F_(2^m) for odd m."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10623-008-9171-0",
+          "material_read": "Petr Lisoněk's public publisher abstract; full text not recovered via lawful routes",
+          "method": "Read publisher landing-page statement after configured PDF/DOI retrieval failed; attempted author-copy recovery",
+          "title": "On binary Kloosterman sums divisible by 3",
+          "trigger": "Exact nearby Melas coset and Kloosterman calculations"
+        },
+        {
+          "assessment": "Same graph and two-sum analysis; the stronger decisive overlap is in the coding literature",
+          "evidence": [
+            "Proposition 3.2 determines possible two-sums by sum and product."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2511.21351v1",
+          "material_read": "Retained comparison of Theorem 1.1 and Propositions 3.1–3.3",
+          "method": "Primary OA HTML, exact graph and two-sum quadratic",
+          "title": "Spectrally indistinguishable pseudorandom graphs",
+          "trigger": "Identical hyperbola-derived graph"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Li–Xiong §3.2 and Appendix A; Shi et al. §I; reconstructed frozen exceptional clauses and earlier retained value reasoning"
+      ],
+      "rationale": "The retained earlier review correctly found exact targetwise behavior mathematically meaningful in isolation. But the completed comparison shows that the main fiber count and the radius are established in equivalent coding terms, and that the difference is a change of variables, a count of immediate missing fibers, and elementary exceptional evaluations. Those evaluations and the small-field restatement do not supply an independently valuable new invariant or theorem. The presentation can be useful as an exposition of the graph–code equivalence without being a distinct scientific finding.",
+      "residual_risks": [
+        "The evaluation is of new scientific content in this frozen result, not of the utility of the known coding-theory quantity or of future studies of other walks."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

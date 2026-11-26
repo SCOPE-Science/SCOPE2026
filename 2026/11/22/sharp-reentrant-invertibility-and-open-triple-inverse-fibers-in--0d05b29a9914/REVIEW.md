@@ -1,18 +1,21 @@
-# Review of the global inverse-geometry theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The map, domain, coefficient matrix, sigmoid and both free parameters agree with the published equations. The determinant identity
-\[
-\det DF=(1-T+17Td_1/10)(1-T+17Td_2/10)+T^2d_1d_2,
-\qquad d_j=\alpha\operatorname{sech}^2(\alpha z_j)
-\]
-is exact. At the unit step the image is an explicit affine parallelogram. For nonunit steps, the map differs from \((1-T)I\) by a bounded term; the homotopy is proper, with degree \(+1\). Below the strict loss boundary, all finite determinants are positive; degree gives global diffeomorphism. Above it, a negative determinant region exists and proper degree forces at least two compensating positive inverse branches at nearby regular targets. The borderline derivative tends to a singular matrix only at infinity. The exact rational negative-Jacobian witness and all 1,105 checker diagnostics passed. The checker is not the infinite proof; proper-degree arguments supply the necessary quantifiers.
+## correctness
 
-**Originality — PASS within inspected coverage.** The originating paper [1] was read at its governing equations, Jacobian, numerical bifurcation analysis, conclusions and appendices; its focus is forward spiking dynamics and local equilibrium stability. Two full publicly accessible findings for the identical model were compared at their actual theorem/proof text: one classifies compact-global-attractor existence and another excludes/constructs primitive two-cycles. Neither claims global injectivity, a gain-step reentry boundary, or the open three-inverse-fiber phase. Related inverse-sheet theorems for Huygens and risk-sensitive maps concern different equations, and the general theory of noninvertible planar maps supplies tools but not the specific sharp threshold. Residual risk: unindexed or differently named equivalent results for this exact sigmoid-rotation Euler map may exist; absence from a ranked index cannot prove global uniqueness.
+PASS
 
-**Value — PASS.** The paper's observed regimes motivate whether the state update supports unique backward reconstruction. The theorem supplies a sharp complete parameter classification, including the exceptional bounded-image step, recovery of global invertibility as the step grows for small gain, a nonsingular yet nonuniform inverse boundary, and persistent three-preimage output regions in the moderate-step phase. It also proves that every nonunit-step regular target has an odd number of inverse states. These are structural, all-parameter facts, not a routine numerical fit or a single arbitrary output count. The result does not classify forward physical attractors, noise robustness, or exact maximum inverse multiplicity.
+For this exact map on the real plane, the centered, bounded sigmoid perturbation of (1−T)I gives a uniformly proper homotopy for T≠1, so degree +1 forces surjectivity and the signed count +1 for every regular target. Such fibers are compact and discrete, hence finite and odd. Differentiating gives D=diag(d₁,d₂), dᵢ=α sech²(αzᵢ)>0, and DF=(1−T)I+TMD. The determinant is strictly positive for 0<T<1 and for T>1 with q=T−1≥(17/10)Tα, even at equality because the off-diagonal contribution is +T²d₁d₂. There is then exactly one preimage by degree; local inverses give a smooth global inverse. T=1 is an invertible affine transform of the open tanh square, not an onto map of the plane. At equality along (0,R), DF tends to a rank-one matrix, so inverse derivatives are unbounded and a Lipschitz inverse is impossible. For q<(17/10)Tα, the determinant along (0,R) tends to q(q−(17/10)Tα)<0, while along (R,R) it tends to q²>0. Continuity gives critical points. Use local inversion on the negative sheet and Sard to choose a regular target there: one negative sign requires at least two positive signs by degree. Local inversion on three disjoint neighborhoods gives an open common output neighborhood; properness also makes the critical-value set closed, if one wants all targets in a smaller neighborhood to be regular. Solving the inequality gives the restoration boundary, including 20/3 at α=1/2. `python /workspace/replay_checks.py 1` independently confirms the exact rational sign bound at (0,6) and three numerical branches of signs +,−,+, not an exhaustive census at that output. The full-plane statements are analytic, not based on the numerical example.
 
-**Most relevant primary source:** A. Buscarino, C. Famoso, L. Fortuna, *Bifurcations in a new two-cell spiking map: a numerical and experimental study*, Nonlinear Dynamics 111 (2023), DOI: https://doi.org/10.1007/s11071-023-08897-7 (first public 2023-09-27).
+## originality
 
-**Closest complementary published claims:** *A sharp global-attractor threshold for the two-cell sigmoid spiking map*; *Sharp prime-two exclusion and a saturated repelling cycle in a two-cell spiking map* (public 2026 notes). Their conclusions concern global forward attraction and periodic recurrence, not one-step inverse-state multiplicities.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The map, degree method, and inverse-sheet vocabulary are not new here. The supported contribution is the exact one-step global invertibility diagram, including the equality behavior and the open multiple-preimage phase, not the previously studied forward dynamics. The available same-map statements are materially different; independent confirmation of the original paper's equation-level attribution and full-text priority is limited as detailed below.
+
+## value
+
+PASS
+
+Global backward reconstruction is a different structural question from forward spiking and local stability. A sharp complete parameter diagram identifies when a larger step restores unique inversion, when the inverse loses uniform regularity despite remaining smooth, and when ambiguity persists on open sets. This is useful exact geometry even without a maximum fiber count or a stability claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

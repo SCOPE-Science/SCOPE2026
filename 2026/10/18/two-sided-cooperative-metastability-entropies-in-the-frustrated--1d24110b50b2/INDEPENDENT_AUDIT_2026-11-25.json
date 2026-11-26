@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:34:52.983607Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With wall indicators w, total walls W and adjacent wall pairs P, expand the nearest and next-nearest bonds to get H/J=−(1−κ)N+(2−4κ)W+4κP. The cyclic parity is even. A length-one domain admits a strictly lowering single flip for κ<1; with no adjacent walls, an interior single flip costs at least 4J(1−κ), and a boundary single flip is nonnegative. For a pair at distance ≥3 the single costs add. At distance two the only potentially negative correction is −4Jκ, when the pair spans exactly one wall. On the side with the equal-sign intervening bond, the end spin has single cost at least 4J if internal or exactly 4Jκ if it lies at the next wall, so the correction is harmless. For adjacent flips only the two exterior bonds are toggled. With both exterior bonds walls their removal costs 4J(2κ−1) (a length-two domain); with both exterior bonds wall-free the cost can be negative only when all five bonds in the affected stencil are wall-free, in which case it is 4J(1−2κ). With one exterior wall the wall count is unchanged and P cannot decrease. Five wall-free bonds mean a domain of length at least six or the uniform word. At κ=1/2 the energy depends only on P, so all one-stable words, including the uniform pair, are ground states. Rooting each nonuniform word at any of its 2r walls, then dividing by 2r, gives C(z)=−z(d/dz)log(1−F(z)²) for the allowed-length series F; the uniform contribution is inserted separately. The unique positive F=1 root gives a simple pole with coefficient asymptotic r^(−N), using consecutive allowed lengths to exclude any other equal-modulus pole. The three polynomials give the stated entropies and the smaller off-critical bases. Independently written exact spin-energy enumeration (branches/279b5cbe-624f-4d42-99b4-44d1f6e68306/independent_pair_check.py) tested all words and unordered pairs for N=8,9,10 at κ=1/4,1/2,3/4; counts in coupling order were (26,46,28), (38,74,36), (52,122,60), with no nonadjacent strictly lowering pair from a one-stable word. The source verifier was read, not executed. Finite enumeration corroborates but does not establish the all-N proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The random-field predecessor was not available in full in the lawful check; Torre et al.'s inspected abstract is about ground states and topological frustration on even rings."
+        ],
+        "reasoning": "Neither the inspected quantum/ground-state claim nor the accessible material on random-field metastability gives an off-critical theorem applicable to the exact weak two-flip test. Lack of access does not exclude a stronger random-field theorem.",
+        "searches": [
+          "Ismail–Hassan DOI 10.1088/1009-1963/11/9/318",
+          "Torre et al. arXiv:2406.19449v1",
+          "Resultary: metastable Ising chains, arbitrary pair stability, cooperative entropy"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ANNNI blocking and pair-stability comparisons",
+        "arXiv:cond-mat/0004207",
+        "Ismail–Hassan DOI/abstract-level comparison",
+        "arXiv:2406.19449v1 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Forbidding singleton domains still allows both length two and length six; one or the other must be eliminated depending on the sign of 2κ−1. The multiphase-point theorem is insensitive to this sign."
+        ],
+        "reasoning": "Standard composition counting gives growth after the allowed lengths are known, but the complete two-sided classification also needs the local pair-energy sign analysis, including exclusion of all distance-two instabilities. It is not obtained by specializing the known one-stable entropy.",
+        "searches": [
+          "Resultary 2026/10/18 SCOPE-a-marginal-entropy-spike-for-weakly-blocked-annni-spin-chains--0f8914252c1b RESULT.md",
+          "Dhar–Shastry–Dasgupta multiphase constraint and dynamics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matched marginal-entropy finding uses single strictly lowering moves; the historical multiphase constraint in staggered variables translates to no length-one spin domain in the ferromagnetic-nearest-neighbor convention."
+        ],
+        "reasoning": "Weak single-spin blocking and adjacent exchange dynamics are not a test of all simultaneous pair flips. Ground-state and weak-pair stability coincide here only at κ=1/2, where the claimed entropy is not distinguished from prior work.",
+        "searches": [
+          "Resultary: ANNNI weakly blocked states, simultaneous pair flips and domain-length entropy",
+          "Dhar–Shastry–Dasgupta, arXiv:cond-mat/0004207 p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest matched indexed formula is the single-spin log φ branch for 0<κ<1; the arXiv passage gives golden-mean multiphase growth only."
+        ],
+        "reasoning": "No inspected entry includes the off-critical pair-count roots λ³−λ²−1 and λ⁵−λ³−λ²−λ−1. The one-spin subclaim is directly covered and is baseline only.",
+        "searches": [
+          "Resultary: marginal ANNNI entropy, pair-stable domain counting, off-critical roots",
+          "arXiv:cond-mat/0004207 p. 1"
+        ]
+      },
+      "rationale": "Credit the off-critical cooperative-stability classification and both entropy roots only. The one-spin baseline materially overlaps a separate Resultary finding, and the multiphase-point golden-mean degeneracy is established prior work. The inspected overlaps do not cover the simultaneous-pair constraints away from the multiphase point; Ismail–Hassan remains an access risk, not a negative result.",
+      "residual_risks": [
+        "No decisive full-text passage of Ismail–Hassan was available lawfully.",
+        "Unindexed cluster-flip or local-minimum results could overlap; the review does not assert exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive one-spin coverage; no priority inferred from shared date",
+          "evidence": "Weak single flips and log φ for 0<κ<1; no simultaneous-pair law in the inspected finding.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-marginal-entropy-spike-for-weakly-blocked-annni-spin-chains--0f8914252c1b",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Configured local mirror",
+          "title": "A marginal entropy spike for weakly blocked ANNNI spin chains",
+          "trigger": "Same chain and entropy baseline"
+        },
+        {
+          "assessment": "Known critical ground-state constraint and entropy",
+          "evidence": "Multiphase ground-state constraint in staggered variables and golden-mean growth.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0004207",
+          "material_read": "p. 1, offsets 5300–6611",
+          "method": "Lawful OA PDF",
+          "title": "Equilibrium and dynamical properties of the ANNNI chain at the multiphase point",
+          "trigger": "Same periodic chain and critical coupling"
+        },
+        {
+          "assessment": "Unresolved comparison, not evidence of noncoverage",
+          "evidence": "Available material does not settle the simultaneous-pair condition; no decisive full-text passage was available.",
+          "identifier_or_url": "https://doi.org/10.1088/1009-1963/11/9/318",
+          "material_read": "Publisher/abstract-level evidence only",
+          "method": "Lawful publisher/OA retrieval attempt; no open copy obtained",
+          "title": "Metastability of Ising spin chains with nearest-neighbour and next-nearest-neighbour interactions in random fields",
+          "trigger": "Plausible prior metastability theorem"
+        },
+        {
+          "assessment": "Abstract concerns a different output",
+          "evidence": "Topological frustration and ground-state entanglement/excitations, rather than weak pair-stable counts.",
+          "identifier_or_url": "https://arxiv.org/pdf/2406.19449v1",
+          "material_read": "p. 1 abstract, offset 0",
+          "method": "Lawful OA PDF",
+          "title": "Interplay between local and non-local frustration in the 1D ANNNI chain I: The even case",
+          "trigger": "Related periodic ANNNI model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete classification of a motivated cooperative stability test on a canonical frustrated chain, not merely a new way to count the known critical ground states. The change from eliminating short domains to eliminating long ones, and the two distinct exponential survival rates relative to single-spin minima, quantify how move-set enlargement changes metastability on either side of the multiphase point.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

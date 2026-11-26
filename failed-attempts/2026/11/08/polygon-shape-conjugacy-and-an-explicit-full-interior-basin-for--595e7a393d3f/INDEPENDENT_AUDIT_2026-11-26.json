@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:46:26.076906Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In each cone write x=r m_i+z e_i with m_i the edge midpoint and z=r(u−1/2). With the calibrated coefficients the field is −a(r−1)m_i+omega_i e_i. Thus r(t) contracts exponentially toward one and z grows at speed omega_i until z=r/2; the next cone begins at z=−r/2 with the same r. Integration gives the stated switch equation. The strict speed and collar inequalities give positive angular velocity on both sides of every ray. Each trajectory stays in a radial compact subset on which the angular speed is bounded above and away from zero, so no finite-time switch accumulation occurs. Periodicity forces r=1; the cycle has edge times 1/omega_i and its return derivative follows from continuity of the return time. The coordinate identification is piecewise linear, agrees on each common ray, and intertwines forward trajectories. The cutoff is for everywhere positive angular velocity, not a maximal attraction basin. The frozen script was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kai's Theorem 2 supplies local stability in a small annulus for the broader model, not the full collar or conjugacy alone.",
+          "The indexed all-plane result gives the general c_i,B_i^0 phase-space reduction without imposing its separate sufficient conditions for whole-plane crossing."
+        ],
+        "reasoning": "The general coordinate theorem, not the whole-plane corollary, is the stronger coverage. Its shear parameter need not be nonnegative for the reduction.",
+        "searches": [
+          "Kai DOI:10.1007/s40435-026-02340-6, sections 2–3.2",
+          "Resultary 897fc002f608, general reduced ODE"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verification support",
+        "Resultary 897fc002f608, 731cdfe46af3, b1ef5fefb339",
+        "Kai 2026 OA article"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proof Step 1 gives r'=−c_i(r−1), ru'=omega_i+(B_i^0+c_i u)(r−1) unconditionally. Step 2 gives the minimizing endpoint u for either sign of r−1.",
+          "The same coordinate gluing is given on the rays, and Step 4 derives period and multiplier."
+        ],
+        "reasoning": "Set c_i=a and B_i^0=−a/2. The minimum numerator is omega_i−a|r−1|/2; hence 0<r<R by the speed assumption and the sharp uniform endpoint test. This is forward invariant by the radial ODE. The entire reduced problem is now identical for any geometry, including switch gluing; setting z=r(u−1/2) immediately integrates the sector exit equation. The general exact equations cover the finite-radius result even though the whole-plane inequalities do not apply.",
+        "searches": [
+          "897fc002f608 RESULT.md offsets 1500–5999, 6248–8831, 8831–10488"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The local coordinates are r and u in both the frozen and all-plane reduction; in centered edge coordinates z=r(u−1/2), the calibration says simply dot z=omega_i.",
+          "For a regular polygon p_i dot e_i / L_i²=−1/2, so mu_i=0; the November 1 record already treats the resulting one-sided map on the regular geometry."
+        ],
+        "reasoning": "The conjugating map is the change between the identical reduced flows: send each vertex-ray basis pair to its counterpart, with no time scale change.",
+        "searches": [
+          "Resultary: affine polygon oscillator radial gauge sector crossings shape conjugacy",
+          "Overlap 897fc002f608; regular-polygon 731cdfe46af3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "731cdfe46af3 treats exact regular-polygon crossing; b1ef5fefb339 uses a different gain for near-cycle return-clock control.",
+          "897fc002f608 provides the exact full-parametric sector system and period/multiplier expressions."
+        ],
+        "reasoning": "An indexed exact equation or crossing-map theorem is the relevant lookup for continuously variable polygons and gains, rather than a table of finite parameter choices.",
+        "searches": [
+          "Resultary indexed exact crossing maps and calibration results: 731cdfe46af3, 897fc002f608, b1ef5fefb339"
+        ]
+      },
+      "rationale": "The distinct all-plane indexed result does not extend this particular calibration to the punctured plane: it requires B_i^0>=0 and the present B_i^0 is −a/2. But its exact phase-space reduction and pointwise extrema calculation are unconditional in B_i^0 and c_i>0. Substituting c_i=a and B_i^0=−a/2 in those general equations gives exactly this collar, radial law and the identical dynamics in the common glued coordinates. The linear-in-time centered edge coordinate, exit law and time-preserving maps are immediate integrations or coordinate identifications of those equations. This demonstrates mathematical coverage, not chronological priority; the distinct entry itself mentions the separate finite-collar construction.",
+      "residual_risks": [
+        "Earlier closely related 2012 and 2019 full texts not established as accessible; historical priority unresolved. This is not the reason for the originality failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General reduction covers calibrated collar by substitution; whole-plane theorem itself does not",
+          "evidence": [
+            "The reduction explicitly holds independently of any special coefficient calibration; Steps 1–2 give both angular minima.",
+            "Relationship paragraph separately acknowledges the finite-collar construction; no priority inferred from day. "
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-global-angular-positivity-and-punctured-plane-attraction-i--897fc002f608/RESULT.md",
+          "material_read": "Proof Steps 1–5 and relationship paragraph at mirror offsets 1500–5999 and 6248–10488",
+          "method": "Paged local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp global angular positivity and punctured-plane attraction in polygonal affine oscillators",
+          "trigger": "Same polygonal family and exact radial/angular quantities"
+        },
+        {
+          "assessment": "Three-parameter model and local stability; not the finite-collar theorem alone",
+          "evidence": [
+            "Theorem 2 uses a bounded invariant annulus and does not claim global uniqueness."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s40435-026-02340-6",
+          "material_read": "Abstract and sections 2–3.2, offsets 5988–12895 and 27737–35232",
+          "method": "OA PDF passages",
+          "title": "Piecewise affine oscillators with polygonal limit cycles",
+          "trigger": "Primary mathematical source of the model"
+        },
+        {
+          "assessment": "Overlaps regular case only; no cross-shape claim",
+          "evidence": [
+            "Regular polygon and exact one-sided vertex-ray crossing map."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-exact-one-sided-crossing-and-a-three-regime-central-startup-tran--731cdfe46af3/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Paged local mirror",
+          "title": "Exact one-sided crossing and a three-regime central startup transition",
+          "trigger": "Potential overlap of switching invariant"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Shape-invariant transient dynamics and basin bounds are useful questions. In this record the answer reduces to equating two already explicit normalized coefficients, using the known angular extrema, and gluing identical coordinate sectors. The derived event time is a direct integration of the normalized affine equations. There is no further independent basin, classification, or return-clock result to retain after that coverage.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

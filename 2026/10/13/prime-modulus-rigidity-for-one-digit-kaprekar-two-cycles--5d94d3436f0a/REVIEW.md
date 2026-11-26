@@ -1,28 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. A one-digit transition \(x\mapsto y\) implies
-\[
-x^2\equiv y\pmod{\ell},
-\qquad
-\ell=b-1.
-\]
-For a nontrivial two-cycle with prime \(\ell\), composition gives
-\[
-x^3\equiv1\pmod\ell,
-\]
-so the two states must be exactly the two nontrivial cube roots of unity. Their integer sum is \(\ell-1\). The forward transition from the smaller root is automatic after checking the quotient range. The reverse transition is equivalent to a single quotient bound, which expands exactly to
-\[
-u^2-(3\ell-1)u+(\ell-1)^2\le0.
-\]
-All boundary states and the primes \(\ell=2,3\) are excluded correctly. A direct exhaustive replay for every prime below \(20000\) agrees with the theorem.
+## correctness
 
-## Originality
-PASS. Iannucci's 2000 paper completely classifies fixed points of the same square-split construction through unitary divisors of \(N-1\), and explicitly includes arbitrary bases. Iannucci--Foster 2005 develops cubic fixed-point analogues. Neither inspected primary source treats the one-digit period-\(2\) classification. Public cycle tables contain examples such as the base-\(8\) cycle but do not state the cubic-root rigidity or the exact digit-bound criterion.
+PASS
 
-Searches using Kaprekar-cycle, amicable/sociable, cube-root-of-unity, prime-\(b-1\), and base-\(8\) aliases found no equivalent theorem. The remaining risk is an unindexed recreational observation.
+For b=ℓ+1 and x²=qb+r, T_b(x)=x²−qℓ. Both 1 and ℓ are fixed, so either member of a nontrivial positive one-digit cycle has a nonzero residue not equal to 1. Applying the congruence twice gives x⁴≡x mod ℓ; the order is exactly 3, including exclusion of ℓ=2,3. When ℓ≡1 mod 3 the only possible pair is the two nontrivial roots u<v of z²+z+1, which square to each other; their modular sum −1 lifts to u+v=ℓ−1 since both are between 1 and ℓ−1. For positive n,s<ℓ with n²≡s, q=(n²−s)/ℓ is an integer ≥0 (n²−s>−ℓ), and n²=qb+(s−q). This is the actual Euclidean split giving T_b(n)=s exactly if q≤s, since s<b. The condition holds for u→v since u²<bv and reduces for v→u to v²≤bu, including equality. Substitution gives u²−(3ℓ−1)u+(ℓ−1)²≤0. The upper quadratic root is larger than (ℓ−1)/2, which exceeds u, so only the lower root matters. A separate bounded divmod calculation reproduced 2↔4, 7↔11 and 29↔37 for ℓ=7,19,67 and the absence of a cycle for ℓ=13 (3→9→16 in base 14) and ℓ=2,3. The frozen verify.py/VERIFICATION.md comparison over ℓ<20000 is finite corroboration, not the proof; no bundled code was executed.
 
-## Value
-PASS. Periodic points are the natural dynamical extension of the classical Kaprekar fixed-point problem. The modulus \(b-1\) is already the organizing modulus in the fixed-point theory, so the prime-\(b-1\) stratum is structural rather than arbitrary. The theorem completely resolves its first nontrivial dynamical layer: there is at most one one-digit two-cycle, its candidate is cyclotomic, and existence is decided by one explicit inequality.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior statements on the same square-split operator inspected here concern fixed points. The reduction modulo b−1 is familiar, but by itself gives only a two-cycle candidate, not a classification of actual one-digit orbits. No inspected source gives or implies the exact prime-field candidate plus the reverse-transition digit threshold. Prior cycles called Kaprekar in other sources refer in several cases to a different operator.
+
+## value
+
+PASS
+
+Period two is the first nonfixed stratum of the classical square-split map, and prime b−1 is a natural arithmetic regime for its residue dynamics. The exact carry threshold decides which modular candidates produce a genuine digit cycle, a distinction that matters even at ℓ=13; at most one such pair needs checking. This is an unbounded complete classification in the stated stratum, not the standard modular congruence alone, an arbitrary finite census, or an existence claim about other bases or periods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

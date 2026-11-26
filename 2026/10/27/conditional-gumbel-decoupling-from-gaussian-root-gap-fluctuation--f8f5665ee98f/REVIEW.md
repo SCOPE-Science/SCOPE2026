@@ -1,19 +1,21 @@
-# Scientific assessment: conditional Gumbel decoupling in cyclic deposition
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof fixes the model as independent rate-one exponential first-arrival clocks and defines the completed root set via three-site strict minima. Conditional memorylessness yields a **random conditional Poisson mean** \(\mu_K=p_K S_K\), where the observable count \(S_K\) of three-site survivors has exact variance and mean. The variance shows \(\mathbb E|\mu_K-e^{-x}|=O_x(K^{-1/8})\). A conditional dependency-graph Chen–Stein comparison, with mutually exclusive adjacent roots and joint probability \((2/15)e^{-5t}\) at distance two, gives a smaller Poissonization error. The early root set is measurable and differs from the final one by only \(O_{L^1}(K^{1/4})\) sites; adding a root changes each fixed gap statistic by at most two. This makes the known Gaussian gap limit asymptotically early-measurable. Conditioning proves factorization; known tightness and de-Poissonization transfer it to the process and discrete steps. Exact finite checks corroborate the local identities without being used as infinite proofs.
+PASS
 
-## Originality — PASS (best-knowledge comparison)
+Given the censored clock history at s=(log K)/4, the residuals of surviving clocks are independent rate-one exponentials. A late root must lie in an all-surviving triple. Its conditional probability there is p=e^{-x}K^{-1/4}; the number S of surviving triples has mean K^{1/4} and variance K times (q^3-q^6)+2(q^4-q^6)+2(q^5-q^6), with q=K^{-1/4}. Thus E|pS-e^{-x}|=O_x(K^{-1/8}). The conditional dependency graph has radius two, and conditional b1 is at most 5p^2 S. Neighboring valleys exclude one another; for distance two both centers being late forces all five clocks to exceed t. Independently, transforming the residual ranks to uniforms gives the two-valley probability 2∫_0^1 (v-v^2/2)(1-v)^2 dv=2/15, yielding E b2=O_x(K^{-2/3}). Chen–Stein and the Lipschitz bound for the exponential give the stated continuous-clock conditional error for fixed x and eventually t>s. Roots seen by s can be identified exactly from the history. The expected number of missed roots is K^{1/4}/3, and each insertion changes a fixed gap count by at most two. The event of no early root has probability e^{-Ks}. Hence the early and final fixed-coordinate profiles differ by o_P(1) after normalization. Testing a bounded function of the early profile against a last-arrival threshold factors its expectation with the stated error. Matijasevick's Theorem B supplies the marginal Gaussian process, with the submitted coordinate cutoff eventually identical in each coordinate; marginal tightness gives joint tightness and finite-coordinate laws determine the product-space limit. The same early approximation works for root count using its known CLT (its radius-two indicators also give variance per site 1/3(2/3)+2(0-1/9)+2(2/15-1/9)=2/45). Finally P(tau>log K)≤1/(3K^2), and the rate-K Poisson martingale satisfies Doob's bound 4K log K on the squared supremum up to log K. This suffices for Slutsky on the K scale without assuming independence of the martingale and tau. Neither a discrete-step conditional error nor a growing-gap result follows from this review.
 
-The nearest literature, Matijasevick (arXiv:2610.21094v1, Theorems A–B and Proposition 7.3), derives the marginal final-gap Gaussian process and the marginal last-root Gumbel law, but no conditional distribution after an expanding early history and no joint independence statement. Mansour–Rastegar–Roitershtein (arXiv:1903.12548v2) concerns root counts/gaps, without this completion-time joint law. Dörr–Heiny (arXiv:2309.17314v2) treats bivariate extreme-value limits for permutation-count statistics over independent-permutation arrays rather than a root stabilization time within a single cyclic process. Related generic normal/extreme limit theorems or established Chen–Stein techniques could imply part of the argument; none identified in the targeted primary-text and scholarly-record comparisons actually states this conditional result. This is not an independence certification against every possible general theorem.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The quantitative conditional Poisson-to-Gumbel theorem gives an **observable early-history predictor** with explicitly vanishing error, whereas two separate marginal limits cannot decide whether late completion and final spatial fluctuations remain correlated. It implies a product limit for infinitely many natural root-gap statistics and the exact normal–Gumbel decoupling for the root count. This addresses joint formation morphology versus final stabilization timing and uses a nontrivial survival-censoring argument rather than a parameter rename or trivial corollary. Restriction: uniform site rates and fixed threshold \(x\); no independent assessment.
+The two marginal laws and the unconditional dependency-neighborhood method have clear prior coverage. The supported distinct contribution is the quantitative conditioning on an expanding first-arrival history and its use to prove the last-root-time/entire-final-gap-profile product limit, not either marginal or a general new Poisson approximation theorem.
 
-## Closest literature and outstanding scope
+## value
 
-Sources: Matijasevick (2026), arXiv:2610.21094v1; Mansour, Rastegar and Roitershtein (2019), arXiv:1903.12548v2; Dörr and Heiny (2024), arXiv:2309.17314v2; and the classical local-dependence Poisson approximation of Arratia, Goldstein and Gordon (1989). General joint extreme/central limit theory is an explicit priority risk. The analytical proof requires the 2026 marginal Gaussian-process limit as an input.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The time at which the last spatial root forms and the fluctuations of the final spatial gaps are natural observables of the same experiment. Their asymptotic independence cannot be inferred from the two marginal laws. The quantitative early-history bound captures what can still be predicted after most roots have formed and yields decoupling of the complete Gaussian profile without asserting independence among its coordinates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:09:12.136532Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fresh assessment of /workspace/repairs/4/RESULT.md: the repaired Finding concerns only the exact four-variable ordered-pair census. Binary conjunction and disjunction preserve monotonicity and both endpoints; conversely, minimal true sets of a monotone nonconstant map give a disjunction of nonempty conjunctions. Thus the test on the two endpoints and the 32 covering edges is necessary and sufficient for being a term function on four available variables. Monotone lower/upper slice comparison gives a second exhaustive enumeration because the restrictions to the two slices uniquely identify a truth table. My third enumeration generated upward closures of every nonempty antichain of nonempty assignments, including the singleton containing just the top, and tallied all ordered XOR masks. It independently gives 166 functions, 3605 distinct masks and the exact 15 cells of the repaired table with total 166^2; I parsed the repaired table and compared it to that fresh exact replay. Replay: python3 /workspace/review_replay.py 4. No uploaded script was run. The repair corrects the claimed Python floor of the uploaded checker to 3.10 for int.bit_count. The maximal-distance two orientations follow from connectivity of the interior comparability graph. The original general mask and spectrum statements are mathematically correct; they are now credited and proved briefly as context rather than claimed as the distinct contribution. The histogram is exact for ordered pairs, with replacement, on truth functions at this arity only. No cross-arity extrapolation or formal certification is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Elder et al. represent arbitrary finite-poset interval-closed subsets as differences of ideals. Cardó discusses spectrum density and describes a broader function family than the actual constant-free term clone. Dvorkin recalls monotone representation with constants. The paired-support catalogue record counts a canonical paired encoding, and the other order-convex disagreement record is three-valued."
+        ],
+        "reasoning": "The order-dual representation together with the two endpoint conditions directly covers the original structural mask finding. Density alone does not give exact multiplicities, and the related three-valued semantics do not tabulate this four-variable Boolean problem. A canonical mask encoding counts it once; the retained claim counts all realizing ordered pairs, including incomparable pairs of upsets.",
+        "searches": [
+          "Elder et al. Proposition 2.5, p. 4",
+          "Canonne et al. arXiv:1609.00265 Appendix B",
+          "Cardó arXiv:2604.08446 Example 6.4",
+          "Dvorkin arXiv:2602.02837 Introduction",
+          "Resultary 21791a9adbc6 and c41f6efa30f2, Findings"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2307.08520v2",
+        "arXiv:1609.00265",
+        "OEIS A369313 and A000372",
+        "arXiv:2607.08446",
+        "arXiv:2604.08446",
+        "arXiv:2602.02837",
+        "arXiv:2304.14069v3",
+        "Resultary 21791a9adbc6, c41f6efa30f2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 2.5 uses the antichains of maximal elements and the floor and explicitly constructs the inverse as a difference of nested ideals. Fihman et al. inspect Hamming distances for independent monotone-function samples to diagnose sampling, not exact four-variable multiplicities."
+        ],
+        "reasoning": "For any two upsets their XOR is (union) minus (intersection) and is order-convex. By the dual of the prior representation, a nonempty interior convex set is the difference of its upper closure and that closure minus the set; both upsets contain the top and omit the bottom and therefore arise as terms. The empty case uses equal terms. There is no new obstruction or count in that direct specialization. The canonical representation does not describe the number of realizing ordered pairs: changing the common portion of their true sets or their orientation on incomparable components can change this multiplicity without changing the mask. Consequently a support census or the general difference representation does not give the weighted distribution without a separate pair enumeration or a new counting argument.",
+        "searches": [
+          "Elder et al. arXiv:2307.08520v2 Proposition 2.5 and proof, OA offsets 15800–18042",
+          "Canonne et al. Definition B.1 around OA offset 160376",
+          "Resultary 21791a9adbc6, n=4 support-family census",
+          "Fihman–Van Hirtum–Plessl §3.4.2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In Canonne et al. the formal forbidden chain at k=2 is (1,0,1), not merely a bound of two flips with arbitrary starting value. Thus its 2-monotone supports are exactly order-convex. Elder et al. use interval-closed for this object. Same-day Resultary 21791a9adbc6 encodes convex sets by paired support families; c41f6efa30f2 treats three-valued information-order disagreements."
+        ],
+        "reasoning": "Endpoint-free intervals are the structural supports in the original, not an independent new class. For the repaired claim, monotone nonconstant functions are the upsets containing the top and avoiding the bottom. The cover graph of that interval admits a path of one-bit updates via the intersection, of length |U symmetric-difference V|, and no shorter path can update every differing bit. Hence the same histogram is its distance polynomial in the ordered-pair convention. The graph-polynomial lookup surfaced general literature but no identified exact table for this interval; that search limit is not evidence of absence.",
+        "searches": [
+          "Canonne et al. arXiv:1609.00265 §1 and Definition B.1 (formal 2-monotonicity)",
+          "Elder et al. arXiv:2307.08520 Definition 2.1 and Proposition 2.5 (interval closure)",
+          "Resultary: order-convex disagreement sets, positive formulae and paired antichains",
+          "Literature query: Hosoya polynomial or Wiener polynomial of the free distributive lattice / order-ideal graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A369313 gives C_4=3938; A000372 gives M_4=168. The paired-support record gives 3937 nonempty objects and a different witness-size distribution. Fihman et al. give sampled means and variability at higher arity; Biswas–Sarkar count functions in specified classes, including balanced ones, not pairs in the abstract's enumeration claims."
+        ],
+        "reasoning": "3938-2*168+3=3605 is an immediate endpoint correction and 168-2=166 is the nonconstant function count. Neither is the 27556-pair distance histogram, which depends on how each distinct XOR mask is realized and aggregated by weight. A balance count concerns one function's truth-set size; it does not give the intersection sizes across pairs. No matching previously tabulated vector was found in the inspected exact table candidates.",
+        "searches": [
+          "OEIS A369313 and A000372",
+          "Fihman–Van Hirtum–Plessl arXiv:2607.08446 §3.4.2.1 and Tables 5–6",
+          "Resultary 21791a9adbc6 (n=4)",
+          "Literature query: monotone Boolean functions pairwise Hamming distance distribution four variables Dedekind exact distance enumerator 166 904 2560",
+          "Biswas–Sarkar arXiv:2304.14069v3 Abstract"
+        ]
+      },
+      "rationale": "PASS for the narrowed, re-audited Finding only. The original originality axis FAILS for presenting the order-convex realization theorem as a main new result: Elder et al. Proposition 2.5 gives a broader difference-of-ideals representation, and the dual with the endpoints imposed gives precisely the claimed masks; known counts yield 3605 by inclusion-exclusion. The formal Canonne definition also identifies the exact structural predicate. Neither that established representation nor the inspected counts and sampled-distance literature determine the ordered-pair multiplicity distribution as a direct specialization. Best of the checked evidence supports the exact, weighted four-variable histogram as a distinct remainder. Credit neither the count of term functions nor the general unweighted mask/spectrum observations as original.",
+      "residual_risks": [
+        "An uninspected exact pair-distance table for a free distributive lattice, Dedekind lattice or its cover graph may cover the remainder. The bounded formulation and table searches do not establish absolute priority.",
+        "Same-day catalogue dates are not evidence of precedence. The removal of the original structural novelty claim rests instead on the published stronger representation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisively covers original structural result by order-duality and endpoint restriction; not the weighted pair census",
+          "evidence": "The inverse sends (A,B) to the difference of two nested order ideals; the construction is a bijection to canonical antichain data.",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.08520",
+          "material_read": "Definition 2.1 around PDF offset 13734; p. 4 Proposition 2.5 and proof, offsets 15800–18042",
+          "method": "Open primary PDF passage, read exact theorem and inverse",
+          "title": "Toggling, rowmotion, and homomesy on interval-closed sets",
+          "trigger": "General representation of the same convex sets"
+        },
+        {
+          "assessment": "Formal k=2 predicate is exactly order convexity of the support; not an exact pair table",
+          "evidence": "The forbidden alternating pattern has length k+1 and starts with 1, hence exactly (1,0,1) for k=2.",
+          "identifier_or_url": "https://arxiv.org/pdf/1609.00265",
+          "material_read": "§1, PDF offsets 6500–9308; Appendix B Definition B.1, around offset 160376",
+          "method": "Open primary PDF passages",
+          "title": "Testing k-Monotonicity",
+          "trigger": "Equivalent forbidden-chain semantics and a misleading broad reading of abstract wording"
+        },
+        {
+          "assessment": "Exact parent counts from which the endpoint counts follow, not the Hamming histogram",
+          "evidence": "C_4=3938 and M_4=168.",
+          "identifier_or_url": "https://oeis.org/A369313 ; https://oeis.org/A000372",
+          "material_read": "Entries' names and sequences, beginning at offset 0",
+          "method": "Open exact sequence entries",
+          "title": "Number of interval-closed sets in the Boolean lattice of dimension n; Dedekind numbers",
+          "trigger": "Exact count and known database overlap"
+        },
+        {
+          "assessment": "Distance diagnostic based on samples in larger arities, not exact four-variable enumeration in inspected passage",
+          "evidence": "Sampled means and standard deviations for MCMC pairwise distances at dimensions 9 and 10.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.08446",
+          "material_read": "§3.4.2.1, p. 8 from PDF offset 22000; Tables 5–6",
+          "method": "Open primary text and relevant tables",
+          "title": "Statistical Estimation of higher Dedekind Numbers",
+          "trigger": "Potentially tabulates the pair-distance distribution"
+        },
+        {
+          "assessment": "Density argument, not a covering exact census; the term description is inconsistent with the strict signature here",
+          "evidence": "Example 6.4 describes all functions fixing zero, but conjunction/disjunction terms are isotone and also fix one.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.08446",
+          "material_read": "§1 near offset 3800; Example 6.4 p. 20, offsets 56100–59073",
+          "method": "Open primary PDF passages",
+          "title": "Probabilistic equational spectrum, primality and approximation in finite algebras",
+          "trigger": "Prior equational-spectrum treatment of a Boolean algebra with this displayed signature"
+        },
+        {
+          "assessment": "Classical representation background, not pair distances",
+          "evidence": "Monotone Boolean functions are expressible with conjunction, disjunction and constants.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.02837",
+          "material_read": "Introduction pp. 1–2, PDF offset around 2300",
+          "method": "Open primary paper passage",
+          "title": "Monotonicity versus positivity in modal logics",
+          "trigger": "Positive term-function representation"
+        },
+        {
+          "assessment": "Shared underlying convex objects, different multiplicity and invariant",
+          "evidence": "3937 nonempty convex sets encoded by paired support families, classified by least domain size.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-individual-witness-budgets-for-paired-monadic-mention-some--21791a9adbc6",
+          "material_read": "Finding and four-variable count in local RESULT.md",
+          "method": "Bounded local Resultary mirror read",
+          "title": "Sharp individual-witness budgets for paired monadic mention-some forms",
+          "trigger": "Same-day order-convex support census at four variables"
+        },
+        {
+          "assessment": "Analogue in a different truth and information order; not the four-variable Boolean term-distance vector",
+          "evidence": "Convex disagreements in a three-valued information order with the all-unknown point excluded.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-order-convex-disagreement-sets-for-three-valued-dependence-like--c41f6efa30f2",
+          "material_read": "Finding in local RESULT.md",
+          "method": "Bounded local Resultary mirror read",
+          "title": "Order-convex disagreement sets for three-valued dependence-like formulas",
+          "trigger": "Direct same-day analogue of the structural characterization"
+        },
+        {
+          "assessment": "Enumerates counts of single functions/classes; no statement of pair-distance enumeration in the inspected abstract",
+          "evidence": "Counts of unate functions and balanced monotone functions at various arities.",
+          "identifier_or_url": "https://arxiv.org/pdf/2304.14069",
+          "material_read": "Abstract, OA offsets 0–2531",
+          "method": "Open primary PDF passage",
+          "title": "Counting unate and balanced monotone Boolean functions",
+          "trigger": "Closest counting-paper hit of the exact four-variable histogram lookup"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired contribution is the exact distribution for independent uniform nonconstant monotone-functions at a natural cutoff: arity four is where forbidden interior masks first appear, so it is the first case with nontrivial restrictions on disagreement shapes. The 15 multiplicities give a reference distribution for sampling validation and for frequency rather than existence questions about elementary equations, including the sparsely realized largest distances. Prior sampling diagnostics motivate this same distance observable. The covered distinct-mask count alone does not answer it. No larger-dimensional or downstream theorem is required for this exact benchmark.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:48:36.646457Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The strictly positive trace Hessian (positive divided differences of f' for f(s)=exp(-ts)) and injectivity of individual rates into the simple graph Laplacian give strict convexity even at disconnected supports. Compactness and scaling give a unique budget-saturating optimizer, hence invariance on the two edge orbits. The biadjacency has eigenvalues d and p-q on the constants and zero-sum vectors; taking symmetric and antisymmetric layers gives the four blocks including all zero modes. Differentiating after budget elimination gives (7). The normalized upper endpoint derivative r-(2-r)exp(-2Bt/(mr)) crosses once only for r<1; the lower endpoint is strictly negative for those prices. The lower endpoint sign for r>1 is the sign of F_m, strictly decreasing from 2m(r-1) to -A_m; at and above the ceiling it stays positive. Strict convexity handles exact equality at either activation time, and full edge transitivity settles r=1. For 1<r<2, fixed positive bracketing points yield the limiting scalar root; r=2 reduces to m exp(-2x)+exp(-mx)=1, giving x=(log m)/2+o(1); near the ceiling at fixed m, the second exponential divided by the first decays like exp(-(m-2)x). These apply with the stated fixed parameters. Independently assembled the 6-by-6 incidence-outer-product Laplacian and evaluated -tr(exp(-tL)(L_match-r L_off/(m-1))) at B=1, m=3. For r=1/2 at the matching-only boundary, t=.80,.85 gave signs -,+; for r=3/2 at the nonmatching-only boundary, t=2.19,2.20 gave +,-; r=4,t=10 gives + at the lower boundary. Scalar replay: solve 4.5 y^2+y^3=2.5 for y in (0,1), then T_b=-6 log y=2.19351865374148. These are bounded checks; the proof, not floating point, resolves every threshold. Inspected the frozen checker without running it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun et al. maximize the second Laplacian eigenvalue under a positive linear rate budget (their Eq. (1)); the spectral-moment hierarchy minimizes inverse powers of nonzero eigenvalues."
+        ],
+        "reasoning": "Neither design criterion gives optimality for the exponential loss at arbitrary finite horizon, especially at a feasible disconnected allocation. Integral transforms relating loss functions do not commute with minimization.",
+        "searches": [
+          "Sun, Boyd, Xiao and Diaconis, DOI 10.1137/S0036144504443821, full-text Sections 1.1–1.2",
+          "Resultary: Spectral-moment price hierarchy on matching-priced balanced bipartite networks"
+        ]
+      },
+      "checked_sources": [
+        "Sun et al. (2006), DOI 10.1137/S0036144504443821",
+        "Resultary exact matched-biclique gap and inverse-moment records, and priced complete-prism finite-horizon record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both indexed statements give 2(m-1)/(m-2), all-equal conductances below it for gap optimization and a continuum of gap optima at equality."
+        ],
+        "reasoning": "For r<1 and short t the heat-trace optimizer is a disconnected matching; for 1<r<r_c and short t it is matching-free, while the gap optimizer already uses the matching. Equality also separates the unique finite-time and nonunique gap optima. Thus the gap theorem cannot serve as the stated finite-time classification.",
+        "searches": [
+          "Resultary: Exact spectral-gap price transition and all optimal allocations for matching-priced complete bipartite networks",
+          "Resultary: A discontinuous matching-price frontier for fastest mixing on balanced bicliques"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sum of all return probabilities at horizon t equals tr(exp(-tL)); omitting the one constant zero mode changes the cost by one, not the optimizer. The nearest indexed finite-horizon record, Two-sided finite-horizon edge activation in priced complete prisms, uses two cliques with a matching and eventual activation on both sides."
+        ],
+        "reasoning": "The finite-time objective rather than its large-time exponential rate is decisive. The clique layers' internal edges and modal multiplicities differ, and their expensive-class eventual activation contradicts a price-only identification with the biclique's permanent suppression.",
+        "searches": [
+          "Resultary: matching-priced complete bipartite spectral gap all optimal allocations matching-price deletion frontier resistance-optimal balanced bicliques finite time trace exponential",
+          "Web: heat trace optimization graph edge weights conductance budget complete bipartite graph priced matching finite time diffusion convex graph Laplacian trace exponential"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-title record is the frozen target itself. Adjacent exact indexed tables concern gap design, inverse moments, determinant or resistance; their thresholds are not a tabulation of T_a and T_b."
+        ],
+        "reasoning": "The comparisons distinguish the natural exact support frontiers by loss and identify prior exact coverage of the ceiling only. Negative search evidence is not a priority certificate.",
+        "searches": [
+          "Resultary priced matched biclique query above",
+          "Resultary: hard price ceiling three activation time scales matched market finite horizon"
+        ]
+      },
+      "rationale": "Best of checked evidence: the priced-biclique gap ceiling overlaps exactly and must remain attributed. The supported new claim is the finite heat-trace support diagram and the activation-delay laws, not the ceiling as a spectral-gap result or the use of orbit averaging.",
+      "residual_risks": [
+        "Related corpus records were checked at indexed mathematical-statement level, not as full proofs or appendices.",
+        "An unindexed finite-time biclique design or broader theorem could exist; the external primary-literature search did not give conclusive priority evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General gap optimization, a different loss",
+          "evidence": [
+            "Semigroup e^{-tL}; Eq. (1) maximizes lambda_2"
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "Publisher PDF text, abstract and Sections 1.1–1.2",
+          "method": "Lawful full text; checked the semigroup and optimization equations",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Same continuous-time Laplacian and positive rate costs"
+        },
+        {
+          "assessment": "Exact ceiling overlap; no finite-horizon support law in the inspected statement",
+          "evidence": [
+            "Three gap-optimizer regimes, including the continuum at equality"
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-spectral-gap-price-transition-and-all-optimal-allocations--efaad5dd81d4",
+          "material_read": "Indexed mathematical statement only",
+          "method": "Resultary and mathematical objective comparison",
+          "title": "Exact spectral-gap price transition and all optimal allocations for matching-priced complete bipartite networks",
+          "trigger": "Exact same graph and price boundary"
+        },
+        {
+          "assessment": "Related finite-time phenomenon on a different graph, not observed coverage of the biclique theorem",
+          "evidence": [
+            "Two clique layers, eventual activation, linear and m log m thresholds"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-sided-finite-horizon-edge-activation-in-priced-complete-pris--2c0941455571",
+          "material_read": "Indexed mathematical statement only",
+          "method": "Resultary; compared admissible edge orbit and threshold behavior",
+          "title": "Two-sided finite-horizon edge activation in priced complete prisms",
+          "trigger": "Same heat-trace objective and a marked matching"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves all support changes for an unrestricted and natural finite-time diffusion loss. It distinguishes deliberate transient disconnection, delayed matching activation on already connected supports, and genuine permanent deletion, with different m, m^2 and m^2 log m laws at fixed budget. Those distinctions cannot be inferred from the known steady gap frontier.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:16:26.669238Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The signed Lamperti transform defines the nonsticking branch and turns the motion into constant speeds ±v. The law regenerates at a complete reset; solving the two-state Fourier resolvent gives stationary characteristic function r(r+2ν)/(r(r+2ν)+v²k²), hence the Laplace scale used in the variance. Reflection symmetry gives mean zero and eliminates all paths with a reset from the stationary covariance, so C(t)=exp(−rt)H(t) for the no-reset correlation H. Stationarity of g² gives H'(0+)=rC(0)/2. For the second derivative, differentiate H'(t)=v E[g(Y_0)Σ_t g'(Y_t)] in the unreset dynamics. Zero flips give the drift term v² E[g g'']; the probabilities of zero and one flip give −2ν H'(0+) and two or more flips contribute o(t) to H'(t). For 1<p<2 the unreset drift difference quotient after multiplication by g(Y_0) is controlled by a constant times |Y_0|^(2p−2) on |Y_0|>2vt; on the shrinking inner region it is O(t^(2p−2)). This justifies the singular-origin boundary limit with the Laplace tails. More generally the integral of g'' against the shifted initial density weighted by g is continuous near zero lag, by local integrability of g'' and the bounded weighted density with exponential tails. Product differentiation cancels the two reset terms of second order, giving C''(0+)/C(0)=(p−1)r(r+2ν)/(2(2p−1))−rν=r(αr−4ν)/(2(α+2)). At α=0, g is linear and the drift term is zero. The two derivatives determine positive r and ν in sequence for known α, then the stationary variance determines a unique positive v. This is a population inverse, not estimation under noise. The supplied checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sandev et al. give a renewal representation and stationary marginal, Eqs. (50) and (55)–(56), and MSD formulas Eqs. (76)–(78).",
+          "The closest catalog covariance theorem permits thermal noise and arbitrary reset-flip probability, but in a linear coordinate. The fractional telegraph paper's abstract concerns density and MSD; its full text was not accessible through the tried route."
+        ],
+        "reasoning": "The enlarged noise and reset parameter family does not subsume nonlinear observables. A generic generator or renewal representation can be used to derive the present result, but the inspected prior statements do not themselves resolve the sign or give the inverse in this nonlinear family.",
+        "searches": [
+          "arXiv:2211.01909v1 Section V.1 and Section V.3",
+          "Resultary homogeneous all-lag covariance with reset flip probability and thermal diffusion",
+          "Sandev–Iomin, Phys. Rev. E 110, 024101 (2024)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "arXiv:2211.01909v1",
+        "arXiv:1808.06450",
+        "Resultary 2026/11/8/SCOPE-static-state-blindness-and-a-sharp-temporal-memory-crossover-und--f3cc5401e836",
+        "Phys. Rev. E 110, 024101 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With fair redraw and D↓0, the earlier homogeneous formula limits to slope −r/2 and curvature −rν; there the term E[g g''] vanishes.",
+          "The heterogeneous prior stationary variance can be substituted once r and ν have been identified but does not provide that identification alone."
+        ],
+        "reasoning": "The missing implication is control and evaluation of the nonlinear-observable second time derivative. It supplies a positive curvature contribution that can outweigh the homogeneous −rν term; this is not a parameter substitution into the known homogeneous theorem.",
+        "searches": [
+          "Direct substitution and implication comparison with arXiv:2211.01909v1 and Resultary homogeneous covariance theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sandev et al. use the same exponent and signed-coordinate density, obtain the reset stationary marginal and compute one-time MSDs.",
+          "The exact homogeneous formula in Resultary yields the same two normalized derivatives in the fair, no-thermal-noise limit when g is linear."
+        ],
+        "reasoning": "A one-time MSD and a stationary two-time covariance are different. The latter transforms to E[g(Y_0)g(Y_t)], not the covariance of Y scaled by a constant; the nonlinear drift term accounts for the sign reversal.",
+        "searches": [
+          "arXiv:2211.01909v1 Sections III–V: heterogeneous telegraph, signed coordinate, resetting and MSD",
+          "arXiv:1808.06450: reset telegraph versus run-and-tumble",
+          "Resultary: static-state blindness and temporal-memory crossover under run-and-tumble resetting"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest relevant exact formulas found are the earlier marginal/MSD and the homogeneous all-lag covariance; neither lists the physical-position curvature for positive α."
+        ],
+        "reasoning": "The claim is an analytic identity and sharp boundary over a continuum, not a discrete table entry. An exact prior covariance law for the same nonlinear observable would nevertheless have covered it; no inspected formula has that scope.",
+        "searches": [
+          "Resultary exact covariance formulas for run-and-tumble resetting",
+          "arXiv:2211.01909v1 Eqs. (55)–(56), (76)–(78)"
+        ]
+      },
+      "rationale": "The underlying heterogeneous telegraph model, stationary marginal, and homogeneous reset-covariance boundary are prior. The supported distinct claim is the normalized right curvature of the nonlinear physical position, its reset-to-flip threshold, and the resulting exact inverse with known exponent. The slope by itself is a stationary reset balance identity, not the distinct contribution.",
+      "residual_risks": [
+        "Full text of Sandev–Iomin not available through the tried APS route. Related covariance results for nonlinear observables could exist in uninspected literature; this is not priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model foundations and stationary marginal; inspected passages do not supply the stationary covariance jet",
+          "evidence": "Signed-coordinate density, Poisson reset renewal and stationary marginal, with separate time-dependent MSD formulas.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.01909v1",
+          "material_read": "Eq. (17), Section IV Eqs. (42)–(43), Section V.1 Eqs. (50), (55)–(56), Section V.3 Eqs. (76)–(78); text locators 16997, 33503, 41170, 46225 and 54459",
+          "method": "Lawful open-access original passages",
+          "title": "Stochastic dynamics with multiplicative dichotomous noise: heterogeneous telegrapher's equation, anomalous crossovers and resetting",
+          "trigger": "Same heterogeneous dynamics and complete resets"
+        },
+        {
+          "assessment": "Covers the homogeneous reset process, not the curvature of its nonlinear position transform",
+          "evidence": "Distinguishes randomized sign from position-only reset while giving the steady marginal.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.06450",
+          "material_read": "Reset-sign protocols and Laplace stationary law, text locators 1000 and 7350",
+          "method": "Lawful open-access original passages",
+          "title": "Run and tumble particle under resetting: a renewal approach",
+          "trigger": "Same reset process in Lamperti coordinates"
+        },
+        {
+          "assessment": "Covers linear-coordinate antecedent; the nondiffusive fair-redraw boundary follows as a limit of its D>0 formula",
+          "evidence": "Exact all-lag covariance with reset flip probability and thermal diffusion; its fair-redraw nondiffusive limit has normalized slope −r/2 and curvature −rν.",
+          "identifier_or_url": "2026/11/8/SCOPE-static-state-blindness-and-a-sharp-temporal-memory-crossover-und--f3cc5401e836",
+          "material_read": "RESULT.md, formula and assumptions, text locators 0 and 2900",
+          "method": "Resultary and local mirror result text",
+          "title": "Static-state blindness and a sharp temporal-memory crossover under run-and-tumble resetting",
+          "trigger": "Exact stationary covariance and temporal-memory crossover in a related model"
+        },
+        {
+          "assessment": "Full-text overlap unresolved; no exclusion inferred from lack of access",
+          "evidence": "Abstract describes probability densities and MSDs in the fractional model.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.110.024101",
+          "material_read": "Abstract search material only",
+          "method": "Primary literature lookup and lawful APS open-text attempt",
+          "title": "Fractional heterogeneous telegraph processes: Interplay between heterogeneity, memory, and stochastic resetting",
+          "trigger": "Plausibly related telegraph resetting and memory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The physical-coordinate nonlinearity changes the sign of initial curvature while leaving the first normalized slope unchanged and negative. The explicit threshold separates these two effects and permits the tumbling rate and speed scale to be distinguished from the reset rate using only short-lag population data and the stationary variance. No inverse robustness or applicability outside the model is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

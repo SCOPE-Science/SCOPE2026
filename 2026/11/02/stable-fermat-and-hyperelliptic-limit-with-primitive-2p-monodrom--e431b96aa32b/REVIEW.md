@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every prime \(p\ge5\), the conic pullback identity and the finite birational Fermat map identify the unique central normalization. Étaleness on the coordinate torus and the three sets of \(p\) coordinate-line points exhaust all singularities. The exact local equation shows \(3p\) transverse \(A_{p-1}\) smoothings. A \(2p\)-fold base change and weights \((p,2,1)\) produce a smooth genus-\((p-1)/2\) hyperelliptic component with one attachment per cusp; unstable rational resolution chains contract. The genus identity closes the count. The covering transformation on tail differentials supplies the complete monodromy spectrum; symbolic checks reproduce the critical equations. The proof concerns a punctured complex disc, not positive-characteristic geometry.
+## correctness
 
-## Originality — PASS, with residual historical risk
-The motivating work arXiv:2507.03128v1 (§5.2, inspected through the full available preprint) names the singular but nonstable fiber without computing this stable replacement. The primary topological-boundary work arXiv:2411.09836v1, with its introduction and relevant general graph formulas inspected, does not give this family-specific limit or monodromy. Costa--González-Aguilera (2017) covers general equisymmetric limits and is the closest remaining access risk: full material was not accessible, so no claim of its complete noncoverage is made. Targeted published-record searches and recoverable claim-level comparisons did not identify a statement that implies the explicit result, but search absence cannot certify priority. The standard cusp-tail construction alone does not imply the global Fermat normalization, full tail count or the stated Hodge monodromy without the present computation.
+PASS
 
-## Mathematical value — PASS
-The motivator leaves a nonstable boundary member without an explicit Deligne--Mumford replacement. This theorem gives the complete weighted stable graph, every positive-genus component and explicit equations uniformly for infinitely many high-genus families; it also determines potential good Jacobian reduction and every monodromy eigenvalue. The answer is structural and distinguished by the natural boundary parameter, rather than an arbitrary finite computation.
+The diagonal-2/off-diagonal-t gradient system on the active X^p,Y^p,Z^p coordinates gives precisely the stated exceptional finite parameters. At -2 the conic is smooth and the power map is étale off the coordinate axes. Its pullback has precisely 3p candidate points on the axes; each is a unibranch cusp by the displayed local equation. The coordinate-square map from the Fermat curve is generically one-to-one (no other generic sign choice works); its image has degree 2p by pullback of O(1), hence is the whole reduced special fiber. In the local equation write the deformation coefficient as the unit U(A,B), and replace A,B by A U^(-1/2),B U^(-1/p); division by U gives x²−4y^p+s^(2p)=0 exactly. In the (p,2,1)-weighted blowup the s-chart gives a²=4b^p−1. Its missing point is visible in the y-chart x=u^p v, y=u², s=u t, where v²=4−t^(2p). The residual sign exchanges the v=2 and v=−2 neighborhoods (p odd), so one chart suffices, with the transverse node u t=0 and smoothing s=u t. This gives precisely one tail at each cusp and no extra branches. The central and tail genera give a stable compact-type tree and a product connected Picard variety. Over the new disc, separating vanishing cycles give trivial action on H¹; the deck action is identity on the central component and (-a, ξ^(-2)b) on each tail. Differentials b^j db/a and conjugates supply all primitive 2p-th roots once per tail, with no graph cohomology. Thus the full polynomial and exact order follow. The inspected finite symbolic checker only tests algebra for sample primes; it was not run and is not the geometric proof.
 
-## Scope and limitations
-No result is claimed for other singular parameters or generic Jacobian decompositions. Only the stated transverse pencil is treated. Independent mathematical audit and definitive literature priority remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of current knowledge: the pencil and its smooth locus are prior, as is the local method of replacing a smoothed cusp by a hyperelliptic tail. The supported distinct contribution is the explicit compact-type model at this boundary together with the global descent action and full cohomological polynomial. The same-pencil candidate Z1 is a smooth Riemann surface by Proposition 5, so is not this reducible stable fiber; §5.2 does not identify the asserted model. No priority claim is made.
+
+## value
+
+PASS
+
+A natural singular member of an established pencil is resolved explicitly for all stated primes. The component equations and the descent spectrum answer different useful questions: the former identifies the limiting Jacobian and potential good reduction, while the latter determines finite inertia on H¹, beyond what an existence theorem or local cusp genus alone would give.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

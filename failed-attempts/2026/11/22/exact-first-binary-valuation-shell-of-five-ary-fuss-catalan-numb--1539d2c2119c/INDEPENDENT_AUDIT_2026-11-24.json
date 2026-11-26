@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:18:11.935797Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The odd denominator leaves the Kummer count of carries in n+4n unchanged. Independently eliminate the four no-incoming-carry states. With suffix GF A_uv for zero carries, their equations are A00=1+t(A00+A01), A01=1+t(A10+A11), A10=1+t A00, A11=1+t A10. They give 1+t A10=1/D for D=1-t-t^3-t^4. For one carry the only productive carry-generating transition is from 10 with input 1: the next column must have both operand bits zero (or be part of zero flushing), giving a source term t(1+t A10) at state 10. Eliminating the same zero-carry transitions with this source yields t^3(1+t)/D^2. This treats L=0 and end padding without extrapolation. Independent replay: python /workspace/review-work/check-shell.py, which also computed the digit-sum counts through L=15 and checked literal quotients modulo four for n<256. The first nonempty block contains n=5, verified by the integer quotient test. The unique dominant root r=1/phi is a double pole with normalized coefficient r(1+r)/((1+r^2)^2(1+2r)^2)=(3+sqrt(5))/50. The parity product has leading coefficient phi^4/5, giving the stated ratio. No claim about other arities or valuation levels is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "f14da09b70b2 explicitly determines P_L(u) for all L and all valuations; proof §§2–3 uses the same eight-state carry transfer and flushing column.",
+          "0127e93f9dac counts carries in 2n+3n, not n+4n; its marginal does not determine the target. 74e266357ef1 supplies the parity layer but not valuation one."
+        ],
+        "reasoning": "The exact full law dominates the frozen theorem directly, unlike the nearby parity and other-binomial records.",
+        "searches": [
+          "Resultary f14da09b70b2 full dyadic distribution",
+          "Resultary 0127e93f9dac valuation fibres",
+          "Resultary 74e266357ef1 five-ary zero-run spectrum"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f14da09b70b2, 74e266357ef1, 0127e93f9dac, 1539d2c2119c (self-match)",
+        "arXiv:2609.25742v1",
+        "Bobrowski–He–Shiue (2019), pp. 1, 3, 5",
+        "OEIS A002294 and exact prefix query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Writing N(z,u)/D(z,u) for its displayed law, D(z,0)=1-z-z^3-z^4 and (N_u D-N D_u)(z,0)=z^3(1+z) by exact polynomial multiplication. Thus the frozen GF is precisely the derivative at u=0. The asymptotic and comparison with [u^0] then follow from the displayed rational functions."
+        ],
+        "reasoning": "The exact identity is a coefficient extraction, not a resemblance between methods. Neither publication date establishes within-day priority.",
+        "searches": [
+          "f14da09b70b2 RESULT.md Finding and proof §§2–3, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The valuation-one assertion is exactly [u]P_L(u) in the same-family full-law record.",
+          "The modulo-four reformulation is identical since C_5(n) is an integer and 4n+1 is odd. The cited Raney zero-run paper studies R_{3,2}; the cited generalized-Catalan divisibility theorems do not give the shell census."
+        ],
+        "reasoning": "Comparisons were made for both the carry-count and residue-class forms; only the full-law result has the identical arithmetic object and population.",
+        "searches": [
+          "Resultary: five-ary Fuss–Catalan valuation-one and complete dyadic valuation distribution",
+          "Exact-formula literature search",
+          "arXiv:2609.25742v1",
+          "Bobrowski–He–Shiue (2019), Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A002294 tabulates the original Fuss–Catalan coefficients, not the length census. The exact prefix search returned no hit; that does not exclude a transformed listing. Resultary indexes a distinct record with the complete census and the assigned record itself."
+        ],
+        "reasoning": "The separate full-law entry is the material positive database hit; the assigned record's own hit is not evidence of independent coverage.",
+        "searches": [
+          "OEIS A002294",
+          "OEIS exact count query: 0,0,0,1,3,5,9,19,37,66,118,214",
+          "Resultary catalogue: assigned shell, full distribution, and five-ary parity"
+        ]
+      },
+      "rationale": "A distinct indexed same-day record gives a complete rational bivariate distribution for exactly the same sequence and dyadic blocks. Its first coefficient in the valuation variable exactly recovers the shell, from which the other asserted counts and asymptotics follow. This establishes subsumption, not who obtained the theorem first or any direction of dependence.",
+      "residual_risks": [
+        "Both exact-family records have the same catalogue date; no verified within-day ordering or dependence.",
+        "An exact sequence-prefix miss does not rule out shifted, transformed or unindexed entries; the positive full-law comparison is decisive regardless."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS",
+          "evidence": "P_L marks every valuation on the same indices; [u] of its rational GF has numerator z^3(1+z) over D(z,0)^2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-dyadic-valuation-distribution-for-the-five-ary-fuss-catala--f14da09b70b2/RESULT.md",
+          "material_read": "Finding, assumptions and proof §§1–3, including explicit numerator and denominator and transfer",
+          "method": "Local mirror at offset 0 and bounded continuation; independent exact quotient derivative",
+          "title": "Exact dyadic valuation distribution for the five-ary Fuss–Catalan numbers",
+          "trigger": "Exact family and stronger census"
+        },
+        {
+          "assessment": "Partial coverage only",
+          "evidence": "Gives valuation zero and even runs rather than separating valuation one from higher valuations.",
+          "identifier_or_url": "Resultary 74e266357ef1",
+          "material_read": "Finding and oddness/count statements",
+          "method": "Local mirror",
+          "title": "Exact binary zero-run spectrum of the five-ary Fuss–Catalan numbers",
+          "trigger": "Same coefficients and binary census"
+        },
+        {
+          "assessment": "Different object",
+          "evidence": "Uses 2n+3n, not n+4n.",
+          "identifier_or_url": "Resultary 0127e93f9dac",
+          "material_read": "Finding and carry model",
+          "method": "Local mirror",
+          "title": "Exact binary valuation fibres on the binomial ray binom(5n,2n)",
+          "trigger": "Similar valuation GF and numerator slope"
+        },
+        {
+          "assessment": "Does not supply dyadic shell census in inspected result",
+          "evidence": "At arity five the cited theorem gives 4t+1 dividing C_5(6t+1), not the all-block valuation-one count.",
+          "identifier_or_url": "https://scholars.iwu.edu/ws/files/39724414/144%20divisibility%20of%20generalized%202019.pdf",
+          "material_read": "Pages 1, 3, 5, notably Theorem 3.1",
+          "method": "OA PDF",
+          "title": "Divisibility of Generalized Catalan Numbers and Raney Numbers",
+          "trigger": "Possible uniform generalized-Catalan congruences"
+        },
+        {
+          "assessment": "Different parameters and observable",
+          "evidence": "Studies R_{3,2} and zero runs modulo primes.",
+          "identifier_or_url": "arXiv:2609.25742v1",
+          "material_read": "Sections 1.1–1.2",
+          "method": "OA HTML",
+          "title": "Zero-Run Spectra of the (3,2) Raney Numbers Modulo Primes",
+          "trigger": "Motivating Raney congruence work"
+        },
+        {
+          "assessment": "Source coefficients, not block counts",
+          "evidence": "Lists C_5(n)=1,1,5,35,... .",
+          "identifier_or_url": "https://oeis.org/A002294",
+          "material_read": "Entry definition and initial terms",
+          "method": "Public sequence page and count-prefix search",
+          "title": "Fifth-order Fuss–Catalan numbers",
+          "trigger": "Exact sequence table"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Valuation one is a natural and useful refinement of parity. However, the frozen exact invariant and its consequences are mechanical extractions from the separate complete GF for precisely the same dyadic blocks. The frozen record supplies no distinct nonmechanical result beyond that coverage.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

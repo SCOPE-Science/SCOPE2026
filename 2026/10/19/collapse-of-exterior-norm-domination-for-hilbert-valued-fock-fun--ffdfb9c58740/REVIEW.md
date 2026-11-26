@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For every fixed \(R\ge1\), direct expansion of the two-coordinate polynomials proves exterior domination, and factorial Gaussian moments give the strict reverse norm inequality for a suitable \(A\). For every \(R>0\), polynomial completeness in the explicitly stated weighted Hilbert space is proved using an analytic Laplace transform and Fourier injectivity; approximation of compactly supported \(h\) preserves the strictly negative signed integral. Coefficient splitting then produces actual finite vector polynomials with the exact pointwise and integral signs. No finite experiment is used as proof of a universal quantifier.
+## correctness
 
-## Originality
-**PASS, with historical-priority risk.** Wikström's 2026 sharp theorem concerns scalar-valued entire functions, where a scalar quotient and Schwarz--Pick comparison are available. Its conclusion does not cover Hilbert-valued pointwise norm domination; moreover, the explicit two-coordinate witness precludes any implication by scalar reduction. Other compared results concern scalar weighted Fock/Bergman radii, scalar extremizers, or vector-valued Bergman projection boundedness, not this all-radius failure. Searches for vector-valued Korenblum analogues and equivalent polynomial-positive radial formulations did not locate a statement implying either present conclusion. This is best-knowledge originality, not a uniqueness certificate.
+PASS
 
-## Value
-**PASS.** The just-established sharp scalar Gaussian Fock radius makes extension to vector-valued entire functions a natural mathematical question. The difference is qualitative rather than a small constant change: the scalar radius \(1\) fails already for a two-dimensional Hilbert target, while in infinite Hilbert dimension every finite exterior observation region fails to control the Gaussian Fock norm. This marks a complete obstruction to one broad generalization and identifies the scalar analytic order structure as essential. No claim of a paper-sized contribution or downstream stability theorem is needed.
+Polar integration with t=|z|² gives Gaussian moments k!. For the C²-valued pair, the pointwise squared gap g−f is (t−1)(t−3)² and the squared Fock norms are 21 and 23, respectively; the same pair works on every smaller exterior with R≥1. For arbitrary s=R²>0, if u is perpendicular to all polynomials in L²((1+t)e^(−t)dt), its weighted Laplace transform is analytic for Re w<1/2 by Cauchy–Schwarz (also after differentiation on compact subsets); all derivatives at zero vanish. Its restriction to the imaginary axis is the Fourier transform of an L¹ density, so u=0. A nonzero real function compactly supported in (0,s) has negative signed quadratic integral against (t−s)e^(−t)dt. Polynomial approximation preserves this strict inequality by Cauchy–Schwarz and |t−s|≤max(1,s)(1+t). Splitting the real coefficients of (t−s)p² between orthogonal vector monomials gives exactly the nonnegative exterior gap and negative full Fock gap. The result also holds on the closed boundary, and uses only finitely many coordinates for each radius.
 
-## Limitations and prior comparisons
-The fixed-dimensional sharp threshold for \(d\ge2\) below radius \(1\) is not established. The universal construction gives finite but possibly radius-dependent polynomial degree and vector dimension. The completeness argument, not symbolic execution, supplies its infinite quantifier. Published scalar radial results and older weighted Bergman work remain separate; additional historical sources could contain similar vector obstructions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the vector-valued failure, including the two-coordinate polynomial obstruction at the scalar sharp radius, and the realization of an arbitrary-radius moment obstruction by finite-coordinate polynomial pairs. The scalar principle and general moment-localization techniques are not claimed as new.
+
+## value
+
+PASS
+
+The sharp scalar conclusion fails in the first larger Hilbert dimension at radius one, even for cubic polynomials, and the infinite-dimensional version loses every positive radius despite admitting finite-coordinate tests. These are structural limitations on scalar-to-vector transfer, not just altered constants in a scalar statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

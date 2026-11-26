@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:45:35.977693Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed both 16-vertex graphs, confirmed 48 edges, degree 6 and exactly two common neighbors on every distinct pair, and used Floyd–Warshall vertex distances followed by exact vertex-to-edge minima. A fresh program exhausts all landmark subsets from zero through the claimed minimum, testing resolution by refining partitions of the edge set with each landmark. The minimum families have sizes 736 at size six (Shrikhande) and 576 at size five (rook), with no smaller resolving set. An unrestricted adjacency/nonadjacency-preserving bijection search independently gives the full groups of orders 192 and 1152, hence all stated orbit sizes and least hexadecimal representatives. The published stabilizer bounds also work: each local graph is the stated cycle or pair of triangles, and each nonneighbor of the fixed vertex has a different neighborhood within that local graph. Tested every pair of bases by symmetric difference of size two, obtaining one component for each graph, 4128 and 3744 edges, and degree distributions respectively {6:64,10:192,11:192,13:192,14:96} and {13:576}. Replay: python3 /workspace/reproductions/metric_review.py. The proof is exhaustive for these two labeled graphs with vertex landmarks and exactly one replacement, and does not infer a general strongly regular graph theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hakanen et al. require distinguishing every pair of distinct nonempty sets of vertices of size at most two, including nonedges and singletons.",
+          "The primary edge-metric grid result uses products of paths, not the product of two cliques; the focused look-up supplied no relevant candidate general theorem."
+        ],
+        "reasoning": "A resolving set for all sets of size at most two resolves edges, giving an upper-bound implication but not a lower bound or a necessary-and-sufficient minimum edge-family characterization. Path grids do not specialize to the stated rook graph.",
+        "searches": [
+          "arXiv:2003.02048, Definition 1 and §4.1",
+          "arXiv:1602.00291, grid theorem",
+          "Web literature: edge metric dimension of Cartesian products of complete graphs and Hamming graphs"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1602.00291, 2003.02048 and 2107.04877",
+        "Sane, Resonance (2015), p. 916",
+        "Resultary records 951f99af2afa and e591fd5dfa70"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sane gives the group order 16·12=192. Same-parameter graph status and that order do not say which subsets are minimum bases.",
+          "The same-pair reconfiguration record works with fault-tolerant ordinary bases, so its state family differs from the one audited here."
+        ],
+        "reasoning": "The known symmetry group can be used to partition a known valid state set; it does not identify that set or determine its exchange adjacency. No inspected broader result forced these exact minimum edge-families or their orbit and exchange counts.",
+        "searches": [
+          "Sane, The Shrikhande Graph, journal p. 916",
+          "arXiv:2003.02048, Definition 1 and rook graph results",
+          "951f99af2afa, RESULT.md opening classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The minimum endpoint distance of Kelenc–Tratnik–Yero is identical to this invariant; the similarly named ordinary metric dimension of the line graph instead uses edges as landmarks.",
+          "The inspected same-graph fault-tolerant record imposes resilience of ordinary vertex resolution to deletion of a landmark, not vertex-to-edge resolution."
+        ],
+        "reasoning": "The latter predicates cannot be substituted for vertex-to-edge signatures merely because their target graphs are the same.",
+        "searches": [
+          "arXiv:1602.00291, introductory definition",
+          "arXiv:2107.04877, §8 and line-graph comparison",
+          "Resultary: Shrikhande and rook minimum edge-identifying landmarks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Survey Table 14 lists exact results for multiple families including path grids and cycle tori, not these two graphs in the inspected table.",
+          "The same-pair fault-tolerant classification and the total-resolution rook classification have different predicates; the latter lists 2,016 minima in five orbits for the rook graph."
+        ],
+        "reasoning": "Neither catalogue entry is a table of the edge-resolving basis families. The coverage of a historical survey table is limited to that table.",
+        "searches": [
+          "arXiv:2107.04877, Table 14, pp. 34–35",
+          "Resultary records 951f99af2afa and e591fd5dfa70, Findings on same graph objects"
+        ]
+      },
+      "rationale": "The established graph parameters, group orders and edge resolution definition are background, not the contribution. The census and exchange results concern minimum vertex sets resolving adjacent endpoint pairs. The strongest available same-graph literature/records instead resolve all small vertex sets, ordinary vertex pairs with failure tolerance, or ordinary vertex pairs with multiple witnesses. None of their inspected claims supplies the two exact minima together with the minimum-basis orbits and exchange geometry.",
+      "residual_risks": [
+        "The combined exact-object web query was unavailable, and the focused Hamming-product query supplied no relevant lead. Neither outcome is evidence of absence.",
+        "The survey predates the finding; unindexed computations or a later general product paper are not excluded. The inspected exact same-object claims use different criteria."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_BACKGROUND",
+          "evidence": "Defines vertex-to-edge minimum distance and proves a result on Cartesian products of paths.",
+          "identifier_or_url": "https://arxiv.org/abs/1602.00291",
+          "material_read": "Definition, PDF p. 1 (offset 1982); path grid theorem, p. 5 (offset 17809)",
+          "method": "OA PDF passage inspection",
+          "title": "Uniquely identifying the edges of a graph: the edge metric dimension",
+          "trigger": "Same invariant; possible exact product result"
+        },
+        {
+          "assessment": "DIFFERENT_PREDICATE",
+          "evidence": "Resolves all nonempty sets of at most two vertices, not just the adjacent pairs.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.02048",
+          "material_read": "Abstract; Definition 1, p. 1, offset 3896; §4.1, p. 8, offset 31521",
+          "method": "OA PDF passage inspection",
+          "title": "On the Metric Dimensions for Sets of Vertices",
+          "trigger": "Same rook graph with distance to pairs"
+        },
+        {
+          "assessment": "PARTIAL_BACKGROUND",
+          "evidence": "Distinguishes the line-graph invariant and gives a family table not listing these graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.04877",
+          "material_read": "Section 8 distinction around offset 124147; Table 14, pp. 34–35, offsets 138234–144223",
+          "method": "OA PDF table and section inspection",
+          "title": "Metric dimension related parameters in graphs: A survey on combinatorial, computational and applied results",
+          "trigger": "Potential table and naming collision"
+        },
+        {
+          "assessment": "KNOWN_GROUP_ORDER",
+          "evidence": "States order 192; does not supply the basis orbits in the inspected passage.",
+          "identifier_or_url": "https://people.math.binghamton.edu/zaslav/Oldcourses/510.S18/sane.shrikhande-graph.resonance2015.pdf",
+          "material_read": "Journal p. 916, PDF offset around 35183",
+          "method": "OA PDF passage inspection",
+          "title": "The Shrikhande Graph",
+          "trigger": "Known graph symmetry facts"
+        },
+        {
+          "assessment": "DIFFERENT_PREDICATE",
+          "evidence": "Fault-tolerant ordinary vertex bases, not edge bases.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-frozen-and-mobile-fault-tolerant-metric-bases-in-two-strongly-re--951f99af2afa",
+          "material_read": "RESULT.md opening finding, offset 0",
+          "method": "Local-mirror comparison",
+          "title": "Frozen and mobile fault-tolerant metric bases in two strongly regular graphs",
+          "trigger": "Exactly the same two graphs and a basis exchange classification"
+        },
+        {
+          "assessment": "DIFFERENT_PREDICATE",
+          "evidence": "Total resolving sets, including 2016 minima in five orbits for the square in question; no Shrikhande classification.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-component-cuts-and-total-metric-resolution-in-rectangular-rook-g--e591fd5dfa70",
+          "material_read": "RESULT.md opening finding, offset 0",
+          "method": "Local-mirror comparison",
+          "title": "Component cuts and total metric resolution in rectangular rook graphs",
+          "trigger": "Broader rectangular rook domain with an exact basis classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These are the natural two same-parameter strongly regular graphs on which to ask whether those parameters determine edge localization. Different minimum sensor counts already provide an exact counterexample. The census further determines whether optimum placements are symmetry-equivalent and whether one-at-a-time replacements maintain resolution, showing contrasting orbit structure and exchange regularity rather than just tabulating a graph order. These finite answers can be used without a general graph-family extension.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

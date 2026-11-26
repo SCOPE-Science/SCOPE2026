@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:48:26.187171Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Yang–Wang Theorem 1 includes point contacts and fixes the central subdivision under the frozen 21-neighbor hypothesis. Tiles correspond to pairs (lattice edge, incident equilateral face). Within one face the bases of any two subtriangles share an endpoint; across different faces any contact must be on a common lattice edge or at a lattice vertex. In both cases of contact the bases have a shared endpoint, and conversely. This is L(T)[K_2], of degree 1+2(5+5)=21, and edge transitivity in T plus interchangeability of the twins gives vertex transitivity. For distinct lattice edges, line-graph distance is one plus the minimum distance between endpoints, by shortening an incident-edge chain to a vertex path and extending a shortest endpoint path to a chain. For r=k+1>0 the base-edge ball therefore comprises all edges incident to the union S_k of the two endpoint radius-k lattice balls. At fixed -k<=y<=k their triangular-metric x-intervals differ by a unit shift, hence have union of length 2k+2-|y| in lattice points. Summing gives (k+1)(3k+2), including k=0. The one-step exterior is S_{k+1} minus S_k, of size 6k+8. Its six corners have one inward neighbor each; for the noncorner points of the sides x=-k-1, y=-k-1 and x+y=-k-1 the inward step pairs are respectively {(1,0),(1,-1)}, {(0,1),(-1,1)} and {(1,0),(0,1)}; they stay in the other two strips. Central inversion (x,y)->(1-x,-y) supplies the opposite sides. Thus all noncorners have two inward neighbors, also for k=0. The lattice cut has 12k+10 edges, and six times |S_k| plus that cut is twice the number of incident base edges. Exactly this gives the tile ball size 18r^2+6r-2. At an exterior lattice vertex with a inward neighbors, a(6-a) distinct pairs of incident edges cross the line-graph cut. The six one-inward cases and 6k+2 two-inward cases give 48k+46, lifted fourfold to 192r-8; no fiber edge crosses when r>=1. The singleton cut has degree 21. Differences give spheres, and summing the quadratic after correcting its r=0 value gives the recorded series. The frozen script and its reported exact geometry and bounded counting/BFS checks were inspected, not rerun; the argument above checks all radii rather than extrapolating those counts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yang–Wang characterize equality as the central subdivision; their introduction describes 3 segment-sharing and 18 vertex-only neighbors.",
+          "The inspected equality theorem and its local count do not state the two distance-dependent profiles."
+        ],
+        "reasoning": "The known geometry fixes the graph, but a structural identification and an all-radius integer count are still needed to obtain the two invariants. The all-touch graph is not the side-sharing graph used in rigidity propagation.",
+        "searches": [
+          "Yang–Wang arXiv:2611.13664v1 abstract and Theorem 1; line graph, graph ball, edge boundary, growth series",
+          "Triangular-lattice line-graph growth and cut lookup"
+        ]
+      },
+      "checked_sources": [
+        "Yang and Wang, arXiv:2611.13664v1, abstract and Theorem 1",
+        "Resultary d3fed39986de Finding and Assumptions",
+        "Fejes Tóth 1975 via attribution and attempted lawful full-text retrieval",
+        "Focused line-graph ball and cut searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary theorem characterizes the tiling and degree. The exact same-day graph-model overlap is on periodic quotients with a coloring result. The historical construction source was identified but its own full text was unavailable."
+        ],
+        "reasoning": "Passing from geometry and degree or the known contact model to the claimed quantitative profiles requires counting incident edges of an endpoint-ball union and sorting exterior vertices by inward multiplicity. The compared statements do not supply these counts by translation or parameter substitution.",
+        "searches": [
+          "Yang–Wang Theorem 1 and equality construction",
+          "Resultary d3fed39986de Finding and Assumptions",
+          "Fejes Tóth 1975 historical construction via Yang–Wang reference and full-text retrieval attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact indexed profile match was the target itself.",
+          "The same-day parity-law finding d3fed39986de identifies the full contact graph of torus quotients as L(2T_{m,n}) = L(T_{m,n})[K_2] and derives 12 or 13 colors according to parity."
+        ],
+        "reasoning": "Treat the multigraph-line-graph and lexicographic graph descriptions as the same contact model, not as two inventions. A chromatic law for that model is a different invariant and does not yield the distance-ball size or edge-cut counts in the plane.",
+        "searches": [
+          "Resultary: 21-neighbor central subdivision, triangular lattice line graph, contact graphs and cuts",
+          "Resultary d3fed39986de Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct exact profile in the inspected Resultary hits; the target is not a prior duplicate of itself. The formula/sequence web search returned generic line-graph and lattice references rather than a matching concrete table."
+        ],
+        "reasoning": "A sequence for triangular-lattice vertices or for shared-side adjacency would not count the doubled incident-edge balls with all boundary contacts. The search is bounded and its misses do not establish priority.",
+        "searches": [
+          "Resultary: exact 18r^2+6r-2 ball and 192r-8 contact-edge boundary",
+          "Primary websearch: line graph triangular lattice coordination sequence / 22, 82, 178, 310 contact-ball volumes"
+        ]
+      },
+      "rationale": "No credit for the prior equality geometry or local neighbor count. A distinct same-day record has the equivalent doubled-line-graph model for periodic quotients, so the factorization is not treated as an independent originality claim. The supported contribution is the joint explicit all-radius point-contact ball and outgoing-edge profile of the plane tiling. Same-day publication does not establish priority in either direction.",
+      "residual_risks": [
+        "Historical full text for Fejes Tóth was not inspected; unindexed exact computations and published coordination data may exist.",
+        "Relative order of the same-day equivalent graph-model statements was not established. The distinct profiles, not the graph-model precedence, determine this decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly proves the prior geometric input but not the new ball and cut formulas in the inspected passages",
+          "evidence": "N<=21 with equality iff the tile is a 30–30–120 degree triangle and the tiling is similar to the central subdivision; 3 neighbors meet along segments and 18 only at vertices.",
+          "identifier_or_url": "https://arxiv.org/html/2611.13664v1",
+          "material_read": "Abstract at offset 0; section 1 Theorem 1 around offset 5400; equality neighbor discussion around offset 6200",
+          "method": "Lawful arXiv HTML full-text passage inspection",
+          "title": "Convex monohedral tilings: a sharp neighbor bound and rigidity in the equality case",
+          "trigger": "The frozen claim imports the exact equality tiling and contact convention"
+        },
+        {
+          "assessment": "Equivalent graph description in periodic quotients; different invariant",
+          "evidence": "L(2T_{m,n}) is L(T_{m,n})[K_2]; the parity law determines the quotient contact chromatic number rather than infinite-plane metric growth.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-parity-law-for-contact-colorings-of-extremal-triangular-ti--d3fed39986de",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Resultary search and local mirror passage inspection",
+          "title": "Exact parity law for contact colorings of extremal triangular tilings",
+          "trigger": "Same-day substantive overlap on the full point-contact graph"
+        },
+        {
+          "assessment": "Construction credited; earlier additional computations cannot be decided from accessible material",
+          "evidence": "Yang–Wang cite the construction; the original read was blocked by a JavaScript challenge or HTTP 403, which is an access limit, not evidence against coverage.",
+          "identifier_or_url": "L. Fejes Tóth, Amer. Math. Monthly 82 (1975), 273–276",
+          "material_read": "Identification and construction attribution in Yang–Wang; original full text not read",
+          "method": "Historical citation check and lawful JSTOR and alternate publisher retrieval attempts; access unavailable",
+          "title": "Tesselation of the plane with convex polygons having a constant number of neighbors",
+          "trigger": "Historical 21-neighbor construction cited by Yang–Wang"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The extremal equality tiling is a canonical substrate. The outgoing contact-edge count measures a different aspect of its metric balls than degree or the population of the distance shells, and is not mechanically given by the local neighbor count or a coloring theorem. Its exact linear profile and the exact quadratic population together give useful benchmarks for propagation on this full contact graph. They make no claim of cut minimality for arbitrary vertex sets.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

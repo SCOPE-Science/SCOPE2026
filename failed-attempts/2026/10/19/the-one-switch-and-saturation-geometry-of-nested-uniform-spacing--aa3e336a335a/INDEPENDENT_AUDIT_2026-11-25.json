@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:03:08.352289Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and scope, and Proof steps 1–4; VERIFICATION.md and verify_nested_spacings.py inspected; analytic check establishes the continuum and limit assertions"
+      ],
+      "rationale": "Simplex translation gives the joint distinct-coordinate tail (1-s-t)_+^{m-1}; the same-coordinate tail is (1-t)^{m-1}. Diagonal and off-diagonal counting gives the claimed covariance. After factoring out m(1-t)^{m-1}, the derivative at s=0 has sign 1-mt. On s+t<1, after dividing the s-derivative by (m-1)(1-s)^{m-2}, the result is strictly increasing for m>=3 since (1-s-t)/[(1-s)(1-t)] strictly decreases. On s+t>1 the derivative is positive. For m>=3 the derivative is continuous across the cutoff; for m=2 the one-sided slopes suffice (the proof's formula for s+t>=1 should be read from the right at that cutoff). The diagonal at s=t has positive variance except for m=2,t=1/2: near a corner the count is one; near equal lengths it is m or zero when t is below or above 1/m, and at t=1/m there are positive-volume neighborhoods with counts one and m-1 for m>=3. These facts give the claimed positivity or unique crossing, including the exact affine m=2 branches and exception. At s=1-t the bracket is 1-mt^{m-1}, locating the interior-vs-plateau boundary; at interior roots the s-derivative is positive and the t-derivative negative, so the root strictly increases up to that boundary. For t=a/m and s=b/m, the ratio (1-s-t)/[(1-s)(1-t)] is 1-ab/[(m-a)(m-b)]; hence (m-1) times one minus its (m-1)st power tends to ab, giving limiting bracket 1-(1+ab)e^{-b}. The positive root is unique and lies below a for a>1 by convexity and e^a>1+a^2. Evaluating the limit at two fixed points on opposite sides of the root and using the unique finite crossing proves the scaled-root limit. Direct evaluation confirms -3/20 at (m,s,t)=(3,1/5,1/2) and the root 2/5 at t=1/2.",
+      "residual_risks": [
+        "The claim concerns uniform simplex spacings only. The cutoff derivative for m=2 is generally one-sided at s+t=1, without affecting the sign conclusion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "53ce2ae4db4a classifies all b>=a for each a, giving the unique explicit b_n(a) and the entire zero segment b>=1-alpha_n at a=alpha_n; also proves nonindependence on that segment. The two later Resultary records treat related sign laws for symmetric Dirichlet coordinates. Mirakhmedov's Theorem 2.1 is asymptotic normality for spacing-score sums, not this finite sign theorem."
+        ],
+        "reasoning": "Quantification over the same whole triangle covers either order of slicing. The earlier theorem includes a stronger zero-segment nonindependence observation; the later general-Dirichlet records are related coverage, not evidence of priority.",
+        "searches": [
+          "Resultary 53ce2ae4db4a full-triangle theorem, equations (2)–(5); 93f5621be126 and 75fed219f626 symmetric Dirichlet matches; arXiv:2404.09581"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 53ce2ae4db4a, 93f5621be126, 75fed219f626; arXiv:2404.09581; Frozen Finding and References"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The named alpha_n is the frozen s_m^*. The interior curve t=b_n(s) in eq. (3) joins (0,1/m), by first-order expansion at s=0, to (s_m^*,t_m^*) by substitution at its other endpoint. The derivative signs of the same bracket at an interior root give strict increase, so fixing t merely inverts the increasing branch. The prior scale relation is y=(e^x-1)/x and its limiting covariance kernel is identical; y=a, x=b yields e^b=1+ab. The prior n>=3 scope does not literally include m=2."
+        ],
+        "reasoning": "The mean-threshold and plateau descriptions and inverse root limit are consequences of the earlier explicit contour and kernel. For the only missing m=2 case, (X,1-X) gives N_2(1/2)=1 almost surely and the covariance bracket is piecewise affine with an elementary switch at s=1/2 for t>1/2; this is not a substantive remaining contribution.",
+        "searches": [
+          "Compare 53ce2ae4db4a Finding eqs. (2)–(5) and Proof 2 with the frozen sign and scaling claims"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "53ce2ae4db4a Finding eq. (1) has the identical covariance with (n,a,b)=(m,s,t); Proof 1 explicitly identifies clockwise gaps, ordered from a sampled point, as Dirichlet(1,...,1)."
+        ],
+        "reasoning": "The count does not depend on cyclic starting order. Rotating by a sampled point makes the other n-1 relative locations iid uniform; their ordered line gaps are precisely the current model. Line vs circle is not a new count law.",
+        "searches": [
+          "Local Resultary semantic lookup for uniform spacing, Dirichlet exceedance covariance, one-switch signs, and zero plateau; exact source 53ce2ae4db4a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Oct. 18 entry provides the exact symbolic expression, exact finite sign inequalities and zero locus, not just numerical examples. The Oct. 26 records give related symmetric-simplex generalizations or specializations."
+        ],
+        "reasoning": "The Oct. 18 formula and sign theorem are stronger evidence than a matching table. The example thresholds in the frozen finding give direct substitutions into those exact formulas, not independent invariants.",
+        "searches": [
+          "Local Resultary exact-match inspection, 53ce2ae4db4a and later 93f5621be126 / 75fed219f626 Findings"
+        ]
+      },
+      "rationale": "The Oct. 18 circular-coverage record gives the same uniform-simplex model for gap counts (rotate the circle to a sampled point), the identical covariance, the complete sign diagram on the same threshold triangle, the identical saturation segment, and the same scale-limit zero curve in an explicit inverse parameterization. Fixing the other threshold exposes a different plot of the same curve, not a distinct new sign theorem. The genuine extra m=2 endpoint handling is elementary and does not rescue the core claim. This failure is based on a decisive inspected statement, not unavailable classic literature.",
+      "residual_risks": [
+        "Accessible extracts or bibliographic evidence do not decide priority in the complete Weiss, Shorack–Wellner, Pyke, Holst or Huillet literature. This does not weaken the positive match to the Oct. 18 record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive equivalent coverage for m>=3; earlier recorded date",
+          "evidence": "Proof 1 identifies Dirichlet(1,...,1); Finding gives same complete sign diagram, zero segment at lower threshold alpha_n and upper threshold at least 1-alpha_n, and inverse-scaled zero curve.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-one-switch-and-zero-plateau-law-for-multiscale-circular-coverage--53ce2ae4db4a/RESULT.md",
+          "material_read": "Finding eqs. (1)–(5), Assumptions and scope, Proof 1–3, local text offset 0 through 5767",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "One-switch and zero-plateau law for multiscale circular coverage gaps",
+          "trigger": "Exact earlier covariance, sign diagram, saturation and scaled curve"
+        },
+        {
+          "assessment": "Related later record",
+          "evidence": "Symmetric Dirichlet covariance law explicitly specializes to uniform spacings.",
+          "identifier_or_url": "2026/10/26/SCOPE-one-crossing-covariance-law-for-threshold-exceedances-in-symmetr--93f5621be126",
+          "material_read": "RESULT.md Finding eqs. (1)–(3), offset 0",
+          "method": "Local Resultary mirror",
+          "title": "One-crossing covariance law for threshold exceedances in symmetric Dirichlet samples",
+          "trigger": "Related broader Dirichlet scope with a uniform specialization"
+        },
+        {
+          "assessment": "Related later record",
+          "evidence": "Gives Dirichlet-coordinate sign trichotomy and a uniform-simplex specialization.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-one-switch-dependence-law-for-nested-dirichlet-exceedance-coun--75fed219f626",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A one-switch dependence law for nested Dirichlet exceedance counts",
+          "trigger": "Nested exceedance sign trichotomy under an alias"
+        },
+        {
+          "assessment": "Asymptotic comparator, no finite sign claim in passages read",
+          "evidence": "Studies asymptotic normality and moments of spacing-score sums, not an exact signed covariance diagram at two thresholds.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.09581",
+          "material_read": "PDF p. 1 and Theorem 2.1 on p. 4 (text offsets 0 and 11633)",
+          "method": "Lawful open preprint",
+          "title": "The central limit theorem for sum-functions of m-tuples of spacings",
+          "trigger": "Candidate broader primary spacing-statistics result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and exact example; Resultary 53ce2ae4db4a Finding and Proof 1–3; independent m=2 algebra and comparison of the two parameterizations"
+      ],
+      "rationale": "The complete sign diagram on its own is a worthwhile question, but the existing circular-gap theorem already supplies it on the same simplex law, along with the plateau and scale curve. Replotting that exact diagram and adding a direct two-spacing computation and a numerical substitution do not supply a new useful invariant, classification, or motivated mathematical gap. No surviving repair of the assigned claim is supported.",
+      "residual_risks": [
+        "This is a judgment about the incremental content of this record, not the intrinsic interest of sign changes for nested spacing counts."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Review of the finite erasure-capacity theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph reduction is exact because a known-position erasure yields the same received word from two distinct inputs if and only if those two inputs differ only in that position. The source set is exactly the enumerated set of three-symbol words with no equal adjacent symbols. The claimed bounds do not rely on software-reported optimum values: each listed odd cycle contributes at most its floor-half vertex count to any independent set, and each paired edge at most one. Certificate files cover all admissible states without overlap. Separate explicit independent-word lists meet the upper bounds, establishing both equalities. `verify.py` and `alternate.py` were executed successfully against the same on-disk certificates, checking every critical edge, output, and set membership. Limit: neither verifier establishes a general odd-length formula.
+PASS
 
-## Originality — PASS, qualified
+Known-position erasure recovery means that each coordinate puncturing map is injective on the code. Two distinct source words collide in some coordinate puncturing if and only if their Hamming distance is one. I independently checked the two frozen literal certificates without running either uploaded script: I generated the valid words by recursively extending each prefix with a different final symbol, indexed all puncture fibers by (erased coordinate, remaining word), verified code admissibility and injectivity in each fiber, and used an exact multiset comparison to verify that the listed pieces partition the word set. I checked every cyclic consecutive pair including wraparound and every paired edge for sharing a puncture fiber. The exact output (n, words, fibers, odd cycle length multiplicities, disjoint edges, matched lower/upper bound) was (5,48,156,{15:2},9,23) and (7,192,912,{21:8},12,92). Each odd cycle bounds its contribution by its length rounded down after halving; each edge contributes at most one. Cross-piece edges do not weaken this upper bound, and the separately checked code witnesses meet it.
 
-The closest inspected primary result is Choo–MacGillivray (2011), Theorem 5.5: the same three-coloring graph is Hamiltonian for all the relevant paths. This gives an upper bound of half the vertex count but neither its exact independence number nor the exhibited odd-cycle partition. The length-seven maximum \(92\) is strictly below their implied bound \(96\), and the analogous length-five maximum \(23\) below \(24\). Benerjee–Banerjee (2023) uses the exact homopolymer-free Hamming-code setting but provides broad analytic bounds rather than this sharp pair. Haas–MacGillivray (2018) studies canonical, color-quotiented reconfiguration graphs, not these fully labeled graph vertices. Targeted research-record searches and the accessible existing claims revealed no equal or stronger result. Novelty is qualified because undocumented prior finite computations or unindexed datasets might exist; searches alone cannot certify priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural exact finite capacity problem for a run-constrained source and a position-revealed erasure, as well as a finite independence-number problem in a well-studied recoloring graph. The length-seven result replaces a classical Hamiltonicity-derived 96-word upper bound by a sharp 92-word theorem and reveals a concrete odd-cycle obstruction. The 21-cycle partition gives an independently checkable combinatorial proof certificate that can benchmark future constrained-code optimization and recoloring-graph research. This is not offered as an asymptotic advance or as a solution to unknown-location synchronization.
+The defensible claim is the pair of exact independence numbers with certified strict deficits from the half-size bound on the labeled graphs. The known-erasure equivalence, the graph model and the half-size bound are not credited as new. The strongest distinct available comparisons use weaker Hamiltonicity-type information, different coding parameters, or a different channel; none established these exact values in the inspected evidence.
 
-## Sources and remaining scientific risks
+## value
 
-Full text: Choo and MacGillivray, *Gray code numbers for graphs* (2011), Theorem 5.5 and the defining section of the three-coloring graph, https://scispace.com/pdf/gray-code-numbers-for-graphs-3yxrthhv40.pdf . Full text: Benerjee and Banerjee, *Bounds on Size of Homopolymer Free Codes* (2023), Definitions II.1 and the bound discussion, https://arxiv.org/abs/2305.10741 . Full text: Haas and MacGillivray (2018), the definition of canonical colorings and main objectives, https://www.mdpi.com/1999-4893/11/4/40 . The primary residual scientific risk is previously unindexed enumeration of the same small graph invariant. No independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The optimum is the natural maximum number of distinguishable messages with a fixed constrained source and one known erasure. The exact results decide that the simplest universal matching/Hamiltonian upper bound cannot be saturated and quantify the deficits at two small odd lengths. The 192-state case in particular removes four messages from that bound; a researcher benchmarking coding or exact recoloring-graph methods can use the true cutoff and the structural certificates, rather than an unresolved interval or an unaudited solver value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:01:40.360316Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen spatial theorem is correct, but the frozen Fisher-information assertion fails under its variance-only assumptions. For regular location errors the coefficient information is the squared mode amplitude times the location Fisher information, not generally the inverse variance. Take Gaussian mode-1 errors and Laplace errors of scale σ/√2 in each other mode, all independent and of variance σ². Location information is σ⁻² and 2σ⁻² respectively. The frozen fifth-grid pairs have least Fisher eigenvalue 5/(4σ²), whereas the repeated site x=y=2/5 gives (5−√5)/(2σ²)>5/(4σ²), for either band. Thus even the inferred design can fail. The complete repaired RESULT.md, METADATA.json and SLOGAN.txt under /workspace/repairs/5/ retain the spatial result and restrict the Fisher interpretation to independent common-variance Gaussian errors, whose likelihood Hessian is the claimed diagonal matrix. The repaired raw-sampling comparison correctly concerns its m×m Gram eigenvalue. For the repaired global theorem let C_k=T_k(a)+T_k(b), a=cos(2πx), b=cos(2πy), s=a+b. If all C_1,C_2,C_3≤−1/2 then s≤−1/2 and C_3+1/2−3s(C_2+1/2)=(1−s)(2s+1)²/2≤0, impossible unless s=−1/2. The two remaining inequalities then fix ab=−1/4. The two cosine roots give exactly the four unordered pairs on the full closed interval, and fifth-root summation gives equality also in mode 4. The repeated-site bound 1 follows by the three interval tests in the proof and is attained at x=y=1/4. The polynomial identity, four equal energies and equal-variance counterexample replay exactly via `cd /workspace && python -B -c 'import independent_checks as c; c.modal_energy()'`. The frozen script was read, not executed; its finite numerical checks neither establish the all-site theorem nor test Fisher information.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The survey catalogs sensor-placement methods; Aarset Theorem 3 concerns dominant and redundant candidate weights for the A-optimal setting. The finite-cycle statements involve discrete cyclic separations, conjugate-frequency blocks or coupled raw observations at two times."
+        ],
+        "reasoning": "None of these inspected statements gives the independent equal-weight sine-channel objective on a continuum interval. The classical nonnegative Fejér kernel of length 5 does imply max_{k≤4} C_k≥−1/2 and its equality case by summing the kernels at both angles; that particular implication uses k=4 and does not give the stronger three-mode extremum.",
+        "searches": [
+          "Hassani–Dackermann DOI:10.3390/s23063293 §3 Fisher, independence and kinetic-energy criteria",
+          "arXiv:2410.16590v5 Theorem 3 on global optimality and binary A-design",
+          "Resultary b03d8e4c7818 and 92a81f643ed8 exact Fourier frames for two sensors"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/s23063293",
+        "arXiv:2410.16590v5",
+        "Resultary 0eea79458835, b03d8e4c7818, 92a81f643ed8, e309f8e59103, c712ee7ad220",
+        "Frozen cited 621545d38574 (local mirror unavailable); DOI:10.1155/2014/697497 (lawful full-text attempt unsuccessful)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With weights 1−k/5 (sum 2), a sum of two Fejér kernels gives 2+2Σ_{k≤4}(1−k/5)C_k≥0. Equality at the sharp four-mode threshold forces two nontrivial fifth roots and C_1=−1/2 selects distinct conjugate pairs. The indexed one-point Dirichlet theorem has fewer modes and a coupled temporal information operator."
+        ],
+        "reasoning": "The original classical four-mode implication is acknowledged explicitly in the repaired package. The stronger requirement is to exclude asymmetry in the possible cosine coordinates using only C_1,C_2,C_3, not to verify a fifth-grid construction or to substitute into a broad design recipe. The closest verified catalogue and sensor-design statements do not imply it.",
+        "searches": [
+          "Resultary 0eea79458835, b03d8e4c7818 and 92a81f643ed8, original RESULT.md openings",
+          "Aarset arXiv:2410.16590v5 Theorem 3",
+          "Fejér kernel expansion and equality as derived in repaired RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For conjugate pairs e^{±iθ}, e^{±iφ}, the real power sum is 2[cos(kθ)+cos(kφ)]; the exact equivalent inequality is max_{1≤k≤3} Re(sum z_j^k)≥−1 with the paired fifth-root equality case. Resultary e309f8e59103 optimizes a coefficient of a finite-grid nonnegative trigonometric polynomial on support {0,±1,±3}; c712ee7ad220 optimizes two sine expectations over measures."
+        ],
+        "reasoning": "Neither nearby trigonometric optimization fixes two equally weighted cosine arguments and constrains their first three moments. The negative outcomes of unavailable searches supply no support. The elementary identity used in the corrected proof is a paired equal-weight exclusion, not the unrestricted coefficient objective of those indexed results.",
+        "searches": [
+          "Resultary: two-site Dirichlet mode design, trigonometric/cosine-sum minimax, two-point Chebyshev moments",
+          "\"Turán power sum\" \"cos(kθ)\" \"cos(kφ)\" minimum maximum k=1,2,3 -1/2 fifth roots unit circle (primary lookup unavailable)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record itself appears in the index; the strongest same-domain distinct finding 0eea79458835 treats only one site and two modes with a temporal information matrix. It contains a related golden-ratio constant for a short-horizon limit, not the two-site three-mode threshold. Other exact indexed designs are on cycles."
+        ],
+        "reasoning": "An indexed constant or a fifth-grid construction does not itself certify the sharp maximum of the continuum two-point objective using only three harmonics. No distinct exact table for that claim was located.",
+        "searches": [
+          "Resultary: exact two-site Dirichlet three/four mode sine energy and fifth-grid equality; 0eea79458835, 92a81f643ed8, b03d8e4c7818 original Findings"
+        ]
+      },
+      "rationale": "For the final repaired claim, the supported distinct result is that the sharp two-site value and all fifth-grid equality pairs are already forced by the first THREE harmonics. The four-harmonic upper bound and its equality follow directly from classical Fejér positivity, and the Gaussian Fisher rescaling is standard; neither is credited as separately novel. No verified earlier result covering the three-harmonic equal-weight paired minimax and equality classification was located in the bounded comparisons.",
+      "residual_risks": [
+        "The targeted classical one-sided Turán-power-sum search could not be completed; earlier Chebyshev or unit-circle extremal coverage remains possible. No priority inference from the failed lookup.",
+        "The cited record 621545d38574 and Ritto full text were not verified; the actual verified nearby raw heat and demixed frame records are materially distinct. Same-day indexing alone does not show chronological order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Method survey in the inspected passages, not the three-sine theorem",
+          "evidence": "Classifies effective independence, modal kinetic energy and eigenvalue-vector-product criteria; §3.1 uses Fisher matrices.",
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/sensors/sensors-23-03293/article_deploy/sensors-23-03293.pdf",
+          "material_read": "pp. 22–25, offsets 117326, 123467, 132718",
+          "method": "Original OA PDF bounded §3 passages",
+          "title": "A Systematic Review of Optimization Algorithms for Structural Health Monitoring and Optimal Sensor Placement",
+          "trigger": "Strong sensor-energy and Fisher placement comparator"
+        },
+        {
+          "assessment": "A-optimal class and candidate weights, not this exact two-site E-minimax classification",
+          "evidence": "Theorem 3 characterizes dominant and redundant design weights; no three-harmonic exclusion there.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.16590v5",
+          "material_read": "p. 1 abstract and p. 7 Theorem 3, offsets 0 and 31461",
+          "method": "Original OA PDF passages",
+          "title": "Global optimality conditions for sensor placement, with extensions to binary low-rank A-optimal designs",
+          "trigger": "Plausible broader optimal sensor-design theorem"
+        },
+        {
+          "assessment": "One site, two modes, positive temporal information matrix",
+          "evidence": "Two reflected optimizers and a related golden-ratio limit, but not the two-site three/four-mode objective.",
+          "identifier_or_url": "2026/11/22/SCOPE-unique-worst-direction-one-point-sensing-of-the-first-two-heat-m--0eea79458835",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Unique worst-direction one-point sensing of the first two heat modes",
+          "trigger": "Closest exact indexed interval sine E-design"
+        },
+        {
+          "assessment": "Finite-cycle coupled raw measurements",
+          "evidence": "Four raw observations at two times; optimal spacing and lower frame bound depend on time.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-two-time-heat-sampling-stability-on-the-first-fourier-band--92a81f643ed8",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp two-time heat sampling stability on the first Fourier band",
+          "trigger": "Exact two-sensor heat stability on a three-mode band"
+        },
+        {
+          "assessment": "Discrete paired eigenspaces, not independent scalar Dirichlet channels",
+          "evidence": "Uses lower and upper frame bounds for two-dimensional conjugate frequency blocks and lattice separations.",
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp spectral-demixed two-sensor frame bounds on finite cycles",
+          "trigger": "Exact two-sensor spectral minimax with demixing"
+        },
+        {
+          "assessment": "Different finite-grid trigonometric coefficient bound",
+          "evidence": "The feasible object is a nonnegative grid polynomial on support 0, ±1, ±3, not a pair of angles.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-discrete-carath-odory-fej-r-constant-for-the-isolated-thir--e309f8e59103",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact discrete Carathéodory–Fejér constant for the isolated third harmonic",
+          "trigger": "Exact local third-harmonic extremal alias"
+        },
+        {
+          "assessment": "Different maximin domain and observables",
+          "evidence": "Optimizes expectations of two sine functions over probability measures.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-arithmetic-trichotomy-for-two-frequency-sine-equidistrib--c712ee7ad220",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A sharp arithmetic trichotomy for two-frequency sine equidistribution",
+          "trigger": "Nearby two-frequency sine maximin formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The corrected result is a genuine exact two-site continuum design theorem: it shows that all equally weighted first-three-mode optima are fifth-grid designs, 25% above the sharp repeated-site threshold, and that they also equalize a fourth mode. The crucial three-mode optimum is not a direct Fejér-four-mode recomputation, and the resolved Gaussian interpretation supplies a precise sensing setting. The repair does not claim noise-law robustness, performance after demixing, or raw underdetermined spatial E-optimality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

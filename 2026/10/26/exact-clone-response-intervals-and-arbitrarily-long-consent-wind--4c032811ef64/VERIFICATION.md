@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the clone-response interval theorem
+# Independent mathematical audit
 
-The finite AWVC criterion is evaluated directly from its strict blocking inequality with every nonempty coalition of voters disapproving the target. The independent analytical evaluator instead computes the affine clone inequality before adding copies. For the explicit five-voter family, both evaluators are compared against the proposed exact interval \(1\le t\le 3h-2\), for \(2\le h\le36\) and \(0\le t\le3h+3\).
+## correctness
 
-A second check samples 100 strict-ranking profiles with top-prefix approvals for every pair \(3\le n\le8\), \(3\le m\le9\), then checks five distinct clone counts per profile. The deterministic seed and complete implementation are in `check.py`. All 25,270 exact-integer comparisons passed when executed with Python 3.
+PASS
 
-These computations check finite cases only. The universal affine identity follows by counting new alternatives ranked unanimously above the target, and the unbounded five-voter family follows by evaluating the three possible disapproving coalitions; both are proved without extrapolating the finite tests. No independent audit or external certification was performed.
+Adjacent copies increase the candidate count by t and the unanimous-better count for a coalition S by t times the indicator that d originally belonged to that set. The disapprovers of c and its support s do not change. The weak nonblocking inequality is s(m-b_S)-|S|m + t[s(1-chi_S)-|S|] >= 0. Strict majority makes the coefficient positive when chi_S=0 and negative when chi_S=1, giving the stated integer endpoints, including equality, no-disapprover, and empty-interval cases. In the five-voter construction, the approval sets are top segments and the only possible coalitions are the two dissenters individually and together. Their unanimous-better counts are h+2+t, 2h+2, and 3; nonblocking reduces to t<=3h-2, t>=1, and t>=7-3h. The last constraint is redundant for h>=2. Thus the two switches and the interval length follow for all h, not by extrapolating the reported tests.
+
+## originality
+
+PASS
+
+The affine interval is a direct specialization of the published AWVC definition, and qualitative clone sensitivity of the ordinary veto core is known. The supported distinction is the exact two-switch, arbitrarily long finite acceptance window for an unchanged majority-approved alternative with a fixed five-voter electorate, together with the endpoint characterization in which it sits. The inspected sources neither state that construction nor prove a stronger statement that yields it.
+
+## value
+
+PASS
+
+This is a precise robustness obstruction for a defined consent correspondence, not just a generic failure of clone independence. With approvals of the target, every old comparison, and the five-person electorate fixed, cloning restores consent and then destroys it, with an arbitrarily long intervening interval. The sharp endpoints and the three-coalition construction explain how two competing forms of blocking produce the switches. The initial number of alternatives grows with h; the claim is not about typical elections or downstream winner selection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

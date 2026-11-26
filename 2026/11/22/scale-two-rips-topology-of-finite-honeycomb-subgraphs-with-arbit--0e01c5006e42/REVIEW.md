@@ -1,24 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim is for every nonempty connected finite edge-and-vertex subgraph of the standard infinite honeycomb lattice, using *internal shortest-path distance* at inclusive radius two. The critical combinatorial classification uses bipartiteness, uniqueness of distance-two midpoints, and the two orientations of triangular-lattice triangles. The centered subcomplex collapses relative to the original graph, while each actual complete hexagon contributes precisely two exceptional triangles with the same attaching loop. The first hexagon disks form a finite planar CW subcomplex and collapse one by one along free boundary edges, proving independence and saturation of their attaching classes. The second disks produce independent two-sphere summands. This is an all-graph homotopy proof; finite computations corroborate but do not replace it. An edge-deletion example explicitly verifies the stated change of two Betti numbers.
+PASS
 
-## Originality
+Use intrinsic shortest paths, not those of the ambient lattice. The same-color displacement vectors of length two are ±e1, ±e2, ±(e1-e2); their adjacency around a vertex is a six-cycle, giving two translation types of triangles, centered and alternating. A same-color pair has a unique midpoint by the absence of 4-cycles. In the alternating type the three midpoints are distinct and form, with the triple, an elementary hexagon; any 6-cycle must be of this type. A mixed clique with two vertices in each color would give a 4-cycle, and all other mixed cliques belong to one closed-neighborhood simplex. Deleting bonds or vertices cannot make new cliques and the three required midpoint paths certify that an exceptional triangle survives exactly with its whole face. In the centered core, pair a face of at least two neighbors with its cone from the center, in decreasing face size. The unique midpoint prohibits competing cofaces from other centered simplices; this collapses the core relative to G, not the full complex. Each exceptional triangular attaching loop becomes the original six-edge loop via midpoint paths, giving two disks per face. The first disks fill disjoint face interiors in the plane. A finite nonempty set of such faces has a boundary edge incident to only one remaining face (e.g. an extreme face in a lattice direction), so these disks can be collapsed one by one, each with one edge. The remainder is a connected graph with rank b-h, including the tree/single-vertex cases. The exact relative homology sequence gives the primitive rank-h boundary kernel: the relative 2-chains for the first disks inject because the planar filling has zero H_2, and the quotient H_1 is the free group in homology of the remaining graph. Each second attaching loop is null after the first disks and adds one S^2. This proves the integral map and wedge type, not only Betti numbers; a nonbridge deletion changes (b,h) to (b-1,h-t) with the metric recomputed. Bounded local adjacency and midpoint-type check replay: python3 /workspace/frozen_review_arithmetic.py (SymPy). Inspected VERIFICATION.md, verification_output.txt and verify_honeycomb.py; its recorded mod-two tests do not certify integral homotopy, and the frozen script was not run.
 
-**PASS, with residual priority uncertainty.** Adamaszek's graph-power collapse assumes girth at least seven (not six). The earlier vertex-Rips hexagon-packing result assumes edge-disjoint six-cycles, whereas interior honeycomb edges lie on two distinct six-cycles. The earlier periodic honeycomb theorem is limited to a regular closed quotient without defects; its statement does not classify finite planar subgraphs with arbitrary missing edges, holes and bridges. A separately available all-overlaps theorem computes the radius-two Rips complex of a *line graph*, not the original honeycomb graph; the two metric graph constructions are different. Exact record comparisons, relevant full mathematical text and searches for benzenoids/graphene/hexagonal patches did not identify the asserted all-subgraph defect formula. The proof technique shares the two-cell approach of the periodic result, and any unindexed broader statement for arbitrary hexagonal subgraphs is a meaningful priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** This gives a complete, natural, boundary-sensitive topology and integral persistence classification across an infinite class of planar chemical/hexagonal network graphs, not a fixed-width enumeration or an unmotivated slice. The rank \(b-h\) diagnoses unfilled loop defects, while the \(h\) two-spheres are local hexagon classes. A single missing shared bond has the non-obvious, sharp transition of one new circle and two fewer spheres. The primitive integral kernel is meaningful for interpreting homological changes across the filtration, and is not furnished by a mod-two face-count computation.
+The wedge formula itself has precedent for edge-disjoint hexagons. The supported distinction is the intrinsic vertex-Rips classification for all finite honeycomb subgraphs with adjacent faces and arbitrary deletions, including the natural integral kernel and the change under shared-bond removal. The available indexed results cover different hypotheses or different spaces, not this extension. This is best-of-knowledge, not a claim of historical priority.
 
-## Closest literature and limitations
+## value
 
-- M. Adamaszek, *Clique complexes and graph powers*, arXiv:1104.0433, Proposition 2.2 and discussion of the \(C_6\) exception.
-- *A hexagon-packing classification of scale-two graph Rips complexes*, public 2026-10-11, restricted to pairwise edge-disjoint source hexagons.
-- *Scale-two Vietoris–Rips complexes of periodic honeycomb graphs*, public 2026-11-08, a torus-quotient calculation using related centered-core methodology.
-- *Hexagon two-cell model for scale-two Rips complexes of line graphs of high-girth graphs*, public 2026-11-08, a different line-graph construction.
+PASS
 
-This result does not cover Euclidean Rips metrics, larger radii, non-honeycomb cubic planar graphs, or integral equivariant decompositions. A mathematically equivalent unindexed general theorem remains possible. Finite tests do not prove a global theorem. Independent validation is outstanding.
+This is a complete defect-tolerant topology calculation for a natural lattice, not an extrapolation from intact polyhexes. It identifies the actual cycles killed over the integers and explains the local but counterintuitive transition under a shared-bond loss: two 2-spheres disappear while a 1-cycle is created. The result gives a computable classification without convexity, inducedness or non-overlap assumptions.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

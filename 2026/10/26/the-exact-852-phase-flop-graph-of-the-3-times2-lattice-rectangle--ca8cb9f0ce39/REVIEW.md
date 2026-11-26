@@ -1,15 +1,21 @@
-# Review: Exact \(3\times2\) lattice-rectangle flop graph
+# Independent mathematical audit
 
-## Correctness
-PASS. Every candidate triangulation and wall was reconstructed by a standard-library verifier. The complete 852-vertex set is anchored in the independently published 852-count; 852 positive integer lift vectors establish coherence, 2626 flat-quadrilateral integer vectors show all candidate flips are genuine regular walls, and all-source shortest-path search proves the graph metrics. No inference from sampling, floating-point values, or a failed search is used.
+## correctness
 
-## Originality
-PASS for the precisely delimited **network statistics**, not for 852 triangulations or their regularity. Kaibel and Ziegler (2003) already give both of those stronger baseline facts. Gasparim et al. (2026) present the crepant-resolution correspondence and a triangulation algorithm. Lee–Santos supply secondary-fan theory; Eppstein's 2006 post treats the smaller 2-by-2 square. Neither their inspected statements nor targeted searchable records supply this exact 2626-edge adjacency census and graph metric. A possible unindexed full table is a residual risk.
+PASS
 
-## Value
-PASS. Complete wall incidence, diverse flop degrees and the unique distance-20 pair give the finite exact network of toric crepant phase transitions, a geometric invariant absent from mere phase counts. The result is deliberately a natural finite model rather than an unsupported general theorem.
+For the cone over the rectangle, crepant rays are at height one; every height-one lattice point must occur in a smooth subdivision, since in a unimodular cone its nonnegative integral coordinates sum to one. Thus the labeled smooth crepant fans are exactly the unimodular triangulations using all 12 points, and relative projectivity corresponds to a coherent lifting. A coherent coarsening with one quadrilateral admits the two small projective refinements: no ray changes, and the single affine dependence gives one wall and a crepant flop. Conversely any adjacency of the stipulated kind must exchange the diagonals of one such quadrilateral. The independent exact replay, /workspace/branches/b9fa7f38-e9cf-4697-b538-a765f43ce391/independent_replay.py and full_replay.log, reads the frozen JSON strictly as data. It reconstructed 852 distinct triangulations, each with 12 normalized-area-one triangles, exhausting the independently known count f(2,3). It rebuilt every legal exchange, found 2626, and checked each integral height vector: all 852 triangulations have strict lower triangles, while all 2626 walls have ten strict common triangles and exactly their four quadrilateral vertices coplanar on the remaining lower face. Full-graph BFS from every vertex gave radius 10, diameter 20 and the unique pair 0x8c3c04117, 0x71885e0820. The log confirms the stated histogram, including 180 vertices of degree 6. No frozen script was executed. This verifies the relative toric graph only, not arbitrary nontoric resolutions.
 
-## Scope and limitations
-Only torus-equivariant smooth crepant resolutions projective over the affine threefold base, with phases labeled over the original torus, are included; arbitrary nontoric resolutions are not classified. Independent external validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 852 count, width-two regularity and general flip connectivity are prior and are not credited as novel. The distinct supported finding is the exact relative-projective flop adjacency and distance profile of this labeled rectangle, including the sharp flop bound and its unique extremal pair; the exact wall data identify all combinatorial exchanges as relative flops.
+
+## value
+
+PASS
+
+The first rectangle beyond the 2 by 2 width-two square is a natural tractable relative toric phase graph, with a known census but no metric profile in the earlier inspected results. The exact diameter gives the optimal bound on elementary flops over the original affine base, the unique pair identifies the sole extremal obstruction, and the lifts verify that the counted paths do not use abstract but nonprojective flips. These precise data are usable in comparisons and benchmark calculations independently of a broader theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

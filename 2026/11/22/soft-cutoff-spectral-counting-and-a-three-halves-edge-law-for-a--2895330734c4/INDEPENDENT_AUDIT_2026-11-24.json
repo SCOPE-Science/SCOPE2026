@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:15:55.672212Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the precise kernel (mn)^(-ε/2)/(m+n), the Laplace Gram factor gives positivity and trace class; the squared Hilbert–Schmidt norms of the factors are ζ(1+ε)/2 in the discrete case and 1/(2ε) on [1,∞) in the continuum. Hilbert/Carleman bounds give norm ≤π. The extension in the unit-cell constant basis is the lower-left sampled kernel on each cell. The difference from the actual continuum kernel is bounded there by a constant times [m(m+n)]^{−1}+[n(m+n)]^{−1}+(m+n)^{−2}, uniformly for 0<ε≤1. The squares sum (for instance ∑_n(m+n)^{−2}≤1/m); hence the required bounded Hilbert–Schmidt error follows, even without the intermediate cell average. Noncommutative telescoping for fixed r≥2 gives trace error O_r(ε^{−1/2}) by using one other Hilbert–Schmidt factor and bounding the rest in norm. The r=1 case follows from the exact two traces. The logarithmic change of variables yields k(t)=1/(2 cosh(t/2)), with Fourier transform π sech(πξ) by the beta integral. In the cyclic r-fold trace the common coordinate starts at max(0,−v_2,…,−v_r), so its integral gives 1/(rε) times an exponential of a nonpositive quantity. One may first use bounded-interval kernel cutoffs and pass to the cyclic integral by positivity, Hilbert–Schmidt convergence and monotone convergence. The remaining product integrates to k^{*r}(0)<∞, proving the claimed moment limit by domination; evaluation gives 1/2, 1/2 and π²/12. Weighted spectral measures on [0,π] are finite and determined by their moments; in the limit e^{−u}π sech(πξ) has no positive atoms under the weighted phase-space measure. Thus 1_{(s,π]}/x yields fixed-threshold counting. The u-integral gives (L−log cosh(πξ))_+, and differentiation gives arcosh(e^L)/π². Its small and large L expansions integrate to exactly the two coefficients and orders claimed. RESULT.md lines 43–111 proves a sequential, not simultaneous or uniform, limit. The supplied scalar/finite-matrix checker and VERIFICATION.md were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fedele's abstract states independence of truncation shape in its Hankel setting; the frozen audit identifies the family τ(m/N,n/N). Neither recasts this taper as such a fixed rescaling.",
+          "Preissmann–Lévêque abstract addresses norm/determinant/spectral relations for generalized weighted Hilbert matrices; Guo–Tang abstract states Hardy-space boundedness and multiplier criteria for an analytic-symbol operator. No matching hypotheses or singular exponent limit were verified in those sources."
+        ],
+        "reasoning": "A continuum symbol theorem would still need applicable hypotheses at the half-line boundary and a justified discrete comparison uniform as ε↓0, unless its theorem already treated the discrete weights. No such precise covering application was established in the available sources; this is not a blanket exclusion of general weighted Szegő results.",
+        "searches": [
+          "Fedele doi:10.1007/s00020-019-2556-9, truncation shape and scale tests",
+          "Preissmann–Lévêque arXiv:1303.1085v1",
+          "Guo–Tang arXiv:2607.28221v1",
+          "Carleman semiclassical weighted Wiener–Hopf Szegő comparison"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py, AUDIT.json",
+        "Otte 2207.11029v1; Fedele doi:10.1007/s00020-019-2556-9; Preissmann–Lévêque 1303.1085v1; Guo–Tang 2607.28221v1 (material as specified)",
+        "Resultary 2895330734c4, 06517ea8de60 and 04e588d68667"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The symbol for the fast logarithmic difference variable is classical, but the slow position weighting leaves x=e^{−u}k̂(ξ) in the limiting measure.",
+          "A uniform sampled-kernel comparison and the ε-dependent cyclic trace integral, rather than the hard-window determinant or truncation-shape statement alone, yield this limit. The weighted limit profile has a three-halves endpoint rather than a square-root one."
+        ],
+        "reasoning": "The checked hard result neither gives the same object nor a direct counting theorem for its slow taper; obtaining that from a collection of hard windows would require additional interwindow/error control. Only the discrete power-taper limit is credited, not a new Carleman diagonalization or an abstract semiclassical principle.",
+        "searches": [
+          "Otte arXiv:2207.11029 abstract and frozen account of Theorem 1.1 and §4",
+          "Fedele spectral-density abstract and frozen account of §§1.2, 1.5",
+          "Compare RESULT.md lines 43–111 with the hard Carleman model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The positive symmetric operator is D_ε H_0 D_ε, not [D_ε,H_0] or an entrywise function of m+n alone. On logarithmic coordinates the model symbol is e^{−u}π sech(πξ) for u≥0; its threshold volume is the same as the integrated arcosh profile.",
+          "Otte abstract uses a finite section and a Kac–Akhiezer Carleman reduction; Fedele abstract extends truncated Hilbert matrix eigenvalue distribution to Hankel symbols with jumps."
+        ],
+        "reasoning": "The hard-section density at L is arcosh(e^L)/π², not an integral of it. Taking N=exp(1/ε) does not turn a fixed m/N,n/N cutoff into a weight varying throughout u=ε log n>0. An equivalent prior soft limit would have to retain that extra coordinate or establish a genuinely general result that covers it.",
+        "searches": [
+          "Resultary: power-tapered Hilbert matrix, soft cutoff, integrated arcosh counting law and trace moments",
+          "Otte arXiv:2207.11029v1, finite Hilbert matrix determinant",
+          "Fedele doi:10.1007/s00020-019-2556-9, regularized Hankel spectral density"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalog hit on the profile is the frozen record. Both distinct nearby summaries concern power-diagonal commutators, one including signed spectral behavior and one an HS cusp, not the positive two-sided taper and its family of trace moments."
+        ],
+        "reasoning": "There is no stand-alone numerical table at issue; the exact analytic profile and moment sequence are the objects compared. An HS residue or a signed commutator law neither identifies those moments nor this positive eigenvalue count.",
+        "searches": [
+          "Resultary frozen record 2895330734c4",
+          "Resultary 2026/11/22/SCOPE-a-sharp-schatten-topology-boundary-for-power-damped-hilbert-comm--06517ea8de60",
+          "Resultary 2026/11/1/SCOPE-a-universal-square-root-hilbert-schmidt-cusp-for-power-damped-ha--04e588d68667"
+        ]
+      },
+      "rationale": "The supported distinct claim is the explicit fixed-threshold profile (and its moment and edge formulas) for the discrete, bilateral-in-the-weights positive power taper as its exponent vanishes. The Carleman symbol and general phase-volume idea are classical. The verified hard-section and regularization comparisons do not identify this slow logarithmic profile or imply it by parameter substitution; a concrete already-published theorem implying it directly was not established.",
+      "residual_risks": [
+        "The exact Fedele exponential-cutoff example and relevant full-text passages of the generalized weighted and possible semiclassical sources were not independently verified. General semiclassical coverage remains possible; unavailable text is not negative evidence.",
+        "No joint moving-threshold asymptotic is shown, and the checked small-ε positive operator limit does not determine eigenvalues at fixed ε."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Finite-section determinant law, not a verified power-taper threshold theorem",
+          "evidence": [
+            "Abstract states a Szegő theorem for finite Hilbert matrix determinants via Kac–Akhiezer, with an O(1) correction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2207.11029",
+          "material_read": "v1 abstract, p. 1; frozen account of Theorem 1.1 and §4 separately",
+          "method": "OA abstract comparison and frozen cited theorem account; exact latter pages not independently verified",
+          "title": "A Szegő Limit Theorem Related to the Hilbert Matrix",
+          "trigger": "Closest hard Hilbert spectral/determinant problem with the same limiting Carleman multiplier"
+        },
+        {
+          "assessment": "Substantive hard/regularized model overlap; no direct identification of the slow taper",
+          "evidence": [
+            "Abstract extends truncated Hilbert spectral densities to Hankel operators and reports independence of truncation shape."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00020-019-2556-9",
+          "material_read": "Public abstract, p. 1; frozen audit account of Theorems 1.1/1.2 and equations (1.13), (1.19), (1.23)",
+          "method": "OA abstract and mathematical comparison with frozen citation; exact cutoff example not independently checked",
+          "title": "The Spectral Density of Hankel Operators with Piecewise Continuous Symbols",
+          "trigger": "Truncation-shape independence may be mistaken for arbitrary slow taper robustness"
+        },
+        {
+          "assessment": "Potential broader overlap on title/abstract but no matching limit verified",
+          "evidence": [
+            "The abstract concerns norms, determinants and eigenvalue/eigenvector relations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1303.1085",
+          "material_read": "v1 public abstract only",
+          "method": "OA abstract read; full-text coverage not resolved",
+          "title": "On Generalized Weighted Hilbert Matrices",
+          "trigger": "Weighted Hilbert spectral literature might contain a stronger applicable result"
+        },
+        {
+          "assessment": "The stated theorem concerns Hardy-space boundedness/multipliers, not the comparison or counted eigenvalues here",
+          "evidence": [
+            "Abstract identifies an analytic-symbol operator given by integration of f(t)g′(tz) and Hardy-space mapping conditions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.28221",
+          "material_read": "v1 public abstract only",
+          "method": "OA abstract read",
+          "title": "Generalized Hilbert operators on Hardy spaces",
+          "trigger": "Recent motivating generalized Hilbert paper"
+        },
+        {
+          "assessment": "Commutator result, not the positive sandwich in the summary; no inferred same-day priority",
+          "evidence": [
+            "Summary treats a commutator and describes Schatten/signed-eigenvalue behavior."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-schatten-topology-boundary-for-power-damped-hilbert-comm--06517ea8de60",
+          "material_read": "Resultary summary only",
+          "method": "Local catalog search; exact mirror retrieval did not yield a passage",
+          "title": "A sharp Schatten topology boundary for power-damped Hilbert commutators",
+          "trigger": "Nearest distinct same-day catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Power damping is a natural way to make the bounded Hilbert matrix positive trace class without imposing a dimension cutoff. The explicit spectral law separates a soft cutoff from the hard-section density by a real change of endpoint exponent, not a normalization, and supplies exact fixed-threshold and all-moment comparison benchmarks for regularly damped Hankel matrices. Both the threshold-edge coefficient and the two leading terms at the low-threshold end are supported in the sequential regime; no unproved uniform edge behavior is used to motivate acceptance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

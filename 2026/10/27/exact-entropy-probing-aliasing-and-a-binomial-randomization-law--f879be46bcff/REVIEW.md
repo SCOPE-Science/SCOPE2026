@@ -1,25 +1,21 @@
-# Scientific review: exact cycle graph-entropy probing law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is all integers \(m\geq3\), \(L\geq2\) with the normalized Laplacian of the unweighted cycle of length \(mL\). The proof directly computes the discrete Fourier support of every periodic color indicator. This reduces the probing error to a difference of two equally spaced quadratures of the continuous periodic function \((1-\cos\theta)\log(1-\cos\theta)\). Exact Fourier coefficients \(1/[k(k^2-1)]\), valid for \(k\geq2\), give the convergent positive series, strict size ordering, and sharp \(\zeta(3)\) coefficient. The signed-pair law is derived from an exact circulant antipodal entry, giving independent fair signs, exact binomial masses, moments, and a central limit theorem. The saved standalone verifier passed 1175 finite checks. Neither the infinite Fourier result nor the limit is inferred from the finite tests.
+PASS
 
-## Originality — PASS, with publication-priority risk
+Normalizing the cycle Laplacian by 2n gives eigenvalues (1-cos(2 pi j/n))/n. Each residue indicator is supported at Fourier modes j divisible by L, with combined squared weight exactly L per surviving mode. Hence T_(m,L)=S_m+log L, and the deficit is the difference of the m- and mL-grid means of g(theta)=(1-cos theta)log(1-cos theta). The integrable identity log(1-cos theta)=-log 2+2 log|1-e^(i theta)| gives complex coefficients -1/|k| at k!=0 before multiplication by 1-cos theta. For |k|>=2 multiplication takes a second difference and gives 1/[|k|(k^2-1)]; the resulting series is absolutely convergent and equals continuous g, including at zero. Grid averaging thus selects exactly the frequency multiples stated. Terms removed are precisely multiples of mL. Positivity, monotonicity and the unattained envelope follow termwise. The geometric expansion's tail starting at m^(-5) is bounded by 2 zeta(5)m^(-5)/(1-m^(-2)), uniformly in L. At L=2 circulant symmetry gives a common antipodal entry -Delta_m/(2m), and the products of vertex signs on disjoint antipodal pairs are independent fair signs. This proves the exact binomial probabilities, variance, extrema and standard normal limit with the asserted normalization. A fresh finite diagonalization compared four m,L cases with bounded series truncation errors; independent pair-sign enumerations at m=3,4,5 checked the probabilities and moments. Those checks corroborate the formulas without replacing the proof.
 
-The closest direct published source is Benzi, Rinelli, and Simunec, arXiv:2212.09642, Section 3.1, which establishes graph-entropy probing as a lower bound and derives a generic polynomial error bound; its Lemma 3.5 also includes an exact matrix power series. The latter is an important ingredient, but does not directly give a finite-cycle Fourier alias, sharp \(m^{-3}\) coefficient, sharp envelope across cycle lengths, or the finite stochastic law.
+## originality
 
-Frommer, Rinelli, and Schweitzer, arXiv:2308.07722, Sections 2--3, analyze Rademacher probing and general variance and sign-based pathwise comparisons. Those general facts are acknowledged as prior results. The asserted additional step is the exact entropy-dependent aliasing coefficient, which makes the antipodal finite distribution and risk fully explicit. Frommer, Schimmel, and Schweitzer, arXiv:2009.01589, give general probing analysis; relevant material contains no covering cycle-specific entropy formula. Classical Fourier coefficients, graph-cycle eigenvalues, and Rademacher sums are not separately claimed as new. Exact wording and implication checks found no inspected theorem encompassing the combined exact law. Publication priority remains uncertain beyond the accessed sources, and generic identities could make the result accessible by further specialization.
+PASS
 
-## Mathematical value — PASS
+The supported distinct content is the explicit entropy-cycle alias coefficient, its sharp envelope and expansion, and the corresponding scale in the exact stochastic law. The generic sign of the deterministic error, periodic coloring, class-supported stochastic probes, binomial shape for identical two-point classes, and central limit theorem are not original separately. Related indexed cycle probes target a different matrix function.
 
-The 2022 graph-entropy study states that its uniform polynomial bound can be pessimistic. This result supplies a natural, connected, regular, exactly solvable benchmark where the leading error constant is sharp, the decay improves from the general quadratic upper-bound scale to cubic, and the largest possible error over multiples of the coloring period is determined exactly. With precisely the same number of matrix-function quadratic forms, its paired-color randomized estimator has a complete finite binomial distribution and an exact root-mean-square improvement factor \(\sqrt m\) over deterministic bias. These quantities allow checking trace-probing implementations and variance estimates on a canonical family rather than only observing qualitative convergence.
+## value
 
-## Closest literature and limitations
+PASS
 
-- M. Benzi, M. Rinelli, I. Simunec, *Computation of the von Neumann entropy of large matrices via trace estimators and rational Krylov methods*, arXiv:2212.09642, https://arxiv.org/abs/2212.09642.
-- A. Frommer, M. Rinelli, M. Schweitzer, *Analysis of stochastic probing methods for estimating the trace of functions of sparse symmetric matrices*, arXiv:2308.07722, https://arxiv.org/abs/2308.07722.
-- A. Frommer, C. Schimmel, M. Schweitzer, *Analysis of probing techniques for sparse approximation and trace estimation of decaying matrix functions*, arXiv:2009.01589, https://arxiv.org/abs/2009.01589.
+The exact envelope and uniform cubic coefficient sharpen what general probing bounds give on a natural benchmark. For the same number of probes the sharp deterministic magnitude and the exact randomized scale permit a precise bias and error comparison, including the improvement by a factor of sqrt(m) in RMS for the specified antipodal setting. This is useful without extending the result to other graphs or stochastic probe allocations.
 
-The identities require unweighted cycles and a specified coloring. The binomial law requires antipodal classes of exactly two vertices and independent vertex signs. No claim is made for arbitrary sparse matrices, finite-precision quadratic forms, or a general fixed-matrix query-complexity exponent. The remaining originality risk is an unlocated equivalent cycle specialization or an independently known exact error constant.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

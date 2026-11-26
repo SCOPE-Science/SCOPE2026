@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:52:28.747114Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Putting the two probability generating functions over a common denominator gives a positive constant times (1−tz)/[(1−qz)(1−rz)], with q<t<r. Thus the log jump intensities are (q^k+r^k−t^k)/k, positive and summable. In g(z)=−(1−z)G′(z)/G(z), the coefficient of z^k for k≥1 is d_k. If any is negative, the quotient for α=1−h has a negative coefficient to first order in small positive h (the expansion is uniform on a fixed sufficiently small circle about zero, so coefficient extraction is valid). If all d_k are nonnegative, they sum to q+r−t by telescoping; integrating g(1−β+βz)/β from α to 1 gives a compound-Poisson exponent by binomial expansion, proving sufficiency for every α. Dividing by (1−t)t^k gives Φ(k)−1, where Φ is a positive sum of decreasing and increasing exponentials. Its strictly positive second derivative gives a unique continuous minimum at the stated x_* and an interval of strict negative defects. Monotonicity on either side puts the integer minimum at the clipped floor or ceiling, also when x_*≤1 or is an integer. For the N-family the displayed weight lies strictly between zero and one and realizes t_N. Fixed k and k_N=floor(N/3) give respectively the positive limit 71/10 and a limit less than −2/5 for N d_k. Hence initial agreement can last beyond every fixed B, not merely the illustrated examples. Independently replayed the exact small witness and first negative indices 16, 32, 64 and 129 with python3 /workspace/review_evidence/check_geometric_defects.py. The frozen checker was read, not executed; its finite grid is support, not proof of the universal rule. No claim of minimality of the two candidate tests is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pakes explicitly covers all geometric mixtures for compound-Poisson structure, but the self-decomposability criterion quoted there is all-index.",
+          "The Poisson–transmuted geometric theorem concerns a Poisson sum and restricted two-geometric component; its generic mixture example exhibits one failure.",
+          "The other local two-index tests apply to different innovation laws and require their own canonical comparisons."
+        ],
+        "reasoning": "These broader or analogous results do not carry the unrestricted positive two-geometric mixture in a theorem giving its clipped minimum or a universal delay construction. A Poisson term can alter the first comparison, and positivity in another family is not a substitute for checking the frozen parameters.",
+        "searches": [
+          "Pakes Definition 2 and discussion of general geometric mixtures",
+          "Resultary record a79d7c8f6d1e (Poisson plus transmuted geometric)",
+          "Resultary records 6d990cd0685b, 12cdb9820df2 and 2fdc7de1a76a"
+        ]
+      },
+      "checked_sources": [
+        "Bound RESULT.md, VERIFICATION.md and checker.py (inspection)",
+        "Pakes DOI:10.3390/axioms11110584",
+        "Waza–Ahmad DOI:10.1007/s42519-025-00513-8 (abstract only)",
+        "Resultary records 6d990cd0685b, 12cdb9820df2, 2fdc7de1a76a and a79d7c8f6d1e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The monotone canonical-sequence criterion reduces the problem to A_k−A_{k+1}≥0 for all k once G is factored.",
+          "A checked counterexample at k=2 and a folded-difference phase diagram give no family with strictly positive first B defects for every B."
+        ],
+        "reasoning": "The known criterion is a genuine starting point, and strict convexity readily gives contiguity once the special normalized form is derived. The finite reduction and the construction changing scales with N furnish actual additional information; in particular an isolated counterexample cannot entail arbitrarily late onset.",
+        "searches": [
+          "Pakes printed pp. 5–6 and 10",
+          "Resultary a79d7c8f6d1e generic mixture example and restricted theorem",
+          "Resultary 6d990cd0685b finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pakes uses r_{k−1}=kν_k, so the criterion that r_j be non-increasing is exactly d_k≥0 for all k in the frozen parametrization.",
+          "The publisher abstract of Waza–Ahmad discusses PGFs and distributional properties; the contents of any full-text thinning result could not be checked.",
+          "The local folded-Laplace result concerns |X−Y|, not a latent positive choice between the geometric components."
+        ],
+        "reasoning": "Rephrasing the known canonical test is not new. Here the mixture-specific logarithmic numerator yields two exponentials after sign normalization; the finite test and delay behavior are the added claims, not different words for compound-Poissonness or dependent counting.",
+        "searches": [
+          "Resultary: two-geometric mixtures, binomial thinning, canonical-sequence monotonicity, two-index criterion",
+          "Pakes DOI:10.3390/axioms11110584, equations (9)–(10), Definitions 2–3",
+          "Waza–Ahmad DOI:10.1007/s42519-025-00513-8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest generic same-family calculation found is the equal-weight pair with ratios 1/6 and 5/6 and 3ν₃−2ν₂=35/5832>0, an exact counterexample to automatic thinning self-decomposability.",
+          "The bound verification reports 375 rational cases and four delay samples, which are finite data rather than a complete parameter classification."
+        ],
+        "reasoning": "The known witness covers existence of failure, not a two-index decision rule for a continuum or the absence of any fixed initial cutoff. No finite table could certify the latter universal conclusion.",
+        "searches": [
+          "Resultary: exact self-decomposability phase diagram for positive two-geometric mixtures",
+          "Resultary a79d7c8f6d1e, generic mixture example",
+          "Waza–Ahmad publisher abstract"
+        ]
+      },
+      "rationale": "The supported distinction is the explicit parameter-dependent finite reduction for two geometric components, with consecutive failure indices and the analytic family giving arbitrarily late first failure. Compound-Poisson structure and monotonicity of the all-index canonical sequence are already established. The strongest inspected direct corpus overlap supplies one genuinely non-self-decomposable two-geometric mixture, not a classification or unbounded-delay family. The exact-object 2025 article is an unresolved access risk, not negative evidence or a reason on its own to withhold the verdict.",
+      "residual_risks": [
+        "The full Waza–Ahmad article was not lawfully retrieved, so an equivalent criterion there cannot be ruled out from the abstract.",
+        "The checked literature does not exhaust all earlier formulations of discrete self-decomposability for geometric mixtures."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established general criterion and compound-Poisson background; not the specialized finite reduction in these passages",
+          "evidence": "r_j=(j+1)λ_{j+1}, non-increasing r_j and equivalent Bernoulli-thinning quotient characterization; compound-Poissonness for geometric mixtures.",
+          "identifier_or_url": "https://doi.org/10.3390/axioms11110584",
+          "material_read": "Equations (9)–(10) and Definitions 2–3, printed pp. 5–6 (PDF offsets 22400–28464); discussion on p. 10 (offsets 45450–48441); Fact 9 context on pp. 14–15",
+          "method": "Open publisher text/PDF, bounded passages",
+          "title": "Mutant Number Laws and Infinite Divisibility",
+          "trigger": "Direct prior canonical-sequence and geometric-mixture results"
+        },
+        {
+          "assessment": "Unresolved same-object overlap risk; abstract is not sufficient to exclude coverage",
+          "evidence": "Abstract advertises PGF, order statistics, reliability, dispersion, entropy, estimation and applications, not an explicit thinning claim. The publisher page showed no access; OA attempt did not yield a readable alternate copy.",
+          "identifier_or_url": "https://doi.org/10.1007/s42519-025-00513-8",
+          "material_read": "Publisher abstract and access information only",
+          "method": "Publisher landing page and lawful OA lookup; no accessible full text obtained",
+          "title": "A New Distribution Based on a Mixture of Two Geometric Distributions",
+          "trigger": "Plausible same-object paper requiring full-text comparison"
+        },
+        {
+          "assessment": "Related family and one prior failure witness, not full two-mixture classification",
+          "evidence": "Poisson-plus-restricted-mixture theorem and equal-weight generic mixture witness 3ν₃−2ν₂=35/5832 at q=1/6,r=5/6.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-all-poisson-transmuted-geometric-counts-are-binomial-thinning-se--a79d7c8f6d1e",
+          "material_read": "Mirrored finding and generic-mixture counterexample",
+          "method": "Bounded local mirror passages",
+          "title": "All Poisson–transmuted geometric counts are binomial-thinning self-decomposable",
+          "trigger": "Closest direct generic mixture example in the corpus"
+        },
+        {
+          "assessment": "Different operation on the components",
+          "evidence": "For W=|X−Y| under independent geometric X,Y the criterion is (q−r)²≥q³+r³, not the criterion for a positive mixture.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-thinning-self-decomposability-phase-diagram-for-folded-ske--6d990cd0685b",
+          "material_read": "Mirrored RESULT.md finding and proof",
+          "method": "Bounded local mirror passages",
+          "title": "Sharp thinning self-decomposability phase diagram for folded skew discrete Laplace laws",
+          "trigger": "Same-day thinning theorem involving two geometric counts"
+        },
+        {
+          "assessment": "Different family",
+          "evidence": "A compound-Poisson boundary and two initial canonical comparisons for Bernoulli plus Poisson–Lindley.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-two-index-thinning-self-decomposability-criterion-for-bernoull--12cdb9820df2",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Bounded local mirror passage",
+          "title": "Bernoulli–Poisson–Lindley two-index thinning criterion",
+          "trigger": "Similar criterion language in the catalogue"
+        },
+        {
+          "assessment": "Different family",
+          "evidence": "Two comparisons for a Poisson count plus a negative-transmutation geometric count, not the unconvolved generic positive mixture under review.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-two-index-thinning-self-decomposability-criterion-with-reentra--2fdc7de1a76a",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Bounded local mirror passage",
+          "title": "Negative-transmutation Poisson–geometric two-index thinning criterion",
+          "trigger": "Similar criterion language and a geometric parameter"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Ordinary thinning self-decomposability is a meaningful strengthening of compound-Poissonness for a basic mixture family. The finite rule replaces infinitely many conditions with parameter-dependent explicit tests, while the delayed-failure family proves that checking a fixed number of initial defects cannot replace them. The shape and obstruction are useful independent of the illustrative arithmetic cases.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

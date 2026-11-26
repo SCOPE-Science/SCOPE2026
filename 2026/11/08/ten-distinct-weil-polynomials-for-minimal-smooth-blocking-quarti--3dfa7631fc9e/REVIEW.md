@@ -1,15 +1,21 @@
-# Scientific review: Ten distinct Weil polynomials for minimal smooth blocking quartics over \(\mathbf F_3\)
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact census builds all \(13\) points and lines in \(\mathbf P^2(\mathbf F_3)\), finds all \(234\) minimum six-point nontrivial blocking sets, checks transitivity via full projective group order \(5616\) and stabilizer \(24\), obtains the rank-six quartic evaluation constraints, then tests geometric smoothness for every rational-point-exact quartic using unit-ideal Gröbner bases in all three charts. It finds \(222\) geometrically smooth forms above the reference point set and exactly ten stabilizer orbits. Full extension-field point enumerations give the displayed \(N_1,N_2,N_3\), and Newton identities plus the genus-three functional equation determine each degree-six Weil numerator. An independent field-arithmetic implementation verifies all twenty larger-field point counts using different irreducible polynomials. The conclusion concerns the whole mathematically defined locus, not an interpolated finite sample. The two completed verifier executions returned their documented success markers.
+## correctness
 
-## Originality — PASS, residual priority risk
-The 2022 blocking-curve paper (arXiv:2208.13299, §§1, 5) and the 2022 blocking-statistics paper (arXiv:2211.08523, §§1, 7) do not provide the ten arithmetic types or an implication separating their Jacobian isogeny classes. The LMFDB abelian-variety database records possible Weil polynomials but its general class table does not classify their intersection with this rational-incidence locus. Searches for aliases such as projective-triangle quartics, six-point nontrivial blocking sets, Frobenius polynomials, Jacobian isogeny, and Weil coefficients did not identify a covering result. This is a best-knowledge comparison, not a claim that searches prove novelty; older arithmetic quartic censuses or unindexed supplementary databases remain a real risk.
+PASS
 
-## Mathematical value — PASS
-The minimum nontrivial blocking set over the prime field of order three is canonical and sharp, and the condition of a smooth plane quartic makes a natural genus-three arithmetic stratum. The new theorem determines exactly how this ten-class geometric stratum maps into the moduli of three-dimensional Jacobian isogeny classes: it is injective, in contrast to the a priori possibility of collisions. The ten distinct degree-six Weil numerators are reproducible invariants that are not implied by the shared count of six rational points or by distinct projective-equivalence classes. The problem is not an arbitrary coefficient slice or merely a checker demonstration.
+Independently enumerating the 13 points and line incidences gives no nontrivial blockers of sizes 0–5 and 234 of size six, a single projective orbit with stabilizer size 24. Solving via all sign patterns on the seven nonzero evaluations of a form with a fixed zero set gives 567 candidates. The evaluation matrix on those 13 points has rank 12; the rank-six restricted matrix in the frozen proof and its nine-dimensional kernel are consistent with the separate reproduction. Euler's degree-four identity in characteristic three makes the homogeneous gradient vanish exactly at singular points. Testing its ideals on disjoint affine strata by exact Gröbner bases leaves 222 geometrically smooth forms; a separate exact Buchberger reproduction agreed. Independent polynomial substitution shows that the frozen representatives have disjoint stabilizer orbits of sizes 24 nine times and 6 once, with union equal to the smooth candidate set. Multiplication by 234 gives 51,948 and the displayed global orbit sizes. Point counting in independent explicit extension fields gives (N2,N3)=(12,33),(10,33),(16,30),(8,27),(10,36),(14,39),(12,42),(12,36),(16,45),(12,18), with N1=6 in every row. Newton identities and the genus-three functional equation give all the displayed coefficients, with ten distinct pairs (c2,c3). For the Jacobians, the zeta numerators are the reciprocal Frobenius characteristic polynomials, so distinctness gives nonisogeny over F3.
 
-## Nearest literature, scope, and residual risks
-Asgarli–Ghioca–Yip (arXiv:2208.13299, Theorem 5.1) treats projective triangles but requires characteristic greater than three; arXiv:2211.08523, Example 7.2, computes line-union statistics for degrees at least five, not the quartic Weil data. The abelian isogeny database includes many genus-three isogeny classes but does not on its own identify the smooth nontrivially blocking six-point curves. The classification is only over \(\mathbf F_3\), with no assertion about absolute isogeny, all curves of genus three, or larger blocking point sets. Independent historical-priority confirmation remains worthwhile.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass is for the arithmetic separation and the attached Weil data, not for the incidence/orbit census in isolation. An earlier comprehensive orbit table already determines the ten embedded classes and the total 51,948 by a direct filter, which was actually performed. It omits counts over F9 and F27. The abstract LMFDB isogeny table does not label realizations by these quartic equations. No inspected earlier exact table matches these ten quartics to their polynomials or supplies an implication that the ten polynomials are distinct without the additional arithmetic computation.
+
+## value
+
+PASS
+
+The natural genus-three locus is singled out by minimal projective blocking incidence, not by an arbitrary coefficient slice. Merely recovering the ten orbits from the earlier dataset is not an independent contribution. What matters is the exact image of the locus in Jacobian isogeny classes: even with common N1, no two of the ten arithmetic types coalesce. The two new extension counts per class and the resulting invariant give a complete checkable answer to that natural collision question; this is not a recomputation of the flex table or the abstract isogeny catalogue.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

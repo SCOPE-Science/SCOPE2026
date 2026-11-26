@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:54:52.065399Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At the stated circuit cut, equal retained-register tuples determine all cross terms of the partial trace. Swap terms have distinct original address/random pairs in the retained tuple and produce the diagonal positive weights d_j; keep terms group by (alias, threshold, random), yielding t copies of the indicated rank-one outer product. The trace is one. Positive d_j force every alias basis vector into the support, so rank one requires a single alias c and zero keep weight off c; these conditions suffice. Uniformity is positive flow balance, which forces surjectivity, hence permutation, then equality of thresholds along cycles. Those fibers are singletons, giving I/L. Its spectrum and its difference from the uniform pure projector give the claimed entropy, squared fidelity convention and trace distance; the general positive-target formula is the expectation of the same Gram sum. A full-keep representation is genuinely different: with all t_j=B and all aliases equal the trimmed register is pure uniform. The symbolic argument covers every legal table and does not rely on the small-case checker.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Babbush et al. use coherent PREPARE with junk and later apply its inverse; the finite-bit rigidity result treats the address subsystem before cleanup.",
+          "The separate-output garbage-free construction allows full keep and uses output fibers and rank-based cleanup, not the retained companion of the compare-and-swap construction."
+        ],
+        "reasoning": "Neither oracle validity nor an alternate full-keep, separate-output preparation subsumes the claimed classification at the specified circuit cut.",
+        "searches": [
+          "PhysRevX.8.041015 §III.D",
+          "arXiv:2610.03800v1 §III.C and cleanup discussion"
+        ]
+      },
+      "checked_sources": [
+        "Resultary catalogue",
+        "arXiv:2605.18877v1",
+        "doi:10.1103/PhysRevX.8.041015",
+        "arXiv:2610.03800v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq. (38) gives retained garbage geometry; Liu et al. explicitly give the strict keep range and classical diagonal distribution."
+        ],
+        "reasoning": "The Gram expression is derived from those circuit data. The new structural step is using positive deficits simultaneously as forced PSD support and strictly positive balanced flows, which excludes all nonbasis pure outputs and all coherent uniform marginals across the full legal parameter space, not just a chosen table.",
+        "searches": [
+          "Babbush et al. Fig. 11, Eqs. (38)–(39)",
+          "Liu et al. arXiv:2605.18877v1, PDF pp. 5–9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu et al. distinguish correct basis probabilities from preparation of the signed state; that distinction does not give the iff condition on legal tables.",
+          "The closest alias-themed catalogue hits concern circular Fock Fourier modes and finite-abelian Fourier sampling, not retained-garbage alias tables."
+        ],
+        "reasoning": "Uniform diagonal, a pure coherent uniform address, and a maximally mixed address are different conditions; neither distribution reproduction nor a warning about garbage is equivalent to the complete classifications.",
+        "searches": [
+          "Resultary semantic comparison for finite-precision coherent alias sampling, reduced address purity and uniform output",
+          "arXiv:2605.18877v1 §2.1, including PDF pp. 8–9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching recorded classification was surfaced; the closest retrieved objects were Fourier sampling/state constructions without the specified alias-table/comparator geometry."
+        ],
+        "reasoning": "A finite tables catalogue would not by itself cover the arbitrary-L,B theorem. The relevant database object would be a prior classification for this same retained subsystem, not a table of aliases or sampling probabilities.",
+        "searches": [
+          "Resultary semantic comparison for finite-bit alias-table purity and uniform-marginal rigidity"
+        ]
+      },
+      "rationale": "The prior retained-state and distribution equations are substantial antecedents, and neither retained garbage itself nor computing a partial trace is the distinct claim. The surviving contribution is the two exact all-table rigidity classifications for the strict finite-bit implementation; no covering classification was established in the checked evidence.",
+      "residual_risks": [
+        "The classifications follow by a short argument from an explicit prior circuit description under the strict range; equivalent observations in uncatalogued circuit analysis remain possible.",
+        "Catalogue retrieval was bounded and is not a global priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same premises and sampled diagonal, not the classifications",
+          "evidence": [
+            "PDF pp. 5–7, text offsets 20746–25765: b-bit keep integers, uniform random values, swap rule and retained registers; pp. 8–9, offset 31430: basis distribution versus pure preparation."
+          ],
+          "identifier_or_url": "arXiv:2605.18877v1",
+          "material_read": "§2.1, PDF pp. 5–9",
+          "method": "OA PDF located passages and context",
+          "title": "Logical Resource Estimation for Quantum State Preparation with compilation",
+          "trigger": "Exact implemented circuit and threshold range"
+        },
+        {
+          "assessment": "Covering circuit/junk description, not covering all-table iff results",
+          "evidence": [
+            "PDF text offsets 93100 and 95700 distinguish the components of the temporary garbage and later uncomputation."
+          ],
+          "identifier_or_url": "doi:10.1103/PhysRevX.8.041015",
+          "material_read": "§III.D, Fig. 11 and Eqs. (38)–(39), PDF pp. 15–16",
+          "method": "OA PDF located passages and context",
+          "title": "Encoding Electronic Spectra in Quantum Circuits with Linear T Complexity",
+          "trigger": "Original close structural antecedent"
+        },
+        {
+          "assessment": "Different register and endpoint conventions, later cleanup",
+          "evidence": [
+            "PDF text offsets 24662 and 29451 describe separate output, source-pair fibers and rank-based uncomputation; keep may equal Z."
+          ],
+          "identifier_or_url": "arXiv:2610.03800v1",
+          "material_read": "§III.C and cleanup discussion, PDF pp. 4–5",
+          "method": "OA PDF located passages and context",
+          "title": "Exponentially Compressed and Garbage-Free Alias Sampling for Polynomial State Preparation",
+          "trigger": "Plausible newer purity result in alias sampling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an implementation-specific structural obstruction, not just an example of dirty ancillas. No legal uniform table can improve the reduced state's pure-target fidelity by varying alias or thresholds; the exact obstruction scales as 1/L with n bits of entanglement. Together with the complete pure boundary it gives a useful diagnostic for when classical sampling guarantees cannot be read as clean-state guarantees, without making an unwarranted claim about jointly uncomputed oracles.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

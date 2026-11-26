@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:32:18.571938Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, continuum assumptions and analytic proof",
+        "Frozen VERIFICATION.md and checker.py, inspected but not executed",
+        "Henkel, arXiv:2606.16848v1, Eqs. (2.7), (2.13a), (2.16)"
+      ],
+      "rationale": "For the continuum interval with generator (1/2)∂xx, the exact solution is the probability of hitting 0 before N by time t. The shortcut has strictly negative heat residual; the difference is the killed-heat evolution with positive forcing and zero boundary data. Starting the Duhamel formula at a positive time and letting that time decrease to zero justifies comparison despite the incompatible corner data: the bounded initial difference vanishes pointwise in the interior, and the residual is integrable at time zero. The reflection principle gives u≤ε_x and the strong Markov property gives ε_x−u≤ε_(2N−x), where ε_y=erfc(y/√(2t)). Indeed, dropping the order restriction on the first hit of N leaves two independent first-passage times across distances N−x and N; their Laplace transforms multiply to the transform across distance 2N−x. Substitution in v=(ε_x−ε_N)/(1−ε_N) gives the stated strict uniform upper bound. At x=N/2, ε_(2N−x)=o(ε_N) and ε_x→0 as t/N²→0, so the spatial supremum has asymptotic ε_N, without asserting a uniform pointwise equivalent. The numerical cutoff ratio is about 0.0046997190. Taylor division gives the positive 1/t coefficient x(N²−x²)/(6N), while the exact Dirichlet modes decay exponentially. Integrating the exact deficit gives −F''/2=1−x/N with zero endpoints, yielding the stated cubic, and the positive 1/t coefficient makes the shortcut integral diverge.",
+      "residual_risks": [
+        "Only the stated continuum problem is reviewed; no finite-lattice error estimate or pointwise-equivalent error uniformly up to the endpoints follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact semi-open solution covers the boundary/initial value problem; Fig. 3 illustrates the approximation and deviations. The distinct Resultary search hit concerns global resetting, not this approximation in the semi-open boundary geometry."
+        ],
+        "reasoning": "No checked broader result covers the normalized-half-line approximation error; standard heat/first-passage results provide tools, not a quoted comparison theorem for this ansatz.",
+        "searches": [
+          "Henkel, arXiv:2606.16848v1, Eqs. (2.7), (2.13a), (2.16) and Fig. 3",
+          "Resultary record 2026/11/2/SCOPE-a-doubled-resetting-threshold-and-logarithmic-edge-singularity-f--65cef8842981"
+        ]
+      },
+      "checked_sources": [
+        "Henkel arXiv:2606.16848v1, selected passages above",
+        "Local Resultary: assigned record (self-hit) and distinct global-resetting search hit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source reports good agreement for large N/√t and visible deviations for smaller scaling parameter, without the coefficient or sharp bound. The comparison uses a sign calculation for the residual and a separately controlled reflection correction at distance 2N−x."
+        ],
+        "reasoning": "Exponential relaxation of the exact solution is already in the spectrum and the late-time coefficient separately follows by Taylor expansion of the published ansatz. The central new comparison is not just either deduction: exact early-time representation alone does not state a signed uniform error with matching sharpness, and the late-time coefficient and integral supply an explicit extrapolation diagnostic.",
+        "searches": [
+          "Henkel, arXiv:2606.16848v1, (2.13a), (2.16), accompanying discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The arXiv full text identifies the same theta/sine solution and the algebraically identical shortcut (2.16). The indexed assigned record is a self-hit.",
+          "The exact-title search produced no useful independent match and is not treated as evidence of novelty."
+        ],
+        "reasoning": "The substantive invariant is the difference between the two known functions. Matching either function or restating the bound in Brownian-exit coordinates does not itself cover the signed, sharp comparison.",
+        "searches": [
+          "Resultary searches on semi-open Glauber error-function comparison",
+          "Henkel, arXiv:2606.16848v1, §2.2–2.3",
+          "Primary exact-title lookup for the semi-open Glauber–Ising paper"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching indexed exact error result was the assigned entry itself, 2026/11/22/SCOPE-a-sharp-uniform-error-law-for-a-semi-open-glauber-scaling-shortc--58ae94a45462. Fig. 3 gives graphical comparisons, not a table of exact uniform errors or integrated deficits."
+        ],
+        "reasoning": "A graph or the exact individual functions is not precomputed coverage of the claimed supremum asymptotic or temporal deficits.",
+        "searches": [
+          "Resultary search on signed uniform short-time error for the semi-open Glauber ansatz",
+          "Henkel, arXiv:2606.16848v1, §2.3 and Fig. 3"
+        ]
+      },
+      "rationale": "Credit Henkel for the heat boundary-value problem, its exact solution and the same erf-ratio approximation, including qualitative evidence of where it agrees. The checked source does not give the signed, quantitatively sharp comparison, or the stated integrated distinction. The pass is for that comparison, not for the exact correlation, the approximation, or discovery that it visibly deviates when extrapolated. The phrase about where the original author recommends using it is best read as where the source reports agreement; the source supplies no formal cutoff.",
+      "residual_risks": [
+        "An unindexed heat-equation approximation result or equivalent Brownian-exit comparison could cover the error law. A limited search and source comparison do not settle historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact and approximate operands and qualitative agreement are prior; quantitative comparison not established by passages read",
+          "evidence": [
+            "(2.7) gives generator (1/2)∂xx and endpoints 1 and 0.",
+            "(2.13a) gives the theta solution, equivalent to the sine expansion.",
+            "(2.16) is identically 1−erf(x/√(2t))/erf(N/√(2t)); §2.3 discusses regime-dependent agreement rather than a proof of a window."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.16848",
+          "material_read": "v1 introduction (initial spin data), §2.2 equations (2.7), (2.13a), and §2.3 equation (2.16) and Fig. 3 discussion, printed pp. 4–9",
+          "method": "Bounded OA PDF-text reading at the relevant equations and surrounding passages",
+          "title": "Exact solution of the Glauber-Ising model on the finite-length semi-open chain",
+          "trigger": "Same geometry, initial data, time normalization and approximation"
+        },
+        {
+          "assessment": "Input model of the indexed claim differs; not a whole-document negative finding",
+          "evidence": [
+            "The indexed claim is about globally reset-chain correlations, not the error of the semi-open erf-ratio approximation."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-doubled-resetting-threshold-and-logarithmic-edge-singularity-f--65cef8842981",
+          "material_read": "Indexed scientific summary",
+          "method": "Local Resultary semantic search",
+          "title": "A doubled resetting threshold and logarithmic edge singularity",
+          "trigger": "Closest distinct Glauber-related Resultary search hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, uniform bound, sharp spatial supremum and time integrals",
+        "Henkel arXiv:2606.16848v1, §2.3"
+      ],
+      "rationale": "The approximation is an actual published shortcut, so the error rather than a manufactured statistic is a motivated target. The result supplies a separation-independent tolerance and shows that its short-time scale cannot be improved even at a fixed bulk separation. The integrated comparison also identifies a concrete bias from extrapolating a convenient analytic form, rather than merely noting a visible mismatch.",
+      "residual_risks": [
+        "The integrated diagnostic concerns extrapolation, not failure within the regime of good agreement, and does not address microscopic simulation accuracy."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

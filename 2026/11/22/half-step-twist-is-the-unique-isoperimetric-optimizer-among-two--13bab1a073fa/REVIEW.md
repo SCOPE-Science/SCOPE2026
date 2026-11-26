@@ -1,15 +1,21 @@
-# Self-review — Half-step prismatoid isoperimetry
+# Independent mathematical audit
 
-## Correctness: PASS
-For every integer \(n\ge3\), the surface-area and volume formulas follow from the actual lateral triangular facets and mixed-area integration. The one-variable height objective diverges at both ends and has one stationary point, a global minimum; after substituting that optimum, the derivative with respect to increasing twist has the strictly negative sign bounded by \(-3c^2\). This proves the sharp constant and equality cases, including twist endpoints. The independent convex-hull implementation passed 5,582 finite checks; the continuum-wide proof is analytic, not computational.
+## correctness
 
-## Originality: PASS (provisional priority)
-The nearest same-object published calculation, [*Exact John–Löwner ellipsoid profile of twisted regular polygonal prismatoids*](https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-john-l-wner-ellipsoid-profile-of-twisted-regular-polygonal--4eb565e76a67), contains the **volume** term already used here, but its claim and complete proof concern extremal ellipsoid volumes, not lateral surface area or a globally optimized isoperimetric quotient. The full results [*Uniform antiprisms uniquely minimize mean planar-silhouette complexity*](https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-uniform-antiprisms-uniquely-minimize-mean-planar-silhouette-comp--b44d8c773553) and [*Equidihedral minimax and volume–angle separation*](https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-equidihedral-minimax-and-volume-angle-separation-in-regular-anti--12f724b4a957) optimize different objectives; their height solutions do not imply the new one. Abrosimov–Vuong arXiv:2110.12265v1 treats spherical antiprism volume, not the Euclidean question. Horváth–Lángi arXiv:1302.6164 treats convex-hull volume under translations/reflections, not surface minimization. Searches for isoperimetric aliases, exact parameters, and broader convex-hull theorems did not identify a dominating result, although absence of search hits does not prove priority. An unindexed Euclidean antiprism treatment and incomplete access to the full 2013 source remain explicit risks.
+PASS
 
-## Mathematical value: PASS
-This is a complete sharp optimization over radius, height, and twist within a canonical family, not a parameter substitution. The strict difference between the optimum and the edge-uniform realization for every \(n\ge4\), plus the optimal-cylinder limit, provide structural geometric information beyond the known polygonal prismatoid volume formula.
+Let beta=pi/n, c=cos(beta), y=h/R, a=cos(beta-delta)-c. The lateral facets can be read off by sweeping horizontal normal directions: at an edge normal of either layer the other layer supplies a single supporting vertex for nonzero reduced twist. The two disjoint sets of n edge normals therefore produce 2n triangles of base 2R sin(beta) and slant altitude R sqrt(y^2+a^2). At zero twist the two supports are both edges and give rectangles with the limiting sum. At relative height z the section is the Minkowski combination of the polygons. The mixed area is half the sum of original edge lengths times rotated support values, hence n R^2 sin(beta)(c+a). Integration of the section polynomial gives V=n R^2 h sin(beta)(c+a/3). For t=sqrt(y^2+a^2), the derivative of the scale-free quotient with respect to y changes sign exactly at t^2-2ct-3a^2=0, at a feasible y>0. The quotient diverges at either end of the y interval. At this optimum 3/[t(c+t)]=2/y^2, so the optimized log quotient has a-derivative 2a/y^2-2/(3c+a). Its sign is the sign of 3ac+2a^2-t^2=3ac-a^2-2ct<0, since a<=c and t>=2c. Thus the endpoint half-step is the unique twist modulo the stated planar symmetries, and volume fixes scaling uniquely. Substitution gives the exact constant and octahedron; comparing T>=2c to sqrt(3(1-c^2)) gives the strict uniform-height comparison for n>=4. The section inradius is bounded below by R cos(beta) and circumradius by R; together with Y->2 this also checks cylinder convergence. The uploaded numeric checker was inspected, not executed.
 
-## Limitations
-Two congruent coaxial regular planar polygonal rings only; no claim for offset, unequal or irregular bases or arbitrary polyhedra. The finite checker is not a formal or infinite-range proof. Independent validation and exhaustive historical priority are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same-family volume formula is already published. The additional statement is the strict joint optimization of surface area versus volume over twist and aspect ratio and the exact unique aspect ratio; the available prior statements optimize other quantities, restrict the twist, or use a different geometry.
+
+## value
+
+PASS
+
+The two-ring problem permits both twist and height, and the optimum in the full family is determined rather than presumed antiprismatic. The endpoint classification, sharp area-to-volume constant and non-uniformity for every n>=4 distinguish surface efficiency from other standard geometric choices. The cylinder limit gives a consistent limiting geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

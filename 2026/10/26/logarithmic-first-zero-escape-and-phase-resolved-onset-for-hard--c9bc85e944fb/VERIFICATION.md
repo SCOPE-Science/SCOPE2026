@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof is analytic and unrestricted in the real cutoff \(L>0\) for the fixed-cutoff zero census. The large-cutoff statements use a uniformly controlled endpoint-Laplace expansion.
+## correctness
 
-Run `python check.py` with the versions recorded in `requirements.txt`. The checker independently evaluates exact complex-error-function expressions against direct high-precision quadrature, records the first positive zeros for multiple cutoffs, compares the rescaled transform to its phase asymptotic, and tests phase-locked sequences. Its printed values are saved in `check_output.txt`.
+PASS
 
-Crucial inequalities verified algebraically in the proof are \(|e^{-u}-1|\le u\) for \(u\ge0\), \(\int_0^\infty v^2e^{-2v}\,dv=1/4\), and \(e^u>1+u\ge\cos u+\sin u\) for \(u>0\). Direct numerical agreement does not certify the infinite-frequency zero count, and numerical phase-locking examples do not establish subsequential convergence. No independent audit has been performed.
+Subtracting the two Gaussian tails from the full Fourier transform gives the stated real-erf identity. With x=L+v/L the endpoint integral has remainder at most 1/(4L^2) in the bracket and partial-xi derivative O(L^-3), by the integrable v^2 and v^3 exponential bounds. Substituting the boundary coordinate y gives the factor sqrt(pi) exp(-y), amplitude 1/sqrt(2), phase shift pi/4 and the compact-uniform error, also for the y derivative. The Gaussian term dominates the global bound on both tails through y=-2 for large L; a point with cosine one between y=4 and 4+2pi is strictly negative. Thus the first zero is in a bounded y-window. Simultaneous profile and derivative vanishing require y=log(2sqrt(pi)) and theta=-y mod 2pi; the second derivative is 1 there. At that phase, to the left of this point twice the profile is exp(u)-cos(u)-sin(u)>0 for u>0. At every other phase the first profile zero crosses, and the global lower bound and uniform convergence exclude earlier zeros. There is no assertion of convergence at the exceptional phase. At each fixed L, integrating by parts in the exact formula for xi F_L and separately in its derivative provides eventual sine and cosine dominance, giving one simple zero per lattice neighborhood and only finitely many remaining zeros. The packaged check.py and check_output.txt were inspected, not rerun. Numerical examples are corroboration only; all decisive claims were checked analytically.
+
+## originality
+
+PASS
+
+The supportable distinction is the matched first-real-zero law and phase-selected first-zero limit with a single explicitly identified tangency of the limiting profile. The Gaussian transform identity, endpoint asymptotics as a method, the zero-free sector |xi|<=2L, and the elementary fixed-cutoff endpoint census are not the basis of this originality judgment. Neither the closest inspected special-function result nor the strongest related same-day indexed theorem covers the onset and phase selection for this hard cutoff. This is a bounded comparison, with a specific unresolved risk in earlier finite Fourier transform work.
+
+## value
+
+PASS
+
+This locates the first failure of the positive Gaussian Fourier profile caused by a sharp aperture. The moving first crossing is not captured by the classical fixed-aperture large-frequency census. The exact log-scale displacement, phase dependence, and isolated possible tangency describe quantitatively why a naive constant-offset or universally continuous phase limit is inadequate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

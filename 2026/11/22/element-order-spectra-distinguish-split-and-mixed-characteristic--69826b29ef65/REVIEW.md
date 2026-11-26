@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The unit group's canonical prime-to-\(p\) complement and elementary principal-unit subgroup give a disjoint multiplier classification. Translation conjugacy eliminates the translation whenever the residual multiplier is nontrivial; the remaining unipotent subgroup has an explicit power law. For odd \(p\), the \(p\)-th power is exactly \((pb,1)\). In characteristic \(p^2\), this vanishes precisely when \(b\) is a nonunit, yielding the complete two-phase order distribution. All strata partition the group. Direct enumeration over six split and mixed examples confirms every coefficient, including the \(p^2\) boundary.
+## correctness
 
-**Originality — PASS with residual priority risk.** An accessible prior square-zero triangular-group finding already proves the conjugacy and character-degree spectra for \(B_2(R)\), including the affine direct factor; those are credited and excluded. Its statement and comparison claims do not cover element-order spectra, and the two paired groups give a logical nonimplication since the familiar spectra agree while element orders differ. Other inspected affine-monoid/chain-ring records and published-finding corpus searches do not cover the exact all-parameter order spectrum. Standard semidirect-product order calculations remain a priority risk in wider literature.
+PASS
 
-**Value — PASS.** The complete element-order census is a natural group-theoretic invariant, not a chosen test-case count. It furnishes explicit infinite families of equal-order groups whose complete conjugacy-class-size and character-degree spectra agree, yet whose order distributions differ in a macroscopic fraction. The sharp \(p\) versus \(p^2\) jump makes this distinction structural and characteristic-sensitive, not a nominal relabeling.
+The abelian unit group is the direct product of its elementary abelian principal units, 1+m, and the cyclic prime-to-p factor T of order q-1. For t in T of order ell>1, a=t(1+w) has 1-a invertible, so every translation part is conjugate away. The orders are ell when w=0 and p*ell otherwise. For t=1, the power formula (b,1+w)^n=(nb+binom(n,2)wb,1+nw) follows using w^2=0. At n=p the odd-characteristic binomial term vanishes, since p*m=0, leaving (pb,1). In characteristic p every nonidentity member of this sector has order p; in characteristic p^2, pb vanishes precisely on m since the map from F_q to m given by multiplication by p is nonzero and F_q-linear. Exactly (q-1)q^(2d) elements have order p^2. The counts exhaust |G|=q^(2d+1)(q-1). For the class-size comparison, fixing a leaves unit orbits on R/(1-a)R with each orbit multiplied in size by |(1-a)R|; these are one trivial quotient if 1-a is invertible, or zero, the units and the nonzero scalar lines of the radical in R or in R/F_q w otherwise. All sizes depend only on q,d. For degrees, the trivial additive character has stabilizer R^units; nontrivial characters factoring through F_q form one orbit of size q-1. For a nonzero radical character the principal units act transitively on its q extensions, because w acts by twisting with the residue character b mod m -> chi(wb). Scalar orbits of radical characters have size q-1. In the abelian semidirect product each stabilizer character yields one irrep of degree the orbit size, so the full degree multiset is likewise independent of characteristic. The displayed rings are local, have radical dimension d, and have characters p and p^2 respectively. An independent direct group multiplication run for p=3,d=2 in both models at /workspace/branches/e7e0aabb-3977-46bc-ae51-42c203d4dcdf/element_order_reproduction.py reproduced the listed coefficients and order 486; it is corroboration, not the general proof. The supplied verifier was not executed.
 
-The restriction to odd characteristic and square-zero maximal ideal is essential to the stated power law; no full group-isomorphism classification or independent audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The class-size and degree coincidences are known consequences of the square-zero Borel data, and stronger order data already cover the principal-radical boundary omitted from the new claim. No inspected source was found to furnish the d>=2 all-parameter order distribution or its separation of the two families with matching classical multisets.
+
+## value
+
+PASS
+
+Element order is a basic diagnostic for whether the affine group retains ring characteristic after the classical size and degree multisets have forgotten it. The result gives both a uniform exact distribution for the natural nonprincipal square-zero class and an explicit infinite family illustrating the extra discriminating power, not just the observation that translations in a mixed-characteristic ring can have order p^2.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

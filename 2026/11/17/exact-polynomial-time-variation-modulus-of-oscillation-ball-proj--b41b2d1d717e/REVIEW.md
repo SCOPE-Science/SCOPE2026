@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The range constraint is exactly the existence of a shared clipping interval. Differentiating its strictly active least-squares optimality equation gives an averaging projector on the union of lower- and upper-clipped indices; every such union has a nonempty strict chamber. Single-step indicators exactly norm linear operators on path variation modulo constants. The four boundary cases and binary-switch capacities give the finite cubic formula. The two elementary switch-count estimates prove the global linear envelopes, and strict chambers realize the exact coefficient on finite input pairs. `checker.py` independently recomputes small dimensions by subset enumeration and scalar interval projection. Risks: it does not prove the tempting closed form suggested by small computed dimensions; no such formula is claimed.
+PASS
 
-## Originality — PASS, qualified
+Clipping onto [c,c+R] and minimizing in c gives a piecewise-affine projector. In a strict exterior chamber, differentiation of stationarity gives dc equal to the average of the perturbations on the clipped set S. Every S of size at least two occurs: split it into nonempty lower and upper sets L,U, take inputs strictly below 0 by |U| and above 1 by |L| respectively, and put remaining coordinates at 1/2; the strict chamber has c=0 for R=1. Scaling handles other radii. On the quotient by constants, path differences are an isometry to l1 and the inverse basis is the single-jump family. Continuous affine formulas on the closures of finitely many chambers give the global upper bound by segment subdivision; a small in-chamber step in a maximizing jump direction attains it. At a straddling cut the selected value is b/(a+b); the two internal transitions have weights b/(a+b) and a/(a+b), and the four cut edges give exactly the stated B. With final bit zero, if k<m-k, surround each one by zeros for 2k switches; otherwise alternate 1,0 for each of the m-k zeros and prepend extra ones for 2(m-k)-1. Complement and reversal handle the other endpoint conditions. The two independent word maxima prove the formula and its O(n^3) count. Charging internal switches to selected or unselected sites gives min{s,2(n-s)} as an upper bound, plus one for the cut. Equal alternating halves ending and beginning with zeros at the cut give n/2 for even n>=4, and appending an endpoint gives the odd lower bound (the identity suffices for n=2,3). Independent exact enumeration over all subsets and jumps reproduced the full table through n=16 and independently checked the switch maxima through length 16. In particular the first expansive dimension is four.
 
-The closest prior results concern Hilbert-space firm nonexpansivity, TV-ball projection, graph variation stability of other convex projections, and conditional-expectation norms. Their assertions do not imply the path-variation modulus of Euclidean projection onto the global oscillation ball. The general proximal review was inspected in relevant full-text sections, and the TV-ball paper was compared at the accessible abstract/metadata level; that paper's complete primary text was unavailable in this run. Priority against unindexed specialized literature remains a residual risk, but no decisive covering statement was found.
+## originality
 
-## Value — PASS
+PASS
 
-Clipping data to a common interval is a basic global dynamic-range constraint. A sharp perturbation estimate in adjacent variation is natural for denoising and signal reconstruction, and is not implied by Hilbert-space projection theory. The polynomial-size exact formula replaces an exponential number of possible clipped subsets, identifies the first unstable dimension, proves attainment and establishes linear sensitivity growth. The result is self-contained and does not depend on a speculative downstream theorem.
+The supported distinct claim is the exact two-input modulus for the range-constrained Euclidean projector in nonperiodic path variation, including its cubic evaluation and growth. The strongest indexed match with the same path variation and first expansive dimension concerns a different constraint and has bounded, rather than growing, modulus. The same record indexed under its own ID is not independent coverage. No inspected distinct statement implies the formula; this is a best-of-current-knowledge assessment, not a priority guarantee.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The invariant quantifies the sharp sensitivity of a simple range constraint used to clip signals, in a metric that measures changes along the path instead of squared error. The contrast with both Euclidean nonexpansivity and the uniformly bounded TV-ball coefficient is substantive: this modulus grows linearly and its maximum is attained by finite perturbations. The binary-switch compression removes exponential subsets from an exact calculation and helps explain the growth rather than merely producing a table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

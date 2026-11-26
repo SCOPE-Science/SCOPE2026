@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:17:59.385194Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Summing the local ice equations along a cut shows that the positive-edge counts a and b (equivalently signed fluxes up to an affine normalization) do not depend on the cut. Face reversals preserve both; a directed horizontal reversal changes only a by one and a vertical one only b. Uniform horizontal and vertical orientations independently realize different cuts' flux values, giving necessity. I reconstructed the labelled state space by transfers between rows: for each incoming four-bit vertical row and each horizontal four-bit row, the ice equations uniquely determine outgoing vertical bits; retain binary outputs, concatenate four transfers and enforce periodic closure. Every ice orientation gives exactly one such sequence. Independently tested legal directed traversals by matching the four edges against either traversal orientation, then used graph search (not either frozen checker's union-find) over each designated subset. The result is 2970 states, 8768 facial edges, 69 facial components, 19 for any single designated loop, 11 for any parallel pair and one for every transverse pair. Across the 256 subsets, the numbers of subsets with 1, 5, 7, 11, 19, 69 components were respectively 225, 2, 8, 12, 8, 1. There are 16 minimizing pairs; supersets of a connecting pair remain connected. Positive proposals along all allowed types give the stated equivalence for irreducibility and a self-loop suffices for aperiodicity in that case. Replay: python3 /workspace/reproductions/review_02_ice.py (standard library). Both frozen verifiers were inspected, not executed. This is exhaustive only for the labelled C4 × C4 model and these fixed length-four loops; it proves no mixing-time result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen comparison identifies adaptive/general loop algorithms, facial connectivity for homologous orientations, and another toroidal Markov dynamics. The indexed Kondákor–Penc abstract concerns a quantum six-vertex phase diagram; the frozen comparison also cites its flux-sector discussion and Appendix A. Full primary passages were not obtained."
+        ],
+        "reasoning": "From the available statements, reachability under a larger move family or within a homology class cannot imply that this particular restricted update support reaches every class and every frozen configuration.",
+        "searches": [
+          "arXiv:cond-mat/9706190; arXiv:2011.07481; arXiv:1509.05070; arXiv:2305.08571; Phys. Rev. Research 5 043172"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and both Python checkers",
+        "Resultary 1fbb4aea909d (summary)",
+        "arXiv:cond-mat/9706190, 2011.07481, 1509.05070, 2305.08571 (primary lookup attempts; material read specified above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A face-only quotient would still require knowing exactly which components each designated reversal links, in particular for frozen states. The independently reconstructed adjacency verifies precisely that missing sufficiency information."
+        ],
+        "reasoning": "The known obstruction explains why one needs both directions. The exact sufficiency, all labelled choices, and nonconnected variant counts do not follow from that obstruction or previously available counts alone.",
+        "searches": [
+          "Resultary 1fbb4aea909d; frozen RESULT.md lines 25–37 and 43–49; cited homology and periodic flux sources"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claim is a generator-support statement for labelled Eulerian orientations of C4 × C4, or irreducibility of a specific six-vertex update graph. Resultary 1fbb4aea909d gives 60 facially frozen states and nine nontrivial connected facial sectors, not the adjacency created by a specified row and column in its available summary."
+        ],
+        "reasoning": "The prior face graph sector counts do not determine edges between its components after adding two directed loop types. Fixed placement and directedness distinguish the problem from dynamic discovery of an arbitrary winding cycle.",
+        "searches": [
+          "Resultary: four-by-four square-ice designated row and column winding generators; exact face-reversal sectors",
+          "Kondakor Penc crystalline phases devil's staircase qubit spin ice fixed row column winding loops 16 sites flux sectors local updates 2970"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 1fbb4aea909d explicitly covers the baseline state and face component counts in its summary. The summary instead reports metrics such as radii and centers within facial components; it does not supply the 19/11/1 mixed counts or a 225-repertoire census."
+        ],
+        "reasoning": "Credit the exact baseline and distinguish counts by flux or facial sector from counts over subsets of allowed additional cycles. Lack of a matching summary is not a priority guarantee.",
+        "searches": [
+          "Resultary: four-by-four face-reversal components and fixed winding-loop repertoire counts"
+        ]
+      },
+      "rationale": "Supports the minimal fixed-position transverse-loop criterion and the associated mixed-repertoire enumeration. The 2970 states and 69 face-only components are established prior overlap and specifically excluded from the distinct claim. Homological necessity and generic loop updates are not new here.",
+      "residual_risks": [
+        "Full papers and the complete previous face census were not recovered; a stronger statement there has not been excluded.",
+        "A previous small-lattice simulation or general theorem for fixed winding supports could establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact verified overlap for the face-only baseline",
+          "evidence": [
+            "2970 configurations; 60 frozen and nine nontrivial facial components."
+          ],
+          "identifier_or_url": "Resultary 1fbb4aea909d",
+          "material_read": "Resultary summary, with explicit sector count and sizes; mirror full text not retrieved",
+          "method": "Local search and statement comparison",
+          "title": "Exact face-reversal sectors and metric centers of the four-by-four square-ice torus",
+          "trigger": "Same labelled orientation space and 16 facial updates"
+        },
+        {
+          "assessment": "Relevant background; full-document coverage not decided",
+          "evidence": [
+            "The abstract treats a quantum six-vertex model and finite exact diagonalization, not by itself a fixed-loop generator classification."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevResearch.5.043172; arXiv:2305.08571",
+          "material_read": "Indexed abstract and frozen RESULT.md line 45 attribution to flux/Appendix A; arXiv and publisher PDF attempts timed out",
+          "method": "Primary-source lookup and comparison to the available scope",
+          "title": "Crystalline phases and devil's staircase in qubit spin ice",
+          "trigger": "Finite 16-site square ice and flux-sector loops"
+        },
+        {
+          "assessment": "The described general loop algorithm does not imply the narrower support law",
+          "evidence": [
+            "Broad loop choices versus one fixed labelled row and one fixed labelled column."
+          ],
+          "identifier_or_url": "arXiv:cond-mat/9706190",
+          "material_read": "Frozen RESULT.md line 45 description; primary OA timed out",
+          "method": "Primary retrieval attempt and comparison to the stated move support",
+          "title": "Monte Carlo simulation of ice models",
+          "trigger": "Ice loop dynamics and ergodicity"
+        },
+        {
+          "assessment": "Homologous facial moves do not themselves connect different flux sectors",
+          "evidence": [
+            "The cited topic is reachability with facial circuits among homologous orientations."
+          ],
+          "identifier_or_url": "arXiv:2011.07481",
+          "material_read": "Frozen RESULT.md line 45 and AUDIT.json theorem locators; primary OA timed out",
+          "method": "Compare available described homology hypotheses with target graph",
+          "title": "Flips on homologous orientations of surface graphs with prescribed forbidden facial circuits",
+          "trigger": "Potential orientational reachability theorem"
+        },
+        {
+          "assessment": "No demonstrated implication for fixed short winding supports; not a complete paper exclusion",
+          "evidence": [
+            "A different irreversible local dynamics is cited, not the exact reversible proposals under review."
+          ],
+          "identifier_or_url": "arXiv:1509.05070",
+          "material_read": "Title and frozen RESULT.md lines 45 and 55; primary OA timed out",
+          "method": "Primary retrieval attempt and comparison to the model described in the citation",
+          "title": "An irreversible local Markov chain that preserves the six vertex model on a torus",
+          "trigger": "Other six-vertex Markov dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Face updates on a periodic constrained model are known to be disconnected. The exact smallest fixed update library that removes this obstruction on the canonical labelled 16-site graph is a useful finite benchmark and is not given by topology alone. In particular the result distinguishes allowance of all winding moves from just one specified move of each direction and gives concrete component counts useful for validating simulations. No dynamical speedup or larger-size conclusion is needed for this value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:32:15.706951Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The parity model and arithmetic claim check out. Over the algebraic closure let H be a fiber disjoint from the branch points. The even-subset map to 2-torsion respects symmetric difference by 2W_i∼H and complements by the divisor of y in an even-degree model. It is injective modulo complements: a nonempty subset of size 2 or 4 in the kernel would give a function in L(H) or L(2H) with simple zeros at the indicated ramification points, but these spaces consist of x-polynomials of degree at most 1 or 2 and such zeros have even order. Both sides have 64 elements. The 28 distinct pair classes are effective odd theta characteristics (none is H) and exhaust the odd classes; hence the quadratic parity is |S|/2 mod 2, with polar form |S∩T| mod 2. The triple condition means the indicator of edge disjointness sums to zero on every triple of heptad members. Choosing one member as reference expresses each pair indicator as the sum of two member labels in F₂. Edges therefore split into at most two intersecting families with disjoint supports across the families. An intersecting family of distinct edges lies in a star or is a triangle. Seven edges on eight vertices allow only a seven-edge star, or a four-edge star disjoint from a triangle (two nonempty stars would require nine vertices). Fixing a center and an invariant triangle gives exactly the stated fixed-count formula. A fresh exhaustive check of 1,184,040 edge sets, the 22 partitions and every power through each order confirmed the CSV including full cycle spectra and prefix cardinalities 12,19,21,22; replay branches/7cf5e8c3-6e1b-4344-a570-101694d2cbd8/independent_arons_recheck.py and independent_arons_recheck.txt. The only three-count collision is (8) versus (4,4). The irreducible-polynomial counts (q⁸−q⁴)/8 and (q⁴−q²)/4 ensure these types over each odd finite field. A separate exact F₃ trial division of the displayed octic by the 120 monic polynomials of degrees 1–4, and each quartic by the 12 of degrees 1–2, found no divisors. The geometric argument uses odd characteristic; the finite census checks only the stated permutation problem. No uploaded program was executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "RESULT.md offset 3472 onward states that the joint odd/even cycle signature separates all 30 symplectic classes and that the full 288-heptad cycle type is evaluated for one representative of each, covering every symplectic element."
+        ],
+        "reasoning": "The hyperelliptic action is a restriction to the branch permutation S₈ on even subsets modulo complements. The broader computation covers that action as a subgroup, including classes that have identical heptad-only cycle spectra outside the restricted subgroup. The restriction must be labelled; one cannot identify it solely from the set of 30 heptad spectra.",
+        "searches": [
+          "Resultary be0b52c88fb6, complete symplectic heptad Frobenius class census"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_aronhold.py and aronhold_22_types.csv",
+        "Resultary be0b52c88fb6, bd2f0d7f5aae and cd2ca30017f8",
+        "arXiv:2106.13072v1",
+        "ATLAS S62G1-p288B0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a joined row with a_d cycles of length d, its four-count signature is (a₁,a₁+2a₂,a₁+3a₃,a₁+2a₂+4a₄). The exact spectrum lists agree on the 22 profiles; the four-prefix test is equality of these short signatures. The matching sharp pair has profiles 8^36 and 4^72.",
+          "The spin-count comparison also supplies realizability of branch partitions by factor degrees via separable degree-eight polynomials. For this sharp pair the elementary irreducible counts immediately give uniform realizability."
+        ],
+        "reasoning": "The exact cutoff, classification and obstruction on actual curves are mechanically recoverable from existing evaluated data and elementary specialization; the equivalence does not rely on treating the spin-count theorem by itself as a heptad result. The f,t,u expression packages the same evaluated restricted character in a short formula rather than adding a new evaluated invariant.",
+        "searches": [
+          "Cross-comparison of be0b52c88fb6, bd2f0d7f5aae and frozen aronhold_22_types.csv"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bergvall §2.4 and ATLAS identify the same symplectic 288-point action with stabilizer S₇; the former explains the Cayley-octad context.",
+          "The fixed-point counts of the nth power of a permutation with cycle multiplicities a_d are ∑_{d|n}d a_d. Thus the proposed invariant is explicitly obtained from heptad cycle spectra."
+        ],
+        "reasoning": "Classical action data are not on their own an evaluated inverse cutoff. Exact per-class cycle spectra and a way to label the restricted classes by branch partitions give equivalent data for this particular cutoff.",
+        "searches": [
+          "Resultary: genus-three hyperelliptic branch splitting, Aronhold heptad Frobenius spectrum, theta-characteristic extension counts",
+          "arXiv:2106.13072v1, §2.4; ATLAS S62G1-p288B0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The complete class_profiles.csv contains all 22 spectra in the frozen branch table, including 8^36 and 4^72. Its printed columns contain only minima, not the full theta keys.",
+          "The companion C++ source (offsets 1320–3117) groups representatives by the pair of sorted full odd/even cycle length vectors and computes and prints the complete heptad cycle vector in the loop over that very map. Thus the exact key is already computed; exposing both vectors instead of just their first entries gives the keyed rows, with no new enumeration method or recognition theorem.",
+          "The distinct spin-count result bd2f0d7f5aae, theta_spectra.csv, gives the two full cycle multisets for every one of the 22 branch partitions, not only the first-three-extension counts. The syzygetic tetrad result cd2ca30017f8 deals with a different scheme and does not supply the heptad data."
+        ],
+        "reasoning": "Expand each multiset of cycle lengths with multiplicities in theta_spectra.csv into the sorted vectors used by the symplectic census. These keys label the rows uniquely. This is an exact join on already evaluated data, not a conjectured group-class matching based on orders or minima.",
+        "searches": [
+          "Resultary be0b52c88fb6, class_profiles.csv and verify_aronhold.cpp",
+          "Resultary bd2f0d7f5aae, theta_spectra.csv",
+          "Resultary cd2ca30017f8, syzygetic tetrad comparison"
+        ]
+      },
+      "rationale": "There is concrete equivalent coverage by two distinct catalogue results, not merely a possible overlap inferred from their titles or unlabelled spectra. The general symplectic census already evaluates the full 288-heptad cycle type for each of the 30 paired odd/even theta cycle signatures. A separate exact hyperelliptic table gives precisely those paired signatures, labelled by all 22 branch partitions. Joining on the two full theta cycle multisets recovers the present labelled heptad table; the 1–4 prefix cutoff is then a direct count of duplicate prefixes. The same-day dates do not establish historical priority. The closed formula gives a concise proof of the restricted character, but on the stated domain its values are already determined by those exact results; the classical orbit decomposition is expressly not the novelty claim.",
+      "residual_risks": [
+        "No same-day priority is inferred. The original Dolgachev book section was not independently read in full; a candidate lawful author URL did not resolve. The negative originality judgment rests on the actual keyed comparison, not that access limitation or an unverified classical-priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact evaluated heptad data indexed internally by the same full odd/even signature pair used in the hyperelliptic spin table.",
+          "evidence": [
+            "30 paired signatures give all conjugacy classes; reps[sig] uses the two complete sorted orbit vectors; output loop computes the full ARON_PROFILE for each sig."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-uniform-degree-twelve-aronhold-heptad-bound-and-the-exceptional--be0b52c88fb6",
+          "material_read": "RESULT.md proof and verification offsets 3472–6972 and relevant references; class_profiles.csv; verify_aronhold.cpp offsets 1320–3117",
+          "method": "Configured Resultary local mirror, relevant source and artifact passages; code inspected only",
+          "title": "Uniform degree-twelve Aronhold heptad bound and the exceptional class",
+          "trigger": "Same 288-heptad action and complete exact general census"
+        },
+        {
+          "assessment": "Directly tabulates the two complete theta cycle signatures per branch type. Its inverse theorem alone is about different measurements; the join to the general heptad census is decisive.",
+          "evidence": [
+            "CSV columns partition, odd_cycles, even_cycles give exactly the join key for every possible branch partition."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-three-extension-field-spin-counts-recover-the-branch-splitting-o--bd2f0d7f5aae",
+          "material_read": "RESULT.md Finding and geometric setup offsets 0–3060; theta_spectra.csv",
+          "method": "Configured Resultary local mirror",
+          "title": "Three extension-field spin counts recover the branch splitting of a genus-three hyperelliptic curve",
+          "trigger": "Same branch partitions and an exact class key for restricting the general heptad census"
+        },
+        {
+          "assessment": "Establishes the classical count and the S₇ stabilizer in the Cayley-octad S₈ context, not the finite-field four-prefix theorem.",
+          "evidence": [
+            "Eight choices of projection point and 36 Cayley octads give 288 heptads."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.13072",
+          "material_read": "§2.4, PDF p. 6, text around offsets 17300 and 17647",
+          "method": "Lawful OA primary PDF text, bounded passage",
+          "title": "Arithmetic and topology of classical structures associated to plane quartics",
+          "trigger": "Classical geometric heptad action and subgroup context"
+        },
+        {
+          "assessment": "Confirms the established 288-point action and stabilizer S₇ and supplies generator data; the decisive joined evaluated data are the two catalogue comparisons.",
+          "evidence": [
+            "Transitive but imprimitive 288-point action with point stabilizer S₇."
+          ],
+          "identifier_or_url": "https://brauer.maths.qmul.ac.uk/Atlas/v3/permrep/S62G1-p288B0",
+          "material_read": "Representation page offset 0, About this representation and Download",
+          "method": "OA website text",
+          "title": "ATLAS: S6(2) — Permutation representation on 288 points",
+          "trigger": "Exact representation and possible precomputed equivalent data"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Recovering degrees from low-extension counts is a natural finite inverse question. However, for this frozen claim the exact finite invariant, all zeta types and the sharp obstruction follow mechanically from already evaluated group and branch data. Counting duplicate prefixes and rewriting the restricted character via the classical orbits give a useful presentation but do not supply a distinct exact invariant or new structural result on the stated domain.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:37:20.362420Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md, lines 5–46",
+        "Assigned VERIFICATION.md and checker.py (inspected, not executed)",
+        "`python3 /workspace/independent_checks.py`, announcement"
+      ],
+      "rationale": "Fix the submitted formula requiring both an a-opposite and a b-opposite successor. The recurrence gives R_i^t=R_i^0 ∩ (W×S_t) with common decreasing target set S_t. Initial reflexivity makes distinct S_t distinguishable by self-arrows, though the updated relations need not be reflexive. The at-most-two initial class size makes each opposite successor unique if present, and restriction of targets makes it available exactly while in S_t. Each color is a matching; a connected component of the two-color multigraph is an alternating path or cycle, including isolated singletons and the two-edge parallel cycle. Path endpoints fail the test, both-colored cycle vertices never fail, and applying this recursively gives exactly the claimed stages and first unchanged update. A single alternating path realizes the bound for every positive n, including n=1. On the fixed valuation propositional truths are invariant; on an initially S5 model atom-free static modal truth is constant across worlds by total atom-free bisimulation with serial relations. Thus either no arrows or all arrows are deleted by an atom-free first update, so both resource bounds hold. Independently replayed direct relation semantics on a mixed model with path, singleton components, a parallel cycle and an ordinary four-cycle; the component stages matched.",
+      "residual_risks": [
+        "Correctness concerns the specified formula, not all one-atom formulas on this class. Finite corroboration is not used in place of the component proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 65b4b662c65e proves a sharp general |W| bound using a directed cycle on an arbitrary frame. The September paper’s Lemma 6 gives the single-agent K45 valuation-type bound; the sigma-validity theorem classifies sequence patterns across frame classes; Theorem 25 of arXiv:2611.11911 treats uniform boundedness versus eventual stabilization."
+        ],
+        "reasoning": "These bounds and existence/pattern classifications do not give the exact per-model half-path duration or the surviving target sets. The general |W| bound cannot simply be halved on the same resource class.",
+        "searches": [
+          "Resultary generalized finite BPAL stabilization and one-agent valuation-type bounds",
+          "arXiv:2609.24006v1, Lemma 6",
+          "arXiv:2611.11911, Theorem 25",
+          "arXiv:2607.04685v3, Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and related-work leads",
+        "Resultary 8761460f6561, 65b4b662c65e, 3ec574a60e94, a6a7fa4aacb4, 0fdb970e6f27, 5680885de989",
+        "arXiv:2609.24006v1, 2607.04685v3, 2611.11911"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-resource n-step formula requires only an a-opposite successor at true worlds or a b-opposite successor at false worlds. The assigned formula requires an opposite successor from BOTH agents at either truth value."
+        ],
+        "reasoning": "Removing the one-sided dependencies does not specialize its exact n-step path witness into a theorem about both-sided deletion on all components. The submitted half-world bound is formula-specific, not a resource-class maximum, and the unboundedness corollary alone is not the distinctive contribution.",
+        "searches": [
+          "Resultary 3ec574a60e94, RESULT.md Finding/Assumptions, offsets 0–4735",
+          "Resultary 65b4b662c65e, Finding/Proof, offsets 0–4889",
+          "Yamada arXiv:2607.04685v3, Definitions 9–10 and Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 8761460f6561 uses alternating components of the union of all binary information-cell pair edges, for common-knowledge depth as maximum diameter. Resultary a6a7fa4aacb4 uses world deletion, not target-arrow deletion. Yamada’s Definition 5 is the same target-arrow deletion as the submitted rule."
+        ],
+        "reasoning": "The matching-union geometry is familiar, but common-knowledge iteration expands reachability on a fixed frame, not the survival of opposite-valuation targets. The world-deletion result does not state this formula’s arrow dynamics.",
+        "searches": [
+          "Resultary searches: colored path/cycle peeling, binary-cell common-knowledge paths, exact disappearance times under repeated announcements",
+          "arXiv:2609.24006v1, Definition 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Index match 0fdb970e6f27 is an exact half-world cutoff for a Box–Diamond truth-set sequence on a fixed frame. Same-day 5680885de989 is a different contraction that adds arrows. 3ec574a60e94 attains n strict steps on n worlds using a different one-atom formula under the same deletion semantics."
+        ],
+        "reasoning": "The scalar coincidences and stronger coarse-resource lifetime do not identify the submitted exact component profile. No exact tabulation for the submitted formula surfaced; this is not a proof of absence.",
+        "searches": [
+          "Resultary searches: exact colored paths/cycles, sharp half-world cutoff, fixed one-atom depth-one lifetimes",
+          "Primary search: iterated believed public announcements finite-frame stabilization sharp state-count bound n-cycle one atom two S5 agents binary information cells"
+        ]
+      },
+      "rationale": "The distinct supported claim is the complete path/cycle target trace and exact half-world index for this fixed BOTH-partners formula on initial binary-cell two-agent S5. The strongest related records cover graph geometry, a general bound, a different fixed formula in the same resource class, or a different update. They do not give the trace for the submitted formula. No priority is claimed for the coarse resource boundary independently of that trace.",
+      "residual_risks": [
+        "Unindexed equivalent pruning dynamics or an implicit construction elsewhere in the broader announcement literature remains possible. The one-atom/two-agent resource phenomenon overlaps the different formula in 3ec574a60e94; dates are not used to infer priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same structural geometry for all pair edges, not same dynamics",
+          "evidence": [
+            "Common-knowledge depth equals component diameter, with no opposite-truth edge requirement."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-exact-common-knowledge-depth-distribution-for-binary-s5-informat--8761460f6561",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Exact common-knowledge depth distribution for binary S5 information cells",
+          "trigger": "Matching union paths and cycles"
+        },
+        {
+          "assessment": "General bound, not formula-specific trace",
+          "evidence": [
+            "Bound |W| is attained using an arbitrary-frame directed cycle and a different formula."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-sharp-state-count-stabilization-bound-for-finite-believed-announ--65b4b662c65e",
+          "material_read": "RESULT.md Finding/Proof, offsets 0–4889",
+          "method": "Resultary and local mirror",
+          "title": "Sharp state-count stabilization bound for finite believed announcements",
+          "trigger": "Same update, general sharp bound"
+        },
+        {
+          "assessment": "Covers the coarse unboundedness phenomenon with a one-sided polarity-dependent formula, not the both-color peeling law",
+          "evidence": [
+            "n strict changes on n worlds using (p∧◇_a¬p)∨(¬p∧◇_b p)."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-two-s5-agents-and-one-proposition-attain-every-finite-believed-a--3ec574a60e94",
+          "material_read": "RESULT.md Finding/Assumptions, offsets 0–4735",
+          "method": "Resultary and local mirror",
+          "title": "Two S5 agents and one proposition attain every finite believed-announcement length",
+          "trigger": "Same semantic and resource restrictions"
+        },
+        {
+          "assessment": "Different semantics and formula",
+          "evidence": [
+            "Ordinary world-deleting announcements of ignorance."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-disappearance-times-under-repeated-two-agent-announcements--a6a7fa4aacb4",
+          "material_read": "RESULT.md Finding/Assumptions, offsets 0–4947",
+          "method": "Resultary and local mirror",
+          "title": "Exact disappearance times under repeated two-agent announcements",
+          "trigger": "Similar finite graph dynamics"
+        },
+        {
+          "assessment": "Same semantics, single-agent bound does not resolve two-agent trace",
+          "evidence": [
+            "Retain arrows only to truth-set targets; single-agent K45 bound is 2 raised to the number of atoms."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.24006v1",
+          "material_read": "Definition 5, p. 4; Lemma 6 and proof, pp. 10–11",
+          "method": "Open PDF",
+          "title": "Eventual and Strong Eventual Notions in Public Announcements",
+          "trigger": "Same update and resource boundary"
+        },
+        {
+          "assessment": "Truth-pattern classes, no exact trace for the submitted formula in inspected result",
+          "evidence": [
+            "Includes the 01^k family for multi-agent S5."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.04685v3",
+          "material_read": "Definitions 9–10 and Theorem 2, pp. around 6, offsets 14014–18438",
+          "method": "Open PDF",
+          "title": "Classification of sigma-validity",
+          "trigger": "Relevant classification of possible announcement histories"
+        },
+        {
+          "assessment": "Uniform boundedness criterion does not give per-model profile",
+          "evidence": [
+            "Finite stabilization on all models is equivalent to having a uniform finite bound under the theorem’s hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.11911",
+          "material_read": "Theorem 25, p. 24, offset 72569",
+          "method": "Open PDF",
+          "title": "arXiv:2611.11911 (stabilization criterion for PAL and BPAL)",
+          "trigger": "General stabilization theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md lines 10–18 and 32–46",
+        "Resultary 65b4b662c65e and 3ec574a60e94"
+      ],
+      "rationale": "For the natural opposite-truth-witness rule, the theorem traces every target at every time, distinguishes permanently surviving cycles from transient paths, and gives exact time even for disconnected models. This is a structural semantics result, not just a large example or a general monotone deletion bound. It explains how a fixed tiny formula gives unbounded lifetimes even on binary S5 information cells without confusing the formula-specific constant with a maximum over all formulas.",
+      "residual_risks": [
+        "The interpretation is specific to two matchings and this formula; no general bound for arbitrary information-cell sizes is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

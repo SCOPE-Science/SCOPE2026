@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:56:32.584155Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–58",
+        "VERIFICATION.md and verify.py lines 11–129, inspected without execution",
+        "review-evidence/star_direct.py and star_direct.txt"
+      ],
+      "rationale": "Each of the two conjugation identities gives a rank inequality, hence the ranks agree. In b=g⁻¹ag the map g sends dom b into dom a and im b into im a and intertwines their arrows. By equal ranks both images are onto, so g restricts to an isometry of the spans. Conversely such a span isometry, on just that domain, satisfies both identities. In a star, a metric span involving the hub and at least two leaves has a distinguished hub and cannot be isometric to a leaf span; on a two-point span the hub–leaf and leaf–leaf metrics differ. A singleton span is the sole fusion of the ordinary leaf and hub-fixed types. A rank-two hub mover must use the hub on both the domain and image sides, yielding either a transposition or a leaf→hub→leaf path. At higher rank the two stars in the domain and image force the hub to be fixed. At rank one the two directions of the hub–leaf arrow are span-isometric. Thus all three hub-moving classes and sizes follow. The labeled cycle/path counts divide by cycle rotations and repeated components, not path reversals. Removing the empty hub-fixed copy subtracts z, which the rank-one hub mover restores, leaving +2z². At z=1 the formal convolution telescopes to p₂(m), and at rank r the unique leaf profile of support 2r consists of r disjoint arrows; hub-fixed profiles use at most 2r−2 leaves. For r=1 the one-leaf monoid has two rank-one classes (identity singleton and single arrow), versus three at two leaves, so the boundary comparison includes r=1. The independent direct equation census (`python3 -B /workspace/review-evidence/star_direct.py`) matches all rank/class-size multisets for m=1,2,3,4, with 7,22,83,442 elements respectively. Those checks corroborate but do not replace the uniform argument.",
+      "residual_risks": [
+        "Only graph-metric unweighted stars and the two-sided inverse-semigroup relation are covered, not unit-group conjugacy or arbitrary trees."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fernandes–Paulista describe the star element families and count elements; their variable n is the total vertex count",
+          "Araújo–Kinyon–Konieczny give ambient cycle/chain types and their class-count convolution",
+          "SCOPE-81b24fa5f71f counts nilpotent elements by rank and index, not their i-classes"
+        ],
+        "reasoning": "Neither the prior generating rank of the monoid nor the size of the ambient cycle part equals the domain rank measured here. The ambient conjugacy theorem doesn't restrict by demanding an isometry, and the star element theorem doesn't give class fusions.",
+        "searches": [
+          "arXiv:2203.05504, Proposition 2.1 and Theorem 2.3",
+          "arXiv:1810.03208, Proposition 2.8, Theorems 2.10 and 2.16",
+          "Resultary: star partial isometries and rank/index profiles"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2203.05504",
+        "arXiv:1810.03208",
+        "arXiv:2301.04252v1",
+        "SCOPE-81b24fa5f71f; SCOPE-7b0d6d4d672f; SCOPE-fa69e9e31ab0; SCOPE-63797e3c8ded; exact target match in Resultary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The singleton fusion and the distinction between a metric leaf transposition and a metric hub–leaf transposition require actual span-conjugator analysis",
+          "The finite ambient theorem does imply the leaf-only profiles and their scalar count",
+          "The related cycle graph record is for total endomorphisms with dihedral unit-conjugacy"
+        ],
+        "reasoning": "Do not credit the leaf-only classes or partition identity as independently new. The metric split and fusion yield a full-domain rank generating series for a different conjugacy problem, with a sharp support cutoff not supplied by either source's main theorem.",
+        "searches": [
+          "Fernandes–Paulista Proposition 2.1 vs. frozen RESULT.md lines 42–58",
+          "Araújo–Kinyon–Konieczny Theorems 2.10 and 2.16 vs. frozen class taxonomy",
+          "Resultary: SCOPE-81b24fa5f71f and SCOPE-63797e3c8ded"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inverse-semigroup natural and symmetric i-conjugacy relations are the same",
+          "The ambient theorem gives cycle/chain type for the full symmetric inverse monoid; the two-sided identities on a metric submonoid force an isometric span intertwiner"
+        ],
+        "reasoning": "An ambient diagram type is not equivalent to a star metric-span type: leaf versus hub–leaf arrows are a concrete split of the same ambient one-arrow diagram. Unit-conjugacy is a different relation; a unit of a star with at least two leaves cannot move a hub singleton to a leaf singleton, but a partial conjugator can.",
+        "searches": [
+          "Resultary: natural or i-conjugacy, finite star graph partial isometries, rank stabilization",
+          "arXiv:1810.03208, Definition 1.1 and Theorem 2.10",
+          "arXiv:2301.04252v1, Proposition 2.11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fernandes–Paulista's n=1,…,20 table reports monoid orders only",
+          "The prior two-partition count is for I(X)",
+          "The exact matching Resultary entry is this frozen record; SCOPE-81b24fa5f71f and the graph-continuous rank record SCOPE-fa69e9e31ab0 count different invariants"
+        ],
+        "reasoning": "Neither an element-order table nor ambient class totals can be read as the star rank/class-size census. No table supporting the identical metric-restricted classification was identified in the checks.",
+        "searches": [
+          "arXiv:2203.05504, table following Theorem 2.3",
+          "arXiv:1810.03208, Lemma 2.15 and Theorem 2.16",
+          "Resultary: finite star conjugacy-class rank and size enumerators"
+        ]
+      },
+      "rationale": "The star element decomposition, the ambient finite inverse-monoid cycle/chain classes, and the two-partition convolution are prior. The inspected sources do not classify the metric-restricted conjugators or give the full star class-rank and class-size distribution or the sharp stabilization. The prior decomposition is important input but contains no conclusion that all the necessary within-family span maps or between-family mergers are allowed.",
+      "residual_risks": [
+        "An unindexed earlier star-specific application of the ambient conjugacy theorem or an equivalent enumerator is not excluded by the bounded literature and index search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the element families and sizes in aggregate, not their metric i-class taxonomy",
+          "evidence": "Four disjoint element families and total monoid order by n, with n=m+1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2203.05504",
+          "material_read": "Abstract; §2 Proposition 2.1 and equation (1), pp. 3–4, OA offset about 7600; Theorem 2.3 and table p. 4, offset about 13590",
+          "method": "Bounded lawful arXiv PDF reads",
+          "title": "On the monoid of partial isometries of a finite star graph",
+          "trigger": "Same monoid and metric"
+        },
+        {
+          "assessment": "Covers ordinary ambient diagram types and their counts, not metric-restricted conjugators",
+          "evidence": "Cycle–chain–ray types in I(X) and the finite two-partition convolution; r in Lemma 2.15 counts vertices in the cycle part.",
+          "identifier_or_url": "https://arxiv.org/pdf/1810.03208",
+          "material_read": "Definition 1.1 p. 1; Proposition 2.8 p. 6 and Theorem 2.10 p. 7, offset about 24200; Lemma 2.15 and Theorem 2.16 p. 9, offset about 35800",
+          "method": "Bounded lawful arXiv PDF reads",
+          "title": "Conjugacy in inverse semigroups",
+          "trigger": "Identical equations on the ambient inverse monoid"
+        },
+        {
+          "assessment": "Terminological equivalence, not a star enumeration",
+          "evidence": "Natural conjugacy equals i-conjugacy for inverse semigroups.",
+          "identifier_or_url": "https://arxiv.org/pdf/2301.04252v1",
+          "material_read": "Proposition 2.11 in v1, p. 6, OA offset about 22380",
+          "method": "Bounded lawful arXiv PDF read",
+          "title": "Conjugacy in Semigroups: the Partition and Brauer Diagram Monoids, Conjugacy Growth, and Partial Inner Automorphisms",
+          "trigger": "Natural conjugacy alias"
+        },
+        {
+          "assessment": "Same natural object, different statistic",
+          "evidence": "The two leaf-injection copies and exceptional hub movers support enumeration of nilpotent elements, not classification under i-conjugacy.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-nilpotency-profiles-and-a-gumbel-law-for-star-graph-partial-isom--81b24fa5f71f",
+          "material_read": "Original finding on the element families and nilpotent rank/index counts",
+          "method": "Local Resultary search and matched statement comparison",
+          "title": "Nilpotency profiles and a Gumbel law for star-graph partial isometries",
+          "trigger": "Closest distinct indexed result on the same monoid"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof §§1–5",
+        "Fernandes–Paulista Proposition 2.1 and Theorem 2.3",
+        "Araújo–Kinyon–Konieczny Theorems 2.10 and 2.16"
+      ],
+      "rationale": "Domain-rank class counts and class sizes are natural intrinsic invariants for the star inverse monoids. The formula separates the inherited cycle/path combinatorics from every geometric exception and resolves exactly, rather than asymptotically, which number of leaves first realizes the stable set of classes. This complete classification with all sizes and a sharp uniform threshold is useful beyond a restatement of the monoid order or an ambient partition count.",
+      "residual_risks": [
+        "No extension to other metrics or representation-theoretic application is being asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

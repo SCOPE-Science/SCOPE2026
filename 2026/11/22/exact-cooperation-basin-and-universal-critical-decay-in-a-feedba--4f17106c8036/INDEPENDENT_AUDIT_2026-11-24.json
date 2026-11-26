@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:12:24.239776Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–101",
+        "Frozen VERIFICATION.md and CHECKER.py",
+        "Wang–Chen–Szolnoki arXiv:2504.16659 Eq. (7) and Appendix B"
+      ],
+      "rationale": "For strictly interior data the simplex is invariant and the exposure derivative is y=1−p>0. Independently, let w=z/x and L=1/x. In exposure s the difference of log derivatives first gives w=w0 exp(−hs); the remaining equation is L'=aL−b−(b+B)w. Integrating with exp(−as) and subtracting the edge condition L=1+w gives 1/p−1=(1/p0−F)/M with M=exp(−as)(1−q0+q0 exp(−hs)) and F as stated. Its derivative is exp(−as)[−(1−q0)A+q0D exp(−hs)]. For D≤0, or D>0 and q0≤A/(A+D), F is strictly decreasing for s>0 (including the equality at s=0). Otherwise it has the single positive maximum stated in the finding and H>F(0)=1. With no contact 1/p0−F is bounded below by a positive constant; positive y before any putative finite endpoint forces s→∞, and M→0 then forces p→0. A first simple root on the rising branch gives y proportional to the remaining exposure, exponential decay in t, and q>q_* by the strict logistic decrease. A double root at the maximum gives y=K(s_*−s)^2+O((s_*−s)^3) with K=hAD/[2(A+D)]. The physical-time integral diverges there and (s_*−s)t→1/K. The logistic slope gives (q−q_*)/(s_*−s)→h q_*(1−q_*), and z−q differs by O(y), proving both stated limits and their independence from the initial point on the separator. The independent replay python3 /workspace/checks/frozen_math_checks.py 1 uses the reciprocal x equation for the exact rational example; it verifies the threshold inequalities and exposure amplitudes 1/25 for y and 1/10 for z−1/2, consistent with physical-time coefficients 25 and 5/2.",
+      "residual_risks": [
+        "The qualitative phrase 'marginally stable' should mean zero transverse linear eigenvalue at q_*, not Lyapunov stability in the simplex. Arbitrarily near the endpoint there are interior points with q<q_* whose orbits tend to defection. The exact theorem and proof do not require Lyapunov stability.",
+        "The result is for strictly interior data in the deterministic global-feedback system, not boundaries with missing strategies or the local-feedback model."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-model paper describes attractive regions and their sizes across feedback parameters, and relates behavior near the edge to the sign of a drift factor. Hintze–Adami's mean-field analysis uses a fixed synergy r and four strategies when punishment is added, including punishing defectors; it also tests predictions with finite-population agent-based simulations."
+        ],
+        "reasoning": "Local drift and comparisons of basin sizes are not a trajectory classification for each initial point; four-strategy, fixed-synergy mean-field results and agent simulations do not furnish this feedback model's threshold. The older source should not be described as only a finite-population study.",
+        "searches": [
+          "arXiv:2504.16659 Fig. 2, Fig. 4 discussion and Appendix B",
+          "Hintze–Adami arXiv:1210.5233 Secs. 2–3"
+        ]
+      },
+      "checked_sources": [
+        "Wang–Chen–Szolnoki arXiv:2504.16659",
+        "Hintze–Adami arXiv:1210.5233",
+        "Resultary index and mirror Findings caf974f7f068 and ecc57a204b45"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source prose after Fig. 2 says the boundary is determined by real roots of f_ℓ(x,z). In Appendix B, f_G=−a+bp+(Bp−h)q is the sign factor in d(x+z)/dt near the full-contribution edge; the normal eigenvalue at the edge is A−β(n−1)z'.",
+          "At the frozen initial critical point with q0=3/4 and p0=1/H>3/4, f_G=−3/5+(4/5)p0>0, so the zero set f_G=0 cannot itself be the global separator. The inspected passages give no alternative formula for its orbit transport or the double-root asymptotic."
+        ],
+        "reasoning": "If the root wording is interpreted as an exact interior nullcline separator it fails this example; interpreted as edge or parameter information it does not imply the final finding. The critical law specifically needs tangency at first contact and the physical clock, not just a vanishing linear eigenvalue.",
+        "searches": [
+          "arXiv:2504.16659 PDF p. 5 offset 36300 and Appendix B offsets 85300–90528",
+          "Frozen RESULT.md exact admissible example lines 95–101"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (7), not the local Eq. (8), is the frozen flow. Its source threshold z_G^*=c(n−r0−k)/(βn(n−1)) equals q_*=A/[β(n−1)] on p=1.",
+          "An equivalent exact separator would be the orbit reaching p=1 tangentially in exposure time, or the threshold in the reciprocal contributor solution. The earlier collective-risk Resultary finding caf974f7f068 gives an energy level separating periodic and defection dynamics in a different system."
+        ],
+        "reasoning": "The endpoint's local eigenvalue and a separatrix in a different model are not equivalent to locating the entire orbit in this simplex or fixing its physical-time coefficient.",
+        "searches": [
+          "\"Evolutionary dynamics in state-feedback public goods games with peer punishment\" global feedback basin boundary interior initial condition critical decay inverse-square",
+          "arXiv:2504.16659 Eq. (7), Fig. 2 and Appendix B",
+          "Resultary: global feedback peer punishment public goods game exact separatrix and critical decay"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical frozen record is returned. Distinct same-day record ecc57a204b45 has a resource-feedback threshold and t^−1 environmental relaxation for a noise-corrected donation game. Earlier record caf974f7f068 concerns orbit extinction in a collective-risk game. Fig. 2 of the primary source visualizes attractions and reports basin proportions, not the exact arbitrary-data H or critical amplitude."
+        ],
+        "reasoning": "Neither the distinct catalog records nor the plotted proportions specify a matching equilibrium separator and t^−2 defector law. Same-day indexing does not settle order or priority.",
+        "searches": [
+          "Resultary: public goods feedback punishment basin first integral and critical asymptotic law",
+          "arXiv:2504.16659 Figs. 2 and 4 and accompanying basin discussion"
+        ]
+      },
+      "rationale": "Wang–Chen–Szolnoki already give the global ODE, the local edge threshold and phase portraits with basin proportions. Credit these results. Their root-of-f_G wording is not a covering exact interior theorem: Appendix B uses f_G for instantaneous drift, and the frozen critical example does not lie on its zero set. The distinct contribution is the exact initial-data separator, the global first-contact classification and the physical-time critical asymptotics.",
+      "residual_risks": [
+        "A historically earlier equivalent first-contact calculation in other coordinates is not excluded. The existing paper's basin-root wording is ambiguous, but the inspected f_G is demonstrably not the exact interior separator itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same global system and edge threshold, not the exact first-contact threshold or rates in the inspected statements",
+          "evidence": [
+            "Eq. (7) is global and gives z_G^*; Appendix B gives normal eigenvalue A−β(n−1)z' and defines f_G through the sign of d(x+z)/dt near the edge. The root wording in the basin discussion does not identify the exact critical orbit."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2504.16659",
+          "material_read": "p. 3 Eqs. (7)–(8); pp. 4–5 Figs. 2 and 4 and basin discussion; p. 9 Appendix B edge analysis",
+          "method": "OA PDF passages including offsets 20500, 29000–38794 and 85300–90528; direct substitution of the frozen critical example into f_G",
+          "title": "Evolutionary dynamics in state-feedback public goods games with peer punishment",
+          "trigger": "Same ODE and potentially overlapping basin analysis"
+        },
+        {
+          "assessment": "Different mean-field model, also tested in finite simulations",
+          "evidence": [
+            "Sec. 2 treats r as a synergy parameter and includes both moralist and immoralist punishers. Sec. 3 explicitly tests the infinite-population theory with a finite agent-based population."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1210.5233",
+          "material_read": "OA alternate copy, Sec. 2 fixed-r theory and payoffs, Eqs. (1)–(6) from offset 9320; Sec. 3 opening at p. 7",
+          "method": "Read the preprint model and compare r and the strategy set",
+          "title": "Punishment in public goods games leads to meta-stable phase transitions and hysteresis",
+          "trigger": "Earlier punishment-driven transitions; journal DOI copy inaccessible"
+        },
+        {
+          "assessment": "Related method, different system and conclusion",
+          "evidence": [
+            "An energy threshold for periodic versus defection behavior, with a heteroclinic at equality, rather than the full-contribution endpoint and time asymptotic here."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-first-integral-and-sharp-orbit-extinction-separatrix-in-a-collec--caf974f7f068",
+          "material_read": "Finding at offset 0",
+          "method": "Read local mirror and compare regimes and boundary trajectories",
+          "title": "First integral and sharp orbit-extinction separatrix in a collective-risk model",
+          "trigger": "Earlier indexed replicator first integral and separator"
+        },
+        {
+          "assessment": "Different flow and critical observable; date not used to dismiss overlap",
+          "evidence": [
+            "Noise-corrected donation-game flow and t^−1 environmental relaxation, not the three-strategy flow or t^−2 defector decay."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-global-resource-selection-and-critical-relaxation-in-the-noisy-d--ecc57a204b45",
+          "material_read": "Finding at offset 0",
+          "method": "Read local mirror; compare flow, observable and decay exponent",
+          "title": "Global resource selection and critical relaxation in the noisy donation game",
+          "trigger": "Closest same-day threshold and critical-time analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–31, 71–93",
+        "Wang–Chen–Szolnoki arXiv:2504.16659 Eq. (7), Fig. 2 and Appendix B"
+      ],
+      "rationale": "Local edge stability and phase portraits do not identify the outcome of an arbitrary strictly interior population state. An explicit global basin split resolves that issue in an established game, and the equality branch shows quantitatively different critical slowing with an initial-condition-independent coefficient. The value is in the full global classification and critical dynamics, not the integrating factor alone.",
+      "residual_risks": [
+        "This is an exact deterministic result, not an empirical, fixation, or mutation claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:52:25.298026Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each matching of size m has the same number of extensions, and each of size m+1 has exactly m+1 predecessors, so adding a uniform free pair preserves the uniform layers. Swapping two fixed entries a<b contributes the new inversion (a,b), and contributes two more for exactly each interior position whose image is between a and b; the other changes cancel. The ratio of class weights at fugacities θ₂>θ₁ is proportional to (θ₂/θ₁)^{n−2m}, strictly decreasing in m, giving usual stochastic order by the coupling and strict decrease in expectation, not strictness at every tail threshold. At fixed f the within-pair, pair/pair and pair/singleton contributions give g_n(f)=(n−f)(3n+f)/12. It is strictly decreasing and F is nonconstant for every positive θ and n≥2, proving strict negative covariance. The successive fixed-point weight ratio has the stated unique crossing in the interior; comparison across a buffer of order n gives vanishing opposite tails, also at the endpoints by choosing thresholds ε/2 or 1−ε/2. Transposing two entries in the random ordering used to generate a uniform partial matching changes at most four permutation images, so the reveal martingale gives conditional variance ≤16n³ uniformly in m. The conditional mean and this bound give the stated inversion LLN. The supplied script was inspected, not executed: its inversion identities, tail probabilities and covariance checks are exact on the stated bounded input, whereas the order-5000 crossover check uses floating-point log weights and approximates finite expectations, not exact numerics or a limit proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Féray–Kammoun explicitly identify the classical unconstrained 21 pattern as an inversion, and Theorem 1 gives centered fluctuations on scale n^{3/2} and convergence of moments for it whenever the 1- and 2-cycle densities converge.",
+          "The November 2 Finding proves the exact increment identity and gives all-class strict coupling, and negative Cov(n−2K,h(I)) for every nondegenerate class mixture and strictly increasing h.",
+          "The searched Pinsky result concerns general fixed-point-conditioned permutations rather than involutions; it is not the source of the inversion concentration used here."
+        ],
+        "reasoning": "On deterministic involution layers with f/n→s one has m/n→(1−s)/2, so the hypotheses of the general pattern result hold (including the endpoints), and the centered count divided by n² tends to zero. The later catalogue covariance directly subsumes the θ-biased covariance; its all-class coupling subsumes the finite pathwise theorem.",
+        "searches": [
+          "Resultary: fixed point fugacity theta over square root n asymptotic inversion density uniform involutions concentration",
+          "Web: involutions with prescribed fixed points inversion number distribution q-Hermite Désarménien Dukes Hart Rowley monotone coupling partial matchings weighted fixed-point fugacity inversion density",
+          "Web: involution inversion length stochastic order by number transpositions uniform matching insertion fixed points coupling Bruhat suitable rises (f,f)",
+          "arXiv:2312.08756 §1.2, §1.3 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Original monomer–dimer law and authors' review",
+        "Féray–Kammoun conjugacy-class pattern theorem",
+        "Dukes and Hart–Rowley exact enumerators",
+        "November 2 Resultary spatial-inversion and coupling Finding",
+        "Pinsky bounded adjacent-model evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For any deterministic f/n→s the conditional inversion limit is g_n(f)/n²→(1−s)(3+s)/12 by the centered 21-pattern theorem. With random F/n→s it remains true by conditioning: failure of vanishing conditional tails uniformly in a shrinking neighborhood of s would select a deterministic bad subsequence, contradicting the deterministic theorem.",
+          "The November 2 coupling is exactly the frozen one. Every θ-biased sample is uniform conditional on K, and the ratio of class weights is proportional to (θ₂/θ₁)^{n−2K}, giving stochastic dominance of K at lower θ and hence of its coupled inversion count. Strict unequal expected K and strict conditional means give strict unequal expected J."
+        ],
+        "reasoning": "The limiting inversion formula is a mechanical application of exact mean and stronger pre-existing probability results; the finite part is already covered by the later exact stronger archive theorem and the elementary mixing step. The latter establishes overlap without claiming historical priority for that later theorem.",
+        "searches": [
+          "arXiv:1506.04241 Theorem 1.5; arXiv:2312.08756 Theorem 1; November 2 exact spatial-inversion/matching-coupling Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A dimer is a transposition, a monomer is a fixed point, and the pure complete-graph dimer model weights a configuration n^{−m}e^{hf}=n^{−n/2}(e^h√n)^f. The identity is exact at every n.",
+          "The primary Theorem 1.5 gives F/n→g(h), where with a=e^h its g(h) is (√(a^4+4a²)−a²)/2. The formula solves exactly the reported quadratic."
+        ],
+        "reasoning": "The crossover parameter is just the well-established scaled monomer activity. Fixed-point count is stochastically increasing under its own exponential tilt. Sandwich moving θ_n/√n between fixed activities and use continuity, or sandwich on the applicable side and let the fixed activity tend to zero or infinity at an endpoint. Thus the exact F/n statement is covered, not merely its special case θ_n=1.",
+        "searches": [
+          "Resultary: random involutions fixed points inversion count monotone coupling weighted fixed-point fugacity square-root crossover partial matchings",
+          "Resultary: complete graph monomer dimer matching monomer fugacity density crossover fixed point involution weighted partial matching",
+          "arXiv:1506.04241 Theorem 1.5 and eq. (1.14); arXiv:1612.09181 eqs. (4.2)–(4.9), Theorem 5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Dukes's q-Hermite recurrence encodes the joint finite counts by fixed points and inversions. Hart–Rowley give the exact length polynomial of each conjugacy class. These are exact enumerators, not an experiment limited to small orders.",
+          "The November 2 Finding explicitly gives the mean m(2n−m)/3, algebraically the same as (n−f)(3n+f)/12."
+        ],
+        "reasoning": "These enumerators already determine the joint finite distribution and its conditional mean, as the frozen record acknowledges. An exact enumerator alone does not assert a simultaneous pathwise coupling. The separate exact coverage of that coupling comes from the distinct later catalogue theorem, not from tabulating the marginal distributions.",
+        "searches": [
+          "Dukes arXiv:math/0412222 §2.3; Hart–Rowley arXiv:1403.7506 Theorem 1.1",
+          "Resultary fixed-point/inversion queries above and November 2 exact Finding"
+        ]
+      },
+      "rationale": "There is no distinct component left after statement-level comparison. The exact complete-graph monomer density LLN and its curve are already in Alberici–Contucci–Fedele–Mingione; varying the fugacity, including both endpoints, follows by monotone squeezing. The inversion-density limit follows from that LLN, the already encoded conditional inversion mean, and Féray–Kammoun's stronger conditional concentration for classical pattern 21. The distinct November 2 spatial-inversion record also states the identical simultaneous strict matching coupling and increment, and stronger covariance for arbitrary nondegenerate mixtures and every increasing test function of inversions. Mixing the coupled layers using the elementary likelihood ratio in θ gives the stated fugacity order and strict expectation. The November 2 catalogue date is later than the frozen record's date. It demonstrates current equivalent/stronger coverage of the finite claim, not that this finite statement predates the frozen record or that priority is settled. None of this is a claim that the mathematics is false. No novel narrower claim is substantiated by the frozen evidence.",
+      "residual_risks": [
+        "The priority or provenance of the finite coupling as between the October and November records is not established by public date labels and exact mathematical overlap. The FAIL is for covered present content, not an allegation of dependence.",
+        "The inspected older enumerators do not settle whether the coupling also appeared independently in earlier form. Access or search limitations do not drive the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Already gives the finite-positive-activity monomer LLN and a stronger CLT; monotone sandwich gives the moving activity and endpoints.",
+          "evidence": "At interaction zero, m_N converges in distribution to δ_{g(h)}, hence in probability to g(h); its limiting fluctuation theorem is stronger than the frozen F/n convergence.",
+          "identifier_or_url": "https://arxiv.org/pdf/1506.04241",
+          "material_read": "Pure hard-core case and Theorem 1.5, pp. 4–5 around offset 12650; formula and weights cross-checked in the authors' review.",
+          "method": "Lawful OA bounded primary PDF passages.",
+          "title": "Limit theorems for monomer-dimer mean-field models with attractive potential",
+          "trigger": "Exact model and potentially already-known fixed-point density crossover."
+        },
+        {
+          "assessment": "Confirms the exact law match e^h=θ/√n and the identical density formula.",
+          "evidence": "At zero attraction the dimer activity is 1/n, monomer activity e^h, and g(h)=½(√(e^{4h}+4e^{2h})−e^{2h}).",
+          "identifier_or_url": "https://arxiv.org/pdf/1612.09181",
+          "material_read": "§4 Gibbs weights (4.2)–(4.5), (4.9) and pure case around offset 47950; §5 Theorem 5.1 around offset 58810.",
+          "method": "Lawful OA bounded PDF passages.",
+          "title": "Mean-Field Monomer-Dimer models: a review",
+          "trigger": "Same complete-graph scaling and its normalization."
+        },
+        {
+          "assessment": "Covers the requisite concentration for all fixed-count involution sequences with a limiting fixed fraction; not a fugacity or pathwise coupling theorem.",
+          "evidence": "For the two-block pattern (21,∅), the centered count normalized by n^{2−1/2} converges with moments when the 1- and 2-cycle densities converge.",
+          "identifier_or_url": "https://arxiv.org/pdf/2312.08756",
+          "material_read": "§1.2 classical 21 example, §1.3 Theorem 1 and moment convergence across pp. 3–4, offset 4450 onward.",
+          "method": "Lawful OA bounded primary PDF passages.",
+          "title": "Asymptotic normality of pattern counts in conjugacy classes",
+          "trigger": "Potentially stronger conditional inversion LLN."
+        },
+        {
+          "assessment": "Identical finite coupling, exact increment and stronger mixture covariance. Later catalogue date, no independent historical priority inference. It does not itself state the fugacity crossover.",
+          "evidence": "Equations (2)–(4) give the same step, strict all-class expectation ordering for every strictly increasing test function, the mixture covariance and the exact mean.",
+          "identifier_or_url": "2026/11/2/SCOPE-spatial-inversion-law-and-monotone-matching-coupling-for-uniform--f4873316c9a6",
+          "material_read": "Finding and assumptions, local mirror offset 0.",
+          "method": "Resultary lookup and bounded local-mirror reading.",
+          "title": "Spatial inversion law and monotone matching coupling for uniform involutions",
+          "trigger": "Strongest direct overlap with the finite theorem."
+        },
+        {
+          "assessment": "Full relevant marginal and joint finite enumeration, not in the inspected passages an explicit coupling.",
+          "evidence": "A joint q-Hermite recurrence and class-by-class inversion-length generating polynomials, respectively.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0412222; https://arxiv.org/pdf/1403.7506",
+          "material_read": "Dukes §2.3, PDF p. 6 around offset 18800; Hart–Rowley Theorem 1.1, PDF p. 2 around offset 7000.",
+          "method": "Lawful OA bounded primary PDF passages.",
+          "title": "Permutation statistics on involutions; Involution Statistics in Finite Coxeter Groups",
+          "trigger": "Earlier exact inversion distributions and conditional moments."
+        },
+        {
+          "assessment": "Not evidence of exact coverage for the involution model.",
+          "evidence": "Model is uniform permutations with specified fixed points, not the conjugacy classes with only 1- and 2-cycles.",
+          "identifier_or_url": "https://pinsky.net.technion.ac.il/files/2025/05/fixedpoints.pdf",
+          "material_read": "Accessible May 2025 PDF abstract, p. 1, offset 0.",
+          "method": "Lawful OA bounded primary PDF passage; the separately indexed December copy was not readable.",
+          "title": "The Inversion Statistic in Derangements and in Other Permutations with a Prescribed Number of Fixed Points",
+          "trigger": "Same inversion statistic and prescribed fixed counts."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The inversion ordering and crossover are mathematically natural. However, the exact finite coupling is already covered as part of a stronger indexed theorem, and the full asymptotic curve including endpoints follows by reparameterizing the known monomer LLN and applying the standard conditional pattern theorem. The elementary self-contained proof is useful exposition, but no additional supported structural result or boundary remains to justify a distinct finding or a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

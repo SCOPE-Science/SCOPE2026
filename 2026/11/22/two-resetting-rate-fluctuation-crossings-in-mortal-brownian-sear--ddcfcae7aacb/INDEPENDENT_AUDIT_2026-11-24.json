@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:06:11.808259Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Renewal at the first reset gives the immortal transform 1/(1+qA(q+ρ)); independent exponential mortality tilts this transform to φρ(m+u)/φρ(m), normalized by the probability of success. Logarithmic differentiation gives V−M²=−(2A′+mA″)/(1+mA). Since A″=H/(4z⁶)>0 for z>0 by H′=e^z(z²−3z+3)>0 and H(0)=0, the sign of CV−1 is that of B(z)−m, with z=√(m+ρ). Expanding the numerator of B′ gives G/z²=−6 plus positive powers with positive coefficients: g₄,…,g₁₀ are positive directly, and for n≥11 P(n)≥30 and a doubling induction shows 30·2ⁿ>16n³+320n. Thus G/z² has one positive simple zero, and B has a strict nondegenerate maximum; B″(zc)=−4zcG′(zc)/H(zc)²<0. At the boundary z=√m the sign follows from B(z)−z²=z³e^z(1−z)/H(z). Together with B(1)=1, zc>1, mc<zc², and the subsequent zero of B, this proves the counts and signs, including the excluded zero-rate equality at m=1 and the admissible double root at mc. The high-precision independent check recovered mc≈1.10642822093643738483 and ρc≈0.28424024613180761599 and both rates at m=1.05; it compared moments at 12 parameter pairs. Replay: /workspace/branches/46a31644-dec4-48b3-8590-ae91fd3d2fa3/independent_crossing_check.py. The supplied check.py and verification notes were read, not executed; the infinite coefficient argument, not a finite scan, proves uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reuveni relates unit CV to an optimal unconditional restart rate; Belan and Pal et al. address selective outcomes under resetting",
+          "599c525eb34e demonstrates a two-crossing pattern and tangency in a different Brownian model"
+        ],
+        "reasoning": "Conditions at an optimizer, or for a beneficial selective restart perturbation, do not bound how many times conditional CV equals one when the mortality is fixed and the reset rate is varied. The unmatched death tilt is essential to the stated regime.",
+        "searches": [
+          "reentrant first-passage fluctuations mortality Poisson resetting conditioned on capture",
+          "Reuveni arXiv:1512.01600 Eq. (4)",
+          "Belan arXiv:1703.01486",
+          "Pal et al. arXiv:2502.09127"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Radice, Reuveni, Belan and Pal et al., at the indicated passages",
+        "Resultary ddcfcae7aacb (same record) and 599c525eb34e",
+        "Independent high-precision reproduction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both published moment formulas agree with the frozen conditional-transform moments",
+          "The frozen proof derives B and then shows positivity of all Taylor coefficients of G/z² except the constant"
+        ],
+        "reasoning": "The zero equation is algebraic rearrangement of known formulas; the complete count is not obtained merely by substituting into them. It requires the infinite sign certificate for unimodality and the separate admissibility boundary z≥√m, which together prove two crossings and exclude spurious roots.",
+        "searches": [
+          "Radice arXiv:2211.16173 Eqs. (71)–(72) and subsequent equality discussion",
+          "Resultary 599c525eb34e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Radice's conditional moments are those of the assigned process and give the very same σ=M equality",
+          "Resultary ddcfcae7aacb is the assigned record itself; distinct record 599c525eb34e uses immortal search with unequal start and reset positions"
+        ],
+        "reasoning": "Writing equality as V−M²=0 is equivalent to Radice's comparison, not a novel observable. The additional zero count and exact threshold are not present in the inspected numerical treatment. Unequal-position resetting is not a reparametrization of an independent death tilt with start and reset coincident.",
+        "searches": [
+          "mortal Brownian search resetting conditional coefficient of variation crossings threshold",
+          "complete classification two resetting-rate crossings conditional CV mortality Brownian",
+          "Radice arXiv:2211.16173 Eqs. (71)–(72) and Fig. 4 discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Radice numerically reports that no crossing is found at dimensionless mortality roughly above 1.1 in the unit-scale case",
+          "The exact catalogue threshold at ddcfcae7aacb is the frozen claim itself; the older distinct catalogue threshold uses reset distance instead of mortality"
+        ],
+        "reasoning": "The pertinent exact entries are a continuum crossing-count table and a critical value defined by a unique positive root. A plotted disappearance near 1.1 neither specifies that root nor counts both branches; the other catalogue threshold does not tabulate this mortality slice.",
+        "searches": [
+          "tangency threshold conditional first-passage variance reset Brownian mortality",
+          "Resultary ddcfcae7aacb and 599c525eb34e",
+          "Radice arXiv:2211.16173 Fig. 4 discussion"
+        ]
+      },
+      "rationale": "Radice has the same conditional moments and a numerical investigation of the equality, including the approximate upper mortality cutoff. The supported distinct claim is the global admissible-root classification, the exact single-maximum characterization and double-root threshold, and the nonempty two-positive-crossing regime for the same-start reset rule. No match other than the assigned record itself states this classification in the inspected sources.",
+      "residual_risks": [
+        "The review is not an exhaustive priority search; any unindexed exact phase diagram is not ruled out",
+        "No new credit is assigned for the conditional process, moment formulas or the prior numerical observation of cutoff near mortality 1.1"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN MOMENTS AND NUMERICAL ANTECEDENT, NOT THE EXACT CLASSIFICATION",
+          "evidence": [
+            "Eqs. (71)–(72) express conditional mean and variance; the numerical discussion uses a rate denoted rc and reports no such crossing found for μ roughly above 1.1",
+            "Singular notation rc does not give a proof of uniqueness"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.16173",
+          "material_read": "PDF pp. 7–8, Eqs. (71)–(72), OA offset 46600; unit-scale setting pp. 8–9, offset 58253; crossing discussion pp. 11–12, offset 72900",
+          "method": "Lawful OA PDF passages and independent moment comparison",
+          "title": "Effects of mortality on stochastic search processes with resetting",
+          "trigger": "Same model, moments, CV equality and numerical cutoff"
+        },
+        {
+          "assessment": "SIMILAR PHENOMENON, DIFFERENT MODEL",
+          "evidence": [
+            "Two crossings and tangency in an immortal search with different initial and reset positions"
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-reset-distance-threshold-for-reentrant-first-passage-flu--599c525eb34e",
+          "material_read": "Mirrored RESULT.md Finding near offset 430",
+          "method": "Resultary lookup and local-mirror passage",
+          "title": "A sharp reset-distance threshold for reentrant first-passage fluctuations",
+          "trigger": "Closest distinct exact CV crossing classification"
+        },
+        {
+          "assessment": "OPTIMUM CONDITION, NOT CONDITIONAL GLOBAL CROSSING COUNT",
+          "evidence": [
+            "Unit CV at a rate minimizing the unconditional restarted mean"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1512.01600",
+          "material_read": "Abstract and Eq. (4), OA offsets 1000 and 11850",
+          "method": "Lawful OA PDF passages",
+          "title": "Optimal Stochastic Restart Renders Fluctuations in First Passage Times Universal",
+          "trigger": "General unit-CV restart theorem"
+        },
+        {
+          "assessment": "DIFFERENT OPTIMIZATION CRITERION",
+          "evidence": [
+            "Relates success probability optimization to conditional and unconditional mean times"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1703.01486",
+          "material_read": "PDF p. 3, OA offset 22000",
+          "method": "Lawful OA PDF passage",
+          "title": "Restart Could Optimize the Probability of Success in a Bernoulli Trial",
+          "trigger": "Optimization with selective outcomes"
+        },
+        {
+          "assessment": "NO GLOBAL MORTAL BROWNIAN ZERO COUNT IN PASSAGE",
+          "evidence": [
+            "Selective outcome restart criteria use conditional moments"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2502.09127",
+          "material_read": "PDF p. 1, OA offset 2700",
+          "method": "Lawful OA PDF passage",
+          "title": "Universal criterion for selective outcomes under stochastic resetting",
+          "trigger": "General conditional-time and CV criteria"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact classification resolves a narrow qualitative regime easily lost in numerical searches: two positive rates delimit a higher-relative-fluctuation window when both zero and large reset rates give sub-unit conditional CV. The proof establishes the unique boundary and its multiplicity for all admissible mortalities and corrects a single-crossing reading of the prior numerical treatment without making an optimization claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

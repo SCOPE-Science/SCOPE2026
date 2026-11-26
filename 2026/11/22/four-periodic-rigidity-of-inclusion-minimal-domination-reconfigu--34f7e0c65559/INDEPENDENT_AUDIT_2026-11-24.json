@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:30:12.432356Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A cyclic dominating word has no zero run of length >=3; minimality forbids a one run of length >=3 and requires two zeros on each side of every 11 for private witnesses. These conditions are sufficient: a singleton uses itself and each endpoint of 11 uses its exterior adjacent zero. For a mixed word the slide 11001→10101 leaves the exterior gaps unchanged. For all singletons, unequal adjacent gaps can be swapped by a slide; for constant gaps two one can split a token into its two vacant neighbours, and for constant gaps one one can merge a 101, yielding independent dominating words in both cases for n>=6. All-double words are the four 1100 shifts; the only candidate moves are slides, which for n>=8 deprive a distinct intact 11 of its adjacent private witness. C3 singletons and C4 pairs are all mobile; the two alternating C4 pairs each have an adjacent consecutive pair. This proves the full classification, not connectivity beyond the isolated-state obstruction. Independently ran checks/1.py (Python 3 standard library): private-witness/explicit set-move enumeration for 3<=n<=14 and 11-bit-window automaton by source/sink peeling, leaving exactly the periodic directed four-cycle for the n>=11 check. For the automaton, changes occur only within distance one of the move centre and the private-witness predicate reads radius two, so centre offsets -3..3 contain all affected tests. The run proof stands independently of computation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Beaton's forest connectivity theorem excludes cycles. The matching-joined isolation theorem requires equal-order factors with minimum degrees at least two and one, respectively, in addition to the perfect matching.",
+          "Resultary f3337f5ab080 Finding concerns minimum isolation under one-vertex exchange on loose hypercycles of rank >=3."
+        ],
+        "reasoning": "In the matching-joined construction the first factor's vertices have total degree at least three, ruling out any simple cycle. The loose-hypercycle theorem changes both the object and feasibility predicate and does not specialize to this problem.",
+        "searches": [
+          "arXiv:2411.02300 Theorems 3.4 and 3.7",
+          "Local Resultary: four-periodic minimum isolation on cycles and loose hypercycles"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2411.02300",
+        "arXiv:2112.04448",
+        "Resultary 4d710023d8c9",
+        "Resultary f3337f5ab080"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Beaton gives the same model but no isolation criterion on general cycles in the inspected relevant results. The modulo-four Hamilton-path theorem changes both state space and adjacency. The two isolation records concern sets whose closed neighbourhood leaves a remainder with no edge, and allow arbitrary simple exchange."
+        ],
+        "reasoning": "The isolated 1100 witnesses and the explicit mobility of all other words require the new run argument; they are not a specialization of forest connectivity, a matching example, the Hamilton-path result, or minimum isolation.",
+        "searches": [
+          "Beaton arXiv:2411.02300 pp. 2, 9–10",
+          "Adaricheva et al. arXiv:2112.04448 p. 9",
+          "Resultary 4d710023d8c9 and f3337f5ab080 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Beaton p. 2 uses all minimal dominating sets and moves replacing a vertex with a subset of neighbours or conversely; this is the same state space and move rule.",
+          "Adaricheva et al. p. 9 use all dominating sets and single-bit addition/removal, not this graph."
+        ],
+        "reasoning": "Minimal refers to inclusion, not minimum size. The shared period four with a Hamilton-path obstruction in a different state/move graph does not make the two theorems equivalent.",
+        "searches": [
+          "arXiv:2411.02300 Definition 1.1 and Theorem 1.3(iii)",
+          "arXiv:2112.04448 Theorem 5",
+          "Local Resultary: cycle minimal domination expansion/contraction, isolated or frozen 1100 configurations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Beaton's exact C5 example gives R(C5)=C5, confirming just that length.",
+          "Resultary 4d710023d8c9 reports four isolated minima on C_n for 4|n in its minimum-isolating-set exchange graph, with a separate C4 case; f3337f5ab080 reports the corresponding four at multiples of four in its loose-hypercycle setting."
+        ],
+        "reasoning": "Neither exact periodic classification tabulates this invariant: for example on C8 a minimum isolating set can have two vertices at distance four, whereas the isolated domination configurations here have four vertices. A single exact cycle example is not the uniform table.",
+        "searches": [
+          "Local Resultary catalogue for four isolated cycle configurations and periodic cycle classification",
+          "arXiv:2411.02300 Theorem 1.3(iii)"
+        ]
+      },
+      "rationale": "The distinct claim is the all-cycle classification of isolated inclusion-minimal dominating states under the exact expansion/contraction rule. Beaton supplies the move model and other graph-family results, but the checked statements do not yield the classification. Two four-periodic analogues use different feasibility or transitions. The conclusion is bounded by checked sources, not a priority certificate.",
+      "residual_risks": [
+        "An unindexed classification in the same model or under a different name remains possible; the compared exact results do not establish global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The model matches; the relevant theorems cover C5, forests or non-cycle matching-joined graphs, not the frozen family",
+          "evidence": [
+            "Offsets 5450, 35480, 43350; equal-order matching-joined factors have minimum degrees >=2 and >=1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2411.02300",
+          "material_read": "Definition 1.1 and Theorem 1.3(iii), p. 2; Theorems 3.4 and 3.7, pp. 9–10",
+          "method": "Targeted OA PDF passage inspection",
+          "title": "Reconfiguration graphs for minimal domination sets",
+          "trigger": "Exact model; potentially covering cycle theorem"
+        },
+        {
+          "assessment": "Different states, adjacency and invariant",
+          "evidence": [
+            "Hamilton path iff n not divisible by four, with all dominating sets and Hamming-distance-one edges."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2112.04448",
+          "material_read": "Definition of D(C_n) and Theorem 5, p. 9 (offset 16500)",
+          "method": "Targeted OA PDF passage inspection",
+          "title": "Hamilton Paths in Dominating Graphs of Trees and Cycles",
+          "trigger": "Exact four-periodic statement about reconfiguration on cycles"
+        },
+        {
+          "assessment": "Close analogy only; minimum isolation and arbitrary exchange",
+          "evidence": [
+            "For n>=5, four isolated states at 4|n; connected otherwise. C4 graph K4. The states are not required to dominate all vertices."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-four-periodic-reconfiguration-theorem-for-minimum-isolating-se--4d710023d8c9",
+          "material_read": "RESULT.md Finding from offset 0",
+          "method": "Local Resultary mirror after catalogue search",
+          "title": "A four-periodic reconfiguration theorem for minimum isolating sets on cycles",
+          "trigger": "Same underlying cycle and four isolated configurations"
+        },
+        {
+          "assessment": "Different graph class, feasibility and move rule",
+          "evidence": [
+            "Rank >=3 uniform loose hypercycles, minimum isolation and exchange; four isolated minima for multiples of four beginning at eight."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-minimum-isolation-on-uniform-loose-hypercycles-type-refined-cens--f3337f5ab080",
+          "material_read": "RESULT.md Finding from offset 0",
+          "method": "Local Resultary mirror after catalogue search",
+          "title": "Minimum isolation on uniform loose hypercycles",
+          "trigger": "Same-day four-isolate analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives a complete structural classification under a move model that allows changing the number of selected vertices, not just a disconnection example. It provides exact periodic obstructions for a natural connected 2-regular family, explains why C4 is exceptional, and gives an explicit move certificate for the complement of the frozen states. It makes no claim about the component structure of those mobile states.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

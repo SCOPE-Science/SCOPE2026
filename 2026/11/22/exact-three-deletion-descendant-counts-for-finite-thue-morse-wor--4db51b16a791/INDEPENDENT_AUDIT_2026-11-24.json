@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:19:17.587121Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The greedy embedding picks the first possible occurrence of each successive retained bit, so the legality test on skipped bits gives exactly one path per distinct output; no restriction applies after the last keep. Complementation swaps the one-bit masks, and concatenation gives A_(m+1)=A_m P A_m P. An independent exact reconstruction from tm3_coefficients.json checked all 128 entries of the two base matrices by literal skip-set enumeration from each start mask, both 4-by-4 parity identities through z^3 (128 scalar polynomial identities in n, including degrees through six), and both factored output-row polynomials. Together with the recurrence this proves every depth m>=2, not just the sampled depths. RESULT.md lines 18–32 give the replay specification; verify_tm3.py was inspected as the frozen reference implementation. As a separate check, write d_m for the number of double runs and R_m=n-d_m. For m>=2 the first and last runs are singletons, the second and penultimate are doubles, and no run has length three. Group a greedy deletion set by lengths of contiguous deleted blocks. With E=n-2d_m-1 adjacent pairs of run ends and B double runs followed by singletons, the three singleton blocks give binom(R_m,3)-E(R_m-2)+(E-B) by inclusion-exclusion; a two-block and a singleton give (d_m+1)(R_m-2)-B, and a contiguous triple can occur only at the suffix. Here d_m=n/2-1-d_(m-1), and B=d_m-2d_(m-2): consecutive double runs correspond to two consecutive changes in T_(m-1), grouped in pairs about its changing inter-dyad boundaries. The sum simplifies to binom(R_m,3)+R_m-2 at even depths and binom(R_m,3) at odd depths, reproducing both formulas, including m=2,3. The ratio to binom(n,3) tends to 8/27 by the cubic leading term; it is a distinct-output-to-pattern ratio, not the probability that an arbitrary pattern has no other pattern with the same output. Scope is fixed linear dyadic words and exactly three deletions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sloane Theorems 5.1 and 5.2 give the exact two-deletion count and a general maximum attained by alternating words, respectively.",
+          "SCOPE-arrangement-rigidity-for-three-deletion-descendants-of-constrain--a6d9e21450c4 assumes a word beginning 10 and avoiding both 00 and 111; T_m for m>=3 contains both 00 and 11, so complementing does not put it in that class either."
+        ],
+        "reasoning": "The radius-two formula is for a different radius and the unconstrained maximum supplies only a bound here. The closer constrained radius-three theorem is not applicable to these iterates.",
+        "searches": [
+          "arXiv:math/0207197v1 Section 5",
+          "Resultary: exact three-deletion counts and constrained binary words"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0207197v1",
+        "arXiv:1812.07330v1",
+        "OEIS exact-value lookup",
+        "Published Resultary findings cited in the structured checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "SCOPE-exact-three-symbol-complement-deletion-spectra-of-finite-alterna--1e7ccb67347b fixes the deleted pattern and uses alternating words.",
+          "SCOPE-exact-preasymptotic-profile-for-n-n-3-3-in-binary-deletion-recon--6fda50f1a93d treats overlaps of two balls, not the size of a single ball."
+        ],
+        "reasoning": "Neither those different input classes and invariants nor the general maximum give the parity correction in the exact one-ball count. Extracting the correction requires a new exact computation on the morphic structure (e.g. the consecutive-change and endpoint terms of the run calculation).",
+        "searches": [
+          "arXiv:math/0207197v1 Section 5",
+          "arXiv:1812.07330v1 Theorem 6",
+          "Resultary: three-deletion spectra and reconstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lejeune–Leroy–Rigo count equivalence classes of equal-length factors under multiplicities through order k, not distinct near-full-length outputs of one iterate.",
+          "SCOPE-seven-cyclic-three-binomial-classes-in-finite-thue-morse-words--bbb6af29d4a1 counts classes of rotations; SCOPE-exact-binomial-square-phase-transport-under-iterated-thue-morse--4e040d7b1997 compares scattered profiles of adjacent windows."
+        ],
+        "reasoning": "The equivalent quantity is a support cardinality for subsequences of one fixed input at output length n-3. Neither rotation, factor equivalence, nor multiplicity comparisons yield it.",
+        "searches": [
+          "arXiv:1812.07330v1, introduction and Theorem 6",
+          "Resultary: Thue–Morse deletion descendants, scattered subsequences and three-binomial classes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching OEIS sequence was identified by the bounded exact-value lookups; Lejeune et al.'s different sequence starts 1,2,6,20,44.",
+          "The exact Resultary hit ending --4db51b16a791 is this same frozen finding, not another claim."
+        ],
+        "reasoning": "A shared small entry is not a table match; a bounded lookup does not exclude other encodings or unindexed tables.",
+        "searches": [
+          "OEIS literal prefix 2,20,174,1540,12382 and shorter portions",
+          "Resultary: exact finite Thue–Morse three-deletion descendant count"
+        ]
+      },
+      "rationale": "Pass to the best of the inspected evidence for the exact parity-sensitive count of distinct three-deletion descendants of a fixed Thue–Morse iterate. Neither the general upper bound nor the nearby counts of factor types or deletion-ball intersections determine this specialization; the limit is a consequence, not a separate priority claim.",
+      "residual_risks": [
+        "An earlier all-word radius-three run formula or unindexed automatic-word calculation could give an overlapping specialization; the comparisons do not certify historical priority.",
+        "Published neighbor comparisons are at the level of the inspected statements, not claims of complete proof-text coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant but not covering",
+          "evidence": "Exact radius two; alternating-word maximum for general radius; the discussion distinguishes radius three from the radius-two weighting.",
+          "identifier_or_url": "https://arxiv.org/html/math/0207197v1",
+          "material_read": "Section 5 near offset 30380, Theorems 5.1–5.2 and discussion",
+          "method": "Primary full-text passage inspection",
+          "title": "On Single-Deletion-Correcting Codes",
+          "trigger": "Classical treatment of exact deletion counts and all-radius bounds"
+        },
+        {
+          "assessment": "Different object counted",
+          "evidence": "Length-n factors are classified by short subword multiplicities; no fixed-input length-(n-3) support evaluation in the compared theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/1812.07330v1",
+          "material_read": "Introduction, PDF p. 1; Theorem 6, p. 4, offsets 13800–16934",
+          "method": "Primary PDF passage inspection",
+          "title": "Computing the k-binomial complexity of the Thue–Morse word",
+          "trigger": "Same automatic word and scattered-subsequence vocabulary"
+        },
+        {
+          "assessment": "Hypotheses exclude the Thue–Morse family independently of date",
+          "evidence": "The 00-avoidance hypothesis persists as an obstruction to specialization, even after exchanging bits.",
+          "identifier_or_url": "2026/11/22/SCOPE-arrangement-rigidity-for-three-deletion-descendants-of-constrain--a6d9e21450c4",
+          "material_read": "RESULT.md opening finding and hypotheses",
+          "method": "Published mirror statement inspection",
+          "title": "Arrangement rigidity for three-deletion descendants of constrained words",
+          "trigger": "Exact radius-three evaluation on a closely related binary source family"
+        },
+        {
+          "assessment": "Different source and counting condition",
+          "evidence": "Conditions on a prescribed deleted three-bit pattern in an alternating input, rather than counting the union of all outputs of T_m.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-three-symbol-complement-deletion-spectra-of-finite-alterna--1e7ccb67347b",
+          "material_read": "RESULT.md opening finding",
+          "method": "Published mirror statement inspection",
+          "title": "Exact three-symbol complement-deletion spectra of finite alternating words",
+          "trigger": "Exact residual word counts for three deletions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The third deletion shadow is a natural exact invariant of the dyadic Thue–Morse word in synchronization and subsequence enumeration. The result captures what remains after many deletion sets coalesce and detects a genuine endpoint- and parity-dependent correction. It supplies an all-depth calibration for a fixed structured input beyond bounds or a finite table, without claiming an average-case deletion-channel result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:04:54.884769Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md lines 23–66 under the stated C², positive-curvature and zero-residual-minimum assumptions. The objective is coercive and strictly convex on the nonempty closed box of differences. For each possible active-edge pattern the free level of a consecutive block is determined by an unconstrained scalar first-order equation; unmarked edges have strict slack, so the actual fit agrees with one of these finitely many maps. Its derivative on a block is an average with strictly positive normalized masses m_i φ_i″. A one-jump input is sent to a nondecreasing vector taking values in [0,1]; the expansion in one-jump inputs plus a constant yields the adjacent-TV bound for every block derivative. Integration gives it for each branch. The fit is continuous by coercivity and comparison; at each segment point a nearby representing branch must coincide there with the fit, by finiteness and continuity. This gives the local centered bound and hence the global bound by the scalar upper right Dini-derivative inequality. To see that inequality, subtract a line of slope strictly above the derivative bound; if its adjusted endpoint value increased, an absolute minimum would occur before the right endpoint, contrary to strict right decrease at a minimum. For power losses the proposed smoothing has strictly positive second derivative, converges uniformly on compact sets, and is bounded below by |t|^p−1 for 0<δ≤1, giving uniformly bounded minimizers by comparison with a fixed feasible vector. The sharpness witnesses are feasible inputs differing by one step across a positive-width edge; if all widths vanish the output difference is constant. The uploaded verify.py was statically inspected, not run; its finite checks are diagnostic only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yang–Barber give a neighbor-averaging criterion for Euclidean isotonic projection on the ordinary order cone. Luss–Rosset give separable convex-loss isotonic fitting under order inequalities. The two stronger catalogue matches instead provide the operative uniformity over all diagonal quadratic masses for hard bands directly or by a limit."
+        ],
+        "reasoning": "Neither ordinary isotonic work alone gives a nonlinear two-input finite-band bound as stated. Universal quadratic mass dependence in the catalogue theorems is stronger than a fixed-mass projection estimate and permits choosing secant curvatures separately at each vertex for any two nonlinear fits.",
+        "searches": [
+          "Resultary: isotonic regression Lipschitz variation seminorm contraction two inputs nonquadratic convex losses",
+          "Resultary: sharp total variation stability bounded slope regression mixed power losses path",
+          "arXiv:1706.01852, §2 and Theorem 1",
+          "arXiv:1104.1779, formulation and Theorems 1–2",
+          "Resultary 827a763dee16 and 91412ee9d28c"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–91, VERIFICATION.md and verify.py (static)",
+        "Resultary b99f82190bf8, 827a763dee16, 91412ee9d28c, 28f1c81af7f5, 8a180bae4c2f and fcdc0a30e6a2",
+        "arXiv:1706.01852, 1104.1779, 0912.5182, 1507.00710 and DOI 10.1007/s10957-008-9477-0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the nonlinear fitted pair u=T(x), v=T(y), set α_i=m_iφ_i′(u_i−x_i), β_i=m_iφ_i′(v_i−y_i). By strict increase, there is a positive diagonal D with α−β=D[(u−x)−(v−y)]: take coordinate secant slopes, and any positive entry if the two residuals agree. This applies directly also to |·|^p for every p>1.",
+          "Set X=u−D⁻¹α and Y=v−D⁻¹β. The nonlinear optimality conditions −α∈N_C(u), −β∈N_C(v) are exactly the optimality conditions for the D-mass quadratic projections of X and Y onto C. Also X−Y=x−y identically."
+        ],
+        "reasoning": "The previously catalogued all-masses quadratic bound now gives V(u−v)≤V(X−Y)=V(x−y) in one step, with no branch or smoothness approximation needed. When all slope bands are singletons, all fitted differences are constant; otherwise two feasible vectors differing by a small one-edge step attain 1 because the losses minimize at zero. These elementary equality cases exhaust the coefficient. Thus the smooth and independent-power claims are consequences of the operative quadratic theorem, not only analogous special cases.",
+        "searches": [
+          "Resultary 827a763dee16, universal criterion and divided-difference proof",
+          "Resultary 91412ee9d28c, sharp cut formula",
+          "RESULT.md lines 5–21 and 60–66"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "827a763dee16 states quadratic fidelity with arbitrary positive masses and arbitrary finite convex edge penalties. Its mass-dependent superharmonicity criterion holds for unit edge weights with the two boundary weights zero. 91412ee9d28c states a quadratic tree hard-band formula with arbitrary positive masses; on a path both exterior boundary counts of a split consecutive block are at most one, so the formula gives 1."
+        ],
+        "reasoning": "Use edge penalties k dist(s,[ℓ_e,r_e])² in the first theorem. The minimizers for each input are bounded by the quadratic comparator at any feasible vector, and their distances to the intervals tend to zero; every cluster point is the unique hard-box quadratic projection. This obtains contraction for all finite boxes, including singletons. Alternatively, for the tree formula specialize to a path and approximate singleton bands by positive-width bands; a fixed feasible comparator gives boundedness and the same cluster-point argument. The resulting all-masses hard-box bound is the form needed in the secant reduction below.",
+        "searches": [
+          "Resultary: adjacent total variation contraction heterogeneous convex loss slope constraints arbitrary edge intervals",
+          "Resultary: weighted least squares finite edge-difference bands path sharp two-input edge total variation Lipschitz constant",
+          "Resultary 827a763dee16, Finding and proof of its proximal criterion",
+          "Resultary 91412ee9d28c, Finding and cut formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact target hit b99f82190bf8 is a self-match. The tree/path entries 28f1c81af7f5 and 8a180bae4c2f give related quadratic cases; fcdc0a30e6a2 uses first-difference ℓ₂, not ℓ₁. The two other published catalogue entries provide the exact operative quadratic bound by the specializations above."
+        ],
+        "reasoning": "The sharp coefficient is a uniform law, not a numerical invariant requiring a lookup table. Exact catalogue and specialization checks reveal coverage even without a separate exact duplicate using site-loss language.",
+        "searches": [
+          "Resultary: strictly convex coordinate-dependent residual losses arbitrary slope intervals adjacent total variation contraction",
+          "Resultary: heterogeneous power losses path regression slope box contraction variation seminorm",
+          "Resultary 827a763dee16, 91412ee9d28c, 28f1c81af7f5, 8a180bae4c2f and fcdc0a30e6a2"
+        ]
+      },
+      "rationale": "The full stated conclusion is covered by a direct mathematical implication of the independently catalogued all-masses quadratic path-resolvent theorem 827a763dee16, and also follows from the all-masses quadratic tree slope-band theorem 91412ee9d28c. This is established implication, not a possible match inferred from titles. The same-day entries do not establish chronological priority, dependency, or who found the argument first. The assessment concerns absence of a distinct theorem at the stated scope, not false mathematics.",
+      "residual_risks": [
+        "The catalogue date does not settle priority or dependence between the same-day records. The conclusion is verified mathematical coverage, not a historical attribution.",
+        "An earlier primary-source statement of the complete implication was not established in these bounded comparisons. That does not weaken the demonstrated coverage by the inspected catalogue theorems."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full frozen theorem by quadratic penalty limit and two-input secant reduction, despite a different stated form",
+          "evidence": [
+            "For unit variation weights, its criterion (w_j−w_{j−1})/m_j+(w_j−w_{j+1})/m_{j+1}≥0 holds for all positive masses.",
+            "Edge potentials may be arbitrary finite convex functions, including squared distance to each allowed interval."
+          ],
+          "identifier_or_url": "Resultary 827a763dee16",
+          "material_read": "RESULT.md Finding and assumptions, proof including divided differences, offsets 0 and 4810; limitations offset 8911",
+          "method": "Local mirror passage inspection",
+          "title": "Universal weighted-variation contractivity of convex path resolvents and flows",
+          "trigger": "Uniform arbitrary-mass path theorem; possible complete implication"
+        },
+        {
+          "assessment": "A second complete implication on paths after relaxing fixed bands and choosing pair-specific masses",
+          "evidence": [
+            "For nondegenerate bands the maximum includes (b_A M_C+b_C M_A)/(M_A+M_C); on a path b_A,b_C≤1 for the two pieces of a cut consecutive block."
+          ],
+          "identifier_or_url": "Resultary 91412ee9d28c",
+          "material_read": "RESULT.md Finding and assumptions offset 0; proof and limitations offsets 4500 and 8474",
+          "method": "Local mirror passage inspection",
+          "title": "Sharp cut formula for total-variation sensitivity of tree slope-band regression",
+          "trigger": "Exact hard-band quadratic bound on a larger graph family"
+        },
+        {
+          "assessment": "Neighbor-averaging criterion for Euclidean order-cone projection, not the full arbitrary-band nonlinear statement",
+          "evidence": [
+            "Ordinary isotonic projection uses inequalities with no finite upper band; the theorem concerns Euclidean projection."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1706.01852",
+          "material_read": "§2 pp. 3–4, Theorem 1 at OA offset 13587",
+          "method": "Targeted OA primary passages",
+          "title": "Contraction and uniform convergence of isotonic regression",
+          "trigger": "Classical projection contraction in variation"
+        },
+        {
+          "assessment": "Algorithmic and solution results under order inequalities",
+          "evidence": [
+            "The inspected partitioning theorems do not state adjacent-TV sensitivity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1104.1779",
+          "material_read": "Formulation p. 3 and Theorems 1–2 p. 12, OA offsets 6237 and 27801",
+          "method": "Targeted OA primary passages",
+          "title": "Generalized Isotonic Regression",
+          "trigger": "Heterogeneous separable convex fitting"
+        },
+        {
+          "assessment": "Equivalent fitting model after a cumulative shift, but inspected material supplies algorithm, not the TV modulus",
+          "evidence": [
+            "Weighted-quadratic LPAV imposes 0≤y_{i+1}−y_i≤λ_i(s_{i+1}−s_i); the general lower endpoints can be shifted away without changing two-input differences."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10957-008-9477-0",
+          "material_read": "Springer PDF pp. 439–440, OA offset 34947",
+          "method": "Targeted lawful full-text passage inspection",
+          "title": "Isotonic Regression under Lipschitz Constraint",
+          "trigger": "Quadratic bounded differences with arbitrary shifted lower bounds"
+        },
+        {
+          "assessment": "Quadratic Lipschitz-isotonic algorithm, not a two-input-TV result",
+          "evidence": [
+            "The theorem gives the path fitting algorithm."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0912.5182",
+          "material_read": "Theorem 4.4 p. 10, OA offset 36974",
+          "method": "Targeted OA theorem passage",
+          "title": "Lipschitz Unimodal and Isotonic Regression on Paths and Trees",
+          "trigger": "Bounded slope optimization on paths and trees"
+        },
+        {
+          "assessment": "An optimization result, not arbitrary mixed-exponent two-input slope-box stability",
+          "evidence": [
+            "Treats isotonic ℓp algorithmic complexity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1507.00710",
+          "material_read": "pp. 1–2, OA offsets 2911 and 5900",
+          "method": "Targeted OA primary passages",
+          "title": "Fast, Provable Algorithms for Isotonic Regression in all ℓp-norms",
+          "trigger": "Power-loss regression comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a mathematical statement, the exact two-input adjacent-variation law is a useful stability bound for local slope constraints under changing data, including highly heterogeneous losses and fixed edges. It needs no uniform curvature control or bound on the data, distinguishes constrained rigidity from attainable unit sensitivity, and concerns a different norm from the usual fidelity norm. That usefulness does not supply a distinct result once the all-masses quadratic implication is accounted for.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

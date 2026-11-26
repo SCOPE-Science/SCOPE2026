@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:32:05.845928Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, definitions and Proof §§1–6; VERIFICATION.md and verify.py (inspected as evidence, not executed)."
+      ],
+      "rationale": "The implication stays in a box and cannot cross boxes at distance at least three. A new symbol in just one coordinate can be propagated over the base box one distance-one step at a time: the new-symbol word at the old base and the old-symbol word at the next base are the two distance-two premises. For a point at distance two, the first rectangle supplies the two one-symbol extensions, after which both can be absorbed. Traversing a distance-one spanning tree in the second box extends this to the box merge. The resulting greedy process stays in the actual closure and terminates in a closed cover of the seed, so it yields the closure for any merge order. For a closed set the distance-one components are precisely the boxes; the merge lemma rules out components at distance two. This includes the empty union. Coordinate coverage forces k≥1+M, and for a merge the rank Σ(|Bᵢ|−1) increases over the sum of the two ranks by Σ(1−|Bᵢ∩Dᵢ|)≤2, proving the other lower bound. For attainment, if the largest symbol class dominates, pair each other token with a distinct token of that class. Otherwise pair from two largest classes: with n tokens and each class at most ceil(n/2), any class attaining that cap must be among the two selected, so after removal the new cap ceil((n−2)/2) is maintained. The construction yields max(M,ceil(T/2)) groups. With the common base word, the group words generate all one-change words and then all words by the rectangle rule and induction on support. In dimension one this gives exactly q₁, consistent with there being no triggers.",
+      "residual_risks": [
+        "Finite fixture checks are only corroborative. The exact-distance-two condition is necessary; the argument does not certify other convexities or arbitrary Horn systems."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For ordinary P₃ the published product proof already transports a corner across two different factors. Its Corollary 2 and Lemmas 3–5 use full-or-singleton coordinates and control the growth of dimension under near merges. Dourado et al.'s available abstract concerns complexity on chordal graphs and an interval-graph algorithm; the exact same induced rule is the relevant one, but full text was not accessible. Bichoupan's abstract treats general implication-basis complexity."
+        ],
+        "reasoning": "The proof mechanism for product structure and merging is not wholly new: the corner-transport part of the ordinary proof also works for induced paths. But ordinary convexity forces full clique fibres and bounds dimension rather than counting individual symbol capacities. It does not give the unrestricted box structure or the sharp symbol-sensitive rank and matching formula.",
+        "searches": [
+          "Brešar–Valencia-Pabón, Theorem 1, Corollary 2 and Lemmas 3–5",
+          "Dourado–Penso–Rautenbach, DOI 10.1016/j.tcs.2022.01.004",
+          "Araújo et al., DOI 10.1016/j.dam.2017.11.007",
+          "Bichoupan, arXiv:2211.08524"
+        ]
+      },
+      "checked_sources": [
+        "Brešar–Valencia-Pabón primary PDF, §§2–4",
+        "Resultary 5074ded0ed82 and comparison records 5c7b235b180b and 7f179cc822a5",
+        "Dourado–Penso–Rautenbach accessible abstract; attempted related Araújo et al. source retrieval",
+        "Frozen RESULT.md definitions and references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Their rank surrogate is the number of active factors, with gain at most two. In the frozen result the sum of excess symbol counts is the right quantity and a single-factor supply constraint also binds. The proof of attainment pairs tokens from different coordinates."
+        ],
+        "reasoning": "The heterogeneous statement adapts known merging geometry, but deriving its precise law requires a different rank estimate and a matching construction; it is not a corollary of the numeric ordinary or geodesic results. In the binary specialization these distinctions disappear and the value and structural recursion were already covered.",
+        "searches": [
+          "Brešar–Valencia-Pabón, §4 Lemmas 3–5 and Corollary 6",
+          "Resultary 5074ded0ed82, Finding and Limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Induced-P₃ endpoints in a clique product are exactly at Hamming distance two, with the two missing rectangle corners as common neighbors. The shortest-path interval allows all coordinatewise choices for endpoint pairs of any distance; {000,111} stays closed for induced P₃ but geodesically generates all of Q₃."
+        ],
+        "reasoning": "The statement is exactly induced-P₃ closure, coincides with geodesic closure only when dimension is at most two on this domain, and coincides with ordinary P₃ on binary products. Equality of geodesic and induced generator counts when T≤2M does not identify those two closures.",
+        "searches": [
+          "Induced paths of order three and hull-number convexity; Brešar–Valencia-Pabón, ordinary P₃, §§2–4",
+          "Resultary: Hamming geodesic/Horn hulls, record 5074ded0ed82"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5074ded0ed82 has rectangular hulls and rooted Horn premises for geodesic convexity on [q]^d. The mixed-Hamming record 5c7b235b180b concerns first-order theories, and 7f179cc822a5 concerns categorical products. The published ordinary P₃ formula for arbitrary clique factors is 1+ceil(d/2)."
+        ],
+        "reasoning": "The ordinary formula covers the exact binary specialization, not the heterogeneous induced result: K₃□K₃ has ordinary value 2 and induced value 3. The geodesic formula maxᵢqᵢ already describes the low-dimensional coincidence but can be strictly smaller than the induced count.",
+        "searches": [
+          "Resultary: Hamming Horn convexity and generator/hull formulas; records 5074ded0ed82, 5c7b235b180b, 7f179cc822a5",
+          "Brešar–Valencia-Pabón, abstract and §§3–4"
+        ]
+      },
+      "rationale": "The structural recursion has a strong antecedent in ordinary P₃ convexity: connected hulls factor and nearby subproducts can merge, and in the binary case the two rules coincide. The supported distinct result is the exact induced-P₃ structure with arbitrary coordinate symbol subsets and its sharp heterogeneous generator count. Ordinary P₃ hulls fill an entire clique fibre as soon as there are two symbols in it; that operation is unavailable for induced P₃. The known geodesic result has a different closure and generator count in general.",
+      "residual_risks": [
+        "Exact overlap in uninspected induced-path literature or differently named closure theory is not ruled out. No full-document noncoverage inference is made for the unavailable papers. The binary recursion and hull number are not original claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Extensive structural and binary overlap; ordinary P₃ differs for cliques with triangles",
+          "evidence": [
+            "Connected convex sets factor; the corollary forces each factor size to be full or one. Lemma 4 treats distances one, two, and greater than two; the hull bound counts dimension."
+          ],
+          "identifier_or_url": "https://lipn.fr/~valencia/papers/P_3-convexity-RV2.pdf",
+          "material_read": "Abstract, §2, §3 Theorem 1 proof, §4 Corollary 2 and Lemmas 3–5/Corollary 6, including offsets 4111–12044 and 13940–18062",
+          "method": "Author-hosted primary PDF, paged text",
+          "title": "On the P3-hull number of Hamming graphs",
+          "trigger": "Exact heterogeneous clique-product setting and a plausible stronger structure theorem"
+        },
+        {
+          "assessment": "Geodesic instead of induced-P₃ convexity; closure can differ even for binary cubes",
+          "evidence": [
+            "c(S)=∏ᵢπᵢ(S) and the restrictions concern equal-alphabet geodesic convexity."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-rooted-horn-circuit-spectrum-of-hamming-geodesic-convexity-and-a--5074ded0ed82",
+          "material_read": "Mirrored RESULT.md Finding at offset 0 and Limitations at offset 8500",
+          "method": "Local Resultary search and mirrored text",
+          "title": "Rooted Horn circuit spectrum of Hamming geodesic convexity",
+          "trigger": "Same product and coordinate boxes under a potentially synonymous convexity"
+        },
+        {
+          "assessment": "Abstract addresses chordal hardness and a unit interval algorithm; it does not establish product coverage or exclude a relevant result elsewhere in the paper",
+          "evidence": [
+            "Abstract describes NP-hardness for chordal graphs and an algorithm for unit interval graphs."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2022.01.004",
+          "material_read": "Accessible abstract; lawful full-text retrieval did not supply readable primary text",
+          "method": "Abstract and attempted OA paper retrieval",
+          "title": "The hull number in the convexity of induced paths of order 3",
+          "trigger": "Exactly the induced-P₃ notion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§2–6",
+        "Brešar–Valencia-Pabón, §4 as the dimension-bound comparison"
+      ],
+      "rationale": "Separated product components are a canonical description of the actual implication closure, making the box-merge algorithm exact rather than just an upper bound. The minimum generator formula distinguishes a single large alphabet's supply constraint from the total two-symbol growth budget. Those are natural structural features not detected by the established dimension-only ordinary-P₃ result.",
+      "residual_risks": [
+        "The description does not bound complexity in a compressed input representation or determine a minimum implication basis."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

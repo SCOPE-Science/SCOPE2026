@@ -1,19 +1,21 @@
-# Scientific review: sharp dyadic tail-efficiency phases of the Sierpiński copula
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem specifies exact one- and two-dimensional uniform product margins, the full threshold range, and the maximizing odd-parity version of the bitwise Sierpiński law. Pairwise independence imposes the two Bernoulli upper bounds, both attained by a fully specified nonnegative eight-cell distribution extended by conditional independent uniforms. The binary first-digit law gives a self-similar recursion; iteration, subtraction and one-variable rational optimization prove the full dyadic formula and its sharp \(3/4\) efficiency constant. A separate uniform-marginal \(L^1\) estimate yields the explicit strictly increasing real-analytic logistic-score counterexample. The packaged standard-library rational checker was executed from its actual file path and returned 1,504 passing checks. Exhaustive finite dyadic grids support but do not prove the continuum result, for which the written analytic proof supplies the quantifiers and boundary cases.
+PASS
 
-## Originality — PASS against inspected sources, with priority risk
+Pairwise independence fixes the Bernoulli pattern masses in terms of triple mass r. Nonnegativity gives the two upper bounds, and their minimum yields a normalized nonnegative table in both parameter ranges. Sampling independently within the two threshold bins lifts it to uniform product pair projections. Odd-parity digit triples are uniform on four possibilities and independent over digit positions, making the three binary coordinate pairs independent. All-below is impossible at t≤1/2; all-above at t≥1/2 conditions on first triple 111 and gives exact quarter-scale self-similarity. Iterating at p in [L/2,L], L=2^(−k), gives the stated polynomial and factored deficit, with both dyadic endpoints agreeing and t=1 trivial. The identity 4S−3p²=(2L−3p)² proves the precise efficiency/equality statement. At 5/8 the exact gap 1/32 exceeds the sum of the two strict product error bounds of 6/512 each, proving improvement >1/128. Independently enumerated 67 exact dyadic probabilities and checked the ratio identity on five scales.
 
-Omladič–Vuk–Zalar (2026, arXiv:2611.14008, first public 2026-11-10, primary MSC2020 62H05) develops finite copula feasibility criteria without the claimed conditional pairwise-independent diagonal formula or Sierpiński efficiency calculation. Gladkov–Kolesnikov–Zimin (2018, arXiv:1803.10447) supplies the maximizing Sierpiński coupling for the different product score \(xyz\), but does not compare it with the sharp tail capacity across all thresholds or derive the quantified analytic-score failure. Gvozdev–Kolesnikov (2026, arXiv:2611.20365, first public 2026-11-16) treats sufficient dyadic coefficient conditions for Sierpiński product-score optimality; its later source date does not establish the present tail phase theorem and it is not the initiating dated source. Related three-variable pairwise-independent ordering and Simes results concern different functionals and do not imply this sharp diagonal efficiency or smooth witness. Actual semantic published-finding corpus searches for Sierpiński, bitwise-xor, survival diagonals, pairwise-independent threshold capacity, and aliases found no explicit covering record. Absence from a search is not proof of priority; the full text of the 2016 paper on trivariate diagonal-plane sections remained inaccessible, and specialized historical analyses could exist.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The common-tail diagonal is a standard, directly interpretable dependence diagnostic: it measures the probability of simultaneous extreme values under exact pairwise independence. The result is a **complete classification** of every threshold at which a canonical, known-optimal multistochastic product-score coupling remains or ceases to be optimal for the tail diagnostic. The exact quadratic dyadic losses, global sharp \(25\%\) relative loss and strictly increasing analytic-score witness show that moment-product optimality does not imply universal increasing-score optimality, without appealing to discontinuous step scores. This gives a useful boundary on the applicability of the fractal coupling to copula stress testing.
+The even/odd digit model, optimality for xyz and the general Bernoulli benchmark are prior. The assessed contribution is the all-scale quantitative comparison of the canonical law to that benchmark, the sharp relative efficiency and its complete attainment set, and a quantitative failure of optimality for an explicitly analytic monotone product score. The inspected exact independence bounds do not evaluate the canonical law, and the Sierpiński optimality results concern different scores.
 
-## Scope and risks
+## value
 
-Only three uniform marginals with full pairwise independence and a common threshold are covered. The upper-tail-optimizing coupling can vary with threshold. No uniqueness or optimal smooth-score value is claimed. The comparison with the inaccessible 2016 diagonal-plane-section source is necessarily limited; mathematical priority is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The canonical coupling is motivated by a known multistochastic optimal-transport theorem. Its exact scale-invariant loss and complete equality set distinguish joint-tail performance from linear-product optimality under the same pair constraints. The smooth witness shows the loss is not an artifact of discontinuous threshold scores. These are independently useful quantitative properties of the fixed copula, not just a rederivation of an event-intersection bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

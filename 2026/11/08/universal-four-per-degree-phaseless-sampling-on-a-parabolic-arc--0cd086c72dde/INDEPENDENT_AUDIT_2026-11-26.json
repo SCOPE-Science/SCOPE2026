@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:34:18.043312Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For N=4d, all coefficient-pair terms of the intensity except the top diagonal have degree at most N−2; the top diagonal is |a_d|²(T²+T⁴)^d, so [T^(N−1)]I=0, including when degree(p)<d. For distinct sampling nodes any nonzero interpolation-kernel polynomial must be a constant times the monic node product with coefficient −sum(t_j) at T^(N−1). This proves invertibility under exactly the stated nonzero-sum condition for the intensity space and explains the positive-node result. Equal intensities for nonzero polynomials yield the rational identity p(phi)/q(phi)=q*(psi)/p*(psi). The two fiber reflections preserve the two sides and generate a translation by 2i. A rational function invariant under that translation has no finite poles and then must be constant, giving unimodular equivalence since phi is surjective. Zero data force the zero polynomial because the sites are distinct and outnumber its possible roots. At d=1 the Hermitian coordinates realize all four coefficients (1,T,T²,T⁴); at zero node sum the nonzero lifted kernel cannot contain a semidefinite form because the site vectors span C². A rank-one positive part minus a rank-one negative part gives the claimed ambiguous pair. The same lifted argument plus compactness establishes fixed-design stability; no uniform constant is asserted and higher-degree necessity is not proved.",
+      "replay": "python3 -B /workspace/review_replay.py 2 (SymPy): exact signed-node recovery for full degree, lower degree and zero, using ordinary interpolation corrected by a multiple of the node product, and an independent nonsymmetric linear obstruction with determinant −185. Frozen verify.py and its notes were inspected, not executed. The finite diagnostics do not establish the universal theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "In 5698ceff66b7 the generic profile reconstruction count for a quadratic graph is (d+1)²−(d−1)²=4d.",
+          "Király–Ehler discuss generic rank-one measurement results and known all-signal design counts; Liehr treats parallel lines for entire-function spaces; Chalendar–Partington treat line and circle uniqueness in their stated settings."
+        ],
+        "reasoning": "In general complex dimension d+1 the count 4d is familiar, but generic ambient designs need not guarantee a structured evaluation family. Even genericity within that family does not identify which specific distinct tuples work or settle every linear-case zero-sum obstruction.",
+        "searches": [
+          "Resultary 5698ceff66b7, polynomial-graph phase retrieval",
+          "Király–Ehler arXiv:1402.4053, §2.2",
+          "Liehr arXiv:2308.05722, Theorem 1.1",
+          "Chalendar–Partington arXiv:2403.16255, Theorems 2.1, 2.11"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Resultary 8b2af952225c, 5698ceff66b7, 41533445de3e",
+        "Pohl–Li–Boche 2017 slides",
+        "arXiv:1907.09371, 2308.05722, 2403.16255, 1402.4053"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic 4d agrees with the present count but does not give the exceptional locus. The earlier parabolic rational injectivity theorem applies once full intensity is known. The nonadaptive radial/angular construction has (2d+1)² samples."
+        ],
+        "reasoning": "The missing top-adjacent coefficient and exact node-product obstruction supply a concrete sufficient condition beyond the earlier conclusions, while a singular lifted kernel gives the linear-case converse. This does not claim novelty for the generalized Vandermonde identity or for rational periodicity.",
+        "searches": [
+          "Resultary 8b2af952225c Finding and rational-reflection argument",
+          "Resultary 5698ceff66b7 Finding and profile dimension formula",
+          "Przybyłek–Siedlecki arXiv:1907.09371, Theorem 4.2 and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed 8b2af952225c uses the same parabola, intensities and two-reflection rigidity; it gives arbitrary 4d+1 sites plus 4d-site counterexamples, not the nonzero-sum rule.",
+          "Pohl–Li–Boche have a 4d two-circle design, not arbitrary allowed sites on a parabolic interval."
+        ],
+        "reasoning": "Magnitude and squared magnitude are equivalent exact data. Equality of the sample count on another curve, and equality of the whole-curve rigidity property, do not establish the same finite-site design theorem.",
+        "searches": [
+          "Local Resultary: sharp universal phaseless sampling on a parabola; polynomial graph phase retrieval; four-per-degree curve samples",
+          "Pohl–Li–Boche SampTA 2017, slides 14, 17–18"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact indexed comparisons 8b2af952225c (parabola, threshold for all unconstrained nodes), 5698ceff66b7 (generic graph-node theorem), and 41533445de3e (ellipse with a product criterion). None of the inspected statements specifies the parabolic nonzero node sum or the full linear-case converse."
+        ],
+        "reasoning": "The claim is an exact symbolic design criterion rather than a tabulated numerical count; the direct indexed mathematical statements are the pertinent comparison. Search misses are not priority evidence.",
+        "searches": [
+          "Local Resultary parabolic phase retrieval, polynomial graph imaging, and noncircular ellipse four-per-degree sampling"
+        ]
+      },
+      "rationale": "Pass for the deterministic 4d-node nonzero-sum criterion and the degree-one characterization in that design problem, not for the sample count alone or the reflection mechanism. The earlier parabolic result has arbitrary 4d+1 sites and some ambiguities at 4d, and already proves rational phase rigidity. A distinct same-day more general graph result gives generic 4d parabolic sites, not the present guarantee for every tuple outside the explicit hyperplane. The checked two-circle, radial and general-frame results are not statements about this specified evaluation design.",
+      "residual_risks": [
+        "Other algebraic-curve results could implicitly derive an exact node sum; the comparison is bounded.",
+        "Same-day indexing does not establish priority. The general graph result and earlier parabolic rigidity receive credit regardless of posting order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material partial coverage",
+          "evidence": "All 4d+1 sites, some ambiguous 4d designs, and the same rational-rigidity step.",
+          "identifier_or_url": "Resultary 2026/11/2 8b2af952225c",
+          "material_read": "Finding and reflection argument",
+          "method": "Local Resultary and mirrored passages",
+          "title": "Sharp universal phaseless polynomial sampling on a parabola",
+          "trigger": "Same curve and measurement model"
+        },
+        {
+          "assessment": "Generic count overlaps; exact deterministic criterion not supplied",
+          "evidence": "D_(2,d)=4d for the parabolic graph.",
+          "identifier_or_url": "Resultary 2026/11/8 5698ceff66b7",
+          "material_read": "Finding and generic profile dimension",
+          "method": "Local Resultary and mirrored passages",
+          "title": "Polynomial graph phase retrieval: a complete affine versus curved classification",
+          "trigger": "Broader nonlinear graph result"
+        },
+        {
+          "assessment": "Analogue on a different curve",
+          "evidence": "Uses a nonunit angular-node product on an ellipse, not a node sum on a parabola.",
+          "identifier_or_url": "Resultary 2026/11/8 41533445de3e",
+          "material_read": "Finding",
+          "method": "Local Resultary comparison",
+          "title": "Four-per-degree phaseless sampling on a noncircular ellipse",
+          "trigger": "Exact count with a deterministic node condition"
+        },
+        {
+          "assessment": "Same count, different sampling geometry",
+          "evidence": "Slide 18 uses 2N+1 unit-circle and 2N−1 inner-circle measurements.",
+          "identifier_or_url": "https://www.ce.cit.tum.de/fileadmin/w00cgn/lti/pdf/vortraege/Pohl-Phase_Retrieval_in_Spaces_of_Analytic_Functions_on_the_Unit_Disk.pdf",
+          "material_read": "Slides 14, 17–18, extraction offsets 20600–30168",
+          "method": "Open author presentation",
+          "title": "Phase retrieval in spaces of analytic functions on the unit disk",
+          "trigger": "Earlier four-per-degree design"
+        },
+        {
+          "assessment": "Different construction and count",
+          "evidence": "(2d+1)² radial/angular samples.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.09371",
+          "material_read": "Theorem 4.2 p. 14 and proof p. 15, offsets 27000 and 29400",
+          "method": "Open primary-text passages",
+          "title": "A note on the complexity of a phaseless polynomial interpolation",
+          "trigger": "Nonadaptive polynomial phase retrieval"
+        },
+        {
+          "assessment": "Different data regime and geometry",
+          "evidence": "Parallel lines with offsets not contained in an arithmetic progression in its function-space setting.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.05722",
+          "material_read": "Theorem 1.1 p. 2, offset 4900",
+          "method": "Open primary-text passage",
+          "title": "Arithmetic progressions and holomorphic phase retrieval",
+          "trigger": "Uniqueness on organized geometric sets"
+        },
+        {
+          "assessment": "Does not cover the structured parabolic design in the inspected claims",
+          "evidence": "Two intersecting line segments and finite sampling of Blaschke products on a circle.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.16255",
+          "material_read": "Theorems 2.1 and 2.11 pp. 2, 7, offsets 4400 and 13950",
+          "method": "Open primary-text passages",
+          "title": "Phase retrieval on circles and lines",
+          "trigger": "Finite- and infinite-data geometric uniqueness"
+        },
+        {
+          "assessment": "Dimension background, not a deterministic theorem for these evaluation vectors",
+          "evidence": "Discusses generic-signal identifiability at 2n and all-signal examples with 4n−4 at coefficient dimension n.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.4053",
+          "material_read": "§2.2 p. 5, offset 16850",
+          "method": "Open primary-text passage",
+          "title": "The algebraic approach to phase retrieval and explicit inversion at the identifiability threshold",
+          "trigger": "General dimension-based identifiability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact deterministic design rule removes one sample from the prior every-node guarantee while letting a practitioner select all sites in an arbitrarily short prescribed positive interval without a genericity assumption or adaptation to the signal. Linear inversion recovers the entire intensity profile and identifies a real obstruction in the smallest degree; the result does not promise good conditioning for clustered samples or a global information-theoretic optimum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

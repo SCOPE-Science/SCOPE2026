@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:01:21.696898Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 8–47; VERIFICATION.md, lines 19–25; verify.py, lines 10–97 (inspected, not run)",
+        "Independent hand check of the five-good obstruction and the two parity-dependent transition counts, including L=0,1 and the first positive even L"
+      ],
+      "rationale": "For H even, equal large counts and unit discrepancy L mod 2 attain the total-load parity lower bound. For H odd and L<r−1, any partition has an odd large-count difference and discrepancy at least r−L, attained by putting all L units with the large-poor agent. For H odd and L≥r−1 the parity-compatible compensation is r or r−1, again attaining the parity bound. This proves the prefixwise MMS formula including zero counts. On a unit arrival the even-H case is equalization and the odd-H compensation delta changes by exactly one, with the sign specifying the receiving agent. On a large arrival, the parity switches; the recipient of the new large good transfers q=(delta−(L mod 2))/2 old units. The two agents' unit-count difference changes by 2q in the required direction in either parity case. For r=2,3, q is 0 or 1; whenever it is 1 the recipient has a unit available and its old position is matched to the new large good while all other old items remain in place for that agent. Thus the injections hold from the empty allocation onward. The rule is deterministic with fixed tie-breaking and uses a constant number of counter/list operations per arrival. For r≥4 the fixed five-good word has MMS 2 at prefix four and MMS 4 at prefix five, forcing cardinalities (2,2) then (1,4) up to labels, which fails an injection regardless of foresight. The EFX argument moves one strictly positive good from the envied bundle and obtains two parts strictly above the allegedly envying agent's value, contrary to its MMS guarantee. Identical valuations make every complete allocation Pareto optimal.",
+      "residual_risks": [
+        "The running-time statement counts unit-cost counter/list operations, not bit complexity for unbounded binary counters. The recorded length-14 enumeration is finite corroboration, not proof of arbitrary-prefix guarantees."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "B.2 provides 2/3-MMS with item-level upgrades at unrestricted values. Its fixed rank-slot sequence (1,2,2) repeated does not even exactly balance arbitrarily many equal unit goods.",
+          "Theorem 4.1/C.2 ensures exact MMS with nondecreasing bundle values only; in the case where both agents need an upgrade its proof may choose an exact-MMS partition without testing cardinality or large counts.",
+          "Amanatidis et al. allow personalized two values but allocate irrevocably and give an approximation guarantee, not this exact injection algorithm; 792a94746f1b covers arbitrary numbers of agents statically."
+        ],
+        "reasoning": "The stronger statements in other dimensions of generality either weaken fairness, weaken recourse, or lack prefixwise constraints. They do not automatically certify the restricted positive theorem.",
+        "searches": [
+          "Huang–Teh Theorem B.2, Appendix B.4, B.11 and B.12, and exact bundle theorem 4.1/C.2",
+          "Amanatidis et al., arXiv:2505.22174v1, abstract, Section 1 and contributions",
+          "Resultary 792a94746f1b, Finding at offset 0"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.16943v1 and arXiv:2505.22174v1, cited passages above",
+        "Local Resultary snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4: 792a94746f1b, c88e01b1c1a7, d5213f7e2681"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "B.17's displayed conditions at n=2 and alpha=1 admit six small goods followed by two large goods with ratio at least seven. This already covers part of the negative domain.",
+          "B.18's small-goods-then-large-goods EF1/cardinality argument can be specialized to M=4,n=2 and rescaled so the large good is worth at least the total of the small goods. C.2 implies exact two-agent MMS entails EFX and hence EF1; EF1 on four equal goods forces a balanced split. The specialization therefore recovers the same five-good obstruction at r≥4.",
+          "The static balancing theorem implies an optimal load formula, but says nothing about transferring at most one old unit on each arrival without losing a large item or total cardinality."
+        ],
+        "reasoning": "The short obstruction is close to a mechanical prior specialization. Neither it nor the known EFX implication makes the positive online invariant or the resulting if-and-only-if classification a corollary of the compared sources.",
+        "searches": [
+          "Huang–Teh proof of B.17 (pp. 31–32, OA offset 147979), proof of B.18 (p. 32, offset 150050), and C.2 (pp. 32–33, offset 152700)",
+          "Resultary 792a94746f1b, Finding at offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For values {1,r}, itemwise upgrade is equivalent to both the large-item count and total item count being nondecreasing separately for each agent. Nondecreasing bundle value alone is weaker, as is illustrated by the two units replaced by a single large item in the obstruction.",
+          "The Resultary cumulative-envy and EF1 hits use different objectives and irrevocability; the Lorenz hit treats a single allocation, not transitions."
+        ],
+        "reasoning": "No checked alternative statement gives the exact online two-counter monotonicity at r=2 and r=3. The online, exact and itemwise qualifications cannot be dropped in the comparison.",
+        "searches": [
+          "Huang–Teh arXiv:2610.16943v1, Definitions 2.3–2.4, Theorem 4.1 and Appendix C.2",
+          "Resultary semantic matches 792a94746f1b, c88e01b1c1a7, d5213f7e2681"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "792a94746f1b computes the sorted optimal load vector from multiplicities, including both denominations in this case. Its table covers the static maximin value. The other two matches give exact results for cumulative envy and a final-EF1 alphabet threshold, respectively."
+        ],
+        "reasoning": "A multiplicity table giving the optimum at each prefix does not establish an itemwise transition between optimal allocations. An equal numerical boundary for a different objective or a different ratio parameter is not the same theorem.",
+        "searches": [
+          "Local Resultary 792a94746f1b, RESULT.md Finding exact load-profile table; c88e01b1c1a7 and d5213f7e2681, RESULT.md Finding passages"
+        ]
+      },
+      "rationale": "The substantive distinct content is the exact item-level all-prefix rule for ratios 2 and 3 and its combination with the sharp obstruction into a complete feasibility classification. The strongest static two-size result and the exact bundle-level result do not supply the compatibility of successive allocations under item injections. The negative mechanism has an especially close precursor in Huang–Teh B.12 and the EFX consequence is already in C.2; neither is credited as an independent novelty. This is a best-of-current-knowledge statement for the bounded domain.",
+      "residual_risks": [
+        "A ranked index and selected primary passages do not establish absolute priority; an unindexed two-denomination recourse algorithm is not excluded.",
+        "Do not credit the static optimum, the implication from MMS to EFX, or the basic cardinality obstruction as separate original contributions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact bundle-level guarantee, general approximation, and close negative precursor; no exact itemwise positive rule for r=2,3 in these passages",
+          "evidence": "Different recourse definitions; B.18 count obstruction and C.2 exact-MMS-to-EFX implication recover the negative side on the frozen short word.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.16943v1",
+          "material_read": "Definitions 2.3–2.4, Theorem 4.1, Theorem B.2 and Appendix B.4; B.11–B.12, Theorems B.17 and B.18 and their proofs, OA offsets 147979–152213; Appendix C.2, offsets 152700–156060",
+          "method": "Open full-text PDF passages",
+          "title": "Online Fair Division with Upgrade Recourse",
+          "trigger": "Exact recourse model, apparent exact-MMS theorem and matching lower-bound mechanisms"
+        },
+        {
+          "assessment": "Different allocation model and objective strength",
+          "evidence": "Immediate irrevocable allocation and tight 1/(2n−1) approximation in a personalized model.",
+          "identifier_or_url": "https://arxiv.org/pdf/2505.22174v1",
+          "material_read": "Abstract, Section 1 and pp. 2–3 contributions, OA offsets 1218, 7268, 11256",
+          "method": "Open primary text",
+          "title": "Online Fair Division for Personalized 2-Value Instances",
+          "trigger": "Two-value online fairness and prefixwise MMS"
+        },
+        {
+          "assessment": "Broader static coverage, but not online itemwise compatibility",
+          "evidence": "Balanced high counts followed by filling least-loaded bundles is Lorenz dominant and maximizes static maximin welfare for integer r.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-universal-lorenz-balance-for-unit-divisible-two-size-goods-with--792a94746f1b/RESULT.md",
+          "material_read": "Finding and exact load profiles at offset 0",
+          "method": "Local mirrored passage",
+          "title": "Universal Lorenz balance for unit-divisible two-size goods, with a sharp divisibility boundary",
+          "trigger": "Same valuations and exact static allocation"
+        },
+        {
+          "assessment": "Different objective and recourse",
+          "evidence": "Irrevocable allocation minimizing cumulative maximum envy.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-cumulative-maximum-envy-for-two-agents-and-unit-double-goo--c88e01b1c1a7",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Exact cumulative maximum envy for two agents and unit-double goods",
+          "trigger": "Identical two-size online instance with r=2"
+        },
+        {
+          "assessment": "Different threshold parameter and fairness condition",
+          "evidence": "Final EF1 at a first-surplus horizon and an alphabet-size bound, not an exact MMS diameter/ratio bound with recourse.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-three-to-four-value-alphabet-frontier-for-online-ef1-at--d5213f7e2681",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "A sharp three-to-four value alphabet frontier for online EF1",
+          "trigger": "Apparently similar numeric frontier"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, transition proof and obstruction; Huang–Teh recourse comparison"
+      ],
+      "rationale": "The restriction to a common valuation and just two sizes isolates when the smallest form of recourse suffices for optimal prefix fairness. The transition invariant yields an implementable one-displacement guarantee for every arrival word, whereas the forbidden ratios require no adaptive adversary and cannot be saved by advance knowledge. Static optimal partitions alone do not answer that question.",
+      "residual_risks": [
+        "No approximation guarantee for r≥4 or generalization to heterogeneous values or more agents is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

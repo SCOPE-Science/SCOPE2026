@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification and limitations
+# Independent mathematical audit
 
-The proof in `RESULT.md` establishes the theorem for all finite bounded integral commutative residuated chains. The package also includes a self-contained Python 3 program, `verify.py`, requiring only the standard library. Execute `python3 verify.py` to reproduce the finite corroboration.
+## correctness
 
-The checker independently enumerates all increasing contractive right adjoints and reconstructs their left adjoints, then checks F1–F5 directly. A second enumeration takes all endpoint-containing subsets, tests closure under fusion and residual, constructs lower/upper roundings, and compares the full sets of surviving operator pairs. The two algorithms agree for standard Łukasiewicz and Gödel chains through size ten and for nilpotent-minimum and drastic-product chains through size nine. Additional closed-subalgebra enumeration through size thirteen verifies the two closed formulas; order correspondence is checked through size eight.
+PASS
 
-Observed output:
+The adjunction gives monotonicity, unit/counit and preservation of the appropriate endpoints. F4 at y=0 and F1 imply fg=g, hence g is extensive; applying f to the counit and using extensivity gives gf=f. The common image is therefore the set to which f and g round. In the image F3 gives residual closure; for w=s⊗t, t≤s→w gives t=f(t)≤s→f(w) by F3, hence w≤f(w), proving fusion closure. In the converse, s→f(y) is in S and below s→y; if t=f(s→y), then s⊗t is in S and below y, giving the reverse F3 inequality by residuation. The two chain comparisons against a fixed s∈S give F4/F5, and the existence of an intervening element of S gives F2. Evaluating the floor or ceiling at elements of S recovers inclusion from pointwise order. In the integer-scaled Łukasiewicz chain, closure under truncated differences and sums forces every index to be a multiple of the least positive index, which must divide n−1. This proves the divisor count, including n=2. The frozen checker was inspected, not executed: its two enumerations are bounded corroboration, not the general proof. The docstring's alternate script name is incidental; the file is verify.py.
 
-```
-MV_COUNTS_n2_TO_n10 [1, 2, 2, 3, 2, 4, 2, 4, 3]
-GODEL_COUNTS_n2_TO_n10 [1, 2, 4, 8, 16, 32, 64, 128, 256]
-FINITE_CHAIN_FROBENIUS_VERIFY_OK
-```
+## originality
 
-Only the finite instances listed above were computationally tested. They do not prove the arbitrary finite-chain statement; that is supplied by the constructive algebraic proof. No independent audit has been performed.
+PASS
+
+The distinct contribution supported by this comparison is the all-finite-chain converse and ordered classification for Wang–Shi–Wang's exact FARL axioms. The necessary fixed-image structure, the Gödel subcase, and the finite MV-subalgebra lattice are not new. A separately indexed record gives the same Łukasiewicz classification, not the general finite-chain result; its later displayed path provides no earlier priority evidence, and no independent novelty is assigned to the overlapping subcase.
+
+## value
+
+PASS
+
+The result turns an operator-axiom search on a fixed finite chain into a complete, ordered subalgebra classification, including non-idempotent fusions where the Gödel/monadic result cannot simply be transferred. It proves that no further obstructions to realizing a subalgebra arise in that setting, and yields a useful closed census on the standard non-idempotent test family. The value is in realizability across finite chains, not in the familiar divisor arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

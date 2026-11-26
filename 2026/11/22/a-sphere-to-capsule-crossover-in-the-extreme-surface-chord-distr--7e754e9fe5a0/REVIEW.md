@@ -1,15 +1,21 @@
-# Review: A sphere-to-capsule crossover in extreme surface-chord distributions
+# Independent mathematical audit
 
-## Correctness — PASS
-For each positive axial half-length the antipodal poles are the only diameter endpoints. The cap parametrization produces a positive-definite quadratic distance deficit, whose four-dimensional ellipsoid volume and exact product surface density yield the \(arepsilon^2/[4a(a+r)]\) coefficient. Even Taylor remainders give the stated fixed-parameter \(O(arepsilon^3)\). At the spherical endpoint the exact dot-product law gives a linear tail. In the double scale \(a=\lambdaarepsilon\), localization near antipodal sphere directions produces the integrated positive-part profile. The negligible seam and cylindrical-band masses are accounted for. `verify_capsule.py` independently integrates the exact Cartesian cap distances and passed 35 checks; finite computations corroborate rather than replace the proof.
+## correctness
 
-## Originality — PASS (provisional historical comparison)
-The primary full text of Mayer–Molchanov (2006) includes the spherical case but not shrinking capsules; Schrempp (2017) concerns volume-supported distributions. Three closely relevant published full-theorem/proof texts were read: capsule central-section areas, near-sphere volume-sampled ellipsoids, and invariant-line chords of finite cylinders. The four sampling/observable differences prevent their statements from implying the present coupled theorem. published-finding corpus search covered alternate names and nearby formulations. A hidden older stereological surface-distance calculation remains possible; an unsuccessful search is not uniqueness proof.
+PASS
 
-## Value — PASS
-A natural geometric probability statistic changes its tail power discontinuously as a capsule becomes a sphere. The exact, nontrivial transition profile has a sharp \(C^1\)-to-\(C^2\) regularity failure at \(\lambda=1/2\), and the coefficient reconstructs the capsule radius and axial half-length from diameter and one probability tail.
+For fixed a>0 the Minkowski-sum triangle inequality has equality only at the opposite axial poles, and compactness localizes the event to those charts. The quartic Taylor error is O(ε²) on the event by positive definiteness. Squeezing between the quadratic ellipsoids at thresholds ε±O(ε²) and including the O(ε) density correction yields the stated O(ε³) probability error. The four-dimensional volume, Jacobian 1/4, two ordered pole pairs and [4πr(r+a)]² normalization give 1/[4a(a+r)]. For moving a=λε, each sample point is rn+se₃ with |s|≤a, so the event forces r|n−m|>2r−ε. This uniformly localizes the second normal in an antipodal angular ball of area O(ε). The conditional probability given a cylindrical first sample is O(ε): cap directions satisfy the angular bound, and the entire band has probability O(ε). Cylinder-involved pairs are thus O(ε²). Same-cap pairs can only occur in an O(√ε) equatorial strip and are o(ε). Away from that strip, the opposite-cap distance expands as a deficit 2a(1−|n₃|)+rδ²/4+O(ε^{3/2}); positive-part angular bounds squeeze the conditional tail, and the uniform O(ε) domination controls the strip. The conditional cap normals are uniform on S² and |n₃| is uniform on [0,1], yielding the profile and the stated derivative jump. The sphere law and the recovery map and feasible range check by direct algebra. Neither argument asserts uniformity as λ→∞. The finite quadrature was inspected, not executed, and is not used as all-shape proof.
 
-## Scientific limitations
-The fixed-shape remainder is not uniform as the axial segment vanishes; the moving-parameter formula is only for fixed \(\lambda\). The law is restricted to three-dimensional round capsules and independent complete-boundary surface-area sampling. No absolute historical priority or independent proof certification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact spherical law is known. Moving-ellipsoid crossover work is a material conceptual precedent but uses different geometry and sampling; the closest same-body record concerns central section area. The new mathematical statement is the capsule surface-pair coefficient and especially its explicit singular crossover, not the idea of local quadratic/asymptotic estimates.
+
+## value
+
+PASS
+
+A natural physical deformation changes a continuum of antipodal maximizers into a unique pole pair, so the two competing deficit exponents require different asymptotics. The sharp profile resolves this degeneracy at the natural joint scale and identifies an exact transition. The fixed-shape coefficient also identifies the two shape parameters from exact diameter and tail data. The crossover, not the elementary spherical endpoint or algebraic recovery on its own, carries the main value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

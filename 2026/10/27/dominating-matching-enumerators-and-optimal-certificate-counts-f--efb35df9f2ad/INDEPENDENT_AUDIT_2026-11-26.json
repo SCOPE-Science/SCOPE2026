@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:50:50.741978Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A matched edge in the cubic prism covers at most six vertices; selecting ceiling(n/3) rungs with cyclic gaps at most three hits that bound. The local alphabet records each physical edge once, compatibility checks shared endpoints, and each cyclic transition checks domination for the central column. For n=3 the repeated window positions identify the same columns and do not introduce an extra matching or constraint. The trace fixes the column origin and counts labelled edge sets, not cyclic orbits or endpoint sets. Independent replay (python3 /workspace/branches/reproduction/prism.py) constructs options by physical incidence, verifies 49 states, 147 arcs and an integer potential, certifies the two zero-cost SCC cycles of lengths 3 and 6, and proves the other three rational trace identities exactly by multiplying the series by the determinant or its square and testing all numerator coefficients up to the adjugate degree bounds 48 or 96. The log-determinant expansion to reduced costs 0,1,2 then yields the all-n minimum coefficients. In the cost-2 case the single-mark term contributes 2-(-1)^k after division by n; the two-mark term extracts half of [w^(k-1)](15-20w+11w²-2w³)/(1-w)^4, giving the stated cubic factor. Independent recursion by smallest available vertex agrees with complete transfer histograms at every n=3..10 (108691 matchings), including c4=42 and c7=147. Finite enumerations alone are not the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen text credits the exact extremal size to Gorzkowska et al.; the primary passage was not reached independently.",
+          "Mynhardt–Schurch indexed abstract treats general prisms and paired domination; it does not certify whole-paper noncoverage.",
+          "Later-dated Resultary a3008add14a5 uses a 34-state trace for all cardinalities and gives the equivalent six-class minimum formulas."
+        ],
+        "reasoning": "An extremal size alone gives no multiplicities. The 34-state result really does determine the same enumerator and coefficients, but the inspected catalogue dates mark it as later, rather than an antecedent.",
+        "searches": [
+          "Mynhardt–Schurch DOI:10.7151/DMGT.1526",
+          "Gorzkowska et al. DOI:10.7151/DMGT.2421, Proposition 18",
+          "Resultary a3008add14a5, Finding and Transfer for every cardinality"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary a60cb8a4a428 and a3008add14a5",
+        "Allagan arXiv:2601.03488",
+        "Mynhardt–Schurch abstract snippet only",
+        "Gorzkowska et al. frozen attribution only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniqueness of each induced perfect matching in the prior minimum paired-set census supplies exactly c_(3m+2).",
+          "Neither a minimum-size result nor an ordinary domination census supplies the remaining minimum coefficients or D_n(y)."
+        ],
+        "reasoning": "Credit the whole overlapping residue class and distinguish it from the supported contribution: the explicit all-cardinality enumerator and completion of the minimum classification.",
+        "searches": [
+          "Resultary a60cb8a4a428, Finding and uniqueness section",
+          "Allagan arXiv:2601.03488 Theorem 3.1",
+          "Gorzkowska et al. Proposition 18 attribution and source-access attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Allagan p. 3, §2 and Theorem 3.1 count ordinary minimum dominating vertex subsets in the same labelled graph, with n mod 4 formulas.",
+          "Resultary a60cb8a4a428, Finding and Distinct vertex sets and unique matchings, proves an equivalence of optimal paired sets and certificates specifically at n=3m+2, not globally."
+        ],
+        "reasoning": "An ordinary dominating set requires no matching; paired endpoint sets and matching edge sets are generally different objects. In the prior residue class uniqueness makes the projection a bijection and implies exact overlap.",
+        "searches": [
+          "Resultary: labelled circular prism dominating matching certificates enumerator quasi-polynomial edge sets versus paired dominating vertex sets",
+          "Resultary: cycle prism dominating matching certificates 49-state transfer matrix counts 42 on P4 147 on P7",
+          "Allagan arXiv:2601.03488 Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026/10/26 (UTC catalogue date) a60cb8a4a428 result is n(2m+3) for n=3m+2.",
+          "The 2026/11/08 (UTC catalogue date) a3008add14a5 result gives the same full census by cardinality and specifies n=4 has 42 witnesses versus 36 distinct paired endpoint sets."
+        ],
+        "reasoning": "These are exact overlapping statements, not merely matching sample counts. No earlier inspected table determines the whole invariant. Catalogue dates do not certify outside priority.",
+        "searches": [
+          "Resultary: cycle prism dominating matching certificates 49-state transfer matrix counts 42 on P4 147 on P7",
+          "Resultary a60cb8a4a428 and a3008add14a5 original RESULT.md statements"
+        ]
+      },
+      "rationale": "Pass for the explicit full enumerator and the all-class minimum classification as an extension, not for the known minimum size or the n≡2 (mod 3) formula in isolation. A preceding dated Resultary record already gives exactly the latter coefficient through uniqueness of the matching on every optimal vertex set. A later-dated catalogue record is mathematically equivalent on the whole invariant and classification, via a different smaller matrix; it is not evidence of a pre-existing full result. No inspected antecedent gives the full enumerator or the remaining residue-class formulas.",
+      "residual_risks": [
+        "The original Mynhardt–Schurch and Gorzkowska et al. papers were not independently accessible in the attempted routes; additional earlier census statements cannot be excluded.",
+        "The examined later duplicate does not establish historical priority; catalogue discovery is bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of one residue class at minimum size",
+          "evidence": [
+            "Offsets 0–4411: n=3m+2, n(2m+3) labelled optimal paired sets with unique matching; uniqueness section near offsets 4411–5000."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-unique-matching-and-minimum-paired-domination-census-of-cycle-pr--a60cb8a4a428",
+          "material_read": "RESULT.md Finding, scope and uniqueness proof passage",
+          "method": "Configured catalogue search and local-mirror passage reading",
+          "title": "Unique matching and minimum paired-domination census of cycle prisms",
+          "trigger": "Prior minimum-set census with uniqueness"
+        },
+        {
+          "assessment": "Mathematically equivalent full census; later catalogue date than frozen record",
+          "evidence": [
+            "Offsets 0–5460: same labelled matching object, 34-state trace and equivalent six-class formulas."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-dominating-matching-enumerators-and-six-class-minimum-witness-ce--a3008add14a5",
+          "material_read": "RESULT.md Finding and Transfer for every cardinality",
+          "method": "Configured catalogue search and local-mirror passage reading",
+          "title": "Dominating-matching enumerators and six-class minimum-witness census",
+          "trigger": "Exact full-invariant match under alternate state encoding"
+        },
+        {
+          "assessment": "Plausible historical risk; no whole-document noncoverage finding",
+          "evidence": [
+            "Abstract snippet discusses domination with a perfect matching in prisms."
+          ],
+          "identifier_or_url": "https://doi.org/10.7151/dmgt.1526",
+          "material_read": "Indexed abstract snippet, not original full text",
+          "method": "Targeted literature search; DOI and identified Polish Digital Mathematics Library alternate OA retrieval did not return readable text",
+          "title": "Paired domination in prisms of graphs",
+          "trigger": "Earlier close topic on generalized prisms"
+        },
+        {
+          "assessment": "Credit the attributed minimum size; further coverage unverified",
+          "evidence": [
+            "Frozen RESULT.md lines 23 and 77 specifically cite Proposition 18 for 2 ceiling(n/3)."
+          ],
+          "identifier_or_url": "https://doi.org/10.7151/DMGT.2421",
+          "material_read": "Frozen citation and attribution; no independent original-text passage reached",
+          "method": "DOI retrieval and alternate OA discovery attempts",
+          "title": "Total and paired domination stability in prisms",
+          "trigger": "Prior exact extremal-size attribution on the same graph"
+        },
+        {
+          "assessment": "Counts distinct ordinary dominating sets, not matching certificates",
+          "evidence": [
+            "Pp. 1,3, latter at offset 7600: ordinary dominion and n mod 4 formulas."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2601.03488",
+          "material_read": "Abstract, §2 and Theorem 3.1",
+          "method": "Original OA PDF passage inspection",
+          "title": "Exact Dominion of the Prism Graph: Enumeration by Congruence Class via Cyclic Words",
+          "trigger": "Same graph and labelled cardinality census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Extremal paired domination says how many endpoints are needed, not how many distinct certificates realize that optimum. On the natural circular ladder family, the full polynomial distinguishes redundancies and matching sizes, while the exact residue-class classification shows periodic variability and large differences between orders. Neither the known optimum nor the preceding one-residue result gives this information.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

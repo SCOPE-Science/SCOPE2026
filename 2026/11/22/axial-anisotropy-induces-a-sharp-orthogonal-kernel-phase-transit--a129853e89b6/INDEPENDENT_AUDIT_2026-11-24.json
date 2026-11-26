@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:18:01.568230Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently checked the geometry and volume. On any signed coordinate face orthogonal projection is obtained by adding a multiple of its normal within the face's coordinate span. For the positivity test on coordinate i, the worst signs give sum over j≠i on that face of (|x_j|/a_j + a_i|x_i|/a_j²). Adding indices only increases the sum; facets dominate edges, vertices impose nothing, and the second/third inequalities also force normalized l1 norm <1 for the full polytope. In the positive octant use first the two constraints with coefficients (1,1+s,1) and (1,1,1+s). Their polytope is a pyramid with apex U=(1,0,0) and base (0,V,VW,W) at u=0. It has normalized ratio 2/((s+1)(s+2)), since normalized ratio is six times normalized-octant volume. For s≥2 the first constraint is redundant; for s<2 its plane clips exactly U and gives cuts on U0, UV, U(VW), UW. The fractions from U along those edges are respectively (2-s)/2, (2-s)(s+1)/(s+2), (2-s)(s+2)/4, and (2-s)(s+1)/(s+2). Split the base along 0–VW: in each tetrahedron the product of the three corresponding fractions rescales removed volume, so the ratio removed is (2-s)^3/(4(s+2)). This reproduces both branches without assuming the supplied determinant sum. The clipped octant has three quadrilateral external faces and seven nonzero vertices before reflection; the unclipped octant has two triangular external faces and four nonzero vertices. Each external facet lies in its own octant since the supporting coefficient magnitudes are positive. On octant-wall vertices sign differences fill the zero-coordinate directions of the active normals; the active form(s) on the nonzero coordinates span the remaining directions. Thus these reflected nonzero vertices are genuine global vertices, with Euler giving the two edge counts. At s=2 the removed portion vanishes and the unclipped combinatorics apply. The displayed deficit factors have the stated signs, vanish only at s=1, and the branch difference gives left-minus-right third derivative 6/(4·4)=3/8. The supplied exact-rational verify.py was inspected, not run, and checks only 16 shape parameters and rational projection tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 6.6 characterizes a cutout tiling via membership in dimension three",
+          "Resultary 108ca142f425 treats regular cross-polytopes in dimensions at least four and checks the known regular case in three",
+          "The companion paper discusses bipolar realizations and centered midspheres"
+        ],
+        "reasoning": "Neither higher dimension in the regular metric nor three-dimensional tiling/realization results supply the aspect-ratio-dependent geometry or volume. The unavailable search is not used as negative evidence.",
+        "searches": [
+          "Pavlík arXiv:2611.14277 §6 Theorem 6.6 and companion arXiv:2611.13896 main results",
+          "Resultary: orthogonal kernels of regular cross-polytopes",
+          "Focused literature lookup on axial orthogonal-kernel classification (unavailable)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.14277v1",
+        "arXiv:2611.13896v1",
+        "arXiv:2406.01773v1",
+        "Resultary 596428720a97",
+        "Resultary c04451515c1c",
+        "Resultary e75d55d70549",
+        "Resultary 108ca142f425"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior explicit body is for the standard regular metric",
+          "The axial diagonal scaling is not a Euclidean similarity at t≠1 and does not commute with orthogonal projection onto tilted facial planes"
+        ],
+        "reasoning": "Transport of polytopes by affine equivalence, or an affine-invariant isotropic constant, does not transport all Euclidean feet. The facet redundancy cutoff and its cubic clipped-volume deficit require separate metric calculations.",
+        "searches": [
+          "Compare arXiv:2611.14277 all-face definition and Resultary 596428720a97/108ca142f425 with an axial affine transformation",
+          "Compare Resultary e75d55d70549 isotropic deficit with the normalized kernel-volume maximum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At t=1 the frozen constraints are exactly strict ||x||_1+||x||_infinity<1, the locus in Resultary 596428720a97",
+          "Pavlík uses the same all-face relative-interior projection condition; Nasonov–Panina–Siersma define activity of an individual face by an incident normal"
+        ],
+        "reasoning": "The differently named regular locus is an exact special-case match and is credited. A face's activity or possession of one centered point does not quantify the set satisfying all projection conditions simultaneously.",
+        "searches": [
+          "Resultary: regular and stretched octahedron orthogonal kernel/full-normal locus",
+          "arXiv:2611.14277 §6 Definition 6.1",
+          "arXiv:2406.01773 normals and active regions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 596428720a97 gives the quarter volume; c04451515c1c and e75d55d70549 include the canonical body whose d=3 geometry gives the regular face vector",
+          "The comparison with same-date 108ca142f425 also finds only regular coverage"
+        ],
+        "reasoning": "Exact shape/count overlap at t=1 is credited; no retrieved distinct record supplies the nonregular aspect-ratio laws or their threshold. Same-day dates do not establish priority.",
+        "searches": [
+          "Resultary: canonical signohedra, regular octahedron quarter volume, axial octahedron phase diagram"
+        ]
+      },
+      "rationale": "Pass for the stretched family: the regular kernel, its 26/48/24 face vector, and the fraction 1/4 at the single regular aspect ratio have existing coverage. The distinct results are the full metric phase diagram, ratios for other stretches, rigidity of the maximizer relative to those stretches, and the smoothness transition.",
+      "residual_risks": [
+        "A focused web lookup was unavailable; alternative terminology may hide an earlier axial calculation.",
+        "The companion paper was compared on the inspected introduction and results only.",
+        "The frozen regular-case corpus citation has a malformed displayed URL; the prior result was located independently by ID."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the same kernel; framework, not the claimed computation",
+          "evidence": "All nonempty face feet are required to be in their relative interiors; Theorem 6.6 relates membership to orthogonal cutout tilings.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.14277v1",
+          "material_read": "§6 Definition 6.1 and Theorem 6.6",
+          "method": "OA text offsets 55500 and 63495",
+          "title": "Thales's theorem in higher dimensions",
+          "trigger": "Same orthogonal-kernel definition and a general 3D theorem"
+        },
+        {
+          "assessment": "Background; comparison limited to the portions inspected",
+          "evidence": "Addresses bipolar realizations and centered midsphere configurations, not a stretched kernel-volume law in the read passages.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.13896v1",
+          "material_read": "Introduction/Main Results",
+          "method": "OA text offset 0",
+          "title": "Face lattices of polytopes and bipolar polytopes",
+          "trigger": "Potential broader result about center conditions"
+        },
+        {
+          "assessment": "Related face-wise normal criterion",
+          "evidence": "Defines face activity through existence of a normal based in the face.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.01773v1",
+          "material_read": "Normals and active regions",
+          "method": "OA text near offset 4500",
+          "title": "Concurrent normals problem for convex polytopes and Euclidean distance degree",
+          "trigger": "Alternate normal/active-region formulation"
+        },
+        {
+          "assessment": "Known t=1 specialization",
+          "evidence": "The locus is int Sigma_3, of volume 1/3 inside the regular octahedron of volume 4/3; the scope excludes axial stretches.",
+          "identifier_or_url": "2026/10/25/SCOPE-the-regular-octahedron-s-full-normal-locus-has-one-quarter-volum--596428720a97",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Resultary and local mirror",
+          "title": "The regular octahedron's full-normal locus has one-quarter volume",
+          "trigger": "Exact regular-case locus and fraction"
+        },
+        {
+          "assessment": "Regular metric only",
+          "evidence": "Main range d≥4; records the known d=3 regular result, not an anisotropy classification.",
+          "identifier_or_url": "2026/11/22/SCOPE-orthogonal-kernels-of-regular-cross-polytopes-in-dimensions-at-l--108ca142f425",
+          "material_read": "RESULT.md Finding, Proof and Relationship (tail at offset 7503)",
+          "method": "Resultary and local mirror",
+          "title": "Orthogonal kernels of regular cross-polytopes in dimensions at least four",
+          "trigger": "Same-day orthogonal kernel in the same polytope family"
+        },
+        {
+          "assessment": "Known geometry of the regular-case body",
+          "evidence": "Treats the body ||x||_1+||x||_infinity≤1 and its vertex/facet structure, not metrics at other aspect ratios.",
+          "identifier_or_url": "2026/10/11/SCOPE-canonical-signohedra-are-tangential-with-d-exact-radial-shells--c04451515c1c",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary and local mirror",
+          "title": "Canonical signohedra are tangential with exact radial shells",
+          "trigger": "Equivalent formula for the regular kernel as a convex body"
+        },
+        {
+          "assessment": "Different invariant; regular-case body overlap",
+          "evidence": "Studies the isotropic constant, not Euclidean orthogonal-kernel volume along anisotropic stretches.",
+          "identifier_or_url": "2026/10/25/SCOPE-strict-isotropic-deficit-and-logarithmic-squared-limit-for-canon--e75d55d70549",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary and local mirror",
+          "title": "Strict isotropic deficit and logarithmic-squared limit for canonical signohedra",
+          "trigger": "Same regular body and a distinct possible extremum invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The family holds the combinatorial type of the original octahedron fixed while varying its Euclidean metric. The exact threshold, different kernel face vectors, cubic onset of the volume correction and unique regular maximum describe phenomena not detectable at the single known regular point, and give a useful test family for the all-face kernel notion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The supplied C++17 program constructs the exact transition map on all \(3^{12}=531{,}441\) configurations, strips in-degree-zero states, records complete cycles, and propagates transient depths backwards. Its output gives \(1\) fixed state, \(40{,}740\) primitive three-periodic states, \(192\) primitive four-periodic states, and sharp entry time \(10\).
+# Independent mathematical audit
 
-The second Python/NumPy implementation reconstructs graph incidence and the successor function using a distinct vectorized route. It checks \(F^{22}=F^{10}\) throughout the entire state space, \(F^{21}\ne F^9\) for at least one state, the fixed-power populations, every entry shell and eventual period, and the orbit partition under all 48 cube symmetries. It checks 319 geometric three-cycle classes and four geometric four-cycle classes of sizes 6, 6, 12 and 24.
+## correctness
 
-Execution instructions, definitions, and exact integer orbit representatives are in `RESULT.md`; the NumPy dependency is declared in `requirements.txt`. None of these checks extends the result to an infinite graph family or constitutes an independent external mathematical audit. Historical equivalence outside the inspected sources has not been excluded.
+PASS
+
+I independently reconstructed the full map on 531441 labelled states using disjoint excited/refractory masks. Iterated images of the entire state set descend until stabilization at the tenth image. On that image the map is a finite surjection, hence a permutation, and every cycle lies in every image. Traversing this permutation and propagating first-entry layers via the successor array reproduced every cell of the original joint table, including 480 depth-ten states and least witness 3856. The recurrent counts are 1, 40740, and 192 at periods 1, 3, and 4. The eight star triangles recover the underlying cube (there are no cube triangles and all pairwise-intersecting triple edges have a common endpoint). A cube symmetry is fixed by the image of 0 and the permutation of its three incident directions; hence exactly the 48 coordinate permutations/translations are needed. Testing those permutations on all phases of each cycle gives 319 geometric classes at period three. At period four the four (representative, class size) pairs are (14,24), (637,6), (1169,12), and (1358,6), with the middle two giving distinct orbits having three excitable-state-1 sites at every phase. The proof uses exact exhaustion of the fixed finite state space, not tests of sample initial states.
+
+## originality
+
+PASS
+
+The rule and automorphism group are known, and exact censuses of related graphs are prior art. The closest same-graph catalogue match other than this record uses threshold two instead of one. The strongest inspected general theories classify qualitative behaviour, not the exact basin and symmetry-resolved populations. No independent covering result was identified within the checks below.
+
+## value
+
+PASS
+
+An exact classification of a canonical Archimedean network with both triangular and square faces is a useful benchmark: even fixing the temporal period and per-phase excitation population does not fix the geometry. The two size-distinct geometric classes with a constant population of three are an exact example. The full entrance table and the ten-step cutoff distinguish basin structure from the periodic count and calibrate other state-space or symmetry-quotient methods. No graph-family generality is needed or claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

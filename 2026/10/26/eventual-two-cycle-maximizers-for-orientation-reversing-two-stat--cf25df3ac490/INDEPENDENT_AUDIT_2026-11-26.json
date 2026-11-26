@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:02:01.208617Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding–Verification; VERIFICATION.md; check_negative.py and check_output.txt (inspected, not executed)",
+        "/workspace/branches/independent_replay.py, case 2"
+      ],
+      "rationale": "In the accepting-probability coordinate each transition is a strictly decreasing affine map. Thus M(n+1)=F(m(n)) and m(n+1)=G(M(n)) for the upper and lower envelopes F,G, respectively. The increasing two-step maps preserve the first forward comparison, so each extremum is monotone along each parity. Every pairwise affine comparison then has an eventually constant sign, including ties. The wording that a sign changes at most once should allow a finite intervening zero block (negative, zero, positive); this does not affect stabilization. Strict decrease gives exactly the extremizing prefix/last-letter decompositions; the number of winners cannot decrease after two steps. If uniqueness persists on a parity, the relevant optimizing and minimizing letters stabilize, and the unique word appends the same length-two block at each step. The letters of that block need not be different. For a unique final winner every prefix must uniquely attain the extremum selected by its suffix sign. If a letter were to return on a positional parity, its strict affine advantage over the intervening winner at both outer inputs would persist at the intervening monotone input, a contradiction. Counting ordered distinct run letters and positive lengths gives the stated product, with the empty subsequence counted once. Duplicate maps, arbitrary initial probabilities and determinant -1 cause no difficulty. An independently written exact integer replay checked 864 ternary grid instances through length five and the 27-word example, including the winning score and runner-up gap. The frozen output's 190 models are mixed (50 binary, 90 ternary, 50 quaternary), not all ternary as the prose says. Neither finite check proves eventual regularity.",
+      "residual_risks": [
+        "The finite checks only corroborate the analytic proof; the proof does not address zero or mixed determinant signs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gill covers arbitrary determinants for binary alphabets, not arbitrary alphabet size",
+          "Kjos-Hanssen proves AP(w)≤3 for every finite alphabet and discusses the binary AP=2 classification",
+          "The block-distinct catalog summary describes nonnegative determinants and ordinary contiguous runs"
+        ],
+        "reasoning": "The first theorem is stronger in signs but limited in q. An existential per-word three-state upper bound is not a characterization of optimizers of one fixed two-state automaton. The nonnegative regime does not include the strictly negative regime; the local mirror full statement for that summary was unavailable.",
+        "searches": [
+          "Gill arXiv:2402.13376, Thm. 4.2 and Cor. 4.16",
+          "Kjos-Hanssen arXiv:2607.26275, Thm. 1.2, Cor. 5.2, Remark 5.3",
+          "Local Resultary comparison with SCOPE-block-distinct-words-are-exactly-the-monotone-two-state-probabil--8eb608279288"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2402.13376",
+        "arXiv:2607.26275",
+        "Resultary fae7dee5b08e (statement)",
+        "Resultary 8eb608279288 (summary only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed obstruction does not assert eventual regularity or identify repetition blocks for a given automaton",
+          "The number and arrangement of parity runs alone constrain possible words but do not say which words a single fixed set of affine maps selects at each length"
+        ],
+        "reasoning": "The covered binary regularity and indexed word-level obstruction leave the arbitrary-alphabet fixed-map dynamic conclusion unproved. The proof supplies monotone orbit comparisons and uniqueness multiplicities, which are not consequences of the word-level counting formula.",
+        "searches": [
+          "Gill Corollary 4.16 and Kjos-Hanssen Remark 5.3",
+          "Published SCOPE parity-run obstruction, fae7dee5b08e, actual Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-parity-run-obstruction-for-decreasing-two-state-probabilistic-au--fae7dee5b08e/RESULT.md, offset 0, matches the no-return criterion and gives the product of T_q factors, with (q)_r=q!/(q-r)!",
+          "Gill's binary eventual patterns can have a fixed initial part and a repeated terminal pattern, possibly with an extra final symbol"
+        ],
+        "reasoning": "The product bounds are exactly the same expression for q≥3. A binary eventual pattern classification gives genuine overlap, but does not extend its alphabet by recoding letters while preserving the probabilistic dynamics and fixed lengths. The parity-run obstruction is a restriction on individual words, not an equivalence to the fixed-automaton two-ray claim.",
+        "searches": [
+          "Local Resultary semantic comparison: decreasing affine two-state probabilistic automata, strict optimal words, parity runs and eventual suffix cycles",
+          "Gill arXiv:2402.13376, Cor. 4.16 and Thm. 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed parity-run finding gives the exact same combinatorial necessary-class counting formula for q≥3",
+          "Gill gives families of binary words, not an arbitrary-q catalog"
+        ],
+        "reasoning": "This is a structural language theorem rather than a finite invariant table. The exact count of the necessary class has an indexed match; neither that count nor the binary families tabulate or determine arbitrary-q fixed-automaton suffix rays.",
+        "searches": [
+          "Local Resultary semantic comparison of parity-subsequence run counting and fixed two-state suffix languages",
+          "Gill arXiv:2402.13376, binary families in Cor. 4.16"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the fixed-automaton two-ray theorem over arbitrary finite alphabets in the strictly negative determinant regime. Credit Gill for binary regularity and binary eventual-pattern classifications, and credit the distinct indexed parity-run finding for equivalent parity-run and product-bound content for q≥3. Those individual conclusions are not supported as distinct from that indexed finding, and repository path dates do not establish priority. Neither close comparison supplies the fixed-automaton two-ray theorem for q≥3.",
+      "residual_risks": [
+        "Chronology of the equivalent parity-run and counting claim is not established.",
+        "An unindexed classification for strictly decreasing affine generators of a fixed automaton could cover the two-ray statement; the searches were bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers binary regularity and overlaps the binary periodic structure, not q≥3.",
+          "evidence": [
+            "The corollary starts with a fixed automaton on the binary alphabet and concludes regularity; the proof lists eventual repeating patterns."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2402.13376",
+          "material_read": "Thm. 4.2, PDF p. 11; Cor. 4.16 and listed forms, PDF pp. 34–35",
+          "method": "OA paper passages, including offsets 36102 and 119742–124162",
+          "title": "Probabilistic Automatic Complexity of Finite Strings",
+          "trigger": "Fixed two-state binary maximizer regularity and periodic word forms"
+        },
+        {
+          "assessment": "Different per-word, three-state statement; binary AP=2 comparison only.",
+          "evidence": [
+            "Thm. 1.2 proves AP(w)≤3; Remark 5.3 leaves larger-alphabet AP=2 classification unstated."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.26275",
+          "material_read": "Thm. 1.2; Cor. 5.2 and Remark 5.3, PDF pp. 1 and 4",
+          "method": "OA paper passages at offsets 3286 and 15098",
+          "title": "Every String Has Probabilistic Automatic Complexity at Most Three",
+          "trigger": "Prior classification or coverage for larger alphabets"
+        },
+        {
+          "assessment": "Exact overlap for the parity-run condition and candidate bound for q≥3; no fixed-automaton ray theorem in the finding; no priority inference.",
+          "evidence": [
+            "Both positional parity subsequences have at most one contiguous run per symbol, and the exact product uses T_q with falling factorial coefficients."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-parity-run-obstruction-for-decreasing-two-state-probabilistic-au--fae7dee5b08e/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local published record search and mirror paper reader",
+          "title": "Parity-run obstruction for decreasing two-state probabilistic automata",
+          "trigger": "Same determinant regime, run restriction and claimed count"
+        },
+        {
+          "assessment": "The available summary concerns the opposite determinant regime; no whole-document exclusion inferred.",
+          "evidence": [
+            "Summary specifies order-preserving maps and ordinary runs rather than runs within parity subsequences."
+          ],
+          "identifier_or_url": "SCOPE-block-distinct-words-are-exactly-the-monotone-two-state-probabil--8eb608279288",
+          "material_read": "Catalog summary only; mirror full statement unavailable",
+          "method": "Local published record search and attempted mirror inspection",
+          "title": "Block-distinct words are exactly the monotone two-state probabilistic maximizers",
+          "trigger": "Two-state unique maximizers and a similar run condition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof, Verification",
+        "Gill Corollary 4.16",
+        "Indexed parity-run obstruction fae7dee5b08e"
+      ],
+      "rationale": "The surviving infinite-language result sharpens a known binary regularity question in a genuinely larger alphabet regime: for a fixed automaton the possible eventual languages have at most one specified period-two suffix ray on each parity, or uniqueness fails there. This gives more than an existence result or a polynomial list of possible words, and the exact ternary example verifies a winner using three symbols. It is useful as a structural classification under the uniform sign assumption, not a classification of mixed-sign automata.",
+      "residual_risks": [
+        "No assertion of a sharp candidate count, general three-state structure or classification with mixed determinants."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

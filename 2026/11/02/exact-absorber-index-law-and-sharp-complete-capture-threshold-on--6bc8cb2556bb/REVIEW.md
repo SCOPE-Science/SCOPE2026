@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete adjacency eigenspaces are derived from the explicit \(2n\times2n\) block matrix. Their intersection with the absorber kernel gives the *entire* dark subspace. Strictly positive losses exclude imaginary-axis eigenvalues on its orthogonal complement, and the explicit zero-sum-subspace projector yields every sitewise capture fraction. The proof covers all \(n\ge3\), all nonempty absorber patterns, all coherent hoppings \(J>0\) and arbitrary positive heterogeneous loss rates. The package's portable checker independently obtains 5916 exact modular Krylov ranks; a second spectral-projection calculation checked 1357 sample cases. Finite checks corroborate the infinite proof and cannot substitute for it. If any rate vanishes, or the Hamiltonian is changed, the theorem need not apply.
+## correctness
 
-## Originality — PASS on examined evidence, subject to historical-priority risk
-The 2009 and 2011 trapping papers provide the general non-Hermitian framework and analyze other networks. Klee–Stamps derive the *known* crown Laplacian characteristic polynomial; no novelty is claimed for those eigenvalues. Dai studies general Laplacian-based control and specific families rather than this sitewise quantum absorption law. The full accessible texts examined do not state or dominate the derived all-subset trap-index formula, perfect redundancy of matched counterparts, or the count of all minimum universal absorber sets. Prior research results on primitive distance-regular graphs explicitly exclude this bipartite imprimitive graph; the related antipodal phenomenon on a different fixed polyhedral graph does not imply the entire crown formula. Previous graph-spectral, PBH controllability and strong-cospectrality principles furnish general methods but do not directly supply the individual capture probabilities. Residual risk: an earlier graph-controllability or crown-transport classification may exist outside inspected sources; this is not a uniqueness certification.
+PASS
 
-## Mathematical value — PASS
-This is a complete all-placements, infinite-family absorbing-network classification with a sharp optimum and explicit sitewise probabilities. It identifies a counterintuitive equivalence: a trap also guarantees certain eventual capture from its nonadjacent matched mate, while physically adding a trap at that mate cannot enlarge the bright space. The exact optimum of \(n-1\) sites and \(n2^{n-1}\) optimal labelled placements provide a concrete network design invariant. The result is not a thermodynamic claim or a finite-time speed comparison.
+The crown adjacency off-diagonal block is 11*−I. For n≥3 its adjacency has distinct levels ±(n−1), ±1. Nonempty T rules out both principal vectors; at either remaining level the absorber equations delete exactly the touched indices from a zero-sum coordinate vector. Their direct sum is the stated dark space, with one zero-sum summand per shore. It reduces the loss generator; on the complement any imaginary-axis eigenvector would have zero dissipation and thus be an adjacency eigenvector vanishing at T, a contradiction. Strictly negative real parts imply decay there even with Jordan blocks. The complementary orthogonal projector gives the pure/mixed and sitewise laws, including all-marked and one-unmarked cases. Complete capture is equivalent to at least n−1 distinct touched indices, not arbitrary placements of n−1 vertices; minimal successful placements number n·2^(n−1). Adding the second member of an already touched pair changes no eventual capture probability; this is the meaning of the redundancy example.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The verified old inputs are the crown spectrum and the general coherent trap formalism. Neither identifies the marked-index equivalence of all absorber sets or the full capture effect. The strongest related Resultary all-placement laws do not cover this graph and problem. The pass is for the distinct crown-specific all-set classification, not the known spectrum or general observability criterion.
+
+## value
+
+PASS
+
+The crown family is a standard graph with large degenerate eigenspaces. The full capture effect for every absorber placement distinguishes strategies with the same cardinality, gives efficiency even at a site not itself absorbing, and yields exact minimal design counts independently of positive rate heterogeneity. These are useful inputs for coherent transport calculations; the known spectrum and a generic rank test are not themselves the placement law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

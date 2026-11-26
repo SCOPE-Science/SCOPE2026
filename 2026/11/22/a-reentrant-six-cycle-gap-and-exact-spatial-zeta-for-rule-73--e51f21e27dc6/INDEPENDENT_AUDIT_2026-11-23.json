@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:09:42.290545Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the three one-output neighborhoods 000, 011 and 110, a trace walk with a distinguished first site has exactly one valid time history for each state fixed by F^t; neither spatial shifts nor temporal starts are quotiented in that trace. Periods dividing six are 1,2,3,6, so subtraction of the two proper maximal-divisor fixed sets and addition of their intersection, followed by division by six, gives the primitive orbit number. The formal log-determinant derivative therefore has the stated signs and factor of 1/6. Independently built the time-column graph by mask arithmetic and recomputed every determinant with exact characteristic polynomials (`python3 /workspace/checks/rule73.py`, SymPy 1.14). Cyclic sizes matched [4], [8,1,1], [19], [23,8,8,8,1,1]; exact matrix powers recovered c_8=4, zeros at 1–7 and 9–11, and 12,13,14,45,116 at 12–16. A separate reachability calculation confirms a return from pair (0,21) of each length 12–23 visiting a least-period-three column; the start contains a period-two column. Their coexistence forbids every proper divisor of six, and concatenation with length-12 returns fills all larger n. Checked the indicated length-3 and length-4 cycles in the strongly connected 23-component, giving primitivity. Its determinant is (1+z²)(1+z+z²)²(1−z+z³)²E(z); exact positive-vector ratios enclose its radius in (1.61574,1.61576), hence its positive reciprocal in (.61,.63) where the other factors are nonzero. All other six-return cyclic components have radius one and the lower-time maxima are below 1.546. Trace asymptotics thus have coefficient one before division by six. The arithmetic certificates establish the finite graph facts; the bijection, concatenation and Perron argument establish the infinite claims. Frozen code and logs were read as evidence, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sutner's automata framework gives ultimately periodic proper-cycle existence spectra in its setting. His Rule 73 example is for least period three, with spectrum 7+N and early orbit counts 7,16,18,20,44,... ."
+        ],
+        "reasoning": "Ultimate periodicity supplies the form of an existence spectrum, not this least-six onset and exact gap, primitive-six orbit counts, or the spectral radius. The example is not a stronger period-six statement.",
+        "searches": [
+          "Resultary: Sutner Linear Cellular Automata and Automaticity rule 73 cycle spectrum 7 plus N period-three",
+          "Sutner, Linear Cellular Automata and Automaticity §3.1, proper-cycle spectra example"
+        ]
+      },
+      "checked_sources": [
+        "Kang pp. 96–97",
+        "Sutner §3.1 PDF p. 16",
+        "Stricker §3.5.1, Table 1, Appendix A.1 and overview",
+        "Local Resultary period-three and period-five mirror records and Rule 109 alias searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The read period-three occupation record addresses the same rule with a time-three count and the fifth-return record treats time five. The frozen record cites a separate time-two formula, but the direct local-mirror retrieval for that item was unavailable on this check.",
+          "The count here uses T_6−T_3−T_2+T_1. Even knowing every lower divisor term does not determine T_6. The mixed period-two/period-three history bridge also depends on the actual six-history graph."
+        ],
+        "reasoning": "General graph and trace methods and prior lower-period formulas are tools and subtrahends, not dominating evaluations of the period-six invariant. The added exact denominator factor with a new Perron root and the finite based-walk witnesses giving infinite support require a new rule-specific calculation.",
+        "searches": [
+          "Resultary: Rule 73 prior exact temporal period 1 2 3 5 results; temporal 6 exact zeta all-size orbit census",
+          "Resultary: Rule 73 temporal-two zeta oscillation equilibrium exact period two all ring lengths",
+          "Local mirror: Rule 73 occupation-weighted period-three and exact fifth-return findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under sitewise bit complement the new truth vector has its 1s at 000,010,011,101,110, i.e. Rule 109. The sitewise bijection preserves indexed-ring orbit lengths and counts.",
+          "Kang relates 73 and 109 in LDCA-1-2, with offsets −1,0,+2, not the nearest-neighbor offsets of this record."
+        ],
+        "reasoning": "A same-census theorem for ordinary Rule 109 would cover this claim. The inspected Kang results are about the alternate update graph and are not such a theorem; the ranked alias search did not identify a separate exact ordinary-Rule-109 census.",
+        "searches": [
+          "Resultary: Rule 73 Rule 109 complement conjugation ECA period cycles equivalent rule",
+          "Kang, Complex Behavior in Long-Distance Cellular Automata, pp. 96–97"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Stricker reports complete finite cycle-length spectra through 22 for most rules at p. 230 and Appendix A.1 describes exhaustive enumeration through 18 and limited-start runs at larger sizes. The small onset/gap falls inside the exhaustive size range; the Rule 73 discussion and classification table inspected do not print a primitive-six orbit-by-size census.",
+          "Resultary queries returned the target and nearby Rule 73 records; the target self-match is not prior confirmation."
+        ],
+        "reasoning": "Earlier finite supports could already show six present at 8, absent at 9–11 and present at several following sizes; finite examples get no independent priority credit. A list of periods on finitely many ring sizes, whether or not it enumerates orbit multiplicities, does not provide the all-size support, exact rational count series or entropy.",
+        "searches": [
+          "Primary literature: \"Classification of Elementary Cellular Automata Based on Their Limit Cycle Lengths in Z/k\" \"Rule 73\" table 22",
+          "Resultary: Stricker 2023 rule 73 exact finite cycle spectra circumference 9 10 11 six cycles",
+          "Stricker pp. 230, 238, 242, Appendix A.1 p. 247"
+        ]
+      },
+      "rationale": "Qualified for the explicit all-circumference primitive-six census, exact infinite support and growth base. Arbitrary fixed-time transfer methods and ultimately periodic existence spectra are prior; the early gap is within the scale of earlier finite cycle-spectrum work and is not credited by itself.",
+      "residual_risks": [
+        "Finite short-size presence/absence data may already be in Stricker's underlying atlas or other tables. They are not the basis for passing originality.",
+        "The local time-two item was not independently retrieved in full. Bounded comparisons cannot rule out unindexed exact sixth-history calculations under either rule number or another space-time encoding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related alias but different spaced-neighbor dynamics",
+          "evidence": [
+            "LDCA-1-2 uses C_(i−1), C_i and C_(i+2)."
+          ],
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2018/12/23-2-1.pdf",
+          "material_read": "pp. 96–97, PDF text offset 7800",
+          "method": "Bounded OA original PDF passage",
+          "title": "Complex Behavior in Long-Distance Cellular Automata",
+          "trigger": "Rule 73/109 alias and periodicity"
+        },
+        {
+          "assessment": "Establishes a generic spectrum method and supplies the Rule 73 proper-three spectrum, not the evaluated proper-six claim",
+          "evidence": [
+            "Spectrum 7+N and orbit counts 7,16,18,20,44,68,65,... are for proper three-cycles."
+          ],
+          "identifier_or_url": "https://www.cs.cmu.edu/~sutner/papers/sutner-ca-automaticity.pdf",
+          "material_read": "§3.1, PDF p. 16, text offset 43500",
+          "method": "Bounded OA original PDF passage",
+          "title": "Linear Cellular Automata and Automaticity",
+          "trigger": "General fixed-time automata framework and explicit Rule 73 cycle spectrum"
+        },
+        {
+          "assessment": "Older finite spectrum coverage overlaps the short sizes; no all-size primitive-six formula or support conclusion in the inspected material",
+          "evidence": [
+            "§3.5.1 discusses Rule 73 maximally long-cycle trends; Appendix A.1 distinguishes exhaustive small rings from limited-start runs."
+          ],
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2024/01/32-3-1.pdf",
+          "material_read": "pp. 230, 238, 242 and Appendix A.1 p. 247, text offsets 0,12000,30075 and table",
+          "method": "Bounded OA original PDF passages and table comparison",
+          "title": "Classification of Elementary Cellular Automata Based on Their Limit Cycle Lengths in Z/k",
+          "trigger": "Likely prior finite ring cycle-spectrum coverage of the gap"
+        },
+        {
+          "assessment": "Period three, not period six",
+          "evidence": [
+            "The extension is an occupation-weighted three-cycle count; the comparison quotes Sutner's period-three support."
+          ],
+          "identifier_or_url": "Resultary: 2026/11/17/SCOPE-exact-space-time-occupation-law-and-gaussian-concentration-in-ru--786af882d163/RESULT.md",
+          "material_read": "Occupation-weighted count setting and prior-work passage at text offset 7801",
+          "method": "Local mirror OA reading",
+          "title": "Exact space-time occupation law and Gaussian concentration in Rule 73 three-cycles",
+          "trigger": "Same rule and a matching proper divisor in the primitive-six subtraction"
+        },
+        {
+          "assessment": "Different temporal return; no implication for the t=6 determinant",
+          "evidence": [
+            "The exact fifth-return property does not constrain a term in the divisor-six subtraction."
+          ],
+          "identifier_or_url": "Resultary: 2026/11/22/SCOPE-an-isolated-missing-circumference-and-exact-fifth-return-zeta-fo--29fdbc889c9d/RESULT.md",
+          "material_read": "Target temporal setting and prior-work passage at text offset 9509",
+          "method": "Local mirror OA reading",
+          "title": "An isolated missing circumference and exact fifth-return zeta for Rule 73",
+          "trigger": "Same rule, same transfer-type exact support and census at another time"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Six is the first return time combining the previously studied two and three clocks. Counting their genuinely mixed primitive orbits rather than all fixed states is a natural invariant. An explicit generating series with a separate growth exponent gives counts on every indexed ring, and the mixed-clock return walks explain precisely why the four-orbit first appearance is followed by a gap before permanent support. The result is more than replaying finite spectrum tables and does not claim anything about basins or other periods.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

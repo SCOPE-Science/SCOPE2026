@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:18:37.798528Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The disjoint extension sums give im(A^t) exactly the functions of a suffix of length m−t for 0≤t≤m. Applying A to a constant multiplies by two, so A is nilpotent with sharp index m+1. The linearly independent suffix indicators v_j=A^je satisfy Bv_j=v_{j+1}+v_0 for j<m and Bv_m=v_0; their cyclic span W has characteristic and minimal polynomial h_m=1+z+…+z^(m+1). As a separate check, the rank-one determinant lemma and eᵀA^je=1 for 0≤j≤m give full characteristic polynomial z^(N−m−1)h_m. The cyclic vector has exact period m+2: h_m divides z^(m+2)+1 but divides no shorter binomial, by degree and the internal coefficients at d=m+1. The quotient by W induces the nilpotent A. The intersection W∩im(A^t) consists exactly of the indicators indexed j≥t: if a nonzero earlier coefficient has least index j, comparing the all-zero word with one differing in position j+1 gives distinct values despite identical final m−t bits. Since im(B^t) contains W and has the same image modulo W as A^t, its rank is 2^(m−t)+t up to m and m+1 thereafter. This proves the last strict decrease at m−1 for m≥2; m=1 is wholly recurrent. In the Fitting decomposition the nilpotent kernel has dimension N−r_t, and it independently supplies the entry shells while the cyclic W supplies periods. On W, the polynomial gcd counts fixed vectors, including repeated factors; explicitly for d|m+2 its degree is d if v₂(d)<v₂(m+2), otherwise d−1. Möbius inversion and division by primitive period give the stated joint and orbit counts. VERIFICATION.md and both supplied scripts were inspected, not executed; the state script checks entry shells and return after m+2 steps, not every primitive-period count. Those counts follow from the cyclic-module proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Delorme–Tillich accessible publisher abstract is about spectra of unmodified de Bruijn and Kautz graphs; full text was not accessible via the inspected routes.",
+          "Ran–Wojtylak study changes of eigenvalues for a complex rank-one perturbation. The November Resultary theorem counts characteristic-polynomial fibers across rank-one updates of a general finite-field matrix and gives Jordan constraints."
+        ],
+        "reasoning": "Knowing characteristic-polynomial fibers or possible Jordan behavior for a general update does not supply the rank profile of this identified update. Conversely, the determinant formula is a standard broader identity and gives the nonzero factor when the indicator moments are supplied. Even this specialization does not give the zero-primary Jordan ranks and entry distribution.",
+        "searches": [
+          "Delorme–Tillich, The Spectrum of de Bruijn and Kautz Graphs; publisher abstract and CORE/ScienceDirect retrieval",
+          "Ran–Wojtylak arXiv:1104.0618v1, abstract/introduction",
+          "2026/11/8/SCOPE-exact-rank-one-characteristic-polynomial-fibers-and-jordan-domin--2b967606e5d0, RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_linear.py, verify_states.py",
+        "Resultary e65e01fbd354, 165ad680a86f, 2b967606e5d0",
+        "Alhakim–Akinwande 0812.4012",
+        "Delorme–Tillich publisher abstract and full-text access attempts",
+        "Ran–Wojtylak 1104.0618v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For this particular matrix the ordinary rank-one determinant identity gives h_m, using eᵀA^je=1 for each j≤m. The shift/extension structure also determines the invariant suffix span and its intersections with all old images.",
+          "Generic characteristic-polynomial coverage leaves the ranks of powers at zero undetermined. Kautz's exact census has a different recurrent core."
+        ],
+        "reasoning": "The original clock polynomial by itself is a short rank-one calculation. The supported combined result needs a graph-specific quotient/rank step not mechanically implied by an unedited spectrum or a general fiber count; the standard dynamical conversion takes over only after that step.",
+        "searches": [
+          "Rank-one fiber and Jordan dominance theorem, local RESULT.md finding; Ran–Wojtylak abstract/introduction",
+          "Kautz XOR dynamics local RESULT.md, Finding and prior-work section",
+          "Alhakim–Akinwande p. 5, de Bruijn loop construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alhakim–Akinwande explicitly describe constant-word self-loops in generalized de Bruijn graphs. The frozen edit removes one of those arcs.",
+          "The October Resultary record has an exact XOR power-rank and temporal census, but its Kautz word graph forbids equal adjacent letters and is loop-free before any edit; its recurrent periods are 1 and, in one parity case, 2."
+        ],
+        "reasoning": "Outgoing versus incoming adjacency transposes the linear map and preserves Jordan and temporal counts; bit complementation exchanges the all-zero and all-one loop deletions. Neither reduces the edited binary de Bruijn graph to the loop-free Kautz graph or to unmodified de Bruijn dynamics, whose adjacency is nilpotent in this characteristic.",
+        "searches": [
+          "Resultary: deleted constant-word de Bruijn loop, parity/XOR, characteristic-two rank and temporal census",
+          "Alhakim–Akinwande arXiv:0812.4012, p. 5",
+          "2026/10/25/SCOPE-parity-dependent-jordan-structure-and-transient-depth-census-for--165ad680a86f, RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit e65e01fbd354 is the frozen record itself. The materially related Kautz census is for a different alphabet/word constraint and digraph.",
+          "The rank-one fiber result counts updates with a given characteristic polynomial, not time-period counts for a specified updated operator."
+        ],
+        "reasoning": "A catalogue of unmodified spectra, Kautz XOR counts, or polynomial fibers indexed by update does not tabulate the joint entry and exact-period statistics sought here. The claim is a uniform formula in m and q, not a finite list of familiar small examples.",
+        "searches": [
+          "Resultary exact loop-deletion and word-graph rank/cycle census results",
+          "Resultary general rank-one characteristic-polynomial fiber theorem, 2b967606e5d0",
+          "Delorme–Tillich publisher abstract (unedited spectra)"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact effect of the specified loop deletion: the recurrent cyclic module together with the entire rank profile and the temporal/entry census in characteristic two. Standard rank-one perturbation, Fitting decomposition and Möbius inversion are ingredients and not independent novelty claims. Inspected sources treat the unedited graph, a different word graph, or general spectral perturbation, not the full deletion result. This is a bounded best-of-knowledge assessment, not a priority certification.",
+      "residual_risks": [
+        "Delorme–Tillich full text could not be inspected; any deeper finite-characteristic implication remains unexcluded by the abstract.",
+        "A differently indexed prior calculation of this particular loop-deleted word graph remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms the underlying graph premise, not the deletion result",
+          "evidence": [
+            "Generalized de Bruijn digraphs have constant-word self-loops."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0812.4012",
+          "material_read": "p. 5, text offset 16296",
+          "method": "OA PDF passage inspection",
+          "title": "De Bruijn Graph Homomorphisms and Recursive De Bruijn Sequences",
+          "trigger": "Original graph construction and existence of the deleted loop"
+        },
+        {
+          "assessment": "Accessible abstract is about unedited graphs; full-text overlap cannot be excluded from it",
+          "evidence": [
+            "Abstract announces spectra of the named graph families; full-text attempts met HTTP 403."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0195669897901839",
+          "material_read": "Publisher abstract; no readable full-text passage via publisher/CORE attempts",
+          "method": "Publisher abstract inspection and lawful alternate CORE PDF retrieval attempt",
+          "title": "The Spectrum of de Bruijn and Kautz Graphs",
+          "trigger": "Closest classical spectral analysis of the same unedited graph families"
+        },
+        {
+          "assessment": "Related mechanism with different conclusions",
+          "evidence": [
+            "Eigenvalue curves of complex A+τuvᵀ, not a finite-field power-rank and temporal census."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1104.0618v1",
+          "material_read": "Abstract/introduction, offset 0",
+          "method": "OA original text passage inspection",
+          "title": "Ran–Wojtylak study of rank-one perturbations",
+          "trigger": "General rank-one eigenvalue behavior cited by the related finite-field result"
+        },
+        {
+          "assessment": "Different digraph and dynamics",
+          "evidence": [
+            "Unequal-adjacent-symbol word constraint and a loop-free Kautz graph; recurrent core has only fixed states and possibly two-cycles."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-parity-dependent-jordan-structure-and-transient-depth-census-for--165ad680a86f",
+          "material_read": "RESULT.md Finding and prior-work comparison, offsets 193 and 7733",
+          "method": "Resultary query and local mirror",
+          "title": "Parity-dependent Jordan structure and transient-depth census for Kautz XOR dynamics",
+          "trigger": "Closest structurally related exact XOR census"
+        },
+        {
+          "assessment": "General update-fiber result, not a temporal classification of the specified update",
+          "evidence": [
+            "Counts characteristic-polynomial fibers across all A+uvᵀ; does not compute the images of powers for the distinguished de Bruijn update."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-rank-one-characteristic-polynomial-fibers-and-jordan-domin--2b967606e5d0",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary query and local mirror",
+          "title": "Exact rank-one characteristic-polynomial fibers and Jordan dominance over finite fields",
+          "trigger": "Potential stronger arbitrary-matrix result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The constant-word loop is canonical and its deletion supplies an exact sensitivity result: from total extinction it creates a recurrent clock of growing length and changes the full transient-depth profile. The quotient calculation yields exact joint counts for all field sizes and word lengths, including cases where repeated roots matter and where exponential state enumeration is impractical. This is more informative than the routine rank-one characteristic-polynomial calculation alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

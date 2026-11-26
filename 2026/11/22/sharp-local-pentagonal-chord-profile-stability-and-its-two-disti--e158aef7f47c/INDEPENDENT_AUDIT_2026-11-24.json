@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:20:23.445901Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–86; VERIFICATION.md lines 18–20; verify_chord.py lines 11–66, inspected but not executed",
+        "Independent bounded multiplier comparison for 2≤n≤100 corroborated the minima; strict analytic tails supply all-frequency coverage"
+      ],
+      "rationale": "With α=2πk/5, actual arclength conservation gives the first-order endpoint shift −∫_θ^{θ+α}f. Projecting the varied difference vector onto the unperturbed unit chord contributes sin(α/2)(f(θ)+f(θ+α)) plus cos(α/2) times that endpoint shift; hence the stated Fourier symbol, killing ±1, and Parseval apply on the gauge slice. Exact fifth-root values give the strict lowest entries at n=7 for k=1 and n=6 for k=2. For n≥8 or n≥7 respectively, |cos(nα/2)|≥cos(2π/5), giving the displayed strict tails by sin(2π/5)>7/8 and >6/7. For the nonlinear estimate, write the speed as 1+f+E with |E|≤C(f′)² and ∥E∥₁≤C∥f∥₂∥f″∥₂ by periodic integration by parts. Inverting the positive speed primitive gives the shift uniformly O(∥f∥₂) and its error relative to −∫f uniformly O(∥f∥C²∥f∥₂). The radial shift error is bounded by ∥f′∥∞ times the shift, and the chord-norm Taylor error has the same relative L² bound because the unperturbed chord is nonzero. Angular mean subtraction is an orthogonal contraction. The curvature numerator stays positive for small C² norm; the pure real extremal frequencies show first-order sharpness, without an assertion about finite-amplitude equality.",
+      "residual_risks": [
+        "Smallness radii and nonlinear remainder constants are existential. The C² radial hypothesis and the use of polar-angle mean for the profile are material."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known global qualitative rigidity already includes the exact perimetral fractions 1/5 and 2/5.",
+          "07e1b5db4487 establishes a nonlinear inverse estimate in tangent-angle Sobolev norms with one derivative of loss for odd q≥7 and nonoptimal constants. The estimate does not state the q=5 result."
+        ],
+        "reasoning": "A stronger spatial domain for the exact equal-chord question is not a stronger stability theorem for variable chord errors. The Sobolev theorem covers neither pentagonal parameters nor this sharp radial L² metric with C² size controlling the error.",
+        "searches": [
+          "arXiv:2611.18381v1 Theorem 1 and §2",
+          "Bracho–Montejano–Oliveros, Carousels, Zindler Curves and the Floating Body Problem, 2004",
+          "Resultary 07e1b5db4487, Finding and proof Step 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 21–100",
+        "Resultary 07e1b5db4487",
+        "arXiv:2611.18381v1 pp. 2–4",
+        "Bracho–Montejano–Oliveros 2004 pp. 1–2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary pentagonal paper assumes common chord length before extracting its Fourier angle equation, and proves a circle in that setting. The sibling's exact multiplier can be re-expressed in radial coordinates, but its inverse estimate restricts q and uses a different regularity scale.",
+          "The frozen proof independently handles actual endpoint motion for variable profiles with ∥E∥₁ bounded by ∥f∥C²∥f∥₂, then computes the two optimal L² lower bounds including tail exclusions."
+        ],
+        "reasoning": "The established qualitative theorem contains none of the sharp near-circle gain; the shared linear formula alone does not imply the nonlinear estimate. The quantitative theorem needs both the explicit infinite-mode optimization and the relative remainder, not just specializing q in an existing bound.",
+        "searches": [
+          "arXiv:2611.18381v1 pp. 2–4, Theorem 1 and eqs. (7), (15)–(16)",
+          "07e1b5db4487 mirrored RESULT.md offsets 0–3679, sharp derivative-loss discussion near offset 7718",
+          "Frozen RESULT.md Steps 2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The odd-carousel record 07e1b5db4487 gives the derivative B_n for squared chord length as a function of tangent angle. If δ=πk/5, radial f maps at first order to a tangent-angle perturbation with factor −i(n−1/n), since arclength reparametrization contributes −∫f and the radial tangent contributes −f′. Dividing by 4sinδ converts squared-length derivative to length derivative; the product is precisely the frozen radial symbol.",
+          "Linearizing the equal-chord angle equation (15) at the circle yields the same real numerator n sinδ cos(nδ)−cosδ sin(nδ), up to phase and scalar."
+        ],
+        "reasoning": "The linearized operator should be credited in its equivalent coordinates, notwithstanding the explicit radial calculation. The equality-only equations and coordinate identity do not assert a sharp normwise lower bound for nearby variable profiles with an error proportional to the perturbation's L² size.",
+        "searches": [
+          "Resultary: pentagonal chord-profile stability, rational odd carousel, and Zindler chord rigidity",
+          "Asipchuk–Kosmakov arXiv:2611.18381v1 §2, eqs. (1)–(7), (15)–(16)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct closest ID 07e1b5db4487 gives the symbol before optimizing but not the exact two spectral gaps. The frozen identity e158aef7f47c is not independent evidence."
+        ],
+        "reasoning": "This is not a fixed finite table: each minimum is over all eligible modes. Neither inspected source tabulates the complete pentagonal min/equality classification. The finite exceptional values are meaningful only with the analytical tails.",
+        "searches": [
+          "Resultary: 1/5 and 2/5 perimetral fractions, local inverse bound, minimum harmonic modes"
+        ]
+      },
+      "rationale": "The distinct result is the sharp pentagonal L² estimate for the variable chord profile, including exact optimal first-order constants and their different equality frequencies, with a relative C²-to-L² remainder. Neither qualitative pentagonal rigidity nor the underlying linearized symbol is distinct. The symbol already occurs in equivalent form in a related tangent-angle record, and its numerator occurs in the linearized equation for equal chords in the primary pentagonal paper.",
+      "residual_risks": [
+        "The 2001 classification paper was not independently retrieved. Distinctness is limited to the quantitative claim, not a priority decision; other local calculations could be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers qualitative rigidity and contains the equivalent linear numerator under equal-chord assumptions, not the sharp variable-profile estimate",
+          "evidence": "§2 normalizes all chords to common length 2 before applying the tangent/chord angle equations and carousel closure.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.18381v1",
+          "material_read": "Theorem 1 and §2, pp. 2–4, eqs. (1)–(7), (15)–(16), offsets 4855–12704",
+          "method": "OA primary PDF, locate and bounded offset reads",
+          "title": "Fourier Harmonics and Pentagonal Rigidity in the Planar Ulam Floating Body Problem",
+          "trigger": "Same pentagonal fractions and a Fourier proof"
+        },
+        {
+          "assessment": "Equivalent linear symbol after change of dependent and independent variables; inverse theorem excludes q=5 and does not optimize the two radial L² gaps",
+          "evidence": "Finding requires odd q≥7 with H^s input and H^{s+1} chord output. Formula (1) maps tangent angle to squared chord length.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sobolev-local-rigidity-of-rational-odd-carousel-chords-near-the--07e1b5db4487/RESULT.md",
+          "material_read": "Finding, assumptions and multiplier (1), offsets 0–3679; located derivative-loss sharpness discussion",
+          "method": "Local Resultary mirror",
+          "title": "Sobolev local rigidity of rational odd-carousel chords near the circle",
+          "trigger": "Closely matching near-circle chord inverse problem and exact Fourier multiplier"
+        },
+        {
+          "assessment": "Qualitative rigidity context rather than a sharp local stability statement",
+          "evidence": "Describes the equal-length flotation chords at fixed perimeter ratio and reports rigidity at perimetral densities 1/3, 1/4, 1/5 and 2/5.",
+          "identifier_or_url": "https://www.matem.unam.mx/~roli/investigacion/articulos/CarrouP.pdf",
+          "material_read": "pp. 1–2, introduction and constant-length chord context",
+          "method": "OA primary PDF",
+          "title": "Carousels, Zindler Curves and the Floating Body Problem",
+          "trigger": "Classical carousel formulation for the two pentagonal fractions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Steps 2–4",
+        "arXiv:2611.18381v1 Theorem 1",
+        "Resultary 07e1b5db4487 Finding"
+      ],
+      "rationale": "This measures the smallest detectable departure from equal chords in a natural pair of arclength sampling schemes. The two fractions both give global qualitative uniqueness, but have genuinely different slow modes and sharp local recovery factors. The exact leading constants and relative nonlinear error quantify that difference for perturbed curves, rather than merely repeating a no-kernel result.",
+      "residual_risks": [
+        "The quantitative guarantee is local and scale-fixed, not stability far from the circle."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

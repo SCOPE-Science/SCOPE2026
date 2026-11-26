@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The one-sided nonblocking system follows directly from one-attempt earliest-deposition conditioning, and the unique hyperbolic solution has explicit initial data. Independence across the two exterior half-lines after fixing equal neighboring species yields the \(AA\) and \(BB\) pair probabilities; opposite accepted species cannot be adjacent. The published one-site marginals are independently reconstructed as \(p\int h_A^2\) and \(q\int h_B^2\), and the derivative identity \(R_A+R_B=a+b-ab\) closes the full nine-entry law. An exact factorization with \(0<a<pt\) and \(0<b<qt\) establishes all strict signs, including boundary cases. `CHECK.py` passed 147 diagnostic assertions, among them direct deposition simulations and full small-ring arrival-order enumeration. These are checks, not substitutes for the proof. No critical lemma rests solely on computation.
+PASS
 
-## Originality — PASS, with priority risk
+A backwards dependency path must have strictly decreasing clocks; reaching arbitrarily far on either half-line has probability zero by the factorial bound. Condition on the attempt time at the central site: its exterior half-lines are independent until that attempt. Conditioning instead on the first neighbor's clock yields h_A=1−q∫h_B and h_B=1−p∫h_A, with the stated solutions and one-site acceptance probabilities. Conditional on the two prescribed labels being A, the edge can be deleted without changing either endpoint's acceptance: each endpoint blocks only B, not A, and before each endpoint attempts its exterior cannot depend on its own state. The resulting half-line acceptance events have disjoint clocks and labels, giving a² and likewise b². Accepted unlike species cannot neighbor. Reflection, marginals and R_A+R_B=a+b−ab (by differentiation from t=0) then give all remaining entries. For 0<t≤1, h_A≥1−qu>0 and h_B≥1−pu>0, and each is strictly less than one for u>0; thus R_A<a and R_B<b. The total-occupancy covariance factors as −ab[2(1−a)(1−b)−ab], strictly negative because a<p and b<q. At t=0 or at degenerate label biases sites have zero covariance. Independent numerical evaluation of the exact symmetric jammed expressions gives P(AA)=0.154818121746, P(XX)=0.045395125835, cov_A=0.054924021523, cov_H=−0.089940157401.
 
-The motivating arXiv:2306.09786v1 full text (Sections 1–6) calculates one-point densities, but not the displayed adjacent law or the opposing covariance signs. arXiv:2210.05627v1 computes pair correlations for single-species nearest-neighbor exclusion, which has a different allowed-configuration space. arXiv:2211.04622v1 uses repeated deposition attempts, and its one-dimensional results are mainly approximate density calculations. Semantic published-record queries for AB adsorption, adjacent pairs, and aliases returned no exact matching two-species one-shot law; the closest visible results concerned other types of occupancy and covariance. A relevant cavity-event decomposition is already present in the motivating paper, and a broad general RSA correlation identity or an overlooked subsequent work could imply the formulas; absence in searches is not a proof of novelty. Independent scholarly assessment remains necessary.
+## originality
 
-## Scientific value — PASS
+PASS
 
-Two-site probabilities are the first natural spatial statistics beyond the known one-site density in the same antagonistic deposition model. The exact \(AA,BB,XX\) laws quantify like-type clustering and empty-site spacing, which densities cannot determine. The universal sign contrast—positive equal-species correlation simultaneously with negative aggregate occupation correlation—identifies a concrete and potentially misleading inference from species-resolved versus unlabeled imaging. The result is parameter-wide and transient, not an arbitrary numerical slice or routine restatement of a known density.
+The original one-shot paper already gives the single-site densities, and adjacent unlike acceptance is forbidden directly by the rules. The supported distinct content is the nonzero adjacent entries and full ordered-pair law, with strict but opposite signs for equal-species and total occupancy across the same edge.
 
-## Limitations
+## value
 
-Only neighboring sites of the infinite one-dimensional single-attempt process, \(0<p<1\), and \(0<t\le1\) are included in the strict sign theorem. Finite-ring numerical checks cannot prove infinite-volume results. The full-text literature inspected was the 2023 model source, 2022 single-species RSA correlation source, and 2022 repeated-attempt antagonistic source; uninspected general RSA correlation literature remains a scholarly priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Nearest-neighbor dependence is the natural first statistic beyond the known one-site densities. The complete A/B/vacancy edge law exposes a substantive distinction: collapsing A and B to occupied changes the sign, uniformly in positive observation time and all nondegenerate biases, not just at a chosen numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

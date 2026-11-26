@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:24:46.503964Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The alternating bracket and the coefficient of e_4 in the derivation equation for [e_2,e_3]=0 force D(e_2) into the abelian ideal V, including at n=4. The chain then forces D on V to be aE+M_w in F_q[t]/(t^d), with E=t d/dt; arbitrary a,v,w satisfy all basis equations. For a=0, multiplication by a nonzero w of valuation d−r has image dimension r, and the initial column adds rank precisely when v lies outside that image. For a≠0, the equation z+s f_1 z²=f_1 determines a unique formal series coefficient by coefficient (the factor s makes each step depend only on earlier coefficients). Applying the product rule to u=1+tz(t²) conjugates E+M_(w/a) to the operator with even multiplier f_0+s f_1 z. The unit and identity descend to the truncated ring, and the change in the even coefficients is a translation for fixed odd coefficients. The even and odd blocks are multiplication on lengths ceil(d/2) and floor(d/2), by that multiplier and its shift by 1. At resonance the nullity is the truncated valuation of the sole resonant block, including the zero multiplier; counting the first nonzero coefficient gives each W. Nonresonance requires a≠0 and w(0) outside {0,a}, giving the nonsingular term and fraction. The cases exhaust all q^(2n−1) choices. Fresh enumeration in branches/8f61e8ce-bd41-4ccd-8892-1e4f8ef95cf3/reproduce.py gave increasing-rank counts (1,9,30,88,0), (1,17,22,184,288,0), (1,75,1140,9024,6144), (1,267,948,30528,132096,98304) for (q,n)=(2,4),(2,5),(4,4),(4,5), respectively. The binary four-dimensional check tested all 65536 linear maps directly; the other runs used the parameterization. The frozen verifier was inspected, not executed, and the finite checks do not establish the general theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bahturin–Goze–Remm §1 concerns gradings under an algebraically closed characteristic-not-two hypothesis; Tsartsaflis Theorem 1.3 compares Betti numbers in characteristic two.",
+          "Resultary 8ef03d5de85c obtains the same density on Q_(2m) with additional top-layer brackets; b7caa0fb25df studies endomorphisms, not derivations.",
+          "Only abstract-level material was reached for the superderivation article, and the monograph could not be inspected."
+        ],
+        "reasoning": "Neither a different characteristic nor a different bracket or map identity dominates this rank problem. Identical density for a different family does not imply the complete model-family distribution. Inaccessible text is not treated as evidence of noncoverage.",
+        "searches": [
+          "arXiv:1308.2396v1 §1",
+          "Tsartsaflis, Revista de la Unión Matemática Argentina 58 (2017), §1",
+          "doi:10.1155/2024/6650997",
+          "Goze–Khakimdjanov, Nilpotent Lie Algebras",
+          "Resultary 8ef03d5de85c and b7caa0fb25df"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 56eb755a310b, 8ef03d5de85c, 165f62a620cd and b7caa0fb25df",
+        "Tsartsaflis (2017), Bahturin–Goze–Remm arXiv:1308.2396v1",
+        "Sheng–Liu–Liu doi:10.1155/2024/6650997 (abstract only); Goze–Khakimdjanov (1996) (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier n=4 rank-four coefficient gives the exact n=4 fraction (q−1)(q−2)/q². In general this fraction follows from the two alternating diagonal scalars once the elementary normal form is known.",
+          "The singular ranks in general dimensions depend on the truncated valuations in both parity blocks, not just the repeated diagonal scalars or the low-dimensional ranks."
+        ],
+        "reasoning": "The determinant consequence is not the originality basis. The new content supported by the comparison is the even/odd module reduction with a distribution-preserving translation and the exact singular rank multiplicities in arbitrary dimensions; it does not follow from the inspected special case or cohomology statements.",
+        "searches": [
+          "Resultary 56eb755a310b, rank-four coefficient",
+          "Resultary 8ef03d5de85c, density statement at offset 325",
+          "Frozen RESULT.md, proof of the gauge reduction and resonance counts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tsartsaflis p. 95, §1, defines the same bracket under the name m_0(n), but studies cohomology and Betti numbers.",
+          "Resultary 56eb755a310b, RESULT.md at offset 0, is an equivalent all-derivation rank census at n=4, but has no general parity gauge or general length-truncated valuation counts."
+        ],
+        "reasoning": "Match the algebra by the brackets and the statistic by ordinary linear rank. Neither the standard cohomological model nor the n=4 formula covers the rank theorem in general dimensions.",
+        "searches": [
+          "Resultary: model filiform m_0(n), characteristic-two derivations, rank census and parity gauge",
+          "Tsartsaflis, model filiform cohomology in characteristic two"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "56eb755a310b states the full four-dimensional polynomial for all finite fields. Its even-q branch is exactly the frozen n=4 polynomial, including the rank-four term and vanishing at q=2.",
+          "165f62a620cd lists ranks only for idempotent derivations, D²=D, not all of Der(L_n)."
+        ],
+        "reasoning": "Credit the earlier exact table as full coverage of the included n=4 case, not just the binary numerical row. Its restriction to dimension four and the idempotency restriction in the other entry leave the general all-derivation census distinct.",
+        "searches": [
+          "Resultary 56eb755a310b, RESULT.md Finding",
+          "Resultary 165f62a620cd, RESULT.md"
+        ]
+      },
+      "rationale": "The supported contribution is the general dimension parity-gauge argument and resulting complete rank polynomial, not the four-dimensional polynomial or density in isolation. The earlier Resultary record 56eb755a310b gives the exact n=4 specialization for this object. The nearest other inspected statements concern cohomology, gradings, another filiform bracket, or a strictly different class of maps. The standard derivation description and the determinant read off from its diagonal are not credited here as separate new contributions. This judgment is bounded by the sources actually read, not a priority certification.",
+      "residual_risks": [
+        "The monograph and the superderivation paper's §3 were not available for theorem-level comparison.",
+        "Equivalent modular differential-operator or truncated-module formulations may be unindexed; bounded search does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact earlier coverage at n=4; does not state the arbitrary-dimensional theorem",
+          "evidence": [
+            "Same bracket and all-derivation rank polynomial over every finite field; its even-field branch equals the frozen specialization."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-finite-field-derivation-rank-spectra-and-the-invertibility-thres--56eb755a310b",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Configured Resultary search and local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Finite-field derivation-rank spectra and the invertibility threshold for a four-dimensional filiform Lie algebra",
+          "trigger": "Strongest exact match to a parameter case of the finding"
+        },
+        {
+          "assessment": "Matches algebra, not computed invariant",
+          "evidence": [
+            "The model m_0(n) has the specified chain brackets; Theorem 1.3 is about Betti numbers."
+          ],
+          "identifier_or_url": "https://inmabb.criba.edu.ar/revuma/pdf/v58n1/v58n1a07.pdf",
+          "material_read": "p. 95, §1, offset 341; Theorem 1.3",
+          "method": "Lawful OA PDF",
+          "title": "On the Betti Numbers of Filiform Lie Algebras over Fields of Characteristic Two",
+          "trigger": "Same model and characteristic"
+        },
+        {
+          "assessment": "Different field setting and invariant",
+          "evidence": [
+            "Characteristic different from two, algebraically closed field, and group gradings."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1308.2396v1",
+          "material_read": "§1 at offset 489",
+          "method": "Lawful OA HTML",
+          "title": "Group gradings on filiform Lie algebras",
+          "trigger": "Prior structural treatment of model filiform Lie algebras"
+        },
+        {
+          "assessment": "Abstract studies a superalgebra problem; §3 and exact scope could not be verified",
+          "evidence": [
+            "Indexed abstract describes local automorphisms and local superderivations."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2024/6650997",
+          "material_read": "Available abstract only",
+          "method": "Publisher and DOI retrieval attempted; publisher returned HTTP 403 and no lawful alternate found",
+          "title": "Local Automorphisms and Local Superderivations of Model Filiform Lie Superalgebras",
+          "trigger": "Cited possible normal-form precedent"
+        },
+        {
+          "assessment": "No theorem-level comparison possible",
+          "evidence": [
+            "The full monograph was not obtained through the attempted route."
+          ],
+          "identifier_or_url": "Goze–Khakimdjanov, Kluwer Academic Publishers (1996)",
+          "material_read": "Bibliographic reference only",
+          "method": "Publisher route attempted, not found",
+          "title": "Nilpotent Lie Algebras",
+          "trigger": "Standard filiform reference with possible derivation results"
+        },
+        {
+          "assessment": "Same numerical invariant for a different filiform family, in a later entry",
+          "evidence": [
+            "Q_(2m) has additional top-layer brackets."
+          ],
+          "identifier_or_url": "Resultary 8ef03d5de85c",
+          "material_read": "RESULT.md at offset 325",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Characteristic-two excess derivations and the nonsingular density of graded filiform Lie algebras",
+          "trigger": "Same characteristic-two density"
+        },
+        {
+          "assessment": "Restricted class, not the complete census",
+          "evidence": [
+            "Operators are required to satisfy D²=D."
+          ],
+          "identifier_or_url": "Resultary 165f62a620cd",
+          "material_read": "RESULT.md at offset 300",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Idempotent derivation rank spectra of model filiform Lie algebras over finite fields",
+          "trigger": "Potential broader rank census"
+        },
+        {
+          "assessment": "Rank of Lie endomorphisms, not derivations",
+          "evidence": [
+            "The counted maps preserve the bracket rather than satisfying Leibniz's rule."
+          ],
+          "identifier_or_url": "Resultary b7caa0fb25df",
+          "material_read": "RESULT.md at offset 66",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Complete endomorphism-rank census and a two-scale limit law",
+          "trigger": "Similar rank-enumeration formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The standard chain has a natural linear-rank invariant not determined on its singular strata by the familiar triangular diagonal. The parity reduction explains how n controls the complete multiplicities of those strata over all finite characteristic-two fields; it is not a recomputation of the four-dimensional case or the determinant threshold. It also gives a reusable reduction for the truncated scalar operator E+M_f independently of the finite census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

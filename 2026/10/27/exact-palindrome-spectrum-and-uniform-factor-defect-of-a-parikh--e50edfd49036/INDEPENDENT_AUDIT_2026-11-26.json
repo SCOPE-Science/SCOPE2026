@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:36:54.638120Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; frozen verify.py read, not executed",
+        "Independent frozen-claim check: python3 /workspace/branches/parikh_factors.py; reproduced full spectrum, both witnesses, 20008 length-1249 windows and all level-four 625-block certificates",
+        "Corrected RESULT.md, VERIFICATION.md and verify.py in /workspace/repairs/3; ran python3 /workspace/repairs/3/verify.py, output: palindromes=37; window counts=1329,1079,1079,829; witness=00:325:171; threshold=172"
+      ],
+      "rationale": "For the repaired result, all four binary bigrams occur in f(0); their images therefore occur in the fixed point. A length-n factor with n no larger than the shortest level-k block lies in at most two consecutive level-k blocks. Thus all factors for n <= 25 can be extracted exactly from the four f^3(ab) words, giving 37 palindromes and no palindrome of length 24 or 25; these two absences bound every longer palindrome by its center. The same factor identity at level four (minimum block length 500) covers all length-172 windows. The repair's standalone exact verifier tested all 4316 starting windows against all 37 palindromes; every test succeeded. The substring of f^4(00) at zero-based offset 325 of length 171 omits 01100101001110010100110 while belonging to the fixed point, a strict lower-bound witness. Independently checking maximal avoidance factors via consecutive occurrence starts also gave 171. Hence precisely 172 is the least universal saturation length, and the inclusion of the empty palindrome yields D(v)=|v|-37 for all longer factors and at the threshold.",
+      "residual_risks": [
+        "The finite tests cover the infinite quantifier by the proved two-block identity, not by empirical prefix agreement. There is no formal proof certification or result for other morphisms."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact example and uniform coding are given by Rigo et al. in the abelian-complexity setting. Frid et al. give a conditional regularity result for prefix palindromic length under a finite-palindrome hypothesis."
+        ],
+        "reasoning": "An algorithmic presentation of the infinite word, or a conditional theorem about a prefix statistic, does not provide the maximal gap allowing an arbitrary factor to omit a specific palindrome. Neither is cited as a novelty claim.",
+        "searches": [
+          "Rigo–Stipulanti–Whiteland, WORDS 2023 example and its continuation arXiv:2405.18032",
+          "Frid–Laborde–Peltomäki, arXiv:2009.02934, Theorem 11"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8966df486b3f, catalogue, proof and scope",
+        "Rigo–Stipulanti–Whiteland, WORDS 2023 and arXiv:2405.18032",
+        "Frid–Laborde–Peltomäki arXiv:2009.02934, Theorem 11",
+        "Repaired RESULT.md and exact certificate"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Every known palindrome occurs in both individual f^3 letter words, giving the coarser sufficient length 299 by alignment. The repair needs a factor calculation at length 172, which exceeds even the longer individual f^3 letter word, and a sharp counterexample at 171."
+        ],
+        "reasoning": "Existence of saturation for a uniformly recurrent fixed point and a coarse numerical guarantee are not new here. The exact onset requires distinct computations about occurrence distribution at larger windows, including necessity, not a substitution into the catalogue or the automaticity theorem.",
+        "searches": [
+          "Comparison against the actual f^3(ab) result and proof in Resultary 8966df486b3f",
+          "Rigo et al. 2023, six-state coding paragraph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 8966df486b3f gives the complete catalogue for the same fixed point and both length-23 words; neither its Finding nor the rest of the inspected record gives this sharp saturation threshold. The focused primary lookup yielded no relevant source."
+        ],
+        "reasoning": "The repaired invariant may equivalently be written as one plus the maximum length of a factor omitting at least one catalogue palindrome, or as the least length from which every factor has defect length minus 37. This measures where the palindromes occur, not just which words occur.",
+        "searches": [
+          "Targeted Resultary checks for the 172 threshold, the f^4(ab) certificate and a length-171 palindrome-avoidance witness for the 010011/1001 fixed point",
+          "Primary literature: \"010011\" \"1001\" palindrome \"172\" every factor contains all palindromes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed table gives all 37 palindromes and their center-maximal subset, and computes factors through length 25 from four f^3(ab) words. It publishes no omission lengths or sharp simultaneous saturation cutoff in the inspected record."
+        ],
+        "reasoning": "This is exact database coverage of the old catalogue, not of the repaired threshold. No existing exact occurrence-gap table was identified in the returned material.",
+        "searches": [
+          "Resultary exact morphism and palindromic language search; inspected 8966df486b3f, offsets 0–8413 in bounded passages",
+          "Targeted Resultary sharp recurrence/coverage checks as above"
+        ]
+      },
+      "rationale": "Pass applies only to the repaired sharp uniform threshold, not to the reproduced palindrome catalogue or a coarse eventual defect law. The strongest directly comparable indexed catalogue establishes membership and its level-three certificate, not the sharp avoidance lengths. Focused comparison found no matching exact threshold in the sources inspected; this is not a claim of historical priority or exhaustive literature coverage.",
+      "residual_risks": [
+        "Focused retrieval may miss an unindexed exact recurrence calculation. The indexed catalogue date does not establish first discovery or publication chronology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact catalogue coverage; no sharp saturation certificate or avoidance witness",
+          "evidence": "Same 37 words and all lengths, plus the six center-maximal palindromes. Factor reduction in the proof is for lengths through 25, not 172.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-palindromic-factor-language-of-an-aperiodic-parikh-coll--8966df486b3f/RESULT.md",
+          "material_read": "Finding, assumptions, finite-factor reduction and comparison material from offsets 0–4959 and 4959–8413",
+          "method": "Matched statements and proof in the local mirror",
+          "title": "Complete palindromic factor language of an aperiodic Parikh-collinear fixed point",
+          "trigger": "Exact morphism, spectrum, maximum length and witnesses"
+        },
+        {
+          "assessment": "Same object and automatic presentation; different invariant in the inspected passages",
+          "evidence": "Aperiodic abelian complexity and the same six-state presentation.",
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/302523/1/conf-version.pdf",
+          "material_read": "p. 1 offset 748 and p. 10 near offset 29969",
+          "method": "Bounded original conference PDF passages",
+          "title": "Automaticity and Parikh-collinear Morphisms",
+          "trigger": "Introduces the exact fixed point and its coding"
+        },
+        {
+          "assessment": "Automatic abelian complexity, not saturated palindrome occurrences in the inspected result",
+          "evidence": "General automaticity statement for abelian complexities.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.18032",
+          "material_read": "p. 3 near offset 7025",
+          "method": "Bounded open PDF passage",
+          "title": "Automatic Abelian Complexities of Parikh-Collinear Fixed Points",
+          "trigger": "General theorem covering the class of the fixed point"
+        },
+        {
+          "assessment": "Conditional prefix result, not an all-factor saturation bound",
+          "evidence": "Automaticity of the prefix-palindromic-length difference sequence under finiteness of the palindrome language.",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.02934",
+          "material_read": "Theorem 11, p. 4 near offset 12913",
+          "method": "Bounded open PDF theorem passage",
+          "title": "On prefix palindromic length of automatic words",
+          "trigger": "General theorem about finite palindrome languages of automatic words"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, proof and scope",
+        "Sharp finite certificate and missing-palindrome witness",
+        "Known complete catalogue and its coarser alignment bound"
+      ],
+      "rationale": "The repair determines a sharp natural recurrence invariant for an established example: the worst length of a factor still missing a palindrome. This is the exact transition to the uniform defect law over all positions. It is not a better but arbitrary sufficient constant; the explicit length-171 obstruction and global length-172 guarantee identify the true boundary. Knowing the palindrome membership list alone does not give that boundary.",
+      "residual_risks": [
+        "This is an exact invariant of one fixed point, not a general theorem for nonuniform substitutions or a full defect spectrum below 172."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

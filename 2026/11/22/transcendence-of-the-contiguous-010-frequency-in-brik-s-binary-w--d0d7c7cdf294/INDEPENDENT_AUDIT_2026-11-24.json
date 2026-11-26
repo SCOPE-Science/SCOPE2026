@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:06:46.875386Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the stated one-based indexing, deleting the first n letters removes the occurrences starting at 1 through n (even at n=1 all these starts fit in B_n). The suffix 01 makes the join contribute exactly 1-b_{n+1}; the final 1 of the left copy cannot start another occurrence. Dividing the count recurrence by 2^n and summing yields the claimed affine binary series by absolute convergence. Independently, if ell_n=|B_n| and F counts infinite-word starts, the telescoping tail gives F(ell_n)-mu ell_n=O(n), since wholly contained counts differ by at most two. For N=ell_n+h<ell_{n+1}, the repeated suffix identifies F(N)-F(ell_n) with F(n+h)-F(n) up to two starts, so the discrepancy reduces to that at n+h<ell_n plus O(n). Iteration gives O((1+log N)^2), proving the all-prefix limit. The lookahead code loses at most two letters from the matching second copy; for L_n>=5 the coded repetitions contain a 3/2-power with bounded preperiod ratio and strictly increasing block lengths. Lemma 13 of Shallit applies to this binary code. The recurring factor 011 gives infinitely many coded zeros, while every 1^j in the source survives the coding. This excludes eventual periodicity and thus rationality; the nonconstant rational-affine map preserves transcendence. The independent bounded check `python3 /workspace/replay/audit_checks.py 2` (output `/workspace/replay/2.txt`) confirms 18 exact recurrences, 14 block comparisons, and the displayed rounded decimal with a rational tail bound. It does not prove the infinite assertions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior all-factor theorem establishes existence, full support within the language, and discrepancy O((1+log N)^2). Shallit's quoted stammering criterion distinguishes rational from transcendental for the stated repetition hypotheses."
+        ],
+        "reasoning": "The general criterion does not establish that this particular cylinder frequency has a suitable binary digit code or that the code is not eventually periodic. The earlier all-factor theorem imposes no transcendence condition.",
+        "searches": [
+          "Resultary record 8cf4c9f159c7, Finding and proof §§1–2",
+          "arXiv:2605.07542v1 Lemma 13; Adamczewski–Bugeaud, Ann. Math. 165 (2007), Theorem 5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.07542v1 original HTML",
+        "Resultary 8cf4c9f159c7 original RESULT.md through local mirror",
+        "Adamczewski–Bugeaud criterion in the form stated by Shallit's Lemma 13"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior general recurrence N_(i+1)=2N_i-D_i+J_i specializes to D_i=sum_{j<=i} c_j and J_i=1-b_(i+1), implying the exact affine series. Shallit's direct application of Lemma 13 uses the original digits and repetitions with exponent 2."
+        ],
+        "reasoning": "The identity is implied by prior mathematics, not a separate new result. The arithmetic classification of the coded sum needs the bounded-lookahead repetition argument and a surviving zero witness; neither inspected application supplies those conclusions for 010.",
+        "searches": [
+          "Resultary 8cf4c9f159c7, proof §§1–2 versus frozen equations (1)–(2)",
+          "Shallit arXiv:2605.07542v1, Prop. 1, Thms. 3, 7, 12 and Lemma 13"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shallit proves transcendence for the uncoded digit sum defining the symbol-1 frequency, whereas the contiguous 010 test adds digits at some zero positions."
+        ],
+        "reasoning": "The frequency of 010 is not fixed by the marginal even under the no-00 constraint; repeating 110 and 010111 gives the same one-frequency 2/3 and distinct 010 frequencies. The inspected letter result is not equivalent.",
+        "searches": [
+          "Resultary: Brik contiguous 010 frequency, cylinder frequency, coded binary expansion and transcendence",
+          "arXiv:2605.07542v1, Theorems 10 and 12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The checked prior record provides a general correction law, not a table with a transcendence entry for 010; Shallit gives exact arithmetic information for the one-letter marginal."
+        ],
+        "reasoning": "An exact or rounded numerical match alone would not certify transcendence. No inspected table supplies that arithmetic result; the general correction law's numerical coverage is credited separately.",
+        "searches": [
+          "Resultary: Brik 010 contiguous factor frequencies; strongest matching record 8cf4c9f159c7",
+          "Shallit arXiv:2605.07542v1, frequency sections and Theorems 10 and 12"
+        ]
+      },
+      "rationale": "The prior factor-frequency theorem covers existence and gives a recurrence from which the numerical identity follows by specialization. Credit those as prior or implied. The supported distinct result is the transcendence of the contiguous 010 frequency: it requires identifying and proving nonperiodicity of the particular digit code, not just invoking transcendence of the symbol-1 frequency.",
+      "residual_risks": [
+        "Bounded search cannot exclude a prior unindexed specialization of the coded-word argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies exact word facts, a general criterion, and the distinct letter-frequency result.",
+          "evidence": [
+            "Length 2^(n-1)+n+1 and suffix 01; recurrence; finite language avoids 00; Thm. 12 gives transcendence for the letter marginal and Lemma 13 has the required bounded ratio and repeated-block hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.07542v1",
+          "material_read": "Prop. 1, Thms. 3, 7, 10, 12 and Lemma 13, in particular the statement/proof passage at text offsets 14557–16442",
+          "method": "Read bounded original arXiv HTML passages",
+          "title": "Brik’s sequence: a strange recursion",
+          "trigger": "Exact word and known transcendental frequency"
+        },
+        {
+          "assessment": "Covers existence and implies the identity, not this transcendence claim.",
+          "evidence": [
+            "All-factor correction recurrence and logarithmic-squared discrepancy bound."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-full-support-zero-entropy-frequency-law-for-brik-s-binary-word--8cf4c9f159c7/RESULT.md",
+          "material_read": "Finding and proof §§1–2 at text offsets 0–4714 and prior-work passage at offset 8200",
+          "method": "Resultary lookup and bounded local mirror reading, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A full-support zero-entropy frequency law for Brik’s binary word",
+          "trigger": "Same word, all factor frequencies"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The shortest-block correlations are natural here: 00 is forbidden and the remaining two-letter frequencies are fixed by the one-letter marginal and stationarity. The 010 frequency is a genuine additional coordinate. Proving its transcendence rather than just computing it or obtaining an existence theorem gives precise arithmetic information not supplied by the letter result. The application of stammering is standard; retaining usable repetitions while excluding periodicity for the particular coded expansion is the substantive step.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

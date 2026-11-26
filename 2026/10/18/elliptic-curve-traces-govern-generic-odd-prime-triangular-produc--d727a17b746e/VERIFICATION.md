@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The formula is proved algebraically in `RESULT.md`; the executable checker `verify.py` is supplementary. On Python 3 with no external dependencies run `python verify.py` from the extracted artifact directory. The checker computes finite-field character sums, zero counts and quartic elliptic traces independently for all generic shifts at eight primes, then compares the two exact-rational density expressions. It checks Hasse's inequality and verifies that finite congruence square frequencies bracket the p-adic Haar density, with the width predicted by smooth p-adic lifting.
+## correctness
 
-Observed output from the embedded code:
+PASS
 
-```
-VERIFICATION_OK
-finite_field_cases: 108
-modular_bracketing_cases: 5
-examples: delta_5(2)=4/75, delta_7(1)=149/196
-```
+The affine substitution u=2a+1, v=2b+1 preserves Haar measure, and the factor 64 is a square unit. The only possible singular zero classes of F=(u²−1)(v²−1)+64n would require n=0 or 1+64n=0 modulo p. On a smooth zero ball, varying the coordinate with unit derivative gives an affine bijection for each next residue digit of F/p; this establishes uniformity and square probability 1/(2(p+1)) by summing the even positive valuations and square units. The measure of F=0 is zero. Summing the quadratic character in v gives 1+p χ(n)(3+χ(m)), with the exceptions u=±1 and u²=m accounted for separately. At F=0 the substitution w=(u²−1)v gives w²=(u²−1)(u²−m); the quartic has simple roots and two rational points at infinity, and its affine points with u=±1 are exactly the two points to remove. Thus Z=p−3−a_p. Substitution yields the claimed formula; Hasse gives the stated uniform remainder. Independently checked both examples and 420 generic prime-power cases using weighted triangular residues in the original coordinates and the exact residual smooth-ball mass. Replay: python3 -B /workspace/branches/independent-checks/record5.py. The finite tests do not prove the all-prime identity; the preceding argument does. No claim is verified at the excluded shifts or primes.
 
-The general proof relies on Haar-preserving coordinate substitution, nonvanishing partial derivatives on the relevant zero classes, elementary quadratic character sums, a smooth genus-one quartic point count, and Hasse's theorem. None of the finite enumerations is asserted to certify the theorem for all primes. No independent audit has been conducted.
+## originality
+
+PASS
+
+Best of current knowledge: the specific Haar-density formula and its uniform first-order bias are not covered by the inspected triangular-pair solvability or finite-field tuple-counting results. No priority is claimed for the underlying equation, quadratic-character sums, smooth lifting, or the Hasse estimate.
+
+## value
+
+PASS
+
+This quantifies a natural local restriction from triangular Diophantine pairs rather than merely testing solvability of the equation: a uniform local input model has an explicit shift-dependent bias and a separately identifiable elliptic fluctuation. One finite-field curve count suffices to compute the exact infinite-level Haar measure on the full smooth shift locus. The value lies in that quantitative relation, not in the sample computations or in the classical local machinery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

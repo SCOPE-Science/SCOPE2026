@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:38:48.292056Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–35",
+        "Frozen VERIFICATION.md, certificates/verify_duals.py (inspected only), and certificates/dual_witnesses.json (read as data)",
+        "Independent replay: python3 /workspace/review-replays/5.py"
+      ],
+      "rationale": "Agent interchange fixes the first sign, and the greedy absolute discrepancy obeys d_t=|d_{t−1}−w_t| including ties. If w₁=0 every cost is zero; otherwise positive homogeneity fixes w₁=1. Each feasible choice of greedy branch signs correctly gives the absolute discrepancies, and such branches cover the entire ordered nonnegative cone, including its faces. For a competitor, the epigraph cost is equal to its actual cost at y_t=|S_t|, which is a feasible choice. Thus the dual identity F=−zᵀAx+ηw₁ with z,η≥0 proves the desired pointwise inequality. Independent exact evaluation of both linear forms on each basis vector verified all 1364 distinct branch and competitor pairs for m=2,…,6, checking the signs and full coverage. The one-good case is immediate. An independent dynamic program over current absolute discrepancy (next state d+w or |d−w|) computes optimum 18 and greedy 20 at (6,5,5,4,4,1,1). Appending zeros preserves the strict failure at longer horizons.",
+      "residual_risks": [
+        "The exact certificate verifies the specified two-agent and descending-order cone, not larger populations, arbitrary orders, or longer-horizon approximation guarantees."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goldberg–Robinson–Teh gives general fixed-order algorithms and hardness, and in the separate order-choosing model studies increasing order.",
+          "Resultary 123d637e6747, c88e01b1c1a7 and 146190d77f86 give all-horizon greedy results on the positive unit/double alphabet. Resultary 61aee658ac38 gives a sharp 5/3 approximation for fixed order on the three-value alphabet {u,2u,3u}."
+        ],
+        "reasoning": "The all-horizon alphabet results only dominate the horizon, not the value domain. Hardness, general algorithms, and nonexact approximation do not imply this uniform cutoff.",
+        "searches": [
+          "Goldberg–Robinson–Teh pp. 4, 11–13, 16–17",
+          "Resultary: fixed-order greedy cumulative envy, varying alphabets and horizon"
+        ]
+      },
+      "checked_sources": [
+        "Goldberg–Robinson–Teh arXiv:2610.09843",
+        "Elkind et al. arXiv:2410.14593",
+        "Della Croce–Scatamacchia arXiv:1801.05489",
+        "Resultary 123d637e6747, c88e01b1c1a7, 146190d77f86, 2565adb33736, 378a8bf267ff, 61aee658ac38"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing algorithms can score a finite instance; the cited range-restricted formulas and exceptional-good examples are not certificates over the full cone of nonincreasing real weights."
+        ],
+        "reasoning": "Those procedures do not mechanically give the universal result through length six. Conversely a finite failure under a different order, or a guarantee restricted to the unit/double alphabet, does not locate the descending-order cutoff.",
+        "searches": [
+          "Goldberg–Robinson–Teh, fixed-order dynamic program, pp. 11–13, and scheduling comparison pp. 16–17",
+          "Resultary 123d637e6747 and 378a8bf267ff, Findings and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cumulative maximum envy under identical values and two agents equals summed absolute prefix discrepancy, with allocation equivalent to a signed-prefix sequence. Descending Graham/LPT uses the same least-loaded decision, but for makespan. TEF1 is a requirement at each prefix, not a sum objective."
+        ],
+        "reasoning": "The signed-prefix restatement is equivalent, but neither the scheduling makespan theorem nor existence of a temporally EF1 allocation settles cumulative-cost optimality.",
+        "searches": [
+          "Goldberg–Robinson–Teh arXiv:2610.09843, definition and two-agent restriction",
+          "Della Croce–Scatamacchia arXiv:1801.05489, introduction",
+          "Elkind et al. arXiv:2410.14593, temporal EF1 definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched published records 123d637e6747, c88e01b1c1a7, 146190d77f86 and 2565adb33736 constrain the alphabet or permit choosing the order. Resultary 378a8bf267ff treats a fixed unit-goods sequence with one exceptional real-valued good."
+        ],
+        "reasoning": "None of the inspected indexed findings is an exact table for arbitrary nonincreasing real weights and the six-to-seven transition. Counterexamples with a mid-sequence value increase are not examples for this cone.",
+        "searches": [
+          "Resultary: exact cumulative maximum envy, least-loaded allocation, descending order and short horizons",
+          "Resultary: unit/double cumulative envy and exact greedy gaps"
+        ]
+      },
+      "rationale": "The objective, rule and general fixed-order optimization precede this finding. No inspected prior statement determines the universal short-horizon cutoff for arbitrary nonnegative real values in a fixed descending order. The strong reported overlaps concern other value alphabets, order models, or objectives.",
+      "residual_risks": [
+        "The bounded check does not exclude an earlier exact short-horizon analysis in scheduling or signed-discrepancy terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives the optimization framework and neighboring results, not the claimed cutoff in inspected passages",
+          "evidence": "Defines cumulative maximum envy, treats fixed-order instances via hardness and a dynamic program, and distinguishes increasing order in the sequencing problem from descending LPT and its EFX guarantee.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.09843",
+          "material_read": "pp. 3–4 (offsets 7749, 11819), pp. 11–13 (36831), pp. 16–17 (49539)",
+          "method": "OA PDF passages",
+          "title": "Minimizing Cumulative Envy in Allocating a Sequence of Items",
+          "trigger": "Same objective and fixed arrival optimization"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": "Requires EF1 at every prefix instead of minimizing the sum of prefix envy.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.14593",
+          "material_read": "pp. 2 and 4 (offsets 7593 and 17098)",
+          "method": "OA PDF passages",
+          "title": "Temporal Fair Division of Indivisible Items",
+          "trigger": "Possibly equivalent prefix-fairness result"
+        },
+        {
+          "assessment": "Different objective for the same rule",
+          "evidence": "Measures final makespan rather than total prefix absolute gap.",
+          "identifier_or_url": "https://arxiv.org/pdf/1801.05489",
+          "material_read": "p. 1, offset 961",
+          "method": "OA PDF passage",
+          "title": "Longest Processing Time rule for identical parallel machines revisited",
+          "trigger": "Identical descending-order decision rule"
+        },
+        {
+          "assessment": "Overlap on a restricted value alphabet, not the full cone",
+          "evidence": "All horizons over {a,2a}; four-good failures with a third denomination do not assert descending order.",
+          "identifier_or_url": "Resultary 123d637e6747",
+          "material_read": "RESULT.md, Finding and Assumptions and scope",
+          "method": "Local mirror passage",
+          "title": "Exact myopic cumulative-envy minimization for two positive item values",
+          "trigger": "Same fixed-order objective with exact greedy optimality"
+        },
+        {
+          "assessment": "Restricted alphabets and/or a different ordering model",
+          "evidence": "All-horizon fixed-order greedy on {u,2u}; free-order formulas for unit/double goods do not give the full sorted real-weight threshold.",
+          "identifier_or_url": "Resultary c88e01b1c1a7, 146190d77f86, 2565adb33736",
+          "material_read": "RESULT.md Findings and scope, including fixed-order and free-order statements",
+          "method": "Local mirror passages",
+          "title": "Unit–double cumulative-envy results and greedy-gap laws",
+          "trigger": "Same objective, related fixed or free ordering classifications"
+        },
+        {
+          "assessment": "Structured exact bound/failure, not the sorted universal statement",
+          "evidence": "A run of unit goods precedes an exceptional value and then further unit goods.",
+          "identifier_or_url": "Resultary 378a8bf267ff",
+          "material_read": "RESULT.md, Finding and Assumptions and scope",
+          "method": "Local mirror passage",
+          "title": "Exact precompensation law for one exceptional good in cumulative envy",
+          "trigger": "Fixed-order greedy failure under a structured real-valued instance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings and proof",
+        "Goldberg–Robinson–Teh arXiv:2610.09843, objective and sequencing comparisons"
+      ],
+      "rationale": "Least-loaded allocation is a natural baseline, and restricting arrivals to a fixed descending order is a common scheduling regime, not a choice of isolated input values. The theorem specifies exactly when myopic decisions can cease to be uniformly optimal against a planner with foreknowledge, including a small reproducible witness. The exact dual method proves a real-valued uniform result rather than an empirical threshold over integer inputs.",
+      "residual_risks": [
+        "This is a two-agent, fixed-descending-order classification, not an approximation ratio or a claim for adversarial arrival orders."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

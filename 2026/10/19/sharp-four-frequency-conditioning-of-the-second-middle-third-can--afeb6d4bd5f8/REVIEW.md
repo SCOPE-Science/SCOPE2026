@@ -1,15 +1,21 @@
-# Review of the second-stage ternary Cantor Fourier conditioning theorem
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The spectral normalization, 4-by-4 real Gram reduction, and two-by-two block eigenvalues have been reconstructed from the exact definition. All boundary cases include singular matrices (assigned infinite condition number). The standalone rational checker covers all 126 quadruples in 14 translation classes, uses explicit witnesses for the 13 nonoptimal classes, and certifies the strict separation and optimal eigenvalue order. The exact program was run successfully. It does not rely on any finite sampling standing in for an infinite theorem.
+## correctness
 
-## Originality (O): PASS, with residual risk
-The July 2026 arXiv result for the **limiting** odd-base Cantor measure proves absence of Fourier frames, not this exact finite conditioning optimum. Published finite tight-frame cardinality bounds do not identify a four-character optimum at nonzero defect; a separate cyclic Riesz result concerns three consecutive sites, not this four-digit Cantor set. The finite Fourier-matrix condition estimates in arXiv:1809.00658 concern clustered-node asymptotics and do not imply the exact minimax formula. Several relevant indexed results could not be inspected beyond accessible theorem summaries. Unindexed finite-case optimization tables remain a possible source of historical priority uncertainty.
+PASS
 
-## Value (V): PASS
-A first nontrivial finite stage of the non-frame-spectral middle-third Cantor measure yields a natural question: which four ordinary cyclic Fourier characters reconstruct its four stage-two mass coordinates most stably? Determining the sharp algebraic condition number and exactly nine equality sets is a complete answer, not an arbitrary statistic. It supplies an exact quantitative finite-grid benchmark without claiming a limiting Fourier frame.
+Rephasing about the spatial midpoint gives real Gram correlations t_1,t_2,t_3,t_4 as stated. For the proposed optimizer the two simultaneous-swap sectors give the displayed 2-by-2 blocks. I independently isolated the three cosine roots of 8x^3−6x+1 with integer brackets, used their zero sum to enclose the Gram entries, and bounded the extremal eigenvalues by exact leading-minor tests on rational midpoint matrices plus row-sum perturbation bounds. This directly checks all 126 sets without the supplied Rayleigh vectors or translation representatives. The nine translates are strictly below 57/10 in squared condition and the other 117 strictly above it, with singular cases allowed as infinity. The block eigenvalue order is + lower, − lower, − upper, + upper (approximately .318010, .362820, 1.550356, 1.768814), proving the specific formula. The supplied certificate's interval and Rayleigh directions are sound.
 
-## Limits
-Only distinct unweighted integer frequencies modulo nine are considered; not arbitrary real frequencies, positive reweighting, further Cantor stages, or the infinite measure. The separate exact-arithmetic certificate is reproducible; no independent audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The prior sources overlap in the row pattern, Fourier frame setting, or exact finite optimizations, but do not establish the same optimal spectral ratio or minimizing orbit. Pass is limited to this finite conditioned-basis classification.
+
+## value
+
+PASS
+
+The first four-node ternary stage is a natural fixed-budget reconstruction problem on its intrinsic cyclic grid. Exact tightness is unavailable at this budget and neither full spark nor volume answers which frequencies minimize worst relative Euclidean amplification. The complete optimizer orbit, algebraic constant and certified gap provide a usable benchmark for choosing and comparing four-frequency designs, not just a numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

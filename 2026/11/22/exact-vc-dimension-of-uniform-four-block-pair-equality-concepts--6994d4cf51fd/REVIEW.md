@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof states a fixed exact-four-block ground domain. The upper bound uses the all-positive partition, forest necessity within each four, and forced retention of saturated fours. The lower bound makes cores and spare tokens for a star support of exactly \(3m-2\) edges. For any subset of vacancy slots spanning two or more bins all tokens are neighbors; the single-bin Hall inequalities characterize the only possible matching failures. Since there are two deficient groups with at least one vacancy each, the failures reduce to the two explicitly displayed configurations. Both replacement block lists are genuine partitions satisfying every bit. Exhaustive construction and independent enumeration support finite cases, not infinite proof.
+## correctness
 
-## Originality — PASS within inspected evidence
-The uniform-triple theorem establishes exact size-three blocks, not fours. The two-block forest-profile theorem covers the \(m=2\) boundary, which is credited rather than claimed as novel. The size-capped and refinement-closed theorems do not apply to fixed equal fours. The 2019 clustering paper allows arbitrary block sizes; a 2022 identification-query paper answers a different learning question. Direct semantic search found no exact all-parameter quadruple theorem, but an unindexed equivalent remains a risk. The independent historical-priority claim is not certified.
+PASS
 
-## Value — PASS
-The exact all-parameter uniform-four clustering rank is a natural adjacent case to uniform triples and reveals a two-query deficit relative to the unrestricted forest rank. Its sharp witness is nontrivial: exact-size feasibility needs a multi-bin Hall assignment and explicit exceptional regroupings, rather than the standard positive-forest partition. This is a motivated finite-model learning invariant, not an arbitrary bounded calculation.
+With all edges positive the support lies within an exact-four partition; no internal cycle can be shattered since negating one edge leaves a positive path between its endpoints. At ≥3m−1 edges, m−1 spanning four-vertex trees can be kept positive while an edge in the remaining block is negated. The trees force all the other blocks, so those endpoints are still together. For the lower bound take m−2 three-edge stars and two two-edge stars in disjoint nominated fours. Positive cores have vacancies s_i and e_i free unqueried leaves (e_i=1 for the last two groups, 0 otherwise). A negative token forbids just its own core. Any vacancy set meeting multiple cores sees all tokens; a one-core set gives exactly 2s_i≤∑s_j+e_i. Failure in a full star forces s_i=3, both deficient capacities 1 and all other full capacities 0; put the offending center with one deficient core, one offending leaf with the other, and the remaining two leaves with the two free tokens. Failure in a deficient star forces s_i=3, its partner at 1 and all full capacities 0; put the offending center with the partner core and its two negative leaves with the two free tokens. All blocks and negative separations check in both cases. For m=2 only the latter exception can arise; m=1 is a singleton class of VC dimension zero.
 
-## Scope and unresolved checks
-Only static VC dimension is asserted, not adaptive Littlestone dimension or full face polynomial. The result at two blocks is subsumed by earlier work; the infinitely many cases \(m\ge3\) are the claimed contribution. Formal/expert validation and exhaustive historical priority verification have not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct contribution is the all-m exact-four law and constructive packing for m≥3, not the previously covered m=2 boundary or the trivial singleton case, both excluded from priority credit. The closest size-cap, two-block, uniform-triple and fixed-count results do not imply the new regime.
+
+## value
+
+PASS
+
+This is a motivated exact capacity-constrained VC invariant, not an isolated finite example. The upper deficit from the size-cap class measures a real saturation obstruction, and the explicit optimal support and two exceptional packings are useful witnesses for subsequent constrained shattering and general block-size analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

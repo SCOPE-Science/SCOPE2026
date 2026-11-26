@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:15:16.193702Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–67; VERIFICATION.md; verify_klein.py (inspected, not executed); /workspace/reproduction/independent_4.py (executed, Python 3 and SymPy)."
+      ],
+      "rationale": "The partials of the specified quartic cannot vanish projectively at a point with a zero coordinate; at a point with nonzero coordinates their product comparison gives 1=−27 (characteristic 3 also has no such zero). Thus the model is smooth in the stated range. S preserves F by the three weight congruences, T cyclically permutes its terms, and F restricted to X+Y+Z=0 is −(X²+XY+Y²)². Recomputed U's pullback and determinant over Q[z]/Φ7, then built the 28 integral normalized rows from four seeds using S and cyclic rotation, without running the supplied verifier. Independently tested all rows by the quartic coefficient equations. Exact substitutions z↦z^k gave fixed counts (28,1,1,1,1,4); the cyclic subgroup lattice forces orbit sizes 1,3,6,6,6,6. The row (1,z^3,z) forces the common field to be Q(z); the length-three points have precisely the real cubic field. Recomputed all 378 pair norm gcds and residue common-polynomial gcds: only p=2 and p=7 have any collisions (84 and 231 pairs); 29,43,71, the other candidates, do not. In the good range U remains invertible, the initial square and pullbacks persist, and 28 distinct lines exhaust the odd-theta bitangents. The cyclotomic Frobenius then yields exactly the claimed rational-line counts. Equidistribution uses the prime number theorem in arithmetic progressions for the stated natural densities relative to primes, not merely infinitude in each progression. An independent direct count at eleven primes confirmed the three cases; it tests a scalar multiple of a square, not whether the leading scalar is itself a square in the ground field.",
+      "residual_risks": [
+        "No claim in characteristics two or seven, no inference for twists, and no rationality assertion for points of contact."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Elkies gives the exact Galois-stable Klein matrix group with its generator action and identifies the bitangent stabilizers.",
+          "The November 2 indexed classification gives the same splitting field and full cycle types 1^28, 1^4 2^12, 1^1 3^9, 1^1 3^1 6^4 for residues 1, 6, 2/4, 3/5, together with extension-field counts and an all-good-primes distinctness argument."
+        ],
+        "reasoning": "The later-cycle table dominates every frozen finite-field count, but does not establish earlier priority. The earlier Galois-compatible structural construction already determines that permutation action; specializing an étale family of bitangents transfers it to good odd primes.",
+        "searches": [
+          "Elkies §1.3 rationality of the Klein representation and geometric bitangent proposition (ii)",
+          "Resultary complete cyclotomic Frobenius profiles 332d2be7d5dd; prime-specific enumerations 79484edb8cd9 and c1791e90634a"
+        ]
+      },
+      "checked_sources": [
+        "Elkies, The Klein Quartic in Number Theory, pp.53–66 and characteristic-three discussion",
+        "Janasz–Pokora–Zieliński arXiv:2308.16514; Bethea–Brazelton arXiv:2410.09242 and supplement",
+        "Resultary 332d2be7d5dd, 79484edb8cd9, c1791e90634a, 437185d539de"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Elkies describes the 21-element Sylow 7 normalizer via its affine action on F7, identifies Aut(G) with PGL2(F7), and states that the coefficient Galois conjugates of ρ(g) are its powers while ρ(h) is fixed. In the same model proposition (ii) identifies the bitangents with the Sylow 3-subgroups."
+        ],
+        "reasoning": "Centralizing the order-three dilation h forces an automorphism representing σ_k to fix 0 and ∞ individually; its ratio k is forced by translation g↦g^k. Counting fixed pairs under dilation gives the full characteristic-zero claim and faithfulness, since {0,1} has trivial stabilizer. Over a good odd DVR the contact divisors may be extended after a finite base extension; each is half the hyperplane divisor. Distinct bitangent theta classes differ by nonzero 2-torsion and cannot coincide after specialization, since 2 is invertible and this torsion is finite étale. The equal-count correspondence is therefore Frobenius-compatible (including hyperflexes), so the all-prime law is the standard cyclotomic specialization of the earlier group action. The exact resultant arithmetic is a different check, not needed for a new surviving mathematical conclusion.",
+        "searches": [
+          "Elkies PDF offsets 6960, 23850 and 41360; equations (1.2), (1.3), (1.9); bitangent proposition (ii), p.64 and proof pp.65–66"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Elkies p.56 (1.9) fixes the literal Klein trinomial model. His proposition (ii), p.64, specifies a unique bitangent associated to each Sylow 3-subgroup by its fixed points and normalizer; pp.65–66 identify X+Y+Z=0 as the line from the cyclic permutation subgroup.",
+          "The p.58 passage gives Gal(Q(ζ)/Q) on the specific Klein realization of G; p.59 uses Aut(G)=PGL2(F7)."
+        ],
+        "reasoning": "The normalizer/fixed-point construction commutes with field automorphisms when the group is stable under them. The unordered-pair description of the split Sylow 3-subgroups then computes the Galois action on actual lines, not merely geometric group transitivity or the action on contact points.",
+        "searches": [
+          "Klein quartic seventh-cyclotomic bitangent fields; Galois orbits of lines; Frobenius orbits; Sylow 3 normalizers",
+          "Elkies, The Klein Quartic in Number Theory, pp.53–54, 56, 58–59, 64–66"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Janasz et al. give 28 exact line equations for a Ciani model using e²+e+2=0, without establishing a rational change of coordinates to the frozen model. Bethea–Brazelton's supplement gives numerical lines, and their §4.1 gives four real lines.",
+          "The later Resultary record gives the full matching arithmetic data. The characteristic-five record gives line equation coefficients via b=a^26 and a degree-28 polynomial; the characteristic-three record gives the line orbit profile 1,3,6,6,6,6."
+        ],
+        "reasoning": "Geometric isomorphism over C and numerical coordinates do not transfer arithmetic fields between twists. Four real lines gives the conjugation count only. By contrast, the indexed arithmetic table concerns the identical model; it is distinguished from earlier primary-source implication.",
+        "searches": [
+          "Janasz–Pokora–Zieliński arXiv:2308.16514 Table 2; Bethea–Brazelton arXiv:2410.09242 and lines.pdf; Resultary 332d2be7d5dd and prime-specific records"
+        ]
+      },
+      "rationale": "Elkies's earlier exact description of both the bitangent set and the coefficient Galois action mechanically gives the frozen arithmetic law in the same rational model. He identifies each bitangent Galois-equivariantly with a Sylow 3-subgroup of G=PSL2(F7), and gives the cyclotomic Galois action on G in the Klein model: σ_k sends the 7-cycle g to g^k and fixes the order-three normalizer generator h. With g a translation and h a nontrivial dilation on P¹(F7), the corresponding element of Aut(G)=PGL2(F7) must centralize h, hence is diagonal, and conjugating g to g^k forces the dilation x↦kx. Each Sylow 3-subgroup has an unordered pair of distinct F7 eigenpoints, giving the equivariant bijection with the 28 two-subsets of P¹(F7). The dilation has just two fixed points for k≠1, 0 and ∞, and admits a two-cycle only when k=−1, when there are three such pairs. Thus the fixed-point law, orbit sizes and faithfulness are immediate; individual fields follow from stabilizers. Smooth odd-characteristic specialization preserves the bitangents and their Frobenius action by the standard theta-characteristic correspondence and étaleness of Jacobian 2-torsion. Smoothness for this fixed model is just the displayed Jacobian check. The later indexed all-prime classification is an exact dominating overlap but is not treated as earlier on the evidence of its date. The decisive historical evidence is Elkies's actual statements, not that later record or the known real count alone.",
+      "residual_risks": [
+        "The earliest explicit written statement of the precise residue-class table was not established. The assessment is based on mechanically implied coverage by the earlier group construction, not on the date of a stronger indexed table."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior implication of the exact Galois set, with good-prime law obtained by standard specialization.",
+          "evidence": "Coefficient Galois sends ρ(g) to powers and fixes ρ(h); the unique line determined by the Sylow 3 fixed points is its bitangent, and there are 28 such lines. The discussion also explicitly mentions reductions of characteristic-zero bitangents as characteristic-three fourfold tangents.",
+          "identifier_or_url": "https://library.slmath.org/books/Book35/files/elkies.pdf",
+          "material_read": "Klein generators and affine/projective group discussion, pp.53–55; Eq. (1.9), p.56; Galois-stability passage pp.58–59; proposition (ii) p.64 and proof pp.65–66; characteristic-three discussion p.81.",
+          "method": "Lawful OA original PDF, literal location and bounded passage inspection.",
+          "title": "The Klein Quartic in Number Theory",
+          "trigger": "Historical exact arithmetic construction, same curve; possible Galois-equivariant bitangent description."
+        },
+        {
+          "assessment": "A geometric count and a different model's exact equations, not the decisive arithmetic comparison.",
+          "evidence": "Prop. 3.1 gives 252 double and 21 quadruple intersections. Table 2 expresses the line equations using e²+e+2=0 for the Ciani model.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.16514",
+          "material_read": "Prop. 3.1 and §3.1 Table 2.",
+          "method": "Lawful OA paper passages.",
+          "title": "On arrangements of smooth plane quartics and their bitangents",
+          "trigger": "Explicit equations for the Klein bitangent configuration."
+        },
+        {
+          "assessment": "Geometric transitivity and the conjugation fixed count, not the complete arithmetic law by themselves.",
+          "evidence": "One transitive geometric orbit of 28 bitangents and four real lines; supplementary rows are numerical.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.09242 ; https://tbrazel.github.io/supplementary/lines.pdf",
+          "material_read": "§4.1, p.10 and numerical supplement pp.1–2.",
+          "method": "Lawful OA paper and supplement passages.",
+          "title": "Bitangents to symmetric quartics and supplementary line equations",
+          "trigger": "Automorphism action and real/arithmetic line data for the model."
+        },
+        {
+          "assessment": "Full exact indexed overlap, covering more than the frozen law. Earlier priority is not inferred from this later record.",
+          "evidence": "Q(ζ7) splitting field, same 1+3+4·6 action and all-good-prime profiles, extension-field counts and splitting fields.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-cyclotomic-frobenius-classification-of-the-klein-quartic-bitange--332d2be7d5dd/RESULT.md",
+          "material_read": "Finding offsets 0–1674; exact-orbit proof offsets 1900–4033.",
+          "method": "Resultary search and local-mirror passage inspection.",
+          "title": "Cyclotomic Frobenius classification of the Klein quartic bitangents",
+          "trigger": "Exact same model and potentially dominating arithmetic law."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; Elkies Klein group, rationality and bitangent descriptions; independent_4.py."
+      ],
+      "rationale": "The arithmetic invariant is natural and the integral calculation credible, but the frozen field classifications and prime count law extract fixed pairs directly from the known Galois-equivariant Klein construction. Good odd specialization is standard. No independent new invariant or mathematically necessary additional case analysis remains; an exact orbit and norm computation is a reproducible alternate derivation, not by itself an advance over that coverage.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

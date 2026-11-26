@@ -1,19 +1,21 @@
-# Review of an elliptic normalization for the unexpected sextic
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The interpolation matrix has 29 rows and 28 columns and exact rank 27 at \(Q_0=(-31:-9:15)\); the produced homogeneous sextic is unique. A lexicographic exact Gröbner basis shows that its only affine singular support is \(P_{11}\) and \(Q_0\); the line at infinity contributes only \(P_1\) and \(P_3\). The three quadratic initial forms and the moving quartic initial form are squarefree. The latter has discriminant \(-8274020159477952\). Bézout's theorem and direct line-factor tests establish absolute irreducibility. Blowing up the four ordinary singular sections and invoking openness extends the result from the exact witness to general \(Q\). The degree-six genus formula and the polar class formula then give genus one and dual degree twelve. Recomputed with the included standalone exact checker.
+PASS
 
-## Originality — PASS, with historical risk
+The 13 points, three fixed double conditions and moving quadruple yield 29 rational jet rows on 28 degree-six monomials. A bounded independent reconstruction at Q0=(-31:-9:15) gave rank 27, the affine singular eliminant y(5y+3)^5/3125, and specialized x-gcds x and (15x+31)^3/3375. The full gradient at the four roots at infinity detects only P1 and P3. Exact local degrees 2,2,2,4 and nonzero tangent discriminants give ordinary singularities, not just assigned vanishing. The finite singular support implies the sextic is reduced. If reducible, a component of degree e<=3 has at most 7 total intersection multiplicity with its complement (at most 4 at the quadruple and 1 at each node), excluding e=2,3 by Bezout. A line must pass through Q0, and exact substitution excludes the four lines through it and the roots at infinity. Independent replay: /workspace/branches/879fc365-80e6-4920-92fe-ac890fd3bb44/independent_check_record3.py; the supplied script was inspected, not executed. Malara's generic rank result lets the solution form a kernel line on the rank-27 open containing Q0. Blowing up the four disjoint sections and dividing by their specified exceptional powers gives a relative hypersurface. At the witness it is smooth, including at exceptional intersections, by the reduced tangent cones. The relative nonsmooth locus is closed and its image is closed by properness, so after shrinking it misses every fiber. Squarefree cones and geometric integrality are also open here. The full basket therefore holds generically, not at every Q. Arithmetic genus 10 minus delta 3+6 is 1; in characteristic zero the ordinary-point polar contributions are 3(2)+4(3), so the dual has degree 12. No origin or exceptional-parameter classification is required. The citation heading is Section 6.1/Proposition 6.1, not a numbered Example 6.1.
 
-Malara, arXiv:2611.04564v1, Section 6.1, gives the 13-point configuration, splitting type, unique unexpected sextic and a certified irreducible special example, but does not give its ordinary-singularity profile, normalized genus or dual degree. published-finding corpus searches on the precise source identifier, point scheme, aliases, elliptic normalization and singularity count returned no equivalent or dominating statement; the closest unexpected-quartic reports and unrelated Howe-sextic reports concern different equations. An older general interpolation reference, arXiv:2511.10772, was not fully accessible; hidden overlap remains possible. Neither search failure nor the absence of a matching title is taken as an unconditional originality guarantee.
+## originality
 
-## Value — PASS
+PASS
 
-The result identifies the intrinsic geometry of a natural newly introduced unexpected irreducible sextic: its normalization is genus one, and the complete 3-node/ordinary-quadruple basket determines its dual class. These facts are not consequences of the interpolation dimension alone and provide a useful classification for studying unexpectedness beyond linear-system dimensions. A classification of exceptional moving points would be a separate question.
+The scheme, generic one-dimensional interpolation and geometric irreducibility are prior or follow directly from Malara's witness and openness. The supported distinct result is the complete generic ordinary-singularity census; genus and dual degree are its classical consequences, not separately novel genus/class formulas.
 
-## Limitations and prior work
+## value
 
-The assertion is generic over \(\mathbb C\), not uniform over special moving points; only the projective singular support and ordinary analytic types are determined. The primary closest text is G. Malara, *Fat base schemes and unexpected hypersurfaces of type \((d+k,d)\)*, https://arxiv.org/html/2611.04564v1, Sections 6.1–6.2. Related older methodology is Janasz–Malara–Tutaj-Gasińska, arXiv:2511.10772, for which full-text priority comparison is unresolved. Closest indexed analogues concern other unexpected quartics, not this sextic.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sextic is a concrete originating example of a mixed fat scheme, and its uniqueness and irreducibility left room for additional or nonordinary singularities. Verifying the full generic basket identifies its normalization and dual geometry. This is an exact geometric description of the motivated family, not a recomputation of the known Hilbert-function result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** A complete exact certificate lists all 20 source and 455 image triple determinants; the factor-eight normalization follows from the unpolarized projected-area support identity. All 105 cross-product normal candidates are classified into 31 directions, with exactly tested regular facet angles. Independent numerical hull checks reproduce vertex counts and volumes. Risk: algebraic enumeration and code share the stated generator convention; no third-party reproduction is implied.
+## correctness
 
-**Originality — PASS (provisional historical priority).** Saroglou (2014, Section 3) proves the general formulas and sharp zonoid inequality, not the canonical golden-ratio quotient or 455-minor table; Eppstein's full generators article lists the two corresponding polyhedra separately but not their image relation. The known volume formula for a uniform truncated icosidodecahedron is not claimed new. Prior indexed results on rhombic-triacontahedron tetrahedra and truncated-octahedron projection volume treat different invariants or bodies. Risk: an unlocated Coxeter-zonotope calculation or archived exact table could subsume the result, and the 2011 publisher full text was unavailable.
+PASS
 
-**Mathematical value — PASS.** The thirty-face canonical icosahedral zonohedron is a natural first six-generator benchmark beyond the five-segment equality classes for the sharp zonoid projection-volume bound. Its exact strict deficit, H3 determinant spectrum, and explicit 32-vertex to 120-vertex Archimedean projection-body map are structurally motivated, reproducible fixed-object invariants, rather than arbitrary numerical slices. The project does not claim a general inequality.
+The area formula for planar zonotopes gives support ∑|u·(v_i×v_j)|, hence segments [-c,c]; the factor 8 in the volume is required. Independent exact replay: work in integer pairs (A,B)=A+Bφ with φ²=φ+1, form each determinant as a scalar triple product, and compare (2A+B)+B√5 to zero by signs and squared magnitudes. The 20 source minors have 10 each of 2φ and 2+2φ. The 455 image minors have absolute values 0,4φ²,4φ³,4φ⁴,8φ³ with multiplicities 70,100,180,100,5. Sum these and multiply the second sum by 8 to obtain the claimed volumes and ratio. Checking the 105 image generator pairs gives 31 unoriented normal lines with 15/10/6 perpendicular direction sets of sizes 2/3/5 and exactly the stated pairwise absolute cosines. Equal-length distinct generators at these planar angles give regular 4-, 6- and 10-gons. Independently the 30 signed image generators are the six axial vectors of length 2φ and all sign choices of cyclic permutations of (φ²,φ,1); divided by 2φ these are the unit H3 roots, yielding the uniform truncated icosidodecahedron. Doubling opposite facet counts gives 30/20/12 faces and then 180 edges and 120 vertices by double incidence and Euler. The original axes are opposite vertex-pairs of a regular icosahedron; no three are coplanar, and the generator pairs give congruent golden rhombi. The exact metric statements use the displayed normalization; affine covariance preserves the quotient but not face regularity under general affine changes.
 
-Closest source citations: https://arxiv.org/abs/1409.4347; https://ics.uci.edu/~eppstein/junkyard/ukraine/ukraine.html; https://doi.org/10.1112/S0025579311001860.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The surviving contribution claimed in the record is the concrete unpolarized projection-body correspondence and the exhaustive real metric triple spectrum in that normalization. The zonotope operator formula, the solid's face data and edge-normalized solid volumes are classical. The ratio is a short evaluation once the correspondence and scale are identified, not an independent advance on the bound. A particularly close earlier certificate computes the exact arithmetic norm census of the same projective H3 arrangement and its incidence counts; it does not determine the normalized real absolute determinant frequencies from its stated data.
+
+## value
+
+PASS
+
+The canonical icosahedral six-generator zonohedron is a natural test of the sharp projection-volume bound, and the map to the uniform H3 zonotope ties that affine quotient to a concrete metric generator model. The complete real determinant spectrum resolves volumes of the constituent rank-three generator parallelepipeds and their frequencies, information a total volume or an incidence/field-norm table cannot supply. That fixed-root-data benchmark is useful independently of a new general inequality. Recomputing only the two standard solid volumes or facet counts would not suffice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

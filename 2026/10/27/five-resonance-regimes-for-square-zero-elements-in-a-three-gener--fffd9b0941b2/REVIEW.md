@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The PBW basis is obtained from a scalar skew-commuting squarefree rewriting system. The complete square expansion gives four independent coefficient equations. Separating the five parameter regimes yields the maximal linear components or the nondegenerate split quadric, with all motivic classes obtained by disjoint affine strata. Rank four for nonzero linear part follows from graded multiplication ranks \(1,2,1\) and the universal bound from \(L_u^2=0\). The checker independently verified all square-zero tests and actual multiplication ranks in ten exhaustive finite field-parameter cases. The only geometric qualifier is reduction of the defining scheme.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest papers inspected in relevant full-text sections are Bergh–Erdmann (arXiv:0810.3308v1) on rank/support varieties and Bergh–Erdmann–Jorgensen (arXiv:1910.06714v1) on constant Jordan types of modules and regular freeness along certain linear forms. Neither gives the full square-zero cone of mixed-degree elements, its deformation resonance at \(t^2=-1\), or the all-parameter component and point-count formula. A separate quantum-complete-intersection Hochschild-cohomology paper studies derivations. The related two-generator quantum complete intersection with truncation exponents three and four has previously been given a square-zero geometric classification, but its PBW coordinates and defining equations differ from the present three-generator, all-exponents-two algebra; its component formulas do not imply the present five strata. Relevant prior work on ordinary exterior multiplication and truncated square-zero graph algebras concerns different operators and presentations. Targeted scholarly and published-record searches found no equivalent theorem, but a broader classification not surfaced by those searches could subsume the formula; priority remains unverified.
+PASS
 
-**Value — PASS.** This is a complete geometry-plus-arithmetic calculation for a natural eight-dimensional self-injective algebra family, including an otherwise hidden fourth-root parameter transition, exceptional characteristic-two behavior, all reduced components, and a regular-differential rank census. These are natural invariants in the module/quantum-complete-intersection context, not isolated arbitrary numerical slices. The acyclic/nonacyclic boundary also gives a homological interpretation of the full finite-field distribution.
+Skew rewriting gives the eight squarefree PBW monomials and nilpotent augmentation ideal; the scalar part of a square-zero element vanishes. The square has degree-two coefficients (1+t)(ab,ac,bc) and cubic coefficient (1+t²)(af+cd)+2tbe. At t=−1, char(k)≠2, the resulting rank-six split quadric is absolutely irreducible, with radical line as singular locus. At char(k)=2, t=1, all equations vanish. Otherwise at most one linear coordinate is nonzero, and on each axis its complementary quadratic coordinate vanishes exactly when the corresponding mixed coefficient is nonzero. Axis closures and the zero-linear slice give precisely the stated maximal linear components; points on multiple components are singular by their local minimal primes. Disjoint strata give the displayed classes, also for the quadric by a locally trivial affine two-plane bundle over nonzero first triples and the zero-triple fiber separately. For nonzero linear part, graded multiplication ranks 1,2,1 give four independent leading images and L_u²=0 bounds the rank by four. With zero linear part a nonzero quadratic component gives u and the socle as independent images; a pure nonzero cubic has rank one. This yields the whole census and acyclicity assertion. Independently rewrote products and exhaustively checked finite models of all five regimes with python /workspace/review_evidence/reproduce_5.py; for instance F₅,t=2 gives ranks 0,1,2,4 with counts 1,4,620,5500. The proof covers all fields including characteristic zero; the geometry is reduced, and the finite check is not an all-field proof.
 
-**Scope and limitations.** The result treats three generators with a single nonzero skew parameter and reduced zero loci. It does not establish scheme-theoretic reducedness of the displayed quadratic coefficient ideal in all cases, nor extend to arbitrary quantum complete intersections. Independent mathematical validation and comprehensive historical publication-priority verification remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The ordinary exterior pairing and graded linear-form rank behavior are not the novelty. The supported contribution is the mixed-degree five-regime classification over all nonzero parameters, including primitive fourth roots and characteristic-two deformation, with its motivic and exact regular-multiplication rank census.
+
+## value
+
+PASS
+
+This natural smallest common-parameter squarefree family with linear–quadratic cross terms permits a complete all-field geometric classification, including two separate resonance mechanisms. Component dimensions, classes and the exact distribution of acyclic multiplication differentials give usable algebraic and finite-field invariants beyond recomputing the classical exterior branch. Claims are confined to the reduced locus and this presentation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

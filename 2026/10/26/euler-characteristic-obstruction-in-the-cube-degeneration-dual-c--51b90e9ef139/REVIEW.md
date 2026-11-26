@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The reported vector gives \(21-120+420-480+192=33\). A finite \(\Delta\)-complex homeomorphic to \(\mathbb{CP}^{2}\) has Euler characteristic \(3\); the two data cannot describe the same complex. The calculation is reproduced in `verify_euler.py`.
+PASS
 
-## Originality
+Shafi–Tschanz v1 Theorem 3.3.1 gives the five listed counts for the dual complex of the cube special fibre. One open cell per simplex gives 21−120+420−480+192=33. The standard CW structure on CP² has one cell in each of dimensions 0, 2, and 4, yielding 3; homeomorphism would preserve that invariant. Remark 3.1.2 says the computations ‘should give triangulations of CP²’; it does not independently prove that this particular stack model meets the hypotheses of the cited topological theorem. The result is correct as an incompatibility of the reported f-vector with that expectation, not as a determination of the true dual complex or as a refutation of the conditional topological theorem.
 
-PASS for the scoped consistency finding. published-finding corpus semantic searches using the exact arXiv identifier, face vector, Euler-characteristic formulation, and the \(\mathbb{CP}^{2}\) comparison returned no finding covering this precise incompatibility. The primary paper's Remark 3.1.2 and Theorem 3.3.1 were read and compared directly; the cited minimal-dlt theorem was also inspected. This is not a claim to have found the corrected face vector.
+## originality
 
-## Value
+PASS
 
-PASS. Euler characteristic is a necessary global invariant of a finite \(\Delta\)-complex. The discrepancy is numerically large and directly relevant to whether a newly computed dual complex has the stated topology. Resolving it is necessary before using the reported face vector as a model of \(\mathbb{CP}^{2}\).
+The reasonably supported distinct claim is the explicit incompatibility in this reported cube computation. The paper supplies the two items being tested, not a computation identifying and resolving the mismatch in the passages inspected. Neither the Euler characteristic of CP² nor the face vector itself is original here. No equivalent report surfaced in the focused comparisons.
 
-## Closest literature and limitations
+## value
 
-The closest source is Shafi–Tschanz, arXiv:2512.21190v1, whose Remark 3.1.2 gives the topological comparison and whose Theorem 3.3.1 gives the cube-degeneration counts. Kollár–Laza–Saccà–Voisin, arXiv:1704.02731, Theorem 0.11(ii), gives the rational-homology constraint under minimal-dlt hypotheses. The stack/minimal-dlt distinction remains a residual applicability risk; no corrected count or source of error is inferred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The value is not in calculating an alternating sum. It is in a concrete consistency check on a reported geometric model: anyone using both the cube simplex counts and the expected CP² topology would be using incompatible data, even if only the rational homology of CP² were needed. It signals the need to check the strata, the model identification, or the topological hypothesis before reusing both assertions. The original comparison supplies the motivation for this specific test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

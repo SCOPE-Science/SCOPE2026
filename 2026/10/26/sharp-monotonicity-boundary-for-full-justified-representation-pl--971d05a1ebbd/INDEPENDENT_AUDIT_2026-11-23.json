@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:36:28.295044Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The six inequalities agree with Teh's Hare Definition 3.1, including the elected-candidate cap and weak quota inequality. At level one a positive-weight voter has no winner approvals and cannot have acquired one. At level k, kZ<=sum_c support_active(c)y_c<=nY<=kZ forces every positively weighted candidate to be approved by all n active voters. Positive weight in the allocation must reach some unelected candidate because each active voter approves at most k-1 winners and each can supply at most z_i. That universally approved unelected candidate and the n still-underrepresented voters already give a pre-expansion certificate with x=1 per voter on that candidate and z_i=1/k. Thus at k<=2 all levels are covered. At k=3 and l=2, if there is only one unelected candidate then every active voter must approve it. EJR+ initially forces their number below 2n/3; summing their individual capacity bounds then gives 2Z<2(n/3)Y. With no unelected candidate a positive row is impossible. If n<=3, every initially unrepresented voter has an empty ballot or would already violate level-one EJR+ singly. At the new intermediate level such a voter cannot supply 2z_i with at most one approved winner; the other voters who stay below level two have unchanged ballots. For the witness the pre-change upper bounds Z<=Y, Z<=5Y/4, and 3Z<=3Y all exclude 4Y/3. In the middle bound, the two mins are bounded by convex combinations of their stated arguments, which apply to all real nonnegative weights, not only a grid. The post-change certificate assigns one approved winner and one approved loser in each row, respects the cap exactly, and has Z=4=(4/3)Y with Y=3. A fresh exact-rational replay checked the witness and bounds; replay with python replays/5.py. Packaged verifier and output were inspected, not executed. The small-parameter exhaustiveness rests on the case arguments, not profile enumeration. Minimal voter and candidate counts are at k=3, not claimed for all k.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Teh proves FJR+ implies EJR+ and gives general polynomial verification; Dong–Peters characterize refinements of PJR+ and EJR+ under conditions involving monotonicity."
+        ],
+        "reasoning": "Monotonicity of a weaker, one-unelected-candidate criterion does not descend to an arbitrary stronger refinement. Polynomial verification of a fixed input does not give the all-profile boundary. Neither theorem subsumes the proof that top-level fractional witnesses reduce to a single unelected candidate.",
+        "searches": [
+          "Teh arXiv:2608.11500v1 §§3, 5.3 and Appendix D.1",
+          "Dong–Peters arXiv:2605.04612v1 §1.1 and characterization framework"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.11500v1",
+        "arXiv:2605.04612v1",
+        "Resultary related approval results (index triage)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Teh's post-change certificate uses three approved candidates per voter against quota 3/2. The frozen level-two certificate has quota 4/3 and only one elected allocation per voter; the proof covers all smaller seats and both obstructions at three seats."
+        ],
+        "reasoning": "Teh already proves the general negative claim but there is no parameter-monotonic reduction of that example which guarantees a witness after shrinking the committee and electorate: quotas and the representation levels change. The new witness and analytic lower bounds do the additional work.",
+        "searches": [
+          "Teh Proposition 5.5 and Appendix D.1 in arXiv:2608.11500v1",
+          "Dong–Peters arXiv:2605.04612v1 §1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general literature search was unavailable, not a negative result. The index returned nearby approval problems, including a PAV house-monotonicity result that changes k. Teh's definition keeps W and k fixed and adds approvals only for winners."
+        ],
+        "reasoning": "Neither changing the house size nor requiring monotonicity of a particular voting rule is equivalent to the axiom on a fixed committee. The source's LP with Y=1 and the homogeneous certificate are equivalent since Y>0 in a violation.",
+        "searches": [
+          "Teh FJR+ full justified representation plus monotonicity two seats three seats four voters approval election Proposition 5.5 Dong Peters",
+          "Resultary: full justified representation plus Hare monotonicity elected candidate approvals two seats sharp four voter three seat example",
+          "Teh arXiv:2608.11500v1 Definitions 3.1 and 5.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact benchmark is Teh's explicit 6-voter/4-seat/7-candidate witness; two voters add the approval and the fractional violation is at level three. The closest indexed small-seat item concerns local Distinctive Representation and a distinct invariant."
+        ],
+        "reasoning": "Neither benchmark is an exact catalogue of FJR+ minimal failures. Different parameters alone would not establish newness; the certificate levels, quota and proof of minimality are also materially different.",
+        "searches": [
+          "Resultary: full justified representation plus Hare monotonicity elected candidate approvals two seats sharp four voter three seat example",
+          "arXiv:2608.11500v1 Appendix D.1"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the sharp small-parameter classification and single-approval witness, not for the definition or the existence of some nonmonotonicity.",
+      "residual_risks": [
+        "Literature search provider was unavailable; the most relevant originating full-text counterexample was checked directly. Independent newer work, a later source version, or unpublished small-committee classifications may have the same boundary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers existence but not sharp low-seat frontier",
+          "evidence": "Proposition 5.5 states nonmonotonicity; Appendix D.1 has n=6,k=4,m=7, adds selected c to two ballots and assigns three candidates per voter.",
+          "identifier_or_url": "https://arxiv.org/html/2608.11500v1",
+          "material_read": "Primary HTML Definitions 3.1–3.2, Theorem 3.3, LP normalization in §3.1, §5.3 and entire Appendix D.1 proof",
+          "method": "Compared constraints, scope, ballots and quota certificate in full-text rendering",
+          "title": "Strengthening Full Justified Representation: Efficient Verification and Computation",
+          "trigger": "Original definition and direct prior nonmonotonicity theorem"
+        },
+        {
+          "assessment": "The characterizations described concern related axioms, not the fractional FJR+ boundary",
+          "evidence": "§1.1 uses monotonicity and other assumptions to characterize refinements of PJR+/EJR+, and §4's described witness framework is not a theorem that every stronger condition is monotone.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.04612v1",
+          "material_read": "Primary PDF abstract, §1.1 contribution and related work, §2.1 and opening of §2.2",
+          "method": "Compared objects and conditions in the full-text paper's overview and definitions, not a review of every appendix",
+          "title": "An Axiomatic Analysis of Proportionality Notions in Approval-Based Multiwinner Voting",
+          "trigger": "Potential transfer from general monotonicity characterization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a recently defined representation property, this distinguishes genuine robustness on one- and two-member committees from failure at three, and establishes independent lower bounds on electorate and candidate sizes at that threshold. The gain is not just a smaller instance: the top-level reduction and the support obstruction explain why counterexamples need an intermediate level and at least two unelected candidates at k=3. This is a structural result about Hare FJR+, not a claim about voters' real-world strategic behavior.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

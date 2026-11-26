@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification of the information-state theorem
+# Independent mathematical audit
 
-The mathematical proof is contained in `RESULT.md`. Its key independently reproducible algebraic facts are the exact Schur-block form, the Stein-divergence decrement and its equality condition, and the three-eigenvalue formula for the derivative of the two-step information update.
+## correctness
 
-## Replay
+PASS
 
-Use Python 3 with the dependency declared in `requirements.txt`, then run:
+Normalize M=(1-lambda)R/rho². In the orthogonal [V,W] basis, the full calibrated update G has blocks (I_q, C-BᵀA^{-1}B) and no off-diagonal term. Hence G and its average with M are SPD, including q=d (empty Schur block). Subtracting tr-logdet divergences with the block determinant factorization gives exactly tr A-logdet A-q+tr(BᵀA^{-1}B), zero iff MV=V. Convexity for the average and spectral compactness of the divergence sublevel set make the decrements summable, force A-I and B to vanish uniformly in the varying ranks, and give both (M-I)V→0 and vanishing matrix increments. The fixed-length frame bound now controls the full error: replace each M in a window by its first iterate at o(1) cost and sum the squared errors on the subspaces; the sum is at least beta times the squared Frobenius error. This proves the stated limits including inverse convergence. The derivative at I is lambda E+(1-lambda)W E W for W=I-VVᵀ. For the two lines in Sym(2), the Frobenius overlap of the rank-one unit projectors is cos²(theta). Their relaxed product is lambda² on the perpendicular line and has trace T and determinant lambda² on their span, giving the two roots and a simple stable dominant root r_+. For a sufficiently small initial error epsilon in its dominant direction, use an eigenbasis norm for the epoch map to bound the iterates by O(epsilon q^m) with r_+<q<sqrt(r_+). The dominant left projection after division by r_+^m has sum of nonlinear corrections O(epsilon²) since q²/r_+<1. It therefore has nonzero asymptotic coefficient; the other components divided by r_+^m tend to zero, proving attainment in the nonlinear SPD recursion. Differentiating the larger root in T at T=1+lambda² gives 1/(1-lambda²), yielding the stated small-angle coefficient. The ordinary forgetting two-cycle has phases with swapped weights 1 and lambda; each has condition number governed by trace 1+lambda and determinant lambda sin²(theta), giving the stated comparison.
 
-```
-python verify.py
-```
+## originality
 
-The archived run prints `PASS 2565 deterministic numerical assertions`, also recorded in `verification_output.txt`. The verifier tests randomly constructed positive-definite information matrices, orthonormal subspace bases of several ranks, the Schur formula and divergence decrement, convergence for cyclic persistent-excitation schedules, exact two-direction Jacobian eigenvalue formulas, finite-difference derivatives, and small-angle asymptotic coefficients. The seed is deterministic and the script has no network access.
+PASS
 
-## Limits
+Credit the exact prior SIFt recursion, the undamped block BFGS/LogDet map, and the exact relaxed-two-projection linear spectrum. The original claim that remains is the deterministic equal-strength isotropic limit for the averaged nonlinear SPD recursion with a uniform subspace frame, together with its calibrated sharp nonlinear epoch rate and the directional-conditioning comparison. The linearized formula by itself is not credited as original.
 
-Finite floating-point comparisons are not certifications of universal positivity, global convergence, local nonlinear sharpness, or asymptotic expansions. Those conclusions follow from the explicit proof and its quantified hypotheses. The verifier does not test noisy parameter tracking or regressors with unequal retained singular values. Independent mathematical audit remains unperformed.
+## value
+
+PASS
+
+The limit determines the selected information matrix from arbitrary SPD starts for nonperiodic varying-rank frames, strengthening the interpretation of uniform bounds in this special equal-strength regime. A sharp nonlinear local rate explains why eventual isotropy can coexist with arbitrarily slow equilibration at near-parallel excitation, while ordinary forgetting retains anisotropy. The practical mathematical distinction survives even after crediting the prior projection spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

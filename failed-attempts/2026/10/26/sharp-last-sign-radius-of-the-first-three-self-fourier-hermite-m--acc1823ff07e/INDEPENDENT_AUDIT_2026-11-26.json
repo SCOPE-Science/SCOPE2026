@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:42:45.114639Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently expanded the physicists' Hermite polynomials in u=2πx²: stripping the Gaussian gives every packet member as P(u)=c+u[A(u−3)+Bp(u)] with p(u)=u³−14u²+105u/2−105/2 and c=f(0)≤0. Coefficient matching gives p+α(u−3)=(u−η)(u−z)² with η=14−2z, α=−3z²+28z−105/2 exactly when W(z)=0. W has critical points 3 and 14/3, both of negative value, and opposite signs at 11/2 and 6, so 2<η<3<z. As a direct certificate including negative origin values, weight P(η)/η by z−3 and P(z)/z by 3−η. The terms in A−Bα cancel and the resulting weighted sum is c[(z−3)/η+(3−η)/z]≤0. Nonnegativity at both contacts forces c=0 and A=Bα. Otherwise negativity at one contact, by continuity, forces a strictly larger last-sign radius. In the equality case eventual nonnegativity and nontriviality force B>0; the exhibited polynomial is negative below η and nonnegative from η on, giving the claimed radius and multiplicities. This also handles degree-degenerate cases. Read the SymPy checker and archived log, including R≈0.6009643878548390; no frozen code was executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The unrestricted product lower bound 0.2025 is weaker; the four-mode H_0,H_4,H_8,H_12 example has radius ~0.59354 in a larger packet. The general Laguerre quadrature lower bound specializes to the smallest root of L_3^(-1/2), yielding only R≥0.24603 approximately. The negative-set product bound yields only r≥1/8 in the self-Fourier case."
+        ],
+        "reasoning": "Neither a weaker unrestricted bound, nor a witness with an additional mode, nor a high-dimensional asymptotic can imply the precise small-packet minimum and equality. The covering implication instead comes from exact root geometry within the same pencil.",
+        "searches": [
+          "arXiv:1602.03366 Theorems 2 and 4, §4.2",
+          "arXiv:2210.01684 Theorems 1.2 and 2.1",
+          "arXiv:2003.10771 Eq. (1.5)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0c4edba5f7b1 (decisive exact implication)",
+        "arXiv:1602.03366",
+        "arXiv:2210.01684",
+        "arXiv:2003.10771",
+        "arXiv:2611.08224v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At r=ρ the other result states the collision and hence q_ρ(u)=2(u−a_*)(u−t)². Its displayed pencil gives q_r−q_ρ=24(r−ρ)(u−3), with a_*<3<t. For r>ρ evaluation at a_* is negative; for r<ρ evaluation at t is negative. At ρ the last negative interval ends at a_*. The degree-four ray ends at 3, and admitting a negative value at the origin only subtracts a nonnegative constant from the origin-zero polynomial with the same nonconstant coefficients."
+        ],
+        "reasoning": "The inspected collision result plus the displayed affine direction mechanically gives the frozen lower obstruction, attainable radius, and uniqueness. In particular, merely switching from nonpositive-set measure to last-sign radius does not leave a distinct exact invariant unsupported by the known calculation; the mirror's collision, not its measure optimizer, forces the conclusion. The later date does not establish prior discovery or authorship.",
+        "searches": [
+          "0c4edba5f7b1 RESULT.md §§1–3, offsets 2630 and 3910"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Laguerre modes L_0^(-1/2), L_2^(-1/2), L_4^(-1/2) in u=2πx² differ only by nonzero scalars from the respective H_0,H_4,H_8 modes. The mirror normalizes the origin-zero degree-eight family to q_r(u)=2p(u)+24r(u−3), exactly the same pencil.",
+          "The measure of a nonpositive set and the last-sign radius are not equivalent objectives: the measure minimizer from that record has roots 7±√14 bounding its negative annulus, not the frozen optimizer."
+        ],
+        "reasoning": "Do not identify the two headline theorems. Match the packets and affine parameter first, then compare the implications of the exact collision computation inside the proof.",
+        "searches": [
+          "Resultary 0c4edba5f7b1, Finding and proof §§1–3",
+          "arXiv:1602.03366 §2.1",
+          "arXiv:2210.01684 Problem 1.1 and Theorem 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirror gives P(t)=2t³−23t²+84t−105 with its unique positive root, a double root at t and remaining root a_*=14−2t<3. Edwin's table contains numerical unrestricted bounds starting at dimension 4, not an exact d=1 packet value."
+        ],
+        "reasoning": "The matching exact cubic and both contact positions are part of the mirror's proof, not an isolated numeric hit. The separate numerical tables do not imply the minimum. No matching SOS bound was established in the bounded comparisons; this is not evidence of absence.",
+        "searches": [
+          "Resultary 0c4edba5f7b1 proof §3 (offset 3910)",
+          "arXiv:2611.08224v1 §5, Table 1"
+        ]
+      },
+      "rationale": "The distinct indexed 0c4edba5f7b1 record's headline is a different optimization, but its exact root-geometry result on the same affine cubic family directly supplies the radius optimizer and its full exclusion certificate. This is corollary coverage in the inspected evidence, not a claim about historical precedence (the compared entry bears a later catalogue date). The general Fourier literature by itself does not settle the finite packet.",
+      "residual_risks": [
+        "No independent claim about when the shared contact calculation was first discovered or published is made. The comparisons do not exclude still earlier formula-level coverage in alternative polynomial or SOS formulations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different headline optimum, but its proved algebraic findings give the radius and uniqueness as a direct corollary",
+          "evidence": [
+            "The two rightmost roots merge at t with P(t)=0 and remaining root 14−2t∈(0,3); varying the affine coefficient changes the values at the two contacts with opposite slopes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-sharp-negative-set-length-in-the-first-three-positive-fourier-he--0c4edba5f7b1/RESULT.md",
+          "material_read": "Finding, scope, affine reduction and proof §§2–4, especially offsets 2630 and 3910, and prior-work statements",
+          "method": "Direct configured local mirror, verified both objectives and the exact root/collision implications",
+          "title": "Sharp negative-set length in the first three positive-Fourier Hermite modes",
+          "trigger": "Same exact degree-eight self-Fourier family and the same collision cubic"
+        },
+        {
+          "assessment": "Unrestricted bound or larger-packet witness, not the exact three-mode extremum",
+          "evidence": [
+            "0.59354 uses H_12; unrestricted optimizers have infinitely many double roots."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1602.03366",
+          "material_read": "Theorems 2 and 4, §2.1, §4.2 construction, PDF pp. 2–3 and 15 (offsets 4700, 7897 and 60200)",
+          "method": "OA primary PDF comparison",
+          "title": "Hermite polynomials, linear flows on the torus, and an uncertainty principle for roots",
+          "trigger": "Exact Hermite basis and a very close low-mode sign-radius example"
+        },
+        {
+          "assessment": "Non-sharp specialization and high-dimensional asymptotic",
+          "evidence": [
+            "Smallest L_3^(-1/2) zero ~0.19016 yields radius bound ~0.24603, not the optimizer."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2210.01684",
+          "material_read": "Theorems 1.2 and 2.1, especially pp. 3–4 around offset 10900",
+          "method": "OA PDF; specialized Laguerre bound to d=1 and degree four in the radial variable",
+          "title": "Sign uncertainty principles and low-degree polynomials",
+          "trigger": "Broad Gaussian-polynomial sign radius constraints"
+        },
+        {
+          "assessment": "General measure inequality is weaker",
+          "evidence": [
+            "Negative-set measure product ≥1/16; with the set inside (−r,r), this only yields r≥1/8."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2003.10771",
+          "material_read": "pp. 3–4, Eq. (1.5), around offset 8900",
+          "method": "OA primary PDF passage and self-Fourier specialization",
+          "title": "New sign uncertainty principles",
+          "trigger": "Possible measure-to-radius bound"
+        },
+        {
+          "assessment": "Different class and dimensions; not an exact small-packet table",
+          "evidence": [
+            "Table gives numerical lower bounds for unrestricted A_σ(d), starting at dimension 4."
+          ],
+          "identifier_or_url": "arXiv:2611.08224v1",
+          "material_read": "§5 Table 1, pp. 25–26, offsets 91692 and 96170 in PDF text",
+          "method": "OA primary table inspected with dimension and class comparison",
+          "title": "Fourier inequalities and sign uncertainty II",
+          "trigger": "Possible exact table or certified packet bound"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An exact small-packet sign-radius benchmark is mathematically motivated, but for this finding the matched collision and parameter direction already force the same benchmark and equality using evaluation at the two given zeros. No separately useful, nonmechanical advance beyond the covered calculation is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

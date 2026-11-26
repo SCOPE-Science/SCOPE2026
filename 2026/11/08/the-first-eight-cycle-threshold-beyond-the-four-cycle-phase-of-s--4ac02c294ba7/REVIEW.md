@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The open-hole convention and the distinct interval endpoints are explicit. At the threshold \(a=7/17\), the eight partition intervals have images with endpoints in a forward-invariant eight-cycle and the distinct two-cycle \(\{0,1\}\). Reconstructing their branch images gives the displayed exact directed graph. Its only strongly connected components are simple cycles of lengths two, four, one and one; all other paths enter one of these. A survivor that reaches an endpoint enters the boundary cycle. For any other survivor, eventual periodic cell itineraries and strict expansion force eventual periodic *points*. The exact periodic census is therefore complete. Hole monotonicity and the fact that the boundary cycle meets both endpoints prove sharpness. The zeta factors and zero-entropy consequence are derived from the complete census, not from enumeration.
+PASS
 
-Independent diagnostics in `verify_period_window.py` check the exact transition table, the recurrent components, all displayed cycle points, and fixed-point counts through order \(16\) at four exact parameters. These finite checks are evidence, not a proof of unbounded quantifiers. There is no extrapolation from the checker to the theorem.
+At a=7/17 the endpoint orbit is exactly 7,3,11,12,10,14,6,5 in integer coordinates divided by 17; 0 and 1 form a separate boundary two-cycle. My exact replay /workspace/branches/audit_period_graph.py computed the cell images [11,17], [7,11], [5,7], [3,5], [12,14], [10,12], [6,10], [0,6] in the same coordinates. Because image endpoints are partition boundaries, a transition between cell interiors must cover the whole target cell; isolated endpoint hits are handled by the boundary orbits. The four graph components are simple cycles (0,7), (1,4,6,3), (2), (5). Every infinite itinerary eventually stays on a simple cycle, and contraction of its inverse branches makes an infinite cyclic itinerary a single periodic point. The exact replay solved each cyclic affine equation: the (0,7) candidate is on the boundary, not an interior orbit; the other solutions are the stated four-cycle and the two fixed points. This distinction is slightly obscured by the phrase 'interior graph cycles' in the frozen proof, but it does not alter the list or the boundary argument. Nested survivor sets exclude all other periods at smaller a; the old orbits survive even at a=2/5 and the eight-cycle requires a>=7/17. This proves the zeta formula at all orders, not merely the finite-period diagnostic. The compact restriction is continuous; the survivor is countable by finite preimages of finitely many orbits, and invariant measures give full mass to the periodic points by recurrence. The dimension and topological entropy are therefore zero.
 
-## Originality (O): PASS within reviewed evidence
+## originality
 
-Ding–Steiner–Sun (arXiv:2610.03327v1) supply broad survivor/kneading theory and entropy/dimension plateaux, but their inspected Section 4 does not provide the sharp \(7/17\) cutoff, the unique eight-cycle, or the all-order zeta census on the symmetric slice. The closest published published-finding corpus statement covers symmetric holes only through \(2/5\), and its left-endpoint periodic census is incorporated as previously known. Glendinning–Hege (arXiv:2508.21429v1) covers general chaos-boundary mechanisms but not this exact negative-doubling window. Olivares-Vinales (arXiv:2405.10560v2) treats general interval-map zeta theory rather than this specific survivor. General Markov and kneading methods are acknowledged; the novelty assessment concerns a sharp motivated finite classification not printed in the inspected sources. Priority remains provisional because an unlocated specialized calculation may exist.
+PASS
 
-## Mathematical value (V): PASS
+The supported addition is the all-real symmetric interval-map classification beyond 2/5, including the unique eight-cycle and all-order zeta jump at 7/17. The strongest distinct indexed comparisons cover the preceding phase, a different postcritical parameter, or the circle quotient. The primary decreasing-Lorenz abstract and indexed Theorem 1.2 description give general symbolic-survivor machinery, not an exact periodic census in the available passages. The finite graph calculation is additional mathematical work; this is a bounded best-of-knowledge judgment, not a claim of exhaustive priority.
 
-The full next parameter phase after the known four-cycle threshold has a natural sharp rational endpoint, rather than an arbitrary sample or minor numerical improvement. The proof establishes that the system remains globally eventually periodic and zero entropy until a *new* primitive eight-cycle enters exactly at that endpoint, and it supplies the complete zeta change for all iterates. This distinguishes periodic-orbit bifurcations from entropy changes in a natural one-parameter family; the exact cutoff informs finite-resolution open-system dynamics without claiming larger generalizations.
+## value
 
-## Limitations
+PASS
 
-The theorem covers only \(2/5\le a\le7/17\) and only the specified symmetric open-hole interval dynamics. It does not classify larger holes, asymmetric holes, nonlinear maps, transient preimage multiplicities, or behavior immediately to the right of \(7/17\). Independent scientific audit remains outstanding, and historical priority against every specialized paper has not been certified.
+The next sharp phase of a natural one-parameter hole family is motivated by the preceding period-four onset. The result distinguishes a genuine jump in exact orbit counts and zeta from any change in entropy or dimension. The all-order classification, including exclusion of hidden intermediate periods, is useful for later phase and bifurcation analyses and is not just a finite-period search.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:43:19.023534Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact survival and proof steps 1–5",
+        "Frozen VERIFICATION.md and check_hazard.py (read, not executed)",
+        "Ristić–Kundu, METRON 73, §3 (continuous comparison)"
+      ],
+      "rationale": "Summing the geometric probability generating function for the maximum gives s_j=S(jλ) with λ=−log p. For y=1−e^(−u) and k=1−θ, multiplying the logarithmic derivative of the continuous hazard by y(1−y)(1−y^α)(1−ky^α)>0 gives E(y) as stated. Its decomposition A+kB proves strict increase for α≥1. For 0<α<1 the ordered coefficient signs are −,+,−,−,+ (at α=1/2 the two coinciding negative coefficients combine), so there are at most three positive roots counted with multiplicity. The generalized Descartes bound follows by induction after dividing by the lowest power and differentiating: Rolle bounds the root count by that of the derivative plus one, and when the first two coefficients have the same sign the derivative has an extra root before the first crossing or touch. The double root at y=1 leaves at most one interior zero. At θ=2α/(1+α), the quadratic term at 1 vanishes and the negative cubic makes the root triple. Together with E(0+)<0 and the endpoint expansion this gives the strict continuous classifications including equality. For a bathtub r, the derivative of the moving-bin integral is λ[r((x+1)λ)−r(xλ)]; its sign crosses at most once because on an interval straddling the continuous minimum the first term rises and the second falls. At most one integer increment can straddle the integrated-hazard minimum, yielding the strict adjacent comparisons and possible one tie. Multiplication by positive denominators gives s_1²−s_2 the sign of R. For H(λ)=log(S(λ)²/S(2λ)), H′=2[r(2λ)−r(λ)] has exactly one change from negative to positive. H starts at 0 and ends at log(α/θ). In particular at θ=α the increasing branch tends to zero from below; for θ<α there is exactly one positive crossing. Reversing λ to p gives the stated sides of the threshold.",
+      "residual_risks": [
+        "Only interior parameters and a fixed equal-bin lattice are covered; numerical deep-tail tolerance does not prove the strict tail signs.",
+        "Bibliographic correction only: DOI 10.1186/s40488-015-0028-6 is the survey by Subrata Chakraborty, not A. Barbiero. This is not used as a premise of the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Survey Method IV gives floor discretization and differences of survival; §2.4.13 gives the parent DGE analogue. Method VI is a different finite-support hazard-preserving construction.",
+          "The discrete Marshall–Olkin length-biased exponential and generalized Burr–Hatke published findings concern different survival laws and permit more direction changes."
+        ],
+        "reasoning": "These results do not settle the sign of two adjacent integrated hazards for the same geometric-maximum DGE law. The parent-DGE monotonicity cases are not preserved unchanged by compounding.",
+        "searches": [
+          "Chakraborty discretization survey, DOI 10.1186/s40488-015-0028-6",
+          "arXiv:1802.06715 baseline DGE hazards",
+          "Resultary searches for discrete Marshall–Olkin and generalized exponential phase diagrams"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1802.06715 §§2–3",
+        "Ristić–Kundu METRON §3",
+        "Chakraborty survey methods IV and VI",
+        "Matched Resultary discrete hazard phase statements"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The continuous classification plus floor discretization implies preservation of strict increasing or strict decreasing hazards by averaging. The continuous bathtub and the exact survival by themselves do not state the discrete threshold.",
+          "In the bathtub region p=1/2 and p=9/10 at the same (α,θ)=(1/2,1/10) produce opposite sampled shapes; a bathtub of the embedding does not force a bathtub after sampling."
+        ],
+        "reasoning": "The work must control straddling bins, prove the single turn of H on (0,∞), and distinguish its tail limit above, at, or below zero. Equating the continuous and discrete phases would miss the new transition.",
+        "searches": [
+          "Kundu–Nekoukhou §§2–3, Eqs. (9)–(10) and (12)",
+          "Ristić–Kundu §3 continuous MOGE hazard phase classification",
+          "Chakraborty Method IV"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The UGDGE CDF/PMF of arXiv:1802.06715 §§2–3 is the identical law; Eq. (12) gives its hazard transformation, not its resolution classification.",
+          "The continuous MOGE parameter η=1/θ takes η_c=(1+α)/(2α) to θ_c=2α/(1+α)."
+        ],
+        "reasoning": "The reciprocal parameter matches the continuous embedding, not the positivity of the first discrete increment. Changing units does not eliminate the bin-width parameter λ from the adjacent comparison.",
+        "searches": [
+          "UGDGE and geometric-maximum discrete generalized exponential hazards; arXiv:1802.06715",
+          "Ristić–Kundu Marshall–Olkin generalized exponential, METRON §3",
+          "Resultary exact discrete hazard diagrams"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical indexed entry is the frozen finding itself, not independent evidence. The nearest distinct exact classifications are for Marshall–Olkin length-biased exponential, generalized Burr–Hatke and Rayleigh–Weibull laws."
+        ],
+        "reasoning": "A continuous-parameter theorem over an infinite sequence has no relevant complete finite table. The actual exact indexed phase diagrams were checked and are not a reparameterization of this one.",
+        "searches": [
+          "Resultary searches for UGDGE sampling-resolution transition and exact discrete hazard diagrams"
+        ]
+      },
+      "rationale": "Prior work covers the exact count law, its hazard formula and the continuous hazard phases. The supported distinct claim is the sampled whole-sequence classification with the unique bin-resolution threshold, its boundary cases and an exact first-step test.",
+      "residual_risks": [
+        "Grouped reliability results under other aliases or broader continuous-to-discrete transfer theorems may overlap; the bounded source comparison does not establish exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct model and hazard-formula coverage",
+          "evidence": [
+            "Uses floor discretization for DGE and a geometric number of parent counts with their maximum; (12) transforms the parent hazard."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1802.06715",
+          "material_read": "§§2–3, pp. 6–8, Eqs. (9)–(10), (12); OA offsets 12400–17973",
+          "method": "Primary OA PDF",
+          "title": "Univariate and Bivariate Geometric Discrete Generalized Exponential Distributions",
+          "trigger": "Identical geometric-maximum count law"
+        },
+        {
+          "assessment": "Prior continuous strict cases; not the lattice threshold",
+          "evidence": [
+            "The continuous boundary η_c=(1+α)/(2α) maps to θ_c=2α/(1+α); the stated cases omit equality at that boundary."
+          ],
+          "identifier_or_url": "https://home.iitk.ac.in/~kundu/moged-rev-3.pdf",
+          "material_read": "§3, pp. 7–8, OA offset 16000",
+          "method": "Author-hosted OA full text",
+          "title": "Marshall-Olkin generalized exponential distribution",
+          "trigger": "Continuous hazard shape under the reciprocal parameter"
+        },
+        {
+          "assessment": "Standard discretization, not UGDGE resolution classification",
+          "evidence": [
+            "Credits Chakraborty and gives P(floor X=k)=S_X(k)−S_X(k+1)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1186/s40488-015-0028-6",
+          "material_read": "Title page; Method IV pp. 9–10, §2.4.13 p. 15, Method VI p. 20",
+          "method": "Primary OA article",
+          "title": "Generating discrete analogues of continuous probability distributions—A survey of methods and constructions",
+          "trigger": "Possible grouped hazard preservation theorem and exact reference attribution"
+        },
+        {
+          "assessment": "Different base distribution and shape theorem",
+          "evidence": [
+            "Uses a length-biased exponential model and permits two direction changes."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-hazard-turning-point-phase-diagram-for-discrete-marshall-o--c56eaf093042",
+          "material_read": "Published finding and model statement",
+          "method": "Local published-file mirror",
+          "title": "Exact hazard turning-point phase diagram for discrete Marshall–Olkin length-biased exponential hazards",
+          "trigger": "Strongest indexed same-terminology discrete Marshall–Olkin phase diagram"
+        },
+        {
+          "assessment": "Distinct model and turning pattern",
+          "evidence": [
+            "Generalized Burr–Hatke hazards can rise, fall, and rise; this is not a geometric DGE maximum."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-three-regime-hazard-phase-diagram-for-discrete-generaliz--d75bb3879263",
+          "material_read": "Published finding and model statement",
+          "method": "Local published-file mirror",
+          "title": "A sharp three-regime hazard phase diagram for discrete generalized Burr–Hatke hazards",
+          "trigger": "Exact sampled-hazard thresholds and three regimes"
+        },
+        {
+          "assessment": "Different law and kind of threshold",
+          "evidence": [
+            "Uses discrete Rayleigh–Weibull agewise scale thresholds, not the initial comparison of a UGDGE bathtub."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-hazard-reversal-thresholds-for-the-discrete-rayleigh-weibu--646ecb6220e4",
+          "material_read": "Published finding and model statement",
+          "method": "Local published-file mirror",
+          "title": "Exact hazard reversal thresholds for the discrete Rayleigh–Weibull law",
+          "trigger": "Matching indexed scale-threshold terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen whole-sequence classification, exact R test and threshold example",
+        "Known continuous phase theorem and known UGDGE hazard formula"
+      ],
+      "rationale": "The exact test decides an infinite failure-probability sequence using its first two entries in the eligible phase, and establishes precisely when sampling masks a continuous bathtub. The distinction at θ=α matters even though the continuous hazard at fixed α has no separate shape boundary there. This is a natural complete classification for an established reliability law, not merely a changed parametrization of its embedding.",
+      "residual_risks": [
+        "This does not give threshold estimation or guarantees under noise or irregular bins."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

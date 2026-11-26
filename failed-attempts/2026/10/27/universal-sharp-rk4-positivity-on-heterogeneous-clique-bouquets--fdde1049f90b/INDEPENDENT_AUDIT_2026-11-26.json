@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:17:26.598902Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With m = n-1, the all-ones space, the direction (m,-1,...,-1), the zero-weighted-mean petal-constant subspace, and within-petal zero-sum spaces are orthogonal with eigenvalues 0, n, 1, and s_i+1. Their projectors give the stated entries. Write E=(1-r(nh))/n and B=(m+r(nh)-nr(h))/(mn). For h>0, strict convexity of r gives B>0. For distinct vertices in petal i, the entry is B+q_s with s=s_i and q_j=(r(h)-r((j+1)h))/j. Secant-slope monotonicity gives q_s>q_m when h>0 (since t>=2 implies s<m), and B+q_m=E. This directly verifies the strict distinct-leaf signs at the endpoint; independently the reflection identity follows by factoring its cubic difference at 0, rho/2 and rho and matching the cubic coefficient. Positivity of r for all real arguments gives positive diagonal entries via the spectral projectors. The increasing cubic factor of r(x)-1 shows r(x)<=1 exactly for 0<=x<=rho, so the hub-to-leaf entry alone rules out h<0 or h>rho/n. Convexity on [0,rho] and the attained eigenvalue n give the exact same interval for Euclidean norm <=1 (the last proof sentence in the source must retain the lower bound h>=0). At h=0 the map is I. The supplied verifier was inspected, not executed; the audit does not depend on its samples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The convex-filter result covers arbitrary positive petal sizes, any number of petals >=1, and every nonnegative convex filter normalized at zero; it states f(hL)>=0 iff f(nh)<=1 for h>=0.",
+          "The sparse-core join theorem covers more graph shapes but is subject to n>=beta_p(k+Delta), not assumed in the frozen theorem."
+        ],
+        "reasoning": "RK4 has a strictly positive, strictly convex stability filter and therefore meets every hypothesis of the windmill theorem on the entire frozen graph domain. Arbitrary-cone results with extra size constraints are not being mistaken for unconditional coverage.",
+        "searches": [
+          "SCOPE-convex-spectral-filters-on-heterogeneous-clique-windmills-have-a--c55885b0d081",
+          "SCOPE-a-sharp-even-order-taylor-positivity-window-for-sparse-core-cliq--2c2f6e8a0c2d"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary c55885b0d081",
+        "Resultary 37dd2f54631e",
+        "Resultary a8ca5b261d22",
+        "Resultary 2c2f6e8a0c2d",
+        "DOI:10.1137/S003614450036757X (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The broader proof gives apex–leaf E=(1-f(nh))/n, cross-petal D=(m+f(nh)-nf(h))/(mn), and within-petal W_i=D+q_s with D+q_m=E. For strictly convex f and s<m, D>0 and q_s>q_m at every positive step.",
+          "Its spectral list gives maximum Laplacian eigenvalue n. A nonnegative convex filter normalized at one at zero has f(x)<=1 throughout [0,nh] when f(nh)<=1."
+        ],
+        "reasoning": "Take f=F_4. At h=rho/n these formulas give E=0, D>0 and W_i>E; after it E<0. The spectral list and convexity supply the norm statement, and for negative steps the frozen RK4 polynomial directly has r(nh)>1. No scientific remainder of the claimed threshold/endpoint finding is established by changing notation or using a separate quartic proof. The coverage does not settle chronology.",
+        "searches": [
+          "SCOPE-convex-spectral-filters-on-heterogeneous-clique-windmills-have-a--c55885b0d081, Proof, offsets 2050–4205",
+          "Focused web search for RK4 positivity on heterogeneous clique windmills"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Writing the completed linear RK4 step as F_4(hL), the broad windmill record explicitly gives the even Taylor consequence and beta_4 approximately 2.785293563405.",
+          "The graph aliases refer to the same unit-weight graph K_1 joined to a disjoint union of positive-size cliques."
+        ],
+        "reasoning": "Beta_4 is the unique positive root of F_4(x)=1, so it is exactly rho. The mathematical statement is not distinguished by 'RK4' versus 'Taylor' or by 'bouquet' versus 'windmill'.",
+        "searches": [
+          "Resultary: RK4 positivity on heterogeneous clique bouquets, windmills and universal hubs",
+          "SCOPE-convex-spectral-filters-on-heterogeneous-clique-windmills-have-a--c55885b0d081, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The complete multipartite record gives the same rho/n threshold, but it covers only the all-singleton (star) subfamily here: an edge within one petal plus a vertex of another induces K_2 disjoint union K_1, forbidden in complete multipartite graphs.",
+          "The equal-petal Gauss–Legendre record uses a different stability function; it is not an exact RK4 parameter match.",
+          "The windmill convex-filter record explicitly tabulates the order-four consequence in formula form; an additional numerical table is not needed to establish coverage."
+        ],
+        "reasoning": "Parameter coincidence in the multipartite or homogeneous comparisons is not sufficient by itself. The exact full-domain match comes from the convex-filter result on the identical graph class.",
+        "searches": [
+          "Resultary: exact RK4 positivity threshold on complete multipartite graphs and clique windmills",
+          "SCOPE-sharp-rk4-positivity-equals-spectral-stability-on-complete-multi--37dd2f54631e",
+          "SCOPE-a-sharp-gauss-legendre-positivity-horizon-on-windmill-graphs--a8ca5b261d22"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary theorem demonstrably covers the entire frozen finding: it proves the same apex-positivity criterion on the same unweighted heterogeneous clique windmills for every nonnegative convex filter, explicitly includes order four, and its strict secant inequalities and eigenvalues imply the remaining endpoint and Euclidean-norm assertions. This is a finding about mathematical coverage of the standalone claim in the inspected corpus, not a determination of historical priority. The broader record has a later catalogue date; no claim is made that it predates the frozen result or that it was independently discovered.",
+      "residual_risks": [
+        "The audit does not establish first public disclosure or any dependency between the October and November records.",
+        "Full text of cited SSP/numerical-positivity predecessors was not recovered on the attempted routes (including Gottlieb–Gottlieb and Horváth); this does not affect the demonstrated coverage by the convex-filter theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mathematical superset, including explicit order four; later catalogue date does not establish historical precedence",
+          "evidence": "f(hL) is entrywise nonnegative iff f(nh)<=1; F_4 case stated; projector and secant formulas yield all claimed signs and the spectral implication.",
+          "identifier_or_url": "2026/11/8/SCOPE-convex-spectral-filters-on-heterogeneous-clique-windmills-have-a--c55885b0d081",
+          "material_read": "RESULT.md, Finding and Assumptions, Proof offsets 2050–4205, Relationship to prior work at offset 4992",
+          "method": "Local Resultary mirror, bounded original passages",
+          "title": "Convex spectral filters on heterogeneous clique windmills have an exact apex-positivity criterion",
+          "trigger": "Matching heterogeneous graphs and an apparently stronger filter criterion"
+        },
+        {
+          "assessment": "Earlier star subcase, not the nonmultipartite clique bouquets",
+          "evidence": "Exact rho/N threshold stated for complete multipartite graphs with arbitrary positive part sizes.",
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-rk4-positivity-equals-spectral-stability-on-complete-multi--37dd2f54631e",
+          "material_read": "RESULT.md, Finding, offsets 0–1861",
+          "method": "Local Resultary mirror, bounded original passage",
+          "title": "Sharp RK4 positivity equals spectral stability on complete multipartite graphs",
+          "trigger": "Same RK4 constant and threshold mechanism"
+        },
+        {
+          "assessment": "Different integrator and equal-size petals",
+          "evidence": "The windmill is K_1 joined to copies of K_(r-1) and the step is Gauss–Legendre.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-gauss-legendre-positivity-horizon-on-windmill-graphs--a8ca5b261d22",
+          "material_read": "RESULT.md, Finding and Assumptions, offsets 0–1681",
+          "method": "Local Resultary mirror, bounded original passage",
+          "title": "A sharp Gauss–Legendre positivity horizon on windmill graphs",
+          "trigger": "Same graph alias and a sharp positivity threshold"
+        },
+        {
+          "assessment": "Other overlapping theorem, conditional on a size and degree inequality",
+          "evidence": "For K_k joined to H, the exact interval requires n>=beta_p(k+Delta).",
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-even-order-taylor-positivity-window-for-sparse-core-cliq--2c2f6e8a0c2d",
+          "material_read": "RESULT.md, Finding, offsets 0–1900",
+          "method": "Local Resultary mirror, bounded original passage",
+          "title": "A sharp even-order Taylor positivity window for sparse-core clique joins",
+          "trigger": "Possible implication via a more general universal graph join"
+        },
+        {
+          "assessment": "No full-text comparison; not negative evidence",
+          "evidence": "Full text not accessible in the attempted routes.",
+          "identifier_or_url": "https://doi.org/10.1137/S003614450036757X",
+          "material_read": "No primary theorem recovered from publisher or identified repository route",
+          "method": "Lawful publisher and repository attempts",
+          "title": "Strong stability-preserving high-order time discretization methods",
+          "trigger": "Potential general positivity theorem for linear RK schemes"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The phenomenon itself is worth identifying: a sharp safe timestep for positive diffusion on graphs with triangles and unequal cliques, with positivity and spectral stability coinciding and the first failure localized at a single entry class. It addresses a real distinction between norm stability and positivity. This scientific value does not make an already covered specialization a distinct contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

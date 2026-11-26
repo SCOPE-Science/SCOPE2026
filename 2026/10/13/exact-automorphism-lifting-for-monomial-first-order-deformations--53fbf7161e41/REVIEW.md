@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The monic quotient gives a free module, so a homomorphism whose reduction is invertible is itself invertible. The defining-relation computation isolates a scalar infinitesimal correction exactly when the characteristic does not divide the truncation degree. The principal-unit Frobenius calculation yields the full power-congruence solution count and the uniform fiber size. This reasoning applies to all prime powers and all stated exponents. Fifty-two exhaustive finite parameter cases using direct quotient multiplication corroborate the proof; these finite cases are not an infinite certificate.
+PASS
 
-## Originality — PASS, with residual risk
+Any lift of the special-fiber map is x a + εv. Its defining-relation defect divided by ε is x^r a^r(a^(n−r)−1) + n x^(n−1) a_0^(n−1)v(0) in the special fiber. The correction has image exactly the top-degree line in tame characteristic and image zero when p divides n. Thus the exponents ℓ and the q^(n−1) and q^n fiber counts follow, including the vacuous tame ℓ=0 case. A homomorphism lifting an automorphism is invertible by the determinant criterion over the local coefficient ring. If z=a/a_0−1 has first nonzero degree s, then (1+z)^m−1 has first nonzero degree s p^ν: Frobenius multiplies the order by p^ν and the prime-to-p exponent preserves it. Counting the permitted coefficients and the d roots for a_0 gives the stated image size over every finite field, including r=0. The supplied verifier was inspected, not executed; its F4 loop checks existence/image counts rather than independently counting every lift fiber. The algebra proves both.
 
-The closest examined first-order lifting theorem (Lauritzen--Thomsen, Proposition 3.2) identifies a general Hochschild obstruction but does not provide this family's congruence, image size, or lift-fiber count. Maassarani treats the special-fiber automorphism group rather than its image under reduction from this deformation. The broader group-action literature treats characteristic-sensitive stabilizers without supplying these specific formulas in the inspected portions. Similar algebra automorphism results for truncated coordinate-cross algebras concern different defining relations. Older deformation-stabilizer computations could yield equivalent statements; hence the assessment is subject to independent literature review.
+## originality
 
-## Value — PASS
+PASS
 
-The family consists of elementary first-order hypersurface deformations of a natural non-smooth Artin algebra. It gives a complete and computable lifting obstruction and exact group order for every field size, truncation degree, and monomial direction. The Frobenius exponent creates a genuinely characteristic-dependent sequence of thresholds and changes the reduction-image size and infinitesimal lift-fiber dimension. These quantify an obstruction the general cohomological criterion identifies abstractly but does not count.
+The general first-order lifting obstruction and the special-fiber automorphism theory are known. Inspected results do not evaluate the monomial obstruction together with the wild/tame image and all finite-field fiber sizes.
 
-## Scientific scope and limits
+## value
 
-The theorem concerns automorphisms fixing the dual-number coefficient ring and one monomial deformation family. It does not address general deformations or prove that no equivalent formula exists elsewhere. The verifier exhausts a finite collection of test cases, while the infinite statement is justified by the proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete image and fiber count for all monomial first-order directions of a natural singular Artin algebra makes the lift obstruction usable. It quantifies two separate wild effects: loss of the top-degree correction and the Frobenius-dependent principal-unit threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

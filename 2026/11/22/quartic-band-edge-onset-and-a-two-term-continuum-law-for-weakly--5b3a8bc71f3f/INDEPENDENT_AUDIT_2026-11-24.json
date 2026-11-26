@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:26:06.560258Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Finite rank preserves the free essential band. An exterior eigenvector has x₀≠0 by recurrence, so Cauchy–Schwarz in the shift form gives |⟨Jx,x⟩|≤2t||x||√(||x||²−|x₀|²)<2t||x||², justifying strictness in the matching step. Chebyshev solutions on the prefix and the unique ℓ² tail give t sin(mθ)=exp(η)sin((m+1)θ). For λ=2 cosh η the exact tail Schur complement has last diagonal exp(η), the other diagonals λ and off-diagonals −t. It is strictly above its η=0 limit for η>0, so threshold zero directions do not contribute to the negative inertia. At t=1 the limiting form is positive (sum of adjacent squares plus the left endpoint square), and division by t makes the diagonal strictly decreasing. Its only positive crossings for t>1 are the listed cos((m+1)θ)=0 roots in 0<θ<π/2, each simple by the Jacobi recurrence. Secant expansion gives m²(t_{m,j}−1)=a_j−2a_j/m+O(m⁻²), so the critical state really exists. For δ=1/m and fixed σ=√(2α−κ²)>0, θ=δσ+O(δ³) is analytic near δ=0 after choosing the odd extension. The matching residual divided by δ is −G+δH+O(δ²), with the stated H; at every continuum root G'=(2α/σ²)(1+κ)sinσ and H=2αsinσ. Monotone intersection on each stated σ interval and the exact count exhaust all roots; ordering is opposite that of σ. The implicit correction is δσ²/(1+κ); at κ=0 it is positive δ·2a_j. Converting via 2cosh(δκ_m) gives both gap laws with their remainders. Rotations of the shift are unitarily equivalent, giving the numerical radius formula. The frozen checker was inspected, not executed. An independent Jacobi ratio iteration at 55 digits (replay: /workspace/branches/replay_jacobi_edge.py) checked j=1,2 in noncritical and critical examples; at m=2048 the four coefficient ratios were 0.999850, 0.997273, 0.998295, 0.984853. These are corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2015 theorem allows arbitrary finite prefixes and genuinely covers the exact point-spectrum reduction. Marionnet treats finite perturbations of a two-periodic shift and gives an exact threshold for one modified edge. Ghosh et al. treat geometrically modulated weights."
+        ],
+        "reasoning": "Arbitrary finite prefixes cover the algebra before scaling, but the theorem does not control roots in the simultaneous m→∞, t→1 window. The modified single edge and geometric damping do not specialize to a growing uniform block with the asserted correction.",
+        "searches": [
+          "Undrakh et al. (2015) pp. 946–947, 951–954",
+          "arXiv:2611.21280v1 Proposition 3.3",
+          "arXiv:2608.17486 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py inspected",
+        "Resultary records 5b3a8bc71f3f, 63dc888a133a, d735f6816a9a and 94abec24c055",
+        "Undrakh et al. ELA 30 (2015) 944–963; arXiv:2611.21280v1 and 2608.17486; DOI 10.1016/j.laa.2014.02.018 (partial access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At edge decay z=1 the finite polynomial reduces in the equal-weight case to the trigonometric threshold; the recurrence is indeed directly inherited. The sought correction instead depends on a nonzero derivative at the scaled continuum root. At criticality one must locate a positive root at η=O(m⁻²) and calculate its leading amplitude."
+        ],
+        "reasoning": "An exact secular polynomial at every m does not mechanically yield either the m⁻³ drift or the m⁻⁴ detachment coefficient. Extracting them needs the two-scale expansion and the branch/threshold analysis. The different prior defect models do not supply those steps for these weights.",
+        "searches": [
+          "Undrakh et al. (2015) Theorems 3.2–3.3, finite polynomial and tail variable",
+          "Resultary 63dc888a133a and d735f6816a9a Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent model is a half-line Jacobi block with off-diagonals t on the first m bonds. Undrakh et al. use its Hermitian-part normalization with band edge 1 and reduce to a finite polynomial in the tail-decay variable.",
+          "The bounded targeted web results did not add a comparable asymptotic source."
+        ],
+        "reasoning": "Doubling the Hermitian part and specializing the first m weights yields the same finite problem. It does not identify a prior derivation of the joint varying-m and varying-t root expansion.",
+        "searches": [
+          "Resultary: weighted shift equal growing prefix first m links t=1+alpha/m^2 secant thresholds critical quartic m^-4 detachment exact m^-3 coefficient",
+          "Primary search: half-line Jacobi enhanced block continuum finite potential well and quartic band edge",
+          "Undrakh et al. (2015), Theorems 3.2–3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit 5b3a8bc71f3f is the same frozen record. The distinct alternating-shift record gives an exact parity-dependent m⁴ limit at a moving one-bond defect; the two-bond result and moving-defect boundary-layer record concern m⁻² gaps in other weak windows."
+        ],
+        "reasoning": "Quartic binding is an actual shared phenomenon, not a first occurrence claim. The same publication date does not order the two records. None of the inspected distinct formulas supplies the block coefficient, branch count, or correction by changing notation or parity.",
+        "searches": [
+          "Resultary: weighted shift equal growing prefix first m links t=1+alpha/m^2 secant thresholds critical quartic m^-4 detachment exact m^-3 coefficient",
+          "Resultary records 5b3a8bc71f3f, 63dc888a133a, d735f6816a9a, 94abec24c055"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the fixed-α growing-prefix expansion, including the explicit first correction of every existing positive branch and the quartic gap of the newly born branch at α=a_j. The finite-prefix secular machinery and its exact thresholds are pre-existing or directly extracted from it and are not credited as new; nor is the leading square-well matching equation on its own.",
+      "residual_risks": [
+        "The 2014 full text was inaccessible; precise finite-bond comparisons beyond the accessible literature remain unresolved.",
+        "An unlocated prior discrete square-well calculation in this exact scaling might contain one of the correction terms; the lookup is bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers finite-prefix matching and supplies edge-threshold machinery; not the joint asymptotic",
+          "evidence": "For weights a₁,…,aₙ,1,… the polynomial Q_{n−1}(z)−aₙ²z²Q_{n−2}(z)=0 characterizes exterior eigenvalues with z=λ−√(λ²−1) at Hermitian-part edge 1.",
+          "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/1617/1617/",
+          "material_read": "pp. 946–947; Theorems 3.2–3.3, pp. 951–954",
+          "method": "Original OA paper",
+          "title": "The Numerical Radius of a Weighted Shift Operator",
+          "trigger": "Primary exact theorem for all finite prefixes"
+        },
+        {
+          "assessment": "Relevant threshold for a different defect",
+          "evidence": "Proposition gives a parity-dependent threshold for one modified edge.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.21280v1",
+          "material_read": "Proposition 3.3, pp. 12–13",
+          "method": "OA primary passage",
+          "title": "Numerical range of finite perturbations of a 2-periodic weighted shift",
+          "trigger": "Exact thresholds cited by closest quartic analogue"
+        },
+        {
+          "assessment": "Exact quartic binding analogue in a distinct model, not coverage of this block law",
+          "evidence": "One moving bond in a periodic background tuned by c_m=p_m+D/m+ξ/m² yields a parity-dependent coefficient and eigenvector limit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-parity-split-quartic-binding-at-a-critical-defect-in-alternating--63dc888a133a/RESULT.md",
+          "material_read": "Finding and Relationship to prior work",
+          "method": "Original Resultary local mirror",
+          "title": "Parity-split quartic binding at a critical defect in alternating weighted shifts",
+          "trigger": "Material overlap: critical quartic gap of a weighted shift"
+        },
+        {
+          "assessment": "Different weak-window and operator",
+          "evidence": "Two separated defects on a bilateral chain in the regime a²=1+γ/m give m⁻² gaps and a second-mode threshold γ=2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-two-bond-spectral-threshold-and-critical-doublet-law-for-weigh--d735f6816a9a/RESULT.md",
+          "material_read": "Finding",
+          "method": "Original Resultary local mirror",
+          "title": "A two-bond spectral threshold and critical doublet law for weighted shifts",
+          "trigger": "Nearby critical two-mode result"
+        },
+        {
+          "assessment": "Identifies a differently modulated family; not relied upon as a whole-paper exclusion",
+          "evidence": "Uses the geometric/periodic weight pattern (1,sq,q²,tq³,…).",
+          "identifier_or_url": "https://arxiv.org/abs/2608.17486",
+          "material_read": "Abstract, p. 1",
+          "method": "OA primary passage",
+          "title": "On the numerical radius of a class of weighted shift operators",
+          "trigger": "Frozen cited related class of shifts"
+        },
+        {
+          "assessment": "Finite-bond precedent; precise additional coverage unresolved",
+          "evidence": "Direct article and PDF access failed; no full-text negative inference.",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2014.02.018",
+          "material_read": "Publisher landing page and abstract only; full text not read",
+          "method": "DOI route, article/PDF and alternate-copy attempts",
+          "title": "On the numerical range of some weighted shift matrices and operators",
+          "trigger": "Earlier adjacent enhanced bond thresholds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A leading continuum model alone predicts a threshold resonance with zero gap at α=a_j. The exact finite branch instead binds there at a smaller identifiable scale. The first branch-by-branch drift and the separate critical coefficient quantify both effects for a natural finite block without conflating eigenvalues with resonances or treating the standard finite-prefix equation as the result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

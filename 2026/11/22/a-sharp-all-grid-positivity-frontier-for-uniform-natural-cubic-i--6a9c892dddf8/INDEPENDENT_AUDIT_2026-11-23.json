@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:54:44.591010Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–90",
+        "Frozen VERIFICATION.md and verify.py inspected, not run",
+        "Independent exact quadratic-ring calculation from the finite coefficient formulas"
+      ],
+      "rationale": "Independently verified the finite-tail formulas and the strict all-grid certificate. Set θ=arcosh(2), D=sinh(nθ), and F=a sinh((k+1)θ)−b sinh(kθ)>0 for an interior evaluation. For source index v≤j the combined inverse row aG[j,v]+bG[j+1,v] equals (−1)^(j+v) F sinh(vθ)/(sinh(θ)D). On the left tail an interior data index i has coefficient 6(−1)^(j+i)F sinh(iθ)/(sinh(θ)D) because the interior second-difference matrix equals the curvature matrix minus 6I. The endpoint i=0 instead contributes (−1)^j F/D when j>0. Taking the odd-index-distance terms gives the factor cosh(jθ)−1: its step-j-to-j+2 increment is 6 sinh((j+1)θ)/sinh(θ), and its bases are 0 and 1. Reflection gives the right tail. An interior central coefficient has its positive cubic baseline, e.g. (1−t)^3, plus six times the positive combined inverse row at its index. At a left boundary cell the endpoint coefficient is 1−t−bG[1,1]>0 since G[1,1]<2−√3<1/2 and b/(1−t)=t(1+t)<2; the right boundary is reflected. The two-knot case is linear and knots have zero negative mass. Algebraically, for X=r^j,Y=r^k, (1−r²X²Y²)C_a=[(1−X)²(1−r²Y²)−r(1−Y)²(1−X²)]/2, and C_b is the reflection. Independently expanding these expressions and changing basis in exact Q(√3) reproduced all nine listed Bernstein coefficients. Their positivity away from (0,0) for finite X,Y proves N<3c/4, while X,Y→0 and t=1/2 proves sharpness. Constant reproduction gives norm 1+2N and pointwise minimum m−(M−m)N, so the displayed contrast is equivalent and equality gives strict positivity on every finite grid.",
+      "residual_risks": [
+        "Finite natural conditions and uniform knots are essential to this proof. The reproduction script's finite test set is not needed for the universal bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bogdanov–Volkov Theorem 11, equations (62)–(66), gives sufficient inequalities involving neighboring data and prescribed endpoint curvatures. Even with zero endpoint curvatures, (64) is a separate adjacent-data condition; uniform interior B-spline neighbor-to-center ratios are 1/4, so it is not guaranteed on the box with the proposed sharp contrast exceeding two.",
+          "The retrieved author report studies uniform and random meshes and calculates norms for selected uniform lengths; its full-domain Method E comparison includes boundary cells. The retrieved Shevaldin–Shevaldina theorem is for a non-interpolating whole-line local operator."
+        ],
+        "reasoning": "The broad comparison of spline families does not supply a theorem implying the all-length inequality for Method E. The inspected general bounds and local shape criteria in the previous audit do not imply the claimed sharp bound either.",
+        "searches": [
+          "Bogdanov–Volkov (2019) MathNet mt347, Theorem 11",
+          "de Boor (1976), On Cubic Spline Functions that Vanish at All Knots, §§1–2",
+          "Finite interval uniform natural cubic spline interpolation Lebesgue constant upper bound odd reflection cardinal de Boor Powell exact stability norm finite equally spaced knots",
+          "Beatson–Chacko DOI:10.1137/0913059 and Canterbury open report",
+          "Shevaldin–Shevaldina DOI:10.1134/S1995423917040085",
+          "https://ir.canterbury.ac.nz/server/api/core/bitstreams/76c796a1-5524-4a10-8394-a0e93ecc05e5/content",
+          "https://www.mathnet.ru/eng/sjvm663"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, hypotheses, proof and prior-work section.",
+        "Beatson–Chacko author report: Method E, equation (5); Table 3 including boundary cells; footnote 1; Section 3.2.",
+        "Shevaldin–Shevaldina 2017, equations (1.2)–(1.4) and Theorem 2.",
+        "Prior round's inspected sources: Bogdanov–Volkov, de Boor and the two exact fixed-length indexed findings."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Section 3.2 reduces the computation to finitely many nodal sign vectors after a mesh has been fixed. The footnote gives the known whole-line value; the frozen record separately proves the strict upper bound for every finite pair of endpoint distances and makes it sharp along centered growing grids."
+        ],
+        "reasoning": "A fixed-mesh algorithm or convergence to a known infinite value need not give a strict one-sided bound on every finite mesh. No such implication was found in the inspected direct source. The equivalent positivity threshold and constructive negative witnesses follow from the newly certified finite-domain control.",
+        "searches": [
+          "Beatson Chacko ‘Which Cubic Spline Should One Use?’ 10.1137/0913059 full text report technical .pdf Canterbury spline",
+          "Beatson–Chacko Canterbury report Table 3 and Method E; lawful open-access retrieval",
+          "Bogdanov–Volkov Theorem 11",
+          "Resultary fixed-knot findings",
+          "https://ir.canterbury.ac.nz/server/api/core/bitstreams/76c796a1-5524-4a10-8394-a0e93ecc05e5/content"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The pointwise identity between negative mass and Lebesgue norm makes the contrast and norm two equivalent formulations of the same theorem. The three-knot record gives exact undershoot C(1)=1/(6√3); the four-knot record gives Λ(1)=1+8/(15√3), the respective fixed-length cases.",
+          "Beatson–Chacko Method E is the same spline and their full-domain norm is the same operator norm. The positive-data threshold is an equivalent consequence of the strict finite norm bound via the signed cardinal weights, not an independent originality claim. The 11/9 local quasi-interpolation norm is a different operator."
+        ],
+        "reasoning": "The equivalence transfers the all-grid bound to a data-box criterion but cannot make a fixed-grid computation or an infinite-grid norm a proof for every finite grid.",
+        "searches": [
+          "Resultary sharp natural cubic interpolation positivity and sup-norm conditioning; 0b51d8330304, 60ec1f227f62",
+          "Beatson–Chacko DOI:10.1137/0913059",
+          "https://ir.canterbury.ac.nz/server/api/core/bitstreams/76c796a1-5524-4a10-8394-a0e93ecc05e5/content",
+          "https://www.mathnet.ru/eng/sjvm663"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The full indexed findings give exact three-/four-knot constants for specified meshes, with no all-n table. The exact assigned record also surfaced, but is not a separate prior finding.",
+          "The original report's full-domain Table 3 directly confirms the Method E values for four selected lengths (8, 12, 16, 20), from 1.53579 to 1.54903. The two previously checked exact indexed comparisons are fixed-length results."
+        ],
+        "reasoning": "The table is existing overlap at those tested lengths. It gives no formula or certificate asserting strict inequality for every finite length; the manuscript does not claim those finite numbers as new.",
+        "searches": [
+          "Resultary 0b51d8330304 and 60ec1f227f62 Findings",
+          "Beatson–Chacko Method E/Table 3 primary retrieval attempt",
+          "https://ir.canterbury.ac.nz/server/api/core/bitstreams/76c796a1-5524-4a10-8394-a0e93ecc05e5/content"
+        ]
+      },
+      "rationale": "To the best of current knowledge, the distinct result is the proven strict uniform upper bound over every finite equally spaced natural grid, including endpoint cells, with sharpness along growing grids and the equivalent sharp positive-data contrast. Beatson–Chacko explicitly study the same finite operator (Method E) and its selected-grid norms; those numerical results and the previously known infinite-cardinal constant are not original here. The accessible primary report does not establish the claimed strict inequality uniformly in grid length.",
+      "residual_risks": [
+        "The comparison is a best-of-current-knowledge finding, not a claim of exhaustive historical priority. The repository author report was read; the publisher typeset edition was not independently available in full.",
+        "The numerical finite-grid norms at the lengths covered by the prior table and the infinite-cardinal norm are established prior coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the numerical norms on tested finite grids and attribution of the exact infinite-cardinal value. No all-length strict theorem or positivity frontier was found in the relevant report text.",
+          "evidence": [
+            "Method E imposes zero second derivatives at both endpoints. Table 3 includes end intervals and lists its full operator norms for n = 8, 12, 16 and 20; Table 4 omits end intervals.",
+            "Footnote 1 attributes (1+3 sqrt(3))/4 to Powell for the infinite uniform grid, rather than asserting that it bounds all finite Method E norms.",
+            "Section 3.2 computes the norm for a fixed mesh by exploring extremal nodal sign assignments, not by proving an upper bound for all n."
+          ],
+          "identifier_or_url": "https://ir.canterbury.ac.nz/server/api/core/bitstreams/76c796a1-5524-4a10-8394-a0e93ecc05e5/content",
+          "material_read": "Methods and equation (5), uniform-mesh analysis including Table 3 and footnote 1, and Section 3.2.",
+          "method": "Direct reading of the open author report at the University of Canterbury repository; publisher metadata cross-checked against DOI 10.1137/0913059.",
+          "title": "Which Cubic Spline Should One Use? (author report, 1990)",
+          "trigger": "Same operator and norm; possible direct coverage of all finite natural uniform grids."
+        },
+        {
+          "assessment": "No direct implication from this theorem of the claimed sharp universal contrast",
+          "evidence": [
+            "Condition (64) compares each interior datum with two immediate neighbors using B-spline ratios."
+          ],
+          "identifier_or_url": "https://www.mathnet.ru/eng/mt347",
+          "material_read": "Theorem 11, equations (62)–(66), and adjacent argument, PDF pp. 31–32, offsets 85850–90949",
+          "method": "OA full-text PDF passage",
+          "title": "Shape-preservation conditions for cubic spline interpolation",
+          "trigger": "Sufficient positivity for classical cubic splines with second-derivative endpoint data"
+        },
+        {
+          "assessment": "The stated geometric decay and finiteness of a norm bound do not give the sharp equally spaced norm",
+          "evidence": [
+            "Condition (3b) includes natural end conditions; Theorem 2 gives finite supremum for mesh-ratio caps below (3+√5)/2. The cited Kershaw paper on natural cubic splines was identified from the bibliography but not independently read."
+          ],
+          "identifier_or_url": "https://ftp.cs.wisc.edu/debooron/cubicnullspline.pdf",
+          "material_read": "§§1–2, pp. 3–5, offsets 5200–9457, plus bibliography p. 17",
+          "method": "OA primary PDF passages",
+          "title": "On Cubic Spline Functions that Vanish at All Knots",
+          "trigger": "Finite spline interpolation projectors, including natural endpoints, and norms under a local mesh-ratio restriction"
+        },
+        {
+          "assessment": "Covers n=3, not the all-finite-grid estimate",
+          "evidence": [
+            "The finding fixes four samples and gives Λ(1)=1+8/(15√3)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-ell-infty-conditioning-of-symmetric-four-knot-natural-cubi--60ec1f227f62/RESULT.md",
+          "material_read": "Finding, Assumptions, and start of proof, offsets 0–2766",
+          "method": "Published record via local mirror",
+          "title": "Sharp ℓ∞ conditioning of symmetric four-knot natural cubic interpolation",
+          "trigger": "Exact same norm at four equidistant knots"
+        },
+        {
+          "assessment": "Covers n=2, not variable n",
+          "evidence": [
+            "It proves a nonuniform three-knot formula whose uniform negative mass is 1/(6√3)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-sharp-three-knot-positivity-defect-for-natural-cubic-interpola--0b51d8330304/RESULT.md",
+          "material_read": "Finding, Assumptions, and start of proof, offsets 0–2294",
+          "method": "Published record via local mirror",
+          "title": "A sharp three-knot positivity defect for natural cubic interpolation",
+          "trigger": "Exact minimum spline value for the same boundary conditions at three knots"
+        },
+        {
+          "assessment": "Different operator, not a bound for finite natural interpolation.",
+          "evidence": [
+            "The 11/9 norm describes a local B-spline approximation on the whole line; the authors explicitly note that their operator does not interpolate the input nodal values."
+          ],
+          "identifier_or_url": "https://www.mathnet.ru/eng/sjvm663",
+          "material_read": "Russian open primary text: equations (1.2)–(1.4) and Theorem 2.",
+          "method": "Math-Net open primary PDF and corresponding publisher abstract.",
+          "title": "The Lebesgue constant of local cubic splines with equally-spaced knots",
+          "trigger": "Exact uniform-grid cubic spline Lebesgue constant; possible reformulation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, finite-boundary theorem and failure construction",
+        "Resultary fixed-knot comparisons"
+      ],
+      "rationale": "An exact threshold on ordinary nodal data range is motivated by whether standard natural interpolation can create spurious negative values without using a shape limiter. Uniformity and strictness at every finite length, together with constructive failure above the threshold, are substantive beyond computing a few norm values. This value judgment does not settle priority.",
+      "residual_risks": [
+        "No nonuniform-grid, monotonicity, or data-accuracy guarantee follows. Originality is covered by the separate comparison."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

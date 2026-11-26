@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3, SymPy and SciPy to reproduce the symbolic derivative identity, exact-optimum comparison grid, and quadrature cross-checks. The bundled source is standalone; there are no datasets, network calls, or other package dependencies.
+## correctness
 
-The checker reports 36,369 assertions and dimensionless sample values. Its finite grid and numerical quadrature are supplemental checks only. The full-domain uniqueness claim follows from the derivative sign argument in RESULT.md. The midpoint crossing follows from a single exact inequality evaluated at the geometric midpoint; the asymptotic offset and monotone schedule sensitivity follow from the closed root formula.
+PASS
 
-This analysis neither certifies biological yield nor independently validates historical novelty. Independent audit has not been performed.
+For positive a,b and 0<q<1, integrating the two exponential segments gives the stated log ratio, also at coincidence and at the terminal boundary. After writing F=x(1+ax+b)/[(1+ax)((1+aq)x+bq)], differentiation gives a positive denominator and numerator -b[ax^2-2aqx-q(1+b)]. The only positive root x* is strictly above q; clipping at 1 gives the unique constrained maximum including when x*=1. Evaluation at 1 gives the activation threshold. Evaluation at sqrt(q) gives q[a(1-2sqrt(q))-(1+b)], including the strict no-crossing result at a=1+b. In the crossing regime h_0<log(3)<log(4)<h_{1/2}. Factoring sqrt(q) out of the root gives both the derivative on the interior branch and the asymptotic offset. VERIFY evidence is supplemental: verify.py was inspected, not executed; its finite grid is not a proof.
+
+## originality
+
+PASS
+
+The supported distinct claim is the exact fixed-order, fixed-positive-amount timing classification for the linear store and Hill-exponent-one objective. The closest verified published records change the response or the decision being optimized. Historical irrigation optimization remains a plausible overlap area, but the inspected evidence does not supply the same decision problem or a stronger covering theorem.
+
+## value
+
+PASS
+
+The restricted two-application problem is a useful deterministic benchmark. The threshold for any staggering and the stricter, sometimes nonexistent threshold for a late-season optimum distinguish three practically interpretable timing regimes. The exact sensitivity and midpoint offset say how scheduling changes with season length without reoptimization. This is mathematical value, not a prediction of crop yield or a recommendation for actual irrigation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

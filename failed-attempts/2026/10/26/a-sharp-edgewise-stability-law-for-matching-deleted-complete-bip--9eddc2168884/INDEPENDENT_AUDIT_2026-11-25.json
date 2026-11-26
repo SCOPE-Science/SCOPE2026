@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:47:02.072535Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(3), sign cases and boundary deletion analysis",
+        "Frozen VERIFICATION.md and checker.py, inspected as evidence; not executed"
+      ],
+      "rationale": "With orthonormal columns U spanning the full gradient space, the surviving restriction U_R has full column rank by connectedness. Its Gram matrix is I-U_D^T U_D; applying the inverse update gives A+C(I-H)^(-1)C^T. The deleted block has H=(2/n)I-J/n^2, giving the printed kernel. For a row with no marked endpoints the sharing entries are positive and nonsharing negative. For a row with one mark, the only additional nonnegative entries are the n-t opposite-side matches with one mark, of size (t-1)/(n(n-2)D_t), including the t=1 zeros. For two marks the only additional strictly positive entry is the reversed-index edge: its numerator n(n-4)+2t is positive also for n=3, when t>=2. Counting the sharing columns and these extras gives absolute row sums 3-4/n plus, respectively, 2(n-2)/(nD_t), 2(t-1)(n-t-1)/(n(n-2)D_t), and zero. These rely on row sum one. The product in the middle correction is at most (n-2)^2/4, so type zero wins whenever present. At t=n only type two survives. Choosing the maximizing row's signs attains the norm; subtraction yields the two drops and ratio D_(n-2)=(n-2)(n+1).",
+      "residual_risks": [
+        "The recorded finite rational run was not independently replayed; the all-parameter result is established analytically. Conclusions are restricted to unweighted, balanced bicliques and matching deletions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Graph Hodge least squares and transfer-current theory give the framework, not the matching-deletion norm in the inspected passages.",
+          "The rectangular single-erasure result recovers the balanced t=0 to t=1 drop; crown results recover t=n."
+        ],
+        "reasoning": "Greater generality in underlying graph or side sizes does not itself determine the absolute row sums for a sequence of matching deletions.",
+        "searches": [
+          "arXiv:0811.1067",
+          "arXiv:1312.2946",
+          "Resultary: rectangular biclique edge erasure and crown cut projection"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Resultary records be4205de9f5c, 6319a2a73e78, 430cc80014f3, a18a2c603916",
+        "arXiv:0811.1067 and arXiv:1312.2946"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the additive formulation N_U=(n-2)/n+(n-2)/(nT), N_B=(n-2)/n, and the given N_U-N_M reduces to the frozen one-mark formula via row norm 1+2N and T=D_t. The first-step decrement 2/[ab(a-1)(b-1)] becomes 2/[n^2(n-1)^2]."
+        ],
+        "reasoning": "The full overlap implies the entrywise formula as well as the max norm and the drop law; the endpoints alone would not. There is no separate quantitative remainder in the frozen theorem.",
+        "searches": [
+          "be4205de9f5c, proof equations (1)–(5)",
+          "430cc80014f3, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct matching-deletion stability record uses the same restricted additive subspace with the same Euclidean inner product. It gives the norm for every matching size, the same maximizing rows and the final-to-penultimate drop ratio (n-2)(n+1)."
+        ],
+        "reasoning": "The identification is an isometry on surviving coordinates, not just a shared graph or similar formula. The algebra for the one-mark row negative mass and the two-mark row also matches.",
+        "searches": [
+          "Resultary: matching-deletion gradient projection / observed-cell two-way additive least squares",
+          "SCOPE-sharp-matching-deletion-stability-for-two-way-additive-least-squ--be4205de9f5c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact distinct catalog overlap: be4205de9f5c; endpoint overlaps: 6319a2a73e78, a18a2c603916; first drop overlap: 430cc80014f3."
+        ],
+        "reasoning": "The decisive catalog item is a parameter-uniform identity, not a table of small cases. A finite resistance table would at most describe diagonal entries and cannot certify absolute row sums.",
+        "searches": [
+          "Resultary: matching-deletion stability and minimal crown projection norms"
+        ]
+      },
+      "rationale": "A distinct Resultary record gives the full same projector, row-type comparisons and terminal-drop ratio in the language of two-way additive least squares. The orientation change is only a sign convention on the vertex potentials: a cell fitted as a_i+b_j is the gradient from potential a_i on the left to -b_j on the right. This is demonstrated equivalent coverage in the inspected catalog, not evidence of earlier publication, a priority judgment, or a claim of dependence.",
+      "residual_risks": [
+        "The exact-overlap catalog label is later than the assigned record label. This establishes equivalent catalog coverage, not what was known at the original date. Historical priority and the relationship of these records are undetermined. Broader external search was not informative."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent full coverage, plus further positivity and equality claims in the comparator",
+          "evidence": [
+            "Same hat-matrix update and all row types; same denominator n(n-2)+r, same last jump and ratio."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-matching-deletion-stability-for-two-way-additive-least-squ--be4205de9f5c/RESULT.md",
+          "material_read": "Finding, Assumptions, proof including equations (1)–(5) and final step; proof at mirrored offset 2700",
+          "method": "Local mirror passage inspection and algebraic comparison",
+          "title": "Sharp matching-deletion stability for two-way additive least squares",
+          "trigger": "Exact matching scope in additive coordinates"
+        },
+        {
+          "assessment": "Endpoint only",
+          "evidence": [
+            "Cut norm 3-4/n for perfect matching deletion."
+          ],
+          "identifier_or_url": "6319a2a73e78",
+          "material_read": "Finding and proof §4",
+          "method": "Local mirror passage inspection",
+          "title": "Sharp cut and cycle complementability after deleting a perfect matching",
+          "trigger": "Crown graph endpoint"
+        },
+        {
+          "assessment": "First-drop coverage only",
+          "evidence": [
+            "Exact rectangular norm decrement 2/[ab(a-1)(b-1)]."
+          ],
+          "identifier_or_url": "430cc80014f3",
+          "material_read": "Finding",
+          "method": "Local mirror passage inspection",
+          "title": "Exact edge-erasure sensitivity of gradient projections on rectangular bicliques",
+          "trigger": "Single erasure of a biclique edge"
+        },
+        {
+          "assessment": "Endpoint only; no ordering inferred from same-day catalog metadata",
+          "evidence": [
+            "Sharp crown cut-projector norm 3-4/n."
+          ],
+          "identifier_or_url": "a18a2c603916",
+          "material_read": "Finding and proof §2",
+          "method": "Local mirror passage inspection",
+          "title": "Sharp minimal cut–cycle projection norms on crown graphs",
+          "trigger": "Crown graph and cut norm"
+        },
+        {
+          "assessment": "Projection framework, not the induced norm law here",
+          "evidence": [
+            "Least-squares gradient fitting and L2 projection; separate L1 optimization is not an infinity-to-infinity norm."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0811.1067",
+          "material_read": "§1, PDF pp. 3–5; §2.1, p. 9",
+          "method": "OA primary text passage inspection",
+          "title": "Statistical Ranking and Combinatorial Hodge Theory",
+          "trigger": "Least squares on incomplete bipartite comparisons"
+        },
+        {
+          "assessment": "Kernel framework, not the matching-deletion stability law",
+          "evidence": [
+            "Transfer current as a spanning-tree inclusion kernel."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1312.2946",
+          "material_read": "§4.1, PDF p. 12",
+          "method": "OA primary text passage inspection",
+          "title": "Transfer Current and Pattern Fields in Spanning Trees",
+          "trigger": "Electrical projector terminology"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Assumptions",
+        "be4205de9f5c, Finding and proof"
+      ],
+      "rationale": "The induced norm is a motivated measure of worst-case bounded edge error; in isolation the abrupt last-deletion effect is a meaningful structural fact. As a distinct contribution to the inspected record, however, the full exact fact and its mechanism are already supplied in the equivalent additive least-squares result. The compact transfer-current expression is an algebraic restatement of that projector; it does not leave a new usable invariant or new scope to repair.",
+      "residual_risks": [
+        "This judgment is about incremental scientific value against demonstrated coverage, not whether the mathematical law is useful or who found it first."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

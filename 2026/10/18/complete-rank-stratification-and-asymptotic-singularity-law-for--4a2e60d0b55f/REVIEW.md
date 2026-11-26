@@ -1,19 +1,21 @@
-# Review of complete dyadic three-by-three Fourier-minor rank stratification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** All triples on a binary cyclic group have one unique nearest pair in the two-adic metric. Translating row and column triples produces a normalized Fourier minor whose rank-one case is directly forced by divisibility. The determinant argument uses the phases of four nonvanishing chord factors to force the product congruence, after which exact factorization gives the rank-two alternatives. Direct counting of the unique close pairs proves the finite census, and dominated geometric summation proves the \(3/N\) singularity law. Exact independent cyclotomic arithmetic confirms 342,752 tested cases but is not used as a proof for all orders.
+PASS
 
-## Originality
+At the minimum valuation u there are two parity classes inside the common mod-2^u class; exactly two points are in one class. They are the unique closest pair. Dephase at the outsiders to obtain the four entries A=omega^(ac), B=omega^(ad), C=omega^(bc), D=omega^(bd). Rank one occurs iff all four equal 1, i.e. u+s>=m. Otherwise all four differ from 1; conjugating the chord-product equality forces AD=BC, and expansion under that condition gives the stated two factors. One factor vanishes exactly at u+t>=m or v+s>=m, and either inequality also forces AD=BC. This checks necessity, sufficiency and equality boundaries. Count N^2/2^(v+2) closest pairs and N/2^(u+1) outsiders per pair to get B_m; product counts enumerate the ordered row/column roles exactly once. For the event v+s>=m put v=m-h: the contribution to N times the normalized weighted sum tends to (8/3)2^-h and is bounded by that same summable sequence. In the intersection with u+t>=m, summing v and t for fixed u,s gives at most 4/N^2 after multiplying by 2^(-u-s). The intersection therefore contributes o(1/N) and contains all rank-one cases. The two one-sided events give (16/3)/64=1/12 at N^5 scale and hence probability ~3/N. All ranks occur for m>=4, e.g. types (m-2,m-1) on both sides for rank one, (0,m-1) against (1,2) for rank two, and (0,1) on both sides for rank three. Independent exact reduction checks all 316752 pairs at N=4,8,16 plus 18000 seeded pairs each at N=32,64,128, and independently enumerates dyadic type frequencies through N=128.
 
-**PASS (bounded assessment, not certified historical priority).** The closest published principal-minor work of Caragea–Lee handles equal row and column triples, whereas this theorem gives the rank of every ordered-independent pair of triples, counts all three ranks, and determines the asymptotic frequency of rank deficiency. Gu–Zhou–Wang's recent orders \(70\) and \(143\) are principal nonsingularity problems at different moduli. Published classifications for prime-square orders with an odd prime, even semiprime orders, and elementary abelian affine planes have different group structure and do not imply the result by direct specialization. Delvaux–Van Barel study rank-deficient Fourier submatrices on prime powers and constitute a meaningful unresolved historical-priority comparison; selected passages were examined, not its complete text. An uninspected general theorem might subsume the rank criterion, but no directly covering numerical census or asymptotic coefficient was identified.
+## originality
 
-## Value
+PASS
 
-**PASS (self-review).** Three-by-three minors measure local identifiability of three-frequency Fourier restrictions. The result replaces exhaustive complex determinant testing with four integer valuations, gives the exact multiplicity of each rank for all dyadic orders, and identifies the sharp leading \(3/N\) failure probability under uniformly chosen index sets. That combination is an interpretable structural and quantitative invariant, rather than an arbitrary small-order table.
+Best-of-knowledge pass for the integrated dyadic census and singularity asymptotic. The collision mechanism is a specialization of general proportional-pair rigidity; do not credit standalone novelty to that mechanism. A later prime-power record genuinely covers the rank law, exact census and leading asymptotic by specialization; its date does not establish earlier coverage. The Delvaux–Van Barel antecedent remains a real access risk for the structural part, not evidence of noncoverage or grounds by itself to fail.
 
-## Limitations
+## value
 
-No independent verification or historical-priority certification was performed. The method is limited to cyclic groups of dyadic order, three-by-three submatrices, and complex rank. The incomplete access to the general prime-power rank-deficiency literature leaves open whether part of the structural criterion follows from an earlier broader theorem. The stated asymptotic and counting formulas are nevertheless independently proved here, conditional only on elementary identities reproduced in the result.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural structured-matrix sampling question asks how often an independently chosen minor is singular and of which rank. The valuation stratification enables a complete count, identifies a concrete leading 3/N probability, and shows rank one is negligible. These quantitative consequences are not supplied by checking a principal or proportional-pair criterion alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

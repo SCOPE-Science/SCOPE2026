@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:31:20.985117Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The four cell sums omit only the two marked activities; their determinant gives Cov=-x_e x_f(Z10 Z01-Z00 Z11)/Z² with the original normalization. The independent replay in branches/15333b53-a4cb-4a50-91da-58ef995f75f5/independent_check.py exhausted 1024 subsets and recomputed all 45 unordered pairs, not just sample activities. It verified all quotients by multiplication by q²(1-q), independently generated the eight S2×S3 pair orbits of sizes 6,3,6,3,6,12,6,3, and matched every table. Their term counts are 32,28,82,82,76,82,68,78. Seven quotients are nonzero and coefficientwise nonnegative. Pair (1,5), i.e. {0,2} and {1,3}, has exactly the coefficients -50 of q^0 v^5 w and -20 of q^0 v^6 w as its negative terms. All positive-q-degree coefficients are nonnegative. In degree zero subtracting 25v^4(v-w)^2+v^5(84v²-20vw+96w²) leaves 14 strictly positive terms; the quadratic has positive leading coefficient and discriminant -31856. Hence that quotient is strictly positive too. The sign follows for all 0<q<1, v,w>0 and gives zero at q=1 by the factor, as expected. This does not cover fully heterogeneous ordinary activities or negative association. See replay-notes.md in the replay directory for the exact remainder and replay output. The frozen verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.9 gives nonpositive covariance for common activity at least 1; Proposition 5.7 gives a pair-specific weighted sufficient condition and yields coverage for all activities at least 2. The high-degree paper's growing-degree regular sequences at homogeneous p do not give the finite mixed-weight K5 conclusion.",
+          "Theorem 1.1 of arXiv:2611.11993 gives a general upper bound on R=P(X_e=X_f=1)/(P(X_e=1)P(X_f=1)) that can be above 1. Theorem 1.3, §1 equations (1.9)–(1.14), sharpens it using the deleted-graph probability ν(J), implying nonpositive covariance if ν(J)≥(1-q)/(4q). For q<1/5 this threshold exceeds 1, so that sign implication cannot cover the full asserted interval."
+        ],
+        "reasoning": "There is broader graph/weight scope in ratio bounds, but not the same strict sign conclusion. The complete-graph sign result directly overlaps, but its activity hypotheses reach only part of the domain.",
+        "searches": [
+          "arXiv:2610.00549 complete-graph Theorem 1.9 and Proposition 5.7",
+          "arXiv:2609.11578 Theorem 1.2",
+          "arXiv:2611.11993 Theorems 1.1 and 1.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen ordinal 4 RESULT.md, VERIFICATION.md, verify.py and CERTIFICATE.json",
+        "Frozen ordinal 3 statement and certificate for comparison",
+        "Resultary 44c562cc82bd indexed self-match",
+        "arXiv:2610.00549, arXiv:2611.11993, arXiv:2611.15512 and arXiv:2609.11578 passages listed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For disjoint pairs Proposition 5.7 imposes a lower bound of 2 on cross-edges and 1 for edges meeting only one marked endpoint; the adjacent condition is separate. At v=w below 1, or at small v with w independent, the retrieved complete-graph hypotheses do not cover every pair. Their stated conclusion in the covered domains is nonpositivity.",
+          "A theorem for uniform forests, uniform connected spanning subgraphs or the bipartite one-defect host cannot set the sign of the K5 Rayleigh difference throughout this interior family. The general R bounds explicitly disavow proving negative correlation on arbitrary graphs."
+        ],
+        "reasoning": "The new part is the all-pair strict result across the positive one-defect activity family, including the low-activity domain. The same sign in a restricted region is credited as genuine overlap, not dismissed by parameter names.",
+        "searches": [
+          "Çiçeksiz–Ravichandran arXiv:2610.00549 v1 §5 Theorem 1.9 and Proposition 5.7",
+          "Tang–Zhang arXiv:2611.11993 §1 equations (1.9)–(1.15)",
+          "frozen ordinal 3 actual statement and certificate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The four-cell covariance sign is the sign of a multiaffine Rayleigh difference with opposite sign convention. Since the stripped difference depends only on unmarked activities, changing a selected defect's weight cannot change that pair's sign.",
+          "The K5 cycle matroid has rank 4 and corank 6, so considering its dual does not move it into the rank/corank-at-most-three theorem."
+        ],
+        "reasoning": "Change of terminology, activity parametrization or matroid duality is not a distinct theorem. Credit coverage of pairs containing the defect at v≥2 even if w is arbitrary, but this does not settle other pairs for that whole parameter strip or any claim for all small v.",
+        "searches": [
+          "Resultary K5 one defect random cluster, complete-graph covariance and Rayleigh tables",
+          "arXiv:2611.15512",
+          "arXiv:2610.00549 Proposition 5.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed 44c562cc82bd entry matches this frozen ordinal, including the 45 pairs and eight orbit certificates; it is not an independent earlier table. No different exact K5 one-defect table appeared in the bounded searches.",
+          "The other assigned finite certificate concerns K3,3: 36 pairs, different graph and polynomial tables even though it also has eight symmetry types. A same-day parallel specialization does not establish ordering or mathematical coverage."
+        ],
+        "reasoning": "Distinguish the identical indexed object from genuine independent comparison, and the proof pattern from tables for particular graphs.",
+        "searches": [
+          "Resultary one-defect K5 strict bond anticorrelation and exact polynomial tables",
+          "Resultary complete bipartite one-defect certificate comparison"
+        ]
+      },
+      "rationale": "Best of current knowledge for K5 with one arbitrary defect and every pair at all positive activities and 0<q<1. Credit the prior conclusions on homogeneous activities at least 1, all activities at least 2, and certain enlarged pair-specific regions. Those do not cover the arbitrarily small ordinary activity regime or establish this full strict classification and its exact polynomials. The general finite-graph upper bounds do not imply it either. No priority guarantee.",
+      "residual_risks": [
+        "Resultary results are bounded; other earlier low-activity finite-graph calculations could remain unindexed. The verdict is about supported distinct coverage, not first discovery or all-weight K5. No exclusion claim is made about unread material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves an overlapping nonpositive sign on substantial regions but not for every pair at arbitrary positive v,w.",
+          "evidence": "Common lambda≥1 suffices for all pairs. The weighted proposition gives endpoint-specific conditions; in particular all edge weights≥2 suffice and weights of the marked pair do not enter the conditions.",
+          "identifier_or_url": "https://arxiv.org/html/2610.00549",
+          "material_read": "v1 abstract and §5, Theorem 1.9 and Proposition 5.7",
+          "method": "Targeted arXiv HTML passages after OA lookup limits",
+          "title": "Negative Correlations for Forests and the q<1 Random Cluster Model",
+          "trigger": "Strongest directly overlapping complete-graph sign theorem with weights"
+        },
+        {
+          "assessment": "General upper bounds and a pair-specific sufficient condition, not the claimed strict sign across this domain.",
+          "evidence": "The bounds have the form 1 plus a nonnegative correction. The sufficient condition uses the probability of the two marked edges joining the same two distinct components in the graph with both deleted; its threshold (1-q)/(4q) exceeds one for q<1/5. The comparison paragraph states that the results do not prove pairwise negative correlation on general graphs.",
+          "identifier_or_url": "https://arxiv.org/html/2611.11993",
+          "material_read": "Introduction, Theorems 1.1, 1.3, 1.4 and equations (1.9)–(1.15); paragraph comparing complete graphs",
+          "method": "OA literal lookups; exact bounded public HTML passages after reader timeout",
+          "title": "Pairwise correlation bounds for the random-cluster model with cluster weight at most one",
+          "trigger": "Exact graph and arbitrary positive activities are in scope of these general finite-graph correlation results"
+        },
+        {
+          "assessment": "Excludes K5 by either rank or corank.",
+          "evidence": "Rank or corank at most three with all positive weights and 0<q≤1; K5 has rank four, corank six.",
+          "identifier_or_url": "https://arxiv.org/html/2611.15512",
+          "material_read": "Abstract",
+          "method": "Targeted arXiv HTML passage",
+          "title": "Every rank-three matroid is Z-Rayleigh",
+          "trigger": "All positive activity theorem in matroid form"
+        },
+        {
+          "assessment": "The asymptotic and homogeneity conditions are not the fixed one-defect setting.",
+          "evidence": "Growing-degree connected regular graph sequences, isoperimetric hypotheses and a distance condition, with homogeneous p.",
+          "identifier_or_url": "https://arxiv.org/html/2609.11578",
+          "material_read": "§1.4, Theorem 1.2",
+          "method": "Targeted arXiv HTML statement",
+          "title": "Negative correlation for the random-cluster model below one on high-degree regular graphs",
+          "trigger": "Strict sign theorem also includes some regular graph regimes"
+        },
+        {
+          "assessment": "Same proof pattern, distinct host and component counts; not equivalent, stronger, or a priority ordering.",
+          "evidence": "Eight common activities plus one defect on nine bipartite edges; 36 pairs and all positive coefficients in this case.",
+          "identifier_or_url": "2026/11/22/strict-bond-anticorrelation-in-a-one-defect-k-3-3-random-cluster--84d2aef4351f/RESULT.md",
+          "material_read": "Frozen ordinal 3 lines 4–18 and 20–38 and its certificate comparison",
+          "method": "Read the actual assigned source and compare exact scope and certificate structure",
+          "title": "Strict bond anticorrelation in a one-defect K3,3 random-cluster gas",
+          "trigger": "Nearest assigned exact family with a single distinguished edge"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "K5 is a natural finite complete graph outside the small-rank and small-corank theorem. It probes whether known lower activity bounds reflect essential behavior on this host. The one independent defect tests robustness under unrestricted single-bond inhomogeneity, and all-pair certification reaches the low-activity region where the general sufficient conditions do not apply. The single mixed-sign quotient explains why naive coefficientwise positivity is insufficient, while its exact decomposition proves the sign uniformly; this gives a usable benchmark beyond positive-activity sampling or the already-covered high-activity regimes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

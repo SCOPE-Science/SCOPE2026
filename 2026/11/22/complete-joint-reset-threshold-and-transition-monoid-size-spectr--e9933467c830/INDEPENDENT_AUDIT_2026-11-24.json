@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:36:13.481651Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:3–64, VERIFICATION.md, joint_spectrum.csv, verify_subsets.py and verify_transforms.cpp; frozen scripts inspected, not executed",
+        "Independent replay: python3 /tmp/opencode/independent_census_e9933467c830.py /workspace/source/2026/11/22/complete-joint-reset-threshold-and-transition-monoid-size-spectr--e9933467c830/joint_spectrum.csv"
+      ],
+      "rationale": "Independently enumerated all unordered pairs of four-state maps with weight two off the diagonal, recovering the ordered labeled census. I computed monoid size by closure under prepending from the identity. For reset length I worked backward from all singleton target sets under inverse images, using subsets of the four states. After d steps the reached sets are the full inverse images of singleton targets under words of length at most d. The first appearance of Q is therefore exactly the shortest constant word length, and closure without Q is exactly the no-reset case. This matched every CSV cell (179 distinct cells, exactly 65,536 automata), all row totals and extrema, the given (8,176) witness, and the absence of lengths greater than 9. Independent conjugation with all 24 permutations, plus exchange of letters, gives the exact computed sets of threshold-nine pairs for sizes 128 and 145, each of cardinality 48. The conditional maximum falls from 176 at length 8 (and each of 3–7) to 145 at length 9. The empty word contributes the identity to monoid size but does not reset four states.",
+      "residual_risks": [
+        "Exhaustive for the stated finite universe, not a bound or prediction for other state and alphabet counts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The T4 enumeration classifies transformation semigroups by size and rank rather than ordered generator pairs. The Holzer–König V_n bound n^n+n−(n−1)^n−(n−1) gives 176 at n=4 as a size lower bound. The experiments confirm the cited extremal conjecture in their tested range; the cited conjecture's fine class claims concern n>6 or higher, not the four-state joint table."
+        ],
+        "reasoning": "Abstract semigroup types do not determine distance to a constant for prescribed generators. Neither a construction maximizing size nor enumeration of near-maximal reset lengths independently supplies the joint conditional maximum.",
+        "searches": [
+          "East–Egri-Nagy–Mitchell arXiv:1403.0274 degree-four enumeration",
+          "Holzer–König two-generator monoid size bounds",
+          "arXiv:1607.04025 and arXiv:1302.5793 near-extremal reset spectra"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e9933467c830 (self-match), 26f0d000ed59, c9814c09eaa0, 9f6a4b013531",
+        "1971 On directable automata; Holzer–König; arXiv:0709.1197, 1607.04025, 1302.5793, 1403.0274 and survey arXiv:2608.24245 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 1971 paper gives two nonisomorphic four-state binary examples at length nine; its Figure 9 example has different shortest-word spacing from Example 1. Trahtman also finds the CPR monoid-size value. The known automata are not new discoveries of the joint enumeration."
+        ],
+        "reasoning": "Two known representatives and one known size do not imply the population table, the off-extremum cells, or the joint boundary absent the exhaustive generator-level argument. This review credits both the classical examples and known monoid-size datum.",
+        "searches": [
+          "Černý–Pirická–Rosenauerová, On directable automata, Example 1 and Remark 1",
+          "Trahtman arXiv:0709.1197 §benchmark table, and East et al. degree-four census"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The identical hit e9933467c830 is this record. Trahtman's p. 11 table explicitly gives 145 and shortest length 9 for the four-state CPR automaton, using the term syntactic semigroup. Its permutation letter has a positive word acting as identity, so the monoid versus semigroup convention does not change that pair."
+        ],
+        "reasoning": "The individual (9,145) datum agrees under alternate terminology and is established coverage, while a table of selected examples cannot determine the labeled joint distribution.",
+        "searches": [
+          "Resultary: four-state binary joint reset length and generated transformation-monoid order; 179 cells; joint_spectrum.csv",
+          "arXiv:0709.1197: transition/syntactic semigroup of slowly synchronizing automata"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The self-match CSV contains the two length-nine cells. Resultary 26f0d000ed59 uses the same 65,536 transition pairs for an adversarial game, not this statistic. c9814c09eaa0 and 9f6a4b013531 count thresholds and shortest-word multiplicities for restricted eight-state automata, respectively, not monoid orders for four states. Trahtman's table covers selected examples only."
+        ],
+        "reasoning": "Credit already tabulated individual data but distinguish dataset, state count and attribute; no distinct exact matching census was retrieved.",
+        "searches": [
+          "Resultary: joint-spectrum CSV, 179 cells, 128/145 and 176",
+          "Resultary same-universe and closest joint threshold counts",
+          "Trahtman benchmark table p. 11"
+        ]
+      },
+      "rationale": "Pass for the complete joint distribution and the sharp comparison of conditional maximum sizes across reset thresholds, not for the existence of the two length-nine examples or the isolated pair (9,145). The four-state examples are classical, and Trahtman expressly tabulates the CPR example at size 145 and length nine. Holzer–König give a two-generator construction whose size lower bound already specializes to 176 at four states. No inspected source couples such monoid-size information to the full labeled threshold distribution or establishes the exact 176-to-145 joint boundary across the two levels.",
+      "residual_risks": [
+        "Older generator-level datasets could supply more exact sizes or censuses. The comparison does not claim priority for the bare extremal examples, the isolated sizes or the reset upper bound.",
+        "Same-day neighboring records were compared on scope, not assumed to have an order within the day."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical pair of examples, not a monoid-size census",
+          "evidence": "Remark 1 explicitly states another nonisomorphic automaton of reset length nine besides Example 1.",
+          "identifier_or_url": "https://www.kybernetika.cz/content/1971/4/289/paper.pdf",
+          "material_read": "Example 1 and shortest-word locator on PDF pp. 2–3; Remark 1, PDF p. 8 offset 10760",
+          "method": "Lawful OA PDF passages",
+          "title": "On directable automata",
+          "trigger": "Strong candidate for the actual length-nine examples"
+        },
+        {
+          "assessment": "Exact prior overlap for CPR pair (9,145), not the complete census",
+          "evidence": "CPR graph size 4, semigroup size 145, minimal reset length 9.",
+          "identifier_or_url": "https://arxiv.org/pdf/0709.1197",
+          "material_read": "PDF pp. 2 and 9; p. 11 benchmark table, offset 32200",
+          "method": "OA PDF passages",
+          "title": "An efficient algorithm finds noticeable trends and examples concerning the Černý conjecture",
+          "trigger": "Sizes of syntactic semigroups of extreme automata"
+        },
+        {
+          "assessment": "Reset-only extremal results, cites earlier known small examples",
+          "evidence": "Reports prior known examples at n≤6 and confirmation of near-extremal reset conjecture in range through n=12.",
+          "identifier_or_url": "https://arxiv.org/pdf/1607.04025",
+          "material_read": "p. 5 offset 13900 and p. 7 offset 20900",
+          "method": "OA PDF passages",
+          "title": "Experiments with Synchronizing Automata",
+          "trigger": "Exhaustive near-extremal results"
+        },
+        {
+          "assessment": "Fine conjectural classifications start above n=6; no four-state joint statement",
+          "evidence": "Reset-bound part is general; later extremal clauses require n>6, n>7, or n>8.",
+          "identifier_or_url": "https://arxiv.org/pdf/1302.5793",
+          "material_read": "§5.1 Conjecture 1 p. 20, offset 61800; Table 1 locator p. 5",
+          "method": "OA PDF passages",
+          "title": "Primitive digraphs with large exponents and slowly synchronizing automata",
+          "trigger": "Underlying conjecture cited in experiments"
+        },
+        {
+          "assessment": "Positive prior size benchmark; not a joint classification",
+          "evidence": "Lower-bound expression n^n+n−(n−1)^n−(n−1) evaluates to 176 for four states.",
+          "identifier_or_url": "https://www.ti.inf.uni-due.de/publications/koenig/dlt03.pdf",
+          "material_read": "V_n size bounds, offset 15650",
+          "method": "OA PDF passage",
+          "title": "On Deterministic Finite Automata and Syntactic Monoid Size",
+          "trigger": "Unconditional size 176 may come from established binary constructions"
+        },
+        {
+          "assessment": "Different counted objects; no reset length coordinate",
+          "evidence": "Classifies by isomorphism/conjugacy and size/rank, not by ordered generating maps and constant-word distance.",
+          "identifier_or_url": "https://arxiv.org/abs/1403.0274",
+          "material_read": "p. 1 scope and degree-four enumeration around offset 31700",
+          "method": "OA PDF passages",
+          "title": "Enumerating Transformation Semigroups",
+          "trigger": "Directly the relevant transformation degree"
+        },
+        {
+          "assessment": "Different invariants or distinct state universe",
+          "evidence": "Four-state entry is a game; restricted eight-state entries concern lengths and shortest-word counts.",
+          "identifier_or_url": "Resultary 26f0d000ed59, c9814c09eaa0, 9f6a4b013531",
+          "material_read": "Published Findings of the three entries",
+          "method": "Local published record text",
+          "title": "Binary four-state adversarial synchronization hierarchy and restricted eight-state reset censuses",
+          "trigger": "Closest matching universe and joint-census wording"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–42 and exact joint_spectrum.csv",
+        "Trahtman's examples table and East–Egri-Nagy–Mitchell degree-four semigroup census"
+      ],
+      "rationale": "Shortest control to a constant and the total number of behaviors of the two generators are natural but different structural invariants. Four states already separate the fastest reset thresholds, the longest reset thresholds, and the global monoid maximum. The exact joint table exposes a sharp boundary not visible in either marginal or in known extreme examples and gives a reusable labeled benchmark for questions about their dependence. Its value is the exact coupling, not recomputing a known reset bound or CPR's size.",
+      "residual_risks": [
+        "Finite small-state benchmark only; it neither establishes an asymptotic dependence nor determines analogous results at more states."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

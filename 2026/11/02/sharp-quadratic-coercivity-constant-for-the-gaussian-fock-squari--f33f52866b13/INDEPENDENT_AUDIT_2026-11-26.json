@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:45:29.947025Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Gaussian orthogonality applied to the five coefficients of F² gives U; V=U+|a|⁴−(|a|²+|b|²+2|c|²)², and V>0 for a nonconstant polynomial. Thus the ratio strictly decreases with the relative-phase cosine when abc≠0; the optimum is anti-aligned. All nonconstant coefficient-zero cases have ratio at most 2. After |a|=1, completing the square in x=|b|² gives the deficit and quartic F_K in RESULT.md lines 52–68. An independent rational Horner calculation in Q[k] modulo the defining cubic returned zero for both F_K(u*) and its u derivative. Rational interval evaluation gives 0.176<u*<0.177 and β_K(u*)>0.3655; the cubic changes sign and has positive derivative on the specified K interval. As an alternative to the frozen quartic root exhaustion, divide F_K by (u−u*)². The quotient is a convex quadratic (positive leading coefficient), negative at both roots of β_K because there F_K=−4(K−2)[4(K−2)u²+(20K−24)u⁴]<0. Hence the quotient is negative on the entire interval where β_K>0. The unique zero there is u*, with x=β_K(u*)/[2(K−2)]; the phase condition yields exactly the stated scalar/rotation class. Constants give equality trivially. Independent numerics agree with K, sqrt(K), u*, and x*. CHECK.py and VERIFICATION.md were inspected; the uploaded script was not executed. The inequality is sharp on degree at most two; it only lower-bounds the unrestricted norm constant.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bortolotto–Ramos quantify over all polynomials and extend to entire F with F² in the Fock space, but use an unspecified absolute C.",
+          "Bertolini et al. compare infimum phase distance to the vacuum with modulus error, with related Hermite-window settings."
+        ],
+        "reasoning": "Larger domain alone does not yield an optimal constant on a subspace; the other comparison does not have the same two functionals.",
+        "searches": [
+          "arXiv:2608.26365v1 §1, Theorem 1.1",
+          "arXiv:2605.20527v1 §1.2, Theorem 1.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.26365v1",
+        "arXiv:2605.20527v1",
+        "Resultary d38756717c4b, 51e0f1878311, 1cb1432b025a, 229f887431e2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unrestricted bound proves finiteness, not the exact algebraic optimum; the frozen affine restriction has U=2V, below K.",
+          "The coherent-site slice uses equal linear and quadratic coefficient magnitudes and an overlap objective; the frozen extremizer has unequal magnitudes."
+        ],
+        "reasoning": "The exact optimization is neither an immediate specialization nor a coefficient translation from these results. Restricting the broader existence theorem does not determine an extremizer.",
+        "searches": [
+          "Comparison with arXiv:2608.26365v1 Theorem 1.1 and arXiv:2605.20527v1 Theorem 1.3",
+          "Reading of affine and coherent-site Resultary Findings 51e0f1878311 and 1cb1432b025a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2608.26365v1 Theorem 1.1 uses the same square-restricted norm comparison with unspecified C; the equivalent squared quotient is U/V.",
+          "Resultary 229f887431e2 studies real centered quadratic Gamma polynomials and a normalized fourth moment, not the complex analytic intensity variance quotient."
+        ],
+        "reasoning": "The variance formulation follows by minimizing over constants. After optimizing phase the same exact ratio can be sought on real anti-aligned trinomials, but a Gamma moment problem or an unrestricted qualitative bound does not determine that optimum.",
+        "searches": [
+          "Targeted literature search for sharp quadratic square-restricted Fock coercivity",
+          "Local Resultary searches for Gaussian Fock polynomial intensity variance and quadratic fourth-moment optimization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day d38756717c4b gives a domain-shape Hessian for a sum of concentration eigenvalues. 51e0f1878311 uses a modulus-distance ratio on span{1,z}. 1cb1432b025a optimizes coherent-state approximation on 1+az−az². 229f887431e2 is the Gamma moment comparison."
+        ],
+        "reasoning": "None of these exact statements computes 2.444087335815… or the stated equality class for U/V; the same-day result is excluded by objective, not by chronology. Bounded catalogue search is not exhaustive.",
+        "searches": [
+          "Local Resultary sharp Fock quadratic constant and nested-slice search; exact Findings of d38756717c4b, 51e0f1878311, 1cb1432b025a, 229f887431e2"
+        ]
+      },
+      "rationale": "The closest primary theorem is exactly the same inequality with an unspecified uniform constant on a larger space, not an optimization. Neither it nor the inspected closely related finite-dimensional records imply the cubic, the strict gain over 2, or the complete equality class. The pass is limited to those exact degree-two results.",
+      "residual_risks": [
+        "An uncatalogued exact Gaussian-quartic calculation or an equivalent real anti-aligned optimization could overlap. Bounded retrieval cannot certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct antecedent, not sharp degree-two coverage",
+          "evidence": [
+            "The theorem asserts an absolute C for every polynomial, extending to entire F with F² in the Fock space."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.26365v1",
+          "material_read": "§1, Theorem 1.1, PDF p. 4, text near offset 11835",
+          "method": "OA primary PDF text",
+          "title": "A complex-analytic proof of square-restricted stable phase retrieval in Fock space",
+          "trigger": "Identical underlying inequality"
+        },
+        {
+          "assessment": "Different comparison functional",
+          "evidence": [
+            "Infimum of ||F−λ|| over unit λ is controlled by |||F|−1|| in Fock norm."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.20527v1",
+          "material_read": "Abstract, §1.2, Theorem 1.3, PDF p. 4, text near offset 9000",
+          "method": "OA primary PDF text",
+          "title": "L²-Stability for STFT phase retrieval",
+          "trigger": "Related stability estimates and finite Hermite spans"
+        },
+        {
+          "assessment": "Different objective, restrictions, or probability measure",
+          "evidence": [
+            "Domain eigenvalue Hessian, affine modulus-distance ratio, coherent-site overlap, and real Gamma fourth moment are distinct from complex Gaussian square-coercivity."
+          ],
+          "identifier_or_url": "Resultary d38756717c4b; 51e0f1878311; 1cb1432b025a; 229f887431e2",
+          "material_read": "Findings and scope of the relevant exact comparisons",
+          "method": "Local mirror inspection",
+          "title": "Fock concentration, affine modulus stability, quadratic coherent sites and Gamma fourth moments",
+          "trigger": "Closest catalogue candidates by object, polynomial degree or quartic functional"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Degree two is the first nonlinear polynomial section of a motivated square-restricted phase-retrieval inequality. The exact optimum exceeds the affine value and gives a rigorous unrestricted lower bound, while the unique nonconstant orbit identifies the phase cancellation responsible. These supply a concrete sharp benchmark for higher-degree or unrestricted bounds, not an arbitrary numerical slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:26:14.850261Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–58; VERIFICATION.md; heawood_nor.cpp; verify_duality.py; census.txt",
+        "/workspace/reproductions/check.py (case 3) and 3.log"
+      ],
+      "rationale": "For the specified labelled Heawood graph the non-incidence maps α and β are antitone Galois adjoints: Y⊆α(X) iff X⊆β(Y). The triple-composition identities give F³=F, not merely an eventual period-two bound. F² applies the idempotent closure separately to each shore; its image is the complete recurrent state set. Point sets of sizes 0, 1, and 2 close to themselves: for any outside point some line through it avoids the set. For three points, inclusion–exclusion on their three incident-line stars gives six hit lines when noncollinear, seven when collinear. Thus a noncollinear triple closes to the complement of its unique avoiding line; every such complement has its four three-subsets and itself in its fiber. All other sets of size at least three close to the full set. This gives 37 closed symbols with the stated five fiber types and an all-points fiber of size 128−(1+7+21+35)=64. Anti-incidence interchanges empty/full, singleton/line-complement and pair/pair types. On the closed product, the update swaps the two dual labels; the 37 diagonal states are fixed and the 666 unordered unequal pairs are primitive two-cycle orbits. Basin sizes are one product of the two closure-fiber sizes for a diagonal, or the sum of the two ordered products for an unordered pair. This gives the stated 11 rows, fixed mass 219, period-two mass 16165, and the four entry counts; the empty/full symbol pair alone gives 4097. Independently reproduced the full census from Fano lines given by binary projective triples and by traversing each trajectory until its first repeated state, without assuming any bound on entry or period. It reproduced every row, the four entry counts and the empty/full orbit size. Replay: python3 -B /workspace/reproductions/check.py 3; output /workspace/reproductions/3.log. The frozen C++ and Python files and census were inspected as evidence, not run.",
+      "residual_risks": [
+        "Result concerns the labelled graph and synchronous open-neighborhood NOR only. The finite census does not certify any broader dynamical variant."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The nine-point configurations result has the same Galois-closure mechanism but evaluates Pappus, switched, and cyclic (9_3) incidence structures, with distinct 110/112/113 fixed counts. The NOR corona record has formulas for a graph with a leaf attached at each base vertex; the bare Heawood graph has degree three throughout.",
+          "The Aledo et al. primary text was not available for a detailed comparison; access failure is not evidence of noncoverage."
+        ],
+        "reasoning": "The generic mechanism does imply the short recurrence bound, and the basin formula expresses the answer in terms of fibers, but neither the other incidence graphs nor the corona formulas produce the needed Fano fiber inventory.",
+        "searches": [
+          "doi:10.1155/2020/9708347",
+          "Resultary local mirror for 6fda51a7b933 and 4014de6cfb9f"
+        ]
+      },
+      "checked_sources": [
+        "Resultary target 0294170a23db, distinct 6fda51a7b933, 8cd2964a9d93, 4014de6cfb9f",
+        "arXiv:1507.06141v2 eq. (2)",
+        "doi:10.1016/j.jcss.2014.04.025 HAL submitted version §3",
+        "MathWorld Heawood Graph",
+        "doi:10.1155/2020/9708347 (primary text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic closure implies F³=F and the dual-label orbit formula once the closed symbol count is known. The same-day nine-point record uses that mechanism. For Heawood the lines through different points and the collinearity distinction determine the types and weights 1,1,1,5,64 needed to turn it into a basin census."
+        ],
+        "reasoning": "The formula is prior-related, but evaluating the 37-symbol Fano system including the fibers is a separate graph-specific step; the complete individual basin table is not supplied as a special case by the inspected sources.",
+        "searches": [
+          "arXiv:1507.06141v2, p. 4",
+          "6fda51a7b933, Finding and closure proof",
+          "Frozen RESULT.md lines 38–58"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aracena–Richard–Salinas give fix(G^−)=mis(G) (eq. 2) and the loopless symmetric negative AND–NOT fixed-point correspondence (2014 Proposition 1). This is the same map on fixed configurations.",
+          "The closed antitone pairs are maximal nonincidence rectangles, and their fibers classify preimages under the two shore closures. The general symmetric NOR map itself is a self-adjoint nonincidence operator on vertex subsets, so F³=F does not require the Fano structure."
+        ],
+        "reasoning": "Existence or enumeration of maximal independent sets is not a census of preimages and basins. The same-object fixed-point reformulation is credited; the Fano-specific fiber sizes are needed for the claimed basin table.",
+        "searches": [
+          "Heawood graph open-neighborhood NOR, negative conjunctive dynamics and basin/formal concept aliases",
+          "arXiv:1507.06141v2, pp. 3–4",
+          "doi:10.1016/j.jcss.2014.04.025, HAL §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The index returned the assigned 0294170a23db itself. Distinct same-day 6fda51a7b933 reports complete basin spectra for three 18-vertex graphs with other orbit counts. The Heawood majority record 8cd2964a9d93 gives 58 fixed states, 1653 two-cycles and F⁴=F² for a different rule. The leaf-corona record 4014de6cfb9f changes the graph."
+        ],
+        "reasoning": "The closest records were distinguished by exact graph and rule, not date or title similarity. None of the inspected distinct tables supplies the Heawood NOR 11 rows. A fixed-point count alone would not supply them.",
+        "searches": [
+          "Resultary semantic search for Heawood NOR basin census and Levi-graph duality",
+          "Local RESULT.md for 6fda51a7b933, 8cd2964a9d93, 4014de6cfb9f"
+        ]
+      },
+      "rationale": "The surviving claim is the Fano-specific closure-fiber classification and exact full Heawood NOR individual-attractor census. The general period/entry reduction and the maximal-independent-set correspondence are not distinct contributions. The closest same-day indexed record uses the same duality and kind of census but on three different nine-point incidence structures, and does not determine the Fano fibers or census. Inspected evidence supports a bounded PASS for the precise finite invariant, not a priority claim for the general method.",
+      "residual_risks": [
+        "The comparison is bounded; undocumented computations, formal-concept tables or inaccessible periodic-point literature may give earlier or equivalent coverage. Neither the generic reduction nor the general MIS relation is claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general fixed-point correspondence, not the basin distribution in that passage",
+          "evidence": "fix(G^−)=mis(G).",
+          "identifier_or_url": "https://arxiv.org/abs/1507.06141v2",
+          "material_read": "pp. 3–4, especially p. 4 eq. (2)",
+          "method": "Lawful OA PDF targeted reading",
+          "title": "Fixed points in conjunctive networks and maximal independent sets in graph contractions",
+          "trigger": "Equivalent fixed-point formulation"
+        },
+        {
+          "assessment": "Same generic fixed-point comparison",
+          "evidence": "|FP(H)|=|MIS(H)| for symmetric negative loopless networks.",
+          "identifier_or_url": "doi:10.1016/j.jcss.2014.04.025",
+          "material_read": "HAL submitted version §3, Proposition 1, p. 5",
+          "method": "Identified lawful OA submitted version, focused passage",
+          "title": "Maximum number of fixed points in AND–OR–NOT networks",
+          "trigger": "Possible stronger negative network theorem"
+        },
+        {
+          "assessment": "Full comparison not possible; access risk retained",
+          "evidence": "No mathematical proposition attributed to the unavailable text.",
+          "identifier_or_url": "doi:10.1155/2020/9708347",
+          "material_read": "No primary text accessed",
+          "method": "Bounded lawful direct/VPN and repository attempts",
+          "title": "Counting Periodic Points in Parallel Graph Dynamical Systems",
+          "trigger": "Potential coverage of period census via parallel graph dynamics"
+        },
+        {
+          "assessment": "Identifies the graph, not its NOR dynamics",
+          "evidence": "Heawood is the point-line Levine incidence graph of the Fano plane (Levi graph).",
+          "identifier_or_url": "https://mathworld.wolfram.com/HeawoodGraph.html",
+          "material_read": "Definition passage, offset 850",
+          "method": "OA public page",
+          "title": "Heawood Graph",
+          "trigger": "Standard name/geometry equivalence"
+        },
+        {
+          "assessment": "Material method/problem-class overlap, not identical Heawood claim; no priority inference from date",
+          "evidence": "Three (9_3) Levi graphs, 110/112/113 fixed points, 5995/6216/6328 primitive two-cycle orbits, at most one update to recurrence.",
+          "identifier_or_url": "SCOPE-20261122-6fda51a7b933",
+          "material_read": "RESULT.md Finding and Galois-closure proof in local mirror",
+          "method": "Resultary search and local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The three nine-point cubic configurations have distinct NOR basins",
+          "trigger": "Closest same-day indexed overlap: exact basin census of Levi graphs under the same rule"
+        },
+        {
+          "assessment": "Different rule",
+          "evidence": "Majority, F⁴=F², 58 fixed states, 1653 primitive two-cycles.",
+          "identifier_or_url": "SCOPE-20261102-8cd2964a9d93",
+          "material_read": "Local RESULT.md Finding",
+          "method": "Resultary search and mirror",
+          "title": "A two-step majority projection and exact attraction basins on the Heawood graph",
+          "trigger": "Same host and exact basin table"
+        },
+        {
+          "assessment": "Restricted to one-leaf coronas, not the bare Heawood host",
+          "evidence": "General attractor/basin formulas assume a leaf adjoined per base vertex.",
+          "identifier_or_url": "SCOPE-20261101-4014de6cfb9f",
+          "material_read": "Local RESULT.md Finding",
+          "method": "Resultary search and mirror",
+          "title": "Exact attraction basins of NOR leaf coronas",
+          "trigger": "Potential stronger NOR formula for all hosts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and classification",
+        "Independent direct trajectory census",
+        "Resultary same-problem-class comparison 6fda51a7b933"
+      ],
+      "rationale": "The Heawood graph is the canonical smallest nontrivial projective-plane incidence graph, so the host is motivated independently of the census. A complete, reproducible 703-orbit benchmark distinguishes attraction from mere orbit counts; in particular it separates 21 isolated equilibria from the empty/full orbit with 4097 initial states. The fiber geometry explains those values and gives a useful comparison point for other incidence networks or rules, without claiming any downstream theorem.",
+      "residual_risks": [
+        "Value is the precise invariant of this graph and rule; not a new general algorithm or a claim about all Boolean network dynamics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

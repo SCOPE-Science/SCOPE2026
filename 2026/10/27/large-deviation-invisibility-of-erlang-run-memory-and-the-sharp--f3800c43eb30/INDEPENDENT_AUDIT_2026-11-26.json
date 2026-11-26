@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:22:50.016897Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–52",
+        "VERIFICATION.md and verify_pressure.py (inspected, not executed): phase-matrix/scalar comparisons, equal-shape checks and finite edge tests; 140 comparisons and <1.3e−11 discrepancy are reported, not independently replayed"
+      ],
+      "rationale": "The finite cyclic stage embedding and Feynman–Kac give the simple Perron eigenvalue for every initial phase. Multiplying the positive eigenvector ratios gives A_+^p A_-^q = λ_+^p λ_-^q with A_± positive; the product increases from zero to infinity above the larger diagonal threshold. Implicit logarithmic differentiation gives Λ′ = v(p/A_+ − q/A_-)/(p/A_+ + q/A_-) and Λ″(p/A_+ + q/A_-) = p(Λ′−v)^2/A_+^2 + q(Λ′+v)^2/A_-^2 > 0. At positive tilt A_- = A_+ + 2vθ + λ_-−λ_+, so A_+ tends to zero with the stated positive coefficient and power −q/p; swapping signs gives −p/q. These also yield the slopes ±v, intercepts −λ_±, and θ(v−Λ′)→0 at the positive edge (with the sign-reversed counterpart). Thus the Legendre rate has the stated endpoint limits; exponential tightness and Gärtner–Ellis on the interior give the full LDP, including open neighborhoods of the endpoints. Taking the positive p-th root when p=q gives the Markov quadratic, whose Legendre transform gives the displayed rate. Conversely the conjugate rate determines the pressure; the intercepts fix the comparator rates and its inverse-first-power edge law forces p=q. The ballistic atom for a fresh plus run is the Erlang survivor. Line 4's phrase 'family of unequal Erlang stage counts' is infelicitous; the explicit quantifiers in line 6 and classification in line 23 include equal counts and are consistent.",
+      "residual_risks": [
+        "The analytic proof, not finite numerical evidence, supports the universal claim. The rate equality does not extend to finite-time run statistics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Macci's accessible abstract identifies three non-standard telegraph model settings, without stating the comparison over arbitrary Erlang stage ratios. The classical LDP includes the comparator, and the free-current catalogue example fixes the non-Markov process to Erlang-2 and symmetric rates."
+        ],
+        "reasoning": "A general renewal or finite-state LDP is a framework, not by itself a telegraph-alias classification or a calculation of these two reciprocal edge exponents. No inspected statement dominates the parameter range and conclusion.",
+        "searches": [
+          "Macci DOI:10.1016/j.spl.2015.12.016",
+          "De Gregorio–Macci DOI:10.1016/j.spl.2012.06.023",
+          "Resultary e4c487ffd051, Proof §1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary e4c487ffd051",
+        "DOI:10.1239/aap/1005091360",
+        "DOI:10.1016/j.spl.2012.06.023",
+        "DOI:10.1016/j.spl.2015.12.016"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The equal-count implication follows by taking a positive power root once the scalar equation is known. The converse needs identifying the rate intercepts and comparing the nonzero corrections with exponent 1 in the Markov model and q/p or p/q in the Erlang model."
+        ],
+        "reasoning": "Neither the symmetric example nor the comparator LDP implies the converse for general unequal shapes. Finite-time density formulas could in principle encode the LDP, but available material did not establish that they already give or mechanically imply the classification and asymptotic test.",
+        "searches": [
+          "Di Crescenzo DOI:10.1239/aap/1005091360 (Cambridge and JSTOR access tried)",
+          "Resultary e4c487ffd051, Finding and Proof §1",
+          "De Gregorio–Macci and Macci abstracts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The catalogue gives −λ+sqrt(λ²+v²θ²) for the symmetric Markov and Erlang-2 models once drift and diffusion are removed. Di Crescenzo's abstract describes transition densities for alternating Erlang motion; De Gregorio–Macci's abstract describes classical and other telegraph LDPs."
+        ],
+        "reasoning": "Equality of the full displacement rate is equivalent by conjugacy to equality of the pressure, so the catalogue's special-case overlap is exact. It does not give arbitrary equal stage counts with independent directional rates or the unequal-count impossibility. The abstracts do not establish general equivalent coverage.",
+        "searches": [
+          "Resultary free-current/identical-displacement-LDP comparison: e4c487ffd051, Finding and Proof §1",
+          "Di Crescenzo DOI:10.1239/aap/1005091360",
+          "De Gregorio–Macci DOI:10.1016/j.spl.2012.06.023"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finding and Proof §1 of e4c487ffd051 tabulate no stage-ratio classification and explicitly analyze the Erlang-2 symmetric comparison. The bound claim ranges over all positive integer pairs and independent directional rates."
+        ],
+        "reasoning": "The catalogue match covers one exact family slice, which is credited; the audited invariant is a universal analytic decision boundary with asymptotic exponents, not a finite table entry.",
+        "searches": [
+          "Local Resultary catalogue; strongest inspected record e4c487ffd051"
+        ]
+      },
+      "rationale": "Pass the complete two-sided Erlang classification and edge-ratio discrimination, not the underlying model, classical Markov rate or symmetric Erlang-2 example as separate contributions. The strongest inspected catalogue overlap is an exact special case, not a dominating result; accessible literature evidence does not establish earlier equivalent or stronger coverage of the boundary. This is not a priority finding.",
+      "residual_risks": [
+        "The inaccessible original 2001 transition-density paper and the inaccessible full LDP articles could contain additional relevant implications. Search is bounded and establishes no absolute novelty or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact symmetric Erlang-2 overlap, not general coverage or a priority determination",
+          "evidence": [
+            "With drift and diffusion zero the pressure is −λ+sqrt(λ²+v²θ²) for both models."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-identical-free-current-large-deviations-but-different-fluctuatio--e4c487ffd051",
+          "material_read": "RESULT.md, Finding and Proof §1",
+          "method": "Local Resultary search and bounded mirror text inspection",
+          "title": "Identical free-current large deviations but different fluctuations",
+          "trigger": "Exact-looking Markov/Erlang free-current match"
+        },
+        {
+          "assessment": "Model/finite-time density prior; full-text implication unresolved",
+          "evidence": [
+            "The abstract describes explicit transition densities for alternating-renewal Erlang motions."
+          ],
+          "identifier_or_url": "https://doi.org/10.1239/aap/1005091360",
+          "material_read": "Public abstract; Cambridge/JSTOR full text not readable",
+          "method": "Lawful publisher and identified alternate lookup",
+          "title": "On random motions with velocities alternating at Erlang-distributed random times",
+          "trigger": "Same alternating-Erlang object and plausible implicit coverage"
+        },
+        {
+          "assessment": "Comparator LDP prior; no assertion about inaccessible sections",
+          "evidence": [
+            "The abstract discusses classical, inhomogeneous and planar telegraph motions."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2012.06.023",
+          "material_read": "Public abstract; no readable primary full text retrieved",
+          "method": "Primary source lookup and access attempt",
+          "title": "Large deviation principles for telegraph processes",
+          "trigger": "Comparator LDP and possible extensions"
+        },
+        {
+          "assessment": "No established classification in accessible material; full-text implication unresolved",
+          "evidence": [
+            "The abstract describes three non-standard telegraph settings but does not give the claimed two-sided Erlang boundary."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2015.12.016",
+          "material_read": "Public abstract; no readable primary full text retrieved",
+          "method": "Primary source lookup and access attempt",
+          "title": "Large deviations for some non-standard telegraph processes",
+          "trigger": "Plausible broader non-standard telegraph LDP overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof §§4–6",
+        "Resultary e4c487ffd051 symmetric benchmark"
+      ],
+      "rationale": "The pressure is a natural observable for discriminating holding-time models from displacement. An exact alias/no-alias boundary and a positive, reciprocal-power signature of the directional shape ratio give a usable identifiability result, in contrast to a comparison of a few cumulants or examples. The ballistic atom shows what the rate discards.",
+      "residual_risks": [
+        "No identifiability of absolute stage counts, no stability under observational noise, and no claim for confining potentials or other run families."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

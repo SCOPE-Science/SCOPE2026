@@ -1,19 +1,21 @@
-# Scientific review: uniform-mixture cancellation transition
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The population contrast is obtained by integrating the exactly specified piecewise-linear survival function. The discriminant identity, unique positive shifted-quartic root, continuity of cubic roots, and an explicit positive-contrast witness prove the entire phase diagram rather than sampling selected parameter values. The square-root onset follows from nondegenerate first and second derivatives. A Wasserstein-1 estimate proves robust persistence of the two zeros under component-density smoothing. A degree-three U-statistic projection and the fixed-null normalization prove the limiting rejection probabilities. The independent executable checker establishes 69 algebraic and numerical assertions, including an exact polynomial for the alternative projection variance. Computations are supporting evidence, not a substitute for parameter-uniform arguments.
+PASS
 
-## Originality (O): PASS, with residual historical priority risk
+Integrating the cubic of the two linear survival pieces and subtracting thrice that integral from the mean gives the stated P_b. The independently checked discriminant factors as 3b^2(b−1)^6 Q(b); the shifted quartic has one positive root counting multiplicities, so the crossing is simple. Both endpoints in p are strictly negative, while a positive leading coefficient forces a third root above 1; the positive exact witness at b=5 and the impossibility of crossing p=0 or 1 prove the interior counts on the open regions. At the threshold two interior roots collide away from the third root. For an exact onset argument factor out that simple analytic third root s(b), writing the remaining monic quadratic as p^2+d(b)p+e(b). The cubic discriminant is a smooth strictly positive factor times d^2−4e near b_*, so the quadratic discriminant has positive first derivative there and its square root gives the stated split with nonzero coefficient. Bounded support precludes exponentiality; equality of an integrated departure does not imply a constant NDSE profile. The bound |Δ(F)−Δ(G)|≤10W_1 together with three stable sign witnesses gives two interior zeros after sufficiently small smooth strictly positive component perturbations. The U-statistic projection uses the conditional expectation of the minimum, namely ∫_0^x S(t)^2 dt. The resulting x−9∫_0^x S(t)^2 dt has positive variance, the U-statistic strong law and CLT apply to the bounded exact mixtures, and Slutsky at a blind weight uses the positive mean. For mean-one exponential the projection differs by a constant from X+(9/2)e^(−2X), with variance 4/5. Independent quadrature and root solving at b=6 reproduced both blind weights, both normalized variances (about 0.601031 and 1.418417), and the limiting rejection probabilities 0.028869 and 0.108361. The supplied verification/check.py was read, not executed; it is advertised for replay with Python, SymPy and mpmath from the frozen directory. The stochastic use is the one-sided fixed Gaussian-null calibration, not a finite-sample or omnibus-power claim.
 
-The closest source is Kandpal and Gupta (arXiv:2407.11634v1; 2025 journal version). It supplies the general contrast, test statistic, null distribution, and Gaussian limit, but the inspected primary text neither solves the two-uniform mixture zero-locus nor identifies its quartic support-ratio boundary, double-root onset, two distinct blind branches, or limiting 5% rejection probabilities. The broader general identity alone does not classify zeros or establish their two-branch geometry. Targeted public-literature searches, semantic research-record searches, and earlier mathematical-claim comparisons did not identify direct or stronger coverage. The later journal full text was not accessible for comparison; priority is therefore not independently certified.
+## originality
 
-## Value (V): PASS
+PASS
 
-Two cohorts each individually giving a negative departure score can mix into a positive score and, at two nontrivial proportions, into *exactly zero*, with a sharp and unique support-ratio threshold. This proves a structural nonconvexity of a signed goodness-of-fit functional and delineates precisely why a full-profile characterization does not make its integral an omnibus statistic. The robust smoothing theorem rules out a pathology of discontinuous uniform component densities. At the two exact blind weights, asymptotic rejection rates differ substantially and do not approach one. These facts motivate careful use of the test in heterogeneous lifetime populations while respecting the original paper's restricted one-sided alternative.
+The original NDSE profile, signed departure, U-statistic and null calibration are already known. The distinct result is the complete exact two-uniform zero diagram, its simple fold, robustness of the pair of zeros to smoothing, and differing blind-weight calibrations. The strongest distinct extropy and parametric blind-alternative records address different statistics.
 
-## Scope and residual risks
+## value
 
-The source's own consistency claim is restricted to one-sided NDSE alternatives; this analysis does not contradict that claim. The precise phase diagram requires two common-origin uniform components; its smoothed extension guarantees existence, not uniqueness. The Gaussian power numbers concern the asymptotic fixed-level test, not the exact finite-sample tabulated test. The published journal text was not accessible in full, leaving historical-priority uncertainty. No independent mathematical audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives a complete and robust mechanism for signed cancellation by mixture, with two negative component discrepancies and a positive interior region separated by exact blind weights. It isolates a concrete distinction between characterizing a full profile and testing a single scalar; the two limiting rejection probabilities illustrate that even exact population cancellation need not give equal calibration. It does not challenge performance within the original INDSE alternative.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

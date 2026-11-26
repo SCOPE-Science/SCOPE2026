@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:29:23.369328Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof (lines 5–70)",
+        "Frozen VERIFICATION.md and verify.py (inspected only)",
+        "Independent symbolic determinant, cost and slope checks: python3 /tmp/opencode/frozen_review_calcs.py, section 5"
+      ],
+      "rationale": "Independently reduced the unit-gap constraint on the class-constant mean-zero subspace using coordinates (peripheral value minus hub, pendant minus hub). The energy slack has diagonal k(a−2/(k+2)), c−(k+1)/(k+2) and off-diagonal k/(k+2); its PSD condition gives exactly a>2/(k+2), c≥c(a). The transverse modes require a+kb≥1. Permutation averaging preserves cost and cannot lower the gap. Positive prices force the lower bounds on b,c in the reduced optimum. On each side of a=1 the cost has positive second derivative, and the kink is upward. The left and right slopes there are kP−R/k−(k−1)Q/2 and kP−R/k. I checked the two stationary-point cost formulas by symbolic substitution, and the slopes give both stated threshold equalities, including a=c=1 and b=0 at R=k²P. For unrestricted uniqueness the quotient unit eigenvector of the average retains its Rayleigh energy under any optimum. Its nonzero edge differences force every hub rate; then either b=0 by nonnegativity or the peripheral compression has lower bound I and trace k−1, forcing equal peripheral weights. Budget scaling is exact by homogeneity.",
+      "residual_risks": [
+        "The supplied numerical minimizations are finite and do not by themselves verify optimality or uniqueness; no formal proof-assistant claim is made."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun–Boyd–Xiao–Diaconis give the general linear-cost SDP and an embedding dual; Ghosh–Boyd give concavity and symmetry tools."
+        ],
+        "reasoning": "These methods make the problem solvable but provide neither this price-dependent optimum nor its equality/rigidity conditions. A tree-only solution on the star support would not certify when deletion of all peripheral edges is optimal in the allowed clique.",
+        "searches": [
+          "doi:10.1137/S0036144504443821",
+          "doi:10.1016/j.laa.2006.03.006"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 45632063ad9c",
+        "Sun–Boyd–Xiao–Diaconis 2006",
+        "Ghosh–Boyd 2006",
+        "Jafarizadeh arXiv:2501.02421"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier PSD certificate has squared lengths equal to one on both hub-adjacent classes; a common cost multiplier cannot yield independent spoke and pendant prices. It has a transverse unit-gap eigenspace, whereas the expensive-pendant branch has a>1 and no transverse unit-gap mode."
+        ],
+        "reasoning": "New boundary/equality analysis is required; a parameter renaming or specialization of the earlier certificate/theorem does not yield all phases.",
+        "searches": [
+          "Mirrored RESULT.md of record 45632063ad9c, Finding and proof",
+          "Sun et al. doi:10.1137/S0036144504443821, pp. 683–684, 695–696"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The pendant-clique record uses exactly the unnormalized, symmetric continuous-time gap and freely selectable weights. Jafarizadeh’s clique-lifted-chain formulation uses SLEM of a discrete-time transition matrix with stochasticity constraints."
+        ],
+        "reasoning": "A common rescaling of prices removes one scale, but not R/P. The discrete-time stochasticity and SLEM conditions are not equivalent to maximizing just λ₂ of the unnormalized Laplacian under one weighted budget.",
+        "searches": [
+          "Resultary: fastest continuous time mixing diffusion pendant clique single pendant price independent three edge cost phases algebraic connectivity",
+          "arXiv:2501.02421"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching record's Finding fixes both hub-adjacent prices to one and gives the unique deletion threshold 2(k+1)/k and exact rates. Relevant indexed lollipop work with a two-vertex tail uses a different graph."
+        ],
+        "reasoning": "At R=P, write t=Q/P to recover that exact threshold and solution. The inspected record does not tabulate or prove the independent R/P phase diagram.",
+        "searches": [
+          "Resultary: fastest continuous time mixing diffusion pendant clique single pendant price independent three edge cost phases algebraic connectivity",
+          "2026/10/18/SCOPE-a-sharp-core-edge-price-threshold-for-fastest-diffusion-on-a-pen--45632063ad9c"
+        ]
+      },
+      "rationale": "Pass for the full independent-price phase diagram and rigidity, not for the equal-price pendant/spoke slice. The prior pendant-clique result is a genuine theorem-level overlap, but its two-price theorem is not sufficient for the new competing branch at R>k²P, nor for its transition and unrestricted uniqueness over the independent three-price space. The general convex program and symmetry method are established prior work.",
+      "residual_risks": [
+        "A specialized weighted-connectivity solution outside these checks could overlap; no exhaustive priority claim.",
+        "The frozen prior-work discussion omits the verified R=P predecessor, which should be credited in any public account."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap at R=P; no independent pendant-price theorem",
+          "evidence": [
+            "Both hub-adjacent classes explicitly have unit price; threshold 2(k+1)/k. The rank-m certificate fixes unit dual squared lengths on both classes."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-core-edge-price-threshold-for-fastest-diffusion-on-a-pen--45632063ad9c",
+          "material_read": "RESULT.md Finding, Assumptions and PSD certificate/attainment/global uniqueness proof",
+          "method": "Resultary lookup and local mirror original",
+          "title": "A sharp core-edge price threshold for fastest diffusion on a pendant clique",
+          "trigger": "Same topology, budget, objective and uniqueness claim"
+        },
+        {
+          "assessment": "Covers optimization framework, not exact classified solution",
+          "evidence": [
+            "Linear edge-cost gap SDP and explicit path examples."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "pp. 683–684 and 695–696",
+          "method": "OA original PDF",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "General continuous-time objective with prices"
+        },
+        {
+          "assessment": "Covers method, not theorem",
+          "evidence": [
+            "Concavity and averaging give symmetric representatives, not unrestricted uniqueness."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eigbounds_laplacian.pdf",
+          "material_read": "pp. 693–696",
+          "method": "OA original PDF",
+          "title": "Upper bounds on algebraic connectivity via convex optimization",
+          "trigger": "Symmetry-based algebraic connectivity"
+        },
+        {
+          "assessment": "Different feasible set and objective",
+          "evidence": [
+            "Reversible transition-matrix SLEM, not a continuous-time priced gap."
+          ],
+          "identifier_or_url": "arXiv:2501.02421",
+          "material_read": "Original HTML formulation, offsets 0–4,412",
+          "method": "OA original",
+          "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs & Subgraphs",
+          "trigger": "Related graph topology and mixing objective"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and uniqueness proof",
+        "Resultary 45632063ad9c for prior-coverage baseline"
+      ],
+      "rationale": "Independent edge prices are natural for budgeted diffusion. The theorem tells when an entire edge class should be dropped, separates the two distinct zero-peripheral-rate behaviors, and certifies uniqueness over individual edge rates even at the boundaries. These are useful exact design facts beyond the known equal-price slice or a numerical SDP solution.",
+      "residual_risks": [
+        "Restricted to one pendant and orbit-constant prices; no claim for more general networks or objectives."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

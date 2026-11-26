@@ -36,7 +36,7 @@ For a maximizer \(w\), convexity of \(F\) gives \(F(v)\ge F(w)+DF(w)[v-w]\) for 
  DF(w)[v-w]=\int_{\mathbb T}\Phi_w(\theta)(v-w)(\theta)\,dm(\theta),
  \quad \Phi_w(\theta)=2p\operatorname{Re}(\overline{c_1(w)}e^{-i\theta})+2q\operatorname{Re}(\overline{c_2(w)}e^{-2i\theta}).
 \]
-The real trigonometric polynomial \(\Phi_w\) is nonconstant and has degree at most two. The bathtub principle for its linear functional forces \(w\) to be the indicator of an upper-level set of \(\Phi_w\). Each nonconstant degree-two real trigonometric polynomial takes any prescribed value at at most four distinct points on the circle (multiply its Laurent polynomial equation by the square of the circle variable). Hence an upper-level set is a union of at most two arcs, with no fractional mass on the finite level set.
+The real trigonometric polynomial \(\Phi_w\) is nonconstant and has degree at most two. The bathtub principle for its linear functional forces \(w\) to be the indicator of an upper-level set of \(\Phi_w\). Each nonconstant such polynomial takes any prescribed value at at most four distinct points on the circle (multiply its Laurent polynomial equation by the square of the circle variable). Ignoring isolated points and joining arcs separated only by an isolated level point, each arc then has two sign-changing endpoints. Thus the upper-level set is a union of at most two arcs modulo null sets, with no fractional mass on the finite level set.
 
 **2. Reduce to at most half the circle.** For \(0<\alpha\le1/2\), each candidate is one arc or two arcs. For \(\alpha>1/2\), replacing \(w\) by \(1-w\) changes the mean to \(1-\alpha\) and changes the sign of both nonzero Fourier coefficients without changing their moduli. This bijection transfers every maximizer and its geometry.
 
@@ -45,13 +45,13 @@ The real trigonometric polynomial \(\Phi_w\) is nonconstant and has degree at mo
  \pi^2 F=p(A^2+B^2+2ABu)
  +q\bigl(A^2\cos^2a+B^2\cos^2b+2AB\cos a\cos b(2u^2-1)\bigr).
 \]
-As a function of \(u\), this expression is strictly convex: its quadratic coefficient is \(4qAB\cos a\cos b>0\). The value of any configuration with separated arcs is therefore strictly less than the larger of the values at the endpoints \(u=-1\) (opposite centers) and \(u=\cos L\) (touching arcs). The touching endpoint gives a single arc of half-width \(L\) and yields
+As a function of \(u\), this expression is strictly convex: its quadratic coefficient is \(4qAB\cos a\cos b>0\). Any configuration with \(-1<u<\cos L\) therefore has strictly smaller value than the larger of the values at the endpoints \(u=-1\) (opposite centers) and \(u=\cos L\) (touching arcs). The touching endpoint gives a single arc of half-width \(L\) and yields
 \[
  \pi^2 F_{\mathrm{arc}}=\sin^2L\,(p+q\cos^2L).
 \]
-At opposite centers, set \(c=\cos L\) and \(y=\cos(a-b)\in[c,1]\). The same Fourier formula simplifies to
+At opposite centers, set \(c=\cos L\) and \(y=\cos(a-b)\in[c,1]\). The first coefficient has squared modulus \(\pi^{-2}(\sin a-\sin b)^2=\pi^{-2}(1+c)(1-y)\), by the sine difference formula. For the second coefficient, \(\pi c_2=\tfrac12(\sin 2a+\sin 2b)=\sin L\,y\) after rotating the first center to zero. Thus
 \[
- \pi^2 F_{\mathrm{opp}}=2p(1+c)(1-y)+q(1-c^2)y^2.
+ \pi^2 F_{\mathrm{opp}}=p(1+c)(1-y)+q(1-c^2)y^2.
 \]
 This is a *strictly convex* quadratic in \(y\), since \(q(1-c^2)>0\), so its maximum occurs only at \(y=c\) or \(y=1\). The endpoint \(y=c\) means one arc has zero width, reproducing \(F_{\mathrm{arc}}\). The endpoint \(y=1\) means \(a=b=L/2\), that is two equal antipodal arcs, and yields
 \[
@@ -77,17 +77,17 @@ The accompanying standalone `check.py` uses deterministic random samples and dir
 
 ## Relationship to prior work
 
-Mayeli, *Trace-defect bounds for discrete Fourier concentration operators* (September 2026), establishes an exact trace-defect identity and regularity-dependent bounds for large spatial windows; the present result determines a different, finite three-site mask-design optimization with diagonal gains and a sharp connectivity transition. The published published-finding corpus record *Sharpness of all fractional trace-defect regimes for discrete Fourier concentration* (September 2026) concerns fractal constructions that attain those growth regimes, not weighted mask extremizers. Marceca, Romero and Speckbacher establish geometric eigenvalue estimates, again without the present weight-dependent phase diagram.
+Mayeli, *Trace-defect bounds for discrete Fourier concentration operators* (September 2026), gives an exact unweighted trace-defect identity (Proposition 4.1) and regularity-dependent bounds for large spatial windows; the present result determines a different, finite three-site mask-design optimization with diagonal gains and a sharp connectivity transition. The Resultary record *Sharpness of all fractional trace-defect regimes for discrete Fourier concentration* (September 2026) concerns fractal constructions that attain those growth regimes, not weighted mask extremizers. Marceca, Romero and Speckbacher establish geometric eigenvalue estimates, again without the present weight-dependent phase diagram.
 
-Abreu and Speckbacher, *Optimal concentration in the Paley-Wiener space* (July 2026), establish that a circle interval maximizes the **largest** concentration eigenvalue for analytic trigonometric polynomials. For the unweighted three-site operator, applying that theorem also to the complementary set yields three-dimensional eigenvalue majorization and consequently the unweighted trace-squared inequality; **the unweighted arc conclusion is therefore not claimed here as new**. The weighted defect depends on \(\operatorname{tr}(G^{1/2}T_SG^{1/2})^2\), not on the unweighted eigenvalues of \(T_S\): interval optimality fails for some positive gains, with the two-arc geometry explicitly superior. Thus the weighted phase transition is neither the unweighted theorem nor its corollary. An unavailable full manuscript could still contain a related weighted theorem, so historical priority remains provisional.
+Abreu and Speckbacher, *Optimal concentration in the Paley-Wiener space* (July 2026), establish that a circle interval maximizes the **largest** concentration eigenvalue for analytic trigonometric polynomials (Theorem 2.1). For the unweighted three-site operator, applying that theorem also to the complementary set yields three-dimensional eigenvalue majorization and consequently the unweighted trace-squared inequality; **the unweighted arc conclusion is therefore not claimed here as new**. The weighted defect uses \(\operatorname{tr}[(G^{1/2}T_SG^{1/2})^2]\), which does not depend only on the unweighted eigenvalues of \(T_S\): interval optimality fails for some positive gains, with the two-arc geometry explicitly superior. Thus the weighted phase transition is not a corollary of the unweighted interval theorem.
 
 ## Limitations
 
-The classification requires strictly positive Fourier weights and concerns a three-site window on the circle. No stability modulus, higher-band transition diagram, or historical priority beyond the inspected material is asserted. Finite checking cannot certify the continuum inequalities, and the July 2026 closest spectral shape manuscript was not available in full text during comparison; its public theorem establishes maximal leading-eigenvalue concentration, not the present weighted quadratic trace functional.
+The classification requires strictly positive Fourier weights and concerns a three-site window on the circle. No stability modulus, higher-band transition diagram, or historical priority beyond the inspected material is asserted. Finite checking cannot certify the continuum inequalities.
 
 ## References
 
 1. A. Mayeli, *Trace-defect bounds for discrete Fourier concentration operators*, arXiv:2609.12226, publicly submitted 2026-09-10. https://arxiv.org/abs/2609.12226
 2. L. D. Abreu and M. Speckbacher, *Optimal concentration in the Paley-Wiener space*, arXiv:2607.19192, publicly submitted 2026-07-21. https://arxiv.org/abs/2607.19192
 3. F. Marceca, J. L. Romero and M. Speckbacher, *Eigenvalue estimates for Fourier concentration operators on two domains*, arXiv:2301.11685 (2023), published 2024. https://arxiv.org/abs/2301.11685
-4. *Sharpness of all fractional trace-defect regimes for discrete Fourier concentration*, published research record (2026), https://github.com/published-finding corpus/2026/tree/main/2026/9/19/SCOPE-sharp-fractional-discrete-fourier-trace-defects--bbf7e58277be
+4. *Sharpness of all fractional trace-defect regimes for discrete Fourier concentration*, Resultary record (2026), https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-sharp-fractional-discrete-fourier-trace-defects--bbf7e58277be

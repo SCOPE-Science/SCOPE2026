@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:38:04.585231Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–34 and 38–84",
+        "VERIFICATION.md, requirements.txt and verify.py inspected, not executed"
+      ],
+      "rationale": "Radial orthogonality and homogeneous Taylor decomposition give λ_k=M_(k+d−1)(a+b)/M_(k+d−1)(a) on multiplicity binom(k+d−1,d−1). The next-degree ratio compares the expectation of a strictly decreasing multiplier before and after tilting by t, so its covariance with t proves strict decrease. In the Laplace method s=√n(1−t), the phase s+A/s has a unique nondegenerate minimum at √A and curvature 2/√A; the leading amplitude is exp(−A/2). Off a fixed neighborhood one bounds the exponent by −√n(s+A/s) and uses the phase gap and its growth. The resulting log eigenvalue is −κ√k+c+O(k^(−1/2)), giving compactness and positive trace powers. The error allows O(1) in the strict degree cutoff, hence the exact binomial sum gives the asserted count. A jump of size binom(k+d−1,d−1) against a continuous comparator forces at least half that error on one side, valid also for d=1. Integrating by Tonelli gives the two small-p trace coefficients including the d=1 bounded absolute remainder. The sign transition follows from log(1+b/a)=2b. An independent substitution t=x/(A+x) and finite quadrature at k=10^4 and 10^6 corroborated positive, negative and zero offsets and the jump comparison for d=1,2,4 in /workspace/branches/independent_replay.py (bergman). This is not evidence for the asymptotic quantifiers by itself.",
+      "residual_risks": [
+        "Fixed a,b,d; no varying-parameter rate. The count uses the eigenvalues of J*J, not singular values of J without squaring. The stated limsup is a lower bound, not a full oscillation profile."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The literature search identified exponential Bergman/Toeplitz membership and trace-analysis papers, but did not yield their decisive theorem passages. A different stronger analytic statement is the fixed-argument, large-first-parameter Kummer expansion; its applicability follows from the exact identity above."
+        ],
+        "reasoning": "Schatten membership and typical power-weight comparisons do not themselves give the exact shifted logarithmic count. The Tricomi formula is stronger for the radial moments actually needed here, so it is the decisive coverage, irrespective of whether an earlier spectral paper spelled out the count.",
+        "searches": [
+          "Resultary: weighted analytic Bergman Toeplitz eigenvalue asymptotics exponential radial weights exponential small symbols moments counting function Schatten trace",
+          "arXiv:2107.02481, doi:10.1186/s13660-023-03031-y, arXiv:2101.12268, arXiv:1710.02652, doi:10.1016/j.jfa.2016.01.005",
+          "NIST DLMF §13.8(iii); Temme arXiv:1306.5328"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 38–84 and 90–105",
+        "NIST DLMF §§13.4(i), 13.8(iii), 10.40(i) (standard formulas, live retrieval as noted)",
+        "Temme arXiv:1306.5328 indexed abstract",
+        "Resultary 5076f2fe97f2, 79df39d5d5f2, d9bc45e16d65"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known Tricomi input gives log λ_k=−κ√k+c+O(k^(−1/2)) by subtraction (the n^(−3/4) factors cancel). The resulting index cutoff is ((L+c)/κ)^2+O(1); the multiplicities sum to a binomial. Any continuous comparator incurs ≥half a jump on one side, and the trace is the Laplace integral of the count."
+        ],
+        "reasoning": "The exact spectral interpretation is natural but no independent extra exact estimate is needed after applying the old expansion. In particular, the sharp remainder lower bound uses only the already explicit jump multiplicity, not new moment information or an analysis of the residual lattice profile.",
+        "searches": [
+          "DLMF §§13.4, 13.8(iii), 10.40(i)",
+          "Temme, Remarks on Slater’s asymptotic expansions of Kummer functions for large values of the a-parameter, arXiv:1306.5328",
+          "Frozen RESULT.md lines 38–84"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact transform t=x/(1+x) gives M_n(A)=exp(−A) Γ(n+1) U(n+1,0,A). For fixed A>0 the standard large-α modified-Bessel expansion specializes to Γ(α) U(α,0,A)=2 exp(A/2)√(A/α) K_1(2√(αA)) (1+O_A(α^(−1/2))). The usual positive-argument K asymptotic then gives √π A^(1/4) n^(−3/4) exp(−2√(nA)−A/2)(1+O_A(n^(−1/2)))."
+        ],
+        "reasoning": "The integral transform is exact, not merely a similar spectral problem. The order of the known large-parameter expansion supplies the needed log-ratio error as well as the finite constant e^(−A/2); using a leading-scale bound alone would not suffice.",
+        "searches": [
+          "NIST DLMF §13.4(i), integral 13.4.4; §13.8(iii), large a",
+          "\"confluent hypergeometric\" \"large a\" Temme Bessel U 13.8.11 asymptotic Slater",
+          "Temme, arXiv:1306.5328"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct same-day embedding summary treats near-identity a to a+ε crossover in flat exponential norms and Schatten mass; its complete scope and fixed-b implication were not retrieved. Earlier Gaussian plunge concerns a moving radial cutoff; the same-day flat-boundary counting summary concerns a hyponormality-control Jacobi matrix. The exact special-function asymptotic, not a distinct identical spectral index hit, provides the known input."
+        ],
+        "reasoning": "The soft fixed-symbol inclusion is not a hard-cutoff projection problem or a Jacobi perturbation. Neither catalogue resemblance nor shared date is used as proof of coverage; the formula-book reduction is exact in the submitted parameters.",
+        "searches": [
+          "Resultary: exponential-weight Bergman ball inclusion same radial weight a to a+b eigenvalues logarithmic counting asymptotics multiplicities Schatten p moments",
+          "Resultary 5076f2fe97f2, 79df39d5d5f2 and d9bc45e16d65",
+          "NIST DLMF §13.8, Asymptotic Approximations for Large Parameters"
+        ]
+      },
+      "rationale": "The decisive overlap is with the classical large-first-parameter Tricomi U expansion, rather than with qualitative Schatten criteria or the indexed moving-cutoff result. The exact moments are a direct b=0 specialization of the Tricomi integral. The known fixed-z Bessel expansion gives the entire moment precision on which the submitted spectral statement depends. The count, half-jump bound, trace and sign results are then mechanical consequences of homogeneous multiplicities, inversion, continuity and integration. This decision does not rest on unavailable Toeplitz papers or on a same-day record's date.",
+      "residual_risks": [
+        "Full comparison with the same-day embedding paper and the broader weighted Toeplitz literature remains unresolved. The decision is about mathematically implied coverage, not the history of who first stated the spectral count.",
+        "The classical source-page retrieval failures are recorded as access limitations and are not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known asymptotic specializes to the exact submitted moment with the required relative precision",
+          "evidence": "The large-α, b=0, fixed positive A formula contains exp(A/2)√(A/α) K_1(2√(αA)); the exact integral includes exp(−A) Γ(α), yielding the moment's prefactor and exp(−A/2).",
+          "identifier_or_url": "https://dlmf.nist.gov/13.8#iii (also §§13.4(i), 10.40(i))",
+          "material_read": "Indexed §13.8 entry; identified standard integral and large-first-parameter Bessel formula used above. Live equation-page/OA retrieval timed out.",
+          "method": "Primary reference identification by exact section and literature lookup; analytic specialization of the standard formula",
+          "title": "NIST Digital Library of Mathematical Functions: Kummer integral representations and large-parameter asymptotics; modified Bessel asymptotics",
+          "trigger": "Exact moment rewritten as a standard Tricomi function"
+        },
+        {
+          "assessment": "Corroborates the prior line of asymptotics; the source has not been assessed section by section",
+          "evidence": "Abstract identifies expansions for large first parameter in Slater's 1960 work and discusses differential-equation and integral methods.",
+          "identifier_or_url": "https://arxiv.org/abs/1306.5328",
+          "material_read": "Indexed primary abstract; arXiv and lawful journal copy attempted, full passage not retrieved",
+          "method": "Exact-title search and OA attempts on the same paper",
+          "title": "Remarks on Slater’s asymptotic expansions of Kummer functions for large values of the a-parameter",
+          "trigger": "Primary discussion of the older large-first-parameter expansion"
+        },
+        {
+          "assessment": "Material related coverage, fixed-b precision not resolved from available text",
+          "evidence": "Studies a near-identity crossover and diverging Schatten mass in a varying ε limit, not explicitly the fixed-b two-term law in the available summary.",
+          "identifier_or_url": "Resultary 5076f2fe97f2",
+          "material_read": "Indexed summary only; exact RESULT.md retrieval attempted",
+          "method": "Local semantic index and lawful mirror attempt",
+          "title": "A gamma-law spectral crossover for near-identity embeddings of flat exponential Bergman spaces",
+          "trigger": "Closest distinct indexed weight-inclusion statement"
+        },
+        {
+          "assessment": "Different operator/regime in the available statement",
+          "evidence": "Moving geometric concentration cutoff and Gaussian plunge, not a soft fixed exponential multiplier.",
+          "identifier_or_url": "Resultary 79df39d5d5f2",
+          "material_read": "Indexed summary and described comparison in frozen RESULT.md line 92; mirror passage not retrieved",
+          "method": "Local semantic-index comparison and OA mirror attempt",
+          "title": "Gaussian spectral plunge and sharp projection defect in exponential Bergman balls",
+          "trigger": "Closest earlier same-geometry spectral transition"
+        },
+        {
+          "assessment": "Unresolved, not relied upon for failure",
+          "evidence": "Title concerns general weighted Toeplitz eigenvalue asymptotics; inaccessible evidence does not establish either equivalence or noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jfa.2016.01.005",
+          "material_read": "Bibliographic identity and frozen comparison; no primary theorem obtained",
+          "method": "Primary DOI access attempt",
+          "title": "Asymptotic behavior of eigenvalues of Toeplitz operators on weighted analytic spaces",
+          "trigger": "Plausible broadly formulated spectral priority source"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–30 and 45–84",
+        "Tricomi moment reduction and classical Bessel expansion discussed under originality"
+      ],
+      "rationale": "The soft-inclusion counting and trace constants are natural and useful to state, but the exact facts submitted reduce mechanically to the classical Tricomi asymptotic and the standard homogeneous count. The half-jump lower bound adds only the general obstruction for a continuous comparator of a staircase with known jumps, and the trace and sign transition are algebraic consequences. No distinct higher-order lattice profile or spectral regime survives as an independently unknown exact result in the frozen statement.",
+      "residual_risks": [
+        "The negative value decision is not a claim that the result is false or that a nontrivial refinement of the radial spectral problem could not be valuable."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

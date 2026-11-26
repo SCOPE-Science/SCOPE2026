@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:11:13.361363Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–35 and 43–99",
+        "Frozen VERIFICATION.md and verification/verify.py, lines 6–72"
+      ],
+      "rationale": "Every counted exchange changes the lumped shore occupancy by one; there are no hidden within-shore jumps. An independent derivation uses the martingale for the count plus the martingale for h solving -Qh=λ-μ. Up to a bounded endpoint term their sum equals C_T-μT, with jump increments 1+Δh. The stationary cross term is 2πQh=0, giving variance rate μ+2⟨h,-Qh⟩. Reversibility and the triangular action on polynomials give the centered degree-one and orthogonal degree-two modes at N and 2(N-1). For an independent norm check, the upward-edge weights π_j u_j have total μ/2 and, normalized, are hypergeometric with parameters N-2, a-1, k-1. Orthogonality to the linear mode forces ΔH₂ to be twice j minus twice the edge mean; its Dirichlet energy is 2μ times the edge variance. Thus ||H₂||²=μ Var_edge(J)/(N-1), exactly the displayed fourth-moment formula, also when the edge variance is zero. Substitution gives both nonnegative corrections. Their simultaneous zeros give precisely the stated cases, where a constant exit rate gives a Poisson clock. Multiplying the two contributions by N in the joint window yields 16u²v² and 1/4. The supplied script was inspected, not run: it compares exact full-state Poisson solves and a symbolic norm identity; the window portion independently asserts only positivity and prints comparisons, not a convergence certificate.",
+      "residual_risks": [
+        "The macroscopic or joint-window Fano limits do not assert Poisson-process convergence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mendonça §4, equations (15)–(18): complete-bipartite generator/spectrum, without evaluated all-jump variance; offset 38900 discusses fluctuations as future work.",
+          "Roche–Derrida–Doucot, p. 1: dominant eigenvalue of a modified evolution matrix.",
+          "Poisson-activity catalogue Finding: general connected-graph F≥1 and the equality classification subsume the frozen equality cases."
+        ],
+        "reasoning": "The generic spectral and counting frameworks do not evaluate the intensity projections. The graph-wide classification does cover the equality subclaim, but does not determine the two corrections or their limiting competition.",
+        "searches": [
+          "arXiv:1207.4106v4",
+          "cond-mat/0312659",
+          "Resultary local record 2026/10/25/SCOPE-poisson-activity-on-finite-exclusion-networks-a-complete-graph-c--016805168b38"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1207.4106v4",
+        "arXiv:2203.08647v2",
+        "arXiv:1202.0774",
+        "cond-mat/0312659",
+        "Resultary local records 016805168b38 and 3986b056b986"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two relaxation eigenvalues alone do not supply ⟨H₂,H₂⟩ or the projections of the actual jump intensity. The general counting method needs those graph- and inventory-specific data.",
+          "The equality criterion and k=2 specialization leave the finite correction at joint balance undetermined."
+        ],
+        "reasoning": "The distinct conclusion requires evaluating the activity's weighted mode contributions; the quartic crossover then follows from both terms, not from the prior equality criterion or unweighted spectrum.",
+        "searches": [
+          "arXiv:1207.4106v4 §4 joined with cond-mat/0312659 p. 1",
+          "Resultary local records 016805168b38 and 3986b056b986"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2203.08647v2, OA offset 1449: discrete-time two-urn multiple-swap model tracks colour occupancy; swaps can be clocked even without a change in red occupancy.",
+          "arXiv:1202.0774, Introduction, offsets 2051 and 4381 explicitly distinguishes snapshot activity from integrated current."
+        ],
+        "reasoning": "The continuous-time Bernoulli–Laplace occupancy chain is an equivalent formulation only if its successful +/-1 transitions are counted at the frozen rates. Neither the checked discrete-time swap model nor static TASEP activity supplies these integrated cumulants.",
+        "searches": [
+          "Bernoulli-Laplace integrated activity counting all exchanges complete bipartite exclusion tilted birth-death hypergeometric Fano factor long-time variance",
+          "arXiv:2203.08647v2",
+          "arXiv:1202.0774"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local two-particle Finding agrees after setting k=2 in the two rational corrections.",
+          "The Mendonça §4 spectrum is exact, but it is an unweighted generator eigenvalue list, not a table of count cumulants."
+        ],
+        "reasoning": "The catalogue slice is genuinely equivalent for two particles, and is not treated as distinct there. It does not enumerate other inventories or any half-filling scaling. The catalogue dates do not establish priority over the frozen package.",
+        "searches": [
+          "Resultary local record 2026/11/22/SCOPE-bipartition-balance-reversal-in-two-particle-exclusion-activity--3986b056b986",
+          "arXiv:1207.4106v4, §4"
+        ]
+      },
+      "rationale": "The supported distinction is the explicit all-inventory, all-actual-exchange cumulant ratio and its joint scaling law. The exact generator and spectral structure are prior, and the Poisson equality cases and a fixed-inventory slice overlap materially with separate catalogue findings. None of the inspected exact statements supplies the general evaluated ratio or the joint scaling. The decision is limited to the evidence checked, not universal priority.",
+      "residual_risks": [
+        "A still-unlocated continuous-time Bernoulli–Laplace activity calculation may use an equivalent count; the bounded lookup did not rule that out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers spectral ingredients, not evaluated counting ratio",
+          "evidence": [
+            "Complete-bipartite generator/spectrum; current and density fluctuations mentioned as future work."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1207.4106v4",
+          "material_read": "§4 equations (15)–(18), offset 20329; dynamics outlook, offset 38900",
+          "method": "OA primary HTML passage inspection",
+          "title": "Exact eigenspectrum of the symmetric simple exclusion process on the complete, complete bipartite, and related graphs",
+          "trigger": "Same graph and generator"
+        },
+        {
+          "assessment": "Different count and time convention",
+          "evidence": [
+            "Tracks red occupancy under a prescribed multiple swap at each discrete step."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2203.08647v2",
+          "material_read": "Model description at OA offset 1449",
+          "method": "OA primary HTML passage inspection",
+          "title": "Cutoff in the Bernoulli–Laplace model with O(n) swaps",
+          "trigger": "Alternative urn formulation"
+        },
+        {
+          "assessment": "Different observable and dynamics",
+          "evidence": [
+            "Snapshot activity is explicitly called static and contrasted with integrated current."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1202.0774",
+          "material_read": "Introduction, OA offsets 2051 and 4381",
+          "method": "OA primary passage inspection",
+          "title": "Statistics of current activity fluctuations in asymmetric flow with exclusion",
+          "trigger": "Activity terminology and count comparison"
+        },
+        {
+          "assessment": "General tilted-operator methodology",
+          "evidence": [
+            "Uses largest eigenvalue of modified evolution matrix, not a complete-bipartite activity evaluation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0312659",
+          "material_read": "p. 1, OA offset 5627",
+          "method": "OA primary PDF passage inspection",
+          "title": "Mesoscopic Full Counting Statistics and Exclusion Models",
+          "trigger": "Potential general counting theorem"
+        },
+        {
+          "assessment": "Subsumes equality classification only",
+          "evidence": [
+            "General connected-graph Poisson equality criterion does not provide the finite positive corrections."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-poisson-activity-on-finite-exclusion-networks-a-complete-graph-c--016805168b38",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Poisson activity on finite exclusion networks",
+          "trigger": "Stronger equality result"
+        },
+        {
+          "assessment": "Equivalent k=2 slice",
+          "evidence": [
+            "Its explicit Fano formula follows by substituting k=2; no variable-inventory crossover is covered."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-bipartition-balance-reversal-in-two-particle-exclusion-activity--3986b056b986",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Bipartition balance reversal in two-particle exclusion activity",
+          "trigger": "Exact same topology and count at fixed k"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, finite-size formula and joint scaling, lines 10–35; proof lines 72–99",
+        "Mendonça §4 and the two local overlap Findings"
+      ],
+      "rationale": "The exact noise of the successful exchange clock is a natural dynamical observable not determined by the relaxation spectrum alone. The positive quadratic-mode contribution distinguishes exactly balanced dense chains from truly Poisson chains despite F→1, and gives the residual 1/(4N) noise floor and the joint N^(-1/4) crossover. This is useful beyond re-deriving the known eigenvalues or the k=2 slice.",
+      "residual_risks": [
+        "Only the first two long-time cumulants are evaluated; no finite-time distribution or higher cumulant claim is supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

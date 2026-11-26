@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:34:29.573887Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For p time steps the directed graph on ordered pairs of p-bit histories has edge (a,b)→(b,c) exactly when the next temporal bit of b agrees with the local rule in every row. An indexed ring fixed by the p-th iterate gives a based closed walk, and the time-zero row of a based walk reconstructs that walk by deterministic updating. Neither construction divides by spatial rotations, including for words with smaller spatial period. Primitivity in time follows by subtracting fixed points when p=5 is prime; exactly five temporal states are counted per such orbit. Independently reconstructed history-pair graphs had single cyclic components with (vertices,edges)=(4,5),(19,32),(49,70) for p=1,3,5. Newton identities checked all coefficients of det(I−zA_5)=A²B and det(I−zA_1)=1−z³−z⁴. Transient blocks do not contribute to traces or determinants. Logarithmic differentiation thus gives the claimed all-length generating function. The independent direct simulation exhausted all 262136 words over n=3..17 and agrees with exact trace counts, including the zeros at 3..10 and 13 and counts 11,12,14 at n=11,12,14. It verifies both seeds' constant-history (1,0) pair and the two stationary closed paths of lengths 3 and 4. Inserting these paths preserves a genuinely time-varying column, and the two seeds plus the two insertion lengths generate all n≥14 as well as 11 and 12. At temporal heights 3 and 5 the constant-history walks are in the unique cyclic component, so coprime lengths 3 and 4 give primitivity and a single leading eigenvalue in each trace; fixed points are negligible (the root of x⁴−x−1 is below 1.3). Exact recomputation gives ρ_3≥2718457310/1758827257>3/2, and ρ_5≤57236574384761/41508028722101<7/5; the frozen transfer log also encloses ρ_5 between 1.37890 and 1.37893, so it exceeds the fixed-point rate. The positive root calculated from the reciprocal of B in that interval is 1.378913380008526. The trace asymptotic therefore proves c_n∼λ_5^n/5 and the asserted population comparison, not a basin comparison. Replay: independent rule73_independent_check.py and full_check.txt under /workspace/branches/abf8112a-4119-4a12-999c-d79b18417e05/; no frozen code was executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sutner at PDF offsets 44700–47293 describes effective spectra and growth functions for proper three-cycles, and lists Rule-73 spectrum 7+N and early counts 7,16,18,20,… in this context.",
+          "Resultary 786af882d163 gives the Rule-73 temporal-three occupation enumerator. Resultary 4412da3b7a44 is a one-step image series."
+        ],
+        "reasoning": "The general automata method can be used to calculate other periods, but the result of applying it to fifth returns, including the exact factorization and asymptotic, is not in the inspected statements. The temporal-three and image data concern different invariants.",
+        "searches": [
+          "Sutner, Linear Cellular Automata and Automaticity, §3.1, p. 16 and surrounding text",
+          "Resultary temporal-three occupation law and cyclic one-step image series"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verification/transfer.py, transfer.out, direct.out",
+        "Independent rule73_independent_check.py and output",
+        "Jiang–Qin p. 257, Sutner §3.1 and Stricker Appendix A.1",
+        "Rule-22 temporal-five, Rule-73 temporal-three, temporal-six and image-series Resultary passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Rule-22 record has the same temporal period but a different rule and gap. The distinct same-day Rule-73 record has the same rule but temporal period six and its own support/zeta.",
+          "Period-six fixed points are those of temporal least periods 1,2,3,6. In particular the fifth-return primitive sector is not among those counted. The earlier temporal-three record supplies relevant comparison data only on that side."
+        ],
+        "reasoning": "Changing rule changes the transfer predicate; changing height changes the history constraints. Neither record entails the all-length fifth-period spectrum or the algebraic fifth-return growth rate. The same-day date establishes no priority.",
+        "searches": [
+          "Resultary Rule 22 temporal-five renewal zeta 34a570aa8e2a, Rule 73 temporal-six e51f21e27dc6, Rule 73 temporal-three 786af882d163"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jiang–Qin p. 257 exhibits temporal period five for a Rule-73 fixed-wall vertical-map string.",
+          "Bit complement conjugates Rule 73 to Rule 109 on each indexed ring; n-th spatial trace is a return-word count, whose fixed-point-subtracted value is five times the orbit count."
+        ],
+        "reasoning": "Any Rule-109 fifth-return trace would count as exact equivalent coverage. The inspected wall-bounded string is not the periodic spatial cylinder or an indexed-ring census. Mere existence and generic trace-to-orbit identities are not claimed as new.",
+        "searches": [
+          "Resultary: Rule 73 and complement-conjugate Rule 109, temporal-five/fifth-return, labeled rings, zeta/trace",
+          "Primary search: Rule 73 period five indexed-ring cycle counts and transfer matrices",
+          "Jiang–Qin DOI 10.25088/ComplexSystems.19.3.243 p. 257"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Stricker p. 247 reports brute-force enumeration of all limit cycles and lengths for all rules and k≤18; p. 250 reports that the atlas was available on request. Outside that common window computations are rule- and k-dependent.",
+          "Stricker's full short-window data, if queried at Rule 73 and primitive period 5, would give the finite exclusions including k=13 and the earliest witnesses."
+        ],
+        "reasoning": "Credit that finite enumeration as prior coverage rather than treating a short hole or seed alone as new. The atlas cells were not inspected, so conventions must be checked before equating orbit counts. Even agreement throughout the guaranteed window cannot explain permanence beyond it or imply the degree-49 determinant.",
+        "searches": [
+          "Stricker DOI 10.25088/ComplexSystems.32.3.229, Appendix A.1 and atlas availability",
+          "Resultary exact Rule-73 ring enumerations"
+        ]
+      },
+      "rationale": "Earlier work exhibits finite Rule-73 period-five behavior, and the older finite atlas calculation would recover the early presence/absence and counts on its covered window. The supported distinct claim is the exact all-length fifth-return determinant and census, constructive proof of the full support, and its exact exponential growth comparison with temporal three. Standard transfer constructions or another period's enumerator do not supply these data. This is not a historical-priority certification.",
+      "residual_risks": [
+        "The finite atlas cells (and any additional selected lengths beyond k=18) were not obtained; short-window data may overlap exactly.",
+        "The temporal-two record body was unavailable in the tested mirror. Unindexed exact Rule-73 or conjugate Rule-109 computations remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior period-five behavior in a different geometry",
+          "evidence": [
+            "A Rule-73 vertical-map string has period 5; the fixed-string setting uses walls rather than periodic indexed rings."
+          ],
+          "identifier_or_url": "https://doi.org/10.25088/ComplexSystems.19.3.243",
+          "material_read": "Primary article p. 257, OA offset 32480",
+          "method": "Lawful OA bounded original passage",
+          "title": "The Fixed String of Elementary Cellular Automata",
+          "trigger": "Earlier exact Rule-73 period-five example"
+        },
+        {
+          "assessment": "Proper-three-cycle setting and general methodology; not fifth-return counts",
+          "evidence": [
+            "Explicit proper-three-cycle example and growth-function method; follows with Rule-73 7+N and early counts."
+          ],
+          "identifier_or_url": "https://www.cs.cmu.edu/~sutner/papers/sutner-ca-automaticity.pdf",
+          "material_read": "§3.1 pp. 15–16, OA offsets 44700–47293",
+          "method": "Lawful author PDF, bounded context and theorem reading",
+          "title": "Linear Cellular Automata and Automaticity",
+          "trigger": "Exact Rule-73 cycle data and general finite-automata approach"
+        },
+        {
+          "assessment": "Prior finite-window computation of all cycle lengths; no all-length fifth-return claim in inspected passages; actual atlas cells uninspected",
+          "evidence": [
+            "All limit cycles and lengths found by brute force for k≤18; beyond that results depended on rule and k; atlas available on request."
+          ],
+          "identifier_or_url": "https://doi.org/10.25088/ComplexSystems.32.3.229",
+          "material_read": "Appendix A.1 p. 247 (OA offset 30119) and atlas availability p. 250",
+          "method": "Lawful OA bounded primary passage reading",
+          "title": "Classification of Elementary Cellular Automata Based on Their Limit Cycle Lengths in Z/k",
+          "trigger": "Strongest prior finite exact census of same rings and same rule"
+        },
+        {
+          "assessment": "Rule 22, not Rule 73",
+          "evidence": [
+            "Renewal formula for primitive temporal-five cycles of Rule 22."
+          ],
+          "identifier_or_url": "Resultary 2026/11/17, 34a570aa8e2a",
+          "material_read": "Mirrored RESULT.md, offset 0",
+          "method": "Configured Resultary lookup and original mirror",
+          "title": "A sharp 54-site gap and a renewal zeta for temporal-five cycles",
+          "trigger": "Exact zeta and circumference spectrum at the same period"
+        },
+        {
+          "assessment": "Different and noncovering temporal sector",
+          "evidence": [
+            "Primitive temporal-six support and spatial zeta."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, e51f21e27dc6",
+          "material_read": "Mirrored RESULT.md, offset 0",
+          "method": "Configured Resultary lookup and original mirror",
+          "title": "A reentrant six-cycle gap and exact spatial zeta for Rule 73",
+          "trigger": "Distinct same-day exact census for the same rule and geometry"
+        },
+        {
+          "assessment": "Prior temporal-three exact enumeration only",
+          "evidence": [
+            "All-length temporal-three occupation enumerator, not time-five transfer."
+          ],
+          "identifier_or_url": "Resultary 2026/11/17, 786af882d163",
+          "material_read": "Mirrored RESULT.md, offset 0",
+          "method": "Configured Resultary lookup and original mirror",
+          "title": "Exact space-time occupation law and Gaussian concentration in Rule 73 three-cycles",
+          "trigger": "Comparison of Rule-73 temporal growth rates and possible broader return spectrum"
+        },
+        {
+          "assessment": "Image size rather than return counts",
+          "evidence": [
+            "Enumerates one-step image sizes at every circumference."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8, 4412da3b7a44",
+          "material_read": "Mirrored RESULT.md, offset 0",
+          "method": "Configured Resultary lookup and original mirror",
+          "title": "Exact cyclic one-step image series of elementary cellular automaton Rule 73",
+          "trigger": "Equivalent-looking all-length Rule-73 generating series"
+        },
+        {
+          "assessment": "Cannot exclude further related discussion in the body",
+          "evidence": [
+            "The title and frozen citation identify a temporal-two comparison; not taken as proof about its uninspected contents."
+          ],
+          "identifier_or_url": "Resultary 2026/11/17, 91ecce9dc622",
+          "material_read": "Body not available through the local mirror",
+          "method": "Bounded mirror retrieval attempt",
+          "title": "Rule 73: exact temporal-two zeta and an exponential oscillation–equilibrium gap",
+          "trigger": "Cited same-rule return zeta"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact primitive return periods on indexed rings are natural invariants. The length-13 gap followed by guaranteed existence at every larger length is structurally explained by insertion, rather than merely read off a short table. The factorized generating function makes later counts and exact growth available without enumerating the full ring phase space, and the smaller growth rate than period three shows that the population growth is not ordered by temporal period.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

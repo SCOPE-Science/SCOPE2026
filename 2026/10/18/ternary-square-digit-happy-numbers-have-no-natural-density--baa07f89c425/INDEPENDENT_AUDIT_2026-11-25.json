@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:58:00.054977Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof 1–3, VERIFICATION.md and ternary_happy_density_checker.py, inspected only",
+        "Corrected RESULT.md and checker under repairs/2",
+        "Independent multinomial shell reproduction and exact integer/rational transfer-hypothesis checks",
+        "Gilmer arXiv:1110.3836v4 Definition 1.1–1.2, Definition 3.1, bounds (B), Theorem 4.1; ar5iv rendering locates B2 as \\sqrt{3\\mu b}\\sigma"
+      ],
+      "rationale": "PASS for the corrected proof and checker in repairs/2, with the theorem unchanged. The frozen proof and checker incorrectly use 6 as an upper majorant for the left side of Gilmer's (B2). The primary theorem's hypothesis is sqrt(3μb)·σ ≤ b^(3m/8), with the σ outside the radical. For b=3, μ=5/3, σ²=26/9, the left side squared is 130/3, strictly between 36 and 49. Both corrected files use 7 and justify it exactly. Independent rational/integer checks of the actual B1, B2, B3 at m=136 and 224 also pass by squaring nonnegative sides, not by relying on the faulty bound. For ≥4 ternary digits S(n)≤4d<3^(d−1); the map preserves [1,26], so trajectories eventually enter a finite cycle. Exact recomputation by the multinomial sum over suffix counts of 1s and 2s, with direct trajectory classification, matches both printed shell totals and the strict ratios; literal enumeration gives 280 happy integers in the seven-digit shell as a regression. Leading digits 1 and 2 contribute 1 and 4, respectively. Each shell partitions into 2·3^(m/4−1) m-strict intervals, so by averaging a starting happy interval and a starting nonhappy interval have the requisite densities. Gilmer Definition 1.1 includes the digit rule (0,1,4); Definition 1.2 permits the complement union of positive cycles. Definition 3.1 and Theorem 4.1 then give lower bounds on upper densities, with the latter converting to an upper bound on the happy lower density by complementarity. Exact rational checks show the loss exponent magnitude is <10⁻⁶ at both m; multiplication by 1−10⁻⁶ preserves the two stated strict targets. The result does not follow from finite shell counts alone. No frozen executable was run.",
+      "residual_risks": [
+        "The proof uses Gilmer's published theorem rather than a new proof of that theorem; no formal verification is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gilmer applies generally once a starting interval of high type-C density is supplied. The explicit square-digit Corollary 4.2 is decimal.",
+          "Grundman–Teeple include base 3 for all e≥2 and prove a same-parity criterion for good sets and arbitrarily long 2-consecutive progressions, not density bounds."
+        ],
+        "reasoning": "Progression existence does not control the large-block proportions; the general transfer theorem does not establish the requisite contrasting shells merely by substituting the ternary digit rule. The survey abstract is insufficient to rule out a ternary result in its body.",
+        "searches": [
+          "Gilmer Definition 1.1 and Theorem 4.1",
+          "Grundman–Teeple Theorem 2.1 and Corollary 2.2",
+          "Grundman–Hall-Seelig survey publisher and alternate-copy lookup"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ternary/square-digit bounds and dynamics queries",
+        "Gilmer arXiv:1110.3836",
+        "Grundman–Teeple JIS 07.1.8",
+        "Grundman–Hall-Seelig DOI 10.1007/s44007-021-00010-x (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The starting m-strict interval density is an input to Gilmer's inequality. Its general method and decimal application yield no claimed base-three input values.",
+          "Independent counts at m=136 and 224 establish respectively ratios >37188/100000 and <110033/1000000."
+        ],
+        "reasoning": "The independently checked exact shell contrast is the extra hypothesis that makes the previously known theorem imply the specific result. The ordinal's bounds are not credited as a new general theorem or counting method.",
+        "searches": [
+          "Gilmer §3 bounds (B), §4 Theorem 4.1, Corollary 4.2 and §5.1",
+          "Grundman–Teeple §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed ternary elated-number result uses a leading-digit multiplier and proves zero lower density; it is not the same dynamical basin.",
+          "Indexed two-digit cycle result has bases 5t+3 for t≥1, excluding base 3, and makes no density claim."
+        ],
+        "reasoning": "Iterated squared digits, a leading-digit-weighted square rule and finite-cycle cataloging are distinct formulations. The complement of the 1-basin is equivalent to a union of cycles under the unweighted rule, as in the proof, not to an elated-number criterion.",
+        "searches": [
+          "Resultary: ternary square-digit happy numbers and exact density bounds",
+          "Resultary: base-3 cycle basins",
+          "Targeted literature lookup for ternary square-digit density"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching indexed bound in the returned rankings. Gilmer Table 1 concerns decimal cubic cycles and Table 2 concerns a non-power base-seven rule; neither gives the exact ternary count or density bounds. No survey table was accessible."
+        ],
+        "reasoning": "The checked application tables do not encode counts for the (2,3) function, and a ranked search miss alone is not a priority argument.",
+        "searches": [
+          "Resultary: 0.3718 and 0.11004 ternary happy bounds",
+          "Gilmer §5.2.1 Table 1 and §5.2.2 Table 2",
+          "Grundman–Hall-Seelig survey abstract and lawful-copy lookup"
+        ]
+      },
+      "rationale": "The corrected proof makes the same specific ternary density claim. Gilmer's transfer framework and digit counting method are prior, but do not supply the contrasting exact ternary shell inputs. The inspected publications and indexed variants do not state or imply the specific density dichotomy without this new finite input. The closest survey was not accessible in full, and that limitation is not used as evidence.",
+      "residual_risks": [
+        "The survey body was not available; equivalent unindexed ternary density coverage remains possible. The decision is bounded by the passages and index studied, not a certification of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior general transfer; inspected applications do not give the ternary bounds",
+          "evidence": "Corollary 4.2 is for (2,10); Tables 1 and 2 use cubic decimal and nonstandard base seven, respectively.",
+          "identifier_or_url": "https://arxiv.org/pdf/1110.3836",
+          "material_read": "Definition 1.1–1.2 (p. 1, around offset 2663), §3 Definition 3.1 and bounds B (p. 6), Theorem 4.1 (p. 11, around offset 38597), Corollary 4.2 and §5.2 Tables 1–2 (pp. 19–20)",
+          "method": "OA PDF passages and corresponding ar5iv mathematics for bounds B",
+          "title": "On the Density of Happy Numbers",
+          "trigger": "General theorem with potentially direct ternary coverage"
+        },
+        {
+          "assessment": "Ternary progressions rather than density",
+          "evidence": "Good sets have one parity; arbitrary finite 2-consecutive progressions exist.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL10/Grundman/grundman5.pdf",
+          "material_read": "Abstract and §2 Theorem 2.1 and Corollary 2.2, p. 2 around offset 3850",
+          "method": "OA primary PDF passages",
+          "title": "Sequences of Generalized Happy Numbers with Small Bases",
+          "trigger": "Explicit ternary happy dynamics in a broader exponent family"
+        },
+        {
+          "assessment": "Unresolved coverage risk, not negative evidence",
+          "evidence": "Abstract identifies the usual base-10 happy function and surveys variants; it does not settle what the body tabulates.",
+          "identifier_or_url": "https://doi.org/10.1007/s44007-021-00010-x",
+          "material_read": "Publisher abstract and bibliographic details only",
+          "method": "Publisher and bounded alternate lawful-copy checks; full-text retrieval unsuccessful",
+          "title": "Happy Numbers, Happy Functions, and Their Variations: A Survey",
+          "trigger": "Plausible source of explicit ternary density or earlier reference"
+        },
+        {
+          "assessment": "Different digit map and claim",
+          "evidence": "Weights the squared-digit sum by the leading digit and obtains zero lower density.",
+          "identifier_or_url": "2026/11/8/SCOPE-zero-lower-density-for-ternary-elated-numbers-with-an-exponentia--83cf45ab2e72",
+          "material_read": "RESULT.md offsets 13–711",
+          "method": "Resultary and local mirror",
+          "title": "Zero lower density for ternary elated numbers with an exponential bound",
+          "trigger": "Closest indexed density result in base 3"
+        },
+        {
+          "assessment": "Different bases and no density theorem",
+          "evidence": "Two-digit cycles in bases 5t+3 for t≥1.",
+          "identifier_or_url": "2026/10/13/SCOPE-exhaustive-doubling-two-cycles-of-the-square-digit-happy-map--f89c12067807",
+          "material_read": "RESULT.md offsets 22–806",
+          "method": "Resultary and local mirror",
+          "title": "Exhaustive doubling two-cycles of the square-digit happy map",
+          "trigger": "Indexed square-digit cycle classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md",
+        "Gilmer §1 and §§4–5",
+        "Independent exact shell counts"
+      ],
+      "rationale": "Existence of natural density for the ordinary square-digit rule is a natural asymptotic question already singled out by the surrounding literature. In base three, two exact, sharply contrasting shell inputs to the transfer theorem resolve it with a gap greater than 0.26176 between the limiting bounds. The choice of shells serves the asymptotic result, not an arbitrary isolated numerical census.",
+      "residual_risks": [
+        "These are sufficient separated bounds, not exact extremal densities or a classification of accumulation values."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof classifies all spanning trees, uses the exact rank-two edge-update Gram identity, computes both diagonal effective resistances and their signed overlap, and counts all nonzero generalized eigenvalues. Strict monotonicity and two algebraic identities establish the distinct selection thresholds without extrapolating from numerics. All boundary assumptions (positive inherited conductances, path lengths at least two, common nullspace removal) are explicit. The separately executed verifier checked 152 grounded generalized spectra and traces and seven symbolic identities. Residual scientific risk is limited to a possible overlooked hypothesis in the pathwise current-overlap calculation; it can be independently reconstructed from the network paths.
+PASS
 
-## Originality — PASS (best-knowledge, qualified)
+A spanning tree deletes exactly two edges, from distinct paths or the other two paths would form a cycle. Conversely cutting one edge on each of two paths connects both resulting pieces of each via the intact path. In weighted tree edge-voltage coordinates the tree energy is Euclidean, and the two omitted-edge energies are squared signed sums along their replacement paths. Their two coefficient vectors have Gram matrix diag(ℓ_i−1,ℓ_j−1)+(ℓ_r/w_r)vvᵀ with v=(√w_i,±√w_j), since the only shared edges are in arm r. This verifies positive definiteness, both nonunit eigenvalues, the n−3 unit eigenvalues on the quotient, and position independence. The diagonal entries are exactly the two omitted stretches. For (2,2,3) and (6,6,t), the two short-retention objectives increase while the two long-retention objectives decrease. Direct substitution gives equality at 36/5 for the upper eigenvalue increments and at 3(√57−3)/2 for stretch, with 7 strictly in between, so the optimizer sets are disjoint exactly on the claimed interval. At t=7, exact grounded Laplacian determinants independently gave monic polynomials (λ−1)^3(3λ²−28λ+50)/3 and (λ−1)^3(λ−2)(7λ−50)/7 for short and long retention. At n=5 all arms have length two and both objectives increase with (sum of other weights)/w_r, so they share the same maximizing-weight retained arms even at ties.
 
-The total-stretch trace identity and generic tree-preconditioned spectral framework are prior work (Spielman–Woo, 2009; Feng, 2019). Existing grid examples already show that lower stretch need not yield a lower condition number, so **mere reversal is not asserted to be new**. Searches for theta preconditioners, fundamental-cycle Gram matrices, pathwise conductances, equivalence under deleted-edge positions, and exact six-vertex phase thresholds did not find the present complete formula/phase classification. Closest identified public records on generalized-theta electrical projections concern endpoint \(\ell^\infty\) Hodge norms rather than tree-relative eigenvalue ratios. A potentially equivalent old cycle-basis derivation is a meaningful residual publication-priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-A tree is a natural extreme sparsifier/preconditioner, and total stretch is a standard cheap surrogate for its quality. The result gives an exact all-tree optimizer and a **minimal six-vertex, sharp one-parameter** demonstration that optimizing this surrogate can choose the wrong tree. The two analytic crossing values identify how this occurs, rather than simply recomputing a known numeric table. It provides a reproducible calibration example for spectral graph sparsification algorithms, without claiming speedup on real workloads.
+The generic cycle-space/Gram reduction and stretch trace are standard and the existence of a stretch-versus-condition-number reversal in general is not counted as new. The distinct supported finding is the explicit deletion-position-independent theta optimization, together with a sharp six-vertex switching interval and minimality in the stated family. No read distinct work supplied or directly implied that specific extremal classification.
 
-## Literature and limitations
+## value
 
-Feng's 2019 study develops tree-backed spectral sparsification and relative-condition-number targeting; Spielman–Woo establish the trace/stretch control. The graph examples in *A preconditioner that is a tree* already exhibit nonmonotone stretch/condition-number rankings. None of the inspected relevant passages supplies the precise theta-graph Gram spectrum and the minimal six-vertex pair of crossing thresholds. The scope excludes graph reweighting, different sparsifier edge budgets, and inference about typical runtime. Independent expert verification and broader historical publication-priority review remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is an exact calibration example for a standard surrogate in preconditioning. In the smallest eligible graph the trace-optimal and condition-optimal tree sets are disjoint on a whole open interval, not merely reversed for two arbitrarily chosen trees. The explicit intervals isolate the role of correlated replacement paths in the spectral objective and allow an algorithmic comparison to be checked without numerical eigensolver uncertainty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

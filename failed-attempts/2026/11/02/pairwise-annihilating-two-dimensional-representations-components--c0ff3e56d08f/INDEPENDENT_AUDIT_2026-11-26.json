@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:02:36.092211Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A twice-sided annihilator of a nonzero rank-one X consists of maps V/im X to ker X, a one-dimensional space. For trace nonzero this gives multiples of the complementary projection to X/trace X; two nonzero such multiples cannot mutually annihilate. For trace zero, im X=ker X and the annihilator is the line spanned by X itself, in every characteristic. An invertible entry excludes all other nonzero entries. For the pair locus one can independently prove irreducibility by using the incidence bundle over ordered lines (L,K) in P¹×P¹ with fiber Hom(V/K,L)⊕Hom(V/L,K). Its closed incidence image is the rank-at-most-one pair locus: any nonzero matrix determines the relevant image and kernel, including when L=K. The two-nonzero nonnilpotent open uniquely recovers L,K and has dimension 4, so the image is irreducible of dimension 4. The zero or rank-one square-zero directions projectivize to the quadratic Veronese P¹ through the line bundle Hom(V/L,L)=O(−2) (the parametrization uses s²,st,t², also in characteristic two). Taking labeled scalar vectors gives the asserted Segre–Veronese projectivization and cone dimension m+1. Exact supports one with an invertible matrix, two with complementary projectors, and three with common nonzero nilpotents witness maximality in the indicated arities. These dimensions give the equidimensionality boundary and all components meet at zero. The disjoint strata with exact supports in RESULT.md lines 66–70 give the stated motivic identity since the nilpotent direction is a projective line and its fiber factors are nonzero parts of a line bundle; the other mixed stratum has ordered distinct lines and two invertible scalars. The specialization at m=2 is 3q⁴−2q²; m=0 is a point. I independently enumerated using literal matrix multiplication in F2, F3, and F4 at (q,m)=(2,4),(3,3),(4,3), reproducing 130,465,1576 and separate support/nilpotence strata. Replay: python3 /workspace/evidence/3.py; output /workspace/evidence/3.out. These checks are not scheme-theoretic reducedness tests; the correct claim is about the reduced variety.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "6d120e685b13 gives arbitrary matrix-size geometrically irreducible, dimension-n² unit-sum rank strata and an all-field class, and exhausts the nonunit complement in size two.",
+          "7465760ed8a5 gives a larger size/rank range with every Ai²=0. The node-splitting hypotheses in Kinser–Lőrincz do not apply to the full algebra with surviving individual loop squares. The indexed radical-square-zero tuple result 3f6b29b03a8b likewise concerns elements of the radical-square-zero algebra, not this representation space."
+        ],
+        "reasoning": "The exact overlap comes from the unrestricted branch-number theorem at n=2, not from replacing the equations by radical-square-zero relations or by a theorem about elements of a quiver algebra.",
+        "searches": [
+          "6d120e685b13 Finding items 1 and 4 and proof §5",
+          "Resultary 7465760ed8a5 Finding and assumptions",
+          "arXiv:1810.10997 introduction; arXiv:1108.2833 introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6d120e685b13",
+        "Resultary 7465760ed8a5",
+        "Resultary 3f6b29b03a8b",
+        "arXiv:math/0211293",
+        "arXiv:2110.15566",
+        "arXiv:1810.10997",
+        "arXiv:1108.2833"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For n=2 the competing unit-sum rank strata are indexed by one rank-two coordinate or two rank-one coordinates; their closures are exactly the axes and Schröer's pair component on the given support. Its proof §5 exhausts the nonunit part by the zero tuple, nonzero common-line nilpotent tuples, and one nonnilpotent rank-one entry. Axis loci already contain the last type; the nilpotent part outside the pair loci first occurs with three nonzero entries. Projective common-line/coefficients give O(2,1) and cone dimension m+1.",
+          "For the motive, add the unit-sum class to 1+(L+1)(L^m−1)+m L(L+1)(L−1): the second term comes from a punctured rank-m bundle over P¹, and the third from two distinct lines and a nonzero eigenvalue. This is precisely the displayed full motive after rewriting [GL2]=L(L+1)(L−1)².",
+          "Huang's r-branch local series is a conjecture and only about modules supported at the singular point; it is not invoked as a proved broader result."
+        ],
+        "reasoning": "The separate record does not claim full component lists in general size; the inference here uses its exact n=2 complement classification, its irreducible open strata, the known pair theorem, and the line/quotient bundle already implicit in the flag description. These cover the count and yield the geometric consequences without a new classification problem.",
+        "searches": [
+          "6d120e685b13 RESULT.md Finding, proof §5 and Limitations",
+          "Schröer arXiv:math/0211293 §1",
+          "Huang arXiv:2110.15566 Conjecture 1.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "6d120e685b13 imposes AiAj=0 only at distinct ordered indices, exactly the present two-sided relations. Rank two in its notation is the matrix size n=2, while m is tuple length.",
+          "For m=2 the unrestricted Z(n) in Schröer has rank bounds rk A≤n−i and rk B≤i at each i; n=2 gives exactly the two axes and the rank-at-most-one pair component."
+        ],
+        "reasoning": "The competing branch-number result is not a square-zero-only variant. The unrestricted pair theorem is a correct specialization but not evidence by itself for all-arity coverage.",
+        "searches": [
+          "Resultary zero-product matrix tuples branch-number transition, 6d120e685b13",
+          "arXiv:math/0211293, introduction",
+          "arXiv:2110.15566, theorem and branch conjecture"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed count is binom(m+1,2)|GL2(q)| + 1 + (q+1)(q^m−1) + m q(q²−1). Since |GL2(q)|=q(q+1)(q−1)² and q⁴−1−(q²−1)=|GL2(q)|+q(q²−1), this is algebraically the frozen count for all m≥1 and all q. The m=0 case adds only the empty tuple.",
+          "Huang counts pairs at all matrix sizes and gives their complex motivic series; tuple lengths beyond two are not asserted by that theorem."
+        ],
+        "reasoning": "The exact all-arity coincidence is an identity of polynomials, not a match of a few finite tests. Huang supplies additional exact historical coverage at m=2; it is not the basis for all-arity coverage.",
+        "searches": [
+          "Resultary 6d120e685b13, RESULT.md Finding item 4 and proof §5",
+          "Huang arXiv:2110.15566 Theorem 1.2 and Eq. (1.17)"
+        ]
+      },
+      "rationale": "The full all-arity finite-field formula asserted as a contribution is exactly item 4 of distinct Resultary record 6d120e685b13, with the same equations and scope. Its unit-sum geometry and dimension-two complement description already give the full motivic count by replacing cardinalities with the classes of the stated bundles. The geometric component classification is not literally stated there; in dimension two it is obtained by taking the closures of its unit-sum strata (the axes and known Schröer pair components) and adding the common-image/kernel cone from its proved complement description. The Segre–Veronese identification is the standard projectivization of that line-bundle description. The combined frozen novelty claim therefore fails on verified coverage, not on correctness or access. The same-day catalogue paths do not establish precedence, borrowing, or independence.",
+      "residual_risks": [
+        "Same-day indexed records establish equivalent scientific coverage, not historical order or dependency.",
+        "A more explicit historical treatment of multibranch module varieties might exist. The verdict does not depend on an unsuccessful focused search for such a paper.",
+        "No narrowed repair is delivered; the full frozen claim is what has been assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlapping count and unit-sum geometry; complement description supplies further implications in size two",
+          "evidence": [
+            "Item 4 gives the complete all-m finite-field count at size two. Item 1 gives the all-field unit-sum motive and irreducibility of each rank stratum. Section 5 classifies the entire nonunit complement using common nilpotent lines or one nonnilpotent rank-one entry."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-branch-number-transition-for-zero-product-matrix-tuples--6d120e685b13/RESULT.md",
+          "material_read": "Finding items 1–4; Assumptions; proof §5; Limitations, offsets 0–3479, 6900–8691 and 8691–11172; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local-mirror primary passages and algebraic comparison",
+          "title": "A branch-number transition for zero-product matrix tuples",
+          "trigger": "Exactly the unrestricted ordered tuple model, including n=2 and arbitrary m"
+        },
+        {
+          "assessment": "Covers geometric pair case",
+          "evidence": [
+            "Defines Z(n) using AB=BA=0, then lists components given by complementary rank bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0211293",
+          "material_read": "§1, PDF p. 1, offset 0",
+          "method": "OA PDF original statement inspection",
+          "title": "Varieties of pairs of nilpotent matrices annihilating each other",
+          "trigger": "Known unrestricted pair theorem despite a nilpotent-pair title"
+        },
+        {
+          "assessment": "Pair counts and motive proved; broader local branch statement conjectural",
+          "evidence": [
+            "Theorem 1.2 counts pairs normalized by |GL_n|; Eq. (1.17) is motivic for pairs over C. Conjecture 1.4 addresses the local series at a point with multiple branches."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2110.15566",
+          "material_read": "PDF pp. 4–5, offsets 12100–15598 and 16450; Theorem 1.2, Conjecture 1.4, Eq. (1.17)",
+          "method": "OA PDF original theorem and scope inspection",
+          "title": "Mutually annihilating matrices, and a Cohen–Lenstra series for the nodal singularity",
+          "trigger": "Published pair and multi-branch series comparison"
+        },
+        {
+          "assessment": "Covers the square-zero sublocus only",
+          "evidence": [
+            "All ordered index pairs include i=j. Maps factor uniquely through a common kernel/image flag, giving rank-refined finite-field counts."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-double-flag-enumeration-of-pairwise-annihilating-square-zero-mat--7465760ed8a5/RESULT.md",
+          "material_read": "Finding, Assumptions, proof steps 1–2, offset 0 onward",
+          "method": "Local-mirror comparison of constraints and counting theorem",
+          "title": "Double-flag enumeration of pairwise annihilating square-zero matrix tuples",
+          "trigger": "Potentially dominating all-dimension tuple count"
+        },
+        {
+          "assessment": "Node hypotheses do not apply here",
+          "evidence": [
+            "Node splitting uses vanishing length-two paths through the node, but the loop squares survive in the frozen algebra."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1810.10997",
+          "material_read": "Abstract and §1 p. 1, offsets 0 and 4200",
+          "method": "OA PDF hypothesis inspection",
+          "title": "Representation varieties of algebras with nodes",
+          "trigger": "Possible general theorem on related representation components"
+        },
+        {
+          "assessment": "Related framework, different example algebra",
+          "evidence": [
+            "The introduction discusses K[X,Y]/(X²,Y²), not the all-arity coordinate-axes algebra with unrestricted loop squares."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1108.2833",
+          "material_read": "§1, p. 1",
+          "method": "OA PDF original scope inspection",
+          "title": "Irreducible components of module varieties: projective equations and rationality",
+          "trigger": "Reference for general module-variety component methods"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The reduced component geometry is a natural invariant of a canonical multibranch ring; the common nilpotent locus changes from a boundary stratum to a component and then to the unique larger-dimensional component. An explicit stratification and sharp equidimensionality threshold are useful mathematical information regardless of where first proved. That intrinsic usefulness does not make the duplicated exact census or routine consequences of the covering strata a separate original contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

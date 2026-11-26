@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:58:52.993076Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and all proof steps; VERIFICATION.md; verify.py (inspected)",
+        "Independent replay: python /workspace/audit_evidence/laplacians.py (six exact trace identities, including three maximum-degree cases)"
+      ],
+      "rationale": "Strict convexity of tr[(L+11ᵀ/(2s))⁻¹] on the connected feasible edge weights follows by the positive inverse-trace Hessian and injectivity of the edge-weight-to-Laplacian map. The compact stochastic domain has finite candidates and divergent objective toward disconnection; thus the unique optimizer is fixed by nongateway permutations and clique interchange. The within-clique zero-sum eigenvalue is u+(s−1)v with total multiplicity 2(s−2). The symmetric two-level modes give 0 and su; the antisymmetric block has sum su+2t and product 2ut, yielding the stated reciprocal trace. At fixed u>0 the objective strictly decreases with v and t, independently saturating both budgets. The resulting scalar objective has strictly positive second derivative and opposite infinite derivative limits at the two endpoints. For x=su, the scaled objective tends locally uniformly to 2+1/x+1/[2(1−x)]. A fixed interior comparison bounds the optimum uniformly; the reciprocal terms force x bounded below and t=1−(1−1/s)x bounded below, so x is uniformly away from 1 for large s. The limiting unique optimum is 2−√2, with objective 7/2+√2 and bridge √2−1. Setting all edge weights to 1/s gives s²/2+3s−3 exactly. Full inverse matrices reproduce representative cases, including the maximum-degree normalization.",
+      "residual_risks": [
+        "All-size optimality and limits rely on the analytic reduction and compactness, not on extrapolating the finite replay. The benchmark is not the degree-proportional walk."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior trace-inverse convex/SDP formulation fixes graph support and stationary law. Durastante et al. explicitly distinguish this from a small-norm perturbation problem."
+        ],
+        "reasoning": "Uniform stationary law specializes the former exactly to the reversible symmetric design, up to an additive one; it does not solve the analytic orbit problem or give its finite-size optimizer.",
+        "searches": [
+          "Patel–Agharkar–Bullo Problem 1 and Theorem 4, DOI 10.1109/TAC.2015.2426317",
+          "Durastante–Gnazzo–Meini DOI 10.1007/s10543-026-01152-6, p. 31"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact, barbell rigidity and split-graph findings",
+        "Breen et al.; Patel–Agharkar–Bullo; Durastante et al.; Boyd–Diaconis–Xiao (passages cited above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The barbell rigidity result optimizes centered spectral-norm progress and allows positive bulk holds; it gives vanishing gateway holds in its regime. The split graph has a joined independent set rather than a second clique across a single edge. Boyd et al. optimize SLEM over a closely related symmetric stochastic domain."
+        ],
+        "reasoning": "The common limiting bridge can be understood from the same slow exchange mode; that does not imply exact bulk-budget saturation, finite weights, or the total inverse trace against the equal-edge baseline. The split-graph solution has different modes and constraints.",
+        "searches": [
+          "Resultary uniform bridge-weight rigidity aa0c607bcc28 and complete-split result 4d1b0c2f60fb",
+          "Boyd–Diaconis–Xiao DOI 10.1137/S0036144503423264"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary exact entry ending 933dde29250d is the assigned finding. Breen et al. specify the simple walk P=D⁻¹A and degree-proportional stationary weights."
+        ],
+        "reasoning": "The Breen walk has different directional probabilities at edge endpoints of unequal degree, hence is generally outside the symmetric feasible set. It is not the symmetric maximum-degree benchmark or an optimized method.",
+        "searches": [
+          "Resultary: Kemeny-optimal symmetric clique barbell, bridge weight, zero holds",
+          "\"Computing Kemeny's Constant for Barbell-Type Graphs\" optimizing transition probabilities symmetric stochastic Kemeny constant clique barbell"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact finite-size Kemeny formulas in the assigned Resultary entry are the record under review. Breen et al. analytically evaluate specified clique/path walks, not a table of optimal edge weights. The bridge-rigidity entry gives √2−1 under its own near-optimality definition."
+        ],
+        "reasoning": "There is antecedent/neighbor coverage of barbell walk values and of the bridge constant for another optimization. Neither database result provides a distinct exact Kemeny design table or formula under the same feasibility and objective.",
+        "searches": [
+          "Resultary exact 933dde29250d and close bridge-rigidity aa0c607bcc28",
+          "Breen et al., Computing Kemeny’s Constant for Barbell-Type Graphs, pp. 583–584"
+        ]
+      },
+      "rationale": "Fixed-stationarity convex optimization already covers the problem formulation, and prior work calculates the degree-proportional walk. A particularly close same-date fastest-mixing barbell result has the same limiting bridge constant, so the numerical constant alone is not a distinct contribution. For x=su of order one, the smallest antisymmetric eigenvalue is asymptotic to 2xt/[s(x+2t)], so the slow mode is common to the spectral objectives; the Kemeny optimum also needs to optimize all other eigenvalues. The distinct claim supported here is the exact finite-size inverse-trace optimizer and all-hold saturation, with the corresponding optimal value and benchmark gap.",
+      "residual_risks": [
+        "An unpublished or unindexed analytic solution of the prior general program is not ruled out. Ordering or independent priority of the same-date related records is not inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Assigned record itself",
+          "evidence": "Same root equation, all holds zero, asymptotic bridge and benchmark penalty.",
+          "identifier_or_url": "2026/11/22/SCOPE-kemeny-optimal-symmetric-walks-on-clique-barbells-a-persistent-b--933dde29250d",
+          "material_read": "Finding",
+          "method": "Resultary and matched full text",
+          "title": "Kemeny-optimal symmetric walks on clique barbells",
+          "trigger": "Exact match"
+        },
+        {
+          "assessment": "Genuine overlap in leading bridge value, different objective and conclusions",
+          "evidence": "Centers spectral-norm progress on barbell graphs; near-optimality forces bridge √2−1 asymptotically and vanishing gateway holds, allowing positive bulk holds.",
+          "identifier_or_url": "2026/11/22/SCOPE-uniform-bridge-weight-rigidity-and-sharp-stability-exponents-for--aa0c607bcc28",
+          "material_read": "Finding, offset 0",
+          "method": "Matched full-text passage",
+          "title": "Uniform bridge-weight rigidity and sharp stability exponents",
+          "trigger": "Same graph family and bridge limit"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "A complete split graph joins a clique to an independent set.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-kemeny-optimal-symmetric-walks-on-complete-split-graphs--4d1b0c2f60fb",
+          "material_read": "Finding, offset 0",
+          "method": "Matched full-text passage",
+          "title": "Exact Kemeny-optimal symmetric walks on complete split graphs",
+          "trigger": "Similar symmetry and optimization"
+        },
+        {
+          "assessment": "Prescribed simple-walk values",
+          "evidence": "P=D⁻¹A and degree-proportional stationarity.",
+          "identifier_or_url": "https://doi.org/10.13001/ela.2019.5175",
+          "material_read": "Abstract and model introduction, pp. 583–584 (offset 0 and about 5800)",
+          "method": "Open primary PDF passages",
+          "title": "Computing Kemeny’s Constant for Barbell-Type Graphs",
+          "trigger": "Same objective statistic and graph family"
+        },
+        {
+          "assessment": "Specialization gives the program, not the explicit solution",
+          "evidence": "Convex reversible inverse-trace optimization with prescribed stationary distribution and graph.",
+          "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+          "material_read": "Problem 1 and Theorem 4, PDF p. 4 (offsets 23500–28475)",
+          "method": "Open primary PDF passages",
+          "title": "Robotic Surveillance and Markov Chains With Minimal Weighted Kemeny Constant",
+          "trigger": "Potentially stronger result for the same feasible problem"
+        },
+        {
+          "assessment": "General methods and distinction of problems",
+          "evidence": "Discusses the earlier fixed-sparsity, fixed-stationarity realization and contrasts the current perturbation problem.",
+          "identifier_or_url": "https://doi.org/10.1007/s10543-026-01152-6",
+          "material_read": "PDF p. 31, offset 87800",
+          "method": "Primary paper passage",
+          "title": "Kemeny’s constant minimization for reversible Markov chains via structure-preserving perturbations",
+          "trigger": "General sparse reversible optimization"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": "Optimizes maximum absolute nontrivial eigenvalue, not the reciprocal sum.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "material_read": "Abstract and formulation pp. 667–668, offset 0 onward",
+          "method": "Open primary PDF passages",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Potential equivalent spectral optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, optimizer and asymptotic sections",
+        "Breen et al. prescribed-walk setup and adjacent spectral-norm bridge result"
+      ],
+      "rationale": "For a natural bottleneck family this provides the complete symmetric allocation, with proof that no holding or asymmetric design improves it. A bridge carrying constant probability despite the growing clique degrees and a drop from quadratic to linear Kemeny cost explain an order-of-growth failure of the maximum-degree heuristic. This is more than restating a solver or recognizing a matching limiting constant.",
+      "residual_risks": [
+        "The comparison is not to all other walks; it is for the specified symmetric baseline and the equal-clique, single-bridge family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

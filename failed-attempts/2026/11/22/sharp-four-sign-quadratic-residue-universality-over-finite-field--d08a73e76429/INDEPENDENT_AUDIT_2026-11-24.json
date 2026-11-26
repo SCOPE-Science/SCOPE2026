@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:52:29.530903Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–46, VERIFICATION.md, verify.py and finite_census.txt (read as evidence)",
+        "python3 /workspace/review-evidence/recompute.py 3; output /workspace/review-evidence/3.txt"
+      ],
+      "rationale": "The expansion is over square-free shift subsets in characteristic at least five, and subtraction at the four omitted starts costs at most 32. Distinct pairs have sum -1 (away from one root the ratio of the two linear factors is a bijection onto the field minus 1); the singleton sums vanish. The four smooth cubics have one rational point at infinity and the monic quartic has two, giving Hasse contributions 8 sqrt(q) and 2 sqrt(q)+1 respectively. Thus 16 N_q >= q-10 sqrt(q)-39 is strictly positive above 169. I reproduced the entire finite census, including every missing mask, by passing to norms to the prime field: the quadratic character of a nonzero element is the Legendre symbol of its norm. Quadratic norms use a^2-d b^2; the cubic at 125 uses the multiplication determinant in a different irreducible basis X^3+2X+1. This checks 42 fields, the first success at 37 and the last failure at 53, with 59 the next eligible order. In characteristic three shifts zero and three coincide; characteristic two separately allows no nonsquare.",
+      "residual_risks": [
+        "59 is the first eligible field order in the universal tail, not the smallest arbitrary integer lower bound (there is no eligible order strictly between 53 and 59). The theoretical tail is not inferred from the census."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "50a43fac6cf7 proves full five-word occurrence at every eligible nonprime field outside 25,49,121,125,169, hence full four-word occurrence there.",
+          "Prime-field six-word universality from 461 (a2fa4afbd655) and square-restricted four-word universality from 197 (0ce25ceb3ddb) each imply only weaker prime coverage; Cohen counts two homogeneous length-four words for q=5^d.",
+          "Buchaev–Tsfasman Theorem 1 computes every length-four count for primes p>=5 using its Tables 1 and 2."
+        ],
+        "reasoning": "The exact prime counts and the five-word result with its exception table are decisive together. The other sufficient thresholds and homogeneous calculations do not independently determine the claimed classification.",
+        "searches": [
+          "Resultary: length-five quadratic-character universality nonprime fields; six-sign prime universality; four signs at square-restricted starts",
+          "Cohen arXiv:2402.10737 Theorem 1.2; Buchaev–Tsfasman Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "50a43fac6cf7 actual complete exception table; arXiv:2607.17418 Theorem 1 and tables; arXiv:2209.01859 §2.4; arXiv:2402.10737 Theorem 1.2",
+        "Related Resultary findings 0ce25ceb3ddb and a2fa4afbd655 and target self-match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A signed four-word beginning at x extends to the right unless x+4=0 and to the left unless x-1=0. Both fail only in characteristic five and at x=1, so the five-word table plus that single block is exact, not merely a sufficient bound.",
+          "For primes the stated table gives the full mixed counts; applying the standard trace bound gives q>169 immediately, so the 59 cutoff is selection of the last failure from a small exact calculation, not an additional uniform estimate."
+        ],
+        "reasoning": "These sources jointly determine the asserted classification with only projection, the prime-subfield character at a single possible start, and finite evaluation of a known exact formula. The tautological characteristic-two and characteristic-three observations are no separate surviving theorem.",
+        "searches": [
+          "50a43fac6cf7 Finding and assumptions; arXiv:2607.17418 Theorem 1 and Tables 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prime-field R/N sequence in arXiv:2607.17418 uses exactly the same admissible starts 1..p-4 for words of length four. Shinagawa et al. state P_4=37 for the same full set of words over prime fields.",
+          "The nonprime five-word record 50a43fac6cf7 uses x,x+1,...,x+4 with the same field quadratic character, zero exclusions and bit order."
+        ],
+        "reasoning": "Substring universality is equivalent to positivity of every signed-word count on these admissible starts. This equivalence is within fields, not modulo a composite field order.",
+        "searches": [
+          "Resultary: consecutive quadratic character signs, length-four universality and mixed patterns in prime and extension fields",
+          "Shinagawa et al. arXiv:2209.01859 §2.4; Buchaev–Tsfasman arXiv:2607.17418 §1 and Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "In 50a43fac6cf7, project the complement of each absent-code row by b mod 16 and floor(b/2) and take the union. The unrepresented four-codes are [0,7,11,13,14,15] at 25, [11,13] at 49, none at 121 and 169, and [9] at 125 before checking the orphan start.",
+          "At x=1 in characteristic five the orphan contributes code 15 at 25 (all nonzero prime-subfield elements are squares in an even extension) and code 9 at 125 (prime-subfield character unchanged in an odd extension). The resulting missing masks coincide exactly with the frozen nonprime rows.",
+          "For primes Theorem 1 expresses 16 n_p(S)=p-A+16 C with A a trace combination of total absolute coefficient at most five and C>=-39/16. Thus Hasse reduces it to the same bounded table evaluation; d08a73e76429 is only a self-match."
+        ],
+        "reasoning": "The extension-field answer is recovered from already published exact rows plus one elementary exception, without field enumeration. For primes the exact Frobenius formula already determines the stronger count invariant, and extracting the list by checking its finite range is a routine evaluation.",
+        "searches": [
+          "50a43fac6cf7 RESULT.md Finding, absent five-bit codes table",
+          "Buchaev–Tsfasman Theorem 1, Eq. (38) and Tables 1–2, PDF pp. 7–8",
+          "Resultary exact target d08a73e76429"
+        ]
+      },
+      "rationale": "The prime-field part evaluates an already supplied exact all-word formula, whose trace and constant tables plus Hasse give the same finite reduction. The extension-field part is a direct consequence of a distinct indexed five-word theorem and its complete exception table, by projecting to either end and including the sole possible orphan start in characteristic five. This covers the exact nonprime exception list and even the missing masks. The dates of the two indexed records do not establish priority; this is a judgment of mathematical coverage.",
+      "residual_risks": [
+        "The same-date extension-field records were not placed in priority order. The exact consequence is established irrespective of priority.",
+        "Wang–Fang primary text was inaccessible and the primary-literature query yielded no usable extra source; neither fact is negative evidence or grounds for failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact four-word consequence via both projections and the orphan start",
+          "evidence": [
+            "All words outside 25,49,121,125,169; each of these five rows lists all absent codes with the low bit at x."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-complete-five-word-quadratic-character-universality-in-nonprime--50a43fac6cf7/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0, including the complete five-bit exception table",
+          "method": "Local mirror original text",
+          "title": "Complete five-word quadratic-character universality in nonprime finite fields",
+          "trigger": "Stronger adjacent-length classification on exactly the missing extension-field domain"
+        },
+        {
+          "assessment": "Exact stronger counts over prime fields; Hasse and bounded evaluation yield prime universality list",
+          "evidence": [
+            "For p>=5 gives n_p(S)=p/16-A/16+C; Table 1 includes 2a0+2a1+a4 for RRRR at p=1 mod 4 and no row has absolute coefficient sum above five; Table 2 gives the correction terms."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.17418",
+          "material_read": "§1 Eq. (3), and Theorem 1 Eq. (38) and Tables 1–2, PDF pp. 2,7–8 (offsets 4649,19600,22700)",
+          "method": "Open-access original PDF text",
+          "title": "Quadratic residue patterns of length 4 and 5",
+          "trigger": "Exact counts for arbitrary words on the prime-field portion"
+        },
+        {
+          "assessment": "Already states first successful prime field, not eventual threshold",
+          "evidence": [
+            "Prime substring table gives least prime P_4=37."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.01859",
+          "material_read": "§2.4, p. 5, offset about 19500",
+          "method": "Open-access original PDF text",
+          "title": "Private simultaneous messages based on quadratic residues",
+          "trigger": "First universal prime threshold for the same substring problem"
+        },
+        {
+          "assessment": "Direct homogeneous overlap only for four words of constant sign",
+          "evidence": [
+            "Theorem 1.2 counts the all-square and all-nonsquare four-blocks for q=5^d."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2402.10737",
+          "material_read": "Abstract p. 1 and Theorem 1.2 p. 3, offset around 8686",
+          "method": "Open-access original PDF text",
+          "title": "Triples and quadruples of consecutive squares or non-squares in a finite field",
+          "trigger": "Four consecutive field elements in characteristic five"
+        },
+        {
+          "assessment": "Unable to verify exact scope; not used to infer coverage or absence",
+          "evidence": [
+            "No primary result passage retrieved."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2023/5253261",
+          "material_read": "Bibliographic identification; text not obtained",
+          "method": "Lawful DOI, publisher PDF and Wiley routes tried",
+          "title": "The Distribution Properties of Consecutive Quadratic Residue Sequences",
+          "trigger": "Potential prime-field pattern coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding; exact prior prime-field count formulas and nonprime absent-word table compared above"
+      ],
+      "rationale": "A sharp field-size cutoff and the anomalous extension orders are natural questions. Here the best candidate remainder, the exact extension exceptions 25 and 49, is already obtained from the complete five-word table by projecting and including one missing start. The prime remainder is evaluation of known exact counts in a routine Hasse-bounded range. Independent arithmetic corroboration does not supply a distinct new exact invariant, and there is no valuable surviving claim to repair.",
+      "residual_risks": [
+        "The primes cutoff is not printed verbatim in the inspected count theorem; the assessment is of what is already determined, not its wording."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

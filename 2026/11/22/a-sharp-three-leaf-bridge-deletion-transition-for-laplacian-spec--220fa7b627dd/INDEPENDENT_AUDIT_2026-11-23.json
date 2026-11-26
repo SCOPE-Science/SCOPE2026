@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:56:04.668363Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the fixed subspace orthogonal to the all-ones vector, lambda2 is the minimum Rayleigh quotient even when weights disconnect the support. Hence W is convex, and averaging over leaf permutations and the hub exchange preserves b and cannot increase W. In the averaged matrix, the leaf-difference eigenvalue is a (absent for m=1), the symmetric sector contributes 0 and (m+1)a, and the antisymmetric sector has polynomial x²-((m+1)a+2b)x+2ab. For a,b>0, its signs at 0, a and (m+1)a put its roots strictly outside the other nonzero eigenvalues, and continuity covers a=0 or b=0. Substituting b=1-2ma gives W²=4-(12m+4)a+(9m²+10m+1)a². Its unconstrained stationary point has positive b for m=1,2 only; otherwise the interval minimum is at b=0. The values are (a,b,W²)=(2/5,1/5,4/5), (14/57,1/57,32/57), and (1/(2m),0,(m+1)²/(4m²)), respectively. For an arbitrary minimizer at m>=3, its bridge equals the averaged bridge and is zero. The Rayleigh lower bound (m+1)S_j/m for star j forces half the budget on each; equality makes the test vector (m,-1,...,-1) a top eigenvector and the leaf equations force uniform weights. For m=1,2, equality in the width average forces equality in the separate top-eigenvalue bound. The top vector of the averaged matrix has the same squared edge differences within each pendant orbit; its Rayleigh value in the unaveraged matrix is therefore the same and maximal. Its leaf equations force uniform weights as the leaf-hub difference is nonzero. This verifies uniqueness without assuming symmetry. Positive allocations approximate the boundary optimum, but no such allocation attains it for m>=3. The archived checker is diagnostic, not the proof; it was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Observation 9 equates disconnection of positive support and lambda2=0; Observation 22 gives optimality also for the lambda_max-only problem conditional on disconnection. Example 27 exhibits three-component optimal support for a different 12k-vertex graph."
+        ],
+        "reasoning": "These statements do not decide for which sizes a double star disconnects or force its allocation. Example 27 is not a dominating family of balanced double stars.",
+        "searches": [
+          "TU Chemnitz Preprint 2011-4 Observations 9 and 22, Example 27",
+          "weighted double star conductance allocation minimize lambda_max minus lambda_2 spectral width"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "TU Chemnitz Preprint 2011-4 / DOI 10.1137/110859658",
+        "Fan et al., DMTCS 10(1), 79–86, Proposition 1",
+        "Resultary --220fa7b627dd (identity), --c17a6e4db53a and --124a9f37736a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lambda_max-only implication is conditional on finding disconnected optimal support and cannot decide which regime applies.",
+          "The unweighted double-star determinant evaluates one allocation; the connectivity optimizer depends on lambda2 alone."
+        ],
+        "reasoning": "One must still solve the two-parameter spectral calculation under budget and analyze equality in averaging to reach the all-size transition and every-optimizer rigidity. The inspected prior results neither state nor give this conclusion by straightforward substitution.",
+        "searches": [
+          "TU Chemnitz Preprint 2011-4 Observation 22 and Example 27",
+          "Fan et al. Proposition 1, Eq. (3)",
+          "Resultary 2026/11/8 --124a9f37736a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Taking unit node scaling and unit edge prices in Göring–Helmberg–Reiss gives exactly the frozen objective and constraint, including disconnected supports.",
+          "Fan et al. use the same spread of the ordinary unweighted Laplacian; normalizing by total conductance recovers only the uniform feasible point."
+        ],
+        "reasoning": "Laplacian spread and width are aliases in the connected unweighted setting, and the earlier convex program is a genuine general framework. Neither a formulation of the weighted problem nor a polynomial for the unweighted tree is the optimizer classification.",
+        "searches": [
+          "Göring Helmberg Reiss \"On Minimizing the Spectral Width\" Observation 9 Observation 22 Example 27 weighted double star",
+          "TU Chemnitz Preprint 2011-4 Eq. (1)",
+          "Fan et al., The Laplacian Spread of a Tree, Proposition 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact hit --220fa7b627dd is the frozen record itself.",
+          "The distinct same-date --c17a6e4db53a minimizes tr((L+)²) on related positive allocations; the earlier --124a9f37736a maximizes algebraic connectivity on a priced mirrored double star."
+        ],
+        "reasoning": "Both related entries optimize different objectives. Neither gives this optimizer or bridge-deletion threshold; the identity hit does not establish a separate prior statement.",
+        "searches": [
+          "balanced double star weighted Laplacian spectral width independent conductances bridge deletion three leaves uniqueness",
+          "double-star Laplacian spectral width optimal edge weights bridge conductance",
+          "balanced double star fixed conductance budget unique spectral-width optimum"
+        ]
+      },
+      "rationale": "Prior work explicitly gives the general width-design problem and disconnected optimal supports. The verified distinct statement is the exact all-size optimizer, first bridge-deletion threshold, and uniqueness for unconstrained individual edge allocations on the balanced double star. This is not a claim to the objective, convexity method, or first example of disconnection.",
+      "residual_risks": [
+        "Bounded searches and inspection of relevant passages do not exclude an independently solved balanced-double-star instance elsewhere. No priority between distinct same-date records was inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior framework and disconnection example, but no candidate specific transition in these results",
+          "evidence": "Example 27 uses a complete core with three attached sets, not a two-hub tree. Observation 22 gives conditional reduction to minimizing the top eigenvalue.",
+          "identifier_or_url": "https://www.tu-chemnitz.de/mathematik/preprint/2011/PREPRINT_04.pdf",
+          "material_read": "Introduction Eq. (1); Observations 9 and 22 (PDF pp. 11 and 16); Example 27 (pp. 18–19)",
+          "method": "Primary PDF, located passages",
+          "title": "On Minimizing the Spectral Width of Graph Laplacians and Associated Graph Realizations",
+          "trigger": "Exact general objective and prior disconnected optimum"
+        },
+        {
+          "assessment": "Unweighted double-star spectrum, not weight design",
+          "evidence": "The determinant in Eq. (3) is parameterized by n and the leaf split p; the pendant entries use unit edges.",
+          "identifier_or_url": "https://dmtcs.episciences.org/volumes-full/83/83.pdf",
+          "material_read": "Definition of spread and Proposition 1 (printed p. 82, collected PDF p. 120, offset 339744)",
+          "method": "Primary issue PDF, located passages",
+          "title": "The Laplacian Spread of a Tree",
+          "trigger": "Same graph family and width terminology"
+        },
+        {
+          "assessment": "Different cost and strictly positive weight regime",
+          "evidence": "Optimizes the trace of the square of the pseudoinverse, not lambda_max-lambda2.",
+          "identifier_or_url": "Resultary 2026/11/22 --c17a6e4db53a",
+          "material_read": "RESULT.md finding and assumptions in local mirror",
+          "method": "Bounded statement comparison",
+          "title": "A 25 percent second-order coherence penalty on optimally weighted double stars",
+          "trigger": "Distinct same-date record on conductance allocations of balanced double stars"
+        },
+        {
+          "assessment": "Different objective and no disconnection transition",
+          "evidence": "Maximizes lambda2 with priced weights and gives positive optimal weights.",
+          "identifier_or_url": "Resultary 2026/11/8 --124a9f37736a",
+          "material_read": "RESULT.md finding and assumptions in local mirror",
+          "method": "Bounded statement comparison",
+          "title": "Unique priced algebraic-connectivity allocation for mirrored double stars",
+          "trigger": "Same underlying graph family and unique allocation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Minimizing spectral width is a natural network-design criterion. On this family, the answer determines the exact first size at which that criterion sacrifices the sole link between communities, and proves that deleting it is necessary rather than one symmetric choice. The closed form supplies a benchmark and distinguishes when a positive-connectivity requirement changes attainment. It does not generalize the cutoff to other graph families or claim that optimal support disconnection was previously unknown.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

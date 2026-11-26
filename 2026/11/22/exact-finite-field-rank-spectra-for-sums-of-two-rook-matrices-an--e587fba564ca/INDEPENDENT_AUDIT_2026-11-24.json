@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:26:29.052732Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–68; frozen VERIFICATION.md, CHECKS.txt and check.py (inspected, not executed)",
+        "Independent rectangular replay: /workspace/branches/807d1fb5-fef4-4221-a583-7cc643d06d20/independent_replay.py"
+      ],
+      "rationale": "The two colors are ordered, and a coincident pair of edges is a two-edge cycle, not a single path. Each block for a path has a unit triangular minor of order min(r,s); each cycle block is equivalent to I+C, with exactly one free kernel coordinate if and only if p=2 or the half-length is even. A balanced path has a unique row starting endpoint, k!^2 admissible label orders and two alternating colorings, hence 2k!^2 colored paths (the wording of RESULT.md line 37 understates the count in its explanatory sentence, not in the component term). In an unbalanced path reversal cancels the factor of two for starting colors. A labeled balanced cycle is a choice of one perfect matching and a relative k-cycle, giving k!(k-1)!. Independent labels and additive rank give the exponential. Rank n forces each block to be square and full rank, not merely total balance; odd-half-length cycles survive precisely in odd characteristic. For the asymptotic coefficient, the circle r satisfying ar/(1-r)^2=n gives real exponent 2 sqrt(an)-a/2+o(1) and angular curvature ar(1+r)/(1-r)^3 asymptotic to 2n^(3/2)/sqrt(a). With rho=1-r, the real exponent loss is ar(1+r)(1-cos(theta))/(rho*(rho^2+2r(1-cos(theta)))); hence outside |theta|<n^(-3/4+1/24) there is exponential suppression. Inside, the cubic error is o(1) and the prefactor can be held at the saddle. This reproduces the Gaussian factor and both stated constants after division by L_n(-1)^2. The independent rectangular replay matched all rank coefficients for 0<=a,b<=4 in both F_2 and F_3, 56,877 pairs per field, including the zero-size conventions.",
+      "residual_risks": [
+        "The replay is finite and uses the prime fields only; extension-field and all-dimension assertions follow from the component proof. The asymptotics are for n tending to infinity and concern full rank only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected rook source gives the ambient semigroup, not the additive rank result in the passage read.",
+          "The cited pure-permutation cases were inaccessible; their scope as described in the frozen record is perfect matchings. The projection-product finding uses alternating cycles and a different operator."
+        ],
+        "reasoning": "The standard rook order and perfect-cycle special case do not determine how all path types contribute to an additive rank polynomial, nor the probability after normalization by the total number of ordered partial injections. An unlocated broader specialized enumeration remains a risk.",
+        "searches": [
+          "Rook-monoid and full permutation-sum rank literature: arXiv:0709.4175; DOI:10.13140/RG.2.1.3224.0808; MathOverflow 311052/311055",
+          "Resultary exact two-round matching averaging spectrum and logarithmic rank loss"
+        ]
+      },
+      "checked_sources": [
+        "Frozen related-work section",
+        "arXiv:0709.4175",
+        "Local Resultary identical hit e587fba564ca and two distinct mirrored records",
+        "https://oeis.org/search?q=1%2C2%2C16%2C264%2C7296%2C301440",
+        "https://oeis.org/search?q=1%2C3%2C26%2C462%2C13464%2C581640"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The projection result tracks a product spectrum and the biclique result tracks partial-map domain size. In characteristic two no pair of full permutations can have full-rank sum, whereas balanced paths already give 2 invertible ordered pairs at n=1 and 16 at n=2."
+        ],
+        "reasoning": "Adding paths changes even the qualitative nonsingularity problem, and counting the labeled rank contributions and relative characteristic prefactors gives an actual statement beyond the shared cycle argument.",
+        "searches": [
+          "arXiv:0709.4175, p. 1",
+          "Resultary biclique partial-automorphism and matching-projection findings; frozen RESULT.md §§1–5 and relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rook matrices in arXiv:0709.4175 realize partial permutations under matrix multiplication.",
+          "The frozen record's full-permutation rank comparator involves alternating cycles only; its cited page was not accessible for primary-text confirmation.",
+          "The distinct Resultary projection-product record uses two matching rounds, but its spectrum is for a product of averaging projections."
+        ],
+        "reasoning": "Composition and averaging products differ from field addition. The correct translation of the claimed sum is a two-colored partial matching with rectangular paths, isolates and possible parallel edges; cycle-only formulas miss these parts.",
+        "searches": [
+          "Resultary: rank distribution of sums of two rook matrices / partial injections and alternating matching components",
+          "Malandro–Rockmore, arXiv:0709.4175, p. 1",
+          "2018 MathOverflow question 311052 and answer 311055"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest hit is the identical record, not independent coverage. The distinct biclique result counts by domain size; the projection product result uses a different matrix operation.",
+          "Both exact OEIS prefix searches returned no table match for the raw full-rank counts; this does not check every transformed or normalized sequence."
+        ],
+        "reasoning": "Neither inspected exact catalogue entry supplies these two count sequences or the complete bivariate spectrum. Raw-prefix misses alone carry little weight against an equivalent coefficient formula.",
+        "searches": [
+          "Local Resultary: assigned finding e587fba564ca and nearest distinct exact spectra for partial automorphisms and two-round matching averages",
+          "OEIS indexed-term searches 1,2,16,264,7296,301440 and 1,3,26,462,13464,581640"
+        ]
+      },
+      "rationale": "The supported distinct result is the combined rectangular all-rank enumeration and characteristic-sensitive full-rank asymptotic for two independent partial injections. Perfect-matching cycle ranks, rook order, labeled-set enumeration and the saddle method are not claimed as new. The nearest distinct inspected records concern a different rank or a product of projections; their results cannot be reinterpreted as the submitted rank statistic.",
+      "residual_risks": [
+        "Bounded priority check; exact alternative formulas could occur in specialized colored matching enumeration or transformed tables. The Wanicharpichat–Rangpung and MathOverflow primary passages could not be inspected on the cited routes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Background object, not additive coverage in inspected passage",
+          "evidence": "Rook monoid is the monoid of partial permutations realized by rook matrices under multiplication.",
+          "identifier_or_url": "https://arxiv.org/abs/0709.4175",
+          "material_read": "p. 1, definition at OA text offset approximately 1000",
+          "method": "OA paper passage",
+          "title": "Fast Fourier Transforms for the Rook Monoid",
+          "trigger": "Same ambient partial-injection matrices"
+        },
+        {
+          "assessment": "Primary comparison unresolved; full-permutation scope per frozen citation",
+          "evidence": "No inaccessible text is asserted to prove noncoverage.",
+          "identifier_or_url": "https://doi.org/10.13140/RG.2.1.3224.0808",
+          "material_read": "No primary passage accessible; frozen related-work statement only",
+          "method": "Lawful retrieval via cited DOI and ResearchGate copy attempted; HTTP 403",
+          "title": "Nonsingularity of Linear Combination of Permutation Matrices",
+          "trigger": "Plausible direct full-permutation analogue"
+        },
+        {
+          "assessment": "Primary comparison unresolved; cited scope concerns full permutations",
+          "evidence": "No inaccessible text is asserted to prove noncoverage.",
+          "identifier_or_url": "https://mathoverflow.net/questions/311052/distribution-of-sum-of-two-permutation-matrices/311055",
+          "material_read": "No primary passage accessible; frozen related-work statement only",
+          "method": "Cited ordinary page retrieval attempted; HTTP 403",
+          "title": "Distribution of sum of two permutation matrices",
+          "trigger": "Nearest cited cycle-rank question"
+        },
+        {
+          "assessment": "Different rank statistic",
+          "evidence": "Rank is domain size of one partial automorphism of a biclique, not rank of a matrix sum.",
+          "identifier_or_url": "2026/11/22/SCOPE-rank-spectra-and-sharp-extension-cutoff-in-asymmetric-biclique-partial-automorphism-monoids",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Local Resultary and mirror",
+          "title": "Rank spectra and sharp extension cutoff in asymmetric biclique partial automorphism monoids",
+          "trigger": "Distinct exact rank enumeration using partial maps"
+        },
+        {
+          "assessment": "Related combinatorics, different operator and rank mechanism",
+          "evidence": "Singular spectra and rank for products of averaging projections; alternating cycles without the path contributions of the frozen model.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-two-round-matching-averaging-spectrum-and-logarithmic-rank-loss",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Local Resultary and mirror",
+          "title": "Exact two-round matching averaging spectrum and logarithmic rank loss",
+          "trigger": "Distinct exact rank/spectrum result with paired alternating matchings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, rank polynomial and full-rank specialization",
+        "Independent path, cycle and saddle computations"
+      ],
+      "rationale": "The exact labeled spectrum resolves every rank for natural constrained random matrices, not just a computation at fixed n. It explains which component types generate rank loss and yields a sharp difference in invertibility probabilities (a factor asymptotic to 2^(1/4)n^(1/4)) that full permutation results do not capture. The singularity-rate constants and characteristic dependence are useful independent of the novelty of the enumeration method.",
+      "residual_risks": [
+        "Restricted to a sum of two unweighted rook matrices; no analogous limiting law for lower ranks or arbitrary coefficients is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

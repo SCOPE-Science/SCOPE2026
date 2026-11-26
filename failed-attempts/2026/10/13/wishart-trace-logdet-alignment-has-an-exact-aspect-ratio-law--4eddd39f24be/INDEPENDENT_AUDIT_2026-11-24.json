@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:27:01.304949Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Equations (1)–(4) are valid. Determinant tilt shifts ν to ν+2s, so the derivative of the tilted matrix mean is 2Σ; the gamma trace and sum of independent log-chi-square terms give the stated variances. Equivalently differentiate the classical matrix gamma normalizer in a determinant-power parameter and a trace tilt. The finding's actual ratio-only quantifiers are false. At p=1, ν_m=1+1/m, the ratio tends to 1 from below but the exact correlation tends to sqrt(2/ψ₁(1/2))=2/π>0. At p=1, ν_m=2+1/m, the ratio tends to 1/2 but the correlation tends to sqrt(6)/π (about 0.780), not sqrt(1/(2 log 2)) (about 0.849). These are admissible real-Wishart sequences; the trigamma values follow by summing reciprocal squares and odd reciprocal squares. The proportional proof implicitly uses ν→∞, a necessary additional growth hypothesis for the stated interior and square conclusions. Under that hypothesis the uniform trigamma expansion gives the interior formula, and at the square edge the harmonic lower bound is at least 2 log((ν+1)/(ν-p+1)), which diverges. The thin result needs no added assumption as p≥1 and p/ν→0 already force ν→∞. The monotonicity of c(r) is correct. The supplied checker was inspected, not executed: its aspect test uses ν=20000, so it cannot detect the missing quantifier. The exact scalar counterexamples suffice; no simulation or formal certificate is claimed.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bai, Jiang, Yao and Zheng's specialization of Bai–Silverstein gives joint LSS limits for functions analytic around the fixed interior support; it evaluates the real variance for x−log x−1 as −2log(1−r)−2r. Cai–Liang–Zhou give the logdet marginal variance and asymptotics.",
+          "Ogasawara Theorem 1 uses independent triangular variables with chi-square diagonal squares and normal off-diagonal entries. The proof of the product density is algebraic and extends by the same change of variables to real ν>p−1."
+        ],
+        "reasoning": "Polarization of the limiting spectral covariance of x, log x, and their difference gives cross term 2r from marginal variances 2r and −2log(1−r), hence the same Gaussian interior limiting alignment. A CLT alone does not guarantee convergence of actual covariances; here finite Bartlett moments establish it separately. The interior theorem does not supply the hard-edge regime, which follows directly from the classical finite formula and a divergent harmonic sum when ν grows.",
+        "searches": [
+          "arXiv:0902.0552, Theorems 2.1 and 3.1, Eqs. (2.4) and (3.4)",
+          "arXiv:1309.0482, logdet variance and asymptotic CLT",
+          "On Some Known Derivations and New Ones for the Wishart Distribution, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_wishart_trace_logdet.py",
+        "DLMF §35.3, Eqs. 35.3.1 and 35.3.4",
+        "Ogasawara, Theorem 1 and Lemma 2",
+        "arXiv:0902.0552",
+        "arXiv:1309.0482",
+        "Resultary 4aed760e42f3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Put B=Σ⁻¹/2−tA. In the classical gamma integral set W=B⁻¹/² X B⁻¹/². The determinant power and symmetric Jacobian give, up to the fixed normalizer, log E[|W|^s exp(t tr(AW))]=log Γ_p(ν/2+s)−(ν/2+s)log|B|+constant. Mixed differentiation at zero gives 2 tr(AΣ). The pure derivatives give the two variances, and varying symmetric A gives the entrywise statement.",
+          "With Bartlett, the diagonal part contributes Cov(Z,log Z)=2 for Z chi-square (the scalar gamma recurrence), and off-diagonal terms vanish by sign symmetry. The sum of log-chi-square variances is the already tabulated trigamma sum. The correct growing limits follow from its first-order reciprocal bound/expansion and the harmonic sum."
+        ],
+        "reasoning": "This is direct specialization and differentiation of existing exact formulas, not merely the observation that all moments might follow from a known density by further integration. The stated interpretation as Pearson correlation does not alter those implications.",
+        "searches": [
+          "DLMF equations 35.3.1 and 35.3.4, real symmetric matrix argument integral",
+          "Ogasawara §2.1 Theorem 1, Cholesky joint density",
+          "arXiv:0902.0552, Eq. (3.4)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalently the matrix covariance is the cross derivative of the log normalizer when the determinant exponent and the matrix multiplying W in the exponential are varied. The trace correlation normalizes that derivative by the two corresponding pure derivatives.",
+          "DLMF 35.3.1 and 35.3.4 give the integral and product for that normalizer over the entire admissible shape range after a congruence change of variables."
+        ],
+        "reasoning": "The change of variables identifies the relevant joint cumulant exactly, including noninteger ν. The mixed derivative is that of a scalar shape parameter multiplying a log determinant, so the proposed covariance does not introduce an unevaluated new integral or nonstandard lemma.",
+        "searches": [
+          "Resultary: Wishart trace/logdet, total scatter, log generalized variance, exact covariance",
+          "Wishart Fisher information matrix mixed degrees of freedom scale parameter multivariate digamma information geometry Wishart Riemannian metric shape scale degrees of freedom",
+          "NIST DLMF §35.3, equations 35.3.1 and 35.3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest same-day inspected Resultary record 4aed760e42f3 examines Gaussian XNysTrace on the identity and does not have these Wishart statistics. The relevant exact formula reference is DLMF's multivariate gamma integral and gamma product, not a numerical Wishart correlation table.",
+          "A Collection of Moments of the Wishart Distribution (10.1007/978-3-030-56773-6_9) was a plausible additional source but no decisive full text was obtained."
+        ],
+        "reasoning": "The statement varies a continuous degrees-of-freedom parameter, so a finite numerical table would not decide it. The exact symbolic normalizer covers those parameters and gives the entries by differentiation. No equivalent distinct Resultary entry was found among the bounded hits; that is not proof of novelty.",
+        "searches": [
+          "Resultary: exact Wishart trace/logdet correlation and aspect-ratio law",
+          "Wishart mixed moments trace determinant powers covariance log determinant covariance Tr S high-dimensional likelihood ratio covariance Bai Jiang Yao Zheng",
+          "NIST DLMF §35.3.1 and §35.3.4"
+        ]
+      },
+      "rationale": "No earlier verbatim presentation of the exact Pearson coefficient was established, but the finite entries and variances are mechanical mixed and pure derivatives of the classical explicit multivariate-gamma normalizer, with no new moment evaluation. A separate Bartlett-factor calculation confirms the elementary prior implication. The Gaussian interior limiting alignment is also covered by the previously evaluated joint spectral-statistic variance for x−log x−1 together with the marginal variances. The only change under the obvious quantifier correction is to apply elementary trigamma/harmonic estimates on the necessary growing domain. This is a coverage judgment based on explicit available formulas, not on an inaccessible source or the absence of a search hit.",
+      "residual_risks": [
+        "The exact covariance might also have appeared verbatim in other Wishart mixed-moment or Fisher-information literature; that was not established. The verdict rests on the proven direct implication from available prior formulas, not a keyword miss.",
+        "The Bai–Silverstein antecedent itself was not read in full; the exact interior comparison uses the separately inspected Bai–Jiang–Yao–Zheng version and evaluated variance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct finite implication after the ordinary positive-definite congruence substitution.",
+          "evidence": [
+            "35.3.1 is the integral with exponential of negative trace and a determinant exponent a−(p+1)/2, for Re a>(p−1)/2. 35.3.4 factors its normalizer into scalar gamma functions."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/35.3",
+          "material_read": "Eqs. 35.3.1 and 35.3.4, text offsets 550–1350 and 1200–3450.",
+          "method": "Lawful reference website; locate equation and read bounded original text.",
+          "title": "NIST Digital Library of Mathematical Functions: Multivariate Gamma and Beta Functions",
+          "trigger": "Classical explicit multivariate-gamma integral as a potentially stronger formula for the finite moment."
+        },
+        {
+          "assessment": "Stronger decomposition spelling out the finite implication, with integer samples in the source theorem and analytic density extension as above.",
+          "evidence": [
+            "The triangular entries are independent, with the ith diagonal square chi-square of n−i+1 degrees of freedom; trace is the sum of all squares and log determinant the sum of logs of diagonal squares."
+          ],
+          "identifier_or_url": "https://jbds.isdsa.org/public/journals/1/html/v3n1/ogasawara/",
+          "material_read": "Section 2.1, Theorem 1 and triangular product density, offsets 12700–16750; Lemma 2 Jacobian passage.",
+          "method": "Lawful journal OA full text.",
+          "title": "On Some Known Derivations and New Ones for the Wishart Distribution",
+          "trigger": "Independent classical joint Bartlett law with trace and determinant functions of the same entries."
+        },
+        {
+          "assessment": "Substantive prior interior-limit coverage; not the exact finite real-ν transform or a hard-edge result.",
+          "evidence": [
+            "For the statistic tr S_n−log|S_n|−p the real limiting variance is −2log(1−r)−2r, with a simultaneous joint-LSS theorem for analytic test functions at r∈(0,1)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0902.0552",
+          "material_read": "Theorem 2.1 and Eq. (2.4), p. 5, offsets 15700–19500; Theorem 3.1 and Eq. (3.4), pp. 8–9, offsets 27200–30200.",
+          "method": "Lawful OA preprint; inspect same statistics, real Gaussian case, and evaluated variance.",
+          "title": "Corrections to LRT on Large Dimensional Covariance Matrix by RMT",
+          "trigger": "Potential earlier explicit evaluation of the joint covariance via the variance of trace minus logdet."
+        },
+        {
+          "assessment": "Provides the logdet marginal quantities; the inspected passages are not a joint Pearson statement.",
+          "evidence": [
+            "The independent log-chi-square sum supplies the exact marginal variance; the square boundary discussed there concerns logdet alone."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1309.0482",
+          "material_read": "p. 3 high-dimensional CLT, offset 6400; p. 11 Bartlett representation, offset 31350; p. 14 trigamma variance, offset 41250.",
+          "method": "Lawful OA preprint passage comparison.",
+          "title": "Law of Log Determinant of Sample Covariance Matrix and Optimal Estimation of Differential Entropy for High-Dimensional Gaussian Distributions",
+          "trigger": "Closest cited marginal logdet results and endpoint work."
+        },
+        {
+          "assessment": "Not an equivalent claim.",
+          "evidence": [
+            "Uses leave-one-out Gaussian XNysTrace estimators on the identity matrix, not a Wishart trace with a log determinant."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-exact-gaussian-xnystrace-correlation-and-a-vanishing-diagnostic--4aed760e42f3",
+          "material_read": "Original RESULT.md finding in local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "method": "Configured Resultary lookup and local-mirror passage comparison.",
+          "title": "Gaussian XNysTrace correlation and a vanishing diagnostic",
+          "trigger": "Closest same-day semantic catalogue hit."
+        },
+        {
+          "assessment": "No direct claim of coverage or noncoverage based on these unsuccessful attempts.",
+          "evidence": [
+            "Abstract-level Wishart moment descriptions do not establish inclusion of the logarithmic mixed moment."
+          ],
+          "identifier_or_url": "10.1007/978-3-030-56773-6_9; 10.1111/j.1467-9469.2004.01-043.x; 10.1214/AOP/1078415845",
+          "material_read": "Bibliographic descriptions or landing pages only; no decisive passages in these exact papers obtained. The later arXiv:0902.0552 with explicit specialized CLT and evaluated variance was inspected separately.",
+          "method": "Lawful OA attempts; redirects, access failure or landing page only.",
+          "title": "A Collection of Moments of the Wishart Distribution; All Invariant Moments of the Wishart Distribution; CLT for Linear Spectral Statistics of Large-Dimensional Sample Covariance Matrices",
+          "trigger": "Plausible closer exact mixed-moment coverage or direct interior CLT antecedent."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The joint fluctuation question is natural and its closed expression is useful as an exposition. But the finite identity is a direct specialization of the classical exact normalizer, the valid growing interior alignment already follows from the published spectral-statistic calculation, and the corrected endpoints add only routine estimates on the known trigamma formula. Correcting the growth quantifier would not uncover a distinct worthwhile surviving mathematical claim under the standard for exact invariants; no repair was made.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

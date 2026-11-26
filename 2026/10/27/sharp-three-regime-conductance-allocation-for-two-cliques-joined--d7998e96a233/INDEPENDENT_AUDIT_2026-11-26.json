@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:06:10.581316Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the repaired theorem with the original full budget/allocation quantifiers, concavity on the full edge simplex justifies averaging, and the invariant-space spectrum accounts for all 2(k+m) dimensions. The smaller odd orbit-constant eigenvalue is strictly below t=kc by its nonzero off-diagonal entry; hence the normalized constraint implies t>1. The Schur complement of t−1 yields exactly the bridge lower bound, and the even matched-gateway transverse eigenvalue ka+mc yields the only other possibly active inequality. The nonsymmetric support result follows from uniqueness of the averaged optimum and nonnegative orbit weights, including the empty m=1 edge class. Substitution into the budget gives a strictly convex scalar objective with derivative zeros 3/2 and s_k on the appropriate smooth branches; the kink gives t=r, and the costs and rates agree at the common endpoints. As a separate bounded replay, for t=t_* use z equal to ±1/2 on gateways and ±t/[2(t−1)] on nongateways, with opposite signs across layers, and P the projector onto identical across-layer zero-sum gateway patterns. The positive semidefinite matrix X=zzᵀ+wP with w=2k/(k−1)·(1−1/[4(t−1)^2]) annihilates constants and has dual edge lengths squared 1 on bridges and gateway–nongateway edges, w on intracluster gateway edges, and 0 on the remaining edges. Here 0≤w≤1 and w=1 if a_*>0. At the proposed optimum Lz=z, and LP=P whenever w>0, so tr X=tr(XL) equals its cost. For any unit-gap feasible L, tr X≤tr(XL)≤ its cost, giving the same lower bound. An edgewise computation for (2,2), (3,2), (8,5), (2,1), (3,1), (13,8), (20,21), (26,15) found trace-cost agreement within 2×10^−12 and active-space residual below 10^−14 (finite numerical corroboration only). The frozen VERIFICATION.md and verify_spectral.py were inspected, not executed; the script's finite numerical checks remain applicable. The new prior-implication paragraph was checked by preserving the bridge degree and testing the matching transverse constraint. Complete corrected file: repairs/5/RESULT.md.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Indexed 901311831846 gives the unrestricted continuous-time optimum on the supergraph with all k² cross-gateway links, under the same single conductance budget. Its cross-degree term survives in the transverse constraint, as shown in its Proof §§2–3.",
+          "The frozen arXiv:1510.06792 link is to Kathlyn Dykes's Witt-algebra article. No matching full text was identified from the reported Shakeri title; the proposition about this literature was not relied on."
+        ],
+        "reasoning": "The supergraph theorem directly bounds the matching optimum; domain inclusion is not equality beyond the branch where the redistributed optimum meets the matching-specific constraint. General variational or SDP methods do not supply the piecewise formula.",
+        "searches": [
+          "Resultary: weighted Laplacian spectral gap for the union of two cliques with gateways, matching and biclique",
+          "Göring–Helmberg–Wappler abstract and §1; Shakeri title and frozen arXiv:1510.06792 PDF p. 1"
+        ]
+      },
+      "checked_sources": [
+        "2026/10/26/SCOPE-sharp-three-regime-spectral-gap-allocation-for-two-cliques-with--901311831846",
+        "2026/11/8/SCOPE-exact-fastest-symmetric-mixing-through-a-partial-matching-betwee--18bf18376a63",
+        "10.1080/03081087.2010.538690 (publisher description and access attempt only)",
+        "Göring–Helmberg–Wappler preprint 1202",
+        "arXiv:1510.06792 (miscitation check)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For k/m≤3/2 the biclique minimum cost (k+9m)/2 applies and its cross conductance can be concentrated onto matching edges without changing orbit-constant blocks; the even matching transversal is then 3m/(2k)≥1. This proves the credited corollary.",
+          "The biclique even gateway eigenvalue includes the cross degree, but the same-pattern matching eigenvalue does not. At k=2,m=1 the costs are respectively 11/2 and 4+sqrt(3), so identical or uniformly dominating feasible optimal constructions beyond the first branch do not follow.",
+          "The same-graph stochastic result is restricted to k≤m when m denotes the number of nongateways, and does not give an objective-equivalent higher-ratio regime."
+        ],
+        "reasoning": "The first branch is a provable prior implication with a feasibility check, not independent novelty. The observed spectral difference explains why the two higher matching regimes require the new constraint and minimization.",
+        "searches": [
+          "901311831846 Finding and Proof §§2–3 versus repaired Finding and matching transverse block",
+          "18bf18376a63 Finding and Assumptions versus the linear budget"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The continuous-time maximization is weighted algebraic connectivity; equivalently it minimizes total weight at prescribed unit gap.",
+          "Indexed 18bf18376a63 uses the same partial-matching graph on its restricted domain but minimizes the SLEM of a stochastic matrix; that entails row sums of edge probabilities at most one and an upper constraint on the Laplacian spectrum. Allison–Shader's publisher description identifies a two-clique discrete-time FMMC problem but does not expose its full graph construction or constraints."
+        ],
+        "reasoning": "A rescaling with a total rate budget is not the row-stochastic feasibility condition and does not import the upper spectral constraint. Same graph and shared symmetry are not equivalence of feasible sets or optima.",
+        "searches": [
+          "Resultary: continuous-time fastest mixing, partial matching, conductance budget, and two equal cliques",
+          "Fastest-mixing Markov chain problem for the union of two cliques, DOI 10.1080/03081087.2010.538690",
+          "Göring–Helmberg–Wappler public preprint, §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest indexed same-graph hit is 2026/11/8/SCOPE-exact-fastest-symmetric-mixing-through-a-partial-matching-betwee--18bf18376a63, a stochastic-chain SLEM formula with k no larger than half the clique order.",
+          "The strongest indexed same-objective hit is 2026/10/26/SCOPE-sharp-three-regime-spectral-gap-allocation-for-two-cliques-with--901311831846, with a complete biclique in place of the matching. The searches did not identify an exact indexed source for both matching-specific thresholds."
+        ],
+        "reasoning": "Neither nearby formula is an exact table covering this parameter/objective pair; the actual common low-ratio formula is explicitly credited through the subgraph implication.",
+        "searches": [
+          "Resultary: two cliques with partial interclique matching, exact spectral gap and support regimes",
+          "Serpent: two cliques, partial matching, fastest mixing, total conductance and the cited author names"
+        ]
+      },
+      "rationale": "The repaired finding credits the earlier biclique-gateway result for the low-ratio branch via the subgraph bound and feasible redistribution, and removes the frozen miscitation to a Witt-algebra paper. The complete matching-specific classification, including both higher-ratio regimes and the support activation boundary, does not follow from the examined biclique theorem or the row-stochastic same-graph result. This verdict is for the corrected attribution and surviving full classification.",
+      "residual_risks": [
+        "Allison–Shader's full text was unavailable; a closer structural relation could be present there. The intended Shakeri paper was not reliably identified from the frozen citation and remains uninspected. Absolute priority over other papers and equivalent edge-budget designs is not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial implication: low-ratio branch covered with a redistribution check, remaining thresholds differ",
+          "evidence": "All k² cross edges; gateway-fluctuation eigenvalue ka+ud+kb and corresponding formulas, with cost (k+9u)/2 on m/k≥1/6 after translating notation.",
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-three-regime-spectral-gap-allocation-for-two-cliques-with--901311831846",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 89–3187, and Proof §§2–3, offsets 4070–5986",
+          "method": "Resultary local mirror",
+          "title": "Sharp three-regime spectral-gap allocation for two cliques with a biclique gateway",
+          "trigger": "Closest earlier indexed theorem for the same objective on a dominating graph"
+        },
+        {
+          "assessment": "Different objective, feasible set, and parameter coverage",
+          "evidence": "Symmetric nonnegative row-stochastic matrices and minimum centered spectral norm; k is at most half the clique order and peripheral–peripheral edges receive positive weight in the specified kernel.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-fastest-symmetric-mixing-through-a-partial-matching-betwee--18bf18376a63",
+          "material_read": "RESULT.md Finding, Assumptions, start of Proof, offsets 87–2737",
+          "method": "Resultary local mirror",
+          "title": "Exact fastest symmetric mixing through a partial matching between two cliques",
+          "trigger": "Closest indexed exact theorem for the same graph family"
+        },
+        {
+          "assessment": "FMMC formulation indicated; exact mathematical overlap remains unresolved",
+          "evidence": "Publisher describes a solution to a fastest-mixing Markov chain weighting problem on a union of two complete graphs, not a stated entire conductance-budget theorem.",
+          "identifier_or_url": "https://doi.org/10.1080/03081087.2010.538690",
+          "material_read": "Publisher search description; no full-text graph or theorem passage",
+          "method": "Lawful DOI publisher direct and VPN failed with HTTP 403; OA recovery found no repository copy; publisher description via literature index",
+          "title": "Fastest Mixing Markov Chain Problem for the Union of Two Cliques",
+          "trigger": "Potential same-family primary theorem"
+        },
+        {
+          "assessment": "Relevant prior framework, no inspected matching-specific statement",
+          "evidence": "Algebraic connectivity via Laplacian Rayleigh quotients and geometric maximum-spread formulation.",
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2005/09/1202.pdf",
+          "material_read": "Abstract excerpt and §1 introduction, bounded passages within offsets 1267–4578",
+          "method": "Lawful OA public preprint",
+          "title": "Embedded in the Shadow of the Separator",
+          "trigger": "Broad weighted algebraic connectivity framework and geometric dual"
+        },
+        {
+          "assessment": "Incorrect bibliography link, removed from the corrected file",
+          "evidence": "Author Kathlyn Dykes and title/abstract on Witt-algebra modules, not a paper on interconnected networks.",
+          "identifier_or_url": "https://arxiv.org/pdf/1510.06792",
+          "material_read": "p. 1, OA offsets 0–2748",
+          "method": "Lawful OA arXiv PDF",
+          "title": "Length two extensions of modules for the Witt Algebra",
+          "trigger": "Check the frozen Shakeri identifier before relying on its claimed scope"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A partial gateway matching is a natural constrained model of exchange between dense communities. The matching transverse constraint is invisible to a two-orbit mixing surrogate yet governs a distinct intermediate regime and the point beyond which some intracluster gateway weight is unavoidable for every optimum. The exact costs, thresholds and universal support restrictions provide more than a numerical optimizer or reiteration of the inherited low-ratio branch.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

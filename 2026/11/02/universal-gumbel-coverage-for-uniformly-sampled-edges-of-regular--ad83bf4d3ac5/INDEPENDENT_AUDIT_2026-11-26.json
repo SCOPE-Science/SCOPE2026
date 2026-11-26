@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:37:04.659325Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–52 and 60–124",
+        "Frozen VERIFICATION.md lines 19–23 and verify.py lines 35–160; inspected, not executed"
+      ],
+      "rationale": "In rate-one Poisson time, the m=nd/2 edge clocks split independently. If q=e^(−t/m), a vertex is untouched with p=q^d. Each ordered adjacent pair shares exactly one edge, giving joint probability p²/q; each nonadjacent pair is independent. The nd ordered adjacent pairs give the stated variance. Setting all incident-edge untouched indicators at a uniformly chosen vertex to one has the conditional law given that vertex untouched, a valid size-bias coupling because the vertex marginals agree. Its count increment is zero if the chosen vertex was already untouched and otherwise one plus the number of newly untouched neighbours. Thus E|W+1−Wˢ|=p+dp(q⁻¹−1), which with the Poisson first-difference Stein factor yields the finite TV inequality. For u=log n+x≥0, d(e^(u/d)−1) decreases with d, so d=2 is the worst upper bound, including u=0 by equality. Coverage means W=0. Conditional on the sampled edge sequence the time of completion is a sum of K independent mean-one exponentials; the union bound P(K>n log n)=O(1/n) and the conditional variance show the clock changes the normalized time by o_P(1) uniformly. For the mean, the continuous-time centered upper tail is at most e^(−a); the lower tail is at most e^(−a)+2n^(−1/2)e^(−a/2) by the variance bound up to a=log n and zero above it. These bounds also control the boundary terms in the truncated mean, giving uniform integrability and the Euler constant. The conditional mean of the Poisson time is K. At degree one, K is the classical collector of n/2 edges, giving the stated shifted law and harmonic mean. The finite law can depend on topology: C₆ admits coverage by three disjoint edges, but two disjoint triangles need four, so the small-time Poisson coverage probabilities have different leading orders.",
+      "residual_risks": [
+        "Finite tests corroborate moments and sample bounds, not convergence for all graphs. The TV rate is only for a deterministic Poissonized time; the discrete-time argument establishes convergence, not that finite rate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Falgas-Ravry et al. Theorem 3.4 applies here with c=2/n and η=4/n for sufficiently large n, excepting the diagonal: off-diagonal pair avoidance is 1−4/n+2·1{uv∈E}/(nd). Its conclusion is only first-order concentration.",
+          "Ross Theorem 4.14 gives a variance-form TV bound for indicators admitting increasing conditional couplings. For these indicators conditioning by forcing incident edge statuses gives that coupling. Using the sharper standard Poisson first-difference factor in the same argument makes the factor (1−e^(−λ))/λ in place of min(1,1/λ)."
+        ],
+        "reasoning": "The variance-form bracket Var(W)−λ+2∑pᵢ² equals np²[1+d(q⁻¹−1)] here, so the TV estimate is a direct graph evaluation of a known general method, including the familiar sharper factor. Neither the abstract TV inequality nor the earlier first-order cover result states the uniform centered Gumbel and Euler-constant mean classification: the degree-uniform control at the critical window and on its tails, and transfer to fixed rounds, are needed.",
+        "searches": [
+          "structured coupon collector graph edge coverage Gumbel arbitrary regular graph weighted group drawings balanced groups Poisson approximation Betken Thäle Falgas-Ravry Larsson Markström",
+          "Poisson approximation positively related indicators Theorem 2.C Barbour Holst Janson total variation variance plus twice sum squared probabilities bound",
+          "Ross, arXiv:1109.1880, Increasing size-bias couplings"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 126–145",
+        "Structured-coupon moment and balanced theorem, increasing-size-bias theorem, group-drawing model, and indexed cycle comparison above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Betken–Thäle Theorem 3 yields a critical-window discrete Poisson approximation for equally likely fixed-size groups. At group size two this is the complete graph. Schilling–Henze's abstract describes uniform and approximately nonuniform group models; exact full-text nonuniform hypotheses were not independently obtained."
+        ],
+        "reasoning": "Uniform groups over all pairs assign positive probability to every pair. Zero mass for most pairs in a bounded-degree graph is not a small relative per-pair perturbation of that model. The abstract alone cannot rule out a sufficiently general nonuniform theorem, but neither establishes that one applies. Critical-window convergence for one special graph family does not imply either graph-uniform convergence or the Euler-constant mean, which also needs tail control.",
+        "searches": [
+          "Betken and Thäle arXiv:2202.07485 Theorem 3 and finite-time moments",
+          "\"Two Poisson limit theorems for the coupon collector's problem with group drawings\" Schilling Henze PDF theorem",
+          "\"Two Poisson limit theorems\" group drawings \"Theorem 2\" nonuniform probabilities Schilling Henze"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The alternating-rate dimer coverage record gives the completion CDF and Gumbel and mean expansions on even cycles; at equal rates it is exactly the even connected cycle with the time unit changed by n. Nearby Johnson-walk records sample overlapping subsets along a walk, not iid uniform edges."
+        ],
+        "reasoning": "Poissonizing and thinning iid sampled edges gives independent edge clocks of rate 1/m. Thus the equal-rate dimer overlap is exact, not merely a similarity in Gumbel centering, but it does not cover irregular cycle lengths, disconnected unions or higher degrees in the stated graph family. A Johnson-walk trace is not an iid coupon sequence on an arbitrary edge support.",
+        "searches": [
+          "Resultary: Gumbel coverage time uniformly sampled edges arbitrary regular graphs mean Euler constant",
+          "Resultary: uniform edge sampling d-regular graph cover-time Gumbel Poissonized total variation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior §3 sums give EZ=∑ᵥ e^(−qᵥt) and EZ²=∑ᵤ,ᵥ e^[−(qᵤ+qᵥ−qᵤᵥ)t] for arbitrary coupons. For this model qᵥ=2/n and off-diagonal qᵤᵥ=2/(nd) precisely at edges, so those exact formulas already entail the displayed regular-graph variance. The closest indexed exact completion formula addresses even alternating-rate cycles."
+        ],
+        "reasoning": "No finite table can establish uniformity over all admissible graph sequences. The general moment identity is exact prior coverage of the stated first and second moment once rates are inserted. The cycle formula covers its finite support class, not the whole class in the bound finding.",
+        "searches": [
+          "Resultary: arbitrary regular graph uniformly sampled edges unmarked vertices Poissonized variance exact",
+          "Resultary: Universal Gumbel coverage for uniformly sampled edges of regular graphs",
+          "Falgas-Ravry et al., arXiv:1601.04455 §3, moment identities at PDF offset 27700"
+        ]
+      },
+      "rationale": "Credit the exact moment identities to general structured-coupon formulas and the TV computation to the specialization of increasing size-bias Stein bounds; the matching-graph case is classical. The supported distinct contribution is the sharp critical-window and order-n mean classification uniformly over arbitrary simple regular support, including sparse, disconnected, and varying-degree graphs. The strongest prior structured-coupon theorem examined reaches first-order concentration for this full family, and the strongest inspected Gumbel precedents cover subfamilies only. The finite moment calculation and general Stein tool are not independent originality claims.",
+      "residual_risks": [
+        "Exact nonuniform hypotheses in Schilling–Henze remain unverified. A general arbitrary-support sharp coupon-collector theorem might cover the contribution and the bounded search does not prove priority.",
+        "The two cycle records’ same-date indexing cannot establish chronological order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact moment and leading-order coverage; theorem does not give the centered profile or order-n mean term",
+          "evidence": "Arbitrary coupon mean and second-moment identities and balanced almost-negative-correlation first-order theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/1601.04455",
+          "material_read": "§3 moment identities pp. 8–9 offset 27700; Theorem 3.4 p. 10 offset 34000",
+          "method": "OA original PDF and substitution of graph-specific marginals",
+          "title": "Speed and concentration of the covering time for structured coupon collectors",
+          "trigger": "General arbitrary-support coupon laws could subsume the graph theorem"
+        },
+        {
+          "assessment": "The TV computation is the graph-specific instance of this standard monotone size-bias argument, with the sharper Stein factor as in the frozen proof",
+          "evidence": "Theorem 4.14 bounds TV by min(1,1/λ) times Var(W)−λ+2∑pᵢ² under increasing conditional couplings.",
+          "identifier_or_url": "https://arxiv.org/pdf/1109.1880",
+          "material_read": "§4.3.1, Theorem 4.14 and proof through Eq. (4.9), p. 47 offset 136153",
+          "method": "OA original PDF and substitution of the regular-graph variance",
+          "title": "Fundamentals of Stein’s method",
+          "trigger": "Broader TV inequality for sums of increasing Bernoulli indicators"
+        },
+        {
+          "assessment": "Complete-graph case for groups of size two, not arbitrary sparse regular support",
+          "evidence": "Group selection is uniform over all subsets of fixed size; Theorem 3 gives the discrete Poisson TV rate O(log n/n) at the critical window.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.07485",
+          "material_read": "Model p. 1 offset 0; Theorem 3 p. 3 offset 9600; finite-time moments p. 6 offset 22100",
+          "method": "OA original PDF passages",
+          "title": "Approaching the coupon collector’s problem with group drawings via Stein’s method",
+          "trigger": "Known quantitative critical-window Poisson approximation for two-element groups"
+        },
+        {
+          "assessment": "Material overlap in a subfamily, including a finer even-cycle expansion. Index date does not establish priority.",
+          "evidence": "Exact finite CDF and Gumbel/mean corrections for alternating attempts on an even cycle; equality of rates recovers the uniform even cycle after the deterministic clock rescaling.",
+          "identifier_or_url": "2026/11/2/SCOPE-fractional-gumbel-corrections-and-a-logarithmic-symmetry-crossov--b0e9f34d56db/RESULT.md",
+          "material_read": "Finding offset 0",
+          "method": "Resultary search, original local mirror passage",
+          "title": "Fractional Gumbel corrections and a logarithmic symmetry crossover in alternating-rate dimer coverage",
+          "trigger": "Exact even-cycle case of regular-graph edge coverage"
+        },
+        {
+          "assessment": "Full nonuniform-hypothesis comparison unresolved, not evidence of noncoverage",
+          "evidence": "The abstract describes uniform fixed-size collections and an approximately nonuniform case; exact perturbation restrictions were not independently verified.",
+          "identifier_or_url": "https://www.math.kit.edu/stoch/~henze/seite/aiwz/media/ap-17926-final.pdf",
+          "material_read": "Abstract scope as available; exact hypotheses in full text inaccessible",
+          "method": "Lawful publisher and identified KIT alternate-copy attempts",
+          "title": "Two Poisson limit theorems for the coupon collector’s problem with group drawings",
+          "trigger": "Potential larger sparse-support coverage by the nonuniform group model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–16, 30–52, 106–124",
+        "Structured-coupon theorem 3.4 and fixed-size group comparison"
+      ],
+      "rationale": "The distinction between degree one and degree at least two is a meaningful boundary for dependent two-vertex coupons. The theorem controls the full coverage window and the next mean term uniformly even for bounded-degree or disconnected supports, where the complete-graph group results do not apply. First-order concentration and the exact moments alone would not answer whether the topology changes the limiting profile or the Euler-constant term.",
+      "residual_risks": [
+        "No claim of discrete-time TV rate, irregular-graph universality or a topology-independent finite-volume distribution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

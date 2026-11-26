@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:09:28.839424Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Positive weights and the quadratic term give a unique proximal map. In the disjoint case, combine duplicate weights; radial soft thresholding subtracts t times the aggregate weight from the radius with a floor at zero, which composes additively, including zero blocks and coordinates in no group. At strictly positive x the implicit proximal equation gives T_h(x)=x-hg+h²Hg+O(h³), g=grad F(x), H=Hess F(x). The solution is analytic jointly in input and step nearby, so the two-step and one-double-step expansions have h² coefficients 3Hg and 4Hg. Each Hessian group term is a positive scalar times the orthogonal projection onto the within-group tangent space perpendicular to x_G. Consequently Hg=0 requires g_i/x_i constant within every group. Any unequal intersecting groups provide a pair i,j in one group distinguished by another, oriented so that a group contains i but not j. Increasing x_i with the other coordinates set to 1 makes the sum of i-only contributions to g_i/x_i tend to zero and leaves the j-only sum fixed; if that fixed sum is zero then the i-only sum stays strictly positive at every finite x_i. Thus the two ratios differ at a finite positive witness, making the Hessian quadratic form and Hg nonzero. This includes proper nesting and singleton groups. Independent symbolic differentiation (/workspace/replay/local_formulas.py) confirms the stated crossing-pair coefficient and the nested two-coordinate obstruction. The frozen checker does not exhaust all distinct group families on three coordinates: it caps family size at four in n<=3. The accompanying all-family language about numerical checks should be read with that limit; the proof, not sampling, proves the all-family theorem. No claim is made for the latent penalty or non-Euclidean group norms.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Thm. 4.5 identifies a one-homogeneous gradient-flow path with the variational path under the eigenvector condition p(t) in ∂J(p(t)).",
+          "Liu–Ye solves the direct overlapping-group proximal problem; Qi–Li studies a separable statistical approximation."
+        ],
+        "reasoning": "A sufficient flow agreement criterion or a general proximal algorithm does not characterize exactly which weighted coordinate hypergraphs satisfy the identity for all parameters and inputs. The envelope composition and limiting flow are not identities of the finite-step maps.",
+        "searches": [
+          "Bungert–Burger–Chambolle–Novaga arXiv:1901.06979 §4.2, Thm. 4.5",
+          "Liu–Ye arXiv:1009.0306",
+          "Qi–Li arXiv:2211.09221"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1009.0306, 2211.09221, 1901.06979",
+        "Mairal et al., JMLR 12 (2011)",
+        "Moreau (1965), pp. 274–275",
+        "Resultary 2b35f1a5b89c (identical), d44c6a142d0f, 8681e6f10f14"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a nested pair, F=a|x_1|+b||(x_1,x_2)||_2 has a scalar-then-block formula for one step but H grad F at (1,1) equals ab(1,-1)/(2sqrt(2)), so the semigroup fails.",
+          "Projection duality re-expresses the full identity and the general flow result gives a criterion with an extra hypothesis, neither detecting incidence without additional reasoning."
+        ],
+        "reasoning": "Block shrinkage sufficiency and the resolvent expansion use standard facts. The decisive new step is a positive input forcing unequal gradient-to-input ratios on a common group for every genuine overlap, with no cancellation among the positive Hessian terms. The prior exact nested algorithm in particular cannot imply parameter additivity.",
+        "searches": [
+          "Liu–Ye arXiv:1009.0306, nested-group discussion",
+          "Moreau pp. 274–275",
+          "Bungert et al. Thm. 4.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "F is the support function of the sum C of positively scaled embedded Euclidean group balls, so by Moreau T_t=I−Pi_{tC}.",
+          "Direct group sums and latent infimal-convolution penalties are distinct; hierarchical algorithms compose group operations within a single prox calculation."
+        ],
+        "reasoning": "The exact same problem is a parameter semigroup for residual projections onto this family of scaled Minkowski sums. Moreau supplies the equivalence, not the iff for C. The equal-parameter operations used inside a nested proximal algorithm are not successive T_t for the entire penalty.",
+        "searches": [
+          "Moreau, Proximité et dualité, pp. 274–275",
+          "Liu–Ye arXiv:1009.0306, p. 2",
+          "Mairal et al. JMLR 12 (2011), pp. 1,4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2b35f1a5b89c is this identical record. d44c6a142d0f gives additivity iff p in {1,2,infinity} and a signed h² defect for ordinary l_p norms. 8681e6f10f14 gives the unweighted star graph-TV threshold of at most three leaves."
+        ],
+        "reasoning": "The single l_2 block is a shared special case; a general Euclidean-group sum is not a single l_p norm. Graph TV uses coordinate differences and a different group geometry. Neither distinct same-day record covers the frozen iff, independently of publication order.",
+        "searches": [
+          "Resultary 2b35f1a5b89c, d44c6a142d0f, 8681e6f10f14"
+        ]
+      },
+      "rationale": "Closest inspected prior work supplies direct group penalty algorithms, projection duality or a general gradient-flow criterion. Neither the individual principles nor the same-day classifications for different penalties give this necessary and sufficient group-incidence condition with its local obstruction.",
+      "residual_risks": [
+        "Unindexed exact coverage under residual projections or implications from an uninspected general flow/variational characterization are not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant algorithm, not parameter composition",
+          "evidence": "Contrasts earlier tree-structured one-pass approaches with a dual method for general overlap.",
+          "identifier_or_url": "https://arxiv.org/abs/1009.0306",
+          "material_read": "PDF p. 2, offset near 4800; hierarchy and dual methods",
+          "method": "OA PDF excerpt",
+          "title": "Fast Overlapping Group Lasso",
+          "trigger": "Same direct group proximal problem"
+        },
+        {
+          "assessment": "Different computation; overlap flow method is for l_infinity groups",
+          "evidence": "Discusses l_2 and l_infinity group sums, hierarchical methods, and the distinction from latent infimal convolution.",
+          "identifier_or_url": "https://jmlr.org/papers/volume12/mairal11a/mairal11a.pdf",
+          "material_read": "PDF pp. 1,4, offsets near 850 and 14800",
+          "method": "OA PDF excerpts",
+          "title": "Convex and Network Flow Optimization for Structured Sparsity",
+          "trigger": "Structured-group norm composition and latent/direct distinction"
+        },
+        {
+          "assessment": "Approximation/statistical analysis, not an exact semigroup",
+          "evidence": "Studies a separable non-overlapping approximation.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.09221",
+          "material_read": "PDF p. 1, offset near 1700",
+          "method": "OA PDF excerpt",
+          "title": "The non-overlapping statistical approximation to overlapping group lasso",
+          "trigger": "Overlapping-versus-disjoint approximation"
+        },
+        {
+          "assessment": "Conditional flow equivalence",
+          "evidence": "Gradient flow agrees with variational minimizers under an eigenvector condition on p(t); no explicit weighted Euclidean hypergraph iff in this theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/1901.06979",
+          "material_read": "§4.2, Thm. 4.5, p. 13, offset near 39738",
+          "method": "OA PDF excerpt",
+          "title": "Nonlinear Spectral Decompositions by Gradient Flows of One-Homogeneous Functionals",
+          "trigger": "Plausible stronger equivalence for proximal paths"
+        },
+        {
+          "assessment": "Supplies projection/prox equivalence only",
+          "evidence": "Prox-conjugate decomposition and the projection-as-prox identity.",
+          "identifier_or_url": "https://www.numdam.org/item/BSMF_1965__93__273_0.pdf",
+          "material_read": "pp. 274–275, offset near 3100",
+          "method": "OA PDF excerpt",
+          "title": "Proximité et dualité dans un espace hilbertien",
+          "trigger": "Equivalent residual projection formulation"
+        },
+        {
+          "assessment": "Analogous question, different penalty families",
+          "evidence": "Ordinary l_p norm iff p=1,2,infinity; unweighted star graph-TV iff at most three leaves.",
+          "identifier_or_url": "Resultary d44c6a142d0f; 8681e6f10f14",
+          "material_read": "Findings at offsets 463 and 0 respectively",
+          "method": "Resultary local mirror",
+          "title": "Exact time-additivity classification and signed defect for Euclidean proximal maps; Three-leaf semigroup rigidity of star-graph total variation resolvents",
+          "trigger": "Distinct same-day semigroup classifications"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The classification determines exactly when repeated parameterized regularization can be replaced by a single step for a standard penalty. The necessity includes overlaps for which the individual proximal map is easy to compute, and the explicit defect witnesses show failure already at arbitrarily small steps, uniformly as a qualitative assertion over all positive weight choices. This is a structural result rather than a generic statement that resolvents need not compose.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

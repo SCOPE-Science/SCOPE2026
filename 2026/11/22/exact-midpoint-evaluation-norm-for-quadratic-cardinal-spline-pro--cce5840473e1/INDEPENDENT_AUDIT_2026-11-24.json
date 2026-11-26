@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:39:21.335202Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–56",
+        "check.py and VERIFICATION.md, inspected but not executed",
+        "/workspace/branches/spline_midpoint_interval_replay.py"
+      ],
+      "rationale": "The Gram entries are those of the spline with unit integral and support [0,3]; after substituting u=z+z^(-1), the symbol is (u²+26u+64)/120, positive on the unit circle. Its inverse has the stated decaying Green functions at the two inside roots. At x=1/2 the three active basis values are 1/8, 3/4, 1/8; recentering gives the even kernel with coefficient symbol 15(u+6)/((u−u_1)(u−u_2)). Both partial fraction residues in u are positive because u_1>−6>u_2. Dividing the residues by sqrt(u_i²−4) gives positive amplitudes in a_j=alpha q^j+gamma p^j with 0<p<q<0.44, even for j=0. The ratios a_(j+1)/a_j are nondecreasing and bounded above by q; an outward integer-interval calculation verified the stated lower bounds (0.31 at j=0 and 0.40 at j=1). On each cell the left quadratic is concave with strictly positive endpoints (use 1/0.31+0.44<6, and a_(-1)=a_1); the right quadratic is convex with opposite endpoint signs by the same inequality. Hence it has exactly one interior sign change. Integrating the absolute value, with reflection, gives the asserted series. The kernel has total mass one, by the partition of unity and the inverse symbol at z=1. The sign of the kernel attains the functional norm; its positive and negative indicators give the sharp excursions for [0,1] data. For M≥2, only indices j≥M−1 contribute on t≥M and the geometric envelope bounds the two-sided tail by 2 a_(M−1)/(1−q). Independent outward-rounded integer intervals and sign bisection on seventy cells enclose the partial sum starting at 1.756763783953966826198190050476811, with analytic tail <2.478×10^(-25), proving the stated decimal bracket. These checks do not execute the frozen verifier.",
+      "residual_risks": [
+        "The result is for one fixed evaluation point and unit uniform knots; it does not establish the location or value of the global projection norm."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The linear spline exact constant and the exact exponential-spline global constant reported by Kayumov concern different spaces and arbitrary-partition global stability; the cited parabolic spline result is a bound, not the exact cardinal midpoint norm.",
+          "The cited Chebyshev-spline and periodic uniform-mesh results give stability bounds rather than an exact Lebesgue function or its midpoint restriction.",
+          "The pointwise cardinal approximation paper is a plausible same-object comparator but its full text was not obtained."
+        ],
+        "reasoning": "Uniform boundedness, inverse decay and even an exact global constant in a different space do not determine this fixed evaluation functional. A general exact same-kernel norm formula at every parameter could cover the result, but none was established by the inspected sources.",
+        "searches": [
+          "Kayumov arXiv:math/0408418, pp. 3–4; Keryan–Passenbrunner arXiv:1807.07161 Theorem 1.1; Antonopoulos–Dougalis arXiv:2106.09060v2 Proposition 5.1",
+          "Exact title/DOI lookup for a lawful copy of Pointwise error bounds for orthogonal cardinal spline approximation"
+        ]
+      },
+      "checked_sources": [
+        "Resultary …cce5840473e1, …facb846a2360, …850f3e97c96f, …832330230bf0",
+        "arXiv:math/0408418; arXiv:1807.07161; arXiv:2106.09060v2",
+        "DOI 10.1016/S0096-3003(01)00074-1 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier kernel gives the signed integrand and tail formulas but takes suprema in the second variable, not absolute integrals; the signed quadratic modes can interfere in the mixture.",
+          "The current result has to establish every midpoint cell's sign partition, including the near cells, integrate the resulting root-dependent absolute values, and control the infinite sum.",
+          "Equality of negative mass and half the excess norm follows directly from unit mass, so that general identity is background, not a separate discovery."
+        ],
+        "reasoning": "Substituting the midpoint into the earlier kernel formula supplies an equivalent starting point, not the exact value without the additional all-cell sign and integration analysis. The prior decay bounds alone are strictly less specific.",
+        "searches": [
+          "Resultary …facb846a2360 Proof, exact kernel and two-mode tail offsets 2000–5044",
+          "Keryan–Passenbrunner Theorem 1.1; Antonopoulos–Dougalis Proposition 5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same earlier quadratic projector has the identical Gram entries and inverse geometric modes, expressed as residues of its quartic. It also gives a general exact quadratic expression for every sufficiently remote cell.",
+          "An exact Lebesgue-function value at the physical midpoint, or an exact negative kernel mass there given unit total mass, would be equivalent to this norm. Neither is asserted in the inspected earlier exact tail identity or its maximum analysis."
+        ],
+        "reasoning": "Both the point-evaluation norm and the sharp unrestricted [0,1] overshoot are tested as equivalent formulations. The earlier cancellation at x_*=0.759664811… concerns a different point and a different kernel functional, the supremum on remote cells rather than the L1 norm. The midpoint can also be referred to as the center of a symmetric spline translate; that recentering leaves the invariant unchanged.",
+        "searches": [
+          "Resultary: quadratic cardinal L2 spline kernel, midpoint evaluation norm, Lebesgue function, negative mass, overshoot and tail localization",
+          "Public literature lookup for exact cardinal quadratic spline projection midpoint norms and older exact constants",
+          "Resultary …facb846a2360 Proof, offsets 2000–5044"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit …cce5840473e1 is the assigned record itself, not an independent table.",
+          "The two-periodic linear endpoint record gives (5(a+b)^2+12ab)/(3(a+b)^2+4ab), equal to 2 for uniform spacing. The monotone linear finite-interval endpoint record gives a defect tending to (√3−1)/2."
+        ],
+        "reasoning": "The nearby exact constants concern different degrees, domains, points or admissible inputs; no independent entry for the exact quadratic fixed midpoint was located. The bounded search is not a historical-priority certification.",
+        "searches": [
+          "Resultary: exact point, endpoint and midpoint spline norms and range defects; records …cce5840473e1, …850f3e97c96f, …832330230bf0"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact midpoint integral of the absolute kernel and consequent sharp excursions. The kernel, its exact inverse-Gram representation and its quadratic tail pieces for this same projector have a direct earlier catalog antecedent; they are not credited as new. The midpoint-specific sign analysis and integrated sharp constant are distinct from the earlier cell supremum and from broader stability bounds.",
+      "residual_risks": [
+        "The inaccessible full text on pointwise cardinal spline approximation is a relevant publication that might contain an equivalent calculation.",
+        "An unindexed exact midpoint calculation, including one phrased as a negative-mass or overshoot constant, is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the kernel apparatus; the derived invariant is a remote cell supremum and cancellation point, not a midpoint absolute integral.",
+          "evidence": [
+            "The quadratic kernel for y=m+t, m≥3, is a linear combination of two explicitly factored modes, with geometric factors r^(m−2), s^(m−2). The analysis maximizes the absolute quadratic in t to study tail rates."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18/SCOPE-a-unique-one-sided-superlocalization-point-for-quadratic-cardina--facb846a2360",
+          "material_read": "RESULT.md Finding; proof offsets 2000–5044, Gram inversion, exact two-mode tail, and supremum calculation",
+          "method": "Resultary search and local mirror passage inspection",
+          "title": "A unique one-sided superlocalization point for quadratic cardinal spline projection",
+          "trigger": "Same operator and algebraic kernel, strongest distinct catalog match"
+        },
+        {
+          "assessment": "Global constants or bounds, and an exact global result for a different (exponential) spline space.",
+          "evidence": [
+            "Reports the arbitrary-partition linear constant c_2=3 and a quadratic bound c_3≤30; Theorem 1 concerns the operator D²−lambda²."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0408418",
+          "material_read": "PDF p. 3, offsets 7951 and 8727; p. 4 Theorem 1, offset 10027",
+          "method": "OA PDF passage inspection",
+          "title": "Least-squares approximation by second-order L-splines",
+          "trigger": "Older reported exact Lebesgue constants and possible quadratic coverage"
+        },
+        {
+          "assessment": "Bounds the operator independent of partition, with a space-dependent constant, not the exact point evaluation.",
+          "evidence": [
+            "The bound uses a finite C depending only on the Chebyshev space."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1807.07161",
+          "material_read": "PDF p. 2 Theorem 1.1, offset 6415",
+          "method": "OA PDF passage inspection",
+          "title": "Projection Operators onto Spaces of Chebyshev Splines",
+          "trigger": "Broad uniform projection estimates"
+        },
+        {
+          "assessment": "Periodic stability estimates, not the infinite-line midpoint value.",
+          "evidence": [
+            "The bound uses generic constants C_1 and C_2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.09060v2",
+          "material_read": "PDF p. 1, offset 0; p. 8 Proposition 5.1, offset 33298",
+          "method": "OA PDF passage inspection",
+          "title": "On the Stability of the L2 Projection and the Quasiinterpolant in the Space of Smooth Periodic Splines",
+          "trigger": "Uniform-mesh stability and inverse Gram control"
+        },
+        {
+          "assessment": "Full text inaccessible on tried routes; possible overlap remains unresolved, not negative evidence.",
+          "evidence": [
+            "The abstract mentions closed-form reproducing and Peano kernels. This does not decide whether the paper computes the norm at the midpoint."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0096-3003(01)00074-1",
+          "material_read": "Accessible abstract/landing material only; no main-text passage obtained",
+          "method": "Lawful OA retrieval attempts via DOI and publisher (publisher 403), and exact-title/DOI lookup for an alternate copy",
+          "title": "Pointwise error bounds for orthogonal cardinal spline approximation",
+          "trigger": "Highly relevant same-type cardinal spline kernels and pointwise analysis"
+        },
+        {
+          "assessment": "Linear endpoint problems rather than a quadratic midpoint, with a further monotonicity restriction in the latter record.",
+          "evidence": [
+            "Uniform linear endpoint norm 2 in the two-periodic formula; distinct finite-interval linear monotone defect with limit (√3−1)/2."
+          ],
+          "identifier_or_url": "Resultary …850f3e97c96f and …832330230bf0",
+          "material_read": "Indexed Findings",
+          "method": "Resultary search",
+          "title": "Exact endpoint stability and sharp monotone endpoint range defect for linear spline projections",
+          "trigger": "Nearby exact projection constants and extremal undershoots"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–29 and 31–53",
+        "Exact two-mode tail comparison, Resultary …facb846a2360"
+      ],
+      "rationale": "The midpoint is a natural reflection-symmetric point of the standard uniform-grid projection. The invariant answers a pointwise stability and range-preservation question exactly: it identifies the greatest possible overshoot and undershoot on bounded nonnegative data and gives extremizing sign sets via a verified root in each cell. The result requires more than evaluating a signed sum or quoting a global boundedness theorem; it is a sharp benchmark for quadratic projection even without a global maximizer theorem.",
+      "residual_risks": [
+        "No assertion is made that the midpoint maximizes the global Lebesgue function or that a closed elementary form for the series exists."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

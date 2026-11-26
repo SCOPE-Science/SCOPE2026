@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:04:02.597282Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS is for the corrected files under repairs/2, not the frozen wording. The frozen Finding and slogan overstate the distinction of the rank-one convergence rate: for α=4−2√2 the generic root norm factor √|1−α| and rank-one factor 1−α/2 are both √2−1. Also, an eventual contrast √c is fixed rather than of least period two. The repair states both exceptions and leaves the exact matrix and rank-loss classifications intact. Re-audit: for d=1−α and mean a, the first signed entries a(d±r) give contrast r/c below c, rank loss at c, and c/r above c. For r_0=c^x the first branch subtracts one from x, giving exactly update k for integer x=k, and entry at floor(x) otherwise. The upper branch is an involution with sole fixed point √c; the repaired example α=3/4, E_0=diag(3,1) verifies the distinction. In that branch the second step uses mean ar and polar signs (+,−), giving ad(1±r) and hence E_{t+2}=dE_t in the original frames. Both parity subsequences then have per-update root factor √c. At rank one the active thin polar gives the positive multiplier 1−α/2, and equal singular values give d per step. Solving equality of the two asserted factors gives the unique rate-coincidence step in the interval. The replacement RESULT.md, SLOGAN.txt and REVIEW.md no longer claim universal rate separation or universal least period two. The frozen rational/numerical checker was inspected, not run; it tests the unchanged identities and is not a proof of any infinite-time result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 17 gives covariance evolution for a general positive-definite left Hessian; the fixed-step commuting paragraph gives explicit singular-value shrinkage and preservation of a common eigenbasis. Jawanpuria et al. give uniform linear convergence bounds, and ba79f41dad85 gives a sharp rank-conditioned worst-case one-step factor."
+        ],
+        "reasoning": "These stronger one-step statements enable calculating an iterate but do not solve the dynamics: the contrast map must be analyzed on both sides of c, with branch-dependent multiplication and reversal, and the signed coordinates must be restored to derive the scalar two-step matrix orbit. One-step contraction bounds cannot determine exact resonance times.",
+        "searches": [
+          "arXiv:2610.30280v1 Appendix I, Prop. 17, Corollaries 4–5 and §4",
+          "arXiv:2610.27747v1 Theorem 3",
+          "Resultary ba79f41dad85 exact one-step contraction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, SLOGAN.txt, REVIEW.md, VERIFICATION.md and checker.py; corrected RESULT.md, SLOGAN.txt and REVIEW.md under repairs/2",
+        "arXiv:2610.30280v1, arXiv:2610.27747v1 and arXiv:2505.21799",
+        "Resultary 748c30f86df2, 02c87f72e7fc, 4e765c4ac5b0, ba79f41dad85"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general fixed-step formula specializes directly to the two signed magnitude inputs a(d±r) in absolute value; the two-cluster corollary explicitly switches to exact line search. The rank-two termination and 4×4 same-family entries constrain different step/rank regimes."
+        ],
+        "reasoning": "The one-step law is covered. The finite-time classification requires solving its projectivized piecewise map, with a translation until threshold and an involution thereafter, plus tracking signed frames and switching the polar formula at rank loss. This produces new all-time information beyond substituting H=I_2 into the one-step laws or setting α=1. No stronger solved orbit was verified; the derivational proximity remains material.",
+        "searches": [
+          "Shulgin et al. arXiv:2610.30280v1 Appendix I text offsets 164750 and 171150, especially Fixed steps and Corollary 5",
+          "748c30f86df2 RESULT.md, offset 1700; 4e765c4ac5b0 RESULT.md opening Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shulgin et al. Appendix I, Fixed steps after Corollary 4, uses α=γ tr(H) and s_i^+=|s_i−α s̄_H|; H=I_2 gives the identical one-step singular-value law. Resultary 02c87f72e7fc has analogous resonant powers and a cycle for post-step spectral decay, a different update."
+        ],
+        "reasoning": "The algorithm coincides for the commuting isotropic specialization of Shulgin et al. Two different spectral updates with superficially similar exceptional sets are not equivalent, and line-search results correspond to α=1, not the fixed steps of the repaired claim.",
+        "searches": [
+          "Resultary: fixed-step nuclear-scaled polar, rank-two resonance, spectral two-cycle",
+          "Literature: nuclear-scaled polar two-row fixed-step two-cycle rank loss contrast map isotropic quadratic Muon"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record was returned itself. The closest distinct catalogue records give rank-two termination for exact line search, a cycle for a different update, same-family 4×4 dynamics at α=1, and a worst-case one-step factor respectively."
+        ],
+        "reasoning": "The audited object is an exact continuum-parameter phase classification, not a tabulated numeric sequence; the relevant catalogue comparison is exact orbit/exceptional-set coverage for the same update. None of the distinct catalogue findings inspected supplies that classification. Same-day records were compared on their statements; no relative priority inferred.",
+        "searches": [
+          "Resultary exact two-row fixed-step and rank-two resonance queries; 748c30f86df2, 02c87f72e7fc, 4e765c4ac5b0, ba79f41dad85"
+        ]
+      },
+      "rationale": "The re-audited contribution is the solved fixed-step orbit classification, not one-step shrinkage, mere convergence, or the line-search case. The closest primary work explicitly states the same fixed-step one-step magnitude update as a special case, so no originality credit attaches to that recurrence. Its exact-line-search two-cluster and two-row classifications must also be credited. No inspected stronger solution of the off-line-search trajectories gives the resonant hitting times, finite entry and signed matrix return law together by specialization. The square-root contrast and rate-coincidence qualifiers in the repair correct the classification; they are not claimed as stand-alone discoveries.",
+      "residual_risks": [
+        "The existing fixed-step formula is close: the new content is its complete solution on this natural slice, not that formula. Unindexed prior solutions of the resulting contrast map are not ruled out. Relative order of same-day results was not established or used as evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact one-step law includes the audited specialization; inspected solved two-cluster and collapse statements are for exact line search, not the audited orbit classification",
+          "evidence": [
+            "After Corollary 4: under normalized step α=γ tr(H), s_i^+=|s_i−α s̄_H|. Corollary 5 explicitly assumes exact line search."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.30280v1",
+          "material_read": "§3.1; §4 Eq. (17); Appendix I Proposition 17, Eqs. (44)–(47), and Corollary 4 Fixed steps paragraph and Corollary 5 (HTML text offsets 164750 and 171150), exact-line-search rank-two comparison",
+          "method": "OA primary HTML text",
+          "title": "A Quadratic Lens on Muon's Polar Update",
+          "trigger": "Same fixed-step polar update and closest exact spectral dynamics"
+        },
+        {
+          "assessment": "Uniform linear convergence, not an explicit orbit or exceptional-set result",
+          "evidence": [
+            "Convergence bound on strongly convex quadratics for the nuclear-scaled iteration."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.27747v1",
+          "material_read": "Theorem 3 (HTML offset 16400)",
+          "method": "OA primary HTML text",
+          "title": "Constant Step Sizes for Muon-Type Spectral Optimizers on Strongly Convex Quadratics",
+          "trigger": "General constant-step theorem for nuclear scaling"
+        },
+        {
+          "assessment": "Optimizer prior, no such solved dynamics in inspected passages",
+          "evidence": [
+            "Introduces the nuclear-norm-scaled polar update."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2505.21799",
+          "material_read": "abstract and introduction (HTML offset 1300)",
+          "method": "OA primary HTML text",
+          "title": "PolarGrad: A Class of Matrix-Gradient Optimizers from a Unifying Preconditioning Perspective",
+          "trigger": "Definition and provenance of the scaled polar optimizer"
+        },
+        {
+          "assessment": "Exact line search, not fixed non-line-search dynamics",
+          "evidence": [
+            "Every rank-two error terminates in at most two updates under its line-search assumptions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-the-rank-two-finite-termination-resonance-of-nuclear-scaled-pola--748c30f86df2",
+          "material_read": "RESULT.md offset 1700, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror primary text",
+          "title": "The rank-two finite-termination resonance of nuclear-scaled polar descent",
+          "trigger": "Same row rank and optimizer with exact termination"
+        },
+        {
+          "assessment": "Different update despite qualitatively similar dynamics",
+          "evidence": [
+            "Countable rank-collapse resonances concern post-step spectral decay."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-rank-persistence-and-the-exact-two-cycle-transition-in-post-step--02c87f72e7fc",
+          "material_read": "RESULT.md opening Finding, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror primary text",
+          "title": "Rank persistence and the exact two-cycle transition in post-step spectral decay",
+          "trigger": "Similar resonances and cycles for a spectral update"
+        },
+        {
+          "assessment": "Different dimensions and excluded normalized step",
+          "evidence": [
+            "Four modes at α=1; does not assert the α≠1 two-row classification."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-generic-finite-termination-and-dyadic-nontermination-of-four-mod--4e765c4ac5b0",
+          "material_read": "RESULT.md opening Finding, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror primary text",
+          "title": "Generic finite termination and dyadic nontermination of four-mode polar dynamics",
+          "trigger": "Same family of updates and exact dynamic classification"
+        },
+        {
+          "assessment": "One-step worst-case contraction, not orbit classification",
+          "evidence": [
+            "One-step factor holds at a fixed rank on positive-definite quadratics, without specifying rank-loss times or a return cycle."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-rank-conditioned-contraction-frontier-for-nuclear-scaled-p--ba79f41dad85",
+          "material_read": "RESULT.md opening Finding, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror primary text",
+          "title": "Sharp rank-conditioned contraction frontier for nuclear-scaled polar descent",
+          "trigger": "Exact fixed-rank contraction for nuclear-scaled polar descent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired statement gives the complete rank and orbit behavior for the first nontrivial row dimension under fixed steps, not another general convergence bound. Exact rank loss at prescribed powers and a finite entry time into a signed two-step scaling law are useful benchmarks for the polar update. The equality of the two root norm factors at one allowed step shows why rank behavior cannot be read solely from convergence exponents; the value does not depend on the false universal rate separation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

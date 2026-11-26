@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:53:39.615635Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The weighted projective space is well formed because any three weights include a 1. In a Q-Gorenstein smoothing the cube of the anticanonical class is constant; the weighted degree formula gives (a+b+2)^3/(ab), and on P^3 this is 64. With s=a+b, AM–GM requires (s+2)^3<=16s². The difference is 35 at s=9 and has positive derivative from there onward, so 2<=s<=8. Since 64 divides (s+2)^3, 4 divides s+2. This leaves (s,ab)=(2,1) or (6,8), hence exactly the two unordered pairs claimed. Both smooth: the ordinary space by the constant family, and P(1,1,2,4) by the established smoothing in DeVleming's Example 4.51. The argument does not apply to one unit weight or assert sufficiency of the volume equation in general.",
+      "reproducibility": "The proof and supporting notes are exact and require no script. A direct construction of the nontrivial smoothing uses the even Veronese of the polynomial ring of weights (1,1,2,4): in weighted coordinates A,B,C,Z,W of weights (1,1,1,1,2) it is the hypersurface AC=B². The family AC−B²=tW is flat (its graded affine ring is free over the ring in A,C,Z,W,t with basis 1,B), and eliminates W when t is nonzero. It is a Cartier hypersurface away from the weighted ambient quotient point; the chart W≠0 is the quotient of the smooth cover on A,B,C,Z, with t=AC−B², by simultaneous sign change. Adjunction and the finite quotient chart give a Q-Cartier relative canonical class. This also checks sufficiency independently in the usual characteristic-zero setting.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 gives P²-type or Q-type under a squared-gcd condition and A-type in codimension two. The stated test for the latter is gcd(w_i,w_j) dividing w_k+w_l for each pair. Proposition 3.2 deals separately with a gcd-2 subfamily.",
+          "The deformation-gluing preprint gives local-to-global criteria under codimension-two and section hypotheses, not an exhaustive tuple list. The two related Resultary entries concern canonical, terminal or Gorenstein tuples."
+        ],
+        "reasoning": "Relabel the weights as (1,u,v,w) with u=1. The squared-gcd condition is then 1=gcd(1,v)². The only possible A-type test not already trivial is gcd(v,w) dividing 2. This follows for every smoothable tuple from Lemma 2.1, so Theorem 1.1 covers precisely the targets rather than just an a priori restricted subgroup.",
+        "searches": [
+          "Chen–Lee arXiv:2609.37242v1, Theorem 1.1, §2 definition of A-type, and Proposition 3.2",
+          "DeVleming–Li–Torres arXiv:2606.21660, Theorems 1.8 and 4.10",
+          "Resultary 7f218dfae0e7 and 5519b06e1341"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.37242v1",
+        "DOI 10.1112/S0010437X22007552",
+        "arXiv:2606.21660",
+        "Resultary 03ee3491887c",
+        "Resultary 7f218dfae0e7",
+        "Resultary 5519b06e1341"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published families are (p²,q²,r²,pqr), p²+q²+r²=3pqr, and (2p²,q²,r²,4pqr), 2p²+q²+r²=4pqr, with positive integer parameters. The source already records them as smoothable."
+        ],
+        "reasoning": "Write g=gcd(a,b). If a prime divides g, the volume equation forces it to divide a+b+2 and hence 2. If 4 divides g, then a+b+2 is 2 modulo 4, contradicting 64 dividing its cube. Consequently g divides 2 and the A-type condition holds. In the P²-type family two unit weights require two unit parameters (if pqr=1 then all are units); setting them to 1 gives r²+2=3r, hence r=1 or 2. In the Q-type family only q² and r² can be units, so q=r=1 and 2p²+2=4p implies p=1. Substitution leaves the identical weight tuples. Canonicality is not a hypothesis of Theorem 1.1 and is not needed in this implication.",
+        "searches": [
+          "Chen–Lee arXiv:2609.37242v1, Theorem 1.1 (p. 2), Lemma 2.1 (p. 3), A-type definition and Example 2.4 (p. 5)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both papers give the same volume obstruction, with the two established smoothable examples. Resultary 03ee3491887c gives the same pair at volume 64 in its canonical subfamily."
+        ],
+        "reasoning": "The canonical collision by itself is not equivalent to unrestricted smoothability. The volume equation is necessary without canonicality; instead of assuming canonicality, one can infer the separately required codimension-two condition and apply Chen–Lee, as detailed below.",
+        "searches": [
+          "Published Resultary: two unit weights and anticanonical volume 64",
+          "Chen–Lee arXiv:2609.37242v1, Lemma 2.1 and Example 2.4",
+          "DeVleming DOI 10.1112/S0010437X22007552, Proposition 4.47 and Example 4.51"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For two units at volume 64 the canonical catalogue record lists precisely (1,1) and (2,4). DeVleming lists these as early solutions in a nonexhaustive computer-generated list and gives the second a genuine smoothing."
+        ],
+        "reasoning": "The exact collision already occurs in an earlier catalogue statement with a real domain difference. Neither that narrower census nor an illustrative table alone excludes noncanonical tuples; the stronger theorem with the forced A-type condition is decisive.",
+        "searches": [
+          "Resultary 03ee3491887c, canonical two-heavy volume collisions",
+          "DeVleming DOI 10.1112/S0010437X22007552, first volume-equation examples after Proposition 4.47"
+        ]
+      },
+      "rationale": "The unrestricted target statement is not quoted verbatim in the sources, and arbitrary two-unit spaces do not automatically satisfy Chen–Lee's A-type hypothesis. But their own necessary volume equation makes that hypothesis automatic on the smoothable locus in this slice, by immediate prime divisibility. Their Theorem 1.1 then covers all candidates, and the two-unit restriction of its explicitly published families yields exactly the claimed pairs. The proof in the frozen record is a shorter arithmetic route, not a previously unavailable classification.",
+      "residual_risks": [
+        "No verbatim earlier statement of the unrestricted two-unit slice was established. The failure is based on the explicit logical implication, not a retrieval problem or an assumption about canonical singularities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains the volume lemma and a covering implication for the smoothable two-unit slice",
+          "evidence": "The A-type condition is the published complementary-weight divisibility test. The known two families and the square condition are explicit; the unrestricted general statement is only Conjecture 2.5.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.37242v1",
+          "material_read": "Theorem 1.1 (p. 2, offset about 6936); Lemma 2.1 (p. 3, offset 10772); A-type definition and Example 2.4 (p. 5, offset 15450 onward); Proposition 3.2 (p. 9); Remark 4.2 (p. 13)",
+          "method": "OA full-text passages",
+          "title": "Weighted projective spaces admitting Q-Gorenstein smoothings to P^3",
+          "trigger": "Initiating equation and strongest plausible prior classification"
+        },
+        {
+          "assessment": "Prior equation and witness; illustrative list not an exhaustive unrestricted slice",
+          "evidence": "States the volume constraint and exhibits the smoothing of P(1,1,2,4); describes the listed solutions as the first few.",
+          "identifier_or_url": "https://doi.org/10.1112/S0010437X22007552",
+          "material_read": "Proposition 4.47 and Example 4.51 (p. 1364, offsets 180413 and 183445) and discussion after the examples",
+          "method": "Available primary full-text passages",
+          "title": "Moduli of surfaces in P^3",
+          "trigger": "Earlier obstruction, list and explicit smoothing"
+        },
+        {
+          "assessment": "Deformation gluing, not the decisive numerical coverage",
+          "evidence": "The results have A_n codimension-two and section hypotheses and address local-to-global deformation.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.21660",
+          "material_read": "Theorem 1.8 (p. 3), Assumptions 4.1 and Remark 4.2 (p. 22), Theorem 4.10 (p. 29)",
+          "method": "OA full-text passages",
+          "title": "Weighted projective degenerations of P^n",
+          "trigger": "Previously unresolved broader degeneration source"
+        },
+        {
+          "assessment": "Same numerical collision under a narrower canonicality condition",
+          "evidence": "Volume 64 at the two pairs (1,1) and (2,4); a separate collision occurs at volume 72.",
+          "identifier_or_url": "Resultary 03ee3491887c",
+          "material_read": "RESULT.md finding for the two-unit canonical slice",
+          "method": "Local publication index and mirror text",
+          "title": "Anticanonical volume separates canonical two-heavy weighted projective spaces above the collisions",
+          "trigger": "Closest exact numerical collision in same family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The two-unit slice is natural and the elementary numerical proof is convenient. But the stated scientific output is a complete classification already determined by the published stronger result and elementary specialization. The frozen finding does not establish a separate obstruction or classify any additional weight pattern for which that earlier argument gives no answer.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

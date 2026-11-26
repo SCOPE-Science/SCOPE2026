@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:40:06.075291Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The constrained factor graph is strongly connected by routing through the zero vertex. Closed walks and cyclic factors agree, including the wraparound and the k=2 case. At a nonzero vertex the added outgoing and incoming counts are respectively the first-bit-zero and last-bit-zero indicators, canceling the original imbalance; at the zero vertex both additions vanish. Thus Euler traversal gives the candidate with F_k-1 extras. The rightmost-one position drops by at most one per arc, and drops by one exactly when a zero is appended to a nonzero source; summation against fixed excess divergence gives the lower bound and forces the support of every optimal excess vector onto these arcs. They are acyclic with outdegree at most one, so even a signed divergence-zero difference vanishes by processing vertices in topological order. This proves rigidity of the multiplicities, not uniqueness of the cyclic word. The frozen verify.py and VERIFICATION.md were inspected, not executed: the reported brute-force searches and Euler traces are finite corroboration, not the all-k proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chee et al., Definition 2, concerns local k-window non-repetition; the two Bernardini et al. papers give general de Bruijn walk optimization and Eulerian completion frameworks."
+        ],
+        "reasoning": "These frameworks are relevant but the inspected general formulations do not state the Fibonacci optimum or the forced extras; the earlier instance-specific Resultary proof is decisive.",
+        "searches": [
+          "arXiv:2005.03102",
+          "10.4230/LIPIcs.CPM.2022.16",
+          "10.4230/LIPIcs.CPM.2022.12"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; frozen verify.py inspected only",
+        "Resultary 2026/10/18 SCOPE-sharp-fibonacci-length-for-cyclic-covers-avoiding-adjacent-ones--115d2faf86fa",
+        "Resultary 2026/10/13 SCOPE-complete-small-order-census-of-minimum-golden-mean-cyclic-coveri--50305dee27be",
+        "arXiv:2005.03102",
+        "10.4230/LIPIcs.CPM.2022.16",
+        "10.4230/LIPIcs.CPM.2022.12"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior lower bound sums the inequality phi(tail)-phi(head) <= 1 against nonnegative extras; equality forces support on the tight arcs. Here phi counts leading zeros and equals the vertex length at the zero vertex."
+        ],
+        "reasoning": "Since phi is nonnegative and vanishes on vertices starting with 1, a tight arc starts with 0. Its head determines its tail uniquely by the shift rule, so tight indegree is at most one. Tightness makes the graph acyclic; conservation at its sinks and then in reverse topological order eliminates any signed difference between optimal extra vectors. Thus the all-optima result is mechanically implicit in the exact same prior certificate.",
+        "searches": [
+          "October 18 sharp Fibonacci length record, RESULT.md, §3, offsets 3573–7173"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 18 RESULT.md, character offsets 410–3573: F_{n+2}+F_n-1 and one optimum repeating precisely the nonzero allowed 0u0 factors."
+        ],
+        "reasoning": "The two records use the same factor set, cyclic model and all-orders quantifier. Golden-mean language and avoiding adjacent ones are equivalent here. The earlier existence statement alone is not the frozen universal statement; the additional implication is checked separately.",
+        "searches": [
+          "Resultary: shortest golden-mean cyclic covers avoiding 11 and repeated windows",
+          "2026/10/18/SCOPE-sharp-fibonacci-length-for-cyclic-covers-avoiding-adjacent-ones--115d2faf86fa"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "October 13 complete small-order census, RESULT.md offsets 1025–3925, gives minima through order 6 and the seven distinct repeats with no triples at order 6; October 18 provides the exact formula at every order."
+        ],
+        "reasoning": "The finite table corroborates overlapping small cases but is not an all-k classification; exact all-k coverage comes from the October 18 theorem and proof.",
+        "searches": [
+          "2026/10/13/SCOPE-complete-small-order-census-of-minimum-golden-mean-cyclic-coveri--50305dee27be",
+          "2026/10/18/SCOPE-sharp-fibonacci-length-for-cyclic-covers-avoiding-adjacent-ones--115d2faf86fa"
+        ]
+      },
+      "rationale": "The October 18 Resultary theorem gives the identical all-k optimum and the identical multiplicities for a constructed optimum. Its very same sharp lower-bound certificate mechanically implies uniqueness of that multiplicity vector: all optimal extras are on tight arcs for the leading-zero potential; a tight arc cannot start with 1, so every target has at most one tight predecessor (prepend 0 to the truncated target). The potential strictly decreases along each such arc. A signed divergence-zero vector on this graph vanishes by reverse topological elimination. This is exactly the frozen outdegree argument under reversal and potential complementation, not a surviving independent result.",
+      "residual_risks": [
+        "The negative comparisons are limited to the primary passages inspected; older coverage might exist. Neither the correct proof nor an earliest-publication claim depends on resolving that possibility."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact length and existence profile stated; universal profile mechanically follows from the same tightness proof",
+          "evidence": [
+            "Same F_{n+2}+F_n-1 for n>=2 and same nonzero 0u0 repeats; leading-zero potential and fixed excess divergence in §3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-fibonacci-length-for-cyclic-covers-avoiding-adjacent-ones--115d2faf86fa/RESULT.md",
+          "material_read": "Finding, construction, sharp lower-bound proof; character offsets 410–7173",
+          "method": "Local mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp Fibonacci length for cyclic covers avoiding adjacent ones",
+          "trigger": "Closest exact catalogue match"
+        },
+        {
+          "assessment": "Finite-range coverage only",
+          "evidence": [
+            "Through order 6; every order-6 optimum has seven distinct repeats and no triple occurrence."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-complete-small-order-census-of-minimum-golden-mean-cyclic-coveri--50305dee27be",
+          "material_read": "RESULT.md offsets 1025–3925",
+          "method": "Local mirror",
+          "title": "Complete small-order census of minimum golden-mean cyclic covering words",
+          "trigger": "Exact finite catalogue overlap"
+        },
+        {
+          "assessment": "Different constraint and objective",
+          "evidence": [
+            "(b,k)-constrained codes require distinct k-windows within specified sliding intervals; this is not shortest all-factor coverage of the fixed-11-avoiding language."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2005.03102",
+          "material_read": "PDF p. 6, Definition 2 at text offset 20391",
+          "method": "Open-access primary PDF",
+          "title": "Constrained de Bruijn Codes: Properties, Enumeration, Constructions, and Applications",
+          "trigger": "Constrained de Bruijn terminology"
+        },
+        {
+          "assessment": "General framework, not the family-specific formula in the inspected passage",
+          "evidence": [
+            "Uses de Bruijn graph walks and Eulerian procedures for prescribed factor sets."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2022.16",
+          "material_read": "PDF pp. 2–3, text offsets 5620–9149",
+          "method": "Open-access primary PDF",
+          "title": "On Strings Having the Same Length-k Substrings",
+          "trigger": "Shortest edge-covering de Bruijn walks"
+        },
+        {
+          "assessment": "General completion problem, not the instance-specific rigidity in the inspected passage",
+          "evidence": [
+            "Permits adding edges and, when necessary, nodes to connect and balance the graph."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2022.12",
+          "material_read": "PDF p. 1, text offsets 917–4178",
+          "method": "Open-access primary PDF",
+          "title": "Making de Bruijn Graphs Eulerian",
+          "trigger": "Generic Eulerian completion"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The optimum and the identity of forced factors are meaningful invariants, but the former is already stated and the latter is immediate from the same published instance-specific optimality certificate. Reversing the shift and spelling out elimination of a signed circulation does not yield a separate substantive finding. No scientifically distinct repair is supported.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

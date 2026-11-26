@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:42:19.652109Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The empty graph has one valid state. In every nonempty 2-degenerate graph delete a vertex v of degree at most two; its deletion removes at most one triangle and leaves a 2-degenerate graph. Each valid coloring of the remainder extends at v with either color unless the other two triangle vertices agree, in which case the opposite color is forced. Each fiber is connected, and opposite singleton fibers would require flipping both neighbors, so adjacent base colorings have a common extension color. One can move within a fiber to that color before lifting each edge of a base path, and finish with a fiber move. This proves connectivity for the entire state space, not just for a special starting coloring. Complementation negates the signed imbalance; a path to the complement changes the red count by one per move and must cross the middle count(s), giving the parity optimum. For K₃∨independent m, a split central triple forces all leaves to its minority color. The singleton central vertex cannot flip because of the triple, a majority vertex cannot flip because of the minority vertex and any leaf, and a leaf cannot flip because of the original majority pair. The six states are therefore isolated for every m≥1. Peeling leaves gives degeneracy at most three, while the induced K₄ gives at least three. For the book, unlike hubs yield the two independent leaf cubes; equal hubs give exactly two states with all leaves opposite. Each equal-hub state has exactly two legal flips, to the corresponding corners of the two cubes. For red-leaf counts a,b in opposite cubes the two routes have lengths a+b+2 and 2m−a−b+2, so at least one is no longer than m+2. Each connector is within m+1 of any cube state; the two connectors are Hamming distance m+2 and attain it by a cube path. This proves the diameter and the direct red-weight census gives the displayed polynomial, including coinciding degrees. The supplied verify.py was inspected, not executed; it tests a finite domain and does not replace these arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The treewidth-two source treats proper five-coloring transformations",
+          "The audited proof itself extends to NAE hypergraphs with edges of size at least three that can be eliminated by repeatedly deleting a vertex incident to at most one remaining edge (discarding incident constraints)"
+        ],
+        "reasoning": "This latter broader class contains the target triangle hypergraphs; an existing connectivity theorem on that class would cover the main claim. No such prior statement was obtained in the checked material. Proper coloring in a larger palette imposes different constraints on both states and allowable moves.",
+        "searches": [
+          "Primary literature: NAE hypergraph leaf elimination/reconfiguration and graph recoloring at treewidth two",
+          "Bartier–Bousquet–Heinrich arXiv:2012.11459, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:1710.07132, 2110.04606, 2108.12500, 2012.11459 and 2609.31574v1 (scopes recorded above)",
+        "Resultary records 01f5dae5fbed, e3cad69f805d and 5892cf5f68ec"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The retrieved triangulation abstract concerns discrepancy bounds, and the frozen record acknowledges prior balanced polychromatic two-colorability in three-colorable triangulations",
+          "Independently, choose the two smallest classes of a proper three-coloring as fixed opposite colors and distribute the largest class to achieve parity-optimal balance. Every triangle contains all three proper classes."
+        ],
+        "reasoning": "This directly covers balance as an existence corollary for 2-degenerate graphs. It says nothing about paths between arbitrary valid assignments. Even a graph with six isolated assignments can be balanced, as the audited obstruction with m=1 shows. The novelty assessment therefore does not rest on the balance corollary.",
+        "searches": [
+          "Arevalo Loyola et al. arXiv:2609.31574v1 and Asayama–Matsumoto DOI 10.1007/s00373-021-02420-8 for balance",
+          "Karpiński–Piecuch and the positive planar NAE satisfiability comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The triangle hypergraph formulation is positive NAE-3-SAT with one variable per vertex and a constraint for each triangle",
+          "Inspected Karpiński–Piecuch passages concern finding a valid coloring, and the retrieved positive planar NAE result concerns satisfiability under its hypotheses"
+        ],
+        "reasoning": "A valid assignment or a satisfiability algorithm is not an equivalence to connectivity of all assignments under one flip. Facial triangle constraints also need not coincide with all graph triangles.",
+        "searches": [
+          "Resultary: no-monochromatic-triangle and NAE/Property-B single-vertex recoloring; 2-degenerate graphs and triangle books",
+          "Karpiński–Piecuch arXiv:1710.07132 and arXiv:2110.04606",
+          "Hasan et al. arXiv:2108.12500"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 01f5dae5fbed gives a connected one-point recoloring graph on 3,762 three-color affine-plane states, with radius 9 and diameter 10",
+          "Record e3cad69f805d uses the same triangle-book family but classifies open conflict-free edge colorings with three colors",
+          "Record 5892cf5f68ec studies outer-independent two-rainbow domination on L(K_n)"
+        ],
+        "reasoning": "These exact censuses change either the feasible-state predicate, the objects colored, or the family, so none supplies the two-cube decomposition, exact book metrics, or six-state degeneracy-three obstruction under this rule.",
+        "searches": [
+          "Resultary records 01f5dae5fbed, e3cad69f805d and 5892cf5f68ec"
+        ]
+      },
+      "rationale": "The supported distinct claims are all-state flip connectivity at degeneracy two, its explicit sharp rigidity obstruction at three, and the exact book exchange structure. Parity-optimal balance as an existence result is not credited as new.",
+      "residual_risks": [
+        "A prior general NAE solution-graph theorem for leaf-eliminable hypergraphs may exist under an alternate formulation; none was established in the inspected material.",
+        "The Asayama–Matsumoto full text was unavailable during checking; no broad priority claim is based on that retrieval or on ranked searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related feasibility problem; inspected statement is not a connectivity theorem",
+          "evidence": [
+            "Formulates existence of triangle-free q-colorings"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1710.07132",
+          "material_read": "Formulation on PDF p. 3, extraction offset about 10119",
+          "method": "OA primary PDF passage",
+          "title": "On vertex coloring without monochromatic triangles",
+          "trigger": "Identical triangle constraint"
+        },
+        {
+          "assessment": "Abstract-level context only; no full-document exclusion",
+          "evidence": [
+            "Announces a planar 2-coloring algorithm"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2110.04606",
+          "material_read": "Abstract",
+          "method": "OA primary PDF",
+          "title": "Linear-time algorithm for vertex 2-coloring without monochromatic triangles on planar graphs",
+          "trigger": "Existence/algorithm for same constraint and a related graph class"
+        },
+        {
+          "assessment": "Statement is satisfiability under a 3-connectivity condition, not connectivity of the solution graph",
+          "evidence": [
+            "Positive planar NAE-3-SAT satisfiability result"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.12500",
+          "material_read": "Abstract, PDF extraction offset about 1893",
+          "method": "OA primary PDF",
+          "title": "Positive planar NAE-3-SAT result",
+          "trigger": "Equivalent constraint language"
+        },
+        {
+          "assessment": "Different palette and legality predicate",
+          "evidence": [
+            "Linear transformations between proper five-colorings"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2012.11459",
+          "material_read": "PDF p. 1, extraction offset about 1660",
+          "method": "OA primary PDF passage",
+          "title": "Recoloring graphs of treewidth 2",
+          "trigger": "Potential broader low-width recoloring result"
+        },
+        {
+          "assessment": "Discrepancy results, not full triangle flip connectivity",
+          "evidence": [
+            "Discrepancy bounds for triangulations"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.31574v1",
+          "material_read": "Abstract, HTML offset about 852",
+          "method": "OA primary HTML",
+          "title": "Polychromatic 2-colorings with Bounded Discrepancy for Triangulations",
+          "trigger": "Overlapping balance motivation"
+        },
+        {
+          "assessment": "No full-text claim made; balance already excluded from novelty by the direct proper-three-color argument",
+          "evidence": [
+            "Frozen bibliography identifies the three-colorable triangulation case"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00373-021-02420-8",
+          "material_read": "Bibliographic identification and frozen description only",
+          "method": "OA DOI lookup timed out",
+          "title": "Balanced Polychromatic 2-Coloring of Triangulations",
+          "trigger": "Prior balance result cited in the frozen record"
+        },
+        {
+          "assessment": "Distinct three-color affine-plane problem",
+          "evidence": [
+            "Twelve 3-point lines of F₃² and 3,762 states; radius 9, diameter 10"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-peripheral-affine-types-in-optimal-weak-three-colourings-of--01f5dae5fbed",
+          "material_read": "Finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "Two peripheral affine types in optimal weak three-colourings",
+          "trigger": "Conceptually related hypergraph recoloring census"
+        },
+        {
+          "assessment": "Edge colors with open conflict-freeness instead of NAE vertex recoloring",
+          "evidence": [
+            "Same K₂∨independent family, three colors on edges"
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-open-conflict-free-edge-colouring-census-of-triangular-boo--e3cad69f805d",
+          "material_read": "Finding at offset 362",
+          "method": "Local published-record mirror",
+          "title": "Exact open conflict-free edge-colouring census of triangular books",
+          "trigger": "Exact census on the same book family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result separates a regime in which all legal states communicate from a regime in which there may be no legal moves at all and discrepancy can grow without bound. The fiber-intersection mechanism explains the threshold, and the book computation describes an entire natural family of state graphs and its two bottleneck connections. The already covered balance existence result is not the basis of this assessment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

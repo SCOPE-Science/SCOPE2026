@@ -1,15 +1,21 @@
-# Scientific review: simultaneous multiplication-rank enumerator
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof begins with the exact Fourier product identity \(\widehat{uv}(\chi)=\widehat u(S\chi)\widehat v((I-S)\chi)\), available because the character table is invertible over the stated coefficient field. It separately proves that the right rank counts nonzero Fourier coefficients in the image, multiplied by the kernel size, and that the left rank counts occupied kernel cosets. Their intersection sizes follow from the linear-algebra identity \(\dim(\ker B\cap\operatorname{im}B)=\operatorname{rank}B-\operatorname{rank}B^2\). The independent coset count gives every polynomial coefficient. Boundary cases with zero and full rank are included. The attached exact checker enumerates 33,048 algebra elements across eight examples and agrees for all 66,096 one-sided ranks. The proof, not enumeration, establishes the general statement.
+PASS
 
-## Originality — PASS, qualified
+In split Fourier coordinates with dual S and B=I−S, the product is û(Sχ)v̂(Bχ). Right multiplication has one nonzero row per χ with v̂(Bχ)≠0, with distinct pivot columns; left multiplication has disjoint column supports indexed by the fibers of B. Thus the two exponents count nonzero points on H=im B and occupied cosets of K=ker B, respectively. Each coset meeting H contains j=|H∩K|=p^d such points, in precisely p^(h−d) cosets. Counting zero assignments separately gives both displayed factors, both marginals and the coefficient p^h(q−1)q^(t−j), strictly distinguishing d at fixed p,m,h,q. The ranks of B and B² equal their primal counterparts; rank-nullity on H and the eigenvalue-one Jordan chains give the claimed interpretations. For h=0 there is one coset and one observed point; for h=m each coset is a singleton meeting H. The binary examples give (h,d)=(2,1) and (2,0), hence 8 and 24. The source's binary F3 census is recorded finite evidence only, and its scripts were inspected, not executed. Independent replay: python /workspace/reproductions/frozen_checks.py; the fifth check compared original-basis matrix ranks for every one of the 512 support shapes for p=3,q=7,h=d=1. No claim is made for nonsplit/modular fields or non-elementary groups.
 
-Zhang's 2026 group-ring transport supplies the fundamental factorized multiplication; it does not state a simultaneous distribution of multiplication-operator ranks. The 2026 medial-quandle zero-divisor study and the 2026 study of extended zero-divisor graphs focus on different invariants and small models. The closest accessible prior research result concerning complex right Peirce eigenvalues restricts to idempotents; another concerns derivations in defining characteristic. The present enumerator applies to **all elements**, uses two operator ranks simultaneously, and identifies the kernel-image intersection, equivalently \(\operatorname{rank}((I-\varphi)^2)\), which both marginals miss. Search comparisons included general group-ring, Fourier, annihilator, quandle and rank aliases. This is a qualified originality judgment: searches cannot rule out unindexed equivalent formulas; intermittent source-fetch errors left portions of plausible full texts unreviewed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Simultaneous left and right annihilator dimensions are natural structural invariants for finite nonassociative algebras and refine the zero-divisor geometry motivating recent quandle-ring research. The polynomial supplies the complete frequency of every possible rank pair in a parameterized infinite family, not merely an individual example. Its dependence on \(\ker(I-\varphi)\cap\operatorname{im}(I-\varphi)\) is genuinely joint: the marginal distributions are independent of this information. Explicit eight-dimensional algebras over \(\mathbb F_3\) with matching marginals but distinct joint spectra illustrate why this precise invariant matters. The field-splitting hypothesis and residual historical-priority risks are disclosed.
+Credit the earlier pointwise Fourier rank formulas and the entire marginal census. The supported distinct claim is the evaluated same-element joint distribution and its separation by the kernel–image incidence, not novelty of Fourier methods, one-sided ranks or zero-product totals.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The same-element joint rank spectrum measures how the two annihilator dimensions interact and is a natural refinement of separate zero-divisor counts. It does not merely report another field or numerical stratum: it yields an infinite-family classification by a kernel–image invariant independently visible in a single joint coefficient. The equal-marginal eight-dimensional examples explicitly show the precise information lost by all one-sided counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

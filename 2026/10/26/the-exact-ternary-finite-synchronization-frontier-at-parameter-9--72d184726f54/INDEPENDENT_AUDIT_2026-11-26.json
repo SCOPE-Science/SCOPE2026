@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:20:43.515696Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Insertion/deletion distance on adjacent nonempty factors with total length L is L−2 LCS, giving the strict integer test 20 LCS < 9L. All earlier endpoints survive extension, so the new right endpoint suffices, and a missing length 33 also excludes every greater length. The canonical first-occurrence renaming is unique; no reversal quotient is used. I independently enumerated all labeled extensions with a bit-parallel LCS implementation cross-checked against explicit intersections of short subsequence sets. A split was skipped only when even its shorter side had length strictly below the forbidden threshold. The labeled counts at lengths 8, 31, 32, 33 were 78, 66, 60, 0. Normalizing the 60 length-32 words by all six letter permutations gave exactly the ten strings in RESULT.md, all using three letters. Replay: python3 /workspace/review-replay.py 2. This is an exhaustive finite computation and not a theorem about the optimal infinite-word parameter.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cheng et al. give the computational enumeration method and B_3≥12/13 but report no 9/10 cutoff or census in Appendix A. Xu et al. construct arbitrary lengths at ε=2001/2002, refined for ε>226/227. Resultary 61caec725c14 is a finite census at 12/13."
+        ],
+        "reasoning": "The older bound rules out infinite ternary words at 9/10, and compactness yields some finite bound, not 32 or its maximizers. An existence theorem at a weaker gap or a finite cutoff at a different parameter does not give the exact stronger-gap frontier.",
+        "searches": [
+          "arXiv:1803.03530v1, Appendix A",
+          "arXiv:2609.04122v1, abstract",
+          "Resultary 61caec725c14"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1803.03530v1",
+        "arXiv:2609.04122v1",
+        "arXiv:1308.1620v1",
+        "Resultary 005da88a8560, 059137292ffd, 61caec725c14"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An ε=7/8 witness is valid at ε=9/10; Cheng et al.'s computed lower bound is for the infinite-word critical ε. At 9/10, the later record's exclusion of all weak length-33 words implies the strict exclusion, and even one verified strict length-32 word proves attainment."
+        ],
+        "reasoning": "The earlier parameter supplies a lower bound of 27, and the asymptotic obstruction supplies boundedness; neither gives the sharp result. The later record directly implies the cutoff, and its ten-word weak list plus ten strict checks implies the strict census.",
+        "searches": [
+          "arXiv:1803.03530v1, Appendix A enumeration paragraph and Table 1",
+          "Resultary 005da88a8560 and 059137292ffd"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The relevant equality is ED=L−2 LCS; the strict predicate is 20 LCS<9L for all adjacent splits. Camungol–Rampersad use equal-length adjacent factors only. Resultary 059137292ffd uses 20 LCS≤9L for its exhaustive count and checks a strict witness."
+        ],
+        "reasoning": "Equal-half avoidance need not control unbalanced splits. The weak and strict inequalities are not equivalent at equality; nevertheless the matching ten-word weak list happens here to be the full strict list as well.",
+        "searches": [
+          "Resultary: ternary 9/10 synchronization strings and finite cutoff",
+          "arXiv:1803.03530v1",
+          "arXiv:1308.1620v1",
+          "Resultary 059137292ffd"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 005da88a8560 reports a 27-letter maximum and one orbit at 7/8. Resultary 059137292ffd, listed under 2026-11-01, states a strict length-32 witness and a length-33 obstruction; its certificate gives the same ten words under a weak threshold. Resultary 61caec725c14 reports length 123 and one orbit at 12/13."
+        ],
+        "reasoning": "The earlier 7/8 table is not a census at 9/10. The later 059137292ffd is the decisive catalogue overlap for the cutoff and survivor list, but not an established pre-existing source for the frozen 2026-10-26 record.",
+        "searches": [
+          "Resultary: exact ternary finite synchronization frontier and length 32",
+          "Resultary 005da88a8560, 059137292ffd, 61caec725c14",
+          "arXiv:1803.03530v1, Table 1",
+          "arXiv:1308.1620v1, Table 1"
+        ]
+      },
+      "rationale": "No earlier source checked covers the exact strict 9/10 frontier and its ten strict maximizing classes. The older literature gives the method and eventual impossibility, or studies a different set of splits. An earlier Resultary census is for the stricter 7/8 condition. The later-listed 059137292ffd covers the strict 32/33 cutoff via a weak-threshold upper bound and gives the very same list as weak survivors; the independently checked strict classification confirms that none of those ten are lost under strictness. This overlap is substantive, not a merely similar title; the catalogue dates alone do not settle priority or dependence.",
+      "residual_risks": [
+        "The earlier exhaustive search described by Cheng et al. may have unpublished intermediate output relevant to 9/10.",
+        "The matching later Resultary data do not establish the direction of dependence or rule out a common precursor."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior exhaustive method and stronger infinite-word obstruction; Appendix A does not specify the exact 9/10 frontier",
+          "evidence": [
+            "Enumerates extensions until failure and reports B_3≥12/13 in Table 1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1803.03530v1",
+          "material_read": "Appendix A, p. 29, OA offset 103800",
+          "method": "Primary OA PDF",
+          "title": "Synchronization Strings: Efficient and Fast Deterministic Constructions over Small Alphabets",
+          "trigger": "Same definition and exhaustive ternary obstruction"
+        },
+        {
+          "assessment": "Different parameter regime",
+          "evidence": [
+            "Arbitrary lengths at ε=2001/2002, refinement for ε>226/227."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.04122v1",
+          "material_read": "Abstract, p. 1, OA offset 1240",
+          "method": "Primary OA PDF",
+          "title": "Synchronization Strings over the Optimal Alphabet",
+          "trigger": "Constructive ternary result"
+        },
+        {
+          "assessment": "Different split requirement and parameter bounds",
+          "evidence": [
+            "Similarity uses equal-length factors; ternary bounds in Table 1 are not a finite all-splits census."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1308.1620v1",
+          "material_read": "§2 p. 3 and Table 1 pp. 9–10, OA offsets 5804 and 23950–25608",
+          "method": "Primary OA PDF",
+          "title": "Avoiding approximate repetitions with respect to the longest common subsequence distance",
+          "trigger": "LCS formulation adjacent factors"
+        },
+        {
+          "assessment": "Same question at 7/8, not the frozen parameter",
+          "evidence": [
+            "Maximum 27, one relabeling class."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-the-exact-strict-ternary-synchronization-boundary-at-length-27--005da88a8560",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and mirror",
+          "title": "The exact strict ternary synchronization boundary at length 27",
+          "trigger": "Earlier finite strict census"
+        },
+        {
+          "assessment": "Direct cutoff coverage and matching weak survivor list, later catalogue entry",
+          "evidence": [
+            "Strict witness at 32; no weak word at 33; the ten length-32 weak survivors are the frozen ten."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-length-32-cutoff-for-ternary-9-10-synchronization-strings--059137292ffd",
+          "material_read": "RESULT.md offsets 0–3655 and exact_certificate.json offsets 0–5121",
+          "method": "Local Resultary search and mirror",
+          "title": "Sharp length-32 cutoff for ternary 9/10-synchronization strings",
+          "trigger": "Same parameter, frontier and list"
+        },
+        {
+          "assessment": "Different parameter",
+          "evidence": [
+            "Maximum 123 and one class at ε=12/13."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-unique-maximal-ternary-synchronization-string-at-the-published--61caec725c14",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and mirror",
+          "title": "A unique maximal ternary synchronization string at the published threshold",
+          "trigger": "Neighboring finite parameter"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fixed one-tenth normalized edit-distance gap on the smallest relevant alphabet gives a finite design obstruction not measured by the infinite threshold. The exact cutoff and complete list answer feasibility and identify every optimal short-block design at this gap, rather than giving a sample witness or repeating the asymptotic obstruction. The value is specific to this parameter, not a claim that it improves the published infinite-word threshold.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The kernel identity \((C_nC_n^*)_{ij}=1/\max(i,j)\) holds entrywise, and the weighted Schur estimate confines eigenvalues to \([0,4]\). The cyclic trace is compared with an integral over unit cubes; the difference is bounded by \(k\) boundary faces, each at most \(\zeta(2)4^{k-2}\). Logarithmic coordinates make the integral a translation-invariant cyclic exponential kernel. The anchor-coordinate identity and \(2R\le V\) bound its difference from a multiple of \(\log(n+1)\) by \((k-1)c_k\), with \(c_k\) evaluated by Fourier inversion. The harmonic-number comparison gives both sides of the stated bound. Weak spectral convergence follows from compact support and exact beta moments. The reproducible checker passes 60 exact finite traces, which are corroboration, not a proof of the limiting result.
+PASS
 
-## Originality — PASS with residual risk
+The frozen inequalities are mathematically sound: the decreasing Gram-cycle kernel gives the cube-sum bound and the missing lower face is bounded by u*B^(k-2)u with u_j=1/j; the logarithmic change of variables leaves the cyclic total-variation kernel, with c_k obtained by Fourier convolution. The weight normalization is exactly H_n and the Schur test gives support in [0,4]. In the repair, the lower trace bound still follows from cells starting at the lattice points and an anchor-length deficit at most (k-1)c_k. The new upper trace bound fixes one coordinate at i before integrating the other coordinates on cells ending at the integers. The integral over all positive remaining coordinates equals c_k/i (one Jacobian absent), strictly greater than the integral over the finite domain. This gives the claimed strictly signed finite defect, including n=1; k=1 is exact. Beta moments and compact support give the arcsine law. The frozen CHECK.py tests a relaxed upper bound with 2 in place of zeta(2). The independent /workspace/independent_checks.py check 4 tested the original bounds on 49 rational cases with a certified stricter upper constant; python3 /workspace/repairs/4/CHECK.py separately passed the repair's strict sign and kc_k bound in 49 cases, not the logarithmic refinement. Neither replay proves the all-parameter theorem.
 
-The 2011 finite-Cesàro discussion covers matrix norms and tridiagonal inverses, not trace moments. Full-text inspection of Lacruz et al. (2014) addresses extended eigenvalues, not finite traces. The published result on logarithmic fixed-rank singular spectral edges was read in full: fixing a single rank does not imply a logarithmic sum over growing numbers of ranks or the energy-weighted law. Published work on continuous Wiener–Hopf asymptotics might supply a broader route but no covering instance was located. The 1965 paper and a 2026 Mellin preprint were not inspected in full; a hidden equivalent remains a substantive bibliographic risk. This is a best-knowledge assessment, not a proof of global novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The classical Cesàro finite sections have a non-compact infinite limit and a divergent total Hilbert–Schmidt energy, making the distribution of that energy across squared singular values a natural invariant. A single universal arcsine density governs all trace-weighted moments; the binomial coefficients and \(O(1)\) additive remainders provide a finite-size quantitative refinement. This is a full sequence of operator invariants and an intrinsic spectral law rather than an isolated scalar or a routine endpoint check.
+Pass is for the repaired, strictly signed and order-explicit finite-size defect bound, not the original unqualified presentation of the moment/arcsine limits or a qualitative bounded remainder. Those asymptotic contents are covered or implied by Hardy-kernel theory. The repair credits this and proves a stronger finite inequality than the original. No inspected source gives or directly entails this signed bound.
 
-## Closest literature and limitations
+## value
 
-Primary materials: the 2011 finite-matrix question and answers, Lacruz et al. arXiv:1403.4844v1 (complete HTML), and the public fixed-singular-rank edge theorem (complete proof read). The foundational Brown–Halmos–Shields paper and recent discrete-Mellin work were only available in bibliographic or abstract form. The constants in the upper remainder are not asserted sharp, and the numerical checker is necessarily finite.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The repair specifies which side of the limiting energy moments each finite section lies on, and controls the deficit with constants explicit in n and k. This yields one-sided errors for polynomials with nonnegative nonconstant coefficients, which the normalized spectral law or a qualitative bounded remainder alone does not supply. It makes no claim of optimal constants or of a uniform asymptotic in growing k.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

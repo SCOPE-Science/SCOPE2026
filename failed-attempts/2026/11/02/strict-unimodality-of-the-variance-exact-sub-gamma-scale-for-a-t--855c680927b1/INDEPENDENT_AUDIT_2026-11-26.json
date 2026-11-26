@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:45:04.128201Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–125",
+        "Frozen VERIFICATION.md, verification_output.txt and verify.py (inspected, not executed)",
+        "Independent integer coefficient and exact-rational endpoint recalculation; replay formula in rationale"
+      ],
+      "rationale": "The normalized cumulant remainder is M=F/(32t²), with F>32t². On 0<t<1/c, feasibility is equivalent to c≥Ψ(t); beyond that interval Ψ(t)<1/t≤c, so the unrestricted supremum is the correct sharp scale and is independent of λ. The derivative is N/(t²F²). Independent exact arithmetic confirmed the degree 4–11 normalized coefficients (0,0,99520,882112,-4769408,-240640896,-4342095552,-59940771264). Retaining the pure powers of 5 in the binomial convolution gives T_n≤−5^n Q_n for n≥12. The stated recurrence and Q_12=25718/25 imply positivity for all n≥12. Consequently N/t^7 has a positive reciprocal term, a constant, and strictly negative positive-power terms; it decreases with strictly negative derivative from +infinity to −infinity. Its zero is simple, giving the strict peak and c_*>41/48, the latter number being f_3/32. Independent exact-rational endpoint evaluation confirmed the interval: take degree-80 lower exponential sums, upper bounds obtained by adding the first omitted term divided by 1−z/82, and propagate through 32t³F′−32t²F−F² using F′ lower/F upper for the lower bound and the reverse for the upper bound. The lower bound at 473723111/10^9 is positive (about 1.13×10^−8) and the upper bound at 473723113/10^9 negative (about −2.62×10^−8).",
+      "residual_risks": [
+        "The displayed decimal optimal scale is approximate, not a certified rounding. The undefined shorthand E R on line 109 is unnecessary: f_3/32 gives the limit directly."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October 18 theorem covers a unique strict nondegenerate peak for q in [q_−,q_c), with q_−≈0.0219400 and q_c≈0.0563621, and explicitly calls out q=1/40. Same-day ee8ef2a9643e gives a broader phase classification including this probability. Same-day e55370fed242 treats a coexistence range at much smaller probabilities."
+        ],
+        "reasoning": "The earlier coverage is a direct specialization, not a judgement about ordering of the same-day records. The remote-optimum coexistence result concerns a different parameter regime.",
+        "searches": [
+          "Resultary: compound-Poisson sub-gamma shape and two-point optimizer transitions; 33a2f59ff992, ee8ef2a9643e, e55370fed242"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 33a2f59ff992, ee8ef2a9643e and e55370fed242",
+        "Chen arXiv:2610.00032v1",
+        "Karp–Vishnyakova–Zhang arXiv:2408.01755v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier theorem explicitly asserts Ψ_q″(t_q)<0; positivity of t²F² then implies N′(t_q)<0. Chen explicitly leaves uniqueness open in the paper's worked example, but this does not account for the subsequent broader catalogue result."
+        ],
+        "reasoning": "Prior coverage includes the simple positive zero, not just maximizer existence. Exact sign evaluation at the frozen endpoints is the remaining numerical refinement.",
+        "searches": [
+          "33a2f59ff992 Finding and Proof, mirror offset 0",
+          "Chen arXiv:2610.00032v1 §7.2, HTML offset 28451"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At q=1/40 the broader objective Ψ_q equals the frozen Ψ since M_q=F/(32t²). Also Ψ is the ratio of power series with coefficients f_{k+3} and f_{k+2}; the coefficient ratios rise from 41/48 to 83/82 and then strictly fall."
+        ],
+        "reasoning": "The power-series ratio theorem gives a shape route for the fixed law; analyticity and an interior maximum give strictness. The broader compound-Poisson theorem is decisive because it also gives nondegeneracy for this same objective.",
+        "searches": [
+          "Chen arXiv:2610.00032v1 §§3, 7.2",
+          "Karp–Vishnyakova–Zhang arXiv:2408.01755v2, Theorem 2.5 and the power-kernel case",
+          "Resultary 33a2f59ff992, derivative numerator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier catalogue gives the identical decimals t_q=0.473723111601… and c_*(q)=0.895416095555…. Chen's worked example has numerical estimates, not a uniqueness proof. No exact rational endpoint certificate was found in the inspected comparison passages."
+        ],
+        "reasoning": "Matching numerical values alone would not cover the shape or an exact certificate. In this case the catalogue finding supplies the shape theorem separately.",
+        "searches": [
+          "Resultary 33a2f59ff992 Finding, q=1/40; Chen §7.2, Eqs. (53)–(59)"
+        ]
+      },
+      "rationale": "The October 18 Resultary theorem 33a2f59ff992 already proves strict global unimodality, uniqueness and negative second derivative at the optimizer for the same objective over a probability range containing 1/40; it explicitly gives the same numerical maximizer and scale at 1/40. The fixed-law proof also specializes the earlier coefficient method, since N=−1024t^4 H_q at q=1/40 for the earlier derivative numerator H_q=M_q(M_q−1)−tM_q′. The exact rational endpoints are not in the inspected prior finding, but certify a narrow numerical bracket about an already proved and located maximizer, not the claimed uniqueness gap.",
+      "residual_risks": [
+        "The exact earliest occurrence is not adjudicated. Bounded searches cannot rule out a prior exact endpoint certificate; the demonstrated coverage does not rely on one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers strict unimodality, simplicity and numerical maximizer for the frozen law",
+          "evidence": [
+            "For q in [q_−,q_c) the peak is unique with strictly negative second derivative, and the finding prints the q=1/40 numerical pair."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-sharp-local-to-interior-transition-for-two-point-compound-pois--33a2f59ff992/RESULT.md",
+          "material_read": "Finding, assumptions, and derivative-numerator proof, mirror offset 0",
+          "method": "Local mirror with explicit specialization",
+          "title": "A sharp local-to-interior transition for two-point compound-Poisson sub-gamma scales",
+          "trigger": "Same jumps, objective and probability inside a claimed broader phase"
+        },
+        {
+          "assessment": "Covers the formula and example existence/numerics; explicitly not uniqueness there",
+          "evidence": [
+            "The two-point example fixes the probabilities at 39/40 and 1/40; the numerical determination does not establish uniqueness."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.00032v1",
+          "material_read": "Theorem 3.1, equation (19), HTML offset 11300; §7.2, equations (53)–(59), offset 28451",
+          "method": "Targeted primary-text inspection",
+          "title": "Optimal Sub-Gamma Scales for Spectrally Positive Infinitely Divisible Laws",
+          "trigger": "Original variational formula and exact worked example"
+        },
+        {
+          "assessment": "Relevant general route to the unimodal shape; not a certificate of the rational bracket",
+          "evidence": [
+            "The coefficient-ratio input for this example is unimodal and the denominator coefficients are strictly positive."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2408.01755v2",
+          "material_read": "Theorem 2.5 at HTML offset 23813 and power-kernel example around offset 28800",
+          "method": "Targeted open-access theorem and hypothesis comparison",
+          "title": "Unimodality preservation by ratios of functional series and integral transforms",
+          "trigger": "General power-series ratio shape theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and rational isolation",
+        "Resultary 33a2f59ff992 Finding and derivative numerator"
+      ],
+      "rationale": "Certifying uniqueness and nondegeneracy for a motivated example would resolve a useful question if unknown, but those facts and the location are already available from a broader theorem using the same derivative structure. The narrow rational bracket is correct; standard finite Taylor-tail arithmetic at two selected endpoints gives no new threshold, decision or consequence tied to these endpoints. No separately motivated valuable remainder is established.",
+      "residual_risks": [
+        "The value verdict does not question the exact arithmetic or exclude a future use for a specifically motivated certified threshold."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

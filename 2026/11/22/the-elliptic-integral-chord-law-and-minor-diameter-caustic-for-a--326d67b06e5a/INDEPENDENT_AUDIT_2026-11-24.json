@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:15:48.267552Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The torus sum/difference map has determinant of absolute value 2 and is onto, so the two output angles are jointly Haar. The squared sine of either half-angle is arcsine; the original length is 2SR with independent S^2 and (R^2-b^2)/(a^2-b^2) both arcsine. Writing q=R^2 and x=ell/2 gives density pi^(-2) times the integral of [(q-b^2)(a^2-q)(q-x^2)]^(-1/2) from max(b^2,x^2) to a^2. Substitution q=a^2-[a^2-max(b^2,x^2)]sin^2(theta) gives both branches with the stated modulus and normalizes by conditioning. On either side of the caustic the complementary modulus squared is asymptotic to b|ell-2b|/(a^2-b^2), and deviations in the prefactor times the logarithm are o(1), giving precisely the factor 16 in the logarithm. K(0) and the continuous lower endpoint give the outer limits, with no atoms; the circle has constant R and the stated arcsine transform. Independence and the first two arcsine moments 1/2 and 3/8 yield m2 and m4 as stated, and 4m4/3-2m2^2=(a^2-b^2)^2. To see that no continuous scalar can recover both axes locally, restrict it to a small circle in any proposed injectivity neighborhood: its values coincide at some pair of antipodes by continuity. The supplied standard-library code and notes were inspected, not executed; finite quadrature and simulation are not used to justify the all-ellipse result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gečiauskas's 1966 distance law uses interior points; Schrempp treats an extreme among interior ellipse points; Bäsel treats regular polygons and invariant lines.",
+          "4a4af7408362 treats arclength endpoints and contains the exact circle tail, but its noncircular near-diameter crossover is for another sampling measure."
+        ],
+        "reasoning": "A larger class of shapes or there being many chords does not cover the present law unless the endpoint measure and observable agree. The exact circle tail differentiates to the already covered circle density.",
+        "searches": [
+          "Gečiauskas LMJ PDFs 19722 and 19983, sampling definitions",
+          "Schrempp arXiv:1505.01597, p. 1",
+          "Resultary: circle limit exact endpoint chord length arcsine density ellipse diameter tail independent boundary points"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_ellipse_chords.py",
+        "Gečiauskas LMJ 19722 and 19983; Schrempp arXiv:1505.01597 p. 1; Bäsel pp. 1 and 3, regular polygons",
+        "MathWorld Circle Line Picking",
+        "Resultary d73d2584de06, d92ee9c243fb, 4a4af7408362, cd61381281e0 and a45728ca36ca"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The invariant-line confocal-caustic law is for a different variable and does not supply the anomaly-uniform orientation/length mixture. The solid-ellipse inverse formulas use interior second and fourth moments under an area sampling law.",
+          "The circle tail (2/pi) arccos(1-epsilon/(2a)) implies the circle density exactly. The noncircular constant requires the complementary-modulus conversion to ell-2b under the actual normalized mixture."
+        ],
+        "reasoning": "Credit exact prior coverage of the circle case, and the general integration and elliptic-asymptotic ingredients. Neither the close caustic precedent nor the moment-tomography results imply the noncircular theorem's formulas for its fixed boundary measure.",
+        "searches": [
+          "d73d2584de06 Finding, local perspective on the caustic variable",
+          "cd61381281e0 Finding, moment inversion hypotheses",
+          "4a4af7408362 exact circle tail; MathWorld Circle Line Picking Eq. (3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The random angle is uniform before applying diag(a,b); after that the Euclidean-arclength density relative to angle is not constant for a>b.",
+          "Gečiauskas pp. 409–412 treats a contour point with random ray, or an invariant line, not the push-forward of iid uniform circular endpoints. MathWorld Circle Line Picking Eq. (3) covers the circle specialization."
+        ],
+        "reasoning": "Circle line picking with independent endpoints is equivalent only at a=b. Affine transfer alone fixes the joint sampling law but Euclidean length depends on orientation as well as circular length.",
+        "searches": [
+          "Web: \"uniform eccentric anomaly\" ellipse chord length distribution independent points elliptic integral",
+          "Web: ellipse distribution distance between two random boundary points parametric uniform affine image circle chord length elliptic integral probability",
+          "Resultary: ellipse endpoint chord density independent uniform eccentric anomaly complete elliptic K two branches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d73d2584de06 is a close structural match with two K branches and a full log constant, but for a confocal-caustic parameter of invariant random lines. d92ee9c243fb concerns distances between perpendicular circular wires.",
+          "cd61381281e0 gives two-even-moment axis inversion for volume-uniform solid ellipsoids; a45728ca36ca uses arclength and two different statistics."
+        ],
+        "reasoning": "Matching two-branch formulas or the number of moments do not identify the exact law or inverse map. Same-day comparisons are substantive structural overlap, not evidence of which claim is earlier.",
+        "searches": [
+          "Resultary: ellipse Euclidean chord density branch complete elliptic integral minor-axis diameter logarithmic constant",
+          "Resultary: eccentric-anomaly boundary ellipse distance moments m2 m4 exact semiaxis inversion"
+        ]
+      },
+      "rationale": "The inspected comparisons cover the circle law and related elliptic-integral forms or inverse-moment constructions for different measures. They do not give both branches and the minor-diameter constant for the independent eccentric-anomaly law, or its exact inversion formulas. The mathematical comparisons hinge on the measure and on which random variable the density describes, not just an ellipse and a K function appearing in both statements.",
+      "residual_risks": [
+        "Bounded historical comparison; the public searches were not useful matches for the actual noncircular law. A classical formula under affine image or product-variable terminology could have been missed.",
+        "Horowitz's cited primary circle paper was not inspected directly; the circle overlap is established by other passages. No ordering is inferred among same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Neighboring chord models, not equivalent to iid anomaly endpoints",
+          "evidence": "Model I uses contour starting point and random-ray direction, and Model II an invariant line. The issue masthead is 1968; 1967 is the receipt year noted in the PDF.",
+          "identifier_or_url": "https://www.zurnalai.vu.lt/LMJ/article/download/19983/19112",
+          "material_read": "PDF pp. 409–412, offsets 0–7060, model definitions",
+          "method": "Direct OA PDF passages",
+          "title": "The distribution function of the chord length of oval and ovaloid",
+          "trigger": "Classical ellipse/oval chord-law candidate"
+        },
+        {
+          "assessment": "Interior sampling",
+          "evidence": "The two random points lie inside the oval, not on its parametrized boundary.",
+          "identifier_or_url": "https://www.zurnalai.vu.lt/LMJ/article/download/19722/18819",
+          "material_read": "PDF pp. 245–246, offset 0",
+          "method": "Direct OA PDF passage",
+          "title": "Distribution function of a distance between two random points in an oval",
+          "trigger": "Plausible prior endpoint-distance title"
+        },
+        {
+          "assessment": "Material structural overlap, not actual variable or sampling equivalence",
+          "evidence": "A confocal-caustic parameter of invariant random lines has a log form with numerator 16c^2 in its own separatrix variable; it is not the length between two iid anomaly endpoints.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-full-crofton-caustic-law-of-an-ellipse-and-its-logarithmic-s--d73d2584de06",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "The full Crofton caustic law of an ellipse and its logarithmic singularity",
+          "trigger": "Closest two-branch and exact log catalogue result"
+        },
+        {
+          "assessment": "Exact circle overlap; a different noncircular law",
+          "evidence": "Exact circle tail; in the ellipse case arclength replaces anomaly and only the near-diameter tail is studied.",
+          "identifier_or_url": "2026/11/1/SCOPE-a-logarithmic-near-circle-crossover-for-nearly-diametral-chords--4a4af7408362",
+          "material_read": "Mirrored RESULT.md offsets 92–2483",
+          "method": "Resultary search and local mirror",
+          "title": "A logarithmic near-circle crossover for nearly diametral chords",
+          "trigger": "Exact circular specialization and adjacent noncircular asymptotic"
+        },
+        {
+          "assessment": "Same number of moments in dimension two with different probability measures",
+          "evidence": "The moments describe independent volume-uniform points in the filled body.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-finite-distance-moment-tomography-of-solid-euclidean-ellip--cd61381281e0",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp finite distance-moment tomography of solid Euclidean ellipsoids",
+          "trigger": "Closest inverse-moment theorem"
+        },
+        {
+          "assessment": "Classical circle law, not ellipse chord law",
+          "evidence": "Independent uniform endpoints on the circumference and their chord-length density.",
+          "identifier_or_url": "https://mathworld.wolfram.com/CircleLinePicking.html",
+          "material_read": "Circle sampling definition and Eq. (3) vicinity, HTML text offset 238",
+          "method": "OA website literal query for probability density; compared exact circle formula with 4a4af7408362",
+          "title": "Circle Line Picking",
+          "trigger": "Precise equivalent circular law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The affine-uniform model is a natural image of circular line picking and should not be confused with arclength or invariant-line models. It yields a calibrated interior singularity while both outer endpoint limits stay finite, tracing a concrete change from the circle. Exact two-moment recovery offers a separate inverse use of the law, including scale. The value is the complete noncircular law and its distinctive transition and inversion, not a new evaluation of the classical circle law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

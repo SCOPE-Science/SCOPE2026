@@ -1,38 +1,23 @@
-# A delta-invariant obstruction to the claimed cusp–two-node degeneration
+# A δ-invariant obstruction in a claimed cusp–two-node deformation
 
 ## Finding
 
-In the preprint *Equisingular Deformations of Curves and Surfaces in Threefolds* (arXiv:2603.01540v1), the local description in Proposition 4.1 and the global argument in Theorem 4.2 assert that a cusp can be replaced equigenerically by two ordinary nodes. This cannot hold as stated. An ordinary cusp has local delta invariant \(\delta=1\); an ordinary node also has \(\delta=1\), so two nodes contribute \(\delta=2\). An equigeneric deformation preserves total delta.
+In Mounir Nisse's *Equisingular Deformations of Curves and Surfaces in Threefolds* (arXiv:2603.01540v1), the proof of Theorem 4.2 explicitly replaces each ordinary cusp by two ordinary nodes in an equigeneric deformation. This step is incompatible with constancy of total δ. If the initial curve has exactly κ ordinary cusps and no other singularities, an equigeneric nodal member, **if it exists**, must have κ nodes, not 2κ.
 
-Consequently, if a reduced curve has exactly \(\kappa\) ordinary cusps and no other singularities, its total delta invariant is \(\kappa\). A nodal curve in the same equigeneric stratum therefore has exactly \(\kappa\) nodes, not \(2\kappa\). This is a statement-specific obstruction to the claimed cusp-to-two-node mechanism, not a claim about every other result in the preprint.
+The related local error is phrased differently in Proposition 4.1. It starts with a reduced planar singularity of δ = 2 and offers a single ordinary cusp as an equigeneric alternative to two ordinary nodes. The cusp alone has δ = 1 and cannot occur as that alternative; a further δ = 1 contribution would be necessary. The proof of the proposition also describes two nodes coalescing into an ordinary cusp within the δ = 2 locus. These observations identify an obstruction to the stated mechanism, not a disproof of the global closure or codimension assertions in the statement of Theorem 4.2.
 
 ## Assumptions and scope
 
-Work over an algebraically closed field of characteristic zero with reduced plane curves and their local analytic singularities. “Equigeneric” means that the total delta invariant is constant in the family. For a curve with other singularities, the count applies to the sum of delta invariants over all singular points; the \(\kappa\)-node conclusion above assumes exactly \(\kappa\) cusps and no other singularities on the initial curve.
+Work over an algebraically closed field of characteristic zero, with reduced curves and the indicated ordinary planar singularities. Equigeneric is used in the δ-constant sense. Total δ sums the local invariants over all singularities; the counts above require exactly the specified singularities in the relevant fiber or local deformation neighborhood.
 
 ## Proof
 
-1. For a reduced plane curve singularity, \(\delta\) measures the length of the quotient of the normalization sheaf by the local ring. It is additive over distinct singular points.
-2. The ordinary cusp \(y^2=x^3\) has \(\delta=1\), and the ordinary node \(xy=0\) has \(\delta=1\).
-3. Thus a single cusp and a pair of nodes have different total delta invariants, respectively \(1\) and \(2\). They cannot be the two fibers of an equigeneric local deformation with no additional singularity contribution.
-4. For a global curve with \(\kappa\) cusps and no other singularities, the total is \(\kappa\). Since each node contributes one, a nodal member of that same equigeneric stratum has \(\kappa\) nodes. This contradicts a replacement of every cusp by two nodes, which would give \(2\kappa\) nodes.
-
-No numerical experiment is needed: the contradiction follows exactly from the definition of the invariant and the two local delta values.
+The local invariant δ is the length of the quotient of the normalization of the local ring by that ring. For the ordinary cusp \(y^2=x^3\), the inclusion \(k[[s^2,s^3]]\subset k[[s]]\) leaves only the class of \(s\) in the quotient, giving δ = 1. For the ordinary node \(xy=0\), the image in \(k[[x]]\oplus k[[y]]\) consists of pairs with equal constant terms, so the quotient also has length one. Thus two distinct nodes contribute δ = 2, and one ordinary cusp contributes δ = 1. Additivity over distinct points and constancy of total δ give the local and global incompatibilities above. In particular, the proof of Theorem 4.2 simultaneously asserts two nodes per cusp and a total of δ(C) nodes, which disagree when there is at least one cusp.
 
 ## Verification
 
-The cited preprint was read in full-text form at the relevant passages: Proposition 4.1 and its proof (PDF pages 9–10), Theorem 4.2 and its proof (PDF page 10), and the definitions of the plane cuspidal locus and its delta bound (PDF page 11). Those passages state that an ordinary cusp has \(\delta=1\), but also describe two nodes as replacing each cusp while preserving equigenericity. The invariant counts above reproduce the contradiction. The statement is limited to that implication; no independent audit has been performed.
+The version-specific source is [arXiv:2603.01540v1](https://arxiv.org/pdf/2603.01540v1). PDF page 9 gives the δ = 2 hypothesis and the two alternatives in Proposition 4.1. PDF pages 9–10 give Theorem 4.2 and its proof; the latter states both that “each cusp has split into two distinct nodes” and that the total number of nodes is exactly δ(C). The local normalization computations above give exact checks of both counts. No computer calculation is needed.
 
-## Relationship to prior work
+## Relationship to prior work and limitations
 
-The primary comparison is the preprint by Mounir Nisse, *Equisingular Deformations of Curves and Surfaces in Threefolds*, arXiv:2603.01540v1, first publicly posted on 2026-03-02. Its own text identifies the cusp's delta invariant as one and defines the equigeneric setting through preservation of the total delta invariant. Paul Cadman's thesis on the delta-constant stratum independently describes that stratum as the locus where the deformed curve has the same delta invariant as the original. The present claim is a narrow correction of the stated node count; it does not claim novelty for delta-constant deformation theory or propose a replacement theorem.
-
-## Limitations
-
-This result does not classify all deformations of a cusp, establish existence or nonexistence of a particular global equigeneric family beyond the incompatible count, or assess the remaining statements of the preprint. It only rules out the asserted one-cusp/two-node replacement when no other delta contribution compensates for the change.
-
-## References
-
-1. Mounir Nisse, “Equisingular Deformations of Curves and Surfaces in Threefolds,” arXiv:2603.01540v1, posted 2026-03-02, especially Proposition 4.1 and Theorem 4.2.
-2. Paul Cadman, “Deformations of plane curve singularities and the delta-constant stratum,” PhD thesis, University of Warwick, 2011, abstract and definition of the delta-constant stratum.
-3. G.-M. Greuel, C. Lossen, and E. Shustin, *Introduction to Singularities and Deformations*, Springer, 2007, sections on plane-curve singularities and delta-constant deformations.
+The local values of δ and their additivity are standard; no novelty is claimed for them or for the numerical requirement that δ-constant nodal fibers have δ nodes. Related statements of generic equigeneric nodality appear in Nisse's separate preprint *Logarithmic Equigeneric Smoothing and Maximal Nodal Degenerations* ([arXiv:2603.01538v1](https://arxiv.org/pdf/2603.01538v1), PDF pp. 13–14). The point here is the mismatch between specified alternatives and node counts in arXiv:2603.01540v1. This check does not establish the existence of a global equigeneric nodal deformation, the codimension of a cuspidal stratum, or the correctness of any other result in that preprint.

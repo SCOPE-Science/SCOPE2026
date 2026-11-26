@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is equivalent to all 4-anchor adjacency patterns having two witnesses. The exact five-round Ehrenfeucht–Fraïssé argument proves the logic reduction in both directions. The Weil-bound calculation contributes six quadratic pairs and four cubic and one quartic term, giving the verified uniform lower bound \((q-38-11\sqrt q)/16>2\) from \(q=241\). The remaining eligible odd prime powers are exhausted by all affine-normalized anchor quadruples and all sixteen relation patterns. The finite-field extension polynomials are checked irreducible, and independent quadratic-character histograms agree at nine representative and boundary orders. Finite tests are used only in the finite range; they do not substitute for the tail proof.
+PASS
 
-## Originality — PASS, qualified
+Five EF rounds need extension over at most four distinct previously selected vertices; smaller patterns are obtained by padding. Conversely a failed pattern refutes its rank-five universal-existential extension sentence. Deleting the only witness, or a non-anchor when there were none, proves the two-witness necessity. The q=5 edge case falls outside the phrasing 'more than five' in Step 1, but deletion leaves four vertices and the rank-five sentence asserting five distinct vertices fails, while a four-anchor pattern can never have two witnesses in P_5. In the tail calculation singleton sums vanish, each of six pair sums is -1, four cubic and one quartic Weil estimates cost 11 sqrt(q), and excluded anchors cost at most 32. The lower bound is greater than 2 at 241 and increasing thereafter. Square and nonsquare affine multipliers normalize a four-set to 0,1,a,b, with nonsquares only complementing the checked pattern. I inspected rather than ran the supplied scripts. A separately written exact program, /workspace/reviews/paley_reproduction.py, generates prime powers and finds its own irreducible moduli, constructs adjacency using squares, and partitions by three anchors before tallying both signs for the fourth. Its run reproduced all 30 minima below 241, including 181 with minimum 2 and 125 with minimum 1. It also reproduced witnesses [4] in the published F_125 representation and [11,81] at 89. Thus there is no uncovered range or reliance on a spot check.
 
-Ananchuen–Caccetta (1993) and Blass–Exoo–Harary (1981) address eventual Paley adjacency-extension guarantees. Elsawy's full accessible arXiv thesis summarizes the established three-existential closure and general asymptotic sufficient inequalities. Those results imply an eventual positive tail but do not themselves determine the complete tested low-order parameter region or isolate the \(125\)-vertex failure in the material inspected. The nearest indexed related theorem states that 4-e.c. Paley graphs yield a geometric-dominance property, which does not require two witnesses. The inaccessible full 1993 article creates a real residual priority risk; the present claim does not assert an exhaustive absence from it.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A precise all-order classification of Paley four-extension robustness has structural motivation: two witnesses are exactly the stability margin needed to retain finite Rado-graph approximation after arbitrary one-vertex deletion. The sharp least successful field order and nonmonotone exceptional order \(125\) are not consequences of eventual quadratic-character bounds or the one-witness four-e.c. property. The natural threshold answers an invariant question for a classical pseudorandom graph family rather than reporting an arbitrary finite slice.
+The distinct claim is the exact all-prime-power classification for two four-point witnesses, especially the failure after deletion at 125. The rank-five interpretation is standard and the least successful ordinary Paley order 89 and the positive two-witness case 121 have direct indexed overlaps, so neither constitutes separate novelty here. Prior multiple-witness inequalities already imply a positive tail. They do not determine the exceptional low field or the exact robust classification in the inspected statements.
 
-## Closest literature and limitations
+## value
 
-- W. Ananchuen and L. Caccetta, *On the adjacency properties of Paley graphs*, Networks 23 (1993), DOI: https://doi.org/10.1002/net.3230230404. Accessible abstract, not full article.
-- A. Blass, G. Exoo, F. Harary, *Paley graphs satisfy all first-order adjacency axioms*, Journal of Graph Theory 5 (1981), DOI: https://doi.org/10.1002/jgt.3190050414. Accessible abstract, not full article.
-- A. N. Elsawy, *Paley Graphs and Their Generalizations*, arXiv:1203.1818v1 (2012), especially the accessible full section 2.2.
+PASS
 
-No independent mathematical or historical-priority audit has been performed. Only odd prime powers congruent to one modulo four and quantifier rank five are covered.
+One-vertex deletion robustness is a natural next invariant of a classical pseudorandom family. Its exact all-order range is useful for finite rank-five approximants and not determined by the usual tail bounds. The singleton at 125 makes the robustness margin genuinely different from the ordinary extension property and shows an actual failure after deletion amid successful orders; this is not an arbitrary truncated census.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

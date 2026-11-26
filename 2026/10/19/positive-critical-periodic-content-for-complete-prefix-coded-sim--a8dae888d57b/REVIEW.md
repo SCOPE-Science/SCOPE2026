@@ -1,15 +1,21 @@
-# Review of complete-prefix-coded positive critical periodic content
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof defines the exact complete-code and strong-separation hypotheses. The Kraft identity fixes the Hausdorff exponent \(s=\log q/\log(1/r)\). A cyclic \(q\)-ary de Bruijn sequence of length \(q^n\) is parsed by the deterministic complete-prefix decoder on \(\mathbb Z/q^n\mathbb Z\); every directed decoder cycle consumes a positive multiple of \(q^n\) letters, so its number of codewords is at least \(q^n/L\). Distinct cycle starts have distinct source length-\(n\) factors, forcing total common-codeword-prefix length at most \(n-1\). Strong separation and exact similarity scaling give \(\eta_n\ge\delta r^{n-1}\). Thus \(p_n\eta_n^s\ge(\delta/r)^s/L\), with periods tending to infinity. This is an infinite analytic proof; the finite verifier independently exercises the symbolic mechanism and the displayed planar geometry uses exact rectangles. The weak-convergence statement is precisely covered by Kong–Wang–Yu Theorem 1.3 after its premises are established.
+PASS
 
-## Originality — PASS (provisional bibliographic assessment)
+Kraft gives the similarity dimension by r^s=1/q, and strong separation gives both Hausdorff dimension and injective coding. If N=q^n>L, a decoder cycle has length p>=N/L>1 because the total positive advance is a multiple of N. Distinct visited positions have distinct cyclic n-factors, so the repeated list of codeword indices is primitive and any common initial complete-codeword prefix has total length at most n-1. At the first different IFS symbol the cylinder gap is at least δ, scaled by the common-prefix ratio r^v, giving δr^{n-1}. The frozen arbitrary-cycle proof leaves out a genuine small-n case: a chosen decoder cycle can be a singleton when N<=L (binary {0,10,11}, n=1), and the ordinary gap of a singleton is undefined. For all N<=L the theorem as stated is proved instead by the alternating repetition of any two different IFS symbols. Its period 2 is at least N/L and its gap is at least δ>=δr^{n-1}. This covers the boundary without changing the claim or defining an empty minimum. An independent manual n=2 check for {0,10,11} parses the de Bruijn circle 0011 as 0,0,11 with p=3 and the required prefix bound. For the full sequence p tends to infinity, and pη^s>=L^{-1}(δ/r)^s by r^s=1/q. The hypotheses of Kong–Wang–Yu Theorem 1.3 are precisely strong separation, growing periods and positive liminf of this product; the weights r_i^s give normalized Hausdorff measure. Their Theorem 1.1 gives finiteness at s. The example's invariant square gives separation at least one; (4,0) is the fixed point of f_10 and (0,0) that of f_0, so (2,0) and (3,0) witness equality. VERIFICATION.md and artifacts/verify_prefix_orbits.py were inspected without executing the frozen code; the recorded finite checker does not establish the theorem.
 
-Kong–Wang–Yu introduce the invariant and explicitly ask the inhomogeneous critical-content question (Question 5.1); their homogeneous theorem and inhomogeneous dimension equality do not imply positivity here. The closest published two-map theorem treats ratios \(\rho,\rho^2\), whereas the present complete-prefix theorem includes the three-map ratios \(\rho,\rho^2,\rho^2\) and arbitrary complete finite prefix-code length profiles. The two-map critical exponent is smaller, so its lower-gap estimate does not imply positivity at the three-map exponent. The decoder-cycle argument supplies the new transfer of full-shift de Bruijn separation to variable-length IFS time. Moreno's 2005 abstract concerns de Bruijn cycles of restricted languages rather than critical Euclidean periodic content, but its full text was not available in this comparison. The known literature and semantic-record searches disclosed no dominating general prefix-code periodic-content theorem. Residual risks include unindexed variable-length suspension results and uninspected details of older combinatorial literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a structurally motivated positive answer for an infinite, naturally generated class of unequal-ratio systems to a recent explicit open question, not a finite table or parameter substitution. It yields a uniform explicit lower bound and a three-map strongly separated planar witness, and it gives concrete periodic-orbit measures converging to the canonical Hausdorff measure. Completeness is exactly the Kraft-critical balance, explaining why fixed-length universal cycles can be used after variable-length decoding. It does not resolve arbitrary inhomogeneous ratios and does not assert an optimal critical-content constant.
+Credit the inhomogeneous complete-prefix-code family and its quantitative decoder construction; homogeneous positivity, Kraft and de Bruijn ingredients, and the measure-convergence consequence are prior. The strongest adjacent positive inhomogeneous result also uses weighted symbolic separation but covers a different length profile.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Critical positivity was missing beyond particular inhomogeneous cases. The exact winding argument supplies a uniform lower bound on the product of period and critical separation for an infinite natural family, with genuinely inhomogeneous examples. The same construction produces a concrete orbit sequence to which the prior distribution theorem applies. It is not a solution for general ratios.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

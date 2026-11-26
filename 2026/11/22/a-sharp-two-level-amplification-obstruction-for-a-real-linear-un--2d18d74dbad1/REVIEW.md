@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The definition fixes all real-linearity and matrix-amplification conventions. The row compression \(\|[A\ B]\|\le\|X\|\), conjugate-equal row norms, and stacked-row inequality prove the universal \(\sqrt2\) upper bound. The explicit skew-symmetric two-by-two witness gives a unitary input whose image has eigenvalue \(\sqrt2\); padding yields equality at all higher levels. The level-one bound and unitary preservation follow by direct multiplication. Exact symbolic identities and 297 random finite assertions in `CHECK.py` supplement rather than establish the theorem.
+## correctness
 
-**Originality — PASS (qualified).** Cui–Wu–Yuan's arXiv:2611.13822v1, Lemma 2.4 and Corollary 4.5, cover the ordinary norm-one unitary preserver and its structural non-Jordan class. They do not state the \(k\)-amplification formula or the unitary witness at \(k=2\). Searches of published mathematical records for quaternionic first-row completion, real-linear unitary preservers, completely bounded norms, and matrix-level unitary obstructions found no directly covering statement. Closest indexed results concerned either complex-linear Schatten Schur multipliers or unrelated quaternionic moments. Residual priority risk: an older real operator-space treatment of quaternionic row maps might imply the same \(\sqrt2\) law.
+PASS
 
-**Mathematical value — PASS.** Unitary preservation alone is not stable under a minimal matrix amplification, despite norm-one behavior at the underlying level. The result gives both the smallest failing level and the exact sharp inflation, realized on an actual unitary. That is a motivated structural boundary for newly classified exceptional unitary preservers, rather than an arbitrary matrix example or a restatement of their classification.
+For a first row (a,b), the image satisfies QQ*= (|a|²+|b|²)I and det Q=|a|²+|b|². Thus the map fixes I, sends U(2) to SU(2), and has norm one by row compression. With tensor factors switched, the output rows are P=[A B] and R=[−conj(B) conj(A)]; RR*=conj(PP*) gives ||R||=||P||≤||X||, and the squared output norm on a vector is at most twice ||X||² times the squared vector norm. For the displayed real J, J*=-J and J²=-I. These imply WW*=2I and Z=Z*, Z²=2Z; Z is nonzero. The switched entrywise image of W/√2 is exactly Z/√2, yielding equality on a unitary at k=2. Padding the two tensor sectors by identities preserves both the unitary input and the attaining output summand at every k>2. The non-Jordan check on E12 and E21 is valid. All computations are exact and concern the specified real-linear entrywise maps in the ordinary complex operator norm. The inspected CHECK.py is only supplementary, and was not executed.
 
-The result is specific to this explicit non-Jordan map and does not classify all possible preservers. Its exact matrix norm proof is independent of finite diagnostics. General prior work on operator-space norms may contain an equivalent formulation, not established by the sources inspected.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass is for the exact amplification norms and unitary attainment, not the ordinary norm, quaternionic range, or classification of unital real-linear unitary preservers. No inspected independent result gives the quantitative assertion or a theorem that specializes to it without a separate sharpness computation.
+
+## value
+
+PASS
+
+An exact matricial invariant of a natural exceptional map from a real-linear preserver classification is relevant to distinguishing scalar unitary preservation from its stronger matricial version. It locates the first obstruction and shows the largest distortion can actually occur on a unitary, rather than merely some matrix in the norm ball. The simple proof does not reduce this to the known scalar norm or to the qualitative non-Jordan observation; no broader classification or complex-linear completely bounded conclusion is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

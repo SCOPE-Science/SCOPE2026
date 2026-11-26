@@ -1,15 +1,21 @@
-# Scientific review: three-point Fourier determinant spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem concerns every one of the \(\binom{25}{3}\) frequency triples for each three-point row support. Affine reduction gives exactly two row orbits. The collinear case is an elementary pentagonal Vandermonde computation. In the noncollinear case, the determinant is explicitly six cyclotomic monomials; taking its squared modulus gives an integer-pair expression in \(\mathbb Q(\sqrt5)\). Enumeration of all \(\binom{24}{2}=276\) rooted unordered pairs using only integer operations yields the eight-level table; translation double counting recovers every unrooted frequency triple. `checker.py` independently evaluates all full determinants by six-permutation expansion, checks the 276 rooted cases and optimizer shapes, and prints `CHECK_PASS`. There is no reliance on sampling or numerical tolerances. Boundary conditions (distinct indices; all collinear and noncollinear triples; unnormalized characters) are explicit.
+## correctness
 
-## Originality — PASS, with residual risk
-Actual research searches for determinant spectrum, maximal three-frequency exponential bases on \(\mathbb F_5^2\), cyclotomic magnitude levels, and FMS determinant tightness returned no source implying this complete quantitative distribution. Full text of Ferguson--Mayeli--Sothanaphan, arXiv:1904.04487, sections on determinant quantities and geometric examples was inspected: its Definition 3.10 gives the invariant but its theorems do not give the present values. Full text of Caragea--Lee, arXiv:2409.09793, concerns cyclic principal minor vanishing rather than arbitrary noncyclic minor magnitudes. The closest published affine-plane three-by-three classification gives ranks, not positive determinant magnitudes or D-optimal frequency orbits. The published cyclic prime-square census also gives ranks on a nonisomorphic group. A published determinant-tightness family treats a \(p+1\)-point subgroup-plus-one-point aperture, not arbitrary three-point supports. Equivalent older maximal-subdeterminant tables remain a real, unresolved bibliographic possibility; no claim of independent certification or global uniqueness is made.
+PASS
 
-## Value — PASS
-Ferguson--Mayeli--Sothanaphan motivate the supremal determinant as a natural quantitative exponential-basis invariant. At the first odd prime beyond the ternary case, this theorem resolves its complete distribution for **every** three-point support, identifies and constructs every maximizer, and quantifies the geometric cost of collinearity (a sharp squared-volume gap of exactly five). The two optimizer orbits and the large disparity \(50\) versus \(625\) describe robust Fourier interpolation choices rather than an arbitrary slice of a table. The finite computation is a complete natural classification; no downstream infinite theorem is claimed or needed for its finite value.
+Independent row and column translations change only phases; applying L and its inverse transpose preserves pairings. The two row orbits follow from affine transitivity on triangles and the complements of pairs on a five-point line. For the line orbit, distinct first coordinates are necessary and sufficient by Vandermonde; the two pentagonal triple types contribute five projections each and 125 lifts per projection. I independently enumerated all 4,600 representative minors using det(M M*) rather than the supplied determinant expansion: with cyclic off-diagonal Gram entries a,b,c, det(M M*)=27-3(|a|²+|b|²+|c|²)+2 Re(abc). Exact reduction of integer character sums gave the stated spectra, the 625 first-coordinate maximizing lifts and exactly the disjoint union of the two displayed 25-element cap orbits. Counting 300 line triples and 2,000 triangles gives 287,500 maximizing, 615,000 singular and 4,675,000 nonsingular support pairs. Consistent with the explicit 2,300-choice quantifier, each support has three distinct points and the two supports may coincide.
 
-## Limitations
-Only characteristic five and order-three minors. Squared determinant measures volume, not the spectral condition number. Literature coverage may be incomplete, particularly older complex-Hadamard minor tables.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The zero level and its counts are already implied by the exact affine-plane rank classification. I credit novelty only to the positive squared-volume spectrum, its multiplicities and the equality-case geometry; neither that rank theorem nor the inspected determinant tightness framework determines those data.
+
+## value
+
+PASS
+
+This is the full volume distribution of the natural three-point Fourier basis-selection problem in characteristic five. In particular it gives the exact geometric cost of constraining the row support to a line (a loss of five in the best squared volume) and all the attainable optimal frequency supports. Neither the known rank counts nor a computation of one maximizing example answers those design questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

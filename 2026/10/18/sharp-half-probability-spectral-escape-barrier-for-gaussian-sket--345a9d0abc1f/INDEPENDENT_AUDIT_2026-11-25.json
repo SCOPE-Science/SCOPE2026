@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:26:12.319247Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalize v and resolve Av into its components μv and σw with w a unit perpendicular vector. Independent Gaussian rows make the sketches of v and w independent centered isotropic normals. Given the first sketch, its inner product with the second divided by its length is a standard normal with conditional law independent of that length. This gives σZ/χ_s (equivalently σt_s/√s) for the centered scalar, with the stated strict moment threshold and variance. For fixed interior μ, both escape tails increase strictly with σ; the positive semidefinite spectral polynomial (MI−A)(A−mI) shows precisely which directions maximize σ. Writing q=√(p/(1−p)) differentiates the sum of reciprocal-threshold tails to c_s(q^(s−1)−1)/(1+q²)^((s+1)/2), proving strict balance for s≥2 and constancy for s=1. The boundary limits equal 1/2 while at the exact eigenvector the escape probability is zero. At balance, χ_s²/(χ_s²+Z²) is Beta(s/2,1/2), and its CDF at 1/2 has the quoted endpoint asymptotic by the beta integral. These calculations establish the result for every fixed real symmetric A with m<M and every positive integer s; the uploaded numerical verifier was read but not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "ec7a4a7d4b05 gives the Student law and moment cutoffs for a noninvariant direction plus an invariant spectator block, with real effective degrees ν=s−m+1.",
+          "The algorithm papers supply the least-squares compression and Arnoldi setting, not the fixed-mean spectral-envelope optimization."
+        ],
+        "reasoning": "Even with m≥2 in that indexed statement, padding by a spectator and projecting out its sketch gives the same scalar law with arbitrary effective row count, so the exact distribution is covered in substance. The broader distribution does not by itself compare starts or characterize spectral support of extremizers.",
+        "searches": [
+          "Resultary earlier real/complex Gaussian sketched Ritz oversampling and spectra",
+          "arXiv:2111.00113 §1.3.1; arXiv:2407.03208 p. 2; arXiv:2306.03592 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 797c5afe2e63, ec7a4a7d4b05, 64c030573be9",
+        "arXiv:2111.14641, 2111.00113, 2407.03208, 2306.03592"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "797c5afe2e63 lists the exact two reciprocal thresholds conditional on W and the Cauchy half-escape identity for every W, and then integrates in W. It does not classify directional extrema or optimize over arbitrary spectra.",
+          "The bound on one-direction residual variance is the classical interval-variance inequality applied to spectral weights."
+        ],
+        "reasoning": "One can recover the two-point fixed-mean F_s(p) immediately from the indexed conditional calculation, but the general extremal comparison requires recognizing the spectral residual as the sharp interval-variance variable, tracing equality through two strictly increasing tails, and optimizing the reciprocal thresholds in p. The checked sources do not carry out or give a theorem entailing the claimed full orientation and equality structure without this argument. The distinct overlap is not excluded on catalogue timing alone.",
+        "searches": [
+          "797c5afe2e63 mirrored proof of beta escape and relationship, offsets 4110–5508 and 9900–11665",
+          "Bhatia–Davis interval variance and direct spectral identity",
+          "Resultary balanced and global fixed-direction spectral escape"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Balabanov–Grigori use the same scalar quotient on p. 33; the 64c030573be9 FOM Ritz h_S is algebraically identical.",
+          "The latter assumes SPD and a deterministic ε-embedding on span{b,Ab} and controls the possible value and positivity, not its unconditional Gaussian probability."
+        ],
+        "reasoning": "The notation and algorithm name do not distinguish the quotient. It is the change from conditional deterministic value control to exact probabilistic extremization that matters.",
+        "searches": [
+          "Resultary scalar Gaussian sketched Ritz exact Student law and fixed-start spectral escape",
+          "Balabanov–Grigori arXiv:2111.14641, sketched Rayleigh quotient",
+          "Resultary 64c030573be9 one-vector sketching envelope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed 797c5afe2e63 gives a closed beta mixture after averaging Haar spectral weights over a two-eigenvalue matrix. ec7a4a7d4b05 gives the ordinary centered absolute Student tail."
+        ],
+        "reasoning": "A table of Student tails calculates individual directional probabilities but does not optimize their sum. The exact indexed Haar average is not an envelope over deterministic starts; its conditional event calculation does give the two-endpoint formula and is credited.",
+        "searches": [
+          "Resultary exact reciprocal-tail F_s(p), balanced minimum and half-escape lookup"
+        ]
+      },
+      "rationale": "The assessed distinct result is the pointwise fixed-mean extremal law for arbitrary fixed symmetric spectra, including its equality set, orientation dependence and sharp unconditional half-probability supremum. The Gaussian Student law, its moment frontier, the absolute-tail beta expression, and the extremal interval-variance inequality are ingredients, not new distribution results. The closest two-eigenvalue source also gives the conditional escape thresholds and hence the pointwise endpoint-mixture formula before averaging. Neither that proof nor the earlier related sketched Ritz moment statement solves the stated extremal question over starts in a general fixed matrix.",
+      "residual_risks": [
+        "The general fixed-matrix envelope may have an unlocated statement in specialized work. The broad literature search was uninformative, and no claim of exhaustive priority is made.",
+        "The Bhatia–Davis original was not available in the attempted route; the spectral specialization was checked directly and is not claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap: gives the conditional two-eigenvalue exact escape and one-row half identity; target of the record is the average over Haar W and multiplicity, not the extremal directional theorem",
+          "evidence": [
+            "Given W, U_k=Z/χ_k and the two escape events are U_k<−√(W/(1−W)) and U_k>√((1−W)/W). The record then integrates W and explicitly limits scope to two eigenvalues and Haar trial vectors."
+          ],
+          "identifier_or_url": "Resultary 797c5afe2e63",
+          "material_read": "Finding; proof offsets 4110–5508; relationship/limitations offsets 9900–11665",
+          "method": "Local Resultary and mirrored RESULT.md",
+          "title": "Multiplicity controls spectral-envelope escape for Gaussian-sketched Rayleigh quotients",
+          "trigger": "Strongest match: same statistic and spectral interval"
+        },
+        {
+          "assessment": "Prior scaled Student and moment thresholds, not escape extremization",
+          "evidence": [
+            "Invariant spectators and one noninvariant direction; real ν=s−m+1; exact two-sided incomplete-beta tail."
+          ],
+          "identifier_or_url": "Resultary ec7a4a7d4b05",
+          "material_read": "Finding and assumptions, mirrored offsets 0–3360",
+          "method": "Local Resultary and mirrored RESULT.md",
+          "title": "Sharp real–complex Gaussian oversampling thresholds for sketched Ritz moments",
+          "trigger": "Earlier exact Gaussian Ritz Student law"
+        },
+        {
+          "assessment": "Deterministic embedding-conditioned result, not the unconditional probability law",
+          "evidence": [
+            "ε-distortion on span{b,Ab}, deterministic expanded interval and positivity threshold."
+          ],
+          "identifier_or_url": "Resultary 64c030573be9",
+          "material_read": "Finding, assumptions and start of proof, offsets 0–2809",
+          "method": "Local Resultary and mirrored RESULT.md",
+          "title": "Sharp one-vector sketching envelope and positive-stability threshold for symmetric systems",
+          "trigger": "Same one-vector Ritz quotient and sharp interval"
+        },
+        {
+          "assessment": "Definition and setting, not directional extrema",
+          "evidence": [
+            "Written as ⟨Θw,ΘAw⟩/⟨Θw,Θw⟩."
+          ],
+          "identifier_or_url": "Balabanov–Grigori, arXiv:2111.14641",
+          "material_read": "PDF p. 33, offset 164519",
+          "method": "Primary open PDF text",
+          "title": "Randomized block Krylov and Rayleigh–Ritz methods for symmetric eigenvalue problems",
+          "trigger": "Prior exact same quotient"
+        },
+        {
+          "assessment": "Prior compression framework",
+          "evidence": [
+            "Least-squares compressed operator; does not compute fixed-mean escape in the checked passage."
+          ],
+          "identifier_or_url": "arXiv:2111.00113",
+          "material_read": "§1.3.1, p. 5",
+          "method": "Primary open PDF text",
+          "title": "Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+          "trigger": "Randomized Rayleigh–Ritz compression"
+        },
+        {
+          "assessment": "Algorithmic motivation, not evidence of the specific scalar extremal theorem",
+          "evidence": [
+            "Implicit restarting for nonsymmetric eigenproblems; sketch-and-select basis construction."
+          ],
+          "identifier_or_url": "arXiv:2407.03208; arXiv:2306.03592",
+          "material_read": "First paper p. 2 algorithm context; second paper p. 1 abstract",
+          "method": "Primary open PDF text",
+          "title": "Randomized Implicitly Restarted Arnoldi method for the non-symmetric eigenvalue problem; A sketch-and-select Arnoldi process",
+          "trigger": "Sketch-orthogonal and sketched Arnoldi context"
+        },
+        {
+          "assessment": "Variance inequality is prior; no priority inference from access failure",
+          "evidence": [
+            "The positive semidefinite polynomial gives the exact bound and equality independently of external access."
+          ],
+          "identifier_or_url": "Bhatia–Davis, American Mathematical Monthly 107 (2000), 353–357",
+          "material_read": "Cited result; primary copy unavailable in lawful attempt (HTTP 403)",
+          "method": "Access attempt and direct check using the spectral polynomial",
+          "title": "A Better Bound on the Variance",
+          "trigger": "Classical sharp residual variance comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Establishes that no finite unconditioned Gaussian row count lowers the worst-direction spectral-interval escape probability below 1/2, even though balanced endpoint mixtures have exponentially small escape and the limiting eigenvectors never escape. It identifies the unique spectral form of extremizers at fixed mean and the approach to the obstruction; a tail estimate alone would not answer these questions. This is about exit probability, not an order-one error magnitude or a claim about a full restarted solver.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

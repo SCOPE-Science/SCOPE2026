@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:48:29.944977Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Selecting a hub observes its whole layer and the other hub, leaving at most the vertical counterpart as an unobserved neighbor of each observed peripheral vertex. Without a selected hub, one selection in each doubled petal gives a whole observed clique layer there plus its hub. The clique can force across its vertical matches, after which a vertex in the opposite clique can force the opposite hub if necessary. Conversely an unhit doubled petal remains wholly unobserved: only a hub could force its first vertex, but each hub has at least r_i≥2 unobserved neighbors in it. These two disjoint regimes give the displayed all-subset polynomial. The minimal sets are exactly the two hub singletons and the size-k one-per-petal transversals, giving the stated minimal polynomial. At budget one only the two hub states are possible; at every budget at least two, hub states connect by deletion to singletons and the two-hub bridge. Below k these are all states; at k each transversal is isolated (all deletions fail and every addition exceeds budget); from k+1 every hub-free state can first delete surplus vertices down to a transversal and then add a hub. The middle range is empty when k=2. Under one vertex deletion, either both hubs remain linked or every surviving opposite-layer vertex reaches the remaining hub by its own vertical edge. Thus the graphs are two-vertex-connected, and taking all r_i=2 gives 4^k isolated transversals at the threshold. Inspected the supporting checker without running it: it independently simulates forces and tests finite enumerations and TAR components. The reported largest case has 3·2^16+15^4=247233 feasible sets, 2+4^4=258 minimal sets and 1+4^4=257 budget-four components. The universal result follows from the proof, not finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The polynomial decomposition for single-vertex identification differs from the two-hub-edge overlap in the prism; the join formula concerns a graph join rather than this Cartesian lift.",
+          "The general Cartesian bound in Theorem 4 only gives the bound 1≤γ_P(G) here; Theorem 2 treats products of two trees."
+        ],
+        "reasoning": "These results do not give the successful subsets, both polynomials or exact TAR component counts on the target admissible class.",
+        "searches": [
+          "arXiv:1805.10984, Theorems 17 and 19 (join and vertex identification)",
+          "arXiv:2209.03930, Theorems 2 and 4 (Cartesian-product bounds)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1805.10984 Propositions/Theorems 7, 17, 19",
+        "arXiv:2209.03930 Theorems 2 and 4",
+        "Resultary 646ff77569c3, 453d578dc82f, 6949b15f6548, 99dbf6bd21a3, 07ecc14d7349, 438257c07ae7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For n≥6 the crown record gives minimal spectrum {2,n−2} and TAR disconnection at n−2 (1+2·binom(n,2) components) between connected ranges. Crown graphs are already two-vertex-connected.",
+          "The rook record gives reentrance, including the case 3≤m and n≥m+2 with disconnection at n−1. The two-token-star record concerns ordinary domination; the subdivided-clique record concerns slides among minimum power-dominating sets."
+        ],
+        "reasoning": "Neither the gap nor the phenomenon of reentrance is novel as such. The particular component sequence including exact size-k isolated transversals and the two enumerators follow from the new prism classification, not a substitution into those other graph or move rules.",
+        "searches": [
+          "Resultary 6949b15f6548 and 99dbf6bd21a3, Finding statements and state criteria",
+          "Resultary 07ecc14d7349 and 438257c07ae7, same-day reconfiguration findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Power domination is equivalent to hitting N[F] for every fort F (Brimkov et al. Proposition 7).",
+          "The book graph K_{1,r} □ K₂ is the all-singleton petal boundary of the same construction and allows a hub-free set to miss one page pair. The spider rule similarly allows one unhit arm, on a different graph."
+        ],
+        "reasoning": "The hitting-set formulation is equivalent in general but does not specify the obstructions of this prism. The book boundary has r_i=1, where the claimed doubled-petal obstruction disappears, so it is not an equivalent statement on r_i≥2.",
+        "searches": [
+          "Resultary: clique-blade bouquet or windmill prisms, book and friendship prisms, hub-or-petal transversals; 646ff77569c3 and 453d578dc82f",
+          "Brimkov et al. arXiv:1805.10984, Proposition 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact book polynomial includes the extra term r·[z(z+2)]^{r−1} for hub-free sets missing one page.",
+          "The crown and rook records give exact component counts at every budget on different graph families."
+        ],
+        "reasoning": "Those explicit tables do not specialize to the heterogeneous doubled-clique family with transversal size k. No covering exact match was identified.",
+        "searches": [
+          "Resultary: book-graph polynomial and exact all-budget power-domination TAR tables, 646ff77569c3, 6949b15f6548 and 99dbf6bd21a3"
+        ]
+      },
+      "rationale": "The supported distinct claim is the joint all-placement, minimal-placement and budget-component census for Cartesian prisms of clique bouquets with every r_i≥2. Reentrant power-domination TAR and arbitrarily long gaps in minimal cardinalities on two-connected graphs are already exhibited by the earlier-dated crown record; the audited theorem provides a different, heterogeneous family with two hub singletons and an exact exponentially large isolated layer. No priority is inferred for any same-date work.",
+      "residual_risks": [
+        "Some external literature queries were deferred without results; the comparisons are not an exhaustive priority determination. An inaccessible product classification or prior exact formula could still exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies general framework but no direct decomposition theorem for the doubled-petal prism",
+          "evidence": "Fort-neighborhood criterion; join and specified single-vertex-identification formulas.",
+          "identifier_or_url": "https://arxiv.org/abs/1805.10984",
+          "material_read": "OA PDF Proposition 7 p. 5; Theorems 17 and 19 pp. 8–10 (offsets 16979, 24896, 32811)",
+          "method": "Read matched full-text theorem passages",
+          "title": "Power domination polynomials of graphs",
+          "trigger": "A general characterization or decomposition potentially yielding the census"
+        },
+        {
+          "assessment": "Numerical product bounds do not classify feasible placements",
+          "evidence": "Theorem 4 lower bound via the two factors; Theorem 2 treats two trees.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.03930",
+          "material_read": "OA PDF Theorem 2 at p. 3 (offset 6876) and §3, Theorem 4 pp. 11–13 (offset 33551)",
+          "method": "Read matched full-text theorem passages",
+          "title": "Graphs which satisfy a Vizing-like bound for power domination of Cartesian products",
+          "trigger": "Cartesian-product theorem could imply the classification"
+        },
+        {
+          "assessment": "Exact boundary analogue, with a different successful-set criterion",
+          "evidence": "Either select a spine vertex or hit at least r−1 page pairs; the polynomial includes missing-one-page sets.",
+          "identifier_or_url": "2026/10/4/SCOPE-power-domination-polynomial-of-book-graphs--646ff77569c3",
+          "material_read": "Finding, offset 0",
+          "method": "Read bound Resultary mirror statement",
+          "title": "Power domination polynomial of book graphs",
+          "trigger": "Same prism construction with singleton petals"
+        },
+        {
+          "assessment": "Related rule on spider trees, not a two-layer clique prism",
+          "evidence": "Center selected or at least k−1 arms hit.",
+          "identifier_or_url": "2026/10/4/SCOPE-power-domination-polynomials-of-spider-trees-and-extremal-arm-ba--453d578dc82f",
+          "material_read": "Finding, offset 0",
+          "method": "Read bound Resultary mirror statement",
+          "title": "Power domination polynomials of spider trees and extremal arm balance",
+          "trigger": "Related hub/arm criterion and polynomial"
+        },
+        {
+          "assessment": "Covers general phenomena; no implication of the audited family census",
+          "evidence": "Crown-graph placements and minimal spectrum {2,n−2}, with a complete distinct TAR count.",
+          "identifier_or_url": "2026/11/8/SCOPE-crown-graph-power-domination-and-nonmonotone-reconfiguration-thr--6949b15f6548",
+          "material_read": "Finding, offset 0",
+          "method": "Read bound Resultary mirror statement",
+          "title": "Crown-graph power domination and nonmonotone reconfiguration thresholds",
+          "trigger": "Strong analogue for both polynomials, TAR reentrance and gaps"
+        },
+        {
+          "assessment": "Distinct factors K_m and K_n and different feasible-set rule",
+          "evidence": "Complete component formula including reentrance at budgets specific to the rook graph.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-reconfiguration-components-of-power-dominating-sets-in-roo--99dbf6bd21a3",
+          "material_read": "Finding, offset 0",
+          "method": "Read bound Resultary mirror statement",
+          "title": "Exact reconfiguration components of power-dominating sets in rook graphs",
+          "trigger": "Exact power-domination TAR in a Cartesian-product family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A simple two-hub prism yields a natural exact family of feasible configurations, sharply separated minimal placements, and the full fixed-budget mobility profile. The asymmetric roles of a single hub and a large transversal explain why transversals appear as exponentially many isolated placements at one budget and reconnect with one additional sensor. The precise all-subset and all-budget results are useful beyond the already known existence of reentrance or cardinality gaps.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:05:01.687090Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–70",
+        "VERIFICATION.md lines 2–21 and verify.py lines 10–58, inspected without execution",
+        "Independent replay: rational arithmetic, Cayley–Hamilton recurrence s_{j+3}=−14s_{j+2}−32s_{j+1}−10s_j, N=10 at t=1 and N=40 at t=5, with the explicit norm-tail bounds above."
+      ],
+      "rationale": "Summing pool inventories and uptake within each equal-desorption class gives a closed system of size m+1 without losing any information in C(t). With the positive scaling T=diag(1,√(a_b/b)), T⁻¹MT is the symmetric arrowhead Q with zᵀQz=−vz₀²−Σ_b(√a_b z₀−√b z_b)². Thus it is negative definite. Repeated eigenvalues would permit an eigenvector with no air coordinate; distinct pool diagonals force such a vector to be supported on at most one pool, and its nonzero air coupling rules it out. The finite sum for C′ has at most m zeros counted with multiplicity by Rolle induction; the dominant coefficient of C is strictly positive by positivity of the Perron eigenvectors and the nonnegative nonzero initial state (m=0 is just one decaying mode). Therefore C′ is eventually negative. The initial and eventual negative signs mean each positive component uses two endpoint incidences; if two positive components share an endpoint, its zero has even order at least two, so the multiplicity count still applies to the headline bound. In the two-pool case the reduced derivative bracket −p+qu−ru^κ has negative endpoints. Convexity when r≤0, or monotonicity when q≤0<r, excludes an increase; otherwise strict concavity gives the stated interior maximum and threshold, with equality giving a tangency only when the interior conditions hold. For the witness, K=10M has characteristic polynomial X³+14X²+32X+10. The air moments s_j=e₁ᵀKʲx₀ start (2,−1,20) and satisfy its recurrence. An independent exact rational evaluation of Σ_{j=0}^N s_{j+1}t^j/(10^{j+1}j!) gave P₁₀(1)=138133084986931/22680000000000000 and an error bound 1977326743/245953125000000 using the geometric tail bound for x=7t/5, namely 7x^(N+1)/[(N+1)!(1−x/(N+2))]. At t=5, N=40 gives P≈−0.017612582204117346 with an exact rational bound less than 1.12·10⁻¹⁴. Exact comparisons certify the signs −,+,− at 0,1,5; the zero count gives exactly one rebound, not just sampled nonmonotonicity.",
+      "residual_risks": [
+        "Sharpness is shown at two rate classes, not at every larger m. The criterion assumes strict initial decline; equality in the interior-maximum test is not a rebound.",
+        "Only the given linear compartment system with arbitrary nonnegative initial inventories is validated. The certificate is not an empirical test or a model for how the initial loads arose."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sherman–Hult discuss independent storage media, multiple depletion scales, and an exponential-mode response. Appendix A also treats layered media separately. IncHEM-Py includes emissions and reactive mechanisms; its surface-generated emissions are not passive release in the stated closure.",
+          "The Chebyshev-system bound applies generally to an m+1-term real exponential sum, including C′, and is explicitly credited as known."
+        ],
+        "reasoning": "General zero counting supplies an upper bound once the right number of modes and their endpoint signs are known. It does not by itself identify desorption classes, select the exact two-pool phase boundary, or guarantee a physically admissible witness.",
+        "searches": [
+          "Sherman–Hult LBNL-6114E §3 and Appendix A.4.1–A.4.2",
+          "INCHEM-Py 2023 DOI:10.5194/gmd-16-7411-2023 §§2.1, 2.8",
+          "DOI:10.1007/s002080050003, background exponential sums"
+        ]
+      },
+      "checked_sources": [
+        "LBNL-6114E §3 and Appendix A",
+        "OSTI 837735 pp. 6–8",
+        "DOI:10.5194/gmd-16-7411-2023 §§2.1, 2.8",
+        "Resultary 6dd0c0e2f3e5 and same-record match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the strongest model antecedent the many exponentials concern modal decay rates, not the number of distinct material desorption rates. The frozen theorem additionally needs exact class aggregation and eventual decline from nonnegative initial states.",
+          "The concavity criterion is derived after the modal reduction; showing the possibility of a strict rebound requires jointly attainable mode amplitudes, established by the rational passive witness, not by allowing arbitrary signs in an exponential sum."
+        ],
+        "reasoning": "The abstract mode and zero-count tools and the one-storage equations are prior. No inspected stronger statement supplies the complete exact threshold and sharp, nonnegative two-rate feasibility result by restriction.",
+        "searches": [
+          "LBNL-6114E, §3 pp. 6–8 and §A.4.1 p. 23",
+          "OSTI 837735, equations (1)–(7)",
+          "6dd0c0e2f3e5, Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Singer equations (1)–(2) are a one-storage reversible exchange after volume normalization. Equations (5)–(7) place the embedded sink behind the surface sink, without direct coupling to air, even when the two transfer coefficients differ.",
+          "The closest distinct indexed model, 6dd0c0e2f3e5, treats one pool and an air-only initial pulse with an optimized cleaning intervention, changing the state rather than measuring an autonomous rebound."
+        ],
+        "reasoning": "A three-state sequential model may also give three exponential modes, but its physical rate classes and allowed parameter structure are not the parallel two-pool system. The one-pool intervention optimization uses a different output and initial state.",
+        "searches": [
+          "Resultary source-free reversible air storage rebound, distinct desorption rates, spectral two-compartment models",
+          "Singer et al., Sorption of organic gases in a furnished room, DOI:10.1016/j.atmosenv.2004.02.003; OSTI 837735, pp. 6–8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest direct hit is the assigned record itself. The distinct 6dd0c0e2f3e5 concerns time choice for a cleaning intervention; its theorem does not enumerate autonomous rebounds.",
+          "The inspected model passages give modal responses and examples, not a table or exact inequality for the number of increase episodes or the threshold of the parallel two-pool system."
+        ],
+        "reasoning": "Identical-record search results are not independent confirmation. An exponential time-scale representation or an empirical example is not an exact census by desorption-rate diversity.",
+        "searches": [
+          "Resultary bounded searches for exact source-free rebound, two-pool threshold, and indoor storage rate diversity",
+          "LBNL-6114E Appendix A, Eq. (A.29), A.4.1–A.4.2"
+        ]
+      },
+      "rationale": "Reversible storage equations, exponential mode decompositions, and the Chebyshev zero bound are known ingredients. The supported quantitative distinction is the autonomous star's exact desorption-class bound with a sharp two-class onset, the necessary-and-sufficient three-mode test, and a certified witness with positive rates and admissible initial loads. The strongest inspected model antecedent includes independent storage media and many decay modes but does not give that shape classification in the relevant passages. The inspected two-sink empirical model is layered, not a two-pool star. This comparison does not claim priority for storage models or prove exhaustive novelty.",
+      "residual_risks": [
+        "The exponential-sum reference was not available as full text; the standard lemma is credited independently. An uninspected earlier sorption or compartment-analysis paper may contain an equivalent transient criterion. No earliest-priority determination is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior model and exponential representation; no inspected rebound theorem",
+          "evidence": "Independent storage media and many modal decay terms are discussed separately from layered media.",
+          "identifier_or_url": "https://eta-publications.lbl.gov/sites/default/files/lbnl-6114e.pdf",
+          "material_read": "§3 pp. 6–8, OA offsets 12700–16615; Appendix A Eq. (A.29), §§A.4.1–A.4.2, p. 23, offset 52000",
+          "method": "Lawful OA report PDF, bounded passages",
+          "title": "Impacts of Contaminant Storage on Indoor Air Quality: Model Development",
+          "trigger": "Closest parallel multi-storage physical model"
+        },
+        {
+          "assessment": "Confirms single direct storage and sequential two-sink variants, not the independent two-pool star",
+          "evidence": "Eq. (5) contains release only from the surface pool M. The text below Eq. (7) expressly says embedded E contacts the surface sink but not room air.",
+          "identifier_or_url": "https://www.osti.gov/servlets/purl/837735; DOI:10.1016/j.atmosenv.2004.02.003",
+          "material_read": "pp. 6–8, equations (1)–(7) and tested model discussion, OA offsets 14800–21243",
+          "method": "Lawful alternative OSTI full-text copy after other routes were unavailable; bounded PDF passages",
+          "title": "Sorption of organic gases in a furnished room",
+          "trigger": "Potential closest two-sink sorption model"
+        },
+        {
+          "assessment": "Relevant context, not the passive source-free rebound result",
+          "evidence": "Ventilation, emissions, chemistry, and gas–surface/gas–particle mechanisms are included; the cited reactive surface emissions use oxidant deposition yields.",
+          "identifier_or_url": "DOI:10.5194/gmd-16-7411-2023",
+          "material_read": "§2.1 pp. 7413–14, OA offsets 9500, 14500; §2.8 pp. 7419–20, offset 45000, equations (12)–(13)",
+          "method": "Lawful OA publisher PDF",
+          "title": "INCHEM-Py v1.2: a community box model for indoor air chemistry",
+          "trigger": "Indoor air reactive box-model precedent"
+        },
+        {
+          "assessment": "Unavailable source passage; no specific claim attributed to the paper or novelty claimed for the zero bound",
+          "evidence": "The mode-number zero bound is a standard exponential Chebyshev fact and has a complete elementary proof in the record.",
+          "identifier_or_url": "DOI:10.1007/s002080050003",
+          "material_read": "Article passage not retrieved; independent Rolle argument in RESULT.md line 48 checked instead",
+          "method": "DOI and publisher PDF retrieval attempt",
+          "title": "Pointwise Remez- and Nikolskii-type inequalities for exponential sums",
+          "trigger": "Cited exponential-sum background"
+        },
+        {
+          "assessment": "One-pool autonomous model component, but intervention and integrated exposure are the theorem's concern",
+          "evidence": "Air-only pulse plus a cleaning intervention, rather than arbitrary nonnegative initial pool load and an autonomous concentration-shape bound.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-unique-spectral-cleaning-clock-for-a-two-compartment-indoor-po--6dd0c0e2f3e5",
+          "material_read": "Finding and model setup, mirror offset 0 onward",
+          "method": "Local mirror, bounded text",
+          "title": "A unique spectral cleaning clock for a two-compartment indoor pollutant model",
+          "trigger": "Closest distinct indexed indoor compartment model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–31, 48–82",
+        "LBNL-6114E §3, storage-media modeling context"
+      ],
+      "rationale": "For post-emission model interpretation, duplicating storage compartments at the same release rate cannot account for the observed shape, while heterogeneous stored inventories can. This is a motivated exact minimality result: the positive-rate rational witness proves genuine feasibility, and the phase threshold distinguishes parameter and initial-state regimes rather than merely observing a numerical peak. This can serve as a benchmark for diagnosing modeled transients without assuming a second source pulse.",
+      "residual_risks": [
+        "The threshold does not establish prevalence in rooms, infer actual pools from a single air trace, or validate nonlinear/reactive mechanisms. It assumes linear direct reversible exchange and no further injection."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

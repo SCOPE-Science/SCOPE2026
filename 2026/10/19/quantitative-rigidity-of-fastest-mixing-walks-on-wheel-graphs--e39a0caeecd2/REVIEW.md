@@ -1,15 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness
-PASS. The first and extreme Fourier-mode Rayleigh inequalities give a universal lower bound using only average spoke and rim weights. A fully constructed invariant kernel attains the bound, including the hub-versus-rim eigenvalue constraint. Positive-semidefinite saturation of the first harmonic yields a quantitative residual bound; its imaginary rim coordinates control cyclic rim-weight variations via the cycle Poincaré gap, and its real coordinates control spoke variations. The proof explicitly treats every integer rim size at least four and nonnegative holding probabilities. A standard-library Jacobi spectral checker completed 22,532 finite numerical assertions. Those checks are corroboration, not an infinite proof.
+## correctness
 
-## Originality
-PASS under the checked literature, with a residual equivalence risk. Boyd–Diaconis–Parrilo–Xiao already give the wheel optimum value and a symmetric optimizer: neither is represented as new. Their automorphism argument supplies existence, whereas the additional theorem rules out all noninvariant competing optimizers and quantifies deviations of *each* edge from the optimum for arbitrary feasible symmetric kernels. The original wheel derivation in arXiv:0709.0955v1, Section 5.3.3, was inspected in detail; the general SDP formulation and symmetry literature were compared, as were published related cycle results and relevant public mathematical records. No equivalently strong all-edge quantitative stability result was found in these comparisons. Unindexed work may contain such a result.
+PASS
 
-## Value
-PASS. Symmetry averaging by itself leaves open whether an optimally mixing wheel can conceal an inhomogeneous edge assignment. The uniqueness theorem resolves that exact design question. The global \(O_m(\sqrt\varepsilon)\) bounds also ensure that **every** nearly optimal feasible stochastic matrix, not just an invariant representative, has individual edge weights near the prescribed design. This supports sensitivity analysis and interpretation of numerically optimized near-solutions. No best-possible constant or stronger rate is asserted.
+For a nonconstant unit rim Fourier vector (zero at the hub), the Laplacian quadratic form depends only on the mean spoke and rim weights. The first and highest-frequency tests give affine bounds with slopes -u and v; minimizing their maximum and using the hub budget gives μ(P) ≥ (1−p̄)r ≥ μ*. At the proposed invariant chain u+v>4, so the hold constraints are feasible. The hub–rim contrast eigenvalue is −1/m, bounded in modulus by μ* (including equality at m=4); the rim modes attain both ±μ*. The same two affine tests give p*−p̄≤ε/r and |q̄−q*|≤H. The first-mode Rayleigh quotient is at least μ*−(u/v)ε. For M=μ(P)I−(P−J) one has 0≤M≤2μ(P)I, so ||Mf||²≤2μ(P)⟨f,Mf⟩ and ||(P−P*)f||≤B. Dividing by f_j on the rim gives imaginary part sin(2π/m)(δq_j−δq_{j−1}); the cycle spectral gap is 4 sin²(π/m), yielding (1). The real part gives the spoke bound (2) by the triangle inequality, with coefficient 2(1−cos(2π/m))=u. Both bounds vanish at ε=0, and the row sums fix the holding weights. No symmetry of the competitors beyond matrix symmetry is used. Replay: RESULT.md lines 39–98. Read the supplied verify.py and VERIFICATION.md; the reported floating-point checks are finite and were not rerun or used to infer the theorem.
 
-## Closest coverage and limitations
-The exact spectral value and invariant transition weights are those of Boyd–Diaconis–Parrilo–Xiao (2007 preprint, 2009 journal). The scalar two-frequency minimax bound alone is not the contribution. The new equality-case Fourier reconstruction and quantitative residual-to-edge estimate require additional arguments. No comparison claims uniqueness among nonsymmetric or nonreversible chains. Independent external auditing remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Passes only for unrestricted uniqueness and explicit global wheel-edge stability. The minimum and invariant optimizer are known and correctly excluded from the originality claim. Neither the closest wheel source nor the closest indexed analogue establishes the claimed wheel rigidity estimates.
+
+## value
+
+PASS
+
+The established minimum alone would not tell whether noisy, asymmetric edge assignments can remain optimal. The theorem rules out that ambiguity and provides explicit bounds on individual edge families from observable spectral suboptimality. That is useful on a natural two-orbit graph beyond simply recomputing the symmetric chain; no claim of sharpness or uniform-in-m constants is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

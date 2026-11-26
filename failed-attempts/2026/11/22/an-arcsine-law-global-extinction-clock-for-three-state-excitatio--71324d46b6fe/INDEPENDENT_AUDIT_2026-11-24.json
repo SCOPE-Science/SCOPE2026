@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:24:35.286970Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The integer lift has the right colors modulo 3. Neighbor differences stay at most one because, when two heights differ by one, the lower vertex must increment. No vertex overshoots the multiple-of-three ceiling K, which an initial maximizer reaches in K-M steps and transmits to neighbors at speed one. First passage to K-2 at a lower site requires a neighbor already at that threshold. An all-zero word in the lifted dynamics has one common height by the Lipschitz property; it is K by monotonicity and the ceiling. This proves both finite bounds, including singleton and initial all-rest cases. Initial differences and the first color are independent by the modular bijection, so Donsker applies to the interpolated profile. In any uniform limit with a unique maximizer all points within vanishing height error cluster there; consequently the bounds converge to the same folded arcsine law. The CDF, median, expectation and uniform-integrability argument check. Inspected VERIFICATION.md, the submitted verify.py and recorded output; did not execute supplied code. The reported exhaustive checks to n=10 and separate histogram check to n=9 are finite and not proof of the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 1 expresses cumulative rest-to-excited transitions by the maximum initial 1-form integral over walks of length at most t from the vertex. On a path the integral is the potential difference of the endpoints, hence exactly H_t(i)-H_0(i) for H_t(i)=max_{|i-j|<=t} H_0(j).",
+          "The Durrett–Steif decay result is fixed-site activity on the infinite lattice. The inspected Fisch–Gravner passages address local/ground-state relaxation for general one-dimensional models; no same bulk law was identified there."
+        ],
+        "reasoning": "The first two relaxation comparisons do not establish coverage. The ranking lemma is different: its exact time-dependent maximum, not the much weaker diameter statement, supplies the whole deterministic input for the frozen observable.",
+        "searches": [
+          "Gravner–Lyu–Sivakoff arXiv:1610.07320, equations (3), (5) and (8), Lemma 1",
+          "Durrett–Steif (1991) Theorem 1; Fisch–Gravner (1995) free boundaries and relaxation passages"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2a387c4efac2, actual Finding and proof §§1–2",
+        "Gravner–Lyu–Sivakoff arXiv:1610.07320",
+        "Durrett–Steif (1991)",
+        "Fisch–Gravner (1995)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For I=argmax H_0, the earlier formula H_t(v)=max_{|i-v|<=t}H_0(i) first reaches its global maximum at time dist(v,I). If that distance is positive, the final increment is a 0-to-1 excitation and the vertex then rests exactly two steps later; vertices initially in I receive no excitation and rest within two steps. Thus T=2+max_v dist(v,I) when I is not the entire path, and T<=2 otherwise.",
+          "Under iid uniform colors the prior potential increments are centered bounded 1-dependent with variance 2/9, adjacent covariance -2/27, hence positive long-run variance 2/27. The standard functional CLT gives a Brownian limit. Alternatively the bounded-rounding identity reduces this immediately to iid Donsker."
+        ],
+        "reasoning": "Uniform convergence to a unique Brownian maximizer localizes the full maximizer set. The rescaled covering radius then tends to max(U,1-U); the bounded refractory delay vanishes. Its CDF and expectation follow from the classical arcsine law. This is a direct application of the earlier stronger deterministic representation with standard probability, rather than a new quantitatively independent extinction theorem or a novel strengthening of the earlier clock bounds.",
+        "searches": [
+          "Local-mirror 2a387c4efac2, proof §§1–2 (offsets around 1700–4900)",
+          "arXiv:1610.07320 Lemma 1 and definition of excitation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For GHM the earlier initial height H has increments d(0,1)=1, d(1,0)=-1, zero on all other ordered color pairs. The frozen lift h has differences in {-1,0,1}; therefore H_i=ceil(h_i/3)-ceil(h_0/3), since the ceiling gradient changes exactly across 0-to-1 or 1-to-0 edges.",
+          "The maximizers of H coincide exactly with the frozen near-maximum set S={i:h_i>=K-2}."
+        ],
+        "reasoning": "The prior potential and the apparently different iid height formulation have the same relevant spatial maximizers after ceiling rounding, and their profiles after division by the diffusive scale differ from each other after linear rescaling by a uniformly vanishing amount. No separate near-maximum propagation theorem is needed for the limiting clock.",
+        "searches": [
+          "Resultary: finite-open-path three-state global extinction, maximally delayed states, height maxima",
+          "arXiv:1610.07320, GHM edge 1-form and Lemma 1 equation (8)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Nov. 8 Finding gives the sharp bound n+1, a generating function for counts of T=n+1 and its n^(-1/2) probability. The proof derives the max-plus formula on the entire path and identifies last-layer delay by strict endpoint maximum."
+        ],
+        "reasoning": "The generating function for the single extremal layer is not a table of the full distribution and on its own would not specify the bulk limit. Crucially, the adjacent exact max-plus dynamics holds for every initial word and every time, not only the tabulated layer.",
+        "searches": [
+          "Resultary 2a387c4efac2, Finding and proof §§1–2, exact maximal extinction layer"
+        ]
+      },
+      "rationale": "The result is correct, and an endpoint count on its own would not imply it. But the full prior free-path result and the older arbitrary-graph ranking lemma both give exact excitation counts via neighborhood maxima. Taking the last time that this maximum grows reduces the global clock exactly, up to the bounded refractory delay, to the covering radius of the initial maximizer set. Under the same iid colors a standard invariance principle and Brownian argmax theorem then give the entire claimed law. The different height lift is a bounded rounding variant of the prior height for this purpose. This is affirmative corollary coverage, not a claim that the closed form was previously printed.",
+      "residual_risks": [
+        "No claim is made about who first wrote the folded-arcsine CDF verbatim; demonstrable implication suffices for this decision.",
+        "The bounded literature search does not decide equivalence for other initial laws, other graphs or other observables."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The endpoint probability alone is narrower, but its exact dynamical representation yields the new limit directly.",
+          "evidence": [
+            "H_(t+1)(v)=max_{u in N[v]}H_t(u), with increments equal to excitation indicators; iterated formula is max over the radius-t path interval."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-square-root-law-for-maximal-extinction-times-in-three-state-ex--2a387c4efac2/RESULT.md",
+          "material_read": "Finding and free-boundary assumptions; proof §§1–2 around offsets 1700–4900",
+          "method": "Resultary search and original local-mirror passage (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "title": "A square-root law for maximal extinction times in three-state excitation on finite paths",
+          "trigger": "Same path, rule, global hitting time and random initialization"
+        },
+        {
+          "assessment": "Exact cumulative excitation representation reduces to the same neighborhood maxima on paths; relied on that formula rather than identifying synchronization with all-rest.",
+          "evidence": [
+            "The GHM 1-form is nonzero precisely on 0-to-1 and 1-to-0 pairs; Lemma 1 takes a maximum over walks of length at most t."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1610.07320",
+          "material_read": "Open PDF pp. 3–4, equations (3), (5), (8), Lemma 1 and Theorem 3; tournament/ranking pp. 9–10",
+          "method": "Read original arXiv PDF passages via lawful OA",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Stronger exact excitation representation"
+        },
+        {
+          "assessment": "Different infinite-volume local observable.",
+          "evidence": [
+            "The theorem concerns a fixed site's activity, not the last excitation across a finite open path."
+          ],
+          "identifier_or_url": "https://sites.math.duke.edu/~rtd/reprints/paper66.pdf",
+          "material_read": "Open PDF abstract and Theorem 1, p. 2 of PDF, near offset 2770",
+          "method": "Read lawful original PDF passages",
+          "title": "Some Rigorous Results for the Greenberg–Hastings Model",
+          "trigger": "Closest classical product-start decay result"
+        },
+        {
+          "assessment": "Free-boundary hypotheses arose in earlier work; read passages are not a bulk finite-size limit statement.",
+          "evidence": [
+            "Abstract describes local periodic trends and ground-state relaxation in a multistate setting."
+          ],
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/09-5-1.pdf",
+          "material_read": "Open PDF abstract, p. 1; free-boundary discussion p. 3 around offset 5700",
+          "method": "Read lawful original PDF passages",
+          "title": "One-dimensional Deterministic Greenberg–Hastings Models",
+          "trigger": "One-dimensional relaxation and free boundaries"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The scaled global clock is a meaningful observable, but this record does not supply a nonroutine advance beyond the prior exact all-time representation and a standard invariance-principle corollary. The finite inequalities are weaker for that purpose than the prior exact clock from the maximizing set, and the mean and median are elementary evaluations of the same classical law.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

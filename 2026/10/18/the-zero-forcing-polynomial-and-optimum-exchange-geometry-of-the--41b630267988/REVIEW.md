@@ -1,15 +1,21 @@
-# Self-review: complete zero forcing and exchanges on the Desargues graph
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite domain is exactly all \(2^{20}=1048576\) subsets of the explicitly labelled bipartite Kneser graph \(H(5,2)\). The monotone closure rule and a separately written sequential closure both enumerate precisely \(524462\) zero-forcing masks; coefficient-wise agreement proves the full polynomial. Both implementations independently generate exactly \(13520\) minimum masks and \(178560\) unordered single-token-exchange edges. Automorphism-invariant breadth-first computations on one representative from each of the \(67\) orbits reach all \(13520\) masks and certify the stated radius, diameter and exact center. Replay code and the complete finite certificate are included, and the two generated certificates agree byte-for-byte. All conclusions are finite, not asymptotic or experimental extrapolations.
+## correctness
 
-## Originality — PASS, with residual risk
-The minimum value \(8\) is already reported by Butler–Grout–Hall (arXiv:1211.4618v1, 2012). The minimum-set count \(13520\), the four-plus-four balance and the \(67\) orbit census were previously established and expressly excluded from novelty. Geneson–Haas–Hogben (arXiv:2009.00220v1, 2020) define the reconfiguration operation and general theory; its inspected text does not contain these Desargues-specific exact exchange distances or full forcing polynomial. Actual semantic mathematical-record searches found no covering result. The remaining risks are unindexed tables and inaccessible or uninspected supplementary material; no absolute priority is asserted.
+PASS
 
-## Value — PASS
-The coefficient enumerator addresses every resource budget in a canonical symmetric twenty-vertex incidence graph, not just the known optimum. The token-jumping graph supplies exact global navigability and a sharp exchange-distance bound with a nontrivial two-level eccentricity classification; those metric properties do not follow from the previously counted minimum sets or their automorphism orbits. Both are natural reconfiguration and enumerative invariants, meaningful even without a family-wide extension. The disconnected token-sliding corollary follows immediately from already known bipartition balance and carries no separate originality claim.
+I independently reconstructed the entire certificate, not just the supplied statistics. The incidence graph can be built from two copies of the ten pairs, joining disjoint pairs across the copies and labeling a right pair by its complementary triple. A blue mask is winning iff it is full or some legal single-force successor is winning. Each successor is a strictly larger mask, so backward induction decides all 2^20 masks without a choice-of-forcing-order assumption. Bucketing the minimum seeds by their deleted one-element subsets independently reconstructs every exchange: distinct 8-sets have one such 7-subset in common exactly when adjacent. Adjacent ground-point transpositions and complementation generate the stated action and preserve forcing and exchanges. Layer expansion from each of the 67 representatives reaches all 13,520 vertices and yields the exact orbitwise distance histograms. The rebuilt certificate is byte-identical (2,611,589 bytes; SHA-256 5ad851a4887bdc203f66f1e52abd7c8a0fa879ff9273a9382ed373a1c145ef01). It verifies all coefficients (524,462 winning seeds in total), 178,560 exchanges, radius 7 and diameter 8, counts 980 and 12,540, and the central orbit sizes 20,120,120,240,240,240. Every minimum seed has balance 4+4, so no cross-shore slide can preserve minimum admissibility. Replay: python3 /workspace/branches/independent-desargues.py <scratch-certificate.tsv>; compare with the frozen certificate.tsv. The supplied Python and C++ verifiers were inspected, not executed; the independent recurrence, edge construction and orbit generation suffice for the finite claim. No all-family or formal-verification assertion.
 
-## Scope and literature limitation
-The theorem is specific to \(H(5,2)\); the finite certificate does not imply corresponding statements for larger bipartite Kneser graphs. The AIM 2008 foundational article and some other relevant publisher versions were not all material-read in full; the cited 2012 and 2020 arXiv papers were inspected as full texts with their statements and relevant sections compared. Independent validation and absolute publication priority remain unverified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass only for the complete ordinary seed-size enumerator and exact minimum-jump metric classification, including the central orbit split. The previously known minimum, count, shore balance and orbit census are excluded, as is their immediate frozen-slide corollary. A distinct November 2 Resultary record substantially overlaps the exchange metrics and extends the distance comparison; it is later on the available record dates and does not supply evidence of earlier coverage of the frozen October 18 claim. There is no verified earlier covering result for either retained component in the evidence examined.
+
+## value
+
+PASS
+
+The ordinary probability of controlling this canonical incidence graph at each fixed budget depends on these coefficients, not just the known minimum size. The exchange radius, diameter and small central subset give exact navigability and best starting configurations for maintaining minimal control under single exchanges. These are independent natural invariants of the same identified graph, with a genuine two-level metric distinction, not an arbitrary finite sample or a restatement of the prior symmetry census. No wider graph-family inference is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

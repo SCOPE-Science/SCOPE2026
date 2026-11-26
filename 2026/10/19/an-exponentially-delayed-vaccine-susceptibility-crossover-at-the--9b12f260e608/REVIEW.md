@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The full six-compartment equations conserve population mass and stay nonnegative. At the critical condition \(R_0\phi=1\), the exact scalar identity \(\dot Z=1-sZ^{-\alpha}-vZ^{-\varepsilon}\) follows from the infectious balance with no approximation. Uniform bounds \(1+it\le Z\le1+t\) make all fixed-parameter limits rigorous and yield bounded convergence at rescaled exponential times. The cumulative reinfection identity subtracts *postinitial primary infections* from all postinitial infections, avoiding a mistaken initial-infection count. A standalone numerical verifier independently integrates both model formulations and checks the crossover.
+PASS
 
-## Originality
+At R₀φ=1 choose Z=exp(∫₀ᵗJ), so Ż=ZJ. Using population conservation and the two never-infected equations shows that ZJ+sZ^(−α)+vZ^(−ε) is conserved and equals 1 from the initial data, with α=(1−φ)/φ and ε=(θ−φ)/φ. Hence i≤Ż≤1 and 1+it≤Z≤1+t. At fixed ε, Ż and Z/t tend to the same strictly positive constant (1−v or 1), giving tJ→1. Independently, total recovered fraction R satisfies Ṙ=J−JR and Q̇=JR, so Q=log Z−R, counting only postinitial reinfections. This gives exactly the two offsets. For T=exp(z/ε), fixed z>0 and r>0, the linear bounds give ε log Z(rT)→z and Z(rT)^(−α)→0. Averaging Ż over [0,T] by bounded convergence gives Z(T)/T→1−v exp(−z); R(T)→1 by the same bounds. This proves the asserted profile including its additive constant and the order of the limits.
 
-**PASS within the stated model, with residual risk.** Gutierrez and Gog (medRxiv 2025; journal 2026), whose Section 4 supplies the same leaky SIRI equations, restrict their subsequent final-size calculations to the strict \(R_0\phi<1\) regime. They do not claim the equality-line vaccination crossover. Katriel's 2010 partial-immunity model addresses the reinfection threshold without a distinct vaccinated-never-infected group; its established critical extinction conclusion is expressly acknowledged. Gomes–White–Medley's earlier vaccination/reinfection models differ in demography and immune action. Broad indexed searches did not identify this exact logarithmic-time crossover, although generalized critical-slowing results or unindexed work may cover it. Similarity searches are not proof of novelty.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The exact coefficient of the cumulative reinfection offset exhibits a singular dependence on whether vaccine-induced susceptibility equals or just exceeds infection-induced susceptibility. The profile quantifies how a small immunity-parameter gap produces an exponentially long transition, despite the same prevalence decay exponent. This addresses a precise and motivated gap at the equality line of a published vaccination SIRI model; neither a routine fixed-time approximation nor a mere parameter substitution yields the matched exponential-time limit.
+The leaky-vaccination equations and integrating-factor prevalence relation are prior, and the critical 1/t tail is not a standalone originality basis. The distinctive finding is the matched cumulative-reinfection offsets and the sharp exponential-time interpolation as the two susceptibility parameters coalesce at the exact reinfection threshold. The closest full text supplies the state relation but does not give this singular clock or a result implying it without additional analysis.
 
-## Boundaries and remaining risks
+## value
 
-The statement is deterministic and conditional on exact criticality, no demographic turnover, and positive initial infectives. Finite population extinction and different reinfection immunity rules can eliminate the predicted asymptotic regime. Earlier general dynamical-systems theorems may subsume part of the universal \(1/t\) tail; that universal tail is supporting context, not a separate novelty assertion. The main unresolved originality risk is an older specialized analysis of the same two-stratum leaky SIRI crossover not indexed in the reviewed sources.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact reinfection threshold and equality of two existing model susceptibilities are natural boundaries. The common 1/t prevalence tail hides a discontinuity in an integrated event-count offset. The exponential-time profile explains how that discrepancy builds up and identifies the precise limit missed by treating the small parameter at fixed observation time or in fixed-parameter final-size analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

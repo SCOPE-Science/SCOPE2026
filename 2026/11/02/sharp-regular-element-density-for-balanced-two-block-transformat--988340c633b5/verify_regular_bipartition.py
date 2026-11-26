@@ -1,87 +1,70 @@
-"""Finite checks for regular maps preserving a balanced two-block partition.
+"""Bounded checks of the regular count and sharp correction for two equal blocks."""
 
-This script uses explicit compositions for its small cases, independent of the
-image-containment counting formula. It also evaluates the formula by Stirling
-recursion and compares its larger-degree trend with the stated saddle constant.
-"""
-from functools import lru_cache
+from fractions import Fraction
 from itertools import product
-from math import comb, factorial, exp, sqrt
+from math import comb, exp, factorial, sqrt
 
 
-def all_maps(n):
-    for ch in product((0, 1), repeat=2):
-        for a in product(range(n), repeat=n):
-            for b in product(range(n), repeat=n):
-                yield tuple(ch[0]*n+v for v in a) + tuple(ch[1]*n+v for v in b)
-
-
-def compose(f, g):
-    return tuple(g[v] for v in f)
-
-
-def direct_count(n):
-    maps = list(all_maps(n))
-    reg = 0
+def direct_count(m):
+    targets = [tuple(range(m)), tuple(range(m, 2 * m))]
+    maps = [f for a, b in product(targets, repeat=2)
+            for f in product(*([a] * m + [b] * m))]
+    total = 0
     for f in maps:
+        image = tuple(set(f))
         for g in maps:
-            if compose(compose(f, g), f) == f:
-                reg += 1
+            if all(f[g[y]] == y for y in image):
+                total += 1
                 break
-    return reg
+    return total, len(maps)
 
 
-@lru_cache(None)
-def stirling(n, k):
-    if n == 0:
-        return int(k == 0)
-    if k == 0 or k > n:
-        return 0
-    return stirling(n-1, k-1) + k*stirling(n-1, k)
+def inclusion_and_equality_counts(m):
+    row = [1] + [0] * m
+    for _ in range(m):
+        row = [0] + [row[s - 1] + s * row[s] for s in range(1, m + 1)]
+    a, b = 0, 0
+    for s in range(1, m + 1):
+        onto = factorial(s) * row[s]
+        a += comb(m, s) * onto * s**m
+        b += comb(m, s) * onto**2
+    return a, b
 
 
-def predicted_count(n):
-    a = sum(comb(n, s)*factorial(s)*stirling(n, s)*s**n for s in range(1, n+1))
-    b = sum(comb(n, s)*(factorial(s)*stirling(n, s))**2 for s in range(1, n+1))
-    return 2*n**(2*n) + 4*a-2*b
+def correction(m):
+    a, b = inclusion_and_equality_counts(m)
+    return Fraction(2*a - b, 2*m**(2*m))
 
 
 def saddle():
-    def f(x):
-        y = x/(1-exp(-x))
-        return exp(-y) - (1+(x-1)*exp(x))
-    l,r=0.1,1.0
-    for _ in range(90):
-        c=(l+r)/2
-        if f(c)>0: l=c
-        else:r=c
-    x=(l+r)/2
-    y=x/(1-exp(-x))
-    F=1+(exp(x)-1)*exp(y)
-    rho=F/(exp(2)*x*y)
-    C=2/sqrt(x*y-(y-1)**2)
-    return rho,C
-
-
-def main():
-    for n in range(1,4):
-        actual = direct_count(n)
-        expected = predicted_count(n)
-        print('direct',n,actual,expected)
-        assert actual == expected
-    for n in range(4,13):
-        val = predicted_count(n)
-        assert 0 < val < 4*n**(2*n)
-        print('formula',n,val)
-    rho,C=saddle()
-    print('rho',rho,'prefactor',C)
-    assert 0.6967 < rho < 0.6968
-    for n in (40,80):
-        ratio = (predicted_count(n)/(4*n**(2*n))-.5)/(.5*C*rho**n)
-        print('asymptotic_ratio',n,ratio)
-        assert abs(ratio-1) < .01
-    print('VERIFY_OK')
+    lo, hi = 0.1, 1.0
+    for _ in range(55):
+        x = (lo + hi) / 2
+        y = x / (1 - exp(-x))
+        if exp(-y) > 1 + (x - 1) * exp(x):
+            lo = x
+        else:
+            hi = x
+    x = (lo + hi) / 2
+    y = x / (1 - exp(-x))
+    rho = (1 + (exp(x) - 1)*exp(y)) / (exp(2)*x*y)
+    prefactor = 1 / sqrt(x*y - (y - 1)**2)
+    return rho, prefactor
 
 
 if __name__ == '__main__':
-    main()
+    for m, expected in enumerate((4, 60, 2400), start=1):
+        count, total = direct_count(m)
+        assert count == expected
+        assert Fraction(count, total) == Fraction(1, 2) + correction(m)
+        print('direct', m, count, total)
+    assert abs(float(Fraction(1, 2) + correction(12)) - 0.5156703857) < 1e-10
+    rho, prefactor = saddle()
+    print('rho', rho, 'prefactor', prefactor)
+    assert abs(rho - 0.696742956572524) < 1e-13
+    assert abs(prefactor - 1.210700991285293) < 1e-13
+    for m in (40, 80):
+        ratio = float(correction(m)) / (prefactor * rho**m)
+        assert abs(ratio - 1) < 0.01
+        print('asymptotic_ratio', m, ratio)
+    print('VERIFY_OK')

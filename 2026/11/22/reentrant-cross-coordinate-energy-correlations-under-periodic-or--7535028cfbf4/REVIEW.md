@@ -1,15 +1,21 @@
-# Scientific review: periodic-renewal cross-energy covariance
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem defines the entire stationary process, including the necessary uniformly randomized phase of a deterministic renewal schedule. The exponentially stable linear convolution yields an absolutely convergent geometric-interval representation. Uniform-sphere fourth-moment contractions produce a covariance equal to the variance of the shared square-weight sum minus the positive, dimension-dependent fourth-weight term. All phase integrals are elementary and supplied explicitly. The short- and long-period expansions have controlled signs for each finite dimension. A standard-library `Fraction` interval certificate independently checks strict positivity of the middle-period bracket in dimension 41, while its exact monotonicity in dimension proves the assertion for all larger integer dimensions. Continuity gives at least two sign changes. The certificate was run successfully and checked against a separate direct phase-integral quadrature. Numerical sampling is not used to prove a universal statement.
+PASS
 
-## Originality — PASS, qualified
+Stable convolution over the deterministic intervals gives the geometric weights and an independent uniform phase. At fixed phase, distinct coordinates have zero covariance. In the mixed fourth moment, products of squared components from different draws give d⁻², and terms in a single draw give 1/[d(d+2)]; terms with off-diagonal cross contractions vanish. The resulting phase mixture has covariance (v/a)^4 d⁻² times Var(S)−2 E(P)/(d+2). Direct integration of the squared- and fourth-weight sums confirms the closed formulas. For uniform k=u/θ, S=θ/2+θ²(k²−k)+O(θ³) uniformly, giving Var(S)=θ⁴/180+O(θ⁵); P=θ³/4+O(θ⁴), which dominates the fast-period sign for fixed d. At the slow end the bracket tends to −2/(d+2). Independent rational enclosure of the d=41 bracket at θ=3 gives the exact claimed positive bounds and the rational signs at θ=1 and 10. Since E(P)>0, the bracket is increasing in d at each fixed θ. The bracket is real analytic on θ>0 and not identically zero, so the opposite signs bracketing θ=3 guarantee distinct sign-changing zeros. The sufficient dimension is not a minimal-dimension theorem, and no uniqueness of either crossing is proved.
 
-Closest substantive prior theory is Guéneau–Majumdar–Schehr (arXiv:2602.08436, first public 2026-02-09), whose inspected full text uses exponentially timed, Poisson heading redraws and provides isotropic stationary laws and moments. Two closely related published mathematical results on anisotropic harmonic particles were read in full: they likewise treat a Poisson redraw clock and prove a *single* covariance sign transition with rate, so their conclusions neither imply nor contain the deterministic-clock *two*-crossing theorem. A further inspected mathematical result concerns deterministic reversals in **one dimension** and only the stationary variance, not a spherical cross-coordinate fourth moment. Farago–Smith (arXiv:2401.01576) covers nonexponential runs in one dimension; Sun–Ye–Podgornik (arXiv:2409.00578) concerns a finite tumble duration and was compared only at abstract level. Broad multivariate renewal-moment theory may imply the calculation, so publication priority remains qualified rather than independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-The problem separates two physically different sources of fourth-order fluctuations in an active harmonic trap: positive common-clock phase fluctuations and negative fixed-length angular competition. The rigorous negative–positive–negative sign sequence is a structural counterexample to extrapolating a Poisson-clock single-transition phase diagram to regular renewal schedules. The exact covariance formula, explicit phase witness, and any-dimension sufficient condition supply reusable benchmarks for studying clock regularity in high-dimensional active transport. The result does **not** establish minimality of dimension 41, the exact count of sign crossings, or the general renewal-clock phase diagram; these are meaningful scientific limitations, not part of the proved claim.
+The conditional sphere moment identity and stable harmonic weight representation are general tools. The distinct claim supported here is the explicit stationary deterministic-clock phase mixture and its two opposite sign reversals with a certified sufficient dimension. The strongest located mixed-coordinate result assumes a Poisson clock and gives one transition. The inspected nonexponential and finite-tumble papers do not supply the periodic-clock cross-energy result. The bounded comparison leaves identifiable access and unindexed-theory risks.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The result isolates a competition between the positive variance of the shared phase-dependent scale and the negative spherical angular constraint, invisible in ordinary coordinate covariance. It gives a rigorous reentrant benchmark rather than extending a Poisson sign diagram by matching mean waiting times. The exact witness and contrasting end regimes are useful without a claim to the smallest possible dimension or a full arbitrary-renewal phase diagram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

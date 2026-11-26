@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A period partitions indices into equal-letter residue chains. With exactly two marked positions, such chains force precisely two cases: singleton chains creating a terminal interval of periods, or one length-two chain creating an isolated period. The proof enumerates the allowable positions for each case, rigorously identifies the one overlapping class, and counts both distinct profiles and singleton classes; an exact residue-six evaluation yields the quadratic quasipolynomial. Independent direct bitwise period checks cover every weight-two word through length 100 plus seeded large-length spot tests. The computational test has no role as a substitute for the infinite proof.
+PASS
 
-## Originality — PASS, with literature residual risk
+With margins x=i and y=n-1-j, let p=n-1-x-y. For a valid shift, the two ones either occupy singleton chains (giving the suffix of periods beginning at n-min(x,y)) or occupy one complete two-element chain (shift p, with x,y<p). At fixed exceptional p, the ordered margins sum to n-p-1 and range over R=min(n-p,3p-n) choices for the left margin, positive exactly for p>floor(n/3). The threshold determines the unordered margin pair, so there are ceil(R/2) profiles, and the unique possible singleton for this p lies at equal margins and occurs exactly when R is odd. For p<=n-2 the gap from p to the suffix threshold is max(x,y)+1>=2; only p=n-1 duplicates a pure suffix. Adjacent markers realize all floor(n/2) suffixes for n>=4. Their reversals are distinct except for the minimum threshold at even n, where no other pure word has those margins; at n=4 the endpoint pair duplicates this exceptional singleton. Since R has the parity of p-n, this proves the asserted U(n). Splitting the sum at floor(n/2) gives 12 times the six correction constants as 12,21,8,21,12,17; n=2,3 are separate direct cases. A fresh bounded test compared every potential shift against all overlap pairs incident to a one, for 147440 words over all 2<=n<=96, and reproduced the structural formula, profile counts and singleton counts. Replay: node /workspace/checks/geometry-and-word-reproduction.js. The bounded check corroborates rather than replaces the chain and margin arguments. Neither cyclic shifts nor uniqueness modulo reversal was tested or claimed.
 
-Rivals–Rahmann's general 2003 period-set recurrence and Rivals–Sweering–Wang's 2022/2023 unrestricted period-set asymptotic are close foundations. Their inspected formulations do not specialize to a fixed two-marker support, do not imply the finite six-residue formula by themselves, and give no classification of singleton observation fibers. Rivals' 2024 incremental algorithms address unrestricted period sets. Targeted literature searches and semantically similar research-record comparisons did not expose an equivalent result. General fixed-composition period-set results may be hidden in older or poorly indexed literature, including the not-fully-accessible *Periods and binary words* (2000); this is a genuine residual risk rather than evidence of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The precise period profile is a natural autocorrelation observation of a sparse sequence, and its reconstruction ambiguity matters for the information carried by a period signature. The all-length classification exposes both an isolated-gap mechanism and a nontrivial arithmetic six-period correction to the number of possible signatures. The singleton classification determines exactly when that observation identifies the two-marker word, a property not available from the total count. The result concerns exactly two ones and does not promise extensions or applications beyond that scope.
+The inspected antecedents cover unrestricted autocorrelation sets or a different observation on sparse words. They do not establish the fixed-source-weight-two counts or the labeled singleton classification. This is a bounded best-of-knowledge finding; it does not claim originality of the definition of period or priority for arbitrary period-set enumeration.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The result gives the complete sparsest nontrivial two-position profile classification and a sharp distinction between identifying a word and merely realizing an autocorrelation pattern. It identifies when a gap is visible, quantifies the resulting collisions with an exact residue correction, and detects the labeled uniqueness exceptions that an unrestricted admissibility count does not see. These are substantive exact invariants of the observation model, rather than a small-instance recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

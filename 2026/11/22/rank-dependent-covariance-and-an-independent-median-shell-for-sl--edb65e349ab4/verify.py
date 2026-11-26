@@ -1,79 +1,40 @@
-#!/usr/bin/env python3
-"""Exact rational checks for iid sliding order-statistic identity-change statistics.
-All calculations use integer counts or fractions; no simulation is used as proof.
-"""
+"""Exact small-width checks of change covariance at one window's separation."""
+
+from fractions import Fraction
 from itertools import permutations
-from fractions import Fraction as Q
 from math import comb, factorial
 
-def polynomial_beta_cdf(k, j):
-    # F_Beta(j,k+1-j)(u)=sum_{a=j}^k binom(k,a) u^a (1-u)^(k-a)
-    p = [Q(0)] * (k+1)
-    for a in range(j,k+1):
-        for t in range(k-a+1):
-            p[a+t] += Q(comb(k,a)*comb(k-a,t)*(-1)**t)
-    return p
 
-def lag_k_cov(k, j):
-    p = polynomial_beta_cdf(k,j)
-    m1 = sum(c/Q(i+1) for i,c in enumerate(p))
-    m2 = sum(p[i]*p[h]/Q(i+h+1) for i in range(len(p)) for h in range(len(p)))
-    return Q((k+1-2*j)**2,k*k) * (m2-m1*m1)
+def covariance_formula(k, j):
+    p = [0] * (k + 1)
+    for a in range(j, k + 1):
+        for b in range(k - a + 1):
+            p[a + b] += comb(k, a) * comb(k - a, b) * (-1) ** b
+    mean = sum(Fraction(c, i + 1) for i, c in enumerate(p))
+    square_mean = sum(Fraction(c * d, i + l + 1)
+                      for i, c in enumerate(p) for l, d in enumerate(p))
+    return Fraction((k + 1 - 2 * j) ** 2, k * k) * (square_mean - mean ** 2)
 
-def theor(k,j):
-    z=j*(k+1-j)
-    a=k*(k+1)-2*z
-    q=Q(a,k*(k+1))
-    joint=Q(a*(a-2),k*(k-1)*(k+1)*(k+2))
-    cov=joint-q*q
-    compact=-Q(4*z*a,k*k*(k-1)*(k+1)**2*(k+2))
-    assert cov == compact
-    return q,joint,cov,lag_k_cov(k,j)
 
-def enumerated(k,j,d):
-    n=k+2 if d==1 else 2*k+1
-    s0=s1=joint=0
-    N=factorial(n)
-    for arr in permutations(range(n)):
-        w0=sorted(arr[:k])[j-1]
-        w1=sorted(arr[1:k+1])[j-1]
-        wd=sorted(arr[d:d+k])[j-1]
-        we=sorted(arr[d+1:d+k+1])[j-1]
-        x=w0==w1
-        y=wd==we
-        s0+=x; s1+=y; joint+=(x and y)
-    q0=Q(s0,N);q1=Q(s1,N); P=Q(joint,N)
-    return q0, q1, P, P-q0*q1
+def covariance_by_order(k):
+    ranks = range(1, k - 1)  # zero-based interior ranks
+    counts = [[0, 0, 0] for _ in ranks]
+    for order in permutations(range(2 * k + 1)):
+        a, b = sorted(order[:k]), sorted(order[1:k + 1])
+        c, d = sorted(order[k:2 * k]), sorted(order[k + 1:])
+        for m, r in enumerate(ranks):
+            left, right = a[r] != b[r], c[r] != d[r]
+            counts[m][0] += left
+            counts[m][1] += right
+            counts[m][2] += left and right
+    n = factorial(2 * k + 1)
+    return [Fraction(n * both - left * right, n * n)
+            for left, right, both in counts]
 
-def main():
-    checks=0
-    for k in range(2,22):
-        for j in range(1,k+1):
-            q,adj,c1,ck=theor(k,j)
-            assert 0<q<1 and c1<0; checks+=2
-            assert (ck==0)==(2*j==k+1);checks+=1
-            assert 0 <= ck and ck < Q(1,4);checks+=1
-            assert polynomial_beta_cdf(k,j)[0]==0;checks+=1
-        zs={j:j*(k+1-j) for j in range(1,k+1)}
-        maximum=max(-theor(k,j)[2] for j in zs)
-        optimum={j for j in zs if -theor(k,j)[2]==maximum}
-        target=Q(k*(k+1),4)
-        optimum2={j for j in zs if abs(zs[j]-target)==min(abs(z-target) for z in zs.values())}
-        assert optimum==optimum2;checks+=1
-    for k in range(2,7):
-        for j in range(1,k+1):
-            q,adj,c1,ck=theor(k,j)
-            a,b,pr,cv=enumerated(k,j,1)
-            assert a==q and b==q and pr==adj and cv==c1; checks+=4
-    for k in range(2,5):
-        for j in range(1,k+1):
-            q,adj,c1,ck=theor(k,j)
-            a,b,pr,cv=enumerated(k,j,k)
-            assert a==q and b==q and cv==ck;checks+=3
-    for k in range(3,21,2):
-        assert theor(k,(k+1)//2)[3]==0;checks+=1
-    print('PASS:',checks,'exact identities, inequalities, and exhaustive checks')
-    for k in [3,4,5,7,9]:
-        print('width',k,'rank, lag1, lagk:',[(j,str(theor(k,j)[2]),str(theor(k,j)[3])) for j in range(1,k+1)])
 
-if __name__=='__main__': main()
+if __name__ == "__main__":
+    for k in (3, 4):
+        observed = covariance_by_order(k)
+        expected = [covariance_formula(k, j) for j in range(2, k)]
+        assert observed == expected, (k, observed, expected)
+        print(f"width {k}, interior ranks: {', '.join(map(str, observed))}")

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the precise stationary two-layer Gaussian OU model and all \(\gamma_1>\gamma_2>0\), \(D_1,D_2>0\), the proof verifies the stationary-law normalization, the two-pole autocorrelation, the Green–Kubo diffusion constant, the sign-changing slow mode, and the positive running diffusivity. Its critical global sign function \(H(t)=tM'(t)-M(t)=2\int_0^t sC(s)ds\) has derivative \(2tC(t)\); a two-exponential autocorrelation changes sign at most once. Consequently \(H\) is either always positive or has exactly one zero. Its exact limit produces the sharp \(d=1+q\) threshold, including equality, and its vanishing gives the exponential critical correction. No numerical root count is used as an infinite-domain proof. The independent Lyapunov-based extracted checker passes 847 tests and confirms finite representative cases; the analytic sign proof covers every admissible parameter.
+PASS
 
-## Originality — PASS, with explicit prior-equation dependence
+Independently solved the stationary Lyapunov equation with F=[[-γ₁,0],[-γ₁,−γ₂]] (the first diagonal entry is −γ₁) and diffusion covariance diag(2D₁,2D₂). For velocity row ℓ=(γ₁,γ₂), C(t)=ℓe^(tF)Σℓᵀ has just the two stated exponential modes. The integrated covariance and its first signed moment are obtained as −ℓF⁻¹Σℓᵀ=D₂ and ℓF⁻²Σℓᵀ=(D₂/γ₂)(1−d/(1+q)), confirmed by symbolic matrix calculation. At d=1−q² the slow coefficient is zero and C remains strictly positive at finite lag; above it the bracket after removing the slow exponential decreases strictly from C(0)>0 to a negative constant. J′=C and J(∞)=D₂ imply positivity of J for all positive times and a unique overshoot when there is a sign change. The sign of ν−1 is that of H=tM′−M, with H(0)=0 and H′=2tC. Its negative-mode tail is strictly decreasing from a positive maximum. It crosses zero once exactly when H(∞)<0, which is strictly above d=1+q; equality leaves H(t)>0 at every finite positive time. Subtracting the first-moment tail at equality gives ν−1∼q e^(−γ₂t)/(1−q) after division by M∼2D₂t; otherwise the nonzero signed moment gives the reciprocal-time equivalent. Independently integrated the matrix-exponential covariance for γ₁=1, γ₂=1/2, D₂=1, D₁=1.8, obtaining roots 2.46428736 and 6.73178398, in order. Read the supplied checker and recorded finite tests, not run; the proof uses the signed moment and cannot be replaced by root sampling. Scope is stationary initialization, independent Gaussian noises and strictly ordered positive rates, not fitted finite-window exponents.
 
-The complete two-exponential autocorrelation and MSD are *not* original: see Voulgarakis (2023), Eqs. (15) and (16), and Wang–Voulgarakis (2024), Sec. 3. The latter source qualitatively describes subdiffusive profiles for \(D_2<D_1\). Primary-text inspection and targeted prior-index comparisons did not uncover the simultaneous all-parameter phase diagram separating velocity anticorrelation from the strict instantaneous MSD log-slope criterion, the unique ordered crossings, or the critical exponential cancellation. The source equations contain enough information to derive this fact; the contribution is a mathematical classification and proof, not a new stochastic solution. This direct implication risk and possible unindexed equivalents remain substantial publication-priority qualifications, not substitutes for proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result identifies a concrete diagnostic failure: negative velocity autocorrelation need not produce any \(tM'(t)/M(t)<1\) interval, even with equal microscopic diffusion strengths. The exact separation between \(d=1-q^2\) and \(d=1+q\), unique dynamical crossings, and critical fast approach explain when a familiar qualitative diffusivity-ordering heuristic does or does not imply the more stringent observable. All three regions are open or have precisely stated equality boundaries; none is a numerical parameter sample masquerading as a theorem.
+The exact stochastic solution is prior, and the anticorrelation threshold alone follows directly from the sign of the known slow covariance coefficient; the running diffusivity overshoot is its immediate integral consequence. The distinct contribution is the exact joint finite-time classification, especially the all-time strict absence of local subdiffusion in the intervening region and at the second boundary, the unique additional crossing outside it, and the cancellation law at the boundary. The exact earlier MSD contains the inputs to derive this result, but its stated transient-regime classification does not compare or control these two signs at a fixed finite rate ratio. The result is best understood as a sharp sign theorem about the known solution, not priority for the solution or phenomenology.
 
-## Closest literature and limitations
+## value
 
-Voulgarakis, *Physical Review E* **108** (2023), 064105: exact two-level stationary velocity ACF and MSD, qualitative negative-memory/subdiffusion statements; https://doi.org/10.1103/PhysRevE.108.064105 . Wang and Voulgarakis, *Physics* **6** (2024), 645–658: layered model, all-time MSD, finite-regime anomalous profiles; https://doi.org/10.3390/physics6020042 . This review is same-model only, not independent validation or priority certification. It concerns finite positive observation times, stationarily initialized Gaussian internal coordinates, and an exact pointwise derivative, not phenomenological finite-window power-law fits. The earlier exact expressions are credited rather than re-claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A negative velocity-memory interval and a diffusivity overshoot can be observed while the instantaneous MSD slope never falls below one. The exact separation and endpoints show precisely when the two diagnostics disagree, even at fixed positive rate separation or equal noise amplitudes. This is a natural full-parameter distinction in a previously used model, with a testable change from inverse-time to exponential approach at the boundary, not a re-solution of the dynamics or a claim of globally anomalous diffusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -42,7 +42,9 @@ Consequently,
 \dot x_i=P'(t)-e^{-t}(a_i-u)=Q(t)-x_i(t),\qquad
 \dot y_j=Q'(t)-e^{-t}(b_j-v)=P(t)-y_j(t),
 \]
-which are precisely the original weighted-median differential equations. At \(t=0\) the formulas give \(x_i(0)=a_i\), \(y_j(0)=b_j\). The global non-expansiveness of the selected weighted-median map, established in the initiating paper, makes the vector field globally Lipschitz and hence guarantees uniqueness of solutions. Alternatively, the constructed path remains entirely in an open unique-median regime for each finite time, so no tie selection enters it.
+which are precisely the original weighted-median differential equations. At \(t=0\) the formulas give \(x_i(0)=a_i\), \(y_j(0)=b_j\).
+
+For uniqueness, if a weighted profile \(z\) has a unique median \(m\) and \(\|z-\tilde z\|_\infty\le\delta\), **every** observed median of \(\tilde z\) belongs to \([m-\delta,m+\delta]\). Indeed, in \(z\) the mass of entries at or below \(m\) exceeds \(1/2\), and the mass at or above \(m\) also exceeds \(1/2\). After perturbation, the former entries are at or below \(m+\delta\), and the latter entries are at or above \(m-\delta\); any median outside those bounds would have more than half the mass strictly on one side. Compare any other solution with the explicit one, and let \(d(t)\) be the sup norm of their difference over all agents. The explicit solution has unique group medians at every finite time, so the preceding bound controls each difference of selected medians by \(d(t)\), and thus each difference of derivatives by \(2d(t)\). With the same initial data this gives \(d(t)\le 2\int_0^t d(s)\,ds\), hence \(d(t)=0\) by Grönwall's inequality. This argument also applies to absolutely continuous solutions satisfying the equation almost everywhere, irrespective of how ties are resolved on competing profiles.
 
 **Step 4: exact invariants, rates, and selection.** By Step 2, the two group medians are \(P(t),Q(t)\). Therefore
 \[
@@ -65,7 +67,7 @@ The standalone, standard-library-only program `verify.py` uses exact rational ar
 
 ## Relationship to prior work
 
-Han, Chen, Dörfler, and Mei introduced this continuous-time weighted-median vector field in the first public release of arXiv:2404.16318 (April 25, 2024). Its convergence theorem and its subsequent revision establish general equilibrium, Lyapunov, and consensus criteria without this two-community **initial-condition-to-limit map** or its two closed-form transient modes. The present theorem is an explicit structured-network specialization that extracts the conserved median sum, the exact selection law, and the sharp rates. It does not claim novelty for the general well-posedness or convergence results.
+Han, Chen, Dörfler, and Mei introduced this continuous-time weighted-median vector field in the first public release of arXiv:2404.16318 (April 25, 2024). The present theorem is a structured-network specialization that extracts the conserved median sum, the exact selection law, and the sharp rates. The exact star-network consensus law in [5] already contains the limit formula when one part is a singleton and the leaf median is unique. The result here allows two nonsingleton parts and gives their exact transient modes. The uniqueness proof above uses comparison with a solution having unique group medians; it makes no general well-posedness claim for the closest-observed rule at ties.
 
 The earlier asynchronous weighted-median process studied by Mei and collaborators is discrete-time and updates agents to selected opinions; its random update trajectory does not provide the continuous-time formula here. Mohr, Hjorth, and Porter analyze a distinct synchronous weighted-median updating model and a mean-field approximation. Equivalence with an unindexed result is a residual publication-priority risk; absence of a matching title is not proof of novelty.
 
@@ -79,3 +81,4 @@ All rows belonging to the same group must have identical cross-group weights; he
 - Yi Han, Julien M. Hendrickx, Ge Chen, Wenjun Mei, *Modeling, Analysis, and Control of Continuous-Time Weighted-Median Opinion Dynamics*, arXiv:2404.16318v3 (revision, November 26, 2025). https://arxiv.org/html/2404.16318v3
 - Wenjun Mei and collaborators, *Convergence, Consensus and Dissensus in the Weighted-Median Opinion Dynamics*, arXiv:2212.08808 (2022). https://arxiv.org/abs/2212.08808
 - Lasse Mohr, Poul G. Hjorth, Mason A. Porter, *Long-Time and Short-Time Dynamics in a Weighted-Median Opinion Model on Networks*, arXiv:2406.17552v3. https://arxiv.org/html/2406.17552v3
+- [5] Weighted-median star consensus result, record 690019ac93b9 (October 26, 2026). https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-consensus-selection-and-a-discontinuous-weight-threshold-o--690019ac93b9

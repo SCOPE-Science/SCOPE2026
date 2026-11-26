@@ -1,19 +1,21 @@
-# Research assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The ten orbit representatives follow directly from the reverse-complement involution. The optimal-cover checker enumerates every binary candidate of lengths four through thirteen; length thirteen is a proved global cap from the explicit all-class covering word. The greedy checker exhausts all ordered pairs and both reverse-complement orientations, retains every globally maximum-overlap transition, and takes the maximum terminal length. Each transition strictly decreases the number of components. Thus dynamic programming is exhaustive, not a finite sample or inference from a log. Two independently written executable implementations agree on all 1023 input cases, six maximizers, and the 31-cell joint table. The explicit small equality witness is directly inspectable.
+PASS
 
-## Originality
+There are four fixed words and six two-word orbits, giving ten classes. To get unrestricted optimal length independently, I used shortest paths in the product of the last-three-bit automaton and the covered-class mask, starting at all length-three suffixes. Each append creates exactly one new four-window, and all covering words occur as paths; minimum over supersets gives L for each requested mask. The best greedy overlap is the maximum over all pairs, orientations and orders. Memoizing the maximum successor length on sorted representative states is sound by independent orientability and induction on component count. In the independent run, assertions on all maximizing transitions verify no containment in either direction or orientation. Exhausting all 1023 masks gives 4/3, precisely 131,159,183,215,407,663, with (6,8) at 131 and (9,12) at the other five; mask 1023 is (13,16). The full joint census matches the two frozen outputs. Mask 131 also has the direct length-six cover and two legal greedy overlaps 3 and 1 in the proof; at least six symbols are needed for three distinct four-window classes.
 
-PASS against available primary text and retrieved records. Yamano–Shibuya (arXiv:2611.16573v1, November 12, 2026) give bounds for MGREEDY-RC and TGREEDY-RC, not the exact finite simple-GREEDY-RC worst-tie census; the March 2026 SCS-RC article is likewise general. The exact binary three-mer greedy result concerns ordinary SCS with no reverse-complement orientation. The ordinary binary four-mer full-set spectrum answers a different instance/algorithm question. Reverse-complement covering constructions give optimal full-coverage words but not all 1023 greedy outcomes. Full-text comparisons were made where accessible; some related records could only be compared from retrieved summaries. Possible unindexed previous exhaustive enumerations remain a risk.
+## originality
 
-## Value
+PASS
 
-PASS. Binary four-mers provide a canonical complete first nontrivial fixed-width reverse-complement testbed, with exactly ten irredundant orientation classes. The exact gap \(4/3\), its six and only six worst inputs, and the full optimal-versus-greedy distribution identify where tie-breaking loses compression, and distinguish simple greedy from cycle-cover-based heuristics. This is a complete natural finite classification, not an arbitrary small counterexample or a claim to general asymptotic improvement.
+A distinct same-day all-length theorem already contains the value 4/3 and the exact mask-131 witness for three classes. The retained distinct claim is that no larger subset exceeds that ratio and that exactly five additional masks, all with six classes, meet it. No priority between same-day results is inferred. The ordinary finite censuses and general reverse-complement approximation theorems do not cover that remaining claim.
 
-## Limitations
+## value
 
-No broader approximation ratio, no treatment of double-stranded four-base DNA, and no external independent review. Other unindexed finite tables might overlap.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Worst-tie behavior of the standard overlap rule is a natural exact benchmark. Length four is a small complete binary class universe that allows enough components to test whether the three-input obstruction actually controls all cardinalities. The absence of any worse larger instance, together with additional extremizers on six classes, is concrete information not available from a single example, full-set calculation or ordinary-SCS baseline.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

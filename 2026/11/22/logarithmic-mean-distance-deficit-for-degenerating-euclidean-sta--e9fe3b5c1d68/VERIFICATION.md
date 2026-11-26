@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,4 @@
 }
 ---
 
-The analytic steps are reproduced in RESULT.md: projection-collapse error estimate, exact double straight-side integral, cap error bound, and scale normalization. The independent numerical cross-check is `stadium_check.py` (Python with NumPy and SciPy), run using `python stadium_check.py`. It evaluates all ordered boundary-component pairings; test outputs for four small radii are reported in RESULT.md. Gaussian quadrature does not certify infinitely many radii or the leading constant. No independent mathematical audit has been performed.
+The sharpened coefficient is obtained analytically in `RESULT.md`. The two caps have combined outward horizontal first moment \(4r^2\) with respect to arclength, contributing \(16Lr^2\) to the ordered horizontal distance integral. Perimeter normalization contributes \(-2\pi^2Lr^2\) and the common opposite-side integral contributes \(-4Lr^2\) at the nonlogarithmic order. The remaining terms are bounded by \(O(r^3[1+\log(L/r)])\) before normalization. The unchanged `stadium_check.py` (NumPy and SciPy) evaluates ordered boundary pair integrals and reports a leading-logarithm diagnostic; those finite values do not certify the sharpened coefficient or the uniform remainder.

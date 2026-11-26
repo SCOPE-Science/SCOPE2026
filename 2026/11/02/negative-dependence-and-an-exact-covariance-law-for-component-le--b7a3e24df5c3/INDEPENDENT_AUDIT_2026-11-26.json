@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:41:25.530106Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–74",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent exact symbolic subtraction of the three recurrence right-hand sides from their shifted closed forms (all simplify to zero in the stated ranges)"
+      ],
+      "rationale": "Grouping roots is equivalent to collapsing each group into one weighted root, since the parent weight is the sum of the grouped root weights and only ordinary leaves are counted. Given the colors, the component parent-choice probabilities factor into independent Hoppe growth processes; their leaf laws depend on the colors only through the sizes. Given group A's size s, the usual beta-mixture coupling generates B's size by n-s draws (or n-s deterministically for no remaining group), decreasing stochastically in s. For strictly increasing g the averaged leaf test strictly increases with the size, since root attachment has positive probability at every step and the leaf count never decreases. The conditional regression of the g-test against s is therefore strictly decreasing; independent-copy covariance of this regression and the averaged f-test proves the sign, strict when both tests are strictly increasing since N_A is nondegenerate. Independently expanding the increments for distinct roots gives the printed recurrences: in the mixed size-leaf equation the two existing size-leaf terms cancel, and in the leaf-leaf equation they give the two H terms against the subtraction of 2J. The factorization by root weights follows by induction from these recurrences and the size moments, not from assuming equal weights. I checked the three closed-form recurrence identities by exact rational simplification, using the empty and one-vertex values separately (and the two-vertex values for H and J). For the limit, conditional leaf variance obeys V_(m+1) <= (1-1/(a+m))^2 V_m + 1/4, giving V_m <= m/4 from m=1 onwards. The bias relative to m/2 is bounded uniformly for positive a, with T_0=0 treated separately. The conditional variance bound plus the Dirichlet color coupling proves the claimed L2 convergence and both limits; the limiting variances are strictly positive.",
+      "residual_risks": [
+        "In Step 4 the displayed mean formula is read for m>=1; at m=0 use T_0=0, avoiding 0/0 when a=1. Likewise the variance contraction starts at m=1, since the first leaf is deterministic. Neither issue changes a stated Finding.",
+        "The bundled finite enumeration directly checks singleton component pairs, not general disjoint groups; aggregation and the stochastic coupling supply the latter."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 2.8 gives the Dirichlet–multinomial sizes. Theorem 2.12 gives the Hoppe-tree leaf law, and Theorem 2.15 gives its component-size mixture. Corollary 2.16 links the recursive subtree marginal to Mahmoud–Smythe p. 410 under a different singleton convention."
+        ],
+        "reasoning": "The size law controls groups, but a sign inequality for sizes does not transfer to functions of the sampled component trees without conditional independence, monotonicity of the ordinary-leaf count under growth, and the strictness argument. The historic marginal comparison cannot settle possible joint coverage.",
+        "searches": [
+          "arXiv:2403.16448v1 PDF pp. 10–14",
+          "DOI:10.1214/aoap/1177005874 and identified Project Euclid copy"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2403.16448v1",
+        "DOI:10.1214/aoap/1177005874 (partial access only)",
+        "Resultary 386fc4aa21bb, f5ead0507350 and ab8e34d0c60c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With conditional independence, E[L_i L_j]=E[ell_i(N_i) ell_j(N_j)] for the known Hoppe marginal means ell_i; prior ingredients thus determine it through an explicit finite sum. A Dirichlet mixture and half-size leaf asymptotics also yield the vector limit and both limiting moments.",
+          "No displayed prior proposition in these sources gives the arbitrary increasing transform inequality for disjoint aggregates or its strictness."
+        ],
+        "reasoning": "Credit the conditional-mixture reductions and the mechanically obtained limits. The exact rational evaluation and sign of the covariance are presented together with the stronger monotone-coupling result, which is not obtained from the separate marginals or by a parameter substitution alone.",
+        "searches": [
+          "Iksanov et al., Proposition 2.8, Theorems 2.12, 2.15 and Corollary 2.16, compared against frozen RESULT.md Steps 1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Iksanov et al. use the identical forest and distinguish Hoppe-tree leaves and their component mixtures, but the quoted leaf statements are single-component marginals."
+        ],
+        "reasoning": "Ordinary leaves across disjoint root groups differ from rooted-subtree leaf marginals, whole-tree leaves versus root degree, and full multivariate negative association of terminal indicators. The theorem asserts a two-group consequence of stochastic regression on group size, not on individual leaf identities.",
+        "searches": [
+          "Local Resultary search for multinomial Hoppe forest ordinary-leaf NQD and mixed component moments",
+          "Iksanov et al., Proposition 2.8 and Theorems 2.12 and 2.15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "386fc4aa21bb treats root branches versus leaves in a single linearly biased Hoppe tree; f5ead0507350 compares marked subtree size with whole-tree leaves; ab8e34d0c60c treats degree and complementary component size in an unrooted Cayley forest."
+        ],
+        "reasoning": "The variables, conditioning and often the attachment model differ; these are not tables of the frozen joint leaf-count law or its exact mixed moments. The Iksanov et al. table-free marginal formulas do allow computation of the relevant joint moment via mixture, as recorded below.",
+        "searches": [
+          "Local Resultary lookup for component leaf mixed moments, tree leaf covariance and Dirichlet grouping"
+        ]
+      },
+      "rationale": "The model, size allocation and single-component leaf laws are prior. The arbitrary-transform aggregate ordinary-leaf dependence theorem, including strictness and arbitrary positive weights, is the distinct claim supported here. The moments are a closed-form evaluation for the model, not a new joint probability mechanism; the limiting covariance and correlation are standard consequences of the mixture and half-size leaf asymptotics. No primary passage checked establishes the joint strict sign theorem for these aggregate leaf counts.",
+      "residual_risks": [
+        "A historical special-case joint formula could occur in uninspected parts of Mahmoud–Smythe or other literature. No absolute priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct model, size and marginal coverage; implies the moment mixture and limit via standard operations, but the inspected statements do not assert strict aggregate-leaf NQD.",
+          "evidence": [
+            "Joint Dirichlet–multinomial sizes; marginal leaf law of a Hoppe component; equivalence of recursive subtree-leaf marginal with Mahmoud–Smythe modulo singleton convention."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2403.16448v1",
+          "material_read": "PDF pp. 10–11 (offsets 47803–51548), Proposition 2.8 and forest construction; pp. 13–14 (offsets 57569, 60132, 60794), Theorems 2.12, 2.15 and Corollary 2.16 discussion",
+          "method": "OA full-text passage inspection",
+          "title": "Multinomial random combinatorial structures and r-versions of Stirling, Eulerian and Lah numbers",
+          "trigger": "Same multinomial Hoppe forest and component leaf laws"
+        },
+        {
+          "assessment": "Established indirect evidence of marginal overlap only; joint coverage unresolved.",
+          "evidence": [
+            "The examined 2024 passage identifies p. 410 of the 1991 paper with a single subtree leaf marginal, accounting for singleton conventions."
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/aoap/1177005874",
+          "material_read": "Landing/bibliographic material and Iksanov et al.'s p. 14 reference to p. 410; original full text not read",
+          "method": "DOI and identified Project Euclid full-text attempts, plus OA secondary cross-reference",
+          "title": "On the Distribution of Leaves in Rooted Subtrees of Recursive Trees",
+          "trigger": "Potential historical recursive-tree special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–27 and 36–74",
+        "arXiv:2403.16448v1, component leaf marginals"
+      ],
+      "rationale": "A sign for every increasing transform of two disjoint groups is a useful joint constraint in a model whose earlier leaf results focus on single marginals. It distinguishes conditional tree independence from the unconditioned negative dependence induced by allocating a fixed population among competing roots. The exact covariance gives a finite-size benchmark, while the limits distinguish persistent random proportions from smaller within-component fluctuations. The meaningful new part is the aggregate dependence result, not the general urn machinery.",
+      "residual_risks": [
+        "The result does not assert a joint CLT or full negative association for vertex leaf indicators."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

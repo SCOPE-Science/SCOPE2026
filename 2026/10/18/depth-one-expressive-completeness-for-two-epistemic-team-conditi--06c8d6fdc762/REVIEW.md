@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The quantified clauses from Barbero and Yang, Section 5, are reproduced in the assumptions; the proof checks union and empty-team closure, constructs a literal depth-one formula for each \(\{\varnothing,S\}\), and shows any union-closed family is its lax union of members. Singleton witnesses prove arbitrary nesting of the counterfactual stays flat. The cutoff is sharp for at least one propositional variable. Full finite semantic stress testing and its limitations are in `VERIFICATION.md`.
+## correctness
 
-## Originality
-**PASS with acknowledged risks.** The motivating 2026 source expressly asks what weak conditionals change in classical team logic, rather than proving these expressive classifications. Yang 2020 proves completion for other propositional languages, and Yang–Väänänen 2016 for an alternative might syntax; neither is a direct inclusion of the newly defined epistemic arrow languages. A relevant indexed material-implication record is different in its semantic clauses. The conditional-specific one-level characteristic construction, simultaneous two-language completeness, and flat-counterfactual separation were not located as existing statements. Equivalence under unindexed terminology is a genuine risk, not disproved by search.
+PASS
 
-## Value
-**PASS.** This is a complete classification of three natural recently introduced connectives as separate enrichments of classical propositional team logic. In the two expansive cases it gives an effective, depth-one translation of all union-closed empty-team properties; in the third case it proves there is no expressive increase at any depth. It directly settles a motivated follow-up from the source paper, without asserting complexity bounds or results beyond the given language.
+Induction gives empty-team and union preservation for each of the first two arrows: a true universal antecedent test on the union is true on both parts; indicative consequents then combine by union, and epistemic-conditional consequents combine by splitting each tested subteam into its intersections with those parts. Lax split preserves union by combining witnesses, which may overlap. For either arrow, the classical test excluding v followed by an arrow to bottom is satisfied exactly by the empty team or a team containing v. Conjoining these tests for v in S with the flat restriction T subset S gives just empty and S. Lax splitting over all nonempty allowed teams generates exactly their unions, with bottom covering the property containing only the empty team. A two-valuation exact-team example is not flat and witnesses sharpness; for empty vocabulary there is exactly one valuation and both admissible properties are flat. For the third arrow on flat input truth sets C,D, a singleton witnesses failure exactly when T intersects C minus D, so the result is flat with truth set (V minus C) union D. Induction therefore covers all counterfactual nesting depths.
 
-## Closest literature and limitations
-Barbero–Yang (2026), Sections 5-6 and Appendix C, defines arrows and studies closure but not exact expressive power. Yang (2020), Theorems 3.4 and 3.7, proves completeness for different primitives and gives related characteristic-family constructions. Yang–Väänänen (2016) supplies another route with a might modality. The result is finite propositional, with lax splitting and classical-only negation. A different terminology could hide an equivalent theorem; no claim of independent validation is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the exact strength and optimal conditional depth of these two specific, separately added Barbero–Yang operators, answering the classical-extension question for them. Credit both the existing union-closed completeness theorem and the exact-team normal-form method. Also credit the earlier counterfactual reduction to intuitionistic implication on downward-closed languages: the flat branch is a direct specialization, not a separately original theorem. The published expressivity theorems compared use different syntax and do not establish the arrow-specific restricted translations or state this classification.
+
+## value
+
+PASS
+
+This settles a natural language-design question raised when these weak operators were introduced. The two nonflat operators individually generate the entire finite union-closed empty-team fragment with only flat inputs to one conditional layer, whereas unrestricted nesting of the third does not increase expressivity. The sharp cutoff identifies exactly how much conditional syntax gives the gain, rather than merely providing a new name for a union-closed logic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:23:44.793661Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For rank-one A the conditions at C=0 identify B with arbitrary maps k²/im A→ker A, giving q possibilities; A=0 gives q⁴ and invertible A gives one. With (q²−1)²/(q−1) rank-one matrices and (q²−1)(q²−q) invertible matrices this gives q²(3q²−2). At a nonzero nilpotent C, both factors centralize C, whose algebra is the dual numbers. Two nonunits there multiply to zero, whereas two units cannot give a nilpotent product. Choosing which factor is the unit and then the unit itself determines the other factor uniquely, giving 2q(q−1). The orbit of the sole nonzero nilpotent Jordan form has size |GL₂|/[q(q−1)]=q²−1. Summing gives the stated total. The q scalar centralizers have size q⁴, all others q². For independent factors, rank-one A imposes one nonzero linear trace condition, rank-two A gives q² choices and rank-zero A gives q⁴; the unrestricted count is q⁴(2q²−1). Division and subtraction give the positive factored expression and the stated asymptotics for all prime powers, including characteristic two. The separate exhaustive replay uses C²=0 rather than a trace/determinant criterion and enumerates the unrestricted comparison as well as each commuting nilpotent fiber over F₂, F₃ and F₄.",
+      "replay": "python3 /workspace/branches/independent_replay.py 1",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sarma–Subedi treat independent-product probability and examine triangular rings. Feit–Fine's general commuting series gives the denominator. Fulman–Guralnick count individually nilpotent commuting factors but not a nilpotent product with general commuting factors."
+        ],
+        "reasoning": "These broader results cover separate ingredients or neighboring experiments, not the nonzero fixed-product constraint.",
+        "searches": [
+          "arXiv:2610.07892v1 §1/Theorem 2.24",
+          "arXiv:1611.05499 Theorems 1.1 and 2.7, Lemma 2.8",
+          "Resultary semisimple and rectangular nilpotent-product laws"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact and neighboring matrix fiber and probability results",
+        "arXiv:2610.07892v1",
+        "arXiv:2110.15566v3",
+        "arXiv:1611.05499",
+        "Feit–Fine (original landing page and theorem reproduced in arXiv:1611.05499)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Huang's n=2 coefficient covers AB=BA=0. The Feit–Fine series and unrestricted formula give two other totals but do not isolate the constrained numerator. The neighboring nonzero square-zero product fibers require dimension at least four for a positive-rank product."
+        ],
+        "reasoning": "None of these specializes to the nonzero target with arbitrary commuting factors. The local argument that a nonzero target forces exactly one unit, followed by solving for the other factor, is short but adds a missing stratum and enables a strict all-q comparison.",
+        "searches": [
+          "Huang Eq. (1.14)",
+          "Fulman–Guralnick Theorems 1.1 and 2.7, Lemma 2.8",
+          "Resultary 2026/11/8/SCOPE-complete-finite-field-product-fibers-for-pairs-of-commuting-squa--c8a4349a84d7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For fixed dimension two the numerator counts ordered two-generator representations of k[u,v]/((uv)²), with k[u,v]/(uv) giving the zero-product stratum covered by Huang. Related Results with both factors square-zero have a stricter condition, not an equivalent reformulation."
+        ],
+        "reasoning": "The defining condition is on the product, not separately on u and v. Indeed at a nonzero target one factor must be a unit, so square-zero-factor counts omit all such pairs in this dimension.",
+        "searches": [
+          "Resultary: nilpotent product fibers commuting matrices finite fields square-zero fixed target",
+          "Huang arXiv:2110.15566v3 abstract and Theorem 1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed semisimple law 1−(1−q⁻ⁿ)² gives the exact unrestricted benchmark. The later Fourier-nullity finding explicitly gives the zero fiber 3q⁴−2q². No exact indexed table for the nonzero nilpotent fiber with unrestricted commuting factors was located."
+        ],
+        "reasoning": "The two exact matches are acknowledged components. Neither contains the contrast between the zero and nonzero commuting fibers.",
+        "searches": [
+          "Resultary unrestricted nilpotent-product law M₂ and exact two-by-two mutually annihilating fiber",
+          "2026/10/18/SCOPE-nilpotent-product-probabilities-in-finite-semisimple-rings--1e0ec2625b3a",
+          "2026/11/2/SCOPE-fourier-nullity-of-mutually-annihilating-2-times2-matrix-pairs--e549b1ebacd3"
+        ]
+      },
+      "rationale": "Credit Huang for the zero fiber, Feit–Fine for the commuting-pair denominator, and the earlier indexed work for the unrestricted benchmark. The supported distinct claim is the nonzero nilpotent-product stratum with arbitrary commuting factors and its exact consequence for conditional enrichment. No inspected competing theorem counts that stratum or mechanically specializes to it; the extra factorization step in the centralizer is necessary.",
+      "residual_risks": [
+        "Feit–Fine full original article was not recovered in bounded retrieval; its commuting total was verified from the explicit reproduction.",
+        "No exhaustive priority claim: unlocated general fiber results or an earlier elementary centralizer calculation could subsume the nonzero formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different sampling, not the conditional fiber count",
+          "evidence": "Independent ring elements in the definition; upper triangular and scalar-diagonal triangular examples at the theorem.",
+          "identifier_or_url": "https://arxiv.org/html/2610.07892v1",
+          "material_read": "§1 definition and Theorem 2.24 (around offset 25000)",
+          "method": "OA primary full-text passages",
+          "title": "Nilpotent product probability of finite rings",
+          "trigger": "Same statistic in finite rings"
+        },
+        {
+          "assessment": "Direct coverage of zero fiber",
+          "evidence": "Expression enumerates all ordered pairs with AB=BA=0, whose dimension-two specialization is F(0).",
+          "identifier_or_url": "https://arxiv.org/html/2110.15566v3",
+          "material_read": "Abstract and Theorem 1.2, Eq. (1.14)",
+          "method": "OA primary full-text passages",
+          "title": "Mutually annihilating matrices, and a Cohen–Lenstra series for the nodal singularity",
+          "trigger": "Exact zero-product locus"
+        },
+        {
+          "assessment": "Covers denominator and unlike nilpotence restrictions",
+          "evidence": "Theorem 1.1 restates Feit–Fine's all-commuting series. Theorem 2.7 and Lemma 2.8 concern individually nilpotent matrices rather than products.",
+          "identifier_or_url": "https://arxiv.org/pdf/1611.05499",
+          "material_read": "Theorem 1.1 p. 1; Theorem 2.7 and Lemma 2.8 pp. 6–7",
+          "method": "OA PDF passage reading",
+          "title": "Enumeration of Commuting Pairs in Lie Algebras over Finite Fields",
+          "trigger": "Check Feit–Fine count and possible nilpotent restrictions"
+        },
+        {
+          "assessment": "Verified denominator coverage; original full text unavailable in bounded retrieval",
+          "evidence": "The reproduced Feit–Fine formula counts all ordered commuting matrix pairs in arbitrary dimension.",
+          "identifier_or_url": "Feit–Fine, Duke Math. J. 27 (1960), 91–94",
+          "material_read": "Landing page and full theorem reproduced in Fulman–Guralnick, not original full text",
+          "method": "Project Euclid access attempt and later paper's theorem statement",
+          "title": "Pairs of commuting matrices over a finite field",
+          "trigger": "Denominator and any stronger older computation"
+        },
+        {
+          "assessment": "Exact unrestricted coverage only",
+          "evidence": "Specialization gives 2q⁻²−q⁻⁴ in dimension two, with no commutation test.",
+          "identifier_or_url": "Resultary 2026/10/18/SCOPE-nilpotent-product-probabilities-in-finite-semisimple-rings--1e0ec2625b3a; 2026/10/25/SCOPE-rectangular-nilpotent-product-law-over-finite-fields-and-its-sem--11977e975fa2",
+          "material_read": "RESULT.md finding passages",
+          "method": "Local repository mirror",
+          "title": "Nilpotent product probabilities in finite semisimple rings; Rectangular nilpotent-product law over finite fields",
+          "trigger": "Exact leading comparison benchmark"
+        },
+        {
+          "assessment": "Later related but cannot cover the nonzero target in dimension two",
+          "evidence": "Both factors square to zero; positive target rank t requires 4t≤n.",
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-complete-finite-field-product-fibers-for-pairs-of-commuting-squa--c8a4349a84d7",
+          "material_read": "RESULT.md assumptions and positive-rank target condition",
+          "method": "Local repository mirror",
+          "title": "Complete finite-field product fibers for pairs of commuting square-zero matrices",
+          "trigger": "Strongest similarly named nonzero fiber result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The product-fiber profile is a natural refinement of both the standard commuting-pair statistic and nilpotent-product probability. It supplies an independently useful exact dimension-two baseline across all finite fields: conditioning strictly enriches nilpotent products for every q, by a leading factor 5/2, and the nonzero stratum contributes at the same order as the zero one. This is not a new claim about the previously known zero locus or unconditioned probability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

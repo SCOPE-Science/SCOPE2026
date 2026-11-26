@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact domain is the source's on-chain two-class model: odd \(d\ge3\), packet size \(1\le n<d\), a contiguous packet error \(E\) on a minimum-weight logical \(\bar X\) chain, and the complement \(E'=E\bar X\) on the remaining \(d-n\) sites.
+# Independent mathematical audit
 
-The critical checks are analytic:
+## correctness
 
-1. \(E\) and \(E'\) have the same syndrome because their product is the logical operator \(\bar X\).
-2. The anchor assigns \(E\) the single correlated-edge weight \(w_{\mathrm{net}}=-\log p_{\mathrm{net}}\).
-3. The anchor's reduced comparison assigns \(E'\) the cost \((d-n)w_{\mathrm{gate}}\), with \(w_{\mathrm{gate}}=-\log p_{\mathrm{gate}}\).
-4. Under \(p_{\mathrm{net}}\ge p_{\mathrm{gate}}\), monotonicity of \(-\log\) gives \(w_{\mathrm{net}}\le w_{\mathrm{gate}}\).
-5. Since \(d-n\ge1\), positivity of \(w_{\mathrm{gate}}\) gives \(w_{\mathrm{gate}}\le(d-n)w_{\mathrm{gate}}\).
-6. If \(d-n\ge2\), the second inequality is strict. If \(d-n=1\), strictness is equivalent to \(p_{\mathrm{net}}>p_{\mathrm{gate}}\).
-7. At \(n=d\), the packet is the full logical operator and the syndrome vanishes, so the two-defect comparison is no longer available.
+PASS
 
-No numerical certificate is required. Finite simulations in the anchor are not used to prove the statement. The unresolved limitation is global: another syndrome-equivalent matching can be cheaper than both displayed classes, so the result is not a theorem of full MWPM fault tolerance beyond \(\lceil d/2\rceil\).
+For the stipulated on-chain X packet, multiplication by the weight-d logical X cancels the packet sites and leaves d−n sites. Multiplication by a logical Pauli preserves the syndrome. With g=−log p_gate>0, the assumed independent-edge sum is (d−n)g, while −log p_net≤g. For n≤d−2 the second inequality is strict; for n=d−1 equality occurs exactly at p_net=p_gate, including the central case d=3, n=2. At n=d the packet has zero syndrome and is not part of this comparison. Read RESULT.md lines 4–46 and VERIFICATION.md lines 18–32; this proof is analytic, so no simulation or certificate is needed. In the conclusion, ‘favored’ is weak preference, subject to the explicit tie.
+
+## originality
+
+PASS
+
+The primary source compares these two costs at the central packet size, not for all packet sizes, and warns that the full decoding rule is heuristic. The distinct result is a source-specific limitation on that rationale, not the monotonicity of −log or a new matching theorem. No inspected statement establishes the same limitation. The comparison to the source-specific public commentary is access-limited.
+
+## value
+
+PASS
+
+The ceiling is a central design rule of the source. Showing that its local justification fails to change sign anywhere below d identifies exactly what the global decoder analysis must add. For instance at d=7, n=5 the packet still strictly beats the length-two complement even at equal probabilities. This is a motivated model-boundary correction, not a claim of full decoder performance or fault tolerance past half distance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

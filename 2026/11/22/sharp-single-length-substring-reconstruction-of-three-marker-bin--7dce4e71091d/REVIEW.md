@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Summing bits by read offset gives \(c_{t+1}-c_t=w_{t+r}-w_t\). These signed differences identify all nonconstant residue chains. When \(n\ge4r-1\), every constant residue chain has length at least four except at most one of length three; known weight three determines them. At the boundary \(r=\lceil(n+2)/4\rceil\), two or more cyclic phases of one marker per period each have weight three and identical length-\(k\) decks. The proof handles the exact \(n\ge8\) range. The standalone enumerator confirms the prediction on finite instances; it does not substitute for the proof.
+## correctness
 
-**Originality — PASS against examined sources.** Angal et al. study *scattered* length-\(k\) decks, not contiguous-window multisets. Piña–Uzcátegui study equalities of *all* factor decks below a cutoff, not a single length. Indexed cyclic three-marker read thresholds concern necklaces and differ in both the object and numerical bound. The two-marker linear result in accessible prior records concerns a different fixed-weight family, and short fixed-trigram results do not imply a sharp variable-read-length theorem. None of these inspected claims entails the combined exact threshold and offset-marginal reconstruction. An unindexed equivalent remains a priority risk.
+PASS
 
-**Value — PASS.** Exact maximum ambiguous read lengths are natural zero-error reconstruction invariants, and the proof identifies a very small sufficient statistic (read-offset marginals) for all long reads. The phase-collision construction matches this sufficient regime sharply and exposes a reason sparse linear strings behave differently from circular strings. The result is not merely a finite table or routine arithmetic specialization.
+With r=n−k+1 overlapping linear reads, the t-th offset count is the source sum over [t,t+r−1], so neighboring offset counts differ by w_(t+r)−w_t. Each residue chain with any nonzero difference is fixed by that difference and propagation in both directions. For k>k*, integer rounding gives n≥4r−1, so at most one chain has length three and every other chain has length ≥4 (for r=1 the sole chain has n≥8 sites). A constant chain of at least four sites cannot contain ones, and the remaining weight determines the only possible constant length-three chain. At the claimed boundary, n=hr+b, h=2 or 3, 0≤b<r. In the h=2 branch there are b≥2 valid weight-three phases: n≥4r−5 gives b≥2r−5 for r≥4, and n≥8 gives b≥2 for r=3. For h=3 there are r−b≥2 valid phases since n≤4r−2. A phase change permutes the r read-start residues, so the entire ordered-within-read multiset agrees even though the linear words differ. This proves the last ambiguity, not all smaller lengths. An independent direct enumeration of the 56 weight-three words at n=8 found ambiguities at k=1,2,3,4,6 and injectivity at k=5,7,8, supporting the remark about nonmonotonicity. The two frozen verification ranges are only checks of the proof, not its basis; the uploaded code was read, not run.
 
-**Scientific limitations.** The new theorem does not classify all shorter-read fibers or general Hamming weights; only a self-review was carried out. The relevant preliminary literature comparison is not a guarantee of historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Supported distinct content is the sharp last collision for linear weight-three words from one exact contiguous read length, together with the stronger offset-marginal sufficiency above that collision. Strongly related contiguous cyclic and weight-two results and fixed-weight results for other deck channels do not give this conclusion under the same assumptions.
+
+## value
+
+PASS
+
+Three markers are a natural fixed-sparsity test for reconstructing a linear word from its contiguous reads. The exact last ambiguous length is useful because smaller read lengths need not behave monotonically. The offset-marginal result is a substantive reduction in required data, and the periodic full-deck witnesses show that the upper guarantee cannot be improved even when the complete ordered contents of all reads are available.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

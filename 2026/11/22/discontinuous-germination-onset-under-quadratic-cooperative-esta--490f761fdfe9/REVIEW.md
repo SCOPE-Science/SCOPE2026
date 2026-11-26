@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed global classification follows from the exact transformation to the one-dimensional objective \(\log s-t+ph_R(t)\). The second derivative \(h_R''\) changes sign once, which makes \(t h_R'-h_R\) increase and then decrease, with a provable negative limit for \(R>1\). This establishes the unique global tangency, both equality cases, and the unique post-threshold positive optimizer. The asymptotic comparison is globally tight through explicit endpoint bounds; the linear analogue follows from strict concavity. The standalone verifier's 66 assertions are additional checks, not a substitute for the proofs.
+PASS
 
-## Originality — PASS on inspected material
+For 0<R≤1 and each 0<g<1, 1−g+Rg²<1 and 1−g<1, so the dormant policy strictly beats every positive g. For R>1, t=−log(1−g) rewrites excess log growth exactly as −t+p h_R(t). Since h_R'' has the sign of (1−2R)cosh(t)+2R, it changes from positive to negative once. H=t h_R'−h_R starts at zero, increases then decreases, and tends to −log R since h_R=t+log R+O(e^(−t)), h_R'=1+O(e^(−t)). Thus the first positive zero t_c is unique, and t/h_R has its unique minimum there. Its limits at zero and infinity are infinity and 1, respectively, with t/h_R<1 eventually, yielding 0<p_c<1. The sign of −t+p h_R gives the strict dormant optimum below p_c and exactly the stated tie at p_c. Above p_c, the derivative at t_c is p/p_c−1>0, and −1+p h_R' decreases strictly from there to p−1<0. This produces the unique positive global maximizer on the falling branch (any earlier derivative root is a local minimum); at zero the derivative is always −1. This root tends to t_c as p decreases to p_c, so the positive onset is a jump. The objective tends to −infinity as t→infinity for p<1, also excluding g=1. In x=√R t the optimized ratio h_R(x/√R)/x converges locally uniformly to log(1+x²)/x. Near zero it is O(x); when t is small and x is large it is bounded by log(1+C x²)/x; away from small t use h_R(t)≤t+log(1+R). These estimates confine maximizers to a compact positive x-interval. The limiting maximizer is unique because log u−2(1−1/u) decreases on (1,2), increases thereafter and changes from negative to positive after 2. This gives the two constants. For the linear payoff, strict concavity and the derivative at zero give the claimed reciprocal threshold and clipped interior optimizer.
 
-Primary comparisons focused on germination bet hedging, density-dependent facilitation, and stochastic-season allocation. Siegmund and colleagues' publicly available preprint and subsequent paper analyze observed seeds using density-independent risk/payoff returns, not a favorable-season quadratic fraction payoff. Leverett and Shaw analyze population-level facilitation/competition, but the inspected equations and results do not state or imply the present exact one-dimensional phase law and square-root scaling. ten Brink and colleagues study timing and dormancy under unpredictable environments without the given all-or-nothing cooperative return. Indexed mathematical research covers distinct seed-bank and habitat-allocation settings. No inspected statement dominates the exact result; however, historical originality is provisional because older work on density-dependent germination and general geometric-growth optimization was not fully accessible.
+## originality
 
-## Value — PASS
+PASS
 
-The sharp jump, its persistent local dormancy optimum, and the change from reciprocal to square-root critical-frequency scaling form a structural classification of a natural competition between survival and group-dependent establishment. These are materially different optimizer geometries under linear and quadratic recruitment, useful when comparing reduced germination mechanisms. The result neither claims empirical fit nor proposes an intervention: its precise contribution is a tractable benchmark for future density/facilitation modeling.
+The supported distinct contribution is the exact global optimizer jump and its strong-cooperation constants for the specified quadratic good-season return. Log growth, seed banking, facilitation and the analogous smooth linear comparison are established or contextual ingredients and are not claimed as independent novel results. The available exact and abstract-level comparisons give no demonstrated prior implication for the quadratic threshold; the strongest inaccessible work is a priority risk.
 
-## Sources and remaining risks
+## value
 
-Primary literature: Siegmund et al., bioRxiv (2022), DOI 10.1101/2022.09.15.508102, and *American Naturalist* (2023), DOI 10.1086/726785; Leverett and Shaw (2019), DOI 10.1002/1438-390X.12021; ten Brink, Gremer, and Kokko (2020), DOI 10.1111/ele.13461. Relevant historical comparisons, abstract-level only: Valleriani (2005), DOI 10.1016/j.tpb.2005.01.006; Ellner (1985), DOI 10.1016/0040-5809(85)90022-X. The model's quadratic normalized establishment has not been empirically calibrated; the published literature search does not establish absolute historical priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the natural comparison between first-order and cooperative returns in this stylized seed-bank model, the exact optimizer analysis distinguishes a global policy jump with a persistent local dormant maximum from linear continuous onset. The inverse-square-root thresholds with identified constants quantify the change in regime beyond the observation that the payoff is nonlinear. This is useful as a mathematical benchmark for other fraction-based return models, without making an empirical claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

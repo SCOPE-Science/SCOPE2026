@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result is a complete finite/infinite one-step fiber classification on the specified half-open cube and integer-gain domain. The critical monotone cubic has exactly the enumerated sheets; the middle modular equation has exactly \(m\) residues; the first equation becomes a half-open interval count of integers. The strict lower endpoint and closed upper endpoint account for every boundary, including \(u=0\) versus the excluded \(u=1\). The only free-coordinate case occurs when \(v=0\), yielding exactly the explicitly stated exceptional image set. The determinant identity independently identifies this rank-collapse locus on smooth cells. Surjectivity for \(m\ge2\) and non-surjectivity for \(m=1\) follow directly from the proved count, not simulations. The exact-rational checks and numerical reconstruction tests in `verify.py` corroborate the derivation; they are not treated as infinite proofs.
+PASS
 
-## Originality — PASS, conditional on accessible evidence
+At a prescribed target the cubic ψ(w)=w−w³/6 increases onto [0,5/6), so the permitted third-coordinate lifts are exactly W+k with 0≤k<5A/6−W; the strict upper inequality gives the stated ceiling, even at a seam. For each w, writing mv=δ+j exhausts the second coordinate with j=0,…,m−1. If mv>0 the allowed positive first-coordinate lift lies in (0,δ+j]; it has j integer translates of U−w plus one iff 0<{U−w}≤δ. This checks both half-open boundaries. For mv=0 the first coordinate forces w=U, and the remaining equations give exactly Γ_m, with every u allowed; at most one w-sheet contributes such an interval. For example at m=1 the target (1/2,1/2,0) has exactly the solution (0,1/2,0), (0,1/2,0) as a target has no preimage, (0,0,5/6) excludes the third-coordinate endpoint, and (0,0,0) has the whole v=w=0 interval. On fixed smooth lifts, subtracting the differential terms through U and V gives determinant −m²vA(1−w²/2); this is not a differentiability assertion at modular seams. For m≥2 at least one sheet exists and its baseline count is positive away from Γ_m. For m=1 the given unreachable target also follows from the cubic range. For m=64, 64≤A<66 gives 53≤s≤55 and per-sheet counts between 2016 and 2080, so the two numerical bounds are valid; the record expressly does not claim sharp extrema. The proof is exact, not based on the finite floating-point reconstructions in the supplied script, which was inspected but not executed.
 
-The full originating published paper defines the 3D map and assesses numerical chaos and pseudorandom output, not the number of real one-step ancestors. The original intertwining map has a sine nonlinear term and is not algebraically the same map. A previously available result for the identical map counts fixed points on the invariant face; such points are solutions of a different, far more constrained equation and the face result does not entail the all-target, full-dimensional inverse counts, global onto threshold, or critical continuum. Related indexed results on coupled Gumowski–Mira maps and polynomial modular skew maps have different defining equations and cannot be substituted into the present cubic-sheet calculation. Actual searches for the source, modular inverse-fiber aliases, and numerical values did not find a direct dominating claim; lack of indexed results is not itself proof of novelty. Risks remain from unindexed comparable analyses and the full text of the earlier sine-map source, which was only checked via an accurate quotation in the originating article.
+## originality
 
-## Value — PASS
+PASS
 
-One-step invertibility is a natural state-reconstruction invariant for noninvertible modular dynamics, especially a system proposed as a deterministic output generator. The theorem settles it on the **full state cube** for the natural integer gains, including the published gain \(m=64\). The combination of the sharp onto/non-onto distinction, a complete exact formula, a rank-collapse continuum-fiber locus, and a universal six-figure inverse multiplicity is not a trivial renaming or a mere low-precision simulation. No cryptographic security conclusion is inferred from the inverse count, and no higher-iterate classifications are claimed.
+The published Zhao–Ma equation itself is prior. The inspected same-map neighbor counts face fixed points rather than full-cube real fibers. No inspected comparable statement covers the exact integer-gain sheet counts, the continuum image, or the onto distinction. The decision is limited to the accessible evidence, not a priority guarantee for modular dynamics in general.
 
-## Closest literature and scientific limits
+## value
 
-- W. Zhao and C. Ma, *Symmetry* **16** (2024), 169, https://doi.org/10.3390/sym16020169, full HTML scientific sections inspected.
-- G. Ye and X. Huang, *Neurocomputing* **251** (2017), 45–53, original sine formula quoted by Zhao and Ma. Its complete text was not inspected.
-- Published inverse-sheet results for coupled Gumowski–Mira maps and modular skew maps use distinct equations. Their indexed statements address different objects; fetching two of those complete articles was unsuccessful, so their unseen sections are not certified as noncovering. Indexed comparison does not exhaust all potential equivalent literature.
+PASS
 
-The theorem concerns exact real arithmetic for integer \(64\mu\), not physical finite-precision implementations or long-time dynamics. The displayed six-figure bounds are certified bounds, not asserted optimal.
+Real one-step identifiability is a natural invariant of this published noninvertible map. A complete target-dependent count, a positive-dimensional fiber locus and the onto distinction are materially more informative than the forward formula or a sampled bifurcation portrait. The integer slice removes a genuine modular endpoint complication and includes the reference parameter. No finite-precision, cryptographic or long-run conclusion is needed for the value of the classification.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

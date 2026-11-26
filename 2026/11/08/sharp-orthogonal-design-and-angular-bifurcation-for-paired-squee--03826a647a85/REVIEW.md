@@ -1,19 +1,21 @@
-# Scientific assessment: paired squeezed-Gaussian ambiguity design
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The analytic proof starts from the unit-normalized Gaussian ambiguity identity and its fractional-Fourier covariance, which together reduce the entire disk infimum to a one-variable angular infimum on the boundary. The two-bump polarization lemma proves global sharpness and strict equality rigidity even with unequal positive amplitudes and unequal exponential-cosine strengths. The clipped stationary point gives every boundary case. The unequal-squeeze corollary follows by direct symbolic simplification and exhibits one genuine radius threshold, with no unclassified angular branches. The standalone numerical checker recomputes the original Gaussian expression at 16 parameter/radius combinations and compares 64 nonperpendicular orientations; it is supporting evidence, not a substitute for the proof.
+PASS
 
-## Originality — PASS, with bibliographic limits
+The stated unit normalization and Fourier convention give ambiguity magnitude exp[-pi(s x^2+s^(-1) xi^2)/2] before rotation. Both positive summands strictly decrease along each ray, so the closed-disk minimum is on its boundary. Doubling the angular coordinate and shifting by pi gives the two exponential-cosine terms. At antipodal doubled centers the floor is the minimum of a strictly convex exponential sum in x=cos(t); its derivative gives the clipped logarithm. To compare any other angle, relabel if needed so the antipodal minimizing cosine is nonpositive, hold that cosine fixed and choose the sign of sin(t) to decrease the other cosine. This is strict for a negative minimizing cosine, even at -1; for cosine zero it is strict whenever sin(beta) is nonzero, and for coincident centers t=pi makes both terms smaller. This proves exact equality only at perpendicular physical axes. For equal weights and s_1>s_2, the stationary cosine is x_infinity minus a positive multiple of R^(-2); direct subtraction shows 0<x_infinity<1. It enters the interval through -1 at the stated R_0 and never reaches +1. Inverting the doubled cosine proves the one- and two-line classification, square-root opening at threshold, and the pi/4 crossing. The variables are real phase-space coordinates; no requirement that a fractional Fourier transform preserve real-valued windows is needed.
 
-The principal antecedent, Alaifari and Yang (arXiv:2410.05486, 2024), explicitly introduces the sum of rotated squeezed-Gaussian ambiguity functions as a denominator in a multi-window inversion formula. Its Section 2.1 and Remark 2.1 present equally spaced rotations of *the same squeeze* and calculate a geometric disk covered by unions of equal-level ellipses; Section 3 gives stability estimates conditional on a denominator threshold. It does not provide the exact two-window weighted **sum-minimum** maximization, orientation uniqueness, or unequal-squeeze angular bifurcation. Hardin–Kendall–Saff (arXiv:1208.5261, Theorem 1) proves circle polarization optimality for an identical convex geodesic kernel at every center; the exponential-cosine kernels here differ and are not geodesically convex. Grohs–Liehr–Rathmair (arXiv:2207.10620) concerns phaseless lattice uniqueness with four windows, not this sharp disk denominator invariant. The related three-window squared-ambiguity design model assumes fixed equal spacing and a different optimized quantity, so its claimed scope does not imply the present two-window result. Targeted database and literature searches found no direct statement, but unlocated specialist optical-design/polarization literature is a residual risk. No stronger prior theorem was identified that implies the complete present claim.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For the positive-ambiguity direct-inversion approach, the minimum weighted denominator over an observation disk is the natural worst-direction quantity controlling the allowed division threshold. The theorem determines its optimum *exactly*, rigorously rules out every nonperpendicular alternative for any fixed positive weights and nonisotropic Gaussian squeezings, and describes a nontrivial radius-driven transition in which one worst direction splits into two. The threshold has a closed formula in the actual window parameters, so it distinguishes small-observation and large-observation geometry rather than merely supplying a numerical improvement. This does not prove that two windows ensure sampled phase-retrieval uniqueness or globally minimize every noise model; those claims are explicitly excluded.
+The positive-sum reconstruction denominator and equal-spacing design are known, as are related three-window squeezing thresholds. The supported distinct claims are exact two-window maximin over relative orientation for arbitrary positive weights and genuine squeezings, with strict equality classification, and the exact change of the minimizing directions for unequal squeezings at equal weight. The strongest inspected precedents use different objectives, a restriction to common kernels, or a different number of windows.
 
-## Restrictions and remaining risks
+## value
 
-The result is for two normalized squeezed Gaussians with fixed dilation and positive weights, and optimizes the weighted *absolute* ambiguity sum on a centered disk. Isotropic endpoints, arbitrary covariance matrices, varying weights, more than two windows, sampled reconstruction, and nonlinear global inverse stability are outside its proved scope. Specialist literature may contain an equivalent weighted two-kernel circle polarization lemma or optical-design formulation not located by the searches. An independent mathematical audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A weighted positive ambiguity floor is a concrete denominator-design target in multi-window inversion, distinct from ellipse coverage. Fixing the squeezings and weights is a natural constraint when windows are chosen in advance. An exact optimizer with no alternative relative angles, plus the radius where the worst line splits into two, gives both a usable stability floor and the directions at which it is tight.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

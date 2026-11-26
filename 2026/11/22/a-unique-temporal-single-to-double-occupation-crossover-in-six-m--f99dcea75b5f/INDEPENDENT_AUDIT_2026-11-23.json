@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:58:46.165522Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and scope, Proof",
+        "VERIFICATION.md and verify.py (read only)",
+        "Independent exact nearest-neighbour acceptance replay: python3 reproductions/reproduce_kmer_review.py"
+      ],
+      "rationale": "Coverage of a site by time t is exactly the event that at least one interval containing it has attempted by t: the first such attempt necessarily adds that site. Hence repeats cannot be accepted and each tracked start is accepted iff it is earliest over the incident clocks of at least one of its sites. The k starts containing zero therefore use only the 3k−2 stated starts, with no infinite-volume boundary extrapolation or recursively needed remote acceptances. Conditional on the set of starts attempted, uniform ordering follows from exchangeability of the independent exponential clocks; the set weights are q^m(1−q)^(3k−2−m) per labelled subset. I independently replayed the exact ordered-prefix count with a different acceptance predicate: earlier starts to the left cover a prefix of the candidate interval, those to the right cover a suffix, and for nearest left and right distances L,R capped at k, an uncovered site exists iff L+R>k. The integer histogram for each subset sums to |S|!, which is the required normalization. Dividing totals at degree m by m! reproduced every B6 coefficient, the positive coefficient signs for lengths 2–5, the six terminal rationals, the complete coefficient list of the finite-time sixfold law after extracting q^6, and the opposite exact signs at q=577764/10^6 and 577765/10^6. B6 has seven positive low-degree and nine negative high-degree coefficients, apart from its zero constant; Descartes' rule plus the signs near 0 and infinity gives exactly one simple positive x-root. The map x=e^t−1 is strictly increasing, yielding the full time-ordering statement. Independent evaluation gave q*=0.57776462798272308285948 and t*=0.86219236683740609698770. The limit t→∞ selects the full subset, not a simulation of jamming.",
+      "residual_risks": [
+        "The finite enumeration is exact for the specified independent lattice clocks and indicated lengths; it does not compare lengths above six or apply to nonoverlapping adsorption."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier finite linear hierarchy makes any fixed-length one-site law calculable in principle, but the analytical evaluations in that paper stop at length five; its appendix concerns pentamers.",
+          "The same-day all-k outermost covariance record obtains sharp finite dependence and a two-site covariance at separation 3k−3 for the same clock model. The trimer record uses local first arrivals and subset enumeration for terminal triple-coverage indicators."
+        ],
+        "reasoning": "The general solution method and locality overlap, but a single two-site covariance does not determine the six-mer one-site multiplicity histogram, and unexecuted hierarchy closure does not settle the sign changes of the evaluated six-mer polynomial.",
+        "searches": [
+          "arXiv:2410.12373v1, §§2–3 and Appendix A",
+          "Resultary first-arrival localization / all-k covariance, 5023e9240d95 and trimer subset enumeration"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "arXiv:2209.03992 and 2410.12373v1",
+        "Resultary 5023e9240d95, trimer Gaussian fluctuations record, 42c7745cb385 and identical assigned result f99dcea75b5f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known lower-length time laws already determine π1−π2 and support coefficient sign analysis in the same odds variable; the dimer inequality is explicit prior coverage.",
+          "Even exact opposite signs at small time and jamming would only prove at least one crossing; neither the numerical jammed comparison nor availability of a finite hierarchy implies no extra roots.",
+          "The nearest indexed covariance theorems concern spatial statistics, not a classification of crossings of two one-point multiplicity probabilities."
+        ],
+        "reasoning": "The six-mer all-time result requires evaluating the histogram and proving a positive-root count, not just plugging k=6 into a known sign theorem. The exact sign certificate explains the specific finite cutoff and adds more than numerical confirmation of eventual reversal.",
+        "searches": [
+          "arXiv:2209.03992 §VI.A, Eqs. (70), (72)–(73)",
+          "arXiv:2410.12373v1 Eqs. (18), (28), (37)–(38), (43)–(44), Table 1 and Appendix A",
+          "Resultary same-day all-k and dimer spatial-covariance records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both sources use the same random sequential covering acceptance rule, not random sequential adsorption.",
+          "Krapivsky explicitly gives the all-time dimer inequality in §VI.A; Viot–Krapivsky present the lower-length laws in a transformed time variable."
+        ],
+        "reasoning": "Changing from e^(−t) or 1−e^(−t) to the odds x=e^t−1 for the same clock law is a reparametrization, not novelty. Its contribution here is the six-mer sign certificate obtained after exact evaluation, not a different model or an original lower-length law.",
+        "searches": [
+          "Primary literature search on exact RSC hexamer occupation probabilities and the single-to-double crossover",
+          "Krapivsky arXiv:2209.03992 §VI.A and Viot–Krapivsky arXiv:2410.12373v1 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 (printed p. 13, PDF extraction around offset 41450) lists simulated six-mer jammed values π1≈0.4299 and π2≈0.4419; the columns run only through π5. Fig. 4 is also jammed rather than a six-mer time plot.",
+          "The hit containing the exact six-mer vector and root is the mirrored copy of the assigned record itself, f99dcea75b5f, not another prior evaluation."
+        ],
+        "reasoning": "The table anticipates the terminal ordering but has neither the exact sixth probability nor the full exact vector or finite-time root. Numerical estimates of five jammed entries do not reconstruct the exact fractional sixth entry by normalization.",
+        "searches": [
+          "Viot–Krapivsky arXiv:2410.12373v1, Table 1 and Fig. 4",
+          "Resultary exact hexamer root, terminal vector and 19/873180"
+        ]
+      },
+      "rationale": "The assessed distinct claim is the evaluated six-mer temporal reversal and its uniqueness certificate, exact terminal law and finite-time sixfold probability. The dimer ordering is explicitly known, and exact time laws already cover the k=3–5 one-site distributions from which their sign inequalities can be deduced; treat the lower-length results as the comparative baseline. Credit the known first-arrival method, general hierarchy and numerically observed six-mer terminal ordering.",
+      "residual_risks": [
+        "No separate external supplement was inspected beyond the article's included appendix. An unindexed exact hexamer evaluation or stronger all-k sign theorem could affect priority; general finite solvability is already credited and does not itself establish the evaluated result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the dimer all-time ordering; not the six-mer theorem.",
+          "evidence": "The paper explicitly states the dimer inequality for every t>0; its trimer trajectory was presented as a conjectural guess.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.03992",
+          "material_read": "§VI.A, original Eqs. (70), (72)–(73), Fig. 3, pp. 7–8, OA text near offset 49054; §VI.B trimer conjecture",
+          "method": "Lawful OA original PDF passages",
+          "title": "Random Sequential Covering",
+          "trigger": "Original covering model and dimer single/double occupation laws"
+        },
+        {
+          "assessment": "Prior exact time laws through k=5 and k=6 jammed simulations; no evaluated six-mer time or exact terminal law in the inspected results or appendix.",
+          "evidence": "Table 1 gives π1≈0.4299, π2≈0.4419, π3≈0.113, π4≈0.0142, π5≈0.000878 for k=6; no π6 column. Fig. 4 is jammed and Appendix A evaluates the pentamer.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.12373v1",
+          "material_read": "§§2–3 on model and hierarchy, Eqs. (18), (28), (37)–(38), (43)–(44); Table 1, printed p. 13 (extraction around 41450–44644); Fig. 4 and Appendix A pp. 16–17",
+          "method": "Primary literature search and bounded lawful OA original PDF passages",
+          "title": "Random sequential covering of a one-dimensional lattice by k-mers",
+          "trigger": "Same acceptance rule and strongest prior exact time laws, with results at k=6"
+        },
+        {
+          "assessment": "Same model and locality, different statistic; same-day date establishes no priority.",
+          "evidence": "It compares C0 and C_(3k−3) by covariance, not the one-site masses at C0=1 and C0=2.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-outermost-coverage-covariance-for-all-sequentially-deposit--5023e9240d95",
+          "material_read": "Mirrored RESULT.md Finding and scope, offsets 0–2243, and method/relationship passage around offset 7100",
+          "method": "Resultary and local mirror at commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp outermost coverage covariance for all sequentially deposited k-mers",
+          "trigger": "Closest same-day match on exact all-time all-k RSC statistics"
+        },
+        {
+          "assessment": "First-clock locality and subset enumeration are not original here; no six-mer classification in this trimer result.",
+          "evidence": "The observable concerns terminal triple-coverage indicators and spatial correlations.",
+          "identifier_or_url": "2026/11/8/SCOPE-oscillating-spatial-correlations-and-exact-gaussian-fluctuations-in-trimer-sequential-covering",
+          "material_read": "Mirrored RESULT.md Finding and local-enumeration passages, offsets 0, 2506 and 6500",
+          "method": "Resultary and local mirror passage comparison",
+          "title": "Oscillating spatial correlations and exact Gaussian fluctuations in trimer sequential covering",
+          "trigger": "Known local-clock subset enumeration on the same covering model"
+        },
+        {
+          "assessment": "Spatial covariance theorem, not a six-mer one-site crossover.",
+          "evidence": "It uses the already known dimer laws and compares multipoint coverage correlations.",
+          "identifier_or_url": "2026/11/22/SCOPE-all-time-alternating-coverage-correlations-in-sequential-dimer-d--42c7745cb385",
+          "material_read": "Mirrored RESULT.md Finding and relationship to single-site laws, offsets 0 and 7000",
+          "method": "Resultary and local mirror passage comparison",
+          "title": "All-time alternating coverage correlations in sequential dimer deposition",
+          "trigger": "Same-day all-time exact statement on the dimer model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md exact crossing and histograms",
+        "Viot–Krapivsky Table 1 and scope of analytic evaluations",
+        "Independent reconstructed finite-time sign certificate"
+      ],
+      "rationale": "Six is the natural first unevaluated length after the earlier complete time laws and the first tested case in which simulations reverse the jammed ordering. Proving a unique crossing over the full time axis answers a structural question that the jammed data cannot settle. The exact terminal vector and rare sixfold trajectory also provide reproducible benchmarks where simulation estimates of rare events are weak. Value is not assigned to recompiling known lower-length laws or claiming a general solution for arbitrary k.",
+      "residual_risks": [
+        "The cutoff is through six only. The method scales exponentially in the local window and does not classify lengths above six or a continuum limit."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

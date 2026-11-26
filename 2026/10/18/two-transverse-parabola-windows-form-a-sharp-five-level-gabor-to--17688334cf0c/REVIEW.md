@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof fixes counting measure, unit-normalized windows, the unnormalized full time-frequency orbit and the complex Hilbert–Schmidt norm. Conjugation characters of the Weyl basis give the eigenvalue multiplier \(q^2(|A_0|^2+|A_1|^2)\). The parabola intersection equation is solved uniquely whenever the corresponding displacement coordinate is nonzero, while nonzero quadratic Gauss sums have squared modulus \(q\) by direct character orthogonality; no prime-only simplification is used. Five disjoint Weyl strata have multiplicities adding to \(q^4\). The spectral extremes are attained, the rank count matches the nonzero ambiguity labels, and the difference-set bound rigorously obstructs single-window full matrix tomography under the \(q\)-point support cap. Executable checks over orders 3, 5, 7 and 9 support the finite computations, including dense independent lifting at orders 3 and 5. Finite checks alone are not a proof; the proof covers all odd prime powers.
+## correctness
 
-## Originality — PASS, best-knowledge
-The general Weyl-frame/ambiguity formalism is not new: Bojarovska–Flinth (arXiv:1503.05800) and Bartusel (arXiv:2206.06729) are explicit antecedents. The closest multiwindow primary paper, Grohs–Liehr–Rathmair (arXiv:2207.10620), treats real-line lattice uniqueness and does not imply the finite-field pair's five-level frame spectrum. The finite prime-field graph-support work arXiv:1712.09120 treats vector Gabor orthonormal bases instead of linear intensity tomography. Nearby published results on two-sparse cyclic multiwindow tomography and hyperbolic-shell single windows also have neither the two transposed finite-field parabolas nor the claim's spectral multiplicities. Search comparisons considered exact object, aliases, general ambiguity-function reductions, and stronger possible coverage; none retrieved the full specific result. Residual priority risk: an unknown earlier two-graph/planar-difference-family operator tomography construction may exist, and a general Weyl formalism makes pieces of the calculation accessible. No absolute uniqueness certification is claimed.
+PASS
 
-## Mathematical value — PASS
-One projector window supported on \(q\) of \(q^2\) locations is provably incapable of spanning the complete matrix space. The constructed **two** equally sparse, elementary finite-field windows reach the first possible window count, while the full five-level spectrum gives exact reconstruction stability rather than merely existence or rank. The interaction of transverse planar graphs with quadratic Gauss magnitudes is a natural design mechanism and works uniformly over all odd prime powers. The minimality assertion is deliberately limited to matrix informational completeness rather than unrestricted pure-state uniqueness.
+Normalized Weyl matrices are an orthonormal basis of the complex Hilbert–Schmidt space; the orbit phases are distinct orthogonal characters of the N²-element phase space, giving eigenvalue N times the sum of the two squared ambiguities (N=q²). For a nonzero displacement (a,b) the first graph has one overlap iff a≠0, since b=2at−a²; the other has one iff b≠0. At zero displacement a nontrivial quadratic phase has squared sum q by expanding the square and summing in the difference variable; a nontrivial linear phase has zero sum. Thus the five distinct eigenvalues are 1,2,q,2q,2q² with the stated multiplicities, which partition all q⁴ Weyl labels. Minimum and maximum are attained, and their square-root ratio is √2 q. The first window's nonzero labels count q²q(q−1)+q(q−1)+1; the second is symmetric. Any ≤q-point support misses a nonzero difference because 1+q(q−1)<q², leaving a whole Weyl shift sector unseen by that window. This is a linear-matrix statement; injectivity on rank-one projectors follows for the pair but the obstruction for a single window is not asserted in that restricted problem. A fresh finite-field enumeration gave {1:1296,2:5184,9:16,18:64,162:1} for q=9; a separate dense lifted normal matrix gave {1:36,2:36,3:4,6:4,18:1} for q=3. Replay script and output: /workspace/branches/2e54cba5-28e8-44df-afe2-7cbc852cdf28/independent_spectrum_check.py and independent_spectrum_output.txt. Frozen verification material was inspected, not executed. The checks corroborate normalization and examples; the proof covers all odd prime powers.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Bounded pass for the specific transverse sparse construction and exact sharp spectral profile. The individual parabolas are relative difference sets and the Weyl-to-ambiguity reduction is established; neither receives independent originality credit. No inspected result constructs a pair with complementary displacement and modulation defects in this setting, attaining the lower window count with this five-level spectrum.
+
+## value
+
+PASS
+
+Linear tomography using extremely sparse windows needs both identifiability and stable inversion. This explicit construction attains the minimum possible number of windows under a natural per-window support cap and gives all singular levels, not just full rank. It supplies a precisely conditioned deterministic design over every odd prime power, without making claims about globally best conditioning or pure-state minimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

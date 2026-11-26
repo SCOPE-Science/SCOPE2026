@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:13:53.695531Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, §§ Assumptions and Proof; VERIFICATION.md and verify.py (inspected, not executed)",
+        "Corrected RESULT.md, Proof",
+        "Strube et al., DOI 10.1007/s00285-024-02074-z, Eq. (2)"
+      ],
+      "rationale": "The final RESULT.md corrects the false displayed equality in the frozen exact witness (line 75): the sign of h is the sign of 1−t(4−3t), not (1−t)−t(4−3t). This restores the factorization (1−t)(1−3t) without changing the claim. Independently eliminating the susceptible variable using pS(1−e^(−βI))=δI gives the stated continuous, strictly increasing r(I), with range (r_c,∞); no positive equilibrium occurs at equality. The log-ratio L has strictly decreasing derivative when c>w and stays bounded. Hence h(I)/I strictly increases for w<1, from b(1−w)−κ to b(1−w); for w=1 the ratio in L directly gives the negative or identically zero case. Substitution at t=1/3 gives the witness, and independent differentiation gives the repaired text's Jacobian and positive Schur margins for 1<log 3<2. A separate numerical calculation from the original map gave an equilibrium residual at roundoff and margins 0.40957, 0.11508, 3.06578; the exact proof, not this check, establishes the result. The frozen verification notes and checker use the correct polynomial and need no change.",
+      "residual_risks": [
+        "Stability is proved only locally for the explicit branch near its crossing; the all-parameter comparison makes no attractor or trajectory claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Appendix B.5's A<e^(−C) is r>r_c in its zero fecundity-reduction case, with A=d/r and C=bδ/(βp). The same-day indexed trichotomy concerns a four-dimensional ODE and asymptotics of the infectious coordinate, not total-population comparison in this map."
+        ],
+        "reasoning": "Credit the prior existence threshold in its applicable regime. Neither that threshold nor the different high-r equilibrium theorem classifies the sign of the population difference.",
+        "searches": [
+          "Strube et al. Lemma 4 and Appendix B.5",
+          "Jaramillo et al. exact DOI and same-model discussion in Strube et al.",
+          "2026/10/13/SCOPE-a-sharp-high-media-growth-trichotomy-for-endemic-equilibria-in-a--cd028e873839"
+        ]
+      },
+      "checked_sources": [
+        "Strube–Elgart–Childs (2024), full-text passages",
+        "Jaramillo et al. (2022), exact identifier and secondary attribution only",
+        "Resultary near matches listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sufficient restrictions w<1−β/b and d≥1/2 both exclude d=1/4, w=0, β=b=1. The prior existence condition is not a sign criterion. The 2024 introduction attributes a mortality-only and fecundity distinction to the 2022 study, not an exhaustive threshold in r."
+        ],
+        "reasoning": "There is strict extension of the inspected sufficient result: the monotone scalar parametrization and strict convexity determine the previously unclassified signs and equality. General priority against the older same-form paper remains qualified.",
+        "searches": [
+          "Strube et al. §3.3 Theorem 5 and Appendix B.5; Introduction's comparison with Jaramillo et al."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2024 paper compares the same totals, and its introduction identifies the same functional form in Jaramillo et al. Theorem 5 is a sufficient criterion, not an equivalence. The equal-size equation in the final result uses reproductive capacity r, not the invasion reproduction number or a derivative with respect to mortality."
+        ],
+        "reasoning": "Compare with both hydra and endemic-versus-disease-free terminology, not with transient rebound or increases in the infectious class alone. The sufficient condition gives neither the single crossing nor signs outside its hypotheses.",
+        "searches": [
+          "Strube–Elgart–Childs DOI 10.1007/s00285-024-02074-z, Eq. (2), Eq. (7), and §3.3",
+          "Jaramillo et al. DOI 10.1007/s11538-021-00975-4",
+          "Resultary semantic search for same-model hydra and reproduction threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest indexed comparisons concern a different epidemic ODE, a transient coupled shock in a cannibalism ODE, and harvest timing in a two-season Ricker model, respectively."
+        ],
+        "reasoning": "None of these statements supplies the exact classification or stable witness for the specified map. An exact numerical table alone would not establish the quantified parameter theorem. No priority is inferred from same-day indexing.",
+        "searches": [
+          "Resultary semantic search for endemic hydra/reproductive capacity and equilibrium size",
+          "2026/10/13/SCOPE-a-sharp-high-media-growth-trichotomy-for-endemic-equilibria-in-a--cd028e873839",
+          "2026/11/17/SCOPE-a-unique-mortality-fecundity-rebound-time-in-a-three-stage-canni--e1a14b6126ad",
+          "2026/10/26/SCOPE-a-sharp-two-crossing-timing-law-for-one-off-harvest-in-seasonal--9433bb12fafb"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the sharp global-in-r equilibrium comparison, including its equality cases and a stable crossing outside the old sufficient condition. Neither the model nor existence/uniqueness in the previously covered regime is new. Correcting the exact example does not change what is compared. The main unresolved prior comparison is the same-form 2022 study, not available in full.",
+      "residual_risks": [
+        "The 2022 same-form paper may contain an equivalent or broader equilibrium threshold; its full text was not obtained. The pass is not a priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial prior coverage, not the sharp sign classification",
+          "evidence": "Eq. (2); Lemma 4 and A<e^(−C); Theorem 5's sufficient w<1−β/b and d≥1/2.",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-024-02074-z",
+          "material_read": "OA PDF: Introduction pp. 3–4, §3.3 p. 9 and Appendix B.5 pp. 29–30",
+          "method": "Bounded full-text passage inspection",
+          "title": "Infection-induced increases to population size during cycles in a discrete-time epidemic model",
+          "trigger": "Identical model, definition and closest theorem"
+        },
+        {
+          "assessment": "Specific unresolved overlap; no whole-paper noncoverage claim",
+          "evidence": "The 2024 source names the identical model form and reports distinction between mortality-only and fecundity effects at stable equilibria.",
+          "identifier_or_url": "https://doi.org/10.1007/s11538-021-00975-4",
+          "material_read": "Actual paper unavailable; attribution in Strube et al., Introduction p. 3",
+          "method": "Publisher and DOI OA retrieval attempts, alternate-copy discovery and exact metadata attempt",
+          "title": "Disease-Induced Hydra Effect with Overcompensatory Recruitment",
+          "trigger": "Older same-form model and stable SI equilibria"
+        },
+        {
+          "assessment": "Different model and observable",
+          "evidence": "High-r endemic infectious-coordinate asymptotics in a four-dimensional ODE, not a total-population comparison.",
+          "identifier_or_url": "2026/10/13/SCOPE-a-sharp-high-media-growth-trichotomy-for-endemic-equilibria-in-a--cd028e873839",
+          "material_read": "Finding and model scope",
+          "method": "Indexed semantic retrieval and bounded record inspection",
+          "title": "A sharp high-media-growth trichotomy for endemic equilibria",
+          "trigger": "Closest same-day indexed high-reproduction equilibrium result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md",
+        "Strube et al. §3.3 Theorem 5"
+      ],
+      "rationale": "A complete partition in reproductive capacity answers when the direction of an equilibrium population difference changes, not merely when the effect can occur. The example establishes that the direction changes even on a locally attracting branch outside both earlier sufficient restrictions. The result is valuable as a sharp comparison for this model, not as a claim about observed trajectories.",
+      "residual_risks": [
+        "No general stability or empirical claim accompanies the sign classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

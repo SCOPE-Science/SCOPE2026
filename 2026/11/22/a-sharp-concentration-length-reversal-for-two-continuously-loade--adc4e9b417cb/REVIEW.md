@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact primitive is a strictly increasing global coordinate for each positive source-dominated Monod flow. The divided-difference identity for the relative speeds proves one strict displacement maximum because the product of the current concentration and its forward flow increases from zero to infinity. The translation increment therefore has at most one sign change and yields the unique positive length threshold, all inlet endpoints, and strict crossover motion. Boundary assumptions \(s>k>0\), \(K>L>0\), \(a,b>0\), and \(x\ge0\) are maintained throughout; the equality case is separately checked. The standard-library checker was replayed at the actual package path and passed 2,331 supplementary assertions, which do not replace the analytic proof.
+PASS
 
-## Originality — PASS (provisional)
+The frozen Step 3 is false where it claims strict speed inequality at c=0: both rates are s there. In repairs/3/RESULT.md the endpoint argument instead integrates f_K/f_L along the K-trajectory. For every positive time the trajectory is strictly positive and f_K/f_L>1 there, so δ(0)>a rigorously, without a strict inequality at the initial point. No hypothesis or conclusion has been dropped. Re-audited the repaired proof: differentiating the primitive gives 1/f_H and its monotone inverse conjugates the L-flow to translation. The ratio is 1+k(K−L)c/[(K+c)(sL+wc)], where w=s−k; its divided difference has sign sKL−wcy. Taking y=F_K^a(c) and using the strict increase of cF_K^a(c) gives precisely one maximum z₀ of the displacement. The ratio tends uniformly to 1 along a fixed-time trajectory as its inlet tends to infinity, so δ tends to a, establishing the unique positive b_c through δ(b_c)=δ(0). For the outlet-coordinate difference δ(z+b)−δ(z), the same-side signs are immediate and the sign changes at most once across the maximum since the derivative there is negative. The sign at z=0 separates all three regimes and gives the sole boundary tie. At the interior root the implicit derivative is negative; the straddling inequalities and continuity give the two endpoint limits. Independently bisected the repaired equations at 50-digit working precision for (s,k,K,L,a)=(2,1,4,1,1), obtaining z₀≈1.4180063940276094, b_c≈8.1850904349017187 and x_*(1)≈1.5621163376635477. The accompanying numerical evidence was read without executing the uploaded script. The displayed b is residence time, not physical length without a specified velocity.
 
-The closest fully read published mathematical result is the finite-step, no-source reach-ordering classification, whose assumptions expressly exclude exact continuous plug-flow kinetics. Another fully read three-stage stormwater result has a linear wash-off law and a cumulative-exposure objective. The recoverable earlier source-driven two-reach result uses discrete maps and a between-reach concentration jump, not a continuous source in both reaches. Covino et al. (2010) supply empirical serial-uptake motivation, while O’Brien et al. (2007) investigate nitrogen turnover but report no corresponding exact order theorem. Possible stronger historical rearrangement theorems or inaccessible reactor texts remain priority risks, so the assessment is a best-knowledge literature comparison and does not certify unconditional novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The claim gives a sharp, unique and monotone phase boundary for an idealized but motivated spatially successive saturating-uptake setting. It clarifies when reach ordering depends on incoming concentration and when sufficiently long high-affinity downstream treatment eliminates that dependence. Its qualitative conclusion contrasts with linear constant-supply wash-off and parameter-only finite-step sorting. The result is not field-validated and does not cover the lower-source regime or heterogeneous flow hydraulics.
+Reassessed the corrected manuscript. The identifiable contribution remains the joint inlet and second-residence-time classification for exact continuously loaded Monod flow with a common source above both removal maxima. The closest located exact comparisons use finite-step maps, a discrete source jump, or a different continuous objective. The literature assessment is bounded.
 
-## Limits and closest literature
+## value
 
-Sources: O’Brien et al. (2007), doi:10.1007/s10533-007-9073-7; Covino et al. (2010), doi:10.1029/2009JG001263; the published finite-step reach-ordering and three-stage stormwater exposure results linked in RESULT.md. Plausibly relevant older membrane reactor optimization and newer bioreactor zone-volume texts were only accessible as abstracts. Historical priority is therefore provisional; no external expert audit is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Even though the low-affinity stage has the higher local net rate at every positive concentration, this pointwise inequality does not settle order. For fixed first-stage residence time, the theorem gives precisely when a finite inlet crossover exists, in which direction the recommended order changes, and when the crossover reaches zero. This resolves an exact design question within a stylized monotone model rather than extrapolating empirical water-quality effects. The endpoint correction preserves those conclusions and their value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

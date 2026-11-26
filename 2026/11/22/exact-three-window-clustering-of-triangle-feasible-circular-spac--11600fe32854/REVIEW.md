@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All events refer to cyclically consecutive **positions**, not sorted length ranks. The normalized-independent-exponential model makes their homogeneous triangle indicator exactly two-dependent on the exponential sequence. The single probability \(1/4\), neighboring joint probabilities \(1/9\) and \(2/27\), and the joint probability \(232/4725\) of three consecutive successful windows were evaluated by independent conditional integration and an exhaustive six-order decomposition of the three central variables. Pair counting gives the special \(n=3,4\) cases and \(133n/432\) for every \(n\ge5\). The independent-block argument establishes asymptotic normality without confusing simulations with proof. The embedded checker replayed all exact rational identities and supplied separately seeded numerical diagnostics.
+PASS
 
-## Originality — PASS, with priority risk
+With the cyclic list rooted at a uniformly chosen sampled point (equivalently, at a fixed sample label), the gaps have the Dirichlet(1,…,1) law; homogeneity removes the common exponential normalization. Independently recomputed the four probabilities as exact simplex-volume ratios: eliminate the last gap by sum x_i=1, intersect the simplex with the three linear triangle inequalities from each tested window, enumerate feasible vertices by full-rank active systems, and recursively cone each face boundary from its vertex barycenter. The sums of absolute simplex determinants in dimensions 2, 3, 4, 4 give 1/4, 1/9, 2/27, 232/4725 respectively (the last polytope has ten vertices). Dividing the last result by 1/9 gives 232/525. Disjoint windows depend on disjoint exponentials. For n≥5, exactly two ordered partners per index have each of the two nonzero covariance values 7/144 and 5/432; n=4 has twelve ordered pairs sharing two gaps and n=3 has identical indicators. This gives all variance cases stated. The bounded two-dependent linear sum satisfies Lindeberg using length floor(n^(1/3)) blocks separated by two deleted terms; the deleted variance is o(n), the retained asymptotic variance is 133n/432, and at most two boundary terms change under cyclic closure.
 
-The classical \(1/4\) broken-stick result and the general exponential representation are **not** claimed as new. Işlak's general dependent-sequence theorem and Mirakhmedov's general sum-of-spacings treatment cover the normal-limit mechanism; invoking them alone would not establish originality. The narrower assessed contribution is the explicit evaluation of the third-order **overlapping** local triangle event, its conditional clustering probability, and the all-finite-size covariance calibrations, not supplied as such by the inspected papers. The general 2024 sum-function treatment may imply the variance coefficient after additional nontrivial integration, but it does not tabulate the third-order probability. Searches for equivalent descriptions (local triangle-feasible arcs, three adjacent broken-stick triples, Dirichlet spacing motif, independent exponential overlap) found no covering specific calculation. This does not exclude older geometric-probability literature or a disguised specialization.
+## originality
 
-## Value — PASS
+PASS
 
-Consecutive arc triples are a natural local geometric diagnostic, and their success counts cannot be calibrated as independent Bernoulli trials. An exact \(133/81\) variance inflation and \(232/525\) conditional third-window success probability quantify substantial clustering; the exact exceptional small-circle cases make the calibration complete for every sample size. The third-order local law supplies information not recoverable from the known single-triple probability or the covariance alone. No general new CLT is claimed.
+The distinct contribution supported here is the evaluated local overlap law, especially the five-gap triple-success probability and the resulting conditional cluster probability. The broken-stick marginal and generic dependent-spacing CLT and variance framework are not original. No inspected distinct record or primary result gives the same local joint probabilities or an evaluated formula subsuming them.
 
-## Closest sources and limitations
+## value
 
-Le Caër, *A Pearson-Dirichlet random walk* (2009, https://arxiv.org/abs/0912.3500), develops the conditioning representation; Işlak (2013, https://arxiv.org/abs/1303.2386) treats general dependent sums; Mirakhmedov (2024, https://arxiv.org/abs/2404.09581) treats broad spacings sum-functions. Generic overlap formulas are not novel, and unknown past evaluations of the present motif remain a historical-priority risk. Numerical checks do not establish infinite results or independent certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The motif uses natural consecutive positions of uniform circular spacings. A researcher calibrating local cluster counts needs a joint probability, not just the marginal or asymptotic variance: the conditional chance of a third success after two is 232/525 rather than 1/4, a concrete higher-order effect. The pairwise probabilities additionally give the exact variance inflation and its small-cycle exceptions. Value rests on these exact local quantities, not on a new CLT or a claim about all triangle statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

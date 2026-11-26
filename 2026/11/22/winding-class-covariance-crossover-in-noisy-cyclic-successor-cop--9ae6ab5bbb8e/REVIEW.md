@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The generator calculation, unique Dirichlet recurrence solution and sharp scaling are reconstructed explicitly; the finite-state verifier separately constructs the Markov generator and reproduces all marked pair expectations. All-parameter validity follows from proof, not enumeration. Continuous-rate statements are for positive refresh only; the zero-refresh continuation is not asserted as a unique zero-noise stationary law.
+## correctness
 
-**Originality — PASS on inspected evidence, provisional.** Read the primary full text of Szabó–Szolnoki's 2D cyclic invasion, Vazquez–Loscar–Baglietto's mean-field multistate copying, Carro–Toral–San Miguel's positive noisy copying, and Godrèche's binary directed Ising model. Their transition kernels, domains and implication scopes do not establish the present \(q\ge3\) successor-copy ring covariance or the exact modular boundary twist. Searched published mathematical records for cyclic shifted-copying, winding, phase Fourier correlation and directed stochastic voter aliases. The closest deterministic colour-ring automaton addresses periodic-entry times, not stationary correlations. An unindexed broader result remains a priority risk.
+PASS
 
-**Mathematical value — PASS.** The theorem identifies a physically motivated winding/frustration obstruction and its exact diffusive noise window across all lengths and numbers of colours. Its modulus dichotomy is a measurable coherence distinction, not a routine numerical or arbitrarily chosen graph statistic.
+Positive rate a of independent uniform refresh makes the finite chain irreducible, so rotation and common colour-shift invariance follow by uniqueness and the Fourier mean vanishes. A copy at the first marked site contributes ω C_(d−1)−C_d, one at the second gives conjugate(ω) C_(d+1)−C_d, and the two refreshes contribute −2a C_d. This includes d=1 and n−1, where one predecessor coincides with the other marked site and its product becomes 1 before the phase. Demodulation gives the scalar recurrence R_(d+1)−2(1+a)R_d+R_(d−1)=0 with R_0=1 and R_n=ω^(−n), since C_n=C_0=1. The two real distinct roots exp(±κ) give the stated unique sine-hyperbolic interpolation. With fixed q, nκ→sqrt(2c) along the residue sequence, including limits at x=0,1; the subsequent c↓0 limit is the chord between 1 and ω^(−r). Its interior modulus is strictly less than 1 for r≠0, since these endpoints are distinct. 'Complex' describes the codomain, not a claim of a nonreal value in every sector: for even q and r=q/2 the profile is real. A separate 81-state generator at n=4, q=3, a=1/2 gave maximum absolute correlation discrepancy 2.49e−16 over d=0,…,4; the theorem rests on the analytic calculation, not that test.
 
-**Limitations.** The result concerns stationary two-point correlations only. It does not determine stationary higher moments, full distribution, mixing times or unrefreshed uniqueness. No comprehensive historical priority certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct assessed result is the complex holonomy-dependent two-point function and its residue-sensitive diffusive crossover on this directed ring, not generator moment closure or the solution of an ordinary untwisted noisy-voter recurrence. No inspected prior statement gives or dominates the winding-resolved result.
+
+## value
+
+PASS
+
+The deterministic shift forces a natural global compatibility question: one circuit can accumulate a nontrivial colour phase despite identical local update rules. The formula resolves exactly how uniform refresh competes with this phase on the n^−2 scale, and separates unit-coherence and frustrated sectors in the weaker-noise limit. This is an explicit observable that distinguishes winding classes even though their local dynamics agree, not merely a reformulation of an ordinary periodic recurrence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

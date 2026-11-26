@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-From the package root, run `g++ -std=c++17 -O2 -Wall -Wextra verification/peeling.cpp -o plurality_peeling` then `./plurality_peeling`, and compare with `verification/peeling_output.txt`. Run `python3 verification/direct_trace.py` and compare with `verification/direct_trace_output.txt`. These exact commands were executed against the actual embedded paths and both emitted byte-identical output to the accompanying certificates.
+## correctness
 
-The C++ enumerator visits every integer in \(\{0,\ldots,59048\}\), computes the graph transition using the explicit trit tie rule, deletes indegree-zero states, identifies all directed cycles, and propagates first-entry time, orbit ID and eventual period backwards. Its complete printed entry and basin histograms sum to \(59{,}049\) for each graph. The Python checker constructs neighborhood sets independently, evaluates plurality by counting votes, and traces every trajectory until repetition. It separately enumerates the binary majority dynamics on all \(2^{10}\) states per graph. Its complete outputs exactly match the C++ ternary counts.
+PASS
 
-The witnesses with maximal preperiods of \(5\) and \(7\) updates are printed as exact base-three state integers. Because the entire finite state set is enumerated, no unobserved finite-state orbit is being extrapolated away. These computations prove only the stated finite numerical claim. Search-based novelty comparison does not prove absolute priority. Independent external scientific verification has not been performed.
+Independently built each neighborhood from the two shore strides and spoke, then used bitmasks of vertices per color to build each labeled transition map. At each vertex at most one color can occur twice; if no color occurs twice the corresponding bit is inherited from the current state. For each of 59049 ternary states per graph, exact iteration found the first x with F^2(x)=x; it was found by depth 5 (prism) or 7 (Petersen) in every case, excluding longer cycles without assuming any general period theorem. F(x)=x separates period one from primitive period two, whose labeled recurrent states are divided by two for orbit counts. The replay independently matches both frozen histograms and least-encoded witnesses. Binary enumeration of 1024 states per graph gives (14 fixed, 55 primitive two-cycles) on both. In order (fixed, primitive two-cycle orbits, fixed basin, two-cycle basin, unanimous basin, maximum preperiod), the ternary rows are (219,1410,17049,42000,12063,5) and (579,2175,37899,21150,33543,7). Fixed palettte counts are (3,36,180) and (3,36,540). Replay: python3 /workspace/branches/plurality_reproduction.py; the certificate is exact and exhaustive for these finite maps only.
+
+## originality
+
+PASS
+
+Pass is for the joint comparison of the two exact synchronous dynamics, especially the opposition of primitive-cycle count and total oscillatory basin population, not for the known binary baseline, each equilibrium number considered alone, or a general period-two principle. Indexed same-day static overlaps are material and credited; neither accessible statement covers the synchronous basin-period comparison.
+
+## value
+
+PASS
+
+These classical cubic ten-vertex graphs are a motivated comparison because the binary recurrent counts match exactly. The ternary census separates the two not just by a different count, but by a reversed ordering between number of oscillatory attractors and fraction of initial states cycling. The exact labeled basin and first-entry counts give a reusable complete benchmark for that distinction; no family-wide generalization or utility of arbitrary small graph enumerations is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

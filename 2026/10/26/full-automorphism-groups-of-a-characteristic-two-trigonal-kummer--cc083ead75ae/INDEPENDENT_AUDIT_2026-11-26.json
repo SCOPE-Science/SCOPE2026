@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:12:28.531776Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The degree-three Kummer extension is nontrivial because the valuation of f at 0 is -M, not divisible by three. In characteristic two f=(x^M+1)^2/x^M; since M is odd its roots are distinct, and the M zeros and two poles are exactly the tame totally ramified points. Riemann–Hurwitz gives genus M. Any other degree-three rational subfield together with K(x) generates the full field: containment would force equality by the equality of degrees, and a proper intermediate extension would contradict prime degree. The resulting map is birational onto a (3,3) curve of arithmetic genus 4, impossible even at M=5. Every automorphism therefore descends to PGL2 with kernel C3, and conjugation of the deck generator gives sigma(y)=u(x)y^s, s=1 or 2, by its three eigenspaces. Modulo three the branch residues are 1 at the poles (population 2) and 2 at the roots (population M); s=2 would swap unequal populations. Hence the descended map preserves {0,infinity} and the roots of unity separately. These conditions impose x -> cx or c/x with c^M=1, all of which fix f and lift fixing y. They form an order-2M complement centralizing the deck group; the coprime rotation factors yield the normal index-two C_(3M). This proves the full group and genus uniformly, including order 30 at M=5. No finite sample or formal verification is needed for this proof; the supplied supplementary checker was only inspected.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dionigi–Giulietti–Timpanella focus on p != 2; Thm. 3.5 assumes p >= 3 and Thm. 4.12 has an automorphism-order tameness condition. Thm. 4.1 on cyclic covers applies to the tame cubic quotient presentation above, not as a full group theorem for X_M. The single focused web lookup produced no relevant result."
+        ],
+        "reasoning": "Tameness of the cubic morphism does not imply tameness of the full group, which here has an involution in characteristic two.",
+        "searches": [
+          "arXiv:2607.15983v1 introduction and Thms. 3.5, 4.1, 4.12",
+          "Focused literature query for characteristic-two X_(3,M) full automorphisms and cyclic-index-two classification"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.34709v1",
+        "arXiv:2607.15983v1",
+        "Resultary ba7ecfcdf760",
+        "Resultary 7a692b0c067f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.2 gives H <= Aut(X), with a caution that the full group may be larger. Proposition 6.6 is conditional; Remark 6.7 names X_(3,5) the first case to examine for the unresolved normality outside the specified larger-group subfamily."
+        ],
+        "reasoning": "The unique degree-three pencil and unequal branch-residue populations give the required upper bound on the image in PGL2; none of the compared constructions of H or conditional assertions yields that upper bound.",
+        "searches": [
+          "arXiv:2609.34709v1 pp. 3–4, 22, 31: Theorem 1.2, Example 4.7, Proposition 6.6, Remark 6.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prop. 6.6 identifies fullness of H with normality of the given cyclic C_(3M). Ex. 4.7's equation y^3=u^5+u^3+u comes from u=x+x^(-1) and defines the genus-two quotient, not a reparametrization of X_5. Setting z=x^M and Y=zy gives Y^3=z^2(1+z)^2 on the C_M quotient, which has genus one.",
+          "Another presentation of the original genus-M curve is w^3=x^2(x^M+1), with w=(x^M+1)/(x^((M-2)/3)y). It preserves the two distinguished residue populations (with the labels exchanged)."
+        ],
+        "reasoning": "The subgroup and genus and the equivalent normality question are known; classifying the smaller quotients or writing a different cyclic equation does not supply normality on the original curve.",
+        "searches": [
+          "Timpanella arXiv:2609.34709v1 Thm. 1.2, Ex. 4.7 and Prop. 6.6",
+          "Resultary: characteristic-two trigonal Kummer automorphism/normality and cyclic-index-two group"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The even Ma–Wang maximal-curves normalizer record ba7ecfcdf760 treats a different family; its branch-eigenvalue mechanism is related but not the X_M assertion. The Artin–Schreier record 7a692b0c067f treats y^3-y=lambda/(x^m-1) in characteristic three with group D_(3m), not a C3 direct factor or this curve. Timpanella's explicit genus-five example gives the subgroup only."
+        ],
+        "reasoning": "The two strongest nearby catalogue statements do not match equation, geometric group and hypotheses; a shared order 6M or proof ingredient is insufficient.",
+        "searches": [
+          "Resultary: full automorphism groups of characteristic-two trigonal curves, Kummer deck normalizers and the genus-five X_(3,5) case"
+        ]
+      },
+      "rationale": "The supported distinct result is fullness and the consequent normality for the specified subfamily, not the curve, genus or exhibited subgroup. The exact earlier family is known and its source explicitly leaves the genus-five full-group problem open. No covering classification was verified in the bounded comparisons.",
+      "residual_risks": [
+        "Bounded semantic and literature searches do not rule out an unindexed full-group classification or an independent proof. The method does not resolve M congruent to 1 modulo 3 or k other than 3."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Genus and subgroup prior; unconditional fullness not supplied there.",
+          "evidence": [
+            "Thm. 1.2: 2g=M(k-1), H is C_k times D_(2M). Remark 6.7 names X_(3,5) as the first case to examine."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.34709v1",
+          "material_read": "Thm. 1.2 and ensuing caveat (pp. 3–4), Ex. 4.7 (p. 22), Prop. 6.6 and Rem. 6.7 (p. 31)",
+          "method": "OA PDF decisive passages",
+          "title": "Large cyclic automorphism groups and cyclic subgroups of index two in characteristic two",
+          "trigger": "Exact equation and same group"
+        },
+        {
+          "assessment": "Characteristic/tameness hypotheses or quotient-only conclusion prevent implication.",
+          "evidence": [
+            "The classification sets p != 2 in the introduction; Thm. 4.1 treats cyclic Y^N=Z^r(1+Z)^s for p not dividing N."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.15983v1",
+          "material_read": "Introduction p. 2, Thms. 3.5, 4.1, 4.12 pp. 7, 8, 14",
+          "method": "OA PDF decisive passages",
+          "title": "Curves with a large automorphism group admitting a cyclic subgroup of index 2",
+          "trigger": "Potential general classification through cyclic and dihedral quotients"
+        },
+        {
+          "assessment": "Different curves, and the latter also has different characteristic and group.",
+          "evidence": [
+            "The first assumes even Ma–Wang maximal curves; the second treats a cubic Artin–Schreier, not Kummer, equation."
+          ],
+          "identifier_or_url": "Resultary ba7ecfcdf760 and 7a692b0c067f",
+          "material_read": "Both RESULT.md Findings and surrounding hypotheses",
+          "method": "Local mirror text",
+          "title": "Even maximal-curve Kummer deck normalizer; characteristic-three Artin–Schreier dihedral automorphisms",
+          "trigger": "Nearby catalogued normalizer and full-group assertions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full group, as opposed to an exhibited subgroup, resolves the explicit genus-five test question and gives an infinite progression of genera with a normal cyclic subgroup of index two. The proof isolates why the trigonal degree and distinct branch-residue populations rule out extra symmetries, rather than assuming that the visible group is full.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

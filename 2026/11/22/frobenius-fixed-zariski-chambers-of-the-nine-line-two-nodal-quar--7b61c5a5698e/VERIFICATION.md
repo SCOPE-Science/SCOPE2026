@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The supporting scripts reconstruct the theorem's finite integral and combinatorial calculations without access to external data. `verification/verify_matrix.py` uses SymPy for exact intersection-pairing determinants and enumerates every subset of the eleven negative curves. It derives all five conjugacy types of the eight-element line-pair stabilizer, then tests fixed supports and their size profiles, two equal negative-curve cycle partitions, direct orbits, and Burnside's identity. Its final marker is `TWO_NODAL_QUARTIC_MATRIX_OK`.
+## correctness
 
-`verification/verify_incidence.py` uses only Python's standard library, constructs supports from curve-disjointness and root-incidence restrictions independently of matrix determinants, and derives every bivariate support-count table. Its terminal marker is `TWO_NODAL_QUARTIC_INCIDENCE_OK`. Their deterministic stdout is included as `verification/expected_output.txt` with labels identifying the two sources; its byte content was compared with actual runs.
+PASS
 
-Both verifiers perform finite exhaustive checks for their exact eleven-curve universe. The fact that this universe includes *all* geometrically negative curves is established by the Bézout and adjunction proof in `RESULT.md`, not by enumeration. The arithmetic interpretation uses the classical descent of the Zariski decomposition and explicitly constructed geometric configurations. Historic priority remains provisional; no independent mathematical audit has been performed.
+Bézout against the two root lines gives anticanonical degree >= d+m0 for any other nonexceptional curve; adjunction forces d=1, m0=0 and a crossing pair for a negative curve. The two root curves are disjoint. For disjoint selected (-1)-curves, the root Schur block is -2I+MM^t; a shared E0 makes the two-root block singular, while without E0 the two root conditions are independent. An invariant negative-definite support descends: for a ground-field ample A, solve (-M)b=(A·C_i)_i, where M is the support Gram matrix. The solution is strictly positive (a negative part would contradict positive definiteness and the nonpositive off-diagonal of -M; a zero coordinate contradicts the positive right side). P=A+sum b_i C_i is big nef, orthogonal exactly to the support, and P+c sum C_i has the required negative part. Coefficients are rational and invariant by uniqueness. The common point and pair partition force D8. The proposed field realizations work: rational axes give independent inner swaps, conjugate axes with two points over the quadratic field give pair exchange, and a genuine degree-four coordinate gives the four-cycle. Any triple among the four outer points contains two points on one axis, so cannot be an extra collinear triple. Independent exact rational-pivot Gram enumeration matches all five rows, every bivariate coefficient, the identical curve-cycle vectors with 17 vs 23 fixed supports, and the orbit-size multiplicities 5,6,31,10. The supplied incidence script prints bivariate coefficients rather than asserting each coefficient; that evidence is the saved snapshot and the independent coefficient-by-coefficient comparison, not the terminal marker.
+
+## originality
+
+PASS
+
+The inspected comparisons leave the specific five-class table, its refinements, 52 D8-orbits and this explicit same-cycle/different-descent example distinct. The geometric 221 and the general phenomenon across different surfaces are not credited as new.
+
+## value
+
+PASS
+
+Determining when individual curve splitting suffices is a natural descent problem. The explicit same-field 17-versus-23 witness defeats that shortcut while holding the full negative-curve cycle partition fixed. The complete realizable family and root refinements provide actionable data for arithmetic chamber calculations, beyond re-counting the split surface.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

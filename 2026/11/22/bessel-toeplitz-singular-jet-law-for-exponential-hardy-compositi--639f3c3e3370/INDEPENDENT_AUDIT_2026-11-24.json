@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:52:57.054601Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exponential conjugacy gives the simple eigenvalues q^k and the exact iterate M_{exp(A(1−q)z)}D_q, q=r^n. On the j-fold exterior space, q^{−j(j−1)/2} times the exterior power of D_q differs from the projection onto the first j monomials wedged together by an operator of norm q: all other index sums increase by at least one. The multipliers converge in operator norm as q→0, giving the stated rank-one limit; the exterior norm is the singular-value product. The limiting squared norm is the positive Gram determinant of z^k exp(Az), with entries I_{k−ℓ}(2A). Division for consecutive j gives the asserted fixed-rank law. For the strict bound, reverse the minimizing monic polynomial to p*, with p*(0)=1 and identical boundary modulus. The trial integral is the squared Hardy norm of exp(Az)p*, which is at least 1 from its constant coefficient and equals 1 only if p*=exp(−Az), impossible for A>0. Multiplying the monic trial by z gives monotonicity, and reversed exponential Taylor polynomials give the limiting upper bound 1. At A=0 the operator is diagonal. RESULT.md, VERIFICATION.md and checker.py were inspected; finite truncations are corroboration, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lechner et al. treat fixed-operator large approximation-index behavior; Chalendar–Partington give norm convergence of weighted-composition powers; Putinar–Tener give the general exterior-product identity."
+        ],
+        "reasoning": "A fixed-operator root law has the opposite limit order, and raw norm convergence can identify the leading rank-one limit but does not resolve the vanishing higher singular values. The exterior identity does not supply the normalized limit without a separate dominated graded column and the evaluation of its Gram matrix.",
+        "searches": [
+          "arXiv:1612.01177 §2",
+          "arXiv:1612.03970 Theorem 3.1 and Lemma 3.3",
+          "arXiv:1910.01475 Proposition 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen result and support",
+        "arXiv:1612.01177, 1612.03970, 1910.01475",
+        "Resultary --639f3c3e3370, --560a8c13f516, --84dd5742ec0f, --da46cd8b014c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Fock proof exhibits the same minimal sum of distinct Taylor degrees and the same ratio-of-wedge-norms principle. The Bergman proof uses a single leading compound row and a different Gram kernel."
+        ],
+        "reasoning": "The mechanism readily generalizes to graded columns, and the frozen result should not be attributed novelty for that mechanism. The inspected statements are operator-specific, not a theorem for arbitrary graded Hardy columns supplying the Bessel prediction norms. Neither their constants nor their claims can be transferred by parameter substitution.",
+        "searches": [
+          "arXiv:1612.03970 Lemma 3.3 p. 9",
+          "Resultary --560a8c13f516 proof Step 2",
+          "Resultary --da46cd8b014c Finding and proof Steps 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact indexed match --639f3c3e3370 is the frozen record itself.",
+          "The closest distinct affine-iterate record --560a8c13f516 gives fixed-j constants for C_φ^n−P on Bargmann–Fock space, with the first retained Taylor order one and truncated Gaussian kernel constants."
+        ],
+        "reasoning": "The graded proof is the same kind of argument, but subtracting P starts that hierarchy at q^j instead of q^{j−1}. More importantly the Fock jet Gram norms do not identify with the circle weight exp(2A cos θ). No equivalence via the Fock affine translation or the Hardy exponential similarity was found; similarity need not preserve singular values.",
+        "searches": [
+          "Resultary: exponential Hardy weighted composition fixed rank singular asymptotic Bessel Toeplitz Gram determinant iterates",
+          "Resultary --560a8c13f516, RESULT.md proof Step 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit is a self-match. Distinct Volterra and Bergman records provide fixed-rank constants for different operators and limits."
+        ],
+        "reasoning": "There is no finite table to check for this infinite-rank family. A table of Bessel Toeplitz determinants, even if available, would give the constants only after identification of the iterate singular-value asymptotic with those determinants.",
+        "searches": [
+          "Resultary catalogue: fixed-rank singular hierarchies and Toeplitz/Gram constants; --639f3c3e3370, --560a8c13f516, --84dd5742ec0f, --da46cd8b014c"
+        ]
+      },
+      "rationale": "Pass for the explicit fixed-rank iterate coefficients in the exponential Hardy model and their comparison to its eigenvalue coefficients. The graded exterior-power method has been used for other families, and the Toeplitz prediction-error interpretation and rank limit are classical in substance. No inspected distinct result supplies this operator's Bessel Gram ratios as its fixed-index iterate asymptotics.",
+      "residual_risks": [
+        "A general perturbative graded-operator theorem or earlier Hardy jet calculation could give equivalent coverage. The comparison is limited to the inspected sources and does not certify priority for either the Toeplitz facts or the exterior-power technique."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "different limit",
+          "evidence": [
+            "The limit index there labels approximation numbers of one fixed operator, not iterates."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1612.01177",
+          "material_read": "§2, Eq. (2.1), Thm. 2.2 and pp. 12–13 root-law passage",
+          "method": "original OA PDF passages",
+          "title": "Approximation numbers of weighted composition operators",
+          "trigger": "same class and singular quantities"
+        },
+        {
+          "assessment": "covers general proof tool only",
+          "evidence": [
+            "Lemma 3.3 gives the exterior norm as the product of singular values; Theorem 3.1 treats full exterior-space boundedness."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1612.03970",
+          "material_read": "Theorem 3.1 p. 8; Lemma 3.3 p. 9",
+          "method": "original OA PDF passages",
+          "title": "Singular values of weighted composition operators and second quantization",
+          "trigger": "exterior-power theorem for weighted composition"
+        },
+        {
+          "assessment": "addresses power convergence, not graded singular limits",
+          "evidence": [
+            "Proposition 2.1 gives convergence criteria for powers."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.01475",
+          "material_read": "§2, Proposition 2.1 p. 3",
+          "method": "original OA PDF passage",
+          "title": "Weighted composition operators: isometries and asymptotic behaviour",
+          "trigger": "iterate limit for weighted composition operators"
+        },
+        {
+          "assessment": "substantial method overlap; different Hilbert space, operator and coefficients",
+          "evidence": [
+            "Uses C_φ^n−P and independent Fock jet families; singular scales |a|^{jn}."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-fock-jet-singular-spectra-for-affine-analytic-contractions--560a8c13f516/RESULT.md",
+          "material_read": "Finding, scope, proof Steps 1–2 and opening of Step 3, offset 0",
+          "method": "indexed file, local mirror",
+          "title": "Sharp Fock-jet singular spectra for affine analytic contractions",
+          "trigger": "strongest fixed-rank increasing-iterate analogue"
+        },
+        {
+          "assessment": "analogue in growing integration order, not Hardy iteration",
+          "evidence": [
+            "The operator is normalized Riemann–Liouville integration and the compound limit uses a Vandermonde determinant."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-complete-fixed-rank-singular-value-hierarchy-for-high-order-vo--84dd5742ec0f/RESULT.md",
+          "material_read": "Finding and proof through determinant limit, offset 0",
+          "method": "indexed file, local mirror",
+          "title": "A complete fixed-rank singular-value hierarchy for high-order Volterra integration",
+          "trigger": "same-day exterior hierarchy"
+        },
+        {
+          "assessment": "graded compound limit, different Gram kernel and parameter regime",
+          "evidence": [
+            "Differential Hilbert operator between weighted Bergman spaces; the singular scale is β^{−(k−1)/2}."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-high-target-weight-singular-value-hierarchy-for-the-differential--da46cd8b014c/RESULT.md",
+          "material_read": "Finding and proof Steps 1–2, offset 0",
+          "method": "indexed file, local mirror",
+          "title": "High-target-weight singular-value hierarchy for the differential Hilbert operator",
+          "trigger": "close Gram-ratio hierarchy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Optimal fixed-rank approximation errors for these iterates are not determined by the exactly geometric spectrum. The constants measure that discrepancy at every fixed rank and prove that it disappears as the rank of the coefficient increases, a useful quantitative refinement of convergence to rank one. No simultaneous rank/iterate limit is required for that interpretation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

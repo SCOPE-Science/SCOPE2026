@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:08:42.545837Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 10–54 and 56–108",
+        "VERIFICATION.md and check_sierpinski_vortices.py (recorded finite diagnostics and their scope)"
+      ],
+      "rationale": "The independent-digit product converges locally uniformly, including in complex neighborhoods; its tail is nonzero near any fixed real frequency once the finitely many vanishing factors are removed, since the deviations from 1 are uniformly summable. The real mask zeros require two opposite nontrivial cube roots. At (2u/3,2v/3), factor j vanishes exactly when 2^(j-1) divides both u and v, because division by 2 modulo 3 interchanges the two residue orientations. The r vanishing factors have linear terms proportional to L and its conjugate in alternation, with L(h)=exp(-2 pi i/3)h1+exp(2 pi i/3)h2 for residue (1,2) at the first level. Its real determinant is -sqrt(3)/2, and |L(h)| is at least |h|/sqrt(2). The leading product has exact degree r and stays nonzero on small circles relative to the Taylor remainder; degree additivity gives index -1 for odd r in that residue, +1 in the other, and 0 for even r. The examples u=-v=2^(r-1) realize every r. The order-at-least-r locus is 2^(r-1)Z, giving exact disk count subtraction. Two cosets of 2 Z^2 have combined density 1/2; summing the rescaled lattice estimate gives weighted density 2/3 (times disk area) and a summed O(R+1) error, as only O(log(R+2)) scales can contribute. Summing exact-order differences over even orders gives 1/5 of all zeros; swapping the coordinates pairs the two odd index signs in each disk. The proof replays from RESULT.md sections 1–3. The packaged checker in check_sierpinski_vortices.py was inspected, not run; its finite disk counts and sampled truncated-product windings are supplementary, not proof of any unrestricted claim.",
+      "residual_risks": [
+        "The theorem fixes the right-triangle coordinates, the negative-sign Fourier transform, and the real two-dimensional local index. It does not give a complex-frequency divisor or the same Euclidean count constants in rescaled or equilateral coordinates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Ai's general formula for the real Fourier-zero set covers the support after setting the matrix to 2I. Deng–Lau's accessible abstract addresses spectrality; the full paper was not accessible through the DOI or the publisher PDF."
+        ],
+        "reasoning": "A union-of-sets statement loses the multiplicity information and does not give the real-linear orientations. The cited product enables a further Taylor calculation but supplies no phase rule in the inspected passages. The Deng–Lau abstract cannot rule out full-text overlap.",
+        "searches": [
+          "Chen–Ai, arXiv:2508.20809, equations (1.3), (2.1)–(2.2)",
+          "Deng–Lau, DOI 10.1016/j.jfa.2015.06.013 and identified publisher PDF"
+        ]
+      },
+      "checked_sources": [
+        "Chen–Ai, arXiv:2508.20809",
+        "Resultary record 2d3222d8e549",
+        "Deng–Lau, DOI 10.1016/j.jfa.2015.06.013 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At dilation 2 the first mask-zero locus already contains the later loci, so Chen–Ai's formula entails exactly the frozen support. The new classification uses alternating conjugate jets, not just vanishing of individual factors. The ternary census instead rests on scale 3 and even orders."
+        ],
+        "reasoning": "Credit the precise support and general product framework as prior. The signed classification requires verifying a nondegenerate linear term and its alternating real orientation; the order and index counts then follow from that classification and the arithmetic scaling. Neither inspected comparison gives the full classification as a special case.",
+        "searches": [
+          "Chen–Ai, arXiv:2508.20809, pp. 3, 5, equations (1.3), (2.1)–(2.2)",
+          "Resultary record 2d3222d8e549, Finding (1)–(3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen–Ai gives the two cube-root mask cosets and the union of their dilation sets. The Resultary ternary-carpet finding computes a local Fourier divisor and winding, but for an eight-digit, scale-three measure."
+        ],
+        "reasoning": "Support, Taylor degree and local winding are different invariants. The closest indexed calculation is an analogue, not an equivalent result under coordinate changes: its isolated orders are even and all their indices vanish, unlike the dyadic gasket.",
+        "searches": [
+          "Resultary: Sierpinski Fourier zero multiplicities, local phase winding and dyadic geometric counts",
+          "Chen–Ai, arXiv:2508.20809, equations (1.3), (2.1)–(2.2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed result has analytic ovals and isolated ternary lattice zeros, with orders 2r, zero winding, and census proportion 8/9^r. Its Relationship section mentions related dyadic gasket work without a citation or a matching dyadic order/index formula."
+        ],
+        "reasoning": "This is a substantive census analogue, not an exact record of the dyadic 3/4^r law or of the signed index proportions. The common record date does not establish priority or equivalence.",
+        "searches": [
+          "Resultary, 2026/10/18/SCOPE-isolated-fourier-zeros-and-ternary-multiplicity-strata-of-the-un--2d3222d8e549, Finding (1)–(3) and Relationship section"
+        ]
+      },
+      "rationale": "The exact support is already obtained by specializing Chen–Ai, and the known infinite-product representation is not a novelty. The supported distinct content is the exact local Taylor and phase classification and its rescaling and census consequences. The closest indexed result treats a different ternary carpet; no inspected result covers the dyadic local classification. This is a best-of-knowledge comparison, not a priority certificate.",
+      "residual_risks": [
+        "Deng–Lau full text was not available after lawful attempts. Its potential coverage is unresolved.",
+        "The ternary record's undated relative reference to related dyadic work does not identify a source for the local classification. Equivalent analyses not retrieved could affect priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the support, not the local orders or signed phase rule in the inspected passages",
+          "evidence": [
+            "(1.3): mask zero cosets at ±(1/3,-1/3) modulo Z^2",
+            "(2.1)–(2.2): infinite convolution and union of dilated mask zero sets"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2508.20809",
+          "material_read": "Primary PDF p. 3 and Section 2 p. 5, relevant mask, convolution and zero-set equations",
+          "method": "Targeted open-access PDF inspection and specialization to the scalar dilation 2I",
+          "title": "On the spectral properties of a class of planar Sierpinski self-affine measures",
+          "trigger": "Same planar three-digit mask and general zero-locus formula"
+        },
+        {
+          "assessment": "Different measure with different phase and order laws; the unsourced dyadic mention does not identify an equivalent result",
+          "evidence": [
+            "Finding: mixed oval and isolated loci, scale 3, isolated orders 2r, zero winding and geometric proportion 8/9^r",
+            "Relationship section: mentions related dyadic gasket discrete mask zeros without a specific citation"
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-isolated-fourier-zeros-and-ternary-multiplicity-strata-of-the-un--2d3222d8e549",
+          "material_read": "Finding parts (1)–(3) and Relationship to prior work",
+          "method": "Resultary semantic lookup and targeted local mirror inspection",
+          "title": "Isolated Fourier zeros and ternary multiplicity strata of the uniform Sierpinski carpet",
+          "trigger": "Closest indexed overlap on self-similar Fourier Taylor orders, phase and census"
+        },
+        {
+          "assessment": "Full-text overlap not determined",
+          "evidence": [
+            "Public abstract concerns spectrality; no full-text comparison of Taylor orders, winding or counts is possible from the material retrieved"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jfa.2015.06.013",
+          "material_read": "Public abstract and bibliographic record only",
+          "method": "DOI landing page, lawful repository recovery attempt and publisher PDF route (HTTP 403)",
+          "title": "Sierpinski-type spectral self-similar measures",
+          "trigger": "Older potentially covering work on planar gasket-type measures"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, local normal form and disk-count formulas",
+        "Chen–Ai, zero-locus equations as background for the invariant"
+      ],
+      "rationale": "The canonical gasket's zero locations already encode Fourier orthogonality, but do not distinguish orders of cancellation or local phase winding. A complete local classification is independently useful when a zero is perturbed or when comparing phase and amplitude: arbitrarily high order coexists with uniformly bounded index, and even-order zeros have no winding. The exact lattice census gives the prevalence of each behavior over the whole frequency plane and is not a finite sample or a claim about spectrality.",
+      "residual_risks": [
+        "No wider class of weights, dilations or affine coordinate normalizations is covered."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

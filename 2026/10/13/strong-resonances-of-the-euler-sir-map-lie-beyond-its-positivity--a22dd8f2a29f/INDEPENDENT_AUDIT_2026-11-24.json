@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:06:21.587165Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and proof at lines 94–216; VERIFICATION.md and verify.py (inspected, not run)",
+        "Liu, Liu and Liu, doi:10.3934/math.2022187, pp. 3362–3363 and 3370–3373",
+        "Independent exact replay: /workspace/branches/b5f1d1bb-fc29-442b-854d-c24b595721d6/independent_exact_check_record2.py"
+      ],
+      "rationale": "Let k=d+r and R=Aλ/(dk)>1. At the endemic fixed point the Jacobian has entries 1−hdR, −hk, hd(R−1), 1, in row order. Thus det J−1=hd[hk(R−1)−R]. For h>0 the determinant-one locus has hk=R/(R−1)>1; the endemic unit-circle pairs in question all have multiplier product one. The infected multiplier 1−hk+hλS vanishes there at S=(k/λ)/R and is negative for smaller S; the next infected coordinate is negative when I>0. This is failure of state-space invariance, not invalidation of the local normal forms or a sufficient positivity test for the whole map. The source equation (1.3), three section 4 resonance examples, and the separate Figure 6 seed and common A,d,r were checked in the original paper. For the rounded 1:3 tuple the exact fraction replay gives I_next=−10256632066707/10^14. The exact determinant at that rounded tuple is 1.0002999324, not 1: RESULT.md explicitly introduces the tuple as rounded; the exact strip theorem and the direct rounded witness must not be conflated. No assertion is needed that the exact rounded pair is a Figure 6 grid node.",
+      "residual_risks": [
+        "The threshold S*/R applies on the exact determinant-one locus; the rounded tuple uses its own infected multiplier cutoff. Positivity failure concerns small susceptible density and I>0, including points arbitrarily near a segment of I=0, not all states near the disease-free equilibrium."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen record attributes the same endemic unit-circle step boundary to Hu et al.; their full text was not retrieved. Liu et al. directly give h=−G/H in the G²−4H<0 nonhyperbolic case.",
+          "Suryanto–Darti compare explicit Euler's step-dependent dynamics with a nonstandard discretization for a saturated-incidence/vaccination formulation; the inspected comparison concerns spurious periodic and chaotic behavior versus convergence, not the endemic determinant-one open-strip formula for this map."
+        ],
+        "reasoning": "A known unit-circle condition is an input, and generic positivity-preserving discretization results do not themselves give this necessary exclusion at every endemic resonance of the stated Euler scheme.",
+        "searches": [
+          "Hu, Teng and Zhang, doi:10.1016/j.matcom.2013.08.008",
+          "Suryanto and Darti, doi:10.3934/math.2021010, explicit Euler comparison, publisher PDF offsets 38400–40219"
+        ]
+      },
+      "checked_sources": [
+        "Resultary same-map disease-free resonance record, 400f3dcbeeba",
+        "Liu et al., 10.3934/math.2022187",
+        "Suryanto–Darti, 10.3934/math.2021010",
+        "Hu–Teng–Zhang, 10.1016/j.matcom.2013.08.008 (full text not retrieved)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The characteristic equation immediately implies the determinant identity. Establishing the separate all-small-S positivity obstruction requires comparing with the infected multiplier and then applying it to the primary source's global-diagram seed."
+        ],
+        "reasoning": "The supported claim is the additional interpretation and witness, not the known bifurcation threshold recast in R0. Neither the published stability result nor the E0 result is already a theorem about E1 resonance under a positive-state constraint.",
+        "searches": [
+          "Liu et al., model (1.3), Proposition 2.1, section 3 and section 4; Suryanto–Darti Euler comparison",
+          "Resultary E0 double-flip record, RESULT offsets 0 and 5492"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu et al. write the model in (S,I) and in (x,y); their endemic constant characteristic coefficient is 1+hG+h²H. Their positive-fixed-point discussion and inspected resonance and phase-diagram passages address fixed points and attractors, not preservation of the infected coordinate.",
+          "Resultary record 2026/10/4/SCOPE-exact-disease-free-two-cycle-family-at-an-omitted-double-flip-re--400f3dcbeeba treats an exact two-cycle family and double −1 at E0, not determinant-one loss of positivity at E1."
+        ],
+        "reasoning": "The notation change and R0 rearrangement are not novel. The same-map disease-free resonance is a different equilibrium and result; it does not give the open band of positive states sent to negative infection on the endemic locus.",
+        "searches": [
+          "Resultary semantic search for same-map Euler positivity and endemic strong resonance",
+          "Liu et al., doi:10.3934/math.2022187, model (1.3), characteristic equation and positivity-context passages"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Cases (i)–(iii) print the rounded resonance examples. The Figure 6 discussion separately supplies (1.4222,0.9861) and the same A,d,r as case (ii); the inspected passages do not evaluate its first infected iterate at the case (ii) pair."
+        ],
+        "reasoning": "The inputs and resonance examples are prior, not the exact negative first-iterate diagnostic. The claim is not about recomputing a tabulated resonance or enumerating attractors.",
+        "searches": [
+          "Liu et al., section 4 cases (i)–(iii) and Figure 6 accompanying text",
+          "Resultary same-map comparison"
+        ]
+      },
+      "rationale": "Credit the original map, endemic characteristic polynomial and resonance loci to the literature. The supported distinct result is the incompatibility of that same map's endemic unit-determinant locus with infected positivity, the exact open strip, and the numerical interpretation check using the paper's phase-diagram seed. No inspected statement already supplies this connection; the primary-literature search was unavailable, so this is a bounded best-of-knowledge judgment.",
+      "residual_risks": [
+        "The focused primary-literature search did not return usable results; an earlier same-map positivity comparison, especially in the inaccessible Hu et al. text, has not been ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers map, determinant and resonance calculations and supplies the separate seed, not the asserted positivity incompatibility in the decisive passages read",
+          "evidence": "At endemic E1, constant term 1+hG+h²H; case (ii) h=5.2805, λ=0.303, A=1.2, d=0.4, r=0.24; Figure 6 fixes these A,d,r and states the seed for each (h,λ).",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2022/3/PDF/math-07-03-187.pdf",
+          "material_read": "Equation (1.3)/(1.4) p. 3362; endemic characteristic equation and Proposition 2.1 pp. 3362–3363; section 3 resonance setup; section 4 cases (i)–(iii) pp. 3370–3371 and Figure 6 discussion p. 3373; section 5 p. 3376",
+          "method": "Publisher OA PDF, located literals and read bounded passages",
+          "title": "The existence of codimension-two bifurcations in a discrete-time SIR epidemic model",
+          "trigger": "Original numerical and dynamical claims for the exact map"
+        },
+        {
+          "assessment": "Related but distinct equilibrium and dynamical statement",
+          "evidence": "Studies double −1 and exact two-cycles at E0; distinguishes the Liu et al. resonances at E1.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-disease-free-two-cycle-family-at-an-omitted-double-flip-re--400f3dcbeeba",
+          "material_read": "Mirrored RESULT.md, opening and comparison passage at offset 5492",
+          "method": "Resultary search and local mirrored full-text passages",
+          "title": "Exact disease-free two-cycle family at an omitted double-flip resonance",
+          "trigger": "Same Euler map and strong resonance"
+        },
+        {
+          "assessment": "Context on step-dependent dynamics, no exact same-map implication in the passage read",
+          "evidence": "Explicit Euler shows periodic and chaotic behaviors for larger h, unlike the convergence reported for the proposed nonstandard method.",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2021/1/PDF/math-06-01-010.pdf",
+          "material_read": "Numerical comparison around Figures 1–2, publisher PDF offsets 38400–40219",
+          "method": "Publisher OA PDF, located and read bounded passage",
+          "title": "On the nonstandard numerical discretization of SIR epidemic model with a saturated incidence rate and vaccination",
+          "trigger": "Prior mathematical comparison of Euler with positivity-conscious discretization"
+        },
+        {
+          "assessment": "Credit the reported equivalent boundary; exact positivity comparison in this paper remains unverified",
+          "evidence": "No lawful full-text repository copy was found by the retrieval route; this is an access limitation, not evidence of non-coverage.",
+          "identifier_or_url": "10.1016/j.matcom.2013.08.008",
+          "material_read": "Publisher landing/abstract-level material only; frozen RESULT.md lines 270–274 reports the corresponding boundary",
+          "method": "DOI OA attempts and repository-copy check",
+          "title": "Stability and bifurcation analysis in a discrete SIR epidemic model",
+          "trigger": "Most plausible antecedent deriving the same unit-circle condition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 37–111 and 278–292",
+        "Liu et al., section 4 and conclusions"
+      ],
+      "rationale": "The positivity obstruction separates local formal dynamics of an Euler polynomial map from a globally admissible population-state update. It excludes an entire family of endemic strong-resonance boundaries from that interpretation and supplies a strictly positive, source-matched initial state for which the plot protocol's first step is already inadmissible. This is a concrete interpretation check, not merely the reformulation of a known determinant boundary.",
+      "residual_risks": [
+        "Does not disqualify every trajectory or every local invariant set, or apply to other discretizations without a new analysis."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

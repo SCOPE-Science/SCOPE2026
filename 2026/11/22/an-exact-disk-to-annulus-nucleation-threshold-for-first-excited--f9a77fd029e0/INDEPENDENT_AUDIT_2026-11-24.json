@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:15:49.682947Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Abreu–Speckbacher Proposition 1, Eqs. (19)–(21), gives the unit-normalized self-transform by taking w=i in the kernel and removing its α/(4π) normalization, or directly by (21). The degree-one Jacobi polynomial gives 1−(α+2)u; the squared radial amplitude is (1−u)^(α+1) times its square. The Cayley area element integrates to 4π du/(1−u)²; differentiation of J_α and its endpoints verify the total energy 4π/α and the normalized mass. The derivative has exactly the stated inner zero node and outer nondegenerate maximum; the outer height bound is strictly below one. Strict superlevel area is continuous and strictly decreasing from infinite area to zero, and null level circles make the bathtub comparison unique even for fractional masks. The derivative of the optimal mass is the normalized common boundary level. For level deficit η, the two outer roots separate by 2√(2η/k_α)+O(η), weighted by 4π/(1−u_p)² in area; the inner displacement is η/|f'_α(u_*)|+O(η²). This gives the stated coefficients. Using √η as a smooth right-hand parameter yields zero right curvature, while the inner derivative is strictly negative on the left. At α→0 the limiting inner root is 1/3; at α→∞ uniform convergence in v=αu on [0,1] and strict monotonicity of e^(−v)(1−v)² give the claimed Lambert W root. At α=1 taking the positive square root on the inner branch gives the stated radicals. Read RESULT.md, VERIFICATION.md and check.py; the supplied finite script was inspected, not run. The analytic proof is decisive and does not extend to optimization over arbitrary input signals.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Jacobi formula covers all Laguerre levels but gives a transform kernel, not a mask transition theorem. The Ramos–Tilli disk result optimizes over signals with a Cauchy wavelet. The other higher-level statements concern sampling, Riesz sequences and reproducing kernels."
+        ],
+        "reasoning": "The broader kernel formula supplies a necessary input, while the available concentration theorem is for the analytic level; neither theorem specializes to a quantitative two-lobe optimum with these sharp birth coefficients.",
+        "searches": [
+          "arXiv:2210.13056, Proposition 1 and nearby remarks",
+          "arXiv:2205.07998, concentration definition and Theorem 1.1",
+          "arXiv:2012.11314, Theorem 2.1 and §3.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2210.13056",
+        "arXiv:2205.07998",
+        "arXiv:2012.11314",
+        "Resultary 13294f14508d",
+        "Resultary f9a77fd029e0 (self-hit)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source Jacobi formula plus bathtub comparison determines optima implicitly as a superlevel set; it does not give equality of the levels between lobes, the order of disk motion or the one-sided second derivatives. Existing equal-measure disk optimality is over optimized signals for the Cauchy window."
+        ],
+        "reasoning": "Beyond the routine kernel specialization, the proof identifies the outer critical value relative to the inner lobe and resolves an inverse area map with a square-root singularity. That yields additional exact information not supplied by the inspected results.",
+        "searches": [
+          "arXiv:2210.13056, Eqs. (19)–(21)",
+          "arXiv:2205.07998, Theorem 1.1",
+          "Resultary 13294f14508d, opening theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 1 already gives the response after kernel specialization; the variational objective is equivalently its decreasing-rearrangement integral. The distinct indexed angular Hessian record 13294f14508d optimizes a largest eigenvalue for a Cauchy window."
+        ],
+        "reasoning": "The kernel and rearrangement formulation are not original. They do not contain the evaluated threshold geometry or its local singularity; an optimized Cauchy eigenvalue is not a re-expression of the fixed first-excited self-response.",
+        "searches": [
+          "Local Resultary semantic lookup for first Laguerre excitation, hyperbolic mask concentration and disk-plus-annulus birth",
+          "Primary literature lookup for first-excited Laguerre wavelet localization, Jacobi level sets and annular optima",
+          "arXiv:2210.13056, Proposition 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact indexed hit f9a77fd029e0 is the frozen record itself. The closest distinct angular Hessian result 13294f14508d is a different concentration functional and window."
+        ],
+        "reasoning": "The Jacobi coefficients are standard tabulable data, but they are not a table of the level comparison, weighted area threshold, and bifurcation laws. No independent matching exact indexed result was located.",
+        "searches": [
+          "Local Resultary lookup for exact critical hyperbolic area, disk–annulus transition and curvature for first-excited wavelets"
+        ]
+      },
+      "rationale": "The response and normalizations are explicit specializations of prior Laguerre wavelet theory, and the bathtub principle is standard. The supported distinction is the complete topology, exact curvature change, birth laws, and parameter limits for the fixed first-excited self-response. The nearest optimized-signal Cauchy results concern a different window and a different optimization problem.",
+      "residual_risks": [
+        "An unlocated higher-level localization paper could evaluate the same response superlevel geometry or its exact asymptotics. The basic response and optimizing-superlevel rule are already known; novelty is not asserted for them or as a historical-priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact input response and energy normalization already available and correctly credited",
+          "evidence": "C_ψ=4π/α; the Jacobi kernel and n=m=1 coefficient yield the radial density, not the evaluated mask theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.13056",
+          "material_read": "Unit normalization near PDF offset 5291; Proposition 1, Eqs. (19)–(21), pp. 9–10, PDF offset 27740 and following",
+          "method": "Lawful open PDF passages",
+          "title": "Donoho–Logan large sieve principles for the wavelet transform",
+          "trigger": "General Laguerre wavelet kernel could contain the response or the geometric result"
+        },
+        {
+          "assessment": "Related extremal question, different functional and wavelet level",
+          "evidence": "Pseudohyperbolic disks maximize a unit-signal supremum for a Cauchy wavelet, not the fixed n=1 mask objective.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.07998",
+          "material_read": "Concentration definition, p. 2 near offset 3500; Theorem 1.1, p. 3 near offset 7653",
+          "method": "Lawful open PDF passages",
+          "title": "A Faber–Krahn inequality for wavelet transforms",
+          "trigger": "Closest prior hyperbolic-area disk optimization theorem"
+        },
+        {
+          "assessment": "Related higher-level geometry and kernels but not a fixed-state mask analysis",
+          "evidence": "Frame and Riesz density conditions and wavelet-range kernel relation do not assert the topology transition.",
+          "identifier_or_url": "https://arxiv.org/abs/2012.11314",
+          "material_read": "Theorem 2.1, p. 5 near offset 14356; §3.1, pp. 10–11 near offset 29710",
+          "method": "Lawful open PDF passages",
+          "title": "Affine density, von Neumann dimension and a problem of Perelomov",
+          "trigger": "Higher Laguerre levels with hyperbolic geometry"
+        },
+        {
+          "assessment": "Distinct angular perturbation and optimized analytic-state problem",
+          "evidence": "Sharp angular Hessian for a largest analytic concentration eigenvalue, not the first-excited self-transform's radial disk-plus-annulus branch.",
+          "identifier_or_url": "Resultary 2026/10/25/SCOPE-exact-angular-shape-hessian-for-hyperbolic-wavelet-concentration--13294f14508d",
+          "material_read": "Mirrored RESULT.md finding, offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary lookup and local mirror passage",
+          "title": "Exact angular shape Hessian for hyperbolic wavelet concentration",
+          "trigger": "Closest distinct indexed result on wavelet concentration at fixed hyperbolic area"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first nonanalytic Laguerre level is a natural setting to ask when a hyperbolic disk stops being optimal for a fixed state. The exact calculation answers that geometric question across all budgets: a second component appears with linear width while the old boundary shifts quadratically, and the optimal energy is not C². This supplies a quantitative boundary to disk optimality without overstating it as an operator-norm counterexample.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

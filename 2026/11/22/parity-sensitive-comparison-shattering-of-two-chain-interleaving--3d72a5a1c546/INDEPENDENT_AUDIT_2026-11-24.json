@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:42:16.026976Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Findings and Proof 1–3; frozen VERIFICATION.md",
+        "/workspace/branches/934f149c-3ede-47da-a10d-03b7f312f5b4/independent_shuffle_polynomials.py and independent_replay.txt"
+      ],
+      "rationale": "A shuffle is a nondecreasing gap vector g with bits given by g_i<j. Repeated rows or columns and inversely ordered pairs force an implication between query bits. On an increasing support, choices j−1 or j for selected g_i realize all patterns unrestricted. Each trace fiber is the linear-extension set of the chains plus the oriented queried edges. If it is not a singleton, a connected graph of adjacent incomparable swaps contains an edge and hence both signs. A word has no admissible swap exactly when all its unlike-letter adjacencies are queried. On a diagonal the successive unlike-letter switches must use equal indices 1,2,…; the first run has length one and each internal run length two. For a<b the final run must be B, so the start is determined by a mod 2, and the only potentially obstructing word is even (even B-runs before A, except for the initial one-letter B-run only when a is even). Reversal with exchange of chains preserves B-before-A inversions. In the balanced case both starts are possible and they give inversion parities 0 and m mod 2. For the truncated diagonal, the letter immediately following the first of A_m and B_m is of the other chain, giving an unqueried adjacency. The empty support and m=1 are included. The replay independently reproduced all three stated balanced polynomials from direct even traces.",
+      "residual_risks": [
+        "Independent replay covered only (3,3), (4,4), and (5,5), not all profiles. The all-parameter conclusion follows from the proof, not extrapolation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general theorem handles all extensions by a forest, antichain-component and acyclic-quotient criterion, with dimension n−h(P). The two-chain theorem explicitly gives unrestricted dimension min(a,b)."
+        ],
+        "reasoning": "Neither certifies even witnesses within each nonempty trace fiber. In the balanced odd case the unique maximum unrestricted support fails within the even family.",
+        "searches": [
+          "Local Resultary finite-poset comparison shattering aed8bda32d56 and unrestricted two-chain shattering 31054849abf0"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary 31054849abf0, aed8bda32d56, 824e5263ec2a, aa8ae022a14b",
+        "arXiv:2311.02203v1 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The poset criterion supplies the unrestricted increasing-support baseline; there is still a separate singleton-fiber parity test, and evaluating it on the (truncated or shifted) diagonals gives the claimed boundary."
+        ],
+        "reasoning": "Neither general unrestricted shattering nor global sign balance implies the fiber test or its diagonal classification. Parity-changing adjacent swaps are a standard ingredient, not by themselves the claimed boundary.",
+        "searches": [
+          "Compared Resultary aed8bda32d56 and 824e5263ec2a with the bounded sign-imbalance result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier 824e5263ec2a uses all even permutations, with a special spanning Hamiltonian-path exception to a forest criterion. Same-day aa8ae022a14b concerns permutation-matrix cell membership."
+        ],
+        "reasoning": "Fixing the chain orientations is a joint conditioning of comparison bits; a witness in all even permutations may violate these orientations. The membership query is a different predicate.",
+        "searches": [
+          "Local Resultary: even-permutation comparison shattering, even two-chain shattering, parity of permutation traces"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected sign-imbalance abstract defines an aggregate difference between even and odd linear-extension counts; the inspected unrestricted two-chain record gives a dimension formula, not parity-refined trace counts."
+        ],
+        "reasoning": "Counts of words or net sign are not counts of shattered supports. Reversal gives equal sign strata for equal odd lengths, yet an odd singleton on the full diagonal prevents shattering.",
+        "searches": [
+          "Local Resultary two-chain parity/support and sign imbalance; arXiv:2311.02203v1"
+        ]
+      },
+      "rationale": "The supported distinction is the exact even-fiber support criterion and the resulting equal-odd dimension defect, not unrestricted comparison shattering or linear-extension sign imbalance.",
+      "residual_risks": [
+        "Bounded searches and readings do not rule out an unindexed equivalent; relative priority of same-day records was not inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unrestricted baseline",
+          "evidence": "All shuffles and static dimension min(a,b).",
+          "identifier_or_url": "Resultary 31054849abf0",
+          "material_read": "RESULT.md Finding, offset 0–2777",
+          "method": "Local mirror",
+          "title": "The first entropy obstruction for two-chain comparison shattering",
+          "trigger": "Same two-chain instance set and dimension"
+        },
+        {
+          "assessment": "All linear extensions, not sign restricted",
+          "evidence": "Forest, antichain components, acyclic quotient and dimension n−h(P).",
+          "identifier_or_url": "Resultary aed8bda32d56",
+          "material_read": "RESULT.md Finding, offset 0–3444",
+          "method": "Local mirror",
+          "title": "Comparison shattering for linear extensions of finite posets",
+          "trigger": "Potential broader covering theorem"
+        },
+        {
+          "assessment": "No two-chain constraints",
+          "evidence": "Forest criterion with the spanning Hamiltonian path exception for all even permutations.",
+          "identifier_or_url": "Resultary 824e5263ec2a",
+          "material_read": "RESULT.md Finding, offset 0–3121",
+          "method": "Local mirror",
+          "title": "Parity-refined comparison shattering of even permutations",
+          "trigger": "Closest parity comparison criterion"
+        },
+        {
+          "assessment": "Different queries and concepts",
+          "evidence": "Cell membership on full permutations; matching supports of size at most n−2.",
+          "identifier_or_url": "Resultary aa8ae022a14b",
+          "material_read": "RESULT.md Finding, offset 0–3145",
+          "method": "Local mirror",
+          "title": "Sharp first parity leakage in permutation-matrix membership tests",
+          "trigger": "Same-day parity-shattering overlap"
+        },
+        {
+          "assessment": "Aggregate statistic in the passage read; no whole-document noncoverage claim",
+          "evidence": "Defines sign imbalance as the difference between even and odd extension counts.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.02203v1",
+          "material_read": "Abstract, offset 0–2379",
+          "method": "Open primary text",
+          "title": "Complexity of sign imbalance, parity of linear extensions, and height 2 posets",
+          "trigger": "Parity of extension counts under poset constraints"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md theorem, proof and finite profiles; unrestricted comparison baseline 31054849abf0"
+      ],
+      "rationale": "This is an all-parameter classification of a natural sign-restricted comparison class. It explains why every non-singleton trace fiber is harmless and identifies exactly when a maximal support fails even though the unrestricted dimension and global parity counts may look benign. The loss for balanced odd chains is a structural boundary, not just a finite count.",
+      "residual_risks": [
+        "The criterion does not assert an efficient decision algorithm or a closed all-profile face polynomial."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

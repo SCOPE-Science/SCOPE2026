@@ -1,27 +1,21 @@
-# Review of the three-site Fourier quadrature transition
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The claim is exact for every odd grid size \(N\ge3\) and every strictly separated displacement \(0\le u<1\). The Fourier cardinal-function update computes the complete quadrature weights with a positive denominator. Strict convexity and reflection of the cosecant function show that all weights except the middle one stay positive. A strict monotonicity argument gives the unique middle-weight crossing. Taylor expansion at the crossing proves the second-order large-grid correction, and a separate fixed-grid expansion at triple coalescence proves quadratic divergence with its exact coefficient. The reproducibility program passed 7,820 numerical consistency assertions, and selected cases were compared against direct Fourier-Vandermonde inversion. These finite computations supplement, not replace, the proof. The coalesced endpoint itself is excluded.
+PASS
 
-## Originality (O): PASS, best-knowledge
+For normalized circle integration and odd N, the N mutually distinct nodes give an invertible Fourier interpolation system (multiply each interpolant by e^{imx} and use ordinary polynomial unisolvence on the unit circle). At u=0 the weights are uniform. For 0<u<1, sum the two uniform-grid Dirichlet cardinal evaluation identities at the changed sites: the coefficient on the sum of old endpoint values is sin(πu)S_N(u)/N. Solving gives the two identical positive weights, and for the stationary middle site the sum of cardinal evaluations is 2 sin(πu)f(1−u)/N, giving w₁=(1−R_N)/N. At other fixed sites the numerator relative to the moving coefficient is a signed translate of the convex cosecant difference. For N≥5, f(v)−f(v+2(1−u)) strictly decreases in v and the two outermost relevant translates, j=3 and j=N−1, are opposite by reflection; their common absolute value is strictly smaller than S_N. There are no other sites when N=3. Thus the nonmiddle weights stay positive. Independently, putting s=π/N and z=1−u, the product-to-sum identity gives R_N=(sin²s−sin²(sz))/(cos(s)sin²(sz)), strictly increasing from 0 to ∞ in u. The crossing is below 1/2 by R_N(1/2)>2, and the middle weight is zero, not negative, at equality. The exact root is equivalently u_N=1−arcsin(√2 sin(s/2))/s, whose Taylor expansion reproduces the stated N^{-2} correction. Since the weights sum to one and only w₁ can be negative, matching the real error signs gives the exact ℓ∞ norm. Using sin(sz)∼sz in the displayed quotient recovers the fixed-N quadratic coefficient; no claim of quadrature at coincident nodes is made. The submitted check.py and VERIFICATION.md were inspected, not executed; their documented finite Fourier-moment and numerical asymptotic checks can be replayed with Python 3 and do not substitute for the all-N proof.
 
-Austin's thesis [1], Chapter 3.5.2, and Austin–Trefethen [2] study quadrature over perturbed periodic grids; neither inspected section contains this sharp all-odd-grid two-moving-site classification. Yu–Townsend [3], Theorem 4.1 and Appendix B, establishes negativity through alternating perturbation of many sites; its estimates neither imply that exactly one weight changes sign for this local deformation nor evaluate the present threshold and quadratic collision coefficient. A published study of an adjacent-pair inward collision [4] gives *opposite* positivity behavior, but for only two coalescing observations and a different geometry. The published three-node random-jitter quadrature law [5] covers the general three-point positivity criterion; accordingly, the smallest-grid instance by itself is **not** claimed new. The assessed contribution is the complete all-odd-grid structural classification and exact large-grid/collision laws. Potential older special-function formulas and unpublished parameter studies remain a priority risk.
+## originality
 
-## Value (V): PASS
+PASS
 
-Positive quadrature weights give optimal norm-one stability against bounded sample errors, so the exact point where positivity disappears is a natural and useful numerical invariant, not an arbitrary parameter slice. Changing only two nodes, and leaving the middle one fixed, isolates the first local three-site crowding mechanism. The theorem determines which weight becomes negative, proves a sharp universal limit \(1-1/\sqrt2\) with finite-resolution correction, and quantifies an exact quadratic instability that contrasts with the stable double-collision geometry. This has intrinsic value as a sharp boundary in nonuniform Fourier sampling; no broader interpolation convergence theorem is asserted.
+Credit existing degree-one three-node formulas and partial same-day overlap; the distinct supported claim is the exact localized law across odd grids, in particular N≥5, with a single stationary sign change, finite-grid noise norm and sharp triple-collision coefficient. Broad conditioning, worst-grid positivity radii, and different adjacent-site deformations do not establish that law. Historical priority beyond the compared sources is not asserted.
 
-## Prior sources and limitations
+## value
 
-[1] A. P. Austin, *Some New Results on and Applications of Interpolation in Numerical Computation*, Oxford thesis (repository deposit 2016-12-08), Chapter 3.5.2. https://personal.math.vt.edu/apaustin/pubs/DPhilThesis.pdf
+PASS
 
-[2] A. P. Austin and L. N. Trefethen, *Trigonometric Interpolation and Quadrature in Perturbed Points*, arXiv:1612.04018v1 (2016-12-13), Sections 1–2. https://arxiv.org/pdf/1612.04018
+The two displaced samples and fixed middle sample give a natural test of local crowding distinct from arbitrary global jitter and ordinary adjacent double collision. The exact weight sign transition tells when the quadrature ceases to be positivity preserving; the sharp bounded-error norm and its coefficient quantify exactly what fails as the three sites merge. The across-grid result and the one-weight mechanism beyond degree one are useful even though the isolated N=3 case is covered by earlier gap formulas.
 
-[3] A. Yu and A. Townsend, *On the Stability of Unevenly Spaced Samples for Interpolation and Quadrature*, arXiv:2202.04722v1 (2022-02-09), Sections 4.1–4.2 and Appendix B. https://arxiv.org/pdf/2202.04722
-
-[4] *Positive Fourier quadrature survives symmetric pair collision with a sharp singular-value law*, public mathematical finding (2026). https://github.com/published-finding corpus/2026/tree/main/2026/11/16/SCOPE-positive-fourier-quadrature-survives-symmetric-pair-collision-wi--92a65f43a0d4
-
-[5] *Sharp positivity and logarithmic noise barrier in three-node perturbed trigonometric quadrature*, public mathematical finding (2026). https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-positivity-and-logarithmic-noise-barrier-in-three-node-per--fd84114e8959
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

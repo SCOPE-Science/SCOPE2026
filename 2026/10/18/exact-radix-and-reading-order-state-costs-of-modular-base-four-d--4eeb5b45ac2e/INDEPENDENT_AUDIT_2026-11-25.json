@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:37:58.161084Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The base-four counter increments exactly on 3; copies of 3 reach all residues and translate any chosen one to the unique accepting residue. In binary MSD, the state retains right-aligned and opposite-parity pair counts and the final bit. Appending z changes these to (v+ez,u,z); padding the empty prefix with 0 fixes the start state. From third coordinate 0, 1100 and 0110 shift the two coordinates independently, and then a final 1 gives all third-coordinate-1 states. A 00 reset followed by shifts and an optional swap separates any differing residues; an initial 1 exposes a difference of last bit. In binary LSD, a pending low bit pairs with the next digit, and padding with a high zero preserves the count. All three residue-state types are reachable. For pending versus nonpending states, the suffixes (11)^t and 1(11)^t give incompatible conditions x=y+b−1 and x=y+b modulo r if their outputs agree for all t; the same-type distinctions follow by shifting one residue to zero. The argument uses only r≥2 and covers the empty word and binary indicator, not just full residue output. A separately constructed finite check at r=3 confirmed binary minimal sizes 18 and 9 and direct labels for 0≤n<64 with 0–4 redundant zeros. The frozen checker and its recorded r=2,…,9 log were inspected, not executed; finite checks do not replace the argument for all r.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Moradi et al. bound same-base complexity of h(ni+c) in terms of subword complexity.",
+          "Zantema's Theorem 1 proves existence of exponential reading-order gaps; Theorem 3 gives the padded kernel characterization.",
+          "The later Resultary entry generalizes the unshifted base-four component to shifts and arbitrary radices when reading digits of the counting radix."
+        ],
+        "reasoning": "Same-base subsequence upper bounds and general reading-order gaps do not determine either binary minimum here. The later shift theorem covers the radix-four count but not the differing input radix and mod-2 alignment needed for the binary counts.",
+        "searches": [
+          "Moradi–Rampersad–Shallit arXiv:2512.10017, Theorem 9",
+          "Zantema 2020, §§3–4",
+          "Resultary translated maximal-digit residue sequences 9c05a2384a31"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–51, VERIFICATION.md, verification/checker.py and its log",
+        "arXiv:2610.03837",
+        "Zantema DOI:10.1007/978-3-030-40608-0_18",
+        "arXiv:2512.10017",
+        "Resultary 9c05a2384a31"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Automaticity via the four-uniform morphism yields existence, not binary reachability and all-pairs distinguishability.",
+          "The automata proof gives two independently shiftable phase counts for MSD and three distinct pending-state types per residue for LSD."
+        ],
+        "reasoning": "For the binary formulas the nontrivial steps are explicit alignment and sharp lower bounds including indicator collapse. Periodic modular shifts and a generic kernel description do not by themselves identify reachable quotients or prove distinctness. The easy base-four counter receives no independent novelty credit.",
+        "searches": [
+          "Allouche et al. Lemma 6 and Theorem 7",
+          "Zantema Theorem 3 and Moradi et al. Theorem 9",
+          "Resultary mirrored RESULT.md, 9c05a2384a31"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Allouche et al. p. 3 defines b as the zero-residue indicator, exactly b_3.",
+          "Zantema §4 Theorem 3 identifies the padded LSD minimal automaton with the kernel DFAO.",
+          "The later 9c05a2384a31 entry treats the identical unshifted sequence for b=4 and every r in radix four, read LSD-first."
+        ],
+        "reasoning": "Reversing the order of whole base-four digits does not change this count, so the later radix-four LSD statement also gives the radix-four MSD size. For binary LSD, the exact 2-kernel cardinality is an equivalent invariant, but the general kernel theorem does not count its distinct sequences for this family. Binary pair alignment differs from reversal of whole base-four digits.",
+        "searches": [
+          "Allouche et al., arXiv:2610.03837, modular count of maximal base-four digit",
+          "Resultary digit-residue state complexity and MSD/LSD comparison",
+          "Zantema, DOI:10.1007/978-3-030-40608-0_18, §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 labels the first 64 terms of b_3; Lemma 6 proves its 2-automaticity. Neither is a minimal state-count table.",
+          "Resultary 9c05a2384a31 explicitly gives N_{4,r}(0)=r for radix-four LSD (later dated)."
+        ],
+        "reasoning": "A finite prefix of output labels does not determine a minimal automaton for the infinite sequence. The indexed overlapping exact value is real coverage of the radix-four component but not of the two binary values.",
+        "searches": [
+          "Allouche et al., arXiv:2610.03837, Table 1 and Lemma 6",
+          "Resultary exact digit-residue state-complexity lookup"
+        ]
+      },
+      "rationale": "The distinct finding is the exact binary reading-order separation 2r² versus 3r uniformly in r for the padded indicator. Neither automaticity, the Abelian-complexity theorem, the easy radix-four counter nor classical DFA minimization is claimed as new. Earlier comparisons did not resolve the binary state costs; the stronger later record for translated digit-residue sequences is an overlap for the radix-four component only.",
+      "residual_risks": [
+        "A bounded comparison cannot rule out a prior explicit 2-kernel calculation or state analysis under alternative digit-pattern terminology. No inference rests on the nonmatching focused search alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact sequence and binary automaticity, not minimum sizes.",
+          "evidence": "b=1 iff d_3 is 0 mod 3; the principal theorem concerns non-2-regular Abelian complexity.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.03837",
+          "material_read": "pp. 3–4, Table 1, definitions, Lemma 6 and Theorem 7, OA offsets around 7300 and 10243",
+          "method": "OA PDF passage inspection",
+          "title": "An example of an automatic sequence with non-regular abelian complexity",
+          "trigger": "Exact b_3 sequence and its base conversion"
+        },
+        {
+          "assessment": "Related general bounds and equivalent invariant, not computed kernel size for the digit-pair family.",
+          "evidence": "Theorem 1 establishes existential gaps; Theorem 3 identifies the padded LSD minimum with the k-kernel DFAO.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-030-40608-0_18",
+          "material_read": "§§3–4, Theorems 1–3, PDF pp. 264–265, OA offsets 11820 and 14880 onward",
+          "method": "OA PDF via Springer DOI after PMC download interstitial",
+          "title": "Complexity of Automatic Sequences (Hans Zantema)",
+          "trigger": "Same padded/reversed DFAO complexity measures and possible general theorem"
+        },
+        {
+          "assessment": "Different operation and nonexact for the target counts.",
+          "evidence": "Bounds for linear subsequences h(ni+c) keeping the same base.",
+          "identifier_or_url": "https://arxiv.org/abs/2512.10017",
+          "material_read": "pp. 11–12, discussion and Theorem 9, OA offsets around 33800 and 34800",
+          "method": "OA PDF passages",
+          "title": "Complexity of Linear Subsequences of k-Automatic Sequences",
+          "trigger": "Potential general state-complexity estimates"
+        },
+        {
+          "assessment": "Genuine radix-four overlap, later dated; no binary-input formulas in the compared statement.",
+          "evidence": "c=0, b=4 gives N_{4,r}(0)=r when reading in radix four.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-state-complexity-of-translated-maximal-digit-residue-seque--9c05a2384a31",
+          "material_read": "Mirrored RESULT.md at offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary lookup and mirror",
+          "title": "Exact state complexity of translated maximal-digit residue sequences",
+          "trigger": "Strongest indexed exact residue-indicator overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This natural family includes a previously studied automatic sequence. Its quadratic versus linear binary memory costs in the two reading orders are exact for every modulus, showing the cost of unknown pair alignment in a concrete family. The radix-four comparison supplies a simple baseline rather than the motivation for accepting the result on its own.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:43:24.326273Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently differentiated the perimeter in polar gap coordinates after fixing the central point and the first ray. For a radius-two chord, the derivative in either endpoint radius is sin(alpha/2), and the angular derivative is 2 cos(alpha/2). Thus each adjacent chord has derivatives (1/2,1/2,sqrt(3)); the closing chord, with angular gap 2pi minus the four adjacent angles, has derivatives (sqrt(3)/2,sqrt(3)/2,1). Eliminating the four angular differentials gives the nine coefficients in RESULT.md lines 17–20. The reduced Cartesian gap Jacobian is block lower triangular when the rows are ordered by the added outer vertices; each two-row block has positive determinant sqrt(3)/2. The stated row order differs by an even permutation, so its determinant is 9/16. Hull membership and the six strict inequalities persist. The smooth inverse chart gives a uniform quadratic residual and a feasible single-rim coordinate ray, which attains the sharp coefficient. Separately, the five cyclic gaps in a five-spoke flower are at least pi/3, sum to 2pi, and are thus at most 2pi/3; their strictly concave chord sum has minima only at the simplex vertices. The convex hull of the equal disks is the center hull plus the unit disk, so the shift in perimeter is 2pi. No unrestricted six-disk global minimum is asserted. Independent bounded replay: python /workspace/branches/replay_frozen.py 2; law-of-cosines reconstruction of 68 vectors including single-rim rays gave maximum scaled Taylor residuals near 0.1925 over four scales. The frozen verify.py checks pointwise algebra, not the 160 perturbations separately reported in the frozen narrative. The diagnostics are not used as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "RESULT.md lines 65–77 distinguishes the reported five-disk exact solution, numerical methods, and older finite-packing work; primary retrieval limitations are below"
+        ],
+        "reasoning": "An unrestricted global optimum at this configuration would cover the qualitative ambient minimum (strictness if unique), but would not give the positive linear rate in the specified nine coordinates. A general first-variation or rigidity criterion requires evaluating this configuration and does not specify its nine coefficients. No verified primary passage settles possible historical six-disk coverage.",
+        "searches": [
+          "Hoffmann–Vilaxa arXiv:2608.06513, six/five disks, including HTML v1",
+          "Kallrath et al. doi:10.1007/s10898-021-01002-5",
+          "Schürmann doi:10.1007/s00454-002-0747-6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, REVIEW.md, AUDIT.json",
+        "Resultary 7b05875279e2, 30d544f884f4, 40eb6dde4fff",
+        "arXiv:2608.06513 and DOIs 10.1007/s10898-021-01002-5, 10.1007/s00454-002-0747-6 (attempted primary retrieval)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "RESULT.md lines 37–59: gap inversion and a feasible single-rim direction, separate from the fixed-spoke concavity computation"
+        ],
+        "reasoning": "Optimizing a centered, fixed-radius flower alone says nothing about opening spokes or moving the central center. The exact differential and its attainable minimum are the distinction; a perimeter value or a positive-stress criterion without the calculation does not give them.",
+        "searches": [
+          "arXiv:2608.06513 finite-cluster contact/perimeter variations",
+          "Resultary 30d544f884f4; 40eb6dde4fff"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 30d544f884f4: catalogue statement on distance-energy rigidity for convex hexagons",
+          "Resultary 40eb6dde4fff: catalogue statement on union area for disks with centers on a fixed circle"
+        ],
+        "reasoning": "The first has six hull vertices and a distance functional, whereas this flower has an interior center and five perimeter edges. The second does not vary the centers freely and measures a union rather than its convex hull. Adding 2pi to center-hull perimeter is an exact reformulation, not additional originality.",
+        "searches": [
+          "Resultary: six-disk five-spoke hexagonal flower; ambient local convex-hull perimeter; regular-hexagon vacancy/contact-gap stability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 7b05875279e2: exact title and catalogue claim at the same record identifier",
+          "Adjacent indexed records 30d544f884f4 and 40eb6dde4fff have different objects/functionals"
+        ],
+        "reasoning": "The matching catalogue entry is the assigned record itself, not independent prior evidence. Even a packing table with this configuration and its perimeter would not supply an ambient derivative and sharp nine-gap quotient. No historical exact table is excluded by the results obtained.",
+        "searches": [
+          "Resultary: 8+2sqrt(3), nine contacts, 1-1/sqrt(3), six-disk convex hull perimeter"
+        ]
+      },
+      "rationale": "Best-knowledge pass for the explicit nine-gap differential and sharp ambient stability coefficient. General finite-packing optimization and constraint calculus are prior context, and the separate concavity result in the five-spoke class is not the main originality basis. No exact or dominating quantitative match was established. Independent inspection of older primary packing sources was limited; that is a real priority risk, not negative coverage evidence.",
+      "residual_risks": [
+        "The highly relevant primary passages of the finite-packing works were not independently obtained; older or unindexed results may settle qualitative or quantitative overlap.",
+        "Catalogue comparisons of adjacent records are based on their actual summaries, not full texts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The package reports a five-disk global theorem and six-disk graph discussion; not independently confirmed at the primary-text level.",
+          "evidence": [
+            "Frozen RESULT.md lines 65–77; no primary passage available to support a full-text exclusion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.06513",
+          "material_read": "Frozen RESULT.md lines 65–77 and accompanying REVIEW.md report the relevant source scope; primary passages not obtained.",
+          "method": "Targeted lawful open-text retrieval, including HTML v1, did not return the requested passages.",
+          "title": "Intrinsic Geometry of Hard Disk Clusters",
+          "trigger": "Same perimeter problem and strongest plausible modern six-disk coverage"
+        },
+        {
+          "assessment": "Reported analytic small cases and numerical methods; no independent exclusion of quantitative six-disk results.",
+          "evidence": [
+            "Frozen RESULT.md lines 67, 76."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10898-021-01002-5",
+          "material_read": "Frozen source comparison; independent primary passage not obtained.",
+          "method": "Targeted open-text retrieval by DOI.",
+          "title": "Near optimal minimal convex hulls of disks",
+          "trigger": "Same disk-hull optimization, possible exact or numerical six-disk coverage"
+        },
+        {
+          "assessment": "Historical priority remains unresolved for this source.",
+          "evidence": [
+            "Frozen RESULT.md lines 71, 77."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00454-002-0747-6",
+          "material_read": "Bibliographic identification and frozen abstract-level comparison only; no primary passage.",
+          "method": "Targeted open-text retrieval by DOI.",
+          "title": "On Extremal Finite Packings",
+          "trigger": "Older finite-packing results may cover the flower or a broader perimeter theorem"
+        },
+        {
+          "assessment": "One identical record; two adjacent statements with different optimization problems.",
+          "evidence": [
+            "7b05875279e2 reports the same sharp gap coefficient; 30d544f884f4 is hexagon distance energy; 40eb6dde4fff is circularly placed disk union area."
+          ],
+          "identifier_or_url": "Resultary 7b05875279e2; 30d544f884f4; 40eb6dde4fff",
+          "material_read": "Ranked catalogue statements; no full-text exclusion.",
+          "method": "Local catalogue lookup and comparison of stated objects and observables.",
+          "title": "Six-disk hexagonal flower and adjacent catalogue records",
+          "trigger": "Exact duplicate and equivalent shape/rigidity formulations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A five-spoke contact cluster is a natural explicit candidate in finite hard-disk perimeter minimization. The exact first-order penalty diagnoses which opening directions are weakest, and certifies stability even when the contact graph is not frozen. This is useful as a benchmark for classification or variational methods without presenting a local certificate as a global one.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

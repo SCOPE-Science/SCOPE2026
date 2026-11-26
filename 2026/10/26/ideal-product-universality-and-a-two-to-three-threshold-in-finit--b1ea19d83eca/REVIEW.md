@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Every nonzero proper ideal contains the one-dimensional socle by nondegeneracy of the radical multiplication pairing. This identifies the ideal lattice with the full subspace lattice of the radical quotient plus zero and the unit ideal. The binary product test is exactly orthogonality; every possible nonzero product of a longer ideal tuple then arises from at most two proper nonzero factors. Gaussian binomial subspace counts prove the exact formulas. The \(q\)-degree bound for \(C_r\), together with \(r^2/3<2\lfloor r^2/4\rfloor\) for \(r\ge2\), proves the asymptotic transition. Standalone finite-field ideal enumeration checked both nonsimilar bilinear forms in characteristic two and in odd characteristic. No computation is used as an infinite proof.
+PASS
 
-## Originality
+The quotient V and socle layer are residue-field modules without a coefficient-field assumption. Nondegeneracy makes any proper ideal containing a nonzero vector modulo m² also contain m² (multiply by a partner giving a nonzero socle element); the only other proper ideals are 0 and m² itself. Thus the proper nonzero ideals are exactly the J_U including J_{0 subspace}=m². For a d-space U, its perfect-pairing annihilator has dimension r−d, so precisely T_{r−d} partners W give zero; this applies even in characteristic two, and counts ordered pairs including equality. For any k, count zero-free tuples with zero, one or two proper factors; three proper factors vanish. The two-proper nonzero outcomes are all m², giving the stated distribution and total complement, also at k=1. For fixed r, deg T_r=⌊r²/4⌋, and deg C_r≤max_t(rt−3t²/4)≤r²/3<2⌊r²/4⌋. Consequently the pair zero probability tends to zero and for fixed k≥3 the complement is O(T_r^(2−k)). Rank two gives T₂=q+3, C₂=3q+6 and the displayed probability. An initially suspected rank-three discrepancy is resolved: T₁(2)=2, not 3, so C₃(2)=16+7·5+7·2+1=66, and the frozen counts (18 ideals, 101 zero pairs, 5213 zero triples) are correct. Separate exhaustive generation by repeatedly adjoining one element and taking ideal closure reproduced these counts; in the characteristic-four example with additive group Z/4⊕(F₂)², x²=y²=2 and xy=2x=2y=0, the same check gave 7 ideals, 25 zero pairs and 288 zero triples. The supplied checker was inspected, not executed.
 
-PASS under the cited comparisons. Chakraborty–Patra, arXiv:2608.14618, Sections 3–5 and 7, computes fields, chain rings and principal ideal ring products, not the nonprincipal local rings with socle pairing described here; their Section 10 treats generalizations beyond chain rings as open. The nearest retrieved related record on short local algebras describes multiplication tensors and monomializability, not ideal products. Targeted literature and mathematical-record searches for Gorenstein local rings, radical-cube-zero products, orthogonality and Gaussian-subspace ideal probabilities identified no covering statement. This does not establish uniqueness of the result in unindexed literature.
+## originality
 
-## Value
+PASS
 
-PASS. The invariant was newly introduced for finite rings in 2026. This theorem supplies an all-length exact distribution throughout a substantial nonprincipal class, detects a sharp two-factor versus three-factor large-field transition, and shows universality under changes in the bilinear form, including the characteristic-two split/non-split distinctions. It both extends the principal/chain computations and answers a structural question about what ring data the invariant detects.
+The checked primary source defines the same invariant, solves the chain case, and raises extension beyond chain rings. The closest Resultary statements concern different Loewy lengths or products of elements, not this ideal-product distribution. The underlying lattice and annihilator dimension facts are classical; what survives the comparisons is their use for the complete non-chain ideal-product law, its form and ring-characteristic universality at fixed q,r, and the field-size threshold.
 
-## Closest sources and limitations
+## value
 
-The closest checked source is Chakraborty–Patra, *Ideal Zero-Product Probability in Finite Commutative Rings*, arXiv:2608.14618, particularly Theorem 4.6, Corollary 4.7, Sections 7 and 10. Comparison with the published short-local-algebra monomializability record is at the level of theorem implication, not title similarity. Residual risks: a classical orthogonality count could imply the distribution after substantial ring-theoretic translation; relevant unindexed nonprincipal-ring work might have escaped semantic searches. The theorem does not cover degenerate pairings, larger socles or growing embedding dimension, and has no independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The ideal-product distribution is a motivated exact invariant from an existing non-chain universality question. This class is rich enough to vary the field size, form and ring characteristic, and the result identifies which of those data the invariant retains. The large-field transition sharply separates two from three factors even though the Loewy length stays fixed. Both the exact law and the contrasting limit are useful for assessing which universality claims from chains extend to other local rings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

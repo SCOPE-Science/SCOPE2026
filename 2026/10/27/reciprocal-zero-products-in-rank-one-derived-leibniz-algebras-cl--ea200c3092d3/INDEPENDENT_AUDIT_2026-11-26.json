@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:27:25.795669Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md definition, structural proof, both counts and boundary example",
+        "VERIFICATION.md and supplied verify.py, inspected only",
+        "reproductions/audit_leibniz.py"
+      ],
+      "rationale": "Writing the bracket into a fixed generator z of [L,L] gives a scalar bilinear form. For each fixed first argument, reciprocity gives identical kernels of the two linear functionals, so both are zero or proportional. Linearity on sums with independent images makes the scalar constant when image rank is at least two, and in rank one it is constant on the common one-dimensional quotient by the row and column map kernels. Transposing shows the constant is ±1, yielding the dichotomy in odd characteristic. In the non-Lie case a nonzero square spans [L,L], and the right Leibniz identity annihilates squares on the right; reciprocity then makes the line central. For a noncentral Lie law with b(x,z)=phi(x), choosing h with phi(h)=1 shows from Jacobi that b vanishes on ker(phi)×ker(phi); the kernel there of b(h,-) is central and complements Kz. This gives aff_1 plus an abelian summand and b=phi∧alpha with alpha(z)=1. For each phi nonzero annihilating z, alpha has q^(n−1) choices before quotienting by alpha→alpha+t phi, hence q^(n−2) distinct b. Central forms are counted on the quotient of dimension n−1, without dividing labelled laws by scalar rescalings once a generator has been fixed. Up to scalar congruence the symmetric determinant-square classes coalesce only in odd rank; alternating forms have one class per nonzero even rank. These yield the exact two count formulas, including n=2. The boundary example has central outputs and reversed coordinate pair (ac,−(ad−bc)), which proves reciprocity, and its nonzero square and nonzero antisymmetric part distinguish it from both branches. Independent replay: python3 /workspace/reproductions/audit_leibniz.py exhausts every nonzero scalar matrix at a fixed derived line over F3 for n=2 and n=3, tests the identity and reciprocity, and then enumerates isomorphism orbits under the line stabilizer. This gives 16 and 676 labelled laws across all lines and 2 and 5 isomorphism classes, respectively. These finite verifications are not the arbitrary-field proof.",
+      "residual_risks": [
+        "Odd characteristic is essential for disjoint symmetric and alternating nonzero families in the argument.",
+        "The smooth real rack interpretation is not a finite-field assertion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The nonnilpotent non-Lie classification is stated for left Leibniz; taking the opposite gives the right convention, and its one-sided nonzero product excludes reciprocity. The isotopy paper explicitly recalls the older isomorphism normal forms of indecomposable nilpotent rank-one-derived algebras. Demir et al. use a complement of the derived line and a scalar form for central two-step cases in their complex bounded-dimension setting."
+        ],
+        "reasoning": "These sources supply important structural coverage, including more than just isotopy in the background literature. They do not supply a count of distinct coordinate laws on a fixed n-space obeying reciprocity over every odd finite field. Such a count requires treating the disjoint branches and parameter redundancies, not just naming abstract isomorphism types.",
+        "searches": [
+          "Di Bartolo–La Rosa–Mancini arXiv:2307.09102v2 Thm. 2.2",
+          "La Rosa–Mancini–Nagy arXiv:2302.08306 introduction and §§1,4",
+          "Demir–Misra–Stitzinger arXiv:1501.00890v2 §2"
+        ]
+      },
+      "checked_sources": [
+        "Elhamdadi–Virgin",
+        "Di Bartolo–La Rosa–Mancini",
+        "La Rosa–Mancini–Nagy",
+        "Demir–Misra–Stitzinger",
+        "ProofWiki theorem search lead",
+        "Resultary 11a1beec25cf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sign dichotomy is known by scalar reflexivity, and the isomorphism tally is a straightforward aggregate after reduction to symmetric and alternating forms. A count of labelled laws additionally evaluates the number on each derived line, notably q^(n−2)(q^(n−1)−1) for the noncentral branch, and controls overcounting. The compared scalar/rank-one results do not assert a sharp derived-dimension-two counterexample or the labelled formula."
+        ],
+        "reasoning": "Credit the mechanically covered structural portions. The exact fixed-space count is a further finite-field enumeration for the natural Noether-motivated condition, not a direct specialization of a prior numerical formula or census.",
+        "searches": [
+          "Compare scalar reflexivity, rank-one nilpotent normal forms, nonnilpotent classification and the finite-field enumeration",
+          "arXiv:2604.17043v1 Prop. 5.1 and Resultary 11a1beec25cf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prop. 5.1 uses the implication for every ordered pair, hence equivalently reciprocity, for the associated smooth real rack. For the scalar bracket b, that condition is exactly reflexivity of a bilinear form. The ProofWiki search result expressly states the reflexivity theorem; its full page was inaccessible. The later Resultary graph record 11a1beec25cf requires both brackets to vanish and is not imposing reciprocity."
+        ],
+        "reasoning": "Classical reflexivity covers the bracket symmetry dichotomy immediately under the 1-dimensional derived hypothesis, without Leibniz. The real rack theorem supplies the motivation, not a labelled census over odd finite fields. Two-sided graph adjacency is different from an implication in both directions for every pair.",
+        "searches": [
+          "Reflexive bilinear form symmetric alternating theorem B(x,y)=0 Leibniz rank one finite fields scalar congruence isomorphism labelled laws",
+          "Elhamdadi–Virgin arXiv:2604.17043v1 Prop. 5.1",
+          "Resultary reciprocal zero product and two-sided zero-bracket graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest retrieved indexed family is the later F_q three-dimensional family with [X,Y]=Z and [Y,X]=cZ. Reciprocity selects c=±1 in that family; its graph and isomorphism results do not give the full all-dimension fixed-space count. The inspected papers list normal forms or isomorphism/isotopy classes, not counts of labelled reciprocal laws."
+        ],
+        "reasoning": "No matching exact catalogue was identified. The small family covers only selected 3-dimensional examples and is not a data set from which the all-q and all-n labelled census can be read off.",
+        "searches": [
+          "Resultary finite Leibniz census and rank-one zero-bracket comparisons",
+          "Exact odd-q labelled-law and isomorphism counts in the inspected classification sources"
+        ]
+      },
+      "rationale": "Pass is for the integrated reciprocity-selected exact census, especially the all-dimension labelled census, with an explicit sharp boundary example. The rank-one symmetric/alternating implication itself is a direct application of scalar form reflexivity; the nilpotent bilinear-form classification and the ordinary finite-field congruence inputs are also prior. No originality is assigned to those ingredients or to formulating reciprocity as a real Noether criterion.",
+      "residual_risks": [
+        "Older rank-one form classifications may support other derivations of parts of the tally. No claim is made that the finite-field similarity rules, affine Lie classification, or scalar reflexivity are new.",
+        "A bounded search cannot resolve all older or unindexed exact counts or examples."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact predicate for real smooth racks, not the census",
+          "evidence": "The application of the Noether condition is iff [a,b]=0 implies [b,a]=0 for all a,b.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.17043v1",
+          "material_read": "Prop. 5.1, around PDF offset 45152",
+          "method": "Open-access full-text passage",
+          "title": "Lie Quandles, Leibniz Racks and Noether's First Theorem",
+          "trigger": "Origin of the zero-product predicate"
+        },
+        {
+          "assessment": "Prior exclusion of nonnilpotent non-Lie branch under reciprocity",
+          "evidence": "Classifies the left Leibniz branch as S2 plus an abelian summand, with its one-sided product; the opposite still fails reciprocity.",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.09102v2",
+          "material_read": "Thm. 2.2 p. 9, offset about 23675",
+          "method": "Open-access full-text passage",
+          "title": "Non-Nilpotent Leibniz Algebras with One-Dimensional Derived Subalgebra",
+          "trigger": "General rank-one noncentral non-Lie classification"
+        },
+        {
+          "assessment": "Recalls prior isomorphism normal forms; own main classification is up to isotopy",
+          "evidence": "Names Heisenberg, Kronecker and Dieudonné families for indecomposable nilpotent algebras with one-dimensional commutator. Further reduces up to isotopy; neither classification as read performs the labelled enumeration.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.08306",
+          "material_read": "Introduction p. 2 (offset 6400), §1 Definitions 1.5–1.7 and §4",
+          "method": "Open-access full-text passages",
+          "title": "Isotopisms of nilpotent Leibniz algebras and Lie racks",
+          "trigger": "Plausible prior coverage of the central branches"
+        },
+        {
+          "assessment": "Direct antecedent for the bilinear encoding in the nilpotent case, with different dimension and field scope",
+          "evidence": "Chooses a complement to the derived line and encodes the bracket using a bilinear form; classifies non-Lie solvable examples in bounded dimension over C.",
+          "identifier_or_url": "https://arxiv.org/pdf/1501.00890v2",
+          "material_read": "Abstract p. 1 and §2 p. 2 offset about 5512",
+          "method": "Open-access full-text passages",
+          "title": "Classification of some Solvable Leibniz Algebras",
+          "trigger": "Possible antecedent scalar congruence classification"
+        },
+        {
+          "assessment": "Same elementary implication, not evidence about census coverage",
+          "evidence": "Explicit theorem statement matches scalar-form reflexivity to symmetry or alternation. The deduction is also independently verified in the correctness axis.",
+          "identifier_or_url": "https://proofwiki.org/wiki/Reflexive_Bilinear_Form_is_Symmetric_or_Alternating",
+          "material_read": "Search-exposed theorem statement only; direct and alternate route both denied",
+          "method": "Search lead and independent elementary algebraic comparison; no full-text claim",
+          "title": "Reflexive Bilinear Form is Symmetric or Alternating",
+          "trigger": "Exact scalar form implication"
+        },
+        {
+          "assessment": "Restricted later family, not the same predicate or census",
+          "evidence": "The graph condition is simultaneous vanishing; the isomorphism criterion is c↔c^(-1), restricted to a particular three-dimensional family.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-three-zero-bracket-graph-types-in-a-finite-heisenberg-leibniz-fa--11a1beec25cf",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Published record passage",
+          "title": "Three zero-bracket graph types in a finite Heisenberg Leibniz family",
+          "trigger": "Same family dimension, field and zero-product questions in an overlapping case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Proof of the labelled census and boundary example",
+        "Compared structural and Noether antecedents"
+      ],
+      "rationale": "Counting the coordinate laws satisfying a motivated algebraic zero-product condition gives a usable exact finite-field benchmark, not just a list of abstract algebras. In particular the count separates three families with very different parameter multiplicities while the isomorphism tally is independent of the odd field size. The rank-two example exhibits the exact failure of using the rank-one conclusion to infer bracket symmetry from reciprocal zeros at larger derived dimension.",
+      "residual_risks": [
+        "This value is in the selected census and boundary, not in a claim of new general bilinear-form theory or a finite-field smooth rack characterization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -6,11 +6,11 @@ For every integer \(n\ge2\), consider the **simultaneous (Jacobi) Ehrlich–Aber
 \[
 \mathbf v(w)=(w\zeta^j)_{j=0}^{n-1},\qquad t=w^n,\qquad B=(n+1)t+n-1.
 \]
-For every complex \(w\ne0\) with \(B\ne0\), its regular-polygon submanifold is invariant, with scalar update
+For every complex \(w\ne0\) with \(B\ne0\), the one-step image is \(\mathcal E(\mathbf v(w))=\mathbf v(\Phi_n(w))\), where
 \[
 \Phi_n(w)=w\frac{(n-1)w^n+n+1}{(n+1)w^n+n-1}.
 \]
-The full \(n\)-by-\(n\) complex Jacobian at \(\mathbf v(w)\) is circulant. Its eigenvectors are the Fourier vectors \(\mathbf e_k=(\zeta^{kj})_{j=0}^{n-1}\), for \(1\le k\le n\), and its **entire spectrum** is
+If \(w^n=-(n+1)/(n-1)\), this step is defined but collapses all coordinates to zero, so it leaves the pairwise-distinct configuration space. At other admissible \(w\) the image is a nondegenerate regular polygon; further iteration still requires avoiding poles. The full \(n\)-by-\(n\) complex Jacobian at every admissible **input** \(\mathbf v(w)\), including these collapse inputs, is circulant. Its eigenvectors are the Fourier vectors \(\mathbf e_k=(\zeta^{kj})_{j=0}^{n-1}\), for \(1\le k\le n\), and its **entire spectrum** is
 \[
 \boxed{\lambda_k(w)=\frac{[n^2-1-2(k-1)(n+1-k)](w^n-1)^2}{[(n+1)w^n+n-1]^2}.}
 \]
@@ -25,7 +25,7 @@ For **every real initial radius** \(r>0\), the iteration \(r_{m+1}=\Phi_n(r_m)\)
 \boxed{\|D\mathcal E(\mathbf v(r))\|_2\le1\quad\Longleftrightarrow\quad
 r^n\ge\tau_n:=\frac{\sqrt{n^2-1}-(n-1)}{\sqrt{n^2-1}+(n+1)}.}
 \]
-The Jacobian strictly expands a perturbation in its radial Fourier mode whenever \(0<r^n<\tau_n\), despite the convergence of the unperturbed symmetric orbit. For \(r^n>\tau_n\), it strictly contracts all infinitesimal ambient perturbations. At equality the radial Fourier mode is norm-preserved and every other mode is strictly contracted. Each positive-radius regular-polygon configuration nevertheless lies in an open basin of convergence to the correctly ordered roots.
+The Jacobian strictly expands a perturbation in the complex scaling mode \(\mathbf e_1\) whenever \(0<r^n<\tau_n\), despite the convergence of the unperturbed symmetric orbit. For \(r^n>\tau_n\), it strictly contracts all infinitesimal ambient perturbations. At equality the scaling mode is norm-preserved. The orthogonal complement of the scaling mode is strictly contracted for **every** \(r>0\). Each positive-radius regular-polygon configuration lies in an open basin of convergence to the correctly ordered roots.
 
 ## Assumptions and scope
 
@@ -33,15 +33,15 @@ Use exact arithmetic in the iteration map \(\mathcal E:\mathbb C^n\dashrightarro
 \[
 \mathcal E_i(\mathbf z)=z_i-\frac{p(z_i)}{p'(z_i)-p(z_i)\sum_{j\ne i}(z_i-z_j)^{-1}}.
 \]
-All \(n\) coordinates update **in parallel**, with no sequential updates, damping, deflation, or floating-point rounding. Only pairwise-distinct configurations away from poles are considered. The normalization \(p(z)=z^n-1\), ordered approximations \(\mathbf v(w)\), and the standard complex Euclidean norm are fixed. The complex Jacobian is the holomorphic derivative, equivalently its complex-linear realification. The scalar convergence statement requires \(r>0\), not arbitrary complex \(w\). The spectral identity remains valid for admissible complex \(w\).
+All \(n\) coordinates update **in parallel**, with no sequential updates, damping, deflation, or floating-point rounding. The domain consists of pairwise-distinct configurations away from poles; an image need not belong to the domain. The normalization \(p(z)=z^n-1\), ordered approximations \(\mathbf v(w)\), and the standard complex Euclidean norm are fixed. The complex Jacobian is the holomorphic derivative, equivalently its complex-linear realification. The scalar convergence statement requires \(r>0\), not arbitrary complex \(w\). The spectral identity remains valid for admissible complex \(w\).
 
 ## Proof
 
-**Step 1: invariant family.** Write \(z_i=w\zeta^i\). Roots-of-unity identities give
+**Step 1: regular-polygon reduction and collapse exception.** Write \(z_i=w\zeta^i\). Roots-of-unity identities give
 \[
 \sum_{j\ne i}\frac1{z_i-z_j}=\frac{n-1}{2z_i},\qquad p(z_i)=t-1,\qquad p'(z_i)=\frac{nt}{z_i}.
 \]
-Consequently the denominator of the correction equals \(B/(2z_i)\), and substitution yields \(\mathcal E_i(\mathbf v(w))=\Phi_n(w)\zeta^i\).
+Consequently the denominator of the correction equals \(B/(2z_i)\), and substitution yields \(\mathcal E_i(\mathbf v(w))=\Phi_n(w)\zeta^i\). For \(w\ne0\) and \(B\ne0\), the output scale vanishes precisely at \(w^n=-(n+1)/(n-1)\); there \(B=-4n/(n-1)\ne0\). Thus the regular-polygon reduction is an identity in the ambient space, not invariance of the nondegenerate pairwise-distinct domain for all complex inputs.
 
 **Step 2: exact Jacobian.** Denote by \(D_i\) the denominator of the correction. Differentiation in a different coordinate gives, for \(j\ne i\),
 \[
@@ -54,7 +54,7 @@ For \(S_k=\sum_{\ell=1}^{n-1}\zeta^{k\ell}/(1-\zeta^\ell)^2\), use \(T_k=\sum_{\
 \[
 S_k-S_1=\frac{(k-1)(n+1-k)}2,\qquad 1\le k\le n.
 \]
-The first Fourier vector represents common radial scaling, hence its eigenvalue is \(\Phi_n'(w)\). Direct differentiation gives
+The first Fourier vector represents complex scaling (including the real radial direction at positive \(w\)), hence its eigenvalue is \(\Phi_n'(w)\). Direct differentiation gives
 \[
 \Phi_n'(w)=\frac{(n^2-1)(t-1)^2}{B^2}.
 \]
@@ -65,6 +65,8 @@ Comparing the off-diagonal Fourier sums to the first eigenvalue yields the displ
 C_{n,k}=n^2-1-2(k-1)(n+1-k)
 \]
 are strictly positive (since \((k-1)(n+1-k)\le n^2/4\)) and have unique maximum \(C_{n,1}=n^2-1\). A circulant is unitarily diagonalizable, so its Euclidean operator norm is precisely the largest eigenvalue modulus. For real \(r>0\), the norm expression is strictly decreasing as a function of \(t=r^n\) on \((0,1)\), from \((n+1)/(n-1)>1\) to zero; for \(t\ge1\) it is smaller than \(1\). Solving \(\sqrt{n^2-1}(1-t)=(n+1)t+n-1\) gives the unique positive threshold \(\tau_n\), proving necessity, sufficiency, and boundary equality.
+
+For \(2\le k\le n\), \((k-1)(n+1-k)\ge n-1\), hence \(C_{n,k}\le(n-1)^2\). Since \((n-1)|t-1|<(n+1)t+n-1\) for all \(t>0\), each such mode has modulus strictly below one on the positive-radius family. Thus any strict expansion there requires a nonzero component in the scaling mode.
 
 **Step 4: monotone global radial convergence and open basin.** Direct algebra gives
 \[
@@ -79,7 +81,7 @@ All coefficients in the last sum are positive. Therefore radii strictly between 
 
 ## Verification
 
-The accompanying standard-library Python artifact `verify.py` checks the polynomial and derivative identities by exact integer polynomial arithmetic for degrees \(2\) through \(40\), tests Fourier eigenvalues against a direct independently differentiated complex update for degrees \(2\) through \(12\), and verifies threshold-side inequalities. These are finite checks; the arbitrary-degree theorem is established by the algebraic proof above. Execute `python3 verify.py` and expect `VERIFY_OK`.
+The accompanying standard-library Python artifact `verify.py` checks the polynomial and derivative identities by exact integer polynomial arithmetic for degrees \(2\) through \(40\), tests Fourier eigenvalues against coordinate-wise analytic differentiation evaluated numerically at sampled positive radii for degrees \(2\) through \(12\), and checks threshold-side inequalities. These are finite checks; the arbitrary-degree theorem, including the complex collapse exception, is established by the algebraic proof above. Run `python3 verify.py` to perform the supplied checks.
 
 ## Relationship to prior work
 

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:17:11.774566Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the three specified positive inflow speeds and x in [ℓ,L−ℓ], direct differentiation gives P′=3δ(A−B_L). Differentiation of the squared-speed factors and the cubic distance factors gives A′<0 and B_L′>0 from −3+7δh(x)<0 and 3−3δh(L)−7δh(L−x)>0. At the midpoint A>B_L because only the last turbine receives the extra full-span deficit δh(L). At x=L−ℓ, A decreases and B_L increases with L; their difference has positive limit at 2ℓ (also for ℓ=0, using the continuous extension) and negative limit at infinity. Thus the unique crossing gives the stated endpoint regime, including equality, and the derivative has a unique interior zero strictly beyond the midpoint for larger L. For the asymptotic, set R=1+κL/2 and p=κ(x_L−L/2). Stationarity gives 3 log[(R+p)/(R−p)]=2 log(u₂/u₃). Positivity bounds the ratio of distances so both are of order R, making the right-hand side O(R⁻²). The left-hand side is at least 6p/R, so p=O(R⁻¹). Then u₂−u₃=δ/(1+κL)²+O(R⁻⁴), giving x_L−L/2=δR/[3κ(1+κL)²]+O(R⁻³) and the claimed leading term. An independent direct search of the cubic objective at δ=.2, κ=1, ℓ=.5, L=3 gave x≈1.511334 and power gain ≈1.0464×10⁻⁵ over the midpoint. That finite check is supplementary; the replay path for the proof is RESULT.md §§ Proof and Verification (lines 54–122 for the decisive steps). The supplied verification/wake_layout_check.py was inspected, not executed; no formal certification is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ma et al.'s abstract and wake-merging passage describe model parameterization and testing, not an optimizer for fixed endpoints. The Stevens et al. DOI route did not yield readable full text; the frozen comparison records extended regular arrays with spacing varied across the array."
+        ],
+        "reasoning": "General numerical layout optimization or a study restricted to repeated regular spacings at varying span does not give this fixed-span global maximum or imply that equal spacing fails on the enlarged feasible set. The unavailable paper is not counted as excluded.",
+        "searches": [
+          "Targeted literature lookup for analytical fixed-span nonuniform three-turbine spacing",
+          "Stevens, Gayme and Meneveau, DOI 10.1002/we.1835",
+          "Ma et al., DOI 10.5194/wes-7-2407-2022"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, AUDIT.json and VERIFICATION.md",
+        "Local Resultary results and matching mirror",
+        "Ma et al., 10.5194/wes-7-2407-2022, primary PDF",
+        "Access attempted: 10.1002/we.1835 and 10.1002/we.1863"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ma et al. provide a modeling premise via M1, not the derivative sign, endpoint crossing or stationary-root asymptotic. The Peña et al. full text could not be independently accessed by the attempted DOI routes; the frozen comparison describes squared merging."
+        ],
+        "reasoning": "Even an exact prior model specification does not supply the optimizer: the distinct claims require global derivative monotonicity on the constrained interval, the span endpoint sign and the large-span stationarity expansion. A result for a different merging rule would need a genuine reduction before it could imply them.",
+        "searches": [
+          "Ma et al., DOI 10.5194/wes-7-2407-2022, linear wake combination passage",
+          "Peña, Réthoré and van der Laan, DOI 10.1002/we.1863"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In Ma et al., M1 is a sum of deficits; M2 takes the square root of a sum of squares. The closest Resultary indexed statement was the identical record, not independent coverage."
+        ],
+        "reasoning": "Writing the two gaps as x and L−x is equivalent to moving the middle turbine at fixed outer locations. Jensen and Park names are not novelty distinctions; freestream-scaled linear and RSS merging are mathematically different objectives for the last turbine.",
+        "searches": [
+          "Resultary: fixed-span three collinear turbines, movable middle turbine, linear wake superposition and asymmetric optimal spacing",
+          "Ma, Archer and Vasel-Be-Hagh, DOI 10.5194/wes-7-2407-2022, M1/M2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match was SCOPE-a-sharp-span-threshold-for-asymmetric-spacing-of-three-collinear--5a744bbe94f6, with the same equations and conclusions; no separate materially similar claim arose among the inspected returns."
+        ],
+        "reasoning": "This is a self-match. A numerical layout at a fixed span would not constitute a table of the parameterized critical span or its asymptotic optimizer, and no independent such table was identified.",
+        "searches": [
+          "Local Resultary search for the fixed three-turbine threshold and asymptotic bias; mirror comparison of the exact matching record"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the fixed-span, one-free-location theorem and its large-span coefficient. The Jensen/Park decay family, linear summation and the general wind-farm layout problem all predate the record. No checked primary passage or distinct indexed record proved a result covering the precise boundary crossing, optimizer uniqueness and bias. The comparison does not establish historical priority.",
+      "residual_risks": [
+        "Historical numerical and analytical wake layout literature was not exhaustively read; an older equivalent theorem in this exact convention remains possible.",
+        "The focused literature query did not surface a decisive additional source; that does not establish absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms prior wake-merging model; inspected passages do not establish the layout theorem",
+          "evidence": [
+            "M1 sums velocity deficits; M2 uses squared deficits and a square root. The abstract frames the paper as parameterization and observational testing."
+          ],
+          "identifier_or_url": "https://doi.org/10.5194/wes-7-2407-2022",
+          "material_read": "Abstract and full-text PDF passage defining methods M1 and M2, extracted-text offset about 21022",
+          "method": "Open-access primary PDF, bounded sections",
+          "title": "The Jensen wind farm parameterization",
+          "trigger": "Same wake convention, potentially the same objective"
+        },
+        {
+          "assessment": "Identical finding, not distinct coverage",
+          "evidence": [
+            "Same fixed outer locations, unique boundary-to-interior transition and downstream bias asymptotic."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-span-threshold-for-asymmetric-spacing-of-three-collinear--5a744bbe94f6",
+          "material_read": "Local mirror RESULT.md offsets 0 and 4472 and indexed summary",
+          "method": "Local index and mirrored statement comparison",
+          "title": "A sharp span threshold for asymmetric spacing of three collinear wind turbines",
+          "trigger": "Exact apparent indexed overlap"
+        },
+        {
+          "assessment": "No independent whole-paper determination",
+          "evidence": [
+            "Frozen comparison identifies regular extended array geometries; not used as independent proof of noncoverage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/we.1835",
+          "material_read": "Citation and frozen description only; DOI access blocked",
+          "method": "Lawful direct and alternate-route access attempts",
+          "title": "Effects of turbine spacing on the power output of extended wind-farms",
+          "trigger": "Potential broader turbine spacing optimization coverage"
+        },
+        {
+          "assessment": "No independent whole-paper determination",
+          "evidence": [
+            "Frozen comparison reports quadratic rather than linear merging; not used as independent proof of noncoverage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/we.1863",
+          "material_read": "Citation and frozen description only; DOI access blocked",
+          "method": "Lawful direct and alternate-route access attempts",
+          "title": "On the application of the Jensen wake model using a turbulence-dependent wake decay coefficient: the Sexbierum case",
+          "trigger": "Closely related wake model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixed endpoints and a minimum gap give a motivated constrained layout problem. The exact classification supplies a test for whether a solver should return an active gap constraint or an interior stationary point, and identifies a structural asymmetry: the direct wake from the first to the last turbine lowers the marginal power cost of moving the middle one downstream. Without that term the cubic objective is symmetric in the two gaps and, in this regime, has its unique optimum at equal spacing. The value is the sharp global classification and quantitative bias for this model, not the tiny illustrated yield gain or a field design recommendation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,8 +21,6 @@
 
 # Verification
 
-The analytic proof is in `RESULT.md`. Run `python check.py` with Python 3.10+ and SymPy to reconstruct exact rational identities, discriminant, root intervals and stability-coefficient inequalities. This checker uses symbolic rather than floating-point algebra for the stated certificates and separately prints descriptive approximations. Its run passed with `PASS: algebraic reduction, two rational root brackets, derivative signs, exact Jacobian identities, Routh bounds`.
+The certificate for the saddle-to-sink connections and local basin separation is analytic in `RESULT.md`: uniform rational estimates make the tube wall strictly inward pointing, then scalar speed bounds and a compact slice argument identify both unstable branches and their limits. No simulation of trajectories is used to certify a connection.
 
-The universal at-most-two bound follows from an explicit quadratic obtained by multiplying the endemic behavioral equilibrium equation by a strictly positive factor. The selected witness has two strictly positive-infection roots in disjoint rational intervals, with one-dimensional root-derivative signs that distinguish the mixed saddle from the mixed sink. Independent proof of full three-dimensional local stability uses strict cubic Routh–Hurwitz inequalities and an exact Jacobian identity. Hyperbolicity implies robustness only in a parameter neighborhood.
-
-The computation does not verify empirical intervention performance or stochastic outcomes, and it does not provide an independent audit of originality, correctness, or value. Bibliographic overlap checks compared mathematical implications, but equivalence in unindexed literature remains possible.
+With Python 3.10+ and SymPy, the unchanged `check.py` reproduces the equilibrium reduction, the two rational root brackets, the Jacobian coefficient identities and the strict Routh bounds. The original recorded run reports `PASS: algebraic reduction, two rational root brackets, derivative signs, exact Jacobian identities, Routh bounds`. This program does not check the tube or the geometric connection argument.

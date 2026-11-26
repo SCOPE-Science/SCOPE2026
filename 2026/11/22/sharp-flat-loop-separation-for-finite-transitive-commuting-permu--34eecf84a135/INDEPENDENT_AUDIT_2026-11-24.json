@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:23:56.581059Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–38",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Replay: python3 /workspace/reproductions/2.py"
+      ],
+      "rationale": "A pointed transitive action of the named commuting bijections is isomorphic to Z²/L with its zero coset, and the stabilizer does not depend on the point because the acting group is abelian. Isomorphism preserves the semantics even with tests, nesting and converse; vectors in the symmetric difference of two lattices yield distinguishing loops. The normal form (a,0),(b,c), ac=d, 0≤b<a counts exactly sigma_1(d) subgroups, and summing the triangular floor counts gives pi²*N²/12+O(N log N). For distinct lattices with an index d<N minimal, the lattice of index d has a generator of norm ≤d absent from the other lattice (containment with those index inequalities is impossible). At equal index N, both HNF generators are short when a,c≥2. Otherwise either (1,0), (b,1) for b≤N−2, or (1,−1) when b=N−1 is short and primitive, and a primitive vector determines at most one index-N lattice via the infinite cyclic quotient by that vector. The special parity lattice for N=2 lacks both unit vectors, but each other index-two lattice has one. The consecutive cycles N and N−1 with g trivial give exact lower length N−1. Without loop, simultaneous induction makes each program serial or empty and each formula constant across all these models: atomic actions and converses are serial, tests use constant formulas, and star is always serial. A separately coded BFS applying actual generators and inverses reproduced all 339 quotient actions through index 20, separation at every corresponding radius, and the exact consecutive-cycle witnesses.",
+      "residual_risks": [
+        "Sharpness is for one uncompressed flat loop word, not arbitrary program expressions or formula size. The finite action calculation does not prove the statement for unbounded indices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The LoopPDL paper formulates a finite-satisfiability problem and cactus-like constructions. The same-day commuting-permutation comparison minimizes size for a prescribed automorphism group. The derangement comparison is about a fixed-point probability for random commuting pairs."
+        ],
+        "reasoning": "Neither a satisfiability construction nor a random fixed-point or automorphism-count theorem supplies a uniform radius for distinguishing two fixed transitive actions with named generators.",
+        "searches": [
+          "Bednarczyk–Swoboda arXiv:2610.15632 Abstract and Introduction",
+          "Resultary: exact minimal sizes for elementary Abelian symmetries of commuting-permutation braid solutions; joint derangements in random commuting permutations"
+        ]
+      },
+      "checked_sources": [
+        "Sources listed above",
+        "Identical Resultary entry for the assigned record treated as a self-match only",
+        "Frozen RESULT.md source and classical census comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The HNF bound alone gives radius N. Improving it by one requires resolving the equal-index cases, in particular using uniqueness of an index-N lattice through a short primitive vector or the residual parity-lattice comparison.",
+          "The cycle fragment explains why the bound cannot improve, but gives no universal upper bound."
+        ],
+        "reasoning": "Classical quotient and HNF facts enable the proof, but its sharp radius is not a direct count, isomorphism result, or consequence of the one-action classifications. No inspected result supplies the required tight rank-two separation.",
+        "searches": [
+          "arXiv:2610.15632 pp. 1–2; Resultary finite functional orbits, directed-cycle spectra, and commuting-permutation comparisons listed below",
+          "Literature lookup for sharp distinguishing words for finite-index subgroups/commuting permutation actions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The one-action results characterize cycles or lassos; in the cycle case the stabilizer is a period, and the adjacent-cycle witness is recovered with g acting as identity.",
+          "The frozen theorem is equivalently the first L1 radius in which two bounded-index subgroups of Z² differ in membership."
+        ],
+        "reasoning": "Standard loop semantics gives subgroup membership on the quotient; the short-vector problem then involves coupled coordinates. Single periods and their cycle-language spectra are a true subfamily, not the rank-two theorem.",
+        "searches": [
+          "Resultary: variable-free LoopPDL finite functional orbits; exact gcd/arithmetic spectra on finite directed cycles; flat word loop and rank-two finite-index lattice separation",
+          "arXiv:2610.15632, pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact arithmetic count sigma_1(d) and its cumulative asymptotic are known. Finite lattice fingerprints are exhaustive only through index 20.",
+          "The one-action classification provides period information, not membership balls for rank-two sublattices."
+        ],
+        "reasoning": "The class counts are credited as classical input; even an exact table of counts does not specify where two membership balls first differ. The claimed all-N separation value is not a finite table extrapolation.",
+        "searches": [
+          "Frozen RESULT.md classical HNF/divisor-sum census, lines 22–27 and 40–44",
+          "Resultary one-action/cycle records",
+          "Frozen verify.py finite fingerprint range"
+        ]
+      },
+      "rationale": "The distinct contribution is the sharp uniform N−1 L1 membership-separation theorem for all pairs of rank-two lattices of index at most N, interpreted as a single flat loop word. Classical arithmetic, general loop semantics and the one-action lower-bound family are not credited as new. No inspected claim gives the coupled rank-two upper bound.",
+      "residual_risks": [
+        "Streett's thesis and Danecki's strong loop predicate paper were not read in full. An equivalent sharp separation bound in lattice or group-action language could exist despite the bounded comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covered semantics and different finite satisfiability result, not identified as a sharp separation source",
+          "evidence": "The introduction states a satisfiability result for a fragment and its cactus-like model constructions.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.15632",
+          "material_read": "PDF pp. 1–2 (offset 0), references at p. 12",
+          "method": "OA bounded full-text passages",
+          "title": "Towards Finite Satisfiability of PDL with Loops",
+          "trigger": "Primary LoopPDL semantics and finite-model literature"
+        },
+        {
+          "assessment": "Genuine one-action subfamily; no two-action upper bound",
+          "evidence": "Terminating lengths and lasso parameters describe finite functional orbits; loop-free nonterminating types collapse.",
+          "identifier_or_url": "2026/11/8/SCOPE-variable-free-looppdl-separates-every-finite-functional-orbit-ex--db35a8dfda93",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary and local full-text mirror",
+          "title": "Variable-free LoopPDL separates every finite functional orbit",
+          "trigger": "Strongest one-action theory and loop-free overlap"
+        },
+        {
+          "assessment": "Covers single-cycle specialization",
+          "evidence": "Truth spectra concern divisibility of a single cycle length, not two-coordinate membership.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-gcd-spectra-of-proposition-free-loop-dynamic-logic-on-fini--e1a5174e9077",
+          "material_read": "Finding",
+          "method": "Resultary and local full-text mirror",
+          "title": "Exact gcd spectra of proposition-free loop dynamic logic on finite directed cycles",
+          "trigger": "One-generator cycle and converse arithmetic"
+        },
+        {
+          "assessment": "Covers arithmetic one-action background",
+          "evidence": "Cycle-length spectra do not give an upper bound for lattices with coupled action words.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-arithmetic-spectra-of-variable-free-loop-dynamic-logic-on--36359206b8ff",
+          "material_read": "Finding",
+          "method": "Resultary and local full-text mirror",
+          "title": "Exact arithmetic spectra of variable-free loop dynamic logic",
+          "trigger": "One-generator converse loops and adjacent periods"
+        },
+        {
+          "assessment": "Distinct objective and invariant",
+          "evidence": "Minimizes realization size for braid solutions with prescribed automorphism groups; it does not compare stabilizer membership signatures.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-minimal-sizes-for-elementary-abelian-symmetries-of-commuti--68a34e4ac69f",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary and local full-text mirror",
+          "title": "Exact minimal sizes for elementary Abelian symmetries of commuting-permutation braid solutions",
+          "trigger": "Same-day theorem involving commuting permutations and exact sizes"
+        },
+        {
+          "assessment": "Distinct probability question",
+          "evidence": "Studies joint fixed-point probabilities in a random pair, not minimal deterministic separating lengths.",
+          "identifier_or_url": "2026/10/25/SCOPE-determinant-controlled-joint-derangements-of-primitive-words-in--199a3ed5775e",
+          "material_read": "Finding",
+          "method": "Resultary and local full-text mirror",
+          "title": "Determinant-controlled joint derangements of primitive words",
+          "trigger": "Word properties for commuting permutations"
+        },
+        {
+          "assessment": "Unresolved comparison, not evidence against coverage",
+          "evidence": "Only the topic and citation are established here, no relevant passage verified.",
+          "identifier_or_url": "https://hdl.handle.net/1721.1/149541",
+          "material_read": "Bibliographic citation only",
+          "method": "Handle retrieval timed out and then returned HTTP 429",
+          "title": "Propositional Dynamic Logic of Looping and Converse",
+          "trigger": "Historical loop and converse theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md separation proof and lower witness",
+        "One-action Resultary comparisons"
+      ],
+      "rationale": "The result bounds the amount of a natural observation needed to recover an entire logical type, with an exact unavoidable worst case. It separates the unrestricted logical-equivalence problem from the cost of one simple loop observation and explains what the loop-free language misses. The sharp equal-index comparison supplies an actual gain over the direct index bound; the census alone would not have this value.",
+      "residual_risks": [
+        "No implication asserted for satisfiability, unbounded models, larger signatures or formula compression."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

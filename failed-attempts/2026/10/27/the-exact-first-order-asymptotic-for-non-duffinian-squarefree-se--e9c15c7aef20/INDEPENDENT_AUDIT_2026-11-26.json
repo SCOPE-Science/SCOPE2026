@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:50:30.267432Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–54",
+        "Frozen VERIFICATION.md and verify.py",
+        "Replay: node /workspace/branches/review_1_c_check.js (independent finite check)"
+      ],
+      "rationale": "For odd p<q, only p can divide (p+1)(q+1), and this occurs precisely if p divides q+1; for p=2 every odd q qualifies, including q=3 where q itself also divides p+1. In the odd-prime progression sum the only removed prime with q<p is q=2 at p=3, so the O(1) adjustment is valid. Fixed p gives x/[p(p-1)log x] by the reduced-class PNT. For Y<p≤x^(1/4) the BT bound normalized by x/log x is at most 4/[p(p-1)]. For larger p the count of integers in the residue class is ≤x/p²+1, with total O(x^(3/4)+√x). This gives the correct nested-limit argument and absolutely convergent constant. The independent fixed-point sieve enclosed C between 773156601234798/10^15 and 773157601313296/10^15, using an error ≤78498/10^15 in the partial sum and ≤10^-6 in the tail. Factoring by greatest prime divisor reproduced counts 145,1059,8170,65886. The frozen checker was inspected, not run; its binary floating-point summation alone is not an outward-rounded bound.",
+      "residual_risks": [
+        "Finite census and certified interval checks do not prove convergence; the analytic argument does. The theorem has no quantified remainder beyond little-o."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zbiek pp.99–100 give the definition and pp.102–103 a general prime-factor criterion. Pollack p.199 studies G(x,A) without restricting n to squarefree products of two primes."
+        ],
+        "reasoning": "A structural test for arbitrary n and an unrestricted gcd distribution do not determine this thin-subset leading asymptotic.",
+        "searches": [
+          "Zbiek, What Can We Say About the Duffinian Numbers?",
+          "Pollack, On the Greatest Common Divisor of a Number and Its Sum of Divisors",
+          "Luca DOI 10.35834/mjms/1316032973"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 15a95ebe2dc2, 05d9813b37ff and c278d2b5669d",
+        "Zbiek pp.99–103",
+        "Pollack first page",
+        "Duffy and Luca bibliographic records; OEIS A003624 access unsuccessful"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first result gives the bound, the second fixes residue +1 in its theorem and proof, and the Gaussian-cyclic analogue uses an odd-prime series for a different predicate."
+        ],
+        "reasoning": "An O-bound for the target and a sharp asymptotic for a distinct set do not logically determine the target coefficient. But the full proof template carries over with no new main estimate: the PNT and BT factors depend on p and reducedness, not the sign of the residue, and the integer count in any single class changes by at most one. See value assessment.",
+        "searches": [
+          "Resultary 15a95ebe2dc2, Finding",
+          "Resultary 05d9813b37ff, Proof offsets 0–5075",
+          "Resultary c278d2b5669d, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Duffinian exception is gcd(pq,σ(pq))>1, equivalently p|q+1. Resultary 15a95ebe2dc2 treats exactly this predicate with an O(x/log x) exception bound. Resultary 05d9813b37ff treats gcd(pq,φ(pq))>1, equivalently p|q−1."
+        ],
+        "reasoning": "At odd p the progression conditions differ, e.g. (p,q)=(3,5) qualifies only for q+1; (3,7) only for q−1. Neither theorem is an equivalent restatement of the asymptotic for the Duffinian set.",
+        "searches": [
+          "Resultary: Duffinian squarefree semiprimes and exceptional counts",
+          "Primary lookup: Duffinian squarefree semiprimes, p divides q+1, exact leading constant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The noncyclic Resultary record explicitly displays the identical prime sum and decimal, and bounds its truncation by the telescoping reciprocal series. Independent access to OEIS A003624 was unsuccessful."
+        ],
+        "reasoning": "The coefficient is already tabulated in exact series form for a different counting problem; no novelty credit goes to the numeric or series evaluation.",
+        "searches": [
+          "OEIS A003624",
+          "Resultary 05d9813b37ff Finding and Verification"
+        ]
+      },
+      "rationale": "The distinct statement supported here is an explicit asymptotic for the Duffinian exception set, not discovery of the series or a new counting method. The matching-constant catalogue theorem treats p|q−1 and does not itself count this set; the direct Duffinian predecessor gives only an order bound. The scientific significance of transferring their ingredients is evaluated separately below.",
+      "residual_risks": [
+        "Duffy and Luca may contain semiprime-specific results; their original text was not inspected. A bounded keyword miss is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior order bound, not leading asymptotic",
+          "evidence": "S_2(x)-D_2(x)=O(x/log x).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-almost-all-squarefree-semiprimes-are-duffinian--15a95ebe2dc2/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Almost all squarefree semiprimes are Duffinian",
+          "trigger": "Same exact Duffinian predicate"
+        },
+        {
+          "assessment": "Exact coefficient and proof template overlap, but different set",
+          "evidence": "Uses q=kp+1, fixed-prime PNT, BT to x^(1/3), then a summable integer-count bound. Series includes p=2 contribution 1/2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-the-exceptional-law-for-noncyclic-squarefree-semiprimes--05d9813b37ff/RESULT.md",
+          "material_read": "Finding, proof and verification offsets 0–5075",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The exceptional law for noncyclic squarefree semiprimes",
+          "trigger": "Exact series and nearly identical two-prime condition"
+        },
+        {
+          "assessment": "Analogue, not same predicate",
+          "evidence": "Odd-prime sum appears in Gaussian-cyclic counting.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exceptional-asymptotic-for-gaussian-cyclic-semiprimes--c278d2b5669d/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Exceptional asymptotic for Gaussian-cyclic semiprimes",
+          "trigger": "Catalogue match on odd-prime series"
+        },
+        {
+          "assessment": "Structural antecedent",
+          "evidence": "Defines Duffinian and gives a general foreign-number prime-factor criterion, not a leading term in the inspected passages.",
+          "identifier_or_url": "https://www.kappamuepsilon.org/Pentagon/Vol_42_Num_2_Spring_1983.pdf",
+          "material_read": "Printed pp.99–103 and bibliography",
+          "method": "OA PDF passages",
+          "title": "What Can We Say About the Duffinian Numbers?",
+          "trigger": "Early same-definition literature"
+        },
+        {
+          "assessment": "Different counting population",
+          "evidence": "G counts all integers ≤x with gcd above a threshold.",
+          "identifier_or_url": "https://www.pollack-math.net/combined3.pdf",
+          "material_read": "First page, definition of G(x,A) and regime",
+          "method": "OA PDF passage",
+          "title": "On the Greatest Common Divisor of a Number and Its Sum of Divisors",
+          "trigger": "Same gcd across unrestricted integers"
+        },
+        {
+          "assessment": "Neither credited nor excluded",
+          "evidence": "No original passages verified for either paper.",
+          "identifier_or_url": "Duffy, J. Recreat. Math. 12, 112–115; Luca, doi:10.35834/mjms/1316032973",
+          "material_read": "Bibliographic identification only",
+          "method": "Duffy identified through Zbiek; Luca full text not accessible in attempted retrieval",
+          "title": "The Duffinian numbers; On the densities of some subsets of integers",
+          "trigger": "Potential relevant historical Duffinian statements"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof",
+        "Resultary 15a95ebe2dc2 and 05d9813b37ff Finding and Proof"
+      ],
+      "rationale": "The exception count is naturally motivated but the exact leading constant here is a routine residue substitution in the earlier noncyclic semiprime calculation. That proof already establishes the exact same sum: replacing +1 with −1 keeps the reduced-class main term and BT bound and changes the integer upper bound by at most one per modulus. The only small endpoint case is q=2 at p=3; the p=2 class is identical. The Duffinian local criterion was already established, and no new invariant value, quantified error, or additional distribution information survives this transfer.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

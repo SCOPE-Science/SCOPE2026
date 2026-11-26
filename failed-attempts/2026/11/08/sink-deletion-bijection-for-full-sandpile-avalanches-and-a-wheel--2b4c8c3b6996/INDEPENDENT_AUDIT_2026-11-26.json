@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:02:25.294445Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At the first possible second topple of w, each other vertex has contributed at most once along each edge. Thus w has at most c(w)+1_{w=v}−b_w grains after its first topple, strictly below threshold by stability and b_v≥1. For a full avalanche c(v)=d_G(v)−1, v topples first, and all nonsink vertices topple exactly once. At each u≠s,v its final height is η(u)=c(u)−b_u, nonnegative and less than d_{G−s}(u). The sequence after toppling v is the Dhar test on G−s rooted at v: at yet-unfired sites both the actual height and degree threshold decrease by b_u relative to the original process. Conversely any recurrent η there extends to c by that inverse shift and setting c(v) to maximum; the same legal topplings stabilize c+δ_v with full support. The constructed c is recurrent because the sequence remains legal from c+b, and each vertex toppled once returns precisely c. Disconnected deletion prevents spread beyond the source component. The singleton deletion has one recurrent empty configuration, agreeing with the one-vertex tree count even for multiple sink edges. For the wheel, the hub deletion gives a cycle; the rim deletion gives the fan. The fan reduced tridiagonal determinant (endpoint diagonal 2, interior 3 for a path of length at least two vertices, off-diagonal −1, and determinant 1 for one path vertex) has determinant recurrence t_k=3t_{k−1}−t_{k−2}, with 1,3 giving F_{2k}. With β=φ⁻² each wheel eigenvalue is β⁻¹(1−βω)(1−βω⁻¹) over n-th roots ω, giving β⁻ⁿ(1−βⁿ)²=L_{2n}−2. The exact probabilities and their limits follow with fixed sink-neighbor drive and uniform recurrence.",
+      "replay": "python /workspace/review-evidence/independent_checks.py 5; /workspace/review-evidence/check-5.txt. Exact forbidden-subconfiguration recurrence tests, direct legal toppling, and brute edge-subset tree enumeration. Tests wheel hub and rim sinks for n=3–6, a disconnected deletion, a nontrivial multigraph, and a two-vertex graph with parallel edges. The finite tests do not prove the general result. Frozen verification notes and Python were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bou-Rabee Lemma 2.1 expressly applies to finite connected loopless multigraphs: holding a set of vertices unburned makes the final unburned set the union of their pasts in a uniform sink-rooted spanning tree. It credits Járai–Werning 2014 §3.1 and the proof of Theorem 3. Bou-Rabee's §4.2, in a lattice box, restricts post-wave heights on the wave to a recurrent configuration rooted at the source, and counts the complementary/supported pair by the product of induced graph tree counts.",
+          "Austin et al. Corollary 9 gives at most one topple per site at a sink neighbor."
+        ],
+        "reasoning": "The multigraph held-site theorem has all the submitted graph parameters, and its singleton held vertex gives the required count after translating the avalanche to its recurrent final heights. The scope does not depend on extrapolating lattice geometry.",
+        "searches": [
+          "arXiv:2610.13940v1 Lemma 2.1, §4.2 Eqs. (4.5)–(4.6)",
+          "arXiv:1602.06475v2 Corollary 2.8, Lemma 2.10",
+          "arXiv:1605.02713v2 Corollary 9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.13940v1",
+        "arXiv:1602.06475v2",
+        "arXiv:cond-mat/9801182",
+        "arXiv:1605.02713v2",
+        "Resultary c0b51f8711c3 and 733ade22735c",
+        "DOI:10.1016/j.amc.2017.06.030 and ccsd-00016372v1 (full text unavailable in this review)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let H=G−s and hold v during burning of a recurrent state ζ on G. Holding v leaves every nonsink site unburned exactly when ζ(u)<d_H(u) for every u≠s,v. The all-nonsink past of v under Lemma 2.1 consists precisely of spanning trees joining s only to v, with one of b_v parallel edges, plus a spanning tree of H; thus there are b_v τ(H) such ζ.",
+          "For a fixed tuple of those other heights, recurrence forces v to be initially burnable, and then subsequent burning is independent of ζ(v). Exactly the b_v values d_H(v) through d_G(v)−1 are possible. Select the one with ζ(v)=d_H(v). Such ζ are exactly the full-avalanche final states: once-only toppling gives these conditions; conversely, c(v)=d_G(v)−1, c(u)=ζ(u)+b_u is stable, recurrent by monotonicity of no-forbidden-subconfiguration under stable height increases, and its avalanche follows the burn order of ζ after v. This gives τ(H) exactly, also zero when disconnected.",
+          "The height shift restricted away from the source is the same post-wave restriction used in Bou-Rabee Eq. (4.5) on the wave-induced graph. The graph-theoretic wheel substitutions are H=C_n and H=K_1∨P_{n−1}; the already known numerators and denominator then give the limiting comparison by Binet's formulas."
+        ],
+        "reasoning": "The count is a direct extremal event of a published arbitrary-graph burning law. The original's smaller-graph bijection is a simple explicit version of the same recurrent restriction, not a distinct theorem requiring a new structural result after the prior wave/held-burning correspondence. The two sink-placement probabilities are direct graph specializations.",
+        "searches": [
+          "arXiv:2610.13940v1 §2.2 p. 9, offsets 31854–32349; §4.2 Eqs. (4.5)–(4.6), offsets 46800–51945",
+          "arXiv:1605.02713v2 §6 and Lemma 42",
+          "Resultary 733ade22735c Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bhupatiraju–Hanson–Járai §§2.1 and 2.4 work on finite connected loopless multigraphs; Lemma 2.7 bijects individual waves with intermediate recurrent configurations on the graph with one extra source-to-sink edge. Corollary 2.8 says a wave is last if a neighbor of the source, possibly the sink, lies outside the wave. Their §2.5 Lemma 2.10 identifies the source tree's vertices with the wave in wired lattice boxes.",
+          "Ivashkevich–Priezzhev, arXiv:cond-mat/9801182 p. 8, explain the two-root forest correspondence by deleting the added source–sink bond."
+        ],
+        "reasoning": "At a sink neighbor any nonempty principal avalanche has just one wave. The full wave therefore corresponds, in the stated wave–forest formulation, to a source component containing all nonsink vertices and a singleton sink; those forests are exactly spanning trees of the sink deletion. The box hypothesis on the stated Lemma 2.10 is respected; the all-graph implication is obtained independently from the held-site theorem below.",
+        "searches": [
+          "Abelian sandpile waves bijection two component spanning forest source sink waves Ivashkevich Priezzhev Járai Werning every wave uniform spanning forest rooted",
+          "Structure of waves in the sandpile model Ktitarev arxiv spanning",
+          "arXiv:1602.06475v2 §§2.1, 2.4–2.5",
+          "arXiv:2610.13940v1 §§2.2, 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c0b51f8711c3 gives the same delete-sink/re-root-at-source step on complete bipartite graphs, but is a same-day restricted theorem, not used to infer priority. Earlier 733ade22735c gives F_{2k} for the relevant fan. Austin et al. give n² maximal monomials over all hub-sink wheel sources and L_{2n}−2 recurrent states, hence n fixed-source events by rotational symmetry."
+        ],
+        "reasoning": "This establishes direct numerical prior coverage of the hub side and of the auxiliary fan count, not an assertion of a published exact rim-sink probability table. The rim-side implication uses the earlier structural law and the fan numerator.",
+        "searches": [
+          "Resultary: full-system principal sandpile avalanche sink-neighbor sink deletion wheel rim hub",
+          "Resultary c0b51f8711c3 and 733ade22735c Findings",
+          "arXiv:1605.02713v2 §6 Lemma 42"
+        ]
+      },
+      "rationale": "Earlier wave/forest and held-site burning results cover the central count and restriction mechanism. The arbitrary-loopless-multigraph held-site law in Bou-Rabee, arXiv:2610.13940v1, Lemma 2.1, gives τ(G−s) by the explicit reduction below; its §4.2 Eqs. (4.5)–(4.6) already implement the restriction of post-wave heights to recurrent states on the wave-induced graph in a box, where a full wave has a singleton complementary sink. The exact hub numerator and total wheel count are prior, and the rim numerator is the known fan count once the covered rule is applied. This is demonstrated mathematical implication, not a claim that the original wording or arbitrary-graph full-avalanche formula appears verbatim in those sources.",
+      "residual_risks": [
+        "No claim of earliest historical priority or of the exact rim-sink wording appearing in prior work. The inaccessible full texts may provide additional overlap, but the decision rests on inspected accessible material and the explicit reduction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier arbitrary connected loopless multigraph held-site burning law directly implies the general full count; lattice formulation already uses the induced-wave state restriction",
+          "evidence": [
+            "Lemma 2.1 explicitly identifies final unburned set with the tree past union.",
+            "Eq. (4.5) preserves post-wave heights on W except the root, with an independent configuration on the complement; Eq. (4.6) gives product of induced tree counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.13940v1",
+          "material_read": "v1 §2.2 Lemma 2.1 and proof, PDF p. 9, offsets 31854 and 32209; §4.2 Eqs. (4.5)–(4.6), offsets 46800–51945",
+          "method": "Primary OA PDF, locate plus bounded passage",
+          "title": "Sandpile avalanches in two dimensions are finite",
+          "trigger": "Potential general anchored-burning and exact post-wave restriction"
+        },
+        {
+          "assessment": "General one-wave encoding and lattice-support forest correspondence; no unsupported inference of a verbatim general count from §2.5",
+          "evidence": [
+            "Lemma 2.7 partitions extra-edge recurrent states by waves; Corollary 2.8 includes the sink as an outside neighbor.",
+            "Lemma 2.10(ii) identifies the vertex set of the source-rooted tree with the wave."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1602.06475v2",
+          "material_read": "§2.1 at offset 28718; §2.4 Lemma 2.7 and Corollary 2.8 within offsets 42240–47791; §2.5 Lemma 2.10 within offsets 48550–54075",
+          "method": "Primary OA PDF, located and read bounded passages",
+          "title": "Inequalities for critical exponents in d-dimensional sandpiles",
+          "trigger": "Earlier wave bijection with explicit graph assumptions"
+        },
+        {
+          "assessment": "Earlier lattice wave–two-rooted-tree description",
+          "evidence": [
+            "Deleting the added bond from its spanning trees produces separate source- and sink-rooted components, with one-to-one wave correspondence."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/9801182",
+          "material_read": "PDF p. 8, offsets 55620–58117",
+          "method": "Primary OA PDF",
+          "title": "Introduction to the sandpile model",
+          "trigger": "Foundational two-rooted wave correspondence"
+        },
+        {
+          "assessment": "Exact hub-sink precedent, not rim sink",
+          "evidence": [
+            "Corollary 9 is the sink-neighbor one-topple bound; Lemma 42 counts n² full-support hub-sink events, and the section gives denominator L_{2n}−2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1605.02713v2",
+          "material_read": "Corollary 9 and Definitions 10, 13–14, pp. 5–6; §6 pp. 16–17, Lemma 42, offsets 58989 and 63467",
+          "method": "Primary OA PDF",
+          "title": "The Avalanche Polynomial of a Graph",
+          "trigger": "General one-topple bound and exact hub wheel coverage"
+        },
+        {
+          "assessment": "Same-day variant, restricted to complete bipartite graphs; no priority inference",
+          "evidence": [
+            "Deletes the sink and bijects into recurrence on K_{a−1,b} with source made sink."
+          ],
+          "identifier_or_url": "c0b51f8711c3",
+          "material_read": "Finding and re-rooted proof",
+          "method": "Configured Resultary and local mirror",
+          "title": "Full-system Abelian sandpile avalanches on complete bipartite graphs",
+          "trigger": "Closest catalogue claim for sink deletion"
+        },
+        {
+          "assessment": "Earlier exact fan count, not a rim-wheel claim",
+          "evidence": [
+            "Recurrent count F_{2k} for K_1∨P_k with hub sink."
+          ],
+          "identifier_or_url": "733ade22735c",
+          "material_read": "Local-mirror Finding",
+          "method": "Configured Resultary and local mirror",
+          "title": "Principal avalanche polynomials of fan graphs",
+          "trigger": "Exact auxiliary fan tree numerator"
+        },
+        {
+          "assessment": "Additional overlap unresolved; not the basis for failure",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1016/j.amc.2017.06.030",
+          "material_read": "No usable full text via DOI/publisher; frozen abstract-level report not treated as independent full-text evidence",
+          "method": "Bounded lawful OA attempts",
+          "title": "Spanning trees and recurrent configurations of a graph",
+          "trigger": "Cited alternative avalanche counting precedent"
+        },
+        {
+          "assessment": "Additional full-text scope unresolved; accessible Austin result suffices for the hub",
+          "evidence": [
+            "Austin describes Dartois–Rossin's exact wheel distribution."
+          ],
+          "identifier_or_url": "ccsd-00016372v1",
+          "material_read": "Austin et al. p. 3 discussion; HAL timed out and secondary public copy returned HTTP 403",
+          "method": "Bounded lawful OA attempts and named primary comparison",
+          "title": "Sandpile avalanche distribution on the wheel",
+          "trigger": "Earlier wheel avalanche distribution"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The maximal-avalanche event is natural and the wheel comparison illustrates real boundary dependence. Nevertheless the central count is a mechanical extremal specialization of existing wave/burning and forest structure, and the rim versus hub formulas insert already known fan, cycle and wheel counts. The record does not establish a further independent structural result, sharp unknown invariant, or nonmechanical remainder worth accepting on its own.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

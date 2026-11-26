@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:54:23.035935Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Assumptions and Proof; VERIFICATION.md; verification/check.py inspected, not executed",
+        "Independent exact replay: python3 /workspace/review-evidence/1_certificate.py",
+        "Tran-Dinh–Luo arXiv:2301.03113 §3.1 Eq. (RCOG)"
+      ],
+      "rationale": "The skew saddle gradient is J(x,y)=(-y,x), also the matrix used by the frozen checker; some row separators in the prose are malformed but do not change the identified update. The original RCOG formula realizes it by η_i=t, γ_i=g and p_i=1/2 in the paper's notation (its γ_i is a ratio). Expanding conditionally and using E P_i=I/2 gives the four-moment recurrence. For an independent elimination, scale the cross moment c by 1/t and use U,V,W,B for the normalized generating functions of u,v,w,c/t. Then W=1+zU, B=z(−U+gV), (1−sg²z²)V=1+(z−sgz²)U; substituting these into the u recurrence gives the stated N and D, with D the reversed characteristic polynomial. Independently verified by exact rational arithmetic: the five scaled Cayley coefficients and both scaled Hurwitz determinants have nonnegative polynomial coefficients and are strictly positive for r>0; their leading coefficients at the critical s are positive except for the constant Cayley term, which vanishes there. Hence at s=s₀ the transformed polynomial has a simple zero at w=0 and a strictly Hurwitz remaining cubic; the leading Cayley coefficient excludes λ=−1. A 7×7 Sylvester determinant of degree at most fourteen in s matches the displayed resultant at fifteen exact points, proving the polynomial identity. For s>s₀, D(0)>0>D(1), and the resultant excludes cancellation of a root in (0,1); Cauchy–Hadamard then gives a root limsup >1. At equality, the simple-pole contribution is −N(1)/D′(1)=1089/3217 and other modes decay. At t=3/4 the two exact complex Schur inequalities hold; 9/16>s₀. Normalization removes dependence on the direction of each nonzero deterministic cold start.",
+      "residual_risks": [
+        "Exact iid uniform two-coordinate dynamics, g=9/10 and the stipulated initialization only. The root limsup conclusion is not by itself an almost-sure divergence result or an asymptotic valid on every subsequence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The RCOG convergence theorem gives expected Lyapunov descent and a best-iterate O(1/K) residual bound under sufficient assumptions, not a sharp frontier.",
+          "Resultary 1b8d6aef9d3a establishes a sharp scalar iid stale-gradient frontier qz²+z<2 and stable-mean/unstable-second-moment example at (q,z)=(1/2,3/2)."
+        ],
+        "reasoning": "The former covers sufficient algorithmic convergence, not necessary conditions, critical behavior or the observed unstable region. The latter demonstrates the broader separation phenomenon else­where, not its occurrence or location for RCOG.",
+        "searches": [
+          "arXiv:2301.03113 §3.3 Theorem 1",
+          "Resultary: mean iterate converges geometrically expected squared error diverges exponentially subsequence"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2301.03113",
+        "Resultary mirrors 1b8d6aef9d3a, d5d179aa191c and 55f14a7583b6",
+        "Frozen RESULT.md Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original convergence proof is a sufficient-condition argument, and the two Resultary witnesses operate on different state evolutions. A generic covariance spectral test does not evaluate the eliminated recurrence or decide which poles are visible from this initialization."
+        ],
+        "reasoning": "Specializing a generic spectral-radius characterization still leaves the exact quartic stability range, noncancellation and residue to establish. Neither an abstract test nor a separation example under another sampling law mechanically supplies the frozen conclusions.",
+        "searches": [
+          "arXiv:2301.03113 §§3.1 and 3.3",
+          "Resultary 1b8d6aef9d3a and d5d179aa191c, mirrored findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper's exact update and x⁻¹=x⁰ use iid coordinate projections, with parameters η_i and γ_i in the ratio form; specializing as above yields the frozen dynamics.",
+          "The closest Resultary stale-gradient Finding, 1b8d6aef9d3a, switches between fresh and one-step-stale gradients for a scalar quadratic; d5d179aa191c switches the sign of a bilinear game by a Markov chain."
+        ],
+        "reasoning": "The literature algorithm is identical under coefficient identification, so only its exact stability analysis is credited; the related switched systems are not equivalent iterations.",
+        "searches": [
+          "Resultary: sharp mean-square threshold for randomized coordinate optimistic gradient on bilinear saddle",
+          "Resultary: randomized coordinate optimism bilinear game two-step stale gradient iid coordinate sampling second moment",
+          "arXiv:2301.03113 §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ranked comparisons include 1b8d6aef9d3a (different exact inequality) and d5d179aa191c (positive critical moment limit at a Markov sign-flip threshold); neither formula specializes to the two frozen constants. The displayed same-day dates do not order priority."
+        ],
+        "reasoning": "No evaluated RCOG frontier/residue was identified among these bounded comparisons. The exact analyses of other dynamics are material analogous results but do not tabulate the requested object.",
+        "searches": [
+          "Resultary: 1089/3217 800/1539 randomized coordinate optimistic gradient",
+          "Resultary: sharp mean-square threshold for randomized coordinate optimistic gradient on bilinear saddle"
+        ]
+      },
+      "rationale": "The algorithm, standard moment-lift/Schur tools, and the general phenomenon of mean versus second-moment separation are not new. The supported distinct claim is the evaluated sharp frontier, nonzero boundary residue for the algorithm's initialization, and exact separation witness in this particular iid coordinate saddle dynamics.",
+      "residual_risks": [
+        "The KGSM analogy e15c00248209 was accessible only through its catalogue summary, not its mirror; it is not used as evidence of noncoverage.",
+        "The focused primary-literature search yielded no additional usable comparison; ranked retrieval and this comparison are not exhaustive historical priority checks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent algorithm; only sufficient convergence analysis in the compared theorem",
+          "evidence": [
+            "η_i>0 and γ_i∈(0,1) weight the current and past projected gradients as η_i/p_i times their difference, with γ_i on the past term. Theorem 1 analyzes Lyapunov descent and best-iterate residual rates."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.03113",
+          "material_read": "§3.1 Eq. (RCOG), pp. 8–9, OA offset 38200–42357; §3.3 Theorem 1, passage offset 42100–48567",
+          "method": "OA PDF source passages",
+          "title": "Randomized Block-Coordinate Optimistic Gradient Algorithms for Root-Finding Problems",
+          "trigger": "Same iid update and potential general convergence coverage"
+        },
+        {
+          "assessment": "Same-day analog, distinct dynamics",
+          "evidence": [
+            "Scalar iid fresh/one-step-stale quadratic example, qz²+z<2; split at q=1/2,z=3/2."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-quadratic-energy-and-the-sharp-mean-square-frontier-for-be--1b8d6aef9d3a",
+          "material_read": "Mirrored RESULT.md Finding, offset 0–4790",
+          "method": "Local Resultary and mirror",
+          "title": "Exact quadratic energy and the sharp mean-square frontier for Bernoulli staleness",
+          "trigger": "Sharp mean-square frontier and mean/second-moment split"
+        },
+        {
+          "assessment": "Same-day critical analog with a different randomization",
+          "evidence": [
+            "Positive critical limit in a Markov-sign controlled game, with independent-sign moment growth factor 1+v."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-moment-stability-thresholds-for-markov-switching-bilinear--d5d179aa191c",
+          "material_read": "Mirrored RESULT.md Finding offset 0–4176 and proof offset 5200–9121",
+          "method": "Local Resultary and mirror",
+          "title": "Exact moment stability thresholds for Markov-switching bilinear games",
+          "trigger": "Critical nonzero second moment on a stochastic bilinear game"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and boundary proof; original RCOG sufficient analysis in arXiv:2301.03113 Theorem 1"
+      ],
+      "rationale": "A smallest two-block skew saddle is a natural test of whether deterministic mean dynamics diagnoses second-moment behavior of optimistic randomized coordination. The explicit parameter witness makes that diagnosis fail even with the prescribed cold start; evaluating the whole step frontier at that ratio and its boundary bias in the second moment supplies a sharp calibration for convergence analyses rather than a single numerical eigenvalue estimate. The motivation is the stability distinction and transition, not the intrinsic significance of the rational numbers.",
+      "residual_risks": [
+        "Not a phase diagram over optimism ratios, not permission to use the threshold for a different game or sampling distribution, and no almost-sure claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

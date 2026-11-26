@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The independent validation channel has not been performed. To check the mathematical claims, run `python3 verify.py` with SymPy available. The program constructs rational grounded matrices from unweighted complete tripartite graphs, checks all pair orbits for sizes 2--5, checks representative larger sizes 6--10, and confirms exact general rational identities plus polynomial coefficient positivity.
+# Independent mathematical audit
 
-The complete argument is in RESULT.md: Jacobi complementary minors, spectral projection and resolvent identities, exact derivatives, strict rational differences for five pair types, and four globally positive coefficient certificates. Finite examples support those infinite-parameter arguments but are not an infinite enumeration. All calculations use unnormalized graph Laplacians and the squared inverse of the **principal follower block** after two vertices are pinned. Other spectral orders and unequal edge weights are not certified.
+## correctness
+
+PASS
+
+For each leader-pair orbit the follower subspace splits into within-part zero-sum modes of original degree d_i and a constant-on-parts quotient. If f_j followers remain in part j, the quotient has diagonal d_i and off-diagonal -f_j. This gives an independent determinant calculation against the frozen resolvent proof. If P(z)=a+bz+cz²+…, its contribution to J₂ is (b/a)²-2c/a and to J₁ is b/a. Replayed all four rational gap identities, coefficientwise positivity at m=3+h, the minimum formula, the values 1/2 and 187/300, and the four J₁ gaps at m=3. At m=2 for BB the empty B part contributes no modes: a formal dummy factor z+d_B cancels before evaluation. The five orbits exhaust the two-element sets since U is a singleton. Exact independent replay: python3 /workspace/check-3.py (SymPy). The submitted verifier was inspected, not executed.
+
+## originality
+
+PASS
+
+The exact two-perfect-leader J₂ optimizer classification, strict gaps and m=3 contrast for this tripartite family were not covered by the inspected distinct results. The broad observation that J₁ and J₂ can select different leaders is not credited as new on its own.
+
+## value
+
+PASS
+
+The graph family already has a natural two-site first-inverse design rule. This all-m squared-inverse classification locates precisely where that rule changes: disjoint optimal orbits already on K_{1,3,4}, with no ties or missed competitor types. It is an exact comparison across the family, not merely an isolated numerical ranking. It claims neither a universal order rule nor equivalence to traditional first-order variance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

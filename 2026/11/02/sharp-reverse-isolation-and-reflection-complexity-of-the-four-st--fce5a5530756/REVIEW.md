@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem separates the four-letter fixed point from its binary projection, states all quantifiers, and gives a symbolic recurrence for factor complexity. Classwise injection at the boundaries of even/odd substitution windows proves the full \(P(n)=8n-8\) formula. The explicit eight-adjacent-pair lemma proves that `factors8.txt` is the complete infinite-word length-eight factor set, not a prefix approximation; a complete reversal comparison of those 56 factors proves the sharp threshold. Every larger reflected pair would contain a reflected length-eight pair. All seven exceptional reflection values follow from the exhaustive short table and the orbit identity. The attached standalone code was actually run, produced `VERIFY_OK`, and its eight-factor certificate digest was checked. Critical risk addressed: no finite experiment was used alone to establish an infinite assertion.
+PASS
 
-## Originality — PASS, qualified
+For the infinite four-symbol fixed point, the classes {a,d} and {b,c} alternate. In a factor window the first and last letters of each image are injective on the known source parity class. Complete images recover the internal letters, and classwise injectivity recovers the partial endpoints. This proves the two factor-count recurrences (even length 2m with m>=2, odd length 2m+1 with m>=1); P(1)=4 and P(2)=8 then yield P(n)=8n-8 for n>=2. All eight alternating ordered pairs occur in sigma^4(a). Every length-at-most-eight window lies in sigma^3(xy) for an occurring pair xy, and conversely each such block pair occurs. Independent enumeration gave P=(4,8,16,24,32,40,48,56), reversible counts (4,8,16,16,16,8,4,0), and palindrome counts (4,0,8,0,8,0,4,0). At length seven the four words acabaca, babdbab, cdcacdc and dbdcdbd are all palindromes. A separate implementation using translate and consecutive pairs in sigma^4(a) regenerated the exact 504 bytes of factors8.txt (SHA-256 2aa97abe490366aad190ec88b638589d77046f871f0d6b69982810e4a6ec0fb4). Any longer reversed pair would give a length-eight reversed pair. Subtracting half the number of reversible nonpalindromes from P gives all stated reflection counts. The frozen verifier was inspected, not executed; no prefix extrapolation, formal verification or expert attestation is used.
 
-The strongest close comparison is Allouche et al., arXiv:2406.09302, generalized Golay–Shapiro section: their input is the **binary coded** sequence, their no-reflection cutoff is length \(15\), and their values for short lengths differ. Coding a four-letter factor can merge distinct symbols and does not preserve reversibility, so that theorem does not imply the present four-letter classification. The earlier *Palindrome complexity* (arXiv:math/0106121, §4.1) also treats binary generalized Rudin–Shapiro palindrome bounds, not the four-letter literal-reversal orbit census. The independent general constructions in *Words avoiding reversed subwords* (arXiv:math/0311121, §2) do not supply this fixed point's sharp profile. The automatic-sequence survey confirms the chosen four-symbol precursor but not this theorem. Relevant public-source, exact-substitution, alias and implication searches plus searchable mathematical-result records found no equivalent claim. This search is not a proof of priority: unindexed equivalent work and results under a conjugate four-state coding remain risks, particularly historic work on palindrome or factor complexity.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The unprojected four-state Rudin–Shapiro word is a canonical natural morphic object in automatic-sequence theory. The exact reflection complexity and sharp finite reverse-isolation threshold are full classical word invariants, not a sample or relabeling of the known binary result. The proof explains structurally how paired parity classes and substitution blocks produce a shorter cutoff than in the binary projection and gives an explicit finite certificate usable in follow-up factor-language studies.
+The supported distinct claim is the full literal four-letter reflection profile and its sharp cutoff at eight, for the specified unprojected substitution. Checked binary and ternary results are not equivalent. This is a bounded assessment, not priority certification.
 
-## Verification and limitations
+## value
 
-The `verify.py` checker and `factors8.txt` are complete and included with the proof. The certificate is exhaustive for lengths at most eight by the eight-block lemma; it is not a finite-prefix extrapolation. Earlier statements are cited for motivation/contrast, not attributed as this finding. No independent audit has occurred, and novelty beyond accessible searched literature remains qualified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The four-state precursor is a natural presentation of a canonical automatic sequence. The exact threshold is the shortest observation length at which the forward language and its reversal are disjoint. That fact and the last admissible reversed words are lost under binary projection, and the calculation resolves the entire reflection invariant rather than an arbitrarily truncated factor list.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

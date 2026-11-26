@@ -1,11 +1,21 @@
-# Review: exact Szász–Kantorovich BV error and extremal jump retreat
+# Independent mathematical audit
 
-**Correctness — PASS.** The operator, extension convention, BV domain and interval norm are explicit. Independent integration and a Gamma–Poisson computation agree. The exact identity \(\mathbb E|T-s|=2s p_m(ns)\), the Gamma overshoot recurrence, and strict cell concavity prove the finite sharp formula. Pairwise residual sign changes prove the entire norm-equality class. Stirling and two-sided Gamma moderate-deviation bounds establish the asymptotic constant and logarithmic displacement. The numerical checker is corroborative only.
+## correctness
 
-**Originality — PASS (with historical-priority risk).** The full 2002 Walczak operator paper and 2009 Nowak–Sikorska-Nowak pointwise paper were inspected, as was the 2011 Acar–Gupta–Aral full text. Their actual claims treat different approximation questions and do not imply this exact BV-to-\(L^1\) finite-interval sharp constant, complete extremizer class or worst-jump displacement. Published comparison results about other positive approximation kernels, and Poisson smoothing on the circle, likewise have inapplicable hypotheses. The exhaustive historical literature is not searchable; unindexed equivalent formulas remain the principal originality risk.
+PASS
 
-**Value — PASS.** This is a canonical positive approximation operator, not a tailored example. The result computes a natural exact operator error, gives an efficient root-based finite evaluation algorithm, and explains the previously hidden \(\sqrt{\log n/n}\) scale at which worst discontinuities retreat from a hard observation boundary. These are substantive error-budget and boundary-rigidity facts, independent of a downstream theorem.
+For the classical Poisson kernel on (0,1) and constant trace extension, a jump at s=(m+a)/n gives a Gamma(m,n)/Gamma(m+1,n) CDF mixture of mean s (shape zero is an atom). Integrating its signed step residual gives the mean absolute deviation minus right overshoot. The Gamma first moment and Gamma–Poisson identity yield 2s p_m(ns) and the stated affine interpolation of r_m. The cell derivative is strictly decreasing through any eligible root; the negative derivative at a cell's right boundary excludes grid knots and s=1, and s=0 gives zero. This includes n=1. Equality first requires the variation measure to be supported on the finite set of globally maximizing roots; distinct signed residuals cannot align both to the left of the two jumps and between them, so only one jump is possible. The leading constant follows by Stirling and a competitor with 1−s=c√(log n/n), c>1. More explicitly, 1−√s≥(1−s)/2 gives the upper exclusion of all c≥1+ε using the uniform Stirling error after s→1. For c≤1−ε the Gamma density on the stated overshoot window is bounded below by a constant times √n exp(−d²/2−O(1+d³/√n)); multiplying by the square of the window size gives an overshoot larger than √(log n)/n. This excludes every such maximizer even in a tie. The frozen files were read, not executed. Separate direct quadrature at n=1,2,3,10 reproduced 0.439539995635, 0.334482432795, 0.288945671583, 0.187336430786 to numerical precision; replay /workspace/branches/8e238f6a-8504-45ab-b674-a751237b42ea/check_record2_independent.py. Neither a finite sweep nor the supplied checks establish the limit.
 
-The claim excludes general kernels, arbitrary continuation conventions, and global uniqueness of the winning finite cell. The 1983 Totik article is historically relevant but its full body was not inspected. No independent priority certification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact finite-interval Poisson-kernel norm, complete equality and universal retreat constant are not covered by the inspected weighted-rate or different-kernel theorems. The kernel and continuation convention are part of the claim; neither the classical operator nor Poisson/Gamma identities are new.
+
+## value
+
+PASS
+
+The exact norm and equality criterion identify the most adverse discontinuities for a standard approximation operator. The √(log n) factor in their distance relative to the diffusive scale is a genuine boundary effect missed by a rate bound; the constant applies to every maximizer, not a fitted numerical sequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

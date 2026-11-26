@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:16:27.602584Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–126",
+        "Frozen VERIFICATION.md and checker.py: inspected, not executed; sampled Fourier maxima at a fixed finite n do not certify a continuum maximum or the limit"
+      ],
+      "rationale": "Plancherel gives the exact continuum maximum of n|phi|^(n-1)|1-phi|. Positive coefficients force common phases at modulus-one contacts, which by Bezout are t=2pi j/g; their values run over exactly the q-th roots of unity. Evaluating at contacts and using exponential decay on the compact complement of their neighborhoods proves the c_q limit. When q=1 the neighborhoods are exact copies. With u=x/sqrt(n), the centered and drifting multipliers, including their specified normalizations, converge locally uniformly to (v x^2/2)exp(-v x^2/2) and |m x|exp(-v x^2/2). They have uniform polynomial-times-Gaussian majorants on the expanded neighborhoods, so maxima converge, giving e^(-1) and |m|/sqrt(e v) respectively. This proves the Ritt criterion for the contraction and also covers proper sublattices. A one-atom multiplier has constant modulus one and is either identically one or takes the value minus one, giving the two stated boundaries.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cuny proves qualitative Ritt for centered strictly aperiodic probabilities with second moment, even on l1",
+          "Diaconis–Saloff-Coste treat local expansion at multiple Fourier maxima for pointwise kernel estimates, not the sharp difference norm",
+          "Borichev–Gomilko–Tomilov preserve Ritt under convex averages of powers of an already-Ritt operator"
+        ],
+        "reasoning": "Cuny applies after dividing jumps by g since q=1 implies the support is in gZ and the rescaled differences have gcd 1. It gives boundedness, not the limiting value. The local-limit technique is classical, and Ritt permanence cannot start from the bilateral shift.",
+        "searches": [
+          "Cuny, Studia Math. 235 (2016), Thms. 1.3 and 1.6",
+          "Diaconis–Saloff-Coste arXiv:1205.6490, Thm. 3.5",
+          "Borichev–Gomilko–Tomilov arXiv:2607.10507, §8 Thm. 8.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary cb380979a07d, 2e74f611d6fd, e574be857180, 4598a5930ece",
+        "Cuny Thms. 1.3 and 1.6",
+        "arXiv:1205.6490 Thm. 3.5",
+        "arXiv:2607.10507 Thm. 8.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact boundary maxima in cb380979a07d have the same |phi|^n localization; translating support by a large multiple of g makes it nonnegative while leaving |phi| and peripheral phases unchanged",
+          "Cuny supplies no quadratic defect asymptotic and Diaconis–Saloff-Coste estimate Fourier coefficients instead of suprema"
+        ],
+        "reasoning": "At q>1 the translated symbol has the same contact values and the difference between its defect factor and the original one vanishes uniformly at the contacts; the complements are exponentially negligible. At q=1 with both drifts nonzero, the ratio of defect factors tends to the ratio of absolute drifts at each contact. Thus the first two limits are closely reducible to prior limits, not independently novel merely by allowing negative support. This reduction fails to produce the sharp centered limit: its defect factor is of strictly higher order and requires the separate quadratic-profile maximization.",
+        "searches": [
+          "Earlier cb380979a07d h=1 and Cuny Thm. 1.6 versus frozen q and m trichotomy",
+          "Diaconis–Saloff-Coste Thm. 3.5 versus frozen Eq. (1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Oct. 18 Hardy-shift lag theorem has the very same scalar boundary norm for nonnegative jump support; h=1 and n shifted by one give c_q and m/sqrt(e v), with finer prior estimates",
+          "Its nondegenerate nonnegative support forces m>0, so its hypotheses exclude the centered case"
+        ],
+        "reasoning": "The unilateral versus bilateral distinction does not separate these first-difference norms on nonnegative supports. The genuinely different local order is the quadratic cancellation of 1-phi on the centered branch.",
+        "searches": [
+          "Published Resultary: first power differences / finite polynomial Hardy shift averages / arithmetic lag / Ritt power regularity",
+          "cb380979a07d, Finding and Proof Eq. (1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "cb380979a07d and 2e74f611d6fd explicitly give exact constants on nonnegative-support subclasses",
+          "e574be857180 gives e^(-1) at zero angle and spacing ratio one for a diagonal normal spectral-spacing model; 4598a5930ece gives an e^(-1) plateau for direct sums of nonnormal two-dimensional blocks"
+        ],
+        "reasoning": "The constants occurring in other spectral models are not a table or formula for arbitrary smooth finite convolution symbols. No matching sharp centered formula was found in the checked Resultary entries.",
+        "searches": [
+          "Published Resultary exact finite-support power-difference constants, normalized Ritt defect and e^(-1)"
+        ]
+      },
+      "rationale": "The supported distinct content is the sharp universal centered limit e^(-1) for finite nondegenerate probability laws with q=1, including nonsymmetric laws, and its inclusion in a complete bilateral classification. The resonant and noncentered constants have substantial previous Resultary coverage, and the qualitative centered Ritt property follows from Cuny even on proper sublattices. Neither of those overlaps supplies the sharp centered multiplier maximum.",
+      "residual_risks": [
+        "Classical spectral asymptotic techniques are close; this comparison cannot rule out an unindexed equivalent sharp centered result. Catalogue dates are not priority findings."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong partial coverage via exact same multiplier norm and elementary extensions",
+          "evidence": [
+            "h=1 yields c_q and m/sqrt(e v); positive drift is forced by the support hypotheses"
+          ],
+          "identifier_or_url": "Resultary cb380979a07d",
+          "material_read": "Finding and Proof, offsets 0–7248",
+          "method": "Resultary index and local mirror full text",
+          "title": "Arithmetic lag trichotomy for positive-polynomial Hardy shift averages",
+          "trigger": "Exact peripheral order and leading constants"
+        },
+        {
+          "assessment": "Direct drift overlap on p_0>0 nonnegative support",
+          "evidence": [
+            "k=1 gives m/sqrt(ev n) and a smaller-order correction"
+          ],
+          "identifier_or_url": "Resultary 2e74f611d6fd",
+          "material_read": "Finding and Proof offsets 0–5362",
+          "method": "Resultary index and local mirror full text",
+          "title": "Sharp two-term power regularity laws for finite-support convex unilateral shift averages",
+          "trigger": "Drift-branch constant"
+        },
+        {
+          "assessment": "Related model, not the convolution theorem",
+          "evidence": [
+            "Diagonal normal examples depend on spectral-spacing ratios and angle"
+          ],
+          "identifier_or_url": "Resultary e574be857180",
+          "material_read": "Finding and assumptions offsets 0–5864",
+          "method": "Resultary index and local mirror full text",
+          "title": "Inverse spectral spacing law for normalized Ritt power differences",
+          "trigger": "e^(-1) for normal Ritt differences"
+        },
+        {
+          "assessment": "Different nonnormal model",
+          "evidence": [
+            "Direct sums of Jordan blocks, not finite-support convolution"
+          ],
+          "identifier_or_url": "Resultary 4598a5930ece",
+          "material_read": "Finding and assumptions offsets 0–5868",
+          "method": "Resultary index and local mirror full text",
+          "title": "A nonnormal Ritt power-difference plateau",
+          "trigger": "e^(-1) plateau"
+        },
+        {
+          "assessment": "Qualitative centered result implies Ritt on the rescaled lattice; not the sharp limit",
+          "evidence": [
+            "Centered strictly aperiodic laws with finite second moment are Ritt"
+          ],
+          "identifier_or_url": "https://www.impan.pl/shop/en/publication/transaction/download/product/91807",
+          "material_read": "Thms. 1.3 and 1.6, PDF pp. 2 and 4",
+          "method": "OA primary PDF",
+          "title": "On the Ritt property and weak type maximal inequalities for convolution powers on l1(Z)",
+          "trigger": "Ritt characterization for random walks"
+        },
+        {
+          "assessment": "Method and pointwise estimates, not sharp difference norm",
+          "evidence": [
+            "Bounds on kernel coefficients from local Fourier expansions"
+          ],
+          "identifier_or_url": "arXiv:1205.6490",
+          "material_read": "Theorem 3.5, PDF p. 19, offset 58800",
+          "method": "OA primary PDF",
+          "title": "Convolution powers of complex functions on Z",
+          "trigger": "Classical treatment of multiple peripheral points"
+        },
+        {
+          "assessment": "Does not apply to averaging powers of a non-Ritt shift as a permanence argument",
+          "evidence": [
+            "Ritt hypothesis on the original operator"
+          ],
+          "identifier_or_url": "arXiv:2607.10507",
+          "material_read": "Theorem 8.1, PDF pp. 64–65, offset 158100",
+          "method": "OA primary PDF",
+          "title": "Beurling–Kato theory, Hardy–Sobolev calculus and Ritt operators",
+          "trigger": "General Ritt characterization and permanence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, Proof and limitations",
+        "Cuny qualitative result and earlier Hardy-shift comparison"
+      ],
+      "rationale": "The distinct centered limit gives the exact nonzero asymptotic defect, rather than only boundedness, for a natural class of finite-range Markov operators with arbitrary asymmetric centered laws and lattice span. Together with the previously covered regimes it provides a usable lattice/drift classification and explains why the sharp constant in the nondegenerate centered class is independent of all the weights and of the sublattice.",
+      "residual_risks": [
+        "No l1 norm limit, finite-n optimum, or corresponding result for arbitrary signed kernels is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

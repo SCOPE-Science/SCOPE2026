@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:58:10.062288Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–5; VERIFICATION.md, requirements and verify.py (inspected, not executed)"
+      ],
+      "rationale": "The pair-force double sum vanishes by antisymmetry, so solving the scalar damped equation backward in the stationary regime gives the sum of N independent telegraph filters. The initial homogeneous term vanishes in probability by stationarity (tightness) and exponential damping, so there is no need for an extra moment assumption on the stationary regime. The one-filter zero-current identity gives p_±=(1±z)f/2. Substitution into the sign transport equations gives ((1−z²)f)′=−2αzf and normalization by B(1/2,α) gives the stated f. The two edge expansions have identical coefficient b_α/Γ(α). Split each factor with smooth cutoffs into two endpoint pieces and an interior piece. The latter gives smooth convolutions, and endpoint pieces can only be singular at their signed endpoint sums, which are 2k−N. For m same-side factors the deficit-sum density is b_α^m x^{mα−1}/Γ(mα) times 1+O(x), by scaling the positive simplex; the cutoff and smooth multiplier also give smoothness away from its zero deficit. This proves the endpoint formula directly. For mixed signs, put a=kα, b=(N−k)α: the positive displacement is lower deficit minus upper deficit, so the singular integral on the right is ∫₀^δ u^{a−1}(u+q)^{b−1}du. For a+b<1, scaling by q and applying the beta integral gives Γ(a)Γ(1−a−b)/Γ(1−b); the left side exchanges a and b. Multiplication by the summed-deficit normalizations and the binomial multiplicity yields exactly the stated amplitudes. At a+b=1 the range u<q gives O(1), while on [q,δ] the integrand equals 1/u+O(q/u²); the smooth deficit multipliers change the integral only by O(1). Thus the critical log coefficient agrees on both sides, and at the endpoint the positive-simplex coefficient tends to b_α^N at exponent zero. For α>1/N, f∈L^{N/(N−1)} so the first N−1 convolutions belong to L^N; Hölder and continuity of L^{N/(N−1)} translations prove that the last convolution is bounded and continuous, with zero boundary values by support. The coordinate change has Jacobian μN/v.",
+      "residual_risks": [
+        "The numerical record tests N=3 subcritical amplitudes and the N=2 critical coefficient; the N≥3 critical law is justified by the analytic comparison, not by those finite tests. The proof assumes independent signs and an existing stationary joint regime."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The active-Dyson paper gives the same exponent form and possible asymmetric one-sided constants, with interior logarithms and different edge behavior, for its single-particle spatial density and simplified analysis.",
+          "Lefèvre–Utev Theorem 1.1 preserves symmetric k-monotonicity for 0<k≤1; it does not supply the caustic locations or the local gamma coefficients.",
+          "The targeted independent-beta sum query produced no usable scientific passage; this is not evidence against exact-sum prior art."
+        ],
+        "reasoning": "The prior exponent, asymmetry theme, and qualitative critical mechanism are substantial overlap. The observable and exact coefficients prevent that result from subsuming this one; Young's inequality already covers regularity once the stated integrability is known.",
+        "searches": [
+          "arXiv:2302.02937v2, singularity discussion and Supplement Eq. (58)",
+          "doi:10.1051/ps/2012012, Theorem 1.1",
+          "Primary-literature search: sum of independent beta random variables, symmetric beta convolution, knots and singularities"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.02937v2",
+        "arXiv:1910.10083v1",
+        "arXiv:1402.6866 abstract",
+        "Lefèvre–Utev doi:10.1051/ps/2012012",
+        "Resultary mirror 6545f70803ac",
+        "Frozen RESULT.md Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known center equation and single beta law yield the convolution by linearity and independence; the prior calculation of log behavior for a spatial density and the two-filter law do not compute the general mixed endpoint-deficit coefficients."
+        ],
+        "reasoning": "Separating the N-factor convolution by the number k of upper endpoints and explicitly evaluating the two different beta integrals at every mixed site produces the claimed amplitudes. This is not an evaluation obtained by substituting parameters in the previously inspected spatial-density or two-filter theorems.",
+        "searches": [
+          "arXiv:2302.02937v2 Eq. (37), Supplement Eqs. (32), (58)",
+          "arXiv:1910.10083v1",
+          "Resultary 6545f70803ac, mirrored RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Touzo–Le Doussal–Schehr give the exact center equation and the same beta-shaped one-filter density. The single-particle stationary spatial law studied in their singularity analysis is not that center law.",
+          "Basu et al. treat a harmonic particle with three internal states; Kolesnik sums two independent unfiltered Goldstein–Kac processes at fixed time."
+        ],
+        "reasoning": "The center law from the known equation is equivalent to a sum of independent symmetric beta filters. Matching a density shape for the one-filter law, an unfiltered fixed-time sum, or a three-state system does not evaluate the N≥3 stationary sum near its internal knots.",
+        "searches": [
+          "arXiv:2302.02937v2 Eq. (37), Supplement §I Eq. (32)",
+          "arXiv:1910.10083v1",
+          "arXiv:1402.6866"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed theorem is for two independent telegraph filters: three divergent sites below α=1/2, interior logarithm and finite endpoints at α=1/2, and continuous vanishing edges above. Its stated scope is N=2 and its displayed date is later.",
+          "Kolesnik returns an explicit fixed-time sum law for two unfiltered processes that is not a stationary filtered sum law."
+        ],
+        "reasoning": "Credit the exact two-filter phase pattern as an overlap with the case excluded by this theorem. None of the identified exact laws states the full N≥3 amplitude result; that bounded comparison does not rule out unlocated formulas for sums of beta variables.",
+        "searches": [
+          "Resultary: 2026/11/22/SCOPE-sharp-three-peak-to-single-peak-threshold-for-independent-telegr--6545f70803ac",
+          "arXiv:1402.6866, abstract"
+        ]
+      },
+      "rationale": "The active-Dyson center equation and one-filter beta law are covered, and the stationary independent-filter representation follows by solving that known linear equation. Neither this reduction, interaction independence, generic convolution regularity nor the qualitative power/log mechanism is credited on its own. The supported distinct claim is the exact locus and two-sided amplitude classification, including critical endpoint values, for the N≥3 stationary center law.",
+      "residual_risks": [
+        "An earlier general expansion for convolutions of algebraic edge densities or exact independent-beta sum law could give stronger coverage than the inspected texts. The focused literature searches and ranked Resultary checks cannot certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Center dynamics and one-filter law covered; spatial singularity statements are relevant but concern a different observable",
+          "evidence": [
+            "The center solves the same scalar equation. Nearby spatial-density analysis discusses exponent Nγ/λ−1, distinct one-sided coefficients and an internal critical logarithm, without the specified stationary center amplitudes."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2302.02937v2",
+          "material_read": "Eq. (37), offset 60000; Supplement §I Eq. (32), offset 51800; spatial-density passages offsets 16561, 49579 and 77500–84474; Supplement Eq. (58) near 87400",
+          "method": "OA HTML source passages",
+          "title": "Interacting, running and tumbling: the active Dyson Brownian motion",
+          "trigger": "Same active-Dyson center equation and strong overlap of singularity mechanism"
+        },
+        {
+          "assessment": "Related lower-dimensional example, not the N≥3 independent filter theorem",
+          "evidence": [
+            "At its critical parameter a three-state harmonic RTP has a logarithm at the origin and finite limiting density near the boundary."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1910.10083v1",
+          "material_read": "Abstract near offset 1409; local critical expansion around offset 42494",
+          "method": "OA HTML source passages",
+          "title": "Exact stationary state of a run-and-tumble particle with three internal states in a harmonic trap",
+          "trigger": "Prior related three-site critical and edge behavior"
+        },
+        {
+          "assessment": "Exact qualitative overlap at N=2, explicitly outside the frozen claim; later displayed date",
+          "evidence": [
+            "Uses two independent copies of the beta filter, not three or more."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-three-peak-to-single-peak-threshold-for-independent-telegr--6545f70803ac",
+          "material_read": "Local-mirror RESULT.md Finding and scope",
+          "method": "Local Resultary and mirror",
+          "title": "Sharp three-peak-to-single-peak threshold for independent telegraph filters",
+          "trigger": "Closest indexed exact convolution theorem"
+        },
+        {
+          "assessment": "The stated object is a fixed-time sum of two unfiltered telegraph processes",
+          "evidence": [
+            "This is an earlier exact-sum precedent with a different filter and time regime; no assessment of unrelated results beyond the read material."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1402.6866",
+          "material_read": "Abstract, text offset 0",
+          "method": "OA source abstract",
+          "title": "The Explicit Probability Distribution of the Sum of Two Telegraph Processes",
+          "trigger": "Potential equivalent exact sum"
+        },
+        {
+          "assessment": "Preservation theorem for symmetric k-monotonicity, not a sharp caustic amplitude classification",
+          "evidence": [
+            "The theorem concerns preservation under convolution for k in (0,1]."
+          ],
+          "identifier_or_url": "https://numdam.org/item/10.1051/ps/2012012.pdf",
+          "material_read": "Theorem 1.1, p. 607, OA offset 6817",
+          "method": "OA PDF theorem passage",
+          "title": "Convolution property and exponential bounds for symmetric monotone densities",
+          "trigger": "Broader convolution regularity and shape coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§3–5; comparison with arXiv:2302.02937v2 and Resultary 6545f70803ac"
+      ],
+      "rationale": "The frozen theorem separates the stationary collective marginal from the much less tractable interacting spatial densities. It gives explicit geometry and normalized site-dependent coefficients for a natural many-particle law, not just an exponent: mixed sign groups generally differ on the two sides below threshold, share a log coefficient at threshold, and at threshold the endpoints instead stay finite. These distinctions are useful to distinguish collective singularities analytically or in numerical data, independently of repulsion strength.",
+      "residual_risks": [
+        "No general unimodality claim for N≥3 above threshold, no finite-temperature conclusion, and no claim that the single-particle marginal is interaction independent."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

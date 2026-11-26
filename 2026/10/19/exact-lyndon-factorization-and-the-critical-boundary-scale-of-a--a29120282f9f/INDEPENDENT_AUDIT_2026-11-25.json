@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:59:21.272621Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Substituting once at depth j gives W_{j+1}=W_j 0^{r q^j} W_j. The two copies start/end in 1, so the runs do not merge, and the new run is strictly longer than every earlier run. Thus in B_j each proper suffix either starts in 1 or has fewer leading zeros than B_j; W_0=1 handles j=0. The B_j are Lyndon and strictly decrease, so finite CFL uniqueness identifies the entire list, including k=0. The finite lists stabilize and give the infinite decomposition. In fact a Lyndon factor cannot cross a new record-run boundary from an earlier start: its suffix at the boundary is either a shorter all-zero prefix or has more leading zeros, and is smaller. An infinite Lyndon tail is also impossible because every suffix has a smaller later suffix starting at a longer run. Starts are |W_j|. Summing the linear recurrence gives n_j=2^j+r sum_{i=0}^{j-1}2^{j-1-i}q^i, with the empty sum at j=0, and generating function (1+(r-q)z)/((1-2z)(1-qz)). The two growth laws and q-uniform identity follow. The Duval checker is bounded corroboration by design and was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goč et al. give general infinite decomposition background and automatic recognizability for automatic sequences. This gives abstract coverage for the uniform Cantor subfamily, not explicit block lists.",
+          "The Cantor-like permutation complexity paper was identified, but neither the OA repository lookup nor DOI landing-page extraction yielded a readable primary passage."
+        ],
+        "reasoning": "General existence/recognizability does not identify the explicit list or settle its scale; in particular it does not supply the coalescing q=2 law. The inaccessible Cantor paper leaves residual risk, not a negative source finding.",
+        "searches": [
+          "Goč, Saari and Shallit, arXiv:1207.5124 pp. 3,5 and Theorem 8",
+          "Lü et al., DOI 10.1016/j.tcs.2015.12.022, lawful OA lookup"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_lyndon.py",
+        "Resultary 029654d8a352",
+        "arXiv:1207.5124",
+        "DOI 10.1016/j.tcs.2015.12.022 (bibliographic identification only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general theorem addresses automatic coding of Lyndon factorization; the indexed ternary theorem can supply Lyndon membership of candidate blocks in one specialization.",
+          "For r=q-2, the iterate length q^j already follows from uniformity; treating those lengths as factor boundaries requires the partition result."
+        ],
+        "reasoning": "Do not credit uniform iterate lengths or the algebra of solving a length recurrence as independent novelty. The maximal-zero-run argument identifies the exact canonical factors over all q,r, hence identifies which iterate lengths are boundaries; the compared results do not establish that all-parameter assertion.",
+        "searches": [
+          "arXiv:1207.5124 Theorem 8",
+          "Resultary 029654d8a352, RESULT.md statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The recurrence C_n=C_{n-1}0^{3^{n-1}}C_{n-1}, C_0=1 in the indexed Cantor-factor record is exactly q=3,r=1.",
+          "Its distinct Lyndon substrings include the B_j in this specialization; its statement is a language/count classification, not a decomposition into adjacent canonical factors."
+        ],
+        "reasoning": "The substitution and recursive word descriptions coincide on the ternary slice, where the overlap is real. Distinct substrings and factors of the unique CFL partition are different invariants, and the indexed statement does not cover other q,r.",
+        "searches": [
+          "Local Resultary lookup: sparse and Cantor morphisms, Lyndon factorization and boundaries",
+          "Resultary 029654d8a352, RESULT.md",
+          "arXiv:1207.5124 p. 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest indexed hit gives exact counts of distinct Lyndon substrings of finite ternary Cantor words, not starts of the CFL factors.",
+          "The lookup returned general Lyndon factorization work, not a matching exact boundary formula or table."
+        ],
+        "reasoning": "A count of distinct substrings does not supply a list of ordered partition boundaries. No matching exact entry was found in the scoped sources; the no-hit result alone does not prove novelty.",
+        "searches": [
+          "Local Resultary Lyndon/Cantor lookup, record 029654d8a352",
+          "First literature lookup for Lyndon factorization and boundary laws of Cantor morphisms"
+        ]
+      },
+      "rationale": "The supported distinct claim is the full two-parameter canonical block decomposition with explicit boundaries and the critical nonuniform q=2 scale. The standard factorization theorems, uniform Cantor word family, and membership of individual Lyndon factors in the overlapping ternary subfamily are not credited as new.",
+      "residual_risks": [
+        "The Cantor-like complexity full text was not read; closer overlap for the uniform subfamily is possible.",
+        "The bounded search cannot exclude other explicit morphic decompositions; no priority judgment rests on indexed dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General theory; not the specific all-parameter claims",
+          "evidence": "Infinite decomposition convention and automatic encodability of Lyndon factorization of a k-automatic sequence.",
+          "identifier_or_url": "https://arxiv.org/abs/1207.5124",
+          "material_read": "p. 3 offset 7044; Theorem 8 p. 5 offset 13067",
+          "method": "Open primary-paper passages",
+          "title": "Primitive Words and Lyndon Words in Automatic and Linearly Recurrent Sequences",
+          "trigger": "General factorization and automatic subfamily"
+        },
+        {
+          "assessment": "Substantial partial overlap, not the all-parameter canonical decomposition",
+          "evidence": "Same q=3,r=1 words; classifies distinct linear Lyndon substrings, including the displayed blocks on this slice.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-exact-lyndon-factor-language-and-growth-of-finite-cantor-words--029654d8a352",
+          "material_read": "RESULT.md, defining recurrence and language/count theorem",
+          "method": "Local mirror passage",
+          "title": "Exact Lyndon factor language and growth of finite Cantor words",
+          "trigger": "Same statistic vocabulary and exact ternary Cantor specialization"
+        },
+        {
+          "assessment": "Full-text comparison unavailable",
+          "evidence": "The cited title identifies permutation complexity as the stated topic, not proof of absence of a related Lyndon result.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2015.12.022",
+          "material_read": "Bibliographic identification only; no extractable primary passage",
+          "method": "Lawful OA repository and DOI lookup",
+          "title": "On the permutation complexity of the Cantor-like sequences",
+          "trigger": "Related uniform generalized Cantor family named by the frozen record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Gives the complete canonical decomposition, not just occurrence or lengths, for finite sparse morphic words and their infinite limit. Identifying exactly which boundaries obey the resonant j2^j law rather than the q^j law makes the count useful as a benchmark outside the uniform Cantor family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

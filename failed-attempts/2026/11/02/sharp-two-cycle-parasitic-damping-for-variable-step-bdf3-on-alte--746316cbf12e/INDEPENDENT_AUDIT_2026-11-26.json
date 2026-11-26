@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:11:33.025678Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A fresh exact derivative-moment solve on 1,t,t^2,t^3 gives the increment transfers on (r,1,r) and (1,r,1). The resulting characteristic traces and determinants agree for the two orders of the products and under r↔1/r. For w=5z, all three real monic quadratic Schur expressions have strictly positive numerators and a positive denominator for every r>0; the limiting characteristic polynomial is z(z+1/5). At fixed ratio, the product powers decay geometrically even if a Jordan block occurs; the intervening one-step transfer is fixed and finite, so the increments are absolutely summable. Neither a ratio-uniform norm bound nor stability at nonzero test-equation eigenvalues follows. The frozen verifier was inspected, not executed. Independent replay: python3 /workspace/reproduction/1.py (SymPy); passed the exact identities, reciprocity and limit checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Liao give a sufficient adjacent-ratio condition near 2.553; Söderlind–Fekete–Faragó cover smoothly deformed grids with adjacent ratios tending to unity; the full text of the older spectral-radius paper was not inspected."
+        ],
+        "reasoning": "These verified general hypotheses do not reach extreme fixed reciprocal cycles and do not give the exact sharp constant. That gap does not outweigh the matched alternating-grid theorem.",
+        "searches": [
+          "arXiv:2201.00527v1, Theorem 3.1",
+          "arXiv:1804.04553, Theorem 5.1 and BDF3 example",
+          "Guglielmi–Zennaro (2001), spectral radius approach"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8639cc7a1b91",
+        "arXiv:2201.00527v1",
+        "arXiv:1804.04553",
+        "Guglielmi–Zennaro (2001), limited access"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched result treats ordinary interpolation BDF3 on y'=0, both positive alternating widths at fixed ratio, strict modulus below 1/5 and supremum 1/5; its reduced coefficients are reciprocal and agree identically as functions of r."
+        ],
+        "reasoning": "The same characteristic polynomial gives reciprocal symmetry and sharpness. Fixed finite one-step transfers then give summability of the increments and convergence of y_n. No surviving additional claim in the frozen Finding is established.",
+        "searches": [
+          "Resultary 8639cc7a1b91, mirrored RESULT.md, Finding/Assumptions/Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 8639cc7a1b91, Finding and Proof: eigenvalues 1,z_+,z_- on the value state; the two nonconstant roots have the same trace and determinant as those in the frozen record."
+        ],
+        "reasoning": "Taking two consecutive differences maps the three-value state onto the two-dimensional increment state and intertwines the period maps. Its one-dimensional kernel consists of constants. Thus the eigenvalue 1 is removed and the other two multipliers, including their moduli and singular-ratio limits, are identical.",
+        "searches": [
+          "Resultary: ordinary alternating-grid BDF3, reciprocal ratio, sharp 1/5 Floquet damping",
+          "variable-step BDF3 alternating step sizes periodic mesh two-step transfer matrix parasitic roots spectral radius"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/2/SCOPE-sharp-1-5-floquet-damping-for-bdf3-on-alternating-grids--8639cc7a1b91; mirrored RESULT.md, Finding/Assumptions/Proof."
+        ],
+        "reasoning": "The identifier is distinct from the frozen record. This is an exact symbolic theorem match rather than a coincidentally matching table entry or a similar title.",
+        "searches": [
+          "Resultary: alternating variable-step BDF3, Floquet 1/5"
+        ]
+      },
+      "rationale": "A distinct published Resultary record states the complete strict all-ratio 1/5 Floquet bound and sharp supremum for the same recurrence, and gives the same reduced trace and determinant. Passing from values to differences quotients out the constant mode; it does not produce different multipliers or a distinct theorem. The matched record additionally resolves the real/conjugate regimes. The shared calendar date does not establish order or priority; this is a positive finding of equivalent coverage, not a priority assignment.",
+      "residual_risks": [
+        "The calendar date does not resolve who first derived the common theorem.",
+        "Older spectral-radius/Nordsieck literature was not completely accessible; that is not the reason for rejection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage and an additional mode-discriminant classification; priority not established",
+          "evidence": [
+            "Same strict all-r 1/5 bound, same unattained sharp supremum, and identical nonconstant characteristic polynomial; distinguishes real and conjugate modes near a reciprocal pair with larger member about 28.5149."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-1-5-floquet-damping-for-bdf3-on-alternating-grids--8639cc7a1b91",
+          "material_read": "Mirrored RESULT.md, Finding, Assumptions and Proof, offsets 0–3437",
+          "method": "Local Resultary mirror; statement and characteristic polynomial comparison",
+          "title": "Sharp 1/5 Floquet damping for BDF3 on alternating grids",
+          "trigger": "Exact Resultary match"
+        },
+        {
+          "assessment": "Restricted general-mesh stability, not the exact all-ratio cycle bound",
+          "evidence": [
+            "Theorem 3.1 assumes a uniform upper adjacent-ratio restriction about 2.553."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2201.00527v1",
+          "material_read": "Introduction, §3 Theorem 3.1 (text offsets about 9200 and 49700)",
+          "method": "OA text",
+          "title": "Stability of variable-step BDF2 and BDF3 methods",
+          "trigger": "Primary variable-step BDF3 stability reference"
+        },
+        {
+          "assessment": "Different mesh class",
+          "evidence": [
+            "The BDF3 example uses r_j=1+O(N^{-1}), unlike a fixed unequal alternating ratio."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1804.04553",
+          "material_read": "Theorem 5.1 and BDF3 example, pp. 14–15",
+          "method": "OA PDF text",
+          "title": "On the zero-stability of multistep methods on smooth nonuniform grids",
+          "trigger": "Primary nonuniform zero-stability reference"
+        },
+        {
+          "assessment": "Coverage unresolved for this source",
+          "evidence": [
+            "Title signals the relevant method, but not the specific mesh or bound."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s211-001-8010-0",
+          "material_read": "Citation and bibliographic title; no readable full text",
+          "method": "Lawful repository and alternate DOI/publisher retrieval attempts",
+          "title": "On the zero-stability of variable stepsize multistep methods: the spectral radius approach",
+          "trigger": "Older closely related matrix-product method"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp uniform period-two damping factor is a useful structural fact: it separates asymptotic cancellation from a possible large one-step transient and from general adjacent-ratio restrictions. As a separate submission, however, this exact invariant and its consequences supply no further mathematical payoff over the matched, more informative classification.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

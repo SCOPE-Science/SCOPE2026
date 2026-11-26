@@ -1,15 +1,21 @@
-# Scientific review: sharp second-support gap for dyadic four-sparse transforms
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof uses an independently reproduced two-/three-spike bound, the standard uncertainty equality argument written explicitly, and induction on the dyadic group order. The antipodal-pair cases reduce to two-/three-sparse quotient transforms. For injective projection, the noncoset branch invokes the inductive gap twice; the coset branch invokes integer-multiple Fourier support sizes and a fourth-root obstruction that excludes simultaneous equality. A four-term product realizes the claimed sharp next level. Finite checker comparisons support but do not establish the all-orders statement.
+## correctness
 
-## Originality
-PASS, qualified to inspected evidence. Semantic comparisons of indexed mathematical results tested aliases such as four-sparse complex cyclic uncertainty, near-equality dyadic Fourier support, next support minimum, subgroup coset rigidity, and fixed-support Fourier zeros. The closest full published note on dyadic cyclic indicators assumes coefficient one and does not address arbitrary complex coefficients. A second full note treats elementary abelian two-groups; a third covers exact three-spike minima. Bonami–Ghobber treats selected prime-square and other groups and equality cases; Krahmer–Pfander–Rashkov addresses general uncertainty and rank criteria. Their results do not imply this exact second level for every dyadic cyclic order. Full texts of the 2026 Iosevich–Li–Yu motivating preprint and two older primary comparisons were not accessible. A differently phrased older near-extremal theorem remains a priority risk; this is not a uniqueness certification.
+PASS
 
-## Value
-PASS. The next Fourier-support cardinality above the classical four-spike uncertainty minimum is a natural finite-group invariant. The result supplies a sharp universal 50% jump for unrestricted complex amplitudes, with a structural parity-lifting proof and exact witnesses for every dyadic order; it distinguishes extremal subgroup signals from all other sparse signals and is not a mere numerical table or arbitrary small instance.
+Pass for the complete corrected RESULT.md in /workspace/repairs/5. The frozen proof at line 51 falsely said that the quotient two-term transform with separation M/2 vanishes on half the frequencies whenever the two coefficients have equal magnitude. At N=8 take f(0)=f(4)=1, f(2)=f(6)=i and all other coefficients zero. Then F1=0 while the transform of F0 is 2+2i(−1)^j, nonzero at all four quotient frequencies. The replacement uses the necessary and sufficient condition u=±v: the exact expression u+v(−1)^j either vanishes on one parity or nowhere. It retains the correct main theorem and equality description. Independent replay of the final proof: after factoring out the largest common dyadic spacing, a three-term polynomial has a singleton parity, so it cannot vanish at both ±z; the two-term count follows from the kernel of the cyclic power map. Parseval and equality in the triangle and Cauchy inequalities give |B|≥N/4; at equality B−B lies in the annihilator of the span of A−A, forcing exactly four elements in that span and character phases on its coset. The even and odd Fourier indices are exactly the transforms of F0,F1 with the stated phases. One antipodal pair gives two folded supports of size 2 or 3; two pairs with both branches nonempty give two supports of size at most 2; both yield at least M total nonzeros. For two pairs and one vanishing branch, a nonopposite separation has gcd≤M/4, and the opposite separation has the corrected explicit dichotomy. With no pairs and noncoset projected support, induction applies to both size-four folds (this subcase cannot occur at M=4). For a projected order-four coset each support count is a positive multiple of M/4; a total below 3M/4 forces both to be character extrema. The ratio of their folded coefficients between consecutive coset points would have fourth power 1, whereas the ratio from the original lifts has fourth power −1. At all N the example has distinct exponents and disjoint zero sets at odd k and k≡4 mod 8, proving 3N/8 is attained.
 
-## Scientific limitations
-No classification of all second-level extremizers, no perturbative stability, and no extension to noncyclic or non-dyadic groups is asserted. The numerical checker uses floating-point decisions on finitely many inputs; the all-orders claim is analytic. Historical-priority comparisons are limited where primary full text was inaccessible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Reassessed for the repaired theorem. Credit only the exclusion of intermediate supports for arbitrary nonzero complex coefficients across all dyadic cyclic orders, not the indicator gap, order-eight case, product lower bound/equality description or three-atom bound. Those genuine overlaps are acknowledged. The phase correction leaves the scope of the gap unchanged and is not itself credited as a new theorem.
+
+## value
+
+PASS
+
+The repaired gap quantifies how far any nonextremal four-spike complex spectrum must be from the uncertainty minimum in every dyadic cycle. This is an exact structural invariant of the unrestricted complex problem: the known indicator example attains the bound, but unrestricted coefficient cancellations could have made it false. The correction preserves the sharp separation and minimum-equality geometry without claiming robustness or complete second-level classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

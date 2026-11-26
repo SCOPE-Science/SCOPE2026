@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:34:50.089931Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–93",
+        "Frozen VERIFICATION.md, both checker sources and including formal_coefficient_output.txt and verification_output.txt",
+        "/workspace/review-checks/binary_four.py"
+      ],
+      "rationale": "Reconstructed the first-difference partition: when the first changed location is i≤n−3, all changes fit in [i,i+3], and conservation of the number of ones lets that window realize the same output, regardless of the original window. For later first changes, the last-triple rearrangements include the unchanged word and are all realized by fixing the preceding bit of the final window. This counts distinct outputs. Checking the two appended bits at each complement-paired suffix gives the matrix and terminal vector and exactly two initial triples per state. Independently verified the six coefficient rational functions by solving for each z-degree of (I−sA)^−1 b recursively on the zero-weight graph, rather than using the supplied determinant certificate. Zero-deficit paths reaching a permitted terminal triple consist exactly of the alternating cycle or the four rotations of 0011, giving six distinct words even at n=4. Independently enumerated overlapping local strings to confirm all rational moments and covariances, including the zero covariance at shift three and both terminal covariances; summation gives the n=4 variance 159/64 and (119n−319)/64 thereafter. The local process is three-dependent, the omitted gaps have total variance O(n^(2/3)), the retained independent centered blocks are uniformly o(sqrt(n)), and the positive long-run variance is 119/64; Lindeberg and the negligible terminal term give the claimed normalization. Replay: python3 /workspace/review-checks/binary_four.py (SymPy for the rational identities). Frozen programs and their recorded outputs were inspected, not executed.",
+      "residual_risks": [
+        "The independent symbolic reproduction checks six coefficient functions for all lengths, not all z-degrees computationally; the complete transfer identity follows from the path decomposition. No statement is checked for cyclic-only or multiple-window models."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published preprint covers pointwise counts at general window lengths and its binary mean becomes (15n−25)/8 at k=4. Its inspected concentration passage does not give the exact variance or a CLT.",
+          "The same-day nonbinary sharp extremal theorem requires q≥k≥4 and thus does not cover q=2,k=4; a later broad per-center formula tabulates the complete binary distribution for k=3 rather than k=4."
+        ],
+        "reasoning": "A pointwise formula makes aggregate computation possible but does not evaluate the joint overlap frequencies, deficit coefficients or periodic maximizers. The q≥k assumption cannot be dropped by specialization.",
+        "searches": [
+          "Chen–Milenkovic arXiv:2610.15701v1 §II, first-difference formula and Eq. 11",
+          "Resultary 6cf2de277e3a and 6f89836efb99, statement and assumptions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.15701v1 §II",
+        "Resultary 3371874f7756, 6cf2de277e3a, 6f89836efb99, ba87e3492861 and 0c129a5d8a13"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mean is a direct substitution in Eq. 11 and the per-center formula takes a direct specialization; neither earns novelty credit. The length-three spectrum uses different states and does not yield the four-window overlapping weights or six phases by parameter substitution.",
+          "A concentration estimate does not specify the six coefficient functions, the overlap corrections to variance, or the positive long-run variance giving the CLT."
+        ],
+        "reasoning": "The useful new content is the exact evaluation for the natural four-window channel, not general transfer-matrix methodology or an assertion that prior per-center formulas cannot be used to compute it.",
+        "searches": [
+          "Chen–Milenkovic §II pp. 3–4 versus frozen transfer and covariance proofs",
+          "Resultary 3371874f7756 and 6cf2de277e3a versus the binary four-window zero-deficit graph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The permutations inside the contiguous non-wrapping window and the inclusion of the unchanged word match arXiv:2610.15701v1. A population polynomial in deficit is equivalent to one in size at fixed n by reversing exponents about 3n−6.",
+          "The later record ba87e3492861 gives the identical binary four-window maximum 3n−6 and six maximizers. It does not state the inspected transfer, deficit census or typical-case law."
+        ],
+        "reasoning": "Equivalent channel or generating-variable terminology does not by itself match the evaluated population distribution; exact later extremal overlap is credited as such. Ulam translocations and cyclic-only rotations are different output relations.",
+        "searches": [
+          "Local Resultary on binary length-four permutation-burst sphere spectra and deficit counts",
+          "arXiv:2610.15701v1 §II; Resultary ba87e3492861, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 3371874f7756 gives a full sphere spectrum, exact moments and a Gaussian limit for length-three windows. Record ba87e3492861 gives the matching length-four binary extreme but is later and does not provide the full table. The length-four ternary maximum record 0c129a5d8a13 is not binary.",
+          "The focused web results were largely off-topic; the closest returned abstract-level description concerns Ulam translocation spheres, not this output model. No negative priority inference is made from this search miss."
+        ],
+        "reasoning": "The earlier exact population law has a different window length, while later or other-alphabet extrema do not give the binary near-extreme or full frequencies.",
+        "searches": [
+          "Local Resultary Findings 3371874f7756, ba87e3492861, 0c129a5d8a13 and 6f89836efb99",
+          "Focused primary query: binary length-four substring permutation burst exact sphere-size distribution transfer matrix deficit counts"
+        ]
+      },
+      "rationale": "Pass is for the evaluated four-window population law, extremal and near-extremal populations, exact variance and Gaussian limit. The per-center first-difference identity and uniform mean are directly prior. The strongest earlier catalogue analogue computes an entire distribution for a three-window burst, not four; the same-date nonbinary extremal result does not include binary length four. A later record directly matches the binary maximum and six maximizers, not the full population law. This is a literature- and catalogue-bounded conclusion.",
+      "residual_risks": [
+        "A less-indexed calculation of the same binary four-window population law may exist. The bounded primary query returned no plausible additional covering source; this is not proof of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior per-center count and mean; no evaluated four-window population law in the inspected passages",
+          "evidence": "First altered position and terminal remainder give φ_k(x); Eq. 11 specializes at k=4 to (15n−25)/8.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.15701v1",
+          "material_read": "§II pp. 3–4; text offsets 17698–21972 and 28421 at Eq. 11; related concentration passage",
+          "method": "Bounded primary PDF passage inspection",
+          "title": "Correcting Burst Errors with Applications to DNA-Based Data Storage",
+          "trigger": "Same channel, plausible general counting coverage"
+        },
+        {
+          "assessment": "Substantial methodological overlap; general alphabet but fixed window length three",
+          "evidence": "Complete sphere-size polynomial and moments/CLT for a three-symbol burst.",
+          "identifier_or_url": "Resultary 3371874f7756",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded local-mirror inspection",
+          "title": "Two-state sphere spectrum for three-symbol permutation bursts",
+          "trigger": "Exact earlier population law with same permutation model"
+        },
+        {
+          "assessment": "Different parameter regime; does not cover binary length four",
+          "evidence": "q≥k≥4; the q=k=4 example gives 18n−48 and 24 maximizers.",
+          "identifier_or_url": "Resultary 6cf2de277e3a",
+          "material_read": "Finding, offset 0",
+          "method": "Bounded local-mirror inspection",
+          "title": "Sharp output sphere bound and rigidity for nonbinary permutation bursts",
+          "trigger": "Same-day potential stronger extremal theorem"
+        },
+        {
+          "assessment": "Later general pointwise formula, but binary population law only for length three",
+          "evidence": "Center-specific counts for arbitrary alphabet and window length; binary distribution calculation has k=3.",
+          "identifier_or_url": "Resultary 6f89836efb99",
+          "material_read": "RESULT.md offsets 0–4786 and 4786–7264",
+          "method": "Bounded local-mirror inspection",
+          "title": "Sharp sphere volumes and extremizers for one permutation burst",
+          "trigger": "Possible broad theorem covering target by specialization"
+        },
+        {
+          "assessment": "Direct later overlap on the extremal part, not prior full-population coverage",
+          "evidence": "Maximum 3n−6 and six maximizing centers in the same model.",
+          "identifier_or_url": "Resultary ba87e3492861",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Bounded local-mirror inspection",
+          "title": "Sharp binary four-window permutation-burst spheres and their six maximizers",
+          "trigger": "Exact parameters and potential duplicate"
+        },
+        {
+          "assessment": "Ternary model, not a covering result",
+          "evidence": "Length-four maxima and maximizer counts depend on residue class for the ternary alphabet.",
+          "identifier_or_url": "Resultary 0c129a5d8a13",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Bounded local-mirror inspection",
+          "title": "Exact ternary four-symbol permutation-burst maxima and maximizing centers",
+          "trigger": "Similar window length and extremal count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and exact distribution, extremal and moment proofs",
+        "Chen–Milenkovic §II for the natural channel and existing per-center/mean results"
+      ],
+      "rationale": "For a standard single-window permutation error model, a population histogram answers a different question than a pointwise size or a mean: it determines the exact count of centers at every ambiguity level for every length. The six periodic worst cases, polynomial counts immediately below them, and exact typical-case fluctuation scale are useful finite and asymptotic benchmarks. This value does not depend on a new mean, a coding-rate claim, or a wider alphabet generalization.",
+      "residual_risks": [
+        "Ball-size counts alone do not determine code optimality, nor do they describe joint outputs of multiple errors."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

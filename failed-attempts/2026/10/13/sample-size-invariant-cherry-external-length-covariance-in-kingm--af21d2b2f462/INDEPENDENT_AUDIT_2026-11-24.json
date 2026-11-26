@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:58:53.498878Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the fixed-n Kingman process with unit rate per unordered pair, the falling factorial moments follow by avoiding r tagged leaves in each merger down to level k. Conditioning on a cherry at step j uses a size bias by (B_j)_2, followed by removal of its two singleton children and uniform-pair survival of the other singletons. For j at or below k, propagating each candidate pair from k to j gives the other mixed-moment term. Summation yields the stated Cov(C_n,B_k), including k=2 and k=n; independent holding times cancel the k(k-1) factor. The remaining sum of m(m-1) from 0 to n-2 is (n-1)(n-2)(n-3)/3, giving -2/9. The cases n=2,3 have one cherry almost surely. This is external, not total tree length; changing the pair rate to beta scales the length covariance by 1/beta. The supplied Python verifier was inspected, not executed. A separate exact Markov calculation over level, singleton count and accumulated cherries checked n=2–8 and all 59 levels at n=60; replay at /workspace/branches/ffce9c23-6d79-44d8-a076-d828d732c8d4/replay_small.py and outputs replay_small.out and replay_60.out. Those finite checks corroborate rather than establish the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 87a8c8014920 explicitly includes the same full-tree covariance and goes further to partially resolved states.",
+          "The inspected published topology-only, external-length marginal and tree-time/length compendium passages do not themselves give this mixed covariance. Palacios et al. encode the variables but the inspected passages do not supply the simplification."
+        ],
+        "reasoning": "The full-tree specialization of the partially resolved-state record covers the constant covariance. A state representation permitting a separate derivation is not in itself evidence of an earlier closed formula; direct exact catalogue comparisons are decisive.",
+        "searches": [
+          "Local Resultary: Kingman cherry/external length mixed moment and joint-moment variants",
+          "arXiv:1004.5011v2",
+          "arXiv:1112.1295v3",
+          "arXiv:2103.13467v2",
+          "doi:10.1534/genetics.119.302373"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; verify_cherry_external.py",
+        "Resultary mirror records 6638c13d4c38, 87a8c8014920, d473b2903c33, 8ae18980fb5c, 95f7d53ef408 and 73972c04e378",
+        "arXiv:1004.5011v2; arXiv:1112.1295v3; arXiv:2103.13467v2",
+        "doi:10.1534/genetics.119.302373; doi:10.1016/j.mbs.2007.01.005"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The repeated level law alone implies the length covariance by the independent mean holding times, and the repeated statements also give the aggregate explicitly. For n=2,3 the deterministic indicator sum is a boundary check, not a separate new claim."
+        ],
+        "reasoning": "There is no surviving difference in the stated nontrivial consequences. The compendium omits cherries, which is not evidence against the directly inspected exact matches.",
+        "searches": [
+          "Direct comparison of Findings 6638c13d4c38, d473b2903c33, 8ae18980fb5c and 87a8c8014920",
+          "Alimpiev–Rosenberg, arXiv:2103.13467v2, abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 6638c13d4c38, d473b2903c33 and 8ae18980fb5c give the exact mixed moment after identifying the singleton count at k with B_k and choosing unit pair rate.",
+          "Same-day Resultary 95f7d53ef408 uses an unconditioned fixed-time Yule tree with random size; 73972c04e378 uses doubletons. Neither is the same claim."
+        ],
+        "reasoning": "A decrease by two in the still-singleton count is a cherry; alternative names for the singleton count or an alternative proof do not change either quantity. Conversely, switching between random-size Yule and fixed-n Kingman, or from singles to doubletons, changes the statistic or conditioning.",
+        "searches": [
+          "Local Resultary semantic searches: cherry/external-length covariance; exact singleton-level profile; Yule/Kingman cherry–external length joint moment",
+          "Palacios et al., doi:10.1534/genetics.119.302373, Appendix A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Findings 6638c13d4c38 (2026/10/18), d473b2903c33 (2026/11/2), and 8ae18980fb5c (2026/11/8) each state both exact identities. Finding 87a8c8014920 (2026/10/26) also states the full-tree covariance."
+        ],
+        "reasoning": "The match is parametric in n and k, not merely a shared table entry. None of these identifiers is the assigned original. The catalogue dates are not used to assign priority.",
+        "searches": [
+          "Local Resultary searches: -2/9 cherry external length Kingman; exact level-specific cherry singleton covariance"
+        ]
+      },
+      "rationale": "Multiple distinct indexed statements give exactly the two principal findings, on the same fixed-size Kingman model and normalization. The covered claim includes both the level-resolved formula and the -2/9 length covariance, not just one special case or one numerical match. This is a determination of covered mathematical content, not a claim about priority or provenance; the matching entries bear later catalogue dates, which alone do not settle either. The named primary-paper access limitation is not the reason for the verdict.",
+      "residual_risks": [
+        "Dates do not establish first discovery or source lineage.",
+        "The inaccessible François–Mioland full text or an older ranked-tree generating function might contain additional relevant results; this does not affect the exact catalogue coverage shown."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct exact coverage",
+          "evidence": [
+            "Same level-resolved formula and -2/9, with alternative future-cherry derivation in 8ae18980fb5c."
+          ],
+          "identifier_or_url": "Resultary:6638c13d4c38; Resultary:d473b2903c33; Resultary:8ae18980fb5c",
+          "material_read": "Mirrored RESULT.md Findings",
+          "method": "Bounded local mirror reading and formula comparison",
+          "title": "Resultary Kingman cherry/external length mixed moments",
+          "trigger": "Exact covariance and profile hits"
+        },
+        {
+          "assessment": "Covers aggregate covariance",
+          "evidence": [
+            "Full-tree -2/9 appears together with a partially resolved-state result."
+          ],
+          "identifier_or_url": "Resultary:87a8c8014920",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Local mirror reading",
+          "title": "Resultary partially resolved Kingman future cherry and external-length covariance",
+          "trigger": "Same mixed moment with more general initial state"
+        },
+        {
+          "assessment": "Marginal results in inspected sections",
+          "evidence": [
+            "Segmentwise external-length means and variances, not a cherry cross moment."
+          ],
+          "identifier_or_url": "arXiv:1004.5011v2",
+          "material_read": "Abstract and Section 1, especially Proposition 3, pp. 1–2",
+          "method": "Bounded OA PDF passage reading",
+          "title": "The external lengths in Kingman’s coalescent",
+          "trigger": "Same length functional and chain"
+        },
+        {
+          "assessment": "Different mixed statistic",
+          "evidence": [
+            "Topology is explicitly separated from branch length; the joint distribution is with pitchforks."
+          ],
+          "identifier_or_url": "arXiv:1112.1295v3",
+          "material_read": "Introduction and Section 2, pp. 1–2",
+          "method": "Bounded OA PDF passage reading",
+          "title": "Exact enumeration of cherries and pitchforks in ranked trees under the coalescent model",
+          "trigger": "Same cherry count and topology law"
+        },
+        {
+          "assessment": "Representation, not the closed formula in passages read",
+          "evidence": [
+            "Separate time density and ranked shape; cherries are singleton decreases by two."
+          ],
+          "identifier_or_url": "doi:10.1534/genetics.119.302373",
+          "material_read": "Tajima’s genealogies and Appendix A; OA offsets 20380–23616 and 62814–67077",
+          "method": "Bounded OA full-text passage reading",
+          "title": "Bayesian Estimation of Population Size Changes by Sampling Tajima’s Trees",
+          "trigger": "Potential equivalent ranked-tree encoding"
+        },
+        {
+          "assessment": "Claimed pair list does not include cherry count",
+          "evidence": [
+            "Lists the 15 pairs among its six length/time statistics."
+          ],
+          "identifier_or_url": "arXiv:2103.13467v2",
+          "material_read": "Abstract, p. 1",
+          "method": "OA PDF passage reading",
+          "title": "A compendium of covariances and correlation coefficients of coalescent tree properties",
+          "trigger": "Closest exact-covariance compendium"
+        },
+        {
+          "assessment": "Full-text comparison unavailable; no negative inference",
+          "evidence": [
+            "Could not independently check the supplied discussion of its separate marginal results."
+          ],
+          "identifier_or_url": "doi:10.1016/j.mbs.2007.01.005",
+          "material_read": "Landing page and abstract only",
+          "method": "Bounded lawful OA attempt",
+          "title": "Gaussian approximations for phylogenetic branch length statistics under stochastic models of biodiversity",
+          "trigger": "Possible joint-moment antecedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A sample-size-invariant mixed topology/length moment and its level decomposition would be useful exact benchmarks, but the entire proposed invariant, including the reusable level profile, is already available in other checked findings. The frozen proof and deterministic boundaries do not isolate an additional distinct mathematical contribution worth repairing toward.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

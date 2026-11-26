@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:49:07.793532Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A partial idempotent fixes its image and has that image in the domain. Rank >=2 cyclically nondecreasing maps have cyclic interval fibers, so the k fixed image points appear in cyclic order and a gap of g_i nonfixed points gives exactly g_i+1 ways to cut between adjacent fibers. Rooting at a labeled fixed point counts each map k times and gives (m/k)[z^{m-k}](1-z)^(-2k). Rank 1 is m, not m^2; the empty map contributes one. The logarithmic coefficient extraction and binomial transform give the stated H_n(s,u), with the n=1 correction interpreted as zero. For each domain subset of size m the weight A_m(1) differs from lambda^m by at most n^2+3 (zero error at m=0); summing over subsets and controlling the normalizers gives the claimed total variation rate on the whole cube. The two smaller exponential bases at the origin stay strictly smaller in a fixed complex neighborhood; polynomial factors can be absorbed in a larger exponential rate still below one. A local analytic log and Cauchy bounds justify the differentiated error. For g(v)=log lambda(e^v), g'(0)=1/sqrt(5) and g''(0)=2/(5 sqrt(5)). Applying the chain rule to log(1+exp(t+g(v))) gives variance p(1-p)=1/5, off-diagonal a/5=sqrt(5)/25, and rank variance pb+a^2/5=(2+sqrt(5))/25. Taylor expansion at the sqrt(n) scaling gives the joint normal limit; subtracting a times the domain fluctuation gives residual variance pb=(1+sqrt(5))/25 and zero Gaussian cross-covariance. The frozen test code was inspected only: it compares complete joint counts through n=6, and through n=50 the two binomial transforms after summing over domain size. These are finite checks, not proofs of the probability limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Umar, Proposition 5 and Corollary 6, count all partial orientation-preserving maps by domain/image parameters. The partition-preserving idempotent record gives a trivariate exact spectrum for a different map constraint. The two rook-monoid records study products of partial injections, one conditioned on zero product, not a uniform cyclic idempotent."
+        ],
+        "reasoning": "Containing idempotents as susceptible inputs is not coverage of an idempotent-conditioned law. None of the compared probability statements specializes to the full-domain law or domain/rank CLT here. Same-day dates are not used as a priority criterion.",
+        "searches": [
+          "Umar JIS 14 (2011), Article 11.7.5",
+          "arXiv:2401.02185",
+          "Resultary 70fcbccf178c; a6990e67ed72; c5a891e46186"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspection only)",
+        "arXiv:2207.12823",
+        "Umar JIS 11.7.5",
+        "arXiv:2604.26661",
+        "arXiv:2401.02185 abstract",
+        "Resultary 70fcbccf178c, a6990e67ed72, c5a891e46186"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior exact rank counts can be summed over domains, and the per-domain weight depends only on its size. In the frozen derivation the rank-marked sum is converted to two characteristic-root powers plus a rank-one correction, yielding a dominant uniform bivariate generating term. Its Hessian determines covariance and the decorrelating residual."
+        ],
+        "reasoning": "The rank array is prior data, but reading off finite counts or specializing a previous probabilistic statement does not yield the frozen quantitative theorem. It takes a marked generating-function reduction, a full-subset normalization bound, and a uniform local asymptotic expansion; the standard Gaussian limit method itself is not credited as new.",
+        "searches": [
+          "arXiv:2207.12823 Lemmas 3.2 and 3.4 and proofs",
+          "Frozen RESULT.md §§2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li–Fernandes §3, Lemmas 3.2 and 3.4 count the same idempotents; their cyclic definition matches the frozen one. An–Zhang–He §4 gives fixed-point distributions among all full orientation-preserving transformations."
+        ],
+        "reasoning": "Image rank equals the fixed-point count on idempotents, but uniform sampling among all full maps cannot be carried over to uniform partial idempotents. For the frozen exchangeable domain, equal conditional laws given size make full-cube TV equal to TV of the size laws; no earlier such quantitative binomial approximation for the same ensemble was verified.",
+        "searches": [
+          "Resultary: uniform cyclic or orientation-preserving partial idempotents, Bernoulli domain subset, Gaussian image rank",
+          "arXiv:2207.12823",
+          "arXiv:2604.26661"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The summands in Li–Fernandes Lemma 3.4 encode the complete finite joint table via selection of a domain and an idempotent on it. The frozen record credits Fernandes–Gomes–Jesus with earlier exact totals via a Lucas-number formula and binomial transform; the primary 2011 text was not retrieved. The catalogue trivariate table concerns partition-preserving partial idempotents."
+        ],
+        "reasoning": "The finite array and total cardinalities are not the claimed contribution. Even granting the stated Lucas totals, totals alone do not determine the rank-marked Hessian or the Gaussian rank residual.",
+        "searches": [
+          "Li–Fernandes arXiv:2207.12823 §3",
+          "Fernandes–Gomes–Jesus, Bull. Malays. Math. Sci. Soc. 34 (2011) 79–85 §2; EMIS and institutional open copies",
+          "Resultary 70fcbccf178c"
+        ]
+      },
+      "rationale": "Credit is limited to the quantitative full-domain product-law approximation and the explicit joint and independent-residual probability laws. The finite idempotent enumerations, including the joint array recoverable from the domain-size summands, are not new. The strongest inspected finite enumeration does not supply the limiting probability statements or their estimates. The two plausible nearby probability models use a different ensemble, and the closest catalogue spectrum concerns partition-preserving maps. This is a best-of-knowledge decision on the stated probability results, not a priority certification.",
+      "residual_risks": [
+        "The exact passage of the 2011 Fernandes–Gomes–Jesus paper was inaccessible in the inspected routes. Earlier equivalent asymptotics under different analytic-combinatorial or semigroup terminology were not ruled out. The pass does not extend to originality of the exact enumerations or any local limit theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior finite enumeration, not a stated probability limit",
+          "evidence": [
+            "One empty idempotent, n times 2^(n-1) rank-one partial idempotents, and a domain-size decomposition into full idempotents."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2207.12823",
+          "material_read": "Cyclic sequence definition and §3 Lemmas 3.2 and 3.4 with the domain-size sum, PDF pp. 13–14, text offsets 52842 and 55226",
+          "method": "Primary open-access PDF",
+          "title": "Endomorphisms of semigroups of oriented transformations",
+          "trigger": "Same full and partial cyclic idempotents and exact rank counts"
+        },
+        {
+          "assessment": "Credited as finite-count precursor as described by the frozen text, without a verified negative comparison of the 2011 paper",
+          "evidence": [
+            "Primary routes refused access or timed out; the primary scope beyond the frozen attribution remains unchecked."
+          ],
+          "identifier_or_url": "https://emis.muni.cz/journals/BMMSS/pdf/v34n1/v34n1p7.pdf",
+          "material_read": "No primary passage retrieved; frozen RESULT.md lines 87–100 describes §2",
+          "method": "EMIS and identified institutional OA copy at https://run.unl.pt/bitstream/10362/5528/1/Fernandes_2011.pdf attempted",
+          "title": "The cardinal and the idempotent number of various monoids of transformations on a finite chain",
+          "trigger": "Plausible exact-count precursor with Lucas numbers"
+        },
+        {
+          "assessment": "Different law: no idempotence conditioning",
+          "evidence": [
+            "Domain and image counts are for all POP_n maps."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL14/Umar/umar2.pdf",
+          "material_read": "Definition and Proposition 5/Corollary 6, PDF pp. 2–3, offsets 4500 and 7222",
+          "method": "Primary open-access PDF",
+          "title": "Combinatorial results for semigroups of orientation-preserving partial transformations",
+          "trigger": "Same domain and image statistics in the ambient monoid"
+        },
+        {
+          "assessment": "Different law: uniform full transformations",
+          "evidence": [
+            "Fixed-point distribution with mean 1 for all full OP_n transformations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.26661",
+          "material_read": "Introduction and §4, PDF pp. 3, 7, offsets 6474 and 18230",
+          "method": "Primary open-access PDF",
+          "title": "Fixed points of orientation-preserving full transformation",
+          "trigger": "A rank-equivalent statistic on idempotents but on another sample space"
+        },
+        {
+          "assessment": "Partition constraint and exact spectrum, not the frozen law",
+          "evidence": [
+            "Refines a labeled uniform-partition idempotent count by rank, domain size and image-bearing blocks."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-joint-rank-domain-and-image-block-spectrum-of-uniform-partition--70fcbccf178c",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Joint rank, domain, and image-block spectrum of uniform-partition partial idempotents",
+          "trigger": "Closest catalogue scope in joint exact idempotent statistics"
+        },
+        {
+          "assessment": "Neither is the same sampling model or limit law",
+          "evidence": [
+            "A pair of uniform partial injections conditioned on zero product in the first; products of uniform partial injections and n^(1/4)-scale deficiencies in the second."
+          ],
+          "identifier_or_url": "Resultary a6990e67ed72 and c5a891e46186",
+          "material_read": "Both RESULT.md Findings at offset 0",
+          "method": "Local mirror",
+          "title": "Poisson vacancies and independent Gaussian rank imbalance in zero products of rook monoids; Gaussian deficiencies and Poisson overlap corrections in random rook-monoid products",
+          "trigger": "Nearby catalogue independence and rank laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This natural uniform-idempotent model has two different sources of randomness, the domain and the rank inside it. The exponential TV rate controls every domain event, not only typical sizes or finite-dimensional marginals. The covariance calculation then separates random-domain fluctuations from intrinsic rank noise with an explicit limiting variance; neither a total enumeration nor marginal convergence provides that decomposition. This gives concrete quantitative information about a standard semigroup ensemble rather than a new name or unspecialized application of a limit theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

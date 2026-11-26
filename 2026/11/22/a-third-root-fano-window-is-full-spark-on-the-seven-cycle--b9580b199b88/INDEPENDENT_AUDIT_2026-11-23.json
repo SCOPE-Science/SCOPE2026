@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:40:32.601081Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Weyl operators shift the selected column labels by a common time-frequency offset, up to nonzero column phases and an invertible row map. Every maximal minor therefore has a representative containing column 0. Eliminating that column along row 0 reduces nonsingularity to the stated six-row determinant; the window coordinates are units. The ring is Z[ζ21], since ξ=ζ21^3, ω=ζ21^7, and ξ^5ω=ζ21. In characteristic not 3 or 7, roots with exact orders seven and three similarly give a primitive 21st root and hence a valid reduction; nonzero reduction implies nonzero original determinant. I inspected both frozen positive checkers and independently replayed all 12,271,512 reduced minors using cross-multiplication to eliminate column 0 and exact transposed batched elimination over p=2300000473. Trial division verifies primality; ξ maps to 325378545 and ω to 243671788 with exact orders. Every minor was nonsingular, with maximum-column-label checksum 515403504. Products and their signed differences fit int64 because p²<2^63. For exclusion I independently checked every CSV mask, every seven-column witness and all seven signed determinant coefficients over the integers. Each coefficient list is constant, so it vanishes at ξ. All 64 normalized masks are present, including the constant window, and global sign preserves spark. Replay: python3 /workspace/branches/verify5_private.py ternary and python3 /workspace/branches/verify5_private.py binary. These are exhaustive finite statements, not rank estimates. The conclusion concerns least root order q=3, not three distinct phases or conditioning.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Malikiosis Theorem 1.2 gives generic existence for all N; Corollary 5.3 constructs a quadratic-phase vector with a primitive (N−1)^4-th root at N≥4, giving order 1296 at N=7. The separate 2016 Theorem 4.2 treats eigenvectors of Clifford unitaries under specific trace and orbit hypotheses.",
+          "Li Theorem 1.1 gives explicit algebraic full-spark and phase-retrievable windows; Theorem 2.1 proves nonvanishing by taking ε=r^{−1/q} of degree q>N over a field containing the window seeds and then forming b+εh. Remark 2.2 gives a positive-real algebraic regularizer."
+        ],
+        "reasoning": "Generic full measure does not guarantee intersection with a prescribed finite phase alphabet; the algebraic perturbation uses coordinates unconstrained by μ3. The Clifford classification does not rule in or out the frozen window or characterize all binary signs.",
+        "searches": [
+          "Malikiosis arXiv:1304.7709v1 explicit root-of-unity vectors and general full spark",
+          "Malikiosis arXiv:1602.09012v1 on spark-deficient cyclic windows",
+          "Li arXiv:2609.09614v2 on explicit algebraic full-spark windows"
+        ]
+      },
+      "checked_sources": [
+        "Resultary mirror: distinct binary finding 44d086950a86 and identical positive finding b9580b199b88",
+        "Malikiosis arXiv:1304.7709v1 and arXiv:1602.09012v1",
+        "Li arXiv:2609.09614v2",
+        "Lawrence–Pfander–Walnut bibliographic record and second-source theorem attribution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The order-1296 window has a coordinate ratio of exact order 1296. Neither global rescaling nor relabelling changes the set of coordinate ratios; substituting a root of order three is not authorized by that theorem. Li obtains nonzero determinants via a higher-degree perturbation with an existing full-spark seed, not by specializing its perturbation parameter to a prescribed third root.",
+          "Combining the same-day binary theorem with the new positive certificate gives least q=3. Combining the binary theorem only with the inspected generic or higher-order existence results does not yield that equality."
+        ],
+        "reasoning": "The earlier constructions and the precise negative theorem cannot by themselves produce the positive half. The exhaustive positive modular certificate resolves that independent half; it is not just a recertification of the lower bound.",
+        "searches": [
+          "Malikiosis Corollary 5.3 parameter specialization to N=7; Li Theorems 1.1 and 2.1 and Remark 2.2; compare exact negative Resultary statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact indexed match b9580b199b88 is the same frozen record. Distinct SCOPE-no-binary-full-spark-gabor-window-on-the-seven-cycle--44d086950a86 matches the identical 7×49 synthesis matrix and proves all 64 globally normalized binary sign words have a singular seven-column submatrix.",
+          "The size-three support {1,2,4} is the set of nonzero quadratic residues modulo seven. Translating the support, multiplying indices by a unit (permuting modulations), choosing a primitive seventh root instead of ξ, or simultaneous complex conjugation with a frequency relabelling preserve the zero/nonzero maximal-minor property. Changing the number of distinct phases is not equivalent to changing the cyclic root order."
+        ],
+        "reasoning": "These aliases identify genuinely equivalent positive instances; none of the inspected distinct matches gave such a positive third-root instance. Exact negative coverage is present and explicitly credited.",
+        "searches": [
+          "Resultary: exact N=7 third-root Fano full-spark Gabor window, ternary phase windows and two-level difference-set windows",
+          "Resultary: least root alphabet order and seven-cycle binary obstruction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirror's binary record 44d086950a86 has a complete nine-class table under translation, reversal and normalization with a singular determinant witness per class. This is exact lower-bound evidence, not a table of positive windows. The exact positive record b9580b199b88 is the assigned record itself.",
+          "The submitted 64-mask CSV was verified directly as a binary witness table, not treated as outside priority evidence."
+        ],
+        "reasoning": "At this fixed small dimension a catalogue could directly cover the claim. The inspected distinct exact table covers q≤2 but does not exhibit any μ3 window. No verified distinct positive table entry was located.",
+        "searches": [
+          "Resultary: explicit minimal-alphabet Gabor constructions; N=7 ternary full-spark window and exact binary determinant witnesses",
+          "Matched local Resultary binary classification table and exact frozen match"
+        ]
+      },
+      "rationale": "Pass is for the explicit positive third-root Fano window and the resultant exact alphabet threshold, not for the separately covered binary obstruction. The distinct same-day binary finding has exactly the same negative statement. The closest primary explicit constructions deliver full spark with higher-order roots or unconstrained algebraic entries; they do not give an order-three witness at N=7 or resolve its exact alphabet threshold. The finite literature search does not settle historical priority for every equivalent window.",
+      "residual_risks": [
+        "Earlier equivalent third-root examples or finite classifications outside the checked sources remain possible. The original prime-dimensional paper was not available through the identified routes. No priority ordering is assigned to records sharing the same day."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact negative coverage including constants; no positive ternary construction in the matched statement. Same-day date does not establish relative priority.",
+          "evidence": [
+            "Every binary window has a singular seven-column minor. The nine class sizes sum to the 64 normalized sign windows."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-no-binary-full-spark-gabor-window-on-the-seven-cycle--44d086950a86/RESULT.md",
+          "material_read": "Finding, scope, symmetry-class table and determinant expansion, mirror offsets 0–3471",
+          "method": "Local Resultary discovery and local published mirror",
+          "title": "No binary full-spark Gabor window on the seven-cycle",
+          "trigger": "Exact overlap in the alphabet lower bound"
+        },
+        {
+          "assessment": "Genuine explicit predecessor using another phase alphabet; no order-three specialization in the stated theorem.",
+          "evidence": [
+            "The explicit coordinates are ζ^{j²} for j=0,…,N−1 with ζ of order (N−1)^4. Generic existence in prime dimension is attributed to Lawrence–Pfander–Walnut."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1304.7709v1",
+          "material_read": "Theorem 1.2 p. 2 at PDF offset 5000 and Corollary 5.3 p. 10 at offset 37172",
+          "method": "Open primary PDF, bounded passages",
+          "title": "A Note on Gabor Frames in Finite Dimensions",
+          "trigger": "Classical generic and root-of-unity explicit construction"
+        },
+        {
+          "assessment": "A Clifford-eigenvector sufficient obstruction under specified conditions, not a minimal alphabet determination.",
+          "evidence": [
+            "The theorem concerns eigenvectors under stated order, trace and orbit assumptions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1602.09012v1",
+          "material_read": "Theorem 4.2, p. 8 at PDF offset 31777",
+          "method": "Open primary PDF, bounded passage",
+          "title": "Spark Deficient Gabor Frames",
+          "trigger": "Possible stronger cyclic obstruction"
+        },
+        {
+          "assessment": "Explicit algebraic windows and perturbations, not a constrained μ3 construction. The v2 PDF is readable; the frozen abstract-only limitation does not describe this audit.",
+          "evidence": [
+            "Degree q>N for the perturbation guarantees every determinant polynomial has a nonzero evaluation; the explicit regularizer uses real roots of positive rational primes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.09614v2",
+          "material_read": "Theorem 1.1 (offsets 6800–9288) and Theorem 2.1, Remarks 2.2–2.3 (offsets 11250–15700)",
+          "method": "Open primary v2 PDF, bounded full-text passages",
+          "title": "Explicit Full-Spark Gabor Windows with Quantitative Phase Retrieval",
+          "trigger": "Recent explicit algebraic constructions, citation in frozen record under variant title"
+        },
+        {
+          "assessment": "No whole-document inference from unavailable routes; the generic prime result is not claimed here as new.",
+          "evidence": [
+            "Malikiosis credits this paper with the prime-dimensional part of the generic theorem."
+          ],
+          "identifier_or_url": "Lawrence–Pfander–Walnut, J. Fourier Anal. Appl. 11 (2005), 715–726",
+          "material_read": "Bibliographic identification and attribution in Malikiosis Theorem 1.2; original full text not read",
+          "method": "Attempted identified journal/DOI routes; bounded secondary comparison via Malikiosis",
+          "title": "Linear Independence of Gabor Systems in Finite Dimensional Vector Spaces",
+          "trigger": "Credited prime-dimensional theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Full spark means maximal erasure tolerance for the entire redundant cyclic frame. The Fano difference set is a canonical small design and the least admissible phase order is a concrete implementation constraint, not a freely chosen numerical sample. A single exact positive witness settles the upper bound against the proven binary obstruction and supplies a reusable benchmark for phase-constrained construction. No general dimension cutoff or quantitative conditioning is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

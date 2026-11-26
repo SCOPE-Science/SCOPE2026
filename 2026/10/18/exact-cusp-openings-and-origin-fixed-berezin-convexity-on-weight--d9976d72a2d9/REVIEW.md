@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The reproducing-kernel formula is exact. Schwarz–Pick supplies a global gap away from the origin, so the local Berezin value \(1\) has no remote preimages. The rotated radial coordinate is uniformly monotone, and the first nonlinear Taylor term is an angular Fourier mode whose full positive/negative range yields the sharp section half-width. A tangent-cone contradiction proves nonconvexity. The linear-symbol conclusion also matches the published classification. Explicit monomial symbols give bounded examples for each cusp order, using the correct orthogonal monomial coefficient norms.
+## correctness
 
-## Originality — PASS (same-source-access standard; residual risk acknowledged)
-The primary February 2026 weighted Dirichlet paper limits its convexity classification to linear symbols and a Blaschke-automorphism family, and explicitly asks Question 5.3 for general symbols. The 2023 Hardy/Bergman and 2024 Fock/Dirichlet papers, the 2025 weighted Bergman paper and the October 2026 Hardy paper have different symbol and kernel coverage. In particular, Hardy-space qualitative cusps are prior art and not counted as novel. The present result establishes the arbitrary nonlinear origin-fixed case for strictly fractional kernel exponents \(0<s<1\), including a quantitative half-width law and jet recovery. No equivalent fractional-kernel theorem was identified in the inspected primary material or the mathematical record searches; unexamined equivalent formulations remain possible.
+PASS
 
-## Mathematical value — PASS
-This settles the natural origin-fixed, unweighted subproblem of a published general convexity question on a whole continuum of fractional weighted Dirichlet spaces. The coefficient and exponent of a precise cusp-opening invariant distinguish first nonlinear Taylor jets, and the attainable half-integer spectrum has natural inverse-geometric meaning. The result is not a case-by-case numerical calculation and does not assert progress on arbitrary weighted symbols.
+Re-audited repairs/5/RESULT.md and its verification notes. Kernel normalization gives the principal power; Schwarz–Pick for φ(w)/w gives a uniform modulus gap from one off any small disk, including near |w|=1. For t=|w|² the first angular perturbation is −s e^(−iϑ)b t^ν e^(imθ) in rotated coordinates. Analyticity in √t gives a uniform radial derivative, with real leading constant s|1−a|>0. At fixed depth x each angle gives a unique local t=t_a(x)+O(x^ν); its change in the imaginary linear-symbol curve is O(x^(ν+1)) because that curve has real tangent in these coordinates. The circle is connected and the harmonic attains both extrema, so the exact local section is an interval and the coefficient is s|b|(s|1−a|)^(−ν). For d=1−a, the t² coefficient of the rotated linear-model curve is s|d|[a−(s−1)d/2]; composing its imaginary part with t_a(x)=x/(s|d|)+O(x²) gives h(x)=(s+1) Im(a) x²/(2s|d|)+O(x³). This also verifies the dominance of the centerline when m≥3 and a is nonreal. The half-width determines the exponent and, for known a,s, |b|. Boundedness is assumed, not inferred from being a disk self-map. The original proof also supports its convexity conclusion, but that conclusion is omitted from the repaired finding on originality grounds. The frozen checker was read, not run; its recorded finite samples are not the proof.
 
-## Scope and evidence limits
-The assumed boundedness of the composition operator is explicit. The theorem excludes \(\phi(0)\neq0\), general weights and \(s\notin(0,1)\). Finite evaluations of polynomial families supplement the analytic argument, but are not the infinite-dimensional proof. Publication priority has not been externally adjudicated.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+This assessment applies to the repaired exact section theorem at nonreal multipliers, not to the frozen aggregate convexity claim. The published linear classification and an exact all-origin-fixed Hardy classification account for the first original headline under a direct adaptation; the real-multiplier Hardy section law also accounts for the first-order width in that overlap under a smooth power change. Neither supplies the calculated curved-centerline two-sided section law at a nonreal multiplier. No covering statement for that law was found in the bounded full-text and indexed comparisons below.
+
+## value
+
+PASS
+
+The meaningful remainder is an exact local geometric invariant for a natural operator range when the linear-model curve is genuinely curved. For high first nonlinear order its curvature would otherwise mask the opening, so the canonical background and the two-sided interval are useful, not a change of normalization for the real-multiplier law. The exponent and coefficient recover the first nonlinear jet degree and modulus from the range germ at known a,s. No separate value is claimed for the omitted qualitative convexity classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

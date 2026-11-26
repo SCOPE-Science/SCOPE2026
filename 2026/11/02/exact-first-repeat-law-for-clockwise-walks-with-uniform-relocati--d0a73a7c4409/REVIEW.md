@@ -1,19 +1,21 @@
-# Scientific review: clockwise scans with uniform relocation
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The fixed-relocation-pattern count is reconstructed from a bijection between disjoint labeled circular arcs and clockwise label permutations with nonnegative gap compositions. It gives exactly \(k!\binom{n-t-1+k}{k}\) valid uniform relocation tuples. Averaging over the binomial relocation count proves the exact finite formula. The strict stochastic ordering and both asymptotic limits are supported by explicit ratio and Taylor estimates. Independent exact-fraction finite-state enumerations and direct path checks agree with the law for cycles of sizes 2–7, but are not substituted for the infinite proof.
+PASS
 
-## Originality
+Condition on the ordered pattern of the first t transition types, not on the positions. Its k relocations generate k independent uniform starts for k+1 labelled clockwise arcs totaling t+1 sites, with the first arc anchored. For t<n, disjoint placements are in bijection with the k! orders of the other labels and weak compositions of the n-t-1 unused sites over k+1 gaps; this gives the proposed rising factorial, independent of the arc lengths. The ratio for k to k+1 is (n-t+k)/n<1 for k<t; monotone coupling of the binomial counts gives strictness for t>=1, including comparison with q=0 and q=1. For t=n the pigeonhole bound applies, not the arc count. For t=floor(nx) and finite nq, tight binomial-to-Poisson mixing yields exp(-lambda x^2) for x<1, including lambda=0. For t=n-1 the conditional factor is k!/n^k, so the mass at T=n tends to exp(-lambda). Support in [0,1] justifies convergence of the mean in this window. On t=floor(x sqrt(n/q)), x>0 and nq diverging, K/(tq) tends to one and t/n tends to zero. Summing log(1-(t-j)/n) over 0<=j<K gives -Kt/n+K(K-1)/(2n) with error O(K t^2/n^2)=o_P(1). The two terms tend to -x^2 and q_infty x^2/2, including the q_infty=0 and 1 regimes. The conditional survival factors are bounded by one, permitting averaging. x=0 is exact. This is an analytical proof; VERIFICATION.md's recorded 438 finite comparisons from checker.py were inspected as supporting evidence, not rerun or used as the limit proof. No expectation convergence in the many-relocation window is asserted.
 
-**PASS, with historical-priority risk.** The closest inspected complete texts study either resets to a fixed site and first-passage/escape laws (Villarroel–Montero–Vega 2021 and Riascos et al. 2019) or a general birthday-based Markov-chain sampling algorithm (Benjamini–Morris 2007). None states or directly implies the exact first-repeat distribution under independent uniform relocation, nor the sharp capped-to-Rayleigh transition with an endpoint atom. A classical circular-arc packing calculation supplies a proof ingredient and is not claimed as new. The older Siegel–Holst report was accessible at abstract/metadata level, not in full; a corresponding earlier regenerative-scan treatment remains possible.
+## originality
 
-## Value
+PASS
 
-**PASS.** The same finite Markov model interpolates between a deterministic complete lap and independent uniform samples, and the theorem locates their sharp collision-scale boundary. The limit identifies an atom that is missed by ordinary birthday approximations; its exact finite distribution and strict monotonicity provide benchmark probabilities for correlated finite-state sampling and exploration.
+The scoped contribution is the exact first-repeat law for this directed walk, including the coupling of the relocation probability to the endpoint atom and the Rayleigh coefficient, not the classical arc placement count, the birthday scale, or first-passage analysis in general.
 
-## Independent validation and scope
+## value
 
-The calculation is specific to uniform, state-independent relocations and deterministic clockwise motion. The many-relocation theorem concerns weak convergence rather than an error bound.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+First repetition measures how much of the cycle is explored without a collision. The exact finite law and its two scaling limits distinguish the survival of a full traversal with positive limiting probability from the birthday-scale cutoff. The atom and the continuous interpolation of the many-relocation coefficient are quantitative information beyond a collision-order estimate or either deterministic/independent endpoint.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

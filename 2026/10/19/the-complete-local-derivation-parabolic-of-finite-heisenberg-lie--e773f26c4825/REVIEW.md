@@ -1,19 +1,21 @@
-# Assessment of the Heisenberg local-derivation classification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For the precise family \(H_n(K)=V\oplus Kz\) with nondegenerate alternating \(\omega\), preservation of \(Kz\) is necessary for locality. Ordinary derivations have conformally symplectic \(V\)-block, arbitrary central functional and scalar. The key lemma, \(\mathfrak{sp}(V)\,v=V\) for every nonzero \(v\), is proved by explicit symplectic block matrices, with no characteristic restriction. It supplies a matching ordinary derivation for each input to any center-preserving linear map. Dimension and count formulas follow from independent parameter counts. Full direct linear-system checks passed over \(\mathbb F_2,\mathbb F_3,\mathbb F_5\), including dimension seven. These are checks, not a proof of infinite cases.
+PASS
 
-## Originality
+Locality at z forces center preservation. A derivation has arbitrary central functional and quotient block B satisfying B^t J+JB=lambda J with the SAME lambda as its central action. diag(lambda I,0) supplies every lambda without dividing by two. Independently, for a nonzero v and desired image w, choose l(v)=1 and alpha=omega(w,-); the symmetric form l(x)alpha(y)+alpha(x)l(y)-alpha(v)l(x)l(y) equals alpha(y) at x=v, and omega(Sx,y) equal to this form defines S in sp with Sv=w, also in characteristic two. This gives the needed pointwise match. Symmetric forms have dimension n(2n+1); adding 2n+1 gives the ordinary dimension, whereas every quotient endomorphism is allowed locally. The dimension difference is n(2n-1), so the finite counts and ratio follow. Independently checked evaluation ranks and derivation constraint ranks over F2, F3, F4 and F5 (python3 /workspace/reproduction/1.py; output 1.txt in that directory); exhaustive rank-one map checks over F2 and F3 also gave (64,128) and (729,2187) for (ordinary,local). The proof, not the bounded computations, establishes the all-field equality.
 
-**PASS with residual literature risk.** Primary texts were compared at the level of logical implication. The 2024 Khudoyberdiyev–Jumaniyozov paper already proves existence of pure local derivations on 2-step nilpotent Lie algebras outside characteristic two and explicitly provides the center-only map for complex Heisenberg algebras; that discovery is expressly not claimed here. Hao–Chen (2025) tabulate low-dimensional cases, and Hao–Chen (2026, July/September) give general reflexive-hull Lie closure and inequalities. None of the inspected results yields the **full** center-preserving characterization for all ranks and all fields, nor finite-field counts. The 2024 Schrödinger paper concerns rigidity of the larger semidirect Lie algebra, not the Heisenberg ideal. Completed relevant semantic-result searches produced no match with the complete classification or the count formula. Residual risk: an unindexed or differently named older reflexive-hull theorem may subsume it, and the full text of the September 2026 conformal-Galilei extension paper was not accessed; its abstract indicates another ambient algebra.
+## originality
 
-## Value
+PASS
 
-**PASS.** This is a naturally defined, complete linear-local-derivation classification for an important infinite family of nilpotent Lie algebras, resolving the precise structure beyond previously known existence witnesses and low-dimensional complex tables. The pointwise symplectic evaluation argument explains why the entire center stabilizer is local, and the exact defect \(n(2n-1)\) quantifies how localization departs from the derivation identity. Uniform characteristic-two behavior and closed finite-field counts make the result reusable in comparisons with local/global rigidity of central extensions. It is not valued merely for computational novelty.
+Best of current knowledge for the all-rank, arbitrary-field equality and its counts. Earlier existence, particular low-dimensional complex cases and the abstract reflexive-hull Lie property are not credited as new. There is exact equivalent coverage in a distinct later-dated indexed record, and another later stronger record; neither was identified as antecedent to this frozen finding. Index dates do not certify public priority or independent provenance.
 
-## Limits and closer literature
+## value
 
-The 2024 pure-local construction is prior; the 2025 small-rank classifications are prior; the 2026 Lie-closure theorem is prior. The new statement is all-rank center-stabilizer equality, arbitrary-field extension, and explicit dimensions/counts. The proof does not address non-linear local maps or arbitrary 2-step nilpotent Lie algebras.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete natural reflexivity classification for an important infinite family, uniform in characteristic two; explains structurally why testing a single vector loses all quotient constraints. The exact defect and finite-field ratio quantify the local/global gap rather than merely producing a further non-derivation witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

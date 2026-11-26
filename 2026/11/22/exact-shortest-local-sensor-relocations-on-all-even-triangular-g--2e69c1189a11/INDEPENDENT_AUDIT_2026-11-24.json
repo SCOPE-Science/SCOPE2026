@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:44:58.012406Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a sensor set the initial unobserved vertices are exactly the edges internal to the untouched label set U. With |U|≥3 any observed edge has zero or at least two such neighbors; with |U|=2 the remaining edge can be forced from a cross edge. Thus minimum states are precisely the k-edge matchings with two holes. Any route must insert each absent target edge. In each alternating cycle, or a path with two target holes, the first removal of an original edge cannot simultaneously insert an incident target edge, since its other endpoint is still matched by a different original edge. This gives distinct compulsory nontarget slides, unaffected by visits to other components. Counts of M- and N-edges force exactly one path of the latter type if the two source holes lie in one path, and none otherwise. For the upper bound a spare hole opens each cycle, can sweep around it and is restored after q+1 slides for q target edges. Balanced paths are swept from the source hole to the target hole, using only target insertions. In the two odd-length path case one cross slide opens the initially full path and lends an edge to the path joining the two source holes; reverse sweeping that second path and then sweeping the remaining full-path edges achieves the single surcharge. This also works for paths consisting of one edge, and there is no need to disturb common edges. A balanced bipartition can be chosen by orienting each alternating component, making the holes opposite sides; in the cross-slide case choose the opposite-colored full-path endpoint for the cross edge. The local neighbors are four per selected edge and form a chordless 4-cycle; configurations changing different selected edges cannot be adjacent, since the replacements are distinct and neither is an old edge. The state and edge/triangle counts follow. The bound 2c≤r−δ gives the diameter, attained by disjoint 4-cycles for even k and by 4-cycles plus one hole-pair swap for odd k (including k=1); label permutations give vertex transitivity and equal radius. Independently used a partial-involution BFS verifying degree, counts, distance and diameter for all targets through n=12, including 62,370 states at n=12. Independently checked induced neighbor geometry on every state through n=10. Finite computation corroborates the all-order proof, not the converse.",
+      "replay": [
+        "RESULT.md lines 34–67, exact proof",
+        "python3 /tmp/opencode/audit_slides.py, involution-conjugation BFS with union-find symmetric difference",
+        "frozen verify_slide.py, verify_predicate.py and verification_output.txt inspected, not executed"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bousquet et al.'s default operation is TJ; their TJ/TS equivalence is at maximum cardinality, and Lemma 5 permits only a zero or one jump surcharge when one matching is not inclusion-wise maximal. The power-domination predicate and even-order enumeration already follow from b7c1b689a10e."
+        ],
+        "reasoning": "These size-k matching states are below maximum in K_(2k+2); the cycle surcharge can be arbitrarily large, so the known nonmaximal TJ distance cannot supply the TS metric. The static characterization gives states, not their shortest paths.",
+        "searches": [
+          "arXiv:1812.05419v1 introduction, Theorem 1 and Lemma 5",
+          "arXiv:2201.01798v1 introduction",
+          "Resultary triangular-graph predicate and TAR profile"
+        ]
+      },
+      "checked_sources": [
+        "Resultary df80d3d712a4, b7c1b689a10e, 69bbf2c2096e, 438257c07ae7, 02880df6e11d and f4873316c9a6",
+        "arXiv:1812.05419v1",
+        "arXiv:2201.01798v1",
+        "DOI:10.4230/LIPIcs.ESA.2019.61"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The bipartite lower proof compares a permutation potential under transpositions of row arguments corresponding to bipartite moves. A complete-graph path can cease to be bipartite in the chosen partition, invalidating that state representation. Embed both endpoints in a balanced bipartite subgraph to get routes and upper bounds, not a lower bound. The new first-disturbance count applies also to paths with within-part slides."
+        ],
+        "reasoning": "An upper bound from an isomorphic smaller setting cannot rule out shortcuts in the larger graph. The bipartite metric and TAR/TJ results do not imply the new lower bound, exact larger-graph diameter, or complete-graph neighbor cycles.",
+        "searches": [
+          "Resultary df80d3d712a4 proof Steps 1–2",
+          "arXiv:1812.05419v1 Lemma 5",
+          "Resultary 69bbf2c2096e TAR profile"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Slides of minimum sensors in the line graph are shared-endpoint exchanges of size-k matchings in K_(2k+2). In involution form the exchange conjugates the matching involution by swapping a fixed point and an endpoint of a transposition. The random-involution Resultary hit f4873316c9a6 studies spatial inversion laws, not this motion. Bhorkman et al.'s TAR/TJ models and perfect-matching whole-cycle flips have different valid one-step moves."
+        ],
+        "reasoning": "Changing representation does not introduce token identities, remove the two holes, or permit jumping and cycle flips. The inspected motion results in other models do not compute this distance.",
+        "searches": [
+          "Resultary: two-hole matching token slides / partial involutions / minimum triangular-graph sensors",
+          "arXiv:1812.05419v1 matching move definitions",
+          "arXiv:2201.01798v1 reconfiguration models"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact K_(n,n) formula is n−c(π)+2q_H(π)+2ε using a completed row-column permutation; the diameter there is floor(3n/2)−1, equal numerically to ceil(3k/2) for n=k+1, but its degree is 2k. Same-date 438257c07ae7 computes Sub(J(n,2)) for once-subdivided cliques; 02880df6e11d treats one-hole matchings on trees."
+        ],
+        "reasoning": "The closest exact formulas and the matching diameter expression are material partial coverage, but valid slides and ambient graphs differ. The same-date competitors were tested by statements, without inferring publication order.",
+        "searches": [
+          "Resultary: exact two-hole matching slide metric / diameter",
+          "SCOPE-an-exact-cycle-potential-metric-for-sliding-near-perfect-biparti--df80d3d712a4",
+          "Resultary same-date 438257c07ae7 and 02880df6e11d"
+        ]
+      },
+      "rationale": "The matching representation and minimum-state census are covered by the prior power-domination predicate. The exact bipartite metric is a close partial precedent, but no inspected result supplies the full nonbipartite shortest-path lower bound or local geometry. The genuinely distinct contribution is that the extra complete-graph slides cannot beat the constructed optimum, with the resulting complete-graph diameter and neighborhoods.",
+      "residual_risks": [
+        "A differently named exact matching-slide or partial-involution distance could exist outside the bounded literature and catalogue comparisons. The prior exact bipartite metric substantially overlaps; the claimed distinction concerns absence of cheaper unrestricted routes and the resulting geometry, not the bipartite solution or the numerical diameter expression in isolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Restricted bipartite exact metric; upper-bound routes but not absence of complete-graph shortcuts",
+          "evidence": [
+            "Moves and potential require a fixed row-column decomposition; lower bound covers only these moves."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-an-exact-cycle-potential-metric-for-sliding-near-perfect-biparti--df80d3d712a4/RESULT.md",
+          "material_read": "Finding, assumptions and proof Steps 1–2, offsets 0–4716",
+          "method": "Local published-record mirror",
+          "title": "An exact cycle-potential metric for sliding near-perfect bipartite matchings",
+          "trigger": "Closest exact two-hole shared-edge-slide metric and diameter"
+        },
+        {
+          "assessment": "Exact token-jump result; sliding equivalence only for maximum-cardinality matchings",
+          "evidence": [
+            "A nonmaximal endpoint permits TJ distance r or r+1; all complete-graph states here can be extended by joining the holes."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1812.05419v1",
+          "material_read": "Introduction offset 4700, Theorem 1 near 9000 and Lemma 5 near 15100",
+          "method": "Lawful OA primary HTML",
+          "title": "Shortest Reconfiguration of Matchings",
+          "trigger": "Possible stronger exact distance for general matchings"
+        },
+        {
+          "assessment": "Covers static predicate and minimum matching enumeration",
+          "evidence": [
+            "At most two isolated labels in the selected-edge graph; min size ceil((n−2)/2), with matching enumeration in even order."
+          ],
+          "identifier_or_url": "Resultary b7c1b689a10e",
+          "material_read": "RESULT.md offsets 0 and 4250",
+          "method": "Local published-record mirror",
+          "title": "Power domination of triangular graphs: star-forest rigidity and full enumerators",
+          "trigger": "Static predicate and configuration-count attribution"
+        },
+        {
+          "assessment": "Defines TS but main results concern TAR and TJ",
+          "evidence": [
+            "Studies TAR, bounded TAR and TJ rather than a fixed-cardinality TS metric for triangular graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2201.01798v1",
+          "material_read": "Introduction near offset 2400",
+          "method": "Lawful OA primary HTML",
+          "title": "Power domination reconfiguration",
+          "trigger": "General power-domination move models"
+        },
+        {
+          "assessment": "Different move and matching size",
+          "evidence": [
+            "A step replaces a whole alternating cycle in a perfect matching, not a one-edge hole slide."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ESA.2019.61",
+          "material_read": "p. 1, move and scope",
+          "method": "Lawful OA primary paper",
+          "title": "Shortest Reconfiguration of Perfect Matchings via Alternating Cycles",
+          "trigger": "Exact matching distances under alternating-component moves"
+        },
+        {
+          "assessment": "TAR component results, not fixed-size slide metric",
+          "evidence": [
+            "Intermediate cardinality changes are permitted."
+          ],
+          "identifier_or_url": "Resultary 69bbf2c2096e",
+          "material_read": "RESULT.md offset 0, finding and scope",
+          "method": "Local published-record mirror",
+          "title": "Exact component profiles for power-domination reconfiguration of triangular graphs",
+          "trigger": "Identical ambient line graph with reconfiguration"
+        },
+        {
+          "assessment": "Subdivided clique sensor model, not minimum sensors on L(K_n)",
+          "evidence": [
+            "The slide graph is Sub(J(n,2))."
+          ],
+          "identifier_or_url": "Resultary 438257c07ae7",
+          "material_read": "RESULT.md offset 0, graph and theorem",
+          "method": "Local published-record mirror",
+          "title": "Minimum power-domination token slides subdivide the triangular graph",
+          "trigger": "Distinct same-date triangular graph and token slide hit"
+        },
+        {
+          "assessment": "One-hole tree matching model",
+          "evidence": [
+            "Flips at one exposed vertex on trees, not two holes in a complete graph."
+          ],
+          "identifier_or_url": "Resultary 02880df6e11d",
+          "material_read": "RESULT.md offset 0, model and finding",
+          "method": "Local published-record mirror",
+          "title": "The exposed-vertex core and exact flip geometry of near-perfect matchings",
+          "trigger": "Distinct same-date matching hole-motion hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural fixed-size sensor motion model has an all-order exact metric, with separately motivated unavoidable cycle-opening and two-path surcharges. Ruling out unrestricted shortcuts despite the availability of many extra edges is a structural result beyond the known static optimum and restricted bipartite metric. Degree, induced neighborhood geometry and the sharp diameter give operational consequences; the contribution does not require a claim of new feasible-state enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

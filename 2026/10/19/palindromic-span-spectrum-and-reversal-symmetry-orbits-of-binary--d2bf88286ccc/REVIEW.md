@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every binary order-five de Bruijn cycle gives a unique Boolean successor rule on sixteen four-bit suffixes. The direct exhaustive traversal checks all \(65536\) successor rules and accepts exactly the \(2048\) rules with a single state cycle; an independent Euler-circuit enumeration yields identical palindrome-span frequencies. The bounds are valid even for the infinite cyclic repetition: the unavoidable factor `1000001` establishes a minimum of \(7\), while a separate exact residual-graph Euler-completion test excludes all possible centered length-\(14\) and length-\(17\) palindromes, and therefore all palindromes exceeding \(15\). A separate full-class symmetry traversal reproduces the exact orbit counts. The combinatorial exhaustiveness arguments, not just console outputs, support the claim. Reproducibility is documented in `VERIFICATION.md`.
+PASS
 
-## Originality — PASS, with residual risk
+A de Bruijn rotation class has one root at its unique 00000, and the rooted windows trace an Euler circuit on the graph of 4-bit vertices and 5-bit edges. Conversely a rooted Euler circuit gives exactly one such rotation class. The frozen feedback encoding also exhausts all classes: for a fixed 4-bit tail the two incoming 5-bit states must append opposite bits, leaving one Boolean choice. The independent rooted Euler traversal found 2048 cycles. Its span histogram was {7:200, 8:192, 9:856, 10:128, 11:392, 12:32, 13:200, 15:48}. In the same order the orbit pairs (size 2 count, size 4 count) were (14,43), (4,46), (6,211), (0,32), (6,95), (0,8), (2,49), (0,12), with no other orbit sizes. The independent test of all palindromes at lengths 14,15,16,17 removed the distinct edges of each candidate and tested the residual directed Euler-trail balance, endpoints and weak connectivity; its extendible counts were 0,6,0,0. The centered subpalindrome property rules out all longer even lengths from 14 onward and odd lengths from 17 onward, including beyond one period. The unique all-zero window is flanked by 1 on both sides, so the span cannot be less than 7. Both frozen extremizers were verified among the rooted cycles at their claimed lengths.
 
-The complete primary texts of Gabrić–Sawada (2024), Chang–Wang (2024), and Burris–Motta–Shipman (2016) were compared on their actual invariants. The first studies orientable words lacking reversal-paired windows, the second complement/reversal-symmetric constructions and linear complexity, and the third unoriented coverings of fixed-length reversal classes. None of those inspected results determines the distribution of the *largest palindromic factor* of all standard binary order-five de Bruijn cycles or its symmetry-conditioned orbit counts. Keyword searches for the exact data and the underlying equivalences yielded no covering result. This is evidence of a literature gap, not proof against an unpublished or unindexed prior calculation. References are recorded in `RESULT.md`.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Maximum palindromic-window length is a natural quantitative measure of a reversal obstruction in shortest universal cyclic words. The result supplies its entire sharp finite spectrum, shows that the inevitable palindrome length \(7\) is attainable, identifies the extreme length \(15\), and reveals how the entire distribution splits under the two principal involutions. The invariant is different from merely counting rotation classes or from the standard complement/reversal symmetry census. The result is intentionally an exact first finite case, not an unsupported general-order theorem.
+The de Bruijn count, the orbit-size mechanism and closely related reversal conventions have prior coverage. The span-resolved orbit census is distinct in the inspected literature. A later indexed census explicitly reproduces the entire longest-span marginal and could support a derived orbit breakdown if its stated cycle-level data are used; it is not evidence of earlier coverage, and the recorded finding inspected does not report the span-resolved orbit counts.
 
-## Boundaries and risks
+## value
 
-The statement is binary and order-five only. The priority assessment has residual risk from unindexed work and has not undergone independent scholarly validation. The executable finite proof does not imply a formula at higher orders.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The longest reversible factor distinguishes cycles whose order-length factor sets are identical. The span-resolved orbit census records both an exact extremal boundary and how often local palindromic structure coexists with global complement/reversal symmetry. It gives a reproducible baseline for this complete finite class rather than sampling arbitrary sequences or recounting a known total.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

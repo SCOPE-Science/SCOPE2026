@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Sano's complete published CM-PCF parameter list supplies a finite set of orbit shapes in each degree. The proof explicitly reconstructs each orbit and all pairwise differences. For degrees at least three every nonzero difference is an algebraic unit. In the quadratic cases the valuations of \(2\), \(4\), \(1\pm i\), \(2c\), and \(2c-1\) determine every local collision; the Chinese remainder theorem turns these local types into a complete classification of *whole* ideals. The standalone checker independently tests 1,078 local reductions, 484 composite reductions, and 9,438 finite-field specializations. The infinite conclusion rests on the proof, not the finite tests.
+## correctness
 
-## Originality — PASS, with limitations
-The closest primary paper, Sano, arXiv:2611.16354v1 (Theorem 1.1, Proposition 3.4, Corollary 5.4), classifies complex CM-PCF parameters and their characteristic-zero critical orbit types, not exact critical portraits over \(\mathcal O_{\mathbb Q(c)}/\mathfrak a\) for every ideal \(\mathfrak a\). Pink's characteristic-positive liftability theorem constructs possible lifts of marked quadratic dynamics, not the ring-level specialization of the fixed Gaussian parameters. Anderson–Manes–Tobin discuss a different reduction invariant of the polynomial map. Search comparisons against published mathematical research records for portrait stability, exact prime-power types, Gaussian critical orbits, and CM-PCF parameter reduction found no directly dominating result. The exact dyadic intermediate types \((1,1)\) and \((1,2)\) and the global composite-ideal classification are not asserted by those sources. This does not establish historical uniqueness; specialized unindexed results are a residual risk.
+PASS
 
-## Mathematical value — PASS
-Specialization of a *marked* postcritical orbit is a natural arithmetic invariant distinct from ordinary good reduction of the map. The result gives a complete all-degree, all-ideal classification, showing robust stability even in the presence of ramification and inseparable reductions, with exactly enumerated sharp exceptions in degree two. The unexpected intermediate portraits over the second dyadic layer, together with the fact that mixed exceptional prime factors restore the generic portrait by the Chinese remainder theorem, supply structural boundary information, not a one-off finite table or isolated numerical improvement.
+Sano's Theorem 1.1, Proposition 3.4 and Corollary 5.4 match the parameter and characteristic-zero type lists, for c lying in some CM field; K=Q(c) need not itself be CM. All the listed c are integral. A characteristic-zero first repeat survives reduction, so the only way the type can change is a collision among its initially distinct marked entries. For d≥3, c=0 is fixed; c^(d−1)=−1 gives the two-cycle 0,c with c a unit. For c^(d−1)=ω a primitive cube root, write u=1+ω=−ω², of order six. Then 0,c,uc are the three distinct entries; (uc)^d+c=uc if d≡0 and is 0 if d≡1 mod 6. The three differences up to sign are c,uc,ωc, all units, so no proper ideal causes a collision, even in degenerate residue characteristics. Quadratic 0 and −1 have no nonunit differences; −2 gives 0,−2,2,2, with differences of absolute sizes 2,2,4, hence exactly the displayed changes mod (2) and (4). For c=±i the four distinct entries are 0,c,c−1,−c and the next is c−1. Of six differences only c−1,2c,2c−1 (up to signs) are nonunits. Their respective principal ideals are p₂, p₂², p₅, where p₂=(1+i) and p₅=(2c−1) has norm 5 and is conjugated by changing c's sign. Mod p₂ the first/third and second/fourth entries coincide; mod p₂² only second/fourth; mod p₅ only third/fourth, giving the three reduced types in the stated order. Mixed ideals cannot create any collision because none divides a listed nonunit difference ideal; equivalently their product orbit has maximum preperiod and least common multiple period, so the two different exceptional Gaussian primes together restore (2,2). This proves exhaustiveness for all exponents and all products of ideals. Frozen VERIFICATION.md and check_portraits.py were read but the script was not executed: its prime-power, composite ideal and prime-field tests have finite bounds and do not certify the unbounded classification.
 
-## Limits and closest literature
-The result uses Sano's published characteristic-zero classification as an input. There is no uniform statement about base-field extensions, non-CM PCF parameters, or all starting points. Originality search is best-effort, not a proof of nonexistence of unindexed results. Independent mathematical audit has not been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sano's characteristic-zero classification is used without novelty credit. The supported distinction is the exact all-ideal collision spectrum of the marked orbit, notably the nonzero-to-nonzero collisions determining the second dyadic layer and split prime over 5. Known results on the ideals of individual orbit entries, primitive divisors and field-level liftability cover ingredients or special questions, not this marked orbit's full quotient-ring type. Higher-degree preservation by unit differences is an elementary consequence of these specific orbit shapes; the novelty assessment is for the complete specialization classification.
+
+## value
+
+PASS
+
+The natural invariant is exact specialization of the marked critical relation over every integral quotient, distinct from map good reduction and from whether 0 returns. The arithmetic classification identifies precisely which moduli destroy the characteristic-zero distinctness, including the positive-preperiod intermediate portraits at dyadic level two, the conjugate norm-five exceptions, and the lack of mixed-ideal exceptions. These are useful exact ring-level data and a uniform higher-degree rigidity statement, not a sample over small prime fields.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

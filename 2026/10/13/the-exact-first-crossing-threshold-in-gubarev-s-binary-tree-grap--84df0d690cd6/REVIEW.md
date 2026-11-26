@@ -1,15 +1,21 @@
-# Review of The exact first-crossing threshold in Gubarev's binary-tree graph
+# Independent mathematical audit
 
-## Correctness
-PASS. The source's proof of Lemma 5.2 gives the universal upper bound \(2L_{2n-2}\) on a crossing-free path. The matching construction is explicit: inside a height-\(2n\) subtree, omit the two boundary grid gaps and replace each bottom cutoff vertex by its \(a\)-jump. This yields exactly \(2L_{2n-2}\) edges while visiting only the single interior grid height. The Section 6 decomposition then applies with the exact threshold because its exponent hypothesis is used to force a first crossing. The finite verifier agrees for all tested values.
+## correctness
 
-## Originality
-PASS. The source states the coarser threshold \(2^{2n+1}\) and contains the upper estimate \(2L_{2n-2}\) inside its proof, but it does not supply an attaining family or claim exactness. Targeted searches for the exact threshold, the crossing-free maximum, and the sharpened exponent found no matching prior statement. The strengthened nilpotency bound alone is a consequence of the source's hidden upper estimate; the original contribution assessed here is the matching lower construction and resulting exact threshold.
+PASS
 
-## Value
-PASS. The crossing threshold is the central combinatorial cutoff that drives the paper's nilpotency mechanism. Determining it exactly is a natural structural boundary rather than an arbitrary parameter slice, and it uniformly reduces the exponent used in the construction by asymptotic factor \(3/4\). It also identifies the precise amount of slack in the first-crossing step, while clearly separating that improvement from the unchanged compression estimate.
+In the graph of §4.2, an x/y step changes gap height by ±1 and an a-jump preserves it. By Definition 5.1, two distinct grid heights visited force a crossing: select successive different visited grid heights, and the last visit to the first before the first visit to the other. Without a crossing, the height window has width at most 2n−2 (the interval between neighboring excluded grid heights on either side of the sole allowed grid height, truncated at a boundary; an interval with no grid is no wider). Lemma 5.2's proof bounds a path in a width-R window by 2L_R. Independently, within a nonzero bottom-height window the path cannot pass beyond the two siblings whose parent is below the allowed window, and their height-R truncations have word lengths L_R; a path edge cannot exceed that count, since truncated leaves can only be jumped or left untraversed. At bottom height zero only the root truncation is needed. For N≥2n divisible by n, take a vertex at depth N−2n. Between its opening and closing symbols traverse both child subtrees, with unit x/y steps above depth N−1 and one a-jump at each depth-N−1 vertex. The two truncated child words are exactly ℓ_(2n−2), so the length is 2L_(2n−2). The visited heights lie in [N−2n+1,N−1], containing only grid height N−n; for n=1 the path consists of two jumps at that grid height. Hence the forced-crossing threshold is 2L_(2n−2)+1 in the stated range. Section 6 gives at least e edges per contributing path and requires a first crossing to invoke the same vanishing boundary block; choosing e equal to the new sufficient threshold works even when N=n. This does not prove a sharp index of T_S(f). Inspected frozen verify.py and verification_output.txt without executing: the recorded DP is a bounded sanity check (N=2n for n=1–6, N=3n for n=1–4), not the proof.
 
-## Closest literature and limitations
-The closest source is arXiv:2610.05384v1 itself: its Lemma 5.2 proof contains the upper bound but not the matching lower path, and Theorem 6.2 uses a larger round-number exponent. Smoktunowicz's earlier simple-nil-ring construction is historical background and does not supply this binary-tree crossing invariant. Residual risk is that a later revision or independent very recent note may record the same sharpening. The nilpotency exponent \(E_n\) is not claimed to be optimal in every representation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The noncovered finding is the matching crossing-free path and the resulting exact cutoff, not the height-window upper bound or the availability of that smaller sufficient exponent. The frozen record itself credits the upper bound to the proof of Lemma 5.2. The first-crossing algebraic consequence is routine from that upper bound and is not separately credited as novel.
+
+## value
+
+PASS
+
+The maximum crossing-free length determines the sharp stopping point for a specific graph argument underlying nilpotency, not merely a slightly different upper estimate. The family of extremizers shows that a smaller exponent cannot be certified solely by universally forcing the first crossing in graphs of the asserted heights. This is useful even though the tightness of the nilpotency index itself is not resolved.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

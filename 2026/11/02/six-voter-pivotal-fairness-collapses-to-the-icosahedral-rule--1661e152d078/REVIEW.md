@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reduces arbitrary monotone neutral six-voter rules to intersecting winning two-subset families and ten complementary triple choices. Explicit pivotal counts yield \(H_i=24(t_i+3e_i-m)\) and \(B_i=2(t_i+2e_i-m)\). A star/triangle obstruction excludes all winning pairs under either fairness criterion; the remaining exact incidence equations force a two-regular graph on five vertices, hence a five-cycle. The labeling and automorphism counts follow from elementary graph symmetry. The standalone verifier independently enumerates all \(2640\) non-dictatorial rules and confirms exactly \(12\) fair under each index, with equal sets. No unproved combinatorial classification is used.
+PASS
 
-## Originality — PASS (qualified)
+Under neutrality and monotonicity, winning sets intersect, and a winning singleton forces dictatorship. In its absence the sizes 0,1 always lose and sizes 5,6 always win. If m is the number of winning pairs, e_i their degree at i, and t_i the winning triple degree, the pivotal counts at predecessor sizes 0 through 5 are (0,e_i,t_i+e_i−m,t_i+e_i−m,e_i,0). Summing uniformly or with factorial permutation weights gives B_i=2(t_i+2e_i−m) and H_i=24(t_i+3e_i−m). Since Σe_i=2m and Σt_i=30, the equal-index equations follow. For a nonempty star the center forces at least 4,7,9,10,10 winning triples for m=1,2,3,4,5; each exceeds the Shapley–Shubik allowance 5−2m. A triangle forces at least seven versus two. For Banzhaf, divisibility leaves only m=3, and the star and triangle allowances are one and three, again impossible. At m=0, both indices require t_i=5. Choosing the five triples through a fixed voter gives a link graph on five vertices, and neutrality gives degree 1+2deg(j) in winning triples for each other voter. Thus the link is a 5-cycle, and every such complement orientation extends monotonically with all larger coalitions winning. There are twelve labeled cycles in one permutation orbit, so the automorphism group has order 60; its point stabilizer has order ten, proving transitivity. Conversely transitivity transports pivotal events. The normalized probabilities are 120/720 and 10/32. This is a direct proof check; the supplied Python enumerator was inspected, not executed or used to infer exhaustiveness.
 
-The known six-voter Icos example, index formulas and existence theorems are explicitly credited to Dhar–Mittal–Thomas (2026) and the earlier transitive-intersecting-family literature. The claim here is their converse at exactly six voters: any fair rule for either index is Icos, and the two weak indices therefore force stronger voter transitivity. The recent primary article does not state this full classification; literature searches found no explicit equivalent. The nearest historical coverage is the unrestricted six-voter power-profile census (Langner, 2012), and older intersecting-family classifications (Meyerowitz, 1995; Loeb–Conway, 2000). Those earlier full texts were not all accessible, and a previously published implication is a real residual priority risk. The claim does not appropriate the previously known Icos construction.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The motivating issue is whether equal *probabilistic pivotal power* is strictly weaker than equal *structural voter roles*, as contrasted in the 2026 existence study. At the first even electorate size admitting fair resolute rules, the converse unexpectedly holds: both weaker conditions collapse to an exact and unique symmetric design, with an elementary five-cycle correspondence and a precise labeled count. The classification answers an intrinsic social-choice structural question rather than recomputing a generic table or adjusting an arbitrary parameter.
+The supported distinction is the converse from either individual pivotal-equality condition to the exhaustive six-voter classification. Icos, its transitivity and fairness, the forward symmetry implication, and general formulas for power are prior. Existing enumerative work is a serious scope comparison, but available statements do not establish the weak-fairness converse or give a demonstrably covering table.
 
-## Scope, sources and limitations
+## value
 
-Relevant scientific sources include Dhar–Mittal–Thomas (2026, arXiv:2602.13894v1, substantive definitions/results read), Cameron–Frankl–Kantor (1989, open full text and main results read), Langner (2012, pertinent Chapter 6 and tables read), and accessible abstracts for Meyerowitz (1995) and Loeb–Conway (2000). Outstanding risk: historical full enumeration of regular six-element maximal intersecting families might imply the same conclusion. No claim is made for other electorate sizes; an independent scientific audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural six-voter class already studied for existence, the result tests whether equal power forces a structural symmetry despite not assuming it. That either of two differently weighted index constraints rules out every nontransitive rule, with a complete and reusable fair-rule catalogue, resolves a substantive gap beyond checking known Icos.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

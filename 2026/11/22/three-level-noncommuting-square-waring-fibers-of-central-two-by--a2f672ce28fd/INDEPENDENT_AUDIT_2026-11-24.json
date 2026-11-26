@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:41:57.125354Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:4–62",
+        "VERIFICATION.md:19–23",
+        "check_waring.py:7–77 (inspected, not executed)"
+      ],
+      "rationale": "Over characteristic not two write X=aI+U, Y=bI+V with U,V traceless. Cayley–Hamilton makes the traceless part of the square sum 2(aU+bV); if a or b is nonzero, U,V are dependent and commute. Thus the noncommuting case is traceless. For Q(u,v,w)=u²+vw and any d, counting vw=d−u² gives n(d)=q²+qχ(d), including n(0)=q². An independent check of the pair convolution starts with the unrestricted level Q(U)+Q(V)=c: the two product variables form a dot product against a coefficient pair. If that pair is nonzero it contributes q³(q²−1); if zero it contributes q² times the two-square count q−χ(−1) at c≠0 and q+(q−1)χ(−1) at c=0. Remove 2q²n(c), adding back q⁴ only when c=0. For commuting invertible traceless pairs the nonscalar first factor has centralizer span(I,U), so V=tU with t≠0. At zero the commuting count is (1+χ(−1))(q−1)q². Otherwise sum n(c/(1+t²)) over t≠0 with 1+t²≠0; the character sum on nonzero t equals −2, by (z−t)(z+t)=1. Subtraction yields both frozen formulas. The square/nonsquare difference is 4q(q²−1); relative to the larger nonsquare level, the zero level exceeds it by q(q²−1)(q−2). The smallest nonzero-target lower bound is positive at q=3 and increases thereafter.",
+      "residual_risks": [
+        "Fresh replay: generate matrices by four entries, filter nonzero determinant, cache literal matrix squares and test scalar sum and unequal products for all ordered pairs. Exhaustive in GL₂ at q=3 and 5, giving central target fibers by c of (144,24,120) and (2400,1560,2040,2040,1560). At q=9, restricting to trace zero using the proved lemma and working modulo t²+1 over F₃ gives levels 51840, 43920, 46800 with frequencies 1,4,4. These are bounded corroboration, not a general proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Datta–Ghosh–Maji–Manik address existence of AX^k+BY^k=C with fixed invertible coefficients over sufficiently large prime fields under gcd(k,p−1)=1. No full text for Griffin–Krusemeyer was obtained."
+        ],
+        "reasoning": "For k=2 over odd primes the stated gcd assumption fails; an existence theorem would also not imply the two restricted exact counts. The historical article remains a risk, not a negative result.",
+        "searches": [
+          "arXiv:2611.16651v1, Abstract and §1; DOI 10.1080/03081087708817172, lawful full-text attempts"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a2f672ce28fd (self), 4bc91560254f, 75bded936053, 2270aeeb4b11",
+        "arXiv:2611.16651v1",
+        "DOI 10.1080/03081087708817172 (unresolved)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For nonzero traceless A, the Jordan map has image span(I,A) and a q² second-factor fiber at a scalar. The square-graph result describes convolution over all M₂."
+        ],
+        "reasoning": "The affine Jordan fiber still needs determinant exclusions on A±B and a commutation exclusion; the unrestricted graph transform also has no two-factor commutation filter. In both cases the known data leave the needed counting work, including the χ(c) splitting, undetermined as a specialization.",
+        "searches": [
+          "4bc91560254f, scalar-target law and traceless first factor case; 75bded936053, Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "4bc91560254f gives exact *unrestricted* AB+BA fibers, with the same value for every nonzero scalar target."
+        ],
+        "reasoning": "When i²=−1 in the field, (A,B)=(X+iY,X−iY) makes AB+BA=2(X²+Y²) and preserves the noncommutation test up to a nonzero scalar. But invertibility of X,Y becomes a nonsingularity condition on A+B and A−B, not on A,B separately. The unrestricted target count is not the desired restricted subset count; the change of variables is also unavailable over fields without i.",
+        "searches": [
+          "Resultary: noncommuting invertible scalar matrix square sums; prescribed Jordan-product fibers; two-by-two matrix-square graph",
+          "Griffin Krusemeyer Matrices as sums of squares 1977 full text pdf finite field scalar matrix noncommuting invertible 10.1080/03081087708817172"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed triple of counts is the bound record a2f672ce28fd itself. 75bded936053 gives square-graph spectral data. 2270aeeb4b11 counts prescribed (XY,YX) for rank-one square-zero factors."
+        ],
+        "reasoning": "The self-hit does not establish an antecedent. The opposite-product count has different factors and map; the spectral table counts character support and multiplicities, not this prescribed restricted census.",
+        "searches": [
+          "Resultary: central noncommuting square-Waring fibers; anticommutator fibers; simultaneous opposite products; matrix-square Fourier support"
+        ]
+      },
+      "rationale": "The supported distinction is the exact ordered, invertible, noncommuting scalar square-sum census, not general square representability or an originality claim for the Cayley–Hamilton reduction. The strongest matched statements do not specify or mechanically give this restricted census.",
+      "residual_risks": [
+        "The historical Griffin–Krusemeyer full text was inaccessible and broader non-indexed overlap remains possible. No claim of global priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unrestricted comparison only",
+          "evidence": "Nonzero scalar fibers are uniform; the q² affine fibers of the traceless first-factor map are not filtered by det(A±B).",
+          "identifier_or_url": "2026/11/8/SCOPE-complete-prescribed-jordan-product-fibers-for-two-by-two-matrice--4bc91560254f",
+          "material_read": "RESULT.md Finding scalar cases at offsets 468–1047; proof of rank-two Jordan map at offsets 2821–3351",
+          "method": "Resultary local mirror",
+          "title": "Complete prescribed Jordan-product fibers for two-by-two matrices over odd finite fields",
+          "trigger": "A linear change when −1 is a square links the two output maps"
+        },
+        {
+          "assessment": "Spectral not restricted prescribed-fiber data",
+          "evidence": "The graph is (X,X²) over all M₂; it states Fourier support and singular-value multiplicities.",
+          "identifier_or_url": "2026/11/1/SCOPE-fourier-support-of-the-2-times2-matrix-square-graph-in-all-chara--75bded936053",
+          "material_read": "RESULT.md Finding, offsets 0–2065",
+          "method": "Resultary local mirror",
+          "title": "Fourier support of the two-by-two matrix-square graph in all characteristics",
+          "trigger": "Exact data for the same square operation"
+        },
+        {
+          "assessment": "Different factors and word",
+          "evidence": "Inputs are singular rank-one square-zero matrices; outputs are (XY,YX).",
+          "identifier_or_url": "2026/11/22/SCOPE-simultaneous-opposite-product-fibers-of-minimal-nilpotent-matric--2270aeeb4b11",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Simultaneous opposite-product fibers of minimal nilpotent matrices",
+          "trigger": "Related same-day two-factor noncommutative exact count"
+        },
+        {
+          "assessment": "Different exponent hypotheses and invariant",
+          "evidence": "Existence for the gcd(k,p−1)=1 regime with invertible coefficients, unlike the stated square census.",
+          "identifier_or_url": "https://arxiv.org/html/2611.16651v1",
+          "material_read": "Abstract and §1 Question 1.1, HTML offset 0",
+          "method": "OA HTML bounded passage",
+          "title": "Matrix Waring Problem in finite fields with coefficients from GL(2,F_p)",
+          "trigger": "Same invertible matrix Waring setting"
+        },
+        {
+          "assessment": "Unresolved historical priority risk",
+          "evidence": "No accessible passage from the paper warrants a statement about its exact fiber coverage.",
+          "identifier_or_url": "https://doi.org/10.1080/03081087708817172",
+          "material_read": "Bibliographic identification only for this review; the frozen record itself reports an abstract-level comparison",
+          "method": "Publisher and OA full-text search; publisher returned 403, no lawful alternate copy identified",
+          "title": "Matrices as sums of squares",
+          "trigger": "Historical square-sum theorem with plausibly relevant scope"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:4–17,48–62",
+        "arXiv:2611.16651v1, Abstract and §1"
+      ],
+      "rationale": "Central outputs are a natural singular locus of the square-sum map where noncommutation enforces a sharp reduction. The exact census shows all scalar values survive both invertibility and noncommutation, even over F₃, and identifies a residual square-class bias invisible in existence or unrestricted matrix counts. This is a meaningful restricted word-fiber invariant for all odd prime-power fields.",
+      "residual_risks": [
+        "The conclusion is specific to two-by-two scalar targets and does not measure general nonscalar matrix-square representability."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

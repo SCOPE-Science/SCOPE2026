@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:57:02.242343Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–82; VERIFICATION.md; verify.py (inspected, not run)",
+        "Dow (2003), §3.3, Eq. (18) and following inverse formula, independently confirming the exact matrix and Green entries"
+      ],
+      "rationale": "For all n≥1, D is injective, and telescoping identifies its n-dimensional range with the kernel of the two independent moments against 1 and k on 1,…,n+2. Evaluation is represented there by the orthogonal projection of (j+1−k)₊. The two-by-two normal equations give the stated affine correction, and the projected norm squared is the stated Green diagonal. For a shorter monotonicity check, put x=j(n+1−j): its numerator is x(x+n+2)(2x+n+3), strictly increasing in x>0. Thus the central sites are exactly the maximizers, including the n=1 and n=2 boundaries. Substitution at the centers gives the parity formulas and C_n²/n³→1/192. Equality in Cauchy–Schwarz gives all pointwise extremizers; at a global maximizer one of the norming sites must give this equality. The proposed a⁽ʲ⁾ is the unique inverse Gram column since D*ρ_j=D*v_j=e_j, so the listed two complex lines for even n are distinct. This audit is analytical; the uploaded finite checker was read, not executed.",
+      "residual_risks": [
+        "This checks the full zero-extension energy on n+2 sites; it does not apply to a periodic or interior-only energy."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dow provides the entire inverse, not just its diagonal. The higher-difference paper has ℓ¹ target; Yamagishi–Nagai forms a tridiagonal second-order matrix, and the inspected higher-dimensional Green-function papers have different domains or boundary conditions."
+        ],
+        "reasoning": "The stronger full-inverse formula for this exact matrix is decisive; the other Sobolev and Green results do not establish this case under these exact assumptions.",
+        "searches": [
+          "Dow (2003), §§3 and 3.3",
+          "arXiv:2610.19010 Theorem 1",
+          "Yamagishi–Nagai (2022) pp. 19–21",
+          "arXiv:1712.02587 and the Hoffmann–Plonka–Weickert inpainting Green function paper"
+        ]
+      },
+      "checked_sources": [
+        "Dow §3.3, direct PDF",
+        "Resultary 42b6f79c6b58",
+        "arXiv:2610.19010 Theorem 1",
+        "Yamagishi–Nagai pp. 19–21",
+        "arXiv:1712.02587 p. 1",
+        "Hoffmann–Plonka–Weickert p. 1",
+        "doi:10.1016/j.cam.2014.08.010 description only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting i=j in the cited cubic and factoring gives precisely the frozen G_{n,j}.",
+          "Writing the diagonal in terms of x=j(n+1−j) gives the central maximizers immediately; evaluating there yields both parity constants and their leading asymptotic. Equality vectors are the same prior inverse columns by finite-dimensional Cauchy–Schwarz."
+        ],
+        "reasoning": "Every principal assertion is the same inverse or a routine consequence of its explicit entries; the exact parity wording need not appear in the prior article to be covered.",
+        "searches": [
+          "Dow Eq. (18), inverse cubic a₀i³+a₁i²+a₂i and coefficient display on p. E207",
+          "Frozen RESULT.md Finding and §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Each column of D is a consecutive [1,−2,1] stencil; retaining both boundary rows on the right produces exactly the Toeplitz Gram diagonals 6,−4,1 with no endpoint correction.",
+          "Dow explicitly inverts that matrix for general n. The spline in the frozen record satisfies D*D a⁽ʲ⁾=e_j, the same column as Dow's piecewise cubic."
+        ],
+        "reasoning": "The matrix-inverse and variational formulations specify the same invariant and the same vectors; the distinction between a norm and its square does not create new content.",
+        "searches": [
+          "Inverse pentadiagonal Toeplitz and discrete clamped fourth-order Green functions; Dow §3.3, Eq. (18)",
+          "Resultary 42b6f79c6b58, second-order specialization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local all-orders record explicitly recovers the same coordinate formula at order two, central maximizers and Green equality cases, but is later-dated.",
+          "The prior inverse formula includes all entries for all n, constituting exact coverage stronger than a finite table."
+        ],
+        "reasoning": "Do not infer priority from the exact later overlap; the 2003 formula supplies affirmative prior coverage independent of that record's date.",
+        "searches": [
+          "Resultary 2026/10/25 all-order pointwise constants 42b6f79c6b58",
+          "Dow, §3.3, pp. E206–E207, direct publisher PDF"
+        ]
+      },
+      "rationale": "Murray Dow, Explicit inverses of Toeplitz and associated matrices (2003), §3.3, Eq. (18), pp. E206–E207, gives the full inverse of exactly the boundary-specific Gram matrix, including the complete extremal columns. At i=j the first cubic gives Dow's d_j j[(−2j³+2nj²+(3n+5)j+n+3)]/c, where d_j=(n+1−j)(n+2−j), c=6(n+1)(n+2)(n+3). The bracket factors as (j+1)[2j(n+1−j)+n+3], exactly the frozen G_{n,j}. The maximum, parity formulas and extremizer classification follow algebraically and by the standard inverse-Gram point-evaluation identity. This is demonstrated prior coverage, not a verdict based on an inaccessible source or a later catalogue duplicate.",
+      "residual_risks": [
+        "Other earlier inverses may exist; inaccessible or deferred literature checks do not affect the verified coverage by Dow."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive direct coverage: the Gram matrix is exactly Eq. (18), the diagonal matches on substitution, and the extremal vector is that full inverse's column.",
+          "evidence": [
+            "E206 displays Toeplitz diagonal 6, first off-diagonal −4, second off-diagonal 1.",
+            "E207 displays the inverse's two cubics. For i≤j+1, a₀=−(3+2j+n)d_j/c, a₁=3j(1+n)d_j/c and a₂=(3+5j+n+3jn)d_j/c. Their diagonal evaluation gives the exact reviewed formula."
+          ],
+          "identifier_or_url": "https://journal.austms.org.au/ojs/index.php/ANZIAMJ/article/download/493/357",
+          "material_read": "§3.3, pp. E206–E207, Eq. (18) and first and full inverse formulas, PDF text offsets 45077–48323",
+          "method": "First cited view route timed out; inspected the same article via its lawful direct publisher OA PDF download, with bounded page text",
+          "title": "Explicit inverses of Toeplitz and associated matrices",
+          "trigger": "Earlier exact fourth-order inverse cited by the all-orders indexed record"
+        },
+        {
+          "assessment": "Exact overlap at order two in a later record; it identifies Dow as an earlier source for the fourth-order inverse.",
+          "evidence": [
+            "Zero-extended higher differences, order-two Green diagonal, central norming sites, Green-vector equality, recurrence and monotonicity."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-all-order-sharp-pointwise-discrete-sobolev-constants-and-central--42b6f79c6b58",
+          "material_read": "RESULT.md offsets 0–3357 and 3200–6390",
+          "method": "Local Resultary search and mirrored source",
+          "title": "All-order sharp pointwise discrete Sobolev constants and central maximizers",
+          "trigger": "Matching indexed pointwise norm and equality problem"
+        },
+        {
+          "assessment": "Different target norm; not the decisive prior result.",
+          "evidence": [
+            "Sharp ℓ¹-from-ℓ² bounds, not ℓ∞-from-ℓ²."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.19010",
+          "material_read": "Theorem 1, p. 2, PDF text offset 3765",
+          "method": "Bounded OA passage",
+          "title": "A sharp discrete Sobolev inequality and left inverses of higher order differences",
+          "trigger": "Potential general norm theorem in frozen references"
+        },
+        {
+          "assessment": "Different energy/matrix.",
+          "evidence": [
+            "Second-order boundary problem using tridiagonal discrete-Laplacian matrices."
+          ],
+          "identifier_or_url": "https://www.rimath.saitama-u.ac.jp/research/pdf/smj34-2.pdf",
+          "material_read": "pp. 19–21, difference problem and matrix",
+          "method": "Bounded OA PDF passage",
+          "title": "The best constant of discrete Sobolev inequality corresponding to a discrete bending problem of a string",
+          "trigger": "Maximum norm and discrete bending terminology"
+        },
+        {
+          "assessment": "No claim about its treatment of the repeated-root coefficients or boundary case; not used to decide FAIL.",
+          "evidence": [
+            "Indexed description mentions an explicit inverse under assumptions."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.cam.2014.08.010",
+          "material_read": "Indexed description only; no lawful full text obtained on attempted routes",
+          "method": "Search description and attempted OA retrieval",
+          "title": "An explicit formula for the inverse of a pentadiagonal Toeplitz matrix",
+          "trigger": "Potential additional exact inverse coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "Dow §3.3",
+        "Resultary 42b6f79c6b58 (later generalization)"
+      ],
+      "rationale": "The energy and sharp-constant question are natural, but this particular result is a routine dual-norm restatement and central substitution in a known full inverse. The projection derivation is useful exposition, not an independently valuable new theorem or invariant. There is no distinct surviving finding to repair.",
+      "residual_risks": [
+        "This decision concerns this exact second-difference claim, not arbitrary orders or other boundary regimes."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

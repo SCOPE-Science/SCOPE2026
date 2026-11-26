@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:48:41.393385Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a common atomless law the probability integral transform gives distinct iid uniforms and preserves their ranks almost surely even if the CDF has flat intervals. For 1≤k≤n the two ends of [t,1−t], t=√(k/(8n)), define disjoint endpoint-tail regions. A hub spans the central segment with probability 2t²=k/(4n), so the no-hub probability is at most e^(−k/4). An interval not meeting any chosen hub must be counted among the Y intervals wholly in one tail, with Y binomial of mean k/4. From a maximum independent family remove those members and the hub itself if present, since its neighborhood is open. Thus D_n≤Y+1 on the hub event. The event D_n>k+1 there is contained in Y≥k, whose probability is at most (e/4)^k by selecting k sampled intervals; independence of Y and the hub event is not used. The k>n case is trivial, and the geometric tail sums give the claimed exponential moments for 0<λ<1/4. For every fixed r, each of r disjoint equal-length bins contains a whole sampled interval except on an event of probability at most r(1−r^(−2))^n; endpoint ties have probability zero. Hence α_n diverges in probability and tight D_n gives the ratio limit. The supplied verify.py and its 146598-pairing evidence were inspected, not rerun. The analytic proof, not that bounded diagnostic, establishes the result for all n and k.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected same-day records give a process limit for universal intervals and a joint low-degree/universal-vertex limit, respectively.",
+          "The 2001 independence-number paper is a close source, but its linked full text could not be inspected lawfully in the bounded retrieval."
+        ],
+        "reasoning": "Neither inspected limiting process states the uniform gap bound over all n and k, and the former is confined to universal intervals. A theorem about the global independence number alone does not compare it to independent neighborhoods. No negative inference is made about uninspected passages.",
+        "searches": [
+          "Same-model independence, universal-interval and degree-extreme claims: DOI 10.1017/S0963548301004813, arXiv:1102.2841, Resultary d692eb283908 and 9e288e46509a"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1102.2841",
+        "arXiv:2312.01467",
+        "DOI:10.1017/S0963548301004813 (limited access)",
+        "DOI:10.1080/00029890.1990.11995679 (limited access)",
+        "Resultary:d692eb283908",
+        "Resultary:9e288e46509a",
+        "Resultary:0083d38128b4",
+        "Resultary:a81c03dec366 (identical target)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Diaconis–Holmes–Janson report exact probability 2/3 of a vertex of degree n−1 for n>1.",
+          "The inspected two-vertex domination and diameter finding concerns domination rather than a bound on the number of independent vertices lost by restricting to one open neighborhood."
+        ],
+        "reasoning": "A universal vertex gives D_n=0 (also in complete graphs since n≥2), but an equality event of fixed probability gives no decay on its complement. Likewise two-vertex domination alone does not give one near-universal open neighborhood. The deletion argument for a centrally spanning sampled interval and the quantitative tail-binomial estimate are the additional steps.",
+        "searches": [
+          "arXiv:1102.2841 §2.3; Resultary 0083d38128b4 Finding; DOI 10.1080/00029890.1990.11995679 and DOI 10.1017/S0963548301004813"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "De–Khurana–Singh explicitly define the independent kissing number as max_v α(G[N(v)]).",
+          "Diaconis–Holmes–Janson identify the uniform endpoint-triangle model, equivalent to ordering iid uniform endpoints."
+        ],
+        "reasoning": "These are exact aliases for the parameter and model. The algorithmic study supplies no random local/global tail; the model comparison and maximum-degree statement concern different quantities.",
+        "searches": [
+          "Resultary: largest independent set maximum induced star leaves iid endpoint random interval graph additive gap",
+          "arXiv:2312.01467, Definition 1; arXiv:1102.2841, §2.3 and Example 7.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a81c03dec366 hits the reviewed finding itself; d692eb283908, 9e288e46509a and 0083d38128b4 are distinct, same-model records with inspectable Findings."
+        ],
+        "reasoning": "The distinct findings concern universal intervals, degree extremes, or domination and diameter rather than the exact all-size gap. Date alone gives no priority order. A finite table of pairing counts would not establish this uniform theorem.",
+        "searches": [
+          "Resultary semantic search for exact local/global independence gap and ratio convergence in iid endpoint interval graphs"
+        ]
+      },
+      "rationale": "The supported new comparison is the uniform exponential additive gap between the independent kissing number and independence number in the iid-endpoint model. The invariant itself, the universal-vertex event, and results about the global independence number are prior. No inspected statement supplies the uniform additive control; historical coverage is qualified below.",
+      "residual_risks": [
+        "The full texts of the close 1990 and 2001 same-model papers were not obtained lawfully; an uninspected comparison in those or other historical sources is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model, known zero-gap event only",
+          "evidence": "Maximum degree n−1 with probability 2/3 for n>1; density 2 dx dy on the endpoint triangle.",
+          "identifier_or_url": "https://arxiv.org/abs/1102.2841",
+          "material_read": "§2.3 p. 4 and Example 7.4 p. 14",
+          "method": "Open arXiv paper text, targeted passages",
+          "title": "Interval graph limits",
+          "trigger": "Same model and implications of universal vertices"
+        },
+        {
+          "assessment": "Credits the invariant, not the gap theorem",
+          "evidence": "Definition 1 gives max_v α(G[N(v)]), while the comparison material concerns online algorithms and competitive ratios.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.01467",
+          "material_read": "p. 1 abstract and p. 2 Definition 1",
+          "method": "Open arXiv paper text, targeted passages",
+          "title": "Online Dominating Set and Coloring for Geometric Intersection Graphs",
+          "trigger": "Exact alias of the local invariant"
+        },
+        {
+          "assessment": "Potential priority risk; no claim of whole-document noncoverage",
+          "evidence": "Full text was not retrieved; no local/global implication could be tested against its exact theorems.",
+          "identifier_or_url": "https://doi.org/10.1017/S0963548301004813",
+          "material_read": "Bibliographic information and the characterization in the frozen record; no verified theorem text",
+          "method": "Bounded lawful retrieval attempt for the same paper",
+          "title": "On the Independence Number of Random Interval Graphs",
+          "trigger": "Closest classical same-model global independence work"
+        },
+        {
+          "assessment": "Known equality event, residual risk for other statements",
+          "evidence": "The accessible restatement gives probability 2/3 for a universal vertex.",
+          "identifier_or_url": "https://doi.org/10.1080/00029890.1990.11995679",
+          "material_read": "Universal-vertex probability as restated in arXiv:1102.2841 §2.3; no primary full text",
+          "method": "Bounded lawful retrieval attempt and inspectable secondary restatement",
+          "title": "Random Intervals",
+          "trigger": "Classical same-model universal and packing results"
+        },
+        {
+          "assessment": "No equivalent uniform additive comparison in these findings",
+          "evidence": "The recorded claims give universal-interval process, degree/universal vertex limit, and domination/diameter facts respectively.",
+          "identifier_or_url": "Resultary:d692eb283908; Resultary:9e288e46509a; Resultary:0083d38128b4",
+          "material_read": "Each RESULT.md Finding, opening passage",
+          "method": "Resultary search and local mirror",
+          "title": "Randomly clipped Poisson field of universal random intervals; coupled Poisson extremes of degrees and universal vertices; two-vertex domination and diameter laws",
+          "trigger": "Material overlap in same iid random-interval model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Local independent packing around one sampled interval captures global packing up to an exponentially tight additive loss. This is stronger than relative convergence and rules out the arbitrarily large gaps possible even for deterministic interval graphs. It quantifies the quality of a single sampled hub outside the classical universal-vertex event and for every graph size. The constants are not claimed optimal, and no limiting gap distribution is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

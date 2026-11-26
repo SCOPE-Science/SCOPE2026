@@ -1,19 +1,21 @@
-# Scientific review of antidiagonal bifiltration class enumeration
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem quantifies over every integer \(n\ge1\) and every continuous coordinatewise nondecreasing path with fixed opposite-corner endpoints. For an arbitrary path the entered labels are exactly an interval, as follows immediately from their entrance inequalities. Continuous threshold crossings add at most one left label and one right label per event. The explicit corner-path construction proves the converse, including simultaneous double births. Counting left/right decisions gives the exact fibers above each barcode composition; the Delannoy generating function then gives the Pell-type total, while compositions give the Fibonacci quotient. The independent finite enumerator and exact witness checker passed \(5,740\) histories through \(n=10\) and \(59,708\) lattice paths through \(n=6\). The infinite assertion uses the written bijection, not an extrapolation from experiments.
+PASS
 
-## Originality — PASS (subject to residual priority uncertainty)
+I checked the continuous-path classification, including ties and endpoints, in RESULT.md lines 27–59. Present labels form an interval by intersecting the two threshold inequalities. At a first entrance, an interior label strictly between two newly present labels would have both threshold inequalities strict at that time and would have been present earlier by continuity. Thus the first block has size one or is a consecutive pair. Once the interval is nonempty, a new label to either side is unlocked by just the coordinate serving that side; continuity forces distinct integer thresholds on a given side to be met at distinct times. A double event adds the two outside neighbors, which need not themselves be consecutive. The first straight segment and subsequent unit horizontal, vertical, or diagonal moves realize each allowable block exactly, including n=1, and constant segments introduce no extra births. Reindexing entrance times identifies precisely the ordered labelled blocks. Essential degree-zero multiplicities after reindexing record only the ordered block sizes. Choosing left or right at each post-initial singleton and moving both sides at every post-initial pair determines the initial interval uniquely from the final interval [1,n], proving the fiber size. Independently of the Delannoy identity, peeling the last block for n≥3 gives two copies of S_{n−1} and one of S_{n−2}; S₁=1, S₂=3, yielding the stated closed form. The ordered compositions of 1s and 2s give the Fibonacci count and asymptotic ratio. VERIFICATION.md and check_antichain.py describe finite exact regression evidence; the script was inspected, not executed, and grid enumeration alone would not cover all continuous paths. Definitions 4.3 and 4.10 of the source support the order/multiplicity interpretation.
 
-Belton et al., arXiv:2611.00261v1 (2026-10-30), define simplicial equivalence and combinatorial diagram equivalence and, in Conjecture 7.1, explicitly discuss enumerating simplicial classes. Material inspected: complete accessible HTML, especially definitions, path construction and discussion. The source supplies the framework but not this family-wise exact enumeration, the explicitly constructed representatives or the degree-zero quotient fiber sizes. Autebert and Schwer (2003) treat generalized Delannoy paths and their order-theoretic structure; the mere occurrence of Delannoy numbers, Pell-type sequences or Fibonacci numbers is not claimed new. Searches using antidiagonal entrance grades, monotone paths, two-parameter persistence, equivalence and both sequences found no directly covering publication or research-index record. Broader unpublished or differently indexed equivalences remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The motivating framework identifies finite class enumeration as a concrete computational need. This is a complete and unbounded natural case with the strongest possible incomparability among entrance grades; it gives a canonical representative for every simplicial class, the exact quotient fibers for every combinatorial barcode, and an exponential quantitative separation between finer and coarser classifications. It is not offered as a general method for higher-dimensional bifiltrations, but its concrete boundary case can be used to test candidate enumeration algorithms and filtration-invariant summaries.
+Pass for the tie-inclusive class enumeration, the isolated-vertex Fibonacci barcode quotient, and the full ordered-composition fiber formula. The same-day rectangular-closure result really does cover the strict all-singleton restriction of the claim; no priority is inferred within the day, and that special case is not credited separately. The Delannoy and Fibonacci arithmetic is classical.
 
-## Limits
+## value
 
-The count uses labelled vertices, a fixed antidiagonal grade configuration, and full monotone path space. No independent mathematical audit or exhaustive publication-priority review is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a complete test family for the motivating extended-barcode class-enumeration problem. It isolates why allowing continuous paths with simultaneous births changes both the class count and which class distinctions survive persistence. The exact fibers and explicit representatives quantify a loss of labelled information that strict-path counts alone would miss. It does not resolve the general directed-cubical conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:11:29.049137Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The generator gives the moment equations in RESULT.md:35–43 without a boundary-flux argument: A=E[XV] has transport source E[V²]=v²P(active), loss λA, and resting-to-moving source α₀ηB/t, while B=E[X²1_rest] has inflow λ(M−B) and outflow 2ηB/3. The active probability is 1−(λ/γ)(1−e^(−γt)), and the positive source and B≥0 give A>0 and M'=2A>0. Transforming the scalar equation after multiplying by t gives RESULT.md:56–64 with the stated signs and normalizations. For I~s^(1+θ), (IF)'~−Cs^(θ−2); below 1 the divergent integral dominates the integration constant, and at 1 it gives C log(1/s)+O(1). The nonnegative, nondecreasing M meets the monotone-density hypothesis of the Laplace Tauberian step (Γ(2)=1). Thus both physical-time limits and amplitudes are correct; the scale λ in the logarithm has no leading effect at fixed rates. The strict condition λ/η<2/3 is exactly the feasibility of θ=1 in the open reinforcement interval; divergence as θ approaches 1 presupposes that approach is available. VERIFICATION.md and verify.py describe symbolic and finite trajectory checks, inspected but not executed; those checks do not establish the infinite-time limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Equation (16) is the exact same forced equation before specializing to θ≤1. Equation (17) explicitly displays (1+θ)/s and −C/s³ at small s; Eqs. (19)–(23) discuss the homogeneous power branch and strict superdiffusion."
+        ],
+        "reasoning": "The wider-parameter transform and its published low-frequency reduction supply precisely the information needed in both claimed regimes. The fact that the paper focuses on the homogeneous superdiffusive branch does not remove that coverage.",
+        "searches": [
+          "arXiv:2110.04299, Section III, Eqs. (16)–(23)"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary exact-claim search",
+        "Fedotov et al., arXiv:2110.04299, primary full-text equation passages",
+        "Frozen RESULT.md, VERIFICATION.md, verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Multiplication by s^(1+θ) reduces the published leading forcing to −Cs^(θ−2). Its primitive supplies C/(1−θ) at θ<1 and a resonance C log(1/s) at θ=1, with no leading dependence on a homogeneous constant. The stated model gives M'≥0 directly from the moment generator, and standard Karamata/monotone-density inversion gives the stated physical-time constants.",
+          "Solving the already published θ=2α₀η/γ for θ=1 and intersecting 0<α₀<2/3 gives the feasibility bound algebraically."
+        ],
+        "reasoning": "This is an elementary asymptotic corollary of an explicitly published forced balance, not a mere analogy with a discrete reinforced walk.",
+        "searches": [
+          "arXiv:2110.04299, exact Eq. (16) and asymptotic Eq. (17); frozen RESULT.md:66–87"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The catalogue's matching title and statement are the assigned ca241a838338 record itself, not independent evidence.",
+          "Putting x₀=0, ν=v, and r₀=1/3 in Fedotov et al. gives the identical physical process, γ and MSD transform."
+        ],
+        "reasoning": "There is no change of model or rate regime between the exact transform in the antecedent and the present calculation.",
+        "searches": [
+          "Resultary: critical logarithmic spreading and exact diffusion amplitudes for self-reinforcing finite-speed run–rest transport",
+          "arXiv:2110.04299, Eqs. (4), (7)–(11), (14)–(17)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact amplitude table emerged from the catalogue comparison. The primary paper does not tabulate the two limits but prints the leading transform coefficients from which both follow."
+        ],
+        "reasoning": "No exact-match wording has been identified. For these asymptotic expressions, the published formula is stronger evidence than the absence of a separate table entry.",
+        "searches": [
+          "Resultary: critical t log t and exact diffusion amplitudes for the finite-speed self-reinforcing run–rest model",
+          "arXiv:2110.04299, Eqs. (16)–(23)"
+        ]
+      },
+      "rationale": "The same-model primary paper gives not merely a related evolution equation or an exponent, but the exact forced MSD transform (16) and its leading small-s inhomogeneous balance (17) with the identical C and θ. Integrating this already identified leading balance, then applying standard monotone Laplace inversion with immediate generator monotonicity, mechanically yields both limits and the amplitudes. It is a correct clarification of the published formula, not an independent original result under this standard. This is implicit derivability, not an assertion that the paper prints the two limits.",
+      "residual_risks": [
+        "No exhaustive priority claim; another paper may state the limits explicitly. The adverse finding already rests on verified implications of the exact same-model primary text, not on a failed search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the claimed additions by standard implication, though not printed as the claimed limits.",
+          "evidence": [
+            "Eq. (16) exact inhomogeneous transform; Eq. (17) leading singular coefficients; Eqs. (19)–(23) homogeneous power and strict superdiffusion condition."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2110.04299",
+          "material_read": "pp. 2–4, Eqs. (4), (7)–(11), (14)–(23), especially pp. 3–4 around extraction offsets 17480 and 19400",
+          "method": "Primary arXiv PDF retrieved and decisive equation passages read",
+          "title": "Superdiffusion in self-reinforcing run-and-tumble model with rests",
+          "trigger": "Exact same process and possible forced-transform coverage of the amplitudes"
+        },
+        {
+          "assessment": "Identical assigned record, not independent priority evidence.",
+          "evidence": [
+            "Same fixed-rate cases, same critical law, same C."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-critical-logarithmic-spreading-and-exact-diffusion-amplitudes-fo--ca241a838338",
+          "material_read": "Indexed claim, compared with frozen RESULT.md:3–31, 53–87",
+          "method": "Local Resultary hit and bound original",
+          "title": "Critical logarithmic spreading and exact diffusion amplitudes for reinforced run–rest transport",
+          "trigger": "Strongest local catalogue hit"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Distinguishing equality from ordinary diffusion is useful interpretation of the published model, and the logarithm is real. But the frozen contribution is restricted to reading off the leading terms of the published forced balance and routine inversion; positivity follows from the same moment generator. The fixed-rate amplitudes and feasibility inequality are mechanically implied. No separate quantitative uniform crossover, distributional result, or other nonroutine gap is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

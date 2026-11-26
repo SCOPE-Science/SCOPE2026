@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the exact finite six-regular graph pair, endpoint derivatives yield the full many-lead Kirchhoff boundary equation. The induced port resolvent determines the scattering matrix through an invertible Cayley transform; the strongly regular identity gives the resolvent as a nonzero multiple of the induced contact adjacency matrix plus universal diagonal/all-ones terms. The four graph types on three vertices are realized in both graphs, whereas a rook four-clique cannot occur in the Shrikhande graph because its vertex neighborhoods are chordless six-cycles. This proves the all-generic-energy threshold; exact arithmetic replay confirms the matrix identities, the exhaustive small-contact classification and the special-energy witness. Singular energies and nonstandard coupling conditions are outside the proof.
+PASS
 
-## Originality — PASS, subject to stated residual risks
+For s=sin(kℓ)≠0 the finite-edge endpoint derivative at u is k(f_v−cos(kℓ)f_u)/s. With ordered lead inclusion P, amplitudes a,b, and z=6cos(kℓ), Kirchhoff therefore reads (zI−A)f=isP(b−a), with Pᵀf=a+b. At the stated resolvent energies, define G=Pᵀ(zI−A)⁻¹P. This gives S=−(I+isG)(I−isG)⁻¹, where the denominator is invertible because G is real symmetric. The inverse map G=(is)⁻¹(S+I)(S−I)⁻¹ is defined since S−I=−2(I−isG)⁻¹. In particular the proof does not need G itself invertible or a separate Dirichlet nonresonance assumption at the contact set. Multiplication by zI−A, using A²=4I+2J and AJ=6J, proves the claimed resolvent expansion. Its ordered port block depends injectively on A[T] since its A[T] coefficient is 1/(z²−4), nonzero. Both graphs have an edge and a nonedge; common-neighbor counts give a triangle and an induced path, and union-of-neighborhood bounds give a one-edge triple and an independent triple. All labelings are admissible, so these exhaust equality through three ports. Any rook row is a K4; the Shrikhande neighborhood is a chordless six-cycle by Cayley differences and precludes a K4. At kℓ=π/3 the K4 resolvent has off-diagonal 1/15, whereas any four Shrikhande contacts have a pair with entry −2/15. Independent replay: python3 /workspace/replay/contact_profiles.py verifies exact strongly regular identities by bit masks, the integer-multiplied z=3 inverse, and exhausts the ordered adjacency profiles (support sizes 1,2,8 in both, then 54 versus 63 at four). The all-allowed-frequency result follows from the analytic reduction, not this finite check. No assertion at excluded energies or for every four-port layout.
 
-Mugnolo–Pivovarchik (arXiv:2211.05465) addresses a *single* appended lead and specific small/fuzzy-ball families; it does not assert this four-port threshold. Lawrie–Gnutzmann–Tanner (arXiv:2309.11251) and Kurasov et al. (arXiv:2505.16621) cover scattering and M-function constructions generally but not this graph-pair port-count classification. Band–Sawicki–Smilansky (arXiv:1007.0222) concern symmetry-based isoscattering constructions, not this fixed pair's minimal terminal count. Induced-clique geometry is known and credited; the assessed contribution is its **exact relation to attainable on-shell scattering matrices and a sharp port threshold**, not re-proving the two graphs are nonisomorphic. Prior mathematical-result and own historical title/claim searches found no covering claim; differently indexed equivalent multilead work is a residual priority risk. Some general formulae readily imply intermediate steps, but not a cited stronger prior statement of the exact threshold.
+## originality
 
-## Value — PASS
+PASS
 
-The fixed 16-vertex pair is a canonical minimally sized cospectral strongly regular counterexample to graph reconstruction from global spectrum. A sharp count of the identical waveguide contacts sufficient to create distinguishable scattering datasets is a motivated inverse-scattering observable rather than an arbitrary induced-subgraph count. The result simultaneously proves impossibility for any placement with up to three terminals, supplies a working four-terminal design and gives a single-frequency exact formula. It does not claim a universal threshold for other cospectral pairs.
+Scattering via a boundary matrix, the strongly regular identities, and the clique contrast are known inputs. The supported distinct result is a sharp threshold for the sets of experimentally attainable ordered responses for this canonical pair, with an injective reduction to induced contact patterns throughout the stated frequency domain. The inspected literature and comparable records do not supply the induced-pattern classification of the scattering responses or the minimum-port theorem.
 
-## Closest sources and limits
+## value
 
-The main source's original 2022 preprint was inspected across its introduction, single-lead setup and Sections 4–6. The 2023 scattering Green-function paper and 2025 M-function family paper were inspected for their formalism and scope; the latter's open full-text HTML includes the principal theorem and examples. Residual risks include uncatalogued equivalent formulations using response matrices, projected resolvents or distance-regular graph terminology. Mathematical correctness is limited to generic positive energy and standard equilateral Kirchhoff networks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Rook versus Shrikhande is a natural fixed test of how local probes distinguish a globally cospectral pair. The result establishes a sharp information limit for arbitrary layouts with fewer leads and an exact realizable four-lead design usable at a single frequency, rather than presenting only a numerical distinguishing example. The sets-of-responses distinction is explicitly narrower than identifying the graph for an arbitrary layout.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

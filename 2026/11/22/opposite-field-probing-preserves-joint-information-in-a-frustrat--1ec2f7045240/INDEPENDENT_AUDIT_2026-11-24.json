@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:06:47.144857Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–100; VERIFICATION.md and verify.py (inspected, not run)",
+        "/workspace/replays/3.py and /workspace/replays/3.log: SymPy 1.14.0 exact eight-state covariance determinants, quartic and rescaling identities"
+      ],
+      "rationale": "The state types (B,M) have multiplicities 1 for (3,±3) and 3 for (−1,±1). Their covariance gives the two-parameter Fisher matrix for dimensionless coupling and common offset. Spin reversal preserves the two diagonal entries and changes the sign of the nonzero cross-entry at y>0, making w=1/2 uniquely optimal for a fixed y>0; all allocations coincide at zero field. Direct rational differentiation gives F'_a with the asserted quartic numerator. The coefficient thresholds appear in ascending order for decreasing degree, so there is one sign variation even at a zero coefficient. Descartes plus the signs at zero and infinity give exactly one simple positive root. The factorization P_a(1)=(a+3)(39a²−46a−9) gives the exact physical threshold, and at equality the derivative is strictly negative for q>1. In the limit a down to 0, the rescaled polynomial changes sign across aq=3, trapping the unique root; the scaled determinant converges locally uniformly around that root, so the maximum tends to 4. Converting q to y gives the stated field scale. For every single field, G_a≤64a/3 for a≤1, with matching limit at q=a^−1/2. This uniform comparison allows a field depending on a. The ratio uses identical total observation counts and the same parameterization.",
+      "residual_risks": [
+        "Local design at zero offset, independent full configurations, freely varying opposite equal-magnitude settings; optimization does not cover arbitrary multisupport design. Equal allocation is the continuous design weight, realizable exactly with an even sample count."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Invernizzi et al. study quantum Fisher information for estimation of one coupling in a transverse-field chain.",
+          "The catalogue design analogues concern survey effort or Gaussian image sampling positions. The primary literature query yielded no relevant additional theorem."
+        ],
+        "reasoning": "General concavity and reflection symmetry favor symmetrizing the allocation; they do not solve the remaining optimization over field magnitude or yield the quartic/crossover. These related designs use other models and parameters and so do not dominate the claim.",
+        "searches": [
+          "Ising triangle Fisher information D-optimal design paired opposite magnetic fields joint estimation exchange field offset",
+          "arXiv:0807.3213v1; Resultary b8f26f454426 and f0ea65f75ed4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.08072v1 and 0807.3213v1; Resultary 7ae335cd20e9, b8f26f454426, f0ea65f75ed4 and assigned self-hit 1ec2f7045240"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior metric yields the submitted single-setting formula after substitution. Its displayed single-setting bound implies O(a), with q=a^−1/2 giving the sharp leading coefficient by elementary limits.",
+          "The trimer heat-bath analogue optimizes a spectral gap at anisotropic bonds and zero field."
+        ],
+        "reasoning": "Credit the single-field side as a straightforward consequence of a prior exact expression. The complete positive-root and physical-domain classification for the determinant of paired average information is not in the inspected prior statements. Symmetry, a spectral-gap optimum or a single-field Hessian by itself does not establish that optimization.",
+        "searches": [
+          "Ebadi et al. §§2–3 and Appendix A (A.1)–(A.6); arXiv:0807.3213v1; Resultary 7ae335cd20e9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact-title hit was the assigned record. The nearest same-model triangle hit 7ae335cd20e9 concerns heat-bath dynamics.",
+          "The prior single-field determinant matches exactly upon setting a=e^(4x), q=2cosh(2t)−1 and q+3=4cosh²(t)."
+        ],
+        "reasoning": "The determinant of the equal-weight sum of Fisher matrices is not the average of single-matrix determinants: the cross-entry cancels before taking the determinant, so the paired optimum is not a reparameterized single-field optimum.",
+        "searches": [
+          "Resultary: paired opposite field Fisher information Ising triangle common longitudinal offset",
+          "Primary arXiv:2611.08072v1 Appendix A; Resultary 7ae335cd20e9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact paired quantities hit the assigned record itself. Appendix A gives exact g and det(g) for the same object, but for the single field."
+        ],
+        "reasoning": "The known metric is a derivational input, not an exact paired-design table. Optimizing a product of diagonal entries, rather than the prior metric's determinant, yields a different stationarity equation.",
+        "searches": [
+          "Resultary: exact paired-trimer quartic threshold and strong-antiferromagnetic determinant",
+          "arXiv:2611.08072v1 Appendix A"
+        ]
+      },
+      "rationale": "The Gibbs model, single-field metric and determinant are prior, and the single-field asymptotic follows directly from that known determinant. Symmetrized allocation is a standard information-design argument. The distinct contribution is the exact global magnitude classification within paired opposite equal-magnitude fields and the resulting strong-antiferromagnetic information rescue relative to all single fields, not the ingredients alone.",
+      "residual_risks": [
+        "Bounded indexed and literature inspection cannot rule out unindexed equivalent optimal-design work. Prior Fisher formulas make the new question directly tractable and are explicitly credited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior metric and single-setting determinant, no paired optimum in inspected statements",
+          "evidence": "Determinant is 144 exp(4x)[3 exp(4x)+2 cosh(2t)−1]/[cosh²(t)(exp(4x)(2 cosh(2t)−1)+3)^3].",
+          "identifier_or_url": "https://arxiv.org/abs/2611.08072v1",
+          "material_read": "OA PDF pp. 1, 3 (abstract and results; offsets 0, 7488); §§2–3 pp. 4–5 (offset 11000); Appendix A p. 15 (offset 43600), especially (A.1)–(A.6)",
+          "method": "Primary arXiv OA PDF passage reads",
+          "title": "Thermodynamic geometry of three coupled Ising spins: exact curvature, frustration and bond anisotropy",
+          "trigger": "Same symmetric triangle; exact credited Fisher metric"
+        },
+        {
+          "assessment": "Different one-parameter quantum system in inspected material",
+          "evidence": "Quantum Fisher coupling estimation for a transverse-field Ising chain, not local joint classical trimer parameter estimation.",
+          "identifier_or_url": "https://arxiv.org/abs/0807.3213v1",
+          "material_read": "OA PDF p. 1, offset 0",
+          "method": "Primary OA passage",
+          "title": "Optimal quantum estimation in spin systems at criticality",
+          "trigger": "Ising Fisher optimization precedent"
+        },
+        {
+          "assessment": "Dynamics objective, not equivalent; same-day date does not establish priority",
+          "evidence": "Optimizes the heat-bath chain spectral gap at a matched anisotropic bond ratio in zero field.",
+          "identifier_or_url": "Resultary 7ae335cd20e9",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local catalogue mirror",
+          "title": "Exact frustration-matched mixing optimum on the three-spin Ising triangle",
+          "trigger": "Distinct same-day exact Ising-triangle optimum"
+        },
+        {
+          "assessment": "Design analogues in unrelated models",
+          "evidence": "Survey-duration splitting and Gaussian image sampling, respectively; neither supplies the magnetic-field magnitude optimum.",
+          "identifier_or_url": "Resultary b8f26f454426; f0ea65f75ed4",
+          "material_read": "Mirrored RESULT.md findings, offset 0",
+          "method": "Local catalogue mirror",
+          "title": "A two-visit occupancy experiment breaks equal-effort optimality; Singular and doubly optimal three-point designs for two Gaussian sources",
+          "trigger": "Potential stronger or equivalent D-optimal design formulations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, model scope and §§2–4 of the proof"
+      ],
+      "rationale": "The exact paired design threshold solves a natural local joint-estimation problem and selects a nonzero probe magnitude even for a range of weak ferromagnetic couplings. In strong frustration the design changes a vanishing best single-field information determinant into a finite one, a qualitative improvement under the same sample budget.",
+      "residual_risks": [
+        "Not a thermodynamic phase transition, global uncertain-offset design, or finite-sample estimator guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

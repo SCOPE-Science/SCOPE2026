@@ -1,13 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof explicitly derives the spectral covariance and whitened source-ball operator norm; the worst-case source vector is attained along an eigenvector. The noncentral chi-square CDF is strictly decreasing in its noncentrality parameter, so the inverse CDF gives the unique minimum deterministic radius in the specified ellipsoid family. The fixed-step singular-value asymptotics give the half-order threshold and establish that the normwise sufficient radius diverges. A standalone numerical program checks the identities and selected boundary cases.
+## correctness
 
-**Originality — PASS with residual bibliographic risk.** Abhishek–Holman (2026, arXiv:2610.00882v1, Theorem 3.6) already derive a valid central-chi-square-plus-bias confidence ellipsoid; their §3.3–3.6 was inspected, and that result is not claimed anew. The present mathematical contribution is the exact source-ball minimax calibration *within the covariance-aligned ellipsoid family*, plus the singular-spectrum half-order stability threshold and unbounded gap against the normwise bound. Classical noncentral-chi-square laws and Gaussian confidence-ball theory are prior tools. Older bounded-normal-mean and general Gaussian-ball works pose a limited bibliographic equivalence risk; no claim of global optimality among arbitrary confidence sets is made.
+PASS
 
-**Value — PASS.** The exact spectral calibration matters where singular directions have vanishing propagated variance. For smooth source classes it prevents arbitrary inflation from bounding Euclidean bias and inverse covariance separately; the \(\nu=1/2\) phase boundary precisely identifies when the normalized bias remains bounded. This is an interpretable benchmark for uncertainty calibration of fixed-step regularization, although exact full covariance may be computationally expensive.
+Sum the iteration from zero: x_K=(I−G^K)x†+(I−G^K)B^(-1)Aᵀε. The error is a deterministic source bias plus a Gaussian with covariance σ²B^(-1)(I−G^K)^2. Strict full rank and step bound make that covariance positive definite. After whitening, the deterministic mean is Γ_K^(-1/2)G^KB^νw and the covariance is identity. Its maximum norm equals M times the operator norm of this commuting spectral product, attained at a maximizing eigendirection. The resulting squared length is χ²_n with noncentrality equal to the squared mean norm. A coupling of the Poisson counts in the chi-square mixture gives strict decrease of coverage at each positive finite radius as noncentrality increases; the continuous strictly positive density then makes the proposed quantile necessary as well as sufficient. In the stated two-mode family the small-mode ratio is asymptotic to (2/K)t^(ν−1/2) and the unit-mode ratio is 1/(2^K−1). At equality of the exponents 2/K is larger. For diverging noncentrality the norm differs from the mean norm by at most the standard-normal norm, giving r_*∼Δ_K at a fixed probability level; continuity handles finite limits. Separately the exact Euclidean bias supremum tends to M2^(−K), while the collapsing covariance eigenvalue is asymptotic to σ²K²t/4. Dividing these separately optimized quantities explains the contrasting t^(−1/2) inflation.
 
-**Closest sources:** Abhishek and Holman, arXiv:2610.00882v1, §§3.3–3.6; Baraud (2004), *Confidence balls in Gaussian regression*; Stark (1992), *Affine minimax confidence intervals for a bounded normal mean*. The latter two are related Gaussian-confidence-set theory, not known to treat the stated Landweber spectral degeneration. No independent literature audit has been performed.
+## originality
 
-**Limits:** The source ball, deterministic iteration, Gaussian noise, exact covariance, full column rank, and fixed covariance-shaped confidence ellipsoid are essential. Randomized approximate covariance, adaptive stopping, and unrestricted confidence-set minimaxity are outside scope.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The fixed-shape Gaussian calibration uses a classical noncentral law, and the nearest same-model primary source gives the exact Gaussian error, an ordinary Euclidean source-bias bound, and a sufficient covariance ellipsoid. The supported distinction is the exact aligned source-ball maximum together with the sharp half-order boundary and a separation example that exposes even the exact Euclidean-bias-based norm inflation. The inspected results do not state or supply that spectral boundary and separation solely by applying their sufficient bounds.
+
+## value
+
+PASS
+
+The exact radius is an implementable replacement for an existing conservative bound in the specified family. The two-mode construction is directly motivated by the competing extremes of the published normwise bound: it demonstrates a smoothness threshold and divergence of that bound when the exact radius can stay bounded, and quantifies the divergence rates when both grow. This shows that loss of alignment, not merely a loose Euclidean bias estimate, can dominate the discrepancy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

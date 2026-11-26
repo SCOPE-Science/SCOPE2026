@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph is specified independently in a biaffine point-line model and an LCF chord model, with a tested explicit vertex isomorphism. The equivalence between closed-neighborhood identification and hitting 171 nonempty sets is proved in RESULT.md; both checks enumerate all 262144 subsets, rather than extrapolating from a sample. For each accepted code, complete token-jump adjacency generation and breadth-first search give the 1028 minimum states, their two 514-vertex components and the connected 8640-state size-ten graph. The C++ program checks connectivity of every larger cardinality through eighteen. The Python program separately verifies code counts, size-nine and size-ten topology and every size-nine eccentricity. Both source programs were executed successfully and their recorded outputs compared. No mathematical claim about an infinite family is made.
+## correctness
 
-## Originality — PASS, residual risks stated
-Kovács et al. (2012) cover the Pappus graph as an arc-transitive tricirculant, not closed-neighborhood identifying codes. Balbuena–Foucaud–Hansberg's 2014 arXiv preprint / 2015 journal paper analyzes general minimum identifying-code bounds for girth-at-least-five graphs, not the Pappus code census or token-jump connectivity. Teshima's dissertation uses physically adjacent token slides in a general graph-realizability setting, not unrestricted single-sensor replacement in this exact graph. Mathematical-record and literature searches included the Pappus, biaffine order-three incidence, detection/sensor and exchange aliases; no statement known from the inspected sources dominates the complete exact Pappus threshold. A distinct earlier result on the twenty-one-vertex full affine-plane incidence graph and another on Pappus locating-domination have different definitions or host graphs. Searches and historical coverage are incomplete, and unindexed tables could duplicate the exact counts.
+PASS
 
-## Mathematical value — PASS
-The cardinality-nine code space exhibits two equally large mobility components despite full token jumping; a single additional sensor removes the obstruction. This exact threshold, with complete minima and component geometry, answers a natural robustness and sensor-relocation question in a canonical symmetric cubic incidence graph. It is motivated by the incompatibility of global identification constraints with local replacements, not by an arbitrary numerical slice. The finite classification is valuable independently of any general theorem.
+Reconstructed the finite proof: a candidate meets each closed neighborhood for domination and each pairwise symmetric difference for separation. These tests are necessary and sufficient. Every subset has one 18-bit mask; at fixed weight every legal adjacency is exactly a swap of one present and one absent bit, independent of their distance in Pappus. Read both frozen programs and their output; the C++ census generates all layers, while the LCF cross-check independently covers all code counts but only the k=9 and k=10 exchange graphs. A separately written program (not a run of the frozen code) checked the incidence/LCF isomorphism, exhausted 262144 subsets, found 52638 codes and none below size nine, and reproduced every code count, edge count and component size in the table. At k=9 it reproduced 1028 vertices, 3780 edges, two 514-vertex components with selected point counts 0–4 and 5–9, and the all-line and all-point centers. BFS from each code gave per-component eccentricities 4:1, 5:27, 6:81, 7:243, 8:162, hence radius four and diameter eight in each component. The incidence graph is self-dual via point (x,y) ↔ line (m=x,b=−y); this also explains the symmetry of the component profiles. Each k=10,…,18 was checked to have exactly one component. Replay: python3 /workspace/branches/26b49bef-4acf-427d-bec8-6353c7f4631b/independent_census.py; saved output is independent_census.out in that directory.
 
-## Scope and independence
-The result is restricted to the 18-vertex Pappus graph and closed-neighborhood identifying codes. The 2012 source publication provides a verified eligible historical date; it is not asserted to be the first-ever presentation of the graph. Research searches cannot certify publication priority. No independent external validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the exact one-extra-sensor threshold and census of the larger token-jump layers of Pappus. Two later indexed records contain substantial exact overlap at minimum size, including its geometry in one case; that subclaim is not exclusive to the frozen record. Neither comparison established coverage of the larger identifying-code layers. General graph/code bounds do not determine their component structure.
+
+## value
+
+PASS
+
+An identifying sensor placement must preserve both domination and distinct signatures through each reconfiguration. The unweighted Pappus graph is a natural small symmetric test case in which optimal layouts separate into two geometrically structured regions. Computing the exact next layer and the remaining layers answers the operationally meaningful fixed-size question of how much spare capacity is needed to move between arbitrary valid placements; the answer is exactly one sensor. This conclusion is not just another count of minimum solutions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

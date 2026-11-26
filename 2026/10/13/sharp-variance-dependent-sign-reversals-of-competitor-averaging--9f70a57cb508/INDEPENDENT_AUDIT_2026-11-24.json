@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:09:51.531283Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the absorbing-chain derivation for independent fitness-weighted parent and uniform replacement, as in RESULT.md lines 23–56. On a two-allele edge the target's down/up ratio is z/a; the two harmonic equations give K1=a²/(a²+az+z²) and K2=a(a+z)/(a²+az+z²). At (1,1,1) the total holding probability is 1/3, so an ordered distinct-allele replacement conditional on a change has probability equal to the parent's fitness divided by 2(a+b+c). Two events extinguish A and the other four land on the edges. Their sum gives the stated P_A. For D=a²+am+m² and x=d², the exact P_A simplifies to a²(D−x)/[(D+x)²−(a+2m)²x]. Subtracting a²/D leaves numerator a²x[(a+2m)²−3D−x]=a²x[(m−a)(m+2a)−x] over a positive denominator. Since 0≤x<m², the nonzero boundary is feasible exactly when m/2<a<m; this also checks a=m/2, a=m, and d=0. Independently enumerated ordered individual replacements and solved the two-state edge systems with exact fractions: at a=2,m=3 the two examples give P_A=3/14 and 3904/18907, with differences +1/266 and −1452/359233. No uploaded code was run. The exact identities apply to this N=3 model only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ferreira–Neves give the finite multitype recursion with absorbing and two-type-edge values; at N=3 it directly reduces to one interior unknown. Braga–Wardil–Martinez-Garcia obtain a first-order correction in s_i and their population mean in the constant-fitness case."
+        ],
+        "reasoning": "The finite recursion supports the first-step calculation, but it neither makes an arithmetic-mean comparison nor supplies its sign; a first-order formula is insensitive to an error of cubic or higher order near neutrality.",
+        "searches": [
+          "arXiv:1811.09552v1: transition probabilities; Eqs. 18–26",
+          "arXiv:2604.12004v1: constant fitness, mean fitness; Eq. 37"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary and closest source mirror",
+        "arXiv:2610.04090v1",
+        "arXiv:2604.12004v1",
+        "arXiv:1811.09552v1",
+        "DOI 10.1016/j.tpb.2009.01.009 (abstract only); DOI 10.3934/dcdsb.2020242 (retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A direct N=3 evaluation of the earlier harmonic system can give P_A; it does not order that solution relative to P_av. Deriving the sign requires the exact subtraction, cancellation and admissible-root analysis. The prior diffusion parameter sweeps report an overestimate there, not a one-sided bound for this finite chain."
+        ],
+        "reasoning": "Credit prior exact solvability and the known edge laws; the distinct result is a sharp analytic comparison with a second chain, not a new method to solve the Moran harmonic system.",
+        "searches": [
+          "arXiv:1811.09552v1, exact harmonic system and boundary data, Eqs. 18–26",
+          "arXiv:2604.12004v1, §IV.1 Eq. 37",
+          "arXiv:2610.04090v1, Eq. 105 and Fig. 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In arXiv:2610.04090v1, Eq. 105 and the Figure 4 discussion compare multi-allele diffusion with a Kimura mean-background comparator. The indexed environmental-fixation crossover 2026/11/8/SCOPE-a-sharp-event-rate-threshold-for-environmental-fixation-overshoo--c8d79723b6ba concerns switching-event rates and crossing neutrality, not competitor dispersion in a constant-fitness Moran model."
+        ],
+        "reasoning": "Relabeling the calculation as a mean-field fixation correction or an N=3 overshoot does not make the different transition law, comparator or varied parameter equivalent.",
+        "searches": [
+          "Resultary: three allele Moran fixation averaging fitness background variance sign reversal",
+          "Resultary: finite N=3 Moran fixation competitor averaging bias sign boundary variance",
+          "arXiv:2610.04090v1: mean-field, diffusion, Wright-Fisher"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed small-N threshold retrieved varies environmental event rates and uses a different comparator. No inspected indexed exact table contained the two fixed-mean witness values or the sign surface."
+        ],
+        "reasoning": "A table of finite-state probabilities could reproduce selected witnesses, not the sign classification over strictly positive real fitness triples. The formula and fixed-mean crossover were used as exact search fingerprints.",
+        "searches": [
+          "Resultary: Moran exact N=3 sign boundary (m-a)(m+2a)-d^2",
+          "Resultary: exact frozen title and multitype Moran formulas"
+        ]
+      },
+      "rationale": "The standard two-allele formulas and the ability to compute the three-allele fixation probability via the general exact Moran system are prior methods. The supported distinct claim is the complete signed aggregation error for the arithmetic-mean competitor, including its admissible crossover and both signs at fixed mean. The closest averaging result uses Wright–Fisher diffusion; the closest constant-fitness Moran approximation is first order and cannot detect the effect.",
+      "residual_risks": [
+        "The submitted broader web queries did not return inspectable results; this is not negative evidence. Full-text comparisons were not possible for the Lessard–Lahaie and Rychtář–Taylor papers. The originality judgment is bounded to the decisive inspected primary statements and indexed results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related mean-background comparison in a different stochastic model.",
+          "evidence": "The exact backward-equation solution assumes continuous-frequency diffusion; Eq. 105 uses Kimura fixation with averaged selection, not exact Moran fixation.",
+          "identifier_or_url": "https://arxiv.org/html/2610.04090v1",
+          "material_read": "Introduction, Eq. 105, Fig. 4 discussion (HTML offsets 4100–9099 and 69800–75898).",
+          "method": "Lawful arXiv full-text passages.",
+          "title": "Fluctuation theorems and exact multi-allele fixation probabilities",
+          "trigger": "Same competitor-averaging bias question."
+        },
+        {
+          "assessment": "First order only; does not cover the all-fitness signed comparison.",
+          "evidence": "Eq. 37 uses x_1+Nx_1(s_1−mean s)/2, so it cannot separate the two fixed-mean dispersions at that order.",
+          "identifier_or_url": "https://arxiv.org/html/2604.12004v1",
+          "material_read": "§III Eq. 22 and §IV.1 Eqs. 27–37 (HTML offsets 14500 onward and 21800–30100).",
+          "method": "Lawful arXiv full-text passages.",
+          "title": "Fixation probabilities for multi-allele Moran dynamics with weak selection",
+          "trigger": "Same Moran dynamics and constant fitness case."
+        },
+        {
+          "assessment": "Covers the exact harmonic construction, not the competitor-compression sign theorem.",
+          "evidence": "Gives exact transition probabilities, harmonic equations, and edge data; no averaging-comparator inequality appears in the decisive statements.",
+          "identifier_or_url": "https://arxiv.org/html/1811.09552v1",
+          "material_read": "Abstract; Eqs. 18–26 (HTML offsets 21800–30054).",
+          "method": "Lawful arXiv full-text passages.",
+          "title": "Fixation probabilities for the Moran process with three or more strategies: general and coupling results",
+          "trigger": "General exact finite multitype recursion directly applicable at N=3."
+        },
+        {
+          "assessment": "Different parameter, comparator, and model.",
+          "evidence": "Continuous-time switching environment and a neutrality crossing; no particular Moran reproductive mechanism specified.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-event-rate-threshold-for-environmental-fixation-overshoo--c8d79723b6ba",
+          "material_read": "Mirrored RESULT.md, offsets 0–3311.",
+          "method": "Local Resultary and source mirror.",
+          "title": "A sharp event-rate threshold for environmental fixation overshoot",
+          "trigger": "Strongest indexed N=3 fixation crossover near-match."
+        },
+        {
+          "assessment": "Detailed coverage not determined from retrieval; neither supplies positive coverage evidence for this fixed-fitness comparison.",
+          "evidence": "These are residual comparisons involving finite diploid Wright–Fisher or within-type stochastic reproductive fitness rather than two simultaneous competitors with distinct fixed fitnesses.",
+          "identifier_or_url": "DOI 10.1016/j.tpb.2009.01.009; DOI 10.3934/dcdsb.2020242",
+          "material_read": "First paper's landing abstract only; no full text obtained for either paper.",
+          "method": "Lawful retrieval and repository-copy lookup.",
+          "title": "Fixation probability with multiple alleles and projected average allelic effect on selection; Moran process and Wright–Fisher process favor low variability",
+          "trigger": "Potential prior averaging and variance results."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Three individuals is the smallest population where competitor aggregation changes which alleles can coexist. The sharp variance threshold isolates a meaningful failure of an averaging heuristic at fixed target fitness and background mean, and the exact model-matched witnesses refute either sign as universal. The value is this comparison, not a routine solution of the seven-state chain or an extrapolation to other population sizes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

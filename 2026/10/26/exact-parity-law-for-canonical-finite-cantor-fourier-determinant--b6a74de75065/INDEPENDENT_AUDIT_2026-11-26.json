@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:33:42.268200Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof; VERIFICATION.md and verify.py",
+        "Independent finite replay: python3 /workspace/branches/independent_checks.py 2; direct integer-reduced phases and complex Gram–Schmidt volumes on 25 base/depth pairs, worst log-volume discrepancy about 5.33e-15."
+      ],
+      "rationale": "Split off the first spatial digit a and the lowest frequency digit d, so x=(2a+x')/b and lambda=(b/4)d+b lambda'. Multiplication in the exponent separates as phase (-1)^(ad), the diagonal spatial phase D=diag(exp(pi i x'/2)) when d=1, the shorter matrix F, and a column phase C=diag(exp(4 pi i lambda')) when a=1. Thus the unnormalized blocks are (F,DF;FC,-DFC). For even b, C=I; subtracting the top block row from the bottom makes the latter right block -2DF. For odd b, flipping the leading spatial digit shifts x' by plus or minus 2/b, giving phase (-1)^(sum of the shorter frequency digits), exactly C. If P is that flip, FC=PF, so permuting the lower block row by P and subtracting the upper yields lower-right block -(D+PDP)F. Each diagonal entry of D+PDP has modulus 2 cos(pi/(2b)). Dividing by the row normalization cancels the factors of 2. From the normalized depth-one Hadamard matrix, the recurrence multiplies the squared determinant modulus of the preceding depth by 1 or cos(pi/(2b))^(2^(n-1)), yielding the stated exponent. The determinant is nonzero, det(A* A)=|det A|^2 and the minimum Gram eigenvalue is bounded by the geometric mean. In the even case, unit column norms and equality in Hadamard's inequality imply unitarity.",
+      "residual_risks": [
+        "The finite numerical replay is approximate, not a proof; the exact identities are from the phase calculation. The result controls Gram geometric mean and a bound, not the exact least singular value or an infinite-measure Fourier frame."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The integer result allows varying integer digit steps and has an odd-base maximum with cosine exponent n times 2^(n-1), not (n-1) times 2^(n-1). Theorem 1.1 rules out Fourier frames on the limiting odd-base measure; Lai–Wang studies almost-Parseval-frame towers."
+        ],
+        "reasoning": "Varying allowed integer steps does not broaden the admissible class to the noninteger step here. The infinite nonexistence theorem and positive construction methods do not themselves compute the determinant of this normalized finite design.",
+        "searches": [
+          "Resultary 078452622ace, Finding, Assumptions and Proof",
+          "arXiv:2607.08656 Theorem 1.1 and §1.5; Lai–Wang DOI 10.4171/JFG/52, Definition 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 078452622ace",
+        "Resultary e923fb13ff56",
+        "arXiv:2607.08656",
+        "DOI 10.4171/JFG/52",
+        "Dutkay–Haussermann–Lai, cited theorem and bibliographic entry only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior Hadamard mechanism concerns orthogonality or spectrality; the finite even formula is not assigned separate novelty. In 078452622ace the exact product is over sin(pi d t_j/b) with integer t_j. The frozen odd-base calculation needs a nontrivial spatial digit flip and modulus of a sum of two phases at every extension beyond depth one."
+        ],
+        "reasoning": "Neither an orthogonal even construction nor failure of an infinite frame yields a volume rate for this specific invertible sequence of finite matrices. Formal substitution of b/4 in the integer theorem is invalid outside its hypotheses and does not produce the odd-base formula.",
+        "searches": [
+          "arXiv:2607.08656 §§1.2–1.5, including the cited Hadamard theorem and failed candidate",
+          "Lai–Wang DOI 10.4171/JFG/52, abstract and Definition 1.1",
+          "Resultary 078452622ace, determinant proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "078452622ace treats the same kind of finite grid but imposes integer digit steps; the frozen step b/4 is admissible there only when 4|b. In arXiv:2607.08656 §1.5, the translated ternary digit set Gamma_n acts on the difference space W_n and has only 2^(n-1) entries."
+        ],
+        "reasoning": "An integer-tower determinant is not the same statement after merely renaming a real digit step. In the odd-base case the occurrence of half-turn factors is essential, and the difference-space candidate for a limiting measure is not the full 2^n-by-2^n atomic sampling matrix. Gram determinant and squared Fourier determinant are equivalent observables on the same matrix.",
+        "searches": [
+          "Resultary: canonical finite Cantor Fourier determinant, odd-base parity and digit tower volume",
+          "arXiv:2607.08656 §§1.3 and 1.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e923fb13ff56 gives a volume spectrum for the same depth-two ternary grid but integer frequency classes modulo nine, with maximum approximately 0.63965 and integer binary-tower maximum 9/16. The frozen b=3,n=2 design uses {0,3/4,9/4,3} and has volume 3/4."
+        ],
+        "reasoning": "The depth-two integer table cannot include the frozen noninteger design. The larger integer-tower formula agrees in the divisible-by-four overlap but does not give an exact matching odd-base entry.",
+        "searches": [
+          "Resultary 078452622ace (exact finite digit-tower volume)",
+          "Resultary e923fb13ff56 (unrestricted four-frequency volume spectrum), Finding and Assumptions"
+        ]
+      },
+      "rationale": "The supported distinctive result is the odd-base determinant for this finite atomic grid and the specified, generally noninteger frequencies. The even-base unitary endpoint uses a familiar Hadamard mechanism; for 4|b it also overlaps an exact integer-tower catalogue theorem. The strongest actual comparisons do not cover the odd-base formula or its finite Gram-volume rate. This is a bounded best-of-knowledge distinction, not a historical-priority or infinite-frame claim.",
+      "residual_risks": [
+        "Other analyses of real-frequency Fourier matrices may contain equivalent finite laws. The complete Hadamard triples article was not independently inspected. Neither the dated catalogue records nor the unsuccessful discovery of a matching odd-base statement prove historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact material overlap for 4|b; no frozen odd-base result in scope.",
+          "evidence": [
+            "Product of |sin(pi d t_j/b)|^(2^(n-1)) with integer t_j and consequent optimal integer-tower parity exponent."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-fourier-volume-and-the-parity-barrier-in-binary-cantor-dig--078452622ace/RESULT.md",
+          "material_read": "Finding and assumptions offsets 0–3027; proof 3000–6345; comparison 6200–8293",
+          "method": "Local publication mirror, comparison of frequency domain and exponents",
+          "title": "Exact Fourier volume and the parity barrier in binary Cantor digit towers",
+          "trigger": "Closest exact determinant on the same family of grids"
+        },
+        {
+          "assessment": "Unrestricted among integer classes, not coverage of the frozen noninteger frequencies.",
+          "evidence": [
+            "Four frequencies taken from classes modulo nine; integer maximum and binary-tower submaximum as compared above."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-unrestricted-four-frequency-volume-spectrum-at-the-second-ca--e923fb13ff56/RESULT.md",
+          "material_read": "Finding and assumptions offsets 900–2707; relationship to integer towers 6300–8100",
+          "method": "Local publication mirror, checking scope of 'unrestricted'",
+          "title": "The unrestricted four-frequency volume spectrum at the second Cantor stage",
+          "trigger": "Exact table on the depth-two ternary atoms"
+        },
+        {
+          "assessment": "Limiting measure, plus a different finite difference-space tower; neither is the finite atomic determinant.",
+          "evidence": [
+            "Theorem 1.1; Gamma_n(tau)=tau+3^n/4+Xi_(n-1) in §1.5, for W_n."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.08656",
+          "material_read": "§§1.2, 1.3, 1.5, PDF pp. 2–3; bibliography p. 14",
+          "method": "Open primary text passage comparison",
+          "title": "Cantor measures with odd base do not admit Fourier frames",
+          "trigger": "Closest primary source: parity and a related ternary candidate tower"
+        },
+        {
+          "assessment": "Construction method for frame towers, not the stated determinant.",
+          "evidence": [
+            "Almost-Parseval-frame tower definition and existence context."
+          ],
+          "identifier_or_url": "https://doi.org/10.4171/JFG/52",
+          "material_read": "EMS PDF abstract p. 1 and Definition 1.1 p. 3",
+          "method": "Open journal PDF passage comparison",
+          "title": "Non-spectral fractal measures with Fourier frames",
+          "trigger": "Related finite matrices in frame-tower constructions"
+        },
+        {
+          "assessment": "Spectrality endpoint comparison only; not an assertion about the unread full text.",
+          "evidence": [
+            "Hadamard triples generate spectral self-affine measures."
+          ],
+          "identifier_or_url": "Trans. Amer. Math. Soc. 371 (2019), 1439–1481",
+          "material_read": "Theorem summary and bibliography as cited in arXiv:2607.08656 §§1.2 and p. 14; primary full text not retrieved",
+          "method": "Bibliographic/theorem comparison as reported in the inspected primary Cantor paper",
+          "title": "Hadamard triples generate self-affine spectral measures",
+          "trigger": "Prior even-base Hadamard mechanism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Gram consequence and stated limits; arXiv:2607.08656 §1.5 and Resultary integer-tower comparisons above."
+      ],
+      "rationale": "Fourier interpolation motivates the natural basis-size digit design and its volume: it is isometric at all depths for even bases but invertible with declining per-mode Gram volume for odd bases. The exact finite rate shows that no depth-uniform lower singular-value bound holds for this design and gives a benchmark against nearby frequency towers. That is a nontrivial finite quantitative conclusion, rather than a restatement of the limiting no-frame theorem.",
+      "residual_risks": [
+        "No optimality among frequency families is proved, and volume does not determine the full spectrum or the exact least eigenvalue."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

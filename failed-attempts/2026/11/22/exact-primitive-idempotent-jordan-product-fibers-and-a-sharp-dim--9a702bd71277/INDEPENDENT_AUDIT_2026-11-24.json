@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:35:35.191114Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The only scalar idempotents are 0 and 1. The nontrivial ones have scalar part 1/2 and vector part x/2 with Q(x)=1; a decomposition into two nonzero orthogonal idempotents cannot use the unit, and two proper parts would sum to scalar 1, so they are primitive. The ordered product determines s=x+y=4w and c=Q(s)/8. The change of variables x=s/2+z, y=s/2-z is a bijection to B(s,z)=0 and Q(z)=1-Q(s)/4. If s=0 the form is the original one; if s is nonisotropic the restriction has determinant D/Q(s); if s is nonzero isotropic, split off a hyperbolic plane of determinant -1 and count q lifts from a dimension-(d-2) form of determinant -D. Character orthogonality with G^2=chi(-1)q gives the stated even and odd signs, including the level zero, and the dimension-zero convention is necessary. Over an odd finite field, a nondegenerate form of dimension at least two represents every nonzero scalar and always represents zero by the zero vector. Thus all paraboloid targets occur at d>=4. In d=3 a nonzero isotropic s leaves a line representing 1 exactly when chi(-D)=1, giving 2q pairs then and none otherwise. The ternary zero level has q^2 vectors; the split d=2 case excludes every nonzero isotropic s. Bounded literal Cartesian-product checks agreed, including all 3,125 targets for each four-dimensional determinant class over F_5 and 24 omitted targets for the nonsplit-sign ternary example. The preserved replay paths are verify_idempotent_products.py and idempotent_output.txt beside RESULT.md; the frozen runs include characteristic-three and F_9 examples, not a universal certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 3.1 yields the two-factor support reduction; Theorem 3.2 is about word length",
+          "Adriaensen–De Boeck study anisotropic projective points, not the affine sphere convolution",
+          "deadda507c3b §§1–3 use the standard norm counts and hyperbolic splitting"
+        ],
+        "reasoning": "The exact Jordan reduction is prior, while the projective counting scheme is not an exact source for these affine fibers. Rank and determinant are the only inputs to the standard single-level formulas after the reduction, including in odd dimension.",
+        "searches": [
+          "Idempotent words in finite-dimensional simple Jordan algebras, arXiv:2609.23581v1",
+          "arXiv:2402.05055v2, association-scheme intersection numbers",
+          "deadda507c3b standard quadratic counts and sphere intersections"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_idempotent_products.py, idempotent_output.txt",
+        "Resultary deadda507c3b, cf9be84f0007, 0430690c0891, dfb5f1d17166",
+        "arXiv:2609.23581v1 and arXiv:2402.05055v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The article constructs both idempotents from a perpendicular norm solution and explicitly recovers the perpendicular parameter by their half-difference",
+          "The exact quadratic level formulas used by the frozen result are classical; the distinct two-shell proof makes the same hyperbolic split for nonzero isotropic sums"
+        ],
+        "reasoning": "The prior algebraic equations enforce a bijection independent of quadratic closedness. For odd d, the nonisotropic restriction is a nondegenerate even-dimensional form of determinant D/Q(s), while the nonzero isotropic restriction contributes a free radical coordinate and a form of determinant -D; substitution gives the remaining formulas. In d=3 the latter is a line and gives q(1+chi(-D)) exactly. In d>=4 it represents 1, proving the advertised saturation by the same computation.",
+        "searches": [
+          "Gogić–Tomašević arXiv:2609.23581v1 proof of Lemma 3.1",
+          "Resultary deadda507c3b sections on one-level counts, nonisotropic and isotropic sums"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "deadda507c3b Proof §§2–3 evaluates the individual convolution even when both radii equal 1",
+          "Gogić–Tomašević parameterize both factors by s+z and s-z with z perpendicular to s and q(z)=1/4-q(s)"
+        ],
+        "reasoning": "For the frozen Jordan product use the two sphere vectors x,y with x+y=4w; every convolution solution gives exactly one ordered pair and has the prescribed scalar part. In the article's unscaled parameter coordinates the vector center is w, so scaling z by 2 gives exactly the frozen norm equation.",
+        "searches": [
+          "Resultary: finite-field spheres, exact two-sum convolution, primitive-idempotent Jordan products",
+          "arXiv:2609.23581v1, Lemma 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "deadda507c3b has the individual convolution in its actual proof",
+          "cf9be84f0007 counts generic spin-factor square roots; 0430690c0891 and dfb5f1d17166 concern Peirce image incidence and associative rank-one products, respectively"
+        ],
+        "reasoning": "Set i=j=1 in the individual sphere calculation to obtain U at zero, L-B at a nonzero isotropic sum, and L+B chi(Q(s)(Q(s)-4)) otherwise. Those are the frozen even-dimensional fibers, including the degenerate perpendicular branch. The other results do not entail those ordered-pair counts by their statements.",
+        "searches": [
+          "Resultary: sphere intersection multiplicities, spin-factor primitive idempotents and related Peirce incidence"
+        ]
+      },
+      "rationale": "The ordered product count is exactly the ordinary unit-sphere self-convolution at s=4w, not just an analogue. The distinct catalogue result deadda507c3b gives that individual convolution in all even dimensions in its proof. Gogić–Tomašević's earlier Lemma 3.1 directly gives the underlying spin-factor multiplication and perpendicular-space parameterization. Its stated support theorem is over quadratically closed fields, not finite fields; nevertheless the algebraic bijection in its proof uses only invertibility of 2. In odd finite-field dimensions the purported extra counts are then a direct substitution into the classical single-level quadratic representation formula, using the determinant of a perpendicular complement or of a hyperbolic-plane quotient. In particular the remaining ternary condition is exactly representation of 1 by a line of square class -D. The failure concerns equivalent coverage and mechanical implication, not a claim that the earlier article explicitly tabulates the finite-field fibers. No chronological ordering of same-day catalogue findings is inferred.",
+      "residual_risks": [
+        "An exact affine association-scheme intersection formula for the odd-dimensional case was not located in the passages read. The negative assessment does not depend on the existence of such a statement; it uses the actual prior Jordan reduction and the standard representation counts. The same-day overlap does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exactly covers the even-dimensional fiber calculation at a single radius, although its boxed result concerns a union of distinct radii",
+          "evidence": [
+            "Proof explicitly gives L+B chi(Delta) for all nonzero i,j at nonisotropic sums, L-B for equal radii at nonzero isotropic sums, and U from each sphere at zero"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-two-shell-fourier-energy-and-a-three-valued-elliptic-trace--deadda507c3b/RESULT.md",
+          "material_read": "Original proof §§1–3, offsets 3560–5532",
+          "method": "Local mirror original file",
+          "title": "Exact two-shell Fourier energy and a three-valued elliptic trace",
+          "trigger": "Exact finite-field two-sphere ordered-sum multiplicities"
+        },
+        {
+          "assessment": "Directly gives the underlying perpendicular norm reduction; its support conclusions assume quadratic closedness and do not explicitly compute finite-field multiplicities",
+          "evidence": [
+            "The proof uses beta=2q(s) and chooses z perpendicular to s of norm 1/4-q(s), giving e_(s+z) and e_(s-z); taking a half-difference recovers the parameter"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.23581v1",
+          "material_read": "Lemma 3.1 on p. 7, offset 28832; proof and Theorem 3.2 on p. 8, offsets 29020–30984",
+          "method": "Lawful OA original PDF",
+          "title": "Idempotent words in finite-dimensional simple Jordan algebras",
+          "trigger": "Earlier two-factor spin-factor support result and candidate reduction"
+        },
+        {
+          "assessment": "Does not give the affine translation-scheme count for this sphere",
+          "evidence": [
+            "Uses anisotropic projective points of a polar space rather than arbitrary affine vectors"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2402.05055v2",
+          "material_read": "Abstract p. 1, §2 p. 6, §4.2 pp. 14–15",
+          "method": "Lawful OA original PDF",
+          "title": "Association schemes and orthogonality graphs on anisotropic points of polar spaces",
+          "trigger": "Possible more general exact intersection numbers"
+        },
+        {
+          "assessment": "Not treated as covering the exact ordered two-factor Jordan fibers",
+          "evidence": [
+            "Squaring of generic spin-factor elements, images of Peirce multiplication, and associative matrix products, respectively"
+          ],
+          "identifier_or_url": "Resultary cf9be84f0007, 0430690c0891, dfb5f1d17166",
+          "material_read": "Indexed claim scopes",
+          "method": "Resultary records",
+          "title": "Related spin-factor, Peirce and associative results",
+          "trigger": "Same algebra, restrictions or fiber terminology"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exact Jordan-product fibers are natural, but the even-dimensional result recasts an existing exact convolution, and the remaining finite-field dimension transition and odd fibers follow directly from the known parameterization by inserting standard quadratic level counts. The anisotropic versus isotropic split changes only the determinant or deletes a hyperbolic plane; the ternary obstruction is the usual square-class test in dimension one. The frozen statement does not establish a distinct nonroutine invariant beyond these implications.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:10:02.230869Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof, especially the limit-set and boundary-exclusion steps",
+        "Frozen VERIFICATION.md: algebraic checks and limits"
+      ],
+      "rationale": "The conditional inclusion probabilities are p_i=2x_i−x_i² and EΔT=2−Q, so the exact quotient update gives mean increment x_i(Q−x_i)/T+O(T⁻²), uniformly. For V=Q, the one-step Lyapunov decrease is governed by G=Σx_i³−Q²=Σx_i(x_i−Q)². The almost-supermartingale estimate proves ΣG(X_n)/T_n<∞. In the time scale with mesh 1/T_n, G has uniformly bounded slope after linear interpolation, and its integral is finite (the interpolation error is bounded by a summable multiple of T_n⁻²). Nonnegative Lipschitz spikes of fixed height would have fixed positive area, so G→0. The zero set is finite and the one-step changes vanish; disjoint neighborhoods of its points cannot be exchanged without leaving their union, so the limit is one such point. Each U_i diverges by conditional Borel–Cantelli using p_i≥U_i(0)/(T_0+2n). For log X_i the two log-increments give drift (Q−x_i)/T with error O(1/(U_i T)+T⁻²); this uses p_i≤2U_i/T. The centered increments have variance O(1/T). Dividing them by log(n+2) gives a square-integrably convergent martingale since Σ1/((T_0+n)log²(n+2))<∞; Kronecker's lemma then gives an unweighted martingale sum o(log n). An omitted colour at a putative size-s limit would instead have eventual positive conditional log drift asymptotic to 1/(sT), whose cumulative sum dominates a positive multiple of log n. This contradicts log X_i≤0. The proof holds for every stated positive initial composition.",
+      "residual_risks": [
+        "No simulation or finite-time certificate is used to infer the limit; the proof does not give a convergence rate or a fluctuation law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lasmar–Mailler–Selmi's general multicolour theorem requires balance; their non-balanced theorem covers two colours and would give 1/2 for the two-colour version.",
+          "Benaïm–Schreiber–Tarrès Theorem 1 gives internally chain-recurrent ODE limit sets under growth, and Theorem 5 assumes the limit set is interior for the time-average conclusion. Their Theorem 8 avoids an unstable interior equilibrium or periodic orbit under nondegeneracy."
+        ],
+        "reasoning": "Generalized urn results can provide the ODE limit-set part, but an initially positive and growing urn need not have an interior limit. A boundary equilibrium here is outside Theorem 8 and its missing colours also have transition probabilities zero there, so the stated nondegeneracy fails at such an equilibrium.",
+        "searches": [
+          "arXiv:1611.09090, Theorem 1 and Theorem 3",
+          "Benaim Schreiber Tarres Generalized urn models of evolutionary processes Theorem nonconvergence linearly unstable equilibria boundary convergence positive growth full text",
+          "arXiv:math/0407129, Theorems 1, 5 and 8"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1611.09090",
+        "arXiv:math/0407129",
+        "arXiv:2403.12423",
+        "arXiv:2308.12528",
+        "Targeted Resultary comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniform-on-subset vectors are equilibria of the mean drift; for s≥2 the within-face directions attract, even though transverse directions repel.",
+          "At a zero coordinate the noise cannot point into that coordinate if the process is at the boundary. Positive initial counts only prevent hitting it at a finite step."
+        ],
+        "reasoning": "Neither elementary drift classification nor the checked avoidance hypotheses makes almost-sure exclusion of a boundary limit automatic. The log-coordinate calculation gives an additional, specific stochastic argument; the graph-coupled two-colour model does not yield it as a special case.",
+        "searches": [
+          "arXiv:1611.09090, §1.4 and Theorems 1 and 3",
+          "arXiv:math/0407129, Theorems 1 and 8",
+          "arXiv:2308.12528, graph interaction model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact rule is R_i(v)=1_{v_i>0} for a two-draw multiplicity vector v in the general replacement-function formulation.",
+          "Its next total is 1 or 2 depending on v; its conditional mean increment is quadratic, and the mixed-pair replacement is not the affine interpolation of the repeated-pair rows.",
+          "Its ODE is a replicator equation with payoff −I."
+        ],
+        "reasoning": "Replacement-function and replicator notation express the same update or its drift, but do not make the process balanced or prove the stochastic limit; a drift equation alone does not determine boundary behavior of the urn.",
+        "searches": [
+          "arXiv:1611.09090, §1.4, Theorems 1 and 3",
+          "arXiv:2403.12423, (k,s,b)-urn definition and Theorem 3.1",
+          "Benaïm Schreiber Tarrès generalized urn models evolutionary processes stochastic persistence boundary repellers positive growth bounded increments convergence non-balanced urn (Resultary)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-date indexed result is about fixed-point counts in random mappings with prescribed indegrees, not a dynamic reinforcement rule.",
+          "The generalized-urn query also retrieves equal-proportion results for mixtures of Friedman and Pólya schemes in two colours, which have different transitions."
+        ],
+        "reasoning": "These indexed results evaluate neither the same process nor this exact limit for it. Bounded searches do not rule out a differently named exact model.",
+        "searches": [
+          "Resultary focused searches for duplicate-suppressed pair-draw reinforcement and a uniform proportion limit",
+          "2026/10/27/SCOPE-convex-order-dispersion-of-loops-under-indegree-balancing-in-uni--e5840749e441",
+          "Benaïm Schreiber Tarrès generalized urn models evolutionary processes stochastic persistence boundary repellers positive growth bounded increments convergence non-balanced urn (Resultary)"
+        ]
+      },
+      "rationale": "The update is a special case of an established replacement-function model, and its Lyapunov and martingale tools are classical. The distinct content is an all-positive initial-state almost-sure limit for this non-balanced multicolour rule. Inspected general urn theorems either require fixed balance or supply an ODE limit-set/conditional convergence result without boundary exclusion. The two-colour analogue is already covered by the non-balanced two-colour theorem; it is not part of the claimed novelty.",
+      "residual_risks": [
+        "A broader stochastic-persistence theorem with hypotheses suited to boundary-degenerate growing urns, or an earlier presentation under another name, could cover the same limit. The checked general limit-set theorem does not settle that step."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains the model formulation; stated balanced and two-colour theorems do not give the result for d≥3 with variable total.",
+          "evidence": [
+            "Balance definition near OA offset 8400–13330; balanced theorem near 15800–19747; non-balanced two-colour theorem near 27400–30331."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1611.09090",
+          "material_read": "§1.4 pp. 2–3; Theorem 1 p. 4; Theorem 3 p. 6",
+          "method": "Lawful OA PDF passages",
+          "title": "Multiple drawing multi-colour urns by stochastic approximation",
+          "trigger": "Closest definition by a multicolour replacement function and limit theorems."
+        },
+        {
+          "assessment": "Growth-based ODE reduction covers part of the proof; the relevant stated nonconvergence theorem is interior, and does not exclude limits on faces.",
+          "evidence": [
+            "Theorem 1 yields internal chain recurrence, not interiority; Theorem 8 requires U⊂int(S_k) and full span of possible increments at U."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0407129",
+          "material_read": "Theorem 1 and §3.1 entry pp. 8–9; Theorem 5 pp. 9–10; nondegeneracy and Theorem 8 pp. 20–21",
+          "method": "Lawful OA PDF, literal queries and bounded inspection by offsets 23350, 26970, 58650",
+          "title": "Generalized Urn Models of Evolutionary Processes",
+          "trigger": "Potential domination by a non-balanced generalized urn framework and nonconvergence theorem."
+        },
+        {
+          "assessment": "This replacement rule lies outside the fixed-total affine class.",
+          "evidence": [
+            "Fixed b per draw and affine sample replacement conditions fail here."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.12423",
+          "material_read": "Fixed total definition p. 4; affine characterization Theorem 3.1, pp. 8 and 10 passages",
+          "method": "Lawful OA PDF",
+          "title": "On affine multi-color urns grown under multiple drawing",
+          "trigger": "Candidate multicolour multiple-draw limit theorem."
+        },
+        {
+          "assessment": "Two-colour graph-coupled process, not a single d-colour urn.",
+          "evidence": [
+            "Draws at graph vertices reinforce through neighbors."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2308.12528",
+          "material_read": "Model p. 2, offsets 6700–10616",
+          "method": "Lawful OA PDF",
+          "title": "Urns with Multiple Drawings and Graph-Based Interaction",
+          "trigger": "Alternative reinforced multiple-draw formulation."
+        },
+        {
+          "assessment": "Different object and invariant.",
+          "evidence": [
+            "The result concerns fixed points of mappings with prescribed indegrees."
+          ],
+          "identifier_or_url": "2026/10/27/SCOPE-convex-order-dispersion-of-loops-under-indegree-balancing-in-uni--e5840749e441",
+          "material_read": "RESULT.md, offsets 0–2374",
+          "method": "Local mirror",
+          "title": "Convex-order dispersion of loops under indegree balancing in uniform mappings",
+          "trigger": "Same-date indexed hit associated with balancing."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md: assumptions, Finding, and boundary exclusion",
+        "Lasmar–Mailler–Selmi, non-balanced multicolour discussion"
+      ],
+      "rationale": "Suppressing repeated additions is a simple, symmetric update with a genuinely random total increment and quadratic mean reinforcement. The exact uniform limit is not a finite-time symmetry identity: symmetry admits several face equilibria, and the proof identifies why an initially present but rare colour cannot be lost in proportion. It supplies an interpretable multicolour example outside the balanced theorem, not a claimed solution for all non-balanced urns.",
+      "residual_risks": [
+        "An example-specific limit, not a general characterization of non-balanced urns or their asymptotic fluctuations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

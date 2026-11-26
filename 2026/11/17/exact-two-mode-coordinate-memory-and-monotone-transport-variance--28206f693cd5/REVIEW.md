@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The transfer operator has exactly the stated action on the four functions \(1,\mathbf1_{[0,1/\beta)},x,x\mathbf1_{[0,1/\beta)}\); the stationary density is normalized and invariant. Duality converts the coordinate covariance at every lag into an exact finite-dimensional matrix element. The four distinct characteristic roots and the explicit three-lag quadratic recurrence remove the third nonconstant mode, and initial moments determine the remaining coefficients. Rational factorization with strictly positive coefficients after \(\beta=1+t\) proves positivity and monotonicity without sampling. The packaged `check.py` verifies all critical polynomial identities symbolically. The proof's scope is stationary \(m\in\mathbb Z_{\ge1}\) only.
+PASS
 
-## Originality — PASS within inspected evidence
+The stationary density h=k(1+b^-1 1_I), I=[0,1/b), follows by summing the m full inverse branches and the last branch on I, then normalizing with k=b^2/(b^2+1). The same branch sum sends u=xh to b^-1 u plus the piecewise-constant correction k m(m-1)/(2b^2)+(k m/b^2)1_I. Thus there is no -b^-3 component already at the starting slopes: u and the two constant pieces span an invariant three-dimensional subspace. With e=1-b 1_I of mass zero, P e=-b^-2 e. Center u by subtracting mu h; its one-step action is b^-1(u-mu h)+delta e, where delta is the e component of the correction. Pairing with x and solving the recurrence gives B=-delta int(xe)/(b^-1+b^-2) and A=Var(X_0)-B, for all lags including zero. Independent symbolic replay /workspace/reviews/replay1.py recovers the stated coefficients and variance rational function and checks that the numerator of -V' after clearing the positive denominator has all positive coefficients in b-1. The manuscript's shifted positivity polynomials also give A>0 and bA>B, controlling odd lags; B>0 follows directly. Stationarity gives the finite covariance sum, absolute summability gives the Green–Kubo limit, and the strict decrease of the rational expression for b>1 applies to the increasing admissible integer-family bases. Only this family and stationary starts are covered, and no CLT is proved. The frozen check.py was read, not executed.
 
-The classic invariant density is attributed to Rényi/Parry; Cornean–Sørensen (2025) already provide the exact relevant invariant transfer space and spectral eigenvalues for the encompassing quadratic family. Suzuki (2023) studies stationary densities and response in random beta systems. The inspected full texts do not assert the exact coordinate correlation coefficients, the vanishing specific mode, or the strict ordering of the Green–Kubo variance over all integral quadratic bases. These are directly computable consequences of the existing finite-dimensional framework, not a claim of a new transfer construction. This close derivability, unindexed papers, and existing numerical diffusion formulas are residual originality risks, not concealed evidence.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The coordinate is a canonical interval observable and the long-run variance is a natural fluctuation measure, rather than an arbitrary finite statistic. The combined identity distinguishes observable-invisible spectral modes, proves positivity at every lag despite a negative alternating mode, and gives a sharp ordered transport law over the entire integer-family of quadratic Pisot bases. This identifies a non-obvious parameter trend beyond the previously published spectral decay asymptotics and exact invariant densities. No claim is made about central limit behavior or random beta mixing.
+Best-of-knowledge pass for the explicit ordered transport-variance result, supported by the stationary-coordinate calculation. The density and piecewise-affine spectral action are prior, and the spectral origin and exponential form of the covariance are direct consequences of that action, not independently new operator or decay theorems. The distinct conclusion is the evaluated Green–Kubo coefficient and its strict parameter ordering; the ordering does not follow from the prior spectral asymptotics.
 
-## Closest literature and limits
+## value
 
-Suzuki (2023, arXiv:2303.17521) is the dated scope source; Cornean–Sørensen (2025, arXiv:2502.17113), especially Appendix C, is the closest direct mathematical antecedent. The inspected results supply a powerful framework from which aspects of this theorem can be reconstructed; no independence, publication priority or external certification is inferred. Generalizations to other algebraic bases and nonstationary initial states remain unproved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The coordinate is a canonical observable and these bases are the natural two-step quadratic greedy family, not a sample chosen after computing. The evaluated long-run variance and its strict ordering compare stationary cumulative fluctuations across the entire integer family. That comparison cannot be inferred from faster contraction rates alone because the weights change and the second mode alternates; the additional positivity argument gives an exact sign and limiting noise scale. The affine spectral construction itself is not the novel or valuable claim here.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

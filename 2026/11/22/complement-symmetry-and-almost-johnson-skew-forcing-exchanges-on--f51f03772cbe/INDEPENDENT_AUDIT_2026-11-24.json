@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:15:17.388169Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent reproduction (branches/reproduce-exchanges.py clebsch; output in branches/reproduce-exchanges.out) used dynamic programming on all 65,536 white sets: the empty set succeeds, and a nonempty white set succeeds iff an open neighborhood hits it in a singleton whose deletion gives a previously successful set. The deleted bit decreases the index, so this evaluates the first-force recurrence exactly with no restriction on the forcing vertex's color. It reproduces every polynomial coefficient, the 6,490 optima, complement closure, and the stated stalled exchanges for the matroid counterexample. For automorphisms an image of 0 and a bijection of its five neighbors prescribe the other ten images via their pairs of shared neighbors; the reconstruction verifies all 1,920 adjacency-preserving permutations and the nine orbits. Pairwise XOR population two constructs precisely the legal jumps. Full unweighted shortest-path searches from all 6,490 sources, without relying on the orbit reduction, return 116,320 edges, the four asserted degree multiplicities, all eccentricities eight, and exactly 9,120 unordered pairs at Johnson distance plus one and none farther. The representative counts and the distance-three example also agree.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "DeAlba treats multipartite, bipartite and unicyclic settings; the Clebsch graph has an odd cycle 0–1–3–7–15–0 and is outside those families. Geneson–Haas–Hogben treats ordinary zero forcing. The exact odd-prism and cubic incidence-graph records use different graphs."
+        ],
+        "reasoning": "Neither a matroid-basis theorem with inapplicable hypotheses nor an ordinary-forcing reconfiguration theorem subsumes the claim.",
+        "searches": [
+          "arXiv:1404.1618, abstract and §§4–5",
+          "arXiv:2009.00220, token-jump reconfiguration",
+          "Resultary: skew forcing bases of incidence graphs and odd prisms"
+        ]
+      },
+      "checked_sources": [
+        "DeAlba arXiv:1404.1618",
+        "Geneson, Haas and Hogben arXiv:2009.00220",
+        "Resultary Clebsch fort/information-set, matching flip, odd-prism and cubic incidence-graph records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The skew-rank inequalities and unique-perfect-matching criterion supply rank constraints; the matching characterization used for the matroid theorem requires bipartite hypotheses."
+        ],
+        "reasoning": "Even an exact rank or forcing minimum would not supply the optimum membership predicate for each labelled subset, let alone the all-pair exchange metric. No inspected result establishes a graph-specific reduction giving those data.",
+        "searches": [
+          "DeAlba, arXiv:1404.1618, §2 and §§4–5, minimum and maximum skew rank and uniquely restricted matchings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "DeAlba's skew rule permits either color. A same-date Clebsch fort/information-set record instead uses ordinary forcing; its forts are not the stall condition for skew forcing."
+        ],
+        "reasoning": "The even-parity five-bit Hamming-distance-four graph and the stated XOR graph are isomorphic, but allowing a white as well as a black forcing vertex changes the feasible family. This is not a relabeling of the ordinary census.",
+        "searches": [
+          "Resultary: Clebsch and folded 5-cube skew zero forcing and complement symmetry",
+          "arXiv:1404.1618, rule and §§4–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact skew census hit is this very record. The distinct results on 160 ordinary forts and Clebsch perfect-matching flips enumerate differently defined objects."
+        ],
+        "reasoning": "A diameter-eight perfect-matching flip result does not give the token-jump distances between skew-forcing vertex subsets. Matching dates alone do not order the different records.",
+        "searches": [
+          "Resultary: labelled Clebsch skew forcing polynomial 6490 and 9120 exchange exceptions",
+          "Clebsch perfect-matching flips and binary information sets"
+        ]
+      },
+      "rationale": "The result is the census and metric for skew forcing on the five-regular Clebsch graph, not for ordinary forcing, matching flips or the ten-regular graph sometimes called Clebsch. No checked prior result supplies these data or implies the exchange-distance bound and detour count.",
+      "residual_risks": [
+        "A bounded literature wave surfaced no usable exact Clebsch-skew census citation and one reconfiguration lookup was deferred. Uninspected or unindexed computations remain possible; this is not a priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Background and conditional results, not the asserted graph-specific optimum census or metric",
+          "evidence": "M⁻(G)≤Z⁻(G); maximum skew rank is twice matching number; matching-to-bases results impose additional structural hypotheses.",
+          "identifier_or_url": "https://arxiv.org/pdf/1404.1618",
+          "material_read": "p. 1 abstract; §2 p. 3 around offset 5600; §§4–5 pp. 8–10 around offsets 17350, 20700 and 22800",
+          "method": "OA primary PDF, targeted passages",
+          "title": "Some results on minimum skew zero forcing sets, and skew zero forcing number",
+          "trigger": "Same forcing rule and potentially stronger rank or matroid characterization"
+        },
+        {
+          "assessment": "Analogous move graph with a different feasible family",
+          "evidence": "Only a blue vertex performs a force in the primary definition.",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.00220",
+          "material_read": "pp. 1–2, around offsets 0 and 5300",
+          "method": "OA primary PDF, definitions",
+          "title": "Reconfiguration graphs of zero forcing sets",
+          "trigger": "Same token-jump adjacency terminology"
+        },
+        {
+          "assessment": "Different forcing convention and no demonstrated equivalent overlap",
+          "evidence": "Its comparison with binary information sets and the orbit of 160 forts concern ordinary zero forcing.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-the-unique-fort-orbit-separating-clebsch-zero-forcing-from-binar--64ea619489d7",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "The unique fort orbit separating Clebsch zero forcing from binary information sets",
+          "trigger": "Same graph and forcing terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "On a canonical strongly regular graph the minimum family is invariant under complementation but not a matroid basis family. Its exchanges are nevertheless connected and uniformly within one step of the ambient Johnson lower bound, with a complete count of genuine detours. This tests specific structural expectations about mobility in skew forcing and supplies a reusable exact benchmark beyond the forcing number alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

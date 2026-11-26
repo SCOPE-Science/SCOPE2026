@@ -1,21 +1,21 @@
-# Scientific review: sharp two-step oscillation coefficient of Bernstein–Kantorovich averaging
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact norm identity follows from the finite Markov cell decomposition, total positivity of the binomial kernel and its binwise integral, preservation of ordered tails, and the endpoint overlap identity. The maximizing upper-half cell indicator establishes attainability. The parity formulas follow by reflection and single crossing. The integral substitution and elementary upper-tail ratio bound give both stated first-order asymptotics. The accompanying exact-rational checker verifies transition masses, normalization and endpoint overlap for degrees 1 through 14; it is supplemental evidence, not an infinite proof.
+PASS
 
-## Originality — PASS, with stated priority risk
+For cell means in [0,1], the second iterate is the expectation under P_x=b_n(x)A, where the stochastic matrix A averages Bernstein basis functions on successive cells. The increasing ratios of binomial basis functions give nonnegative two-by-two minors for both the x-indexed kernel and the averaged matrix (integrate the same minors over ordered cells); Cauchy–Binet preserves the signs in P. Its positive entries give a single negative-to-positive crossing of P_y−P_x for x<y, so its TV is the maximum upper-tail difference. Those upper tails are nondecreasing in x by the same ordering, making x=0 and 1 extremal. At the endpoints A's first and last rows are reflections; comparing t^j(1−t)^(n−j) and its reflected power on the first cell puts the positive part of P_1−P_0 exactly at j>n/2. The cell indicator therefore attains the TV upper bound with essential oscillation one. One step has disjoint endpoint cells modulo null sets. On the relevant upper half, consecutive p_{n,j} have ratio ≤1/n, so the first central term gives the even deficit and twice the first above-center term gives the odd deficit, both up to relative O(1/n). Rescaling by t=u/(n+1), the beta-density weight (j+1)u^j has E(1−u)=1/(j+2); the remaining factor (1−u/(n+1))^(n−j) differs from exp(−(n−j)u/(n+1)) by relative O(1/n) uniformly, and its average is exp(−1/2)(1+O(1/n)). This verifies both leading constants and the logarithmic order. Independent rational integration reproduced the six listed values, including n=1.
 
-The nearest documented results address distinct norms or different operators. Cooper–Waldron (2000), Section 7, compute Kantorovich eigenstructure, not the two-step oscillation norm. Czudek (2016), Theorem 2, establishes single-input generalized-variation contraction, without the sharp second-iterate oscillation coefficient. Heilmann–Raşa (2016 online), Theorem 1 and Example 1, describe qualitative iterates and derivative-based convergence, not the total-variation overlap between their endpoint transition distributions. The sharp one-step Bernstein–Durrmeyer oscillation result concerns another integral kernel and does not imply this super-exponentially small *two-step* Kantorovich overlap. The claimed novelty is the exact coefficient, extremizing input and parity-resolved super-exponential asymptotic, not general total positivity or the known eigenstructure.
+## originality
 
-Relevant comparison material: Czudek https://arxiv.org/abs/1609.00973; Cooper–Waldron https://doi.org/10.1006/jath.2000.3464; Heilmann–Raşa https://doi.org/10.1007/s11117-016-0441-1; Kivinukk–Metsmägi https://doi.org/10.3176/proc.2011.4.01. The original full text of Kivinukk–Metsmägi (2011) was inspected: Theorems 1–2 give variation-approximation estimates for smooth data, not the sharp two-step oscillation coefficient. A historically unindexed equivalent calculation remains possible. Independent publication-priority validation has not been undertaken.
+PASS
 
-## Mathematical value — PASS
+Endpoint TV and total positivity are shared techniques, not new principles. The supported distinct result is the exact endpoint overlap for the second iterate of the classical Kantorovich kernel with its parity-dependent, super-exponential deficit. The strongest catalogue and published matches inspected do not establish that specialization and asymptotic.
 
-The oscillation seminorm is the worst-case deviation between two output evaluations of a Markov averaging operator. Determining the first genuinely contracting power and its *exact* contraction deficit is a natural stability and mixing problem. The result sharply contrasts one-step noncontraction and strict two-step contraction, explains the extremely slow worst-case onset of mixing as degree grows, and supplies explicit finite rational benchmarks with an all-degree asymptotic. It is not merely a variation-diminishing inequality or a generic spectral estimate.
+## value
 
-## Scope and residual limits
+PASS
 
-Real bounded measurable functions on one unit interval, the classical unweighted Bernstein–Kantorovich formula, and exactly two applications. The result does not calculate norms for later powers, nonuniform cells or weighted kernels. Numerical checks of finite degrees and point grids are not substitutes for the analytical total-positivity and asymptotic arguments.
+The first power shows no uniform oscillation contraction, whereas the second has a strictly positive deficit; the exact scale and even/odd constants quantify how weak that first uniform contraction becomes as degree grows. The formula and explicit extremizing input provide sharp information for Markov or approximation estimates that a qualitative mixing result cannot give.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:31:42.920867Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The distribution depends only on ranks. Each count is at least one (the global extremum) and at most two (one per row), with mean 2n/(n+1) by the uniform rank in the n+1-cell row/column union. For the mixed moment I checked the three ordered max/min pair types and their multiplicities 2n(n-1), 2n, 2n(n-1). In the disjoint case the two crossed cells force x>y, not merely separate row constraints. For the row-shared integral, writing d=x-y reduces the inner integral to d(1-d)+(1-d)^3/6. For the column-shared and disjoint cases, integrate their polynomials over the full square and subtract the opposite triangle in variables x and 1-y. The opposite-triangle Dirichlet integrals are respectively q_n and 2q_n/(n-1)^2. This recovers the stated integrals and the covariance after subtracting the product of means. The marginals and mixed moment determine all four probabilities. Strict positivity reduces to the stated central-binomial inequality: binom(2n,n) >= binom(2n,2) >= (n+1)(n+2)/2, which is strictly larger than the required right-hand side for n>=2. Stirling's estimate makes the q_n correction exponentially small and division by p_n(1-p_n) gives the correlation coefficient and asymptotic. As a separate bounded check, python3 /workspace/checks/dual_extrema.py exhausts ranks modulo simultaneous column permutations for n=2,3,4,5 (12, 120, 1680, 30240 equally weighted representatives). The exact tables agree, including the zero off-diagonal entries at n=2. The replay does not imply the unchecked infinite cases; the integral proof does.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baldi–Rinott–Stein study iid continuous vertex values on regular graphs but approximate just one local-extremum count.",
+          "Kundu–Majumdar–Schehr give an exact joint generating function and covariance (N-3)/16 for sign-change extrema along a random walk.",
+          "Bhamidi–Dey–Nobel give Gaussian submatrix local-maxima results, for row/column sums; the single-cell correspondence concerns the maximum statistic."
+        ],
+        "reasoning": "The graph model generalizes the matrix input but the inspected one-count statement does not cover covariance across opposite types. The exact random-walk law uses cumulative heights and sign flips, not independent ranks on the rook graph; the submatrix results likewise do not yield a minimum count in the same array.",
+        "searches": [
+          "Baldi–Rinott–Stein, On the Distribution of the Number of Local Minima of a Random Function on a Graph, §2",
+          "arXiv:2402.04215v2, extrema covariance and eq. (7)",
+          "arXiv:1211.2284v1, abstract and local-optima count"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1016/j.econlet.2005.01.024; Digital Well record 19",
+        "Baldi–Rinott–Stein (1989), §2",
+        "arXiv:2402.04215v2",
+        "arXiv:1211.2284v1",
+        "SCOPE-20261122-355cf7f112df",
+        "SCOPE-20261122-be28b20aeff8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The marginal law and payoff reversal identify p_n but leave one free bivariate parameter. Neither the univariate graph theorem nor the conditional maximum matching statement displayed in the inspected source computes an opposing-extremum joint moment.",
+          "The exact sign-flip covariance for a walk follows from increment comparisons, a different local constraint from the shared competitors in an array."
+        ],
+        "reasoning": "The frozen result's beta integrals depend on the opposing constraints for a max–min cell pair; they are not substitutions into any checked prior count law. Earlier useful exact results are credited where their hypotheses and conclusions match.",
+        "searches": [
+          "Roberts, DOI 10.1016/j.econlet.2005.01.024 and Digital Well record",
+          "SCOPE-20261122-355cf7f112df Finding",
+          "Baldi–Rinott–Stein §2",
+          "arXiv:2402.04215v2 eq. (7)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matrix is the vertex-label model on the rook graph K_2 square K_n (equivalently, ranks on edges of K_{2,n} compared when they share an endpoint). Baldi–Rinott–Stein give a one-type local-extremum bound on regular graphs.",
+          "Simultaneous maxima are pure equilibria of the common-payoff game, and minima are equilibria after payoff reversal. Roberts's accessible abstract treats one equilibrium count.",
+          "The Resultary complete-bipartite peak–valley result uses iid vertex heights on K_{a,b}, rather than the edge label model or its line graph."
+        ],
+        "reasoning": "The payoff and graph aliases are genuine equivalences, but the checked general graph theorem is univariate, and switching vertex and edge maxima changes the graph and law. Payoff reversal gives the second marginal, not a joint coupling.",
+        "searches": [
+          "Resultary simultaneous row/column extrema; peak–valley covariance",
+          "Primary literature query on joint local peak–valley counts for graphs and rook graphs",
+          "Baldi–Rinott–Stein, section 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mutual-maxima entry states Hypergeom(r+c-1,r,c) and a conditional matching law. Setting r=2 and c=n gives the frozen maximum marginal.",
+          "The complete-bipartite entry gives a peak–valley covariance for vertices of K_{a,b}, not for K_2 square K_n."
+        ],
+        "reasoning": "The exact marginal overlap is real but is not the claimed paired table. A vertex set for K_{a,b} and the cells of a matrix have different neighborhoods. No exact paired table is established by the retrieved entries.",
+        "searches": [
+          "Resultary mutual row–column maxima and dual local extrema",
+          "SCOPE-20261122-355cf7f112df",
+          "SCOPE-20261122-be28b20aeff8"
+        ]
+      },
+      "rationale": "Only the paired, same-array max–min law is credited: the marginals are prior. The strongest inspected broader local-extrema results and exact Resultary entries do not supply this mixed moment or the bivariate law. The closest univariate prior was accessible at abstract level only; possible uninspected coverage remains a limitation, not a priority claim.",
+      "residual_risks": [
+        "Roberts's full text was not recovered; its abstract settles only its stated subject, not possible ancillary results.",
+        "An unindexed joint-extrema calculation or stronger graph theorem may exist; the inspected comparisons establish neither global priority nor exhaustiveness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Abstract supports the marginal comparison, not an assessment of the entire article",
+          "evidence": [
+            "The abstract states a formula for the probability of exactly k pure Nash equilibria in a random m-by-n coordination game."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.econlet.2005.01.024",
+          "material_read": "University of Minnesota Morris Digital Well record at https://digitalcommons.morris.umn.edu/mathematics/19/, abstract at offset 0; no readable full text recovered",
+          "method": "OA repository inspection and lawful DOI/repository retrieval attempts",
+          "title": "Pure Nash Equilibria of Coordination Matrix Games",
+          "trigger": "Direct same-model earlier equilibrium count"
+        },
+        {
+          "assessment": "One-type count and normal approximation, not a mixed moment",
+          "evidence": [
+            "The theorem assumes a regular graph and independent common continuous values; W is one local-extremum count and the bound uses E W and Var W."
+          ],
+          "identifier_or_url": "https://papers.neurips.cc/paper_files/paper/1989/file/d947bf06a885db0d477d707121934ff8-Paper.pdf",
+          "material_read": "§2, p. 728 (within offset 0–4772)",
+          "method": "OA PDF passage inspection",
+          "title": "On the Distribution of the Number of Local Minima of a Random Function on a Graph",
+          "trigger": "Broader iid vertex-label model covering rook graphs"
+        },
+        {
+          "assessment": "Bivariate extrema result for a different input and comparison structure",
+          "evidence": [
+            "Sign changes of neighboring walk increments define the local extrema. The exact covariance is (N-3)/16 and equation (7) gives their joint generating function."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2402.04215v2",
+          "material_read": "Passage at HTML offset 9869 and equation (7) at offset 14850",
+          "method": "OA HTML passage inspection",
+          "title": "Universal distribution of the number of minima for random walks and Lévy flights",
+          "trigger": "Prior exact joint maxima/minima count law found by the graph/extrema lookup"
+        },
+        {
+          "assessment": "Submatrix sums and one-sided local maxima in the inspected passages",
+          "evidence": [
+            "The passages define local optima through row/column averages and describe asymptotics for L_n(k), the number of local maxima."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1211.2284v1",
+          "material_read": "Abstract, p. 1; local-maxima discussion pp. 7–8, offset 26300",
+          "method": "OA PDF passage inspection",
+          "title": "Energy Landscape for large average submatrix detection problems in Gaussian random matrices",
+          "trigger": "Maximum-count analogue for Gaussian matrices"
+        },
+        {
+          "assessment": "Covers the maximum marginal, explicitly not the novel portion here",
+          "evidence": [
+            "Hypergeom(r+c-1,r,c) count and conditional matching for maxima only."
+          ],
+          "identifier_or_url": "SCOPE-20261122-355cf7f112df",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary lookup and mirror inspection",
+          "title": "An exact hypergeometric law for mutual row–column maxima",
+          "trigger": "Exact marginal formula for arbitrary rectangles"
+        },
+        {
+          "assessment": "Uses vertex extrema, not the corresponding matrix's ranked edges",
+          "evidence": [
+            "The finding compares each vertex height to neighbors on K_{a,b}."
+          ],
+          "identifier_or_url": "SCOPE-20261122-be28b20aeff8",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary lookup and mirror inspection",
+          "title": "A one-crossing peak–valley covariance law on complete bipartite graphs",
+          "trigger": "Exact joint-extremum covariance on a graph associated with rectangular arrays"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two rows are the smallest nontrivial family with variable counts of both local optima, while the column size is unbounded. The natural comparison is between opposite equilibria of the same payoff matrix, not independent matrices; even the sign and size of the correlation are not determined by the extremum marginals. The mixed moment resolves that issue for every n and classifies the entire joint law, giving a quantitative dependence scale and a useful finite-size benchmark.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

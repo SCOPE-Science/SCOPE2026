@@ -1,15 +1,21 @@
-# Scientific review: three-class Zeckendorf parity imbalance
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The claim specifies the canonical nonadjacent Fibonacci digits, includes \(n=0\), uses half-open Fibonacci cutoffs, and defines the signed count by parity of the number of summands. The last-digit recursion for the weighted polynomial is exact. The period-eight Fibonacci weights modulo three give a monodromy matrix of trace eight and determinant one, so Cayley–Hamilton establishes the *infinite* second-order recurrence, not merely observed data. Direct base values \(3,23\), bounded root-one sum, and cubic-root Fourier inversion give the exact three residue biases at every stated cutoff. Distinct positive eigenvalues give the claimed exponent, and the nonzero dominant coefficient proves sharpness for these cutoffs. The standard-library checker independently verifies the transfer computation and 29,575 finite integer comparisons; these are corroboration, not proof of the infinite statement.
+PASS
 
-## Originality (PASS within inspected evidence)
+The zero word is included, and legal length-L words cover the half-open cutoff: those with a leading zero represent [0,F_(L+1)), and those with a leading one force the next digit to be zero and shift [0,F_L) by F_(L+1); the length zero and one cases start the induction. Weighting by digit parity therefore yields Q_L=Q_(L-1)-z^{F_(L+1)}Q_(L-2) with Q_0=Q_(-1)=1. At a primitive cubic root omega, modulo-three Fibonacci weights are 1,2,0,2,2,1,0,1, repeating since the Fibonacci pair returns. Exact arithmetic with omega^2=-1-omega gives M=[[8+omega,-1-3omega],[3+omega,-omega]], trace 8 and determinant 1. Each phase is a fixed prefix of the periodic transfer times M^t, so Cayley–Hamilton gives the same second-order recurrence; the phase-seven first values 3 and 23 make that subsequence real and strictly positive (the recurrence preserves strict increase). At z=1 the values repeat 1,0,-1,-1,0,1, giving b_t along L=8t+7. Fourier inversion of (b_t,q_t,q_t) gives the exact signed histograms and strict signs. The two distinct eigenvalues 4±sqrt(15) bound all eight phases by a constant times (4+sqrt(15))^t, and F_(L+2) is comparable to phi^L. The positive coefficient (23-3(4-sqrt(15)))/(2sqrt(15)) at phase seven gives a matching positive-order term in D_L(0), excluding every smaller exponent on Fibonacci cutoffs. Independent signed-word concatenation gave (2,-1,-1), (15,-8,-8), (121,-60,-60) at L=7,15,23; independent ring arithmetic and a residue DP also reproduced the matrix and base/phase checks. The unbounded result uses the proof, not the table.
 
-The sequence and its Zeckendorf definition were previously studied by Ferrand (2007), Shallit (2022), and in OEIS A095076; none is claimed new. Shallit's paper proves a complexity theorem, not a signed arithmetic progression count. The relevant Drmota–Müllner–Spiegelhofer result is Möbius orthogonality; the Drmota–Steiner result concerns digit-sum distribution and central limit behavior; and Popoli–Stipulanti study related correlation properties. Neither these nor the inspected earlier sequence data imply an exact phase-seven three-progression imbalance recurrence, a permanent modulo-three sign pattern, or the sharp \(0.536\ldots\) Fibonacci-cutoff exponent. Newman's 1969 formula and later rarefied Thue–Morse results use *binary* digits rather than Fibonacci digits, so substitution without redoing the transfer computation is invalid. Public research-index searches for equivalences and stronger results found fixed-weight Zeckendorf slice distributions and classical binary Newman sums, both mathematically different. Historical priority in unindexed literature remains an explicit risk.
+## originality
 
-## Value (PASS)
+PASS
 
-The result quantifies a natural refinement of the long-studied Fibonacci–Thue–Morse sequence: its signed distribution along the first nontrivial arithmetic progressions. It proves persistent bias in one progression of exactly the opposite sign of the other two, despite near-total cancellation globally. The explicit growth exponent is strictly larger than one half and is sharp on Fibonacci cutoffs, a substantial structural difference that basic equidistribution, digit-sum central limit theorems, and word complexity cannot supply. This provides an exact Fibonacci-numeration analogue of the Newman phenomenon, not a disconnected numerical curiosity. Limits: no arbitrary-cutoff sharp law and no other residue modulus are claimed.
+The same parity word and sublinear arbitrary-prefix cancellation in each residue class are already covered. The distinct result supported here is the exact phase-seven histogram and sign law and the sharp explicit Fibonacci-cutoff exponent. Neither the inspected multiplicative-orthogonality theorem nor a fixed-weight conditional count determines them. The exact Resultary search self-match is excluded as independent evidence.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The classical parity word and the first Newman-style modulus motivate the statistic independently of its numerical value. The exact conditional sign pattern contrasts with the bounded total cancellation, and the established exponent is an optimal order along a natural numeration cutoff family rather than a fitted or finite asymptotic constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

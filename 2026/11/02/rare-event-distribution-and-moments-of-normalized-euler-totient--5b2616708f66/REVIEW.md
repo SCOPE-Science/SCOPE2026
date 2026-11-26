@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The largest-prime-factor decomposition forces the cofactor to be bounded whenever the normalized deficiency complement exceeds a fixed threshold. Higher powers of that largest prime are finite exceptions; the remaining prime-multiple criterion holds at every strict threshold, including the equality boundary. The first moment follows from an exact prime-divisor decomposition, summably small higher prime powers, and dominated convergence using \(\varphi(m)\ge\sqrt{m/2}\). Boundedness of the normalized complement and prime-multiple truncation transfer the first moment to all fixed positive integral moments. Finite enumeration is supplementary, not the basis of the unrestricted proof.
+## correctness
 
-**Originality — PASS (best-knowledge; priority risk remains).** Ranjan–Singh's inequality proves the sign of the unnormalized deficiency, not its threshold distribution or Euler-product moments. Belbachir–Ranjan–Singh's later manuscript gives an expansion for the average *unnormalized* deficiency and explicitly asks for the normalized distribution; its Section 4 prime-multiple identities concern exact Diophantine equality, not these positive-threshold asymptotics. Alladi–Erdős study the distinct additive prime-factor average, not this ratio. Targeted mathematical-record queries and accessible earlier claims supplied no covering implication. A different formulation hidden in the broader historical prime-factor literature remains possible and requires independent priority assessment.
+PASS
 
-**Mathematical value — PASS.** The theorem gives an explicit and complete rare-event law at every fixed positive threshold and an all-moment answer to the normalized deficiency's average-order problem. Its leading constant is an inverse-totient Euler product; the threshold coefficient is a finite, computable inverse-totient sum, with a meaningful discontinuity at every possible critical level. The result strengthens merely knowing that normalized deficiency approaches one.
+Writing n=m p^a with p the largest prime and p not dividing m gives R(n)=[1+(1+S(m))/(p-1)]/[p^(a-1) phi(m)]. The bound (2+omega(m))/phi(m) tends to zero by phi(m)>=sqrt(m/2), so a fixed threshold bounds m, and a>=2 then yields only finitely many possibilities. For fixed m and a=1, convergence to 1/phi(m) is strictly from above; this proves the weak multiplier cutoff even at equality. Multiple representations with distinct bounded m cause only finite corrections. For the first moment, summing over exact prime valuations gives coefficient p^(1-a)/phi(m); the terms a>=2 are O(sqrt(x)), the removed coprimality restriction for a=1 costs O(sqrt(x) log(x)), and the m>sqrt(x) tail is O(x^(3/4)). For smaller m the PNT bound permits summable domination after scaling by log(x)/x. For higher moments, the finitely many disjoint small-m families give their stated coefficients, and the complement is bounded by 2^(k-1) times its first-moment mass. The needed R<=2 also follows elementarily: the product of two or more odd-prime factors p-1 (each at least 2) is at least their sum; the smaller support cases give the same bound directly. Multiplicativity gives the displayed convergent Euler factors. Independent gcd-count and prime-family enumeration through 1600 reproduced H(1)=3/2 and H(1/2)=9/4 with finite count corrections -1 and -3 respectively, including the strict endpoint test. The proof, not the finite checks, supports the asymptotics.
 
-The theorem fixes the threshold and moment order; no uniform small-threshold law or central limit theorem is asserted. Its numerical program checks finitely many instances only. The 2025 originating inequality and 2026 follow-up are distinct from the claim established here.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The normalized question itself is prior work. The supported distinction is the exact finite-exception prime-multiple classification and the leading coefficients for every fixed positive integral moment; the inspected results do not give these. No novelty is credited for the prime number theorem, large-prime decomposition, or the Euler product as a formal multiplicativity calculation.
+
+## value
+
+PASS
+
+For a previously posed normalized-distribution problem this gives structure beyond typical convergence: it identifies essentially every positive-threshold exception and quantifies its density and contribution to all fixed integral moments. In particular the equality threshold is accounted for by a one-sided correction rather than being inferred from a limiting atom.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

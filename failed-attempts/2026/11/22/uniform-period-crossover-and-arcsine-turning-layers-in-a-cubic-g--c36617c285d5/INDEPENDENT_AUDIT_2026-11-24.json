@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:13:26.619499Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 32–95",
+        "Frozen VERIFICATION.md and checker.py (read-only)"
+      ],
+      "rationale": "The conserved energy has an even confining potential strictly increasing for x>0. Each positive level is a single regular oval with nonvanishing flow, and four quarter-transits give the least return time. The increasing change q=integral_0^x exp(beta*u^2/2) du does not change time; the transformed force has derivative 1+(beta+3*alpha)x^2+alpha*beta*x^4, so h(q)/q strictly increases on q>0. Rescaling the conservative quarter-period shows strict decrease; local dominated convergence gives continuity and the 2*pi small-amplitude limit. Independently, at s=beta(A^2-x^2), speed squared is exp(s)*J(s)/beta, where J(s)=integral_0^s (1+alpha*A^2-alpha*u/beta)exp(-u) du. Thus T=2*I/(A*sqrt(beta*(1+alpha*A^2))) and the time-sampled s-density is the kernel divided by I. With B=beta*A^2 and alpha/[beta*(1+alpha*A^2)]<=1/B, the kernel on s<=B/2 is dominated by twice exp(-s/2)/sqrt(1-exp(-s)); the remaining mass is O(B*exp(-B/4)) uniformly in alpha. Compact convergence plus these bounds yields uniform L1 convergence to the limiting kernel of integral pi. This proves both the claimed period normalization and TV convergence, including alpha=0 and arbitrary amplitude-dependent alpha. The bijective exponential change gives the arcsine law, and reflection gives equal mass at the two signs.",
+      "residual_risks": [
+        "No formal verification asserted. Finite quadrature in the supporting file is not evidence for a uniform TV limit on its own."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2728f0f48663 gives uniform O_h(A^-2) errors in the period normalization and TV law. Appis–Llibre Theorem 4(c,d) gives global centering for the full relevant coefficient regime, not the quantitative asymptotics. Villadelprat–Zhang gives general separable-Hamiltonian period criteria."
+        ],
+        "reasoning": "The quantitative theorem has precisely the assigned regime of fixed positive h and all nonnegative k and implies the weaker uniform limits, including all crossover choices. General criteria alone do not provide that uniform layer law.",
+        "searches": [
+          "Matching Resultary Finding 2728f0f48663; Appis–Llibre DOI 10.1007/s00010-024-01051-7; Villadelprat–Zhang DOI 10.1007/s10884-019-09759-w"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary entries 2728f0f48663, 5ef7d7af5678, ffe383da977f and the different-field beta-layer record 241e91583a30",
+        "Appis–Llibre (2024)",
+        "Chanda–Ghose-Choudhury–Guha (2018)",
+        "Villadelprat–Zhang (2020)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The period limit and occupation law follow directly from the quantitative bounds in 2728f0f48663. The alpha=0 coarse square-wave limit in 5ef7d7af5678 alone does not distinguish microscopic gaps; ffe383da977f treats a quintic system. The multiplier construction is general method, not a family-specific distribution."
+        ],
+        "reasoning": "Even the asserted exponential-coordinate distribution and equal sign mass do not form independent remainders: the former is the pushforward of the matching gap law, and the latter follows from the same field's exact reflection symmetry.",
+        "searches": [
+          "Resultary 2728f0f48663 (Finding); 5ef7d7af5678 (Finding); ffe383da977f (Finding); Chanda–Ghose-Choudhury–Guha, EJDE 2018 no. 120, Proposition 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Matching Finding at offset 0: original flow with restoring coefficient k and velocity coefficient h, h>0 and k>=0; strict period decrease from 2*pi to 0; layer R=A^2-x^2 with density h/[pi*sqrt(exp(h*r)-1)]."
+        ],
+        "reasoning": "Set k=alpha and h=beta, then S=beta*R has density 1/[pi*sqrt(exp(s)-1)], exactly the assigned kernel divided by pi. TV is invariant under this change, and Z=exp(-S) gives the very same arcsine law. The least-time normalization is unchanged.",
+        "searches": [
+          "Local Resultary: cubic global center uniform period crossover and physical-time arcsine turning layer; matching RESULT.md 2026/11/17/SCOPE-uniform-period-crossover-and-arcsine-turning-layers-in-cubic-glo--2728f0f48663"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first entry gives an analytic period and time-distribution theorem; the other entries give a special-axis result and a different quintic flow respectively."
+        ],
+        "reasoning": "No numerical exact table could establish the continuum of coefficients and uniform total-variation claim; the relevant indexed exact result is a theorem, and it was located and compared directly.",
+        "searches": [
+          "Local Resultary, matching record 2728f0f48663 and comparator records 5ef7d7af5678 and ffe383da977f"
+        ]
+      },
+      "rationale": "A distinct published Resultary record states the same least-period map and the same physical-time distribution and uniform crossover, with stronger quantitative bounds. The coefficient and layer-variable changes are exact and require no time reparametrization. No independent remainder of the assigned theorem survives this comparison. This establishes coverage, not priority or provenance.",
+      "residual_risks": [
+        "The evidence settles material overlap, not authorship or historical priority. No exhaustive public-literature priority claim is needed or made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equivalent and stronger coverage",
+          "evidence": [
+            "k,h map to alpha,beta; linear scaling R to S maps the exact densities; the period and TV bounds are uniform in k."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-uniform-period-crossover-and-arcsine-turning-layers-in-cubic-glo--2728f0f48663/RESULT.md",
+          "material_read": "Finding, offset 0; relationship-to-prior-work passage, offset 7800",
+          "method": "Local mirror statement inspection, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Uniform period crossover and arcsine turning layers in cubic global centers",
+          "trigger": "Same vector field, crossover and occupation variable"
+        },
+        {
+          "assessment": "Global center already established",
+          "evidence": [
+            "Set a4=-alpha and a6=-beta, with remaining cubic coefficients zero; no crossover or layer conclusion in these theorem clauses."
+          ],
+          "identifier_or_url": "10.1007/s00010-024-01051-7",
+          "material_read": "System (2), p. 1374, and Theorem 4(c,d), p. 1375",
+          "method": "OA full-text equation and theorem comparison",
+          "title": "Global centers of a family of cubic systems",
+          "trigger": "Same cubic family"
+        },
+        {
+          "assessment": "Restricted alpha=0 comparison",
+          "evidence": [
+            "a=0 and kappa=beta recover the boundary field; the stated phase limit is coarse."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-universal-logarithmic-frequency-and-square-wave-limit-at-a-cubic--5ef7d7af5678",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror inspection",
+          "title": "Universal logarithmic frequency and square-wave limit at a cubic global center",
+          "trigger": "Known alpha=0 boundary"
+        },
+        {
+          "assessment": "Different field",
+          "evidence": [
+            "Velocity term proportional to x^3*y^2 and restoring term proportional to x^5 do not recover the covered cubic family."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-strict-period-decrease-and-sharp-large-amplitude-laws-for-quinti--ffe383da977f",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror inspection",
+          "title": "Strict period decrease and sharp large-amplitude laws for quintic global centers",
+          "trigger": "Similar asymptotic period problem"
+        },
+        {
+          "assessment": "Prior general construction",
+          "evidence": [
+            "Jacobi-multiplier and first-integral method for velocity-squared Liénard equations."
+          ],
+          "identifier_or_url": "https://ejde.math.txstate.edu/Volumes/2018/120/chanda.pdf",
+          "material_read": "p. 1 and Proposition 2.1, p. 4",
+          "method": "OA PDF inspection",
+          "title": "Jacobi-Maupertuis metric of Liénard type equations and Jacobi last multiplier",
+          "trigger": "Same change to constant mass"
+        },
+        {
+          "assessment": "Methodological comparison",
+          "evidence": [
+            "General separable-Hamiltonian setting, not an explicit uniform crossover or turning-gap density for this flow."
+          ],
+          "identifier_or_url": "10.1007/s10884-019-09759-w",
+          "material_read": "OA preprint abstract and introduction, p. 1, and period-method passage at offset 5940",
+          "method": "OA text inspection",
+          "title": "The period function of Hamiltonian systems with separable variables",
+          "trigger": "General period criteria may imply monotonicity"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding; Resultary 2728f0f48663, Finding"
+      ],
+      "rationale": "A uniform physical-time law at the turning scale would be intrinsically useful, but the frozen result recovers an already indexed stronger result for the same field, including its full coefficient range. The change of the gap coordinate is routine and supplies no independently useful new invariant or estimate.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

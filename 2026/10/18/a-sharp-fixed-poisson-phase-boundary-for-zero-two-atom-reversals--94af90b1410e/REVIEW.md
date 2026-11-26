@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The coefficient-ratio equation follows by extracting the constant and quadratic coefficients of a Poisson-exponential times Bernoulli-odds product. The exact pair-merging identity controls the change at fixed total Bernoulli mean. Monotonicity of \(g(s)-(\alpha-s)\) proves global one-coin optimality exactly above the parameter boundary, and its strictness yields the equality classification. A one-coin computation gives the exact prescribed-rate zero–two crossover. Adding a positive Bernoulli coin at fixed positive Poisson rate increases the ratio strictly, ruling out reversals below that mean. The cases at and above \(\sqrt2\) follow from the pure Poisson ratio. Exact rational checker: 10,390 finite assertions passed. These checks supplement, rather than replace, the proof.
+PASS
 
-## Originality
+At Bernoulli mean alpha<1, the normalized quadratic coefficient is lambda^2/2 + lambda sum(t_i) + sum_{i<j}t_i t_j, with t_i=p_i/(1-p_i). For x,y>0 and s=x+y, the odds increment under merging is t_x t_y(2-s)/(1-s), so the ratio increment has sign lambda+T-g(s), where T is the other odds sum. Since T>=alpha-s and g(s)-g(alpha)=(alpha-s)/((2-s)(2-alpha)), a merge is strictly increasing for lambda>=g(alpha) if s<alpha; for s=alpha its sign is that of lambda-g(alpha). This proves the uniform bound, all ties, and the two-coin failure below the line. At a_lambda the single-coin ratio equals one and g(a_lambda)=lambda/(1+2lambda-lambda^2/2)<lambda for 0<lambda<sqrt(2). Adding a coin strictly increases the ratio at lower mass up to a_lambda; masses >=1 are already too large to compete, and single coins just above a_lambda give sharpness. At sqrt(2) pure Poisson ties, and positive arbitrarily small coins give strict reversal; above it pure Poisson attains the infimum. Ratios were used only for positive zero mass. Read the frozen script and evidence without executing it. Fresh exact truncated-convolution checks for four rational masses around g(alpha) and four rates around their reversal thresholds passed (review reproduction: /tmp/opencode/frozen-review-replay.py, section 3). These are finite corroboration; the merge proof handles all finite profiles. The supplied counter labels cases as assertions even though it also increments on some cases with no assertion; it is not a formal proof or a literal assertion count.
 
-PASS, subject to the risks below. Kleiner, arXiv:2610.10664v1, treats distance-two point-mass reversals for Bernoulli sums, and the quoted extension to an independent Poisson term concerns a Poisson rate allowed to vary. A fixed exogenous rate and the global optimizer phase line are not stated by that threshold result. Gnedin, arXiv:2408.06477v1, treats the extended Poisson–Bernoulli family and adjacent-modal transport; its inspected section 7 addresses moving modes rather than the zero–two fixed-rate envelope. Semantic record searches identified general Bernoulli balancing and exact-count work, not this particular fixed-rate point-mass-ratio phase diagram. Absence of an equivalent record is not a proof of priority.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The fixed-intensity constraint changes the optimal configuration and sharp minimal mean relative to the free-rate problem. The exact surface \(\lambda=(1-\alpha)/(2-\alpha)\) classifies concentration, critical two-coin equality, and strict improvement by splitting. The threshold solves a naturally specified two-atom reversal problem for the whole family of finite Bernoulli perturbations of a prescribed Poisson background, not a single numerical slice.
+The supported increment is the prescribed-rate, fixed-Bernoulli-mean phase line with strict optimizer/tie determination and the consequent sharp prescribed-rate threshold. Neither the found free-rate threshold nor the adjacent-mode optimization gives this inequality and equality set. Standard coefficient extraction and fixed-sum pair variation are prior ingredients, not the originality claim.
 
-## Closest literature and limitations
+## value
 
-The exact coefficient extraction is elementary and not claimed as new. The established Poisson–Bernoulli generating-function framework, Hoeffding-type Bernoulli extremal results, and mode-transfer results may furnish a different proof or imply portions of the bound. Full independent literature-based priority verification has not occurred. The global envelope is restricted to total Bernoulli mean below one and the zero–two comparison; dependence and general atom gaps are not treated. No external audit or independent validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A fixed independent background intensity is a natural constraint and the free-rate threshold cannot predict how much Bernoulli mass is needed then. The phase line distinguishes exactly when concentrating the signal in a single coin is globally optimal, a tie regime, and when even an arbitrary two-way split improves it, uniformly over finite profiles. The result is useful beyond a numerical crossover or a standard Poisson coefficient calculation, but does not furnish a complete envelope below the line or for alpha>=1.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

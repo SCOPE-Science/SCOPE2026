@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:42:31.137390Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Five distinct nodes give uniqueness: after multiplication by z^2, any trigonometric polynomial of degree two vanishing there becomes an ordinary polynomial of degree at most four with five distinct roots. The cardinal four-sine denominator is positive in the lifted cyclic order (four negative sine factors); integrating the constant moment gives the sum of three cosines divided by 8D. With half-gaps u,v,w the numerator is cos(u+2v+w)+2 cos(u)cos(w). For alpha<=alpha_*<1/4 the outside angle derivatives are strictly positive in a and negative in d, since u,w are in (0,pi/2) and u+2v+w in (0,pi). Thus the minimum uses a at its left endpoint and d at its right endpoint. Expanding the four inner corners gives the displayed three distinct expressions; the stated difference factors are positive for 0<pi*alpha/5<=pi/20 by the bounds on the sines. In either inner angle each term satisfies S''+S/4=0. On its interval the sine interpolation coefficients are nonnegative with sum at least one, and strictly positive in the interior. Consequently the nonnegative corner lower bound extends to the box, and at the threshold only the alternating corner gives zero; the target offset enters only D and can be arbitrary. The corner numerator strictly decreases on [0,1/2), is 1/2 at zero and 1-sqrt(5)/2<0 at 1/4, so the exact arccos root and the larger-radius negativity follow. Both the specified exactness and the comparison with conditioning are meant for the same dimensionless grid-spacing jitter. The exact formula is correct; the last printed decimal digit is a roundoff artifact: the value is 0.20145942246051052177..., not 0.2014594224605106.... The supplied verifier was inspected, not run. A separate 50-digit complex cardinal-polynomial coefficient calculation (python3 /workspace/review_checks.py 5) confirms the sign switch and unique alternating corner for the fixed unperturbed target; this finite check does not replace the interior proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen comparison credits Austin’s larger-node negative-weight experiments, Austin–Trefethen’s general perturbation and quadrature theory, and Yu–Townsend’s alternating negative-weight construction and sufficiently-large-size theorem.",
+          "The three-node Resultary example has degree one. The exact same-size coverage comes directly from 02df184d2d31, independently of the general comparisons."
+        ],
+        "reasoning": "Neither a conditioning bound nor an existence theorem for sufficiently large grids gives five-node sign extremality on its own; the separate same-parameter statement is decisive.",
+        "searches": [
+          "arXiv:2202.04722 Section 4.1 and Appendix B",
+          "arXiv:1612.04018; doi:10.5287/ora-dqjx80ezd",
+          "Resultary fd84114e8959 three-node positivity"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verifier source",
+        "Resultary 02df184d2d31, d1e17fb2a7f8 and fd84114e8959",
+        "doi:10.5287/ora-dqjx80ezd; arXiv:1612.04018; arXiv:2202.04722 (identified; retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-size result states the sharp for-every-configuration nonnegative regime and a negative example beyond it. Its sharp radius is sub-quarter too, so the fact that positivity can fail below one quarter is a direct consequence.",
+          "Its summary states an explicit alternating displacement with a zero weight. It does not assert exhaustiveness or an arbitrary offset at the zero-weight node."
+        ],
+        "reasoning": "Equivalent coverage of the principal radius is demonstrated. It does not rely on an inference from a date, a failed retrieval, or a statement about large grids. Full overlap on the equality classification is not established.",
+        "searches": [
+          "Resultary 02df184d2d31, comparison of actual indexed statement to frozen RESULT.md lines 5–23, 80–92"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "02df184d2d31 explicitly states nonnegative interpolatory weights for every five-point configuration exactly through (5 arccos(sqrt(cos(pi/5)/2))/pi - 1)/2.",
+          "The double-angle relation transforms this into exactly RESULT.md line 15. Moment exactness is the same five-dimensional interpolation problem."
+        ],
+        "reasoning": "Different algebraic representations of this extremum and different titles do not create distinct thresholds.",
+        "searches": [
+          "Resultary: five-node sharp positivity radius perturbed roots of unity trigonometric quadrature exact interpolatory weights",
+          "Resultary 02df184d2d31 sharp five node tolerance positive trigonometric quadrature equality extremizers alternating free target node",
+          "five point degree two perturbed quadrature positivity exact tolerance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "02df184d2d31 is a distinct indexed exact formula at about 0.20145942246, whereas d1e17fb2a7f8 is the subject; the match does not depend on the decimal.",
+          "The frozen thesis comparison reports seven- and nine-node experiments, not a five-node exact table."
+        ],
+        "reasoning": "The exact catalogue formula supplies the same invariant without needing an older numerical table.",
+        "searches": [
+          "Resultary 02df184d2d31 exact entry and d1e17fb2a7f8 exact entry",
+          "Austin thesis Section 3.5.2 Table 3.3 (as located in the frozen comparison)"
+        ]
+      },
+      "rationale": "The distinct indexed finding 02df184d2d31 explicitly gives the same sharp universal nonnegative-weight radius for the same degree, five independently perturbed equispaced nodes, the same boundary zero phenomenon with an alternating pattern and failure beyond the boundary. If theta=arccos(sqrt(cos(pi/5)/2)), then 2theta lies in (0,pi), cos(2theta)=cos(pi/5)-1, and the two advertised radii are identical. This is verified equivalent coverage of the central assertion, not merely similarity of titles or of parameters. The shared date does not establish publication order. The available summary does not settle whether every equality configuration including unrestricted target offset is included in the other proof; the audit does not assert that it is. That unresolved refinement does not make the frozen record's principal sharp-radius claim distinct.",
+      "residual_risks": [
+        "The relative publication order between the two same-day records is not established.",
+        "The other result's full equality-case characterization is unresolved because its available statement supplies existence, not a complete classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definitive central-claim overlap, not a finding on chronology or complete equality-case coverage",
+          "evidence": [
+            "Sharp nonnegative threshold for degree two on five independent jitters, alternating zero boundary design, negative above."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-five-node-tolerance-for-positive-trigonometric-quadrature--02df184d2d31",
+          "material_read": "Exact-size degree-two catalogue statement with analytic formula; no full RESULT.md in the accessible local mirror",
+          "method": "Local catalogue and source-specific text retrieval; double-angle equivalence",
+          "title": "Sharp five-node tolerance for positive trigonometric quadrature",
+          "trigger": "Same-day distinct exact radius and extremizing pattern"
+        },
+        {
+          "assessment": "Reported relevant earlier antecedents; no whole-document exclusion inferred",
+          "evidence": [
+            "Austin §3.5.2, Austin–Trefethen cardinal formula, and Yu–Townsend §4.1 and Appendix B are the relevant locators."
+          ],
+          "identifier_or_url": "doi:10.5287/ora-dqjx80ezd; arXiv:1612.04018; arXiv:2202.04722",
+          "material_read": "Frozen source's comparisons at lines 80–92 and supporting review locators; no independently retrieved full passages on the bounded primary requests",
+          "method": "Scoped comparison and identified OA retrieval attempts",
+          "title": "Some New Results on and Applications of Interpolation in Numerical Computation; Trigonometric Interpolation and Quadrature in Perturbed Points; On the Stability of Unevenly Spaced Samples for Interpolation and Quadrature",
+          "trigger": "Earlier jittered-grid weight literature that could cover the model or construction"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact tolerance is a meaningful stability invariant in itself, but it is already supplied by a distinct exact record at the same size and degree. The frozen presentation does not establish a separate worthwhile increment sufficient to validate it as a distinct finding. The potentially narrower exclusivity claim is true here, but the alternating boundary design is already reported and the free target is immediate from the cardinal numerator; the distinctness of the complete classification was not established. No repair is submitted: a decimal correction or a relabeling of the overlapping threshold could not remedy that problem.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:43:14.700995Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and proof",
+        "Frozen VERIFICATION.md and verify_tetra.py (read only)",
+        "https://dlmf.nist.gov/18.14.E3"
+      ],
+      "rationale": "The mixed directional derivative of the exact-degree addition kernel gives TT* up to a positive normalization. I rebuilt its rational matrix at dot product -1/3, using the unnormalized tangent directions but unit vertices, and recovered the symbolic determinant with factor multiplicities 2, 3, 3. Independently I generated solid harmonics from arbitrary z^0 and z^1 homogeneous coefficients, recursively solving (k+2)(k+1) f_{k+2}=-(∂_x²+∂_y²)f_k. Their directional derivatives at the sign vertices differ from the unit-vertex derivatives by a common nonzero degree-dependent factor. Exact row reduction yielded 0,3,5,6,8,5,8,8,8,8,8,8,8; multiplying the degree-three and degree-five evaluation matrices by the listed constraint rows gave zero, with independent rows spanning the full left nullspaces. For l≥13, DLMF 18.14.3 at alpha=beta=0 gives |P_m(-1/3)|≤sqrt(2/pi)(9/8)^(1/4)/sqrt(m+1/2)<1/sqrt(m). The Legendre differential identities bound the two derivative ratios as in the proof; the first two factors have off-diagonal ratio <6/16+5/2<3, and the third <18/16+5/2<9. This is an analytic tail exclusion, not extrapolation. Replay recipe: build the eight rows in RESULT.md order, use the solid-harmonic recurrence and exact rational row reduction through degree 12, then use the two displayed differential identities and inequalities; the frozen verify_tetra.py was inspected, not used for the independent calculation.",
+      "residual_risks": [
+        "No conditioning or perturbation theorem; these are exact ranks and compatibility conditions for the specified tetrahedron."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Angular momentum projectors and tangential kernel interpolation are available; the cuboctahedron parity-sector computation uses scalar values."
+        ],
+        "reasoning": "Projector identities do not give nonvanishing in every large degree at these nodes. A multidegree interpolation kernel cannot imply surjectivity of one isolated degree.",
+        "searches": [
+          "arXiv:1103.2982v1",
+          "arXiv:2608.05547v1",
+          "Resultary 2026/10/25/198e67f460d9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.05547v1",
+        "arXiv:math-ph/0505018v1",
+        "arXiv:1103.2982v1",
+        "Resultary 5142078e64c3, 198e67f460d9, 94f6926d5deb, 9cecf358239c",
+        "DLMF 18.14.3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical formulas account for the kernel and the Bernstein estimate, not the tetrahedron-specific determinant and nullspaces."
+        ],
+        "reasoning": "Even symmetry-allowed irreducible components may vanish at the specific nodes; the degree-five exceptional rank and the infinite nonvanishing range require more than the listed general ingredients.",
+        "searches": [
+          "arXiv:math-ph/0505018v1 §7",
+          "arXiv:2608.05547v1 §2.1",
+          "DLMF §18.14(i)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun–Dong–Huang §2.1 Lemma 2.1 gives vector-harmonic addition formulas.",
+          "The icosidodecahedron finding samples intrinsic gradients at 30 different points and only through degree six."
+        ],
+        "reasoning": "The rotated-gradient vector-harmonic formulation and derivative Gram formulation motivate the comparison, but neither a general addition formula nor the rank for another orbit supplies the stated ranks.",
+        "searches": [
+          "arXiv:2608.05547v1",
+          "arXiv:math-ph/0505018v1",
+          "Resultary 2026/11/22/9cecf358239c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Dodecahedral scalar rank drops at degree five to six of ten; truncated-tetrahedral scalar rank drops to nine of twelve at degree six; icosidodecahedral gradient table is for another orbit."
+        ],
+        "reasoning": "The earlier degree-five defect is genuine precedent, but matching degree is insufficient: neither node set nor functional nor dimension matches the target.",
+        "searches": [
+          "Resultary 2026/10/18/5142078e64c3",
+          "Resultary 2026/10/26/94f6926d5deb",
+          "Resultary 2026/11/22/9cecf358239c"
+        ]
+      },
+      "rationale": "The defensible increment is the isolated-degree tetrahedral gradient rank law including both exceptional compatibility spaces and the all-degree cutoff, not general addition identities or the idea of rank defects on symmetric point sets. No equivalent or dominating theorem was found in the bounded comparisons.",
+      "residual_risks": [
+        "Historical or unindexed polyhedral vector-harmonic sampling tables may contain equivalent ranks; the comparison does not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related method, not coverage",
+          "evidence": "Scattered-node tangential interpolation and vector addition formulas; not the exact-degree four-node rank theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.05547v1",
+          "material_read": "Abstract and §2.1 Lemma 2.1, PDF pp. 4–5",
+          "method": "OA PDF passage read",
+          "title": "Divergence-free interpolation of tangential vector fields via matrix-valued kernels",
+          "trigger": "Vector harmonic interpolation and kernel rank"
+        },
+        {
+          "assessment": "General machinery",
+          "evidence": "Irreducible spherical tensor gradient addition expansions.",
+          "identifier_or_url": "https://arxiv.org/abs/math-ph/0505018v1",
+          "material_read": "§7, PDF pp. 33–34",
+          "method": "OA PDF passage read",
+          "title": "The Spherical Tensor Gradient Operator",
+          "trigger": "Gradient form of the same kernel"
+        },
+        {
+          "assessment": "General machinery",
+          "evidence": "Projectors and tensor matrix elements do not classify the target evaluation map.",
+          "identifier_or_url": "https://arxiv.org/abs/1103.2982v1",
+          "material_read": "PDF pp. 1–2 and 14",
+          "method": "OA PDF passage read",
+          "title": "Addition theorems for spin spherical harmonics. I. Preliminaries",
+          "trigger": "Potential broader angular momentum formula"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Ten scalar evaluations; rank six at degree five and permanently full rank from degree fifteen.",
+          "identifier_or_url": "Resultary 2026/10/18/5142078e64c3",
+          "material_read": "Finding and scalar Gram spectrum",
+          "method": "Published record passage read",
+          "title": "Complete degree-wise harmonic interpolation on the ten dodecahedral axes",
+          "trigger": "Earlier exact rank table with a degree-five defect"
+        },
+        {
+          "assessment": "Different measurements or nodes",
+          "evidence": "The first samples twelve scalar values; the second samples gradients on a 30-vertex orbit and gives ranks only through degree six.",
+          "identifier_or_url": "Resultary 2026/10/26/94f6926d5deb; 2026/11/22/9cecf358239c",
+          "material_read": "Findings",
+          "method": "Published record passages read",
+          "title": "Reentrant degree-six interpolation defect on the regular truncated tetrahedron; and first tangential-gradient blind harmonic on the 30 icosidodecahedral vertices",
+          "trigger": "Closely related tetrahedral symmetry and gradient measurements"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, finding and explicit constraints"
+      ],
+      "rationale": "The tetrahedron is a canonical minimal symmetric spatial array, and the precise invariant answers whether arbitrary tangent data can be interpolated using one spectral degree. The degree-five loss after a surjective degree is not predictable from domain dimension; the explicit constraints identify which data are unavailable and the all-degree cutoff settles future exceptions.",
+      "residual_risks": [
+        "Surjectivity does not give unique recovery or stability; no claim about other point sets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:09:11.552092Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A vertex is a word with none of the eight proper borders. Edges encode both directions of each permitted overlap test, so exactly the maximal cliques are the inclusion-maximal codes. Length-one overlaps separate the two orientations 0…1 and 1…0, exchanged by complementation or reversal. Independently, repro/review5.py builds the incompatibility graph by prefix and suffix classes. It enumerates independent dominating sets in the first orientation: an undominated vertex must be covered by at least one neighbor or itself, and branching on the first chosen such vertex partitions all extensions. It gives 148 vertices, 3080 compatible edges, and labeled frequencies 1:4, 4:12, 5:20, 6:48, 7:200, 8:588, 9:1712, 10:5056, 11:13520, 12:23136, 13:16832, 14:1152. Reverse complement is the only nonidentity group element that can fix a nonempty code; its action had no fixed set in the first orientation, hence none in either. The 62280 codes yield 15570 orbits. The independent canonical catalog and the frozen gzip payload both give 7338080 bytes and SHA-256 ebacd3ecd51b08c10b05e462a3496200ca3261b0840a0a3351910af91436ecd3. The frozen Python and C++ sources were inspected, not run; some checks described as assertions in the prose are printed diagnostics in those sources, but were actually checked in the independent reproduction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first source gives structural/search machinery for maximal codes and uses it to census maximum codes. Qin–Chen–Luo give non-expandability and sizes within parametrized families. Blackburn gives bounds and constructions."
+        ],
+        "reasoning": "A framework for generating candidates, or sizing a specified construction, does not tabulate or give the cardinality enumerator of all unextendible sets, including the lower layers and their stabilizers.",
+        "searches": [
+          "10.1007/s10623-023-01344-z, Section 4, Proposition 11 and Appendix A",
+          "arXiv:2309.08915, Tables 1–2",
+          "arXiv:1303.1026"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, both verifier sources and gzip catalog",
+        "10.1007/s10623-023-01344-z",
+        "Resultary 2026/10/12/SCOPE-distance-two-extremizers-among-maximum-binary-length-nine-non-ov--0c4dd9ba2fde",
+        "arXiv:1209.0236",
+        "arXiv:2309.08915",
+        "arXiv:1112.3168",
+        "arXiv:1410.4710",
+        "arXiv:1303.1026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The journal's search and table target maximum codes. The indexed comparison identifies a four-element orbit for the four distance-two maximum codes, whereas the frozen finding asserts freeness for every inclusion-maximal code."
+        ],
+        "reasoning": "Neither result determines smaller layers or excludes a reverse-complement stabilizer on an arbitrary maximal code. The exact smaller layers and full freeness require an additional census.",
+        "searches": [
+          "Stanovnik et al. Definitions 3–4, Proposition 11 and Appendix A",
+          "Resultary distance-two Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bilotta–Pergola–Pinzani distinguish non-expandability from largest size; Stanovnik–Moškon–Mraz Definitions 3–4 make exactly the frozen distinction, but their Table 1 concerns maximum codes."
+        ],
+        "reasoning": "Translate an unextendible code to a maximal compatibility clique, not necessarily a largest clique. Neither an extremal count nor examples of unextendible codes supply the distribution over all maximal cliques.",
+        "searches": [
+          "Literature: binary length-nine maximal/non-expandable cross-bifix-free and non-overlapping codes",
+          "Resultary: length-nine maximum and inclusion-maximal spectra"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct Resultary Finding gives 1152 size-14 codes, refined as 1148 of minimum distance one and four of minimum distance two. Stanovnik et al. Table 1 prints S(2,9)=14 and N(2,9)=1132; the independent enumeration gives 1152 under its stated definition. Chee et al. report the optimum 14."
+        ],
+        "reasoning": "The maximum layer is already covered by the indexed computation. The discrepancy with the journal table is real under the definitions read; it does not refute the independently exhausted census. None of these entries tabulates the smaller maximal sizes.",
+        "searches": [
+          "Resultary 2026/10/12/SCOPE-distance-two-extremizers-among-maximum-binary-length-nine-non-ov--0c4dd9ba2fde",
+          "10.1007/s10623-023-01344-z, Table 1",
+          "arXiv:1209.0236, Table I"
+        ]
+      },
+      "rationale": "Credit the known optimum and the already indexed 1152-code maximum layer. The distinct supported result is the all-cardinality maximal-code distribution and free action on the entire census, beyond that layer and the published construction families.",
+      "residual_risks": [
+        "The journal's count of 1132 was not reconciled at the author-code level; its repository was unavailable. This does not alter the independently verified count.",
+        "An unindexed maximal-code census could exist; no priority theorem or extrapolation to other lengths is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers maximum-code search and states a conflicting maximum count, not the lower-layer census",
+          "evidence": [
+            "S(2,9)=14; printed N(2,9)=1132."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10623-023-01344-z",
+          "material_read": "Definitions 3–4, Section 4, Proposition 11, Appendix A and Table 1 (printed p. 1320; OA offset 85600)",
+          "method": "Lawful OA PDF, targeted passages",
+          "title": "In search of maximum non-overlapping codes",
+          "trigger": "Exact domain and length with potentially exhaustive coverage"
+        },
+        {
+          "assessment": "Covers maximum layer, not all maximal sizes or full freeness",
+          "evidence": [
+            "1152 size-14 codes; 1148 of minimum distance one and four of minimum distance two, with the latter one symmetry orbit."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-distance-two-extremizers-among-maximum-binary-length-nine-non-ov--0c4dd9ba2fde",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary search and mirrored text",
+          "title": "Distance-two extremizers among maximum binary length-nine non-overlapping codes",
+          "trigger": "Closest indexed exact overlap"
+        },
+        {
+          "assessment": "Optimum size only, no global maximal-size spectrum",
+          "evidence": [
+            "Binary length nine has optimum 14."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1209.0236",
+          "material_read": "Table I and maximum-clique discussion, PDF p. 4",
+          "method": "OA PDF",
+          "title": "Cross-Bifix-Free Codes Within a Constant Factor of Optimality",
+          "trigger": "Known exact optimum at length nine"
+        },
+        {
+          "assessment": "Parameterized families rather than exhaustive all-code cardinalities",
+          "evidence": [
+            "Family conditions for non-expandability and family size tables."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2309.08915",
+          "material_read": "Abstract and Tables 1–2, PDF pp. 1 and 14",
+          "method": "OA PDF",
+          "title": "On non-expandable cross-bifix-free codes",
+          "trigger": "Non-expandability is the same maximality concept"
+        },
+        {
+          "assessment": "Different families or extremal bounds, not the fixed-length census",
+          "evidence": [
+            "Non-expandability of constructed families does not enumerate all unextendible word sets."
+          ],
+          "identifier_or_url": "arXiv:1112.3168; arXiv:1410.4710; arXiv:1303.1026",
+          "material_read": "First paper pp. 3 and 9; second p. 3; third pp. 1–2",
+          "method": "Targeted OA PDF readings",
+          "title": "A new approach to cross-bifix-free sets; Cross-bifix-free sets via Motzkin paths generation; Non-overlapping codes",
+          "trigger": "Term variation and broad construction coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Length nine is a natural exceptional binary benchmark from the maximum-code literature. The census answers a different saturation question: a greedy insertion process may already be stuck at size one, never stops at sizes two or three, and can stop at every size from four to the optimum. The exact multiplicities and symmetry action provide a deduplicated reference for this full finite class, not an arbitrary sample or rerun of the maximum layer alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:19:27.469198Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–71; VERIFICATION.md; nilpotent_checker.py and recorded output",
+        "Independent diagnostic: python3 /workspace/review_checks.py 4; all 12 and 14 isotropic rows and 66 and 91 negative-square projective rows over F11 and F13, respectively, satisfy the transition counts"
+      ],
+      "rationale": "The kernel of a rank-two prefix equals the last factor's conic line. A new factor drops rank iff its perpendicular plane contains that line, and the only conic point orthogonal to an isotropic point is itself. The resulting row is isotropic by S(v)^2=vv^T. For rank one, right multiplication acts on its row by cross product up to sign. The result vanishes only for parallel vectors and otherwise has norm -(w·v)^2. When the old norm is a negative square the perpendicular binary form has determinant in the negative-square class and is split, giving two distinct conic choices; the isotropic row case gives just the annihilating choice and q nonisotropic results. These counts are valid over odd extension fields as well. The transient I,R block resolvent has summed first-row numerator 1+hz and the displayed determinant; the waiting time to enter I has mean q+1 and the two hitting-time equations give (q+1)(q+2)/2 more steps. In O(q) steps the expected number of visits to I is bounded by 1+2h times the number of steps, giving vanishing absorption probability. At q^2 scale the entrance wait divided by q^2 tends to zero; starting from I the survival weights have principal coefficient (a−lambda_minus)/(lambda_plus−lambda_minus) tending to one, and (1−lambda_plus)(1−lambda_minus)=2h^2 gives the stated exponent. The indexing starts at k=1 throughout.",
+      "residual_risks": [
+        "Neither the original finite enumeration nor the additional finite row checks prove the all-fields or asymptotic claims; those rely on the geometry and finite chain calculation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fulman–Goldstein's introduction connects single-matrix symmetric zero-diagonal formulas to skew matrices for odd q; this is not a product law. Gow–Laffey's bibliographic record is for products of two skew-symmetric matrices; the submitted comparison identifies an elementary-divisor support theorem, not a restricted-orbit word law; original theorem text was not independently accessible."
+        ],
+        "reasoning": "Broader support of two unrestricted alternating factors does not by itself supply the probabilities of restricted ordered words. The uniform-kernel result's projective hypothesis fails here despite covering other corank-one matrices.",
+        "searches": [
+          "Primary-literature lookup for rank laws of products of finite-field nilpotent skew matrices",
+          "doi:10.1016/0024-3795(84)90139-3",
+          "arXiv:1211.0504",
+          "SCOPE-bd2fa1210066"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary/SCOPE mirrors bd2fa1210066 and c7286e4b73ec",
+        "Fulman–Goldstein arXiv:1211.0504",
+        "Gow–Laffey DOI metadata; exact theorem comparison qualified"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On this support two rank-one histories differ: one may be killed by a single factor, whereas the other cannot. The first-rank-loss probability from rank two is 1/(q+1), using the conic's unique orthogonal point, not an all-lines incidence fraction."
+        ],
+        "reasoning": "The cited single-matrix and support results do not determine either of these conditional counts. Once those geometric transitions are derived, the resolvent, mean, and two limiting scales follow by standard methods.",
+        "searches": [
+          "SCOPE-bd2fa1210066",
+          "SCOPE-c7286e4b73ec",
+          "arXiv:1211.0504",
+          "doi:10.1016/0024-3795(84)90139-3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mirrored all-projective-lines kernel law gives a pure-death rank chain and includes conjugation-invariant regular nilpotents. The mirrored nilpotent-fiber result considers rank-one square-zero factors and prescribed target fibers."
+        ],
+        "reasoning": "Projectivizing the factors removes a uniform scalar but leaves precisely the conic, not all projective lines. The other nilpotent family starts at rank one and has different nonzero-row transitions. Neither is an equivalent reformulation. The calendar date does not decide coverage.",
+        "searches": [
+          "Local Resultary/SCOPE: conic-supported projective kernel rank chains and nilpotent product fibers",
+          "SCOPE-bd2fa1210066",
+          "SCOPE-c7286e4b73ec"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected rank and word-count catalogs have different factor supports or word invariants. The available single-matrix skew rank distribution has no conditional I/R product rows or length-dependent terminal counts."
+        ],
+        "reasoning": "No inspected table supplies these four counts as functions of q and length, including the characteristic conic return count of two lines from R. This is bounded evidence, not a claim that no such table exists.",
+        "searches": [
+          "Local Resultary/SCOPE queries on finite-field rank-product distributions and all-length nilpotent product counts",
+          "SCOPE-bd2fa1210066",
+          "SCOPE-c7286e4b73ec",
+          "arXiv:1211.0504"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact conic-supported four-state chain and its q and q^2 rank/absorption laws. Prior conic incidence and standard Markov-chain methods are ingredients, not separate novelty claims.",
+      "residual_risks": [
+        "A pre-existing computation in projective-conic or finite orthogonal-algebra terminology may be unindexed.",
+        "Gow–Laffey original theorem text was not independently retrieved; best-of-knowledge conclusion is about the exact chain, not historical priority for two-factor support."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related, not covering the conic-supported chain",
+          "evidence": "Kernel lines are uniform over all projective lines; regular nilpotent examples satisfy that distinct assumption.",
+          "identifier_or_url": "2026/11/22/SCOPE-uniform-kernel-universality-and-exact-absorption-laws-for-corank--bd2fa1210066",
+          "material_read": "Mirrored finding on kernel sampling and pure-death chain",
+          "method": "Local Resultary, then mirrored statement",
+          "title": "Uniform-kernel universality and exact absorption laws for corank-one products",
+          "trigger": "Potential general projective rank-chain result"
+        },
+        {
+          "assessment": "Different factor orbit and statistic",
+          "evidence": "Rank-one square-zero generators and prescribed-target fiber and mixing counts.",
+          "identifier_or_url": "2026/11/22/SCOPE-all-length-multiplication-fibers-and-exact-alternating-mixing-fo--c7286e4b73ec",
+          "material_read": "Mirrored finding on factor orbit and invariant",
+          "method": "Local Resultary, then mirrored statement",
+          "title": "All-length multiplication fibers and exact alternating mixing for rank-one nilpotents",
+          "trigger": "Potential all-length nilpotent product table"
+        },
+        {
+          "assessment": "Prior one-matrix ranks, not product transitions",
+          "evidence": "Odd-q skew-symmetric applicability is in the introduction. Section 5 itself treats symmetric zero-diagonal matrices in characteristic two; the frozen reference's section label is imprecise.",
+          "identifier_or_url": "https://arxiv.org/html/1211.0504",
+          "material_read": "Introduction around offset 6468 and Section 5 around offset 46545",
+          "method": "OA full-text passages",
+          "title": "Stein's method and the rank distribution of random matrices over finite fields",
+          "trigger": "Potential skew-matrix rank tables"
+        },
+        {
+          "assessment": "Potential overlap in two-factor support, no independently verified word-count coverage",
+          "evidence": "Two-factor scope verified bibliographically; exact theorem-level comparison remains limited.",
+          "identifier_or_url": "https://doi.org/10.1016/0024-3795(84)90139-3",
+          "material_read": "Publication metadata; full text unavailable on attempted lawful routes",
+          "method": "Publisher and repository/OA lookup",
+          "title": "Pairs of alternating forms and products of two skew-symmetric matrices",
+          "trigger": "Closest classical skew product classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–42, 52–71"
+      ],
+      "rationale": "For this natural three-dimensional nilpotent orbit, rank alone hides the mechanism of extinction. The exact row-class refinement gives a benchmark in which loss of rank and annihilation occur on genuinely different scales, and quantifies the constant 2 in the slow absorption limit. That is not a recomputation of single-matrix ranks or an arbitrary small-word slice.",
+      "residual_risks": [
+        "No implication for arbitrary factor distributions, higher dimensions, or individual output fibers is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

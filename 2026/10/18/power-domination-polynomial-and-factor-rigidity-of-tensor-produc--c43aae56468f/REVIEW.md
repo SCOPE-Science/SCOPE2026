@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reconstructs the precise direct-product adjacency and power-monitoring rule for every integer \(m,n\ge4\). A diagonal pair leaves only the opposite two rectangle corners, each forced by an already observed vertex outside their rows. A one-row or one-column set has a precisely calculable number of unobserved neighbors per observed vertex, proving the cutoff at two omitted fiber vertices; singleton and empty sets fail. Disjoint failure categories give each coefficient. The maximum nonzero failure degree proves factor reconstruction. The standalone graph-level checker exhaustively tests 2,162,688 subsets on three boards plus 34,503 additional checks, including all two-vertex sets in nine larger boards. The proof, not this finite experiment, establishes the infinite theorem.
+PASS
 
-## Originality — PASS, with residual risk
+In the direct product a diagonal pair leaves at most the two cross-corners unobserved. An observed vertex in a third row and one of the pair's columns sees only the missing corner in the other column, so both corners can be forced. A set meeting two rows and columns contains a diagonal pair: a pair in different rows either already works or shares a column, and a vertex in another column forms a diagonal pair with at least one of them. Two or more vertices in a single row initially observe every vertex outside that row; if u vertices of the row remain, each outside vertex sees u or u-1 of them. Thus u>=3 stalls and u<=2 succeeds. The column case is symmetric. A singleton leaves a cross of unobserved vertices; its observed neighbors each see m+n-4 of them and no force is possible. Subtracting the empty set, singletons and disjoint row/column failures gives the coefficient formula; diagonal pairs and the applicable length-four fibers give the two-sensor count. The top degree is mn and the last deficit is max(m,n)-3, also for 4x4, yielding the unordered factors. Independent sequential-forcing replay matched all 2,162,688 subsets on 4x4, 4x5 and 5x4; checked all fiber placements plus sampled subsets on 5x6 and 8x6.
 
-Brimkov–Patel–Suriyanarayana–Teich (arXiv:1805.10984v1, 28 May 2018) introduce the polynomial and formulas for other families, but no theorem there covers the two-clique tensor products: their join decomposition is inapplicable because the complement rook graph is connected. Dorbec–Mollard–Klavžar–Špacapan (DOI:10.1137/060661879) use the same graph-product convention yet study direct products of paths and mostly numerical minima, not complete-clique products or all coefficient counts. Benson et al. (arXiv:1510.02421) provide general power-domination and zero-forcing comparisons rather than this enumerator. Ordinary or Roman domination results concern different invariants. Scientific database comparisons under power domination / tensor, categorical, direct, complementary rook graph and exact-enumerator formulations found no covering entry. Unindexed literature or a stronger overlooked theorem remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-The result classifies every admissible monitoring set for a natural dense graph product and gives the entire cardinality profile, not just the minimum. It further shows the profile identifies both factor orders within a two-parameter family, making the polynomial structurally informative. The boundary at exactly two missing vertices in one fiber and the exceptional two-vertex optimizers at factor size four are natural, proof-supported features.
+The strongest indexed overlap gives the exact same structure and polynomial on a larger parameter range and implies factor recovery on the reviewed range. It is indexed after the frozen record, not evidence of antecedent coverage. The inspected earlier primary literature gives known power-domination polynomial machinery, zero-forcing equivalences or scalar parameters, not this complete-family enumerator. The originality judgment credits the earlier-indexed classification and enumerator only on the supported evidence, not factor recovery as an independent advance over a source already giving the same polynomial.
 
-## Limits
+## value
 
-Factors smaller than four are excluded, and reconstruction is only claimed within the stated family. The literature comparison is not a guarantee against undiscovered prior work. Finite enumeration does not prove an infinite claim. No independent validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact placement classification sharpens minimum sensor number to describe all successful placements and the precise obstructions at every cardinality. Its polynomial distinguishes factor pairs of equal vertex count, while the coefficient deficits expose where all placements become successful. The structural classification is the main value; factor recovery is a useful consequence, not a separate difficult theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

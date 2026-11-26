@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:55:08.102831Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–117",
+        "VERIFICATION.md",
+        "VERIFY.py, inspected, not executed"
+      ],
+      "rationale": "The normalized STFT reduces the signed fixed-pair contrast to g(t) against planar area, with shell measure dt for t=πr². The sign threshold is the geometric mean of n+1,…,m. On the positive branch, (log g)″ is strictly negative even at n=0, and the difference log g(a)−log g(a+A) increases from −∞ to A. Its zero yields a positive-level superlevel set of area A; integrating the signed deviations from that level proves uniqueness among arbitrary measurable sets. For k=1 the derivative equation on the positive branch is (t−(n+1))²=n+1. At both boundary circles the inside/outside cost sublevel area is (1/p+1/q)y+O(y²); thresholds attaining these small masses exist as collars, and the layer-cake inequality gives the same lower bound for nonradial removal and addition. With exchanged mass ε/2 on each side the total leading cost is ε²/[4(1/p+1/q)], so both the factor four and the harmonic combination are needed. For the proportional gap, compact Stirling expansions yield √N times g converging to the difference of two shifted normal densities. For fixed k the factorial ratio is 1+ku/√N+O(N⁻¹) on compacts, yielding (N/k)g→uφ(u). For either strictly log-concave positive limit the log-height difference at separation s has a simple unique zero. Its two-sided bracket lies inside the prelimit positive branch by local uniform convergence and brackets the prelimit zero by monotonicity. Integrating over the converging finite interval proves the two contrast limits.",
+      "residual_risks": [
+        "In the Finding, ‘squared radii’ a,a+A means scaled squared radii t=πr²; literal Euclidean squared radii are a/π and (a+A)/π as given by the explicit set and area convention. This terminology does not alter the defined optimizer.",
+        "The stability expansion is for fixed n,m,A. It does not give uniform constants in the high-degree regimes; those limits have separate proofs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first-eigenvalue stability theorem bounds distance/Fraenkel asymmetry; it does not give this deficit coefficient for a fixed signed functional.",
+          "The higher Ky Fan radial result treats radial perturbations of a multi-eigenvalue sum; the two-mode circle result has a different domain and objective."
+        ],
+        "reasoning": "The boundary exchange proof uses a standard mechanism. These related theorems do not specialize to the two slopes of the signed two-Hermite density with arbitrary nonradial set competitors.",
+        "searches": [
+          "arXiv:2607.21590v1, first-eigenvalue and inverse localization passages",
+          "arXiv:2607.28376, abstract",
+          "arXiv:2307.09304 Thm. 1.1 and Cor. 1.4",
+          "Resultary 6f29cd60a093 and 1d3091d9c873"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4048bfddff1f, 1d3091d9c873, 6f29cd60a093",
+        "Knutsen Thm. 2.1 and eq. (2.6)",
+        "arXiv:2106.03423, 2307.09304, 2607.21590v1, 2607.28376"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With R=N and width s√N, the 10/18 theorem’s Φ(b−x)−Φ(a−x) for x→c and x→0 subtract to the same limiting fixed-window proportional-gap integral.",
+          "Its compact-uniform O(R⁻¹ᐟ²) error alone is at the order of the entire fixed-gap signal, so it cannot certify that leading coefficient by subtraction. Its exact adjacent identity gives a useful telescoping representation, but requires a finer density limit and optimization.",
+          "The optimal consecutive index block in that theorem fixes the annular mask and varies the occupied labels; it does not produce the equal-height optimizer in the converse fixed-pair problem."
+        ],
+        "reasoning": "Credit the proportional-gap Gaussian profile and exact annulus responses. Turning them into the location/value of the optimum needs separate positive-branch structure and bracketing. The sharp signed stability for all masks and the finer fixed-gap optimum remain distinct.",
+        "searches": [
+          "Resultary 4048bfddff1f, proof §§2–4, mirror offsets 3400–6160",
+          "Resultary entries 1d3091d9c873, 6f29cd60a093, stability statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Radial localization makes the fixed Hermite diagonal entries Gamma integrals; the signed difference is a fixed trace pairing with the difference of two rank-one Hermite projectors.",
+          "The disk theorem varies the signal and the mask; it does not fix the difference of two labelled diagonal entries."
+        ],
+        "reasoning": "The signed functional is not the operator norm, an absolute contrast, an ordered eigenvalue gap, or a Ky Fan sum. Radial diagonalization and the bathtub principle supply ingredients, not the distinct pair geometry plus coefficient and limits.",
+        "searches": [
+          "Resultary meaning search for signed two-Hermite contrast, annulus optimizer and sharp symmetric difference",
+          "Knutsen DOI 10.1007/s00041-020-09751-9, Thm. 2.1 and eq. (2.6)",
+          "Nicola–Tilli arXiv:2106.03423 Thm. 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue gives the exact radial eigenvalues τ_j and the adjacent difference τ_{j+1}−τ_j by boundary evaluations for any annulus; it gives Ky Fan filling of those values, not an optimized fixed-pair table."
+        ],
+        "reasoning": "There is no finite instance table expected to certify a result over arbitrary measurable sets and every pair and area. The closest exact spectral formulas have been compared; they do not encode the constrained optimum or sharp coefficient.",
+        "searches": [
+          "Resultary 4048bfddff1f, critical-width Fock eigenvalues",
+          "Knutsen eq. (2.6), exact radial entries"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the combination of an exact all-mask, fixed ordered pair optimizer with its sharp local symmetric-difference constant and the optimized crossover (especially fixed k). The individual Gamma/Bargmann response, superlevel-set principle, and leading Gaussian profiles are not new. The closest prior critical-width annulus result supplies the proportional-gap contrast for any fixed scaled radial window by subtraction, but it neither selects the unique optimal window for a labelled signed pair among all masks nor gives the sharp coefficient or the fixed-gap optimized limit. No inspected source covers the distinct conclusion.",
+      "residual_risks": [
+        "The primary lookup was bounded; unrelated hits and no exact catalogue hit do not certify priority. A general signed two-density measure-optimization result not indexed under STFT or localization could still overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct fixed-window proportional-gap overlap, no optimized signed-pair theorem",
+          "evidence": [
+            "The exact adjacent difference in §2 and two-edge CDF approximation in §3 are close prior ingredients; §4 instead optimizes the block of monomial indices for a prescribed annulus."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-critical-width-gaussian-annuli-have-a-two-edge-fock-concentratio--4048bfddff1f/RESULT.md",
+          "material_read": "Finding, assumptions, proof §§1–6, offsets 0–7300",
+          "method": "OA reader, local mirror, bounded passages",
+          "title": "Critical-width Gaussian annuli have a two-edge Fock concentration spectrum",
+          "trigger": "Same Gamma annuli, critical width and degree scaling"
+        },
+        {
+          "assessment": "Exact Hermite density/annular eigenvalues, not pairwise shape optimization",
+          "evidence": [
+            "Radial weights are diagonal in Hermites with density e^(−t)t^j/j!."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00041-020-09751-9",
+          "material_read": "Theorem 2.1 and (2.6), PDF pp. 5–6, offsets 13020, 14799",
+          "method": "OA PDF text, bounded passages",
+          "title": "Daubechies’ Time-Frequency Localization Operator on Cantor Type Sets I",
+          "trigger": "Radial Hermite localization and individual annular eigenvalues"
+        },
+        {
+          "assessment": "Different optimization",
+          "evidence": [
+            "The signal is optimized along with the mask; the best top response is a disk, not the signed contrast studied here."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.03423",
+          "material_read": "Theorem 1.1, HTML offset 7128",
+          "method": "OA HTML, bounded passage",
+          "title": "The Faber–Krahn inequality for the short-time Fourier transform",
+          "trigger": "Optimization over arbitrary phase-space sets of fixed area"
+        },
+        {
+          "assessment": "Different functional and geometric distance",
+          "evidence": [
+            "The stability controls deviation from Gaussian optimizers and Fraenkel asymmetry for the first eigenvalue."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.09304",
+          "material_read": "Theorem 1.1 and Corollary 1.4, offsets 6909 and 10889",
+          "method": "OA full-text excerpts",
+          "title": "Stability of the Faber–Krahn inequality for the short-time Fourier transform",
+          "trigger": "Sharp quantitative stability in Gaussian localization"
+        },
+        {
+          "assessment": "Method analogue, different functional and domain",
+          "evidence": [
+            "Two Fourier modes on a circle, not a difference of two Fock/Hermite densities on the plane."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-phase-centred-stability-and-bang-bang-rigidity-for-two-mod--1d3091d9c873/RESULT.md",
+          "material_read": "Finding, mirror offset 0",
+          "method": "OA reader, local mirror",
+          "title": "Sharp phase-centred stability and bang–bang rigidity for two-mode circle concentration",
+          "trigger": "Sharp exchange-mass coefficient for two modes"
+        },
+        {
+          "assessment": "Sharp quadratic exchange for a different objective and competitor class",
+          "evidence": [
+            "Origin-centered radial perturbations of a higher-rank Ky Fan functional, not arbitrary mask perturbations of the signed pair."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-local-radial-stability-for-higher-ky-fan-sums-of-fock-toep--6f29cd60a093/RESULT.md",
+          "material_read": "Sharp local radial stability passage, mirror offset 4000",
+          "method": "OA reader, local mirror",
+          "title": "Sharp local radial stability for higher Ky Fan sums of Fock Toeplitz operators",
+          "trigger": "Potential general boundary-exchange stability result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof §§2–4",
+        "Resultary 4048bfddff1f, proof §§2–4",
+        "arXiv:2307.09304 Thm. 1.1 and Cor. 1.4"
+      ],
+      "rationale": "This asks a natural inverse mask-design question not answered by maximizing a single eigenvalue. The signed pair has a provable unique annulus for every positive area and a sharp all-competitor deficit revealing how optimally exchanged mass splits across two boundaries. Optimized fixed and √n gap regimes distinguish vanishing from nonvanishing contrast with explicit endpoints and constants. The useful content is not a re-evaluation of a single known annular eigenvalue.",
+      "residual_risks": [
+        "No claim of operational quantum-discrimination optimality, arbitrary-window optimality, or a result uniform over intermediate scale regimes is justified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

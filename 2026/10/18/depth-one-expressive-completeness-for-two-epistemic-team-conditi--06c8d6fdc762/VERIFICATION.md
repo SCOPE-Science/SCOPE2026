@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Finite semantic verification
+# Independent mathematical audit
 
-Run `python3 verify_conditionals.py` using Python 3 with only its standard library. The checker computes subteams, universal antecedent tests, indicative/epistemic/counterfactual truth conditions, and lax splits directly, then reconstructs the proposed normal forms. It enumerates every union-closed family containing the empty team over abstract valuation sets of sizes \(1,2,3,4\): \(2,7,61,2480\) families, respectively, for each of the two expressive conditionals. This totals \(5100\) conditional/family comparisons, with each characteristic exact-team formula checked. It also compares the counterfactual on every pair of flat predicates in those domains (\(340\) comparisons), tests all pairs of flat splitting operands at four valuations (\(256\) pairs), random union closure under arrows, and strict depth examples.
+## correctness
 
-Observed terminal output:
-```
-FLAT_SPLIT_PAIRS_OK 256
-ALL_UNION_CLOSED_NORMAL_FORMS_OK 1 2
-ALL_UNION_CLOSED_NORMAL_FORMS_OK 2 7
-ALL_UNION_CLOSED_NORMAL_FORMS_OK 3 61
-ALL_UNION_CLOSED_NORMAL_FORMS_OK 4 2480
-NORMAL_FORM_FAMILIES_CHECKED 5100
-COUNTERFACTUAL_FLAT_PAIR_TESTS 340
-SHARP_DEPTH_SEPARATIONS_OK
-VERIFY_OK
-```
+PASS
 
-The abstract four-valuation case corresponds to two propositional variables. The three-valuation stress test is not a Boolean valuation cube but checks the purely set-theoretic construction. Exhaustive bounded tests are not proofs for unbounded vocabulary size. The manuscript proof supplies the general result. No third-party formal or independent audit has been performed.
+Induction gives empty-team and union preservation for each of the first two arrows: a true universal antecedent test on the union is true on both parts; indicative consequents then combine by union, and epistemic-conditional consequents combine by splitting each tested subteam into its intersections with those parts. Lax split preserves union by combining witnesses, which may overlap. For either arrow, the classical test excluding v followed by an arrow to bottom is satisfied exactly by the empty team or a team containing v. Conjoining these tests for v in S with the flat restriction T subset S gives just empty and S. Lax splitting over all nonempty allowed teams generates exactly their unions, with bottom covering the property containing only the empty team. A two-valuation exact-team example is not flat and witnesses sharpness; for empty vocabulary there is exactly one valuation and both admissible properties are flat. For the third arrow on flat input truth sets C,D, a singleton witnesses failure exactly when T intersects C minus D, so the result is flat with truth set (V minus C) union D. Induction therefore covers all counterfactual nesting depths.
+
+## originality
+
+PASS
+
+The distinct claim is the exact strength and optimal conditional depth of these two specific, separately added Barbero–Yang operators, answering the classical-extension question for them. Credit both the existing union-closed completeness theorem and the exact-team normal-form method. Also credit the earlier counterfactual reduction to intuitionistic implication on downward-closed languages: the flat branch is a direct specialization, not a separately original theorem. The published expressivity theorems compared use different syntax and do not establish the arrow-specific restricted translations or state this classification.
+
+## value
+
+PASS
+
+This settles a natural language-design question raised when these weak operators were introduced. The two nonflat operators individually generate the entire finite union-closed empty-team fragment with only flat inputs to one conditional layer, whereas unrestricted nesting of the third does not increase expressivity. The sharp cutoff identifies exactly how much conditional syntax gives the gain, rather than merely providing a new name for a union-closed logic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

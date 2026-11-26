@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The state aggregation by center color and opinion-one leaf count is exact under uniform vertex activation and uniform neighbor sampling. The two first-step harmonic recurrences give a geometric ratio and the second absorbing boundary uniquely fixes normalization. The complete graph is a standard constant-ratio birth-death chain. The fixed- and varying-bias limits follow from explicit geometric sums and elementary exponential limits. All boundaries and quantifiers are stated, and every nonconsensus finite state has positive-probability absorption routes. The standalone exact-fraction checker independently verifies every labeled state at 35 rational parameter/size combinations. Finite computation corroborates but does not establish the universal proof.
+## correctness
 
-**Originality — PASS with stated priority risk.** Becchetti et al.'s exact biased result assumes regularity; their appendix's constant boundary-rate ratio cannot apply to stars. Kátai-Urbán et al. study discordant push/pull runtime under different sampling, while Petsinis et al. and Durocher et al. select a neighbor by state-dependent normalized fitness rather than a fixed accept/reject step after uniform sampling. Importantly, the older biased voter process of Sood, Antal, and Redner (2008) is equivalent in its off-diagonal jump probabilities up to state-dependent holding times; Section VI derives approximate fixation laws from weak-selection diffusion theory, rather than the complete finite-star exact formulas here. This equivalence is explicitly credited in RESULT.md. Source inspections included the primary full open text for the closest papers, and relevant topic- and theorem-level searches did not uncover identical star formulas or the fixed-/weak-bias asymptotic reversal. Lack of a matching search result is not alone proof of originality; uninspected older biased-voter and evolutionary graph literature remains a residual priority risk, especially work applying Sood et al. to explicit star absorption.
+PASS
 
-**Value — PASS.** The all-configuration fixation function answers a concrete analytically difficult heterogeneity question for the first irregular graph family, and it establishes a qualitative topology/bias inversion against the complete graph under the *same update mechanism*. The contrast persists for arbitrarily large stars and has a separate weak-selection scaling law. These are motivated diffusion probabilities, not an arbitrary finite parameter slice or a re-expression of the regular-graph result.
+Direct first-step conditioning gives H_{0,k}-H_{0,k-1}=d_k/(qm) and H_{1,k+1}-H_{1,k}=qd_k/m, where d_k=H_{1,k}-H_{0,k}; these are valid at the endpoint k=m and k=0 of their respective ranges. Thus d_{k+1}/d_k=R_m(q), and the two unanimous boundaries give d_0=1/Z_m(q). Absorption is almost sure on the finite connected star with both acceptances positive, so this harmonic solution is unique. Uniform seeding weights the center once and leaves m times. The Riemann sum with m log R_m(q) tending to q-1/q yields the positive constant C(q); it is uniform in the summation variable for fixed q. For q_n=1+λ/n, m log R_m(q_n) tends to zero, so the terms tend uniformly to one and Z_m tends to two. The clique has constant down/up ratio q and gambler's ruin gives its stated fixed- and weak-bias limits. Neutrality gives H_{0,k}=k/(2m) and H_{1,k}=1/2+k/(2m), hence uniform probability 1/n, including λ=0. The exact-fraction verifier was inspected, not needed to extend the proof to arbitrary m.
 
-The already-known regular-graph fixation formula is used only as a comparator, not presented as new. The result is restricted to binary asynchronous uniform-neighbor adoption on stars and does not address consensus times, other graphs, or a universal optimizer among graph topologies. The result does not establish independent scientific certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the adoption rule, clique formula and equivalent biased-voter jump mechanism as prior. The checked earlier sources do not give or mechanically imply the arbitrary-bias exact harmonic function on the star. Its exact overlap with a separately indexed later Resultary item is explicit below; the finding is credited only for the star specialization and its consequences, not for an exclusive priority claim.
+
+## value
+
+PASS
+
+This solves fixation at every starting state on a canonical heterogeneous graph, rather than supplying a particular-size simulation or just rederiving the clique result. It quantifies a qualitative effect under the same copying rule: a fixed favorable bias gives order 1/n instead of order one on a star, and a fixed unfavorable bias gives order 1/n instead of exponential suppression. Exact hub-versus-leaf initialization and the weak-bias scale make the result useful without asserting extremality among graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

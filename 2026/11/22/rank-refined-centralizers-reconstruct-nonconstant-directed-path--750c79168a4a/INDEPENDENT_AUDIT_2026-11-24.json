@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:33:12.876589Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–81; VERIFICATION.md and verify_path_rank_centralizers.py inspected, not run; corrected RESULT.md compared against frozen text",
+        "/workspace/branches/b79437d8-27b8-4339-a98b-9c8cfc57840f/bounded_path_centralizer_check.py: independent literal composition for n<=8, 120 clamps; full polynomials, reconstruction, trivariate series coefficients and aggregate product matched"
+      ],
+      "rationale": "The repaired finding preserves the valid equations and limits. For an idempotent the interval image is fixed pointwise, so monotonicity forces a clamp. A map commuting with it must send the interval into itself; a left extension can climb only when the image of the left endpoint is that endpoint, and the reflected statement holds on the right. These conditions are sufficient pointwise. For h interior rises the binomial walk count has k-h+1 initial positions, with both endpoint enhancements only at h=k. This gives the polynomial also for k=0, when it reduces to (1+z)^N. For k>=1 the double enhancement starts in degree >=3; c_0 and c_2 count rank 1 and rank 3, determining k and AB at fixed n, hence both gaps up to reversal. Summing the base and three enhancements gives the rational series; with y=1 the common numerator is (1-zx)^2+2zx(1-zx)+z^2x^2=1. As an alternate CLT check, the product coefficient makes the excess rank H+Bin(L,1/2) conditional on nonnegative I+H+L=N, with weights (I+1)(L+1)2^L. The probability I+H>=K is bounded by the tail of sum (i+1)2^{-i-h}, since the normalizer is at least (N+1)2^N. A coupling with Bin(N,1/2) then changes the excess rank by O_p(1); the difference between centering the resulting rank at n/2 and at N/2 is negligible. This is uniform over ordered commuting pairs, not uniformly chosen clamps.",
+      "residual_risks": [
+        "Finite enumeration does not certify the unbounded theorem. Reconstruction fixes n, excludes constant clamps, and gives only the reversal orbit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Catalan monoid centralizers require f(x)<=x and do not impose the adjacent step bound. The full-transformation retraction theorem uses unrestricted total maps. The same-monoid eventual-image Gaussian law samples all maps stratified by eventual image."
+        ],
+        "reasoning": "Neither general structural result supplies counts for this metric restriction, and an unconditional Gaussian law does not supply the distribution under ordered commuting-pair sampling.",
+        "searches": [
+          "image-rank polynomial centralizer of interval clamp rank coefficient reconstruction from low coefficients",
+          "conditional image rank central limit theorem uniform idempotent commuting partner centralizer",
+          "arXiv:2611.21071v1 decreasing"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary comparisons above; primary Catalan monoid abstract and scope; cited directed-path monoid characterization from arXiv:2112.13427, Proposition 1.5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "October 25 and November 2 count interior rises by binom(k,h), and endpoint binary choices by 2^A and 2^B. In exactly that decomposition replacing those word weights by z^h, (1+z)^A and (1+z)^B yields C; this does not require any new commuting criterion. The earlier total corresponds to z=1, with no variable for the image-rank law."
+        ],
+        "reasoning": "The mechanical per-clamp refinement is credited and not passed as new. The repair retains the recovery of AB and thus location from just two degrees, the aggregate factorization, and the size-biased-by-centralizer commuting-pair rank law. Those conclusions require identifying the two invariants and summing/simplifying the weighted profile, not just specializing the old results.",
+        "searches": [
+          "centralizer rank spectrum interval clamp directed path image rank generating function",
+          "joint aggregate generating function rank of commuting pairs idempotent clamp",
+          "conditional image rank central limit theorem uniform idempotent commuting partner centralizer"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 25 §§2–3 and November 2 §§1–2 use the same W_n under different names and the same commuting criterion. Full transformation retractions have a related rank 3 profile test but ambient maps need not be monotone or contractions."
+        ],
+        "reasoning": "The earlier clamp criterion is equivalent; the rank 1/rank 3 reconstruction of position at fixed n is not the unrestricted retraction profile problem.",
+        "searches": [
+          "Centralizer profiles and a quadratic limit law for idempotent finite-chain contractions",
+          "Idempotent centralizers and commuting semilattices in a finite directed-path monoid",
+          "image-rank polynomial centralizer of interval clamp rank coefficient reconstruction from low coefficients"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "November 2 gives the exact unweighted pair total A_n, recovered by z=1. The distinct November 22 corank-one record gives boundary clamp polynomials only, up to multiplying by z to change rank convention."
+        ],
+        "reasoning": "The unweighted count and boundary spectrum are covered. Neither exact formula gives the joint coefficients or reconstruction for all clamps. Same-day overlap gives no priority order.",
+        "searches": [
+          "centralizer rank spectrum interval clamp directed path image rank generating function",
+          "joint aggregate generating function rank of commuting pairs idempotent clamp"
+        ]
+      },
+      "rationale": "Pass for the repaired scope: two-coefficient reconstruction and the exact and asymptotic pair-rank law. The original called the per-clamp weighted spectrum a contribution, but the checked older proofs already supply the identical rise decomposition; weighting those choices gives the formula mechanically. The repair credits it as an ingredient rather than a standalone contribution.",
+      "residual_risks": [
+        "The additional primary-literature keyword search was unavailable; not negative evidence. Priority for the narrowed reconstruction and pair laws remains bounded by the passages and catalogue searches inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unweighted theorem, mechanically implies weighted per-clamp count",
+          "evidence": "The interior choices are indexed by total rises and outer choices are binary extensions, giving exactly the required marking.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-centralizer-profiles-and-a-quadratic-limit-law-for-idempotent-fi--22387dfffecf/RESULT.md",
+          "material_read": "Finding offset 0 and proof Steps 2–3 at offsets 2199 and 2800",
+          "method": "Local Resultary mirror",
+          "title": "Centralizer profiles and a quadratic limit law for idempotent finite-chain contractions",
+          "trigger": "Identical monoid and per-clamp centralizers"
+        },
+        {
+          "assessment": "Same criterion and known unweighted aggregate",
+          "evidence": "Binomial interior and binary extensions give per-clamp marking; ordered-pair total is the z=1 specialization.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-idempotent-centralizers-and-commuting-semilattices-in-a-finite-d--628a5e7d08b8/RESULT.md",
+          "material_read": "Finding offset 0; proof Steps 1–2 at 2822 and pair total at 5200",
+          "method": "Local Resultary mirror",
+          "title": "Idempotent centralizers and commuting semilattices in a finite directed-path monoid",
+          "trigger": "Identical clamp counts and aggregate"
+        },
+        {
+          "assessment": "Related invariant; different ambient monoid and reconstructed object",
+          "evidence": "Image rank 3 can distinguish kernel-block profiles in the full transformation monoid, not ordered gaps of path clamps in W_n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-rank-spectra-of-centralizers-of-finite-transformation-retraction--cabfb16a59f1/RESULT.md",
+          "material_read": "Finding offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Rank spectra of centralizers of finite transformation retractions",
+          "trigger": "Rank 3 recovers profile information for an idempotent"
+        },
+        {
+          "assessment": "Exact restricted overlap, not priority inferred",
+          "evidence": "The i=n-1 case gives [1,n-1] and its reflection, with one higher exponent by choice of convention.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-rank-refined-centralizers-of-corank-one-contractions-of-a-finite--9995ab05ff0f/RESULT.md",
+          "material_read": "Finding offset 0, also frozen lines 4–22",
+          "method": "Local Resultary mirror and assigned source",
+          "title": "Rank-refined centralizers of corank-one contractions of a finite chain",
+          "trigger": "Same monoid, boundary idempotents"
+        },
+        {
+          "assessment": "Different sampling law",
+          "evidence": "Uniform W_n and eventual image, not the second coordinate of a uniform clamp-commuting pair.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-eventual-image-fibers-and-independent-geometric-gaussian-limits--04f5773be42b/RESULT.md",
+          "material_read": "Finding offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Eventual-image fibers and independent geometric–Gaussian limits in directed-path weak endomorphisms",
+          "trigger": "Gaussian rank law in the same monoid"
+        },
+        {
+          "assessment": "Different restrictions on the same underlying chain",
+          "evidence": "Characterizations for idempotents, nilpotents and general maps in the order-decreasing order-preserving monoid.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.21071v1",
+          "material_read": "Abstract p. 1, PDF p. 1 offset 889–2946; definitions located on p. 2",
+          "method": "OA PDF text",
+          "title": "Centralizers in Catalan Monoids",
+          "trigger": "General centralizer claims on ordered chains"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding and Proof §§3–5; n=4 collision; earlier clamp centralizer counts"
+      ],
+      "rationale": "Commuting maps detect the position of a nonconstant clamp through only ranks 1 and 3, even when the known centralizer cardinality collides (e.g. length four). The joint series and factored aggregate describe actual image rank under a natural pair sampling, yielding an exact finite distribution and a CLT not implied by knowing only the count of pairs. Value is in these uses, not marking the old counting criterion alone.",
+      "residual_risks": [
+        "No inference for arbitrary nonidempotent centralizers or for sampling a uniform idempotent first."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

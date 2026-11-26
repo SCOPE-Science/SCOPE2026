@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:55:23.760034Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A rank-one projection is uniquely specified by its image point and complementary kernel hyperplane (a vector/covector pair is unique only up to reciprocal scaling). Distinct commuting projections have zero products in both orders, so adjacency is mutual cross-incidence. Counting hyperplanes gives the stated degree and the arc Gram entries gamma, 0 and beta; AB/BA transfers nonzero eigenvalues through A=UTU^T. For lambda outside 0,beta,+/-gamma, paired arc equations give the denominator lambda^2-gamma^2. Summing over the q other points on a line gives lambda(lambda-beta)d=(lambda^2-gamma^2)S-beta lambda D and D=(lambda-gamma)/lambda times the sum of point totals on the line. Each other point is on exactly one line through a fixed point, yielding (lambda^2-gamma^3)S=beta(lambda-gamma)JS with S nonzero. The constant and mean-zero modes bound multiplicities by 1 and v-1 respectively. The all-ones vector realizes k; the two mean-zero incidence combinations have squared norms 2(q^(n-1) minus/plus sqrt(gamma)) times the squared point-function norm, so realize both exceptional large bands with the full v-1 dimensions. For an adjacent pair, a common neighbor's image is in the intersection of their kernels (s choices) and its kernel contains the two image points but avoids its own (beta choices), so the trace through order three is determined. An independent symbolic check of all four trace identities and the constant-space factorization is in /workspace/audit-replay/3.py. The Vandermonde system for 0,beta,+gamma,-gamma is nonsingular; zero has multiplicity 0. The same script tested the exact integer annihilating polynomial on full matrices at (n,q)=(4,2),(5,2),(4,3), and eight columns at (4,4), with exact degree/common-neighbor checks as documented in 3.txt. The GF(4) probes are not a full matrix census. The analytic argument covers all prime powers, including absence of the +gamma band at q=2, and implies the stated irrationality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pankov–Pasini's retrieved abstract describes recoverability of four relations, without a stated eigenmatrix. Faradzev's catalog scope is antiflags of a projective plane, n=3 in the frozen convention, outside the theorem.",
+          "The older local-recognition and cover statements concern graph structure, and the retrieved statements do not report the claimed eigenvalue multiplicities."
+        ],
+        "reasoning": "A general antiflag Hecke or orbital formula would count as coverage if it provided the cross-incidence adjacency eigenvalues and multiplicities for n>=4. No checked statement does so; the abstracts do not exclude such coverage in unread material.",
+        "searches": [
+          "Pankov–Pasini DOI 10.37236/15331, four antiflag relations",
+          "Faradzev DOI 10.1016/0012-365X(92)00476-8, antiflag association schemes",
+          "Cohen–Postma arXiv:math/0310322 and Cohen–Cuypers–Gramlich DOI 10.1007/s00493-005-0016-4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, AUDIT.json, check_spectrum.py and check_output.txt",
+        "Resultary 366b43eada10 and 68f8c41dd792 (summaries)",
+        "Cohen–Cuypers–Gramlich, Cohen–Postma, Pankov–Pasini and Faradzev (identified statements, metadata or retrieval attempts as detailed above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The shared local parameters determine traces through order three, but those moments do not identify the candidate eigenvalues or realize the two v-1 dimensional eigenspaces. The arc-to-line reduction supplies precisely that extra restriction.",
+          "Recovering one relation from another is not a computation of the spectrum, and a projective-plane eigenmatrix alone would not imply the higher-dimensional one."
+        ],
+        "reasoning": "The claimed spectrum is not a direct parameter substitution into the accessed work; the known trace inputs are used only after identifying the candidate bands and their large multiplicities.",
+        "searches": [
+          "Compare the 366b43eada10 local parameters and local-recognition theorem to spectral trace equations",
+          "Check possible implication of the four antiflag-relation statement and Faradzev's dimensional scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cohen–Cuypers–Gramlich's accessible search passage concerns the same cross-incidence graph and local structure; the object is not novel.",
+          "A rank-one square-zero matrix instead has image contained in its kernel; the distinct square-zero spectrum record is not an antiflag spectrum."
+        ],
+        "reasoning": "The matrix and projective formulations of the frozen graph are equivalent and must be compared together. Only the complete new spectral invariant is assessed as distinct.",
+        "searches": [
+          "Resultary: commuting primitive idempotents, rank-one projections, projective point–hyperplane antiflags and full spectrum",
+          "Literature search for antiflag cross-incidence or nonincident point–hyperplane graphs, orbital/association-scheme eigenmatrices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "366b43eada10 is an earlier result for the same graph, including n>=4, with degree q^(n-2)[n-1]_q and adjacent common-neighbor count q^(n-3)[n-2]_q.",
+          "Distinct same-day record 68f8c41dd792 has a complete adjacency spectrum for rank-one square-zero matrices, not idempotents. The conclusion of difference uses the vertex definitions, not the date."
+        ],
+        "reasoning": "Neither indexed statement supplies the full table for the frozen graph. Edge regularity is a partial overlap and is credited directly.",
+        "searches": [
+          "Configured Resultary spectrum and edge-regular primitive-idempotent graph queries"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass on the uniform complete adjacency spectrum and nonsingularity, not on the same known cross-incidence graph, its degree, or its local structure. The strongest same-graph Resultary entry gives edge-regular parameters, not a spectrum. No accessible source statement gives a full higher-dimensional antiflag eigenmatrix implying the claim; that possibility remains open as a historical risk.",
+      "residual_risks": [
+        "Exact primary passages of the closest graph and relation papers and the distinct Resultary full text were not independently retrieved.",
+        "An older general antiflag orbital/association-scheme eigenmatrix could imply the result without using its matrix terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same graph and local parameters; those parameters do not mechanically imply the frozen spectrum",
+          "evidence": [
+            "Summary gives n>=3, q^(n-2)[n-1]_q and q^(n-3)[n-2]_q."
+          ],
+          "identifier_or_url": "366b43eada10",
+          "material_read": "Configured Resultary summary; targeted mirror retrieval did not return primary text independently",
+          "method": "Resultary search and mirror passage request, compared to frozen relation and trace equations",
+          "title": "Edge-regular primitive-idempotent graphs of finite full matrix rings",
+          "trigger": "Earlier exact parameters for the same graph"
+        },
+        {
+          "assessment": "Credit the recoverability results; cannot certify broader eigenmatrix coverage or noncoverage",
+          "evidence": [
+            "Available abstract treats four antiflag-pair relations and their recoverability without stating the multiplicity table."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/15331",
+          "material_read": "Retrieved abstract/excerpt; no independent access to relevant full-text passages",
+          "method": "Literature search and lawful primary PDF retrieval attempts",
+          "title": "Four Relations on the Set of Point-Hyperplane Antiflags",
+          "trigger": "Same objects and canonical relations; strongest higher-dimensional eigenmatrix risk"
+        },
+        {
+          "assessment": "Established graph/local work, not available evidence of the full spectrum",
+          "evidence": [
+            "The retrieved passage matches the cross-incidence graph and describes local recognition."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00493-005-0016-4",
+          "material_read": "Retrieved search passage on graph and local structure; lawful full-text retrieval not successful",
+          "method": "Targeted literature and OA source lookups",
+          "title": "Local Recognition of Non-Incident Point-Hyperplane Graphs",
+          "trigger": "Identical incidence graph and local recursion"
+        },
+        {
+          "assessment": "The visible result addresses covers, not a full spectral table",
+          "evidence": [
+            "The excerpt discusses covers of the nonincident point–hyperplane graph in projective dimension three."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0310322",
+          "material_read": "Available metadata/search snippet on graph covers; not full text",
+          "method": "Literature search and source scope comparison",
+          "title": "Covers of Point-Hyperplane Graphs",
+          "trigger": "Early source for the same antiflag graph"
+        },
+        {
+          "assessment": "Directly relevant to excluded n=3; no independent full-text noncoverage claim for higher dimensions",
+          "evidence": [
+            "Scope in the catalog is projective planes, not arbitrary projective dimension."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(92)00476-8",
+          "material_read": "Bibliographic scope and frozen comparison only",
+          "method": "Title/DOI and stated parameter comparison",
+          "title": "Association schemes on the set of antiflags of a projective plane",
+          "trigger": "Plausible exact spectral coverage for antiflags in an older association scheme"
+        },
+        {
+          "assessment": "Different vertex set, not demonstrated equivalent coverage",
+          "evidence": [
+            "Square-zero forces image in kernel, contrary to the rank-one idempotent antiflag constraint."
+          ],
+          "identifier_or_url": "68f8c41dd792",
+          "material_read": "Resultary summary",
+          "method": "Configured Resultary search and definition comparison",
+          "title": "Complete adjacency spectrum of commuting rank-one square-zero matrices",
+          "trigger": "Distinct same-day Resultary spectrum for rank-one matrices"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete invariant of a standard projective graph and natural matrix commuting geometry, not a small parameter sample or another degree count. The no-zero result establishes full adjacency rank uniformly, and the two radical bands distinguish integral from nonintegral families. Both conclusions depend on resolving the spectrum beyond the known edge-regularity data.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

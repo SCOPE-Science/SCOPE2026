@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of exact finite classification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.10+ (standard library only). It constructs graph edges algebraically, counts all base four-cocliques and rules out independent five-sets, enumerates all reciprocal maximum-coclique neighborhood systems, checks the induced token graph independence of each candidate, classifies the auxiliary graph, and partitions all solutions under the explicitly generated full base-graph automorphism actions.
+## correctness
 
-Expected output ends `VERIFY_OK`. The six coclique/orbit count vectors and both auxiliary structural types are asserted. Every vertex and edge of each 120-state two-token graph is generated, not randomly sampled. The completeness proof uses the exhaustive search recursion and the exact local upper bound. No external validation or infinite-parameter assertion is represented.
+PASS
+
+In the auxiliary graph of selected unordered pairs, token conflicts are exactly two incident auxiliary edges whose other endpoints are adjacent in the base graph. Hence each auxiliary neighborhood is a base coclique. Both bases have cocliques of size four and none of size five, so degree sum bounds the size by 32; equality requires four neighbors at every vertex and the reciprocity of those neighbor choices. Independently reimplemented the exhaustive census in /workspace/audit_replay/token_census.py: assign the rows in fixed vertex order, with each new row indexed by the lower-bit pattern prescribed by all previous rows. This bijectively enumerates every reciprocal assignment, with no assumption about its type. The script verifies the quotient by identical open neighborhoods has respectively four size-four classes inducing two disjoint edges, or eight size-two classes inducing a single cycle; checked complete joins across quotient edges and absence of intra-class edges. Independently enumerated the entire base automorphism group by extending injective partial vertex maps preserving both adjacency and nonadjacency. Replay with python3 returned 24/16 base four-cocliques, 144/54 order-32 solutions, base group orders 1152/192, type counts (72,72)/(30,24) in the stated order, and precisely the claimed typed orbit sizes. This checks the full base actions, not any assertion about the token graphs' own full groups. The inspected frozen verifier's different CSP ordering is consistent. Cospectrality itself follows from the cited strongly regular symmetric-square theorem under exactly this unordered-pair definition.
+
+## originality
+
+PASS
+
+The supported distinct result is the exact extremal-set census, with structural types and base-group orbits, on the specified known cospectral pair. Cospectrality and base coclique data are prior; even if a less accessible source turns out to give the independence numbers, that alone does not cover the census or structure.
+
+## value
+
+PASS
+
+The canonical equal-parameter, cospectral pair motivates the exact comparison before computation. The same maximum size but different leading independence coefficients gives a concrete separation on symmetric squares, and the two auxiliary-graph types with full base-action refinements make the result useful beyond the raw coefficients for anyone studying the extremal configurations. The enumeration is complete for the specified natural pair and is not extrapolated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

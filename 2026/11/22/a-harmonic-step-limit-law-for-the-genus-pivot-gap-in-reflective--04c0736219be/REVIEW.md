@@ -1,19 +1,7 @@
-# Review of the genus-pivot gap distribution
+# Scientific assessment of the limit law
 
-## Correctness — PASS
+**Correctness.** Shor's parametrization and gap decomposition give the exact finite measure, including the one ordinary semigroup. Interval counting after a cutoff at \(g^{-1/2}\) proves a bound uniform over thresholds. The branch Jacobians and convergent moment sums give the displayed law, second moment and variance.
 
-Shor's fully specified gap decomposition shows that the interval of missing integers containing the genus index is exactly \([qa+1,g]\), hence its length is \(r=g\bmod a\). Counting multiplicities by divisors of \(g-r\) gives the complete histogram, including the ordinary semigroup's exceptional \(r=g\). The mean is a double-counted summatory-divisor identity. The CDF proof explicitly controls the small-multiplicity region, counts at most \(O(\sqrt g)\) affine branch intervals on the remaining grid, and bounds excluded divisor indices, giving uniform error \(O(g^{-1/2})\). The transformed-uniform density and zeta moments are proved by convergent elementary integrals. The standard-library checker independently reconstructs all gap sets and exact histograms for every genus through 90.
+**Originality.** The finite histogram is a regrouping of Shor's exact parametrization and of the nonzero entries of the known remainder array. The same finite statistic is a fixed-genus Frobenius deficit; the numerator of the mean is OEIS A111490 with its leading constant already recorded. These are not part of the new claim. The checked sources do not establish the explicit continuous CDF, uniform error, and second moment on this sampling scheme. The indexed isolated-gap and Wilf-surplus laws describe different observables.
 
-## Originality — PASS on inspected evidence
-
-Shor's 2022 preprint (full text, Proposition 3.4 and Section 5) already describes each gap set and the eligible multiplicities. In particular, the elementary identity \(R=g\bmod a\) is prior-implied and is not an original standalone claim. A published exact isolated-gap distribution for reflective semigroups (complete publicly accessible RESULT.md inspected) counts the number of **isolated** gaps, a discrete heavy-tail invariant, rather than the length of the contiguous block of gaps containing \(g\). Related Arf-closure findings concern the number of added individual gaps. Semantic searches for normalized remainders, genus-pivot gap blocks, aliases, and harmonic limits found no equivalent finite-genus divisor histogram together with a continuous harmonic-step law, quantitative convergence, and its zeta moments. The general parametrization is strong input, and an unindexed or implicit derivation could exist.
-
-## Value — PASS
-
-The gap run crossing the defining reflection pivot is intrinsic, well specified, and measures a different aspect of gap geometry from isolated-gap counts and global genus/Frobenius statistics. Its finite-genus histogram is a complete natural invariant distribution, and its scaled limit has a surprisingly piecewise-harmonic density with explicit zeta moments and a uniform finite-population error. The precise statistic is motivated before calculation by the reflection geometry; this is not a random or fixed arbitrary numerical slice. The main value lies in population-level structure, not the easy observation that a single run has length \(g\bmod a\).
-
-## Closest literature and limitations
-
-The primary parametrization and per-semigroup gap set are established in Shor's arXiv:2207.00051v1 (2022). The later isolated-gap population theorem is close in the underlying family but not covering the continuous length statistic. An earlier same-family asymptotic for a different numerical invariant was also checked for overlap. Attributing the established classification is essential; neither uniqueness of an unpublished theorem nor mathematical independence is claimed. This has only self-review and no independent audit.
-
-Self-review: passed. Independent audit: not yet performed.
+**Value.** The full distribution resolves all thresholds for an intrinsic statistic on a natural finite population, not just a restatement of the size of its mean. It identifies the limiting support and density, quantifies finite-genus accuracy, and describes the fluctuation scale. The result also states the equivalent consequence for the fixed-genus Frobenius distribution.

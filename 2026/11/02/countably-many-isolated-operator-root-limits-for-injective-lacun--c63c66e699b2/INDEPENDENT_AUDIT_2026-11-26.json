@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:35:27.467223Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 29–60",
+        "Frozen checker.py and VERIFICATION.md"
+      ],
+      "rationale": "For each basis vector the logarithm of the root entry is minus c/n times the spike sum on [k,k+n-1]. Take q^m<=n<q^(m+1) and extract a convergent ratio n/q^m. An interior ratio u yields exp(-cq/((q-1)u)) at every fixed k. At ratio 1, a fixed offset n-q^m=d gives the cut k<=-d, while a diverging offset gives alpha I. At ratio q, a fixed deficit q^(m+1)-n=d gives the cut k<=d, while a diverging deficit gives beta I. The initial prefix is constant in n for each fixed k. The sequences q^j-s, floor(u q^j), and q^j±j realize all steps, interior scalars, and endpoints, respectively. On the uniformly bounded diagonal family coordinate convergence is both weak and strong convergence, and diagonal subsequence extraction shows that every scalar limit along a unit vector comes from one of these operators. Testing entries s,s+1 isolates each step; the scalar interval is connected, and the steps have the stated strong limits at both ends. Negative-index windows give norm of each root and power equal to one; long negative blocks give numerical radius one. Strict positivity gives injectivity and puts every basis vector in the range. Since all cluster operators have norm at most beta<1, no norm-convergent subsequence is possible. The included checker was inspected, not rerun; its recorded 18,600 checks test finite spike sums, not the infinite theorem, for which the exhaustive analytical argument suffices.",
+      "residual_risks": [
+        "Only the specified family and n tending to infinity are covered; no general classification of shifts is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ji–Yang Proposition 4.1 requires weights bounded below; the frozen weights have infimum zero. Example 4.2 has scalar limits under that hypothesis; Example 4.4 is not a shift.",
+          "The Resultary theorem varies amplitudes on superlacunary sites 2^(2^j) of a unilateral shift and includes I in the cluster set."
+        ],
+        "reasoning": "Amplitude universality does not cover adjacent geometric scales of fixed ratio q. There the normalized previous spikes do not vanish even immediately before the next spike; beta<1 rather than 1. The prior unilateral formula cannot account for both tails of projection cuts here.",
+        "searches": [
+          "Ji–Yang v1/v2 Proposition 4.1 and Examples 4.2–4.3; v2 Example 4.4",
+          "Resultary compact-set universality record 4f04fcb284c4, RESULT.md Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/10/26/4f04fcb284c4",
+        "Ji–Yang arXiv:2608.21553v1/v2 §4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One separating scalar coordinate does not give an exhaustive operator cluster set.",
+          "With singleton amplitude the Resultary construction already gives the qualitative countable-component phenomenon, but its inclusion of I precludes the claimed strict root-norm/cluster-norm gap for its normalized example."
+        ],
+        "reasoning": "The quantitative difference reflects the earlier spikes retaining positive mass under fixed-ratio rescaling and the bilateral cuts having two ends. The new exact limit computation is not a substitution of q into the superlacunary theorem.",
+        "searches": [
+          "Ji–Yang v1/v2 Example 4.3",
+          "Resultary 4f04fcb284c4, singleton compact amplitude set specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Section 4 of Ji–Yang uses the same diagonal geometric moving averages. Example 4.3 proves disconnection using a two-value cluster set on one diagonal coordinate.",
+          "The Resultary singleton-amplitude construction already has a scalar interval and countably many isolated projection steps."
+        ],
+        "reasoning": "Rewriting in moving averages or projections does not make those qualitative conclusions distinct. In the frozen family the cutoff moves over the whole integer lattice, with two scalar accumulation endpoints of the nonscalar limits, and the exact two levels come from geometric prefix sums at successive scales. Neither comparator states that classification.",
+        "searches": [
+          "Ji–Yang arXiv:2608.21553v1 and v2, §4",
+          "Resultary record 2026/10/26/4f04fcb284c4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest indexed exact match supplies a different closed-form operator set with upper scalar endpoint 1, not the two levels exp(-cq/(q-1)) and exp(-c/(q-1)) for q^j windows."
+        ],
+        "reasoning": "The exact data sought are operator-set formulae, not a finite table. The matching closed formula was checked and is not for this regime.",
+        "searches": [
+          "Resultary record 4f04fcb284c4, exact operator-set formula",
+          "Ji–Yang v1/v2 §4 examples"
+        ]
+      },
+      "rationale": "Pass is for the exact geometrically spaced bilateral family, including two-sided accumulation of steps and the uniform gap between all weak/strong cluster norms and the norms of the roots. The existence of disconnected clusters, even the qualitative combination of an interval, countably many isolated steps and identical vector scalar ranges, is not new by itself.",
+      "residual_risks": [
+        "Bounded priority review, not an exclusion of unindexed exact classifications.",
+        "Do not credit qualitative countable disconnection or identical scalar ranges alone as the novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier disconnection witness, not the stated exhaustive bilateral classification",
+          "evidence": [
+            "Example 4.3 establishes a two-value cluster set of a selected diagonal coefficient, not a classification of all diagonal limits; v2 Example 4.4 treats M_x+V."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.21553v2 (also /pdf/2608.21553v1)",
+          "material_read": "§4, in particular Proposition 4.1 and Examples 4.2–4.3 (PDF pp. 15–16), and v2 Example 4.4 (pp. 16–17)",
+          "method": "Bounded reading of open arXiv full text in both versions",
+          "title": "Asymptotic Numerical Ranges and Invariant Subspaces of Operators",
+          "trigger": "Same asymptotic numerical range and nearest published disconnected-shift example"
+        },
+        {
+          "assessment": "Substantial qualitative overlap; distinct sites, index space and cluster endpoints",
+          "evidence": [
+            "On a unilateral space with sites 2^(2^j), scalar limits run from exp(-a_*) to 1 and nonscalar limits are P_h+exp(-a)(I-P_h), h>=1 and a in K. Singleton K already yields countably many isolated steps."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-compact-set-universality-for-cluster-limits-of-sparse-weighted-s--4f04fcb284c4",
+          "material_read": "RESULT.md Finding at offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Configured local Resultary lookup and mirror reading",
+          "title": "Compact-set universality for cluster limits of sparse weighted shifts",
+          "trigger": "Indexed exact cluster classifications with scalar interval and isolated steps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 10–24 and 40–60",
+        "Resultary 4f04fcb284c4 Finding"
+      ],
+      "rationale": "Finite-ratio spikes occupy a materially different regime from the superlacunary example: earlier spikes retain nonzero normalized mass, so every strong cluster operator loses a fixed amount of norm even though every root has norm one. The full cut classification also gives two distinct strong accumulation limits for the isolated operators, not just another disconnection witness. This is a natural exact boundary example for how operator-root limits, scalar asymptotic numerical ranges and spectral radii can differ.",
+      "residual_risks": [
+        "Value is as a concrete model, not an arbitrary weighted-shift theorem or a new qualitative disconnection phenomenon."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

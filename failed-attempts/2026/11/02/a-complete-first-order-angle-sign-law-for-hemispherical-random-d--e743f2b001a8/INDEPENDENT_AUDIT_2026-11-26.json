@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:44:03.333005Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md §§Finding–Proof",
+        "Assigned VERIFICATION.md and verify.py, inspected",
+        "Ouimet arXiv:2104.04882, Theorem 1, Eq. (8) and normalization"
+      ],
+      "rationale": "Taking absolute values of the first Gaussian coordinates and normalizing gives independent hemisphere points; normalization preserves signs. The other d−1 coordinates give a centered off-diagonal Gram vector independent of the first-coordinate products. The determinant characteristic function has quadratic term −||t||²/2 and cubic term −i times the sum of triangle monomials divided by sqrt(d−1); tr T³ counts each unordered triangle six times. For the Fourier remainder, on ||t||≤n^(1/8) the convergent log-determinant expansion and its fixed-order derivatives give an n^(−1) polynomial-times-Gaussian bound after subtracting the linearized cubic. Outside, each fixed-order derivative of the characteristic function costs at most a fixed power of n, since ||(I−iT/sqrt(n))^(−1)||≤1. The determinant bound is Gaussian up to ||t||=sqrt(n), and beyond that radius splitting off a fixed integrable power gives an exponentially small integral even after that polynomial cost. Fourier inversion with coordinate derivatives through order m+2 therefore gives the stated L¹ remainder. The Gaussian orthant integrals have globally bounded second derivatives with respect to the shifts; the shift mean is E|G_iG_j|=2/π. Each cubic monomial integrates over the unshifted orthant with three signed first moments ±1/sqrt(2π); shifting changes these integrals by O_k(n^(−1/2) sum H_ij) before the cubic prefactor. Thus both relative coefficients are (2/π)^(3/2). Finiteness of the half-normal moments gives a uniform bound at fixed k, and n=d−1 can be replaced by d at the claimed precision. For k=3 the signed sum plus product is 4 and −4 at the constant patterns and zero at each mixed pattern. The theorem also follows independently from the Wishart density and anchor conditioning comparison documented below.",
+      "residual_risks": [
+        "The packaged sampler is only at k=3 and d=300, despite the broader wording in RESULT.md. It is not an error-rate test. The analytic bound is fixed-k only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 treats the full fixed-size Wishart matrix, with the number of Gaussian degree-of-freedom summands tending to infinity. At identity scale and after centering and rescaling to Y=(X−νI)/sqrt(ν), Eq. (8) gives first-order relative density correction [tr(Y³)/6−(K+1)tr(Y)/2]/sqrt(ν) against the symmetric Gaussian law, with explicit polynomial bounds on the second-order term and bulk remainder. The spherical angle and halfsphere hull papers address different statistics."
+        ],
+        "reasoning": "Take K=k+1 and ν=d, so X is exactly the Gaussian Gram matrix whose off-diagonal signs equal the full-sphere signs. Integrating away the diagonals of the Gaussian reference (independent and centered) leaves only the distinct-index terms of tr(Y³), namely six copies of each triangular product. This is broader exact asymptotic input than knowing the third moments alone.",
+        "searches": [
+          "Ouimet, arXiv:2104.04882 / doi:10.1016/j.jmva.2021.104923, Theorem 1 Eq. (8)",
+          "Cai–Fan–Jiang arXiv:1306.0256 Theorem 1",
+          "Bárány–Hug–Reitzner–Schneider arXiv:1505.04672 abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md",
+        "Ouimet Theorem 1 Eq. (8)",
+        "Bubeck–Ding–Eldan–Rácz",
+        "Cai–Fan–Jiang",
+        "Bárány–Hug–Reitzner–Schneider",
+        "Three adjacent Resultary records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With K fixed, the polynomial second-order and bulk-remainder bounds in Eq. (8) integrate to O_K(ν^(−1)) under the Gaussian reference. The bulk has radius proportional to ν^(1/6) in standardized coordinates. Uniform twelfth moments of the fixed-dimensional standardized Wishart entries follow from expanding sums of independent centered Gaussian products (indices appearing once give zero); Markov's inequality gives O_K(ν^(−2)) mass outside the bulk. The Gaussian reference and polynomial correction have negligible tails there. Thus the first-order expansion has integrated error O_K(ν^(−1))."
+        ],
+        "reasoning": "Each triangle product integrates over any signed Gaussian orthant to 2^(−binom(K,2)) times (2/π)^(3/2) times the three signs' product. Under anchor conditioning, triangles entirely among the k samples stay triangle terms, and a triangle through the anchor becomes exactly one signed sample edge. Dividing by 2^(−k) preserves the error order for fixed k and gives the frozen formula, coefficient equality and special cases directly. No new probabilistic estimate specific to the hemisphere is required.",
+        "searches": [
+          "Ouimet arXiv:2104.04882 p. 3, Eq. (8), PDF offset 14433, and normalization in the proof p. 10",
+          "Anchor conditioning and Gaussian orthants of the full Wishart expansion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bubeck et al. Lemma 5 conditions the two-point event on both points lying in the fixed hemisphere. With k+1 independent full-sphere points, fixing the first point as the pole and conditioning all k incident inner products to be positive gives precisely the original fixed hemisphere sign-pattern law by rotation invariance."
+        ],
+        "reasoning": "This is the full-sphere sign law on k+1 points evaluated at all-positive incident signs on the pole, divided by the exact conditioning probability 2^(−k). The conditioning is exact at every dimension and does not alter the ambient-angle convention.",
+        "searches": [
+          "Resultary: fixed-k hemisphere angle signs, spherical three-point density and triangle cumulants",
+          "Bubeck–Ding–Eldan–Rácz arXiv:1411.5713 Lemmas 1 and 5",
+          "Frédéric Ouimet symmetric matrix variate normal local approximation Wishart distribution applications theorem arXiv density trace cubic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The three-point full-sphere density record gives the cubic triangle correction with L¹ remainder O(d^(−1)). The LKJ record isolates the triangle third moment; the intrinsic-triangle record concerns Riemannian vertex angles."
+        ],
+        "reasoning": "These do not supply the general hemisphere law as catalog entries. The three-point density corroborates a component, not arbitrary fixed k; intrinsic triangle angles are different events. Coverage of the full theorem follows instead from the earlier full-matrix density expansion.",
+        "searches": [
+          "Resultary: cubic correction for spherical three-point Gram densities and exact triangle cumulants",
+          "2026/11/8/…--543ad6d64872",
+          "2026/10/4/…--955e3ffe3131",
+          "2026/11/8/…--2d168d11075e"
+        ]
+      },
+      "rationale": "Although the hemisphere law is not stated verbatim in the inspected sources, it is a direct consequence of Ouimet's earlier precise central Wishart density expansion, ordinary orthant integration, and rotation-invariant conditioning on the signs to one additional full-sphere point. The prior expansion already provides the coefficient and the precision necessary for every fixed k and pattern.",
+      "residual_risks": [
+        "This establishes coverage by mathematical implication, not a claim that the exact hemisphere wording previously appeared or that the checked literature is exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger result with the needed integrated precision after fixed-moment tail bounds",
+          "evidence": "Density ratio correction is sqrt(2) tr(Δ³)/3−(K+1)tr(Δ)/sqrt(2) at order ν^(−1/2), with Δ=Y/sqrt(2) at identity scale; Eq. (8) explicitly controls the higher terms on the bulk.",
+          "identifier_or_url": "https://arxiv.org/pdf/2104.04882",
+          "material_read": "Theorem 1, pp. 3–4, Eq. (8), PDF offsets 14433–18231; proof normalization located on p. 10",
+          "method": "Primary OA passage and explicit marginalization/conditioning comparison",
+          "title": "A symmetric matrix-variate normal local approximation for the Wishart distribution and some applications",
+          "trigger": "Full fixed-dimensional Wishart density correction, potentially covering all signs including the anchor"
+        },
+        {
+          "assessment": "Exact two-point overlap and triangle scale, but not the full law in these passages",
+          "evidence": "Lemma 1 gives a full-sphere triangle-probability lower bound of relative order d^(−1/2); Lemma 5 gives the integral for the two-point hemisphere event before dividing by 1/4.",
+          "identifier_or_url": "https://arxiv.org/abs/1411.5713",
+          "material_read": "OA PDF p. 6 Lemma 1, offset 20500; p. 20 Lemma 5 Eqs. (39)–(41), offset 78600",
+          "method": "Compare event, conditioning and asymptotic result",
+          "title": "Testing for high-dimensional geometry in random graphs",
+          "trigger": "Two-point hemisphere probability and signed-triangle effects"
+        },
+        {
+          "assessment": "Different claimed law",
+          "evidence": "One-angle density and empirical angular distribution for full-sphere points, not fixed-k hemispherical sign patterns.",
+          "identifier_or_url": "https://arxiv.org/abs/1306.0256",
+          "material_read": "OA PDF p. 4, Theorem 1, offset 11350",
+          "method": "Compare observables and asymptotic regime",
+          "title": "Distributions of Angles in Random Packing on Spheres",
+          "trigger": "High-dimensional angular probability laws"
+        },
+        {
+          "assessment": "Same sampling region, different observable and limit",
+          "evidence": "Convex-hull functionals for growing sample count rather than fixed-k ambient Gram signs.",
+          "identifier_or_url": "https://arxiv.org/abs/1505.04672",
+          "material_read": "OA PDF p. 1 abstract and introduction, offsets about 650 and 4000",
+          "method": "Compare model, observable and limit",
+          "title": "Random points in halfspheres",
+          "trigger": "Same hemisphere sampling model"
+        },
+        {
+          "assessment": "Exact full-sphere triangle component only; not relied on for priority",
+          "evidence": "For exactly three full-sphere points the first-order density term is z1 z2 z3 times the Gaussian density, with O(d^(−1)) integrated remainder.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-universal-cubic-gaussian-correction-for-the-extreme-sides-of-r--543ad6d64872",
+          "material_read": "Local mirror RESULT.md offsets 0 and 3904",
+          "method": "Compare density expansion and scope",
+          "title": "A universal cubic Gaussian correction for the extreme sides of random spherical triangles",
+          "trigger": "Same cubic density correction for three inner products"
+        },
+        {
+          "assessment": "Cumulant overlap, not hemisphere orthants",
+          "evidence": "The third product moment on three distinct entries is nonzero exactly for a triangle.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-triangle-cumulants-reveal-the-first-hidden-dependence-in-l--955e3ffe3131",
+          "material_read": "Local mirror RESULT.md, Finding, offset 0",
+          "method": "Compare motif and statistic",
+          "title": "Exact triangle cumulants reveal the first hidden dependence in LKJ correlation matrices",
+          "trigger": "Triangle-only third moments"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned Finding and fixed-k scope",
+        "Ouimet Theorem 1 Eq. (8) and the exact anchor reduction"
+      ],
+      "rationale": "The uniform sign law and equality of coefficients are useful descriptions. However, in the earlier full-matrix expansion the two contributions are the same triangle invariant, with the apparent edge term resulting from putting one vertex at the conditioned pole. The frozen result does not add a distinct asymptotic estimate or classification beyond this direct specialization, and it does not claim an independently assessed advance such as growing k or a new cap regime.",
+      "residual_risks": [
+        "The self-contained argument can be expository; that does not make the frozen finding a distinct scientific result."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

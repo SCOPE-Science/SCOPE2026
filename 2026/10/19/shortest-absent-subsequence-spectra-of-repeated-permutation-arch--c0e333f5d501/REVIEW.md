@@ -1,13 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The word \(I_q^t\pi\) embeds every \((t+1)\)-symbol word. Prefix weak descents give an exact criterion for nonembedding a \((t+2)\)-symbol word, and elementary multiset counting yields the binomial weighted formula for all positive parameters. A deterministic standard-library enumerator visits every permutation through \(q=7\), so the bounded exact support table is certified by finite exhaustive arithmetic; a separate direct subsequence test checks \(99\) small cases. General correctness rests on the combinatorial proof, not on finite extrapolation.
+## correctness
 
-**Originality — PASS, with residual risk.** The foundational SAS and arch papers cover definitions, general characterizations and extremal methods; the previously published 2012 Spearman support result completely covers the linear special case \(t=1\), which is not presented as new. Neither inspected source establishes the triangular-weight \(t=2\) spectrum or the specific first full-interior interval at \(q=6\). Potential unindexed weighted-permutation tables are an explicit risk.
+PASS
 
-**Mathematical value — PASS.** The all-arch exact formula reduces a subsequence-enumeration problem to a permutation statistic. The first nonlinear spectrum displays an unexpectedly delayed gap-closure phenomenon, completely determined through seven letters; the \(q=6\) threshold is motivated by comparing every smaller nontrivial alphabet, rather than selecting an isolated large integer.
+There are t+1 full-alphabet blocks, so every length-(t+1) target embeds and any constant length-(t+2) target fails. Greedy matching within I_q uses a new copy exactly at weak descents. If any of the first t comparisons is a strict increase, the first t+1 symbols fit in I_q^t and the last fits in π. If all are weak descents, the first t+1 cannot fit in I_q^t, so any embedding must use π for at least its last two letters. They fit exactly when their π-positions increase, and then placing the first t targets one per I_q copy suffices. For pivot v the first t symbols have binomial(q−v+t,t) choices by multisets and the last symbol has p_π(v) choices, with the q=1 case also covered. An independent distinct-subsequence-set check covered all 99 hosts with q≤4, t≤3 (34,477 length-(t+2) candidates). A separate exact subset-state dynamic program reproduced every endpoint, omission and support size for t=2, q≤7, including the cutoff among q≥3; no inference from a partial sweep was needed.
 
-The finite support table ends at \(q=7\). No claim is made for all larger alphabets, and the classical \(t=1\) support is not original.
+## originality
 
-**Sources:** Kosche et al., arXiv:2108.13968; Barker et al., arXiv:2003.04629; Vořechovský, Probabilistic Engineering Mechanics 29 (2012), Section 3.4.1.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Credit the exact nonlinear t=2 attainable supports and the first endpoint-only gap transition, not the general arch method, the aligned case, or the t=1 support. The two-order criterion and count can be recovered by specializing a prior general SAS characterization and counting pivot choices. A separate Resultary record also gives a directly specializing formula and extrema, but not the exact attainable supports or transition. Those require deciding which intermediate scores are realizable across permutations, not merely evaluating any one score.
+
+## value
+
+PASS
+
+The first nonlinear weighting of a natural order-dependent SAS count asks whether the extremal interval is actually filled. The two immediate endpoint gaps are intrinsic: sorting any nonextremal rank assignment toward its extremum by adjacent swaps gains at least two, the smallest difference between triangular weights. Thus q=6 is the first case among q≥3 attaining every value not ruled out by the immediate endpoint obstruction, with q=7 a second exact instance. This is a meaningful finite cutoff and gives exact data for broader support questions, not just a list at arbitrary sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

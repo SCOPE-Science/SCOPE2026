@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim has the precise domain of all integers \(m\ge4\), for the open Lovász neighborhood convention. The proof constructs all generating facets, gives two uniform families of individual genuine free-face collapses, identifies the entire remaining core, and supplies a simply connected relative CW cancellation proof. Crucially, the \(2m\) opposite-row diagonal edges each have two triangular paths, and the second path goes once around the unique four-interface circle. The first diagonal relation kills that circle; the other \(2m-1\) yield genuine two-sphere summands. The four row-boundary spheres are simply connected because \(m-2\ge2\). All incidence coefficients used in the cancellations are units. Complete independently constructed finite homology and matching checks corroborate but do not substitute for this symbolic argument.
+## correctness
 
-## Originality — PASS
-The closest published full texts classify \(K_m\square C_n\) for \(n\ge5\), an arbitrary base graph with no four-cycle, and the specific \(K_5\square C_4\) case. The first two explicitly exclude the four-cycle; the third is exactly the already-known specialization and does not imply the classification for every \(m\ge4\). The primary total two-cut paper on these same graph products concerns a mathematically different complex. The new all-width homotopy equivalence and the precise \(2m-1\) short-cycle correction are not implications of these checked statements. A differently indexed equivalent theorem remains possible.
+PASS
 
-## Mathematical value — PASS
-The original long-cycle result relies on unique common centers for pairs of opposite-layer vertices and loses validity exactly at four cyclic layers. The present uniform theorem identifies the topological replacement for that hypothesis: an existing fundamental circle is eliminated by the second set of diagonal relations, and \(2m-1\) extra two-spheres appear for every width. Unlike a single new finite computation, it proves this transition for the entire first excluded base-cycle family, and is suitable as an exact boundary test for prospective graph-product generalizations.
+The stated facets are precisely the open neighborhoods. A two-wing face with any allowed central-row vertex has a unique center even though the bare same-color diagonal has two; a one-wing face with two central-row vertices also has a unique center. In each matching, decreasing subset size removes every larger coface other than the paired one, and the stages leave exactly the four row boundaries, the four crown interfaces and the paired diagonal triangles. For the CW part one can move mixed-edge endpoints to basepoints inside each respective row sphere, up to homotopy of attachments; the row paths appearing in the triangle relations then contract because each sphere is simply connected. In this presentation the interface tree relations successively identify one new edge with the previously retained edge, by attaching a bigon with a free new edge before attaching the unused 2-cells. This justifies homotopy cancellation, not merely elimination in a chain matrix. The ordinary four-bridge graph is a circle, with 4(m²−3m+1) null-loop cells. Each opposite diagonal is eliminated using its first triangle; its second triangle goes once around that circle, not twice. One kills the circle integrally; the other 2m−1 attach trivially. The four row spheres retain their homotopy types. The sphere count is 4m²−10m+3 in dimension two plus four spheres in dimension m−2; at m=4 this is 31 two-spheres. The independent tuple-face replay in /workspace/review-evidence/replay.py (argument 3, output 3.txt) checks all strict cofaces for both collapse stages at widths 4–7, the diagonal incidences, and Euler characteristics 32, 50, 92 and 126. The all-width and integral conclusions follow from the proof, not the replay.
 
-## Closest literature and limitations
-Relevant published results and the distinction between open neighborhoods and total cut complexes are documented with exact URLs in `RESULT.md`. The \(m=5\) specialization was published previously and is not independent novelty. There is no generalization here to arbitrary bases with quadrilaterals, equivariant homotopy, homeomorphism, or a canonical decomposition. The finite verifier covers four widths; the infinite claim rests on the symbolic proof. Independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported increment is the uniform all-width C4 homotopy classification and short-period correction. The exact m=5 case is established prior work; the known long-cycle and square-free base formulas do not cover C4, and the total-cut result concerns a different complex. This is a bounded statement-level comparison, not a priority certification.
+
+## value
+
+PASS
+
+This computes an integral homotopy type at the first period where the long-cycle unique-center mechanism breaks, not just another finite Betti table. The shared diagonals explain both the disappearance of the fundamental circle and the explicit 2m−1 sphere correction, which constrain extensions to graphs with squares. No claim is made about such arbitrary extensions or equivariant types.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

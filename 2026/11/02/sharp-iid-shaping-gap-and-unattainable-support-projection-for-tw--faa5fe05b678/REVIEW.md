@@ -1,15 +1,21 @@
-# Review of the sharp Cantor invariant-measure shaping gap
+# Independent mathematical audit
 
-## Correctness
-PASS. The stationary-law digit representation is valid for the contractive IFS, and the dual test \(x\mapsto|x-1/2|\) produces the strict quadratic lower bound. Monotone transport from uniform binary digits to Cantor digits meets this lower bound at fair sampling: a contracting, order-preserving quantile recursion proves that the transport displacement always points outward. No finite experiment is used to assert an infinite claim. The nearest-point support benchmark follows by pointwise coupling lower bounds and gap integration; uniqueness uses the almost-everywhere unique nearest point. The atom at the first-gap endpoint has no predecessor under the maps of positive \(\nu_*\)-mass, proving nonstationarity even for state-dependent sampling. Rational computations and deterministic quantile-grid tests are auxiliary cross-checks.
+## correctness
 
-## Originality
-PASS under the material inspected, with residual historical risk. Shafiei--Shorten--Marecek (arXiv:2610.34172v1, Sections 1, 5--7 and the exact ternary benchmark of Section 7.2) treats general inverse \(W_1\)-shaping and a distinct numerical target, not the closed-form two-map separated-Cantor objective, support-constrained comparison, or state-dependent obstruction. Fraser (arXiv:1401.1443v2, Section 2.2, Corollary 2.6) gives \(W_1(\mu_p,\mu_q)\) for shared-support stationary measures, not \(W_1(\mu_p,\lambda)\); his formula cannot be specialized to the full-support Lebesgue target while \(r<1/2\). Mathematical record searches for Cantor--Lebesgue optimal transport, uniform-target IFS weights and nearest-point baselines found no known statement implying all parts of this theorem. A generic monotone-coupling theorem provides a method but not the exact IFS optimization without the present comparison. Unindexed or non-English specialized literature remains a possible priority risk.
+PASS
 
-## Value
-PASS. The precise discrepancy between designing IID map-selection probabilities and merely constraining the long-run law to the same fractal support is a natural benchmark for the inverse invariant-measure problem. The comparison has three independent nontrivial features: unique exact IID optimizer with quantitative quadratic parameter penalty, an exact support-constrained optimum, and an unbounded relative implementability gap (despite vanishing absolute errors). Proving the benchmark is not stationary even under state-dependent map selection makes the gap a structural feasibility issue, not just an arbitrary comparison of formulas. The theorem concerns symmetric two-map systems only and is not a general inverse-IFS algorithm.
+All formulas concern the two symmetric endpoint maps on [0,1], 0<r<1/2, and the uniform target. Stationarity gives E[X]=p; conditioning on the digit places X on the appropriate side of 1/2 and gives E|X-1/2|=1/2-2rp(1-p), hence the dual quadratic bound including p=0 and p=1. Independently, the binary digit series for the fair quantile is increasing, and each Cantor coefficient divided by its binary coefficient is at most 2(1-r). On the lower half, the first digit is zero, and the sharper bound is Q(u)<=4r(1-r)u<=u. Reflection handles the other half. This coupling makes each displacement outward, realizing the dual difference and proving unique IID optimality. For the supported benchmark, every optimal coupling is concentrated on nearest points by the pointwise cost inequality. Ties are only countably many gap midpoints; existence of a minimizing coupling and uniqueness of the projection almost everywhere imply a unique minimizing law. The gaps of length g*r^k and multiplicity 2^k yield triangular costs and geometric sum g^2/[4(1-2r^2)]. The set itself has zero uniform mass and 1 has no projected mass, whereas r receives g/2. Since r can only be reached from 1 under these maps, no state-dependent stationary kernel on [0,1] can carry the optimizing law. Division gives the stated ratio, which diverges despite both costs vanishing. Independent finite quantile integrations with exact rational atoms checked four ratios including 127/256, with explicit coupling error r^10/2.
 
-## Closest literature and limitations
-The exact digit-coupling result of Fraser is related but concerns two Cantor laws and does not dominate the current uniform-target statement. The 2026 invariant-measure shaping work frames the problem but does not give the special exact solution. Kloeckner (arXiv:1909.01655v2, Sections 1.2, 3, 6) analyzes the same fair Bernoulli-convolution maps with varying contraction and Wasserstein linear response, not optimal fixed-map weights for the Lebesgue target. Standard transport duality and rearrangement are acknowledged. Full historical uniqueness is not established; the all-supported law is only a lower benchmark, not an achievable dynamics-invariant measure.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The prior work establishes inverse IID shaping as a general problem, and exact transport between stationary laws and other Cantor transport results. Nearest-point projection and monotone transport are standard. The distinct supported claim is the symmetric uniform-target IID optimum with a quantitative bias inequality, contrasted with the exact, nonstationary projection benchmark. The inspected passages do not give this combination or imply it by substitution.
+
+## value
+
+PASS
+
+This is a benchmark for inverse invariant-measure shaping with fixed maps: the quadratic penalty distinguishes the optimizer quantitatively, while the projection comparison quantifies how much one would underestimate optimal IID cost by treating support as the only constraint. The policy-independent impossibility of attaining the unrestricted benchmark identifies a dynamical obstruction, and the divergent relative error shows it persists in a meaningful scale even when absolute costs vanish.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

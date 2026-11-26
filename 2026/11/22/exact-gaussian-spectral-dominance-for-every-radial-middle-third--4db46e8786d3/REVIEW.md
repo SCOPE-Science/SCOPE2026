@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The normalizations of the Gaussian, radial area variable, and Hermite-Gamma eigenvalues are explicit. The critical finite-Cantor sliding-window domination lemma is independently proved by induction: intervals shorter than a ternary parent block reduce to the previous stage, middle lengths use reflection symmetry, and long lengths use the previous stage's subadditivity. Integration by parts turns this measure domination into a bound on translated exponential integrals. Convolution of an Erlang density with the exponential proves the strict all-degree spectral ordering. The explicit norm product follows by factorization of ternary digits. Replaying the included checker gave 600,064 exact finite occupancy comparisons, 28 product identities, 896 excited-mode comparisons, and 896 gap comparisons. These finite computations supplement the complete analytic proof.
+PASS
 
-## Originality
+Normalizing to x=1, short windows meet at most one occupied block. In the middle range, a suffix and prefix across the gap have total length at most 1/3, so reflection and monotonicity bound their combined mass by one block. In the long range, clamp the window to [0,1]; subadditivity of the previous stage's cumulative occupancy bounds the excluded mass below by that of a single terminal suffix. The base interval and scaling complete the induction. For a general bounded set E with the stated property, the shifted exponential residual H(s) is the integral of shifted cumulative occupancy against exp(-t) dt; it is bounded by lambda_0 and vanishes for s>=X. Convolution with Gamma(k,1) then gives exactly the claimed Poisson-sum gap. The angular factors in the Gaussian STFT are orthogonal in the Hermite basis; r=pi(q²+p²) removes the polar Jacobian constant, giving the eigenvalues as stated. The bound is strict for all k>=1 and uniform below lambda_0 by at least lambda_0 exp(-X); integrating the first mode interval-by-interval gives the digit product, including the empty product at n=0. No inference relies on the recorded finite checks.
 
-**PASS on inspected evidence, with residual historical-priority risk.** The closest source, Knutsen's 2019 preprint and 2020 open-access article, proves the first eigenvalue product but only bounds the operator norm by twice that eigenvalue. The 2021 sequel proves Gaussian norm attainment for left-justified canonical digit alphabets and explicitly says this had not been established for the middle-third alphabet. The present claim concerns precisely that missing noncanonical case at every radius and stage, not the already-covered canonical case. Searches of indexed mathematical claims and accessible published results revealed no equivalent Gaussian-STFT statement. A nearby indexed Cantor–Bergman vacuum theorem acts in a different Hilbert space and is restricted to critical scaling. The exhaustive state of historical literature has not been established; searches are not proof of priority.
+## originality
 
-## Value
+PASS
 
-**PASS.** The motivating source isolates a factor-two uncertainty in the norm of a natural fractal Gaussian-localization operator, and the sequel singles out the corresponding missing optimizer statement. Exact norm, uniqueness, and quantitative all-degree separation close that explicit mathematical gap. The sliding-window lemma also identifies a structurally motivated class of radial masks with exact Gaussian optimality. This is not a renaming or arbitrary small-parameter computation, and no universal result for disconnected symbols is claimed.
+The spectrum, Cantor cumulative subadditivity, and first-eigenvalue product are already known. The distinct supported claim is that this product is always the norm for the finite middle-third family, with a strict quantitative gap and an extension by initial-window domination.
 
-## Limits of review
+## value
 
-The general gap lower bound need not be sharp; arbitrary digit alphabets or analysis windows are not covered. Search results from specialized older sources remain a historical-priority risk. The standalone tests are finite. No independent external review has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem closes the concrete mid-third case left open by the canonical-digit analysis, replacing a factor-two bound by a unique maximizer and exact norm at all finite radii. The residual-window argument also gives a testable geometric sufficient condition and an explicit separation from every excited mode.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

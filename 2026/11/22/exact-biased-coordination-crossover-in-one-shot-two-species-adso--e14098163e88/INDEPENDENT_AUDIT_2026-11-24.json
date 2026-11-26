@@ -1,0 +1,174 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:29:30.494222Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof; VERIFICATION.md; check.py inspected without execution",
+        "Independent derivation of the first integral, total density and fixed-bias limit"
+      ],
+      "rationale": "At fixed finite degree z, a dependency path of length n must have n+1 strictly decreasing iid continuous times. Its union bound is z(z−1)^(n−1)/(n+1)! and tends to zero; countability gives simultaneous almost-sure construction. Conditioning on the root's own proposal makes its branches independent with the parent absent. Thus the cavity absence probabilities u=1−a and v=1−b satisfy u' = −p v^(z−1), v' = −q u^(z−1) with u(0)=v(0)=1, and full-root acceptance rates are p v^z and q u^z. The derivative of p v^z−q u^z is zero, giving the stated imbalance. Also (uv)'=−p v^z−q u^z, so total occupation is 1−uv. At balance u=v, and the scalar equation gives the displayed z=2 exponential and z>2 power law, with terminal asymptotic 2 log(z/2)/z. For fixed δ=p−q>0, p v^z=δ+q u^z and v≤1 give u(1)≤1−δ. Changing the minority integral to r=u^z gives zρ_B(1)=∫(q/p) r^(1/z)((δ+qr)/p)^(−(z−1)/z) dr from u(1)^z to 1. The lower endpoint tends to zero and the integrand extended by zero is bounded by q/δ, with pointwise limit q/(δ+qr) for r>0. Integrating gives log(p/δ); symmetry handles the other bias and p=0,1 are trivial. This is an infinite-volume proof, not a fit to the finite-depth simulation.",
+      "residual_risks": [
+        "The large-degree asymptotic is not uniform as p approaches 1/2. The law is a one-point occupation probability for a one-shot tree process, not a finite cyclic graph, repeated trials, or a joint cluster law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact Penrose–Sudbury blocking theorem is for iid uniform vertex clocks. Meyfroyt uses active-neighbor counts to block a single kind of activation. The pretreatment Bethe-lattice study concerns competitively depositing monomers and dimers on a partially covered tree, rather than alternating one-shot site mark probabilities."
+        ],
+        "reasoning": "The cavity factorization is known and adapts to alternating hazards, but neither the homogeneous theorem nor these other models directly gives the biased invariant or the minority asymptotic. In the reviewed model the rates alternate because of parity, not because the neighbor degree changes or because a second object occupies an edge.",
+        "searches": [
+          "Penrose–Sudbury, Exact and approximate results for deposition and annihilation processes on graphs, definition of blocking RSA and Theorem 12",
+          "Literature query: monomer RSA with alternating site-dependent arrival probabilities on a bipartite Bethe lattice",
+          "Meyfroyt, 2017 thesis §5.2",
+          "arXiv:cond-mat/0311190"
+        ]
+      },
+      "checked_sources": [
+        "Frozen prior-work passages and the identified primary evidence and mirror statements above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Repeated proposals on the lattice admit previously rejected sites again, and the reported rare-species formula is q/(z+1)+O(q²) at small q. The line exact formula implies the imbalance at z=2; the known monomer formula implies balance at any z. Neither passage gives an alternating-clock nonzero-bias invariant or a fixed-bias z→∞ evaluation."
+        ],
+        "reasoning": "Agreement in a dilute expansion is not domination at fixed p>1/2. To obtain the sharp log(p/(2p−1)) coefficient one needs the biased invariant and a uniform integral bound at fixed bias when taking the degree limit; those are not consequences of the inspected homogeneous result or line law alone.",
+        "searches": [
+          "Martins–Dickman–Ziff, arXiv:2211.04622, abstract and update algorithm",
+          "Penrose–Sudbury Theorem 12 and its homogeneous forward-equation proof",
+          "Do Amaral–dos Santos equation (1) and species exchange"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Do Amaral–dos Santos uses the same species proposal and blocking rule at z=2. Penrose–Sudbury gives homogeneous nearest-neighbor one-shot monomer RSA on the (k+1)-regular tree with full-root vacancy α(s)=(1+β(s)^2)/2 and β(s)=[1+(k−1)s]^(−1/(k−1)) (or exp(−s) at k=1)."
+        ],
+        "reasoning": "Xor the species bit with vertex parity: now only equal transformed colors exclude. Each transformed color separately is ordinary monomer RSA with attempts thinned by alternating probabilities p and q; their two marginal processes are not jointly independent. At p=q=1/2 each marginal is exactly homogeneous monomer RSA at s=t/2. Doubling 1−α(t/2), with k=z−1, gives the stated balanced law and ensuing large-degree asymptotic. Off balance, the alternating distributions do not reduce to homogeneous RSA by a common time change.",
+        "searches": [
+          "Resultary: one-shot opposite-type blocking and tree cavity law",
+          "arXiv:2306.09786, model and equation (1)",
+          "Penrose–Sudbury, arXiv:math/0503519, Theorem 12, equations (28)–(33)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact joint local match is the assigned record. The distinct same-day record gives line separator and attenuation estimates; the Nov. 1 record gives line cluster laws. The one-shot line marginal is independently known exactly, and the homogeneous RSA table/closed form covers balance by the parity reduction."
+        ],
+        "reasoning": "Neither related line result is an exact biased regular-tree root law for z>2, let alone the stated coefficient as z increases. The same-day result is distinguished by substance, not by an assumption about priority.",
+        "searches": [
+          "Resultary: exact biased cavity law, signed imbalance, balanced formula, and high-degree logarithmic minority coefficient",
+          "2026/11/22 SCOPE-double-vacancy-shielding-and-sharp-species-bias-attenuation-in-a--871c3a75dbeb",
+          "2026/11/1 SCOPE-exact-geometric-tails-for-same-species-clusters-in-one-shot-anta--04ec1f49bc46"
+        ]
+      },
+      "rationale": "The originality supported for the combined finding is the arbitrary-bias regular-tree characterization with its signed-density invariant and sharp fixed-bias minority limit. The line law is previously established. The balanced all-degree closed form and its elementary degree asymptotic are also covered by homogeneous monomer RSA via an exact parameter reduction, and must not be credited independently as new.",
+      "residual_risks": [
+        "An older general treatment of alternating one-shot arrival distributions could cover part of the biased cavity system. No inspected statement was found to establish the combined biased invariant and limiting coefficient. Publisher-specific versions and the cited emptiness article were not inspected in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers balanced model after time scaling; retrieved blocking theorem assumes homogeneous iid uniform clocks",
+          "evidence": [
+            "Equations (28)–(29) give α=(1+β²)/2 with β=[1+(k−1)t]^(−1/(k−1)) or exp(−t). Equations (32)–(33) use one common β and unit proposal density."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0503519",
+          "material_read": "Blocking RSA definition p. 3 at offset 7990; §2.5; Theorem 12 and proof, pp. 18–19 at offset 50960",
+          "method": "Alternate lawful open preprint after publisher access block",
+          "title": "Exact and approximate results for deposition and annihilation processes on graphs",
+          "trigger": "Potential broader monomer RSA coverage under bipartite parity transformation"
+        },
+        {
+          "assessment": "Covers the z=2 special case at all biases",
+          "evidence": [
+            "One uniform-time deposition attempt per site, blocked by an opposite-type occupied neighbor; at balance each species has density (1−exp(−t))/2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.09786",
+          "material_read": "Open PDF, model and Eq. (1), printed p. 2, offset about 3350 onward",
+          "method": "Open preprint after publisher access block",
+          "title": "One-dimensional AB random sequential adsorption with one deposition per site",
+          "trigger": "Exact same one-shot rule on the line"
+        },
+        {
+          "assessment": "Different attempt convention, graph and asymptotic regime",
+          "evidence": [
+            "An unsuccessful site remains available. Rare-minority coverage is x_B/(z+1)+O(x_B²) as x_B tends to zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.04622",
+          "material_read": "Open PDF abstract and update algorithm, pp. 2–3, offset about 11130 onward",
+          "method": "Open preprint passage inspection",
+          "title": "Percolation in two-species antagonistic random sequential adsorption in two dimensions",
+          "trigger": "Same incompatibility and published minority coefficient"
+        },
+        {
+          "assessment": "Different blocking mechanism",
+          "evidence": [
+            "A vertex can activate when its number of active neighbors is below a degree-dependent threshold, with binary active/inactive states."
+          ],
+          "identifier_or_url": "https://pure.tue.nl/ws/portalfiles/portal/85310076/20171122_Meyfroyt.pdf",
+          "material_read": "Ch. 5 §5.2, printed pp. 94–95, extracted offset 257083 onward",
+          "method": "Open thesis PDF; related journal full text not retrieved",
+          "title": "Threshold-based communication algorithms for large-scale mesh networks",
+          "trigger": "Tree activation with one-shot blocking"
+        },
+        {
+          "assessment": "Adjacent model, not evidence of exact alternating one-shot law",
+          "evidence": [
+            "Partially covered Bethe lattice, with competitive monomer and dimer deposition."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0311190",
+          "material_read": "PDF abstract p. 1, offset 414",
+          "method": "Open preprint, model scope inspection",
+          "title": "Random Sequential Adsorption of Mixtures of Dimers and Monomers on a Pre-Treated Bethe Lattice",
+          "trigger": "Bethe-lattice RSA under varied deposition probabilities"
+        },
+        {
+          "assessment": "No full-text inference",
+          "evidence": [
+            "Title establishes Bethe-lattice emptiness as subject; material did not identify an alternating attempt model."
+          ],
+          "identifier_or_url": "https://doi.org/10.1142/S0217984908017485",
+          "material_read": "Search metadata only",
+          "method": "Identified DOI on both lawful routes; 403",
+          "title": "Emptiness probabilities in random sequential adsorption on the Bethe lattice",
+          "trigger": "Potential alternative exact vacancy treatment"
+        },
+        {
+          "assessment": "Covers different line observables",
+          "evidence": [
+            "Two-vacancy separator and species-bias attenuation on the integer line."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-double-vacancy-shielding-and-sharp-species-bias-attenuation-in-a--871c3a75dbeb",
+          "material_read": "Exact mirrored Finding",
+          "method": "Resultary and local mirror",
+          "title": "Double-vacancy shielding and sharp species-bias attenuation in a one-shot adsorption model",
+          "trigger": "Same-day biased one-shot species model"
+        },
+        {
+          "assessment": "Line cluster laws, not arbitrary-degree marginals",
+          "evidence": [
+            "Cluster-tail observable rather than one-point coverage on regular trees."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-exact-geometric-tails-for-same-species-clusters-in-one-shot-anta--04ec1f49bc46",
+          "material_read": "Exact mirrored Finding",
+          "method": "Resultary and local mirror",
+          "title": "Exact geometric tails for same-species clusters in one-shot antagonistic adsorption",
+          "trigger": "Same blocking and one-shot law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Independent cavity invariant and integral limit; full-text one-shot line, homogeneous regular-tree and retry comparisons above"
+      ],
+      "rationale": "On the natural regular-tree extension of the one-shot line model, the signed invariant identifies precisely how much of the majority bias survives blocking, and the positive logarithmic coefficient resolves the smaller minority density at fixed bias. Together they distinguish order-one total density at nonzero fixed bias from vanishing balanced density and separate this effect from the different rare-minority retry regime. Value does not rely on the already covered balanced formula.",
+      "residual_risks": [
+        "No quantitative crossover in the coupled limit p→1/2 and z→∞, graph-universality result, or cluster result follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

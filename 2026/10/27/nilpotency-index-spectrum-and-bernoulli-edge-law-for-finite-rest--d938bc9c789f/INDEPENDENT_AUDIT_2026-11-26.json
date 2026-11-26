@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:09:54.255489Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–77",
+        "Frozen VERIFICATION.md, lines 19–27; verify.py, lines 11–97 (read, not executed)",
+        "repairs/5/RESULT.md, Finding and proof",
+        "Fulman–Guralnick, arXiv:2111.09433 §3, classical Jordan counts"
+      ],
+      "rationale": "The frozen enumerator and limits are mathematically correct. In block coordinates X=(A B;0 0), X^j has upper blocks A^j and A^(j−1)B. Uniform nilpotent X gives independent uniform B and uniform nilpotent A. At maximal block size d with multiplicity r, rank(A^(d−1))=r, including zero A, and index d occurs in q^((k−r)c) fibres, with remaining fibres at d+1. Centralizer counts then give the enumerator; a single k-block gives the maximal-index event. For regularity, X=XYX with im(Y)⊆W requires im(X)⊆X(W), and conversely a right inverse to X|_W on im(X) extends to a suitable Y. Thus the frozen regular proportion bound q^(−c) is valid. At 2s<k the partition with longest part k−s is (k−s,μ), μ⊢s, so the added column-square sum is k+s and the added multiplicity factor is 1−q^(−1). Summing residual weights gives K_(q,k) q^(−2s)/φ_s. The unique longest block then contributes the claimed Bernoulli nonextension. The repaired theorem uses the exact masses at s≤h=floor((k−1)/2): they are those of the target multiplied by K_(q,k)/K_q≥1. Therefore the overlap of distributions is at least the target mass on this prefix and total variation is at most its complementary tail. Since E_c≤1, the tail is bounded by P(S_q≥h)≤q^(−2h)/[(1−q^(−1))(1−q^(−2))], which is at most the stated upper bound because 2h≥k−2. The maximum-index atom gives the lower bound (K_(q,k)−K_q)(1−q^(−c))≥K_q q^(−k−1)(1−q^(−1)), uniform for c≥1. The power series recurrence (1−z)G(z)=G(z/q) normalizes S_q and coupling the two target laws gives the growing-c bound. This verifies both inequalities for all k≥1, including the empty product case.",
+      "residual_risks": [
+        "The frozen direct-power checker samples small cases and does not test the repaired tail bound. The rate is established analytically; its leading constant is not claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Macdonald II §2 defines the submodule number by type and cotype; (4.3) gives its Hall-polynomial evaluation and symmetry and (4.6) gives the elementary-type product. This covers every c.",
+          "Fulman–Guralnick states the classical unrestricted class weights, and prior restricted-range literature identifies the regular element criterion. The inspected results contain no rate in total variation uniform over c for the index defect."
+        ],
+        "reasoning": "The coverage of the frozen finite count is definite: with Hall parameter (1^c) use the known counts without any separate regularity hypothesis. The stochastic correction needs more than the existence or summability of those finite formulas. Do not infer that a known limit/rate is absent from an empty search.",
+        "searches": [
+          "Macdonald, Symmetric Functions and Hall Polynomials, Chapter II §§2, 4; elementary submodule Hall polynomial (4.6)",
+          "Fulman–Guralnick arXiv:2111.09433 §3; Sullivan DOI 10.1017/S0004972708000385 Lemma 1; Grau arXiv:2206.12526",
+          "Random unipotent largest Jordan block defect limiting distribution, affine unipotents"
+        ]
+      },
+      "checked_sources": [
+        "Macdonald, 2nd ed., Chapter II §§2 and 4",
+        "Fulman arXiv:math/0009182 and Fulman–Guralnick arXiv:2111.09433",
+        "Sullivan Lemma 1; Grau arXiv:2206.12526 opening context; Sommanee–Sangkhanan DOI 10.1017/S144678871600080X abstract",
+        "Resultary mirror comparisons and dedicated rate query",
+        "repairs/5/RESULT.md, Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For ambient type η and restriction type λ, the number for a fixed W is N_η g^η_{(1^c),λ}(q)/[k+c choose k]_q: count pairs of an ambient operator and a suitable W using the Hall numbers, then divide by the Grassmannian size. Summing over λ,η with a fixed η_1 gives the entire index histogram. This is a direct specialization of stronger prior counts, not merely a similar formula.",
+          "The replacement uses the finite mass ratio on 2s<k to obtain an upper bound by a geometric tail; it uses the missing product factor at k+1 in the atom at zero to match the lower order. The inspected Hall and affine statements do not perform this stochastic comparison or its uniform sharp rate."
+        ],
+        "reasoning": "The Hall specialization resolves the frozen uncertainty about prior higher-codimension coverage, so it cannot be cured merely by adding a credit line to the old principal claim. The title and Finding are instead re-centered on a strictly more quantitative asymptotic assertion than the original pointwise-in-c convergence. No priority for finite enumeration or classical Jordan weights is implied.",
+        "searches": [
+          "Macdonald II §§2 and 4 versus frozen partition enumerator",
+          "Fulman affine cycle index and Fulman–Guralnick class numbers versus repairs/5/RESULT.md, sharpness proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For any c, transposing after reordering the blocks of I+X makes a unipotent operator fixing a prescribed c-plane pointwise. Its largest unipotent block has size ν(X). For c=1 this is exactly the finite affine point-stabilizer cycle-index model.",
+          "Alternatively, regarding X as multiplication by t, W has elementary quotient of type (1^c). It is an ordinary Hall-polynomial parameter choice, not a restriction to regular maps."
+        ],
+        "reasoning": "Neither the change from nilpotents to unipotents nor requiring a fixed elementary quotient hides the finite enumeration from prior methods. The repaired claim compares a sequence of probability measures and demands a sharp, codimension-uniform error, not a different statement of the finite index distribution.",
+        "searches": [
+          "Generalized affine/parabolic cycle index and unipotents fixing a prescribed subspace",
+          "Hall polynomial elementary quotient vertical strip finite-field nilpotent modules",
+          "Fulman, arXiv:math/0009182, affine group definition, Theorem 2 and Corollary 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected catalogue records give largest-block lift probabilities or full indices over dual numbers, an index-doubling problem rather than the fixed-range model.",
+          "The classical affine index tabulates sufficient data at c=1; the Hall evaluation table/formula yields all c. Neither is evidence for a known sharp approximation rate. The dedicated catalogue rate query did not return this rate for the fixed-range model."
+        ],
+        "reasoning": "The original count is covered even if no table spells out its polynomial in z. The quantitative replacement is not a re-tabulation of those finite class counts or of the distinct dual-number lift counts.",
+        "searches": [
+          "Resultary exact finite-field nilpotency-index spectra, longest-block fibres: 7ce421f6170b and a669645ca0b7",
+          "Resultary sharp exponential total variation q^(-k) Bernoulli codimension defect for largest nilpotent Jordan block with image in a fixed subspace",
+          "Fulman, affine cycle-index Corollary 1; Macdonald, Hall-number product (4.6)"
+        ]
+      },
+      "rationale": "The frozen full finite index enumerator does not pass originality as a principal contribution: verified Hall-polynomial results give the joint count by restriction and ambient type for every codimension; projecting to the largest ambient part gives the same invariant. The affine precedent is an exact additional specialization at c=1, not the limit of known finite coverage. The replacement credits these counts and uses them only as input. Its principal finding is a Bernoulli-shifted law with upper and lower errors of order q^(−k) in total variation, uniformly over all c≥1. The bounded searches and inspected stronger finite results do not supply this sharp uniform stochastic estimate; it requires identifying the unique-block mass range, the common prefix mass ratio and an atom giving a matching lower order.",
+      "residual_risks": [
+        "An asymptotic for unipotents with a marked fixed c-plane could contain the same uniform TV estimate in a different formulation; no such implication was verified. Bounded searches are not an exhaustive priority determination.",
+        "No originality is assigned to the finite counting theorem, the affine specialization, or the ordinary nilpotent class weights."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong prior coverage of the original finite spectrum, even conditional on restriction type. No sharp asymptotic estimate is stated in these passages.",
+          "evidence": [
+            "The Hall number counts a submodule with prescribed type and cotype; the count equals its polynomial at q and is symmetric in these parameters.",
+            "Taking the fixed elementary submodule bound to be the socle yields an explicit Gaussian-product evaluation, transferable to the elementary quotient by symmetry."
+          ],
+          "identifier_or_url": "https://math.berkeley.edu/~corteel/MATH249/macdonald.pdf",
+          "material_read": "2nd ed., Chapter II §2 p. 183 and §4 pp. 188–191, (4.3), (4.4)–(4.6); PDF text offsets 413930–418607 and 424300–431337",
+          "method": "Locate by literal passage queries and inspect bounded passages of the same public copy",
+          "title": "Symmetric Functions and Hall Polynomials",
+          "trigger": "Possible all-codimension coverage by elementary submodule/quotient counts"
+        },
+        {
+          "assessment": "Directly implies the complete c=1 finite law from Jordan data; the separate rank count is coarser. Does not provide the repaired uniform comparison.",
+          "evidence": [
+            "The affine group fixes e_1; the cycle index tracks full rational-canonical data. Its unipotent terms are exactly the c=1 embedded nilpotent family after adding the identity and transposing in reordered coordinates."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0009182",
+          "material_read": "Definition p. 3 near offset 3300, Theorem 2 p. 8 near 14150 and Corollary 1 p. 10 near 25500; Theorem 11 p. 24 near 66000",
+          "method": "Bounded open primary full-text passages",
+          "title": "Finite Affine Groups: Cycle Indices, Hall–Littlewood Polynomials, and Probabilistic Algorithms",
+          "trigger": "Possible exact one-column unipotent count via the affine cycle index"
+        },
+        {
+          "assessment": "Gives the classical weights used here, not a sharp restricted-range index limit in the inspected material.",
+          "evidence": [
+            "Class sizes equal the general linear group order divided by the nilpotent-module centralizer factors."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2111.09433",
+          "material_read": "§3 Lemma 3.1 p. 3 near 7500 and automorphism factors p. 2 near 4620",
+          "method": "Bounded open primary full-text passages",
+          "title": "Cohen Lenstra Partitions and Mutually Annihilating Matrices over a Finite Field",
+          "trigger": "Potential overlap in nilpotent type counts and longest-block statistics"
+        },
+        {
+          "assessment": "Credits the regularity criterion; no implication to the sharp TV comparison from this result.",
+          "evidence": [
+            "The regular elements are precisely the maps satisfying Vα⊆Wα."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0004972708000385",
+          "material_read": "Lemma 1, p. 2 near offset 5483",
+          "method": "Bounded primary full-text passage",
+          "title": "Semigroups of linear transformations with restricted range",
+          "trigger": "Possible prior regular and nonregular restricted-range coverage"
+        },
+        {
+          "assessment": "Different ring and lift; no equivalent fixed-range statistic.",
+          "evidence": [
+            "For A+εB over dual numbers the criterion uses A^(r−1) B A^(r−1) and the index can double; this is not the one-sided rank condition in a rectangular block."
+          ],
+          "identifier_or_url": "Resultary: 2026/10/13/SCOPE-largest-jordan-blocks-control-maximal-nilpotency-doubling-over-f--7ce421f6170b",
+          "material_read": "RESULT.md Finding near offset 0",
+          "method": "Bounded local mirror passage inspection",
+          "title": "Largest Jordan blocks control maximal nilpotency doubling over finite dual numbers",
+          "trigger": "Similar use of longest blocks and random fibres for a maximum index"
+        },
+        {
+          "assessment": "Different fixed-block lift and index scale, no equivalent sharp Bernoulli approximation.",
+          "evidence": [
+            "The indices of J_n+εB range from n to 2n, whereas attaching the zero-quotient block in this problem changes the restriction's index by at most one."
+          ],
+          "identifier_or_url": "Resultary: 2026/10/4/SCOPE-exact-nilpotency-index-distribution-for-jordan-lifts-over-finite--a669645ca0b7",
+          "material_read": "RESULT.md Finding near offset 0",
+          "method": "Bounded local mirror passage inspection",
+          "title": "Exact nilpotency-index distribution for Jordan lifts over finite dual numbers",
+          "trigger": "Closest returned full nilpotency-index distribution for a lift"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "repairs/5/RESULT.md, Finding and uniform total-variation proof",
+        "Frozen RESULT.md, ensemble and hypothesis, lines 4–43",
+        "Macdonald’s Hall counts as finite enumeration context"
+      ],
+      "rationale": "The exact finite formulas are useful proof inputs but no longer offered as an independent contribution. The repaired claim quantifies the distribution of the deficit from the largest possible index in a natural restricted-range sample. Uniformity in c matters because the codimension can vary arbitrarily with k, not just be fixed or divergent in a separately analyzed limit. A quantitative approximation valid throughout this range and a matching positive lower bound tell a researcher both when the Bernoulli-convolution model is accurate and that its exponential accuracy cannot be improved in order at fixed q. The lower bound comes from the maximum-index statistic of the same ensemble, not from selecting an arbitrary test case.",
+      "residual_risks": [
+        "The sharpness is for the exponent at fixed field size and for the specified approximating law; it does not identify a leading constant or assert optimality among other approximating laws."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

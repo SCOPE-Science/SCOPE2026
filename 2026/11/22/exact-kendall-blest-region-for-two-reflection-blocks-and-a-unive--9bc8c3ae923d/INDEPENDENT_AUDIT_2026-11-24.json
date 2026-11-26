@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:11:12.688309Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md definitions, assumptions and proof §§1–7",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent scalar bisection on the stated cubic for decimal diagnostics"
+      ],
+      "rationale": "Different blocks are ordered concordantly, while two draws in the same reflection interval are discordant almost surely, giving τ=1−2Σℓ_i². Integrating (2x−ℓ)² over the block gives ℓ³/3 and its sum coordinate is constant, giving the stated Blest penalty. With s²=Σℓ_i² the lower envelope follows from h_i≥0 and monotonicity of 2√x−x on [0,1], with equality only for one initial interval when 0<s<1. The nonnegative loss sum extends to countably many blocks. Fixed positive lengths maximize η only by right packing; swapping two packed blocks changes the divided loss by 2ab(a²−b²), so the shorter precedes the longer. After substituting r=a/b the divided loss is s⁴f(r). Direct differentiation gives f′(r)=−2rP(r)/(1+r²)³, and P′<0 on [0,1] with opposite endpoint signs, so the unique unconstrained minimizer is r_*. The length factor (1+r)/√(1+r²) is strictly increasing to r=1. Thus below t_* the feasible ratio ends before r_* and saturation forces (a,b)=((1−√(−t))/2,(1+√(−t))/2); above t_* the unconstrained minimizer fits. Substituting gives both claimed formulas with equality at the transition; independent cubic bisection agrees with the three reported decimals. Strict packing, ordering, and ratio optimization prove the maximizer classification. The only cases s=0,1 are identity and full reflection. Sliding one block and then increasing the right-packed ratio connects the extreme values continuously at fixed τ; the strict one-block improvement follows from 1−f(r)=2r²(1−r)/(1+r²)². For refinement, after packing and sorting, split a positive lowest block a into c<d with c²+d²=a² and added length less than the available slack. The divided-loss gain is 2c²d(d−c)+2B(a³−c³−d³)>0, where B is the total length above it; Kendalls are identical. The restriction of the lower bound to block sums matters: mixing the identity and full reflection copulas in proportions 3/4 and 1/4 gives τ=η=1/2 (the cross Kendall expectation is zero), below L(1/2)=5/8.",
+      "residual_risks": [
+        "No extension of the exact upper envelope to three or more blocks or to arbitrary copulas is proved; the refinement does not treat saturated configurations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rockel's loss and Kendall identities apply to arbitrary ordinal sums of identity and reflection blocks; the same section leaves the arbitrary-copula Kendall–Blest region open.",
+          "The Kendall regions in the other inspected article pair it with Spearman's footrule or Gini's gamma."
+        ],
+        "reasoning": "The broader block identity already gives the sharp lower inequality by elementary monotonicity but does not furnish the optimal two-block allocations. A formula for the loss of any admissible configuration is not a solved extremal region.",
+        "searches": [
+          "Resultary: universal lower envelope countable reflection blocks Kendall tau symmetrized Blest",
+          "Resultary: strict refinement finite ordinal sums countermonotone reflection blocks unused identity interval",
+          "arXiv:2611.08026 §6.2; DOI 10.1007/s00009-023-02350-0 pp. 2–3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Finding, proof and prior-work discussion",
+        "Rockel arXiv:2611.08026 §6.2 and arXiv:2609.27634",
+        "arXiv:2607.12841; DOI 10.1007/s00009-023-02350-0; Resultary searches and self-match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rockel explicitly splits one right-packed block into shorter then longer with same Kendall loss and Blest gain 4ℓ_1²ℓ_2(ℓ_2−ℓ_1).",
+          "The prior loss identity directly yields the sharp lower bound using 2√x−x; general finite splitting adds only packing and the positive B-term.",
+          "The source does not give the feasible ratio interval, optimize it, or determine when the extremizing ratio is cut off by total length one."
+        ],
+        "reasoning": "The known block identity evaluates individual candidates and the known split shows improvement, but neither determines the optimizer, regime change or attainment of the full exact section. Those require ordering, ratio minimization with the active length constraint, and the continuum attainment argument. The pass does not treat the old split or loss identity as a new result.",
+        "searches": [
+          "arXiv:2611.08026 §6.2, text offsets 102650–104898",
+          "Resultary: ordinal sum reflection intervals eta tau block loss formula refinement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary text uses η=1−6E[(U−V)²(2−U−V)] and ordinal sums of M and W, the same coefficient and same reflection-block language.",
+          "The exact Blest-related regions in arXiv:2609.27634 are (ρ,ν) and (η,ν), not (τ,η)."
+        ],
+        "reasoning": "Interpreting countermonotone W blocks as interval reflections gives exact equivalence of the ingredient problem, not an equivalence of previously solved regions. A change of rank coefficient changes the section being optimized.",
+        "searches": [
+          "Resultary: Rockel exact regions symmetrized Blest reflection block splitting tau eta Section 6.2",
+          "Resultary: Kendall tau Blest rank copula reflection blocks upper envelope two intervals",
+          "arXiv:2611.08026, Introduction and §6.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed two-block match has ID 2026/11/22/SCOPE-exact-kendall-blest-region-for-two-reflection-blocks-and-a-unive--9bc8c3ae923d, the frozen record, not independent antecedent evidence.",
+          "The targeted web query returned no hits; actual comparison uses the cited exact-region sources and their coefficient pairs."
+        ],
+        "reasoning": "No distinct matching exact formula or table was found in the inspected evidence; an empty lookup does not establish novelty.",
+        "searches": [
+          "Resultary: two reflection blocks Kendall Blest cubic ratio length saturation threshold upper envelope",
+          "Resultary: reflection block split one block into two unequal blocks fixed Kendall tau greater symmetrized Blest",
+          "Web: \"Kendall's tau\" \"symmetrized Blest\" (\"ordinal sums\" OR \"reflection blocks\" OR shuffle) exact region upper envelope"
+        ]
+      },
+      "rationale": "The supported distinct claim is the complete attainable two-block Kendall–Blest section, especially the upper optimizer, cubic ratio and length-saturation transition with an equality classification. Rockel already gives the general block identities and the strict one-block split at fixed Kendall τ. The sharp countable lower bound is a short consequence of the old loss identity, and the finite refinement uses and extends the known splitting mechanism; neither prior ingredient is credited as new. The constrained optimization with exact transition, placements and section filling is not supplied by the inspected prior statements. The matched indexed two-block record is the frozen record itself. Other regions in the reviewed sources replace one of the coefficients. This is a bounded best-of-knowledge decision.",
+      "residual_risks": [
+        "The retrieval and search are bounded, not proof of priority. An unindexed constrained exact region or equivalent optimization may exist. The status of the unrestricted question is based on the inspected sources and is not the finding graded here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior identities and one-to-two split, but no exact two-block constrained optimizer or region in the inspected passage",
+          "evidence": [
+            "τ=1−2Σℓ_i² and loss 2ℓ³(2−2h−ℓ)",
+            "Strict fixed-τ unequal split of S_s and unrestricted open question in §6.2"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.08026",
+          "material_read": "Introduction, offsets 2425–6111, and §6.2, offsets 102650–104898",
+          "method": "Open primary HTML, bounded passage reads",
+          "title": "Exact regions for the symmetrized Blest coefficient",
+          "trigger": "Same coefficient, Kendall question, and ordinal-sum split"
+        },
+        {
+          "assessment": "Different coefficient pairs",
+          "evidence": [
+            "Exact regions for (ρ,ν) and (η,ν)"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.27634",
+          "material_read": "Abstract and introduction, offsets 0–2974",
+          "method": "Open primary HTML bounded passage",
+          "title": "Rank weighting and asymmetry in Blest’s rank correlation: two exact regions",
+          "trigger": "Exact copula regions involving Blest rank coefficients"
+        },
+        {
+          "assessment": "Does not treat η in its stated region",
+          "evidence": [
+            "Region for β, φ, τ rather than Kendall–Blest"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2607.12841",
+          "material_read": "Opening abstract, offsets 0–3160",
+          "method": "Open primary HTML bounded passage",
+          "title": "The exact region determined by Blomqvist’s beta, Spearman’s footrule and Kendall’s tau",
+          "trigger": "Exact Kendall region using related ordinal sums"
+        },
+        {
+          "assessment": "Exact results for other measure pairs",
+          "evidence": [
+            "Identifies Kendall regions with footrule and Gini’s gamma"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00009-023-02350-0",
+          "material_read": "PDF pp. 2–3, text offsets 2800–5300",
+          "method": "Open primary PDF bounded passage",
+          "title": "On the Exact Regions Determined by Kendall’s Tau and Other Concordance Measures",
+          "trigger": "Potential matching Kendall region among concordance measures"
+        },
+        {
+          "assessment": "Self-match; not prior coverage",
+          "evidence": [
+            "Same frozen claim, including sharper two-block upper formula, universal block lower bound and unsaturated refinement"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-kendall-blest-region-for-two-reflection-blocks-and-a-unive--9bc8c3ae923d",
+          "material_read": "Indexed mirrored RESULT.md Finding",
+          "method": "Resultary local mirror",
+          "title": "Exact Kendall–Blest region for two reflection blocks and a universal block lower envelope",
+          "trigger": "Exact indexed hit for the cubic ratio and two-block region"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof §§3–7",
+        "Rockel arXiv:2611.08026 §6.2, prior split and motivation"
+      ],
+      "rationale": "The two-block family is the first deformable refinement of the one-block candidate in the existing Kendall–Blest boundary problem. The exact optimal extent of that improvement, including a geometric saturation transition and all attainable values, is a useful sharp benchmark and a constructive bound for the unrestricted problem. It is not merely another improved example. The known local block formula and routine lower-bound corollary are not the basis for this judgment.",
+      "residual_risks": [
+        "The strongest consequence for arbitrary copulas is an attainable bound, not the unrestricted optimum; the finite refinement also shows why the two-block upper bound cannot be generally sharp in the unsaturated regime."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

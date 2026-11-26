@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:08:35.174556Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–37 and 41–111",
+        "Frozen VERIFICATION.md, inspected verify.py and recorded verify_output.txt; no source scripts executed"
+      ],
+      "rationale": "For the specified independent exchangeable snapshots, E[DAD]=qA+(p−q)diag(A). Applying this to A=HXH in the two projector modes gives the stated nonnegative transfer matrix. Symmetrization preserves expected trace at every step, and a nondecaying Perron positive-semidefinite mode decomposes into deterministic rank-one inputs, proving the all-start criterion in both irreducible and reducible cases. With B_1=[p+(n−1)q]/n and B_2=[(n−1)p+q]/n, one has LB_1+aB_2=p+qG and B_1B_2−(n−1)(p−q)²/n²=pq; this gives the stated determinant factor pη²KF(η). Strict objective descent gives stability near zero. The first root is in (0,2) for q>0 and equals 2 at q=0. Any stable larger step would give a positive-definite expected quadratic contraction certificate, which by the quadratic dependence on η is also strict at every smaller positive step; this rules out later reentry. For fixed p, ∂_qF<0 up to 2, proving strict threshold decrease. Integer convexity of B(B−1) at fixed E[B]=np forces support on the adjacent sizes for equality, including the single-size integer endpoint, and exchangeability fixes the law. The descent ceiling comes from E[DHD]=(p−q)I+qH; F evaluated there has sign q(p−q), with equality only at the two feasible endpoints. Independently substituting n=4,c=p=1/2 gives 12/(5+sqrt(10)) for size two and 8/(4+sqrt(6)) for Bernoulli. At p=1/n the optimal boundary is 2; inserting q=p² and taking c up to 1 gives the stated ordered gain limit.",
+      "residual_risks": [
+        "Dependence on the sampling law is through q at fixed p, not through q alone when the expected work can vary. Stability means the open stepsize interval, not attainment at its upper endpoint or fastest convergence at a fixed stepsize."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md lines 117–132 describe arbitrary-sampling ESO/expected-smoothness bounds and the optimization of sufficient complexity or rates. The cited primary passages were sought but not recovered in this review.",
+          "The standard symmetric-covariance spectral-radius criterion gives an implicit general stability test; its reduction here involves computing and analyzing a coupled 2×2 matrix."
+        ],
+        "reasoning": "The general criterion neither gives the root as a function of q nor orders distinct mask laws at equal p. An optimized sufficient descent or complexity estimate need not optimize the true stability boundary, as the record quantifies by the strict descent gap.",
+        "searches": [
+          "arXiv:1809.09354",
+          "Gower et al., PMLR 97 (2019), qian19b",
+          "Richtárik–Takáč, doi:10.1007/s11590-015-0916-1",
+          "Resultary da850d87df4f"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–27, 84–111 and 117–133",
+        "Record 2 frozen RESULT.md lines 4–80",
+        "Resultary 9551f778b77b, ca6b551fe80d and da850d87df4f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Bernoulli determinant recovers one curve q=p². The four-coordinate summary varies balanced size-two couplings and objective preferences; for fully exchangeable size-two sampling in four coordinates q is already fixed at 1/6.",
+          "The sufficient-bound comparison is described in frozen RESULT.md lines 117–125; no reviewed primary passage states the exact optimizer."
+        ],
+        "reasoning": "The new implication requires a sharp criterion off the Bernoulli curve, strict monotonicity in q throughout its feasible range and the equality cases of integer convexity. A uniform fixed-size prescription by itself gives neither uniqueness over all random sizes nor the sharp gain over independently activated coordinates.",
+        "searches": [
+          "Frozen ca6b551fe80d lines 14–30, 32–80",
+          "Resultary da850d87df4f",
+          "Hanzely–Richtárik arXiv:1809.09354, cited Section 2 and Appendix B"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen Bernoulli theorem (record 2 lines 4–30) gives the same cutoff and descent separation at q=p²; the current record explicitly credits it (lines 119–122).",
+          "The indexed da850d87df4f statement concerns four-coordinate balanced size-two couplings and Euclidean risk/objective ordering."
+        ],
+        "reasoning": "The Bernoulli specialization is exact, but p fixes q in that theorem. It cannot encode variation of q at fixed p, whereas exchangeable laws run from the adjacent-size minimum to the all-or-none q=p. The fixed-size four-coordinate result has neither that variable-cardinality class nor the same optimization criterion in its available statement.",
+        "searches": [
+          "Resultary: sharp mean-square stepsize, exchangeable minibatch laws and equicorrelated quadratic descent",
+          "Frozen record 2, ca6b551fe80d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9551f778b77b is the frozen result itself; ca6b551fe80d gives the Bernoulli subcase; da850d87df4f describes fixed-size coupling behavior in four coordinates."
+        ],
+        "reasoning": "The relevant exact catalog entries are theorem records rather than numerical tables. The distinct matches do not supply an all-exchangeable cutoff or the optimizing law among random batch sizes over all n,p.",
+        "searches": [
+          "Resultary searches on exact coupling-invariant Euclidean risk and sharp mean-square minibatch stepsizes"
+        ]
+      },
+      "rationale": "Credit is for passing from Bernoulli to the exact exchangeable-law criterion and uniquely optimizing its upper endpoint at fixed expected batch size. It is not for the Bernoulli formula, use of covariance lifting, pair-inclusion matrices or uniform fixed-size sampling themselves. Neither the inspected Bernoulli theorem nor the indexed four-coordinate comparison supplies that classification and optimization.",
+      "residual_risks": [
+        "The closest four-coordinate coupling result was available only by indexed statement. Relevant prior literature passages could not be checked directly; the pass does not certify historical priority or whole-paper noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact specialization; same date does not resolve chronology. Credit excluded for Bernoulli coverage.",
+          "evidence": "With q=p², the present formula reduces to 4/(S+sqrt(S²−4pK)) and the descent ceiling to 2/[1+p(n−1)c].",
+          "identifier_or_url": "ca6b551fe80d (assigned record 2)",
+          "material_read": "Frozen Finding, assumptions and proof lines 4–80",
+          "method": "Resultary and frozen local source",
+          "title": "Sharp mean-square stability beyond expected descent for Bernoulli parallel coordinate updates",
+          "trigger": "Exact overlapping cutoff and expected-descent gap"
+        },
+        {
+          "assessment": "Real overlap in the role of joint inclusion, but finite-dimensional balanced fixed-size coupling/risk is not the stated all-exchangeable stability optimization",
+          "evidence": "Indexed summary describes Euclidean risk invariant under coupling, with state-dependent ordering for expected objective.",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-coupling-invariant-euclidean-risk-and-state-dependent-batc--da850d87df4f",
+          "material_read": "Resultary summary and frozen RESULT.md lines 121 and 125; full text unavailable",
+          "method": "Resultary and targeted local-mirror attempt",
+          "title": "Exact coupling-invariant Euclidean risk and state-dependent batch-optimal objective in four-coordinate descent",
+          "trigger": "Closest indexed comparison involving different joint-inclusion laws"
+        },
+        {
+          "assessment": "Rate/sufficient-bound antecedents according to the frozen comparison; full-text coverage not independently resolved",
+          "evidence": "Frozen comparison identifies ESO, expected smoothness and optimization of a sufficient complexity bound as the relevant distinctions.",
+          "identifier_or_url": "arXiv:1809.09354; https://proceedings.mlr.press/v97/qian19b.html; doi:10.1007/s11590-015-0916-1",
+          "material_read": "Frozen comparison lines 119–120 and bibliography lines 129–132; no decisive primary passages obtained",
+          "method": "Targeted OA lookup and inspection of frozen citations",
+          "title": "Accelerated Coordinate Descent with Arbitrary Sampling and Best Rates for Minibatches; SGD: General Analysis and Improved Rates; On optimal probabilities in stochastic coordinate descent methods",
+          "trigger": "Prior arbitrary-sampling rate and optimizer results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–27 and 84–111"
+      ],
+      "rationale": "Many sampling laws have the same expected work. The sharp criterion reduces their comparison to a pair-inclusion moment and identifies a unique optimal distribution even for noninteger expected work. The strict gain over Bernoulli and exact distinction from universal one-step descent make this a useful benchmark for synchronous sampling, not merely a new way to compute a sufficient bound.",
+      "residual_risks": [
+        "Maximizing the cutoff is not the same as minimizing the convergence factor, finite-budget error or wall-clock time."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

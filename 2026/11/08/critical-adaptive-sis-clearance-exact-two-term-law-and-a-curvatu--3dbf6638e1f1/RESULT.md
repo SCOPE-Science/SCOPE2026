@@ -37,7 +37,7 @@ h_2&=\frac{A_2+(K-L_1)h_1}{L_0},\quad B=\frac{\tau(h_1-h_2)}{K}.
 \end{aligned}
 \]
 
-The monotonicity assumptions imply \(A_1\le0\) and therefore \(K\ge1\). All constants \(L_0,z_0,L_1,A_1,A_2,h_1,h_2,K,B\) are determined solely by the model parameters and functional responses. Only the finite constant \(C_{y(0),z(0)}\) depends on the initial state.
+The monotonicity assumptions imply \(A_1\le0\) and therefore \(K\ge1\). All constants \(L_0,z_0,L_1,A_1,A_2,h_1,h_2,K,B\) are determined solely by the model parameters and functional responses. For a fixed model, only the finite constant \(C_{y(0),z(0)}\) can depend on the initial state; this constant can also depend on the model.
 
 ## Proof
 
@@ -127,7 +127,7 @@ These responses are positive and monotone on the entire physical interval. Direc
 B=\frac{\kappa}{3}-\frac14.
 \]
 
-Thus the sign is negative when \(0\le\kappa<3/4\), zero at \(\kappa=3/4\), and positive when \(\kappa>3/4\). No lower-order constant or threshold changes with curvature.
+Thus the sign is negative when \(0\le\kappa<3/4\), zero at \(\kappa=3/4\), and positive when \(\kappa>3/4\). The disease-free equilibrium, reproduction threshold, and leading coefficient \(K\) are unchanged as \(\kappa\) varies. No curvature-independence is asserted for the finite remainder constant \(C_{y(0),z(0)}\).
 
 ## Verification
 

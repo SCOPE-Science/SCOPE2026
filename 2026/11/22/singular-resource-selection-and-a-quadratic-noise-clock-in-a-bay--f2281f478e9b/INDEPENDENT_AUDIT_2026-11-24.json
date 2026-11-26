@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:21:50.030022Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–48 and 52–140",
+        "VERIFICATION.md lines 19–31; checker.py lines 9–134 (inspected, not replayed)",
+        "Patra–Das Bairagya–Chakraborty arXiv:2504.02399v1, §II phenotype definitions and Eqs. (4), (7)–(8)"
+      ],
+      "rationale": "The published Gaussian normalization and Eqs. (7)–(8) match. The source uses depleted-first phenotype labels, so its LH, not its HL, is the same phenotype as the frozen record's explicitly replete-first HL (high under replete perception, low under depleted). In the frozen labels the log-ratio advantages against LL, HH, and LH are −pk, −ωk, and −k; the payoff gap is bounded below by min(T−R,P−S), and the probabilities have positive lower bounds for fixed finite noise, uniform also for σ≥1. This gives exponential fixation in the stated interior. The Gaussian derivative is σ^−2 times Cov(V,1_{V<c}), strictly negative; decreasing density at n=0 and increasing density at n=1 give ω(0)>c>ω(1). In resource logit coordinates the transient vanishes exponentially and the limiting drift is uniformly strictly inward outside each fixed neighborhood of the root. This yields finite entry and trapping, avoiding a spurious boundary limit from the n(1−n) factor. Expanding the two Gaussian integrals with uniform differentiated remainders gives ω−c=c(1−c)((1+c)/3−n)/(2σ²)+O(σ^−4); differentiation at the root gives the asserted negative resource eigenvalue in the triangular linearization. For k=−1 and D=0 the transient in the logit equation is exactly d/dt of b=(ε/c)log((1−x)/y), at every noise level. At infinite noise this yields the precise memory shift (ε/c)log(y_0/(1−x_0)). For equal initial marginals 1/2, b(0)=0 and b(t) decays uniformly exponentially for σ≥1. On stretched time subtract b from the logit; its slow drift differs from the limiting Lipschitz logit drift by O(σ^−2)+O(exp(−γσ²τ)), of integrated size O(σ^−2) on fixed compact intervals. Gronwall gives the cubic crossover for positive stretched times. Finite-physical-time continuous dependence gives the other iterated limit. The limits differ when n_0 differs from (1+c)/3, as in the stated example.",
+      "residual_risks": [
+        "Only strictly interior initial conditions for the global claim; the exact memory and crossover use the specified payoff slice and linkage condition. Positive slow-time convergence does not imply uniform convergence through the fast layer at τ=0."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Table 1 states the n* root condition ω(n*)=1/(1+θ); Fig. 4 states where the phase boundaries meet, at θ=(1−n_c)/n_c and σ→∞. Section III.3 gives a numerical solution in the component region and explains its squeezing at large σ."
+        ],
+        "reasoning": "These statements cover the root condition and critical balance. The limiting equation loses root uniqueness when ω is constant at c, so the primary phase description does not select a limiting n; the first nonconstant Gaussian term and its derivative are needed to resolve it.",
+        "searches": [
+          "Resultary: high-noise selected root (1+c)/3 and quadratic noise clock",
+          "Patra et al. Table 1, Fig. 4, §III.3 and Eq. (9)"
+        ]
+      },
+      "checked_sources": [
+        "Patra et al. arXiv:2504.02399v1 §II, §III.3 and stated equation/figure locators",
+        "Resultary:f2281f478e9b and ecc57a204b45",
+        "Frozen RESULT.md lines 146–162 (other cited conceptual antecedents)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary paper gives ω_eff(n)=(1−e)ω(n)+e n_c for erasure probability e, with limiting depleted-perception probability n_c at e=1. It discusses loss of the component region at infinite Gaussian noise."
+        ],
+        "reasoning": "At critical balance the erasure formula already implies a factor 1−e for the scalar post-fixation resource drift; the frozen Gaussian clock concerns a different limit with a changing shape, and the coefficient and n-selection do not follow just from constancy at σ=∞. Post-fixation dynamics alone also cannot supply the net logit displacement from the pre-fixation fast transient.",
+        "searches": [
+          "Resultary: finite-noise global convergence and HL",
+          "Resultary: noncommuting infinite-noise limits and σ² crossover",
+          "Patra et al. §III.3, including erasure model after Fig. 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Patra et al. §II has depleted-first phenotype notation; Eqs. (4), (7), (8) are the same dynamics as the frozen replete-first convention. Section III Eq. (9) gives dn/dt=ε n(1−n)[−1+(1+θ)ω(n)] after population fixation."
+        ],
+        "reasoning": "Exchanging the symbols HL and LH in the phenotype names, and putting c=n_c, makes the old model and the frozen model identical; novelty cannot rest on that renaming or the equilibrium equation.",
+        "searches": [
+          "Resultary: Patra Bayesian Gaussian four-strategy harvesting game model and notation",
+          "Resultary: finite-noise global convergence HL at critical harvesting balance",
+          "Primary lookup: Bayesian eco-evolutionary game dynamics Patra Das Bairagya Chakraborty"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact search hit f2281f478e9b is the assigned record, not a separate antecedent. Fig. 4 uses numerical phase diagrams at n_c=0.2,0.5,0.8. Distinct Resultary ecc57a204b45 describes a noise-corrected environmental donation game with critical 1/t relaxation and zero-noise cycles."
+        ],
+        "reasoning": "The prior phase diagram and related critical relaxation record are material comparisons, but do not give the arbitrary-c Gaussian selection coefficient, its noise clock, or the memory map. Same-day indexing is not priority evidence.",
+        "searches": [
+          "Resultary: high-noise selected root (1+c)/3 and quadratic noise clock",
+          "Resultary: noncommuting infinite-noise limits and σ² crossover in Bayesian harvesting",
+          "Patra et al. Fig. 4 and Table 1"
+        ]
+      },
+      "rationale": "The model, dominant action choices, interior stationary equation, phase regions and critical balance are prior; the review credits the quantified singular Gaussian critical-line result. The primary paper explicitly states squeezing toward the critical balance and has the post-fixation scalar equation, but its inspected equations, Fig. 4 and §III.3 do not resolve the finite-noise selected limit at the balance, the relaxation coefficient, or the full-dynamics initial-memory and crossover laws. Global convergence uses the old dominance and scalar signs, so it is not by itself the basis of the pass. The distinguishing result is the quantitative resolution of the singularity including the two protocols and uniform-away-from-zero slow limit.",
+      "residual_risks": [
+        "The comparison is bounded to the inspected primary sections and accessible indexed statements. An unindexed derivative or equivalent formulation of the high-noise expansion and crossover could alter priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model, equilibrium and critical-line antecedent. The quantitative Gaussian singular-time and memory claims are distinct in the compared material.",
+          "evidence": "The first phenotype letter is for depleted perception, the second for replete; T>R and P>S make H and L dominant in those respective replete and depleted matrices. Table 1 gives the stationary equality, and Fig. 4 says the boundary curves meet at θ=(1−n_c)/n_c as σ→∞. §III.3 describes numerical solving and qualitative squeezing; its separate erasure expression is linear in 1−e.",
+          "identifier_or_url": "https://arxiv.org/html/2504.02399v1; doi:10.1103/PhysRevE.111.044401",
+          "material_read": "§II phenotype convention, payoff ordering and Eqs. (4), (7), (8); §III Table 1, Fig. 4 caption and Eq. (9); §III.3 component tragedy of commons and its erasure analysis.",
+          "method": "Bounded equations and passages from the lawful arXiv HTML equivalent after failed OA-reader requests; located by S2.E4, S2.E7/S2.E8, S3.F4 and S3.SS3 and by the phenotype-convention phrase.",
+          "title": "Bayesian eco-evolutionary game dynamics",
+          "trigger": "The exact continuous-resource model and limiting critical line appear here."
+        },
+        {
+          "assessment": "Related feedback dynamics, different limit, population model and rate law.",
+          "evidence": "The summary concerns a coexistence-to-resource-endpoint threshold, critical 1/t relaxation and zero-noise cycles, not a finite-to-infinite truncated-Gaussian reservoir selection with a σ² clock.",
+          "identifier_or_url": "Resultary:ecc57a204b45",
+          "material_read": "Indexed mathematical summary only; full text not retrieved.",
+          "method": "Local Resultary statement comparison.",
+          "title": "Global resource selection and critical relaxation in the noisy donation game",
+          "trigger": "Closest distinct noisy eco-evolutionary critical-relaxation record."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof; Patra et al. Fig. 4, Eq. (9) and §III.3"
+      ],
+      "rationale": "The balance is forced by the meeting of two previously identified phase boundaries, not a numerically chosen slice. Although the large-noise kernel expansion is elementary, the result resolves what the singular phase picture cannot: a universal finite-noise-selected resource, an explicit slow rate, and a different terminal state if complete noise is taken first, with a crossover law linking the two. This is a usable quantitative refinement of the model, not a new claim about the underlying game or a calibrated ecological timescale.",
+      "residual_risks": [
+        "No finite-population interpretation or universal payoff-independent memory law is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

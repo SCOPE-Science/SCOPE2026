@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof starts from an explicit finite cyclic resolvent and checks all quantifiers: \(n\ge3\), all strictly positive rates, all \(\theta\in[0,1]\), and all \(h\ge0\). The controlling fastest-state return diagonal is strictly decreasing even without reversibility; its endpoints give all finite/infinite threshold cases. The theta endpoints and critical equality are handled separately. Strict Karamata yields the global majorization order and budget optimizer classification. The standalone code verifies 1,065 exact-rational configurations but is not substituted for the infinite-family argument.
+## correctness
 
-## Originality — PASS, residual risk stated
-Horváth (1998, 2005) provides general RK positivity radii; Fallat–Tsatsomeros (2002) and a public 2026 Markov-return theorem provide known Cayley/resolvent algebra, acknowledged as prior work. Hadjimichael–Ketcheson–Lóczi (2021) analyzes centered/higher-order periodic advection semidiscretizations, not positive heterogeneous one-way cyclic generators. None of these inspected sources implies the derived strict nonreversible return monotonicity, all-real-rate theta horizon, and majorization optimizer transition. The risk of an equivalent unindexed theorem remains; negative searches are not uniqueness proof.
+PASS
 
-## Value — PASS
-The theorem settles a naturally motivated numerical positivity-design question for heterogeneous directed transport: sharp feasible timestep, exact all-rate comparison, and whether uniformly allocating fixed throughput is the uniquely best design. The rate-budget uniqueness transition is structural, rather than a routine formula for one chosen finite matrix.
+Re-audited the repaired statement. Factoring the cyclic resolvent and shifting its diagonal give the positivity criterion t*≤θ+(1−θ)P. The repaired telescoping identity for (1−P)/(1−t*) has a strictly increasing positive product in each summand and a nondecreasing ratio (1+srmax)/(1+sr_j). Its limits are 1 and rmax·Σ_j(1/r_j); hence the reciprocal gives the strictly decreasing limiting return diagonal used for the closed cutoff. For same-sum majorized rates, strict concavity of log(sx/(1+sx)) lowers P for nonpermutations while the maximum rate cannot decrease. At the finite positive crossing for the more balanced vector, the less balanced vector violates admissibility strictly. Permutations and an infinite horizon of the more balanced vector give the stated weak cases. In the new same-maximum example, the common fastest-rate product factor cancels: 3(1+2s)²<4(1+3s)(1+s) at every s>0; both horizons at θ=1/2 are finite because π_min≤1/3. Under a fixed budget, uniformity uniquely minimizes rmax for θ=0, wins strictly in the finite regime, and is the only vector with π_min=1/n at the transition. Above it continuity supplies infinitely many nonuniform optima; at θ=1 every horizon is infinite. The monotone change of variables ensures the correct unique interior uniform root, not the endpoint t=1.
 
-## Closest literature and limits
-The 2026 reversible-chain criterion is closest at the algebraic level, but its monotonicity theorem assumes reversibility. The result does not cover additional directed edges, reverse edges, zero rates, internal stages, or nonlinear positivity. No independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass applies only to the repaired strict fixed-sum majorization comparison and its design consequences. The strongest same-object comparator directly covers the cutoff formula, and the broader Markov result covers the interval and stationary-mass transition; these are credited background, not new claims. None of the inspected statements compares all same-sum majorized heterogeneous directed-cycle rate vectors. The strict comparison uses the separate observation that the product factor is strictly Schur-concave while the maximum-rate factor moves in the opposite direction in the inequality; even equal-max vectors can be ordered. The uniform-budget uniqueness classification is its corollary in the finite regime and uses known stationary masses in the infinite regimes. It is not credited as a separate discovery of the stationary threshold.
+
+## value
+
+PASS
+
+This is a fixed-budget design result for a natural numerical positivity constraint. It orders whole comparable rate profiles, including profiles with the same maximum rate, for which a fastest-rate-only bound misses the distinction. It identifies the unique allocation through the finite-to-infinite transition and shows exactly where uniformity loses uniqueness. This comparative consequence is useful independently of rederiving the known cyclic horizon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

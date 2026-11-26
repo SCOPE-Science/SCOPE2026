@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:27:22.389637Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning gives 1-p+pr^m, whose negative log is additive over independent field samples. With y=cm and alpha=ca/b, the relaxed derivative numerator K=(alpha+y)psi'-psi is strictly decreasing, positive at zero and negative at infinity, giving the unique continuous peak and adjacent integer tie restriction. The log derivative of the adjacent ratio in p is the difference of elasticities (e^z-1)/z at two increasing arguments; it is strictly positive. Using the rightmost maximizer at p=0 in the first-order approximation handles a possible low-availability tie: each adjacent ratio before m0 starts at least one and each from m0 starts strictly below one. At p=1 every adjacent ratio is above one since a>0. A descending pair followed by an ascending pair and three consecutive ties both contradict the strict peak, so thresholds are strictly ordered and no indices are skipped. Bounded H_m for fixed p<1 rules out threshold accumulation below one. At 1-p=k r^m/m, the adjacent difference tends to -ca/b+k(r^(-1)-1), yielding the stated switch coefficient by bracketing. The stationary equation R=psi/psi'-y has R_y>0 and R_epsilon=e^y(psi-p(1-e^(-y)))>0 when epsilon=(1-p)/p, so its root increases with p. On the line y=log(1/epsilon)-log log(1/epsilon)+t, K tends to alpha-e^t, which proves the negative log-log correction. The p=1 objective increases to c/b without a finite optimizer. A separate bounded integer-power bisection for a=b=1 and q=1/2 reproduced the three 12-decimal switching examples; it does not establish the parameter-uniform assertions. The bundled checker was inspected, not executed. Integer field-budget floors, imperfect capture independence and false positives remain outside scope.",
+      "replay_path": "/tmp/opencode/ordinal2_switch_check.py",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Moore et al. vary the number and duration of field surveys under stochastic visit-specific detectability and travel costs. Buxton et al. explicitly vary both field sample count and technical replicate count in an occupancy simulation, assessing bias and credible interval width for occupancy and observation errors."
+        ],
+        "reasoning": "Moore's continuous effort tradeoff does not include this integer nested Bernoulli optimum or its sharp adjacent switches. Buxton's optimization is not an exponent-per-cost problem at a known occupied site and admits false positives. Its statement does not give an exact parametric switching law for this loss.",
+        "searches": [
+          "environmental DNA cost efficiency optimizing technical replication eDNA PCR field lab fixed total budget allocation false negative Furlan Doi Harper Hunter 2021 optimal numbers study",
+          "Moore et al. doi:10.1371/journal.pone.0115345",
+          "Buxton et al. doi:10.1038/s41598-021-91166-7"
+        ]
+      },
+      "checked_sources": [
+        "Buxton et al. doi:10.1038/s41598-021-91166-7",
+        "Moore et al. doi:10.1371/journal.pone.0115345",
+        "Ficetola et al. doi:10.1111/1755-0998.12338 (abstract)",
+        "Lugg et al. doi:10.1111/2041-210X.12951 (abstract)",
+        "Willoughby et al. doi:10.1111/1755-0998.12531 (abstract)",
+        "Resultary semantic matches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ficetola et al.'s accessible abstract discusses detection-dependent replicate levels, false positives and simulated or empirical performance. The accessible Lugg record describes cost-efficiency of eDNA versus traditional surveys. The accessible Willoughby summary distinguishes field capture and molecular detection."
+        ],
+        "reasoning": "These are substantive overlaps on sampling design; none of the accessible claims gives ordered adjacent crossings, the geometric-over-linear coefficient, or a continuous log-log law. A recommendation that replication depends on detectability is weaker than the all-parameter theorem. Full-text limits for these comparisons prevent a whole-paper exclusion.",
+        "searches": [
+          "Ficetola optimal replication levels environmental DNA detection qPCR field laboratory costs replication 2014 2015 false positives design simulations",
+          "Lugg Griffiths van Rooyen Weeks Tingley optimal survey designs for environmental DNA sampling 12951 repository open PDF optimal number sites pcr replicate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Field capture followed by imperfect laboratory detection is established; sample miss is the mixture of the unavailable state with an all-negative conditional result. For independent samples and relaxed sample count, maximizing survey detection at fixed expenditure is exactly maximizing -log(miss)/(a+bm)."
+        ],
+        "reasoning": "The same probability law or another name for the equivalent fixed-expenditure objective would not be new; the compared claims must also optimize the within-sample count and account for the asserted switch structure.",
+        "searches": [
+          "environmental DNA sampling optimize number of PCR replicates fixed field sample PCR cost hierarchical p q minimize probability nondetection optimal laboratory repeats threshold eDNA",
+          "Willoughby importance including imperfect detection models eDNA experimental design 12531 pdf capture conditional qPCR open full text"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match was the assigned item. Another indexed replication theorem has fixed water volume divided among independent grabs, a processing loss, and a Youden objective with false positives."
+        ],
+        "reasoning": "Its replicate index counts grabs, not tests conditional on capture in a given grab. The optimization and limiting parameter differ; no earlier exact staircase or threshold table for the present objective was identified.",
+        "searches": [
+          "Resultary: hierarchical environmental DNA optimal PCR technical replicate count cost per negative detection exponent staircase threshold no skip Lambert W"
+        ]
+      },
+      "rationale": "The hierarchical observation model and the tradeoff between fixed collection costs and within-sample effort are already known. The narrow contribution is the all-index phase diagram for the specified log-miss-per-cost loss, the sharp switch accumulation constant, and the matching continuous high-capture asymptotic. Prior applied optimization does vary laboratory replication, but the closest inspected objectives are materially different.",
+      "residual_risks": [
+        "An earlier exact analysis of the same nested Bernoulli objective may be unindexed or appear outside eDNA under another sampling-design name. Some close applied papers were accessible only as abstracts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive design overlap; different loss and model",
+          "evidence": "The simulated design varies M and K to improve occupancy and detection/error estimates, with bias and credible interval width reported; the model used in the simulation accounts for false positives.",
+          "identifier_or_url": "https://www.nature.com/articles/s41598-021-91166-7.pdf",
+          "material_read": "Abstract, model context and simulated-data Results for sample count M and qPCR count K",
+          "method": "OA primary PDF",
+          "title": "Optimising sampling and analysis protocols in environmental DNA studies",
+          "trigger": "Direct optimization of laboratory as well as field replication"
+        },
+        {
+          "assessment": "Related expected-detection optimization at a different level",
+          "evidence": "The tradeoff is number versus duration of field visits with fixed travel cost and stochastic detectability, not constant conditional PCR success in a nested Bernoulli sample.",
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0115345",
+          "material_read": "Abstract and opening model discussion in printable article",
+          "method": "OA PLOS primary PDF",
+          "title": "The Optimal Number of Surveys when Detectability Varies",
+          "trigger": "Fixed-cost effort allocation with imperfect detection"
+        },
+        {
+          "assessment": "Partial access; no assertion about uninspected results",
+          "evidence": "The abstract describes simulation and empirical evaluation of replication required for accurate detection and false-detection control.",
+          "identifier_or_url": "https://doi.org/10.1111/1755-0998.12338",
+          "material_read": "Indexed publisher and dataset abstract material only",
+          "method": "Primary bibliographic search results",
+          "title": "Replication levels, false presences and the estimation of the presence/absence from eDNA metabarcoding data",
+          "trigger": "Directly addresses optimal replication levels and detectability"
+        },
+        {
+          "assessment": "Partial access; accessible objective compares sampling methods",
+          "evidence": "The abstract applies occupancy models and optimal survey design to cost-efficiency of eDNA sampling versus traditional field surveys.",
+          "identifier_or_url": "https://doi.org/10.1111/2041-210X.12951",
+          "material_read": "Indexed publisher and institutional abstract material only; full text not retrieved independently",
+          "method": "Primary bibliographic search results; attempted OA lookup",
+          "title": "Optimal survey designs for environmental DNA sampling",
+          "trigger": "Cost-based design with hierarchical eDNA observations"
+        },
+        {
+          "assessment": "Model overlap; no whole-paper exclusion",
+          "evidence": "Abstract compares species detection to sampling and analysis protocols and discusses multiple field capture and detection probabilities.",
+          "identifier_or_url": "https://doi.org/10.1111/1755-0998.12531",
+          "material_read": "Indexed abstract material only; exact open manuscript lookup unavailable",
+          "method": "Primary bibliographic search results; attempted OA lookup",
+          "title": "The importance of including imperfect detection models in eDNA experimental design",
+          "trigger": "Capture/detection model and value of technical replication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A locally diminishing return to laboratory replication does not by itself locate the global integer switches. The full staircase and its calibrated accumulation rate identify when a single additional technical test changes the most efficient allocation in an idealized detection study. The log-log correction explains the rate at which the preferred count grows as the field availability ceiling disappears. This is useful model insight, not a finite-budget recommendation or an operational laboratory protocol.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

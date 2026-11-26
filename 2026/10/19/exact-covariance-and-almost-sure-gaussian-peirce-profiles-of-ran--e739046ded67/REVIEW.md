@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The multiplication operators are reconstructed from the defining signed products, giving the \(-1\) multiplicity precisely as a negative-Pasch count. Conditional-pivot arguments give independent Bernoulli coordinates at one block; for two blocks they give independence for intersections of size at most one and exactly one shared Bernoulli coordinate for intersections of size two. Counting \(3(m-3)\) two-vertex neighbors per block proves the full covariance formula with its coefficient \(3N(m-3)/4\). A bounded-dependency variance estimate is summable across dimensions; the ordinary binomial central limit theorem and Borel–Cantelli then prove almost-sure weak convergence. Exact arithmetic and direct-matrix tests in the accompanying program confirm finite cases but are not used as infinite proofs.
+PASS
 
-## Originality — PASS (self-review)
+The multiplication operator splits into the internal triangle, one signed triangle per external vertex, and a zero block. The three signs of each external triangle can be conjugated by a diagonal sign matrix to a common sign equal to their product. Thus only negative external triangles contribute a -1 eigenvalue, once each. A triple sign containing two fixed vertices of B and a variable external vertex is a separate fair pivot for each Pasch sign in B's star. If C meets B in at most one vertex, choose the two fixed vertices outside C so these pivots never occur in C's star. If C meets B in two vertices, choose one shared vertex and the respective nonshared vertex to form disjoint pivots for the two stars outside B union C. The unique common Pasch remains an independent shared fair bit. Conditional expectations of the two profile indicators given that bit are a_k and b_k (respectively a_l and b_l); their covariance is the stated quarter product. There are 3(m-3) such neighbors per block, counted in ordered pairs, and the diagonal is the one-block multinomial term. This includes m=4: all four blocks share one fair bit, so Var(T_0)=4. For a threshold indicator only O(Nm) of the N^2 covariances can be nonzero. Chebyshev and summability of O(m^-2), applied at rational thresholds and countably many tolerances, give almost-sure convergence to the binomial expectations, which converge by the binomial CLT. Continuity gives weak convergence under any cross-dimension coupling.
 
-Fox–Tkachev, arXiv:2609.25353v1, provides the underlying decorated algebra, block-Pasch spectral correspondence and deterministic profile machinery. Examination of its spectral statements and full accessible discussions of the sampled profile did not reveal the random profile covariance, explicit dependency-graph concentration, or almost-sure Gaussian empirical law. Fox's earlier arXiv:2205.08838 concerns different Steiner-system algebras. Searches for equivalent random-signed Peirce, Pasch and Grassmannian formulations and for broader probabilistic coverage found no dominating claim. Relevant nearby results about one-point Steiner extensions or random-sign covariances concern distinct mathematical objects, and do not imply this theorem. This is a best-knowledge comparison, not proof of global uniqueness. A related prior manuscript referenced within Fox–Tkachev was not available for full comparison and remains a bibliographic risk.
+## originality
 
-## Value — PASS
+PASS
 
-The 2026 work motivates exact understanding of the signed Grassmannian's block spectral profiles and studies examples by computational sampling. The new exact covariance gives every correlated component, including a nontrivial rank-one deviation from falsely independent multinomial sampling; the almost-sure Gaussian theorem gives a universal, dimension-asymptotic spectral shape under genuinely random decorations. Both answer mathematically natural quantitative questions on the same infinite family, and distinguish the local Bernoulli law from the dependent global profile.
+The deterministic spectral statistic and profile are known; the supported distinct claim is the complete covariance of the random counts and their almost-sure Gaussian empirical profile for independent fair decorations. No equivalent coverage was found in the inspected evidence, with the access limitation below.
 
-## Limits and prior literature
+## value
 
-The claims apply to fair independent triple signs, real algebras, and canonical block idempotents. No claim is made about deterministically signed algebras or arbitrary idempotents. The inaccessible related manuscript and possible unindexed equivalent results remain originality risks. No independent mathematical validation is represented.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact overlap correction quantifies when treating an existing, naturally sampled spectral profile as multinomial gives incorrect uncertainty. It covers all profile bins, including their cross-covariances, not only a mean or one variance. The strong law then shows that this local dependence does not obstruct a Gaussian shape for a typical large decoration. This supplies a usable baseline for the computationally sampled profiles in the prior work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The zero-set lemma follows by the exact residue-class expansion in equation (2) and the cyclotomic characterization of equation (3). For primes congruent to 2 modulo 3, the stationary equation has exactly one root whenever the quartic coefficient is a unit. The explicit Hermite power-sum exponent in equation (4) excludes every quartic-plus-linear permutation polynomial with nonzero quartic coefficient. The complete spectral basis classification follows from the resulting pairwise-difference zero set and saturation of all first-coordinate residue classes. The count \(p^{p+1}\) and affine subclass count \(p^3\) are derived without computational extrapolation. Exact cyclotomic and moment checks provide separate finite corroboration.
+## correctness
 
-## Originality — PASS (best knowledge)
-Search comparisons included Fourier restriction modulo integers, spectral sets in prime-power groups, polynomial graph bases and finite-ring quartic polynomial curves. Hickman--Wright's residue-ring restriction framework does not classify quartic spectral bases. Shi's equidistribution theorem works in a different prime-power group and does not supply this exact enumeration. Published classifications of quadratic and cubic graph spectra concern different stationary equations and do not establish the quartic permutation obstruction needed here. Full-text reviews of the two accessible primary arXiv papers and targeted searches did not identify this claim. A published cubic-graph spectrum classification was available as a descriptive abstract rather than inspectable full text; unindexed older equivalents remain a genuine bibliographic risk.
+PASS
 
-## Value — PASS
-The quartic polynomial graph is a natural next test case after the quadratic and cubic graphs in finite harmonic analysis, yet its entire spectral-basis space was not supplied by the closest inspected work. The theorem determines every basis, counts all labeled bases in an infinite arithmetic family, and exhibits nonlinear spectral bases. The Hermite obstruction explains the arithmetic rigidity rather than merely tabulating cases.
+The high-digit sum modulo p^2 retains precisely the stationary roots of a+4br^3 modulo p. For unit b there is exactly one, hence no cancellation; for b divisible by p and unit a there are none. When a=pA and b=pB, the prime cyclotomic count criterion reduces the question to whether Ar+Br^4 permutes the field. The stated power-sum computation works, including h=0 (p=5). There is also a direct check: if AB is nonzero, the unique nonzero root of r^3=-A/B collides with r=0 under Ar+Br^4, and if A=0 and B is nonzero then r and -r collide. Hence the exact zero criterion holds. It forces a fixed second residue and an exactly fixed second coordinate in each first-residue block. Full size saturates every block and exhausts first coordinates; the reverse differences satisfy the criterion. The unique parameters give p^(p+1) sets, with p^3 affine graphs since the slope must be divisible by p and the field function must be affine. Finite recorded checks were not rerun and do not establish the infinite statement.
 
-## Scope and limitations
-Only the primes \(p\ge5\) with \(p\equiv2\pmod3\) and the prime-square modulus are covered. The theorem does not resolve the complementary congruence class, higher powers, or equivalent classifications hidden in older literature. The verifier tests finite primes and does not substitute for the full symbolic argument.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the entire frequency-set family and both counts as already known for the prime-square parabola. The distinct content supported here is the quartic-specific Fourier-zero identity, namely that despite different spatial graphs the quartic has that very same collection of spectra for p congruent to 2 mod 3. Once the identity is proved, the classification and census transfer directly from the parabola; they are not a separate new classification method. Inspected exact and general results do not themselves imply the quartic identity.
+
+## value
+
+PASS
+
+The first nonlinear even monomial beyond the parabola is a natural test of whether increasing degree changes orthogonality. Proving identical zeros on all frequencies for the specified prime progression explains why a different spatial graph has exactly the same full family of bases, including nonlinear bases, rather than merely exhibiting one basis or reproducing a count in small examples. The value is the structural coincidence, not the length of the power-sum proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

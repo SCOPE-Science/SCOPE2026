@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim fixes the standard synchronous four-neighbour update on the triangular graph. For an absent root edge the number of active line-graph neighbours equals the sum of endpoint degrees. With four initial edges, a first activation forces all four edges to meet one of the endpoints of a missing edge; the complete star/double-star case split leaves exactly \(P_5\) and \(P_3\sqcup P_3\). Both fill the root complete graph in three or four parallel rounds, giving the exact size classification. Path and block counting proves the formula. Local edge-swap enumeration proves both reconfiguration degrees, and path reversals plus support changes prove connectivity. Separately implemented verifiers reproduce the classification and exchange counts. Risk: proof and tests use the stipulated simple-graph, fixed-four-neighbour convention; they do not assert other models.
+## correctness
 
-## Originality — PASS, with priority risk
-The 2014 full-text paper on minimal contagious sets in random regular graphs motivates optimization with time constraints but not this specific host graph. Bidgoli, Mohammadian and Tayfeh-Rezaie (2021) already explicitly determine \(m(L(K_n),r)\), so the numeric minimum \(m(L(K_n),4)=4\) is not presented as new. The proposed new result is the necessary-and-sufficient shape census, exact multiplicities and completion times, and connected nonregular replacement graph. Searches of mathematical-result records under degree-sum, percolation, optimizer shapes, and exchange aliases found no implication covering that joint claim. A pertinent same-object article's full text was inaccessible; its abstract only describes the minimum cardinality, not the complete optimizer/reconfiguration geometry, so priority uncertainty must remain explicit.
+PASS
 
-## Value — PASS
-A naturally defined extremal problem on the line graph of a complete graph has a surprisingly small but nonunique optimal motif list and an exact all-order configuration count. The result contrasts two optimal root-forest shapes, identifies the only fast three-round exceptions, and proves that all optimal seed sets are mutually reachable by one-seed exchanges even while their exchange degrees differ. It supplies an exact structural and temporal benchmark, not a mere restatement of the known minimum.
+Every absent root edge uv has d(u)+d(v) distinct active neighbours, giving the synchronous update and the four-seed lower bound. A moving four-seed set must be covered by two nonadjacent root vertices. The degree pairs (4,0), (3,1) and (2,2) exhaust this case. The full star, the full star with one leaf-edge, and K4 plus isolates are closed upper envelopes for the losing types. In the (2,2) case zero, one and two common neighbours give two P3s, P5 and C4, respectively. The explicit trajectories of the two winners give 4,5,7,2n,C(n,2) and 4,5,9,2n+3,C(n,2), with exactly the claimed early coincidences. Reversal of a labeled path, and block exchange plus independent center choices for two P3s, give the two counts. For P5, removing a terminal or interior edge gives respectively one or three alternatives inside its five labels, and for each extra label gives respectively two P5 or two paired-P3 alternatives per removed edge. For two P3s the remainder is P3+P2, permitting four path joins, one alternative using the old detached vertex, and two joins per fresh vertex per removed edge. This proves both degrees and double-counting gives the exchange edge count. Prefix reversals connect paths on a support, replacing a terminal label connects the supports, and joining P3 to P2 connects every paired type to a path. Independently, `python3 /workspace/reviews/check_4.py 5 6` exhausts seeds through size four on the explicit host, identifying root components and checking exchange connectivity. It reproduced 60 paths at n=5 (time 3, degree 8), and 360 paths plus 90 pairs at n=6 (times 4 and 3, degrees 16 and 20). The two frozen programs were inspected, not executed; the bounded replay supplements the all-n argument.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The numerical minimum four is expressly credited rather than original. The supported increment is the complete starter classification, labeled counts, parallel-time profile and the exchange graph of these starters. Same-host comparisons with different dynamics do not supply these results. The strongest same-rule journal source remains a specific full-text access risk; no inference of noncoverage is made from the missing text.
+
+## value
+
+PASS
+
+A minimum size alone neither characterizes viable four-seed configurations nor distinguishes their parallel dynamics or whether all optimal choices can be traversed by replacements. The two forest types and their exact times and different exchange degrees resolve those questions for every host order by a uniform structural argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

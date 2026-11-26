@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:53:45.572718Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–5",
+        "VERIFICATION.md",
+        "standalone/verify.py (inspected, not run)"
+      ],
+      "rationale": "Stochastic Fubini and the isometry give the target kernel (1−s)^(α+1)/Γ(α+2) and the stated covariance and variance; conditional Gaussian minimization is equivalent to maximizing c(t)^2/(v(t)+η). Its continuous zero limit at t=0 is never optimal. With t=e^x and s=e^y the log integrand is a sum of affine terms and nonnegative multiples of log(1−e^z) at z=y−x and z=y on the convex support y<x≤0. Prékopa applies to the zero extension and gives that u(t)=t c′(t)/c(t) is nonincreasing. After s=tr, the remaining integral has analytic dependence on t on compact interior subintervals (the factor 1−tr is bounded away from zero there), so unequal endpoint slopes force strict decrease. That same scaled integral gives u(0+)=α+1 and u(1−)=2α(α+1)/(2α+1), including α=0. Thus the log-gain derivative H is strictly decreasing, starts positive (1 at η=0 and 2(α+1) for η>0), and its right-end sign yields the stated threshold for α>0 and the unique interior optimum at every finite η for α=0. At equality the gain is still strictly increasing on the open interval. Increasing η raises H at each fixed t; its unique interior root moves right and tends to 1 at activation by continuity. The Brownian quadratic and the α=1 and 2 examples agree with the endpoint calculation; the Brownian root tends to 1 only at infinite noise.",
+      "residual_risks": [
+        "The reported numerical replay is supplementary, not proof or formal verification. This audit applies only to the stated one-site scalar integral objective, normalization and independent absolute noise variance."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cai–Lam–Scarlett provides budget-dependent average-case bounds for noisy quadrature; the inspected theorem is not a one-site Volterra design classification.",
+          "Zhang et al. model integer-order integrated Wiener processes via overlapping splines for smoothing, not noisy scalar integral design.",
+          "The older design papers were identified and lawful full-text retrieval attempted; no decisive full theorem was obtained."
+        ],
+        "reasoning": "Generic noisy quadrature and integrated Wiener modeling provide the design setting and Gaussian regression mechanism, not the log-time location comparison needed for the exact all-order transition. The older literature is a scope risk rather than negative evidence.",
+        "searches": [
+          "arXiv:2202.10615, §1.1 and Theorem 1",
+          "arXiv:2302.02053, §2.1",
+          "DOI 10.1016/j.jco.2003.10.002 and 10.1081/STA-120022249"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3e4b47324f39, f7779e95b7be, 234c270723d5 and 2fe7f897a316",
+        "arXiv:2202.10615 and 2302.02053",
+        "DOI 10.1016/j.jco.2003.10.002 and 10.1081/STA-120022249 (full texts not obtained)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The value/derivative-sensor theorem establishes the same value-only transition for the fixed once-integrated process; the boundary-layer theorem has Brownian-base data and trajectory loss.",
+          "Theorem 1 of the Bayesian quadrature paper bounds error as a function of query budget rather than comparing locations for this covariance."
+        ],
+        "reasoning": "The exact specialization follows from the first prior claim alone. Its hypotheses do not vary the order. The other statements do not entail negativity, vanishing, or positivity of the Volterra endpoint slope as a function of η and α.",
+        "searches": [
+          "Resultary 3e4b47324f39, Finding",
+          "Resultary 2fe7f897a316, Finding",
+          "Cai–Lam–Scarlett, arXiv:2202.10615, Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The value-sensor branch of 3e4b47324f39 has the same scalar integrated process target and exactly the α=1 threshold under the same normalization.",
+          "f7779e95b7be addresses standard fractional Brownian motion at H=3/4 and obtains 1/2; 234c270723d5 has the α=1 process but minimizes integrated posterior path variance and obtains 8/273."
+        ],
+        "reasoning": "Integer integration identifies α=1 exactly across the first pair of records. Standard fractional Brownian motion and Riemann–Liouville Volterra motion have different covariance structures, and integrating the pointwise posterior variances is not the variance of the path integral; the other formulae are not equivalent reparametrizations.",
+        "searches": [
+          "Resultary: single-site Gaussian Volterra quadrature endpoint activation noise threshold integrated Brownian",
+          "Resultary: single noisy observation estimate scalar time integral once-integrated Brownian motion optimal location exact noise threshold",
+          "Resultary 3e4b47324f39, f7779e95b7be and 234c270723d5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An indexed exact 1/24 entry was verified for α=1; indexed neighbors instead give a fractional Brownian threshold, a trajectory-loss threshold and an interior Brownian-base-sensor design."
+        ],
+        "reasoning": "The decisive exact quantity is a function over arbitrary real α, not a single tabulated critical variance; matching one threshold in the same instance is genuine coverage of that case, not coverage of the exact function.",
+        "searches": [
+          "Resultary: single-site Gaussian Volterra quadrature endpoint activation noise threshold integrated Brownian",
+          "Resultary records 3e4b47324f39, f7779e95b7be, 234c270723d5 and 2fe7f897a316"
+        ]
+      },
+      "rationale": "A distinct indexed same-day result covers exactly the α=1 value-sensor case, including the 1/24 transition. That specialization is not credited separately as original, and date alone establishes no order of priority. The supported distinct claim is the sharp all-real-order Volterra law, its strict single-site shape and the Brownian versus positive-order dichotomy. Neither the exact α=1 overlap nor the other inspected statements implies this general result. This is a bounded determination, not a certification of historical priority.",
+      "residual_risks": [
+        "Older weighted/integral design theorems could cover additional special cases, particularly noiseless and integer-order designs. The unsuccessful full-text lookups are not evidence against coverage.",
+        "Publication priority for the α=1 overlap is unresolved and not needed for the distinct all-order result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact α=1 overlap; no date-based priority inference",
+          "evidence": "Unique interior value optimum below 1/24 and endpoint at or above 1/24 for the scalar integral of once-integrated Brownian motion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-noise-driven-choice-between-value-and-derivative-sensing-i--3e4b47324f39",
+          "material_read": "RESULT.md Finding (offset 0)",
+          "method": "Local Resultary mirror",
+          "title": "Sharp noise-driven choice between value and derivative sensing",
+          "trigger": "Exact process, sensor, integral and variance match at α=1"
+        },
+        {
+          "assessment": "Related objective but different covariance",
+          "evidence": "Standard fractional Brownian motion at H=3/4; threshold 1/2.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-terminal-sampling-noise-threshold-for-the-integral-of-fr--f7779e95b7be",
+          "material_read": "RESULT.md Finding (offset 0)",
+          "method": "Local Resultary mirror",
+          "title": "A sharp terminal sampling noise threshold for the integral of fractional Brownian motion",
+          "trigger": "Another one-site Gaussian integral endpoint transition"
+        },
+        {
+          "assessment": "Different loss",
+          "evidence": "Minimizes integrated posterior path variance, with threshold 8/273.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-endpoint-activation-threshold-for-one-noisy-integrated-w--234c270723d5",
+          "material_read": "RESULT.md Finding (offset 0)",
+          "method": "Local Resultary mirror",
+          "title": "A sharp endpoint activation threshold for one noisy integrated-Wiener observation",
+          "trigger": "Same α=1 process and sensor"
+        },
+        {
+          "assessment": "Different observation and loss",
+          "evidence": "Observes the Brownian base and minimizes integrated trajectory uncertainty; interior optimum at all positive finite noise.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-universal-observation-noise-boundary-layer-for-integrated-wien--2fe7f897a316",
+          "material_read": "RESULT.md Finding (offset 0)",
+          "method": "Local Resultary mirror",
+          "title": "A universal observation-noise boundary layer for integrated Wiener processes",
+          "trigger": "Potential broader integrated-Wiener design result"
+        },
+        {
+          "assessment": "The inspected bounds do not characterize exact one-site Volterra placement",
+          "evidence": "Average-case noisy integration error versus budget T; the frozen citation has a different title for the same identifier.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.10615",
+          "material_read": "v2 abstract p. 1, §1.1 (offset 4916), Theorem 1 p. 5 (offset 21168)",
+          "method": "Bounded OA primary PDF text inspection",
+          "title": "On Average-Case Error Bounds for Kernel-Based Bayesian Quadrature",
+          "trigger": "General noisy Bayesian quadrature theorem"
+        },
+        {
+          "assessment": "Process overlap, different objective",
+          "evidence": "Integer-order integrated Wiener modeling and spline approximation for smoothing and derivative inference.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.02053",
+          "material_read": "Abstract p. 1, §2.1 p. 4 (offset 8326)",
+          "method": "Bounded OA primary PDF text inspection",
+          "title": "Model-based Smoothing with Integrated Wiener Processes and Overlapping Splines",
+          "trigger": "Integrated Wiener process definitions and applications"
+        },
+        {
+          "assessment": "Full-text implication unresolved",
+          "evidence": "The stated weighted approximation/integration scope is close; it does not resolve the independent-noise hypothesis or coverage of the all-real-order theorem.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jco.2003.10.002",
+          "material_read": "Bibliographic identification; abstract-only access reported in frozen source, no usable full theorem retrieved for this audit",
+          "method": "DOI/publisher OA retrieval and identified-paper search",
+          "title": "Optimal designs for weighted approximation and integration of stochastic processes on [0,∞)",
+          "trigger": "Older closely related integrated Brownian design literature"
+        },
+        {
+          "assessment": "Full-text implication unresolved",
+          "evidence": "Comparable integral-estimation design objective; overlap of the detailed hypotheses cannot be inferred from the bibliographic match.",
+          "identifier_or_url": "https://doi.org/10.1081/STA-120022249",
+          "material_read": "Bibliographic identification; abstract-only access reported in frozen source, no usable full theorem retrieved for this audit",
+          "method": "DOI/publisher OA retrieval and identified-paper search",
+          "title": "On Sampling Designs for Integral Estimation of a Random Process",
+          "trigger": "Older optimal-design paper on integral estimation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§2–5",
+        "Resultary 3e4b47324f39 (exact α=1 overlap)"
+      ],
+      "rationale": "In the canonical one-sample Gaussian quadrature problem the result determines when terminal data are exactly optimal at finite noise, not just asymptotically good. It covers all real Volterra orders with a unique maximizing design and explains why the Brownian limit is singular. The concavity argument supplies the global comparison missing from an endpoint derivative calculation alone, and the threshold is directly usable in the specified variance units.",
+      "residual_risks": [
+        "The value judgment is for the all-order classification, not the separately covered α=1 number. No multiple-observation claim is made."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

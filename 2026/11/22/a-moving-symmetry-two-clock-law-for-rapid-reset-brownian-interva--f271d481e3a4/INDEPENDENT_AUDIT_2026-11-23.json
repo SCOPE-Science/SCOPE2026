@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:53:54.722267Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two mixed Dirichlet–Neumann and the Dirichlet–Dirichlet boundary problems give the three stated transforms. Setting kappa=sqrt(r/D), the relevant distances in units of 1/kappa are s-delta, s+delta, and s to the midpoint, with s=(L/2)kappa. On substituting r+u*theta_r, the relative wavenumber change is O(exp(-s)), and its product with the largest scaled distance is O(s exp(-s))=o(1). Thus the three one-cycle success transforms times exp(s) tend to a=e^delta, b=e^(-delta), and a+b, respectively. Renewal produces the three exponential survivor limits with these rates; exact retained-history inclusion–exclusion gives the maximum law, with no finite-rate independence assumption. For 0<epsilon<min(a,b), the failed-cycle weight at the positive exponential tilt is r(1-F(r-epsilon*theta_r))/(r-epsilon*theta_r)<1 for each endpoint by the same transform estimates. Summing the convergent geometric series bounds each tilted single-hit moment uniformly, and the cover exponential is at most their sum. This justifies every positive real power. Integrating the limiting survivor gives Gamma(q+1)(a^(-q)+b^(-q)-(a+b)^(-q)), including the displayed mean, second moment and symmetric variance/CV. The initial site is interior for all sufficiently large r at fixed delta. The frozen checker was read, not executed, and the review relies on the exact renewal and moment arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Linn–Lawley Theorem 1 assumes a fixed positive detection radius and vanishing farther/nearer excursion-probability ratio in (4); here that ratio tends to e^(-2|delta|) and point endpoints are used. Their network corollary with a unique farthest node is not this reflected Brownian crossover.",
+          "The quoted single-target Lemma 2 treats single first-hit moments; the 2023 standalone theorem's primary body could not be retrieved via available OA routes.",
+          "The thesis Chapter 5 addresses a periodic interval and final position/splitting, explicitly leaving cover-time asymptotics for future work in §5.6."
+        ],
+        "reasoning": "The main competing general asymptotic changes hypotheses when endpoint encounter probabilities are simultaneously comparable. A more general rapid-reset theorem could shorten the proof, but the hypotheses and claimed outputs of the accessible cover theorems were actually compared.",
+        "searches": [
+          "Linn–Lawley arXiv:2406.12154, §§2.1–2.2, 3.1–3.2 and 4.1",
+          "Linn–Lawley First-passage times under frequent stochastic resetting, Phys. Rev. E 108:024114",
+          "Maziya thesis Chapter 5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2406.12154",
+        "arXiv:2605.31207v1",
+        "Resultary 98d226a79bdc and c9ad586108f6",
+        "Maziya institutional thesis, Ch. 5",
+        "Linn–Lawley Phys. Rev. E 108, 024114 via theorem quoted in arXiv:2406.12154; primary OA attempts unsuccessful"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At delta=0 the limiting law follows directly from prior exact midpoint transforms, and the 3/2 mean is already credited. For every delta the finite-rate mean is implicit in a prior arbitrary-site formula.",
+          "Earlier arbitrary-site transforms are exact starting points even on the moving site, but the present proof identifies the singular scale on which all three leading rates persist and verifies tight positive exponential moments on it."
+        ],
+        "reasoning": "The narrow new conclusion is a full competition-scale law, not a certificate for a known formula or computing it at a new number. Obtaining it from the exact prior transform requires a moving high-rate/small-frequency asymptotic, plus all-moment control absent from fixed-rate calculation.",
+        "searches": [
+          "Linn–Lawley Theorem 1, Eq. (4), Eqs. (32)–(33), (38)",
+          "Resultary 98d226a79bdc Steps 1–3 and c9ad586108f6 Steps 3–4",
+          "Ghosh–Sabhapandit §III"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Linn–Lawley's origin-reset interval [-a,b] is precisely [0,L] reset to z after translation with a=z, b=L-z; their finite-rate mean formula works at the moving site.",
+          "Ghosh–Sabhapandit's inclusion–exclusion and renewal formalism coincide, with their exact evaluated cover law at X_r=x_0=L/2.",
+          "Earlier Resultary variance record explicitly has all-site transforms and inclusion–exclusion for the identical retained-history model."
+        ],
+        "reasoning": "Compared same model under coordinate translation, same process under the three no-hit events, and the exact-symmetry limit under the same normalization. Only nonzero moving-site distributional asymptotics and moment control are assessed.",
+        "searches": [
+          "Resultary: rapid resetting Brownian interval cover time near midpoint moving reset site detuning two endpoint exponential clocks exact cover survival renewal",
+          "Literature: stochastic resetting cover time Brownian interval off center arbitrary starting position near midpoint frequent rapid resetting two endpoints maximum independent exponential detuning",
+          "Literature: Brownian cover times stochastic resetting general frequent reset cover time arbitrary start Linn Lawley Maziya Ghosh Sabhapandit rare event cover distribution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact formulas, rather than finite numerical tables, are the authoritative comparisons here. The all-site variance record gives enough to reconstruct the exact finite-rate transform, while Linn–Lawley supplies exact all-site mean and Ghosh–Sabhapandit exact midpoint transforms.",
+          "The mean–tail record studies t to infinity at fixed r by the dominant pole; the three survivors are evaluated together here at times of order exp(s)/r as r tends to infinity."
+        ],
+        "reasoning": "No priority is assigned to the underlying solved finite-rate formulas. A fixed-r tail exponent or one exact moment does not determine the competition-scale weak limit and uniform integrability.",
+        "searches": [
+          "Resultary exact Brownian cover-time variance 98d226a79bdc and exact mean-tail reset-location conflict c9ad586108f6",
+          "Ghosh–Sabhapandit arXiv:2605.31207v1, Eqs. (3), (13)–(17)",
+          "Linn–Lawley arXiv:2406.12154, Eq. (38)"
+        ]
+      },
+      "rationale": "No new finite-rate transform or midpoint claim survives this comparison: the earlier all-site variance record already gives the three exact transforms and arbitrary-site cover-survival resolvent when combined by inclusion–exclusion; the exact arbitrary-site mean and the exact midpoint law are also prior. The assessed result is the full moving-site distributional crossover together with moment convergence on the natural competition scale. At fixed nonzero detuning in that scale the two excursion probabilities remain comparable, so the one-farthest-target simplification does not apply. The claimed limit requires the joint wavenumber/frequency asymptotics in the known resolvent, and the tilted renewal bound is a separate uniform-in-r step. The nearest inspected sources provide the ingredients, not the crossover as a specialization of their stated fixed-asymmetry or fixed-rate asymptotics.",
+      "residual_risks": [
+        "An unlocated triangular-array multiple-target rapid-reset law could cover the competing-clock regime by specialization.",
+        "The 2023 single-passage theorem's full body was not accessible through the tried OA paths. Its quoted application was inspected, not treated as a whole-paper exclusion.",
+        "The weak-limit proof is short once the known exact all-site transform is available; priority is confined to its nonzero moving-site statistical conclusion and moment control."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same exact arbitrary-asymmetry mean; general theorem separation assumptions do not cover moving-site endpoint competition",
+          "evidence": "(4) requires dominance by vanishing far/near probability ratio; (38) is directly the exact mean for z_r after translation; (33) gives the symmetric mean prefactor.",
+          "identifier_or_url": "https://arxiv.org/pdf/2406.12154",
+          "material_read": "§§2.1–2.2, 3.1–3.2, 4.1, notably Theorem 1, Lemma 2 and (32)–(38), PDF pp. 4–16",
+          "method": "OA primary PDF passages",
+          "title": "Cover times with stochastic resetting",
+          "trigger": "Same reflected interval and general frequent-reset cover theorems"
+        },
+        {
+          "assessment": "Exact midpoint law and general renewals already present",
+          "evidence": "Separates arbitrary starting-point union of no-hit events from the exact resetting case evaluated at x_0=X_r=L/2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.31207v1",
+          "material_read": "§II Eqs. (1)–(3); §III A–B Eqs. (12)–(17), PDF pp. 2–4, and conclusion passage",
+          "method": "OA primary PDF passages",
+          "title": "Cover time statistics of one-dimensional Brownian motion under stochastic resetting",
+          "trigger": "Prior exact cover-time distribution in identical physical model"
+        },
+        {
+          "assessment": "Already contains the exact all-site renewal predecessor",
+          "evidence": "State-specific transforms, exact resetting survivor resolvent, and exact retained-memory inclusion–exclusion; differentiates at zero for exact mean and second moment.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-cover-time-variance-and-a-mean-risk-conflict-in-brownian-r--98d226a79bdc/RESULT.md",
+          "material_read": "Assumptions and Proof Steps 1–3, offset 2640",
+          "method": "Local mirror full-text passage",
+          "title": "Exact cover-time variance and a mean–risk conflict in Brownian resetting",
+          "trigger": "Identical model and all-site formulas"
+        },
+        {
+          "assessment": "Fixed-r exponential long-time tail, different limit",
+          "evidence": "The cover tail is the slower single-end principal root at each fixed rate and site; not the competition-scale distribution.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-mean-tail-reset-location-conflict-in-brownian-interval-cov--c9ad586108f6/RESULT.md",
+          "material_read": "Proof Steps 3–4, offset 4800",
+          "method": "Local mirror full-text passage",
+          "title": "Exact mean–tail reset-location conflict in Brownian interval coverage",
+          "trigger": "Potential prior Brownian asymptotic at arbitrary location"
+        },
+        {
+          "assessment": "Periodic interval and final-position question rather than reflecting interval completion distribution",
+          "evidence": "Conclusion identifies periodic boundary conditions and leaves extracting cover times from a possible formal transform to future work.",
+          "identifier_or_url": "https://spiral.imperial.ac.uk/entities/publication/df647a5d-b775-4d1b-8e40-e6fdbf83e219",
+          "material_read": "Printed title page (Mafukazi Gcina Maziya, September 2021), §§5.5–5.6, printed pp. 62, 65–66, PDF offsets 123700 and 133700",
+          "method": "OA institutional thesis PDF",
+          "title": "The Coupon Collector's Problem, the Cover Time Problem, and the First Passage Time Problem",
+          "trigger": "Thesis on one-dimensional cover with Poisson resetting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The diffusive displacement in a reset interval sets the unique natural order of location detuning for which the two exponentially rare endpoint probabilities remain comparable. The limiting maximum law clarifies the transition where a single-farthest-target approximation misses the cover-time distribution, and the proven moment convergence gives meaningful risk measures on that same scale. This is not a claim of exact finite-rate clock independence or of uniformity for unbounded detuning.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

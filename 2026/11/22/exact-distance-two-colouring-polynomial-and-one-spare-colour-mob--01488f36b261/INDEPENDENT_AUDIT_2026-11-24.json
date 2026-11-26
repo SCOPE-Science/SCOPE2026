@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:07:18.927485Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–44; VERIFICATION.md, verify_cyclic.py and verify_binary.cpp, inspected without execution",
+        "/workspace/branches/43933a3f-27a2-452e-a7c0-9df0b51ee283/record3_independent_check.py (separate Python replay of matching counts and normalized move checks)",
+        "Merkel arXiv:2106.11087, PDF p. 2, Theorem 2"
+      ],
+      "rationale": "Each shore is a 7-clique in the square; a point and line form a cross-shore conflict exactly at incidence. Thus shared names are a matching in the 4-regular bipartite nonincidence graph. Assigning the point names, then a matching, then distinct new names to the unmatched lines is bijective, proving the falling-factorial polynomial. The subset recurrence counts a matching once by its skipped lines and the point chosen at each remaining line. A separate run reproduced (1,28,294,1456,3514,3864,1596,144), hence chi=7, P(7)=725760 and P(8)=70156800. Seven colours freeze both cliques. In the eight-name palette, seven-used states can move only to the globally spare name, at each of 14 vertices. Eight-used states can move only to the name missing on the moved vertex's shore; exactly four vertices on each shore are nonincident with the opposite singleton and can do so. Only the two singleton moves can drop a name, and both are legal precisely for an extendible six-matching. Each perfect matching gives seven distinct extendible six-matchings, each with a unique extension, yielding 1008 and leaving 588 unextendible. The action of the 8! colour permutations is free, including when one name is unused, so these numbers and the degrees give all the claimed named counts and edge counts by double counting. The independent program checked moves with multiplicity at 1740 normalized states, not all named states. Merkel's Theorem 2 proves named connectivity directly. For the supplementary lift, the normalized paths lift by colour equivariance; at a seven-used state the two vertices of one shared name can be recoloured in turn to the name that was initially unused (now legal on its opposite shore), swapping that name with the spare. These operations generate all name permutations.",
+      "residual_risks": [
+        "A quotient BFS corroborates but is not by itself a named-state connectivity proof. No exact diameter or mixing time is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Merkel gives (k+1)-mixing with diameter at most 4|V| on k-colourable graphs with no independent triple. The other inspected passages give general distance-recolouring/shortest-path results or contracted solution graph methods."
+        ],
+        "reasoning": "The two clique shores imply independence number at most two. With k=7, the theorem covers eight-colour connectivity and gives the diameter upper bound 56. It does not count states, moves, edges or transitions of this graph.",
+        "searches": [
+          "Merkel arXiv:2106.11087 Theorem 2",
+          "Banerjee–Engels–Hoang arXiv:2402.12705v5 Theorem 1",
+          "Johnson et al. arXiv:1403.6347",
+          "Bonsma–Paulusma arXiv:1509.06357"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Relationship to prior work",
+        "Resultary local index and matching/colouring comparison records",
+        "Merkel Theorem 2 and the cited reconfiguration papers",
+        "MathWorld Heawood Graph excerpt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The local shared-palette record adds a conflict-free condition on matching-deleted complete bipartite graphs. The two-clique record has matching cross-edges and locally identifying colours. The frozen ordinary proper colouring problem has Fano incidence cross-edges and the move rule for named colours."
+        ],
+        "reasoning": "The other palette counting schemes do not enclose the given graph and rule as a parameter specialization. Ordinary matching-to-colouring bookkeeping is standard and the census follows by local structure and double counting once the relevant exact matching numbers are available. No earlier source supplying the needed numbers and implied census was identified. The prior mixing result is retained solely as such.",
+        "searches": [
+          "2026/11/2/SCOPE-the-shared-palette-polynomial-of-matching-deleted-complete-bipar--611f26de2ae5",
+          "2026/10/26/SCOPE-the-locally-identifying-coloring-polynomial-of-two-cliques-joine--9aa46ac8b5ce",
+          "Merkel Theorem 2 and frozen RESULT.md lines 28–38"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The local Heawood trade finding concerns 24 incidence perfect matchings, not the nonincidence matching sequence. The supplemental matching polynomial query did not produce a direct comparison."
+        ],
+        "reasoning": "Proper partitions of the square into singletons and independent pairs are exactly matchings in the bipartite complement of the incidence board, equivalently its rook placements. The incidence and nonincidence graphs are distinct (degrees 3 and 4). A full incidence rook sequence would mechanically give the nonincidence sequence by rook inclusion-exclusion, summing (-1)^i r_i times binomial(7-i,k-i)^2(k-i)! for each size k; the inspected incidence perfect-matching total alone does not provide that sequence.",
+        "searches": [
+          "Resultary: Heawood-square colouring polynomial and Fano nonincidence matching/rook formulation",
+          "Primary/table search: Heawood graph matching polynomial matching generating function Fano plane incidence rook polynomial 14 vertices Heawood complement nonincidence (1596 OR 3514 OR 144)",
+          "2026/11/8/SCOPE-heawood-perfect-matching-hexagon-trades-realize-the-klein-quarti--5099a5b6202f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Heawood trade record gives the perfect count for the incidence graph. MathWorld's inspected graph description identifies the incidence graph and its GraphData entry; it does not print the required census in that passage. No located table gives the nonincidence rook sequence or the named transition census."
+        ],
+        "reasoning": "The printed graph identification and a same-object incidence matching number do not provide an equivalent numerical table. A table of the entire incidence board's rook numbers, or of the square's falling-factorial colour coefficients, would be pertinent; the limited search does not rule either out.",
+        "searches": [
+          "Resultary Heawood-square numerical tables, rook and matching-polynomial equivalents",
+          "Targeted Heawood/Fano incidence and nonincidence polynomial search above",
+          "MathWorld Heawood Graph, https://mathworld.wolfram.com/HeawoodGraph.html",
+          "Local Heawood perfect-matching hexagon-trades record"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact square chromatic polynomial and named seven/eight-colour degree and transition census, not the matching method or the connectivity conclusion. Merkel covers the connectivity and also an upper diameter bound. The inspected matching and colouring records use different graphs or different colouring rules and do not give the exact census. The target itself appearing in Resultary is not independent coverage.",
+      "residual_risks": [
+        "An unindexed Fano incidence or nonincidence rook polynomial, square-chromatic table or transition census could cover additional content. Bounded searches and literal misses do not prove absence.",
+        "No original claim to connectivity or its general diameter bound is credited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers R_8 connectivity and diameter at most 56; not the numerical census",
+          "evidence": "Every k-colourable 3K_1-free graph is (k+1)-mixing with diameter at most 4|V|.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.11087",
+          "material_read": "PDF p. 2, Theorem 2 and 3K_1-free definition at OA offset 5100; §4 at offset 14750",
+          "method": "Lawful OA text",
+          "title": "Recolouring weakly chordal graphs and the complement of triangle-free graphs",
+          "trigger": "Identical connectivity consequence of a stronger general theorem"
+        },
+        {
+          "assessment": "The inspected theorem is general reconfiguration, not the claimed Heawood-square census",
+          "evidence": "It treats general distance-colouring reconfiguration results; no matching numerical statement was located in the inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.12705v5",
+          "material_read": "Theorem 1 pp. 2–3, OA offset 11750; literal Heawood lookup also attempted",
+          "method": "Lawful OA text",
+          "title": "Distance Recoloring",
+          "trigger": "Primary source on the same reconfiguration operation"
+        },
+        {
+          "assessment": "Shortest-path problems rather than an exact square census",
+          "evidence": "The formulation addresses shortest paths between proper colourings under a single-vertex move.",
+          "identifier_or_url": "https://arxiv.org/abs/1403.6347",
+          "material_read": "p. 1, offset 0, problem statements",
+          "method": "Lawful OA text",
+          "title": "Finding Shortest Paths between Graph Colourings",
+          "trigger": "Standard one-vertex graph-colouring reconfiguration"
+        },
+        {
+          "assessment": "General contracted solution graph framework, not the exact figures",
+          "evidence": "It introduces a technique for reasoning about reconfiguration using contracted solution graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/1509.06357",
+          "material_read": "p. 1, offset 0, problem and method description",
+          "method": "Lawful OA text",
+          "title": "Using Contracted Solution Graphs for Solving Reconfiguration Problems",
+          "trigger": "Possible coverage of normalized reconfiguration analysis"
+        },
+        {
+          "assessment": "Incidence perfect matchings, not the nonincidence rook sequence",
+          "evidence": "The 24 matchings are in the Heawood incidence graph and form the vertices of a hexagon-trade graph.",
+          "identifier_or_url": "2026/11/8/SCOPE-heawood-perfect-matching-hexagon-trades-realize-the-klein-quarti--5099a5b6202f",
+          "material_read": "RESULT.md offset 0, Finding",
+          "method": "Local published-record mirror",
+          "title": "Heawood perfect matching hexagon trades realize the Klein quartic",
+          "trigger": "Exact matching counts for the named incidence graph"
+        },
+        {
+          "assessment": "Different graph and extra condition",
+          "evidence": "The graph is K_(m,n) with a matching deleted and the colourings must also be conflict-free.",
+          "identifier_or_url": "2026/11/2/SCOPE-the-shared-palette-polynomial-of-matching-deleted-complete-bipar--611f26de2ae5",
+          "material_read": "RESULT.md offset 0, Finding",
+          "method": "Local published-record mirror",
+          "title": "The shared-palette polynomial of matching-deleted complete bipartite graphs",
+          "trigger": "Palette sharing and a related matching count"
+        },
+        {
+          "assessment": "Does not specialize to ordinary colourings on the square",
+          "evidence": "The cross-edges are a matching rather than Fano incidences, and colourings must be locally identifying.",
+          "identifier_or_url": "2026/10/26/SCOPE-the-locally-identifying-coloring-polynomial-of-two-cliques-joine--9aa46ac8b5ce",
+          "material_read": "RESULT.md offset 0, Finding",
+          "method": "Local published-record mirror",
+          "title": "The locally identifying coloring polynomial of two cliques joined by a matching",
+          "trigger": "Two-clique colour-count analogue"
+        },
+        {
+          "assessment": "Graph identification in inspected passage, not a nonincidence matching table",
+          "evidence": "The entry identifies the point-line Levi graph of the Fano plane and Wolfram Language GraphData[HeawoodGraph].",
+          "identifier_or_url": "https://mathworld.wolfram.com/HeawoodGraph.html",
+          "material_read": "Public-page offsets 700–4190, incidence description and graph implementation entry; matching lookup",
+          "method": "Lawful public-page retrieval",
+          "title": "Heawood Graph",
+          "trigger": "Graph reference and possible exact invariant table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–38",
+        "Independent 1740-state normalized reproduction",
+        "Merkel Theorem 2 for the prior connectivity distinction"
+      ],
+      "rationale": "The square of the smallest projective-plane incidence graph gives a natural example at the optimal-colour threshold. The exact polynomial fixes the optimal palette count, while the transition census distinguishes the frozen optimum, mobility with one extra name, and precisely which states can return to seven used names in one move. These are quantitatively useful benchmarks for distance-colouring or reconfiguration work even though the connectedness with a spare colour is already known. The value is the full motivated finite invariant, not just repeating a mixing theorem.",
+      "residual_risks": [
+        "This is a specific labelled example and does not establish an arbitrary projective-plane formula or the exact recolouring diameter."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

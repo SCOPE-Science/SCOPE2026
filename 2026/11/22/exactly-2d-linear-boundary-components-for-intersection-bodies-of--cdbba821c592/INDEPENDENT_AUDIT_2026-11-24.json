@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:41:28.028706Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof steps 1–5",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)"
+      ],
+      "rationale": "Coarea gives the radial boundary point X(u)=2^d f_u(0)u for the density of the sum of independent uniforms with coefficients u_i. Conditioning on the summands other than i gives 2|u_i|f_u(0)=Pr(|S|≤|u_i|) when u_i is nonzero. The support is the entire interval with half-width sum_{j≠i}|u_j|, and the density is positive inside unless all other coefficients vanish, which gives equality directly. This proves both the facet offsets and their closed crosspolytope shapes, including the intervals for d=2. On each open sign and subset-sum chamber the density is a polynomial of degree d−1 divided by a constant times the coordinate product, by inclusion-exclusion on the box followed by differentiation. A hyperplane containing its radial image cannot pass through the origin and, written L(x)=1, forces L times that polynomial to equal a nonzero multiple of the coordinate product. Unique factorization forces L to be proportional to one coordinate. The conditioning formula is strictly increasing in that positive coefficient below dominance when the others are held fixed, so the chamber lies on the stated coordinate facet only. To verify the passage to algebraic components independently, the chamber images are Euclidean dense in the boundary by continuity of radial parametrization. Their finite union has the same Zariski closure as the whole boundary. Each chamber closure is irreducible (its ideal is the kernel of evaluation into the rational function field on a coordinate chart); its dimension is d−1 because the rational map on u_d=±1 has a rational inverse via coordinate ratios. Therefore a hyperplane component must be one of these chamber closures; each coordinate facet contributes a full hyperplane by relative openness and the dimension bound. Busemann convexity then identifies the listed sections as all facets. The hyperplane Jacobian is |det A|/||A^Tv|| for unit v, which gives the asserted contravariant transformation and preserves the classification for nonsingular A. This is an all-dimensional proof check, not an extrapolation from the frozen numerical diagnostics.",
+      "residual_risks": [
+        "The proof does not classify nonlinear components or cover noncentered parallelotopes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 5.4 classifies convexity for axis-aligned parallelepipeds by central symmetry, not their facet normals or algebraic components.",
+          "The all-d Proposition 6.1 is a lower bound only."
+        ],
+        "reasoning": "Convexity and the existence of coordinate facets impose neither their exact shapes in general nor the exclusion of slanted components. No broader proved covering result was found in the material inspected.",
+        "searches": [
+          "arXiv:2110.05996, Section 6",
+          "arXiv:2302.11764, Proposition 5.4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary matching self-entry and octahedral comparison",
+        "arXiv:2110.05996",
+        "doi:10.1007/s13366-022-00638-y",
+        "arXiv:2302.11764"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior cube paper explicitly leaves the upper bound conjectural. The later convexity criterion and correction do not supply it."
+        ],
+        "reasoning": "The new obstruction is that an affine hyperplane normal must divide the product of chamber coordinates, after which strict monotonicity identifies the dominance region. Affine covariance transports the cube result to centered parallelotopes routinely; it is not a second independent novelty claim.",
+        "searches": [
+          "arXiv:2110.05996, Proposition 6.1 and conjecture following Table 1",
+          "arXiv:2302.11764, Proposition 5.4",
+          "doi:10.1007/s13366-022-00638-y"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Section 6 uses the same cube and real algebraic boundary; Proposition 6.1 states at least 2d and the subsequent conjecture states exactly 2d.",
+          "The directly matching Resultary hit was the audited finding itself. The distinct octahedral entry proves a classification for a different polytope, with no linear components."
+        ],
+        "reasoning": "A conjectural equality is equivalent in wording, not a proof; the octahedron theorem does not imply a cube theorem, and the octahedron is not a linear image of the cube.",
+        "searches": [
+          "Resultary cube intersection body linear components and facets lookup",
+          "arXiv:2110.05996, Section 6",
+          "Resultary SCOPE-eight-cayley-cubic-components-of-the-octahedral-intersection-bod--b50c728bd854"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 tabulates low dimensions through d=5, with six linear components and eight cubics for d=3 and eight linear components for d=4.",
+          "The correction supplies e.g. the offsets z=4 and w=8 in dimensions 3 and 4."
+        ],
+        "reasoning": "Credit the tabulated cases and corrected offsets; a finite table does not decide the unrestricted d claim.",
+        "searches": [
+          "arXiv:2110.05996, Table 1",
+          "doi:10.1007/s13366-022-00638-y, p. 2",
+          "Resultary cube intersection-body search"
+        ]
+      },
+      "rationale": "The strongest inspected cube source proves the lower bound and proposes the exact all-dimensional count as a conjecture. Its computations and correction do not prove the matching upper bound. The strongest distinct indexed comparison is about the octahedron. The supported contribution is exclusion of every other hyperplane in arbitrary dimension and identification of the complete exposed facet sets, not the previously known coordinate-plane lower bound.",
+      "residual_risks": [
+        "Bounded literature and indexed comparison, not a claim that an equivalent proof cannot exist in unindexed or uninspected work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known lower bound and low-dimensional results, not the upper bound",
+          "evidence": "At least 2d in Proposition 6.1; exactly 2d conjectured after the reported computations.",
+          "identifier_or_url": "https://arxiv.org/abs/2110.05996",
+          "material_read": "Section 6, Proposition 6.1 (PDF p. 15; text offset 47163), Table 1 and conjecture (p. 17; offset 54619)",
+          "method": "OA full text, targeted passages",
+          "title": "Intersection Bodies of Polytopes",
+          "trigger": "Exact cube conjecture and possible all-dimensional proof"
+        },
+        {
+          "assessment": "Low-dimensional overlap",
+          "evidence": "Corrected coordinate facet planes z=4 in dimension three, w=8 in dimension four.",
+          "identifier_or_url": "https://doi.org/10.1007/s13366-022-00638-y",
+          "material_read": "p. 2, corrected examples (text offset 3300)",
+          "method": "OA full text, bounded page",
+          "title": "Correction to: Intersection bodies of polytopes",
+          "trigger": "Could supersede the original conjecture or change facet normalization"
+        },
+        {
+          "assessment": "Related but does not cover",
+          "evidence": "For an axis-aligned parallelepiped P the intersection body is convex iff P=−P; no facet or component census follows.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.11764",
+          "material_read": "Proposition 5.4, PDF p. 12 (text offset 39473)",
+          "method": "OA full text, targeted statement",
+          "title": "Intersection Bodies of Polytopes: Translations and Convexity",
+          "trigger": "General parallelepiped result could contain the classification"
+        },
+        {
+          "assessment": "Different body; known 3D cube comparison only",
+          "evidence": "Eight irreducible Cayley cubics and no linear components for the 3D octahedron; cites the six planes and eight cubics of the 3D cube.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-eight-cayley-cubic-components-of-the-octahedral-intersection-bod--b50c728bd854",
+          "material_read": "RESULT.md, Finding and prior work (offsets 0 and 6700)",
+          "method": "Resultary search and local-mirror statement inspection",
+          "title": "Eight Cayley cubic components of the octahedral intersection body",
+          "trigger": "Strongest distinct Resultary boundary classification hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, theorem and proof",
+        "arXiv:2110.05996, Section 6"
+      ],
+      "rationale": "The universal upper bound settles an explicit conjecture and converts scattered dimension-specific algebraic data into a classification of all maximal flat patches of this natural body. The argument controls genuine algebraic-boundary components as well as exposed faces, without attempting to enumerate the nonlinear pieces.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof in RESULT.md covers all finite connected simple base graphs of order at least two and all complete attachment sizes at least two. Independently coded computational comparisons are illustrative finite checks, not general mathematical certification.
+## correctness
 
-Run `python3 verify_a.py` and `python3 verify_b.py` with Python 3 and no dependencies. The recorded outputs are `verify_a_output.txt` and `verify_b_output.txt`. The first checker exhausts each model's minimum sets, token-jump transitions, edges and components for several small base graphs. The second checker uses a different data representation and verifies equality of actual and predicted minimum-set families for every connected labelled base graph of orders two through four with attachment size two, and order three with attachment size three. Both checks passed.
+PASS
 
-Independent scholarly audit has not been performed. No external formal verification, certificate of worldwide novelty, or source priority guarantee is asserted.
+The frozen mathematics and the repaired reconfiguration theorem both check. Twin clique vertices give the compulsory occupancy bound. For the projection lemma, start the base chronology with all active roots and retain only original-root forces whose targets are outside that set; these remain legal, since the retained target is white and the base has no additional white neighbors. The reverse chronology lifts by filling the last white private vertex from a black clique vertex before an external root force. Equality gives the local choices. Within a fiber each jump stays within a block; across fibers it trades one active root for an inactive one. At each changing block there are 2r nested local pairs, so the product with the unchanged blocks gives the exact crossing multiplicity. The regular-fiber degree and connectedness then yield the edge and component formulas. This argument includes r=2 and retains the fixed-n and classical forcing hypotheses.
+
+## originality
+
+PASS
+
+Pass applies only to the repaired contribution, the structure of the token-jump lift. The frozen claim to novelty of the classification and multiplicity cannot pass: earlier Resultary results already classify all forcing sets under broader assumptions and give the exact minimum counts. The complete repair under /workspace/repairs/2/RESULT.md credits that input explicitly. The inspected comparable statements do not give the corona adjacency lift or its exact crossing formula.
+
+## value
+
+PASS
+
+The repaired theorem answers which components survive a natural graph operation on a standard solution reconfiguration space, and gives exact counts across nonuniform base adjacencies without enumerating corona minima. The connected-fiber quotient and uniform edge multiplicity are useful beyond the known minimum-set count; the repair does not claim independent value from rederiving that count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

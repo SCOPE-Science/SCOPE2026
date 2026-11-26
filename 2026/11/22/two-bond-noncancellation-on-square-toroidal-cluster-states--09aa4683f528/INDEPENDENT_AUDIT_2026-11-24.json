@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:41:59.252375Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–47",
+        "VERIFICATION.md, lines 19–22; checker.py, lines 11–89; checker-output.txt, lines 1–9",
+        "Hein et al., arXiv:quant-ph/0602096, p. 51, OA offset 174364 (bipartite cut-rank identity)"
+      ],
+      "rationale": "For a binary cross-cut adjacency matrix B, summing the graph-state phases over the opposite shore gives reduced-matrix entries 2^(-|E|) exactly when the two indices differ by an element of ker B, and zero otherwise. Coset blocks give 2^rank(B) equal nonzero eigenvalues, establishing all stated entropy consequences. With the displayed odd-shore relabeling the factorization B=(I+U)(I+V) is exact even at m=2. Each shift has m orbits; their subgroups generate the even shore and intersect at 0 and (m,m). Thus every U-orbit indicator is even on every V-orbit and lies in im(I+V); the nullity is 2m. Distinct sites off the subgroup intersection are separated by a U- or V-orbit indicator. For separation across (m,m), lift one U-orbit indicator through I+V; summing the resulting difference along m V-steps gives 1, since they visit each U-orbit once. Constant one makes each evaluation nonzero. A one-step lattice translation swaps shores and gives the same assertion for the transpose kernel. For an update UV̄, surjectivity of V̄ on ker B implies im(U) is in the updated image; independence of the columns of U modulo im B then gives exactly rank(B)+rank(U). Disjoint omissions have two such coordinates on each side; shared endpoints give a rank-one update with a nonzero sum of two evaluations on one side. Fresh exact elimination on actual parity blocks reproduced all singles and pairs on C₄×C₄ and C₆×C₆ (496 and 2556 pairs), all singles and six pairs on C₈×C₈, and (10,11,11,10) on the two specified disjoint C₄×C₆ deletions. Reproduce the finite check by listing the four modulo-coordinate nearest neighbors for every odd row, clearing the listed retained-graph entries for each deletion set, and XOR-eliminating columns over F₂; compare each rank to the baseline plus 1 for a single/shared pair or 2 for a disjoint pair on the squares.",
+      "residual_risks": [
+        "Fresh finite reproduction covered two squares exhaustively and two additional finite cases as specified; the frozen output reports 36,480 comparisons, partly sampled. Neither substitutes for the all-m argument.",
+        "The nonsquare finding establishes a counterexample to extending the square law to all rectangles, not a classification of all rectangles."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The rectangular theorem is broader in graph geometry for zero and one omission only. The Mersenne honeycomb theorem covers disjoint pairs but in a different lattice family.",
+          "Same-day hypercube and projective-plane results allow larger specified matching families in their own graphs. Neither covers square tori."
+        ],
+        "reasoning": "Broader omission counts do not dominate a statement on a different graph family. No retrieved statement supplies the square theorem as a special case; the primary query returned no usable comparator and is not negative evidence.",
+        "searches": [
+          "Resultary: multibond gains and cancellations on rectangular tori and graph states; records bcc73b58c68a, 8078b5064bc2, 4528be5291d1, 6d719eb5d30f",
+          "Primary-literature lookup for checkerboard cut rank after two periodic square-grid bond deletions"
+        ]
+      },
+      "checked_sources": [
+        "Hein et al., arXiv:quant-ph/0602096",
+        "Resultary records bcc73b58c68a, 06ff2b1986a2, 8078b5064bc2, 4528be5291d1 and 6d719eb5d30f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general cut-rank identity turns the question into binary linear algebra but says nothing about two updated directions being independent. The single-bond theorem guarantees individual nonvanishing, not pairwise independence of quotient vectors or kernel evaluations.",
+          "The two individually increasing deletions with zero joint gain in the 3D precedent, and the exact 2D rectangular contrast in this record, demonstrate why individual gains do not imply additivity."
+        ],
+        "reasoning": "The required separation, in particular for antipodal displacement (m,m), is an additional structural fact on the square and not a direct consequence of prior single-gate or baseline rank formulas.",
+        "searches": [
+          "Hein et al., arXiv:quant-ph/0602096; Findings of Resultary bcc73b58c68a, 06ff2b1986a2, 8078b5064bc2, 4528be5291d1, 6d719eb5d30f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The entropy claim is precisely a GF(2) biadjacency-rank update claim, because the log₂ Schmidt rank equals the binary cut rank.",
+          "bcc73b58c68a gives the same intact and one-deletion terms for even rectangles; 06ff2b1986a2 gives cancellation for a specified two-edge pattern in three dimensions."
+        ],
+        "reasoning": "The one-edge law is already equivalent and is credited as such. The three-dimensional cancellation claim is not equivalent to a universal two-edge noncancellation statement for square 2D grids.",
+        "searches": [
+          "Resultary: checkerboard binary cut rank, two missing bonds, toroidal square cluster states; records bcc73b58c68a and 06ff2b1986a2",
+          "Hein et al., arXiv:quant-ph/0602096, p. 51"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The previously available exact arithmetic expression pq/2−gcd(p,q) and universal +1 cover the baseline and single-bond counts. The retrieved cancellation construction is 3D, not the stated two vertical edges on C₄×C₆."
+        ],
+        "reasoning": "The main result is an unbounded analytic law, not an exact invariant looked up for one finite graph. The 4×6 example is a supporting finite counterexample and is not the sole originality basis.",
+        "searches": [
+          "Resultary: exact 2D checkerboard rank decrements and C₄×C₆ paired omission; closest one-bond and 3D records"
+        ]
+      },
+      "rationale": "The intact rectangular baseline, the universal single-bond gain and the entropy-to-cut-rank identity are known. The supported distinct claim is the all-position classification for two distinct omitted edges on every even square torus, including ruling out cancellation for every disjoint pair, with an explicit 2D nonsquare contrast. No inspected result covers that combination.",
+      "residual_risks": [
+        "Bounded literature and index check; older binary-grid rank results could cover some or all of the exact two-omission assertion. Historical priority was not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established identity, not the omitted-edge classification.",
+          "evidence": "Binary rank of the cross-cut adjacency gives log₂ Schmidt rank.",
+          "identifier_or_url": "https://arxiv.org/pdf/quant-ph/0602096",
+          "material_read": "p. 51, OA offset 174364",
+          "method": "Bounded OA full-text passage",
+          "title": "Entanglement in Graph States and its Applications",
+          "trigger": "Equivalent rank formulation"
+        },
+        {
+          "assessment": "Full overlap for zero/one omission; no two-omission theorem.",
+          "evidence": "Intact rectangular rank pq/2−gcd(p,q) and exact one-bit gain for one omitted edge.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-commensurability-deficit-and-single-bond-entanglement-gain-in-pe--bcc73b58c68a/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary index and matching public text from local mirror",
+          "title": "Commensurability deficit and single-bond entanglement gain in periodic square cluster states",
+          "trigger": "Same geometry and entropy; broader circumferences"
+        },
+        {
+          "assessment": "Genuine cancellation, different dimension and specified edge geometry.",
+          "evidence": "Two related disjoint omissions cancel on C₄×C₄×C_(2^a).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-paired-omitted-bond-cancellation-in-three-dimensional-toroidal-c--06ff2b1986a2/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary index and matching public text from local mirror",
+          "title": "Paired omitted-bond cancellation in three-dimensional toroidal cluster states",
+          "trigger": "Closest toroidal two-deletion phenomenon"
+        },
+        {
+          "assessment": "Closely analogous invariant, different graph family.",
+          "evidence": "Two endpoint-disjoint omissions on the specified honeycomb family increase its cut rank.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-universal-two-bond-loss-entanglement-gain-on-mersenne-honeycomb--8078b5064bc2/RESULT.md",
+          "material_read": "Finding",
+          "method": "Resultary index and local-mirror text",
+          "title": "Universal two-bond loss entanglement gain on Mersenne honeycomb graphs",
+          "trigger": "Universal gain for disjoint edge pairs"
+        },
+        {
+          "assessment": "Different geometry and restriction to one fixed matching; same date does not settle priority.",
+          "evidence": "One gain per omission for subsets of a specified hypercube matching.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-optimal-entanglement-restoration-by-omitted-gates-on-even-hyperc--4528be5291d1/RESULT.md",
+          "material_read": "Finding",
+          "method": "Local-mirror text after Resultary lookup",
+          "title": "Optimal entanglement restoration by omitted gates on even hypercubes",
+          "trigger": "Same-day many-omission rank gain"
+        },
+        {
+          "assessment": "Analogue on incidence graphs, not broader coverage of square lattices.",
+          "evidence": "An exact formula for any incidence matching on odd-order projective-plane graphs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-an-exact-omission-law-for-entanglement-on-odd-order-projective-p--6d719eb5d30f/RESULT.md",
+          "material_read": "Finding",
+          "method": "Local-mirror text after Resultary lookup",
+          "title": "An exact omission law for entanglement on odd-order projective planes",
+          "trigger": "Same-day general matching omission law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 4–12 and 20–44; one-bond rectangular record bcc73b58c68a and cancellation record 06ff2b1986a2"
+      ],
+      "rationale": "Multiple omitted preparation gates need not add their individual entanglement gains. The theorem resolves the first interaction regime for every position and circumference in a natural periodic grid family; the rectangular counterexample makes the distinction nontrivial. The kernel separation criterion explains the rigidity beyond finite examples.",
+      "residual_risks": [
+        "This is a pure graph-state checkerboard-cut result, not a noisy-gate, error-correction, or general bipartition guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

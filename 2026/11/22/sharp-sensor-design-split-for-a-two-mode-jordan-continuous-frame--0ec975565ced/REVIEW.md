@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** A direct matrix-exponential integral yields the stated positive-definite Gramian, fixed determinant, and trace. Fixed determinant proves the global condition-number optimum. The negative-square determinant identity proves the universal lower-frame ceiling for all complex unit sensors; its equality conditions and the positive-semidefinite branch analysis prove the threshold and uniqueness. Differentiation at the condition-number optimizer proves strict objective separation for noncritical couplings. Independently checked finite complex matrix cases support, but do not replace, the algebraic argument.
+## correctness
 
-**Originality — PASS (qualified).** The full accessible main source on continuous semigroup frames was compared, including its cogenerator equivalence, tightness transfer, model-space results and examples. The exact normalized two-state Jordan trade-off is not an implication of these stated results without separate optimization. Searches of indexed research records and external literature found related discrete-time diagonal actuator optimization and classical Lyapunov/controllability results, but not the explicit nonnormal continuous-time objective-splitting theorem. The generic Gramian identity is credited as known. Residual risk: an older actuator-design result may implicitly contain this two-state instance.
+PASS
 
-**Value — PASS.** The parameter \(c/(2a)\) is the dimensionless nonnormal-to-damping ratio of the simplest defective stable mode. Two standard sensor-design goals—minimizing frame condition number and maximizing the least frame bound at fixed sensor energy—coincide only at a single critical coupling. The exact universal ceiling, equality sensor and the strict subcritical boundary make this a complete natural threshold question, not an arbitrary numerical slice.
+The half-line moments yield W=|v|²M(w)/(2a), with det M=r² and trace 1+r²+|w|². Thus v≠0 is necessary and sufficient and the condition number is minimized uniquely at w=0. For a unit sensor set d=1+|w−r|²; the determinant of M−dI/2 is one quarter of 4r²−(1+r²+|w|²)²+4r²(Re w)², the stated negative square. At determinant zero the smaller eigenvalue reaches d/2 only for the nonnegative real root: the negative root at r>1 has d>2; the positive root has d<2 and gives a positive semidefinite rank-one difference. At r=1 the roots merge and the difference is zero. Sensors with v=0 have zero lower bound; compactness gives a strictly sub-ceiling maximum for r<1 and the positive real-direction derivative at w=0 for r≠1 proves the split. RESULT.md lines 31–49 suffice for exact replay; the unspecified supplemental numerical trial is unnecessary. No subcritical optimum value is established or claimed.
 
-**Limitations.** No exact formula for the subcritical maximal least frame bound; no claims for larger Jordan blocks or general dynamics. The result is a narrow, self-contained finite-dimensional classification with outstanding historical-bibliography uncertainty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct contribution is the exact unit-norm lower-bound ceiling, its attainment branch, and its comparison with condition-number design. The conditioning formula, optimizing direction, and existence threshold for half-line tightness are already implied by the same-day finite-horizon design statement; no separate originality credit is given to those components. This is coverage, not a claim about which record came first.
+
+## value
+
+PASS
+
+The comparison settles a concrete sensor-design question for a basic nonnormal family: balancing the Gramian and protecting the weakest observable direction disagree except at one coupling. The exact ceiling and unique attaining branch for r≥1 give a usable performance certificate for the unit-norm objective; the subcritical conclusion is strict separation, not a formula for its optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

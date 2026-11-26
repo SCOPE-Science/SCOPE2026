@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:58:46.165522Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Assumptions and scope, Proof and Verification",
+        "VERIFICATION.md and verify.py (read only)",
+        "Independent augmented-generator computation: python3 reproductions/reproduce_other_reviews.py, record 2"
+      ],
+      "rationale": "With v,a,d>0, the rate polynomial is positive at 0 and negative at d, so the two positive rates straddle d. The off-diagonals of the unperturbed propagator are a f/k and d f/k, k=r−s. The first builds the surface load from the air-only pulse and the second propagates the removed load to the air objective over the remaining time. This yields the exact positive-factor gain qQad f(τ)L(T−τ)/k², with zero gain at both endpoints. The logarithmic derivative g=f′/f strictly decreases. To check h=f/L decreases, f′L−f²<0 is immediate when f′<=0; otherwise the strict log-tangent bound for f on (0,t) gives L<f²/f′. The stationarity expression g(τ)−h(T−τ) is therefore strictly decreasing in τ and increasing in T. The unique interior root lies below the surface peak t0, increases with T, and converges to t0 as h tends to zero. For short horizons, writing x=τ/T and multiplying the root equation by T gives 1/x−2/(1−x)−(r+s)T/6+O(T²) near x=1/3. The first two terms have a simple zero there with derivative −27/2, giving the stated −(r+s)T²/81 coefficient in τ. At large T, h(u) is asymptotic to sr exp(−su)/k and g′(t0)=−sr, which gives the stated exponential peak approach. An independent augmented-matrix-exponential computation reproduced the example optimizer 1.954697195671885 h, baseline burden 1.455061340406646, and reduction 0.235189905679788.",
+      "residual_risks": [
+        "The horizon asymptotics hold for fixed strictly positive rates and are not uniform at rate-degeneracy limits. The jump must affect only the surface compartment, and the air-only pulse and no further emissions are essential. The numerical example is not a field validation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lei et al. optimize cleaning questions in a ten-compartment hospital contact model, with different routes, schedules, and objectives.",
+          "The identified Blanchini et al. paper was accessible only at bibliographic or landing-page level; lawful repository and publisher routes did not provide its methods or theorem."
+        ],
+        "reasoning": "The inspected timing result does not contain the source-free gas/surface reset. A closer specialization of the compartmental-control paper could not be tested; neither its title nor denied access constitutes evidence against coverage.",
+        "searches": [
+          "Primary literature search on timing a surface removal after an air pulse and minimizing integrated airborne burden",
+          "10.1186/s12879-016-2120-z, Methods and When to clean?",
+          "10.1016/j.automatica.2022.110680 and identified institutional author copy"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Li et al. PMC10575580 and Wang et al. PMC7030931",
+        "Lei et al. 10.1186/s12879-016-2120-z",
+        "Resultary a6b5f7a97228",
+        "Blanchini et al. 10.1016/j.automatica.2022.110680 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Li et al. exchange generator supplies the propagator, but neither its inspected equations nor the experiment derives the finite-horizon benefit or compares provably optimal times.",
+          "The scalar-window derivative is a positive amplitude factor times a balance of scalar exponentials with fates tied to constant emissions; the frozen objective is instead a product of acquisition and integrated release factors."
+        ],
+        "reasoning": "The exact factorization follows by a single-reset response calculation, after which proving strict log-concavity and the two horizon laws supplies the distinct result. Shared amplitude independence is not enough for a direct implication.",
+        "searches": [
+          "10.1126/sciadv.adh8263 original model and cleaning passages",
+          "Resultary a6b5f7a97228 exact scalar derivative and assumptions",
+          "10.1126/sciadv.aay8973 reservoir and cleaning discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li et al.'s equations are the same gas/surface exchange generator after relabeling rates.",
+          "Their cleaning intervention in the inspected house study was dusting, vacuuming and mopping over an interval, with measured changes rather than a proposed discrete proportional jump and optimized exposure integral."
+        ],
+        "reasoning": "The exchange model is equivalent and not novel. Same state variables and experimental reservoir removal do not provide the exposure-optimal time for the mathematical single reset.",
+        "searches": [
+          "Resultary exposure-minimizing indoor cleaning, gas-surface reservoir and spectral timing",
+          "10.1126/sciadv.adh8263, Results equations (1)–(2) and surface cleaning section"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frozen record's own catalogue entry is identical and excluded as separate evidence.",
+          "The distinct same-day exact start-time record has one scalar state, constant emissions, and a positive fixed-duration increase in removal; its start-time formula also admits an immediate-cleaning regime."
+        ],
+        "reasoning": "This is a continuous-parameter optimizer, not a discrete invariant with a standard tabulation; the exact catalogue lookup yielded a different evaluated optimizer. The one-state model has no sorbing state or two eigenmodes, so shortening its window does not produce a jump in an initially empty surface reservoir.",
+        "searches": [
+          "Resultary exact optimal start time for single cleaning interventions; mirrored a6b5f7a97228, Finding and Proof"
+        ]
+      },
+      "rationale": "The physical two-state exchange model and cleaning of surface reservoirs are prior. The supported distinct contribution is the evaluated one-wipe, source-free finite-horizon timing theorem, including uniqueness, spectral dependence, horizon monotonicity and its two endpoint laws. The strongest overlapping scalar window result uses different dynamics and cannot be specialized to this two-mode jump.",
+      "residual_risks": [
+        "The Blanchini full text was inaccessible; its relevant scope is not established here. Related impulse-control or two-compartment timing results outside the inspected sources may exist. This comparison is not exhaustive priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical exchange mechanism; not an optimized instantaneous single-reset exposure theorem.",
+          "evidence": "The rate equations match under a↔adsorption, d↔desorption, v↔ventilation. The cleaning field protocol spans 8:30–10:00 and reports measured responses.",
+          "identifier_or_url": "10.1126/sciadv.adh8263; PMC10575580",
+          "material_read": "Results Eqs. (1)–(2), BioC offset 6957; ‘Surface cleaning removes smoke VOC reservoirs,’ offsets 25509 and 25555",
+          "method": "Public PMC BioC original full-text passages after ordinary PMC retrieval did not expose them",
+          "title": "The persistence of smoke VOCs indoors: Partitioning, surface cleaning, and air cleaning in a smoke-contaminated house",
+          "trigger": "Same gas/surface exchange and actual physical cleaning"
+        },
+        {
+          "assessment": "Distinct exact theorem; same-day date proves no priority ordering.",
+          "evidence": "C′=q−rτ(t)C with q>0 constant and rτ temporarily augmented during an interval h>0. The exact optimum can be τ=0; the surface-reset theorem has an interior optimum for every T>0.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-initial-load-threshold-and-amplitude-independent-optimal--a6b5f7a97228",
+          "material_read": "Mirrored RESULT.md Finding, Assumptions and scope, and derivative in Proof, characters 0–3571",
+          "method": "Resultary search and original record via local mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp initial-load threshold and amplitude-independent optimal air-cleaning window",
+          "trigger": "Strongest same-day overlap: exposure-minimizing cleaning time independent of strength"
+        },
+        {
+          "assessment": "Different multi-compartment contact model, not the airborne integral under gas–surface partitioning.",
+          "evidence": "Its timing conclusions are tied to care activity and the first visit in a hospital schedule.",
+          "identifier_or_url": "10.1186/s12879-016-2120-z",
+          "material_read": "Original Methods p. 2 and Results ‘When to clean?’, pp. 7–8",
+          "method": "Lawful OA paper passages",
+          "title": "Exploring surface cleaning strategies in hospital to prevent contact transmission of methicillin-resistant Staphylococcus aureus",
+          "trigger": "An actual optimization of surface cleaning timing"
+        },
+        {
+          "assessment": "Broader experimental context, not this scheduling problem.",
+          "evidence": "The inspected ventilation and acidic/basic cleaning protocols perturb partitioning and surface pH.",
+          "identifier_or_url": "10.1126/sciadv.aay8973; PMC7030931",
+          "material_read": "Introduction and experimental-intervention context, BioC offsets 7323 and 8436",
+          "method": "Public PMC BioC original passages",
+          "title": "Surface reservoirs dominate dynamic gas-surface partitioning of many indoor air constituents",
+          "trigger": "Potentially earlier experimental gas/surface reservoir and cleaning result"
+        },
+        {
+          "assessment": "Unresolved specialization risk, not negative evidence or grounds to fail on its own.",
+          "evidence": "Full text did not load on the attempted lawful routes; the frozen record's characterization of continuous arc-flow controls was not independently confirmed.",
+          "identifier_or_url": "10.1016/j.automatica.2022.110680; https://iris.unitn.it/handle/11572/364266",
+          "material_read": "Bibliographic or landing-page material only; no theorem text",
+          "method": "Lawful publisher and identified institutional-copy attempts, including DOI, repository PDF and alternate repository routes",
+          "title": "Optimal control of compartmental models: the exact solution",
+          "trigger": "A broad compartmental-control theorem could cover a narrower timing statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md finite-horizon theorem and example",
+        "Li et al. model and measured surface-reservoir persistence"
+      ],
+      "rationale": "An explicit timing criterion distinguishes maximizing removed surface burden from minimizing cumulative air exposure. The optimum is strictly earlier than the burden peak and can be selected from the two air-decay rates without identifying the individual transfer rates or removal fraction. The horizon dependence gives actionable limiting intuition and an exact test case for richer compartment models; this is a meaningful structural result within the stated idealization.",
+      "residual_risks": [
+        "This is not field advice for occupied or heterogeneous buildings, nor a proof about repeated, prolonged, or chemistry-changing interventions. Extracting both decay modes robustly from real data is not shown."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

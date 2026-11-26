@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Direct expansion of the affine identity forces \(Rp=0\), \(R^2=R\), the weight-minus-one projection equation, and the commutation of \(R\) with \(\operatorname{ad}p\). Plane/line geometry in the three-dimensional Heisenberg Lie algebra exhausts all decomposition ranks. The automorphism group has only central translations, which distinguishes the two rank-two translation orbits. Exact projective counting gives all six finite-field orbit sizes. The standalone checker independently verifies all \(244\) ternary operators on all input pairs and all \(1296\) affine conjugations, plus the separate quinary count.
+## correctness
 
-## Originality
-PASS with residual risk. Han–Khudoyberdiyev–Xie–Zhang (2026, arXiv:2610.14838, Theorem 4.4 and Proposition 4.5) supplies the general characterization and treats complete equivalence classifications only through dimension two. Rathee (2024, arXiv:2402.15428) and Ji–Hua (2018) classify ordinary **linear** Rota–Baxter operators on the Heisenberg Lie algebra, not the six classes of affine maps with central-translation equivalence. Explicit claims and aliases were searched in published mathematical sources and indexed research findings. An indirect implication obtained by combining an older linear classification with the new affgebra criterion cannot be excluded, and the Ji–Hua full paper was not materially read. No direct prior statement of the six affine classes or \(q^3(2q+3)+1\) count was identified; failed searches alone are not treated as proof of novelty.
+PASS
 
-## Value
-PASS. This supplies the first nonabelian three-dimensional canonical example beyond the two-dimensional classification in the originating work. The intrinsic Heisenberg center creates two distinct rank-two translation classes and collapses the moduli to six orbits. A complete closed finite-field orbit census for every odd prime power is a natural structural enumeration of the new operator space; it is not a single arbitrary parameter slice or a computation of an invariant without motivation.
+Setting both inputs to zero gives Rp=0. Setting v=0 gives R[u,p]=[Ru,p]; with u=0, antisymmetry and the first relation give R²v=Rv. After these terms cancel, the bilinear identity for u=a+b and v=c+d is R([a,c]−[b,d])=[a,c]. It holds exactly for complementary Lie subalgebras A and B, with p∈B normalizing A. The bracket-preserving affine group has precisely a Lie automorphism as linear part and a central shift: evaluating bracket preservation with an input zero forces the shift central. Its action on p adds (I−R') times the central shift to the image of p. All lines are subalgebras, and a plane is one exactly when it contains the center, since independent quotient directions bracket to a nonzero central vector. An adapted pair of lifts and its bracket conjugate each ordered decomposed pair to the displayed representative pair. In rank one, the normalizer condition forces the translation central, so it can be removed; in rank two the center is in the image, so the central shifts cannot change p, and stabilizer rescaling gives exactly the zero and nonzero classes. Constants split by centrality, and rank three forces the identity. Over F_q there are q+1 central planes and q² complementary lines per plane. Multiplying by the permitted shifts gives q³(q+1) in rank one and q²(q+1), q²(q²−1) in rank two; the constant orbits and identity give q³(2q+3)+1 in total. The reasoning uses field linear algebra, not residue arithmetic, so covers nonprime odd q. The bundled code and notes were inspected but not executed; the finite checks build candidates and do not independently establish their completeness.
 
-## Limitations
-The proof is restricted to the canonical bracket and characteristic distinct from two. The finite-field checker is exhaustive only in the ternary field and verifies a proper input subset in the quinary field. The originating paper's general decomposition theorem is explicitly prior work; its full text was compared. Possible implicit older equivalent classifications remain a residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of current knowledge: the exact six affine conjugacy classes and their individual odd-prime-power orbit sizes are distinct from the inspected prior general framework and linear-operator results. No originality is credited to the decomposition theorem itself.
+
+## value
+
+PASS
+
+This is a complete normal-form classification for a natural first nonabelian nilpotent test case beyond dimension two. It exhibits a structural distinction missed by a linear census: a rank-one allowed shift can be conjugated away, whereas rank two retains a nonzero-shift orbit. Exact orbit sizes over arbitrary odd finite fields quantify that distinction and are useful for distinguishing affine from linear classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

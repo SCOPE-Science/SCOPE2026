@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:49:03.251866Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, verify.py (inspected, not executed), VERIFICATION.md, AUDIT.json, REVIEW.md, METADATA.json and SLOGAN.txt",
+        "Independent exact replay: review-evidence/1/exact_recompute.py and adjoining exact_recompute_output.txt"
+      ],
+      "rationale": "The full affine derivative is double centering, so each coefficient-row absolute sum is (2-2/9)^2=256/81. The seven permutations cover exactly the 38 entries, and their mean is bistochastic and positive on that support. A fresh exact recomputation gives rank 17 and det(BBᵀ)=810332352, so the displayed grounded-incidence formula is the orthogonal projection onto supported perturbations with all row and column sums zero (the omitted column sum is redundant). The (4,8) row has ℓ¹ norm 13394263/4220481, with excess 1497389/113952987. Using its sign as the direction makes the input denominator exactly the stated epsilon. At the second candidate the minimum supported entry is 703408248411/4923894500000 and the minimum off-support dual slack is 4220474028301/4220481000000, both positive. The residual is a row/column potential plus a nonpositive term supported off the face, so its inner product with any feasible displacement is nonpositive; the same argument with zero equality potential proves the first projection. The (4,8) quotient proves the lower bound without a global sharpness or minimum-order claim.",
+      "residual_risks": [
+        "This checks one finite witness, not all order-nine faces or any smaller unclassified order."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Sun–Toh give a generalized Birkhoff Jacobian using active-coordinate selection and a row/column constraint Gram pseudoinverse.",
+          "The small-order record reduces the global modulus to maximization over totally supported face projectors, with an exact enumeration through order four."
+        ],
+        "reasoning": "These general descriptions determine how a specified witness can be checked; they neither supply an offending support at nine nor imply strict failure there without finding one.",
+        "searches": [
+          "arXiv:1702.05934, active-constraint and Birkhoff sections",
+          "Resultary 94c6886725b7, RESULT.md, support-projector reduction and small-order and regular-face results"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1702.05934",
+        "Resultary 0b9d63c07c36 and 94c6886725b7 (substantive record text available for this review)",
+        "Web comparison under active-set, cycle-space, and Euclidean Birkhoff endpoint terminology"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The n=3m three-block distinguished ratio at m=3 is 29/10, below 256/81, and the family's first strict comparison is m=4 (n=12).",
+          "The regular cyclic witness uses Z/12Z with six shifts and 72 supported entries; the conclusion is a lower bound at 12, not a descent statement to nine."
+        ],
+        "reasoning": "Both antecedents already refute a universal affine bound. Neither gives nor implies this small-dimension witness; the reviewed claim is an improvement in witness dimension, not a new refutation phenomenon.",
+        "searches": [
+          "Resultary 0b9d63c07c36, RESULT.md, §4 comparison",
+          "Resultary 94c6886725b7, RESULT.md, order-12 regular obstruction and limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For this support the active-face Jacobian is the bipartite circulation-space projector; its relevant induced ℓ∞ norm is the absolute coefficient-row sum, not the row norm of a 9×9 matrix output.",
+          "The nearest public records use the same norm and projection map, not a merely similar doubly stochastic normalization."
+        ],
+        "reasoning": "The graph-cycle-space and active-face descriptions are equivalent here, so searching and comparing both is necessary; novelty is not assigned to rephrasing the projector.",
+        "searches": [
+          "Resultary: Birkhoff polytope Frobenius projection max entry Lipschitz doubly stochastic affine support face 9 256/81",
+          "Web: entrywise Lipschitz Euclidean projection doubly stochastic matrices maximum norm Birkhoff polytope coordinatewise stability projected affine support regular Clarke generalized Jacobian counterexample"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "In 94c6886725b7 the exact constants are 1, 16/9 and 9/4 at orders 2, 3 and 4 and a distinct order-12 row gives 41/12. Its stated limits explicitly leave the first failing order undetermined.",
+          "In 0b9d63c07c36 the exact three-block table and formula have no strict witness at order nine. No independent exact order-nine certificate was located; the same-record index hit is not independent priority evidence."
+        ],
+        "reasoning": "The relevant exact tables cover smaller orders or different, specified faces. Their entries do not settle the asserted order-nine inequality.",
+        "searches": [
+          "Web: Frobenius Euclidean projection Birkhoff polytope Lipschitz entrywise maximum norm doubly stochastic projection active set cycle space support counterexample 256/81",
+          "Resultary: Birkhoff polytope Frobenius projection max entry Lipschitz doubly stochastic affine support face 9 256/81"
+        ]
+      },
+      "rationale": "The supported-projector method and the existence of strict obstructions at higher dimension are known. The evidence supports only the new explicit order-nine strict comparison, on a best-of-knowledge basis.",
+      "residual_risks": [
+        "Unindexed transportation-polytope or parametric-projection examples could contain an equivalent small witness.",
+        "The comparison is not an exhaustive priority search and does not settle orders five through eight."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the projector machinery, not the evaluated order-nine obstruction",
+          "evidence": [
+            "The support-masked equality projector agrees with the active-constraint calculation underlying Theorem 1 and Proposition 3."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1702.05934",
+          "material_read": "Introduction and relevant portions of §§2–3, including the Birkhoff constraint representation and Jacobian construction",
+          "method": "Open PDF text extraction and equation comparison",
+          "title": "On the efficient computation of a generalized Jacobian of the projector over the Birkhoff polytope",
+          "trigger": "Same Euclidean projector and active-set mechanism"
+        },
+        {
+          "assessment": "Related family, no strict nine-by-nine comparison",
+          "evidence": [
+            "First departure in its displayed family is n=12, not a lower bound on the first departure among all supports."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-three-block-face-forces-sharp-coordinatewise-instability-in-bi--0b9d63c07c36/RESULT.md",
+          "material_read": "Finding, support definition, finite-pair proof, §4 strict comparison, limitations",
+          "method": "Local full record mirror; compare formula at m=3",
+          "title": "A three-block face forces sharp coordinatewise instability in bistochastic least-squares projection",
+          "trigger": "Same strict coordinatewise comparison at nearby dimension"
+        },
+        {
+          "assessment": "Covers general reduction, orders 2–4, and an order-12 witness, not the present support or order-nine comparison",
+          "evidence": [
+            "Claims L12≥41/12>121/36 and does not locate the smallest violating order."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-small-order-endpoint-stability-and-a-regular-face-obstruction-fo--94c6886725b7/RESULT.md",
+          "material_read": "Finding, all-face reduction, small-order conclusion, order-twelve row and limitations",
+          "method": "Local full record mirror; compare dimensions and hypotheses",
+          "title": "Small-order endpoint stability and a regular-face obstruction for Euclidean Birkhoff projection",
+          "trigger": "Same operator, exact small-order table and other obstruction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "The exact finite projection witness and the two earlier order-twelve comparisons"
+      ],
+      "rationale": "The meaningful improvement is in the dimension of an explicit counterexample to the affine stability heuristic, not in the numerical size of the gap. The finite pair shows that the obstruction is a reachable effect of a proper support and provides a benchmark for work locating the first failure or estimating the sharp endpoint modulus.",
+      "residual_risks": [
+        "No conclusion is drawn about practical frequency, global order-nine sharpness, or minimality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

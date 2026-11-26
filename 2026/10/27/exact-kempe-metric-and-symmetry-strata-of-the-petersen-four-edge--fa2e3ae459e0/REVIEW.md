@@ -1,19 +1,21 @@
-# Review of the exact Petersen four-edge-colouring Kempe graph
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Complete state enumeration using canonical restricted-growth colours yields exactly \(2080\) classes; a fixed-star enumeration produces the identical set. Two edge-component traversals reconstruct the same Kempe neighbours for every state. The resulting undirected simple graph has degree counts \(1840\) at \(12\) and \(240\) at \(13\), giving \(12600\) edges. BFS from every state establishes connectivity and the full eccentricity profile. Enumerating all \(120\) Petersen graph automorphisms yields the listed \(21\) state orbits, with constant eccentricity on each.
+PASS
 
-## Originality
+An independent full computation represented Petersen as KG(5,2) (indices mod 5, u_i={i,i+2}, v_i={i+3,i+4}) and represented a colour class by a nonempty matching of the 15 edges. It enumerated all matching masks and recursively partitioned the remaining edges by adding the unique class containing the least uncovered edge. This exhausts unordered partitions into at most four classes without duplicates. No cover with fewer than four classes occurred. For each union of two classes, it closed a seed edge's endpoints under incident union edges to recover one component at a time, XORed the component into each class, sorted the class masks and removed loops. Bitset distance fronts from every state reached all states; a front contains exactly the vertices at its current distance. The automorphisms used were the S5 action on the pairs: the size-four independent sets in KG(5,2) are exactly the five stars (checked over all four-subsets), and each vertex is determined by the two stars containing it, so the action is the full Petersen automorphism group. Orbit computation on matching masks gives (size,eccentricity):multiplicity (20,6):1, (40,6):1, (40,7):1, (60,5):1, (60,6):2, (120,6):14, (120,7):1. Output confirms 2080 states, 12600 undirected edges, degrees 12:1840 and 13:240, eccentricities 5:60, 6:1860 and 7:160, radius 5, diameter 7, group order 120 and 21 orbits. Both the independent reconstruction and the supplied algorithm address all states, not a sample.
 
-PASS, subject to a finite-data literature risk. McDonald–Mohar–Scheide proved four-edge-colouring Kempe *connectivity* of all subcubic graphs, which does not imply an exact distance metric or symmetry strata. Published work on three-edge-coloured cubic graphs does not cover proper three-edge-colourings of the Petersen graph, as none exist. General vertex-colouring Kempe-diameter results use another state space. Targeted exact-value, equivalent-formulation and database searches did not identify these numerical orbits; that failure alone does not establish novelty. Unindexed tables remain possible.
+## originality
 
-## Value
+PASS
 
-PASS. The Petersen graph is the smallest standard class-II cubic test case, making its four-edge Kempe reconfiguration the first natural nontrivial edge-colouring benchmark. Its radius–diameter distinction and automorphism-transitivity of the centre, but not the periphery, expose quantitative structure unaddressed by connectivity alone. These are exact, reproducible invariants of a naturally defined graph, not an unmotivated parameter slice.
+Credit is for the complete Kempe metric and symmetry strata, not the previously proved connectivity or the underlying colouring count alone. The nearest indexed variants change the move or the object. The bounded evidence does not identify a prior statement or table entailing these profiles.
 
-## Scope and remaining limits
+## value
 
-Exactly four edge colours; the state space is modulo global colour permutations. Distance in the fully colour-labelled graph can be different. There is no claimed extension to other snarks. Some related literature was available only in summary or bibliographic form; this is explicitly a residual originality risk. The attached verifier gives complete finite checks but not an external independent certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Petersen is the classical small cubic obstruction to three-edge-colourability, so its four-colour reconfiguration graph is a natural benchmark in the palette where Kempe connectivity is guaranteed. Exact radius and diameter specify the best-base and worst-pair numbers of component moves, and the orbit census establishes the sharp distinction between a single central Petersen orbit and two peripheral orbits. These are natural finite invariants for comparison with other cubic reconfiguration graphs, not just a known connectivity test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

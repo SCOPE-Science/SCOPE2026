@@ -1,19 +1,21 @@
-# Scientific review: A sharp storm-concentration crossover in periodic surface-pollutant wash-off
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two-stage affine return map has strict contraction factor \(s_1s_2<1\), since each cycle has positive total rainfall. Solving its fixed point and integrating the two dry intervals gives \(\overline B=(aT/4)(1+s_1)(1+s_2)/(1-s_1s_2)\), which exactly specializes to the claimed hyperbolic means. For \(c=2^{p-1}>1/2\), \(G_p(x)=\coth(x/2)/\coth(cx)\) is strictly decreasing because \(\sinh z/z\) strictly increases. With endpoint limits \(2^p\) and \(1\), all parameter cells and equality boundaries follow. The \(p=2\) threshold reduces exactly to \(\cosh^2x-\cosh x-1=0\). Replaying the supplied standard-library checker reports 38,553 supplemental assertions; they are numerical cross-checks, not the infinite proof.
+PASS
 
-## Originality — PASS on inspected evidence
+For identical events spaced by Δ with retention s in (0,1), the post-event map b→s(b+aΔ) contracts to aΔs/(1−s); the time average over an interval is that fixed point plus aΔ/2. Applying this directly at Δ=T and Δ=T/2 with doses 2^p x and x gives the two means. The difference has the sign of coth(x/2)/coth(2^(p−1)x)−2. The logarithmic derivative is −1/sinh(x)+2^p/sinh(2^p x), strictly negative because sinh(u)/u increases for positive u and p>0. The ratio decreases from 2^p to 1, proving strict split advantage even at p=1 and precisely one crossover with the stated orientation for p>1. At p=2 the tie reduces to cosh²(x)−cosh(x)−1=0, with exactly one positive x. The supplied finite checker was inspected, not run; the result follows for the full domain analytically. The two policies remove the same total aT per period in this model, so the conclusion is only about time-average retained mass.
 
-The closest fully inspected research includes the stormwater decision-support model in Vinck et al. (2023) and the published mathematical results *Sharp three-stage stormwater exposure ordering with continued pollutant supply*, *Periodic leaching minimizes stationary salt mass: a renewal convex-risk law*, and *Two sharp patch-allocation transitions for a generalized Type III feeding response*. Their actual hypotheses respectively concern empirically simulated buildup/wash-off, fixed-rate order permutations and exported exposure, renewal event timing at fixed retention, and Hill-type prey allocation. None states or implies the fixed-total-rain, event-depth-dependent, stationary-mean crossover by mere parameter restriction. Source title matching is not used as a novelty test; the comparison is by objects, quantifiers and implications. The motivating Mao et al. (2024) primary text was unavailable beyond its bibliographic abstract, so this finding's historical priority is provisional, not independently certified. See AUDIT.json for query strings, source inspection material and residual risks.
+## originality
 
-## Value — PASS
+PASS
 
-The sharp distinction between sublinear/linear and superlinear rain-dose responses identifies the precise mechanism under which concentrating a fixed rain quantity can outperform splitting it. The explicit analytic crossover, and the special quadratic golden-ratio value, give a complete structural comparison for two canonical periodic storm patterns rather than a single computed point. The result is a motivated conceptual benchmark for hydrological surface-wash modeling; it is not a proven operationally optimal rain schedule and has no field-calibrated parameters.
+Constant dry buildup, exponential event retention and regularly spaced fractional removal are established ingredients. The supported distinct claim is the exact allocation crossover at fixed rain depth and period when changing event count also changes the per-event removal strength by a power law. No inspected prior statement supplies the two-policy threshold and direction over the whole range of p and x.
 
-## Limits of this review
+## value
 
-One claim is reviewed across all three criteria. No independent audit was performed. The theorem concerns retained surface burden, not total washed-off pollutant mass; conservation makes the latter equal to \(aT\) per period for either pattern. The model ignores event duration, variable deposition and physical sediment dynamics, and the most closely matching 2024 paper's full article and appendices could not be inspected. A possible earlier mathematical equivalence remains a priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two prescribed policies expose competing effects of a larger dose per event and shorter dry gaps. The exact boundary tells a modeler when the direction reverses, including a domain where the one-storm policy never wins, without requiring simulation or values of a and T. This is useful within the idealized stock model, not a field recommendation, a global scheduling optimum, or a reduction in total export.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

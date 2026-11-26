@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is finite and fully quantified. The verifier reconstructs \(\mathbb Z_5^3\), the Lee metric, and all radius-one balls from definitions. Pairwise metric compatibility is cross-checked against disjointness of those balls. A complete maximum-clique search with valid greedy-coloring upper bounds proves that no code has more than \(15\) words, and a stored witness attains \(15\). A separate exact target-size enumeration gives \(24\) maxima through \(000\); translation and double counting give exactly \(200\) labeled maxima. Explicit generation then verifies the natural-group orbit, stabilizer, balance, and distance profile.
+## correctness
 
-## Originality
-PASS. The closest linear source gives only the tight linear optimum \(5\). The closest general nonlinear source develops bounds but does not state the unrestricted \(\mathbb Z_5^3\), distance-three optimum or equality cases. The later semidefinite-programming paper uses the same unrestricted parameter notation but its displayed new \(q=5\) table begins at length \(4\). Exact-parameter, alias, nonlinear, and equality-classification searches found no statement implying the \(200\)-maxima census or its one-orbit structure. Residual risk is limited to obscure or unindexed finite computations.
+PASS
 
-## Value
-PASS. The smallest odd alphabet where Lee and Hamming metrics differ is a natural test case, and this parameter exhibits a genuine linear/nonlinear gap: \(15\) versus the known linear optimum \(5\). The complete equality census is mathematically structured rather than a bare table entry: all maxima form one natural isometry orbit and share rigid coordinate-balance and distance-distribution data. These exact invariants provide a useful finite benchmark for Lee-code bounds and search algorithms.
+I independently enumerated the five horizontal layers of the torus, without using the frozen clique search. Within a layer, disjoint radius-one balls of size five cap the size at five. The legal layer counts for sizes zero through five are 1,25,150,200,50,10. Between adjacent layers the horizontal Lee distance must be at least two (ban the occupied horizontal radius-one neighborhoods); between nonadjacent layers it must be at least one (ban identical horizontal positions). Exact recursive combination of compatible layers through 000 excludes size 16 and yields 24 size-15 codes. Translation takes every nonempty code to one through 000, and a larger code would have a 16-subcode. Full translation gave 200 labeled sets, exactly the orbit of one witness under all 6000 distinct signed coordinate permutations with translations. The stabilizer has order 30, and direct counts give every stated symbol multiplicity and pair-distance tally. For the linear contrast, a two-dimensional code has at least 25 points, excluded even by the radius-one packing bound 17; the span of (1,1,1) attains size five.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The checked exact table is for linear codes, not arbitrary subsets; the checked unrestricted table does not evaluate these parameters. The closest indexed same-alphabet equality census uses a different pair relation. The independently supported distinct finding is the unrestricted maximum together with the complete labeled census and orbit and profile information.
+
+## value
+
+PASS
+
+Single-error packing in the small three-dimensional Lee torus is a natural unrestricted coding parameter with an independently motivated linear comparison. The exact optimum closes a gap left by the elementary packing bound, and the complete equality orbit with uniform balance and distance profile gives a concrete structural benchmark for nonlinear Lee-code bounds or searches. This is not just a rerun of the linear table or a witness without optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

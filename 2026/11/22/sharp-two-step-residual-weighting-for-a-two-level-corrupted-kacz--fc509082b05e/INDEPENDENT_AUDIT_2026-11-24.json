@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:57:54.895671Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–28, 30–83",
+        "VERIFICATION.md",
+        "verify.py (inspected, not executed)",
+        "reproductions/two_step_check.py (independent finite reproduction; replay with Python 3)"
+      ],
+      "rationale": "From the row weights the two transition probabilities are α=zt/(1+zt) and β=t/(z+t), respectively clean-to-corrupt and corrupt-to-clean. The difference of the two terminal bad-state probabilities is (1−α−β)², so the corrupt start is worst (tied at t=1); its risk is 1−β(2−α−β). This yields the stated rational function. Separately differentiating the success probability yields zN_z(t)/[(z+t)³(1+zt)²]. For 0<z<1 the strict concavity of N_z, its positive values at 0 and z and its negative value at 1 give a unique crossing and a strict gain over t=1. For z≥1, N_1(t)=2(1−t)(1+t)² and ∂N_z/∂z is positive on [0,1], so t=1 is uniquely optimal, including z=1. At the small-z scale, N_z(az^(1/3))/z tends to 2−a³, bracketing the unique root. The stationary bad probability is asymptotic to pt and the eigenvalue to p/t on that scale; substituting in π_B+(1−π_B)λ² yields the announced p^(4/3) rate and constant. An independent two-state calculation at p=1/10, t=1/2 gave 175/2299; numerical bisection gave t*≈0.52257733 and risk ≈0.07599966. The excluded t=0 has both states absorbing and risk one.",
+      "residual_risks": [
+        "The finite-system statement and rare-corruption limit use attainable rational proportions. The formulas extend as algebra to real p∈(0,1), not as a finite row realization for irrational p.",
+        "The numerical check is only a witness; the optimizer, boundary and limit were checked by algebra."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "RESULT.md:87 describes the general corrupted-system framework and one-step expected-error bounds. The wider scalar-model catalogue match dd454724b0aa addresses a different horizon or metric in its available summary."
+        ],
+        "reasoning": "A one-step inequality in higher dimension does not determine two-step equality, worst-start identity, or the global fixed-weight minimizer in the scalar specialization.",
+        "searches": [
+          "Chen et al., arXiv:2611.03889v1",
+          "Resultary stationary-bias/largest-gap and two-state/rare-corruption-horizon matches"
+        ]
+      },
+      "checked_sources": [
+        "Resultary catalogue entries fc509082b05e, dd454724b0aa, 2639ecb81dd1",
+        "RESULT.md:85–97"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The usual two-state identity π_B+(1−π_B)λ² directly yields the risk once the chain parameters are known. The record's claim of contribution is the optimization and asymptotics, not that identity or the residual-weighted scheme."
+        ],
+        "reasoning": "Even if both stationary bias and relaxation are known, their effects compete in terminal risk; deriving the polynomial sign pattern, unique interior optimum and balancing regime does not follow from either result alone.",
+        "searches": [
+          "dd454724b0aa (stationary probability and relaxation)",
+          "2639ecb81dd1 (sampled quantile)",
+          "arXiv:2611.03889v1; contrast arXiv:2007.02910 and arXiv:2306.06813 in RESULT.md:85–97"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "fc509082b05e is the assigned record itself. dd454724b0aa concerns stationary contamination, relaxation at a largest gap, and first-error timing; 2639ecb81dd1 studies sampled-quantile equality updates."
+        ],
+        "reasoning": "Both scalar worst-level squared risk and terminal bad-state probability are the same objective after normalization. This is different from the stationary probability and from ever entering the bad state by time two, since a trajectory can return to the clean state. Quantile selection also does not supply the tunable t in this statement.",
+        "searches": [
+          "Resultary exact risk formula, two-step cubic optimizer, half-contamination boundary and rare-corruption powers",
+          "Focused literature search for two-step minimax residual-weighted Kaczmarz"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct exact-formula match appeared among the inspected ranked results; the direct match fc509082b05e is a self-match. The frozen witness R₂(1/2)=175/2299 at p=1/10 is a single case."
+        ],
+        "reasoning": "Neither a single witness nor a list of sampling risks would supply the theorem for every admissible p, including optimizer uniqueness and leading asymptotic constants.",
+        "searches": [
+          "Resultary exact rational risk and cubic-formula lookup"
+        ]
+      },
+      "rationale": "Credit the prior residual-weighted framework, two-state reduction and stationarity/relaxation ingredients. The distinct supported claim is the solution of the fixed-ratio, two-update worst-start optimization, including the half-contamination transition and the cubic-root and four-thirds-power laws. Neither an earlier first-hit result nor the closest catalogue statement on long-run bias and relaxation provides those conclusions. The exact catalogue self-hit is not independent coverage, and no order between distinct same-day records is inferred.",
+      "residual_risks": [
+        "The closest distinct catalogue record and cited articles were not available in retrieved full text. A focused literature query found no decisive passage; unindexed or inaccessible exact optimization results remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant ingredients and related metrics; summary does not establish coverage of two-step minimax tuning",
+          "evidence": [
+            "The summary addresses a largest-gap relaxation result and first error, not the stated optimizer for every corruption proportion."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-squared-corruption-stationary-bias-and-a-sharp-largest-gap-relax--dd454724b0aa",
+          "material_read": "Catalogue summary on long-run bias, relaxation and first erroneous update; primary record could not be retrieved",
+          "method": "Resultary search and targeted retrieval attempt",
+          "title": "Squared corruption stationary bias and a sharp largest-gap relaxation result",
+          "trigger": "Closest distinct indexed scalar residual-downweighting result"
+        },
+        {
+          "assessment": "Two-state analogy, with different sampling rule and objective",
+          "evidence": [
+            "First-corrupted-iterate timing is not the terminal probability after two fixed-ratio updates."
+          ],
+          "identifier_or_url": "2639ecb81dd1",
+          "material_read": "Resultary summary of sampled-quantile equality updates and the first-corrupted-iterate horizon",
+          "method": "Local Resultary search",
+          "title": "Exact two-state dynamics and a sharp rare-corruption horizon for sampled-quantile Kaczmarz",
+          "trigger": "Scalar two-state dynamics and a sharp rare-corruption horizon"
+        },
+        {
+          "assessment": "Framework and one-step bounds are credited; the full paper was not checked for other potential coverage",
+          "evidence": [
+            "The frozen comparison distinguishes exact two-update minimax risk from the one-step expected-error bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.03889",
+          "material_read": "Frozen comparison at RESULT.md:85–95; primary retrieval timed out",
+          "method": "Targeted OA retrieval attempt and frozen bibliography",
+          "title": "Weighted Randomized Kaczmarz for Sparsely Corrupted Linear Systems",
+          "trigger": "Same residual-weighted algorithm in a broader model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:5–28, 41–77, 85–91"
+      ],
+      "rationale": "The two-level instance isolates the finite-horizon cost of protecting a bad start: uniform sampling is always best after one update, but after two the optimizer is nonuniform exactly below half contamination. In the rare-corruption regime the optimized risk is of smaller order than uniform sampling, at a precise weight scale. This is a motivated benchmark for fixed residual weighting rather than just a rational two-state transition calculation.",
+      "residual_risks": [
+        "No optimizer or statistical guarantee for general starting states, higher dimensions, adaptive weights, larger horizons or unknown corruption fractions follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

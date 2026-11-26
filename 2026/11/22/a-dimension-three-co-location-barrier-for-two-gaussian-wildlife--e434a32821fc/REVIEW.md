@@ -1,19 +1,21 @@
-# Scientific review: dimensional obstruction to Gaussian detector separation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement identifies the sole free design variable as half-separation within a reflection-symmetric detector pair. Exact Gaussian completion of squares computes both marginal detections and their product; one derivative factorization gives a strictly decreasing sign factor in the squared distance. Consequently the claimed maximizer, including equality and zero boundaries, is unique and global. A separate logarithmic derivative of the critical baseline quality proves the dimension-one/two versus dimension-three-and-higher distinction. Bracketing the unique positive root on the exponential dimensional scale and controlling the remainder of the logarithmic expansion proves the asymptotic. The supplied standard-library diagnostics completed 86,581 assertions, including independent numerical quadrature. No numerical enumeration substitutes for proof.
+PASS
 
-## Originality — PASS under available evidence, subject to historical-priority risk
+For a coordinate normal of variance sigma², E exp(-k X²/(2 ell²))=(1+k s)^(-1/2); shifting the first-coordinate mean in the single-detector integral adds exp[-a²/(2 ell²(1+s))]. Multiplying the two kernels removes the cross term and contributes exp(-a²/ell²) times the k=2 product over all d coordinates. Conditional inclusion–exclusion therefore gives C_d(t)=A exp(-alpha t)-B exp(-t) with t=a²/ell², alpha=1/[2(1+s)], A=2q(1+s)^(-d/2), B=q²(1+2s)^(-d/2). The ratio of positive to negative derivative terms is (q/q_c) exp[-(1-alpha)t]; it strictly decreases. At equality q=q_c only t=0 has zero right derivative, and every t>0 strictly underperforms. For q>q_c, the unique root is a strict global maximum, including the boundary at zero, since the sign changes from positive to negative. The logarithmic derivative in s has numerator d/2-1-2s and positive denominator. Thus f_d=log q_c starts at zero and decreases strictly for d<=2, or rises and then falls strictly to -infinity for d>=3. This gives one positive crossing and the q<=1 obstruction including equality. At d=4 the exact polynomial reduces to s(s²-s-1)=0, and independent decimal bisection of (1+2s)^3-(1+s)^5 on [0.5,1] yields s_3=0.63770838850224109…. For S=2^(d/2) the expansion uniformly on [S/2,2S] is log(S/s)-(d/4+1)/s+O(d/s²). The endpoints have opposite signs for large d; at the root exponentiation gives S/s=1+(d/4+1)/s+O(d²/s²), which proves the stated correction and remainder. The frozen checker was read, not executed; the numerical root at exactly the transition has ordinary floating-point sensitivity, whereas the analytic derivative decides the equality exactly. The quadrature code is composite Simpson (not the midpoint rule despite one code comment).
 
-The planar symmetric detector model is **not claimed to be new**. Its formula does not imply the new three-dimensional co-location region, the explicit golden-ratio threshold at dimension four, or the exponential dependence on spatial dimension without new argument. The relevant inspected primary papers establish common half-normal detection models, show through simulation that trap placement affects estimation, and develop approximate density-precision design algorithms. They do not claim the present all-quality obstruction for a *fixed symmetrically placed pair and a Gaussian prior*. The main scientific risk is implicit or equivalent coverage in generic Gaussian sensor-placement or facility-location literature not identified in the reviewed sources; publication priority requires further independent review.
+## originality
 
-## Value — PASS
+PASS
 
-Three-dimensional usage distributions are scientifically motivated for aerial and aquatic organisms, and a two-detector monitoring decision can be governed by the probability of recording the individual at least once rather than by parameter-estimation precision. The result reveals a change of kind, not just a coefficient shift: in dimensions one and two, perfect individual detection always makes positive separation worthwhile for any nonzero spread, whereas from dimension three onward there is a positive *unavoidable co-location regime* for all physically allowed qualities. The sharp frontier and its exponential dimensional scaling show when that design restriction matters, without asserting field realism or a general recommendation.
+The precise novelty is limited to the dimension-three onset of a nonzero all-quality co-location interval, the dimension-specific crossings and the high-dimensional expansion. The two-exponential maximization itself and the planar transition are already covered. Factoring transverse Gaussian coordinates is elementary, but the stated cutoff in physical q, its change of kind with dimension and its asymptotic correction require further analysis and are not statements of the closest source.
 
-## Closest literature and restrictions
+## value
 
-Sun, Fuller and Royle (2014, doi:10.1371/journal.pone.0088025) discuss cluster spacing under parameter-estimation simulation. Durbach et al. (first published 2020, doi:10.1111/2041-210X.13517) use approximate density-precision optimization of full arrays, and Tracey et al. (2014, doi:10.1371/journal.pone.0101205) motivate three-dimensional home-range analysis. The theorem is restricted to an isotropic Gaussian prior, conditionally independent half-normal Bernoulli detectors, one fixed observation, and symmetric detector locations. It is not independently validated and does not supply a general two-location design.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This answers a concrete first-detection design question at the transition from a planar to a volumetric model: even perfectly responsive colocated independent devices need not benefit from being separated, and the spread needed to make separation worthwhile has a sharp cutoff. The dimension-three cutoff is pertinent to the idealized volumetric setting, and the asymptotic gives a structural severity scale rather than a new placement algorithm. This is model-level value for a conditional-independent reflected pair, not a field recommendation or an unrestricted design theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

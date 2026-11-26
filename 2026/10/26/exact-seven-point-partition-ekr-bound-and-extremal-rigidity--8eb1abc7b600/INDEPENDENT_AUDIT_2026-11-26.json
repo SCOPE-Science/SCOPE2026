@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:34:22.119593Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A family with a prescribed pair has S(6,4)=65 members by contracting that pair, and the 21 such families are distinct. The frozen Python search uses the exact shared-pair adjacency; its reverse colour ordering means each remaining prefix inherits a proper colouring with at most the recorded number of colours. Its neighbour intersection and deletion therefore enumerate threshold cliques without duplication or unsound pruning. A separate exact reproduction (/workspace/audit_replay_4.py) generated partitions by peeling off the block of the least remaining point, obtaining 350 partitions, and used include/exclude branching with clique covers of the incompatibility graph. Fixing one anchor in each of the three block-size types suffices by permutation symmetry. There were respectively 6, 4, 3 families of size 65 through the three anchors, all exactly the pair-stars through the anchor, and no family of size 66 in any anchored search. This proves the complete equality statement for the stated finite parameters. The saved C++ output concerns the maximum alone, not its equality classification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.2 assumes at least 8k=24 ground points at rank three; the Hilton–Milner bound in Theorem 1.5 requires n+1−k≥663 at rank three, not 4.",
+          "Meagher–Moura Section 5.2 restates the conjecture for partially 2-intersecting partitions. Their whole-block results for uniform systems do not transfer."
+        ],
+        "reasoning": "Neither the broader maximum bound nor the stronger non-star bounds hold under the hypotheses needed as a cited theorem here. The higher-t construction in Corollary 6.2 does not cover this t=1 rank-three case.",
+        "searches": [
+          "Cao–Liao–Zhang Theorems 1.2 and 1.5 and Section 6, with explicit n=6, k=3 substitution",
+          "Meagher–Moura EJC 12 R40 Section 5.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, maxclique.cpp and recorded Python/C++ outputs",
+        "Erdős–Székely Section 3",
+        "Cao–Liao–Zhang arXiv:2608.05951v1",
+        "Meagher–Moura EJC 12 R40 Section 5.2",
+        "Resultary rank-two partition flats record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known pair-star construction gives the lower bound 65, not the upper bound or necessity of one common pair.",
+          "Cao–Liao–Zhang explicitly place n=2k, i.e. n=6 in their notation, in their conjectural sharp range; the exact related catalogue result has rank two."
+        ],
+        "reasoning": "No inspected proven result supplies an upper bound on all pair-intersecting families or a strict non-star bound at the target parameters. Independent finite exhaustion supplies both conclusions.",
+        "searches": [
+          "Erdős–Székely Conjecture 1 and its fixed-pair construction",
+          "Cao–Liao–Zhang Theorems 1.2, 1.5 and closing discussion",
+          "Resultary: exact non-star bounds in the seven-point rank-three case"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact relation is a common within-block pair, equivalently a common atom of two rank-three graphic-matroid flats. In Cao–Liao–Zhang this has n+1=7 and rank k=3, or n+1−k=4 blocks.",
+          "Erdős–Székely's Conjecture 1 states the size bound in these parameters but does not supply a proof or classify every equality case."
+        ],
+        "reasoning": "The conjecture is equivalent to the proposed bound at this endpoint, not an existing solution. Whole-block intersection is a different requirement.",
+        "searches": [
+          "Resultary: seven-point four-block pair-intersection; rank-three flats of K7; fixed-pair, edge-star and non-star families",
+          "Erdős–Székely Section 3",
+          "Cao–Liao–Zhang arXiv:2608.05951v1 Introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct catalogue hit treats rank-two flats, obtaining non-star sizes 3, 4, 5 and stars of size binomial(N−1,2). The inspected primary passages give no target-specific finite enumeration."
+        ],
+        "reasoning": "A rank-two classification does not enumerate rank-three intersecting flats. A missing ranked hit is not evidence of exhaustive absence.",
+        "searches": [
+          "Resultary: exact (7,4), 65, 21 fixed-pair stars; Czabarka's conjecture and rank-three finite classifications",
+          "Cao–Liao–Zhang Section 6 and Meagher–Moura Section 5.2"
+        ]
+      },
+      "rationale": "The bound is explicitly conjectured in older literature, not proved there; the inspected broader EKR and Hilton–Milner theorems do not include seven points at rank three. No independent exact proof or equality enumeration at these parameters was identified in the inspected material.",
+      "residual_risks": [
+        "A differently indexed finite case calculation or unpublished enumeration remains possible. The catalogue and primary-source comparisons do not prove historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact conjectural bound, not a covering proof",
+          "evidence": [
+            "Conjecture 1 proposes S(v−1,l) for v≤2l−1 with pair-intersection, attained by fixing a pair. It does not state uniqueness."
+          ],
+          "identifier_or_url": "https://www.renyi.hu/~elp/Other/higher.pdf",
+          "material_read": "Section 3, p. 6, PDF text offset 9,000–13,993",
+          "method": "Author-hosted full-text PDF passage",
+          "title": "Erdős–Ko–Rado Theorems of Higher Order",
+          "trigger": "Original conjecture and endpoint"
+        },
+        {
+          "assessment": "Mathematically same t=1 relation, nonoverlapping proven parameter ranges",
+          "evidence": [
+            "Theorem 1.2 requires n+1≥8k. Theorem 1.5 requires n+1−k≥3m^3+binomial(m,2) with m=binomial(k+1,2). Section 6 retains the n≥2k sharp range as conjectural."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.05951",
+          "material_read": "Introduction pp. 2–3, PDF text offsets 4,000–16,692; Section 6 pp. 24–25, offsets 83,700–90,144",
+          "method": "Open-access PDF passages",
+          "title": "Erdős–Ko–Rado and Hilton–Milner Theorems in the Partition Lattice",
+          "trigger": "Potential stronger theorem including small parameters or non-stars"
+        },
+        {
+          "assessment": "Discusses the same partial relation but does not prove the endpoint",
+          "evidence": [
+            "Partially 2-intersecting is exactly sharing a pair within a block of both partitions; Section 5.2 gives the conjecture, not an exact theorem at (7,4)."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v12i1r40/pdf",
+          "material_read": "Section 5.2, pp. 10–11, PDF offset 28,530",
+          "method": "Journal full-text PDF passage",
+          "title": "Erdős–Ko–Rado theorems for uniform set-partition systems",
+          "trigger": "Potential partition-EKR overlap"
+        },
+        {
+          "assessment": "Different rank, so does not imply the four-block result on seven points",
+          "evidence": [
+            "The classified non-stars have size 3, 4, or 5 at rank two; its stars have size binomial(N−1,2)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-all-maximal-intersecting-families-of-rank-two-partition-flats--416ae231acd9",
+          "material_read": "RESULT.md finding on ranks and maximal families",
+          "method": "Published record in local mirror",
+          "title": "All maximal intersecting families of rank-two partition flats",
+          "trigger": "Closest exact classification in catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Seven points are singled out by the conjectured boundary for four blocks. At that boundary a sharp proof and the full rigidity statement fill a motivated case not reached by the large-ground-set results, and give an exact benchmark for prospective general arguments. The claim is finite and says nothing about the full conjecture.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

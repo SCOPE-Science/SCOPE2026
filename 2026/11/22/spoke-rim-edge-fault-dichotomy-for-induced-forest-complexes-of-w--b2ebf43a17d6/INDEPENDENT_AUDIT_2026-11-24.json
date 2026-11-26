@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:25:08.523552Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 34–89",
+        "Frozen verify.py and checks.json (16 recorded mod-two cases)",
+        "Independent direct induced-acyclicity and mod-two boundary computation at n=5,6 for both faults, agreeing in all four cases"
+      ],
+      "rationale": "For the rim fault, the hub-free simplex and the cone on I(P_n) meet in I(P_n), giving its suspension. For the spoke fault, the hub-free subcomplex is the rim boundary sphere S^{n-2}. Its hub link L is I(P_{n-1}) with a cone on the subcomplex A excluding simultaneous selection of both endpoints: with rim vertex 0 present those endpoints would form a four-cycle through the hub, and no other cycles survive the path independence constraint. For n>=6, L is up to homotopy the quotient of the join of the endpoint edge with I(P_{n-5}) by the join of its boundary with I(P_{n-5}); this is the double suspension of I(P_{n-5}). At n=5 the quotient is an interval with endpoints identified and L is a circle. Since dim L<=n-3, its inclusion into S^{n-2} is null. The mapping cone splits off the original rim sphere (and hence its primitive class) and adds the suspension of L. The usual path recursion with bases m=1,2,3 gives exactly the two period-three tables integrally, not just Betti ranks. Read the recurrence from m>=4 when not choosing a P_0 convention. Dihedral symmetry gives the two edge-deletion cases.",
+      "residual_risks": [
+        "The finite homology checks do not certify the integral or all-n conclusions; those follow from the cofiber argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 31 reduces joins of graphs; Proposition 37 treats intact wheels. The rim fault is K_1 joined to a path, whereas the missing-spoke graph is not that cone and has the additional four-cycle constraint when vertex 0 is selected."
+        ],
+        "reasoning": "The known general join theorem covers the rim formula, not the defective-spoke attachment in the submitted new part.",
+        "searches": [
+          "arXiv:2307.13271v3, Lemma 31 and Proposition 37",
+          "Primary literature lookup on forest filtrations and vertex-induced forests of wheels with deleted spokes/rim edges"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact and adjacent records identified above",
+        "Carnero Bravo arXiv:2307.13271v3, Lemma 31 and Proposition 37"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Joining K_1 to P_n gives the rim result using standard path homotopy types; the path formula alone does not identify the missing-spoke hub link as a cofiber."
+        ],
+        "reasoning": "The new conclusion uses the defect-specific two-endpoint exclusion, a double suspension of the shorter path link, and a null attachment to the old rim sphere. Neither intact-wheel information nor the general join reduction makes that identification.",
+        "searches": [
+          "arXiv:2307.13271v3, Lemma 31, Proposition 37",
+          "Frozen RESULT.md lines 48–89 compared with the distinct local cut-complex theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-graph cut theorem concerns facets given by complements of disconnected triples and yields a wedge of n-5 spheres in degree n-3. The frozen complex uses vertex subsets inducing forests and has a sphere in degree n-2 even at n=5."
+        ],
+        "reasoning": "The shared fault graph does not identify these complexes; a disconnected triple is not the obstruction to an induced forest (which includes chordless cycles of several lengths). No equivalence is supplied.",
+        "searches": [
+          "Resultary/local matching record 2026/11/17/SCOPE-one-missing-wheel-spoke-creates-a-wedge-of-n-5-top-dimensional-s--93bd4a365ab0",
+          "arXiv:2307.13271v3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit is this same frozen result; the distinct indexed wheel deletion record reports the three-cut type. The published wheel proposition tabulates the filtration of the intact wheel, not this fault classification."
+        ],
+        "reasoning": "There is no independent exact match among these inspected results; the self-hit is excluded from priority evidence.",
+        "searches": [
+          "Resultary exact and related wheel-fault records: 2026/11/22/SCOPE-spoke-rim-edge-fault-dichotomy-for-induced-forest-complexes-of-w--b2ebf43a17d6 and 2026/11/17/SCOPE-one-missing-wheel-spoke-creates-a-wedge-of-n-5-top-dimensional-s--93bd4a365ab0",
+          "arXiv:2307.13271v3, wheel proposition"
+        ]
+      },
+      "rationale": "Pass for the missing-spoke induced-forest homotopy calculation, with the rim-fault result explicitly credited as an immediate join corollary and used only as a comparison baseline. The strongest inspected distinct wheel-fault result uses a different complex; neither it nor the intact-wheel theorem supplies the endpoint-exclusion link and its ensuing suspension.",
+      "residual_risks": [
+        "An unindexed partial-cone or wheel-defect calculation could anticipate the spoke result; the comparison does not establish exhaustive historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers rim by specialization; not the inspected spoke statement",
+          "evidence": "Join reduction specializes to K_1 joined to a path; the wheel proposition is for the intact wheel.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.13271v3",
+          "material_read": "Section 4.2.1, Lemma 31 (PDF pp. 20–21, text offset 51516); Proposition 37 (p. 24, offset 60300)",
+          "method": "Bounded passages of original OA paper",
+          "title": "The Forest Filtration of a Graph",
+          "trigger": "Same induced-forest complex and intact wheel; general join result could cover either fault"
+        },
+        {
+          "assessment": "Different simplicial complex",
+          "evidence": "Ordinary three-cut complex, with wedge of n-5 spheres in degree n-3, not the induced-forest complex.",
+          "identifier_or_url": "2026/11/17/SCOPE-one-missing-wheel-spoke-creates-a-wedge-of-n-5-top-dimensional-s--93bd4a365ab0",
+          "material_read": "Local mirror RESULT.md finding and complex definition",
+          "method": "Resultary lookup followed by reading local mirrored result",
+          "title": "One missing wheel spoke creates a wedge of n-5 top-dimensional spheres",
+          "trigger": "Same one-spoke-deleted wheel family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md finding and spoke attachment proof"
+      ],
+      "rationale": "The exact non-equivariant integral homotopy type on an unbounded natural graph family distinguishes the only two single-edge fault orbits. In particular it explains how the rim top class survives a spoke fault but disappears after a rim fault, and identifies the complete lower-degree response rather than just an Euler characteristic or a few numerical examples. The rim computation is a useful controlled baseline, not a separate contribution.",
+      "residual_risks": [
+        "Does not identify equivariant types or maps from the intact wheel, nor bounded-degree stages of the forest filtration."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

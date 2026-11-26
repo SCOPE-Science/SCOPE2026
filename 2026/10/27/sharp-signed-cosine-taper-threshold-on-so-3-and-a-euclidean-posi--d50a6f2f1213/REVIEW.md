@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalized \(SO(3)\) Haar angle measure and character formula reduce central positive definiteness to \(A_\ell+bB_\ell\ge0\) for every integer \(\ell\ge0\). Exact integration gives \(F_0=\pi/3\) and \(F_k=2/(\pi k^2)\) for \(k\ge1\); the product-to-sum identity gives \(B_\ell\). For \(\ell\ge2\), the factored expression for \(23A_\ell-8B_\ell\) is nonnegative with unique equality at \(\ell=2\), and the two smaller degrees are strictly positive at the boundary. Every \(B_\ell>0\), establishing both directions for all real \(b\). Peter--Weyl uniqueness proves strict positive definiteness on distinct finite samples despite the single missing sector. Direct elementary radial Fourier integration gives the negative Euclidean witness. The checker reproduces exact identities and 18 direct Haar-character integrals, but finite numerics are not used to assert infinite positivity.
+## correctness
 
-## Originality — PASS under bounded comparisons
-Erb--Filbir (2008), Sections 2 and 4, establish compact-group Bochner theory and examples on \(SO(3)\) but do not specify the signed cosine taper, its sharp \(-8/23\) boundary, or its missing degree-two sector. Lu (2025), Sections 2--3, establishes positivity of unmodulated projective truncated powers, including the quadratic taper, but does not classify this signed multiplier; its sufficient Euclidean-radial transfer route does not subsume the boundary example because its Euclidean radial Fourier transform is negative at frequency radius \(3\). Gneiting's 2011 original arXiv abstract concerns spherical Askey covariances rather than the present noncommutative group spectrum. Indexed research comparisons addressed related circle/sphere oscillatory kernels and Fourier projection norms without implying this theorem. Unindexed prior equivalent calculations remain possible.
+PASS
 
-## Mathematical value — PASS
-The first angular character correction of a canonical compactly supported rotational covariance has an exact full-parameter admissibility boundary, governed by an isolated five-dimensional irreducible (25-dimensional Peter--Weyl) spectral hole. Strict distinct-site interpolation survives its disappearance. Its negative Euclidean Fourier witness demonstrates that the sharp boundary is intrinsically projective/group-theoretic and cannot be obtained merely by restricting Euclidean radial positive-definite tapers. This gives a useful exact model for interpolation and covariance design on rotations, rather than an arbitrary numerical slice.
+Multiplying the normalized Haar angle density by the degree-l character gives [cos(l theta)-cos((l+1)theta)]/pi, and the scalar Fourier coefficient is its profile integral divided by 2l+1. Two integrations by parts give F0=pi/3 and Fk=2/(pi k^2); cosine modulation shifts F by plus/minus one, with the separate k=0 case. B_l is positive for l>=2 term by term as the difference of consecutive inverse squares; the first two B_l are positive by the displayed pi bounds. For l>=2, set y=l(l+1); simplifying the ratio gives A_l/B_l=(y-2)^2/(y^2+2y-2), strictly increasing for y>=6 since its derivative is 6y(y-2)/(y^2+2y-2)^2. At y=6 the ratio is 8/23; direct substitution gives positive boundary coefficients for l=0,1. This proves both directions and the sole vanishing degree. The character series converges uniformly (character coefficients O(l^-3) and sup norm 2l+1), so zero energy implies vanishing measure coefficients in all positive degrees. Any remaining degree-two measure is a finite matrix-coefficient density by Fourier uniqueness, whereas a finite atomic measure cannot be nonzero and absolutely continuous with respect to Haar. The missing sector has dimension 5^2. For the Euclidean check, integration by parts gives J_n=integral of r(1-r/pi)^2 sin(nr) on [0,pi]=(4+2(-1)^n)/(pi n^3). Thus (4pi/3)[J3-(4/23)(J2+J4)]=8/81-9/46=-361/3726, within the specified Fourier convention.
 
-## Scope and remaining risks
-The all-degree proof uses the identity displayed in RESULT.md, not the finite test counts. The spherical and projective baseline literature does not amount to a global novelty certificate. The Euclidean witness concerns the endpoint, not all parameters; the result does not classify other modulation harmonics or groups.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior same-space work already covers b=0 and its exact character-integral framework; another catalogue result already classifies a signed cosine modulation of a different base on a different space. Neither result or inspected primary source implies this signed threshold and its exact boundary spectral and Euclidean conclusions.
+
+## value
+
+PASS
+
+The first cosine is a natural intrinsic modulation of the quadratic rotation cutoff, and a signed parameter calls for more than positive-kernel product closure. The exact threshold with a single absent Fourier sector distinguishes spectral positivity from strict finite-set positivity. The explicit negative Euclidean witness also rules out explaining this boundary kernel by restriction of its corresponding ambient compactly supported radial profile.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

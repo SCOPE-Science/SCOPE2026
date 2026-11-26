@@ -1,19 +1,21 @@
-# Scientific review: complete-split sink-polynomial shape phases
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The acyclic enumerator follows from the unique transitive ordering of the clique and the \(k+1\) permissible edge cuts for each independent vertex; it counts the additional clique sink exactly when no leaf is a sink. The all-orientations enumerator counts arbitrary tournaments and independently oriented incident edges, with an exact correction for the unique possible tournament sink. Both symbolic formulas agree with direct edge-orientation enumeration in 15 small cases. General coefficient comparisons show that only the degree-two log-concavity inequality can fail; they yield the stated necessary and sufficient conditions. Monotonicity/convexity of a translated binomial-plus-linear polynomial gives the full real-root count. The all-order proof does not rely on finite enumeration.
+PASS
 
-## Originality — PASS, provisional priority
+For a prescribed independent set J of sinks, all incident edges are forced, and the number of allowed residual choices is the number of orientations of G−J (acyclic orientations of G−J in the acyclic case, since no cycle can use J). Expanding z^s=(1+(z−1))^s verifies both enumerators independently: J is either a subset of the independent class or a single clique vertex. In the acyclic case, residual counts for those two types are k!(k+1)^(r−|J|) and (k−1)!k^r; the ordered clique admits exactly one cut per choice of attachment position for an independent vertex. In the unrestricted case the residual counts are 2 to the number of residual edges. Summing gives the displayed formulas. For F=(z+A)^r+C(z−1), a₀ falls and a₁ rises relative to the scaled binomial, so only a₂²≥a₁a₃ can fail; its difference is [r(r−1)A^(r−3)/12][r(r+1)A^(r−1)−2(r−2)C]. This handles r≥3 with r=1,2 automatic. At k=6 the acyclic difference criterion factors as (r−3)(r−8)≥0; at r=3 the unrestricted condition is k≤24(1−2^(−k))², true for 2≤k≤23 and false thereafter by the stated bounds. After translation, y^r+Cy−C(A+1) is strictly increasing for odd r, and strictly convex with negative value at y=0 and positive ends for even r. Nonnegative original coefficients and the constant terms locate the real zeros as stated, including the quadratic's positive discriminant. `python /workspace/replay_checks.py 3` independently deduplicated orientations induced by topological orders and directly counted all orientations in seven finite cases; the proof covers all sizes.
 
-The motivating 2026 sink-polynomial study proves real-rootedness for claw-free and chordal claw-free graphs, and gives general sink-set expansions; complete split graphs with at least three independent vertices are chordal but not claw-free. The 2019 orientation-polynomial paper explicitly covers the four-vertex diamond instance, not the two-parameter coefficient-shape region. A related clique-bouquet result supplies exact polynomials and strictly log-concave coefficients for graphs with one shared hub; its overlap with the star case is excluded by the present restriction \(k\ge2\). Direct statement-and-implication comparison finds no cited theorem determining failure and recovery of log-concavity for the complete-split family. Any priority claim remains provisional because additional unindexed studies may exist.
+## originality
 
-## Value — PASS
+PASS
 
-The result is a sharp two-parameter phase classification for a canonical chordal graph family, beyond the 2026 claw-free guarantees. At clique size six, log-concavity is lost and subsequently recovered as the independent class grows, while real-rootedness never recovers. This distinguishes two different coefficient-shape phenomena and gives compact exact counterexamples, not an arbitrary isolated numerical table or a generic polynomial substitution.
+Credit the sink-set expansion, the resulting routine complete-split enumerator specializations, the diamond case, and the reported claw-free theorems to existing methods or results. The supported distinct claim is the exact coefficient-shape classification, including failure and recovery of log-concavity without a corresponding recovery of real-rootedness, and the comparison between the two orientation laws. The judgement concerns that classification, not priority for the definition or general formula.
 
-## Residual limits
+## value
 
-The result does not cover arbitrary split graphs or find a globally minimal log-concavity counterexample. Only the standard uniform orientation weights are treated. Published general sink-set identities are used as prior background; there is no assertion of newness for the basic definition, the diamond calculation, or claw-free theorems. An independent mathematical audit has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A canonical chordal family separates two common coefficient properties in an exact and reusable way: for clique size six, acyclic log-concavity fails for a finite interval and returns even though real-rootedness cannot return. The two-parameter boundaries and acyclic versus unrestricted comparison are more informative than the enumerator specialization or a single counterexample alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

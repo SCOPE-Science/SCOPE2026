@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:03:24.969274Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof sections 1–6; VERIFICATION.md; verify.py and requirements.txt; separate spectral and certificate computations"
+      ],
+      "rationale": "Convex averaging preserves feasibility and takes the full symmetric stochastic problem to the two edge orbits; it does not imply unrestricted uniqueness. The even mode is 1-my, the ordinary differences have eigenvalue z=1-(m-1)x-y (absent at m=2), and the odd block is E in RESULT.md. Its first column gives a squared lower bound 1/m+m(m-1)(y-1/m)^2. Equality at 1/m forces y=1/m and tr E=0 because the off-diagonal is nonzero and the first column is a maximal singular direction. The remaining z=(m-2)/(2m) is compatible precisely through integer m=7. For the high branch set r=m-1, v=tr(E)/2, s=sqrt(m^2-8m+8), D=2r+s and t=(m-2)/D. Then z=v+(m-2)y/2 and ||E||=|v|+rho with rho=sqrt((1-ry-v)^2+r y^2). At v=0, y=2/D the candidate is feasible, z=rho=t and |1-my|<t. The supporting plane of rho has slopes -s/(m-2) in v and -L with L=r(s-2)/(m-2)>0 in y. Any pair with objective <=t thus has Delta y>=0 and v<=0; for v<0 the two bounds require L Delta y>=(1+s/(m-2))(-v) and Delta y<=2(-v)/(m-2). These are incompatible because (m-2)(1+s/(m-2))/2-L=m(m-s)/(2(m-2))>0. Therefore v=0 and Delta y=0, certifying optimality and invariant uniqueness. The intact all-edge-symmetric walk minimizes max(|1-2p|,|1-p|) at p=2/3, and rationalizing the difference gives the exact penalty and limit 4/9. Independent full-matrix diagonalization at m=2,3,4,7,8,9,12,20,60 agreed to 1e-15; numerical certificate checks at m=8..200 had residual <=4.3e-14. Frozen checker and requirements inspected, not executed.",
+      "residual_risks": [
+        "The numerical checks are finite. Uniqueness is not asserted for non-invariant allocations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Automorphism averaging and edge-orbit reduction apply, but the intact biclique is edge transitive and the deleted one has two orbits. The bridged-cliques complement does not transfer the admissible walk or the SLEM. Vertex conductance bounds are not exact defective-biclique optima."
+        ],
+        "reasoning": "General methods and bounds do not themselves subsume the exact transition; the separate matching record does.",
+        "searches": [
+          "arXiv:0709.0955v1, Corollaries 2.2–2.3 and §§3.1.2, 4.3.1",
+          "arXiv:2111.05816v1, abstract",
+          "Boyd–Diaconis–Xiao (2004), biclique specialization"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and mirrored Findings named above",
+        "Boyd–Diaconis–Xiao (2004)",
+        "Boyd–Diaconis–Sun–Xiao (2006)",
+        "arXiv:0709.0955v1",
+        "arXiv:2111.05816v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "P4 has optimal SLEM cos(pi/4). Rationalizing the mirrored radical branch yields the reviewed exact penalty. At the high-branch candidate the mirrored gradient weights for the three active modes are strictly positive: K>0 and -1<K-A*/r<1 (the upper inequality reduces to m(m-s)>0). Equality therefore forces all three modes active, fixing trace and z. On the low branch equality in the mirrored column bound already pins down the trace and both weights."
+        ],
+        "reasoning": "Invariant uniqueness and the finite penalty formula do not distinguish the findings materially once the companion theorem and proof are read.",
+        "searches": [
+          "Boyd–Diaconis–Sun–Xiao path theorem, Stanford abstract",
+          "Distinct mirrored 2026-10-25 calculation, Proof, offset 2860"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct mirrored Finding uses the same symmetric nonnegative stochastic matrices including holding, identical SLEM, and both branches on n>=3. Its x is the reviewed y, and its y=(2-nx)/(2(n-1)) simplifies to the reviewed x on the radical branch."
+        ],
+        "reasoning": "Renaming the two edge orbits and m as n does not change the result. The later indexed date does not establish historical priority or independent discovery.",
+        "searches": [
+          "Resultary: balanced biclique with one deleted/missing edge, fastest mixing SLEM",
+          "2026/10/25/SCOPE-a-sharp-part-size-eight-transition-for-fastest-mixing-after-one--422e1626e78a/RESULT.md, offsets 0, 2860"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026-10-25 mirrored RESULT.md gives the exact two-branch optimum (not only numerical examples). The 2026-10-13 indexed comparison charges for a matching in an intact biclique and optimizes a continuous-time Laplacian gap."
+        ],
+        "reasoning": "Only the former covers the same exact SLEM, rather than a related allocation or isolated table entry.",
+        "searches": [
+          "Resultary: one-edge failure in bipartite fastest mixing; matching-price frontier on balanced bicliques",
+          "2026/10/13/SCOPE-a-discontinuous-matching-price-frontier-for-fastest-mixing-on-ba--ab43d87936fe"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record dated 2026-10-25 supplies demonstrably equivalent coverage of the substantive m>=3 optimum, weights, 7/8 transition and leading penalty, with the same objective and admissible class. This is a finding about coverage in the inspected corpus, not an inference of who obtained the result first or from whom. The m=2 endpoint is the known P4 theorem. The exact penalty identity and invariant uniqueness are immediate consequences of the matched formula and equality conditions; there is no distinct substantive remainder to pass.",
+      "residual_risks": [
+        "Dates do not resolve the relationship or priority of the two results. The literature comparison is bounded to inspected material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent substantive coverage; no priority conclusion",
+          "evidence": [
+            "Same feasible class, same radical and small-size branches, optimizer after swapping labels, same three active modes and leading penalty."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-part-size-eight-transition-for-fastest-mixing-after-one--422e1626e78a/RESULT.md",
+          "material_read": "Finding and scope, spectral and optimality arguments, limitations (offsets 0, 2860, 7085)",
+          "method": "Local indexed mirror, bounded excerpts",
+          "title": "A sharp part-size-eight transition for fastest mixing after one bipartite edge failure",
+          "trigger": "Exact-looking indexed match"
+        },
+        {
+          "assessment": "Intact baseline and symmetry, not edge deletion",
+          "evidence": [
+            "One common cross-edge probability for intact K_{m,n} gives balanced optimum 1/3."
+          ],
+          "identifier_or_url": "https://www.stat.berkeley.edu/~aldous/206-RWG/RWGpapers/boyd.pdf",
+          "material_read": "PDF p. 19, offset 59718",
+          "method": "OA PDF passage",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Foundational SLEM and intact biclique"
+        },
+        {
+          "assessment": "Exact path special case established by accessible statement",
+          "evidence": [
+            "Symmetric tridiagonal optimum SLEM cos(pi/n)."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/fmmc_path.html",
+          "material_read": "Author-hosted abstract, offset 575",
+          "method": "OA author page; DOI full text returned 403",
+          "title": "Fastest Mixing Markov Chain on a Path",
+          "trigger": "m=2 is P4"
+        },
+        {
+          "assessment": "Established method and related exact families",
+          "evidence": [
+            "Treats intact K_{m,n} and bridged cliques, whose three edge orbits do not correspond to the deleted biclique walk."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0709.0955v1",
+          "material_read": "Corollaries 2.2–2.3, §§3.1.2, 4.3.1, PDF pp. 7, 9–10, 18",
+          "method": "OA PDF passages",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Same graph methods, intact biclique and complement"
+        },
+        {
+          "assessment": "Accessible result is not the defective-biclique optimum",
+          "evidence": [
+            "Mixing-time bounds via vertex conductance and near-uniform measures."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2111.05816v1",
+          "material_read": "PDF p. 1 abstract",
+          "method": "OA PDF passage",
+          "title": "Geometric Bounds on the Fastest Mixing Markov Chain",
+          "trigger": "General bounds"
+        },
+        {
+          "assessment": "Different problem",
+          "evidence": [
+            "Continuous-time Laplacian gap with a price on a perfect matching of an intact graph."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-a-discontinuous-matching-price-frontier-for-fastest-mixing-on-ba--ab43d87936fe",
+          "material_read": "Mirrored finding, offset 0",
+          "method": "Local indexed mirror",
+          "title": "A discontinuous matching-price frontier for fastest mixing on balanced bicliques",
+          "trigger": "Related indexed biclique result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, branch, uniqueness and penalty statements; intact biclique baseline and equivalent indexed transition"
+      ],
+      "rationale": "The underlying mathematical fact is worthwhile: removing one cross edge activates a different spectral constraint at a sharp part size, and the exact quadratic-order loss quantifies the robustness of fastest mixing to the first edge failure. A fixed-size SDP or the intact graph optimum does not supply that uniform classification. This scientific value does not make the separate equivalent coverage original.",
+      "residual_risks": [
+        "Value is for the structural mathematical result, not a separate scientific contribution from restating the matched theorem. It does not predict mixing with multiple deleted edges."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

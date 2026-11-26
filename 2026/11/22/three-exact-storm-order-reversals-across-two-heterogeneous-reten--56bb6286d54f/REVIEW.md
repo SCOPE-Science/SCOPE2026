@@ -1,15 +1,21 @@
-# Mathematical review: three storm-order reversals in parallel retention stores
+# Independent mathematical audit
 
-## Correctness
-PASS. The stated two-pulse capped-store recurrence yields one affine comparison for the first roof and five exact affine branches for the second. Their weighted sum has precisely the three rational interior zeros shown, each a strict sign change. A separate three-case argument shows the single-store sharp impossibility of two or more strict order reversals. The exact-rational checker replays the model, independently checking each branch and four sign witnesses; the exhaustive symbolic branch argument establishes the infinite parameter \(s\in[0,1]\) conclusion.
+## correctness
 
-## Originality
-PASS on inspected evidence, with provisional historical priority. The observational green-roof research of Paus and Braskerud (2024), probabilistic event-chain analysis by Raimondi and Becciu (2020), and comparative roof experiments by Ashitey et al. (2023) motivate antecedent saturation and heterogeneity but do not state the exact aggregate sign pattern. The closest inspected mathematical publication proves a periodic three-depth ordering property for a *single* store, a different object. Prior single-roof two-storm comparisons already establish the one-roof obstruction; that component is not claimed new. The claim is specifically the sharp two-type construction of three strict sign reversals. An uninspected abstract fluid-storage theorem might cover the result.
+PASS
 
-## Value
-PASS. Combining roofs with different capacities and recession rates breaks a one-roof single-crossing heuristic; the example is the smallest possible parallel system to exhibit the triple-reentrant ranking. Exact onset and exit fractions provide a reproducible structural counterexample relevant to assessing heterogeneous roof aggregation. It is not presented as a field-calibrated stormwater design rule.
+The matched initial state is s times each roof's own capacity, with the same q within that roof for both drying intervals. Set z=qCs and use x>y. In one roof, if neither first event fills it, the two second-event overflow arguments differ by −(1−q)(x−y), so the order difference is nonpositive. If even the smaller first event fills it, z≤qC implies both second events also fill it; the difference is zero. In the intervening straddling regime, substituting the first-event caps gives −(1−q)(C−z−y)<0 if qC+y≥C. Otherwise the difference is min(z+x−C,(1−q)z−qy); the first argument is positive, and the second has strictly positive slope. The three regimes occur in order as s increases, hence there is at most one strict sign change on a single roof. I derived all knot candidates by solving the first and unsaturated-second spill equalities, with constant second overflow when the first event fills the store, then evaluated each affine piece by exact mass balance. The four interior knots are 85/108,65/81,5/6,35/36. The five joint-overflow differences have slopes 2/25,−403/25,2/25,47/25,2/25, and none of the knots or endpoints is a zero. Of their five candidate roots only 5/8,635/806,45/47 belong to their pieces. The signs alternate from D(0)=−1/20 to D(1)=3/100. This establishes exactly three distinct strict reversals and the minimality of two roof types for that phenomenon; a finite sample alone would not.
 
-## Limitations
-The model contains instantaneous input pulses, fixed linear drying and ideal capacity clipping. The roof parameters and area weighting are constructive. No upper bound for arbitrary parallel two-roof configurations and no measured hydrological predictive accuracy are claimed. Independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass the heterogeneous two-roof three-reversal construction and the sharp minimal number of types, not the general idea of a capped store or its single-store crossover. The strongest same-day comparator uses precisely the single-store runoff difference after identifying its antecedent absolute water with z=qCs. Its mixed-saturation threshold is the same equality (1−q)z=qB written in the inter-event loss variable. This is material overlap, including a route to the single-roof sign bound; it does not imply the three zero crossings of a positive sum evaluated along two different roof responses. No inspected result gives that aggregation claim.
+
+## value
+
+PASS
+
+The sum of two minimal storage responses is an informative obstruction to transferring a single-roof order rule to aggregated runoff. Matching initial fractional fill and reversing the same two depths keeps the comparison well defined; differing capacities and drying move branch thresholds so one component's negative interval interrupts the other's sign progression. The exact three switches and proof that one component cannot achieve them give a sharp structural counterexample rather than an arbitrary set of simulated curves.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:34:36.786738Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–69 and VERIFICATION.md",
+        "Frozen checker.py inspected, not executed",
+        "/workspace/branches/369efa64-5e6f-4d58-b2ff-185f0814ef40/replay_independent.py",
+        "/workspace/branches/369efa64-5e6f-4d58-b2ff-185f0814ef40/replay_output.txt"
+      ],
+      "rationale": "At strict face data the face equality projection continues to satisfy all KKT conditions in a neighborhood: the positive supported coordinates and positive complementary multipliers vary continuously. The offsets 0 and 1 already connect the bipartite support graph; changing the sign on the column-vertex rows makes B a grounded incidence matrix with full row rank. Consequently the derivative is the zero extension of the orthogonal cycle-space projector Q, and its max-entry operator norm is the maximum absolute row sum. Simultaneous translation covers each edge-displacement orbit, so there are exactly 440 rows to test. Full support independently yields the tensor square of the centering projector and hence 4(1−1/n)². A fresh exact rational replay verifies strict inequality for every proper width through n=12, the unique exception (13,7), its fraction and gap, and the sign-direction witness at step 1/1000, including the exact reported positive KKT margins. The choice of step also has a qualitative margin check: the supported displacement is at most √91 by orthogonal contraction, and a missing edge's extrapolated equality-normal change is a signed sum of at most 25 supported edge values along a bipartite path, each bounded by √91. Thus the step preserves both the positive 1/7 supported coordinates and the unit complementary slack in the starting multipliers. The positive-data ratio is a global lower bound, not an exact global norm or an unrestricted first dimension.",
+      "residual_risks": [
+        "The newly run calculation verifies this finite range, not eventual behavior or arbitrary support graphs. The projector reduction is justified analytically, not inferred from the replay."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general active-constraint formulas yield the matrix for a specified face, not its sign pattern or maximum absolute row sum.",
+          "The indexed dimension-12 departure is explicitly scoped to a different three-block family."
+        ],
+        "reasoning": "The three-block result would matter to an unrestricted first-dimension claim, which is not made. The general Jacobian theorem supplies the setup but not the sharp comparison.",
+        "searches": [
+          "Li–Sun–Toh arXiv:1702.05934, §2, equations (5),(8) and Theorem 1",
+          "Resultary 0b9d63c07c36, Finding and Relationship to prior work"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0b9d63c07c36 (Finding and prior-work passage)",
+        "arXiv:1702.05934 §2",
+        "arXiv:1312.2946 p. 2",
+        "doi:10.1137/15M102825X (access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior formulas give inverse-Gram or Green-function entries without the cancellation and sign information needed to sum absolute values.",
+          "The exact band claim requires comparison over all widths through dimension thirteen and does not follow from a single nonband witness or the allusion to a later departure."
+        ],
+        "reasoning": "Being able to evaluate a matrix for any support is not a sharp theorem about when it first exceeds another matrix norm. The substantive finite evaluation and uniqueness, not a generic projector identity, are accepted.",
+        "searches": [
+          "Li–Sun–Toh arXiv:1702.05934, §2",
+          "Kassel–Wu arXiv:1312.2946, transfer-current definition",
+          "Resultary 0b9d63c07c36, prior-work passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph gradient projection is a transfer-current operator, so the cycle-space row absolute sums can equally be expressed using its complement.",
+          "The indexed three-block record has the same norm comparison, but three complete blocks plus matchings, not consecutive cyclic displacement bands."
+        ],
+        "reasoning": "Equivalent projection and graph terminology is already known; the change of language does not establish the special row evaluations. A different support graph's norm is not the same invariant.",
+        "searches": [
+          "Cyclic-band Birkhoff projection exact norm 3745290244/1096631627",
+          "arXiv:1312.2946 transfer-current kernel",
+          "Resultary contiguous cyclic-band coordinatewise instability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The fraction searches returned no relevant tabulation. The prior indexed passage says only that a related contiguous cyclic-band analysis yields a later within-band departure."
+        ],
+        "reasoning": "The allusion cautions against claiming the general band phenomenon itself as new, but does not document a table or separate prior source of the exact comparison. The keyword miss is not evidence of nonexistence.",
+        "searches": [
+          "Resultary exact exceptional fraction and cyclic-band boundary",
+          "Public exact fraction and cyclic-band projection query",
+          "Resultary 0b9d63c07c36, band passage around offset 8809"
+        ]
+      },
+      "rationale": "Credit prior general active-face calculus, transfer-current machinery, and the earlier indexed proof of a first departure for a distinct nonband support family. That record also explicitly alludes to a related contiguous cyclic-band analysis with a later departure, but supplies no attribution, dimension, width, norm, or certificate for the band comparison. This is a material priority caveat for the broad idea of band departure, not established coverage of the exact finite cutoff, unique exceptional width and attaining pair. The pass is for those exact supported claims.",
+      "residual_risks": [
+        "The earlier dated record's unreferenced mention may point to this same band work or another earlier treatment; it does not establish the exact content or priority of that treatment.",
+        "Older exact electrical-network or convex-projection computations may not be indexed under these terms."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct support family, with unresolved allusion to related band work",
+          "evidence": "A related independent analysis of contiguous cyclic-band supports yields a later within-band departure; no source, exact dimension or exceptional width is given in that passage.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-three-block-face-forces-sharp-coordinatewise-instability-in-bi--0b9d63c07c36/RESULT.md",
+          "material_read": "Finding and prior-work passage (offset 8270 onward), snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and bounded local-mirror passage read",
+          "title": "A three-block face forces sharp coordinatewise instability in bistochastic least-squares projection",
+          "trigger": "Same projection and benchmark; materially related mention of the band case"
+        },
+        {
+          "assessment": "Prior method, no finite cutoff in inspected statements",
+          "evidence": "The formula uses active constraints of a polyhedron to construct its generalized projector Jacobian.",
+          "identifier_or_url": "https://arxiv.org/abs/1702.05934",
+          "material_read": "§2, pp. 4–5, equations (5),(8), Theorem 1, OA offsets 11870–20160",
+          "method": "Bounded lawful OA passage read",
+          "title": "On the efficient computation of a generalized Jacobian of the projector over the Birkhoff polytope",
+          "trigger": "Same projection and general active-face Jacobian"
+        },
+        {
+          "assessment": "Prior graph formalism; no band comparison in inspected passage",
+          "evidence": "The transfer current is defined via a Green-function difference.",
+          "identifier_or_url": "https://arxiv.org/abs/1312.2946",
+          "material_read": "p. 2, transfer-current definition at OA offset 5902",
+          "method": "Lawful OA passage read",
+          "title": "Transfer current and pattern fields in spanning trees",
+          "trigger": "Equivalent graph edge-gradient projector formulation"
+        },
+        {
+          "assessment": "No finding of coverage or noncoverage on this evidence",
+          "evidence": "Full-text access was not established.",
+          "identifier_or_url": "https://doi.org/10.1137/15M102825X",
+          "material_read": "No paper passage; article identity only",
+          "method": "Bounded lawful OA attempt, unavailable; no repository copy located",
+          "title": "Projection onto a Polyhedron that Exploits Sparsity",
+          "trigger": "Cited sparse polyhedral projection comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and §§1–4",
+        "Exact rational replay output",
+        "Resultary 0b9d63c07c36, contrasting nonband family"
+      ],
+      "rationale": "Consecutive equal-width bands are a canonical nested family of supports, and full support is the natural tensor-product stability benchmark. The first reversal tests a plausible monotonicity heuristic about sparsifying active support. The exact small excess, unique width and explicit strictly positive pair separate a genuine finite instability from roundoff or from an artifact of nonpositive data. The exact cutoff is useful for this structured support family, independently of the earlier nonband example.",
+      "residual_risks": [
+        "No all-face cutoff, all-dimensions classification or exact global operator norm follows from this review."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

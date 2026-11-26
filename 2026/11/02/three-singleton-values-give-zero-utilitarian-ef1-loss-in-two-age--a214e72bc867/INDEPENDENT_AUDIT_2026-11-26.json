@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:22:31.318359Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, proof and scope, lines 16–67",
+        "VERIFICATION.md and verify.py inspected, not run",
+        "Teh, arXiv:2609.01580v1, §3.6, Theorem 3.8"
+      ],
+      "rationale": "I reconstructed the all-real, all-length proof. Both signs in a common alphabet of size at most three leave at most one unequal same-sign value pair u>v. Equality of totals gives equally many of its two orientations, so assigning each unequal item to the higher valuer produces the same nonnegative own-bundle comparison advantage Δ for both agents. For tied items the signed lower-sum-for-goods/higher-sum-for-chores rule reduces the magnitude when the sign of the difference is preserved; on a strict crossing or departure from zero the new item supplies the correct-side deletion witness. Thus either positive total envy gap is at most the magnitude of the signed common-item difference, which one legal deletion can repair. The source's strict d>E₂ (and symmetric inequality) can be equality at Δ=0; the weak inequality suffices. Itemwise maximization proves utilitarian optimality, including for negative unequal values; the scan takes linear arithmetic operations, and the optimum is at least 1 by allocating everything to either agent. Independently for Teh's family in units of 1/3, write s for agent 1's number of ordinary goods minus ordinary chores, and z∈{0,1} for receipt of the balancing good. Welfare is 3+s−z and agent 2's envy gap is 2(s+2z)−3. Even the largest legal deletion (at most 1 when z=0 and 2 when z=1) forces s≤2 or s≤0, respectively. The value 5 is realized with two ordinary goods and no chores or balancing good for agent 1; unrestricted welfare k+4 is itemwise optimal. Both agent totals equal 3 in these units.",
+      "residual_risks": [
+        "Linear bound is in arithmetic/comparison operations, not a bit-complexity guarantee."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aleksandrov–Walsh prove EF1-by-parts and maximum summed utility for the alphabet {−α,0,β}.",
+          "Teh's WEF1 existence theorem does not impose exact welfare maximization; his construction is an explicit separation even with fPO."
+        ],
+        "reasoning": "The zero-inclusive theorem covers the two-signed-level overlap, but cannot contain two distinct nonzero values of one sign and a third of the other. The two-types nonnegative-goods problem cited by the source also does not cover the stated mixed domain.",
+        "searches": [
+          "Aleksandrov and Walsh, arXiv:2007.04129, §7.1, Theorem 4",
+          "Teh, arXiv:2609.01580v1, Theorems 3.1 and 3.8",
+          "Ma et al., arXiv:2509.09641, source record's related-work comparison"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting files",
+        "Teh arXiv:2609.01580v1",
+        "Aleksandrov–Walsh arXiv:2007.04129",
+        "Resultary SCOPE-0ba5a21d2f34 and SCOPE-29d907b084eb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Teh's WEF1 optimum 5/3 may be fPO and still loses to unrestricted (k+4)/3.",
+          "Aleksandrov–Walsh's proof does maximize the sum, but only on its zero-inclusive ternary domain."
+        ],
+        "reasoning": "The present theorem adds an implication from equal totals and three nonzero levels to simultaneous itemwise highest-valuer assignment and EF1. Neither existence with Pareto efficiency nor the restricted prior utilitarian theorem entails it.",
+        "searches": [
+          "Teh Theorem 3.8 and accompanying fPO assertion",
+          "Aleksandrov–Walsh Theorem 4 and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-0ba5a21d2f34 requires identical ±1 utilities and counts WEF1 allocations; SCOPE-29d907b084eb is a three-agent positive-goods ex-ante lottery obstruction with EFX-and-PO support.",
+          "Equal entitlements convert Teh's WEF1 to EF1; the exact fixed four-level contrast is in Theorem 3.8."
+        ],
+        "reasoning": "Neither relabelling nor the EF1/WEF1 normalization identifies either indexed theorem with the heterogeneous three-level guarantee; the lower-bound half is credited to Teh.",
+        "searches": [
+          "Resultary semantic comparisons for normalized two-agent common-sign three-level mixed-manna EF1 and WEF1",
+          "SCOPE-0ba5a21d2f34",
+          "SCOPE-29d907b084eb",
+          "Teh, arXiv:2609.01580v1, §3.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest indexed exact census concerns identical ±1 valuations; the available exact welfare-bound family has four levels."
+        ],
+        "reasoning": "This is a uniform theorem for arbitrary lengths and arbitrary real magnitudes, rather than a finite table entry. The plausible exact preceding claims were checked as statements, and neither supplies the three-level transition on its positive side.",
+        "searches": [
+          "Resultary related findings SCOPE-0ba5a21d2f34 and SCOPE-29d907b084eb",
+          "Teh §3.6 and Aleksandrov–Walsh §7.1"
+        ]
+      },
+      "rationale": "The verified prior result is the four-level obstruction, not the three-nonzero-level zero-loss guarantee. The closest positive theorems and indexed records cover different valuation domains or different objectives; none of those inspected implies the stated ordinary-welfare claim.",
+      "residual_risks": [
+        "Bounded indexed and literature comparison, not a priority guarantee; an unindexed equivalent or more general theorem could remain."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of four-level sharpness, not the positive three-level theorem",
+          "evidence": [
+            "Fixed ±1/3, ±2/3 alphabet, normalized equal-entitlement common signs, OPT=(k+4)/3 and OPT_WEF1=5/3; latter achieved with fPO."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.01580v1",
+          "material_read": "§3.6, Theorem 3.8 and proof, PDF pp. 13–14, text near offset 48300",
+          "method": "OA PDF passage inspection",
+          "title": "Weighted Fair Division of Indivisible Mixed Manna",
+          "trigger": "Exact attributed sharpness and WEF1 efficiency overlap"
+        },
+        {
+          "assessment": "Prior coverage of corresponding two-nonzero-level overlap only",
+          "evidence": [
+            "Alphabet {−α,0,β}; EF1-by-parts, with maximum utility sum by maximizing each item contribution."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2007.04129",
+          "material_read": "§7.1, Theorem 4 and proof, PDF p. 11, text near offset 33200",
+          "method": "OA PDF passage inspection",
+          "title": "Two Algorithms for Additive and Fair Division of Mixed Manna",
+          "trigger": "Potential earlier welfare-optimal ternary EF1 theorem"
+        },
+        {
+          "assessment": "Related, not equivalent",
+          "evidence": [
+            "Identical +1/−1 values on each item; counting WEF1 allocations rather than handling heterogeneous same-sign magnitudes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-two-agent-wef1-census-and-an-entitlement-sign-entropy-tran--0ba5a21d2f34",
+          "material_read": "Original Finding",
+          "method": "Local mirror text inspection",
+          "title": "Exact two-agent WEF1 census and an entitlement-sign entropy transition",
+          "trigger": "Closest indexed two-agent mixed-manna WEF1 census"
+        },
+        {
+          "assessment": "Related cardinality, different claim",
+          "evidence": [
+            "Three agents and four positive goods, ex-ante EF lottery with EFX-and-PO support."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-three-singleton-value-levels-are-necessary-and-sufficient-for-fa--29d907b084eb",
+          "material_read": "Original Finding",
+          "method": "Local mirror text inspection",
+          "title": "Three singleton value levels are necessary and sufficient for a fairness obstruction",
+          "trigger": "Closest indexed same-cardinality fairness threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof",
+        "Teh Theorem 3.8"
+      ],
+      "rationale": "Zero loss versus unbounded loss is a meaningful sharp threshold for the price of EF1 in the same normalized sign-agreeing model. The proof isolates why the single directed comparison type can be assigned efficiently without sacrificing fairness, and makes a linear constructive guarantee, not just existence. It does not re-claim the four-level witness.",
+      "residual_risks": [
+        "The guarantee is deliberately limited to two agents and the common three-level alphabet."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

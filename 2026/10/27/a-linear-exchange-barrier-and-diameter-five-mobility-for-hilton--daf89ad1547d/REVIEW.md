@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement uses unordered three-element subsets of \([n]\), with \(n\ge7\), and defines a batch move solely by endpoint set difference. The classification of all maximum nontrivial intersecting triple families is an existing published theorem: Polcyn–Ruciński, arXiv:1608.06114v1, Theorem 2 and Theorem 4(ii). The proof separately compares triangle/triangle, center-equal Hilton/Hilton, center-distinct Hilton/Hilton, and triangle/Hilton pairs, bounding all overlaps by \(2n-4\). Equality precisely identifies the Johnson-layer and bridging edges. Degree and total counts follow by explicit incidence counting. Constructive paths prove diameter at most five; disjoint base triples and disjoint-support Hilton/triangle pairs prove every vertex has eccentricity five. Two independent finite scripts, replayed from their actual package paths, agree on all complete tested instances. Risk: the infinite theorem relies on the cited equality-classification result, not on finite enumeration.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The Hilton–Milner bound and equality types are **not** claimed as new. Polcyn–Ruciński (2016) and Kostochka–Mubayi (2016) classify high-cardinality intersecting families but do not provide the global batch exchange threshold or describe the diameter-five graph. Bonsma's independent-set reconfiguration uses a different model. Targeted literature and mathematical-record searches for extremizer exchange, Hilton–Milner transformations, and Kneser-family reconfiguration identified no covering claim. An indexed 2026 calculation concerns diversity and degree bounds in small triple systems, not exchange graphs. The claim is an original combination of a sharp overlap analysis and global graph-distance proof, rather than a mere restatement of the known equality types. Risk: unindexed or differently named prior analyses may cover these properties; search failure does not establish absolute novelty.
+PASS
 
-## Mathematical value — PASS
-A classical extremal classification alone does not quantify how optimal families can move while never ceasing to be optimal and nontrivial. The exact barrier \(n-4\) increases with ground-set size, while the first nonempty exchange graph is unexpectedly regular, connected and of constant diameter five. The Johnson-layer decomposition supplies a structural model reusable for studying constrained extremizer motion and contrasts with single-edge reconfiguration. These natural global invariants require cross-type overlap calculations and explicit paths, not just an extremal count. The result is restricted to triples and batch exchanges, and no claims for larger uniformity are made.
+Re-audit of the complete corrected RESULT.md in repairs/4: the theorem is unchanged. The frozen proof incorrectly claimed that with bridge triangle {x,y,z}, y in T and z outside T, the two y-layer special triples had Johnson distance at least two. For n=7, x=1, S={2,3,4}, T={5,6,7}, y=5, z=2, the bridge-side {1,2,6} and goal-side {1,6,7} are at distance one. The corrected proof requires only distance at least one: disjoint mandatory pairs {x,z} and T minus {y} cannot fit together in one triple. Since the x-side also needs to insert y into S, at least two Johnson moves in total are still necessary. If z lies in T, both y and z must be inserted on the x-side. Any path of length at most four to A(T) needs a two-edge change of center to a center in T plus its final edge; it can therefore use at most one Johnson move, a contradiction. Between disjoint triangles at most four steps would either use a single common center or an intermediate triangle sharing two elements with each endpoint, both impossible. For the upper bound within a center use Johnson distance at most three; between centers insert one desired center into the starting special triple, bridge through the triangle formed with a retained point, then choose a special triple meeting the target so at most two Johnson moves remain. The triangle-to-triangle and mixed routes give at most five using the exact adjacency rules. Inclusion–exclusion on pairs in a fixed center layer gives the stated same-center and mixed overlaps; direct bounds for distinct centers and triangle pairs are all strict below 2n-4. The equality types from Hilton–Milner exhaust the vertices even at n=7; the two equality overlap cases give degree 3(n-3), and label count plus handshaking give both totals. Independently replayed n=7 from the defining triple families in branches/1f1f1d1b-ae1a-4c4b-89bf-5cf3ec32458b/n7_hilton_milner_exchange_check.py and its .out: minimum exchange 3, 175 vertices, 630 fixed-center edges, 420 mixed edges, no other edges, and all 175 eccentricities 5. This finite replay does not replace the corrected all-n path and overlap proof. Frozen evidence was preserved.
 
-## References and remaining limitations
-Polcyn–Ruciński, arXiv:1608.06114v1 (complete accessible HTML, main theorems and proof inspected); Kostochka–Mubayi, arXiv:1602.01391 (accessible full text, relevant introduction and structural discussion inspected); Bonsma, DOI:10.1002/jgt.21992 (abstract and model inspected). Finite scripts support, but do not replace, the analytic universal proof. No independently performed scientific review is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired proof leaves the same exchange-graph finding. The classical extremal classification and triangle examples are not new; the exact batch threshold, adjacency and all-vertex eccentricities of the restricted optimum graph remain distinct from the compared results.
+
+## value
+
+PASS
+
+The quantitative contrast is substantive: every nontrivial optimal state is isolated until exchanges grow linearly in n, yet the first admissible graph is regular and every vertex has maximum distance exactly five. The Johnson-layer and triangle-incidence rules explain this jump and give explicit transformations, beyond the classification of isolated extremizers. The repaired proof preserves this interpretation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

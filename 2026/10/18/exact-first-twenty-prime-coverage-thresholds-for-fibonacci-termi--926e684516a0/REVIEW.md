@@ -1,12 +1,21 @@
-# Scientific review: finite prime coverage of terminal blocks
+# Independent mathematical audit
 
-## Correctness
-PASS. The admitted blocks are precisely the semi-proper symbols `S=(0)` and `D=(0,1)`. The complete word count at length \(m\) follows a Fibonacci recurrence. The finite sieve reaches every prime up to the claimed sharp cutoff, and the supplied standalone exact checker reconfirms the twenty saturation thresholds, per-level class counts and terminal witnesses. This is an exhaustive finite proof, not extrapolation.
+## correctness
 
-## Originality
-PASS, with residual prior-table risk. The closest cited literature proves fixed-terminal-word distribution and asks about variable-length questions; it does not give the exact first-prime completion table. Searches by numerical values, object and alternate 'coverage radius' formulation identified no covering census. The 2025 original article was only assessed through bibliographic and later-paper context; another exact computation may exist.
+PASS
 
-## Value
-PASS. The complete first-twenty length frontier is a natural finite coverage invariant for a recently studied prime numeration system. Its length-20 entry simultaneously covers 10,946 nontrivial terminal classes and provides a sharp reproducible test case for future quantitative theories. It makes no claim to solve the general shrinking-cylinder asymptotic problem.
+Using the canonical F_1=F_2=1 encoding with a_1=0 and infinite zero padding, parsing zero followed by one as D and other zeros as S is unique and records only complete-block boundaries. The admissible word counts satisfy w_0=w_1=1 and w_m=w_{m-1}+w_{m-2}. An independently written exact checker enumerated the complete prime interval and additionally generated the admissible word sets to test equality, not only the sizes. It reproduced all twenty counts, thresholds and last words. In particular 135,340 primes through 1,803,947 fill exactly 10,946 length-20 classes; DSSDSSSSDSDSSSSS first occurs at that prime. The maximum of the exact first-hit primes proves coverage at the stated bound and failure at all lower bounds. Chang–Verwee Theorems 1.5–1.6 also justify existence for general fixed lengths in this convention.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The distinct claim supported here is the exact twenty-length finite coverage frontier, including the sharp first-hit witnesses, not eventual coverage of fixed classes. The inspected primary source supplies an asymptotic for each fixed word but not these finite maxima. No equivalent table was established by the bounded catalogue and literal-witness searches.
+
+## value
+
+PASS
+
+A sharp coverage frontier and its last-hit witnesses are useful finite benchmarks for algorithms and quantitative predictions near the growing-word problem. The cutoff includes a complete family of 10,946 terminal classes, with both the sharp upper bound and a certified obstruction below it, rather than selected prime examples or approximate frequencies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

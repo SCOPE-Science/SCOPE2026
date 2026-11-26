@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-The Python and C++17 programs in `verification/` each exhaustively classify all \(4096\) labelled binary states on the Dürer graph under synchronous open-neighbor majority. One constructs \(GP(6,2)\) directly and uses indegree peeling; the other uses the published twelve-entry LCF encoding and first-repetition path tracing. The C++17 check also verifies the explicit isomorphism to the generalized Petersen representation. Both complete basin spectra and all first-periodic-entry times agree exactly. The Python check verifies the full dihedral automorphism group and two Burnside incidences. See `verification/replay.txt` for the actual successful transcript.
+## correctness
 
-Execute from the folder containing `RESULT.md`:
+PASS
 
-```sh
-python3 verification/majority_gp.py
-g++ -std=c++17 -O2 -Wall -Wextra verification/majority_lcf.cpp -o majority_check
-./majority_check
-```
+Each input one is counted twice among same-layer neighbor sums and once in the opposite layer. A predecessor of outer-all-one/inner-all-zero therefore has 2A+B>=2n and A+2B<=n. Together they force B=0, A=n. The target is itself fixed by the two same-layer neighbors and complementation commutes with the rule, giving two singleton basins in the entire stated family. For the Dürer census I independently evaluated all 4096 states using pairwise bitwise majority and a fresh first-repeat trace for every start. The sorted cycle suffix uniquely identifies each temporal attractor, grouping both phases of each two-cycle. This reproduced all 15 basin sizes with their multiplicities, the complete entry histogram by period, two consensus basins of 736, and precisely the singleton states 63 and 4032. The witness trajectory 79,263,70,257,64,0 first becomes periodic at update five; at time four it is not periodic, so F^6=F^4 fails while F^7=F^5 holds. Only inner vertices lie on triangles, so the two layers are invariant under automorphisms; every symmetry of the outer cycle extends, and the spokes force its unique extension. The independent quotient computation gave 7 fixed and 31 two-cycle classes and Burnside sums 84 and 372.
 
-The symbolic nonfinite-extension statement, that the two polarized fixed configurations have singleton basins on every simple cubic \(GP(n,k)\) in the stated range, follows from the explicit inequalities in `RESULT.md`, not from enumerating additional circumferences. Finite exhaustive experiments alone would not prove that general lemma. External independent validation has not been carried out.
+## originality
+
+PASS
+
+The closest indexed prior theorem includes the exact recurrent population on the identical graph and expressly excludes the basin and transient questions. Those recurrent totals are context, not a contribution under review. Other records classify basins on different generalized Petersen graphs or with different state alphabets. The isolation proof gives uniqueness of the predecessor, not just a new way to identify an already-known polarized fixed point.
+
+## value
+
+PASS
+
+This supplies precise basin and transient reference data for a named cubic graph in an already studied majority-dynamics family. The exact populations distinguish recurrent abundance from its dynamical reach, and the sharp fixed-only final entry layer is information not present in a period bound. The matching-spoke isolation argument also identifies recurrent states that cannot be reached from any other start, for a natural whole family rather than just the instance audited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

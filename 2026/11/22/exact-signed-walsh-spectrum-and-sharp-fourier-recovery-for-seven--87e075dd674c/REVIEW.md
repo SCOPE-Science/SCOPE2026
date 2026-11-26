@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** On the exact fourteen-edge graph, all \(2^{14}\) orientations are exhaustively checked by two coordinate systems. The complete integer transform is compared against direct signed sums and independently against multivariate coefficient extraction for all 256 cut-space representatives. The fifteen signed histogram entries sum to 16,384; Parseval, all 14 two-edge null motifs, 256 nonzero projection-kernel values and the sharp norm \(281/64\) are asserted by the supplied executable checker. A symbolic translation-averaging argument independently establishes optimality among every linear projection, not only convolution operators. Limit: no arbitrary-order theorem is claimed.
+## correctness
 
-**Originality — PASS within inspected sources.** The 2004 circulant graph work and 2011 asymptotic theory do not supply the fully edge-signed \(C_7^2\) Fourier operator. A published odd-cycle-square result **does** already establish 60 states and its two-winding enumerator, and those facts are not claimed as new. Full-text comparison with that result, with the octahedral degree-one Walsh frame and with the distinct nine-vertex square-ice torus spectrum shows no implication yielding the fifteen-level seven-vertex signed histogram or its optimal endpoint recovery constant. Uninspected extended 2004 and 2007 texts and unindexed equivalences remain specific historical-priority risks. Search non-detection is not proof of absolute priority.
+PASS
 
-**Value — PASS.** The first odd-order simple four-regular cycle square beyond the complete-five-vertex case gives a natural finite ice model whose counting-convolution information loss can be determined completely. Fourteen structurally specified first nontrivial cancellations and a sharp endpoint projection norm quantify both identifiability and stability; the exact 60-state count alone would not suffice. This is a motivated complete finite Fourier classification, not a routine recount of Eulerian orientations.
+The independent bounded enumeration retained exactly the orientations with outdegree two at every vertex and applied the integer Walsh transform in the stipulated ascending-edge coordinates. It reproduced all 15 signed multiplicities, rank 6336, nullity 10048, gap 4, the ±60 extremes, and exactly the two specified families among the 91 two-edge tests. Thus the condition number is 15 and the inverse norm 1/4. Complementing every reversal bit explains the 8192 odd-weight zeros; subtracting gives 1856 even-weight zeros. The cut-space argument uses differences of two Eulerian reversal words, or a translate by one fixed Eulerian word, not the assertion that the ascending-label orientation is Eulerian. The independent inverse transform of the nonzero support reproduced the full kernel histogram and its absolute numerator sum 71936, divided by 16384. A real or complex projection conjugated by any translation maps into the range and fixes it; the average therefore still projects and has no greater norm. Commutation with translations forces the unique Fourier support-indicator projection, whose counting-measure endpoint norms both equal its kernel's absolute sum (281/64).
 
-**Scientific limits.** Originality is bounded by accessible full texts, and external independent mathematical review has not been performed. The script verifies finite exhaustive claims; it does not establish any unclaimed thermodynamic or all-size behavior.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original scope that is supported as distinct is the evaluated independent-sign spectrum, precise weight-two cancellation supports and sharp endpoint projection norm for C7². The orientation count of 60 and aggregate winding statistics are prior and acknowledged; the abstract projection-averaging argument and finite Walsh method are also not new.
+
+## value
+
+PASS
+
+This is the first odd squared cycle beyond the complete-graph C5² case in the odd-cycle-square family. The independent-edge convolution is a natural refinement of two winding counts. In particular, the low-weight census isolates an offset-specific mixed-edge correlation that a uniform winding statistic does not resolve. The full spectrum distinguishes invertible modes from cancellations, and the evaluated optimal norm gives a precise test case for recovery comparisons. The value is in these graph-specific invariants, not the prior count or reuse of the Fourier method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -2,130 +2,69 @@
 
 ## Finding
 
-Let \(p\ge5\) be prime, \(R=\mathbb Z/p^2\mathbb Z\), and \(C=\{(t,t^4):t\in R\}\). For \(s,y\in R\), put
+Let \(p\ge5\) be prime, \(R=\mathbb Z/p^2\mathbb Z\), and \(C=\{(t,t^4):t\in R\}\). For \(s,y\in R\), let \(r(s,y)=\#\{(a,b)\in R^2:a+b=s,\ a^4+b^4=y\}\). Write \(\chi\) for the Legendre character modulo \(p\), with \(\chi(0)=0\), and set
 \[
-r(s,y)=\#\{(a,b)\in R^2:a+b=s,\ a^4+b^4=y\}.
+b=\chi(-1),\quad c=\chi(-3),\quad e=\chi(-6),\quad h=\gcd(4,p-1),
+\qquad L=\frac{p-2+b}{4},\quad H=\frac{p-4-b-2c-2e}{8},\quad u=1+c,\quad v=1+e.
 \]
-Write \(\chi\) for the Legendre character modulo \(p\), including \(\chi(0)=0\), and define
-\[
-b=\chi(-1),\quad c=\chi(-3),\quad e=\chi(-6),\quad
-h=\gcd(4,p-1),\quad
-L=\frac{p-2+b}{4},\quad
-H=\frac{p-4-b-2c-2e}{8},\quad
-u=1+c,\quad v=1+e.
-\]
-The integers \(L,H\) are nonnegative. The **entire** representation-multiplicity spectrum has the following exact, disjoint description; multiplicities with value zero are included.
+The integers \(L,H\) are nonnegative. For each of the \(p^2-p\) unit sums \(s\), the multiset of values of \(r(s,y)\) for \(y\in R\) consists of:
 
-For each of the \(p^2-p\) choices of \(s\) not divisible by \(p\), the counts of \(y\) by the value of \(r(s,y)\), **with coincident values added together**, are given by the multiset
-\[
-\underbrace{\{2,\ldots,2\}}_{pL},\
-\underbrace{\{4,\ldots,4\}}_{pH},\
-\{p+v\},\
-\underbrace{\{v,\ldots,v\}}_{p-1},\
-\{pu\},
-\]
-together with \(p^2-[pL+pH+p+1]\) additional zeros. The displayed notation is a multiset of **values of \(r\)**; when \(v=0\) or \(u=0\), the corresponding terms contribute additional zeros. This multiset has \(p^2\) entries. More precisely, let \(\lambda=8ys^{-4}\) in \(R\). The \(pL\) entries equal to \(2\), and the \(pH\) entries equal to \(4\), come from noncritical residue classes of \(\lambda\bmod p\). At \(\lambda\equiv1\pmod p\), there is one entry \(p+v\), at \(\lambda=1\) in \(R\), and \(p-1\) entries \(v\). At \(\lambda\equiv-8\pmod p\), there is one entry \(pu\), at \(\lambda=-8\) in \(R\), and \(p-1\) zeros.
+- \(pL\) copies of \(2\) and \(pH\) copies of \(4\), from the nonexceptional classes of \(\lambda=8ys^{-4}\bmod p\);
+- one value \(p+v\) at \(\lambda=1\) in \(R\), and \(p-1\) copies of \(v\) at the other lifts of \(\lambda=1\bmod p\);
+- one value \(pu\) at \(\lambda=-8\) in \(R\);
+- \(p^2-[pL+pH+p+1]\) additional zeros, including the other \(p-1\) lifts of \(\lambda=-8\bmod p\).
 
-For each of the remaining \(p\) choices of \(s\), the multiset is: one entry \(p\), exactly \(p(p-1)/h\) entries \(h\), and \(p^2-1-p(p-1)/h\) zeros.
+Equal multiplicities from distinct entries of the list are combined, including when \(u\) or \(v\) is zero. For each of the other \(p\) choices of \(s\), the multiset consists of one \(p\), exactly \(p(p-1)/h\) copies of \(h\), and \(p^2-1-p(p-1)/h\) zeros.
 
-These data determine all target fibers. In particular, the sumset size is exactly
+Consequently
 \[
-|C+C|=(p^2-p)\left[p(L+H)+1+\frac{(p-1)v}{2}+\frac u2\right]
-+p\left[1+\frac{p(p-1)}h\right],
+|C+C|=(p^2-p)\left[p(L+H)+1+\frac{(p-1)v}{2}+\frac u2\right]+p\left[1+\frac{p(p-1)}h\right],
+\qquad E(C):=\sum_{s,y}r(s,y)^2=p^2\bigl(6p^2-8p+3+2(p-1)(p-2)c\bigr).
 \]
-and the ordered additive energy has the closed form
+For a **primitive** additive character \(\psi:R\to\mathbb C^\times\), meaning one of order \(p^2\), the normalized function
 \[
-\boxed{E(C):=\sum_{s,y}r(s,y)^2
-=p^2\bigl(6p^2-8p+3+2(p-1)(p-2)\chi(-3)\bigr).}
+\mathcal E_\psi1(X,Y)=p^{-2}\sum_{t\in R}\psi(Xt+Yt^4)
 \]
-For a nontrivial additive character \(\psi:R\to\mathbb C\) and the normalized extension function
-\[
-\mathcal E1(X,Y)=p^{-2}\sum_{t\in R}\psi(Xt+Yt^4),
-\]
-orthogonality gives the exact constant-input fourth moment
-\[
-\sum_{X,Y\in R}|\mathcal E1(X,Y)|^4=E(C)/p^4.
-\]
+satisfies \(\sum_{X,Y\in R}|\mathcal E_\psi1(X,Y)|^4=E(C)/p^4\). For a nontrivial **imprimitive** character, the same sum instead equals the field quartic energy \(3p^2-3p+1-2(p-1)c\).
 
 ## Assumptions and scope
 
-Every prime \(p\ge5\) is included. Pairs \((a,b)\) are ordered, and \(r(s,y)\) counts every pair, including diagonal pairs. All ring equations are modulo \(p^2\) unless a reduction modulo \(p\) is explicitly indicated. No unproved conjecture, limiting argument, or probabilistic computation is used in the theorem. The energy statement is a constant-input fourth moment, not a claimed sharp extension norm for arbitrary weights.
+Pairs are ordered and include diagonal pairs. Ring equations are modulo \(p^2\) unless a reduction is specified. Fourier sums in the statement use counting measure on \(R^2\). The Fourier identity is for constant input, not a sharp norm assertion for arbitrary weights.
 
 ## Proof
 
-**Reduction to one quartic.** Since \(2\) is invertible in \(R\), every ordered pair with sum \(s\) is uniquely \((a,b)=((s+d)/2,(s-d)/2)\) for \(d\in R\). Direct expansion gives
-\[
-8(a^4+b^4)=s^4+6s^2d^2+d^4.
-\]
-If \(s\) is a unit, setting \(z=d/s\), \(\lambda=8ys^{-4}\), and \(g(z)=z^4+6z^2+1\) reduces \(r(s,y)\) to the number of solutions of \(g(z)=\lambda\) in \(R\).
+**Reduction and lifting.** Parametrize each pair of sum \(s\) uniquely by \(d=a-b\), so that \(a=(s+d)/2\), \(b=(s-d)/2\). Then \(8(a^4+b^4)=s^4+6s^2d^2+d^4\). For unit \(s\), put \(z=d/s\) and \(g(z)=z^4+6z^2+1\). The equation is \(g(z)=\lambda\). Its derivative is \(4z(z^2+3)\). For each fixed target lift, a regular residue root has one lift by the congruence \(g(z_0+pt)\equiv g(z_0)+ptg'(z_0)\pmod{p^2}\). The exceptional target reductions \(1,-8\) are distinct. Over \(1\), the residue root \(0\) gives all \(p\) lifts at the single target \(1\) and nowhere else, and the \(v\) regular roots of \(z^2=-6\) give one lift each for every lift of the target. For the residue value \(-8\), use \(g(z)+8=(z^2+3)^2\); precisely the \(u\) roots of \(z^2=-3\bmod p\) contribute, each with all \(p\) lifts at \(-8\) and nowhere else. All other residue fibers have \(0,2\) or \(4\) regular roots in opposite pairs.
 
-**Residue-field roots and their exceptional lifts.** Modulo \(p\),
-\[
-g'(z)=4z(z^2+3).
-\]
-The critical points are \(z=0\), with critical value \(g(0)=1\), and the \(u=1+\chi(-3)\) solutions to \(z^2=-3\), with critical value \(-8\). The values \(1\) and \(-8\) are distinct modulo \(p\) since \(p\ne3\). Each regular root modulo \(p\) lifts uniquely to a root for each fixed lift of the right-hand side, by the elementary first-order congruence
-\[
-g(z_0+pt)\equiv g(z_0)+pt\,g'(z_0)\pmod{p^2}.
-\]
-At the first critical point \(z=0\), all \(p\) lifts have exactly \(g(z)=1\) in \(R\). The other roots at this residue value are the \(v=1+\chi(-6)\) regular solutions of \(z^2=-6\); these contribute \(v\) to **every** lift of \(\lambda\equiv1\pmod p\). Thus \(r=p+v\) once and \(r=v\) at the other \(p-1\) lifts.
-
-When \(u=2\), the two solutions to \(z^2=-3\bmod p\) each admit a unique Hensel lift \(z_*\in R\) satisfying \(z_*^2=-3\) in \(R\). For every \(t\in\mathbb F_p\), \(g(z_*+pt)=-8\) in \(R\). Hence \(\lambda=-8\) has \(2p=pu\) roots, whereas its other \(p-1\) lifts have no roots. When \(u=0\), every lift has zero roots and the same formula \(pu=0\) applies. All other residue roots are regular and are distributed in pairs \(\pm z\); away from the two critical values, the possibilities are \(0,2,4\) roots.
-
-**Exact counts of two- and four-root residue classes.** For \(z,w\in\mathbb F_p\),
+**Counting the regular residue fibers.** Over \(\mathbb F_p\),
 \[
 g(z)-g(w)=(z^2-w^2)(z^2+w^2+6).
 \]
-The first factor vanishes at \(2p-1\) ordered pairs. The second vanishes at exactly \(p-\chi(-1)\) pairs (a standard nondegenerate quadratic-character sum). Their intersection has \(2u=2(1+\chi(-3))\) pairs, because \(z^2=w^2=-3\). Therefore
+The first factor vanishes at \(2p-1\) pairs, the second at \(p-b\), and both at \(2u\). For the second count, \(\sum_z\chi(z^2+6)=-1\), since \(w^2-z^2=6\) has \(p-1\) solutions by factoring and using \(p\ne2,3\); multiply the sum by \(b\) to count \(z^2+w^2=-6\). Thus the second moment of the \(g\)-fibers modulo \(p\) is \(3p-3-b-2c\), and their first moment is \(p\). Removing the two exceptional residue fibers, of sizes \(1+v\) and \(u\), gives
 \[
-\sum_{\lambda\in\mathbb F_p}\#g^{-1}(\lambda)^2
-=3p-3-b-2c.
+2L+4H=p-(1+v)-u,\qquad 4L+16H=3p-3-b-2c-(1+v)^2-u^2.
 \]
-Also \(\sum_\lambda\#g^{-1}(\lambda)=p\). The two critical values contribute \(1+v=2+e\) and \(u=1+c\) roots, respectively. If \(L\) and \(H\) denote the numbers of other residue values with respectively two and four roots, then
+Solving yields the stated \(L,H\); lifting gives the unit-sum multiset.
+
+**Nonunit sums and sumset.** If \(p\mid s\), the equation becomes \(8y=d^4\). Each of \((p-1)/h\) nonzero fourth powers in the field has \(h\) regular roots, each of which lifts uniquely to each of the \(p\) target lifts. The \(p\) multiples of \(p\) all map to zero, and no other argument does. This proves the second multiset, and counting its positive entries and those for unit sums yields the sumset formula.
+
+**Energy.** Equivalently, the energy counts triples \((s,d,f)\) for which
 \[
-2L+4H=p-(1+v)-u,\quad
-4L+16H=3p-3-b-2c-(1+v)^2-u^2.
+P(s,d,f)=(d^2-f^2)(d^2+f^2+6s^2)=0.
 \]
-Solving yields precisely \(L=(p-2+b)/4\) and \(H=(p-4-b-2c-2e)/8\); this also proves these are nonnegative integers. Each noncritical residue value has exactly \(p\) lifts in \(R\), all retaining its regular root count. These facts prove the unit-\(s\) distribution and locate every exceptional fiber.
+Over \(\mathbb F_p\), each nonzero \(s\) has \(3p-3-b-2c\) solutions by the count for \(g\). At \(s=0\), there are \(1+h(p-1)\) solutions of \(d^4=f^4\). Since \(h=3+b\), the field energy is \(E_p=3p^2-3p+1-2(p-1)c\). On \(P=0\) the gradient of the product vanishes exactly on \(d=f=0\) and at the further intersections \(d^2=f^2=-3s^2\) with \(s\ne0\): away from common zeros, the only singular points of a single vanishing factor come from the line \(d=f=0\) for the first factor, or the origin for the second. The number of singular triples is \(S=p+2(p-1)u\). A regular triple has \(p^2\) lifts solving \(P=0\) in \(R\); a singular triple has all \(p^3\) lifts, as either both factors vanish modulo \(p\) or \(p\mid d,f\) makes the first factor zero modulo \(p^2\). Thus \(E(C)=p^2E_p+(p^3-p^2)S\), giving the claimed expression.
 
-**Nonunit first-coordinate sums.** If \(p\mid s\), both \(s^4\) and \(s^2d^2\) vanish in \(R\), so \(8y=d^4\). The derivative \(4d^3\) is invertible at every \(d\not\equiv0\pmod p\). Each nonzero fourth-power residue modulo \(p\), of which there are \((p-1)/h\), has \(h\) preimages modulo \(p\), and every one of the \(p\) lifts of its target has \(h\) lifted preimages. If \(p\mid d\), then \(d^4=0\) in \(R\); thus the single zero target has precisely \(p\) preimages. This proves the nonunit-\(s\) distribution. Counting the positive fibers gives the claimed exact sumset size.
+**Fourier normalization.** Write \(\psi(x)=\exp(2\pi i jx/p^2)\) with \(j\in R\). Expanding the fourth power and summing the two frequencies gives \(p^4\) precisely for quadruples with both coordinate differences annihilated by \(j\), and zero otherwise. If \(p\nmid j\), this means the differences vanish in \(R\), giving \(p^{-8}p^4E(C)\). If \(j\ne0\) and \(p\mid j\), the differences need only vanish modulo \(p\). Each field quadruple then has \(p^4\) lifts, so the answer is \(p^{-8}p^4p^4E_p=E_p\).
 
-**Energy and independent algebraic check.** Squaring and summing the displayed two per-\(s\) distributions gives
-\[
-E(C)=p^2\left(6p^2-8p+3+2(p-1)(p-2)c\right).
-\]
-An independent derivation is useful. With two difference variables \(d,e\), equality of quartic coordinates at a fixed common sum \(s\) is equivalent to
-\[
-(d^2-e^2)(d^2+e^2+6s^2)=0\pmod{p^2}.
-\]
-Modulo \(p\), the number of triples \((s,d,e)\) satisfying this is
-\[
-E_p=3p^2-3p+1-2(p-1)c.
-\]
-The singular reduction triples (zero gradient of the product) form exactly \(S=p+2(p-1)(1+c)\) points: the line \(d=e=0\) and the additional transverse intersections \(d^2=e^2=-3s^2\) with \(s\ne0\). Every regular reduction triple has \(p^2\) lifts among its \(p^3\) possible lifts, while every singular triple has all \(p^3\) lifts. The count is therefore
-\[
-p^2 E_p+(p^3-p^2)S
-=p^2\left(6p^2-8p+3+2(p-1)(p-2)c\right),
-\]
-agreeing with the fiber-spectrum calculation.
+## Reproducibility
 
-Finally, expand \(\sum_{X,Y}|\mathcal E1(X,Y)|^4\), apply character orthogonality on \(R^2\), and use \(|R|=p^2\): the result is \(p^{-4}E(C)\). This completes the proof.
+For a bounded direct check, for each \(p\in\{5,7,11,13,17\}\), loop over \(s,a\in\{0,\ldots,p^2-1\}\), set \(b=(s-a)\bmod p^2\) with its least nonnegative representative, and increment a counter at \((s,(a^4+b^4)\bmod p^2)\). Include zero counters when comparing each row's multiset. Summing the squared counters gives respectively \(2225,14749,55781,198913,323969\). The corresponding loop at modulus \(p\) gives \(69,115,351,445,849\). For instance the order-five character on \(\mathbb Z/25\mathbb Z\) yields fourth moment \(69\), not \(2225/5^4=89/25\). The comparison of these finite examples is not the universal proof.
 
-## Verification
+## Relationship to prior work and limitations
 
-Run `python3 artifacts/verify.py` from the extracted package directory. The script constructs every ordered pair \((a,b)\) for primes \(5,7,11,13,17,19\), independently builds the entire two-coordinate fiber table, and compares its distribution and additive energy against the formulas. It checks all \(p^4\) targets including those with zero representations. The expected output is included in `artifacts/verify_output.txt`. These finite calculations supplement the universal argument and are not substituted for it.
-
-## Relationship to prior work
-
-González-Riquelme and Oliveira e Silva develop sharp finite-field Fourier extension inequalities and their moment/convolution framework, including the parabola and related quadratic surfaces. The present object is instead a quartic graph over the nonreduced ring \(\mathbb Z/p^2\mathbb Z\), where critical-root lifting creates entire fibers of size proportional to \(p\).
-
-The published note *Exact additive energy of the finite-field quartic graph* determines the quartic-graph energy **over finite fields**; it does not imply this prime-square ring spectrum, which includes exceptional lifts at \(\lambda=1,-8\) and the nonunit-sum stratum. A later note on the invariant quartic-graph extension quotient concerns complex coefficient weights on the field graph, not the ring representation counts. The prime-square cubic graph has also been studied separately; the polynomial degree changes the critical-lift mechanism, so its classification does not contain the quartic result.
-
-## Limitations
-
-This theorem treats prime-square rings with \(p\ge5\), not general composite moduli or higher prime powers. It determines the exact convolution fibers, sumset, additive energy and constant-input Fourier fourth moment, but not the sharp weighted \(L^2\)-to-\(L^4\) Fourier extension constant. An undiscovered treatment of these exact quartic ring fibers in the literature would affect originality. The arithmetic proof, rather than the finite enumerations, is the source of the unrestricted quantifiers.
+Finite-field quartic-energy calculations determine \(E_p\), not the prime-square fibers. The exceptional lifts and nonunit-sum stratum above are specific to the prime-square ring. Finite-field extension moment methods are background, not a novelty claim for character orthogonality. This classification does not cover higher prime powers, general composite moduli, or the weighted extension norm. Exact historical priority is not asserted.
 
 ## References
 
-1. C. González-Riquelme and D. Oliveira e Silva, *Sharp extension inequalities on finite fields*, arXiv:2405.16647v1 (first public 2024-05-26).
-2. *Exact additive energy of the finite-field quartic graph*, public mathematical research record (2026), finite-field formula.
-3. *An arithmetic phase transition in the invariant quartic-curve Fourier norm*, public mathematical research record (2026), invariant-field extension quotient.
+1. C. González-Riquelme and D. Oliveira e Silva, *Sharp extension inequalities on finite fields*, arXiv:2405.16647.
+2. *Exact additive energy of the finite-field quartic graph* (finite-field energy).
+3. *An arithmetic phase transition in the invariant quartic-graph Fourier norm* (weighted finite-field extension quotient).

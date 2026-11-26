@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. For any real interval-BV input, the distributional derivative has a finite signed measure representation as an integral of interior Heaviside jumps, plus a constant. Both normalized one-sided power averages preserve monotonicity and constants. Their compositions therefore map each jump to a monotone output whose variation equals the endpoint difference. The measure triangle inequality reduces the full operator norm to the largest one-jump gain, while actual single-jump inputs attain the gain. Both gain derivatives are computed explicitly; their strictly monotone integral brackets have exactly one zero, proving the constants, strict contraction and equality classification. The \((1,2)\) order difference has a rational logarithm-series certificate. A standalone checker corroborates key identities but is not the infinite-dimensional proof.
+## correctness
 
-## Originality
-PASS with residual historical uncertainty. Targeted searches of indexed mathematical records and primary literature were compared by the implications of their published statements, not by wording alone. Fu–Lu–Yuan (2012) treats the Hardy averaging family and its adjoint in central Morrey/Campanato and related weighted norms. Gogatishvili–Mustafayev (2017) analyzes weighted iterated Hardy/Copson inequalities in Lebesgue spaces and on monotone cones. Neither inspected theorem gives the exact two-order finite-interval real-BV constants, uniquely maximizing jump positions or the explicit asymmetric-order separation. The general ordered-kernel reduction is familiar, and equivalent unpublished or unindexed consequences remain possible. One 2013 Banach-function-space paper was accessible only at abstract level.
+PASS
 
-## Value
-PASS. The finding solves a natural two-parameter sharp stability problem for composing left and right integral averages, distinguishes stability of a single average from that of a two-stage average, and rigorously quantifies how changing order alters the optimal BV contraction. The one-jump rigidity provides a precise worst-case design benchmark. These are intrinsic sharp invariants of a standard smoothing family, rather than a selected numerical slice.
+For a real BV equivalence class, f is a constant plus the integral of h_s=1_(s,1) against Df, whose total variation is the seminorm on the open interval. The two averaging kernels preserve constants and monotonicity (write their arguments as xU and 1−(1−x)U with power-distributed U), so each composed step gain is its output endpoint difference. Fubini and the triangle inequality bound the seminorm by the integral of these gains against |Df|; a step realizes the gain, giving equality for the supremum. For right after left, the endpoints are 1−s^α and β∫_s^1(1−u)^(β−1)[1−(s/u)^α]du. Their difference has derivative αs^(α−1)[β∫_s^1(1−u)^(β−1)u^(−α)du−1]. The bracket is strictly decreasing from a positive limit (the full probability average of u^(−α) exceeds 1, possibly infinitely) to −1. For left after right, the endpoints are 1−s^α+α(1−s)^β∫_0^s u^(α−1)(1−u)^(−β)du and (1−s)^β. The derivative is β(1−s)^(β−1) times 1 minus the corresponding truncated integral with its α factor; this bracket strictly decreases from 1 to a negative limit. Both stationarity equations give the stated interior norm values, strictly between zero and one. A norming |Df| must concentrate at the unique maximizer, yielding exactly the stated single jumps modulo constants. Separately, the one-sided step gains 1−s^α and 1−(1−s)^β approach 1 at their respective maximizing endpoints. For β=1 direct integration gives s=α^(1/(1−α)) or e^(−1). At (1,2), the left-after-right profile is 2s(1−s); the opposite profile at 1/3 is (2/3)log 3−2/9>1/2 by the positive log series. Bisection of 2s−3−2log(s)=0 gave s≈0.301709562684336 and the opposite norm ≈0.512390465153499. Analytic replay: RESULT.md lines 39–71; the bundled checker was inspected, not executed.
 
-## Scope and limitations
-The result uses real scalar \(BV(0,1)\), open-interval distributional variation and the specified normalized power kernels. It does not imply corresponding norms for other function spaces, non-power kernels, higher-stage compositions or arbitrary graphs. Numerical tests are supplementary. Bibliographic priority is not independently validated.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct contribution supported by the comparisons is the exact real BV-seminorm contraction for both orders for general positive power parameters, together with the unique interior jump normers and explicit order asymmetry. General Hardy norm theory and the positive-measure reduction are not claimed as new. The closest indexed two-order Hardy–Copson result concerns an identity error in a different output norm.
+
+## value
+
+PASS
+
+The one-sided normalized averages individually have no strict margin in variation, yet composition in either opposite order does. Exact norms give both the worst jumps and the magnitude of the margin for all positive parameters, and distinguish the two orders even for simple powers. Neither the product of the separate norm bounds nor a qualitative smoothing result gives this information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

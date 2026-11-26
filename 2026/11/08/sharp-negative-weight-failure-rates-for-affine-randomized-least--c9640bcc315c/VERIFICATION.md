@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,10 @@
 }
 ---
 
-# Verification and limits
+# Reproducibility and limits
 
-Run `python3 verify.py` using the Python 3 standard library only. Observed output:
+The accompanying `verify.py` uses standard-library Python 3. Its exact-rational test checks the affine weights and sign-event equivalence. Its numerical rate test compares the uniform error-function formula against composite Simpson integration and locates the stationary point by bisection. The script also includes a check of the previously known three-node probability; that check is not evidence of a new three-node result and is not needed for the rate theorem.
 
-```
-EXACT_RATIONAL_CASES 4648
-P3_BAD 0.321349540849 MONTE_CARLO 0.320833
-LAMBDA_STAR 1.263164403304
-EXPONENTIAL_RATE 0.172761450635
-VERIFY_OK
-```
+For a direct numerical replay of the uniform example, apply the composite Simpson rule with 16,384 equal subintervals of \([-1,1]\) to each of \(e^{-t(x^2-x)}/2\) and \(-(x^2-x)e^{-t(x^2-x)}/2\). Bisect the zero of the latter integral for 50 iterations starting from \([0,2]\), and take the negative logarithm of the former integral at that point. This gives approximately \(t_*=1.263164403304\) and \(I_\nu=0.172761450635\). This floating-point replay is not a rigorous interval enclosure.
 
-Exact fractions test the normal-equation weights, exactness on constants and linear polynomials, and the negative-weight sign-event equivalence at 4,648 configurations. Numerical integration checks the closed three-sample integral and the Gaussian error-function expression for the moment generating function. The numerical derivative locates a unique root on the bracket used by the proof; seeded simulation is illustrative only.
-
-The probability identity for three uniform samples and the exponential rate for every qualifying symmetric law are proved analytically in RESULT.md. No finite test, simulation, log, or numerical optimizer alone certifies the infinite large-deviation claim. The asymptotic conclusion uses a standard Cramér large-deviation theorem; its normalization and requisite strict interior event are explained there. The only decimal constants are reproducibility aids, not interval-rigorous numeric certificates. Independent validation has not been performed.
+The proof of the general asymptotic law uses the independent designated-node event and a Cramér lower bound at strictly negative means approaching zero, followed by the compactness argument for the scalar tilts. No finite check or simulation certifies that law.

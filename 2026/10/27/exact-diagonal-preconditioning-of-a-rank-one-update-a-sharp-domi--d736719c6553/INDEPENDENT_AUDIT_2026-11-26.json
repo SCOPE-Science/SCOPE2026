@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:18:01.198188Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–30, 34–75",
+        "Frozen VERIFICATION.md, lines 19–27; verify.py, lines 12–115; VERIFY_OUTPUT.txt, lines 1–9"
+      ],
+      "rationale": "In the nondominant regime, the polygon construction is available precisely because the longest length u_i² is at most the sum of the others. In the induction proving that lemma the attainable resultant radii form a connected interval when a segment is added; the minimum is the distance of its length to the previous attainable interval, which gives the claimed formula. The resulting Gram matrix H is PSD with trace one, diagonal u_i²/S and Hu=0. For every positive diagonal P the tests with u and H give a common denominator W=Σu_i²p_i in the bounds S(1+S)/W and S/W, proving the ratio bound 1+S attained at identity. In the dominant regime with R>0 the restricted Rayleigh problem on the dominant coordinate and the normalized tail is two-dimensional, and the restricted P is diagonal even for asymmetric tail entries. The off-diagonal correlation magnitude is invariant. The trace-squared/determinant inequality makes equal scaled diagonals optimal on this plane and is strict at identity. The displayed P_* balances them and leaves the orthogonal complement at eigenvalue 1; the lower planar eigenvalue is less than 1 by M>R and the upper is greater than 1, so the full condition number equals the lower bound. The diagonal R=0 and zero-vector cases, threshold equality and signs check directly. In the Jacobi example the lesser planar eigenvalue exceeds 1/2, so the stated ratio uses the correct minimum eigenvalue.",
+      "residual_risks": [
+        "The recorded numerical runs and symbolic sample checks were inspected, not rerun. The Nelder–Mead checks initialize at the claimed optimizer and provide no independent global certificate; the analytic lower bounds certify global optimality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The equal-tail peer optimizes over arbitrary diagonal entries but assumes a restricted input vector. The frozen discussion cites general optimization and optimality characterizations; primary theorem text was not available for the three historical candidates during the targeted comparison."
+        ],
+        "reasoning": "Optimizing over all scaling entries is not the same as allowing arbitrary initial vectors. A general optimization formulation is not itself a closed-form solution; inaccessible characterizations remain residual risks, not contrary evidence.",
+        "searches": [
+          "DOI 10.1007/BF02163327; DOI 10.1137/0722005; DOI 10.1016/S0024-3795(01)00412-8",
+          "Resultary 41a2b7ef2f9a, proof"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 41a2b7ef2f9a",
+        "Resultary d7a54dbe0a54",
+        "DOIs 10.1007/BF02163327, 10.1137/0722005, 10.1016/S0024-3795(01)00412-8 with limitations above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the frozen proof, matching diagonal mass of a PSD witness in the bottom eigenspace gives a certificate even with unrelated tail magnitudes. The upper and lower planar eigenvalues trap the complement in the dominant regime. The Jacobi example illustrates a known type of failure, and the equal-tail optimizer is covered exactly."
+        ],
+        "reasoning": "For the dominant regime an arbitrary tail compresses to a two-dimensional spectrum, but an arbitrary diagonal scale need not preserve that plane: a restricted-Rayleigh lower bound and an attaining full scale are needed. For the nondominant regime the permutation symmetry of the older proof is absent altogether. These steps give a substantive extension, not a restatement of the equal-tail theorem.",
+        "searches": [
+          "Resultary 41a2b7ef2f9a, optimization proof (text offset 4379)",
+          "Frozen RESULT.md, Sections 2–3 and relationship to prior work",
+          "Shapiro and Kolotilina lawful primary-text access attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Absorb the spike strength t into the vector via v=√t u and put D=P^(-1/2). In the equal-tail case of 41a2b7ef2f9a the earlier squared masses become M=ta² and R=t(n−1)b², and its factor in D and correlation give exactly the frozen P_* and ρ on that case."
+        ],
+        "reasoning": "This is exact prior coverage of a genuine subfamily, including the threshold, not merely shared terminology. Coordinate permutations and signs cannot turn an arbitrary tail into an equal-magnitude tail.",
+        "searches": [
+          "Resultary semantic search for rank-one diagonal conditioning, exact threshold and Jacobi scaling",
+          "Resultary 41a2b7ef2f9a, Finding and optimization proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed equal-tail theorem supplies an exact entry for that structural subfamily. The separate Jacobi record supplies a rank-one counterexample family, not the optimized condition number on arbitrary tails."
+        ],
+        "reasoning": "Neither indexed entry is an all-vector formula; the item is a continuous all-vector invariant, not a tabulation of isolated numeric values.",
+        "searches": [
+          "Resultary queries for rank-one exact diagonal optima, localization and Jacobi counterexamples; inspected results 41a2b7ef2f9a and d7a54dbe0a54"
+        ]
+      },
+      "rationale": "Pass restricted to the distinct all-real-vector, arbitrary-tail theorem, especially the nonsymmetric nondominant certificate. The equal-tail one-spike specialization, including its exact optimum and one-coordinate design, is already covered by an earlier Resultary theorem. The general Jacobi-worsening phenomenon is also not new. The earlier one-spike theorem does not extend by a substitution or admissible symmetry to arbitrary tails, and no inspected statement supplies that extension mechanically.",
+      "residual_risks": [
+        "Historical block-scaling theorem text could contain another direct reduction; no priority guarantee. The explicit equal-tail antecedent should be credited when distinguishing the all-vector extension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap on the earlier equal-tail one-spike subfamily",
+          "evidence": "After absorbing t into u, the same masses, optimum and dominant coordinate give the same formula, with tail entries constrained equal in the input.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-an-exact-localization-threshold-for-optimal-diagonal-scaling-of--41a2b7ef2f9a/RESULT.md",
+          "material_read": "Finding (offset 0) and optimization proof (offset 4379), snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and local mirror passages",
+          "title": "An exact localization threshold for optimal diagonal scaling of a rank-one update",
+          "trigger": "Near-exact indexed match to threshold and optimizer"
+        },
+        {
+          "assessment": "Earlier coverage of the phenomenon, not the all-diagonal optimization theorem",
+          "evidence": "Rank-one examples worsen after Jacobi scaling; the warning itself is not a distinct contribution here.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-three-dimensions-are-minimal-for-jacobi-equilibration-to-worsen--d7a54dbe0a54/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "Three dimensions are minimal for Jacobi equilibration to worsen conditioning",
+          "trigger": "Closest indexed comparison to Jacobi example"
+        },
+        {
+          "assessment": "Exact coverage unresolved",
+          "evidence": "No accessible theorem passage obtained; redirect/access failures carry no scientific implication.",
+          "identifier_or_url": "https://doi.org/10.1007/BF02163327",
+          "material_read": "Bibliographic identity; theorem text unavailable",
+          "method": "DOI and publisher article/PDF access attempts; no identified repository copy",
+          "title": "Condition numbers and equilibration of matrices",
+          "trigger": "Classical equilibration reference potentially covering a special form"
+        },
+        {
+          "assessment": "Possible specialized implication unresolved",
+          "evidence": "No primary theorem passage available to determine whether the all-vector closed form follows directly.",
+          "identifier_or_url": "https://doi.org/10.1137/0722005",
+          "material_read": "Bibliographic identity and frozen source discussion, not primary theorem text",
+          "method": "Publisher/DOI access checks",
+          "title": "Optimal Block Diagonal ℓ₂-Scaling of Matrices",
+          "trigger": "Possible general characterization implying the specialized result"
+        },
+        {
+          "assessment": "Possible specialized implication unresolved",
+          "evidence": "Abstract available but not enough to settle coverage of the threshold or optimizer.",
+          "identifier_or_url": "https://doi.org/10.1016/S0024-3795(01)00412-8",
+          "material_read": "Landing-page abstract only",
+          "method": "Lawful primary access check",
+          "title": "Optimally Conditioned Block Matrices",
+          "trigger": "Possible dominating block-optimality characterization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 9–30, 46–75",
+        "Resultary 41a2b7ef2f9a (Finding and proof scope)"
+      ],
+      "rationale": "Solves a natural conditioning problem over independently adjustable diagonal entries, without requiring numerical optimization. In particular, determining whether a scale can help at all, and finding an optimal one-entry change otherwise, is actionable for general real rank-one updates with heterogeneous tails. The polygon certificate explains why even strongly asymmetric scale choices cannot help below the threshold. This is value beyond the already-known one-spike formula and the illustration about Jacobi.",
+      "residual_risks": [
+        "An optimal spectral condition number does not establish numerical runtime gains. No novelty or value is assigned to the known equal-tail subfamily alone."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

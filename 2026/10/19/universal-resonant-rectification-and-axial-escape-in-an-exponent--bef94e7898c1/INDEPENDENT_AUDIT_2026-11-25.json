@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:39:46.763668Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof and limitations, lines 34–115",
+        "Frozen VERIFICATION.md and verify.py (recorded evidence only)",
+        "Repaired RESULT.md and the revised scientific verification notes"
+      ],
+      "rationale": "Rechecked the repaired claim rather than the removed perturbation finding. Expanding V gives y²/2+xy/2+3x²/4+Bx⁴/4; its derivative is exactly −(y²+x²+Bx⁴)/2+ε(y+x/2)cos t. The Young bound with coefficient 1/8 costs (5/2)ε², and V≤y²+x²+Bx⁴. Thus limsup V≤(20/3)ε²<8ε² and every trajectory enters the invariant sublevel V≤8ε² in finite time; this uses the strict gap and not eventual strict inequality at the limsup bound itself. Forward completeness follows for the planar polynomial ODE by coercivity and for z by integration. In the sublevel, x_i²≤(64/5)ε², so B(x₁²+x₁x₂+x₂²)≤3/20. Direct differentiation of the difference form W gives the claimed identity and W′≤−W/4; its norm contracts at rate 1/8. The period map contracts a complete invariant sublevel, giving existence, and absorption upgrades this to global attraction and uniqueness. The half-period symmetry follows by periodic uniqueness. Pairing halves gives the exact signed sinh average, strict for β≠0 since X is not identically zero. The smooth axial observable on the absorbing range transfers the planar error into an absolutely integrable transient whose tail is O(e^(−t/8)). Phase translation preserves the estimates and the period mean, ruling out compact forward-invariant sets in the phase extension for β≠0. At β=0 the mean vanishes and the same expansion in time gives boundedness. The original small-amplitude formula is also correct: the cubic fundamental correction solves L U=−sin³t and is proportional to cos t, orthogonal to sin t; the moment coefficients are 1/2 and 3/8. It is no longer presented as an original result. The archival verification script was inspected, not executed.",
+      "residual_risks": [
+        "The cutoff is a sufficient weak-drive condition only; the estimate is asymptotic in time with an initial-condition-dependent constant. The single-well assumption B≥0 is used in the coercivity and contraction estimates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The matched fiber theorem covers detuned positive parameters and phase, with a smallness threshold depending on fixed parameters and only a local attracting branch. Marti–Leonel discuss symmetry/antiperiodicity without a global exponential-fiber conclusion. Other inspected Duffing-related entries address double-well statistics or the undamped unforced boundary."
+        ],
+        "reasoning": "Broader parameter scope for a locally attracting branch does not dominate the repaired global basin claim. The double-well and Hamiltonian estimates neither imply an absorbing contracting set for this system nor the all-real coherent lift behavior. A covering global Duffing base theorem in inaccessible older work remains possible and is not ruled out by nonretrieval.",
+        "searches": [
+          "Matched Duffing-fiber record, Assumptions and scope and Periodic planar branch proof",
+          "arXiv:2607.05604v3, half-period symmetry discussion",
+          "Chen–Li DOI 10.1088/0951-7715/21/11/001 and Lin DOI 10.1155/2014/317460",
+          "Resultary double-well stationary RMS and unforced Hamiltonian lift records"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 800af0f580fc, a9420b96b4ff, adda5585e9d7",
+        "DOI 10.1002/advs.202204269",
+        "arXiv:2607.05604v3",
+        "Chen–Li and Lin DOI access outcomes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched theorem proves unboundedness on lifts of one local cycle, for every initial fiber height. The repair proves that V≤8ε² absorbs all planar states and that the period map there is a contraction; every phase and every point in the repaired domain therefore has the same nonzero asymptotic speed when β≠0."
+        ],
+        "reasoning": "Extending the height quantifier over a single base cycle is not extending to arbitrary planar states. A local-cycle argument rules out bounded lifts above that cycle but cannot exclude a compact invariant set over distinct base dynamics. The quantitative absorption and contraction supply this missing implication, not a normalization or a finer coefficient from the same calculation.",
+        "searches": [
+          "Matched Duffing-fiber RESULT.md, Finding, Assumptions and scope, and strict fiber drift step",
+          "Liu et al., Eq. (1) and numerical dynamics sections",
+          "Frozen and repaired RESULT.md, absorbing sublevel and contraction estimates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu et al. introduce (x′,y′,z′)=(y,ay+ζx−Bx³+c cos(dt+g), αxe^(βx)). The matched SCOPE record uses positive damping δ, stiffness κ and frequency ω. δ=κ=ω=1 and g=0 identifies it with the same resonant model for positive parameters. In this slice D=(κ−ω²)²+δ²ω²=1."
+        ],
+        "reasoning": "The coefficient αβ[β²D/16−3B(κ−ω²)/4]/D³ therefore becomes αβ³/16, with quadratic coefficient αβ/2. Sign changes in α and β follow from the symmetry formula and do not restore novelty for that local calculation. The distinct quantifier in the repair is all planar initial conditions at a fixed explicit cutoff, not merely equivalence of the selected cycle.",
+        "searches": [
+          "Resultary semantic searches for the Liu exponential Duffing lift, all-initial-data axial escape, and resonant quartic drift",
+          "DOI 10.1002/advs.202204269, Eq. (1)",
+          "SCOPE-positive-exponential-fiber-drift-and-a-sharp-quartic-response-re--800af0f580fc, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Material hit 2026/11/22/SCOPE-positive-exponential-fiber-drift-and-a-sharp-quartic-response-re--800af0f580fc; related entries 2026/10/11/SCOPE-strict-stationary-rms-velocity-ceiling-and-well-minimum-crossing--a9420b96b4ff and 2026/11/22/SCOPE-periodic-cylinder-collapse-and-asymmetric-separatrix-scattering--adda5585e9d7."
+        ],
+        "reasoning": "The first record directly covers the removed perturbation claim; it says there is no claim of convergence from all planar initial conditions. The others are different models. An exact indexed claim covering the repaired global conclusion was not verified; the search is bounded.",
+        "searches": [
+          "Resultary semantic searches by the exact source equation, global weak forcing, exponential axis, and resonant stiffness-independent quartic coefficient"
+        ]
+      },
+      "rationale": "Original assessment: the frozen standalone stiffness-independent quartic response law fails originality, because the explicit general-frequency local-cycle coefficient in the matched record specializes exactly to it. The cycle drift-sign mechanism also overlaps. The delivered repair removes the quartic law from the new claims, credits the local cycle result, and proves the distinct remainder: a quantitative all-initial-data synchronization theorem on an explicit forcing domain, with global axial classification. The matched local result expressly excludes any claim about all planar initial states, so it cannot alone exclude a second base attractor or compact full-space dynamics over another base trajectory. No inspected statement covers the repaired global conclusion. The matched catalogue date does not establish priority or derivation.",
+      "residual_risks": [
+        "Matched local expansion is dated later than the frozen entry; demonstrable coverage is distinct from priority or lineage.",
+        "Inaccessible older Duffing papers and unindexed global stability results may contain a broader applicable theorem. No exclusivity or priority certification is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the quartic law and signed drift on a local branch; explicitly does not assert all-planar-data attraction.",
+          "evidence": "General quartic coefficient with a factor κ−ω² in the stiffness term, local Poincaré-map construction, and positive-drift lift for every initial fiber height on that branch.",
+          "identifier_or_url": "2026/11/22/SCOPE-positive-exponential-fiber-drift-and-a-sharp-quartic-response-re--800af0f580fc",
+          "material_read": "RESULT.md Finding, assumptions, and local-branch and sign proof, offsets 0–4969",
+          "method": "Published record via local mirror",
+          "title": "Positive exponential-fiber drift and a sharp quartic response reversal on forced Duffing cycles",
+          "trigger": "Same exponential Duffing family and exact perturbative overlap"
+        },
+        {
+          "assessment": "Same unidirectional lift; numerical trajectory diagnostics in the inspected discussion do not give the repaired exact weak-drive theorem.",
+          "evidence": "Eq. (1) gives αxe^(βx) as the third equation with no feedback into the Duffing base.",
+          "identifier_or_url": "DOI 10.1002/advs.202204269; PMCID PMC10214267",
+          "material_read": "Open full text §1 Eq. (1) and neighboring discussion, XML offsets 24800–28700; abstract and §2.1 numerical scope",
+          "method": "Lawful Europe PMC full-text XML alternate copy",
+          "title": "Natural Exponential and Three-Dimensional Chaotic System",
+          "trigger": "Primary source of the exact vector field"
+        },
+        {
+          "assessment": "Relevant symmetry background, not global exponential-fiber transport.",
+          "evidence": "Half-period compatibility is discussed as necessary rather than sufficient for existence.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.05604",
+          "material_read": "v3 PDF p. 1 and p. 8, offsets about 935 and 52500",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Marti and Leonel's study of antiperiodicity in a driven Duffing–Holmes oscillator",
+          "trigger": "Half-period symmetry and periodic-response existence background"
+        },
+        {
+          "assessment": "Neither is used as evidence that broader base coverage does not exist.",
+          "evidence": "The inaccessible results concern periodic Duffing solutions or numerical postverification; exact hypotheses of any encompassing result were not verified.",
+          "identifier_or_url": "DOIs 10.1088/0951-7715/21/11/001 and 10.1155/2014/317460",
+          "material_read": "Bibliographic scope and access outcomes; no verified primary full-text theorem",
+          "method": "Lawful direct retrieval attempted; paywall and HTTP 403 respectively",
+          "title": "Bifurcation and stability of periodic solutions of Duffing equations; A Postverification Method for Solving Forced Duffing Oscillator Problems without Prescribed Periods",
+          "trigger": "Plausible broader base existence and stability results"
+        },
+        {
+          "assessment": "Different dynamical settings from the repaired claim.",
+          "evidence": "Neither supplies a global contraction result for the resonant dissipative exponential lift.",
+          "identifier_or_url": "2026/10/11/SCOPE-strict-stationary-rms-velocity-ceiling-and-well-minimum-crossing--a9420b96b4ff; 2026/11/22/SCOPE-periodic-cylinder-collapse-and-asymmetric-separatrix-scattering--adda5585e9d7",
+          "material_read": "Published findings, double-well stationary identities and unforced undamped boundary, respectively",
+          "method": "Published records via local mirror",
+          "title": "Strict stationary RMS velocity ceiling and well-minimum crossing; Periodic cylinder collapse and asymmetric separatrix scattering",
+          "trigger": "Closest other indexed Duffing structural results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, global synchronization and axial asymptotics",
+        "Matched record's expressly local scope",
+        "Liu et al. Eq. (1) and numerical context"
+      ],
+      "rationale": "The repaired theorem answers a global dynamical question that the local cycle calculation cannot: a completely synchronized planar response can coexist with the absence of any compact forward-invariant set for the full lift throughout an explicit, nonzero weak-drive region. It gives the direction of escape, the precise zero-tilt regime, and an exponential transient for all real initial states. This is a qualitative change in permissible full-system behavior, not value assigned to the already covered quartic coefficient or a marginal numerical improvement of a cutoff.",
+      "residual_risks": [
+        "No claim about the source's large-forcing chaotic cases or about a sharp weak-drive cutoff."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

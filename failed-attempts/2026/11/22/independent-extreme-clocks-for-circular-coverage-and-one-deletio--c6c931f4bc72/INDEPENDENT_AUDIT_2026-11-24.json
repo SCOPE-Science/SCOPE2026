@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:21:03.234451Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–49 and the support VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent exact integration and band estimate; Arratia–Goldstein–Gordon (1989), Theorem 2 at printed p. 11, USC author copy"
+      ],
+      "rationale": "Root the cyclic ordering at a designated sampled point (not the first point after a fixed origin); rotation then makes the other n-1 starts iid uniform on the interval, so the n gaps are Dirichlet, represented by iid mean-one exponentials divided by their sum T. This rooting leaves all claimed statistics unchanged. At u=log(n)+x and v=log(n)+log(log(n))+y the two marginal mean counts converge to exp(-x) and exp(-y). Integrating over the common exponential gives the mixed overlap (v-u+1)exp(-v) and the two-sum overlap 2exp(-v)-exp(-2v); n times each tends to zero. Disjoint supports are independent, and the finite-index Poisson process approximation therefore gives independent limiting type totals. T/n changes both thresholds by o_P(1); the probability of an exponential or gamma-two value in either resulting threshold band is bounded by the expected count in deterministic bands of width 2 epsilon plus the normalization error probability. The band term is O(epsilon) by the respective densities. Both zero counts give exactly the joint maxima event. For equal clockwise closed arcs the closest previous start dominates farther starts for coverage, so the largest-gap condition is exact. Removing one start merges its two adjacent gaps; taking the maximum over choices gives exactly the largest adjacent cyclic sum, including n=3.",
+      "residual_risks": [
+        "The stored finite numerical claims are not used as a proof. The Dirichlet representation is used after rooting at a sample start; individual gap coordinates rooted at a fixed origin need not have the symmetric law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SCOPE-a7482687ed1b establishes mutually independent limiting spatial Poisson fields for lengths 1 through any fixed K and independent Gumbels and maximizing locations. Mijatović–Vysotsky establish the marginal Gumbel laws and discuss two interlaced subsequences for order 2, not independence of orders 1 and 2."
+        ],
+        "reasoning": "At K=2 the broader indexed theorem gives the exact centers and intensities required. Access limitations of older plausible spacing papers are not the basis of the FAIL.",
+        "searches": [
+          "Resultary local mirror SCOPE-a7482687ed1b Finding, assumptions and proof of gamma and overlap bounds",
+          "Mijatović–Vysotsky arXiv:1508.00944 Theorem 1 pp. 2–3",
+          "Roos DOI 10.2307/1427795; Glaz et al. DOI 10.2307/3214961; Hüsler DOI 10.2307/3213981"
+        ]
+      },
+      "checked_sources": [
+        "Resultary SCOPE-a7482687ed1b and SCOPE-948cba0b2188",
+        "Mijatović–Vysotsky 1508.00944",
+        "Arratia–Goldstein–Gordon 1989 USC full text",
+        "Lawful retrieval attempts for Roos, Glaz et al., and Hüsler"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For each order, counts above a threshold and below a fixed finite ceiling converge by the spatial Poisson-field theorem; threshold boundaries have zero limiting intensity. The comparator's maximum law makes the probability of any mark beyond the ceiling small as the ceiling grows."
+        ],
+        "reasoning": "This transfers not only the maxima but also the joint Poisson exceedance totals. The negligible wrap window and o_P(1) normalization shifts preserve them; deletion then is merely the merging of two neighboring gaps. Neither part supplies a distinct valuable remainder.",
+        "searches": [
+          "SCOPE-a7482687ed1b theorem and gamma tail estimate at proof Step 2",
+          "Frozen circular RESULT.md coverage interpretation Step 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After rotating to a sampled point, the n circular gaps are exactly the n endpoint-inclusive linear spacings of n-1 iid uniform points. All ordinary single gaps and all interior adjacent sums coincide; precisely one wrap-around adjacent sum is extra."
+        ],
+        "reasoning": "Under this coupling, changing the multiplier and centers from n-1 to n changes heights uniformly by o_P(1), since max gaps and adjacent sums are O_P(log(n)/n). The extra wrap-around sum has the marginal of a sum of two Dirichlet spacings, and exceeds the stated high threshold with probability o(1) by the gamma-two representation and concentration of T. Thus the geometry change is not a distinct asymptotic theorem.",
+        "searches": [
+          "Resultary: independent maximum circular gaps and adjacent two-spacings / many fixed spacing orders",
+          "SCOPE-a7482687ed1b actual Finding and Proof Step 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-c6c931f4bc72 is the identical entry. Distinct same-day SCOPE-a7482687ed1b covers the exact limiting fields and Gumbel laws after the boundary reduction. Distinct same-day SCOPE-948cba0b2188 uses max_i min(G_i,G_{i+1}), not max_i (G_i+G_{i+1})."
+        ],
+        "reasoning": "The latter is not an exact match; the former is genuine substantive coverage, independently of unestablished relative priority.",
+        "searches": [
+          "Resultary: independent extreme clocks circular coverage; independent spatial extreme fields maximal uniform spacings; two extreme gap statistics"
+        ]
+      },
+      "rationale": "A distinct same-day indexed result, SCOPE-a7482687ed1b, proves the broader independent spatial Poisson extremes for every fixed collection of interval spacing orders and their joint maxima. The frozen circular two-type count and maxima conclusions are an immediate boundary transfer of that theorem. The records' dates do not establish priority. The residual coverage/deletion equivalence is an elementary deterministic interpretation and does not establish a distinct substantive research finding.",
+      "residual_risks": [
+        "Roos, Glaz et al., Hüsler, and the broad spacing chapter of Barbour–Holst–Janson were not materially inspected in full. The same-day records establish mathematical overlap without priority, and there may also be older equivalent results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strictly broader stochastic conclusion after explicit endpoint transfer; relative priority unresolved",
+          "evidence": "Independent dt exp(-x) dx fields for all k through fixed K; stated maxima and location laws; endpoint spacings included.",
+          "identifier_or_url": "2026/11/22 SCOPE-a7482687ed1b",
+          "material_read": "RESULT.md Finding, assumptions and proof Steps 1–4, local mirror offset 0–5583",
+          "method": "Resultary lookup and local mirror text",
+          "title": "Independent spatial extreme fields for finitely many maximal uniform spacings",
+          "trigger": "Strongest indexed cross-order Poisson/Gumbel comparison"
+        },
+        {
+          "assessment": "Different adjacent operation",
+          "evidence": "Its second statistic is a maximum of adjacent minima, not an adjacent sum.",
+          "identifier_or_url": "2026/11/22 SCOPE-948cba0b2188",
+          "material_read": "Local RESULT.md Finding and scope at offset 0",
+          "method": "Resultary lookup and local mirror text",
+          "title": "A sign reversal and a sharp residual covariance for two extreme gap statistics",
+          "trigger": "Similar cyclic extreme spacing measures"
+        },
+        {
+          "assessment": "Marginal theorem and different subsequence comparison",
+          "evidence": "The center includes (k-1) log log n minus log((k-1)!); interlaced subsequences discussed for k=2 do not identify the joint law across k.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.00944",
+          "material_read": "§1, Theorem 1 and subsequent discussion on printed pp. 2–3, PDF offset about 3400",
+          "method": "Direct OA PDF",
+          "title": "On the weak limit law of the maximal uniform k-spacing",
+          "trigger": "Established maximal uniform spacings and independence language"
+        },
+        {
+          "assessment": "Correct method; no originality assigned to the approximation tool",
+          "evidence": "The distribution on labeled sites is approximated in total variation by independent Poisson coordinates with their respective means, controlled by b1+b2+b3.",
+          "identifier_or_url": "https://doi.org/10.1214/aop/1176991491",
+          "material_read": "Theorem 2 printed p. 11 and locally independent remark p. 12, PDF offset 7800 onward",
+          "method": "USC lawful author PDF after publisher route supplied no text",
+          "title": "Two Moments Suffice for Poisson Approximations: The Chen–Stein Method",
+          "trigger": "Proof's local-dependence point process approximation"
+        },
+        {
+          "assessment": "Unresolved historical coverage, not a negative result",
+          "evidence": "Titles establish relevance; exact scope across spacing orders was not verified. The distinct local-index coverage is independently decisive.",
+          "identifier_or_url": "https://doi.org/10.2307/1427795; https://doi.org/10.2307/3214961; https://doi.org/10.2307/3213981",
+          "material_read": "Bibliographic records only; no decisive full-text statements retrieved",
+          "method": "Lawful DOI and JSTOR attempts",
+          "title": "Compound Poisson approximations for the numbers of extreme spacings; Poisson approximations for the distribution and moments of ordered m-spacings; Maximal, non-uniform spacings and the coverage problem",
+          "trigger": "Plausible historical joint count or coverage antecedents"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–16 and 47–49; SCOPE-a7482687ed1b Finding and Steps 1–2"
+      ],
+      "rationale": "The cross-order independence is worthwhile in the broader extreme-spacing theorem, but its circular version here is obtained by a routine boundary comparison. The remaining exact deletion criterion is the immediate merger of consecutive gaps and requires no additional stochastic result. No distinct valuable claim remains to repair.",
+      "residual_risks": [
+        "A genuinely quantitative estimate of a circular boundary or dependence correction could be a different finding; none is asserted here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:38:25.394510Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–80",
+        "Frozen VERIFICATION.md and verify.py, lines 10–64"
+      ],
+      "rationale": "Put v_n=|cx_n| and z_n=sgn(cx_0)y_n off the fixed line. Then z_{n+1}=z_n+v_n and v_{n+1}=v_n(1+a/(1+z_n^2)). Thus v_n grows strictly, z_n>=z_0+n v_0 and the log of the product of multipliers is summable. Hence v_n tends to V>v_0, and z_n/n tends to V. The exact tail V-v_n=sum_{k>=n} a v_k/(1+z_k^2) first gives O(1/n), whence z_n=Vn+O(log n). The summand is then a/(V k^2)+O(log k/k^3), giving V-v_n=a/(Vn)+O(log n/n^2). The increments of z_n-Vn+(a/V)log n are summable with the required O(log n/n) tail. Undoing the two signed changes gives both stated coefficients even for negative x_0 or c. The fixed line is pointwise fixed; no off-line orbit is bounded or periodic. The combination at N,2N,4N cancels the affine terms and leaves +a log(2)/(cX). The packaged finite checks were inspected, not run, and are not needed for any quantifier.",
+      "residual_risks": [
+        "Bounds here are orbit-dependent, not uniform in initial conditions or as a or c approach zero. No backward or forced dynamics are covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "c216a2b82ab6 also gives |cX|>=a/(1+max(y_0^2,(y_0+sgn(cx_0))^2)) and classifies invariant probabilities.",
+          "7b5d143a6371 gives opposite-sign conditional escape for a=-1, with a hyperbolic boundary; it does not cover positive a.",
+          "Only landing/abstract material could be accessed for Zhang et al.; no primary full-text coverage assessment is inferred."
+        ],
+        "reasoning": "The positive-feedback record genuinely strengthens the overlapping theorem. The opposite-sign record shares the tail mechanism but does not dominate the frozen parameters. The primary-source access limit is not a scientific reason for failure.",
+        "searches": [
+          "Resultary c216a2b82ab6, Finding and proof step 1",
+          "Resultary 7b5d143a6371, Finding and related-work passage",
+          "Zhang et al., DOI 10.1088/1674-1056/ac4025, attempted full-text Case I comparison"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Resultary c216a2b82ab6 (exact positive-side theorem)",
+        "Resultary 7b5d143a6371 (opposite sign)",
+        "Zhang et al. DOI 10.1088/1674-1056/ac4025 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stronger statement has the fixed line and the same signed ballistic escape and asymptotics; its first proof step gives strict growth.",
+          "The dyadic log combination log(4N)-3log(2N)+2log N equals -log 2, so the stated dyadic limit is a direct consequence."
+        ],
+        "reasoning": "There is no surviving distinct theorem in the frozen package: the finite difference is a mechanical corollary of the already covered expansion, not an independent regime, coefficient or invariant.",
+        "searches": [
+          "Resultary c216a2b82ab6, Finding and assumptions at offset 0; prior-work passage at offset 7098"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In c216a2b82ab6, x+ax/(1+y^2) is exactly x(1+a/(1+y^2)), with b=d=0 and arbitrary c!=0.",
+          "That theorem gives the same x_n and y_n expansion, including C and both error orders, for every x_0!=0."
+        ],
+        "reasoning": "No parameter reduction is needed; this is equivalent wording of both main asymptotic statements on the full frozen domain. The scaled velocity v=cX is just a change of variables.",
+        "searches": [
+          "Resultary: positive-feedback equilibrium-line rational planar map, reciprocal-time saturation and logarithmic ballistic drift",
+          "Resultary c216a2b82ab6, Finding and assumptions, RESULT.md offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c216a2b82ab6 is a distinct catalogue record with exact consensus of parameter domain, coefficients and error orders in its Finding."
+        ],
+        "reasoning": "A finite exact table is inapplicable to the universal real initial-value statement; the exact catalogue statement itself supplies coverage.",
+        "searches": [
+          "Resultary c216a2b82ab6 and 7b5d143a6371, exact statement comparison"
+        ]
+      },
+      "rationale": "The distinct Resultary record c216a2b82ab6 explicitly states the identical map, the same all-real off-line initial data and a>0, c!=0, and both signed asymptotics with the identical remainder orders. It adds a velocity-gap bound and an invariant-measure classification. All additional claims in the frozen item follow immediately from this stated theorem and the map: strict |X|>|x_0| from one strict step and monotonicity, bounded/periodic orbit exclusion from escape, and the dyadic identity by cancellation in the same y_n expansion. This is demonstrable claim coverage in the reviewed corpus, not a conclusion about historical priority or who discovered it first. The later catalogue date is reported separately and is not the basis for the decision.",
+      "residual_risks": [
+        "No historical priority or chain of derivation between the two indexed records has been established.",
+        "Case I in the original paper could not be directly inspected; the originality failure rests on independently confirmed catalogue coverage, not this gap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the frozen theorem with additional conclusions; catalogue date 2026-11-02 UTC is later than the frozen record's catalogue date and does not settle priority.",
+          "evidence": [
+            "Same b=d=0 and a>0,c!=0 on R^2; x_n=X-a/(c^2X n)+O(log n/n^2); y_n=cXn-a log(n)/(cX)+C+O(log n/n).",
+            "Proof step 1 gives strict off-line growth of |cx_n|; Finding adds uniform-in-x_0 velocity gap."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-logarithmic-ballistic-scattering-and-a-uniform-velocity-gap-in-a--c216a2b82ab6/RESULT.md",
+          "material_read": "Finding, assumptions, proof step 1 at offset 0; prior work and limitations at offset 7098",
+          "method": "Bounded Resultary local-mirror passages",
+          "title": "Logarithmic ballistic scattering and a uniform velocity gap in a rational planar map",
+          "trigger": "Strongest positive-feedback match with both asymptotic corrections"
+        },
+        {
+          "assessment": "Structurally related log correction but incomparable sign and basin hypotheses.",
+          "evidence": [
+            "a=-1,b=d=0,c>0,x_0,y_0>0; ballistic expansion only for c x_0 y_0>1 and competing bounded or critical behavior otherwise."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-an-exact-hyperbolic-escape-boundary-with-square-root-critical-mo--7b5d143a6371/RESULT.md",
+          "material_read": "Finding at offset 0 and related-work passage around offset 6900",
+          "method": "Bounded Resultary local-mirror passages",
+          "title": "An exact hyperbolic escape boundary with square-root critical motion in a rational plane map",
+          "trigger": "Closest opposite-sign same-map escape theorem"
+        },
+        {
+          "assessment": "Exact primary-source comparison unresolved; no statement of whole-document noncoverage is made.",
+          "evidence": [
+            "Frozen RESULT.md attributes the parent map and fixed-line analysis to this paper; that account is not substitute evidence of primary full-text noncoverage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1088/1674-1056/ac4025",
+          "material_read": "Landing/abstract only; no directly inspected Case I or proof passages",
+          "method": "Lawful publisher full-text and DOI/PDF routes and alternate open-copy resolution attempted; full article not retrieved",
+          "title": "A class of two-dimensional rational maps with self-excited and hidden attractors",
+          "trigger": "Original map and fixed-line Case I"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–22 and 69–80",
+        "Resultary c216a2b82ab6, Finding"
+      ],
+      "rationale": "As a mathematical claim, resolving the entire positive-feedback fixed-line regime and obtaining finite transverse saturation together with a nonvanishing logarithmic lag is informative beyond local stability or escape alone. A later matching claim does not make the underlying scientific question unmotivated. The dyadic consequence alone is not a valuable distinct repair.",
+      "residual_risks": [
+        "Value here is assessed for the global classification and coefficients, not claimed as a new contribution after coverage is accounted for."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

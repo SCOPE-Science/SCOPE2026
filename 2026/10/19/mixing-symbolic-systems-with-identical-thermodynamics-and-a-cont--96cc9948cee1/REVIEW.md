@@ -1,15 +1,21 @@
-# Review of the mixing marker-density construction
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof does not infer global structure from finite enumeration. Its critical points are: (i) the uniform sublinear marker budget forces zero mass at every marker cylinder under every invariant measure; (ii) arbitrarily long zero gaps give topological mixing, while arbitrarily many prescribed singleton markers obstruct specification; (iii) for an arbitrary observation set, the number of interval components is bounded by its \(K\)-boundary, and concavity bounds the number of markers by \(3\eta^{1-\beta}|F|\), proving the exact strong prescribed-position approximate product property rather than a shifted-block substitute; (iv) an explicit separated-marker construction establishes the lower word-complexity bound for all sufficiently large lengths; (v) sliding-block recodings preserve the exponent of the entropy excess. The exact finite verifier is a check, not a universal proof.
+## correctness
 
-## Originality
-**PASS with residual risk.** The closest source, Zhang–Ren arXiv:2610.09949v1, Example 2.12, explicitly has a globally at-most-one marker coordinate, and Remark 2.13 already identifies its invariant-measure simplex. Its example is nontransitive; it does not imply topological mixing or a nonconstant subleading complexity exponent. García-Ramos–Pavlov–Reyes arXiv:2302.07307v2 develops bounded-density shifts but does not state the combined continuum of topologically mixing prescribed-position-APP systems, same thermodynamics/periodic data, and quantitative nonconjugacy. Classical finite-type word counting, variational pressure, and coding-radius comparisons are not presented as original. Equivalent formulations in the general literature of bounded-density shifts and conjugacy remain a real priority risk.
+PASS
 
-## Mathematical value
-**PASS.** The construction settles a motivated boundary issue for the recent prescribed-position approximate-product example: allowing unbounded yet sublinear marker counts makes the system mixing without restoring specification, and yields continuously tunable topological distinctions entirely invisible to invariant probability measures and periodic data. The separating exponent is a genuine conjugacy invariant, not an arbitrary finite tabulation; the result gives a complete continuum of examples with a structural classification by that exponent within the family.
+The stated construction works for every fixed real 0<β<1 on the bilateral shift. Zero extension preserves all interval inequalities, and a sufficiently long zero gap between any two marker words controls every interval meeting markers from both; this gives mixing for all sufficiently large gaps. The symbol at zero is detected by a fixed positive metric weight, giving expansivity. For Zhang–Ren's prescribed-position property, copy the first coordinate on each disjoint F and erase markers. A finite F with c consecutive components has c≤|∂_K F| if 1∈K, and concavity bounds the number of its markers by 3c^(1−β)|F|^β. Losing an interior observation requires a marker in its metric window, so total error is at most (η+3|W|η^(1−β))|F|. This works separately on every F, including in countable families. Fixed-gap singleton tracing would force linearly many markers, ruling out specification. Invariant marker frequency is ≤3n^(β−1) for every n and hence zero; any nonzero periodic marker sequence has positive frequency. Thus measure entropies, equilibrium states and pressure identify on the common slice under restriction of the potential, and periodic counts are 2^n, giving the stated zeta function. For complexity, the binomial upper bound and independent middle-third choices in blocks of size ceil(4n^(1−β)) give log p_β(n) of order n^β log n: separation gives at most 1+2m/s≤1+m^β/2 markers for m≤n, and longer windows see no more than the total n/s markers. P=2^n p_β, so the common entropy is log 2. A fixed coding radius changes the entropy-excess comparison only by a fixed shift in n and an additive constant; conjugacy therefore forces the exponents to agree.
 
-## Scope and limits
-No leading constant for the complexity excess is claimed. Pressure comparisons require restriction of potentials to the common measure-supporting slice. No independent priority certification or audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the explicit continuum combining mixing and prescribed-position APP without specification with the same invariant-measure/periodic data and an exact complexity exponent separating conjugacy classes. The comparison does not credit the marker formalism, the variational principle, or zero-gradient entropy as new.
+
+## value
+
+PASS
+
+Mixing, prescribed-position tracing and full-shift thermodynamic and periodic data might suggest comparable symbolic orbit structure. This explicit continuum instead has an independently checkable conjugacy obstruction at the first subexponential scale, and also separates APP from specification while retaining mixing. The exponent is a usable exact invariant here even without a leading coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

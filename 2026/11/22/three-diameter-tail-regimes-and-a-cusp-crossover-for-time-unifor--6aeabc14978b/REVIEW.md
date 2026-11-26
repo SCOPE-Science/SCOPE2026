@@ -1,19 +1,21 @@
-# Scientific review: rolling-phase trochoid diameter laws
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The calculation maximizes exact squared distance first over the phase midpoint, then over the phase gap. Strictness identifies all maximizing parameter pairs for every tracer radius. The local expansions distinguish a linear endpoint deficit, a cubic critical deficit, and a nondegenerate quadratic interior maximum; the calculated areas give the constants and exponents. The critical-window scaling retains both the parameter perturbation and cubic deficit and proves a bounded limiting sublevel set, including a total-variation conditional mark. The `verify.py` script independently evaluates curve distances and numerical area approximations, passing 4,023 deterministic checks; it cannot prove infinite-domain assertions.
+PASS
 
-## Originality
+At fixed positive gap Δ<2π, the squared chord length is maximized uniquely at midpoint π. The maximal distance at that gap is F=Δ+2β sin(Δ/2), whose derivative gives the endpoint and interior maximizers in RESULT.md. The diameter excess above 2π is the integral of 2 sqrt(β²−1)/β from 1 to β, giving the stated 3/2-power coefficient. In the endpoint coordinates s,u the subcritical deficit is (1−β)(s+u)+O((s+u)^3), and at β=1 it is (s³+u³)/6+O((s+u)^4); the triangular and cubic sublevel areas give the two constants, including the factor 2/(4π²) for the orders. At a prolate maximum the coefficients of (Δ−Δβ)^2 and (midpoint−π)^2 are qβ/4 and qβΔβ/Dβ, respectively, and the gap-midpoint change of variables has unit Jacobian. In the moving window compactness localizes both orders at the critical endpoints. With w=s+u the chord never exceeds F(2π−w); thus for small w the deficit is bounded below by c w³−|β−1|w uniformly near β=1. This gives bounded rescaled support. The rescaled deficit converges uniformly there to M(λ)+(x³+y³)/6−λ(x+y); the limiting level boundary has measure zero and the sublevel has positive area. The indicator densities converge in L1, and their normalized versions prove the branchwise total-variation claim. The branch probabilities are in fact exactly equal once localization holds. For λ=−L the scale L^−1 gives a unit triangle; for λ>0 set x0=√(2λ) and write the one-coordinate rise as (x−x0)^2(2x0+x)/6, which both confines and proves convergence to the local disk at scale x0^−1/2. This yields both matching constants without needing a uniform-in-λ convergence statement.
 
-PASS on currently accessible comparisons, with historical priority provisional. The classical literature derives the rolling parametrization, curve types, area, arclength and inflection or double-point geometry. Those formulas neither state nor directly imply the two-independent-phase rare-diameter probability or the cubic crossover without the additional global extremal-pair analysis. General polygon random-distance studies use different domains and sampling measures. Published near-diametral chord results on ellipses, Reuleaux bodies, polygons and annuli also use different support objects, different cusp geometries, or arclength/area/invariant-line sampling; their stated results do not cover the rolling-phase trochoid transition. A historical source chapter is metadata-accessible but not fully readable; complete priority requires further human source checking.
+## originality
 
-## Value
+PASS
 
-PASS. The classical curtate/cycloid/prolate distinction is normally formulated in terms of loop and cusp geometry. Here it produces a quantitative, experimentally sampleable change of the most extreme two-point separation. The time-uniform measurement is natural for a rigid wheel at constant angular speed and cannot be replaced by arclength uniformity. The cubic critical law has exponent \(2/3\), distinct from both neighboring regimes, and the explicit transition-window marked law connects them rather than merely reporting a single isolated constant. This is a natural exact distributional invariant of the rolling system.
+The classical curve and same-day geometric and asymptotic analogues are credited. The closest result for the same critical curve uses a measure vanishing at the cusp in phase coordinates. The closest moving-window theorem concerns a different curve, degeneracy, and parameter. Neither supplies the stated phase-uniform cubic window and mark law. No equivalent or dominating statement was established in the examined sources; same-day catalogue dates do not settle priority.
 
-## Limitations and closest literature
+## value
 
-The earlier literature does not establish priority by an unsuccessful search. The main technical risk is undetected coverage in old specialty literature on trochoids and their extreme distances. Lockwood's Chapter 9 is not full-text accessible from its publisher listing; Bronshtein et al.'s section 2.13.2 and Weisstein's Prolate Cycloid page were readable and treat standard geometry without these stochastic extrema. The theorem is exact only for one full period with two independent uniform rolling phases; arclength-uniform data or multiple-period windows need separate theorems. Analytic proof, not a finite grid, supports the claims.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The tracer-radius threshold cancels the linear endpoint deficits and moves the unique maximizing pair off the parameter boundary. The unified quantitative description gives both the change of exponent and where near-diameter pairs actually occur in the transition, information missing from fixed-parameter or arclength results. The distinction is directly useful for phase-uniform rolling experiments and is not just a rewording of the classical geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

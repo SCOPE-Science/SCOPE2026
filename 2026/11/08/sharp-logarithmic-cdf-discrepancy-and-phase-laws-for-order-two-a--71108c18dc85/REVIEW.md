@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The source's exact order-two dyadic formula is substituted directly into \(a(n)/n\). Two inverse branches of a continuous piecewise-rational map give explicit phase CDFs. A blockwise grid comparison with nonzero inverse derivative bounds discrepancy by \(14\) per dyadic block, yielding the stated uniform constant. Exact endpoint positions are counted without approximation, and compactness of the dyadic phase completes the weak-limit classification. The standalone exact-arithmetic verifier corroborates finite samples, but the universal proof is analytic.
+## correctness
 
-## Originality — PASS
-The source establishes individual values and pointwise nonconvergence, not the empirical limiting probability laws nor the sharp logarithmic CDF error and exact endpoint defect. OEIS A394217 supplies the dyadic formula but no such statistical invariant. The distinct Beatty solutions in arXiv:2604.10822v4 do not cover the greedy sequence's empirical profile. Targeted repository and literature searches found no equivalent. The result is a nontrivial further consequence of a strong published formula, so historical priority remains uncertain.
+PASS
 
-## Value — PASS
-The distributional problem is natural when normalized arithmetic sequences oscillate and do not converge pointwise. The theorem classifies every empirical weak limit, computes their CDFs, and gives a uniform sharp-order convergence estimate whose obstruction is exactly enumerated. The logarithmic boundary anomaly and full phase picture clarify the behavior of a recently introduced natural self-referential sequence. No claims are made about higher-order sequences or an optimal numerical discrepancy constant.
+Cloitre–Joshi Proposition 3.1 matches the exact greedy dyadic formula. On B=2^k, writing n=B+j, division yields h(1+j/B) plus exactly 1/[2(B+j)] for odd j on the first branch, and zero otherwise. The sublevel of h is the interval between inverse endpoints u(y) and v(y) on its range; its intersection with [1,θ] gives the stated additional mass and continuous CDF. The unnormalized numerator has mass θ. Each monotone branch contributes grid-count error at most one, and its inverse is 9-Lipschitz, so the strip of width 1/(2B) contains at most six grid points per branch. Thus each complete or truncated block contributes at most 14 count error. Complete block lengths total 2^K−4; the last block includes N and differs from the phase integral by one endpoint cell. Accounting for the initial three indices bounds the discrepancy by [14(K−1)+8]/N, certainly at most 30(K+1)/N. For j≤B/2, 4a(B+j)−3(B+j) is −j for even j and 2−j for odd j; for j>B/2 it is j−B. Only j=0 and 1 qualify in each block, plus n=1,2. The floor-log count is therefore exact, including cutoffs that are powers of two. The phase law has no atom at 3/4, so the left-hand CDF limit there supplies the lower bound without dropping the equality cases. Continuity in θ, compactness of [1,2], and integer cutoffs approaching each phase give all weak limits; for y=7/10 the first partial interval contributes zero on θ∈[1,5/4], so F_θ(y)=(5/12)/θ varies strictly there.
 
-## Relevant literature and remaining limits
-Cloitre–Joshi, arXiv:2604.02404v2, Proposition 3.1 and its nonconvergence discussion; Cloitre, arXiv:2604.10822v4; OEIS A394217. These sources were compared on the same order-two sequence and the distinction between pointwise values and empirical phase laws. Earlier equivalent distribution calculations cannot be ruled out solely by search.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The arithmetic formula and pointwise oscillation are already known; the same paper also proves nonconvergence of the Cesàro mean and gives two explicit subsequential mean values, a stronger overlap than the frozen relationship section mentions. Neither those scalar means nor the inspected sequence entry and alternative Beatty solutions give the full weak-limit family or the uniform sharp-order phase-matched CDF estimate. The exact endpoint count is an elementary consequence of the existing formula and is credited principally as the mechanism forcing the new discrepancy lower bound, not as a new sequence formula.
+
+## value
+
+PASS
+
+The result describes the fluctuation when pointwise and mean convergence fail: cutoff phase selects the whole probability law, and the exceptional ratios precisely force a logarithmic penalty missed by a single-block approximation. The matching uniform rate and complete limit family are useful beyond rechecking the published dyadic formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

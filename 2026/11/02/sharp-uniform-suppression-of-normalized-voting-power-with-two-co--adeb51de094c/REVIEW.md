@@ -1,12 +1,21 @@
-# Review: sharp suppression of normalized two-proxy power
+# Independent mathematical audit
 
-## Correctness — PASS
-The direct counterfactual used here matches the published a-priori Penrose–Banzhaf definition. For a proxy, conditioning on the other proxy's vote reduces criticality to two **disjoint** excluded binomial events. For a delegator, conditioning on agreeing versus disagreeing proxy votes yields exactly two independent-binomial tie modes. The monotonicity calculation proves the all-parameter sharp envelope; the central binomial theorem and a fixed-parameter binomial tail bound prove the asymptotics. The proof explicitly handles the \(m=1\), \(p=0\), and \(p=1\) boundaries. Exact rational independent enumeration confirms the formulas in all specified small cases. A finite check is not used as an infinite proof.
+## correctness
 
-## Originality — PASS, with priority limits
-The original 2023 paper defines the voting-power functional and provides general bipartite proxy-evaluation algorithms and numerical examples (sections 2, 4, 6 and appendix A.5). Those sources do not state the exact two-proxy binomial expressions or the sharp **uniform in delegation propensity** normalized-power decay. Its appendix A.4 treats mandatory delegation and is consistent with our endpoint. Zhang and Grossi (2021) concern fixed delegation profiles, not this a-priori law. A previous one-proxy asymptotic does not imply the two-proxy result; the second proxy introduces the disagreement/tie mode essential to the proof. A specialized equivalent elsewhere remains possible, and absence from searches is not a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The two-proxy setting is the smallest genuine competition between representatives. Its exact pivot laws show that accumulated *ballot weight* and *normalized pivotality* behave differently: both proxies attract \(\Theta(m)\) delegated votes at fixed \(p>0\), yet each has normalized pivotality at most \(\sqrt{\pi/(2m)}(1+o(1))\), uniformly across all choices of the common delegation probability. This is a sharp structural boundary for power concentration, not merely an algorithmic restatement or a numerical instance. Wider proxy networks and alternative voting indices are outside scope.
+With the other proxy positive, a proxy is pivotal exactly when X≤s−1 and Z≤s, where X counts effective positives independent of its forced action and Z counts direct negatives. The excluded tails are disjoint and X is a fair binomial, proving H; sign reversal gives the same conditional probability. A delegator must see a tie among the other voters. Opposite proxy votes yield a fair binomial central count on m−1 voters; equal proxy votes require s−2 matches and s mismatches (impossible for s=1), proving D. H is nondecreasing by binomial coupling and is positive even at p=0; D stays positive and decreases strictly for m≥3 because its extra term is proportional to (1+p)^(s−2)(1−p)^s. Therefore normalization is increasing strictly to p=1 for those sizes; at m=1 both pivotalities are 1/2 and the share is 1/3. Substituting p=1 and applying Stirling yields the sharp scaled limit. At fixed positive p the binomial tail and the second-to-first D term ratio decay exponentially; at p=0 exchangeability gives 1/(m+2). The supplied enumeration was inspected, not executed, and is corroborative only.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The a priori power index, the bipartite partition method, and the mandatory-delegation model are established. Pass the supported distinct contribution: the explicit sharp normalized envelope over the full propensity interval, with its strict optimizer and uniform asymptotic suppression for two competing proxies. The earlier general computation can evaluate particular instances and the mandatory model covers the p=1 experiment, but the inspected statements do not imply that endpoint is extremal or give the all-size uniform conclusion.
+
+## value
+
+PASS
+
+The uniform rate separates receipt of many delegated ballots and substantial absolute pivotality from normalized proxy power. An exact optimum over p, including sequences where p varies with the electorate, answers a natural question that fixed-p simulations or fixed-size recursions do not settle.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

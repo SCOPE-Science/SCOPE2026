@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The geometric reduction to simple branching on a line is valid for the smooth double cover in characteristic five. There are exactly 31 rational lines. Coordinate rescalings reduce every line to one of the three support patterns, with 16 lines represented by a single binary quartic. The displayed discriminant, its complete sixteen-pair normalized table, and the pair-sum conditions prove the full 64-triple classification. The section point-count spectra are then proved by elementary quadratic-character support counts. A separate resultant-based exhaustive scan verifies all 64 times 31 restrictions, including nonrational geometric contact points and infinity, and matches the formula-based check. The claims concern only the stated finite family.
+PASS
 
-## Originality (O): PASS (self-review)
+The degree-two anticanonical map is the double cover of the plane branched over the smooth quartic. Its rational sections are indexed by 31 rational lines; a section is smooth genus one precisely when the homogeneous quartic restriction has four simple geometric roots. The 3 coordinate lines always qualify; the 4 lines at each pair of nonzero equation coordinates qualify exactly when the corresponding branch coefficients do not sum to zero. For 16 full-support lines, coordinate rescaling reduces to x+y+z=0. One can independently check the asserted discriminant test as follows: a tangent there has ax³=by³=cz³≠0. Write A=1/a, B=1/b, C=1/c, and scale to x³=A, y³=B, z³=C. Then x+y+z=0 implies (A+B+C)³=27ABC. Conversely if the last equality holds, take cube roots x,y and set z=(A+B+C)/(3xy); now z³=C. Factor x³+y³+z³−3xyz into the three cube-root-of-unity linear forms and rotate the cube roots as needed to make x+y+z=0. Thus the homogeneous tangent test is D=(ab+ac+bc)³−27a²b²c², which expands into the frozen polynomial modulo 5. This test includes geometric contacts, with no degree-drop problem. The normalized coefficient table yields the stated frequencies. For (1,1,2), coordinate-line counts are 2,2,4, mixed-support counts are 8,10,10 in groups of four, and the remaining 16 counts are all 6. Every base value is nonzero, so nonsquare scaling complements each line count to 12 and the total count to 62. The distinct totals 36 and 26 distinguish the twists; permutations and common square scaling exhaust the isomorphism presentations in scope. An independent exact homogeneous-resultant scan reproduced the complete enumeration and spectra.
 
-Asgarli--Freidin's full 2020 paper classifies asymptotic behavior of the opposite *transverse-free* condition, not the all-transverse diagonal quartic case. Bergvall's 2022 paper classifies Frobenius actions on degree-two del Pezzo Picard groups, not the distribution of the 31 individual rational anticanonical sections. Howe--Lauter--Top's 2004 table supplies a different pointless quartic but not this dual-pointless classification; that quartic has 15, rather than 31, transverse lines in the diagonal calculation. Asgarli--Ghioca's 2022 paper concerns linear systems of smooth hypersurfaces, not this anticanonical surface-section census. Relevant published literature and searchable research records gave no equivalent implication. Residual priority risk remains for unpublished counts or overlooked dual-curve classifications.
+## originality
 
-## Value (V): PASS
+PASS
 
-Every rational anticanonical member being smooth is the extremal finite-field Bertini property for a natural complete linear system on a degree-two del Pezzo surface. The diagonal quartic family is invariant under fourth-power coefficient symmetries, and \(\mathbf F_5\) is the smallest odd prime field in which all nonzero fourth powers are one; this makes the exact complete classification mathematically natural rather than an arbitrary slice. The unique coefficient pattern, the dual-pointless consequence, and the two sharply differing elliptic-section spectra add incidence information that pointlessness of the quartic or global surface-point totals alone do not supply.
+The same-day pointless-quartic bitangent census already covers the underlying tangent-free branch example and, via a small diagonal support argument, the all-transverse diagonal branch locus. It also covers the Fermat example's 15 transverse lines. The distinct supported content is the full 64-triple distribution, including the nonpointless diagonal cases outside that census, and the two complete anticanonical member point spectra on the double covers. Do not claim priority or separate novelty for the covered examples or branch locus.
 
-## Limits
+## value
 
-The classification is restricted to diagonal branch quartics over \(\mathbf F_5\). Prior general Bertini or moduli theorems are not claimed as new. Primary-source searches reduce but cannot eliminate unpublished or unindexed priority risk. Neither an external proof verification nor independent peer review has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The side-by-side spectrum of the two twists describes how the 31 smooth rational genus-one members are distributed, not just whether a smooth section exists or how many rational points lie on the surface. The support-type formula explains how the full spread of 15 to 31 arises in the natural exact diagonal F5 family, including branch curves with rational points omitted from the pointless census. The exact spectra offer concrete tests for arithmetic Bertini and twist comparisons. No additional value is predicated on rediscovering the covered branch example or its all-transverse property.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

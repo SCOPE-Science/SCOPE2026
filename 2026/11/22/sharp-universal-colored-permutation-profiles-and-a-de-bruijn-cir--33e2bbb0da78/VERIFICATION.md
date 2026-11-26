@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The finite computations can be reproduced by invoking `python3 VERIFY.py` in the directory containing the supplied script. The script checks standard necklace orbit counts independently, enumerates local transition matchings and short-cycle inclusion–exclusion sums, enumerates all binary depth-two long-cycle necklace multisets of total length eight, and exhaustively checks colored permutations up to six vertices for the binary depth-one lower bound.
+# Independent mathematical audit
 
-Observed output ends with `VERIFY_OK 25`. The output includes counts \(1,3,40,7749\) at binary depths one through four and \(64\) at ternary depth one. The short-cycle reduction is proved symbolically: revisiting a length-\(d\) state within a cycle of length at most \(d\) forces a shorter cyclic color period and a repeated arc label, impossible in a permutation. The checks have finite bounds. The proof of the theorem for all integers \(q\ge2\), \(d\ge1\) is the structural argument in `RESULT.md`, not an inference from computations.
+## correctness
 
-Scientific limitations: the language is one bijective unary function with exactly one of \(q\) named colors per point, and the claimed profiles are quantifier-free and bounded in function-term depth. The enumerator uses a finite inclusion–exclusion over all short directed simple cycles; polynomial running time in variable \(q,d\) is not asserted.
+PASS
+
+A rooted c-cycle with c≤d has equality pattern exactly congruence mod c and an arbitrary c-letter color word; all iterates are distinct when c>d. This gives T and forces one short cycle per necklace, even for imprimitive colorings, because visible cycle length and rooted word are independent data. Every long vertex realizes just one new type, so at least q^(d+1) long vertices are needed. The balanced de Bruijn graph is strongly connected (append the destination word), so an Euler circuit supplies exactly that budget and is longer than d. At equality, each long vertex is canonically labeled by its window, and the successor map in those labels is precisely a matching of incoming to outgoing arcs at every state. Conversely color an arc by its first letter: overlap recovers all d+1 letters, and excluding permutation cycles of length at most d ensures distinct iterates. On a forbidden arc cycle of length ℓ≤d, two coincident states would give the same length-ℓ rotations of the periodic word and hence identical arc labels, a contradiction. Thus all forbidden events are simple state cycles; distinct ones sharing an arc cannot simultaneously be cycles of a permutation, and arc-disjoint ones prescribe disjoint matching pairs. This gives the factorial weights. Unique window labels fix the long part pointwise, and each short necklace permits exactly c/π rotations; orbit–stabilizer proves the labeled census. An independent small calculation enumerated simple graph cycles by DFS from the least state in each cycle, giving 2,3,5,8 forbidden cycles at binary depths 1–4 and weighted totals 1,3,40,7749. For q=3,d=1, forbidding the one loop-to-itself pair leaves 3!−2!=4 choices at each of three states. The two cyclic color words 0001 and 0111 exhaust the eight binary triples exactly once between them, confirming the depth-two multi-cycle example.
+
+## originality
+
+PASS
+
+Forward profiles, de Bruijn Euler tours, circuit partitions and Burnside counting are prior ingredients. The distinct result is the forced short-cycle budget together with the characterization and exact exclusion census of all optimal long parts; the sources inspected do not give that result or a dominating case.
+
+## value
+
+PASS
+
+The minimum-size universal test structure is a natural question once forward profiles are fixed. The count of profiles alone does not solve it, since short colored necklaces can consume multiple vertices for repeated rooted words. The forced partition, complete optimizer parametrization and effective isomorphism/labeled census add structural information that a single de Bruijn example cannot supply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

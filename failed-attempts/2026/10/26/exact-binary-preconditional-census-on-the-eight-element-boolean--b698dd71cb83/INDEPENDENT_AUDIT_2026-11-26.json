@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:05:27.544864Z",
+  "axes": {
+    "correctness": {
+      "rationale": "P1–P4 force the top row, absorption by intersection with the antecedent, and monotonicity. P5 after absorption is exactly the displayed constraint for d ⊆ a; self-coherence rules out a doubleton's other atom in a singleton column unless the value is top. Thus all constraints between distinct nontrivial rows run from singleton rows to doubleton rows. P5 at c=0 and consequent monotonicity give antitonicity of N, and double-negation inflation plus antitonicity is equivalent to self-adjointness. Testing against singletons then yields the common-neighbor polarity of a loop-free undirected graph. The smaller carriers have forced top and bottom rows (including the single-element carrier if allowed); on the two-atom carrier only singleton rows remain. Independent replay: `python3 /workspace/reproduce_reviews.py 2` enumerated 512000 candidate full tables at three atoms after P1–P4, identity and semicomplementation, applied P5 to complete tables, and obtained 7820 T and 1021 F. It matched all sixteen orbit-size and projected-row triples and F fibers 729, 81, 16, 1 with multiplicities 1, 3, 3, 1; the smaller carriers give (T,F)=(1,1),(1,1),(4,2) for zero to two atoms with distinct negations in each class. The frozen verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier October 18 F theorem gives the same labelled census with the same independent doubleton-row analysis, and additionally counts 194 isomorphism classes and gives graph lifts on arbitrary powersets. Holliday's finite-Boolean selection-frame representation has extra hypotheses; the finite-chain classification has a different carrier."
+        ],
+        "reasoning": "The earlier F theorem strictly extends that part of the frozen result; neither the chain formula nor the selection-frame result is needed to infer coverage.",
+        "searches": [
+          "SCOPE-20261018-b8a9ade0f262, proof §§2–5",
+          "Holliday arXiv:2402.02296, Proposition 7",
+          "SCOPE-20261004-3d55c0067825, Finding"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20261018-b8a9ade0f262 RESULT.md and verify_exhaustive.cpp",
+        "SCOPE-20261013-8dc1434dbb19 RESULT.md",
+        "SCOPE-20261026-607179d0933f",
+        "SCOPE-20261027-dd753f1b3721",
+        "SCOPE-20261004-3d55c0067825",
+        "arXiv:2402.02296",
+        "arXiv:2607.20221"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The October 13 theorem gives first nonunique F lifts at eight elements (729 for the same edgeless negation) and the small F counts. At eight elements F is a subclass of T, so the same witness works for T. On smaller Boolean carriers every nontrivial antecedent is a singleton, whose two reduced entries are the negation and top."
+        ],
+        "reasoning": "The T minimality addition follows immediately from the found F witness and the elementary row observation. The observed directed-graph orbit table is an organization of a known exact count, not an independently motivated new invariant here.",
+        "searches": [
+          "SCOPE-20261013-8dc1434dbb19, sharp negation-fibre threshold",
+          "SCOPE-20261018-b8a9ade0f262, Finding and verifier",
+          "Chen arXiv:2607.20221, Definition 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 18 theorem counts 1021 labelled binary operations on P({1,2,3}) under precisely the same five laws, identity, semicomplementation and double-negation inflation. Its graph table is exactly 729, 81, 16, 1 by graph type."
+        ],
+        "reasoning": "The prior graph strata are precisely the fixed unary negation fibers by the common-neighbor formula; they are not just counts of reducts.",
+        "searches": [
+          "Resultary: Boolean T/F preconditionals, graph-negation strata, exact binary census and fixed negation lifts",
+          "SCOPE-20261018-b8a9ade0f262, Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The checked-in October 18 code constructs all row candidates using P1–P4, identity and semicomplementation, tests P5, increments total_T before testing inflation, and asserts total_T==7820, total_F==1021, and per-graph counts. The related unary records are not binary-census evidence."
+        ],
+        "reasoning": "Reading the enumeration and exact assertions identifies public coverage of the same labelled T count, not merely a parameter or numerical coincidence.",
+        "searches": [
+          "SCOPE-20261018-b8a9ade0f262/verify_exhaustive.cpp, offset 0 through main()",
+          "SCOPE-20261026-607179d0933f; SCOPE-20261027-dd753f1b3721, unary-negation findings"
+        ]
+      },
+      "rationale": "Earlier public findings state the exact F census, F fibers, and first-carrier result; the earlier census's public, exhaustive verifier also gives the exact T census for the identical axioms. The T count need not be the earlier headline to be existing exact coverage. The current directed orbit table is an alternate finite evaluation of those constraints, not a surviving census theorem.",
+      "residual_risks": [
+        "The older T count appears in the public reproduction code rather than its theorem headline. This does not undermine exact coverage; no claim is made that that source states the directed-graph orbit table explicitly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct and in part stronger coverage",
+          "evidence": [
+            "F=1021 with graph fibers 729/81/16/1 and 194 isomorphism classes; verifier increments the matching T count before adding the double-negation condition and explicitly asserts T=7820."
+          ],
+          "identifier_or_url": "SCOPE-20261018-b8a9ade0f262",
+          "material_read": "RESULT.md Finding, Assumptions and proof §§2–5 (offsets 0, 3450); verify_exhaustive.cpp row generation, law5(), examine(), main()",
+          "method": "Read published mirror files and compared the carrier, laws, counting unit and exact code conditions; no code execution",
+          "title": "Graph-negation strata and an exact census of fundamental preconditionals on the eight-element Boolean algebra",
+          "trigger": "Potential exact earlier census"
+        },
+        {
+          "assessment": "Directly states the sharp F threshold; yields the eight-element T witness as well",
+          "evidence": [
+            "729 labelled F lifts of weak pseudocomplementation on three atoms and distinct negations for the two F operations on two atoms."
+          ],
+          "identifier_or_url": "SCOPE-20261013-8dc1434dbb19",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Published mirror theorem and definitions",
+          "title": "The first nonunique fundamental conditional on a Boolean algebra",
+          "trigger": "First-carrier overlap"
+        },
+        {
+          "assessment": "Restricted representation, not the census",
+          "evidence": [
+            "Proposition 7 requires modus ponens, identity, normality and negation import."
+          ],
+          "identifier_or_url": "arXiv:2402.02296",
+          "material_read": "Proposition 7, p. 10",
+          "method": "Read targeted OA passage and compared hypotheses",
+          "title": "Preconditionals",
+          "trigger": "Possible general finite Boolean coverage"
+        },
+        {
+          "assessment": "Foundational definitions",
+          "evidence": [
+            "The additional T and F conditions identify the scope of the census."
+          ],
+          "identifier_or_url": "arXiv:2607.20221",
+          "material_read": "§3.2, Definition 3.3",
+          "method": "Read OA definition and compare axioms",
+          "title": "Fundamental Propositional Logic with Preconditional: Strong Completeness, Finite Model Property, and Modal Translations",
+          "trigger": "Source of the T/F distinction"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The finite boundary and the distinction between unary and binary counts are worthwhile in themselves, but these exact facts were already available. The alternate grouping of the known total into directed graph orbits is a transparent re-expression of the same small row census with no separately motivated mathematical use in the frozen contribution. No distinct valuable remainder has been established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:23:30.374362Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The normalized series has b_0=b_1=1, b_2=epsilon_s and b_(n+1)/b_n<=q^(kappa_s n), so truncation after x² costs O(q^(3 kappa_s)) with all fixed derivative orders on compact x disks. The positive-zero Hadamard product for B and the product for D=B+u x B' justify the radial extremum: finite products give strictly positive D roots via the derivative of x^(1/u) B(x) and Rolle interlacing; local uniform convergence/Hurwitz preserves the positive-root location, and the coefficient bound gives order zero for D. A first pole occurs for D before B (the real logarithmic derivative of B forces D/B through zero), including when a=1 and the B term in C drops out. With weights u, m(a-1), m all nonnegative, each logarithmic-derivative sum has its disk bound at positive real x. For |w-1|<delta, the logarithm power series gives |log w|<=-log(1-|w-1|)<1. The first e^(-1) roots therefore give the exact radii, not just lower bounds. Setting B=1-x and D=1-vx gives the stated X_star and the quadratic for X_c (its value at 1/v is -um/v); the roots are simple and below the poles. For a factor 1-beta x+gamma epsilon x², the perturbation of its logarithmic derivative is gamma(2x-beta x²)/(1-beta x)². Applying this to (beta,gamma)=(1,1) and (v,1+2u) gives exactly both Y's by the negative reciprocal slopes, with a positive leading displacement and O(epsilon_s²) residual. The mth root, exact lambda ratio and epsilon_2=q epsilon_3 yield the stated radius ratio. This covers the coincident f and g at nu=1 and uses no uniformity as nu goes to zero. The finite high-precision support checks were read as evidence, not executed or used to certify the universal claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baricz–Kumar–Singh study ordinary starlikeness, focusing on large order with Rayleigh sums. Kazımoğlu et al. cover pointwise exact exponential radii. Yasin–Raza is a directly related bibliographic lead, without accessible mathematical passages in this review."
+        ],
+        "reasoning": "Large order with an ordinary target is not fixed order as q decreases for an exponential target. Pointwise characterizations are not uniform asymptotic estimates. No inference is made about the unavailable paper.",
+        "searches": [
+          "DOI 10.1007/s00025-024-02277-2, large-order asymptotics abstract",
+          "DOI 10.1186/s13660-026-03480-1, exact equations and theorem scopes",
+          "DOI 10.1515/ms-2026-0151, publisher/DOI and OA retrieval"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md:4–129, VERIFICATION.md and verify_qbessel_radii.py (read-only)",
+        "DOI 10.1186/s13660-026-03480-1",
+        "DOI 10.1007/s00025-024-02277-2",
+        "DOI 10.3390/math12142261",
+        "DOI 10.1515/ms-2026-0151 (bibliographic only)",
+        "Resultary comparison 43fc115e6443"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact positive-root equations establish the underlying objects. The perturbed coefficients require first collecting the exact q-dependent scale, controlling the remainder in the relevant derivative norms, and expanding both defining equations at their simple limiting roots.",
+          "The common normalized coefficients and relative comparison depend on epsilon_2=q epsilon_3 and on the distinct leading prefactors; these quantitative conclusions are not supplied by the exact-root theorems."
+        ],
+        "reasoning": "Computability from known implicit equations is not an existing evaluated formula for the common sharp first correction. The positive nonzero shifts, uniform family pattern and first comparison term are the distinct content; none of the pointwise exactness or general perturbation machinery is credited as original.",
+        "searches": [
+          "DOI 10.1186/s13660-026-03480-1, Theorems 2.1–2.2, versus RESULT.md:71–115",
+          "DOI 10.1007/s00025-024-02277-2, subject and limit regime"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kazımoğlu et al. give the smallest positive roots of the equivalent Jackson/Hahn–Exton equations for the same three normalizations and exponential targets, but implicitly as fixed-q functions.",
+          "The 2024 spiral paper uses inequalities for the real part of a rotated logarithmic derivative; gamma=0 is not the logarithm-disk target.",
+          "The closest catalogue term match, 43fc115e6443, computes singular values of a geometric Rhaly operator from order-zero Hahn–Exton zeros, not radii of geometric function classes."
+        ],
+        "reasoning": "An equivalent covered asymptotic could be stated as a coefficient for the scaled first roots before taking mth powers or roots, not necessarily as a radius formula. No such matching root asymptotics appeared in the inspected comparisons.",
+        "searches": [
+          "Resultary semantic query on normalized Jackson/Hahn–Exton exponential radii and small-q corrections",
+          "DOI 10.1186/s13660-026-03480-1, Theorems 2.1 and 2.2, matched in the squared/scaled variable",
+          "DOI 10.3390/math12142261, pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalogue record gives an exact Fredholm determinant for W_t and the singular values in terms of its positive zeros at order zero. The exponential-radius paper gives implicit exact roots rather than a tabulation of these perturbative constants."
+        ],
+        "reasoning": "A table of q-Bessel zeros or finite values of q would not cover the claimed family of O(epsilon²) expansions and comparison law. No applicable exact coefficient database was identified in the bounded comparison.",
+        "searches": [
+          "Resultary searches for normalized Jackson and Hahn–Exton exponential radii; closest record 43fc115e6443, RESULT.md Finding",
+          "DOI 10.1186/s13660-026-03480-1, exact first-root characterization"
+        ]
+      },
+      "rationale": "The exact radius equations and positive-zero machinery are established coverage. The distinct claim is their explicit sharp fixed-order small-q perturbation across both q-Bessel families and geometry types: common scaled leading and slope data, two different sharp powers in q, and the nonzero linear term in the unscaled comparison. None of the inspected sources gives those asymptotics. The judgment is bounded by the unresolved directly related Yasin–Raza paper.",
+      "residual_risks": [
+        "Yasin–Raza could contain equivalent small-q asymptotics; its primary results were inaccessible.",
+        "The ranked analogue search and bounded literature comparisons are not absolute priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exact equations, not the inspected claim's limiting coefficients",
+          "evidence": [
+            "Both theorems give smallest-positive-root equations with the appropriate normalization and parameter restrictions."
+          ],
+          "identifier_or_url": "https://doi.org/10.1186/s13660-026-03480-1",
+          "material_read": "Theorem 2.1, p. 6 (OA PDF text offset 23946), and Theorem 2.2, p. 9 (offset 38776)",
+          "method": "Bounded OA primary PDF passages",
+          "title": "Exponential radii of starlikeness and convexity of q-special functions",
+          "trigger": "Same special functions and logarithmic targets"
+        },
+        {
+          "assessment": "Different target and order limit in the inspected statement",
+          "evidence": [
+            "The abstract specifies ordinary starlikeness of second and third Jackson q-Bessel functions, focusing on large orders and using Rayleigh sums."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00025-024-02277-2",
+          "material_read": "OA PDF abstract p. 1, text offset 291",
+          "method": "Bounded primary passage for regime identification",
+          "title": "Asymptotic Expansions for the Radii of Starlikeness of Normalized q-Bessel Functions",
+          "trigger": "Same normalized families and claimed asymptotic type"
+        },
+        {
+          "assessment": "Different analytic target",
+          "evidence": [
+            "The spirallike condition compares Re(exp(-i gamma) z f'/f) with sigma cos(gamma); convex analogues are also real-part conditions."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math12142261",
+          "material_read": "OA PDF abstract p. 1, and definitions p. 2 at text offset 5997",
+          "method": "Bounded primary passages",
+          "title": "Radii of γ-Spirallike of q-Special Functions",
+          "trigger": "Potentially related geometric radii of the same normalized functions"
+        },
+        {
+          "assessment": "Plausible unresolved overlap, not evidence for or against priority",
+          "evidence": [
+            "The title establishes a relevant lead; no theorem text could be confirmed."
+          ],
+          "identifier_or_url": "https://doi.org/10.1515/ms-2026-0151",
+          "material_read": "Bibliographic metadata only",
+          "method": "Lawful DOI and publisher HTML/PDF OA attempts (202/403); no identified repository copy",
+          "title": "Exponential radii of starlikeness and convexity of q-Bessel and q-Bessel–Struve functions",
+          "trigger": "Same names of functions and geometry classes"
+        },
+        {
+          "assessment": "Different order, object and invariant",
+          "evidence": [
+            "Order-zero Hahn–Exton function appears as a Fredholm determinant for W_t W_t^*, giving singular values. The reviewed theorem uses positive fixed order and exponential geometric radii."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-hahn-exton-zeros-determine-every-singular-value-of-a-geometric-r--43fc115e6443",
+          "material_read": "RESULT.md Finding and initial scope, offset 0",
+          "method": "Local catalogue mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Hahn–Exton zeros determine every singular value of a geometric Rhaly operator",
+          "trigger": "Closest catalogue object-name overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result quantifies a natural exact geometric threshold in a singular parameter limit. It explains why the two base families have the same scaled first data yet different genuinely sharp correction orders, and gives the first coefficient of their radius comparison for each normalization and both geometric properties. The correction and its sign are not obtained from the leading scaling or from a numerical approximation to the implicit equations. No novelty or value is assigned to re-stating those equations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

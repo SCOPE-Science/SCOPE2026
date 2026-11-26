@@ -1,19 +1,21 @@
-# Self-review of three-edge weighted gossip ordering
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact rank-one contact matrices preserve the consensus direction and have a two-norm loss identity. Expanding the three chronological losses gives \(E_{(a,b,c)}-E_{(a,c,b)}=4abc(1-a)(c-b)\), with reversal reducing six schedules to the three possible middle choices. For the worst-case assertion, the singular-value products \(U=\prod_i(1-2p_i)^2\) and \(V=32\prod_ip_i(1-p_i)\) are independent of order; the second identity follows from the triangular edge-vector representation in the determinant of \(I-T^{\mathsf T}T\). The equation \(E=1+W+U/W-V/(1-W)\) is strictly decreasing between distinct feasible maximum squared singular values. Therefore the optimal middle coefficient is maximal for isotropic error and minimal for worst-case error. This is an all-real-parameter proof, including coincident coefficients and the possibly singular case \(p_i=1/2\). The replayed `verify.py` passed symbolic identities, exact rational root isolation, and 24 additional rational coefficient triplets. No infinite-domain conclusion is inferred from the finite checks.
+PASS
 
-## Originality — PASS on inspected sources, qualified
+The symmetric contact matrices preserve the consensus direction and act as strict contractions along their own edge vectors for all p_i in (0,1). Equality through the entire sweep would require a vector orthogonal to all three edge vectors, hence zero in the centered space. The symbolic Frobenius difference directly checks as 4abc(1-a)(c-b), and reversal transposes the sweep, giving the strict middle-parameter order and all ties. On the centered space S=T^T T has det(S)=U=product(1-2p_i)^2. The telescoped loss I-S is a sum of three outer products with factors 2p_i(1-p_i); their vectors are obtained from the original star vectors by a unit-triangular basis change. The original Gram determinant is four, so det(I-S)=V=32 product p_i(1-p_i), positive and at most 1/2. Thus every largest root lies in (0,1), even with a singular contact. Independently, the centered characteristic polynomial of S is chi_E(s)=s^3-E s^2+(E+V-1+U)s-U. If E2>E1, then at the largest root r2 of chi_E2, chi_E1(r2)=-(E2-E1)r2(1-r2)<0, forcing r2 strictly below the largest root of the monic chi_E1. Equal E yields identical polynomials, covering ties. Separately, the product T has one common characteristic polynomial by cyclic permutation and transpose, including noninvertible factors. Two contacts give only reversals, so no smaller star has an ordering conflict under these hypotheses. Direct symbolic check and rational witness with numerical singular roots: python /workspace/replays/gossip.py. Only one sweep with three fixed contacts is claimed; the heat-edge special case restricts p_i to (0,1/2), not the theorem.
 
-The strongest relevant prior work is Lu–Morse–Anderson–Yu (2010), which proves strict Euclidean contraction for complete gossip sequences and explicitly identifies optimizing the singular contraction coefficient as an open direction. Liu–Mou–Morse–Anderson–Yu (2011) proves an ordering-invariant *eigenvalue* convergence factor on trees, but eigenvalue equality does not entail the present one-sweep norms. Mangoubi–Mou–Liu–Morse (2013) optimizes a *common* mixing weight for periodic convergence, not arbitrary edge-specific weights or finite-sweep singular-value optima. Shi–Li–Johansson–Johansson (2012) treats exact finite-time consensus, not finite-sweep approximation. An indexed arrowhead Gauss–Seidel result addresses another update map and another performance criterion. An earlier path-averaging theorem covers unweighted paths, not this weighted star. Statement-level implications and material read were distinguished; inaccessible or unindexed equivalent work remains a publication-priority risk, not claimed absent.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete, parameter-uniform and sharply characterized design conflict for a natural four-agent communication graph: the best one-sweep contact schedule depends on whether a designer controls average squared disagreement or the worst initial direction. The reversal arises even though asymptotic spectra are identical for all six schedules, exposing a practical blind spot in spectral-rate-only scheduling rules. Three contacts are necessary for this star ordering effect, and the result holds for physical heat-edge transfers without optimizing the coefficients themselves. It does not assert universality on larger graphs or repeated periods.
+The supported distinct result is the exact largest-/smallest-parameter middle rule for heterogeneous fixed contacts on the three-leaf star. The separate same-day weighted path statement already shows the broader norm-ordering conflict with equal spectra but gives a different topology and optimizer law. Classical contraction and order-invariant spectral convergence are not claimed as new.
 
-## Scope and independent review
+## value
 
-The claim is restricted to three fixed positive convex mixing parameters, applied once each to a three-leaf star. The historical literature search and available index are not complete publication-priority certificates. External proof verification has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A star with three contacts is the first star where reversal symmetry permits an ordering choice. The exact exhaustive schedule rule for arbitrary fixed strengths and all ties exposes the incompatibility of isotropic and worst-direction design even at equal asymptotic spectra. It is an analytically useful small benchmark, not a rule for long sweeps or arbitrary topologies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

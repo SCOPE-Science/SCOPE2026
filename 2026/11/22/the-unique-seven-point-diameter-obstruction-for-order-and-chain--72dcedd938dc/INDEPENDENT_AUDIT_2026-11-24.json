@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:35:57.015381Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py (inspected, not executed)",
+        "Independent replay: cd /workspace/checks && python3 2.py 0 1 2 3 4 5 6 7 (uses posets.py)"
+      ],
+      "rationale": "Reconstructed the edge predicates using the minimal common face. Shared active coordinate constraints fix the coordinates outside the symmetric difference. For ideals the remaining shared equations identify comparable coordinates; opposite differences of two ideals are incomparable. For antichains a common tight chain either meets a common vertex or imposes x_i+x_j=1 across the two differences for a comparable pair. Thus the remaining dimension is the number of connected components in each case. Independently generated every naturally labelled order by adding the last element over any ideal of its predecessors, without using the X-free skip, then computed both diameters by exact bit-set breadth-first search. There are no splits at n=0 through 6. For n=4,5,6,7 the totals are 40,357,4824,96428; X counts are 0,1,66,3705. All 46 splits are (2,3), and direct comparison with all relabelings of Lee's witness and its transpose gives disjoint groups of 23 each. Linear extensions ensure all isomorphism types are included; order duality complements ideal coordinates and preserves comparabilities for antichains.",
+      "residual_risks": [
+        "The classification ends at seven elements. The witness is cited by a different proposition number in the frozen text; in arXiv v3 the verified locator is Example 5 and Proposition 24(i)."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lee bounds the two graph diameters and exhibits examples in both inequality directions. Goel gives sharp face-number differences in dimensions k>=2 for posets with X and discusses edge-count equality."
+        ],
+        "reasoning": "Neither a common interval of diameter bounds nor the face numbers specify shortest-path distances or classify all pairs at the first dimension where they differ.",
+        "searches": [
+          "Lee, arXiv:2610.07413v3, Theorem 23 and Proposition 24",
+          "Goel, arXiv:2610.40703v4, abstract and face-number setup"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and matching local-mirror passages",
+        "arXiv:2610.07413v3",
+        "arXiv:2610.40703v4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unimodular equivalence gives diameter equality for X-free posets; X first occurs on five elements. Lee proves the upper bound of seven on the smallest split by a witness."
+        ],
+        "reasoning": "The lower bound and uniqueness require deciding the X-containing cases as well; those are not consequences of equivalence for X-free posets or existence of P1.",
+        "searches": [
+          "Lee, graph-diameter discussion including Proposition 24; Hibi–Li criterion as used in Lee and quoted in Goel"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lee's P1 has precisely the frozen cover diagram and pair (2,3). Catalog neighbors SCOPE-the-complete-diametral-graph-of-the-symmetric-stanley-cayley-lif--f31a81048e24 and SCOPE-coordinatewise-euclidean-inertia-dominance-for-every-order-chain--f3037609ea09 concern Euclidean distance or inertia, not shortest paths on these two graphs."
+        ],
+        "reasoning": "The witness is equivalent to prior work, but neither its duality orbit nor the threshold classification follows from the witness alone. Euclidean diameter does not give graph diameter.",
+        "searches": [
+          "Resultary: order/chain polytope graph diameters, seven vertices of the poset, minimal difference and order duality",
+          "arXiv:2610.07413v3, Example 5 and Proposition 24(i)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The match with 40,357,4824,96428 orders and 46 exceptions at size seven is the assigned record itself. No distinct inspected catalog entry supplied the paired diameters or an exhaustive equivalent table."
+        ],
+        "reasoning": "A census of posets or of polytope edges without paired graph distances does not encode the classification. The mirror match is not independent prior evidence.",
+        "searches": [
+          "Resultary exact threshold and counts of seven-element order/chain diameter exceptions",
+          "Frozen Resultary record SCOPE-the-unique-seven-point-diameter-obstruction-for-order-and-chain--72dcedd938dc, mirrored table and canonical-code discussion"
+        ]
+      },
+      "rationale": "Credit Lee with the exact seven-element example and its diameters. The accepted increment is the exhaustive exclusion through six and the classification of every smallest witness up to duality. The inspected bounds, face-number theorems and nearest other catalog entries do not give this rigidity.",
+      "residual_risks": [
+        "Primary-literature discovery returned no useful additional candidate. This bounded review is not a historical priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior witness only",
+          "evidence": "v3 Proposition 24(i) explicitly gives diam O(P1)=2 and diam C(P1)=3; (ii) gives a different larger example.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.07413v3",
+          "material_read": "PDF pp. 4, 19–20; Example 5, Theorem 23 bound statement, Proposition 24(i) and proof; version header",
+          "method": "Open-access PDF passage inspection",
+          "title": "A refinement of the edge theorem for order and chain polytopes",
+          "trigger": "Exact poset and invariant in the frozen citation"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "The theorem concerns numbers of faces, including sharp nonzero differences for X-containing posets for k>=2, not distances between vertices.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.40703v4",
+          "material_read": "PDF pp. 1–2, abstract, introduction and comparison table framing",
+          "method": "Open-access PDF passage inspection",
+          "title": "The Hibi–Li (2016) conjecture is fully resolved",
+          "trigger": "Possible stronger all-poset theorem about the same polytopes"
+        },
+        {
+          "assessment": "Identical assigned record",
+          "evidence": "The same 46 naturally labelled splits and two dual isomorphism classes are stated.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-unique-seven-point-diameter-obstruction-for-order-and-chain--72dcedd938dc",
+          "material_read": "RESULT.md, comparison table and canonical classes, character offsets 2760–6354",
+          "method": "Resultary search and local mirror passage inspection",
+          "title": "The unique seven-point diameter obstruction for order and chain polytopes",
+          "trigger": "Exact catalog match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen theorem and prior-work section",
+        "Lee, Example 5 and Proposition 24(i)",
+        "Independent full census through seven"
+      ],
+      "rationale": "The graph diameter distinguishes two natural polytopes whose vertex and edge counts agree. Determining exactly when this distance invariant first distinguishes them, and showing that the known example is forced up to duality at that size, supplies a sharp structural cutoff rather than another example.",
+      "residual_risks": [
+        "No general characterization for larger posets is supplied or needed for this contribution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:50:05.865852Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Substitution y² gives the beta seed moments and independence multiplies each by the corresponding exponential-age gamma moment. In particular let b=3/2+1/σ: the compact seed's fourth and sixth normalized moments are 3b/(b+1) and 15b²/((b+1)(b+2)); b strictly decreases and both expressions strictly increase in b. For m=2,3 the log derivative of Γ(1+mu)/Γ(1+u)^m is m[ψ(1+mu)−ψ(1+u)]>0, and u=2/(σ+2) strictly decreases. This proves strict monotonicity for both ratios; K has endpoint limits 6 and 9/5 and crosses 3 exactly once. The symmetry cumulant identity then reduces its sixth cumulant at the crossing to S−15. For independent strict sign verification, Euler's gamma product gives the factor ∏_{n≥1}(1+u/n)^m/(1+mu/n). The tail log is in [0,m(m−1)u²/(2N)] by differentiating each log factor and comparing ∑_{n>N}1/n² with the integral. Exact fixed-point floor/ceiling arithmetic at N=2500 gave K(1.14) in (3.00639481,3.00688277), K(1.15) in (2.99833820,2.99882177), and S(1.14) in (14.59190752,14.59901485). The same integer recurrences are replayable in /workspace/branches/audit_gamma.py. This verifies the sign without depending on the frozen checker’s float conversions of interval endpoints. The audit is for the independent renewal mixture, not a solution of a nonlinear PDE with an imposed source or finite-sample identifiability.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former gives the MSD and a stationary mixture integral from which raw moments of each order can be extracted.",
+          "The latter gives the general linear renewal formula for restarting a propagator."
+        ],
+        "reasoning": "These supply the measure and hence the raw-moment calculation. Neither broader statement controls how a ratio of mixed moments changes with the medium exponent or the sign of a higher cumulant at a zero of a lower one.",
+        "searches": [
+          "Chełminiak arXiv:2107.14680, §§3.1–3.2",
+          "Singh, Górska and Sandev arXiv:2203.04046, Eq. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py",
+        "arXiv:2107.14680",
+        "doi:10.3390/e25121647",
+        "arXiv:2203.04046",
+        "Resultary record 0c768706c25c and indexed self-match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Normalizing the known moment integrals gives the formula assessed here, but proving strict decrease uses distinct monotonicity of shape and age factors, and exclusion of Gaussian sixth moment uses a separate strict comparison near the unique crossing.",
+          "A regularity threshold of the spatial density at zero neither determines normalized global moments nor establishes identifiability."
+        ],
+        "reasoning": "Credit existing coverage of the law and immediate moment formulas. Neither the density formula nor the curvature or source-PDE conclusions give the stated global identification and signed sixth-cumulant theorem by specializing a stronger assertion.",
+        "searches": [
+          "Chełminiak arXiv:2107.14680 §§3.1–3.2",
+          "Lenzi et al. Entropy 25 (2023), 1647, Eqs. 2, 10–12",
+          "Resultary 0c768706c25c statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The known resetting density has the same independent exponential-age representation after rescaling the compact seed.",
+          "Lenzi et al. Eq. 2 and Eqs. 10–12 instead treat a nonlinear resetting source-PDE and its q-exponential stationary profile."
+        ],
+        "reasoning": "Equivalent scale or density parametrizations of the Chełminiak mixture do not change the moment ratios. A spatial profile from a different source-PDE is not equivalent without an identification of the law; the examined equations do not give one.",
+        "searches": [
+          "Resultary: exponential-age/Poisson renewal Barenblatt mixture, porous-medium stochastic resetting, kurtosis/identifiability/standardized moments",
+          "Chełminiak arXiv:2107.14680, Eqs. 6, 21, 28"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct same-day record 0c768706c25c deals with differentiability and finite curvature at the reset origin, with threshold σ=1; it does not tabulate the fourth/sixth standardized moment transition.",
+          "The assigned record also occurs as an indexed self-match."
+        ],
+        "reasoning": "No dedicated exact table for the moment crossing in this specific renewal family was identified; the closest corpus record is compared by its theorem, not excluded by date or the difference in decimal thresholds.",
+        "searches": [
+          "Resultary: Barenblatt–Pattle resetting mixture, kurtosis blind spot, moment thresholds; exact SCOPE compare 0c768706c25c"
+        ]
+      },
+      "rationale": "Pass is for the global standardized-moment identifiability law and its unique Gaussian-fourth-moment crossing with strictly negative sixth cumulant. The free shape, renewal law, stationary integral, and mixed even-moment recipe are covered or immediate from known formulas; they are not the originality basis. The source integral yields the ratios but does not supply the joint range, invertibility, and signed standardized sixth-cumulant classification as a stronger result.",
+      "residual_risks": [
+        "This is bounded evidence, not a historical-priority guarantee; older probabilistic variants of resetting/self-similar mixtures could analyze the same ratios under different names.",
+        "General renewal results imply the product moment formula. The originality finding is restricted to the classification, not to moment computation from a known integral."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers geometry, renewal and second moment; known integral entails raw moments. No global identifiability or signed sixth-cumulant result in the pertinent passages.",
+          "evidence": [
+            "Eq. 21 implements exponential-age renewal, and Eq. 28 is the stationary integral.",
+            "Eqs. 22–26 give the MSD, not the standardized fourth-to-sixth comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2107.14680",
+          "material_read": "Eq. 6 p. 3 (OA 17800–21780); Eqs. 21–26 §3.1 pp. 5–6 (30000–36197); Eq. 28 §3.2 p. 7 (35500–39459)",
+          "method": "Lawful OA primary PDF and bounded equation/section passages",
+          "title": "Non-linear diffusion with stochastic resetting",
+          "trigger": "Same normalized one-dimensional resetting mixture and published variance"
+        },
+        {
+          "assessment": "Different dynamics and stationary profile in the passages bearing on potential equivalence.",
+          "evidence": [
+            "Reset source is included in the PDE; the reported stationary expression is q-exponential."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/e25121647",
+          "material_read": "Publisher PDF Eq. 2 p. 3 (OA 11100–14098) and Eqs. 10–12 p. 5 (29400–33369)",
+          "method": "Lawful publisher-hosted PDF passages",
+          "title": "Results for Nonlinear Diffusion Equations with Stochastic Resetting",
+          "trigger": "Related nonlinear resetting and stationary solutions"
+        },
+        {
+          "assessment": "Covers general method, not moment classification.",
+          "evidence": [
+            "Eq. 1 is a renewal equation in the propagator."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2203.04046",
+          "material_read": "Eq. 1 p. 1 (OA 8200–11674)",
+          "method": "Lawful OA PDF passage",
+          "title": "General approach to stochastic resetting",
+          "trigger": "General renewal formulation could encompass mixture"
+        },
+        {
+          "assessment": "Distinct same-family theorem, not a moment inversion or Gaussian-match test.",
+          "evidence": [
+            "It classifies behavior at the reset point, rather than any standardized moment."
+          ],
+          "identifier_or_url": "Resultary SCOPE 2026/11/22 record 0c768706c25c",
+          "material_read": "RESULT.md finding on origin regularity and σ=1 curvature threshold, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary and source mirror",
+          "title": "A sharp origin-curvature transition for Poisson mixtures of Barenblatt profiles",
+          "trigger": "Closest distinct indexed match to the same exponential-age law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The normalized statistic is informative for a natural physical family even when length and reset rate are unknown: one exact fourth moment uniquely identifies the nonlinear exponent over its whole finite range. The unique exponent matching a Gaussian at fourth order has a proved nonzero sixth-order diagnostic, so the result distinguishes parameter identification within the model from Gaussian identification across models. This is not a claim about estimator performance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

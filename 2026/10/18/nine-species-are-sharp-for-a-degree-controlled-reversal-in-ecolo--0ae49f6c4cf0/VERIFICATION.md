@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact checks and scope
+# Independent mathematical audit
 
-Compile the standalone `verify_matching_capacity.cpp` using a C++17 compiler, then run it. Its complete finite search covers all \(2^{ab}\) labeled binary incidence matrices for positive integer guild sizes \(a,b\) with \(a+b\le8\). A finite connectivity test rejects nonconnected matrices; no unexamined isomorphism-class reduction is applied. Within each joint degree signature, every pair of distinct matching-capacity coefficient vectors is checked for componentwise comparability. Identical vectors are tied.
+## correctness
 
-The verifier independently recomputes all 32 possible surviving-pollinator subsets for each witness using exhaustive injective assignments, checks the exact coefficient vectors and expands the difference polynomial. The subset formula proves positivity of the Bernstein basis for all \(0<q<1\); the polynomial factorization proves the unique interior crossing exactly, without numerical root finding. All operations establishing the theorem are integer exact.
+PASS
 
-The returned finite check reports 70,492 connected labeled matrices and 21 distinct coefficient-vector pairs for the smaller orders. The verifier does not analyze larger graphs, weighted partner capacity, dependent extinctions or actual realized pollination. It is ordinary reproducibility code, not a formal proof assistant or independent external certification.
+For exactly k surviving pollinators, each survivor set has weight (1-q)^k q^(b-k); the corresponding coefficient sum is A_k, or A_k divided by the positive binomial(b,k) in the normalized Bernstein basis. Exhausted all ordered guild sizes through eight by enumerating row multisets and recovering the labeled counts by multinomial weights. Tested connectivity by closure on intersecting neighborhoods. For each survivor mask, independently propagated the sets of plants that can be injectively assigned to surviving pollinators, processing pollinators rather than using the source's plant-first recurrence. The 70492 labeled matrices yield 21 same-signature comparisons between distinct coefficient vectors, all componentwise comparable. The connected degree-matched witnesses have vectors (0,5,19,27,17,4) and (0,5,20,26,14,3). Their difference factors as (1-q)^2(1-2q^2), with the claimed interior sign reversal and endpoint orientation. Replay: python3 /workspace/branches/audit_pollinators.py capacity.
+
+## originality
+
+PASS
+
+Expected rank is established terminology, and same-day Resultary work gives closely analogous coefficient dominance for expected component size on trees. Neither that result nor the inspected matching or expected-rank texts provides the specified degree-matched transversal-rank order and sharp reversal under one-side vertex failure.
+
+## value
+
+PASS
+
+The finding locates the first network size at which two margins do not control even the ordering of expected optimal service across failure rates. Below that size it provides the stronger discrete survivor-layer order. The witness distinguishes robustness under independent losses from the established observation that equal degrees need not fix static maximum matching.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

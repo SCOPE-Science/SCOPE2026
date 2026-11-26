@@ -1,19 +1,21 @@
-# Scientific review: bounded trap-diffusion equilibrium
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The paper's stated symmetric-neighbor Metropolis acceptance rule gives the exact reversible single-unit law with site weights proportional to \(e^{\phi_i/T}\). Independence of money units then supplies the finite multinomial count distribution. The sampled Gini (not merely the Gini of mean counts) is strictly Schur-convex in the sampling probabilities, as established by conditioning two categories on their total and using a symmetric, strictly convex binomial Bernstein polynomial. Colder Gibbs distributions strictly majorize hotter distributions; the exact vacancy formula is strictly Schur-convex too. The thermodynamic mixed-Poisson limit follows by law of large numbers, uniform binomial-to-Poisson approximation, and conditional bounded differences. Uniformly bounded mixing intensities imply a super-exponential tail by Chernoff's inequality. Exact rational detailed-balance and finite-observable checks and an explicit finite-size thermodynamic check were executed from the supplied program. All quantified statements have explicit boundary and regularity hypotheses.
+PASS
 
-## Originality — PASS, with residual risk
+For the corrected model, detailed balance reduces each edge flux to min(r_i,r_j)/2. Positive rates and single-label moves make the labelled chain irreducible in continuous time and under uniform single-label discrete updates. With heterogeneous depths the single-label attempted-move kernel is primitive, so synchronous product updates are also primitive. The separate equal-depth even-cycle cases in the repair correctly distinguish reducibility for simultaneous moves from mere periodicity for single-label updates. Gibbs partial-sum differentiation gives strict non-permutation majorization; vacancy is a strictly convex separable sum. Conditional on a pair's total R and the other counts, its Gini contribution is symmetric and discretely convex, with a positive second difference from |2t−R| whenever R≥2. Binomial averaging then gives strict pair balancing for M≥2 and positive Gibbs probabilities. In the fixed-T limit, conditional site Poisson errors are O(1/L), normalizers obey the LLN and Efron–Stein with a 2/L bounded difference controls the empirical fraction; the uniformly bounded Poisson rates give the tail bound. No uniform mixing or T→0 joint-limit conclusion follows.
 
-The primary 2026 paper specifies the hopping mechanism and presents finite-run numerical temperature-dependent Pareto fits and nonmonotonic Gini/vacancy responses, but does not state the exact stationary multinomial formula, a finite-sample strict thermal-order theorem, or a fixed-positive-temperature mixed-Poisson thermodynamic law. Its 2023 precursor uses stochastic savings-based pairwise wealth transactions, not independent-unit hops; the 2025 fixed-amount-liquidity model uses yet another transfer rule. Generic detailed balance, Gibbs thermal ordering, and Poisson approximation are prior mathematical methods and are not claimed as discoveries. Searches under source names, equilibrium aliases, multinomial Schur-convexity, and mixed-Poisson tails did not locate an implication-equivalent result for this specified model. Priority is not independently certified: a general theorem for multinomial occupancy inequality may subsume part of the proof, and unavailable or differently indexed literature remains a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The two experimentally reported intermediate-temperature peaks concern central quantitative observables of the source model. This result proves that such peaks cannot describe genuine equilibrium under the model's microscopic hopping rule; it identifies a precise mechanism for interpreting finite-run observations without claiming their measured values are wrong. It simultaneously derives an explicit high-population wealth histogram and rules out a true fixed-temperature Pareto tail despite its numerical appearance. The finite \(M\) strict-Gini statement is stronger than a deterministic mean-wealth inequality argument. These conclusions specify a testable asymptotic distinction between metastable finite-time data and invariant wealth statistics, rather than a generic normalization or type check.
+Credit Gibbs/Metropolis reversibility, Schur-convexity methods, vacancy as a separable occupancy average, and Poisson approximation as established tools. The supported contribution is a model-specific exact equilibrium comparison with strict monotonicity of the expected sampled Gini (not Gini of the mean and not scalar two-copy dispersion), and the complete fixed-temperature light-tail conclusion for this wealth rule. The inspected primary simulation and closest exact catalogue analogue do not supply that result for the stipulated model.
 
-## Closest sources and limitations
+## value
 
-Primary: E. Aydiner, *A New Model for the Income Distribution*, arXiv:2610.08143v1 (October 6, 2026), Sections III–V. Predecessor: E. Aydiner, A. G. Cherstvy, R. Metzler and I. M. Sokolov, *Universal Pareto laws in agent-based exchange models: debt and varying initial-money distributions* (2023), DOI:10.1140/epjb/s10051-023-00579-y. Related but different rule: J. Liuh, arXiv:2511.08202v1 (2025). Scope is independent money units, quenched bounded site depths, fixed positive temperature before the large-system limit, and genuine equilibrium rather than a fixed-step simulation. The conclusion does not cover occupancy-dependent transactions, finite-time extrema, or temperature tending to zero with system size.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact benchmark addresses an independently motivated question raised by apparent temperature maxima and heavy tails in finite runs. In particular, strictness concerns the empirical wealth inequality of actually sampled counts, where occupancy fluctuations persist, and the tail theorem explains what the specified equilibrium cannot exhibit. The delivery makes no unsupported inference about the time needed to reach that law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:07:30.611148Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A finite word avoiding 0^m extends bilaterally by padding with ones, and conversely; the complementary argument applies to 1^m. The forbidden words of the union therefore contain both runs. Minimality says each length-(n-1) deletion must erase one type; the same type cannot be erased by both deletions, since every such occurrence would have to span the word, which also contains the other type. Consequently each endpoint holds one exact run of the appropriate type, neither type occurs again, and in either orientation the intervening word is empty or is a unique sequence of pairs of alternating runs of length 1 through m-1. Conversely those pairs give minimal forbidden words. Thus the series is 2z^(2m)/(1-R_m(z)^2), R_m=z+...+z^(m-1), with infinitely many nonzero coefficients. For |z| below the positive solution R_m=1 the denominator cannot vanish, and that positive singularity is not canceled. The overlap allows all alternating run compositions with lengths ≤m-1, including arbitrary boundary runs: every finite word with this constraint extends by alternating letters at both ends. Its nonempty word series is 2R_m/(1-R_m), with the same radius. The m=2 overlap is the period-two orbit, and the minimal forbidden counts 2 at the even lengths from four onward give limsup entropy zero despite empty odd levels. A component has primitive run-state transition matrix and words growing at the root lambda_m of the defining sum; the union has the maximum of the two component entropies. An ergodic measure lives on one component, where only its Parry measure can maximize entropy; the overlap has strictly less entropy, so these two component maximizers are distinct. The Parry process of each primitive SFT is Bernoulli, and affinity of entropy under ergodic decomposition gives exactly their convex combinations. Finally lambda_r tends to 2 and r(2-lambda_r)≤r lambda_2^(-r) for r≥2, so 2-lambda_r=lambda_r^(-r)=2^(-r)(1+o(1)); subtraction of the two adjacent deficits gives the coefficient 2^(-m-1) in the log gap. As independent finite corroboration, enumerate binary words for m=2 through 5 and n=1 through 14, test both endpoint deletions, and compare the actual sets with the alternating-run constructions and their cardinalities with the formal series. All 56 cases agreed. The frozen CHECKER.py was inspected, not executed; its larger finite range is not the proof of the all-length or limiting claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wu–Zhang Theorem A and Corollary 1 give finiteness and Bernoulli up to finite period under the respective generating- or minimal-forbidden entropy gaps.",
+          "Agarwal–Cheriyath–Tikekar use generating functions and Perron data for entropy and Parry measures in an associated edge-shift setting.",
+          "The package credits Béal et al. for regular-language minimal-forbidden algorithms; full primary text could not be obtained here and examples were not cleared."
+        ],
+        "reasoning": "A general effective procedure or generic phase-finiteness criterion is not a closed-form family calculation. The inspected statements do not identify the mixed endpoint language or predict which Perron root gives its growth. If an older union example or specialization already yields that formula, coverage would need reassessment.",
+        "searches": [
+          "arXiv:2611.03758v1, Theorem A and Corollary 1",
+          "arXiv:2211.06068, abstract",
+          "10.3233/FUN-2003-561-208",
+          "Resultary: minimal forbidden word growth union of two shifts of finite type intersection entropy"
+        ]
+      },
+      "checked_sources": [
+        "Wu–Zhang, arXiv:2611.03758v1",
+        "Agarwal–Cheriyath–Tikekar, arXiv:2211.06068",
+        "Published antisquare-good shift record 29a622fd334c",
+        "Béal et al., DOI 10.3233/FUN-2003-561-208 (full-text access attempted, not obtained)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The entropy-gap theorem takes a strict gap as input and only concludes finiteness and Bernoulli up to period.",
+          "The individual run-SFT Perron root and its Parry measure use standard component theory; two Parry maximizers then follow once overlap and entropy dominance are settled.",
+          "The new quantitative conclusion uses the exact two-orientation terminal-run decomposition and compares two adjacent roots. The antisquare zeta computation is an orbit enumeration in a different system."
+        ],
+        "reasoning": "Credit the general entropy-gap implication and the standard component argument, rather than claiming the possibility of two Parry maximizers. The particular mixed series, overlap identification, and asymptotic gap are the parts not delivered by those implications.",
+        "searches": [
+          "arXiv:2611.03758v1, PDF p. 2 Theorem A and p. 38 Corollary 1",
+          "Two maximal-entropy phases and an exact periodic-orbit law for antisquare-good binary shifts, RESULT.md Finding",
+          "Resultary: binary subshift union forbidding 0^m and 1^m minimal forbidden words rational generating function entropy overlap"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The combinatorial equivalent is shortest by factor inclusion among binary words containing both monochromatic m-runs; the run-coded middle words have prescribed opposite end colors.",
+          "The comparable antisquare example excludes u followed by its complement for lengths |u|≥2, not the simultaneous occurrence of two arbitrarily separated endpoint runs.",
+          "Nearby Resultary run-coded antidictionary hits are for different avoidance languages; target self-matches were excluded as priority evidence."
+        ],
+        "reasoning": "The overall number of entropy-maximizing components or the presence of alternating bounded runs does not make these different languages equivalent. A dominating result would count the mixed terminal-run obstructions, or relate their growth to the overlap after the relevant boundary accessibility test. The bounded searches did not yield an inspected such result; irrelevant hits give no negative evidence.",
+        "searches": [
+          "Resultary: binary subshift union forbidding 0^m and 1^m minimal forbidden words rational generating function entropy overlap",
+          "Resultary: exact minimal forbidden series complementary run avoidance union two maximal entropy measures entropy gap",
+          "Web: (\"minimal forbidden words\" OR \"minimal forbidden factors\") (\"union of two shifts\" OR \"union of shifts of finite type\") (intersection entropy OR growth) OR (\"Computing forbidden words of regular languages\" Béal author repository PDF)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ranked exact-target hits are self-matches; nearby catalog entries include an antisquare shift and a different proportional-run antidictionary, not the stated series for all m.",
+          "The older closest automata-paper search was unproductive and no exact worked table was obtained from it."
+        ],
+        "reasoning": "The independently reproduced 56 finite coefficients are correctness measurements only. They cannot serve as external priority evidence, and neither the ranked search nor the unsuccessful external lookup rules out a known table or exact worked example.",
+        "searches": [
+          "Resultary: exact minimal forbidden series complementary run avoidance union two maximal entropy measures entropy gap",
+          "Resultary: minimal forbidden word growth union of two shifts of finite type intersection entropy",
+          "Web: \"Computing forbidden words of regular languages\" pdf Beal Crochemore Mignosi Restivo Sciortino 2003"
+        ]
+      },
+      "rationale": "Prior entropy-gap results already give finiteness and Bernoulli up to period, and standard component theory gives the two measures once the equal competing entropies and lower overlap are known. Prior regular-language methods are also credited for minimal-forbidden computation and rationality. The independently significant residue is the closed complementary-run formula and its overlap-entropy identity, which quantify the positive gap and its decay in an exact two-phase family. No inspected theorem states or directly implies these family-specific formulas without computing the mixed obstructions. This is best-of-knowledge only; the closest automata article's full text was not accessible in this comparison.",
+      "residual_risks": [
+        "An exact earlier regular-language example or a theorem about minimal-forbidden entropy of unions may be indexed using different terminology.",
+        "Full examples of the Béal et al. article were not independently read. The two web searches did not locate relevant primary material and corpus searches were bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general finiteness and Bernoulli up to period, not the explicit run-family formulas in those statements",
+          "evidence": [
+            "Theorem A uses h_G<h_top; Corollary 1 uses h_M<h_top. Neither conclusion counts these two components or calculates their gap."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.03758v1",
+          "material_read": "PDF p. 2 Theorem A at offset 5839, and p. 38 Corollary 1 at offset 184440",
+          "method": "Open primary PDF, decisive statement passages",
+          "title": "Generating Forbidden Words and Measures of Maximal Entropy for Subshifts",
+          "trigger": "Same entropy invariants and a stronger general finiteness theorem"
+        },
+        {
+          "assessment": "General method is credited as stated by the frozen record; the paper's examples remain unchecked",
+          "evidence": [
+            "DOI retrieval returned 404, the cited copy returned 403 and the publisher route timed out. These failures do not resolve coverage."
+          ],
+          "identifier_or_url": "10.3233/FUN-2003-561-208",
+          "material_read": "No primary full-text passage obtained",
+          "method": "DOI, publisher and cited public-copy attempts were unsuccessful",
+          "title": "Computing forbidden words of regular languages",
+          "trigger": "Plausible broader method or worked example with this minimal-forbidden series"
+        },
+        {
+          "assessment": "Methodological overlap; the inspected material does not give the mixed run-union identity",
+          "evidence": [
+            "Word-count generating functions are used to obtain Perron data and Parry measures for the associated edge shift."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2211.06068",
+          "material_read": "PDF p. 1, abstract passage at offset 1778",
+          "method": "Open primary PDF excerpt",
+          "title": "A combinatorial approach to study subshifts associated with multigraphs",
+          "trigger": "Generating functions for Perron and entropy properties of subshifts"
+        },
+        {
+          "assessment": "Same type of phase count, different language and counted object",
+          "evidence": [
+            "Avoidance of antisquares u followed by its bitwise complement for |u|≥2; periodic-point zeta data and two complementary maximizers."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-two-maximal-entropy-phases-and-an-exact-periodic-orbit-law-for-a--29a622fd334c/RESULT.md",
+          "material_read": "Opening 3173 characters, including the Finding",
+          "method": "Published record, local mirror",
+          "title": "Two maximal-entropy phases and an exact periodic-orbit law for antisquare-good binary shifts",
+          "trigger": "An explicit binary two-phase shift with exact counting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This family provides an exact test case for the relation between minimal obstructions and phase overlap in symbolic dynamics. The computation produces all obstruction counts, identifies the exponent with that of the overlap, and supplies an explicit rate at which a strictly positive entropy gap can shrink while two distinct Bernoulli maximizing phases persist. These quantitative features are more informative than merely exhibiting multiple maximizing measures or asserting rationality of an antidictionary.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

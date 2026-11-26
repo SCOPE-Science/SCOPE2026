@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The 4-letter substitution-block calculation rules out cyclic palindromes of length five and hence all odd lengths at least five. Exact mirror-pair decimation relates even-gap palindrome radii to parent anti-palindrome radii. At odd gaps the latter are exactly one or three, governed by the equality of two parent symbols; a fourth pair would require a forbidden five-letter palindrome. Base cases at depths one and two handle all exceptional full axes. The valuation recursion gives every asserted center radius, and a direct residue check at depths three and four proves both parity-specific sharp bounds. Half-turn complementarity gives the two distinct long factors. `verify.py` checks all 131056 centers at depths four through sixteen by a separate direct scan, but the proof—not the scan—establishes the infinite scope.
+PASS
 
-## Originality — PASS with residual risk
+With gap c between c−1 and c, an even gap 2h expands each parent mirror pair into two pairs with the opposite equality status. Thus P(2h)=2A(h) and A(2h)=2P(h) at successive depths, with the factor-of-two caps consistent. At odd gaps P=0; for A the initial pair always passes, pairs two and three pass together exactly when the two parent neighbors agree, and a fourth would then force a length-five palindrome centered on the parent letter. Checking the four offsets in the periodic concatenation of 0110/1001 blocks excludes such odd palindromes, also across seams. Repeated division by two proves the valuation formula; the length-two circular word and the odd gaps of 0110 settle the capped full-axis cases. At the largest permitted odd valuation the parent tests use 0110 for even k (all four neighbor tests unequal) and 01101001 for odd k (four equal out of eight). Lower valuations cannot reach the resulting bounds. Half-circle shift complements every letter, so above twice the off-axis radius the two full gaps yield distinct complementary factors, including length N. Independent even-radius Manacher computation on the trebled word, retaining the central copy with one-circuit caps (python3 /workspace/reproduce_reviews.py 5), matched all 131056 gaps at k=4..16 and checked the seam restriction and complementary factors at both ends of the long range. The proof, not that range, covers all k≥4.
 
-Materially inspected literature discusses infinite-word palindromic complexity/lacunae, general circular-palindrome bounds, and periodicity from palindromic equations. The nearest relevant complete preprint (Blondin Massé et al., 2011, doi:10.1016/j.tcs.2010.07.005) addresses different equations and does not imply this Thue–Morse gap-wise formula. Simpson (2014) states a universal count bound in its accessible abstract, which cannot supply individual radii. Search comparisons of conjugate words, exact tables, equivalent local-symmetry statements, and stronger covering claims did not identify the classification. The full Simpson article and some Thue–Morse specialized papers remain incompletely accessible; equivalent unindexed work is possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The position-resolved classification reveals sharp parity-dependent macroscopic reflection structure in a canonical cyclic automatic word, with exactly four secondary centers and an exact long-palindrome count at every relevant length. This is a natural structural invariant not determined by the existing aggregate palindromic-complexity values or a routine small numerical extension.
+Credit prior infinite-word odd-palindrome exclusion, centered desubstitution and aggregate palindromic complexity. The supported distinct result is the complete indexed finite circular radius law with parity-dependent sharp off-axis maxima and its long-factor consequence. The checked sources do not give this position-specific finite classification; the strongest desubstitution result provides ingredients, not the evaluated capped radii and their maxima.
 
-## Limitations
+## value
 
-All statements are for dyadic circular Thue–Morse words, at substitution depth at least four, counting palindromic factors no longer than the circle. Finite checks do not certify statements beyond their tested depth. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives the complete reflection-radius profile of a canonical finite cyclic substitution word, not a test for one block size or an ordinary aggregate count. It separates exact full reflection, the strongest off-axis reflection, and the entire intermediate scale with simple position rules. In particular the parity-dependent extremizers and long-factor cutoff are useful exact information for comparisons of circular palindrome statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

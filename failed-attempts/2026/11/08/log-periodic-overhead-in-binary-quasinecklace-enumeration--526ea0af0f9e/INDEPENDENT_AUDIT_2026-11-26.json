@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:25:41.310177Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a nonconstant binary quasinecklace the defining tie-break is automatic: each longest zero run is followed by 1, and the word ends with 1. Remove its initial 0^ℓ1; splitting the remaining suffix at ones gives exactly the (possibly empty) composition of n−ℓ−1 with parts at most ℓ+1. Adding the two constants proves the exact formula, including n=1. A nonempty suffix contributes x_{n,ℓ}=n2^(−ℓ−2) times the fair-bit probability of no ℓ+1 consecutive zeros with the final bit fixed at 1. For r=ℓ+1, two starts of 10^r within distance r are incompatible; separate starts are independent. Counting separated h-tuples gives binomial(M−r(h−1),h)2^(−h(r+1)), M=t−r−1, and Bonferroni gives exp(−x) at a fixed phase and offset. The initial boundary-run event is O(2^−r). In the lower tail disjoint blocks of 2^(r+2) bits each have probability >1/2 of an internal occurrence by the stated second-moment bound; this gives an exponentially summable tail in x. The upper tail is geometric in ℓ−floor(log₂ n). Burnside gives N₂(n)~2^n/n; the phase approximation holds over all n by compactness of the phase circle and the uniform tail estimates. The profile extends holomorphically to |Im θ|<π/(2 ln 2) by local uniform convergence, proving real analyticity. Unfolding the periodization gives the stated gamma coefficients and |c₁|≈7.13011726×10⁻⁶; hence many phase subsequences and no scalar ratio limit. Independently counted maximal circular zero-run starts over every binary word at lengths 2–11 (python -B /workspace/independent_checks.py 4). That finite check tests the counting equivalence, not the asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Thm. 1(f) gives the probability of exactly k maximum-size parts for every fixed k in asymptotically free compositions, and includes its log-periodic Gamma correction. Thm. 3 gives a large-part Poisson vector with means Cnr^m; Example 6(a) states C=1/2 for unrestricted compositions, where r=1/2."
+        ],
+        "reasoning": "This is a broader result for the exact multiplicity statistic of the rooted composition, not a marginal law for the largest part. The explicit lattice form in the proof of (f) can be summed after bounding the multiplicity tails.",
+        "searches": [
+          "Bender–Canfield–Gao arXiv:1208.0870, ‘number of parts of size’ and ‘Proof of (f)’; Thm. 1(f), Thm. 3 and Example 6(a)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–98, VERIFICATION.md and verify.py (read only)",
+        "arXiv:2607.05324, arXiv:1208.0870",
+        "Resultary 88d9cf336fe0 and dcae5275cf00"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In that proof, with r=C=1/2 and x_m=n2^−m, the probability of exactly k largest parts equals Σ_m exp(−x_m)(x_m/2)^k/k!+o(1) for each fixed k. After multiplication by k and summation this gives Σ_m(x_m/2)exp(−x_m/2), exactly the proposed phase function with m=ℓ+1. The Poisson approximants have uniformly bounded second moment because the second-moment series is Σ_m exp(−x_m/2)(x_m/2+x_m²/4), a bounded lattice sum."
+        ],
+        "reasoning": "For the real multiplicity T, bound its first and second factorial moments by summing over q=1 or 2 marked maximal zero-run starts of length ℓ. Compatible marked starts require disjoint ℓ-zero strings and precede each by 1, giving probability ≤2^(−qℓ). If ℓ≤floor(log₂ n), remove those marked positions and split the remaining fair bits (at most two intervals) into 2^(ℓ+3)-bit blocks. Each has probability >1/2 of an occurrence of 10^(ℓ+1) by the second-moment bound for this nonoverlapping-start pattern. Requiring none gives at most C exp(−c n2^−ℓ). Thus these factorial-moment contributions are bounded by C(n2^−ℓ)^q exp(−c n2^−ℓ) below the window and by (n2^−ℓ)^q above, both uniformly summable. Constants contribute O(n²2^−n). Hence E T²=O(1), also conditional on the last bit being 1, and both distributions' first moments follow by truncating k, using the earlier fixed-k formulas and removing truncation. The rotation-bias estimate then transfers the conclusion to E T and Burnside to Q₂/N₂. The Fourier formula is the direct transform of that same prior lattice profile.",
+        "searches": [
+          "arXiv:1208.0870, proof of Thm. 1(f) pp. 26–27 (offset 77100), Thm. 1(f) p. 7 and Example 6(a) p. 9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact-content record identifies admissible rotation origins with maximal cyclic zero runs (in the primitive period for distinct rotations). Counting each origin as a labeled index, including n for each constant word, gives E T=nQ₂(n)/2^n for iid circular bits. Conditional on the last bit being 1, the zero gaps split into parts 0^(m−1)1 of a uniform composition of n, so T counts its largest parts (including n when all bits are ones)."
+        ],
+        "reasoning": "Rotation invariance gives E[T | last bit=1]=E[(2K/n)T] where K is the Binomial(n,1/2) number of ones. Once E[T²] is bounded, the difference from E T is O(n^−1/2) by Cauchy–Schwarz. This is a multiplicity-of-the-maximum statistic, not merely the distribution of the longest run.",
+        "searches": [
+          "quasinecklace Gabrić Sawada candidate necklace ratio longest run tie multiplicity maximal parts uniform random composition (Resultary)",
+          "expected number of largest parts random composition of n multiplicity maximum largest compositions longest runs multiplicity expectation Hitczenko Louchard",
+          "Gabrić–Sawada arXiv:2607.05324, Def. 3; Resultary 88d9cf336fe0, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "88d9cf336fe0 gives Q(z,r)=Σ_ℓ[t^(z−ℓ)](1+t+…+t^ℓ)^(r−1) at fixed zero and one counts plus the rotation interpretation. dcae5275cf00 gives exact fixed-content coefficients and an asymptotic with fixed number r of ones. Gabrić–Sawada prove constant-factor overhead, not the displayed full dense limit."
+        ],
+        "reasoning": "Summing Q(z,r) over z+r=n counts all suffix compositions in the frozen exact formula, plus the two constants. Fixed-r asymptotics alone do not transfer to r≈n/2 and are not used to infer the periodic law.",
+        "searches": [
+          "quasinecklace Gabrić Sawada candidate necklace ratio longest run tie multiplicity maximal parts uniform random composition (Resultary)",
+          "Resultary 88d9cf336fe0 and dcae5275cf00 original Findings; arXiv:2607.05324 Def. 3 and Thm. 4"
+        ]
+      },
+      "rationale": "The exact count is equivalent to earlier fixed-content enumeration summed over content. More decisively, the nonconstant unrestricted overhead law is a corollary of Bender–Canfield–Gao's published asymptotic distribution of the multiplicity of the maximum part of a uniform composition. The correspondence between quasinecklaces and maximal cyclic zero runs also appears in the earlier exact-content Resultary record. The transfer from fixed terminal bit to circular fair bits and from fixed-multiplicity probabilities to the first moment needs a tail check, supplied below. This is mathematical coverage, not a conclusion from a similarly titled result or an attempted but inaccessible source.",
+      "residual_risks": [
+        "This does not assert that the algorithmic ratio was previously printed in the same form; coverage is demonstrated by reduction to an older statistic and theorem.",
+        "The inspected Gabrić–Sawada passages establish the definition and general bound; the exact finite coverage comparison rests independently on the earlier fixed-content identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior distribution statement; its first moment transfers to the unrestricted quasinecklace ratio with a uniform tail check.",
+          "evidence": "Explicit periodic probability of k parts of maximum size and the lattice Poisson-product derivation; unrestricted case C=1/2.",
+          "identifier_or_url": "https://arxiv.org/abs/1208.0870",
+          "material_read": "Thm. 1 definition of P_k and (f), pp. 6–7; Thms. 2–3 p. 8; Example 6(a) p. 9; proof of (f) pp. 26–27, PDF text offsets 15950, 18500, 23886 and 77100",
+          "method": "Primary OA PDF",
+          "title": "Locally Restricted Compositions IV. Nearly Free Large Parts and Gap-Freeness",
+          "trigger": "Potential stronger theorem for the same maximum-run multiplicity"
+        },
+        {
+          "assessment": "Definition and constant-factor bound verified; these passages do not give the claimed asymptotic.",
+          "evidence": "Maximum initial minimal-symbol run, tie-break, and monochromatic exception; injection from extra candidates into necklaces.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.05324",
+          "material_read": "Def. 3 and Thm. 4, pp. 3–4, PDF text offset 10090",
+          "method": "Primary OA PDF",
+          "title": "Necklaces and Lyndon words in colexicographic order",
+          "trigger": "Defining quasinecklace source and original overhead bound"
+        },
+        {
+          "assessment": "Covers the structural rotation correspondence and yields the exact total by summing over content; stated asymptotic is for a different limit.",
+          "evidence": "Bounded-composition coefficient with r−1 suffix gaps, and exact contribution of maximal cyclic runs in the primitive period.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-exact-content-overhead-for-binary-quasinecklaces--88d9cf336fe0/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp exact-content overhead for binary quasinecklaces",
+          "trigger": "Indexed exact count and equivalent circular formulation"
+        },
+        {
+          "assessment": "Exact enumerator overlaps; fixed ones asymptotic does not include the dense unrestricted regime.",
+          "evidence": "Ratio 1+(r−1)/(2m)+O_r(m^−2) for fixed r and m zeros growing.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-first-order-fixed-content-quasinecklace-overhead--dcae5275cf00/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "Sharp first-order fixed-content quasinecklace overhead",
+          "trigger": "Exact indexed binary counts and related asymptotic"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The quasinecklace interpretation is natural and the ratio is useful as a candidate-count estimate, but the claimed invariant is already determined by the older maximum-part multiplicity asymptotic and known rotation characterization. The boundary bias is asymptotically negligible and the tail estimate is a standard finite-pattern bound. No new remainder order, dependence law, or algorithmic cost result survives this prior coverage.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

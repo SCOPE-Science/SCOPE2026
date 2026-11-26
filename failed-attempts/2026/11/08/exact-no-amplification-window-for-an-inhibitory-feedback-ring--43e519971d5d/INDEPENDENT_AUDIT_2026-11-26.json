@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:31:06.477917Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Differentiating the squared Euclidean norm shows contractivity for all t≥0 iff H=(J+Jᵀ)/2 is negative semidefinite. At b=a the signed cyclic shift is orthogonal with Q^n=−I, and the top symmetric eigenspace is the real cosine/sine pair at θ=π/n. Compressing the symmetric corner perturbation to this pair gives eigenvalues (cosθ+1)/n and (cosθ−1)/n, yielding the strict two-sided lower bound away from b=a. For z=μ/a>cosθ the interior path block of −H is positive definite. Its Chebyshev inverse entries give a two-dimensional complement with diagonal (a/2)U_(n−1)/U_(n−2) and off-diagonal (a/2)(b/a−1/U_(n−2)); the scalar PSD condition and b≥0 give the exact interval, including n=3. At the minimum damping only b=a works and the neutral modes are an undamped conjugate pair. The open-chain eigenvalues are −μ, but its top symmetric eigenvalue is −μ+a cos(π/(n+1)); the balanced closure has top real part −μ+a cos(π/n), giving the stated strict separation. The example reduces to U₁=6/5 and U₂=11/25. Independent replay: OPENBLAS_NUM_THREADS=1 python3 -B /workspace/branches/independent_checks.py 3; 768 spectral comparisons for n=3–18, including damping below/at/above threshold and intervals clipped at zero. These are finite numerical corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Toeplitz determinant applies to every complex α, and Proposition 12 gives all eigenpairs at α=−1, including two sine/cosine vectors for the lowest eigenvalue. The Arcak–Sontag secant criterion allows a positive diagonal metric D; Snyder's accessible abstract describes general initial-growth bounds."
+        ],
+        "reasoning": "The complex-corner spectral result covers the real negative corner for all claimed n. Diagonal stability and conventional Hurwitz stability alone do not cover this fixed metric (the open chain can satisfy both and still amplify).",
+        "searches": [
+          "arXiv:2009.01401 Proposition 1, Theorem 1 and Proposition 12",
+          "Arcak–Sontag DOI 10.1016/j.automatica.2006.04.009 Theorem 1",
+          "Primary query: What makes ecological systems reactive? Snyder 2010 full text"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspected, not run)",
+        "arXiv:2009.01401, exact definition and determinant/eigenpair propositions",
+        "Arcak–Sontag Theorem 1; arXiv:1506.06971 Eq. (9)",
+        "Snyder DOI 10.1016/j.tpb.2010.03.004 (abstract only)",
+        "Resultary distinct adjacent IDs fa3b708d50ec, b8f714458c50 and 014dfc2da237 (catalogue summaries, not evidence of whole-record noncoverage)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At λ=2−2z and α=−β, Proposition 1 gives det(−2H/a)=U_n(z)−β²U_(n−2)(z)+2β. Proposition 12 gives normalized lowest modes proportional to sin(jπ/n) and cos(jπ/n); this is the same pair after a rotation of basis."
+        ],
+        "reasoning": "The leading path block of size n−1 is positive definite if z>c=cos(π/n), so the determinant sign alone decides PSD by the scalar Schur complement. The identity U_(n−1)²−U_n U_(n−2)=1 converts its sign test to |β U_(n−2)−1|≤U_(n−1); restrict β≥0. Below c the same path block obstructs PSD; at z=c the determinant is −(β−1)² and the known balanced spectrum gives positivity at β=1. The projected corner on the explicit prior pair has trace 2c/n and determinant −sin²(π/n)/n², giving the two slopes by the Rayleigh bound. The stable-open/nonamplifying-closed band then just compares the usual open path eigenvalue with the balanced eigenvalue and uses the open chain's triangular spectrum.",
+        "searches": [
+          "arXiv:2009.01401 Proposition 1 pp. 7–8 and Proposition 12 pp. 13–14; frozen RESULT.md lines 51–84"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source A_(α,n) has diagonal 2, adjacent entries −1, and corner entries −α and −conj(α). Proposition 1, Eq. (21), gives det(λI−A)=U_n((λ−2)/2)−|α|²U_(n−2)((λ−2)/2)−2(−1)^n Re α."
+        ],
+        "reasoning": "For β=b/a, α=−β and z=μ/a, the exact matrix identity is −2H/a=A_(−β,n)+(2z−2)I. Euclidean no-amplification thus asks whether the lowest eigenvalue of precisely that earlier matrix is at least 2−2z.",
+        "searches": [
+          "Primary query: tridiagonal Hermitian Toeplitz matrix perturbed off-diagonal corners eigenvalues Chebyshev real negative corner signed weighted cycle largest eigenvalue Grudsky Maximenko",
+          "arXiv:2009.01401 v1 §1 Eq. (1), Proposition 1 and Proposition 12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary search surfaced the assigned record itself and adjacent topics only: a later signed-triangle positivity/maximum-norm summary, a sampled inhibitory hybrid system and a heterogeneous three-node stability tongue. Separately, the 2020 primary paper supplies the exact all-n characteristic polynomial and balanced eigenpairs, not a table of cases."
+        ],
+        "reasoning": "The catalogue summaries were not treated as definitive noncoverage. The decisive exact evidence is the symbolic prior spectrum for the equivalent matrix.",
+        "searches": [
+          "Resultary searches for inhibitory ring Euclidean contractivity, numerical abscissa and signed-cycle positivity; distinct hits fa3b708d50ec, b8f714458c50 and 014dfc2da237",
+          "arXiv:2009.01401 Eq. (21) and Eq. (36)–(37)"
+        ]
+      },
+      "rationale": "Grudsky–Maximenko–Soto-González (2020 preprint/2021 publication) treat exactly the shifted and scaled symmetric matrix, under a more general complex corner parameter. Their Proposition 1 gives the all-order Chebyshev determinant, from which the fixed-Euclidean window and unique optimizer follow by a positive path pivot and a square completion. Their Proposition 12 gives the precise double extremal eigenspace, whose two-by-two Rayleigh restriction gives the stated slopes. The paper need not use the ecological wording; the main claims are routine consequences of exact results for the same matrix. This is not a claim that Snyder or the secant criterion itself gives the Euclidean window.",
+      "residual_risks": [
+        "Snyder's full text and the exact signed-triangle catalogue file were unavailable in the bounded attempts. This is not used to infer noncoverage, and the exact available Toeplitz theorem already settles the implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The stated exact spectral results mechanically imply the frozen fixed-metric window and optimum.",
+          "evidence": "Gives the full characteristic polynomial for arbitrary complex perturbed corners and explicit lowest eigenpair directions for α=−1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.01401 (published DOI 10.1007/978-3-030-77493-6_11)",
+          "material_read": "§1 Eq. (1), p. 2; §2.1 Theorem 1, p. 3; Proposition 1 Eq. (21), p. 8; Proposition 12 Eqs. (36)–(37), pp. 13–14 (PDF text offsets 0–5281, 6870–10381, 19550–20559 and 36942–40539).",
+          "method": "Primary literature query followed by targeted OA PDF passage reads.",
+          "title": "Eigenvalues of tridiagonal Hermitian Toeplitz matrices with perturbations in the off-diagonal corners",
+          "trigger": "Exactly the same symmetric signed-cycle matrix after shift and scaling."
+        },
+        {
+          "assessment": "Distinguishes diagonal-metric stability from fixed Euclidean contractivity.",
+          "evidence": "Existence of a positive diagonal D is equivalent to product gain less than sec^n(π/n) in the stated cyclic setting, and equal damping yields necessity for Hurwitz stability.",
+          "identifier_or_url": "https://mathweb.ucsd.edu/~toal/READ07/diagonal_stability.pdf (DOI 10.1016/j.automatica.2006.04.009)",
+          "material_read": "Eq. (3) and Theorem 1, PDF pp. 1–2 (journal pp. 1531–1532, offsets about 4300 and 6800).",
+          "method": "Targeted OA full text on the author's site.",
+          "title": "Diagonal stability of a class of cyclic systems and its connection with the secant criterion",
+          "trigger": "Classical negative-cycle stability result with matched link and damping parameters."
+        },
+        {
+          "assessment": "General numerical-abscissa framework, not the exact corner theorem in the parts read.",
+          "evidence": "Numerical abscissa measures maximum initial amplification.",
+          "identifier_or_url": "https://arxiv.org/pdf/1506.06971",
+          "material_read": "p. 3 Eq. (9) and pp. 3–4 reactivity discussion.",
+          "method": "Targeted OA full-text comparison.",
+          "title": "Bounds on transient instability for complex ecosystems",
+          "trigger": "Background on ecological numerical abscissa and transient response."
+        },
+        {
+          "assessment": "General overlap established; specialized coverage unknown.",
+          "evidence": "Abstract treats maximum initial growth and states that general bounds are given; the exact hypotheses and examples could not be assessed.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tpb.2010.03.004",
+          "material_read": "Indexed abstract; no primary full text retrieved.",
+          "method": "Primary query, ScienceDirect and Europe PMC OA attempts returned 403; PubMed page retrieval failed.",
+          "title": "What makes ecological systems reactive?",
+          "trigger": "Potential fixed-metric reactivity bounds for ecological network examples."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The distinction between transient amplification and stability is useful, and the fixed-Euclidean question is well motivated. But here the exact window, feedback minimizer, slopes and open/closed comparison require only standard transformations of already available spectrum data for the same matrix. The frozen ecological interpretation does not supply a separate nonroutine result; no repair is warranted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:34:03.871896Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–52",
+        "Corrected RESULT.md under repairs/4",
+        "VERIFICATION.md and verify.py, inspected without execution: exact finite reverse-minor and mass tests, direct word enumeration and truncated moment sums"
+      ],
+      "rationale": "For a fixed final type the t−1 prefix is an onto word on m=q−1 labels and its singleton count is S−1. Counting it by the exponential series z for a singleton and F=e^z−1−z for a nonsingleton gives the displayed kernel; the full mass multiplies each row by q^(1−t). The consecutive coefficients of F are log-concave, preserved by convolution because the Toeplitz order-two nonnegative minors are preserved by Cauchy–Binet on finite truncations. For the adjacent column pair, a term u_(ℓ−a)/u_(ℓ−1) is zero until the numerator support begins and afterwards is a product of inverse successive ratios, increasing weakly with ℓ. Its weighted reciprocal is therefore decreasing weakly. To pass from adjacent columns to any minor, if the left product is positive then neither row is the singleton-support row ℓ=m; the support for ℓ>m is [max(0,2m−ℓ),m−1] and expands to the left, so both rows are positive across the full compared interval. Multiply the adjacent-column inequalities. When the left product is zero there is nothing to show; in particular q=2 is handled. For the credited covariance identity, deleting a specified singleton that is not final gives an onto word on q−2 labels with length plus one possible insertions. Differentiating its generating function and the usual waiting-time PGF yields the stated moments, including the empty-word case q=2. The repaired result rechecks the discrete all-times theorem, not a fixed-time or continuous-time analogue.",
+      "residual_risks": [
+        "Finite checks are not the general proof. The conditional theorem assumes equal probabilities and the discrete number of draws."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The catalogue negative-covariance theorem permits unequal probabilities and exactly specializes to the frozen covariance. The other catalogue theorem establishes strict MLR for the continuous Poissonized stopping time and explicitly excludes the discrete count-conditioned assertion. The higher-level Stirling array in Ahmia–Ramírez counts tuples of partitions with common minima, not partitions all of whose blocks have size at least two."
+        ],
+        "reasoning": "The stronger covariance theorem covers that moment but not the discrete conditional law. An unequal-probability theorem on a different conditioning variable does not dominate this one. Total positivity for the cited higher-level array is not total positivity for the block-size-restricted kernel here.",
+        "searches": [
+          "Resultary 261de08382e0 Finding and Limitations",
+          "Resultary 095ece1fb7b6 uniform specialization and Limitations",
+          "Ahmia–Ramírez DOI:10.1007/s00009-023-02488-x, definition and Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Myers–Wilf arXiv:math/0304229 §4",
+        "Local Resultary 095ece1fb7b6 and 261de08382e0",
+        "DOI:10.1007/s00009-023-02488-x pp. 2 and 4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Myers–Wilf proceed from joint mass to marginal counts, not the cross-time determinant inequality. Monotonicity of a lag ratio of log-concave convolution coefficients establishes adjacent-column comparisons, and the interval support then extends them to all cross-time minors. The continuous kernel is a positive smoothing of the discrete rows, and an order of the smoothed rows does not in general invert to the discrete minors."
+        ],
+        "reasoning": "The exact joint law allows calculation of the minors but does not mechanically establish their signs simultaneously. Neither covariance, marginal log-concavity, nor the cited total positivity on differently indexed partition objects yields the needed cross-row/cross-column comparisons. The repair credits direct prior implication for the covariance only.",
+        "searches": [
+          "Myers–Wilf §4 following the joint mass",
+          "Ahmia–Ramírez Theorem 2.1 and definition of higher level",
+          "Resultary 261de08382e0 Limitations and 095ece1fb7b6 uniform specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The joint probability in Myers–Wilf §4 is q! q^(−t) binom(t−1,s−1) times the number of partitions of t−s objects into q−s blocks of size at least two. This is the same prefix kernel after rescaling. The separate earlier covariance record precisely displays q(H_q^(2)−H_q) under uniform draws. The likelihood-ratio catalogue match conditions on auxiliary continuous time."
+        ],
+        "reasoning": "The joint mass and covariance are exact overlaps. The present order is equivalent to the determinant inequality on the binomial-weighted diagonal slice of the block-size-restricted Stirling array; continuous cover time is not the same row coordinate.",
+        "searches": [
+          "Stopped singleton occupancy/collector conditional likelihood ratios: Myers–Wilf arXiv:math/0304229 §4",
+          "Resultary singleton monotonicity and covariance records 261de08382e0 and 095ece1fb7b6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier covariance record supplies the exact scalar identity, while §4 of Myers–Wilf gives every joint-mass cell analytically. The catalogue order match gives all continuous-time comparisons instead of a discrete table."
+        ],
+        "reasoning": "An exact mass formula determines the quantities compared but is not a table or theorem of their minor signs. The repaired claim is one analytic sign pattern for the entire unbounded discrete array; individual exact evaluations or finite tests only verify corresponding entries.",
+        "searches": [
+          "Local Resultary 095ece1fb7b6, offsets 0 and 5596",
+          "Myers–Wilf arXiv:math/0304229 §4 formula (44)",
+          "Local Resultary 261de08382e0, Finding"
+        ]
+      },
+      "rationale": "PASS only the repaired distinct claim, the discrete reverse-TP2 ordering. Myers–Wilf already give the exact joint mass and Resultary 095ece1fb7b6 explicitly gives the same covariance under the same uniform parameters, so the covariance is now credited and retained only as context. The closest stronger-looking conditional result uses a different, Poissonized conditioning variable and does not give the discrete minors.",
+      "residual_risks": [
+        "A theorem on the exact binomial-weighted diagonal slice under other occupancy or associated-Stirling terminology could cover the same order. The comparison does not determine priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known exact joint mass; inspected section does not establish the ordering theorem",
+          "evidence": [
+            "The last coupon and other singleton positions are counted, then the remaining trials are partitioned into classes of size at least two."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0304229",
+          "material_read": "§4, equation (44) in PDF p. 19, offset 61853 and subsequent marginal calculation",
+          "method": "OA PDF bounded passage read",
+          "title": "Some New Aspects of the Coupon-Collector's Problem",
+          "trigger": "Identical stopped sample and singleton variable"
+        },
+        {
+          "assessment": "Exact prior covariance, broader nonuniform sign; explicitly not a discrete regression theorem",
+          "evidence": [
+            "The uniform specialization displays Cov(N,S)=m(H_m^(2)−H_m) and calls it a corollary of the known joint law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-universal-negative-cover-time-singleton-covariance-for-unequal-c--095ece1fb7b6/RESULT.md",
+          "material_read": "Finding, uniform specialization and Limitations, offsets 0 and 5596",
+          "method": "Local Resultary search and bounded mirror read",
+          "title": "Universal negative cover-time–singleton covariance for unequal coupons",
+          "trigger": "Exact covariance or stronger terminal dependence theorem"
+        },
+        {
+          "assessment": "Material continuous-time overlap but discrete kernel is outside the statement",
+          "evidence": [
+            "The order is strict given the continuous Poissonized completion time; it makes no draw-count-conditioned assertion."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-strict-likelihood-ratio-decay-of-singleton-abundance-at-nonunifo--261de08382e0/RESULT.md",
+          "material_read": "Finding and limitations, offsets 0 and 6900",
+          "method": "Local Resultary search and bounded mirror read",
+          "title": "Strict likelihood-ratio decay of singleton abundance at nonuniform coupon collection",
+          "trigger": "Same type of stochastic order and terminal count"
+        },
+        {
+          "assessment": "Different combinatorial definition, no direct reverse-minor implication",
+          "evidence": [
+            "Its entries use tuples of partitions with common block minima, whereas the stopped-word mass uses a single partition with every nonsingleton class of size at least two."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00009-023-02488-x",
+          "material_read": "Definition p. 2 and Theorem 2.1 p. 4",
+          "method": "OA primary passage inspection",
+          "title": "Some Positivities in Stirling Arrays with Higher Level",
+          "trigger": "Potential dominating total positivity theorem for a related Stirling array"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md Finding and Proof of the order",
+        "Resultary 095ece1fb7b6 and 261de08382e0 for scope comparisons"
+      ],
+      "rationale": "The repair supplies uniform likelihood-ratio comparisons of the entire stopped singleton distribution for arbitrary discrete completion times, including support changes. This is stronger than a covariance sign or mean monotonicity and is a natural comparison for what singleton counts say about when a coupon collection completed. The useful contribution survives without the already recorded moment identity.",
+      "residual_risks": [
+        "No order claim for unequal sampling weights or inverse inference from continuous Poissonized observations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

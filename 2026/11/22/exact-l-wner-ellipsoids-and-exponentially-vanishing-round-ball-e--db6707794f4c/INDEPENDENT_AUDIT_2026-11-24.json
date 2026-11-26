@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:58:24.457070Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 11–42 and 45–101",
+        "Frozen VERIFICATION.md lines 19–26",
+        "Frozen verify.py lines 9–46, inspected, not executed"
+      ],
+      "rationale": "With n=2m the incidence matrix I+S has alternating kernel. Centering also removes the constant mode, giving the stated tangent space and eigenvalues 4 cos^2(pi k/n)/n for its covariance C. Cyclic vertex transitivity makes all squared C-Mahalanobis norms equal to their mean d. Any containing ellipsoid of squared shape Q and center z has tr(Q^-1 C)+||z-c||^2_(Q^-1)<=1. Hence AM-GM gives det Q >= d^d det C with equality only at z=c and Q=dC. The ball similarly minimizes the maximum radius by the mean squared distance identity. Strict convexity excludes nonvertex contacts for both. As an independent determinant check, switch one color class to turn (I+S)(I+S)^T into the ordinary cycle Laplacian. Its nonzero eigenvalues multiply to n times the number n of spanning trees, and restricting to the stated tangent space removes the additional eigenvalue 4. Thus det_H(C)=m^2/n^d. The round-ball ratio is m/2^(m-1), decays strictly from 1 at m=2, and the largest/smallest axes are in the ratio cot(pi/(2m)).",
+      "residual_risks": [
+        "Intrinsic unweighted Euclidean realization only, not a centrally symmetric root polytope or a weighted cycle. Numerical SVD evidence is finite; the rank, optimality, and determinant arguments hold symbolically for all m>=2."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general D-optimal relation is prior. The odd-prism and wheel records calculate spectra and optima for other edge polytopes, while the unicyclic zonotope theorem is for a Minkowski sum of segments, of dimension n-1 on the cycle."
+        ],
+        "reasoning": "Neither the prism nor wheel theorem specializes to the unweighted even-cycle edge hull, and the zonotope contains a fundamentally different collection of points. The general optimization framework is not a claim of novelty here.",
+        "searches": [
+          "Suliman–Weinstein arXiv:2302.05966, design/MVEE and §3.4",
+          "Local Resultary odd prism, wheel and unicyclic zonotope Löwner results"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, source IDs above",
+        "Suliman–Weinstein arXiv:2302.05966"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A uniform conductance design on the equal-price cycle is already supplied by symmetry. The resulting full incidence Laplacian omits only its one null direction; the intrinsic affine covariance in the target omits a second (nonzero-eigenvalue) direction as well."
+        ],
+        "reasoning": "Neither uniform design nor the prior facet profile identifies the normalized determinant comparison as a parameter substitution. Obtaining it requires the affine restriction, spectral product, and intrinsic ball normalization. The centered covariance certificate, Fourier diagonalization, and determinant tools themselves are standard and are not credited as new.",
+        "searches": [
+          "Suliman–Weinstein §3.4",
+          "Exact D-optimal conductances on heterogeneously priced unicyclic graphs, ID ending 93ce11e266fa, Finding and scope",
+          "Even-cycle incenter record Proof Steps 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sign change on one color class is an isometry to the alternatingly oriented even-cycle root polytope in the incenter record.",
+          "Its Proof Step 1 describes complementary spans of two simplices. The even simplex-boundary Laplacian record instead gives orthogonal regular-simplex spans and a spherical enclosing ellipsoid."
+        ],
+        "reasoning": "The same-body record measures the inscribed ball and supporting facets, not outer shape. An affine free-sum representation does not make the two embeddings isometric. Even if an affine map carries the optimal ellipsoid, neither its Euclidean axes nor its volume divided by the minimum-ball volume is invariant under that map.",
+        "searches": [
+          "Local Resultary: even-cycle edge and bipartite root polytope enclosing ellipsoid, free sum of regular simplices, and graphical-zonotope formulation",
+          "Same-body record ID ending 2c6fea9ced07"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-body catalogue gives exact inradius, facet distances, and parity of optimal centers; the orthogonal free sum has ratio one; explicit edge-polytope ellipsoid entries retrieved for odd prisms and wheels do not tabulate the target even-cycle family."
+        ],
+        "reasoning": "The claim is a closed law for an unbounded family, not an isolated finite-table entry. Exact indexed formulas were the relevant analogue of table coverage.",
+        "searches": [
+          "Local Resultary searches for exact even-cycle Löwner axes and enclosing-ball volume ratio, including related cycle and explicit edge ellipsoid records"
+        ]
+      },
+      "rationale": "The covered material is the ordinary even-cycle root polytope, its prior inner geometry, and the general enclosing-ellipsoid/design principle. The supported distinct claim is the explicit outer spectrum and its enclosing-ball-normalized exponential law for this metric realization. Neither same-body inner data nor exact outer ellipsoid results for other edge polytopes give that comparison; the general design result requires the cycle's intrinsic covariance calculation and determinant evaluation.",
+      "residual_risks": [
+        "The source comparison is bounded; an unindexed exact equivalence using affine or augmented optimal design or an alternative name for the polytope remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact same-body inscribed-ball and facet geometry, not the enclosing objects.",
+          "evidence": [
+            "The two simplex spans are complementary; the exact results are support-plane distances, inradius and center parity."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-euclidean-support-plane-shells-and-an-incenter-parity-law-for-bi--2c6fea9ced07",
+          "material_read": "Local RESULT.md offset 0, Finding, scope and proof, Steps 1–4",
+          "method": "Local mirror passage read",
+          "title": "Euclidean support-plane shells and an incenter parity law for bipartite-cycle root polytopes",
+          "trigger": "Same intrinsic polytope by orthogonal sign change"
+        },
+        {
+          "assessment": "Orthogonal rather than general complementary spans; different ambient Euclidean configuration.",
+          "evidence": [
+            "The spherical optimal ellipsoid of the isometric orthogonal free sum cannot have the target anisotropic spectrum for m>2."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-euclidean-and-santal-geometry-of-even-simplex-boundary-lap--baeca42c5e94",
+          "material_read": "Local RESULT.md Finding and proof, offset 0",
+          "method": "Local mirror targeted passages",
+          "title": "Exact Euclidean and Santaló geometry of even simplex-boundary Laplacian polytopes",
+          "trigger": "Same dimension and vertex count, free sum with exact outer ellipsoid"
+        },
+        {
+          "assessment": "Optimization framework already covered; not the intrinsic affine cycle spectrum or its normalized outer volume.",
+          "evidence": [
+            "Relates the design log determinant and its derivatives to weighted graph Laplacians and effective resistances."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.05966",
+          "material_read": "PDF p. 3 (offset 10000) and §3.4 pp. 10–11 (offset 42200)",
+          "method": "OA PDF targeted passages",
+          "title": "Infinite Lewis Weights in Spectral Graph Theory",
+          "trigger": "General D-optimal and Löwner equivalence, and graph resistance specialization"
+        },
+        {
+          "assessment": "Prior conductance optimum does not state the centered cycle-edge-polytope outer law.",
+          "evidence": [
+            "The objective is the budget-constrained grounded-Laplacian determinant; the equal-price cycle gives uniform weights."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-d-optimal-conductances-on-heterogeneously-priced-unicyclic--93ce11e266fa",
+          "material_read": "Local RESULT.md offset 0, Finding and scope",
+          "method": "Local mirror targeted passages",
+          "title": "Exact D-optimal conductances on heterogeneously priced unicyclic graphs",
+          "trigger": "Optimizes a determinant on the same cycle network"
+        },
+        {
+          "assessment": "Different graph, not coverage of the even-cycle edge hull.",
+          "evidence": [
+            "The optimization separates rim and spoke edges on odd prisms."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-the-odd-prism-edge-polytope-l-wner-ellipsoid-and-its-exponential--c142a47716a1",
+          "material_read": "Local RESULT.md Finding offset 0 and comparison offset 7562",
+          "method": "Local mirror targeted passages",
+          "title": "The odd-prism edge-polytope Löwner ellipsoid and its exponential spoke-weight law",
+          "trigger": "Related explicit edge-polytope Fourier ellipsoid"
+        },
+        {
+          "assessment": "Wheel edges differ from the cycle-edge set; the wheel fit is not the cycle fit.",
+          "evidence": [
+            "The optimization treats a hub and distinguishes spokes and rim edges."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-a-one-third-spoke-law-for-l-wner-ellipsoids-of-ordinary-wheel-ed--e11c89ce100c",
+          "material_read": "Local RESULT.md Finding offset 0 and comparison offset 7682",
+          "method": "Local mirror targeted passages",
+          "title": "A one-third spoke law for Löwner ellipsoids of ordinary wheel edge polytopes",
+          "trigger": "Another explicit cyclic edge-polytope ellipsoid"
+        },
+        {
+          "assessment": "Same graph but inequivalent polytope construction.",
+          "evidence": [
+            "The weighted-Laplacian shape applies to a zonotope, not the convex hull of edge roots."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-l-wner-ellipsoids-and-sharp-cycle-length-extremizers-of-un--1583727c8ad6",
+          "material_read": "Local RESULT.md offset 0, Finding and proof",
+          "method": "Local mirror targeted passages",
+          "title": "Exact Löwner ellipsoids and sharp cycle-length extremizers of unicyclic graphical zonotopes",
+          "trigger": "Exact outer law on the same graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 28–42 and 86–110",
+        "Same-body incenter record, Finding"
+      ],
+      "rationale": "The even cycle is a canonical one-parameter test case for intrinsic Euclidean root-polytope geometry. The exact normalized volume loss quantifies, at every size, the failure of the round-ball surrogate even though all vertices are contact points for both outer fits and the axis ratio grows only linearly. This gives explicit outer geometry complementary to the known inner geometry. The value is in that dimension-dependent comparison and exact spectrum, not in recertifying the standard optimal design principle or merely measuring the four-cycle.",
+      "residual_risks": [
+        "The quantitative conclusion is only for this metric family; it is not a new general optimal-design method."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

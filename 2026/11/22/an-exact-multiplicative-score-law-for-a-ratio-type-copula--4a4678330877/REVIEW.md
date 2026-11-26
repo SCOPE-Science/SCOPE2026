@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The specified rational function is a copula because its boundary margins are uniform and its mixed density is \(2(u+v)/(1+uv)^3\ge0\). The event \(UV\le z\) is partitioned exactly at \(U=z\), and the conditional CDF is derived from the first copula derivative before integration. This establishes the entire product CDF, with endpoints by continuity. The negative-log transformation, logistic maximum representation, mean, variance, quantile and unique crossing with the independent product follow from explicit differentiations, integrals and the one-sign-change derivative of the comparison function. A standalone symbolic checker corroborates critical identities. No finite sample is used to prove a universal assertion.
+## correctness
 
-**Originality — PASS, with historical-priority uncertainty.** The 2022 foundational article provides the exact copula and studied its dependence properties; the copula itself and its validity are not claimed. The scalar product law, logistic order-statistic equivalence, exact tail calibration and unique independence crossover are distinct from those advertised properties. The 2023 related article's full HTML discusses an algebraic Markov/star product of copulas, which does **not** give the law of the scalar product of observations; its abstract, main sections and summary did not exhibit the stated law. Searches for the specific formula, equivalent logistic form, aliases and product CDF did not surface a directly covering result. The 2022 article's complete publisher text/appendices remained inaccessible; the public bibliographic abstract and formula were inspected, and an institutional request failed for lack of connection. The evidence supports a qualified self-review, not independent confirmation of first publication.
+PASS
 
-**Value — PASS.** Products of uniform probability scores are natural in multiplicative-tail tests and aggregate negative-log scores. The full distribution, exact calibrating quantiles, change from logarithmic to linear lower-product asymptotics, and the uniquely reversed deviation from the independent reference provide an interpretable, nontrivial dependence effect. The logistic order-statistic identity supplies a second exact probabilistic construction. The result is restricted to the specified fixed copula and does not assert parameter-family-wide coverage.
+The exact theorem survives unchanged. The stated density is the mixed derivative of the copula, with nonnegative values and uniform margins. Independently, transforming (u,v) to (u,z=uv) gives f_Z(z)=2/(1+z)^3 times the integral of (1+z/u^2) from z to 1, hence f_Z(z)=4(1-z)/(1+z)^3 and the stated CDF with no endpoint masses. For t=-log z, the sign of the CDF difference is the sign of H(t)=4/(1+exp(-t))^2-1-t. Its derivative changes once from positive to negative for t>0, at log(2+sqrt(5)); H(0)=0 and H tends to minus infinity. This proves the unique interior crossing and both signs. Transforming the CDF gives P(W<=w)=tanh^2(w/2), the maximum of two independent absolute standard logistics. Integrating the survival function and twice its product with w gives mean 2 and second moment 8 log 2; inversion gives the stated quantile. The frozen crossing decimal was incorrect beyond its leading digits. A separate bisection of H on [2,3] using Python Decimal with 55-digit precision gives z*=0.09920455417194699830218..., consistent with the independent double-precision check. The repaired files correct the decimal and the checker count: the code contains 13 symbolic asserts and 16 numerical/domain assertions, not 14 and 16. The scientific notes now describe the assertions actually in the code; the verification front matter is unchanged. The corrected finding was reassessed against the exact proof and the verified decimal.
 
-**Closest literature.** Chesneau, *Applicationes Mathematicae* 49 (2022), DOI 10.4064/am2436-12-2021 (original model, full text unavailable); Chesneau, *Modelling* 4 (2023), DOI 10.3390/modelling4020008 (related ratio copula constructions and a different Markov copula product, full text inspected). Further unindexed/full-text results remain a residual priority risk; independent expert verification remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the complete ordinary product law and unique crossing relative to the independent product. The original copula, its validity and its known dependence properties are prior work. The historical access risk remains explicit in the corrected finding.
+
+## value
+
+PASS
+
+The ordinary product calibrates a multiplicative score for a previously specified dependence model. Its exact law provides a quantile rule and resolves how independence miscalibrates lower versus higher thresholds. Uniform marginals imply the same mean negative-log score as independence, but do not give a unique threshold separating the opposite errors. The exact sign law and threshold, not the standard change-of-variables recipe or the marginal mean, are the substantive contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

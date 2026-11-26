@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The candidate-based one-cohesive score definition was verified against Definitions 2--8 of arXiv:2609.29332v1, including the distinction between a common elected representative (SJR) and coverage by possibly different elected representatives (SSJR). Independent approval columns make the number of cohesive candidates exactly binomial. The union bound quantifies a simultaneously valid witness event over all unelected candidates and committees; on that event every committee's two scores equal its fraction of selected cohesive candidates. This proves the score law, feasibility sandwich, and the triangular-array normal critical window with the correct lattice boundary. The limiting expected score and feasibility fraction at \(m=8,k=3\) are exact rational evaluations. Exact exhaustive arithmetic checks cover five small domains, without using finite enumeration as a substitute for the general proof.
+## correctness
 
-## Originality — PASS (qualified)
-The originating paper establishes worst-case complexity and reports empirical SJR/SSJR feasibility but no independent-Bernoulli probability or optimal-score limit in its examined main text and appendices. The closest probabilistic theorem, Han et al. (arXiv:2510.18718), is about average justified representation and cannot imply the distinct one-cohesive full-coverage laws. Comparisons by claim implication, candidate-coverage aliases, and accessible mathematical-results records did not identify direct coverage. A negative search is not proof of historical priority; undiscovered equivalent random-set-cover calculations remain a residual risk.
+PASS
 
-## Value — PASS
-The finite-sample simultaneous reduction and its critical-window law answer how often recently formalized strong group-diversity guarantees are even feasible, what their best normalized score can achieve when not feasible, and when selecting cohesive candidates is exactly optimal. This gives an analytically calibrated null model for empirical SJR/SSJR performance, explains why the two axioms become asymptotically indistinguishable under independent approvals while differing sharply on structured datasets, and identifies the nontrivial boundary \(p=1/k\) alongside the singular unanimous endpoint. This is more than checking a local inequality or computing an arbitrary small instance.
+With the explicitly added vacuous score of 1 at R=0, the published one-cohesive definitions reduce to containment or coverage of each cohesive candidate's full supporter set. Every one-cohesive subgroup lies in at least one such set, and the full set is itself cohesive. Independent approval columns give R~Bin(m,q_n), with the integer threshold correctly rounded up. For each ordered pair (c,W) with c omitted, the no-witness probability is (1-p(1-p)^k)^n. The union bound is over exactly m*binom(m-1,k) pairs. Its complement forbids all omitted candidates from receiving either type of credit simultaneously, while elected cohesive candidates always receive credit. This proves the optimizer statement on that event, the deterministic lower bounds even outside it, and both score errors by bounding the exceptional probability. The standardized threshold tends to -theta/sqrt((1/k)(1-1/k)); the ceiling contributes O(1/sqrt(n)) and the separation error decays exponentially for fixed m,k. The fixed-p limits and exceptional p=1 case also follow. Exact summation confirms 93/256 and 55133/71680. The supplied files were inspected without running the uploaded script; small independent enumerations corroborate finite cases but are not the proof. The reference to Definitions 2–8 should be read as including Proposition 7, which states the SJR score-one equivalence.
 
-## Closest literature and remaining limitations
-Chingoma et al. (2026), arXiv:2609.29332v1, §§2--4, 8.1 and appendices; Han et al. (2025), arXiv:2510.18718v1, §§1--2. The quantitative error may be loose for small electorates. Fully correlated voter/candidate approvals, stronger all-\(\ell\) axioms, and the near-unanimity double-scaling regime are outside the theorem. The empty-cohesion score uses an explicit vacuity convention not defined by the source quotient. Priority is subject to further independent checking.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the committee-local witness bound and the resulting simultaneous quantitative law for the normalized optima, not novelty for the definitions, the union bound or Gaussian limit by themselves. A distinct indexed result has the same binomial feasibility benchmark and Gaussian window and its global-private-supporter event also gives the normalized score formula mechanically with a different error bound. The committee-local estimate here is not covered by that global event and can apply in regimes where its bound fails. The catalogue dates identify the records but do not alone establish priority.
+
+## value
+
+PASS
+
+The same high-probability event gives exact optimality of a simple committee choice for two different worst-case objectives, and a finite-sample score benchmark even when feasibility is unlikely. The committee-local error is useful beyond the sparse regime of global private supporters. This supplies a meaningful null model and a distribution, not just a point estimate or a CLT restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

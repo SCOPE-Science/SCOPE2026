@@ -1,11 +1,21 @@
-# Scientific review of the Möbius-ladder optimal-multiplicity theorem
+# Independent mathematical audit
 
-**Correctness:** PASS. Zero-neighbour conditions imply independent zero supports. Minimum weights match the singleton-model classification of Lange (2026, Theorem 13), not the different set-valued counts. The proof classifies support patterns by zero-column deficits of 0, 1, or 2 and derives the coloured-label multiplicities from chains of overlapping triangles. The two-run table distinguishes disjoint chains (36 colourings), compatible two-vertex overlap (54), and incompatible overlap (0). Exact finite enumeration and independent direct small-order label enumeration match the resulting piecewise counts. Remaining proof reliance: the published classification of minimum weight for odd half-order not divisible by three.
+## correctness
 
-**Originality:** PASS with residual priority uncertainty. The closest full texts establish extremal *weights* and constructions, not the four-branch multiplicity formula for all Möbius ladders. A related earlier count of a coefficient on prisms concerns a nonisomorphic family and does not imply the Möbius-ladder result. Searches also compared perfect/equitable vertex colourings and classical set-valued rainbow domination. Unidentified general structure theorems may contain an equivalent implication; searches alone cannot exclude this.
+PASS
 
-**Value:** PASS. A complete exact count of all optimizers over a natural infinite cubic graph family is not determined by the optimal weights. The residue-class distinction between constant, linear, and quadratic growth reflects intrinsic changes in the number of admissible zero supports and in their constrained colourings. It supplies a concrete solution-space landscape for a recently active domination variant, rather than an isolated parameter substitution.
+For odd m=n/2, row-minus-column parity descends to the twisted strip. A run's rainbow triangles are successive windows on the complementary track. For two nonadjacent empty columns the two windows lists are disjoint for two phase choices, giving 36 colourings each, and share exactly the two empty-column endpoints for the other two. Equality of endpoint colours is forced iff the separation is divisible by three on that list. Since 3 does not divide m, the lists cannot both force equality, and are compatible iff both separations are nonzero mod 3. The compatible shared case gives 54 per phase, including two free vertices. Adjacent empties give 108 per pair. There are m pairs per distance, giving 108m+72m(h-1)+108mg; reducing residues yields both quadratic laws, including m=5 with g=0. Weight m needs bipartiteness and the closed period-three sequence; with only one empty column an odd strip closes the two endpoints of the same track and again needs 3 dividing m. The even one-empty strip has distinct endpoints and recovers the credited linear case. Thus the revised proof also establishes the weights without importing a counting or existence assumption.
 
-**Limitations:** Counts named-colour singleton assignments only, at optimal weight; it does not compute the entire domination polynomial or identify historical priority definitively.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired contribution is the two quadratic named singleton counts only. The strongest earlier Möbius-ladder enumeration demonstrably covers the constant and linear counts, now credited, but not the quadratic cases. The bounded literature evidence did not identify equivalent coverage of the surviving counts. This is a best-of-knowledge assessment, not priority certification.
+
+## value
+
+PASS
+
+The two missing classes are the ones where a minimum singleton solution has two empty columns. Resolving how the twists couple their alternating runs both classifies the viable supports and determines the exact growth coefficient of the minimum solution space, useful for testing algorithms and for comparison with prism and set-valued models. This is not a recomputation of the minimum weight or an isolated small-order count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,62 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged checker `artifacts/verify.py` uses the homogeneous basis
-\[
-(e_1,e_2,e_3)
-\]
-with \(e_1,e_2\) even and \(e_3\) odd, bracket
-\[
-[e_1,e_2]=e_1,
-\]
-and central \(e_3\).
 
-For a general even endomorphism
-\[
-R(e_1)=a e_1+b e_2,\qquad
-R(e_2)=c e_1+d e_2,\qquad
-R(e_3)=f e_3,
-\]
-it reconstructs both twist commutators and every ordered-basis-pair weight-zero Rota–Baxter defect.
+# Independent mathematical audit
 
-The symbolic equations reduce exactly to
-\[
-(\gamma-1)b=0,\qquad
-(\gamma-1)c=0,
-\]
-and
-\[
-a^2+bc=0,\qquad
-b(a+d)=0.
-\]
+## correctness
 
-The checker substitutes the source's two printed families and verifies the precise additional restrictions.
+PASS
 
-It then exhaustively enumerates all even maps for all nonzero twisting parameters over
-\[
-\mathbf F_3,\qquad
-\mathbf F_5,\qquad
-\mathbf F_7.
-\]
-For fixed nonzero \(\lambda\), the counts are
-\[
-2q^3-q^2
-\]
-when \(\gamma=1\), and
-\[
-q^2
-\]
-for every \(\gamma\ne1\).
+The published Ncib text, not the differently numbered arXiv v1, supplies the cited Definition 1.3(3), (1.9) and Example 1.1. On the even space both twists equal D=diag(gamma,1), while the odd line is central. Their invertibility and multiplicativity follow from the basis formulas, and the BiHom Jacobi sum on even arguments is D² times ordinary Jacobi; any odd input gives zero. For an even R the twist commutators have off-diagonal entries (1−gamma)c and (gamma−1)b. The product defect on (e1,e2) is −(a²+bc)e1−b(a+d)e2; odd inputs vanish and the two even inputs suffice by alternation. This is also the adjoint O-operator equation here: the even twists agree, and terms with odd inputs vanish. If gamma=1, b=0 forces a=0 and b≠0 forces d=−a,c=−a²/b. If gamma≠1, b=c=a=0. Consequently the printed R1 needs (gamma−1)a1=0 and R2 needs gamma=1, since its denominator b2 is nonzero. Over odd F_q the disjoint branches count q³ and q²(q−1) for gamma=1, and q² otherwise; with q−1 choices of lambda and q−2 other gammas the total is 3q²(q−1)². Reviewed the verification notes, artifacts/verify.py and its recorded verify_output.txt; the derivation proves the arbitrary-field result independently. This decision is for the stated adjoint O-operator interpretation, not a convention retaining only the product equation. The citation should distinguish the journal example and numbering from the preprint.
 
-The total parameter-operator counts are
-\[
-108,\qquad1200,\qquad5292,
-\]
-matching
-\[
-3q^2(q-1)^2.
-\]
+## originality
 
-The checker returns `VERIFY_OK`.
+PASS
 
-Finite enumeration is a replay check. The classification itself follows from the exact symbolic equations in `RESULT.md`.
+The journal example explicitly presents the weaker product-only families as the weight-zero Rota–Baxter operators for arbitrary nonzero gamma, despite requiring both commutations in its defining adjoint special case. The two-twist repair for this example and its odd-field count were not found in the inspected comparisons. The published general condition supplies the test, not an existing corrected example classification. The closest catalogue repair concerns a different algebra and identity.
+
+## value
+
+PASS
+
+A published example meant to instantiate the adjoint definition applies an incomplete test. Knowing that almost the entire printed list collapses for a nontrivial even twist matters when using the example to generate structures by that construction. The correction gives exact necessary and sufficient parameter conditions and quantifies the jump in a natural finite-field version, rather than just checking one ad hoc matrix.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

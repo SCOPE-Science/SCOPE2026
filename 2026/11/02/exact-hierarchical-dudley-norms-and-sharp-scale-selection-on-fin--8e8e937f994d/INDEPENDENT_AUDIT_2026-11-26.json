@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:27:47.608329Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof §§1–5, including the constructive test",
+        "Frozen VERIFICATION.md and CHECKER.py, inspected without execution; record reports 180 general tree, 90 two-cluster and 11 atomic-pair LP comparisons"
+      ],
+      "rationale": "Zero total mass permits centering a test function's range, replacing its sup norm by half its oscillation. For a nonconstant test, dividing by its d-Lipschitz constant and setting s to the resulting oscillation gives the upper bound by the clipped-metric Lipschitz supremum divided by 1+s/2; centering and rescaling any clipped-metric maximizer gives the reverse inequality. The tree for min(d,s) has clipped full-distance heights and half-height differences as edge lengths; contract zero edges or require their potentials to agree. Telescoping pairs each edge increment with its signed subtree mass. The absolute-mass bound is attained by choosing all edge increments as their lengths times the respective mass signs; the path bounds give a valid leaf test. This proves the numerator B(s)/2 before rescaling. The numerator is affine between distinct heights; its ratio to 2+s is monotone or constant on each interval, is zero in the limit at zero, and is nonincreasing after the diameter. Hence one need only test the heights. The slope updates per edge are +|M(v)| and −|M(v)| at its lower and upper heights, yielding the stated sweep bound on a tree with O(|X|) vertices. A leaf pair at height s gives B(r)=2 min(r,s), uniquely selecting s. In the two-level case B(a)=2aS and B(b)=2[aS+(b−a)P]; subtraction of the two ratios has the sign of (2+a)P−aS. For S>0 the threshold lies strictly between 0 and S, and the displayed four weights realize all P in [0,S].",
+      "residual_risks": [
+        "All claims concern the sum coupling and real zero-mass measures; the argument does not establish a corresponding nonzero-mass formula. The frozen checker reports bounded numerical corroboration, not an exhaustive proof or formal or expert certification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The finite-metric LP gives exact optimization on a broader class, but does not identify a closed height expression, an O(n log n) tree sweep, or a threshold. The unit-edge graph record supplies a discrete slope/parity grid, not the arbitrary-real-height result."
+        ],
+        "reasoning": "General computability by an LP is not a stronger formula for this structural invariant. A grid formula on graph-realizable examples does not cover the hierarchy of all real ultrametric heights.",
+        "searches": [
+          "arXiv:2206.12234 §6",
+          "arXiv:2305.08500 finite-support discussion",
+          "Resultary 664ed3fe5cda"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1304.5219, 2206.12234 and 2305.08500",
+        "Resultary ecc3b6450a54, c1fad2fa9990, 2b75311a4eb3 and 664ed3fe5cda"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The established tree-cut theorem gives B(s)/2 once a clipped scale is chosen. The LP statement does not identify that clipping family or the ratio denominator for the sum coupling. The atomic-pair and one-height values are known special cases."
+        ],
+        "reasoning": "The centering and clipped-metric reformulation, then height breakpoint optimization, supply the missing connection from fixed-scale transport to the Dudley formula. Once that connection is made the two-level comparison is direct algebra, not an independent originality claim.",
+        "searches": [
+          "Kloeckner, arXiv:1304.5219, Lemma 3.1, p. 10",
+          "Hille–Theewis arXiv:2206.12234 §6",
+          "Resultary ecc3b6450a54 and 664ed3fe5cda"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hille–Theewis use the same sum norm, not the different max-type Fortet–Mourier unit ball. Kloeckner supplies W1 for each clipped tree via the usual ultrametric transport law."
+        ],
+        "reasoning": "For zero mass the relevant equivalence is an optimization over a family of clipped W1 problems, not identification with W1 in one prescribed metric or with the max-coupled norm.",
+        "searches": [
+          "Sum-norm bounded-Lipschitz/Dudley, clipped transportation and hierarchical scale selection",
+          "arXiv:2206.12234 §6; arXiv:2305.08500; arXiv:1304.5219 §3.1",
+          "Resultary Dudley dual norms on stars and graph metrics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The equiradial star's zero-center leaf specialization gives the existing one-height equilateral formula. The heterogeneous star and same-day two-tail record have exact star formulas; the same-day graph record has a discrete slope formula."
+        ],
+        "reasoning": "These give exact neighboring invariants and special cases, not a table or formula for general multilevel ultrametrics. Two equilateral clusters of size at least two at distinct scales cannot be realized as the leaves of one weighted star: all distances between clusters force arms within each cluster equal, and the two within-cluster equal distances then force all the arms equal.",
+        "searches": [
+          "Resultary ecc3b6450a54, c1fad2fa9990, 2b75311a4eb3, 664ed3fe5cda"
+        ]
+      },
+      "rationale": "Credit the established tree transport formula, general bounded-Lipschitz norming/LP framework, and exact one-height value. The supported claim is the reduction of the coupled sum norm to a sharp finite height optimization on arbitrary finite ultrametric hierarchies, including the constructive sweep and two-cluster threshold. The closest inspected results do not supply that combined reduction.",
+      "residual_risks": [
+        "Specialized forms phrased using bounded transport or flat norms may be less easily indexed. This is a best-of-knowledge distinction, not an exhaustive priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS THE TREE TRANSPORT INGREDIENT",
+          "evidence": "At p=1 it gives the sum of edge lengths times absolute subtree mass, applied here with clipped half-distance heights.",
+          "identifier_or_url": "https://arxiv.org/abs/1304.5219",
+          "material_read": "§3.1, Lemma 3.1, p. 10, text near offset 22600",
+          "method": "OA paper passage inspection",
+          "title": "A geometric study of Wasserstein spaces: ultrametrics",
+          "trigger": "Direct ultrametric tree-cut formula"
+        },
+        {
+          "assessment": "GENERAL LP, NOT A CLUSTER-HEIGHT FORMULA",
+          "evidence": "Describes the coupled finite bounded-Lipschitz unit ball and its exact finite LP computation, not the reduction to clipped hierarchy scales.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.12234",
+          "material_read": "§6, pp. 15–16, text offsets 52000–56275",
+          "method": "OA paper passage inspection",
+          "title": "The Fortet–Mourier distance to weighted sums of Dirac measures",
+          "trigger": "Potential stronger exact computation for the same Dudley norm"
+        },
+        {
+          "assessment": "SAME NORM, DIFFERENT RESULT",
+          "evidence": "Norming/extreme-function framework, not clipped hierarchy evaluation.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.08500",
+          "material_read": "p. 1 formulas (1)–(2); finite-support discussion pp. 19–20",
+          "method": "OA paper passage inspection",
+          "title": "Norming and dense sets of extreme points of the unit ball in spaces of bounded Lipschitz functions",
+          "trigger": "Norming functions and same choice of norm"
+        },
+        {
+          "assessment": "COVERS ONE-HEIGHT SPECIAL CASE",
+          "evidence": "Zero center mass and equal arms give the equilateral ultrametric calculation; the threshold with a star center is not the two-cluster switch.",
+          "identifier_or_url": "Resultary ecc3b6450a54",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local mirror statement inspection",
+          "title": "Exact Dudley norms and mass-imbalance thresholds on equiradial stars",
+          "trigger": "Direct exact formula and mass threshold"
+        },
+        {
+          "assessment": "STAR FAMILY ONLY",
+          "evidence": "Uses arm-length knots and O(m log m) computation on a star, not nested ultrametric clusters.",
+          "identifier_or_url": "Resultary c1fad2fa9990",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local mirror statement inspection",
+          "title": "Exact Dudley dual norms on heterogeneous metric stars",
+          "trigger": "Exact finite knot formula on a tree family"
+        },
+        {
+          "assessment": "STAR FAMILY ONLY; NO DATE PRIORITY INFERRED",
+          "evidence": "Two caps and an O(n log n) tail calculation on nonuniform stars. Equal arms with zero center mass recover the one-height case.",
+          "identifier_or_url": "Resultary 2b75311a4eb3",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local mirror statement inspection",
+          "title": "Exact two-tail thresholds for Dudley norms on nonuniform metric stars",
+          "trigger": "Same-day exact threshold and sweep in a related tree model"
+        },
+        {
+          "assessment": "RESTRICTED COMPARABLE GRAPH FAMILY; NO DATE PRIORITY INFERRED",
+          "evidence": "Unit-edge slope/parity grid and path algorithm, not a dendrogram formula for arbitrary real heights.",
+          "identifier_or_url": "Resultary 664ed3fe5cda",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local mirror statement inspection",
+          "title": "Sharp discrete slope spectrum and grid formula for Dudley norms",
+          "trigger": "Same-day exact graph-metric computation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof §§2–5",
+        "Hille–Theewis arXiv:2206.12234 §6 for the general LP comparison",
+        "Kloeckner arXiv:1304.5219 Lemma 3.1 for the fixed-metric baseline"
+      ],
+      "rationale": "For signed data on a hierarchy, this replaces a coupled test-function optimization by a tree-sized sweep with an explicit norming function and a provably sharp set of candidate scales. The two-level switch explains exactly when net intercluster imbalance can outweigh intracluster variation, independently of the size of the intercluster gap. These are useful consequences of the height reduction beyond the known value of a single tree transport problem.",
+      "residual_risks": [
+        "The time bound starts with the cluster tree, not a raw pairwise distance matrix. The contribution is to this finite hierarchical setting rather than a general improvement for arbitrary metrics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

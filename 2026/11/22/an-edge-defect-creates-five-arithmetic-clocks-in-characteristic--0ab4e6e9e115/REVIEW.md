@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof computes the full characteristic-three adjacency minimal polynomial from an invariant four-vector image module, including the nonsemisimple exceptional cases, and transfers exact minimal polynomials into the reversible two-level recurrence. The resulting cyclotomic and primary-factor orders establish every entry of the sharp global-period table. The direct-sum argument proves the fixed-space formula and the maximal-period probability in the doubly-two residue class. Two standalone checker scripts passed 49 exact adjacency minimal-polynomial tests, 49 temporal cyclotomic factorizations, 49 finite order tests, 360 modular-nullity comparisons, and exhaustive enumeration of 6,561 states in the four-vertex case; these corroborate but do not prove the infinite-domain statement.
+## correctness
 
-## Originality
-PASS with residual historical-priority uncertainty. The nearest directly relevant published graph-spectrum paper is Liu and Weng, arXiv:1601.07012, Proposition 2.6 and Theorem 3.1, which studies precisely \(K_{a,b}-e\) but its real spectral classification does not imply the needed modular Jordan indices or exact temporal orders. Vlasov, arXiv:1311.4297, §3, provides the generic reversible recurrence, not the defect-period classification. The published complete-bipartite wave census gives order eight or twelve **without** the deleted edge. Actual published-finding corpus searches for one-edge-deleted bipartite characteristic-three waves and periods \(10,20,24,36\), and comparisons to accessible prior claims, found no statement covering this one-edge-defect theorem. Unindexed general theorems or inaccessible material could still affect priority.
+PASS
 
-## Value
-PASS. Removing one edge from a dense bipartite graph changes its adjacency rank and creates two distinct mechanisms for exact period twenty: a primitive twentieth-root sector and a combination of fifth/tenth-root motion with a period-four zero mode. The same natural perturbation triples the clock to thirty-six for another residue class but shortens it in the smallest example, demonstrating a nonmonotone dynamical defect response. The complete fixed-space formula in the doubly-two residue class quantifies how maximal-period states dominate for large shores. These are structural infinite-family phenomena, not isolated tests or arbitrary parameter slices.
+The image of the adjacency is exactly the span W of the two defect coordinates and two nondefect shore sums. When (a-1)(b-1) is nonzero modulo 3, the first four iterates of a defect coordinate span W, and W splits off the kernel. When one shore coefficient vanishes, the nondefect coordinate test forces a zero-primary exponent of three; when both vanish A^3=0 but A^2 is nonzero. For a cyclic adjacency block with coordinate x, (u,v) maps to tu-v in the quadratic module with t^2-xt+1=0, and the update is multiplication by t. Thus t^deg(f) f(t+t^-1) is the exact temporal invariant factor, and a cyclic generator on a maximal block realizes the order, over every stated extension field. Cyclotomic orders and the least power of 3 killing each primary multiplicity give all six residue orders and the size-four exception. The two disjoint squarefree sectors of orders 5 and 10 plus the order-4 kernel sector give the fixed dimensions, Möbius census and maximal-period probability. Independent exact matrix tests covered all six residues and the exception, and 200 fixed-dimension comparisons at five doubly-two pairs and times 1–40. Replay: python3 /workspace/branches/3c7ce1e5-836b-4679-a829-1d06f60b6106/independent_check.py; independent_output.txt in the same directory. The deposited check_wave.py/check_minpoly.py and their outputs were inspected, not executed; finite tests corroborate rather than prove the unrestricted claim.
 
-## Closest literature and limitations
-Liu and Weng (2016), arXiv:1601.07012, supply a highly relevant graph-spectrum formula; Vlasov (2013), arXiv:1311.4297, supplies the reversible construction. The previously published intact-complete-bipartite census was read and compared. The present complete fixed-space census covers the doubly-two residue only; other residue classes are classified by sharp global order. The same characteristic-three statement may exist in unindexed work. All scientific assessments here concern this theorem and its finite replay, not independent external validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same graph’s ordinary adjacency quartic and the generic reversible update are established prior inputs. The supported contribution is their characteristic-three defect classification, including the exact modular primary exponents, global-order table and restricted fixed-space census, not a new adjacency spectrum or a new update construction.
+
+## value
+
+PASS
+
+A single missing edge gives an exact perturbation problem for a natural reversible dynamics. The classification distinguishes prime-to-3 sectors from characteristic-dependent Jordan resonances, explains why the order can rise to 36 or fall to 10, and yields quantitative period statistics in an infinite residue class. This is more than restating the known real adjacency spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

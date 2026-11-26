@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification evidence and limits
+# Independent mathematical audit
 
-The analytical proof begins with three exact first-jump equations on orbit types leaf/hub, hub/leaf, and distinct leaves, solving for the leaf/hub expected collision time in the two jump-rate conventions. The two rational formulas and their differences have the stated positive denominators. Their derivative numerator polynomials are strictly decreasing over positive mobility ratios for every integer star degree at least two. Positive polynomial identities prove the uniform upper bounds on their maxima and the explicit ratio \(m^{-1/2}\) attains both asymptotic constants.
+## correctness
 
-The accompanying standalone `verify_star.py` is executable with standard Python 3. It enumerates every ordered off-diagonal two-particle configuration, constructs the original full absorbing continuous-time generator without orbit lumping, solves the first-step equations with exact rational arithmetic, and compares its initial-state mean to the claimed formulas. The delivered code was executed and passed 40 exact formula comparisons and 880 individual first-step equations for two to six leaves and four rational mobility choices, including a stationary trap, in both mobility conventions. This is finite corroboration, not an infinite numerical certificate.
+PASS
 
-No externally performed independent audit exists. Exhaustive novelty verification, other graph families, alternate initial laws, stochastic dependence, and full encounter-time distributions are outside the checks.
+With rates in units of a and hub departure multiplier h=m (edge) or 1 (vertex), use transient states C=distinct leaves, A=searcher leaf/trap hub, B=opposite. The killed Poisson matrix in order C,A,B has rows (1+x,−x,−1), (−hx(m−1)/m,1+hx,0), (−h(m−1)/m,0,x+h). The right side is all ones. Absorbing jumps enter the diagonal departure rates but not the off-diagonal transition terms. Searcher-only paths while the trap waits give a positive capture probability within fixed time uniformly in the finitely many states for each fixed parameter, establishing finiteness and uniqueness. Cramer's rule independently yields both normalized means with positive denominator D=(1+x)(1+2mx+x²); at x=0 both give 1, also the direct leaf-to-hub first-jump mean in original units 1/a. Subtracting 1 gives x times strictly decreasing quadratic brackets divided by D, with positive intercepts for m≥2 and roots equal to the two stated thresholds. Subtracting the two means gives (m−1)x(m−2−x)/D, so the positive crossover exists only for m>2, and for m=2 the edge mean is strictly lower at x>0. Independent symbolic expansion shows that each derivative numerator has positive constant term and strictly negative coefficients of all positive powers for m≥2. Hence each has a unique positive zero and gives the unique global maximum. Positive-polynomial gap identities give the uniform bounds (m+1)/2 and 2; evaluating both at x=m^(−1/2) proves the sharp limits by squeezing. The two positive-root scalings also check exactly. Replay: python3 /workspace/branches/independent_star.py (SymPy), output independent_star.out alongside. The proof covers real a>0 and b≥0, not just the finite rational samples in the frozen package. It is only for independent exponential walkers on a finite star and the specified initial leaf–hub pair, and only for the mean.
+
+## originality
+
+PASS
+
+The general moving-trap slowdown and the product-chain method are credited background. Of the inspected exact sources, none gives or mechanically implies both evaluated fixed-start continuous-time formulas, their exact thresholds and switch, and the incompatible optimal degree scalings under the two clocks. Closely matching Resultary entries differ in clock, parameter comparison, graph, or starting law. This is a bounded assessment, not a priority guarantee.
+
+## value
+
+PASS
+
+A star isolates degree dependence while holding the leaf rate fixed. The two standard normalizations give the same static benchmark and both have a slowdown interval, yet changing how the hub departs changes the largest delay from order m with sharp coefficient 1/2 to a uniform ceiling 2, attained in the large-degree limit. The crossover thresholds and maxima quantify a useful normalization-sensitive distinction for two-particle encounter models, beyond a few numerical comparisons or a textbook first-step calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

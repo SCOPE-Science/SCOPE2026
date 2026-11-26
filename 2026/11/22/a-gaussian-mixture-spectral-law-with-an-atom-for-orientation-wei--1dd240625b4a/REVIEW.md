@@ -1,15 +1,21 @@
-# Scientific review of the orientation-weighted spectral law
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The central identity is an exact rank-three factorization of the branch-weighted adjacency matrix, verified directly with the published canonical Markov formula. The resulting cubic's coefficients were derived independently and exhaustively checked against full characteristic polynomials for all words of 3 through 9 branches. The probabilistic argument only invokes the classical central limit theorem for the independent interior signs, the law of large numbers for bounded one-dependent switch counts, and continuity of the spectral-radius map on roots of fixed-degree monic polynomials. The three endpoint cases and their discriminants give the claimed atom. Finite tests do not certify the infinite limit and are clearly marked supportive.
+## correctness
 
-## Originality (O): PASS, with historical-priority risk
-Oliveira's initial paper already defines the signed operator and illustrates two individual weighted-trace calculations; neither this nor its unsigned cubic gives the random-word spectral distribution. Closest full published comparisons include the all-orientation **unsigned** Parry mixing bound and the fixed-map **physical switching** statistics. A related exact unsigned entropy multiset and Gaussian defect does not imply this signed spectrum: multiplying by the branch-orientation matrix changes the leading spectral order from \(n\) to \(\sqrt n\), introduces a complex-conjugate root regime and a positive probability atom. General weighted kneading theory supplies the context, not an evident equivalent asymptotic law. Unindexed signed random transfer-matrix calculations could still dominate or duplicate this result, and human priority review is appropriate.
+PASS
 
-## Value (V): PASS
-The problem is forced by a genuine asymptotic distinction between ordinary orbit growth and orientation-cancelled closed Markov paths. Instead of simply reparameterizing an unsigned result, the theorem identifies a sharp non-Gaussian three-regime law and a positive atom determined by conjugate-root coalescence. The exact atom and \(\sqrt n\) scaling quantify information that the unsigned entropy spectrum does not determine. The scope is explicitly confined to this concrete, naturally motivated canonical family.
+The prescribed affine branches delete column 0 precisely on a minus-to-plus switch and column n−1 precisely on a plus-to-minus switch. With X=(epsilon,u,v) and Y rows (1^T,−e_0^T,e_{n−1}^T), direct multiplication and expansion of det(zI−YX) give the coefficients −E−b, AU−BV+Eb, and U(Ba−Ab); Sylvester includes the residual n−3 zero roots. An independent integer Bareiss determinant check compared both sides at n+1 distinct integer arguments for all 248 words of lengths 3–7, without executing the frozen checker. The interior Rademacher sum has the standard CLT independently of the endpoints; the variance of each switch count is O(n) by one-dependence. After scaling the polynomial the terminal and constant contributions vanish and the quadratic coefficient of degree zero is (U−V)/4. Continuity of the maximal root modulus includes repeated roots. For U=+1,V=−1 the complex roots have constant modulus 1/sqrt(2) on |Z|<sqrt(2); the boundary has zero probability and each other branch has zero mass at any single given value. The atom mass is erf(1)/4 = 0.21067519823742872. Row sums give the unsigned bounds, and the reciprocal determinant has the asserted singularity scale as a symbolic identity (if the matrix is nilpotent the reciprocal is identically 1, hence entire). No geometric zeta equality or finite-size exact atom of this mass is required.
 
-## Scope and limitations
-The limiting distribution is over independently chosen orientation words, not trajectories of a fixed random dynamical system. Signed symbolic trace counts can cancel for a specific period, and the symbolic determinant does not automatically account for boundary-periodic corrections. Rugh–Tan and general random signed operator literature warrant independent follow-up for historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the random signed spectral law and atom, not for the deterministic construction, its ordinary entropy estimate, the orientation cover, or weighted kneading theory.
+
+## value
+
+PASS
+
+The atom is a concrete, non-Gaussian consequence of bounded-rank sign cancellation in a natural high-entropy family: conjugate roots lock the modulus on an interval of Gaussian values. Together with the different scaling of signed and unsigned growth this is useful spectral information not reducible to an entropy estimate or a finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

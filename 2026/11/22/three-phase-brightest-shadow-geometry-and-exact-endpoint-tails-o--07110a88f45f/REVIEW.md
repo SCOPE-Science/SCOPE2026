@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The base and four lateral face area-normal vectors give the exact pointwise brightness function; the maximum is the largest norm among 18 explicit vectors. Three squared-norm intersections give the exhaustive two-parameter phase table, including the unique 14-way tie. A finite, strictly submaximal cap-separation threshold yields the exact near-maximum probability, with a complete proof for all real positive parameters. The standalone checker reconstructed 14,400 planar convex-hull shadows independently and checked every transition class. Finite checks alone do not prove the infinite statement; the analytic proof does.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The 2026 general polyhedral brightness framework establishes Cauchy's formula and spherical co-area but not the rectangular-pyramid phase table. A fully inspected earlier public theorem on exactly the same pyramids studies the *probability of a five-vertex silhouette* rather than maximal projected *area*. Another fully inspected cross-polytope high-tail theorem already uses spherical-cap reduction, so that method is explicitly credited; its equality theorem is for a different polytope. A fully inspected cone theorem has a single transition into a continuous set of oblique maximizers. Targeted mathematical-record searches did not find the explicit three-phase 2-parameter law, 14-direction triple point or exact endpoint-tail multiplicities. This does not exclude an unindexed historical equivalent.
+PASS
 
-## Mathematical value — PASS
-The parameters are intrinsic dimensions of the natural right rectangular pyramid family. The sharp \(\sqrt{7/5}\) aspect division determines whether the largest-shadow orientation changes once or twice, and exactly one height/aspect combination produces a fourteen-way tie. The exact upper-tail coefficient quantifies how often near-optimal random views occur, with a direct extreme-value consequence. The result is a complete natural classification, not merely numerical tests or a renamed generic support-function identity.
+The visible facet projections partition the shadow up to area-zero boundaries, so projected area is the sum of positive outward area-vector dot products, equivalently half their absolute sum by vector balance. The base area vector is (0,0,-4ab); side pairs are (±bh,0,ab) and (0,±ah,ab). Pairing absolute values and expanding the two maxima yields exactly the 18 support forms. The largest vector norm is attained only at its own oriented unit direction. Squared candidate norms cross at s²=7, 5r² and 12r²/(1+r²); their order changes at r²=7/5. The other one-sided family is strictly shorter when r>1, and when r=1 both one-sided families lie below the envelope because the diagonal family exceeds the axial one before s²=7. Thus the phase counts, including fourteen at the triple point, are exhaustive. Above the certified q no nonwinning vector contributes; two winning caps cannot meet in their interiors because their simultaneous inner products would exceed half the norm of the sum. Each cap has normalized area (1-t/M)/2. There are no atoms (a level set lies in a finite union of planar sections of the sphere), so independence gives the maximum limit as stated.
 
-## Evidence and limits
-The analytic proof and definitions are in `RESULT.md`; the independent finite checks are in `verify.py` and can be reproduced with `python3 verify.py`. The constructed tail interval is certified positive but not claimed maximal. The complete brightness distribution is not determined. The 92-page motivating full-text PDF was inspected in its relevant core sections and searched for the same geometric object, but not read from cover to cover; this and older unindexed literature are residual historical-priority risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct contribution supported by comparison is the full rectangular-aspect phase diagram, with the middle regime, fourteen-direction triple transition, and its certified tail interval. The square-aspect maximum, counts and linear tail are substantively covered by a distinct same-day record; no priority order is inferred and those facts are not counted as separately original. The support-body and cap machinery are known.
+
+## value
+
+PASS
+
+A natural projection statistic has a nontrivial aspect-dependent classification absent from the square case: an intermediate maximizer family appears, a triple crossing has fourteen isolated maximizers, and that multiplicity controls the exact rare-bright-view rate. Quantitative tail coefficients and a certified interval can be used to benchmark random-view estimates; the contribution is not the classical projection formula alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 standard library from the directory containing the extracted files. Its direct convolution count sums \(r_c(s,y)^2\) over every target encountered; zero-representation targets contribute zero. The separate closed-form computation builds the finite-field quadratic character from nonzero squares and calculates \(C_c\), \(H_c\), and \(J_c\). For \(c\ne0\), it independently counts rational points on \(w^2=P_c(v)\) and verifies the trace sign. For \(c=0\), it checks the singular specialization and corresponding character values.
+## correctness
 
-The verified cases are every one of the \(155\) parameters in the nine prime fields of orders \(5,7,11,13,17,19,23,29,31\), plus six distinct parameters in each quadratic extension of orders \(25,49,121,169\), giving \(179\) exact comparisons. Field extensions are implemented with a square root of a nonsquare in the prime field; no external field package is needed. Separately, exact symbolic polynomial expansion was used to validate the collision shift factorization; its outcome is recorded in `verification_output.txt`.
+PASS
 
-These are finite consistency checks. The general all-field proof is the character-sum argument in `RESULT.md`. They do not prove bibliographic novelty, guarantee third-party verification, or establish the sharp bilinear norm for nonconstant weights.
+Replayed frozen RESULT.md lines 55–104. The first-coordinate equation determines the ordered difference h; h=0 contributes q². In midpoint coordinates the cubic difference is −3hw²−h³/4 and the even-quartic difference is h(4v³+2cv)+vh³. For h≠0, counting w yields the baseline q(q−1) and the χ(3)-weighted character sum. For nonzero a,b, counting z²−h²=a/b by its two linear factors gives the full sum −χ(b), then removing h=0 subtracts χ(a); when a=0 or b=0 the direct constant-character counts give exactly the listed corrections, including a=b=0. The linear-argument character sum over v vanishes, and P_c(1/4)=(1+8c)/16, so the formula handles the common zero and distinct cubic roots without multiplicity. For c≠0 the cubic derivative has no common root, and the unique smooth point at infinity gives trace −C_c and Hasse. For c=0, (C,H,J)=(0,χ(−1),1); quadratic reciprocity on the prime field and the parity of extension degree give the claimed q mod 12 regimes. Nontrivial additive orthogonality in both coordinates gives the unnormalized mixed Fourier moment with q⁻². An independent direct convolution and separate formula evaluation for c=0, −1/8, α in F₅[α]/(α²−3) gave 1275, 1269, 1267 and in F₇[α]/(α²−6) gave 4851, 4837, 4739, with exact agreement. These are targeted checks besides the all-field proof. Frozen verify.py was inspected, not executed; verification_output.txt is recorded evidence only. The file's trace check computes the point count via the same character sum, rather than independently enumerating pairs (v,w); the trace identity is proved in the text.
+
+## originality
+
+PASS
+
+No inspected source covers the mixed exact invariant. The strongest concrete comparisons compute either self-collisions, quadratic-surface extension, or a different ring/modulus. This decision credits only the mixed constant-input energy and its exact corrections, not extension estimates in general, the quadratic-character identity, or elliptic point counting.
+
+## value
+
+PASS
+
+The mixed fourth moment is a natural invariant not determined by separate cubic and quartic energies. Its exact evaluation separates order-q branch effects from a bounded elliptic-trace fluctuation and resolves an exact three-regime law at the undeformed quartic, with uniform field and parameter coverage. This is useful as an exact Fourier/convolution benchmark, not a claimed sharp weighted extension bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:06:05.168258Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md lines 33–70. With rates per edge, every core vertex has rate 1 to g and r to s, and g has aggregate rate m−1 into the core. Internal edges cancel from the class generator, so strong lumpability gives the same entire absorption law from s. Reset at s is a self-event. The finite killed system is transient since all states have a positive-probability path to a within a common finite time. Writing D=r²+(m+1)r+1, elimination gives G−S=(m+r)/D and (S−1)/(2+r)=1+(m+r)/D, hence S=r+4+(r+2m−1)/D, equivalent to the claimed mean and giving S(0)=2m+3. Differentiation independently gives D²+D−(r+2m−1)D′ as the numerator. For m≥3 its coefficients change sign once, the value at 0 is negative and the value at √2 is m(3+2√2)+11+8√2>0, proving a unique global minimum in the stated interval. At the root, F/m² tends uniformly to r²−2 on the interval. The 1/m coefficient of F/m² at √2 is 2√2+3; implicit differentiation gives the claimed rate correction. The mean's 1/m coefficient at fixed r>0 is −1−3/r−2/r², and its leading term is stationary at √2; this gives the stated optimal mean correction. An independent exact full-generator check compared H empty and H=K₂ at m=3,r=1/2 and found mean 161/26 and Laplace transform 3258/9767 at z=1/3 in both cases (replay: evidence/3/full_generator_check.py with Python and SymPy; observed output: evidence/3/full_generator_check.out). This checks those instances, not the universal quantifier. The frozen verify.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first source maps an arbitrary no-restart transform to a Poisson-restarted transform. The latter network sources give general spectral or fundamental-matrix methods with different dynamics."
+        ],
+        "reasoning": "The abstract machinery covers the computation once the chain or its transform is specified; the exact optimizer, quartic uniqueness and first-order coefficients still require motif-specific elimination and comparison. Strong lumpability itself is not an originality claim.",
+        "searches": [
+          "arXiv:1607.06048, §2.1, Eqs. (2.6)–(2.10), and Eq. (4.1)",
+          "arXiv:1910.13568, §VII.B, Eqs. (85)–(89)",
+          "arXiv:2111.01330, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–86, VERIFICATION.md and verify.py (static)",
+        "arXiv:1607.06048, arXiv:1910.13568, arXiv:2111.01330",
+        "Resultary d393640e729d, 544fbf08d0ea, 502236d94b27 and efb92657e6c3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The gateway case disfavors restart for the same underlying clique with length-three tail, whereas the frozen process has M′(0)=3−m−2m²<0. The competing-pendant family uses regularity for its distinct core-invariance result; the two-hub result is for a different tree and walk."
+        ],
+        "reasoning": "The opposite local behavior rules out identifying the gateway process with the s-reset process. The broad restart identity and known class-lumping criterion explain ingredients but neither gives the optimizer or its sharp corrections without additional work.",
+        "searches": [
+          "Resultary d393640e729d, length-at-least-three case",
+          "Resultary 544fbf08d0ea, full-law invariance proof",
+          "Resultary 502236d94b27, Finding",
+          "arXiv:1607.06048, Eq. (4.1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Taking H complete gives exactly the unmarked graph in d393640e729d at tail distance three, but that finding starts and resets at g. The competing-pendant regular-core finding is discrete time with apex reset. The cited spectral network method also uses normalized neighbor probabilities."
+        ],
+        "reasoning": "No relabeling of the marked graph takes s to g while fixing the target: their degrees and distances from a are different. Unit total hopping rate is not a global time scaling of per-edge rates on this nonregular network.",
+        "searches": [
+          "Resultary d393640e729d, Finding and Proof",
+          "Resultary 544fbf08d0ea, Finding and Proof (1)",
+          "arXiv:1910.13568, §VII.B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Targeted catalogue search found the closely related clique, regular-core, two-hub and telegraph records identified below; their actual findings do not list the same coned-core optimizer or corrections."
+        ],
+        "reasoning": "This is a family of continuous-time optimizers indexed by core size, not a single graph-table invariant; matches on graph shape, bounded optimal mean, or resetting alone do not establish the same marked stochastic process.",
+        "searches": [
+          "Resultary d393640e729d",
+          "Resultary 544fbf08d0ea",
+          "Resultary 502236d94b27",
+          "Resultary same-day efb92657e6c3"
+        ]
+      },
+      "rationale": "Strong lumpability and the general Poisson-restart identity are known. The supported distinct result is the exact finite-m optimizer and large-core expansion for this marked, per-edge-rate network, made uniform over arbitrary internal cores by the class generator. The closest catalogue theorem on the same clique-tail graph resets at a different vertex and actually has the opposite small-rate conclusion at length three.",
+      "residual_risks": [
+        "Limited catalogue and primary-text checks are not a publication-priority certification. An uninspected result on a gateway trap with reset on the tail could overlap the exact calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General machinery, not motif-specific optimizer",
+          "evidence": [
+            "E[T_R]=(1−LT(r))/(r LT(r)), and the transform under restart depends on the unrestarted transform LT."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1607.06048",
+          "material_read": "PDF §2.1, Eqs. (2.6)–(2.10) pp. 4–5, and Eq. (4.1) p. 13; OA offsets 49900–52366 and 58939",
+          "method": "Targeted OA primary passages",
+          "title": "First Passage Under Restart",
+          "trigger": "General transform and mean identity for arbitrary first passage"
+        },
+        {
+          "assessment": "Different normalization",
+          "evidence": [
+            "Uses unit total hopping rate with normalized neighbor probabilities."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.13568",
+          "material_read": "§VII.B, pp. 12–13, Eqs. (85)–(89); OA offsets 85831 and 90314",
+          "method": "Targeted OA primary passages",
+          "title": "Random walks on networks with stochastic resetting",
+          "trigger": "Network spectral formulation including continuous time"
+        },
+        {
+          "assessment": "Context for discrete-time methods; no statement-level coverage shown by the inspected abstract",
+          "evidence": [
+            "Describes discrete-time mean and splitting probabilities via a deformed fundamental matrix."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2111.01330",
+          "material_read": "p. 1 abstract, OA offset 1354",
+          "method": "OA abstract inspection only",
+          "title": "Absorbing Markov chains with stochastic resetting",
+          "trigger": "Arbitrary absorbing Markov chain formalism"
+        },
+        {
+          "assessment": "Closest topology, different marked start/reset vertex",
+          "evidence": [
+            "Reset to clique gateway g worsens the mean at tail length at least three."
+          ],
+          "identifier_or_url": "Resultary d393640e729d",
+          "material_read": "RESULT.md Finding and Proof, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "A sharp reset-distance trichotomy for first passage on clique–path networks",
+          "trigger": "Same clique-tail topology when H is complete"
+        },
+        {
+          "assessment": "Analogous invariance for different constraints and dynamics",
+          "evidence": [
+            "Same-order regular core, competing pendant leaves, discrete time, reset to apex consuming a step."
+          ],
+          "identifier_or_url": "Resultary 544fbf08d0ea",
+          "material_read": "RESULT.md Finding and Proof (1), offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "A sharp restart boundary for a regular trap with competing pendant targets",
+          "trigger": "Full-law invariance under core replacement"
+        },
+        {
+          "assessment": "Different graph family and total-rate-one normalization",
+          "evidence": [
+            "Tree with two hubs, not a coned arbitrary core; the bounded optimum is analogous rather than the claimed asymptotic law."
+          ],
+          "identifier_or_url": "Resultary 502236d94b27",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "A quadratic restart threshold on two-hub trees",
+          "trigger": "Positive optimum and bounded optimal mean for growing graphs"
+        },
+        {
+          "assessment": "Different first-passage process",
+          "evidence": [
+            "Telegraph process and restart singularity, not a graph optimizer."
+          ],
+          "identifier_or_url": "Resultary efb92657e6c3",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Defective first passage and logarithmic restart singularity",
+          "trigger": "Same-day exact restart analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The coned core is a natural motif for separating internal complexity from excursions into a trap: every core vertex has the same exit rate despite arbitrary interconnection. The valuable part is not merely applying lumpability to a finite graph. It gives a uniform comparison between linearly diverging unrestarted means and bounded optimally restarted means, with a unique finite-core rate and first corrections. The same unmarked clique-tail topology can instead disfavor restart when the reset vertex is moved to the gateway, making the dependence on the marked dynamics scientifically useful.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

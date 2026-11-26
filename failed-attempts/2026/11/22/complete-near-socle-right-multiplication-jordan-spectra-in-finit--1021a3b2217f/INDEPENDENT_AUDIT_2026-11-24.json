@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:41:30.824575Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–57",
+        "Frozen VERIFICATION.md, exterior_cubic_checker.py, near_socle_checker.py and their recorded outputs (inspected, not run)"
+      ],
+      "rationale": "With z=α+β+γ in degrees n−2,n−1,n, multiplication vanishes on source degrees ≥3 and its square vanishes since 2(n−2)>n. If α≠0, the perfect top pairing makes the degree-two source surject onto the one-dimensional top degree. Modulo this top image, the scalar source has an independent component α in degree n−2, and the degree-one source contributes the rank of v↦v∧α in degree n−1. This last map is represented under volume duality by the alternating bilinear form (u,v)↦vol(u∧v∧α); complementary basis monomials show an isomorphism with the space of all alternating forms. The argument uses alternation, not division by 2. To count rank 2r, choose the radical of codimension 2r, then a nondegenerate alternating form on the quotient; symplectic bases give |Sp₂ᵣ|=q^{r²}∏_{j=1}^r(q^{2j}−1), and dividing |GL₂ᵣ| by this yields the frozen product. Each nonzero α has q^{n+1} lifts. If α=0 and β≠0, the scalar and degree-one inputs give two independent image directions by the same perfect pairing; otherwise γ≠0 gives rank 1 and zero gives rank 0. The cases partition the entire ideal of dimension binomial(n,2)+n+1. Square-zero means the Jordan partition is determined by rank. For n=5,q=2 the vector is (1,1,62,9920,55552), matching the recorded exhaustive result. The recorded q=3 exhaustive check is of homogeneous cubic contraction ranks 0,2,4, not of all inhomogeneous operator ranks; its smaller scope is consistent with the statement of verification.",
+      "residual_risks": [
+        "Finite field computations are corroboration only; the extension to nonprime fields and the general n follow from linear algebra. The degree inequality used for square-zero is only asserted for n≥5."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The five-generator group-algebra census is broader in the set of elements but only for that dimension and characteristic. The four-generator result does not meet n≥5. The degree-(n−3) study uses four homogeneous blocks and trilinear contraction in characteristic two. The degree-two census counts a different operator. The inspected generic principal-ideal paper gives Hilbert-series bounds for homogeneous odd-degree forms."
+        ],
+        "reasoning": "Neither a lower-degree homogeneous theorem nor a full-algebra census at a fixed smaller dimension supplies the other infinite-dimensional and characteristic regimes of the frozen theorem. Section 3 of the five-generator census does, however, give the exact proof pattern for its overlapping slice.",
+        "searches": [
+          "Resultary:a550307eb60d, full five-generator multiplication census; f47eadf1cf1d, four-generator census; 25cacc02292b, exact near-socle Jordan spectra; bc501903d7e7 and 4b519d0a3e8d, bivector multiplication",
+          "arXiv:1803.03563v1, principal ideals in exterior algebras"
+        ]
+      },
+      "checked_sources": [
+        "Resultary searches on equivalent exterior/group-algebra forms, near-socle ranks, exact counts and broader regular-multiplication statements",
+        "Resultary:a550307eb60d, 7cc1f8e3a451, 25cacc02292b, bc501903d7e7, 4b519d0a3e8d, f47eadf1cf1d",
+        "arXiv:1211.0504v4, 0909.5676v1, 1803.03563v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The five-generator proof already quotients out the top image of degree-two inputs, takes the independent scalar-input contribution, and then uses the alternating matrix rank of the degree-one block. Its higher lifts contribute q⁶, and its leading-degree 4 and 5 cases give ranks 2 and 1. The homogeneous degree-(n−3) proof likewise uses perfect top pairing and the appropriate contraction in arbitrary n for its different symbol degree. Draisma–Shaw's theorem concerns singular subspaces of alternating forms."
+        ],
+        "reasoning": "Specialization establishes full overlap on the n=5 characteristic-two slice only. To get the rest one reuses the same proof with degrees n−2,n−1,n and alternating n-by-n matrices, and uses the known rank count; no new rank-lift obstruction enters since the top has dimension one and is already in the image. This is an elementary extension of the proof, rather than a distinct stronger general multiplication theorem located in the sources.",
+        "searches": [
+          "a550307eb60d RESULT.md Proof steps 3–4, offset 5400–7350",
+          "25cacc02292b RESULT.md Proof step 2, offset 2790–3516",
+          "arXiv:1211.0504v4 §5; arXiv:0909.5676v1 Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In characteristic two, the truncated polynomial presentation of k[C₂ⁿ] is the exterior algebra with commuting generators of square zero. For n=5 the two rings and higher leading-degree slices are identical, and multiplication rank is the dimension of the corresponding principal ideal. The quadratic-symbol record 7cc1f8e3a451 concerns lifts of degree 2; it even gives unequal ranks 8 and 10 for two such lifts in five generators, so its setting is not the current invariant lift ranks for degree n−2."
+        ],
+        "reasoning": "The group algebra wording does not distinguish the n=5 characteristic-two slice or its rank rigidity, but degree-two symbols and odd-characteristic exterior algebras are not that same setting. Top duality identifies the middle block with an alternating form, not with the entire operator for a homogeneous bivector multiplier.",
+        "searches": [
+          "Resultary: exterior and elementary abelian 2-group regular multiplication, rank-of-principal-ideal, near-socle or penultimate radical layer, Hodge-dual alternating forms",
+          "Resultary:a550307eb60d and 7cc1f8e3a451"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The five-generator characteristic-two rank coefficients at 0,1,2,4,6 are 1, q−1, q(q⁵−1), q⁶(q⁵−1)(q²+1), q⁸(q⁵−1)(q³−1) from the higher-degree strata; all five match. Fulman–Goldstein count the rank strata of the alternating matrices themselves (zero-diagonal symmetric in characteristic two, skew-symmetric in odd characteristic)."
+        ],
+        "reasoning": "Both of those exact counts are prior evidence and credited. An exact distribution for alternating matrices is not by itself a right-multiplication table; it becomes one after the rank reduction, which already exists for n=5 in the five-generator proof. No separate evaluated table for the complete frozen scope was identified.",
+        "searches": [
+          "Resultary: all-field finite exterior near-socle rank strata and explicit five-generator counts",
+          "a550307eb60d RESULT.md §§Finding, Proof steps 3–4",
+          "arXiv:1211.0504v4, §5 Eq. (24)"
+        ]
+      },
+      "rationale": "Qualified to the literal extension to arbitrary n≥5 and finite fields, including all inhomogeneous lifts. The exact n=5 characteristic-two distribution and lift invariance are already covered, and the alternating-form numbers are classical. The strongest available multiplication source proves the same graded rank mechanism for n=5, not an all-n/all-field theorem that specializes to the frozen scope. There is very little conceptual new content in extending that proof (see value); that is not a claim that the full quantified theorem was found verbatim or follows by specializing a broader independent multiplication theorem.",
+      "residual_risks": [
+        "The extension is historically vulnerable to an earlier application of volume duality and the same top-degree quotient. No claim of worldwide priority or whole-document exclusion is made for the abstract-only comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact slice overlap and decisive lift mechanism; confined to five generators and characteristic two.",
+          "evidence": [
+            "Unit and degree-two inputs supply independent ranks 1 and 1. After quotienting the top, the degree-one inputs contribute the alternating 5-by-5 rank; higher lifts contribute q⁶ choices."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-multiplication-rank-census-in-the-five-generator-elementar--a550307eb60d/RESULT.md",
+          "material_read": "Finding and Proof steps 3–4, especially offset 5400–7350",
+          "method": "Mirror lookup and direct comparison of formula, proof and degree hypotheses",
+          "title": "Exact multiplication-rank census in the five-generator elementary-abelian group algebra",
+          "trigger": "Stronger exact census of the same elements in the n=5 characteristic-two slice; possible general rank mechanism"
+        },
+        {
+          "assessment": "Applies to homogeneous degree n−3 and characteristic two, not the full inhomogeneous degree-(n−2) ideal.",
+          "evidence": [
+            "Four blocks and outer dimensions 1,1; middle contraction maps are transposes with rank r, giving 2+2r."
+          ],
+          "identifier_or_url": "Resultary:25cacc02292b",
+          "material_read": "Finding and Proof step 2 at offsets 2790–3516",
+          "method": "Mirror passage comparison",
+          "title": "Exact Jordan spectra for near-socle multiplication in elementary abelian 2-group algebras",
+          "trigger": "Near-socle terminology and possible general wedge-contraction theorem"
+        },
+        {
+          "assessment": "Supplies the classical form-count input, not the exterior right-multiplication reduction.",
+          "evidence": [
+            "Zero-diagonal symmetric rank counts in characteristic two and skew-symmetric matrices for odd characteristic."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1211.0504v4",
+          "material_read": "§5, PDF p. 18, Eq. (24) and conventions",
+          "method": "OA primary passage inspection",
+          "title": "Stein's method and the rank distribution of random matrices over finite fields",
+          "trigger": "Exact finite-field alternating-form rank counts"
+        },
+        {
+          "assessment": "Singular subspaces, not this filtered multiplication problem.",
+          "evidence": [
+            "The theorem concerns singular subspaces of alternating forms."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0909.5676v1",
+          "material_read": "§1, Theorem 1.1, PDF p. 2",
+          "method": "Bounded OA theorem comparison",
+          "title": "Singular lines of trilinear forms",
+          "trigger": "Exterior algebra and alternating-form duality"
+        },
+        {
+          "assessment": "Generic homogeneous ideal bounds; abstract does not establish coverage of the arbitrary inhomogeneous finite-field census.",
+          "evidence": [
+            "Hilbert-series bounds for generic homogeneous odd-degree principal ideals."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1803.03563",
+          "material_read": "PDF p. 1 abstract",
+          "method": "Limited OA scope comparison",
+          "title": "On generic principal ideals in the exterior algebra",
+          "trigger": "Rank as dimension of an exterior principal ideal"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and graded rank proof",
+        "Resultary:a550307eb60d §Proof steps 3–4",
+        "arXiv:1211.0504v4 §5"
+      ],
+      "rationale": "Rank fibers of a radical layer are natural, and the result is correct. The remaining extension does not supply a distinct nonroutine rank mechanism: the overlapping five-generator proof has exactly the three graded inputs and the same independence of higher lifts. Replace grades (3,4,5) by (n−2,n−1,n); the top pairing, one extra scalar direction, and alternating middle rank are unchanged, including in odd characteristic. The covering count of alternating forms is standard and the number of higher coefficient lifts becomes q^{n+1} by free choice. Thus both the claimed rigidity and the precise new weights follow by routine dimension reindexing and the known linear-algebra count, not by overcoming a new exterior-algebra obstruction. The broadened scope is a convenience, but does not establish independent mathematical value under the standard for narrow exact invariants.",
+      "residual_risks": [
+        "This is a value decision about the specific extension, not a rejection of finite-field exterior rank censuses or an assertion that the general theorem is false."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

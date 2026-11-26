@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:45:11.383041Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof §§1–4",
+        "Frozen VERIFICATION.md and check_caustic.py (read only)",
+        "Casas–Ramírez-Ros arXiv:1004.5499, §4.2 formula (11), p. 13"
+      ],
+      "rationale": "For a line with unit normal n and signed offset p, put h²=a²n_x²+b²n_y². The dual conic equation gives Lambda=h²−p². For a regular parameter and p≠0 it is sufficient as well: the contact is diag(a²−Lambda,b²−Lambda)n/p, so the line is tangent there. Central lines and degenerate parameters causing exceptional contacts are null events. The total allowed (theta,p) mass is P by Cauchy's formula. Changing variables on both offset signs shows the pushforward is absolutely continuous, with density (1/P) times the integral of (h²−z)^(-1/2) over theta in [0,π) with h²>z. For z<b², all angles contribute, immediately giving the first K branch. For z>b², use h²=a²−c² sin² theta in one quadrant and substitute sin theta=(sqrt(a²−z)/c)sin v in the allowed interval; this yields the second branch with prefactor 2/(Pc). The complementary modulus squared is |eta|/(c²+|eta|) below the separatrix and eta/c² above it. The standard asymptotic of K therefore gives exactly log(16c²/|eta|)/(Pc)+o(1). K(0)=π/2 gives the upper density and linear tail. A line meeting the focal segment has |p|≤c|n_x| (equality is a null event), of total measure 4c, giving the mass ratio. The law determines b² as the unique interior point of locally unbounded essential density and a² as the upper support endpoint. In the circle h is constant, giving the stated density and tail sqrt(epsilon)/R. The independent line-coordinate proof checks the density without using the billiard equivalence; that equivalence also follows from the incidence Jacobian dℓ du on the oriented double cover.",
+      "residual_risks": [
+        "Tangency/contact statements are interpreted almost surely, and assigning an infinite density value at a single point is a choice of representative, not an atom. The frozen checker was not run; its explicit sharp-asymptotic numerical probe is on the upper side only, though it compares CDFs on both sides. The two-sided limit is established analytically.",
+        "The frozen prior-work citation to Casas–Ramírez-Ros should locate formula (11) in §4.2, not §4.1, which has the classification and formula (10). This locator issue does not change the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The action formulas cover both all regular angular oscillations and rotations of arbitrary normalized noncircular confocal billiards at positive energy; specializing to unit speed and restoring dimensional scale gives both branches of the bound law.",
+          "Casas–Ramírez-Ros supply the label and singular focus-crossing family; their rotation-number separatrix asymptotic is not itself a density result. Corvaja–Zannier's measure is conditioned on a fixed caustic and does not by itself cover the marginal."
+        ],
+        "reasoning": "The positive-energy angular action is an explicitly known broader calculation that supplies the entire CDF at a unit-energy normalization. The separate fixed-caustic and rotation-number results furnish context, not the decisive equivalence.",
+        "searches": [
+          "Waalkens–Wiersig–Dullin arXiv:chao-dyn/9612020, equations (6)–(9)",
+          "Casas–Ramírez-Ros arXiv:1004.5499, §§4.1–4.3",
+          "Corvaja–Zannier arXiv:2103.11347, §2.8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, especially Finding and Relationship to prior work",
+        "Waalkens–Wiersig–Dullin arXiv:chao-dyn/9612020 §2",
+        "Bialy arXiv:2209.12765 §§3–4",
+        "Casas–Ramírez-Ros arXiv:1004.5499 §§4.1–4.3",
+        "Corvaja–Zannier arXiv:2103.11347 §2.8",
+        "Resultary local-mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4, record 326d67b06e5a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With k=alpha/kappa above the angular separatrix, d[kappa E(k)]/d kappa=K(k). With k=kappa/alpha below it, d[E(k)−(1−k²)K(k)]/dk=kK(k). Therefore differentiating 4J/P' at x=1−kappa² gives exactly the two densities after unscaling, without any new phase-space calculation.",
+          "The standard K asymptotic gives the coefficient and constant of the logarithm directly. The support ends at a² and this is its sole interior divergent label, so exact inverse recovery is immediate. The focus-crossing mass is classical Crofton geometry and also the value of the survival curve at kappa=alpha; the circular specialization is the zero-eccentricity offset pushforward."
+        ],
+        "reasoning": "The older result is more than geometric input or a suggestive pair of integrals. It already evaluates the exact probability numerator on both sides. Normalizing and differentiating it proves the frozen finding mechanically.",
+        "searches": [
+          "Waalkens–Wiersig–Dullin §2 action equations (7)–(9)",
+          "Bialy Theorem 4.1 and Casas–Ramírez-Ros §§4.2–4.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Waalkens–Wiersig–Dullin use the angular action at fixed energy, the area of the same level contours in the canonical (phi,p_phi) section. At unit speed the nonoriented line survival probability is unchanged by passing to the oriented collision cylinder and equals normalized area on that cylinder.",
+          "Bialy's explicit invariant-graph density dphi/p and Theorem 4.1 total U=4K(1/f)/(cf), with f²=(a²−z)/c², give the same elliptic branch: the two oriented offset signs each contribute dphi/(2|p|) by coarea, so U/(2P) is the normalized density below b²."
+        ],
+        "reasoning": "Taking an area of a level-bounded region in canonical collision coordinates is not a different ensemble from Crofton here. There is exact normalization and variable agreement, not merely the appearance of elliptic integrals in both settings.",
+        "searches": [
+          "Resultary search for ellipse Crofton caustic line law, separatrix density and inverse semiaxes",
+          "elliptic billiard hyperbolic caustic Gelfand Leray measure action area phase space separatrix complete elliptic integral invariant density hyperbolic librational action elliptical billiard",
+          "Waalkens–Wiersig–Dullin arXiv:chao-dyn/9612020, §2 (7)–(9)",
+          "Bialy arXiv:2209.12765, §§3–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-day indexed ellipse result 326d67b06e5a has a two-branch K-density and logarithmic divergence but samples distances between two independent uniform-eccentric-anomaly endpoints; its assumptions explicitly exclude the motion-invariant random-line chord law.",
+          "The continuous angular-action formula pair in the primary paper gives the full prior survival curve under the dictionary above, even though it is not labeled a Crofton probability distribution or listed as a numeric table."
+        ],
+        "reasoning": "The same-day row does not match the experiment; the substantive verified coverage comes instead from exact published formulas for the equivalent area observable.",
+        "searches": [
+          "Resultary exact and related random ellipse laws, local mirror record 326d67b06e5a",
+          "Waalkens–Wiersig–Dullin §2 equations (8) and (9), explicit formula pair"
+        ]
+      },
+      "rationale": "Waalkens–Wiersig–Dullin explicitly computed the two angular actions in §2, equations (8) and (9) of arXiv:chao-dyn/9612020. In collision coordinates these are the Crofton survival probability up to one common constant, with the parameter replaced by its affine complement. To see this, scale the semimajor axis to 1, write alpha=c/a, P'=P/a, x=z/a² and kappa²=1−x, and take unit speed (2E=1). Their angle phi is eccentric anomaly and p_phi is the canonical tangential momentum q'(phi)·v, so dphi dp_phi equals dℓ du in scaled collision coordinates. Equation (7) gives the level curve p_phi²=kappa²−alpha²cos²phi. Thus the survival set has |p_phi|≤sqrt(kappa²−alpha²cos²phi) on the allowed angles. Its oriented area is eight times the quadrant integral J of that square root over allowed angles, and total oriented mass is 2P'. Equations (8) and (9) identify J=π times the desymmetrized angular action: J=kappa E(alpha/kappa) for kappa>alpha and J=alpha[E(k)−(1−k²)K(k)] with k=kappa/alpha for kappa<alpha. Accordingly the full survival probability is 4J/P' on both sectors. Differentiation and unscaling give exactly the two proposed normalized density branches. The precise logarithmic coefficient, upper endpoint and inverse recovery are direct consequences of this known two-sector action via the standard elliptic integral limit and support. The record's probabilistic interpretation is valid but is an equivalent formulation of existing explicit formulas, not a newly determined law.",
+      "residual_risks": [
+        "The first publication to express these results specifically as random-line probabilities is not established. A located separate copy of Richter et al.'s Action Integrals for Ellipsoidal Billiards was not readable due to a TLS error; the conclusion rests on the directly inspected later primary paper's explicit equations, not any inference from the inaccessible work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior equivalent of the survival law on both branches",
+          "evidence": "Equation (7) gives p_phi²=2E(kappa²−alpha²cos²phi); (8) gives angular action sqrt(2E) kappa E(alpha/kappa)/π; (9) gives sqrt(2E) alpha[E(k)−(1−k²)K(k)]/π for k=kappa/alpha.",
+          "identifier_or_url": "https://arxiv.org/abs/chao-dyn/9612020",
+          "material_read": "Title/byline, §2 classical mechanics and equations (2)–(9), OA offsets 8200–20614",
+          "method": "Primary OA PDF passages from arXiv",
+          "title": "Elliptic Quantum Billiard",
+          "trigger": "Possible dominating evaluation of both rotational and hyperbolic librational areas"
+        },
+        {
+          "assessment": "Explicit elliptic-sector equivalent; not the two-sector law by itself",
+          "evidence": "For elliptic caustics F=p²−c²cos²phi=b²−lambda; Theorem 4.1 integrates its invariant graph density to U=4K(1/f)/(cf). Correct coarea uses the two offset signs as stated above.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.12765",
+          "material_read": "§3.1 line-space form, §3.2 conserved integral, §4 Theorem 4.1 and proof, OA offsets 7600–10580 and 17500–23959",
+          "method": "Primary OA PDF passages",
+          "title": "Mather β-Function for Ellipses and Rigidity",
+          "trigger": "Same line-space symplectic form and possible exact phase marginal"
+        },
+        {
+          "assessment": "Same geometry and label; distinct rotation-number observable",
+          "evidence": "The formula (11) label is (a−b)sin²phi+b−r² with squared semiaxes in their notation; p. 14 analyzes singular rotation frequency, not this probability density.",
+          "identifier_or_url": "https://arxiv.org/abs/1004.5499",
+          "material_read": "§§4.1–4.3, especially formula (11), p. 13, and singular frequency p. 14 (offsets about 41500 and 47500)",
+          "method": "Primary OA PDF passages",
+          "title": "The Frequency Map for Billiards inside Ellipsoids",
+          "trigger": "Same confocal parameter and separatrix"
+        },
+        {
+          "assessment": "Fixed-caustic conditional measure only in the passage checked",
+          "evidence": "The construction starts with a given caustic C_s and defines its relative measure.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.11347",
+          "material_read": "§2.8 pp. 15–16, offset 71000",
+          "method": "Primary OA PDF passage",
+          "title": "Finiteness theorems on elliptical billiards and a variant of the dynamical Mordell–Lang conjecture",
+          "trigger": "Invariant billiard measure that might equal the normalized Crofton marginal"
+        },
+        {
+          "assessment": "Different law and sample space",
+          "evidence": "Its random variable is distance between two independent uniform-eccentric-anomaly endpoints, expressly not a motion-invariant random-line sample.",
+          "identifier_or_url": "2026/11/22/...326d67b06e5a",
+          "material_read": "RESULT.md Finding and Assumptions (local-mirror offsets 0–3581)",
+          "method": "Resultary lookup and local mirror",
+          "title": "The elliptic-integral chord law and minor-diameter caustic for an ellipse",
+          "trigger": "Distinct same-day record with a two-branch K-law, logarithmic divergence and inverse axes"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Limitations",
+        "Waalkens–Wiersig–Dullin §2, equations (7)–(9), and the verified canonical-area dictionary"
+      ],
+      "rationale": "The normalization gives a clear probabilistic presentation of useful classic curves, but does not determine a new invariant or inverse phenomenon: the exact survival curve is the known angular-action curve, and both density branches and the separatrix and endpoint consequences follow by standard differentiation and limits. The formula and elementary recovery in exact data add no independently motivated unknown fact beyond that reformulation. No new statistical stability, near-circular uniform estimate, or different ensemble is analyzed in the frozen claim.",
+      "residual_risks": [
+        "The value decision concerns the frozen theorem; it does not detract from the usefulness of an expository derivation or imply that related inverse-stability questions have been solved."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

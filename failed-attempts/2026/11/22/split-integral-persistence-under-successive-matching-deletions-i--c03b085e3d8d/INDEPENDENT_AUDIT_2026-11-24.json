@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:39:59.619196Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–86, especially line 80 (incorrect weights) and the relative boundaries in lines 58–71",
+        "VERIFICATION.md, matching_fault_verifier.py and verification_output.txt (frozen script inspected, not executed)",
+        "Independent exact based cycle-lattice check at (4,5), from the displayed boundaries"
+      ],
+      "rationale": "The finding is true, but the frozen proof's insistence on component-size weights in §2 is incorrect. In the incidence cokernel each e_ij maps to the unit generator of its connected component, so the induced augmentation sends each such generator to 1, not to the component size. The sum of original basis elements in a component would map to its size times the unit, not to a basis element. Using the correct unit-weight augmentation gives the natural quotient ker(epsilon)/im(partial_2), which surjects at every stage with free target of rank number of components minus one. For H_2 the mixed triangles are the edges of the incidence graph and each pair of deleted labels has two oriented length-two paths between diagonal vertices. A cycle has zero pendant coefficients and equal coefficients along each oriented path, and the tetrahedron relation identifies the two paths with coefficient a unit. For every pair keep the path via e_ij with i<j; these choices coincide at all stages, so the quotient is naturally the complete-graph integral cycle lattice and the star-tree circuit bases extend. The tetrahedral relations are independent, leaving no higher homology. This reconstruction proves the displayed ranks, splits and barcode despite the erroneous weight assertion. The small independent exact check at (4,5) obtained H_1 ranks (19,12,6,2,0) and H_2 ranks (0,0,0,1,3), with stabilized H_2 basis column (1,0,0).",
+      "residual_risks": [
+        "Correctness is for the finding, not endorsement of the erroneous component-weight sentence or of the original proof verbatim. The frozen modular checks do not imply integral primitivity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier stagewise reports 04d61268ad5a and 223b7506ca23 are credited in frozen RESULT.md lines 92–104",
+          "The separate November 17 record covers the persistence maps, unlike those stagewise precedents",
+          "2ee4d6cf4a9a concerns induced-forest rather than dissociation complexes"
+        ],
+        "reasoning": "The stagewise works alone would not settle originality of the maps. The earlier exact-filtration persistence record, not the adjacent graph-complex results, supplies the covering claim.",
+        "searches": [
+          "Resultary fac6a09d737e, 04d61268ad5a, 223b7506ca23 and 2ee4d6cf4a9a",
+          "Carnero Bravo arXiv:2307.13271 definition and context"
+        ]
+      },
+      "checked_sources": [
+        "Resultary fac6a09d737e (decisive indexed statement), 04d61268ad5a, 223b7506ca23 and 2ee4d6cf4a9a",
+        "RESULT.md lines 11–35, 73–86 and 92–104",
+        "Carnero Bravo arXiv:2307.13271 front matter for context"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior statement says coherent integral cycle bases determine every inclusion-induced map; integral degree-two births are primitive",
+          "Routine adjacent subtraction gives a+b−2 at stage one and a+b−2s+1 later"
+        ],
+        "reasoning": "Compatible integral bases determining the maps, all H_1 classes born at zero and permanently surviving primitive H_2 births already cover the split-arrow and barcode conclusions. A different chain presentation or a calculation of the same determined multiplicities does not rescue originality. The full earlier proof and precise generator formulas were not recovered and are not claimed identical.",
+        "searches": [
+          "Compare fac6a09d737e indexed claim with RESULT.md lines 13–33 and 73–86"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "fac6a09d737e indexed finding explicitly describes the increasing dissociation-complex filtration of a biclique under one-at-a-time matching-edge deletions, all integral H_1 classes born at zero with determined deaths, and t−2 primitive permanent H_2 births",
+          "Frozen RESULT.md lines 5–35: same filtration, integral births/deaths and actual maps"
+        ],
+        "reasoning": "The perturbation, object, degrees, coefficients and relative class behavior coincide. The earlier coherent integral bases and all-inclusion-map assertion carry more information than field Betti numbers and address the precise gap claimed in the frozen record.",
+        "searches": [
+          "Resultary: fac6a09d737e integral persistence successive matching edge deletion bipartite dissociation coherent integral cycle bases all inclusion maps degree one degree two barcode"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalogue statement includes exact permanent birth count t−2 and prior all-map determination; known stage ranks are ab−1 at zero and (a−t)(b−t) in H_1 thereafter"
+        ],
+        "reasoning": "That entry need not reproduce both written multiplicity expressions in its short summary: with the earlier degree-one behavior they are forced by adjacent stage rank differences. The same explicit degree-two count is indexed.",
+        "searches": [
+          "Local Resultary exact match by ID fac6a09d737e with integral barcode terms"
+        ]
+      },
+      "rationale": "Best-of-knowledge rejection for substantive prior map-level coverage: the published November 17 Resultary record fac6a09d737e concerns the identical dissociation-complex filtration under successive matching-edge deletions in K_{a,b} and expressly gives coherent integral bases determining every inclusion map, degree-one deaths of integral classes born at zero, and t−2 permanent primitive degree-two births at stage t. This is not a title-only, stagewise or field-only match: the statement describes integral classes and bases with the complete field barcode as a consequence. The frozen record's numerical degree-one multiplicities follow by subtracting the independently credited stage ranks once all births are at zero, and its chosen cycle-lattice presentation does not establish a distinct scientific claim beyond the previously classified maps.",
+      "residual_risks": [
+        "The exact antecedent full proof, endpoint wording and choices of basis were not independently recovered. The rejection rests on the affirmative detailed earlier statement and the mathematical implications, not on the retrieval failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong substantive earlier coverage, not a mere risk of overlap from inaccessible full text.",
+          "evidence": [
+            "Every integral degree-one class is born at stage zero and dies at a determined step",
+            "Exactly t−2 primitive degree-two classes are born at stage t≥3 and survive forever",
+            "Coherent integral cycle bases determine every inclusion-induced map"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-integral-persistence-under-successive-matching-edge-deletion-in--fac6a09d737e",
+          "material_read": "Exact indexed statement; full RESULT.md mirror request did not return text",
+          "method": "Local Resultary exact-ID and semantic lookup plus targeted mirror request",
+          "title": "Integral persistence under successive matching-edge deletion in bicliques",
+          "trigger": "Earlier record matches object, perturbation and integral map claim"
+        },
+        {
+          "assessment": "Credit stagewise homotopy; these are not the reason for the map-level rejection.",
+          "evidence": [
+            "Frozen discussion describes a stagewise square model in one and explicit exclusion of maps in the other"
+          ],
+          "identifier_or_url": "Resultary 04d61268ad5a and 223b7506ca23",
+          "material_read": "Frozen prior comparison at line 94; full texts not independently recovered",
+          "method": "Local catalogue evidence and attempted mirror retrieval",
+          "title": "Mixed-dimensional dissociation homotopy under partial matching deletion from K_{a,b}; Homotopy of second independence complexes after deleting a bipartite matching",
+          "trigger": "Already credited stagewise types and proof models"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary fac6a09d737e",
+        "RESULT.md lines 13–35, 82–86 and 92–98"
+      ],
+      "rationale": "The mathematical classification would be useful if new, but the record offers no demonstrated further invariant or application beyond the earlier integral map classification. Its explicit death multiplicities are forced by the earlier behavior and known ranks, and the chain presentation is presented as a proof of the same classification, not a distinct usable result.",
+      "residual_risks": [
+        "A genuinely distinct naturality or equivariance result might have independent value, but it is not part of the frozen finding."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

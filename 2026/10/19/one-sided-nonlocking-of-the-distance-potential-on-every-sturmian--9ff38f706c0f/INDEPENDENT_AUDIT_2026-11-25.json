@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:50:37.228078Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–59",
+        "Frozen VERIFICATION.md, line 20 and verify.py, lines 9–50 (inspected only)",
+        "Huang et al., arXiv:2610.03619, Sturmian beta-shift setup and Theorem A"
+      ],
+      "rationale": "At word length L the mechanical intercept cuts are the phases -iu for 0<=i<=L. On an interval avoiding collisions the ordered arcs can be followed continuously, and all L digit values are constant on each moving arc. At a cut only one ceiling argument changes and the ceiling convention takes its left-hand limiting word. Intercept density gives precisely these words for the irrational rotation; for reduced rational denominator Q>L the cuts lie on the Q-grid and each arc's right endpoint realizes its word as a shift of the rational mechanical word. For lower convergent p/q, ps-qr=1 with 1<=s<q makes beta=(p+r)/(q+s) reduced and gives p/q-beta=1/[q(q+s)]. Neither the interval from beta to p/q nor the interval from p/q to the upper preceding convergent has an interior reduced fraction of denominator less than q: in each unimodular endpoint basis, any interior fraction has two positive integer coefficients. Thus the length-(q-1) words are unchanged through alpha. Each prefix sum of each rational shift is at most ceil(m beta)<=ceil(m alpha); at the first differing digit this forces the correct lexicographic ordering. Rational digit average beta and irrational average alpha follow by telescoping and unique ergodicity. The cost is at most theta^(q-1) and the gain from digit deficit is greater than t/(2q^2), which wins for every fixed theta<1 and t>0 along unbounded lower convergents. At t=0 the zero set of the nonnegative distance is the uniquely ergodic closed subsystem. The digit potential has sup norm and Lipschitz seminorm at most one, giving the stated arbitrarily small perturbation.",
+      "residual_risks": [
+        "The source's finite golden-slope samples do not establish arbitrary irrational slopes, full lexicographic admissibility, or a Lipschitz optimization theorem. These conclusions follow from the preceding mechanical-word and Farey arguments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang et al. treat the same systems and supply a Wasserstein gap inequality for Phi-Psi. The frozen source describes the cited positive cone as requiring p>0; its exact primary record was not available for inspection."
+        ],
+        "reasoning": "The Wasserstein estimate controls a sum that includes the positive digit deficit; it does not require a sufficient distance penalty on its own. The stated p>0 range would not include the base case p=0 or any of the negative digit perturbations.",
+        "searches": [
+          "arXiv:2610.03619, Theorems A and C",
+          "Resultary: Sturmian beta-shifts distance potential positive cone p Phi q Psi"
+        ]
+      },
+      "checked_sources": [
+        "Huang et al., Theorems A and C",
+        "Local Resultary queries and catalogue comparison",
+        "Frozen RESULT.md, lines 64–74"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem C bounds alpha minus the competing digit mean plus the competing distance cost below by a constant times Wasserstein distance."
+        ],
+        "reasoning": "That lower bound cannot yield a sequence with distance cost divided by positive digit deficit tending to zero, or its explicit period and rate. The rational mediant on the lower side of a convergent deliberately gives a uniform inverse-quadratic deficit that plain convergence of rational approximants does not guarantee.",
+        "searches": [
+          "arXiv:2610.03619 Theorem C, p. 6",
+          "Frozen RESULT.md, Farey competitor construction, lines 23–57"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem A's Lipschitz neighborhood is centered at Phi-Psi. The target's center is -Psi, and the negative digit perturbation has the opposite sign."
+        ],
+        "reasoning": "No positive rescaling takes the positive-digit center to the zero or negative digit coefficient; this is a boundary problem, not a change of normalization.",
+        "searches": [
+          "Resultary: one-sided nonlocking distance potential every Sturmian beta shift",
+          "arXiv:2610.03619, Theorems A and C"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest returned pressure-law catalogue entry: 2026/10/11/SCOPE-inverse-temperature-pressure-law-for-the-digit-potential-on-boun--451ebc0e8963; it concerns digit-potential pressure for bounded-type slopes. The exact positive-cone mirror path was unavailable."
+        ],
+        "reasoning": "The catalogue pressure result uses a different potential and a narrower slope regime. A failed lookup of the positive-cone record is not evidence against coverage; the available description is compared separately and treated as unverified.",
+        "searches": [
+          "Resultary: one-sided nonlocking distance potential every Sturmian beta shift",
+          "Resultary: A two-parameter robust cone of Sturmian-maximizing potentials",
+          "2026/10/11/SCOPE-a-two-parameter-robust-cone-of-sturmian-maximizing-potentials--551b149cc657 (exact local mirror lookup)"
+        ]
+      },
+      "rationale": "The inspected positive-digit locking result concerns a different center, and no accessible source compared supplies the quantitative destabilization of the pure distance potential by a negative digit term. The finding is not credited with the mechanical-word or Farey ingredients, or with the prior locking theorem.",
+      "residual_risks": [
+        "The exact cited positive-cone record was unavailable; its possible unstated boundary results were not checked. Classical language-stability or periodic-approximation results may provide alternate derivations, and priority is not established exhaustively."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Positive-digit locking and an exact gap estimate, not boundary destabilization.",
+          "evidence": [
+            "Potential F=Phi-Psi in both the open-neighborhood theorem and the Wasserstein gap theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.03619",
+          "material_read": "PDF pp. 5–6, offsets about 18700, 19750 and 21880: definitions and Theorems A and C",
+          "method": "OA PDF text passages",
+          "title": "Sturmian beta-shifts do not have typical periodic optimization",
+          "trigger": "Same systems and explicit Lipschitz locking of the same measure"
+        },
+        {
+          "assessment": "On the described p>0 hypothesis the claims are disjoint; other contents of the exact record remain unverified.",
+          "evidence": [
+            "The frozen description excludes p=0, whereas the finding is based at p=0 and perturbs to p=-t."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-a-two-parameter-robust-cone-of-sturmian-maximizing-potentials--551b149cc657",
+          "material_read": "Frozen RESULT.md line 65 description only; primary record not retrieved",
+          "method": "Resultary and exact local mirror attempts",
+          "title": "A two-parameter robust cone of Sturmian-maximizing potentials",
+          "trigger": "Potentially intersecting regime in the same potential family"
+        },
+        {
+          "assessment": "Digit pressure rather than distance-potential locking.",
+          "evidence": [
+            "The summary singles out the digit potential and bounded-type slopes."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-inverse-temperature-pressure-law-for-the-digit-potential-on-boun--451ebc0e8963",
+          "material_read": "Local catalogue summary",
+          "method": "Resultary search",
+          "title": "Inverse-temperature pressure law for the digit potential on bounded-type Sturmian beta-shifts",
+          "trigger": "Closest indexed match on the same shifts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–13 and 29–59",
+        "Huang et al., Theorem A"
+      ],
+      "rationale": "This identifies the loss of robustness at the zero digit coefficient despite unique maximization and gives a specified direction, finite-period witnesses and an explicit gain for every irrational slope. Avoiding an assumption on continued-fraction growth is substantive: the lower-convergent error alone need not provide polynomial separation from an exponentially small distance penalty.",
+      "residual_risks": [
+        "The competitors need not maximize the perturbed potential. Neither pressure nor the perturbed maximizing-measure set is classified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

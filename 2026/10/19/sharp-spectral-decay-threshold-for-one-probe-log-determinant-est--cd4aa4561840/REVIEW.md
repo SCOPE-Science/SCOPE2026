@@ -1,19 +1,21 @@
-# Review of the spectral-decay allocation theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Diagonalization of the exact ideal preconditioner leaves a centered Gaussian quadratic-form estimator with variance \(2S(k)/N\). A termwise shifted-tail inequality under the adjacent log-spectral ratio gives the global upper bound \(\mathcal V_1/\mathcal V_N\leq Nq^{2c(N-1)}\). The elementary inequality \(N\leq2^{N-1}\) gives sufficiency. Finite geometric matrices at the two-probe budget show necessity of the ratio threshold. Consecutive-risk ratios determine the complete infinite-geometric optimizer, including ties. The integral test and compactness of minimizing rank fractions justify the polynomial-spectrum limit and constant. The standalone program tests exact finite identities and supporting numerical examples; none is substituted for an infinite proof.
+PASS
 
-## Originality
+For the repaired power-law claim take L>0 and p>1: e^{a_j}−1≤e^L a_j ensures trace class. The residual is a sum of independent real Gaussian squares, finite almost surely by the finite expectation, and its centered version converges in L². The exact risk is 2L²/N times the j^{−2p} tail. Integral upper and lower bounds at k and k+1 give the same B^{2p}-scaled objective uniformly in k/B on interior compact sets. The lower bound alone gives divergence at both endpoints, including bounded or zero deflation rank and bounded or sublinear probe counts. The admissible spacing c/B lets a sequence approach the unique minimizer x=(2p−1)/(2p) of x^{1−2p}/(1−x); every discrete minimizer approaches it. Evaluating there gives the repaired leading constant and the claimed probe budget share; holding N fixed gives the stated slower rate. The proof is self-contained in the repaired RESULT.md and does not rely on the inspected but unrun frozen script. The rejected threshold is mathematically supported by tail shifting and the geometric witness; its rejection is for coverage, not falsity. The original strictness argument with trailing zeros can use the last positive coefficient as the effective tail endpoint.
 
-**PASS, conditional on the inspected literature.** The 2026 Cortinovis–Toni paper explicitly provides the underlying variance identity and a general *pairwise* test for allocation, so neither identity is claimed new. Its inspected full arXiv manuscript does not state the present uniform sharp spectral-ratio threshold for *all* budgets and allocations, its finite-dimensional necessity witness, or the geometric/power-law exact optimization classification. The 2023 XTrace study instead concerns exchangeable estimators, and the 2016 Saibaba–Alexanderian–Ipsen study concerns randomized subspace approximation. An accessible earlier mathematical finding about Gaussian Nyström log-determinant error for two-block spectra concerns high-contrast moments, not optimal allocation under adjacent spectral-decay envelopes. Search absence is not proof of novelty; a sharper unindexed or uninspected allocation theorem remains a bibliographic risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** The recent research asks when one Gaussian probe is a defensible allocation instead of spreading a fixed budget over many probes. The sharp dimension-free decay threshold supplies a direct sufficient rule with a matching obstruction, and the geometric-versus-polynomial contrast identifies two quantitatively different resource-allocation regimes. Unlike a mere numerical benchmark, the criterion holds for an entire spectrum class and all integer budgets in its clearly stated ideal model. It is not a guarantee for randomly computed preconditioners or finite-precision Lanczos.
+Originality FAIL for the frozen headline and geometric claims: an earlier Resultary theorem on the same exact risk makes the sharp uniform threshold a direct corollary, and its geometric allocation law is the same under reparameterization. The corrected files remove these claims. PASS is for the distinct power-law asymptotic of every exact optimal budget split and its leading risk; the inspected exact finite criterion and primary risk comparison do not themselves furnish this interior large-budget limit.
 
-## Closest literature and residual limits
+## value
 
-The main contextual source is Cortinovis and Toni, arXiv:2601.05778v1 (especially Section 2, equations (8)–(11)). Comparison was also made to Epperly–Tropp–Webber, arXiv:2301.07825, and Saibaba–Alexanderian–Ipsen, arXiv:1605.04893. The mathematical gap is a uniform *optimization* result, not a new trace-variance identity. A cost-unit model for exact eigenpairs and exact quadratic forms abstracts away algorithm implementation expense. Independent scholarly comparison remains desirable before any publication claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The repaired result identifies a regime where spending essentially all growing budget on exact deflation and using a bounded number of probes is asymptotically suboptimal by a factor of order B. It quantifies the unique limiting split and the optimal leading error for a canonical slow spectral decay, a meaningful contrast to the known geometric allocation law. The endpoint analysis makes the conclusion about true integer optimizers rather than just a stationary point of a continuous relaxation. It has no claimed transfer to approximate randomized deflation or Lanczos.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

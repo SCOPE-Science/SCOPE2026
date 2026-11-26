@@ -1,11 +1,21 @@
-# Scientific review: sharp seven-step periodicity gap
+# Independent mathematical audit
 
-**Correctness — PASS.** The two-component recurrence reduces exactly to a scalar positive recurrence and conversely reconstructs the planar trajectory, preserving the least period. For its log-coordinate equation, the forcing has derivative strictly between \(-1\) and \(0\). Cyclic summation by parts bounds the discrete gradient energy strictly below the centered squared norm, whereas the exact discrete Wirtinger eigenvalue is at least one for periods two through six. A positive period-seven orbit exists by an intermediate-value argument with two *exact rational*, oppositely signed endpoint residuals and a complete cyclic-closure check. The included checker reproduced the rational identities; numerical sampling is not used as an infinite proof.
+## correctness
 
-**Originality — PASS, with residual bibliographic risk.** The original May paper contains the model and local stability, not the least-period exclusion or the constructive seven-cycle. The complete Camouzis–Kotsios open text studies boundedness for the constant-parameter regime and a separate variable-coefficient period-six limit with vanishing coefficients, so this is not an implication. Bula's independent period-seven minimum belongs to a different quadratic rational recurrence with a different numerator and cannot be carried over without an absent reduction. Indexed passages from the 2019 Chatzarakis–Elabbasy–Moaaz–Mahjoub work discuss short cycles in a broader rational family, including two-cycle exclusion, but full text was inaccessible; stronger unpublished or earlier treatments cannot be ruled out. Searches for same recurrence, host–parasitoid aliases, primitive-period cutoffs and period-seven formulas did not find a statement equivalent to the whole theorem. This is a best-knowledge overlap judgment, not a uniqueness certificate.
+PASS
 
-**Mathematical value — PASS.** May's geometric-series case is the natural marginal aggregation boundary separating stable from unstable coexistence equilibria. Distinguishing local ellipticity from actual nonlinear periodic-orbit structure is a meaningful biological dynamical question. The result supplies an exact, globally parameter-uniform minimum nontrivial positive period and a proved sharpness example, not merely an incremental local derivative condition or a numerical orbit guess.
+Eliminating y gives x_(j+1)x_(j-1)=lambda*x_j^2/(1+x_j). Its positive lift y_j=x_(j+1)(1+x_j)/x_j is unique and preserves least period. After taking logs, the centered energy identity bounds the cyclic difference energy strictly above by the centered squared norm, since g'(u)=-exp(u)/(1+exp(u)) lies strictly between -1 and 0. The first nonzero Fourier eigenvalue of the cyclic difference energy is 4sin^2(pi/q)>=1 for 2<=q<=6, including equality at six, so only constants remain and they give (lambda-1,lambda). At lambda=5 the palindromic ansatz enforces all scalar equations except the midpoint, whose residual Z(1+W)-5W equals -ZR/[Y(1+Z)] in the source notation. Independent rational recalculation gives R(41/4)=49241/13254 and R(19)=-19/882. Continuity supplies a positive root with X>41/4, so the lift is not the fixed point with x=4; primality of seven proves least period seven. This is a sign certificate plus an analytic exclusion, not a numerical orbit claim. Frozen check.py was inspected, not executed.
 
-**Limitations and remaining risks.** No assertion is made for nonpositive populations, alternate aggregation parameters, other periods, orbit stability, or global convergence. The complete generalized-recurrence article of 2019 was not accessible; an equivalent result there or in a broader theorem is a specific unresolved literature risk. The primary source's printed issue supplies October 1978 only, while indexed publication metadata gives 1978-10-01. No independent audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The May model, its equilibrium and the exclusion of a positive two-cycle are not new. In the sources checked, the universal exclusion through period six together with a rigorous positive primitive period-seven witness for this precise autonomous k=1 map is distinct. The nearby period-six and period-seven references do not establish this sharp gap under the stated hypotheses.
+
+## value
+
+PASS
+
+This establishes a uniform, attained cutoff for the first possible nonstationary positive orbit in a standard nonlinear model. The spectral bound controls finite-amplitude orbits even at the strict period-six boundary, and the parameter-explicit seven-cycle makes the bound sharp rather than just a necessary estimate or a numerical sighting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

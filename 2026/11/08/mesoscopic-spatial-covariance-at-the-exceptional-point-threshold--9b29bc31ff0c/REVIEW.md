@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every finite size the drift is a negative scalar multiple of the identity plus a nilpotent shift; the stationary covariance is the convergent Gaussian Lyapunov integral. Expanding the shift exponential and integrating gamma functions gives the exact finite binomial covariance. Uniform binomial local central limits for spatial offsets of order \(\sqrt N\), together with a maximal-binomial-mass bound at the singular lower endpoint, justify the continuum kernel for every fixed detuning. Covariance convergence proves Gaussian finite-dimensional convergence without a separate tightness claim. The complementary-error-function profile follows by an explicit improper-integral identity. The independent algebraic recursion check confirms the covariance normalization \(2D\).
+## correctness
 
-## Originality — PASS, with stated publication-priority uncertainty
-The unidirectional Ornstein–Uhlenbeck mechanism and its Gaussian covariance integral are prior knowledge. Detering, Fouque and Ichiba (2018), Section 4.2, already establish subcritical infinite-chain stationary variance and the critical temporal variance dichotomy; those are not claimed here. Pal and Gupta (2026) study nonreciprocal Ornstein–Uhlenbeck exceptional points and temporal correlations. Neither inspected relevant result states the coupled *finite stationary dimension / mesoscopic separation / order-\(N^{-1}\) detuning* covariance limit with its nontrivial continuum kernel. Feng, Fouque and Ichiba (2020) instead treat stochastic games and Catalan-process limits. General nonnormal neural-amplification results motivate the issue but do not give this explicit kernel. A published finite-horizon study of deterministic Jordan semigroup norm peaks at five fixed small dimensions concerns a different observable from this stationary Gaussian covariance limit. Relevant primary material and mathematical implication checks were used; a broader unidentified general theorem could still subsume the result.
+PASS
 
-## Value — PASS
-The nontrivial finite-size covariance profile resolves a natural physical question missed by eigenvalue-only stability: a fixed spectral gap coexists with diverging boundary-site stationary variance. The theorem supplies the order-\(\sqrt N\) correlation length, order-\(N^{1/4}\) fluctuation scale, exact detuning crossover, and observable complementary-error-function profile, rather than just a Gaussian normalization or rephrased single-site variance. It gives finite-size predictions for noisy unidirectional chains near a high-order exceptional point. It is a complete, sharply scaled covariance result for this specified model, not a claim for arbitrary nonnormal matrices.
+The drift is Hurwitz for every finite N with positive damping. Expanding the nilpotent shift in the stationary covariance convolution and integrating t^(2q+d) exp(-2κt) gives the exact binomial sum with D/κ, consistent with the Lyapunov boundary recursion and N=1. For q/N in [ε,1] and d=O(sqrt(N)), the uniform centered-binomial Stirling expansion has prefactor 1/sqrt(πq) and exponent -d²/(4q)+o(1). With d/sqrt(N)→|y-z| and κ_N=1+ζ/N, the remaining factor κ_N^(-2q-d-1) converges uniformly to exp(-2ζq/N) on that range. The finite sum ends at N-max(i,j)=N-o(N); the omitted small q contribution after N^-1/2 scaling is O(sqrt(ε)+N^-1/2) by the maximal binomial-mass bound, also when d=0 and for fixed negative ζ. This yields the improper kernel by Riemann summation; exact Gaussianity then yields the stated finite-dimensional convergence, including coincident observation sites. Integration by parts and division by 2D/sqrt(π) give the erfc correlation at ζ=0. The fixed-microscopic-distance remark is read within the stated upstream observation window, not at fixed distance from the downstream boundary.
 
-## Literature and limitations
-Primary comparisons: Pal and Gupta, arXiv:2609.05391, model and exceptional-point covariance results; Detering, Fouque and Ichiba, arXiv:1805.01962, Section 4.2 and Remark 4.3; Feng, Fouque and Ichiba, arXiv:2003.08840; Hennequin, Vogels and Gerstner, Physical Review E 86 (2012). The inspected earlier infinite-chain formula already gives the off-critical stationary variance. No global originality guarantee or independent validation is implied. The finite-dimensional weak limit is not a spatial-process tightness theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit is limited to the coupled stationary large-N spatial and detuning limit, not the exact finite covariance, noise normalization, exceptional-point mechanism, or variance dichotomy. Pal–Gupta's Eq. 84 is precisely the same finite covariance after reflecting site labels and reindexing for the open one-way chain. That is stronger prior overlap than a shared integral alone, but the inspected passage does not quantify the mesoscopic separation and damping window or state the resulting continuum covariance. The older infinite-chain result changes the order of limits and does not include this cutoff kernel.
+
+## value
+
+PASS
+
+The spectrum alone stays uniformly stable in this limit and the familiar critical diagonal growth does not predict which distances decorrelate. The kernel identifies a nontrivial spatial correlation at order sqrt(N), while resolving the effect of damping changes of order 1/N and the terminal-chain cutoff in one expression. It is a useful benchmark for feedforward nonnormal covariance amplification beyond the exact finite sum or a scalar variance law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

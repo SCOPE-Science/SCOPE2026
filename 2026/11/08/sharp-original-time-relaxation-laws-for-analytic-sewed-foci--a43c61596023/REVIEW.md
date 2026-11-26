@@ -1,19 +1,21 @@
-# Scientific review: original-time relaxation at analytic sewed foci
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The theorem explicitly assumes analytic decreasing half-flight involutions with common slope \(-1\), a finite nonzero even mismatch \(\chi(x)=-c x^{2p}+O(x^{2p+1})\), and nonvanishing horizontal crossing speeds. The exact involution identity converts this mismatch into the positive-section recurrence \(r_{n+1}=r_n-c r_n^{2p}+O(r_n^{2p+1})\), with no change of coefficient. Reciprocal-power telescoping proves the sharp return-index law. Lower and upper flight times both shrink linearly with section radius, with original-time coefficient \(K=2(b_+^{-1}+|b_-|^{-1})\); summation yields the algebraic physical-time laws. At quadratic mismatch the \(O(r_n^3)\) recurrence remainder and \(O(r_n^2)\) clock remainder are summable after the \(r_n\sim1/(cn)\) estimate, giving a genuinely positive, finite exponential prefactor. The explicit polynomial examples verify attainability of every order. Critical identities are symbolically and numerically checked in the accompanying code.
+PASS
 
-Proof boundaries: the theorem concerns positive crossing radii and their original elapsed times, not an everywhere-defined signed coordinate rate. The analytic and finite-order hypotheses are essential; no claim is made for flat nonanalytic discrepancies or all Filippov singularities. The prefactor in the quadratic case is orbit dependent.
+The lower flight leaves the positive section first. Involutivity of the lower map gives r_(n+1)-r_n=chi(s_n), with s_n=-r_n+O(r_n^2); the even mismatch order gives the stated sign and coefficient. With q=2p-1, the reciprocal-power increment is qc+O(r_n), which gives n r_n^q -> 1/(qc). Along each half-flight, horizontal motion is monotone, its length is 2r_n+O(r_n^2), and dy/dx=O(|x|+|y|) bounds the height by O(r_n^2). The reciprocal horizontal speeds thus integrate to a full clock increment K r_n+O(r_n^2), with the absolute value on b_-. For q>1, summing the clock gives t_n r_n^(q-1) -> K/[c(q-1)]. For q=1, the increments of log r_n+(c/K)t_n are O(r_n^2); these are summable, proving a finite real log limit and hence a strictly positive finite prefactor. The polynomial example has lower return -r and upper first integral y+x^2+c x^(2p+1); its upper return equation gives the coefficient -c for every p. These arguments concern positive crossings and original time, not signed position between crossings.
 
-## Originality (PASS within inspected evidence)
+## originality
 
-The central source, Glendinning–Hogan–Homer–Jeffrey–Szalai (arXiv:2306.09743v1, 2023-06-16), is inspected in its accessible full HTML text. Its Theorem 1 and Section 2 already establish the sewed-focus alternatives, analytic involutions, the even-order discrepancy and infinite physical arrival time. Those components are credited as prior work. The new statement instead quantifies exactly *how* approach occurs in physical time for every finite discrepancy order, determines the crossing-speed prefactor and realizes each class by polynomial side fields. These formulas and the strong quadratic-mismatch asymptotic constant are not stated in the inspected article. The paper's nonanalytic finite-time examples are not equivalent: their return dynamics can be supercontractive and their arrival times are summable. Earlier published results on piecewise crossing systems and stationary/period geometry were compared by mathematical implication, not by similar terminology.
+PASS
 
-Residual risk: older Filippov and Bautin–Leontovich/Skriabin sources were described by the inspected primary source but their full original texts were not directly read; classical parabolic asymptotic theory may imply some discrete ingredients. Search noncoverage is not a proof of absolute publication priority. The physical-time conversion is the focal contribution.
+The distinct claim is the exact quantitative physical-time law, especially the convergent quadratic prefactor, together with its higher-order counterparts. The even-order mismatch, leading return displacement and infinite arrival time are already present in the prior primary source. The new laws are quantitative consequences of that analytic setup after controlling and summing the physical clock; the qualitative theorem alone does not give them. No checked distinct source provided equivalent coverage of the claimed physical-time law.
 
-## Mathematical value (PASS)
+## value
 
-The distinction between infinite-time and finite-time approach is a principal question in the originating sewed-focus literature. A sharp original-time relaxation law refines that qualitative dichotomy for the complete finite-order analytic regime. The leading physical-time behavior changes genuinely in type—from exponential at order two to a hierarchy of algebraic rates at orders four, six, and above—even though all crossing-index rates are parabolic. Its constants retain both physical crossing speeds, and the explicit family demonstrates that all rates occur rather than being formal asymptotic possibilities. These are dynamical observables and a structural classification, not an arbitrary numerical evaluation. An open question for future work is whether analogous complete laws exist for infinitely flat smooth sewed foci.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An infinite arrival time does not distinguish exponential from power-law relaxation. Because the periods vanish, the return-index exponent is not the physical-time exponent. The exact constant in terms of the two side speeds and the mismatch coefficient, including a genuine nonzero asymptotic amplitude in the exponential case, calibrates that distinction for a natural local class; the polynomial family shows every listed order occurs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

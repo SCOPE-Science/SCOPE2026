@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:29:41.071113Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For strictly interior histories every new value is in (0,3/4]. Once both current values are in that range, g(t)/t is uniformly large for t<=1/4 and all cross-inputs in [1/4,3/4] give outputs greater than 3/5, so m_{n+1}>=min((12/5)m_n,3/5) gives finite entry into the persistent [1/4,3/4] current-value interval. The next values are in [15561/25600,3/4]. Using that g decreases for t>1/2, the five rational interval images land strictly inside [13/20,71/100]; the next iterate has all four components in that invariant box. For t there, |g'|=(2t-1)(1+(2t-1)^2)/2 increases, and the min gain is (4-a)-Lipschitz in its two arguments. The difference of each updated coordinate is at most 0.990051 times the old four-coordinate distance. The shift itself is only nonexpansive, but after two updates both time layers have the smaller bound; hence the full square contracts by at most 0.991. Uniqueness for the square and commutation with the map and coordinate swap give a synchronized fixed point, strictly between the endpoints by the strict box inequalities. The original map also converges on odd iterates, and invariant probabilities collapse to the fixed-point mass by bounded convergence. Independent replay `python /workspace/review_replay.py 4` checks the exact five intervals, invariant bounds and quantitative Lipschitz coefficient. This is an exact-real dynamical theorem for the explicitly composed recurrence, not for the different literal rendering of Eq. (8).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Catalogue e45300fa3ccd contracts log-odds deviations for a two-player maxima map with asymmetric limits, and 934cde19ade4 bounds distance to the origin for a two-coordinate absolute-difference map.",
+          "The identified published coupled-logistic comparisons did not yield readable relevant full texts in this audit; no theorem-level noncoverage is inferred from those retrieval failures."
+        ],
+        "reasoning": "The catalogue contraction results have different state maps and do not include minimum feedback over two time layers. Ordinary Banach contraction is applicable only after establishing the new uniform trapping and Lipschitz hypotheses for this recurrence.",
+        "searches": [
+          "Resultary: two-step contraction of coupled and folded maps",
+          "Cánovas DOI 10.3934/nhm.2023010; Bosisio–Naimzada–Pireddu DOI 10.1063/5.0175789"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.3390/math11153295",
+        "Resultary 1f68ddbe450c (self-match)",
+        "Resultary e45300fa3ccd",
+        "Resultary 934cde19ade4",
+        "DOI 10.3934/nhm.2023010 (retrieval attempt)",
+        "DOI 10.1063/5.0175789 (retrieval attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior framework fixes the recurrence by composition, and its inspected empirical section treats specific orbits. The distinct catalogue records do not have the claimed delayed composition."
+        ],
+        "reasoning": "Neither the definition of the map nor experiments imply that all positive histories enter a shared box or that the square has a quantitative Lipschitz bound. The result does not contradict empirical claims for the differently printed equation or determine any software behavior.",
+        "searches": [
+          "Huang et al. Section 2 and Sections 3.1–3.2, publisher PDF",
+          "Resultary e45300fa3ccd and 934cde19ade4, actual Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Substituting the state control t(1-t) into the logistic seed p*t*(1-t) produces p*g(t), with p the controlled delayed minimum gain. The printed Eq. (8) is grouped differently and lacks the nested factor.",
+          "At a=4 the delay disappears and the two-step current-value dynamics separate into scalar compositions (4g) composed with (4g). The one-step map still cross-feeds; for a<4 the delay coefficient is nonzero."
+        ],
+        "reasoning": "The proof is about the natural exact polynomial composition, neither the ordinary logistic map nor a literal alternative to the source's Eq. (8). Even a scalar endpoint result would not give the positive-delay interval.",
+        "searches": [
+          "Huang et al. DOI 10.3390/math11153295, Eqs. (3), (5)–(8)",
+          "Resultary: nested delayed logistic maps global synchronization, gain 3.99 and scalar quartic aliases"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match 1f68ddbe450c is the frozen record itself, not independent coverage. Source simulations at a=3.99 concern particular initial values, not the exact absorbing box or sup-norm bound."
+        ],
+        "reasoning": "A common endpoint, numerical figure, or self-match does not record the universally quantified theorem or its rational certificate.",
+        "searches": [
+          "Resultary: global synchronization in a nested delayed-logistic coupling near gain four",
+          "Huang et al., Section 3.2, a=3.99"
+        ]
+      },
+      "rationale": "The composition, logistic seed and controls are prior, but the verified all-history attraction and quantitative trapping result on the interval with positive delayed gain were not covered by the strongest compared statements. This is a best-of-knowledge assessment, not a priority certification.",
+      "residual_risks": [
+        "Broader literature lookups did not return usable results; this is not evidence of worldwide priority.",
+        "The two related coupled-logistic articles were not independently inspected in full.",
+        "No equivalence between the verified composition and the printed Eq. (8) or a software implementation is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL_INGREDIENTS_AND_SIMULATIONS_NOT_MATCHING_GLOBAL_THEOREM",
+          "evidence": "The exact composition gives the claimed g and min gain; the separate printed equation differs and the examples use selected initial histories.",
+          "identifier_or_url": "https://doi.org/10.3390/math11153295",
+          "material_read": "Publisher PDF Eqs. (3), (5)–(7), p. 3; Eq. (8), pp. 3–4; Section 3.2, p. 4 (bounded passages near text offsets 8200, 14675, 19300)",
+          "method": "Open publisher PDF, formula and simulation passage inspection",
+          "title": "Technique for Enhancing the Chaotic Characteristics of Chaotic Maps Using Delayed Coupling and Its Application in Image Encryption",
+          "trigger": "Originating compositional definition, printed Eq. (8), numerical claim at a=3.99"
+        },
+        {
+          "assessment": "DIFFERENT_MAP_AND_LIMIT",
+          "evidence": "Two current maxima, asymmetric order-selected fixed points, odds coordinates; not a four-state delayed polynomial map.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-global-convergence-and-an-explicit-two-step-contraction-in-the-s--e45300fa3ccd/RESULT.md",
+          "material_read": "Original Finding and assumptions, beginning at file offset 0",
+          "method": "Local catalogue search and mirrored source read",
+          "title": "Global convergence and an explicit two-step contraction in the supercritical two-player maxima map",
+          "trigger": "Potential broader two-step contraction overlap"
+        },
+        {
+          "assessment": "DIFFERENT_MAP_AND_BOUND",
+          "evidence": "Origin-centered norm bound for absolute-difference coupling, not a pairwise Lipschitz certificate for the nested delayed map.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-all-horizon-contraction-for-monotone-coupled-fold-dynamics--934cde19ade4/RESULT.md",
+          "material_read": "Original Finding at file offset 0",
+          "method": "Local catalogue search and mirrored source read",
+          "title": "Sharp all-horizon contraction for monotone coupled fold dynamics",
+          "trigger": "Analogous two-step contraction statement"
+        },
+        {
+          "assessment": "FULL_TEXT_NOT_INSPECTED",
+          "evidence": "No independent theorem-level exclusion from this item.",
+          "identifier_or_url": "https://doi.org/10.3934/nhm.2023010",
+          "material_read": "Bibliographic identification; relevant full text not retrieved",
+          "method": "Attempted lawful source retrieval",
+          "title": "The dynamics of coupled logistic maps",
+          "trigger": "Coupled-logistic comparison cited in frozen RESULT"
+        },
+        {
+          "assessment": "FULL_TEXT_NOT_INSPECTED",
+          "evidence": "No independent theorem-level exclusion from this item.",
+          "identifier_or_url": "https://doi.org/10.1063/5.0175789",
+          "material_read": "Bibliographic identification; relevant full text not retrieved",
+          "method": "Attempted lawful source retrieval",
+          "title": "Proving chaos for a system of coupled logistic maps: A topological approach",
+          "trigger": "Potential overlapping coupled logistic construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem establishes a nonzero-width interval with a genuinely active delayed term, proves attraction from arbitrarily small positive histories rather than only near the equilibrium, and supplies a concrete quantitative stability window for the published composition at its emphasized a=3.99. It is not a scalar endpoint computation, an optimal threshold, or a claim about an implementation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

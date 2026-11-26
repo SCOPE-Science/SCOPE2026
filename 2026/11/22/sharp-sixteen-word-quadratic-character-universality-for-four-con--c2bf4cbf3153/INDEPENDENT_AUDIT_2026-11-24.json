@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:07:41.440537Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For p>13 each quadratic is separable. A common root of distinct factors, even over the algebraic closure, would force (i−j)²+4 to vanish, impossible since the possible integers are 5, 8, 13. Thus every nonempty subproduct is squarefree of degree 2|I|, with at least one root of odd multiplicity. Expanding the 16-fold indicator and applying the standard Weil character-sum bound gives the total error (4+18+20+7)√p=49√p. At the at most eight zeros, the unnormalized indicator contributes at most eight per point, giving 16Nε≥p−49√p−64. At p=2529, (p−64)²−49²p=4096>0 and p−64>0; the lower bound increases thereafter. For the full complementary range, the separately written /workspace/branches/e933f95a-f897-4977-b6b8-6c2faa89f589/independent_replay.py uses trial division and both nonzero-square lookup and Euler's criterion; full_census.log reports agreeing 16-entry counts for every residue of all 368 odd primes below 2529. It reproduced exactly the 16 exceptional primes, only mask 1001 absent at 61, full coverage at 59 and 67, and SHA-256 194838fb1badf1f21c7f2a978cef964c71d50b13656a9a1537bd30f09ea254aa. The submitted checker was inspected, not executed. The exact all-prime result uses both the analytic tail and the independently exhaustive finite census; it does not assert a composite-modulus or incomplete-interval result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general squarefree-product bound is the premise stated in RESULT.md lines 27–36; it guarantees eventual realization under the separation hypothesis. The frozen comparisons describe the cited articles as treating linear progressions and reciprocal-shift triples respectively; primary passage attempts failed."
+        ],
+        "reasoning": "A general estimate for simultaneous signs does imply large-p existence but does not decide the exact exceptional set. Neither cited setup as described gives the four fixed quadratic character arguments.",
+        "searches": [
+          "Standard Weil bound for polynomial quadratic-character sums",
+          "Wang–Fang DOI 10.1155/2023/5253261",
+          "Liu–Meng DOI 10.1515/math-2023-0123"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Independent trial-division replay and full census log",
+        "Resultary 0ce25ceb3ddb, d08a73e76429, and the identical assigned entry c2bf4cbf3153",
+        "Standard Weil squarefree-polynomial bound as stated in RESULT.md; cited journal comparisons only with access limits noted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The bound proved with the classical estimate applies from 2529, while the exact classification has its last failure at 61, a success at 59, and no later failures. The closest indexed records' threshold events differ."
+        ],
+        "reasoning": "Even the straightforward application of Weil leaves a finite region with unresolved primes; the exact realization/obstruction and nonmonotonicity require additional evidence.",
+        "searches": [
+          "RESULT.md lines 15–44 versus standard Weil bound and the two closest indexed classifications"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching c2bf4cbf3153 hit is the frozen record itself. Distinct records 0ce25ceb3ddb and d08a73e76429 report different threshold behavior: the former misses an all-residue word at 193 under its nonzero-square anchor; the latter has a cutoff of 59 for its consecutive-translate property."
+        ],
+        "reasoning": "Gaussian norms are exactly x²+1 at consecutive translates, not the Legendre symbols of four consecutive field elements or a run with a specified initial square. The anchor result's failure at 193 and the translate result's success at 61 distinguish their indexed properties from this theorem.",
+        "searches": [
+          "Resultary: four successive Gaussian norms / four consecutive quadratic-character signs / sharp prime thresholds",
+          "Focused literature search on all sign patterns of shifted x²+1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct translate record's indexed exception list includes extension fields 25 and 49, excludes 61 and has largest exception 53. The square-anchor record's indexed obstruction is at 193. The only returned exact Gaussian-norm list is the record under review."
+        ],
+        "reasoning": "These are materially adjacent exact classification entries, not interchangeable tables. The independent finite replay is evidence for the numbers, not their priority.",
+        "searches": [
+          "Resultary: exact exceptional-prime list / sixteen Gaussian norm words; compare d08a73e76429 and 0ce25ceb3ddb"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact exceptional-prime spectrum for these four ordered quadratic norms, including the sharp all-prime threshold and the gap at 61 after success at 59. The indicator and eventual existence via Weil are classical, and adjacent exact four-pattern thresholds are not new. The available statements for the closest distinct indexed results have incompatible behavior at boundary primes, so they do not state the same classification; no inspected broader result supplied the missing exact census for these quadratics. This is a bounded assessment, not a priority or exhaustiveness claim about the literature.",
+      "residual_risks": [
+        "Full-text definitions and ancillary results of the two neighboring indexed records were not available, although their indexed cutoff statements differ decisively.",
+        "Primary journal passages for the two cited comparison papers were not independently accessible; unindexed equivalent data remain possible. An unproductive literature search was not used as proof of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct property on available decisive statements, no full-text exclusion",
+          "evidence": "Every sign word immediately following a nonzero square for p≥197, with an all-residue obstruction at 193; the present norm problem realizes all words at 193.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-sharp-prime-threshold-for-all-four-quadratic-character-signs--0ce25ceb3ddb",
+          "material_read": "Indexed finding summary; bounded mirror retrieval did not succeed",
+          "method": "Resultary and lawful bounded mirror attempt",
+          "title": "The sharp prime threshold for all four quadratic-character signs following a square",
+          "trigger": "Same pattern length, sharp prime threshold, same indexing day"
+        },
+        {
+          "assessment": "Different translate classification on the available statement",
+          "evidence": "Cutoff 59 and an exception list including 25 and 49 but not 61; the quadratic-norm statement fails at the prime 61.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-four-sign-quadratic-residue-universality-over-finite-field--d08a73e76429",
+          "material_read": "Indexed finding summary; bounded mirror retrieval did not succeed",
+          "method": "Resultary and lawful bounded mirror attempt",
+          "title": "Sharp four-sign quadratic-residue universality over finite fields",
+          "trigger": "Consecutive translates, all sixteen words and a complete exception set"
+        },
+        {
+          "assessment": "Described family is distinct, not a whole-document exclusion",
+          "evidence": "Reciprocal-shift triples a, a+a⁻¹, a−a⁻¹ as characterized in the frozen record.",
+          "identifier_or_url": "https://doi.org/10.1515/math-2023-0123",
+          "material_read": "Frozen comparison at line 44; attempted primary passage retrieval unsuccessful",
+          "method": "Bounded paper and publisher queries",
+          "title": "On the quadratic residues and their distribution properties",
+          "trigger": "Cited simultaneous quadratic-residue conditions"
+        },
+        {
+          "assessment": "Described linear arguments differ; no claim about unread passages",
+          "evidence": "Linear-argument progressions, not ordered quadratic norm values, as characterized in the frozen record.",
+          "identifier_or_url": "https://doi.org/10.1155/2023/5253261",
+          "material_read": "Frozen comparison at line 44; attempted primary passage retrieval unsuccessful",
+          "method": "Bounded paper and publisher queries",
+          "title": "The Distribution Properties of Consecutive Quadratic Residue Sequences",
+          "trigger": "Cited consecutive residue/nonresidue pattern literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The consecutive Gaussian norms and all ordered length-four sign words give a natural fixed simultaneous-residue problem. The exhaustive result separates a sharp threshold of 67 from the much weaker uniform analytic bound, exhibits the genuine p=59/61 nonmonotonicity, and gives a usable all-prime regime with exact exceptions. It is a motivated exact classification, not a small improvement to an asymptotic bound or a catalog of arbitrary instances.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

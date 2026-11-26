@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:14:18.052843Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the first-exit proof on the exact unwrapped branch, including the output at the first hit. Jensen gives m_next >= m+m^p, so the inverse-power decrement on [0,r) localizes every n-step survivor to a fixed box after scaling by n^(1/(p-1)). At bounded n*epsilon the exact scaled recurrence is Euler-consistent until ODE blow-up. If blow-up precedes one, advance to a large but fixed mean M and bound the remaining time by a dyadic sum of order n*M^(1-p)+O(log n), forcing actual exit. The ODE maximum has derivative between M^p-rho*M and M^p, hence a universal blow-up coefficient. Scaling a solution down gives a supersolution by convex homogeneity; two starts on one positive ray cannot have the same blow-up time by the universal coefficient. Thus the time-one equality set has area zero by radial integration. For n*epsilon tending to infinity, the difference contracts by a factor at most (1-2*epsilon)(1+O(1/n)) on bounded sets; an o(n)-step layer with epsilon times its length divergent erases disparity while preserving the scaled mean to o(1). The scalar mean limit plus the exit bound gives the triangle u+v<2*a_p. As a separate exact check at epsilon=1/2, the first step applies the scalar branch to the mean and makes both coordinates equal. If b_n is the scalar n-fold backward threshold of r and 2*b_n<r, the survivor area is exactly 2*b_n^2, versus b_n^2 uncoupled. The limiting area normalization includes the factor r^-2. In (mean, absolute difference), the two nonnegative cross derivatives give monotonicity in rho. The square expands strictly near (a_p,b) with 0<b<a_p by strict damping of the upper coordinate, and the triangle loses positive area near an off-diagonal sum-boundary point by strict Jensen growth. Bounded-time dependence plus the large-mean exit bound handles continuity at finite rho; continuous-time fast synchronization gives continuity at infinity. The supplied script was read, not run; its finite trajectory comparisons are not needed for the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kim treats saddle-node intermittency. Bahsoun–Korepanov treat invariant states of a self-consistent single-interval map. Froyland–Murray–Stancevic study holes and conditional invariance for one-dimensional intermittent maps. The related Resultary record starts a scalar LSV map from its invariant law and varies a moving threshold."
+        ],
+        "reasoning": "None of these inspected statements specializes to the two-site fixed-threshold uniform-initial-area problem with horizon-dependent mixing.",
+        "searches": [
+          "arXiv:chao-dyn/9808002 Sec. III",
+          "arXiv:2303.05311 Eq. (1.1) and Theorem 1.1",
+          "arXiv:1012.2149 abstract",
+          "Resultary 2026/10/25/SCOPE-a-complete-moving-boundary-survival-crossover-for-an-intermitten--03332ee9004b"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py",
+        "Resultary semantic index and identified local mirror record",
+        "arXiv:1410.4806v2",
+        "arXiv:chao-dyn/9808002",
+        "arXiv:2303.05311",
+        "arXiv:1012.2149"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The uncoupled endpoint follows from scalar escape; the fully averaging map also reduces to a scalar threshold. Neither reduction establishes behavior for epsilon tending to zero, where the transverse and escape times compete. The moving-boundary result does not track two interacting coordinates."
+        ],
+        "reasoning": "Finite-interval Euler convergence alone neither handles the exit threshold tending to infinity nor ensures convergence of survivor areas. The blow-up and boundary arguments, fast layer, and strict comparison of the limiting domains are additional content not implied by the inspected exponent result.",
+        "searches": [
+          "arXiv:1410.4806v2 Sec. 3.3 and Fig. 4",
+          "Resultary moving-boundary survival crossover, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sala–Manchein–Artuso use the same map with exponent notation z in place of p, mixing before the power branch, and initial points uniformly sampled in a small square. Their secular decay exponent is 2/(z-1)."
+        ],
+        "reasoning": "The reparametrization identifies existing model and exponent coverage exactly. Their exponent and fixed-coupling numerical curves do not determine a leading amplitude or the n*epsilon crossover.",
+        "searches": [
+          "Resultary semantic searches for coupled-map neutral-corner escape, square survival, pre-map mixing and ODE coefficients",
+          "arXiv:1410.4806v2 Eq. (2.2), Sec. 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest displayed related record uses a crossover n*h_n^alpha for a moving boundary instead of n*epsilon for coupling. Fig. 4 reports exponent agreement as coupling varies; the associated passage does not tabulate leading amplitudes or a scaled crossover."
+        ],
+        "reasoning": "The matches examined are not a catalogue or exact prior calculation of A_p(rho); the finite-rho object is a continuum survival area rather than a tabulated constant.",
+        "searches": [
+          "Resultary searches for coupling time crossover, square escape exponent, pre-map mixing and ODE survivor area, and Sala's escape exponent",
+          "arXiv:1410.4806v2 Fig. 4 and Sec. 3.3 discussion"
+        ]
+      },
+      "rationale": "The same map, local uniform square ensemble and escape exponent are established comparison points, not the novelty. The supported distinct claim is the all-sequence coefficient crossover, including its intrinsic finite-rho survival area and its sharp endpoints, not an assertion of priority for the exponent or Euler scaling alone.",
+      "residual_risks": [
+        "The conclusion is bounded by the inspected passages and retrieved records; older analyses could contain equivalent constants without the crossover terminology.",
+        "The Froyland comparison is limited to its abstract."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial prior overlap for model and exponent, not coverage of coefficient theorem",
+          "evidence": [
+            "Eq. (2.2) places convex mixing inside f_z; Sec. 3.3 gives the uncoupled exponent and reports coupled numerical agreement."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1410.4806v2",
+          "material_read": "Secs. 2.2 and 3.3; Eq. (2.2); Fig. 4 discussion",
+          "method": "OA HTML passage inspection",
+          "title": "Extensive numerical investigations on the ergodic properties of two coupled Pomeau–Manneville maps",
+          "trigger": "Exact map and first-exit ensemble"
+        },
+        {
+          "assessment": "Different critical mechanism",
+          "evidence": [
+            "Renormalization for saddle-node intermittency, not neutral-corner first-exit area."
+          ],
+          "identifier_or_url": "arXiv:chao-dyn/9808002",
+          "material_read": "Sec. III, p. 4",
+          "method": "OA PDF passage inspection",
+          "title": "Intermittency in coupled maps",
+          "trigger": "Coupled-map intermittency scaling"
+        },
+        {
+          "assessment": "Different coupling model and observable",
+          "evidence": [
+            "Density-dependent interval map and invariant state rather than finite two-site survivor area."
+          ],
+          "identifier_or_url": "arXiv:2303.05311",
+          "material_read": "pp. 2–3, Eq. (1.1) and Theorem 1.1",
+          "method": "OA PDF passage inspection",
+          "title": "Statistical aspects of mean field coupled intermittent maps",
+          "trigger": "Potential general theorem for coupled intermittent maps"
+        },
+        {
+          "assessment": "Adjacent one-dimensional problem; no whole-paper exclusion asserted",
+          "evidence": [
+            "Abstract concerns transfer operators and holes near indifferent fixed points."
+          ],
+          "identifier_or_url": "arXiv:1012.2149",
+          "material_read": "p. 1 abstract",
+          "method": "Lawful author preprint abstract inspection",
+          "title": "Spectral degeneracy and escape dynamics for intermittent maps with a hole",
+          "trigger": "Related escape asymptotics"
+        },
+        {
+          "assessment": "Different model, ensemble, and control parameter",
+          "evidence": [
+            "A scalar LSV map starts in its invariant measure with a horizon-dependent absorbing boundary."
+          ],
+          "identifier_or_url": "Resultary 2026/10/25/SCOPE-a-complete-moving-boundary-survival-crossover-for-an-intermitten--03332ee9004b",
+          "material_read": "RESULT.md opening statement, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror statement inspection",
+          "title": "A complete moving-boundary survival crossover for an intermittent map",
+          "trigger": "Closest related database match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The power law alone misses a discontinuity in leading survivor mass between zero and any fixed positive coupling. The theorem resolves that noncommuting limit in a natural observation window and determines an intrinsic, continuous monotone coefficient with strict interior bounds. It upgrades a directly comparable numerical escape problem without claiming an invariant-measure result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

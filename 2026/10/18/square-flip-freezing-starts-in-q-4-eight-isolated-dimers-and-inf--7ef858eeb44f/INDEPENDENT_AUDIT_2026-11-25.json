@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:36:56.497561Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, explicit seeds, and proof; repaired RESULT.md",
+        "Frozen VERIFICATION.md, verify_hypercube_flips.py and verify_output.txt, inspected without executing the uploaded program",
+        "Independent replay: python3 /workspace/branches/be906a93-b351-4927-a81c-0411500f48ee/verify_square_flips_independent.py; accompanying independent_replay.txt records the full Q_2–Q_4 checks and parity-slice experiments for d=4,5,6,7"
+      ],
+      "rationale": "Independently checked the repaired dimensional scope and census. Any four-cycle in the cube flips each coordinate an even number of times; with distinct vertices the four steps alternate between two coordinates. Every matching is a bijection from even to odd vertices which respects Hamming adjacency, so the independent replay's checks of 2!, 4!, and 8! bijections are exhaustive for d=2,3,4. Enumerating opposite pairs in all coordinate squares generates precisely the defined reversible moves. The separate replay found the same vertex and edge counts, components, degree histogram, all-source eccentricities and 384-element cube group orbit of isolates. Its seed checks show that each displayed seed is a frozen perfect matching and all four are pairwise edge-disjoint. These checks support the general proof: the product decomposition Q_4 × Q_(d-4) yields independently chosen frozen matchings on all slices; squares with only outer directions have no matched edges, inner-only squares are frozen locally, and a mixed square needs the same inner edge in opposite-parity slices, which cross-disjointness forbids. Restricting the global matching to individual slices recovers all 2^(d-4) binary choices. The corrected minimality follows from the absence of isolates at d=2,3 and their existence at d=4; d=1 is explicitly exceptional and Q_0 has a single vertex.",
+      "residual_risks": [
+        "The replay of the family in dimensions 4–7 is a finite check, not the argument for arbitrary d; the latter uses the coordinate-square cases. The lower bound is not an exact frozen-state census for higher dimensions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hartarsky–Lichev–Toninelli's Theorem 5 for d=4 concerns D_3(Q_4), allowing hexagons; Theorem 6 uses D_(2d-2). The displayed no-four-cycle examples use other graphs, not the unit Q_4.",
+          "Fink requires a spanning Hamiltonian cycle; Milet–Saldanha treats regions with two floors in three dimensions. The directional catalogue classification of all restricted Q_4 plane repertoires includes the unrestricted component census as a special case."
+        ],
+        "reasoning": "Adding legal moves can connect isolates and alter distances; connectivity or minimum degree after adding moves says nothing decisive about the exact graph with squares only. The directional indexed classification does cover the shared component information, but its inspected entry is later-dated and it does not give the all-d frozen family.",
+        "searches": [
+          "arXiv:2304.10930 Theorems 5 and 6 and Figure 1",
+          "Fink, Connectivity of matching graph of hypercube",
+          "Milet–Saldanha arXiv:1404.6509v2",
+          "Resultary a5a5b150160d, all plane repertoires"
+        ]
+      },
+      "checked_sources": [
+        "ArXiv:2304.10930 and 1404.6509v2",
+        "Fink author manuscript",
+        "OEIS A005271",
+        "Resultary db180e339d90, 84ee7ca2c7ef and a5a5b150160d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "db180e339d90 has the same A–D as partner arrays and verifies their pairwise edge-disjointness. Its construction fixes one state on the even layers and uses three choices on odd layers, then varies the fixed even seed to give 8·3^(2^(d-5)).",
+          "The 84ee7ca2c7ef metric theorem implies the frozen record's eccentricity conclusions and treats the census of isolates as background."
+        ],
+        "reasoning": "The two printed bounds are not identical: writing x=2^(d-5), 4^x exceeds 8·3^x for d≥8. Nevertheless the later indexed proof gives exactly the disjointness and mixed-square argument that imply the two-versus-two bound, so the construction is covered at the implication level there. No retrieved older HLT or Hamiltonian-flip statement supplies those ingredients or the exact Q_4 statistics. The date labels alone do not establish provenance among the overlapping records.",
+        "searches": [
+          "Resultary db180e339d90, Finding and Proof Explicit frozen base and disjointness / All dimensions",
+          "arXiv:2304.10930 §§1.1 and Theorems 5–6",
+          "Resultary 84ee7ca2c7ef, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Their D_2(Q_d) is exactly the single square-flip graph in the frozen record. The all-six-plane row of Resultary a5a5b150160d is another exact formulation of the full Q_4 move graph.",
+          "Resultary db180e339d90 uses the same labelled Q_d and precisely the same rule, with the same 272/768 census and 264+8 decomposition."
+        ],
+        "reasoning": "Definitions, labels, moves and matched states agree in these formulations. The later catalogue entries have real mathematical coverage; the fact that they are not established earlier versions matters to the originality assessment, not to the equivalence.",
+        "searches": [
+          "Resultary: exact D_2(Q_4) components and frozen dimers; parity-slice frozen families; hypercube plaquette flip graph",
+          "Hartarsky–Lichev–Toninelli arXiv:2304.10930, §1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A005271 lists 1,2,9,272 starting at d=1; these exact raw vertex counts are known.",
+          "Resultary 84ee7ca2c7ef gives the very same radius, diameter, and eccentricities and moreover a full pair-distance distribution. db180e339d90 and a5a5b150160d cover the indicated finite component census."
+        ],
+        "reasoning": "The OEIS totals do not determine flip adjacency, degree counts, components, or the isolate orbit. The later exact catalogue overlaps are acknowledged and not presented as different results on the same invariant.",
+        "searches": [
+          "OEIS A005271 (n-cube perfect matchings)",
+          "Resultary: 272 perfect matchings, 768 flip edges, frozen Q_4 states, exact square-flip distances"
+        ]
+      },
+      "rationale": "The repaired distinct claim relative to the older literature is the exact square-only graph structure at Q_4 and the parity-slice construction yielding a quantitative bound in all d≥4. The older cited graph and tiling results do not contain this structure; the raw matching counts were already tabulated and carry no originality. Multiple later-dated indexed records have genuine, in one case nearly complete, mathematical overlap, including identical base states and ingredient-level coverage of the bound. They are explicitly credited rather than treated as distinct advances on the common content. No earlier occurrence of those overlapping statements was verified; no historical priority or independence is inferred from catalogue dates.",
+      "residual_risks": [
+        "The catalogue overlap is substantial and its shared seed data do not establish provenance or independent discovery. No evidence located makes those later-dated statements earlier coverage of the frozen entry.",
+        "A general primary literature lookup was not productive; indexed coverage is not assumed exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "D_2 equivalence; the inspected unit-cube results use a broader adjacency than the square-only result here",
+          "evidence": "D_ell flips cycles of length at most 2ell; d=4 uses D_3 in Theorem 5 and D_6 in Theorem 6, and the figure concerns Q^3_(3,3,2) and T_(4,3).",
+          "identifier_or_url": "arXiv:2304.10930",
+          "material_read": "§1.1 p. 2 offset 6929; Figure 1 p. 3 offset 10178; Theorems 5–6 pp. 4–5 offsets 16150–17534",
+          "method": "Lawful OA primary PDF",
+          "title": "Local dimer dynamics in higher dimensions",
+          "trigger": "Same D_2 operation on unit hypercube perfect matchings; possible frozen example or exact graph theorem"
+        },
+        {
+          "assessment": "Different graph on the same state space",
+          "evidence": "Two states are adjacent when their union forms a Hamiltonian cycle; connectivity for d≥4.",
+          "identifier_or_url": "https://kam.mff.cuni.cz/~fink/publications/kreweras2.pdf",
+          "material_read": "PDF p. 1, abstract, offset 480",
+          "method": "Author's OA primary PDF",
+          "title": "Connectivity of matching graph of hypercube",
+          "trigger": "Same state space and claimed connectivity"
+        },
+        {
+          "assessment": "Different geometry and also studies extra moves",
+          "evidence": "Two simply connected floors in a cubiculated region tiled by 2×1×1 bricks; adding a trit yields connectivity for identical floors.",
+          "identifier_or_url": "arXiv:1404.6509v2",
+          "material_read": "PDF p. 1 abstract, offset 520",
+          "method": "Lawful OA primary PDF",
+          "title": "Flip invariance for domino tilings of three-dimensional regions with two floors",
+          "trigger": "Related local flips and disconnected components"
+        },
+        {
+          "assessment": "Exact count coverage only for vertices of flip graph",
+          "evidence": "Offset starts at 1; first terms 1,2,9,272,589185.",
+          "identifier_or_url": "https://oeis.org/A005271",
+          "material_read": "Entry, initial terms and offset statement at text offset 400",
+          "method": "Public standard database entry",
+          "title": "Number of perfect matchings in n-cube",
+          "trigger": "Exact raw count 272"
+        },
+        {
+          "assessment": "Direct coverage of the overlapping finite census; ingredient-level implication of the bound; later-dated catalogue record",
+          "evidence": "Same 272/768 and 264+8 graph, identical A–D seeds, disjointness, parity layers, exact Q_5 freeze count 120, and alternative bound 8·3^(2^(d-5)).",
+          "identifier_or_url": "Resultary db180e339d90, 2026/11/8",
+          "material_read": "RESULT.md Finding offset 0; explicit frozen bases and all dimensions from offset 3250",
+          "method": "Local mirror",
+          "title": "Frozen sectors and exact square-flip connectivity in hypercube quantum-dimer configurations",
+          "trigger": "Strongest exact component and slice-construction overlap"
+        },
+        {
+          "assessment": "Direct and stronger metric overlap in a later-dated record",
+          "evidence": "Same 264-state component, radius 7, diameter 8, eccentricities 252 and 12, and full distance histogram.",
+          "identifier_or_url": "Resultary 84ee7ca2c7ef, 2026/10/26",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact square-flip distances in the four-dimensional hypercube",
+          "trigger": "Exact radius and eccentricity overlap"
+        },
+        {
+          "assessment": "Unrestricted case covers the same component decomposition; later-dated",
+          "evidence": "Full set of planes yields a component of size 264 and eight singleton frozen states.",
+          "identifier_or_url": "Resultary a5a5b150160d, 2026/11/22",
+          "material_read": "Indexed RESULT.md, classification of the 64 coordinate-plane repertoires, all-six-plane row",
+          "method": "Local mirror",
+          "title": "Exact directional fragmentation of quantum dimers on the four-cube",
+          "trigger": "Broader restriction-dependent component census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding and proof",
+        "Independent replay of finite graph invariants and explicit frozen seeds",
+        "Local dimer dynamics and shared indexed statements compared under originality"
+      ],
+      "rationale": "The local four-cycle move is a natural connectivity rule for dimers. At the first nonvacuous dimension with freezing, the result distinguishes a single mobile component from symmetry-equivalent frozen states and gives exact travel distances within the mobile component. Those exact local quantities cannot be read off the raw perfect-matching total or larger-cycle connectivity theorems. The disjoint-seed construction additionally certifies a doubly exponential family of isolated states in arbitrary dimension rather than an incidental small census alone.",
+      "residual_risks": [
+        "No conclusion about the proportion of frozen states or connectivity of mobile states for d>4. Do not credit the Q_1 exception, raw matchings counts or later-duplicated statements as independent advances."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

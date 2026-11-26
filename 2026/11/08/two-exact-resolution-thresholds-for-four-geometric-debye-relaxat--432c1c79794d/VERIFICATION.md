@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction checks and scientific limits
+# Independent mathematical audit
 
-The executable `verify.py` is a standalone Python 3 source file requiring `sympy` and `mpmath`. Run `python verify.py` in a directory containing this file. It recomputes the exact derivative numerator from the normalized four-Debye formula, the discriminant identity, the central curvature polynomial, both shifted threshold polynomials, the rational three-root witness, and numerical stationary points directly against the physical dielectric-loss derivative. It also tests the large-separation asymptotic regime. The executed package code returned `VERIFY_OK checks=81`.
+## correctness
 
-The exact all-parameter conclusions follow from the displayed symbolic identities, Descartes' one-positive-root criterion, root-continuation argument and derivative signs in `RESULT.md`. Finite numerical checks are only independent diagnostic evidence; they are not substituted for a universal proof. Four identical linear Debye components and exact geometric spacing are essential. No independent audit has been performed.
+PASS
+
+For four equal strengths and exact geometric spacing, pairing the translates of sech gives the rational function of z=cosh(s). For s>0 its derivative has the sign of the cubic Q on v>4/(h−3). The independently checked curvature and discriminant factors have exactly one zero each for h>3, by the stated translation and Descartes/sign arguments. At h=10 three alternating sign brackets put all three roots inside the physical domain; continuity, nonzero leading coefficient and no boundary crossing extend this to h>h2. At h1 the simple boundary root gives a negative quartic term at the center; at h2 the interior double root creates a shoulder on each side without adding a strict maximum. These facts yield the stated inclusive endpoints and nondegeneracy away from the thresholds. The remote translates vanish in local coordinates around a component center; around a midpoint the scaled loss and its first two derivatives approach those of 2 cosh(y). This supports the claimed limiting locations and heights. No experimental resolving power follows.
+
+## originality
+
+PASS
+
+The exact two thresholds and global 1/2/4 count for this four-shift sech spectrum are distinct from the strongest adjacent results inspected. This is a best-of-knowledge finding, not a priority guarantee.
+
+## value
+
+PASS
+
+For the symmetric equal-strength four-process benchmark, the exact intermediate two-peak window and noncentral shoulders distinguish two mechanisms for loss peaks to become distinct. The complete classification gives an analytic baseline that visual separation or adjacent-pair heuristics cannot supply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

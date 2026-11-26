@@ -1,19 +1,21 @@
-# Review of strict geodesic unimodality on weighted trees
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every finite tree with positive conductances and one grounded vertex, the edge comparison follows from the rooted electrical Green matrix: its block on the opposite component changes by an exact rank-one \(r\mathbf1\mathbf1^\mathsf T\) term. The resulting difference \(J(v)-J(u)=r\mathcal B(u,v)\) has no hidden normalization. For two consecutive oriented edges, decomposing into the three intervening components gives a *strictly positive* formula for the increase of \(\mathcal B\), so one-dimensional signs along every tree path cannot change from positive to negative. This proves every local minimum is global and all minimizers are a single vertex or one adjacent pair. A postorder/preorder dynamic program computes exact objective values in linear arithmetic time. Exact matrix calculations were checked independently over 3,798 grounded inverses; finite tests were not used in place of proof.
+PASS
 
-## Originality — PASS, subject to residual risk
+For a root x, the grounded incidence operator sends a potential to its oriented edge differences, with inverse given by edge-to-vertex path incidence. Hence the inverse Laplacian is the sum over edges e of r_e d_e d_e^T, with d_e the indicator of the downstream set. This proves the Green kernel and S=∑ r_e s_e². Changing the root across uv changes only its own downstream set; equivalently the cut component on the opposite side gains a rank-one r·11^T block, extended by zero for its own root. Expanding the Frobenius norm yields the stated edge bracket. For consecutive u,v,w, splitting at the two path edges cancels both outside Green sums and leaves 4S(C,v)+r[a²+(c+d)²]+s[(a+c)²+d²], strictly positive with arbitrary positive resistances. Thus from a neighbor minimum the objective cannot fall along any path, and two minima cannot lie at distance two or more; adjacent ties are allowed (including the n=2 tree). Only the normalized differences are monotone. For the root objective, the dot product of two downstream indicators is zero for disjoint subtrees, and is the smaller subtree size for nested ones; squaring and summing over edge pairs gives ∑ r_v(2d_parent+r_v)s_v². This root calculation, the postorder subtree sums and the preorder one-edge updates all cost O(n) arithmetic operations with O(n) storage. As a hand check, the 3-vertex path with resistances (2,1) gives J=(21,5,12), normalized differences (-8,7). The five-vertex path (100,1,1,1) independently agrees with all reported objectives and chooses vertex 1 rather than the path 1-median vertex 2. Read RESULT.md, VERIFICATION.md, verify_tree.py and verification_output.txt; the frozen 635 trees and 3798 inversions are recorded finite evidence and were not rerun. Exact tie resolution and arithmetic operation counts do not imply numeric bit complexity or floating-point robustness.
 
-Fitch and Leonard (arXiv:1407.1569, first publicly posted July 7, 2014) identify information-centrality optimality for single leaders in first-order noisy consensus; its tree criterion is a sum of resistances, not the squared Green trace. Patterson, McGlohon and Dyagilev (arXiv:1412.6595) treat inverse-trace leader selection on paths and cycles by general minimum-cost path algorithms. Mackin and Patterson (arXiv:1905.09156) derive inverse-square second-order coherence and general submodular greedy selection, but their inspected treatment gives neither the strict tree-geodesic signed-gradient law nor this exact linear-time all-weighted-tree result. A closely related dissertation was identified by search but full-text retrieval failed; its exact implication cannot be excluded. No claim of exhaustive publication priority is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a general structural theorem for every finite positively weighted tree rather than a new parameter choice on a known small graph. It shows that a natural second-order network objective has no spurious neighbor-local optima, classifies all ties, and reduces exact single-leader selection to linear-time arithmetic without matrix inversions. The squared criterion is genuinely distinct from the standard first-order median criterion: on the resistance-weighted five-vertex path with edge resistances \(100,1,1,1\), the unique second-order optimum is vertex \(1\), not the first-order centroid vertex \(2\). The signed-edge-gradient property is stronger than a numerical experiment and applies even when the objective is not discretely convex.
+The second-order objective itself and general leader-selection algorithms are established. The verified distinct result is the strict resistance-normalized geodesic-gradient law for every positively weighted tree with one grounded leader, plus its exact all-root linear arithmetic algorithm. The weighted-star subclass and the multi-leader unweighted path result are real neighboring results, not prior coverage of that law.
 
-## Closest literature and limitations
+## value
 
-Only one ideal leader, trees and the inverse-square trace are proved. The higher-order coherence literature provides the target performance measure and approximation algorithms, not the structural law. Specialized material, including E. Mackin's thesis *Network Design for Optimal Performance under Consensus Dynamics* (institutional repository access refused), remains a residual originality risk. Independent audit and external validation have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result supplies a complete optimizer topology and a practical inversion-free exact computation for a standard but less tractable objective than the classical weighted tree median. It explains when local descent is globally sound and exactly how ties can occur for arbitrary positive tree weights, not just for symmetric examples. A weighted path already separates the two criteria.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

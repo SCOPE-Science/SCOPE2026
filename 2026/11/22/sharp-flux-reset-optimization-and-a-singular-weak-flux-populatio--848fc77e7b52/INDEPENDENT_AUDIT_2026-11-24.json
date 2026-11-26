@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:29:48.771357Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–88",
+        "Frozen VERIFICATION.md and verify_chiral_trimer.py (inspected, not executed)",
+        "Replay: python3 /workspace/reproductions/3.py (SymPy and mpmath)"
+      ],
+      "rationale": "The Poisson renewal integral gives a density matrix and r+i ad_H is invertible for r>0. Independently distribute the phase clockwise by a diagonal gauge and diagonalize the resulting circulant in the Fourier basis, with dimensionless E_k=2 cos(Phi/3−2*pi*k/3). Let d_k=E_(k+1)−E_k cyclically. The sums of d_k and d_k² are 0 and 18, the sum of pairwise products of squared gaps is 81, and their signed product is 6*sqrt(3)*sin(Phi). The reset population difference is (2*sqrt(3)*u/9) times sum d_k/(u²+d_k²); combining terms gives the signed numerator and Q in the Finding. The Fourier route checked the diagonal normalization and 30 parameter pairs, including extremely small rate and sine flux. Direct differentiation verifies the optimizer polynomial. Descartes' one sign change together with the endpoint signs proves a unique positive simple root and a maximum. Equivalently h=x(x³+11x²+27x+81)/(108(x+1)) is strictly increasing for x>0, giving a smooth optimizer there. At that root the fixed-rate flux derivative has the sign of x(x+9)²−108h=8x²(x+9)/(x+1)>0. The h=1 factorization gives the unique maximizing rate and |bias|=0.24306121012757808026… . Near h=0 the implicit root is 4h/3+O(h²); setting u=(2/sqrt(3))|s|+O(|s|³) in the formula gives 1/(3 sqrt(3)). At s=0 every positive rate has zero bias, so no exchange of optimization and flux removal is valid.",
+      "residual_risks": [
+        "Applies only to whole-state Poisson resetting to site 0 with the specified coherent Hamiltonian; this is a population difference, not a current. The singular limit approaches any zero of sin(Phi), not an assertion of nonzero bias at that zero."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rose et al. give a reset stationary state with eigenmode denominators r+i(E_j−E_k). Wald–Böttcher derive reset-state formulas in a network walk framework. Dattagupta et al. consider a driven tight-binding chain."
+        ],
+        "reasoning": "The broad spectral result already yields a pointwise formula after specializing the Hamiltonian and performing finite algebra. Neither the inspected general reset formulas nor the infinite driven-chain result optimize the two-parameter magnetic trimer objective or establish its singular optimized limit.",
+        "searches": [
+          "Rose et al. arXiv:1806.01298 p. 8",
+          "Wald–Böttcher arXiv:2008.00510 pp. 6–7",
+          "Dattagupta et al. arXiv:2209.14117 pp. 2–3"
+        ]
+      },
+      "checked_sources": [
+        "Primary and Resultary sources listed above",
+        "Identical Resultary entry for the assigned frozen record excluded as a self-match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known spectral framework gives the trimer occupations at each (r,Phi). The optimized conclusion additionally needs derivative sign and uniqueness, flux monotonicity along the optimizer, and the near-degeneracy scaling r/J proportional to |sin(Phi)|."
+        ],
+        "reasoning": "A pointwise stationary limit at fixed positive rate gives zero at zero sine flux; that does not imply the nonzero optimized limiting value. No inspected optimization or general envelope theorem gives the exact unique optimum and crossover for the stated population difference.",
+        "searches": [
+          "Rose et al. Eqs. (73)–(74), Wald–Böttcher Eqs. (28)–(33), same-day interrogation Finding and loss/absorption Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stationary Poisson age averages and the spectral steady-state resolvent are equivalent for full-state resets.",
+          "The same-day chiral triangle study first measures a target after an exponential wait and re-prepares on failure; it optimizes mean first-detection time. The absorption study removes amplitude permanently."
+        ],
+        "reasoning": "Magnetic phase and site-orientation conventions can reverse the sign of p1−p2, not its absolute optimum. A measurement-and-restart problem can also involve exponential integrals of free evolution, but it does not have this objective: maximizing a directional difference between two occupations is not minimizing the mean time to a target.",
+        "searches": [
+          "Resultary: chiral triangle, Poisson reset or interrogation, stationary directional imbalance, weak flux",
+          "arXiv:1806.01298 Eqs. (73)–(74), arXiv:2008.00510 §III.D",
+          "arXiv:2205.01974 and 2305.15123"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact compared optimum for the same-day measurement protocol concerns first-detection time and non-unique forward rates, not the reported stationary population peak. The related absorber optimization has no repeated state replacement."
+        ],
+        "reasoning": "This continuous optimum and one-sided limiting envelope are not a pointwise lookup or a grid table. The closely related exact optimization datasets/results use different objective functions and do not provide its value or attaining rates.",
+        "searches": [
+          "Resultary exact and related chiral-triangle rate/flux records, including 2026/11/22/…6b48e0978c4f and 2026/10/26/…5a8f58030e71",
+          "Frozen stationary formula and finite parameter-grid verifier"
+        ]
+      },
+      "rationale": "The distinct result is the rate-and-flux optimization of a stationary directional occupation imbalance, including the genuinely singular optimized weak-flux limit. The known general stationary reset resolvent and its evaluation on this triangle are not credited as a new reset framework. The closest triangle-and-Poisson studies optimize a different objective under a different dynamical map.",
+      "residual_risks": [
+        "Two plausible chiral walk/monitoring sources were not available as full text. A previously published exact specialization or equivalent resonant rate-flux optimization may exist outside the inspected comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stationary spectral framework already covered; no optimization coverage in inspected equations",
+          "evidence": "The stationary-state decomposition uses energy differences and the reset overlap, without a triangle-specific stationary-bias extremum.",
+          "identifier_or_url": "https://arxiv.org/abs/1806.01298",
+          "material_read": "PDF p. 8, Eqs. (73)–(74), offset about 59600",
+          "method": "OA full-text passage",
+          "title": "Spectral properties of simple classical and quantum reset processes",
+          "trigger": "General closed quantum system with full-state Poisson resetting"
+        },
+        {
+          "assessment": "Related general walk resetting formulas",
+          "evidence": "The stationary-state construction is pointwise; those passages give no flux-dependent trimer optimizer.",
+          "identifier_or_url": "https://arxiv.org/abs/2008.00510",
+          "material_read": "§III.D Eqs. (28)–(33), PDF pp. 6–7, offsets 33700 and 38100",
+          "method": "OA full-text passages",
+          "title": "From classical to quantum walks with stochastic resetting on networks",
+          "trigger": "Stationary site occupations under stochastic resetting"
+        },
+        {
+          "assessment": "Materially different objective and observation map, not equivalent coverage",
+          "evidence": "Poisson projective target detection and source re-preparation after failures give tied forward optima for mean detection time and a single reverse optimum, not a stationary occupation difference.",
+          "identifier_or_url": "2026/11/22/SCOPE-exactly-two-optimal-poisson-interrogation-rates-on-a-chiral-quan--6b48e0978c4f",
+          "material_read": "Finding and protocol/proof passages at offsets 0, 4180 and 8217",
+          "method": "Resultary and local full-text mirror",
+          "title": "Exactly two optimal Poisson interrogation rates on a chiral quantum triangle",
+          "trigger": "Strong distinct same-day match in model and rate optimization"
+        },
+        {
+          "assessment": "Permanent absorption is a different map and capture time is a different observable",
+          "evidence": "Optimizes capture time over absorber strength and magnetic flux, not occupation after repeated resets.",
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-flux-absorption-tradeoff-in-a-lossy-chiral-quantum-triangl--5a8f58030e71",
+          "material_read": "Finding",
+          "method": "Resultary and local full-text mirror",
+          "title": "Sharp flux absorption tradeoff in a lossy chiral quantum triangle",
+          "trigger": "Same small magnetic model and two-parameter optimization"
+        },
+        {
+          "assessment": "Different graph and dynamics",
+          "evidence": "Driven tight-binding chain rather than a finite triangle with magnetic loop phase.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.14117",
+          "material_read": "PDF pp. 2–3, offsets 6000–10281",
+          "method": "OA full-text passage",
+          "title": "Stochastic resets in the context of a tight-binding chain driven by an oscillating field",
+          "trigger": "Quantum transport under Poisson resetting and external field"
+        },
+        {
+          "assessment": "Different detection objective",
+          "evidence": "Monitored-walk hitting times and restart-time transitions, not stationary occupations.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.01974",
+          "material_read": "PDF p. 1, first-detection problem and restart setup",
+          "method": "OA full-text passage",
+          "title": "Restart expedites quantum walk hitting times",
+          "trigger": "Quantum restart and optimization over interrogation times"
+        },
+        {
+          "assessment": "Different dynamical map",
+          "evidence": "Failure projects into the no-click subspace; quantity optimized is associated with first detection.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.15123",
+          "material_read": "PDF pp. 2–4, measurement/first detection setup",
+          "method": "OA full-text passage",
+          "title": "Quantum first detection under random probing",
+          "trigger": "Poisson projective measurements that can be confused with Poisson state resets"
+        },
+        {
+          "assessment": "Unresolved close literature; not evidence of absence",
+          "evidence": "No exact comparison from primary passages was possible.",
+          "identifier_or_url": "https://doi.org/10.1007/s11128-024-04331-y",
+          "material_read": "Citation only; no full text",
+          "method": "Bounded lawful OA attempts timed out",
+          "title": "Enhanced quantum transport in chiral quantum walks",
+          "trigger": "Plausible overlapping chiral transport model"
+        },
+        {
+          "assessment": "Unresolved detailed implication; landing page does not establish noncoverage",
+          "evidence": "The bibliographic framing is first hitting times, but exact model and conclusions were not read in full.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.15843; PMCID PMC11508062",
+          "material_read": "Landing page/abstract only",
+          "method": "OA arXiv retrieval timed out; PMC route did not yield paper text",
+          "title": "First Hitting Times on a Quantum Computer: Tracking vs. Local Monitoring, Topological Effects, and Dark States",
+          "trigger": "Magnetic-ring monitoring and phase-dependent observable"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen exact optimization and weak-flux proof",
+        "Rose et al. general baseline and same-day interrogation comparison"
+      ],
+      "rationale": "The homogeneous triangle is a minimal loop with a gauge-invariant phase. The optimization determines whether directed population imbalance can persist under weak symmetry breaking when the reset scale is tuned, and gives the measurable rate scale and absolute bound. The singular limit distinguishes near-degenerate dynamics from setting the phase to a symmetry value at the outset; it is substantive beyond the routine stationary resolvent.",
+      "residual_risks": [
+        "No conclusion about circulating current, realistic imperfect reset protocols, or generic larger disordered networks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,20 +1,20 @@
-# Exact stationary feasibility risk and a unique penalty optimum for stochastic momentum augmented Lagrangian
+# Exact stationary feasibility risk and penalty tuning for scalar stochastic MALM
 
 ## Finding
 
-Consider the constant-parameter scalar stochastic momentum augmented-Lagrangian (MALM) recurrence specified below. Its mean-square stability threshold is exactly \(0<\beta/\eta<4/3\). In that stable interval, the limiting squared feasibility error is
+For the scalar stochastic momentum augmented-Lagrangian (MALM) recurrence below, put \(t=\beta/\eta\). A finite limiting feasibility second moment exists precisely for \(0<t<4/3\), in which case
 \[
-\lim_{r\to\infty}\mathbb E[x_r^2]=\frac{\sigma^2}{\eta^2}\frac{2\alpha^2[2-\alpha-(1-\alpha)t]}{t(2-\alpha)(4-3t)[\alpha^2+(1-\alpha^2)t]},\qquad t=\beta/\eta.
+\lim_{r\to\infty}\mathbb E[x_r^2]=\frac{\sigma^2}{\eta^2}\frac{2\alpha^2[2-\alpha-(1-\alpha)t]}{t(2-\alpha)(4-3t)[\alpha^2+(1-\alpha^2)t]}.
 \]
-For each fixed \(0<\alpha<1\), this expression has exactly one minimizing penalty ratio, characterized as the unique zero in \((2/3,1)\) of
+At and beyond \(t=4/3\), nondegenerate gradient noise makes \(\mathbb E[x_r^2]\) diverge to infinity. For fixed \(\eta,\sigma^2\) and \(0<\alpha<1\), the stationary risk has exactly one minimizing penalty ratio, the unique zero in \((2/3,1)\) of
 \[
 -\frac{1-\alpha}{2-\alpha-(1-\alpha)t}-\frac1t+\frac3{4-3t}-\frac{1-\alpha^2}{\alpha^2+(1-\alpha^2)t}=0.
 \]
-The sharp stability boundary is a unit-circle eigenvalue crossing. At and beyond the boundary, nondegenerate gradient noise produces unbounded second-moment feasibility risk. The optimizer tends to \(1\) as \(\alpha\downarrow0\), and to \(2/3\) as \(\alpha\uparrow1\).
+The minimizer tends to \(1\) as \(\alpha\downarrow0\), and to \(2/3\) as \(\alpha\uparrow1\). The value \(4/3\) is inherited from the deterministic scalar primal–dual iteration; the result concerns the forced second moment and its penalty optimum.
 
 ## Assumptions and scope
 
-The optimization problem is \(\min_{x\in\mathbb R}f(x)=0\) subject to \(x=0\). Its stochastic gradient oracle supplies independent identically distributed \(\xi_r\), independent of the finite-second-moment initial state, with \(\mathbb E\xi_r=0\) and \(\mathbb E\xi_r^2=\sigma^2\in(0,\infty)\). Gaussianity is unnecessary. All arithmetic and constraint residuals are exact. Parameters are constant: primal parameter \(\eta>0\), constraint penalty \(\beta>0\), and momentum refresh \(0<\alpha<1\). The iterates are
+Minimize \(f(x)=0\) for \(x\in\mathbb R\), subject to \(x=0\). Let \(\eta,\beta>0\) and \(0<\alpha<1\) be constant. The oracle noises \(\xi_{r+1}\), \(r\ge0\), are independent and identically distributed with mean zero and variance \(\sigma^2\in(0,\infty)\), independent of the initial state, which has finite second moment. The updates are
 \[
 \begin{split}
 x_{r+1}&=x_r-\eta^{-1}(m_r+\lambda_r+\beta x_r),\\
@@ -22,57 +22,42 @@ x_{r+1}&=x_r-\eta^{-1}(m_r+\lambda_r+\beta x_r),\\
 m_{r+1}&=(1-\alpha)m_r+\alpha\xi_{r+1}.
 \end{split}
 \]
-This is a constant-parameter specialization of the stochastic MALM method of Qiu, Maithripala and Lin, not their diminishing-parameter convergence regime. The theorem concerns the mean-square feasibility measure \(\mathbb E[x_r^2]\), not general nonconvex KKT complexity.
+These are Eqs. (5)–(7) of Qiu, Maithripala, and Lin with constraint operator 1, right-hand side 0, and an additive gradient oracle. Their Algorithm 1 is fixed-parameter within a run; their finite-horizon convergence theorem selects parameters as functions of the planned horizon. Here the parameters are held fixed as the number of iterations tends to infinity. The analysis measures feasibility, not KKT iteration complexity.
 
 ## Proof
 
-Put \(t=\beta/\eta\), \(u_r=\lambda_r/\eta\), \(v_r=m_r/\eta\), and \(z_r=(x_r,u_r,v_r)^{\mathsf T}\). Then \(z_{r+1}=Mz_r+\alpha\eta^{-1}\xi_{r+1}e_3\) with
+Set \(a=\alpha\), \(e=1-a\), \(d=2-a\), \(u_r=\lambda_r/\eta\), \(v_r=m_r/\eta\), and \(z_r=(x_r,u_r,v_r)^{\mathsf T}\). Then \(z_{r+1}=Mz_r+a\eta^{-1}\xi_{r+1}e_3\), where \(e_i\) denotes a standard basis vector and
 \[
-M=\begin{pmatrix}1-t&-1&-1\\t(1-t)&1-t&-t\\0&0&1-\alpha\end{pmatrix}.
+M=\begin{pmatrix}1-t&-1&-1\\t(1-t)&1-t&-t\\0&0&e\end{pmatrix}.
 \]
-The characteristic polynomial factors as
-\[
-(z-1+\alpha)\,[z^2-2(1-t)z+(1-t)].
-\]
-For the quadratic factor, the three strict real Schur conditions are \(t>0\), \(4-3t>0\), and \(|1-t|<1\). In conjunction with \(0<\alpha<1\) this gives exactly \(0<t<4/3\). For this interval the stationary covariance is the unique solution to the discrete Lyapunov equation \(C=MCM^{\mathsf T}+(\alpha^2\sigma^2/\eta^2)e_3e_3^{\mathsf T}\), and all finite-second-moment initial distributions converge to it in second moments.
+Its characteristic polynomial at \(z\) is \((z-e)Q_t(z)\), where \(Q_t(z)=z^2-2(1-t)z+(1-t)\). The real quadratic Schur conditions are \(t>0\), \(4-3t>0\), and \(|1-t|<1\), jointly equivalent to \(0<t<4/3\). Since \(0<e<1\), this is the strict stability interval for \(M\).
 
-For an explicit algebraic certificate, write \(a=\alpha\), \(D=a^2+(1-a^2)t\), \(d=2-a\), and \(e=1-a\). Scale out \(\sigma^2/\eta^2\). A direct solution of the six independent Lyapunov equations gives \(X=C_{11}\) equal to
-\[
-X=\frac{2a^2(d-et)}{td(4-3t)D},
-\]
-and the remaining independent entries
-\[
-C_{12}=\frac{tX}{2},\quad C_{13}=-\frac{a^2e}{dD},\quad C_{23}=-\frac{ate}{dD},\quad C_{33}=\frac a d,
-\]
-\[
-C_{22}=t(3-2t)X-C_{33}+2(1-t)C_{13}-2C_{23}.
-\]
-In these formulas the notation \(C\) denotes the normalized covariance; multiply each entry by \(\sigma^2/\eta^2\) for the physical covariance. Substituting this symmetric matrix into the displayed Lyapunov identity verifies all six entries. In particular, its \((1,1)\) entry is the asserted risk. The coefficient block is noise controllable because \(\det[e_3,Me_3,M^2e_3]=t\), and the first-coordinate output is observable because \(\det[e_1^{\mathsf T};e_1^{\mathsf T}M;e_1^{\mathsf T}M^2]=-\alpha\). Thus at or beyond the spectral stability frontier, no unstable or unit-modulus mode is hidden from either the forcing or feasibility output; the accumulated nonzero forcing variance rules out a finite limiting feasibility second moment.
+In the stable interval the mean tends to zero, and the stationary covariance, normalized by \(\sigma^2/\eta^2\), solves \(C=MCM^{\mathsf T}+a^2 e_3e_3^{\mathsf T}\). This solution is unique: iteration sums the covariance contributions of independent noise increments, the sum converges because \(M\) is Schur stable, and the propagated initial covariance tends to zero.
 
-For fixed \(a\), let \(V_a(t)=X\). Logarithmic differentiation gives
+Write \(D=a^2+(1-a^2)t\) and \(X=C_{11}\). The scalar momentum variance satisfies \(C_{33}=e^2C_{33}+a^2\), so \(C_{33}=a/d\). Let \(A_0\) be the upper-left two-by-two block of \(M\). The normalized cross-covariances \((C_{13},C_{23})^{\mathsf T}\) solve a system with coefficient \(I-eA_0\) and right side \(-e(1,t)^{\mathsf T}C_{33}\). Its determinant is \(D\), and solution is
 \[
-(\log V_a)'=-\frac{e}{d-et}-\frac1t+\frac3{4-3t}-\frac{1-a^2}{D}.
+C_{13}=-a^2e/(dD),\qquad C_{23}=-ate/(dD).
 \]
-Its derivative is
+For the remaining entries use \(u'=u+tx'\), with primes denoting next-step variables. Stationarity of the variance of \(u\) gives the normalized covariance of \(u\) and \(x'\) as \(-tX/2\), so \(C_{12}=tX/2\). Evaluating the same covariance from \(x'=(1-t)x-u-v\) gives \(C_{22}=t(2-t)X/2-C_{23}\). Expanding the variance of \(x'\) gives \(C_{22}=t(3-2t)X-C_{33}+2(1-t)C_{13}-2C_{23}\). Thus
 \[
-(\log V_a)''=-\frac{e^2}{(d-et)^2}+\frac1{t^2}+\frac9{(4-3t)^2}+\frac{(1-a^2)^2}{D^2}>0.
+\frac{t(4-3t)}{2}X=C_{33}-2(1-t)C_{13}+C_{23}=\frac{a^2(d-et)}{dD}.
 \]
-Indeed \(3/(4-3t)>e/(d-et)\), since \(3d-4e=2+a>0\); hence even the difference of the first and third terms is positive. Also \(V_a(t)\to\infty\) at both stable endpoints. Strict convexity therefore gives a unique minimum. At \(t=2/3\), the log derivative is \(-9(1-a)(a+2)/[(4-a)(a^2+2)]<0\); at \(t=1\), it is \(a(a+1)>0\). These signs give \(2/3<t_*(a)<1\). On compact interior subintervals, the derivative tends continuously to the appropriate endpoint-parameter equation as \(a\to0\) or \(a\to1\); the unique roots approach \(1\) and \(2/3\), respectively.
+Rescaling \(X\) yields the stated feasibility risk.
+
+For \(t=4/3\), the roots of \(Q_t\) are \(-1,1/3\); for \(t>4/3\), \(Q_t(-1)<0\) and \(Q_t(0)<0<Q_t(1)\), so the roots are one less than \(-1\) and the other in \((0,1)\). Hence at or beyond the frontier there is a simple dominant eigenvalue \(\lambda_-\le-1\); all other eigenvalues have modulus below one. The controllability determinant \(\det[e_3,Me_3,M^2e_3]=t\) is nonzero, as is the observability determinant \(\det[e_1^{\mathsf T};e_1^{\mathsf T}M;e_1^{\mathsf T}M^2]=-a\). In particular, the left eigenvector for \(\lambda_-\) is not orthogonal to the forcing vector \(e_3\), and its right eigenvector is not orthogonal to the observed coordinate \(e_1\). The impulse coefficients \(e_1^{\mathsf T}M^j e_3\) therefore have a nonzero leading term proportional to \(\lambda_-^j\), plus a term that tends to zero. Independence of the increments gives a variance contribution \((a^2\sigma^2/\eta^2)\sum_{j=0}^{r-1}(e_1^{\mathsf T}M^j e_3)^2\) after \(r\) steps, which diverges even at the boundary. The independent initial contribution cannot cancel it.
+
+For fixed \(a\), log differentiation of \(X\) gives the displayed optimizer equation. The log second derivative is
+\[
+-\frac{e^2}{(d-et)^2}+\frac1{t^2}+\frac9{(4-3t)^2}+\frac{(1-a^2)^2}{D^2}>0.
+\]
+Indeed \(d-et>0\) there and \(3/(4-3t)>e/(d-et)\), as \(3d-4e=2+a>0\). The risk diverges at both stable endpoints for every fixed \(a>0\). The log derivative at \(2/3\) is \(-9(1-a)(a+2)/[(4-a)(a^2+2)]<0\), and at \(1\) it is \(a(a+1)>0\). Thus there is exactly one critical point in \((2/3,1)\), the global minimum. On \([2/3,1]\) the log derivative extends continuously to \(a=0\) and \(a=1\), since all its denominators stay positive. At \(a=0\) its only root there is 1, and at \(a=1\) its only root is \(2/3\), as follows by substitution and the same strict derivative inequality. Every subsequential limit of the minimizing ratios solves the corresponding endpoint equation, proving the two asserted limits.
 
 ## Verification
 
-Run `python verify.py` with Python 3 standard library. The script independently constructs and solves the six Lyapunov equations over exact rational numbers for multiple values of \(\alpha\) and \(t\), verifies the proposed covariance and derivative identities, brackets the optimal ratio, and cross-checks four stationary-risk points using a seeded stochastic simulation. It reports 1716 passing exact-rational or seeded numerical comparisons. Finite computation corroborates the identities, but the universal theorem relies on the preceding algebra and spectral proof.
+Run `python verify.py` with Python 3 and its standard library. The checker solves the six Lyapunov equations by exact rational elimination on a grid and compares the risk and selected other entries. It also tests derivative signs and brackets, and compares four seeded empirical second moments with the formula. The frozen record reports 1716 checks. These are finite corroboration; the all-parameter conclusion follows from the analytical proof.
 
-## Relationship to prior work
+## Relationship to prior work and limitations
 
-Qiu, Maithripala and Lin (2026, arXiv:2604.13272, first public April 14, 2026) define the momentum-based constrained stochastic method and establish finite-horizon approximate KKT guarantees under their parameter assumptions. The contribution here is a constant-parameter noise-floor classification, a sharp stability boundary, and a unique penalty choice in a solvable constrained oracle model, not a rederivation of the source's nonconvex complexity theorem. Related available work treats deterministic proximal augmented-Lagrangian stability, deterministic linearized ADMM, and unconstrained STORM stationary noise covariance. Those models do not directly imply this specific three-state MALM covariance or penalty optimum. A previous equivalent specialization in broader stochastic primal-dual literature cannot be excluded.
+The deterministic primal–dual block is already covered by the scalar bilinear Chambolle–Pock calculation of Banert, Upadhyaya, and Giselsson, §7 of arXiv:2309.03998v2. In fact let \(y_r=\lambda_r+\beta x_r\), \(\tau=1/\eta\), and \(\rho=\beta\). With zero momentum forcing, the updates are \(x_{r+1}=x_r-\tau y_r\) and \(y_{r+1}=y_r+\rho(2x_{r+1}-x_r)\). These are precisely their scalar bilinear updates with extrapolation parameter 1 and step product \(\tau\rho=t\). The \(-1\) crossing at \(4/3\) is not an independent novelty claim. The stochastic result concerns the same primal–dual block with the additive momentum state acting as a filter: its forcing is visible in the feasibility coordinate, the stationary second moment is explicit, and its penalty optimum is unique. Deterministic convergence does not determine that stationary risk or its minimizing ratio.
 
-## Limitations
-
-The constraint and objective are scalar and affine/constant, respectively; the oracle has additive state-independent noise with finite nonzero variance. Exact expected feasibility, not iteration complexity or wall-clock performance, is measured. Constant parameters differ materially from diminishing-parameter regimes. The near-boundary instability statement does not imply failure of every decreasing-stepsize MALM implementation. The comparison with earlier literature is not an independent exhaustive review.
-
-## References
-
-Qiu, C., Maithripala, M., and Lin, Z., *A Momentum-based Stochastic Algorithm for Linearly Constrained Nonconvex Optimization*, arXiv:2604.13272v1 (first public 2026-04-14), https://arxiv.org/abs/2604.13272.
-
-Relevant comparison records: *Exact stationary covariance and stability factorization for constant-template STORM* (2026, research record identifier `fd5004e04a73`); *Exact stabilization phase diagram for scalar linearized ADMM* (`9ae77a2e1a30`); *Sharp local stability frontier for fixed-parameter proximal augmented Lagrangian dynamics* (`b8117b8b15ed`). These concern different updates and cannot alone establish either novelty or coverage of the present MALM specialization.
+Qiu, Maithripala, and Lin, arXiv:2604.13272v1, Lemma 7 and Theorem 1, choose parameters by horizon to obtain approximate stationarity. Their result is different from an infinite run with one fixed triple \((\eta,\beta,\alpha)\). Related constant-template STORM covariance calculations concern corrected momentum without this dual state. No claim is made that this scalar classification gives a tuning rule for nonlinear constraints, state-dependent noise, or general nonconvex MALM. Equivalent stationary calculations outside the inspected literature cannot be excluded.

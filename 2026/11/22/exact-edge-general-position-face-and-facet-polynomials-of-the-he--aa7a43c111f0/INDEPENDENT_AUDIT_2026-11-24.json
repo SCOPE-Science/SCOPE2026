@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:19:15.560594Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–59; VERIFICATION.md; verify_bfs.py and verify_fano.cpp (inspected, not executed)",
+        "/workspace/branches/audit_exact_124.py 4 (independent exact run using vector-space incidence and forbidden-superset marking)"
+      ],
+      "rationale": "In the Fano incidence graph the unique-line and unique-intersection axioms give distance 2 within each part, and distances 1 and 3 across parts. A nonincident point/line pair has three length-three geodesics; their edge triples are distinct because the endpoints and middle edges can be recovered from the path. Thus it is necessary and sufficient to avoid the 84 forbidden triples. The printed highest-index recurrence tests all subsets, and one-edge addability exactly tests maximality by heredity. I independently used nonzero vectors and covectors in F_2^3 with dot-product incidence (not cyclic line labels); all length-three simple paths are geodesics because an endpoint shortcut would form a four-cycle. The replay python3 /workspace/branches/audit_exact_124.py 4 marks all supersets of the 84 forbidden triples, then scans all 2^21 subsets with an explicit one-edge extension test. It gives face coefficients 1,21,210,1246,4725,11592,17962,16446,7875,1617,84, then zeros, and only facet coefficients 66,546,861,84 at sizes 7–10. Totals 61779 and 1557 agree, and labelled maximum sets have cardinality 10 and count 84.",
+      "residual_risks": [
+        "The exhaustive result is for the single labelled Heawood graph. It gives neither automorphism orbit counts nor an enumerator for other incidence graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected original results are for hypercubes, trees and grids, or for specific extremal values and block graphs",
+          "Cao et al. full text not retrieved; Hamed-Labbafian et al. landing page/abstract only"
+        ],
+        "reasoning": "The Heawood graph is cubic bipartite with girth 6, not a block graph, hypercube, tree, or Cartesian grid; its m=21 and maximum 10 also lie outside the inspected extremal cases. No implication for both enumerators is established by the accessible evidence.",
+        "searches": [
+          "Manuel–Prabha–Klavžar, arXiv:2105.04292, definition and hypercube results",
+          "Tian–Klavžar–Tan arXiv:2302.01587, extremal classes and block graphs",
+          "Cao–Ji–Wang DOI 10.1007/s40840-025-01873-x and Hamed-Labbafian–Henning–Tavakoli DOI 10.1016/j.dam.2026.01.008 OA lookup"
+        ]
+      },
+      "checked_sources": [
+        "Resultary aa7a43c111f0, 58d3d0b30f51, 512cb5d09c08",
+        "arXiv:2105.04292; arXiv:2302.01587",
+        "DOIs 10.1007/s40840-025-01873-x and 10.1016/j.dam.2026.01.008 (access limited as specified)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "gpe(G) records the largest face size, not the other face counts or the inclusion-maximal counts at smaller sizes",
+          "All-subset and maximal-subset theorems explicitly located for different graph families do not have the Heawood graph in their parameter range"
+        ],
+        "reasoning": "Generic EGP definitions, integer-programming methods, or a maximum size alone do not recover the face and facet coefficients. The independently reproduced multiplicities require the Heawood incidence-specific constraints.",
+        "searches": [
+          "arXiv:2105.04292, p. 2 EGP definition and p. 4 hypercube maximum",
+          "arXiv:2302.01587, pp. 2–3 and p. 7",
+          "Resultary 58d3d0b30f51 and 512cb5d09c08"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same-graph Resultary hits under mutual visibility and maximal-independent-set shattering use different independence predicates",
+          "The defining EGP problem is exactly independence in the 84-triple hypergraph, not independence on the original graph or its line graph"
+        ],
+        "reasoning": "Every pair of edges is EGP even when incident. A pair-forbidding graph independent-set or packing computation cannot yield this triple-forbidding polynomial. No separate matching triple-hypergraph census was located.",
+        "searches": [
+          "Resultary Heawood/Fano edge-general-position and maximal-set polynomial lookup",
+          "Primary-literature lookup for Heawood graph face/facet EGP enumerators and forbidden-triple hypergraph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact hit aa7a43c111f0 is this finding itself; distinct same-day polynomial entries 58d3d0b30f51 and 512cb5d09c08 count the 4-cube and open ladders",
+          "No distinct graph-census/coefficient table was retrieved; the landing page for the integer-programming paper cannot rule out its containing examples"
+        ],
+        "reasoning": "An exact table for the labelled Heawood 21-edge subset complex would cover this claim. The located exact polynomials are for other graphs or are the same record; misses are not affirmative evidence of absence.",
+        "searches": [
+          "Resultary exact Heawood EGP census and similar graph polynomial entries",
+          "Targeted primary search for a Heawood EGP census, exact coefficient table or equivalent hypergraph data"
+        ]
+      },
+      "rationale": "The supported distinct finding is the complete labelled face and inclusion-maximal facet census for the Heawood edge-general-position complex. Primary definitions and exact extremal numbers for other graph families are prior, and a table of maxima alone would not subsume the two enumerators. The strongest located exact match was the identical published record, not a distinct prior. Bounded searches and full-text access limitations preclude a claim of global priority.",
+      "residual_risks": [
+        "Full text of the Cao et al. and Hamed-Labbafian et al. papers was not available. An unindexed table or different-name hypergraph enumerator could affect priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the definition and other graph extremal cases, not the two Heawood polynomials in these passages",
+          "evidence": "The invariant is the maximum cardinality of an EGP set; the hypercube result is gpe(Q_r)=2r.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.04292",
+          "material_read": "PDF p. 2 (offset 6250), introduction and p. 4 (offset 12480)",
+          "method": "OA passages",
+          "title": "Edge General Position Problem",
+          "trigger": "Original invariant and potential general graph results"
+        },
+        {
+          "assessment": "Extremal cases and block graphs do not give the target",
+          "evidence": "The inspected sections concern gpe=m-1, small values 3 and 4, and block-graph results.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.01587",
+          "material_read": "PDF pp. 2–3 (offsets 3300 and 5700–8385) and p. 7 (16400)",
+          "method": "OA passages",
+          "title": "Extremal Edge General Position Sets in Some Graphs",
+          "trigger": "Possible dominance by extremal or broad graph cases"
+        },
+        {
+          "assessment": "Unresolved full-text coverage, not a negative finding",
+          "evidence": "No relevant theorem or table passage could be read.",
+          "identifier_or_url": "https://doi.org/10.1007/s40840-025-01873-x",
+          "material_read": "Citation only; DOI and Springer retrieval failed",
+          "method": "Lawful OA DOI and identified publisher lookup",
+          "title": "The Edge General Position Number of Some Graphs",
+          "trigger": "Later exact graph classes"
+        },
+        {
+          "assessment": "Unresolved application and table coverage",
+          "evidence": "Publisher full text unavailable; abstract alone does not exclude a Heawood computation.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2026.01.008",
+          "material_read": "Landing page/abstract only",
+          "method": "Lawful OA DOI and publisher lookup",
+          "title": "Edge general position in graphs: Graph products, integer linear programming and some applications",
+          "trigger": "Plausible computational applications or tables"
+        },
+        {
+          "assessment": "Exact own-record hit and two different same-day graph scopes",
+          "evidence": "Only aa7a43c111f0 has the Heawood face/facet counts; the others address Q_4 and open ladders.",
+          "identifier_or_url": "Resultary aa7a43c111f0; 58d3d0b30f51; 512cb5d09c08",
+          "material_read": "Indexed findings and graph scopes",
+          "method": "Local Resultary lookup",
+          "title": "Resultary Heawood, 4-cube and open-ladder edge-general-position polynomial records",
+          "trigger": "Exact and similar named enumerators"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, labelled face and facet definitions and coefficients",
+        "Independent exhaustive vector-space model census"
+      ],
+      "rationale": "The Heawood graph is the canonical smallest projective-plane incidence graph, and the face/facet distributions of its geodesic-triple obstruction complex are meaningful beyond its extremal number. The labelled census is an exact test case for enumeration algorithms and shows quantitatively that saturation can occur at three smaller cardinalities than the maximum. The 84 maximum sets alone would not provide this information.",
+      "residual_risks": [
+        "No claim is made for other projective planes, orbit types, or a general formula."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

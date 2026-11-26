@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-An exact enumerative certificate independently checks all 191 positive rational-superharmonic residuals at radius 11 and the negative 264-orbit Rayleigh defect at radius 12. The discrete ground-state identity transfers the positive pointwise certificate to all complex, nonsymmetric functions. Exact fractions, not floating approximate eigenvalues, establish the signs.
+## correctness
 
-## Originality — PASS
-Lizama, arXiv:2608.30831, establishes dimension-nine global strictness; Alpay, arXiv:2610.05421v1, addresses global equality in dimensions five through eight. Neither inspected material determines the minimal nine-dimensional finite \(\ell_1\)-support radius. An indexed eight-dimensional radius-12 reciprocal field correction is mathematically different. Three actual targeted index queries did not identify equivalent coverage; no uniqueness claim is inferred from index absence.
+PASS
 
-## Mathematical value — PASS
-The first support radius is a natural exact finite-propagation threshold for the first lattice dimension where the continuum coefficient fails. Its two certificates bound *all* trial functions at radius 11 while exhibiting an actual violation at 12.
+For the full Z^9 nearest-neighbor graph with zero values at the origin and outside B_R, expansion of undirected edge squares gives the Dirichlet matrix L=18I-A, not the Laplacian with the internal degree on the diagonal. For a positive w on B_11, expanding the weighted internal squares in the stated ground-state identity leaves the diagonal residual (Lw-49w/(4||x||_2^2))/w. Thus positivity of that residual proves strict positivity for every nonzero complex test, not just invariant or nonnegative ones. Independent replay with /workspace/reviews/evidence/hardy_replay.py (Python standard library, argument: frozen record directory) regenerated labels via coordinate multisets, cross-checked their multiplicities against the direct lattice ball count, and found all 191 integer residuals positive, with minimum 1458 (covering 7059734 sites). For B_12 it evaluated the energy directly by edge squares, counting each edge outward from its smaller l1 norm endpoint and adding the origin edges, rather than reusing the frozen Laplacian-defect sum. The 264-orbit witness (14218904 sites) gave exactly 4E-49H = -168023799157855578188041899511220364510317/66816567612546192522086437300. Nesting excludes all smaller radii. These are exact finite certificates at the stated coefficient and for the stated support sets only.
 
-## Limitations
-The original Lizama manuscript was not exhaustively inspected, leaving residual priority risk. The result does not compute the infinite-volume sharp constant or classify other dimensions. Independent review was not undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct for the first graph-distance (l1) support radius, not for strict global failure of the continuum coefficient or for the use of a ground-state certificate. The close squared-Euclidean Resultary theorem gives neither half of this cutoff by inclusion. No priority is inferred from catalog dates.
+
+## value
+
+PASS
+
+The radius is intrinsic to the nearest-neighbor graph: it gives the least graph distance from the puncture needed for instability at the continuum threshold in the first globally failing dimension. Eventual finite-support failure does not say which local neighborhoods rule it out. Exact positivity for all tests through eleven steps and a strict witness at twelve give a meaningful boundary for finite-volume Hardy or spectral analyses; the Euclidean cutoff cannot replace it. It does not compute a new global optimal constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

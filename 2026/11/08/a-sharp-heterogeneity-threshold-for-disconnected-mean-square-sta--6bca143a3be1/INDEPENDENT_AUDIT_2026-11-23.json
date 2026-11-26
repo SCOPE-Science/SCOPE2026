@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:31:30.688509Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Re-audited corrected RESULT.md. The two conditional moment masses evolve by P^T diag(A,B); the positive initial mass has positive projection on a nonnegative left Perron eigenvector, so even zero multipliers do not invalidate necessity. The second eigenvalue is nonpositive, so sign det(I-M) measures strict stability. The factor h is positive; all terms of G(-t) are nonnegative with strictly positive constant, excluding any nonpositive root. The first discriminant then gives respectively three positive roots or one, and at zero its real root factorization gives a puncture for d<s or a collapsed upper window for s<d; a triple root leaves one interval. The original 'separated' phrasing was ambiguous because two open components need not enclose an interval of positive length. The repair states both notions and gives a concrete puncture with z=(1-q)h=5/4 double, 3/2 simple, q=(97+5 sqrt(745))/512, lambda=-(1+q)/(5/16+3q). The nested discriminant has negative sign below q_* and a single simple real lambda-zero, so positive endpoint values exclude all interior zeros. At q_* nonnegativity allows only the one interior even-multiplicity lambda-zero, where G has a triple root. Above q_* up to 1/2, simple lambda-roots cannot cross the endpoints (whose values stay positive); the rational alternating signs at q=49/100 certify an interior negative P and pin the two roots throughout. q=1/2 has an explicit negative evaluation, and for q>1/2 continuity from lambda=-1 gives an interior negative value. This proves necessity and sufficiency for existence including the case where the gap can be just a point. Exact bounded replay: python3 /workspace/repairs/2/check_boundary.py passed the nested discriminant, endpoint identities, cusp and puncture factorizations, earlier-slice determinant identity and all four rational witness checks (149481/200000, -147/6250, 83961/200000, -3501/3125). No packaged script was executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 6 Eq. (61) gives two-state return-cycle moment expressions under explicit stay-probability-weighted moment bounds; Cor. 4 computes its Gaussian-data second-moment form. Its main setup is streaming data with Markov stepsizes.",
+          "The earlier Resultary theorem includes all stay probabilities, both initial modes, and the deterministic endpoints, but fixes curvatures to 1 and 6."
+        ],
+        "reasoning": "The earlier Resultary theorem is stronger in initial states and persistence range at one contrast, but not in variation of contrast. General Markov-product criteria supply a per-parameter test, not a classification of its positive roots or the sharp onset.",
+        "searches": [
+          "Web: Markov sampled scalar quadratic SGD mean square stability two disconnected learning rates anti persistent Markov jump linear stability heterogeneity cubic",
+          "arXiv:2302.05516v2 §3 and Appendix B.4.3, Lemma 6/Cor. 4",
+          "Resultary 2e4ff5de9e1e §§1–4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2e4ff5de9e1e full RESULT",
+        "arXiv:2302.05516v2, Appendix B.4.3",
+        "Related Resultary stability/frontier records from completed semantic lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier §3 uses a one-variable discriminant and concavity at q=25/49 to prove a unique stay-probability threshold and upper merger; its limitations explicitly fix the curvature ratio. It also notes the deterministic alternating benchmark threshold ratio 3+2 sqrt(2), which in normalized squared contrast is 1/2.",
+          "The corrected onset q_*≈0.4523 is below 1/2, so it is not the alternation criterion: it includes contrast values where strict anti-persistence can create a gap even though the deterministic alternating endpoint is not the proof of reentrance. The second discriminant in lambda has a distinct cusp at 27q^2-10q-1=0."
+        ],
+        "reasoning": "Neither a single contrasting example with q>1/2 nor a general formula for the moment growth implies the necessary-and-sufficient contrast threshold. The nested sign and root-continuation argument is new content relative to the inspected sources, and the explicit lower double root is distinct from the earlier upper coalescence.",
+        "searches": [
+          "Resultary 2e4ff5de9e1e Finding, Scope, §3 and Limitations",
+          "arXiv:2302.05516v2 Eq. (61)–(63)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier fixed-ratio theorem is exactly this anti-persistent family at c=5/7 after lambda=2p-1, h=7 eta/2, where p is its stay probability. Exact symbolic comparison gives hG=eta C_p(eta).",
+          "Curvature sampling can also be encoded at the product level by Markov effective stepsizes h(1±c), with switch probability (1-lambda)/2 in the convention of Gürbüzbalaban et al."
+        ],
+        "reasoning": "This is same-model overlap, not an unrelated citation. Both descriptions yield the same scalar factors and same strict stable set at the overlapping contrast. Applicability of a conditional moment formula does not by itself derive a root-topology transition over all contrasts.",
+        "searches": [
+          "Resultary: anti persistent Markov sampled quadratic SGD disconnected mean square stability intervals heterogeneity threshold",
+          "Resultary 2e4ff5de9e1e full RESULT §§1–3",
+          "arXiv:2302.05516v2, Appendix B.4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact earlier discriminator is 23675 p^3-38914 p^2+803 p+36; its interior zero p_*=0.043189882467... is the point where the upper two step roots merge at q=25/49. That value and slice are prior, not novel outputs. The related endpoint-optimal Markov record derives a frontier for a stationary mean-square error criterion rather than this homogeneous stability topology (indexed claim comparison)."
+        ],
+        "reasoning": "A fixed-contrast table or exact slice cannot determine where strict negative P first becomes possible as q ranges across (0,1). The older exact slice covers one quadratic, not the corrected all-contrast invariant.",
+        "searches": [
+          "Resultary: anti persistent Markov sampled quadratic SGD disconnected mean square stability intervals heterogeneity threshold",
+          "Resultary 2e4ff5de9e1e §3, exact persistence discriminator"
+        ]
+      },
+      "rationale": "Only for the corrected claim. Earlier Resultary f(1,6) record 2e4ff5de9e1e fully covers the qualitative existence of reentrant windows and the exact persistence classification at ratio six. That was a substantive omission from the original comparison (and qualitative novelty in its scientific assessment is not supported). The repair explicitly credits the antecedent and delimits the worthwhile new content to the all-contrast cusp, joint anti-persistent phase diagram and general multiple-root distinction. The earlier theorem does not supply these as a parameter substitution or immediate corollary. Best of knowledge, not an exhaustive priority guarantee.",
+      "residual_risks": [
+        "Initial Resultary service failure was not counted as a negative search; the subsequent completed lookup identified and resolved the decisive ratio-six comparison. Older scalar jump-linear-system literature may contain an unindexed derivation of the same cusp. No novelty claim for the transfer, the observed qualitative phenomenon, or that earlier slice."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING qualitative reentrance and ratio-six slice; not the corrected sharp boundary across contrast",
+          "evidence": [
+            "Scope explicitly fixes curvatures one and six. §§2–3 give determinant eta C_p(eta), explicit cubic discriminant and the larger-root collision at a specified p_*; §4 treats p>=1/2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-a-reentrant-mean-square-stability-window-for-markov-sampled-quad--2e4ff5de9e1e/RESULT.md",
+          "material_read": "Full RESULT, especially Finding, Scope, §§1–4 and Limitations",
+          "method": "Read full public RESULT via repository contents response after raw retrieval timed out",
+          "title": "A reentrant mean-square stability window for Markov-sampled quadratic descent",
+          "trigger": "Same exact topology and transfer, with one fixed curvature contrast"
+        },
+        {
+          "assessment": "Related regenerative moment formula. Not the global contrast boundary in the inspected statements.",
+          "evidence": [
+            "Eq. (61) is an explicit regenerative moment formula under finite geometric-series conditions; Cor. 4 calculates the second moment expression for Gaussian data and compares tail index to 2. These do not give the algebraic cutoff across centered scalar curvature contrasts."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.05516",
+          "material_read": "Abstract, §§2–3; Appendix B.4.3 Lemma 6 and Eqs. (61)–(62), Cor. 4 and Eq. (63)",
+          "method": "PDF introduction and full open preprint HTML conversion for appendix after initial cache access failure",
+          "title": "Cyclic and Randomized Stepsizes Invoke Heavier Tails in SGD than Constant Stepsize",
+          "trigger": "Equivalent Markovian effective stepsizes at the scalar product level"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Re-audited the narrowed result: the all-contrast threshold tells which centered quadratic pairs can ever exhibit strict stable-unstable-stable steps under the allowed chains, rather than merely re-demonstrating that some pair can. In particular it detects a range below the deterministic-alternation contrast threshold, and separates an isolated marginal failure from loss over a positive-length range at the boundary. The exact algebraic frontier is a useful check for stability theory and parameter scans; numerical witnesses and the second-moment kernel are supporting evidence rather than the value claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

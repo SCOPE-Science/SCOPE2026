@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:27:51.070414Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original no-unique-optimizer wording for equal variances is false at r=c²: only α=β=1 is feasible, independently of the variances. Its nonattainment statement at r=1 also requires unequal variances. The repaired RESULT.md corrects both and states time-homogeneous row-specific innovation laws for the asserted invariant joint law. Equal conditional variances across time alone do not imply stationarity: one may alternate independent ±√v_i errors with a law taking zero half the time and ±√(2v_i) one quarter each; the exact post-update relation u_i·X_n=ε_(i,n) then forces different conditional laws at even and odd times. For the repair, choose row tangents w_i. Each switch contracts tangent magnitude by c, repeats preserve it, and the expected squared multiplicative weight per transition is bounded by θ=1−(1−c²)min(α,β)<1. Conditional centering/independence remove cross terms in the backward sum, whose jth squared contribution for j≥1 is bounded by max(v_i)θ^(j−1); this proves finite second moments and existence with stationary driving laws. Coupling invariant laws at the same row phase and using infinitely many switches proves uniqueness, including at alternation. Reversal equals forward transitions in the stationary two-state chain; conditional tangent moments obey q₁=c²q₂+(1−c²)v₂ and q₂=c²q₁+(1−c²)v₁, which give the stated affine trace risk. The polarized row-energy transfer for synchronized differences has diagonal entries 1−α,1−β and off-diagonal entries βc²,αc²; its positive left Perron vector compares the total energy to exact powers of its Perron root even at period two. For fixed p this root strictly decreases with k=α+β, forcing k=1/max(p,1−p) for best contraction. With z=|2p−1| the positive-root quadratic is (1+z)L²−2zL−c⁴(1−z)=0; L increases strictly from c² to 1, so inversion gives z_r. The affine risk forces the maximal feasible preference for the lower-noise row and, when variances differ, a unique saturated transition pair. Equal variances make every feasible policy optimal, with only alternation at r=c² and infinitely many policies for c²<r<1. At r≥1 the unequal-variance optimum is an unattained infimum because both frequencies must stay positive; the equal-variance risk is attained everywhere. Direct substitution in the given c=3/5 example yields risk 313/68 and rates (25+2√217)/75 and (25+√217)/50. The nested verifier and output were inspected, not executed. Its covariance and transfer identities are exact rational checks; spectral comparisons use floats and do not certify optimizer multiplicity. The analytic argument establishes the repaired boundaries.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Patel–Jahangoshahi–Maldonado analyze convergence for consistent systems including adaptive selections. Bergou et al. bound error for a doubly perturbed linear system; Wang–Agaskar–Lu lift covariance for a fixed measurement-noise vector. Indexed two-state switching work uses conditional moments for a bilinear model."
+        ],
+        "reasoning": "Neither a consistent noiseless sketching analysis nor fixed measurement noise across visits covers independent fresh innovations under a variable exogenous policy. Generic conditional moment equations are applicable machinery; they do not directly assert the cancellation, saturation optimizer, or rate-cap frontier.",
+        "searches": [
+          "arXiv:1904.11919 §4.5.1, Eq. (99) and Definition 1",
+          "arXiv:2308.16904 Theorem 3.1; arXiv:1502.00190 §II.B",
+          "Resultary: Markov-switching moment stability"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verification/verify_markov.py and verification/verify_output.txt; repaired RESULT.md",
+        "Resultary records bb27287bed96, 525a6be445a9 and d5d179aa191c",
+        "arXiv:1904.11919, 2308.16904 and 1502.00190"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At p fixed, the reversible row-conditional moment equations allow the two switch probabilities to cancel from the invariant variance but not from the homogeneous rate matrix. The prior cyclic refresh optimization fixes α=β=1; the iid case fixes α+β=1; the fixed-noise paper uses a persistent η vector rather than fresh draws."
+        ],
+        "reasoning": "Knowing the risks of special policies does not imply the same risk for other policies; a lift must be reduced to the row-conditioned equations. Nor can either known policy produce the best rate generally at the optimal frequency: the feasible intensity bound forces one transition to saturate, then inversion of the best-rate curve yields the exact joint frontier.",
+        "searches": [
+          "bb27287bed96 and 525a6be445a9 RESULT.md, Finding and assumptions",
+          "arXiv:1502.00190 PDF offsets 13600–17843; arXiv:1904.11919 PDF offsets 119100–124569"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cyclic refresh record gives the after-row-2 risk v₂+(v₁+c²v₂)/(1+c²) for full refresh, matching the alternating row-2 conditional risk. Its row-swapped formula gives the other phase, and their mixture is v₁+v₂. The iid Gaussian record has the same projection and noise-injection form with independent row choices."
+        ],
+        "reasoning": "The cyclic law is one transition policy and its risks condition on sweep phase; iid picks correspond to α+β=1 and do not describe variation of persistence at fixed p. A refresh probability concerns reuse of a noisy observation, not transition to a different row.",
+        "searches": [
+          "Resultary: two-row noisy Kaczmarz, stationary covariance, Markov persistence and optimal refresh allocation",
+          "Primary search: exact mean square error two equation Kaczmarz Markov chain row sampling stationary fresh noise optimal transition matrix cycle same risk Agaskar Wang Lu exact MSE primary paper"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed cyclic formula provides the fully refreshed endpoint and an optimum for a different budget, and the same-day iid result gives structural covariance relations for a family without persistence. The frozen target self-match is not independent evidence. Lawful full-copy attempts for the 2014 paper did not retrieve readable text."
+        ],
+        "reasoning": "The already available exact special-policy values are credited. The inspected statements do not tabulate the rate-cap inverse z_r or the entire Markov-feasible frequency region. No claim about the full inaccessible 2014 document or same-day priority is made.",
+        "searches": [
+          "Resultary: exact two-row rate-noise frontier, exact noisy cyclic Kaczmarz and fresh-noise stationary tables",
+          "2014 Exact MSE analysis and optimal sampling probabilities, Harvard/CORE lawful copies"
+        ]
+      },
+      "rationale": "The supported distinct content is the persistence invariance across the full stationary two-state fresh-noise family together with the resulting sharp rate-cap frontier over actual transition probabilities. Credit the standard moment lift/Perron-root method, exact iid MSE literature, and the known fully refreshed alternating endpoint. The closest inspected iid and cyclic results cover special observation or selection policies, not arbitrary persistence or this constrained optimization.",
+      "residual_risks": [
+        "Full 2014 Agaskar–Wang–Lu text uninspected despite lawful alternate-copy attempts. A broader Markov sampling or jump-linear optimization theorem might have an equivalent specialization; priority is bounded to the compared results. Same-day precedence is not inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers fully refreshed alternating phase risk; optimizes a different policy variable",
+          "evidence": "Setting each refresh probability to 1 gives the reviewed risk conditional on ending a full sweep at row 2. Row order stays fixed.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-noise-memory-risk-and-optimal-refresh-allocation-for-two-r--bb27287bed96",
+          "material_read": "Finding, assumptions and tangent reduction, mirror offsets 0–4177",
+          "method": "Indexed local mirror",
+          "title": "Exact noise-memory risk and optimal refresh allocation for two-row cyclic Kaczmarz",
+          "trigger": "Exact two-row noise risk and policy optimization"
+        },
+        {
+          "assessment": "Related stationary covariance for iid choices and Gaussian innovations; not a Markov transition result",
+          "evidence": "The assumptions require iid row selection, and the conditional covariance in the finding is P_i S P_i+s_i u_i u_iᵀ. No priority inferred from date.",
+          "identifier_or_url": "2026/11/8/SCOPE-gaussianity-is-exactly-a-nonorthogonality-graph-compatibility-co--525a6be445a9",
+          "material_read": "Finding, scope and existence proof, mirror offsets 0–4125",
+          "method": "Indexed local mirror",
+          "title": "Gaussianity is exactly a nonorthogonality-graph compatibility condition for noisy randomized Kaczmarz",
+          "trigger": "Same-day fresh-noise stationary projections"
+        },
+        {
+          "assessment": "Method-level overlap, distinct dynamics",
+          "evidence": "Two-state sign-switching bilinear model rather than noisy projection, with no Kaczmarz sampling frontier.",
+          "identifier_or_url": "2026/11/2 Resultary record d5d179aa191c",
+          "material_read": "Finding, offset 0",
+          "method": "Indexed local mirror",
+          "title": "Exact moment stability thresholds for Markov-switching bilinear games",
+          "trigger": "Similar finite-state moment reduction"
+        },
+        {
+          "assessment": "Applicable convergence context, not an exact stationary fresh-noise frontier",
+          "evidence": "The adaptive rule uses iterates in a consistent linear problem; its Markovian definition concerns history dependence of the sampling rule.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.11919",
+          "material_read": "Introduction p. 2; §4.5.1 Eq. (99), Definitions 1–2, offset 119100–124569",
+          "method": "Primary full text",
+          "title": "An Implicit Representation and Iterative Solution of Randomly Sketched Linear Systems",
+          "trigger": "Dependent or Markovian sampling of linear equations"
+        },
+        {
+          "assessment": "Different noise model despite a closely related update",
+          "evidence": "Eq. (6) uses η_i from a fixed measurement noise vector; the lifting is over algorithm randomness given η, not fresh centered innovations per visit.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.00190",
+          "material_read": "§II.A–B, PDF offsets 13600–17843",
+          "method": "Primary full text",
+          "title": "Randomized Kaczmarz Algorithm for Inconsistent Linear Systems: An Exact MSE Analysis",
+          "trigger": "Exact noisy Kaczmarz mean square and same authors as iid optimization work"
+        },
+        {
+          "assessment": "Different noise model and bound, not an equality/frontier",
+          "evidence": "The theorem gives a geometric upper bound plus a floor from fixed perturbations E, ε to the system matrix and right-hand side.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.16904",
+          "material_read": "Theorem 3.1, PDF offsets 23180–26773",
+          "method": "Primary full text",
+          "title": "A Note on Randomized Kaczmarz Algorithm for Solving Doubly-Noisy Linear Systems",
+          "trigger": "Noisy convergence and numerical error floor"
+        },
+        {
+          "assessment": "Unresolved beyond available evidence; absence not inferred",
+          "evidence": "Harvard returned 429 for the identified download and CORE 403. The comparison uses readable exact-MSE and fixed-noise sources in addition, not a whole-paper inference from a snippet.",
+          "identifier_or_url": "https://dash.harvard.edu/entities/publication/73120379-2750-6bd4-e053-0100007fdf3b",
+          "material_read": "Bibliographic and search information only; paper full text unavailable in attempted copies",
+          "method": "Identified Harvard download and CORE PDF lawful OA attempts",
+          "title": "Randomized Kaczmarz Algorithms: Exact MSE Analysis and Optimal Sampling Probabilities",
+          "trigger": "Exact rate and sampling-probability optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two-row planar system is the smallest nontrivial setting for persistent selection of nonorthogonal measurement rows. The result distinguishes holding the noise floor fixed while improving rate from biasing the policy toward the better measurement and paying a rate penalty. It gives the switching rule and its exact attainable performance, not merely a generic moment criterion or the known alternating example. Correcting the equal-noise endpoint matters for interpretation of the unique fastest policy.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The zero-gain map reduces to a constant symmetric coordinate and an explicit two-variable sine-charge recurrence. The charge increment over two steps forces opposite difference phases. All permitted phases are two complete translated sine-root lattices; the derivative products give exact multipliers, not a numerical approximation. This yields an exhaustive hyperbolic-sink staircase and its sharp asymptotic. For each finite set of strict sinks, smooth implicit continuation gives a common positive input interval. The packaged checker verifies symbolic block multiplication and examples of positive-gain continuation. Critical endpoint cycles and the full positive-gain census are not proved.
+PASS
 
-## Originality — PASS within inspected evidence
+At μ=0 the mean resets to C and in (d,z) the exact map is (K sin(z)d,z+d), K=2h. Full real periodicity forces d_1=-d_0; d_0=0 gives no primitive two-cycle, and otherwise both charges satisfy sin(z)=-1/K. This proves nonexistence below K=1; at K=1 charges differ by a nonzero multiple of 2π and the step block squares to the identity. For K>1 any two distinct admissible charges give a cycle, with exchange of the two phases not producing a new orbit. The two-step block is the product of [[-1,q_j],[1,1]], with q_j=K d_j cos(z_j). Same-class gives q_1=-q_0 and eigenvalues 1±q_0, one of modulus >1. Opposite-class gives q_1=q_0 and a scalar return (1+q_0)I. Normalizing the first phase to the +θ charge by translation gives signed displacement -2θ+2πj; only j≤0 can give a sink, exactly when 0<ρ(θ+π(-j))<1. The remaining full-space multiplier is zero. Counting nonnegative integers strictly below the cutoff gives the ceiling, including omission of equality where a multiplier is -1. Both factors of the stability product are increasing in h, and at h=1 even the n=0 product is π/√3>1. Since ρ∼2√(h-1/2) and θ=arctan ρ, the claimed divergence follows. For a finite selected set of sinks the log stays away from zero on open neighborhoods of μ=0 and both orbit phases, sufficient for a local two-sided IFT even though a globally defined map for negative μ is unnecessary. D(F²-Id) is invertible, and continuity preserves strict stability, distinct phases, and inequivalence (choose disjoint neighborhoods of the distinct nonzero absolute charge displacements). Local contraction in a suitable equivalent norm gives an open basin. Take the minimum of the finite continuation radii. These are proof checks, not a re-execution of the frozen numerical diagnostic.
 
-The closest full primary text is Peng et al. (2024), https://doi.org/10.3390/sym16080990 , Equation (3), Sections 2–4. It reports numerical bifurcations, coexistence and basins, but not the exact charge-root two-cycle census, multiplier formula, sink staircase, inverse-square-root count or existence of arbitrary finite sink multiplicity for strictly positive gain. A related 2024 two-dimensional sine–arcsine memristor paper (https://doi.org/10.1142/S0218127424501244) and the original one-dimensional amplifier (https://doi.org/10.1016/j.ins.2021.02.022) use different state structures. Relevant indexed claims concern other sine-memory maps, equilibrium lines of this map at large amplification, or a critical trajectory at the coupling boundary; they do not imply this statement. Unindexed equivalent results remain a priority risk; the related papers were not fully inspected.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The object is a published three-dimensional memory map studied for multistability. A full and exact phase-lattice census of its attracting two-cycles is meaningful because ordinary numerical phase portraits do not distinguish an unbounded multiplicity of strict local sinks from neutral or repelling recurrent trajectories. The explicit count diverges at a natural coupling threshold, and persistence converts the boundary calculation into a rigorous statement about strictly positive gain in the original family. No claim of cryptographic security, physical basin size, or global ergodicity is made.
+The governing equation and claims of multistability are prior. The covered distinction is the exact primitive-two hyperbolic sink count and its divergent asymptotic for this specific map, plus the simultaneous continuation of any finite number to small positive gain. The continuation theorem itself is standard. The closest separate findings study different cycles, parameter limits or maps.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The natural multistability question becomes a complete count for a defined orbit type, with an exact boundary scaling and a theorem of arbitrarily many simultaneous open-basin sinks at small positive gain. It distinguishes strict attraction from repelling or neutral recurrence without relying on basin plots, and makes no claim about global basin sizes, all gains, or nonlinear endpoint stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:46:33.842451Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With r=B/T the area element is T^2 r dr dθ. At fixed area subtract the common threshold q/T on the symmetric difference: the loss away from the strict superlevel region is strictly positive except on a null level set. The area of the bounded Jordan superlevel region decreases continuously from infinity to zero; differentiation gives H'(A)=q/T. Near the constrained maximizer the normalized density drop is 2 tanh(ρ)(r−ρ)+2(θ−π/4)^2 to leading order. For threshold q=sech²(ρ)(1−η) the limiting parabolic strip gives A/T² ~ sqrt(2)ρ η^(3/2)/(3 tanh ρ); integrating the marginal deficit gives the stated A^(5/3) coefficient. At the opposite end, the angular log-sine moments give A/T²=(π/16)(log(1/q)+log 2)^2+π³/192−πρ²/4+o(1); the endpoints can be bounded in layers of width O(sqrt(q)), with integrated quadratic logarithmic factors tending to zero. Thus q(A)~2 exp(−4 sqrt(A)/(sqrt(π)T)); integrating the marginal yields exactly the stated sqrt(πA) prefactor. The total flux follows by the radial primitive G with G(∞)=log 2. These limits hold at fixed T and positive ρ, not uniformly in the cutoff. The source Python checker was inspected, not executed; the prose report of 114 assertions has no attached output and is not the basis of the analytic verification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Caselli et al., Eqs. (14)–(15) in arXiv:2610.09062, give curvature flux, designated contours and the unrestricted-quadrant limit.",
+          "Caselli et al., Secs. 3.4–3.5 and Eqs. (49)–(52) in arXiv:2511.16591, give entropy bounds and the full-cycle bound N_q k_B T log 2."
+        ],
+        "reasoning": "Neither a general bound nor a formula for designated loops resolves attainment and the rates of approach under a fixed field-area budget.",
+        "searches": [
+          "arXiv:2610.09062",
+          "arXiv:2511.16591"
+        ]
+      },
+      "checked_sources": [
+        "Resultary catalogue",
+        "arXiv:2610.09062",
+        "arXiv:2109.12648",
+        "arXiv:2511.16591",
+        "arXiv:2106.14687"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known curvature makes the bathtub characterization immediate, and integrating it gives the limiting flux. The local boundary scaling and angular logarithmic correction to the large-area inversion require separate analyses not supplied by these results."
+        ],
+        "reasoning": "Credit the input curvature, standard optimization and Landauer cap. The specific evaluated cusp and tail, in combination with the exact area envelope, are not substitutions into the cited prior statements.",
+        "searches": [
+          "arXiv:2610.09062, Eqs. (14)–(15)",
+          "arXiv:2109.12648, Secs. V–VI",
+          "arXiv:2511.16591, Eqs. (49)–(52)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Terren Alonso et al., Sec. V, Eqs. (29)–(31), optimize area-to-thermodynamic-length ratios; Sec. VI introduces coupling asymmetry in that setup.",
+          "Wang et al., Eqs. (11)–(12), give the general curvature-area representation of pumping."
+        ],
+        "reasoning": "Writing the problem as a superlevel quantile or bathtub problem gives the standard optimization mechanism, not the evaluated qubit-specific asymptotics. A length penalty in a thermodynamic metric does not impose fixed ordinary field area.",
+        "searches": [
+          "arXiv:2109.12648",
+          "arXiv:2106.14687"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct Resultary finding with materially equivalent envelope or asymptotics surfaced in the targeted catalogue search. The literature hits led to the curvature and Landauer passages identified here."
+        ],
+        "reasoning": "The bounded exact/semantic check found no matching tabulation of the constrained optimum or the two sharp asymptotics. Absence from search results alone does not establish priority.",
+        "searches": [
+          "Resultary: Sharp field-area pumping envelope and its fractional-power cusp",
+          "Resultary: distinctive A^(5/3) cusp and stretched-exponential Euclidean area deficit",
+          "Primary-literature search: qubit curvature, fixed field area and Landauer flux"
+        ]
+      },
+      "rationale": "The curvature, full-quadrant Landauer limit and threshold rearrangement are not new. The distinct claim supported by bounded source comparisons is the sharp fixed-Euclidean-area envelope including the positive-gap cusp coefficient and the gap-independent leading large-area deficit.",
+      "residual_risks": [
+        "A differently parameterized computation of this exact weighted field-area distribution could evade targeted searches; literature-wide priority is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers response and unrestricted limit; no equivalent constrained envelope in the relevant passages",
+          "evidence": [
+            "Area flux is evaluated on specified drive contours; the unrestricted-quadrant limit is T log 2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.09062",
+          "material_read": "Eqs. (14)–(15) and following discussion; OA text offsets 18400–24781",
+          "method": "Bounded OA primary-text inspection",
+          "title": "Geometric heat pumping on a quantum processor",
+          "trigger": "Identical qubit response and closest candidate for same area objective"
+        },
+        {
+          "assessment": "Different objective and coupling setup",
+          "evidence": [
+            "Area squared divided by squared thermodynamic length; coupling asymmetry is introduced in Sec. VI."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2109.12648",
+          "material_read": "Abstract and Secs. V–VI including Eqs. (29)–(31); OA text offsets 0 and 28900–33163",
+          "method": "Bounded OA primary-text inspection",
+          "title": "Geometric optimization of non-equilibrium adiabatic thermal machines and implementation in a qubit system",
+          "trigger": "Isoperimetric optimization in a qubit thermal machine"
+        },
+        {
+          "assessment": "Bounds full-cycle heat; no ordinary field-area tradeoff in those results",
+          "evidence": [
+            "Noninteracting full-cycle bound N_q k_B T log 2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2511.16591",
+          "material_read": "Secs. 3.4–3.5, Eqs. (49)–(52); OA text offsets 39400–44599",
+          "method": "Bounded OA primary-text inspection",
+          "title": "Lindbladian approach for many-qubit thermal machines: enhancing the performance with geometric heat pumping by interaction",
+          "trigger": "Potential more general heat bound"
+        },
+        {
+          "assessment": "General framework, not the stated constrained optimization",
+          "evidence": [
+            "Connection and curvature integrated over parameter area, illustrated for molecular-junction temperature parameters."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.14687",
+          "material_read": "Eqs. (11)–(12) and surrounding example; OA text offsets 26800–30811",
+          "method": "Bounded OA primary-text inspection",
+          "title": "Geometric-pumping review by Wang et al.",
+          "trigger": "Equivalent geometric curvature-area formulations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the specified slow qubit pump, an ordinary control-area budget selects an actual unique contour. The fractional correction quantifies the effect of a positive-gap boundary maximum, and the large-budget law determines how rapidly a finite contour can approach its available flux. These evaluated sharp laws add information beyond the generic rearrangement or an unconstrained cap. They do not predict finite-speed performance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,13 +1,21 @@
-# Scientific review of a single-edge pair-Kneser collapse
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof reduces every extra simplex to one uniquely labeled five-element support and checks a complete twelve-pair elementary collapse there. Since fibers have no cross-support cofaces, the local pairs lift to all orders. The code independently regenerates the face conditions and replays the complete local certificate at three sizes; the unrestricted theorem uses the proved reduction, not a numeric extrapolation. The natural inclusion is therefore a simple-homotopy equivalence, providing integral homology isomorphisms without coefficient restrictions.
+## correctness
 
-**Originality: PASS, within inspected literature.** Deshpande–Singh supply the two-independence framework, while Brešar–Dravec determine the intact pair-Kneser dissociation number. The closest published pair-Kneser homotopy and dissociation-polynomial records give the intact homotopy type, integral module, and intact face counts. Neither supplies a one-edge-deletion relative simple-homotopy result. Searches for equivalent formulations, larger covering theorems and exact fault tables produced no statement that implies the twelve-pair local collapse. Unknown or unindexed equivalent literature remains possible.
+PASS
 
-**Value: PASS.** Each edge fault adds an unbounded linear number of faces to a nontrivial high-dimensional simplicial complex, yet their exact relative collapses preserve all existing topology through the natural map. The all-order simple-homotopy mechanism is stronger than a one-graph homology calculation and directly addresses stability of induced-P3-free simplicial constructions under small graph perturbations.
+Normalize the deleted graph edge to 01--23 by permuting the ground labels. Each new face contains both endpoints and a third selected pair disjoint from one endpoint. A selected pair disjoint from both would already have degree two in the faulted graph. Hence an external label occurs, and each pair containing an external label contains exactly one of them. Two such pairs with distinct external labels either give the same fixed endpoint two neighbors, or are disjoint from one another and each already has a fixed neighbor. Thus all new faces use exactly one external label. Independently enumerating all 1024 subsets of the ten pair vertices on five ground labels gives 261 intact and 285 faulted faces including the empty face; the extras by size are 4,12,8. Each of the twelve table rows has precisely its stated strict coface after earlier removals. Downward closure rules out intact cofaces of a new face and support uniqueness rules out cofaces in any other block. This proves the exact relative collapse and counts for all n>=5, not just the local case. The intact three-skeleton equivalence supplies the credited sphere-wedge corollary.
 
-**Closest prior work.** The complete family homotopy theorem identifies the intact complex with a simplex three-skeleton, and a later enumerator classifies intact dissociation faces. A known graph-theoretic maximum-dissociation bound uses four-ground-label containment for the intact case. The new faulted faces necessarily use five ground labels, so these results do not themselves determine the inclusion after a fault.
+## originality
 
-**Limits.** One deleted graph edge, two-element Kneser vertices, higher-independence parameter two, and integer simplicial collapse only; no multiple-edge-fault, higher-Kneser-rank, or equivariant-collapse generality is claimed. No independent external validation is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The supported distinct claim is the single-graph-edge relative collapse and its exact relative face count. The intact homotopy classification and intact structural results are prior coverage and receive no novelty credit. No distinct equivalent collapse was found in the inspected sources.
+
+## value
+
+PASS
+
+The exact relative collapse answers a natural stability question for an established complex. It determines the map of interest, not just the agreement of two abstract homotopy types. The five-label localization explains why an edge fault can create linearly many faces without altering the simple-homotopy type and gives a reusable local certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

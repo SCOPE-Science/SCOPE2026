@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T18:08:39.947164Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen mathematical theorem is correct. In the Alexander dual all sets of size at most four are faces; a five-set is a face exactly when connected; deleting any vertex of a six-face leaves it connected, so minimum degree two and girth force a chordless six-cycle. Distinct hexagons cannot share a five-set (its endpoints and the two completing vertices would form a four-cycle), ruling out any seven-face. For a disconnected four-set F, two different connectors meet every component; joining the two neighbor pairs by paths in two components makes a simple cycle on at most six vertices. It must use all six, and a third connector would create two hexagons sharing five vertices. A nonhexagonal five-tree therefore has a private four-face by deleting a nonleaf. In each hexagon, collapse a root five-set with the hexagon, then pair each remaining five-set with a disconnected four-set indexed by its parent edge in a spanning tree of the complement cycle. At deletion only the child five-set is a live coface, and the extension lemma prevents interference even for overlapping hexagons. The residual at-most-three-dimensional complex is 2-connected by the full original three-skeleton and collapse. Its top homology is free as a subgroup of a free chain group with no incoming boundary. Hurewicz and Whitehead give the dual wedge. Integral combinatorial Alexander duality transfers the concentrated homology and the known complete two-skeleton for n>=10 permits the analogous homotopy upgrade on the original side. Independent replay at /workspace/branches/6411850d-4c29-467e-b38d-85e90dc8be4e/finite_reproduction.py checked live cofaces and exact counts on eight graphs: e.g. (c_5,h_6,B)=(24,3,105) for the overlapping theta graph, (252,28,491),(288,24,1101),(324,18,2074) for Heawood, Möbius–Kantor and Pappus. Direct mod-two Betti numbers for the first five examples match, which does not establish integral torsion-freeness. The frozen scripts were inspected, not executed. The repaired proof retains the verified construction and accurately separates the prior face/Euler inputs from the homotopy conclusion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prop. 2.18 already treats all cut parameters at girth k+1 for face lattices and Euler characteristics. The high-girth wedge theorem ec8bbe3d352b requires girth >=k+2, leaving out the hexagonal case for k=5. The pentagonal wedge result 94b36fd5471f concerns k=4, and similarly a7f6664548df treats four-cut homology."
+        ],
+        "reasoning": "The narrowed contribution is in the precise region not reached by the inspected wedge statements. The prior general face description is essential background, not a general theorem about the final homotopy type.",
+        "searches": [
+          "Bayer et al., Topology of Cut Complexes II, Thm. 2.16 and Props. 2.17–2.18",
+          "Resultary: high-girth ordinary cut complexes; pentagonal boundary four-cut homotopy theorem"
+        ]
+      },
+      "checked_sources": [
+        "Bayer et al., arXiv:2407.08158v1, Propositions 2.17–2.18",
+        "Resultary ec8bbe3d352b, 94b36fd5471f, a7f6664548df and individual Heawood/Pappus records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier complete codimension-two skeleton does not determine the two remaining possible homology degrees. Adding hexagons at the boundary removes the single-private-face premise for certain connected five-sets. The new local restriction identifies exactly which four-faces can have two extensions and enables their tree-scheduled use."
+        ],
+        "reasoning": "The repaired wedge is not an inference from the signed count, nor a parameter substitution into the higher-girth theorem. The indexed pentagon case is a close methodological precedent but does not give the k=5 assertion as stated. Exact overlap with adjacent full proofs could not be ruled out beyond the material inspected.",
+        "searches": [
+          "Bayer et al. Prop. 2.18 and proof; Resultary high-girth private-face theorem and overlapping-pentagon classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complementation identifies the sequel's missing faces arising from Z_5 and Y_6 with the extra four- and five-simplices of the dual. The known reduced Euler characteristic of the original complex is (-1)^(n-6)[choose(n-1,4)-c_5+h_6]."
+        ],
+        "reasoning": "Passing to the Alexander dual does not make the face classification or Euler correction new, and combinatorial Alexander duality alone only controls homology. The repaired claim establishes two actual homotopy equivalences by a collapse and connectivity.",
+        "searches": [
+          "Bayer et al., arXiv:2407.08158v1, Propositions 2.17–2.18 and Eq. (4)",
+          "Resultary: girth six five cut complex hexagon girth k+1 ordinary cut multiset collapsible Alexander dual wedge of spheres Euler characteristic Bayer graph five cut theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed exact integral wedges with 491 and 2074 spheres respectively are earlier results for these two individual graphs. Eq. (4) already gives the general exact signed Euler count. The same-title entry is the frozen target."
+        ],
+        "reasoning": "Known point values and the general signed Euler number are not new, nor do they assert the family-wide collapse, freeness, or absence of lower homology.",
+        "searches": [
+          "Resultary girth-six query above; Heawood five-cut 353502260043 and Pappus five-cut 1b9ce34e6c8b",
+          "Bayer et al. Eq. (4) at k=5"
+        ]
+      },
+      "rationale": "PASS for the repaired claim only. The frozen title and comparison place novelty on the uniform hexagon correction and miss directly covering propositions in the cited sequel. The repaired package names the known face lattice and signed Euler formula, including the +h_6 term without a disjointness hypothesis, as prior. It attributes novelty only to the explicit noninterfering dual collapse and the full integral homotopy types at the hexagonal boundary, beyond the prior face or Euler result and the known individual wedges.",
+      "residual_risks": [
+        "The external graph literature lookup reported provider unavailability and supplies no negative priority evidence. The decisive sequel was read directly.",
+        "Close corpus comparisons were at indexed statement level. In particular the full pentagonal wedge proof was not available; a generalization stated in uninspected material would bear on priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact face lattice and Euler coverage including overlapping hexagons, but those propositions do not prove the repaired collapse or wedge",
+          "evidence": [
+            "Prop. 2.18 assumes girth k+1 and invokes (4); no cycle-disjointness condition"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2407.08158v1",
+          "material_read": "Theorem 2.16, Propositions 2.17–2.18 and their proofs, Eq. (4)",
+          "method": "Primary full text; set k=5 and identify its two deleted face families on the original and dual sides",
+          "title": "Topology of Cut Complexes II",
+          "trigger": "Identical boundary-girth family and a potential stronger general Euler/face result"
+        },
+        {
+          "assessment": "Exact overlap in the no-hexagon k=5 subfamily and private-face method, not at actual girth six",
+          "evidence": [
+            "Girth >= k+2 is required"
+          ],
+          "identifier_or_url": "ec8bbe3d352b",
+          "material_read": "Indexed mathematical statement only",
+          "method": "Resultary claim and girth comparison",
+          "title": "High-girth cut complexes are wedges of top-dimensional spheres",
+          "trigger": "Potentially covering general theorem on ordinary cut-complex wedge types"
+        },
+        {
+          "assessment": "Closest prior boundary technique risk, but indexed statement has k=4, not k=5",
+          "evidence": [
+            "Ordinary four-cut complexes at girth >=5; lifts the known pentagon Euler correction"
+          ],
+          "identifier_or_url": "94b36fd5471f",
+          "material_read": "Indexed mathematical statement only; public full text could not be read",
+          "method": "Resultary and attempted lawful full-text access for that same record",
+          "title": "Homotopy classification of four-cut complexes at the pentagonal girth boundary",
+          "trigger": "Parallel wedge theorem permitting overlapping boundary cycles"
+        },
+        {
+          "assessment": "Exact overlap on two individual graphs, with no observed general collapse in these statements",
+          "evidence": [
+            "Wedge of 491 eight-spheres; wedge of 2074 twelve-spheres"
+          ],
+          "identifier_or_url": "353502260043; 1b9ce34e6c8b",
+          "material_read": "Indexed mathematical statements only",
+          "method": "Resultary and comparison of graph families and ranks",
+          "title": "Heawood and Pappus five-cut homotopy classifications",
+          "trigger": "Exact prior special cases at girth six"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired theorem fills a natural first girth boundary of the prior wedge classification. It proves integral homology concentration and an explicit uniform collapse that is robust to intersecting hexagons, followed by genuine homotopy equivalences on both sides of duality. This goes beyond previously computable Euler data and individual graph cases, without relying on unsupported shellability or on mod-two observations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result uses normalized Haar \(L^2\), the complex weighted Fourier \(\ell^1\) ball, and arbitrary positive anisotropic smoothness exponents. Finite-subgroup character orthogonality turns zero samples into one zero-sum condition per frequency alias class. The proof gives the exact inequality \(\|b\|_2\le\sqrt2\sum_kw_k|b_k|/(u+v)\) for each class, with all equality cases, and shows an extremizer must live in one class. Product weights reduce the global minimizing pair to one coordinate axis. Discrete convexity/concavity proves the smoothness-one transition; the explicit two-tone witnesses give attainment. Separate convexity and triangle-inequality arguments establish the maximum same-data diameter and nonlinear reconstruction obstruction. The comparison to optimized sampling uses a stated published theorem, not an experimental estimate.
+PASS
 
-The standalone script `verify_alias_wiener.py` passed 9,029 finite assertions, including direct frequency-pair minimizations, exact-on-grid witnesses, multiblock tests, and selected 2D enumerations. These supplement rather than replace the analytic infinite-dimensional reasoning.
+Absolute coefficient summability justifies finite-group Fourier inversion at the sampling nodes. The translate only changes coefficient phases; invisibility is exactly a zero sum in each annihilator class. For a class with total coefficient mass L, zero sum gives each magnitude at most L/2. If u and v are the two lowest weights, at most L/2 mass can benefit from the smallest weight u, so class cost is at least (u+v)L/2 and squared L2 mass is at most L^2/2. Equality in the latter requires exactly two equal nonzero magnitudes, and then the former requires exactly a pair of least total weight, with opposite adjusted phases. Across classes the sum of squared costs is at most the square of total cost, strictly so for multiple active classes. Proper weights ensure an attained minimum; a pair witness of cost one proves sharpness. For a differing coordinate of a rectangular-grid alias pair, |k_j|+|ell_j| >= |k_j-ell_j| >= m_j, so one can choose nonnegative integers a and m_j-a no larger than those magnitudes. Strictly increasing factors force equality only when the pair already straddles zero at separation m_j, and every transverse coordinate vanishes on both frequencies. Concavity, linearity, or convexity of the one-coordinate cost gives exactly the listed endpoints, all integers, or the central integer(s), respectively, with the lists coinciding when m=1. Rescaling differences by two proves the diameter and ± extremizers give the recovery lower bound. The one-dimensional constants follow from F_m directly. Moeller's Theorem 7.4 with d=1, theta=1 and q=2 has r>0 and gives the asserted log-power upper bound for arbitrary optimized locations, hence the fixed-grid loss lower bound of order m^(1/2)/(log m)^(3r+3/2).
 
-## Originality — PASS, qualified
+## originality
 
-Relevant published primary materials were inspected: Moeller (2026) Sections 1–3, 6–7; Moeller–Stasyuk–Ullrich (2026) Section 6 and theorem statements; Kolomoitsev–Lomako–Tikhonov (2023) Sections 1, 5, 6 and examples. The first two quantify optimal sampling widths rather than fixed-grid nullspace radii. The 2023 grid study proves asymptotic errors of specified interpolation and quasi-interpolation operators, not the exact extremal zero-sample two-mode theorem. Searches of published mathematical records for the exact alias-pair invariant, smoothness-one phase transition, and Fourier \(\ell^1\) nullspace bounds returned related Fourier sampling spectra and bandlimited sampling-distortion records but not a statement implying this one. The inspected published sources and mathematical research records provided no duplicate of the exact fixed-grid statement. Standard Fourier aliasing and weighted convexity are acknowledged ingredients, and hidden equivalent statements in earlier literature remain a risk. No independent originality certification is claimed.
+PASS
 
-## Mathematical value — PASS
+On the inspected evidence the fixed-grid sharp nullspace radius and full extremizer and transition description are distinct from optimized sampling-width bounds, sparse-grid approximation estimates and mode transitions in other spaces. Fourier inversion and elementary discrete convexity are credited ingredients, and the faster optimized-sampling bound is prior work, not claimed here.
 
-This gives a sharp all-grid-size, all-positive-smoothness formula for a canonical radius of information, complete extremizer rigidity, a critical change of the minimizing alias geometry at smoothness one, and an exact tensor-product reduction in all finite dimensions. It immediately yields the maximum diameter of observationally indistinguishable unit-ball functions. Combined with the explicitly cited optimized-width theorem, it proves a polynomial inefficiency of equally spaced sampling that persists even if nonlinear recovery is allowed. These consequences motivate the finite invariant beyond mere code reproducibility or a routine normalization check.
+## value
 
-## Limits and closest literature
+PASS
 
-The claim applies to complex Fourier \(\ell^1\) coefficient balls and exact fixed subgroup-grid point observations; it does not determine full grid minimax radii for nonzero observations or real-valued function subclasses. The prior optimized sampling rate is external; no new proof of it is asserted. Classical or unindexed aliases remain a bibliographic uncertainty. No independent validation has occurred.
+The zero-fiber radius is a canonical, algorithm-independent limitation of prescribed grids. The exact sharp constant at every size and the rigidity of its two-frequency witnesses identify which information the design loses, including the change from endpoint to centered aliasing and its coordinatewise role in anisotropy. The exact finite subgroup version and quantitative comparison with optimized point sampling give practical meaning to the invariant beyond a routine aliasing computation.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

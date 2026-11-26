@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:27:23.867914Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed positive rates, clipping and the drift comparison give the invariant interval [0,v/μ]; the stationary law exists there and negative runs long enough to hit zero give coupling. The ideal sign indicator keeps its last nonzero sign through either zero state, is negative half the time by symmetry, and dominates true contact. The mismatch reward starts only at +1→0_j→−1 and stops at contact or the next positive sign. To check the key uniform estimate, from either negative state the reward is O(τ_μ(x)): the uninterrupted contact time is at most τ_μ(x), the probability of an earlier jump is O(τ_μ(x)), and the expected remaining time until a positive state is uniformly bounded by finite-state irreducibility. A first jump to −2 thus contributes O(τ_μ(x)^2). A jump to a zero state of rate ρ contributes its full mean holding time 1/ρ, since x>0 stays positive there; any further negative recovery has conditional mean O(τ_μ(x)ρ/(ρ+2μ)) by exponential distance contraction and log(1+z) comparable to z uniformly on [0,2]. Integrating first-jump times gives the stated Bτ_μ(x)+O(τ_μ(x)/μ), since τ_μ≤log(3)/(2μ). Stationary flux multiplies the ensuing reward by π_+1 q_(+1,0_j) q_(0_j,−1) exp(−ρ_j s) ds. The scaled departure distance relaxes in L1 to 1 during the independent +1 holding period. Changing to u=2μs and dominating by 2exp(−u) gives the factor π²/48. Detailed balance and the jump-rate product sum 3αβ/2 give the claimed positive K, with v canceled by scaling. Independently checked the logarithmic integral by the alternating inverse-square sum and K(1,1)=7π²/512≈0.13493599767; inspected the checker without executing it. Weak convergence from the support bound is not convergence of the atom to mass one.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hahn supplies the exact Q and harmonic clipped flow but solves instantaneous-linear, finite-linear and instantaneous-harmonic steady states. The other models have binary telegraph noises and a signed relative coordinate, a finite-tumble ring lattice, or a general jamming model on a ring."
+        ],
+        "reasoning": "The stationary reduction applies as a framework to the exact setup, but is not a general closed solution. The different propulsion and boundary mechanisms in the other sources do not give a dominating theorem for these fixed rates and a harmonic attraction tending to infinity.",
+        "searches": [
+          "Hahn arXiv:2501.11379, §§1.1–1.2, 2.1",
+          "Le Doussal–Majumdar–Schehr arXiv:2105.11838, §§II, IV.C",
+          "Slowman–Evans–Blythe arXiv:1705.04812, §§1.1–1.2",
+          "Hahn–Guillin–Michel arXiv:2306.00831, introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2501.11379",
+        "arXiv:2105.11838",
+        "arXiv:1705.04812",
+        "arXiv:2306.00831",
+        "2026/11/8/SCOPE-heterogeneous-tumbling-sharpens-the-exponential-binding-length-o--4b3e35d48fc9",
+        "2026/11/8/SCOPE-universal-boundary-atoms-from-vanishingly-rare-long-runs-in-a-ha--7fe426e96818"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published Q and clipped flow imply the scaled support and give the sign symmetry. Hahn's stationary reduction neither computes the short zero-hold flux weighted by the recovery time nor accounts for the additional zero-state reward after a failed contact. The binary signed-coordinate solution has no such exact-contact episode."
+        ],
+        "reasoning": "Neither those routine model consequences nor the exact laws in other regimes mechanically yield the μ^−2 deficit and its rate-dependent constant. The uniform reward estimate and boundary-layer calculation are necessary additional arguments.",
+        "searches": [
+          "Hahn arXiv:2501.11379, six-state generator and unresolved finite-harmonic reduction",
+          "arXiv:2105.11838, harmonic exact solution Eqs. 93–98"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/11/8/SCOPE-heterogeneous-tumbling-sharpens-the-exponential-binding-length-o--4b3e35d48fc9, RESULT.md offsets 0 and 7300: hard-jammed pair with linear attraction and instantaneous heading flips.",
+          "2026/11/8/SCOPE-universal-boundary-atoms-from-vanishingly-rare-long-runs-in-a-ha--7fe426e96818, RESULT.md offset 0: single harmonically confined particle with non-exponential rare long runs and endpoint atoms."
+        ],
+        "reasoning": "Neither a collision atom with four velocity states and a linear potential nor wall atoms of a single particle at the ends of its support recovers the same contact event and two-step six-state crossings. The similar half-mass motif does not establish equivalence.",
+        "searches": [
+          "Resultary: strongly bound harmonic run-and-tumble pair, stationary contact/jamming atom, finite-duration tumbling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact stationary-law catalogue in Hahn §1.2 omits the finite-harmonic case; §2.1 explains the difficulty of its bulk equations. The indexed formulas inspected use different dynamics."
+        ],
+        "reasoning": "The exact object to compare is the rate-dependent contact asymptotic, not merely the standard value of the logarithmic integral or an endpoint atom converging to one half. No retrieved exact formula matches.",
+        "searches": [
+          "Resultary: exact finite-tumble stationary contact mass and harmonic strong-binding correction",
+          "Hahn arXiv:2501.11379, solution list and discussion of the finite-harmonic case"
+        ]
+      },
+      "rationale": "The exact six-state process and harmonic jamming model are prior; the supported distinct result is the exact-contact strong-attraction expansion for this combination. The closest primary source explicitly leaves the finite-tumble harmonic stationary computation outside its solutions. Indexed variants do not provide this coefficient or this rare-switch mechanism for the same chain and force law.",
+      "residual_risks": [
+        "The focused web lookup did not yield material additional literature and is not negative evidence. A differently formulated asymptotic for the same PDMP may exist outside the inspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model antecedent; no coverage of the coefficient shown",
+          "evidence": "Identifies the finite-harmonic reduced equations as challenging; solved cases exclude this pair of interaction and velocity mechanisms.",
+          "identifier_or_url": "https://arxiv.org/abs/2501.11379",
+          "material_read": "§1.1 p. 4 at OA offset 16500, §1.2 p. 5 at 23500, §2.1 p. 7 at 33300",
+          "method": "Checked original generator, clipped drift, solution scope and reduction passages",
+          "title": "Steady state and mixing of two run-and-tumble particles interacting through jamming and attractive forces",
+          "trigger": "Exact same model, possible earlier stationary atom"
+        },
+        {
+          "assessment": "Different PDMP",
+          "evidence": "Signed relative coordinate and independent binary telegraph noises, not clipped six-state dynamics.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.11838",
+          "material_read": "§II p. 4, OA offset 12000; §IV.C p. 17, offset 80600",
+          "method": "Compared original equations and atomic/boundary assumptions",
+          "title": "Stationary nonequilibrium bound state of a pair of run and tumble particles",
+          "trigger": "Exact harmonic two-particle stationary law"
+        },
+        {
+          "assessment": "Lattice precedent, not the harmonic continuum limit",
+          "evidence": "Periodic lattice and jammed-neighbor probabilities.",
+          "identifier_or_url": "https://arxiv.org/abs/1705.04812",
+          "material_read": "§§1.1–1.2, pp. 5–6, OA offset 11800",
+          "method": "Compared original setting and stationary states",
+          "title": "Exact Solution of Two Interacting Run-and-Tumble Random Walkers with Finite Tumble Duration",
+          "trigger": "Exact jammed mass with finite tumbles"
+        },
+        {
+          "assessment": "Relevant general context, no identified harmonic coefficient",
+          "evidence": "Jamming universality on a ring, not the reviewed increasing harmonic binding regime.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.00831",
+          "material_read": "Abstract and introduction, pp. 1–2, OA offsets 1687–2728 and 2500",
+          "method": "Compared setting and type of invariant statement",
+          "title": "Jamming universality classes in run-and-tumble models",
+          "trigger": "General finite-tumble jamming theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact contact is a physically distinguished stationary event not determined by a coarse weak limit. The finite-tumble harmonic model is established and its stationary law difficult; the result nevertheless identifies a precise nontrivial atom, its loss rate and the contribution of aborted contacts in the zero states. A future analysis of the jamming fraction or of strong-binding reductions can use this constant rather than assume all rescaled-zero configurations have jammed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is reduced to independently valued alternating brackets on \((F^2)^t\). The first closed neighborhood is a proper direct sum of lines or planes but contains vectors supported in two distinct factors; centralizers of those vectors span the quotient, proving height exactly two and closed-subspace rigidity. The determinant criterion exactly characterizes loss of a nonzero common perpendicular, and an explicit three-edge walk realizes distance three. The finite-field count is a product of the exact independent-pair counts. These are all-field arguments; the executable finite enumeration is supplementary, not a substitute for them.
+PASS
 
-## Originality — PASS, qualified
+Independence of the central lines gives coordinatewise alternating determinants, also in characteristic two. The first closed-neighborhood subspace is the direct sum of a line in each nonzero coordinate and the full plane in each zero coordinate. Its dimension is at least t, but it is proper, so it strictly enlarges the starting line for t≥2. It contains nonzero vectors supported in two different coordinate planes. Their commuting subspaces together span the quotient, so the next iterate is full, proving uniform height two and, by monotonicity, that only zero and the full space are fixed. A dependent coordinate pair has a common nonzero commuting vector there; if it equals an endpoint the endpoints already commute. For coordinatewise independent pairs no nonzero common perpendicular exists, but the two chosen projections in different factors give a three-edge path. Such pairs exist in every field. Counting an ordered basis independently in each plane gives the stated ordered quotient-vector count. For t=1 the components really are the nonzero parts of lines. Read RESULT.md, VERIFICATION.md and check_rcg.py; reported finite calculations are supplementary, not an all-field proof, and the uploaded script was not rerun.
 
-The first motivating source [1] introduces the height invariant and states the corresponding equality open problem, but does not evaluate the direct sum of three-dimensional Heisenberg examples or their distance-three locus. The earlier diameter paper [2] bounds diameter by three for decomposable algebras, and its exact diameter-two criterion already covers **other** Heisenberg products with higher-rank factors; this covered case is excluded from the new claim. The earlier individual-Heisenberg graph paper [3] determines relevant single-summand cases, not the stated direct-sum criterion or exact all-arity distance-three counts. Claim-level published-record searches did not identify the combined statement. This supports a best-knowledge distinction, not a guarantee against unindexed equivalents.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Open Problem 3 of [1] asks when linear-neighborhood height equals graph diameter. This infinite, canonical nilpotent family displays a sharp and uniform obstruction: height stabilizes in two linear iterations while shortest commutation paths can require three edges. The exact determinant test and ordered-pair census quantify the exceptional metric behavior over every finite field. Its complete LSG-closed-subspace classification identifies the mechanism, rather than merely restating a general diameter upper bound.
+The two-summand diameter-three graph is already known under an equivalent algebra presentation, and the general diameter upper bound is prior. The supported distinct result is the explicit height/closure separation and full distance-three locus and count for the family, not discovery of the product graph or its t=2 diameter. Open Problem 3 concerns equality; the finding illustrates strictness and does not solve that classification.
 
-## Remaining limitations
+## value
 
-The result does not classify arbitrary nilpotent Lie algebras or all LSGs. Calculations cover only specified small prime fields. Independent review and exhaustive historical priority verification have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The useful feature is an exact separation between the graph metric and the linear-neighborhood iteration on a natural direct-sum family. It identifies which pairs need a third step even when every nonzero starting line already spans the quotient after two iterations, and classifies the closed subspaces in all characteristics. The pair census makes the distinction quantitative over finite fields. The prior diameter-three example, by itself, is not the asserted value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

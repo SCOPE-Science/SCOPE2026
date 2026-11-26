@@ -1,0 +1,189 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:52:15.831236Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–85",
+        "Frozen VERIFICATION.md lines 19–23 and check.py lines 19–102 (inspected, not executed): exact mask-state probabilities and finite checks"
+      ],
+      "rationale": "Under fixed i.i.d. edge draws the larger bipartition side receives exactly one ordinary coupon per round. Conditional on the rounds assigned to two coupon classes, averaging their masses cannot reduce the chance of seeing both (including zero or one such round). Iteratively averaging a largest and smallest mass converges to uniform: each averaging decreases squared distance to uniform by half the squared spread. The saturated matching can be extended by one incident edge for each remaining B-vertex, making coverage equivalent to collecting the uniform B-coupons and attaining both the Stirling-number CDF and b H_b, including b=1. For a=b>=2, equality at t=b forces uniform B-marginals by AM–GM. Two B-vertices cannot share a positively supported A-neighbor, since selecting that neighbor for both would miss A with positive probability; b disjoint nonempty supported sets in A are singletons. On C_(2m+1), the complement takes a minimum edge cover bijectively to an m-matching: missing two consecutive edges would leave a vertex uncovered. The unmatched vertex determines the matching of the remaining even path, giving 2m+1 covers and the stated earliest-deadline probabilities. The strict comparison follows from ((2m+1)/(m+1))^m >= (7/4)^m > m+1 for m>=3. If all vertex hazards equal 2/n, consecutive hazard equations force step-two periodic edge weights, hence uniform on an odd cycle. Otherwise a vertex has hazard s<2/n, so (1-s)^t eventually strictly exceeds the uniform failure upper bound n(1-2/n)^t, including s=0. This establishes nonexistence of a universal optimizer, not a uniform-in-p threshold.",
+      "residual_risks": [
+        "No independent execution of the supplied checker; the universal inequalities, characterizations and asymptotic comparison were verified analytically.",
+        "No classification of C_3 or C_5, an adaptive-policy guarantee, or expected-time optimizer on odd cycles is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 7e357d032a8b compares independently uniform packets of possibly unequal sizes at a fixed exposure; packet supports are not graph-restricted.",
+          "Betken and Thäle assume uniform s-subsets when deriving approximations for the count of unseen coupons.",
+          "Berend and Sher give strict improvements in mean for 2<=s<=n-2, not graph-by-graph comparison of CDFs at every deadline."
+        ],
+        "reasoning": "The broader package models do not by themselves give the graph-constrained stochastic comparison: mean improvement does not give eventual ordering against each law or the balanced matching rigidity.",
+        "searches": [
+          "Resultary: deadline-universal stochastic optimum coupon completion all deadlines versus expectation group drawings",
+          "arXiv:2509.17201 Introduction; arXiv:2202.07485 Introduction; doi:10.1016/j.ipl.2021.106112"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 91–106",
+        "arXiv:2509.17201 and arXiv:2202.07485",
+        "Resultary b16d780f0472, dfef11684c0d, 3b831cf98d8f, 33b5829a6717, 7e357d032a8b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For q=3 the projective-plane comparison gives a first-vs-later reversal for two specified mechanisms; it does not quantify over nonuniform laws on one support. The Fano result likewise orders two prescribed sampling mechanisms.",
+          "Ordinary coupon uniform optimality supplies only the projected upper bound. Saturating it with one edge per B, proving matching rigidity, and isolating the uniform law via the odd-cycle hazard equations with a competing minimum cover use graph constraints absent from the inspected results."
+        ],
+        "reasoning": "The distinction is between a crossover/example or a known coupon bound and a classification/nonexistence theorem over all fixed edge laws. No inspected prior statement forces the latter.",
+        "searches": [
+          "Resultary: uniform edge law eventually beats every nonuniform graph coupon distribution earliest deadline edge cover",
+          "arXiv:2509.17201 §1; Resultary dfef11684c0d and 33b5829a6717, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Berend and Sher, arXiv:2509.17201, §1: packages are s-subsets; s=2 contains graph-supported laws as the restriction to a fixed pair family, but the comparison is of expected completion times.",
+          "Resultary b16d780f0472: a fixed probability of selecting a class/source is followed by selecting an uncovered neighbor; this is not sampling an edge independently of coverage history."
+        ],
+        "reasoning": "Pair-package sampling identifies the alternate language, but adaptive placement and unconstrained mean comparisons do not reproduce the fixed edge-supported distributional optimum.",
+        "searches": [
+          "Resultary: graph edge coupon collector fixed graph edge sampling pair package coverage all deadlines",
+          "Resultary: odd cycle edge coupon collection fixed edge law parity minimum edge cover completion distribution",
+          "Literature: \"edge coupon collector\" graph edge sampling deadline optimal odd cycle stochastic completion probability perfect matching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The odd-cycle search surfaced cycle walks and cycle matching results, not a matching fixed-law coverage-time census.",
+          "In Resultary dfef11684c0d the indexed early/late CDF sign change is for two uniform projective-plane/complete-package mechanisms; 3b831cf98d8f concerns a two-neighbor controlled walk."
+        ],
+        "reasoning": "Catalogue checks test for prior exact formulas and cycle tables; even an edge-cover count alone does not encode optimization over edge weights or the pointwise eventual inequality. No matched catalogue passage supplied the requested exact cycle comparison.",
+        "searches": [
+          "Resultary: odd cycle edge coupon collection fixed edge law parity minimum edge cover completion distribution",
+          "Resultary: uniform edge law eventually beats every nonuniform graph coupon distribution earliest deadline edge cover"
+        ]
+      },
+      "rationale": "The classical uniform coupon bound and maximum-matching count are inputs, not the distinct finding. In the checked material I found no equivalent graph-supported all-deadline classification or theorem implying the odd-cycle early/late conflict. The strongest comparisons concern either other sampling mechanisms, pairs of prescribed laws, or expected time rather than a universal CDF optimizer.",
+      "residual_risks": [
+        "Schilling’s 2021 uniformity paper was not available in readable full text; Schilling–Henze was also not read in full. Neither access limit is negative evidence.",
+        "The bounded literature and catalogue searches cannot establish historical priority; same-day records were compared by content, not assumed ordered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related mean comparison, not graph-constrained all-deadline optimization",
+          "evidence": [
+            "Nonuniform distributions strictly improve the expected waiting time for 2<=s<=n-2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.17201",
+          "material_read": "Abstract and §1, HTML offset 0–4694",
+          "method": "Open primary HTML",
+          "title": "On a Conjecture on Uniform Group Drawings in the Coupon Collector Problem",
+          "trigger": "General package laws include pair draws"
+        },
+        {
+          "assessment": "Uniform model, different question",
+          "evidence": [
+            "Normal and Poisson approximation for the unseen count under equiprobable fixed-size subsets."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.07485",
+          "material_read": "Abstract and §1, HTML offset 0–4775",
+          "method": "Open primary HTML",
+          "title": "Approaching the coupon collector’s problem with group drawings via Stein’s method",
+          "trigger": "Group-draw distributional results"
+        },
+        {
+          "assessment": "Potential overlap remains unverified",
+          "evidence": [
+            "No scientific conclusion based on an access denial."
+          ],
+          "identifier_or_url": "10.1016/j.ipl.2021.106112",
+          "material_read": "Bibliographic identification only, no primary proof or result passage retrieved",
+          "method": "DOI, publisher and lawful repository checks; identified publisher endpoint denied access",
+          "title": "Results and conjectures on the role of the uniform distribution in the coupon collector’s problem with group drawings",
+          "trigger": "Closest title for distributional optimization"
+        },
+        {
+          "assessment": "Not used to rule out overlap",
+          "evidence": [],
+          "identifier_or_url": "10.1017/jpr.2021.15",
+          "material_read": "Bibliographic identification only; no readable open linked full text in the bounded check",
+          "method": "Lawful open-copy check",
+          "title": "Two Poisson limit theorems for the coupon collector’s problem with group drawings",
+          "trigger": "Group-draw coupon literature"
+        },
+        {
+          "assessment": "Distinct comparison",
+          "evidence": [
+            "For q=3 the CDF difference is negative at t=4 and positive at t>=5, for two fixed uniform group mechanisms."
+          ],
+          "identifier_or_url": "Resultary dfef11684c0d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Read published record through local mirror",
+          "title": "A sharp stochastic-order boundary for the first two projective planes",
+          "trigger": "Same-day early/late coverage crossover"
+        },
+        {
+          "assessment": "Different sampling mechanism and objective",
+          "evidence": [
+            "After the source/class draw, selecting an uncovered neighbor depends on the state; optimization is of the expected time."
+          ],
+          "identifier_or_url": "Resultary b16d780f0472",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Read published record through local mirror",
+          "title": "Gaussian quantile optimal fixed sampling in bipartite graph coupon collection",
+          "trigger": "Plausibly equivalent bipartite model"
+        },
+        {
+          "assessment": "Different admissible distributions",
+          "evidence": [
+            "Deterministic packet sizes, uniform subsets, comparison at fixed total exposure."
+          ],
+          "identifier_or_url": "Resultary 7e357d032a8b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Read published record through local mirror",
+          "title": "A stochastic majorization law for variable-size coupon packets",
+          "trigger": "Broader stochastic package comparison"
+        },
+        {
+          "assessment": "Different process",
+          "evidence": [
+            "Controlled two-neighbor walk on a complete bipartite graph, not fixed i.i.d. edge draws."
+          ],
+          "identifier_or_url": "Resultary 3b831cf98d8f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Read published record through local mirror",
+          "title": "All-deadline source ordering and a logistic crossover for two-choice coverage",
+          "trigger": "Same-day bipartite all-deadline result"
+        },
+        {
+          "assessment": "Different scope of comparison",
+          "evidence": [
+            "Orders prescribed group-sampling mechanisms rather than optimizing over every edge-supported law."
+          ],
+          "identifier_or_url": "Resultary 33b5829a6717",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Read published record through local mirror",
+          "title": "Strict all-time coverage-delay ordering for the seven-line Fano system",
+          "trigger": "Stochastic group-draw comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–30 and 54–85",
+        "Berend and Sher, arXiv:2509.17201, §1"
+      ],
+      "rationale": "The all-deadline objective is a natural strengthening of expected-time optimization for a coverage process. The exact support classification on balanced graphs is useful for designing a sampler; contrasting it with nonexistence on all odd cycles of length at least seven gives a structural parity boundary in the cycle family. The comparison separates first-feasible cover counts from long-time vertex hazards rather than reporting a finite crossing for one parameter pair.",
+      "residual_risks": [
+        "The cycle comparison does not characterize all graphs or find the best law for each individual deadline."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

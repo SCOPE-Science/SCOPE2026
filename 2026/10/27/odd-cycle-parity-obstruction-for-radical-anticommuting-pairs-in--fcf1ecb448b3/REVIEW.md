@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness: PASS.** Every radical element splits uniquely into arrow and length-two path parts; products of radical elements retain exactly the arrow-by-arrow length-two coefficients. The projective-line reduction, support stratification, fixed-point count for the sign involution, and positivity argument prove both sums and the equality criterion for all finite fields. The acyclic seven-arrow example has a transition graph that is exactly a seven-cycle. The independently executable script directly checks 22 finite configurations over fields of sizes two, three, four and five, without replacing the general argument by extrapolation.
+## correctness
 
-**Originality: PASS (best knowledge, not priority certification).** Full-text material from Xu--Han--Jiang (2005), Gawell--Richey Xantcha (2015), and Tittmann--Averbouch--Makowsky (2008) was compared at the level of actual claims. The last paper already supplies the induced-subgraph component polynomial and thus covers the combinatorial summation pattern behind the commuting count; the claim does not market that polynomial as novel. The other two papers concern Hochschild cohomology or quadratic defining ideals, not the parity-twisted counts of element pairs in \(kQ/J_Q^3\). Related previously recorded calculations for linearly oriented quivers and radical-square-zero Kronecker algebras do not establish the arbitrary-quiver anticommutator census or the sharp odd-cycle obstruction. Unindexed and unavailable earlier literature remain a real risk.
+PASS
 
-**Value: PASS.** The statement answers a natural structural question about Lie and Jordan-type vanishing in finite-dimensional radical algebras for an unrestricted quiver family. The necessary-and-sufficient bipartite test has an explicit linear-equivalence mechanism, and a seven-arrow acyclic quiver demonstrates that ordinary directed acyclicity is not enough. Both the finite-field formulas and the counterexample have use independent of a larger classification program.
+The replacement theorem is the anticommuting census and parity comparison, using the known commuting census. Arrow products have independent length-two path coefficients, and J³=0 makes both length-two coordinate vectors free. On each support, there are q−1 vector choices per projective color, and the equations are equality for commuting and reflection [a:b]↦[a:−b] across each anticommuting transition. This works for either path orientation and for loops. A spanning tree propagates the colors; odd cycle or loop consistency forces exactly the two coordinate colors in odd characteristic. Empty support and isolates have the indicated contributions. Comparing every summand gives strict inequality from the full support when a nonbipartite component exists. Signs on a bipartition transform each path equation by a nonzero scalar; characteristic two is the identity comparison for any graph. The acyclic example has exactly the seven named length-two paths, and only its full support contributes to the deficit, giving q^14(q−1)^8. Independently enumerated both path-equation counts and support-component counts for all two-vertex endpoint multisets of up to three indexed arrows over F2, F3 and F4 (105 cases), factoring out the free length-two coordinates. The supplied checker was inspected, not executed; its seven-arrow odd-field results are algebraic deficit checks, not exhaustive runs.
 
-**Scientific limits.** The statement is about radical pairs, not all algebra elements, and it counts labelled solutions, not isomorphism classes. The source survey is bounded; it is not proof of publication priority. Computational checks are finite, whereas the all-quiver formulas depend on the given proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the original bundle the novelty assertion about the general quiver-to-graph commuting census fails: the earlier matched record gives exactly that census and reduction. The replacement removes it as a contribution rather than appending a disclaimer to the original claim. The anticommuting census, equality criterion, and acyclic odd-transition witness survive the prior comparison. They apply a twisted projective constraint to a different radical-pair equation and do not claim the component polynomial or an abstract signed-coloring principle as new.
+
+## value
+
+PASS
+
+In a natural finite-dimensional algebra, the plus equation yields a structural discriminator invisible to ordinary component counts and to directed acyclicity. The exact odd-field inequality for every nonbipartite transition graph, the opposite-sign linear equivalence in the bipartite case, and the explicit acyclic witness distinguish two closely related loci rather than merely re-evaluating the known commuting polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:44:35.819913Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The shortest factor carrying j+1 ones has length j+1 plus the minimum sum of j successive inter-one gaps. The shortest prefix carrying them uses the leading j gaps, since a nonzero prefix-normal word starts with one. Prefix normality is equivalent to equality of these shortest lengths for every j, and palindrome symmetry also forces the last bit to be one. In (a,b,c,d,c,b,a), the one-gap comparisons give a<=b,c,d. The two-gap comparisons add only a+b<=c+d; the three-gap competitor sums are b+c+d and 2c+d (up to reversal and the leading sum), giving a<=d and a+b<=c+d. Four gaps give a<=c, five give a<=b, and six and seven gaps add no restrictions. This includes empty gaps. Substituting (a,b,c,d)=(t,t+x,t+y,t+v) yields 8+7t+2x+2y+v and condition x<=y+v; excluded tuples x=y+v+1+k have length 10+7t+4y+3v+2k. The two geometric products give the stated series, with no words below length eight. Their order-four coefficients at z=1 differ by 1/28-1/168=5/168; all other poles have multiplicity at most two, so the cubic coefficient is 5/1008 and the error O(n^2). The total fixed-weight palindrome count is choose(floor(n/2),4), with odd center necessarily zero, giving 40/(21n)+O(n^-2). Independent bounded span enumeration (python3 /workspace/replay_independent.py 1) matched every coefficient at n=8..34, reproducing the displayed initial list. The proof handles all n and does not rely on the finite range.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Burcsi et al. give recursive generation and general fixed-density rationality for all prefix-normal words; the explicit formulas in Proposition 16 cover d through six, not palindrome-restricted d=8. The Resultary center-zero injection implies P8(2m+1)>=P8(2m), and the five-run census restricts only a subfamily."
+        ],
+        "reasoning": "Neither a general algorithm, rationality, an injection nor a smaller run-count classification supplies the two explicit geometric products on all palindromic eight-one gaps.",
+        "searches": [
+          "arXiv:1401.6346 §2 fixed-density generation",
+          "arXiv:1611.09017 §4.2 Proposition 16 fixed-density rational enumeration",
+          "Resultary/SCOPE:efbe030acda8,3666727b710f"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1401.6346 §2",
+        "arXiv:1611.09017 Lemma 8 and Proposition 16",
+        "arXiv:1905.11847 Theorem 13 and Table 2",
+        "OEIS:A308465",
+        "Resultary/SCOPE:a0445aa4b4ad,4ea2c5539e39,dcc91b029afa,efbe030acda8,3666727b710f,2de292f43a6b,3de6902e3f58"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known inter-one criterion does imply the specialized four inequalities by replacing seven gaps with their mirrored form; it does not itself count the nonnegative solutions. A recurrence or enumeration tested at each n is not the evaluated all-length rational function. The center-zero injection compares two lengths but yields neither the count nor its cubic leading term."
+        ],
+        "reasoning": "Originality is not assigned to a restated gap test. The numerator subtraction from x>y+v and the extracted 40/21 coefficient resolve a fixed-composition counting problem not covered by the compared broader results.",
+        "searches": [
+          "Burcsi et al. Lemma 8 and Proposition 16 versus mirrored gaps and exact series",
+          "Fleischmann et al. Theorem 13 and Table 2 versus fixed-eight enumeration",
+          "Resultary seven-one formulas, center-zero injection, five-run census and four-marker circular formulations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general distance-block criterion is identical to the zero-gap criterion after subtracting one per distance; palindrome symmetry reduces it to the four tests. The palindrome characterization by maximum-ones and reversed profiles is another membership test. The compared circular/necklace records concern four marks and cut/root questions, rather than the same linear fixed-eight class."
+        ],
+        "reasoning": "Membership criteria give exact recognition, not an evaluated length-generating series. The generic gap reduction is credited; the mirrored constrained geometric count and its asymptotic are the distinct evaluated claims.",
+        "searches": [
+          "Fixed-content prefix-normal palindromes, fixed-eight generating function and symmetric gap compositions",
+          "Burcsi et al. arXiv:1611.09017 Lemma 8",
+          "Fleischmann et al. arXiv:1905.11847 Theorem 13",
+          "Resultary fixed-weight prefix-normal enumerators and circular gap criteria"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 2 through length 30 and A308465 give aggregate length counts. The Resultary exact hit a0445aa4b4ad is the frozen record itself. The close records 4ea2c5539e39 and dcc91b029afa give exact unrestricted linear seven-one counts."
+        ],
+        "reasoning": "The aggregate coefficient is a sum over weights, and no eight-one coefficient is specified by it without additional information. A table or series for another weight of unrestricted words is also not an equivalent enumeration.",
+        "searches": [
+          "OEIS:A308465 prefix-normal palindromes by length",
+          "arXiv:1905.11847 Table 2",
+          "Resultary exact P8(n) prefix-normal palindrome formula"
+        ]
+      },
+      "rationale": "Pass for the explicit fixed-eight palindrome rational series and its sharp conditional asymptotic, not for the generic sliding-gap criterion or mere availability of a counting algorithm. The four tests are a specialization of the known gap criterion. Neither aggregate palindrome counts nor known fixed-density formulas for unrestricted words cover the evaluated intersection. No independently matching series or density coefficient was found in the compared statements; this is not an exhaustive priority claim.",
+      "residual_risks": [
+        "An indexed aggregate result need not expose a possible unindexed fixed-weight table or a differently expressed symmetric-gap series. Historical priority is not certified.",
+        "The identical catalogue record is not outside evidence, and dates of distinct nearby records alone do not decide priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Algorithmic background; no evaluated palindrome series in the compared statement",
+          "evidence": [
+            "The fixed-density recursive construction treats binary strings and prefix-normal generation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1401.6346",
+          "material_read": "PDF §2 p. 4, approximately text offset 12500",
+          "method": "Compared bounded primary generation passage to the target enumeration",
+          "title": "On Combinatorial Generation of Prefix Normal Words",
+          "trigger": "Generation algorithm could give the same composition census"
+        },
+        {
+          "assessment": "Covers the general criterion; does not provide the target count in these statements",
+          "evidence": [
+            "Lemma 8 compares equal-length blocks of inter-one distances; Proposition 16 gives explicit unrestricted fixed-density formulas through six."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1611.09017",
+          "material_read": "PDF Lemma 8 p. 7, §4.2 Proposition 16 pp. 10–11 (offsets around 26200 and 38500–42100)",
+          "method": "Compared distances to zero-gap lengths and the enumerated classes at the formulas",
+          "title": "On Prefix Normal Words and Prefix Normal Forms",
+          "trigger": "Strong prior sliding-gap criterion and exact small-weight enumeration"
+        },
+        {
+          "assessment": "Same membership problem and aggregate counts, not weight refinement",
+          "evidence": [
+            "Theorem 13 characterizes membership by maximum-ones and a reverse profile. Table 2 counts palindromes by length through 30."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1905.11847",
+          "material_read": "Introduction, §3 Theorem 13 p. 7 and Table 2 p. 8 (offsets around 21400 and 23400)",
+          "method": "Read primary theorem and table scope",
+          "title": "On Collapsing Prefix Normal Words",
+          "trigger": "Exact same palindrome family; possible indexed count or theorem"
+        },
+        {
+          "assessment": "No fixed-eight refinement in the compared material",
+          "evidence": [
+            "The algorithm tests all palindromes, not a separately evaluated weight-eight subseries."
+          ],
+          "identifier_or_url": "https://oeis.org/A308465",
+          "material_read": "Length sequence and direct enumeration algorithm",
+          "method": "Compared the table's indexing and domain",
+          "title": "Number of prefix normal palindromes of length n",
+          "trigger": "Exact database match for the aggregate family"
+        },
+        {
+          "assessment": "Related methods and subproblems; no dominant full fixed-eight palindrome count",
+          "evidence": [
+            "The seven-one formulas count linear unrestricted prefix-normal words, the injection compares lengths, the five-run result concerns a different restricted class, and the circular/necklace results concern four marks."
+          ],
+          "identifier_or_url": "Resultary/SCOPE:4ea2c5539e39,dcc91b029afa,efbe030acda8,3666727b710f,2de292f43a6b,3de6902e3f58",
+          "material_read": "Exact findings of matched records",
+          "method": "Compared the weight, word/circular domain, constraints and outputs",
+          "title": "Seven-one exact prefix-normal enumerators; center-zero injection; five-run census; four-marker circular and necklace cut results",
+          "trigger": "Close fixed-content, palindrome and gap-formulation matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed-composition count refines a specifically studied prefix-normal palindrome family. Weight eight is a concrete even-weight test where mirrored local gap comparisons alone do not suffice: the coupled middle constraint changes the leading coefficient and controls the conditional rare-event probability among all eight-one palindromes. The result gives an exact simple series and an implementable structural characterization, not just a finite table. The judgment does not rely on calling this the first coupled example across both parities, nor on implying aggregate enumeration or density among general binary words.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

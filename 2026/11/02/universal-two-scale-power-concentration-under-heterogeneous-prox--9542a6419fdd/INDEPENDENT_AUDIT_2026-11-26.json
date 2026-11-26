@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:26:17.013311Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–112, assumptions and full proof; VERIFICATION.md and supplied check_heterogeneous_proxy.py inspected without executing the supplied code",
+        "Independent exact subset-binomial comparison /workspace/branches/independent_proxy_check.py: 630 root or leaf comparisons, including either parity and p=0,1. Finite checks address the finite formulas only."
+      ],
+      "rationale": "When the root is NO only direct leaf YES ballots count; when it is YES only direct NO ballots oppose it. Root monotonicity makes the two failure events disjoint. A counterfactually direct leaf needs exactly h_m−1 other YES ballots; conditioning on the root's two possible votes gives the two point probabilities, including when p_j=1 and at both threshold parities. B_m>0: a direct ballot replaced by a delegation can only enlarge the root's switching interval, compared with the no-delegation case which has positive pivotality. The sum's variance is (m−∑p_j²)/4 with ∑p_j²≤S_m, so the bounded triangular-array CLT gives 2Φ(s)−1 for S_m/√m bounded and convergent. Both tails vanish by Hoeffding for S_m/√m→∞. For the leaf masses, both targets lie S_m/2+O(1) above the omit-j means, uniformly in j. If S_m≤m^{3/5}, all but O(S_m+1) Bernoulli parameters stay bounded away from the lattice-degenerate endpoints. The tilt making the target the exact mean is O((S_m+1)/m), its tilted variance is m/4+O(S_m+1), and the exponent is −S_m²/(2m) with error O((S_m+1)/m+(S_m+1)³/m²)=o(1) uniformly. Fourier inversion on |θ|≤m^{−2/5} gives the Gaussian local prefactor √(2/(πm)), since the cumulant remainder is O(m|θ|³); on the complementary part of [−π,π] the many nondegenerate Bernoulli factors give exp(−c m sin²(θ/2)). Summing the relative-error estimate gives √(2/π) exp(−Δ_m/2)(1+o(1)). For S_m>m^{3/5}, a uniform Hoeffding bound controls the whole leaf sum by m exp(−c m^{1/5}). These estimates give all three regimes, including a diverging leaf sum for Δ_m→−∞ when the root power might not approach one.",
+      "residual_risks": [
+        "Independent choices, unbiased direct votes, fixed single proxy, strict majority and forced-direct leaf pivotality are essential to this statement. In particular, the result does not give actual-influence weights multiplied by 1−p_j or an array-independent finite index."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The directly read Colley proxy model uses one common delegation probability, from common outdegree and individual uniformity. Their restricted appendix allows delegation-only vertices, not arbitrary varying direct-vote probabilities. The retrieved incomplete-votes paper concerns approximating approval scores, not pivotality. The Gelman full-text comparison remains access-limited."
+        ],
+        "reasoning": "A general finite recursive power algorithm can encode different graphs without establishing a uniform moderate-deviation estimate. Random-weight or other proxy models would cover the result only if their hypotheses and normalization transferred to the arbitrary independent arrays and supplied the two limits. No such implication is established in the sources read.",
+        "searches": [
+          "arXiv:2301.02462 §4 and Appendix A.4",
+          "arXiv:1905.04261",
+          "Gelman–Katz–Tuerlinckx, Caltech hpnm8-cmw66",
+          "On the Potential and Limitations of Proxy Voting: Delegation with Incomplete Votes, pp. 2–3"
+        ]
+      },
+      "checked_sources": [
+        "ArXiv primary text and source passages above; indexed Resultary concentration, proxy, fairness and lost-weight matches",
+        "Colley Section 4 and Appendix A.4 directly compared with the frozen assumptions and Finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Colley computes finite criticalities and reports varying a common probability at |V|=100. The indexed proxy and single-edge records compare majority accuracy or correctness gains, not ratios of pivotality sums."
+        ],
+        "reasoning": "A finite computation in a homogeneous setting does not control exact local masses uniformly over arbitrary arrays where the tilt grows in standard-deviation units. A CLT for the root on its absolute-power scale would not determine the critical constant for the aggregate leaf power on the logarithmic scale.",
+        "searches": [
+          "arXiv:2301.02462 §4 pp. 9–10 and p. 14",
+          "Resultary: SCOPE-unimodality-and-weakest-signal-selection-in-common-signal-proxy--8d3d2ea032f1",
+          "Resultary: SCOPE-a-one-crossing-law-for-majority-accuracy-under-single-edge-liqui--6a41be4f4ced"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Colley–Delemazure–Gilbert identify their LD Penrose–Banzhaf measure with criticality and compute proxy power; a one-delegatee case has the homogeneous star. Zhang–Grossi discuss a delegative Banzhaf index; D'Angelo–Delfaraz–Gilbert study power computation and bribery with given delegation structure."
+        ],
+        "reasoning": "Calling the quantity criticality, pivotality or a normalized power share does not distinguish the finite power concept. The varying independent array and exact behavior under S_m²/m−log m are the substantive distinction, not the index name.",
+        "searches": [
+          "arXiv:2301.02462, Def. 4, Thm. 1 and §4 Prop. 2",
+          "arXiv:2010.07070",
+          "arXiv:2104.03692"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest retrieved records give a Beta(1/2,1/2) law for guru weight shares on paths, a network-absorption weight crossover, a finite heterogeneous six-voter disparity bound, and a delegation-cycle loss transition. No retrieved exact statement gives the Poisson-binomial normalization limit with √(2/π)e^{−c/2}."
+        ],
+        "reasoning": "Guru share and represented or lost weight are not forced-ballot pivotality. The finite disparity bound lacks both the star randomization and growing number of leaves, so neither a numerical coefficient nor a named square-root scale is an equivalent lookup.",
+        "searches": [
+          "Resultary: SCOPE-an-arcsine-concentration-law-for-minimum-rank-delegations-betwee--af9fc3ce9313",
+          "Resultary: SCOPE-a-sharp-graph-size-cutoff-for-finite-parameter-two-guru-delegati--aca8163d6565",
+          "Resultary: SCOPE-sharp-quadratic-loss-of-pivotal-fairness-under-heterogeneous-vot--e2e65887e561",
+          "Resultary: SCOPE-exact-lost-delegation-law-and-square-root-direct-voter-transitio--1f3f0b6d9c13"
+        ]
+      },
+      "rationale": "The distinct result is the two-scale asymptotic theorem under arbitrary leaf-by-leaf delegation propensities, particularly the universal normalization window and constant. The frozen text correctly credits pivotality definitions, finite computation and the homogeneous-star special case rather than asserting those as new. The strongest inspected matches cover different asymptotic observables or a narrower finite model.",
+      "residual_risks": [
+        "Targeted comparison is not a priority proof. Gelman–Katz–Tuerlinckx full text could not be secured, and an equivalent moderated-tail statement in specialist voting-power literature could have been missed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers established finite machinery and homogeneous proxy special case, not the stated arbitrary-array asymptotics in these passages",
+          "evidence": "Common outdegree and individual uniformity yield common p_d; finite recursion and finite-size experiments do not supply the logarithmic asymptotic profile.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.02462",
+          "material_read": "Def. 4 and Thm. 1, pp. 6–7 offsets 17200–23157; §4 Prop. 2, pp. 9–10 offsets 26054–34233, experiments p. 14 near 44000; Appendix A.4 pp. 24–25 near 73413",
+          "method": "Lawful OA source and assumption/statement comparison",
+          "title": "Measuring a Priori Voting Power—Taking Delegations Seriously",
+          "trigger": "Same underlying power convention and strongest proxy-star comparison"
+        },
+        {
+          "assessment": "Relevant underlying index; identified statement is not the result under review",
+          "evidence": "Axiomatic index and strategic power seeking on delegation structures.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.07070",
+          "material_read": "Opening scope and index discussion, pp. 1–2 offset 1000",
+          "method": "OA primary text",
+          "title": "Power in Liquid Democracy",
+          "trigger": "Delegative Banzhaf alias"
+        },
+        {
+          "assessment": "Different calculation problem",
+          "evidence": "Banzhaf/Shapley computation and bribery for given support structures.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.03692",
+          "material_read": "Scope on p. 2 near offset 7957",
+          "method": "OA primary text",
+          "title": "Computation and Bribery of Voting Power in Delegative Simple Games",
+          "trigger": "Pivotality calculation in delegation games"
+        },
+        {
+          "assessment": "No matching observable or mechanism",
+          "evidence": "Beta(1/2,1/2) limit for weight shares under random ranked path delegations, not pivotality.",
+          "identifier_or_url": "2026/11/2/SCOPE-an-arcsine-concentration-law-for-minimum-rank-delegations-betwee--af9fc3ce9313",
+          "material_read": "Finding in local-mirror RESULT.md",
+          "method": "Primary indexed theorem comparison",
+          "title": "An arcsine concentration law for minimum-rank delegations between gurus",
+          "trigger": "Near matched concentration title and two-scale language"
+        },
+        {
+          "assessment": "Distinct from both pivotality scales",
+          "evidence": "Network absorption/hitting allocation with an N^{−1/2} crossover.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-graph-size-cutoff-for-finite-parameter-two-guru-delegati--aca8163d6565",
+          "material_read": "Finding in local-mirror RESULT.md",
+          "method": "Primary indexed theorem comparison",
+          "title": "A sharp graph-size cutoff for finite-parameter two-guru delegation",
+          "trigger": "Near matched square-root cutoff"
+        },
+        {
+          "assessment": "Unresolved scope risk, not evidence of noncoverage",
+          "evidence": "Motivates attention to square-root scaling in random voting-power models.",
+          "identifier_or_url": "https://authors.library.caltech.edu/records/hpnm8-cmw66",
+          "material_read": "Bibliographic record; full text not secured",
+          "method": "Bounded lawful archive and DOI attempts",
+          "title": "The Mathematics and Statistics of Voting Power",
+          "trigger": "Possible broader square-root power results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and analytic proof",
+        "Colley–Delemazure–Gilbert §4 to identify the finite-model baseline"
+      ],
+      "rationale": "The random-star model isolates the difference between a proxy being almost surely pivotal and holding almost all of the normalized power. The aggregate of many individually small leaf pivotalities produces a second scale with a nontrivial sharp profile. Uniformity under arbitrary heterogeneity (including deterministic delegation on some leaves) identifies when only total propensity matters asymptotically, a useful result beyond a finite index evaluation.",
+      "residual_risks": [
+        "No claim about correlated choices, multiple proxies, strategic delegation, or finite-size universal errors outside the stated estimates."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:59:38.326391Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each fixed connected graph the rates on a proper nonempty set S are |S| downward and λc(S) upward, where c(S)≥1. The first loss has mean wait 1/n and a uniformly chosen vertex. A monotone successful excursion gives Z/(nλ^(n−1)) at leading order. With u up jumps a successful excursion needs n−1+u specified down jumps after that first loss. At most n^(n−1+2u) state paths have this length for each initial state and each specified down step costs at most λ^−1. Summing the geometric bound at λ>n² bounds the nonmonotone contribution by O_G(λ^−n). In blocks of at most n−1 jumps there is probability uniformly bounded below of ending an excursion by consecutive up moves to full occupancy, and proper-state holding times have mean at most 1/λ. The mean excursion is O_G(1/λ). Renewal gives the mean trial time divided by success probability even if duration and success are dependent. The anchored order-chamber gaps have unit Jacobian, and every edge contributes its intervening gaps, yielding exactly the inverse cuts. Tree differences give independent one-edge integrals of 2. For unicyclic graphs use an anchor on the cycle (the formula was proved for every anchor), integrate the n−ell off-cycle edges, and reduce to the ell-fold convolution of exp(−|x|) at zero. Fourier inversion gives 2^ell times the zero density of an ell-fold normalized Laplace sum, namely binom(2ell−2,ell−1)/2^(ell−1) for the cycle integral. The successive multiplier ratio is 2ell/(2ell−1). The normalization is fixed graph, fully occupied start and unit loss, not a joint size-rate limit.",
+      "replay": "From /workspace run python3 branches/independent_reproduction.py 5. Direct rational permutation sums matched the formulas for all 145 labeled trees and 238 labeled unicyclic graphs through five vertices. The source verifier was read, not run. Independent two-vertex birth-death equations give E[T]=(λ+3)/2, agreeing with the n=2 coefficient. These checks do not prove the infinite-rate theorem; the excursion proof does.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2d2ad5c19a59 gives the weighted directed cut formula, the anchored integral and a tree product, with the frozen undirected unit-weight class obtained by specialization.",
+          "Holme–Tupikina §III.C leaves general exponent proof open; §III.D is empirical, and Appendix A handles equality of leading terms of certain minors, not an exact identification of the inverse-cut coefficient.",
+          "The 2015 publisher article/PDF were inaccessible; exact complete- and star-graph scope is reported in the frozen summary, not independently verified against primary full text."
+        ],
+        "reasoning": "The general directed result dominates the frozen formula, whereas an empirical census or an abstract mentioning only particular graphs does not.",
+        "searches": [
+          "Resultary 2d2ad5c19a59 Finding and equations (1), (7), (8)",
+          "arXiv:1802.08849 §III.C–D and Appendix A",
+          "DOI 10.1103/PhysRevE.92.032806"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2d2ad5c19a59 and 9facf36b623e",
+        "Holme–Tupikina arXiv:1802.08849"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In equation (7) of 2d2ad5c19a59, combine opposite unit arcs and anchor a cycle vertex. An off-cycle leaf integral is 2 independently of its parent. Repeat until the cycle remains. Edge differences make the final edge displacement the negative sum of the others, so the remaining integral is the ell-fold convolution of exp(−|x|) at zero.",
+          "Its Fourier transform is 2/(1+t²), yielding the central binomial coefficient divided by 2^(ell−1) via the beta integral. Ratios of successive binomial coefficients yield the frozen monotonicity statement."
+        ],
+        "reasoning": "The exact cycle-length result is not stated in the matches, but is a direct evaluation of an existing integral on the specified graph class, with no additional unverified graph or probability input. It does not constitute a supported distinct remainder.",
+        "searches": [
+          "2d2ad5c19a59 RESULT.md equations (7)–(8)",
+          "9facf36b623e RESULT.md theorem at offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The continuous-time homogeneous SIS chain with unit recovery is the stated mathematical occupancy chain after renaming occupied/lost/colonized states. Holme–Tupikina distinguish the empirical high-rate exponent and graph prefactor from a proof for arbitrary graphs.",
+          "The all-tree product record's directed formulation reduces to the same cut count for symmetric unit rates; the two opposite directed contributions to each edge combine to |t_u−t_v|."
+        ],
+        "reasoning": "One must compare the same continuous-time rates, not identify this model with a discrete-time patch-occupancy model. The symmetric specialization produces precisely the frozen normalization and integral.",
+        "searches": [
+          "arXiv:1802.08849 §III.C and Appendix A",
+          "Resultary 2d2ad5c19a59 equations (1), (7), (8)",
+          "Resultary 9facf36b623e theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2d2ad5c19a59 (offset 0, equations (1), (7), (8)) gives the inverse-cut sum, anchored directed-cut integral, and symmetric unit tree mean asymptotic (λ/2)^(n−1).",
+          "9facf36b623e (offset 0) gives E[T]=λ^(n−1)/R_G (1+O_G(λ^−1)) with R_G precisely Z in the unit undirected case; its additional variance result is not part of the frozen record.",
+          "The 12,110-graph census is finite and does not itself supply the all-graph or unicyclic statements."
+        ],
+        "reasoning": "The catalogue coverage is at the theorem/formula level. A finite numeric table does not substitute for the unbounded fixed-graph formula.",
+        "searches": [
+          "Resultary 2d2ad5c19a59",
+          "Resultary 9facf36b623e",
+          "arXiv:1802.08849 §III.C–D"
+        ]
+      },
+      "rationale": "The configured 2d2ad5c19a59 theorem expressly covers the leading permutation coefficient, the integral and the tree law, with directed/weighted generality. On both-way unit edges they are the frozen results. The additional unicyclic formula, while not printed there, follows mechanically from that same known integral by removing leaves and a standard one-dimensional Laplace convolution. 9facf36b623e separately gives exactly the fixed-graph leading mean law. Thus coverage is substantive, not just use of the same terminology. Neither catalogue path date is used to infer historical precedence or provenance.",
+      "residual_risks": [
+        "The 2015 full text could contain additional relations; no inference from lack of access.",
+        "No historical priority/provenance conclusion about the separately indexed overlapping records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader exact coefficient/integral/tree theorem, with unicyclic claim mechanically implied",
+          "evidence": [
+            "Symmetric unit specialization yields Z, the absolute-difference integral and (λ/2)^(n−1)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-an-all-tree-product-law-for-high-transmission-sis-extinction-tim--2d2ad5c19a59/RESULT.md",
+          "material_read": "Finding at offset 0; equations (1), (7), (8)",
+          "method": "Configured local mirror",
+          "title": "An all-tree product law for high-transmission SIS extinction times",
+          "trigger": "Same fixed-graph high-rate limit, exact coefficient and tree law"
+        },
+        {
+          "assessment": "Directly states the frozen general leading mean formula; other main claim differs",
+          "evidence": [
+            "R_G is the product-of-inverse-cuts sum and the leading mean is λ^(n−1)/R_G."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-cut-permutation-law-for-the-first-non-exponential-sis-extincti--9facf36b623e/RESULT.md",
+          "material_read": "Theorem at offset 0",
+          "method": "Configured local mirror",
+          "title": "A cut-permutation law for the first non-exponential SIS extinction correction",
+          "trigger": "Exact permutation coefficient in the same normalization"
+        },
+        {
+          "assessment": "Empirical exponent/prefactor and leading-minor result, not the exact formula under review",
+          "evidence": [
+            "Authors believe the observed exponent holds generally but leave its proof; prefactor is graph-dependent; appendix does not identify that prefactor with Z^−1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1802.08849",
+          "material_read": "§III.C p. 4 offset 30000; §III.D p. 5 offset 34921; Appendix A p. 9 around offset 68600",
+          "method": "OA PDF targeted passage reads",
+          "title": "Epidemic extinction in networks: Insights from the 12,110 smallest graphs",
+          "trigger": "Same process and high-rate behavior; appendix could already give prefactor"
+        },
+        {
+          "assessment": "Inaccessible; no whole-paper noncoverage inference",
+          "evidence": [
+            "Publisher page/PDF returned HTTP 403. The access gap does not decide originality."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.92.032806",
+          "material_read": "Frozen summary of abstract and metadata only; no independent primary full text read",
+          "method": "Tried publisher page and PDF; no identified OA repository copy",
+          "title": "Survival time of the susceptible-infected-susceptible infection process on a graph",
+          "trigger": "Exact survival expressions for special graphs reported in the frozen summary"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Tree universality and the role of the unique cycle are mathematically well motivated. As an incremental finding, however, the stronger configured result already supplies the coefficients and integral, and the apparent remaining narrower invariant is their direct leaf-integration and beta-integral specialization. No distinct nonroutine increment is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review: modular gap-residue balance
+# Independent mathematical audit
 
-## Correctness
-PASS. The two-generator Apéry generating series gives a finite gap-polynomial identity. Reduction modulo a cyclic polynomial produces an exact difference equation for all residue counts. Normalization by the classical genus determines the entire histogram. Comparing two cyclic indices gives a difference between a floor increment and a subset count; the interval bounds imply the universal ceiling-quarter-modulus range. The explicit diagonal-residue construction proves the lower bound, with checked small-modulus boundary cases. `verify.py` independently checks 10,743 gap sets against the recurrence, 835,733 residue pairs against the inequality, and 179 witness moduli. Finite tests corroborate, but do not replace, the symbolic proof.
+## correctness
 
-## Originality
-PASS on accessible evidence. Shor's 2021/2022 primary treatment supplies a complete zero-discrepancy criterion and polynomial machinery, not the quantitative range law or its near-sharp witnesses. Shor–Sim's 2025 primary treatment extends the zero-discrepancy question to geometric generators rather than proving this general uniform quantitative statement. Komatsu and Zhang (arXiv:2101.04298, Theorems 1–4, and arXiv:2105.08274, Theorems 1–3) give weighted Sylvester sums whose root-of-unity specialization and inverse Fourier transform recover the whole histogram in principle; accordingly, *computing* the histogram is not claimed original. The proposed novelty is exclusively the universal size-independent near-quarter bound and its near-sharp infinite families, neither found in the inspected full primary texts. Parity/Sylvester-sum work may hide an equivalent quantitative estimate. Targeted database and literature searches yielded no dominating exact statement. The existence of an overlooked quantitative formulation remains a residual publication-priority risk.
+PASS
 
-## Mathematical value
-PASS. The motivating gap is quantitative rather than merely yes/no: when Shor's equidistribution criterion fails, can the residue bias become arbitrarily large with generator size? The theorem shows it cannot, with a constant growing linearly in the modulus rather than in the genus, and supplies an efficient exact count formula. The explicit lower families show the \(m/4\) scale is unavoidable and attain the proposed bound for two infinite congruence classes of moduli. This is a uniform structural refinement for every two-generator semigroup with the natural modular-unit hypothesis, not an arbitrary finite table or substitution.
+The Apéry representatives ib for 0≤i<a follow by reducing the coefficient of b modulo a, giving (1−x^a)P=sum x^i−sum x^(ib). Coefficients modulo x^m−1 give (1) because both multiplication by t and the walk by s are permutations. The first indicator along the walk is exactly a floor increment, and genus fixes the additive constant in (3). On a cyclic arc of length L the first indicator count A is floor or ceiling of Ls/m; the other count B is between max(0,L+s−m) and min(L,s) by subset size. Maximizing the resulting two linear bounds over L gives |A−B|≤ceil(s(m−s)/m)≤ceil(m/4). For the coprime lift a=s+m, b=s+2m, the second indicator counts min(j,s−1); D_j decreases weakly to j=s−1 then increases weakly, starting at zero and never positive. Its range is ceil((s−1)(m−s)/m). For m=4q or 4q+2 with q≥2, s=2q−1 is a unit and the quantity inside the ceiling lies in (q−1,q]; for m=4q+1 or 4q+3 with q≥1, s=(m−1)/2 is a unit and the respective ceilings are q and q+1. Direct substitution covers 2,3,4,6; (1) is zero at m=2. This proves the witness lower bound, not optimality for m≡1,2 (mod 4).
 
-## Closest work and limits
-Shor, arXiv:2101.01760, Sections 2.2, 3 and 5.2; Komatsu and Zhang, arXiv:2101.04298 and arXiv:2105.08274; Shor and Sim, arXiv:2503.10826, Introduction and primary result discussion. The exact best constant for modulus classes \(1,2\pmod4\) is not established here; the gap is one. The nonunit case is excluded, and there has been no independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit prior Apéry and weighted formulas for exact recoverability, and credit the distinct same-day resonant-affine record for covering the unit-case centered residue dependence, without assigning ordering from the date. The substantive distinct claim is the uniform quarter-modulus range bound and explicit near-sharp witnesses. The strongest inspected quantitative or exact-formula matches do not establish that bound and witnesses.
+
+## value
+
+PASS
+
+The natural question following equidistribution is how uneven the cyclic gaps can become. A generator-size-independent estimate with the correct coefficient and explicit infinite sharp families in two congruence classes gives usable control even when the genus grows without bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

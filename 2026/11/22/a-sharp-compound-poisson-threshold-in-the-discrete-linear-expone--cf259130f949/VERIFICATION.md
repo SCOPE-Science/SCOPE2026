@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility verification
+# Independent mathematical audit
 
-The standalone Python 3 script `check_exact.py` (requires SymPy) was executed successfully against the actual code text packaged here. It checks the normalized mass PGF, the first two coefficients, strict log-concavity, and the two-sided numerical root enclosure. In particular, exact rational upper/lower Taylor bounds for \(e^\sigma\) prove opposite signs of the transition equation at two specified rational decimals and prove a strictly negative degree-104 log-PGF coefficient at \(\sigma=1/20\). The bound on the Taylor remainder is a geometric majorant of the positive omitted terms. It also evaluates four finite coefficient families as supplementary checks. No floating-point values are used to decide theorem-critical inequalities.
+## correctness
 
-The **infinite** assertions are established analytically in RESULT.md: the discrete compound-Poisson characterization treats all log-PGF coefficients, and the positive Maclaurin series for \(D(x)\) proves the threshold's global uniqueness. No finite loop establishes those universal claims.
+PASS
 
-Literature matching remains limited to accessible source sections and published research searches, and no independent audit or externally certified proof is claimed.
+Reconstructed the normalized masses q^j(A+Bj) by telescoping the survival function (q=e^(−σ), a=σ/(1+σ³), A=1−q−qa>0, B=(1−q)a>0). Their log-concavity difference is q^(2j)B². The PGF is A(1+cz)/(1−qz)² with c/q=B/A−1>−1, giving log coefficients (2q^n+(−1)^(n+1)c^n)/n. For necessity, if a positive-at-zero PGF has convolution roots of every order N, each nonconstant coefficient of its normalized Nth root is ν_n/N+O(N^(−2)) at fixed n and must be nonnegative. For c≤q all ν_n here are positive and summable, and normalization yields the explicit compound-Poisson PGF including equality; for c>q sufficiently high even coefficients are negative. Algebra gives the criterion a≤2 tanh(σ/2). Checked the all-positive series for D(x) starting at degree six, and hence the strict decrease from infinity to zero of [(σ/2)coth(σ/2)−1]/σ³. Independently verified the exact numeric bounds using rational arithmetic: for each of the two rational endpoints and s=1/20 bound e^s between its degree-24 Taylor sum L and U=L+2s^25/25!, valid since all omitted successive term ratios are <1/2. For G(s,E)=(2−a(s))(E−1)−2a(s), G(left,U)<0<G(right,L). At s=1/20 the denominator E−1−a is positive on [L,U]; t(E)=a(E−1)/(E−1−a)−1 decreases, and exact comparisons give t(U)>1 and t(L)^102<2<t(U)^104. This certifies the specific obstruction at degree 104 without using the supplied script. Minor diagnostic reporting issue: check_exact.py prints 400 auxiliary compound-Poisson coefficient checks, but its conditional skips the fourth example (c/q=4/3), so that loop checks 300 coefficients; this does not affect any claimed theorem, interval or negative coefficient. The review is only of ordinary additive convolution on nonnegative integers, not thinning.
+
+## originality
+
+PASS
+
+The discrete compound-Poisson criterion and its elementary rational-PGF implementation are background, not the distinct finding. The supported claim is the sharp unique parameter transition for the motivating published survival-discretized law and its explicit obstruction. Exact primary passages cover the model, and inspected comparator results cover other families, not this one-parameter threshold. Das et al. is a material unresolved citation comparison, not evidence of prior coverage; no credit is assigned to an independently demonstrated correction of the wording of its Theorem 3.3.
+
+## value
+
+PASS
+
+The parameter curve is fixed by a published count model rather than chosen to manufacture a root. Despite strict log-concavity throughout the model, the rate determines precisely when an ordinary compound-Poisson representation is possible. Knowing the exact cutoff and jump intensities is useful for that interpretation and simulation, and the explicit high-degree failure demonstrates why checking some low logarithmic coefficients cannot decide the model's divisibility. Value does not depend on whether the witness contradicts the published Das theorem as worded.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

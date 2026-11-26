@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:13:29.548529Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a nonedge the first nonzero walk coefficient is B=(L²)_ij>0 by support diameter two. Set t=εu and divide by ε²u, extending analytically at the removable zeros. The terms linear through cubic in t give B(u/2−1)+εC(u−u²/6)+O(ε²), C=(L³)_ij, uniformly in C¹ on [0,3]. The positive derivative and opposite endpoint signs give a unique zero in that interval, and implicit differentiation at u=2 gives u′(0)=−8C/(3B). Uniqueness on this scale does not establish all-time uniqueness; separately, on 3ε≤t≤t₀ the leading term B(t²/2−εt) is at least Bt²/6 and the Taylor error divided by t² is O_G(t₀+ε). Beyond t₀ the ordinary heat entries have a strictly positive uniform lower bound by irreducibility and convergence to J/|V|. The sup in time of the spectral multiplier perturbation is at most ελ_max/e; the zero eigenspace is unchanged. On edges the initial term tw_ij dominates the O_G(t²+εt) corrections, and diagonal positivity is immediate by positive definiteness. Thus the largest nonedge root is the full positive-time cutoff, with t=0 also entrywise nonnegative. The finite maximum selects the minimum C/B at second order; it does not break ties. Independent replay: python /workspace/replay/checks.py 1 uses 52-digit spectral computations on three diameter-two examples, checks the reported eight integer-example ratios exactly and confirms the predicted scaled root correction and sampled signs. Only the analytic estimates prove the all-time statement. The coupling radius and remainder are for each fixed weighted graph, not uniform over families.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "3c42bf2de9e9 and 93b1348c8e6a cover all positive coupling but restrict the graph geometry and use unit weights; the star theorem 9cfe1fe8d12f lies in the multipartite class.",
+          "Daners–Glück–Kennedy use qualitative eventual positivity in a much broader operator setting. This does not specify the first zero, its expansion, or positivity at every subsequent time starting at that zero."
+        ],
+        "reasoning": "The all-coupling theorems are stronger only on their specified classes. Neither operator-general qualitative positivity nor the graph-specific all-coupling results dominate the submitted weighted diameter-two regime.",
+        "searches": [
+          "Resultary: mixed heat all-coupling exact positivity cutoffs and scalar-filter formulas",
+          "arXiv:1511.05294 eventual positivity, PDF p. 1; arXiv:1712.07370 discrete biharmonic heat, pp. 7–8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3c42bf2de9e9, 93b1348c8e6a, 9cfe1fe8d12f, 14874d60df43, e4f9c89a420f, 61512629ac2e",
+        "arXiv:1712.07370 pp. 7–8",
+        "arXiv:1511.05294 p. 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the strongly regular model the two positive Laplacian eigenvalues a,b give L³=(a+b)L²−abL, hence C/B=a+b on all nonedges. Expanding its root equation gives t=2ε−(8/3)(a+b)ε²+O(ε³), a covered specialization, even without an explicit second-order claim there.",
+          "In the multipartite result the same-part pair sees only the two positive eigenvalues N−s and N (part size s), and its ratio is 2N−s. At the largest part the same expansion also follows from F_p(x)=x/2+(1/2−p)x²/3+O(x³) and the stated inversion.",
+          "The audited six-vertex graph is neither regular nor complete multipartite and has several different nonedge ratios. Changing weights or topology does not preserve the prior two-mode reductions."
+        ],
+        "reasoning": "The special cases are mathematically covered. The distinct result requires a common-neighbor expansion plus control of later times without a two-mode spectral formula; the inspected prior implications do not supply that regime.",
+        "searches": [
+          "Direct expansion comparison: Resultary 3c42bf2de9e9 (1) and 93b1348c8e6a Finding",
+          "Primary pure biharmonic semigroup Prop. 2.3; past Resultary e4f9c89a420f and 61512629ac2e for pure-square kernels"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "3c42bf2de9e9 is the identical operator, zero and all-time sign formulation on connected noncomplete unweighted strongly regular graphs.",
+          "93b1348c8e6a uses unweighted complete multipartite spectral formulas and explicitly gives T∼2ε there; 14874d60df43 gives mixed distance-two and distance-three barriers on the four-site path.",
+          "Gregorio–Mugnolo's Proposition 2.3 concerns positivity for all times of e^(−tL²), a different multiplier."
+        ],
+        "reasoning": "The indexed exact sign and leading-scale statements are not new on the noted classes. Neither pure-square time reparametrization nor fractional power diffusion is equivalent to the mixed multiplier for a general spectrum.",
+        "searches": [
+          "Resultary: mixed graph heat L+εL², weak recovery, diameter two/common neighbor, pairwise zero and three-step correction",
+          "3c42bf2de9e9 Finding, equation (1); 93b1348c8e6a Finding; 14874d60df43 Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact indexed root formulas are available for strongly regular graphs, complete multipartite graphs, stars, and the four-site path (the last has diameter three). None is an exact data source for arbitrary weighted diameter-two graphs."
+        ],
+        "reasoning": "Account for the exact formulas as stronger than a table on those families; no table of root values could by itself imply the uniform-in-nonedges asymptotic for arbitrary continuous weights. The self-match is not a comparator.",
+        "searches": [
+          "Resultary: exact positivity-time set, root formula, recovery 2ε and diameter-two weighted Laplacian ratios"
+        ]
+      },
+      "rationale": "The exact mixed-kernel sign behavior and special-case expansions are covered on some indexed unweighted classes. The supported distinct result is their weak-coupling extension to arbitrary positive weights on arbitrary fixed support-diameter-two graphs, with a nonconstant pairwise three-step correction and all-time exclusion of further zeros. The mathematical scope comparison does not assert historical first publication.",
+      "residual_risks": [
+        "The bounded external literature query yielded no useful additional source, not negative novelty evidence.",
+        "The same-date catalogue entries establish coverage of special cases without establishing priority. An earlier general weighted mixed-operator perturbation result was not ruled out exhaustively."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact all-coupling coverage on a unit-weight restricted class, including an implied second-order coefficient.",
+          "evidence": [
+            "Unique positive solution of b exp(−(a+ηa²)T)−a exp(−(b+ηb²)T)=b−a; every nonedge crosses together."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-unique-worst-positivity-delay-for-mixed-heat-on-every-strongly--3c42bf2de9e9/RESULT.md",
+          "material_read": "Mirrored Finding and assumptions, offset 0; especially (1) and two positive eigenvalues a,b",
+          "method": "Resultary lookup and bounded mirror inspection, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; root expansion and scope comparison",
+          "title": "A unique worst positivity delay for mixed heat on every strongly regular graph",
+          "trigger": "Identical mixed operator and exact one-barrier sign result on diameter-two graphs"
+        },
+        {
+          "assessment": "Covers the sign horizon on complete multipartite graphs (including stars) only.",
+          "evidence": [
+            "Horizon depends only on N and the largest part, with T∼2η; exact inverse formula gives the next coefficient upon expansion."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-unique-worst-positivity-delay-for-mixed-heat-on-complete-multipa--93b1348c8e6a/RESULT.md",
+          "material_read": "Mirrored Finding at offset 0, F_p root formula, and small-coupling statement",
+          "method": "Resultary lookup and local mirror; compare explicit inversion and spectral hypotheses",
+          "title": "Unique worst positivity delay for mixed heat on complete multipartite graphs",
+          "trigger": "Identical small-coupling leading coefficient and exact all-time positivity on a broader unweighted diameter-two subclass"
+        },
+        {
+          "assessment": "Pure bi-Laplacian kernel; no weighted small-mixing law follows from the indicated results.",
+          "evidence": [
+            "The displayed path kernel and completeness/positivity equivalence concern the pure square L²."
+          ],
+          "identifier_or_url": "arXiv:1712.07370",
+          "material_read": "PDF pp. 7–8, three-vertex path and Proposition 2.3 (offset 26500 vicinity)",
+          "method": "OA mathematical passage comparison",
+          "title": "Bi-Laplacians on graphs and networks",
+          "trigger": "Primary graph fourth-order positivity and fixed graph examples"
+        },
+        {
+          "assessment": "Framework for eventual positivity, not evidence of an exact weak-coupling graph threshold.",
+          "evidence": [
+            "The stated theory treats spectral and resolvent characterizations of eventual positivity of C₀-semigroups."
+          ],
+          "identifier_or_url": "arXiv:1511.05294",
+          "material_read": "PDF p. 1, abstract and characterization scope (offset 1180 vicinity)",
+          "method": "OA scope comparison; not a full-document exclusion",
+          "title": "Eventually and asymptotically positive semigroups on Banach lattices",
+          "trigger": "General operator framework potentially implying eventual positivity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result locates the genuine last sign obstruction for arbitrary fixed weighted diameter-two diffusion and proves there is no later sign reentry; a purely local zero calculation would not do that. The leading scale is universal while the three-step ratio selects the obstruction from competing nonedges. This is a graph-wide sharp stability statement in a natural mixed-diffusion regime, not an evaluation of a known family-specific root formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

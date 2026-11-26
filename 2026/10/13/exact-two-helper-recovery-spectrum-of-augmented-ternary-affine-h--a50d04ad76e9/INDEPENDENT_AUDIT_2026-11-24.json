@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:04:46.848003Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 27–51; VERIFICATION.md; verify.py (inspected, not executed)",
+        "Mondal–Lee Theorem 4.12 and Remark 4.11",
+        "/tmp/opencode/frozen-independent-checks.py, recovery"
+      ],
+      "rationale": "For the stated generator, recovery is equivalent to membership in the helper span by the inclusion of kernels of the corresponding linear functionals. For an affine target, two evaluation helpers must complete a horizontal ternary line, giving (3^m−1)/2; an evaluation and an axis column give 2m+1. Replacing the origin by its systematic copy contributes one more pair exactly for z=0 and y≠0. Two systematic helpers contribute precisely at a nonzero allowed axis displacement. Neither origin position can use the other in a minimal pair. For an axis target two affine helpers differ along that axis: this gives 2·3^m for an unrestricted axis or 3^m for the restricted axis. Admitting the additional origin position adds two or one, respectively. Pure axis pairs and mixed axis/affine pairs cannot yield a different point at infinity. These cases exhaust the last-coordinate and direction possibilities. Only the origin has a projective duplicate. Three distinct projective classes yielding a repair pair form a 3-circuit, with three incidences and two nonzero ternary relations; a triple containing the duplicate positions and a third class cannot have a full-support relation. The summed incidence count is (2·3^m+1)B_m+(2m+2)3^m+4m+1. Independent replay `python3 /tmp/opencode/frozen-independent-checks.py recovery` tested full-support dependencies on position triples, agreeing on every position at m=2,3,4, with 78,443,2938 supports. The replay is finite; the case split supplies the universal proof.",
+      "residual_risks": [
+        "Does not address disjoint availability or more than two helpers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Haymaker–Malmskog–Matthews use other points on an affine line to recover Reed–Muller symbols.",
+          "Grezet–Hollanti give hierarchical localities of punctured simplex codes, not exhaustive two-helper multiplicities of this augmented code."
+        ],
+        "reasoning": "These results provide a method or different invariants. They do not account for the systematic positions, one truncated coordinate axis and the extra copy of the origin in this problem.",
+        "searches": [
+          "doi:10.1007/s10623-024-01510-x, PDF pp. 6–7",
+          "doi:10.1007/s10623-020-00810-2, abstract and locality discussion p. 18"
+        ]
+      },
+      "checked_sources": [
+        "Mondal–Lee Theorem 4.12 and Remark 4.11",
+        "Haymaker–Malmskog–Matthews DOI 10.1007/s10623-024-01510-x",
+        "Grezet–Hollanti DOI 10.1007/s10623-020-00810-2",
+        "The two Resultary companion records identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "MacWilliams transforms the ordinary weight enumerator into the dual enumerator, hence determines the aggregate weight-three support count, since each such support carries two words here.",
+          "The affine-line theorem explains the horizontal-line summand but leaves the projectively duplicated origin and the finite-axis corrections to compute."
+        ],
+        "reasoning": "An ordinary weight enumerator lacks target labels and gives no positionwise incidence spectrum. The remaining counts require the nonuniform projective case analysis, not just a parameter substitution in the compared results.",
+        "searches": [
+          "Mondal–Lee ordinary weight distribution and its MacWilliams transform",
+          "Reed–Muller line-recovery and systematic ternary simplex comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Thm. 4.12 identifies F^(4)=(1+x_1)∏_{i=2}^n(1+x_i+x_i²), its augmentation and weight distribution, not the incidence count at each projective column.",
+          "The ternary simplex catalogue match gives minimal-pair incidence counts but for [I_n|G_n] with every nonzero vector in G_n, rather than the two affine slices and a single repeated projective point here."
+        ],
+        "reasoning": "Expressing the theorem via dual three-circuits through each labelled coordinate does not reduce it to the known aggregate coefficient or to the simplex case.",
+        "searches": [
+          "Resultary queries for Mondal–Lee Theorem 4.12 and coordinatewise minimal recovery pairs, including projectively equivalent dual three-circuit incidences",
+          "doi:10.1007/s00200-026-00756-3, Theorem 4.12 and Remark 4.11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/12/SCOPE-sharp-disjoint-recovery-availability-in-systematic-ternary-simpl--31405a315864 gives three classes and a dual support total for a different code.",
+          "Resultary 2026/10/12/SCOPE-complete-higher-support-distribution-of-a-ternary-half-space-lcd--3b038fed4a0d gives subcode support distributions for Theorem 3.9, not the target-position pair counts of Theorem 4.12."
+        ],
+        "reasoning": "Neither actual formula or table covers the target parameter and coordinate configuration; unlocated records are not excluded.",
+        "searches": [
+          "Resultary semantic comparisons for weight-three dual supports, the affine-half augmentation, and coordinatewise pair spectra",
+          "Mondal–Lee Theorem 4.12 weight-distribution tables"
+        ]
+      },
+      "rationale": "The supported distinction is the exact positionwise minimal-pair spectrum for this systematic half-affine configuration. The underlying code, line-repair principle, and aggregate dual coefficient are not independently new. The closest distinct catalogue record counts the same kind of pairs for a different generator; its three-class enumeration does not determine this seven-row classification.",
+      "residual_risks": [
+        "A focused web query gave irrelevant material and is not negative evidence. An unindexed or broader incidence specialization across related code families remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers code, parameters and weight distribution; aggregate via MacWilliams, not the labelled spectrum",
+          "evidence": [
+            "Theorem 4.12 gives the product defining set and augmented code; its output concerns Hamming weights."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00200-026-00756-3",
+          "material_read": "PDF pp. 19–21, Remark 4.11 and Thm. 4.12 with proof; text offsets 65707–69600",
+          "method": "Lawful OA publisher PDF, passage inspection",
+          "title": "Infinite families of LCD codes and their weight distributions",
+          "trigger": "Identical construction and parameters"
+        },
+        {
+          "assessment": "Geometric antecedent, not this augmentation or spectrum",
+          "evidence": [
+            "Recovers Reed–Muller symbols on lines through each point."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10623-024-01510-x",
+          "material_read": "PDF pp. 6–7, affine-line recovery passage near text offset 19341",
+          "method": "Lawful OA PDF, passage inspection",
+          "title": "Algebraic hierarchical locally recoverable codes with nested affine subspace recovery",
+          "trigger": "Line-recovery and availability match"
+        },
+        {
+          "assessment": "Hierarchical locality parameters, not the claimed incidence multiplicities",
+          "evidence": [
+            "Specified simplex deletions and closed local sets give different data."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10623-020-00810-2",
+          "material_read": "Abstract and locality passage PDF p. 18, offsets 459 and 59700",
+          "method": "Lawful OA PDF, passage inspection",
+          "title": "The complete hierarchical locality of the punctured Simplex code",
+          "trigger": "Projective-column locality comparator"
+        },
+        {
+          "assessment": "Substantial overlap of method/output, different input geometry and formulas",
+          "evidence": [
+            "The simplex generator includes every nonzero vector, and yields three coordinate classes."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-disjoint-recovery-availability-in-systematic-ternary-simpl--31405a315864",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary hit followed by local mirror inspection",
+          "title": "Sharp disjoint recovery availability in systematic ternary simplex LCD codes",
+          "trigger": "Exact same output type"
+        },
+        {
+          "assessment": "Neither the same code nor the same invariant",
+          "evidence": [
+            "Uses Theorem 3.9 and counts subcode supports."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-complete-higher-support-distribution-of-a-ternary-half-space-lcd--3b038fed4a0d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary hit followed by local mirror inspection",
+          "title": "Complete higher-support distribution of a ternary half-space LCD family",
+          "trigger": "Same primary paper and adjacent half-space construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Mondal–Lee Theorem 4.12",
+        "Haymaker–Malmskog–Matthews affine-line locality passage"
+      ],
+      "rationale": "The number of alternative minimal two-helper pairs at a specified position is a natural local repair invariant of this existing code. The exact spectrum distinguishes axes, affine positions and the duplicated origin, information unavailable from the aggregate dual coefficient or minimum locality alone. It does not claim disjoint repair availability.",
+      "residual_risks": [
+        "The claim is family-specific; it does not quantify failure recovery under a model of simultaneous erasures."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

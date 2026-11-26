@@ -1,0 +1,187 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:35:26.838055Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–28, VERIFICATION.md lines 19–27 and supplied verifier designs (not executed)",
+        "Repaired RESULT.md and VERIFICATION.md",
+        "Fresh execution of /workspace/repairs/4/verify.py"
+      ],
+      "rationale": "For the repaired claim, every legal graph edge is exactly a swap of consecutive positions whose endpoint also belongs to the full derangement list. The fresh verifier enumerates all n! words at n=2,...,5, filters by the literal fixed-point condition, computes exact BFS distances and compares to the Kendall pair-disagreement count for every reachable unordered pair. I executed it: vertex counts 1,2,9,44; respective reachable pair counts 0,0,11,188; no detours. Independently reasoned the upper and lower bounds for all n>=6. The displayed path acts in the first five positions and its eight prefixes have no fixed point; T_n=(7,...,n,4) is fixed throughout and has no fixed point even at n=6. Only five pair orders change between the endpoints: 1 with 2,5,6 and 6 with 2,5. Each step on an unrestricted geodesic would decrease disagreement by one. The only decreasing first swaps are (1,2) and (5,6) as label pairs, which respectively fix positions 2 and 5; no tail swap decreases disagreement. Every path length has odd parity, and the seven legal prefix swaps reach the target, proving exact distances 7 and 5 even when additional tail moves are allowed. Fresh BFS also independently confirmed those distances at n=6. Verification front matter is byte-identical to the original.",
+      "residual_risks": [
+        "Small-order isometry is certified only through order 5. The general proof constructs witness pairs; it is not an all-pairs formula or a maximum-detour statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general forbidden-set theorem, at F=[n], yields the original component fibers, canonical word and diameter bound. The hypercube record gives the same linear components and isolates, then allows distance-two moves. The cyclic record adds a wraparound swap and explicitly recovers the linear component count when omitted."
+        ],
+        "reasoning": "This is direct coverage of the discarded findings. None of the inspected broader statements identifies the order threshold for exact preservation of Kendall distances within the linear components. A normal-form path or a diameter upper bound does not force ambient-geodesic paths for arbitrary pairs.",
+        "searches": [
+          "2026/11/2/SCOPE-component-signatures-for-permutations-avoiding-selected-fixed-po--79c08e75f702",
+          "2026/11/8/SCOPE-hypercube-component-geometry-and-a-sharp-two-position-threshold--f608872f11aa",
+          "2026/11/8/SCOPE-cyclic-adjacent-swaps-collapse-derangement-reconfiguration-to-ex--5a562e89a765"
+        ]
+      },
+      "checked_sources": [
+        "Frozen original, especially its six-letter pair",
+        "Six identified Resultary findings",
+        "Van Duijnhoven official TU/e thesis PDF",
+        "Mütze survey and OA excedance papers",
+        "Focused permutohedron detour literature search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bubble-sorting to the canonical state bounds paths through that state; it does not yield a legal first step decreasing distance toward an arbitrary target. The repair shows both such first steps are blocked for its endpoints.",
+          "The known derangement Gray-code moves include arbitrary transpositions or rotations, and the excedance-set and excedance-board sources are not statements about intrinsic Kendall distances. The arbitrary-position detour compares against a weaker ambient distance and its endpoint pair need not be connected by legal adjacent moves."
+        ],
+        "reasoning": "None of these statements implies exact distances 5 and 7 for the repaired connected pair, persistence under the fixed-tail lift, or equality of all reachable-pair distances at orders 2–5. The lift needs a lower bound that also excludes initially using the extra labels; the first-step argument provides that bound.",
+        "searches": [
+          "Resultary 79c08e75f702 Finding and proof",
+          "Resultary f608872f11aa Finding and assumptions",
+          "Resultary a01ace1f3db3 Finding and assumptions",
+          "Mütze Gray codes survey p. 41",
+          "Baril–Mansour–Petrossian and Ehrenborg–Steingrímsson excedance work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the inverse-triangle record's Finding and Assumptions, crown-graph four-cycle flips are swaps of arbitrary positions; the prior detour compares with unrestricted transposition distance, not Kendall distance.",
+          "Van Duijnhoven's thesis is about avoiding odd-position equal neighboring symbols in multiset permutations, not keeping distinct values away from home positions."
+        ],
+        "reasoning": "Relabeling or translating to crown perfect matchings does not turn arbitrary positions into consecutive ones; restricting moves changes even the reachability question. The stutter restriction involves equal labels, absent entirely here.",
+        "searches": [
+          "Resultary: non-isometric components of adjacent swap derangement graph induced permutohedron Kendall distance first obstruction exact size cut-off legal adjacent swaps detour 7 versus 5",
+          "derangements induced subgraph permutohedron adjacent swap reconfiguration non-isometric Kendall distance derangement detour restricted geodesic nonisometry shortest paths",
+          "2026/11/2/SCOPE-an-exact-linear-derangement-swap-detour-between-inverse-triangle--a01ace1f3db3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prefix-normal word-chain generators do have an exact (5,7) entry in their detour table, but at order seven, with admissibility defined by every intermediate binary prefix-normal word during a deletion chain. Their cutoff and persistence theorem is for that graph.",
+          "The cited 132-avoidance record has exact detour pairs, but its endpoints and vertex restriction differ. No table for the first non-isometric adjacent-swap derangement component was identified in these comparisons."
+        ],
+        "reasoning": "Matched distance numbers or quantified first-detour wording do not give the same exact invariant under a different vertex test. The repaired small-order certificate tests the actual fixed-point predicate.",
+        "searches": [
+          "Resultary first detour and exact restricted distances; order six and 7 versus 5",
+          "2026/11/22/SCOPE-the-sharp-first-geodesic-detour-in-prefix-normal-word-chain-gene--26333db55de7",
+          "2026/10/26/SCOPE-quadratic-adjacent-swap-detours-among-132-avoiding-permutations--8ecaeb9ac4ba"
+        ]
+      },
+      "rationale": "The distinct repaired result is the sharp order threshold for within-component isometry and an exact detour persisting at all larger orders. Verified broader work covers the discarded connectivity claims, not this shortest-path result. The closest same-domain detour allows arbitrary switches, while the closest same-question first-detour theorem uses a different class of permutations.",
+      "residual_risks": [
+        "No exhaustive priority claim. Unindexed or inaccessible shortest-path work on exactly this derangement adjacency could remain. The later catalogue coverage of the original theorem is a mathematical comparison, not a claim about authorship or chronological priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers original classification and diameter; not repaired isometry threshold",
+          "evidence": "F=[n] gives precisely the original classification; U is empty in its canonical word L,U,R; it bounds sorting to the representative.",
+          "identifier_or_url": "2026/11/2/SCOPE-component-signatures-for-permutations-avoiding-selected-fixed-po--79c08e75f702/RESULT.md",
+          "material_read": "Finding, Assumptions, canonical word and bubble-sort proof, offsets 0–3726",
+          "method": "Published Resultary local-mirror passages",
+          "title": "Component signatures for permutations avoiding selected fixed points",
+          "trigger": "Same class as a specialization of its forbidden-set theorem"
+        },
+        {
+          "assessment": "Covers original components and isolates; different new threshold",
+          "evidence": "Its threshold is for enlarging the permitted swap range, not for first failure of isometry in the unchanged distance-one graph.",
+          "identifier_or_url": "2026/11/8/SCOPE-hypercube-component-geometry-and-a-sharp-two-position-threshold--f608872f11aa/RESULT.md",
+          "material_read": "Finding and assumptions offsets 0–1924; canonical connectivity passage",
+          "method": "Published Resultary local-mirror passages",
+          "title": "Hypercube component geometry and a sharp two-position threshold for derangement swaps",
+          "trigger": "Same derangement graph for distance-one swaps"
+        },
+        {
+          "assessment": "Recovers linear connectivity baseline; not linear distances",
+          "evidence": "Omitting boundary swaps gives 2^(n-2) connected signature sectors; the cyclic result allows a generator disallowed in the repair.",
+          "identifier_or_url": "2026/11/8/SCOPE-cyclic-adjacent-swaps-collapse-derangement-reconfiguration-to-ex--5a562e89a765/RESULT.md",
+          "material_read": "Path-only proof passage offsets 5480–6480",
+          "method": "Published Resultary local-mirror passage",
+          "title": "Cyclic adjacent swaps collapse derangement reconfiguration to excedance components",
+          "trigger": "Extends linear moves by one boundary move"
+        },
+        {
+          "assessment": "Different moves and baseline",
+          "evidence": "The theorem compares 2k+2 ceil(k/2) legal arbitrary-position switches with 2k unrestricted transpositions for inverse triangle products.",
+          "identifier_or_url": "2026/11/2/SCOPE-an-exact-linear-derangement-swap-detour-between-inverse-triangle--a01ace1f3db3/RESULT.md",
+          "material_read": "Finding and Assumptions offsets 0–1945",
+          "method": "Published Resultary local-mirror passage",
+          "title": "An exact linear derangement-swap detour between inverse triangle products",
+          "trigger": "Exact distance gap on the same vertex set"
+        },
+        {
+          "assessment": "Same metric question for a different vertex class",
+          "evidence": "All prefix-normal generators are isometric through n=6 with detours starting at 7; feasibility is not derangement avoidance.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-sharp-first-geodesic-detour-in-prefix-normal-word-chain-gene--26333db55de7/RESULT.md",
+          "material_read": "Finding and Assumptions offsets 0–2150",
+          "method": "Published Resultary local-mirror passage",
+          "title": "The sharp first geodesic detour in prefix-normal word-chain generators",
+          "trigger": "Closest matched first-detour invariant and a 5-versus-7 table entry"
+        },
+        {
+          "assessment": "Distinct vertex condition and endpoints",
+          "evidence": "Identity and a cyclic shift have distances n-1 and (n-1)^2 in the 132-avoidance problem; identity is not a derangement.",
+          "identifier_or_url": "2026/10/26/SCOPE-quadratic-adjacent-swap-detours-among-132-avoiding-permutations--8ecaeb9ac4ba/RESULT.md",
+          "material_read": "Finding and scope offsets 0–1928",
+          "method": "Published Resultary local-mirror passage",
+          "title": "Quadratic adjacent-swap detours among 132-avoiding permutations",
+          "trigger": "Ambient versus restricted distance for adjacent swaps"
+        },
+        {
+          "assessment": "Different feasibility condition and objective",
+          "evidence": "Excludes stutter permutations, defined by equality of entries at positions i and i+1 for an odd i; seeks Gray-code generation, not distances under a forbidden diagonal.",
+          "identifier_or_url": "https://research.tue.nl/p/file/document/67736149/760982-1.pdf",
+          "material_read": "p. 2 abstract, offset 1511; §7 p. 6, offset 19323",
+          "method": "OA university thesis PDF passages",
+          "title": "Generating all possible permutations with a minimal fixed restriction of any multiset by adjacent interchanges",
+          "trigger": "Potentially overlapping fixed restrictions under adjacent swaps; previously only bibliographic"
+        },
+        {
+          "assessment": "Broader moves; not a distance result for adjacent swaps",
+          "evidence": "Uses a transposition or a 3-rotation per step; unavailable originals not treated as evidence of absence.",
+          "identifier_or_url": "https://tmuetze.de/papers/survey.pdf",
+          "material_read": "p. 41 offset 144534, summary of Korsh–LaFollette",
+          "method": "OA PDF passage; original 2004 paper bounded lawful access attempted",
+          "title": "Combinatorial Gray codes—an updated survey",
+          "trigger": "Possible derangement swap equivalence under Gray-code terminology"
+        },
+        {
+          "assessment": "Enumerative equivalence relation, not graph isometry",
+          "evidence": "Excedance boards record entries above the diagonal through positions and values rather than testing legal geodesics.",
+          "identifier_or_url": "https://jl.baril.u-bourgogne.fr/equival.pdf",
+          "material_read": "p. 1 offset 1719",
+          "method": "OA author manuscript passage",
+          "title": "Equivalence classes of permutations modulo excedances",
+          "trigger": "Related side-of-diagonal formulation"
+        },
+        {
+          "assessment": "Enumeration of prescribed classical excedance sets rather than shortest paths",
+          "evidence": "Counts words with given positions i for which pi(i)>i; no reconfiguration metric established by the inspected result.",
+          "identifier_or_url": "https://www.ms.uky.edu/~jrge/papers/Excedance.pdf",
+          "material_read": "p. 1 abstract offset 678",
+          "method": "OA PDF passage",
+          "title": "Counting permutations by excedances",
+          "trigger": "Prescribed excedance sets potentially encode inverse-displacement signs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and persistent-detour proof",
+        "Resultary 79c08e75f702 connectivity theorem",
+        "Repaired verify.py all-pairs boundary check"
+      ],
+      "rationale": "Once exact connectivity of the signature sectors is known, it is natural to ask whether standard Kendall geodesics already suffice for optimal routing within them. The answer is not a trivial consequence of disconnectedness: every connected pair retains its distance through order five, while a concrete local obstruction first forces a two-step surcharge at six and cannot be bypassed using extra labels at any larger order. The exact boundary and persistence make the witness independently useful, rather than retaining a covered theorem with a cosmetic disclaimer.",
+      "residual_risks": [
+        "The repaired result does not quantify the worst surcharge at large order, or address moves other than consecutive-position swaps."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:23:02.473675Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The greedy arch count equals the subsequence-universality index: an arch supplies each next requested symbol, and the successive arch-ending symbols followed by a missing suffix symbol give an absent pattern by earliest matching. With exactly k letters a, every one of the k arches must use one a; the only possibilities are ab and b^(h+1)a, followed by a b-only suffix, and the choices are unique. The first b in each later arch supplies one pair for each earlier a, giving binom(k,2). The extra weighted contributions are 1 for ab, (j−1)h for the extra b's in arch j, and k per suffix letter. Coefficient extraction therefore counts the exact histogram. The denominator is the usual Gaussian inversion-area polynomial and is positive throughout: for C=q(k+s)+r fill q rows of length k+s and one row of length r in the k-by-(k+s) rectangle, omitting a zero row. Reversal preserves universality and complements C. The total is 2^k times E binom(s+J,s) for J binomial(k,1/2); for fixed s the leading term is (k/2)^s/s!, including s=0. The composition count is asymptotic to 2^s 4^k/sqrt(pi k), giving the stated rarity. For k=3,s=1, direct coefficient extraction gives z^3(1+z)^2(1+z+z^2+z^3+z^4), agreeing with the stated histogram. Frozen verification.py and verification_output.txt were inspected, not rerun; the finite checks are supplementary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fazekas–Huang–Mercaş give a classwise existence theorem and an approximation scheme for fixed-pattern containment; Adamson counts fixed-length universal words without the joint content/pair refinement.",
+          "Richomme treats bounded partitions for binary 2-binomial classes, and the indexed k=3 theorem counts three-universal words at each pair count for both content sizes arbitrary and at least three."
+        ],
+        "reasoning": "The broader external existence and counting theorems do not identify this filtered numerator. The broader k=3 indexed count does, upon setting the counts to 3 and 3+s; the general indexed maximal-universality theorem covers the entire unbounded-k regime.",
+        "searches": [
+          "arXiv:2610.06717, Lemma 3.2, Theorem 3.3, §5",
+          "arXiv:2304.04583, §3",
+          "arXiv:2510.07159, abstract",
+          "Resultary 561fd2881a94"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5c8faf99c146",
+        "Resultary 2a5245b16b63",
+        "Resultary 561fd2881a94",
+        "Resultary 307f63e05203",
+        "arXiv:2610.06717",
+        "arXiv:2304.04583",
+        "arXiv:2510.07159",
+        "arXiv:2402.05657",
+        "doi:10.1007/978-3-030-48516-0_2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general indexed polynomial determines each refined numerator and explicitly gives the identical binomial total.",
+          "At fixed s, binom(s+j,s) is a polynomial of degree s with leading coefficient 1/s!, so the fixed-s asymptotic follows directly from the exact binomial average and central-binomial normalization."
+        ],
+        "reasoning": "Known greedy arches and the existence theorem alone do not imply a refined count. However, once the indexed exact polynomial is used, dividing by the standard Gaussian coefficient is definitionally the conditional proportion. The stated rarity constant is the direct leading term of the already given exact total. Extending the same per-arch count to k=1 or 2 is not a separate substantial contribution.",
+        "searches": [
+          "Resultary 5c8faf99c146, exact coefficient and total",
+          "Barker et al., doi:10.1007/978-3-030-48516-0_2, pp. 18–19",
+          "arXiv:2610.06717, Theorem 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 5c8faf99c146 gives q^binom(k,2) [u^s] (1−u)^(-1) prod_j (1+q/(1−u q^j)) for fixed content (k+s,k) and maximal universality, including arbitrary k≥4 and s≥0.",
+          "Renard–Rigo–Whiteland use q-weights on embeddings within a word rather than enumeration by the ordinary pair count."
+        ],
+        "reasoning": "Reversal followed by exchange of a and b preserves both C and subsequence-universality and sends the indexed composition (k+s,k) to (k,k+s). Thus both products are the same polynomial in their common domain. Equivalently, exchange alone complements C, and reciprocation of the indexed coefficient with the substitution u→u q^k yields the frozen product after reversing j. The published q-Parikh object is not an equivalent formulation.",
+        "searches": [
+          "Resultary: exact Parikh-pair distribution of maximally subsequence-universal binary words",
+          "Resultary 5c8faf99c146 mirror, Finding and proof §2",
+          "arXiv:2402.05657, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2a5245b16b63 explicitly gives q^binom(k,2)(1+q)^(k−1)(1+q+...+q^(k+1)), the s=1 coefficient polynomial.",
+          "561fd2881a94 covers the exact k=3 slice. 307f63e05203 gives the s=0 total 2^k but not that refinement; 5c8faf99c146 gives the exact general polynomial and total for k≥4."
+        ],
+        "reasoning": "Extracting u^1 in the frozen product gives exactly the 2a5245b16b63 formula. The entries are exact parameter-family coverage, stronger than finite tables. Display dates do not establish scientific priority or dependence.",
+        "searches": [
+          "Resultary: exact 01 subsequence enumeration for near-shortest binary universal words",
+          "Resultary: exact binary three-subsequence universality counts in every Parikh-matrix class",
+          "Resultary 307f63e05203 and 5c8faf99c146"
+        ]
+      },
+      "rationale": "The all-slack refined polynomial for arbitrary k≥4, its symmetry and exact total are already equivalently covered by a distinct indexed result. Earlier entries cover s=1 and k=3 exactly. This is demonstrated coverage, not a historical-priority verdict: the general matching record has a later catalogue date. The Gaussian normalization, routine fixed-s asymptotics and omitted tiny k cases do not leave a distinct scientifically material remainder.",
+      "residual_risks": [
+        "The chronology and relationship of the two general catalogue records are not independently established. The coverage decision does not assert that the later-dated entry preceded the frozen claim.",
+        "The broad literature query was noisy; external priority is not settled by the sources inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage for k≥4 and all slack",
+          "evidence": "States the full coefficient, its total and symmetry, and explicitly makes the reversal/letter-exchange equivalence.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-parikh-pair-distribution-of-maximally-subsequence-universa--5c8faf99c146/RESULT.md",
+          "material_read": "Finding, assumptions, and proof §§1–2, mirror offsets 0–3960 at 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary index and targeted local primary record mirror",
+          "title": "Exact Parikh-pair distribution of maximally subsequence-universal binary words",
+          "trigger": "Exact general weighted count in opposite composition convention"
+        },
+        {
+          "assessment": "Exact s=1 coverage",
+          "evidence": "The factor (1+q)^(k−1) times sum_{i=0}^{k+1}q^i times the triangular baseline matches the extraction.",
+          "identifier_or_url": "Resultary 2026/10/25/SCOPE-a-sharp-01-subsequence-enumerator-for-near-shortest-binary-unive--2a5245b16b63",
+          "material_read": "Mirrored Finding, composition and exact coefficient polynomial",
+          "method": "Resultary index and primary record text",
+          "title": "A sharp 01-subsequence enumerator for near-shortest binary universal words",
+          "trigger": "Prior exact one-extra-letter slice"
+        },
+        {
+          "assessment": "Exact k=3 slice",
+          "evidence": "All contents with both counts at least 3, as the Gaussian class size minus an explicit correction.",
+          "identifier_or_url": "Resultary 2026/10/26/SCOPE-exact-binary-three-subsequence-universality-counts-in-every-pari--561fd2881a94",
+          "material_read": "Mirrored Finding and parameter scope",
+          "method": "Resultary index and primary record text",
+          "title": "Exact binary three-subsequence universality counts in every Parikh-matrix class",
+          "trigger": "Exact refined small-index theorem"
+        },
+        {
+          "assessment": "Sharp existence and fixed-pattern approximation, not the refined count",
+          "evidence": "Theorem 3.3 tests whether some universal representative exists; §5 approximates fixed-pattern containment probabilities.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.06717",
+          "material_read": "Lemma 3.2 and Theorem 3.3, pp. 5–6 and §5 p. 8, OA offsets about 17600 and 28150",
+          "method": "Targeted open primary PDF passages",
+          "title": "Subsequence Analysis Problems for Binary Parikh Matrices",
+          "trigger": "Same Parikh languages and universality problem"
+        },
+        {
+          "assessment": "Structural tool, not the refined enumeration",
+          "evidence": "Defines greedy arches and identifies their number with the universality index.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-030-48516-0_2",
+          "material_read": "pp. 18–19 near OA offset 11900",
+          "method": "Targeted open primary PDF passage",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Arch factorization input"
+        },
+        {
+          "assessment": "Different weighting problem",
+          "evidence": "q-weights are on individual subsequence embeddings, not an external variable marking fixed ordinary ab-count per word.",
+          "identifier_or_url": "https://arxiv.org/pdf/2402.05657",
+          "material_read": "First-page description of the q construction",
+          "method": "Targeted open primary PDF passage",
+          "title": "q-Parikh matrices and word binomial coefficients",
+          "trigger": "Plausible q-enumeration equivalence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact weighted polynomial is a useful invariant in isolation, but its entire unbounded family is already given by an equivalent indexed formula. What remains is standard normalization, the elementary leading term of the existing total, and boundary values of k under the same factorization. These do not constitute a separate nonmechanically implied exact classification.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:02:13.120935Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the graph on the 27 triples. The seven-vertex closed-neighborhood bound rules out sizes below four. An independent enumeration used combinations, closed-neighborhood unions and union-find on the selected vertices, obtaining zero connected dominating sets through size seven and 11,340 at eight. Independently formed transitions by grouping eight-sets by their seven-vertex intersections; each jump is counted once, and a Hamming-distance-one test on the two extensions distinguishes slides. This gave 73,386 jump and 14,094 slide edges. Unweighted sparse shortest paths over seven disjoint source slices covered every jump source, all reached all states, every eccentricity was nine, and the unordered-pair histogram at distances 1–9 was 73386, 448416, 1964574, 5972616, 12581730, 19397880, 17513334, 6099786, 240408. All slide components were checked, giving (order,diameter,count) = (2,1,162), (9,4,72), (18,9,108), (52,11,162). Directly applying all 6^4 coordinate/symbol maps returned one orbit per component order and state orbit counts 1, 3, 7 at sizes 324, 648, 1296. Inspected both original verifier sources and distinguished their recorded outputs from this fresh full finite reproduction. Replay: /workspace/branches/census.py, census_aggregate.py and census-run/{structure.txt,jump-*-*.txt,jump-aggregated.txt}; pass a scratch output directory to census.py, then run the slices [0,256), [256,2048), [2048,4096), [4096,6144), [6144,8192), [8192,10240), [10240,11340) and aggregate. This proves the finite census, not any larger-family result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abu-Khzam et al. enumerate inclusion-wise minimal connected dominating sets. Lokshtanov et al. analyze size-capped token addition/removal."
+        ],
+        "reasoning": "Enumeration algorithms can be run on this graph, but neither paper gives this numerical classification. TAR admits different intermediate cardinalities and its complexity statements do not determine the fixed-minimum jump or slide geometry.",
+        "searches": [
+          "arXiv:2205.00086v1, abstract and §3",
+          "arXiv:1910.00581v1, p. 2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2205.00086v1",
+        "arXiv:1910.00581v1",
+        "Resultary:2026/10/18/24a2261a2118",
+        "Resultary:2026/11/22/4e3e739b312a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The binary Q4 exchange record gives 192 minimum states, 384 jump edges, diameter seven and no slides; H(3,3) differs both in its state space and its legal slide structure."
+        ],
+        "reasoning": "The binary classification is a direct methodological precedent, not a theorem on arbitrary Cartesian powers or a reduction from this ternary instance. The TAR framework also gives no implication for these metrics.",
+        "searches": [
+          "Resultary 2026/10/18/24a2261a2118 Finding",
+          "arXiv:1910.00581v1, move definitions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day Hamming-cube power-domination record concerns 1,296 minimum power-dominating triples. The reviewed states are minimum connected dominating eight-sets."
+        ],
+        "reasoning": "Power domination includes a propagation rule and does not specify induced connectedness and immediate closed-neighborhood coverage. A jump or slide census of those triples does not give these eight-set graphs. The identical record returned by the search is not separate prior evidence.",
+        "searches": [
+          "Resultary: ternary Hamming three-cube minimum connected domination and exchange/reconfiguration",
+          "Resultary 2026/11/22/4e3e739b312a Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier exact H(3,3) connected-domination census was identified in the bounded lookup; an apparent same-graph match was power domination and the external search returned an unrelated hexagonal-grid domination result."
+        ],
+        "reasoning": "An ordinary domination value or an exact table for a different alphabet/graph/variant would not fix the connected optimum, and even an earlier static optimum would not yield the reconfiguration counts. Search absence is not a proof of priority.",
+        "searches": [
+          "Resultary: exact connected domination value and minimum-state census for H(3,3)",
+          "Primary-literature search: connected domination in ternary Hamming graphs and reconfiguration"
+        ]
+      },
+      "rationale": "The inspected literature and the closest indexed records cover general enumeration, a different move model, or a different graph or invariant. They do not state or give the specific fixed-minimum connected domination and exact jump/slide census here. Approval is bounded by the searches and material inspected.",
+      "residual_risks": [
+        "An unindexed exact table or finite census may exist.",
+        "Fricke et al., DOI 10.7151/dmgt.1562, is a potentially relevant general gamma-graph reference; full text was not obtained after an SSL retrieval error. No positive evidence identifies a covering ternary result there."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General method, not the minimum reconfiguration census",
+          "evidence": [
+            "Algorithms enumerate inclusion-wise minimal connected dominating sets."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.00086",
+          "material_read": "Abstract p. 1 and §3 p. 5 (PDF text offsets 0 and 14800)",
+          "method": "Primary OA PDF",
+          "title": "Enumerating Connected Dominating Sets",
+          "trigger": "General connected domination enumeration"
+        },
+        {
+          "assessment": "Different transitions and objective",
+          "evidence": [
+            "Token addition/removal with a size cap rather than fixed-minimum token exchanges."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.00581",
+          "material_read": "Move definitions, p. 2 (PDF text offset 5900)",
+          "method": "Primary OA PDF",
+          "title": "On the Parameterized Complexity of Reconfiguration of Connected Dominating Sets",
+          "trigger": "Same feasible-set property"
+        },
+        {
+          "assessment": "Binary precedent; not ternary coverage",
+          "evidence": [
+            "192 states, diameter seven and no slides in Q4."
+          ],
+          "identifier_or_url": "Resultary:2026/10/18/24a2261a2118",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "The Cayley exchange graph of minimum connected dominating sets in the four-cube",
+          "trigger": "Exact minimum connected domination exchange graph"
+        },
+        {
+          "assessment": "Different feasible states; same date does not establish priority",
+          "evidence": [
+            "Minimum power-dominating triples, not connected dominating eight-sets."
+          ],
+          "identifier_or_url": "Resultary:2026/11/22/4e3e739b312a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Power-domination triples and sharp relocation detours in the ternary Hamming three-cube",
+          "trigger": "Same graph and move types"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete metric and orbit classification for the first ternary three-coordinate product is a usable benchmark for optimal connected-backbone reconfiguration. The all-state split between global jump connectivity with every eccentricity nine and 504 small non-isolated slide components is substantive routing information, not determined by the static optimum or ordinarily available from a general reconfiguration algorithm without doing the census. The exact distances and slide orbit data let other implementations test reachability, routing and symmetry reductions on a reproducible fixed graph.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

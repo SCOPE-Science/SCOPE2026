@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Gamma survival formula supplies each marked intensity. For any two distinct overlapping windows of lengths \(k,\ell\), the common Gamma component and the mean of the independent exclusive components imply a joint exceedance bound of order \(n^{-1}(\log n)^{h-(k+\ell)/2}\), where the intersection length \(h\) satisfies \(2h\le k+\ell-1\). Grouping mixed-factorial-moment tuples by support-connected components makes every overlapping contribution vanish, leaving independent spatial Poisson limits. Exponential normalization is negligible uniformly over every fixed collection of lengths. A standalone checker passed 529 deterministic finite tests. The proof covers all fixed positive lengths and bounded height sets, with maxima handled by tightness.
+## correctness
 
-## Originality — PASS, qualified
-The most relevant inspected primary paper, Mijatović–Vysotsky (2015), obtains a one-length maximal-spacing Gumbel limit and a within-length parity comparison, not joint independence of distinct window lengths or the spatial point-field theorem. Watson (1954) addresses a single stationary dependent process. Dembo–Karlin (1992) and Roos (1993) address related scan and extreme-spacing counts; full texts were not available, and their accessible abstracts were checked only to the extent indicated. Semantic and alias searches of published findings, plus archived local claim comparisons, did not produce a covering theorem. Residual risk: a sufficiently general historical marked-Poisson or multiscale scan theorem might subsume this statement; published priority has not been independently certified.
+PASS
 
-## Value — PASS
-A simultaneous multiscale extreme-spacing law calibrates several occupancy/coverage gaps at once. The exact asymptotic independence across lengths and locations is not determined by the known one-length limits and gives a useful familywise probability and spatial-location law; it resolves a natural dependence question rather than computing an arbitrary finite slice.
+The n+1 normalized independent exponentials give the complete endpoint-inclusive spacing vector. For fixed K the perturbation of all heights is bounded by K max(E_j)|n/T−1|=O_P(log(n)/sqrt(n)), and the Erlang survival polynomial gives n times each single-window tail converging to exp(−x) with the specified centering. I checked the critical overlap estimate also for a nested pair: split off h common exponentials, average the two exceedance inequalities and let R be half the sum of the exclusive exponentials, with shape zero meaning no term. Conditioning on R≤z, the Erlang tail is at most C exp(−z)exp(R)(1+z)^(h−1); R>z is bounded by exp(−z)E exp(R). Thus averaging the centered thresholds produces n^−1(log n)^[h−(k+l)/2], with exponent at most −1/2 for distinct windows. In a fixed factorial-moment tuple each support-connected component has only O(n) starts and bounded relative offsets; disjoint components are independent, and any nontrivial component gains the logarithmic loss. Repeated labeled windows cannot arise from factorial moments within one cell or across disjoint cells of that label. For independent placements the first-order probabilities and spatial Riemann sums factor; deleting the O(n^(r−1)) overlapping placements from the order-r independent sum has no effect. Moment determinacy of the limiting Poisson counts, bounded expected masses of compact strips and rectangle approximation give joint vague convergence. The uniform perturbation then transfers convergence using continuous test functions and tight counts on enlarged strips. For top marks, union-bound the unnormalized tails above R and use the uniform perturbation; a count void on [−R,R] vanishes in the iterated limit. Diffuse Poisson heights give unique top points, and the product intensity yields uniform locations independent of heights. The maximal spacing tends to zero and uniform order-statistic deviations give the same spatial limit in physical coordinates. The finite checker provides ingredient diagnostics only and was not executed.
 
-## Scientific limits
-Fixed lengths and uniform observations only; no finite independence or explicit full-process error rate. Finite computational checks are not substituted for the infinite proof. Independent mathematical and historical review remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the one-length Gumbel limit and the substantial k=2 spatial overlap. The supported distinct claim is the independent marked fields for all lengths jointly in any fixed finite prefix and the resulting joint argmax law. The compared marginal theorems, circular k=2 marked result, and different-statistic joint limits do not establish this independence across all distinct lengths.
+
+## value
+
+PASS
+
+The statistics share almost all the same underlying sample and often overlapping windows. The theorem identifies when their extremal dependence disappears even for spatial fields and maximizing locations, not just one set of Gumbel marginals. This supplies joint calibration for arbitrary fixed groups of spacing lengths and an explanation in terms of overlap decay. No claim of added value is made for isolated k=1 or k=2 marginals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

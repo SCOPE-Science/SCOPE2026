@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:23:44.043164Z",
+  "axes": {
+    "correctness": {
+      "limitations": "Fixed orthogonal equal-radius bicylinder and Haar through-center directions. Finite quadratures corroborate; the exact support decomposition and uniform expansion prove the limit.",
+      "rationale": "For the repaired claim, the two cylinder inequalities give L=2/√(1−min(|Ux|,|Uy|)^2). The exact inequality in azimuth/height is z²+(1−z²)|sin 2q|<h. For 0<h<1 there are exactly four disjoint sectors, with constant area Jacobian h^(3/2), giving independent uniform marks and the exact arcsine slice width. The inequality arcsin x≥x and the denominator 1−hb²≤1 show genuine nesting. Expanding the half-width uniformly yields w_h−w_0=(h/2)b²(1−b²)+O(h²), and hence excess area (4/15)h+O(h²). Uniform measures on nested sets decompose into a common and a mutually singular excess term; the latter weight is exactly TV and its expansion is h/5+O(h²), not only O(h). Normalizing the twice-half-width excess yields height density converging uniformly to (15/4)b²(1−b²); sign is uniform and the magnitude converges uniformly to (1−b²)/2, proving weak shell convergence. The boundary limit is singular and not a shell TV limit. Independent support and quadrature checks and finite moment checks passed.",
+      "replay": "python3 /workspace/repairs/3/verify_localization.py; python3 /workspace/replay.py 3",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general orthogonal overlap proof rescales a shrinking triangle in projected x,y coordinates and integrates its leading singular density. The separately indexed strictly unequal-radius bicylinder describes a shrinking wedge and leading spherical area plus a different, contact label. The tetrahedral-illumination result treats a different cap-axis separation and a scalar success probability."
+        ],
+        "reasoning": "Leading-order rescalings are prior and motivate the geometry. They do not specify the subleading shell in the exact azimuth/height coordinates or its normalized boundary law; proving that requires the first-order shape correction. Same-day indexing does not establish priority.",
+        "searches": [
+          "Resultary 04bd972e6d48 proof §§2–4",
+          "Resultary 6836a26dd40d proof, upper endpoint",
+          "arXiv:1205.1396 §§4.2–4.4",
+          "Resultary f096ea269d31 Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 04bd972e6d48, 6836a26dd40d, f096ea269d31, f1c36680292a, 1bfc7d9fbd11, cd402d63a3ed (self-match)",
+        "arXiv:1205.1396",
+        "SOLS transmission: Spherical cap intersection, analytical solution",
+        "Kellerer 1971 pp. 359–360",
+        "Finch arXiv:1211.4514 pp. 1–2",
+        "Moore 1974 (extract)",
+        "Angell–Moore 1987 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "J(t,t) mechanically implies the old scalar distribution and tails. The prior projected-triangle calculation uses leading orders and computes area. Kellerer’s random track positions are not pinned to the center. Finch’s orthogonal-disk hull is, up to rotation of coordinates, the polar dual, not an affine copy carrying the Haar length measurement."
+        ],
+        "reasoning": "Once exact nesting is proved, the scalar cap formula can also calculate the excess total mass and its asymptotic; the repair does not claim the mass calculation in isolation as an independent lens result. The exact nesting in the specified chart and the spatial excess law require the slice profile; an integrated kernel or its leading term supplies no conditional shell height or sign law.",
+        "searches": [
+          "Resultary 04bd972e6d48 Finding and Proof §§3–4",
+          "Mazonka §4.3 eq. (45)",
+          "Kellerer 1971, PDF pp. 359–360",
+          "Finch arXiv:1211.4514 pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rescaled conditional domain is exactly one of four equally probable spherical lenses. Mazonka’s intersection formula evaluated at two equal caps of half-angle arccos(t) and axis angle π/2 gives a single lens area 4[arctan(s)−t arctan(s/t)], with s²=1−2t²; four copies divided by 4π is the scalar survival law. SOLS spherical-cap intersection, analytical solution (1)–(9), gives related area formulas."
+        ],
+        "reasoning": "An equivalent cap-area evaluation determines total area, not the pointwise excess width and distribution of the probability outside the limiting parabolic support. The existing lens identity is credited and retained only as corroboration/background.",
+        "searches": [
+          "Resultary: quantitative marked spherical lens conditional long Steinmetz bicylinder uniform azimuth height sharp total variation rate h/5 excess shell boundary law nearly tangent spherical cap overlap",
+          "arXiv:1205.1396 §4.3, (45)",
+          "Primary lookup: orthogonal spherical cap intersection near tangency parabolic scaling conditional uniform total variation lens local asymptotic shape"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Target suffix cd402d63a3ed is an exact hit only for the frozen record itself, with a qualitative marked TV limit. f1c36680292a treats random width and logarithmic lower-tail localization; 1bfc7d9fbd11 is the central plane-section area profile."
+        ],
+        "reasoning": "Neither a self-hit nor a different direction observable provides the repaired marked shell result. No independent exact table for that shell law was identified in the bounded comparison.",
+        "searches": [
+          "Resultary: central-ray bicylinder localization, total variation and excess shell",
+          "Resultary: Steinmetz random width and planar-section laws"
+        ]
+      },
+      "rationale": "The repaired finding claims the marked conditional law with the exact excess decomposition, its sharp TV error, and the normalized boundary distribution of the excess; it credits the older scalar lens calculation, rather than asserting it as new. No inspected statement mechanically supplies the conditional excess distribution.",
+      "residual_risks": [
+        "Older cylinder papers were not accessible in full. A general conditional cap-lens shape expansion elsewhere could imply the repaired result; no such result was established by the inspected material. Priority is not guaranteed by search results or date-path comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers original scalar law via J(t,t); prior leading local geometry, not normalized boundary excess",
+          "evidence": "Gives exact J(s,t), joint projection density, and the sharp pair threshold coefficient 2√r/(3πa_i a_j).",
+          "identifier_or_url": "Resultary 04bd972e6d48",
+          "material_read": "RESULT.md Finding offset 0; Proof §§2–4 at offset 2200",
+          "method": "Resultary local mirror",
+          "title": "Exact Haar central-chord law of rectangular boxes and its singularity thresholds",
+          "trigger": "Explicit general coordinate cap overlap; decisive coverage of the frozen scalar law"
+        },
+        {
+          "assessment": "Direct scalar-area coverage, not conditional spatial error",
+          "evidence": "Solid angle is the sum of two cap-segment areas Ω(θ,γ)=2(β−ϕ cos θ); specialize equal half-angles and orthogonal axes.",
+          "identifier_or_url": "https://arxiv.org/pdf/1205.1396",
+          "material_read": "§4.3 eq. (45), pp. 10–11, offset 26675; leading portion of §4.4",
+          "method": "OA PDF passage",
+          "title": "Solid Angle of Conical Surfaces, Polyhedral Cones, and Intersecting Spherical Caps",
+          "trigger": "Earlier general spherical lens formula"
+        },
+        {
+          "assessment": "Strictly unequal radii; overlap at leading local geometry, no exact conditional shell",
+          "evidence": "Wedge widths of order Δ and √Δ; integrated 3/2 power and separate contact-label ratio.",
+          "identifier_or_url": "Resultary 6836a26dd40d",
+          "material_read": "RESULT.md Finding and upper-endpoint proof at offset 3700",
+          "method": "Resultary local mirror",
+          "title": "Exact isotropic central-chord law and contact transition for an unequal bicylinder",
+          "trigger": "Same measured solid family and nearby endpoint normalization"
+        },
+        {
+          "assessment": "Different sampling convention",
+          "evidence": "Isotropic field of tracks, with location and direction independently uniform in Euclidean space.",
+          "identifier_or_url": "https://epub.ub.uni-muenchen.de/6318/1/6318.pdf",
+          "material_read": "PDF pp. 359–360, offsets 27486 and 30473",
+          "method": "OA PDF passages",
+          "title": "Considerations on the Random Traversal of Convex Bodies and Solutions for General Cylinders",
+          "trigger": "Classical cylinder track law that could use the same sampling convention"
+        },
+        {
+          "assessment": "Possible remaining overlap not resolved",
+          "evidence": "Inspected material concerns symmetric cylinder intersections; not evidence about the whole articles.",
+          "identifier_or_url": "doi:10.2307/3615957; doi:10.1107/S0108767387099501",
+          "material_read": "Extract and abstract only",
+          "method": "Bounded lawful DOI/publisher attempts; full text inaccessible",
+          "title": "Symmetrical intersections of right circular cylinders; Symmetrical intersections of cylinders",
+          "trigger": "Older related cylinder-intersection work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The anisotropic extreme geometry gives a useful conditional approximation for any measurable event of marked direction, with a sharp and attained uniform error. The boundary shell identifies where the first-order discrepancy lies and gives its nonuniform height law, something scalar tail probabilities and a qualitative limit cannot provide. This is an intrinsic geometric statistic of the natural nearly-longest-chord event, not merely a higher scalar Taylor coefficient.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

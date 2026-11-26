@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:56:26.219237Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The fixed-rank theorem is unchanged. The input/output changes of variables absorb the factor alpha and give the kernel (1-(u+v)/alpha)_+^(alpha-1). The exterior kernel on ordered tuples is the determinant without 1/j!, and its norm is the product of the leading j singular values. The repaired proof bounds the individual u- and v-degrees at epsilon-order r by r, with equality in both possible in the mixed logarithm only for -epsilon uv. Thus any determinant term using distinct degree lists a and b through a matching sigma starts at sum max(a_i,b_{sigma(i)}); at J=j(j-1)/2 only identical consecutive lists starting at zero and the diagonal matching qualify. The coefficient is (-1)^J Delta(U)Delta(V)/prod_{k<j}k!. To pass from local analyticity to Hilbert–Schmidt convergence, the Cauchy disc of radius 1/[8(1+R)^2] bounds the mixed determinant uniformly and yields remainder O_j(epsilon^(J+1)(1+R)^(2J+2)). With R=C_j log(alpha), the inside scaled error times the extracted exponential tends to zero in L², and the outside squared scaled tail is O_j(alpha^(2J) exp(-R)). The ordered Gram determinant is prod_{k<j}(k!)²/2^(j²) by monic Laguerre norms; division of the product limits gives (j-1)!/2^(2j-1) for all fixed j, including 1/16 and 3/64 at j=3,4. Independent exact finite checks of the Vandermonde coefficient and Gram constants through rank 8 corroborate these steps; the analytic proof, not a finite quadrature or the uploaded checker, proves the limit. No growing-rank uniformity is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eveson's asymptotic rank-one approximation gives the top norm, including the relevant fractional integral setting.",
+          "The Ransford–Tsedenbayar abstract concerns spectra of real and imaginary parts. Classical Tuan–Gorenflo asymptotics as cited in the record concern j tending to infinity at fixed order instead of the reverse regime."
+        ],
+        "reasoning": "A broader collection of Volterra operators or a finer limit in a different index does not on its own give sharp fixed j>=3 constants as the order grows. No full-text exclusion is made for abstract-only sources.",
+        "searches": [
+          "Eveson, Norms of iterates of Volterra operators on L2, introduction and §3",
+          "Eveson arXiv:math/0409516v1 Lemma 3.3 and Corollary 3.4",
+          "Ransford–Tsedenbayar DOI 10.1007/s00020-024-02755-w"
+        ]
+      },
+      "checked_sources": [
+        "Eveson (2003 J. Operator Theory and arXiv:math/0409516v1)",
+        "Ransford–Walsh arXiv:2206.09947",
+        "Resultary rank-two summary (2026-10-18)",
+        "Dostanić DOI 10.1007/PL00004837 abstract",
+        "Ransford–Tsedenbayar DOI 10.1007/s00020-024-02755-w abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eveson's norm gives j=1 after normalization. A bound on the sum of squares beyond rank two gives s_3=O(alpha^(-2)) but not its matching leading constant or rank-dependent decay.",
+          "Ransford–Walsh's problem is the operator norm of polynomials, not the exterior-power norm required for the higher product constants."
+        ],
+        "reasoning": "Neither the existing lower-rank constants nor the quantitative remainder as stated supplies the missing successive determinant limits, which fix the best fixed-rank operator-norm errors.",
+        "searches": [
+          "Rank-two public summary (2026-10-18), singular value and Hilbert–Schmidt tail claims",
+          "Eveson arXiv:math/0409516v1 Corollary 3.4",
+          "Ransford–Walsh arXiv:2206.09947"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For integer alpha=m the target is m! times V^m; for general alpha it is the normalized Riemann–Liouville integral. The problem can be phrased as sharp fixed-rank approximation numbers, not only the norm of a high power.",
+          "The Dostanić abstract relates norms of even powers of a Volterra operator to singular values of the original operator, not ranked singular values of the powers."
+        ],
+        "reasoning": "Identify the high-power and fractional-order aliases, but distinguish s_j(T^m) at fixed j from a norm of T^m or s_j(T) at varying j.",
+        "searches": [
+          "Eveson arXiv:math/0409516v1 Lemma 3.3 and Corollary 3.4",
+          "Ransford–Walsh arXiv:2206.09947",
+          "Dostanić DOI 10.1007/PL00004837"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier published summary gives s_2~1/(8 alpha) and sum_{j>=3}s_j²=O(alpha^(-4)) in the same normalization."
+        ],
+        "reasoning": "This is an exact overlap at rank 2 and is credited. The returned tail estimate has no exact third constant and no asymptotic formula for all fixed higher ranks.",
+        "searches": [
+          "Resultary: Sharp second singular asymptotics and rank-two collapse for high Volterra powers",
+          "Resultary published summary dated 2026-10-18, SCOPE-sharp-second-singular-asymptotics-and-rank-two-collapse-for-high--3619ccb23ef6"
+        ]
+      },
+      "rationale": "On the inspected evidence the surviving contribution is the sharp hierarchy from rank 3 onward. This is not a priority claim for the boundary-layer model, rank-one or rank-two consequences, or exterior powers. Search is nonexhaustive; abstract-only comparisons are recorded as such.",
+      "residual_risks": [
+        "Only the published summary of the rank-two record was compared; a result beyond that summary was not ruled out.",
+        "Dostanić's full text was not available (paper-text service returned HTTP 400); the Ransford–Tsedenbayar comparison is abstract-only. Unindexed or specialized approximation-number results could subsume the hierarchy."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the leading norm behavior; not evidence for a ranked hierarchy.",
+          "evidence": [
+            "The high-order norm is governed by a leading rank-one boundary contribution."
+          ],
+          "identifier_or_url": "https://jot.theta.ro/jot/archive/2003-050-002/2003-050-002-010.pdf",
+          "material_read": "Introduction and §3",
+          "method": "Primary PDF comparison of asymptotic norm and operator approximation",
+          "title": "Norms of iterates of Volterra operators on L²",
+          "trigger": "Same large-power limit"
+        },
+        {
+          "assessment": "Covers the rank-one metric information, not the sharp hierarchy in the compared results.",
+          "evidence": [
+            "The exponential rank-one comparison and the norm estimate give the leading normalized value 1/2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0409516v1",
+          "material_read": "Lemma 3.3 and Corollary 3.4",
+          "method": "Primary PDF comparison after normalization at p=2",
+          "title": "Asymptotic behaviour of iterates of Volterra operators on L^p(0,1)",
+          "trigger": "Potential broader result for integer and fractional iterates"
+        },
+        {
+          "assessment": "Norms, not higher fixed-index singular asymptotics.",
+          "evidence": [
+            "The compared results address norms of polynomials of V."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2206.09947",
+          "material_read": "Norm problem and principal statements",
+          "method": "Primary PDF comparison of the operator invariant",
+          "title": "Norms of polynomials of the Volterra operator",
+          "trigger": "Polynomials include operator powers"
+        },
+        {
+          "assessment": "Credit rank two and the tail; the reported tail is an upper bound, not an exact rank-three asymptotic.",
+          "evidence": [
+            "s_2~1/(8 alpha); squared tail past rank 2 is O(alpha^(-4))."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-second-singular-asymptotics-and-rank-two-collapse-for-high--3619ccb23ef6",
+          "material_read": "Published result summary only",
+          "method": "Matched normalization and tested implications of reported tail bound",
+          "title": "Sharp second singular asymptotics and rank-two collapse for high Volterra powers",
+          "trigger": "Exact lower-rank overlap"
+        },
+        {
+          "assessment": "Abstract describes a different relationship; full text not excluded.",
+          "evidence": [
+            "Bounds for the norm of T^(2m) use singular values of fixed T."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/PL00004837",
+          "material_read": "Publisher abstract only; full PDF not obtained",
+          "method": "Compared the operators whose singular values and norms occur",
+          "title": "Estimates for the norm of powers of Volterra's operator through its singular values",
+          "trigger": "Power/singular-value wording could conceal an equivalent theorem"
+        },
+        {
+          "assessment": "Related spectral data but not the rank asymptotic of the powers itself in the abstract; no whole-text assessment.",
+          "evidence": [
+            "The stated objects are the real and imaginary parts of powers."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00020-024-02755-w",
+          "material_read": "Publisher abstract only",
+          "method": "Compared spectral objects in the abstract",
+          "title": "On the real and imaginary parts of powers of the Volterra operator",
+          "trigger": "Spectral problem for the same powers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At each fixed rank the next singular value is the exact optimal finite-rank approximation error in operator norm. The hierarchy determines its scale and sharp coefficient, rather than just convergence to rank one or an upper tail bound after rank two. The exterior-power Vandermonde limit explains why successively smaller scales occur for this natural family and supplies all higher fixed ranks in one argument.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:40:56.138249Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently integrating the survival-indicator covariance gives the mean without truncated-moment cancellation. Write min(1,tX)=t∫_0^{1/t}1_{X>x} dx. For 1≤x≤y its two indicators have covariance y^(-α)(1−x^(-α)); below x=1 the covariance vanishes. Tonelli gives divergence at β≥2 by the inner t integral for x,y>1. For β<2 it gives 2/((2−β)(α+1−β)) times ∫_1^∞ x^(β−α−1)(1−x^(−α)) dx whenever β<α, and divergence for β≥α by the large-y tail of the preceding y integral (whose integrand is y^(β−α−2)∫_1^y(1−x^(−α))dx). The last integral gives the boxed rational mean, including α=1 and 2, and the three mean pole constants follow. On each fixed sample, below 1/max X_i the empirical function is exactly t times the sample mean. The population corrections give leading squared orders t^(2α)/(1−α)^2, t^2 log²(1/t), or t² times the nonzero almost-sure squared centered sample mean. Integration yields the claimed path thresholds and constants, with factor 2 for the third-order pole at α=1. For β below the mean threshold, the centered functions are measurable as Hilbert-valued variables (the map from X is continuous there by the t-Lipschitz bound), with second moment equal to the trace just computed; the iid Hilbert CLT and continuous norm square give the stated limit. Reviewed the frozen verification notes and code; the recorded 83 checks are corroboration, not the basis for the real-parameter claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible first-page introduction attributes uniform consistency and weak convergence over compact intervals to Falk–Stupfler.",
+          "The proposed weight has infinite integral for every β>0; an integrable-weight limit theorem, as described by the frozen source, would not cover it directly."
+        ],
+        "reasoning": "Compact-domain process convergence does not control mass near t=0 in this norm. General Hilbert CLT supplies the limit conditional on the independently established second moment, not its precise domain or boundary behavior.",
+        "searches": [
+          "Falk–Stupfler DOI:10.1007/s13171-019-00184-1 and author-posted ResearchGate copy",
+          "arXiv:2310.12348v1 introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2310.12348v1 p. 1",
+        "DOI:10.1007/s13171-019-00184-1 (secondary attribution; primary access attempted)",
+        "Resultary same-day e3850722f1d5 indexed claim"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published abstract uses the same weighted-distance idea for Pareto among its null families, and its stated standardization is different.",
+          "The same-day comparator varies an exponential weight rate with sample size, whereas an exponential weight at a finite rate stays bounded at the singular endpoint."
+        ],
+        "reasoning": "Neither comparison gives the coexistence of finite paths and an infinite mean for a fixed sample size, or the separate boundary pole constants. Credit the established framework and generic CLT, not as advances of this finding.",
+        "searches": [
+          "arXiv:2310.12348v1 p. 1",
+          "Resultary: Gaussian–Poisson bandwidth transition for the Pareto min-characteristic discrepancy"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (1.1) is the identical empirical minCF; the first-page abstract describes an L²-type discrepancy on standardized data.",
+          "In log coordinates the singular weighted norm becomes an exponentially increasing L² integral on an unbounded half-line, not the compact-interval empirical-process norm."
+        ],
+        "reasoning": "The underlying statistic template is prior; reparametrizing t does not equate the available compact-process result to the singular weighted phase diagram.",
+        "searches": [
+          "Meintanis–Milošević–Jiménez-Gamero, arXiv:2310.12348v1, pp. 1, eq. (1.1)",
+          "Resultary: Pareto min-characteristic power weights and finiteness thresholds"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit is the same bound record, not a second comparator. Distinct same-day record 2026/11/22/SCOPE-a-gaussian-poisson-bandwidth-transition-for-the-pareto-min-chara--e3850722f1d5 describes likelihood-fitted scale and shape and an increasing exponential rate."
+        ],
+        "reasoning": "The distinct record's triangular-array bandwidth transition is not a table of the fixed-n singular-power finiteness regimes or rational mean. Calendar date alone does not establish priority.",
+        "searches": [
+          "Resultary: Pareto min-characteristic power weight, null mean, Gaussian and threshold regimes"
+        ]
+      },
+      "rationale": "Best of current knowledge: the new part supported here is the exact joint phase diagram, trace and boundary laws for the specified unfitted Pareto null at a singular power weight, not the minCF, weighted-distance testing framework or the Hilbert CLT itself.",
+      "residual_risks": [
+        "Later theorem pages of Meintanis et al. and full text of Falk–Stupfler were not available in the attempted passage retrievals; no whole-document exclusion claimed.",
+        "A broader singular-kernel result may recover parts; no priority guarantee for the full formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shared template established; theorem-level weight scope not independently recovered",
+          "evidence": "Abstract describes weighted L² fit and MLE standardization; introduction defines Ψ and reports older compact-domain convergence.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.12348",
+          "material_read": "v1 p. 1 abstract, introduction and (1.1)",
+          "method": "OA PDF text; targeted later passage lookup attempted",
+          "title": "Goodness-of-Fit Tests Based on the Min-Characteristic Function",
+          "trigger": "Same statistic template and Pareto null family"
+        },
+        {
+          "assessment": "Credit minCF and compact-process results; remaining scope unresolved",
+          "evidence": "Meintanis et al., p. 1, introduction, explicitly attributes compact-interval consistency and weak convergence.",
+          "identifier_or_url": "https://doi.org/10.1007/s13171-019-00184-1",
+          "material_read": "Attributed results in arXiv:2310.12348 p. 1; neither primary full-text route yielded readable passages",
+          "method": "OA DOI and author-posted copy attempts, secondary attribution",
+          "title": "The min-characteristic function: characterizing distributions by their min-linear projections",
+          "trigger": "Origin of the minCF and its Pareto formula"
+        },
+        {
+          "assessment": "Different fitted null and exponential weight scaling in surfaced claim",
+          "evidence": "Gaussian/compensated-Poisson/collapse regimes around exponential rate of order n.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-gaussian-poisson-bandwidth-transition-for-the-pareto-min-chara--e3850722f1d5",
+          "material_read": "Indexed statement",
+          "method": "Resultary meaning search",
+          "title": "A Gaussian–Poisson bandwidth transition for the Pareto min-characteristic discrepancy",
+          "trigger": "Closest distinct same-day Pareto hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Singular weighting is a natural endpoint stress test of an established goodness-of-fit discrepancy. Merely checking that each observed sample gives a finite number can conceal a non-integrable statistic under the null. The exact gap in thresholds, distinct blow-up laws and calibration trace supply information needed for choosing weights, without claiming fitted-null calibration or performance under alternatives.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

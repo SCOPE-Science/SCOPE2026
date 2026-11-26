@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:09:28.353790Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–47",
+        "Frozen VERIFICATION.md and verify_bl_graph.py, inspected, not executed"
+      ],
+      "rationale": "The sum of the two maxima is the maximum over all products of a signed coordinate and an ordered-pair slope. Equality occurs exactly when both separate maxima are attained. For a nonconstant boundary point the anchor and tight-edge sets are nonempty and L>0. By finiteness, the inactive inequalities are strict along all sufficiently small segments in the nullspace of the active rows, making its nullity exactly the face dimension. Comparing all active-pair rows first with one edge fixed and then with one anchor fixed gives a common r=sign(f_i) h_i at all anchors, and slope change -r on all oriented tight edges. Consequently h_i+(r/L)f_i is a constant c_C on each component. A positive anchor fixes c_C=r/L, a negative one fixes c_C=-r/L, and both signs together force r=0; no anchor gives an independent offset. These relations suffice for all active rows and yield exactly u+epsilon. The constants ±1 are extreme by coordinatewise equality in the sup-norm bound; interior points are not extreme and the singleton case is an interval. Scanning all pairs and traversing the tight graph is quadratic in arithmetic operations and comparisons, not a bit-complexity or floating-point guarantee.",
+      "residual_risks": [
+        "The packaged checker short-circuits constant functions at lines 43–44 and its returned second component there is not the constant point's face dimension; the 46,000-case count is not 46,000 independent rank checks on all boundary types. The stated dimension formula is only for nonconstant points, and the constant endpoints are proved separately."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 uses tight paths to a pinned basepoint in a pure Lipschitz ball; there is no sup-norm anchor sign or shared scale budget.",
+          "The graph-Dudley record derives the two necessary anchor conditions for vertices with unit-edge graph distance using a lift and signed integer path counts, then uses them to quantize slopes."
+        ],
+        "reasoning": "The results give closely related tools or part of the criterion on a restricted class, not a broader theorem that contains this arbitrary-metric all-face calculation.",
+        "searches": [
+          "Bredies–Chirinos Rodriguez–Naldi arXiv:2304.14039v1, Theorem 2",
+          "Local Resultary 664ed3fe5cda, Lift the ball and Tight components and anchors"
+        ]
+      },
+      "checked_sources": [
+        "Hille–Theewis 2305.08500v1 §6 and 2206.12234v2 §6",
+        "Bredies–Chirinos Rodriguez–Naldi Theorem 2",
+        "Resultary 664ed3fe5cda and 7158233327b2",
+        "Focused primary-literature lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The graph-Dudley proof exhibits a component translation as an obstruction to extremality and a common slope perturbation when all components are anchored by just one sign.",
+          "It does not count the independent offsets and global slope simultaneously, show completeness of that parametrization for positive-dimensional faces, or work with all arbitrary weighted pair constraints."
+        ],
+        "reasoning": "To derive the frozen classification one must solve the full active system, not just rule out a vertex in two configurations. The proof yields a complete dimension count for arbitrary real metric distances. Known half-spaces are the starting point, not a prior formula.",
+        "searches": [
+          "Hille–Theewis arXiv:2206.12234v2 §6 and arXiv:2305.08500v1 §6; Resultary 664ed3fe5cda proof Steps 1–3 (offsets 1900–5340)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The finite half-space system for this norm is known; active-row rank or a lifted LP supplies a way to compute a dimension for an individual instance.",
+          "The inspected same-norm four-point extreme example in Hille–Theewis has a tight component with anchors of both signs; it agrees with the formula but is not a general equivalence."
+        ],
+        "reasoning": "Generic rank computation does not give the graph invariant or identify exactly when the one global slope direction survives. The sum norm must not be substituted by the max norm or a pinned pure seminorm.",
+        "searches": [
+          "Hille–Theewis arXiv:2206.12234v2 §6 Lemma 6.1; arXiv:2305.08500v1 §6",
+          "Focused primary-literature lookup: finite sum bounded-Lipschitz/Dudley norm extremality, tight graph, and minimal face"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest same-norm indexed comparator is 664ed3fe5cda; it treats discrete slope spectra and grids on unit-edge graph metrics. The same-day indexed match 7158233327b2 concerns facets of a pinned pure Lipschitz capped-path polytope."
+        ],
+        "reasoning": "Neither enumerating a grid of possible extremes in a restricted family nor counting facets of another ball supplies the frozen dimension invariant. No exact database match was verified in the inspected comparisons.",
+        "searches": [
+          "Local Resultary semantic searches for tight components, anchors, finite bounded-Lipschitz faces and vertex characterization"
+        ]
+      },
+      "rationale": "The supported distinct claim is the explicit dimension of every minimal face at nonconstant boundary points for the finite real sum norm, including the resulting full extremality characterization. The same-norm LP description is classical; the closest indexed graph result uses the same anchoring mechanism to prove vertex conditions for unit-edge graph metrics. Neither comparator supplies the full affine nullity formula for arbitrary faces and real finite metrics. No priority claim is made for the anchor mechanism itself.",
+      "residual_risks": [
+        "The graph comparator has significant overlap in the obstruction mechanism. Relative precedence is not inferred from index dates.",
+        "The journal PDF returned HTTP 403; the original arXiv version was inspected. An unlocated equivalent dimension formula cannot be ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_NORM_PARTIAL_EXTREMAL_RESULTS",
+          "evidence": "Finite-space discussion and four-point examples do not give the all-face dimension or complete component formula in the inspected material.",
+          "identifier_or_url": "https://arxiv.org/html/2305.08500v1",
+          "material_read": "§1, offset 2400; §6 including Example 6.1 and following discussion, offsets 81940–88929",
+          "method": "OA arXiv full-text passages; published TU Delft PDF route attempted but returned 403",
+          "title": "Norming and dense sets of extreme points of the unit ball in spaces of bounded Lipschitz functions",
+          "trigger": "Same norm and direct motivating finite examples"
+        },
+        {
+          "assessment": "HALF_SPACE_FORMULATION_NOT_GRAPH_NULLITY",
+          "evidence": "Explicit finite inequalities and a dual-norm LP, not the component formula for primal minimal-face dimension.",
+          "identifier_or_url": "https://arxiv.org/html/2206.12234v2",
+          "material_read": "§6, Lemma 6.1 and LP discussion, offsets 61900–67880",
+          "method": "OA arXiv full-text passage",
+          "title": "Explicit expressions and computational methods for the Fortet–Mourier distance to finite weighted sums of Dirac measures",
+          "trigger": "Exact polyhedral formulation for the same sum norm"
+        },
+        {
+          "assessment": "DIFFERENT_NORM_AND_ANCHOR_CONSTRAINTS",
+          "evidence": "Pinned pure Lipschitz ball, path-to-basepoint condition with strictly convex target; no competing sup-norm anchors.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.14039",
+          "material_read": "Theorem 2 pp. 2–3, PDF offsets 6500–12442",
+          "method": "OA arXiv PDF passage",
+          "title": "On extreme points and representer theorems for the Lipschitz unit ball on finite metric spaces",
+          "trigger": "Tight-graph characterization on finite metric spaces"
+        },
+        {
+          "assessment": "PARTIAL_SAME_MECHANISM_RESTRICTED_METRICS",
+          "evidence": "For vertices of a lifted ball over unit-edge graph metrics, every tight component is anchored and one has both signs. This supports a slope spectrum, not arbitrary minimal-face dimension.",
+          "identifier_or_url": "Resultary 2026/11/2, 664ed3fe5cda",
+          "material_read": "RESULT.md Finding and proof through the slope argument; decisive Steps 1–3, offsets 1900–5340",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp discrete slope spectrum and grid formula for Dudley norms",
+          "trigger": "Strong indexed overlap with the tight-component extreme-point mechanism"
+        },
+        {
+          "assessment": "DIFFERENT_POLYTOPE_AND_INVARIANT",
+          "evidence": "Counts facets using a pinned pure Lipschitz construction, with no sum-norm scale constraint.",
+          "identifier_or_url": "Resultary 2026/10/18, 7158233327b2",
+          "material_read": "RESULT.md offsets 0–5935",
+          "method": "Local Resultary mirror",
+          "title": "An exact facet generating function for diameter-two truncated paths",
+          "trigger": "Indexed tight-component/facet analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof, including the disconnected extreme example",
+        "Hille–Theewis 2305.08500v1 §6",
+        "Resultary 664ed3fe5cda proof"
+      ],
+      "rationale": "The criterion addresses a natural finite sum-norm extremality problem where the motivating literature supplies exact examples but local saturation alone is insufficient. The graph invariant detects both unanchored degrees of freedom and an independent global slope degree of freedom, yielding all minimal-face dimensions by an O(|S|^2) scan and traversal instead of forming and ranking product constraints. It also explains why a disconnected tight graph can support an extreme point. This all-face, arbitrary-metric calculation is useful independently of the discrete grid problem.",
+      "residual_risks": [
+        "No claim of efficient enumeration of all extreme points, infinite-space applicability, or robustness of numerical tightness detection."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

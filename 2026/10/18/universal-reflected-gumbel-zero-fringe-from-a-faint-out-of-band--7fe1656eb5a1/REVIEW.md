@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-For compactly supported nonzero integrable power spectra, the entire-function representation fixes the zero normalization and multiplicity. The derivation of the logarithmic Gaussian potential gives an explicit noncentral flux with nonnegative derivative. Endpoint Laplace concentration yields the exact all-frequency count. A demodulated, strongly mixing integer translation action establishes the almost-sure and \(L^1\) time-average limit; the covariance vanishes by the Riemann--Lebesgue lemma. Finally, the strictly monotone tone-to-noise ratio and endpoint convergence imply locally uniform reflected-Gumbel rescaling. The attached standalone 68-test checker corroborates local formulas and rates but is not the proof.
+## correctness
 
-## Originality — PASS, qualified
-The exact local first-intensity formula is already covered by Escudero--Koliander--Romero, arXiv:2609.18689, Theorem 1.1, and is credited as an input. Their Theorem 1.2 requires a positive-tail lower bound for slowly varying PSDs, excluding compact spectral support; its asymptotic question is different. Feldheim, arXiv:1105.3929, Theorem 1, covers centered stationary Gaussian analytic function zero laws, including the centered bandlimited case; it is not claimed as new. The compared full texts do not exhibit the out-of-band deterministic-tone zero-count identity combined with its **universal weak-tone reflected-Gumbel escape law**. The additional strong law at every fixed nonzero deterministic amplitude uses ergodicity of the demodulated noise rather than center-only stationarity. An equivalent specialization or unindexed spectral-edge calculation remains possible.
+PASS
 
-## Value — PASS
-The spectral-hull law and the singular fringe address an observable discontinuity: an arbitrarily weak out-of-band tone adds a fixed number of expected zero crossings per unit time, but sends them to infinite analysis frequency, preserving all finite-frequency limiting statistics. The limit profile is independent of the detailed spectral shape and identifies an exact crossover scale. This provides a structural boundary case for spectrogram-zero detection and colored-noise limit theory, not an arbitrary numerical threshold.
+With z=t−iw the nonvanishing STFT prefactor leaves the entire function with spectral factor exp(−πξ²) and the stated tone. The radial Gaussian logarithmic potential gives U'=4πF, where F=e^(−q)m+(1−e^(−q))θ. Differentiating using m'=4πv and q'=4πq(θ−m) gives the stated nonnegative intensity F', including its normalization for complex multiplicities. Exponential tilting concentrates at the essential endpoints: for each ε>0 the complement of the ε-edge neighborhood is exponentially suppressed by a positive-mass ε/2-neighborhood. The Laplace slopes give F(−∞)=min(a,θ) and F(+∞)=max(b,θ); when θ equals an endpoint both terms of the convex combination tend to that endpoint regardless of q. Finite mean gives integrable unit-cell counts. Phase-compensated time translation is mixing in the ergodic-theory sense by covariance decay between finite proper Gaussian vectors, and thus Birkhoff applies to the counts; monotonicity extends it to real T, and the exact means give L¹ convergence. Outside the band the strict sign and endpoint limits of log q give a unique balance, and at θ>b the balance satisfies log(1/|c|²)=4π(θ−b)w_c+o(w_c). Integrating the log-q derivative over bounded offsets gives q→exp(4πδs) locally uniformly, v→0, and hence the reflected-Gumbel intensity. Its integral is δ by substitution; reflection gives the other edge with the outward sign.
 
-## Limits and sources
-This is a fixed compactly supported absolutely continuous PSD theorem. The reflected-Gumbel density concerns first intensity rather than point-process convergence. Main full texts compared: arXiv:2609.18689 (Theorems 1.1, 1.2 and their proof context), arXiv:1105.3929 (Theorem 1, centered stationary analytic-zero laws). Ancillary context: arXiv:2406.20003, arXiv:1708.00082. Independent historical-priority and correctness verification remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The noncentral first-intensity formula is covered by the earlier general theorem on the overlapping PSD class and is not claimed as new. The supported distinct contribution is the compact-support noncentral endpoint and escape analysis, specifically the locally uniform weak-tone profile with its balance scale and excess mass. Neither the cited intensity theorem nor the centered ergodic law supplies that moving-frequency limit; obtaining it requires endpoint tilt concentration and a comparison at frequencies tending to infinity as the amplitude goes to zero. Birkhoff itself is standard.
+
+## value
+
+PASS
+
+The precise excess δ in zeros per unit time persists for arbitrarily small nonzero amplitude but disappears on fixed frequency windows. The balance position and normalized limiting profile resolve where that excess lies without spectral-edge regularity assumptions. This is a quantitative phenomenon not supplied by fixed-frequency intensity convergence or the strip law alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

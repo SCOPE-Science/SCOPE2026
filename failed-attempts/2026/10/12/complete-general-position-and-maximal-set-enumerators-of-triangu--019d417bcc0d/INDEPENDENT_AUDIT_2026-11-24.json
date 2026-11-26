@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:52:34.773705Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof; VERIFICATION.md and verify.py (read, not executed)"
+      ],
+      "rationale": "For n≥3 the triangular graph has diameter at most two; an induced three-vertex path is exactly a forbidden geodesic triple. Equivalently, the selected edges of K_n contain no four-vertex path as a subgraph. Their connected components are vertex-disjoint stars, triangles and isolates. The all-set labeled block weights are 1,z,3z²+z³ and kz^(k−1) for k≥4. A two-edge star can be completed to a triangle; any isolate can extend a star, and two isolates can be joined. Conversely, an edge joining distinct non-isolated components retains two disjoint edges in a single component, an edge from a lone isolate into a triangle is likewise forbidden, and an internal added edge in a star on ≥4 vertices destroys the component type. Thus the maximal spanning blocks are edges, triangles and stars on ≥4 vertices; the only nonspanning type is triangles and one isolate. The labeled SET formula gives both EGFs as printed, including A_0=M_0=A_1=M_1=1. For n even the excess over n/2 vanishes only for pure pairs. For odd spanning n, an odd block is required; the minimum excess 3/2 occurs only for one triangle or one five-vertex star, with all other blocks pairs. The one-isolate case has n−1 selected edges and, for odd n≥5, is feasible only at n≥7, so cannot tie. These types give the displayed factorials; n=3 has only the full triangle, and z^n requires all triangle blocks. Complementation gives inclusion-minimal cluster deletion sets (the displayed z counts retained vertices, not deletions).",
+      "residual_risks": [
+        "The graph statement includes n=2 directly; n=0,1 are EGF conventions. Recorded finite checks were not treated as proofs or independently replayed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general structural theorem gives induced clique components. On line graphs of cliques, Ghorbani et al. use clique components on disjoint supports and compute the GP maximum. Di Stefano et al. use the disjoint triangle/star forms with one or at least three edges per star in the maximal case and derive the minimum possible maximal size.",
+          "The general-position polynomial paper defines the all-set size polynomial, but the inspected definition and examples do not give these evaluated EGFs."
+        ],
+        "reasoning": "The earlier component descriptions, not just the cardinality optima or the name of the polynomial, are the dominating input. The only needed treatment not expressed by the types alone is the trivial comparison of isolated vertices with available star centers.",
+        "searches": [
+          "arXiv:1812.08460v2, Theorem 3.1",
+          "arXiv:1903.04286, §4.2",
+          "arXiv:2306.09965, Theorem 5.2 and proof",
+          "doi:10.1007/s00025-024-02133-3, introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1812.08460v2",
+        "arXiv:1903.04286",
+        "arXiv:2306.09965",
+        "arXiv:1306.3877",
+        "doi:10.1007/s00025-024-02133-3",
+        "Resultary 9b9fdc66bc5e and 68bb3fc9b806"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For components of size k≥3 the k star-center choices and the one triangle on k=3 exhaust the old clique description; the two-vertex star has one choice. Exponentiating the block series counts disjoint labeled components, with no unsolved interaction.",
+          "The earlier maximal forms have no three-vertex star. The isolated-vertex test produces only the extra t exp(z³t³/6) term. A least-size odd spanning configuration uses a triangle or five-vertex star with pairs, giving exactly the stated elementary multinomial counts."
+        ],
+        "reasoning": "The evaluated statements were not found printed in the inspected earlier proofs, but their content is already determined by applying standard labeled SET counting directly to the earlier forms. This is stronger coverage than knowing only the extremal degrees.",
+        "searches": [
+          "arXiv:1903.04286, Theorem 4.4 proof and supporting component structure",
+          "arXiv:2306.09965, Theorem 5.2 proof",
+          "Resultary mirrored openings for 9b9fdc66bc5e and 68bb3fc9b806"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Anand et al. give the induced-clique-components and distance condition for GP sets, which reduces to the cluster condition here. Boral et al. describe cluster deletion as hitting every induced P3.",
+          "Mirrored Resultary 68bb3fc9b806 counts maximal induced cluster subgraphs of T_n and has the star sum Σ_{k≥4} z^(k−1)t^k/(k−1)!, equal to t(e^(zt)−1−zt−z²t²/2)."
+        ],
+        "reasoning": "Being an induced cluster subgraph of T_n and being a GP set of T_n are equivalent, including inclusion-maximality. The alternate series is exactly the frozen M-series, not merely an analogous graph count.",
+        "searches": [
+          "Resultary semantic lookup for general-position polynomials of triangular graphs and maximal induced cluster subgraphs",
+          "arXiv:1812.08460v2, Theorem 3.1",
+          "arXiv:1306.3877, p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mirrored 9b9fdc66bc5e has the identical A-series and the all-triangles extremal count when three divides n. Mirrored 68bb3fc9b806 has the equivalent M-series. Both exact formula passages were inspected at their RESULT.md opening.",
+          "The matching paths are dated 2026-10-13 and 2026-11-08 respectively; the comparisons establish statement equivalence, not precedence."
+        ],
+        "reasoning": "These are full uniform coefficient sources for the two parts, stronger matches than small-n tables or extremal cardinality values. The path dates alone do not justify a priority inference.",
+        "searches": [
+          "Resultary semantic lookup for triangular graph labeled GP enumerators and maximal cluster partition polynomial; exact hits 9b9fdc66bc5e and 68bb3fc9b806"
+        ]
+      },
+      "rationale": "The content is an explicit enumerative restatement of known component structure. For all sets, the prior clique-union characterization and its prior application to L(K_n) now require only the star-center weights and the labeled SET formula. For maximal sets, the earlier triangle/star structure leaves a single immediate isolate test: a spare vertex extends a star, and two spare vertices accommodate an edge. This gives precisely the stated extra EGF summand and all minimum-degree counts by choosing the unique odd block, if any, and pairing the rest. The two exact matching catalogue formulas were also inspected; their later path dates do not establish priority and are not the basis for attributing earlier discovery. The substantive originality requirement fails because the assigned formulas and multiplicities are mechanical consequences of the earlier structure, not because the dates of the matching formulas prove prior publication.",
+      "residual_risks": [
+        "Neither catalogue overlap establishes provenance or priority for the evaluated formulas. Literal keyword misses in the polynomial paper were not interpreted as covering the full source. No claim is made about whether the exact formulas were printed before the frozen item."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General structural input",
+          "evidence": [
+            "The GP criterion is complete induced components with the stated distance conditions; the diameter-two specialization is induced-P3 avoidance."
+          ],
+          "identifier_or_url": "arXiv:1812.08460v2",
+          "material_read": "Theorem 3.1, p. 4, offset 11061",
+          "method": "OA original PDF passage",
+          "title": "A characterization of general position sets in graphs",
+          "trigger": "Prior GP structure in diameter two"
+        },
+        {
+          "assessment": "Prior equivalence, not a coefficient formula",
+          "evidence": [
+            "A cluster graph is induced-P3-free; deletion must hit these paths."
+          ],
+          "identifier_or_url": "arXiv:1306.3877",
+          "material_read": "p. 2, offset 9282",
+          "method": "OA original PDF passage",
+          "title": "Fast branching algorithm for Cluster Vertex Deletion",
+          "trigger": "Equivalent cluster-deletion formulation"
+        },
+        {
+          "assessment": "Prior maximum and clique/support structure; no full evaluated polynomial in inspected passage",
+          "evidence": [
+            "The maximum is n for multiples of 3 and n−1 otherwise; the argument uses disjoint supports of clique components."
+          ],
+          "identifier_or_url": "arXiv:1903.04286",
+          "material_read": "§4.2 and Theorem 4.4 p. 10, offset 27338",
+          "method": "OA original PDF passage",
+          "title": "The general position problem on Kneser graphs and on some graph operations",
+          "trigger": "Exact graph and component predecessor"
+        },
+        {
+          "assessment": "Prior maximal types and minimum sizes, with no explicit multiplicities in inspected passage",
+          "evidence": [
+            "The proof uses disjoint triangles and stars with one or at least three edges; it gives n/2 (even) and (n+3)/2 (odd) as minimum sizes."
+          ],
+          "identifier_or_url": "arXiv:2306.09965",
+          "material_read": "Theorem 5.2 and proof p. 12, offset 35159, bibliography reference [19] p. 18",
+          "method": "OA original PDF passages",
+          "title": "Lower General Position Sets in Graphs",
+          "trigger": "Exact graph and maximal configurations"
+        },
+        {
+          "assessment": "Established invariant; not an explicit triangular-graph formula in inspected passages",
+          "evidence": [
+            "Coefficients count GP subsets by size."
+          ],
+          "identifier_or_url": "doi:10.1007/s00025-024-02133-3",
+          "material_read": "pp. 1–2, offset 321, and bounded literal lookups",
+          "method": "OA original paper passages",
+          "title": "General Position Polynomials",
+          "trigger": "Existing size-polynomial framework"
+        },
+        {
+          "assessment": "Identical A-series; no priority inference",
+          "evidence": [
+            "Same block weights and exp(ue^(uz)−zu²/2+z³u³/6); same all-triangles count."
+          ],
+          "identifier_or_url": "Resultary 9b9fdc66bc5e",
+          "material_read": "Mirrored RESULT.md, opening; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local catalogue search and mirror passage",
+          "title": "Full general-position polynomial of triangular graphs by star–triangle components",
+          "trigger": "Exact match for A_n"
+        },
+        {
+          "assessment": "Identical M-series; no priority inference",
+          "evidence": [
+            "Same maximal component types, including triangles plus one isolate, and the same spanning exponent with the large-star sum written termwise."
+          ],
+          "identifier_or_url": "Resultary 68bb3fc9b806",
+          "material_read": "Mirrored RESULT.md, opening; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local catalogue search and mirror passage",
+          "title": "Maximal cluster subgraphs of triangular graphs: a partition polynomial",
+          "trigger": "Exact match for M_n by equivalent cluster language"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings and proof",
+        "arXiv:1903.04286 §4.2",
+        "arXiv:2306.09965 Theorem 5.2"
+      ],
+      "rationale": "The polynomial and the graph family are motivated. Here the coefficients are obtained from the known labeled component decomposition by the textbook SET formula, and the boundary multiplicities are the direct multinomial counts for those same blocks. The presentation is convenient but supplies no independently needed exact fact not mechanically provided by that structure.",
+      "residual_risks": [
+        "This does not assess polynomials for other families, where the maximal component structure may require genuinely new work."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

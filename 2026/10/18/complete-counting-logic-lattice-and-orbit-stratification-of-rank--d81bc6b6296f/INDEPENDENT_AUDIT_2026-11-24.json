@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:04:48.178957Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every length-two interval forces two intermediate points, so the middle incidence graph is simple, bipartite and 2-regular. Its half-cycle partition determines the strict order, and all such partitions satisfy the Eulerian condition. One counting round separates ranks by strict in/out counts, and two-variable formulas depend only on r, the free ranks and the atomic pair relation: upon rebinding one variable, the counts in every remaining rank/relation class depend only on the rank of the other variable. Cardinality then separates different r. For C³ use the size clause 2r+2 and distance doubling over the three available symbols, reusing symbols only within disjoint scopes; D_t has rank at most t+1 and covers each component at t=ceil(log2 r), since its diameter is at most r. The two outer counts recover the number of atoms in components of size 2k and yield rank at most t+3. Each layer r≥4 has at least (r) and (2,r−2), including r=4. At singleton layers cardinality alone actually needs only one variable. Same-rank pairs fail a join or meet exactly when two common opposite-rank neighbors form a C4 component; the displayed C³ counting predicate detects it. Side-preserving cycle rotations and permutations of equal-length components give exactly the claimed orbits; the least sum of s distinct part sizes is s(s+3)/2 and surplus can be absorbed in the largest. Removing one part 2 and choosing a single divisor part size give the nonlattice and refinable counts. Independent exact check: python3 /workspace/reproductions/frozen_checks.py 2 generates 1,6,90,2040 labeled incidence matrices for r=2..5 by two disjoint permutation matchings, tests full atomic profiles and actual joins/meets, recovers parts by Boolean distance squaring, and verifies orbit sizes on a representative of each type. The frozen verify_eulerian.py does not actually contain the distance-squaring test attributed to it, and verify_incidence_enum.py writes a profile template rather than deriving it from the strict-order matrix. The independent check supplies those finite tests in its stated range; the general theorem rests on the proof, not on the advertised computational ranges.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general C²-identification/refinement framework includes coloured partially oriented graphs, but its individual identification criteria are not a C³ rank bound for this one-relation Eulerian class.",
+          "Indexed width-three ambiguity constructs exponentially many equivalent orders with orbit-exact refinement; the finite permutation-poset result is height≤2 and dimension≤2; the forest-order result concerns a different acyclic incidence family."
+        ],
+        "reasoning": "The fixed-r collapse is an equitable-profile application of the established method. The compared general results do not give the within-class logarithmic-depth identification or when refinement merges different component-size orbits. Neither comparable finite-height result subsumes this rank-three theorem.",
+        "searches": [
+          "Kiefer–Schweitzer–Selman arXiv:1503.08792 pp. 2–3, 16, 26",
+          "arXiv:1307.5697 and arXiv:1502.01255",
+          "Resultary 5cafba4f1777, 39e17b148bc6, 15f31fa75c06"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_eulerian.py, verify_incidence_enum.py and two captured outputs",
+        "PlanetMath Eulerian poset",
+        "arXiv:1503.08792, 1307.5697 and 1502.01255",
+        "Resultary 5cafba4f1777, 39e17b148bc6, 15f31fa75c06, fe3ab073af88 and f002b2043982"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The background cycle decomposition makes the partition census of types immediate. It does not provide a strict-order bounded-variable sentence detecting component size, or the simultaneous C² collapse and C³ bound.",
+          "The eight-point example gives an upper bound on the first collision after adjoining extrema but not the sharp restricted invariance thresholds or which members of every layer are lattices and refinable."
+        ],
+        "reasoning": "The joint theorem needs the atomic-type induction and the distance/count construction as well as an explicit analysis of joins and automorphism actions. Some individual pieces are immediate from standard results; no stronger inspected result mechanically yields the whole distinct classification.",
+        "searches": [
+          "PlanetMath Eulerian poset",
+          "arXiv:1503.08792 Theorems 17 and 27",
+          "Resultary fe3ab073af88 and f002b2043982"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The classical description is exactly a union of alternating incidence cycles with extrema adjoined.",
+          "Removing extrema from (4) and (2,2) gives the eight-element height-two collision (C8 vs two C4s) in the indexed source; adjoining them recovers the exact frozen boundary representatives."
+        ],
+        "reasoning": "These formulations cover structure and the underlying witness, not all fixed-size logical, lattice and orbit strata. The indexed eight-point result is dated later and is not evidence for the date of an unspecified earlier source.",
+        "searches": [
+          "PlanetMath Eulerian poset, Eulerian posets of small rank",
+          "arXiv:1503.08792 Theorems 17 and 27",
+          "Resultary fe3ab073af88 eight-element C² collision"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact small collision is tabulated in fe3ab073af88; exact orbit counts in f002b2043982 concern set-partition lattices with block-size orbit labels and three rounds of recovery.",
+          "The structural exposition leaves out the C²-layer/lattice/refinability counts; no queried compared table states the frozen joint rank-three census."
+        ],
+        "reasoning": "The indexed orbit formula p(n) counts a different invariant on different structures, and the small collision is not an all-r table. The frozen partition enumerators themselves use standard identities and are credited only as the counts of these specific strata.",
+        "searches": [
+          "Resultary Fe3ab073af88, f002b2043982, 5cafba4f1777, 39e17b148bc6",
+          "PlanetMath Eulerian posets of small rank"
+        ]
+      },
+      "rationale": "The alternating-cycle decomposition, the general counting-refinement method, and the small collision as a construction are not credited. What passes is the class-specific classification combining the fixed-size theories, quantitative within-class C³ identification, exact lattice and orbit boundaries, and the census. The inspected near matches do not give that classification. The conclusion is bounded by the sources actually inspected.",
+      "residual_risks": [
+        "No exhaustive search of low-rank poset and finite-variable logic literature; the original source for the smaller collision described by the frozen record as earlier is not established.",
+        "The classical decomposition exposition cites Stanley; the cited book passage was not inspected directly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact structural background; not a primary text of Stanley",
+          "evidence": [
+            "Describes a 2-regular bipartite middle Hasse diagram and hence even cycles/polygons."
+          ],
+          "identifier_or_url": "https://planetmath.org/eulerianposet",
+          "material_read": "Eulerian posets of small rank, HTML offsets 1780–3867",
+          "method": "OA web passage",
+          "title": "Eulerian poset",
+          "trigger": "Classical low-rank structure"
+        },
+        {
+          "assessment": "General framework and different identification claims",
+          "evidence": [
+            "Characterizes C²-identified graphs and coloured partially oriented structures, not class-relative C³ identification here."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1503.08792",
+          "material_read": "pp. 2–3; Theorem 17 p. 16; Theorem 27 p. 26",
+          "method": "OA PDF passage reading",
+          "title": "Graphs Identified by Logics with Counting",
+          "trigger": "Potential broader C² and orbit coverage"
+        },
+        {
+          "assessment": "General background only in compared passages",
+          "evidence": [
+            "Graph refinement and related equivalence notions do not give these strict-order strata."
+          ],
+          "identifier_or_url": "arXiv:1307.5697; arXiv:1502.01255",
+          "material_read": "p. 1 of each paper, OA offsets 950 and 1080",
+          "method": "OA PDF passage reading",
+          "title": "Dimension Reduction via Colour Refinement; Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "General refinement and refinability background"
+        },
+        {
+          "assessment": "Underlying witness covered; not ordering or all-class coverage",
+          "evidence": [
+            "The height-two first pair has two four-cycles versus one eight-cycle with identical profile."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-eight-element-threshold-for-two-variable-counting-equivalenc--fe3ab073af88",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and mirror",
+          "title": "The eight-element threshold for two-variable counting equivalence",
+          "trigger": "Exact smaller collision"
+        },
+        {
+          "assessment": "Different domain and refinement behavior",
+          "evidence": [
+            "Recovers block-size orbits with p(n) classes for partition lattices."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18/…--f002b2043982",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and mirror",
+          "title": "Three-round orbit recovery for finite partition lattices",
+          "trigger": "Exact refinement and orbit census analogue"
+        },
+        {
+          "assessment": "Different poset families and conclusions",
+          "evidence": [
+            "Respectively width-three orbit-exact ambiguity, bounded-order restricted height-two identification, and forest-order identification."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18/…--5cafba4f1777, …--39e17b148bc6, …--15f31fa75c06",
+          "material_read": "The three RESULT.md Findings, starting at offset 0",
+          "method": "Local Resultary search and mirror",
+          "title": "Exponential counting-logic ambiguity in width-three finite posets; Counting-logic identification of height-two permutation posets; Height-bounded counting-logic identification of finite forest orders",
+          "trigger": "Closest indexed bounded-variable poset statements"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Bounded Eulerian rank-three orders are a natural thin-poset family. The theorem specifies exactly how much strict-order information two-variable counting loses at each size, how to recover isomorphism with a third variable at logarithmic rank, and when that loss conceals latticehood or automorphism orbits. Those sharp boundaries and full counts support the contribution beyond the standard cycle decomposition or one lifted counterexample.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

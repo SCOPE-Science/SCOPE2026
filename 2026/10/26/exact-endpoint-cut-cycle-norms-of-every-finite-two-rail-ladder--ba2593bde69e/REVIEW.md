@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact claim applies to every integer ladder length \(n\ge2\). The graph Laplacian block diagonalizes into a path Laplacian and a strictly positive path Laplacian shifted by two. Formula (1) in `RESULT.md` is a tridiagonal inverse identity; its positive Green entries and strictly monotone columns yield all rung responses. For rail sources, splitting into symmetric and antisymmetric layer modes determines the signs, source diagonal, and complete absolute-current column sums. The exact comparisons in steps 4–5 rule out rail maximizers, including the exceptional short lengths. Step 6 establishes the strict ordering and sharp unattained limiting constants. The bundled exact-rational checker independently computes all columns for lengths two through twelve. Finite checks are supplementary; the proof is unrestricted.
+PASS
 
-## Originality — PASS, with explicit residual risk
+On a rung source only the antisymmetric mode survives. The path operator L+2I has endpoint diagonals 3 and interior diagonals 4; its reflected geometric Green function gives A and B, and the column sum is 1/2. Strict rise and fall about the diagonal make the two rail variations telescope. For a rail dipole g=R(e_j−e_{j+1}), the two monotone sign intervals give off-source rail variation u+v−ℓ−t; summing the defining equations over one side gives the rung total 1−u−v. At the driven interval the combined rail total is max(1,u+v)=1 because the shifted inverse is strictly smaller than the path inverse on the mean-zero subspace. Subtracting twice the source diagonal and adding one then gives the cycle column. The adjacent-rung differences have the asserted strict inward signs for n≥3; the cut beats rail columns via H_c>2 for n≥5, and the cycle beats them via u+v>1/3 and H'_c>5/3 for n≥4. The small graphs and equality sets were checked exactly. At a common maximizing rung the gap is 4A−1≥2/√3−1>0. B>0 makes the cycle bound strict, and the cut-bound numerator is at most (r²−1)(x+y)<0 by x²+y²,2x²y²≤x+y. The central boundary factors vanish as n increases, proving sharpness and nonattainment. Symmetry gives both endpoints; orientation only conjugates by signs.
 
-The closest 2023 cycle-space paper (arXiv:2305.12582) concerns invariant projections on tori and Hamming graphs and does not classify open finite ladders. Klenke (arXiv:1704.00182) obtains spanning-tree ladder statistics, not the asserted finite operator norms. The 2026 published *Exact finite-volume rung kernel and boundary-bulk split for weighted ladder spanning trees* supplies an explicit finite rung-current submatrix, and therefore an important non-original input. It does not classify rail-source projection columns or prove their strict exclusion from both endpoint norm maximizations, nor does it establish the joint strict inequality and both sharp family suprema. The present claim is about these additional norm/maximizer conclusions, not priority for the Green kernel. An older computation of the full canonical ladder projection matrix or its absolute-column maxima could still cover the result; the searches do not rule that out absolutely.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A two-rail ladder is the basic open-boundary graph strip and the width-two boundary of clique–path products. Its non-transitive edge classes make the endpoint projection norm a genuine maximization over two kinds of electrical responses. The result determines the complete operator norm, the exact maximizer locations, and the strict inequality between complementary norms at every finite size. The two different sharp nonattained thermodynamic limits are natural, reproducible features of an infinite family rather than one selected finite example. The result is limited to orthogonal real projections and does not claim a minimum projection constant.
+The cut-norm half is demonstrably covered by the distinct November 2 Resultary entry, including its exact extremizers and sharp envelope. I credit that coverage rather than treating the cut formula as a distinct new fact; the entry date does not establish prior discovery. The supported distinct content of the paired finding is the exact cycle endpoint norm and its equality set, its sharp nonattained supremum, and the resulting strict all-length cut–cycle comparison. Neither the strongest matching cut theorem nor the earlier rung kernel settles the requisite cycle rail-column test by its statement.
 
-## Closest sources and limitations
+## value
 
-Full-text comparisons involved Dilworth–Kutzarova–Ostrovskii, arXiv:2305.12582 (2023); Klenke, arXiv:1704.00182 (2017); and the published 2026 finite ladder rung-kernel derivation. In particular, a rung-kernel input alone is not a full projection-norm statement. Equivalent calculations in further graph-electrical literature remain a residual originality risk. Weighted ladders, wider strips, and nonorthogonal projections are outside the claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The ladder is the basic boundary-bearing two-rail network. The exact cycle maximum with a strict equality set and the uniform positive gap from the cut norm are useful benchmark invariants for absolute electrical localization. The two orbit calculations and the rail-versus-rung cycle inequality are not a routine consequence of the known rung resistance or cut envelope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

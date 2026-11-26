@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:46:25.574493Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:4–43,45–68",
+        "VERIFICATION.md and checker.py (inspected, not executed)",
+        "Independent bounded enumeration: subset linearity and product closure for F_2^4, normalized-basis closure and ranks of concatenated bases for F_8^6"
+      ],
+      "rationale": "Write multiplication as cyclic shift P of the coordinatewise product. Squaring a vector with a nonzero coordinate shows that the support of the span of coordinatewise products equals that of U. Closure makes that support shift-invariant, so a nonzero U has full support. Choose d independent coordinate restrictions, d=dim U; their diagonal bilinear tensors are independent, so the product span has dimension at least d and by closure no more. Every other coordinate restriction therefore has its tensor square in their diagonal span. Off-diagonal tensor coefficients force it to be proportional to exactly one chosen restriction, including in characteristic two. Equality of the shifted product span and U makes that partition translation-invariant; its zero block is a subgroup, so blocks are residues modulo d with d|n. Normalize the least coordinate in each block to 1. The weights then propagate by squaring across blocks and the successive block-zero weights satisfy b_0=1 and b_{k+1}=c*b_k^(2^d), with b_{n/d}=1 precisely when c^M_d=1. These equations also prove closure and uniqueness (if d<n, c is the normalized weight at coordinate d; otherwise only c=1). Inclusion forces refinement modulo e and hence d|e; the ratio of weights at e and 0 gives h=c^((2^e−1)/(2^d−1)) when e<n, and the general exponent-difference identity proves sufficiency. For e=n the same equation holds by wraparound. Nonzero cycle constants show perfection and allow an ideal element's nonzero coefficient to be isolated by multiplication and propagated to all basis vectors. The result is a weighted cycle as exhibited in the proof, not necessarily isomorphic over K to the unweighted E_d(K). Over F_q cyclicity of the unit group gives the gcd counts. Independent bounded checks exhaust all subsets of F_2^4 for the subspace/closure test (counts 1,1,1,1 in dimensions 0,1,2,4), and check all constructed F_8, n=6 nodes for closure and their pairwise inclusions by rank (1,7,7,1,1 in dimensions 0,1,2,3,6). The latter does not enumerate all F_8 subspaces; exhaustiveness there and in arbitrary fields is from the proof.",
+      "residual_risks": [
+        "Finite checks do not establish arbitrary-field completeness; that comes from the support and bilinear argument. The assertion is embedded subalgebras of a single ambient unweighted cycle, not an abstract weighted-cycle isomorphism census."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 and Corollary 4 cover any regular evolution algebra, including the ambient cycle here, and supply the disjoint supports. Proposition 5 treats codimension one. Narkuziyev treats selected idempotents and cycle/isomorphism questions."
+        ],
+        "reasoning": "The general basis theorem settles the first structural reduction, but does not solve the shift-invariant partitions and normalized weight recurrences, or give the comparison between parameters at different divisors.",
+        "searches": [
+          "Regular evolution algebras are closed under subalgebras, arXiv:2503.07187, Thm. 2, Cor. 4, Prop. 5",
+          "Narkuziyev arXiv:2005.05793 pp. 9–12"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2503.07187 pp. 2–3",
+        "arXiv:2005.05793 pp. 1,9–12",
+        "Resultary f14321710094 and e8db04aa8932",
+        "RESULT.md:70–74"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Disjoint supports imply a partition but do not identify it without using equality with the shifted product span. The root normalization and cross-divisor inclusion map are additional. The F_4 image example demonstrates why the homomorphism classification is insufficient."
+        ],
+        "reasoning": "After granting the prior disjoint-support theorem and all idempotent counts, recovering every embedded subalgebra still requires the cyclic partition, normalization of weighted blocks without extracting a potentially unavailable field root, and an incidence calculation.",
+        "searches": [
+          "Comparison of arXiv:2503.07187 Cor. 4 with frozen RESULT.md Steps 3–5",
+          "Resultary f14321710094 single-target image parameters; e8db04aa8932 idempotent-count statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The single-target homomorphism formula has d|n and residue supports, with initial parameter lambda^(2^n−1)=1. Normalizing its image gives c=lambda^(2^d−1). E.g. for n=6,d=2,K=F_4 the cube of every nonzero lambda is 1, whereas M_2=21 admits all three nonzero c. This gives genuine subalgebras missed by that image specialization.",
+          "Narkuziyev discusses idempotents and decompositions in permutation algebras, not an embedded incidence lattice in the inspected passages."
+        ],
+        "reasoning": "Counting maps or their ranks is not equivalent to classifying all multiplication-closed subspaces. The image parameter relation gives precise overlap and a strict gap over some fields.",
+        "searches": [
+          "Resultary complete homomorphism counts and rank distributions for permutation evolution algebras, f14321710094",
+          "Narkuziyev arXiv:2005.05793, §4 and cycle/isomorphism discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f14321710094 counts homomorphisms and ranks. The inspected arithmetic isomorphism/idempotent record e8db04aa8932 includes the same one-dimensional unweighted idempotent count, with zero counted separately."
+        ],
+        "reasoning": "The common coefficient of T is old and the image supports overlap. The actual statements do not list the other closed-subspace counts and incidence. No comparison rests on date ordering alone.",
+        "searches": [
+          "Local Resultary single-cycle subalgebra lattices, finite-field counts; f14321710094 and e8db04aa8932"
+        ]
+      },
+      "rationale": "The supported distinct result is the all-dimensional embedded classification and explicit incidence condition over arbitrary fields, with its full finite-field count. General disjoint-support bases and the dimension-one count are known and not counted as new. The strongest homomorphism overlap reaches only the images of maps from unweighted cycles; it need not reach every subalgebra even over finite fields.",
+      "residual_risks": [
+        "The focused primary search was unavailable; the bounded searches and inspected passages do not exclude all earlier special-case or unindexed classifications."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior basis/support and codimension-one results; no explicit single-cycle all-dimensional incidence in those passages",
+          "evidence": "All subalgebras of regular evolution algebras have a natural basis with pairwise disjoint supports",
+          "identifier_or_url": "https://arxiv.org/pdf/2503.07187; DOI 10.5802/crmath.804",
+          "material_read": "pp. 2–3, Theorem 2, Corollary 4, Proposition 5 (offsets 6400–10890)",
+          "method": "Lawful OA PDF passages",
+          "title": "Regular evolution algebras are closed under subalgebras",
+          "trigger": "General theorem for the same class of subalgebras"
+        },
+        {
+          "assessment": "Related idempotent and cycle decomposition results, not the claimed all-dimensional embedded lattice in the inspected sections",
+          "evidence": "The selected idempotent systems and two-permutation analysis address different conclusions",
+          "identifier_or_url": "https://arxiv.org/pdf/2005.05793",
+          "material_read": "Abstract; §4 and Theorem 4 pp. 9–10; later cycle/isomorphism passages pp. 11–12",
+          "method": "Lawful OA author PDF passages",
+          "title": "Some remarks on evolution algebras corresponding to permutations",
+          "trigger": "Permutation evolution-algebra results possibly treating same cycle"
+        },
+        {
+          "assessment": "Partial image and dimension-one coverage, not the all-dimensional embedded lattice",
+          "evidence": "Root parameter lambda gives image parameter lambda^(2^d−1); the idempotent formula gives the common T coefficient only",
+          "identifier_or_url": "Resultary f14321710094; e8db04aa8932",
+          "material_read": "Local-mirror findings, including single-cycle root and support formulas and weighted-cycle idempotent counts",
+          "method": "Local Resultary search and local mirror passage inspection",
+          "title": "Complete homomorphism counts and rank distributions for permutation evolution algebras; Arithmetic isomorphism and idempotent symmetry profiles of cyclic evolution algebras",
+          "trigger": "Potential catalogue overlap via images and idempotent lines"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:10–43,50–65",
+        "Ladra–Pérez-Rodríguez Corollary 4 and Proposition 5; comparison with f14321710094"
+      ],
+      "rationale": "This gives the entire incidence structure for a natural simple family, rather than just counts of idempotents or abstract isomorphism types. Containment is a concrete power map over the ground field, and the result includes subalgebras that need not be embedded copies of the smaller unweighted cycle. It provides an exact reusable finite-field polynomial and an arbitrary-field classification.",
+      "residual_risks": [
+        "Restricted to a single unweighted ambient cycle; no generalisation to weighted or multiple ambient cycles is credited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

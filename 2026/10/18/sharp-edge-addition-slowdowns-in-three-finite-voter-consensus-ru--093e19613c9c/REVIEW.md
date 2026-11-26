@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim defines the three update probabilities, the fair independent initial law, and a unit cost for every update attempt. Absorption follows from connectivity. The exact finite chain formula \(T_R(G)=2^{-n}\boldsymbol 1^{\mathsf T}(I-Q_R(G))^{-1}\boldsymbol 1\) follows by first-step analysis. Recomputing each transition and solving the rational linear system reproduces every table entry. The accompanying stand-alone verifier enumerates **all** labelled graphs through four vertices and groups source graph plus added nonedge under every permutation: there are zero, one, and six edge-addition orbits at orders two, three, and four. A rational five-vertex star calculation provides the LD upper witness. This proves the stated sharp finite thresholds and no larger-graph classification.
+PASS
 
-## Originality — PASS (best-knowledge assessment)
+The first-step linear system uses weights 1/(n d_receiver), 1/(n d_sender) and 1/(2|E|) for VM, IP and LD respectively. The diagonal retains all no-op attempts and the fair-i.i.d. average divides by 2^n, including the absorbing initial states with zero time. A connected graph admits a positive-probability sequence of copies down a spanning tree that makes any configuration monochromatic, so the transient resolvent exists. At n<=2 there is no eligible nonedge; at n=3 only the path-to-triangle case occurs. At n=4 the trees give one star and two path orbits, the unicyclic paw and C4 give one orbit each, and the diamond gives the sole five-edge orbit. A separately written exact-rational solver reproduced the entire table: n=3 differences in VM/LD/IP order are (0,-1/2,-3/2); the four-vertex positive counts are 2/0/1, with all six LD differences negative. It recovered the VM star-to-paw 155/208, LD star-to-paw -1/17 and IP square-to-diamond 35/88, as well as five-vertex LD star means 613/48 before and 693195/52592 after, yielding 32327/78888. These establish sharp boundaries 4,5,4 in VM/LD/IP order. The frozen program was inspected, not executed.
 
-Closest full-text research is Iwamasa–Masuda (arXiv:1404.6360), which explicitly illustrates the same four-vertex paw and finite absorbing-chain method but optimizes large-graph consensus at fixed edge count, with balanced initial configurations. It does not tabulate all local single-edge comparisons at four vertices or give the sharp rule-dependent five-vertex threshold. Sood–Antal–Redner (arXiv:0712.4288) establish the different update rules; Masuda (arXiv:1403.4763) works on two-clique bridge families; Cooper–Dyer–Frieze–Rivera (arXiv:1604.06884) use discordant-only updates. Searches for edge augmentation, graph insertion monotonicity, consensus absorption time, voter/invasion/link dynamics, and Braess-type effects located no encompassing theorem or exact table. Those broader observations and techniques are acknowledged; the distinctive contribution is the complete exact first onset and comparison of three protocols. Residual risk remains that a less easily located finite graph enumeration contains the same table.
+## originality
 
-## Value — PASS
+PASS
 
-Whether strengthening a social connection speeds binary agreement is a natural network-design question. The sharp minimal network order and *entire* four-agent insertion classification are interpretable obstructions to an intuitive monotonicity hypothesis. They exhibit the same edge producing opposite effects under two canonical update rules, while the third rule first fails at a different order. The result is a finite exact structural boundary, not a restatement of general consensus existence or a marginal decimal improvement.
+The supported distinct claim is the joint sharp cross-rule boundary, specifically the IP cutoff and complete IP contrasts at the same six edge orbits, the LD mean-only exclusion through four paired with the star witness, and the comparison of all three rules on the same changes. This is not a pass for the VM subresult in isolation: a distinct November indexed record covers it exactly after clock and initial-law conversion. The same-day LD mean–variance record already covers the LD star-to-paw delta and that a five-agent mean slowdown is possible; it does not state the mean-only exclusion or the same star witness. Neither the indexed overlaps nor the primary passages supply the full three-rule classification. Record dates do not determine priority.
 
-## Boundaries and evidence
+## value
 
-The calculation uses fair independent initial opinions, attempted-update time, and static connected simple graphs. It does not infer an infinite-size theorem or five-agent census. The scientific comparison rests on the source articles, explicit model normalization, and verified finite rational computations; literature-search incompleteness is a remaining risk. Independent external validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The same elementary network intervention can help one rule and harm another, and the sharp first orders expose a real distinction between node- and link-sampling, not just a change of units. The six-orbit layer locates where signs diverge, and the LD witness shows the absence of four-agent slowdowns does not extend a single step further. This is useful under the specified normalization independently of a full five-vertex census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

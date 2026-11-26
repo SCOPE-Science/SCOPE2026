@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:18:37.888146Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–78",
+        "Frozen VERIFICATION.md and check.py, including the rational enclosures, inspected as text"
+      ],
+      "rationale": "Modulo constants, real BV functions are integrals of interior unit steps against their finite signed distributional derivatives. The triangle inequality gives the norm upper bound by a maximal step, and a step attains it. The change x=cos θ takes normalized arcsine measure to dθ/π; the step's coefficients at k≥1 are √2 sin(kθ)/(πk). Parseval gives the nonnegative cosine tail, reflection symmetry, and the degree-zero optimum 1/2. At 2nδ=c, the scaled tail is a Riemann sum for G(c)=∫₁^∞(1−cos(ct))/t² dt, locally uniform by truncation at large t. Integration by parts gives G′=π/2−Si(c). Alternating Taylor bounds give Si(2)>π/2 and G(2)>1.34559>4/3. Si is strictly increasing before π, G is convex on [π,2π], and G(c)≤1+2/c for c≥2π by integrating the cosine tail by parts. These certify that its first stationary point is the unique global maximum. For 2nδ→∞, Abel summation bounds the scaled oscillatory part by O(1/(n sin δ)) and the nonoscillatory part tends to 1. Comparing to c*/(2n) excludes this escape for every maximizing sequence; all remaining subsequential limits equal c*. The Taylor expansion of 1−cos δ then gives the n⁻² endpoint distance.",
+      "residual_risks": [
+        "The floating-point finite critical-point checks do not prove those points are global maximizers at each degree. The proof needs only the exact maximum formula and limiting compactness, and classifies one-jump locations, not every BV extremizer."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhou–Narayan–Xu bound discrete least-squares approximation via best polynomial approximation. Wang studies pointwise localization of spectral error at singularities. Akansha gives L¹ errors using Chebyshev coefficient decay."
+        ],
+        "reasoning": "None of these inspected estimates is a stronger sharp unweighted-angular L² error theorem with a variation denominator, a moving jump, and its extremal constant. In particular an error order or pointwise concentration near a fixed singularity cannot determine the exact supremum over jump locations.",
+        "searches": [
+          "arXiv:1401.0894, Theorem 3.4",
+          "arXiv:2106.03456, error localization",
+          "arXiv:2404.18723, §4",
+          "Focused literature lookup on Chebyshev/Fourier projection on BV and the sine-integral optimum"
+        ]
+      },
+      "checked_sources": [
+        "Configured Resultary index: exact self-match at offsets 240 and 2729, and the distinct circular cutoff primary result",
+        "Primary OA passages in arXiv:1401.0894, 2106.03456 and 2404.18723 listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cosine series identity and the BV step reduction provide an exact finite optimization; standard coefficient decay gives an upper bound of order n⁻¹/². The inspected results do not evaluate the supremum of the oscillatory tail or rule out all intermediate angles."
+        ],
+        "reasoning": "Prior decay and classical Fourier identities are ingredients, not a sharp limit. Interior jump asymptotics give a different constant; passing from those to the supremum would miss the optimizing shrinking angular regime. Compactness and the global profile comparison do substantive work.",
+        "searches": [
+          "Circular Fourier cutoff RESULT.md, offset 319",
+          "arXiv:2106.03456, p. 1 and stated pointwise problem",
+          "arXiv:2404.18723, §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cosine change of variables gives the half-range Fourier residual exactly. With normalized circle measure, the corresponding periodic BV-to-L² Fourier residual norm is E_n/2: the derivative of a periodic BV function has mass zero, so its positive and negative parts express the function modulo constants as TV/2 times an average of oriented arc indicators. By rotation a maximizing arc can be centered at zero; even extension doubles its half-range variation without changing its normalized residual norm.",
+          "The distinct second circular-cutoff record also uses arc extremizers, but bounds output variation V(S₂f), not the L² residual of all cutoffs."
+        ],
+        "reasoning": "An exact periodic Fourier residual norm and its maximizing arc asymptotic would indeed cover the present claim under that reduction. The inspected circular theorem is about a different operator norm at a fixed degree and is not such coverage. Its same-day date does not decide priority or equivalence.",
+        "searches": [
+          "Resultary searches for Chebyshev BV-to-L² projection error, hard-edge sine-integral law, Fourier cosine projection and periodic Fourier BV",
+          "2026/11/22/SCOPE-exact-real-bv-norm-of-the-second-circular-fourier-cutoff-and-non--83409ea1f4b6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local mirror of the exact indexed hit has the same identifier and formulas, including step attainment, the Si(c*)=π/2 root and convergence of maximizing angles.",
+          "The other resolved circular Fourier result concerns a different exact invariant."
+        ],
+        "reasoning": "The exact hit is a self-match. The contribution is not the numerical values of Si or trigonometric tables, but the exact extremal problem and proof that this root is its limiting optimizer.",
+        "searches": [
+          "2026/11/22/SCOPE-a-sharp-hard-edge-sine-integral-law-for-chebyshev-projection-of--bb227b1c70c3",
+          "Resultary searches for the exact cosine-tail maximum and sine-integral hard edge"
+        ]
+      },
+      "rationale": "Best of the inspected evidence for the sharp normalized BV-to-L² residual and its moving maximizer law. The exact indexed match is the frozen record itself. The nearby periodic and Chebyshev projection results do not give the same norm, and pointwise localization of a prescribed singularity does not give the maximizing step location or constant.",
+      "residual_risks": [
+        "Older periodic Fourier or half-range cosine approximation work under a different sharp-inequality name could cover the equivalent statement. Inspected evidence does not establish literature priority.",
+        "An endpoint-singularity search hit was not resolved to readable OA full text; no absence conclusion is drawn from that access failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related extremal mechanism, different operator norm and fixed cutoff",
+          "evidence": [
+            "The numerator is variation of S₂f, not the L² norm of f−S_nf."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-real-bv-norm-of-the-second-circular-fourier-cutoff-and-non--83409ea1f4b6/RESULT.md",
+          "material_read": "Primary RESULT.md, offset 319",
+          "method": "Resolved Resultary hit in local mirror",
+          "title": "Exact real BV norm of the second circular Fourier cutoff",
+          "trigger": "Distinct same-day periodic BV Fourier extremum with arc inputs"
+        },
+        {
+          "assessment": "Not sharp continuous BV-to-L² residual in the inspected theorem",
+          "evidence": [
+            "Discrete least-squares error against continuous best approximation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1401.0894",
+          "material_read": "Theorem 3.4, PDF p. 7, extraction offset 30533",
+          "method": "Bounded primary OA PDF reading",
+          "title": "Multivariate discrete least-squares approximations with a new type of collocation grid",
+          "trigger": "Chebyshev approximation stability and error estimates"
+        },
+        {
+          "assessment": "Different error and quantifiers in the inspected statement",
+          "evidence": [
+            "Pointwise spectral errors for singular functions, not the variation-normalized global operator norm."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.03456",
+          "material_read": "PDF p. 1, extraction offset 795",
+          "method": "Bounded primary OA PDF reading",
+          "title": "Analysis of error localization of Chebyshev spectral approximations",
+          "trigger": "Chebyshev singularity localization and sharp error scales"
+        },
+        {
+          "assessment": "L¹ coefficient-decay estimates, not the claimed weighted L² residual maximum",
+          "evidence": [
+            "Error control for truncation via coefficient decay rather than an exact maximizing BV step profile."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.18723",
+          "material_read": "§4, PDF p. 7, extraction offset 29247",
+          "method": "Bounded primary OA PDF reading",
+          "title": "Exploring Chebyshev Polynomial Approximations: Error Estimates for Functions of Bounded Variation",
+          "trigger": "Closest overlapping Chebyshev BV error terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact norm, boundary profile, and exclusion of larger angular scales"
+      ],
+      "rationale": "This is a natural sharp approximation norm for a canonical weight and a class that allows discontinuities. The result shows why plugging fixed jumps into a pointwise or global rate misses the worst case: their limiting constant is smaller and the optimizers cluster on an n⁻² spatial endpoint scale. It provides both an all-degree exact expression and a sharp asymptotic mechanism.",
+      "residual_risks": [
+        "No quantitative remainder or interpolation analogue is proved, and the result does not classify all multijump extremizers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

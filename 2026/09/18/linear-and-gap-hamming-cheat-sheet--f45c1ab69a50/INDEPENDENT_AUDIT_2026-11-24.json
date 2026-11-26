@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:09:17.922602Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS applies only to repairs/2/RESULT.md. The frozen substitution at lines 83–104 combines valid-block flags and ends with an identity AND without specifying the required inversion. Read literally, it outputs Ind(z) instead of 1−Ind(z); Wang–Wu §3.3 checks p(τ_d)=0, so every promised input then lacks an accepting certificate. Since Definition 3.8 also outputs zero on unpromised inputs, that literal substitution is constant zero, refuting its rectangle bound. The repaired circuit explicitly inserts a free NOT before the final AND, after computing the conjunction, with all padding before that final output. Independently, ripple additions cost at most 2(j+1) ANDs each; their tree sum is 4m−2k−4. The prefix comparator invariant gives the two inclusive threshold flags in 4(k+1) ANDs, plus at most one for their OR. Together with conjunction and the terminal AND this is at most 4km+2k²+2k<5km. For the repaired polarity, sequential enforcement of the multiplication constraints fixes the outputs, and the identity p≡fg fixes the whole degree-(2d−2) certificate uniquely and accepts it precisely on the promise. For d=5km the field has enough points and (2d−2)/2^(4k)<1/6; four shared evaluations and independent address sampling give the existing O(k log k) protocol, including error control when no address is valid. The 0-rectangle proof uses projection density and existence of an accepted certificate at the selected valid address. The 1-rectangle proof uses uniqueness and 4k(2d−1)>m/(8k). The repaired N_k=km+4km(2d−1), 8√40<51 and k≤log₂N_k give the stated explicit bound, and Wang–Wu Fact 2.1 and their RP-to-NP query simulation give the two communication lower bounds. The frozen verifier checks components and sample parameters, not the final acceptance polarity; it was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang–Wu use d=k(m(m+3)+1), giving N=Θ(k²m³) and exponent Θ(N^(1/3)/(log N)^(5/3)) from their explicit m/(8k) bound.",
+          "The affine-subspace record applies to the original quadratic-circuit parameters and gives codimension m/(16k), not the improved near-square-root bound.",
+          "Gavinsky's lower bound is for randomized communication of a function with efficient quantum communication, not a rectangle upper bound at the new exponent with efficient randomized communication."
+        ],
+        "reasoning": "None of these inspected statements gives both the efficient randomized protocol and the new dominating exponent expressed in the actual shortened input length.",
+        "searches": [
+          "Wang–Wu arXiv:2609.20763v1 Theorem 1.1, Corollaries 1.2–1.3, §§3–5 and Appendix A",
+          "Resultary 1fe37c4cb98e, randomized parity queries and monochromatic affine subspaces",
+          "Gavinsky arXiv:2608.18784v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, artifacts/verify_parameters.py and artifacts/verification.txt (not executed)",
+        "repairs/2/RESULT.md",
+        "Wang–Wu arXiv:2609.20763v1 and ECCC TR26-190 listing",
+        "Gavinsky arXiv:2608.18784v1",
+        "Resultary f45c1ab69a50 and 1fe37c4cb98e",
+        "IACR ePrint 2019/188 (retrieval limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original arithmetization makes certificate cost linear in d and the projection argument depends on the acceptance interface; the original bound at its own input lengths is weaker.",
+          "The product-method and RP simulation consequences are mechanical once the strengthened rectangle bound is in hand."
+        ],
+        "reasoning": "The quantitative improvement requires replacing the circuit by one with a smaller multiplicative count and verifying that the resulting output, field, accepted certificates and 1-rectangle inequality still meet the proof hypotheses. The existing communication lower-bound implications are credited, not counted as independent results.",
+        "searches": [
+          "Wang–Wu §3.3, Lemma 3.6, §4, Theorem 5.1 and Appendix A",
+          "Wang–Wu Fact 2.1 and Corollaries 1.2–1.3",
+          "Resultary 1fe37c4cb98e original statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source circuit computes the complement, not the promise indicator; this is the same predicate with fixed acceptance polarity, not a different promise problem.",
+          "Gavinsky uses linear-size arithmetic/comparison circuits in shifted approximate equality but establishes a different quantum-versus-randomized communication separation."
+        ],
+        "reasoning": "Neither equivalence under complement nor known linear arithmetic circuits already gives the compressed certificate and improved rectangle exponent for the Wang–Wu function. The tests and gate convention have to match the zero-output checker.",
+        "searches": [
+          "Resultary: linear AND Gap Hamming cheat sheet Wang Wu near square root rectangle bound 40k^2m^2 monochromatic rectangles adaptive RP NP communication",
+          "Wang–Wu arXiv:2609.20763v1 Lemma 3.3, §§3.2–3.3",
+          "Gavinsky arXiv:2608.18784v1 pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f45c1ab69a50 is the exact same frozen record, not independent precedence.",
+          "Distinct 1fe37c4cb98e uses the original Wang–Wu function and d=O(km²), and descends to parity queries for the quotient.",
+          "The original lemma explicitly uses the larger d, not d=5km."
+        ],
+        "reasoning": "The indexed affine-subspace result is material because it is based on the same function and rectangle obstruction, but neither its fixed parameters nor its conclusion supplies the exact new inputs or near-square-root bound. Its date does not establish priority.",
+        "searches": [
+          "Resultary exact linear-AND parameters and quantitative Gap-Hamming rectangle separation: f45c1ab69a50, 1fe37c4cb98e",
+          "Wang–Wu Lemma 3.3 and table encoding §3.2"
+        ]
+      },
+      "rationale": "For the repaired claim, the distinct result is the quantitative near-square-root exponent from shrinking the Wang–Wu certificate length while preserving its existence, uniqueness and linear verification interface. No novelty is credited for binary adders, constant comparators, the qualitative separation or the transfer laws for communication classes.",
+      "residual_risks": [
+        "The ECCC version could differ from arXiv v1; the claims compared are those of the inspected v1.",
+        "Bounded searches do not rule out a simultaneous or later compression or an equivalent theorem stated under different communication parameters. The upstream PCP full text was unavailable; the problem-specific proof was inspected in Wang–Wu."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the qualitative result and proof template at larger input length; its zero-output acceptance exposes the frozen substitution error.",
+          "evidence": "Lemma 3.3 has d=k(m(m+3)+1); Eq. (3.2) outputs ¬(B₁∧⋯∧B_k)∧1; the exact check requires p≡fg and p(τ_d)=0. The 0-rectangle proof shifts a projection by a valid certificate; the 1-rectangle proof bounds density by 2^(−4k(2d−1)).",
+          "identifier_or_url": "https://arxiv.org/abs/2609.20763v1",
+          "material_read": "Fact 2.1 and Corollaries 1.2–1.3; §§3.1–3.3, pp. 7–10, notably Eq. (3.2) and Lemmas 3.3/3.6; §4 pp. 11–12; §5.1 pp. 13–16; Appendix A pp. 18–19",
+          "method": "OA PDF and HTML passages",
+          "title": "Efficient Randomized Communication Without Large Monochromatic Rectangles",
+          "trigger": "Exact construction, required polarity, original quantitative parameters and transfer conditions"
+        },
+        {
+          "assessment": "Version-specific differences not established.",
+          "evidence": "Listing identifies the Wang–Wu report, but does not settle whether the ECCC text has changed from the inspected arXiv v1.",
+          "identifier_or_url": "ECCC TR26-190",
+          "material_read": "ECCC listing; full download unavailable from this host",
+          "method": "Lawful publication lookup and full-text attempt; same work inspected at arXiv v1",
+          "title": "Efficient Randomized Communication Without Large Monochromatic Rectangles",
+          "trigger": "Another host/version of the closest primary work"
+        },
+        {
+          "assessment": "Different function, models and guarantee.",
+          "evidence": "Uses linear-size arithmetic/comparison but proves a quantum-versus-randomized communication separation, not the proposed rectangle density bound or adaptive oracle lower bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.18784v1",
+          "material_read": "pp. 1–2, shifted approximate equality construction and separation",
+          "method": "OA PDF passages",
+          "title": "On the quantum communication complexity of total functions",
+          "trigger": "Earlier linear arithmetic gadgets and potentially comparable communication separation"
+        },
+        {
+          "assessment": "Shares the construction, original scale and no-large-monochromatic-set argument, not the new compression.",
+          "evidence": "Uses the original d=O(km²) and gives codimension m/(16k) in the parity-query quotient.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-randomized-parity-queries-no-large-affine-subspaces--1fe37c4cb98e",
+          "material_read": "Mirrored RESULT.md statement and parameter conversion",
+          "method": "Local Resultary mirror",
+          "title": "Efficient randomized parity queries without large monochromatic affine subspaces",
+          "trigger": "Closest distinct indexed overlap on the same Wang–Wu construction"
+        },
+        {
+          "assessment": "Identical bound record; not evidence of independent coverage.",
+          "evidence": "Matches the linear-AND substitution and square-root-over-polylog exponent.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/18/SCOPE-linear-and-gap-hamming-cheat-sheet--f45c1ab69a50",
+          "material_read": "Indexed parameters checked against the frozen RESULT.md",
+          "method": "Configured Resultary search and frozen original",
+          "title": "Near-square-root rectangle bounds from a linear-AND Gap-Hamming promise circuit",
+          "trigger": "Exact indexed match"
+        },
+        {
+          "assessment": "Credit the prior fully linear PCP framework; no exact claim comparison from this paper itself.",
+          "evidence": "Hosted PDF unavailable; the actual PCP used here was checked in Wang–Wu §§3.2–3.3 and Appendix A.",
+          "identifier_or_url": "https://eprint.iacr.org/2019/188",
+          "material_read": "Identification from Wang–Wu and the frozen references; full text not read",
+          "method": "OA PDF retrieval attempts",
+          "title": "Zero-Knowledge Proofs on Secret-Shared Data via Fully Linear PCPs",
+          "trigger": "Upstream fully linear PCP reference"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the repaired construction, the simple circuit substitution changes the effective growth of the input length from cubic to quadratic in the address-space size, while leaving the randomized communication and the rectangle bound in the underlying parameters unchanged. This improves the power of the actual input length from one third to one half up to logarithms, and thus strengthens the quantitative adaptive-query separation rather than just shaving a constant or renaming parameters.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

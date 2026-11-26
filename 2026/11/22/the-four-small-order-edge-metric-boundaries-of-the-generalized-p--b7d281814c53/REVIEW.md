@@ -1,11 +1,7 @@
-# Scientific review
+# Assessment of the minimum-set census at orders seven through ten
 
-**Correctness (PASS).** For each of four specified finite graphs, two different complete enumerators use explicit shortest-path edge signatures; they agree on all minimum sizes, optimal multiplicities and explicit witnesses. The full graph family statement relies on Wang–Wang–Zhang's published theorem for every higher order, and does not infer that part from computation.
+**Correctness.** The counts are 469, 368, 18, and 160, respectively, for unordered subsets of the labelled vertices. Exact shortest-path distances and exhaustive edge-pair separation tests independently reproduce the counts, with no sets of smaller size resolving. The stable range is not used to infer any count.
 
-**Originality (PASS, subject to historical risk).** The directly motivating 2020 primary paper proves only orders at least eleven; its omitted initial cases are not immediate corollaries. The 2023 large-parameter adjacent-step family includes different parameter restrictions and does not determine these exact optimizing-set multiplicities. Prior indexed research comparisons and accessible historical claim statements did not reveal the exact four-order census. The number four at order eight is also known as an assumption in related work and is not individually claimed as a new scalar. Unindexed computational tables remain a risk.
+**Originality.** The dimension values at all four orders are prior: Wang, Wang and Zhang state them in §6 of arXiv:2005.08038; for order seven they credit the earlier \(P(7,2)\) case, which is isomorphic. The audited contribution is the multiplicity of optimal sets at each of the four orders. The inspected primary statements give dimensions and particular bases, not these multiplicities. This does not exclude unindexed tables.
 
-**Value (PASS).** The original stable-range theorem naturally creates a sharp missing finite boundary. The two consecutive exceptional orders have lower dimension than the subsequent infinite family, and exact optimum counts provide natural calibration data for edge-localization and graph symmetry.
-
-**Limits.** Enumeration is complete only for the four stated orders; generality beyond them is borrowed with attribution. Historical priority and external independent audit remain open.
-
-Self-review: passed. Independent audit: not yet performed.
+**Value.** The four orders exhaust the natural finite boundary of the published fixed-step theorem. Counts of optimal landmark configurations measure the number of choices missed by the dimension alone and serve as exact small-graph benchmark data. Neither a new scalar dimension value nor a general multiplicity formula is claimed.

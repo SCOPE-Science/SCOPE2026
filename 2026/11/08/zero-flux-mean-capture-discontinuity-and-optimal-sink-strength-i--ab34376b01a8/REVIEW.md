@@ -1,19 +1,21 @@
-# Scientific review — magnetic-square absorption-time theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem specifies a single-excitation four-cycle, uniform hopping, total Peierls flux, one continuously coupled irreversible sink and an opposite initial site. In the parity basis its Hamiltonian splits into two real two-state couplings. The full occupation-integral matrix in `RESULT.md` satisfies the exact Lyapunov equation; its trace yields the generic mean. At zero flux an inaccessible uncoupled mode must be excluded, changing the mean by precisely \(1/\kappa\). At half flux the initial state belongs to a detector-orthogonal invariant subspace. All other fluxes have unit capture probability. Differentiation and strict convexity establish the unique optimum and its half-flux asymptotic. Reproducible exact symbolic and independent original-site-basis numerical checks are in `verify.py`. The limitations are a single perfect square with no additional dissipation and infinite-time first-jump statistics.
+PASS
 
-## Originality — PASS, qualified
+In the stated parity basis, H has couplings A=2Jcos(φ/4), B=2Jsin(φ/4), and w=(1,0,1,0)/√2 and v=(1,0,−1,0)/√2 are the sink and source. The real part of a no-jump eigenvalue is −κ|w*ψ|²/(2||ψ||²); equality requires an H-eigenvector orthogonal to w. At generic flux the four H-eigenvalues are distinct and every eigenvector overlaps w, so survival decays. At exact zero flux the decoupled odd mode has no source overlap; the directed reachable three-dimensional restriction has simple H-eigenvalues, all with nonzero sink overlap. The 2π representative is identical by gauge, or by exchanging the parity blocks. At π the Hamiltonian leaves the antisymmetric pair invariant and entirely perpendicular to w, so the prepared state never decays. Independently solving the backward Lyapunov equation K*Q+QK=−I in real coordinates on the stable subspaces gave v*Qv=4/κ+κ(A²+B²)/(A²−B²)² and 3/κ+κ/A² for B=0. The residues therefore differ by 1/κ at fixed κ as φ→0, with no finite-time survival discontinuity. Minimizing c/κ+dκ gives a unique κ=√(c/d), mean 2√(cd); inserting the two coefficients and cos(φ/2)∼−(φ−π)/2 gives all stated optimizer and half-flux scalings. Exact algebra replay: `python3 /workspace/independent_checks.py 1`. The uploaded checker was inspected but not executed.
 
-The closest physics is magnetic-flux transmission suppression in L. Jin, *Quantum transport in coupled resonators enclosed synthetic magnetic flux* (arXiv:1611.10015), and dark-state quantum-network transport in Le et al., *How to Suppress Dark States in Quantum Networks and Bio-Engineered Structures* (arXiv:1707.07482). The former calculates unitary scattering through attached leads; the latter gives general dark-subspace and Lindblad-sink machinery, but neither states the piecewise opposite-site jump-time mean, its finite zero-flux jump, or its optimal irreversible sink strength. Friedman et al. (arXiv:1611.05676) and Liu et al. (arXiv:2001.00231) study ring first detection at repeated projective measurement instants rather than continuous absorption. Holzinger et al. (arXiv:2309.11376) concern different interacting emitter-ring arrays and do not use a Peierls flux. The analytic distinction is an exact all-rate and all-flux classification including a nonuniform infinite-time limit, not merely restating the known interference dark state. The comparison is not an exhaustive literature review; an implicit prior formula in uninspected work remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The four-site equal-arm Aharonov–Bohm ring is the smallest natural closed geometry with opposite-source and detector interference. The theorem exactly solves a physically operational first-absorption time, identifies a finite discontinuity at zero flux despite unchanged capture probability, and gives a sharp rate-matching prescription with a singular scaling transition as half flux is approached. The distinction between ordinary finite-time continuity and infinite-time non-uniformity is structural; the result is not just a numerical example or a normalization check.
+Best-knowledge pass for the localized antipodal jump-time means, finite zero-flux jump and sink-rate law. The capture-probability trichotomy is substantially prior covered and is credited as such, not treated as the originality-bearing result. The closest lifetime record really uses a different initial state, as confirmed in its Finding and Limitations.
 
-## Residual limitations
+## value
 
-No result is asserted for asymmetric arms, disorder, dephasing, other initial states, several sinks, or larger rings. At half flux the probability of capture is zero rather than a very long finite mean. The analysis supplies one proof and computational replay, not independent validation or priority certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exactly solvable localized trapping model exposes a finite discontinuity of a mean even though capture remains almost sure on both sides and finite-time evolution is continuous. The sharp fixed-rate and optimized behavior near half flux quantify distinct survival and control regimes in the same physical time convention. Known dark-state mechanisms and the elementary differentiation alone are not the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

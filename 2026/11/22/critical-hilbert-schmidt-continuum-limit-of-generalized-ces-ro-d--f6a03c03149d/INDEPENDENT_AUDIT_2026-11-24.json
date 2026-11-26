@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:16:24.966586Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Grouping matrix entries by row and by lag gives the cross Gram series F(ts)=(ζ(2)−Li₂(ts))/(1−ts). Integrating −log u/(1−u) from 0 to the deficit gives F(1−h)=1−log h+O(h|log h|). In its three-term difference the constants and −log ε cancel, leaving 2log(a+b)−log(2a)−log(2b) with the stated remainder. Independently, the embedded kernel has denominator ε(n+1) on (n,k) cells; for x>y the mesh powers tend to the two exponentials. A direct domination is also available: for j=n−k≥1 the numerator is bounded by |a−b|jε exp(−min(a,b)(j−1)ε); jε≤x, and for x>1, jε differs from x−y by at most ε. Thus the kernels are bounded on 0≤y<x≤1 and bounded by a constant times exp(−min(a,b)(x−y)/2)/x on x>1, both square-integrable on their regions. Cells with j=0 have zero numerator. This independently gives L² convergence, consistent with the frozen weak-plus-norm proof. Tonelli in u=x−y and Frullani evaluate the squared kernel norm as the same logarithm. The Schatten-2 singular-value inequality controls the entire zero-padded ordered list and the isometry preserves nonzero singular values. The equality case a=b vanishes; the identity with 2log cosh(log(a/b)/2) and scale invariance follow by algebra. The strong limit uses entrywise domination by the bounded C₁ and finite supports; normalized indicators of successive escaping intervals [N,2N] give a norm bounded below for C₁ on a weakly null sequence, verifying noncompactness. Frozen check.py was inspected, not executed: its finite rational identity and quadrature diagnostics are not the kernel or spectral proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rhaly gives the individual Hilbert–Schmidt norm and endpoint norm discontinuity for the same C_t. The two sequence-space papers analyze compactness and spectra of individual C_t, not a cross-parameter boundary layer.",
+          "Records f3bb63c0274c, 9192576eedcf and de465e616ced give the single-operator norm gap or fixed-parameter singular asymptotics. The commutator record 82ac9268fb30 treats the product difference C_tC_s−C_sC_t at interior parameters."
+        ],
+        "reasoning": "These results have a common family or spectral methods, but they do not control the image in S₂ after two varying rate parameters, mesh scaling and leading cancellation.",
+        "searches": [
+          "Rhaly, Generalized Cesàro Matrices, Theorems 1–2 and Proposition 1",
+          "arXiv:2302.08750 and 2305.04805",
+          "Resultary: fixed-parameter Cesàro singular laws and endpoint norm gap"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and cited bounded mirror passages",
+        "Rhaly primary text",
+        "Curbera–Ricker and Albanese–Bonet–Ricker PDFs",
+        "Limani–Malman arXiv:1905.03609v1",
+        "Frozen RESULT.md, VERIFICATION.md, check.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rhaly's exact diagonal norm formula combined with elementary entrywise polarization/parameter substitution supplies the cross Gram scalar series, but it cannot by itself identify which embedded kernels converge in S₂. The frozen cell convergence and square-integrable control or weak-plus-norm argument give that identification.",
+          "Operator-norm discontinuity for C_t−C₁ and high-index singular laws at fixed t do not determine the entire ordered lists of C_(1−aε)−C_(1−bε); neither does a fixed-parameter product-commutator law."
+        ],
+        "reasoning": "Credit the routine scalar and perturbation consequences. The distinct mathematical assertion is the continuum limit with the indicated common embedding, not a specialization of the inspected individual-operator or product results.",
+        "searches": [
+          "Rhaly, Theorem 1, Theorem 2 and Proposition 1 versus frozen RESULT.md:25–76",
+          "Resultary: f3bb63c0274c, 9192576eedcf, de465e616ced, 82ac9268fb30, c8857d14679d, 502b7b013a69"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The continuum operator is a difference of exponentially damped Hardy averages, not either individual average. On coefficient Hardy space the analytic integration operator T_g with g'=1/(1−tz) corresponds to zC_t. Limani–Malman's resolvent results and spectrum invariance under quasinilpotent perturbation do not give a two-rate scaled Hilbert–Schmidt limit for differences.",
+          "The exact Resultary hit is the assigned f6a03c03149d finding. The c8857d14679d Hardy-average record concerns leakage across a polynomial projection on (0,1), not the above two dampings on (0,∞)."
+        ],
+        "reasoning": "Neither changing from matrix coefficients to the analytic integration representation nor changing variables in the continuum kernel establishes that this discrete two-scale limit was previously identified.",
+        "searches": [
+          "Resultary: two-rate endpoint Hilbert–Schmidt difference, mesh continuum generalized Cesàro kernel and full singular values",
+          "Exponentially damped Hardy/Volterra formulation; arXiv:1905.03609v1, §1 and resolvent Eq. (1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct exact continuum/difference entry surfaced. Rhaly's individual norm series is exact and closely related to the scalar part. The finite Cesàro edge 502b7b013a69 uses dimension truncation at t=1; f3bb63c0274c gives a logarithmic operator-norm gap for one parameter, not a table for H_(a,b)."
+        ],
+        "reasoning": "The scalar expression is obtained by cancellation of three terms, and the claimed spectral result is whole-list convergence, not a lookup for isolated singular values.",
+        "searches": [
+          "Resultary: log-cosh Hilbert–Schmidt boundary metric and embedded singular values",
+          "Rhaly, Theorem 1; Resultary 502b7b013a69 and f3bb63c0274c"
+        ]
+      },
+      "rationale": "The supported distinction is the two-rate endpoint blow-up of C_t−C_s in Hilbert–Schmidt norm on a common step-function embedding, with identification of the complete limiting singular sequence via the continuum operator. Fixed-parameter compactness, individual Hilbert–Schmidt norms, spectral edge laws and operator-norm endpoint discontinuity are prior work; the logarithmic scalar calculation from the Gram formula and the standard singular-value inequality are not standalone novelty claims.",
+      "residual_risks": [
+        "An unlocated earlier Hardy/Volterra discretization or Schatten scaling theorem might overlap; the search is not an exhaustive priority audit.",
+        "The value is not a closed formula for each limiting singular value and the theorem is not uniform when rates vary with mesh."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct antecedent for the diagonal Hilbert–Schmidt formula and endpoint contrast, not the two-rate mesh theorem.",
+          "evidence": [
+            "Thm. 1 exact individual norms; Thm. 2 and Prop. 1 address the classical endpoint and operator-norm contrast."
+          ],
+          "identifier_or_url": "https://doi.org/10.4153/CMB-1984-064-5",
+          "material_read": "Cambridge PDF pp. 417–419, Theorems 1–2 and Proposition 1",
+          "method": "Primary Cambridge PDF, bounded passages",
+          "title": "Generalized Cesàro Matrices",
+          "trigger": "Original same discrete matrix and exact Hilbert–Schmidt normalization"
+        },
+        {
+          "assessment": "Individual compactness/spectra and Banach/sequence-space distinctions are not Schatten endpoint scaling.",
+          "evidence": [
+            "Same matrix family, varying underlying sequence space; in the latter paper the topology on ω changes compactness behavior."
+          ],
+          "identifier_or_url": "arXiv:2302.08750 and arXiv:2305.04805",
+          "material_read": "Primary PDF introductions and setup, p. 1 of each",
+          "method": "Bounded primary passages",
+          "title": "Fine spectra and compactness of generalized Cesàro operators in Banach lattices in C^N₀; Spectral properties of generalized Cesàro operators in sequence spaces",
+          "trigger": "Broader operator-space hypotheses on the same family"
+        },
+        {
+          "assessment": "Inspected statements concern the analytic integration operator resolvent and spectrum; no covering two-rate kernel theorem identified in these passages.",
+          "evidence": [
+            "Hardy BMOA and weighted Bergman resolvent criteria, rather than mesh and singular-value norm limits."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1905.03609v1",
+          "material_read": "§1, analytic operator setting and Eq. (1) around offset 1900, Thms. 1.1 and 1.2 around 6994 and 9401",
+          "method": "Lawful primary arXiv alternate to restricted journal page",
+          "title": "Generalized Cesàro operators: geometry of spectra and quasi-nilpotency",
+          "trigger": "Plausible Hardy/Bergman alternate formulation; publisher page restricted"
+        },
+        {
+          "assessment": "Distinct by object or regime, not discarded on date grounds.",
+          "evidence": [
+            "One-operator norm gap with constant 4π²; fixed-parameter spectral laws; interior cross-parameter product commutator; polynomial-projection Hardy leakage; finite-section spectral edge."
+          ],
+          "identifier_or_url": "Resultary: f3bb63c0274c, 9192576eedcf, de465e616ced, 82ac9268fb30, c8857d14679d, 502b7b013a69",
+          "material_read": "Original finding passages via local mirror, compared to frozen RESULT.md:4–22, 25–76",
+          "method": "Resultary search and bounded local mirror comparison",
+          "title": "Sharp logarithmic norm gap and fixed-parameter Cesàro spectral results",
+          "trigger": "Strongest distinct same-family, Hardy, and finite-section entries"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural family of compact matrices has a common strongly convergent, noncompact endpoint. The identified nonzero Hilbert–Schmidt continuum operator resolves how a fixed ratio of approach rates is visible despite that strong limit; the scale-invariant distance and convergence of the whole singular list provide a quantitative model of that boundary. This is not merely an endpoint norm recomputation or an isolated number.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

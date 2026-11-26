@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The group model is the complete 168-matrix group \(\mathrm{GL}_3(\mathbb F_2)\). Complete subgroup enumeration is proved by iterating group generation from every subgroup. This yields 179 subgroups, and the subgroup-order distribution agrees with Connor–Leemans's independent published PSL(2,7) table. The action is rank preserving, with trivial permutation of any chain's vertices; distinct facets within a chain have different rank sets. Consequently the 99 orbit cells and their actual simultaneous-conjugacy facet maps form a regular quotient CW complex. The standalone exact verifier replays 49 legal free-cell cancellations, ending at one zero-cell, which establishes the strong deformation retraction. No finite observation is extrapolated to an infinite family.
+PASS
 
-## Originality — PASS relative to inspected sources
+I enumerated automorphisms of the seven-point Fano incidence structure independently as permutations preserving triples {a,b,a xor b}, and composed permutations rather than using the frozen matrix product. These are exactly GL_3(F_2): preserving the third point of the line through distinct nonzero vectors preserves addition, also for equal vectors and zero. Starting at the identity subgroup I generated extensions by adjoining whole cosets of the current subgroup under right multiplication by one extra generator. This reaches exactly each generated subgroup, and induction on generators gives completeness. I recovered 168 group elements, 179 subgroups including endpoints, and unquotiented flag counts (177,911,1071,336). Simultaneous conjugation gives (13,37,37,12) orbits. Strictly increasing subgroup orders imply that two points of a single closed simplex can be orbit-equivalent only if they coincide: their positive-support faces must have the same order set, hence the same vertices inside that simplex, and conjugation preserves the corresponding barycentric coordinates. This proves regular simplex closures in the quotient and justifies the reconstructed facet maps; individual subgroup-conjugacy classes are not used as a substitute for flag orbits. Independent enumeration found every nonempty proper face of each orbit cell, and all 49 archived pairs removed an active codimension-one face with exactly one active strict coface, leaving vertex 6. A separate greedy sequence also removed 49 pairs and left vertex 11. Each removal is an elementary collapse since the upper cell is an embedded simplex and the removed face has no other coface. Replay: cd /workspace && python3 reproductions/5.py source/2026/11/22/*723770b737c0/collapse_certificate.json. The source verifier was inspected, not executed.
 
-Ramras's Sections 6–7 study unquotiented subgroup-poset topology rather than this orbit space. The Connor–Leemans subgroup atlas and its one-page PSL(2,7) table provide subgroup types, sizes, and covering multiplicities but do not compute the orbit space of *flags* or a collapsing matching. The closest indexed conjugation-quotient calculation explicitly treats A5 and S5; their results do not imply a case for PSL(2,7). Piterman's results on prime-subgroup orbit complexes concern smaller posets and are inapplicable to all-subgroup orbit topology without an additional theorem. A plausible residual risk is an equivalent calculation not present in the consulted indexes; originality is not certified by an unsuccessful search alone.
+## originality
 
-## Value — PASS
+PASS
 
-The group is the smallest simple group after A5. Its complete subgroup complex is an established nontrivial topological object: it has nonzero first homology by the minimal-simple-group theorem cited in Ramras, while its orbit quotient is shown to collapse completely. A 3-dimensional 99-cell orbit complex reducing by 49 elementary collapses is a meaningful classification of an exact natural invariant and contrasts with the circular quotient for A5 and the spherical quotient for S5. No broad classification or downstream theorem is asserted.
+Earlier evidence establishes the subgroup counts and class data and documents different topologies for the unquotiented PSL_2(7) complex and for conjugation quotients of other groups. None of the inspected passages supplies the exact all-proper-subgroup flag-orbit cell structure or the collapsibility asserted here. The assigned Resultary entry itself is not a prior independent result.
 
-## Boundaries
+## value
 
-The finite-group identity, subgroup enumeration and collapse certificate can be checked from the included files without extra data. The computation applies neither to outer-automorphism quotients nor to arbitrary simple groups. It is a self-review, not an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This finite classification concerns the full proper subgroup lattice of the second-smallest nonabelian simple group, a natural test beyond A5. The original subgroup complex has nontrivial first homology, and the ordinary quotient actually collapses, a stronger fact than trivial homology or Euler characteristic one. The exact flag incidence and cancellation data give a reproducible comparison with documented noncontractible neighboring examples, without claiming a broader classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

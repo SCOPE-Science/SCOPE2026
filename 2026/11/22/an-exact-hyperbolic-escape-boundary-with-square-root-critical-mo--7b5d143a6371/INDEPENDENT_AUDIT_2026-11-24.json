@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:04:48.383337Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With u=cx and p=uy, multiplication of the two updates gives p'−1=(p−1)(1+p/(1+y²)). Hence the sign classes and the invariant equality are exact. Below the curve, if y were unbounded, the decrease in p for y≥1 would be at least (1−p₀)/2 times the increment in log y, contradicting bounded p. For finite limit Y, uₙ is bounded by u₀qⁿ, with q=Y²/(1+Y²); summability of log(q(yₙ)/q) gives the positive limiting prefactor and summing uₙ gives the stated tail for Y−yₙ. On the curve sₙ=yₙ² obeys Δsₙ=2+1/sₙ. First sₙ=2n+O(log n), then Δ(sₙ−2n−log(n)/2)=O(log(n)/n²), giving the constant and error. Above the curve, Δ(y²)≥2p₀, so y grows without bound. If u had zero limit, its telescoping decrement sum is a left Riemann sum for ∫ from yₙ to ∞ of (1+t²)⁻¹, with error at most uₙ/(1+yₙ²); this forces pₙ→1, impossible. For v=lim uₙ>0, yₙ/n→v and summing the same decrements first gives uₙ−v=O(1/n), then yₙ=vn+O(log n). The summand is consequently 1/(vk²)+O(log(k)/k³); summing it and then subtracting the harmonic drift from y proves both displayed errors. Strict y-increase excludes periodic orbits. Replay: frozen RESULT.md §§1–5, lines 39–101. VERIFICATION.md and verify.py were inspected, not executed; the floating-point checks cannot certify the separatrix or infinite-time limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The parabolic theorem gives a nonempty closed interval of critical speeds for each height and yₙ²=2λn+((5λ−2)/6)log n+C+o(1), not an explicit separator.",
+          "The other two records concern respectively positive feedback with zero forcing, and positive feedback with nonzero forcing and no equilibrium line."
+        ],
+        "reasoning": "The parabolic proof's conditional asymptotics can be adapted to λ=1 on positive heights, and its summable-error calculation already contains the critical log coefficient (and the tail scale). Even extending its phase-existence and comparison arguments does not determine that the speed interval collapses exactly to the singleton 1/y or supply the exact invariant and exhaustive explicit classification. Neither positive-feedback theorem covers negative feedback.",
+        "searches": [
+          "Resultary parabolic separator 5d815edc0f3b, Proof §§2–4",
+          "Resultary c216a2b82ab6 and a68c4d4e0fdd, Finding and Assumptions"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5d815edc0f3b, c216a2b82ab6 and a68c4d4e0fdd",
+        "DOI 10.1088/1674-1056/ac4025 (access attempted)",
+        "Frozen RESULT.md, VERIFICATION.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The former uses monotone phase sets and a conditional Riemann-sum velocity expansion. Substitution λ=1 in that expansion gives u=1/y+O(y⁻⁵), not the global exact identity u=1/y on all and only critical initial points.",
+          "The latter gives a scattering estimate in a different sign regime; similar tail summation is already known in this family."
+        ],
+        "reasoning": "The exact factorization at the endpoint adds information not obtained by taking a limit of coefficients or applying a general existence-and-order argument. The review does not claim novelty for the comparison or tail-summation method.",
+        "searches": [
+          "Parabolic separator 5d815edc0f3b local mirror RESULT.md offset 2200, Proof §§2–4",
+          "Positive-feedback scattering c216a2b82ab6, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Normalizing u=cx turns the boundary cxy=1 into uy=1; on it the scalar iteration is y'=y+1/y.",
+          "The strongest separate indexed comparison was the parabolic separator 5d815edc0f3b, whose Finding imposes a=−λ with 0<λ<1."
+        ],
+        "reasoning": "Even a pre-existing expansion of the scalar recurrence would cover only the equality orbit once the invariant is proved; it would not establish basin membership on either side. For 0<λ<1 the candidate uy=λ is not invariant: on it p'−λ=λ²(1−λ)/(y²(1+y²)).",
+        "searches": [
+          "Resultary: a=-1 hyperbola, normalized rational recurrence, negative-feedback logarithmic separator",
+          "Websearch: \"u_{n+1}\" \"y_n^2\" \"1+y_n^2\" rational map recurrence escape hyperbola cxy=1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record was the exact indexed hit; the distinct indexed record excludes the endpoint in its stated theorem.",
+          "The parent article is described in frozen RESULT.md lines 107–109 as containing fixed-line discussion and attractor figures; those claims could not be independently checked against its inaccessible Case I."
+        ],
+        "reasoning": "An orbit plot or finite trajectory table is not an exact global partition. An explicit parameter-specific theorem in the parent article would matter, but the access attempts provide no statement-level evidence either way.",
+        "searches": [
+          "Resultary exact endpoint map and cxy=1 searches",
+          "DOI 10.1088/1674-1056/ac4025, publisher Case I access attempts"
+        ]
+      },
+      "rationale": "The supported distinct result is the exact endpoint invariant and global hyperbolic partition, including the quantitative laws on its three identified regions. The nearby parabolic study recovers the limiting critical log coefficient by the same type of Riemann-sum estimate and is substantial mathematical overlap, but does not identify the exact endpoint critical initial conditions. No priority is inferred from same-day dating. The originating article remains an explicit outstanding primary-source risk.",
+      "residual_risks": [
+        "The parent article's exact discussion at a=−1 could not be independently checked.",
+        "Same-day dates do not establish priority; the close parabolic result uses related arguments and has a common limiting coefficient.",
+        "The bounded recurrence search does not exclude older equivalent statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closely related and near-endpoint critical asymptotics; no exact endpoint partition shown",
+          "evidence": [
+            "0<λ<1; closed critical interval; u=λ/y+λ(λ−1)/(3y³)+O(y⁻⁵) for critical orbits; logarithmic coefficient (5λ−2)/6."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-parabolic-escape-separator-and-a-sign-changing-logarithmic-dri--5d815edc0f3b",
+          "material_read": "Finding, Assumptions, and Proof §§2–4",
+          "method": "Local mirror RESULT.md, offsets 0 and 2200",
+          "title": "A parabolic escape separator and a sign-changing logarithmic drift in a rational plane map",
+          "trigger": "Strongest separate indexed overlap, same family and adjacent parameter regime"
+        },
+        {
+          "assessment": "Prior methodology and different parameter theorem",
+          "evidence": [
+            "a>0, b=d=0; all off-line orbits have nonzero terminal velocity under that theorem, unlike the audited negative-feedback setting."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-logarithmic-ballistic-scattering-and-a-uniform-velocity-gap-in-a--c216a2b82ab6",
+          "material_read": "Finding",
+          "method": "Local mirror RESULT.md offset 0",
+          "title": "Logarithmic ballistic scattering and a uniform velocity gap in a rational planar map",
+          "trigger": "Same family and ballistic log correction"
+        },
+        {
+          "assessment": "Distinct forcing and scaling regime",
+          "evidence": [
+            "a,c,d>0 with negative initial x; critical height has n^(2/3) scaling and there is no equilibrium line."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-unique-subballistic-separatrix-in-a-no-equilibrium-rational-plan--a68c4d4e0fdd",
+          "material_read": "Finding and Assumptions",
+          "method": "Local mirror RESULT.md offset 0",
+          "title": "Unique subballistic separatrix in a no-equilibrium rational planar map",
+          "trigger": "Same family and critical escape"
+        },
+        {
+          "assessment": "Unresolved access risk, not a finding of noncoverage",
+          "evidence": [
+            "Publisher paths yielded unavailable text, 403, certificate mismatch or timeout. No primary passage used to exclude overlap."
+          ],
+          "identifier_or_url": "https://doi.org/10.1088/1674-1056/ac4025",
+          "material_read": "No primary Case I passage recovered; frozen RESULT.md lines 31 and 107–109 supply the attribution and unverified characterization",
+          "method": "OA Case I requests at the cited CPB HTML and publisher DOI/IOP endpoints, bibliographic endpoint, and CPB alternate DOI path",
+          "title": "A class of two-dimensional rational maps with self-excited and hidden attractors",
+          "trigger": "Originating article; Case I is potentially decisive"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For an existing dynamical family at an equilibrium-line parameter, local stability does not answer which positive initial states converge to that line and which escape. The explicit all-state separator answers that question without shooting or asymptotic parameter fitting and identifies a distinct critical motion, with quantitative convergence and scattering on its two sides. Even relative to the nearby parabolic model the endpoint's exact basin test is substantive.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification of the capacity-constrained recolouring theorem
+# Independent mathematical audit
 
-Run `python3 verify_capacity_recolor.py` with standard Python 3. The program exhaustively builds every proper occupancy-limited colouring for each of 17 combinations of \(1\le n\le6\) and \(1\le q\le3\) at \(k=n+1\), omitting only \((6,3)\) due to exhaustive-search cost. Because permutations of vertices and named colours act by reconfiguration-graph automorphisms, BFS from a representative for each colour-class-size partition determines the full diameter. Every resulting diameter equals \(n+\lfloor n/(2q)\rfloor\).
+## correctness
 
-The second suite tests the explicit saturated-class Euler routing algorithm and the lower-bound witness for \(1\le n\le15\), \(1\le q\le5\), and randomized legal endpoints, asserting every intermediate recolouring is legal and the bound is met. The recorded run was:
+PASS
 
-```
-EXACT_ORBIT_REDUCED_ALL_PAIR_BFS_PASS cases= 17 source_state_pairs= 401984
-CONSTRUCTIVE_ROUTING_AND_SHARP_WITNESS_PASS cases= 1028 path_steps= 6621
-VERIFY_OK
-```
+For named colours on the complete r-uniform hypergraph, weak properness is exactly the capacity q=r−1 condition, including the vacuous constraint when r>n. In RESULT.md lines 22–46, make all available direct moves to target. At a stall every colour with an incoming arc of the unsettled-current-to-target digraph is full. A singleton sink cannot occur: it would be full of settled vertices yet have an unmet target occupant. In a nontrivial sink SCC each colour is full, so target capacity bounds indegree by outdegree after subtracting settled occupants. Summing the inequalities leaves no entering arcs and forces degree balance. Buffer the first labelled vertex of an Euler tour in an unused colour (available since k≥n+1), process the remaining arcs backwards into the vacancy, and finish the buffered vertex. This costs one non-target move and permanently settles at least 2q vertices, so there are at most floor(n/(2q)) such episodes. For the lower bound (lines 48–50), swap two full private classes in each disjoint 2q block. Before the first move of a block, no vertex can move directly to its still-full target class; hence each block forces its own extra move even on paths using arbitrary other colours. Private singleton colours or a cyclic renaming handle the remainder so every vertex differs between endpoints. This proves the bound, attainability and connectedness, covers q=1 and n=1, and does not infer that n+1 is the least stability threshold. The supplied verification code was inspected, not executed; its finite BFS and routing claims are reported evidence only and do not prove the all-parameter result.
 
-These tests are finite cross-checks. The general theorem is justified by the saturation, Euler-tour, amortized episode count and lower-block argument given in `RESULT.md`. No proof assistant or independent mathematical audit was used.
+## originality
+
+PASS
+
+The exact all-pairs upper bound and matching capacity-dependent lower construction for r≥3 are distinct from the known complete-graph value and not supplied by the general hypergraph diameter bounds or common-partition renaming as characterized in the accessible evidence. No evidence of an exact matching capacity theorem was found apart from the identical indexed record. This is not a priority certification.
+
+## value
+
+PASS
+
+This determines the exact stable diameter asked for in hypergraph recolouring on a natural family. It identifies and quantifies the sole extra cost needed by the routing proof: one buffer move per isolated stalled group, each consuming at least two saturated classes' worth of vertices. The swap construction shows the cost remains necessary even with arbitrarily many spare colours. This explains the capacity dependence and the transition to diameter n, not just a numerical improvement of the general bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

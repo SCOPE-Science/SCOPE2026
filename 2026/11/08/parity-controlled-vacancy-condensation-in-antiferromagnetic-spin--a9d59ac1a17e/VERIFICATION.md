@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The two standalone programs `verify_exhaustive.py` and `verify_transfer.py` require only a standard Python 3 installation. In the directory containing these files, execute:
+## correctness
 
-```sh
-python verify_exhaustive.py
-python verify_transfer.py
-```
+PASS
 
-The exhaustive checker enumerates all \(3^{n+1}\) assignments at every rim size \(3\le n\le10\), comparing exact rational energies, the occupancy distributions and degeneracies at representative parameter points and on both coexistence boundaries. The independent contraction checker computes exact occupancy-sector minima and multiplicities for all \(3\le n\le70\) and verifies the asserted envelopes and boundary counts. Both programs completed successfully in a clean local run.
+With r occupied rim sites, Q=r+t² and exchange B in units of J, expansion gives B+r=Σ(s_i+s_(i+1))(s_i+s_(i+1)+t)/2; every summand is nonnegative. For even n a full alternating rim attains −n for any hub spin, exhausts equality at r=n and supplies both occupied lines. At δ=1 only t=0 can tie zero, with every rim edge enforcing s_(i+1)=−s_i, hence the two alternating rims and the zero assignment. For odd n and t=0, every nonempty occupied path pays at least 1 from its two vacancy boundaries; a full odd rim costs at least 2 above −n. For t≠0 and one rim vacancy, all local costs cannot vanish because an even alternating occupied path cannot have both ends −t; integer costs then give B≥−(n−2). A full odd rim likewise costs at least 1 above −n. Together with B≥−r for t≠0, these give the stated sector lower bounds. For δ<1 lower nonzero occupancies cannot tie Q=n−1, and Q=n is strictly beaten by Q=n−1 for δ>0 or by full occupation for δ≤0. For δ≥1 the odd nonempty sectors have positive energy. At full odd occupancy equality is one −t,−t defect, giving 2n assignments. At Q=n−1 there are 2n zero-hub alternating-path choices; for t≠0, each occupied path would need odd length and endpoints −t, so the odd total n−2 excludes two separate paths. The two vacancies are adjacent, giving another 2n. The crossings of the attaining lines are at 1/2 and (n−2)/(n−1), and coalescence for n=3 yields counts 6+12+1. For even n the two crossings give 4+2 and 2+1, respectively. These equality and comparison arguments apply for every stated real δ, independent of finite replay.
 
-The all-size theorem does not rest on finite enumeration. Its mathematical proof relies on an exact local-bond identity, the path-endpoint defect cost and parity obstructions on odd cycles; see `RESULT.md`. These computations cannot verify inaccessible literature, establish historical priority, or justify claims outside the uniform classical zero-field model.
+## originality
+
+PASS
+
+The full-occupancy sector for n≥4 is already covered by the earlier exact zero-field Ising-wheel specialization up to the additive crystal-field constant; no independent novelty is assigned to that exchange energy or count. The distinct claim is how allowing spin zero changes global optima, vacancy locations, thresholds and all boundary multiplicities. The closest matched model/geometry comparisons do not derive this classification; priority remains provisional.
+
+## value
+
+PASS
+
+Wheel triangles couple a global hub choice to the parity obstruction of a rim. The exact all-size classification distinguishes a single hub vacancy on even rims from two structurally different ways to accommodate two vacancies on odd rims and pins down crossings and exceptional K4 coexistence. The surviving quantitative result is useful as a finite frustrated-cluster benchmark, independently of the already covered nonvacant Ising sector.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:05:53.383537Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 39–88; VERIFICATION.md; verify_modal_tree.py, inspected but not executed",
+        "Independent replay: /workspace/branches/4bd21d5f-abe5-4b79-b32e-76e2f36f17c2/independent_modal_check.py",
+        "Pinelis, arXiv:1101.3286, p. 13, (2.13), and p. 16, proof of Theorem 1.2, for the 0.56 independent-summand bound"
+      ],
+      "rationale": "At depth zero only color matters, including the single empty assignment when p=0. Inductively characteristic formulas express the presence of every specified child type and forbid all others, using the stated empty Boolean conventions. Each specified type needs a different child, and tree children cannot share vertices. Equality in the resulting order lower bound requires exactly one child and an inductively unique minimum representative for every member of the chosen child-type set. This yields the product, the type-count recurrence, and the largest exponent from taking all children. Subset complementation gives symmetry about (M_h+1)/2 and the two extreme coefficients, also valid when they coincide at depth zero. Sorted positive weights with no missing order satisfy a_i<=1+sum_{j<i}a_j, so appending a weight gives two overlapping or adjacent integer intervals of subset sums. Uniform types give independent fair selections of the predecessor types, yielding the exact variance recurrence and positive variance at h>=1. The centered summands have second and third absolute moments w^2/4 and w^3/8. With A=sum w=N(M+1)/2 and B=sum w^2, the Berry–Esseen moment ratio is bounded by M/sqrt(B)<=M sqrt(N)/A<=2/sqrt(N). For the Hoeffding bound, B<=MA and the new maximum is 1+A, so 2(1+A)^2/B>=N. The preceding N grows without bound, as does M, proving both limiting assertions. Independent bounded enumeration found, among other cases, all 16 atom-free depth-three types, maximum 11 and successive multiplicities 1,1,1,2,2,2,2,2,1,1,1, with one minimum tree per type.",
+      "residual_risks": [
+        "The finite replay supplements the all-depth proof. The original checker's example moment calculations use floating-point division and accumulation, not a rational-arithmetic moment certificate; the proof of the moment identities is exact.",
+        "The original MathNet source could not be read in the bounded attempts; the applicability of the 0.56 bound is corroborated by the non-iid use in Pinelis. No optimal approximation constant, graph-relative minimum or counting modality is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The preservation and contraction papers address broader definability and graph-model questions, respectively, but do not specify a weighted enumerator over all tree types.",
+          "The graded/ordinary result controls quotient class counts with fixed branching and two colors, rather than minimum order for each complete type with arbitrary branching."
+        ],
+        "reasoning": "Broader model domains or alternate quotient statistics do not imply an optimization theorem in the prescribed tree-only domain, let alone the all-depth order support or its probability law. Berry–Esseen and Hoeffding give ready-made inequalities only after the correctly weighted independent-sum structure is established.",
+        "searches": [
+          "arXiv:2602.01856v1, §4; arXiv:2405.00480v1, bounded contractions",
+          "Resultary local mirror on graded/ordinary compression of regular colored trees"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.01856v1, §4",
+        "arXiv:2405.00480v1, abstract and introduction",
+        "Configured Resultary search and the three named catalogue mirrors"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The shared-coverage proof uses weight requirements at depth three, but does not provide the all-depth individual weighted spectrum.",
+          "The normal form leads to the child-set recurrence; one still has to establish gap-free support and uniform control on the moments of the growing weighted sums.",
+          "Independent-summand normal and tail inequalities do not themselves establish that the relevant uniform distribution is an independent weighted Bernoulli sum."
+        ],
+        "reasoning": "The standard signature recursion is not new. The claimed quantitative conclusions are not already a numerical substitution into any checked source's theorem. The weighted recurrence plus support and moment analysis produces the distinct content.",
+        "searches": [
+          "47-vertex result, weighted child-demand proof locality offset 2521",
+          "Primary preservation and contraction statements",
+          "Frozen RESULT.md, explicit derivation at lines 47–82"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bounded bisimulation and ordinary modal depth describe the target equivalence, but graph contraction need not preserve the tree class and can share descendants.",
+          "Unravelling-minimal models for preservation are selected by a structural order in a class, not by minimum vertex count separately for every complete bounded modal type."
+        ],
+        "reasoning": "The equivalence of type formalisms does not identify the admissible witnesses or optimization criterion. Tree-relative equality and the weighted distribution are not read off from an unrestricted graph contraction or a minimal-element theorem.",
+        "searches": [
+          "Focused literature query for minimal trees of finite bounded modal types, weighted spectra and normality",
+          "Wałęga and Cuenca Grau, arXiv:2602.01856v1, §4",
+          "Bolander and Burigana, arXiv:2405.00480v1, abstract and introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit SCOPE-exact-minimal-witness-size-spectra-and-a-gaussian-law-for-finite--9d68a6e9e3ce is the assigned record itself.",
+          "The closest distinct hit, SCOPE-a-sharp-47-vertex-tree-for-all-sixteen-depth-three-modal-types--dda455b75ffa, minimizes one tree whose vertices collectively realize all sixteen atom-free depth-three types.",
+          "SCOPE-exact-witness-ranks-for-multimodal-s4-path-conjunctions-a-subseq--c1a8186677b9 counts retained valuation points in a path-formula test, not sizes of modal-type tree representatives."
+        ],
+        "reasoning": "A table or exact value for joint coverage of all types cannot recover the histogram of separate minimum orders at that depth or the all-depth law. The same-day path-conjunction result uses distinct semantics and a distinct quantity, independently of chronological priority.",
+        "searches": [
+          "Configured Resultary queries on exact modal tree sizes, complete depth-h types and witness-order distributions"
+        ]
+      },
+      "rationale": "The child-type set normal form and probability inequalities are established tools. The supported distinct result is the joint quantitative description of minimum tree order across complete uniform types, in particular the gap-free all-depth weighted spectrum and normal and concentration laws. The strongest checked sources compare models with different admissible witnesses or optimize a different objective; no earlier statement was found to imply the joint result.",
+      "residual_risks": [
+        "The literature query did not return a meaningful direct comparison. Earlier equivalent enumeration of reduced colored rooted trees could affect priority, especially for the enumerator alone. This pass is not a claim of first historical discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different minimization and no quantitative law in the material examined",
+          "evidence": "Uses structurally minimal unravellings to prove definability and preservation statements.",
+          "identifier_or_url": "https://arxiv.org/html/2602.01856v1",
+          "material_read": "§4, OA offset about 40400",
+          "method": "Targeted primary HTML passage",
+          "title": "Preservation Theorems for Unravelling-Invariant Classes",
+          "trigger": "Bounded tree unravelling and minimal-model motivation"
+        },
+        {
+          "assessment": "Adjacent graph-model minimum, not the tree-relative distribution",
+          "evidence": "Contracts pointed Kripke models to world-minimal bounded-bisimilar representatives without requiring disjoint branches.",
+          "identifier_or_url": "https://arxiv.org/html/2405.00480v1",
+          "material_read": "Abstract and introductory discussion, OA offsets 410–1109 and around 3241",
+          "method": "Targeted primary HTML passages",
+          "title": "Better Bounded Bisimulation Contractions",
+          "trigger": "Bisimulation with world-minimal representatives"
+        },
+        {
+          "assessment": "Genuine overlap in types, different optimization objective",
+          "evidence": "Optimizes one common tree realizing every type at some vertex in the atom-free depth-three case.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-47-vertex-tree-for-all-sixteen-depth-three-modal-types--dda455b75ffa",
+          "material_read": "RESULT.md, Finding and weighted-demand proof, offsets 0 and 2521, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Configured lookup and local result mirror",
+          "title": "A sharp 47-vertex tree for all sixteen depth-three modal types",
+          "trigger": "Closest matching modal types and tree witnesses"
+        },
+        {
+          "assessment": "Fixed-branching quotient comparison",
+          "evidence": "Compares two quotient sizes, not the histogram of tree minimum orders.",
+          "identifier_or_url": "2026/10/13/SCOPE-a-sharp-arity-threshold-for-graded-versus-ordinary-bisimulation--818ec1eeacfe",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local result mirror",
+          "title": "A sharp arity threshold for graded-versus-ordinary bisimulation compression of regular trees",
+          "trigger": "Ordinary and graded colored-tree type counts"
+        },
+        {
+          "assessment": "Different language, models and invariant",
+          "evidence": "Measures retained valuation points for special S4 path formulas.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-witness-ranks-for-multimodal-s4-path-conjunctions-a-subseq--c1a8186677b9",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local result mirror",
+          "title": "Exact witness ranks for multimodal S4 path conjunctions",
+          "trigger": "Distinct catalogue witness-size hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and scope",
+        "Compared preservation, contraction and depth-three shared-coverage results"
+      ],
+      "rationale": "The whole range and distribution of the smallest useful tree representatives gives information that counting theories or giving only a worst-case upper bound cannot provide. Gap-freeness settles exactly which optimal witness orders can occur. The quantitative limit separates typical size from extremal size across a canonical uniform ensemble, with nonasymptotic errors despite the rapid growth in type count. These are natural questions about bounded modal succinctness, not a census of arbitrary instances or a novelty claim for the generic inequalities.",
+      "residual_risks": [
+        "The utility is for the tree-relative uniform-type ensemble, not uniform random trees or unrestricted Kripke model compression."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

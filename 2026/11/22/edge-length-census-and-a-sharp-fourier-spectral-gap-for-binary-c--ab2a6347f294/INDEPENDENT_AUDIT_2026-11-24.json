@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:39:51.320984Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–64",
+        "Frozen VERIFICATION.md and check_spectrum.py, inspected, not executed",
+        "Independent Python 3 replay: python3 /workspace/audit_evidence/polytope_gap.py, unordered four-part partitions and a weighted cross-pair formula, n=2,...,15; all minima and ties verified"
+      ],
+      "rationale": "Each admissible one-hot word is exposed by selecting its symbol coordinate in each block. Given two words, the face restricting each block to their two symbols has vertices indexed by zero-sum choices from their difference support. If only empty and full choices work, that face is exactly their segment; otherwise complementary proper choices form a second pair of vertices with the same midpoint, excluding an edge. Binary minimal dependencies of size s>=3 are obtained by picking an ordered independent (s-1)-tuple on the selected positions and forcing the last element to be their sum; for s=2 there is a repeated nonzero symbol. This gives exactly the stated products and squared length 2s. Translation makes the per-vertex census constant and dividing by two counts undirected edges. Support size at most three ensures adjacency, whereas four identical nonzero differences give a counterexample for n>=4. At fixed d the highest allowed term has degree d+1 in n. At fixed n>=4 the s=n term is q^(n-1)-(2^(n-1)-1)q^(n-2)+O(q^(n-3)), the s=n-1 term contributes n q^(n-2)+O(q^(n-3)), and smaller supports contribute O(q^(n-3)); dividing by q^(n-1)-1 gives the stated dense limit. For d=2 the characters are labels modulo common shift. Pair differences sum to 4 times label-equality minus 1. For triple differences, start with free x,y and third x+y; excluding x=0, y=0, and x=y gives the all-labels-equal term of weight 16, three pair-equality terms of weight -4 and constant +2. Summing over positions gives the stated histogram eigenvalues and the quotient by four gives multiplicities. Independently check the gap by putting F_n=(degree-lambda)/4=(n-1)A-2R, where A counts differing pairs and R counts rainbow triples. For r=n-max(m), remove one occurrence of the most frequent label; if r>=2 the remainder is nonconstant. With A0 the cross-pair count among the r minority positions, the exact decrement is F_n-F_(n-1)=r(2n-2-r)-A0, at least r(2n-3/2-3r/2). This concave quadratic on [2,3n/4] is strictly greater than 2n-3 at both endpoints for n>=4 (excesses 2n-6 and 1+(n-4)(21n-16)/32), proving the strict inequality for r>=2 inductively from n=3. For r=1 the exact value is (n-1)^2. Thus for n>=4 there are exactly 3n minimizing nonconstant characters up to common shift. The n=2,3 skeletons are complete on 4 and 16 vertices, giving precisely the exceptions. An independent exact replay of the frozen finite gap range agrees with the analytic verification.",
+      "residual_risks": [
+        "The independent replay is finite; the analytic decrement argument establishes the infinite range. Euclidean lengths use the specified one-hot embedding, not a change of affine metric. The Fourier formula does not claim higher binary ranks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible binary-polytope article's compared sections cover group action, affine hull, dimension and facet inequalities.",
+          "The thesis's adjacency criterion is attributed as known by the frozen record; the original thesis passages, including the stated Questions 2.38–2.39, were not retrievable in this review.",
+          "The nearby ternary single-check result gives an explicit Fourier spectrum and connectivity for a different additive group."
+        ],
+        "reasoning": "Known affine and facet results do not give the explicit degree, density or gap. The independent face proof verifies the minimal-dependence criterion without asserting an uninspected theorem about the thesis's scope. Neither the ternary result nor a definition over finite abelian groups computes the explicit binary field expressions by direct substitution.",
+        "searches": [
+          "arXiv:2404.06088v1 Theorem 4.4",
+          "Frede dissertation DOI 10.25673/110908 and alternate repository bitstream",
+          "Resultary edbec7283669"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2404.06088v1",
+        "Frede DOI 10.25673/110908 (bibliography and retrieval attempts only)",
+        "Resultary ab2a6347f294 and edbec7283669",
+        "Resultary G-flow/Kimura alias lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general adjacency criterion reduces the edge question to minimal zero-sum sequences; the further ordered independent-tuple count evaluates the entire binary length census, and expansion gives the two limits.",
+          "Vertex transitivity and generic character theory give no sharp all-order extremum. The rank-two gap uses actual Fourier sums and a histogram inequality. The ternary graph has different minimal triples and a different gap."
+        ],
+        "reasoning": "The known criterion and methods are credited. The evaluated census and especially the exact rank-two second eigenvalue and multiplicities require the shown calculations; the inspected prior statements do not mechanically give those values.",
+        "searches": [
+          "arXiv:2404.06088v1 pp. 13–15",
+          "Frede thesis DOI 10.25673/110908",
+          "Resultary edbec7283669"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a claw with n leaves, one-hot G-flow coordinates are n group labels subject to their single sum-zero conservation law. This is exactly the polytope here with G=F2^d; G=F2^2 is the Kimura 3-parameter star-tree case.",
+          "Frede–Kaibel–Merkert identify CTP(1,n) with the even-parity polytope and give the coordinatewise addition action on the full binary CTP. Fourier on the zero-sum word group diagonalizes the Cayley skeleton once its moves are known."
+        ],
+        "reasoning": "The star-tree alias is at the level of the actual vertex set and metric, not merely a similar construction. Rank-one parity results do not imply rank-two spectral optimization; a Cayley presentation identifies the diagonalization method rather than evaluating its eigenvalues and extremum. Catalogue alias queries yielded no distinct exact spectral or length-enumeration comparison.",
+        "searches": [
+          "Resultary full binary cyclic transversal polytope one-skeleton edge length and Fourier spectrum",
+          "Resultary group-based G-flow claw-tree polytope Kimura 3-parameter rank-two skeleton",
+          "arXiv:2404.06088v1 pp. 2 and 13–14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact census, both limits and exact gap/multiplicities in catalogue hit ab2a6347f294 are the assigned result itself.",
+          "The distinct same-day ternary single-check result has squared lengths 4,6 and gap 3n(n-1)/2 and describes another graph. The G-flow alias query retrieved no distinct identifying exact record."
+        ],
+        "reasoning": "Matching two support lengths for a different alphabet is not matching multiplicities, Fourier spectrum or extremum on the four-symbol group. The identical catalogue hit is not independent evidence, and a negative keyword result is not an exhaustive exclusion.",
+        "searches": [
+          "Resultary ab2a6347f294",
+          "Resultary edbec7283669",
+          "Resultary Kimura 3-parameter star-tree polytope edge counts Fourier spectrum"
+        ]
+      },
+      "rationale": "The object, vertex transitivity, even-parity rank-one alias and general adjacency criterion are prior foundations, not distinct claims. The supported distinct statements are the all-rank explicit Euclidean support-resolved census with its two limits and the four-symbol Fourier formula with the sharp all-order gap and multiplicities. No equivalent numerical or spectral result was found in the inspected passages and catalogue comparisons. This is a bounded best-knowledge decision, with a materially relevant thesis and possible phylogenetic comparison gaps disclosed.",
+      "residual_risks": [
+        "The thesis could not be checked in primary full text. The supplementary primary-literature query under the G-flow/Kimura alias did not return retrievable evidence, so potential equivalent phylogenetic results are not conclusively excluded. Neither access limitation is itself evidence for or against priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the object, rank-one identification and group action; the inspected passages are not the assigned census or spectral formulas",
+          "evidence": [
+            "Theorem 4.4 is about affine hull, dimension and facets; the coordinate-addition action is explicit."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.06088v1",
+          "material_read": "PDF pp. 1–2, pp. 13–15 (offsets 5468, 35512, 38245, 42217), references p. 29 (offset 79365)",
+          "method": "Open primary PDF passages",
+          "title": "Binary Cyclic Transversal Polytopes",
+          "trigger": "Primary source on exactly these polytopes"
+        },
+        {
+          "assessment": "Lemma 2.37 is credited as prior by the frozen record; no claim about coverage elsewhere in the inaccessible thesis",
+          "evidence": [
+            "The frozen result attributes the general adjacency criterion and degree/circuit questions to Lemma 2.37 and Questions 2.38–2.39; only the adjacency criterion was independently rederived, not the thesis wording."
+          ],
+          "identifier_or_url": "https://doi.org/10.25673/110908",
+          "material_read": "Bibliographic reference in the binary CTP article and the frozen record's attributions only; no primary thesis mathematical text",
+          "method": "Handle and DOI attempts, followed by identified lawful alternate Frede_Jonas_Dissertation_2023.pdf repository bitstream, unavailable",
+          "title": "Cyclic Transversal Polytopes",
+          "trigger": "Cited minimal-difference lemma and potential degree or circuit enumeration overlap"
+        },
+        {
+          "assessment": "Different group and skeleton",
+          "evidence": [
+            "The group is F3 and the gap is 3n(n-1)/2; no rank-two binary statement follows."
+          ],
+          "identifier_or_url": "Resultary edbec7283669",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "Fourier spectrum and sharp connectivity of the ternary single-check codeword polytope",
+          "trigger": "Strongest nearby same-day Fourier and length result"
+        },
+        {
+          "assessment": "The assigned record itself",
+          "evidence": [
+            "All census, limit and gap formulas agree verbatim and are not independent coverage."
+          ],
+          "identifier_or_url": "Resultary ab2a6347f294",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Edge-length census and a sharp Fourier spectral gap for binary cyclic transversal polytopes",
+          "trigger": "Exact catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Findings and Proof §§1–4",
+        "Frede–Kaibel–Merkert arXiv:2404.06088v1 pp. 13–15",
+        "Independent exact spectral-gap replay and all-order decrement argument"
+      ],
+      "rationale": "The full transversal polytope and its induced metric are natural existing objects. The exact support-resolved edge counts determine degree and show two opposing density regimes, not merely adjacency of particular examples. For the four-symbol family the explicit spectrum and minimized nonconstant gap with eigenspace dimension determine an exact expansion invariant of a natural infinite family. The sharp optimization is substantive beyond the generic Cayley diagonalization and uniform enumeration methods.",
+      "residual_risks": [
+        "No joint density limit, normalized Laplacian claim, or spectral classification for d>=3 is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

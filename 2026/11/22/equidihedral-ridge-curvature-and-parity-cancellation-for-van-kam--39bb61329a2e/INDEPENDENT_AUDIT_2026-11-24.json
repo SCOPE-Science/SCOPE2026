@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:43:07.196986Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reassessed the complete corrected RESULT.md. In the frozen proof, line 53 says an odd-order polar edge moves the zero while changing the sign of the moved entry. Such a sign change violates the zero-sum constraint. The repair classifies edges directly: at an edge interior n-2 cube coordinates are fixed, and the two free coordinates have prescribed sum S in [-1,1]^2. Even order gives S=0 and endpoints (1,-1),(-1,1); odd order gives S=±1 and endpoints (0,S),(S,0), so the sign is preserved. Direct binomial counting of fixed coordinates/signs gives both published counts without alteration. An independent bounded enumeration of those coordinate segments for n=4–8 gave counts 12,60,90,420,560 and squared endpoint separations 8 (even) or 2 (odd); the original code was inspected, not executed, and already uses shared-coordinate constraints rather than the erroneous prose rule. Squared normal norms n and n-1 give the exact cosines. The dual ridge has N=n-2 signed vertices with balanced or almost balanced signs, one congruence orbit, and positive definite Gram I-ss^T/n. Its determinant is 2/n and 1^TG^(-1)1=N+(sum s)^2/2, giving the displayed Euclidean simplex volume. The sector-angle weight alpha/(2pi) gives V_(d-2), not the unnormalized t² coefficient; n=4 gives V_1=3. Stirling estimates and arccos expansions give the common leading constant sqrt(2/pi)/(4pi). All numeric conclusions survive the correction. The proof applies only to the stated canonical Euclidean realization; the recorded finite checks do not establish the all-n theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier paper constructs Bier spheres by oppositely scaled simplex hulls and derives sign-set inequalities from supporting forms. The later paper treats the exact central case and its polar median-hypersimplex realization. The catalogue hypersimplex result concerns V_2 for ordinary hypersimplices."
+        ],
+        "reasoning": "The sign and support results substantially cover the combinatorial starting point. Neither an ordinary hypersimplex V_2 formula nor a polarity argument yields the target V_(n-3) of the primal in the inherited metric. No examined broader statement gave the Euclidean ridge Gram factor, normal-cone angles, and parity limit.",
+        "searches": [
+          "arXiv:1812.00397 Theorem 2.3 and Eqs. (2.4), (2.7)–(2.14)",
+          "arXiv:2108.00618 Theorem 13 and supporting face geometry",
+          "Resultary 3b7f285b6bbf"
+        ]
+      },
+      "checked_sources": [
+        "Jevtić–Živaljević arXiv:2108.00618",
+        "Jevtić–Timotijević–Živaljević arXiv:1812.00397",
+        "Resultary 39bb61329a2e, 5bbe9fa6be5a, bc9bc51216ea, 3b7f285b6bbf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The polar combinatorics are predetermined by the cube-slice model. The isotropic comparison is a second-moment calculation for the same body. The star curvature result instead uses d independent pairs of generators, rather than the d+1 pairs of the opposite-simplex hull."
+        ],
+        "reasoning": "The metric invariant uses the volumes of dual ridges and the aperture of their normal sectors simultaneously. The prior first-volume, covariance or star calculations do not give those weights for this body. The parity cancellation then requires the distinct odd and even metric weights as well as their counts.",
+        "searches": [
+          "Jevtić–Živaljević §3, Theorem 13",
+          "Resultary 5bbe9fa6be5a, bc9bc51216ea, 3b7f285b6bbf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The orthogonal projection of ±e_i to H_n is ±delta_i. The polytope is also linearly equivalent to conv{±e_i, ±sum e_i} in dimension n-1, using any n-1 of the simplex generators as a basis. The polar cube section is identified with a central hypersimplex in the even case and a median hypersimplex in the odd case."
+        ],
+        "reasoning": "These aliases and polar descriptions can transfer combinatorics, but a general linear equivalence neither preserves ridge volumes nor normal angles. The exact metric synthesis was not found under the aliases examined.",
+        "searches": [
+          "Van Kampen–Flores polytope / opposite-simplex hull / zero-sum projected cross-polytope / del Pezzo formulation",
+          "Jevtić–Živaljević arXiv:2108.00618 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "39bb61329a2e is the identical assigned finding. The closest same-body record 5bbe9fa6be5a gives volume, covariance and isotropic constants. bc9bc51216ea gives ridge curvature for the star symmetric-edge cross-polytope. 3b7f285b6bbf gives ordinary hypersimplex V_2."
+        ],
+        "reasoning": "Excluding the self-match, the same-body entry computes different invariants and the same-invariant entry uses a different body. Their numerical values are not tables of the asserted intrinsic volume.",
+        "searches": [
+          "Resultary exact Steiner coefficient, parity cancellation and signed-simplex/median-hypersimplex geometry"
+        ]
+      },
+      "rationale": "The repaired claim preserves the exact Euclidean ridge geometry, codimension-two intrinsic volume and parity-canceling leading constant. The body, its polar model and the cube-slice combinatorial premises are credited rather than presented as independently new; the surviving distinct result is the metric synthesis, in particular the exact Steiner invariant and its leading asymptotic.",
+      "residual_risks": [
+        "A historical formula indexed as a regular simplex difference/symmetrization, del Pezzo realization, or deterministic cross-polytope projection may escape the bounded search. A focused web query yielding no hits is not evidence of absence.",
+        "Affine or linear equivalence alone is not evidence about the normalized Euclidean metric or the leading curvature constant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same body and combinatorial/polar antecedent; the repaired proof does not rely on the wording of the printed general face criterion.",
+          "evidence": [
+            "The hull of opposite simplices and its even central and odd median hypersimplex polar realizations are identified."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.00618",
+          "material_read": "§3, PDF p. 7 at offset 24617 and p. 10 Theorem 13 at offset 31456; reference [7] at offset 40549",
+          "method": "OA PDF passages",
+          "title": "Bier spheres of extremal volume and generalized permutohedra",
+          "trigger": "same body and potential broader face classification"
+        },
+        {
+          "assessment": "A broader construction and sign-set support argument, not a Euclidean ridge curvature computation.",
+          "evidence": [
+            "Q_alpha is the hull of a simplex and its scaled negative; support faces are indexed by sets of signed vertices satisfying supporting-form constraints."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1812.00397",
+          "material_read": "Theorem 2.3 and Eqs. (2.4), (2.7)–(2.14), arXiv PDF extracted offsets 9530–13172",
+          "method": "OA PDF passage",
+          "title": "Polytopal Bier spheres and Kantorovich–Rubinstein polytopes of weighted cycles",
+          "trigger": "earlier broader opposite-simplex construction cited for the same hull"
+        },
+        {
+          "assessment": "Same Euclidean body, different observable.",
+          "evidence": [
+            "Exact volume and covariance and an isotropic-constant comparison, not normal-sector weighted ridge volumes."
+          ],
+          "identifier_or_url": "Resultary 5bbe9fa6be5a",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Resultary lookup and local mirror",
+          "title": "A parity-reversing isotropic comparison for Van Kampen–Flores polytopes",
+          "trigger": "strongest distinct same-body match"
+        },
+        {
+          "assessment": "The star body is different; the hypersimplex invariant belongs to a different realization and generally a different degree.",
+          "evidence": [
+            "The star body is generated by ±(e_i-e_0); the other calculation gives ordinary hypersimplex V_2."
+          ],
+          "identifier_or_url": "Resultary bc9bc51216ea, 3b7f285b6bbf",
+          "material_read": "Indexed findings and mathematical scopes of both results",
+          "method": "Resultary comparison",
+          "title": "Exact ridge curvature and a centered chi-square angle law for star symmetric-edge polytopes; A Gaussian rank-window curvature crossover and exact second intrinsic volumes of hypersimplices",
+          "trigger": "same codimension-two method or related polar geometry"
+        },
+        {
+          "assessment": "Identical assigned result, not independent antecedent.",
+          "evidence": [
+            "Same parity formulas for angles, ridge volumes and V_(n-3)."
+          ],
+          "identifier_or_url": "Resultary 39bb61329a2e",
+          "material_read": "Indexed and frozen Finding",
+          "method": "Resultary comparison",
+          "title": "Equidihedral ridge curvature and parity cancellation for Van Kampen–Flores polytopes",
+          "trigger": "closest exact catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired proof resolves the first ridge-based Steiner curvature coefficient of a canonical polytope family previously studied for volume, convex duality and parity. It explains both the rigidity of each ridge geometry despite the different facet structures and why the two parity classes, with distinct angle and census scales, have the same normalized leading curvature. This makes the exact curvature useful for comparing this family across dimensions. The value is not the already-known polar model or routine counting by itself.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The two frozen rooted-tree matrices are exactly block triangular with duplicate follower spectrum. Schur reduction of the four-state characteristic polynomial yields a strict admissible interval. Rational block-determinant identities and the intermediate-value theorem prove a positive monodromy multiplier greater than one, independent of numerical sampling. Nine exact symbolic checks passed from the standalone artifact.
+## correctness
 
-## Originality
-PASS with residual priority risk. The 2026 PAT source derives the individual filter and conditional operator expansion but does not give the two-follower period-two determinant or the window \(75/32<\beta<25/8\). Classical switched-system work already contains examples where stable modes have unstable products; no novelty is claimed for that general observation. The 2018 Floquet multi-agent paper provides a general diagnostic method, not this evaluated PAT calculation. The inaccessible complete 2020/2021 Floquet paper remains a residual overlap risk.
+PASS
 
-## Value
-PASS. The exact open parameter interval separates local/frozen-tree stability from unstable time-dependent operator dynamics for a natural two-follower specialization of a newly introduced four-stage filter. It clarifies why a remainder-decay or switching-compatibility hypothesis cannot be inferred from instantaneous rootedness and individual Schur stability alone. A parameter-specific, reproducible mathematical obstruction is more informative than a generic warning about switched matrices.
+With U=B e^T, the two frozen modes are block triangular with two copies of A on the diagonal. Independently checked the characteristic cubic and the Schur reduction: |c|=1/16, the reduced quadratic has leading coefficient 255 before dividing by 256, and the three strict quadratic conditions reduce to 135-16 beta>0, 272 beta>0 and 750-240 beta>0. Thus each frozen mode is Schur throughout 0<beta<25/8. Swapping the follower blocks gives K with block rows (U,A) and (A,0); P=K^2. Eliminating the identity block from I±K gives the four-dimensional determinants det(I-A^2±U). Exact rational-polynomial reconstruction gives beta(75-32 beta)/64 and beta(225-64 beta)/64 for I-K and I+K respectively. Their product at beta=3 is -6237/4096. On the full asserted open interval the product is negative, so the real monic characteristic polynomial of P has a real root greater than one. At beta=75/32 the product vanishes, the characteristic derivative in the multiplier is nonzero there, and the parameter derivative of det(I-P) is negative; this also checks a transverse crossing of a simple multiplier. An initial real eigenvector gives exponential two-step state growth. Nothing in this calculation certifies the schedule under endogenous predecessor selection.
 
-## Closest literature and limitations
-Kamimoto (arXiv:2610.23992v1, 2026) specifies the PAT recurrence and rooted predecessor rules. Liberzon–Morse (1999) establish switching instability as a general possibility; Maadani–Butcher–Yucelen (2018) use Floquet stability on different multi-agent protocols. The current calculation does not prove that its alternating schedule occurs under Kamimoto's endogenous distance-based rule and does not fully classify the alternating system outside the stated window. An inaccessible plausible 2020/2021 source limits claims of historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The PAT equations and the single-filter Schur upper endpoint are already known, and so are Floquet methods and generic switching instability. The supported distinct claim is the exact positive-multiplier instability window and monodromy factorization for the two prescribed PAT trees, in particular the lower endpoint 75/32, not a new single-filter theorem or a counterexample to distance-selected herding.
+
+## value
+
+PASS
+
+Two followers are the first setting in which these distinct rooted predecessor chains can alternate. The explicit open interval and simple unit multiplier show precisely how an unrestricted-history stability assertion can fail even under rootedness at every step, with a stationary leader and individually Schur filters. This is a useful model-specific obstruction, not merely an instance of generic switching instability chosen without motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For odd N, choose a cyclic start so two alternate gaps a,c are less than N/2 (at most one of four gaps can exceed half). The exact paired-phasor identity gives squared modulus as 4[(cos alpha-cos gamma)^2+2cos alpha cos gamma(1-cos delta)]. If a != c, strict concavity and monotonicity force (a,c)=(1,2); if a=c, odd parity forces b != d and a<=(N-3)/2, giving the same exact bound through 4 sin(3pi/(2N))sin(pi/(2N)). Equality gives the unique gap orbit. For even N, a vanishing sum of four unit vectors is exactly two antipodal pairs. Primitive multiplication permutes residues. Python CHECK.py independently tested 80,730 four-subsets at N=4..26; the proof, not the experiment, covers all N.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kalogirou arXiv:2607.06098 Introduction and Theorems 1-2 give upper bounds for unrestricted k-root sums and cite known k<=4 results.",
+        "Barber arXiv:2104.15057 Section 2 gives the exact unrestricted four-root minimum and repeated-root minimizers, not a distinctness-constrained theorem.",
+        "Cheng arXiv:2610.27231 Introduction, Theorems D and 1.1 concern symmetric five-term exceptional values and conditional general prime-order lower bounds."
+      ],
+      "reasoning": "A bound on unrestricted sums applies to distinct sums only as a generally nonsharp lower bound. Neither global asymptotic upper bounds nor conditional nonexplicit lower bounds imply the sharp all-order value or extremizer classification under distinct support.",
+      "searches": [
+        "Small sums of roots of unity 2607.06098 full arxiv text",
+        "Small sums of five roots of unity 2104.15057 Proposition 3(c) full arxiv text",
+        "Small sums of roots of unity: polylogarithmic exceptional sets and conditional separation 2610.27231 full arxiv text",
+        "published-finding corpus sharp cyclic four-point Wiener coefficients roots unity"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2607.06098",
+      "https://arxiv.org/abs/2104.15057",
+      "https://arxiv.org/abs/2610.27231",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-certified-four-point-cyclic-wiener-minimizers-through-modulus-12--8f6d57abce9f/RESULT.md",
+      "https://arxiv.org/abs/2610.02218"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The four-root repeated-summand extremum in Barber is approximately pi^2/N^2 for odd N and is realized by a repeated root.",
+        "The new distinct-support optimum is 3pi^2/N^2+O(N^-4) and attained by a single dihedral orbit with gap word (1,(N-3)/2,2,(N-3)/2).",
+        "Published finite cyclic Wiener result minimizes D_N(A), which aggregates all frequencies, with a different odd-order optimizer family."
+      ],
+      "reasoning": "The new statement is not a corollary or special case of the sharp unrestricted value: it asks for an optimized subset of a smaller feasible set and determines a strictly larger sharp answer. A bound on summed Fourier magnitudes cannot fix the smallest individual primitive magnitude. The even-order zero description is a standard geometric boundary; the all-odd exact value and equality classification are the substantive advance.",
+      "searches": [
+        "published-finding corpus: sharp smallest nonzero discrete Fourier coefficient of an indicator of 4-element subset Z_N for odd N",
+        "published-finding corpus: minimum modulus of sum of four DISTINCT roots of unity on odd cycles 2(cos pi/N - cos 2pi/N)",
+        "arXiv:2104.15057 Section 2 Proposition 3",
+        "arXiv:2607.06098 Section 1 and main theorems"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The indicator Fourier coefficient at a primitive frequency is a sum of four distinct N-th roots, so the two problems are exactly equivalent.",
+        "Barber, arXiv:2104.15057, Section 2 Proposition 3(c), treats four summands with repetitions and uses the repeated-root construction (1+z)^2.",
+        "Own available ledger claims searched for distinct roots, minimum modulus, four-point Fourier coefficient and root sums; no equivalent claim found."
+      ],
+      "reasoning": "The candidate is stated in both natural algebraic and primitive-Fourier formulations. The unrestricted repeated-root extremum is a different optimization and is strictly smaller asymptotically; comparing only matching term counts would be misleading. No observed same-formula result for distinct masks.",
+      "searches": [
+        "minimum modulus of sum of four DISTINCT roots of unity on odd cycles 2(cos pi/N - cos 2pi/N)",
+        "four roots unity distinct odd order minimum absolute sum cyclic quadrilateral gap",
+        "sharp smallest nonzero discrete Fourier coefficient of an indicator of 4-element subset Z_N for odd N",
+        "published-finding corpus semantic search closest 2026/11/2/SCOPE-certified-four-point-cyclic-wiener-minimizers-through-modulus-12--8f6d57abce9f"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible 2026/11/2 2026/11/2/SCOPE-certified-four-point-cyclic-wiener-minimizers-through-modulus-12--8f6d57abce9f RESULT.md establishes aggregate Wiener norm minimizers for 8<=N<=128, not minimal single-frequency coefficient.",
+        "Own accessible historical ledger files p0001_g000062 and p0002_g000024 contain no recoverable claim of this sharp primitive coefficient floor.",
+        "Finite direct enumeration for N=4,...,26 reproduced the candidate, but cannot establish originality beyond the examined sources."
+      ],
+      "reasoning": "The existing finite table has different objective D_N(A)=sum of magnitudes over all nonzero frequencies and distinct odd-order extremizers (progressions), so it does not give the present pointwise primitive-frequency optimum. Historical search is deduplication evidence, not a global uniqueness theorem.",
+      "searches": [
+        "published-finding corpus search: four-point indicator Fourier coefficient minimum and equality orbit under translations",
+        "published-finding corpus search: four roots unity distinct odd order minimum absolute sum cyclic quadrilateral gap",
+        "own ledger claim search: roots of unity; four-point; four distinct; minimum modulus; sum of four"
+      ]
+    },
+    "rationale": "Closest exact four-term literature allows repeated roots and attains an asymptotically three-times smaller optimum with repeated-phase extremizers; sharp distinct-root indicator claim is not implied. The newer term-count literature is asymptotic or conditional rather than exact, and the closest four-point Fourier database result minimizes aggregate Wiener mass, not a single primitive coefficient. The accessible current ledgers were searched for claim aliases and none matched. Bibliographic completeness cannot be certified.",
+    "residual_risks": [
+      "An unindexed older treatment of four distinct roots in regular odd polygons could already give this formula.",
+      "A mathematical equivalence hidden in a more general cyclotomic extremal theorem might not be exposed by semantic database search.",
+      "No independent expert audit or systematic bibliographic census was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The sum permits repeated roots, and the theorems provide general upper bounds; the four-point distinct-mask minimum is not their theorem.",
+        "evidence": "Lines 8-40 of arXiv HTML explicitly define arbitrary k roots and cite known k<=4 unrestricted values.",
+        "identifier_or_url": "https://arxiv.org/abs/2607.06098",
+        "material_read": "Introduction, definitions (1)-(2), Theorems 1-2 and proof strategy sections; arXiv parsed full text was accessible",
+        "method": "arxiv full-text HTML displayed with definitions and theorem lines",
+        "title": "Small sums of roots of unity",
+        "trigger": "Direct 2026 motivating literature on root-sum separation"
+      },
+      {
+        "assessment": "NOT_COVERING distinct four-site minimum; unrestricted minimum uses a repeated phase and has a strictly smaller leading constant.",
+        "evidence": "Section 2, lines 75-94, identifies four-root construction of form 1+2z+z^2 and proves the unrestricted bound.",
+        "identifier_or_url": "https://arxiv.org/abs/2104.15057",
+        "material_read": "Introduction and Section 2 (lines 6-113), including Proposition 3 and its four-term proof, plus related discussion of repeated-root extremizers at lines 145-148",
+        "method": "arxiv parsed full text inspected directly",
+        "title": "Small sums of five roots of unity",
+        "trigger": "Precisely closest exact four-summand result, Proposition 3(c)"
+      },
+      {
+        "assessment": "The unconditional exact four distinct-mask theorem does not follow from the stated five-term or conditional separation results.",
+        "evidence": "Introduction lines 34-41 and theorem summary lines 88-100 distinguish symmetric five-term estimates from conditional prime-order separation.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.27231",
+        "material_read": "Introduction, statements and organization lines 10-100; five-term theorem opening and companion conditions inspected",
+        "method": "arxiv parsed full text and relevant passages searched",
+        "title": "Small sums of roots of unity: polylogarithmic exceptional sets and conditional separation",
+        "trigger": "Closest recent general lower/separation work allowing distinct prime-order roots"
+      },
+      {
+        "assessment": "NOT_COVERING because it minimizes aggregate nonzero Fourier l1 mass only through N=128; it does not minimize a single primitive coefficient, and its odd-N minimizers are affine progressions.",
+        "evidence": "Finding and Assumptions define D_N(A)=sum over k=1,...,N-1 of absolute Fourier coefficients; odd N minimizing masks are affine images of four consecutive sites.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-certified-four-point-cyclic-wiener-minimizers-through-modulus-12--8f6d57abce9f/RESULT.md",
+        "material_read": "Full RESULT.md, including exact objective, claimed minimizers, proof, verification, references and limitations",
+        "method": "public repository file fetched by path",
+        "title": "Certified four-point cyclic Wiener minimizers through modulus 128",
+        "trigger": "Four distinct cyclic sites and Fourier coefficients are the same objects"
+      },
+      {
+        "assessment": "Qualitative spectrality/tiling characterization at square-free orders, not sharp magnitude of one primitive coefficient across all orders.",
+        "evidence": "Definition (1.1) is exact orthogonality; Theorem 1.1 is equivalence of spectral sets, tiling and residue transversals.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.02218",
+        "material_read": "Introduction and main theorem (lines 20-77), including spectral Gram orthogonality definition",
+        "method": "arxiv full-text HTML inspected",
+        "title": "Fuglede’s conjecture for cyclic groups of square-free order",
+        "trigger": "Recent finite cyclic spectral-set context for binary Fourier indicators"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8941e9dc-35a8-4a57-8073-6cb49eb5816d",
+  "value": {
+    "rationale": "A natural binary four-site mask requires distinct phase atoms, unlike unrestricted sparse root sums. The restriction changes the sharp primitive Fourier near-cancellation floor from asymptotically pi^2/N^2 to 3pi^2/N^2 at every odd order and yields a single exact extremal translation orbit, while even orders admit zero through two antipodal pairs. This is a complete, motivated all-order quantitative classification relevant to finite spectral-mask stability, with clear limits to four equal-weight sites.",
+    "status": "PASS"
+  }
+}

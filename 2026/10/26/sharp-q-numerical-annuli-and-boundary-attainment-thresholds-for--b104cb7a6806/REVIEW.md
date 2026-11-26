@@ -1,15 +1,7 @@
-# Scientific review
+# Scientific assessment of the narrowed finding
 
-## Correctness — PASS
+**Correctness.** The overlap set is an interval by isotropy and continuity, and the coefficient bound is attained for each fixed overlap. The unique maximizing overlap is the smaller of \(|q|\) and the normalized ordinary numerical radius. Frame connectedness and phase rotation recover the exact disk, including the degenerate singleton. The direct sum proves nonattainment without finite-dimensional extrapolation.
 
-The statement is valid for complex Hilbert dimensions at least two, including infinite dimension, and for every \(|q|\le1\). The proof reconstructs every critical step: existence of an isotropic unit vector for a conjugate-homogeneous quadratic form, full interval of diagonal-overlap moduli, the exact phase-aligned two-term envelope, its piecewise optimization, a two-dimensional one-phase lower envelope, and connectedness plus rotation invariance of constrained orthonormal pairs. It treats both degenerate endpoints and supplies a direct-sum antiunitary witnessing strict nonattainment. Differentiation proves the two distinct hole-closure orders. Finite checks in `verification/check.py` confirm formulas for explicit antiunitary matrices, but are not used to infer the universal claim.
+**Originality.** The original planar component is covered by Resultary `6b0114c92bf7` and is removed as a contribution. The retained result classifies the higher-dimensional boundary for all \(|q|\), under the scaled-isometry assumption. The earlier qualitative theorem of Majumdar–Müller and ordinary endpoint result of Kołaczek–Müller do not give that classification. Resultary `19a402838a5b`, dated later than the original finding, overlaps on the antiunitary subfamily; its argument is substantially the same even though the formal hypothesis is surjectivity. Neither independent derivation nor literature-wide priority is asserted.
 
-## Originality — PASS, with documented risk
-
-Majumdar--Müller (arXiv:2610.16823v1, Section 6) proves the qualitative disk/annulus geometry and the special skew-conjugation hole, but the inspected section neither states the exact radii for all scaled antilinear isometries nor determines the norm-plateau, hole-closing, and boundary-attainment thresholds. Kołaczek--Müller (2024) studies the ordinary \(q=1\) numerical range, so its disk theorem does not imply the exact \(0\le|q|<1\) annuli. Chien--Nakazato (2005) studies complex-linear normal operators; its formulas are not antilinear statements. Relevant previously indexed mathematical findings concern complex-linear \(q\)-radii, not the claimed class. The inaccessible Jia--Liu (2025) full text is a residual priority risk, although its abstract specifies ordinary numerical ranges, not variable \(q\).
-
-## Mathematical value — PASS
-
-The problem is motivated directly by the new qualitative antilinear \(q\)-range classification. It identifies the exact nonconvexity boundary and gives a *complete* quantitative formula on the natural, extensive class of antiunitary/isometric conjugate-linear operators. Two independent geometric transitions, \(|q|=w(A)/\|A\|\) and \(|q|=\sqrt{1-(w(A)/\|A\|)^2}\), quantify how diagonal overlap governs a radius plateau and central hole. The infinite-dimensional endpoint classification additionally detects a genuine norm-attainment effect not visible in the qualitative disk theorem. No claim is made for arbitrary antilinear operators or for publication priority beyond inspected evidence.
-
-Self-review: passed. Independent audit: not yet performed.
+**Value.** The quantitative criterion resolves when an otherwise known disk loses its entire outer circle. In particular, a full-norm supremum need not be attained at the end of the plateau. The explicit infinite-dimensional examples show this is not just a distinction in how the disk is described.

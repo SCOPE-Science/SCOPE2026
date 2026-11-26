@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:33:02.705644Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The relations imply AP_B=P_BA and BP_A=P_AB, so the coordinate support strata are invariant. Outside the overlap there are two signed singleton choices per active generator and two label-preserving sign assignments per active transposition. On the overlap the two unsigned involutions commute. A one-point orbit cannot anticommute in characteristic other than two; if both involutions swap a two-point orbit, (AB)^2 would be both I and -I. With precisely one swap there are two choices of the swapping generator and four signed assignments per choice. On a four-point orbit the unsigned action is regular, with 4!/4 possible labeled actions, and exactly one independent parity equation on its four edge signs leaves eight assignments. These give the connected weights 8/2! and 48/4!, yielding exactly the stated joint EGF and its unrefined specialization, including n=0. The four-point signs are one conjugacy class: diagonal sign changes act with only the global sign in the kernel, transitively on the eight valid assignments, and coordinate permutations identify the regular unsigned actions. On a common two-point orbit a coordinate swap interchanges the opposite diagonal signs and a diagonal sign change can reverse the swap sign. Together with the one-active components this proves the stated component type counts and full-support parity. The source verifier tests only unrefined totals. An independently written exhaustive signed-product census for n=0 through 5 compared every joint support coefficient and found 1,5,37,305,2905,30125; at n=5 it checked 963 squared candidate pairs. A separate finite conjugacy census found two common two-point classes of size 4 and one common four-point class of size 48. Replay: python3 replay/2/independent_check.py and python3 replay/2/component_orbits.py. These are diagnostics, not the all-n argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Wang classify components of anticommuting varieties of general pairs, and Hrubeš studies rank bounds for families; neither inspected statement specifies the discrete monomial involution restrictions or labeled rank census.",
+          "Araújo–Bentz–Konieczny treat commuting graphs for the unsigned inverse semigroup, and Elliott–Levine–Mitchell count monogenic submonoids rather than anticommuting pairs."
+        ],
+        "reasoning": "Generic matrix variety or rank results can address parity or geometric structure without counting the discrete signed-orbit types. The semigroup results impose different relations or count different objects.",
+        "searches": [
+          "arXiv:1805.00378",
+          "arXiv:1412.5893",
+          "arXiv:1205.1664",
+          "arXiv:2303.12387"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Local Resultary 5a4123fce03b and 8f1d202cf524",
+        "arXiv:1805.00378, 1412.5893, 1205.1664 and 2303.12387"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the unsigned commuting model both generators may swap the same two-point orbit. That case is forbidden here; a one-swap orbit must carry opposite diagonal signs, and a regular four-orbit has a nontrivial square sign constraint."
+        ],
+        "reasoning": "Unsigned commuting pair enumeration is not converted to the frozen result by a uniform sign weight or a substitution. Known anticommutation parity and general labeled set assembly are background, not the signed component census required to specify the polynomial. No inspected theorem supplied that full census with the required sign constraint and support weights.",
+        "searches": [
+          "Resultary 8f1d202cf524, RESULT.md offsets 0–3352",
+          "arXiv:1412.5893, introduction",
+          "arXiv:1205.1664, abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 5a4123fce03b counts general 2-by-2 anticommuting tuples by tuple length over finite fields, not ordered signed partial involution pairs by dimension and ranks.",
+          "For full support, the equivalent group formulation uses D8 with central (AB)^2 acting as minus the identity on the oriented-coordinate double cover; ordinary unsigned commuting of the underlying generators omits this sign condition."
+        ],
+        "reasoning": "A group formulation recasts the common-support blocks, but the inspected general matrix and unsigned formulations do not give the signed partial-pair refinement.",
+        "searches": [
+          "Local Resultary: signed partial/rook involutions and anticommuting matrix enumerations",
+          "Primary literature: anticommuting signed permutation involutions and dihedral/monomial actions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest dimension-indexed census inspected, Resultary 8f1d202cf524, has pair specialization exp(4z+(5/2)z²+(1/4)z⁴), hence initial counts 1,4,21 rather than 1,5,37. The same-day matrix-tuples hit is indexed by tuple length at fixed matrix dimension, not this sequence."
+        ],
+        "reasoning": "The inspected near census and table-generating laws do not reproduce the sequence, let alone the joint support coefficients; this is not an exhaustive exclusion from all sequence catalogs.",
+        "searches": [
+          "Local Resultary census search: 5a4123fce03b and 8f1d202cf524"
+        ]
+      },
+      "rationale": "The inspected comparisons support the distinct labeled signed-partial joint-rank enumerator, not novelty for the exponential formula, the parity obstruction for arbitrary invertible involutions, or general anticommutation theory. No equivalent or stronger enumeration was established by the bounded search.",
+      "residual_risks": [
+        "Bounded search does not exclude specialized earlier enumerators for signed/monomial D8 actions with prescribed central involution, or an unlocated exact sequence catalog entry."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct objects and count variables; same date gives no priority inference.",
+          "evidence": "General size-two tuples, algebraic varieties and finite-field counts by tuple length; not signed monomial involution pairs in variable dimension.",
+          "identifier_or_url": "2026/11/2/SCOPE-all-arity-anticommuting-two-by-two-matrix-varieties-and-their-fi--5a4123fce03b",
+          "material_read": "RESULT.md offsets 0–4389 and 10800–13769",
+          "method": "Local mirror, statement-level comparison",
+          "title": "All-arity anticommuting two-by-two matrix varieties and their finite-field counts",
+          "trigger": "Strong same-day Resultary anticommutation hit"
+        },
+        {
+          "assessment": "Distinct unsigned commuting problem.",
+          "evidence": "Its unrefined pair EGF is exp(4z+(5/2)z²+(1/4)z⁴).",
+          "identifier_or_url": "2026/11/22/SCOPE-joint-domain-and-product-rank-census-of-commuting-partial-involu--8f1d202cf524",
+          "material_read": "RESULT.md offsets 0–3352",
+          "method": "Local mirror, comparison of main EGFs and hypotheses",
+          "title": "Joint domain and product-rank census of commuting partial involutions",
+          "trigger": "Closest rank-refined inverse-monoid census"
+        },
+        {
+          "assessment": "Contextual overlap; no whole-document exclusion inferred.",
+          "evidence": "Components of general anticommuting matrix-pair varieties, not the discrete signed partial-pair census in the abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/1805.00378",
+          "material_read": "Abstract, p. 1",
+          "method": "Primary OA text, inspected statement scope",
+          "title": "Anti-commuting varieties",
+          "trigger": "Possible encompassing enumeration of anticommuting pairs"
+        },
+        {
+          "assessment": "General rank bounds, not a matched support-rank enumerator.",
+          "evidence": "Anticommuting matrix families and rank restrictions are the stated focus.",
+          "identifier_or_url": "https://arxiv.org/abs/1412.5893",
+          "material_read": "Abstract and introduction, p. 1",
+          "method": "Primary OA text, compared stated results",
+          "title": "On families of anticommuting matrices",
+          "trigger": "Possible Clifford or signed orbit classification"
+        },
+        {
+          "assessment": "Unsigned commutation is a different relation.",
+          "evidence": "The graph is defined by ordinary commutation of partial permutations.",
+          "identifier_or_url": "https://arxiv.org/abs/1205.1664",
+          "material_read": "Abstract, p. 1",
+          "method": "Primary OA text, checked stated object",
+          "title": "The Commuting Graph of the Symmetric Inverse Semigroup",
+          "trigger": "Related inverse-semigroup relation"
+        },
+        {
+          "assessment": "No matched counting problem in inspected statements.",
+          "evidence": "Counts monogenic submonoids, rather than constrained ordered pairs by individual supports.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.12387",
+          "material_read": "Abstract and introduction, p. 1",
+          "method": "Primary OA text, compared stated counting problem",
+          "title": "Counting monogenic monoids and inverse monoids",
+          "trigger": "Cited prior inverse-monoid enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Literal anticommutation is a natural relation for involutions in the signed rook monoid, and the two support ranks are intrinsic invariants, not an arbitrary finite slice. The exhaustive structural decomposition explains precisely what the sign obstruction permits, and the resulting EGF gives the joint rank census in every dimension, including unequal domains. The scientific value is this exact classification and refined count, not the standard assembly step or the small verification table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

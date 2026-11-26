@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,9 @@
   "schema_version": 1
 }
 ---
+
 # Verification
 
-The analytical proof gives infinite-chain Hamiltonian reduction, uniquely ergodic torus flow, independence of arcsine factors, elliptic multiplicative convolution, and parity-based rational exceptions. The numerical companion `verify.py` checks those identities on independently constructed finite matrices and quadrature paths.
+The proof uses an exact nearest-phase lower bound on the weighted mismatch and a converse constructed by Bézout's identity. Strict concavity on the resulting segment proves the attained optimum. A uniform Taylor bound and the distance of the segment from the origin yield the large-denominator formula.
 
-Reproduction: `python verify.py` with Python 3, NumPy and SciPy installed. Expected status: `PASS checks=71`; numerical comparison tolerances are defined in the program. The demonstrated matrix residual was less than \(7\times10^{-15}\). Numeric sampling does not establish irrational equidistribution, nor does finite calculation prove the theorem at all real fluxes. It also does not assert independent external validation.
+Run `python3 verify.py` with the Python standard library. It tests attained phases for admissible odd–odd pairs, finite uniform phase grids for selected small pairs, and the remainder scale on selected large pairs. These are bounded consistency tests, not a proof of the infinite family or the all-time maximum.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact leaf-count birth/hold transition follows by summing attachment weights and identifying the contribution from degree-one vertices. The two-/three-leaf odds recurrence follows algebraically. The cutoff through twelve vertices uses an exhaustive and reproducible positive-coefficient certificate for nine explicitly defined integer polynomials. The thirteen-vertex reversal is a checked exact rational equality. For all larger sizes, a one-sided derivative calculation and a simple invariant lower bound on the unperturbed odds establish sign reversal; all-parameter stochastic dominance follows from a common-uniform coupling. The checker was executed from the supplied artifact and reported 326 exact checks. Finite enumeration is not substituted for infinite proof.
+## correctness
 
-## Originality — PASS under examined evidence
-The 2025 Hartle–Krapivsky paper introduced the model and computed asymptotic leaf fractions and leaf-degree distributions, and in a different uniform model computed the complete leaf-count distribution. The recent parametric-order literature gives broad criteria but does not state this tree-model finite cutoff. A close published research result on Gaussian leaf-count fluctuations in leaf-driven preferential attachment concerns central-limit variance and dispersion, not low-tail odds or the thirteen-vertex likelihood-ratio obstruction. The record queries and source comparisons identified no equivalent theorem or stronger implication. Unindexed or inaccessible equivalent work remains a residual priority risk.
+PASS
 
-## Value — PASS
-The parameter controls the strength of leaf-neighbour reinforcement and changes observable terminal populations. A full finite-sample stochastic ordering quantifies its effect on every increasing leaf-count risk, while the thirteen-vertex odds reversal shows that a stronger likelihood-ratio inference about exceptionally low-leaf outcomes fails at a sharp, natural size. The cutoff isolates a genuine nonasymptotic boundary hidden by marginal leaf-density and Gaussian fluctuation theories; it is not a relabeling, arbitrary statistic, or numerical approximation.
+After the deterministic size-three start, each degree-one vertex has weight a and each leaf contributes one unit to total leaf-neighbor weight; the hold probability is ak/(k+an). For t=2/a, division of the two lowest mass recurrences gives R_{n+1}=3(n+t)R_n/(2n+3t)+(n-2+t)/2. Independent sparse-integer polynomial arithmetic exhaustively checked the derivative numerators for n=4..12 (degrees 2,4,...,18; minima positive from 18 to 457019805007872). Exact fractions give R_13(t=4)-R_13(t=2)=-15421/26112 and R'_14(0)=-696574397/164003840; replay: /workspace/branches/fa4fadcd-c51a-40bc-b2b9-7890a411c7f0/bounded_reproduction.py. In the endpoint derivative recurrence q_{n+1}=3q_n/2+1/2-3r_n/(4n), the r_7=131/16 base and r recursion give r_n>=n from n=7, propagating negativity for n>=14. For each fixed n the odds are rational with linear large-t term (n-3)t/2, hence derivative tending to (n-3)/2. This both rules out monotonicity in either direction at n=13 and gives the opposite endpoint derivative signs at n>=14 after reversing the parameter. The common-uniform coupling preserves order because upward probability decreases in a at equal counts and unit increments cannot cross one-step. Positive-probability size-four separation can persist by common holds. The adjacent probabilities at 2 and 3 directly violate the likelihood-ratio inequality at the two witness offsets. The supplied checker was inspected, not executed; no full small-size likelihood-ratio order is concluded.
 
-## Source scope and limitations
-The main source's Sections III–IV and the general stochastic-order source were compared at the level of their definitions, objects, statistics and implications. No complete historical uniqueness proof or independent mathematical assessment is claimed. The low-tail odds theorem does not imply a complete small-size likelihood-ratio classification for the entire leaf-count law. The finite polynomial sign certificate remains an explicitly reproducible part of the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit prior introduction of the tree model and the exact count-chain transition, from which the ordinary stochastic ordering is a short elementary corollary. The supported distinct finding is the exact all-offset finite-size cutoff for two-versus-three-leaf odds and the persistence of nonmonotonicity at every larger size. The strongest comparisons inspected concern asymptotic fluctuations, other leaf-count models, or general order criteria; they do not supply the cutoff or the derivative signs.
+
+## value
+
+PASS
+
+A growth parameter orders every increasing leaf-count risk but fails to order even the adjacent odds of the two minimal nonzero populations at a precise onset size. This is an all-parameter/all-size separation of two practically and mathematically different orders, not a lone reversed sample or an arbitrary isolated finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact contrast follows by expanding the full expectation of the published bounded order-two kernel; see the displayed polynomial equation and root formula in RESULT.md. The lower root is a legitimate density throughout the asserted interval by a continuous, endpoint-reduced positivity proof, while the other root is excluded by a negative midpoint density. The nondegenerate U-statistic CLT gives the exact fixed-alternative power formula, and symbolic polynomial integration with high-precision quadrature supplies the subnominal numerical example. The delivered checker verifies the crucial algebra and numeric evaluation; finite grids do not certify general positivity or the CLT.
+## correctness
 
-## Originality — PASS (historical priority qualified)
-The 2021 preprint arXiv:2106.06368 and its 2023 open journal version describe the scalar statistic, null variance, and simulations on selected alternatives. Both use a pointwise characterization, but neither inspected source derives the displayed two-Legendre-mode zero manifold or subnominal asymptotic power. Ebner--Liebenberg's 2020/2021 beta procedure uses a squared functional departure, so its consistency is not an implication covering the signed scalar result here. Targeted bibliographic searches, claim-level research-record comparisons, and the accessible prior finding claims revealed no implication subsuming this example. Generic U-statistic asymptotics and the broader fact that signed scalar projections need not be omnibus are known and are not claimed as novel. Searches cannot prove global priority.
+PASS
 
-## Value — PASS
-The concrete theorem identifies a missed consistency boundary in a published uniformity-testing statistic and quantifies a striking instance of limiting power strictly below nominal size, even under an analytic, everywhere positive nonuniform density. The exact branch and positivity proof give a reproducible structured family rather than an unsupported counterexample. The result matters when selecting between signed integrated and squared/pointwise diagnostics. It makes no assertions about the separate censoring implementation.
+The fixed-support uncensored preprint defines the stated symmetric kernel and two-sided cutoff. Independently, writing G(x)=F(x)−x reduces the contrast to the integral over [0,1] of 2(1−2x)G−G². With t=2x−1 the L2 and L4 contributions to G are (t³−t)/4 and (7t⁵−10t³+3t)/16; integrating gives (462b+11ab−33b²−5a²)/6930. On |a|≤1 the upper root makes the density negative at the midpoint, whereas the lower root satisfies 0≤b<1/80 and b>0 away from a=0. In u=x(1−x) the density is concave for a≤0, with both endpoints strictly positive (including a=−1); for a≥0 use L4≥−3/7 and L2≥−1/2. Orthogonality gives normalization and excludes uniformity at a≠0. The first conditional projection has derivative F(x)+x−1, so with positive density it is not constant; the bounded-kernel CLT has variance 4 Var(Q_F(X)), where Q_F is the primitive of that derivative. The null gives 1/45. Independent polynomial integration at a=−1 agrees with the variance polynomial in the source; bounding its positive b terms at 1/80 and dropping its negative ones gives a strict upper bound below 1/45. The centered Gaussian limit then yields 0.01718802635… at 5%, and a limit strictly between zero and one for every asserted alternative. The frozen checker was inspected, not run. The inference does not extend to censored data or support estimation.
 
-## Closest literature and limits
-The original preprint and final article are the direct comparators; Ebner--Liebenberg is a nearby but mathematically different squared-characterization test. Classical U-statistic theory supplies the asymptotic method. Residual risk is historical priority in older work on non-omnibus moment tests or undocumented consequences of polynomial moment identities. Independent mathematical validation remains unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Both blindness and subnominal rejection for this exact statistic have substantive same-day catalogue overlap. They are not credited as general phenomena first established here. The supported distinct claim is the complete admissible zero branch on the bounded symmetric L4/L2 slice and its specific strongly subnominal member. The nearest available statements do not cover the slice or derive its power coefficient. No chronology is inferred from same-day dates.
+
+## value
+
+PASS
+
+This is an operationally meaningful failure case for a specified published test. Even restricting to an everywhere-positive symmetric density, thereby ruling out skewness as the explanation, exact nonuniform zero-contrast alternatives persist. The higher Legendre mode has zero first-order contrast by orthogonality and the lower mode compensates its quadratic contribution; this gives a principled slice, not an arbitrary two-parameter example. Complete admissibility on the supplied interval and an explicit 1.72% limit at 5% nominal add information beyond the nearby nominal and mildly subnominal examples. No finite-sample performance or general classification outside that slice is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

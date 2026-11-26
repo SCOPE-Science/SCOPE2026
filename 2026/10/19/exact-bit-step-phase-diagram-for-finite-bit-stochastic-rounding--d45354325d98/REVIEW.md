@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The kernel is specified explicitly: first truncate the fractional round-up probability to a denominator of \(b=2^r\), then sample one of the two bounding integers. The strict absorbing threshold, full count, closed two-state transition matrix, stationary and finite-time laws, sharp threshold, and integer-resonance identity each follow algebraically from this kernel. The absorbing count includes its exact equality boundary. The executable independently checks 6,089 rational parameter cases; no finite enumeration is treated as a proof of the universal result. The result is limited to one final rounding operation, exact affine proposals and a fixed grid.
+## correctness
 
-## Originality — PASS (with residual risk)
-The 2024 limited-precision stochastic-rounding article defines this per-operation kernel, proves its per-operation bias and studies arithmetic error; that already known kernel and local bias are credited. The new claim concerns the complete all-integer absorbing-state classification and the sharp bit–stepsize threshold together with the stationary GD staircase and nonmonotonicity. The full relevant analysis of the motivating paper and the methods/claims of the 2023 stochastic fixed-point GD and 2025 few-random-bit studies were compared at the level of implications; none states or yields the displayed exact dynamics without a separate Markov derivation. Closest mathematical-record findings on additive-noise signSGD, generic recursive-gradient noise floors and deterministic quantized negative-slope contractions cover distinct update rules. There remains a genuine possibility of an equivalent older treatment in the broad rounding/finite-state Markov literature. An unsuccessful search is not a proof of uniqueness.
+PASS
 
-## Value — PASS
-The number of nonoptimal fixed points diverges as the learning rate decreases, and the explicit \(2^r\eta\tau=1\) frontier quantifies how many random bits are needed to avoid artificial stationary traps in the canonical strongly convex test. The integer bit–stepsize staircase additionally proves that a larger step can worsen the stationary optimization bias, which general local rounding-error bounds do not decide. This exact phase diagram of a natural test algorithm is a meaningful design boundary, not merely a restatement of its one-step rounding bias. It does not purport to optimize an actual hardware design or prove multidimensional convergence.
+The original counts and adjacent-pair formulas are correct for the specified b=2^r, exact affine proposal and single truncating rounding. For nonpositive j, the absorbing inequality is strictly T(j)<j+1/b; at equality the up move has probability 1/b. The absorbing interval is [a,0] with a=1−N when N>0. The repaired theorem checks all starts: monotonicity of T forces T(j)<T(a)<a+1/b below a, so rounding cannot overshoot a even for multigrid moves. Above 0 no move can jump below 0. Outside the interval, monotonic moves on a finite start-dependent set and positive exit probabilities give eventual absorption at the clipped initial state. For N=0 the analogous argument gives entry into the closed pair; its nonunit eigenvalue 1−u−d has modulus <1, and bounded convergence gives global uniqueness and the stationary simplex in the respective regimes. The exact-rational checker and its recorded PASS 6089 were inspected, not rerun; finite tests of ingredients do not certify the strengthened all-start result.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The frozen adjacent-pair law is expressly covered by a distinct indexed record under K=b, including the integer-resonance law as a corollary; the catalog dates do not establish priority. The repaired result credits this overlap and adds the global deterministic absorption location and complete stationary-law classification. The two-state theorem cannot classify starts below zero, and the checked primary-source kernel and error results do not provide the finite-state no-overshoot and arbitrary-start conclusion.
+
+## value
+
+PASS
+
+A complete phase diagram for this elementary low-bit model distinguishes a single limiting law from an initial-state-dependent family of nonoptimal traps. The clipping calculation identifies the exact outcome of any initialization, not just the number of absorbing states, and determines the entire space of stationary measures. This is useful when comparing updates with identical adjacent-cell behavior but very different global trapping, without claiming general hardware or SGD convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

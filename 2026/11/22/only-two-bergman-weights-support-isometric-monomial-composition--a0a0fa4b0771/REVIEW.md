@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The monomial norm identities are moments of finite positive measures. Substitution \(u=t^N\) and Hausdorff uniqueness force the exact coefficient-modulus generating function \(Q(t)=Nt^{N-1}(1+\cdots+t^{N-1})^\alpha\). The off-diagonal moment identities, justified by Cauchy–Schwarz integrability, force at most one nonzero multiplier coefficient in each residue class modulo \(N\). Thus \(Q\) is a polynomial. Rational logarithmic derivatives at simple nontrivial \(N\)-th roots of unity make \(\alpha\) a nonnegative integer, and support length forces \(\alpha\in\{0,1\}\). Explicit coefficient norms and disjoint supports verify both isometry branches for all monomials, with extension by density. Boundaries: \(N\ge2\), \(\alpha>-1\), all analytic multipliers; there are no arbitrary-polynomial or numerical assumptions. `check.py` passes 7,106 exact finite supplementary checks, not an infinite certification.
+PASS
 
-## Originality — PASS (qualified)
+With t=|z|² and the stated area normalization, the orthogonal monomial norms are the claimed beta integrals. For isometry, w=W1 lies in the space. The diagonal identities give equality of finite-measure moments after u=t^N; polynomial density and continuity give Q(t)=N t^(N−1) S_N(t)^alpha where Q sums |w_j|²t^j. For each ell≥1 compare W z^(n+ell) and W z^n: aligned output coefficients are w_j and w_(j+Nell). In the corresponding integral, the absolute sum with factor t^(Nell) is at most t^(Nell/2)Q(t) by Cauchy–Schwarz, so the complex measure used to recover F_ell is finite. Moment uniqueness and analyticity force w_j conjugate(w_(j+Nell))=0 for every j,ell; in particular polynomiality was derived rather than assumed. Logarithmic differentiation gives an identity of rational functions, even though the initial power S_N^alpha was defined on the real interval. At any nontrivial N-th root its residue equals alpha, whereas the residue of Q'/Q there is a nonnegative integer, including zero if Q is nonvanishing there. With alpha=d≥0 the consecutive support of S_N^d has d(N−1)+1 terms (all degrees are sums of d digits in [0,N−1]); the distinct-residue cap N proves d≤1, including N=2. The coefficients at the two surviving exponents have exactly the displayed moduli; no cross-phase constraints remain. Disjoint image degrees give orthogonality, and for alpha=1 the norm sum telescopes as 2N[1/(N(n+1))−1/(N(n+2))]; the alpha=0 norm is N/[N(n+1)]. Polynomial density and bounded point evaluations extend the norm-preserving map and identify it with the pointwise formula on the whole space.
 
-Full text of Chalendar–Partington arXiv:1910.01475, especially Theorem 4.3, Remark 4.4 and Proposition 4.5, gives generic isometric measure-pullback criteria and the \(\alpha=0\) derivative construction, but not the \(\alpha=1\) phase torus or exclusion of every other \(\alpha\). Zorboska's May 2018 slides give the pullback density criterion for arbitrary standard Bergman weights and special cases, but no full classification for monomial power composition with unrestricted analytic multiplier. Kim's 2022 thesis §5.3 fixes *both* symbols to be monomials; Mas–Vukotić study surjective isometries. Comparisons with published mathematical records for the same symbols, parameters, and equivalent formulations did not identify the same classification. An inaccessible full original paper by Zorboska (2018) remains a genuine potential historical-priority risk; a general criterion may be specialized, but the integer-residue rigidity proof and the exact phase classification require additional nontrivial analysis.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A natural precise classification problem left implicit by general measure criteria is settled for every integer covering degree and every standard Bergman power exponent. The isolated \(\alpha=1\) isometry family and its \(N\) independent phases, together with the impossibility for other exponents, disclose a sharp structural boundary: weighted Hilbert-space isometry is highly sensitive to the radial measure. This is not a routine renaming or a finite numerical observation, and its elementary methods explain the rigidity rather than just exhibiting examples.
+The known pullback characterization and unweighted example do not constitute the complete fixed-power classification. The distinct contribution is the exclusion of every other standard exponent for arbitrary holomorphic multipliers and the full alpha=1 phase torus, with uniqueness up to phase also proved at alpha=0.
 
-## Limits and residual priority risk
+## value
 
-The result does not cover arbitrary inner functions or all radial weighted spaces. The reviewed 2018 journal paper was not available in full through accessible open sources; its 2018 author's lecture and a subsequent 2019 paper state the general characterizations but not this explicit classification. Independent mathematical review has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The fixed power is a natural model of a noninjective disc covering; the general measure tests do not give an explicit list of weights or multiplier phases. A sharp two-exponent rigidity result, with a phase torus at the weighted endpoint, answers existence and constructs every allowable multiplier, rather than restating an isometry criterion or checking only monomial choices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

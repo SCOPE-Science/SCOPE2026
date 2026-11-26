@@ -1,15 +1,21 @@
-# Review of bimodal rough-approximation spectra
+# Independent mathematical audit
 
-## Correctness — PASS
-For each truth set, full granules \(F\) and active granules \(D\) satisfy \(F\subseteq D\); thick granules realize every such pair. The upper approximation is exactly the quotient closed neighborhood \(N[D]\). Empty, full-neighborhood and proper one-sided cases are exhaustive and have disjoint outputs, yielding the stated polynomial. Degree extraction from \(Q_{m,n}\) reconstructs both quotient widths, with no cancellation since each leading coefficient is positive. The standard-library verifier enumerates 19 finite granule families and 120 unordered width profiles. These finite runs support, but cannot establish, the universally quantified result.
+## correctness
 
-## Originality — PASS, with risks
-Järvinen–Kovács–Radeleczki (arXiv:1811.09609) define these exact rough-set operators and establish their general lattice structure. The new theorem does **not** claim these definitions or general structure. Its claim is the distinct-output bivariate rank census and resulting inversion for reflexive complete-bipartite quotient tolerances. Full-text comparisons to the primary reference, Wang–Zhu (2014) incidence-graph coverings, Javaid et al. (2022) orbit-graph rough sets, and a related three-valued representation found no statement or stronger implication covering this combined exact claim. Equivalence under obscure historic terminology remains a live risk; a negative search result is not a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-This natural nontransitive tolerance family has an entire spectrum of lower/upper modal outputs that determines its quotient graph up to isomorphism. The complete polynomial, lattice cardinality and inverse classification sharpen existing existence/structural information for \(RS(E,T)\). The unavoidable failure to identify actual sizes of equivalence blocks supplies a precise invariant boundary. The block-thickness hypothesis is mathematically necessary for unrestricted full/partial granule selection; the result is not presented as a general tolerance theorem.
+With no singleton equivalence classes, the full class set F can be any subset of the active class set D: realize D minus F by proper nonempty class intersections. The upper output is the closed neighborhood of D. The empty neighborhood occurs only for empty D; the full neighborhood permits all F by taking D to be the entire quotient. Any nonempty proper upper neighborhood contains one entire side and a nonempty proper subset of the other, which is necessarily its unique D. These disjoint cases give all coefficients and the stated total. The lower marginal is monic of degree m+n; after removing the full-neighborhood contribution and the constant as specified in the theorem, the two difference polynomials have positive leading coefficients and the larger degree is max(m,n)-1, including m=n=1. The profile therefore identifies the unordered widths, not within-class sizes. Independently enumerating 16,384 element subsets for side block sizes (2,3) and (2,3,4) gave 55 distinct pairs and lower coefficients (10,16,13,10,5,1); the reduced polynomial was 10+11s+3s^2. Replay output: /workspace/branches/a30e0e6b-de58-4c17-a7e1-8d71d68982e0/bounded_mixed_case.txt. This corroborates a bounded case, not the universal proof. Frozen verification files were inspected, not executed.
 
-## Remaining limitations
-No independent mathematical or originality audit has occurred. The result counts distinct approximations, not valuations producing them; exponents count granules, not individuals. Singleton blocks and non-complete-bipartite quotients are outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The compatible-tolerance image framework and full/active flexibility are antecedents. The supported distinct result is the complete block-graded distinct-output enumeration coupled with reconstruction from its lower marginal; neither the earlier theory nor the strongest same-day catalogue comparison establishes that invariant or inverse.
+
+## value
+
+PASS
+
+The spectrum measures distinct outputs of a natural mixed approximation model independently of the physical block sizes. The lower marginal alone can distinguish all the quotient width pairs despite forgetting the upper sizes. That is more informative than a gross count or the general lattice existence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

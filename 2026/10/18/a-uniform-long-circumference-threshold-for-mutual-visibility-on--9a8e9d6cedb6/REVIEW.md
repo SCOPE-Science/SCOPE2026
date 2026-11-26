@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Each cycle layer is convex, giving the \(3s\) upper bound. Three separated windows provide \(3s\) vertices; for same-window pairs the two-stage path has the correct Cartesian length, and for different-window pairs the precise inequalities \(t-2D\ge0\) guarantee the chosen gap-crossing arc is shortest. Internal vertices are excluded directly by the one-point-per-row/window pattern and the empty transition columns. The standalone verifier independently checked \(26{,}904\) endpoint pairs from \(89\) admissible parameter pairs by both explicit paths and shortest-path searches. Residual risk: the unbounded case depends on the written inequalities and combinatorial routing proof, not on exhaustive computer coverage.
+## correctness
 
-## Originality
-**PASS on the sources checked, with residual bibliographic risk.** Korže and Vesel (arXiv:2309.15201, Theorem 2.4, Proposition 2.1 and Conjecture 2.6) establish a rowwise upper bound and a complementary \(2t\) regime but leave a general \(t\ge12\) assertion conjectural. Their displayed finite values do not imply the uniform result for all \(s\ge3,t\ge6s\). Cicerone–Di Stefano–Klavžar (arXiv:2112.13024, Theorem 3.2) supplies general bounds but not this construction. Cicerone–Di Stefano–Klavžar–Zhang (DOI 10.1002/net.70074, Section 6.2) treats fault-tolerance \(k\ge1\) and explicitly still calls the ordinary case a conjecture. Record searches for the direct formula, aliases, three-window construction and long-cylinder exact values found no identical or stronger covering statement; results about cylinder multiset dimension and connected mutual visibility concern different invariants. Unindexed material and undetected independent proofs remain risks.
+PASS
 
-## Value
-**PASS.** A published two-variable conjecture about the exact mutual-visibility number of path–cycle products is open outside several known regimes. This proof resolves one infinite two-dimensional wedge, with both dimensions unbounded and all three residue classes of the cycle circumference covered, using a transparent geodesic construction. It is a partial advance, not a solution of the full conjecture or a claim that the sufficient threshold is optimal.
+A shortest path in a fixed cycle layer cannot move in the path coordinate. Four marks in such a layer obstruct both arcs between an alternating pair, proving the upper bound 3s. For the stated M, h=floor(t/3)>=2s separates the three width-s windows and makes all marked columns distinct. In one window a move in the starting column followed by a move in the destination row has length 2|a-b| and no marked interior. Across windows orient from one to its cyclic successor. The forward column distance is h+b-a, or h+r+b-a across the wrap with r=t-3h. Thus t-2D is at least h+r-2(s-1) before the wrap and h-r-2(s-1)>=0 at the wrap. Equality is harmless: the selected arc is still shortest. Switch rows in the empty column immediately after the first window; each row segment encounters only its own marked endpoint. This also works when the endpoints have identical first coordinates. The resulting length is D+|a-b|. Independently, reachable-set expansion on the graph with other marks removed checked 699 endpoint pairs including all three residues at s=3 and s=5; replay: python3 -I /tmp/opencode/frozen_audit_small_checks.py, visibility(). These finite checks corroborate the path argument; frozen scripts were inspected, not run.
 
-## Closest literature and scope
-The nearest mathematical implication comparison is with the complete accessible full text of Korže–Vesel's 2024 article (first public arXiv version 2023-09-26). Its \(2t\) theorem assumes \(s+1\ge t\), incompatible with the theorem's \(t\ge6s\), and its finite tables do not prove unbounded \(t\). The 2026 fault-tolerance paper strengthens the *definition* but reports different values that do not yield the present \(3s\) ordinary parameter. Only sufficiency for \(t\ge6s\) is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The prior literature supplies the upper bound and predicts the numerical answer, but does not prove this long-cylinder case. The closest distinct catalogue record is a later mathematical strengthening of the numerical result and overlaps even in its construction for two residues. It is not evidence that the frozen October record was covered as of its date. The priority conclusion is qualified to the inspected, dated evidence and to ordinary mutual visibility.
+
+## value
+
+PASS
+
+This explicitly realizes the conjectured optimum in a natural unbounded regime, including arbitrary path height and all cycle residue classes. The empty-column switch explains why both the cycle geodesic constraint and the avoidance constraint can be met simultaneously. It is a partial solution with a sufficient, not asserted sharp, threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Review of the clock-chain weak-metastability count
+# Independent mathematical audit
 
-**Correctness — PASS.** Four clock orientations factor exactly into two Ising degrees of freedom, and absence of an isolated Ising spin is equivalent to weak single-site stability. An even-parity hard-core transfer count gives the four-state formula. A complete five-colour neighbour-direction classification yields allowed directed steps and a mandatory global winding condition; a three-state transfer with fifth-root filters counts them exactly. Perron comparison with unequal diagonal twist phases proves a strict twisted spectral gap and the limiting entropy. Directly re-evaluating actual spin energies corroborates the finite formulas through seven labelled sites. Finite checks are not a replacement for the proof.
+## correctness
 
-**Originality — PASS within the material inspected.** Baek–Minnhagen (2010, full accessible text) use the same cosine clock interaction and compare four and five colours, but compute two-dimensional equilibrium helicity behaviour rather than the present one-dimensional weak-metastable count. Spirin–Krapivsky–Redner (2001, relevant full text) count Ising metastable structures under a different neutrality convention and in higher dimensions. Published mathematical-record searches and primary-literature searches for equivalent clock-chain count, transfer, winding, and entropy formulations produced no decisive covering result. An independently indexed treatment could still exist; unsuccessful searches are not a novelty certificate.
+PASS
 
-**Mathematical value — PASS.** The comparison reveals an unexpectedly nonmonotone complexity of weakly metastable energy landscapes under the physically natural addition of clock orientations. It gives exact finite periodic counts with a winding constraint and a strict exponential contrast whose mechanism is a genuine structural change: four colours split into two independent Ising chains while five colours impose same-sign local angular steps. The entropy difference is extensive rather than a small numerical correction.
+For q=4 the cosine interaction is exactly the sum of two Ising interactions with coupling J/2. All single-component flips are available, and flipping both costs the sum, so weak blocking factors. Ising wall patterns are cyclic independent sets of even size; the two choices of initial spin cancel the factor 1/2 in the parity projection. The matrices at weights ±1 have the claimed eigenvalues. For q=5 each middle spin must maximize the projection on the sum of its neighbours: equal neighbours force their common spin, neighbouring colours permit either endpoint, and two-step neighbours force their short-arc midpoint. Thus in (0,+1,−1) coordinates only the two adjacent opposite nonzero increments are disallowed. Closure requires the increment sum to be zero mod 5, and the five initial spins cancel the character projection factor 1/5. The trace counts labelled cycles, not necklaces. No nontrivial twist attains the Perron radius: equality in the triangle inequality for a Perron-modulus eigenvector would force a common phase on all three self-loops, which is impossible. Both leading coefficients are one, giving the stated ratio. An independent spin-pair transfer with exact local scores in Z[sqrt(5)] was run for n=3..16 using /workspace/independent_checks/clock_local_scores.py; it gave the five reported small-n pairs and, for example, (4866436,1332585) at n=16. The finite run corroborates, rather than proves, the all-n formulas.
 
-Limits: the result concerns weak energetic local minima under strict-decrease moves, not the absorbing states of neutral-move Glauber dynamics. No equilibrium, higher-dimensional, dynamical-sampling, or general-\(q\) assertion is made. The identification of the result as new is necessarily conditional on accessible literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the exact prior overlap for the Ising factor and the standard four-clock-to-two-Ising reduction; those are not original contributions. The supported distinct claim is the exact five-colour periodic weak-blocking enumeration with closure, and the resulting comparison to four colours. The checked sources cover neighbouring models, not this content.
+
+## value
+
+PASS
+
+This is a concrete nonmonotonicity witness for the growth of the weakly blocked state space as clock resolution increases, on the same natural Hamiltonian and labelled ring. The finite periodic count identifies the winding restriction, and the exact unequal rates quantify the effect. The value is not the known Ising count or a claim about dynamical freezing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

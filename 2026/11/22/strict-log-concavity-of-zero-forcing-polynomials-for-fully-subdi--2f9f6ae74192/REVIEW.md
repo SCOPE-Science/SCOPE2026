@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The four arm-occupancy states give a necessary-and-sufficient forcing-set classification, including both center-color branches and the single-empty-arm boundary. Binomial coefficient expansion gives the polynomial exactly. The strict inequalities follow from a completely expanded positive bivariate polynomial and a separately proved low-degree correction, not from finite experiments. The attached standard-library checker independently enumerated 43,680 initial sets on six graph orders, checked all coefficients, and verified the exact coefficient identities and inequalities on additional instances.
+## correctness
 
-**Originality — PASS, with priority caveat.** The motivating November 8, 2026 paper explicitly leaves tree-unimodality open. The foundational preprint's relevant sections and conclusion do not give this theorem. Searches for ordinary zero forcing, radius-two spider, subdivided star and strict log-concavity found no equivalent all-branching implication. The closest publicly described spider-thesis work compares zero-forcing polynomial coefficients with path coefficients, which does not imply strict log-concavity, but the full thesis was unavailable and could contain an older polynomial formula. Related super-domination and fully subdivided complete-graph papers concern different claims. Absence from search is not proof of uniqueness.
+PASS
 
-**Value — PASS.** Strict log-concavity is a nontrivial structural strengthening of unimodality on a natural, infinitely parameterized family of trees with unbounded maximum degree. The exact all-cardinality polynomial and an all-order coefficient-inequality certificate connect the fresh general tree question to a tractable complete subclass. The result does not purport to settle the question for every tree.
+Two initially empty arms can never receive a first blue vertex: only the center could act, and it would see both interiors white. If the center starts blue, all nonempty arms can be completed, after which the center starts the possible empty arm. If it starts white, an initially blue leaf is necessary to initiate a move and sufficient to make the center blue. Counting the two cases with A=2z+z² gives (1+z)(A^m+mA^(m−1))−(z^m+mz^(m−1)). Independently expanding with falling factorials confirms the coefficient formula and endpoint degrees. At every interior index the binomial log-concavity defect E expands in j−1,L−1 with positive coefficients and constant 48. The factor m+j preserves strictness. Decreasing q1 helps at j=2, and at j=1 the correction adds 1 plus a nonnegative factor proportional to m−2. This covers m=2 and the entire contiguous support. Replay: python /workspace/audit_checks/reconstruct.py 3; exact algebra and a separately implemented sequential forcing census for m=2,…,5, corroborative only for the census. Frozen code was inspected, not executed.
 
-**Scientific limitations.** Historical priority remains provisional, principally because the complete spider thesis could not be inspected. The finite checker does not substitute for the symbolic proof. No independent expert or external audit was conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the full-support strict log-concavity theorem on equal length-two arms. The earlier evidence found concerns general coefficient comparisons, a list of minimal sets, or different graph families/invariants; it does not establish the strict inequalities. The closed form goes with the proof, but its independent priority is less secure and is not the basis of this pass.
+
+## value
+
+PASS
+
+Strict log-concavity of all ordinary zero-forcing counts on a natural tree family of unbounded branching is more than an exact small instance or a minimum-size computation. The exact polynomial and treatment of its two low-degree corrections give a complete positive case of the tree-unimodality question. No general tree result is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

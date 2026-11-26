@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact invariant-subspace decomposition gives the full grounded inverse-trace objective for each of the three pair orbits. The clique- and peripheral-contrast eigenvalues are positive; the two-dimensional determinant formulas have positive denominators. For the three-peripheral case, explicit signed rational differences prove every strict phase and tie. The key convexity argument uses the equal negative endpoint values of the comparison quadratic, and the second crossing is the unique root beyond a point where the comparison is negative. For the two small clique sizes, all differences reduce to exact polynomials. A standalone script checks four identities and 420 exact rational grounded inverses, but the proof—not the finite tests—handles all parameters.
+## correctness
 
-## Originality — PASS, qualified
-Fitch–Leonard's 2014 joint-centrality analysis is the closest general framework, and Patterson–Yi–Zhang's 2017 resistance-based analysis provides a second general method. Their inspected graph-specific results cover paths, cycles, and certain trees rather than the coupling-dependent weighted complete split graph classification. Clark et al. (2013) use a different transient error objective. Mathematical research searches did not yield an exact matching phase diagram; the absence of a result in search output is not by itself novelty evidence. An equivalent or dominating specialized result outside inspected materials remains possible.
+PASS
 
-## Value — PASS
-Leader allocation between a densely interconnected core and a small peripheral group is a natural sensor/actuator-placement problem. The result classifies *every* two-leader choice for the whole weighted complete-split family through three rational expressions. More significantly, its smallest three-peripheral member exhibits all three optimal placement types under a single conductance-ratio change, with sharp boundaries, rigorous ties, and a linearly growing second threshold. This is an interpretable topology-and-weight sensitivity result rather than an arbitrary parameter substitution.
+Grounding means taking the principal block, not deleting incident conductances; after normalization by b its clique and independent contrast eigenvalues are B=pt+q and p. The constant-on-type quotient has diagonal B-tx,p, off-diagonal entries -y,-x, and inverse trace (B-tx+p)/(p(B-tx)-xy). For the three follower counts the determinants are 2B, pt+p+q-1, 2p. When p=2 and CC there are only independent followers giving q/2, and when q=2 and UU there are only clique followers with eigenvalues B (multiplicity p-1) and 2. Both agree with the displayed formulas. The OU covariance is sigma^2/2 times the actual grounded inverse. For q=3, CC-UU has the sign of -(p-3)(pt-p+1). For p>=4 the UU-CU numerator is negative up through (p-1)/p by convexity and its equal negative endpoint values, and the CC-CU numerator is negative there with positive leading coefficient and one larger root. This checks all strict intervals and boundary ties. For p=3 the first difference vanishes identically and the decisive quadratic is 3t^2-2t-3. For p=2 the signs of 2t-1, t-1 and 2t^2-t-4 give the two stated transitions with the third type strictly worse at each. Expanding the larger-root discriminant as p^2((p^2-3p)^2+64p-32) gives the stated asymptotic. Pair counts follow from the orbits. Inspected verify.py without executing it: 420 direct inverse comparisons and four symbolic comparisons are finite corroboration; the printed 17 threshold checks refer to 17 p values with several sign checks per value, not 17 universal identities.
 
-## Limits
-The statement is for two noise-free leaders and a two-class edge-weight model. Only the three-peripheral subfamily is given a closed interval-by-interval phase chart; the general case is an exact rational minimum criterion. Historical uniqueness has not been independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the weighted specialization and in particular the sharp q=3 phase and tie law over t>0, not for the general grounded-inverse objective or existing unit-weight classifications. The closest inspected indexed result matches t=1 exactly but excludes nonunit weights. General coherence and resistance identities give routes to the traces, not the phase theorem without new comparisons.
+
+## value
+
+PASS
+
+Three evaluable costs replace the pair search, but the main value is the exact coupling-driven movement of optimal leader types in a small peripheral class. The p=3 persistent degeneracy and the reversal in phase order from p=2 to p>=4 reveal how clique reinforcement competes with grounding the periphery; a single unit-weight classification does not reveal these regimes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

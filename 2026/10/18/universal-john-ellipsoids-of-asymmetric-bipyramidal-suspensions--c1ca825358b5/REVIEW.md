@@ -1,19 +1,21 @@
-# Scientific review of the asymmetric-suspension John ellipsoid formula
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns the unique maximum-volume contained ellipsoid for all dimensions at least two, all centrally symmetric full-dimensional convex bases, and two strictly positive axial apex heights. Reflection symmetry and uniqueness force a block-diagonal ellipsoid; maximality of the horizontal John section then makes the unrestricted problem two-dimensional. The exact constraints are the sum of two square roots, which yields a one-variable objective with a unique critical point and vanishing endpoint values. An explicit quartic gives its positive root. Strict convexity in the two apex heights proves the strict volume-fraction order at fixed total height, with cone endpoint treated only as a limit. The provided program checks identities and sample inequalities; the infinite statement rests on the complete analytic derivation, not enumeration.
+PASS
 
-## Originality — PASS with priority risk
+Uniqueness and horizontal reflection force the unrestricted John ellipsoid to have zero horizontal center and zero horizontal–vertical cross block. At each z between apices the body section is min(1+z/a,1−z/b)B: the base weight in a convex combination is at most both affine bounds and the smaller one is realized by using only the apex on that side. For a horizontal middle ellipsoid E_0, containment thus depends only on the smallest u with E_0⊂uB; replacing E_0 by uJ(B) preserves feasibility and strictly improves the determinant unless E_0 already equals uJ(B). Taking support maxima on the upper unit semicircle gives the two root constraints √(a²u²+v²)≤a+c and √(b²u²+v²)≤b−c, including the axial endpoint requirements. Their summed bound must be tight by scaling and then fixes c. For t=v/u the objective is proportional to t/(X+Y)^d, whose log derivative is 1/t−dt/(XY). The ratio XY/t² decreases strictly from infinity to 1; this gives a unique interior optimum and the positive quartic root with the displayed scales. The sign follows from b²X²−a²Y²=(b²−a²)t², and the determinant gives the volume. For fixed positive u,v and a+b, the sum of the two roots is strictly convex and symmetric as a function of a, hence increases strictly with imbalance. The imbalanced optimizer is strictly feasible at a more balanced pair, where joint dilation improves the objective. Section integration gives the constant host volume, and the stationary equation at a=b and in the one-sided limit gives the stated sharp ratio and sqrt(e d)/2 asymptotic. The cone endpoint is excluded from the positive-height class. The frozen `python3 verify.py` was inspected, not executed: its 6,132 batches sample identities, nearby aspect ratios and profiles in d=2 through 15 at numerical tolerances. The additional three-dimensional optimizer comparisons are reported without a replay program in this package and are not needed by the proof.
 
-Full-text inspections of the 2012 ellipsoidal-cone characterization (arXiv:1204.3947), the John-ellipsoid characterization (arXiv:1207.7246), and the 2025 extremal-ellipsoids-of-revolution treatment (arXiv:2507.06947) did not locate this **arbitrary centrally symmetric base**, **two unequal axial heights**, **explicit optimizer**, and **strict height-imbalance order** combination. General John's theorem and rotational conical extremal conditions do not yield the exact universal axial formula without the present extra optimization. Searches of relevant published geometrical findings likewise returned conical half-bodies, polytope John ellipsoids, and double-cone section problems, not a dominating claim. Publication-indexing gaps and obscure classical formulas, especially in dimension two and the symmetric or cone limits, remain substantive historical-priority risks. Absence from a searched database is not by itself proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The explicit universal maximizer and exact volume apply simultaneously to arbitrary smooth, polyhedral, and nonsmooth centrally symmetric bases without rotational symmetry. The fixed-height strict imbalance theorem compares an entire natural deformation family of **equal-volume** host convex bodies and produces a sharp, dimension-dependent filling-efficiency factor with order \(\sqrt d\). This is a structural extremal geometry result with equality and limiting behavior, not a computed isolated example or substitution into a known single-cone endpoint formula.
+Credit the planar John-ellipse instance and endpoint comparisons to the broader quadrilateral theory, the cone limit and shape reduction for frusta to the corresponding cone/frustum results, and general extremality and uniqueness to John's theory. The supported distinct content is the exact coupled two-apex optimizer for positive unequal heights, including d≥3 and arbitrary origin-symmetric bases, and the strict fixed-total-height decrease of its John filling fraction with the sharp general-dimensional factor. The closest inspected matches concern one-sided cones or frusta, planar quadrilaterals, or a different extremal invariant of the same bipyramid. This judgment is bounded by the inspected sources.
 
-## Limits and follow-up
+## value
 
-The theorem excludes offset apices, asymmetric base bodies, and any claim of a complete historical priority search. Boundary heights equal to zero are limiting cases only. No independent mathematical audit has been performed; an independent literature and proof assessment would be appropriate before public priority claims.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The horizontal determinant reduction treats nonsmooth and nonround bases without a new optimization for each shape. The height law is a strict extremal comparison across a natural family with equal host volume, with an attained symmetric maximum and a sharp limiting loss of order √d. This compares full deformations, not just known isolated cone or planar endpoints.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

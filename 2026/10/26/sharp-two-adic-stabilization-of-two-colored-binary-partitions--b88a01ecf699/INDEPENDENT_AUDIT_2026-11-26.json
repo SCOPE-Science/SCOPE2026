@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:41:31.813559Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–42",
+        "Frozen VERIFICATION.md and verify.py",
+        "/workspace/independent_checks.py, partitions()"
+      ],
+      "rationale": "Even-coefficient decimation applied to (1-x)^(-2)B(x^2) yields the stated weighted summation T, which raises polynomial degree by at most two. Exact interpolation independently recovered the base factorization. In the Faulhaber step, at e=1 the Bernoulli terms have the same fractional part; at e=2 their positive even indices have weights of the same parity, the odd indices beyond 1 vanish, and q=2 yields 1 for the bracket. At e>=3 the prefactor has valuation at least two and the Bernoulli denominators lose at most one. This gives D_q(2s) in 2s Z_(2)[s] for q>=2. For the j=0 term not directly covered by that estimate, D_1(2s)=(s(2s-1))^2-s(2s-1) is integral, which suffices since it is multiplied by 2s in the numerator. The normalized numerator vanishes at s=±1 by the extended power-sum identities, so division by the monic s²−1 preserves integrality. T(R)/(2R) is odd coefficientwise modulo two, and linearity propagates the polynomial congruence at every depth. The normalized difference series modulo two is x(1+x²)/(1-x)^4=x/(1-x²), so odd indices have exact depth valuation; absorbing the full power of two in n into the depth proves the general formula. At n=0 the difference is zero, not a finite valuation. A separate product-coefficient computation confirmed 1023 pairs up to largest coefficient index 8192 (python /workspace/independent_checks.py 5).",
+      "residual_risks": [
+        "Only two colors are proved. The finite reproduction is supplementary, not evidence by extrapolation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "GMU predicts the congruence modulo 2^k for b_(2m) at depths k>=m+2. Yu–Lei–Hong treat unboundedness for positive powers of the Prouhet–Thue–Morse series. The odd-part overpartition record treats dyadic differences on a different product with a leading term supported on odd squares."
+        ],
+        "reasoning": "An unproved broader conjecture is not existing coverage by a theorem. Neither the positive-power coefficient result nor the different product's difference theorem specializes to b_2.",
+        "searches": [
+          "arXiv:1703.01955v1, §5 Conjecture 5.5",
+          "arXiv:2606.25825v1, introduction and Theorem 1.2",
+          "Resultary c7fc5bd1d824"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "arXiv:1703.01955v1 and 2606.25825v1",
+        "Resultary c7fc5bd1d824, 48027f9dc065 and b8196a7e7b34",
+        "Reznick chapter lookup (not retrieved)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Setting m=1 in Conjecture 5.5 asks exactly for divisibility by 2^k, but the audited identity proves that much plus exact oddness at the normalized divisor 2^(k+nu_2(n)). The later proof explicitly names Conjecture 3.9, not 5.5."
+        ],
+        "reasoning": "Divisibility alone cannot force the exact highest power or the additional factor from even n. No affirmative prior implication appears in the inspected results. The Reznick chapter was not retrieved and supplies no comparison evidence.",
+        "searches": [
+          "GMU arXiv:1703.01955v1 Conjecture 5.5 and Theorem 5.4",
+          "Yu–Lei–Hong arXiv:2606.25825v1 Theorem 1.2",
+          "Reznick DOI 10.1007/978-1-4612-3464-7_29"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After writing n=2^t u, the claim reduces to exact valuation j+1 of the two-step difference between 2^(j+2)u and 2^j u for every odd u and j>=2."
+        ],
+        "reasoning": "An exact odd-index two-step formula in this range would cover the full assertion. No such equivalent was located in the inspected passages or related records; the focused external search provided no leads.",
+        "searches": [
+          "Resultary: two-colored binary partitions, exact dyadic differences and the shifted-depth form",
+          "Focused literature search for resolutions of Gawron–Miska–Ulas Conjecture 5.5 at m=1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "48027f9dc065 gives two-color binary partition residues at 128t+36 and 128t+62; b8196a7e7b34 gives residue fiber sizes and a density. GMU's nearby valuation result is on individual coefficients."
+        ],
+        "reasoning": "Neither fiber sizes nor residues on two progressions give valuations of differences pairing all odd classes at all depths; individual coefficient valuations do not give their higher-order cancellation.",
+        "searches": [
+          "Resultary 48027f9dc065 and b8196a7e7b34",
+          "GMU §5 individual coefficient valuations"
+        ]
+      },
+      "rationale": "The weaker assertion is already stated as GMU Conjecture 5.5, not proved there. The record proves its two-color case and the exact, strictly stronger difference valuation. Close same-sequence records give other coefficient or residue statistics. Minor citation prose error in the frozen relationship paragraph: the later unboundedness paper is by Yu, Lei and Hong, as correctly listed in the references, not by the GMU authors. The paper proves a different conjecture, as the record correctly distinguishes.",
+      "residual_risks": [
+        "Limited indexing and inaccessible older chapter. Do not infer continued open status or priority from a search returning no result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact weaker conjecture for m=1; neighboring individual-coefficient theorems are different",
+          "evidence": "Predicted congruence b_(2m)(2^(k+1)n)=b_(2m)(2^(k-1)n) modulo 2^k for k>=m+2.",
+          "identifier_or_url": "https://arxiv.org/pdf/1703.01955",
+          "material_read": "§5, p. 31, offsets approximately 150324–150544 for Conjecture 5.5 and nearby individual-coefficient results",
+          "method": "OA primary PDF",
+          "title": "Arithmetic properties of coefficients of power series expansion of the binary product",
+          "trigger": "Named conjecture and same coefficient sequence"
+        },
+        {
+          "assessment": "Different conjecture and authors",
+          "evidence": "Theorem 1.2 proves unboundedness of t_m(n) in powers of the Prouhet–Thue–Morse series (Conjecture 3.9).",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.25825",
+          "material_read": "p. 1 byline and introduction; p. 3 Theorem 1.2, offset approximately 9000",
+          "method": "OA primary PDF",
+          "title": "Proof of the Gawron–Miska–Ulas conjecture concerning unboundedness of coefficients",
+          "trigger": "Possible published resolution under a generic conjecture title"
+        },
+        {
+          "assessment": "Different sequence, not a specialization",
+          "evidence": "Dyadic differences of odd-part overpartition tuples have an odd-square leading support.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-even-color-internal-congruences-for-odd-part-overpartition--c7fc5bd1d824",
+          "material_read": "Finding on even-color dyadic differences",
+          "method": "Local Resultary mirror",
+          "title": "Sharp even-color internal congruences for odd-part overpartition tuples",
+          "trigger": "Closest structural analogue in catalogue"
+        },
+        {
+          "assessment": "Different exact congruences",
+          "evidence": "Residues on progressions 128t+36 and 128t+62, not successive dyadic depth differences.",
+          "identifier_or_url": "48027f9dc065",
+          "material_read": "Finding and explicit residue progressions",
+          "method": "Local Resultary mirror",
+          "title": "A positive-density three-square obstruction for two-colored binary partitions",
+          "trigger": "Identical sequence and dyadic residue results"
+        },
+        {
+          "assessment": "Fiber counts do not give pairwise differences",
+          "evidence": "Counts residues rather than tracing a fixed odd core across depths.",
+          "identifier_or_url": "b8196a7e7b34",
+          "material_read": "Finding on residue counts and density",
+          "method": "Local Resultary mirror",
+          "title": "Exact dyadic residue fibers and three-square obstruction density",
+          "trigger": "Identical sequence and exact dyadic table"
+        },
+        {
+          "assessment": "Unresolved access, no coverage inference",
+          "evidence": "No full text or relevant preview available in the attempted routes.",
+          "identifier_or_url": "https://doi.org/10.1007/978-1-4612-3464-7_29",
+          "material_read": "No relevant passage retrieved; chapter landing and PDF routes failed",
+          "method": "Lawful publisher routes attempted",
+          "title": "Some Binary Partition Functions",
+          "trigger": "Prior binary partition arithmetic background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, sections 1–3 of the proof",
+        "GMU Conjecture 5.5"
+      ],
+      "rationale": "This resolves the first even-color case of a concrete published conjecture and determines exact depth-to-depth cancellation, not merely the proposed divisor. The polynomial summation invariant explains the cancellation uniformly and is stronger than any finite list.",
+      "residual_risks": [
+        "No assertion about larger even-color cases."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:56:39.126082Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–46",
+        "code/verify_tietze_full_quotient.py, verification/output.txt, VERIFICATION.md inspected as evidence, not executed",
+        "/workspace/review-work/orbit_check.py 1, exact run"
+      ],
+      "rationale": "The stated graph was rebuilt from KG(5,2) with one inflated vertex; testing all adjacency-preserving extensions confirmed exactly the twelve lifted permutations stabilizing {0,1}. Distinct ranks in each flag force a quotient identification within its closed simplex to be the identity on barycentric coordinates; each simplex is embedded, its facets have distinct rank sets, and the alternating deletion boundary has no stabilizer factor. The independent /workspace/review-work/orbit_check.py run with argument 1 used a different edge order, ordered-partition flag generation, reverse canonical representatives and alternative collapse, spanning-tree and pivot orders. It recovered 1051 matchings, 162053 flags, orbit cells (121,1250,3981,5222,2850,480), and 6524 verified free pairs leaving (43,235,385,193). All 193 generators in the resulting genuine 2-skeleton were eliminated by nonabelian substitutions. Exact unit pivots with higher-boundary coordinate checks left free chain ranks one in degrees zero and three and zero elsewhere. This gives trivial pi_1 and integral homology (not just rational). Hurewicz gives pi_2=0 and a sphere map realizing the H_3 generator; the simply connected homological Whitehead theorem gives the stated homotopy equivalence.",
+      "residual_risks": [
+        "Integral pivots are chain equivalences, not geometric collapses. The result neither asserts a manifold/homeomorphism nor gives an equivariant or a Borel equivalence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Marietti–Testa Theorem 4.11 requires a forest; Jonsson studies ordinary matching complexes of complete graphs. The wheel, Dürer and K8 records give other explicit orbit-space homotopy types, not a family containing the Tietze case."
+        ],
+        "reasoning": "Tietze has a triangle and is not complete. Neither related matching-complex theorem nor an orbit theorem for another graph applies by substitution. D6 occurring also for the Dürer graph does not equate the two actions.",
+        "searches": [
+          "Marietti–Testa arXiv:0705.1461v1 §4.4; Jonsson arXiv:1203.5641v1 abstract",
+          "Resultary 55474f75fdcd, c744595e7b1f and 14ff4391fb24"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6f93a3f35ff0, 66b3f7013d3d, 55474f75fdcd, c744595e7b1f and 14ff4391fb24 local-mirror Findings",
+        "arXiv:0705.1461v1 and arXiv:1203.5641v1 selected primary passages",
+        "Frozen RESULT.md lines 48–62"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The invariant part of the rational H_3 is one-dimensional. Finite-group averaging on the barycentric quotient gives the corresponding rational Betti number, but cannot exclude integral torsion or determine pi_1."
+        ],
+        "reasoning": "The integral and nonabelian parts require distinct exact checks on the quotient incidences and relators; Hurewicz and Whitehead only apply after those checks. The claimed sphere homotopy type is not mechanically implied by prior rational input.",
+        "searches": [
+          "6f93a3f35ff0 RESULT.md Finding and character statement; compare frozen RESULT.md lines 30–43"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "6f93a3f35ff0 treats the same ordinary matching complex and D6 action, giving a wedge of 16 three-spheres and the full rational character. 66b3f7013d3d restricts faces to partial edge sets extendible to a perfect matching, giving a wedge of six circles before quotienting."
+        ],
+        "reasoning": "The line-graph independence formulation is an alias of the ordinary matching complex. Perfect extendibility is a different face condition; even for the exact ordinary complex its unquotiented homotopy type does not furnish the orbit-space homotopy type.",
+        "searches": [
+          "Resultary: Tietze ordinary matching complex, triangle-inflated Petersen line-graph independence complex and full symmetry quotient; 6f93a3f35ff0 and 66b3f7013d3d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-object record includes the rational character/invariant line, not the integral quotient invariant. Exact available quotient entries give a single S^3 for the eleven-vertex wheel, a wedge of two S^3 for Dürer, and a wedge of sixteen S^2 for the indicated cyclic K8 action. The cited prism text was unavailable independently."
+        ],
+        "reasoning": "Coincidence of a sphere dimension, an abstract group type or rational rank does not specify the integral quotient of this incidence complex. No inspected entry other than the assigned result gives that exact invariant.",
+        "searches": [
+          "Resultary exact-object 6f93a3f35ff0; full matching quotients 55474f75fdcd, c744595e7b1f, 14ff4391fb24; cited pentagonal prism 5d7c581e07d3"
+        ]
+      },
+      "rationale": "The strongest inspected exact-object precursor gives the unquotiented ordinary matching complex and rational symmetry character, not the integral geometric orbit type. The other close claims change the graph, the action or the simplicial construction. In particular the proof of simple connectivity and the absence of integral torsion are not supplied by the rational representation. The bounded source comparison supports a distinct result, not a universal priority claim.",
+      "residual_risks": [
+        "Local mirror did not provide the cited pentagonal-prism record 5d7c581e07d3; only the frozen citation describes it here. The targeted primary search returned no relevant evidence and is not evidence of absence. Unindexed equivalent work cannot be excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact-object but rational/unquotiented precursor",
+          "evidence": "Reports a wedge of 16 S^3 and a full rational symmetry character with invariant multiplicity one; states no integral orbit classification in the inspected passage.",
+          "identifier_or_url": "Resultary 2026/11/8/6f93a3f35ff0",
+          "material_read": "RESULT.md offset 0, Finding",
+          "method": "Bounded local-mirror full-text passage",
+          "title": "Sixteen three-spheres and the full dihedral character of the Tietze matching complex",
+          "trigger": "Same graph, ordinary complex and full group"
+        },
+        {
+          "assessment": "Different simplicial construction",
+          "evidence": "Requires extendibility to a perfect matching and obtains a wedge of six circles for that complex.",
+          "identifier_or_url": "Resultary 2026/11/1/66b3f7013d3d",
+          "material_read": "RESULT.md offset 0, definition and Finding",
+          "method": "Bounded local-mirror full-text passage",
+          "title": "The Tietze perfect-matching complex: six circles and its full rational symmetry character",
+          "trigger": "Same graph and potentially ambiguous matching-complex terminology"
+        },
+        {
+          "assessment": "Different graph and action",
+          "evidence": "The group D10 acts on the rim of W11 and its matching quotient has type S^3.",
+          "identifier_or_url": "Resultary 2026/11/17/55474f75fdcd",
+          "material_read": "RESULT.md offset 0, Finding",
+          "method": "Bounded local-mirror full-text passage",
+          "title": "A three-sphere homotopy quotient of the eleven-vertex wheel matching complex",
+          "trigger": "Same conclusion for a related quotient construction"
+        },
+        {
+          "assessment": "Different hypotheses and no applicable orbit-space conclusion in these statements",
+          "evidence": "The first result states M(F) is a grape for forests; the second studies reduced homology of M(K_n).",
+          "identifier_or_url": "arXiv:0705.1461v1; arXiv:1203.5641v1",
+          "material_read": "Marietti–Testa §4.4 Theorem 4.11, printed p. 9; Jonsson printed p. 1 abstract and definition",
+          "method": "Read bounded OA PDF passages",
+          "title": "A simple uniform approach to complexes arising from forests; Exact sequences for the homology of the matching complex",
+          "trigger": "Cited broader sources that might imply the result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–49",
+        "6f93a3f35ff0 Finding, rational character comparison"
+      ],
+      "rationale": "The ordinary matching complex of a standard symmetric cubic graph and its full geometric orbit space are natural objects. The exact sphere type supplies integral and nonabelian information not recoverable from the known character, and distinguishes what the quotient does from what rational averaging predicts. The reproducible extraction of integral chains and actual attaching words is meaningful for precisely this action, even without a graph-family theorem.",
+      "residual_risks": [
+        "The classification is for one graph and the full action; no proper-subgroup classification or topological manifold conclusion follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review: all-prime Fuss–Catalan arity valuation spectra
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalization identity is proved separately when the prime divides the fixed size and when it does not. In either case the varying arity becomes a unit-slope affine argument of a fixed binomial column. Kummer's carry interpretation gives an explicit two-state probability transfer, including the unbounded tail after the final nonzero digit. The density law follows from finite-digit cylinders, the mean from an exact carry-probability sum, and the least threshold period from a decisive top-digit dependence which survives any unit-slope affine substitution. Direct exact tests confirm the normalization, rational finite-level histograms, sharp periods and expected values in their stated finite ranges. An infinite theorem is supported by the four-step proof; the finite checker alone would not prove it.
+## correctness
 
-## Originality — PASS, with prior-art risk
-Stănică's generalized Catalan work examines special fixed arities while the size varies. The full accessible Barat–Grabner manuscript investigates joint row-and-column binomial distributions and digital asymptotics, not the fixed-column arity law. Rowland reports the older Lu–Tsai least period for the **full** binomial residue; this supplies a period upper bound, not sharpness for the capped-valuation statistic. Spiegelhofer–Wallner explicitly give binary fixed-column valuation densities, so that binary subcase and the underlying carry technique are **not** presented as independent discoveries. The closest published special-column result covers prime-power Pascal columns, but not arbitrary fixed Fuss–Catalan size and all corresponding reduced columns. A sparse-shift result gives only the first non-independent valuation coefficient. Relevant searches, complete stated claims, and primary material did not reveal a covering all-prime variable-arity classification. General digit-automaton theory could hide an equivalent formulation; unindexed material and implicit corollaries remain genuine risks.
+PASS
 
-## Mathematical value — PASS
-The problem fixes the size of a standard Catalan-family counting invariant and varies its independent arity, an intrinsically meaningful enumerative parameter. All-prime valuation statistics are not simple binary parity samples: arbitrary base-prime digit patterns produce a full rational probability law, sharp least periods at every prime-power threshold, exact positive- and nondivisibility densities, and a digit-sum expectation. The divisibility split between primes dividing and not dividing the fixed size is essential to this complete classification. While classic Kummer theory supplies the tool and some marginal distributions are known, the uniform fixed-size arity theorem and its sharp capped periods answer a distinct global family of arithmetic questions.
+For p dividing n, tn+1 is a unit and removing the common p-power from the two Kummer summands gives column m=n/p^v_p(n). Otherwise the identity C_t(n)=binom((t+1)n,n-1)/n gives column m=n-1. The input is respectively mt or nt+1, with unit slope in both cases. For a fixed column the outgoing carry after j digits occurs exactly when the uniform j-digit residue of the input is at least p^j-(m mod p^j). This independently yields the stated digit-sum expectation by summing the carry probabilities. The two-state weighted transition counts p-d-c noncarry choices and d+c carry choices for input carry c; beyond the last nonzero digit the surviving carry continues with probability 1/p, giving the claimed geometric factor. Exact-value events are finite residue conditions, so the Haar calculations are natural densities, and B is nonzero because the top digit can start a carry. For threshold k, an outgoing carry at position L+k-2 already forces at least k carries. Conversely set all lower digits below the top nonzero column digit to zero. At k=1 vary that top digit across the carry threshold; at k>=2 start a carry there, continue it for k-2 digits, and vary the digit at L+k-2, which toggles whether the count reaches k. This rules out period p^(L+k-2) and hence any smaller period, since a minimal period divides the known p-power period. A unit-slope input preserves the decisive nonconstant cyclic digit function. The n=6,p=2 generating function also checks by direct multiplication of two carry matrices. The verification source was inspected but not run; evidence for all n,p,k is the proof, not its finite regressions.
 
-## Sources and residual limits
-Primary material inspected includes Stănică, arXiv:math/0010148 (initial public posting 2000-10-15); Barat–Grabner, *Distribution of Binomial Coefficients and Digital Functions* (author-hosted full text, Sections 1, 3 and 4); Rowland, arXiv:1102.1464, Section 3; Spiegelhofer–Wallner, arXiv:1604.07089, Section 2.4; and complete published statements on prime-power Pascal columns and sparse binomial shifts. The checker is reproducible with standard Python 3. This review cannot establish absolute historical priority or inspect every unpublished/unindexed digital-function result. There is no claim about prime-free residues or cross-prime joint distributions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the known general binary column density framework, the complete prime-power-column case, and the precise Lu–Tsai least period for the full binomial residue. The distinct supported claim is the uniform arbitrary-digit, all-prime valuation law and sharpness for the coarser cap, with both reductions needed for the fixed-size Fuss–Catalan arity sequence. Neither the known period for the finer statistic nor the existing restricted column laws establish that combination.
+
+## value
+
+PASS
+
+Fixing size and varying arity is a natural direction in the Fuss–Catalan family. The theorem gives an exact sampling modulus at every divisibility threshold and the entire distribution with the mean and tail, rather than just a parametrized congruence or an upper bound. The sharpness matters precisely because much finer residue information could in principle repeat on a longer period than divisibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

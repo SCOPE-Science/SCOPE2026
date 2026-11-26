@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:32:46.612314Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an appended generator [G|B] of a shortest LCD embedding, rank(B) is at least the hull dimension ell: rank(GG*)=k-ell and the rank of the Gram update BB* is at most rank(B), while the embedded Gram has rank k. Since B has ell columns, projection Q has rank ell (over the stated Euclidean/Hermitian fields). Puncturing is an isomorphism of k-dimensional codes. For any r-subcode U with t=dim Q(U), its old-coordinate image has dimension r and contains an (r-t)-subcode of K=P(ker Q). Its support is at least max(d_r(C),d_(r-t)(K)); its disjoint new support is at least t. Rank-nullity gives exactly the numerical limits on t, with d_0=0 including t=r. Lifting a minimizing r-subcode gives the upper bound; surjectivity makes all ell new coordinates contribute at r=k; for ell=k only t=r is allowed. The argument includes ell=0 and uses no finite experiment. The frozen binary/ternary verifier was inspected, not executed, and does not test all embeddings or quaternary codes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ostrovsky's theorem imposes weight doubling and isolation in a particular self-dual completion",
+          "An–Hong–Kim–Lim's Theorems 3.2 and 3.6 and Proposition 3.7 in v1 supply structure for all shortest embeddings, not a support-hierarchy theorem"
+        ],
+        "reasoning": "There is no identified general result covering the joint threshold in t and the contribution of d_(r-t)(K). The mechanism is field-linear, so overlap with general puncturing/relative-weight or matroid literature remains plausible.",
+        "searches": [
+          "Wei DOI:10.1109/18.133259",
+          "Ostrovsky arXiv:2609.22669v1, Main Theorem 1",
+          "An–Hong–Kim–Lim arXiv:2601.20600v1, Section 3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.20600v1",
+        "Resultary:b97496ec25bd",
+        "Resultary:f5dafd258f42",
+        "arXiv:2609.22669v1",
+        "DOI:10.1109/18.133259 (bibliography only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Projection rank alone gives the coarse bound; the sharper expression uses the independent inequality for the support of an (r-t)-subcode of K",
+          "Example with (k,ell,r)=(3,2,2) below separates the inequalities"
+        ],
+        "reasoning": "The closest structural theorem is used as an input, not as a pre-existing stronger bound. The ring example census and exact doubling law impose different hypotheses and do not imply the rank-conditioned estimate for arbitrary shortest field embeddings.",
+        "searches": [
+          "Comparison with arXiv:2601.20600v1, Theorems 3.2 and 3.6, Proposition 3.7",
+          "Comparison with Resultary b97496ec25bd and f5dafd258f42"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An–Hong–Kim–Lim characterize an ell-coordinate full-rank append block",
+          "SCOPE metric self-dual completion, f5dafd258f42, has exact doubling for a different extension"
+        ],
+        "reasoning": "Viewing the extension as the graph of a surjection C -> F^ell exposes the role of the shortening kernel K; the doubled metric-completion hierarchy does not give this two-piece support estimate for such graphs.",
+        "searches": [
+          "Resultary: shortest LCD embeddings and generalized Hamming weights",
+          "Resultary: support hierarchy under code completion",
+          "arXiv:2601.20600v1, Section 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed shortest LCD example census b97496ec25bd and metric completion f5dafd258f42 were inspected at the statement level"
+        ],
+        "reasoning": "Neither indexed claim gives the kernel-sensitive bound. A distance-parameter table is not a test for this theorem: it concerns a kernel associated with an individual embedding and all support dimensions, not optimal code parameters.",
+        "searches": [
+          "Local Resultary catalogue: shortest LCD embeddings and higher supports"
+        ]
+      },
+      "rationale": "The supported distinction is the generalized-support lower bound conditioned on the kernel of the new-coordinate projection, not the shortest length, structural normal form, or routine upper bound. The closest primary theorem gives the needed rank, not the kernel-conditioned generalized-weight estimate; the closest higher-support extension record treats a different code construction. No covering result was identified in the inspected sources.",
+      "residual_risks": [
+        "A general puncturing or relative-generalized-weight theorem under another formulation may subsume the estimate; the inspected comparisons are not exhaustive.",
+        "Wei's full text was not retrieved; no absence claim relies on it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies exact shortest length and rank structure, not the kernel-conditioned generalized-weight estimate in the inspected results",
+          "evidence": "Shortest length n+ell; invertible ell-by-ell appended block in normal form.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.20600v1",
+          "material_read": "Section 3, Theorem 3.2 p. 4; Theorem 3.6 and Proposition 3.7 p. 6",
+          "method": "OA full-text passages",
+          "title": "Shortest LCD embeddings of binary, ternary and quaternary linear codes",
+          "trigger": "Same code class and embedding; possible exact prior structure or bound"
+        },
+        {
+          "assessment": "Different field/ring and invariant",
+          "evidence": "Counts 1,536 shortest embeddings of a particular rank-three ring code by ordinary ring/Gray minimum distance; not a hierarchy bound.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-complete-census-of-the-shortest-lcd-embeddings-in-example-7-5--b97496ec25bd",
+          "material_read": "Mirrored RESULT.md Finding, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and mirror",
+          "title": "A complete census of the shortest LCD embeddings in Example 7.5",
+          "trigger": "Closest shortest-LCD-embedding catalogue hit"
+        },
+        {
+          "assessment": "Different extension and statement",
+          "evidence": "Exact d_r(A)=2d_r(C) for the first source-dimension weights of the metric self-dual completion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-metric-self-dual-completion-doubles-the-full-source-support-hier--f5dafd258f42",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Local Resultary search and mirror",
+          "title": "Metric self-dual completion doubles the full source support hierarchy",
+          "trigger": "Closest catalogue result on higher weights under extension"
+        },
+        {
+          "assessment": "Different completion hypotheses",
+          "evidence": "Weight doubling and low-weight isolation, not a theorem for shortest LCD embeddings.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.22669v1",
+          "material_read": "Main Theorem 1, p. 3",
+          "method": "OA full-text passage",
+          "title": "Ostrovsky's metric self-dual completion paper",
+          "trigger": "Primary input to the closest higher-weight completion precedent"
+        },
+        {
+          "assessment": "No document-wide conclusion",
+          "evidence": "Classical generalized-weight reference, not asserted to lack an applicable result.",
+          "identifier_or_url": "10.1109/18.133259",
+          "material_read": "Bibliographic record only; lawful full text not retrieved on the bounded attempt",
+          "method": "DOI and repository lookup",
+          "title": "Generalized Hamming weights for linear codes",
+          "trigger": "Foundational support-hierarchy literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result determines when the hull forces higher-support growth under every shortest LCD repair, and the kernel term is not just notation. For example take disjoint binary generators u,v,w of weights 2,2,5, append one separate new coordinate to each of u and v and none to w. The Gram becomes the identity, ell=2, K=<w>, and for r=2 the parent weight is 4. The rank-only lower bound is 5, but both admissible t=1,2 in the kernel bound give 6, attained in the embedding by the span of the first two lifted generators. This is a strict, attained improvement at a genuine higher weight with a nonzero rank-only correction. No claim of universal sharpness is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

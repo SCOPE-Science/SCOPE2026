@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The upper bound \(C(5,3)\le 10\) follows from parity and a coordinate-injectivity argument: within either parity class, minimum distance \(3\) forces distance \(4\), so relative permutations are fixed-point-free \(5\)-cycles and same-parity codewords disagree in every coordinate. Each parity class therefore has at most five elements. The displayed ten-word code attains the bound. The finite equality classification is independently replayable: the metric is reconstructed both by transposition-graph breadth-first search and by the cycle-count formula, the normalized graph is exhaustively enumerated, and every subgroup, normalizer, pair-profile, and orbit assertion is checked.
+## correctness
 
-## Originality
-PASS. Direct searches covered Cayley-distance and transposition-distance aliases, the exact \(S_5\) and distance-\(3\) parameters, equality-case/census language, and the order-\(5\) normalizer-coset formulation. Cameron–Wu studies Cayley subgroup-weight complexity, Chee–Vu studies generalized-metric constructions, and Nguyen studies \(C(n,d)\) through general and asymptotic bounds. Nguyen’s full public text was inspected and contains no \(C(5,3)\) equality census. The nearest indexed finite \(S_5\) permutation-family result found uses a different even-intersection condition. Residual risk remains that an obscure or unindexed source contains a finite table or census.
+PASS
 
-## Value
-PASS. This is a natural smallest-order equality problem for arbitrary permutation codes under the classical all-transpositions Cayley metric. The result is not only a cardinality computation: equality forces a rigid order-\(5\) subgroup plus normalizer-coset structure, gives a complete labeled census, a universal pair-distance profile, and a one-orbit symmetry classification. These features provide a compact exact benchmark for constructions and bounds in Cayley permutation coding.
+The transposition metric is 5 minus the number of cycles: a swap changes the cycle count by one and any cycle of length l can be built with l-1 swaps. Distinct words of the same parity must consequently differ by a 5-cycle, hence cannot agree in any position. There are at most five of each parity. The independently reproduced equality census uses BFS-checked distances, enumerating the four nonidentity even words among the 24 five-cycles and then all compatible odd five-sets, so it exhausts normalized maxima without relying on the uploaded maximal-clique histogram. It finds precisely six even halves (the order-five subgroups) and exactly two normalizer generator cosets for each. In translation coordinates on F_5 the normalizer consists of ax+b; the multiplier quotient is F_5*, and the two generators 2 and 3 give odd 4-cycles with one fixed point. Thus these cosets construct size 10 and all their differences with H have type (4,1); the 20 within-parity pairs have type (5). Alternatively, an odd word has exactly five total positional agreements against the five even words, while each relative distance-3 odd permutation has at most one fixed point; every mixed pair therefore has one. Counting incidences with a distinguished word gives (120*12)/10=144 labeled codes. Conjugation relates all six H, inversion interchanges the two generator cosets, and translation removes normalization. The left-right action is faithful because S_5 is centerless; inversion cannot be one of those maps (otherwise it would be an inner automorphism on a nonabelian group). This gives 28800 maps and stabilizer 200, as checked directly. Replay: python3 /workspace/branches/19ede26b-3375-4bd9-abfa-520504275776/independent_reproduction.py; recorded summary independent_reproduction.txt in the same directory. The frozen verification and uploaded checker were inspected without executing that checker; the decision concerns the stated group, not maximality of the isometry group.
 
-## Closest literature and limitations
-The direct modern formulation of the maximum-cardinality problem is Nguyen, arXiv:2404.15126; its results are general/asymptotic rather than this finite equality classification. Chee–Vu, DOI 10.1109/ISIT.2014.6875376, is close in metric and coding setting but its accessible abstract concerns generalized constructions. Cameron–Wu’s 20 September 2006 preprint is an earlier direct source for the Cayley metric, with a subgroup-weight complexity objective. The theorem is confined to \(S_5\) and distance \(3\), and the displayed isometry group is not claimed to be the full isometry group.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the usual Cayley metric and the published arbitrary-transposition sphere-packing bound, which already implies the upper bound 10 here. The distinct result is the complete equality structure, including the normalized subgroup and quotient-coset description, the labeled count, and the declared-action orbit. Inspected neighboring censuses differ in their generators or relation, not just notation. No claim of absence is made about the inaccessible Chee–Vu primary paper.
+
+## value
+
+PASS
+
+In the natural single-arbitrary-transposition correction problem on S5, the result exposes the exact affine subgroup structure behind equality, not just a small code size or a benchmark replay. It lets a researcher generate all optima without rerunning a general clique search and shows that the apparent normalized alternatives are equivalent under explicit metric symmetries. The structure, pair constraints and census together justify the finite scope; no extension to larger symmetric groups is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

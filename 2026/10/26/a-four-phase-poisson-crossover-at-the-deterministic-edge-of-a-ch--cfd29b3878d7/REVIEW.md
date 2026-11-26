@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The orbit-center change of variables gives a literal period-four permutation, so the finite matrix perturbation and its exponential limit need no unproved spectral estimates. The trigonometric circulant diagonalization recovers the full physical-position characteristic function. The exact velocity-correlation sum independently establishes the limiting mean-square formula. The standalone checks cover the exact finite-time law and residue-dependent Fourier limits, but the analytic proof is decisive.
+## correctness
 
-**Originality (PASS, best knowledge).** Wójcik and Kalz, arXiv:2602.09920v1, supply the chiral coin, fixed-parameter diffusion and four-cycle quantum-limit interpretation. Uhlig et al., arXiv:2609.12680v1, investigate disorder and fixed-parameter long-time transport. Iuliano and Verasani (2024) treat a continuous-time, four-direction stochastic flight with counting-process sojourns. The accessible relevant full-text portions do not state or directly imply the three-exponential discrete critical-window law or the explicit Poisson orbit center. Search cannot establish global priority; broader period-averaging theorems may be relevant.
+PASS
 
-**Value (PASS).** The regime \(n(1-p_n)\to\lambda\) is selected by the number of rare violations of a deterministic four-cycle, rather than by an arbitrary numerical parameter. It produces non-Gaussian finite-scale propagation, residue-class memory and an explicit Gaussian crossover, quantities not resolved by a fixed-parameter diffusion tensor. This provides a complete exact description of the natural transition between periodic confinement and long-time diffusion for the specified walk.
+The orbit offsets satisfy B_(Pd)+v_(Pd)=B_d; hence the center is constant at cycle steps. In Fourier variables the four-step transition is I+4(1−p_n)(G−I)+O((1−p_n)²), with the stated cyclic twirl G. The remainder times n vanishes, also when λ=0. The cyclic eigenvalues are g₀,g₁,g₂,g₁, and conjugating back to position with uniform initial direction gives the same four weights g₀,g₁,g₂,g₁. The multipliers from P^r are 1,i^r,(−1)^r,(−i)^r. This gives the stated characteristic function; continuity at zero gives weak convergence. At (π,π) the value is (−1)^r, and at (π,0) it is e^(−λ/2)cos(πr/2), proving exactly three distinct laws at every finite λ. For the center displacement the starting vector is the direction law at zero center displacement and the final direction is summed out; every column sum of G is g₀. This gives the orientation-independent compound-Poisson characteristic function, with g₀ the transform of the difference of two independent uniform square vertices. Equivalently, conditional on a fixed finite number of resets, the ordered reset slots have asymptotically independent uniform residues modulo four, by counting ordered slots in distinct four-step blocks. The fresh rotating-frame labels are independent uniform, and each independent uniform phase maps the previous label and fresh label to an independent uniform pair of absolute square vertices conditional on the past. Summing the jumps gives the same center limit. Summing the lag correlation p_n^k cos(kπ/2) with weight 2(n−k) gives the finite geometric-sum expression in the proof; its main term, constant term and terminal term tend respectively to λ, 1 and −e^(−λ)cos(πr/2). Finally the center jump covariance is I₂/2 and endpoint position offsets are bounded, giving the stated iterated Gaussian limit.
 
-**Limitations.** The theorem concerns classical stochastic transport on an obstacle-free infinite lattice; its uniform-start position formula should not be transferred to coherent quantum amplitudes, arbitrary initial directions, boundaries or disordered media. General stochastic homogenization theorems could in principle cover the process implicitly, so novelty is asserted only on inspected evidence.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same coin and fixed-parameter transport are prior work. The distinct part supported by the inspected comparisons is the unscaled rare-refresh limit, including the explicit residue-dependent position law and phase-independent compound-Poisson orbit-center displacement. The moment profile is a relatively direct finite-sum consequence of the known model's velocity correlations; it is not the main basis for novelty.
+
+## value
+
+PASS
+
+The fixed-parameter diffusion coefficient vanishes at the deterministic edge and cannot describe the law at order-one refresh counts. This crossover calculation resolves that boundary: the position retains exactly three phase laws while the center removes the terminal phase and has independently identified lattice jumps. The formulas give a usable comparison across the deterministic, compound-Poisson and large-rate Gaussian regimes for a previously studied walk.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

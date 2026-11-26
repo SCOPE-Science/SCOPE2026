@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:22:33.666766Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The full conjecture and single-crossing proof survive; the frozen assertion that the L1 proof does not imply L2 is false. The corrected RESULT proves L2 and its strictness for n>2m: S_m is the sum of right tails beyond m and includes a positive term, while before the cutoff S_k is at least alpha_1 and after it S_k is at least S_m. The recurrence for beta and its sign factorization, the derivative of h_m, the single turn of the endpoint sequence, and the strict lower bounds at N=m+1 and at infinity were reconstructed algebraically. With the published Simmons comparison and symmetry, this covers m=1,2 and n=2m. The malformed fraction in the endpoint induction and the unsupported L2 limitation in the verification notes are corrected. The frozen checker was inspected, not executed; its finite grids are not required for any analytic step. Replay is from repairs/2/RESULT.md, using the unchanged frozen verify.py only for optional corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper gives m=1,2 and 4<=m<=n/3, treats Poisson via sign changes, and states full n>=2m as Conjecture 4.1.",
+          "The cited Simmons bound is alpha_1>0. The adjacent negative-binomial records are not binomial laws."
+        ],
+        "reasoning": "The available statements do not reach the region 2m<n<3m for general m, either directly or by the stated reductions.",
+        "searches": [
+          "doi:10.37190/0208-4147.00050, §§3–4",
+          "Simmons inequality as formulated in §3 of the same paper",
+          "Resultary negative-binomial left-loadedness records 3cb49a69a1d9 and d47b985dbe4c"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "doi:10.37190/0208-4147.00050",
+        "MathOverflow 384456",
+        "Resultary 78a4e5e09253, 3cb49a69a1d9, d47b985dbe4c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old sign-pattern proof and the mean identity imply L2 on the old range. The present mass ratio and endpoint lemma imply the necessary crossing in the missing range as well."
+        ],
+        "reasoning": "Neither center-tail skewness nor the mean identity forces the other partial sums absent sign control. The prior mean-three endpoint argument does not already entail the endpoint bound for arbitrary m.",
+        "searches": [
+          "doi:10.37190/0208-4147.00050, Lemma 2.1, §3 and Conjecture 4.1",
+          "Resultary mean-three record 78a4e5e09253"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The definition uses L1 or L2 and Lemma 2.1 gives S_m>=0. The L1 sign pattern implies S_k>=S_m after the cutoff and S_k>=0 before it; left-loadedness and L2 are equivalent on this domain.",
+          "MathOverflow 384456 asks for all those partial sums in the nonsymmetric binomial range; the retrieved record gives no answer."
+        ],
+        "reasoning": "The partial-sum form is equivalent to the conjecture, not a separately stronger novelty claim; neither the question nor the mean identity proves the missing range.",
+        "searches": [
+          "Fokkink–Papavassiliou–Pelekis, doi:10.37190/0208-4147.00050, Definition 1.2 and Lemma 2.1",
+          "MathOverflow 384456, page and Stack Exchange API record"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mean-three record is expressly Bin(n,3/n), n>=6, with L1 and the symmetric boundary. Related negative-binomial entries concern another distribution."
+        ],
+        "reasoning": "The strongest distinct catalogue match gives only m=3. Finite test grids are not exact tables for an unbounded family.",
+        "searches": [
+          "Resultary mean-three binomial left-loadedness, 78a4e5e09253",
+          "Resultary negative-binomial left-loadedness 3cb49a69a1d9 and d47b985dbe4c"
+        ]
+      },
+      "rationale": "The supported distinction on the evidence inspected is full-range binomial sign and partial-sum control, not the mean identity, the L1-to-L2 implication, or the Poisson proof pattern. The strongest known same-family results apply only on proper parameter slices.",
+      "residual_risks": [
+        "No priority claim beyond the searched and inspected literature; alternate terminology for the binomial-tail problem can hide later results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage only; confirms imported center-tail inequality.",
+          "evidence": "L1/L2 definition; S_m equals right tails beyond m; Conjecture 4.1 states the full range n>=2m, with small means and 4<=m<=n/3 already proved.",
+          "identifier_or_url": "https://www.math.uni.wroc.pl/~pms/files_doi/g00050/g00050.pdf",
+          "material_read": "Definition 1.2 p.134 (offsets 3058–3617), Lemma 2.1 p.135 (near 6500), Simmons quotation p.139, §§3–4 pp.139–140 (near 18200–19477)",
+          "method": "OA journal PDF, bounded passages",
+          "title": "On the monotonicity of tail probabilities",
+          "trigger": "Exact motivating conjecture and strongest published range"
+        },
+        {
+          "assessment": "Question, not a proof.",
+          "evidence": "Asks for all partial sums and distinguishes them from the known alpha_1 inequality; retrieved answer count zero.",
+          "identifier_or_url": "https://mathoverflow.net/questions/384456/simmons-inequality-on-binomial-random-variables",
+          "material_read": "Question body and answer count",
+          "method": "Stack Exchange public API after the page denied access",
+          "title": "Simmons' inequality on binomial random variables",
+          "trigger": "Equivalent full partial-sum formulation"
+        },
+        {
+          "assessment": "Strict special case.",
+          "evidence": "Mean fixed at three, n>=6; no arbitrary-m statement.",
+          "identifier_or_url": "2026/10/4/SCOPE-the-mean-three-case-of-the-binomial-left-loadedness-conjecture--78a4e5e09253",
+          "material_read": "Finding and exact parameter range",
+          "method": "Resultary search and mirrored record",
+          "title": "The mean-three case of the binomial left-loadedness conjecture",
+          "trigger": "Strongest distinct catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Closes an explicit published conjecture on its full family with an analytic endpoint inequality and sign argument. It also answers the equivalent partial-sum question, with strictness off the symmetric boundary. This is not a new claim about only the previously solved small means or a finite parameter search.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

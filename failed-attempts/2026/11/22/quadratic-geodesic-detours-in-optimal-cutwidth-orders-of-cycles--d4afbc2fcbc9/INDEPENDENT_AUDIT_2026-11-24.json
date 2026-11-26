@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:34:31.631325Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each nonempty proper cycle subset has boundary size twice its number of cyclic components, and singleton cuts already have size 2. Thus feasible prefixes are cyclic intervals, with a root and n−2 independent end choices, then a forced last vertex. Only the intermediate prefix of a swap changes. At the first swap the root moves one step and the first bit flips, at the last the final bit flips, and internally precisely adjacent unequal bits may be exchanged. This also holds at n=3, when the two boundary swaps are distinct and there are no internal swaps. Degree is two plus the number of switches, so the binomial distribution and edge count follow. Particles can be moved right and removed, connecting each root layer, and first swaps connect the roots. For fixed equal roots, bringing the next target vertex left preserves connectivity: it is adjacent to the agreed prefix, contained in every changed prefix with that vertex inserted. Each such swap removes one Kendall inversion; every adjacent-swap path costs at least the Kendall distance. Between all-one states, equal interior occupancies force equal signed net flux F through every one of the n−1 interfaces, with F≡k modulo n because of the root change. This gives the lower bound (n−1)min(k,n−k); passing a vacancy across the word advances the root by one in n−1 swaps, and reversal of that path retreats by one. The unconstrained distance counts the k(n−k) inverted pairs between the two rotated blocks, yielding the claimed excess. Fresh permutation enumeration used explicit cycle-edge boundary sizes and BFS and confirmed the counts, connectivity, rotations and all root-zero pairs for 3≤n≤8 (root symmetry handles the other labels). This is finite corroboration, not an all-pairs or all-size numerical proof.",
+      "replay": "python3 /workspace/branches/replay/cycle_5.py",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jennings's Lemma 4.4 reduces all Yoke pair distances to distances from zero in dYoke graphs, and Lemma 5.15 gives exact distances for points with only outer pivots. Theorem 2.3 gives the diameter, including m=n−2.",
+          "Adin–Firer–Roichman's colored triangulation graph is the different instance Y_(N,N−4). Arrighi et al. guarantee a path at width up to the sum of the endpoint widths, not at width 2."
+        ],
+        "reasoning": "Exact coverage arises from the broader Yoke distance lemmas on this very instance; the generic cutwidth slack theorem and the other triangulation graph are not needed for that implication.",
+        "searches": [
+          "Jennings, Flip Graphs, Yoke Graphs and Diameter, Lemmas 4.4 and 5.15",
+          "arXiv:0901.4299 Lemma 5.3",
+          "doi:10.4230/LIPIcs.MFCS.2021.8 Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1210.6056",
+        "SLC 79 B79f (Jennings)",
+        "arXiv:0901.4299",
+        "doi:10.4230/LIPIcs.MFCS.2021.8",
+        "Resultary:8ecaeb9ac4ba",
+        "Resultary:9f12c29d9ece",
+        "Resultary:9e5fb40bac29",
+        "Resultary:46606467e152",
+        "Resultary:26333db55de7 (summary only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jennings Lemma 4.4 gives d_Y(v,u)=d_Z(v−u,0). Lemma 5.15 and its proof give d_Z(z,0)=min(Σ_i i z_i, Σ_i (m+1−i)z_i) if the only pivots are −1 and m+1. This is an exact equality, not only the diameter bound.",
+          "In the arc-permutation move description the fixed-root upper bound follows by elementary insertion: bubble the next target endpoint left past opposite-end choices, including the forced final choice if necessary. Inversions supply the lower bound. The distinct 132-avoiding graph of 8ecaeb9ac4ba does not supply the cycle result."
+        ],
+        "reasoning": "For clockwise rotations, choose v as the order with starting label advanced by k and u the other. Their difference is z=(k,0,…,0,n−k) for 0<k<n. Every proper prefix containing the first bucket has sum k, so no inner pivot exists. The two weighted sums are (m+1)(n−k) and (m+1)k, giving precisely the claimed distance with m=n−2; k=0 is trivial. The Kendall count and quadratic excess are then arithmetic. The fixed-root insertion uses only the known interval-order characterization and the standard inversion argument. Neither this nor counting switches yields a distinct nonmechanical remainder.",
+        "searches": [
+          "Jennings b79f Lemma 4.4 p. 6 and Lemma 5.15 p. 9",
+          "arXiv:1210.6056 §6.2 dominance and Eq. (1)",
+          "Resultary:8ecaeb9ac4ba"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Elizalde–Roichman defines arc permutations by the prefix-interval property; its graph X_n uses precisely adjacent-position transpositions staying in the family. Lemma 6.2 gives the same first and last moves and unequal internal exchanges in the same root-plus-bit encoding.",
+          "The Yoke state (s,b_1,…,b_m,t), m=n−2, with t=−s−sum(b) modulo n, satisfies Definition 2.1 and sends each move to transfer of one unit across the corresponding interface."
+        ],
+        "reasoning": "Every arc permutation gives an optimum cycle order and conversely, with no quotient by rotations. The move bijection is exact. In particular the cited arc-permutation graph is not merely an analogous flip graph.",
+        "searches": [
+          "Resultary: cycle cutwidth two connected prefixes binary growth adjacent transpositions",
+          "arXiv:1210.6056 §1, §6.1 and Lemma 6.2",
+          "Jennings b79f Definition 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Claim 2.8 gives exactly n·2^(n−2) vertices. Lemma 6.2 fixes the degree of every encoded vertex: two boundary moves plus the number of bit switches.",
+          "9f12c29d9ece studies stars and 9e5fb40bac29 double-stars. 46606467e152 gives flux distances for directed slides of indistinguishable spaced tokens, not adjacent-position swaps of cycle orders."
+        ],
+        "reasoning": "The checked catalogue analogues are not matching tables. The exact degree histogram is an immediate binomial count of switch positions in the already published bit move description; the edge total is its handshake sum. A separately printed table is unnecessary for this implication.",
+        "searches": [
+          "arXiv:1210.6056 Claim 2.8 and Lemma 6.2",
+          "Resultary: optimal cutwidth cycles degree census and rotation detour",
+          "Resultary:9f12c29d9ece",
+          "Resultary:9e5fb40bac29",
+          "Resultary:46606467e152"
+        ]
+      },
+      "rationale": "The labelled optimum-cutwidth graph is exactly the established arc-permutation graph and a Yoke graph. More decisively, the sharp rotation-distance formula including the lower bound is an exact specialization of Jennings's distance lemmas. The uncredited overlap is not just a general relaxation bound or a superficially similar detour. The remaining elementary censuses and rooted isometry do not establish a distinct material result beyond that literature.",
+      "residual_risks": [
+        "The exact definition in Resultary 26333db55de7 was not accessible; it cannot resolve further catalogue overlap. This does not affect the demonstrated arXiv/SLC coverage.",
+        "Priority among nearby same-day catalogue records is not inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical graph and encoding, including vertex count and stronger diameter theorem; degree counts follow directly",
+          "evidence": [
+            "Interval-prefix definition, n·2^(n−2), and the same three shift rules in Lemma 6.2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1210.6056",
+          "material_read": "§1 p. 2, Claim 2.8 p. 4, §6.1 and Theorem 6.1, §6.2 encoding ψ, Lemma 6.2 pp. 11–12 (offset 31100), Proposition 6.3 and Eq. (1)",
+          "method": "Open-access primary PDF passages; comparison of vertices and all local moves",
+          "title": "Arc permutations",
+          "trigger": "Exactly the cyclic interval prefix orders and their swap graph"
+        },
+        {
+          "assessment": "Covers the exact rotation distance by specialization on the identical graph, for every k",
+          "evidence": [
+            "Arc permutations realize Y_(n,n−2); Lemma 4.4 reduces differences to zero and proof of Lemma 5.15 evaluates the two outer pivot path costs."
+          ],
+          "identifier_or_url": "https://www.mat.univie.ac.at/~slc/wpapers/s79jennings.pdf",
+          "material_read": "Definition 2.1 p. 2, Theorem 2.3 p. 3, Lemma 4.4 p. 6 (offset 20050), Definition 5.2 p. 7, Lemma 5.15 and proof p. 9 (offset 31900)",
+          "method": "Open-access primary PDF; decisive distance passages read by offset, then specialized to the two bucket difference",
+          "title": "Flip Graphs, Yoke Graphs and Diameter",
+          "trigger": "Exact Yoke equivalence and possible general distance criterion"
+        },
+        {
+          "assessment": "A different Yoke instance, not the direct proof of coverage",
+          "evidence": [
+            "Colored flip graph on a polygon with q+4 labels has q bits, not q+2 bits."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0901.4299",
+          "material_read": "Theorem 5.1 and Lemma 5.3 p. 11, Proposition 5.6 p. 15",
+          "method": "Open-access primary PDF passages",
+          "title": "Triangle-Free Triangulations",
+          "trigger": "Related binary encoding and potential stronger distance theorem"
+        },
+        {
+          "assessment": "General path guarantee permits slack and is not the exact-covering result",
+          "evidence": [
+            "Peak width bounded by sum of the two endpoint cutwidths."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2021.8",
+          "material_read": "MFCS PDF Theorem 3 p. 5",
+          "method": "Open-access primary theorem passage",
+          "title": "Order Reconfiguration Under Width Constraints",
+          "trigger": "Frozen record's nearest named width theorem"
+        },
+        {
+          "assessment": "Different feasible permutations",
+          "evidence": [
+            "Identity to (n,1,…,n−1) has distance (n−1)² there."
+          ],
+          "identifier_or_url": "Resultary:8ecaeb9ac4ba",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror primary passage",
+          "title": "Quadratic adjacent-swap detours among 132-avoiding permutations",
+          "trigger": "Related exact order detour"
+        },
+        {
+          "assessment": "Not used for positive or negative coverage",
+          "evidence": [
+            "Summary describes a prefix-normal binary-word detour; exact hypotheses were not established."
+          ],
+          "identifier_or_url": "Resultary:26333db55de7",
+          "material_read": "Catalogue summary only; exact mirror RESULT.md unavailable",
+          "method": "Local catalogue and mirror attempt",
+          "title": "The sharp first geodesic detour in prefix-normal word chain generators",
+          "trigger": "Potential related prefix-word encoding"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The cycle cutwidth viewpoint provides a useful interpretation of a familiar graph. However, the central sharp quadratic detour is a parameter specialization of a published metric reduction and exact distance calculation. The other quantities are the prior vertex count, simple switch counts from the published moves, and a standard fixed-prefix insertion argument. There is no demonstrated distinct valuable theorem left to repair in the stated scope.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

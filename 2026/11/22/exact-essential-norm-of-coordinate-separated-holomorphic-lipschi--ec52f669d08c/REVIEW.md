@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The operator norm is the uniform scalar derivative supremum. The compact upper approximants are finite-coordinate holomorphic linearizations whose slope sets are bounded and finite-dimensional, so the published compactness theorem applies. Differentiating the evaluation-embedding compositions, with a uniform second-derivative bound strictly inside the unit ball, produces an upper bound for the distance to compact operators that tends to the derivative tail. Conversely, derivative-evaluation test vectors, a norm-one barycenter and escaping coordinates give the sharp lower bound against every compact operator. Uniform compactness of the image provides the requisite small value tails. A separately executable finite diagnostic passed 2,080 numerical assertions; the infinite theorem is proved analytically, not inferred from testing.
+PASS
 
-## Originality — PASS (with bibliographic risk)
+The coordinatewise mean-value bound and the directional derivatives at ze_j give the Lipschitz norm C; uniform convergence of the finite-coordinate holomorphic maps on the ball yields holomorphy. Each truncation has bounded slopes in a finite-dimensional target subspace and strict interior range, so its linearization is compact by the cited criterion. More directly, its normalized evaluation slopes are integrals of Dδ on the compact closed radius-r finite-dimensional range ball, applied to bounded vectors of the same subspace. They lie in the closed absolutely convex hull of a norm-compact set; the normalized slopes generate the free-space unit ball by polarity. A uniform Cauchy bound for D²δ on the radius-r ball, using the positive distance 1−r to the boundary, and the chain rule give the upper bound C_N+K_r Cη_N on the truncation error, with η_N→0. For the matching lower bound, the unit evaluation derivatives at the near-norming ze_j map under βT to φ'_j(z)e_j. After passing to a subsequence any compact perturbation has norm-convergent barycenters, whose escaping coordinates vanish. This proves the lower bound even against compact operators that are not linearizations. The weak-compactness inputs apply to the stated spaces and geometry; for p=1 the lower-bound vectors also disprove weak compactness if the limsup is positive, by the Schur property after applying β. The j² monomials realize the entire range, including zero, since their norms and tails are bounded by the convergent j^{-2} series. Inspected check_diag.py without executing it; its bounded numerical checks of the examples are not the proof.
 
-Bayart--Lemay--Petitjean (arXiv:2610.26047, full text inspected, Theorems 3.9, 4.1, 4.10 and Examples 4.11, 4.14) already establish the qualitative compactness/weak-compactness theory and diagonal monomial counterexamples. Dimant--García-Lirola--Guerrero-Viu--Procházka (arXiv:2605.21279, full text §4.2 and Example 4.13) study adjoint composition maps and present a related example. The exact distance-to-compact formula for all separated-coordinate symbols and its complete normalized continuum are not stated by these sources. Targeted research-record searches also returned distinct weighted-Hardy and free Banach-lattice essential-norm results, not a covering statement. An equivalent unindexed quantitative treatment remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This exact Calkin norm quantifies rather than merely detects a natural functional-analytic distinction. The theorem treats all separated-coordinate holomorphic maps with compact strict-interior range, and realizes every normalized essential-norm value for weakly compact linearizations when the target is reflexive. The strict interior and coordinate-separation restrictions are structural, not suppressed. Its proof combines both upper approximations and an exact lower obstruction; no claim is made beyond the proven domain.
+The supported distinct claim is the sharp distance to arbitrary compact operators for the whole stated coordinate-separated family, including the normalized range of that distance. The standard norm identity, weak compactness assertions as qualitative facts, and the qualitative endpoint monomial witness are credited to preceding work. Neither the prior qualitative criterion nor the examples supply the sharp positive distance in the inspected comparisons.
 
-## Limitations and literature
+## value
 
-The result assumes a standard complex \(\ell_p\) range and domain, \(1\le p<\infty\), diagonal coordinate dependence, strictly interior symbol image and norm-precompact symbol image. The 2026 sources supply essential qualitative compactness and weak-compactness facts; an independent assessment of mathematical priority and correctness has not yet been performed. The standalone diagnostic does not establish infinite-dimensional claims.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Calkin norm is a natural refinement of the known compactness criterion. This formula quantifies exactly what is lost by compact approximation even when the symbol itself has precompact range, and its continuum of examples distinguishes weakly compact operators with every possible normalized norm defect in the reflexive setting. It applies to arbitrary coordinate maps satisfying the stated bounds, not just an isolated monomial example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

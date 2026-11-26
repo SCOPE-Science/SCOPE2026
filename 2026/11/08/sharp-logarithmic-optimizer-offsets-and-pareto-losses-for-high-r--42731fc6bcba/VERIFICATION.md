@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,6 @@
 
 # Analytical and computational verification
 
-The analytic result follows from the explicit frame-bound equations in Section 8 of Faulhuber–Shafkulovska (arXiv:2204.02917). The proof checks their normalization, expands the hyperbolic functions uniformly at \(\eta=2\log n+s\), isolates and brackets the three critical points, and applies the cited global optimizer uniqueness to transfer local critical-point calculations into global sharp asymptotics. The positive regret coefficients follow from strictly convex profile functions with distinct minimizers. In particular, the calculations establish a theorem for all sufficiently large integer redundancies, rather than merely a finite test.
+The two sharp frame-bound formulas and finite-redundancy optimizer premises come from Faulhuber–Shafkulovska, arXiv:2204.02917, §8. Differentiated uniform expansions in the bounded additive strip give the two individual optimizer offsets, and value expansions give their compact-uniform loss profiles. The earlier condition-number optimizer offset is used as an input; evaluating the two loss profiles there yields the two positive regret coefficients.
 
-A standalone reproducibility script `check_gabor.py` uses Python 3 plus `mpmath` and runs with `python check_gabor.py`. The check covers five redundancy values, signs and locations of three critical points, Taylor errors, independently truncated doubly infinite Walnut-series values at extremizing Zak phases, and limiting regret positivity and convergence in three redundancies. Its expected successful output is `GABOR_HIGH_DENSITY_CHECKS_PASS 76`. The Walnut calculation uses finite truncation without a rigorous universal tail certificate, and the finite numerical tests do not prove the asymptotic theorem or mathematical novelty. No external independent audit has taken place.
+The accompanying `check_gabor.py` uses Python 3 and `mpmath`. The script covers five redundancy values for the bounded-strip expansions and optimizer checks, four sample truncated Walnut multipliers at each of the two extremizing phases, and both scaled regret coefficients. Some of its tests also check the prior condition-number asymptotic. The expected successful output is `GABOR_HIGH_DENSITY_CHECKS_PASS 76`. Finite numbers and truncations are diagnostics, not universal tail certificates, proofs of the limits, or priority evidence.

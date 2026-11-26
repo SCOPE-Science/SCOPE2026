@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:30:33.514599Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 16–80",
+        "VERIFICATION.md lines 19–22",
+        "verify.py lines 8–58 (inspected, not run)",
+        "Independent exact rational check of the witness signs and square comparison"
+      ],
+      "rationale": "A strictly increasing branch cannot interchange two of its own points. In a crossing cycle the left state satisfies 0<x≤min(b,c), and the strictly increasing right inverse forces a unique right state y=b+(1-b)(x/c)^(1/d). The scalar difference D between L and this inverse is therefore exact, including a possible zero at x=b=c and excluding x=0. Differentiation on the open domain reduces D'=0 to a level of [x^(1/d)(1-x/b)]^(1-d). The base increases to b/(d+1) and then decreases, so d≠1 yields at most two critical points; Rolle applies also between interior roots and an included endpoint. At the rational witness, an independent fraction check confirms D(0)=-1/20, D(3b/4)=-67/1960, D(b)=41/490 and the positive squared gap 168613/3841600 for D(b/4)>0. The three brackets give all roots and force all three to be simple, since two inter-root critical points already exhaust the bound. At a root the positive two-step multiplier satisfies μ-1=R'(L(x))D'(x); the signs +,-,+ give two repellers and an attractor. L(x)-x≥1/20, and y²≥4b(y-b) gives R(y)/y≤7/40 on the right. Both inequalities have a uniform positive fixed-point exclusion margin on their compact rescaled branch domains, using the continuous extension of the right formula at b only for that margin. The root brackets and margins persist on an open parameter set. At d=1,a=b=c the two branches are exact inverses on the listed crossing states, yielding the stated continuum.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The piecewise increasing contraction theorem assumes a common Lipschitz bound λ<1 on the branches and a right-continuous convention. The displayed witness has an unbounded left derivative and F(b) differs from the right limit.",
+          "The piecewise linear map paper is a relevant neighboring comparison, but its full text was not accessible by the attempted lawful routes."
+        ],
+        "reasoning": "A periodic-orbit bound in a strictly contracting class does not imply a sharp primitive-two-cycle bound in this noncontracting family. No conclusion about the full scope of the unavailable paper is used.",
+        "searches": [
+          "Gaivão–Nogueira arXiv:2007.08014, definition and Theorem 1",
+          "Hogan–Higham–Griffin DOI 10.1098/rspa.2006.1735, full-text retrieval attempt"
+        ]
+      },
+      "checked_sources": [
+        "Symmetry 15 (2023), 1311, §4.1 and conclusion",
+        "arXiv:2007.08014 pp. 1–2",
+        "DOI 10.1098/rspa.2006.1735 (metadata and access attempt only)",
+        "Resultary e0bdfaa72c7e, dd9acbf9570b, 46dbd0563009, b9e8fc30adbd, 3ab687079720"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 1 proves no fixed points for d≥1; Remark 4 notes parameter dependence below 1. The earlier fractional fixed-point diagram covers the no-fixed-point property at the witness exactly.",
+          "Neither the fixed-point theorem nor the restricted later cycle census yields the two critical point bound on the full crossing domain for all admissible d≠1."
+        ],
+        "reasoning": "Credit is not claimed for fixed-point exclusion in isolation. It is the sharp all-parameter primitive-two-cycle bound and the joint hyperbolic coexistence witness that survive comparison.",
+        "searches": [
+          "Lawnik–Moysis–Volos §4.1, Lemma 1 and Remark 4; Resultary e0bdfaa72c7e and b9e8fc30adbd"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (15) has the same formulas, parameters, and value F(b)=1, so phase diagrams in this family must be compared directly.",
+          "The strongest cycle census b9e8fc30adbd restricts to 0<c<b<a<1,d≥1. The frozen sharpness witness has d=1/2 and a<b<c, and its stability pattern is reversed."
+        ],
+        "reasoning": "A count of intersections of the left branch and inverse right branch is exactly a count of crossing primitive two-cycles here. Counts of fixed points of the original map are different. A global branch interchange or smooth conjugacy cannot turn two repelling orbits and one attracting orbit into the opposite pattern.",
+        "searches": [
+          "Lawnik–Moysis–Volos DOI 10.3390/sym15071311, equation (15), fixed points and examples",
+          "Resultary: two-cycle cusp and variable exponent in the two-branch power family"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e0bdfaa72c7e gives the fixed-point phase diagram and already excludes fixed points at the witness parameters; it does not count primitive two-cycles.",
+          "dd9acbf9570b and 46dbd0563009 give narrower d=2 triple-coexistence results with attracting outer cycles. b9e8fc30adbd treats variable exponent under strict alternation for d≥1. 3ab687079720 treats a contraction regime with a unique attracting cycle on one side."
+        ],
+        "reasoning": "These are relevant exact censuses, but none covers the full-domain d≠1 upper bound or the fractional-power repelling–attracting–repelling witness. Dates are catalogue evidence, not publication-priority determinations.",
+        "searches": [
+          "Local Resultary: two-cycle coexistence, fixed-point-free quadratic power maps, fractional-power fixed-point diagram"
+        ]
+      },
+      "rationale": "The underlying map and known fixed-point statements are prior. The inspected literature and catalogue do not establish the full all-parameter d≠1 primitive-two-cycle upper bound or the open fractional-power witness with two repellers and one attractor. Later strictly alternating cycle censuses are substantive overlaps in a restricted regime, not the same theorem.",
+      "residual_risks": [
+        "The piecewise-linear neighboring paper could not be inspected at statement level beyond the available metadata; unindexed equivalent period-two analyses remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same family and prior no-fixed-point results, not the scoped primitive-two-cycle count in the passages inspected",
+          "evidence": [
+            "Formula uses the left branch at b; d≥1 is a sufficient no-fixed-point regime and d<1 is parameter-dependent."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym15071311",
+          "material_read": "OA PDF §4.1 eq. (15), Lemma 1 pp. 5–6, Remark 4 pp. 6–7 and conclusion p. 13",
+          "method": "Original publisher OA PDF passage inspection",
+          "title": "A Family of 1D Chaotic Maps without Equilibria",
+          "trigger": "Same discontinuous power-map family"
+        },
+        {
+          "assessment": "Hypotheses exclude the sharpness witness",
+          "evidence": [
+            "Common branch Lipschitz coefficient below one and right continuity; bound n+1−ℓ."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2007.08014",
+          "material_read": "Definition p. 1 offset 2498; Theorem 1 p. 2 offset 4719",
+          "method": "Original lawful OA PDF passages",
+          "title": "Dynamics of piecewise increasing contractions",
+          "trigger": "Plausible general bound on numbers of periodic orbits"
+        },
+        {
+          "assessment": "Precise statement-level scope unresolved; no negative inference",
+          "evidence": [
+            "The title concerns a piecewise linear map. Publisher full-text access returned 403; no identified OA copy was retrieved."
+          ],
+          "identifier_or_url": "https://doi.org/10.1098/rspa.2006.1735",
+          "material_read": "Bibliographic metadata; no original full-text passage obtained",
+          "method": "Bounded original publisher and lawful alternate retrieval attempts",
+          "title": "Dynamics of a piecewise linear map with a gap",
+          "trigger": "Neighboring discontinuous-map period-two study"
+        },
+        {
+          "assessment": "Already implies no fixed points at the frozen witness; not a cycle census",
+          "evidence": [
+            "At d=1/2,b=1/10 one has b<d and right threshold c=3/5, exceeding 21/200."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-complete-fractional-power-fixed-point-phase-diagram-for-a-discon--e0bdfaa72c7e",
+          "material_read": "Finding and branch root criteria",
+          "method": "Configured local Resultary mirror",
+          "title": "Complete fractional-power fixed-point phase diagram for a discontinuous power map",
+          "trigger": "Exact family and witness range below d=1"
+        },
+        {
+          "assessment": "Restricted same-family census, distinct witness and scope",
+          "evidence": [
+            "0<c<b<a<1,d≥1; triple regime has two attracting cycles."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-variable-exponent-cusp-and-inevitable-high-degree-bistability--b9e8fc30adbd",
+          "material_read": "Finding and hypotheses",
+          "method": "Configured local Resultary mirror",
+          "title": "A variable-exponent cusp and inevitable high-degree bistability",
+          "trigger": "Closest statement-level overlap in variable-exponent cycle count"
+        },
+        {
+          "assessment": "Different exponent and stability pattern",
+          "evidence": [
+            "d=2, strict alternation, outer attracting and middle repelling cycles."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-cusp-of-coexisting-two-cycles-in-a-fixed-point-free-quadratic--dd9acbf9570b",
+          "material_read": "Finding and parameter/stability restrictions",
+          "method": "Configured local Resultary mirror",
+          "title": "A cusp of coexisting two-cycles in a fixed-point-free quadratic map",
+          "trigger": "Same family and sharp bound in a quadratic regime"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding, global count, sharp witness and d=1 exception",
+        "Lawnik–Moysis–Volos §4.1"
+      ],
+      "rationale": "The family is an established model introduced to study dynamics without equilibria. A sharp global census for its first nontrivial period, proved even when fixed points exist, and an open fixed-point-free realization with both attracting and repelling primitive cycles provide structural information absent from a fixed-point or numerical chaos study. The unrestricted affine exponent degeneration explains why the exponent hypothesis matters.",
+      "residual_risks": [
+        "The result does not classify basins, rule out other periods, or prove chaos."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:16:28.567553Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The literal original correctness assessment is FAIL at V=∅: the Finding says any finite poset, the maximum has no blocks, max_i is undefined as written, and no distinct data pair exists. Even with the canonical zero-dimensional norm the least Lipschitz bound is 0, not the asserted 1. The complete replacement RESULT.md and SLOGAN.txt in /workspace/repairs/2/ restrict the finding to nonempty finite posets, address the empty case separately, and correct the reported profile description (four fitting choices × three monitoring choices on each of seven orders). In the repaired claim, active Hasse components are connected and order-convex because every saturated path between comparable equal-valued endpoints is constant. Strict external edges permit blockwise variations; stationarity makes each branch a direct sum of weighted means. Weighted duality gives the exact branch norms at every q including the endpoints. Continuity and finitely many affine branch restrictions give the global bound on every segment. Conversely, contracting one convex block yields an acyclic quotient, since a new cycle lifts to a path through an outside vertex between block members. Choose strict levels on this quotient and data with residual equal to the sum of internal edge normals. For a small perturbation z, the weighted residual change M(z−Az) is zero off the block and has zero block sum; internal edge vectors span that space by connectivity. Using a fixed basis expresses the change with small coefficients, preserving positivity of active multipliers and strict external inequalities. This proves local affine attainment for each block, also for singletons. A cover pair is an admissible block, and equality in Hölder (or the maximum bound at q=1) forces h_i/m_i to match across each cover; the sup norm is always preserved on constants and nonexpansive. With m=(9,1), h=(1,1), the two-point block gives 2·9/10=9/5 and 2·82/100=41/25 for q=1 and squared q=2, respectively. The proof applies to all positive real masses and disconnected orders. The frozen verification script was inspected, not executed; its finite diagnostics do not cover the empty order or certify the general theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yang–Barber defines the unweighted least-squares projection on a chain and characterizes contractive monitoring norms by monotonicity under neighbor averaging.",
+          "Finite piecewise-linear sensitivity reduces to maximal branch norms but neither lists the possible connected convex pooling sets nor proves that each is realized by an open set of inputs."
+        ],
+        "reasoning": "Yang–Barber allows broader types of norms on its fixed unweighted chain, but lacks arbitrary fitting masses and order structures and does not supply sharp constants for failed contractivity. The general local-to-global reduction is an ingredient, not a theorem giving the order-specific maximum and attainability.",
+        "searches": [
+          "Yang Barber 'Contraction and uniform convergence of isotonic regression' chain norm theorem; Lipschitz constant piecewise linear projection onto polyhedral cone maximum operator norms active faces",
+          "arXiv:1706.01852 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Yang–Barber arXiv:1706.01852",
+        "Németh–Németh arXiv:1503.08458",
+        "Resultary 7bfc7f16ca62 exact mirrored statement"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniform masses and a chain in the repaired formula recover the ordinary ell_q contraction on the chain, and uniform fitting and monitoring at q=2 overlap the indexed statement.",
+          "The nonuniform two-point block already has factor 9/5 in ell_1 where equal masses give one; general finite-poset sharpness requires a locally attainable convex connected pool."
+        ],
+        "reasoning": "The known special cases follow from the repaired result. The converse implication fails: these prior statements neither encode two independent masses nor specify which pools control attainment or the exact rigidity condition.",
+        "searches": [
+          "arXiv:1706.01852 Theorem 1 and neighboring permutation-invariance lemma",
+          "Resultary 7bfc7f16ca62 Finding",
+          "arXiv:1503.08458 p. 4 order-preserving projection definitions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Scaling coordinates by √m turns fitting into Euclidean projection but also changes both the cone inequalities and monitoring weights. It does not transform the problem into unweighted isotonic fitting on the original order.",
+          "Németh–Németh studies coordinate-order preservation; such order preservation is not an exact norm formula. The two-point witness amplifies unweighted ell_1 despite fitting monotonicity."
+        ],
+        "reasoning": "The weighted projection and the cross-norm problem must be compared with the same cone and norm after conjugation. A statement about order preservation or Euclidean same-norm nonexpansivity does not give the mismatched pullback norm.",
+        "searches": [
+          "exact weighted isotonic least squares data-to-fit Lipschitz norm order-convex Hasse-connected blocks distinct fitting monitoring weights all ell_q",
+          "weighted quadratic projection onto finite isotonic order cone exact Lipschitz constant arbitrary cross norm monitor weights fitting weights equality blocks",
+          "arXiv:1503.08458"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed record 7bfc7f16ca62 deals with unweighted ell_p-objective metric projection and measures perturbations in that same ell_p norm.",
+          "At p=2 this covers unweighted Euclidean nonexpansivity on finite orders; at p≠2 the underlying optimization map is different."
+        ],
+        "reasoning": "Changing p in the indexed result cannot keep the objective quadratic while selecting an independent monitoring exponent, much less give independently weighted fitting and monitoring. No exact catalogue match was found in the bounded searches.",
+        "searches": [
+          "exact weighted isotonic least squares data-to-fit Lipschitz norm order-convex Hasse-connected blocks distinct fitting monitoring weights all ell_q",
+          "weighted quadratic projection onto finite isotonic order cone exact Lipschitz constant arbitrary cross norm monitor weights fitting weights equality blocks",
+          "Resultary 7bfc7f16ca62 RESULT.md"
+        ]
+      },
+      "rationale": "For the repaired nonempty scope, the attainable block maximum and exact two-weight rigidity are not supplied by the closest indexed or published statements inspected. The general piecewise-linear reduction is standard, not an additional originality claim; identification and open-region realization of the possible pools and their exact weighted dual norms are the distinct results being assessed.",
+      "residual_risks": [
+        "General projection sensitivity references and weighted isotonic block-realizability results were not exhaustively searched; a broader unlocated theorem could cover some or all of the order-specific calculation.",
+        "The ranked semantic searches are not a publication-priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers ordinary unweighted chain contraction but not the weighted finite-poset coefficient or independent fit/monitor choices.",
+          "evidence": [
+            "Theorem 1 compares contractivity with monotonicity under neighbor averaging for unweighted Euclidean chain regression.",
+            "The nearby lemma includes permutation-invariant norms, hence ordinary ell_p."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1706.01852",
+          "material_read": "PDF p. 1 (offset 0 setup), p. 4 (offset 13367, Theorem 1 and neighboring lemma).",
+          "method": "Read original OA PDF passages and compare norm and model hypotheses.",
+          "title": "Contraction and uniform convergence of isotonic regression",
+          "trigger": "Sharp norm criterion for isotope regression on a chain."
+        },
+        {
+          "assessment": "Coordinate-order preservation is not a two-weight sharp Lipschitz coefficient.",
+          "evidence": [
+            "An isotonic projection set there is defined by order preservation of its metric projector."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1503.08458",
+          "material_read": "PDF p. 4, around offset 10894, order-preserving projection definition and cone characterization.",
+          "method": "Read original OA text on the projection property and compare it with induced norm sensitivity.",
+          "title": "Isotonic regression and isotonic projection",
+          "trigger": "Related weighted isotonic cone projection and order behavior."
+        },
+        {
+          "assessment": "Overlaps at unweighted p=2 with identical norm, not the cross-norm quadratic projection for independent masses.",
+          "evidence": [
+            "The objective minimizes the unweighted p-power loss and distances are measured in the same ell_p norm."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-ell-p-isotonic-regression-stability-on-every-finite-partia--7bfc7f16ca62/RESULT.md",
+          "material_read": "Exact Finding and assumptions at offset 0.",
+          "method": "Read the local mirrored text and compare the optimization objective and monitoring norm.",
+          "title": "Sharp ell_p isotonic regression stability on every finite partial order",
+          "trigger": "Indexed finite-order sharp norm result with nearly identical title."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fitting weights and reporting weights can differ in a finite monotone estimation problem. An exact attainable stability factor, expressed in terms of geometrically characterized pools, measures amplification in precisely that setting. The componentwise proportionality criterion and opposite cover-pair witness give a useful diagnostic rather than just a numerical example or an arbitrarily chosen order. Excluding the empty order leaves this entire scientifically useful domain intact.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

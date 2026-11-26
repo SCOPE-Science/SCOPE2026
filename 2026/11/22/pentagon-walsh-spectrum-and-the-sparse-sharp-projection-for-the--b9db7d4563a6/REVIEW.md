@@ -1,19 +1,21 @@
-# Scientific review: Petersen pentagon convolution
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the exact fifteen-edge Petersen graph, every pentagon is generated from its canonical simple five-vertex path, and independently from the complements of its six perfect matchings. The twelve resulting masks span the full dimension-six binary cycle space. The sixty-four compressed signed sums have multiplicities \(-12:1,-4:15,0:32,4:15,12:1\); these independently match the complete 32,768-character Walsh transform after the exact multiplicity factor 512. Fourier inversion of the spectral-support indicator has one value \(1/2\), ten values \(1/8\), and six values \(-1/8\), precisely on the stated edge configurations. Translation averaging gives the minimum norm for arbitrary real or complex projections. No finite experiment is used as an infinite proof; the claim is finite.
+PASS
 
-## Originality — PASS, with residual historical risk
+A fresh exact replay using the disjoint-pairs presentation of Petersen enumerates the 64 even-incidence edge subsets, selects the pentagons and hexagons by weight, and separately checks that the six weight-ten words are all disjoint-pentagon pairs. It counts all 32768 signed character sums and certifies the independently computed group-algebra identity k^4−16k^2=576·1_even-cycle-space. The signed counts are 512,7680,16384,7680,512 at −12,−4,0,4,12. The polynomial (160k^2−k^4)/2304 equals the spectral-support idempotent and has exactly the claimed coefficients. Character orthogonality yields rank and nullity 16384 and Euclidean range condition number 3. Averaging an arbitrary range projection over translations preserves range and identity on it and contracts both operator norms. The resulting convolution projection is forced by its character multipliers. Convolution attains its kernel l1 norm 5/2 at a point mass for l1 and at a sign-matched vector for l-infinity, over either field. No uploaded script was executed.
 
-DeVos–Mkrtchyan–Petrosyan (arXiv:0801.3714, 2008-01-24; full accessible paper inspected) prove a cubic-graph characterization using five-cycle two-factors, not the signed edge-character transform. Brouwer's Petersen catalogue and the accessible exposition *The Petersen code* count the twelve pentagons and give the cycle-code weight enumerator but do not give a pointwise character spectrum or the optimal projector. A published coset-leader/tie census concerns syndrome decoding; a published Petersen spanning-tree spectrum concerns 2,000 trees rather than twelve pentagons. These results do not logically entail the exact 64-character table or the seventeen-point signed projection kernel. A comprehensive older specialized coding-theory source could still contain the same character table, and the Holton–Sheehan monograph was not read in full; neither search nor this review establishes absolute priority.
+## originality
 
-## Value — PASS
+PASS
 
-The twelve shortest cycles of the Petersen graph constitute the minimum-weight orbit of its canonical \([15,6,5]\) binary cycle code, with intrinsic interest in graph cycles and error correction. The theorem quantifies precisely the recoverable Walsh frequencies and produces a striking geometrically supported **signed** range projector: its nontrivial coefficients discriminate hexagons from disjoint pentagon pairs. The sharp \(5/2\) endpoint amplification distinguishes this Fourier range from contractive subgroup projections and can serve as an exact benchmark for inverse problems on graphical codes. A natural finite, complete invariant suffices here; no larger-family application is claimed.
+The code enumerator and two-factor structure are prior coverage. The exact signed five-cycle transform and geometric support of its inverse spectral mask are not supplied by the closest inspected code, graph, or transform sources; the endpoint theorem depends on that new kernel computation.
 
-## Boundaries and reproducibility
+## value
 
-The standalone `verify.py` uses only the Python standard library. The two finite signed-sum computations share the same graph definition but use different transformations; the independent perfect-matching construction cross-checks the shortest-cycle set. Exactness and the limits of the bounded source comparison are disclosed in `RESULT.md`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+On a canonical edge-incidence code and its distinguished girth cycles, the spectrum reports exact information loss and conditioning. The 17-point, signed geometric support is more informative than a rank table: it gives a concrete reconstruction projector and the exact smallest possible endpoint amplification even without translation symmetry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

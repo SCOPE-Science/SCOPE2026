@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:27:56.043866Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–61; VERIFICATION.md, lines 21–27; CHECKER.py, lines 9–72 (static)",
+        "Gould–Grau–Johnson, arXiv:2307.11596v1, Theorem 2.1 and Proposition 4.2",
+        "Independent truncated recurrence reproduced 0,0,0,1,4,15,46,133,362,951,2419,6002,14591,34833; independent simultaneous-permutation canonicalization at n=1,...,5 reproduced all five labeled/all-orbit/rank-three triples."
+      ],
+      "rationale": "On im(t), t is an involution by t^3=t, so every other point is one step from a fixed point or two-cycle. The law et=e makes e constant on each t-component, te=e puts each target at a t-fixed vertex, and e^2=e makes that target its own image. Thus a fiber of e is precisely a distinguished rooted star and a multiset of other stars and two-cycle components; fibers themselves form an unordered multiset. For size j>=2, the unordered leaf-count pairs with sum j-2 yield floor(j/2) two-cycle types. Excluding every such type is exactly the t=t^2 condition; hence the subtraction of Euler transforms counts all and only the rank-three compatible-pair orbits. There is no t^2=e cancellation when t!=t^2, since then te=t^3=t would force e=t. The formal logarithmic derivative gives both divisor recurrences. The cited classification and essentiality apply in the claimed n>=5 generator regime; small-index coefficients have the compatible-pair interpretation.",
+      "residual_risks": [
+        "Finite recomputations corroborate the bijection but do not establish the all-size claim; that rests on the component proof and the cited classification. No full generator enumeration is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "05f93685b217 explicitly gives the rank-three series alongside the essential rank-two plane-partition count and complete generator cardinality for n>=5.",
+          "The cited structural paper poses formulas for the rank-three and rank-two counts as remaining work; the thesis's orbit-union classification is structural."
+        ],
+        "reasoning": "The broader indexed enumeration directly includes, rather than merely motivating, this frozen rank-three result for the entire asserted generator regime. Published structural classification by itself is not that enumeration.",
+        "searches": [
+          "05f93685b217, Finding and Proof §§1–2",
+          "arXiv:2307.11596v1, Proposition 4.2 and §8; Grau thesis Ch. IV"
+        ]
+      },
+      "checked_sources": [
+        "Exact local-mirror record 05f93685b217 and primary OA comparisons identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The overlapping proof classifies t-components and e-fibers as exactly the two levels of multisets and removes the cases with no two-cycle.",
+          "Krattenthaler–Müller count labeled pairs of commuting idempotents, whereas this count uses a nonidempotent tripotent and takes simultaneous conjugacy classes."
+        ],
+        "reasoning": "The match explicitly implies the frozen series and its recurrence. The older idempotent enumeration does not imply it by specializing the degree or replacing an exponential by an ordinary generating function.",
+        "searches": [
+          "05f93685b217 Proof §1",
+          "Krattenthaler–Müller arXiv:math/0303028v2, equations (1.8)–(1.10), Theorem 4 and Corollary 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "05f93685b217, Finding, offset 0 and Proof §1, offset 1699 onward: compatible-pair simultaneous conjugacy; r3=[z^n](M(F1)-M(F0)).",
+          "Gould–Grau–Johnson Theorem 2.1 gives the compatible-pair parametrization, not the formula."
+        ],
+        "reasoning": "The other record's M is the Euler transform here, M(A)=P for A=z/(1-z), and M(D)=Q for D=z^2/((1-z)(1-z^2)); then F1=A M(A+D)=B and F0=A M(A)=C. This is exact identity of the formal series, not just a similar counting method or shared coefficients. The conjugacy orbits are the same as the right automorphism orbits in the stated classification.",
+        "searches": [
+          "Resultary: rank-three orbits semigroup endomorphisms full transformation monoid compatible pairs t^3=t te=et=e^2=e nested Euler product r_3",
+          "External: ‘The structure of End(T_n)’ ‘rank-three’ orbit generating function Gould Grau Johnson Section 8 r_3(n)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched Resultary entry provides the exact coefficient extractor, which gives every table entry here; its displayed total-generator values are not themselves a rank-three table.",
+          "The thesis distinguishes labeled rank counts from the orbit questions and does not give the rank-three orbit list in the inspected passages."
+        ],
+        "reasoning": "The identical formal products mechanically reproduce the frozen recurrence and all its finite coefficients. A labeled rank count or a total-generator number alone would not supply these orbit counts.",
+        "searches": [
+          "Resultary rank-three Euler-product query above; 05f93685b217 Finding and rank-three proof",
+          "Grau thesis Ch. IV.3 (printed pp. 113–115) and IV.9 (pp. 145–146)"
+        ]
+      },
+      "rationale": "A distinct indexed result, Plane partitions and exact generator ranks for endomorphism monoids of full transformation semigroups (05f93685b217), demonstrably covers the entire rank-three contribution, giving exactly the same nested Euler product and the same fiber decomposition within a stronger enumeration. This is a coverage decision for this independent review, not a claim that the other record predates the frozen work or that it derived the formula independently. Its catalogue date is later and the relation between the derivations is not established.",
+      "residual_risks": [
+        "The exact matching entry's later catalogue date does not establish how the records are related or who first derived the result; no priority conclusion is made.",
+        "No external exact match was retrieved by the bounded web query; this is not evidence for historical novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalence within a stronger result; recorded later; no inference of priority",
+          "evidence": "F1=A M(A+D), F0=A M(A), D=z²/((1-z)(1-z²)); the same component multiset inside each fiber and multiset of fibers. Also counts essential rank-two orbits.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-plane-partitions-and-exact-generator-ranks-for-endomorphism-mono--05f93685b217/RESULT.md",
+          "material_read": "Finding offset 0; Assumptions and Proof §§1–2 offset 1699; Relationship to prior work offset 7800",
+          "method": "Local mirror, statement and proof comparison",
+          "title": "Plane partitions and exact generator ranks for endomorphism monoids of full transformation semigroups",
+          "trigger": "Materially matching Resultary rank-three search hit"
+        },
+        {
+          "assessment": "Supports the structural hypotheses and open motivation",
+          "evidence": "States the compatible-pair classification and essential rank-three contribution; asks for generating functions or recurrences for the orbit counts.",
+          "identifier_or_url": "https://arxiv.org/html/2307.11596v1",
+          "material_read": "Theorem 2.1 offset 11606; Proposition 4.2 offset 92236; §8 offset 174478",
+          "method": "Primary OA passages compared with the claim",
+          "title": "The structure of End(T_n)",
+          "trigger": "Source of the endomorphism theorem and explicit counting question"
+        },
+        {
+          "assessment": "Structural and labeled-count context, not the claimed orbit enumeration in inspected sections",
+          "evidence": "Definitional partition is into unions of orbits; gives orbit descriptions as a remaining direction.",
+          "identifier_or_url": "https://etheses.whiterose.ac.uk/id/eprint/33804/1/GRAU-Aspects_of_endomorphism_monoids_of_certain_algebras.pdf",
+          "material_read": "Lem. IV.3.2, Def. IV.3.5, Rem. IV.3.7 and §IV.9, printed pp. 113–115, 145–146",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Aspects of endomorphism monoids of certain algebras",
+          "trigger": "Broader contemporary structural thesis"
+        },
+        {
+          "assessment": "Different equations and counting equivalence",
+          "evidence": "Exponential generating function for labeled commuting idempotent pairs, not unlabeled nonidempotent compatible pairs.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0303028",
+          "material_read": "Equations (1.8)–(1.10), p. 3; Theorem 4 p. 11; Corollary 5 p. 14",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Equations in finite semigroups: explicit enumeration and asymptotics of solution numbers",
+          "trigger": "Related functional graph decomposition for two maps in T_n"
+        },
+        {
+          "assessment": "Access limitation, not negative evidence",
+          "evidence": "HTTP 403; the inspected later sources use this work for classification/labeled counts.",
+          "identifier_or_url": "10.1090/S0002-9939-98-04764-9",
+          "material_read": "Original unavailable; classification as quoted in Gould–Grau–Johnson and rank-count reference in the thesis",
+          "method": "OA DOI retrieval and alternate-copy lookup; checked accessible citations",
+          "title": "Endomorphisms of finite full transformation semigroups",
+          "trigger": "Original classification and related rank counts"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 45–61 and 76–82",
+        "Gould–Grau–Johnson, Proposition 4.2 and §8"
+      ],
+      "rationale": "On mathematical substance the general rank-three orbit count solves an explicitly posed part of the minimal-generator enumeration and the structural bijection explains what the products count. It is not merely finite table recomputation. The duplication as a standalone result is accounted for under originality.",
+      "residual_risks": [
+        "The frozen claim does not count the essential rank-two orbits or determine the full generator cardinality on its own."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

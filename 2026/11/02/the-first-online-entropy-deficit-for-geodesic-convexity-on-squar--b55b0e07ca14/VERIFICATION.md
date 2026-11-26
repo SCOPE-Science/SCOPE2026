@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification instructions and scope
+# Independent mathematical audit
 
-With Python 3.9+ and no third-party dependencies, execute `python3 verify.py` in a directory containing this file and `verify.py`. Successful execution ends with the exact marker `SQUARED_PATH_CONVEXITY_ALL_CHECKS_PASS`.
+## correctness
 
-The checker enumerates the entire asserted family of empty, interval and parity-progression hypotheses. For orders up to eleven it also directly enumerates every graph vertex subset and tests geodesic convexity against breadth-first-search graph distances, not against the asserted classification. For orders up to twenty it enumerates every triple support and verifies the alternating-parity trace criterion. Its exact online solver recursively considers every vertex query in every reachable version space, using memoization and a cardinality-based pruning condition that cannot remove a better split. A different Boolean feasibility recursion verifies the computed rank and rejects the next larger depth for all orders up to twelve. For order ten, a depth-five complete shattered tree with 32 distinct terminal concepts is constructed and all answer paths are checked.
+PASS
 
-The claimed finite ranks are deductions from the complete mathematical recursion plus an exhaustive finite evaluation by the embedded executable checker. No finite run proves the all-order asymptotic statement: that statement has a separate mathematical argument in `RESULT.md`. No data file, package from another run, remote checker, or privileged service is required.
+In this all-shortest-paths convexity, the distance is ceil(|b−a|/2). An even gap forces a unique path of jumps by two; an odd gap allows every intermediate vertex and no overshoot, by the distance equality test. Applying this to the extreme vertices and to any vertex of opposite parity gives exactly the asserted concepts. Counting intervals and proper step-two progressions yields the stated cardinalities. For three ordered points only the endpoint-only trace can fail, and it works exactly when both gaps are odd. Four-point shattering would require consecutive gaps odd to isolate the first and third and the second and fourth; then the first and fourth cannot be isolated. Summing the possible first vertices by the two odd gaps gives the stated static coefficients. Induction on version-space size proves the online recurrence because every usable query makes both subspaces strictly smaller. An independent tuple-based calculation reproduced all orders through 20, checked feasibility through rank plus one at orders 1–12, and verified 32 leaves of a depth-five tree at n=10. The n=10 first-query branch pairs match the frozen list, all with minimum at most four, ruling out depth six. Restricting to intervals through a central vertex leaves independent ordered endpoint thresholds on either side, giving the asymptotic lower bound by balanced search; the cardinality upper bound matches up to a constant.
 
-These are self-review methods. Independent scientific audit and historical-priority validation have not been performed.
+## originality
+
+PASS
+
+The supported distinct claim is the exact online cutoff and initial finite spectrum for squared paths, not the static criterion or the generic version-space recursion. The inspected online spectrum and deficit records concern different concept families. The closest external online-learning chapter was not available for statement-level comparison after a targeted lawful alternate retrieval; this remains a specific priority risk, not a negative finding about that chapter.
+
+## value
+
+PASS
+
+The cutoff is the first failure of a natural optimal-depth bound in a natural graph family, not merely an arbitrarily chosen run of a generic algorithm. At order ten the concept count permits depth six, but exact root-branch ranks show why no query can support it, while depth five is attainable. The consecutive exact orders on both sides distinguish a first failure from a permanent drop (the bound is attained again at eleven and twelve).
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

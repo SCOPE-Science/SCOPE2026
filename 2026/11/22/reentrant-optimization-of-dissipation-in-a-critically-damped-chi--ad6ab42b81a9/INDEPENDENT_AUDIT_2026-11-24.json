@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:44:11.400213Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding–Proof and CHECKER.py (inspected, not executed)",
+        "/workspace/review_checks.py: python3 review_checks.py 1; independent exact algebra and numerical evaluation give t*=0.190531907893624348... and jump d=0.507653856356458372..."
+      ],
+      "rationale": "The stationary angular correlation and independent thermal bath yield the velocity susceptibility p/(1+p)^2, where p=d+iOmega; Itô energy balance gives Q=2(E|V|²-2T). For w>=1 the derivative numerator N is strictly concave past 1, so there is at most one interior maximum. Independently factoring the gap from the boundary gives F(w,t)-F(1,t)=(w-1)G/[(w²+t)²(1+t)²]; the cubic G has discriminant -4t(1+t)²P(t), so an interior tie for positive t requires P(t)=0. P''>0, P'(0)<0 and P(0)<0 ensure exactly one positive root. Around that root, N(1,t)<0 uniformly, so the boundary is a strict local maximum uniformly in t; G's negative cubic leading coefficient bounds competing w uniformly. The opposite strict global signs at 19/100 and 1/5 therefore force a genuine interior tie, not merely convergence of a maximizer to 1. Elsewhere a change can occur only at a tie or N(1,t)=0. At t_- the outward second derivative is positive and the boundary cannot win; at t_+ strict concavity with N_w(1,t_+)<0 makes the boundary unique. At zero the unique optimizer is w=2, and above t_+ the positive boundary derivative forces an interior optimizer. Implicit differentiation gives both local slopes. For the large-t limit let e=t^(-1/2), y=e w; the rescaled equation is 1-y^4+e(2y^3-6y)=0, whose regular root at y=1 gives w=sqrt(t)-1+O(t^(-1/2)).",
+      "residual_risks": [
+        "Critical damping and a fixed active force only. The excess translational bath heat does not include angular drive costs. The isolated coexistence point still has an attained optimum if d=0 is excluded, via its positive optimizer."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frydel supplies the underdamped heat framework and a harmonic formula with nonrotating exponential correlation. Pattanayak–Roy–Chaudhuri have inertial chiral motion without confinement. Muhsin–Deion–Sahoo include confinement and angular inertia but report spatial fluctuations."
+        ],
+        "reasoning": "A general heat formula or a linear response theorem may encompass evaluation of F; it does not supply the global comparison of its boundary and stationary values across chirality. No broader inspected result supplies that comparison.",
+        "searches": [
+          "arXiv:2211.02082 Eq. (41) and model assumptions",
+          "arXiv:2511.18361 model equations and observables",
+          "arXiv:2604.05722 model equations and results discussion"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary/SCOPE index",
+        "arXiv:2211.02082",
+        "arXiv:2405.14326",
+        "arXiv:2511.18361",
+        "arXiv:2604.05722"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mechanical response combined with the chiral correlation directly yields the objective; the global optimum still requires eliminating interior/boundary equality and analyzing the positive sextic crossing separately from N(1,t)=0."
+        ],
+        "reasoning": "Combining the known heat framework and correlation makes the objective and achiral endpoint expected. It does not mechanically provide the reentrant optimum or its two different transition laws.",
+        "searches": [
+          "Frydel §VI; Olsen–Löwen Eqs. (15)–(18) and §§II.D–E; closest trapped paper arXiv:2604.05722"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frydel §VI Eq. (41) optimizes harmonic heat with achiral persistence, yielding inverse trap frequency. Olsen–Löwen §II gives the chiral correlator but optimizes free spatial diffusivity with reorientation. Muhsin et al. discuss positional statistics and a frequency-response resonance."
+        ],
+        "reasoning": "Using persistence instead of diffusion or active work instead of excess translational heat does not change the optimization if the model is otherwise the same. The achiral special case is known; neither free diffusivity nor trapped position variance is that observable.",
+        "searches": [
+          "Primary literature comparison: translational heat dissipation/active power, trapped chiral active particles, rotational-diffusion or persistence optimum",
+          "arXiv:2211.02082; arXiv:2405.14326; arXiv:2604.05722"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact sextic and switch match ad6ab42b81a9, the assigned record itself. Distinct hits c8901ace50ea and d952c0bfcbf8 address free-swimmer diffusivity/resonance or diffusion-optimal tumbling and cumulants, at indexed-statement level."
+        ],
+        "reasoning": "The identity match is not a distinct antecedent, and the other indexed objectives differ; no equivalent exact threshold entry was verified.",
+        "searches": [
+          "Local Resultary search for trapped chiral dissipation optimum, exact sextic and boundary switch"
+        ]
+      },
+      "rationale": "The substantiated addition is the global critical-damping optimizer diagram in squared chirality (including a separated tie and continuous return), not the achiral persistence optimum, translational heat framework, or the linear susceptibility.",
+      "residual_risks": [
+        "Bounded literature search and targeted sections, not exhaustive priority evidence. A more general trapped heat optimization with nonzero chirality could cover this critical-damping slice if such a result exists in uninspected work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Heat framework and achiral optimum covered; no nonzero-chirality phase diagram in passages read",
+          "evidence": "Eq. (41) and discussion give harmonic heat and maximum at persistence equal to inverse oscillator frequency, independent of translational bath temperature.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.02082",
+          "material_read": "v2 abstract and §VI, pp. 1 and 5",
+          "method": "OA PDF text, targeted passages",
+          "title": "Entropy production of active particles in underdamped regime",
+          "trigger": "Closest earlier active harmonic heat optimum"
+        },
+        {
+          "assessment": "Known angular correlator and free-diffusion optimization, not trapped heat",
+          "evidence": "The latter sections optimize long-time spatial diffusivity over tumbling rate.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.14326",
+          "material_read": "v2 §II.A Eqs. (15)–(18), §§II.D–E, pp. 3 and 5",
+          "method": "OA PDF text, targeted passages",
+          "title": "Optimal diffusion of chiral active particles with strategic reorientations",
+          "trigger": "Chiral rate optimization equivalent in terminology"
+        },
+        {
+          "assessment": "Not the confined dynamics",
+          "evidence": "Translation equations have no harmonic restoring term; stated outputs include free velocity moments, MSD and diffusion.",
+          "identifier_or_url": "https://arxiv.org/abs/2511.18361",
+          "material_read": "v1 abstract and model equations, pp. 1 and 3",
+          "method": "OA PDF text, targeted passages",
+          "title": "Inertia–chirality interplay in active Brownian motion: exact dynamics and phase maps",
+          "trigger": "Inertial chiral response"
+        },
+        {
+          "assessment": "Closest model, different objective and angular dynamics in inspected passages",
+          "evidence": "Angular inertia is present; results address position distribution, kurtosis and nonmonotonic MSD versus harmonic frequency.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.05722",
+          "material_read": "v1 abstract, model and results discussion, pp. 1–2",
+          "method": "OA PDF text, targeted passages",
+          "title": "Inertial chiral active Brownian particle in a harmonic confinement: Resonance-like response",
+          "trigger": "Strongest trapped-chiral comparison"
+        },
+        {
+          "assessment": "Exact match is self; distinct related hits optimize free diffusivity or describe cumulants",
+          "evidence": "The self-entry gives the same sextic and onset at 3+2sqrt(2); neither distinct summary states the confined heat optimizer.",
+          "identifier_or_url": "Resultary records ad6ab42b81a9, c8901ace50ea, d952c0bfcbf8",
+          "material_read": "Ranked claim summaries",
+          "method": "Local Resultary semantic search",
+          "title": "Related indexed active-swimmer findings",
+          "trigger": "Exact threshold and alternate-objective catalogue check"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope",
+        "Frydel §VI, achiral heat optimum"
+      ],
+      "rationale": "For a physically motivated dissipation objective, this identifies when a finite angular randomization rate helps, loses to deterministic rotation abruptly, and becomes favorable again continuously. The first global switch occurs after the boundary slope has already turned negative, so testing that slope does not answer the optimization question. The thresholds and onset laws are useful exact benchmarks at critical damping.",
+      "residual_risks": [
+        "No optimization of full swimmer energetics or extrapolation to other damping regimes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

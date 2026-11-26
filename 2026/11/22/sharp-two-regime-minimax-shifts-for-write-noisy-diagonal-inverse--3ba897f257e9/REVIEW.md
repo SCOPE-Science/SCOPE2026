@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated minimax risk equals the largest diagonal coefficient of the expected error quadratic form. Independent centered entry noise produces precisely the isotropic second-moment term, while the deterministic shift bias contributes the squared eigenvalue-dependent term. The scalar modal loss is strictly convex as a function of the underlying eigenvalue, so its maximum lies at an attained spectral endpoint in every dimension. Algebra gives an exactly one-crossing maximum of two risk curves. Strict monotonicity of the crossing function and the high-mode stationarity function proves uniqueness of the global minimizing shift. A cubic with one positive root gives the unique regime boundary; the Descartes sign check is supplemented by its endpoint signs. The rational example is checked by substitution, including the signal-to-noise inequality. The companion executable verifies the noise moments by exact finite enumeration and tests the formulas numerically; infinite-parameter conclusions depend on the proof, not on the tests.
+PASS
 
-## Originality — PASS, with residual historical-priority risk
+For deterministic input Av the independent centered entry noise has isotropic quadratic expectation nσ_w²μ_β²‖Av‖²/D; the mean cross term vanishes. Each modal coefficient is strictly convex in λ, giving the maximum over attained endpoints. Subtraction gives the strictly increasing H crossing; H(c)<(κ+1)c (the reported positive quadratic), hence the active f₁ branch is strictly increasing after the crossing. The derivative on the left has sign Qκ(t)−κc and Qκ is strictly increasing, giving the unique min{m,x}. At crossing the difference's sign is Pκ(x); the thresholds (1+√10)/3<√3 order the quadratic and linear coefficient sign changes, so Descartes counts one positive root, with opposite endpoint signs verifying existence. When x<m there are unequal one-sided derivatives of opposite signs. At κ=2,c=7/12, exact crossing t=2 has both errors 55/108 and risk at t=0 equal to 7/3; shifted-target ratio squared is 28/27 and is already feasible at t=3 (175/192). Independent replay: python3 /workspace/branches/independent_checks.py 2 verifies eight exact cases using nonsymmetric centered two-point errors, two independent copies, an interior eigenvalue and mixed directions, plus the rational example. This is diagnostic; all-phase coverage is analytic. Frozen verify.py inspected, not executed.
 
-The closest primary source is Shah, Li, Kalantzis and Xi (arXiv:2611.17251v1), especially §3.3, Theorem 4. It establishes an implementation-error threshold relative to the intended shifted inverse and identifies the deterministic shift bias, but neither combines the two into the present worst-direction true-inverse-risk objective nor optimizes that objective globally. Its earlier companion article (arXiv:2606.17227, §3.4) considers damping and shifts in iterative preconditioning rather than this exact minimax law. Etter and Ying (SIAM J. Math. Data Sci. 2022, Theorem 6.1) treat additive operator corrections to an estimated inverse of a noisy coefficient matrix, not entrywise programming errors around a deterministic shifted inverse. Searches of indexed mathematical results for equivalences, noise-scaled inverse shifts, higher-dimensional coverage and exact phase thresholds found distinct noise models or risk metrics, not an identified implication of this claim. That negative search is not a proof of universal novelty. Published record descriptions not accessed in full and unindexed literature are residual risks.
+## originality
 
-## Value — PASS
+PASS
 
-Choosing the programming shift is a natural design parameter of an existing analog inverse preconditioning model. The exact minimax policy and its single transition distinguish a smooth high-eigenvalue balancing choice from a nonsmooth worst-eigenmode equalization. Crucially, the explicit rational example proves that the shift optimizing actual correction accuracy can violate the paper's criterion for implementing the deliberately biased shifted inverse, although feasible shifts exist. The divergence of these two meaningful objectives is a substantive design boundary, not merely a sign or normalization check. Scope is deliberately limited to diagonal blocks, Euclidean single-application error and independent centered write noise; the theorem makes no claim about hardware runtime, iterative convergence or general SPD orientation.
+The supported distinction is the stationary/crossing minimax law for true unshifted correction, not the write model, the shifted-target feasibility bound, or diagonal damping in general.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The shift is a natural design variable in a known programming model. A sharp condition for choosing one of two optimizer mechanisms and a nontrivial example separating implementability from actual accuracy are useful even for a diagonal single-application benchmark. The result does not imply iterative convergence, hardware advantage or an orientation-independent SPD law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

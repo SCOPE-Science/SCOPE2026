@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:53:09.613755Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen-strategy kernel in Wei et al. gives p=pq+(1−p)q², with the unique solution h(q)=q²/(1−q+q²), including the absorbing boundary cases q=0 and q=1. Uniform subset sampling gives the hypergeometric weights; averaging the stationary marginal needs no independence between edges. For sizes 2 and 3 I checked the closed forms by using h(1/2)=1/3 and h(1/3)=1/7, h(2/3)=4/7. The sign of H(3)−H(2) in the nontrivial range is that of 6m−5n+4. For H(n)−H(2) the sign is that of P=m²+(2n−3)m−2n²+3n. P increases in m, P(n−2)=n²−8n+10 is negative for 3≤n≤6, and at m=n−1 the sign of H(3)−H(2) is positive. An independent bounded replay enumerated all size-g bit masks for g=2,3,n, 3≤n≤7, 1≤m<n, using the first m bits for cooperators and summing k²/(g²−gk+k²) as reduced fractions. The only reversal was (7,5), yielding (31/49,40/63,25/39) in the asserted order. Taking the fixed-g hypergeometric-to-binomial limit before g→∞ gives the Bernstein averages and then h by concentration and bounded continuity. Direct subtraction of the two Bernstein polynomials and h verifies the signs and ties at 1/√2, √3−1 and 5/6. The frozen verify.py and VERIFICATION.md were inspected, not run; their finite grid is not used to prove the continuous diagram. Neither coevolution nor an arbitrary fixed hypergraph is covered.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Su et al. treat weak-selection cooperation conditions with switching games on regular graphs; Feng et al. treat Markov switching of each individual's game type.",
+          "SCOPE 3a1c5590466d gives envelopes for the same stationary response averaged over group composition distributions constrained by their mean."
+        ],
+        "reasoning": "A switching-game model that also evolves strategies does not provide the three conditional stationary means. Bounds over selectable composition laws do not fix the average for the particular hypergeometric sampling law at each g.",
+        "searches": [
+          "arXiv:1905.10269",
+          "arXiv:2502.05742 §II.A–B",
+          "Resultary/SCOPE 3a1c5590466d"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (read only)",
+        "Wei et al. arXiv:2603.22967v1",
+        "Su et al. arXiv:1905.10269",
+        "Feng et al. arXiv:2502.05742",
+        "Resultary/SCOPE 7369ad84341e and 3a1c5590466d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published transition formula determines h by a two-state balance equation. Classical Bernstein convergence gives the large-g limit, not the signs across sizes 2 and 3 and full population. The two same-kernel cutoff formulas in 7369ad84341e use with-replacement limiting weights."
+        ],
+        "reasoning": "Once the two finite-size formulas are known the remaining algebra is elementary, but the sharp simultaneous inequalities, their integer cutoff and the density-order calculation are not specializations of a located stronger ordering theorem. Credit is for those explicit comparisons, not for the routine stationary-law or limiting techniques.",
+        "searches": [
+          "arXiv:2603.22967v1 §2.3",
+          "Resultary/SCOPE 7369ad84341e finite binomial comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source's high/low game states implement high-to-high q and low-to-high q² at the selected exponents.",
+          "SCOPE 7369ad84341e writes the fixed-g binomial limit as a Bernstein approximation and explicitly gives two of the pairwise crossover identities."
+        ],
+        "reasoning": "Conditional high-state occupancy is the correct normalized observable; the fixed-population hypergeometric average is not identical to the binomial/Bernstein average. The later identities account for two ties but not a finite-population minimum or the full three-way order.",
+        "searches": [
+          "arXiv:2603.22967v1 §2.3 equations (6)–(7)",
+          "Resultary/SCOPE 7369ad84341e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 7369ad84341e passage contains the two exact binomial bias thresholds, not a table of uniform without-replacement three-scale reversals. The 3a1c5590466d passage tabulates a different problem: extremal composition averages given a mean. No matching indexed table giving the (7,5) minimum was located."
+        ],
+        "reasoning": "Simulation plots of eventual cooperation are not a table of frozen-strategy stationary occupancy. The precise minimum is a property of the joint n,m,group-size comparison, not a lookup of h at a single density.",
+        "searches": [
+          "Resultary/SCOPE 7369ad84341e and 3a1c5590466d, mirrored RESULT.md passages",
+          "arXiv:2603.22967v1, frozen model comparator"
+        ]
+      },
+      "rationale": "The transition rule, stationary averaging and Bernstein convergence are known ingredients. The supported distinct claims are the minimal strict finite-population reversal for the specified three scales and the exact order of the three density-limit benchmarks. The same kernel in Wei et al. is not itself a result ordering these averages. The closest indexed overlaps located cover only parts of the calculation, and are later-dated; the stronger-looking envelope bounds do not determine the uniform sampling average.",
+      "residual_risks": [
+        "Bounded published and local semantic searches cannot rule out an unindexed equivalent calculation. No claim of priority is made for the kernel, the use of Bernstein polynomials or the stationary Markov calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact match of the kernel, not an exact frozen-strategy group-size order result.",
+          "evidence": [
+            "The probabilities of the next game being high-value are q raised to α₁ and α₂ from high and low, respectively."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.22967v1",
+          "material_read": "Section 2.3, equations (6)–(7), near text offset 18000",
+          "method": "Open-access original HTML passage",
+          "title": "Cooperation in Public Goods Games over Uniform Random Hypergraphs with Game Transitions",
+          "trigger": "Identical environmental transition rule and application"
+        },
+        {
+          "assessment": "Different state and target observable in the inspected result.",
+          "evidence": [
+            "The switching example assigns a higher-value game after mutual cooperation and derives a cooperation-favoring condition."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1905.10269",
+          "material_read": "Regular-graph switching and weak-selection comparison near text offset 11300",
+          "method": "Open-access original text",
+          "title": "Evolutionary dynamics with game transitions",
+          "trigger": "Earlier stationary game-transition methods"
+        },
+        {
+          "assessment": "Different state model in the inspected passages.",
+          "evidence": [
+            "Markov rates switch each individual's game types, alongside strategies and reputation."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2502.05742",
+          "material_read": "Section II.A–B, near text offset 13000",
+          "method": "Open-access original text",
+          "title": "An Evolutionary Game With the Game Transitions Based on the Markov Process",
+          "trigger": "Plausible broader Markov switching model"
+        },
+        {
+          "assessment": "Later-dated partial exact overlap for the binomial limit; no evidence of priority over the earlier frozen record or coverage of its finite-population minimum.",
+          "evidence": [
+            "Explicit F₂−h and F₃−h identities give sqrt(3)−1 and 1/sqrt(2); the large-group result concerns curvature bias."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-unique-finite-hyperedge-environment-bias-threshold-with-logari--7369ad84341e",
+          "material_read": "Mirrored RESULT.md, Finding and finite-size comparisons at offsets 0 and 5945",
+          "method": "Resultary semantic lookup, then bounded local-mirror passages",
+          "title": "A unique finite-hyperedge environment bias threshold with logarithmic correction",
+          "trigger": "Identical h(q) and small-size comparisons"
+        },
+        {
+          "assessment": "Same response, different optimization problem and later catalog date.",
+          "evidence": [
+            "Optimizes the weighted average of h(j/g) over composition laws; it does not prescribe the uniform-subset law."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-group-composition-envelopes-for-two-state-environmental-pu--3a1c5590466d",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Resultary semantic lookup, then bounded local-mirror passage",
+          "title": "Sharp group-composition envelopes for two-state environmental public goods",
+          "trigger": "Potential domination by bounds for arbitrary group-composition laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smallest exact counterexample to monotone ordering at sizes 2, 3 and the full population is a useful benchmark for the published environmental transition in isolation. It makes the reversal attributable to group composition alone and gives a reproducible test before adding strategy dynamics. The exact density intervals distinguish when the large-group limit merely recovers above size 3 from when it also exceeds size 2. The contribution is modest and conditional, but does not rest on novelty of routine stationarity or approximate simulation plots.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

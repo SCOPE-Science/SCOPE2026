@@ -1,15 +1,21 @@
-# Scientific review: two separated bond enhancements
+# Independent mathematical audit
 
-## Correctness — PASS
-For the bilateral Jacobi operator with exceptional bonds at indices \(0\) and \(m\), positive point spectrum is forced outside the free interval \([-1,1]\). Matching geometric tails to the free interior recurrence gives exactly the factorization \((1-a^2z^2)^2=(a^2-1)^2z^{2m+2}\) for \(z\in(0,1)\). The positive branch is strictly monotone; the negative-sign branch has precisely one interior root exactly when \((m-1)(a^2-1)>2\). These facts establish the full count including band-edge exclusion. Taylor expansion at \(z=1/a\) establishes the tunneling coefficient, and the logarithmic substitution \(z=e^{-\kappa/m}\) establishes the uniform critical-scale limiting equations for each fixed coupling. The unilateral numerical-radius limit follows by monotone compressions. The separately implemented finite-matrix computations in `verify.py` are supporting consistency checks only, not infinite proofs. Risk: no all-parameter machine formalization; the proof is ordinary analytic mathematics.
+## correctness
 
-## Originality — PASS (historical-priority qualified)
-The 2022 work of Chakraborty–Ojha–Birbonshi and the 2021 Webb–Olver Jacobi framework provide general methods to locate eigenvalues of finite perturbations. These are correctly credited; the contribution asserted here is **not** an abstract polynomial-root algorithm but a closed two-channel mode count, the explicit \(2/(m-1)\) threshold, and two different sharp separation laws. The 2014 Vandanjav–Undrakh finite weighted-shift result and the published adjacent-bond result concern adjacent enhanced edges, without the nonadjacent antisymmetric mode threshold. The 2026 published equal-impurity energy-onset formula concerns diagonal potentials rather than hopping defects. The 2023 subwavelength literature reports qualitatively similar hybridization in a different model. Full text was inspected for the central 2022, 2021, 2023 and published nearby comparisons. The inaccessible portions of the 2014 original and older specialized Jacobi scattering studies remain priority risks; absence in a search is not proof of uniqueness.
+PASS
 
-## Mathematical value — PASS
-The smallest nontrivial pair of separated enhancements has a genuine one-to-two-localized-mode transition, which cannot be read off from a single-defect norm. The threshold records the competition between separation and weak bond contrast. The fixed-amplitude splitting and the joint critical window describe distinct, physically and functionally relevant spectral scales; a sharp second-mode onset at \(\gamma=2\) explains when two weak defects stop behaving as one. This is a natural complete spectral classification of a motivated operator family, not an arbitrary finite coefficient or a renamed Jacobi recurrence.
+For finite matching, decay gives u₀=az u₁ and u_(m+1)=az u_m, so the interior Jacobi recurrence has effective coefficients a²z at both endpoints; its determinant is (1−a²z²)²−(a²−1)²z^(2m+2). The second secular channel has one interior root exactly when β(m−1)>2; at equality a direct bounded-tail solution is affine on sites 1,…,m with slope −βu₁=βu_m, hence u_m=−u₁. There is no square-summable band solution. The frozen fixed-a split follows from root deviations ±β/(2a^(m+2)) and the energy derivative −β/2, correct but covered. In the narrowed result, uniform convergence on compact κ intervals and two-sided positive-root sign brackets justify the two discrete spectral limits. Exact threshold distinguishes fixed γ=2 from a moving coupling. For the moving threshold, dividing the minus equation by z² gives the positive product displayed in the repair with x=(m−1)(−log z). Its first factor is ≥1 and its increasing second factor forces x→0 when Δ→0+, with uniform Taylor coefficient 1/2+1/(m−1). Thus Δ/x→1 and m(−log z)/Δ→1 without a rate constraint; cosh gives the ratio 1/2. For γ_m=2+s/m, mΔ=s−2m/(m−1), so there is no second state at s=2 despite zero limiting detuning, and the positive quartic coefficient is correct for s>2. Replay: repaired proof and independently performed cancellation-safe bisection reproduced in repaired VERIFICATION.md. Frozen VERIFICATION.md and verify.py were read but not executed; finite eigensolvers do not certify infinite spectral completeness.
 
-## Remaining limitations
-The claim assumes equal strictly enhanced off-diagonal weights and a homogeneous one-dimensional background. It gives a bulk numerical-radius limit, not a finite-boundary convergence rate; critical scaling is for fixed \(\gamma\), not uniform in varying couplings. Earlier general finite-rank spectral tools could make the exact formulas derivable with additional work. No originality inference rests solely on a missing search hit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS is for the repaired discrete weak-binding convergence, especially the uniform arbitrarily small positive detuning law and quartic lattice window. The exact same-model finite spectrum and fixed-enhancement law are demonstrably covered, and the limiting continuum double-delta spectrum is also credited, not passed as new. None of the actual nearest statements inspected establishes the moving-coupling lattice scaling or the relative detuning error control for this model.
+
+## value
+
+PASS
+
+Fixed-amplitude tunneling is not a uniform estimate when localization length grows with bond separation. The repair quantifies the two competing lengths and resolves the lattice's moving binding window: above a positive detuning tending to zero at any rate it determines the actual secondary gap, not just whether a root exists. The explicit m^−4 regime distinguishes a missing state from a shallow bound state where the continuum m^−2 limit alone cannot. This is the useful lattice result, not the threshold renaming or the already known continuum doublet.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

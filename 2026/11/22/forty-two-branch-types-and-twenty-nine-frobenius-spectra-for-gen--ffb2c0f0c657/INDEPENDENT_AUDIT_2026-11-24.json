@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:05:33.402238Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original theorem is correct; the repair changes the principal claim, not the existing table. Even subsets of ten branch points modulo complementation are an eight-dimensional symplectic F_2-space with intersection pairing, and maximal isotropic subspaces model the finite étale kernel scheme in odd characteristic. To independently verify the enumeration and table, /workspace/audit_lagrangians.py was written and executed against the frozen kernel_spectra.csv. It enumerates via a symplectic decomposition X+Y: for a projection U into X, the intersection with Y is Ann(U) and the lifting datum modulo Ann(U) is a symmetric form on U. This generates all 2295 Lagrangians without using the stored enumerators' RREF or extension of isotropic subspaces. A 10-cycle and one adjacent transposition give orbit sizes 945 and 1350. Fixed points of divisor powers and inversion reproduce every aggregate and component row, including all fixed torsion counts and the original 151-versus-39 example; 29 aggregate spectra and 38 ordered component spectra occur. The 945-element orbit consists of matchings: five disjoint pairs span a Lagrangian with exactly those five weight-two classes, uniquely recovering the matching. A preserved matching is a commuting fixed-point-free involution: it pairs equal-length branch cycles with d shifts per pair, and each unpaired cycle must have even length with its unique antipodal pairing. The resulting product formula checked every relevant power. For (4,2,2,2) and (4,2,2,1,1), the distinct split rows both sum to 1:7 2:64 4:540 and both have eight rational torsion points. The realizations use the irreducible quartic x^4+2 over F_5 (no root or quadratic factor), plus the stated distinct irreducible quadratics and, in the second equation, two linears. Squarefree degree ten gives smooth projective genus four. The repaired verification script independently checks the matching counts, ordered-count total, witness and factor tests against the frozen CSV and was run successfully using that path. Original source scripts were inspected but not run. All claims remain conditional on odd characteristic and the realized branch partition, and no Jacobian-target claim is made.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The geometric 945 and 1350 counts are already explicit. Bruin–Kulkarni address special (2,2)-decomposable genus-four Jacobians; Bruin–Doerksen give related Galois arithmetic for genus-two kernels from six branch points.",
+          "The exact genus-four spin-scheme classification 91bf98cffddf studies 120 odd and 136 even theta characteristics, with 40 ordered spectra, not the two maximal isotropic kernel components."
+        ],
+        "reasoning": "Geometric counts alone do not give constituent Frobenius classes. The decomposability and smaller-genus settings do not contain all the examined genus-four kernels. An equally sized branch set is insufficient for implication when the acted-on scheme differs, as in the spin result.",
+        "searches": [
+          "arXiv:2306.14889 section 5.2 pp. 17–18",
+          "arXiv:2309.01959 introduction and section 7",
+          "arXiv:0902.3480 section 4",
+          "Resultary 91bf98cffddf Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 70477d357316",
+        "Resultary 91bf98cffddf",
+        "arXiv:2306.14889",
+        "arXiv:2309.01959",
+        "arXiv:0902.3480"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For every power h, the partition of g^h is obtained by splitting a d-cycle into gcd(d,h) cycles of length d/gcd(d,h). Looking up the corresponding fixed count and inverting F(h)=sum_{d divides h} d m_d yields every aggregate cycle number.",
+          "The two repaired witness types have the same total and rational torsion count, but the matching component has 7 versus 3 fixed points; the complementary component has 0 versus 4."
+        ],
+        "reasoning": "The other complete table mechanically covers the original aggregate zeta classification, even without stating 29. Refining the table requires a constituent calculation (one may use the matching formula and subtraction once that constituent is calculated). Knowing only the entire aggregate profile and the fixed torsion cardinality fails to determine that refinement, as the realized two-curve collision proves. The witness is not a bare aggregate recomputation.",
+        "searches": [
+          "Resultary 70477d357316 complete fixed-count table, Proof steps 2–4",
+          "Bernatska–Kopeliovich matching and complementary geometry in section 5.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bernatska–Kopeliovich section 5.2 gives the 945 type and the 1350 type of Göpel systems. The 945 component is the full matching action on ten vertices, for which the fixed-count characterization uses fixed-point-free commuting involutions.",
+          "The bounded external query did not produce a useful match. Local Resultary also returns the assigned record itself and finite theta-characteristic spectra for different schemes."
+        ],
+        "reasoning": "The cycle-index formulation, extension point counts and zeta functions are equivalent for a fixed finite permutation, and the matching model identifies one natural constituent, not a new geometric action. The repaired evidence concerns the evaluated ordered two-constituent result and a realized pair with equal totals but different constituents, not alternate names for the aggregate.",
+        "searches": [
+          "Resultary: genus four hyperelliptic split complete Frobenius profiles 38 ordered cycle spectra 945 perfect matching 1350 Göpel 4 2 2 2 versus 4 2 2 1 1 equal total zeta",
+          "External: complete genus-four hyperelliptic Frobenius kernel-cycle profiles and Gopel systems"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 42-row table of 70477d357316 explicitly gives 16 torsion points and 151 versus 39 kernels for types 2^5 and 2^4 1^2. It also gives 8 and 7 for both of the new witness types in its aggregate fixed-count columns. Its proof counts invariance of each of the 2295 subspaces without splitting the invariant count by orbit.",
+          "The frozen record gives the split rows; it is a self-hit, not distinct prior coverage. The bounded searches surfaced no other evaluated two-component table/collision."
+        ],
+        "reasoning": "This is exact aggregate/table overlap, not just analogous subject matter. That match is credited despite the common date. It does not supply either constituent table or the differing constituent zeta functions for curves in the witness.",
+        "searches": [
+          "Resultary 70477d357316, Finding/table and proof",
+          "Resultary: exact 38 ordered profiles and equal-total component collision"
+        ]
+      },
+      "rationale": "The frozen novelty framing fails for the aggregate table and equal-torsion 151-versus-39 distinction: the same-date fixed-count table directly includes the distinction and mechanically determines all aggregate spectra, irrespective of which record came first. This is not a mathematical error in the frozen table. The replacement RESULT withdraws that originality claim and states a substantive narrower result: the full ordered component table, 38 ordered spectra and an explicit realized collision for equal aggregate spectra and equal torsion counts that is resolved by the components. Pass for that repaired claim only; the geometric split and standard fixed-matching formula are credited as input, and the independent status is not a priority certification.",
+      "residual_risks": [
+        "Unindexed constituent permutation-character tables or an explicit earlier realized component collision have not been ruled out.",
+        "The record dates are not order evidence; the aggregate implication holds independently of date order. No originality is claimed for the ordinary commuting-involution formula or the underlying action."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Aggregate case covered by power lookup and inversion; no constituent spectra supplied; no temporal priority inferred",
+          "evidence": "All 42 branch types have total fixed counts, including 151 and 39 at equal torsion count 16. Step 4 tests invariance on the entire set rather than on two constituent orbits.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-frobenius-stable-maximal-isotropic-2-torsion-kernels-for-genus-f--70477d357316/RESULT.md",
+          "material_read": "Finding/table offsets 0–3453, Proof steps 2–4 around offsets 4300–7100, and continuation for prior-work and limitations",
+          "method": "Local Resultary mirror",
+          "title": "Frobenius-stable maximal isotropic 2-torsion kernels for genus-four hyperelliptic Jacobians",
+          "trigger": "Exact same-day kernel and branch-partition fixed-count match"
+        },
+        {
+          "assessment": "Geometric 2295 and split covered; no evaluated arithmetic constituent theorem in relevant passage",
+          "evidence": "It gives 945 systems of type 16[I_0] and 1350 of type 2[I_2]+14[I_0].",
+          "identifier_or_url": "https://arxiv.org/abs/2306.14889",
+          "material_read": "Section 5.2, pp. 17–18, offset around 58334",
+          "method": "Primary OA PDF",
+          "title": "Igusa's map on modular forms vanishing on the hyperelliptic locus",
+          "trigger": "Same genus and Göpel counts"
+        },
+        {
+          "assessment": "Different decomposition problem",
+          "evidence": "Relevant statements concern special decomposability including Jacobians isogenous to a square, rather than the full Frobenius permutation on every maximal isotropic kernel.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.01959",
+          "material_read": "Introduction pp. 1–2 and section 7 pp. 18–20",
+          "method": "Primary OA PDF",
+          "title": "On (2,2)-decomposable genus 4 Jacobians",
+          "trigger": "Same genus and two-isogeny context"
+        },
+        {
+          "assessment": "Different genus",
+          "evidence": "The Galois description treats the six-branch setting, not the ten-branch two-component table.",
+          "identifier_or_url": "https://arxiv.org/abs/0902.3480",
+          "material_read": "Section 4 pp. 9–11",
+          "method": "Primary OA PDF",
+          "title": "The arithmetic of genus two curves with (4,4)-split Jacobians",
+          "trigger": "Arithmetic Richelot kernels and branch partitions"
+        },
+        {
+          "assessment": "Different finite étale schemes and differently evaluated invariant",
+          "evidence": "Forty ordered pairs of odd/even spin spectra have unseparated cases (8,2)/(8,1,1) and (4,4,2)/(4,4,1,1); these are not maximal isotropic kernel components.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-persistent-frobenius-ambiguities-in-the-genus-four-hyperelli--91bf98cffddf/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Two persistent Frobenius ambiguities in the genus-four hyperelliptic spin schemes, and a sharp five-extension recovery theorem",
+          "trigger": "Same genus, same branch types and ordered Frobenius-refinement/collision language"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired exact invariant distinguishes two intrinsic families of polarized kernels. The concrete realizable collision shows why an investigator of descent may need the two component zeta functions, even with the total zeta function over all extensions and rational torsion in hand. It shows a strict loss of information upon summing, not merely a repackaging of the public fixed-count table or an arbitrary numerical slice. The component count over every natural branch partition maps the size of the refinement (38 instead of 29), while the explicit pair shows its need for actual curves. This is independent value without a claim of classifying quotient Jacobians.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

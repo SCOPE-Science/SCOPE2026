@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Six integer staircases contain exactly \(a=P(n)\) pairs, and the three universal border reductions lower weights by positive multiples of \(a\). The coprimality argument proves that these pairs exhaust all residue-class minima; taking the larger corner yields the six exact cubic formulas. The direct symbolic identities and an independent shortest-path computation were checked. No finite experiment is used as an infinite proof.
+## correctness
 
-**Originality — PASS, with residual priority risk.** The same numerical problem appears in OEIS A069757, including a finite table, but not the universal period-six cubics in the inspected entry. A 2014 result treats consecutive squares and cubes, Komatsu treats triangular triples, and the generalized star-number work treats a different quadratic family. Their algorithms are antecedent methods but the explicit pentagonal case and all parameter relations have not been located. Unindexed earlier results may exist.
+PASS
 
-**Value — PASS.** A complete eventually cubic classification of a natural Frobenius sequence fills an explicit gap between numerical tables and infinite theorems. The associated all-residue Apéry description is more informative than the maximum alone and supports further exact numerical-semigroup calculations. The threshold is sufficient, not asserted best possible.
+The triple has gcd one: a+c−2b=3 while a and b are consecutive residues modulo 3. I symbolically expanded the area identity and all eighteen claimed weighted congruence reductions in review-evidence/checks.py (argument 4, SymPy). Substituting n=48+r+6j verifies integer affine coefficients with the required positivity and order on every residue branch, not just at samples. The three outside corners generate the complement of the staircase; each reduction preserves the residue, keeps the coordinates nonnegative and lowers the positive weight. Every residue has a nonnegative expression in b,c modulo a by gcd one, and hence reduces to the staircase. Its cardinality a forces exactly one pair per residue. Adding an a-generator cannot lower the value, so the staircase gives the full Apéry set. The two corner weights suffice for the maximum; their winning differences have positive coefficients in j on all branches, and the winning weights minus a expand to the displayed cubics. A separate shortest-path computation in the review script compares the entire Apéry set at two arguments per class. Those finite checks are corroboration; the identities and descent prove the universal claim. The supplied verifier was read, not run.
 
-**Literature and limits.** OEIS A069757 (2002); Lepilov–O’Rourke–Swanson (2014); Komatsu arXiv:2206.13054 (2022); Yin–Mu–Komatsu (2024). The claim is only for integer \(n\ge48\); below this range and independent publication priority remain unassessed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported addition is the exact period-six branch data, the n≥48 guarantee and the full explicit pentagonal Apéry staircase. Eventual quasipolynomiality by itself and many exact values are covered. The inspected same-object symmetry proofs do not produce these staircase parameters, and the comparison is bounded rather than a priority claim.
+
+## value
+
+PASS
+
+Consecutive ordinary pentagonal generators are a natural established test family, with a published sequence but no uniform formula in that entry. The branch distinctions and finite cutoff are explicit; the full staircase also answers every minimal-residue query without rerunning a search on roughly n² residues. This is materially stronger than eventual existence or another finite tabulation and does not depend on 48 being optimal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

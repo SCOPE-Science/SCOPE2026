@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the tree family defined in `RESULT.md`, the leaf constraints force the two support vertices \(b,d\) into every total dominating set, and the unique common neighbor \(c\) is required for a three-vertex set. This yields the unique possible optimum \(\{b,c,d\}\). The ordinary game forces precisely that set in three moves. Declaring \(f\) pre-dominated prevents Dominator from using it as an indication; Staller can then avoid the unique three-element total dominating set, forcing four moves. The matching upper bound indicates the two outer leaves and then the remaining undominated support vertices. Every first indication is considered in the proof.
+PASS
 
-The minimum-order and uniqueness statements are exact finite consequences of the supplied standard-library Python enumeration: Prüfer sequences cover all labeled trees of orders two through six, rooted canonical codes reduce them to \(1,1,2,3,6\) isomorphism classes, and the minimax recurrence checks all \(B\subseteq A\). The checker was executed successfully from its actual artifact path. Only this finite boundary uses enumeration; every \(r\geq0\) is covered by the mathematical strategies.
+Both in the ordinary game and with only f declared, every finishing selection set contains b and d because a and e are undeclared leaves. Also b and d are undeclared and nonadjacent, so any finishing set of size at most three must add their only common neighbor c. With no declaration, indicating f,a,e successively forces c,b,d. With f declared, selecting b,d via a,e leaves only b,d possibly undominated and at most two moves. If an initial indication is one of b,c,d, Staller can choose an outsider a,f,e, respectively. Otherwise b or d is forced, immediately covering c. Neither c nor f can then be indicated, and any later legal indication of b or d can be answered by a leaf (a or e has no other neighbor through which it could already have been selected). Thus Staller can avoid c and rule out any three-move finish. An independent census used all simple (n−1)-edge subsets filtered by connectivity, and a descending covered-set DP, not Prüfer sequences or the packaged selected-set recursion. For a legal indication no neighbor has previously been selected, hence the DP depends only on the covered set. Across 1, 3, 16, 125, 1296 labelled trees the violating counts are 0, 0, 0, 0, 360 respectively, testing all inclusions. Every offending labelled tree has a degree-three center with arms of lengths 1,2,2 (the single isomorphism class of T₀); each had 13 violating nested pairs. The all-r classification of the displayed game values follows from strategies, not the finite replay.
 
-## Originality — PASS, residual bibliographic uncertainty
+## originality
 
-Henning and Rall, *Indicated total domination game*, arXiv:2310.03506v3, Section 2, prove failure of continuation using an eight-vertex graph with a cycle and two initially declared vertices. They do not state this smallest-tree uniqueness theorem or the all-order family with a single pre-dominated vertex. Their later question about ordinary game values on trees is distinct and remains unaddressed. The related *Indicated domination game* arXiv:2310.14647 uses a different closed-neighborhood rule. Searches of relevant indexed mathematical records and the inspected primary texts revealed no covering theorem. Priority outside those sources is not independently certified.
+PASS
 
-## Value — PASS
+Henning–Rall already show that general-graph continuation fails, but their cyclic eight-vertex witness with two declarations gives neither an acyclic one-declaration obstruction nor the sharp tree cutoff and uniqueness. The comparison supports those specific distinctions; it does not establish exhaustive priority.
 
-Failure of a domination-game continuation principle is a mathematically motivated obstruction because it removes a standard monotonicity tool. The proposed theorem supplies a sharp boundary, the unique smallest tree shape, and one-vertex failures at every larger order rather than simply another unstructured counterexample. It also clarifies that partial-game monotonicity can fail on trees even when an independent conjecture concerns the ordinary game on those trees.
+## value
 
-## Limitations
+PASS
 
-The theorem does not bound the largest possible continuation gap for trees or classify larger counterexamples. Finite uniqueness is computer-assisted and reproducible; the infinite family is independently proved by explicit strategies. An unindexed or inaccessible equivalent result is a remaining priority risk.
+The result locates exactly where a familiar monotonicity principle first fails within trees, identifies the unique first obstruction even allowing arbitrary nested declarations, and uses one already-dominated leaf to force failure at every larger order. This is stronger and structurally different from finding another cyclic example or computing an arbitrary tree invariant.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

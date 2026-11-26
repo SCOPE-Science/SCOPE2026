@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The equilibrium equations give a full positive symmetric point and two positive one-consumer points under explicit feasibility inequalities. The exactly computed missing-consumer invasion eigenvalue is \(QW\), the active 3-by-3 block has a strictly negative definite weighted symmetric part, and the symmetric/antisymmetric blocks at full coexistence have determinants \(XYS\) and \(XYQ\). These prove all stated hyperbolic regimes. At criticality the singular per-capita linear system yields the specified positive segment. For the illustrative coefficients, support enumeration gives exactly nine nonnegative equilibria off criticality; positive invasion eigenvalues rule out all other local attractors. The separately packaged standard-library rational checker passes.
+## correctness
 
-**Originality — PASS, subject to residual risk.** The motivating Dopson–Emary work considers large random bipartite ensembles and a nonnegative correlation restriction, not this exact four-species misaligned-link structural classification. Giraldo–Lee's mutualistic multistability and the general community-exclusion principles of Livesay and Hong–Pego are substantially related but do not state or imply the exact threshold, critical segment or full canonical attractor census under the stated interaction signs. Actual targeted mathematical database and primary-literature queries returned no covering result. This is a search-based comparison, not a priority guarantee; possible earlier finite-network specializations or later generalizations remain an originality risk.
+PASS
 
-**Value — PASS.** The classification directly answers the ecologically meaningful finite-community question of when reciprocal ranking mismatch changes coexistence into alternative consumer survival outcomes. It identifies the exact attack-versus-gain imbalance needed for bistability and a nonisolated threshold, rather than merely recomputing a known table or reporting a generic Jacobian sign. The nine-state support census confirms that no other equilibrium is an attractor in the canonical family. It does not purport to determine all trajectories or ecosystem-scale empirical prevalence.
+With both resources present their stationary balances give x₁=r−ay₁−by₂ and x₂=r−by₁−ay₂. The substituted consumer per-capita terms have identical intercept K=(c+d)r−m and competitive coefficients T=1+ac+bd on the diagonal and H=ad+bc off it, so T−H=Q and T+H=S. This is an exact stationary elimination, not a dynamical approximation. The symmetric and exclusion equilibria and missing invasion WQ follow immediately; the given lower bound on m makes the smaller exclusion resource strictly positive. At an exclusion state the resident Jacobian is dissipative in the given positive diagonal metric with symmetric product −2 diag(c/a,d/b,1), while the missing eigenvalue is WQ. At coexistence the actual four-dimensional Jacobian splits into two blocks with trace −(X+Y) and determinants XYS and XYQ, giving the asserted sink or one-unstable-direction saddle. At Q=0 the rank-one consumer equations fix y₁+y₂=2Y and leave the whole feasible composition interval; the resource formulas give positive resources at both endpoints and throughout. For r=m=3 and a=3, b=c=1, the remaining supports give the origin, two resource axes, the two-resource consumer-free state and two opposite-linked resource/consumer states. A weaker-link consumer cannot persist on a single resource since that resource is ≤3. The six states all have a positive physically feasible invasion direction; at each opposite-linked state the missing resource invades at 6(2−d)/(1+d). This gives exactly nine equilibria away from 3/2, and the stated stationary segment plus six isolated equilibria at 3/2. Only its interior is fully positive; both endpoints have a missing consumer as stated in the formulas.
 
-**Closest literature and limits.** The comparator works are cited and contrasted in `RESULT.md`. The nonnegative-correlation random-ensemble analysis and the mutualistic-network analysis motivate but do not imply the deterministic antagonistic threshold. General exclusion theorems impose compatible constraints but are not equivalent to the exact formulas. No global attraction, invariant set classification or basin volume is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Equal own and cross competition, a neutral composition segment and a symmetric exchange of local stabilities are known as mechanisms, including in the closely matching indexed fear-dependent analogue. The specific distinct claim is the threshold from loss/gain preference mismatch in this deterministic antagonistic four-species system, exact missing-consumer invasion identity and stability in the full dynamical system, with a complete concrete support census. The inspected analogues and general restrictions do not imply that package.
+
+## value
+
+PASS
+
+The meaningful distinction is how preferences in a full resource–consumer feedback system can reverse stability while the coexistence and exclusion states are all feasible. The result gives the invasion diagnostic, verifies the dynamics rather than presuming equilibrated resources, and specifies the nonisolated boundary with a full four-species example. The nine-point arithmetic example is illustration, not the main contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

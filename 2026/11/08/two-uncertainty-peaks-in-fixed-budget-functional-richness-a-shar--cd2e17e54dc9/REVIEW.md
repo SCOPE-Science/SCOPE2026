@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact variance formula follows from group-absence indicators, including correct endpoint and overlap conventions. A short exact-arithmetic program enumerates all positive-integer partitions through size 13; the recursion exhausts all partitions by their first part, and non-unimodality is exactly the occurrence of a negative first difference followed later by a positive first difference after zero differences are removed. The unique size-13 exceptional profile has a direct survivor-subset check. For the infinite family, explicit expressions for the differences at indices 3–4 and \(m-1\)–\(m\), and an all-integer binomial lower bound, give an analytic proof rather than extrapolation from finite tests.
+## correctness
 
-**Originality — PASS, with residual historical priority risk.** Heck, van Belle and Simberloff (1975) established the general mean/variance formula for fixed-sample rarefaction; Fonseca and Ganade (2001) apply it to functional guilds. Therefore the formula itself is prior art and is not claimed as new. The inspected accessible 2001 full text and the 2006 infinite-urn text do not identify the uniquely minimal 13-species non-unimodal variance profile or the all-\(m\) family. Search comparisons cover rarefaction, occupancy, variance-curve unimodality and two-peak functional uncertainty, including relevant research records. The full text of the short 1975 paper could not be retrieved, so it has not been declared definitely non-covering; earlier unknown numerical or analytic work remains a risk.
+PASS
 
-**Value — PASS.** The precise first non-unimodal community size and the stable infinite family expose a mathematically consequential limitation of summarizing ecological uncertainty with one intermediate attrition window. The two peaks arise within the very fixed-budget functional-richness model motivating the classic conservation literature. This is a complete small-size boundary together with a structural infinite-family mechanism, not an arbitrary one-off recomputation of variance values.
+The frozen finite theorem is correct, but not accepted as new. In an independent exact reproduction (branches/variance_independent.py), the coefficient of x^k u^f in the product of 1+u[(1+x)^{a_i}−1] counted samples with f represented groups. Moment numerators and exhaustive decreasing partitions gave no failure up to 12 and one at 13, namely (1,6,6), with strict extrema at 3,5,6 as claimed. The repaired theorem retains only the infinite (1,m,m) family. The variance identity follows from the absence-indicator covariances; I verified both rational differences algebraically. The small-budget numerator has strictly positive coefficients after shifting m by 6. For the later rise, binomial growth B_{m+1}/B_m>3 and growth of the positive cubic L_{m+1}/L_m<2 preserve B_m>L_m from m=6, so the later difference is positive. Since m−1≥5, that rise follows the strict decline at 3→4. This is a proof for all m≥6 and does not claim exactly two strict peaks throughout the family. The independently written repaired checker at repairs/3/verify.py passed 95 exact sampling-distribution checks; the uploaded verifier was inspected, not run.
 
-The finding is conditional on the idealized guild model, and no direct conclusion for empirical ecosystem functioning follows without verifying its assumptions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for the repaired infinite-family statement only. The frozen headline finite boundary is already covered by the earlier exact rarefaction classification under an equivalent model. Repair credits that classification and drops it from the new claim. The surviving analytic decline-and-rise family is not entailed by the finite cutoff, the classical moment identity, or the inspected iid occupancy result. Priority remains qualified by the unavailable full text of the earlier record and the related ecological literature.
+
+## value
+
+PASS
+
+The original cutoff was already reported and is no longer claimed. The repair establishes that a decrease followed by renewed uncertainty is not a single small-community exception: every larger balanced pair of groups with a singleton in this natural family exhibits it. The proof identifies two separated sample budgets uniformly and explains why the later rise persists. This is useful for the conditional richness model without implying anything about empirical extinctions or a complete peak classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

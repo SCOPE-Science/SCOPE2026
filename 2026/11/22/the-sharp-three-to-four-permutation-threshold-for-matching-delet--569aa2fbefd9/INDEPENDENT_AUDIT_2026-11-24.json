@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:32:46.618441Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 23–58; VERIFICATION.md, lines 19–34; verify.py, lines 5–83 (inspected, not executed).",
+        "Independent replay /workspace/branches/math-replay.js, section 3, decoded actual repeated letters without the switch predicate. Passed 24 three-block and 34 four-block cases including asymmetric part sizes and empty subsequences."
+      ],
+      "rationale": "Each boundary contributes one defect precisely when the pair order changes. With three blocks the two changes that characterize nonedges become agreement in all three orders after reversing the first and third. The intersection is a poset, and applying the same reversal to a three-order realizer is the converse. In the family complement, the middle of three matched A vertices in any transitive clique order can neither point to nor receive an arrow from its match: one choice forces an edge to the earlier vertex, the other to the later one. For s=0,1,2 the proposed two orders agree within each shore and exactly on the deleted cross pairs. In particular at s=2 the common shore orders are a1,A′,a2 and b2,B′,b1, and the only cross agreements are a1 before b1 and b2 before a2, including when either primed sequence is empty. In the published four-block word, within-shore pairs switch twice; for a cross pair the first two orders agree and the last two differ only at a deleted match, where there are exactly two switches. The indicated restriction keeps exactly the required matching of cross nonedges and preserves all pair defects. At most two blocks always give a complete graph, so only K2 needs one block.",
+      "residual_risks": [
+        "Finite checks corroborate constructions; the switch identity and transitivity argument, not enumeration, prove the unrestricted claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.2 and the later language paper give or cite existence, not a minimum permutation count. Theorems 6–7 cover split graphs and comparability-plus-independent-set partitions at the level of existence, a scope that includes this family.",
+          "Theorem 3.4 gives the four-block upper bound on balanced crowns; Theorem 3.5 gives the general log-neighborhood-count lower bound."
+        ],
+        "reasoning": "Broader existence does not give a fixed count or rule out three. The specific upper bound extends by induced subgraphs, but the limiting obstruction and exact small-s counts require additional arguments.",
+        "searches": [
+          "Hefty–Horn–Muir, Theorems 2.2, 3.4 and 3.5",
+          "Futorny–Kitaev–Pyatkin, §3.2 Theorems 6–7",
+          "Das–Hariharasubramanian, §2 Theorem 7"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary hits and four local query families above",
+        "Hefty–Horn–Muir, Futorny–Kitaev–Pyatkin, and Das–Hariharasubramanian, bounded primary passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.4 proves Rπ≤4 by a word on the balanced crown. Theorem 3.5 gives log(|N(X)|)/log(|X|+1), where N(X) comprises the distinct neighborhoods into X from outside X."
+        ],
+        "reasoning": "For these bicliques, outside vertices from either shore see the opposite portion of X in full or minus one matched vertex, hence |N(X)|≤|X|+2 across both shores. The neighborhood bound is then below 2 for |X|≥1 and cannot rule out three blocks. The upper bound restricts directly and is credited, but neither it nor unrestricted existence implies the new lower bound or the dimension criterion.",
+        "searches": [
+          "Hefty–Horn–Muir, §3.1 Theorems 3.4 and 3.5, printed pp. 783–784, OA offsets 34769 and 35300"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 2.8 is for permutation even–odd representations of comparability graphs of dimension at most two; §2.2 uses defect parity, not the at-most-one rule.",
+          "The exact index match is the assigned finding itself."
+        ],
+        "reasoning": "Parity and threshold are not equivalent (two defects is even but exceeds one). Ordinary zero-defect agreement supplies the prior realizer idea; the three-block first/last reversal and complement bridge is the relevant added identification for the threshold rule. No distinct result stating that bridge was identified.",
+        "searches": [
+          "Resultary: three permutation blocks 1-11 representation complement comparability graph poset dimension three",
+          "Literature: \"permutational 1-11\" \"comparability graph\" poset dimension three permutations",
+          "Hefty–Horn–Muir, §2.2 and Theorem 2.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact threshold hit, 2026/11/22/SCOPE-the-sharp-three-to-four-permutation-threshold-for-matching-delet--569aa2fbefd9, is the target itself.",
+          "The distinct same-family hit 2026/10/18/SCOPE-cograph-induced-subgraph-profiles-of-matching-deleted-bicliques--b268974a282b concerns induced-cograph profiles.",
+          "Theorem 3.4 records an upper bound, not exact minimal counts."
+        ],
+        "reasoning": "Neither a different invariant on the same graphs nor the tabulation of an upper bound settles the requested minimum.",
+        "searches": [
+          "Resultary: 1-11 graph representation minimum number permutations matching-deleted complete bipartite crown",
+          "Resultary: matching-deleted biclique threshold three deletions four permutations crown graph 1-11",
+          "Resultary: Hefty Horn Muir Theorem 3.4 crown four permutations 1-11 upper bound"
+        ]
+      },
+      "rationale": "The three-block threshold-rule characterization and sharp non-comparability obstruction after three matching deletions are distinct on inspected evidence. The four-block crown construction, general permutational existence, and ordinary comparability/realizer correspondence are not claimed as new.",
+      "residual_risks": [
+        "A prior unindexed articulation of the three-block reversal bridge or the same transitive-orientation obstruction cannot be excluded. Search evidence does not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior four-block crown bound and general bounds, not the sharp threshold",
+          "evidence": [
+            "Theorem 3.4 states Rπ(H_n,n)≤4.",
+            "Theorem 3.5 uses counts of outside neighborhoods; Theorem 2.8 concerns parity and dimension two."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0013091525101211",
+          "material_read": "§2.2, Theorems 2.2/2.8 and 3.4/3.5; decisive §3.1 lower bound at OA offset 35300",
+          "method": "Primary publisher OA PDF passages; compared the defect rules and evaluated the general lower bound on the family",
+          "title": "k-11-representations of graphs, revisited",
+          "trigger": "Same invariant and exact four-block construction on the crown"
+        },
+        {
+          "assessment": "Existence for graph partitions; no three-to-four minimum in the inspected results",
+          "evidence": [
+            "Theorem 7 treats comparability-graph and independent-set partitions."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00373-024-02825-1",
+          "material_read": "§3.2, Theorems 6–7, PDF pp. 9–11",
+          "method": "Primary text passages and hypothesis comparison",
+          "title": "New Tools to Study 1-11-Representation of Graphs",
+          "trigger": "General permutational representation results"
+        },
+        {
+          "assessment": "General existence and word-language setting; no fixed permutation count in that theorem",
+          "evidence": [
+            "Theorem 7 cites the existence of permutational representations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.20490",
+          "material_read": "§2 Theorem 7, PDF p. 3",
+          "method": "OA theorem passage comparison",
+          "title": "On Patterns and Languages in 1-11-Representations of Graphs",
+          "trigger": "Recent work on permutational representations"
+        },
+        {
+          "assessment": "Identical assigned record",
+          "evidence": [
+            "Same complement-dimension criterion and threshold s=3 with K2 exception."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-sharp-three-to-four-permutation-threshold-for-matching-delet--569aa2fbefd9",
+          "material_read": "Finding and family parameters",
+          "method": "Local index and exact frozen statement comparison",
+          "title": "The sharp three-to-four permutation threshold for matching-deleted complete bipartite graphs",
+          "trigger": "Strongest local-index hit"
+        },
+        {
+          "assessment": "Different invariant on the same family",
+          "evidence": [
+            "Indexed result concerns induced-cograph profiles rather than permutation representation counts."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-cograph-induced-subgraph-profiles-of-matching-deleted-bicliques--b268974a282b",
+          "material_read": "Indexed statement of target invariant",
+          "method": "Local-index scientific summary comparison",
+          "title": "Cograph induced-subgraph profiles of matching-deleted bicliques",
+          "trigger": "Distinct local-index hit on the same graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–15 and 25–58; Hefty–Horn–Muir, Theorem 3.4"
+      ],
+      "rationale": "The complement/realizer correspondence gives a structural test at exactly the shortest potentially noncomplete block count. Applied to a natural deletion family, it identifies the obstruction already present on three matched pairs and makes the known crown construction sharp, rather than just transcribing it. The answer holds for arbitrary shore sizes and not just the balanced crown.",
+      "residual_risks": [
+        "Concerns full permutation blocks with the threshold-one rule, not optimal length of unrestricted words or representations under other adjacency rules."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

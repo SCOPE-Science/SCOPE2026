@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stable-extension/maximal-independent-set equivalence follows from conflict-freeness and attack of every excluded vertex in a symmetric loop-free framework. The cyclic binary-word characterization is exact (forbid adjacent ones and runs of three zeros). A sixteen-state two-copy transfer matrix therefore counts the required labelled **ordered pairs**, with no quotient by rotations. An exact integer-polynomial characteristic calculation yields the two denominator factors; `checker.py` regenerates this independently from the transfer definition via Newton identities. The two omitted low-length terms are explicitly accounted for. Extreme pair multiplicities have direct combinatorial proofs. For the probabilistic component, the recurrent unweighted transfer is primitive, its Perron root is the square of the plastic constant, and analytic perturbation together with a strictly positive second derivative proves the central limit theorem. The checker independently enumerates all pairs for lengths three through sixteen. No finite computation substitutes for the infinite proof.
+PASS
 
-## Originality — PASS within inspected literature
+On labelled bidirected cycles stable sets are independent dominating sets. The cyclic membership language excludes 11 and 000 in each coordinate, so the trace counts each labelled ordered pair once with target-symbol XOR weight. Independently used a 9-state pair automaton (age of the last occupied site in each coordinate); exact determinant, length-one and length-two corrections, and two dominant-root derivatives all agree. Replay: python3 /workspace/audit-04-reproduce.py (SymPy); no frozen script was executed. At t=1 the one-coordinate recurrent shift has cycles of lengths 2 and 3 and is irreducible, hence primitive, as is its tensor square. Analytic isolation of its simple Perron root gives a uniform exponentially small trace error near t=1; differentiating and substituting the centered characteristic-function argument proves the stated moments and Gaussian limit, with strictly positive exact variance. For odd n the sole agreement vertex cannot be in both sets (its neighbors would also have to agree), so an alternating path with that one uncovered vertex gives precisely 2n possibilities; even n has the two proper alternating assignments. These arguments include n=3 and use ordered, not rotation-quotiented, pairs.
 
-The motivating 2026 primary paper introduces symmetric-difference diversity and classifies complexity; the inspected results and its technical appendix do not give an exact cycle pair-distance polynomial or the limiting Gaussian law. Bisdorff--Marichal's arXiv text derives Perrin enumeration of individual cycle maximal independent sets and dihedral orbit formulas. Jou--Lin's 2018 paper enumerates individual maximal independent sets algorithmically; neither supplies the two-replica bivariate factorization or Gaussian fluctuation constants. A previously described result on leaf-paired symmetric argumentation encodes *all* independent sets of a core graph and has a different disagreement polynomial; it does not impose the maximality/dominating condition on a bare cycle, and does not imply the present formula. published-finding corpus searches included the natural aliases (stable extensions, maximal independent sets, independent domination, two-replica cyclic words, pair Hamming distance). No decisive stronger coverage was found; non-discovery is not proof of uniqueness. Risk remains from older overlap/replica transfer-matrix literature not indexed by searched terminology.
+## originality
 
-## Value — PASS
+PASS
 
-The new object is precisely the diversity distribution motivating current argumentation semantics, specialized to the minimal connected symmetric family with a nontrivial family of competing stable extensions. The theorem moves substantially beyond the classical Perrin count: it resolves all pair distances simultaneously, gives closed factors of degrees three and six instead of an unexplained exponential enumeration, identifies the exact most-diverse pairs, and gives a quantitative normal law describing typical incompatibility. This is a complete invariant for every labelled cycle size and a natural baseline for empirical diversity studies. The methods are standard, but the exact new invariant and its probabilistic interpretation carry the value claim. This is not presented as a broad complexity improvement or an arbitrary narrow count.
+The cycle pair formula, including the antisymmetric-sector contribution, and the odd-cycle extremal count are distinct from the closest inspected results. The path result has the very same symmetric-sector denominator and leading mean, so these should not be presented as uniquely cycle-specific discoveries. No inspected source gives the full cyclic trace enumerator with its two factors and cycle pair limit law. This is a bounded finding about coverage, not a priority certificate.
 
-## Closest literature and limitations
+## value
 
-Closest sources: Fichte--Hecher--Mahmood--Wang 2026 (diversity semantics, complexity); Bisdorff--Marichal 2007/2008 (Perrin and cycle MIS orbits); Jou--Lin 2018 (MIS enumeration); Coste-Marquis--Devred--Marquis 2005 (symmetric AFs). Possible unlocated two-replica hard-core/independent-domination identities are the main originality risk. Other graph classes and other argumentation semantics are outside the theorem. The proof is an ordinary mathematical derivation with finite computational checks, not an independent certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural cyclic benchmark for extension diversity: exact ordered-pair coefficients answer distance-tail counts at every size, parity determines the maximum multiplicity, and the explicit variance gives the fluctuation scale. The cyclic trace detects a sector absent from the path scalar series. This is a reusable exact invariant of a motivated graph family, not a numerical sequence check or a claim of a new general transfer method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

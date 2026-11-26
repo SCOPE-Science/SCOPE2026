@@ -1,11 +1,21 @@
-# Scientific review: sharp binary temporal JR price
+# Independent mathematical audit
 
-**Correctness: PASS.** The nonempty two-alternative ballots imply both per-round maximum support at least half the electorate and satisfaction of all previously unserved voters by flipping any noncritical round. The crucial bound counts critical rounds associated with single-satisfaction voters, bounds their number by the number of such voters, and obtains the sharp fraction through a monotonic rational function and a nonnegative cross-product expression. The equality argument forces exactly one previously unsatisfied voter and exclusively polarized round ballots. Exact-rational exhaustive verification covered 551,124 profiles in the first two nontrivial three-voter horizons, plus 1,000 deterministic four-voter profiles; the general result depends on the proof rather than these finite tests.
+## correctness
 
-**Originality: PASS under self-review.** The closest primary results are Teh (2026), Theorem 3.3 and Proposition 3.4, giving a general multi-alternative upper bound and constructions using many different candidates; and Elkind–Neoh–Teh (2024), Theorem 5.6, giving the global price of individual PROP without binary-candidate restriction. These results do not imply the exact two-alternative price or rigid equality family, even though for complete elections with \(\ell=n\) PROP and JR coincide. Existing static two-party FJR+ calculations concern a stronger condition. Targeted searches found no equivalent statement. Residual risks: papers not indexed by the searched databases or an unremarked special case in prior full texts.
+PASS
 
-**Value: PASS.** An exact worst-case cost, a one-round repair theorem and a full characterization of equality address a natural binary decision agenda. The result gives a qualitatively stronger guarantee than the general many-candidate price, for every electorate size and time horizon, while allowing preferences to change arbitrarily between rounds.
+Under complete ballots and horizon L>=n, singleton JR requires every voter to be satisfied at least once, which in turn certifies JR for every group. Start from any per-round welfare maximizer, including arbitrary ties. If u voters are unsatisfied and c have satisfaction one, there are at most c critical rounds protecting the latter, so a noncritical round exists. Flipping it satisfies all u and takes no voter's last satisfaction. If a is the smallest winning approval count in a noncritical round, d=u+c and n/2<=a<=n-d. The loss is at most 2a-n and total welfare at least (L-c)a+cn/2. Their quotient increases with a. Comparing its value at n-d to (n-2)/(L(n-1)) gives a nonnegative cross-product Ln(d-1)-c(n-2)(n/2-d), strictly positive for d>1. Thus for n>=3 equality requires u=1, c=0 and a=n-1, hence every round has n-1 winner approvals. If any round's loser had more than the one unsatisfied voter's approval, flipping that round would incur strictly less than n-2 loss. This forces the fixed exclusive minority and the complementary exclusive majority in every round; direct optimization gives the converse for either choice of majority label each round. For n=2 every noncritical flip has zero loss.
 
-**Scope and limits.** Complete ballots, exactly two alternatives, offline planning, and \(\ell\ge n\). The result does not extend by this proof to more alternatives or stronger JR-family axioms. No independent validation is represented.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the sharp fixed-n, fixed-horizon welfare price on all complete time-varying binary profiles, with the one-round repair and equality iff fixed polarized minority. General complete-domain JR bounds and related static constructions are antecedents, not proof of this classification. Novelty is not credited to the JR definition or the already shared polarized examples.
+
+## value
+
+PASS
+
+Restricting an agenda to two alternatives changes the welfare cost of guaranteeing every voter a satisfactory round. The sharp loss comparison quantifies that change; the repair produces a feasible nearby outcome directly from any unconstrained optimizer, while the converse identifies exactly when the worst cost cannot be avoided. This is more informative than a static example or a better constant without a mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

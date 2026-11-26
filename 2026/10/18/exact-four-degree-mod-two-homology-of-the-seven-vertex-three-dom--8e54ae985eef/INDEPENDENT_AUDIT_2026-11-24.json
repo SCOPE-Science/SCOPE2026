@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:54:47.705462Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The seven-vertex graph has domination number at least three exactly when every pair has an outside vertex adjacent to neither member: an existing dominating singleton would extend to a pair. I independently enumerated all 2^21 edge masks by this common-nonneighbor test, formed every augmented simplicial boundary column by single-edge deletion, and reduced the original matrices by exact binary Gaussian elimination, without matching, Morse projection, or execution of the frozen verifier. The face counts for cardinalities 0–12 are 1,21,210,1330,5985,19782,47187,76590,76860,43330,13566,2310,105; all later counts vanish. The boundary ranks for cardinalities 1–12 are 1,20,190,1140,4845,14937,32250,44234,32003,11326,2205,105. The codomain for cardinality one includes the empty simplex, so rank-nullity with both adjacent boundaries gives exactly reduced mod-two Betti numbers 106,623,1,35 in dimensions 6–9 and zero elsewhere. This corroborates the frozen verifier’s homology output by an independent method, not merely by Euler characteristic. No inference about integral homology or homotopy type is made.",
+      "reproduction": "Run python3 /workspace/branches/d73_direct.py (NumPy for boolean mask enumeration; Python integer XOR for exact field elimination). Complete run: /workspace/branches/d73_direct.log.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 covers D(n,n−2), giving a wedge of 160 two-spheres for D(7,5). Proposition 1.3 gives a wedge of four 5-spheres for D(5,2). Problem 1.4 asks broader homotopy questions rather than supplying a formula."
+        ],
+        "reasoning": "Neither hypothesis specializes to (7,3), and no broader formula covering this term was identified in the inspected general comparison.",
+        "searches": [
+          "arXiv:1901.07130, Theorem 1.1, Proposition 1.3, and Problem 1.4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_d73.cpp (inspection, not execution)",
+        "arXiv:1901.07130",
+        "Resultary e4e894a65756, 55d89ec4bab2, 69e5128d3e29"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper’s Euler characteristic 92 is for D(6,3). The catalogue gives D(7,4) and D(6,3) sphere-wedge types, not relative homology or maps determining D(7,3)."
+        ],
+        "reasoning": "Inclusions of neighboring terms alone do not determine this term’s Betti vector. Even the target’s own Euler characteristic −551 supplies only one alternating-sum constraint, not the four dimensions.",
+        "searches": [
+          "arXiv:1901.07130, discussion preceding Problem 1.4",
+          "Resultary e4e894a65756, 55d89ec4bab2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The dual of this complex on E(K7) consists of sets whose edge complements have a dominating pair. No corresponding exact calculation surfaced under that description.",
+          "Resultary e4e894a65756 uses the same 21-edge ground set but requires domination number at least four."
+        ],
+        "reasoning": "The dual formulation describes the same invariant via a shifted cohomology, whereas changing the domination threshold changes the face condition. The same-ground-set result is not a rephrasing.",
+        "searches": [
+          "Resultary: D(7,3), seven-vertex graphs with no dominating pair and their mod-two homology",
+          "Targeted primary-literature lookup for D(7,3) homology and equivalent Alexander dual"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The adjacent D(7,4) computation gives ranks 811 and 84 in degrees 4 and 5 via a sphere wedge. The available D(6,3) sphere-wedge computation gives ranks 115 and 24 in degrees 4 and 5; the same-day rational character computation is also for six vertices.",
+          "No exact indexed table row for D(7,3) was located in the checks."
+        ],
+        "reasoning": "Neither adjacent result gives the requested row; the same-day record is excluded by its object, not its date. A ranked search is not exhaustive.",
+        "searches": [
+          "Resultary targeted exact vector/parameter lookup: D(7,3), 106,623,1,35, domination complex",
+          "Resultary records e4e894a65756, 55d89ec4bab2, 69e5128d3e29"
+        ]
+      },
+      "rationale": "The inspected primary theorem and closest catalogue computations concern other thresholds or numbers of vertices. No equivalent exact seven-vertex no-dominating-pair computation was located. The pass is for the complete mod-two Betti vector at (7,3), not the introduction of the filtration or the use of existing homology methods.",
+      "residual_risks": [
+        "No exact passage was available for the separately cited six-vertex mod-two record 9a3a7140d738; the accessible six-vertex sphere-wedge comparison already supplies the relevant neighboring Betti numbers.",
+        "Unindexed computations or calculations under another dual formulation may not have been found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant foundational results, but stated hypotheses miss (7,3).",
+          "evidence": [
+            "Theorem 1.1 requires threshold n−2; Proposition 1.3 is for five vertices; the D(6,3) remark reports its Euler characteristic, not the seven-vertex homology."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1901.07130",
+          "material_read": "PDF pp. 2–3, Theorem 1.1, Proposition 1.3, D(6,3) remark and Problem 1.4",
+          "method": "OA full-text retrieval of the identified passages",
+          "title": "On the homotopy type of complexes of graphs with bounded domination number",
+          "trigger": "Primary definition and possible general coverage of the filtration"
+        },
+        {
+          "assessment": "Same ground set, different filtration term.",
+          "evidence": [
+            "Requires γ≥4, not γ≥3; states the wedge of 811 S^4 and 84 S^5."
+          ],
+          "identifier_or_url": "Resultary e4e894a65756",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local mirror",
+          "title": "The domination complex D(7,4) is a wedge of 811 4-spheres and 84 5-spheres",
+          "trigger": "Closest match on the seven-vertex edge set"
+        },
+        {
+          "assessment": "Distinct six-vertex complex.",
+          "evidence": [
+            "The computed wedge has 115 S^4 and 24 S^5 for six graph vertices."
+          ],
+          "identifier_or_url": "Resultary 55d89ec4bab2",
+          "material_read": "RESULT.md, Finding and Assumptions",
+          "method": "Local mirror",
+          "title": "A mixed-dimensional sphere wedge for D(6,3)",
+          "trigger": "Closest vertex-order comparison with the same threshold"
+        },
+        {
+          "assessment": "Not a duplicate or a result implying D(7,3).",
+          "evidence": [
+            "Computes rational S6 homology characters of D(6,3)."
+          ],
+          "identifier_or_url": "Resultary 69e5128d3e29",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local mirror",
+          "title": "Full S6 homology character of the six-vertex domination complex",
+          "trigger": "Distinct same-day related calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural term of a studied domination filtration, close to but outside its classified diagonal. Knowing that four adjacent reduced degrees survive, with a rank-one degree-eight term and the full exact ranks, is information unavailable from neighboring wedge classifications or Euler characteristic. It is a reproducible benchmark for future filtration and coefficient comparisons, without claiming a full census, persistence, or a homotopy classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

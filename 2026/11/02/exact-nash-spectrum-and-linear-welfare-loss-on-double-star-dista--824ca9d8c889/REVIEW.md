@@ -1,29 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The induced-coalition distance model, singleton and disconnected-coalition conventions, strict unilateral deviations, and Nash conditions match the definitions of Ganian et al. [1]. The proof exhausts the only connected-coalition possibilities in a two-hub tree. When hubs are separated, every leaf must be attached to its hub, and that configuration is stable. When joined, every nonhub agent outside the central coalition is singleton; the four rationality/no-entry inequalities are necessary and sufficient, with exactly three possible occupancy types. Counting labeled leaf choices gives \(ab+3\); the exact pairwise score accounting yields the complete welfare spectrum. Global welfare follows by considering both hub placements and bounding \(1+p+q-pq\). Direct independent brute-force validation passed 217,219 labeled set partitions; only the mathematical proof establishes the infinite result.
+PASS
 
-## Originality — PASS with remaining priority risk
+A disconnected coalition gives each member −∞ and cannot be stable or welfare-maximizing. When hubs separate, every unattached leaf is singleton and would strictly gain by joining its hub. The full separated stars are stable: a hub earns at least one, and moving to the other hub gives one. For joined hubs with p left and q right leaves, left and right leaves earn 1−q and 1−p, respectively, in the hub coalition versus zero in a singleton. Participating leaves prohibit negative utility, and absent leaves prohibit positive entry utility. Hubs already earn at least one and can gain at most one elsewhere. If q=0, entry forces p=a, and symmetrically p=0 forces q=b. If both are positive they must each be one. Counting labeled choices gives ab+3, including four distinct partitions at a=b=1. The number of internal edges in the joined coalition is 1+p+q and there are pq opposite-leaf pairs at distance three, giving W=2(1+p+q−pq)=4−2(p−1)(q−1). The joined shape with both sides nonempty has W<=4; with one side empty welfare is at most 2(1+max(a,b)). Separated welfare is at most 2(a+b), uniquely attained by two full stars in that case. These bounds give exactly the stated welfare multiset, global optimal partitions and two price ratios, with strict inequalities interpreted as mover improvements and no destination consent. Independent restricted-growth-by-block partition recursion with induced distances and exact strict deviation checks (branches/independent-replays/double_star.py) reproduced the full stable partition identities, welfare and all optima for all 21 ordered a,b with a+b<=7. The frozen checker was inspected, not executed. Its module docstring names the wrong file, but both RESULT.md and VERIFICATION.md give the correct command. Its optimum count is printed, not asserted; the independent replay and proof cover that count.
 
-The 2023 primary source [1] establishes the non-normalized model, with the same example scoring vector, plus general algorithms and complexity results. Its full 2023 conference version and expanded December 2023 preprint were inspected, including their definitions, lemmas, theorems and appendices. No exact double-star equilibrium spectrum, Nash price-of-anarchy formula, or labeled classification was identified. The 2020 distance-hedonic model [2] uses a coalition-size-normalized utility and finite score at disconnected pairs; its price-of-anarchy observations do not imply the present formulas. Previous inverse-distance models [3,4] likewise have different utilities. Relevant mathematical-record searches found no matching classified theorem; indexing coverage does not prove absolute priority. Exact source distinctions, representative search strings and residual risks are recorded in the accompanying scientific audit.
+## originality
 
-## Value — PASS
+PASS
 
-The two-hub tree is a natural minimal topology exhibiting three distinct distance scores. The theorem is a complete rather than selective equilibrium classification, gives the exact labeled count and welfare multiset, and sharply isolates an unbounded linear efficiency loss even with diameter fixed at three and treewidth one. It distinguishes the existence of an efficient Nash equilibrium from the possible severity of other Nash equilibria; this is not a consequence of an existence algorithm or a normalization change.
+Credit the exact game model and score-vector example to Ganian et al. and the established broader phenomenon of large PoA in related models. The inspected evidence does not give the double-star equilibrium classification, labeled count and welfare multiset for these induced-distance additive scores, or the resulting family-exact price ratio.
 
-## Scope and limits
+## value
 
-The result assumes positive integers \(a,b\), scoring vector exactly \((1,0,-1)\), no coalition-size normalization, and strict unilateral deviations. It establishes no classification on arbitrary trees or for other preference rules. Exhaustive computation supports only the tested sizes; specialist priority uncertainty and lack of independent external validation remain.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The double star is a simple natural tree with enough diameter to activate the negative score, and the two hubs are the only possible connectors. A complete labeled count with the exact welfare multiset is useful beyond a single poor equilibrium witness: all optimal outcomes and both extreme price ratios are isolated for unequal as well as equal leaf counts. It gives a sharp linear loss with a stable optimum on treewidth one at fixed diameter three, not a new claim about the analogous normalized models.
 
-## Literature
-
-[1] Ganian et al., *Maximizing Social Welfare in Score-Based Social Distance Games* (2023), https://arxiv.org/html/2307.05061v1; extended treatment https://arxiv.org/html/2312.07632v1.
-
-[2] Flammini et al., *Distance Hedonic Games* (2020), https://aamas.csc.liv.ac.uk/Proceedings/aamas2020/pdfs/p1846.pdf.
-
-[3] Balliu et al., *Nash Stability in Social Distance Games* (2017), https://doi.org/10.1609/aaai.v31i1.10608.
-
-[4] Balliu et al., *On Non-Cooperativeness in Social Distance Games* (2019), https://doi.org/10.1613/jair.1.11808.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

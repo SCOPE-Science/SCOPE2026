@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:12:38.928918Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–21 and 26–55",
+        "VERIFICATION.md",
+        "verify_swap.py (inspected, not executed)",
+        "independent_check_record1.py (separate direct enumeration)"
+      ],
+      "rationale": "Count distinct strings: a factor with at most three minority ones can be an Abelian square only with zero or two ones. A two-one factor 0^x 1 0^b 1 0^y has one one in each half exactly when x+y≡b (mod 2) and |x−y|≤b. For three ones the two consecutive pairs therefore contribute distinct families unless their internal zero gaps agree; in that case subtract the intersection with the smaller outer bounds. In W_k the two families coincide. In V_k the middle gaps differ and the two counts are k(k+1)/2 and k(k+3)/2. For the latter, the k admissible diagonals e=x−y in [−(k−1),k−1] contribute k+1−|e|+1_{e>0} points each. Adding the zero-only squares proves both formulas, including k=1. The middle one moves right by one site; the counts differ by k²/2+O(k), with ratio tending to 2. For at most two minority occurrences an outer gap change adds or subtracts at most one row or column; a one-step internal gap change changes at most two permitted boundary points and the parity count by at most one per row. The two perturbed gap coordinates and the all-zero term therefore give O(n), including adjacent markers or empty end gaps. With zero or one minority occurrence, only majority-letter powers can count. The independent direct enumerator reproduced both families through k=12, all three-marker gap tuples with at most eight zeros, and checked 3,254 directed low-support swaps through length 14. These checks corroborate the algebra, not the universal bound by themselves.",
+      "residual_risks": [
+        "The theorem is for literal distinct contiguous factors and one adjacent interchange; it does not concern counts with multiplicity or the best leading constant over all words."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The maximum-distinct-count bounds give Θ(n²) for binary words; Proposition 1 supplies a two-marker witness for that order.",
+          "The matching three-marker gap formula applies to all three-one binary words, while that record's additional aggregate results concern a generating function and a conditional limit law, not an edit bound."
+        ],
+        "reasoning": "Global complexity bounds cannot distinguish the low-support stability regime from a quadratic jump. The stronger formula covers evaluation of the three-marker candidates, not minimality of support for this sensitivity.",
+        "searches": [
+          "Kociumaka et al. arXiv:1604.02238",
+          "Fici–Mignosi arXiv:1506.03562v1 §3",
+          "Resultary 3d4cd7a4fb18"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1506.03562v1 §3 Proposition 1",
+        "arXiv:1604.02238 abstract",
+        "Resultary 3d4cd7a4fb18 and 5c8a2551c2f3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitution of the two gap vectors in the already displayed count formula yields exactly their counts.",
+          "The sensitive change comes from identical two-one families becoming disjoint when only the middle marker moves. With two ones there is only one family, and the strip and parity perturbations have a uniform linear bound."
+        ],
+        "reasoning": "Evaluating the supplied pair is mechanical given the overlapping formula. The selection of a one-swap pair that separates the families, together with the universal bound excluding every pair of smaller minority support, is the added comparison.",
+        "searches": [
+          "Resultary 3d4cd7a4fb18 equation (1)",
+          "Fici–Mignosi Proposition 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-marker word in Proposition 1 has quadratic complexity but does not compare neighboring words.",
+          "Resultary 3d4cd7a4fb18 uses H-gap counts for the identical distinct three-marker factor statistic.",
+          "The other same-day three-marker census counts distinct Lyndon factors, a different invariant."
+        ],
+        "reasoning": "Counting unique two-half Parikh-equal strings is the same invariant in the exact Abelian-square diversity record. The magnitude of its change under a single composition-preserving adjacent swap is a different statement from the count or its maximum.",
+        "searches": [
+          "Fici–Mignosi arXiv:1506.03562v1 §3 Proposition 1",
+          "Resultary 3d4cd7a4fb18 equation (1)",
+          "Resultary 5c8a2551c2f3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The former exact record states the same four-gap count, with the common factors subtracted only when the internal gaps match. The latter exact record computes Lyndon diversity and does not supply an Abelian-square census under swaps."
+        ],
+        "reasoning": "Verified formula overlap is counted as such regardless of release-path dates. Neither inspected result states the full adjacent-swap threshold.",
+        "searches": [
+          "Resultary three-marker Abelian-square diversity and edit-comparison searches; matches 3d4cd7a4fb18 and 5c8a2551c2f3"
+        ]
+      },
+      "rationale": "The supported distinct claim is the sharp threshold of three minority occurrences for quadratic sensitivity under one adjacent interchange. Quadratic counts themselves with two occurrences and the exact three-marker classification are already covered by inspected works; neither is credited independently. The covering count formula gives the two witness values once the words are specified, but the checked sources do not choose these swap neighbors or establish the universal low-support sensitivity bound.",
+      "residual_risks": [
+        "A broad literature lookup did not locate a relevant edit-sensitivity statement and does not clear work under different local-edit terminology. The match for the exact three-marker formula is substantive; its priority relation is not determined by directory dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Quadratic counts with two markers; not sensitivity",
+          "evidence": "The witness a^r b a^r b a^r admits quadratically many parity-valid a^i b a^r b a^j factors.",
+          "identifier_or_url": "https://arxiv.org/html/1506.03562v1",
+          "material_read": "§3, Proposition 1, OA text offsets about 7800–8050 at the statement and witness",
+          "method": "Lawful OA full-text passage",
+          "title": "Words with the Maximum Number of Abelian Squares",
+          "trigger": "Quadratic distinct counts with very few ones"
+        },
+        {
+          "assessment": "Confirms overlap for maximum counts; not a whole-document exclusion for edit sensitivity",
+          "evidence": "It states SQ_Abel(n,σ)=Θ(n²) for σ≥2 and counts distinct factors.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.02238",
+          "material_read": "Abstract at OA offset 0",
+          "method": "Lawful OA abstract passage",
+          "title": "Maximum Number of Distinct and Nonequivalent Nonstandard Squares in a Word",
+          "trigger": "General distinct Abelian-square upper and lower order bounds"
+        },
+        {
+          "assessment": "Full three-marker count overlap, not a stated adjacent-swap threshold",
+          "evidence": "In equivalent H-notation it adds the two pair-family counts and subtracts their overlap when the two inner gaps agree.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-abelian-square-diversity-and-conditional-limit-law-for-thr--3d4cd7a4fb18/RESULT.md",
+          "material_read": "Finding and equation (1), text beginning at offset 0",
+          "method": "Local mirror",
+          "title": "Exact Abelian-square diversity and conditional limit law for three-marker words",
+          "trigger": "Exact four-gap enumeration on the same words"
+        },
+        {
+          "assessment": "Different factor property and statistic",
+          "evidence": "Its L(w) counts distinct Lyndon factors, not Abelian-square factors.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-three-marker-binary-lyndon-factor-census-isolated-maximum-and-fl--5c8a2551c2f3/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Three-marker binary Lyndon factor census, isolated maximum and fluctuations",
+          "trigger": "Related sparse binary factor census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 34–51",
+        "Fici–Mignosi Proposition 1",
+        "Resultary 3d4cd7a4fb18"
+      ],
+      "rationale": "This identifies a sharp boundary in a natural local perturbation problem. Sparse words already support quadratic complexity with two minority symbols, but two symbols cannot support a quadratic change under a single swap. Three suffice because the displacement destroys the coincidence of two extensively overlapping families of strings. The separation of complexity from sensitivity and the explicit matching-order witness give mathematical content beyond a count formula or a finite example.",
+      "residual_risks": [
+        "No universality across other edit operations or repetition notions, and no leading-constant optimality claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,85 +1,70 @@
-# Exact finite-amplitude resonance boundary for alternating survival in a quadratic population map
+# Exact finite-amplitude resonance boundary for alternating survival
 
 ## Finding
 
-**Theorem.** Fix a reproductive coefficient \(R>0\) and two alternating survival fractions \(s_0,s_1\in(0,1]\). Define \(a=Rs_0\), \(b=Rs_1\), \(h=(a+b)/2\), \(d=(a-b)/2\), and \(Q=\sqrt{1+d^2}\). Let every positive initial abundance evolve by
+Fix a reproductive coefficient \(R>0\) and two alternating survival fractions \(s_0,s_1\in(0,1]\). Set \(a=Rs_0\), \(b=Rs_1\), \(h=(a+b)/2\), \(d=(a-b)/2\), and \(Q=\sqrt{1+d^2}\). Let a positive initial abundance follow
 \[
- x_{t+1}=\frac{Rs_{t\bmod2}\,x_t}{1+x_t^2}\quad(t=0,1,2,\ldots).
+x_{t+1}=\frac{Rs_{t\bmod2}\,x_t}{1+x_t^2}.
 \]
-
-If \(ab\le1\), all such trajectories tend to extinction. If \(ab>1\), they converge to the unique positive two-season orbit \((u,v)\) described explicitly below. The corresponding long-run arithmetic mean \(\overline{x}=(u+v)/2\) and the positive equilibrium \(x_*=\sqrt{h-1}\) of the **constant survival** map with survival \((s_0+s_1)/2\) satisfy
+All positive trajectories tend to extinction if \(ab\le1\). If \(ab>1\), every positive trajectory converges in the two seasonal phases to the unique positive seasonal orbit \((u,v)\). The long-run arithmetic mean \(\bar x=(u+v)/2\) and the equilibrium \(x_*=\sqrt{h-1}\) for constant survival \((s_0+s_1)/2\) satisfy
 \[
-\boxed{\overline{x}^{\,2}-x_*^2=\frac{(Q-1)(h-Q-2)}{2}.}
+\boxed{\bar x^{\,2}-x_*^2=\frac{(Q-1)(h-Q-2)}{2}.}
 \]
-Consequently, when \(a\ne b\) and \(ab>1\), alternating survival increases mean census population precisely when \(h>Q+2\), decreases it precisely when \(Q<h<Q+2\), and ties precisely at \(h=Q+2\). When \(a=b\) there is equality.
+For unequal seasons in the persistent regime, alternating survival enhances the mean when \(h>Q+2\), suppresses it when \(Q<h<Q+2\), and ties at \(h=Q+2\). Equal seasons tie.
 
-**Fixed-mean contrast threshold.** For fixed \(h>3\), write the amplitude \(\delta=|d|\). Within the exact persistence range \(0<\delta<\sqrt{h^2-1}\), increasing contrast crosses once from enhancement to suppression, at
+**Fixed-mean contrast threshold.** For fixed feasible \(R,h\) with \(h>1\), the nonzero persistent amplitudes \(\delta=|d|\) satisfy exactly
+\[
+0<\delta<\sqrt{h^2-1},\qquad \delta\le R-h .
+\]
+If \(1<h\le3\), all such amplitudes suppress the mean. If \(h>3\), define
 \[
 \boxed{\delta_c=\sqrt{(h-2)^2-1}.}
 \]
-If \(1<h\le3\), every nontrivial persistent contrast suppresses the mean relative to constant survival. Thus a small-contrast resonant regime does not imply resonance at all finite contrasts.
+Among feasible persistent contrasts the effect is enhancement for \(\delta<\delta_c\), equality at \(\delta=\delta_c\), and suppression for \(\delta>\delta_c\). The tie at nonzero contrast is accessible exactly when \(R-h\ge\delta_c\); both enhancement and suppression are accessible exactly when \(R-h>\delta_c\). If \(R-h<\delta_c\), all feasible nonzero persistent contrasts enhance the mean (there are no such contrasts when \(R=h\)).
 
-For an exact same-mean comparison, choose \(R=10\) and average survival \(1/2\), so \(h=5\) and \(x_*=2\). Alternating survival \((7/10,3/10)\) gives \(\overline{x}^{\,2}=2\sqrt5>4\), whereas the more uneven \((8/10,2/10)\) gives \(\overline{x}^{\,2}=2\sqrt{10}-5/2<4\). Both alternate between survival fractions strictly between zero and one and have positive globally attracting cycles.
+For an exact same-mean comparison, take \(R=10\) and average survival \(1/2\), so \(h=5\) and \(x_*=2\). Alternating survival \((7/10,3/10)\) gives \(\bar x^2=2\sqrt5>4\), whereas \((8/10,2/10)\) gives \(\bar x^2=2\sqrt{10}-5/2<4\). Both are feasible and persistent. In contrast, with \(R=6\) and \(h=5\), the cap \(\delta\le1\) prevents reaching \(\delta_c=\sqrt8\).
 
 ## Assumptions and scope
 
-Abundance is a positive real variable; reproduction is density-limited by the quadratic denominator, and the seasonal survival fraction multiplies recruitment. There is no demographic or environmental stochasticity, immigration, age structure, density-dependent harvest, time-varying baseline fecundity, or adaptive harvesting. Survival is applied after density-limited recruitment. Comparisons hold the **arithmetic mean of the survival fractions**, not harvested biomass, effort cost, or the mean of seasonal carrying capacities, fixed. The result is about long-run **mean census abundance**, not sustainable yield or profit. All claims quantify over every \(R>0\), all allowed survival fractions, and every positive initial population.
+Abundance is a positive real variable. Seasonal survival multiplies density-limited recruitment with the same quadratic denominator in both seasons; reproduction, survival fractions, and the density scale are otherwise fixed as specified. There is no demographic or environmental stochasticity, immigration, age structure, density-dependent harvest, time-varying baseline fecundity, or adaptive harvesting. Comparisons hold the arithmetic mean of the survival fractions fixed, not harvested biomass, effort cost, or the mean of seasonal carrying capacities. The statistic is long-run arithmetic mean census abundance, not yield or profit.
 
 ## Proof
 
-Write \(f_c(x)=cx/(1+x^2)\). Suppose first \(ab>1\), equivalently \(h>Q\). Put \(r=d+Q>0\). As \(r^{-1}=Q-d\), the identities \(r-r^{-1}=2d=a-b\) and \(r+r^{-1}=2Q\) hold. Set
+Write \(f_c(x)=cx/(1+x^2)\). First let \(ab>1\). Since \(ab=h^2-d^2\) and \(h>0\), this is equivalent to \(h>Q\). Put \(r=d+Q>0\), so \(r^{-1}=Q-d\), \(r-r^{-1}=a-b\), and \(r+r^{-1}=2Q\). The positive numbers
 \[
- u^2=\frac{h-Q}{r},\qquad v^2=r(h-Q),\qquad u,v>0.
+u^2=(h-Q)/r,\qquad v^2=r(h-Q)
 \]
-We have \(v=ru\). Since \(1+u^2=(r+h-Q)/r=a/r\) and \(1+v^2=1+r(h-Q)=br\), direct substitution yields \(f_a(u)=v\) and \(f_b(v)=u\). Conversely, if a positive two-season orbit exists and \(v/u=\rho>0\), the two transition equations imply
-\[
- 1+u^2=\frac a\rho,\quad 1+v^2=b\rho,
- \quad \rho^2-(a-b)\rho-1=0.
-\]
-The last quadratic has exactly one positive root \(\rho=r\), so the positive orbit is unique. It has minimal period two when \(a\ne b\); for \(a=b\) it is a fixed point.
+satisfy \(v=ru\), \(1+u^2=a/r\), and \(1+v^2=br\); hence \(f_a(u)=v\) and \(f_b(v)=u\). Conversely, the two transition equations for a positive seasonal orbit, with \(\rho=v/u\), imply \(1+u^2=a/\rho\) and \(1+v^2=b\rho\). Substituting \(v^2=\rho^2u^2\) gives \(\rho^2-(a-b)\rho-1=0\), with the unique positive root \(r\). The orbit has minimal period two when \(a\ne b\) and is a fixed point when \(a=b\).
 
-For global attraction, use the logarithmic population coordinate \(z=\log x\). A season with multiplier \(c\) becomes
-\[
- g_c(z)=\log c+z-\log(1+e^{2z}),\qquad g_c'(z)=-\tanh z.
-\]
-For every finite real \(z\), \(|g_c'(z)|<1\). Hence the two-season map \(G=g_b\circ g_a\) satisfies \(|G'(z)|<1\) everywhere. The already constructed \(z_*=\log u\) is its fixed point. For any starting \(z_0\), the mean-value theorem gives \(|G(z)-z_*|<|z-z_*|\) unless \(z=z_*\); thus all even-season log iterates remain in the compact interval \([z_*-|z_0-z_*|,z_*+|z_0-z_*|]\). Continuity gives a uniform upper bound strictly below one for \(|G'|\) on this interval, establishing geometric convergence to \(z_*\). The intervening odd-season iterates converge to \(\log v\). This also proves uniqueness of any positive attracting orbit and excludes other long-run behavior for positive initial states.
+In log coordinates \(z=\log x\) a season has map \(g_c(z)=\log c+z-\log(1+e^{2z})\) with derivative \(-\tanh z\). Thus \(G=g_b\circ g_a\) satisfies \(|G'(z)|<1\) for every finite \(z\). With the fixed point \(z_*=\log u\) established above, the mean-value theorem shows that the even-season log iterates stay in the closed interval centered at \(z_*\) of radius \(|z_0-z_*|\). On this compact interval \(\sup |G'|<1\), proving geometric convergence to \(z_*\). The odd-season iterates converge to \(\log v\). In particular, the arithmetic time average converges to \((u+v)/2\).
 
-If \(ab\le1\), then
+For \(ab\le1\),
 \[
- \frac{x_{t+2}}{x_t}=\frac{ab}{(1+x_t^2)(1+x_{t+1}^2)}<1
+\frac{x_{t+2}}{x_t}=\frac{ab}{(1+x_t^2)(1+x_{t+1}^2)}<1
 \]
-for every positive state. The even subsequence decreases to a limit \(L\ge0\). If \(L>0\), continuity of \(f_a\) makes the displayed ratio eventually bounded away from one, a contradiction. Thus \(L=0\), and \(x_{2t+1}=f_a(x_{2t})\to0\) as well.
+for each positive state. The even subsequence decreases to a limit \(L\ge0\). If \(L>0\), continuity of \(f_a\) makes the displayed ratio eventually bounded away from one, a contradiction. Thus \(L=0\) and \(x_{2t+1}=f_a(x_{2t})\to0\).
 
-For \(ab>1\), the product and sum of the positive orbit are \(uv=h-Q\) and \(u^2+v^2=(r+r^{-1})(h-Q)=2Q(h-Q)\). Therefore
-\[
- \overline{x}^{\,2}=\frac{(u+v)^2}{4}
- =\frac{(Q+1)(h-Q)}2.
-\]
-The fixed survival fraction \((s_0+s_1)/2\) induces multiplier \(h\), so its fixed positive abundance is \(x_*^2=h-1\). Subtraction and factorization give
-\[
- \overline{x}^{\,2}-x_*^2
- =\frac{(Q+1)(h-Q)-2(h-1)}2
- =\frac{(Q-1)(h-Q-2)}2.
-\]
-Since both populations are positive, the sign of the difference of their squares is exactly the sign of the abundance difference. For a genuinely alternating environment, \(Q>1\), and the sign is fixed by \(h-Q-2\). At fixed \(h>3\), \(Q=\sqrt{1+\delta^2}\) increases continuously from one to \(h\) as \(\delta\) spans the full persistence interval, with the unique zero \(\delta_c\) claimed above; when \(1<h\le3\), no positive amplitude meets \(h>Q+2\). This proves every assertion.
+For the positive orbit, \(uv=h-Q\) and \(u^2+v^2=2Q(h-Q)\), so \(\bar x^2=(Q+1)(h-Q)/2\). The constant multiplier is \(h\) and its positive equilibrium satisfies \(x_*^2=h-1\). Subtracting gives the displayed factorization. Both means are positive, so their difference has the sign of the difference of their squares. When \(\delta>0\), \(Q>1\); the sign is the sign of \(h-Q-2\).
+
+At fixed \(h>1\), persistence is equivalent to \(h^2-\delta^2>1\), which also ensures \(h-\delta>0\). Since the two multipliers are \(h\pm\delta\), the remaining feasibility condition is \(h+\delta\le R\), inclusive because full survival is allowed. The increasing function \(Q=\sqrt{1+\delta^2}\) gives the stated sign rule, and if \(h>3\), its unique threshold \(Q=h-2\) occurs strictly below the extinction amplitude. The survival cap can therefore exclude the tie, include it as an endpoint, or allow contrasts on both sides, as stated.
 
 ## Verification
 
-The accompanying standard-library Python script `verify.py` checks exact rational phase identities at seven parameter triples with rational \(Q\), including positive, negative and zero mean differences, and iterates 33 independent positive initial-value trajectories across persistent, extinct and critical regimes with high-precision decimal arithmetic. The two exact fixed-mean examples are also checked numerically. Run `python3 verify.py` from the directory containing this document. The algebraic identities and global-convergence argument above, not finite experiments, provide the proof for all parameters.
+Run `python3 verify.py` from the source package. The unchanged standard-library verifier checks exact rational phase and mean identities at seven triples, iterates 33 independent positive initial conditions in persistent, extinct and critical regimes with high-precision decimal arithmetic, and checks the signs in the two fixed-mean examples at \(R=10\). These finite checks do not establish global convergence or the feasibility restriction at fixed \(R,h\). The proof gives both analytically, including the equality endpoint when \(h+\delta=R\).
 
 ## Relationship to prior work
 
-Franke and Yakubu (2006) developed a local small-amplitude signature function for resonant versus attenuant cycles, including a Smith model with periodically varying carrying capacity and demographic rate (their §5.5 and Table 2). Their population comparison uses the mean of seasonal carrying capacities and their theorem assumes small parameter oscillations. Here survival multiplies density-limited reproduction, comparison is to a *constant mean survival fraction*, and the threshold is exact at arbitrary persistent forcing amplitude; these statements do not follow simply by identifying the local signature. In particular, fixing \(h=5\) and increasing \(|d|\) from two to three reverses its effect, a finite-contrast issue absent from the local signature.
+Franke and Yakubu (2006) developed a local small-amplitude signature for resonant versus attenuant population cycles. Their Smith model (§5.5) contains the present map when both multipliers exceed one and the seasonal carrying capacities obey \(k_t^2=r_t-1\) with \(r_t=Rs_t\). Their local signature compares with mean seasonal carrying capacity, not the equilibrium for the arithmetic mean survival fraction. Here the result gives the exact crossover and its accessibility at finite forcing for the constant-mean-survival benchmark. The small-amplitude results do not in themselves give this crossover.
 
-Franke and Yakubu (2005) analyzed periodic survival in additive-survivor recruitment models, with constant or monotone Beverton–Holt recruitment, rather than the nonmonotone quadratic recruitment map here. Brauer and Sánchez (2003) considered periodic environmental and harvesting effects in continuous-time population equations. A relevant published spectral analysis of synchronous Ricker cycles concerns a different nonlinearity and a multispecies Floquet question. The exact finite-amplitude crossover stated here is not claimed to establish general harvesting optimality.
+Franke and Yakubu (2005) studied recruitment with additive survivors, not survival multiplying the quadratic recruitment function used here. Brauer and Sánchez (2003) considered periodic environmental and harvesting effects in continuous-time equations. The result is not a general statement of harvesting optimality.
 
 ## Limitations
 
-The mean census population is not the mean number harvested, reproductive value, conservation welfare, or a policy-optimality criterion. Constant mean survival fractions do not imply equal effort costs or equal cumulative catch. The result assumes homogeneous density-scale normalization, deterministic seasonal periodicity of length two, and multiplicative survival after recruitment. It does not cover noisy ecosystems, frequency-dependent management or general density-dependence exponents. No independent external scientific audit has been performed. Relevant older periodic-harvesting literature may contain implications not revealed by available full texts; originality is not proved by absence of a search hit.
+The mean census population is not harvested biomass, reproductive value, conservation welfare, or a policy objective. Equal mean survival fractions do not imply equal effort or catch. The model assumes a deterministic period of two and a fixed quadratic density scale. No claim is made about more general density dependence, longer schedules, or stochastic environments.
 
 ## References
 
-1. J. E. Franke and A.-A. Yakubu (2006), *Signature Function for Predicting Resonant and Attenuant Population 2-cycles*, Bulletin of Mathematical Biology 68, 2069–2104, DOI: 10.1007/s11538-006-9086-8. Author-posted full article: https://franke.math.ncsu.edu/Research/sigrevc.pdf ; online publication date 2006-07-25 (PubMed PMID 16865608).
-2. J. E. Franke and A.-A. Yakubu (2005), *Population models with periodic recruitment functions and survival rates*, Journal of Difference Equations and Applications 11, 1169–1184, DOI: 10.1080/10236190500386275. Author-posted full article: https://franke.math.ncsu.edu/Research/SurvivalFinal05.pdf.
-3. F. Brauer and D. A. Sánchez (2003), *Periodic Environments and Periodic Harvesting*, Natural Resource Modeling 16, 233–244, DOI: 10.1111/j.1939-7445.2003.tb00113.x (abstract examined; complete text not inspected).
-4. S. M. Henson and J. M. Cushing (1997), *The effect of periodic habitat fluctuations on a nonlinear insect population model*, Journal of Mathematical Biology 36, 201–226 (historical population-resonance context).
+1. J. E. Franke and A.-A. Yakubu (2006), *Signature Function for Predicting Resonant and Attenuant Population 2-cycles*, Bulletin of Mathematical Biology 68, 2069–2104, DOI: 10.1007/s11538-006-9086-8. https://franke.math.ncsu.edu/Research/sigrevc.pdf
+2. J. E. Franke and A.-A. Yakubu (2005), *Population models with periodic recruitment functions and survival rates*, Journal of Difference Equations and Applications 11, 1169–1184, DOI: 10.1080/10236190500386275. https://franke.math.ncsu.edu/Research/SurvivalFinal05.pdf
+3. F. Brauer and D. A. Sánchez (2003), *Periodic Environments and Periodic Harvesting*, Natural Resource Modeling 16, 233–244, DOI: 10.1111/j.1939-7445.2003.tb00113.x.
+4. S. M. Henson and J. M. Cushing (1997), *The effect of periodic habitat fluctuations on a nonlinear insect population model*, Journal of Mathematical Biology 36, 201–226.

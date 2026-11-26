@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:49:49.059675Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 3–78 (definitions, scalar reduction and all sharpness/equality cases)",
+        "VERIFICATION.md, lines 19–23 and CHECK.py, lines 9–92 (read, not executed; finite roots and contrasts only)"
+      ],
+      "rationale": "With fixed interior marginals the feasible table is P(z)=(z,r-z,c-z,1-r-c+z). The first-order equation equates its log odds Theta(z) to the checkerboard contrast h(X). Theta is strictly increasing onto R, with Theta'=H, so every interior z is realizable and the positive optimum is unique. The input contrast has max-entry dual norm 4 and the output checkerboard has max-entry norm 1. Integrating the derivative gives the global bound, and perturbing the realizing kernel at z_* in the checkerboard direction proves sharpness as a supremum. H'' is twice the sum of the four inverse cubes, and endpoint blow-up makes its minimizer unique. Row and column reciprocal-pair bounds are 4/[r(1-r)] and 4/[c(1-c)], respectively, with equality exactly for equal splits in the relevant pairs. If c=1/2 the row bound attains the smaller variance, and symmetrically if r=1/2. At independence, H'(rc) is minus (1-2r)(1-2c) divided by the positive product r²(1-r)²c²(1-c)²; strict monotonicity of H' gives the association sign. Cost scaling by 1/epsilon is exact. No evidence of finite-pair attainment is needed.",
+      "residual_risks": [
+        "Interior two-state marginals and exact entropy minimization only; no claim for changing marginals or approximate scaling."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md §Relationship to prior work identifies the general implicit method and broader stability results; independent full-text retrieval did not succeed. The specialized KKT tangent calculation is independently verifiable: the tangent is the checkerboard line and curvature along it is exactly H."
+        ],
+        "reasoning": "A general pointwise Jacobian supplies the local sensitivity in this case, not the global location of its maximum or its strictness relative to both marginal variances. A general nonsharp stability estimate, or a bound for perturbing marginals, does not establish the same sharp law. Full-text access limits the strength of the literature comparison.",
+        "searches": [
+          "Eisenberger et al., arXiv:2205.06688 (Lemma 2 / Theorem 3; alternate ar5iv rendering)",
+          "Ghosal–Nutz–Bernton, arXiv:2106.03670; Eckstein–Nutz, arXiv:2110.06798; cited regularized-transport comparisons"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 43–97",
+        "Resultary cbaed52067d7, 312bdfd301f9 and 58773a9495f6 (available indexed statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A derivative of the plan at a given kernel is a covered ingredient; both the paired reciprocal inequality with its sharp equality tests and the sign evaluation at independence are extra steps concerning the optimizing table. The prior iterative contraction comparison changes scaling iterates for one kernel, not the kernel itself."
+        ],
+        "reasoning": "The derivative formula plus optimization principle gives a variational norm identity, but neither that implication nor an iteration estimate gives the smaller-variance equality locus or the side of independence on which the unique optimum lies. Those are the distinct substantive part.",
+        "searches": [
+          "Fixed-margin odds-ratio reduction, RESULT.md lines 43–78",
+          "Lehmann et al., DOI 10.1007/s11590-021-01830-0; binary sweep Resultary entry 312bdfd301f9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact transformation is odds(P)=exp(h(X)); hence the binary fixed-margin odds response and the entropy plan are the same scalar response up to contrast norm 4. The derivative to maximize is dP11/d(log odds), not dP11/d(odds).",
+          "The older binary projective sweep entry 312bdfd301f9 concerns cross-odds but iterates at fixed kernel; it does not state maximization of this different response in its indexed description."
+        ],
+        "reasoning": "A Plackett-family theorem computing the maximal log-odds slope or identifying its inflection point with the same balance and association properties would count as overlap independent of entropy terminology. The known odds relation by itself supplies the response and derivative but does not supply those classifications. No such optimized Plackett statement was obtained.",
+        "searches": [
+          "Primary literature search on fixed-margin odds ratio/Plackett derivative and binary Sinkhorn sensitivity",
+          "Resultary search on fixed-marginal binary entropy coupling and maximum-entry Lipschitz sensitivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "cbaed52067d7 indexes this identical finding and is not independent coverage. The indexed statements for 312bdfd301f9 (binary projective sweep contraction) and 58773a9495f6 (KL permutahedron projection coordinate sensitivity) instead use different maps/constraint sets."
+        ],
+        "reasoning": "The distinction is mathematical, not based on dates. Neither neighbor's available statement supplies the max-entry binary plan norm and equality classification; the full archived texts were not retrieved.",
+        "searches": [
+          "Resultary fixed-marginal binary entropy/max-entry search, including cbaed52067d7, 312bdfd301f9 and 58773a9495f6"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the optimized fixed-marginal diagnostic and, in particular, its sharp variance-equality and association classifications. The fixed-margin odds parameterization and pointwise Sinkhorn differentiation are not new. Writing a global norm as the supremum of the pointwise norm is a standard step and is not credited in isolation.",
+      "residual_risks": [
+        "Primary Plackett/fixed-margin contingency-table texts were not secured; an earlier equivalent maximal log-odds slope or inflection classification remains plausible.",
+        "Primary Sinkhorn and OA mirror access was incomplete; an empty query or timeout was not treated as evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different map or feasible set in available statements",
+          "evidence": [
+            "Projective contraction of a binary scaling sweep; coordinate sensitivity for a permutahedron rather than a fixed 2x2 transport table."
+          ],
+          "identifier_or_url": "Resultary 312bdfd301f9 and 58773a9495f6",
+          "material_read": "Indexed scientific summaries; mirror full text not retrieved",
+          "method": "Local semantic search and attempted bounded mirror inspection",
+          "title": "Sharp marginal-sensitive projective contraction and sweep ordering; sharp coordinatewise sensitivity of logarithmic KL permutahedron projection",
+          "trigger": "Closest indexed distinct stability claims"
+        },
+        {
+          "assessment": "Credit pointwise mechanism; no independent full-text finding on the optimized binary coefficient",
+          "evidence": [
+            "The checkerboard KKT tangent calculation in frozen lines 43–60 is the local step; the additional geometry is in lines 62–78."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.06688",
+          "material_read": "Frozen lines 84–86 cite Lemma 2 and Theorem 3; primary passages unavailable",
+          "method": "Bounded OA retrieval including alternate ar5iv rendering",
+          "title": "A Unified Framework for Implicit Sinkhorn Differentiation",
+          "trigger": "Strongest plausible pointwise-derivative coverage"
+        },
+        {
+          "assessment": "No verified stronger result with the binary global sharp coefficient",
+          "evidence": [
+            "Changing marginals and convergence of scaling iterates address different stability questions from fixed-marginal max-entry sharp sensitivity."
+          ],
+          "identifier_or_url": "arXiv:2106.03670; arXiv:2110.06798",
+          "material_read": "Frozen lines 84–97 describe scope; decisive primary passages not retrieved",
+          "method": "Cited-source comparison and attempted OA retrieval",
+          "title": "Stability of Entropic Optimal Transport and Schrödinger Bridges; Quantitative Stability of Regularized Optimal Transport and Convergence of Sinkhorn's Algorithm",
+          "trigger": "Potential broader cost or marginal perturbation coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 13–35 and 55–78"
+      ],
+      "rationale": "The optimized response is a natural conditioning invariant for a binary regularized transport block. The strict gap from the generic smaller-variance estimate outside the balance locus and the location of the worst table relative to independence are practically and mathematically informative, beyond rephrasing the inverse-odds formula.",
+      "residual_risks": [
+        "Narrow binary scope; no high-dimensional estimate or scaling convergence result follows from this analysis."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

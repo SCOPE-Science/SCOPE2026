@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** All quantifiers and boundary conditions are explicit: noncircular ellipse, every integer \(n\ge3\), all maximum-area phases, and independent vertex angle variations. The derivative identity is reconstructed directly from the two incident chords, with strict Cauchy–Schwarz ensured by the nonzero determinant. The trigonometric grid lower bound and Hessian estimate prove a uniform positive perimeter improvement for \(n\ne4\). Quadrilateral axis phases give exactly the stationary exceptional set. The finite verification checks are supportive rather than substitutes for the proof.
+PASS
 
-## Originality
+Verified the all-phase claim analytically. Under inverse ellipse scaling, area maximization reduces to maximizing the sum of sines of the cyclic gaps. On the compact space with nonnegative gaps, a coincident-vertex polygon is not a maximizer: insertion on an open boundary arc makes a positive-area addition for a polygon with ≥3 distinct vertices, or yields positive area starting with ≤2. At an interior maximum the adjacent two-gap sine identity makes each adjacent gap pair equal. For the resulting equal-angle family the moving-vertex tangent is the average of the two unnormalized chord directions divided by cos(h); dotting it with the difference of incident unit chord vectors gives D_j=(F⁻−F⁺)(1−cos θ)/(2 cos h). The determinant ab sin(2h) makes the second factor strictly positive, and the squared norm difference is −(a²−b²)sin(2h)sin(2t_j). Thus simultaneous vanishing requires n=4 and a vertex phase in (π/2)Z. The grid modulo π gives max |sin(2t_j)|≥cos(π/(2N)); F⁻+F⁺≤2a and 1−cos θ≥sin²θ/2 give the stated G. Moving a single angle by up to h preserves order and gives incident gaps in [h,3h]⊂[h,π], so chord norms are at least 2b sin(h/2). The twice-differentiated norm bound then gives precisely H and the Taylor increment ≥G min(h,G/H)/2. Compactness gives a maximum; a collapsed polygon can strictly increase perimeter by insertion by strict triangle inequality, so an actual distinct-vertex maximum exists. The tests were inspected as diagnostics, not executed or used as a continuum proof. No claim of global maximality at n=4.
 
-**PASS, with historical uncertainty.** The closest directly inspected earlier mathematical record gives a strictly ordered Euclidean perimeter among the rotating affine-regular maximum-area family, not stationarity against moving any one vertex or a uniform lower bound against unrestricted perimeter maximization. The recent asymptotic approximation theorem instead concerns random boundary sampling densities; known billiard conditions give general necessary equations, not the specific complete obstruction in the accessible material. Search incompleteness and an inaccessible older affine-regular article leave meaningful historical priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** An all-\(n\) first-variation dichotomy and explicit nonzero lower bound distinguish dual objectives at finite complexity, complementing recent asymptotic rigidity problems. The distinction between optimizing inside the family of area-maximizers and optimizing in the full polygon space is substantive; the gap is motivated even though its constant is not optimal.
+The affine-area extremizers, their restricted phase selection, and the positive explicit triangle-order gap already have precedents. The distinct claim is the simultaneous independent-vertex stationarity classification for all n, together with a fixed-(ellipse,n) phase-uniform explicit bound for all nonexceptional orders. The inspected billiard literature establishes the reflection mechanism but does not solve the equal-affine-angle restriction or give this quantitative gap.
 
-## Closest references and limitations
+## value
 
-Hoehner (2026), arXiv:2602.18547; the published exact orientation-selection record at https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-perimeter-selection-among-maximum-area-polygons-inscribed--9338777854e9; and the preexisting maximum-perimeter inscribed ellipse problem at https://mathoverflow.net/questions/407192/inscribed-n-gons-of-maximum-perimeter-for-an-ellipse. No exact unrestricted optimum or globally maximizing quadrilateral family is claimed. Older billiard literature may contain implicit equivalents. The older Gronchi–Longinetti article was not read in full.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural comparison of two classical objective functions at fixed vertex count gives an exact exceptional stationarity case and an explicit gain in every other case. It genuinely distinguishes unrestricted optimization from the rotating family and generalizes the previously treated triangle case across vertex orders without an asymptotic assumption.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

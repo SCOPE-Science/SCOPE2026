@@ -1,19 +1,21 @@
-# Mathematical assessment: conservation-budget withdrawal on rooted phylogenies
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is precise for rooted phylogenetic diversity, independent leaf survival, positive pendant lengths, no root stem, and species-specific exponential extinction reduction. A sum of negative exponential edge terms has a strictly negative definite Hessian because of the pendant contributions; this gives a unique global budget optimum. For each two-leaf group, differentiation of marginal-return equality yields \(dy^*/ds=u/(u+v)\) and \(dz^*/ds=v/(u+v)\), both positive when interior and nonnegative at boundary faces. Every tree through three leaves is a star or a two-leaf group plus an independent singleton, so concave group allocation establishes the full lower bound. The explicit four-leaf tree has four equal exact gradients \(12\), the exact negative Hessian displayed in the result, and normalized optimal-allocation derivative \((-2,18,18,21)/55\); its first coordinate is strictly negative. The positive-length binary ultrametric extension follows from continuity of strict interior optimality and its implicit derivative. The separate checker reconstructs the exact matrix certificate and verifies the local response numerically; it does not purport to establish the infinite claim by enumeration.
+PASS
 
-## Originality — PASS with residual historical uncertainty
+Independence gives an edge sum; its negative Hessian is a sum of positive-semidefinite rank-one terms with a positive-definite pendant contribution. Thus KKT and continuity of the unique optimum apply. The two-tip stationary split has interior derivatives u/(u+v), v/(u+v). For the boundary argument, a downward crossing of any intermediate positive level r after budget B1 would have the crossing at a budget strictly above r (choose r<x_i*(B1)≤B1), hence at an interior point with positive derivative, impossible. One tip is trivial. A stemless three-tip tree is a star or a pair-clade plus singleton, up to suppression of subdivisions. Strict concavity passes to the pair value function. For a separable budget split, if one group budget fell and another rose, transferring the same small amount from the former to the latter at the first optimum and reversing the transfer at the second would contradict the strict decrease of the corresponding concave secant slopes. This also handles boundaries and the star. Independent exact reconstruction verified the witness gradient, Hessian and normalized inverse sensitivity (-2,18,18,21)/55, with budget about 2.898291333. At an interior point the bordered KKT system is nonsingular; the binary cherry resolution preserves ultrametricity, positivity and the strict negative derivative for small positive resolution length.
 
-The same-object comparison is Hartmann and Steel (2006): their exponential-budget theorem assumes a common extinction-reduction multiplier per unit cost, unlike the heterogeneous rates \((3,1,1,1)\) required in this counterexample. Simianer and colleagues (2003) use nonlinear conservation-spend responses and iterative allocations, but do not state or imply the exact four-leaf monotone/nonmonotone boundary under an exponential rooted-diversity objective. Weitzman's original linear survival-cost model is different. Published discrete conservation-intervention results concern choosing a fixed number of taxa and greedy failure, not the continuous derivative of a unique interior optimum. A result on survey-budget nonnesting instead optimizes species detection across habitats. Closely related full primary texts and the most similar indexed public research records were compared at the statement level; this review does not establish exhaustive historical priority.
+## originality
 
-## Value — PASS
+PASS
 
-A conservation allocation is not generally safe to extend by retaining all previous species investments when total funding rises, even when each individual survival curve is smooth with diminishing returns and the expected diversity objective is globally strictly concave. The result identifies the exact **minimum species count**, gives a rational linear-algebra sensitivity certificate, holds for equal positive untreated survival probabilities, and survives an ultrametric fully binary resolution. These are structural features of a natural phylogenetic-conservation problem, rather than an arbitrary parameter substitution or a tiny numerical improvement. It does not prescribe actual spending policy.
+The verified distinct claim is a sharp monotonicity boundary for continuous allocations with heterogeneous efficiencies, not a new expected-PD formulation or generic sensitivity formula. The closest inspected prior findings optimize materially different choices; priority is bounded by the material inspected.
 
-## Sources and limitations
+## value
 
-The relevant full texts considered are Hartmann and Steel (2006), https://doi.org/10.1080/10635150600873876 (author copy https://www.math.canterbury.ac.nz/~m.steel/Non_UC/files/research/noah.pdf), and Simianer and colleagues (2003), https://doi.org/10.1016/S0921-8009(03)00092-2 (open full text https://www.uni-goettingen.de/de/document/download/57dcb4e6357f5d6dd02e36d8248cb675.pdf/Simianer.pdf). Weitzman (1998), https://doi.org/10.2307/2999617, was used for the original linear-cost comparison. Relevant publicly indexed four-taxon discrete protection and five-taxon survival-priority claims were inspected, and found logically different. Residual historical-priority risk includes wider ecological-economics and continuous concave-allocation literature not exhaustively surveyed. Independent external validation remains unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Management spending is frequently compared across budgets. A sharp minimal topology separates guaranteed nesting from its failure even without ties, zero untreated survival, or unequal root-to-tip distances. The result makes clear why individual optimal allocations need not grow when the total budget grows, despite strict concavity and positive marginal returns. It is a model benchmark, not advice to cut funding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:54:46.427958Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–55 and 57–61; VERIFICATION.md and verify.py inspected, not executed.",
+        "OPENBLAS_NUM_THREADS=1 python /workspace/checks/frozen_checks.py 3; /workspace/checks/frozen_checks.out C3 lines. Direct unrescaled Nyström products and determinants for all subsets for m=2..6 at rational shifts including each positive tie."
+      ],
+      "rationale": "For A=μI+L positive definite and G=A⁻¹, the only nonzero residual block is the Schur complement of G_SS in G, which equals A_UU⁻¹. Write q=μ+1, r=m−k and b=μ(μ+m+1)+k. When the hub is selected the unselected principal matrix is qI of size r+1, so E_H=(r+1)/q. When only leaves are selected the remaining hub has Schur complement b/q after eliminating r leaves. The inverse trace is r/q+q/b+r/(qb), with r=0 reducing to 1/(μ+m). Complementary principal minors give D_H/D_L=det A_{U_H,U_H}/det A_{U_L,U_L}=q²/b, also for r=0. As b−q²=(m−1)μ+k−1>0, determinant preference is always strict. Further, E_L−E_H=−∂_μ log(q²/b), since ∂_μ log det A_UU=tr(A_UU⁻¹); differentiating gives exactly [m+1−2k−(m−1)μ]/(qb). Its positive root exists precisely for k≤floor(m/2), and decrements by 2/(m−1) per added landmark. For larger k the numerator is strictly negative on μ>0, including the zero-numerator-at-μ=0 odd-m boundary. Leaf symmetry exhausts both types and gives the binomial counts and ties, and selecting all vertices leaves zero residual. At 0<μ<1 the singleton threshold forces the hub; at budget m keeping that hub leaves a diagonal leaf inverse 1/(μ+1) instead of the smaller hub inverse 1/(μ+m). This proves nonnesting and the exact conditional append-only ratio. Independent exact matrix enumeration confirms all small-m set types, tie counts and determinant comparisons, including every positive threshold tested and the full-budget endpoint.",
+      "residual_risks": [
+        "Finite enumeration is corroboration; the general classification follows from the two principal blocks. Only exact, unrescaled Nyström with uniform positive screening and an unnormalized trace residual is treated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Indexed 5e432653c55a has the same screened Green matrix and an exact switch for one column, for cones over connected noncomplete walk-regular bases. Deleting the hub of K_{1,m} leaves an edgeless disconnected base, outside that quantified statement. The wheel crossover approaches sqrt(6)−1 rather than serving as a star formula.",
+          "Fornace–Lindsey's title and cited §6.1.2 are directly pertinent; the frozen record reports a stationary-state limit star example. The exact primary §6.1.2 and PDF/HTML passages did not load independently."
+        ],
+        "reasoning": "A general score formula or rank-reduction algorithm can be used to derive the residual identity, but to cover this claim it must solve the optimum for all μ>0 and all budgets on this family or imply its sharp comparison. The available connected-base, single-column statement does neither; the inaccessible paper is recorded as a risk, not excluded by the failed request.",
+        "searches": [
+          "Web primary literature and targeted OA arXiv:2407.01698 §6.1.2 (star graph); archived arXiv HTML query Star graph",
+          "Resultary targeted: A universal screening-driven Nyström landmark migration on cones 5e432653c55a screened star all budgets trace principal determinant m+1-2k nonnested"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 58eb0fc2195a, 5e432653c55a, a61ec413932b, 5ff469908668 and self-entry 17294883f457; arXiv:2407.01698 exact section attempts; frozen RESULT.md lines 63–79 for attributed prior-work context."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The weighted-star zero-screening inequality is reproduced as the μ↓0 limit, and the screened cone gives a related one-landmark effect but excludes the star in its indexed connected-base hypotheses.",
+          "The determinant ratio and opposite trace sign at low μ come from the exact screened principals; the derivative relationship evaluated here cannot be obtained by differentiating a single zero-shift comparison, nor does one budget force the near-full ratio."
+        ],
+        "reasoning": "No identified stronger theorem, alias, or dominating parameter scope supplies the evaluated positive-shift staircase or limiting dimension-growing penalty; the relevant coverage at μ=0 is credited rather than discarded.",
+        "searches": [
+          "Indexed weighted star 58eb0fc2195a and screened cone 5e432653c55a; primary Fornace–Lindsey §6.1.2 and source-cited positional Nyström methods"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The trace residual is exactly the trace of a Gaussian conditional covariance, i.e. the trace inverse of (L+μI)_UU. A further equivalent leader formulation grounds a fixed extra vertex attached with conductance μ to every vertex.",
+          "The indexed weighted-star leader theorem selects k weakest leaves versus hub plus k−1 weakest leaves. Setting all spoke weights to one reduces its leaf-better rule to 2k>m+1, which agrees with the μ=0 trace limit here."
+        ],
+        "reasoning": "This is a genuine limiting-case overlap, not a different objective. At positive μ the grounded augmented graph has the extra ground adjacent to every star vertex; it is not an ordinary weighted star. Substituting weights in the read zero-shift statement does not produce the positive-screening trace function or determinant preference.",
+        "searches": [
+          "Resultary: screened star trace Nyström thresholds, inverse grounded Laplacian noise-free leader placement, and principal covariance determinants",
+          "Resultary exact ID 2026/11/8 58eb0fc2195a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed hit reporting both the positive-shift staircase and approximation ratio, 17294883f457, is the assigned record itself.",
+          "The distinct star hit a61ec413932b is for one landmark of e^(−tL), not a screened resolvent. The distinct path record 5ff469908668 reports a uniform threshold of 1/2 for coincidence of objectives on paths, not the screened-star criterion."
+        ],
+        "reasoning": "Kernel and graph changes matter: even representing the Green matrix as an integral of heat kernels does not let a Nyström optimum commute with the integral, since its principal-block inverse is nonlinear. No distinct exact positive-μ all-budget table or formula was located in the examined index.",
+        "searches": [
+          "Resultary: μ threshold (m+1−2k)/(m−1), all budgets, screened-star trace versus determinant, exact append-only ratio",
+          "Resultary same-day screened-laplacian Nyström and heat kernel star matches"
+        ]
+      },
+      "rationale": "Credit generic Schur-complement/grounded-leader methodology and the indexed all-budget weighted-star result at zero screening. The reviewed contribution is the exact positive-screening all-budget transition and determinant comparison with its growing near-full append-only penalty. The closest screened-cone result has a single-landmark theorem on connected noncomplete walk-regular bases; an unweighted star with at least two leaves has a disconnected edgeless base. No available stronger or equivalent statement covers this positive-screening all-budget combination. Priority remains qualified because the closest weighted-star full text and the Fornace–Lindsey star section were not independently retrievable.",
+      "residual_risks": [
+        "The exact §6.1.2 text and the full weighted-star theorem were unavailable independently. A positive-screened leader-placement or conditional-covariance result under another name could already cover part of the claim. The checks are not exhaustive historical certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers unshifted objectives including unit-edge star; no verified positive-shift implication",
+          "evidence": [
+            "Leaf-only preference iff the sum of the k weakest weights exceeds (m−k+1) times the kth weakest weight; at unit weights this is 2k>m+1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-optimal-noise-free-leaders-on-an-arbitrarily-weighted-star-two-c--58eb0fc2195a",
+          "material_read": "Indexed two-candidate rule; full manuscript not retrieved",
+          "method": "Resultary statement and exact local-mirror attempt",
+          "title": "Optimal noise-free leaders on an arbitrarily weighted star: two candidate sets and a re-entrant hub",
+          "trigger": "Same star and grounded trace objective at zero screening"
+        },
+        {
+          "assessment": "Plausible comparator; stationary-state interpretation is attributed to frozen source, not an independent full-text noncoverage finding",
+          "evidence": [
+            "The cited star example is reported as a stationary-state/vanishing-regularization treatment, unlike the positive-μ family."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.01698",
+          "material_read": "Indexed title, cited §6.1.2 and frozen account at lines 65, 77; no independently retrieved section text",
+          "method": "Primary literature search and targeted lawful OA PDF/HTML section attempts, timeout",
+          "title": "Column and row subset selection using nuclear scores: algorithms and theory for Nyström approximation, CUR decomposition, and graph Laplacian reduction",
+          "trigger": "Laplacian Nyström objective and explicit star example"
+        },
+        {
+          "assessment": "Indexed theorem is one-column and excludes edgeless disconnected star bases",
+          "evidence": [
+            "Every connected noncomplete walk-regular base; unique switch from cone hub to a peripheral vertex; wheel limit sqrt(6)−1."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, 5e432653c55a",
+          "material_read": "Indexed mathematical summary and assumptions",
+          "method": "Resultary exact query after targeted broader comparison",
+          "title": "A universal screening-driven Nyström landmark migration on cones over walk-regular graphs",
+          "trigger": "Same screened resolvent and single-landmark transition"
+        },
+        {
+          "assessment": "Different kernel and one landmark",
+          "evidence": [
+            "One selected column of exp(−tL), not the all-budget Green matrix optimizer."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, a61ec413932b",
+          "material_read": "Indexed graph/kernel and landmark scope",
+          "method": "Resultary indexed statement comparison",
+          "title": "Sharp heat-kernel Nyström landmark transition and vanishing success",
+          "trigger": "Another sharp star Nyström transition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 10–28, 38–55 and 61; independent algebra and C3 checks."
+      ],
+      "rationale": "A canonical sparse graph gives a complete sharp A-type trace versus determinant comparison under a common physically and numerically natural shift. The all-budget result is useful even if only the objective conflict is needed. More importantly it furnishes an exact unbounded worst-case price for preserving a globally optimal first landmark as the budget grows, not just a numerical failure of a chosen greedy algorithm. The qualification that the sequence starts at the trace-optimal singleton is essential.",
+      "residual_risks": [
+        "Not a guarantee or lower bound for landmark designs that choose a suboptimal singleton or may delete selected vertices, and not a comparison in other error norms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

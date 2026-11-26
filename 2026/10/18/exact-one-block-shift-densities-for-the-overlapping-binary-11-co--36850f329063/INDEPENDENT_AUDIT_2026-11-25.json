@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:21:47.907498Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–89; VERIFICATION.md, lines 19–23; verifier.py, lines 29–111 (inspected, not executed)",
+        "Replay: python3 /workspace/reproductions/frozen_math_checks.py 5 (40 exact density computations by low-residue enumeration and summation over high carry lengths, not the frozen Laurent recurrence)"
+      ],
+      "rationale": "For a fixed shift, after the highest shift bit the carry survives across h further bits only on a cylinder of frequency 2^(-h); one more bit accounts for the last adjacent pair. Finite cylinders have natural frequencies on all initial integer intervals, so taking the cutoff to infinity establishes the natural law without loss of mass. The identity r(4q+b)=r(q)+floor(b/2)(q mod 2)+[b=3] gives the stated parity recurrences. At shift 1, the even case flips a low zero; the odd case with h trailing ones loses h-1 pairs and gains the bit above the first zero. Its geometric law gives the stated starting functions. For the Mersenne shifts T_k, B_{T_k}=H for k>=3 follows from the power-of-two laws, and A_{T_{k+1}}=(z A_{T_k}+H)/2. The negative terms of these functions arise solely from c/(2z-1): the numerator value at z=1/2. In this recurrence c maps to c/4+(27/64)/2, and the length-four initial value 9/32 is exactly the fixed point. The increments therefore have polynomial support, also after multiplication by 1+z. Doubling an odd shift gives the displayed boundary weighting; further doublings leave the law unchanged by the 4u recursion. The negative masses of the weighted length-four terms are 27/64 and 73/64; the latter adds H's constant coefficient 19/64 to twice its negative mass. These facts give both infinite plateaus. An independent exact carry enumeration checked all six boundary values and the plateau for k=4..10 at j=0..3, giving both rows and the claimed strict minimum/equality comparison.",
+      "residual_risks": [
+        "The finite independent check is not a proof of the infinite plateau; that follows from the fixed point and support argument. No assertion for multiple runs or convergence rate is warranted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 3.2 supplies the general conditional laws/recursions. The Gaussian approximation theorems have errors controlled as the number of blocks grows, not as their lengths grow at one block. The sum-of-digits paper in fact studies one/two blocks but for the statistic counting individual ones."
+        ],
+        "reasoning": "The older recurrences cover per-shift calculation; there is no stated single-block invariance of their negative mass as block length varies. The other regimes or statistics cannot be substituted.",
+        "searches": [
+          "arXiv:2309.00142v1, §3 Proposition 3.2 and introduction",
+          "arXiv:2412.15851v1, §1 Theorem 1.2, equation (1.4)",
+          "arXiv:2411.07779v1, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 1b399a3bc79f and f87456c5a480; arXiv:2309.00142v1, 2412.15851v1, 2411.07779v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2023 recursions require a separate cancellation or fixed-point identity for an infinite plateau. The later eight-state certificate gives a vector identity for increments, plus a scalar identity at the Mersenne starting state; prepending zero shift bits changes the initial distribution and requires evaluating it separately."
+        ],
+        "reasoning": "The record's calculation makes the infinite specialization explicit. Published prior general methods are credited and later related results do not establish earlier priority.",
+        "searches": [
+          "arXiv:2309.00142v1, Proposition 3.2",
+          "Resultary f87456c5a480, proof Steps 1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "1b399a3bc79f explicitly gives all four j=0 entries, including the plateau. f87456c5a480 gives the Mersenne negative point masses 45/(128*2^q), q>=1, for k>=4, implying exactly the same Mersenne plateau."
+        ],
+        "reasoning": "These are substantive overlaps, not title matches. Neither later catalog result states the j>=1 table or the 39/64 minimum for all one-run shifts.",
+        "searches": [
+          "Resultary semantic search: Mersenne shifts, adjacent-one/11 block increment, one-run shift sign density and stabilization",
+          "Resultary 1b399a3bc79f and f87456c5a480, Findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 25 record is an exact table for the j=0 subfamily. The inspected Proposition 3.2 is recursive rather than an all-k table; a literal table-label miss was not used to exclude other tables."
+        ],
+        "reasoning": "Record the full exact overlap where present. The exact shifted-block plateau cannot be established by extending a finite list of shift computations.",
+        "searches": [
+          "Resultary near-neighbor 1b399a3bc79f, Mersenne Finding",
+          "arXiv:2309.00142v1, conditional-distribution passage and table locator"
+        ]
+      },
+      "rationale": "Credit the published general conditional recurrence and the separate catalog overlap on the Mersenne row. The cataloged records dated 2026-10-25 and 2026-11-08 explicitly duplicate that row or strengthen its tail description, but they postdate the frozen record and neither states the shifted row or its sharp family-wide minimum. The November vector certificate is also relevant to the shifted variant, which uses a different initial row. No inspected earlier statement establishes the one-run plateau and sharp minimum; this is a bounded priority assessment, not an exclusivity claim.",
+      "residual_risks": [
+        "The precise publication and reuse relationship of the later overlapping catalog records is not established from dated paths alone.",
+        "An unindexed earlier specialization may exist; an empty targeted primary search and a PDF timeout are not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap on j=0, later catalog date",
+          "evidence": [
+            "Values 13/16, 47/64, 87/128, 83/128, the last for all k>=4."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-mersenne-shift-bias-for-adjacent-one-counts-in-binary-expa--1b399a3bc79f/RESULT.md",
+          "material_read": "Finding, beginning of document",
+          "method": "Local catalog mirror",
+          "title": "Exact Mersenne-shift bias for adjacent-one counts in binary expansion",
+          "trigger": "Exact same statistic and shifts 2^k-1"
+        },
+        {
+          "assessment": "Stronger on negative Mersenne point probabilities; its vector proof is relevant to shifted blocks, but the theorem is Mersenne-only and later",
+          "evidence": [
+            "Negative mass 45/128 and increment polynomial in Step 3, with the Mersenne initial row explicitly fixed."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-stable-negative-tail-for-the-binary-11-block-increment-at-mers--f87456c5a480/RESULT.md",
+          "material_read": "Finding at offset 0; proof Steps 1–3 from offset 1800",
+          "method": "Local catalog mirror",
+          "title": "A stable negative tail for the binary 11-block increment at Mersenne shifts",
+          "trigger": "Stronger sign-tail theorem for same Mersenne shifts"
+        },
+        {
+          "assessment": "Recurrence precedent; inspected theorem does not resolve the length-uniform one-block classification",
+          "evidence": [
+            "Exact laws split starting inputs by parity; the Gaussian approximation addresses many one-blocks."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2309.00142v1",
+          "material_read": "Introduction and §3 Proposition 3.2, around offsets 0 and 17806",
+          "method": "Open primary HTML",
+          "title": "Block occurrences in the binary expansion",
+          "trigger": "Same 11 statistic, sign-density question and distribution recursion"
+        },
+        {
+          "assessment": "Asymptotic regime does not apply",
+          "evidence": [
+            "Error O((log N)^2/N) as the number N of maximal one-blocks grows; here N=1."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2412.15851v1",
+          "material_read": "Theorem 1.2 and equation (1.4), around offset 10200",
+          "method": "Open primary HTML",
+          "title": "On the behavior of binary block-counting functions under addition",
+          "trigger": "General binary block-counting law"
+        },
+        {
+          "assessment": "Different statistic despite close shift parameters",
+          "evidence": [
+            "The measure is for s(n+t)-s(n) with s(n) the number of ones, not occurrences of 11."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2411.07779v1",
+          "material_read": "Abstract at offsets 0–950",
+          "method": "Open primary HTML",
+          "title": "Decomposing the sum-of-digits correlation measure",
+          "trigger": "Exact single- and two-block shifts for a similar digit statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 8–16 and 50–89; Sobolewski–Spiegelhofer, arXiv:2309.00142v1"
+      ],
+      "rationale": "A full single-run family with unbounded length and position lies outside the many-run approximation. Its sharp uniform 39/64 and exact finite onset of stabilization answer the published greater-than-one-half question for that natural family, not just a handful of individual shifts. The fixed negative law explains why increasing the run length ceases to matter.",
+      "residual_risks": [
+        "The family does not address the conjecture for shifts of two or more runs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

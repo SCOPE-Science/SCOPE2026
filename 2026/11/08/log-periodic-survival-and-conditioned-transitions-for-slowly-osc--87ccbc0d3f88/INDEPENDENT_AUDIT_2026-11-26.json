@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:04:46.896061Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Perron conjugation gives F_n=Q+ε_nA, ε_n=f(log n)/n. Bounded f,f' give ε_{n+1}−ε_n=O(n⁻²) and s_{n+1}/s_n=1−κε_n+O(n⁻²), with s_n the inverse stated envelope. Substituting Φ_n=s_n(1+ε_n u) cancels the first-order defect by the centered Poisson equation. Positive products propagate componentwise relative errors against Φ_n, bounded by exp(CΣ_{k≥n}k⁻²); summing the propagated residuals makes the backward products Cauchy and gives the positive h_n with h_n/s_n=1+O(n⁻¹). Writing h_n=(πh_n)(1+w_n), the centered equation for w_n−ε_nu iterates under the stable restriction of Q with O(n⁻²) forcing; the convergent geometric sum is O(n⁻²). The scalar ratio a_n/a_{n+1}=1+κε_n+O(n⁻²) then yields the displayed Doob derivative, whose rows sum to zero. For fixed initial time, the normalized rows of the forward F-product approach π at O(n⁻¹) by the strict-positive stochastic contraction and O(n⁻¹) forcing. Testing against Φ_n and 1/R gives c_{m,x}=R(x)h_m(x)π(1/R)>0 and the claimed relative error with exponent n−m. Ratios for fixed prefixes give the harmonic Doob law. A shift of log n not a period of the mean-zero primitive gives a nonconstant multiplicative ratio if κ≠0; integer phase subsequences exist. In the witness, all live entries stay positive and the maximum row sum is 7/8. Independent characteristic-polynomial and eigenvector differentiation gives λ'/λ=1/12 and the rational response [[1/9,−1/9],[1/18,−1/18]] (python -B /workspace/independent_checks.py 5); the sine multipliers at their extrema have ratio e^(1/6). The finite arithmetic corroborates the witness, not the asymptotic estimates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Champagnat–Villemonais Prop. 3.1 and Thm. 3.3 give survival ratios, a harmonic function and a conditioned process under mixing assumptions. The Benzaid–Lutz abstract studies asymptotic representations for perturbed constant matrix difference systems; lawful full text was not retrieved."
+        ],
+        "reasoning": "General ratio stability is not the explicit prefactor and expansion of the transformed kernel. Difference-system theory might supply some of the survival normalization; the accessible abstract cannot establish its quantitative scope or a conditioned-process response.",
+        "searches": [
+          "Champagnat–Villemonais arXiv:1603.07477 §3",
+          "Benzaid–Lutz DOI 10.1002/sapm1987773195 and lawful repository-copy lookup"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–136 and 142–159, VERIFICATION.md, check.py (read only)",
+        "arXiv:2610.38590v1, 1603.07477, 1707.08419; Benzaid–Lutz publisher abstract",
+        "Resultary d1c3ab9852a1 and e1c961378cda; exact self-hit excluded"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Iba assumes fixed a,b in K_n/K=1+a/n+b/n²+O(n⁻³). Theorems 1.2–1.3 and Prop. 2.10 cover the constant-f specialization by a(x,y)=f B(x,y)/K(x,y)."
+        ],
+        "reasoning": "When B is nonzero, a nonconstant f(log n) has nonconvergent leading coefficient at entries with B(x,y)≠0 and cannot be reabsorbed into Iba's fixed a,b. Existence and the time-independent response are covered; non-regular variation of the survival envelope together with a nonzero oscillatory response with second-order control is not implied by that theorem.",
+        "searches": [
+          "Iba arXiv:2610.38590v1, OA offsets 7600, 11100, 14600, 49150"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Perron-normalized product is Q+ε_n A, and the derivative C is the derivative of the instantaneous Perron Doob transform at ε=0. The issue beyond static perturbation theory is tracking this transform by the true backward harmonic function. Oçafrain's periodicity is in the absorbing sets themselves, not in an inverse-time coefficient in log-time."
+        ],
+        "reasoning": "Neither a static derivative nor a periodic absorbing-set Q-process supplies the approximation error when ε_n varies as prescribed. The exact static derivative and positive-transform framework are not claimed as standalone novelties.",
+        "searches": [
+          "Iba arXiv:2610.38590v1 §1.2 and Prop. 2.10",
+          "log-periodic survival conditioned processes periodic killing and two-state witness (Resultary)",
+          "Oçafrain arXiv:1707.08419 abstract and introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d1c3ab9852a1 treats state-dependent exp(−c_i/k^γ) killing with Green–Kubo corrections and an ordinary power for γ=1. e1c961378cda studies the countable-state open Pelikan chain and a λ^n/√n amplitude. 87ccbc0d3f88 is the same target."
+        ],
+        "reasoning": "The first gives power corrections for a different profile and no matching conditioned response; the same-day Pelikan result has a different state space, mechanism and amplitude. The target's self-hit gives no independent priority evidence.",
+        "searches": [
+          "Resultary d1c3ab9852a1, e1c961378cda and 87ccbc0d3f88"
+        ]
+      },
+      "rationale": "Limited to the log-periodic endpoint envelope with its error, the oscillatory Doob response through first order with O(n⁻²) error, and their simultaneous nonscalar witness. The constant-profile law and existence of an inhomogeneous Q-process are already covered. General product theory presents material risk for the survival portion considered by itself, but no inspected result establishes both stated quantitative conclusions in this regime.",
+      "residual_risks": [
+        "An older asymptotically constant matrix-product result could already imply quantitative survival rates in this regime. Full details of Benzaid–Lutz were not available to resolve that question.",
+        "The harmonic transform framework, constant-coefficient case and static eigenpair perturbation are not new in themselves."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers constant f, not genuinely oscillating f(log n).",
+          "evidence": "Fixed first two inverse-time coefficients, relative survival error and first-order conditioned-kernel structure.",
+          "identifier_or_url": "arXiv:2610.38590v1",
+          "material_read": "§1.2, Thms. 1.2–1.3, Prop. 2.10; offsets 7600, 11100, 14600, 49150",
+          "method": "Primary OA passages",
+          "title": "Finite-State Time-Inhomogeneous Markov Chains Conditioned to Survive",
+          "trigger": "Direct survival and conditioned-kernel predecessor"
+        },
+        {
+          "assessment": "Covers general conditioning structure, not both explicit asymptotic expansions.",
+          "evidence": "Survival-ratio limit, positive harmonic function and time-inhomogeneous Q-process.",
+          "identifier_or_url": "arXiv:1603.07477",
+          "material_read": "§3 Prop. 3.1 and Thm. 3.3, offset 13000",
+          "method": "Primary OA passages",
+          "title": "Uniform convergence of penalized time-inhomogeneous Markov processes",
+          "trigger": "Broader Q-process theorem"
+        },
+        {
+          "assessment": "Different periodic environment, not log-inverse-time perturbation.",
+          "evidence": "Moving periodic absorbing subsets, nonexistence of ordinary quasi-stationarity in the described setting and Q-process results.",
+          "identifier_or_url": "arXiv:1707.08419",
+          "material_read": "Abstract and introduction, offset 0",
+          "method": "Primary OA passages",
+          "title": "Quasi-stationarity and quasi-ergodicity for discrete-time Markov chains with absorbing boundaries moving periodically",
+          "trigger": "Periodic conditioning comparator"
+        },
+        {
+          "assessment": "Scope unresolved beyond abstract; not evidence of noncoverage.",
+          "evidence": "Perturbed difference system x(k+1)=[A₀+A(k)]x(k) and asymptotic representations.",
+          "identifier_or_url": "DOI 10.1002/sapm1987773195",
+          "material_read": "Publisher abstract only",
+          "method": "Publisher OA attempt (full-text HTTP 403); DOI repository-copy lookup did not locate a lawful full text",
+          "title": "Asymptotic Representation of Solutions of Perturbed Systems of Linear Difference Equations",
+          "trigger": "Potential general product theorem subsuming survival estimate"
+        },
+        {
+          "assessment": "Neither matches the periodic endpoint and conditioned-kernel pair.",
+          "evidence": "Power/Green–Kubo correction for state-dependent monotone killing; countable-state renewal amplitude, respectively.",
+          "identifier_or_url": "Resultary d1c3ab9852a1; e1c961378cda",
+          "material_read": "Original recorded Findings",
+          "method": "Local Resultary evidence",
+          "title": "A Green–Kubo memory threshold for slowly vanishing Markov killing; Critical survival amplitudes for the open Pelikan random map",
+          "trigger": "Closest indexed survival asymptotic records"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In a natural finite-state killed-chain setting, this exhibits a non-regularly-varying survival factor even though the kernels converge to a strictly positive limit, with quantified tracking of the instantaneous Perron transform by the actual infinite-horizon conditioned transitions. The nonscalar two-state witness realizes the survival modulation and a nonzero response simultaneously; multiplying a fixed kernel by alternating scalar masses would give only the former. The combined formula and rates make the distinction useful beyond a proof of existence of the conditioned process.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:17:53.136129Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed s>0 the ellipse has constant area and its squared radial boundary in the rescaled Fock plane is b=s/(cosh(2t)-sinh(2t)cos(2θ)). Differentiating this moving radial limit gives P''00=-2s²exp(-s) and P'20=s²exp(-s)/√2, with the rest of the first-variation column zero. The fixed compact-disk pullback is trace-norm analytic and the top disk mode is isolated by s exp(-s); the h2 gap is s(s+2)exp(-s)/2. The reduced resolvent gives both stated coefficients and the plus sign of the phase-normalized h2 term. The quarter-turn yields evenness of the eigenvalue and hence the fourth-order remainder. Differentiating the loss coefficient gives the unique maximizing area. Independent polar incomplete-gamma quadrature in 18-mode sections corroborates the coefficients at four areas and three deformations; this is not the proof and gives no uniformity in area. Replay: python3 /workspace/evidence/bounded_checks.py 5; derivation in /workspace/evidence/mathematical_checks.md. The frozen checker was read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed results give the exact optimized top-eigenvalue Hessian for general smooth equal-area disk perturbations, with the quadrupole multiplier 2/(s+2).",
+          "Gómez–Guerra–Ramos–Tilli's §5 varies a signal-determined superlevel set, not a prescribed domain."
+        ],
+        "reasoning": "The ellipse is the quadrupole tangent of the general exact Hessian; the published stability comparison alone would not give this coverage.",
+        "searches": [
+          "Resultary 50f65f60373f Finding and Proof §§1–3",
+          "Resultary 63e8f4bc2434 Finding and Proof",
+          "arXiv:2307.09304v1 §5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_elliptic_stft.py",
+        "Resultary 50f65f60373f, 63e8f4bc2434, 3b58451d9d78, d0f938681288 and 57b262629068",
+        "arXiv:2307.09304v1, 2607.21590, 1202.5841 and 2106.03423"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The positive-frequency coefficient of the ellipse's first shape variation is s at mode two, giving loss 2s²exp(-s)/(s+2) by direct substitution.",
+          "The existing first derivative and disk gap give f'0=(s²exp(-s)/√2)/(s(s+2)exp(-s)/2) h2. Nicola–Tilli's disk theorem by itself only supplies the unperturbed value."
+        ],
+        "reasoning": "The unstated signal response is a direct one-mode perturbation calculation from the stronger proof, not a distinct hard case. Analytic rotation symmetry and differentiating the rational-exponential coefficient supply the remaining refinements.",
+        "searches": [
+          "Resultary 50f65f60373f exact Fourier Hessian",
+          "Resultary 63e8f4bc2434 matrix-variation proof",
+          "arXiv:2106.03423 Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The map w=√π(x+iω) identifies the frozen STFT operator with the fixed-window Fock concentration operator of the two Hessians.",
+          "Abreu–Dörfler's disk rigidity for ordinary Hermite eigenfunctions and Ramos's near-Gaussian inverse-domain construction are distinct problems."
+        ],
+        "reasoning": "The match uses an undeformed Gaussian window and optimizes over all signals; it is not a squeeze applied simultaneously to the window and the domain. The same squared-radius deformation has first variation 2s cos(2θ).",
+        "searches": [
+          "Resultary 50f65f60373f",
+          "Resultary 63e8f4bc2434",
+          "arXiv:1202.5841",
+          "arXiv:2607.21590"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact mode-two multiplier occurs in both general indexed formulas.",
+          "Same-day matches concern the Hilbert–Schmidt norm squared, a first-Hermite window with rank-cutoff degeneracy, or regular polygons with degree-N response; none is an additional equivalent record."
+        ],
+        "reasoning": "The exact ellipse maximizer area was not found as a separate table entry; its absence does not restore originality because it is mechanically implied.",
+        "searches": [
+          "Resultary 50f65f60373f",
+          "Resultary 63e8f4bc2434",
+          "Resultary 3b58451d9d78",
+          "Resultary d0f938681288",
+          "Resultary 57b262629068"
+        ]
+      },
+      "rationale": "Two earlier indexed general Gaussian shape Hessians already cover the principal ellipse coefficient. The maximizing signal derivative follows from their first-variation entries by the standard reduced resolvent. Analyticity and the ellipse symmetry give the remainder, and one-variable differentiation gives the area calibration. The core finding is covered by stronger results, even though the specialization is explicitly presented here.",
+      "residual_risks": [
+        "The indexed comparison establishes mathematical coverage, not comprehensive historical priority.",
+        "The frozen package gives no finite-eccentricity formula; none is needed for this decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger coverage",
+          "evidence": "General equal-area Fourier Hessian; exact mode-two coefficient 2/(s+2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-fourier-shape-hessian-and-angular-frequency-transition-for--50f65f60373f/RESULT.md",
+          "material_read": "Finding and Proof §§1–3",
+          "method": "Indexed mirror statement comparison",
+          "title": "Exact Fourier shape Hessian and angular-frequency transition",
+          "trigger": "Exact optimized Gaussian disk shape variation"
+        },
+        {
+          "assessment": "Stronger coverage of coefficient; direct proof implication for response",
+          "evidence": "d2=2/(s+2); first-column matrix variation at the ellipse has just the h2 mode.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-shape-hessian-and-poisson-spectral-edge-transition-for-gau--63e8f4bc2434/RESULT.md",
+          "material_read": "Finding and proof's disk gaps and first matrix derivatives",
+          "method": "Indexed mirror statement and proof comparison",
+          "title": "Exact shape Hessian and Poisson spectral edge transition",
+          "trigger": "Same Gaussian operator and plausible full Hessian"
+        },
+        {
+          "assessment": "Related but does not state this fixed-ellipse expansion",
+          "evidence": "The set in §5 is Ωε={uε>uε*(s)}, determined by the signal.",
+          "identifier_or_url": "arXiv:2307.09304v1",
+          "material_read": "p. 4 and §5, pp. 26, 30, including (5.20)",
+          "method": "Open PDF passage inspection",
+          "title": "Stability of the Faber–Krahn inequality for the Short-time Fourier transform",
+          "trigger": "Published perturbation analysis and ellipse question"
+        },
+        {
+          "assessment": "Related inverse problem, not the fixed-ellipse coefficient",
+          "evidence": "Prescribes near-Gaussian eigenfunctions and constructs domains, including second-order Hermite perturbations with quadratic deficits.",
+          "identifier_or_url": "arXiv:2607.21590",
+          "material_read": "p. 3 and Theorem 4, p. 5",
+          "method": "Open PDF passage inspection",
+          "title": "Eigenfunctions, free boundaries, and time-frequency localization",
+          "trigger": "Quadrupole near-Gaussian localization eigenfunctions"
+        },
+        {
+          "assessment": "Does not imply the ellipse perturbation",
+          "evidence": "An ordinary Hermite eigenfunction on a simply connected localization domain forces a disk.",
+          "identifier_or_url": "arXiv:1202.5841",
+          "material_read": "Theorem 1, p. 3",
+          "method": "Open PDF passage inspection",
+          "title": "An Inverse Problem for Localization Operators",
+          "trigger": "Possible exact shape–Hermite classification"
+        },
+        {
+          "assessment": "Covers the optimum at the disk, not the shape coefficient",
+          "evidence": "Gives the fixed-area optimum attained by disks.",
+          "identifier_or_url": "arXiv:2106.03423",
+          "material_read": "Theorem 1.1, p. 3",
+          "method": "Open PDF passage inspection",
+          "title": "The Faber–Krahn inequality for the Short-time Fourier transform",
+          "trigger": "Known Gaussian disk optimum"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The fixed-window ellipse question is well motivated, and the calculation is useful pedagogically, but it is an exact single-mode instance of the stronger shape Hessian. The signal derivative, parity remainder and area maximum do not leave an independent substantive result once that prior coverage is recognized.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

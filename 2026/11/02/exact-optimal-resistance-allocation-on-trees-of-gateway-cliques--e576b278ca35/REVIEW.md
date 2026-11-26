@@ -1,19 +1,21 @@
-# Scientific assessment: trees of gateway cliques
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem specifies all graph construction hypotheses, nonnegative individual conductances, the total edge-budget normalization, and the unordered-pair resistance convention. The proof decomposes each pair's effective resistance along the unique path in the bridge tree. Within each clique the two nonzero spectral levels give exactly the local resistance terms \((N-n_i+1)/b_i+N(n_i-2)/\ell_i\). An exact budget-variable change reduces the objective to \(\sum d_j/x_j\); its sharp Cauchy–Schwarz inequality and equality condition provide the displayed optimum. The only additional inequality, \(\ell_i>b_i\), is explicitly proved for every admissible clique size. Strict convexity proves uniqueness even for edge-asymmetric competitors. Independently assembled full Laplacians in `verify.py` matched the exact value for five sample clique trees; 250 asymmetric allocations and five unrestricted numerical comparisons corroborated it. These computations do not establish the infinite theorem independently.
+PASS
 
-## Originality — PASS, qualified
+For connected weights, restrict the Laplacian to the orthogonal complement of constants. The trace-inverse second derivative along a nonzero symmetric increment D is 2 tr(A^-1 D A^-1 D A^-1)>0, and distinct conductances give distinct Laplacians on a simple graph. Averaging over peripheral permutations never increases the objective and preserves connectivity and budget. Since each clique has a single gateway, unit current between different cliques crosses exactly the bridges on the intervening path; attachments cannot change internal resistance. The bridge coefficients therefore count unordered cross-cut pairs. In a size-n clique the hub eigenvalue is nb, and ell=b+(n-1)a has multiplicity n-2. The hub and peripheral projection squared lengths of e_g-e_v are n/(n-1) and (n-2)/(n-1), respectively. This gives the clique's contribution (N-n+1)/b+N(n-2)/ell and its budget n b/2+(n-2)ell/2. For n=2 both ell terms vanish. Equality in weighted Cauchy–Schwarz fixes all positive conductances as stated, sums to B, and satisfies ell>b whenever n≥3. The exhibited optimizer is connected and strict convexity gives unrestricted uniqueness; disconnected assignments cannot compete. The common contrast eigenvalue claim applies only to n≥3.
 
-The strongest direct predecessor is A. Ghosh, S. Boyd, A. Saberi, *Minimizing Effective Resistance of a Graph* (MTNS 2006; SIAM Review 2008, DOI:10.1137/050645452). Its full transcribed text was inspected, especially section 2.7 on strict convexity and section 5 on optimal **trees**, wheel graphs, and a **two-clique equal-size barbell**. The equal barbell and the all-\(K_2\) tree are acknowledged known cases. The reported theorem instead solves all heterogeneous clique sizes in *any* bridge-tree architecture with one gateway per clique, proving a closed-form optimum and universal local peripheral eigenvalue, which the inspected predecessor does not state. Related searches for block/clique trees and exact resistance-allocation formulas did not locate a statement implying this full arbitrary-tree classification. The restricted topology, generic inverse-trace convexity, and local Cauchy–Schwarz method are transparent. A specialized earlier derivation in uncatalogued network-design literature remains possible. An author-hosted full text of the 2006 conference version was subsequently inspected, including its analytic equal-size barbell solution; the longer 2008 primary publication was materially examined as well. No comprehensive priority certification is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result gives a closed-form *global* conductor-sizing rule in a natural network-of-communities architecture, for arbitrary sizes and topology rather than only one equal barbell. Each bridge allocation depends on the number of vertices that it separates, while the conductances inside each complete cluster depend only on cluster size and total order. The surprising equal peripheral-contrast spectral scale across heterogeneous communities exposes a structural principle for interpreting the design, and the unique solution is usable as a benchmark for generic convex resistance optimization. No downstream theorem beyond this natural complete classification is asserted. The result is not offered as a novelty claim for previously solved trees or the balanced two-clique barbell.
+Both the general optimization principle and the equal-barbell and tree cases are known and already credited. The explicit allocation on arbitrarily heterogeneous disjoint clique blocks linked by a gateway tree, and the resulting common within-clique contrast eigenvalue, are supported as distinct within the inspected material; absolute priority is not certified.
 
-## Closest coverage and limits
+## value
 
-Ghosh–Boyd–Saberi (2008), DOI:10.1137/050645452, sections 2.7 and 5.1–5.2: general strict convexity, trees, and equal-barbell special case. Earlier technical report/proceedings: MTNS 2006 conference version, source date July 24, 2006. Specialized source priority is not independently certified. The formula does not cover graphs using multiple gateway vertices in one clique, additional inter-clique edges, nonlinear edge costs, or changes to graph topology.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is an explicit all-edge network design for a natural class between trees and dense graphs. It distinguishes the bridge cut and clique contributions without numerical optimization, recovers sharp known endpoints, and exposes an unexpected common optimum contrast eigenvalue even for heterogeneous clique sizes. Neither the raw strict-convexity fact nor merely reproducing the known barbell would have this scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

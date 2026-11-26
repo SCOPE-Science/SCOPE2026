@@ -1,45 +1,45 @@
-# The first third-binomial collision in the period-doubling word and its dyadic propagation
+# The shortest third-binomial collision in the period-doubling word
 
 ## Finding
-Let \(p=\lim_{r\to\infty}\sigma^r(0)\) be the period-doubling word for the binary substitution \(\sigma(0)=01\), \(\sigma(1)=00\). Write \(L_n(p)\) for its distinct length-\(n\) contiguous factors, let \(P(n)=|L_n(p)|\), and let \(B_3(n)\) count classes under equality of every scattered-subsequence multiplicity for patterns of lengths one, two, or three.
 
-**Theorem.** All distinct factors of \(p\) of length less than ten are distinguishable by these multiplicities. At length ten the sixteen distinct factors form exactly fifteen classes, with the unique nonsingleton class
+Let \(p=\lim_{r\to\infty}\sigma^r(0)\), where \(\sigma(0)=01\) and \(\sigma(1)=00\). Two finite words are *third-binomially equivalent* if they have the same counts of every nonempty scattered binary subsequence of length at most three.
+
+**Theorem.** The length of the shortest pair of distinct third-binomially equivalent factors of \(p\) is ten. At length ten, there are sixteen factors and fifteen equivalence classes. The sole nonsingleton class is
 \[
-\{0101010001,\;1000101010\}.
+\{0101010001,\ 1000101010\}.
 \]
-Thus the exact first failure of third-binomial reconstruction of period-doubling factors occurs at length ten. In addition, for every integer \(r\ge0\), the two distinct factors
-\[
-\sigma^r(0101010001),\qquad \sigma^r(1000101010)
-\]
-have the same scattered-subsequence multiplicities for all patterns of length at most three. Consequently,
-\[
-B_3(10\cdot2^r)<P(10\cdot2^r)\qquad(r\ge0).
-\]
-The seed factors are distinguished at order four; for example their counts of the scattered pattern \(0001\) are respectively \(21\) and \(15\).
+
+The occurrence and equivalence of this pair were already known. The assertion here is that no shorter pair exists and that no other length-ten pair collides.
 
 ## Assumptions and scope
-A factor is a contiguous finite word occurring in the one-sided infinite fixed point \(p\). A scattered occurrence of \(v=v_1\dots v_j\) in \(w=w_1\dots w_n\) is a tuple of positions \(1\le i_1<\cdots<i_j\le n\) with \(w_{i_s}=v_s\). Write \(\binom{w}{v}\) for the number of these occurrences. Third-binomial equivalence means equality of \(\binom{w}{v}\) for all nonempty binary patterns \(v\) of length at most three. This result concerns ordinary, ungapped subsequences, not positional or minimum-gap statistics.
 
-The finite boundary assertion covers all positive lengths \(1\le n\le10\) exactly. The infinite assertion covers the specific unbounded length family \(10\cdot2^r\); it does not determine \(B_3(n)\) at all lengths, the size of the deficit at later lengths, or whether four-binomial complexity always equals factor complexity.
+A factor is a contiguous finite word occurring in the one-sided fixed point. A scattered occurrence of \(v=v_1\cdots v_j\) in \(w=w_1\cdots w_n\) is a strictly increasing tuple \((i_1,\ldots,i_j)\) such that \(w_{i_s}=v_s\) for every \(s\); its positions need not be consecutive. The theorem is an exhaustive statement for \(1\le n\le10\), not a formula for the complexity at longer lengths.
 
 ## Proof
-**1. Exhaustive finite-factor reduction.** Each substituted letter \(\sigma^4(a)\) has length sixteen. Because the two possible substitution images begin with zero, no factor \(11\) can occur in \(p\); the two-letter factors \(00,01,10\) all occur, as is seen already in \(\sigma^3(0)=01000101\). Partition \(p=\sigma^4(p)\) into aligned length-sixteen image blocks. Any factor of length at most ten intersects at most two consecutive image blocks. Conversely, each of the three possible ordered adjacent block pairs occurs. Therefore the following finite set is **exactly** the complete factor set, not an approximation from a long prefix:
-\[
-L_n(p)=\left\{\sigma^4(ab)[i:i+n]:ab\in\{00,01,10\},\ 0\le i<16\right\},\quad1\le n\le10,
-\]
-where the slice notation takes the consecutive positions with zero-based offsets. Each source block \(\sigma^4(ab)\) has length thirty-two, so every displayed slice is defined. Duplicate slices are counted once.
 
-**2. Third-binomial finite certificate.** For each word \(w\), define its signature by the ordered fourteen counts
+**Complete factor sets.** The two-letter factors of \(p\) are exactly \(00,01,10\): every substitution block starts with zero, neither block contains \(11\), and \(\sigma^3(0)=01000101\) exhibits all three allowed pairs. In the decomposition \(p=\sigma^4(p)\), each aligned block has length sixteen. A window of length at most ten lies within two successive blocks, so the complete set of length-\(n\) factors is
 \[
-S_3(w)=\bigl(\binom{w}{0},\binom{w}{1};\binom{w}{00},\binom{w}{01},\binom{w}{10},\binom{w}{11};\binom{w}{000},\binom{w}{001},\binom{w}{010},\binom{w}{011},\binom{w}{100},\binom{w}{101},\binom{w}{110},\binom{w}{111}\bigr).
+L_n=\{\sigma^4(ab)[i:i+n]:ab\in\{00,01,10\},\ 0\le i<16\}.
 \]
-The exact finite reduction from step 1, together with the recurrence
-\[
-\binom{wc}{v}=\binom{w}{v}+\mathbf1_{\{v\text{ ends in }c\}}\binom{w}{v\text{ with last symbol removed}},
-\]
-gives the exhaustive counts below. (The empty pattern has count one.)
+Here the slice uses zero-based indices and excludes the right endpoint. Each such slice occurs because its underlying pair occurs. The braces remove duplicate slices before counting.
 
-| Length \(n\) | \(P(n)\) | \(B_3(n)\) |
+**Exact class counts.** For each \(w\in L_n\), count all increasing position tuples of sizes one, two and three by the sequence of letters they read. The signature is the list of these counts, including zeros, in order by pattern length and then lexicographically. The following pseudocode specifies the finite enumeration; no bound on the search prefix is assumed beyond the block argument above.
+
+```text
+for n = 1,...,10:
+    L = set of the 48 slices specified above (duplicates removed)
+    classes = empty map from signature to list of factors
+    for w in L:
+        counts = zero for each of the 14 patterns
+        for j = 1,2,3:
+            for each j-element subset of {0,...,n-1}:
+                v = letters of w at the selected positions, in increasing order
+                counts[v] += 1
+        append w to classes[signature(counts)]
+    record len(L), len(classes), and all lists of length > 1
+```
+
+| \(n\) | Factors | Classes |
 |---:|---:|---:|
 | 1 | 2 | 2 |
 | 2 | 3 | 3 |
@@ -52,30 +52,24 @@ gives the exhaustive counts below. (The empty pattern has count one.)
 | 9 | 14 | 14 |
 | 10 | 16 | 15 |
 
-At length ten the entire factor list, in lexicographic order, is:
-
-`0001000100`, `0001000101`, `0001010100`, `0010001000`, `0010001010`, `0010101000`, `0100010001`, `0100010101`, `0101000100`, `0101000101`, `0101010001`, `1000100010`, `1000101010`, `1010001000`, `1010001010`, `1010100010`.
-
-Among these sixteen factors, the only two with identical third-order signatures are \(u=0101010001\) and \(v=1000101010\), and their common signature in the ordering above is
-\[
-(6,4;15,12,12,6;20,19,22,10,19,16,10,4).
-\]
-The factors \(u\) and \(v\) occur in \(\sigma^4(00)=01000101010001000100010101000100\) at offsets four and one, respectively. To distinguish them at order four, direct application of the same recurrence gives \(\binom{u}{0001}=21\) and \(\binom{v}{0001}=15\).
-
-**3. Stability under morphisms.** If finite words \(u,v\) are \(k\)-binomially equivalent and \(h\) is any monoid morphism, then \(h(u),h(v)\) are also \(k\)-binomially equivalent. Indeed, to select \(j\le k\) positions in the image \(h(w)\), group the selected positions by their parent source-letter blocks. If \(t\) distinct blocks are used, \(1\le t\le j\), their ordered source letters form a pattern of length \(t\). For fixed target pattern, its occurrence count is a fixed integer linear combination of the source counts \(\binom{w}{x}\) over patterns of length \(t\le j\): the coefficient enumerates choices within the chosen image blocks. The coefficients depend only on \(h\) and the target pattern, not on \(w\). This proves preservation.
-
-Apply this principle repeatedly with \(h=\sigma\) and the pair \(u,v\). Each image remains a factor because \(p=\sigma^r(p)\), and the images are distinct since \(\sigma\) is an injective uniform substitution (the distinct two-letter blocks \(01\) and \(00\) uniquely decode its inputs). Their lengths are \(10\cdot2^r\), so two different factors occupy one third-binomial equivalence class at every stated length. This proves the infinite claim.
+The two previously known factors occur in \(\sigma^4(0)=0100010101000100\) at respective offsets four and one. Both have signature \((6,4;15,12,12,6;20,19,22,10,19,16,10,4)\). The factor and class counts exclude every shorter collision and leave room for only this one class of size two at length ten.
 
 ## Verification
-The companion `verify.py` uses only Python's standard library. It constructs precisely the three two-block images from step 1, enumerates all possible start offsets, and computes signatures by a descending-length subsequence-count recurrence. It reproduces the factor and class counts for every length one through ten, identifies the unique collision, checks an independently generated long morphic prefix for agreement of factor sets, and tests the two iterated witnesses through the fourth iterate. Run with `python3 verify.py`; it prints `ALL CHECKS PASSED` upon success. The proof of complete finite coverage and of unlimited dyadic propagation appears above; finite iteration tests are only corroboration.
+
+Run `python3 verify.py` alongside this report. The script implements the same exhaustive factor cover and computes signatures by updating a prefix count when one letter is appended. It groups the factors through length ten and checks the unique class. Its additional checks of order-four separation and the first four substitution iterates corroborate the previously known witness results, not the novelty of the finite census.
 
 ## Relationship to prior work
-Rigo, Stipulanti and Whiteland (first publicly posted 2022-01-12) discuss the period-doubling word explicitly. They cite Lejeune for its second-binomial behavior and report that **computer experiments** show a strict gap between third-binomial and factor complexity, while suggesting equality at order four. The present theorem gives the exact earliest length, the unique collision at that length, and a proof of infinitely many dyadic gaps; it does not claim the general strictness observation as a new empirical discovery. Existing formulas for the Thue–Morse word concern a different substitution and do not by themselves imply this period-doubling factor classification.
+
+The earlier result *Explicit infinite third-order binomial collisions in the period-doubling word* [1] gives the identical pair, the same signature and its separation by the scattered pattern `0001` at order four. It also proves that the images under every \(\sigma^r\) remain equivalent and distinct, giving deficits at lengths \(10\cdot2^r\). Neither the witness itself nor its propagation is claimed here as new. The earlier record does not classify all third-binomial equivalence classes through length ten.
+
+Lejeune [2, §4.5, pp. 115–117] reports computed order-three complexity values through length seventy, plotted in Figure 4.2, and gives conjectural higher-order behavior. Rigo, Stipulanti and Whiteland [3, §7.1] report experimental strictness of third-binomial complexity against factor complexity. The finite certificate here makes the precise first length and classification at that length explicit; it does not claim the first computation of the low-order complexity values or of the existence of a deficit.
 
 ## Limitations
-The classification is exact through length ten only. The infinite obstruction establishes strict inequality at specified lengths without a general formula for the third-binomial complexity. The 2021 thesis of Lejeune, cited for the second-binomial result, could not be fully inspected; an unlocated equivalent seed construction remains a literature risk.
+
+The proof does not classify later collisions or decide fourth-binomial reconstruction. Earlier computational work may already reflect the deficit at ten in plotted or unpublished numerical data; the inspected material does not supply an exact discrete census of the first nonsingleton class. Historical priority beyond the compared sources is not established.
 
 ## References
-- M. Rigo, M. Stipulanti, M. A. Whiteland, *Characterizations of families of morphisms and words via binomial complexities*, arXiv:2201.04603 (first posted 2022-01-12), especially Section 7 on the period-doubling word, https://arxiv.org/abs/2201.04603 .
-- M. Lejeune, *On the k-binomial equivalence of finite words and their applications*, doctoral thesis, Université de Liège (2021), http://hdl.handle.net/2268/259266 (full text not inspected).
-- M. Lejeune, J. Leroy, M. Rigo, *Computing the k-binomial complexity of the Thue–Morse word*, Journal of Combinatorial Theory, Series A 176 (2020), 105284, DOI:10.1016/j.jcta.2020.105284 (related substitution, different fixed point).
+
+1. *Explicit infinite third-order binomial collisions in the period-doubling word*, Resultary record `2026/10/13/SCOPE-explicit-infinite-third-order-binomial-collisions-in-the-period--4e783b08b718`.
+2. M. Lejeune, *On the k-binomial equivalence of finite words and their applications*, doctoral thesis, Université de Liège (2021), https://hdl.handle.net/2268/259266.
+3. M. Rigo, M. Stipulanti and M. A. Whiteland, *Characterizations of families of morphisms and words via binomial complexities*, arXiv:2201.04603, §7.1, https://arxiv.org/abs/2201.04603.

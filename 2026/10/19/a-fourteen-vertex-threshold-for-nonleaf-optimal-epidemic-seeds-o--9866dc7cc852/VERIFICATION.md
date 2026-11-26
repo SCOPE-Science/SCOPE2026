@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible exact verification
+# Independent mathematical audit
 
-Run `python3 verify.py` and `python3 crosscheck.py` with Python 3 standard library in the same directory. Both report success and use exact rational arithmetic.
+## correctness
 
-The first program generates one canonical representative of each unlabeled tree up to order \(13\), using all leaf attachments from every representative, and compares every vertex score with the best leaf score. Counts at orders \(1\) through \(13\) are `1,1,1,2,3,6,11,23,47,106,235,551,1301`. The second program independently computes the witness scores as sums of all rooted simple-path-prefix probabilities (instead of directed-edge recursion), and asserts agreement with the first method at all \(14\) vertices.
+PASS
 
-The witness maximum is \(49/16\) at internal vertex \(0\); the largest leaf value is \(1763/576\), giving strict difference \(1/576\). The finite lower bound depends on the completeness of the tree-generation and canonicalization arguments given in `RESULT.md`; a successful run without that argument would not prove exhaustiveness. No independent external audit or infinite-order classification is claimed.
+At the end of a simple path in a tree the previous vertex is the only already visited neighbor. The continuation counts the current vertex once and divides the sum of forward continuations by the full degree, retaining the killing probability of the backward contact. The seed has no forbidden neighbor. The recurrence terminates on the proper oriented-edge components. Deleting a leaf produces a smaller tree, so growing all leaf attachments from one representative per class is exhaustive by induction. Center decomposition is invariant; sorted rooted shapes determine rooted isomorphism, and a sorted pair of rooted halves determines bicentered isomorphism. An independent exact run compared all vertex maxima against leaf maxima on 2287 classes of orders 2–13, with per-order counts including order 1 of 1,1,1,2,3,6,11,23,47,106,235,551,1301. Recurrence and exact path-prefix sums independently agreed on the order-14 witness, confirming the unique maximum at degree-two vertex 0 of 49/16, best leaves 10 and 13 at 1763/576, and gap 1/576. For order 2 both vertices are leaves. No assertion that every maximizer is a leaf below the cutoff is needed.
+
+## originality
+
+PASS
+
+The first-repetition killed-walk formulation is established and supplies the correct comparison, not a novelty claim. No checked source gives the combined all-tree lower bound and sharp first counterexample for this precise full-neighbor starting-vertex mean. Relevant Resultary tree-source records change the law or the extremal question. The accessible general walk results change the graph ensemble and starting-vertex quantifier.
+
+## value
+
+PASS
+
+The starting-vertex optimization is natural for a killed walk on a tree, and the result answers whether a leaf can always be used as an optimal start. The strict interior optimum refutes that structural heuristic and the exhaustive lower bound makes the failure order sharp. The small gap matters for the strict extremal question, not as a claim about epidemic effect sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

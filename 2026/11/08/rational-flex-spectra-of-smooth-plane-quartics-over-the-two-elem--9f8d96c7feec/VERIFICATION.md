@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact verification
+# Independent mathematical audit
 
-Both dependency-free programs, `verify_orbits.py` and `verify_direct.py`, executed successfully with the expected termination markers `VERIFY_ORBITS_OK` and `VERIFY_DIRECT_OK`. The first enumerated all nonzero degree-four equations and their projective equivalence classes, decided geometric smoothness via three-chart Gröbner-unit tests, then calculated tangent contact multiplicities. The second iterated all \(10920\) smooth equations rather than only representatives and independently calculated their characteristic-two Hasse jets.
+## correctness
 
-The exact smooth population is \(10920\), the exact smooth projective class count is \(78\), and the unique four-flex stratum has exactly one projective orbit containing \(168\) equations. The displayed representative's four rational flexes were explicitly checked via tangent polynomials. The smoothness decisions on all \(279\) orbit representatives were also cross-compared with a separate computer-algebra Gröbner test. No random sampling or unbounded inference occurs.
+PASS
 
-The programs are executable Python source, not external formal proof certificates; a future independent audit may inspect their implementation. No independent mathematical review has occurred.
+Independently enumerated all 32767 nonzero forms under all 168 invertible binary matrices, rather than using the supplied orbit generators. For each representative, tested the quartic and its three partials for a common zero on each of three affine charts using SymPy Gröbner bases over F2 and the weak Nullstellensatz. Including the equation itself is essential in characteristic two. Geometric smoothness is invariant under the action; in particular a smooth quartic cannot contain a line component by Bézout together with smoothness. For each smooth equation, computed tangent restrictions F(P+tQ) by binomial coefficient parity, with Q a distinct rational vector on the tangent. The initial nonzero degree is the local contact order and is unchanged by a change of tangent parameter. All eleven rows agree exactly; totals are 78 classes and 10920 equations. Mask 4418 lies in the sole (4,0) orbit of size 168 and gives the displayed polynomial. Its tangent lines at the three coordinate points and [1:1:1] have cubic leading contact terms, as claimed. Canonical embeddings identify projective equivalence with isomorphism here.
+
+## originality
+
+PASS
+
+Credit the 78-class total and complete normal forms to Nart and Ritzenthaler and the three-hyperflex orbit to the earlier indexed Resultary result. The supported distinct finding is the eleven-stratum split by rational ordinary-flex and hyperflex counts, including the unique four-ordinary-flex orbit. The strongest inspected classification table enumerates by Newton polygon and does not calculate this tangency invariant. Its catalogue of curves allows a further exact computation, but neither that table nor the compared theta-contact descriptions mechanically supply the two contact counts.
+
+## value
+
+PASS
+
+The smallest finite field is a natural test for arithmetic inflection in characteristic two. Separating rational third- and fourth-order contacts rather than merely tallying curves or inflection lines gives a usable distribution by equation and by class, and resolves a sharp extremum with an explicit unique projective witness. The known class total is a cross-check, not the new contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

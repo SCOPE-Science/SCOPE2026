@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:14:53.352694Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–86, VERIFICATION.md and check.py (author evidence inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/exact_reproduction.py 2"
+      ],
+      "rationale": "The Fibonacci addition identity gives integrality: the interior entry (m,k) equals F_(m-k+1) times the entry (m-1,k-1) plus F_(k-1) times the entry (m-1,k), from boundary 1. The Fibonacci matrix has off-diagonal zero modulo 3 exactly at multiples of four; Q^4=-(I+3C), and cubing successively increases the valuation of the correction by one and preserves its normalized off-diagonal modulo 3. Raising to a power prime to 3 proves v3(F_(4j))=1+v3(j). Partitioning the factorial quotient by residues of m,k modulo four gives ten residue pairs with ordinary binomial valuation and six with an extra 1+v3(R), the latter only when R=Q-K>0. In adding K and R the base-three transfer has rows (6,3u),(3,6u) and must end without overflow. Before the first nonzero digit of R, carry remains zero and each zero has total weight 3u; first exit weights are (3,3u). Thus the resolvents give (1-6uz)/Delta for the ordinary term and z(3,3u)(I-zT)^(-1)(1,0)^T/(1-3uz)=3z/Delta for the trailing-zero term. Their weighted sum gives the claimed all-level GF. Specializing to u=0 gives 10·6^L; at L>=2 only 6uH_(L-1) contributes to degree L, so its coefficient is 18·6^(L-1) from level one. Independent recursion computing actual integral entries gives the same complete histograms at L=0 through 3.",
+      "residual_risks": [
+        "The all-level result is proved by the transfer, not extrapolated from the replay; no higher-modulus unit residues are determined."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2018 result applies entrywise to all 0<=k<=m and prime p other than 2 or 5 in clause (iii), including the exact p=3 reduction.",
+          "Knuth–Wilf's Kummer-style work for regularly divisible sequences is characterized as entrywise in the 2018 introduction; its primary full text was unavailable.",
+          "The 2022 digit theorem treats divisibility in the one-ray family (pn,n), including p=3."
+        ],
+        "reasoning": "The broad entrywise result covers the residue reduction but leaves a two-index counting enumeration, and the one-ray result omits most positions and higher valuation classes. Neither is an identified stronger block-spectrum theorem.",
+        "searches": [
+          "2018 JIS Article 18.3.1 introduction and Thm. 11(iii)",
+          "Knuth–Wilf DOI 10.1515/CRLL.1989.396.212 and EuDML 153129",
+          "Phunphayap–Pongsriiam 2022 Thm. 13"
+        ]
+      },
+      "checked_sources": [
+        "Chen–Sagan arXiv:1306.2377v1",
+        "JIS 21 Article 18.3.1",
+        "DOI 10.3934/math.2022296",
+        "DOI 10.1515/CRLL.1989.396.212 (access limitation)",
+        "Resultary 971092ce92c2 (self), f83dcdb19f8b, 41041c609d2c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taking the rank of apparition z(3)=4 and v3(F4)=1 in 2018 Thm. 11(iii) recovers both branches of the frozen entrywise formula, including the exact v3(R) correction for b>a.",
+          "Only the valuation-zero specialization is already supplied by the mod-three pattern."
+        ],
+        "reasoning": "The explicit evaluated generating function additionally requires counting the ten versus six residue pairs, requiring zero overflow, and enumerating the initial zero run of R coupled to subsequent carries. No examined prior theorem bypasses that aggregate calculation.",
+        "searches": [
+          "Chen–Sagan Thm. 5.1",
+          "2018 Thm. 11(iii), PDF p. 13, passage from offset 45550",
+          "2022 Thm. 13, journal p. 5320"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen–Sagan shift by 4·3^L and 8·3^L gives mod-three residues and thereby just the zero-valuation stratum.",
+          "For p=3 the 2018 formula reduces the pointwise valuation to ordinary binomial plus 1+v3(R) when there is a borrow in the residues modulo four."
+        ],
+        "reasoning": "The equivalent aggregate formulation is a weighted count of carries together with the modulo-four borrow and the trailing zeros of a ternary summand. A single entry formula or knowledge of residues mod 3 is not an evaluated frequency law for that count.",
+        "searches": [
+          "Resultary: Fibonomial ternary histogram and all-coefficient p-adic distributions",
+          "Chen–Sagan §5 Thm. 5.1 and Phunphayap–Pongsriiam 2018 Thm. 11(iii)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact Resultary hit 971092ce92c2 is the assigned record itself, not a distinct result.",
+          "Same-day records f83dcdb19f8b and 41041c609d2c give a valuation histogram for a four-ary Fuss–Catalan ray and a mod-three residue census for central quadrinomials, respectively.",
+          "A010048 is identified in the 2018 paper as the triangle of coefficients, not the complete block histogram."
+        ],
+        "reasoning": "A table of the entries permits finite arithmetic, but is not a table or theorem of evaluated all-depth frequencies. The closest other evaluated distributions concern different arrays or statistics.",
+        "searches": [
+          "Resultary ranked Fibonomial block histogram and all-coefficient valuation queries",
+          "2018 JIS Article 18.3.1 intro near PDF offset 3017 (OEIS A010048)"
+        ]
+      },
+      "rationale": "The evaluated whole-triangle distribution at all levels is the supported distinct claim. The same-size mod-three fractal already determines the nonzero pattern, and the 2018 Theorem 11(iii) already gives the entrywise reduction used by the proof, exactly at p=3 after specialization. Neither examined result enumerates the complete block of valuations. The block summation with both the carries and the trailing zeros and their explicit rational combination is the contribution assessed here.",
+      "residual_risks": [
+        "Knuth–Wilf full text unavailable in the checked routes; no claim of whole-paper exclusion.",
+        "A less searchable equivalent generalized triangle enumeration may exist. The novelty decision does not assert exhaustive historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers mod-three fractal, not higher valuation frequencies",
+          "evidence": [
+            "Congruences modulo three with shifts by 4·3^L and 8·3^L and symmetry."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1306.2377v1",
+          "material_read": "§5, Theorem 5.1, HTML offset near 23080",
+          "method": "Primary arXiv HTML theorem passage",
+          "title": "The fractal nature of the Fibonomial triangle",
+          "trigger": "Same Fibonomial triangle and same scales"
+        },
+        {
+          "assessment": "Covers entrywise reduction already; no aggregate histogram in the decisive theorem",
+          "evidence": [
+            "Thm. 11(iii) expresses each valuation via ordinary binomial of the quotients and the extra residue-borrow correction; Thm. 13 treats selected index families."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL21/Pongsriiam/pong12.pdf",
+          "material_read": "PDF p. 2 introduction, pp. 13–14 Theorem 11(iii) and opening of its proof, p. 16 Theorem 13",
+          "method": "Primary OA PDF; statement and prime-three specialization",
+          "title": "Explicit Formulas for the p-adic Valuations of Fibonomial Coefficients",
+          "trigger": "Exact same coefficients and all-index valuation formula"
+        },
+        {
+          "assessment": "One-index divisibility, different scope",
+          "evidence": [
+            "Thm. 13 is a criterion for p dividing the (pn,n) Fibonomial for odd p congruent to ±2 mod 5."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/math.2022296",
+          "material_read": "Thm. 13, PDF p. 7/journal p. 5320, near offset 28400",
+          "method": "Primary OA theorem passage",
+          "title": "Divisibility of Fibonomial coefficients in terms of their digital representations and applications",
+          "trigger": "Digital counting for Fibonomials including p=3"
+        },
+        {
+          "assessment": "Entrywise framework evidenced; whole-paper coverage unresolved",
+          "evidence": [
+            "2018 paper calls Theorem 2 a Kummer-like valuation theorem for Fibonomials."
+          ],
+          "identifier_or_url": "https://doi.org/10.1515/CRLL.1989.396.212",
+          "material_read": "Lawful DOI and EuDML full text unavailable; 2018 JIS introduction, PDF p. 2, near offset 3000, describes its Theorem 2",
+          "method": "Bounded primary access attempts plus explicit secondary comparison",
+          "title": "The power of a prime that divides a generalized binomial coefficient",
+          "trigger": "Broader generalized carry theory could cover the valuation"
+        },
+        {
+          "assessment": "Different number families and counted domains",
+          "evidence": [
+            "Fuss–Catalan indices are a ray with a different rational GF; central quadrinomials are enumerated by residue, not Fibonomial valuation."
+          ],
+          "identifier_or_url": "Resultary f83dcdb19f8b; 41041c609d2c",
+          "material_read": "Finding passages at offset 0",
+          "method": "Published catalogue and local source passage check",
+          "title": "Exact ternary valuation spectra of four-ary Fuss–Catalan numbers; Exact ternary residue census and a sharp bias for central quadrinomials",
+          "trigger": "Distinct same-day exact ternary histograms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and block enumeration; comparison with Chen–Sagan §5 and the 2018 Thm. 11"
+      ],
+      "rationale": "The scales are those of the classical mod-three Fibonomial fractal, not arbitrary cutoffs. The whole positive-valuation spectrum makes exact prime-power frequency queries and the sharp top stratum available from a short recurrence rather than coefficient-by-coefficient computation. The previously known entrywise valuation and valuation-zero pattern are not counted as the contribution.",
+      "residual_risks": [
+        "No claim of residues modulo higher powers or distributions at other primes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

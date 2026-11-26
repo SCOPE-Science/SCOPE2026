@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The order of the principal-unit action, the bijectivity of its exponent coordinate, and the exact semidirect commutator identity prove the determinant reduction for all permitted parameters. Additive-character orthogonality yields every target fiber for all positive genera; an independent direct-multiplication checker reproduces the complete small-group histograms and their second and third convolutions. The lower-central computation and equal-order construction are explicit. Exact finite tests are corroborative and not treated as an infinite proof.
+PASS
 
-## Originality
+Binomial induction raises v_p((1+p^c)^(p^j)-1) by exactly one per step in the stated p,c domain. Thus the powers enumerate the congruence subgroup 1+p^c Z modulo p^(c+k), and their divided differences are uniform modulo p^k. Subtracting the translations of xy and yx (which have the same b-exponent) gives the claimed commutator determinant with four independent uniform coordinates. A character of order p^s averages over one product to p^(-s), by annihilator counting; the second product and the t independent commutators give p^(-2st). Fourier inversion gives the exact fibers, including all valuation cases. The average absolute Ramanujan term is 2(1-1/p) for every s>=1, giving the uniform remainder by the triangle inequalities. Commuting <a^(pc exponent)> with b increases the valuation of its exponent by c, so gamma_j=<a^(p^((j-1)c))> for j>=2 until trivial and the class is 1+ceil(k/c). Central padding preserves the normalized law and makes the orders equal, including equal numbers of zero fibers off the derived groups. The frozen verify.py and checks.txt were inspected, not executed; the logged finite counts supplement the parameter-uniform argument.
 
-PASS on the inspected evidence, with residual priority risk. The 2012 metacyclic calculation gives commuting probability, hence the identity target at one commutator, not full prescribed-target or higher-genus laws. The 2016 commutator-fiber framework gives a general character identity but its explicitly solved exponent-prime families do not include these higher-exponent groups. The 2020 two-character-degree result, 2023 metacyclic lower-bound theorem, and compared research records do not state the cross-family equality for all genus words together with the arbitrarily divergent-class equal-order examples. Classical character orthogonality and determinant distribution are not claimed as original. An unlocated broader character-theoretic specialization could imply the statement.
+## originality
 
-## Value
+PASS
 
-PASS. The result is not merely an identity-fiber count: it completely identifies all targets of an infinite family of surface-word maps, proves a sharp prime-power-uniform mixing estimate, and gives an infinite series of equal-order, nonisomorphic groups whose nilpotency class differs arbitrarily while all these word fiber cardinalities agree. This is a concrete limitation on how much such familiar word-map invariants detect of group structure.
+Credit the general surface-word blindness phenomenon as overlapping the same-day exponent-p construction and credit classical Fourier/commutator counting. The supported distinct result is the explicit cyclic-derived metacyclic/Heisenberg match, its identified full fibers, and the uniform estimate for this family. No inspected evidence establishes this particular match or a theorem that implies it; this is a bounded assessment, not a priority claim.
 
-## Scope and limitations
+## value
 
-Only disjoint products of commutators are treated; the parameter \(p=2,c=1\), non-split actions and arbitrary words are excluded. Public references are named; no claims of independent certification or publication priority are made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The all-target and all-genus match holds even for absolute fibers at equal order and an unbounded class gap. The natural metacyclic/Heisenberg construction gives an explicit test of a strong family of group invariants, not just the recomputation of a commuting probability or a small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

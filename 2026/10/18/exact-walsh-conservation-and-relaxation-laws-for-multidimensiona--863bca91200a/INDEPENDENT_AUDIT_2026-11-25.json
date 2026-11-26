@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:21:41.416456Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The ordered-pair rate is gamma_i x_s x_(s xor d) K_i(d)/n, giving mass conservation, nonnegative inflow at a zero coordinate, and stationary uniform frequencies. At the uniform state a character perturbation gives a contribution proportional to (chi_A(e_i)-1)(1+chi_A(d))/(n Q) in each i,d term: the factor 1+chi_A(d) is from differentiating both quadratic inputs. Thus only i in A and even A-parity active displacements contribute, each with coefficient -4 gamma_i/(n Q). Nonempty characters span the simplex tangent space. For the full equation, exchanging the two inputs at fixed displacement d multiplies the quadratic A-moment by chi_A(d); it is zero at odd A-parity. Positivity of all rates therefore gives exact nonlinear conservation for each zero mode, and a nonzero negative linearization excludes conservation of that moment. Split into fixed conserved coordinates z and decaying coordinates y; the y-Jacobian is diagonal negative at uniform frequencies, so the analytic implicit-function theorem gives the unique nearby stationary y=h(z). Its symmetric part stays uniformly negative near the graph; integrating the Jacobian along the segment from h(z) to y gives a differential inequality for squared transverse distance on an invariant small ball. This also covers the degenerate case of no decaying directions, when the local field is zero. At the strict high threshold the active displacements are precisely d!=0 with d_i=0. Counting even parity among the remaining selected coordinates gives 2^(n-1)-1 for singletons and 2^(n-2)-1 otherwise; minimizing each group yields the asserted gap for n>=3 and the pair slow modes at equal rates. For n=2, d=00 and d=11 can never flip under the strict admissible rules, leaving only odd total parities and exact conservation. The supplied `checker.py` and its finite verification description were inspected, not executed; the decisive conclusions are symbolic and local, not global or finite-population convergence claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mintz et al. study the identical model, including unequal thresholds in Supplement §9, but their inspected finite-case symmetries and class-conservation observation do not constitute an arbitrary-n formula for eigenvalues or a proof of transverse exponential attraction.",
+          "Lanchier–Mercer studies real opinion values on the spatial lattice Z with an attraction–repulsion rule; its mean-field model is a density equation and Theorem 1 concerns growing neighboring gaps.",
+          "The Resultary catalogue summary for 1b8b8cade899 concerns a fully antagonistic bounded-confidence model with diffusive relaxation; a full statement mirror was not obtained."
+        ],
+        "reasoning": "A broader attraction–repulsion label does not give the binary group, convolution kernel, or the exchange identity for exact dynamics. The same-model supplement carries greater weight than nominally similar distinct models.",
+        "searches": [
+          "arXiv:2603.04939v2 main text on neutral manifolds and equilibrium symmetry; supplement §§3,6,9,10",
+          "arXiv:2310.19073 mean-field discussion and Theorem 1",
+          "Resultary same-day opinion-relaxation comparison 1b8b8cade899"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.04939v2 main text",
+        "arXiv:2603.04939v2 supplement-pdf_final.pdf",
+        "arXiv:2310.19073",
+        "1b8b8cade899 catalogue summary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Translation equivariance ensures character diagonalization and uniform equilibrium, not the sign, formula or exact value of each eigenvalue. The exact iff uses a separate quadratic input-exchange identity and positivity of the per-issue counts.",
+          "The supplement says the sums over equilibrium types 'seem' to vanish and links M to dimension, but gives no active-even-parity formula or invariant-coordinate proof of a unique local analytic graph and its attraction, and no all-n closed high-threshold gap."
+        ],
+        "reasoning": "The main result formalizes and extends the prior same-model symmetry and conservation observations. Neither the neutral-dimension observation nor Fourier diagonalization alone mechanically provides the positive rates, the threshold-inclusive iff, or the analytic selection on the level sets.",
+        "searches": [
+          "arXiv:2603.04939v2 Eq. (2) and supplement §9 exact class-mass and M discussion",
+          "arXiv:2310.19073 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With L=n, uniform focal/target and issue choice, issue rates gamma_i, and r=0, Eq. (2) supplies the very same ODE normalization 1/n, with the strict similarity cutoffs.",
+          "Supplement §9 discusses vanishing sums over opinion types equal at equilibrium, hence conservation of each equivalence class mass, and relates multiplicity M of the zero Jacobian eigenvalue to the neutral equilibrium manifold. In a partition into the two parity classes, a Walsh parity moment is the difference of just such class masses; the prior statement is a material conceptual overlap. The inspected passage does not identify those classes for every admissible n=2 threshold or supply a character test for all n."
+        ],
+        "reasoning": "The class-mass formulation and the moment formulation are not assumed different by name. The distinct content is the explicit and rigorous criterion for each character and its derivative, not conservation of class totals in cases already detected by symmetry.",
+        "searches": [
+          "arXiv:2603.04939v2 Eq. (2), PDF pp. 3–4",
+          "arXiv:2603.04939v2 supplement §9 pp. 14–15: equilibrium equivalence classes and zero eigenvalue"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The supplement lists equilibrium symmetry classes up to L=5 (31 threshold intervals and 516 weight cases in the §6 discussion) and extends symmetry comparisons across unequal thresholds. These are prior tables on the same model.",
+          "The frozen invariant predicts actual eigenvalues in every dimension and identifies each conserved character; a finite table of equilibrium symmetries or numerical neutral dimensions does not give that invariant, the unequal-rate gap, or an exact local-graph proof."
+        ],
+        "reasoning": "Check same-model equilibrium tables as the relevant data analogue; no point-count or external database enumeration is used as proof of the all-parameter statement.",
+        "searches": [
+          "arXiv:2603.04939v2 supplement §6 pp. 8–10 and §9 pp. 14–15",
+          "Resultary: Walsh spectrum and conserved modes in weighted noiseless friend–foe opinion dynamics"
+        ]
+      },
+      "rationale": "Credit the explicit all-n active-even-parity spectrum and exact zero-Walsh-mode characterization for this fixed deterministic model, with the analytic local selection theorem and sharp high-threshold spectrum. Mintz et al. previously introduced precisely this normalized model, studied neutral manifolds, and in Supplement §9 observed conservation of equilibrium class masses and linked zero eigenvalue multiplicity with manifold dimension. That is material same-model overlap, not merely related terminology. Neither the observation nor the finite symmetry tables gives the character-by-character active-set test, the proof of necessity and sufficiency for individual Walsh moments, or the general unequal-rate gap. The mechanism of Fourier diagonalization and the idea of neutral or constrained equilibrium manifolds are not originality claims. The independently retrieved supplement informs this verdict; the frozen note about unavailable supplementary material is not an ongoing access limitation for the inspected sections.",
+      "residual_risks": [
+        "Broader external search queries were deferred with no results; the inspected sources do not exclude an earlier group-equivariant kinetic formulation of the full spectrum and moment law. The precise range in which the prior class-mass observation already entails individual conserved Walsh moments is not determined from §9.",
+        "The same-day indexed receptive-path comparison rests on its catalogue summary rather than a full original statement; no relative priority is inferred from the shared date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same normalized ODE and prior observations of equilibrium manifolds, not an explicit Walsh spectrum",
+          "evidence": "Uniform issue updates and strict similarity thresholds; r=0 model with gamma_i/L; L=2 equilibrium manifold and composition-space discussion.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.04939v2",
+          "material_read": "Main PDF pp. 3–4 Eq. (2) (OA offset 12975), p. 11 (offset 38000) and pp. 12–13 (offset 45200)",
+          "method": "Read original OA model and equilibrium passages",
+          "title": "When minor issues matter: symmetries, pluralism, and polarization in similarity-based opinion dynamics",
+          "trigger": "Exact same noiseless friend–foe model and prior equilibrium analysis"
+        },
+        {
+          "assessment": "Substantial same-model class-mass and neutral-dimension antecedent, not a complete character or relaxation theorem",
+          "evidence": "§9 says 'it seems summing the equations for the rates of change over all types that are the same at equilibria of the deterministic model results in zero,' concludes conservation of equivalence-class masses and treats zero-eigenvalue multiplicity as the dimension of the neutral manifold. The discussion continues to separated thresholds. §6 lists finite equilibrium symmetry cases through five issues.",
+          "identifier_or_url": "https://arxiv.org/src/2603.04939v2 (supplement-pdf_final.pdf)",
+          "material_read": "Supplement §§3,6,9,10; exact §9 pp. 14–15 on symmetries, including class-mass and eigenvalue discussion",
+          "method": "Lawful official v2 source retrieval, extract the named PDF as data, read relevant pages and separately check the key §9 passage in layout-preserved text",
+          "title": "Supplement to When minor issues matter",
+          "trigger": "Closest potential coverage of zero modes, exact conservation and threshold cases"
+        },
+        {
+          "assessment": "Different opinion space and spatial dynamics",
+          "evidence": "Integro-differential mean-field density and discordance theorem about diverging adjacent opinion gaps for theta<2 and mu_+>0 on Z.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.19073",
+          "material_read": "PDF pp. 4–5 mean-field discussion and p. 6 Theorem 1",
+          "method": "Read relevant original OA passages",
+          "title": "Deffuant opinion dynamics with attraction and repulsion",
+          "trigger": "Broader attraction–repulsion antecedent"
+        },
+        {
+          "assessment": "Apparent different model; full-text comparison unresolved",
+          "evidence": "Summary describes a fully antagonistic bounded-confidence model and diffusive relaxation rather than binary weighted friend–foe Walsh modes.",
+          "identifier_or_url": "1b8b8cade899",
+          "material_read": "Local Resultary catalogue summary only; no matching result mirror obtained",
+          "method": "Read indexed summary, not full-text assessment",
+          "title": "A persistent receptive path and sharp diffusive relaxation in repulsive opinion dynamics",
+          "trigger": "Related same-day indexed relaxation finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a concrete opinion-dynamics model known through finite symmetry tables, the all-dimensional formulas distinguish a merely linear neutral mode from an exact nonlinear invariant, determine the local equilibrium selected by initial conserved data, and identify what actually controls the relaxation timescale. In particular the slow equal-rate high-threshold perturbations are two-issue correlations, not singleton marginals, and the two-issue parity exception holds at all admissible thresholds. These are useful exact local predictions, not global or stochastic claims.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

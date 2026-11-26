@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:38:56.605181Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The vertex test is exactly the intersection of the two strict inward half-circles of its incident edges, and any direction satisfying it also lights the interiors of both edges. A pair of vertices has a common direction iff the incident oriented edges have a complementary circular gap greater than pi. In the adjacent and nonadjacent configurations the internal gaps are individual turns below pi, so the only candidate is the complementary gap. Thus a neighboring pair is compatible iff its two turns sum to less than pi, and a diagonal is compatible iff the complementary neighboring turn pair sums to greater than pi. Nonconsecutive failed neighboring tests are impossible since their four turns sum to 2pi minus a positive fifth turn. With no failure, compatibility is C5, the two-hits-per-direction bound is sharp by taking copies of the five pairs and a three-pair cover for odd m. With failed tests {i} or {i,i+1}, the respective incompatible triples are {i,i+1,i+3} and {i,i+1,i+2}; they force 3m. Three compatible pair directions in the first case, and two pair directions plus an inward direction at i+1 in the second case, give the matching covers. Uniform half weights on the five cycle pairs or one unit on each direction of the three-cover establish the fractional bounds with the same incidence certificates. Equality is handled exactly by strict inwardness. Independent replay: python3 -I -B /workspace/reproduce.py 5 checked 26,277 exact turn fans, including 12,120 equality cases, by a half-step angular mesh that includes critical rays; exact multicover recursion on 31 maximal-incidence profiles matched for m=1..4. This is bounded corroboration, not the unrestricted proof; the uploaded checker was only inspected.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Antipodal-fan theorem: I^(m)=ceil(2rm/(r-1)) for 2r edges with paired normals; odd edge count is excluded.",
+          "The Cartesian-product theorem treats four-dimensional products of equiangular pentagons, not arbitrary planar fans; the quadrilateral theorem treats exactly four vertices.",
+          "Sriamorn's Conclusion asks for an algorithm for arbitrary convex polygons; the paper does not give that general classification."
+        ],
+        "reasoning": "More general multiplicity parameters, or a higher ambient dimension, do not dominate the angular and combinatorial scope of this finding.",
+        "searches": [
+          "arXiv:2306.13517v1 §3.3 and Conclusion",
+          "Resultary f4e6962728dc; 3c22813e8f15; 7596e2fa9478 exact RESULT.md statements"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2306.13517v1",
+        "Resultary f4e6962728dc",
+        "Resultary 3c22813e8f15",
+        "Resultary 7596e2fa9478",
+        "Resultary self-hit bb97b5ac359b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 3.1 gives I^(2)=5 under all strict neighboring tests, and Lemma 3.5 gives ceil(5m/2) for the regular pentagon.",
+          "Neither establishes the lower bound 3m for irregular pentagons on or beyond an angle equality. In quadrilaterals, 3m for non-parallelograms is about a different vertex incidence system."
+        ],
+        "reasoning": "Credit the regular spectrum and the favorable base result; repeating known favorable covers cannot establish the sharp unfavorable lower bound or decide which arbitrary pentagons fall into it.",
+        "searches": [
+          "Sriamorn arXiv:2306.13517v1 Lemmas 3.1 and 3.5; Resultary 3c22813e8f15"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The open-semicircle/normal-fan comparison with the four-vertex rigidity theorem uses the same strict pair criterion, but that result has four vertices and different extremal structure.",
+          "Sriamorn's vertex-illumination formulation is the same invariant; Lemma 3.1 addresses the favorable two-fold case, not the opposite branch."
+        ],
+        "reasoning": "Using the normal fan instead of physical inward directions does not change the problem. The compared normal-fan statements do not give the pentagon's triple certificate or its strict dichotomy.",
+        "searches": [
+          "Resultary: pentagon multiple and fractional illumination spectrum; neighboring exterior turns; illumination with antipodal normal fans; pentagon/product illumination",
+          "arXiv:2306.13517v1 §3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match bb97b5ac359b is this same record, not a distinct antecedent. The related f4e6962728dc, 3c22813e8f15 and 7596e2fa9478 records have the scope limitations verified from their statements."
+        ],
+        "reasoning": "No distinct indexed exact spectrum for the continuum of genuine pentagons was identified in these comparisons; a finite grid table would not establish the requested all-real-angle, all-multiplicity classification.",
+        "searches": [
+          "Resultary: multiple illumination of convex pentagons, strict adjacent angle test; fractional polygon illumination"
+        ]
+      },
+      "rationale": "Inspected sources cover the regular pentagon for all multiplicities and the favorable unrestricted two-fold case. The favorable upper bound for higher multiplicities is incremental (repeat a two-fold cover and append a three-direction cover as needed). The distinct contribution is the exact arbitrary-pentagon classification, especially the incompatible triple and 3m lower bound when any test fails, including equality, with the sharp fractional dichotomy. No inspected stronger statement covers this remainder. This is a best-of-current-knowledge comparison, not a priority guarantee.",
+      "residual_risks": [
+        "Bounded primary and catalogue coverage; an unindexed equivalent angular or arc-cover treatment is possible. No global priority conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified partial coverage",
+          "evidence": [
+            "Strict short exterior-turn sums imply the two-fold value five at n=5; the all-m formula in Lemma 3.5 is for regular n-gons."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.13517",
+          "material_read": "§3.3, Lemmas 3.1 and 3.5 (printed pp. 11–14); Conclusion, p. 21",
+          "method": "Open-access PDF text, bounded mathematical passages",
+          "title": "On the multiple illumination numbers of convex bodies",
+          "trigger": "Closest primary statement of the same invariant for pentagons and polygons"
+        },
+        {
+          "assessment": "Different hypotheses",
+          "evidence": [
+            "2r sides with antipodally paired outward normal directions are required, excluding an odd-sided fan."
+          ],
+          "identifier_or_url": "Resultary f4e6962728dc",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "Exact multiple illumination and parity rigidity for polygons with antipodal edge-normal fans",
+          "trigger": "Plausibly broader normal-fan result"
+        },
+        {
+          "assessment": "Related method, four vertices only",
+          "evidence": [
+            "Exact 3m versus 4m depending on whether a quadrilateral is a parallelogram; not a statement for five sides."
+          ],
+          "identifier_or_url": "Resultary 3c22813e8f15",
+          "material_read": "RESULT.md Finding and scope, offset 0",
+          "method": "Local mirror",
+          "title": "Four-vertex rigidity of multiple and fractional polygon illumination",
+          "trigger": "Same geometry and strict compatibility test"
+        },
+        {
+          "assessment": "Special pentagons and different ambient problem",
+          "evidence": [
+            "I(P×Q)=8 and I*(P×Q)=25/4 for the four-dimensional product of equiangular pentagons."
+          ],
+          "identifier_or_url": "Resultary 7596e2fa9478",
+          "material_read": "RESULT.md Finding and scope, offset 0",
+          "method": "Local mirror",
+          "title": "Eight directions for Cartesian products of equiangular pentagons",
+          "trigger": "Exact pentagon-derived illumination values"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves a natural first odd-sided polygon case beyond triangles with arbitrary, not regular, turns. It identifies exactly when repetition lowers the per-fold cost below three and why parallel-critical equalities destroy that gain. The incompatible triple is a useful finite obstruction and the constructive direction choices match it for every multiplicity; the contribution is more than computing a few polygon examples or iterating the known two-fold favorable case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

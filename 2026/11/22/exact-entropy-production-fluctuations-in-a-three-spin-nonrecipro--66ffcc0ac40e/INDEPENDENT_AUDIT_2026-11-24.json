@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:40:11.431942Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the stationary path observable independently. The aligned orbit A and minority orbit B form a two-state chain A→B at 3h and B→A at d. Symmetry makes the stationary law constant within each orbit; the full per-state ratio pi_B/pi_A=h/d. Thus each A↔B jump's medium entropy is cancelled exactly by its contribution to stationary system entropy. Within B the two possible jumps occur at rates a=(1+gamma_o)/2 and b=(1-gamma_o)/2 and have increments +2eta and -2eta respectively, because their reverse rates exchange a and b. Conditional on the orbit trajectory these marks have independent Poisson counts with those rates times the B-occupation time: all rates and the orbit exit hazard are independent of the microstate within B. Feynman–Kac on the orbit process adds g_s-1 to the B diagonal, since a exp(-2s eta)+b exp(2s eta)=g_s. The resulting irreducible Metzler matrix has diagonals -3h and -d-1+g_s and off-diagonal product 3hd. Its larger eigenvalue gives the displayed SCGF for all real s, and g_s=g_(1-s) gives symmetry and both zeros. Stationary occupation has mean p and covariance p(1-p) exp(-(3h+d)|t|). Conditional expectation and variance of the two Poisson counts give the displayed mean and variance rates, including the extra occupation term. For gamma_o=0 all path increments are zero; otherwise the mean is positive. The all-real-s function is not a constant-rate Poisson difference: its two large-|s| slopes and leading exponential coefficients would fix the step magnitude and rates to the unmixed B process, which has the wrong mean by the factor p<1. Inspected verification.py: its numerical eight-state spectral and derivative grids corroborate but do not prove these conclusions. The exact proof uses the strict parameter interior, the triangle, and stationary path entropy.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The directed-chain literature inspected gives dynamics, correlations and/or Gibbs stationarity. The fluctuation record SCOPE-2367784e0b2d is a variance-rate result for N>=4 at zero reciprocal coupling, and SCOPE-b1d4ea7587cf treats a mean for N>=4 in a restricted regime."
+        ],
+        "reasoning": "A same-model theorem for the full entropy SCGF at arbitrary N including 3 would subsume this, but the broader results actually inspected concern other observables or exclude N=3 and do not produce the full SCGF.",
+        "searches": [
+          "arXiv:1102.0141 and arXiv:1503.01661, abstracts",
+          "arXiv:2410.23615, abstract/contents and equations (3.2)–(3.5)",
+          "Resultary SCOPE-2367784e0b2d and SCOPE-b1d4ea7587cf, Findings and Assumptions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2410.23615v2",
+        "arXiv:2411.00059v1",
+        "arXiv:1102.0141v2",
+        "arXiv:1503.01661v3",
+        "Resultary: SCOPE-66ffcc0ac40e, SCOPE-2367784e0b2d, SCOPE-b1d4ea7587cf, SCOPE-08342e92eda3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At gamma_e=0 the frozen variance equals 3 eta^2(1+gamma_o^2/4), three times the N>=5 density of SCOPE-2367784e0b2d at delta=gamma_o, but that result excludes the triangle and gives no higher cumulants. Equilibrium stationary weights and general tilt theory do not evaluate a model's tilted eigenvalue."
+        ],
+        "reasoning": "The positive Perron eigenvector's reduction or the two-state modulated-count construction provides model-specific information. Neither a mean, an equal limited variance density, symmetry, nor a generic prescription to diagonalize yields the all-parameter radical already computed here.",
+        "searches": [
+          "SCOPE-2367784e0b2d, SCOPE-b1d4ea7587cf, arXiv:2410.23615 (original Statements/Assumptions or model equations)",
+          "Standard finite-chain tilt and fluctuation symmetry"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rate model and ordinary dynamical solution are prior. Stationary total and medium entropy differ by an endpoint term, so an exact long-time triangle medium-entropy or oriented-wall-current SCGF would be equivalent; the inspected cited dynamics results do not present one. The targeted literature lookup did not yield a matching statement."
+        ],
+        "reasoning": "A spin correlation or stationary distribution is not the path SCGF. Gauge cancellation of reciprocal moves and bias in the remaining counted jumps identify the precise observable for equivalence purposes.",
+        "searches": [
+          "Primary query: three-spin entropy production SCGF nonreciprocal Glauber Ising ring tilted generator",
+          "arXiv:2410.23615, Eq. (3.2) and pp. 1, 16; arXiv:2411.00059, abstract",
+          "arXiv:1102.0141; arXiv:1503.01661"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-66ffcc0ac40e is the identical frozen result, not independent coverage. SCOPE-2367784e0b2d, SCOPE-b1d4ea7587cf and SCOPE-08342e92eda3 are distinct results for variance, mean and stationary memory respectively."
+        ],
+        "reasoning": "A catalogue hit on the same model class or same date is not itself coverage or evidence of priority; compare the original observable and ring size. No distinct exact entry for the frozen SCGF was identified.",
+        "searches": [
+          "Local Resultary search for nonreciprocal three-spin entropy SCGF and neighbouring findings"
+        ]
+      },
+      "rationale": "The supported distinct claim is the explicit three-spin stationary entropy SCGF and the resulting fluctuation rates, not the kinetic model, Gibbs stationarity, the fluctuation theorem, or the general tilted-generator method. No inspected source contains or directly implies that model-specific SCGF.",
+      "residual_risks": [
+        "Bounded literature inspection does not exclude a triangle specialization of an unindexed entropy/current tilt, or an alternative-representation solution. A query or literal miss does not settle priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and ordinary dynamical calculations are prior",
+          "evidence": "Rate parametrization/master equation and one-point equations, with separate two-point dynamics in the contents; no path-entropy tilt in these statements.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.23615",
+          "material_read": "v2 pp. 1 and 16, abstract/contents and Eqs. (3.2)–(3.5)",
+          "method": "OA PDF statement comparison",
+          "title": "Solving the Kinetic Ising Model with Non-Reciprocity",
+          "trigger": "Same nonreciprocal spin-flip model"
+        },
+        {
+          "assessment": "Ordinary dynamics scope in inspected statement",
+          "evidence": "Exceptional points and propagating waves/dynamical spin correlations, not an entropy fluctuation formula in the statement inspected.",
+          "identifier_or_url": "https://arxiv.org/pdf/2411.00059",
+          "material_read": "v1 p. 1 abstract",
+          "method": "OA PDF abstract comparison",
+          "title": "An Exact Solution for the Kinetic Ising Model with Non-Reciprocity",
+          "trigger": "Exact solution for the model"
+        },
+        {
+          "assessment": "Dynamics and stationarity antecedents; do not infer full-document noncoverage solely from absent term matches",
+          "evidence": "Global balance, correlations/response, and general rates admitting Gibbs measures; not a three-spin tilted path observable in the passages inspected.",
+          "identifier_or_url": "https://arxiv.org/pdf/1102.0141 ; https://arxiv.org/pdf/1503.01661",
+          "material_read": "v2 and v3 respectively, p. 1 abstracts; literal entropy lookup in PDF texts",
+          "method": "OA PDF statements and literal term location",
+          "title": "Dynamics of the directed Ising chain; Single-spin-flip dynamics of the Ising chain",
+          "trigger": "Earlier directly relevant rate classes with Gibbs stationary law"
+        },
+        {
+          "assessment": "Related first or second cumulant, not equivalent coverage",
+          "evidence": "First: N>=4, gamma_e=0, variance density; second: N>=4, K>J>0, mean. Neither provides the all-real-s triangle SCGF.",
+          "identifier_or_url": "Resultary: SCOPE-2367784e0b2d; SCOPE-b1d4ea7587cf",
+          "material_read": "Original RESULT.md Findings and Assumptions",
+          "method": "Resultary semantic search and local mirror comparison",
+          "title": "Four-spin anomaly in entropy-current fluctuations; Exact dissipation and a unique thermal optimum",
+          "trigger": "Most plausible same-observable catalogue records"
+        },
+        {
+          "assessment": "Different observable in first; self-match only in second",
+          "evidence": "Infinite-chain two-time correlation in first; identical frozen triangle result in second.",
+          "identifier_or_url": "Resultary: SCOPE-08342e92eda3; SCOPE-66ffcc0ac40e",
+          "material_read": "Original RESULT.md Findings and Assumptions",
+          "method": "Local mirror statement comparison",
+          "title": "Stationary memory oscillation threshold; Exact entropy production fluctuations in a three-spin nonreciprocal Glauber–Ising model",
+          "trigger": "Neighbouring ring dynamics and highest-scoring exact hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The triangle is a natural minimal periodic model with distinct left and right neighbours and with dissipation despite Gibbs-type stationarity. The observable-specific all-field result is a precise benchmark for nonequilibrium entropy statistics. The positive occupation-time correction quantifies why the jump fluxes alone cannot predict the variance, rather than merely checking a generic fluctuation symmetry or a numerical small matrix.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

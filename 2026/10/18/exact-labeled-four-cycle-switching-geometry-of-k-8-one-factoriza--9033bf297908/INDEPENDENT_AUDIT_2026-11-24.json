@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:46:08.067711Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–44",
+        "Frozen VERIFICATION.md, verify_matchings.py, verify_coloring.py, both saved outputs, and enumeration_summary.json",
+        "Independent replay: independent_k8_switch_census.py, full run and independent_full.json"
+      ],
+      "rationale": "A factorization is counted once under either first-uncovered-edge descent or anchoring each factor to the unique opponent of vertex 0; neither identifies vertex labels. In a pair of factors the union consists of even cycles of length at least four, so the only possibilities are an 8-cycle and two 4-cycles. Only the latter permits a changed unordered factorization. Choosing the other 4-cycle just interchanges the names of the two resulting factors. A separately written full census generated all 105 matchings, enumerated all disjoint anchored covers, tested all 21 factor pairs per cover by connected components, and deduplicated the constructed neighbor sets. Component traversal plus BFS from all 5280 nonisolated states independently reproduced 6240 vertices, 17640 edges, degree counts 0:960, 3:1680, 7:2520, 9:420, 13:630, 21:30, component sizes 1:960 and 5280:1, and nontrivial eccentricities 9:30, 10:3570, 11:1680. The degree-zero characterization follows exactly from having only Hamiltonian two-factor unions. The frozen verifier code, saved outputs and summary were inspected without executing the uploaded scripts. The frozen replay entry points are verify_matchings.py (exact covers) and verify_coloring.py (anchored covers); the independent implementation also uses the anchoring principle but constructs switches from cycle components.",
+      "residual_risks": [
+        "The independent run reproduced the entire census, not a separate audit of the byte order of the frozen certificate files. The independent computation did not rely on those files. The result is finite and makes no inference at larger orders."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general switching paper studies graphs at several orders, but Table 1 gives the K8 factor-switch graph on six isomorphism classes: five non-loop edges, two loops, two components, one isolate. Its vertex-switch quotient uses a different move."
+        ],
+        "reasoning": "General order does not dominate fixed-label geometry when every reported state has already been quotiented by vertex relabeling. The isolated perfect-factorization characterization itself is already covered.",
+        "searches": [
+          "Kaski et al. DOI 10.37236/3606 §§3, 6, 8 and canonicalization",
+          "K8 factor-switching, vertex-switching and Kempe-class results"
+        ]
+      },
+      "checked_sources": [
+        "Focused Resultary searches and exact Finding 7a8c015cd491",
+        "OEIS A000438",
+        "Kaski et al. DOI 10.37236/3606",
+        "Focused primary literature queries for K8 labeled switching/Kempe graphs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The five connected non-isolated classes in the quotient do not record which labeled representatives are joined by any lift of a path. The quotient reports the existence of incidences, including same-class moves, not all their labeled endpoints or lengths."
+        ],
+        "reasoning": "Quotient connectivity may lift to paths ending only in some relabeled representative; it cannot force a single fixed-label component. Even with orbit sizes, the reported quotient adjacencies and loops do not specify every orbit's labeled neighbor incidence or the shortest paths. The additional exact enumeration supplies this missing information.",
+        "searches": [
+          "Kaski et al. factor-switching definition, canonicalization, and Table 1",
+          "Labeled vs isomorphism-class factor-switch connectivity and distances"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kempe exchange on a two-color connected component, modulo color-name permutations, is the same move when that component is one of two 4-cycles. The published factor-switch move therefore agrees on K8, but the paper then identifies vertex relabelings."
+        ],
+        "reasoning": "The significant distinction is the state equivalence relation, not the move's name. Matchings have no color names in both formulations, but team labels cannot be changed in this result.",
+        "searches": [
+          "Exact labeled K8 one-factorization switch graph, 6240, 17640, 5280",
+          "K8 edge-colouring Kempe graph; labeled transition graph; factor switching",
+          "Kaski et al. DOI 10.37236/3606 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A000438 gives 6240 labeled K8 factorizations only. Table 1 reports the six-state quotient, not fixed-label edge or distance counts. The closest indexed Kempe census 7a8c015cd491 is for proper four-edge-colourings of Q4, with 1840 states and a different component and distance profile."
+        ],
+        "reasoning": "State count is prior. Neither table gives the labeled K8 switch graph census; the Q4 graph has a different host and a different family of alternating-cycle moves.",
+        "searches": [
+          "OEIS A000438",
+          "Kaski et al. Table 1, K8 row",
+          "Resultary: K8 labeled degree and eccentricity census and exact edge/component counts",
+          "Resultary 7a8c015cd491, actual RESULT.md Finding"
+        ]
+      },
+      "rationale": "Credit is limited to the exact fixed-vertex-label graph statistics: its edges and degree census, connectivity of the non-perfect states, and their full distance geometry. The factor-switch move, quotient graph, perfect-factorization isolation and 6240 labeled state count are known. The closest primary prior computes the quotient under vertex relabeling; the information in its reported quotient and loops is insufficient to recover the connectivity or distances of the labeled state graph. No inspected indexed result gives a dominating unquotiented census.",
+      "residual_risks": [
+        "A separate labeled computation, unindexed article or ancillary material may overlap. The bounded searches are not proof of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same elementary move and exact quotient, not labeled graph geometry",
+          "evidence": "Graphs are on isomorphism classes. K8 factor-switch row has six quotient vertices, five non-loop edges, two loops and two components with one isolate.",
+          "identifier_or_url": "https://doi.org/10.37236/3606",
+          "material_read": "Abstract p. 1; §3 p. 5 offset 15229; canonicalization p. 10 offset 31618; §6 Table 1 p. 11 offset 32900",
+          "method": "OA primary PDF",
+          "title": "Switching in One-Factorisations of Complete Graphs",
+          "trigger": "Same K8 factor-switching graph up to possible labeling convention"
+        },
+        {
+          "assessment": "Known state count only",
+          "evidence": "A000438 includes 6240 for K8.",
+          "identifier_or_url": "https://oeis.org/A000438",
+          "material_read": "Entry text, offset 0",
+          "method": "OA database entry",
+          "title": "Number of 1-factorizations of complete graph on 2n vertices",
+          "trigger": "Direct enumeration database for state count"
+        },
+        {
+          "assessment": "Comparable graph invariant on a different host and degree",
+          "evidence": "Q4 is a 16-vertex four-cube, with four colors; the stated reconfiguration graph has 1840 vertices and nine components and allows exchanges on alternating cycles.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-nine-kempe-classes-of-proper-4-edge-colourings-of-the-four-cube--7a8c015cd491/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Nine Kempe classes of proper 4-edge-colourings of the four-cube",
+          "trigger": "Closest indexed Kempe graph with exact distance geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and comparison with quotient",
+        "Kaski et al. Table 1",
+        "Independent full graph replay"
+      ],
+      "rationale": "The graph is the natural smallest complete one-factorization setting with a nontrivial labeled component and perfect isolated states of this kind; K8 permits both types of two-factor union, unlike the smaller K4 and K6 cases where every two-factor union is one cycle. The meaningful invariant is the fixed-participant edit geometry, not a repeated count of states or isomorphism classes. In the active component, exact connectivity decides mutual convertibility without team renaming and diameter 11 gives the sharp worst-case number of legal round edits; eccentricities give the worst-case guarantee by starting schedule. Those precise invariants are useful independently of any extrapolation.",
+      "residual_risks": [
+        "No classification of fixed-label switching at higher orders is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

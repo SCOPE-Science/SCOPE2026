@@ -1,19 +1,21 @@
-# Scientific review: parity and diameter phase diagram for equilateral Katětov one-types
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Sauer's criterion identifies the possible distance vectors with restricted Katětov functions; finite-distance universality and ultrahomogeneity identify these with complete nonalgebraic one-types. The proof counts every admissible vector exactly once by its least coordinate, explicitly separating the case of a repeated minimum from the case of one uniquely short minimum. The formulas for \(U_m\) and \(B_m\), the tie count \(h\) for maximal upper bases, and the equality condition between maximal lower and upper bases have been checked algebraically. The exceptional odd-distance boundary is inclusive at \(D=(3s-1)/2\). The proof includes \(n=1\), \(s=1\), \(s=2\), and \(D=s\). The standalone checker exhaustively tested 210 parameter triples and 120 asymptotic leading forms; these finite tests are independent corroboration, not proofs of the infinite claims.
+PASS
 
-## Originality — PASS, qualified
+RESULT.md lines 5–44 and 46–61: the finite relation language and ultrahomogeneity identify the realized positive distance vectors with complete types over the named points; finite many quantifier-free orbits also imply quantifier elimination and all such types are realized. Every admissible positive vector has arbitrarily many copies mutually at distance 1, by the triangle inequalities and finite extension, so these types are nonalgebraic. The pairwise triangle inequalities reduce to a width condition and a lower bound on the sum of the two smallest entries. A minimum m≥a=ceil(s/2) contributes U_m^n−(U_m−1)^n, while m<a must occur once and gives n B_m^(n−1) with other entries freely in [s−m,min(D,s+m)]. The formula gives D at n=1. The upper sum in fact equals h w^n−(h−1)(w−1)^n: the maximum width occurs h times and smaller widths decrease by one to 1. The maximum short base is strictly less than w for even s with a nonempty short range; for odd s=2k+1≥3 it is min(D−k,2k+1) versus w=min(D−k,2k+2), equal precisely at s≤D≤3k+1. This proves both growth regimes and concentration, including the endpoints, with empty short sums for s=1,2 and the exact constant case D=s=1. The packaged checker mentioned in the record is not present; its reported results are not independently credited. A fresh exhaustive triangle-inequality enumeration across the claimed 210 finite census cases passed; replay: python3 /workspace/branches/independent_discrete_checks.py. The limits were checked algebraically, not extrapolated.
 
-The type-function inequality and realizability are classical and not new. Sauer's accessible 2011 full text establishes those general principles but gives no enumerator for equilateral one-types and no phase boundary. The relevant published diameter-three metric type-polynomial result identifies all admissible local distance patterns in \(\{1,2,3\}\), and fully treats a graph-metric parameter slice with distances \(1\) and \(2\). Its formula neither states nor uniformly covers this arbitrary-diameter, equilateral-distance census or its \(D=(3s-1)/2\) boundary. Prior accessible finite-metric-star tuple results involve a named hub and a fixed \(\{1,2,3\}\) distance set; they do not imply the two-parameter count. The database and literature queries returned no exact covering enumeration. This is positive but not conclusive evidence; unindexed older Katětov enumerations and formulas implicit in general theory remain meaningful risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The integer Urysohn metric structures are natural Fraïssé limits, and equilateral finite bases are their maximally symmetric parameter configurations. Exact enumeration of their finite-parameter one-type spectra is a natural invariant, not an arbitrary isolated table entry. General finite-parameter type counting for the diameter-three metric limit is already #P-complete on a graph-metric slice, which makes a uniform exact description for the symmetric equilateral slice a useful benchmark. The full two-parameter classification reveals a sharp structural change in generic one-point extensions: in the exceptional odd-distance regime almost every type has a unique close parameter, whereas otherwise the proportion with any unusually short distance vanishes. This change produces or removes a polynomial factor in the type-growth law. The phase boundary is an all-parameter theorem with a complete proof, not a fitted observation.
+Best of current knowledge for the full labelled all-(D,s) formula, inclusive odd-distance diameter boundary and concentration law, not for Katětov realizability or isolated diameter-three/four counts. Resultary and primary-source comparisons found real exact overlaps at restricted parameters but no theorem giving this general census or the competing-base transition.
 
-## Relationship to the literature and limitations
+## value
 
-Primary source: Sauer, *Distance sets of universal and Urysohn metric spaces* (arXiv:1107.4794, 2011). Most relevant comparison: *Widom–Rowlinson partition functions as 1-type polynomials of the generic diameter-3 metric space* (published mathematical result, 2026). The exact scientific differences are given in RESULT.md and the structured originality checks. The theorem is restricted to equilateral parameter sets, consecutive integer distance sets, and fixed distances in the large-base asymptotic. Literature search is not a proof of novelty; expert examination may discover an equivalent enumeration.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Equilateral labelled parameter sets are a natural highly symmetric slice of finite metric type counting. A single exact formula with an inclusive parity/diameter threshold shows that a polynomial prefactor in type growth is tied to a change in geometric behavior: almost every extension in one regime has exactly one short coordinate of the specified distance, while almost none in the other do. This resolves more than a small table or a direct realization criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

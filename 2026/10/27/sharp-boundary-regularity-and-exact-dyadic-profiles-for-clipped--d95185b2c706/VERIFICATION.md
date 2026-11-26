@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic verification reconstructs the escape event from the exact logarithmic-radius recurrence; proves atomlessness from uniform upper bounds on cylinder probabilities; checks both binary prefix factorizations with null boundary events; solves the clipped run recurrences and proves finite saturation; derives the identical endpoint profile by the digit-complement involution; and proves two-sided bounds with constants uniform over every allowed initial state.
+# Independent mathematical audit
 
-The example \(\alpha=1/2\), \(\varepsilon=1/4\) is checked exactly: after the first zero digit, the state is \(3/8\), so \(\Pr(R\ge1/4)=3/4+(1/4)(3/8)=27/32\). Since \(\log_2(4/3)<1/2\) and \(\sqrt3/2>27/32\), the normalized limiting profiles at phase \(1\) and phase \(3/4\) differ. This is a rigorous witness of oscillation.
+## correctness
 
-`python3 check.py` was executed and returned `CHECKS_PASS: 36 dyadic endpoint tests and 34 saturated u=3/4 tests; H(3/4)=27/32`. It uses Python standard-library rational arithmetic and enumerates finite binary words, checking the claimed identities on \(\alpha=1/2\), \(\varepsilon=1/4\), and initial states \(1/4,1/2,3/4\) for run lengths \(1\) through \(6\). Those checks do not by themselves establish the infinite-parameter theorem.
+PASS
 
-Primary-source comparison inspected Endo's complete arXiv paper with particular attention to Section 4 Example 4.2, where qualitative continuity, not the present exact boundary profile, is shown. Further inspected related de Rham function literature. Priority remains subject to broader independent literature examination; there is no independent audit evidence.
+For the specified state-dependent transition law, iteration gives log2|z_n| = 2^n(t-R_n), with t=log2 r. At t=R the scaled remaining tail lies in [0,1], so there is no escape; every coding cylinder has mass at most (1-eps)^n and the at-most-two expansions of a point give no atoms. Hence endpoint threshold conventions do not affect either exact identity. On the upper and lower endpoint intervals of width 2^-n in t, the forced prefixes are respectively n ones and n zeros; subtract the prefix and rescale the tail. The two deterministic runs saturate after at most any N such that (1-alpha)^N(1-eps)<=eps, uniformly in p. Their masses then factor into the displayed positive prefactors times (1-eps)^n. Digit/state complementation identifies the two tails; for phases u in [1/2,1] the common profile is in [1-eps,1], yielding uniform sharp bounds, with the radial changes of variable having nonzero endpoint derivatives. At alpha=1/2, eps=1/4 the probability of the prefix 01 is 3/32, giving H(3/4)=27/32; (3/4)^log2(4/3) > sqrt(3)/2 > 27/32, giving distinct normalized subsequential limits. The finite-cylinder checker is supplementary, not a replacement for these arguments.
+
+## originality
+
+PASS
+
+The clipped law, polynomials, continuity, and escape probability one at r=2 are prior, not contributions. In the evidence inspected the paired exact all-state endpoint profiles and the explicit non-power-law witness are not established by an existing endpoint theorem. They use a finite-saturation and complement argument in the exact prior model; proximity to that model considerably limits the novelty claim.
+
+## value
+
+PASS
+
+The sharp modulus at both boundaries is a natural quantitative gap for a known escape function. The exact finite-level common profile gives state-uniform control while distinguishing a genuine discrete-scale oscillation from a pure power asymptotic; this is useful beyond either endpoint continuity or a local-dimension number. It does not claim arbitrary parameters oscillate or give interior regularity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

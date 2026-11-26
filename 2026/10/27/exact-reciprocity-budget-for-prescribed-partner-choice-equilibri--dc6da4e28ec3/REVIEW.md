@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every long directed cycle gives a summable necessary inequality, and an explicit all-positive rational/real matrix meets its maximum cycle-mean lower bound. The proof handles loops, mutual pairs, attachments, varying row gaps, strict maxima and the empty-cycle convention. Exact finite verification checked every map through six types and independently optimized all maps with three and four types using linear programming. General validity is established by the construction, not the experiments.
+PASS
 
-## Originality — PASS, with residual priority risk
+For raw payoffs and positive gaps, summing the successor-versus-predecessor inequalities on any cycle of length at least three gives the cycle-sum lower bound. An independent sufficiency check uses chosen payoffs x_i: for a nonmutual arrow i→j, setting the reverse entry to x_i−ε requires exactly x_j−x_i≥δ_j−ε. On each long cycle these differences can be assigned by distributing nonnegative slack of total |C|ε−Σ_C δ; on a loop use a freely chosen diagonal, on a two-cycle use equal chosen payoffs, and propagate the inequalities outward over each in-tree. Use a common shift and set other competing entries to a small common positive constant. This realizes any ε at least the greatest long-cycle mean, including ε=0 when no such cycle exists and the vacuous n=1 case. The source's symmetric depth-ranked tree assignment also works; it has no conflict with long-cycle reverse entries. The restricted-map count follows from choosing cyclic labels, an involution, and the specified-root forest, with the k=n term interpreted separately. Lagrange inversion and dominated convergence give the stated known asymptotic. VERIFICATION.md and check.py were inspected; the exact witness enumeration and numerical LP results there are recorded finite evidence, not fresh executions or proofs for arbitrary real gaps.
 
-The closest motivating source, Riedl and Smead (2026), establishes an unrestricted \(n^n\) partner-choice phase space but no reciprocity-budget minimax identity or heterogeneous prescribed-gap characterization in the inspected Methods and S2 material. The no-long-cycle symmetric special case and the cycle-length-at-most-two counts, including the asymptotic constant, are pre-existing results (OEIS A209319; see also A246522). They are explicitly credited, and the claimed new result is restricted to the exact general reciprocity-defect optimum and its budget threshold as an interpretation of that optimum. Searches for reciprocal best-partner payoffs and maximum cycle-mean constraints did not reveal an equivalent published theorem. Independent priority verification is outstanding; an unindexed equivalent or broader abstract difference-constraints theorem remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The partner-choice model permits all functional topologies with arbitrary payoffs, but does not quantify what their realization costs under near-reciprocity. The identity computes the exact quantitative budget for *every* preference topology and heterogeneous incentive requirement, not merely a low-order example. It explains which observed preference cycles demand systematic asymmetric rewards, and makes a sharp, model-interpretable threshold possible; the combinatorial counts contextualize that threshold without being claimed as new.
+Credit the sharp prescribed-map, heterogeneous-margin payoff realization, not the classical cycle-mean method, unconstrained topology realization, or any of the enumeration. The inspected earlier sources and indexed variants do not cover the full quantitative payoff claim.
 
-## Scope and external validation
+## value
 
-The theorem concerns strict best-partner choices with unconstrained positive payoff matrices and does not cover finite-rationality mixed links, matrix-normalized payoffs or empirical inference. All review here is internal scientific checking; external independent validation remains open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The invariant measures a natural cost in the partner-choice model, not merely whether representation is possible. It locates all obstructions in long cycles, shows that even large margins in the trees cost no skew, and distinguishes a worst cycle's average from the largest single gap. Exact attainment and the common-gap phase boundary are usable in specifying reciprocal payoff tolerances. No value credit is assigned to the known count or to empirical predictions outside the raw-payoff model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

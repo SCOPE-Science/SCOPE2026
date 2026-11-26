@@ -1,19 +1,21 @@
-# Review: sparse-branching triangular Jacobi power norms
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** The residual identity is exact by finite telescoping. The critical reduction from arbitrary signs and multiple row entries to a deterministic parent forest follows from entrywise absolute-value domination and row-by-row convex maximization: acyclic path expansions are affine in any one row. At each replacement, the existing column sparsity support is preserved. The parent-forest power has disjoint-column support and singular norm equal to the square root of its largest exact-depth descendant count. A level-capacity count proves necessity of the ceiling budget; a levelwise grouped tree constructs equality. The strict \(>1\) criterion uses \(m_*=\lfloor\tau^{-2k}\rfloor+1\) and includes equality boundaries correctly. The supplied pure-Python checker replays small exhaustive forests and the exact rational witness. Finite tests are not the infinite proof.
+PASS
 
-## Originality
+The residual is exactly G^k b. Absolute-value domination reduces the maximum to nonnegative H. Independently, choose each parent row at random: choose tau at column j with probability H_ij/tau, and the zero row with the remaining probability. Rows are independent. Each strictly triangular length-k path uses different rows, so the expected kth power of the resulting parent matrix is H^k. By convexity of the spectral norm some realization does at least as well as H; its support is a subset of the original support, so no column-cap violation is possible. In a parent forest, each kth-power row has at most one entry tau^k, making the squared power norm tau^(2k) times the largest number of exact-depth-k descendants. The ancestors of these m descendants at distance j must number at least ceil(m/d^j), on disjoint generations. Conversely, grouping consecutive children into groups of at most d realizes the successive ceilings; ceil(ceil(m/d^j)/d)=ceil(m/d^(j+1)). Layer ordering and isolated padding give the claimed n-dimensional extremizer. The strict amplification threshold is floor(tau^(-2k))+1; complete trees attain the d^k envelope, and a chain covers d=1 and the minimum feasible n=k+1. The 7-vertex example has four residual coordinates of size 9/16, yielding 9/8.
 
-**PASS, with residual search risk.** Dargaville–Pain, arXiv:2611.00552v1, Sections 4 and 6.2, establishes the Neumann iteration identity, identifies nonnormal finite-sweep norm growth, and defines a row-dominance criterion; its inspected main text, conclusion and relevant appended material do not state the sharp degree-limited Euclidean power norm or the minimum vertex budget. The classical infinity-norm contraction of Jacobi does not imply the sharp Euclidean formula. Searches of mathematical literature and published mathematical result records for the aliases *triangular Neumann power*, *row-substochastic sparse powers*, *parent-tree shift* and *bounded branching* found non-identical tree-shift/Cesàro-space and GMRES results, rather than a dominating theorem. Related inverse-norm identities concern a different expression and do not imply the sharp \(\|G^k\|_2\) with a column degree cap. A pre-existing unindexed equivalent extremal matrix-power formula remains possible; index searches alone do not establish novelty.
+## originality
 
-## Value
+PASS
 
-**PASS.** ILU triangular solve applications often employ only a few parallel Jacobi sweeps, and strict row dominance by itself guarantees infinity-norm decay but may conceal Euclidean residual amplification. The exact finite \(n,d,k,\tau\) formula identifies the graph-theoretic branching quantity missing from a row-only diagnostic. It gives the sharp worst-case safety condition and the smallest matrix size at which failure can occur, not merely a numerical example. The column bound is structural, checkable, and essential to the threshold; it is not claimed for arbitrary ILU structures.
+The supported distinct result is the sharp finite dimension/column-cap/sweep law with attaining forests and the exact dimension threshold. Neither truncated Neumann iteration, the dimension-free bound, nor orthogonality of forest-power columns is claimed independently novel. The indexed alternatives do not establish coverage; the closest primary and indexed full texts were not retrievable, which limits the priority comparison.
 
-## Closest sources and limitations
+## value
 
-The primary source is Dargaville and Pain, *A comparison of parallel iterative methods for ILU triangular solves*, arXiv:2611.00552v1, https://arxiv.org/abs/2611.00552 (2026-10-31), particularly Section 4 and Section 6.2. The closest indexed tree-shift results use non-Euclidean Cesàro spaces or infinite-dimensional shifts, and the closest Krylov results concern different residual minimizers. No conclusion is drawn about outer-solver convergence, typical ILU matrix patterns, or finite-precision effects. Independent literature indexing is incomplete.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Few-sweep Jacobi triangular solves can amplify a Euclidean residual despite nilpotency and infinity-norm contraction. The exact dependence on n, d and k decides whether a finite-size factor can amplify and when that first becomes possible. That answers a structural question the dimension-free bound cannot decide.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

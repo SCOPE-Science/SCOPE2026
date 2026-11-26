@@ -1,19 +1,21 @@
-# Scientific review: covariance-matched active-work fluctuations
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is proved for every positive stiffness, switching rate, and speed under stationary initialization. The finite-state Markov generator gives the same force covariance and stationary mixed moments in both models. The explicit Poisson correctors solve the centered active-work equations at every jump state. Evaluating all jump directions in their stationary distributions gives the two rational variance rates, and stationary ergodicity plus a bounded-jump martingale central limit theorem establishes Gaussian limits. Algebraic generator identities were checked symbolically and the quantitative formulas independently tested with event-driven exact-segment dynamics. The computation is corroboration, not the proof.
+PASS
 
-## Originality — PASS (qualified)
+Both force generators take u to -gu, and the stated stationary laws give E[U²]=v²/2. Stationary harmonic convolution preserves equality of all force, position and mixed two-time covariances. Applying the stationary joint generator to xu and x² gives E[XU]=v²/[2(k+g)] and k E[X²]=E[XU], yielding the common mean work rate. For run-and-rest, the generator sends Q=u² to gv²-2gQ and P=xu to Q-(k+g)P. Therefore Phi=aQ+bP with a=1/[2(k+g)] and b=-k/(k+g) has L Phi=mu-(Q-kP). Both run-to-rest and rest-to-run holding rates are g; the squared-jump bracket has a²v⁴ and b²v² E[X²] from the two jump types collectively, and the mixed 2abv² E[XU] term comes only from the running states because the rest-to-run sign is symmetric. The two b-dependent contributions cancel by k E[X²]=E[XU], giving the proposed V3. For the telegraph process Q is constant and Phi=bP; the squared difference from flips is 4 b²X²U² at rate g/2, giving V2. The stationary joint process is an ergodic factor of the stationary irreducible force path, and the coordinate is bounded by v/k. Martingale bracket averaging and the bounded jump sizes give the CLT; the bounded endpoint corrector changes variance per unit time by o(1) via Cauchy–Schwarz. The ratio and derivatives give the crossing at g=k and unique parameter maxima at g=k and g=k/2, respectively. The result matches second-order moments, not full one-time or path distributions.
 
-Sun, Ye and Podgornik (arXiv:2409.00578) and Basu and collaborators (arXiv:1910.10083) establish the relevant three-state positional models and stationary statistics. Semeraro and collaborators (arXiv:2302.12535) calculate active-work fluctuations for Gaussian propulsion, not for the finite-state jump model. A prior two-state work formula already implies the comparator, and this component is not offered as new. The assessed original contribution is the evaluated three-state jump-work noise and the sharp sign reversal relative to a covariance-matched two-state comparator. Neither the inspected sources nor relevant semantic results established that comparison. Residual risk: broader Markov-additive work-variance literature may contain an equivalent implication not located here.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Matched two-point force and position statistics and matched mean work are often used to compare effective active noises. The theorem proves that these observables cannot rank the fluctuations in energetic expenditure: their order reverses at a natural dimensionless switching-to-confinement ratio of one. The equality boundary, unique variance maxima, and opposite strong-switching decay orders furnish concrete consequences that can guide model discrimination and work-reliability analysis. These are not merely new normalization or a single numerical instance.
+No independent originality is credited to the stationary run-and-rest model, the telegraph comparator alone, or the martingale method. The supported finding is the evaluated run-and-rest work variance and its exact reversal against a second-order-matched telegraph comparator across the trap/switching rate equality. The strongest inspected same-model literature concerns stationary position laws. The strongest matching reversal and work records change the observable, model or both. None yields this pair of rates or the ordering by specialization.
 
-## Scope and unresolved matters
+## value
 
-Only stationarity, harmonic confinement, exponential finite rest times, no translational Brownian noise, and mechanical active work are covered. Publication priority and independent scientific assessment remain unresolved; failure to find an equivalent result is not uniqueness proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a quantitative counterexample to inferring work-noise ordering from matched second-order propulsion or position data, even when the mean work also matches. The reversal at a physically interpretable rate equality, rather than only a pointwise difference, supplies a test of models with identical covariance diagnostics. The explicitly evaluated jump-bracket cancellation explains why the difference survives the matching.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

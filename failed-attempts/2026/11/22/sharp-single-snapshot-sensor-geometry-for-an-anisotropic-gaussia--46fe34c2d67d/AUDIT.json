@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Direct inversion of the log-Gaussian coefficient map, open-cone nullspace counterexample, rank-sharp explicit nodes and release-time Hessian proportionality prove all exact claims. The packaged NumPy/SymPy checker passes 1509 diagnostic assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lushi–Stockie 2009 assumes known source locations and prescribed dispersion when inverting emissions.",
+        "Korsakissok–Mallet 2010 analyzes Gaussian puff parameterizations and Eulerian coupling; Konda et al. 2010 studies uncertainty propagation."
+      ],
+      "reasoning": "The source assumptions and target parameters differ. No identified broader theorem covers the stated universal finite-sensor geometry, but accessible searches do not exhaust classical Gaussian fitting literature.",
+      "searches": [
+        "For an anisotropic Gaussian pollutant puff, exact one-time recovery of unknown source center, mass and full positive-definite diffusion tensor from quadratic-unisolvent sensor points: minimal (d+1)(d+2)/2 station design, two times identify unknown release time",
+        "inverse anisotropic heat equation point sensors source identification covariance tensor Gaussian plume diffusion coefficients"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0908.1589",
+      "doi:10.1029/2009JD012734",
+      "doi:10.1016/j.envsoft.2010.04.005",
+      "Indexed: An exact hypersphere obstruction and minimal two-snapshot sensor theorem for an unknown-diffusivity pollutant puff"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The strongest nearby indexed claim gives d+2 sensors for an isotropic puff with unknown emission clock from two snapshots and a sphere/hyperplane nonidentifiability example.",
+        "The present claim uses arbitrary SPD tensors, known-age one-snapshot sharp q sensor rank, and two-snapshot sufficient reconstruction of the clock."
+      ],
+      "reasoning": "The prior isotropic statement neither implies full-SPD coefficient reconstruction nor provides the one-snapshot rank iff criterion; conversely the new two-time sufficiency at q does not dominate the prior isotropic d+2 optimality. Its sphere ambiguity is not claimed new.",
+      "searches": [
+        "For an anisotropic Gaussian pollutant puff, exact one-time recovery of unknown source center, mass and full positive-definite diffusion tensor from quadratic-unisolvent sensor points: minimal (d+1)(d+2)/2 station design, two times identify unknown release time",
+        "all-snapshot stationary Gaussian concentration spatial quadratic interpolation recover unknown covariance center mass and emission time"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The logarithm of a Gaussian is a concave quadratic; the theorem is a full-rank polynomial evaluation characterization rather than a generic inverse optimizer.",
+        "The nearby indexed isotropic two-time result concerns scalar diffusivity and an unknown emission time."
+      ],
+      "reasoning": "Comparisons include Gaussian regression, quadratic unisolvency, spatial covariance fitting, and sensor-location geometry. The isotropic two-time result does not prove a sharp one-time characterization for a full SPD tensor; plain polynomial interpolation is explicitly credited and is the main priority risk.",
+      "searches": [
+        "For an anisotropic Gaussian pollutant puff, exact one-time recovery of unknown source center, mass and full positive-definite diffusion tensor from quadratic-unisolvent sensor points: minimal (d+1)(d+2)/2 station design, two times identify unknown release time",
+        "Gaussian puff log concentration quadratic unisolvency sensor matrix rank, conic-degenerate placement and anisotropic diffusion tensor",
+        "\"Gaussian plume\" \"quadratic interpolation\" \"sensor\" inverse"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact sensor-coordinate reconstruction table or rank test for an unknown full diffusion tensor appeared in the inspected sources.",
+        "The explicit universal design has 0, coordinate vectors, twice coordinate vectors and their pairwise sums."
+      ],
+      "reasoning": "The statement is a continuous exact identifiability theorem rather than a finite numerical lookup; rank is proved symbolically. No source database or tabulation known to imply it.",
+      "searches": [
+        "Gaussian puff log concentration quadratic unisolvency sensor matrix rank, conic-degenerate placement and anisotropic diffusion tensor",
+        "Gaussian plume quadratic interpolation inverse tensor source strength number sensors"
+      ]
+    },
+    "rationale": "The sharp universal one-snapshot sensor-rank characterization for arbitrary symmetric positive-definite diffusivity and unknown source center/mass, plus the temporal identifiability barrier, was not implied by inspected published literature or indexed isotropic two-snapshot findings. Classic quadratic interpolation is acknowledged. Historical priority remains provisional.",
+    "residual_risks": [
+      "The full indexed related theorem was unavailable; its summary may omit a stronger appendix.",
+      "General multivariate-normal log-quadratic interpolation and exact-identification literature could predate and imply some or all of this result.",
+      "The ideal free-space no-drift model is a calibration benchmark; empirical applicability is not established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different parameter inversion and measurement model; no exact universal SPD sensor-rank criterion found",
+        "evidence": [
+          "arXiv 0908.1589, 2009-08-11, Sections 1, 3–5; known sites and known dispersion in the emission-rate inverse system"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0908.1589",
+        "material_read": "Accessible arXiv full-text HTML: introduction and the forward, inverse and application sections pertinent to comparison",
+        "method": "Read public arXiv article text; compared known-position linear emission-rate reconstruction to full-tensor unknown-position quadratic interpolation",
+        "title": "An inverse Gaussian plume approach for estimating atmospheric pollutant emissions from multiple point sources",
+        "trigger": "Inverse Gaussian atmospheric emissions and source estimation"
+      },
+      {
+        "assessment": "No exact inverse full-diffusion-tensor geometric sensor criterion in inspected material",
+        "evidence": [
+          "First published 2010-02-11; full HTML Sections 2.1, 2.2"
+        ],
+        "identifier_or_url": "https://doi.org/10.1029/2009JD012734",
+        "material_read": "Full accessible HTML including model description sections 2.1–2.2 and application and conclusions",
+        "method": "Read mathematical forward parameterizations and sampling-station concentration discussion",
+        "title": "Subgrid-scale treatment for major point sources in an Eulerian model",
+        "trigger": "Multidimensional Gaussian puff formulations and point-monitor reconstruction"
+      },
+      {
+        "assessment": "Addresses forward uncertainty propagation, not uniform inverse sensor identifiability",
+        "evidence": [
+          "2010 accepted manuscript p. 3, Section 2.1, and uncertainty propagation discussion"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.envsoft.2010.04.005",
+        "material_read": "Accessible full manuscript; examined overview, model equation with screenshot of page 3 and uncertainty-method sections",
+        "method": "Inspected text and rendered equation page showing diagonal puff covariance; compared uncertainty objective to exact inverse geometry",
+        "title": "Uncertainty propagation in puff-based dispersion models using polynomial chaos",
+        "trigger": "Anisotropic multidimensional Gaussian puff uncertainty parameterizations"
+      },
+      {
+        "assessment": "Partial overlap on isotropic sensor identification and sphere ambiguity, not known to imply arbitrary-SPD one-snapshot rank characterization",
+        "evidence": [
+          "Indexed claim: scalar diffusivity, two concentration snapshots, d+2 sensors, sphere and hyperplane obstruction"
+        ],
+        "identifier_or_url": "Indexed mathematical result dated 2026-11-02",
+        "material_read": "Indexed title and result summary only; complete article text inaccessible during check",
+        "method": "Compared explicit indexed assertion and parameter dimensions; attempted corresponding linked full text, which could not be loaded",
+        "title": "An exact hypersphere obstruction and minimal two-snapshot sensor theorem for an unknown-diffusivity pollutant puff",
+        "trigger": "Closest prior mathematical isotropic Gaussian puff sensor-count statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "46fe34c2-d67d-47c0-914b-2262f3938ff7",
+  "value": {
+    "rationale": "A sharp universal sensor-number and site-geometry criterion for jointly recovering source center, total mass and unrestricted diffusion tensor is a natural finite observation-design benchmark. The exact nonidentifiability certificate and impossible one-snapshot release-clock separation are substantive structural limitations beyond running a numerical inverse fit. Practical stability and realistic meteorology are excluded.",
+    "status": "PASS"
+  }
+}

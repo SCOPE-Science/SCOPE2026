@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:59:50.524606Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, weight decomposition, collision-tail and nugget proofs",
+        "Frozen VERIFICATION.md and verify.py, inspected without execution"
+      ],
+      "rationale": "The midpoint u and signed separation d have unit joint density on |d| < 2 min(u,1-u). Diagonalizing the Gram matrix in sum and difference directions yields the stated weight formulas. At zero nugget the difference of the two weights is m'(u)/(alpha d)+O(d) uniformly, and their sum is bounded. An independent tail derivation conditions on the nodes: the noise contribution is centered Gaussian with standard deviation sigma times the weight norm. Set d=x/t in the one-sided tail integral. The limiting integrand is the standard-normal upper tail at sqrt(2) alpha |x|/(sigma |m'(u)|), with zero contribution when m'(u)=0 and x is nonzero. The bound on the weight norm by a constant over |d| gives an integrable Gaussian-tail bound in x. Integration over positive and negative x gives sigma/(alpha sqrt(pi)) times the integral of |m'|. The other tail has the same coefficient by conditional symmetry; the tail-integral identity gives the moment cutoff at 1. A Lipschitz integrand cancels the inverse separation in the antisymmetric contribution, so the noiseless error is bounded and cannot alter the tails. For the nugget, set d=sqrt(eta/alpha) z. After multiplying by sqrt(eta), the difference mode converges to (m')^2 z^2/(2 alpha^(3/2)(1+z^2)^2), dominated by a constant times z^2/(1+c z^2)^2. Its integral gives the factor pi/4. The sum mode is bounded, and conditional noise variance is sigma^2 times the squared weight norm, giving the stated MSE at eta=sigma^2 and zero integrand. Direct Gaussian integration agrees with both derivative-integral evaluations.",
+      "residual_risks": [
+        "The uploaded verifier tests finite thresholds and nuggets rather than certifying the limits. Its tail routine's substitution comment does not describe the implemented squared-variable change; the mathematical decision is based on the independent limit argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Resultary theorem treats every exponent 0<alpha<=2 and every lambda>0, with a second-moment transition at exponent 3/2 and a separate sharp ridge asymptotic regime including 2.",
+          "Cai et al. treat average-case noisy squared-exponential quadrature rates for a random-feature algorithm; Briol et al. treat random-node RMS convergence. Karvonen et al. give the general noise variance identity and separation-related bounds or warnings about stability."
+        ],
+        "reasoning": "The Resultary theorem mathematically implies the Gaussian case. The inspected older papers establish context or general ingredients, not the exact two-node iid collision laws.",
+        "searches": [
+          "Resultary 841cfe0433d1",
+          "Cai, Lam and Scarlett arXiv:2202.10615v2 Corollary 3",
+          "Briol et al. arXiv:1706.03369v1 abstract",
+          "Karvonen, Kanagawa and Särkkä arXiv:1812.08509v2 pp. 12, 14–15"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 841cfe0433d1, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "Cai–Lam–Scarlett arXiv:2202.10615v2",
+        "Briol et al. arXiv:1706.03369v1",
+        "Karvonen–Kanagawa–Särkkä arXiv:1812.08509v2",
+        "Frozen RESULT.md, proof and comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The tail index 1/(alpha-1) becomes 1 at exponent 2, and the Gamma factor becomes 1/sqrt(pi). The ridge exponent 2-3/alpha becomes 1/2 and Gamma(3/2) Gamma(1/2)/2 is pi/4. Its Lipschitz noiseless product bound O(|d|^(2-alpha)) gives the frozen boundedness at exponent 2."
+        ],
+        "reasoning": "The moment and noise-matched MSE statements then follow without a further theorem. The explicit error-function forms are direct evaluations. The comparison establishes equivalent endpoint coverage, not relative priority.",
+        "searches": [
+          "Resultary 841cfe0433d1, Finding, collision and nugget proofs, and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary hit uses alpha for the power-exponential exponent and lambda for scale. Set its alpha=2 and lambda equal to the frozen Gaussian parameter; its noise-only error is the zero-integrand case.",
+          "The singular ratio in the proof has a signed node gap in the denominator, not a second Gaussian; full passages in Hinkley and Marsaglia could not be accessed."
+        ],
+        "reasoning": "After this parameter match the kernel, node law, noise and Gram regularization are identical; the exact match is not explained merely by a generic Cauchy analogy.",
+        "searches": [
+          "Resultary: two independently uniform colliding nodes, exact noise tails and nugget amplification; hit 841cfe0433d1",
+          "Hinkley DOI 10.1093/biomet/56.3.635 and Marsaglia, Ratios of normal variables, JSS 16(4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed statement gives both integral coefficients as functions of exponent and scale; its Verification also explicitly reports the unit-scale Gaussian nugget coefficient 0.12437813466940074."
+        ],
+        "reasoning": "The decisive match is the symbolic formula throughout the frozen parameter range, not a coincident numerical table entry.",
+        "searches": [
+          "Resultary local mirror, 2026/11/2/SCOPE-a-roughness-threshold-and-exact-noise-tails-for-colliding-node-k--841cfe0433d1/RESULT.md, Finding and Verification"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary result gives a stronger power-exponential theorem whose endpoint at kernel exponent 2 covers the entire substantive Gaussian finding for every kernel scale, including both exact coefficients, the cutoff and the Lipschitz cancellation. This is a verified coverage decision, not an assertion that the overlapping record was published first. Both carry the same date, and the broader record itself describes the Gaussian formulas at unit scale as already known without assigning a specific source or relative posting order.",
+      "residual_risks": [
+        "Relative posting order and dependence between the two same-date Resultary records could not be established.",
+        "Hinkley and Marsaglia's normal-ratio full texts were unavailable; other general ratio-tail or specialized earlier quadrature treatments may overlap. This was not the basis for failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full Gaussian endpoint coverage; chronology between these records not established",
+          "evidence": "General tail and ridge coefficients include exponent 2 at every scale; the discussion expressly disclaims novelty for the unit-scale Gaussian formulas.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/2/SCOPE-a-roughness-threshold-and-exact-noise-tails-for-colliding-node-k--841cfe0433d1/RESULT.md",
+          "material_read": "Finding at offsets 30–3130, proof around 4300, Verification and Relationship to prior work at 8500–11780",
+          "method": "Indexed Resultary lookup and bounded local-mirror passages",
+          "title": "A roughness threshold and exact noise tails for colliding-node kernel quadrature",
+          "trigger": "Exact collision-tail and ridge match in a stronger family"
+        },
+        {
+          "assessment": "Relevant bounds for a different randomized algorithm",
+          "evidence": "The error estimate includes a noise term of order sigma times T^(-1/2); it is not a fixed two-node tail or ridge limit.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.10615v2",
+          "material_read": "Corollary 3, p. 8, near OA offset 32200",
+          "method": "Targeted primary full-text passage",
+          "title": "On Average-Case Error Bounds for Kernel-Based Bayesian Quadrature",
+          "trigger": "Noisy squared-exponential kernel quadrature"
+        },
+        {
+          "assessment": "Related motivation; this passage does not establish coverage",
+          "evidence": "The abstract discusses random point sets, sampling distributions and RMS convergence.",
+          "identifier_or_url": "https://arxiv.org/abs/1706.03369v1",
+          "material_read": "Abstract, p. 1",
+          "method": "Bounded primary-text inspection",
+          "title": "On the Sampling Problem for Kernel Quadrature",
+          "trigger": "Random nodes in kernel quadrature"
+        },
+        {
+          "assessment": "General noise identity and stability context; no exact fixed-model coefficient in the inspected passages",
+          "evidence": "Conditional noise variance is sigma^2 times the squared weight norm. Sobolev-equivalent kernel bounds use separation; the Gaussian discussion notes potential instability rather than computing the iid pair limit.",
+          "identifier_or_url": "https://arxiv.org/abs/1812.08509v2",
+          "material_read": "pp. 12, 14–15, around OA offsets 90000, 103500 and 115000",
+          "method": "Targeted primary full-text passages",
+          "title": "On the Positivity and Magnitudes of Bayesian Quadrature Weights",
+          "trigger": "Weight magnitudes, separation and observation noise"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and limits",
+        "Resultary 841cfe0433d1, Finding and proof"
+      ],
+      "rationale": "The pathology is scientifically useful: arbitrarily small Gaussian measurement noise destroys the first absolute moment, although Lipschitz signal errors stay bounded. But this record supplies no additional scientifically distinct exact result beyond the verified stronger coverage; the explicit Gaussian integral evaluations and matched-noise substitution do not create an additional mathematical contribution.",
+      "residual_risks": [
+        "This is an incremental-value decision about the exact overlapping claim, not a finding that the Gaussian collision mechanism is uninteresting or that a particular record had priority."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

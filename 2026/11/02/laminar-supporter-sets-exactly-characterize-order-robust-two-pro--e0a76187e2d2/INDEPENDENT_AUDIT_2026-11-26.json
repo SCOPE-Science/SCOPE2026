@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:44:00.315169Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Assumptions and Proof; frozen VERIFICATION.md and verification/check.py inspected, not executed",
+        "Baychkov–Brill–Utke, §4.1 Definition 6 and §4.2 Method 2"
+      ],
+      "rationale": "The iff is about universal agreement over the common full-funding domain, not disagreement at every feasible pair of costs when the sets cross. If both projects are paid, the direct residual balances sum to the rebalancing budget and give every voter total endowment h after including prepayments. The mean endowment is h, so maximizing the minimum forces every endowment to equal h and gives the same unique balances. Charges on disjoint sets commute. If S⊆T, paying T first imposes u/|S|+v/|T|≤h for full payment of S; thus the reverse order also pays both costs uniformly on their respective sets. For crossing sets normalize h=1, let k be the intersection size, and charge each project its support size times a common θ>1/2. Taking θ<min(s/(s+k),t/(t+k),n/(s+t)) is possible and guarantees full payment in both orders. Common supporters exhaust their balances in the second charge, and each exclusive second supporter receives a strictly higher charge than θ without paying more than 1. An exclusive supporter therefore has different positive residuals, and a singleton-supported third project with cost between them is affordable exactly in the order with the larger residual. For S={1,2}, T={2,3} and both costs 6/5 at h=1, the common voter pays 3/5 then 2/5, and the second project's exclusive voter pays 4/5; this checks the displayed vectors and 3/10 discriminator. Three nonempty regions require at least three voters, and a change in funded sets requires at least one project besides the two funded in both orders.",
+      "residual_risks": [
+        "The six-voter grid output is recorded evidence, not an independent replay; the correctness decision rests on the all-cost proof.",
+        "No claim is established for unequal starting endowments, more than two mandatory projects, or discarded shortfalls."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published procedure covers shortfalls by discarding the unfunded remainder; it does not state a commutation criterion for that larger domain. The distinct same-date MES record studies nesting of outcomes as budget changes on sunflower profiles."
+        ],
+        "reasoning": "Coverage of more inputs by a rule definition does not give a theorem about invariance. Budget-path outcome nesting is not nesting of two supporter sets and compares neither swapped charge orders nor mandatory-stage balances.",
+        "searches": [
+          "Baychkov–Brill–Utke, §§4.1–4.2, Definition 6 and Method 2",
+          "Local Resultary 49d40a80fb5c, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Baychkov–Brill–Utke, arXiv:2606.23320 and open author copy",
+        "Resultary 49d40a80fb5c, 792a94746f1b and 15d05df5ff61"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Definition 6 specifies the max-min objective and Example 2 gives differing residuals after rebalancing. The frozen proof additionally uses the full-payment mean-endowment argument, a common affordability inequality for all nested supports, and an explicit nonempty cost interval for arbitrary crossing supports."
+        ],
+        "reasoning": "The rule and one witness do not imply the all-structures theorem merely by substitution. Once differing balances are obtained, a singleton project is an elementary detector; its construction is a consequence, not the main originality claim.",
+        "searches": [
+          "Baychkov–Brill–Utke, §4.1 Definition 6, §4.2 Method 2 and Example 2",
+          "Frozen RESULT.md, laminar sufficiency and crossing necessity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A charge is a truncated uniform subtraction on the supporters, with its level set by the specified cost. Resultary 792a94746f1b studies Lorenz-optimal allocation of identical goods, and 15d05df5ff61 orders saturating nutrient-removal maps."
+        ],
+        "reasoning": "Neither compared map result characterizes commutation of support-restricted equal-price charges with equal initial balances and feasibility in both orders. The targeted primary search surfaced the rule paper, not an equivalent commutation theorem.",
+        "searches": [
+          "Local Resultary: MES-Style ordering, water-filling commutation and laminar supports",
+          "Primary search: Mixed Voting Rules for Participatory Budgeting, Example 2, MES-Style preallocation, water-filling commutativity and support sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Example 2 already gives two different final budget vectors for two orders with four voters. The nearby Resultary entries do not give a table or classification of this statistic by two-project support structure."
+        ],
+        "reasoning": "Credit the explicit known example as prior overlap; one order-dependent instance cannot supply both directions of the universal criterion or the three-voter minimum.",
+        "searches": [
+          "Local Resultary 49d40a80fb5c and 792a94746f1b",
+          "Baychkov–Brill–Utke, Example 2 and Figure 2"
+        ]
+      },
+      "rationale": "The paper introducing MES-Style already demonstrates order dependence. The supported distinct contribution is the universal laminarity classification on the common full-funding domain, with a construction for every crossing pair and a sharp smallest downstream witness. No priority is assigned to order sensitivity itself or to the underlying MES charge.",
+      "residual_risks": [
+        "An equivalent result in water-filling or resource allocation under different terminology remains a priority risk; one bounded literature query does not settle it.",
+        "No priority ordering is inferred from a shared catalogue date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known order dependence and matching rule definitions, but no laminar iff in the inspected statement",
+          "evidence": [
+            "Rebalancing maximizes min_i(π_i+b_i) over a nonnegative vector of prescribed total; MES-Style processes preselected projects sequentially and discards shortfalls.",
+            "The four-voter example gives (2,2,0,4) and (1.5,1.5,0,5)."
+          ],
+          "identifier_or_url": "https://markus-utke.github.io/files/mixed_PB.pdf (arXiv:2606.23320)",
+          "material_read": "PDF p. 5 §4.1 Definition 6; pp. 6–7 §4.2 Method 2, Example 2 and Figure 2",
+          "method": "Read the relevant pages of the open author-hosted primary PDF",
+          "title": "Mixed Voting Rules for Participatory Budgeting",
+          "trigger": "Same rule, rebalancing formula and reported order dependence"
+        },
+        {
+          "assessment": "Different invariance problem",
+          "evidence": [
+            "Uncompleted MES on sunflower profiles is compared across budgets, not across orders of preselected projects."
+          ],
+          "identifier_or_url": "Resultary 49d40a80fb5c",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror statement inspection",
+          "title": "Exact budget paths and a sharp three-voter nesting boundary",
+          "trigger": "Distinct same-date MES record with nesting and three-voter boundary"
+        },
+        {
+          "assessment": "Neither states the support-set charge commutation theorem",
+          "evidence": [
+            "The former optimizes Lorenz balance; the latter treats nutrient-removal maps."
+          ],
+          "identifier_or_url": "Resultary 792a94746f1b and 15d05df5ff61",
+          "material_read": "RESULT.md Findings",
+          "method": "Local mirror statement inspection",
+          "title": "Universal Lorenz balance for unit-divisible two-size goods; A two-index ordering law for serial saturating nutrient removal",
+          "trigger": "Related allocation and nonlinear ordering search hits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, the iff, crossing-cost construction and sharp three-voter instance",
+        "Mixed Voting Rules for Participatory Budgeting, §4.2 Example 2"
+      ],
+      "rationale": "The classification gives a simple support-only diagnostic for when an unspecified preallocation order is guaranteed irrelevant regardless of costs in the full-funding domain. The necessity direction shows that every crossing pattern can change a later funded set, rather than just exhibiting another order-sensitive example. The narrow two-project scope is a natural first boundary for the rule.",
+      "residual_risks": [
+        "No conclusion for additional mandatory projects, partial funding, or alternative completion procedures is credited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

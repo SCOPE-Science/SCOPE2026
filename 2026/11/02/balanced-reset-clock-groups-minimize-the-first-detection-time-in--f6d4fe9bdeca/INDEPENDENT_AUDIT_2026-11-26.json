@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:16:46.077238Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 20–67; VERIFICATION.md and verifier inspected without execution",
+        "Replay: python3 /workspace/independent_checks.py 4; exact two-/three-point laws including zero, plus two Simpson meshes for Brownian survival at four times",
+        "Independent exact composition check: python3 /workspace/branches/9133c3ee-f5e8-42b5-b7e3-32392157d0d0/moment_partition_check.py (through N=12)"
+      ],
+      "rationale": "Conditional independence of excursions and searchers gives a moment M_m(t) for a size-m group; independence of clocks gives the product. Symmetrizing two independent conditional survivals makes the transfer difference nonnegative (both factors Q-Q' and Q^(a-b-1)-Q'^(a-b-1) have the same sign), and similarly gives M_(a+b) >= M_a M_b. Balancing transfers terminate since they decrease the sum of squared sizes. To attain the maximum, transfer from any remaining non-singleton to a largest group (the reverse of a balancing transfer), until only one group can be larger than one. This proves usual stochastic order even for distributions supported on {0,c}, where fixed-K transfers need not be strict. For Brownian–Poisson at any t>0, the no-reset atom gives S_0(t)>0, while one early reset gives S_0(u)S_0(t-u)=S_0(t)-u S_0'(t)+o(u)>S_0(t), on a positive-probability event. Consequently the kernels are strictly positive on an event of positive probability and all other moments are positive. The stated minimal N=4 example and its identity follow by a=3,b=1; N<=3 has no inequivalent sizes at a fixed K. The mean comparison is justified by pointwise order and finite individual Poisson-reset mean, which follows from renewal with success probability exp(-x_0 sqrt(r/D)). At t=0 there is equality; an exact renewal epoch can be treated as the end of the preceding excursion, with S_0(0)=1 for the new one.",
+      "residual_risks": [
+        "The numerical comparisons illustrate strictness and carry no all-time discretization bound. General renewal laws only give weak order; clocks, group memberships and between-reset renewal must obey the stated independence assumptions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Block-shared diffusivity result uses equal-sized blocks with frozen random diffusivity instead of random reset histories.",
+          "For positive moments, Hölder gives convexity of log M_m and hence the weak partition comparison by majorization; this is a standard mathematical ingredient, not new theory."
+        ],
+        "reasoning": "A general shared-variable moment theorem is a natural route to the weak comparisons, but the application requires deriving the clock-history survival and proving clock-specific strict nondegeneracy for every t>0. No stronger reset theorem covering these requirements was established in the inspected material.",
+        "searches": [
+          "Primary-literature comparison: fixed group resetting and shared-frailty/reliability moment majorization",
+          "Resultary local: block-shared first arrival moments"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2303.18012",
+        "arXiv:2509.06658",
+        "Resultary 937ec83908b0",
+        "Resultary f481512ee1e6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Endpoint formulas furnish one-clock moments and all-independent survival. The exact size transfer depends on moments of four neighboring orders; strictness depends on two strictly positive separated ranges of the Brownian–Poisson clock-history variable.",
+          "Equal-block ordering under a different source of randomness does not compare unequal block sizes with the same number of clocks."
+        ],
+        "reasoning": "Credit component formulas and the common moment inequality. No cited prior statement directly includes the exact arbitrary-partition Brownian–Poisson strict order or gives it as a dominating parameter range.",
+        "searches": [
+          "arXiv:2303.18012 endpoint model; arXiv:2509.06658 discussion; indexed first-arrival and block-diffusivity RESULT.md passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Biroli–Majumdar–Schehr compare independent and simultaneous protocols and investigate their MFPT. De Mauro et al. p. 28 expressly distinguish subset resets which break renewal.",
+          "The same-day early-late-reversal record contains a strict earliest-hit inequality for three searchers at the shared/independent endpoints."
+        ],
+        "reasoning": "Expressing the finding as extrema of system survival under a block-shared latency variable exposes the endpoint overlap, but the endpoint systems do not compare e.g. (2,2) with (3,1) at K=2. Random subsets at common reset epochs are not disjoint fixed clock groups.",
+        "searches": [
+          "Resultary local: group resetting, first hit and shared versus independent clocks",
+          "arXiv:2303.18012; arXiv:2509.06658"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/2/SCOPE-early-late-reversal-of-the-middle-arrival-under-simultaneous-sto--937ec83908b0; 2026/11/8/SCOPE-block-shared-diffusivity-creates-a-sharp-first-arrival-moment-ph--f481512ee1e6"
+        ],
+        "reasoning": "The exact-record comparison is meaningful even though the theorem is not a tabulated constant: the distinct same-day finding covers a true endpoint specialization and is not dismissed by date. Neither indexed statement covers the intermediate-K extremizers.",
+        "searches": [
+          "Resultary local search for simultaneous reset first-arrival and shared-searcher blocks"
+        ]
+      },
+      "rationale": "The independently assessed contribution is the sharp intermediate fixed-K classification for first-hit survival over all positive integer group partitions, including Brownian–Poisson strictness. The product-moment inequalities themselves are standard consequences of moment log-convexity and covariance. There is material same-day indexed overlap for the endpoint first-hit comparison, with no priority inferred. Neither the endpoint comparison nor the equal-block diffusivity result studied in the retrieved sources determines the arbitrary intermediate partitions and both extremizers.",
+      "residual_risks": [
+        "A broader reliability or shared-frailty result may cover the weak moment-ordering formulation; the checked primary passages did not establish one covering the strict clock-specific result.",
+        "Priority for the same-day overlap in endpoint comparison is unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers endpoints; read passage does not cover fixed intermediate K.",
+          "evidence": [
+            "Protocol A is independent resets and protocol B simultaneous resets; objective described is mean first-passage time."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2303.18012",
+          "material_read": "p. 1, offset 0, protocol definitions and stated mean objective",
+          "method": "OA PDF passage",
+          "title": "Critical number of walkers for diffusive search processes with resetting",
+          "trigger": "Exact Brownian model at endpoint protocols"
+        },
+        {
+          "assessment": "Different reset mechanism and question.",
+          "evidence": [
+            "Resetting subsets at an event breaks renewal; first passage under collective non-Poissonian resets raised as a further direction."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2509.06658",
+          "material_read": "p. 28, offsets 147500–148244, conclusions and future directions",
+          "method": "OA PDF passage",
+          "title": "Dynamically emergent correlations in Brownian particles subject to simultaneous non-Poissonian resetting protocols",
+          "trigger": "Possible partial resetting theorem"
+        },
+        {
+          "assessment": "Endpoint overlap, not arbitrary intermediate K; no same-day priority inference.",
+          "evidence": [
+            "Three Brownian searchers, one shared clock versus fully independent clocks; strict earliest and latest comparisons in addition to the middle-arrival reversal."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-early-late-reversal-of-the-middle-arrival-under-simultaneous-sto--937ec83908b0",
+          "material_read": "RESULT.md Finding, offset 0 including around 1828",
+          "method": "Local mirror passage",
+          "title": "Early-late reversal of the middle arrival under simultaneous stochastic resetting",
+          "trigger": "Strongest indexed overlap under same Brownian resetting law"
+        },
+        {
+          "assessment": "Related equal-block ordering under random diffusivities, not arbitrary reset partitions.",
+          "evidence": [
+            "The survival is a product of moments generated by block-shared diffusivities; compared blocks are equal sizes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-block-shared-diffusivity-creates-a-sharp-first-arrival-moment-ph--f481512ee1e6",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage",
+          "title": "Block-shared diffusivity creates a sharp first-arrival moment phase transition",
+          "trigger": "Possible broader block moment ordering"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–18 and 69–77",
+        "arXiv:2303.18012",
+        "Resultary 937ec83908b0 and f481512ee1e6"
+      ],
+      "rationale": "A fixed number of reset controllers is a natural constraint distinct from optimizing the common reset rate. The result identifies the optimal and worst assignments of all N searchers for every K simultaneously across all horizons, and isolates when sharing clocks makes strict differences. The finite controller classification and applied all-time strictness, not the abstract textbook moment inequality or the endpoint special case, provide the value.",
+      "residual_risks": [
+        "The model does not account for costs, competition or adaptively assigned clocks; no implementation benefit is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

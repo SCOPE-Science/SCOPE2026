@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:34:14.267405Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen iff is false at C4, r=9, epsilon=0: (I+A)^2=I+2J (J all ones), so pi_x−pi_y=(r/3−3)(s_x−s_y)=0. Its lines 30 and 75 incorrectly infer a nonzero witness from attainment of a possibly zero maximum; the frozen verify.py tests maximum values only and does not include r=9. The repaired iff is Theta=0 or epsilon>Theta. In the shared-pool model the accumulated benefit is r(I+A)^2s/(d+1), and h_x=a>=0,h_y=−a with zero total contrast. The free signs set separately attain H and 2a−H, and complementing spins negates the entire payoff difference. Thus Theta is exactly the attained maximum. At a positive maximum equality retains a nonzero comparison; a zero maximum is neutral for every admissible cutoff. Independently checked L>=6 stencil support: positive coefficients 3 at x, 2 at the two diagonals away from y, and four ones, reflected to the negative side, giving endpoints −5,11; the two affine magnitudes cross at 25/3. K5 has equal benefits and a difference of magnitude 5. Regular ordered-edge symmetry gives a bounded count martingale and connectedness supplies a positive-probability absorption path, hence b/n. Ran the newly written repairs/3/verify.py (not the uploaded script): direct group sums confirm C4 and K5 equality cases and above-threshold behavior; full free torus stencils match at L=6,7,10. The all-graph proof is independent of these finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both primary papers accumulate five group payoffs on the square lattice and use the raw accumulated difference over noise in a Fermi rule. Neither checked formula uses the exact maximum-difference normalization."
+        ],
+        "reasoning": "Their lattice payoff formulas do not state an all-configurations graph cutoff, attained endpoint criterion, or the torus maximum; the basic additive convention is antecedent, not a competing theorem.",
+        "searches": [
+          "Primary literature on lattice maximum-payoff normalization, strict Fermi threshold and overlapping-group payoff",
+          "arXiv:1010.5771v1 and DOI 10.1088/1742-5468/ad2449"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1088/1742-5468/ad2449; arXiv:1010.5771v1; Resultary 732562b788a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first gives the thresholding mechanism and trajectory-based calibration; the second gives standard accumulated lattice payoffs; the catalogue result compares Fermi probabilities in two games."
+        ],
+        "reasoning": "None of these checked claims optimizes the discordant-edge contrast over all free binary coordinates. The two endpoints and torus coefficient count are needed, and regular-graph payoff equivalence does not give their values. The voter martingale is not claimed as new.",
+        "searches": [
+          "Javarone–Singh pp. 3–5; Szolnoki–Perc arXiv:1010.5771v1 p. 2; Resultary 732562b788a4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Section 2.1 already uses the strict rule |Δπ|<epsilon => Δπ=0, and compares simulation estimates of average payoff difference and average plus standard deviation."
+        ],
+        "reasoning": "The same threshold rule is old; mean and mean-plus-deviation estimates over trajectories are not the sharp maximum over every feasible profile and discordant edge. At zero raw difference equality does not create a nonzero Fermi input.",
+        "searches": [
+          "Resultary fixed payoff-blind Fermi cutoff; exact maximum discordant-edge accumulated payoff contrast",
+          "Javarone–Singh DOI 10.1088/1742-5468/ad2449 §2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest matched catalogue entry 732562b788a4 gives an incidence-kernel equivalence between reverse and ordinary shared-pool games on regular uniform hypergraphs, not a cutoff formula."
+        ],
+        "reasoning": "The checked catalogue match does not list the exact magnitude, torus transition value, or zero branch for this same game.",
+        "searches": [
+          "Resultary: regular closed-neighborhood public goods exact payoff difference, neutrality, square torus threshold and Fermi equivalence"
+        ]
+      },
+      "rationale": "The repaired claim is the exact maximum-contrast expression and complete statewise neutrality criterion (with torus specialization), not the prior thresholding rule, accumulated-payoff convention or classical voter formula.",
+      "residual_risks": [
+        "A closely related exact payoff-gap value may be published under update-rule normalization rather than cutoff terminology; the targeted search did not identify one. This does not prove absence. The published payoff equation layout was unclear in extraction; the repaired result uses an explicit independent costing convention and does not allege a typo."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strict rule prior, but no all-profile maximum in inspected results",
+          "evidence": [
+            "Cutoff set per r from first 1,000 time steps in the unmodified model, using mean or mean plus standard deviation."
+          ],
+          "identifier_or_url": "doi:10.1088/1742-5468/ad2449; arXiv:2310.15096v1",
+          "material_read": "Published pp. 3–5; §2.1 p. 4, extracted offsets ~9000 and 11000",
+          "method": "Lawful OA paper; relevant page passages",
+          "title": "Strategy Revision Phase with Payoff Threshold in the Public Goods Game",
+          "trigger": "Same payoff cutoff and lattice Fermi setting"
+        },
+        {
+          "assessment": "Accumulated public goods and Fermi rule; no matching maximum in inspected passages",
+          "evidence": [
+            "Five overlapping groups per player, add group payoffs, Fermi comparison at K=0.5."
+          ],
+          "identifier_or_url": "arXiv:1010.5771v1; doi:10.1209/0295-5075/92/38003",
+          "material_read": "p. 2, model and payoff passages, offsets ~7000 and 13000",
+          "method": "OA PDF",
+          "title": "Reward and cooperation in the spatial public goods game",
+          "trigger": "Prior lattice payoff convention and possible fixed normalization"
+        },
+        {
+          "assessment": "Different comparison question: equivalence of games, not payoff blindness",
+          "evidence": [
+            "Conditional equivalence between ordinary and reverse games on regular uniform hypergraphs."
+          ],
+          "identifier_or_url": "Resultary 732562b788a4",
+          "material_read": "Finding and scope",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Incidence-kernel classification of heterogeneous reverse public goods",
+          "trigger": "Same all-profile Fermi comparisons with overlapping groups"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact maximum gives a concrete state-independent calibration for genuine neutrality rather than weak selection, with different cutoffs on equal-degree graphs. Retaining the zero case prevents misclassifying a genuinely payoff-independent dynamics even without active thresholding. The torus contrast and general fixed-cutoff criterion survive intact with the corrected boundary.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:31:51.240850Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4; VERIFICATION.md, verify_cube_threshold.py and verification_output.txt as recorded evidence",
+        "Independent replay: python /workspace/reviews/recheck_1.py; transcript /workspace/reviews/recheck_1.txt"
+      ],
+      "rationale": "Homogeneity fixes the type once the named adjacency vector is fixed; any such vector is realized by finite extension since the old graph is triangle-free. With two new adjacent vertices the only possible K4 uses both new vertices and an old edge inside their common neighborhood, including when the two types are equal. Thus the matrix is the Boolean meet matrix of the independence indicator. Its zeta congruence is integral and invertible, with diagonal h(U)=(-1)^|U| I_{G[U]}(-1). Independent enumeration used a lexicographic canonical code over degree-ordered relabelings (no heuristic isomorphism filter) and exact alternating subset sums. Every admissible graph occurs by deleting its last vertex and extending by an independent neighborhood. The enumeration recovers the order-eight frequencies 1,35,253,111,9,1 for values −2,−1,0,1,2,3; the sole 3 is canonically Q3. All smaller orders, including the empty graph with sum 1, have no nonzero odd-prime-divisible value, so all proper induced subgraphs at order eight are harmless as well. Independent Boolean subtraction gives 138 zeros, 105 units, twelve absolute twos and one three, with 60 positive and 58 negative entries. Combining one twosummand with the threesummand gives 106 Smith units, eleven factors 2 and one factor 6, with 138 zeros; the reported cokernel and ranks follow.",
+      "residual_risks": [
+        "The finite threshold does not classify larger graphs, bases containing triangles, or other forbidden cliques."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general sharp cyclomatic bound is |I(G,−1)|≤2^ν; the decycling-number literature bounds absolute values and treats possible values at a prescribed decycling number. The frozen statement credits earlier chordal/unicyclic congruence classifications."
+        ],
+        "reasoning": "Bounds in terms of cycle deletion do not force the precise values for all triangle-free orders through eight, or cube uniqueness. The credited restricted classes are not dominating: Q3 is neither chordal nor unicyclic.",
+        "searches": [
+          "Levit–Mandrescu general cyclomatic bound; Cutler–Kahl decycling number and possible values; Resultary Henson age/torsion comparison"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and its prior-work credits; Resultary same-record and related-record comparison",
+        "Levit–Mandrescu arXiv:0904.4819v1; Cutler–Kahl arXiv:1410.7726v1",
+        "OEIS A006785, A354802 and MathWorld Triangle-Free Graph"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior cube polynomial plus the established reduction already imply a 3-primary witness on Q3; they do not exclude a smaller witness, establish uniqueness at the same order, or give the factor counts and inertia from all induced subsets."
+        ],
+        "reasoning": "Credit the witness as a deduction from prior scalar data. The minimum, uniqueness and full matrix invariants require the further exact classifications documented here.",
+        "searches": [
+          "Compare A354802, the scalar bounds and indexed wheel and cycle results with the Boolean zeta reduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "By unimodular factorization the threshold is exactly first occurrence of a nonzero alternating independence sum with an odd-prime divisor among induced old graphs. An indexed adjacent-type torsion result concerns K5 and a seven-vertex wheel with factor 2; the cycle result concerns positive-neighborhood join compatibility in H3, explicitly a different relation."
+        ],
+        "reasoning": "Compare both the scalar and matrix versions. The adjacent-compatibility predicate depends on common neighbors, not union compatibility. No inspected alternate formulation gives the exact minimal triangle-free cube classification.",
+        "searches": [
+          "Resultary: Henson K4-free adjacent one-point types compatibility Smith normal form chordal unicyclic triangle-free graph integral congruence independence polynomial at minus one",
+          "Levit–Mandrescu arXiv:0904.4819v1 and Cutler–Kahl arXiv:1410.7726v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The unlabeled graph-class counts are tabulated, as is I_Q3(t)=1+8t+16t²+8t³+2t⁴. The exact Resultary hit 7609cd4368fa is the assigned record itself."
+        ],
+        "reasoning": "Aggregate numbers of graph classes and the polynomial of one graph do not give the full class histogram of alternating sums or the table of signs and divisibilities on induced subsets of the cube.",
+        "searches": [
+          "OEIS A006785 and MathWorld Triangle-Free Graph; OEIS A354802; Resultary same-cube-census lookup"
+        ]
+      },
+      "rationale": "The established Henson setting, Boolean meet factorization, scalar independence evaluation and cube witness are not novel. What survives comparison is the sharp minimum order across the whole triangle-free age, its unique order-eight exception and complete cube matrix invariants. Neither the existing table entries nor the related compatibility results or scalar bounds determine those jointly.",
+      "residual_risks": [
+        "No priority claim is made from a web-search miss. An unindexed equivalent small-graph independence-complex calculation could cover part or all of the finite scalar classification.",
+        "No independent primary citation was recovered for the classical general meet-matrix identity; the concrete Boolean identity is directly proved and is credited, not claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Background general bound, not the exact finite census.",
+          "evidence": "|I(G,−1)|≤2^ν for cyclomatic number ν.",
+          "identifier_or_url": "https://arxiv.org/html/0904.4819v1",
+          "material_read": "Definition and cyclomatic bound passage at offset 500",
+          "method": "Open primary text, bounded passage",
+          "title": "The independence polynomial of a graph at −1",
+          "trigger": "General scalar bound might control the threshold"
+        },
+        {
+          "assessment": "No exact order or uniqueness implication from the inspected results.",
+          "evidence": "Decycling-number bound and classification of possible values by decycling number are different from a bounded triangle-free order census.",
+          "identifier_or_url": "https://arxiv.org/html/1410.7726v1",
+          "material_read": "Decycling-number theorem and conjecture discussion at offset 1700",
+          "method": "Open primary text, bounded passage",
+          "title": "A note on the values of independence polynomials at −1",
+          "trigger": "Prior control of admissible values of the equivalent scalar invariant"
+        },
+        {
+          "assessment": "Different forbidden clique and first nonunit prime. No priority inference from date.",
+          "evidence": "The unique K5-free first exception is K1∨C6 at order seven with sole nonunit 2.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-seven-point-wheel-threshold-for-integral-torsion-in-five-cli--2179673a6d14",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "The seven-point wheel threshold for integral torsion in five-clique-free type compatibility",
+          "trigger": "Strongest distinct adjacent-type matrix threshold hit"
+        },
+        {
+          "assessment": "Different operator and base family.",
+          "evidence": "Positive-neighborhood join feasibility, not adjacency of realizations, over cycles in H3; its nonunit factor 2 occurs when 3 divides the cycle length.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-integral-join-compatibility-spectra-for-one-types-over-cyc--c61bbf0f5bb4",
+          "material_read": "RESULT.md statement and definition at offset 0",
+          "method": "Local mirror",
+          "title": "Exact integral join-compatibility spectra for one-types over cycles in the triangle-free homogeneous graph",
+          "trigger": "Possible equivalent type compatibility spectrum"
+        },
+        {
+          "assessment": "Known census sizes and cube witness, not minimum or uniqueness.",
+          "evidence": "Lists counts through 410 at order eight and the coefficients 1,8,16,8,2 for the cube.",
+          "identifier_or_url": "https://oeis.org/A006785 ; https://oeis.org/A354802 ; https://mathworld.wolfram.com/Triangle-FreeGraph.html",
+          "material_read": "Class-count and cube-polynomial entries, offsets 180, 1450 and 570 respectively",
+          "method": "Public sequence and graph table passages",
+          "title": "Triangle-free graph counts and cube independence coefficients",
+          "trigger": "Potential direct finite table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, scope and proof of minimality; independent census and induced cube diagonal; neighboring Henson threshold and scalar-bound literature"
+      ],
+      "rationale": "The finite cutoff addresses the least size at which characteristics other than 2 can change the rank of the adjacent-type matrix. It separates a natural extremizer from all smaller and equal-order competitors rather than reporting a handpicked cube evaluation. The full field-rank comparison and unique Smith factor divisible by 3 give a reusable explicit obstruction for work on logical type matrices and induced independence sums.",
+      "residual_risks": [
+        "No uniform bound or structural classification at larger orders is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

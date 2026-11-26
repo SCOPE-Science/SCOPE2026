@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:44:49.523239Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof steps 1–3 and assumptions",
+        "Frozen VERIFICATION.md and check_return.py (read, not executed)"
+      ],
+      "rationale": "The coin is equivalent to a two-state axis chain with retention (1+q)/2 and conditionally independent fair signs. Consequently Cov(S_t,S_s)=min(t,s)I₂/2. Put s=(cos k₁+cos k₂)/2 and e=(cos k₁−cos k₂)/2. The eigenvalue equation becomes (λ−s)(λ−qs)=qe². The root near 1 is s+qe²/[(1−q)s]+O_q(|k|⁸); using the exact spectral projection gives amplitude 1−qe²/[(1−q)²s²]+O_q(|k|⁸). Taylor expansion gives the frozen L₄,L₆,A₄. Off the two saddles, the absolute-value transfer matrix has a strictly contracting square whenever either cosine has magnitude below one. At opposite cosine signs ±1 the eigenvalues solve λ²=q, so the spectral radius is still below one. Compactness and a uniform resolvent bound make the complement exponentially small. The two same-sign torus saddles contribute equally at even times; each normalized Gaussian integral is 1/(πn). Independently using N(0,2) even moments 2,12,120,1680 gives E[L₄]=(3q−1)/(2(1−q)), E[L₆]=(14q−2)/(3(1−q)), E[L₄²/2]=(187q²−98q+19)/(24(1−q)²) and E[A₄]=−q/(1−q)². The sum of the last three is (25q²+2q+1)/(8(1−q)²). Taylor on |k|≤n^(−1/2+η) for small η and Gaussian decay outside it give the asserted order of the remainder. Setting n=2m gives the coefficients, their cancellation at 1/3, the critical 5/16, and the stated inverse. At q=0 the exact central-binomial-square law is a separate normalization check.",
+      "residual_risks": [
+        "Pointwise for fixed −1<q<1 under stationary uniform initial heading and zero polar memory and chirality. These are return-at-time, not first-return, probabilities. No uniformity at the endpoints or finite-sample inference follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Iossif abstract treats previous-direction-dependent walks on the integer lattice and asymptotic returns by renewal. The Roerdink–Shuler publisher excerpt includes return to origin among long-time properties.",
+          "Sherf et al. §3.1 locates nematic effects beyond the second-order gradient approximation."
+        ],
+        "reasoning": "These are strong general antecedents. The historical excerpts do not determine the accuracy of the return asymptotics or expose formulas at the coefficient level. The active-walk transport statements do not yield a local saddle integral through the required order.",
+        "searches": [
+          "Iossif, Return probabilities for correlated random walks, DOI 10.2307/3214129",
+          "Roerdink–Shuler, Asymptotic properties of multistate random walks. I. Theory",
+          "Sherf et al. active chiral random walk"
+        ]
+      },
+      "checked_sources": [
+        "Sherf et al. arXiv:2611.14446v1",
+        "Published fourth-cumulant tomography finding",
+        "Iossif DOI 10.2307/3214129 (abstract only)",
+        "Roerdink–Shuler J. Stat. Phys. 40 (publisher excerpt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tomography supplies the axial and diagonal limiting quartic coefficients, not just their difference. At zero polar memory and chirality, if these quartic log coefficients are U and W, symmetry makes the Gaussian contraction 16(U+W). Thus the first relative correction at time 2m is (K_ax+K_diag)/(3m) after the parity-aware local argument; its cancellation and inversion are not independent of the known cumulant data.",
+          "The next return coefficient also needs the sextic log term and the finite-time spectral amplitude, and the second saddle must be included. The inspected quartic cumulant conclusions do not give that coefficient or the critical residual 5/16."
+        ],
+        "reasoning": "The older general asymptotics and the same-day model-specific cumulant calculation must be credited as overlap. The full local correction through relative m⁻² is not established by the checked quartic result; the available historical excerpts are insufficient to decide exact implicit coverage.",
+        "searches": [
+          "Fourth-cumulant tomography, Finding and proof §§1–3, published-file offsets 0 and 4752",
+          "Iossif abstract and Roerdink–Shuler publisher description"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under q_p=q_c=0, q_n=q, the four transition weights agree exactly with the original active chiral walk.",
+          "The tomography statement uses the same positive reduced coin and the stationary heading; its observable is a projected fourth cumulant rather than probability mass at the origin."
+        ],
+        "reasoning": "The coin and the second-order blindness are equivalent; the observable and the order of information required for the full local return expansion are not. Same-day dates do not establish priority.",
+        "searches": [
+          "Return asymptotics and hidden nematic memory in Resultary",
+          "Sherf et al. arXiv:2611.14446v1 §§2.2, 3.1",
+          "Resultary fourth-cumulant tomography under a chiral lattice coin"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching indexed return statement is the bound record itself. The strongest distinct entry gives projected fourth cumulants, not return coefficients through relative order two."
+        ],
+        "reasoning": "A finite table would not establish the asymptotic coefficient as a rational function on an open parameter interval. Exact analytic statements in the index were compared; the self-match was not counted as separate evidence.",
+        "searches": [
+          "Resultary local search for the exact nematic return signature and projected-cumulant equivalents"
+        ]
+      },
+      "rationale": "Credit the exact active-walk model, transport blindness, general correlated-walk return methods, and the substantial mathematical overlap at first order with fourth-cumulant tomography. The supported distinct claim is the explicit return-at-time expansion through relative order m⁻² (particularly the first nonzero correction 5/16 at the cancellation). The priority limitations of the two historical return sources below do not establish coverage of this coefficient.",
+      "residual_risks": [
+        "The historical full texts could give higher-order general asymptotics with an implicit specialization. The abstract and publisher excerpt cannot exclude this."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and second-order transport coverage, not the checked local expansion",
+          "evidence": [
+            "Nontrivial angular modes are the polar pair q_p±iq_c and nematic q_n; transport at the stated order depends on the polar pair."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.14446",
+          "material_read": "v1 abstract p. 1, §2.2 Eqs. (2.9b–c) p. 4, §3.1 p. 6; OA offsets 17900 and 30607",
+          "method": "Primary OA PDF",
+          "title": "The active chiral random walk",
+          "trigger": "Exactly the same positive lattice reorientation coin in a subfamily"
+        },
+        {
+          "assessment": "Material quartic-level implication but not the full return statement; same-day priority undetermined",
+          "evidence": [
+            "Gives axial and diagonal tilted determinant and quartic log formulas, plus their fourth-cumulant difference and inverse. Its special anisotropy zero is η=−1/5, a different combination from the return coefficient."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-fourth-cumulant-tomography-of-the-hidden-nematic-coin-in-a--d97bd1fc19a2/RESULT.md",
+          "material_read": "Finding, assumptions and proof §§1–3, local offsets 0–7178",
+          "method": "Local published-file mirror",
+          "title": "Sharp fourth-cumulant tomography of the hidden nematic coin in a chiral lattice walk",
+          "trigger": "Same model, same hidden parameter and second-order degeneracy"
+        },
+        {
+          "assessment": "Strong general overlap; exact coefficients unresolved",
+          "evidence": [
+            "The abstract describes a d-dimensional previous-direction-dependent lattice walk and asymptotic return estimates obtained by renewal."
+          ],
+          "identifier_or_url": "https://www.jstor.org/stable/3214129",
+          "material_read": "Indexed original abstract excerpt only; full pp. 201–207 not retrieved",
+          "method": "Indexed abstract; JSTOR and Cambridge full-text attempts unsuccessful",
+          "title": "Return probabilities for correlated random walks",
+          "trigger": "Same general sort of lattice walk and return observable"
+        },
+        {
+          "assessment": "General precedent, coefficient-level reach unresolved",
+          "evidence": [
+            "The publisher excerpt includes the probability of return to the origin among the calculated long-time properties."
+          ],
+          "identifier_or_url": "J. Stat. Phys. 40 (1985), 205–228, Roerdink and Shuler",
+          "material_read": "Exact-title Springer listing, HTML offset 2311; full article not retrieved",
+          "method": "Publisher indexed excerpt; publisher redirect prevented full-text reading",
+          "title": "Asymptotic properties of multistate random walks. I. Theory",
+          "trigger": "General multistate-walk return asymptotics could specialize to this coin"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen sharp return expansion and critical case",
+        "Sherf et al. transport comparison",
+        "Published fourth-cumulant tomography statement"
+      ],
+      "rationale": "Exact local return probabilities are a natural lattice observable distinct from displacement moments. The expansion quantifies when the local correction changes sign despite identical covariance, and gives the leading nonzero deviation where the first one cancels. This is more than recovering a hidden parameter again by a change of notation: it gives the return observable and its critical convergence rate and coefficient.",
+      "residual_risks": [
+        "No statistical efficiency or superiority over fourth-cumulant inference is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

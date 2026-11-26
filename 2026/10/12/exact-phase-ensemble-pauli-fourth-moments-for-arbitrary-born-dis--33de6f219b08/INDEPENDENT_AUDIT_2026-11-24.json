@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:02:13.441650Z",
+  "axes": {
+    "correctness": {
+      "rationale": "This PASS is for /workspace/repairs/1/RESULT.md. The original formula is correct, but its line 42 misdescribes the surviving fourth-order terms: all four slots may use the same endpoint, since two factors are conjugated. The monomial c_a(x)^2 times its conjugate survives the phase average and has zero total XOR. The original multiplicities were numerically right but not justified by the stated enumeration. The replacement computes the fourth moment of the independent real pair variables after removing a common factor i on the odd Walsh parity sector. The second and fourth moments 2q_O and 6q_O² give the cross coefficient 6·2·2=24 and the same-orbit coefficient 6. This proves 3(C(a)²−D(a)) for nonzero a, and character orthogonality gives ∑_u C(u)² at zero shift. Summing D(a) over all shifts yields C(0)². The moments and identities apply also when some p_x vanish; at a point mass K=1, and in the flat one-qubit case the mean is 7/8. The identity Pauli makes K positive, allowing Jensen for −log₂, and Markov at 2^{−(n−2−t)} gives the one-sided tail without claiming a mean-entropy identity or two-sided concentration. The inspected frozen checker supports the same invariant and moment coefficients and need not change; its phase-grid tests are corroboration, not the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The hypergraph theorem averages Pauli–Liouville moments with independently retained edges, producing Boolean phases, not iid U(1) phases on basis positions. The typical-state result gives the n−2 scale for a Haar ensemble with random amplitudes. The random-sign work reports numerical evidence of near-extensive flat-amplitude magic."
+        ],
+        "reasoning": "Fixing amplitudes and switching from random signs to continuous phases changes the nonzero phase harmonics that survive. Neither the exact Boolean result nor Haar typicality supplies the exact integrated polynomial and finite-size flat specialization here.",
+        "searches": [
+          "Chen–Yan–Zhou arXiv:2308.01886v2 Theorem 5, Eqs. (36)–(37)",
+          "Turkeshi–Dymarsky–Sierant arXiv:2312.11631v2 §§III, V",
+          "Piemontese–Roscilde–Hamma arXiv:2211.01428 §III.D"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_magic_phase.py; complete corrected RESULT.md",
+        "arXiv:2608.22017v1 p. 4",
+        "arXiv:2609.32025v1 §III and Appendices A–B",
+        "arXiv:2308.01886v2 Theorem 5",
+        "arXiv:2312.11631v2 §§III, V",
+        "arXiv:2211.01428 §III",
+        "Resultary 12e90942359e and 0e21877b6a1a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "To average the prior parallelogram formula, (a,u) with a=0 or u=0 contribute deterministic C² terms, while a=u≠0 has a doubled phase difference and contributes D(a). For a,u independent the four-point cosines from each plane have zero mean and independent contributions on disjoint planes; the second moment is twice the sum of the four-point probability products. Summing those products requires removing the three degenerate shift classes from the total autocorrelation energy."
+        ],
+        "reasoning": "The prior pointwise identity can seed an alternative proof but no specialization evaluates this integral without the independent phase-orbit and degeneracy calculation. The cited minimum alone leaves the average undetermined. Jensen and Markov do mechanically follow once the new mean is evaluated and are credited only as consequences.",
+        "searches": [
+          "Liu–Xu arXiv:2608.22017v1 p. 4, weighted parallelogram energy and phase curvature; direct OA PDF offset 24700",
+          "Płodzień arXiv:2609.32025v1 §III and Appendix A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normalization is K=2^{−M₂}, equal to Liu–Xu's weighted parallelogram energy. Their lemma applies to an arbitrary normalized code-space state, so choosing the full binary cube also covers every state in the present ensemble. Płodzień uses the same phase orbit and Walsh calculation to find a deterministic minimum."
+        ],
+        "reasoning": "The original report understated Liu–Xu's relevance. The exact pointwise representation is already covered; the phase average in terms of the Born autocorrelation alone is the quantity being evaluated here.",
+        "searches": [
+          "Resultary: exact IID phase Pauli fourth moments for a fixed Born law and fixed-modulus random-state magic",
+          "Liu–Xu arXiv:2608.22017v1 p. 4, Lemma 2, Eqs. (12)–(15)",
+          "Płodzień arXiv:2609.32025v1 Appendix A Eqs. (16)–(20)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Płodzień gives numerical references averaged over three phase draws. Liu–Xu Eq. (15) gives a phase-free uniform code-state value. The nearest Resultary entries of interest address deterministic hypergraph Pauli magnitudes or third cumulants of bipartite purity."
+        ],
+        "reasoning": "No finite lookup table represents the arbitrary Born distribution. The closest exact indexed spectra or moment formulas concern a different ensemble or observable, and numerical phase references are not exact mean evaluations.",
+        "searches": [
+          "Resultary: exact mean flat-phase magic, fixed Born distributions and continuous iid phase moments",
+          "Płodzień §III.3 Fig. 4 and Appendix B.2",
+          "Liu–Xu Eq. (15)"
+        ]
+      },
+      "rationale": "Credit the previously known phase-orbit setup, Walsh and parallelogram identities, and near-extensive generic magic scale. The supported distinct claim after repair is the evaluated autocorrelation polynomial for arbitrary fixed Born probabilities and independent continuous phases. Its flat finite-size expression and Jensen/Markov consequences are not claimed as distinct techniques. The literature comparison now incorporates Liu–Xu's full text, rather than the frozen abstract-level description.",
+      "residual_risks": [
+        "The bounded searches do not rule out an unindexed exact evaluation of the same independent-phase integral.",
+        "Related ensembles can have the same leading entropy scale without the same fourth moment or finite-size correction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers deterministic K on the entire phase orbit but does not evaluate its continuous independent-phase average",
+          "evidence": "Eqs. (13)–(14) give M₂=−log₂ Eψ(C); the accompanying discussion identifies the phase as the discrete second difference across the parallelogram. Eq. (15) is for a uniform code state without random phases.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.22017v1",
+          "material_read": "PDF p. 4, Lemma 2 and proof; Eqs. (12)–(15), weighted row of Table I and phase-curvature discussion",
+          "method": "OA full-text inspection and direct check of parameter and phase specialization",
+          "title": "Quantifying Nonstabilizerness of Codeword-Stabilized Codes",
+          "trigger": "Strongest known pointwise result, covering general complex code-space amplitudes"
+        },
+        {
+          "assessment": "Known Walsh representation, minimum and numerical phase references; not an exact phase mean",
+          "evidence": "The nonnegative square-root-amplitude state minimizes M₂. The randomized comparisons average outcomes from three phase draws rather than evaluating the ensemble integral.",
+          "identifier_or_url": "https://arxiv.org/html/2609.32025v1",
+          "material_read": "§III.1 Eqs. (8)–(11), §III.3 Fig. 4, Appendix A Eqs. (16)–(20) and Appendix B.2",
+          "method": "OA full-text passage comparison",
+          "title": "Nonstabilizerness of the entangling layer in quantum circuit Born machines",
+          "trigger": "Same Born-distribution phase orbit and sample phase ensemble"
+        },
+        {
+          "assessment": "Exact moment, but for Boolean phases from random edges",
+          "evidence": "The random parameter is the probability of retaining an edge; it is not an amplitude Born probability and does not implement a continuous phase per basis position.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.01886v2",
+          "material_read": "Theorem 5, Eqs. (36)–(37), PDF p. 12",
+          "method": "OA PDF passage and comparison of phase laws",
+          "title": "Magic of quantum hypergraph states",
+          "trigger": "Exact averaged moments for a related flat-amplitude random ensemble"
+        },
+        {
+          "assessment": "Same leading typical scale, not the same conditional distribution",
+          "evidence": "The typical entropy scaling has D₂=1 and c₂=−2; the Haar Pauli distribution does not condition on an arbitrary fixed p.",
+          "identifier_or_url": "https://arxiv.org/html/2312.11631v2",
+          "material_read": "§III Eq. (6), §V Eq. (9)",
+          "method": "OA full-text comparison of normalization and ensemble",
+          "title": "Pauli Spectrum and Non-stabilizerness of Typical Quantum Many-Body States",
+          "trigger": "Nearby exact Pauli averages and the n−2 expression"
+        },
+        {
+          "assessment": "Different sign-only ensemble and numerical entropy scaling",
+          "evidence": "The λ=0 case uses fair random signs and the finite-size data extrapolate to approximately 0.99 times the qubit count.",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.01428",
+          "material_read": "§III and §III.D, Eqs. (1), (19), Fig. 9, PDF pp. 4, 10–11",
+          "method": "OA PDF passage and phase-distribution comparison",
+          "title": "Random-sign comparison by Piemontese, Roscilde and Hamma",
+          "trigger": "Flat-amplitude random phases with nearly extensive magic"
+        },
+        {
+          "assessment": "Neither computes the target ensemble observable",
+          "evidence": "The former gives a five-term spectrum of a deterministic single-edge-defective hypergraph state; the latter gives third central moments of bipartite purity, including independent continuous and discrete phases.",
+          "identifier_or_url": "Resultary 12e90942359e and 0e21877b6a1a",
+          "material_read": "Findings of both records; relationship to Chen–Yan–Zhou in the first",
+          "method": "Local Resultary mirror and observable/ensemble comparison",
+          "title": "Resultary comparisons: defective hypergraph Pauli spectrum and random-phase purity cumulants",
+          "trigger": "Closest exact indexed moments for analogous states or phase laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The evaluated arbitrary-p moment supplies an exact baseline for comparing magic generated by phases at fixed Born data, where a minimum or a Haar benchmark cannot distinguish dependence on the specified probabilities. The flat calculation isolates the effect sharply: one choice of phases is a stabilizer, while independent phase choices have a quantified lower bound on magic. The contribution is the general distribution-dependent invariant, not a new tail method or just a one-qubit check.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every unoriented cycle is enumerated once by fixing vertex zero and comparing the two root orientations; both implementations independently recover all \(1344\) edge masks. The first enumerates exactly \(24\) squares and \(128\) simple hexagons and toggles their masks with Hamiltonicity required; the second examines all unordered pairs of Hamilton cycles and directly tests whether their symmetric difference is one connected degree-two cycle of the required size. These are exhaustive, logically equivalent definitions but different computational implementations. They give the same \(1920\) square, \(9408\) hexagon and \(11328\) combined edges. Complete component traversal and all-source BFS verify the \(240\) singleton components, one \(1104\)-vertex square component, and the connected hexagon graph with exactly \(432\) eccentricities \(5\) and \(912\) eccentricities \(6\). Finite exhaustiveness, not sampling or timed-out search, proves the fixed-graph claims. Independent external validation has not occurred.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The scalar count \(1344\) is longstanding, as verified by Chebiryak–Kroening (2008) and Deza–Shklyar (2010), and is excluded from the novelty claim. The accessible full mathematical discussion of Chebiryak–Kroening classifies coordinate-change spectra and equivalence classes, not adjacency under single alternating short-cycle symmetric differences. Pettersson (2014) enumerates Hamilton cycles, not reachability or distances among them. The accessible abstracts of Parkhomenko (2001), Takaoka (2018), Nishat (2020), and Kazazi (2026) concern other equivalence relations or different graph classes/moves; the rectangular-grid theorems do not cover the periodic graph \(C_4\square C_4\). Accessible prior research includes square-flip reconfiguration of **perfect matchings** of \(Q_4\) and Hamiltonian-cycle flip classifications of the Desargues and icosahedral graphs: neither implies any statement about Hamiltonian-cycle flips of \(Q_4\). Relevant mathematical record queries found no matching six-cycle reachability or sharp distance census. Absence of indexed matches is not proof of publication priority; the full text of Parkhomenko (2001) and Takaoka (2018) was not read, and unindexed Gray-code transformations remain a residual risk.
+PASS
 
-## Value — PASS
-A cyclic Gray code is a natural exhaustive traversal of the binary state cube. The distinction between a local move set which strands \(240\) configurations and a slightly larger **single local move** which connects the entire solution space is directly relevant to Gray-code reconfiguration and local-update sampling. The sharp diameter and eccentricity census quantify how much mobility is gained, while comparing square-only, hexagon-only, and combined moves identifies that the extra squares do not improve the maximum distance. The result is an exact natural finite case beyond the previously known state count, not an arbitrary change of labels or a re-evaluation of a published count.
+The exact state-space and move definitions are respected. Rooting a Hamilton cycle at 0 and selecting the orientation with second vertex smaller than the last counts it once. Membership after XOR with one simple cycle forces alternating removal and insertion at every affected vertex because both endpoints have degree two; checking each Hamiltonian pair for one connected 2-regular symmetric difference is equivalent. The frozen Python and C++ sources were inspected, not executed. An independent exhaustive replay enumerated all 272 perfect matchings by pairing the least free vertex, then counted connected unions of disjoint matching pairs; each Hamilton cycle has exactly two alternating matchings, giving a unique unordered pair. It scanned unordered state pairs for the specified differences and ran full BFS for the metric. Replay: python3 /workspace/branches/5cb0dcc0-3db2-418e-aad3-5679b2cc8bd4/reproduce.py; saved reproduction.txt in that directory. Results: 1344 Hamilton cycles; 1920 square edges with 240 singleton components and one of size 1104; 9408 hexagon-only edges and 11328 combined edges, each connected and with 432 eccentricities 5 and 912 eccentricities 6. Bipartiteness and simplicity preclude a shorter simple cycle than four, and square-only disconnection shows six is the least allowed sufficient length (including if all shorter moves are allowed). This proves the statement only on the fixed four-cube.
 
-## Sources and limitations
-Primary inspected source texts: Chebiryak–Kroening (2008), Deza–Shklyar (arXiv:1003.4391v1), Pettersson (2014). Abstract-level comparisons: Parkhomenko (2001), Takaoka (2018), Nishat (2020), Kazazi (2026). The fixed-graph proof is exhaustive; the literature coverage and any extension to higher-dimensional cubes are not exhaustive.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The accepted distinct contribution is the hexagon-only and combined Hamilton-cycle reachability and exact metric, including the sharp six-move diameter. The scalar cycle count, square-switch move, and existence of square-isolated cases are already known. A separate indexed record gives the precise square-only census as well. Neither that record nor the inspected matching and grid reconfiguration literature gives or implies the hexagon/mixed Hamilton-cycle claims. No claim of historical priority is made for the square-only data.
+
+## value
+
+PASS
+
+Square switches are a natural Gray-code generation move with an established obstruction from isolated configurations. The next possible local exchange length is six, so finding that hexagon moves alone reconnect all labeled states resolves a motivated obstruction in this small benchmark, not an arbitrary slice. The exact worst-case of six moves and the fact that admitting squares does not improve any eccentricity (pointwise monotonicity plus the identical distributions) distinguish the two permitted move sets in a way connectivity alone could not. The result is useful at this fixed cube and does not assert a higher-dimensional theorem or mixing bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

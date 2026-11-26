@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:25:02.633617Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding and Assumptions, lines 3–39, and proof, lines 41–96",
+        "VERIFICATION.md; verify_landweber.py, lines 8–106",
+        "arXiv:2610.00882v1, Lemma 3.4 and Theorem 3.6"
+      ],
+      "rationale": "Sum the iteration from zero: x_K=(I−G^K)x†+(I−G^K)B^(-1)Aᵀε. The error is a deterministic source bias plus a Gaussian with covariance σ²B^(-1)(I−G^K)^2. Strict full rank and step bound make that covariance positive definite. After whitening, the deterministic mean is Γ_K^(-1/2)G^KB^νw and the covariance is identity. Its maximum norm equals M times the operator norm of this commuting spectral product, attained at a maximizing eigendirection. The resulting squared length is χ²_n with noncentrality equal to the squared mean norm. A coupling of the Poisson counts in the chi-square mixture gives strict decrease of coverage at each positive finite radius as noncentrality increases; the continuous strictly positive density then makes the proposed quantile necessary as well as sufficient. In the stated two-mode family the small-mode ratio is asymptotic to (2/K)t^(ν−1/2) and the unit-mode ratio is 1/(2^K−1). At equality of the exponents 2/K is larger. For diverging noncentrality the norm differs from the mean norm by at most the standard-normal norm, giving r_*∼Δ_K at a fixed probability level; continuity handles finite limits. Separately the exact Euclidean bias supremum tends to M2^(−K), while the collapsing covariance eigenvalue is asymptotic to σ²K²t/4. Dividing these separately optimized quantities explains the contrasting t^(−1/2) inflation.",
+      "residual_risks": [
+        "This is simultaneous coordinate coverage for each possible truth, uniform in its probability, not an event required to hold for all truths under one shared noise draw. The radius is minimal only for the specified deterministic, fixed-shape and fixed-center family.",
+        "All parameters including K and α are held fixed as t decreases; the limiting singular matrix itself is excluded. Source diagnostic inspected but not executed; the proof and asymptotic do not depend on numerical quantile evaluation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baraud's theorem gives nonasymptotic coverage for a data-selected Euclidean ball in Gaussian mean regression. Marteau's inverse-problem result concerns selection of a linear estimator by risk hull minimization. The cited Stark scalar bounded-mean article could not be inspected as full text.",
+          "The Landweber source condition and bias/covariance split are prior. For the comparison family the sufficient inflation still diverges even with the exact Euclidean bias supremum."
+        ],
+        "reasoning": "Gaussian regression confidence balls and spectral estimator selection do not have the particular deterministic center, source-ball change with the spectrum and worst-case covariance-aligned comparison governing this result. Unavailable material is a coverage limitation, not evidence of absence.",
+        "searches": [
+          "arXiv:math/0406425, Theorem 2.1",
+          "Stark, DOI 10.1016/0167-7152(92)90234-V, author-copy lookup",
+          "Marteau, DOI 10.1051/ps/2009011, abstract",
+          "arXiv:2610.00882v1, §3.5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.00882v1",
+        "arXiv:math/0406425",
+        "DOI 10.1051/ps/2009011",
+        "DOI 10.1016/0167-7152(92)90234-V (attempt only)",
+        "Resultary 1ab03774ff37 and 8b8e9dd046ba"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof of Theorem 3.6 reports Gaussian error with mean bias and uses whitening followed by the triangle inequality. Its Mahalanobis radius is a central chi-square root quantile plus b_K^ub divided by the square root of the least variance. The standard exact shifted-Gaussian formula and diagonalizing that already-known bias and covariance make the candidate calibration a short deduction.",
+          "A–H's Euclidean bound projects away the relation between bias and variance in each direction. In the fixed-K two-mode family its standardized inflation grows as t^(−1/2) for every ν>0; it cannot establish bounded exact coverage radius for ν≥1/2 or the smaller divergence below that edge."
+        ],
+        "reasoning": "The strongest incremental claim is not the routine quantile substitution: it is the identification of the half-order threshold, its constants, and the quantified counterexample to using the normwise radius as an accurate estimate. That comparison uses the aligned finite-filter response at the collapsing singular mode and dominance by a different mode above threshold. The inspected prior sufficiency statement gives neither the exact worst-case coverage nor that sharp discrepancy.",
+        "searches": [
+          "arXiv:2610.00882v1, Lemma 3.4, eq. (3.18), Theorem 3.6, eq. (3.19), and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After whitening, the problem is a Gaussian shifted-ball probability whose worst mean norm is the operator norm over the source ball. Noncentral chi-square calibration for a specified radial shift is standard and is not credited as a new probability principle.",
+          "Abhishek–Holman write precisely the squared Mahalanobis error studied here, but then apply a triangle inequality. Baraud selects a center and radius using accepted subspace tests, equation (9), rather than the fixed Landweber estimator and covariance shape."
+        ],
+        "reasoning": "In the equivalent shifted-ball formulation, this is a worst-case spectral bias-to-standard-deviation ratio, not an arbitrary minimax Gaussian confidence-set problem. Application of a standard quantile alone does not establish its actual behavior or the source-smoothness threshold in a degenerating Landweber family.",
+        "searches": [
+          "arXiv:2610.00882v1, Lemma 3.4, Theorem 3.6 and proof",
+          "arXiv:math/0406425, introduction and Theorem 2.1",
+          "Landweber confidence ellipsoids exact noncentral chi squared regularization bias source condition whitened half-order smallest eigenvalue Taghia Abhishek Holman fixed iterations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first inspected record gives crossings of Landweber covariance modes and movement of rank-optimal subspaces. The second gives optional-stopping failure for fixed-index coordinate intervals used at a data-selected index. No exact deterministic-K sharp joint-radius match surfaced in the ranked results."
+        ],
+        "reasoning": "Covariance eigenvalue crossings do not control the standardized deterministic source bias, and optional stopping affects a different coverage question. Catalogue order and unsuccessful searches are not evidence of publication priority.",
+        "searches": [
+          "Resultary: exact covariance-aligned Landweber confidence radius and half-order transition",
+          "Resultary records 1ab03774ff37 and 8b8e9dd046ba"
+        ]
+      },
+      "rationale": "The fixed-shape Gaussian calibration uses a classical noncentral law, and the nearest same-model primary source gives the exact Gaussian error, an ordinary Euclidean source-bias bound, and a sufficient covariance ellipsoid. The supported distinction is the exact aligned source-ball maximum together with the sharp half-order boundary and a separation example that exposes even the exact Euclidean-bias-based norm inflation. The inspected results do not state or supply that spectral boundary and separation solely by applying their sufficient bounds.",
+      "residual_risks": [
+        "A more general result on covariance-whitened bias under spectral filters and degenerating spectra could contain this transition; the bounded comparison did not establish such an implication.",
+        "Stark primary full text was unavailable. Novelty is assessed for the stated fixed-K spectral contrast, not for the general Gaussian-shift method."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the Gaussian split and sufficient radius, not the sharp aligned threshold and discrepancy",
+          "evidence": [
+            "Lemma 3.4 maximizes the unwhitened bias bound and upper-bounds it by a global expression; Theorem 3.6 uses the triangle inequality and central chi-square quantile."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.00882v1",
+          "material_read": "Lemma 3.4 and eq. (3.18), HTML offset 27718; Theorem 3.6, eq. (3.19), and proof, offset 31909",
+          "method": "Open-access article, decisive bounded passages read",
+          "title": "Uncertainty Quantification for Landweber Iteration with Randomized Normal-Operator Approximation",
+          "trigger": "Same Landweber iterate, covariance, source class and ellipsoid"
+        },
+        {
+          "assessment": "Different center/radius and parameter class",
+          "evidence": [
+            "Constructs a data-selected Euclidean ball by choosing a projection model among those accepted by subspace tests."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0406425",
+          "material_read": "p. 1 model (1), offset 500; pp. 6–7, eq. (9) and Theorem 2.1, offset 17400",
+          "method": "Open-access PDF",
+          "title": "Confidence balls in Gaussian regression",
+          "trigger": "Nonasymptotic Gaussian confidence ball and uniform coverage"
+        },
+        {
+          "assessment": "Residual overlap unassessed; not the basis of the decision",
+          "evidence": [
+            "No specific full-text assertion attributed to this work."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0167-7152(92)90234-V",
+          "material_read": "Bibliographic identification only; no decisive full-text passage retrieved",
+          "method": "DOI and a possible author URL checked; no lawful full text obtained",
+          "title": "Affine minimax confidence intervals for a bounded normal mean",
+          "trigger": "Cited bounded-parameter Gaussian calibration analogue"
+        },
+        {
+          "assessment": "Inspected objective is adaptive risk-based estimator selection, not fixed-iterate exact ellipsoid coverage",
+          "evidence": [
+            "Extends risk hull minimization beyond projection rules to a broader class of linear estimators."
+          ],
+          "identifier_or_url": "https://doi.org/10.1051/ps/2009011",
+          "material_read": "Original article abstract on p. 1, PDF offset 0",
+          "method": "Open-access Numdam PDF",
+          "title": "Risk hull method for spectral regularization in linear statistical inverse problems",
+          "trigger": "Literature search hit on spectral regularization in Gaussian inverse problems"
+        },
+        {
+          "assessment": "Covariance-mode comparison without sharp confidence radius",
+          "evidence": [
+            "One-way covariance eigenvalue crossings and rank-optimal subspace changes."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-single-crossing-covariance-spectrum-and-moving-optimal-ranks-for--1ab03774ff37",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Single-crossing covariance spectrum and moving optimal ranks",
+          "trigger": "Same covariance spectrum of Landweber iterates"
+        },
+        {
+          "assessment": "Coordinate intervals and data-dependent stopping, not a deterministic joint radius",
+          "evidence": [
+            "Uses a first-exclusion selection rule; explicitly distinguishes it from data-independent stopping."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-arbitrarily-severe-optional-stopping-undercoverage-from-one-nois--8b8e9dd046ba",
+          "material_read": "RESULT.md Finding and prior-work passage, offsets 0 and 5399",
+          "method": "Resultary local mirror",
+          "title": "Arbitrarily severe optional-stopping undercoverage from one noise realization",
+          "trigger": "Landweber source-ball coverage with a related cited construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding, proof Steps 4–5 and Limitations",
+        "arXiv:2610.00882v1, Theorem 3.6"
+      ],
+      "rationale": "The exact radius is an implementable replacement for an existing conservative bound in the specified family. The two-mode construction is directly motivated by the competing extremes of the published normwise bound: it demonstrates a smoothness threshold and divergence of that bound when the exact radius can stay bounded, and quantifies the divergence rates when both grow. This shows that loss of alignment, not merely a loose Euclidean bias estimate, can dominate the discrepancy.",
+      "residual_risks": [
+        "Exact covariance and known source/noise parameters are assumed. No adaptive stopping, rank-deficient limit model, uncertainty about smoothness or globally optimal confidence-set result is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

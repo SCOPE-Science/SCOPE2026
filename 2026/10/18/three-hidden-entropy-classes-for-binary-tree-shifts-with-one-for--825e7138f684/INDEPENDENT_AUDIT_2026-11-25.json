@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:28:02.894508Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The child subtrees are independent once the root star is chosen; for M/P/F the forbidden pair removes B_n^2, A_n B_n, or B_n^2 respectively, in the root-1, root-0, and root-0 counts. Appending zeros below all leaves extends these representatives, and complementation/child exchange extends the rest. Thus the ratios p=B_n/S_n and the S recursion agree with the stated formulas. At n=2 the ratios are 3/7,4/7,4/7; substitution at the endpoints using monotonicity verifies the invariant intervals. For M, 2p<=1 and 2-p^2>=7/4 bound |f'| by 16/49; for P, |1-2p|<=1/7 and q>=7/4 give the stronger bound 16/343; for F the largest derivative is at 2/3 and equals 27/49. From n=2 the deletion fractions have the strict separated bounds (40/89)^2 < 12/49 and 1/4 < (4/7)^2, so both the finite-count ordering from n=3 and the strict entropy ordering follow coefficient by coefficient. Telescoping 2^(-n)log S_n gives the positive convergent series and discarded tail <(log 2)2^(-N), implying the coarser log 2 limit. Multiplying the tail by 2^n gives a weighted average of log q at future iterates with weights summing to 1; contraction gives log q(p*)+O((27/49)^n), hence the stated relative error and reciprocal prefactor. The factor p-1 in F's fixed-point cubic lies outside the invariant interval. An independent script (python3 /workspace/review-evidence/check_tree_and_particle.py) enumerated all eight rules through n=4, giving M/P/F totals (89,86,82) at n=3 and (14242,12979,11047) at n=4, and reproduced the displayed decimals by bounded series evaluation. The finite/decimal checks are not used in the all-height proof; the uploaded checker was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ban–Chang characterize the coarse entropy variable but explicitly leave the hidden coefficient undescribed in the binary setting.",
+          "Petersen–Salama prove a general infimum formula per vertex; their golden-mean series uses a different nearest-neighbor rule."
+        ],
+        "reasoning": "At a matching block height, normalized per-vertex entropy equals the limit of 2^(-n)log S_n. The general existence/infimum result therefore covers existence, not strict comparison of three values or their finite-height exponential relative errors.",
+        "searches": [
+          "Resultary: single forbidden height-two blocks binary tree shift entropy recurrence",
+          "arXiv:1705.03138 p. 6, offsets 15288,16364",
+          "arXiv:1909.05153 Theorem 2.1 and Lemma 3.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1509.08325",
+        "arXiv:1705.03138",
+        "arXiv:1909.05153",
+        "Resultary 2026/11/22/...2a4a7f458de3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact root-count recurrences specialize the prior nonlinear recursion directly.",
+          "The general infimum formula, and the series for a different nearest-neighbor rule, give no uniform interval separation or class-dependent prefactor for these three recursions."
+        ],
+        "reasoning": "A formal substitution into the known recursion gives the one-step factors and small counts, not the distinct limiting values. Strict all-height ordering uses an invariant separation of the orbit factors; the prefactors and error use quantitative attraction. The reviewed contribution is those conclusions together, not the standard recursion.",
+        "searches": [
+          "Resultary: hidden entropy finite-height prefactor tree shift q(p) fixed point",
+          "arXiv:1509.08325 Theorem 1.5",
+          "arXiv:1909.05153 Theorem 2.1 and Lemma 3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ban–Chang arXiv:1509.08325 §5.2 poses the binary Markov hidden-entropy question; their allowed height-two pattern formulation includes these exclusions.",
+          "Resultary single-forbidden-trigram census concerns contiguous factors in linear words, not stars on a binary tree."
+        ],
+        "reasoning": "One excluded height-two block out of eight is the same tree-shift model as one ordered forbidden star, but the earlier model-level formulation and the word-language analogue do not state the same classification. No conjugacy classification is asserted here.",
+        "searches": [
+          "Resultary: hidden entropy binary tree shifts one forbidden star",
+          "Resultary: Ban Chang Petersen Salama three hidden entropy classes single forbidden star",
+          "Web: \"Tree-Shifts: The Entropy of Tree-Shifts of Finite Type\" \"hidden entropy\" forbidden blocks binary tree Markov tree shifts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No direct table/census match in the bounded indexed results. The inspected near match 2026/11/22/...2a4a7f458de3 covers shattering of linear forbidden-trigram languages, not tree counts or entropy.",
+          "The binary coarse-entropy classification in Ban–Chang p. 22 gives 0 or log 2, rather than the equal-coarse-entropy subclasses in question."
+        ],
+        "reasoning": "An eight-rule census or entropy table would be relevant only for ordered rooted stars and a per-vertex (or equivalent) normalization. Eight linear words or a coarse two-value classification do not supply it.",
+        "searches": [
+          "Resultary: binary tree shift one forbidden star hidden entropy 89 86 82",
+          "Resultary: tree shift all eight forbidden height-two binary blocks entropy census",
+          "Resultary searches for the three reported constants and for 'S_n(M)>S_n(P)>S_n(F) p_M p_P p_F forbidden star'"
+        ]
+      },
+      "rationale": "Credit is limited to the complete one-forbidden-star census with strict hidden-entropy separation and finite-height ordering and asymptotic prefactors. General recurrence methods, the normalization, existence of a normalized entropy, and the common coarse entropy are prior. The inspected recurrence framework is applicable but does not give the interval separation or contraction-based relative asymptotic for these rules without the claim-specific analysis.",
+      "residual_risks": [
+        "Earlier implicit specializations of the recurrence or an unindexed entropy table may exist. Bounded searches and the exact passages inspected do not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Includes model, recurrence and coarse entropy, not the hidden-entropy classification",
+          "evidence": [
+            "Root-conditioned nonlinear recursions from allowed triples; explicit binary hidden-entropy question."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1509.08325",
+          "material_read": "pp. 5, 8 and 22; Theorem 1.5 and §5.2, OA offsets 13924,18980,60108",
+          "method": "Primary arXiv PDF, literal locate then bounded passages",
+          "title": "Tree-Shifts: The Entropy of Tree-Shifts of Finite Type",
+          "trigger": "Direct definition, recursions and binary entropy census"
+        },
+        {
+          "assessment": "Covers forbidden 2-block formalism and coarse parameter",
+          "evidence": [
+            "Hidden coefficient alpha remains undescribed even for (d,k)=(2,2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1705.03138",
+          "material_read": "p. 6, OA offsets 15288 and 16364",
+          "method": "Primary arXiv PDF",
+          "title": "Characterization for Entropy of Shifts of Finite Type on Cayley Trees",
+          "trigger": "General algorithm and hidden coefficient"
+        },
+        {
+          "assessment": "General existence/infimum and a nearest-neighbor example, not the three-value census",
+          "evidence": [
+            "Per-vertex infimum formula and golden-mean strip approximation/series."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1909.05153",
+          "material_read": "pp. 2–3, 7; Theorem 2.1 and Lemma 3.2, offsets 5268,8854,22135",
+          "method": "Primary arXiv PDF",
+          "title": "Entropy on Regular Trees",
+          "trigger": "Potential stronger per-vertex entropy and explicit approximations"
+        },
+        {
+          "assessment": "Different combinatorial objects and invariant",
+          "evidence": [
+            "Forbidden contiguous length-three factors in binary words and shattering, rather than allowed tree blocks."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-single-forbidden-trigram-languages-two-shattering-types-and-a-sh--2a4a7f458de3/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Single-forbidden-trigram languages: two shattering types and a sharp boundary",
+          "trigger": "All eight forbidden binary triples in a census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete census of single local prohibitions is a natural minimal test case for whether hidden entropy improves discrimination over the standard coarse invariant. It gives three provably different normalized growth constants where coarse entropy gives none, plus quantitative asymptotics from which finite-level counts can be interpreted. It is not merely a numerical table or a reformulation of general entropy existence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

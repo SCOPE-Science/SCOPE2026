@@ -1,19 +1,21 @@
-# Scientific review: conditional success-time stochastic ordering
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The statement specifies separate conditioning on selecting the global best, the exact cutoff convention and the meaning of first-order stochastic dominance. Independently counting disjoint record-event patterns gives an unconditional success-at-position distribution; direct permutation enumeration reproduces its rational probabilities through eight candidates. Its ratio beyond the shared later threshold increases strictly, so the sign of the final conditional mass difference exactly determines dominance versus CDF crossing. The exact success totals give the harmonic expression \(Z\). Uniform Euler–Maclaurin expansions of \(Z\) and the cited two-threshold rounding theorem prove a sign formula away from a density-zero exception. Rational independence of \(1,e^{-1},e^{-3/2}\) and equidistribution give the stated area. The standalone finite checker passes. The check does not replace the proof of an infinite-horizon statement.
+PASS
 
-## Originality
+Conditional on the best arriving at i, the earlier record indicators have independent probabilities 1/j. For i>b, a success with two choices uses either no record in (b,i), or one record j in (b,i) with none in (a,j) or (j,i). This gives the mass ratio in RESULT.md lines 62–67 after separate normalization. Positive mass on (a,b] excludes reverse order. The strictly increasing ratio on the common tail makes the CDF difference decrease and then increase to zero; the sign at N-1 is opposite to the last mass difference, which has the sign of Z. Thus Z=0 is ordered and Z>0 gives exactly one crossing in sign, allowing a zero plateau in discrete time. The largest optimal cutoffs can be justified independently of the cited rounding theorem. In backward record dynamic programming F_m(i) is optimal future success with m choices after i positions, and G_m=F_m−F_{m−1}; a record at i is accepted if i/N>G_m(i). The update F_m(i−1)=F_m(i)+(i/N−G_m(i))_+/i preserves 0≤G_2≤G_1 and makes both marginals nondecreasing backward. The reject-on-ties cutoffs are nested. The increments of N times success as b or a increases by one are S(b+1)−1 and V(a+1)+(S²−T)/2−1, respectively (holding b fixed for the latter). Expanding the two inequalities at consecutive maximizing integers gives the stated floors with O(1/N) perturbations and shifts (1−e^(−1))/2 and (1−e^(−1/2))/2. Direct substitution gives NZ=−1+2u/e^(−1)−v/e^(−3/2)+O(1/N). Lindemann–Weierstrass and Kronecker–Weyl make the shrinking bands around the rounding boundaries and sign line density zero. The subgraph of the straight sign line has the reported area. The relationship-to-prior-work paragraph calls this region curved; the proof and area formula correctly use a straight boundary.
 
-**PASS under examined evidence, with residual historical-priority risk.** The closest directly relevant paper, Grau Ribas–Sánchez Galán (arXiv:2611.19541v1, Sections 2, 6 and 7), proves integer optimal-threshold rounding and joint *rectangular* rounding frequencies, but does not state successful-selection position distributions, a conditional stochastic-order criterion or the area of a nonrectangular sign region. Rapoport–Seale–Spiliopoulos (DOI:10.1007/s11238-022-09881-0, Section 1.5 of Appendix 1) give three total-success event formulas for the two-choice model, but not a distributional comparison conditioned on success. Related published research on stopping and permutation records was checked for implied stronger coverage. The theorem uses the established arithmetic results openly, and its remaining contribution requires the new conditioning, likelihood-ratio and area comparisons. General earlier work on success-time distributions could conceivably imply part of the criterion; the scope of the inspected historical literature remains limited.
+## originality
 
-## Value
+PASS
 
-**PASS.** In a classical sequential selection problem, the timing of a successful recruitment decision is itself a meaningful performance dimension beyond the total chance of success. The exact finite-horizon criterion settles whether more opportunities improve that conditional timing in first-order stochastic order. The positive-density noncomparability law shows that discrete optimal-threshold rounding changes a qualitative ordering for approximately 40.4% of large horizons, despite the leading continuous thresholds having fixed limits. This structural stochastic-order boundary is not a routine restatement of total win probabilities.
+The strongest available evidence places optimal policy, totals and integer rounding in prior work. Credit the separate conditional timing order, terminal-mass criterion and resulting arithmetic density, not the policy or rounding shifts. No distinct equivalent or stronger result was established by the searches; primary-text access remains limited.
 
-## Limitations and closest literature
+## value
 
-The result is restricted to comparing optimal one-choice and two-choice procedures with the prescribed nested threshold convention; the exact criterion applies to arbitrary nondegenerate paired cutoffs. The density has no claimed convergence rate, and the publication search does not establish absolute historical uniqueness. Independent assessment remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Separate success conditioning changes the timing question in a way total success and threshold optima cannot answer. The exact criterion covers all nondegenerate cutoffs, exposes a one-crossing mechanism, and shows that comparison fails on a positive limiting proportion of optimal integer horizons even though the continuum leading values coincide at the sign threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

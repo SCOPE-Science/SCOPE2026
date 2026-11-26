@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The construction is an explicit measure-preserving permutation of one cycle per positive length. A two-symbol marker partition is forward generating: two observed marks recover the cycle length and phase. The zero-, single-, and multiple-marker cases prove the exact shortest positive-overlap rule, including the sharp linear maximum. A three-part absolutely convergent formula then computes every finite-depth moment. Monotonicity, saturation at depth twice the orbit length, and harmonic/power-sum comparison prove every critical moment exponent; a separate comparison shows centering does not cancel the variance divergence. The finite checker independently verifies the overlap formula and rational truncated moments. The unbounded claims rely on the written proof, not enumeration.
+PASS
 
-## Originality — PASS within examined evidence
+The length-m orbit has total probability m^(-s)/zeta(s) and positive mass at every phase. Two forward marks recover the orbit and phase and occur for every point by length 2m, proving generation. A two-mark atom is a singleton of return time m; a single mark at i is one point per compatible orbit with minimum length max(i+1,n-i); two consecutive phases on an orbit of length at least n+2 witness overlap one for the zero word. The word with a mark at position zero only attains n, so the maximum is exactly n. Counting phases in these three cases also gives the exact moment identity. The lower sum over m<=floor(n/2) and the upper bound from min(m,n) give the stated powers and critical logarithmic coefficients; pointwise monotone convergence gives the finite limits. Subtracting the squared mean does not cancel the leading divergent second moment. Singleton entropy is finite by summability of m^(-s) log m, the increasing forward-join entropies tend to it, and the generating entropy rate is zero. This yields infinite system-level mean for 1<s<=2 and infinite system-level variance through s=3; the finite mean asserted for the intermediate regime concerns this partition. The packaged checker.py and VERIFICATION.md were read, not run; their rational finite-truncation checks are supplementary to the infinite argument.
 
-Pannipitiya's 2026 paper develops positive-measure return times for generating partitions and explicitly asks whether finite-generator, zero-entropy or countable atomic systems can exhibit infinite global invariants (Question 6.8). Its finite-orbit and finite-approximation results do not imply the countably infinite weighted system: stabilization depth increases without bound as orbit length grows. Related investigations of uniform cylinder-penetration periods for topological shifts use a different ensemble, while positive-entropy shifts of finite type have different combinatorial closure constraints. Classical recurrence-time formulas are not positive-overlap minima. The exact threshold construction was not found in the inspected sources, but independent historical priority review remains outstanding.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The construction resolves a natural open existence question in the framework that prompted it. It demonstrates that vanishing entropy, a finite generator and an optimal linear admissibility bound do not prevent infinite normalized return statistics. The two distinct mean/variance thresholds and the exact hierarchy of all moments quantify how small masses on long cycles alter dynamical observables; this is not merely a restatement of finite permutation facts.
+The distinct finding is an admissible binary generator with addressed moment thresholds for the specific positive-overlap invariants in Question 6.8, not a new definition of recurrence or an exhaustive classification of variance values. No inspected prior result supplies the countable admissible construction and divergent normalized quantities.
 
-## Boundaries and sources
+## value
 
-The finite state checks do not certify the infinite proof; no ergodicity, compactness, mixing or global finite upper bounds beyond the regimes proved are asserted. Primary source: D. N. Pannipitiya, *Local Periodic Orbit Penetration in Dynamical Systems*, arXiv:2611.13416v1 (2026-11-10), Sections 5.1–5.9 and Question 6.8, https://arxiv.org/abs/2611.13416. Other period-penetration research concerns a different topological/unweighted statistic. An older equivalent power-law periodic-mixture construction remains a residual priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Answers a stated existence question using one explicit binary generator with the smallest growth order needed for the reference's admissibility condition. Bounded entropy and exact linear maximum coexist with tunable, different mean and variance thresholds; the full critical-moment calculation makes the example reusable rather than just a divergent-series witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

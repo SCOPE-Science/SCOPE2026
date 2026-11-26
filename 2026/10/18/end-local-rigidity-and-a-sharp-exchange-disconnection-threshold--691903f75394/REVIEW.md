@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The structural argument first proves that the zero forcing number is three, then uses the degree-two/degree-three first-force alternatives to confine every minimum set to three columns at an end. Prefix monotonicity reduces all candidates to 84 explicit triples of the five-column graph. Exhaustive enumeration finds precisely 13 left-end triples, and independently checks a bounded forcing history for each that fills all three initial columns without help from columns to its right; column-by-column forcing extends these results to every larger grid. The exchange graph is obtained from intersection size two. The complete thirteen-vertex edge list has 24 edges, radius three and diameter five. Separate set-based and bit-mask programs agree for all checked finite widths. The infinite conclusion depends on the written degree-and-prefix proof, not on extrapolating the tests.
+PASS
 
-## Originality
+The repaired proof establishes the original statement without assuming that outside forces can be ignored. The frozen Step 3 licenses forces entirely within a prefix, but its chronology argument does not justify omitting a force with source outside and target inside. The replacement verifies all 84 left-window seeds: the listed 13 fill the first three columns before column 3 is touched; the other 71 reach a closed configuration without ever coloring column 4. Every source in these histories has unchanged neighbors in every grid of length at least five. A closed blue set containing the seed traps every forcing order. Independently, two blue vertices can at best produce one corner L and stall. Three blue vertices forcing from an interior outer-row degree-three source away from the ends produce the same four-vertex T for each choice of blue-neighbor pair, which stalls. A corner with its neighbor makes a three-vertex L that cannot interact with a third vertex beyond the left three columns. The full seed classification and the nonadjacency of the end families follow. Independent recomputation by Floyd–Warshall recovered the listed 24 edges, radius 3 and diameter 5 of each component and the stated width-three and width-four exceptions.
 
-**PASS with residual risk.** The 2011 paper arXiv:1105.1492 already gives the *size* of a minimum zero forcing set on Cartesian grids, and the 2020 paper arXiv:2009.00220 already defines and analyzes exchange graphs of minimum zero forcing sets. Neither inspected source presents or implies the structural claim that all three-row grid minima live in three-column end windows, the exactly 26 labeled sets, or the connected-to-disconnected transition at length five. Searches for the row-width aliases, basis count, connectivity and exchange graph turned up related rather than covering literature. No search guarantees exhaustive global priority; equivalent unindexed classifications are possible.
+## originality
 
-## Value
+PASS
 
-**PASS.** This is a complete classification for an infinite natural family of Cartesian product graphs. The sharp threshold distinguishes short grids in which optimal forcing placements are mutually reachable from all longer grids in which no optimal single-token exchanges can move a placement from one end to the other. The constant-size 13-state component, exact diameter and end-local support are structural information directly relevant to optimal sensor or control placement under no-extra-resource reconfiguration.
+The exact minimum-set census and disconnection threshold for ordinary zero forcing on three-row open rectangular grids are distinguished from the already-known minimum cardinality and from general zero-forcing reconfiguration examples. The repair also corrects the attribution of the known cardinality formula. No equivalent coverage of the supported classification was found in the comparisons below.
 
-## Scope and limitations
+## value
 
-The result concerns three-row ordinary zero forcing, minimum cardinality three, and single-token jumps only. The boundary classification is finite and reproducible, whereas the all-length guarantee is proved separately. A full independent external mathematical audit and unrestricted literature-priority certification have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determining the optima rather than merely their size settles when an optimal initial placement can be moved from one end to the other by exchanges that never increase the number of blue seeds. The sharp stable two-component regime and complete small graph are structural information about a natural infinite family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

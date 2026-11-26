@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:20:44.964458Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–75",
+        "VERIFICATION.md",
+        "verify_recursive.py and verify_recursive.out",
+        "verify_tabular.py and verify_tabular.out",
+        "Independent replay: python3 /workspace/review-evidence/domination_replay.py"
+      ],
+      "rationale": "An undominated set U and the player to move determine the game: possible successors are precisely U minus N[v] for v with N[v] intersecting U. Every successor is smaller, so induction from U empty proves the min/max recurrences. The opener moves again after two fixed moves. An independently written exact replay using frozensets and paired turn values checked all 182 Heawood and 306 Pappus ordered legal opening pairs. For distances in increasing order it obtained (reply count, Dominator-open total, Staller-open total) = [(3,7,6),(6,5,6),(4,5,6)] and [(3,8,8),(6,7,8),(6,7,8),(2,7,7)] respectively, at every opening vertex. The resulting starting values are (7,6) and (8,7). Vertex transitivity alone would not prove constancy within a distance sphere, but all-pair verification does; alternatively Fano point stabilizers are transitive on their spheres, and a Pappus point stabilizer at the origin acts by (x,y) -> (A x,B y+C x), A B nonzero, transitively on each of the four spheres.",
+      "residual_risks": [
+        "The exact result is limited to these two graphs and the standard closed-neighborhood rule; no family theorem is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generalized Petersen table concerns P(n,k); outer cycles at the relevant orders have lengths 7 and 9 and thus cannot be these bipartite graphs. The projective-plane theorem computes ordinary domination number 2q."
+        ],
+        "reasoning": "Neither a different graph family nor ordinary domination covers these optimal-play continuation values.",
+        "searches": [
+          "10.7151/dmgt.1899 §5 p. 9; literal Heawood/Pappus queries",
+          "arXiv:1405.3436v1 §5 Theorem 5.2"
+        ]
+      },
+      "checked_sources": [
+        "10.1137/100786800",
+        "10.7151/dmgt.1899",
+        "arXiv:1405.3436v1",
+        "Resultary f42713ee9731"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General start-score inequalities relate two optima, not every suboptimal reply. Ordinary domination on the Fano incidence graph yields 4, not the game values 7 and 6."
+        ],
+        "reasoning": "Generic backward induction is a recipe, not an already evaluated distance-class theorem. The precise response geometry is determined here by exhaustive evaluation.",
+        "searches": [
+          "10.1137/100786800 p. 1",
+          "10.7151/dmgt.1899 §5",
+          "arXiv:1405.3436v1 §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The standard partially dominated game is the same convention and state reduction. The later indexed record conditions on the same two fixed moves with the same scores and distance counts."
+        ],
+        "reasoning": "Equivalence requires the same turn after the second move and the same total (including those two moves), not just the same minus label. The general game paper gives the convention and bounds rather than these conditional values.",
+        "searches": [
+          "Resultary: game domination minimax and second-response geometry, Heawood and Pappus",
+          "10.1137/100786800 author manuscript p. 1 and full-text literal graph-name queries"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed 2026/11/22 record has exactly the same Heawood and Pappus start scores and distance/multiplicity/total tables and adds Möbius–Kantor and Desargues. Its catalog date is later than the frozen record's catalog path. The journal table covers minus/equal/plus for a different family."
+        ],
+        "reasoning": "The indexed overlap is exact on this subset and should be acknowledged; it does not establish prior publication. No earlier exact table was located in the checked sources.",
+        "searches": [
+          "Resultary indexed SCOPE-game-domination-minimax-and-second-response-geometry-on-four-exc--f42713ee9731; mirrored RESULT.md offsets 0–8494",
+          "10.7151/dmgt.1899 §5 table"
+        ]
+      },
+      "rationale": "The conditional two-ply minimax tables, and the exact scores in the inspected antecedents, were not found in earlier coverage. One later indexed record gives identical results on both graphs and extends them to other graphs; this is exact overlap, not evidence of earlier priority. The originality judgment is bounded by the sources inspected.",
+      "residual_risks": [
+        "No comprehensive graph-census or unindexed-literature search was established. Catalog ordering is not proof of independent discovery; earlier unindexed overlap remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Convention and general bounds, not exact graph-specific coverage in inspected material",
+          "evidence": "Definitions of the two starting scores and general inequalities.",
+          "identifier_or_url": "https://users.fmf.uni-lj.si/klavzar/preprints/GameDomFinal.pdf",
+          "material_read": "Author manuscript p. 1, PDF text offsets 0–4474; name locators",
+          "method": "OA manuscript bounded reading and literal search",
+          "title": "Domination Game and an Imagination Strategy",
+          "trigger": "Standard rules and prior game bounds"
+        },
+        {
+          "assessment": "Different graph family, no implication for these bipartite graphs",
+          "evidence": "Generalized Petersen P(n,k) table; the outer cycle is odd at orders 14 and 18.",
+          "identifier_or_url": "https://users.fmf.uni-lj.si/klavzar/preprints/BluffGraphs-Feb-16-2015.pdf",
+          "material_read": "§5 p. 9, PDF text offsets 25000–28793",
+          "method": "OA manuscript bounded reading and literal name search",
+          "title": "How Long Can One Bluff in the Domination Game?",
+          "trigger": "Prior minus-graph classification/table"
+        },
+        {
+          "assessment": "Ordinary domination, not domination-game minimax",
+          "evidence": "For a projective plane of order q the domination number is 2q.",
+          "identifier_or_url": "https://arxiv.org/html/1405.3436v1",
+          "material_read": "§5, Theorem 5.2, offsets 15000–18790",
+          "method": "OA bounded reading and literal name search",
+          "title": "Domination in Designs",
+          "trigger": "Same incidence geometry"
+        },
+        {
+          "assessment": "Equivalent Heawood and Pappus tables in a later catalog record; no earlier priority established",
+          "evidence": "Matching game scores, distances, multiplicities and conditional total lengths on both graphs.",
+          "identifier_or_url": "2026/11/22/SCOPE-game-domination-minimax-and-second-response-geometry-on-four-exc--f42713ee9731",
+          "material_read": "Mirrored RESULT.md offsets 0–4682 and 4682–8494",
+          "method": "Resultary indexed search then local mirror full-text passages",
+          "title": "Game domination minimax and second response geometry on four exceptional cubic graphs",
+          "trigger": "Strongest exact Resultary match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–24 and 81–87",
+        "10.7151/dmgt.1899 §5",
+        "Independent exhaustive replay"
+      ],
+      "rationale": "The two classical cubic incidence graphs test the minus phenomenon on natural bipartite objects. The exact response table gives more than two start scores: it distinguishes why Staller must answer locally against a Dominator opening, while the minimizing reply to a Staller opening is unrestricted on Heawood and forced to maximum distance on Pappus. This is reusable exact data for contrasting optimal play in structured graphs, not just a recomputation of ordinary domination or a win/loss label.",
+      "residual_risks": [
+        "The value is a finite benchmark and comparison, not a claim of a general mechanism for minus graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

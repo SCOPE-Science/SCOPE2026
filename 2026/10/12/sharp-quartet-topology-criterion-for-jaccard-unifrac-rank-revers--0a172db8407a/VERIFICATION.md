@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification of the rooted-quartet rank criterion
+# Independent mathematical audit
 
-Execute the standalone file `check_unifrac.py` with standard-library Python 3:
+## correctness
 
-```sh
-python3 check_unifrac.py
-```
+PASS
 
-The executed check returned exactly:
+At fixed richness, Jaccard is constant across distinct pairs on at most three tips and on four tips at richness other than two (or there is no pair). At richness two the only Jaccard values are 2/3 for overlap and 1 for disjointness. Independently enumerating the 15 pairs of the six communities for each quartet by unions, intersections and symmetric differences of symbolic root-path edge sets reproduced both frozen score multisets and the common-reference witnesses. In the balanced case, f(x)=(2-x)/(3-x) is decreasing and exceeds 2(1-x)/(3-x) on (0,1), so the maximum overlap is f(min(a,b)); the minimum disjoint score is 2(2-a-b)/(4-a-b). Their difference has the stated numerator and positive denominator. Equality therefore gives no strict reversal, and the equal-stem transition is 2−sqrt(2). In the pectinate case the maximum overlap is f(a): f(b) and f(a+b) are smaller, and the other potentially competing term 2(1-b)/(3-a-b) is smaller by a positive difference with numerator (4-a)(b-a)+a. The minimum disjoint score is (4-a-2b)/(4-a-b); the resulting margin is strictly negative because b<1. These exhaust both rooted bifurcating shapes. No numerical grid is used to justify the signs or all-real scope.
 
-```text
-VERIFY_OK profiles=2262 classifies_reversal=630 direct_pair_scores=33930
-```
+## originality
 
-The program recomputes presence-on-descendant-edge indicators independently of the theorem's closed-form expressions using exact `fractions.Fraction`. It enumerates all two-species communities and unordered distinct comparisons on both rooted four-tip shapes, checks the complete overlapping/disjoint UniFrac score multisets and extremal signed margin, and tests the strict criterion for 2,262 rational branch profiles of denominator 40. It also verifies that other common richness levels have no strict reversals, and checks the concrete symmetric balanced example at branch fraction \(3/4\). Every evaluated fraction is exact; no floating-point tolerance is used.
+PASS
 
-The infinite family of branch fractions is covered by the direct symbolic formulas and inequalities in RESULT.md, not by the finite grid. The verification does not address alternate root conventions, weighted UniFrac, more than four tips, unequal richness, or the uniqueness of the result in unindexed literature.
+The distinct claim is the complete sharp strict-order comparison of ordinary tip-set Jaccard and fixed-root unweighted UniFrac for equal richness on at most four tips, including both signed margins. The closest verified sources either represent the metric in branch features or classify a different index comparison. No inspected statement or immediate implication supplies this classification.
+
+## value
+
+PASS
+
+The four-tip boundary is intrinsic: four tips at richness two first produce two Jaccard levels, and both bifurcating shapes are classified over their full positive ultrametric length domains. The threshold tells a researcher exactly when branch sharing alone can reverse a presence/absence ordering even at controlled richness; the signed margin and three-community witness distinguish a sharp obstruction from an isolated example or a numerical tie.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

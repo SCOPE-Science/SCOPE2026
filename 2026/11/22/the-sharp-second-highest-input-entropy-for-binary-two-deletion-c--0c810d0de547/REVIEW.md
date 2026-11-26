@@ -1,26 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement fixes the alphabet, transmission prior, two-position deletion law, and embedding multiplicities. The normalizing count \(4\binom{n+2}{2}\) follows from counting all embeddings into all length-\(n+2\) inputs. The proof derives the exact second-level value and equality cases using the source's checked run identity, a strict cost for each nonsingleton run, convex minimization of the two endpoint weights, and a strict derivative bound separating every case with at least two nonsingleton runs. The cases \(n=2,3\) are included explicitly. Both shipped independent finite checkers report PASS. Neither checker is used to infer the all-length theorem.
+PASS
 
-Risks: the all-length argument depends on the published run identity and its adjacent-increment inequality, which have been read in the primary manuscript and reproduced in the proof with explicit hypotheses. The new inequalities (5)--(7) require \(n\ge4\), as ensured by at least two nonsingleton runs. No unproved extension to other channels is claimed.
+Reviewed RESULT.md:5–158, VERIFICATION.md, both scripts, and the nonstandard imported lemmas in Ma–Zhang arXiv:2611.01064v1 (Lemma 2.1, Lemma 3.1 Eq. (7), §3.2 Eq. (10)). Uniform inputs and equally likely pairs give posterior weights proportional to embeddings, with Z=4 binom(n+2,2) by filling the two unused positions independently. Thus minimizing Φ=sum e log2 e maximizes the entropy. The verified run formula and strict adjacent-increment bound charge at least c_n per nonsingleton run, with equality only at length two. For one such run of length r, the two weights sum to n+r+2; strict convexity minimizes at balanced integer weights, and the minimum is strictly increasing in their sum. Thus r=2 and |s_0−s_1|<=1 characterize equality. For q>=2, the weight sum is n+U+q+1>=n+3q+1. The Jensen bound G_n(q) lies more than 1 above G_n(1), since on t>=1, n>=4 its derivative exceeds (3/4)n−2>=1. The integer balancing loss at q=1 is less than 1 by the bound using f''(x)=1/(x ln 2); hence no q>=2 case ties. At n=2,3 there is no q>=2 case. The alternating maximum is strict by the cited Theorem 2.2, so subtracting its Φ gives the positive stated Δ_n; division by Z yields the entropy gap. One balanced position for even n and two for odd n, each with both starting bits, give the word counts. The expansion Δ_n=(6 log2 3−9)n+3 log2 n+O(1) and Z=2(n+1)(n+2) give the stated limit. At n=1 there is no strict second level. Independent replay: python3 /workspace/branches/replay_frozen_review.py 4 counted each two-position insertion witness and compared exact products, checking the run formula for all 2,044 words at n=2..10 as well as both top levels and complete tie classes. This is finite corroboration, not the all-length argument.
 
-## Originality — PASS against inspected material
+## originality
 
-Ma and Zhang, arXiv:2611.01064v1, already establish the unique alternating maximizers, and their ancillary `results.json` contains finite strict runner-up examples. This finding does **not** claim those facts as new. The new all-length statement specifies the entire second-highest entropy level and its precise equality class, including a positive exact gap and limiting constant. The publication's global-minimizer inequality is weaker than that exact stability classification. The manuscript's Section 3 proof, Section 6 finite comparisons and ancillary entries were compared to the claimed result; related prior conditional-entropy results were also inspected. Search for second-largest entropy, balanced single-double-run aliases and sharp posterior stability produced no all-length covering theorem.
+PASS
 
-Residual priority risk: earlier or unindexed work might already contain an equivalent second-level classification. The source's finite runner-up table means the novelty is the **all-length proof and formula**, not the initial finite examples.
+The first entropy maximum, the run-functional machinery, and finite runner-up examples are prior. The supported distinction is the strict all-length second level, full balanced-double-run equality class, and its explicit gap and asymptotic, proved by a uniform separation of every multi-defect run pattern. The closest primary theorem and data were read and compared at statement level.
 
-## Value — PASS
+## value
 
-The established alternating optimum is qualitative: it does not quantify the best competing received words or the entropy lost by the nearest nonalternating observation. This result identifies a rigid, centrally balanced single-defect structure, gives an exact all-length quantitative stability gap, and proves a nonzero limit for the gap multiplied by blocklength. The precise second-extremal layer is a natural robustness invariant for conditional uncertainty under synchronization errors. It is not a rescaling of the known maximal-entropy formula and does not rely on arbitrary finite cutoffs.
+PASS
 
-## Literature and limits
+Given the known alternating maximum, the exact entropy loss to the best nonalternating observation is a natural stability invariant. Knowing the complete centrally balanced one-defect equality class and a positive limiting n-scaled gap says more than either a strict maximum or a finite runner-up table. The conclusion is for uniform binary two-deletion channels, not general synchronization errors.
 
-- H. Ma and W. Zhang, *Maximal input entropy for binary two-deletion and two-insertion channels*, arXiv:2611.01064v1 (2026-10-31), Sections 2, 3, 6, and ancillary `results.json`: https://arxiv.org/pdf/2611.01064
-- S. Singhvi, O. Sabary, D. Bar-Lev, E. Yaakobi, *Conditional Entropies of k-Deletion/Insertion Channels*, arXiv:2407.10026 (first public 2024-07-13), Sections IV, VI, VII: https://arxiv.org/abs/2407.10026
-
-The conclusion is binary, two-deletion, uniform-prior only; other channel laws, alphabets, and error radii remain outside its scope. No independent scholarly audit has been performed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

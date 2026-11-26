@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:14:07.155827Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–81; VERIFICATION.md and verify.py inspected",
+        "/workspace/branches/replay_trapezoids.py"
+      ],
+      "rationale": "On each finite open arclength regime, both endpoint motions are affine with unit tangents u,v. The arc-and-chord shoelace expression has quadratic coefficient [v,u]/2: among the changing terms only the closing chord determinant is quadratic. Differentiation gives 2B'=[q-p,u+v] and B''=-[u,v]. Distinct parallel edge directions are opposite in the stated convex-vertex setting, yielding constant area; nonparallel tangents yield a true quadratic. No endpoint pair lies in one edge because each edge is shorter than half the perimeter. Splitting nonconstant regimes at derivative zeros and B=V/2 produces finitely many monotone inverse-square-root pushforwards, while constant intervals give length/P and only a finite null set is omitted. On bases b>a, arclength matching yields upper abscissa xi+C-t with C=(a+b+c-d)/2, and |c-d|<b-a implies that the entire (C-a,C) interval lies inside the long base. Its cap is h(a+b-C)/2, out of V=h(a+b)/2. The reverse-oriented interval supplies the complement and the same smaller fraction, giving exactly one atom of mass 2a/P and location 1/2-|c-d|/(2(a+b)); equal legs give the isosceles case. A parallelogram's central reflection is the half-perimeter shift and bisects area for every chord. No opposite parallels means no constant regime. Independent rational arclength partition and shoelace samples, including a horizontally offset trapezoid absent from the frozen test, recover atoms (location,mass) = (4/9,7/23) and (1/2,7/25).",
+      "residual_risks": [
+        "Finite exact examples corroborate rather than establish the law. Polygon density proof uses nonredundant strictly convex vertices; a convention allowing a collinear extra vertex in a quadrilateral merely presents a triangle, with no opposite parallel sides or atom."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Harned describes an isolated envelope point for the trapezoid (p. 88) and the common midpoint at paired parallel edges (pp. 88–89 and proof p. 92). Berele–Catoiu metadata concerns both perimeter- and area-bisecting envelopes; verified accessible evidence does not resolve its exact quadrilateral results."
+        ],
+        "reasoning": "A common midpoint for chords joining fixed parallel edges gives the locally constant cap by balancing the two swept triangles. That fact alone does not give the converse for nonparallel edges, the pushforward density or the arclength-weighted atom formula.",
+        "searches": [
+          "Harned Definition 2.5 and Theorem 3.1 with proof; Berele–Catoiu DOI, publisher and DePaul routes"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary and mirrored distinct comparators above",
+        "Harned and Grüne primary PDFs; scoped access attempts for Berele–Catoiu and Amadtohed et al."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Parallel-pair bisectors pass through their common midpoint; Harned's quoted result is about the envelope and does not state a measure on chord parameters. The triangle result gives the range rather than the measured fibers of the fraction map."
+        ],
+        "reasoning": "The envelope theorem supplies the geometry behind one direction. The verified distribution theorem additionally computes the nonparallel curvature, shows it precludes hidden constant regimes, and computes plateau length and absolute cap fraction, yielding a quantitative law and inverse observables. No inspected result supplies that whole implication.",
+        "searches": [
+          "Compare Harned's parallel-edge theorem/proof and trapezoid figure against the atomicity converse, branch density, and arclength overlap calculation; compare mirrored triangle area profile"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The pushforward uses a uniform boundary point followed by a half-perimeter shift. Grüne et al. choose the area-halving chord in a given direction and bound chord length. Indexed parallelogram moments use the same perimeter pairing but record lengths."
+        ],
+        "reasoning": "An area-halving constraint forces fraction 1/2 by definition and is not an equivalent sampling scheme. A chord-length moment does not determine an area-fraction distribution for this polygon family.",
+        "searches": [
+          "Local Resultary perimeter-halving chord area fractions, area imbalance, trapezoid atoms and halving-chord moments",
+          "Primary lookup on polygon perimeter-bisecting envelopes and area halving, Harned/Berele–Catoiu/Grüne"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact corpus hit ends in 3df53cbd2686 and is the assigned result. The distinct same-date b3093982a4a7 gives extrema and attainable fractions for triangles; afe03ec1f058 gives parallelogram halving-chord length moments; 7a8e4b9fd72b gives length/geometric dilation for isosceles trapezoids."
+        ],
+        "reasoning": "The exact hit gives no independent coverage. The distinct records concern extrema, lengths, or a different shape class, not the law and genuine-trapezoid jump. The comparison does not depend on within-day priority.",
+        "searches": [
+          "Local Resultary perimeter-halving area atoms and quadrilateral/trapezoid formula; closely ranked area-imbalance and moment records"
+        ]
+      },
+      "rationale": "Credit the known parallel-pair collapse of the perimeter-bisector line envelope, including the elementary connection between a fixed midpoint and a constant parallel-edge cap. The distinct claim supported here is the area-fraction pushforward: exclusion of all other atoms, the density structure, and exact location/mass under uniform boundary arclength. The plausible later quadrilateral-envelope comparison could not be settled at full-text level.",
+      "residual_risks": [
+        "Berele–Catoiu full text is a material unresolved comparison; inaccessible sources and unindexed work cannot be excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Parallel-pair midpoint collapse known; compared at statement level, not evidence of the full law",
+          "evidence": [
+            "The envelope section is a point for bisectors pairing parallel edges, at their mutual midpoint."
+          ],
+          "identifier_or_url": "https://ijgeometry.com/wp-content/uploads/2021/09/6.-85-106.pdf",
+          "material_read": "Def. 2.5, trapezoid caption p. 88, Thm. 3.1 pp. 88–89 and its proof p. 92; extraction offsets about 6000–9346 and 14300–17554",
+          "method": "Lawful journal PDF, targeted extraction",
+          "title": "Perimeter Bisectors, Cusps, and Kites",
+          "trigger": "Same parallel-side regime and trapezoid"
+        },
+        {
+          "assessment": "Unresolved priority risk, not noncoverage",
+          "evidence": [
+            "Accessible material describes both envelope families; full text could not be retrieved lawfully via attempted routes."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.aam.2022.102342",
+          "material_read": "DePaul metadata and publisher search snippet; no paper theorem pages",
+          "method": "Institutional record, DOI and publisher/PDF access attempts",
+          "title": "Bisecting envelopes of convex polygons",
+          "trigger": "Close work on area- and perimeter-bisecting envelopes"
+        },
+        {
+          "assessment": "Different constraint and invariant",
+          "evidence": [
+            "Area-bisecting chords indexed by direction and bounds on their extreme lengths."
+          ],
+          "identifier_or_url": "https://tizian.cs.uni-bonn.de/publications/gkms-chapc-05.pdf",
+          "material_read": "PDF p. 1, offset 0",
+          "method": "Open PDF extraction",
+          "title": "Chords halving the area of a planar convex set",
+          "trigger": "Possible dual area/perimeter chord formulation"
+        },
+        {
+          "assessment": "Reported setting is triangle envelopes; no independent full-text conclusion",
+          "evidence": [
+            "Frozen RESULT.md lines 93, 104; lawful access attempts did not yield the text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2022/2751666",
+          "material_read": "Frozen comparison and bibliographic details, no new full-text passage",
+          "method": "DOI and publisher-PDF attempts",
+          "title": "Dividing the Perimeter of a Triangle into Unequal Proportions",
+          "trigger": "Fixed perimeter-ratio envelopes"
+        },
+        {
+          "assessment": "A distinct same-date triangle extremum/profile result",
+          "evidence": [
+            "Attainable range and extremal imbalance, not an arclength probability law."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-area-imbalance-profile-of-perimeter-halving-chords-in-ever--b3093982a4a7",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Local index and mirrored source",
+          "title": "Sharp area-imbalance profile of perimeter-halving chords in every triangle",
+          "trigger": "Same chord family and area fraction"
+        },
+        {
+          "assessment": "Length statistic",
+          "evidence": [
+            "Moments of chord length, not smaller-area fractions."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-three-halving-chord-moments-reconstruct-a-parallelogram-and-have--afe03ec1f058",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Local index and mirrored source",
+          "title": "Three halving-chord moments reconstruct a parallelogram",
+          "trigger": "Same random chord pairing"
+        },
+        {
+          "assessment": "Different optimization target",
+          "evidence": [
+            "Minimal halving-chord length and geometric dilation, not a cap-area law."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-geometric-dilation-among-isosceles-trapezoids--7a8e4b9fd72b",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Local index and mirrored source",
+          "title": "Sharp geometric dilation among isosceles trapezoids",
+          "trigger": "Same shape family with perimeter-halving chords"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–20 and 41–81; Harned Thm. 3.1 comparison"
+      ],
+      "rationale": "This continuous/discrete decomposition distinguishes trapezoids from other quadrilaterals without observing any chord direction. Exact jump mass and location recover the shorter base with known perimeter and dimensionless leg asymmetry, while the polygon theorem explains all atoms and the functional form of the rest. These are measurable geometric invariants beyond an envelope finding or an extremum.",
+      "residual_risks": [
+        "No general shape inversion or stability under noise is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

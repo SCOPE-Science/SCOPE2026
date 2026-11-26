@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,6 @@
 
 # Reproducibility checks
 
-Place `verify.py` and `rational_certificate.json` in the same directory and execute `python3 verify.py` with a standard-library Python 3 installation. The certificate contains the complete common denominator and every state numerator for the 17-state transfer system; the verifier multiplies exact integer-coefficient bivariate polynomials to check the complete system, so these identities are not a truncated-series argument. It independently builds the ladder edge sets and excludes common-edge conflicts by direct endpoint inspection for all 74,898 subsets in orders 1 through 6, matching all coefficients. It verifies the 17-state potential inequality exhaustively and compares the proven optimal-size and multiplicity formulas with the transfer computation for orders 1 through 200; it checks the all-set recurrence through order 39. See `verification_output.txt` for actual output.
+With the retained `verify.py` and `rational_certificate.json` in the same directory, execute `python3 verify.py` with a standard-library Python 3 installation. The certificate gives a common denominator and all 17 numerators. The checker verifies the formal transfer equations after clearing the common denominator by exact integer polynomial arithmetic. The five grouped transfer equations and numerators in `RESULT.md` give the same identities. Uniqueness of the formal solution proves the infinite-family generating-function identity.
 
-The infinite-family proof uses an exhaustive symbolic 17-state identity and an explicit potential argument. Brute-force small cases and bounded recurrences are regression checks only; they are not presented as proofs for all orders. Independent audit: not performed.
+The script also compares all coefficients against direct enumeration of 74,898 edge subsets over ladder orders 1–6 and checks the total-count recurrence through order 39. Its potential check and degree and leading-coefficient comparisons through order 200 are consistency checks against the already known extremal results, not an originality claim. See the retained `verification_output.txt` for the recorded output. These finite checks do not replace the formal transfer proof.

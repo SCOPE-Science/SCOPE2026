@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:46:48.610290Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–93 and 103–104; recurrence, low-degree coefficients, walk count and rational arithmetic independently checked",
+        "Packaged verify.py and VERIFICATION.md, statically inspected; no submitted program executed"
+      ],
+      "rationale": "For H=d(zI−P), the endpoints are exact because the regular bipartite graph has P-eigenvalues ±1. The optimal interval residual gives C_m=D_m(z,P)/(d T_m(z)), with D_m the Chebyshev divided difference. The first four expansions have nonnegative coefficients for z>1. At m=5 only the P and P² coefficients can become negative, and both are nonnegative exactly when z≥√5/2, equivalent to κ≤9+4√5, including equality. For Q_d the adjacent entry of D_5 sees only P and P³: the three-step count is 3d−2 versus one direct edge. Consequently after removing a positive prefactor its sign is that of z²−5/4+(3d−2)/d². This is negative for every fixed forbidden z as soon as d is sufficiently large. The positive constant row sum allows a strictly positive perturbation of a basis vector. Exact evaluation at Q32, z=21/20 gives T_5=503601/200000, the entry −17825/49113088 and the stated positive perturbation leaves output −17825/98226176. The Neumann series shows the exact inverse is strictly positive.",
+      "residual_risks": [
+        "This concerns final exact-interval iterates for a zero start in exact arithmetic; no claim about internal stages, rounded arithmetic, arbitrary spectral enclosures, or higher degrees."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact-interval Stieltjes theorem proves sharp κ=3 for degree three and its Limitations explicitly excludes classification of higher degrees. Gutknecht–Röllin was accessible only as landing/abstract material in this audit."
+        ],
+        "reasoning": "The Stieltjes theorem has a broader input class but a lower degree; its sharp bound does not give positivity in the regular bipartite subclass at all condition numbers for degree three, nor the fifth frontier.",
+        "searches": [
+          "Focused primary-literature lookup for Chebyshev semi-iteration positivity on graph Laplacians and M-matrices",
+          "2026/10/4/SCOPE-condition-three-is-the-sharp-positivity-frontier-for-the-degree--6e9af63df14e",
+          "DOI 10.1016/S0167-8191(01)00139-9"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, frozen match and four distinct related findings",
+        "Primary-literature search and Gutknecht–Röllin DOI landing material"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complete-multipartite result tests filters f(hL) in its own class; among connected bipartite graphs this covers complete bipartite graphs, not arbitrary regular bipartite graphs or growing hypercubes."
+        ],
+        "reasoning": "The standard Chebyshev formula determines coefficients and hence a sufficient bound, but does not itself certify necessity under the graph constraints: negative coefficients can be compensated by higher powers. A graph family with vanishing relative longer-walk contributions is the decisive additional step.",
+        "searches": [
+          "2026/10/13/SCOPE-an-exact-positivity-criterion-on-complete-multipartite-diffusion--690509e7de2b",
+          "Chebyshev/Stieltjes exact interval result, Resultary 2026/10/4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The retrieved fifth-iterate analogue has κ=9 for spectrally tuned Nesterov acceleration on Stieltjes systems."
+        ],
+        "reasoning": "A final inverse polynomial can also be viewed as a divided-difference graph filter, but the Nesterov iteration is a different polynomial and the shared first-four/fifth-step pattern is not an algebraic equivalence.",
+        "searches": [
+          "Local Resultary searches for exact spectral-interval Chebyshev inverse polynomial positivity / regular bipartite Laplacians",
+          "2026/10/13/SCOPE-condition-nine-is-the-sharp-fifth-iterate-positivity-frontier-fo--a7c57a92257a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-day hit gives a sharp vertex-order threshold for failure at degree three on trees, using the exact interval of each tree. The exact regular-bipartite degree-five hit is the frozen record itself."
+        ],
+        "reasoning": "The tree threshold and graph-uniform degree-five condition-number threshold are different exact classifications. The only connected regular tree with d≥1 is K2. Same-day dates establish neither equivalence nor precedence.",
+        "searches": [
+          "Local Resultary exact degree/condition-frontier search",
+          "2026/11/22/SCOPE-twelve-vertices-are-sharp-for-loss-of-positivity-in-three-step-c--eb788de3c836"
+        ]
+      },
+      "rationale": "The sharp degree-five graph-uniform bound, and unconditional positivity of the first four final iterates in this class, are distinct from the strongest retrieved positivity bounds. The Chebyshev residual construction and coefficientwise sufficient test themselves are not credited as new.",
+      "residual_risks": [
+        "Older monotone Chebyshev and M-matrix literature could contain an unlocated equivalent; Gutknecht–Röllin full text was not retrieved.",
+        "Bounded literature verification is not a claim of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "A broader matrix class at a different degree; no fifth frontier",
+          "evidence": "Sharp κ=3 for degree three on SPD Stieltjes matrices; higher degrees ‘are not classified here’.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-condition-three-is-the-sharp-positivity-frontier-for-the-degree--6e9af63df14e/RESULT.md",
+          "material_read": "Finding, offset 0; Limitations, offset 7420",
+          "method": "Targeted Resultary retrieval and local mirror",
+          "title": "Condition three is the sharp positivity frontier for the degree-three Chebyshev semi-iterate",
+          "trigger": "Closest prior exact-interval Chebyshev positivity boundary"
+        },
+        {
+          "assessment": "Different sharpness parameter, iteration degree and graph class; not discarded on date",
+          "evidence": "A twelve-vertex tree is a size-sharp failure at degree three with interval [μ,μ+λmax(L_T)].",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-twelve-vertices-are-sharp-for-loss-of-positivity-in-three-step-c--eb788de3c836/RESULT.md",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Targeted Resultary retrieval and local mirror",
+          "title": "Twelve vertices are sharp for loss of positivity in three-step Chebyshev iteration on trees",
+          "trigger": "Distinct graph-specific Chebyshev record on the same date"
+        },
+        {
+          "assessment": "Different algorithm and operator",
+          "evidence": "The κ=9 bound is for spectrally tuned Nesterov acceleration on Stieltjes systems.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-condition-nine-is-the-sharp-fifth-iterate-positivity-frontier-fo--a7c57a92257a/RESULT.md",
+          "material_read": "Finding and Proof start, offset 0",
+          "method": "Targeted Resultary retrieval and local mirror",
+          "title": "Condition nine is the sharp fifth-iterate positivity frontier for Nesterov acceleration",
+          "trigger": "Matching first-failure iteration and near-identical positivity nomenclature"
+        },
+        {
+          "assessment": "Covers filters on a graph family not containing all regular bipartite graphs",
+          "evidence": "The graph argument is restricted to complete multipartite graphs and acts on f(hL).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-an-exact-positivity-criterion-on-complete-multipartite-diffusion--690509e7de2b/RESULT.md",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Targeted Resultary retrieval and local mirror",
+          "title": "An exact positivity criterion on complete multipartite diffusion graphs",
+          "trigger": "Plausibly broader positivity criterion for graph filters"
+        },
+        {
+          "assessment": "Access does not support an exclusion from the full article",
+          "evidence": "The accessed material establishes the article identity and classical method scope; no full-text passage was verified.",
+          "identifier_or_url": "https://doi.org/10.1016/S0167-8191(01)00139-9",
+          "material_read": "Landing page/abstract, not full text",
+          "method": "Lawful OA DOI attempt",
+          "title": "The Chebyshev Iteration Revisited",
+          "trigger": "Classical Chebyshev iteration reference and possible positivity discussion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§2–5",
+        "Comparison to arbitrary Stieltjes degree three, Resultary 2026/10/4"
+      ],
+      "rationale": "For graph diffusion and inverse problems the exact inverse preserves positivity, but minimax acceleration need not. This identifies a precise regime where a common accelerated polynomial is safe across a natural class, shows an unconditional guarantee for four final steps, and proves when that guarantee fails even for strictly positive data. The high-degree hypercube witnesses make the boundary necessary at every supercritical condition number, not merely a coefficient-bound estimate or a single failure.",
+      "residual_risks": [
+        "The threshold is worst-case; fixed graph guarantees may be better and the witnesses can be large near the frontier."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

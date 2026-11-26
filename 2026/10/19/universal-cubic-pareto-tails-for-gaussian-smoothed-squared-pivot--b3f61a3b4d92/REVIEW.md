@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The singular-pivot integral includes the essential squared-pivot sampling weight. Its cubic tail follows by a two-sided triangle squeeze near a zero pivot. Dominated convergence holds because the complementary Gaussian block has rapidly decaying norm and the dominating ratio is bounded by a quadratic polynomial in its energy. This applies to every fixed noncentral Gaussian mean matrix and positive noise variance. Independent chi-square and Dirichlet identities produce the stated centered gamma coefficient. Layer cake proves the exact moment frontier; oriented-minor algebra recovers the established squared-moment identity. The supplied finite checks reproduce key identities but do not stand in for the proof.
+## correctness
 
-## Originality — PASS, with literature uncertainty
-The original squared-entry randomized LU construction and its squared-error identity are prior work (Gilles–Wilber, arXiv:2601.22344v1). Divan–Gilles, arXiv:2609.06287v1, analyze randomized approximation and pivot laws. The inspected literature does not state a joint Gaussian-perturbation cubic Pareto tail, its smoothed noncentral coefficient, or the threshold at the third moment. Spielman–Yu, arXiv:2610.08701v1, treat a different, deterministic partial-pivot choice on Gaussian matrices. Published records on complete-pivot cross approximation and adaptive column selection do not imply this distributional claim. Searches of indexed records and accessible earlier findings did not find equivalent coverage. Equivalent results in unindexed or unexamined literature remain possible; novelty has no independent certification.
+PASS
 
-## Value — PASS
-RPLU is motivated by low-rank approximation; its published expected-squared-residual analysis does not control third moments. The theorem identifies a sharp, dimension-independent integrability boundary under any nondegenerate Gaussian smoothing of *arbitrary deterministic data*, even though the squared error remains finite. It quantitatively separates squared-probability randomized pivoting from classical maximum-entry pivoting, and supplies an exact coefficient for all centered rectangular dimensions. This is a meaningful limitation for risk-sensitive use of a recent pivoting method, not a routine restatement of its existing variance bound.
+Original RESULT.md line 87 overstates the deterministic minor identity: for A=[[0,1],[1,0]] the only selectable corners each leave a residual of norm 1, whereas the stated right side is 2. The repaired RESULT.md restricts the factor 4 to nonzero entries and gives the exact nonzero-corner count otherwise, by summing the squared pivot cancellation only over selectable pivots. Gaussian inputs have no zero entries almost surely, so this repair does not change the unconditional second moment or main theorem. Independently, for a fixed complement and t>||W|| the tail event is (t^2-||W||^2)x^2+2<W,uv^T>x-||u||^2||v||^2<0; its two roots multiplied by t tend to -h and h, h=||u||||v||. Integrating the x-squared selection weight gives 2 f(0)h^3/(3S). On ||W||≤t/2 the scaled integral is dominated by a constant times h^3/S≤S^2/8, and the Gaussian complement outside this event gives o(t^-3). The Gaussian chi-square Laplace integrals for E[(UV)^(3/2)/S] have total power (mn-1)/2+3, giving the displayed 8/(mn+3) times the gamma ratios. Layer cake and the radial Gaussian second-moment calculation verify the remaining assertions. These are analytic checks, not claims of a new Monte Carlo run.
 
-## Scope and risk
-One pivot, real independent Gaussian entry perturbations, fixed finite dimensions and exact arithmetic only; no statement about typical input-dependent fixed-matrix pivot tails, repeated pivots, other noise classes, finite-precision errors or full solver stability.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the unconditional sharp cubic tail for Gaussian-smoothed squared-entry RPLU, including its noncentral coefficient, the centered gamma formula and the corresponding moment frontier. The deterministic correction and Gaussian squared mean are not credited as novel. Inspected fixed-matrix and partial-pivot results do not yield the joint-law asymptotic.
+
+## value
+
+PASS
+
+The exact coefficient and transition from finite squared error to infinite third moment show a real limitation of a motivated algorithm, even at arbitrarily small positive smoothing variance and in dimension 2×2. Complete pivoting has no such moment failure. This identifies an observable not determined by existing expected-error guarantees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

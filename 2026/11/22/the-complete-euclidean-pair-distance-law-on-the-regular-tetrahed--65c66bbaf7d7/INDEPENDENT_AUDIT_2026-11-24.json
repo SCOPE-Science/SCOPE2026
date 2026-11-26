@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:49:57.660974Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–95 including all constants and scope",
+        "VERIFICATION.md",
+        "check.py (inspected, not executed)",
+        "Independent geometric derivation using explicit tetrahedral coordinates and a common cap formula"
+      ],
+      "rationale": "For independent arclength sampling there are 6, 24, and 6 ordered coincident, adjacent, and disjoint edge pairs. For a direct coordinate check use the four sign vectors (1,1,1), (1,-1,-1), (-1,1,-1), (-1,-1,1) scaled by 1/(2 sqrt(2)). Edges meeting at a vertex have inner product 1/2 between unit directions. Opposite unit directions are perpendicular and their midpoint displacement is normal to both, with squared length 1/2. This gives the three unit-square quadratic forms in the finding. Coincident edges give 2r-r^2. The adjacent change of coordinates (u-v/2,sqrt(3)v/2) gives a 120-degree sector and area factor 2/sqrt(3); its two clipping lines have distance sqrt(3)/2 from the origin. For r<=1 each exterior cap is in the wedge, since u>=1 and v<0 imply u^2+v^2-uv>=1, and the two exterior regions do not overlap within the disk because u,v>=1 give (u-v)^2+uv>=1. The opposite form is the disk of squared radius r^2-1/2 in a centered square of side 1, clipped by four nonoverlapping side caps when the radius exceeds 1/2. A disk cap at distance d has area D(R,d)=R^2 arccos(d/R)-d sqrt(R^2-d^2). Substituting yields each displayed branch, continuous at the thresholds and with total CDF one at r=1. At h only the opposite branch supplies the derivative jump (1/6)*2*pi*h. Writing delta=R^2-d^2, the cap is also the integral from 0 to delta of sqrt(delta-s)/sqrt(d^2+s) ds, giving (2/(3d))*delta^(3/2)+O(delta^(5/2)). This gives per-cap coefficients 8/9 after the adjacent Jacobian and 4/3 for the opposite cap, hence -56/27 in the mixture. Near r=1, the leading inward linear deficits at the three adjacent maximizing corners have coefficients (2,1),(1,2),(1,1); at all four opposite corners they are (1,1). The deficit cutoff is 2 epsilon+O(epsilon^2), giving conditional tail coefficients 4 and 8, in addition to the exact coincident coefficient 1. Weighting gives 25/6. Independently, the sampled point has mean zero in the sign-vector coordinates and expected squared norm 3/8-E[U(1-U)]=5/24; independence gives E[R^2]=5/12.",
+      "residual_risks": [
+        "The result concerns independent samples and the ambient norm; neither edge-network distance nor surface/volume sampling has these components.",
+        "Numerical supporting quadrature is finite and not the basis for the symbolic conclusions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The polygon-region source was described as a closed-form PDF framework for points in two polygon regions; direct full text was not accessible.",
+          "61a02a61804e describes a short-distance quartic law for surface-uniform polyhedral points; 033201e6299b is about volume-uniform simplex pairs and early-distance behavior.",
+          "On the wireframe the initial polynomial has a linear term r/3 from coincident one-dimensional pairs and later thresholds from perpendicular and adjacent pairs."
+        ],
+        "reasoning": "Ordinary positive-area planar polygon sampling differs from arclength on segments, and skew edges need not lie in a common plane. An exact broad clipped disk/quadratic formula in the requisite one-dimensional-pair setting could be relevant, but a general integral or unproved degeneration of region densities does not itself give these exact branches or constants. Surface and volume laws use incompatible measures.",
+        "searches": [
+          "Distance distribution for pairs of fixed oblique/skew segments and projection/truncation formulations",
+          "DOI 10.1002/mma.7951 on distance in arbitrary polygon regions",
+          "Resultary 61a02a61804e and 033201e6299b"
+        ]
+      },
+      "checked_sources": [
+        "Resultary target 65c66bbaf7d7 and distinct 61a02a61804e, 033201e6299b, 54451450bcd2",
+        "MathWorld same-line result description; DOI 10.1002/mma.7951 result description",
+        "Frozen RESULT.md lines 97–111 on supporting checks and prior comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen comparison describes Finch as measuring widths over directions and Bäsel as sampling planar polygon interiors.",
+          "The same-segment law is standard, but the wireframe has a simultaneous adjacent/opposite cap onset and a separate lower opposite-edge threshold.",
+          "No retrieved statement gave the exact two noncoincident clipped laws or formula from which both were a stated specialization."
+        ],
+        "reasoning": "The supported remainder is not a renaming of one known conditional law: it requires the fixed tetrahedral sampling weights, two square clipping calculations, and verification of the jump, joint cusp amplitude and tail at the correct boundaries. A source defining a broader exact formula for both clipped cases would be material if found. Standard cap integrations are ingredients, not themselves novelty claims.",
+        "searches": [
+          "Finch arXiv:1110.0671 and Bäsel arXiv:1204.2707 as cited in RESULT.md",
+          "Distance distribution between two random points in arbitrary polygon regions (DOI 10.1002/mma.7951)",
+          "Exact displayed Resultary wireframe-neighbor claims 61a02a61804e, 033201e6299b, 54451450bcd2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary self-match ending 65c66bbaf7d7 is the assigned record, not external priority evidence.",
+          "Resultary 54451450bcd2 concerns Haar-uniform centroidal lines and support [sqrt(2),4/sqrt(3)], not independent points on the unit edge union (which have distances in [0,1]).",
+          "The same-segment model in the MathWorld lookup covers only the weight-1/6 coincident contribution."
+        ],
+        "reasoning": "Euclidean distance and chord length are equivalent only if the chord endpoints have the same joint law. A direction- or line-sampled chord of a tetrahedron, or an intrinsic shortest path on its network, does not yield these independent endpoint measures and overlaps.",
+        "searches": [
+          "Literature lookup for ambient Euclidean distances between independent uniform points on fixed line segments or a tetrahedral wireframe, including oblique and disjoint segments",
+          "Resultary comparisons: tetrahedral edge skeleton and line/chord picking, segment pair distances, Euclidean surface and volume pair laws"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target Resultary item supplies the matching table/formulas; separate localized surface/volume and centroidal chord records have different sampling.",
+          "The MathWorld lookup supplies the same-segment model but not the two different-edge conditional tables in the material retrieved."
+        ],
+        "reasoning": "An exact earlier tetrahedral wireframe law, or an exact table of all three naturally weighted pair distributions, would cover the main formula. Neither a same-line expression alone nor a dimensionally different tetrahedral table supplies it.",
+        "searches": [
+          "Resultary exact regular tetrahedral wireframe distance distribution and chord/distance tables",
+          "Published distance-distribution lookup for fixed line pairs",
+          "MathWorld Line Line Picking"
+        ]
+      },
+      "rationale": "Pass for the complete ambient arclength-pair law on this canonical wireframe and its combined transition/endpoint structure, not for the same-segment component or the elementary circular segment formulas. The strongest related Resultary comparisons either change the measure to surface area or volume, or choose one line through a fixed point rather than two independently sampled points. The most relevant general-distance search returned planar polygon-region laws and a coincident-line formula, not a statement for two skew or vertex-adjacent fixed unit segments covering all clips. No earlier whole-mixture formula or demonstrated specialization was found in the available statements; this is not a claim of absolute priority.",
+      "residual_risks": [
+        "Several primary full texts and mirrored passages were unavailable; descriptions are not used as evidence of whole-document noncoverage.",
+        "An earlier exact law for oblique and skew segment pairs that specializes to all components, or an unindexed earlier complete wireframe formula, remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers coincident edges in the source description, not both different-edge geometries",
+          "evidence": "Two independent uniform points on the same unit line segment.",
+          "identifier_or_url": "https://mathworld.wolfram.com/LineLinePicking.html",
+          "material_read": "Search result's same-unit-segment description; page retrieval timed out",
+          "method": "Literature lookup and attempted lawful OA retrieval",
+          "title": "Line Line Picking",
+          "trigger": "A line-picking table could give a conditional distribution"
+        },
+        {
+          "assessment": "No basis in retrieved material to assert coverage of one-dimensional/skew segment pairs or to rule out an additional relevant passage",
+          "evidence": "Described as a framework for points drawn in respective polygon regions.",
+          "identifier_or_url": "https://doi.org/10.1002/mma.7951",
+          "material_read": "Search result's description of the polygon-region PDF framework; publisher full text unavailable and no readable DOI copy returned",
+          "method": "Literature lookup, publisher/OA attempt",
+          "title": "Distance distribution between two random points in arbitrary polygon regions",
+          "trigger": "Potential exact broader distance-distribution framework"
+        },
+        {
+          "assessment": "The compared direction-width observable is different; not a whole-text no-coverage claim",
+          "evidence": "Frozen RESULT.md lines 100–107 characterize widths of the solid over sampled directions.",
+          "identifier_or_url": "https://arxiv.org/abs/1110.0671",
+          "material_read": "Frozen primary-work comparison and citation; no public paper passage retrieved in this check",
+          "method": "Frozen citation comparison and attempted public OA/arXiv retrieval",
+          "title": "Width Distributions for Convex Regular Polyhedra",
+          "trigger": "Tetrahedral distance-like distribution"
+        },
+        {
+          "assessment": "The compared planar interior sampling is not the fixed three-dimensional 1-skeleton law; full paper content not inferred",
+          "evidence": "Frozen RESULT.md lines 100–109 describe point distances in planar polygon interiors.",
+          "identifier_or_url": "https://arxiv.org/abs/1204.2707",
+          "material_read": "Frozen primary-work comparison and citation; no public paper passage retrieved in this check",
+          "method": "Frozen citation comparison and attempted public OA/arXiv retrieval",
+          "title": "Random chords and point distances in regular polygons",
+          "trigger": "Possible via cross-section or polygon point-distance identities"
+        },
+        {
+          "assessment": "Surface area, not length on edges; stated short-distance regime not the complete wireframe CDF",
+          "evidence": "Catalogue describes a quartic short-distance regime for surface-uniform pairs on convex polyhedra.",
+          "identifier_or_url": "2026/10/25/SCOPE-the-exact-short-euclidean-surface-pair-law-and-its-dihedral-bend--61a02a61804e",
+          "material_read": "Catalogue statement; full mirrored source unavailable",
+          "method": "Configured Resultary search and attempted mirrored passage retrieval",
+          "title": "The exact short Euclidean surface pair law and its dihedral bend",
+          "trigger": "Closest indexed Euclidean polyhedral boundary pair law"
+        },
+        {
+          "assessment": "Distinct sampling variable, not the frozen law; no priority inferred from date",
+          "evidence": "Uses a Haar-uniform line through the centroid, with chord support [sqrt(2),4/sqrt(3)] in its own normalization.",
+          "identifier_or_url": "2026/11/22/SCOPE-centroidal-chord-spectrum-and-dual-rare-direction-limits-of-the--54451450bcd2",
+          "material_read": "Catalogue statement",
+          "method": "Configured Resultary search",
+          "title": "Centroidal chord spectrum and dual rare-direction limits of the regular tetrahedron",
+          "trigger": "Same tetrahedron and same-day distance-like spectrum"
+        },
+        {
+          "assessment": "Volume-uniform early-distance law does not specialize to the tetrahedral arclength mixture",
+          "evidence": "Statement addresses simplex-interior sampling and the first transition.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-first-euclidean-distance-transition-for-arbitrary-simplice--033201e6299b",
+          "material_read": "Catalogue statement",
+          "method": "Configured Resultary search",
+          "title": "Exact first Euclidean distance transition for arbitrary simplices",
+          "trigger": "Potential dominating simplex family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–55 and 79–95",
+        "Independent cap, moment, and endpoint derivations"
+      ],
+      "rationale": "The regular tetrahedral wireframe is a natural symmetric embedded metric graph, the first regular simplex skeleton with disjoint skew edges. Its full two-point law separates the contributions from touching and disjoint edges and quantifies two qualitatively different interior events: a density jump at the shortest opposite-edge separation and a shared higher-order clipping onset. The exact cusp and diameter-tail coefficients and nontrivial mean square make it an independently useful benchmark for arclength sampling on geometric networks, not just an elementary same-segment calculation or a numerical slice.",
+      "residual_risks": [
+        "No claimed law for irregular tetrahedra, other sample measures, or graph-geodesic distance."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

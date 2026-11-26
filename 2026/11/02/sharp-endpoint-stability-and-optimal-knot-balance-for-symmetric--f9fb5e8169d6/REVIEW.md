@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Positive definite five-hat Gram matrix, exact inverted nodal rows, opposite-sign affine absolute integrals, convexity of the kernel-row integral between knots, and exact branch-difference identities derive the whole domain of the formula. A positive polynomial derivative proves the unique minimax knot balance. `check.py` independently exercises symbolic identities and 533 quadrature/interior checks; experiments are not used as proof.
+## correctness
 
-## Originality
-PASS on inspected evidence, subject to a specialist-literature priority risk. Kayumov (arXiv:math/0408418, particularly introduction 1.2–1.3) states the classical universal sharp bound three for arbitrary linear spline knots and studies generalized exponential/trigonometric splines, not this exact five-knot profile. Oswald (arXiv:math/0611573, sections 1–3) proves a different higher-dimensional unboundedness result. A two-periodic knot projector result does not dominate a finite knot-cluster calculation. Web and research-record semantic searches for the exact formulas, alternate terminology, limits, and radical found no direct equivalent. The complete 1979 Oskolkov specialist paper was not inspected; any exact parameterized configuration there could alter priority.
+PASS
 
-## Mathematical value
-PASS. For a standard least-squares finite-element space, knot placement materially changes the sharp maximum-norm stability from below two to above two. The new complete one-parameter stability profile, unique optimum, exact pointwise extremizers, and two distinct singular clustering limits answer a natural mesh-design question in a setting with a classical universal bound of three.
+Integrating nodal hats gives the positive-definite Gram matrix in RESULT; each kernel evaluation row is represented by the corresponding coordinates of the inverse. For an arbitrary evaluation point the row is a convex combination of the adjacent nodal rows. The alternating nodal signs hold on the full open parameter interval by the displayed coefficients. An independent symbolic reconstruction used the signed integral 1 (the projector fixes constants) plus twice the negative triangle areas to recover E, S and C. E−S has a strictly positive numerator after removing the common positive denominator, and E−C changes sign once with 2ε²+11ε−5. C strictly decreases; the endpoint derivative has the stated all-positive numerator after factoring its positive denominator. This gives the switch and unique minimizer (√161−11)/4 with norm 4/3+√161/21, limits 7/3 and 22/9, and C>2 iff ε<1/3. At each maximizing knot the input sign of the kernel attains the norm; continuity identifies the output essential supremum with its true maximum, including at endpoints. Even interior evaluation points cannot add norming locations because each mesh interval has at least one strictly submaximal shoulder endpoint.
 
-## Limits
-Only symmetric distinct five-node continuous linear splines with real Lebesgue measure. No claim of optimality among arbitrary meshes, no higher-degree results, and no independent review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected general sharp bound 3 is a worst-case bound across partitions. The same-day metric-graph stability bound contains the path geometry but does not fix the parameter-dependent norm. Exact periodic, star and single-refinement calculations are distinct. The supported distinct feature is the explicit finite-path branch and active-knot classification including the sharp minimax knot placement, not the hat-kernel method itself.
+
+## value
+
+PASS
+
+The symmetric path permits clustering at either the center or both boundaries. A uniform stability constant cannot decide the best mesh or even whether the boundaries or center dominate. Their competing monotone branches, below-two optimal amplification, and distinct above-two clustering limits answer a concrete, minimal mesh-design question for the standard least-squares projector.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

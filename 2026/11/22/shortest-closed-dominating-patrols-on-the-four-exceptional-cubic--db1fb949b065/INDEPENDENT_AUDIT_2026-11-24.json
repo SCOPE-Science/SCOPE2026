@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:43:28.004323Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–86",
+        "VERIFICATION.md lines 19–33 and both supplied checker sources, inspected without execution",
+        "Independent replay: python -B /workspace/branches/review-watchman-replay.py; output /workspace/branches/review-watchman-replay.txt"
+      ],
+      "rationale": "I re-enumerated the four specified labeled graphs independently. For length 2k and a fixed root, a closed word corresponds bijectively to an ordered pair of length-k half-walks from the root to the same midpoint, with the second half reversed. Taking the union of their closed neighborhoods, I recovered all the coverage maxima in RESULT.md lines 67–72, and the optimum (length, rooted words, dihedral classes) tuples (10,10920,546), (8,96,6), (12,5400,225), (10,240,12). Connectivity, cubic degree and bipartiteness were checked directly; length zero sees four vertices. I independently generated automorphisms by extending an injective map along neighbor permutations in breadth-first order. Every automorphism gives exactly one such extension, and the terminal maps preserve all edges. This gave group orders 336, 96, 216, 240 and exactly the ten reported orbit sizes and representative words. Leaf stripping and support degrees recover the listed tree and cycle geometries. In the excursion descriptions 'two-edge' refers to distinct off-cycle edges in the traversed support, not a two-step budget for the whole detour.",
+      "residual_risks": [
+        "Exhaustion is only for these four graphs and the stated closed-neighborhood walk model, not for arbitrary cubic graphs or moving-target models."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The stated Kutnar–Marušič comparison is a classification of the host graphs, as distinguished in RESULT.md lines 88–90; primary full-text retrieval timed out",
+          "The two named AJC variants are a time-constrained walk problem and a Steiner block-intersection graph problem, respectively; primary PDFs were not retrieved"
+        ],
+        "reasoning": "Graph symmetry identifies the natural test family and the group acting on the count, but does not specify which minimum walks dominate or their orbits. Steiner block-intersection graphs are not point–line Levi graphs. I do not infer whole-document noncoverage from bibliographic descriptions.",
+        "searches": [
+          "Kutnar–Marušič DOI 10.1016/j.jctb.2008.06.001",
+          "Dyer–Milley AJC 53 pp. 97–108",
+          "Dyer–Howell AJC 68 pp. 23–34"
+        ]
+      },
+      "checked_sources": [
+        "Graph-specific local Resultary search",
+        "Frozen RESULT.md relationship and references",
+        "Targeted lawful primary literature lookups listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The finite computation splits equal-sized Heawood spatial orbits even with identical support cardinalities; a total count or the automorphism order does not resolve these",
+          "The arXiv full-text lookup also timed out; no theorem on these four walk-orbit partitions was obtained"
+        ],
+        "reasoning": "The relevant implication would require identification of the set of optimum classes and the action on it. Neither knowledge of the graphs nor an optimum length or total count fixes that action; no stronger available statement was found covering it.",
+        "searches": [
+          "Frozen relationship and references, RESULT.md lines 88–107",
+          "Dyer–Howell–Pittman arXiv:2007.13901, multiplicity reference lookup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "All four Resultary variants returned 2026/11/22/SCOPE-shortest-closed-dominating-patrols-on-the-four-exceptional-cubic--db1fb949b065 itself",
+          "No result was returned by the stated primary search; that is not negative evidence about the paper"
+        ],
+        "reasoning": "Compare minimum static closed dominating tours, permitting repeated edges, with the number of such tours modulo time reversal and rotation and then modulo graph automorphisms. A domination-set count or a moving-intruder watchman number is a different problem.",
+        "searches": [
+          "Resultary: watchman walks on Heawood, Möbius–Kantor, Pappus and Desargues, separately",
+          "Primary search: The multiplicity of watchman's walks Dyer Howell pdf Congressus 226 Heawood Pappus"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed statement is the assigned record, not corroboration or prior replication",
+          "Dyer–Howell, Congressus Numerantium 226 (2016), 301–317, is a real candidate for earlier multiplicity data; no table or theorem was obtained"
+        ],
+        "reasoning": "An existing exact graph table would cover any corresponding count regardless of the computation method. Earlier coverage of individual lengths or multiplicities would not by itself give the spatial orbit classes and their support types.",
+        "searches": [
+          "The four graph-specific Resultary searches above",
+          "The exact Dyer–Howell title and volume/pages, with Heawood and Pappus"
+        ]
+      },
+      "rationale": "The supported distinct claim is the joint optimum-walk and full-automorphism classification for exactly these four graphs, not the definition of a watchman's walk, the classification of the graphs, or unconditional priority for every individual count. The strongest indexed exact match is the frozen record itself. No available distinct comparison establishes the ten-orbit classification; there is an explicit unresolved multiplicity-literature risk.",
+      "residual_risks": [
+        "The Dyer–Howell multiplicity paper was not located in lawful accessible full text, so overlap, particularly for individual multiplicities, remains possible.",
+        "Retrieval failures and absence of a distinct indexed hit certify neither priority nor complete coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical assigned record, not distinct prior evidence",
+          "evidence": "Same lengths, counts, separate temporal equivalence, and ten spatial orbits.",
+          "identifier_or_url": "2026/11/22/SCOPE-shortest-closed-dominating-patrols-on-the-four-exceptional-cubic--db1fb949b065",
+          "material_read": "Indexed summary and frozen RESULT.md lines 5–43",
+          "method": "Local Resultary search and bound original text",
+          "title": "Shortest closed dominating patrols on the four exceptional cubic symmetric graphs of girth six",
+          "trigger": "Exact match in each graph-specific search"
+        },
+        {
+          "assessment": "Family selection is credited; unable to inspect other results in full",
+          "evidence": "The stated generalized-dihedral Cayley classification and its four exceptions concern the host graphs.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jctb.2008.06.001",
+          "material_read": "Citation and comparison at frozen lines 88–90, 102–103; primary text not retrieved",
+          "method": "Bound reference and lawful DOI retrieval attempt",
+          "title": "A complete classification of cubic symmetric graphs of girth 6",
+          "trigger": "Exact family and automorphism context"
+        },
+        {
+          "assessment": "Coverage unresolved; not assessed as noncovering",
+          "evidence": "Title alone does not distinguish rooted count, temporal count and automorphism-orbit enumeration.",
+          "identifier_or_url": "Congressus Numerantium 226 (2016), 301–317, D. Dyer and J. Howell",
+          "material_read": "Bibliographic entry and access note, frozen RESULT.md lines 92, 106; no original result passage",
+          "method": "Exact-title/author/volume and graph-specific lawful copy lookup",
+          "title": "The multiplicity of watchman's walks",
+          "trigger": "Most plausible exact count or classification overlap"
+        },
+        {
+          "assessment": "Different stated scopes; no whole-document exclusion",
+          "evidence": "A time-constrained multiguard question and block intersection (rather than incidence) are not the displayed classification.",
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/53/ajc_v53_p097.pdf ; https://ajc.maths.uq.edu.au/pdf/68/ajc_v68_p023.pdf",
+          "material_read": "Frozen reference entries and scope descriptions, lines 88–90 and 104–105; PDFs not obtained",
+          "method": "Bound bibliography and OA PDF attempts",
+          "title": "A time-constrained variation of the Watchman's Walk Problem; Watchman's walks of Steiner triple system block intersection graphs",
+          "trigger": "Same optimization vocabulary and a possible Heawood incidence connection"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–43 and 76–94",
+        "Independent orbit and support replay"
+      ],
+      "rationale": "These are the four naturally named exceptions in a cubic-symmetry classification; the walk problem distinguishes their structure in a way neither girth nor graph symmetry alone provides. In particular the complete orbit list distinguishes an optimal tree-supported Heawood walk from its cyclic alternatives, and detects non-cycle optima in Pappus but none in Möbius–Kantor or Desargues. The precise orbit representatives and support data are useful test cases for structural claims about shortest dominating walks allowing repeated edges.",
+      "residual_risks": [
+        "An exact finite classification, not a theorem extending to the whole class of cubic girth-six graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

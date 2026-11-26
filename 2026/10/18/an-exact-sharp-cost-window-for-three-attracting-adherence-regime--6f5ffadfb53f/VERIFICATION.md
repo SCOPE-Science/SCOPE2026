@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,4 @@
 }
 ---
 
-The accompanying `verify.py` computes exact polynomial identities and rational Bernstein coefficients for the stability certificate. It checks the symbolic root equation, the endpoint and maximizing cost expressions, and the strict positive coefficient lists on the closed interval that contains every upper endemic root. The analytic concavity, disease-free instability, and root-crossing arguments establish the all-parameter parts of the theorem; finite checks do not replace those proofs. No independent mathematical audit has been performed.
+The accompanying `verify.py` checks exact polynomial identities, selected rational endpoint values, and positivity of rational Bernstein coefficients on the closed interval that contains every upper endemic root in the cost window. Its auxiliary radical comparisons use floating-point square roots. The analytic argument in `RESULT.md` establishes the all-parameter ceiling and the exact cost thresholds.

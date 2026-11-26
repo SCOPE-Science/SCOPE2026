@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python verify_cumulants.py` from a directory containing the supplied program. It requires NumPy and SciPy and has no external files, stochastic seeds, or network dependencies. The code constructs polynomial generator moment ODEs for two separate models (95 Gaussian-force moments and 50 telegraph-force moments), initializes the force and relative coordinate independently in their stationary laws, evolves to four finite positive times for each of three parameter settings, and compares with quadrature of independent positive-kernel representations. It also checks exact second-moment agreement, strict fourth-cumulant ordering, explicit limiting-rate formulas and the noise-independent ratio.
+## correctness
 
-Observed output: `PASS 84 independent identities / moment-evolution checks`. The validated parameter tuples \((a,b,g,\sigma)\) were \((1.3,2.1,1.7,0.8)\), \((0.55,3.1,1.2,0.71)\), and \((3.2,0.45,0.93,1.4)\). Observation times: \(0.5\), \(1.7\), \(5.0\), and \(13.0\). The common independent thermal displacement contribution has zero fourth cumulant and can be added with any positive variance rate.
+PASS
 
-Scientific limitations: finite checks do not establish infinite-time limits or strict positivity at every parameter setting; these are proved analytically in `RESULT.md`. The theorem is an ensemble-displacement result, not a finite-sample classification bound or a claim about correlated fluctuations. Independent validation has not been performed.
+Independence gives velocity covariance g²σ² exp(−(a+b)|τ|)/4, so the covariance double integral and the independent Brownian variance give the same MSD. For the three consecutive gaps x,u,z, set M_c=exp(−c(x+z)) and N_c=M_c exp(−2cu). Wick gives M_c+2N_c after variance normalization for an OU variable, while independent flip increments give M_a for the telegraph force. Subtracting the three common covariance products gives the T cumulant kernel proportional to M_a N_b−N_a N_b, and G−T proportional to N_a M_b+2N_a N_b, with common prefactor g⁴σ⁴/8. Both are strictly positive on the interior of the ordered time simplex. The independent Brownian term contributes no fourth cumulant. Integrating the first time and the outer-gap split gives weight w(t−u−w) for w=x+z, and summing 24 orderings gives the prefactor 3g⁴σ⁴. Dividing by t, dominated convergence gives the common factor 3g⁴σ⁴/(2(a+b)²) times 1/b−1/(a+b) for T and 1/a+1/b+1/(a+b) for G. Their quotient is the claimed a²/(a²+3ab+b²). The original dimer's no-repulsion MSD and entropy calibration agrees with arXiv:2304.07738v1, Eqs. (2a), (11), (13), (17), (19), (S32)–(S37), including the factor two between flip and covariance-decay rates. Inspected verify_cumulants.py and its recorded checks as finite corroboration; the proof establishes the quantified claim without them.
+
+## originality
+
+PASS
+
+The earlier identified sources cover the dimer, the MSD and entropy input formulas, four-time factorization rules and the Gaussian product-OU branch, not the two-protocol fourth-cumulant comparison. There is demonstrable equivalent coverage of the mathematical core in another Resultary record dated November 8, later than this frozen November 2 entry. This is a duplicate scientific statement across the records, not evidence that the later entry anticipates the frozen one. The pass is relative to the identified earlier literature and does not resolve provenance or endorse novelty of the result in the later entry.
+
+## value
+
+PASS
+
+In a motivated exactly solvable nonequilibrium model, the entire MSD curve and stationary mean entropy production cannot distinguish the two calibrated protocols. The fourth cumulant separates them at every positive lag and gives a closed asymptotic ratio without nuisance amplitudes or readout diffusion. This is a usable ensemble discriminator, not a finite-sample detection guarantee, and is stronger than exhibiting a numerical or long-time-only difference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

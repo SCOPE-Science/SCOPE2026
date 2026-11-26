@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces an arbitrary cover to a capacitated system-of-distinct-representatives problem after fixing any center color. Every leaf retains at least \(k-1\) available labels, and every union of leaf-availability sets therefore has residual capacity at least \(m(k-1)-1\). Under the claimed inequality this is at least \(n-1\), so capacitated Hall applies to every subset of leaves. For the reverse implication, the common cyclic full matching removes one color at every leaf and the already used center color removes one unit of a second capacity, leaving only \(m(k-1)-1<n-1\) leaf slots. The \(k=1\) boundary is handled separately. The bundled verifier exhausts all plain full covers through star order four and checks the arithmetic certificates through order and palette size 200.
+## correctness
 
-## Originality
-PASS. The initiating source defines EDP/SEDP, gives a star obstruction only for the stronger SEDP notion, proves a high-color forest result, and gives a general large-palette degeneracy bound. The inspected source does not state the exact all-palette star inequality. Searches for the exact formula, star spectra, correspondence-coloring terminology, equitable-DP chromatic parameters, and semantic equivalents returned no covering result. Published internal findings were also searched for the exact object and invariant, with no overlap found. The closest indexed items concern unrelated star invariants or forced coloring.
+PASS
 
-## Value
-PASS. Stars are the extremal examples motivating equitable coloring of trees and are explicitly singled out in the paper introducing equitable DP coloring. The theorem gives a complete infinite classification rather than a finite table or routine substitution, and it exposes a nonmonotone palette phenomenon already on a star; \(S_9\) changes status repeatedly as \(k\) increases. The proof also supplies a reusable capacitated-Hall mechanism for one-center correspondence covers.
+The original quantifies over arbitrary covers with global labels and compares with EDP, not SEDP. Fixing any center color removes at most one choice per leaf. A nonempty subset of leaves sees at least k−1 labels, whose total remaining capacity is at least m(k−1)−1, after subtracting one slot for the center. Under the criterion this is at least n−1, so cloning labels according to their residual capacities proves all Hall inequalities. Conversely the common Z_k palette and the cyclic edge map forbid one label on every leaf different from the center label. The center also uses no copy of that forbidden label, so fewer than n total slots are accessible whenever m(k−1)<n. For k=1 one matched edge suffices. This includes n=2, k=n, k>n and the stated switches at n=9. Inspected VERIFICATION.md, verify.py and its recorded output; the proof is analytic, and the bundled census is confined to plain full covers and was not replayed.
 
-## Closest literature and limitations
-The closest source is Kierstead--Kostochka--Xiang, arXiv:2605.17783v1. Its Example 7 concerns SEDP, Corollary 7 covers a high-color EDP regime for forests, and Proposition 5 covers sufficiently large palettes. The present theorem agrees with those statements where they overlap but determines all remaining star palette sizes. Older correspondence-coloring work lacks the global equitable capacity constraint. The result does not classify double stars or general trees, and a residual risk remains that an uncatalogued equivalent star statement exists under different vocabulary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The cyclic witness and the high-palette range have documented antecedents; the complete low-palette EDP criterion for stars, including its sufficiency direction for arbitrary covers, was not covered by the strongest inspected statements.
+
+## value
+
+PASS
+
+The result completely resolves a natural graph family's palette spectrum under a new quantified coloring constraint, including below the general forest guarantee. A sharp obstruction-versus-capacity criterion explains when the failure to extend across palette sizes is inherent; the n=9 switches directly separate EDP behavior from the older SEDP example. The contribution is this boundary, not a new form of Hall's theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,29 +1,21 @@
-# Scientific review: cubic-root inverse-sheet proliferation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact source-to-target elimination gives a scalar cubic-plus-cosine equation with a positive cubic leading coefficient. Properness and surjectivity follow from coercivity at fixed bounded second output. For each fixed nonresonant target, its two nonzero macroscopic boundary roots persist under the lower-order perturbation, and uniform inner-interval cosine crossing gives one simple inverse per full half-period. The two outer fixed-width strips contribute only a bounded number of roots by derivative/curvature monotonicity. The uniform \(O(1)\) census and Wasserstein \(O(R^{-1})\) bound follow without replacing infinite reasoning by finite experiments. The signed degree is checked using the orientation-preserving triangular coordinate change. The standalone checker confirms finite identities and sample cases only.
+PASS
 
-## Originality — PASS within accessible sources
+With y=v−x the scalar equation is cos x+P_v(x)/R³=q, with P_v=x(x−v)²−x. On rescaling, the two level equations have single real roots near the nonzero limiting endpoints; the extrema of the perturbed cubic have rescaled values O(R⁻³), away from either level. The nonvanishing endpoint slopes give O(1) localization shifts in x and an inner margin c/R, uniformly on the stated compact sets. In each complete π-cell the endpoint signs alternate and all roots are simple and have the same crossing direction, since |sin x|≳R⁻¹ᐟ² dominates the O(R⁻¹) cubic derivative. The leftover endpoint regions must include any partial inner π-cells (at most π extra per end); splitting into π/4 cells gives at most two zeros per cell by first or second derivative, so this minor bookkeeping omission has no effect. Matching inner roots to their cells and renormalizing the O(1) leftovers gives W₁=O(R⁻¹), including the v/R shift in y. The oriented triangular coordinate change, cubic tails uniform for bounded v, and real analyticity give properness, degree +1, surjectivity and finite fibers at β>0. Fixed points force x=0 and then x′=α; at β=0 the scalar cosine has precisely the asserted strip and infinite fibers. The finite checker is supplementary, not a proof or a formal certificate and was not executed.
 
-The originating full-text article [1] gives the map and numerical forward dynamics, not inverse-fiber cardinality or its weak-coupling limit. The closest accessible same-map research record [2] treats a scalar **period-two** orbit equation at \(1<\beta\le2\), which does not imply any one-step inverse count as \(\beta\downarrow0\). Another accessible inverse-fiber record [3] concerns a distinct, nonproper cosine-flux Chialvo map with infinitely many preimages at nonzero coupling; its nondecaying asymptotic cosine mechanism differs from the present cubic coercivity and finite-but-diverging count. General noninvertible-map critical-curve terminology [4] does not fix this model-dependent target profile. This remains a provisional priority determination, especially against unindexed results and general oscillatory-root asymptotic theorems.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The coupling \(\beta\) naturally controls cubic feedback in an experimentally studied fixed-point-free map. The precise cubic-root scale, target-dependent coefficient and spatial distribution explain how inverse multiplicity becomes arbitrarily large while global topological degree remains one. Crucially, targets outside the image of the zero-coupling map still develop an increasing population of distant inverse sheets before those sheets escape to infinity. This is global inverse geometry, not a small parameter gain, an arbitrary finite slice, or a restatement of a short-cycle count.
+On the inspected evidence, the exact target-dependent global one-step inverse count with bounded error and the quantitative all-preimage distribution are distinct from the published forward-orbit and different-map inverse laws. The map and fixed-point-free feature are not claimed as new.
 
-## Limitations
+## value
 
-The asymptotics exclude \(u=\pm\alpha\) and require \(\alpha>0\) fixed, with full real-plane states. Uniformity is on compact nonresonant target families. There is no claim about forward chaos, numerical cryptographic performance or statistical trajectory invariance. Publication-priority risks remain. Independent mathematical review has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result quantifies both the number and the spatial distribution of branches lost to infinity in a singular proper-to-nonproper limit, including for targets outside the limiting image. The explicit target dependence, bounded count error, and quantitative distribution are useful beyond showing noninvertibility. The two exceptional target lines and forward dynamics are out of scope.
 
-## References
-
-[1] Almatroud and Pham, *Building Fixed Point-Free Maps with Memristor*, Mathematics 11 (2023), 1319, https://doi.org/10.3390/math11061319 .
-
-[2] *A sharp two-cycle fold and a three-halves onset law for a fixed-point-free memristor map*, https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-a-sharp-two-cycle-fold-and-a-three-halves-onset-law-for-a-fixed--3b64e28eaf02 .
-
-[3] *Singular zero-to-infinite inverse-valence transition in a cosine-flux Chialvo map*, https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-singular-zero-to-infinite-inverse-valence-transition-in-a-cosine--8b96b0ec53ba .
-
-[4] C. Mira, *Noninvertible maps*, Scholarpedia 2 (2007), 2328, https://www.scholarpedia.org/article/Noninvertible_maps .
+The dated certificate retains the supplied scientific assessment, sources and limitations.

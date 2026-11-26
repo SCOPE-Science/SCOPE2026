@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:41:27.777603Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–55",
+        "Frozen VERIFICATION.md and check_equilibria.py (inspected, not executed)",
+        "Pires–Rosales arXiv:2212.09397v3, equations (1), (2), (4) and (6)",
+        "python3 /workspace/independent_replay.py (record 4)"
+      ],
+      "rationale": "The Pires–Rosales logistic response becomes exactly tanh(t/2) after centering the first-urn proportions, so α=−2a gives the stated drift. Taking artanh reduces the fixed equations to artanh(z_i)−az_i=−aΣz_j for all i. For 0<a≤1 this scalar left side is strictly increasing, including at a=1 where its derivative vanishes only at 0. Equal coordinates then force zero. For a>1, artanh(r)/r is strictly increasing from 1 to infinity; its root gives the six polarized permutations. The repeated-coordinate branch function H_a has positive slope at zero, strictly negative second derivative on (0,1) and limit −∞ at 1, giving a unique positive root b and v>b. The three placements for each sign are distinct from each other and from the polarized points. At zero the eigenvalues are −1−2a and a−1 twice. The frozen Jacobian formula with row factor 1−z_i² is the Jacobian evaluated at an equilibrium; at arbitrary z the corresponding factor is sech²(aΣ_{j≠i}z_j). At (r,0,−r), the antisymmetric eigenvalue is as−1 for s=1−r²; the other block has trace −2−as and determinant 1+as−2a²s. With u=artanh(r), as=2u/sinh(2u)<1 and the determinant times sinh²u is sinh²u+u tanh u−2u²>0 by the strict bound sinh²u>u²+u⁴/3 and tanh u≥u−u³/3. Thus all six polarized points are strictly linearly stable for the ODE. Independent branch residuals and equivalent symmetric Jacobian principal-minor signs were checked at five u values; no finite run exhausts equilibria or interaction strengths.",
+      "residual_risks": [
+        "The supercritical equilibrium count is a lower bound, not an exact census.",
+        "No stochastic equilibrium selection, stochastic convergence, fixed-map iteration stability, or nonlinear critical stability is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 assumes finiteness for its stochastic convergence conclusion; the present lower bound does not show finiteness.",
+          "Corollary 1's sufficient logistic bound becomes a<1/2, not the sharp threshold a≤1.",
+          "The cubic K₃ model has the two-equal states as sinks, unlike the distinct-coordinate sinks proven here."
+        ],
+        "reasoning": "General convergence and a lower sufficient uniqueness range cannot supply the phase boundary or ODE stability. Shared dimension, symmetry and counts with the cubic problem do not imply transfer of fixed-point branches and stability for a different nonlinearity.",
+        "searches": [
+          "Pires–Rosales Theorem 1, Corollary 1 and Example 1",
+          "Resultary 5e31b4d48359, cubic graph bifurcation and equilibrium count"
+        ]
+      },
+      "checked_sources": [
+        "Pires–Rosales arXiv:2212.09397v3",
+        "Resultary 5e31b4d48359 and 9df91013f774"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pires–Rosales Example 1 concerns three urn vertices, two colours and positive interaction; stability there is for the fixed-point map in that example.",
+          "The earlier graph flow has a cubic stationarity law and a different class of stable branches."
+        ],
+        "reasoning": "Neither a conditional convergence theorem nor the exact cubic count implies the logistic branch and stability result. The latter depends on specific artanh monotonicity, tanh concavity and strict hyperbolic inequalities for all supercritical parameters.",
+        "searches": [
+          "arXiv:2212.09397v3, Theorem 1 and Corollary 1 against frozen thresholds",
+          "Resultary 5e31b4d48359 Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normalized model is exactly the Pires–Rosales drift specialized to two urns, three colours and logistic response.",
+          "It is also a continuous-time tanh/Hopfield system with zero diagonal and equal negative off-diagonal weights."
+        ],
+        "reasoning": "These are equivalent formulations of the same equations, not originality in the model. The inspected general formulation does not give the sharp branch and stability statements.",
+        "searches": [
+          "Pires–Rosales arXiv:2212.09397v3, two-urn logistic normalization, fixed points, ODE and Hopfield connection",
+          "Resultary: three-unit tanh/Hopfield and symmetric antiferromagnetic K₃ equilibrium models"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5e31b4d48359 gives an exact thirteen-equilibrium/six-sink pattern for a cubic graph flow.",
+          "9df91013f774 gives exact equilibrium regimes for two-urn two-colour quadratic reinforcement."
+        ],
+        "reasoning": "The pertinent entries are symbolic exact results, not numerical count tables. Both differ in equations, and the latter also in number of colours. No exact same-equation entry was located in the returned results.",
+        "searches": [
+          "Resultary: negative interaction two-urn three-colour logistic thirteen equilibria and exact bifurcation threshold",
+          "Resultary: exact thirteen equilibria on K₃ and two-urn exact equilibrium phase diagrams"
+        ]
+      },
+      "rationale": "The underlying urn model, its conditional stochastic convergence theorem, a sufficient small-interaction uniqueness condition and its Hopfield interpretation are prior art. The supported distinct claim is the sharp antagonistic threshold for the specified logistic model, with explicit thirteen-point lower bound and six strictly stable polarized equilibria of its ODE for all a>1. An exact thirteen/six pattern in an earlier cubic K₃ model is a serious comparison but the response laws differ and the stable branches in the two inspected claims have different symmetry types.",
+      "residual_risks": [
+        "A separate exact theorem under Hopfield or mean-field magnetic terminology is not excluded; no equivalently strong one was established in the inspected material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING the model and a weaker sufficient uniqueness regime, not the sharp antagonistic result",
+          "evidence": "Two-urn normalization produces the tanh equations exactly. General uniqueness is sufficient for a<1/2; the worked multistable example switches the roles of urns and colours and is attractive rather than antagonistic.",
+          "identifier_or_url": "https://arxiv.org/html/2212.09397v3",
+          "material_read": "§1 equations (1)–(2), offsets 0–4990; §2 equation (4), Theorem 1, Corollary 1, Example 1, ODE (6) and Hopfield discussion, offsets 5000–16696",
+          "method": "OA HTML passages",
+          "title": "Multiple colour interacting urns on complete graphs",
+          "trigger": "Exact source model and potentially covering uniqueness/stability results"
+        },
+        {
+          "assessment": "Strong qualitative overlap, different equation and stability types; no exact implication established",
+          "evidence": "Cubic graph flow ẋ_i=−x_i−x_i³+κΣ_{j∼i}(x_i−x_j) with six two-equal sinks on K₃.",
+          "identifier_or_url": "2026/11/1/SCOPE-pair-indistinguishable-graph-couplings-with-a-sharp-thirteen-to--5e31b4d48359",
+          "material_read": "RESULT.md Finding and Proof, offsets 0–6815",
+          "method": "Resultary local mirror",
+          "title": "Pair-indistinguishable graph couplings with a sharp thirteen-to-one equilibrium contrast",
+          "trigger": "Earlier three-node system with exact thirteen equilibria and six sinks"
+        },
+        {
+          "assessment": "Not the same reinforcement law or number of colours",
+          "evidence": "Two-urn, two-colour quadratic reinforcement, with nine/five/three regimes.",
+          "identifier_or_url": "2026/10/26/SCOPE-an-exact-quadratic-interaction-threshold-and-nine-equilibrium-ph--9df91013f774",
+          "material_read": "RESULT.md Finding, offsets 0–3229",
+          "method": "Resultary local mirror",
+          "title": "An exact quadratic interaction threshold and nine-equilibrium phase diagram",
+          "trigger": "Earlier exact multicolour urn classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Proof and Limitations",
+        "Pires–Rosales Corollary 1 and Example 1",
+        "Resultary 5e31b4d48359"
+      ],
+      "rationale": "The transition resolves where a prior sufficient uniqueness range gives way to multistability in a specific urn drift. Explicit branches exhibit two different symmetry types, and the analytic strict stability certificate identifies six robust ODE attractors without a coupling cutoff. The result is useful for the fixed-point structure even without a full equilibrium census or stochastic selection theorem.",
+      "residual_risks": [
+        "Application to urn trajectories would require an additional stochastic-approximation argument and cannot be inferred merely from local ODE stability."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:37:09.018041Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The physical even/odd matrix, with a consistent shift direction, is B=I+S⁻¹+wS^((n−1)/2). Multiplying by S gives I+wT+T² with T=S^((n+1)/2) a single n-cycle and T²=S. For f=t²+wt+1, multiplication by t on Z[t]/(f) is C=[[0,−1],[1,−w]]. The cokernel of I+wT+T² is Z[t]/(t^n−1,f)=coker(C^n−I); the n−2 extra factors are units. The recurrence gives the entry gcd g and det(C^n−I)=2−tr(C^n)=2−L_n. If g=0 the block is zero; with g>0 the second factor is |2−L_n|/g, zero if rank one, and divisibility follows from the determinantal divisors. For w=−2 the difference is n times a primitive rank-one nilpotent; w=2 gives −2I+n(C+I) and therefore gcd(2,n)=1 and determinant 4 at odd n. The remaining three weights use C³=−I, C²=−I, and C³=I for w=−1,0,1 respectively, giving the displayed periodic cases. A local Fourier transform makes the odd labels Bᵀx, so equal-sized fibers of this homomorphism give a flat reduced spectrum with rank its image size. Smith operations stay invertible over Z/dZ, including composite d, and scalar diagonal factors have image size d/gcd(d,s), with gcd(d,0)=d. The ternary deficit when 3∤n is present only if 3|d, as the stated entropy formula indicates. Fresh replay passed 135 integral Smith comparisons, 42 exact modular-image checks and 28 small direct spectral checks (tolerance 10⁻¹⁰); OPENBLAS_NUM_THREADS=1 python /workspace/replay_frozen.py 2. The bounded replay does not prove the infinite claims, and the packaged checks are not independent attestations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The swap theorem covers any two monic polynomials of the given degrees; it includes all n,w here over Z with no nonsingularity hypothesis. The same article's Theorem 4.2 applies it to a different monic quadratic and obtains two gcd/recurrence factors by analogous evaluation.",
+          "Hein–Eisert–Briegel ties qubit graph-state entanglement to binary cross-adjacency rank; the proof of the Fourier form of a bilinear phase uses characters of Z/dZ and works with any d."
+        ],
+        "reasoning": "The wider algebraic theorem dominates exactly the rank-two Smith reduction here. Earlier qubit statements alone do not dominate composite-d entanglement; the latter is an elementary readout of the same Smith factors, not a new reduction.",
+        "searches": [
+          "arXiv:2408.08662, §§3.3 and 4, Theorems 3.11 and 4.2",
+          "arXiv:quant-ph/0307130, equations (40)–(43)",
+          "qudit graph states arbitrary local dimension composite bipartite Schmidt rank size image adjacency Smith normal form"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_weighted.py and verify_weighted_schmidt.py",
+        "arXiv:2408.08662",
+        "arXiv:quant-ph/0307130",
+        "arXiv:0712.1979",
+        "arXiv:1306.2879",
+        "Resultary 2bc8f85cb693, a91c712d7f09, 9565cf662a87"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taking R=Z, monic g=t^n−1 and monic f=t²+wt+1 directly gives the full reduced block asserted in proof §2. Its first determinantal divisor is gcd(a_n,a_(n−1)+1) and the second is |2−L_n|. If the first vanishes, the entire block vanishes.",
+          "A single local finite Fourier transform sends the state's conditional odd register to |Bᵀx⟩; the rank and equal eigenvalues count image and cosets, so postprocessing the two Smith factors gives exactly the claimed spectrum and entropy."
+        ],
+        "reasoning": "There is no missing graph-specific invariant to compute beyond identifying a standard polynomial of a shift. The result is a natural worked example of the general swap theorem and character counting, not a distinct classified phenomenon requiring a further structural ingredient.",
+        "searches": [
+          "arXiv:2408.08662, Theorem 3.11 statement p. 10 and Theorem 4.2 p. 17",
+          "Frozen RESULT.md proof §§1–5 and related-source comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With S the cyclic shift, T=S^((n+1)/2) generates it, and SB=f(T) for f=t²+wt+1; T is the cyclic companion of t^n−1 up to relabelling.",
+          "Noferini–Williams Theorem 3.11 proves equivalence of f(C_g) and I_(n−deg f)⊕g(C_f) for monic f,g over an elementary divisor domain.",
+          "Resultary 2bc8f85cb693 uses a circulant/cyclotomic rank defect for a prime-dimensional alternating cut of GP(2m,k); that family and cut are not identical."
+        ],
+        "reasoning": "The weighted physical matrix fits the exact hypotheses of the swap theorem after invertible cyclic permutations, not just a qualitative analogy to the graph-state precedent.",
+        "searches": [
+          "Noferini Williams companion rings Smith forms swap f(C_g) g(C_f) theorem arxiv circulant",
+          "Resultary: weighted Möbius ladder checkerboard entanglement, generalized Petersen graph-state resonance and Möbius–Kantor census"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalog 2bc8f85cb693 concerns prime-dimensional generalized Petersen states and a different cut; same-day a91c712d7f09 enumerates the balanced cuts of the fixed Möbius–Kantor graph GP(8,3); same-day 9565cf662a87 concerns Walsh recovery from perfect-matchings, not this cross-adjacency Smith spectrum."
+        ],
+        "reasoning": "These distinct records do not give the same complete table over n,w,d. Lack of an exact table is not evidence of novelty when a checked stronger theorem and elementary evaluation already give it.",
+        "searches": [
+          "Resultary: odd Möbius ladder spectra, generalized Petersen entanglement, Möbius–Kantor arithmetic entanglement and modulo-six overlaps"
+        ]
+      },
+      "rationale": "The main rank-two integral reduction is an exact specialization of Noferini–Williams, arXiv:2408.08662, Theorem 3.11. After a single cyclic shift and change of generator, putting f=t²+wt+1 and g=t^n−1 in that theorem gives the precise block I_(n−2)⊕(C_f^n−I₂), for all weights including singular ones. The reported formulas are the entry gcd and determinant of that block. The spectral translation merely reads the image size of this same map over Z/dZ by local character orthogonality. Neither the recurrence table nor the reduction to the composite-d spectrum leaves a distinct scientific claim independent of these implications. This finding is correct but mechanically covered, not rejected for an inaccessible reference or for overlap by title alone.",
+      "residual_risks": [
+        "Earlier exact coverage in Telloni–Williams was not assessed from full text. No claim is made about which source first derived the specialized recurrence wording.",
+        "The catalog comparisons address coverage and do not infer relative priority between same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact broader coverage of the algebraic core, including all singular cases",
+          "evidence": "Theorem 3.11 states f(C_g) ∼ I_(n−m) ⊕ g(C_f) for monic degrees m≤n over an EDD. Theorem 4.2 evaluates analogous recurrence factors for f=t²−kt−1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2408.08662",
+          "material_read": "p. 10 §3.3 Theorem 3.11, offset 30760; p. 17 Theorem 4.2 and start of proof, offsets 49950–52177",
+          "method": "Lawful OA PDF text located and read by offset",
+          "title": "Smith forms of matrices in Companion Rings, with group theoretic and topological applications",
+          "trigger": "Potential exact swap theorem dominating the core result"
+        },
+        {
+          "assessment": "Binary special-case foundation, not the composite-d rank-two factors",
+          "evidence": "The cross-adjacency rank over F₂ fixes qubit graph-state bipartite entanglement.",
+          "identifier_or_url": "https://arxiv.org/pdf/quant-ph/0307130",
+          "material_read": "p. 7 equations (40)–(43)",
+          "method": "Lawful OA PDF text",
+          "title": "Multi-party entanglement in graph states",
+          "trigger": "Earlier cut-entanglement formula"
+        },
+        {
+          "assessment": "Qudit framework; these passages are not a weighted Möbius ladder formula",
+          "evidence": "Looi et al. extend graph states to arbitrary dimension; Helwig's graph-state setup for the stated tests uses prime dimension.",
+          "identifier_or_url": "arXiv:0712.1979; arXiv:1306.2879",
+          "material_read": "Looi et al. p. 1 abstract; Helwig p. 2 bipartite entanglement and prime-d graph-state setup",
+          "method": "Lawful OA PDF text",
+          "title": "Quantum Error Correcting Codes Using Qudit Graph States; Absolutely Maximally Entangled Qudit Graph States",
+          "trigger": "Qudit foundations and possible dominating entanglement claim"
+        },
+        {
+          "assessment": "Not used in the coverage finding",
+          "evidence": "Retrieval could not establish its statement scope; Theorem 3.11 of the distinct Noferini–Williams paper supplies checked coverage independently.",
+          "identifier_or_url": "https://repository.essex.ac.uk/9703/1/TelloniWilliams-SmithFormsCirculants.pdf",
+          "material_read": "Citation and repository identifier only, not full text",
+          "method": "Identified OA repository PDF and record attempted on direct and alternate routes",
+          "title": "Smith forms of circulant polynomial matrices",
+          "trigger": "Cited potentially overlapping primary literature"
+        },
+        {
+          "assessment": "Related examples or different invariants, not themselves dominating",
+          "evidence": "Prime-d generalized Petersen rank defects, a fixed graph all-cut census, and a Walsh matching invariant respectively do not supply the full weighted ladder table.",
+          "identifier_or_url": "Resultary IDs 2bc8f85cb693, a91c712d7f09, 9565cf662a87",
+          "material_read": "Mirrored RESULT.md findings and assumptions",
+          "method": "Local catalog and mirror",
+          "title": "Generalized Petersen resonance, Möbius–Kantor entanglement, and matching Walsh records",
+          "trigger": "Closest distinct catalog comparisons"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The cut and entropy are natural and the formulas useful as a worked application, but the asserted new invariant is mechanically implied by the known swap theorem once the physical shift is written down, followed only by the two determinantal divisors and character orthogonality. The seven weight cases just evaluate that same 2×2 formula. No additional exact invariant, boundary phenomenon independent of those calculations, or surviving nontrivial classification was established that would justify a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

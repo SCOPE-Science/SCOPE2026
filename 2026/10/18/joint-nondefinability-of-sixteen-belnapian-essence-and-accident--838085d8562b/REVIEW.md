@@ -1,15 +1,21 @@
-# Scientific review: joint nondefinability in Belnapian essence/accident logic
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof checks Petrukhin's precise four-valued truth and falsity clauses rather than substituting classical definitions. On valuations everywhere \(t\) or \(f\), all eight available inconsistency/indeterminacy operators become truth constants: the four essence variants yield \(t\), and the four accident variants yield \(f\). Structural induction shows every propositional combination and every nested modal formula stays classical and pointwise local for arbitrary nonempty S5 world sets. Sixteen explicit one-/two-world pairs then separate each target operator by designated truth as well as full FDE value. The finite verifier checks 2,064 source clauses, 16 target pairs, and 12,000 random nested formulas; generality relies on proof, not sampling.
+## correctness
 
-**Originality — PASS.** Petrukhin's 2026 paper (Definition 2.6, Proposition 3, Hypothesis 1) states the sixteen nondefinability questions as a hypothesis for the smaller individual-pair languages. The new result proves all sixteen and the genuinely stronger joint language, by exploiting a preservation invariant on crisp models. Prior FDE expressivity research such as Odintsov–Skurt–Wansing (2019) concerns BK and modal bilattice operators and does not imply the exact status-indexed result. The corresponding 2026 standard necessity/possibility embedding uses additional primitives, so cannot give b/n-only definitions. Published-record and database searches revealed no covering claim. Residual risk: older equivalent formulations under other modal signatures, and possible publication-version differences.
+PASS
 
-**Value — PASS.** Solving a specifically formulated open expressivity problem, and showing the nondefinability remains true even when different operator families may be mixed, supplies a reusable classical-subclass modal-collapse obstruction and explicit minimal-size separating models. It distinguishes impossible local-status definitions from possible richer-language translations without relying on mere enumeration or arbitrary parameter choices.
+In Petrukhin’s arXiv v1 Definitions 2.5–2.6, the propositional clauses preserve the classical pair t,f. For an everywhere classical immediate subformula, each test for either i=b,n or its conflation *i fails everywhere. In the un-tilded essence clause the truth implication is vacuous and the falsity conjunct at the root fails. In tilded essence the universal non-i condition holds, and no world has value *i. Both accident truth clauses fail, and the falsity implications for accident and tilded accident are true, respectively by vacuous antecedent and by universal non-*i. The resulting constants are t for essence and f for accident, including the tilded versions. This simultaneously proves preservation and propositional locality by induction over all terms; constants can be written using q→q and its negation on these valuations. For any of the target indices, the selected status on t,f is one of the two values, both fixed by conflation. Use that value at the common root and its opposite at the added accessible world for un-tilded targets, or flip those two assignments for tilded targets. Substituting into the exact-value clauses and the component-test clauses yields t to f for each essence form and f to t for each accident form. These are differences in designated truth as well as in full value. All atoms including freely valued parameters agree at the two roots, so none can save a definition. The argument covers arbitrary nonempty universal clusters and unbounded nesting in the stated signature; it does not purport to rule out richer-language translations. The printed finite tests were inspected but not rerun; the proof is the structural induction and these symbolic evaluations.
 
-**Scientific limits.** Only ordinary formula definability, with no global box/diamond primitives, is excluded. Arbitrary model translations and complete classification of all twenty-four-operator sublanguages remain open. Finite tests cannot verify every formula or infinite model. Results depend on the given FDE semantics and do not apply automatically to other four-valued interpretations.
+## originality
 
-**Primary reference.** Y. Petrukhin, *Essence and Accident Modalities Meet Belnapian Truth Values*, *Studia Logica*, DOI 10.1007/s11225-026-10250-z (2026); complete manuscript arXiv:2610.08323v1.
+PASS
 
-**Closest established background.** S. P. Odintsov, D. Skurt, H. Wansing, *On Definability of Connectives and Modal Logics over FDE*, *Logic and Logical Philosophy* 28 (2019), 631–659.
+The defining paper poses the same-family pair nondefinabilities as a hypothesis, not a proved theorem. The independently checked proof establishes those cases and proves the stronger joint-eight-operator obstruction. The richer-language embeddings and closest catalog comparison do not establish this locality obstruction for the restricted language.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Settling a named connective-definability problem for all sixteen targets is useful in identifying what must be added to the language. The proof rules out the natural workaround of mixing all four b/n families and gives a reusable locality invariant, as well as explicit low-cardinality witnesses that separate even designated truth. This is a semantic expressivity result, not the mere observation that a few short candidate definitions fail.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific assessment: full lag-covariance law of empty power intervals
+# Independent mathematical audit
 
-**Correctness (PASS).** The exact pair frequency follows from the disjoint arithmetic-ray representation, the rational independence in Narumi–Tachiya (2025, Lemma 2), circular-arc geometry, and a uniform summable-tail bound. A second Kronecker limit over integer lags then gives the distributional law. The compact connected product torus yields the full interval support; the local flat arcs give the unique atom, and conditioning on the first nonflat coordinate proves absolute continuity elsewhere. The positive variance is obtained by explicit integration of the squared overlap function. Exact-integer enumeration of eight rays over 500,000 windows and seven lags agrees within stated tolerances. The finite computation is not used as proof of the limits. The nonstandard independence input is cited and the 2025 primary proof was examined.
+## correctness
 
-**Originality (PASS, with residual risk).** The inspected 2025 primary source develops one- and two-*adjacent*-interval count laws and already gives the adjacent-empty density; these are explicitly excluded from the novel contribution. The inspected 2026 preprint treats growth and first occurrences, not the lag-wise correlation distribution. The earlier 2011 source is available in abstract/metadata and is described by the 2025 authors as a one-window theorem; its complete primary text could not be inspected. Searches for autocorrelation, long integer lags, Haar/Bohr distributions, and all-shift covariance found no equivalent arithmetic law. The nearby published arbitrary-shift theorem for tower-height indicators concerns a different arithmetic process and does not imply the asserted measure decomposition. Standard infinite-dimensional torus methods underlie the proof; implicit prior coverage is a genuine residual risk, not disproved by searching.
+PASS
 
-**Mathematical value (PASS).** The natural statistical question is whether the stationary empty-window indicator forgets a distant window. The theorem completely describes the distribution of its long-distance correlation values, shows nonmixing with correlations of both signs recurring, and classifies the limiting measure into precisely one atom plus an absolutely continuous component. The exact support and nonzero product variance quantify persistence and the arithmetic structure of rare simultaneous vacancies beyond marginal or adjacent-window frequencies. It is not merely the covered fixed-lag product or a numerical list.
+Unique factorization assigns the exponent k+j to each prime of nonzero residual exponent j and puts the remaining kth powers into a; thus every nonpower has one ray. Each p is below 1/2, and summability follows by dropping squarefreeness and taking the product of zeta sums. The hit phases for a ray are the open arc (1-p,1); the wraparound and ordinary intersections with the translated arc give the two terms of g_p. Lemma 2 of arXiv:2512.07438 supplies precisely the independence including 1 needed for finite-coordinate equidistribution. Counting omitted-ray roots up through N+t+1 bounds the n-average error by 2(N+t+1)/N times the omitted sum; t is fixed here. In the separate lag average, telescoping differences of the finite and infinite products gives a uniform error controlled by four times the omitted sum, allowing continuous tests. The phase product is continuous on the compact connected torus, with range between the two attainable endpoint products and full Haar-image support; weak convergence and the range bound imply the whole cluster set. The overlap has a zero atom of mass 1-2p and a positive part uniform on (0,p) after conditioning. The minimum product occurs only when all overlaps are zero; on the complement, partition by the first positive overlap and condition on all other coordinates. The other factors have positive product, so this gives a density. The two-wing integrals are p² and 2p³/3, giving the stated mean and variance, with a strictly positive local variance and a positive remaining product. The support crosses zero because 0<C_k<D_k²<D_k<1. The cited summability equation number appears to be (12), not (10), in the retrieved paper, and the frozen proof also gives its own valid zeta bound. The frozen verify_autocorrelation.py and VERIFICATION.md describe finite squarefull-ray and local integral checks; these are corroboration only, not used as the analytic proof or independently executed.
 
-**Boundaries.** No convergence rate or explicit density for the continuous component is asserted. Published rational-independence and source definitions are required. The 2011 primary full text and all possible unindexed specializations have not been exhaustively examined.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the arbitrary-lag covariance together with the second-level lag law, not for the adjacent densities, the underlying ray independence, or the one-window product. No compared statement covers the full law; priority is bounded by the sources actually inspected.
+
+## value
+
+PASS
+
+The non-mixing behavior of this natural arithmetic indicator is quantified by an entire covariance spectrum and a precise measure decomposition over long shifts. The lower-end atom and interval support distinguish it from conclusions about one or a few adjacent gaps or simply nondecay along a subsequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

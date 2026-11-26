@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof derives cycle midpoints from the summed logarithmic equations, converts genuine antiphase cycles into a pair of scalar amplitude equations, and establishes a necessary and sufficient threshold with strict concavity and a sign-crossing argument. The equality boundary is excluded by strict chord-slope inequality. The numerical program is supplementary and was run on seven scenarios. Limits: no cycle count, uniqueness, or global-attraction assertion is proved.
+## correctness
 
-## Originality — PASS within inspected evidence
-The 2026 primary article's complete HTML, including periodic-orbit equations in Section 5, was examined; it supplies no sharp antiphase if-and-only-if parameter criterion. The earlier 2022 paper documents phase multistability and numerical bifurcations, while its complete publisher full text was temporarily inaccessible; the available excerpts do not establish the present threshold. A 2026 global-stability paper was accessible only by abstract. Specific similarity searches of published research records and comparisons with the related low-load theorem did not find exact or stronger covering results. Absence of search hits is not a proof of historical novelty, and older inaccessible full texts remain a priority risk.
+PASS
 
-## Value — PASS
-The threshold is a natural dynamical boundary: it determines precisely when competing species can alternate in opposite directions, using the species' equilibrium crowding loads and interaction product. The criterion holds across arbitrary positive asymmetry, beyond local flip predictions or numerical cycle examples, and remains sharp at equality. Collapse of all antiphase amplitudes at the threshold links finite-amplitude cycles with the equilibrium's \(-1\) spectral factor.
+Summing the logarithmic two-cycle equations fixes the midpoint by invertibility of the coexistence matrix. In antiphase coordinates the two forward equations are U_X(u)=alpha*w and U_Y(w)=beta*u, and negating the displacements gives the reverse equations. The scalar function U_L(t)=t-2atanh(t/L) has negative second derivative for positive t. Positive right sides force both loads above two, and multiplying the strict chord-slope bounds excludes equality as well as larger products. Conversely, w(t)=U_X(t)/alpha gives a positive residual near zero under the strict bound. The residual is negative at first contact with the positive zero of U_Y, or at the positive zero of U_X if there is no contact. Continuity gives an interior primitive cycle. At fixed X,Y, each chord-slope ratio can approach its upper bound only at amplitude zero, so both amplitudes vanish as the product approaches the threshold from below. Direct differentiation gives the stated determinant. This is not a stability theorem: at the boundary the trace is less than -2, so the other multiplier is below -1. The finite checker was inspected, not executed; its three reported reconstructions corroborate examples, and its four exclusions use the formula, not a search. The proof supplies the universal evidence.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The verified distinct claim is the global iff and disappearance of every antiphase cycle at fixed coexistence loads, allowing unequal loads and unequal positive couplings. Earlier symmetric exchange existence, complementary low-load exclusion, and bifurcation calculations overlap but do not imply that result. No claim of priority is made for the symmetric exchange threshold or the local characteristic factor.
+
+## value
+
+PASS
+
+In a standard competitive map the result identifies the exact region permitting opposite oscillations, including unequal loads where exchange symmetry is unavailable. It distinguishes the existence boundary of any such orbit from numerical detection of stable attractors and controls all possible finite-amplitude branches as the boundary is approached. These are useful exact facts for bifurcation studies even without a multiplicity or attraction theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

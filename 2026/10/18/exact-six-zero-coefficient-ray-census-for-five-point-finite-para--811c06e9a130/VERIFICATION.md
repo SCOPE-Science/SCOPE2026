@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification details
 
-Build the included `verify_p11.cpp` with C++17 and optimizations, then execute. Its deterministic exact-arithmetic enumeration of six affine support representatives checks all \(6\binom{120}{3}\) normalized zero-row seed triples and every resulting Fourier evaluation. It confirms six orbit sizes \(55,110,110,55,110,22\), no noncollinear rank-deficient triples, six-zero coefficient rays per representative \(1210,605,3025,0,605,0\), and total \(532400\).
+# Independent mathematical audit
 
-Actual completed execution reported:
+## correctness
 
-`VERIFY_OK exact cyclotomic census: 462 supports; six affine orbits; 532400 sharp projective rays`
+PASS
 
-`TOTAL_PROJECTIVE_RAYS=532400`
+The frequency modulation action is free because a quadratic minus a constant cannot vanish on five distinct field points unless identically zero. Its orbit of 121 rays contains exactly six origin-normalized rays for a six-zero ray. Affine changes of support transport zero sets by an invertible frequency change and a nonzero phase. For completeness, normalize one zero at the origin. If at least four zero rows had collective rank below four, the verified rank-drop property forces all zero frequencies onto one line. On that line the prime Fourier minor theorem makes four distinct samples have rank min(4, number of distinct quadratic fiber values). Rank drop therefore forces exactly three fiber values, of sizes 2,2,1, and vanishing at all four samples forces all fiber sums to vanish, contradicting the singleton's nonzero coefficient. Thus every relevant ray is seeded by four independent rows. Its full zero set determines that ray, so set deduplication is valid. An independent enumeration checked every triple for every affine representative, using reduction at the order-11 root 26 modulo 65539 as a one-sided filter and exact signed 4-by-4 cyclotomic minors for every surviving case. Every rank drop survives that filter; none is off-line. Exact origin-normalized six-zero counts are 60,30,150,0,30,0 in table order. There are full-support five-zero sets in each orbit, and no seven-or-more-zero sets, so all six maxima follow even without importing the reported external sharp bound. The orbit sizes and 121/6 conversion give the stated 532400 total.
 
-The finite calculation is exhaustive, not sampled. The proof of its comprehensiveness uses four independent zeros, the prime Fourier minor theorem, and the absence of noncollinear rank-three degeneracies (also checked exactly). A directly constructed six-zero witness was checked separately, and its zero set for the first orbit is \(\{(0,0),(1,0),(2,5),(3,5),(5,4),(9,1)\}\).
+## originality
 
-All integer coefficients stay small enough for signed 16-bit arithmetic (each determinant has at most \(48\) terms, and a Fourier sum has at most five such minors; the maximum possible absolute sum is below \(32767\)). No independent external audit was performed. This does not claim conclusions for other primes.
+PASS
+
+The sharp six-zero ceiling and at least one sharp example are already in Li v1 and are not credited as new. The supported contribution is the full projective equality census, including the sharp-support classification and exact per-orbit counts. The inspected primary and published-catalogue claims do not supply it.
+
+## value
+
+PASS
+
+At the first field size in this five-point equality question beyond the analogous F7 census, the known sharp bound leaves a substantive structural question: do all shapes attain it, and with what equality multiplicities? The answer separates four attaining affine shapes from two nonattaining ones, with materially different counts among the attaining shapes. This is exact equality data for a motivated Fourier uncertainty problem, not a new computation of the already known ceiling or an isolated arbitrary witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

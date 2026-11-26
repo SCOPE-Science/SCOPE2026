@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reduces forward confluence on the complete two-level order to two row-inclusion constraints. Exhausting the cases with and without an empty upper-target row gives the stated exact count. Independently, a weighted-column relaxation gives a finite relative-error bound for all positive level sizes, so the uniform asymptotic is a consequence of inequalities rather than an extrapolation. The packaged checker exhausts all binary relations in the indicated small cases, tests a separate upper-row sum, and reports `ALL_CHECKS_OK`. These computations are corroboration; the proof establishes unrestricted positive integer parameters.
+PASS
 
-## Originality — PASS, qualified by historical access
+For a strict comparison of sources m<t, an upper target must occur in both rows, whereas a lower target is witnessed by any upper target in row t or, if that row has no upper targets, only by itself. This gives precisely the two intersection restrictions; reflexive source comparisons impose nothing. For zero empty upper parts, the column sum is H^b without the nonempty-row condition, and the empty-row completions have no all-one columns: subtract B^b-(B-1)^b. For z>0 empty upper parts, each lower target gives 2^z-1 ordinary patterns and one all-present pattern with 2^a lower-source completions, accounting for every term of the exact formula. In the proposal law the factor 2^a on each all-one column cancels its 2^a equally likely lower-source completions, so conditioning on confluence is exactly uniform. One upper row is empty with probability (2^{b-1}/H)^b, independently across columns, giving the claimed bound by a union over rows, not by assuming row independence. Dividing by 2^{(a+b)^2} gives 2^{-ab}(1+2^{a-b}-2^{-b})^b for the relaxation; replacing the base by 1+2^{a-b} costs relative error at most b2^{-b}, uniformly in a, and gives all stated regimes. The audit's separate up-set evaluation checked every relation for all six positive (a,b) with a+b<=4, including 185 versus 281 and 11,401 at (2,2).
 
-The original FIK semantics appear in Balbiani–Gao–Gencer–Olivetti (arXiv:2309.06309), and Gao–Olivetti (arXiv:2606.31877) study its proof theory and complexity. A prior rooted-fork calculation already gives the one-minimal-point case and is expressly excluded from new priority. A published finite-chain count deals with comparable carriers, and the IK chain census adds backward confluence. Inspected primary sections and targeted semantic searches did not reveal a theorem implying the exact two-parameter branching-order count or the uniform relative-error estimate. Source indexes are not exhaustive; the published chain-census complete text could not be examined.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete two-level order is a canonical nonchain frame family, relevant because both sides can branch. Its exact labelled frame census and uniform probability law quantify how the forward-confluence axiom restricts general accessibility relations, including a change in exponential scale when the relative level sizes vary. This is mathematically motivated by finite-frame semantics and random model sampling, not by an arbitrary fixed numerical slice.
+Credit the rooted-fork specialization and established FIK semantics. The strongest indexed overlaps, including a same-day two-sided census, do not give the unrestricted one-direction count with both sizes free or its sampling and uniform error analysis. This is a bounded statement-level finding, not a priority certification.
 
-## Limits and status
+## value
 
-No count is claimed for arbitrary partial orders, other modal-frame axioms, or isomorphism classes. The previous rooted-fork case is not new. Undiscovered broader representation theorems remain a residual originality risk. Independent mathematical review is not available.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete two-level orders are a natural branching family beyond chains and rooted forks. The census retains the asymmetry of the two levels and distinguishes the balanced and strongly unbalanced rarity regimes. The same structure gives exact uniform sampling with at most two proposals in expectation, an independently useful way to generate valid frames without the rarity cost of rejecting from all relations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

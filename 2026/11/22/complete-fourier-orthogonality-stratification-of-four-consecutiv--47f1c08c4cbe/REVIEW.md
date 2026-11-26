@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise four-stratum formula applies to all strictly positive real weights on exactly \(\{0,1,2,3\}\). Orthogonality is equivalent to a zero of the cubic Fourier polynomial on the unit circle; conjugation and cubic degree restrict the zero-phase graph to \(\{1/2,\pm u\}\). An explicit phase-triangle calculation forces \(u=1/3\) or \(u=1/4\); corresponding factorization gives the three and four strata. The two stratum follows by exact real quadratic factorization or an alternating root. A row-norm unitary argument independently excludes four characters for nonuniform masses. The included checker tests 81 exact rational factor evaluations and all \(1296\) integer-weight tuples with coordinates in \(\{1,\ldots,6\}\). No inference from finite enumeration to the real-parameter theorem is needed.
+PASS
 
-## Originality — PASS relative to inspected sources
+For the corrected statement: translate one frequency to zero; orthogonality is vanishing of the cubic mask at all nonzero differences. Positivity excludes phase zero and reality and degree allow only a real zero −1, a conjugate unit pair, or both. A triangle using conjugate nonreal phases forces z³=1 or z²=−1 with −1 also a root. In a triangle using −1 and a nonreal z, the third difference forces −z to be the conjugate of z, again giving ±i. The third-root factorization gives b=c=a+d, and the fourth-root factorization gives uniform masses. Four orthogonal columns also force uniformity by row norms and their residues, after translation, are 0,1/4,1/2,3/4 modulo 1. For pairs, P(−1)=0 or the quadratic factor z²−2tz+1 gives t=(d−b)/(2a), d(d−b)=a(a−c), and the required strict |t|<1. The frozen line 20 said 'every maximal'; at masses (1,2,2,1)/6, phases 0 and 1/2 already form an inclusion-maximal pair, not an optimal triple. The scope already intended maximum cardinality; the supplied replacement RESULT.md makes that restriction explicit, supplies the counterexample to the broader reading and fixes the modulus typo in Step 4, without changing the capacity formula.
 
-Fu–Song (arXiv:2607.19858, §§1–2, 4–5) treats complete uniform-weight Hadamard pairs, not incomplete orthogonal capacities for arbitrary weights. Li–Wang (*Axioms* 2026, §§1–3) analyzes infinite three-dimensional self-affine measures. Indexed published records on symmetric four-atom Fourier zeros and phase-only quadrinomials share root geometry but address distinct restricted regimes. The exact coefficient stratification for all positive masses and classification of maximum Fourier families were not located in the cited literature or compared indexed prior claims. The indexed symmetric four-atom result's full manuscript remained inaccessible; equivalence through a yet-unread more general theorem is a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-This is the smallest nontrivial positive, unequal-mass four-site setting in which a complete Fourier basis is excluded but a maximal three-character subsystem can survive. The exact four-stratum diagram distinguishes the full-dimensional generic no-pair locus from algebraic pair loci, the rigid nonuniform three-character family and the unique uniform four-character law. The sharp nonuniform three-character condition has direct significance for finite weighted Fourier sampling and spectral-packing thresholds, rather than merely recomputing a fixed table. Higher supports are not covered.
+For the repaired claim, full uniform spectrality and some of the resonance construction overlap existing work. The complete capacity stratification, including the pair-only and no-pair distinction and the rigidity of optimum families on the consecutive line, is not covered by those sources.
 
-## Remaining scientific limitations
+## value
 
-Independent verification and a comprehensive unindexed literature review have not been performed. The stated formula is only for strictly positive weights and four consecutive integer sites.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The maximum number of exact mutually orthogonal weighted Fourier samples is a natural invariant even without a full basis. All four possibilities are realized, and the exact phase obstruction explains why the planar positive-square capacities cannot just be reused for equally spaced samples. In particular the pair locus and unique optimum triple after translation answer structural questions across all positive weights, rather than checking isolated examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

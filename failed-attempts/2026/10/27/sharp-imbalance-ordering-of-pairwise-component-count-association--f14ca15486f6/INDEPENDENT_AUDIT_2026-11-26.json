@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:19:51.266341Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The statistic is a second factorial cumulant on the diagonal, not a variance. Write q=1−p and R=binom(n−a,b)/binom(n,b). Counting ordered disjoint pairs of connected components divides the product of the individual expected counts by the double counting of ab absent cross-edges and multiplies by the disjoint-set ratio R. Thus the normalized cumulant is R q^(−ab)−1 for a+b<=n and −1 when a+b>n; the means are positive for all in-scope sizes and 0<p<1. The unique feasible zero is π=1−R^(1/(ab)). The finite logarithmic average and positive Laplace representation are valid even at a+b=n. The strict log-convexity in size of (exp(tx)−1)/(x(exp(t)−1)) follows from 2 sinh(tx/2)>tx, giving the strict balancing comparisons, including the diagonal. Coordinate monotonicity is strict by adding a larger terminal row or column; the global extremes then give 1/n and 1−n^(−1/(n−1)), coinciding only at n=2. The ordering gives opposing ordinary covariances for (2,3) and (1,4) on an open interval for every n>=5. At n=5 and q=27/40, independent integer comparisons gave 40^6−10·27^6=221795110>0 and 5·27^4−40^4=97205>0 (replay: branches/review-exact-small-checks.js). The frozen verifier was inspected but not executed. The all-size conclusions were checked by proof, not inferred from finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun gives exact ordered factorial moments with prescribed sizes and surpluses. Summing surpluses yields the two-component factorial moment, including coincident sizes, and the crossing equation after normalizing by the individual means.",
+          "DLMF Eq. 5.15.1 supplies ψ′(x)=∑_(j>=0)(x+j)^(-2) on x>0, a strictly convex function by differentiation or the positive sum of strictly convex terms.",
+          "For any strictly convex φ and independent continuous U,V uniform on [0,1], (x,y)↦E[φ(c+xU+yV)] is strictly convex and symmetric on the positive quadrant whenever φ is defined on the relevant arguments. This is the standard symmetric-convex majorization principle; pointwise strict Jensen and exchangeability give the strict comparison without any specialized stochastic-order theorem."
+        ],
+        "reasoning": "The broader ordered-tuple law already covers the diagonal enumeration. For the ordering, the needed majorization result is simply convexity of an expectation of a convex function of linear weights; it applies to the exact integral form of the known ratio, not to a model approximation. No claim is made to have inspected the full optional convex-order papers that could not be retrieved.",
+        "searches": [
+          "Sun, arXiv:2608.04799, §3 Proposition 3.2 (3.4)–(3.5)",
+          "\"convex order\" \"exchangeable\" majorization weighted sums Proposition Marshall Olkin Shaked Shanthikumar weighted sum iid majorization convex ordering probability",
+          "NIST DLMF §5.15 Eq. 5.15.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_component_size_phase.py",
+        "Resultary exact component covariance threshold, avoidance ratio, size imbalance and broader component count queries",
+        "Resultary 2026/10/18/SCOPE-shape-universal-covariance-sign-reversals-for-random-graph-compo--00c844d9af13",
+        "arXiv:2608.04799 Proposition 3.2",
+        "NIST DLMF §5.15.1",
+        "arXiv:2101.05358 and arXiv:1901.01876 (contextual abstracts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fix s=a+b and c=n−s+1>0. With f=log Γ, the known factorial formula gives −log R=f(c+a+b)−f(c+a)−f(c+b)+f(c). Dividing by ab and integrating the mixed difference twice gives exactly E[ψ′(c+aU+bV)] with independent U,V uniform on [0,1]. The offset c stays fixed under balancing.",
+          "For a<b and 1<=a<floor(s/2), (a+1,b−1) is a nontrivial convex combination of (a,b) and (b,a). The two arguments of ψ′ differ by (a−b)(U−V), nonzero almost surely. Strict Jensen and symmetry therefore give τ_n(a+1,b−1)<τ_n(a,b). This uses the prior closed form by ordinary gamma substitution and the fundamental theorem of calculus, rather than a new random-graph estimate or a new majorization inequality.",
+          "Coordinatewise increase (from the known rectangular sum) plus that comparison gives the global endpoints by telescoping at a=1. The opposing-covariance interval is the interval between two of the already known zeros, nonempty by that same strict comparison."
+        ],
+        "reasoning": "The main claimed strict ordering is mathematically correct, but it is obtained by a direct routine specialization of the classical majorization argument to the already known exact thresholds. The endpoints and interval add no independent mathematical assertion beyond these implications. The evidence does not show that the precise fixed-total wording was published before.",
+        "searches": [
+          "October 18 matched record, exact sign formula and Eq. (6)",
+          "Sun Proposition 3.2",
+          "DLMF §5.15 Eq. 5.15.1; exchangeable weighted sums and symmetric-convex majorization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/18/SCOPE-shape-universal-covariance-sign-reversals-for-random-graph-compo--00c844d9af13 gives exactly the same π for distinct sizes, also for arbitrary connected shapes. Its Eq. (6) uses the identical normalized rectangular log average.",
+          "The normalized log-avoidance probability −log(R)/(ab) is the target comparison under the increasing transformation τ↦1−exp(−τ); this is not a different threshold.",
+          "For fixed s=a+b the normalized log ratio is also the rectangular integral mean of the trigamma function with increments a,b; the identity is made explicit under claim_vs_prior_implication."
+        ],
+        "reasoning": "The shape and size formulations agree on the claimed distinct-size zeros. Changing from covariance to the diagonal factorial cumulant does not change the disjoint-set factor; its purpose is to remove self-pairs. The prior graph statement compares coordinatewise increases, not fixed-total transfers, so the exact implication requires the distinct convexity check, not a title or monotonicity match.",
+        "searches": [
+          "Resultary: component count pair covariance threshold, shape-universal sign reversal, Schur-convex size imbalance",
+          "Resultary: normalized log disjoint-subset probability and fixed-total majorization",
+          "Schur convexity fixed sum normalized disjoint set probability log factorial ratio divided by product sizes mixed divided differences log gamma function majorization hypergeometric avoidance probability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 18 result's exact symbolic threshold formula supplies all finite distinct-size entries, not just a numerical subset. Its coordinatewise comparison already gives monotonicity in either feasible size for distinct pairs.",
+          "No separate table explicitly ordering all the fixed-total rows, including the diagonal, was identified. The checked result on third cumulants is about a different order and sparse regime, and the singleton–size-class covariance result for uniform set partitions uses a different model."
+        ],
+        "reasoning": "The missing sorted table is not evidence of novelty: the exact unsorted cells are known, and the order follows uniformly by the implication below. A numerical rerun or any one n,p example is not a new exact invariant.",
+        "searches": [
+          "Resultary: exact finite-n component association threshold, threshold extrema, size imbalance and opposing covariance signs",
+          "Resultary: disjoint-set factor and exact finite-n shape-associated component covariance"
+        ]
+      },
+      "rationale": "The exact finite-n distinct-size covariance sign law, the normalizing factorial ratio and its rectangular log average are explicitly covered in the October 18 matched result. The diagonal extension uses the same disjoint ordered-pair calculation already supplied by the general component-tuple law. Although the prior graph result does not state the fixed-total ordering, that ordering is a direct corollary of its exact formula and standard convex majorization: two applications of the fundamental theorem of calculus turn the factorial ratio into the expectation of a strictly convex function of an exchangeable weighted sum. The exact implication and strictness are shown below. This is a finding of derived coverage, not a claim to have located the exact comparison verbatim, and not a verdict based on inaccessible sources.",
+      "residual_risks": [
+        "No conclusion is drawn about who first explicitly stated the fixed-total comparison. General weighted-sum convex-order leads without accessible full text and the Pittel paper are not used as evidence of noncoverage or as the basis for failure.",
+        "The derived-coverage judgment is based on the exact matched threshold and the displayed mathematical reduction, not on the scope of any unread source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact distinct-size threshold coverage and stronger shape-level formula; no claimed fixed-total comparison read",
+          "evidence": "Normalized covariance bracket is binom(n−h,k)/binom(n,k) times (1−p)^(−hk), minus one. Eq. (6) is the exact same rectangular log average; the text explicitly proves coordinatewise monotonicity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-shape-universal-covariance-sign-reversals-for-random-graph-compo--00c844d9af13/RESULT.md",
+          "material_read": "Finding and proof of Eqs. (1), (2), (6); offsets 0–5681 including the disjoint-set enumeration and normalized logarithmic formula",
+          "method": "Read full-text passages in mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Shape-universal covariance sign reversals for random graph components",
+          "trigger": "Exact matching finite covariance zero and connected component counts"
+        },
+        {
+          "assessment": "Covers ordered factorial moment formula after summing over surpluses; not a threshold-order statement",
+          "evidence": "The proposition counts ordered disjoint components with prescribed sizes and surpluses. Two entries with the same size remain ordered distinct components.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.04799",
+          "material_read": "§3 p. 7 Proposition 3.2 and Eqs. (3.4)–(3.5), PDF offset 28119",
+          "method": "Read primary PDF passage",
+          "title": "Uniform High Order Factorial Moment Bounds for the Critical Erdős–Rényi Component Process",
+          "trigger": "General exact ordered component factorial moment with size and surplus parameters"
+        },
+        {
+          "assessment": "Standard trigamma identity used in the direct majorization implication; not itself a graph theorem",
+          "evidence": "ψ′(z)=∑_(j>=0)(j+z)^(-2) for z away from the listed poles; each summand is strictly convex for real z>0.",
+          "identifier_or_url": "https://dlmf.nist.gov/5.15.E1",
+          "material_read": "§5.15 Eq. 5.15.1, offsets 1080–1688",
+          "method": "Read the bounded primary reference passage",
+          "title": "NIST Digital Library of Mathematical Functions, Polygamma Functions",
+          "trigger": "Verify the decisive special-function substitution and convexity in the covered implication"
+        },
+        {
+          "assessment": "Not used to decide coverage",
+          "evidence": "No decisive passage was read; historical comparison with this paper remains open.",
+          "identifier_or_url": "B. Pittel (1990), On tree census and the giant component in sparse random graphs",
+          "material_read": "Bibliographic identification only; no primary full text retrieved in bounded attempt",
+          "method": "Lawful OA attempt; publisher returned HTTP 403 and no repository copy was recovered",
+          "title": "On tree census and the giant component in sparse random graphs",
+          "trigger": "Plausible older component covariance literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The dependence question is natural, and the same-total opposing signs are a useful illustration. For this submission, however, after crediting the already exact sign law and ordered moments, the remainder is the standard strict Jensen comparison of a symmetric convex integral mean. The global endpoints and opposing-sign example are immediate evaluations or consequences of that comparison. No additional substantive classification, independent obstruction, or nonroutine result survives this reduction; a different proof or a larger finite check would not change that.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

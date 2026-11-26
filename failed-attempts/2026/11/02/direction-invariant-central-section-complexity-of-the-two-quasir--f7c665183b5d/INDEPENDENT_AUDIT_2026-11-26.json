@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:33:10.373702Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–42",
+        "VERIFICATION.md and checks/verify.py (inspected, not executed)",
+        "Independent exact base-normal sign tally described above"
+      ],
+      "rationale": "A generic plane cuts a polytope edge exactly when its endpoints have opposite signs. At a midpoint x the four neighbors are exactly the midpoint pairs in the two incident original triangles: each midpoint triangle is an exposed facet of the rectification, so its sides are edges. The balance equation makes the four neighbor projections onto x-perp cancel in two opposite pairs. At a simple wall there are two positive and two negative neighbors and no jump in crossing count. The general criterion's origin-interiority step can be supplied as follows. The exposed triangles in distinct facet planes give a full-dimensional rectification. If the origin were not interior, there would be a supporting plane through it touching a nonzero midpoint vertex (for exterior origin vary a strictly separating normal continuously to its opposite until the minimum projection is zero; at a boundary vertex choose an incident facet). At any nonzero touching vertex the neighbor sum is parallel to that vertex; nonnegativity makes all its neighbors touch. The polytope graph remains connected on deletion of at most the vertex 0, so all vertices would lie in the plane, a contradiction. Consequently simultaneous switching vertices are opposite radial endpoints and are nonadjacent, so their zero jumps add. The regular originals have balanced diamonds by their edge-axis half-turns. Independent exact base-direction enumeration for normal (1,2,4) found no midpoint ties. Enumerating original triangles as triples with all squared distances 2 for the octahedron or 4 for the icosahedron gives counts by number of positive midpoint signs of (2,2,2,2) and (7,3,3,7); each mixed triangle contributes two crossed edges, giving 8 and 12. For replay, sign a midpoint by n·(u+v), comparing the signs of 2a+b and b and then (2a+b)² with 5b² for a+bφ. Each cut edge separates the two distinct face types, forcing alternation and therefore the stated face counts. Central symmetry, measure-zero exceptions and affine invariance follow with the stipulated centers and vertex avoidance.",
+      "residual_risks": [
+        "The checker docstring names checker.py rather than its supplied path checks/verify.py. Finite direction samples are not the invariance proof. No assertion is made for planes containing vertices or offset planes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The belt theorem characterizes constant generic section size by invariance under sign reversal of the projected neighbor directions.",
+          "The slicing-chamber theorem fixes crossed edges within chambers; it does not by itself relate their counts across chambers."
+        ],
+        "reasoning": "The midpoint equation implies two exactly opposite projected vectors per pair. For ordinary rectifications here, origin-interiority gives nonadjacent simultaneous switches; the established local balance argument then suffices even without assuming central symmetry. Alternatively the planar paired-edge cycles and their two intersections with any generic origin-line give the constant, whether or not the belt polygons are centrally symmetric.",
+        "searches": [
+          "Equatorial-edge-belts RESULT.md offsets 0–1950 and proof §§2–5",
+          "Brandenburg–De Loera–Meroni arXiv:2304.14239 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Published equatorial-edge-belts, Haar octagon and icosidodecahedron dodecagon records",
+        "Matteo 1403.2125",
+        "Brandenburg–De Loera–Meroni 2304.14239",
+        "Geometric sources above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior wall jump is the signed sum over neighbor projections, with a factor of two when antipodal vertices switch together; paired projections cancel the sum at each vertex individually.",
+          "The prior belt record includes invariance under invertible linear transformations, and the classical incidence says neighboring section sides alternate between a triangle and the other face type."
+        ],
+        "reasoning": "The stated distribution is a point mass because the nongeneric set has measure zero; changing the center by a translation and transporting the colors does not alter sections or face incidence. None of these refinements isolates a distinct substantial result from the counts and pairing mechanism.",
+        "searches": [
+          "Equatorial-edge-belts RESULT.md §§2–6; same-day icosidodecahedron RESULT.md proof and crossing sum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier Finding states 8 and 12 under exactly the vertex-avoiding central-plane convention; it uses section vertices instead of sides, which are equinumerous.",
+          "The distinct 2026/11/02 record every-generic-central-section-of-the-icosidodecahedron-is-a-dode--c6250795e9c4 gives the same icosidodecahedron conclusion by radial neighbor pairing."
+        ],
+        "reasoning": "The constants refer to every generic section, not just a few directions or the expected count. Equatorial hexagons or decagons run through vertices and do not decide either generic law.",
+        "searches": [
+          "Resultary lookup for generic central sections of the cuboctahedron, icosidodecahedron and equatorial edge belts",
+          "2026/11/01 equatorial-edge-belts-characterize-constant-complexity-central-s--3e91911b681e, RESULT.md Finding and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier belt record explicitly tabulates 8 and 12 and confirms the edge partition into four hexagonal and six decagonal belts.",
+          "Standard solid entries give the alternating incident face types; exceptional equatorial cuts are documented separately."
+        ],
+        "reasoning": "The actual deterministic exact counts are already recorded, not merely suggested by face totals. Half-counts by face type follow from adjacency, not a new enumeration.",
+        "searches": [
+          "Resultary 2026/11/01 equatorial-edge-belts record, Finding and verification; 2026/10/25 Haar octagon record Finding",
+          "MathWorld Regular Icosidodecahedron; Freire The Cuboctahedron; 2011 cuboctahedral construction Table A"
+        ]
+      },
+      "rationale": "The distinct earlier equatorial-edge-belts record explicitly gives both solid counts and a more general projected-neighbor pairing criterion for centrally symmetric polytopes. For these two solids the face-colored counts follow immediately from classical edge incidence, and the affine assertion transports by bijection. The midpoint equation is a sufficient coordinate test of the same local pairing: the earlier local-jump cancellation (or paired planar-belt proof) requires only origin-interiority and the nonadjacency of simultaneously switching vertices for this sufficiency direction, not equal antipodal radii or overall central symmetry. This covers the material conclusions without a new section mechanism. This is statement-level and implication evidence, not a chronological inference from the distinct same-day match.",
+      "residual_risks": [
+        "The bounded comparison does not assign absolute historical priority. The edge-diamond equation as written is a useful coordinate certificate, but that form alone does not show a new section theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap; pairing proof supplies sufficiency of the midpoint identity",
+          "evidence": "States counts 8 and 12, projected-neighbor direction symmetry, planar belts, and linear invariance; local jump and planar sign-balance §§2–3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-equatorial-edge-belts-characterize-constant-complexity-central-s--3e91911b681e/RESULT.md",
+          "material_read": "Finding, hypotheses, proof §§1–6 and verification (offsets 0–8400 by relevant passages)",
+          "method": "Published-record local mirror",
+          "title": "Equatorial edge belts characterize constant-complexity central sections",
+          "trigger": "Exact earlier coverage of both generic counts and a broader mechanism"
+        },
+        {
+          "assessment": "Distinct exact overlap; no same-day priority conclusion",
+          "evidence": "Radial neighbor pairs give invariance and the crossing-probability sum gives 60/5=12.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-every-generic-central-section-of-the-icosidodecahedron-is-a-dode--c6250795e9c4",
+          "material_read": "RESULT.md offsets 0–1043, 1757–3400, 4700–5930",
+          "method": "Published-record local mirror",
+          "title": "Every generic central section of the icosidodecahedron is a dodecagon",
+          "trigger": "Exact same-day icosidodecahedron claim"
+        },
+        {
+          "assessment": "Direct count overlap",
+          "evidence": "Every generic central section of the cuboctahedron is an octagon.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-haar-octagon-rigidity-and-asymmetric-section-type-breakdown-at-t--43ccbd46d8ff",
+          "material_read": "RESULT.md Finding, offsets 0–1372",
+          "method": "Published-record local mirror",
+          "title": "Haar octagon rigidity and asymmetric section type breakdown",
+          "trigger": "Exact earlier cuboctahedron claim"
+        },
+        {
+          "assessment": "Supplies classification context, not the generic section theorem",
+          "evidence": "The relevant quasiregular solids appear in the two-orbit classification.",
+          "identifier_or_url": "https://arxiv.org/pdf/1403.2125",
+          "material_read": "Theorem 1, PDF p. 3; face and flag structure, p. 9",
+          "method": "Open PDF passage inspection",
+          "title": "Two-orbit convex polytopes and tilings",
+          "trigger": "Classical solid and face-geometry antecedent"
+        },
+        {
+          "assessment": "Chamber decomposition directly relevant but not full count invariance",
+          "evidence": "Crossed-edge sets are fixed within a slicing chamber.",
+          "identifier_or_url": "https://arxiv.org/pdf/2304.14239",
+          "material_read": "Theorem 1.1, PDF p. 2",
+          "method": "Open PDF passage inspection",
+          "title": "The Best Ways to Slice a Polytope",
+          "trigger": "Potential general slicing theorem"
+        },
+        {
+          "assessment": "Different, nongeneric domain",
+          "evidence": "Equatorial hexagons include solid vertices.",
+          "identifier_or_url": "https://www3.mpifr-bonn.mpg.de/staff/pfreire/polyhedra/cuboctahedron.htm",
+          "material_read": "Opening section, equatorial hexagons",
+          "method": "Open web passage inspection",
+          "title": "The Cuboctahedron",
+          "trigger": "Potential exact but exceptional equatorial-section match"
+        },
+        {
+          "assessment": "Exceptional section and classical incidence",
+          "evidence": "The decagonal cut follows an edge circuit and contains vertices.",
+          "identifier_or_url": "https://eusebeia.qfbox.info/4d/icosidode",
+          "material_read": "Opening face data and equatorial bisection description",
+          "method": "Open web passage inspection",
+          "title": "The Icosidodecahedron",
+          "trigger": "Potential decagonal-section contradiction or antecedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "Prior equatorial-edge-belts result, Finding and §§2–6"
+      ],
+      "rationale": "The section invariant is well motivated, and its constancy is not a generic property of polyhedra. The incremental claim, however, repeats two established constants and gives their immediate color alternation and affine transport. The coordinate specialization of the established wall-balance test gives no new class of examples or independently needed exact fact here.",
+      "residual_risks": [
+        "This judgment is about the frozen claimed contribution, not the usefulness of central-section rigidity as a research topic."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

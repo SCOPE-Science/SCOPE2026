@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:05:00.718727Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–57, VERIFICATION.md and check.py; the frozen script was not executed.",
+        "Independent exact bounded enumeration: iterate product(range(n), repeat=n) for n=1–6, make mask with bit j set when occurrence count of j is one, and sum (-1)^popcount(mask & ((1<<k)-1)) for k=0,...,n. Target-label symmetry makes those representatives exhaustive by weight. n=4 gave (256,40,16,-8,160); n=6 gave (46656,9156,2376,396,336,-684,17496); n=2 gave (4,0,4). The classifications matched throughout."
+      ],
+      "rationale": "A weight-k character assigns the product of 1-2 times each selected singleton indicator, i.e. factors 1−2·indicator. For a prescribed j-subset of selected targets to be singleton, choose their distinct labelled preimages in (n)_j ways and then map all remaining inputs into the other n-j targets. This gives the full multiplier formula with 0^0=1, and the equivalent exponential series is obtained by replacing e^z by e^z-2z in k factors. For odd n the j=0 term is odd and all other terms even. For even n>=4, k>0, set a=v2(n), b=v2(k); j=1 has valuation 1+a+b since n-1 is odd. For j=0, na>1+a+b (including n=4), using b<=floor(log2 n). Factoring kn/j from the coefficient for j>=2 supplies valuation at least a+b+j-v2(j), before the (n-j)^(n-j) factor. For j>=3 the excess j-v2(j) is at least two, including j=n with the endpoint convention; j=2 receives at least two more powers of two from the positive even n-2. Thus j=1 has unique least valuation. The weight-zero output is n^n. For n=2 the two constant maps give the empty mask and the two bijections give the full mask, so the eigenvalues by weight are 4,0,4 and the nullity is two. At n=1 the unique mask is full, giving 1,-1. The binomial count of weight-k characters gives the stated determinant and dyadic multiplicities.",
+      "residual_risks": [
+        "The finite enumeration tests small orders, not the unbounded valuation comparison. The frozen 13,296-assertion report is recorded evidence, not a frozen-script replay here."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barbour–Gnedin's inspected abstract and introduction establish joint normal approximation for counts X_(n,r) of boxes with r occupants in an infinite box scheme. The identified Milenković–Compton and Riedel pages did not yield readable primary text in this review."
+        ],
+        "reasoning": "An asymptotic law of aggregated occupancy counts does not provide exact signed arithmetic for a selected labelled subset. A general marked occupancy series could yield the raw multiplier formula by substitution; strict valuation dominance would still have to be proved or located. No whole-paper exclusion is inferred from access failure.",
+        "searches": [
+          "arXiv:0809.4387 PDF p. 1",
+          "DOI:10.1017/S0963548304006285 and identified ResearchGate full-text URL",
+          "MSE 1379701 original and StackPrinter"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f3b5aed803a7 and a1a5f0c48b62",
+        "arXiv:0809.4387 p. 1",
+        "Frozen RESULT.md references, with access limits stated above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the vacant case each constrained output is avoided; in the singleton case one must choose each constrained preimage before mapping the remaining inputs. The authors credit Riedel for a singleton-count generating function, not a dyadic theorem."
+        ],
+        "reasoning": "The two map results have a common binomial-sign expansion and valuation-proof strategy, but an exact valuation of a sum with (n-j)^n coefficients does not evaluate the different sum with (n)_j(n-j)^(n-j) coefficients. A total singleton-count distribution can recover fixed-weight signed counts using exchangeability, so the enumeration itself is not the originality basis; the all-order arithmetic classification is.",
+        "searches": [
+          "Resultary f3b5aed803a7 multiplier and valuation proof passages, offsets 0–4466 and 3500–6304",
+          "MSE 1379701 cited generating function, retrieval unavailable"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The vacant-image theorem uses the same map set but marks indegree zero. The partition theorem marks singleton blocks of set partitions, not singleton target fibres with map multiplicities."
+        ],
+        "reasoning": "Taking complements of occupancy masks flips character signs, not valuations or rank; the different n=2 nullities already rule out such an equivalence with vacant masks. Mapping a self-map to its fibre partition also loses target labels and introduces nonuniform assignment multiplicities, so the unweighted partition result is not equivalent. The generic primary-search returns add no negative evidence.",
+        "searches": [
+          "Local Resultary singleton-fibre / singleton-box XOR spectra; distinct f3b5aed803a7 and a1a5f0c48b62",
+          "Primary query: singleton occupancy Walsh transform labelled maps dyadic valuation fibre set XOR convolution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Vacant-image multipliers use (n-j)^n, with even positive-weight valuation 1+v2(k) and nullity one at n=2. Singleton partitions give a sign/inertia classification and share the singular order n=2, but are not map-weighted."
+        ],
+        "reasoning": "The exact catalogue matches share the observable family or singular order, but agree neither on the counted vectors nor on the claimed arithmetic spectrum. Same-day dates do not establish priority.",
+        "searches": [
+          "Resultary f3b5aed803a7 (vacant images) and a1a5f0c48b62 (singleton partitions), mirrored RESULT.md"
+        ]
+      },
+      "rationale": "The distinct result is the exact dyadic classification by frequency weight for singleton target fibres of finite self-maps, including its exceptional nullity. The same-day vacant-image and singleton-partition results are materially close and credited below; neither covers the extra factor from the prescribed labelled preimages in the present signed sum. The inclusion–exclusion and generating-function inputs are standard and are not claimed as a separate novelty.",
+      "residual_risks": [
+        "Unindexed equivalent arithmetic or a broader marked occupancy valuation theorem remains possible. The two inaccessible counting sources could not be independently inspected in full; historical priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Neighboring exact spectrum and proof technique, different event and arithmetic",
+          "evidence": "Indegree-zero mask, (n-j)^n sum factors, even positive-weight valuation 1+v2(k), nullity one at n=2.",
+          "identifier_or_url": "2026/11/22/SCOPE-dyadic-fourier-recovery-from-vacant-images-of-finite-random-mapp--f3b5aed803a7",
+          "material_read": "Mirrored RESULT.md offsets 0–4466 and 3500–6304",
+          "method": "Local catalogue and bounded mirror read",
+          "title": "Dyadic Fourier recovery from vacant images of finite random mappings",
+          "trigger": "Same maps and operation, same exceptional singular order"
+        },
+        {
+          "assessment": "Different labels, ensemble and spectral invariant",
+          "evidence": "Counts singleton blocks of unweighted set partitions and classifies eigenvalue signs.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-fourier-inertia-of-singleton-set-partition-convolution--a1a5f0c48b62",
+          "material_read": "Mirrored RESULT.md offsets 0–3885",
+          "method": "Local catalogue and bounded mirror read",
+          "title": "Exact Fourier inertia of singleton-set partition convolution",
+          "trigger": "Singleton masks and same singular order"
+        },
+        {
+          "assessment": "Inspected principal statements are asymptotic, not finite selected-coordinate valuations",
+          "evidence": "Joint normal approximation for X_(n,r), the counts of boxes with exactly r occupants, in an infinite-box scheme.",
+          "identifier_or_url": "https://arxiv.org/pdf/0809.4387",
+          "material_read": "Abstract and §1 p. 1, OA offsets 420–3695",
+          "method": "OA literal locate and bounded PDF read",
+          "title": "Small Counts in the Infinite Occupancy Scheme",
+          "trigger": "Broader occupancy-count theory"
+        },
+        {
+          "assessment": "Access limitation; no exclusion inferred",
+          "evidence": "The identified author-sharing page returned HTTP 403.",
+          "identifier_or_url": "DOI:10.1017/S0963548304006285; https://www.researchgate.net/publication/232015333_Probabilistic_Transforms_for_Combinatorial_Urn_Models",
+          "material_read": "No readable full-text passage retrieved here; frozen record credits general occupancy transforms",
+          "method": "OA DOI and identified lawful alternate checked",
+          "title": "Probabilistic Transforms for Combinatorial Urn Models",
+          "trigger": "General labelled urn enumeration could subsume multiplier identities"
+        },
+        {
+          "assessment": "Counting input credited; access limitation on independent passage comparison",
+          "evidence": "Both attempts returned HTTP 403; no negative evidence about the contents.",
+          "identifier_or_url": "https://math.stackexchange.com/questions/801454/probability-of-k-boxes-contain-exactly-1-ball/1379701",
+          "material_read": "No readable passage in independent retrieval; generating function credited as reported in frozen RESULT.md",
+          "method": "OA public page and StackPrinter attempt",
+          "title": "Probability of k boxes containing exactly one ball (Riedel answer)",
+          "trigger": "Cited prior singleton-occupancy generating function"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–28 and 36–57",
+        "Resultary f3b5aed803a7 for the contrasting zero-occupancy spectrum"
+      ],
+      "rationale": "Singleton incidence is a natural dependent occupancy statistic for labelled finite mappings. Determining recoverability for every dimension, including the two lost modes at the exceptional dimension, and the exact arithmetic strata of all nonconstant modes is a structural classification. The nearby vacant-image problem has genuinely different dyadic arithmetic, so the refinement is not a renaming. The determinant formula is a direct useful corollary rather than the sole contribution.",
+      "residual_risks": [
+        "The dyadic strata do not give the real condition number, signs, or a recovery algorithm with additional performance guarantees."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:01:24.214942Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt (inspected only)",
+        "Independent replay: python3 /workspace/branches/audit_replay.py 5 (mpmath)",
+        "Borga–Dubach, arXiv:2610.30382v1, Theorem 3.13 and Lemma 3.14"
+      ],
+      "rationale": "The Luce normalization and admissible class agree with Theorem 3.13 and Lemma 3.14; the common scaling of the discrete weights is irrelevant. For y=1-exp(-exp(-βt)u), the time derivative has density b−βg(y), and the singular part is nonnegative (jumps increase y, and the diffuse singular derivative of u is multiplied by a positive coefficient). This is a global BV decomposition: integrating on compact subintervals bounds ∫b and total singular mass together by 1+β/e. At C>sqrt(β/e), let f(y)=1/[2(C+d_C(y))]. The pointwise tangent bound sqrt(b) ≤ C+f(y)(b−βg(y)) is exact only at b=(C+d_C)^2. Integration against time and the BV chain rule for a primitive of f give A≤C+∫_0^1 f: the endpoint range is at most [0,1], and the singular contribution to that primitive is nonnegative, strictly positive for nonzero singular variation. Equality forces y(0)=0, y(1−)=1, no singular variation and y′=2d_C(C+d_C); separation uniquely determines the path. This independently verifies the calibration in RESULT.md, including arbitrary jumps, singular-continuous parts and β=0 (y=t, K=1). The shooting time is strictly decreasing in C, tends to zero at infinity and diverges logarithmically at the critical C by the quadratic maximum of g. Time substitution gives both quadratures. Expanding with ∫g=1/4 gives C=1/2+3β/16+O(β²), K=1+β/8+O(β²). At large β, any fixed positive gap C²/β−1/e makes the time O(1/β), and K−C≤1/(2C), proving the stated limit. An independent quadrature replay obtained K(1)=1.127588768729963685062, K(4)=1.500518216474186096033 and (K(0.001)−1)/0.001≈0.12500376038.",
+      "residual_risks": [
+        "The numerical values are not interval-certified; the optimization and asymptotics are analytic.",
+        "The result identifies a continuum optimizer, not a limiting discrete maximizing path."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed geodesic concavity result applies to general positive nonincreasing C¹ profiles but gives at most one maximizer among locally absolutely continuous paths with u(0)=0.",
+          "Deuschel–Zeitouni supply a general variational formulation over absolutely continuous paths; Borga–Dubach identify the probabilistic limit for regular profiles."
+        ],
+        "reasoning": "Broader density or profile coverage is not broader coverage of the exact optimization: none of these statements identifies the exponential optimizer, its value, or exclusions of singular competitors.",
+        "searches": [
+          "Local Resultary: SCOPE-strict-geodesic-concavity-of-the-luce-increasing-subsequence-pat--21b5cf9c960c",
+          "Deuschel–Zeitouni arXiv:math/9803035, §1",
+          "Borga–Dubach Theorem 3.13"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary search and index match 21b5cf9c960c",
+        "arXiv:2610.30382v1",
+        "arXiv:2509.07729",
+        "arXiv:math/9803035",
+        "Müller–Starr Mallows comparison via §1.6 and ref. [23] of Borga–Dubach"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Strict concavity yields at-most-one, with no root existence, endpoint saturation, quadrature, or singular-path equality analysis.",
+          "The permuton paper asks about the Luce LIS law; the newer variational theorem settles the scaling law, not its optimization."
+        ],
+        "reasoning": "The normalization is a prior implication; the shooting condition and global equality characterization require additional arguments. The exact solution is not an automatic consequence of those priors.",
+        "searches": [
+          "Borga–Dubach Lemma 3.14 and Remark 3.15",
+          "Resultary matching geodesic-concavity finding",
+          "Borga–Chatterjee–Diaconis arXiv:2509.07729, §5.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lemma 3.14 uses the same transformed functional and path class; Remark 3.15 states that uniqueness and even a plausible optimizer formula were unresolved.",
+          "Replacing exp(−β(k−1)/n) by exp(−βk/n) multiplies every Luce weight by the same positive scalar; the exponential example is the same instance."
+        ],
+        "reasoning": "This is an exact comparison of the same variational problem, not a difference in convention. The known restatement and lower bounds do not evaluate its supremum. Mallows LIS is a different model.",
+        "searches": [
+          "Borga–Dubach arXiv:2610.30382v1, Lemma 3.14, Remark 3.15 and Mallows-like example",
+          "Local Resultary search for Luce LIS variational optimization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest catalog overlap is the strict geodesic concavity statement, not an exact-value table or exponential optimizer.",
+          "Borga–Dubach's comparison with the Mallows constant and lower bounds on the Luce constant are not equalities evaluating Kβ."
+        ],
+        "reasoning": "The exact object is a β-parametrized family, not a lookup of a single floating-point value. The checked sources give no exact all-β entry or formula.",
+        "searches": [
+          "Local Resultary: 21b5cf9c960c and frozen exact exponential-Luce subject",
+          "Borga–Dubach exponential-profile discussion"
+        ]
+      },
+      "rationale": "The probabilistic theorem and functional are prior. No examined statement gives the exact exponential-Luce shooting quadrature and optimizer in the full admissible class. Credit the indexed result on strict geodesic concavity for its at-most-one conclusion on a narrower path class and broader profile family; this material overlap does not give existence, the path, its constant, or a singular-path equality case.",
+      "residual_risks": [
+        "Bounded primary-source and catalog review; no claim of exhaustive historical priority. A more general optimal-control result could supply a related calibration.",
+        "Müller–Starr is used only as the differently modeled comparator described in Borga–Dubach, not as an independent full text inspection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the limit, functional, class and lower bounds; explicitly leaves the optimizer question unresolved.",
+          "evidence": [
+            "The canonical weights use f((i−1)/n); Lemma 3.14 admits right-continuous nondecreasing paths; Remark 3.15 does not prove uniqueness or provide a formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.30382v1",
+          "material_read": "Theorem 3.13 (text offset 102353), Lemma 3.14 and Remark 3.15 (118428), exponential Mallows-like comparison and reference [23]",
+          "method": "OA primary HTML passages",
+          "title": "The longest increasing subsequences of Luce permutations and permutons",
+          "trigger": "Same weights and variational functional"
+        },
+        {
+          "assessment": "Overlaps on at-most-one for locally absolutely continuous paths initialized at zero. Does not evaluate the exponential family or handle full-class existence/equality.",
+          "evidence": [
+            "The admissible class and at-most-one qualifier differ substantively irrespective of catalog order."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-strict-geodesic-concavity-of-the-luce-increasing-subsequence-pat--21b5cf9c960c/RESULT.md",
+          "material_read": "Finding and scope, offset 0",
+          "method": "Local Resultary search and local-mirror source inspection",
+          "title": "Strict geodesic concavity of the Luce increasing-subsequence functional",
+          "trigger": "Material catalog match on uniqueness, even for general profiles"
+        },
+        {
+          "assessment": "Open problem context, not equivalent coverage.",
+          "evidence": [
+            "Asks about the limiting behavior of LIS in the Luce model."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2509.07729",
+          "material_read": "§5.3, text offset 116469",
+          "method": "OA primary HTML passages",
+          "title": "Permuton and local limits for the Luce model",
+          "trigger": "Earlier Luce limit work"
+        },
+        {
+          "assessment": "Covers general variational framework; does not perform the optimization.",
+          "evidence": [
+            "Formulates a variational principle using nondecreasing absolutely continuous curves."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/math/9803035",
+          "material_read": "§1, text offset 1900",
+          "method": "OA primary text passage",
+          "title": "On increasing subsequences of iid samples",
+          "trigger": "General variational antecedent that could imply the specialization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, proof and limitations",
+        "Borga–Dubach, Remark 3.15 and exponential-weight example"
+      ],
+      "rationale": "This settles a concrete instance explicitly left open by the Luce LIS limit paper. It turns an infinite-dimensional variational problem into a uniquely solvable scalar equation and determines the optimizer even when the admissible class allows jumps or a singular-continuous part. Those equality cases and the all-β scale are not routine evaluations of the variational formula.",
+      "residual_risks": [
+        "The result concerns the exponential profile, not the full class of Luce weights; discrete geodesic convergence is not a contribution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

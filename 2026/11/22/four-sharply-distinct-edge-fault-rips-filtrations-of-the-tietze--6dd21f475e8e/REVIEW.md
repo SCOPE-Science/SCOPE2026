@@ -1,23 +1,21 @@
-# Scientific assessment of the four edge-fault Rips filtrations
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph definition, distinguished triangle, all eighteen edge faults and four edge orbits are completely enumerated and verified; twelve explicit graph automorphisms act transitively on each invariant class. The four radius-one complexes are connected graphs with or without exactly one filled triangle, giving ranks five or six. At radius two, every original face is enumerated, the 58–134 ordered elementary collapse pairs are verified one by one, and exact tree-based *nonabelian* generator eliminations show the residual two-complex is simply connected. The same relations form a unit-triangular integral boundary minor; hence the free ranks of second homology are exactly four, one, four and two when ordered by the certificate's representative edges. Hurewicz–Whitehead identifies the homotopy types, not only homology. At radius three (and four where required) the certificates give complete elementary collapses to a vertex. Separate mod-two boundary reductions corroborate the integer results without replacing them.
+## correctness
 
-## Originality — PASS against inspected evidence
-The underlying whole-graph Tietze radius-two wedge of four spheres is known and **is not** claimed anew. The present finding recomputes distances after deleting each edge, separates all four automorphism orbits, and provides four complete integral homotopy filtrations; knowing the intact graph does not imply the edge-fault outcomes or their different rank losses. Full-text inspection of Adamaszek's graph-powers paper [1] shows its high-girth criterion is inapplicable, and his cycle-power tables do not include this triangle-replacement cubic graph. The gluing paper [2] and open full text of [3] provide broad machinery but no calculation of these four low-girth faults. Searches for Tietze graph metric Rips edge deletion, Petersen triangle expansion, graph-square homotopy, and related names produced no covering statement. Existing named-graph Rips and Tietze independence/matching/higher-independence results concern different objects or graphs. An unindexed computation or a stronger unrecognized theorem remains a residual bibliographic risk.
+PASS
 
-## Value — PASS
-The Tietze graph is a natural, historically important twelve-vertex non-Hamiltonian cubic graph defined by a canonical triangle expansion of Petersen. The single-edge fault is the minimal structural perturbation. Its four edge orbits have strikingly different *integral* two-dimensional topology at the next graph-distance scale, even though the unmodified graph has exactly four sphere classes. The exact four-type classification provides a transparent, reproducible benchmark for how local graph faults affect persistent homotopy, including a sharp difference between triangle-edge failure and attachment-edge failure. This is a complete natural finite classification, not an arbitrary parameter slice or a mere repeated computation of the intact graph.
+Reconstructed Tietze as a six-cycle with its three opposite pairs attached to the three neighbors of the distinguished triangle. The twelve dihedral symmetries of the six-cycle extend to graph automorphisms; they act transitively on the edge classes of sizes 3,3,6,6 distinguished by triangle distance. Independently recomputed distances by Floyd–Warshall and enumerated set-valued clique faces. The edge-deleted graphs are connected, with 17 edges and either no triangles or one collapsible triangular face at scale one, hence circle ranks 6,5,5,5 in table order. At scale two a separate replay checked every free pair by its full proper-coface set; the collapse counts were 129,134,74,58 and the cores had face counts (9,22,16), (6,12,8), (9,25,21), (9,25,21). Tree contraction gives a generator per nontree edge. Each checked triangular relator contains exactly one remaining generator with exponent ±1 after earlier eliminations, so the fundamental groups vanish, not just their abelianizations. The second homology is free of ranks 2,1,4,4 by the two-dimensional chain groups and Euler characteristic. Hurewicz and homological Whitehead give the integral sphere wedges. Checked all nonsimplex stages at scales three and four by independent collapse replay to a vertex, and the diameters 3,5,4,4. For the intact baseline, separately collapsed to a (12,28,21) core and found tree/relator eliminations giving integral rank four at scale two. Because the metric is integer-valued, the connected stages and their degree changes give the asserted persistence intervals. The two remote edge orbits differ combinatorially (including their scale-two face vectors), not in the displayed homotopy types or persistence multiplicities.
 
-## Closest sources and limitations
-[1] Adamaszek, *Clique complexes and graph powers*, arXiv:1104.0433; the graph-power equivalence is relevant, but Proposition 2.2 assumes girth at least seven at radius two.
+## originality
 
-[2] Adamaszek et al., *On Homotopy Types of Vietoris–Rips Complexes of Metric Gluings*, arXiv:1712.06224; first public 2017-12-18.
+PASS
 
-[3] Chachólski et al., *Homotopical decompositions of simplicial and Vietoris Rips complexes*, DOI 10.1007/s41468-021-00066-2.
+The distinct finding is the recomputed vertex-metric single-edge-deletion classification for the Tietze graph, including all four orbit representatives and integral homotopy types. The intact baseline, graph-power identification, and elementary collapse method are not claims to priority. The inspected sources do not supply this classification; this is a bounded best-of-knowledge assessment.
 
-[4] Existing Rips classifications of the intact Tietze and named cubic graphs, and calculations for other Tietze simplicial complexes, supply comparisons, not the four edge-fault tables.
+## value
 
-The result concerns discrete vertex metrics and single-edge faults, not arbitrary graph perturbations. No external independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Recomputing the shortest paths after deletion tests whether scale-two topology is robust to a graph fault, rather than just relabeling an intact invariant. The four orbits of a standard graph give an exhaustive natural comparison: the topology is sensitive to the two triangle-side faults in different amounts, while the other twelve preserve the scale-two rank. The distinction from scale-one behavior and the integral, nonabelian certificates make the finite table a useful exact benchmark. The last two orbits do not provide different homotopy or persistence profiles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

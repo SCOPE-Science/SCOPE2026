@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is all \(8!/(2!)^4=2520\) indexed words of content \((2,2,2,2)\); exactly sixty nonconstant injective scattered-pattern counts, for pattern lengths two to four, distinguish strong Parikh-matrix observations. The direct integer subsequence-count program produces class multiplicities \(2184,156,6\). The local \(abba\leftrightarrow baab\) graph has \(180\) undirected edges, six independent two-switch square components and \(156\) pair components, forcing the same \(2346\) connected components. The independently implemented position-combination checker verifies that each of the \(2346\) observation fibers coincides with exactly one rewrite component. The finite domain is exhausted, not sampled. Normalization does not quotient by rotation, reversal, or label permutation. No conclusions extend outside this content layer.
+## correctness
 
-## Originality — PASS (historical-priority risk acknowledged)
-The foundational 2015 article of Teh defines strong equivalence, shows equivalence with all injective scattered-pattern counts (Theorem 3.3), and proves the local SE rule preserves those counts (Proposition 3.8). Its partial completeness theorem (Theorem 4.2) concerns ternary words with at most one occurrence of a specified three-letter scattered pattern and does not determine any complete balanced quaternary fiber census. The 2017 Poovanandran–Teh treatment develops transformations of ternary words rather than this quaternary finite layer. Research-record comparisons about fixed-content Parikh spectra, scattered decks and equivalence-rule completeness did not reveal the stated \(2184/156/6\) histogram or its exact rewrite equivalence. This supports originality on accessible evidence, but an unindexed exhaustive computation could predate it. The 2018 related article was not available in complete text, and its available abstract/metadata do not settle the exact comparison.
+PASS
 
-## Value — PASS
-This is the smallest fully doubled alphabet size that can support two independent length-four SE swaps and thus four-way ambiguity. The result determines the exact reconstruction capacity \(2346\), the complete ambiguity distribution and the boundary on which elementary rewriting is sufficient, despite known general failure of such sufficiency. The balanced four-letter double-occurrence layer is a natural first nontrivial boundary for redundancy-limited order-independent Parikh observations, rather than an arbitrary unmotivated parameter slice; the value is this exact classification, not a claimed general theorem.
+There are 8!/(2!)⁴=2520 indexed words, and the empty and unit-letter observations are constant. A local abba↔baab exchange preserves every injective scattered count: each block has two copies of each of a,b and two occurrences each of ab and ba, and splitting an injective occurrence by the concatenation boundaries shows preservation in any context. Distinct valid exchange blocks cannot share a letter, because the same two positions of that letter would have to be the same role in both blocks (endpoint distance three, or middle distance one), which fixes the block interval. Overlap of intervals would share a letter. An exchange also cannot create another overlapping block, since the exchanged block remains exchangeable and uses the same positions. Thus the switches are independent, with dimension at most two. There are 5·6·6=180 undirected edges by interval start, exchanged pair and complementary letters' ordering. Dimension two forces two consecutive blocks, giving six ordered choices of first pair. Vertex and edge counts give 156 single edges and 2184 isolated vertices. Independently, I generated the words by choosing two positions for each of three successive letters and assigning the rest to the fourth. For each word I grouped the 16 ways of choosing one indexed occurrence of each letter by the permutation they form. These full-length counts determine every shorter injective count: its sum over compatible full permutations counts each of its occurrences 2^(4−length) times. The independent census recovered exactly 2346 fibers, histogram {1:2184,2:156,4:6}, and compared each fiber directly with the cube of switches of its least member. It reproduced all six minimum representatives of the quartets. One word per fiber is necessary and sufficient for the exact 2346-codeword zero-error maximum.
 
-## Limits and prior work
-The certificate is a transparent exhaustive computation plus analytic exchange-graph counting, not an independent formal proof. The source with closest matching definitions is W. C. Teh, *Parikh Matrices and Strong M-Equivalence*, arXiv:1501.07354 (2015); the later ternary generalization is G. Poovanandran and W. C. Teh, arXiv:1702.03647 (2017). They establish methods and broader terminology but do not supply the claimed exact quaternary census in inspected material. Bibliographic priority remains qualified, particularly for unindexed tabulations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The observation is the established strong M-equivalence, and the local rule is precisely Teh's Rule SE restricted to this composition. Neither is novel. The positively supported distinct claim is completeness of these moves for the whole (2,2,2,2) quaternary layer and the resulting exact fiber census, not abstract preservation or priority over every finite table.
+
+## value
+
+PASS
+
+The layer is not an arbitrary small slice: two occurrences per letter is the first uniform multiplicity where the known elementary exchange can operate, and four letters is the first alphabet size beyond the cited ternary setting. The result shows all ambiguity in this natural layer is generated by those exchanges, despite incompleteness in other settings. The breakdown into independent cubes and the exact zero-error selection size are reusable benchmarks beyond raw pair enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

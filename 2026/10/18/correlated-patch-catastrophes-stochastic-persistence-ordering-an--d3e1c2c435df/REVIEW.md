@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The transient generator was constructed directly from the event mechanism, and its resolvent gives an exact time-domain convolution identity for the sensitivity of survival probability to common catastrophe intensity. Strict positivity yields stochastic ordering for every positive time. The moment algebra and linear derivative sign classification establish the sharp threshold without extrapolating finite computations. The independent matrix-inversion checks in `verify.py` reproduce all quantities; no unchecked limiting regime is asserted.
+## correctness
 
-**Originality — PASS (best-knowledge, with explicit residual risk).** Published studies already report that spatial disturbance correlation can undermine persistence, and that high synchrony changes metapopulation extinction. That qualitative proposition is not the novelty claim. The sharper statement compares *every time-horizon survival probability* at fixed marginal extinction hazard and simultaneously classifies whether *absolute variance* increases or decreases, with a unique peak exactly below \(\lambda/m=\sqrt5-2\). Indexed mathematical results and the inspected accessible literature did not show this compound theorem. The closest Johst–Drechsler article was available by abstract and bibliography only, not by complete text; therefore equivalence in an inaccessible appendix or older stochastic metapopulation analysis remains possible.
+PASS
 
-**Mathematical value — PASS.** The study answers a natural ecological risk-assessment question: whether more synchronous local disasters can make the *timing* of inevitable extinction less predictable even while worsening survival at every horizon. It separates strict stochastic ordering from variance ordering and supplies an exact, nonempty rescue-intensity region for the paradox. The convolution identity is a reusable structural sensitivity formula for this two-state occupancy mechanism; the threshold is sharp rather than illustrative.
+For the two initially occupied patches, the transition rates fix the transient rows as (−(2m−c), 2(m−c)) and (λ, −(m+λ)); the missing row-break command in the displayed matrix does not change the rates specified in the prose. With K=2m²+c(λ−m)>0 and D=s²+(3m+λ−c)s+K, the resolvent gives Ŝ=(s+3m+λ−2c)/D and p̂₂=(s+m+λ)/D. Exact differentiation gives ∂cŜ=−p̂₂², hence in time the negative convolution, not the negative pointwise square. The no-jump probability gives a positive lower bound for p₂, hence strict ordering for all t>0 including comparisons involving the endpoints. An exact symbolic replay of the resolvent, moments and derivatives using fresh calculations reproduced the formulas without running the source script. The sign of the variance derivative is the sign of m²−4mλ−λ²−2c(m−λ); this affine function has the strictly negative value −(m+λ)² at c=m and is positive at zero exactly below the stated threshold. This proves the peak classification including equality and λ=0. The CV² derivative is 8(m−c)(m+λ)/(3m+λ−2c)³ and CV²(m)=1. The conditional two-state weight w starts at 1 and decreases strictly toward the unique zero in [0,1) of its scalar differential equation for c<m; it cannot hit that zero at a finite time by uniqueness. Thus h=m−(m−c)w increases strictly, whereas c=m is exactly Exp(m).
 
-**Most relevant literature and limits.** Johst–Drechsler (2003) studies correlated disturbance and mean persistence in a spatially explicit dynamic landscape; Schreiber (2010) concerns environmental correlations and long-run rare-population growth, not the finite-state extinction-time law; Elkin–Possingham (2008) examines heterogeneous landscape-driven disturbance. Complete inspection of Johst–Drechsler was impeded by access restrictions, including unavailable institutional access. The present theorem should not be extrapolated to many-patch, age-structured, density-dependent, or non-Markovian systems without further proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct content is the exact correlated two-patch survival sensitivity at fixed marginal hazard and its contrast with the sharp nonmonotone absolute variance, together with the relative-variance and elapsed-hazard classification. General adverse effects of spatial correlation and standard phase-type moment formulas are not credited as new. The strongest inspected overlapping catalogue records address different parameters and objectives or the no-recolonization boundary only. No verified material coverage of the joint positive-recolonization result was found; the closest older ecological literature remains an access limitation, not negative evidence.
+
+## value
+
+PASS
+
+The fixed marginal constraint makes it possible to isolate the dependence effect rather than conflate it with changing local extinction hazard. The exact conjunction of strict shortening in stochastic order, a sharp interior variance peak at weak rescue, and increasing relative variance is a useful analytic counterexample to reading variability from persistence ordering. The threshold, equality case and time-hazard behavior make the example a complete benchmark for the stated model, not an empirical generalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

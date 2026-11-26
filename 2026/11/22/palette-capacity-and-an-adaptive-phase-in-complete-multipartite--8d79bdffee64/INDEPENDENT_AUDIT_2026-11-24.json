@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:37:06.902202Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Two equality tests on one vertex cannot both be positive. In each part with at least two tests, one can choose their labels to force two names in that part: choose both positive for different names, or opposite signs for the same name. These conditions can be imposed simultaneously. With disjoint palettes across all r nonempty parts this budgets at most q−r such parts, proving the sorted-size bound. For q>r, test all vertices in the s largest parts and one elsewhere, with a common distinct target name per part. Reserve targets of positives, then assign one remaining name per part with negatives. Each such slot forbids at most one remaining name, distinct across constrained slots; any two jointly accept all remaining names. Thus Hall applies when at least two names remain. When one name remains all r targets have already been reserved and the remaining name is unrestricted. For q=r, colourings are permutations of the part names; r positives followed by reversing just one desired answer is impossible on r tested parts, and a support of r−1 distinct targets works by the identical matching argument with one unconstrained part. The q≥2r full-support bound is sufficient, not necessarily the earliest saturation when parts are singletons. Online, an all-positive branch cannot repeat a vertex, giving depth ≤6 on the octahedron. Six q=3 concepts allow depth at most 2. Independent exact replay of every binary equality split (only empty/too-small branches pruned) on 96 q=4 concepts confirms depth 4 and rules out depth 5 in 1,983 memoized states. An independent hand check: after fixing the first positive answer, only a test in another part can split the 24 surviving concepts with at least eight on each side. Its eight-concept positive child can split 4–4 only by testing the third part; the following four-concept child is a single colouring plus its three one-vertex flips at the untested vertices, with no 2–2 query split. At q=5 the 63-node certificate was checked as data and all 64 distinct proper leaf colourings satisfy their full paths. At q≥6 the static full support gives depth 6. Replay: /workspace/branches/9df1d117-e522-44d7-b354-ed56696bbd49/independent_online_replay.py. The frozen builder/verifier were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The zero-set dimension result concerns zero sets of linear combinations of independent functions; no representation establishing its applicability was identified.",
+          "The graph-learning, ordered-colouring and minimum-degree/homomorphism results use different objects or query semantics.",
+          "The cycle record already has an online gap with the same query semantics, but not on the octahedron or the claimed multipartite family."
+        ],
+        "reasoning": "Generality of a dimension theorem for a differently defined concept class does not imply the frozen dimensions. A universal equivalence theorem of the suggested zero-set type on this class would contradict the independently validated q=5 gap.",
+        "searches": [
+          "arXiv:2109.04805v1, abstract",
+          "arXiv:1708.05118v1, abstract",
+          "arXiv:2102.08432v1, abstract",
+          "arXiv:2608.24623, abstract",
+          "Resultary: VC and Littlestone ranks for proper colouring equality queries"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, make_certificate.py, tree_certificate.json and checker_output.txt",
+        "Resultary 69c08503d33f, 22fcc09464b4, 1012eaa8542e and 2203ea0ddc4a",
+        "OA arXiv abstracts 2109.04805v1, 1708.05118v1, 2102.08432v1 and 2608.24623"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the prior exact r=2 family the two dimensions coincide, unlike q=5 here. The prior theorem has no r>2 specialization.",
+          "Combining disjoint bipartite ranks would not enforce a global named palette budget: all parts of a complete multipartite graph must use mutually disjoint palettes.",
+          "The q≥6 and q=3 online entries follow by elementary vertex and concept-count bounds; those bounds do not give the q=4 exclusion or the q=5 adaptive construction."
+        ],
+        "reasoning": "The new weighted budget and simultaneous realizability proof address an all-parts constraint absent from the two-part specialization, and the certified gap adds a nontrivial structural palette distinction on the same fixed graph.",
+        "searches": [
+          "Resultary 69c08503d33f, Finding and model",
+          "Resultary 22fcc09464b4 and 1012eaa8542e, model and findings",
+          "arXiv:2109.04805v1, abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complete-bipartite record uses exactly the same fixed-graph, named-colour vertex equality query and agrees on r=2.",
+          "Partition pair-equality queries identify class membership between two vertices, not the named colour of one vertex. Permuting names preserves all pair-equality answers but not these vertex–colour answers."
+        ],
+        "reasoning": "The bipartite result is equivalent on its overlap, whereas a result for palette-free partitions or graph-learning from whole colourings is not an alias of this concept class.",
+        "searches": [
+          "Resultary 69c08503d33f, exact shattering polynomial and palette transition",
+          "Resultary 22fcc09464b4, proper three-colourings of finite cycles",
+          "Resultary 2203ea0ddc4a, partition concepts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bipartite table gives 1 at q=2, max(m,n)+1 at q=3, and m+n at q≥4 for both ranks.",
+          "The same-day cycle catalogue enumerates marked supports on C_n; the earlier cycle profile gives floor(3n/4) and n−1, which cannot be used for the noncycle K_(2,2,2)."
+        ],
+        "reasoning": "Credit exact bipartite coverage rather than using rank coincidences as evidence about the octahedron. No identified independent exact table supplies the octahedral ranks or the general r-part formula. Date folders do not resolve same-day priority.",
+        "searches": [
+          "Resultary 69c08503d33f, palette ranks",
+          "Resultary 22fcc09464b4 and 1012eaa8542e, cycle ranks and support catalogue",
+          "Resultary: octahedral K_(2,2,2) equality-query ranks"
+        ]
+      },
+      "rationale": "The r=2 slice and the existence of static-versus-online gaps for some proper colouring classes are already covered. The identified new content is the all-part-size palette formula beyond two parts and the one-palette octahedral transition, not the bipartite ranks or the general feasibility of a graph-colouring gap. The searches do not establish absolute priority.",
+      "residual_risks": [
+        "There may be a stronger unindexed result on transversals or named colouring concepts that supplies the general static formula.",
+        "The catalogue and abstract scope comparisons are bounded; they do not exhaust all earlier finite adaptive examples or prove priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior r=2 coverage, not the multipartite extension or octahedral gap",
+          "evidence": [
+            "Static and online dimensions coincide at 1, max(m,n)+1, m+n in the three palette regimes"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-shattering-polynomial-and-palette-transition-for-complete--69c08503d33f",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Resultary and exact mirrored statement",
+          "title": "Exact shattering polynomial and palette transition for complete-bipartite proper colourings",
+          "trigger": "Exact overlap in object and queries at r=2"
+        },
+        {
+          "assessment": "Same query type and established gap phenomenon, different graph and palette family",
+          "evidence": [
+            "Cycle ranks floor(3n/4) and n−1 under named-colour equality queries"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-vc-and-littlestone-ranks-for-proper-three-colourings-of-fi--22fcc09464b4",
+          "material_read": "Indexed finding and exact rank statement",
+          "method": "Resultary comparison",
+          "title": "Exact VC and Littlestone ranks for proper three-colourings of finite cycles",
+          "trigger": "Prior static/online gap for proper colourings"
+        },
+        {
+          "assessment": "Cycle supports only; no within-day order inferred",
+          "evidence": [
+            "The carrier is a cycle C_n and the palette is three; the claims classify fixed supports"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-local-run-classification-and-complete-marked-query-shattering-po--1012eaa8542e",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Local run classification and complete marked-query shattering polynomial",
+          "trigger": "Same-day exact support classification"
+        },
+        {
+          "assessment": "Inspected class does not identify the constrained colouring class as a special case",
+          "evidence": [
+            "Zero sets of linear combinations of independent functions"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2109.04805v1",
+          "material_read": "OA abstract, offset 378",
+          "method": "Abstract scope check, not full-text exclusion",
+          "title": "Littlestone and VC-dimension of families of zero sets",
+          "trigger": "Possible broader dimension theorem"
+        },
+        {
+          "assessment": "Different inference task",
+          "evidence": [
+            "Learns the edges of an unknown graph from random whole H-colourings"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1708.05118v1",
+          "material_read": "OA abstract, offset 180",
+          "method": "Abstract scope comparison",
+          "title": "Structure Learning of H-colorings",
+          "trigger": "Named proper graph colourings and learning"
+        },
+        {
+          "assessment": "Weighted order constraint and chromatic optimization, not equality-query ranks",
+          "evidence": [
+            "Adjacent endpoints' vertex weights constrain the order of their colours"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2102.08432v1",
+          "material_read": "OA abstract, offset 483",
+          "method": "Abstract scope comparison",
+          "title": "On properly ordered coloring of vertices in a vertex-weighted graph",
+          "trigger": "Multipartite graph colourings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The formula explains the exact cost of adding a fully testable part, including irregular part sizes, rather than counting one small graph. The octahedron is a natural symmetric three-part contrast with the bipartite equality phenomenon: for the same graph and observations, five names suffice adaptively to test at full vertex depth while any fixed support misses at least one vertex, and neither neighboring palette regime has that gap. No general online classification or global minimality is needed to make that exact cutoff meaningful.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

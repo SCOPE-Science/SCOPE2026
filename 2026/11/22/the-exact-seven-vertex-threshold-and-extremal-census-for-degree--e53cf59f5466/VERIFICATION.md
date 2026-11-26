@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Build and run `verify.cpp` using a C++17 compiler, e.g. `c++ -std=c++17 -O2 -Wall -Wextra verify.cpp -o verify && ./verify`.
+## correctness
 
-The supplied program enumerates **all** 21-bit masks representing simple graphs on fixed seven labelled vertices, checking masks with at most fourteen present edges. Every unordered bipartition is tested through the 63 nonempty sides not containing vertex six. It checks all opposite-shore degrees against two. It asserts exact immunity counts zero at edge counts zero through thirteen, exactly 15,015 at fourteen, and that the ten explicitly supplied representative-orbits are disjoint and their union coincides with the complete enumerated set.
+PASS
 
-Exact observed output:
+Independently enumerated complements with 8 and 7 edges (203490 and 116280 masks). For smaller shore size k=1,2,3, test each vertex's missing cross-degree against the opposite shore's size minus 2. These are all possible cut sizes, including singleton cuts. Zero immune graphs at 13 present edges also excludes fewer edges since adding edges preserves immunity. Exactly 15015 graphs at 14 present edges passed. Independently transformed the ten TSV edge sets under all 5040 permutations: the disjoint orbits exhaust those 15015 graphs, with sizes 105,2520,2520,1260,2520,1260,630,2520,1260,420. The redundant graph6, degree and automorphism columns also agree. Replay: /workspace/review-check-3.py (Python/NumPy); frozen C++ inspected, not executed.
 
-```text
-EXHAUSTIVE_LABELLED_7_VERTEX_2_CUT_CHECK_PASS
-NO_IMMUNE_GRAPHS_AT_0_THROUGH_13_EDGES_PASS
-MINIMUM_14_EDGE_IMMUNE_COUNT_15015_PASS
-TEN_DISJOINT_ISOMORPHISM_ORBITS_PASS
-ORBIT_SIZES 105 2520 2520 1260 2520 1260 630 2520 1260 420
-VERIFY_OK
-```
+## originality
 
-A separate cross-check using independently supplied seven-vertex unlabeled graph-atlas representations also found ten types with the same degree sequences and orbit-size total. The standalone certificate does not need that atlas or an external package.
+PASS
 
-The result is a completely enumerated **finite** classification. It does not certify any all-order asymptotic conjecture. Historical priority is provisional; no independent audit has been performed.
+The directly verified closest preprint has the same invariant but only a weaker general lower bound at order seven. No inspected independent exact census claims or determines the 13-edge obstruction and 14-edge extremizer inventory. This is a best-of-knowledge decision, not publication priority.
+
+## value
+
+PASS
+
+This natural small order resolves whether the general 2n−2 sufficient edge bound for existence of a 2-cut can be sharpened there. The ten-way extremal census and orbit sizes provide concrete witnesses and benchmarks for structural conjectures, beyond a single threshold calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

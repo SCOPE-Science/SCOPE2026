@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:01:55.078146Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The covariance has full affine support: the all-zero indicator and each coordinate indicator occur, using full support at w>0 or a proper (q−1)-coloring with one vertex recolored to color 1 at w=0. Conditioning on the full colors off the twins makes the twin indicators iid Bernoulli(p). Removing the linear projection onto the observed indicators leaves diagonal S+R and off-diagonal R, with S=E[p(1−p)]>0 and R the squared projection residual. At w=0 the proper (q−1)-coloring supplies a conditioning assignment with color 1 and at least one other color available at the twins. Inverting this Schur block gives −R/[S(S+2R)]; this also works with no conditioning coordinates, using projection onto constants. At positive w the two same-indicator assignments differ in denominators by (w−1)(w^(d−1)−1), nonzero exactly in the range needed for strictness when d≥2; the d≤1 and w=1 cases are affine. At w=0 a clique gives an affine indicator formula because its d colors are distinct. With q≥max(3,|V|), two extendable proper assignments avoiding color 1, one injective and the other identifying a nonedge in N, give different p at identical indicators, proving the converse. No converse is asserted for all smaller admissible palettes. The reported 588 exact cases supplement the general proof; the supplied script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The influence-matrix definition tracks changes in another vertex's marginal upon fixing a spin; it is not the precision matrix here. The matching indexed theorem is confined to cycles in the proper-coloring limit."
+        ],
+        "reasoning": "Neither general influence estimates nor generic block inversion characterize the positive residual for this observable. The classification needs same-indicator assignments with different hidden conditional success probabilities and the clique-affine case.",
+        "searches": [
+          "arXiv:2007.08058, influence-matrix definition, p. 3",
+          "Local Resultary lookup for Potts false-twin precision signs"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; verify_potts_twins.py inspected",
+        "Resultary cycle-precision finding",
+        "arXiv:2007.08058"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cycle theorem concerns proper-coloring cycles; the spectral-independence passage uses a different matrix; the residual identity gives nonpositivity but leaves R=0 undecided."
+        ],
+        "reasoning": "No inspected theorem implies the full positive-weight strictness or the proper-coloring clique criterion on arbitrary false-twin graphs. The graph/palette tests are additional to the standard algebra.",
+        "searches": [
+          "Indexed cycle-precision theorem, Finding",
+          "arXiv:2007.08058, p. 3",
+          "Frozen RESULT.md, conditional residual and sign tests"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cited spectral-independence reference uses changes of spin marginals under conditioning, not full inverse color-indicator covariance. The indexed cycle finding does examine that same full inverse for uniform proper colorings."
+        ],
+        "reasoning": "Zero linear partial correlation in the full indicator field is not conditional independence given full colors. The cycle result is equivalent on an overlapping instance, not on the class studied here.",
+        "searches": [
+          "Local Resultary lookup for false-twin and proper-coloring inverse indicator covariance",
+          "Primary literature lookup for Potts, coloring precision, and false twins"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed theorem gives positive adjacent and sign (−1)^(n+1) nonadjacent entries on properly colored C_n in its nonsingular regime, including strict negativity for false twins on C_4 in the shared palette range."
+        ],
+        "reasoning": "Credit the overlapping C_4 case. This is not a tabulation or classification for arbitrary common neighborhoods or any positive interaction weight.",
+        "searches": [
+          "2026/10/26/SCOPE-parity-controlled-nonlocal-precision-in-uniformly-colored-cycles--c38552fd2fd6, mirrored Finding"
+        ]
+      },
+      "rationale": "The full false-twin sign and zero classification across the Potts-to-coloring limit is distinct from the inspected cycle special case, generic residual algebra, and coloring influence results. Only the graph- and palette-specific result, not the general Schur-complement identity, is credited.",
+      "residual_risks": [
+        "Bounded literature lookup does not exclude inverse-covariance results under other terminology.",
+        "No uniqueness or priority conclusion follows from the dates or from the reported finite verification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap on C_4 in the shared palette range, distinct general claim",
+          "evidence": "Under proper coloring of cycles it gives the parity sign of nonadjacent entries; it supplies neither arbitrary false-twin neighborhoods nor nonunit positive weights.",
+          "identifier_or_url": "2026/10/26/SCOPE-parity-controlled-nonlocal-precision-in-uniformly-colored-cycles--c38552fd2fd6",
+          "material_read": "Mirrored RESULT.md, Finding from offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Parity-controlled nonlocal precision in uniformly colored cycles",
+          "trigger": "Same precision observable in proper colorings"
+        },
+        {
+          "assessment": "Different matrix and problem",
+          "evidence": "Entries express the effect of fixing a spin on another marginal; the passage does not give the inverse-covariance residual or a false-twin clique criterion.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.08058",
+          "material_read": "PDF p. 3, influence definition near extracted offset 8108",
+          "method": "OA PDF passage inspection",
+          "title": "Rapid Mixing for Colorings via Spectral Independence",
+          "trigger": "Potential broader matrix theorem for coloring correlations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem gives an exact structural criterion for absence versus presence of a linear partial association even though the two vertices are independent given the full other spins. It exhibits a genuine change in the precision zero pattern at the proper-coloring limit, not a rephrasing of graphical separation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

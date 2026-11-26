@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:13:13.790959Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For r_k>0 the objective ratio is (1-1/z_k)^2, so the exact sign boundary is z_k=1/2. The additive accumulator increments are respectively r_k^2/z_k and r_{k+1}^2/z_k. Both are nonnegative; prior to the first entry into z≥1/2 with r_0>0, the radius grows and each increment exceeds 2r_0^2. This yields the stated ceiling bound and rules out later increases. For z≥1, r_k^2-r_{k+1}^2 is at least the scale increment in both conventions: for pre-step the ratio, when defined, is 2-1/z ≥1; for post-step it is z(2z-1)/(z-1)^2 ≥1 at z>1, and at z=1 the next radius is zero. Thus the scale is bounded by telescoping from first entry into z≥1, or by 1 if there is no such entry. The increments go to zero and 0<z_0≤z_k≤z_infinity forces the radii to zero. A nonterminating trajectory at z=1/2 makes a strictly positive next scale increment, so its limiting scale is strictly above the boundary and its limiting radius ratio is the stated number in [0,1). The zero-radius initialization already terminates and is not subject to the finite-escape bound. The proof handles both exact-arithmetic recurrences, including the equality cases; verify.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original WNGrad batch analysis assumes b_1≥||grad f(x_1)|| and controls scale after reaching the smoothness scale L. The broader arbitrary-scale AdaGrad guarantee is a stationarity result for a different recurrence."
+        ],
+        "reasoning": "Neither theorem guarantees the number of objective-increasing steps below L/2 for arbitrary-scale exact WNGrad trajectories. The ordinary gradient-descent stability criterion is broader in setting but only gives a one-step sign, not the adaptation dynamics.",
+        "searches": [
+          "arXiv:1803.02865v1, Theorem 2.3",
+          "arXiv:1806.01811v1, Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:1803.02865v1",
+        "arXiv:1806.01811v1",
+        "Resultary 2026/10/4/SCOPE-sharp-terminal-step-window-and-rate-nonuniformity-for-scalar-ada--aa4bf1ea51f1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sign threshold follows from the parameter update alone and is classical. The actual proof of finite escape and the count uses enlargement of the radius below that threshold to lower-bound both accumulator increments; the limiting factor uses a separate scale bound."
+        ],
+        "reasoning": "The fixed-scale sign rule alone cannot ensure escape for any adaptive scale, and the original convergence guarantee does not supply the finite prefix or its bound. Similar AdaGrad-Norm conclusions cannot be substituted for these separate WNGrad inequalities.",
+        "searches": [
+          "arXiv:1803.02865v1, Eq. (5), Algorithm 1, Theorem 2.3",
+          "arXiv:1806.01811v1, algorithm comparison and Theorem 2",
+          "Resultary aa4bf1ea51f1, original finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two primary WNGrad displays are correctly represented by an additive update of b with the pre-step or post-step squared gradient norm divided by b.",
+          "Resultary aa4bf1ea51f1 analyzes scalar AdaGrad-Norm with a squared-accumulator update and an updated-scale parameter step."
+        ],
+        "reasoning": "Writing the states in dimensionless coordinates does not remove the difference in the updates; for example the AdaGrad-Norm scale becomes a square root of accumulated squares, not z+r^2/z. No equivalent WNGrad transient statement was identified.",
+        "searches": [
+          "Resultary: WNGrad half-curvature boundary, scalar transient, arbitrary initialization, AdaGrad-Norm",
+          "WNGrad quadratic initialization stability finite transient half smoothness scale Wu Ward Bottou convergence",
+          "arXiv:1803.02865v1, Eq. (5) and Batch Algorithm 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact-claim catalogue hit reports the terminal threshold, contraction and startup count for AdaGrad-Norm. It does not supply a WNGrad table or an equivalent theorem."
+        ],
+        "reasoning": "An exact numerical table is not applicable to the continuum of initial states and the unbounded-time claim. The applicable equivalent symbolic-result lookup located the related but different accumulator.",
+        "searches": [
+          "Resultary: WNGrad scalar unstable prefix and exact threshold",
+          "Resultary 2026/10/4/SCOPE-sharp-terminal-step-window-and-rate-nonuniformity-for-scalar-ada--aa4bf1ea51f1"
+        ]
+      },
+      "rationale": "The one-step boundary is the classical quadratic constant-stepsize condition, and is not credited as new by itself. The supported distinct result is the quantitative finite unstable prefix for WNGrad, from arbitrary positive initial scales, together with scale control and the resulting contraction for both source conventions. The strongest related scalar transient theorem found uses AdaGrad-Norm, not either WNGrad map.",
+      "residual_risks": [
+        "Targeted searches focused on WNGrad terminology and its closest AdaGrad-Norm relative; a scalar result written under other adaptive-stepsize terminology could have been missed.",
+        "No novelty is attributed to the classical step sign criterion or to general convergence on its own."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains both source conventions and prior convergence guarantees, not the all-initialization exact transient classification.",
+          "evidence": [
+            "Eq. (5) uses the current gradient in the scale increment; Batch Algorithm 1 uses the updated iterate's gradient. Theorem 2.3 has the b_1≥||grad f(x_1)|| hypothesis."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1803.02865v1",
+          "material_read": "Eq. (5), printed p. 3 (offset 16600); Batch Algorithm 1, pp. 4–5 (offset 19500), and Theorem 2.3.",
+          "method": "Lawful OA PDF, bounded primary passage comparison.",
+          "title": "WNGrad: Learn the Learning Rate in Gradient Descent",
+          "trigger": "Original algorithm; verify accumulator indexing and scope of convergence."
+        },
+        {
+          "assessment": "Broader assumptions in some respects, but different algorithm and target.",
+          "evidence": [
+            "The paper explicitly distinguishes the accumulators of AdaGrad-Norm and WNGrad; the arbitrary-scale stationarity guarantee does not apply to both WNGrad state maps."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1806.01811v1",
+          "material_read": "Printed pp. 3 and 5, offsets 14600 and 19597, including Theorem 2.",
+          "method": "Lawful OA PDF passage comparison.",
+          "title": "AdaGrad Stepsizes: Sharp Convergence Over Non-Convex Landscapes, From Any Initialization",
+          "trigger": "Closest published arbitrary-scale convergence theorem."
+        },
+        {
+          "assessment": "Same broad mathematical phenomenon for a non-equivalent method.",
+          "evidence": [
+            "Its scale update adds λ²x_t² to b_t², and its parameter step uses the updated scale; the proof of its terminal window and startup count is for that map."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-sharp-terminal-step-window-and-rate-nonuniformity-for-scalar-ada--aa4bf1ea51f1",
+          "material_read": "Original RESULT.md, offsets 0 and 5481.",
+          "method": "Configured Resultary lookup and bounded local-mirror inspection.",
+          "title": "Sharp terminal step window and rate nonuniformity for scalar AdaGrad-Norm",
+          "trigger": "Strongest exact scalar-transient overlap in Resultary."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The relevant question for learning a stepsize from gradient norms is whether an arbitrarily aggressive starting scale can cause recurrent instability. On the basic quadratic this result proves that all objective increases occur in a single finite prefix with an explicit bound, and that the eventual scale and contraction are controlled in both versions of the algorithm. This explains a transient behavior not settled by the classical one-step boundary.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:48:33.691388Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Expanding L=D-A by walk length, the diagonal of L^3 is d^3+2d^2+s, an edge has L^3 entry -(d^2+de+e^2+d+e-1) (the three-edge walks number d+e-1), a distance-two entry is the sum of the three degrees, and a distance-three entry is -1; longer entries vanish. The L^2 entries are respectively d^2+d, -(d+e), 1, and 0. The edge quadratic has positive leading coefficient and negative discriminant, since d^2+de+e^2 >= 3(d+e)^2/4. The diagonal is strictly decreasing by s>=d and 1-z+z^2/2>0. Thus only a diagonal or distance-two entry can go negative at a positive step, proving the closed single interval. The identity with F=I-hL, P=I/3+F/2+F^3/6, leaves diagonal slack at h=1/Delta; equality requires a two-edge path of three vertices of full degree, and attaching leaves to a three-hub path realizes it for every Delta>=2. For the star, substitution at 3/(Delta+2) gives the displayed negative expression: its numerator 4Delta^3+3Delta^2-9Delta-16 is positive at 2 and increasing thereafter. At its smaller center root the row-sum identity gives symmetric center-leaf entries 1/Delta. The leaf-to-leaf cubic c is bounded by 2/[3(Delta+2)^2]<1/Delta (maximum at h=2/(Delta+2)); hence the leaf diagonal is positive there. A full-degree vertex in a nonstar has s>Delta, so its diagonal is strictly negative at the star root. All conclusions are for the completed step; graph work is linear, apart from the stated precision-dependent scalar root work. The finite script was inspected but not executed; no enumeration is needed for the arbitrary-tree proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The weighted bipartite theorem includes every unweighted tree; the weighted-star statement gives the exact center cubic for arbitrary spokes.",
+          "Primary RK positivity and invariance work supplies generic polynomial or SSP criteria rather than the specific two-edge path test in the passages inspected."
+        ],
+        "reasoning": "The Resultary theorems give exact cutoffs under stronger graph generality. The generic SSP guarantee by itself, unlike those exact theorems, would not entail necessity or identify the topology.",
+        "searches": [
+          "Resultary 9d9d25b6d7af, weighted bipartite criterion",
+          "Resultary 014168bc0394, weighted-star hub law",
+          "arXiv:1406.6755 §3.1; arXiv:1403.6519 §2; arXiv:2102.08242v2 §1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen package",
+        "Resultary 9d9d25b6d7af, 014168bc0394, 0aa3ec090e79, 2042521dfc9d",
+        "arXiv:1406.6755, 1403.6519, 2102.08242v2",
+        "doi:10.1016/j.apnum.2004.08.026 (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At h=1/Delta the identity P=I/3+F/2+F^3/6 forces every diagonal root above 1/Delta; among the exact pair thresholds the only equality is c_ij=3Delta, which means all three degrees equal Delta.",
+          "For a nonstar tree a degree-Delta vertex must have s>Delta, so its explicitly known cubic at the exact star root is lower by (s-Delta)rho_Delta^3/6 and hence negative.",
+          "The specialized exact formula depends only on degrees, neighbor-degree sums and the two largest neighbor degrees, yielding the claimed graph-processing complexity by a scan."
+        ],
+        "reasoning": "The matched Findings do not explicitly state both tree topology equivalences. These follow by immediate equality and strict coefficient comparisons once the stronger exact formulas are in hand. No separate scientifically substantial remainder, beyond these specializations, was established. The later catalogue dates establish neither historical precedence nor derivation.",
+        "searches": [
+          "9d9d25b6d7af, Finding and §1 walk identities",
+          "014168bc0394, Finding, hub root and strict positivity of other entries"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "9d9d25b6d7af Finding states that the full nonnegative timestep set is [0,min of diagonal roots and 3m_ij/c_ij], not just a sufficient condition.",
+          "2042521dfc9d uses an RK4 polynomial with edge and four-vertex path obstructions, not the cubic RK3 polynomial."
+        ],
+        "reasoning": "Setting every edge weight to one gives sigma_i=d_i and tau_i=s_i. A pair with a common neighbor in a tree has precisely one such neighbor, so m_ij=1 and c_ij equals the degree sum on that path. The exact formulas, including exclusion of regained positivity, coincide.",
+        "searches": [
+          "Resultary: completed cubic RK3 Laplacian positivity radius, local tree degree obstructions; 9d9d25b6d7af",
+          "Resultary: exact local Runge–Kutta positivity on every finite tree; 2042521dfc9d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The multipartite record covers stars as complete bipartite graphs.",
+          "The weighted-star Finding supplies C(h) with S, T2, T3, and an exact iff at the hub root; S=T2=T3=Delta recovers rho_Delta for every Delta>=2."
+        ],
+        "reasoning": "These are indexed exact formulas, not numerical tables; they make replaying many small trees irrelevant for distinctness and already give the entire claimed set of upper-extremizer values.",
+        "searches": [
+          "Resultary: exact positivity radii and third-order Taylor Runge–Kutta, complete multipartite graphs; 0aa3ec090e79",
+          "Resultary 014168bc0394 weighted stars and 9d9d25b6d7af weighted bipartite graphs"
+        ]
+      },
+      "rationale": "Distinct published Resultary records give the exact positivity formula on all positively weighted bipartite graphs and the exact hub cutoff on all positively weighted stars. The tree-local test is an exact specialization of the first; the full-degree equality motif and unique upper extremizer follow directly from these exact formulas, the forward-Euler identity, and the observation that a full-degree vertex all of whose neighbors are leaves forces a star. This is demonstrable mathematical coverage, not a historical priority finding: the strongest records are catalogued after the frozen date.",
+      "residual_risks": [
+        "No historical priority or relationship among these records was determined.",
+        "The 2005 primary work was not independently accessed in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the tree formula as a special case",
+          "evidence": [
+            "q_i is the frozen p_i; theta_ij is 3 divided by the unique path degree sum"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-universal-positivity-gain-for-cubic-runge-kutta-on-weigh--9d9d25b6d7af/RESULT.md",
+          "material_read": "Finding and proof §1, local mirror offsets 0–3653",
+          "method": "Read exact formulas and reduce to unit weights and unique middle vertices",
+          "title": "A sharp universal positivity gain for cubic Runge–Kutta on weighted bipartite networks",
+          "trigger": "Broader exact theorem for the same polynomial and all trees"
+        },
+        {
+          "assessment": "Covers exact star root; comparison with a nonstar is then a strict comparison of one coefficient",
+          "evidence": [
+            "Center polynomial with S=T2=T3=Delta equals the frozen extremal polynomial"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-universal-hub-diagonal-positivity-law-for-third-order-runge-ku--014168bc0394/RESULT.md",
+          "material_read": "Finding and assumptions, mirror offsets 0–2274",
+          "method": "Read and set all spoke conductances to one",
+          "title": "A universal hub-diagonal positivity law for third-order Runge–Kutta on weighted stars",
+          "trigger": "Exact bound for the stated extremizing topology"
+        },
+        {
+          "assessment": "Additional exact star subfamily overlap, not all trees",
+          "evidence": [
+            "Unit stars are complete bipartite graphs of sizes 1 and Delta"
+          ],
+          "identifier_or_url": "Resultary 2026/11/2 record 0aa3ec090e79",
+          "material_read": "Finding, offset 0",
+          "method": "Compare complete multipartite hypotheses",
+          "title": "Exact positivity radii and an order-three reversal for Taylor Runge–Kutta",
+          "trigger": "Exact bounds in a graph family containing stars"
+        },
+        {
+          "assessment": "Different time-step map, no implication here",
+          "evidence": [
+            "RK4 has edge cubic and four-vertex-path obstructions"
+          ],
+          "identifier_or_url": "Resultary 2026/10/25 record 2042521dfc9d",
+          "material_read": "Finding, offset 0",
+          "method": "Compare polynomials and obstruction distances",
+          "title": "Exact local RK4 positivity horizons on every finite tree",
+          "trigger": "Same topology and exact walk-local certificate"
+        },
+        {
+          "assessment": "General method, not the stated degree certificate",
+          "evidence": [
+            "Taylor discretizations and inequalities describing a polyhedron"
+          ],
+          "identifier_or_url": "arXiv:1406.6755",
+          "material_read": "Abstract and §3.1, pp. 1 and 4",
+          "method": "Read primary PDF passages",
+          "title": "Steplength thresholds for invariance preserving of discretization methods of dynamical systems on a polyhedron",
+          "trigger": "Broad exact or sufficient polynomial-invariance methods"
+        },
+        {
+          "assessment": "Explains sufficient condition, not topology-specific exactness",
+          "evidence": [
+            "SSP condition relative to forward Euler"
+          ],
+          "identifier_or_url": "arXiv:1403.6519",
+          "material_read": "§2 p. 3",
+          "method": "Read primary PDF passage",
+          "title": "Optimal explicit strong stability preserving Runge–Kutta methods with high linear order and optimal nonlinear order",
+          "trigger": "Generic sufficient forward-Euler inheritance"
+        },
+        {
+          "assessment": "Different methods, not the exact RK3 criterion",
+          "evidence": [
+            "Graph-Laplacian ODE structure motivates alternative schemes"
+          ],
+          "identifier_or_url": "arXiv:2102.08242v2",
+          "material_read": "Abstract and §1.1, pp. 1–3",
+          "method": "Read primary PDF passages",
+          "title": "Positivity-preserving methods for ordinary differential equations",
+          "trigger": "Broad graph-Laplacian positivity"
+        },
+        {
+          "assessment": "No conclusion about entire paper from lack of access",
+          "evidence": [
+            "Exact coverage decision rests on the read Resultary formulas, not on inaccessible work"
+          ],
+          "identifier_or_url": "doi:10.1016/j.apnum.2004.08.026",
+          "material_read": "Bibliographic record only; full text not independently read",
+          "method": "DOI and lawful repository lookup; no accessible full-text copy obtained",
+          "title": "On the positivity step size threshold of Runge–Kutta methods",
+          "trigger": "Foundational positivity radii, potential path special case"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An exact completed-step positivity cutoff on a natural graph class is useful in its own right: it replaces a matrix check with local degree data and decides when the forward-Euler constraint is sharp. The fixed-degree extremal interpretation is meaningful numerically and structurally. This assessment of the mathematics does not make an already covered specialization an independently distinct contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

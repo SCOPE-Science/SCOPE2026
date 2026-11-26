@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:29:57.192676Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–43; VERIFICATION.md; verify.py and verification_run.txt (inspected, not executed)",
+        "Independent calculation: python3 -B /workspace/branches/reproduce_12.py 3 4 5 6 7"
+      ],
+      "rationale": "In barycentric subdivision every simplex is a strict chain, and a setwise stabilizer fixes all its vertices (face cardinalities distinguish them). The geometric quotient has one open cell per orbit, with signed chain deletions; no degree associated to a stabilizer multiplies an incidence. The multiset of directed birth-color words classifies exactly these orbits, including isolated vertices as the remaining label budget. I independently generated actual chains of arc-subsets using one maximal-face representative for each path-size partition and canonicalized by its equal-size-path stabilizer. I computed ranks and integral invariant factors of each original differential separately. Torsion in H_d equals torsion of coker(∂_{d+1}), since the quotient by the embedded H_d is im(∂_d), which is free. The sole nonunit factors were 2 in ∂₂ at n=4 and 2 in ∂₄ at n=6 and 7; the ranks recovered all stated free summands, including the mixed H₃ at n=6. H₀ is Z at every size, and there are no cells beyond dimension n−2.",
+      "residual_risks": [
+        "Finite exact calculation only; not a formal proof certificate or a homotopy classification. No inference for n≥8."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "db67024315c1 states a top-degree integral module of the cover and a rational top-degree consequence for the full symmetry quotient",
+          "arXiv:0710.5252 and arXiv:0807.4521 are cited for the unquotiented complexes and their algebraic-chain connections"
+        ],
+        "reasoning": "The indexed theorem is broader in n, but top-degree and rational in its quotient conclusion. Knowing the integral module upstairs is not the same as computing all homology downstairs for a nonfree action.",
+        "searches": [
+          "Resultary: Hamiltonian-cycle basis symmetric-group top homology cycle-free chessboard complexes geometric quotient lower integral homology",
+          "Resultary: db67024315c1 Hamiltonian-cycle basis cycle-free chessboard complexes top rational homology"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 45–57",
+        "Indexed statements db67024315c1, 00ec8ccb6aa0, 2c83cecae788, 4a438b4ca94c and exact self-hit",
+        "Primary web search and targeted retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "db67024315c1 indexed statement: top rational quotient homology survives exactly for odd n; cover's integral top module induced from the rotation-orientation character"
+        ],
+        "reasoning": "Top integral homology of this (n−2)-dimensional quotient is free, so the top rational result directly covers its parity/nonvanishing, and the stated induced character fixes the top rank. Neither this nor rational averaging sees the order-two classes in degrees below the top, or supplies the complete all-degree table.",
+        "searches": [
+          "db67024315c1 strongest same-object statement; attempted local mirror retrieval",
+          "Targeted retrieval of arXiv:0710.5252 and arXiv:0807.4521"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "00ec8ccb6aa0 describes an ordinary simultaneous S₅ quotient of the five-by-five chessboard complex of homotopy type M(Z/5,2)",
+          "2c83cecae788 describes the diagonal-deleted five-by-five matching complex and its symmetry"
+        ],
+        "reasoning": "Ordinary matching faces may contain directed cycles when rows and columns are identified; cycles are forbidden in Ω_n. The nearby quotients/representations therefore do not re-express the same topology.",
+        "searches": [
+          "Resultary: cycle-free chessboard Omega_n geometric quotient simultaneous symmetric group integral homology compared with full diagonal-deleted chessboard",
+          "Primary: cycle-free chessboard complexes symmetric group quotient homology Vrećica Živaljević"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9bf8f009a9a0 is the assigned record itself",
+          "4a438b4ca94c gives a different integral calculation for a cyclic column quotient of the full five-by-five chessboard"
+        ],
+        "reasoning": "The exact hit is not independent coverage. The cyclic-column example uses both a different complex and a different quotient action.",
+        "searches": [
+          "Resultary: integral homology ordinary geometric orbit spaces symmetric group cycle-free chessboard complexes Omega_n n=3 through 7 2-torsion"
+        ]
+      },
+      "rationale": "Credit the distinct all-degree integral geometric-quotient calculation, especially lower-degree free and torsion phenomena, not the already covered parity of the top rational quotient homology. No stronger accessible statement or database table was found that supplies the remaining integral groups. The highest-overlap indexed record could not be inspected beyond its statement summary, so this is a bounded decision.",
+      "residual_risks": [
+        "Full texts of the closest top-homology record and cited primary works were not recovered. Unindexed results or stronger statements in unretrieved texts may exist. The primary search miss is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirmed overlap of top invariant at statement level; no evidence of lower-degree integral coverage in material read",
+          "evidence": "States rank (n−1)! for the cover's top group, induced rotation-orientation module, and odd-n top rational survival in the quotient.",
+          "identifier_or_url": "2026/11/1/SCOPE-hamiltonian-cycle-basis-and-symmetric-group-top-homology-of-cycl--db67024315c1",
+          "material_read": "Indexed statement; local RESULT.md passage retrieval timed out",
+          "method": "Resultary and local full-text mirror attempt",
+          "title": "Hamiltonian-cycle basis and symmetric-group top homology of cycle-free chessboard complexes",
+          "trigger": "Same complex and full group action"
+        },
+        {
+          "assessment": "Different ambient complex",
+          "evidence": "Five-by-five chessboard quotient M(Z/5,2), not the quotient of the path-forest subcomplex.",
+          "identifier_or_url": "2026/11/17/SCOPE-five-primary-moore-homotopy-in-the-diagonal-symmetric-quotient-o--00ec8ccb6aa0",
+          "material_read": "Indexed statement",
+          "method": "Resultary",
+          "title": "Five-primary Moore homotopy in the diagonal symmetric quotient",
+          "trigger": "Same-day same-size simultaneous action and a geometric quotient"
+        },
+        {
+          "assessment": "Independently unconfirmed full scope",
+          "evidence": "Frozen RESULT.md lines 45–57 identify connectivity of unquotiented complexes as the relevant prior result.",
+          "identifier_or_url": "arXiv:0710.5252",
+          "material_read": "Frozen relationship-to-prior-work paragraph; OA article retrieval, including direct PDF, timed out",
+          "method": "Frozen citation and lawful OA attempts",
+          "title": "Cycle-free chessboard complexes and symmetric homology of algebras",
+          "trigger": "Foundational paper on Ω_n"
+        },
+        {
+          "assessment": "Independently unconfirmed full scope",
+          "evidence": "Frozen RESULT.md lines 45–57 describe suspension and symmetric-group representation results.",
+          "identifier_or_url": "arXiv:0807.4521",
+          "material_read": "Frozen relationship-to-prior-work paragraph; OA text retrieval timed out",
+          "method": "Frozen citation and lawful OA attempt",
+          "title": "On the Symmetric Homology of Algebras",
+          "trigger": "Symmetric-group homology of Ω_n"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md finite table; independent complete integral computation"
+      ],
+      "rationale": "Geometric quotients of this canonical relabeling action differ from invariant homology of the ordered complex. The finite first-size classification finds integral phenomena invisible to rational top homology: order-two classes appear, disappear, and reappear across the range, with mixed free/torsion H₃ at n=6. This is a concrete benchmark for studying the nonfree quotient action.",
+      "residual_risks": [
+        "No pattern for larger n or topological classification of attaching maps is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The area variance \(1/3\) follows from bridge innovation isometry and independence. Direct covariance calculation yields the exact bilinear Gaussian projection coefficient \(C(s,t)\); the resulting risk is a closed form. For fixed temporal gap, the reciprocal-gain denominator splits into positive pieces, each minimized jointly by equal boundary margins and equal precisions using AM–GM, Cauchy–Schwarz, and a strictly convex square-root function. A monotone cubic numerator then yields the unique gap and both budget limits. The self-contained proof checks the full open parameter domain and equality cases; supplementary exact/symbolic and finite tests passed.
+PASS
 
-## Originality — PASS, qualified
+Independent normalization and regression check: represent each bridge by W_t-tW_1 using independent Brownian motions. The doubled area has bilinear Wiener kernel H(u,v)=sign(v-u)+2(u-v), obtained by expanding antisymmetric left-endpoint sums. The marginals of H integrate to zero and its squared norm is 2*integral_0^1 (1-d)(1-2d)^2 dd=1/3. Hence its covariance with U_s V_t is the integral of H on [0,s] x [0,t], giving s(1-t)(t-s) for s<t, zero for simultaneous or endpoint samples, and the negative swapped version for t<s. Independent Gaussian projections of the two kernel coordinates yield only the product of the centered readings, scaled by C/(v1*v2); fixed nonzero noise means, if used, can simply be subtracted. This proves the risk formula before optimization. Re-expanded the normalized denominator at fixed gap g: its terms are 1, g/(ab), [(1+g/b)/q+(1+g/a)/p]/(ab), and 1/(a^2*b^2*p*q). Applying AM–GM to the products and Cauchy–Schwarz and strict convexity to the mixed term proves joint equality only at a=b and p=q. Thus time symmetrization does not assume a balanced allocation or vice versa. The centered objective's derivative has sign given by x(2x^2-4x+1)+(4/P)(1-3x), positive below r=1-1/sqrt(2), negative beyond 1/3 and strictly decreasing between. Implicit differentiation gives strict motion toward r with P, and signs and endpoint limits exclude every other design except the swap. The limiting amplitude is 3-2*sqrt(2) as P tends to infinity, and P/54+o(P) at zero from x tending to 1/3, reproducing both squared gains. Read the supplied verification/check.py and requirements and treated its finite samples and recorded algebra checks as supplementary, not as an independent replay or the global proof.
 
-Primary full-text comparisons with Foster–Habermann's Lévy-area series construction (2021 first preprint; open Cambridge 2022/2023) and Kastner–Rößler's numerical-algorithm analysis (2022) show different information models: their Gaussian expansion coefficients and truncation budgets are not two noisy asynchronous point observations with a fixed precision sum. Dickinson's broad linear-Gaussian-information approximation theorem (2007) is relevant, but only abstract material was accessible; the available statement and later citations concern unrestricted approximation/asymptotic bounds, not the precise finite resource-constrained classification. A related four-scalar two-planar-observation theorem in accessible earlier results uses a distinct information sigma-field and cannot imply strict joint optimal precision allocation. Published-result index searches for asynchronous scalar, area, covariance aliases and precision constraints found no direct covering record; this is not exhaustive publication-priority certification.
+## originality
 
-## Value — PASS
+PASS
 
-For a signed second iterated stochastic integral, a simultaneous cross-coordinate scalar pair contains no conditional area information, so the smallest nontrivial coordinate-specific sensing architecture must use different times. Under a continuous sensor-precision resource budget, the theorem resolves **both** when each channel should sample and how precision should be shared, globally rather than in a symmetric design subclass. The closed-form information ceiling below nine percent identifies a sharp architectural limit; the budget-dependent gap describes optimal placement from highly noisy to essentially exact sensing. This is a complete natural design classification, not merely an arbitrary parameter instance.
+The distinct claim is the joint optimal timing and precision split for exactly two channel-specific point observations, including the monotone timing and sharp budget-dependent risk. Neither the materially overlapping planar two-knot calculation nor the inspected unrestricted-information approximation context gives this constrained result. Historical priority is provisional.
 
-## Limits and closest sources
+## value
 
-The fixed architecture, pinned bridge prior and independent Gaussian precision costs are essential. No claim about multi-observation, arbitrary linear sensing, or approximation algorithms beyond conditional-mean risk is made. The earliest motivating source is the 19 February 2021 arXiv version of Foster–Habermann. Relevant full-text source sections are their Section 5 (series approximation of Lévy area) and Kastner–Rößler Sections 2–4 (Fourier-based algorithms and precision), neither of which states a joint two-scalar time-and-precision theorem. Dickinson's full text was not accessible in this run and remains a concrete priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+In the minimal coordinate-specific architecture, simultaneous readings recover zero area variance. The complete timing and resource law gives a sharp, nonzero alternative and a useful negative ceiling below nine percent even with arbitrarily accurate readings. The movement of the optimal gap is a substantive design consequence, not just a stationarity calculation; the claim does not infer a ceiling for richer observation models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

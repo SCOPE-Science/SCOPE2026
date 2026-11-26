@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:17:19.008613Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For generator DΔ and resets to the initial point, write f(s) for the unreset Laplace transform of survival. Then S̃_λ(s)=f(s+λ)/(1−λf(s+λ)); analyticity around zero follows from the killed bounded-domain survival tail. Differentiating first in λ gives f′+f² at zero reset. Mean is S̃_λ(0), second raw moment is −2 S̃′_λ(0), so the two slopes are respectively m₁²−m₂/2 and −2m₁³+3m₁m₂−2m₃/3. Independently, set a=R²/D and write the unreset exit transform as H(a x s)/H(a s), where the first three nonconstant coefficients of H(t) are b₁=1/(2d), b₂=1/[8d(d+2)], b₃=1/[48d(d+2)(d+4)]. The ratio in t=a s has coefficients c₁=(x−1)b₁, c₂=(x²−1)b₂−b₁c₁, c₃=(x³−1)b₃−b₂c₁−b₁c₂. Thus the mean slope divided by a² is c₁²−c₂ and the variance slope divided by a³ is 2c₁³−6c₁c₂+4c₃. These factor to the displayed formulas including the stated normalization. P_d strictly decreases, has values d(d+12) and −96 at the endpoints, and at q_d is −32d²/(d+4)². This proves the unique root, the ordering, and the three strict sign regimes for every d≥1. At d=3 the factorization is −3(13x−5)(x+3); at large d rescaling by d(1−x_d) gives the simple positive root 2√33−6 of c²+12c−96, with O(1/d) error in that rescaled variable. The sign-to-finite-change conclusion is pointwise in the radius as λ→0; no uniform rate, boundary behavior beyond immediate absorption, second-order sign, or global optimum is asserted. Inspected the supplied CHECK.py and verification note without running them.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior sphere calculation solves the unreset survival transform as an explicit Bessel ratio for the same d-dimensional ball, while the renewal resolvent supplies the exact both-variable reset survival transform.",
+          "Their moment identity relates survival-transform derivatives directly to raw time moments."
+        ],
+        "reasoning": "These are explicit expressions specialized to the claimed model. No new model reduction or unresolved asymptotic regime is needed to extract the first-order variance coefficient.",
+        "searches": [
+          "Chen–Huang arXiv:2109.11101, Sections II–III, Eqs. (7)–(10) and (15)–(19)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CHECK.py",
+        "Chen–Huang arXiv:2109.11101 Sections II–III",
+        "Méndez et al. arXiv:2401.01125 abstract",
+        "Resultary exact-identity record and distributed-reset search summary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With f=S̃₀, Eq. (10) implies ∂_λ S̃_λ|₀=f′+f². Its s⁰ and s¹ coefficients and the unreset mean give the slopes. The first three Bessel-series coefficients and simple division (spelled out in correctness) give P_d and the known mean factor.",
+          "P_d(q_d)=−32d²/(d+4)² and P_d′<0 on [0,1]; root ordering and the conflict shell follow directly. The 3D fraction and large-d leading term are specializations of the same quadratic."
+        ],
+        "reasoning": "The all-d conclusion is a finite Taylor and elementary quadratic sign corollary of the exact prior transform. This is concrete prior implication, not inference from a keyword match or an argument that every use of a transform is routine.",
+        "searches": [
+          "Chen–Huang Eq. (10) specialized to the sphere in Eq. (15), and moment rule Eq. (7)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen–Huang Eq. (19) gives the mean-benefit radius R√[d/(d+4)], which is exactly the mean boundary in x=r²/R².",
+          "Méndez et al., arXiv:2401.01125, abstract: fluctuations for a one-dimensional search with distributed resetting locations, not the same absorbing ball and reset-to-start law."
+        ],
+        "reasoning": "The switch from survival transforms to moments and from normalized radius to its square gives the same model and known mean boundary. The distributed-reset result is not an equivalent model.",
+        "searches": [
+          "Resultary semantic search: weak-reset first passage variance absorbing ball return to initial point and conflict shell",
+          "Chen–Huang arXiv:2109.11101: moment, survival and variance comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/11/22/SCOPE-a-sharp-mean-variance-conflict-shell-for-weakly-reset-brownian-e--e99404b7ec61 matches the assigned record itself; local RESULT.md at offsets 1200 and 5300.",
+          "The retrieved distributed-reset envelope record is only a search-summary comparison, not evidence for an exact match. Chen–Huang explicitly give the mean boundary, not an inspected table of variance thresholds."
+        ],
+        "reasoning": "There is no independent exact indexed or tabulated variance match established here. The lack of a separate entry for 5/13 does not undo analytic prior coverage.",
+        "searches": [
+          "Local Resultary search for P_d, all-dimensional variance boundary and 3D x=5/13",
+          "Checked Chen–Huang's ball section for explicit boundaries"
+        ]
+      },
+      "rationale": "The variance threshold and shell are not expressly stated in the inspected prior passages, but are mechanically recoverable from the analyzed same-model exact transform, not merely from a generic reset framework. Chen–Huang's Eqs. (10) and (15) already give the analytic survival transform for the identical absorbing ball, diffusion normalization, arbitrary d, initial/reset point and reset rate. Apply one reset-rate derivative to Eq. (10), then take the constant and linear coefficients in the Laplace variable. The first three standard Bessel-series coefficients in Eq. (15) give the two polynomials by the finite coefficient recurrence in correctness. Strict monotonicity and substitution of their already-known mean boundary then give the shell. This is an explicit same-object corollary, not an assertion that Chen–Huang printed the polynomial or studied the mean–variance tradeoff.",
+      "residual_risks": [
+        "Bounded comparison does not establish whether anyone published the factored variance polynomial or the same interpretation elsewhere.",
+        "The distributed-reset envelope's summary was inspected but its matching original passage was not available; the decisive coverage judgment instead uses the exact absorbing-ball paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit mean-boundary overlap and decisive implicit coverage; variance boundary not printed in examined passages",
+          "evidence": "Exact unreset spherical resolvent and exact renewal resummation imply the displayed variance derivative by finite series expansion.",
+          "identifier_or_url": "https://arxiv.org/pdf/2109.11101",
+          "material_read": "Sections II–III; PDF pp. 2–3, Eqs. (7)–(10), (15)–(19), including recurrence-to-transform and mean boundary passages",
+          "method": "Open-access original PDF passages",
+          "title": "First passage of a diffusing particle under stochastic resetting in bounded domains with spherical symmetry",
+          "trigger": "Identical stochastic process, geometry and boundary conditions"
+        },
+        {
+          "assessment": "Different reset rule and domain; no whole-paper exclusion inferred",
+          "evidence": "One-dimensional searcher with a distribution of reset locations.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.01125",
+          "material_read": "Abstract, PDF p. 1 (offset 0)",
+          "method": "Open-access original PDF, abstract-level scope check",
+          "title": "First-passage time of a Brownian searcher with stochastic resetting to random positions",
+          "trigger": "Variance in a Brownian resetting framework"
+        },
+        {
+          "assessment": "Same assigned record, not independent evidence of priority or coverage",
+          "evidence": "Identical third-moment boundary, ordering and shell.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-mean-variance-conflict-shell-for-weakly-reset-brownian-e--e99404b7ec61",
+          "material_read": "RESULT.md offsets 1200 and 5300",
+          "method": "Local Resultary mirror",
+          "title": "A sharp mean–variance conflict shell for weakly reset Brownian escape from a ball",
+          "trigger": "Exact indexed match to title and mathematical claims"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Contrasting variance and mean under resetting is a legitimate motivation, and the shell can be useful as an explanatory example. As a standalone narrow exact finding on this process, however, the new-looking boundary is just the combination of low Taylor coefficients from an explicit same-model law and an elementary quadratic sign computation. Neither the 3D example, nor the large-d root expansion, nor the first-order shell interpretation removes that mechanical dependence or adds a separately nonroutine result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

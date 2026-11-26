@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness (PASS).** The explicit zero-run gap types yield a finite, exact seed-extension table. Synchronization of all factors containing a one forces unique desubstitution of bispecial cores; equality of bilateral extension sets under bitwise complementation establishes an induction over all lengths. The missing-extension correspondence and reversal-preserving map finish the proof. The independent-prefix and direct enumeration experiments corroborate the result but do not substitute for proof.
+## correctness
 
-**Originality (PASS against inspected literature; residual risk).** Klouda's 2012 general bispecial-generation method does not state this multi-parameter forbidden basis. Košík–Starosta's 2019 result treats the classical binary period-doubling substitution only and provides a related special-case ancestor principle; that is prior, not part of this new claim. Cassaigne et al. establish cyclic complexity properties instead. Semantic mathematical-record and accessible claim comparisons found no equivalent all-parameter formula. A differently named or unindexed specialization remains possible.
+PASS
 
-**Mathematical value (PASS).** A complete antidictionary determines the factor language of a natural family of uniformly substitutive binary sequences. The theorem classifies all forbidden factors as palindromes and their scale-by-scale lengths/counts, a structural result beyond a finite census.
+In the fixed point ones lie in the last position of a substitution block. Successive preimage zeros have gap one or two (both occur), giving the two internal zero-run lengths q-1 and 2q-1; the initial run does not add a new extension pair. Testing a core of j zeros against those lengths gives all four extensions for j=q-1, only the two mixed extensions for j=2q-2, and all but (1,1) for the other eligible seeds. The empty core misses only (1,1). For a bispecial core containing 1, its left 1-extension forces alignment at the start of a block and its right 1-extension forces length -1 modulo q; the invertible block encoding identifies a unique shorter core. The extension pairs complement exactly, so iteration exhausts all the cores. In the minimal-absence implication, the missing pair plus recurrence lets each occurring maximal proper factor be extended on the missing side with the other bit, proving bispeciality. Reversal commutes with T_q; the absent endpoints match; and the surviving seeds have j+1 in [2,2q-1] not divisible by q, making scales disjoint. The length formula, generating series and forbidden basis follow. Independent exact bounded test: python3 /workspace/reproduction/3.py (output 3.txt). Images of the three legal adjacent pairs at a scale with block size at least 160 cover the full infinite-word factor language through length 160 for each of q=3,4,5,6,7,8,9,12,17,31; direct enumeration agrees. The general result uses desubstitution, not a finite-prefix extrapolation.
 
-**Limitations.** The proof covers the explicitly defined binary substitution family at every integer block size at least three. It does not claim a general theorem for arbitrary substitutions or q-letter generalized period-doubling words. Finite computational corroboration does not certify infinitely many lengths.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the complete binary, q-uniform, q>=3 list, including extension deficits and palindromicity; neither the accepted q=2 seed/desubstitution precedent nor general bispecial algorithms are new. Exact all-length results for q-letter generalizations concern different words.
+
+## value
+
+PASS
+
+A complete antidictionary is a natural intrinsic description of a factor language, enabling membership tests by forbidden-pattern avoidance. The all-scale exact seed deficit structure and the fact that every minimal obstruction is a palindrome are useful structural information, not an arbitrary bounded enumeration of absent strings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

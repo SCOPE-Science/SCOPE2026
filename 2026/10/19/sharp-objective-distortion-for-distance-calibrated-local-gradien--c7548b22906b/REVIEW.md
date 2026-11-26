@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Algebra expands the normalized-gradient quadratic step exactly in spectral moments. Convex-chord majorization of the third by the second moment is sharp at endpoint eigenvalues; differentiating yields the explicit maximizing squared mass and factored sharp cubic criterion. The sharp <5 bound follows from m3<=kappa m2, m1>=1, while a chi-square representation for a random sphere coordinate proves convergence in probability to five for 1<gamma<2. The exact kappa=8 radical counterexample and scalar optimization spot-checks independently reproduce the formulas; no finite experiments are used as an infinite proof.
+PASS
 
-## Originality — PASS (best knowledge, residual access limitations)
+For the replacement files, normalize λ_min=||x||=1 and let m_j be the jth eigenvalue moment under squared-coordinate masses. Direct quadratic expansion gives 1−2θ√m₂/m₁+θ²m₃/(m₁m₂). Since m₁≥1 and m₃≤κm₂, this is bounded by 1+4κ²/(κ+1)²<5 for every finite κ, with κ=1 giving zero. For the repaired spiked family, dp converges in law to a χ²₁ variable by normalized independent Gaussians. Tightness and the absence of an atom at zero give κp→0 and κ²p→∞ in probability because κ≪d≪κ². Thus m₁→1, m₂→∞, m₃/(κm₂)→1, and θ²m₂≤4/κ+4κp→0. The ratio tends to 5 in probability, which gives instances arbitrarily close to 5 at finite κ and proves nonattainment. The exact κ=8 spot check follows from f(T)=22−100s+274s² with s=2√74/45. The prior squared-distance theorem applies to precisely the same step. For the frozen claim, the endpoint chord of z^{3/2} separately confirms its correct sign threshold: the maximum m₃/m₂^{3/2} occurs at upper-eigenvalue mass (2κ+1)/[(κ+1)(κ²+κ+1)] and the crossing is the unique root above one at about 7.3066744332. The cutoff was removed as a contribution for originality, not for incorrectness. If κ is read as an upper spectral bound with fixed calibration, the same cutoff holds; the repaired statement defines κ unambiguously as the actual condition number. No simulation is needed.
 
-Completed semantic originality searches compared exact statement implications with the same-oracle 2026 strong-convexity theorem, the September 2026 projection interpretation, and published results on scaled Polyak, Cauchy trust-region, and fixed-step gradient methods. The same-oracle source proves distance rather than objective contraction, and scaled Polyak uses a different scalar step. No identical/dominating statement was located; the expanded 2026 revision and complete underlying result summaries leave candid residual overlap risk.
+## originality
 
-Relevant literature: Richtárik–Gruntkowska–Li (2026), arXiv:2605.08850v1 (full text); Richtárik–Mahran (2026), arXiv:2609.33383v1 (full text); and the published scaled-Polyak objective frontier (September 20, 2026; claim summary inspected). Important unresolved access: the full 121-page arXiv:2605.08850v2 revision and the complete scaled-Polyak public record were not inspected. The specific theorem's novelty is therefore not externally certified.
+PASS
 
-## Value — PASS
+This PASS is for the re-audited replacement in repairs/2, not the frozen claim as submitted. The frozen universal descent threshold and endpoint witness are covered by the distinct Resultary core-LARS frontier 70b4a7c981f6. The repaired finding removes that contribution, cites its coverage, and retains only the sharp global magnitude of objective amplification and its near-attainment in probability under a specified spiked spectrum. The relevant compared results do not supply that magnitude and typicality law.
 
-The motivating 2026 radius is chosen to certify the strongest uniform distance contraction, but distance is not the optimized objective. The exact condition-number frontier resolves when a natural theoretical radius is nevertheless an objective descent step; beyond it, an explicit two-dimensional counterexample and a universal sharp fivefold inflation show the boundary is not cosmetic. The random high-dimensional construction makes the almost-fivefold inflation typical rather than an isolated example. This informs radius safety and metric choice without asserting a general smooth-nonlinear theorem.
+## value
 
-## Limitations
+PASS
 
-Only real SPD quadratic objectives with a full-space exact ball-local linear oracle are analyzed; no statement about arbitrary constrained or nonlinear objectives is inferred. The sharp factor five is an unattained global supremum. Independent scientific validation has not been performed.
+The repaired result quantifies how far verified distance decrease can diverge from objective decrease: a one-step increase can approach a factor of five. Demonstrating typical near-attainment under a natural uniform-sphere start with one high-curvature direction is stronger than a single counterexample. It identifies the separated scales κ≪d≪κ² at which the spike is negligible for the initial objective but dominates the squared gradient. The covered cutoff is not credited as a new contribution.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

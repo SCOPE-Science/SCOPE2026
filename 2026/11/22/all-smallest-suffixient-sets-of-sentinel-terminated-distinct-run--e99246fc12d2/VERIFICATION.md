@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The symbolic argument in `RESULT.md` proves the infinite family. To reproduce the finite checks, run `python verify.py`; no libraries beyond the Python standard library are required. The captured result appears in `verify_output.txt`.
+# Independent mathematical audit
 
-The verifier constructs all right followers and all supermaximal right extensions directly from literal substrings. It compares the full sets, not merely their number. It separately checks occurrence-endpoint multiplicities, their pairwise disjointness and direct right-extension coverage. For four small instances it enumerates all candidate minimum-sized subsets to verify the exact count without using the product formula.
+## correctness
 
-The finite verification covers 246 parameter instances and 12,358 right extensions. It does not certify parameters outside the enumerated ranges or the novelty of the statement. The proof's key hypotheses are the distinct cyclic letters, non-singleton runs, repetition count at least two and explicit unique terminal marker. Removing the marker changes the right-extension system and is not supported by this certificate.
+PASS
+
+In the linear word P^k# with q,k>=2, distinct letters, and r_i>=2, a factor containing # occurs only once. Every other nonunary factor has a unique phase modulo |P|, since its first ordered letter change fixes that phase. It is right-maximal exactly when it is a suffix of P^(k-1): it then occurs both before the final # and at the previous period boundary before a_0. A unary factor shorter than its run has the self follower and its cyclic successor, and if it belongs to the last run it can also have #. The full unary last run has the two boundary followers a_0 and #, whereas the other full unary runs have only one. These cases, including the empty word, place every extension under a listed candidate in suffix order. The candidates are all extensions and have distinct last two symbols (the two long ones end in a_(q-1)a_0 and a_(q-1)#), so none is a suffix of another. This also supplies the suffix direction intended in the aside about a_0 in proof step 2. Each short candidate has one end offset per period, distinct between the first and last positions of any run by r_i>=2. The long candidates have just the last-period first position and the terminal position as their respective single endings. Every smallest set chooses one from each disjoint end class, giving 2q+1 positions and k^(2q-1) sets. For attractors, the q+1 one-letter factors give the lower bound. Choose each last run position of the first period and #. A nonunary factor without # can be shifted so that its first ordered change aligns with the first-period occurrence of that change: the leading unary segment fits in the chosen first-period run, so the shifted occurrence stays inside the text and meets the selected run end. Unary factors end-align there, and marked factors meet #. The supplied literal-substring verifier and captured output were inspected, not run: 246 parameter instances, 12358 extensions and four direct counts of minimum sets corroborate the proof; these are not infinite certificates.
+
+## originality
+
+PASS
+
+The general correspondence between supermaximal extensions and optimum suffixient sets and the attractor comparison are not the distinct contribution. The supported contribution is the explicit SRE list and exact minimum-set census for the entire marked distinct-run family. The closest retrieved sources give general methods, unrelated symbolic families, or finite binary coverage rather than this parameterized theorem.
+
+## value
+
+PASS
+
+Distinct contiguous letter runs isolate local within-run branching from periodic phase and sentinel branching, making this a natural family in which to understand exact suffixient complexity. The theorem does more than compute the size: it exhibits every optimum, explains why varying run lengths does not affect their number, and distinguishes this suffix-ending condition from the attractor invariant on the same text.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

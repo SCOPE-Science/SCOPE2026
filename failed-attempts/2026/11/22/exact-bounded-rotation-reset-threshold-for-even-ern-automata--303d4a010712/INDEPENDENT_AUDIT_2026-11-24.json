@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:57:13.735962Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Tracking each initial state, its number of advancing b actions has a different residue modulo n, because all trajectories have the same final state and the same number of rotations. Thus one trajectory has at least n-1 advancing b actions. In each of the n-2 disjoint gaps between selected consecutive advancing b actions it must traverse from 0 to n-1 using at least n-1 rotations; avoiding aaa requires at least m-1 intervening b actions in each gap. This gives the claimed lower bound without any normal-form assumption. For attainment, the odd block rotates the preceding all-even set and then creates O_r, with the exceptional first block reaching the all-even set from the post-b image by removing the odd residues under repeated a^2b. In the even block the odd residues of O_r shift through at most n-3 before ab; after ab there is one odd residue 2r-1, which reaches n-1 only at the last a^2b and is mapped into an already occupied 0. The other residues rotate to E_r; E_(m-1)={0}. The length, the prohibition, the penalty, and the asymptotic ratio all follow. Independent replay python3 /workspace/independent_checks.py 4 exhausts the finite subset/run-length graph up to first singleton at even sizes 4 through 16 and gives 11,33,67,113,171,241,323; the proof, not the finite computation, covers all even n. Frozen verification and verify.py were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "8a6293fb58a5 covers every integer n>=3, proving the minimum by a cyclic-interval inverse-image potential with an attaining path.",
+          "5cfabeb3b337 gives the feasibility threshold on permitted run length and a length upper bound, not the minimum; the primary papers' inspected statements concern decision complexity rather than this minimum."
+        ],
+        "reasoning": "The exact theorem with a larger parameter domain is decisive. An unrelated broader decision problem and the feasibility/upper-bound record alone would not cover the finding.",
+        "searches": [
+          "Resultary 8a6293fb58a5 Proof Steps 1–4",
+          "Resultary 5cfabeb3b337 Growth of constrained reset length",
+          "arXiv:2109.02743v1; Fernau et al., MFCS 2019"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8a6293fb58a5",
+        "Resultary 5cfabeb3b337",
+        "Resultary 8a725fd1702c",
+        "Resultary 6527a70965c4",
+        "Resultary 7debf3d5fc46",
+        "arXiv:2109.02743v1",
+        "Fernau et al., MFCS 2019"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Putting n=2m in the all-n theorem gives 6m^2-8m+3. Subtracting (2m-1)^2 gives 2(m-1)^2, and dividing by (2m-1)^2 gives the limit 3/2.",
+          "Mandatory scattered subsequences and positive letter costs do not encode the contiguous forbidden factor; those results alone would not imply the sharp constrained optimum."
+        ],
+        "reasoning": "The main claim and both numerical consequences follow directly from the covered assertion. The frozen parity-block witness and trajectory argument are a different proof, not a distinct uncovered minimum.",
+        "searches": [
+          "Resultary 8a6293fb58a5 Finding and Step 4",
+          "Resultary 8a725fd1702c and 6527a70965c4 RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The all-n record uses the same left-to-right transitions a(i)=i+1 mod n, b(n-1)=0 with other states fixed, and the same contiguous factor avoidance with an unspecified terminal singleton.",
+          "Its weighted ab/aab block formulation after the initial b is equivalent to minimizing literal length: costs are 2 and 3 and the initial b costs 1."
+        ],
+        "reasoning": "This is the same optimization problem on even n, not just the same numerical polynomial or a run constraint on a different automaton.",
+        "searches": [
+          "Resultary 8a6293fb58a5 RESULT.md Finding and Assumptions",
+          "arXiv:2109.02743v1 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue record lists 4,11,20,33,48,67,88,113 for n=3 through 10 and, more decisively, gives the full n-formula floor((3n^2-8n+6)/2). Its entries at n=4,6,8,10 match the frozen sequence."
+        ],
+        "reasoning": "Matching finite entries corroborate the alignment; it is the exact formula and same-domain proof, not finite agreement, that establishes coverage.",
+        "searches": [
+          "Resultary exact-threshold record 8a6293fb58a5, Finding and Step 4",
+          "Resultary 5cfabeb3b337 Growth of constrained reset length and Limitations"
+        ]
+      },
+      "rationale": "A distinct indexed same-day record, 8a6293fb58a5, explicitly gives the exact same constrained minimum for all n>=3 and proves constructive attainment. On n=2m its floor disappears and it gives exactly 6m^2-8m+3, including the implied penalty and ratio. This is demonstrable coverage; the common date does not establish publication order or priority. The decision is not based on a search hit, an inaccessible paper, or a correctness objection.",
+      "residual_risks": [
+        "Publication order for the two same-day exact results was not established. The proof-level comparison is sufficient for coverage without attributing historical priority. Other sources were checked only within the documented bounds."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct exact coverage; date alone gives no priority",
+          "evidence": [
+            "Same automaton and no contiguous aaa; exact L_n=floor((3n^2-8n+6)/2) for n>=3; cyclic-interval inverse potential lower bound and matching construction."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-exact-no-triple-rotation-reset-threshold-of-the-ern-automata--8a6293fb58a5",
+          "material_read": "RESULT.md, Finding, Assumptions, and Proof Steps 1–4, offsets 0–6450",
+          "method": "Local published mirror",
+          "title": "The exact no-triple-rotation reset threshold of the Černý automata",
+          "trigger": "Distinct same-day exact match, direct broader coverage"
+        },
+        {
+          "assessment": "Feasibility threshold and upper bound, not an exact-length theorem",
+          "evidence": [
+            "No aa-free reset word; aaa-free words exist; exact shortest length is not claimed."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-two-rotation-run-synchronization-threshold-in-the-ern-auto--5cfabeb3b337",
+          "material_read": "RESULT.md, Finding, Growth of constrained reset length and Limitations",
+          "method": "Local published mirror",
+          "title": "Sharp two-rotation-run synchronization threshold in the Černý automata",
+          "trigger": "Same prohibition and family"
+        },
+        {
+          "assessment": "Inspected statement is decision complexity",
+          "evidence": [
+            "Includes Černý in the simple-idempotent setting; polynomial-time solvability for certain constraint automata, not a shortest-length formula in the inspected scope."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2109.02743",
+          "material_read": "Abstract, PDF p. 1, around offset 811",
+          "method": "Lawful OA full-text passage",
+          "title": "Constrained Synchronization for Commutative Automata and Automata with Simple Idempotents",
+          "trigger": "Černý family under regular constraints"
+        },
+        {
+          "assessment": "Decision formulation, not exact optimum",
+          "evidence": [
+            "Asks whether a reset word exists in a regular constraint language."
+          ],
+          "identifier_or_url": "Fernau et al., MFCS 2019",
+          "material_read": "Abstract, PDF p. 1, offset 0",
+          "method": "Lawful OA full-text passage",
+          "title": "Computational Complexity of Synchronization under Regular Constraints",
+          "trigger": "Regular-language formulation of forbidden-factor synchronization"
+        },
+        {
+          "assessment": "Different constraints and statistics",
+          "evidence": [
+            "Mandatory scattered subsequences, one-step subset behaviour and positive letter costs do not impose contiguous run avoidance."
+          ],
+          "identifier_or_url": "Resultary 8a725fd1702c; Resultary 6527a70965c4",
+          "material_read": "Both RESULT.md Findings",
+          "method": "Local published mirror",
+          "title": "A mandatory reset subsequence and exact one-step multiplicity for the Černý automata; Uniform weighted-reset optimality in the Černý automata",
+          "trigger": "Potentially dominating exact Černý counts or costs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The contiguous-rotation constraint is mathematically natural and the frozen proof is useful exposition, but the exact invariant, penalty and asymptotic ratio are covered, and the broader theorem already gives a constructive optimal witness. No separate motivated theorem about this particular witness or a new unconstrained parameter range is established. The even-only invariant therefore does not supply a distinct scientific result, and no viable repair is evidenced.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:35:07.232283Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, hermitian_orbits.py, verify_canonical.py, verify_small_fields.py, verify_full.c, verify_orbits.c",
+        "Independent exact replay: python reviews/checks/record4.py; output reviews/checks/record4.log"
+      ],
+      "rationale": "The expansion on the tangent hyperplane gives the cone criterion Av proportional to Aᵗv^[4]; rescaling normalizes it uniquely up to F4*. Invertibility gives smoothness and, on a normalized isotropic line, the two-sided tangent radical is precisely that line, so the quotient plane cubic is smooth. The affine equations v_i^4−(Cv)_i have disjoint leading monomials in a graded order and invertible Jacobian C, so have exactly 4^5 reduced roots over the closure. Iteration bounds the field by F_{2^{2h}} for h the order of C. Our independent binary-RREF enumeration found 495 nonzero isotropic solutions in each of the 13 cases. Counting projective Frobenius fixed vectors by cross products for every divisor of 2h, dividing by three, and applying divisor inversion confirms every row and exactly ten distinct partitions. Separately, a different generating set and vectorized closure reproduced thirteen disjoint congruence classes of exactly the table's sizes, summing to |GL5(F2)|=9,999,360. The degree and zeta conclusions follow from those same closed-point lengths.",
+      "residual_risks": [
+        "This counts the finite reduced Eckardt locus, not any infinitesimal structure of an alternative ambient parameter scheme or the zeta function of the threefold."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The diagonal normal form is over an algebraically closed field; Cheng's inspected passages concern geometric cone centers and the Fano surface. The complex Eckardt census has different characteristic; even its Fermat model has 30 centers."
+        ],
+        "reasoning": "A classification after algebraic closure cannot distinguish the Frobenius descents here. No inspected broader statement determines the full permutation on the finite reduced locus for each F2 class.",
+        "searches": [
+          "Kadyrsizova et al., arXiv:2104.05635 Theorem 2.1",
+          "Cheng arXiv:2402.09884v1, Introduction",
+          "Bockondas–Bossoto arXiv:2309.08124v2, §1 and Example 3.9"
+        ]
+      },
+      "checked_sources": [
+        "Cheng 2402.09884v1; Kadyrsizova et al. 2104.05635; Bockondas–Bossoto 2309.08124v2",
+        "Resultary 62a143310a01, 0053074ac1a9, 449508403448"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known Hermitian geometry and the marked coefficient classes give finite inputs to the computation; in the explicit Klein model there is one exact partial implication as above."
+        ],
+        "reasoning": "The known Hermitian form identifies the 165-point set geometrically. To recover the full table one needs the semilinear Frobenius action or its all-divisor fixed counts in each arithmetic class; the geometric cardinality, incidence counts, and the single Klein fixed-point theorem do not supply these data.",
+        "searches": [
+          "Cheng arXiv:2402.09884v1 and Kadyrsizova et al. §2, geometric and Hermitian descriptions",
+          "Resultary 449508403448 and 62a143310a01"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the marked Klein polynomial Σ x_i²x_{i+1}, Resultary gives γ([v])=[Aᵗv^[2]] and three degree-five orbits in Fix(γ). For this permutation A, the Eckardt criterion is v^[4] proportional to A²v, hence is Fix(γ²) on the cubic.",
+          "The Klein permutation matrix has order-five C=A², identifying the unique such congruence row 1122820; C transforms by similarity under F2 congruence."
+        ],
+        "reasoning": "Every Gauss-fixed point in this marked example is Eckardt. Conversely over F32, γ⁵ is the identity, so Fix(γ²)=Fix(γ) over F32. This exactly credits the three 5-cycles, while Fix(γ) does not supply the fifteen 10-cycles of Fix(γ²), and the identification of the marked map does not apply to the other rows as such.",
+        "searches": [
+          "Resultary 449508403448, Trace-zero Gauss-fixed schemes on characteristic-two cyclic Klein cubics",
+          "Cheng arXiv:2402.09884v1, cone-point formulations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Fano-line table has the same thirteen matrix codes and orbit sizes, but the invariants compared there are lines and point–line incidence. The exact same-date 0053074ac1a9 table treats 45 Eckardt points and 27 lines across ten GL4 binary cubic surface classes. The focused web lookup produced no decisive cycle table."
+        ],
+        "reasoning": "The exact surface table uses a similar method on a different dimension; it does not dominate the threefold classification. An exact group permutation table on 165 points might shed light on the latter, but none was established, and a failed lookup is not evidence of nonexistence.",
+        "searches": [
+          "Resultary 62a143310a01 (binary threefold Fano-line fingerprints)",
+          "Resultary 0053074ac1a9 (binary cubic surface Eckardt and line spectra)",
+          "Focused web lookup for PGU(5,2) 165-isotropic-point permutation cycles"
+        ]
+      },
+      "rationale": "Pass for the complete threefold splitting classification, not for the thirteen coefficient classes or the 165-point geometric count. There is demonstrable prior coverage of the fifteen degree-five points of the Klein row via the marked Gauss fixed scheme, but not the full row or census. This partial implication is credited below; it does not cover the 150 other points in that row or any other row by the same argument.",
+      "residual_risks": [
+        "Classical finite-unitary group literature or unindexed tables may encode some or all cycles; no absolute historical priority determination is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Geometric background and U3(p) cohomology, not 165-point arithmetic permutations",
+          "evidence": [
+            "Cone points generalize Eckardt points; the unitary group use in the compared passage concerns a special Fano-surface fibre."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2402.09884v1",
+          "material_read": "Introduction on cone points and Fano surface (OA offset 11950), unitary group cohomology passage (9650)",
+          "method": "Original HTML passage inspection",
+          "title": "q-bic threefolds and their surface of lines",
+          "trigger": "Cone-point framework and related unitary action"
+        },
+        {
+          "assessment": "Algebraically closed classification; not a finite-field cycle census",
+          "evidence": [
+            "All full-rank forms are diagonalizable over the algebraic closure; unique nondegenerate Hermitian form in the stated finite-field setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2104.05635",
+          "material_read": "Abstract/Introduction (offset 1100), §2 Theorem 2.1 and Hermitian discussion (5800 and 8500)",
+          "method": "Original open-access passage inspection",
+          "title": "Classification of Frobenius Forms in Five Variables",
+          "trigger": "Stronger geometric classification of the same forms"
+        },
+        {
+          "assessment": "Complex cubic threefolds, not binary Frobenius arithmetic",
+          "evidence": [
+            "The complex Fermat example has 30 Eckardt points."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2309.08124v2",
+          "material_read": "Abstract/§1 (offset 300) and §3.1 Example 3.9 (17000)",
+          "method": "Original HTML passage inspection",
+          "title": "Eckardt points on a cubic threefold",
+          "trigger": "Same named geometric locus on cubic threefolds"
+        },
+        {
+          "assessment": "Prior coverage of inputs, but not the cycle invariant",
+          "evidence": [
+            "The same thirteen classes are used for Fano-line and rational incidence data."
+          ],
+          "identifier_or_url": "Resultary 62a143310a01",
+          "material_read": "RESULT.md Finding (offset 0) and Relationship to prior work (4200)",
+          "method": "Local Resultary mirror inspection",
+          "title": "Rational Fano-line fingerprints of non-Frobenius-split cubic threefolds",
+          "trigger": "Exact same coefficient-marked classes and weights"
+        },
+        {
+          "assessment": "Arithmetic surface classification, not threefold coverage",
+          "evidence": [
+            "45 centers and 27 lines across ten GL4(F2) classes."
+          ],
+          "identifier_or_url": "Resultary 0053074ac1a9",
+          "material_read": "RESULT.md Finding (offset 0)",
+          "method": "Local Resultary mirror inspection",
+          "title": "Complete Frobenius spectra of Eckardt points and lines on binary cubic surfaces",
+          "trigger": "Exact closely analogous cycle tables and method, same-date index"
+        },
+        {
+          "assessment": "Verified exact prior implication for the three degree-five Klein cycles only",
+          "evidence": [
+            "Marked Gauss map is the one-step shift composed with squaring; at n=5 its fixed scheme consists of three degree-five closed points with residue field F32."
+          ],
+          "identifier_or_url": "Resultary 449508403448",
+          "material_read": "RESULT.md Finding, scope, and proof §1 (offset 0–2543)",
+          "method": "Local Resultary mirror inspection and direct comparison of matrix equations",
+          "title": "Trace-zero Gauss-fixed schemes on characteristic-two cyclic Klein cubics",
+          "trigger": "Potential equivalence for 15 Klein Eckardt points"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and verified all-extension cycle table; comparison with earlier coefficient and geometric data"
+      ],
+      "rationale": "The exact Frobenius action on a distinguished finite cone-center locus answers a descent question not settled by geometric equivalence or rational Fano-line counts. In particular it identifies late first or full splitting (degrees five and 24), and gives the point counts over arbitrary extensions. This precise arithmetic information is useful in studying which distinguished tangent cones are available over a given finite field.",
+      "residual_risks": [
+        "Only nonsingular five-variable binary Frobenius forms, not arbitrary cubic threefolds or the zeta function of the full Fano surface."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

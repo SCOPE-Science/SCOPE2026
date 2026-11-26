@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:59:45.560842Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–55",
+        "Frozen VERIFICATION.md lines 18–24 and verify.py, inspected not executed"
+      ],
+      "rationale": "Acyclicity is a separate constraint on each cycle block, so the weight law factors across edge-disjoint blocks. A simple connecting path must traverse the unique block-cut route, and the resulting block demands suffice. On one shared cycle, after rescaling by the full-cycle weight, a nonempty missing set carries product weight in the reciprocals. The first event confines it to one row, the second to one column, and their intersection to one cell, giving exactly R,S,H after subtracting empty-set terms. As an algebra check, writing U=X+Y, one has Z=U+P+Q+XY+PY+QX+PQ and RS=U^2+UXY+QX^2+PY^2-4PQ, yielding the stated positive identity and strictness. Shared bridges have covariance p(1-p)>0. Every factor in the global product comparison is positive (a positive-weight local spanning tree satisfies both demands), so strictness is preserved exactly as claimed. For any shared cycle both partitions have two nonempty arcs, and a 2-by-2 support with no empty row or column contains a pair of opposite occupied cells; thus the criterion also simplifies to sharing any route block.",
+      "residual_risks": [
+        "The source script checks the global nonnegative inequality on examples, not the entire global strictness criterion; the universal proof covers strictness. Zero or infinite weights and overlapping cycles are outside scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 18 weighted-forest cactus finding covers nonnegativity; the November 2 cactus random-cluster finding covers the forest law and q>0 but was not relied on for strictness. Conjecture 6.2 is general-graph conjectural coverage; Proposition 6.1 is leading large fugacity; Erickson and Grimmett–Winkler address a different edge-inclusion observable."
+        ],
+        "reasoning": "A conjecture or a negative edge-inclusion correlation does not cover this theorem. The exact overlap is from verified cactus-specific statements.",
+        "searches": [
+          "Resultary: all-weight connectivity covariance for cactus forests and random-cluster laws",
+          "Çiçeksiz–Ravichandran, arXiv:2610.00549v1, Section 6",
+          "Erickson, arXiv:1008.3660; Grimmett–Winkler, arXiv:math/0302185"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4: October 12, 18 and 25 weighted cactus findings; November 2 cactus random-cluster finding",
+        "arXiv:2610.00549v1, 1008.3660 and math/0302185"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The October 25 proof uses the same cell partition, and the partition-function, marginal and joint masses map to Z,R,S,H. Its and the October 12 theorem's scope is weighted finite simple cacti."
+        ],
+        "reasoning": "The prior indexed theorem entails the global inequality and exact strictness for every allowed weight and overlap of marked pairs. Rewriting the certificate in reciprocal-weight variables does not leave a new claim.",
+        "searches": [
+          "October 25 Resultary finding and cycle proof versus frozen RESULT.md lines 11–24 and 36–55",
+          "October 12 Resultary finding versus the frozen global statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/25/SCOPE-positive-pair-connectivity-covariance-in-weighted-cactus-arborea--393d4b652fe3 and 2026/10/12/SCOPE-strict-connectivity-event-correlations-in-weighted-cactus-forest--02ba4c58fc32 give strict covariance exactly when the pair routes share a block."
+        ],
+        "reasoning": "Any shared cycle supplies a nonempty complementary arc pair for each demand. The 2-by-2 intersection support has no empty row or column, so it has a matching of size two. The frozen opposite-cell condition is therefore automatic on a shared cycle, not a distinct finer classification.",
+        "searches": [
+          "Resultary: positive pair connectivity covariance in weighted cactus forests or arboreal gas",
+          "Resultary: strict vertex-pair connectivity, shared cactus block routes and cycle arcs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 25 catalogue entry contains a four-cell cycle formula with variables prod(p_e^(-1))-1. Example 6.4 supplies a polynomial for a particular four-cycle."
+        ],
+        "reasoning": "The finding is symbolic, not a finite table. The four-cycle example alone does not cover it, but substituting p_e=w_e/(1+w_e) in the exact catalogue certificate gives cell variables t_ij-1 and the same normalized event masses.",
+        "searches": [
+          "Resultary: cactus cycle four-cell covariance certificate, strict equality",
+          "Çiçeksiz–Ravichandran, Section 6, Example 6.4"
+        ]
+      },
+      "rationale": "Distinct indexed findings already cover both the theorem and the cycle certificate. In particular, the October 25 weighted-cactus arboreal-gas record gives the same all-positive-edge-weight covariance theorem and the equivalent common-block strictness criterion. Its four-cell variables are exactly the frozen variables shifted by one. The October 12 weighted-cactus forest record also states the same theorem and strictness. This is verified catalogue coverage, not a claim about author priority or first publication timestamps.",
+      "residual_risks": [
+        "First-publication chronology and historical authorship were not established; the distinct indexed mathematical coverage is sufficient for this comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent statement and formula",
+          "evidence": "All positive weights; strict iff common block; prod(p_e^(-1))-1=t_ij-1 for each cell.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-positive-pair-connectivity-covariance-in-weighted-cactus-arborea--393d4b652fe3",
+          "material_read": "RESULT.md finding and local cycle proof",
+          "method": "Resultary local mirror",
+          "title": "Positive pair connectivity covariance in weighted cactus arboreal gases",
+          "trigger": "Exact weighted cactus theorem and four-cell certificate"
+        },
+        {
+          "assessment": "Equivalent global theorem",
+          "evidence": "Arbitrary positive weights on cacti; strict iff routes share a block.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-strict-connectivity-event-correlations-in-weighted-cactus-forest--02ba4c58fc32",
+          "material_read": "RESULT.md finding",
+          "method": "Resultary local mirror",
+          "title": "Strict connectivity event correlations in weighted cactus forests",
+          "trigger": "Independent exact strictness match"
+        },
+        {
+          "assessment": "Conjecture, related asymptotic, and example; not the exact theorem in these passages",
+          "evidence": "General arbitrary-weight sign stated as conjecture for distinct endpoints; large uniform fugacity proposition and particular C4 calculation.",
+          "identifier_or_url": "https://arxiv.org/html/2610.00549v1",
+          "material_read": "Section 6, Proposition 6.1, Conjecture 6.2 and Example 6.4 (HTML offsets about 127397 and 132499)",
+          "method": "OA HTML inspection",
+          "title": "Negative Correlation for Forests and the q<1 Random-Cluster Model",
+          "trigger": "General connectivity-correlation conjecture"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "Rayleigh inequality compares simultaneous edge inclusion with the product of edge-inclusion probabilities.",
+          "identifier_or_url": "https://arxiv.org/pdf/1008.3660",
+          "material_read": "Abstract and Section 1, PDF pages 1–2",
+          "method": "OA PDF inspection",
+          "title": "Sums of squares and negative correlation for spanning forests of series parallel graphs",
+          "trigger": "Weighted forest results on a larger graph class"
+        },
+        {
+          "assessment": "Different observable and scope",
+          "evidence": "Negative association of edge variables in uniform forests, not positive correlation of two vertex-pair events.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0302185",
+          "material_read": "Abstract and Section 1, PDF pages 1–2",
+          "method": "OA PDF inspection",
+          "title": "Negative association in uniform forests and connected graphs",
+          "trigger": "Forest correlation literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 11–24 and 36–55",
+        "October 25 Resultary weighted cactus arboreal-gas finding and cycle proof"
+      ],
+      "rationale": "The underlying all-weight cactus theorem is worthwhile, but this record adds no identified mathematical gain over the existing theorem and four-cell proof. Its more detailed-looking cycle criterion is automatic for every shared cycle, and the local formula is the existing calculation in different variables.",
+      "residual_risks": [
+        "No materially distinct remainder was established for repair."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

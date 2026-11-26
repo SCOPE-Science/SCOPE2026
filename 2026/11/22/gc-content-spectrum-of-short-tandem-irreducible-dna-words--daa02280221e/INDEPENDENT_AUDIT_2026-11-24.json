@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:59:00.324555Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the abstract two-color four-letter language, the triple update excludes precisely a new adjacent equal pair or a new period-two square. The independent orbit-graph calculation confirmed all ten weighted states, the determinant D and the numerator N through degree 12; the adjugate bound deg_z(D F)≤12 makes this an all-coefficient certificate. Independent finite enumeration also matched lengths 0 through 8, including 48, 320 and 2192 at the first three even lengths cited. The full 36-state graph is connected, and closed walks based at the same triple have (length,weight)=(3,1),(4,1). Length gcd 1 gives primitivity, and the unimodularity of these two vectors excludes any nonzero lattice phase on the unit circle away from 0, giving span one. The dominant pole is simple, also in D at u=1, and continues analytically; the amplitude at u=1 is √3 at r=(√3−1)/2. For a separate differentiation check set G(x,t)=D(x exp(−t/2),exp(t)); it is even in t and G_tt(x,0)=x³(2x⁴+4x³−x²−8x−2). At x=r, G_tt/(r G_x)=(7√3−6)/72>0, the second derivative of minus the log pole, while symmetry gives exact mean n/2. The finite-state local limit hence yields amplitude √3/(√(2πσ²)), the stated balanced prefactor, only at eligible even n; quasi-powers yields the CLT. These limit conclusions use the analytic argument, not extrapolation from the finite counts. The supplied script was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier unweighted recurrence and Perron–Frobenius rate concern total counts. The later code construction concerns a code family and a different error constraint; it is not a weighted count of the whole language."
+        ],
+        "reasoning": "General finite-state and local-limit methods account for the form under suitable conditions, but their generic assertions do not provide this weighted matrix's evaluated pole derivative, full-lattice check, or exact rational expression. No inspected broader statement supplies these evaluations.",
+        "searches": [
+          "arXiv:1801.02310 Enumerating Irreducible Words",
+          "arXiv:2401.04675 abstract and introduction",
+          "Chee et al. 2020 Corollary 4, author-hosted full text"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md and verification.py",
+        "Resultary record daa02280221e",
+        "Chee et al. 2020, DOI 10.1109/TIT.2020.2981069, author-hosted version",
+        "arXiv:1801.02310",
+        "arXiv:2401.04675"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equality of asymptotic exponential rates is precise prior coverage. The unweighted recurrence fixes the pole at u=1 but not its displacement with u or the lattice span."
+        ],
+        "reasoning": "One cannot infer the variance or exact balanced prefactor from that pole value or from color symmetry: symmetric weighted languages can share a total counting sequence and have different variances. The matrix, curvature, and aperiodicity calculations supply the needed missing information.",
+        "searches": [
+          "Chee et al. 2020 author-hosted PDF p. 5, Corollary 4 and immediately preceding paragraph",
+          "arXiv:1801.02310 enumeration section"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At duplication bound two, irreducibility is exactly avoidance of aa and abab. Chee–Chrisnata–Kiah–Nguyen 2020 study equal counts in the same partition into two color groups, and their Corollary 4 includes that very language."
+        ],
+        "reasoning": "The terminology differs from abstract factor avoidance, but the prior balanced objects and growth base match. That rate only determines the exponential base; it gives neither the full weight array nor the central coefficient normalization.",
+        "searches": [
+          "Resultary: GC content spectrum of short tandem irreducible words",
+          "Efficient Encoding/Decoding of GC-Balanced Codes Correcting Tandem Duplications Corollary 4 balanced irreducible words rate recurrence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact catalogue result daa02280221e is the frozen record itself. The prior 2020 paper expressly omits an explicit recurrence for the balanced count in the passage preceding Corollary 4."
+        ],
+        "reasoning": "No separate indexed table or closed formula for c_{n,w} was identified in the bounded search. The unweighted counts available from prior work give F(z,1), a specialization that cannot recover the bivariate coefficients.",
+        "searches": [
+          "Resultary: short tandem irreducible words weighted by GC count and exact balanced coefficient"
+        ]
+      },
+      "rationale": "The closest prior article treats exactly the same balanced irreducible language and establishes its exponential rate. It explicitly does not provide a balanced counting recurrence. The distinct supported claims are the explicit complete bivariate enumerator and the evaluated variance and sharp balanced subexponential factor, not the growth base or the existence of a transfer matrix.",
+      "residual_risks": [
+        "Equivalent earlier weighted finite-type enumerations of the same abstract language are not exhaustively excluded.",
+        "No claim about codebook capability, physical sequence performance, or finite-length variance is established by the enumerator and CLT."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact object and exponential rate covered; not the sharp coefficient or weight enumerator",
+          "evidence": "For bounds k=2,3, balanced and unbalanced irreducible sets have the same exponential rate; the text says it does not give an explicit recurrence for the balanced count.",
+          "identifier_or_url": "https://ymchee66.github.io/home/PDF/encgcbalancedjournal.pdf",
+          "material_read": "Author-hosted PDF p. 5, discussion immediately preceding Corollary 4 and the corollary; OA offset 36900",
+          "method": "OA PDF text passage",
+          "title": "Efficient Encoding/Decoding of GC-Balanced Codes Correcting Tandem Duplications",
+          "trigger": "Same factor-irreducible language and balance restriction"
+        },
+        {
+          "assessment": "Unweighted counting and rates, not fixed-composition evaluation",
+          "evidence": "Recurrences count words by length and produce rates via the unweighted Perron root.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.02310",
+          "material_read": "Enumerating Irreducible Words, PDF offsets 6800–11188",
+          "method": "OA PDF text passage",
+          "title": "Efficient Encoding/Decoding of Irreducible Words for Codes Correcting Tandem Duplications",
+          "trigger": "Prior enumeration of tandem-irreducible words"
+        },
+        {
+          "assessment": "Different question; no match in inspected statements",
+          "evidence": "The inspected results concern code constructions under disjoint or equal-length error models, not the two-color weight distribution of all legal words.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.04675",
+          "material_read": "Abstract and introduction, PDF pp. 1–2",
+          "method": "OA PDF text passages",
+          "title": "On Duplication-Free Codes for Disjoint or Equal-Length Errors",
+          "trigger": "Related duplication-free language and code terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The same balanced word-count problem was explicitly posed in prior counting work, with only the exponential scale evaluated there. The exact bivariate function supplies length-and-weight coefficients and the local limit quantifies the polynomial penalty and its constant at exact balance. Those are useful finite and asymptotic invariants of the established constrained language, not arbitrary sample counts or a repeated rate computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

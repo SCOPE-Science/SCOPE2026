@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:49:57.126378Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof §§1–6",
+        "Frozen VERIFICATION.md and check_regular_pretrees.py (inspected)",
+        "/workspace/reviews/evidence/pretree.py (executed with Python 3)"
+      ],
+      "rationale": "Cone equality descends to quotient clusters. At a maximal quotient preimage of t, every world of C_t must be hit in that preimage cluster; the first steps toward lifts of different target children must be different immediate source children. These two arguments apply to arbitrary finite covers and give both necessary thresholds. Every internal target vertex needs a distinct internal source preimage; full k-branching gives exactly 1+kI source clusters for I internal vertices. Padding only the leaves of the internal skeleton attains the bound: target immediate leaves are hit and each internal target child cone is hit recursively. At equality no internal source vertex can be spent on a target leaf; forward and back give an ancestry isomorphism on the unique internal preimages (in the back argument the target vertex is a strict descendant). At a fixed skeleton isomorphism each terminal source cluster must land on a target leaf, and an immediate target leaf of t can only be hit above the source preimage of t by one of its terminal children, not through another target child. All other terminal-child choices among descendant target leaves are independent. Clusterwise surjections and weighted inclusion-exclusion therefore count exactly the maps on the fixed distinguishable-world source. Root-cluster permutations give the c_r divisor, including a singleton target; k=1 and q_t=0 are covered. The bounded checker is not needed for the universal proof; an independent direct enumeration in /workspace/reviews/evidence/pretree.py matched six boundary and weighted cases, including pointed counts, asymmetrical leaves over a symmetric internal skeleton, and both obstructions.",
+      "residual_risks": [
+        "Independent finite checks are supplementary only. No assertion about arbitrary preorders, infinite frames or nonuniform source clusters is reviewed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wołoszyn gives sufficiency at the natural branching/cluster maxima by regular unfolding; its construction allows increasing those parameters.",
+          "Resultary e532142d4dde gives exact inclusion-exclusion for any fixed pair of finite rooted trees."
+        ],
+        "reasoning": "An unfolding that repeats whole internal subtrees need not attain the minimum; the distinct-internal-preimage lower bound and equality analysis are needed. The fixed-tree counting recurrence does cover computation of the numerical tree-only count once the source shape is given; it neither chooses that shape nor supplies the cluster weights.",
+        "searches": [
+          "Wołoszyn Lemma 3.7",
+          "Resultary fixed-tree morphism existence and counting: fec4b9aa3bee, e532142d4dde"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.14182 §3",
+        "Resultary fec4b9aa3bee, e532142d4dde, 9537b2b1e958, e5029a66a849, 565a1d2f2d99"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A fixed-source LCA criterion can be used to infer cluster-free feasibility and constrains internal preimages; cluster capacities and the mandatory local surjections require the world-level back condition.",
+          "The recurrence already yields the tree-only numbers from the now-known source. The factorization uses the rigid skeleton to decouple leaves and includes s(m,c_v) for each independently mapped cluster."
+        ],
+        "reasoning": "Credit the existing feasibility construction and tree counting coverage, not merely the absence of an identical formula. The inspected statements do not mechanically supply the joint sharp size, rigid source and weighted enumeration of all optimal maps in the clustered setting.",
+        "searches": [
+          "Wołoszyn Lemma 3.7 compared to frozen Proof §§2–6",
+          "Resultary fec4b9aa3bee and e532142d4dde Finding statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wołoszyn uses the same finite pretree/regular-cover setup and a quotient unfolding with clusterwise surjections.",
+          "Resultary fec4b9aa3bee uses LCA-preserving embeddings to characterize p-morphic images of two fixed rooted trees."
+        ],
+        "reasoning": "The translation to trees applies directly to cluster-free feasibility but is not the minimum-over-sources and equality classification, nor a count of individual maps between nontrivial clusters.",
+        "searches": [
+          "Resultary meaning search for finite rooted Kripke pretree regular covers and optimal p-morphisms",
+          "arXiv:2605.14182 §3, Definition 3.3 and Lemma 3.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact bound record itself is an index match, not distinct prior evidence.",
+          "Resultary 9537b2b1e958 counts maps to Q_m; e5029a66a849 counts maps for specified three-level pairs; 565a1d2f2d99 treats specified starlike frames. Their published Finding statements have different domain restrictions."
+        ],
+        "reasoning": "The restricted families cover some small cluster-free specializations but do not determine all finite regular covers or the weighted optimum count. No distinct exact entry with this combined scope was found by the bounded search.",
+        "searches": [
+          "Resultary optimal regular covers, exact bounded-morphism multiplicities, sharp branching threshold and starlike/three-level tree frames"
+        ]
+      },
+      "rationale": "Pass for the sharp optimization, equality classification and weighted optimal-cover factorization under the stated tree-quotient assumptions. Qualitative regularization and its usual sufficient parameters are covered, and general exact counting for a fixed pair of unclustered trees is covered; neither is credited as new.",
+      "residual_risks": [
+        "Historical priority is not certified. No novelty is assigned to evaluating the general fixed-tree recurrence on the already specified optimum shape; the comparison does not exclude an earlier factorization in that tree-only case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covered qualitative existence and standard sufficient parameters, not optimization or counts",
+          "evidence": [
+            "Chooses maximum branching (at least one) and maximum cluster size, unfolds to a full arity quotient and maps clusters onto target clusters."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.14182",
+          "material_read": "§3 including definitions and Lemma 3.7 (HTML window beginning at offset 18100, lemma at 18703)",
+          "method": "Open primary HTML, passage inspection",
+          "title": "The Modal Theory of Linear Orders",
+          "trigger": "Same regularization problem"
+        },
+        {
+          "assessment": "Covers fixed unclustered trees, not optimization with clusters",
+          "evidence": [
+            "Equivalent strict-ancestry- and LCA-preserving target injection into the source."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-finite-rooted-kripke-p-morphism-images-are-rooted-topological-mi--fec4b9aa3bee",
+          "material_read": "RESULT.md Finding, offset 72",
+          "method": "Local Resultary mirror, statement comparison",
+          "title": "Finite rooted Kripke p-morphism images are rooted topological minors",
+          "trigger": "Broader fixed-frame existence criterion"
+        },
+        {
+          "assessment": "Computationally covers fixed unclustered pairs; not the weighted optimum-cover theorem",
+          "evidence": [
+            "Subtree inclusion-exclusion recurrence for a specified pair of finite rooted trees."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-bounded-morphism-counting-between-arbitrary-finite-rooted--e532142d4dde",
+          "material_read": "RESULT.md Finding, offset 79",
+          "method": "Local Resultary mirror, statement comparison",
+          "title": "Exact bounded-morphism counting between arbitrary finite rooted tree frames",
+          "trigger": "General exact counting could specialize"
+        },
+        {
+          "assessment": "Different restricted target and objective",
+          "evidence": [
+            "Fixed three-level target Q_m; exact count and sharp branching condition for maps onto it."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-bounded-morphism-census-and-sharp-branching-threshold-for--9537b2b1e958",
+          "material_read": "RESULT.md Finding, offset 80",
+          "method": "Local Resultary mirror, statement comparison",
+          "title": "Exact bounded-morphism census and sharp branching threshold for rooted trees",
+          "trigger": "Closest restricted threshold and census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§3–6 and unary-tail example",
+        "Wołoszyn Lemma 3.7"
+      ],
+      "rationale": "This quantitatively sharpens a natural finite modal-frame regularization: padding with terminal covers avoids potentially exponential internal-branch replication, and the equality characterization determines the only minimum shape. The weighted formula distinguishes multiple realizations on that shape without enumerating general functions, including nontrivial clusters.",
+      "residual_risks": [
+        "No downstream modal complexity or infinitary claim follows here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,185 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:03:16.985380Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–49",
+        "Frozen VERIFICATION.md, verify_fan.py and verify_fan_output.txt (inspected, not run)",
+        "/workspace/branches/independent_checks.py, fan()"
+      ],
+      "rationale": "With no excited hub at update t−1, any rim vertex excited at t required two excited path neighbors at t−1, both now refractory, so no resting rim vertex can see an excited rim neighbor at t. This excludes rim excitation at t+1 even if the hub is then providing one input at t. For H0 not 1 this kills R2 and hence all later rim excitations and prevents hub excitation from time 3 onward, giving rest by time 4. For H0=1 the hub is refractory and then resting at times 1 and 2, R3 and later are empty, and only a firing of the hub at time 3 can delay first rest to time 5. A resting center at time 1 with two excited rim neighbors then requires both of those neighbors initially 0, the center initially 0 or 2, and both distance-two sites initially 1. If a required site is beyond the boundary, the condition fails: an endpoint has only one path neighbor, and an excited-at-1 neighbor of a resting-at-1 center cannot have used that center as its initially excited input. Thus the necessary and sufficient time-two motif count and the two-input hub test are exact. For an independent OGF derivation, split a word at all its 1s. Initial and final binary runs each contribute E=1/(1−2z); each interior gap together with its closing 1 contributes good weight A=2z^4 or bad weight B=zE−A. The at-least-two condition has unique decomposition at the first two good gaps, giving z E^2 A^2/[(1−B)^2(1−A−B)], which simplifies to the claimed rational function. Two good gaps need length at least 9 and the stated shared-endpoint witness pads to every greater length. Independent disjoint blocks imply the conditional probability tends to one, so the unconditional limit is 1/3. A separate bitmask implementation compared the criterion and first-hit time for all 265,716 states at n=1–10; series arithmetic checked the given seven nonzero coefficients. Replay: python -B /workspace/branches/independent_checks.py 4.",
+      "residual_risks": [
+        "Only deterministic synchronous threshold-two three-color open fans are covered. No finite replay is used as the proof for all sizes or for the limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SCOPE-20261026-58917bc0decb, Finding, gives sharp clocks 3 at cyclic rim size 3, 4 at sizes 4–7, and 5 from 8 onward. It is the leading overlap for the clock and local exclusion argument, not a theorem on all maximum-degree-two rims with shell counts.",
+          "SCOPE-20261122-486c35cf255d gives exact extinction-time counts for a common hub joined to disjoint edges, and SCOPE-20261122-735009d19bc6 gives a four-update limit and a seven-site last-wave test for sunlets.",
+          "DOI 10.1214/22-AAP1885, indexed description, concerns last-change tail behavior under a finite-change condition on regular trees."
+        ],
+        "reasoning": "Changing from a cycle, disjoint edges, sunlet, or tree to a hub with an open path changes the update conditions. A theorem for an entire graph class including open fans and specifying their terminal-event counts might cover this claim; the inspected statements do not give one.",
+        "searches": [
+          "Resultary: Greenberg Hastings threshold-two synchronous fan graph K1 join path five-step extinction",
+          "Resultary: Greenberg Hastings wheel graph threshold-two five-step extinction exact result",
+          "Web: \"Greenberg-Hastings\" threshold two wheel graph extinction fan graph motif generating function excitable cellular automata"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–15 and 51–55",
+        "Resultary 58917bc0decb, 45299ac945e0, 2a387c4efac2, 486c35cf255d and 735009d19bc6",
+        "arXiv:math/9806036",
+        "Fisch–Gravner–Griffeath 1991, arXiv:patt-sol/9303002 and DOI:10.1214/22-AAP1885 (limited access as described)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The wheel clock mechanism already supplies the local rim-exclusion idea, but the wheel sharp onset at 8 cannot be used as a sharp fan onset. A cyclic word can use motifs crossing the edge that closes the rim.",
+          "Even the closely related multistate result's 2/q limit refers to a union of two hub-state channels at q>=4, not the fan's one channel requiring two time-two sites. Noonan–Zeilberger provide general techniques to mark occurrences, not the reduction of open-fan dynamics or a stated evaluation for this pair of motifs."
+        ],
+        "reasoning": "This finding is more than the local-clock mechanism or a routine invocation of a counting method: it connects explicit dynamical conditions, open-path boundaries and overlapping occurrences to a complete labelled shell. The accessible comparable statements do not mechanically specialize to the full count and criterion. Same-day chronology was not established and is not needed to distinguish the other graphs.",
+        "searches": [
+          "SCOPE-20261026-58917bc0decb RESULT.md Finding",
+          "SCOPE-20261117-45299ac945e0 RESULT.md Finding and Limitations",
+          "arXiv:math/9806036 abstract/preface"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target event is equivalently a hub initially 1 and at least two consecutive-1 gaps of the form 0[02]0 in the open word. The catalogue self-match is not evidence of independent coverage.",
+          "SCOPE-20261117-45299ac945e0, Finding, has a related cyclic 1,0,c,0,1 channel with c either 0 or q−1 for hub initially 1, but one such motif is sufficient there and a different initial-hub channel is possible.",
+          "Local mirror 45299ac945e0, Limitations excerpt at offset 10227, explicitly excludes q=3 as well as other graph families."
+        ],
+        "reasoning": "The motif shape is partly shared, but the number of needed occurrences, possible hub histories and treatment of boundary windows refer to different events. The q>=4 sharp-time shell cannot be substituted at q=3; the hub and terminal rim recoveries can coincide rather than give the same terminal-time condition.",
+        "searches": [
+          "Resultary: Greenberg Hastings motif 10001 10201 fan terminal extinction generating function",
+          "Resultary: terminal motif law greenberg-hastings fan 10001 10201 exact generating function",
+          "Web: \"Greenberg-Hastings\" threshold two wheel graph extinction fan graph motif generating function excitable cellular automata"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-20261108-2a387c4efac2, Finding and Assumptions, gives sqrt((1+z)/(1−3z)) for a terminal shell on an ordinary path at threshold one. The formula is for a different shell/graph/rule.",
+          "SCOPE-20261122-486c35cf255d, Finding, gives an exact last-layer count for a friendship graph and limit 2/k for its k-color rule, hence 2/3 at three colors rather than the frozen 1/3.",
+          "The returned exact fan hit  eec3c1a6f6ce is the target record itself."
+        ],
+        "reasoning": "For actual coverage a distinct exact sequence, OGF, or an already evaluated equivalent count for open words with these at-least-two gaps would suffice. The reported exact tables/families do not count that sequence; the bounded searches did not establish such an equivalent.",
+        "searches": [
+          "Resultary: excitable cellular automata terminal extinction count fan graph exact rational generating function",
+          "Resultary: terminal motif law greenberg-hastings fan 10001 10201 exact generating function"
+        ]
+      },
+      "rationale": "The closely related cyclic clock and rim-exclusion mechanism, the analogous multicolor wheel motifs, and the general word-counting method are existing tools or precedents. The distinct finding is the complete three-state open-fan fifth-shell criterion together with its exact count at all lengths. Inspected alternatives do not supply this joint conclusion or the OGF. The pass is bounded by the actual inspected statements, not a historical-priority assertion.",
+      "residual_risks": [
+        "Primary full text of the two older cited dynamics works did not return through the tried lawful routes; the review makes no whole-document claims about them. An earlier finite open-fan result or a separately published exact enumeration of these overlapping gaps might remain unindexed or inaccessible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shared clock mechanism; no open-fan fifth-shell census in this statement",
+          "evidence": [
+            "Sharp clock 3 for n=3, 4 for 4<=n<=7, and 5 for n>=8 on K1 joined to Cn."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-five-step-extinction-for-threshold-two-excitation-on-wheel--58917bc0decb",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary search and local mirror inspection",
+          "title": "Sharp five-step extinction for threshold-two excitation on wheel graphs",
+          "trigger": "Same threshold and state count with cyclic rather than open hub-and-rim geometry"
+        },
+        {
+          "assessment": "Related five-letter motif shape; different colors, rim and terminal event",
+          "evidence": [
+            "For q>=4: one cyclic 1,0,c,0,1 with c in {0,q−1} and initial hub 1, or two 1,0,1 motifs and initial hub q−1; limiting 2/q. Limitations explicitly exclude q=3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-two-motif-channels-control-the-sharp-extinction-shell-of-multist--45299ac945e0",
+          "material_read": "RESULT.md Finding and Limitations (latter in local mirror excerpt at offset 10227)",
+          "method": "Resultary search and targeted local mirror inspection",
+          "title": "Two motif channels control the sharp extinction shell of multistate wheel excitation",
+          "trigger": "Closest published motif-level criterion"
+        },
+        {
+          "assessment": "Counts a different shell, at threshold one on a path without hub",
+          "evidence": [
+            "Shell OGF is sqrt((1+z)/(1−3z))."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-square-root-law-for-maximal-extinction-times-in-three-state-ex--2a387c4efac2",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Resultary search and local mirror inspection",
+          "title": "A square-root law for maximal extinction times in three-state excitation",
+          "trigger": "Alternative exact OGF for a path-based terminal shell"
+        },
+        {
+          "assessment": "Its friendship graph has disjoint rim edges rather than an open path",
+          "evidence": [
+            "Full labelled census on m triangles sharing a hub with k>=3; limiting last-layer probability 2/k."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-extinction-time-polynomial-for-multi-state-two-contact-exc--486c35cf255d",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary search and local mirror inspection",
+          "title": "Exact extinction-time polynomial for multi-state two-contact excitation",
+          "trigger": "Distinct same-day exact labelled census with hub and threshold two"
+        },
+        {
+          "assessment": "Its local criterion concerns a different graph geometry and terminal wave",
+          "evidence": [
+            "Sunlet clock 4 for n>=4; seven-site last-wave condition; last-update probability tends to one."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-four-update-extinction-clock-and-exact-temporal-census-on-exci--735009d19bc6",
+          "material_read": "RESULT.md Finding and proof §2",
+          "method": "Resultary search and local mirror inspection",
+          "title": "A four-update extinction clock and exact temporal census on excitable sunlets",
+          "trigger": "Distinct same-day criterion and exact temporal enumeration at identical color and threshold parameters"
+        },
+        {
+          "assessment": "Visible subject includes Greenberg–Hastings and cyclic automata; no whole-document determination",
+          "evidence": [
+            "Search description identifies the cellular-automata models, not a finite-fan census."
+          ],
+          "identifier_or_url": "https://www.stat.cmu.edu/~cshalizi/462/readings/fgg.pdf",
+          "material_read": "Indexed description only; bounded OA attempts did not retrieve PDF text",
+          "method": "Focused primary literature search and lawful retrieval attempts",
+          "title": "Threshold-range scaling of excitable cellular automata",
+          "trigger": "Cited primary excitation-model source"
+        },
+        {
+          "assessment": "No inference about uninspected finite-graph claims",
+          "evidence": [
+            "Identified in frozen References; no decisive passage retrieved."
+          ],
+          "identifier_or_url": "arXiv:patt-sol/9303002",
+          "material_read": "Citation and identifier only; attempted OA retrieval returned 404",
+          "method": "Targeted lawful retrieval",
+          "title": "Asymptotic behavior of excitable cellular automata",
+          "trigger": "Cited primary model and asymptotics context"
+        },
+        {
+          "assessment": "General enumeration method, not a statement of the specified fan event or its evaluated count",
+          "evidence": [
+            "The abstract treats prescribed forbidden factors; the preface discusses prescribed numbers of occurrences."
+          ],
+          "identifier_or_url": "arXiv:math/9806036; DOI:10.1080/10236199908808197",
+          "material_read": "Page 1 abstract and preface",
+          "method": "Targeted primary full-text passage inspection",
+          "title": "The Goulden–Jackson Cluster Method: Extensions, Applications and Implementations",
+          "trigger": "Primary source for the occurrence-counting method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–12 and 17–46",
+        "SCOPE-20261026-58917bc0decb, Finding",
+        "Independent exact gap-word generating function"
+      ],
+      "rationale": "The natural object is the open-boundary version of a hub-and-rim excitable graph with a sharp universal clock. Its extreme first-hit shell is not fixed by the fact of extinction. The specific two-pulse mechanism and exact counts describe which initial states attain that clock, explain the delayed sharp onset relative to the wheel, and quantify its nonvanishing frequency in large random states. This is a useful complete exact invariant of the stated dynamics without presuming a full earlier-time census or claiming novelty for the cluster method.",
+      "residual_risks": [
+        "Value is for this terminal shell on this graph family; no transfer to larger refractory alphabets, other thresholds, stochastic updates, or other geometries is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

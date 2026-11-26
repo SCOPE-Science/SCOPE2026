@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:14:38.712724Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every cycle uses two whole arms because each internal vertex has degree two; a spanning forest may have isolated vertices and may use zero or one whole arm. At a Walsh frequency, the total signed weight over an arm is 2^ell on a zero block and zero otherwise. Subtracting the full-arm sign s_i gives the proper-subset weights d_i=2^ell_i-1 on zero blocks and -s_i elsewhere. The zero/full-arm split gives exactly (1); factor all proper-subset weights to get the bracket 1-k+z+sum_{i in Z}1/d_i, proving (2)–(3) with its stated global sign. For z=0 the empty sum contributes nothing; for z>=1, d_i=-1 modulo four and the z-dependent terms cancel, giving (4), including its frequency-parity sign. Thus all k outside 1 mod 4 are universally invertible, while k=4t+1 with all ell=2 and z=3t gives an exact zero. Distinct zero-block sets partition the full 2^N characters and each has multiplicity product_{i notin Z} d_i. At k=5, z<=2 gives too small a reciprocal sum and z>=4 gives a positive left and a nonpositive right; z=3 forces three length-two arms. In the equal-length case the equation solves to z=(k-1)(2^L-1)/2^L, admissible and integral exactly at 2^L|(k-1). The Walsh basis diagonalizes unnormalized counting convolution, so the nullity computation is on the stated whole space. Independent replay (python3 /tmp/opencode/ordinal1-spectrum-check.py) uses DSU cycle detection on every edge subset and an integer Walsh transform, rather than classifying subsets by completed arms; it confirmed all 284,032 coefficients over the six cases and nullities 0,0,90,49,0,2268, including 49 for lengths (2,2,2,3,3). The deposited verifier uses the arm-partition test and agrees in finite scope; no finite experiment establishes the general criterion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Erickson's series-parallel theorem is an SOS expansion of a Rayleigh difference for the I-set polynomial; the Rayleigh inequality uses positive weights. Section 2 treats deletion/contraction and §3 series-parallel extensions.",
+          "Goodall §4.2 supplies Fourier diagonalization, §4.4 treats code/Tutte enumerators, and Example 5.5 uses T(G;2,1) to count nonzero coefficients of an orientation score polynomial; it does not count zero Fourier coefficients of the forest indicator."
+        ],
+        "reasoning": "One can evaluate the known enumerator by general recurrences at signs, but a signed evaluation method or a positivity result at positive weights does not supply this cancellation classification, universal congruence, or sharp converse. The orientation polynomial has different variables and a different statistic.",
+        "searches": [
+          "Web: Erickson spanning forest negative correlation series parallel independent set matroid multivariate Tutte generalized theta edge signed forest polynomial convolution",
+          "Erickson Theorems 1.2–1.3 and §§2–3",
+          "Goodall arXiv:0806.4848 §§3–5"
+        ]
+      },
+      "checked_sources": [
+        "Erickson arXiv:1008.3660",
+        "Goodall arXiv:0806.4848",
+        "Bernardi arXiv:math/0612003 abstract",
+        "Resultary c59a748e9280 full result",
+        "Resultary 0891360e87c6, c987bb4dd1d8 findings and scope; 500c0c0501a0 synopsis"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generalized-theta spanning-tree record sums a symmetric polynomial of arm-sign sums, on edge sets obtained by deleting one edge from each non-intact arm. It declares the all-length-two k=3 graph singular (at least two even arms). Under all-forest support that same instance is invertible.",
+          "The rooted K_{2,n} record gives singularity at every odd n, whereas here all-length-two k=3 is invertible and the equal-length criterion is 4|(k-1)."
+        ],
+        "reasoning": "These disagreements are concrete checks that changing weights or support defeats a direct implication. The general polynomial describes each evaluation implicitly but the arithmetic zero set and multiplicities need the arm factoring and congruence.",
+        "searches": [
+          "Resultary: generalized theta graph acyclic edge subsets all forests Walsh convolution modulo four exact Fourier invertibility spanning trees",
+          "Resultary c59a748e9280, Finding and Proof §§1–3; 0891360e87c6, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Erickson arXiv:1008.3660 §§1–2 defines F(G;y) by summing over precisely the acyclic edge sets; its values at individual edge signs are exactly these Walsh multipliers.",
+          "Resultary 500c0c0501a0 concerns vertex-induced forests of multi-theta graphs; 0891360e87c6 gives a rooted forest measure weighted by component sizes even on the same length-two-arm geometry."
+        ],
+        "reasoning": "Graphic-matroid independence, edge acyclicity, and the unrooted spanning-forest generating polynomial here are the same object. Rooted multiplicity or vertex-induced support is not an equivalent signed transform; the former has a different odd-width law.",
+        "searches": [
+          "Resultary: graphic matroid independence indicator all forests theta paths binary Fourier zero acyclic sets Mersenne reciprocal",
+          "Resultary: theta graph forest spanning forest reliability number acyclic subgraph polynomials exact formula signed Fourier spectra graphic matroid",
+          "Web: generalized theta forest polynomial all forests signed weights Walsh Fourier forest convolution theta Mersenne modulo four"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Rooted K_{2,n} case lists nullity 30 at n=5, versus the unrooted count 90 here. The earlier exact complete-graph forest spectrum c987bb4dd1d8 is for K_3 through K_6, including a full singularity census at K_6, not theta graphs.",
+          "Bernardi identifies T_G(2,1) as the unsigned forest count via a bijection; that is only the trivial character in the present question."
+        ],
+        "reasoning": "The closest exact tables concern a different measure or a different host graph. Neither their tabulated numbers nor the unsigned Tutte specialization answers the five-path or equal-length nullity classification.",
+        "searches": [
+          "Resultary: theta graph forest spanning forest reliability number acyclic subgraph polynomials exact formula signed Fourier spectra graphic matroid",
+          "Resultary 0891360e87c6 and c987bb4dd1d8, Finding; Bernardi arXiv:math/0612003 abstract"
+        ]
+      },
+      "rationale": "The forest enumerator, signed weight evaluations and Fourier diagonalization are prior machinery. Bounded comparison supports the specific modulo-four universal inversion boundary with a matching singular family, the Mersenne-reciprocal per-instance zero criterion and resulting rank/nullity, not a priority claim for enumerators or Fourier methods.",
+      "residual_risks": [
+        "An equivalent unindexed specialization of a signed graphic-matroid independence or dual spanning-set polynomial may exist; the bounded search does not prove historical uniqueness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the polynomial and general graph operations, not the claimed zero law",
+          "evidence": [
+            "§2 defines spanning forests as all acyclic subsets of E; Theorem 1.2 concerns the Rayleigh difference (1.3), not zero values of F itself."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1008.3660",
+          "material_read": "Introduction and Theorems 1.2–1.3, §2 forest definition, §§2–3 series-parallel and minor results",
+          "method": "Read open PDF text and compare the positive-weight Rayleigh hypotheses and SOS conclusion to signed point evaluations",
+          "title": "Sums of squares and negative correlation for spanning forests of series parallel graphs",
+          "trigger": "Same all-forest polynomial and a broader host graph class"
+        },
+        {
+          "assessment": "Fourier/Tutte framework and unsigned forest count are background",
+          "evidence": [
+            "Example 5.5 counts score vectors of orientations by T(G;2,1); its norm identity is for a reduced vertex polynomial, not the binary edge convolution."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0806.4848",
+          "material_read": "§§3, 4.2, 4.4 and §§5.1–5.3 relevant results, in particular Example 5.5 and following Corollary 5.6",
+          "method": "Read open PDF passages and compare group algebra, evaluated polynomial and invariant",
+          "title": "Graph polynomials and Tutte–Grothendieck invariants: an application of elementary finite Fourier analysis",
+          "trigger": "General graph polynomial Fourier methods could reformulate or imply the spectrum"
+        },
+        {
+          "assessment": "Distinct support and incompatible recovery criteria; no subsumption",
+          "evidence": [
+            "Eqs. (1)–(2) use arm-sign sums and even-arm counts, only for spanning trees."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-parity-classification-and-sharp-fourier-gaps-for-spanning-trees--c59a748e9280/RESULT.md",
+          "material_read": "Finding and §§1–5 of the proof",
+          "method": "Read exact mirror and compare equality conditions and the k=3 all-two instance",
+          "title": "Parity classification and sharp Fourier gaps for spanning trees of generalized theta graphs",
+          "trigger": "Identical graph family and transform, but possible difference of forest support"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "On a natural entire series-parallel subfamily and all acyclic edge sets, the result identifies an exact universal obstruction, not just a finite spectrum or choice of frequency slice. It distinguishes, for every exceptional branch count, an explicit singular graph from the universal nonexceptional classes. The exact zero multiplicities determine how much data is lost for any given arm lengths, and the five-arm transition specifies when lengthening an arm removes all loss. No full unequal-length Diophantine classification or sharp surviving gap is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

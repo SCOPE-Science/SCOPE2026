@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:40:10.124636Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The vacant set only shrinks; after each deposition the first active independent Poisson clock wins with probability its rate divided by the total active rate. For an ordering of a fixed perfect matching, the product of these factors is the probability of that exact history. Independently generated all perfect matchings by matching the least vacant vertex recursively (33 matchings), and summed their histories via forward Taylor-coefficient propagation over each matching's subsets, weighting choices by all active edges, not just those in that matching. At delta=t-1 the edge-probability coefficients are (1,b-a,a^2-ab)/k, where b is its mark indicator and a is the active marked fraction. Readout of value, derivative, and twice the quadratic coefficient gave (903422/3840375,0,276830066540632837/4793798789772300000) for the ring and (903422/3840375,0,-561926341371011/43579988997930000) for spokes. Forward homogeneous propagation over 7314 occupied-state masks also recovered the entire terminal law: 6:868823/6912675, 7:2008042/3142125, 8:903422/3840375. Replay: python /workspace/replays/adsorption.py. With vertices numbered u=0..7, v=8..15, the verified automorphism (image list) [0,8,11,3,4,12,15,7,1,13,14,2,5,9,10,6] carries outer edge (0,1) to spoke (0,8); rotations and u_i ↔ v_{3i} relate all three edge types. Positive total active rates make the finite probabilities analytic near 1, proving the two strict local extrema only, not any global claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Penrose–Sudbury's inspected passages establish a general graph model and treat occupation/correlation questions; the graph-specific curvature is not among the inspected results.",
+          "Gamarnik–Goldberg's matching theorem concerns expected weight bounds for regular graphs of given girth with i.i.d. weights.",
+          "The OA attempt did not yield Pippenger full text."
+        ],
+        "reasoning": "General process definitions and expected weight bounds are compatible with both curvature signs and do not mechanically imply the comparison.",
+        "searches": [
+          "arXiv:math/0503519",
+          "arXiv:0807.1277",
+          "10.1137/0402034"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0503519",
+        "arXiv:0807.1277",
+        "10.1137/0402034 (full text inaccessible)",
+        "e4a3af5b8d37",
+        "9a554a5ca4a8",
+        "c78640a90221"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Petersen monomer result has homogeneous diagonal curvatures +4/405 and -2/405 for adjacent versus nonadjacent pairs of marked vertices, directly from its explicit formula for size-four jamming.",
+          "The four-cube result shows nonmonotone perfect coverage for an eight-edge matching bias, but compares no ring to a matching and uses a different graph."
+        ],
+        "reasoning": "These results materially overlap on geometry-signed second derivatives or heterogeneous dimer coverage, respectively. Neither changes monomers to dimers, transports across the graph, or implies the stated two curvatures for the two specified equal-size sets. The assigned record appearing in search is not independent coverage.",
+        "searches": [
+          "Resultary: geometry-signed kinetic interference and reentrant dimers",
+          "c78640a90221",
+          "9a554a5ca4a8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Penrose–Sudbury define dimer RSA by independently ordered edge arrivals, accepting exactly when both endpoints are vacant.",
+          "Gamarnik–Goldberg select maximum edge weight and discard incident edges. Negating independent exponential clocks converts that greedy order to the current one path by path."
+        ],
+        "reasoning": "The equivalence is at the process/order level, not at the output level: an expected weight bound for i.i.d. priorities does not evaluate a perfect-coverage event for nonidentical rates.",
+        "searches": [
+          "graph dimer RSA and random greedy matching with heterogeneous rates",
+          "arXiv:math/0503519",
+          "arXiv:0807.1277"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Petersen dimer law is (1/25,52/75,4/15) at sizes 3,4,5.",
+          "The four-cube dimer result gives homogeneous perfect cover 6296549887/14139562500 and an exact distribution, plus rate dependence for a coordinate matching."
+        ],
+        "reasoning": "The exact tables describe other graphs. Even a homogeneous terminal table for the exact graph would only establish the zeroth-order probability, not a two-family second-order comparison.",
+        "searches": [
+          "Resultary: GP(8,3), Möbius–Kantor, exact dimer terminal law and second-order rate response",
+          "e4a3af5b8d37",
+          "9a554a5ca4a8"
+        ]
+      },
+      "rationale": "The specific same-graph ring-versus-spoke curvature contrast for GP(8,3) remains distinct on inspected evidence. Geometry-signed adsorption rate effects and nonmonotone weighted dimer jamming are not themselves new. The materially overlapping indexed statements are credited, without claiming relative priority from their dates.",
+      "residual_risks": [
+        "Pippenger full text remains unread.",
+        "Ranked searches and inspected passages are not complete, in particular for exact graph-specific computations in unindexed tables or supplements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Process ancestry; no covering calculation in inspected results",
+          "evidence": "Dimer adsorption assigns independent uniform edge arrivals; an edge deposits only with both sites vacant. The abstract and introduction emphasize infinite-graph and Bethe-lattice probabilities and correlations.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0503519",
+          "material_read": "PDF pp. 1–3, offsets 0, 4860 and 8755",
+          "method": "OA text, targeted passages",
+          "title": "Exact and approximate results for deposition and annihilation processes on graphs",
+          "trigger": "Original general graph dimer adsorption model and possible exact results"
+        },
+        {
+          "assessment": "Related order rule, different random weights and objective",
+          "evidence": "GREEDY uses highest weight first; the matching theorem bounds expected weight for i.i.d. weights over regular high-girth graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/0807.1277",
+          "material_read": "PDF p. 2 (offset 5100) and p. 5 (offset 19482)",
+          "method": "OA text, targeted passages",
+          "title": "Randomized greedy algorithms for independent sets and matchings in regular graphs",
+          "trigger": "Equivalent greedy matching algorithm and possible broader weighted result"
+        },
+        {
+          "assessment": "Inaccessible full text; not evidence against coverage",
+          "evidence": "The frozen record explicitly credits the process ancestry and does not make a whole-document comparison.",
+          "identifier_or_url": "https://doi.org/10.1137/0402034",
+          "material_read": "Frozen bibliographic report of abstract only; no independent full-text passage",
+          "method": "DOI OA retrieval on the two configured routes returned 403",
+          "title": "Random Sequential Adsorption on Graphs",
+          "trigger": "Early graph-adsorption primary work; plausible broader coverage"
+        },
+        {
+          "assessment": "Different graph; homogeneous only for the compared law",
+          "evidence": "Dimer counts 3,4,5 have probabilities 1/25,52/75,4/15.",
+          "identifier_or_url": "e4a3af5b8d37",
+          "material_read": "Finding, local-mirror offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Exact dimer-jamming kinetics on the Petersen graph",
+          "trigger": "Possible exact terminal table"
+        },
+        {
+          "assessment": "Meaningful overlap, no GP(8,3) two-family comparison",
+          "evidence": "Varies one coordinate's eight-edge matching rate on Q4, proves nonmonotone perfect-cover probability and gives the homogeneous value 6296549887/14139562500.",
+          "identifier_or_url": "9a554a5ca4a8",
+          "material_read": "Finding, local-mirror offset 395",
+          "method": "Resultary and local mirror",
+          "title": "Singular weak-channel rescue and reentrant dimer jamming on the four-cube",
+          "trigger": "Closest indexed two-rate dimer cover calculation"
+        },
+        {
+          "assessment": "Already supplies the broad phenomenon in a different process and graph",
+          "evidence": "Its monomer probability is 2/3+4H(a,b) versus 2/3-2H(a,b), where H=(a-1)(b-1)/[3(a+2)(b+2)(a+b+1)(a+b+8)]. Along a=b=t it implies curvatures +4/405 and -2/405.",
+          "identifier_or_url": "c78640a90221",
+          "material_read": "Finding, local-mirror offset 475",
+          "method": "Resultary and local mirror",
+          "title": "Geometry-signed two-site kinetic interference on the Petersen adsorption network",
+          "trigger": "Strongest plausible conceptual overlap on opposite geometry-dependent curvatures"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "On a standard symmetric cubic graph, the same number of perturbed edges has the same first-order response at uniform rates, yet changing their arrangement reverses the local effect on full occupancy. The exact sign contrast distinguishes ring and matching geometry without changing graph or total rate perturbation. This makes a useful patterned-rate benchmark beyond a homogeneous terminal table, without implying a general curvature law or global optima.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

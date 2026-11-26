@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:48:02.559073Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Quadratic expansion gives exactly the full-gradient Armijo interval (0,α_*] and the compressed change −aα_*g_i²[1−a(1−σ)Q_ii‖g‖²/(g^TQg)]. Every g≠0 is realizable and its selected g_i is nonzero. As an independent check of the sharp geometric factor, put u=e_i, b=g/‖g‖, θ=angle of their lines and H=uu^T−rbb^T. For θ>0 the two eigenvalues h_+>0>h_- have sum 1−r and product −r sin²θ. Over Q with eigenvalues 1,κ, the maximum of tr(QH) is κh_++h_-: put the κ direction along h_+. Its zero at r≥1 gives κ(r−1)²=(κ−1)²r sin²θ. This also proves attainment; θ=0 or κ=1 gives r=1 directly. Top-one constrains θ≤π/4, and the maximum grows in κ and θ to R(K) at K and a tie. This proves both directions, strict descent below the frontier, equality with a permitted tie choice, and strict increase above it on an open unique-selection set by perturbation. At K=1 boundary equality holds for every gradient, and violation causes increase even without a tie. Solving the unscaled equality gives K+K^−1=2+2σ²/(1−σ) and 2.618… at σ=1/2. For example at σ=1/2, a=1, Q=[[57,−24],[−24,43]]/25 has eigenvalues 1 and 3 and g=(1,9/10) is a strict increasing witness: the governing ratio is 10317/4863>2. Inspected the verifier; its logged 3892 tests are finite numerical checks and not the sharpness proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "CSGD-ASSS uses top-k with error feedback and scales the result of geometrically backtracked Armijo; at zero feedback its first-step structure aligns, but its step is not the continuous supremum. Its theorem concerns stochastic convergence under sufficient assumptions.",
+          "Indexed 66a691631a0e is uncompressed Armijo gradient-norm nonexpansion and a5a5cf5b9878 is exact Gauss–Southwell–Lipschitz coordinate minimization and gradient-norm safety. 09db03ce5fd3 concerns a threshold-dropping eigenproblem, not this objective test."
+        ],
+        "reasoning": "Related methods do not furnish a sharp necessary objective condition for the exact step examined here. A positive failure witness at α_* need not cause failure at a smaller accepted backtracking step.",
+        "searches": [
+          "Subramaniam–Magesh–Veeravalli arXiv:2207.10046v1, Algorithms 1 and 2 and convergence theorem",
+          "Local Resultary objective/gradient safety frontiers and compressed coordinate updates"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Primary and indexed sources in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The angular comparison gives all the geometric sharpness, but it does not analyze the line-search/compressor mismatch. That requires relating the full-gradient maximal accepted trial to the selected coordinate's exact permissible step and imposing the top-one cone constraint to get the active tie. The compressed-SGD paper gives a rationale for scaling, not this joint optimization or the strict unique-top-one failure regime."
+        ],
+        "reasoning": "Treat the analytic ingredient as classical and the exact frontier as an application to a separately specified algorithmic boundary problem, not a distinct theorem about sharp angle geometry or a general convergence claim.",
+        "searches": [
+          "CSGD-ASSS warning about unscaled compression, PDF p.6 around offset 17012; Algorithm 2 and convergence theorem p.7",
+          "Classical angle bound and equality, Lin–Sinnamon, Cor. 2.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhu et al. give the related two-vector difference identity. Lin–Sinnamon Cor. 2.7 directly bounds the Euclidean angle between two Q-orthogonal vectors by absolute cosine ≤(κ−1)/(κ+1), with equality conditions. Take those vectors to be p=u/√μ and q=b/√ν added and subtracted, where μ=u^TQu and ν=b^TQb. Their absolute Euclidean cosine is |μ−ν|/sqrt((μ−ν)²+4μν sin²θ), yielding |√r−1/√r|≤(κ−1)sinθ/√κ for r=μ/ν."
+        ],
+        "reasoning": "The ratio geometry is covered by a classical result under a change to the sum and difference of equal-Q-norm vectors. That bound is sharp: choose Q-orthogonal vectors attaining Wielandt equality and vary their relative lengths; the half-sum and half-difference have equal Q-norm and their Euclidean line angle sweeps 0 to π/2. This credits the exact geometric inequality, not an earlier Armijo theorem.",
+        "searches": [
+          "Primary search for ratios of Rayleigh quotients under a line-angle/condition-number constraint",
+          "Zhu–Argentati–Knyazev arXiv:1207.3240, §3 Eq. (3.6)/Theorem 3.9",
+          "Lin–Sinnamon arXiv:1201.6294, Theorem 2.6 and Corollary 2.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "66a691631a0e has an exact σ≥((κ−1)/(κ+1))² frontier, for gradient norm under an uncompressed step. The other closest records concern different updates or quantities; no indexed exact counterpart to the stated compressed objective threshold was identified."
+        ],
+        "reasoning": "An exact scalar threshold for a different output norm or update is not an exact match. A lookup of isolated numeric thresholds would not establish the universal a,σ,K statement.",
+        "searches": [
+          "Local Resultary queries for sharp Armijo/conditioning/frontier, top-one sparse coordinate updates, and hidden-spectrum coordinate bounds"
+        ]
+      },
+      "rationale": "Credit prior work for the compressed Armijo algorithm and classical sharp two-inner-product angle geometry. The distinct supported claim is the necessary-and-sufficient objective frontier for this specified maximal-step then top-one composition, including its threshold, equality mechanism and strict unique-selection failure regime. No inspected prior algorithm theorem or indexed exact frontier covers that claim. In particular, the geometric factor alone must not be presented as a new matrix inequality.",
+      "residual_risks": [
+        "An earlier special-case algorithm calculation may be unindexed. Two additional Kantorovich-related texts, Strang's On the Kantorovich Inequality (1960) and a 2005 generalization, were not accessible in the attempted full-text retrieval, so their snippets were not used to rule out coverage. The classical geometric ingredient is credited regardless."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Structural prior method, different capped/discrete and convergence scope",
+          "evidence": [
+            "Geometric backtracking, top-k and feedback; no exact continuous-first-step conditioning frontier in the inspected results."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2207.10046v1",
+          "material_read": "Algorithm 1 p.4 offset ~11000; composition and unscaled failure discussion p.6 offsets ~16700–17012; Algorithm 2 and theorem p.7 ~18789",
+          "method": "Primary OA PDF",
+          "title": "Adaptive Step-Size Methods for Compressed SGD",
+          "trigger": "Primary use of scaled Armijo with sparsification and error feedback"
+        },
+        {
+          "assessment": "Covers the precise geometric inequality under the displayed substitution",
+          "evidence": [
+            "Equation (2.13) bounds |corr_2| by (M²−m²)/(M²+m²) for vectors orthogonal in inner product 1, with equality characterization."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1201.6294",
+          "material_read": "Theorem 2.6 and Corollary 2.7, pp. 6–7; orthogonal specialization and equality near offsets 24577–25500",
+          "method": "Primary OA PDF with literal location and bounded read",
+          "title": "The Generalized Wielandt Inequality in Inner Product Spaces",
+          "trigger": "An angle distortion theorem could cover the sharp ratio"
+        },
+        {
+          "assessment": "Relevant difference identity, not the algorithm theorem",
+          "evidence": [
+            "Restrict to the two-vector span; eigenvector-special-case bound does not use arbitrary compressor coordinates."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1207.3240",
+          "material_read": "§3 Eq. (3.6), Theorem 3.9 and Corollary 3.11, PDF p.6 offset ~18000",
+          "method": "Primary OA PDF",
+          "title": "Bounds for the Rayleigh Quotient and the Spectrum of Self-Adjoint Operators",
+          "trigger": "Two-vector quotient comparison could imply geometric factor"
+        },
+        {
+          "assessment": "Distinct updates/quantities, not equivalent coverage",
+          "evidence": [
+            "Uncompressed gradient norm, coordinate-minimization gradient norm, and hidden energy in threshold-dropped eigenproblems, respectively."
+          ],
+          "identifier_or_url": "2026/10/13/66a691631a0e; 2026/10/13/a5a5cf5b9878; 2026/11/2/09db03ce5fd3",
+          "material_read": "Findings and scope",
+          "method": "Local mirror",
+          "title": "Sharp gradient-norm safety frontier inside Armijo sufficient decrease; Sharp full-gradient safety frontier for Gauss–Southwell–Lipschitz; A sharp hidden-spectrum law after one compressed coordinate update",
+          "trigger": "Closest indexed Armijo and coordinate-update frontiers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "There is a concrete algorithmically motivated gap between a full-gradient Armijo decision and the resulting sparse update. The exact two-coordinate boundary shows how much conditioning and scaling can be tolerated even before stochasticity or feedback enter, and separates a tie-attained boundary from genuinely increasing unique-coordinate instances. This is a usable sharp baseline for the method, not evidence about long-run convergence or novelty of the underlying matrix inequality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

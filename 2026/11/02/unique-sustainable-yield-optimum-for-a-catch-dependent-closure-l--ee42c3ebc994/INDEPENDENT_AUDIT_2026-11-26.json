@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:23:46.228338Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–61 and 65–152",
+        "Frozen VERIFICATION.md lines 3–23 and verify.py (inspected, not executed)",
+        "/workspace/audit_checks.py, fishery()"
+      ],
+      "rationale": "The normalized logistic flight takes ux to ux exp(s)/(1-ux+ux exp(s)) with s=Au(1-x). At a positive fixed point this gives 1-u=s(exp(s)-1)/A and x=(A-s exp(s))/(A-s(exp(s)-1)). Positive x is equivalent to 0<s<W(A), and 1-u increases strictly from 0 to 1-exp(-W(A)). For 0<x<1 the return-map logit derivative is 1/[x(1-ux)]-Au>0 by A<4. The map-minus-identity sign is the sign of Au(1-x)-log(1+(1-u)/(u(1-x))), strictly decreasing in x; thus the positive fixed point exists precisely for u exp(Au)>1 and attracts the admissible positive starts. The pre-harvest biomass is constant on this limiting periodic orbit, not generally during a transient; sustainable yield refers to the limiting cycle in the proof. Divide the pulse removal by the actual time s/r. The derivative of the resulting normalized yield has the sign of CB/(A+s^2 exp(s))-(1-exp(-s)); the first term strictly decreases from A to 0 as positive C,B decrease and the denominator increases, and the other term strictly increases. This proves the unique transverse global maximizer and both zero-yield limits. The slope derivative at fixed s has sign opposite to C^2-s^2 exp(s); the optimizing equation as a function of C has positive derivative and is negative at C=s exp(s/2) by 2 sinh(s/2)>s. Thus the optimal C exceeds that point and the envelope derivative is strictly negative. Cycle conservation expresses the yield deficit from 1/4 exactly as the temporal mean of (x-1/2)^2. Rescaling s=Az yields analytic stationarity with leading 1-2z; the first corrections give s=A/2-3A^2/16+19A^3/192+O(A^4). Then u=1-A/4+O(A^2), x*=1/2+A/16+O(A^2), and the normalized flight at relative time z is 1/2+A(z-1/2)/8+O(A^2) uniformly on [0,1]. The squared deviation integrates to A^2/768+O(A^3); the strict ceiling follows for any nonconstant flight. Replay: `cd /workspace && python audit_checks.py 4` verifies the fixed point and score algebra, stationary coefficients, squared-flight coefficient, and the A=1 root bracket with rational bounds.",
+      "residual_risks": [
+        "The discrete convergence argument is for the admissible biomass range and stated 0<A<4, with positive removal fractions in the optimization and r,K fixed for physical-scale slope comparisons.",
+        "In RESULT.md line 29, constant pre-harvest biomass describes the persistent periodic regime, not every point of each persisting transient trajectory."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bai–Wang optimize with time-dependent logistic coefficients for a prescribed period, giving F=1-exp(-rT/2) in the autonomous case.",
+          "The frozen paper reports a ceiling comparison in Braverman–Mamdani and a periodic discrete Beverton–Holt setting in Bohner–Streipert; the attempts did not supply primary passages to confirm their precise coverage independently."
+        ],
+        "reasoning": "A theorem over more growth coefficients but with an exogenous clock does not dominate the varying clock. Even a general upper bound by rK/4 would not identify the optimizer or the leading deficit. Inaccessible papers leave scope uncertainty, not evidence of absence.",
+        "searches": [
+          "Bai–Wang 2003 §4 eqs. (4.3)–(4.6)",
+          "DOI 10.1007/s00285-008-0169-z lawful landing/PDF/repository attempts",
+          "DOI 10.3934/mbe.2016014 lawful landing/PDF/repository attempts"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1110.6413v1 §§5–6",
+        "Bai–Wang 2003 §4",
+        "Braverman–Mamdani and Bohner–Streipert bibliographic comparisons with access limits",
+        "Resultary 920dba761190 and c6be2955be70"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The motivating article provides the exact closure example and persistence theory but leaves the first-order sustainable-catch problem open. At the feedback optimum C>s exp(s/2), hence u=(C+s)/(C+s exp(s))>exp(-s/2), whereas Bai–Wang's fixed-duration optimum requires equality."
+        ],
+        "reasoning": "The fixed-T formula demonstrably does not select the feedback optimum at its own duration, because it differentiates a different objective along a different feasible path. The persistence criterion only gives the admissible interval, not the strict crossing or the envelope inequality.",
+        "searches": [
+          "arXiv:1110.6413v1 p. 12 §6 (MSY problem)",
+          "Bai–Wang 2003 pp. 8–9 fixed T objective and formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Córdova-Lepe et al. use tau(z)=a(K*-z), with K*=uK and z the post-pulse biomass, giving exactly s=Au(1-x*). Their §6 identifies the quotient of sustainable pulse catch by closure time.",
+          "Bai–Wang use the same type of time-normalized catch but prescribe T externally."
+        ],
+        "reasoning": "Closure length is a one-to-one coordinate on the persistent effort set at fixed A, not a separately chosen control. Rewriting the objective using s does not make it a fixed-T optimization.",
+        "searches": [
+          "arXiv:1110.6413v1 §§5–6, linear closure and sustainable yield objective",
+          "Bai–Wang 2003 §4, per-time pulse yield"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day 920dba761190 concerns capacity orderings in a six-season discrete Beverton–Holt fixed-catch model. The later c6be2955be70 gives a two-season effort allocation and quadratic regret for a fixed cumulative mortality budget in another discrete model."
+        ],
+        "reasoning": "Neither indexed exact result gives the logistic feedback optimum or the small-A expansion. Their common optimization language and quadratic features are not matching invariants.",
+        "searches": [
+          "Resultary searches for unique maximum sustainable yield with a catch-dependent linear logistic closure and feedback-slope deficit",
+          "Resultary 920dba761190 and c6be2955be70 Findings and Assumptions"
+        ]
+      },
+      "rationale": "The feedback model and persistence conditions already belong to Córdova-Lepe et al. Their discussion identifies the actual per-time objective's first-order conditions as open. The contribution is the exact unique optimizing effort for that fixed feedback law, strict slope comparative static, and sharp small-slope deficit; an existing fixed-period solution and the usual continuous-harvest ceiling are not new here.",
+      "residual_risks": [
+        "Neither Braverman–Mamdani nor Bohner–Streipert primary text was retrieved; a later solution to the exact feedback policy may not be indexed or accessible.",
+        "The comparison is limited to tested statements and retrieved passages, not historical-priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers model and persistence; does not solve this linear-policy yield optimization.",
+          "evidence": [
+            "tau(z)=a(K*-z), a<4/(rK)",
+            "Determining first-order conditions for sustainable catch per unit time is posed as open."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1110.6413",
+          "material_read": "§5 pp. 11–12 linear Schaefer/logistic example, §6 p. 12 sustainable production discussion, OA offset 33150 and surrounding passages",
+          "method": "OA primary PDF comparison",
+          "title": "A Pulse Fishery Model with Closures as Function of the Catch: Conditions for Sustainability",
+          "trigger": "Same model, closure law and stated open optimization"
+        },
+        {
+          "assessment": "Valid fixed-period optimum, not a variable-clock optimum.",
+          "evidence": [
+            "For a prescribed T the constant-coefficient removal fraction is 1-exp(-rT/2)."
+          ],
+          "identifier_or_url": "https://ejde.math.txstate.edu/Volumes/2003/121/bai.pdf",
+          "material_read": "§4 pp. 8–9, eqs. (4.3)–(4.6) and autonomous specialization (OA offset 21491)",
+          "method": "OA primary PDF comparison",
+          "title": "Optimal Impulsive Harvest Policy for Time-Dependent Logistic Equation with Periodic Coefficients",
+          "trigger": "Explicit optimal pulse yield for logistic growth"
+        },
+        {
+          "assessment": "No independent full-text verdict; the ceiling is not claimed new.",
+          "evidence": [
+            "Frozen RESULT.md lines 156–158 characterize the overlap; retrieval did not yield a primary result passage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00285-008-0169-z",
+          "material_read": "Bibliographic citation and frozen record's description; no retrieved primary passage",
+          "method": "Lawful DOI/Springer/PDF and repository recovery attempts",
+          "title": "Continuous versus Pulse Harvesting for Population Models in Constant and Variable Environment",
+          "trigger": "Plausible broader pulse-versus-continuous yield ceiling"
+        },
+        {
+          "assessment": "The cited model is discrete Beverton–Holt; precise primary scope remains unconfirmed.",
+          "evidence": [
+            "Frozen RESULT.md line 158 distinguishes discrete periodic coefficients; no primary passage was successfully obtained."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/mbe.2016014",
+          "material_read": "Bibliographic citation and frozen model description only",
+          "method": "Lawful DOI/AIMS and repository recovery attempts",
+          "title": "Optimal Harvesting Policy for the Beverton–Holt Model",
+          "trigger": "Plausible later broad harvest optimization"
+        },
+        {
+          "assessment": "Different state map, decision and objective.",
+          "evidence": [
+            "Six Beverton–Holt seasons with constant catch and a capacity-spacing ordering."
+          ],
+          "identifier_or_url": "Resultary 920dba761190",
+          "material_read": "Finding and assumptions, local-mirror offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Optimal six-season spacing of two high-capacity years for constant-catch harvest",
+          "trigger": "Indexed pulse-fishery optimization"
+        },
+        {
+          "assessment": "Different optimization budget and dynamics; later record.",
+          "evidence": [
+            "Fixed two-season cumulative effort budget, alternating Beverton–Holt recruitment and a regret identity."
+          ],
+          "identifier_or_url": "Resultary c6be2955be70",
+          "material_read": "Finding and assumptions, local-mirror offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "A sharp seasonal allocation law for fixed-budget Beverton–Holt harvest",
+          "trigger": "Indexed unique harvest optimum with quadratic effect"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Córdova-Lepe et al., arXiv:1110.6413v1 §§5–6",
+        "Frozen RESULT.md lines 29–61 and 95–142"
+      ],
+      "rationale": "This resolves a stated sustainable-yield question for the originating model's explicit linear example. Maximizing catch per physical time matters when effort changes both biomass and the time denominator. Uniqueness makes the effort prescription unambiguous, and the strict and quadratic losses explain the cost of slower feedback near the continuous limit beyond the generic upper bound.",
+      "residual_risks": [
+        "No optimization over other feedback functions, stochastic fishery models, economics, or stronger slopes is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

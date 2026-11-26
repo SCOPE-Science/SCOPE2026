@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:06:43.862806Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact coordinate minimization in energy coordinates z=H^(1/2)(x−x*) removes the projection along a unit direction u_i, so the sharp worst-direction expectation per expected work is λ_min(U diag(q) Uᵀ), with U=[u₁,u₂] invertible and cᵀq=1. Flip the second column if needed so UᵀU has positive off-diagonal ρ. For a lower bound g on that eigenvalue, congruence gives diag(q)−g(UᵀU)^(−1) positive semidefinite. Writing a_i=q_i−g/(1−ρ²), the two-dimensional condition is a_i≥0 and a₁a₂≥[gρ/(1−ρ²)]². Weighted AM–GM gives 1≥g(c₁+c₂+2ρ√(c₁c₂))/(1−ρ²). Equality is feasible and unique, including ρ=0 where both a_i vanish; for ρ>0 both the determinant bound and c₁a₁=c₂a₂ bind. Mapping back via p=q₁/(q₁+q₂) gives the claimed probabilities, allocation limits and interior support. The fair value is (1−ρ)/(c₁+c₂); the ratio is ≤1+ρ<2, with sharp supremum two by taking ρ→1 and c₁/c₂→∞. The proof's strict intermediate bound by 1+ρ is non-strict at ρ=0, but the finding's strict bound by two and all equality cases are correct. The stated example gives 3/10, 4/85, and 20/17. The verification package was inspected without executing the uploaded program. No claim about asymptotic, wall-clock, or stochastic work-normalized progress follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2018 Automatica problem fixes the trace of a diagonal perturbation to an essentially nonnegative matrix and allows designable entries. For an irreducible matrix Thm. 1 forces equal positive products of left and right dominant eigenvector coordinates on the designable entries; Lemma 1 gives the constructive line-sum rule.",
+          "The distinct prior coordinate-sampling and Kaczmarz records concern unpriced or equal-priced masks, complexity bounds, or a long-run annealed logarithmic objective; those are not the reason for rejection."
+        ],
+        "reasoning": "For ρ>0, A is a symmetric irreducible Metzler matrix and both diagonals are free, so the equal-product condition makes the positive Perron vector proportional to the all-ones vector. Thus the published optimization equalizes row sums. Trace T of D corresponds to the published perturbation −D of trace −T. For ρ=0 the same expression follows from the trivial diagonal case by balancing the two entries.",
+        "searches": [
+          "Abad Torres–Roy, DOI:10.1016/j.automatica.2017.12.007, §2 (1), §3 Thm. 1 and Lemma 1",
+          "arXiv:1904.04587, singleton sampling",
+          "Csiba–Richtárik, ALT 2018; Resultary 10323bbfb631, 54597ea58934, 14008f5e88ba"
+        ]
+      },
+      "checked_sources": [
+        "Abad Torres–Roy 2018, NSF purl 10067114",
+        "arXiv:1904.04587",
+        "Resultary local index and distinct mirror records 14008f5e88ba, 10323bbfb631 and 54597ea58934",
+        "DOIs 10.1093/biomet/81.4.739 and 10.1214/aoms/1177729442 (abstract/access status only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At fixed tr D=T, Thm. 1/Lemma 1 for A−D give (A−D)1=μ1 and D_ii=(A1)_i−μ, hence μ=(1ᵀA1−T)/2. This is the minimized largest eigenvalue (a fixed-trace minimizer exists by coercivity of the largest diagonal lower bound). PSD majorization is feasible exactly when this optimum is nonpositive. Thus T*=1ᵀA1 and D*=diag(A1).",
+          "Consequently g*=1/T*=(1−ρ²)/(c₁+c₂+2ρ√(c₁c₂)) and q_i*=D*_ii/(c_iT*); normalization gives the claimed unique p*. At ρ=0 the unique majorant of minimum trace is A itself."
+        ],
+        "reasoning": "This is a substitution into a previously solved stronger optimization, not an invocation of a generic SDP formulation or a merely similar criterion. The twofold sharp comparison follows immediately by evaluating the fair rule and taking the stated limits. The exact one-step quotient, not the neighboring annealed objective, is the quantity covered.",
+        "searches": [
+          "Abad Torres–Roy, NSF OA purl 10067114, printed pp. 161–162, Theorem 1 and Lemma 1",
+          "Frozen RESULT.md equations for R, p_star and sharp equal-sampling ratio"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Putting v_i=c_iq_i makes v a probability vector, and using regressors u_i/√c_i turns the problem into two-support E-optimal design.",
+          "Equivalently, set A=(1−ρ²)^(−1)[[c₁,ρ√(c₁c₂)],[ρ√(c₁c₂),c₂]], the cost-scaled inverse Gram up to a diagonal sign conjugation. Congruence is exact: λ_min(U diag(q) Uᵀ)≥g iff diag(v)≥gA in the PSD order."
+        ],
+        "reasoning": "For g>0, D=diag(v)/g satisfies D≥A with tr D=1/g, and conversely every feasible D in this diagonal majorization yields v by dividing by its trace. A is positive definite, so D automatically has positive diagonal; there is no extra positivity constraint lost. Optimizing the one-step quotient is identical to minimizing the trace of a diagonal PSD majorant of A.",
+        "searches": [
+          "Resultary: cost-adjusted E-optimal sampling, cost-normalized coordinate descent and two-row Kaczmarz",
+          "Dominant eigenvalue minimization with trace preserving diagonal perturbation",
+          "E-optimal designs for linear and nonlinear models with two parameters, DOI:10.1093/biomet/81.4.739"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical indexed hit 3640f56f351b is the frozen record itself. The distinct same-day hit 14008f5e88ba optimizes −log Λ(p,ρ)/C(p), and gives an implicit optimizer, not this closed-form one-step law. The 10323bbfb631 record optimizes over idle/singleton/full-batch masks with equal singleton prices and fixed work; 54597ea58934 concerns unpriced directions."
+        ],
+        "reasoning": "There is no discrete table of values to check for this continuous-parameter optimization; the analogous check is for exact benchmark or closed formula in the index. The nearby indexed claims are distinct. Demonstrable coverage instead comes from the earlier primary theorem, not same-day priority assumptions.",
+        "searches": [
+          "Resultary: sharp cost–coherence allocation law, two-direction work budgets, planar coincidence and annealed cost-normalized sampling",
+          "Resultary IDs 3640f56f351b, 10323bbfb631, 54597ea58934 and 14008f5e88ba"
+        ]
+      },
+      "rationale": "After cost rescaling and inversion of the two-direction Gram matrix, this is exactly the symmetric full-diagonal case of published fixed-trace dominant-eigenvalue minimization (Abad Torres and Roy, Automatica 89, 2018, Thm. 1 and Lemma 1). The known optimum inserted into the inverse reparameterization gives the whole allocation law and sharp value. The fair-sampling comparison and limiting cases are elementary consequences. No independent coverage was needed from the inaccessible statistics papers to decide this issue.",
+      "residual_risks": [
+        "The earliest historical instance of a corresponding regression-design result is not determined. The originality failure is based on a verified mathematical implication from the 2018 full-text result, not on an inaccessible source or source-ranking inference."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader exact optimization; covers both-variable positive-coherence case and produces the unique optimizer by row sums",
+          "evidence": "Irreducibility forces equality of left/right eigenvector products on all designable diagonals. Lemma 1's fixed-trace construction uses the line-sum symmetrized matrix, which in this symmetric fully designable case is A itself.",
+          "identifier_or_url": "https://par.nsf.gov/servlets/purl/10067114 (DOI:10.1016/j.automatica.2017.12.007)",
+          "material_read": "Bibliographic page, §2 problem (1), §3 Thm. 1, Lemma 1 and its equation and construction, printed pp. 160–162, text offsets 5200, 12500–19154 and 18500–22758",
+          "method": "Lawful NSF public-access journal PDF, bounded decisive passages",
+          "title": "Dominant eigenvalue minimization with trace preserving diagonal perturbation: Subset design problem",
+          "trigger": "Potential equivalent fixed-trace minimization after reducing the priced spectral quotient to diagonal PSD majorization"
+        },
+        {
+          "assessment": "Long-run rather than one-step design",
+          "evidence": "Uses −log Λ(p,ρ)/C(p); the implicit optimizer shares the large-coherence limit, not the frozen exact law.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-cost-normalized-annealed-sampling-for-two-row-randomized-k--14008f5e88ba",
+          "material_read": "RESULT.md Finding and objective, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp cost-normalized annealed sampling for two-row randomized Kaczmarz",
+          "trigger": "Distinct same-day Resultary hit, unequal costs and two coherent projections"
+        },
+        {
+          "assessment": "Different admissible policies and work normalization",
+          "evidence": "Optimizes among four masks at fixed work with equal singleton costs and a distinct batch cost; permits skipping.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-work-budget-phase-transition-between-one-step-and-asymptot--10323bbfb631",
+          "material_read": "RESULT.md Finding and mask/price model, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp work-budget phase transition between one-step and asymptotic randomized two-row Kaczmarz",
+          "trigger": "Distinct one-step minimax and work-budget Resultary comparison"
+        },
+        {
+          "assessment": "Unpriced comparison",
+          "evidence": "Coincidence theorem yields equal sampling in the two-independent-direction case, not a price-weighted gain.",
+          "identifier_or_url": "2026/10/13/SCOPE-planar-coincidence-theorem-for-optimal-randomized-kaczmarz-sampl--54597ea58934",
+          "material_read": "RESULT.md opening theorem, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Planar coincidence theorem for optimal randomized Kaczmarz sampling",
+          "trigger": "Distinct planar one-step spectral comparison"
+        },
+        {
+          "assessment": "Different weights and optimization criterion",
+          "evidence": "For τ=1, probabilities are proportional to coordinate Lipschitz constants, not determined by external work prices and the coherence of whitened directions.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.04587",
+          "material_read": "Singleton volume-sampling discussion, p. 5, OA offset 17618",
+          "method": "OA PDF bounded text",
+          "title": "A Randomized Coordinate Descent Method with Volume Sampling",
+          "trigger": "Potential overlap with optimal coordinate importance sampling"
+        },
+        {
+          "assessment": "Plausibly related through the exact E-optimal reduction, not independently resolved",
+          "evidence": "Abstract describes a two-dimensional geometric construction for two-point E-optimal designs. This inspection is not used as evidence of coverage or noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1093/biomet/81.4.739",
+          "material_read": "Abstract and bibliographic entry only; full text not obtained",
+          "method": "OUP and JSTOR OA attempts, including direct and VPN; OUP 403 and JSTOR landing page",
+          "title": "E-optimal designs for linear and nonlinear models with two parameters",
+          "trigger": "Possible equivalent classical optimal design theorem"
+        },
+        {
+          "assessment": "Unresolved and non-dispositive",
+          "evidence": "The abstract distinguishes estimating one linear combination and both regression parameters; it is not enough to assert the same criterion or formula.",
+          "identifier_or_url": "https://doi.org/10.1214/aoms/1177729442",
+          "material_read": "Bibliographic landing/abstract only, no full text read",
+          "method": "Project Euclid and identified mirror OA attempts including direct/VPN",
+          "title": "Optimum Allocation in Linear Regression Theory",
+          "trigger": "Plausible historical heterogeneous allocation precedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The work-aware comparison is a sensible benchmark and may be useful as an application of known spectral allocation. As a standalone new finding, the main optimizer and value are the full-diagonal substitution into an existing stronger solution, and the equality cases, square-root limit and twofold gap follow by elementary algebra of that same substitution. No separately unresolved performance theorem or structural statement survives, and no substantive bounded repair was established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

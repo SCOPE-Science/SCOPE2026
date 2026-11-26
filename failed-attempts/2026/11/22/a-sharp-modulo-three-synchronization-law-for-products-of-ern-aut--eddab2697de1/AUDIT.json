@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "The left-to-right action satisfies i·w≡i+A+h_i mod n where h_i counts effective merging steps; synchronizing forces distinct h_i modulo n, so at least n−1 merging letters and (n−2)(n−1) rotations. Equality rigidly yields W_n. The exact image Q_n·bg_n^j={0,...,n−j−2}, j=0..n−2, proves W_n resets C_n. The constructed V_n acts from {0,1} to {0} in C_n. In C_3, g_n has three explicit residue actions, proving W_n resets iff 3|n and V_n always resets. All-n lower/upper bounds coincide. Independent subset BFS n=4..16 and direct trajectory tests n=4..70 passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fernau–Rystsov Proposition 3.4 implies (n−1)^2≤rt(C_n×C_3)≤(n−1)^2+4, not a precise residual-class dichotomy.",
+        "The pre-existing simultaneous census explicitly limits its exhaustive table to n≤11; its all-size divisible-family baseline does not include nonmultiples of three."
+      ],
+      "reasoning": "The generic product interval is four letters wide and does not imply the exact residue-dependent threshold. A complete characterization of C_n near-optimal reset words describes only the first factor: simultaneous resetting of the three-state factor is an extra condition, verified here algebraically.",
+      "searches": [
+        "arxiv:2611.09136v1 Sections 3, 4.1, 7",
+        "published-finding corpus: Cartesian direct product of Cerny automata three-state factor synchronization one-letter overhead all n",
+        "published-finding corpus: all-size simultaneous reset length fixed three-state Černý automaton and arbitrary n"
+      ]
+    },
+    "checked_sources": [
+      {
+        "kind": "primary_full_text",
+        "title": "Shortest Synchronizing Words on Product Automata",
+        "url": "https://arxiv.org/html/2611.09136v1"
+      },
+      {
+        "kind": "published_result_full_text",
+        "title": "Finite simultaneous thresholds",
+        "url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-exact-simultaneous-reset-thresholds-for-pairs-of-ern-automata-th--46765b03d598"
+      },
+      {
+        "kind": "published_result_full_text",
+        "title": "Near-shortest single-factor Černý words",
+        "url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-one-letter-slack-rigidity-in-the-ern-reset-language--61d8f6568fe8"
+      },
+      {
+        "kind": "published_result_full_text",
+        "title": "Optimal single-factor word rigidity",
+        "url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-rigidity-of-shortest-reset-words-in-cyclic-one-point-automata--34a9919c4680"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The uniqueness result forces W_n as the only length-(n−1)^2 candidate, supporting the lower-bound dichotomy.",
+        "The one-letter-slack family includes individual C_n words but does not calculate their C_3 action; the new construction selects a suitable insertion and checks both factors for all n.",
+        "The product bounds allow up to four extra letters; this theorem rules out overhead 2,3,4 for the entire infinite fixed-three-state family."
+      ],
+      "reasoning": "Prior one-factor theorems imply the lower-bound rigidity and supply a list of possible near-optimal C_n words, but **do not by themselves** state or derive the exact intersection language with C_3. The modular analysis of the common action proves the nondivisible branch. The divisible branch is already known, and is not separately presented as new.",
+      "searches": [
+        "published-finding corpus: one-letter slack rigidity in the Černý reset language",
+        "published-finding corpus: rigidity of shortest reset words in cyclic one-point automata",
+        "arxiv:2611.09136v1 Proposition 3.4 and Section 4.1",
+        "published-finding corpus: exact simultaneous reset thresholds for pairs of Černý automata through eleven states"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus 2026/10/13 pair-table shows 4≤n≤11 matching the formula; it asserts no unbounded result for the nondivisible m=3 slice.",
+        "published-finding corpus 2026/11/8 proves uniqueness for single-factor cyclic one-point reset words; no common three-state factor is considered."
+      ],
+      "reasoning": "Replacing the product by the intersection of its two reset languages is equivalent, but the existing finite table and single-factor optimal-word descriptions do not determine this intersection at every n. Relabeling Černý cycle states gives an equivalent automaton, not a stronger all-pair formula.",
+      "searches": [
+        "published-finding corpus: Černý automata simultaneous reset C_3 C_n when n divisible by 3 exactly one extra letter modular formula",
+        "published-finding corpus: common shortest synchronizing words C_3 times C_n length (n−1)^2+1 if n not multiple of 3",
+        "Web: 2026 common reset word C_3 C_n Černý automaton threshold residue mod 3",
+        "Web: simultaneous Černý automata pairs common reset threshold C_3 n mod three"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 45-value table of all pairs 2≤m<n≤11 contains the present values n=4..11 with m=3 exactly.",
+        "Its own Limitations section states no general formula for n>11 and treats finite enumerations only."
+      ],
+      "reasoning": "Matching earlier entries are acknowledged prior; the all-integer n≥4 theorem is a stronger new scope. A numerical database can tabulate arbitrary fixed n without proving the all-n formula.",
+      "searches": [
+        "published-finding corpus: shortest reset word product automata synchronized direct product exact formula synchronizing",
+        "published-finding corpus: all-size simultaneous reset length fixed three-state Černý automaton and arbitrary n",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-exact-simultaneous-reset-thresholds-for-pairs-of-ern-automata-th--46765b03d598/RESULT.md"
+      ]
+    },
+    "rationale": "A previously published census covers the common threshold for all pairs of Černý factors through size 11, hence the values for C_3 and C_n through 11 are not original. The established zero-overhead divisible branch and single-factor shortest-word rigidity are also credited. The new assertion is the exact all-n nondivisible branch plus its uniform optimal common word, which is not determined by the primary product bound, the finite table, or the single-factor near-shortest word count. The C_3 congruence test and common-word sharpness are essential independent ingredients. Priority risk remains from an unindexed equivalent all-size calculation.",
+    "residual_risks": [
+      "An equivalent all-n fixed-three-state product formula might exist in unindexed literature or code, despite targeted semantic and web queries.",
+      "Near-optimal word classification makes the new product result accessible by additional three-state evaluation; its novelty rests in the uniform common-reset congruence and sharpness, not in the one-factor construction alone."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General bound, example and program do not state the exact three-state-factor modular formula",
+        "evidence": [
+          "arXiv version 1 dated November 6, 2026",
+          "Proposition 3.4 establishes max/sum bounds",
+          "Section 4.1 reconstructs a single Černý reset construction; Section 7 asks about sharp product bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.09136v1",
+        "material_read": "Full accessible HTML sections defining product (Section 2), general bounds (Section 3), Černý monoidal example (Section 4.1) and natural tasks (Section 7)",
+        "method": "Read arXiv HTML primary text and compared exact assumptions and conclusions",
+        "title": "Shortest Synchronizing Words on Product Automata",
+        "trigger": "Direct-product reset thresholds and motivating open questions"
+      },
+      {
+        "assessment": "Small m=3 cases and all-size divisible branch are covered; all-size m=3 nondivisible branch is not established",
+        "evidence": [
+          "Table n=4..11 includes 10,17,25,37,50,64,82,101 for m=3",
+          "Limitations restrict exact census to n≤11",
+          "Section 4 asserts m|n zero-overhead in all sizes"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-exact-simultaneous-reset-thresholds-for-pairs-of-ern-automata-th--46765b03d598",
+        "material_read": "Complete RESULT.md including every one of 45 table values, proof, limitations and references",
+        "method": "Read published full result via public repository connector",
+        "title": "Exact simultaneous reset thresholds for pairs of Černý automata through eleven states",
+        "trigger": "Direct numerical and mathematical overlap for identical two-letter product"
+      },
+      {
+        "assessment": "Provides the family of near-optimal C_n words, but not their C_3 action or joint optimum",
+        "evidence": [
+          "One-extra-letter reset words are described by insertions into W_n",
+          "No simultaneous product factor or n modulo three threshold is stated"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-one-letter-slack-rigidity-in-the-ern-reset-language--61d8f6568fe8",
+        "material_read": "Complete RESULT.md including exact parametrization of one-letter insertions and proof",
+        "method": "Read full mathematical source via public repository connector",
+        "title": "One-letter slack rigidity in the Černý reset language",
+        "trigger": "Possibly dominating description of all one-step-near-optimal C_n reset words"
+      },
+      {
+        "assessment": "Supports single-factor lower bound and unique W_n, which are background and reconstructed rather than claimed new",
+        "evidence": [
+          "The r=1 cyclic one-point map is conjugate to the chosen C_n conventions",
+          "Proves sole shortest label word and length for each n"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-rigidity-of-shortest-reset-words-in-cyclic-one-point-automata--34a9919c4680",
+        "material_read": "Complete RESULT.md including theorem proof and scope",
+        "method": "Read full mathematical source via public repository connector and reconstructed required special case independently",
+        "title": "Rigidity of shortest reset words in cyclic one-point automata",
+        "trigger": "Critical lower bound and uniqueness for C_n"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "eddab269-7de1-4909-864d-625812256782",
+  "value": {
+    "rationale": "The shared-control reset threshold is a motivated invariant of automaton direct products and is not constrained sharply by the general max/sum product bounds. The theorem completely classifies the first nontrivial smaller Černý factor C_3 for all larger n, proves a uniform one-letter latency ceiling and precisely locates the arithmetic zero-overhead cases. This is a structural all-n exact classification, beyond the prior finite n≤11 census and the known divisible baseline, with meaningful implications for synchronizing-language intersection.",
+    "status": "PASS"
+  }
+}

@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The general two-stock theorem reduces normalized indicator disagreement to a difference of two exact logistic response factors. Its cleared numerator has a derivative consisting of two decaying exponentials and hence at most one critical point, enforcing at most one positive-time intersection. The independent three-stock witness has legitimate strictly positive Schaefer parameters and a factored exact sign polynomial; its Möbius-transformed degree-19 polynomial has exactly two sign variations, while three exact rational evaluations force two distinct roots. `checker.py` independently verifies the expansion, coefficient transform, all strict sample signs, and sample ODE identities using exact arithmetic. Its finite assertions are diagnostic; the general and complete root-count conclusions follow analytically. Risk: parameter-independent extension to interacting or non-surviving stocks is not proved and is not claimed.
+## correctness
 
-**Originality — PASS relative to inspected evidence, provisional.** The closest complete primary text is Kleiber and Maunder (2008), which establishes early and late aggregate CPUE bias and displays a two-stock example crossing once, but does not furnish the universal arbitrary-initial-condition crossing limit or the exact three-stock two-crossing construction. Jensen (1991) studies the same two-species Schaefer model with an equilibrium-yield focus, but only abstract-level material was available, leaving a priority risk. Ellis and Wang (2006) analyze spatial effort allocation rather than this temporal indicator crossing bound. Nesslage and Wilberg (2012) analyze multispecies production assessments, with only abstract-level comparison available. Generalized results for zeros of exponential sums could also subsume some parts. Searches are evidence of comparison rather than proof of worldwide novelty. No independent literature-priority audit has occurred.
+PASS
 
-**Value — PASS.** Time reversals matter because monitoring an assemblage at an early or late point can invert the direction of CPUE-versus-biomass proportional bias. This gives an exact and sharp two-versus-three species structural distinction for a standard fishery assessment model; it demonstrates why a two-stock surrogate can miss temporally reentrant indicator bias, even when each stock's CPUE tracks its abundance perfectly. The witness is an idealized benchmark, not an empirical prediction.
+Under r_i>q_iE and B_i>0 the normalized logistic solutions F_i=(1+c_i)/(1+c_i exp(-a_i t)) have positive denominators even for c_i in (-1,0). For two stocks, D is a constant multiple of F_1-F_2; equal catchabilities give identity. Otherwise clearing denominators gives H with H(0)=0. Unless H is identically zero, H' has at most one positive zero, including the equal-rate and equilibrium cases. Two additional roots of H, or one positive root with zero derivative, would contradict Rolle's theorem, so any positive intersection is unique and changes ordering. For the three-stock witness, independent exact reconstruction gave weights (48,12,-60) in 299D, the stated numerator P, its factor 12(z-1), and all 20 transformed coefficients, with two sign changes. The exact signs at z=1/100,1/3,9/10 are -,+,-; denominators are positive, and z=e^(-t) bijects positive times with (0,1). This gives exactly two distinct simple roots and two sign changes, not just crossings seen in a simulation. Replay: python3 /workspace/branches/independent-exact-4-5.py. The frozen checker was inspected, not executed. The result is about normalized levels, not slopes, for independent surviving stocks at constant effort; three stocks can, but need not, exhibit two reversals.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The two-stock reduction uses a standard exponential zero bound; neither that tool nor the aggregate CPUE model is claimed new. The supported distinct contribution is the model-specific sharp species-count onset, with an all-initial-state two-stock obstruction and a three-stock witness certified to have exactly two order changes. No verified comparator covers that combined claim. Direct full-text comparison of the closest fisheries paper was not possible, so this is a best-of-knowledge judgment rather than a priority determination.
+
+## value
+
+PASS
+
+The minimum assemblage size permitting repeated reversals is a structural boundary for a widely used abundance proxy, not just a fit or simulation. The admissible witness has exactly two reversals, and the obstruction covers any positive starting abundance in the two-stock model. No claim about empirical frequency, interacting stocks, variable effort, or higher-stock maximum counts is needed for that distinction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:33:43.774301Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A shared one-coordinate gives at most four differing reads, hence admissible supports are disjoint. For two disjoint supports the number of differing reads is eight minus the number of cycle edges internal to their four occupied coordinates. Among k disjoint supports there are at least 4k−n fully occupied edges, and at most binomial(k,2) for k≥3: there is at most one transition per unordered label pair; an internal occupied edge isolates its label from any other, so that case gives at most 1+binomial(k−1,2). These exclude three words at n=7,8 and four at n=9. The same edge count for four points or the bound d_p≤n proves the shorter exclusions; the small witnesses satisfy the ordered-pair threshold. For n=2k≥10 every occupied position in the tour construction has a unique label, and a simple 4-regular connected graph's tour uses each label twice. Inserting a common zero destroys, but cannot create, occupied adjacencies. Conversely at even equality the entire cycle is occupied; a loop would have an adjacent edge to another label, and repeated undirected edges would violate the two-label condition. Thus the sequence gives a connected simple 4-regular graph and an Euler circuit. Independently encoded each read as 2x_i+x_{i+1} and used exact compatibility-clique recursion max(C(S−v),1+C((S−v)∩N(v))); this gave 1,1,1,1,1,2,2,3,5 for n=2 through 10. The proof is unbounded; the frozen verification report and script were inspected, not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhao–Chang's abstract explicitly includes w_p=4,d_p=7 through constructions for w_p=3,4 at distances through 2w_p−1; it does not give all lengths or an optimizer converse.",
+          "For n≥7 pair-weight four permits either two nonadjacent ones or three consecutive ones. At d_p≥7 two active-read sets of size four intersect in at most one, so their one-supports are disjoint. Deleting the middle one of a run of three preserves its active-read set and still leaves disjoint support, hence preserves the distance in that code. The reverse equality of optimal sizes follows from nonadjacent weight-two witnesses: {0,2},{4,6} at n=7,8, the stated n=9 witness, and the tours thereafter."
+        ],
+        "reasoning": "The domains are not literally nested (adjacent weight-two words have pair weight three), but their maximum-size functions agree for n≥7. A full prior exact pair-weight-four function would therefore cover the size formula; the accessible abstract alone cannot resolve that. The earlier Resultary record already gives exact coverage without this reduction.",
+        "searches": [
+          "Zhao–Chang, DOI:10.1007/s10623-025-01598-9, Abstract",
+          "Resultary:d90c6eb8b504, RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:d90c6eb8b504",
+        "Resultary:395253d8cd05",
+        "arXiv:1211.1728",
+        "DOI:10.1007/s10623-025-01598-9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "d90c6eb8b504 identifies every even-length optimum at n≥10 with an Euler-circuit labeling of a connected simple 4-regular graph, along with the exact all-length capacity.",
+          "Chee et al.'s result is a sufficient construction with MDS hypotheses, not an assertion about all optimal weight-two codebooks."
+        ],
+        "reasoning": "No surviving distinction in the frozen Finding: exact formula, thresholds and iff are already stated. A different proof or corroborating finite check does not make the same Finding independently new.",
+        "searches": [
+          "Resultary:d90c6eb8b504, RESULT.md opening",
+          "arXiv:1211.1728, Proposition 3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier d90c6eb8b504 RESULT.md uses the same cyclic ordered-pair metric, weight-two restriction, and connected simple 4-regular Euler tour object; Euler circuit versus cyclic departing labels changes no mathematical condition.",
+          "Chee et al. use an MDS source and a girth condition; their K5 example achieves (10,9)_q, not this binary weight-two converse."
+        ],
+        "reasoning": "The older Resultary claim is equivalent in both metric and optimizer representation; the primary Euler lift is a separate antecedent for construction methodology.",
+        "searches": [
+          "Resultary: sharp binary weight-two pair-distance spectrum, d_p=7, four-regular Euler tours",
+          "arXiv:1211.1728, Proposition 3.2 and Example 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026/10/12 d90c6eb8b504 RESULT.md opening gives the exact sequence 1 through n=6, 2 at n=7,8, 3 at n=9, then floor(n/2), and the appended even-length structural statement. It also reports 22 n=10 codebooks and three dihedral classes.",
+          "The 395253d8cd05 RESULT.md addresses pair-weight spectra of indexed length-seven [7,4,3] Hamming codes, a distinct problem."
+        ],
+        "reasoning": "The earlier result is a theorem of the same capacity and all even extremizers, not merely a small-size table or the assigned record itself.",
+        "searches": [
+          "Resultary: exact weight-two pair-distance seven spectrum, smallest saturating length, Euler circuits",
+          "Resultary:d90c6eb8b504; Resultary:395253d8cd05"
+        ]
+      },
+      "rationale": "The earlier distinct Resultary record d90c6eb8b504 states both the same all-length binary exact-Hamming-weight-two d_p≥7 maximum (including every short cutoff) and the same even n≥10 iff Euler-tour characterization. It also goes further at n=10. This is exact coverage of both central claims, not a literature-access or bibliographic uncertainty. The comparison with Zhao–Chang is not needed to establish the failure.",
+      "residual_risks": [
+        "The full Zhao–Chang paper was unavailable in the inspected lawful publisher route, so its exact parameter coverage cannot be determined from its abstract. This does not affect the matching earlier theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of size function and even equality characterization, plus n=10 enumeration.",
+          "evidence": "Binary Hamming weight two at cyclic pair distance seven; same exceptional sizes, larger floor(n/2), all even optima iff Euler-circuit labelings of connected simple 4-regular graphs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-sharp-binary-weight-two-pair-distance-spectrum-and-the-22-first--d90c6eb8b504",
+          "material_read": "RESULT.md opening, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp binary weight-two pair-distance spectrum and the 22 first optima",
+          "trigger": "Strongest exact earlier Resultary coverage"
+        },
+        {
+          "assessment": "Known construction framework, not this iff or exact capacity.",
+          "evidence": "Lift from MDS source via Eulerian graph with girth bound; Example 3.1 uses a K5 tour with an MDS (5,3)_q source.",
+          "identifier_or_url": "https://arxiv.org/abs/1211.1728",
+          "material_read": "Proposition 3.2 and Example 3.1, p. 3; text offsets 18400 and 16500",
+          "method": "Bounded primary full-text passages",
+          "title": "Maximum distance separable codes for symbol-pair read channels",
+          "trigger": "Known Eulerian graph lifting"
+        },
+        {
+          "assessment": "Direct parameter overlap, exact implications of full proof unresolved independently of the decisive Resultary match.",
+          "evidence": "Constructions include w_p=4 up to d_p=2w_p−1; abstract does not specify exact lengths or optimizer characterization.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s10623-025-01598-9",
+          "material_read": "Public Abstract; PDF link redirected to preview",
+          "method": "Lawful publisher preview",
+          "title": "Bounds and constructions of optimal symbol-pair codes with constant pair-weight",
+          "trigger": "Plausibly equivalent extremal function for pair weight four and distance seven"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp cutoff and optimizer correspondence would be useful for sparse pair-channel codes as unknown facts, but the frozen Finding delivers exactly the previously available theorem. It adds no independent count, excluded class, boundary or structural consequence; replaying the same extremal function and correspondence is not a new scientific contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

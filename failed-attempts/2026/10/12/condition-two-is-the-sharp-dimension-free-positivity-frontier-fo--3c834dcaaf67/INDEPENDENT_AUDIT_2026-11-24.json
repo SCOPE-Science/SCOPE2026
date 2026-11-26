@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:15:23.078158Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the usual convention of stopping or holding the solution when r=0, inactive coordinates stay zero and each active normalized residual starts at 1. The reciprocal Rayleigh quotient confines αλ_i to [0,2] for κ≤2, so those residuals remain in [−1,1]. In two dimensions the orthogonal residual directions alternate, with the printed two-step scalar γ obtained by substitution; the denominator minus numerator equals ac(u²+v²)². Even iterates are on [0,x*], and odd iterates on [x_1,x*]. Degenerate equal-eigenvalue and single-active-mode cases terminate in one step. For fixed κ>2, the limiting first residual of the equal lower-mode construction is nonzero, so both reciprocal steps are continuous at ε=0, with sum tending to 1+κ/2<κ. Therefore (x_2)_3<0 for small enough positive ε. Independent rational residual updates reproduced α_0=201/304, α_1=22713/39817 and (x_2)_3=−3353283/121043680 for the printed witness and also gave an exact negative coordinate for κ=2000001/1000000, ε=10^−12. Reviewed the frozen proof and verifier; the universal statement is analytic, not inferred from those replays.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "16f98e7689a7 proves all-iterate n≤2 safety with b≥0 and A^−1b≥0 in its broader matrix setting",
+          "The older Resultary theorem proves first/second-iterate safety for κ≤2 on Stieltjes systems",
+          "de Klerk–Glineur–Taylor treat orthogonality and objective rate, not a cone-invariance theorem"
+        ],
+        "reasoning": "Positive diagonal matrices satisfy the prior assumptions. The geometry of two active residual directions in the frozen proof does not add a new two-dimensional theorem. Nor should an objective-rate result be misdescribed as a coordinatewise theorem.",
+        "searches": [
+          "two dimensional exact line search steepest descent residual two step product nonnegative iterates",
+          "de Klerk–Glineur–Taylor arXiv:1606.09365 Example 1.3 and Section 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 16f98e7689a7",
+        "Resultary b50999a21731 and 6a2886658444",
+        "de Klerk–Glineur–Taylor arXiv:1606.09365"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The direct prior explicitly stops short of classifying k≥3 when n≥3",
+          "The standard exact step satisfies 1/L≤α≤1/μ. For diagonal matrices with κ≤2 all of the pointwise residual multipliers have modulus at most one for any sequence of allowed steps"
+        ],
+        "reasoning": "The prior directly implies two of the headline clauses and the first two steps of the third. The remaining all-iterate clause is not asserted by that theorem; it is a coordinatewise product inequality valid even for arbitrary allowed steps and requires no further property of exact line search.",
+        "searches": [
+          "16f98e7689a7 statement and limitations",
+          "arXiv:1606.09365 exact-search update and equation (4)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary search returned 16f98e7689a7 under both descriptions",
+          "Exact line search on the quadratic is variable-step Richardson on r, with residual update r^+=(I−αA)r"
+        ],
+        "reasoning": "The prior steepest-descent result concerns exactly the same iterates, not merely an algorithm with a shared condition-number parameter. The nearby MINRES and CG results describe different iterations and are not claimed to cover steepest descent.",
+        "searches": [
+          "positive orthant invariant nonnegative coordinates exact line search gradient method diagonal positive quadratic",
+          "Richardson iteration min max principle positivity cone exact line search steepest descent quadratic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed prior result gives κ=2, the same A=diag(1,κ/2,κ), b=(1,1,ε) and second-update sign failure for every κ>2, with an explicit sufficient bound on ε²"
+        ],
+        "reasoning": "There is no separate numerical table that could decide a uniform-in-κ statement. The directly indexed exact witness theorem is stronger evidence than a match of numerical examples, and already covers the frozen sharpness mechanism.",
+        "searches": [
+          "exact line search steepest descent diagonal quadratic nonnegative iterates condition number 2 positivity",
+          "Local Resultary 2026/10/4, 16f98e7689a7, Finding and Proof"
+        ]
+      },
+      "rationale": "The frozen sharpness, second-iterate 3D minimal witness family and all-iterate two-dimensional safety are already covered by the October 4 steepest-descent result, which supplies the very same family and a stronger two-dimensional hypothesis. Its first/second-iterate guarantee also covers the initial part of the diagonal claim. It explicitly leaves later iterations in dimensions at least three unclassified; that later-iterate clause is the only candidate increment, not evidence that the full bundled result is distinct. Its variable-step diagonal contraction is a direct consequence of the standard scalar iteration, and there is no valuable narrowed remainder.",
+      "residual_risks": [
+        "Some additional literature lookups did not run in the admitted wave. Older iterative-method literature might state the residual contraction explicitly, but the negative decision does not require such a match: substantial prior overlap is established and the isolated remainder is routine."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial direct prior coverage",
+          "evidence": "κ≤2 bounds the first two steps on Stieltjes systems; the same diagonal κ>2 family fails on the second; all iterates are safe in n≤2 under the stated broader hypotheses.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-condition-two-is-the-sharp-second-iterate-positivity-frontier-fo--16f98e7689a7/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, Proof and stated limitation on later iterations",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, beginning at offset 0",
+          "title": "Condition two is the sharp second-iterate positivity frontier for exact-search steepest descent",
+          "trigger": "Direct match on the algorithm, sharp threshold and witness"
+        },
+        {
+          "assessment": "Provides standard exact-search machinery, no corresponding stated positivity classification",
+          "evidence": "The example starts at a nonzero point with extreme-eigenvalue components and shows a sharp objective rate; equation (4) gives successive-gradient orthogonality.",
+          "identifier_or_url": "https://arxiv.org/abs/1606.09365",
+          "material_read": "Example 1.3 PDF p. 2, offset 6429; Section 2.1 equation (4), PDF p. 4, offset 13874",
+          "method": "Bounded OA primary PDF passages",
+          "title": "On the worst-case complexity of the gradient method with exact line search for smooth strongly convex functions",
+          "trigger": "Closest cited exact-line-search objective and two-mode trajectory theorem"
+        },
+        {
+          "assessment": "Not equivalent to steepest descent",
+          "evidence": "MINRES has the analogous second-step theme; CG has an all-iterate diagonal positivity theme but neither uses the assigned steepest-descent iteration.",
+          "identifier_or_url": "Resultary 2026/10/4 b50999a21731 and 2026/10/13 6a2886658444",
+          "material_read": "Compared their algorithmic claim statements",
+          "method": "Local Resultary mirror",
+          "title": "Method-distinct positivity records for MINRES and CG",
+          "trigger": "Nearby threshold/dimension matches in the local search"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The independently motivated boundary and low-dimensional witness would be valuable if uncovered, but those are known for the same iteration. After removing them, the later-iteration addition for diagonal A is the elementary observation that a product of scalars in [−1,1] has modulus at most one. It holds for every sequence of steps from [0,2/L], without using exact minimization beyond its standard Rayleigh-quotient step bound. There is no additional structural ingredient or quantitative phenomenon to support a repaired finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

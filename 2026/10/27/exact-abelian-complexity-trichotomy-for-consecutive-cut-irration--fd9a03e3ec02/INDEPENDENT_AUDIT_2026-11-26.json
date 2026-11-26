@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:15:00.109563Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The telescoping difference of floors gives N_j=⌊nα⌋ plus membership in the circular half-open interval [p_j−t,p_j), where p_j=(j+1)α and t={nα}. The frozen proof uses the indicator off endpoints, where the conventions agree; at a coincident event the exact half-open formula takes the state of the chamber immediately to its right, so there is no extra vector. The residual count follows by subtraction. Each captured nonempty proper block has uniquely determined adjacent gaps for the start and end; lifting around the block reduces the allowed start phases to an intersection of two intervals. Only empty and full subsets can recur in different chambers, once per gap strictly longer than t or 1−t respectively. The gaps consist of m−1 copies of α and one longer gap. At 1≤n<m there are exactly m−n coincident events and no repeated extreme chambers since both t and 1−t are at least α. For n≥m irrationality excludes all event coincidences, and exactly one extreme state repeats m times when t<α or 1−t<α, giving 2m−(m−1); otherwise all 2m states differ. Weyl equidistribution gives the two densities unchanged by removing small n. Independently, the alphabet is the collection of m-blocks of the binary Sturmian rotation coding by [0,α), read by lag, with at most one 1 per block. Sliding overlapping windows give a bijection between length-n factors and binary factors of length n+m−1, proving p_w(n)=n+m. Irrational minimality and the half-open chamber convention give the same language at every phase. Inspected the rational-proxy checker without running it; its bounded checks are not the proof for irrational slopes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.3 of the former classifies recurrent ternary words with ordinary complexity n+2 and its later discussion treats ternary rotation heavy/light patterns. The latter excludes constant minimal Abelian complexity under rational independence and states a lower bound in that regime."
+        ],
+        "reasoning": "The bound family has m+1≥4 letters and m identical frequencies α, so the independence hypothesis fails. Neither a ternary classification nor an independent-frequency lower bound gives exact multiplicity-vector counts in the frozen family.",
+        "searches": [
+          "Karhumäki–Puzynina–Whiteland arXiv:2012.14701v1, Theorem 4.3 and Lemma 4.9",
+          "Andrieu–Vivion arXiv:2605.01577, Theorems 5–6 and Proposition 7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary mirror records 77e81b433b53, e6b77d4bad20 and 0fc96ab6c467",
+        "arXiv:1301.5104",
+        "arXiv:2012.14701v1",
+        "arXiv:2605.01577"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard factor-complexity theorem yields n+m immediately. The m-Abelian count gives 2m for all N≥2m−1, independent of α; the bound quotient keeps that many only in the middle regime and merges m classes of empty or full phase states at exceptional lengths."
+        ],
+        "reasoning": "The inherited finer count bounds but does not determine the coarser count. Determining which classes merge requires the specific moving-arc analysis; equidistribution then yields the frequency law. The matched prior statements do not mechanically imply the complete profile.",
+        "searches": [
+          "arXiv:1301.5104, p. 3, Lemma 2.3 and Sturmian boundary characterization",
+          "arXiv:2012.14701v1, §4 ternary rotation statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A coded letter is a unique one at lag j in an m-block of the binary rotation word, or the all-zero m-block. Its Parikh vector is exactly the multiset of length-m subwords of a factor of length n+m−1.",
+          "Karhumäki–Saarela–Zamboni, Lemma 2.3: with length-k factor counts fixed, equality of shorter factor counts is equivalent to equality of boundary data. Their Sturmian count min(N+1,2k) is for that finer relation."
+        ],
+        "reasoning": "For example, at n=m and irrational 1/(m+1)<α<1/m, the frozen quotient has m+1 classes, while the standard m-Abelian count for binary length N=2m−1 is 2m. Thus renaming that complexity cannot produce this result. The ternary two-cut geometry is the relevant smaller-alphabet model, not an equivalent full statement.",
+        "searches": [
+          "Sturmian k-Abelian equivalence and complexity for higher-block factor counts",
+          "arXiv:1301.5104, Lemma 2.3 and p. 3",
+          "arXiv:2012.14701v1, §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "77e81b433b53 gives r+1 Young-orbit classes under independent permutations of contiguous blocks of binary factors for a composition with r parts. e6b77d4bad20 counts reduced Parikh classes after collapsing runs, while 0fc96ab6c467 counts images of a leftmost-one operation on Sturmian factors."
+        ],
+        "reasoning": "These are exact but different quotients of factor sets, not indexed exact values of the higher-block letter Parikh profile. Even the contiguous-block count uses non-overlapping blocks of chosen lengths rather than the full overlapping m-window multiset.",
+        "searches": [
+          "Resultary: exact Abelian complexity for consecutive irrational rotation cuts, higher-block Sturmian, Parikh vectors"
+        ]
+      },
+      "rationale": "The ordinary factor complexity is inherited from a higher-block Sturmian presentation and is not the novel component. The distinct claim is the exact ordinary Parikh complexity of these higher-block alphabets for every m≥3, including the slope-dependent collapse and the density of its occurrences. Standard Sturmian m-Abelian complexity is a finer relation and does not count this quotient. The closest exact indexed results have different factor transformations or equivalence relations; the close prior rotation coding studied in the ternary case is outside the bound alphabet size. This is a bounded comparison, not a historical-priority certificate.",
+      "residual_risks": [
+        "Equivalent cyclic-window count formulations under Parikh, transition-profile, or higher-block terminology may be unindexed. The targeted primary search did not furnish additional sources, which is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strictly finer equivalence than the frozen quotient",
+          "evidence": [
+            "At fixed k-subword counts, equivalence additionally requires equality of shorter-subword counts, equivalently appropriate boundary data. The Sturmian value at length N is min(N+1,2k)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1301.5104",
+          "material_read": "p. 3, exact Sturmian complexity; Lemma 2.3, pp. 4–5; nearby Sturmian boundary statement",
+          "method": "Original OA PDF text; exact definitions and formula comparison",
+          "title": "On a generalization of Abelian equivalence and complexity of infinite words",
+          "trigger": "Same substring-count terminology and exact Sturmian complexity"
+        },
+        {
+          "assessment": "Related ternary case, not the family for m≥3",
+          "evidence": [
+            "Ternary complexity n+2 and rotation heavy/light patterns are treated."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2012.14701v1",
+          "material_read": "§4, Theorem 4.3 and Lemma 4.9, pp. 10–12",
+          "method": "Original OA text, statement comparison",
+          "title": "On Abelian Closures of Infinite Non-binary Words",
+          "trigger": "Related ternary minimal-complexity rotation model"
+        },
+        {
+          "assessment": "Inapplicable rational-independence hypothesis",
+          "evidence": [
+            "Theorems 5–6 exclude constant complexity equal to alphabet size under rationally independent frequencies."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.01577",
+          "material_read": "Abstract and p. 4 statements of Theorems 5–6 and Proposition 7",
+          "method": "Original OA text, hypothesis comparison",
+          "title": "A proof of Rauzy’s conjecture on abelian complexity",
+          "trigger": "Potential general theorem on exact Abelian complexity in multiple letters"
+        },
+        {
+          "assessment": "Uses a distinct orbit equivalence",
+          "evidence": [
+            "Counts Young-orbit classes under permutations inside non-overlapping contiguous blocks of a binary factor."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-contiguous-block-young-orbit-spectra-and-frequency-flexibi--77e81b433b53",
+          "material_read": "RESULT.md Finding",
+          "method": "Local indexed mirror, comparison of relations",
+          "title": "Exact contiguous-block Young-orbit spectra and frequency flexibility",
+          "trigger": "Closest indexed Sturmian block/Parikh orbit-count analogue"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Counts only after collapsing equal-letter runs and forming reduced Parikh vectors."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-four-reduced-factor-classes-and-three-reduced-abelian-classes-fo--e6b77d4bad20",
+          "material_read": "RESULT.md Finding",
+          "method": "Local indexed mirror, comparison of definitions",
+          "title": "Four reduced factor classes and three reduced Abelian classes",
+          "trigger": "Candidate exact nonbinary Abelian-class count"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Counts images under iterated movement of the leftmost 1, not higher-block Parikh classes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-all-iterate-tortoise-complexity-of-sturmian-words--0fc96ab6c467",
+          "material_read": "RESULT.md Finding",
+          "method": "Local indexed mirror, comparison of the factor transformation",
+          "title": "All-iterate tortoise complexity of Sturmian words",
+          "trigger": "Candidate indexed all-length complexity result on Sturmian factors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural family of higher-block Sturmian codings has simple ordinary complexity but a different, slope-dependent identification when one retains only counts of overlapping windows. The exact collapse from 2m to m+1, its Diophantine criterion and positive occurrence densities answer a concrete quantitative question for every alphabet size in scope. This is not just the ordinary Sturmian count under a change of alphabet.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

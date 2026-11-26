@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is for all odd prime powers \(q\equiv7\pmod{12}\). Cyclicity gives a subgroup of order \(4(q-1)/3\) and cubic base-field intersection; taking a generator and its primitive order-four Frobenius ratio gives \(\operatorname{Tr}(h)^2=2\operatorname{N}(h)\). The three nontrivial quotient cosets project to \(uC,TuC,uC\), furnishing exact representation counts, cardinalities and complements. Every step is algebraic. Exact finite-field enumeration corroborates the complete distribution for seven primes; it is not the infinite proof.
+## correctness
 
-**Originality — PASS, with a defined risk.** The closest source, Zhou and Wu, arXiv:2610.25228v1, Section 5, provides a necessary subfield projection bound and a *different* quotient-order-three example. Neither implies the quotient-order-four distribution or its cubic-character-of-two distinction; the current result gives both exact cardinalities and representation profiles. Martin and Yip, arXiv:2403.04312, Theorems 1.2–1.3, give general error bounds for fixed shifted-subfield residue equations, not this exact growing-index evaluation. Zhou, Danchev and Wu, arXiv:2512.16942, provide broader covering obstructions, not the present equality law. Equivalence and domination searches in mathematical research records and accessible earlier claims did not reveal a matching result. An unindexed prior explicit computation remains possible; search absence alone is not novelty proof.
+PASS
 
-**Value — PASS.** The projective quotient of order four is the next natural case after the motivating paper's quotient-order-three example. Its exact \(2\)-cubic-residue dichotomy and the complete multiplicity profile show a structural mechanism beyond a routine counting-bound substitution. The formula addresses the possibility of covering and determines exactly which fibers fail and how many presentations the others have, for an infinite family.
+Put m=(q−1)/3. The cyclic subgroup H has order 4m, with intersection with F^× of order gcd(4m,3m)=m, exactly its cubic subgroup C. The Frobenius ratio h^(q−1) has order four because the kernel of this power map on H is C. Consequently its sum with its inverse is zero, and T²/N=2 for trace T and norm N∈C. In the order-three group F^×/C, squaring is invertible, so T lies in C exactly when 2 does. Modulo the subfield, h² projects to Tu by its quadratic equation, and h³=h⁴(T−h)/N projects to −(h⁴/N)u, a scalar in C times u since −1 is a cube. Projection is a bijection on each nonzero coset onto its corresponding cubic coset. For each x, a given h' in its projection fiber contributes exactly one representation, with a=x−h'. This yields the stated zero-fiber count, the nonzero counts 3 or 2 and 1, and the cardinalities and complements after multiplying by q. This argument works in every permitted characteristic and for nonprime base fields. Independent exact check: python3 /workspace/branches/independent_checks.py 2, output /workspace/branches/independent-2.txt; it covers every additive quotient fiber for q=7,31,343, both branches, and a nonprime base (q=343 gives 39,445 covered elements). These examples are corroboration, not an exhaustive proof. The frozen verifier was inspected, not executed.
 
-**Limitations.** No classification at other indices or congruence classes is claimed. The standalone computational checks address seven prime base fields, not nonprime prime powers; those follow by the algebraic argument. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the exact quartic-quotient cubic-class fiber law, not the projection method or the general necessary covering bound. The nearest explicit example classifies a different subgroup and does not supply this distribution. No checked source covers the claim; this is a bounded comparison, not a priority certificate.
+
+## value
+
+PASS
+
+This is the next natural projective quotient size after the cited order-three covering example, and a family at the boundary of the prior necessary covering bound. The result resolves not only failure of that bound to be sufficient but the size, location and ordered representation counts of the deficient fibers, distinguishing two persistent arithmetic regimes. These are useful precise data for the subfield-translate problem; no classification at other indices is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

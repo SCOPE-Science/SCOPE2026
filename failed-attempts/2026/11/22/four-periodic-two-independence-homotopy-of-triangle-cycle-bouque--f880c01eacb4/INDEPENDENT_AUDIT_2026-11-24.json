@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:35:52.567569Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The all-length Morse proof is sound. Toggling the first path vertex leaves exactly the forced edge {2,3}, with vertices 1 and 4 absent and a free path four vertices shorter; m=0,1,2,3 give respectively the empty critical face, none, none, and a critical edge. Toggling the triangle vertex a leaves exactly the three incomparable families with forced edge {0,b}, {0,1}, or {0,n-1}; for n>=4 their free lengths are n-3,n-4,n-4, and for n=3 they are all zero. Subsequent endpoint toggles are realized by the global pivot order a,0,1,...,n-1,b. To verify acyclicity, in a directed cycle of the modified Hasse diagram upward steps along matching edges cannot be consecutive, while cardinality forces equally many up and down steps; hence the cycle alternates and all faces there are matched along it. Choose the earliest pivot among the coordinates changed on that cycle. It must also be removed at a down step. Both endpoints of that down edge were still unmatched when the pivot was processed, so would have been paired together, contradicting that the edge points down. Removing the empty-face pair gives one critical zero-cell plus the stated same-dimensional positive cells; this yields the integral wedge, including C3 and C4, not just homology. Independent cross-check: the simplicial-vertex support formula and exact path homotopy theorem yield the same result, including the empty path convention described in the originality findings. The archive's finite checks are corroborative, not the all-length proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 13 (p. 9, offset 33818) is for any connected G with connected r-supports at v and N(v) contained in their closed neighbourhoods. Its conclusion is a wedge of r-fold suspensions of Ind_r after deletion of each support's closed neighbourhood.",
+          "Remark 1 (p. 10, offset near 38000) verifies the hypotheses at simplicial vertices; the triangle vertex a is such a vertex.",
+          "Theorem 4.2 (HTML offset 32598) computes precisely the complementary path complexes after substituting d=4."
+        ],
+        "reasoning": "This is stronger coverage of the exact classification: the three supports give the three claimed shifts and the known path types prescribe all sphere dimensions and counts, not just sphere-wedge existence. The chordal hypothesis of the separate Theorem 16 is irrelevant.",
+        "searches": [
+          "Deshpande Shukla Singh Distance r-domination number r-independence complexes graphs arxiv simplicial vertex closed neighborhood decomposition theorem homotopy",
+          "arXiv:2001.06775 Theorem 13, Remark 1 and Corollary 14",
+          "arXiv:2001.05448v2 Theorem 4.2 (citing Paolini–Salvetti)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2001.06775",
+        "arXiv:2001.05448v2",
+        "arXiv:2303.08798v2",
+        "arXiv:2605.25150v1",
+        "arXiv:2106.10863",
+        "Resultary d975d756b0b9",
+        "Resultary 88c95d7a839a",
+        "Resultary 25d1eb289649"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the supports {0,b},{0,1},{0,n-1}, the residual paths are exactly those used in the frozen proof. Theorem 13 already gives the corresponding double-suspension wedge; its proof uses intersections with the star of the pivot and the simplex boundary of the support.",
+          "Proposition 4.3 already gives a perfect augmented matching for the path complexes, with the same length-four spaced critical vertices for d=4."
+        ],
+        "reasoning": "Verifying the three supports and substituting path lengths are routine. The closed-neighbourhood formula applies directly, including when a support deletes the whole graph, so the exact classification is mathematically implied, not merely suggested by analogous primary or catalogue results.",
+        "searches": [
+          "arXiv:2001.06775 Section 4, Lemma 12, Theorem 13, Claim 4 and Corollary 14",
+          "arXiv:2001.05448v2 Section 4, Theorem 4.2 and Proposition 4.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sawant identifies the two-independence complex with the 3-path-free complex; the tree result cannot be applied to the bouquet.",
+          "Daundkar–Panja–Prasad treat the same vertex-wedge operation but for ordinary independence; their faces cannot even contain a selected edge.",
+          "Resultary 25d1eb289649 concerns ordinary independence of equal-length cycle bouquets, not this functor."
+        ],
+        "reasoning": "The right literature invariant is Ind_2 under the size-at-most-two component convention. Equivalence to forbidding selected three-vertex paths does not convert results about ordinary independence into the asserted table.",
+        "searches": [
+          "Local Resultary: triangle-cycle bouquet higher independence, two-independence, 3-path-free and cactus",
+          "arXiv:2605.25150v1 Theorem 1.1 and introduction",
+          "arXiv:2303.08798v2 Theorems 3.5–3.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f880c01eacb4 is the assigned entry, not independent work. Earlier d975d756b0b9 gives an exact cotree polynomial including B3=K1 joined to two disjoint edges, with polynomial 3t. For n>=4 the bouquet contains an induced P4 and is outside that cograph result.",
+          "Same-day 88c95d7a839a treats a singly whiskered cycle, which is a different graph and gives different multiplicities. The cycle-only table in Theorem 4.6 is likewise a different graph family; the path table in Theorem 4.2 is the one required as input to Theorem 13."
+        ],
+        "reasoning": "No distinct catalogue hit was required for all n: the primary theorems compute the exact table by closed-neighbourhood deletion and path residue substitution. The earlier cograph record also independently covers n=3.",
+        "searches": [
+          "Local Resultary: f880c01eacb4, d975d756b0b9, 88c95d7a839a and related four-periodic Ind_2 laws",
+          "arXiv:2001.05448v2 Theorems 4.2 and 4.6"
+        ]
+      },
+      "rationale": "The whole claimed four-case theorem is already a direct specialization of Deshpande–Shukla–Singh, arXiv:2001.06775, Theorem 13 and Remark 1, together with the published path types in Deshpande–Singh, arXiv:2001.05448v2, Theorem 4.2. The former is a general connected-graph theorem despite its position in a chordal-graphs section. The triangle's free vertex a is simplicial, with neighbours 0,b, so it meets the hypothesis. Its two-supports are exactly {0,b}, {0,1}, {0,n-1}. Deleting their closed neighbourhoods gives respectively P_{n-3}, P_{n-4}, P_{n-4} for n>=4, and three empty graphs for n=3. The theorem prescribes two suspensions of each summand. With d=4 in the path theorem, P_m gives S^{2j-1} at m=4j or 4j-1, and a point at other positive m. Thus n=4k+3 contributes three S^{2k+1}, n=4k contributes two S^{2k-1}, n=4k+1 contributes none, and n=4k+2 contributes one S^{2k+1}. The empty paths contribute S^1 (as in the suspension convention of Corollary 14, or by collapsing the endpoints of an interval in the star-gluing proof). This gives the exact n=3 and n=4 cases too. It is coverage by direct application even though the exact bouquet table is not printed in those papers. A separate finite replay and an alternative matching do not restore originality of the claimed homotopy classification.",
+      "residual_risks": [
+        "A still earlier explicit bouquet table may exist; its existence is not necessary for (and would not change) the demonstrated stronger prior coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct stronger theorem covers the bouquet via the simplicial triangle vertex, independently of chordality",
+          "evidence": [
+            "Connected r-supports satisfying N(v) subset of N[S] give the wedge of r-fold suspended residual complexes.",
+            "Corollary 14 explicitly uses the empty-residual suspension convention; Remark 1 gives both hypotheses for a simplicial vertex."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2001.06775",
+          "material_read": "Section 4 pp. 9–11: Lemma 12, Theorem 13 and Claims 3–4, Corollary 14, Remark 1 and opening of Theorem 16; offsets 31900–38813 in bounded passages",
+          "method": "Open arXiv PDF query then bounded offset reads",
+          "title": "Distance r-domination number and r-independence complexes of graphs",
+          "trigger": "Possible simplicial-vertex homotopy decomposition for a graph that is not chordal"
+        },
+        {
+          "assessment": "Already provides all nonempty path types and critical cell patterns; combining these with Theorem 13 exactly gives the frozen theorem",
+          "evidence": [
+            "Theorem 4.2: at d=4, S^{2j-1} for path sizes 4j or 4j-1, contractible otherwise; Proposition 4.3 supplies the critical vertex sets."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2001.05448v2",
+          "material_read": "Section 4, Theorem 4.2 and Proposition 4.3 at offsets near 32590–33875; cycle theorem near 35600",
+          "method": "Open arXiv HTML query and bounded offset reads",
+          "title": "Higher Independence Complexes of graphs and their homotopy types",
+          "trigger": "Exact path types needed by the prior support decomposition"
+        },
+        {
+          "assessment": "Exactly covers n=3 only; longer bouquets not cographs",
+          "evidence": [
+            "The cotree recursion on K1 joined to K2 disjoint union K2 gives 3t."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-cotree-homotopy-classification-of-two-independence-complexes-of--d975d756b0b9",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Cotree homotopy classification of two-independence complexes of cographs",
+          "trigger": "Possible earlier full homotopy classification of the same complexes"
+        },
+        {
+          "assessment": "Different graph (one leaf instead of triangle); not a priority inference",
+          "evidence": [
+            "Two spheres at cycle lengths 4k-1 and 4k, contractible at 4k+1 and 4k+2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-four-periodic-sphere-wedge-classification-for-singly-whiskered--88c95d7a839a",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A four-periodic sphere-wedge classification for singly whiskered cycles",
+          "trigger": "Same-day nearby periodic Ind_2 law"
+        },
+        {
+          "assessment": "Covers ordinary independence only",
+          "evidence": [
+            "Ordinary independence of a wedge of cycles has a contractibility/sphere-wedge description."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2303.08798",
+          "material_read": "Section 3, Theorems 3.5–3.6",
+          "method": "Bounded open primary PDF passages",
+          "title": "Independence Complexes of Wedge of Graphs",
+          "trigger": "Vertex-wedging result about bouquets of cycles"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The bouquet is natural and the resulting table is useful as a worked example, but all four cases are obtained by listing three supports in the existing decomposition and using the exact path table. No independently useful new homotopy claim or substantive matching invariant beyond that routine specialization is established. The proof and finite diagnostics do not create a surviving scientific claim to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

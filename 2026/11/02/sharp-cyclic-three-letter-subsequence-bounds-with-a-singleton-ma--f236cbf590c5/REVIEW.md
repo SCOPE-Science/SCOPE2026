@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof derives the rotation-sum identity from the unique-marker position. Its sharp upper bound uses the covariance identity for monotone preceding-symbol counts, followed by pointwise integer quadratic maximization. Both equality classifications are explicit. The positive lower bound comes from the first \(\mathtt a\)-position and checks all subsequent contributions. The independent literal-enumeration implementation agrees across 49 composition pairs and 12,854 distinct necklaces. These finite tests are corroborative; the symbolic inequalities prove the all-parameter claim.
+PASS
 
-## Originality
+With the unique c fixed first, every a-before-b pair in the remaining word contributes once for each rotation starting at or before that a, i.e. p_r times. Thus T is the displayed sum, and T/(a+b+1) is the averaged matrix entry. Subtracting the covariance term a^{-1} sum_{r<s}(s-r)(t_s-t_r) leaves a sum of identical pointwise quadratic bounds; the covariance vanishes exactly for constant t_r (automatic when a=1). Completing the square gives the stated nearest-integer rule with both tied choices allowed. If T is nonzero, the first a contributes b+t(b-t-1), at least b; equality requires t=0 or b-1 and all later a's after all b's. This gives both claimed words including their coincidence at b=1. Vanishing means there is no ordered ab pair, giving the claimed unique zero. The proof does not assert that the rest of the spectrum is contiguous. Independent replay: `cd /workspace && python3 review_replay.py 4` evaluated literal rotation counts on 3,418 necklaces in all 36 compositions 1<=a,b<=6 and checked the formula and entire extremizing sets. This bounded check corroborates the proof; the frozen script and its larger recorded run were inspected, not executed.
 
-PASS under the inspected-literature standard, with a residual possibility of an undiscovered implicit specialization. The closest author-readable primary manuscript is Poovanandran–Simpson–Teh, arXiv:2110.14858, whose circular Parikh matrix framework and binary composition-only theorem are explicitly credited. Its ternary results concern equivalence-preserving transformations, not a sharp fixed-composition singleton-marker maximum, equality cases, and first positive spectral gap. Queries against research records and primary literature were compared by implication, not only title. Binary two-window multispectrum counting concerns contiguous rather than scattered subsequences, so does not subsume this result.
+## originality
 
-## Value
+PASS
 
-PASS. The exact upper edge, structural maximizers, and strictly forbidden initial range describe a natural observable of the first genuinely ternary circular Parikh matrix with a rare marker. A fixed Parikh vector alone does not determine this entry. The sharp transition in the maximizing word's run structure and exact characterization of low-count configurations give reusable extremal information for cyclic word inference, not merely another finite sample.
+The average itself is established. The fixed-content singleton-marker maximum, all equality cases and the first positive value with its full level set are distinct from the inspected results, which concern binary averages/variance, ternary equivalence, or counts of rotation classes rather than the magnitude of this ternary entry.
 
-## Scope and risks
+## value
 
-The claims concern all positive counts of the two non-marker letters and exactly one marker. The complete interior image of the statistic is not determined. The manuscript of the closest work is readable but novelty cannot be certified against every possible source. Only the theorem in RESULT.md is reviewed; no independent audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first ternary scattered-subsequence entry beyond pair counts is a natural statistic not fixed by the composition. A single marker gives the simplest nontrivial fixed-content setting. Knowing when splitting the b-run is optimal, including ties, and knowing exactly which necklaces are invisible or produce the least nonzero signal gives useful structural information for distinguishing circular words. This is not merely evaluation of the average on a few test words.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

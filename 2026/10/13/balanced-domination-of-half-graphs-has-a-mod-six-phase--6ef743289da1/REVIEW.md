@@ -1,12 +1,21 @@
-# Review of the mod-six balanced-domination phase of half graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. The two families of closed-neighborhood equations are exact for the half-graph adjacency. Subtracting consecutive equations yields a deterministic two-coordinate recurrence, while the first and last equations supply the only boundary conditions. Starting with \((x_1,y_1)=(t,-t)\), the recurrence has the displayed six-periodic orbit. The final boundary is satisfied for nonzero \(t\) exactly when \(n\equiv1\pmod3\), and the six-term weight contributions sum to zero, giving the stated mod-six maximum. The converse is proved because the recurrence keeps every equation residual constant, so satisfying the endpoint residuals satisfies the entire system. Exhaustive finite checking agrees with the symbolic proof.
+## correctness
 
-## Originality
-PASS. The introducing 2021 paper was inspected at the definition, \(d\)-balanced classification, and open-problem sections; it treats regular graphs, complete multipartite graphs, generalized ladders, joins, and trees but does not state a half-graph, chain-graph, or Ferrers specialization. The latest same-invariant preprint was inspected in full-text form and treats convex-polytopes, trees, caterpillars, and grids; targeted searches found no half-graph, chain-graph, Ferrers, or bipartite occurrence. The general adjacency-spectrum literature for chain graphs gives characteristic-polynomial machinery but does not state the ternary balanced-function family or its weight maximization. Searches under object aliases and the equivalent closed-neighborhood-kernel formulation located no theorem implying the accepted claim.
+PASS
 
-## Value
-PASS. Half graphs are the canonical twin-free chain graphs and therefore a natural benchmark for a neighborhood-linear domination invariant. The answer is not uniformly \(d\)-balanced: nonzero balanced functions appear with period three, while positive optimum weight appears only in one residue class modulo six. The complete six-periodic labeling classification explains this phase transition and distinguishes \(d\)-balanced graphs with nontrivial balanced functions from graphs with only the zero function.
+For x_i=f(a_i) and y_i=f(b_i), the equations are x_i+sum_(j>=i)y_j=0 and y_i+sum_(j<=i)x_j=0. Their consecutive differences force (x_(i+1),y_(i+1))=(x_i+y_i,-x_i), and the two endpoint equations are x_1+y_1=x_n+y_n=0. Conversely the consecutive differences and endpoints recover every original equation, including n=1. The transfer matrix has cube -I and sixth power I. From (t,-t) the six states are (t,-t),(0,-t),(-t,0),(-t,t),(0,t),(t,0); the last endpoint is satisfied for t nonzero precisely when n=1 mod 3. Restricting x_1 to the allowed labels gives t in {-1,0,1}, and every entry in the orbit is then allowed. The successive weight terms 0,-t,-t,0,t,t cancel per period and leave zero at n=1 mod 6 and -2t at n=4 mod 6. This proves the full classification and maximum. Independent direct closed-neighborhood enumeration of 597870 ternary assignments for n=1 through 6 gives the same full solution sets and weights; exact rational rank checks through n=20 give the predicted real nullity 0 or 1.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The closest inspected balanced-domination literature gives the closed-neighborhood kernel framework. The two same-day chain/half-graph records actually impose other labeling constraints, not this invariant. The supported distinct claim is the complete normalized ternary solution family and weight phase for the canonical half graph, not the kernel reformulation or a claim to priority for detecting the eigenvalue -1. Exact eigenvector coverage in the inaccessible chain-graph spectral literature remains a specific risk.
+
+## value
+
+PASS
+
+The half graph is a natural canonical chain graph for the established balanced-domination invariant. The result goes beyond detecting a nonzero kernel: it identifies every feasible labeling and shows why two real-kernel-positive residues give different optimal weights. The exact phase and complete family are useful for distinguishing balanced domination from mere adjacency singularity at -1.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

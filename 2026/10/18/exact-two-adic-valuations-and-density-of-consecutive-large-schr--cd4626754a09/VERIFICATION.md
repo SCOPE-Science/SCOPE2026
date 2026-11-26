@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Finite verification and reproducibility
 
-Run `python3 VERIFY.py` with Python 3 (standard library only). It constructs the exact large Schröder sequence using the integral recurrence, checks all stated valuation identities for positive indices through 2030, tests the cited shift congruences for exponents \(1\) through \(8\), tests the derived difference-shift congruence and valuation-level residue sets for levels \(4\) through \(10\), and checks four two-adic precisions for the zeros of the interpolated difference. Successful execution prints `VERIFY_OK`.
+# Independent mathematical audit
 
-The central proof is analytical and uses the fully credited Theorem 2 of Cao–Pan. Finite cases cannot independently certify that theorem, nor prove this conclusion for infinitely many indices. The theorem intentionally excludes index zero, where the positive-index interpolation differs from the standard combinatorial initial term. Independent audit has not been performed.
+## correctness
+
+PASS
+
+The binomial interpolation converges uniformly because the kth term has valuation at least k−ν₂(k), and agrees with the combinatorial sequence at each positive index. At 0 and 1 its value is 2; at −1 and −2 it is −2 by the geometric and weighted geometric series, so its forward difference vanishes at 0 and −2. Cao–Pan Theorem 2 extends by continuity to the four residue classes. At even x the signs at x and x+1 are opposite, so the forward-difference increment for a shift by 2^α, α≥2, is 2^(α+2) modulo 2^(α+3). Summing an odd number of increments preserves this exact valuation, giving a distance factor of 1/4 on each even class modulo four. Anchoring at 0 or −2 gives ν₂(n)+2 or ν₂(n+2)+2, respectively; the other factor of n(n+2) has valuation one. On odd indices the α=1 congruence makes D_n constant modulo 16 along steps of two, with D_1=4. The two distinct exact-level classes modulo 2^(j−1) give the stated densities; index zero is correctly excluded. Independent exact rational sums of the displayed binomial series through n=64 checked all first-difference valuations through n=63 and residue sets at levels 4–6. The uploaded recurrence checker was inspected, not executed; neither finite check is the all-index proof.
+
+## originality
+
+PASS
+
+The oldest resolved matching machinery supplies shifts of the sequence and its binomial coefficients, not the anchors or exact consecutive-difference valuation fibres. A distinct indexed record is exactly equivalent after normalization, but the evidence places that publication after the frozen finding and establishes no earlier coverage. This is a judgment on the frozen result against evidenced earlier work, not a claim of unique discovery or historical priority.
+
+## value
+
+PASS
+
+An exact first-difference valuation, not just a congruence bound, for a classical combinatorial sequence determines every divisibility level and its frequency. The two explicit 2-adic roots and local isometry explain the full split of indices, including the missing level three. This is a usable arithmetic classification, not finite table reconstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

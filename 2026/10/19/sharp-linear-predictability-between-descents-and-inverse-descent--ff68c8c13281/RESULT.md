@@ -20,11 +20,11 @@ is \(\rho_n\), where, with \(r=(3+\sqrt5)/2\),
 \rho_n=\frac{6}{n(n-1)}\left[n-1-
 \frac{2(r^{n}-r)}{(r-1)(1+r^{n})}\right].
 \]
-Equality holds precisely when \(a\) and \(b\) are **positive multiples** of the same vector \(w\), where
+Equality holds precisely when \(a=sw\) and \(b=tw\) for real scalars \(s,t\) satisfying \(st>0\), where
 \[
 w_i=12\left(1-\frac{r^i+r^{n-i}}{1+r^n}\right),\qquad 1\le i\le n-1.
 \]
-The maximum absolute correlation has the same value; there the two nonzero multipliers can have either signs. In particular, \(\rho_2=\rho_3=1\), \(\rho_4=13/14\), \(\rho_n<1\) for \(n\ge4\), and \(n\rho_n\to6\).
+The maximum absolute correlation has the same value; for that maximum the two nonzero multipliers may have any sign combination. In particular, \(\rho_2=\rho_3=1\), \(\rho_4=13/14\), \(\rho_n<1\) for \(n\ge4\), and \(n\rho_n\to6\).
 
 All inverse-descent indicators have the **same** best affine least-squares prediction from the vector of ordinary descent indicators:
 \[
@@ -54,7 +54,7 @@ Cauchy–Schwarz in the positive definite quadratic form \(A_n\) gives
 (\mathbf 1^{\mathsf T}a)^2\le
 (\mathbf 1^{\mathsf T}A_n^{-1}\mathbf 1)(a^{\mathsf T}A_n a),
 \]
-with equality exactly at \(a=tA_n^{-1}\mathbf 1\). Thus the maximum is \(c_n\mathbf 1^{\mathsf T}A_n^{-1}\mathbf 1\), with the stated equality cases. The best-linear-prediction formula is the ordinary normal-equation identity \(A_n\beta=c_n\mathbf 1\).
+with equality exactly when \(a\) lies in the span of \(A_n^{-1}\mathbf 1\). The same holds for \(b\). At equality in both inequalities, the sign of the correlation is the sign of the product of their multipliers, because \(\mathbf 1^{\mathsf T}A_n^{-1}\mathbf 1>0\). Thus the maximum is \(c_n\mathbf 1^{\mathsf T}A_n^{-1}\mathbf 1\), with the stated equality cases. The best-linear-prediction formula is the ordinary normal-equation identity \(A_n\beta=c_n\mathbf 1\).
 
 **Explicit inverse and boundary profile.** The vector \(x=A_n^{-1}\mathbf1/12\) uniquely solves
 \[
@@ -81,7 +81,7 @@ To reproduce: run `python3 verify.py` in a directory containing this file and th
 
 The joint distribution of the total numbers of descents and inverse descents is classical. Visontai (arXiv:1210.3799, Section 2) develops the two-sided Eulerian recurrence. Chatterjee and Diaconis (arXiv:1608.01666, Sections 3 and 5) derive the covariance of the **total** descent counts and study their joint Gaussian limit; the uniform individual cross-covariance here is consistent with their total covariance. Gessel and Zhuang (DOI 10.1017/fms.2024.89, Section 2.1) recall Foulkes's exact enumeration of all prescribed pairs of descent compositions through ribbon Schur scalar products. Thus no novelty is claimed for the underlying joint descent-set distribution or the aggregate covariance.
 
-The result here is the evaluated *position-by-value* covariance block and, in particular, the closed-form solution of the sharp finite-dimensional linear-correlation optimization, including its unique optimizer, projection profile, and asymptotic boundary layer. These optimized linear-prediction statements are not stated in the inspected papers. Foulkes's broad counting formula can in principle recover all required finite moments, so implicit earlier derivation is a genuine priority risk. Related published results on inversion-indicator precision and fixed-point–descent cross-covariances concern different random vectors and do not give this optimizer.
+The result here is the evaluated *position-by-value* covariance block and, in particular, the closed-form solution of the sharp finite-dimensional linear-correlation optimization, including its unique maximizing coefficient direction, projection profile, and asymptotic boundary layer. These optimized linear-prediction statements are not stated in the inspected papers. Foulkes's broad counting formula can in principle recover all required finite moments, so implicit earlier derivation is a genuine priority risk. Related published results on inversion-indicator precision and fixed-point–descent cross-covariances concern different random vectors and do not give this optimizer.
 
 ## Limitations
 

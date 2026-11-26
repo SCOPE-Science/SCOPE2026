@@ -1,19 +1,21 @@
-# Review: The antenna component of the two-support partition-transfer graph
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every elementary partition transfer has a donor of one of the two existing part sizes and a recipient of either existing size or a newly created row. The theorem proves an exhaustive closure classification for the three boundary families and two possible exceptional configurations, establishes connectivity, counts the vertices by inclusion–exclusion, and gives an outside witness at all sizes from eight onward. Separate exact algorithms reconstruct the graph directly through size 22 and verify closure and component identity parametrically through size 150; finite checks are not claimed as the general proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+For the repaired result only: the frozen closure table and prose say a singleton entering a size-two row of (2^p,1) yields (3,2^p), which has the wrong total n; the correct result is (3,2^(p−1)). For example (2,2,2,1) becomes (3,2,2) at n=7. When p=1 and there are at least two singleton rows the same donor/recipient type produces the hook (3,1^(q−1)), not listed in the frozen explanatory subcases. At (3,1), the move from size 3 to size 1 gives (2,2), contrary to the frozen blanket statement that other nontrivial outcomes have at least three sizes. A fresh-row move from the larger part of (a,b) gives the equal-largest odd exception only for a=b+1 and b>=2, since b=1,a=2 yields support one. The replacement proof treats all feasible donor/recipient sizes with multiplicity checks and filters loops and support-one/three results. A transfer is reversible by moving a unit back, creating a fresh row if the old donor was a singleton, so enumerating outgoing transfers suffices for undirected closure. From H only H,T,U survive; T gives T,H, or (b,b,1); U gives U,H, or (3,2^(p−1)). The two extra families attach by one edge to their respective chains and are adjacent to each other only for n=7. At n=5 the would-be extras already lie in U_5 and T_5, and n=3 is a singleton. For n>=4 the only intersections of H,T,U are the two different end hooks. Inclusion–exclusion and the two distinct odd added vertices give the stated orders. The witness (n−4,2,2) is two-support outside the closed set for every n>=8; whole-stratum counts for n=3..7 are 1,2,5,6,11. Independent indexed-row BFS with all partitions confirmed the component at n=3..24 and agreed with the value-pair implementation on all support-two vertices at these sizes; feasible value-pair closure was checked through n=250. This preserves the theorem statement but corrects a false exhaustive description in the supporting proof.
 
-The full texts of Lyudogovskiy's arXiv:2603.21221v1, 2603.24824v1 and 2604.11837v1 were compared. The first two identify the unrestricted partition graph's boundary paths. The last one defines fixed-support induced graphs, tabulates component counts at small sizes, and explicitly asks for their connectivity threshold in Problem 7.4. None of these primary results implies the new closed component with its odd parity exceptions and exact order. Searches for equivalent integer-partition transfer formulations, broader structural claims, and enumerated tables disclosed no published covering theorem. Older unindexed minimal-change/Gray-code literature remains a residual priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem solves the fixed-support connectivity-threshold question for the natural support-two stratum and exhibits the distinguished component at every size, rather than reporting another finite tabulation. The exact isolated boundary and two parity-sensitive attachments give structural information potentially useful for investigating other components and support levels.
+For the unchanged theorem with its corrected proof: the three full-graph chains and the small-n disconnection data are prior. The claim being credited is the exact induced component, including the odd-size neighbors and its order, and the connectivity cutoff proved for all n. The primary fixed-support source poses the general problem and records small sizes; it does not establish this closure.
 
-## Scope and limits
+## value
 
-This is an all-size theorem for only one component of the support-two graph. It does not enumerate all components, treat higher support values, or settle the topology of the unrestricted partition graph. Independent validation and a comprehensive historical priority review have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural distinguished component of the smallest nontrivial support stratum of an established transfer graph. The exact closure and odd exceptions describe which boundary configurations communicate; the order and witness turn a short computational connectivity observation into a sharp theorem for all n in this stratum. The value is not the three known paths or an exhaustive census of every component. Repairing the transfer proof keeps that substantive structural content unchanged.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

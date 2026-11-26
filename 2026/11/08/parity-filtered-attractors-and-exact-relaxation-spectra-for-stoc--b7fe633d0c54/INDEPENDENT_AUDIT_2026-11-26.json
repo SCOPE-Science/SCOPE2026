@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:26:55.511914Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With t agreeing incident edges at degree d, the two closed-neighborhood counts are t+1 and d-t; a flip occurs iff 2t>=d and changes the number of agreeing edges by d-2t. A path of positive-probability updates reaching strictly lower energy rules out recurrence by monotonicity. Leaf particles give an immediate drop; two particles in one arc can be brought together at an unmarked vertex, and occupied distinct adjacent arcs can bring particles together at their shared mark. These exhaust the exclusions. In the remaining configurations all leaves and marks are frozen, and the arc positions move independently except for the single-update clock. In particular the root bit can be taken at a marked vertex, making it invariant. Cycle consistency is precisely parity of the number of occupied arcs; it gives two complementary bit assignments for every allowed tuple. For k=1 a lone particle cannot occupy both edges at its repeated endpoint; for k=2 the two arcs conflict and the independence polynomial is 1+2w. The trace of the cyclic hard-core transfer matrix gives F_k(1)=L_k and F_k(-1)=2 cos(k pi/3) for k>=2, which produces the parity-filtered count. Each allowed coordinate move has probability 1/(n+k), hence the transition matrix is identity minus the tensor sum of reflecting path Laplacians divided by n+k. Cosine modes yield the full spectrum and longest-arc gap; each path's maximum Laplacian eigenvalue is at most its number of sites, so all class eigenvalues are nonnegative. Symmetry gives uniform stationarity, and any finite chain eventually enters a closed class almost surely. Independent direct SCC enumeration of all 65,536 configurations for the n=12 example found sizes [1,1,4,4,15,15], and the n=7 S={0,1,4} instance gave [1,1,3,3,3,3]; replay files: /workspace/branches/83497e97-2ba0-4f4b-89a2-366086af6f79/independent_scc_check.py and independent_scc_check_output.txt. The frozen verification narratives were inspected; the stated original scripts/output were not attached as frozen support. The proof rather than the bounded reproduction establishes all sizes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 20 treats paths and unwhiskered cycles; Theorem 33 describes attractors of maximum-degree-three trees by matchings of a reduced tree."
+        ],
+        "reasoning": "The tree theorem lacks the unicyclic consistency condition. Applying it after cutting an edge would change both the state space constraint and the local updates. It supplies a methodological antecedent, not the audited classification or spectrum.",
+        "searches": [
+          "arXiv:1011.5119, Theorem 20 (PDF p. 12) and Theorem 33 (PDF pp. 17–18)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "arXiv:1011.5119 cited passages",
+        "Resultary b7fe633d0c54 (identical), 8c642dc522a7, 941c7a5cf2e3, c2b299709af4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior bare cycle has two absorbing colorings at even size and one mobile-kink attractor at odd size; the tree coverage provides reduced-tree matchings. The inspected related finite-family records do not determine the positional state census and all class eigenvalues here."
+        ],
+        "reasoning": "Once the product of arc paths and the clock are established, the diagonalization and Lucas algebra are standard. The new inference needed is realization of those products with exactly the cyclic compatibility constraint, including nonabsorbing recurrent states on bipartite marked cycles.",
+        "searches": [
+          "Compare Rouquier et al. Theorems 20 and 33 and the Resultary nearest Findings with frozen RESULT.md Proof 2–6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rouquier et al. Definition 2 uses the same closed-neighborhood rule; Definition 11 identifies equal-spin edges with particles and notes the absence of a cycle constraint for trees. Theorem 20 gives bare-cycle particle dynamics."
+        ],
+        "reasoning": "A particle on a bare odd cycle travels around the ring. Marked vertices with private leaves instead act as reflecting arc boundaries in recurrent classes; adjacent occupied arcs are excluded by an available strict energy drop. Neither dynamics nor class structure is preserved by dropping the leaves.",
+        "searches": [
+          "Resultary: partially whiskered cycles, stochastic minority attractors and parity-filtered path spectra",
+          "Focused literature query for ring-with-leaves, zero-temperature Ising/Glauber kink dynamics and attractors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b7fe633d0c54 is the audited finding itself. Distinct records 8c642dc522a7 (circular prisms, recurring singleton states), 941c7a5cf2e3 (wheels, two size-two classes for even rim length), and c2b299709af4 (cocktail-party graphs, parity-dependent gap) were compared at their mirrored Findings."
+        ],
+        "reasoning": "Their class structures and graph families do not restrict to the stated arbitrary partially marked cycles. The classical Lucas independence count is acknowledged and not itself a novel exact invariant.",
+        "searches": [
+          "Resultary lookups for minority-process recurrent classes, Lucas counts and parity relaxation spectra"
+        ]
+      },
+      "rationale": "The same stochastic minority rule, particle energy, tree matching description and bare cycle kink dynamics are prior art. The supported distinct claim is the parity-filtered recurrent-class realization on cycles with attached private leaves, including the arbitrary arc-length weights and the full discrete-time class spectra. No exact duplicate or mechanical implication was found in the inspected relevant sources. The theorem numbering in the inspected Rouquier et al. PDF is 20 and 33 for the cited cycle and tree statements; the frozen citation's 4.2 and 4.6 do not match that version.",
+      "residual_risks": [
+        "An equivalent unicyclic extension may exist in zero-temperature kink literature. The Grigoriev–Priezzhev annihilating-particle ring paper was identified from the RRT bibliography but its body was not inspected. The review does not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct methodological and special-family antecedent, not exact coverage",
+          "evidence": [
+            "Paths and bare cycles in Theorem 20; matching classification for maximum-degree-three trees in Theorem 33."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1011.5119",
+          "material_read": "PDF p. 2 introduction; p. 5 Definitions 2–3 at offset about 19400; p. 7 Definition 11 at 24200; p. 12 Theorem 20 at 40050; pp. 17–18 Theorem 33 at 55200",
+          "method": "Bounded OA primary PDF text and hypothesis comparison",
+          "title": "Stochastic Minority on Graphs",
+          "trigger": "Same update model, particle transformation, cycle and tree results"
+        },
+        {
+          "assessment": "Different graph and recurrent-class structures; none gives the whiskered-cycle formula",
+          "evidence": [
+            "Circular prisms give only absorbing classes; the wheel result includes hub-switching size-two classes; the exact-gap result is for cocktail-party graphs."
+          ],
+          "identifier_or_url": "Resultary 8c642dc522a7, 941c7a5cf2e3, c2b299709af4",
+          "material_read": "Three mirrored RESULT.md Findings, offset 0",
+          "method": "Local Resultary lookup and bounded mirror comparison",
+          "title": "Metastable energy census, Perrin attractor census, and parity transition in other minority graph families",
+          "trigger": "Nearby exact catalogued counts or gap claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It completely determines which recurrent dynamical phases survive and how each relaxes in a natural unicyclic family. The counts separate the effect of the number of marks from their geometry, and the exact product realization explains why a bipartite graph can support mobile non-ground-state recurrent classes. The same realization supplies all class relaxation modes and shows which intermark distance controls the gap, rather than restating a graph independence-set count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

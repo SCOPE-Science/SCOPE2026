@@ -1,12 +1,21 @@
-# Scientific review: parity-dependent rank-three hypercube-power theories
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is reconstructed for each fixed positive radius and all positive dimensions, in the pure undirected graph language. The exact pair-extension criterion is proved by splitting coordinates into differences and agreements. Every possible third-vertex pattern is characterized by elementary inequalities, including equality exceptions, the special distance-one common-neighbor case, and the far-distance boundary at twice the radius. Vertex transitivity makes the pair-profile set an exact rank-three sentence invariant, not a heuristic. Threshold comparisons derive the listed parity-dependent classes and prove the final class begins exactly at dimension \(2r+2\). The standalone verifier compares three formulations and agrees for the stated finite regression ranges. The unbounded step is mathematical, not experimental. Residual correctness risk is the absence of an independent external proof review.
+## correctness
 
-## Originality — PASS, qualified
-The graph powers themselves are well known. Fu–Ling–Xing (2010, arXiv:1001.2209) investigate general-radius coloring bounds, and Kokkala–Östergård (2016, arXiv:1607.01605) compute coloring structure at radius two; examined theorem statements, introductory scope and mathematical sections do not state the rank-three first-order phase diagram. Current mathematical-index queries for radius powers, quantifier rank, Hamming-distance graph equivalence and the parity cutoff did not return an equivalent result. The closest published research-index results concern Rips/Čech homology and binary-cube invariants, which do not determine sentence-equivalence classes. An accessible earlier hypercube rank-four classification entails one upper-tail special case at radius two via first-order interpretation, but not the general-radius seven/eight-class result or its sharp parity thresholds. These implication comparisons, rather than merely distinct titles, support the best-knowledge originality judgment. Residual risks include unindexed, inaccessible, or equivalently phrased literature and uncertain equivalent formulations in the literature.
+PASS
 
-## Value — PASS
-The classification is a natural complete bounded-rank invariant for every graph power of the binary hypercube, a coding-theoretic and network graph family. The general radius parameter is essential: the exact dimension cutoff grows linearly as \(2r+2\), the sharp representative order grows exponentially, and an additional middle logical class occurs for *every even radius* at a mathematically explained gap between two extension thresholds. Neither a one-case census nor the already known ordinary-cube theorem subsumes this structural parity law. It gives explicit finite representatives and rank-three distinguishing sentences (via complete extension profiles), with a plausible use as an exact small-depth baseline for Hamming-ball graphs. It does not claim algorithmic applications or higher-rank theorems.
+For a selected ordered pair, equality/adjacency and the set of four extension patterns for a third, distinct vertex give exactly the rank-one pair type. Vertex transitivity makes equality of profile sets sufficient for the three-round game; a differing profile can also be named by a rank-one formula with two free variables, then existentially closed. At pair distance h, the third distances are i+j and h-i+j. An interior balanced point gives the common-neighbor criterion for h>=2, and h=1 has a common neighbor only for r,d>=2. For a mixed extension of an adjacent pair with d>r, flip min(r,d-h) agreeing coordinates; for h=r+1 this works iff an agreeing coordinate exists, and for larger h one differing coordinate suffices. Maximizing the smaller of the two third distances gives d-ceil(h/2), exactly the threshold for a common nonneighbor. On d>=r+2 the switch to all edge profiles allowing a common nonneighbor is at r+ceil(r/2)+1, and the first near nonedge allowing one is at r+ceil((r+1)/2)+1. These coincide for odd radius and differ by one for even radius. At d=2r+1 the far pair lacks a common nonneighbor; for d>=2r+2 all far pairs have one, as do all near nonedges. At r=1 the edge common-neighbor exception yields four classes; at r=2 the early and late middle intervals are empty and the middle singleton remains. The complete-graph cases are separated by capacity for three distinct vertices. Thus the partition and the minimum largest in-family representative size 2^(2r+2) follow. The sentence 'Every row below is one equivalence class' should say every semicolon-delimited range in a radius row; the table and proof identify the intended partition unambiguously.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The distinct contribution is the fixed-radius all-radii classification, including the distinguishing boundary for the square, the parity-dependent middle regimes and the sharp general stabilization. The entire r=1 row is already present in a mixed Hamming graph classification, and the r=2 upper-tail equivalence follows from a cube rank-four classification; neither component should be credited as new. The inspected sources do not supply the higher-radius classification or imply it by the same translation.
+
+## value
+
+PASS
+
+Graph powering is a natural way of changing the geometry visible to a low-rank adjacency formula. The classification determines exactly how short formulas detect dimension, identifies a real even-radius intermediate phase, and makes the first possible stable representative sharp on both sides. The joint classification, not the recomputation of the ordinary-cube row or the mere finiteness of the profile set, supplies the value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

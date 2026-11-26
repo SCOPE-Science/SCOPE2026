@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:32:56.544187Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–49",
+        "Frozen VERIFICATION.md and verify.py",
+        "arXiv:2306.03459v4 Proposition 2.7 and Theorems 5.2–5.3",
+        "arXiv:2311.12462v1 §2",
+        "Independent residue-graph finite spot check"
+      ],
+      "rationale": "The published generators give multiplicity M+1 and e=k+1. The matching Apéry formula is N_{-j}=jM+(M+1)T(j), 0<=j<=M, where T counts greedy coins of sizes 2^i-1, 1<=i<=k. Summing the representatives and subtracting M/2 yields g=M(M-1)/2+sum T(j). The k-1 lower digits have sum at most k: each is at most two and any two in a higher position forces smaller digits to vanish, so at most one digit is two. The top digit is at most one because M<=2^(k+1)-2^n<2(2^k-1). Thus g<=M(M-1)/2+(k+1)M. The residue -M gives c>=M²+(T(M)-1)(M+1)+1>=M²+1. As ν=c-g, the Wilf number is kc-(k+1)g and substitution yields exactly the frozen polynomial. Dividing its linear coefficient by k-1 gives 2k+5+6/(k-1)<=4n+5<M (k>=4, k<=2n-1, M>=3*2^n; the last inequality holds at n=3 and persists by induction). This proves strict positivity on the full parameter domain. Independent residue shortest-path spot checks with a generator list extending above k covered five odd parameters including n=3,m=3 and n=3,m=7. The first gave g=334,c=652, margin 938 versus bound 328; the latter 1706,3309,6309 versus 4429. Replay: python3 -I /tmp/opencode/frozen_audit_small_checks.py, proth(). Frozen code was inspected, not run.",
+      "residual_risks": [
+        "Finite checks do not prove the odd-parameter family; the proof uses the published exact structural theorems. Neither m=1 nor sharpness of the lower bound is audited."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published Proth Apéry and genus theorems apply throughout the given odd-parameter domain, and §2 of the Proth paper establishes e=k+1 there. The exact results have strictly more information than the frozen lower bound.",
+          "Sammartano's condition 2e>=mult(S) and Eliahou's condition c<=3mult(S) do not apply: 2e<=4n<M+1 and c>=M²+1>3(M+1). No full-family hypothesis for the type criterion t<=e-1 was supplied by the inspected source."
+        ],
+        "reasoning": "General Wilf sufficient criteria are not the covering result in this case. The published family-specific exact theorems and digit restriction are.",
+        "searches": [
+          "arXiv:2306.03459v4 Proposition 2.7, Theorems 5.2–5.3",
+          "arXiv:2311.12462v1 §2, PDF Theorem 4",
+          "arXiv:1111.1863 Theorem 18",
+          "JEMS article 15545; arXiv:2608.12531v1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2306.03459v4",
+        "arXiv:2311.12462v1",
+        "arXiv:1111.1863",
+        "JEMS article 15545",
+        "arXiv:2608.12531v1",
+        "Local Resultary 3d7d025a4f57, 2567ff2a834f and 80be073d2033"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With the published digit rules and the parameter inequality M<2(2^k-1), T(j)<=1+[(k-1)+1]=k+1. The published genus formula then gives the exact quadratic upper envelope used in the frozen proof. The published representative at j=M gives c>=M²+1 because T(M)>=1.",
+          "Substituting into kc-(k+1)g gives ((k-1)M²-(k+1)(2k+1)M+2k)/2 without an additional semigroup assertion. Positivity is scalar algebra from the fixed parameter range.",
+          "The later exact Frobenius formula also gives c>=M²+1 directly since the binary weight h of an admissible m is at least two and its greedy expansion count and smallest occupied index are positive."
+        ],
+        "reasoning": "Unlike an unevaluated possibility of deriving something from generic semigroup machinery, these are the identical decisive numeric bounds from the actual earlier formulas and a digit bound in the same paper. The prior special-case Wilf theorem and the later exact Frobenius calculation are separate comparisons, neither being needed for that implication.",
+        "searches": [
+          "arXiv:2306.03459v4 Proposition 2.7 and Theorems 5.2–5.3 (actual formulas and digit restrictions)",
+          "arXiv:2311.12462v1 PDF §2 Theorem 4 and §6 Theorem 9",
+          "Resultary 2567ff2a834f RESULT.md local-mirror offset 347"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The count of left elements including 0 is c-g, so the conductor/genus, left-element and Wilf-number formulations agree exactly.",
+          "Srivastava–Thakkar give strict qualitative Wilf for m=2^r+1 through the type bound; the general type route c<=(t+1)(c-g) would need its own type hypotheses on the rest of the family."
+        ],
+        "reasoning": "The aliases do not change the mathematical assertion. The prior strict subfamily result is not an equivalent theorem on the full domain; full-domain coverage instead follows from the exact structural data.",
+        "searches": [
+          "Local Resultary: arbitrary odd Proth parameters, strict Wilf number e(c-g)-c, Apéry and genus bounds",
+          "arXiv:2311.12462v1 §6; arXiv:2608.12531v1 pp. 1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier record 3d7d025a4f57 determines the Frobenius number only at binary weight seven. The strongest same-family match 2567ff2a834f gives an exact Frobenius number and unique maximal Apéry residue on the frozen domain, but is dated October 25, after the October 18 filing. Record 80be073d2033 supplies a type lower bound for coefficient 7, not a uniform upper bound."
+        ],
+        "reasoning": "The later exact-c result plus known genus and e determine the exact Wilf number, hence provide more data than a table of margins, without establishing earlier priority. Earlier disqualifying coverage is from the published family formulas, not a claimed literal table match.",
+        "searches": [
+          "Local Resultary exact Proth Wilf margin, Frobenius, genus, type; opened records 3d7d025a4f57, 2567ff2a834f and 80be073d2033"
+        ]
+      },
+      "rationale": "The exact polynomial was not located verbatim, but is a direct uniform corollary of earlier stronger results on this same family. The exact genus/Apéry formulas, their published digit restriction, and the known embedding dimension already entail the stated polynomial by the elementary upper sum and single-residue lower estimate below. No new extremal Apéry or genus information or additional nonstandard structural lemma is needed. This is demonstrated prior coverage by implication, not an assertion that the exact inequality was printed in the earlier paper.",
+      "residual_risks": [
+        "The comparison does not establish who first wrote down this exact polynomial. The rejection rests on an explicit derivation from earlier stronger results, not on inability to find a verbatim antecedent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger exact data directly imply the frozen margin with the published embedding dimension.",
+          "evidence": [
+            "N_{-j}=jM+(M+1)T(j); g=M(M-1)/2+sum T(j); the lower greedy digits are at most two and a digit two excludes all lower digits."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.03459v4",
+          "material_read": "Proposition 2.7 (p. 6, offset 21263) and Theorems 5.2–5.3 (pp. 16–17, offsets 59500 and 61200).",
+          "method": "Read primary statements and combined their formulas with the stated digit restrictions to derive the frozen bounds.",
+          "title": "On the Frobenius Number and Genus of a Collection of Semigroups Generalizing Repunit Numerical Semigroups",
+          "trigger": "Exact earlier Apéry and genus theorems on the same parameter domain."
+        },
+        {
+          "assessment": "Embedding dimension is known for the full family; the explicitly stated strict Wilf result uses a proper subfamily.",
+          "evidence": [
+            "e=n+floor(log2 m)+1; the Wilf theorem specializes to m=2^r+1 and uses type n+r-1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2311.12462v1",
+          "material_read": "PDF §2 Theorem 4 (p. 5, offset 12850), §6 Theorem 9 (p. 13, offset 34150), corresponding to the section-qualified citations in the frozen report.",
+          "method": "Read the theorem hypotheses, formulas and type-based Wilf argument.",
+          "title": "The Frobenius Problem for the Proth Numbers",
+          "trigger": "Same exact family and closest published Wilf theorem."
+        },
+        {
+          "assessment": "Neither hypothesis holds in the audited range.",
+          "evidence": [
+            "Sufficient conditions are respectively 2e>=mult(S) and c<=3mult(S)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1111.1863; https://ems.press/journals/jems/articles/15545",
+          "material_read": "Sammartano Theorem 18, PDF p. 10, offset 18021; Eliahou p. 1, offset 65.",
+          "method": "Compared explicit sufficient conditions with the growth of multiplicity and conductor.",
+          "title": "Numerical semigroups with large embedding dimension satisfy Wilf's conjecture; Wilf's conjecture and Macaulay's theorem",
+          "trigger": "Potential stronger general theorems proving the relevant Wilf claims."
+        },
+        {
+          "assessment": "Does not supply the required uniform type upper bound in the inspected passages.",
+          "evidence": [
+            "c<=(t+1)(c-g) suffices for Wilf if the type t is at most e-1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.12531v1",
+          "material_read": "Abstract and pp. 2–3, offsets 126, 5841 and 10066.",
+          "method": "Compared the type-based condition, including the cited Fröberg–Gottlieb–Häggkvist inequality, with the available family bounds.",
+          "title": "Marashdeh, general type and Wilf bounds via Apéry-poset redundancy",
+          "trigger": "Recent broader criterion from primary literature lookup."
+        },
+        {
+          "assessment": "Later stronger structural data, not evidence of earlier publication or the source of the disqualification.",
+          "evidence": [
+            "F=M²+(h+d-1)M+(h+d+t-2) in terms of binary weight h and the count d and least index t of its greedy representation; c=F+1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-frobenius-numbers-for-all-nontrivial-odd-parameter-proth-s--2567ff2a834f/RESULT.md",
+          "material_read": "Finding, assumptions and published Apéry reduction, local mirror offset 347, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "method": "Read the exact Frobenius formula and compared the matching family and the weaker frozen conductor estimate.",
+          "title": "Exact Frobenius numbers for all nontrivial odd-parameter Proth semigroups",
+          "trigger": "Strongest same-family catalogue match."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and limitations",
+        "arXiv:2311.12462v1 §6",
+        "arXiv:2306.03459v4 §5"
+      ],
+      "rationale": "Wilf's inequality across the full nontrivial odd Proth family is a natural question going beyond the parameters in the earlier explicit Proth Wilf theorem. A positive uniform algebraic margin can be useful as a documented corollary without needing exact Frobenius maximization. This utility does not make it a distinct finding when the complete implication from existing structural results is so direct.",
+      "residual_risks": [
+        "The polynomial is deliberately nonsharp and neither extends to arbitrary numerical semigroups nor establishes an equality classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

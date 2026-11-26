@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:57:04.033888Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, table and proof §§1–4; VERIFICATION.md; profile8192.csv, profile.cpp and verify_endpoints.cpp (inspected, not executed)",
+        "Fresh replay /workspace/branches/5967c256-3a34-4c99-848e-b29c246477f7/reproduce_baum_sweet.py and output full.out: REPRODUCTION_OK endpoints=50 rows=25"
+      ],
+      "rationale": "The review reproduction starts with the ordinary binary zero-run criterion, b_0=1. At each of the 50 endpoints it scans starts in increasing order and resolves candidate equalities by exact byte comparison, so fingerprint collisions cannot alter the first match. Every (R,P) pair in the frozen table is reproduced, including the largest R=24576 at n=8192, whose last needed bit is at index 32767. A length-b witness is also a witness at every length <=b, and no length-a collision before the certified R can become a collision at any length >=a. Hence each interval [a,b] has its stated first repeat, and P agrees throughout because at the first collision two earlier matches are impossible. The intervals are consecutive, cover exactly 1..8192, and each adjacent pair of rows differs, giving maximality within that domain.",
+      "residual_risks": [
+        "Correctness is only for the specified finite domain; the scale patterns in the table are not proved for larger lengths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper states its exact formula cases as Thue–Morse, Fibonacci and Tribonacci. The exact same-word indexed hits give general or dyadic results for different invariants."
+        ],
+        "reasoning": "Neither other-word formulas nor all-length bounds for a different invariant dominate the reviewed finite domain.",
+        "searches": [
+          "Local Resultary for Baum–Sweet and exact complexity",
+          "Nicholson–Rampersad, arXiv:1507.08206, abstract and main-results overview"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary nearest same-word findings 0753f1e5db42 and 0653545412cc",
+        "Nicholson–Rampersad arXiv:1507.08206"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The four-state presentation and digit criterion specify the symbols; the neighboring formulas give Fibonacci one-count or universality results, not repeat starts."
+        ],
+        "reasoning": "The presentation makes an exact experiment possible but does not state the endpoint values or certify the absence of earlier collisions. The inspected formulas do not reduce to either R or P for this word.",
+        "searches": [
+          "Resultary 0753f1e5db42, Finding and four-state presentation",
+          "Resultary 0653545412cc, Finding and assumptions",
+          "Nicholson–Rampersad arXiv:1507.08206"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The number of distinct starts before the first repeated window is the zero-indexed repeat start R. The same-word Resultary findings at 0753f1e5db42 and 0653545412cc use letter counts or subsequence realization rather than letterwise equality at earlier starts."
+        ],
+        "reasoning": "A normalization shift does not turn those invariants into the exact first-collision count or its predecessor. Equal Parikh vectors do not force equality of factors, and subsequence universality does not track contiguous starts.",
+        "searches": [
+          "Local Resultary, Baum–Sweet first collision and initial non-repetitive complexity",
+          "Primary literature query, Baum–Sweet initial non-repetitive complexity; Nicholson–Rampersad arXiv:1507.08206, definitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact matching R/P table was retrieved. The local neighboring records' Findings explicitly define Parikh-vector complexity and prefix subsequence universality instead."
+        ],
+        "reasoning": "Overlap of the same Baum–Sweet prefix, initial conditions or powers of two does not provide values of R and P. The bounded search is not proof that no such table exists.",
+        "searches": [
+          "Local Resultary, Baum–Sweet exact initial first-repetition and previous-match profile",
+          "Primary-literature discovery for Baum–Sweet first repetitions"
+        ]
+      },
+      "rationale": "No equivalent finite table, explicit covering formula or sequence-specific implication was found in the inspected sources. Same-word work concerns Parikh vectors or scattered subsequences, and same-invariant work gives formulas for other words. The standard word definition and generic finite search do not supply the 25 exact intervals or their witnesses without an additional mathematical computation. The pass is restricted to the demonstrated finite classification.",
+      "residual_risks": [
+        "A different term or an unindexed sequence-specific formula could cover the finite table; the searches are not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same invariant, exact formula cases for other words",
+          "evidence": [
+            "Lists Thue–Morse, Fibonacci and Tribonacci as the computed formula cases."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1507.08206",
+          "material_read": "Abstract and main-results discussion, PDF pp. 1–3",
+          "method": "Open-access PDF text",
+          "title": "Initial non-repetitive complexity of infinite words",
+          "trigger": "Primary source on the same invariant"
+        },
+        {
+          "assessment": "Same coding, different invariant",
+          "evidence": [
+            "Exact dyadic maximum number of ones and number of Parikh vectors, not positions of exact first repeated factors."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-dyadic-abelian-complexity-and-fibonacci-growth-of-the-baum--0753f1e5db42/RESULT.md",
+          "material_read": "Finding, assumptions and proof §1, offsets 0–2670",
+          "method": "Local mirrored full-text passages",
+          "title": "Exact dyadic abelian complexity and Fibonacci growth of the Baum–Sweet word",
+          "trigger": "Closest same-word dyadic indexed result"
+        },
+        {
+          "assessment": "Analyzes a different prefix invariant",
+          "evidence": [
+            "The formula asks whether all words of each length are realized as order-preserving, possibly noncontiguous subsequences."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-scattered-subsequence-universality-and-fibonacci-growth-of--0653545412cc/RESULT.md",
+          "material_read": "Finding, assumptions and proof §1, offsets 0–2700",
+          "method": "Local mirrored full-text passages",
+          "title": "Exact scattered-subsequence universality and Fibonacci growth of Baum–Sweet prefixes",
+          "trigger": "Indexed exact classification of an initial invariant for the same word"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, 25-row table and finite scope",
+        "Nicholson–Rampersad arXiv:1507.08206, invariant and exact classifications for other words"
+      ],
+      "rationale": "Baum–Sweet is a canonical automatic word, and the initial repeat threshold measures a different aspect of its prefixes than ordinary or Abelian factor complexity. The complete finite profile through 2^13 crosses many binary scales and resolves exact transition positions, alternating earlier-index patterns and the short exceptions. For example, the upper endpoint of a plateau can shift by one past three halves of the preceding power of two (1537 versus the unshifted 3072 at the next scale). Those exact boundaries and predecessors form a benchmark for any proposed structural or all-length formula; selected sample lengths or the leading scale alone could miss them.",
+      "residual_risks": [
+        "The dyadic cutoff is useful as a finite benchmark, not an intrinsic endpoint or evidence sufficient to settle an all-length conjecture."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

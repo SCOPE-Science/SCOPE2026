@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite-field linear kernel is fully characterized by parity of ring length. For even length, a kernel shift invalidates an edge precisely when its shift parameter meets the edge's signed difference; this gives fiber degree \(5-|\mathrm{supp}(z)|\). The alternating-sum closure condition and the five-to-one choice of starting color are bijective, not heuristic. Additive-character orthogonality calculates every support-size count, and inclusion-exclusion converts it to output multiplicities. Every boundary \(n\ge2\), including the two-position case, is covered. Independent full-input enumeration through length eight and the exact arithmetic identities through length 201 agree with the theorem. The verifier is self-contained; finite enumeration is not misused as an all-length proof.
+PASS
 
-## Originality — PASS (with residual risks)
+The kernel recurrence h[i+1]=−h[i] gives zero kernel at odd length; the proper-coloring transfer matrix has trace 4^n−4 then. At even length the unrestricted image is the alternating-sum hyperplane. In an affine fiber with a proper source, the shift t makes edge i improper precisely at t=z_i, so a support of size r leaves 5−r valid shifts. Alternating-sum closure of z is both necessary and sufficient, with five choices of starting symbol. At each two-letter support, the nontrivial squared Fourier magnitudes of 1+ζ^(a d), d≠0, are (3±√5)/2 twice each. A three-letter support omits one nonzero letter and has the same nontrivial magnitudes. The one- and four-letter cases give E₁=1 and E₄=(16^m+4)/5. Subset inversion gives T₁=4, T₂=6E₂−12, T₃=4E₃−12E₂+12, T₄=E₄−4E₃+6E₂−4; source incidence (5−r)A_(2m,5−r)=5T_r then reproduces all four counts. Constant outputs are precisely the degree-four fibers. The image sizes for n=2,4,6 are 5,125,2765, with the first deficit 3125−2765=360. The leading nonsingleton term is 2·9^m, while the image is asymptotic to 16^m. Direct exact enumeration in /workspace/branches/8afd4b80-ce2a-40f7-b17b-af00d46900be/check_inverse_spectrum.py reproduced the histograms for n=2–8, including (1620,960,180,5,0) at n=6. This is finite corroboration. The supplied checker was inspected, not executed.
 
-The nearest source readings concern binary overlapping integer histograms, unordered composition multisets, reconstructing from partial-overlap substrings, unrestricted additive cellular-automaton preimage periods, and insertion/deletion code construction. None of their inspected statements asserts the complete mod-five proper-coloring inverse-list distribution. Related earlier records on integer weighted reads and Fourier Gram spectra of proper colorings were compared by the mathematical quantities they determine, not only by their titles. The reduction to a constrained additive-character support enumerator is not a consequence of the unrestricted kernel count alone. This remains a best-knowledge priority assessment, not proof of uniqueness against all publications. An unindexed equivalent in group-coloring or Potts-model language remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-Exact reconstruction-fiber multiplicities for a natural local additive observation on constrained finite-alphabet signals give more than an injectivity statement: all four positive fiber sizes, their all-length counts, explicit exceptional constant outputs, first loss of feasibility within the linear image, and two distinct asymptotic regimes. Five is the smallest odd prime after the ternary case at which four distinct positive degrees can occur. The precise invariant is motivated by finite-state constrained encoding and ambiguous local signal reconstruction; it is not an arbitrary finite table or a tiny improvement to a known bound.
+Best of current knowledge, the complete indexed, proper-source F₅ list spectrum and first exact loss of feasible outputs are distinct. The exact mirror match is the assigned record, not corroboration. The closest indexed cyclic sums are ordinary integer sums with unrestricted input, and the accessible literature uses other observation models or counts unrestricted preimage periods. The novelty assessment concerns exact counts, not the standard shift kernel or Fourier tools.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The natural recovery question is not answered by the even-length kernel size: actual fibers range from empty to four and most attainable outputs are asymptotically unique. The complete exact distribution determines ambiguity at each length and identifies both a concrete feasibility boundary and the five most ambiguous observations. The support constraint and its Lucas contribution make this more than a rank or small-case computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

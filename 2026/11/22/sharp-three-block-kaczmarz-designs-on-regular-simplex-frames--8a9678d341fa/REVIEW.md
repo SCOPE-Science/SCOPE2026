@@ -1,20 +1,21 @@
-# Scientific review: sharp three-block regular-simplex Kaczmarz design
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact one-step error reduction is the least eigenvalue of the probability-weighted sum of orthogonal row-block projectors. The proof verifies the block projection quadratic form for centered coordinate vectors, decomposes all directions into internal contrasts and a two-dimensional block-mean subspace, and computes the latter's determinant exactly. Every three-block size profile is covered: zero, one, or two singleton blocks. Two independent Rayleigh bounds certify the globally best profile, while strict determinant monotonicity certifies the one-singleton optimum and rules out all remaining alternatives. Equality conditions identify all optimal partitions and probabilities. The standalone exact checker passed 218 assertions (including symbolic identities and full rational characteristic polynomials). These finite computations are supplemental, not the infinite proof.
+## correctness
 
-## Originality — PASS, with publication-priority qualification
-Needell–Tropp (2012) introduce uniform-block randomized Kaczmarz and paving-based convergence bounds, but not joint optimization of a simplex-frame partition and its nonuniform block probabilities. Needell–Zhao–Zouzias (2014) extend related randomized block methods to inconsistent data, not this three-block min-eigenvalue optimizer. Gower–Richtárik (2015) explicitly provide the general expected-projection spectral objective and an optimal-probability semidefinite program for fixed candidate samples: their general problem includes this example, but the examined sections do not state or derive the present all-size-profile exact solution and equality classification. Indexed comparison results on simplex row-level probability sampling, block-size noise amplification, and regular-simplex reshuffling address distinct objectives or sampling families. The new contribution is an exact solution of a natural, sharply specified joint discrete-continuous design problem, not the underlying projection method or spectral formulation. Equivalent results in uninspected specialty literature are possible, and published comparison results accessible only through summaries were not treated as exhaustive full-text exclusions.
+PASS
 
-## Value — PASS
-The theorem classifies the unique optimal *shape* of a three-block partition for every simplex size and gives exact best rates even when the size profile is constrained. It exposes a concrete and somewhat counterintuitive structural distinction between block conditioning-oriented balanced pavings and one-step minimax projection coverage: one large block and two singletons win over all balanced partitions for this objective. It also quantifies the gap, \(2/[3(3m-2)]\) relative to uniform three-block sampling. This is a motivated exact experimental-design benchmark for block randomized projection methods, not a claim of lower computational expense per iteration.
+On the error space H=1⊥, the kernel of a block projection consists of vectors vanishing on that block. Projection preserves the in-block coordinates and distributes their negative sum uniformly outside, verifying the displayed quadratic form. The phrase 'solution space' at RESULT.md line 28 means the ambient error space in the calculation; the actual consistent solution set is a point. Internal block contrasts give eigenvalues p_j for nonsingleton blocks. On the two-dimensional block-constant subspace the projection axes are normalized centered block indicators, and their squared mutual inner products are s_i s_j/[(m−s_i)(m−s_j)]. This verifies the stated determinant for the trace-one mean operator. With two singletons the opposite-singleton test and the large-block contrasts give min(x,m(1−x)/(2(m−1))) as an upper bound. Its unique maximum is t1; equal singleton masses make the tested unit vector an eigenvector of value t1, and the other mean eigenvalue is 1−t1. Conversely equality makes that test vector an eigenvector, and its mixed entry with the other mean direction is a nonzero multiple of the singleton mass difference. With one singleton the mean determinant is strictly decreasing in both large-block masses once both are at least 1/3: in the displayed notation K>B0,C0. At x=y=t2=(m+1)/(3m+1) the determinant equals t2(1−t2). The trace-one eigenvalue criterion and contrast lower requirements force these masses uniquely, and verify attainability. With no singletons all three contrasts bound the rate by min p; uniform masses attain 1/3 since the normalized projections of the orthonormal block indicators contribute at least the identity before multiplying by 1/3. Strict ordering and choosing the pair of singleton row indices yield the global classification and count, also at m=4 where only the two-singleton profile exists. The frozen symbolic/rational checker was inspected but not executed; all-m correctness is analytic.
 
-## Closest sources and limitations
-- Needell and Tropp, *Paved with Good Intentions*, arXiv:1208.3805, 2012, relevant algorithm, theorem, proof and paving sections inspected.
-- Needell, Zhao and Zouzias, *Randomized Block Kaczmarz Method with Projection for Solving Least Squares*, arXiv:1403.4192, 2014, relevant formulation and convergence sections inspected.
-- Gower and Richtárik, *Randomized Iterative Methods for Linear Systems*, arXiv:1506.03296, 2015, especially Sections 3.5 and 5.1 inspected; general rate optimization is prior art.
-- Relevant indexed related claims address row sampling on simplex frames, noisy size-based block sampling, and reshuffling, rather than the complete three-block partition optimization.
+## originality
 
-The result does not establish multi-step optimality, computing-time superiority, approximate-solve robustness, or precedence against all research literature. Verification is same-model only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp worst-error projection criterion and general probability optimization are prior techniques. The supported novelty is the explicit joint partition-and-mass optimum, the strict ordering of every three-block profile by its number of singleton blocks, and the uniqueness in each case for this frame and step metric. No distinct inspected statement covers that conjunction. Passage access is limited, so this is not a priority finding.
+
+## value
+
+PASS
+
+This is a natural exact randomized projection design problem on a symmetric tight frame. At equal per-step cost, the sharp guarantee selects the most unbalanced partition and a unique nonuniform mass assignment, and the fixed-profile classification shows exactly which structural change improves the bottleneck. That qualitative design statement is more informative than the small asymptotic gain over uniform masses. It does not assert computational-cost, least-squares noise, or multistep optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

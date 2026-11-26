@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:15:51.134423Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–64, analytic criterion, concavity and switch conditions",
+        "Frozen VERIFICATION.md and CHECK.py, inspected without running uploaded code"
+      ],
+      "rationale": "Conditional independence multiplies the no-call probabilities; subtracting the two gives J=e^{-Bb}(1-e^{-Ba}). Budget fractions yield exactly the convex hull of modality points. Since J increases strictly with a and decreases strictly with b, its optimum lies on the efficient lower increasing chain between the highest-signal minimum-background point and the lowest-background maximum-signal point. After merging collinear segments the slopes are strictly increasing. On the chain, log J is strictly concave (the log signal term has second derivative -B^2 e^{Ba}/(e^{Ba}-1)^2 and -Bf is concave). Its derivative divided by B is 1/(e^{Ba}-1)-s_j on edge j. Thus Ba=c_j on a mixed edge, and the one-sided derivatives at a vertex give exactly the displayed closed interval. Because c_j decreases strictly and a_j increases, the positive-length pure and mixed regimes join in order without skipping a vertex or producing a tied effective optimum at a boundary. Two adjacent retained vertices suffice, while equivalent allocations involving duplicate or collinear rates need not be unique. The singleton hull is immediate. For the example the slopes are 3/10 and 3/4; a_j=j, b_j=j^2 produces strictly increasing slopes and realizes the claimed sharp count for any r.",
+      "residual_risks": [
+        "The four asserted switch-budget checks in CHECK.py lines 108–112 only test nonnegativity of the best score, not the optimal rate or phase at the switch. The exhaustive-pair check is independent of the hull extraction, not of the reused edge-stationarity formula. The exact switch proof is analytic.",
+        "Fixed population Youden, a pooled OR rule, divisible deterministic effort, known positive rates, and conditional independence are essential scope restrictions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The vector Poisson study chooses one of three sensing configurations against a Bayes objective. Clement numerically minimizes mean square error of estimated occupancy over samples and survey types.",
+          "The Stone abstract describes mean time to find a stationary target and broad search/contact investigation effort. The indexed selective-testing hull is an information-cost optimization."
+        ],
+        "reasoning": "A generic concavity/hull theorem provides boundary optimality and an optimality condition; it does not already supply the budget trajectory with the explicit logarithmic transitions. None of the inspected allocation theorems has the same feasible deterministic hull and the same marginal condition 1/(exp(Ba)-1)=s.",
+        "searches": [
+          "arXiv:2201.07915v1",
+          "10.1111/2041-210X.12617 (USGS abstract)",
+          "10.1137/0123002; title-specific false-target search",
+          "Resultary selective-testing hull record"
+        ]
+      },
+      "checked_sources": [
+        "Resultary self-match and two analogous records above",
+        "arXiv:2201.07915v1, primary §§2 and 4-A",
+        "USGS publication 70179256, abstract",
+        "10.1137/0123002, indexed abstract and alternate scan access attempt",
+        "10.1002/ecm.1617, failed full-text access"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The selective-testing identity is Gamma_h(T,N)=N L_h(T/N), not a stationary point equation for exp(-Bb)(1-exp(-Ba)).",
+          "Bayes design for labelled count observations, stopping under false-target search, and estimating occupancy with repeat surveys use different optimization criteria as specified in the inspected primary text or abstract."
+        ],
+        "reasoning": "The adjacency/two-mode property is shared convex geometry. It does not force which edge is optimal, interior weights, endpoint switch budgets, or positive vertex plateaus. Those follow jointly from the precise log-Youden derivative and the ordered slopes for the frozen design.",
+        "searches": [
+          "2026/10/4/SCOPE-exact-finite-hull-solution-of-the-selective-ai-human-testing-ben--77c02e9d3799, RESULT.md offsets 0–8686",
+          "arXiv:2201.07915v1 §§2 and 4-A",
+          "10.1137/0123002; 10.1111/2041-210X.12617"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first record is the exact self-match. The selective-testing record gives an information-cost hull and two-mode optimum, and the stopped-survey record compares two block orders under expected stopped labour.",
+          "Fahad–Fuhrmann optimize an observation vector and four-state decision; Youden for a fixed binary decision is equivalent to an affine transform of balanced accuracy, but that is not their decision problem."
+        ],
+        "reasoning": "Changing the names of the axes of a hull does not preserve the nonlinear Poisson score or its gradient. Pooled thresholding is a noninvertible coarsening of the count vector; optimizing an unconstrained multi-hypothesis decision with different data does not give the optimizer under this forced rule. No equivalent cutoffs follow from averaging regimes in those models.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-an-exact-budget-staircase-for-poisson-alarm-detectors-with-false--baf53e31123a",
+          "2026/10/4/SCOPE-exact-finite-hull-solution-of-the-selective-ai-human-testing-ben--77c02e9d3799",
+          "2026/11/2/SCOPE-a-prevalence-threshold-and-posterior-reversal-for-two-stopped-ec--5af99de64117",
+          "arXiv:2201.07915v1, §§2 and 4-A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only the identical indexed record gives the same 2r-1 total and cutoffs among the inspected matches. Clement reports optimal designs for scenarios; the vector Poisson objective is for three specific sensing configurations."
+        ],
+        "reasoning": "An optimal design table for a different loss, or a computed optimum for isolated cases, does not tabulate the arbitrary-hull Poisson OR budget staircase. The frozen three-point example is a witness to the theorem, not the primary originality claim.",
+        "searches": [
+          "Resultary same-title self-match and selective-testing and stopped-survey analogues above",
+          "USGS publication 70179256, abstract items 1–3",
+          "arXiv:2201.07915v1 §§2 and 4-A"
+        ]
+      },
+      "rationale": "The supported claim is the sharp ordered schedule of exact pure and mixed effort regimes for this Poisson OR/Youden objective, not two-point convex-hull reduction, Youden scoring, or Poisson allocation in general. The closest actual allocation and false-positive design objectives differ in observables, losses or feasible controls. Abstract-level historical comparisons have the limitations noted below.",
+      "residual_risks": [
+        "The full Stone, Clement and Udell texts were not independently read. The primary objective differences established in the available material do not rule out a tangential equivalent subresult elsewhere. No global priority claim is supported."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close allocation model, not the pooled binary Youden design",
+          "evidence": "Two binary inputs yield four hypotheses; three labelled count channels are retained and the allocation minimizes multi-hypothesis Bayes risk.",
+          "identifier_or_url": "https://arxiv.org/html/2201.07915v1",
+          "material_read": "Sec. 2 HTML offsets 6200–13798; Sec. 4-A offsets 33100–40242",
+          "method": "Bounded OA primary passages",
+          "title": "Sensing Method for Two-Target Detection in Time-Constrained Vector Poisson Channel",
+          "trigger": "Primary Poisson sensing-time allocation with a decision objective"
+        },
+        {
+          "assessment": "Verified abstract-level difference in objective and controls; no whole-document claim",
+          "evidence": "The author states that numerical designs minimize mean square error of the occupancy estimate, choosing sample units and the number/type of surveys, not fixed-state Youden.",
+          "identifier_or_url": "https://pubs.usgs.gov/publication/70179256; DOI 10.1111/2041-210X.12617",
+          "material_read": "USGS abstract items 1–3, extraction offsets 0–2071; primary article full text not accessed",
+          "method": "DOI access attempts, then public author-agency bibliographic page via OA website mode",
+          "title": "Designing occupancy studies when false-positive detections occur",
+          "trigger": "False-positive survey-mode allocation"
+        },
+        {
+          "assessment": "Abstract establishes an objective difference, not a whole-document exclusion",
+          "evidence": "The indexed abstract gives minimization of mean time to find a stationary target, with broad search and contact investigation; this is not the frozen fixed-budget criterion.",
+          "identifier_or_url": "https://doi.org/10.1137/0123002; https://www.jstor.org/stable/2099618",
+          "material_read": "Indexed abstract passages only; article PDF at metsci.com was image-only for OA extraction and not read",
+          "method": "Title-specific web search plus lawful alternate PDF direct/VPN attempts; JSTOR access did not produce full text",
+          "title": "Optimal Search in the Presence of Poisson-Distributed False Targets",
+          "trigger": "Historical Poisson search effort with false targets"
+        },
+        {
+          "assessment": "Motivating study; detailed treatment not independently verified here",
+          "evidence": "Title concerns estimating abundance and trends; frozen record describes a count-inference model, not a reported budget-optimum schedule.",
+          "identifier_or_url": "https://doi.org/10.1002/ecm.1617",
+          "material_read": "Title/metadata and frozen description, not independent full text",
+          "method": "Publisher/DOI access attempts, including configured alternate route, returned 403",
+          "title": "Using mobile acoustic monitoring and false-positive N-mixture models to estimate bat abundance and population trends",
+          "trigger": "Same ecological motivation; possible overlap in observation modeling"
+        },
+        {
+          "assessment": "Material convex-hull analogue, not an equivalent objective",
+          "evidence": "An information-cost lower hull supplies a value function and at most two modes, without the Poisson rate objective or logarithmic switch budgets.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-finite-hull-solution-of-the-selective-ai-human-testing-ben--77c02e9d3799",
+          "material_read": "Local RESULT.md offsets 0–4491 and 4200–8686, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and bounded local-mirror reading",
+          "title": "Exact finite-hull solution of the selective AI-human testing benchmark",
+          "trigger": "Exact finite hull and two-mode optimizer"
+        },
+        {
+          "assessment": "Different stopping rule optimization and parameter",
+          "evidence": "Compares two block orders by expected labour and prevalence threshold; no optimization of simultaneous modality fractions for a pooled Youden score.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-prevalence-threshold-and-posterior-reversal-for-two-stopped-ec--5af99de64117",
+          "material_read": "Local RESULT.md offsets 0–4254 and 4200–8517",
+          "method": "Resultary search and bounded local-mirror reading",
+          "title": "A prevalence threshold and posterior reversal for two stopped ecological surveys",
+          "trigger": "First-alarm ecological design analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, complete phase schedule and sharp examples",
+        "Clement abstract and Fahad–Fuhrmann primary design comparison"
+      ],
+      "rationale": "For a specified detector rule and meaningful false-alarm tradeoff, the result answers a design question across all budgets rather than just writing optimality equations or identifying a two-mode upper bound. It tells a planner when mixing is strictly needed in the reduced representation, proves every exposed vertex has a positive-length pure regime, gives the widths of those regimes, and supplies an exact benchmark for testing adaptations of sensing-time optimization. The sharp schedule is the substantive contribution, not routine differentiation of one fixed objective.",
+      "residual_risks": [
+        "This is an idealized design benchmark, not a prescription for a real survey with unknown correlated rates, startup costs, count-vector decisions, or prevalence-dependent loss."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

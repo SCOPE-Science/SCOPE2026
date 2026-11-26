@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:09:09.334321Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–48; independent residue-tail, generalized recurrence and band endpoint checks",
+        "Frozen VERIFICATION.md and CHECK.py, inspected without executing the uploaded code"
+      ],
+      "rationale": "The outer mate is (1-z^m)/2 with a positive constant term. The plus-function relation gives tail sums on each residue class: the coefficient of f is t_j-t_(j+1) and that of f^+ is t_j+t_(j+1). Thus the canonical H(b_m) weights on the tail sequence are 2 at j=0 and 4 thereafter. In the Dirichlet quotient the monomial contribution is min(p,q) times a phase; the probability root average removes different residues and yields r+m min(i,j) for p=r+mi, q=r+mj. This gives the Dirichlet tridiagonal form with diagonal r+1,m+2,m+2,... and off-diagonal -1. The tail forms are equivalent on polynomial cores and completion identifies the same functions via their Hardy coefficients. The relative self-adjoint operator has a constant-coefficient tail with band [m/4,(m+4)/4] and only a finite-rank boundary change. Outside the band a decaying geometric tail satisfies 4 lambda=m+2-q-q^(-1), 2 lambda=r+1-q. Eliminating lambda gives q-q^(-1)=2r-m, with exactly one admissible root off the band when 2r differs from m (positive for a lower outlier, negative for an upper outlier). The boundary diagonal increases with r, so the global minimum is achieved in residue zero and the maximum in residue m-1. Taking the corresponding roots proves the displayed L_m and U_m and the geometric rational extremizers. For m=1,2 the top is the band edge, approached by long alternating bulk tails; its repeated characteristic root -1 allows no nonzero square-summable eigenvector. Finally L_m tends to 1/2 and U_m is asymptotic to m/2, yielding the stated distortion for the norms rather than their squares.",
+      "residual_risks": [
+        "The finite-section checker only corroborates polynomial matrix identities and spectral approximation; the infinite-dimensional endpoints and attainment follow from the analytic calculation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Corollary 5.3 condition for u=z^m has |1-w^m|^2(1+V_mu(w))=|1-w^m|^2+sum_{j=0}^{m-1}|w|^(2j), which gives qualitative equivalence for every fixed m.",
+          "The finite-atomic theorem and embedding criteria concern equality or boundedness under support and potential conditions, not the optimal endpoints in the inspected statements."
+        ],
+        "reasoning": "The root family is a special case of the known equality-of-spaces theorems; this part is not new. A pointwise potential comparability condition cannot be identified with the exact relative operator spectrum.",
+        "searches": [
+          "Bellavita–Dellepiane–Luo arXiv:2610.36943, Theorem 1.3 and Corollary 5.3",
+          "Dellepiane–Peloso–Tabacco arXiv:2505.16572v2, Theorem 3",
+          "Costara–Ransford DOI 10.1016/j.jfa.2013.08.015",
+          "Bellavita–Dellepiane arXiv:2310.03604, Theorems 1.1–1.4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 53–65",
+        "Resultary entries 8905d4ecddb7 and f6c4ae1f7d1a",
+        "The targeted primary passages itemized above",
+        "Dellepiane–Seco arXiv:2603.03093, Lemma 2.5 (p. 5)",
+        "Bellavita–Dellepiane arXiv:2310.03604, Theorems 1.1–1.4 (p. 2)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the ordinary Hardy kernels, substituting the local norm identities gives the ratio (|1-w^m|^2+sum_{j=1}^m |w|^(2j))/(2(1+|w|^(2m))). Its supremum is (m+4)/4 by the geometric-sum bound and the boundary approach w^m -> -1.",
+          "For m>=3 the full upper endpoint is strictly above this kernel-test supremum. The frozen proof finds it from the boundary equation with a decaying geometric eigenstate, not from a potential or kernel supremum."
+        ],
+        "reasoning": "The known norm and coefficient ingredients permit setting up the generalized operator, but the spectral comparison, edge nonattainment and isolated eigenvalues require a new calculation. They are not a direct substitution in a stronger theorem among the checked sources.",
+        "searches": [
+          "Dellepiane–Peloso–Tabacco arXiv:2505.16572v2, Lemma 3.1, equations (9)–(10)",
+          "Resultary f6c4ae1f7d1a, exact c=1 Gram statement",
+          "Ransford arXiv:2605.30114, Theorem 5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Comparing canonical squared norms equals taking extremal generalized Rayleigh quotients of two monomial forms, or the spectral edges of the relative normalized Jacobi operator.",
+          "The known coefficient and Gram identities recover the H(b_m) form by specializing b/a=(1+z^m)/(1-z^m); they do not compare the two forms. The Resultary crossover at c=1 includes the H(b_1) Gram matrix 2+4 min(j,k)."
+        ],
+        "reasoning": "A Gram formula in one norm is covered as an input; it is not equivalent to a two-form spectral bound with exact constants and attainment.",
+        "searches": [
+          "Resultary: sharp canonical norm comparison, H((1+z^m)/2), root-of-unity atomic Dirichlet and half-line Gram spectra",
+          "Ransford arXiv:2605.30114, Theorem 5.1",
+          "Dellepiane–Seco arXiv:2603.03093, Lemma 2.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The entry 8905d4ecddb7 is the assigned finding itself. The distinct entry f6c4ae1f7d1a considers finite monomial Gram matrices for b_c=c(1+z)/2, including the exact c=1 limit."
+        ],
+        "reasoning": "This is an exact spectral family rather than a tabulated value. The self-match establishes no independent prior result; the distinct Gram entry supplies one form at m=1, not the two-form constants. No priority is inferred from the shared catalogue date.",
+        "searches": [
+          "Resultary lookup for optimal root-of-unity norm constants and polynomial Gram spectra"
+        ]
+      },
+      "rationale": "The supported distinct claim is the complete sharp comparison of the specified canonical squared norms, including exceptional nonattainment at m=1,2 and growing optimal distortion. Set equality and qualitative equivalence, general coefficient formulas, and the one-sided Gram matrix at m=1 are covered. None of the decisive passages inspected gives the generalized spectral endpoints, the different roles of the two endpoint residues, or the isolated upper eigenvalue for m>=3.",
+      "residual_risks": [
+        "No lawful complete text of the Costara–Ransford paper was obtained in the bounded comparison.",
+        "Additional quantitative difference-quotient/embedding work cited in the 2025 atomic-measure paper was not fully compared; no comprehensive priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "H(b_1) form is shared, but not a Dirichlet relative spectrum",
+          "evidence": [
+            "At c=1 its finite monomial Gram entries are 2+4 min(j,k)."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-robin-spectral-crossover-for-polynomial-gram-matrices-in-de-br--f6c4ae1f7d1a/RESULT.md",
+          "material_read": "Finding, including exact c=1 Gram matrix",
+          "method": "Resultary and local-mirror text",
+          "title": "A Robin spectral crossover for polynomial Gram matrices in de Branges–Rovnyak spaces",
+          "trigger": "Closest distinct exact Gram and spectral match"
+        },
+        {
+          "assessment": "Covers set equality with equivalent norms, not optimal constants",
+          "evidence": [
+            "Theorem 1.3 uses a Corona condition and |a|^2(1+V_mu) comparable to 1; Corollary 5.3 gives the inner-function specialization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.36943",
+          "material_read": "Theorem 1.3 (p. 3, offset 8418), Corollary 5.3 (p. 12, offset 41095)",
+          "method": "Targeted OA PDF passages",
+          "title": "A characterization of equality between de Branges–Rovnyak and Dirichlet spaces",
+          "trigger": "Same family b=(1+u)/2 and space comparison"
+        },
+        {
+          "assessment": "Overlaps on finite-atomic equality and kernel norms, not sharp full-space bounds",
+          "evidence": [
+            "Substitution into equations (9)–(10) gives the Hardy-kernel ratio whose upper supremum fails to reach the isolated upper eigenvalue for m>=3."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2505.16572v2",
+          "material_read": "Theorem 3 and Lemma 3.1, equations (9)–(10), HTML passage near offset 21837",
+          "method": "Targeted OA HTML passages",
+          "title": "On the equality of De Branges–Rovnyak and Dirichlet spaces",
+          "trigger": "Finitely atomic measures and local kernel-norm formulas"
+        },
+        {
+          "assessment": "Covers the H(b) coefficient side",
+          "evidence": [
+            "The rational-pair coefficient theorem applies to the simple boundary poles of (1+z^m)/(1-z^m)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.30114",
+          "material_read": "Theorem 5.1, p. 9, offset 27540",
+          "method": "Targeted OA PDF passage",
+          "title": "On the coefficient formula for de Branges–Rovnyak norms",
+          "trigger": "General exact canonical norm formula covering the symbol"
+        },
+        {
+          "assessment": "Full-text scope unresolved",
+          "evidence": [
+            "The later atomic-measure work attributes an equality-of-spaces result to it; that attribution is not evidence about every detail of the 2013 text."
+          ],
+          "identifier_or_url": "10.1016/j.jfa.2013.08.015",
+          "material_read": "Landing page and abstract only",
+          "method": "Lawful DOI and repository access attempt",
+          "title": "Which de Branges–Rovnyak spaces are Dirichlet spaces (and vice versa)?",
+          "trigger": "Earlier equality and equivalence results for finite atomic measures"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–18 and 37–57",
+        "Bellavita–Dellepiane–Luo arXiv:2610.36943, Corollary 5.3",
+        "Dellepiane–Peloso–Tabacco arXiv:2505.16572v2, Lemma 3.1"
+      ],
+      "rationale": "The canonical norms and probability Clark measure are natural, fixed choices, and qualitative equality leaves their comparison entirely uncalibrated as the number of atoms increases. The sharp distortion grows like sqrt(m), so this symmetric family already shows failure of uniform comparison. The exact constants and the transition from a nonattained band edge to a rational extremizer give information a user of the embedding cannot recover from generic equivalence or kernel testing.",
+      "residual_risks": [
+        "The value claim is for equal atoms at all roots and the stated canonical norms; unequal masses and general finite Blaschke symbols are outside scope."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

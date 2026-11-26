@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:08:12.890399Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof 1–4",
+        "VERIFICATION.md",
+        "CHECK.py"
+      ],
+      "rationale": "I reconstructed exact counting from the coefficients D_k(q) of the signed-sum Laurent product with factor sum_{d=-3}^3 binom(6,3+d) X^(d*3^j) at digit j. Selecting the lowest digit gives D_(k+1)(q)=sum_{d=q mod 3} binom(6,3+d) D_k((q-d)/3). Symmetry leaves the closed pair (D_k(0),D_k(1)), with matrix rows (20,2) and (15,6), starting at (1,0). Its trace and determinant are 26 and 90; solving at k=0,1 gives the stated numerator and root coefficients. An independently written coefficient convolution also matched the recurrence at k=0 through 9 (E_9=1030671951680). The set of sums at k+1 is four translates of the previous interval separated by 3^k; the previous upper endpoint is at least 3^k-1, including k=0. Hence the intervals cover the claimed support, and the 8^k ordered triples give the benchmark 64^k/S_k. The leading coefficient, growth base greater than one, and Fourier identity follow from the root solution and ordinary integer-frequency orthogonality. The supporting script was inspected, not executed.",
+      "residual_risks": [
+        "The finite independent convolution is corroboration only. The theorem counts ordinary integer equality, not equality modulo 3^k."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen prior-work section attributes the q=2 polynomial to Lau–Ngai; substituting z=64/lambda gives exactly the frozen characteristic polynomial, although the original passage could not be retrieved. The Fong–Hare–Johnstone abstract distinguishes real and mod-one continuous spectra; these continuous passages are not themselves an exact ordinary finite-depth identity."
+        ],
+        "reasoning": "Prior spectral results distinguish asymptotic information from finite-level counts. The decisive stronger finite coverage here is the explicit modular record's fiber-by-carry matrices and tensor-square transfer, not an inference from continuous scaling alone.",
+        "searches": [
+          "Lau–Ngai, Second-order self-similar identities and multifractal decompositions (2000), q=2 polynomial 45z^2-832z+2048",
+          "Fong–Hare–Johnstone (2011), threefold Cantor-measure convolutions",
+          "Hare–Hare–Shen arXiv:1909.08941",
+          "Hare–Sidorov arXiv:2210.07671"
+        ]
+      },
+      "checked_sources": [
+        "Resultary threefold and mixed Cantor-convolution records",
+        "Lau–Ngai (retrieval attempted)",
+        "Fong–Hare–Johnstone (abstract)",
+        "arXiv:1909.08941 (abstract)",
+        "arXiv:2210.07671 (abstract and introduction)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The explicit T has rows (19,1,1,1), (12,6,0,3), (12,0,6,3), (10,1,1,10) in pair order (0,0),(0,1),(1,0),(1,1). Exact final equality selects the first and fourth entries. Restriction to vectors (x,y,y,x) gives trace 26, determinant 90, initial first-coordinate values 1 and 20."
+        ],
+        "reasoning": "This yields the ordinary formula, generating function and sharp normalized equivalent via the already supplied transfer plus a terminal test and interval count. The interval itself is a direct digit-support induction and Fourier orthogonality a reformulation. No material remainder survives as a distinct finding.",
+        "searches": [
+          "SCOPE-threefold-ternary-cantor-convolution-full-support-singularity-an--743aa111efcf, RESULT.md, Proof 1 and 3 (offsets 1990 and 3600)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-threefold-ternary-cantor-convolution-full-support-singularity-an--743aa111efcf, Proof 1 and 3, explicitly sums over the final outgoing carry for congruence and displays the carry-resolved matrices. The ordinary and modular initial energies are respectively 20 and 22 at depth one."
+        ],
+        "reasoning": "Equality of ordinary sums means equality of both the output word and the outgoing carry of the two triples. Although the two scalar sequences are different, the finite sixth Fourier moment simply selects equal terminal carries in the very same resolved pair automaton.",
+        "searches": [
+          "Resultary: exact 26,-90 recurrence, ternary Cantor carry energy, continuous q=2 moments, modular versus ordinary collisions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct catalogue hit gives E_0=1,E_1=22 and the same recurrence for congruence modulo 3^k, and displays T at offset 3600. A mixed A_k+2A_k hit has a different recurrence and model."
+        ],
+        "reasoning": "The catalogue scalar values are not the ordinary table. The published finite matrix is more informative than its table: the requested entries follow by changing the terminal vector to (1,0,0,1)^T.",
+        "searches": [
+          "Resultary: all-level integer sextuple equality versus modular ternary convolution energy",
+          "Resultary: exact q=2 energy recurrence for three equal Cantor summands"
+        ]
+      },
+      "rationale": "The distinct modular-convolution record already gives the exact fiber automaton including the outgoing carry and its tensor-square matrix T. The ordinary count is obtained by the diagonal terminal selector, with no new carry analysis: E_k=(1,0,0,0) T^k (1,0,0,1)^T. In particular T sends (x,y,y,x)^T to (20x+2y,15x+6y,15x+6y,20x+2y)^T, yielding the entire ordinary recurrence and its different initial data immediately. This is demonstrated implication from the indexed statement and proof, not identity of the modular and ordinary sequences or a priority inference from their same-day dates.",
+      "residual_risks": [
+        "Same-day catalogue dates do not establish an order of discovery. Continuous-spectrum attribution could not be verified in primary text; neither limitation changes the exact mathematical implication from the separate indexed automaton."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The scalar recurrence is for congruence; the displayed transfer resolves the ordinary statistic exactly by diagonal terminal selection.",
+          "evidence": [
+            "M_d indexes incoming and outgoing carries.",
+            "The all-one terminal vector ignores the carry expressly for modular equality.",
+            "The displayed tensor-square T works equally with the diagonal selector for exact equality."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-threefold-ternary-cantor-convolution-full-support-singularity-an--743aa111efcf",
+          "material_read": "Finding and Proof 1–3, local-mirror offsets 700, 1990 and 3600",
+          "method": "Resultary local mirror",
+          "title": "Threefold ternary Cantor convolution: full support, singularity and exact energy",
+          "trigger": "Same summands and recurrence but different equality relation"
+        },
+        {
+          "assessment": "Attribution remains unverified in this review and is not needed for the verdict.",
+          "evidence": [
+            "Direct and alternate retrieval returned HTTP 405 and 403 respectively."
+          ],
+          "identifier_or_url": "https://scispace.com/pdf/second-order-self-similar-identities-and-multifractal-71znxgov33.pdf",
+          "material_read": "Frozen RESULT.md prior-work attribution; no original passage retrieved",
+          "method": "OA direct and alternate retrieval attempts",
+          "title": "Second-order self-similar identities and multifractal decompositions",
+          "trigger": "Claimed exact continuous q=2 polynomial"
+        },
+        {
+          "assessment": "Identifies group and real-line spectra as distinct continuous settings.",
+          "evidence": [
+            "The abstract compares spectra of the threefold convolutions on the group [0,1] and on the real line."
+          ],
+          "identifier_or_url": "https://intlpress.com/api/bgcloud-front/resource/pdf/volume/1806252759957606402-1806252759957606402-3120dba1d7ba4f2d24c3ed500d07c498.pdf",
+          "material_read": "Abstract, p. 53, OA offset 0",
+          "method": "OA publisher PDF",
+          "title": "Multifractal Analysis for Convolutions of Overlapping Cantor Measures",
+          "trigger": "Continuous threefold standard Cantor convolution"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Distinct modular Resultary record, Proof 1–3"
+      ],
+      "rationale": "The finite ordinary equality count is a natural quantity, but here it is a mechanical terminal specialization of the explicit known transfer on the same summands. Its closed form and excess constant require only that specialization and the elementary support size, while the Fourier interpretation follows by orthogonality. The remaining elementary deductions do not independently justify a repaired finding.",
+      "residual_risks": [
+        "Scientific redundancy does not dispute the correctness of the integer-energy formula or assign historical priority."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

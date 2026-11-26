@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:30:17.598466Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional on the searched key's uniform priority u, its ancestors on each side are the lower records among independently retained priorities below u. At ranks i and i+1, share a Bin(i-1,u), a Bin(n-i-1,u), and one Bernoulli(u) which is assigned to opposite sides in the two marginals. When the extra trial succeeds, the incremental record success probabilities are 1/(x+1) versus 1/(y+1), multiplying the same symmetric nonnegative threshold factor P(C_x+C_y=t-1). Pair x<y with its transposition: the binomial likelihood ratio in the larger trial count is increasing, so every combined contribution is nonnegative, including pairs outside the smaller support. For i<n/2 the strict pair (0,1) works at t=2; at larger t use (0,t-1) if i=1, otherwise (i-1,n-i-1), since a positive-length record count has full support from 1 to its length. These pairs work for every 0<u<1. Root probability 1/n and maximal depth n-1 give the endpoint equalities; reflection gives the even central equality. The expected depth is H_i+H_{n+1-i}-2 by summing inverse interval lengths (ancestor probabilities), and ordered laws have W1 equal to their mean difference via quantile coupling. The uploaded verifier was inspected, not executed; VERIFICATION.md records 6,500 exact assertions, including exhaustive insertion through n=8 and recurrence-based checks through n=24. All-size strictness is established analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 of Grübel–Stefanoski covers every fixed rank but gives no adjacent strict upper-tail order in the inspected passage. The same-day Resultary finding compares minimum-key depth given that key i is a leaf against the unconditional minimum-key depth."
+        ],
+        "reasoning": "Changing a leaf-conditioning event while keeping the searched key equal to 1 is not changing the searched rank in an unconditioned tree. The two orders concern different marginal distributions; the shared date does not establish any priority relation.",
+        "searches": [
+          "Grübel–Stefanoski fixed-rank distributions and asymptotics",
+          "Resultary rank-resolved stochastic order 29e7eead2a91"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–47, VERIFICATION.md and verify_bst_rank_depth.py",
+        "arXiv:math/0503738v1",
+        "Resultary 29e7eead2a91",
+        "doi:10.1017/S0963548397003325 (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected exact law has opposing changes to its two record counts when the rank shifts. The frozen proof handles them by pairing likelihood-ratio-weighted terms and supplies positive witnesses up to t=n-1."
+        ],
+        "reasoning": "The known mean difference does not order tails. Nor is the exact-law input already a dominance claim: at fixed (x,y) the sign of the change varies. The sign pairing is the substantive comparison; the exact W1 then follows mechanically.",
+        "searches": [
+          "Grübel–Stefanoski arXiv:math/0503738v1, introduction and Theorem 1",
+          "Kirschenhofer–Prodinger doi:10.1017/S0963548397003325 (OA attempt)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conditioning on the number of priorities below the searched key in the frozen proof gives the same hypergeometric split into record counts as the earlier theorem."
+        ],
+        "reasoning": "The binomial mixture is an equivalent form of the known marginal law. What is assessed here is the cross-rank comparison of those laws, not the representation.",
+        "searches": [
+          "Resultary fixed-key depth, rank balancing and stochastic dominance in permutation BSTs",
+          "Grübel–Stefanoski arXiv:math/0503738v1 Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior exact parametric depth law already determines every finite probability and subsumes a finite table of depths."
+        ],
+        "reasoning": "No novelty is credited for those probabilities or their bounded tabulation. An exact table or recurrence does not establish the strict signs uniformly in n, i and t.",
+        "searches": [
+          "Resultary exact BST key-depth and rank-resolved order",
+          "arXiv:math/0503738v1 Theorem 1, PDF p. 5"
+        ]
+      },
+      "rationale": "Pass for the supported adjacent-rank, strict all-interior-threshold comparison. The individual marginal laws and harmonic means are classical, and the W1 formula is a consequence of the ordering, not a separate new distribution theorem. The strongest inspected overlaps give either exact marginal input or a different conditional order, not this joint statement about ranks.",
+      "residual_risks": [
+        "This is a bounded priority comparison. The inaccessible Hoare's Find paper or other earlier work on exact fixed-key laws may contain or imply the rank ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full marginal representation is prior; the compared passages do not establish strict adjacent-rank upper tails.",
+          "evidence": [
+            "Theorem 1 uses a hypergeometric split and independent record counts; the introduction discusses marginal key dependence and bulk asymptotics."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0503738v1",
+          "material_read": "Introduction, PDF p. 3 offset about 6800; Theorem 1, p. 5 offset 12529",
+          "method": "OA PDF passages",
+          "title": "Mixed Poisson approximation of node depth distributions in random binary search trees",
+          "trigger": "Same permutation-built BST and exact fixed-key depth distributions"
+        },
+        {
+          "assessment": "Distinct conditioning question, not an adjacent-rank comparison.",
+          "evidence": [
+            "Its D_n is always the depth of key 1, and B_i indicates that key i has no children. Strictness there requires at least one strict threshold."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-rank-resolved-stochastic-ordering-of-minimum-key-depth-by-leaves--29e7eead2a91/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–4733, with setup and first conditional comparison",
+          "method": "Resultary search and local-mirror full-text passage",
+          "title": "Rank-resolved stochastic ordering of minimum-key depth by leaves in uniform binary search trees",
+          "trigger": "Same-day record with same tree model, depth and rank-resolved stochastic order"
+        },
+        {
+          "assessment": "No conclusion about exact rankwise tail coverage.",
+          "evidence": [
+            "Only citation-level evidence for this comparison."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0963548397003325",
+          "material_read": "Bibliographic information; readable full text not recovered",
+          "method": "DOI and OA recovery attempt",
+          "title": "Comparisons in Hoare's Find algorithm",
+          "trigger": "Plausible overlap through fixed-rank recursive-call/depth laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This compares the full finite search cost by key rank, not just its average or a central-limit regime. It answers whether every attainable nontrivial deadline is less likely to be met toward the center, even at the extreme tail, and isolates the exact exceptional thresholds and central symmetry. The method controls competing changes of the two random record counts; the transport calculation is useful but secondary.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

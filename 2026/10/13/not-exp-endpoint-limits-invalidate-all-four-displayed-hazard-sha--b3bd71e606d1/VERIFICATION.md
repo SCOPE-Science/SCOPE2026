@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -15,51 +18,7 @@
   "schema_version": 1
 }
 ---
-For
-\[
-G(y)
-=
-\left[
-\frac{(1+\alpha)(1-e^{-\theta y})}
-{\alpha+1-e^{-\theta y}}
-\right]^\gamma,
-\]
-the small-time hazard satisfies
-\[
-h(y)
-\sim
-\gamma
-\left(
-\frac{(1+\alpha)\theta}{\alpha}
-\right)^\gamma
-y^{\gamma-1}.
-\]
-Hence
-\[
-h(0+)
-=
-\begin{cases}
-+\infty,&0<\gamma<1,\\
-(1+\alpha)\theta/\alpha,&\gamma=1,\\
-0,&\gamma>1.
-\end{cases}
-\]
 
-At large \(y\),
-\[
-1-G(y)
-\sim
-\frac{\gamma\alpha}{1+\alpha}e^{-\theta y},
-\]
-and
-\[
-g(y)
-\sim
-\frac{\gamma\alpha\theta}{1+\alpha}e^{-\theta y},
-\]
-so
-\[
-h(y)\to\theta.
-\]
+The small-time law follows by substituting \(1-e^{-\theta y}\sim\theta y\) in the exact density and taking \(1-G(y)\to1\). At large \(y\), the leading terms of \(1-G(y)\) and \(g(y)\) are, respectively, \(\gamma\alpha e^{-\theta y}/(1+\alpha)\) and \(\gamma\alpha\theta e^{-\theta y}/(1+\alpha)\), giving the limit \(\theta\).
 
-The bundled checker differentiates the exact CDF numerically to confirm the PDF, checks the small-time asymptotic ratio for multiple parameter values, and verifies the large-time hazard limit for the four parameter triples used in Figure 1.
+The bundled `verify_notexp_endpoints.py` uses `mpmath` to numerically differentiate the CDF at selected points, compare the hazard to its small-time asymptotic, and check the far-tail limit for the four triples assigned shapes in the prose of §2. It does not verify the figure legend or test every parameter triple. The alternate triples in the hazard-panel legend with \(\gamma>1\) fall under the symbolic exclusion of an initial decline; no plotting code is needed for this exclusion. For the prose and legend see DOI `10.3390/math14071182`, §2, p. 5, and Figure 1, p. 6.

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:45:19.247726Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With an inclusive confidence threshold, convex-hull invariance keeps every edge active. In a scalar projection put n=m+1, w=3m+1, E=sum d_i^2 and T=(sum d_i)^2. Updating the hub subtracts s/n from each d_i, so E changes by -(m+2)T/n^2 and T becomes T/n^2; a leaf update halves its d_i. The weighted mean increments s/w at the hub and -d_i/w at a leaf, giving zero drift and conditional squared increment (E+T)/(nw^2). The expectation of E contracts by at least 1-3/(4n); the pathwise nonincrease and bounded martingale convergence give consensus a.s. and L2 convergence by boundedness. Independent drift elimination for M^2+A E+B T gives 3A-B=4/w^2 and (m+2)A+(2n^2-1)B=n^2/w^2. The first coefficient is A=(9n^2-4)/(w^2(m-1+6n^2))=1/((2m+1)w), giving the stated B. Bounded convergence gives the exact variance, and testing projections gives the covariance. At m=1 it yields the midpoint-bisection limit variance d_1^2/12; for equal leaves the exact scalar factor tends to 1/18 and uniform boundedness rules out concentration at a constant. The frozen finite checker is corroboration, not needed for these all-size identities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same bounded-confidence rule is studied for time to stability, not exact star covariance. General asynchronous DeGroot gives bounds. Regular-graph NodeModel uses a common self-weight and sample size, unlike the star update for m>=2."
+        ],
+        "reasoning": "Their directly applicable conclusions do not give exact coefficients in the two-dimensional disagreement-moment closure. The one-edge star is a possible known boundary case, not a basis for the originality finding.",
+        "searches": [
+          "arXiv:2201.12923, model and Theorem 1",
+          "arXiv:2209.05764, Corollary 2.4",
+          "arXiv:2211.17125, NodeModel and Theorem 2.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2201.12923",
+        "arXiv:2209.05764",
+        "arXiv:2211.17125",
+        "Resultary 543fbd6abc96 and 69f82814e595"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Reversibility gives pi_0=(m+1)/w, pi_i=2/w, so the mean is already implied. The general variance bounds for a scalar equal-leaf difference d become 2md^2/w^2 and m(m+1)d^2/w^2, with limits 0 and d^2/9."
+        ],
+        "reasoning": "These bounds do not mechanically imply a positive limiting variance, let alone d^2/18. The exact formula requires solving the star moment equations.",
+        "searches": [
+          "arXiv:2209.05764, stationary weighted mean and Corollary 2.4 specialized to K_{1,m}"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Independent rate-one clocks embed the same uniform single-vertex process under the closed-neighborhood stochastic matrix.",
+          "The inspected same-star binary fixation record uses chosen-neighbor imitation, not real-valued averaging."
+        ],
+        "reasoning": "Time reparameterization gives true equivalence with the general DeGroot model and must be credited; replacement by a binary fixation or pair-gossip process does not preserve the consensus law.",
+        "searches": [
+          "Resultary semantic lookup for asynchronous star averaging and limiting consensus variance",
+          "arXiv:2209.05764, model definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two inspected catalog results give exact binary fixation on a star and exact finite-horizon disagreement decay for edge-pair averaging, respectively."
+        ],
+        "reasoning": "Neither exact law tabulates or determines a limiting covariance for this single-site protocol. No negative inference is made from the primary search not producing an exact match.",
+        "searches": [
+          "Resultary same-star exact variance and exact averaging-energy searches",
+          "Primary literature search for the same-star limiting variance"
+        ]
+      },
+      "rationale": "The model, consensus mechanism and stationary weighted mean are established. The supported distinct claim is the explicit all-size limiting covariance for this star and the resulting nonzero 1/18 coefficient in the equal-leaf limit. The directly applicable general variance bounds do not determine either.",
+      "residual_risks": [
+        "The literature search was bounded. An equivalent moment solution in older random-matrix-product or consensus work was not ruled out. The m=1 boundary may be covered by exact regular-graph calculations; no priority for this boundary is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same dynamics in complete confidence; convergence-time rather than covariance coverage",
+          "evidence": [
+            "One uniformly selected vertex averages itself and eligible adjacent vertices. Theorem 1 bounds expected time to a delta-stable state."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2201.12923",
+          "material_read": "PDF p. 3 model (offset 15000); p. 5 Theorem 1 (offset 24001)",
+          "method": "Read OA PDF passages",
+          "title": "Asynchronous Opinion Dynamics in Social Networks",
+          "trigger": "Identical asynchronous self-inclusive confidence update"
+        },
+        {
+          "assessment": "Direct prior implication for framework and mean, but only variance bounds",
+          "evidence": [
+            "Rate-one clocks apply the row P_v to the opinion vector. Corollary 2.4 bounds variance by pi_min and pi_max times the initial energy."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.05764",
+          "material_read": "PDF p. 2 model (offset 4696); p. 7 Corollary 2.4 (offset 23015)",
+          "method": "Read OA PDF passages and specialize stationary weights and energy",
+          "title": "The Asynchronous DeGroot Dynamics",
+          "trigger": "Broader model covering the same embedded star chain"
+        },
+        {
+          "assessment": "Regular-case results do not cover stars with heterogeneous self-weight for m>=2",
+          "evidence": [
+            "Common alpha and fixed k; the inspected variance theorem is for regular graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2211.17125",
+          "material_read": "Introduction and NodeModel (offsets 0, 5000, 15000); Theorem 2.2 (offset 28635)",
+          "method": "Read OA PDF passages",
+          "title": "Distributed Averaging in Opinion Dynamics",
+          "trigger": "Related unilateral asynchronous consensus variance"
+        },
+        {
+          "assessment": "Different rule and terminal statistic",
+          "evidence": [
+            "Binary imitation gives fixation probabilities, not real-valued closed-neighborhood consensus covariance."
+          ],
+          "identifier_or_url": "543fbd6abc96",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local catalog mirror",
+          "title": "Exact fixation and quadratic leaf-seed suppression under asynchronous pure conformity",
+          "trigger": "Exact same-topology asynchronous limit result"
+        },
+        {
+          "assessment": "Different update and observable",
+          "evidence": [
+            "Uniform edge selection updates both endpoints and the exact moment describes transient disagreement."
+          ],
+          "identifier_or_url": "69f82814e595",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local catalog mirror",
+          "title": "Exact finite-horizon mean-square decay for randomized pair averaging",
+          "trigger": "Nearby exact averaging-moment identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact covariance resolves how imbalances at a single high-degree hub persist despite consensus and a growing sample of leaves. Its rank-one part distinguishes aligned from balanced initial disagreements, and its 1/18 limit supplies a precise non-concentration benchmark not supplied by general convergence or variance bounds.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

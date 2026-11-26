@@ -1,15 +1,21 @@
-# Scientific review: two reentrant covariance-isotropy rates
+# Independent mathematical audit
 
-## Correctness — PASS
-The covariance difference is evaluated from a stationary generator moment closure for the complex position and first two orientation harmonics. Both the direct formula and its quartic numerator are displayed in the proof. The quartic's nonzero-coefficient signs have exactly two Descartes changes, while its values at zero, at the angular diffusivity, and at infinity alternate strictly; this proves precisely two positive simple zeros and the full three-regime sign classification for all strictly positive parameters. Root asymptotics follow by explicitly scaled polynomial limits. All statements account for the nonzero stationary mean and for the cancellation of isotropic translational noise. A separate integration over last-reset ages and Brownian heading correlations, with symbolic expansion and numerical cross-checks, corroborates the finite formulas. The numerical checks alone do not establish the all-parameter statement.
+## correctness
 
-## Originality — PASS, with remaining priority uncertainty
-The same-model paper by Shee, arXiv:2409.06920, already gives exact stationary moments, including the longitudinal variance. Those moments are expressly not claimed as original here. Their algebraic implications permit reconstruction of the anisotropy, but its inspected text does not present a complete two-root theorem, a three-regime classification, or the weak- and strong-trap two-rate asymptotics. Kumar, Sadekar and Basu, arXiv:2008.03294, treat joint resetting without harmonic confinement, where only the single nonzero free-particle crossing survives. Baouche et al., arXiv:2405.06769, treat heading-only resets, and Ghosh and Mandal, arXiv:2501.05149, consider a distinct anisotropic free-propulsion model. Focused searches of mathematical research records for simultaneous spatial/angular resetting, harmonic confinement, centered anisotropy, and two crossing rates did not identify a mathematically equivalent prior statement. An unlocated theorem or unrecognized observation based on the already published moment formulas remains a genuine priority risk; absence of a search hit is not a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The classification isolates a parameter-independent structural phenomenon: at any positive trap strength, an initially parallel-enhanced centered covariance switches to transverse-enhanced and then back to parallel-enhanced as the common reset rate grows, with precisely two simple transitions. The result sharpens the observable anisotropy geometry beyond independent variance formulas, and the singular limits explain why one transition disappears as confinement is removed while another grows with the square root of confinement. It is meaningful to separate covariance isotropy from full rotational symmetry, because the mean remains biased at each crossing. No additional downstream theorem or claim about higher cumulants is needed for this motivated exact classification.
+Regeneration at the common reset justifies the stationary generator identities. Reflection makes the covariance diagonal and the horizontal mean real. For Z=X+iY the isotropic translational quadratic variation cancels in Z^2; the equations for E[exp(i Theta)], E[exp(2i Theta)], E[Z], E[Z exp(i Theta)] and E[Z^2] close with rates r+d, r+4d, r+k, r+k+d and r+2k respectively. Centering subtracts (E[Z])^2, essential for the crossings. Clearing the positive denominators gives P=2(r+k)^2(r+d)^2-r(r+2k)(r+k+d)(r+4d). Its signs have two changes for every k,d>0 including k=d with the zero cubic term removed, while P(0)>0, P(d)=-d^2(2d^2+9dk+2k^2)<0 and P ultimately positive. Thus the two bracketed roots are simple and exhaustive. At D=0 the transverse variance is strictly positive by the displayed moment formulas and the longitudinal variance is bounded below by the variance of its conditional mean given reset age: the latter mean is continuous, vanishes at age zero, and is positive for every positive age. Nonzero horizontal mean rules out rotational invariance about the trap origin, not merely unequal eigenvalues. With b=k/d and x=r/d the four limits follow by sign bracketing near the simple roots of the appropriate rescaled polynomials: 2-4y-2y^2 and x^2(x-2)(x+1) for b small, 2-4x and y^3-4y for b large. The bracket at x=1 identifies the branches at each scale. An independent bounded symbolic check confirmed the quartic, the sign identity at d, the four scaled limits and the free factorization. The supplied verification.py was inspected but not executed. At k=0 the exponential reset age still gives finite stationary moments and the remaining crossing is 2d.
 
-## Limitations
-The result requires strictly positive harmonic relaxation, rotational diffusivity and propulsion; isotropic translational noise and a common position-and-heading reset clock. It treats stationary centered covariance only. Publication priority has not received independent assessment, and a broader algebraic or stochastic moment result might subsume the statement.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the global finite-confinement classification, including the paired confinement scalings. The same-model moments, centered scalar anisotropy obtained by subtracting them, and the free-particle crossing are not independently original. The primary trapped-model paper's reentrance concerns kurtosis; its equations supply the inputs but no theorem on the number, simplicity, location and singular behavior of the positive centered covariance crossings. Literature and catalogue comparisons are bounded.
+
+## value
+
+PASS
+
+The exact number and direction of sign reversals are qualitative predictions for an entire continuum of stable traps, not a fixed-parameter moment recomputation. The singular limits explain how the transition missing in the free model is lost and how the two confinement scales separate in a strong trap. These predictions use centered rather than raw moments and identify experimentally meaningful reset-rate regimes independent of isotropic translational noise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

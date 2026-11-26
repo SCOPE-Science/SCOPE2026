@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:33:24.203744Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the physical box the polynomial ODE is well posed globally and the invariant boundary faces cannot be reached in finite time from the interior. Let v be the risk logit and w the cost log odds. The risk equation gives v′=μ₁−(μ₁+μ₂)x; differentiating w supplies the factor α−β, and subtracting kv′ gives exactly L′=h(r−r*). In strict imbalance integration gives the stated exponential signs and constants; the bounds control an odds product, not convergence to a specified single face. On compact interior forward orbits both logits are bounded, and r is separated from 0 and 1: this gives the contradiction also at r*=0 and r*=1 and gives the two Cesàro limits by division by elapsed time. For the sharpness example with target q, the pivotal factor including b is 1 at x=1/2, so c=q makes x′ zero; both feedback equations vanish and q/2<q<(1+q)/2. This is existential sharpness, not stability or sufficiency for every parameter choice. The supporting rational checker was inspected, not executed; the reasoning is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "238b78f6c336 has M<N for the risk lower bound and stronger cost selection, but its §3 identity and odds inequality use only the risk and cost equations and therefore require no quota restriction.",
+          "410c58bb662c proves distance to a union of two boundary faces tends to zero at ρ≥1 and supplies a universal exponential rate at ρ>1."
+        ],
+        "reasoning": "The upper compact-interior obstruction is a direct weakening of boundary-union attraction. Removing a payoff or quota assumption from the already payoff-free logit calculation does not supply a different mechanism.",
+        "searches": [
+          "Resultary 238b78f6c336 Proof §§1–4",
+          "Resultary 410c58bb662c, Supercritical uniform saturation and Critical feedback",
+          "Wang et al., PLOS ODE Eq. (10) and Table 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 238b78f6c336 and 410c58bb662c",
+        "Wang et al. doi:10.1371/journal.pcbi.1013512"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On a compact interior orbit the prior formula gives L′≥h min r>0 at r*=0; reversing the sign for r*=1 gives L′≤−h(1−max r). Strict imbalance only strengthens these inequalities.",
+          "Dividing the integrals of v′ and L′ by T gives the two claimed averages whenever the logits are bounded."
+        ],
+        "reasoning": "The strongest frozen global and average claims follow by one sign bound or one time integration from the earlier identities. This conclusion does not depend on knowing which same-day result appeared first.",
+        "searches": [
+          "238b78f6c336 Proof §3, mirror offset 2940",
+          "410c58bb662c Proof, mirror offset 2850"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "238b78f6c336 Proof §3 prints w−kv and derivative (α−β)(θ₃+θ₄)r+γ; rewriting γ=−hr* gives the frozen identity.",
+          "410c58bb662c, Exact feedback identity, prints derivative (α−β)s(r−ρ), with s=θ₃+θ₄ and ρ=r*; its Q is exp(L)."
+        ],
+        "reasoning": "These are the same model and same linear combination of log odds; expressing its integrating factor as Q, rather than L, does not differentiate the claim.",
+        "searches": [
+          "Resultary: risk–cost odds clock; boundary saturation; global collapse under risk–cost feedback",
+          "PLOS 10.1371/journal.pcbi.1013512 Eqs. (6)–(10)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary paper lists the exact r* equilibrium coordinate and its local stability census; that table alone says nothing about compact recurrent sets.",
+          "The matching thresholds and sign directions are instead found in the statement and proof of the two Resultary results."
+        ],
+        "reasoning": "This is a symbolic ODE theorem, not a tabulated coefficient; the relevant comparisons are with the exact equilibrium table and with the indexed global results. It is the latter, not an inference from absent equilibria, that materially overlaps.",
+        "searches": [
+          "Wang et al. 10.1371/journal.pcbi.1013512, pp. 5–6 and Table 1",
+          "Resultary exact odds identity and excluded feedback regimes, 238b78f6c336 and 410c58bb662c"
+        ]
+      },
+      "rationale": "The central odds cancellation and strict lower-side exponential odds estimate were already published in Resultary 238b78f6c336. Distinct record 410c58bb662c has the identical identity and a stronger upper-side theorem including the endpoint (its relative priority is not inferred from the shared date). The lower endpoint, quota-independent formulation and conditional averages are immediate consequences of the already printed pair of logit identities. The contribution as claimed does not survive these exact comparisons.",
+      "residual_risks": [
+        "Wang et al. S1 File not inspected; this is not the basis for rejection.",
+        "Ordering of the two distinct November 22 records is not established from the date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior identity and strict lower-side bound",
+          "evidence": "Explicit v′, w′, (w−kv)′=(α−β)(θ₃+θ₄)r+γ and e^{−(w−kv)}≤e^{−(w(0)−kv(0))}e^{−γt}; γ=−hr*. The subsequent lower risk estimate adds hypothesis M<N for individual face selection, not for those identities.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-global-collapse-despite-positive-coexistence-equilibria-under-ri--238b78f6c336/RESULT.md",
+          "material_read": "Proof §§2–4, excerpt at offset 2940, especially §3",
+          "method": "Resultary and OA local mirror",
+          "title": "Global collapse despite positive coexistence equilibria under risk–cost feedback",
+          "trigger": "Same logit manipulation and lower imbalance"
+        },
+        {
+          "assessment": "Distinct same-day result with stronger upper-side statement; priority between the two not inferred",
+          "evidence": "ρ=r*, Q=exp(L), and min of the normalized distance to c=β or r=1 tends to 0 under ρ≥1, quantitatively for ρ>1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-universal-boundary-saturation-rate-in-adaptive-collectiv--410c58bb662c/RESULT.md",
+          "material_read": "Finding and Proof (Exact feedback identity, Supercritical uniform saturation, Critical feedback), decisive offset 2850",
+          "method": "Resultary and OA local mirror",
+          "title": "A sharp universal boundary-saturation rate in adaptive collective-risk games",
+          "trigger": "Exact upper excluded regime and endpoint"
+        },
+        {
+          "assessment": "Prior same model with equilibrium and stability analysis",
+          "evidence": "Strategy and risk speeds are set to one, equilibrium r* is printed, and local stability is classified. S1 File is cited for derivations but was not retrieved.",
+          "identifier_or_url": "https://doi.org/10.1371/journal.pcbi.1013512",
+          "material_read": "Public main PDF Eq. (10), pp. 4–5 (offsets about 15500 and 22800), Table 1 p. 6 (offset about 23509)",
+          "method": "PLOS print PDF; supplement retrieval attempted on PLOS and PMC",
+          "title": "Coevolutionary dynamics of cooperation, risk, and cost in collective risk games",
+          "trigger": "Primary source of the exact ODE"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Global recurrence exclusion is a worthwhile question, but the remaining increment over known odds identities is routine: bound r away from its endpoints on a hypothetical compact orbit, or divide a bounded-logit increment by T. The witness tunes the already known equilibrium coordinate and does not classify dynamics inside the admissible interval. Once the documented prior results are credited, there is no separately valuable new result here to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

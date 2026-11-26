@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:39:05.249716Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the uniform ordered rooted n-vertex law, the root decomposition gives T=z/(1−T), and adding one unit of depth per subtree vertex gives F=z(F+zT')/(1−T)^2 for the total path-length series. Root marking gives T²/(1−T) and the mixed series z(F+zT')(1+T)/(1−T)^3. Substitution of T=(1−sqrt(1−4z))/2 and division of the resulting coefficients by C_{n−1}=B_n/[2(2n−1)] give all three moments in Finding. The covariance is negative iff 4^n/B_n<2(n+2)/3. At n=3 the sides are 16/5 and 10/3, and the growth ratio of the right side exceeds that of the left by (n−1)/[(n+2)(2n+1)]. The sole n=2 tree gives zero and the Stirling expansion yields −2n+3sqrt(pi n)−1+O(n^(−1/2)). Independent exact enumeration checked 2055 shapes through n=9, including (E D,E P,E[DP],Cov)=(3/2,5/2,7/2,−1/4) at n=3. To replay the finite check, recursively compose n−1 into ordered positive subtree sizes, include the empty list for n=1, compute D as list length and P as the sum of child path lengths plus their sizes, and sum D, P and DP over the resulting Cartesian products. The supplied verifier was inspected, not executed. Neither enumeration nor the recorded checks certify arbitrary size; the generating-function and induction arguments do.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "ba566fae9851 treats Cov(D_n,N_{n,h}) at every level and gives series A_h=T u^h and B_h=A_h+2A_{h+1}, u=T/(1−T), for unmixed and degree-weighted level counts.",
+          "468c8e041277 marks Dyck area and primitive-factor count jointly, not just their covariance."
+        ],
+        "reasoning": "The all-level and joint generating-function results are stronger than the aggregate mixed first moment and identify it by weighted summation or coefficient extraction.",
+        "searches": [
+          "Resultary ba566fae9851, Finding and depth-marked proof",
+          "Resultary 468c8e041277, joint Dyck generating function"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 468c8e041277",
+        "Resultary ba566fae9851",
+        "Sedgewick–Flajolet Chapter 6",
+        "arXiv:1112.0510",
+        "OEIS A136439 linked PDF",
+        "arXiv:1206.0803",
+        "10.1002/rsa.10074 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "P_n=sum_h h N_{n,h}. From the displayed depth series, the mixed series is sum_{h>=1} h B_h=(1+2u)T u/(1−u)^2=T²(1+T)/(1−2T)², exactly the frozen series. The unmixed series is T u/(1−u)^2, and E D follows from N_{n,1}.",
+          "The edge-indexed record explicitly gives the sign and asymptotic; changing m to n−1 shifts the constant −3 to −1."
+        ],
+        "reasoning": "Weighted aggregation yields the exact reported moments, with no missing joint dependency assumption, and the direct duplicate covers the whole sign assertion. The same-day label does not determine order.",
+        "searches": [
+          "Resultary ba566fae9851, proof of A_h and B_h",
+          "Resultary 468c8e041277, derivative series and coefficient sums"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In 468c8e041277, primitive Dyck factors equal root children, and total vertex depth equals the sum of upward-step starting heights plus the edge count."
+        ],
+        "reasoning": "Setting m=n−1 for m edges and n vertices gives the same law and variables up to a deterministic size shift for Dyck area. [3·4^m/C_m−(2m+1)(m+3)]/(m+2) becomes the frozen covariance exactly.",
+        "searches": [
+          "Resultary: root degree total depth covariance in uniform plane and Catalan trees",
+          "Resultary 468c8e041277, contour/Dyck-path formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 468c8e041277 Finding gives the same strict covariance, the zero one-edge case and the asymptotic expansion. Sedgewick–Flajolet also give the matching average path length."
+        ],
+        "reasoning": "The catalogue formula is direct exact coverage; separate path-length and root-degree enumerations are only marginal evidence.",
+        "searches": [
+          "Resultary: negative root-degree/depth covariance",
+          "Sedgewick–Flajolet Chapter 6 §6.7",
+          "OEIS-linked A136439 average path-length document"
+        ]
+      },
+      "rationale": "A distinct indexed result states exactly this covariance, boundary, sign and asymptotic in edge indexing; a different same-day result also supplies an exact depth-resolved mixed family whose weighted sum is the claimed moment. These are determinations of scientific coverage, not of historical priority or intra-day order.",
+      "residual_risks": [
+        "Older joint enumerators could also cover the statistic, and the cited Janson Wiener-index paper was not accessible for a full-text comparison. The decision uses positive indexed overlap; neither access misses nor record dates settle historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent exact result, boundaries and asymptotic; not a historical priority finding",
+          "evidence": "Edge-indexed formula and the area-plus-edges contour identity; the proof also displays the joint generating function.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-negative-root-degree-depth-covariance-in-uniform-catalan-trees--468c8e041277/RESULT.md",
+          "material_read": "Finding, assumptions and proof, offset 0–3867",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Negative root-degree/depth covariance in uniform Catalan trees",
+          "trigger": "Exact possible covariance duplicate with a different size convention"
+        },
+        {
+          "assessment": "Mechanically implies the moments by weighted summation",
+          "evidence": "A_h=T u^h and B_h=A_h+2A_{h+1}; displayed covariance at each level.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-sharp-depth-crossover-for-root-branching-in-uniform-plane-tree--ba566fae9851/RESULT.md",
+          "material_read": "Finding and proof, offset 0–4796",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp depth crossover for root branching in uniform plane trees",
+          "trigger": "Exact mixed depth profile under the identical law"
+        },
+        {
+          "assessment": "Matches the path-length marginal after size normalization",
+          "evidence": "Exact average path length N/2 times [4^(N−1)/binom(2N−2,N−1)−1].",
+          "identifier_or_url": "https://aofa.cs.princeton.edu/60trees/",
+          "material_read": "§6.7, around offset 12441",
+          "method": "OA text excerpt",
+          "title": "An Introduction to the Analysis of Algorithms, Chapter 6: Trees",
+          "trigger": "Classical Catalan path-length formula"
+        },
+        {
+          "assessment": "Equivalent tree law, not a mixed-statistic coverage determination",
+          "evidence": "Identifies a uniform ordered rooted tree via conditioned geometric offspring.",
+          "identifier_or_url": "arXiv:1112.0510",
+          "material_read": "§9 Example 9.1, p. 26, near offset 76420",
+          "method": "OA text excerpt",
+          "title": "Simply generated trees, conditioned Galton–Watson trees, random allocations and condensation",
+          "trigger": "Same tree law via conditioning"
+        },
+        {
+          "assessment": "Marginal/profile context",
+          "evidence": "Root-degree counts and level counts used to compute average path length.",
+          "identifier_or_url": "https://oeis.org/A136439/a136439.pdf",
+          "material_read": "pp. 11–14, excerpts at offsets 25982 and 30949",
+          "method": "OA PDF excerpts",
+          "title": "Average path length",
+          "trigger": "Table and profile enumeration"
+        },
+        {
+          "assessment": "Area joint with lattice rank, not primitive-factor count",
+          "evidence": "The refined Dyck statistic in the excerpt is lattice rank.",
+          "identifier_or_url": "arXiv:1206.0803",
+          "material_read": "p. 1 abstract/introduction near offset 442",
+          "method": "OA PDF excerpt",
+          "title": "Counting Dyck paths by area and rank",
+          "trigger": "Joint area-refinement candidate"
+        },
+        {
+          "assessment": "Coverage not resolved by access attempts",
+          "evidence": "HTTP 403; no readable alternate copy located.",
+          "identifier_or_url": "10.1002/rsa.10074",
+          "material_read": "No usable full text retrieved",
+          "method": "Lawful OA direct and alternate route attempts",
+          "title": "The Wiener Index of Simply Generated Random Trees",
+          "trigger": "Related joint internal path-length theory"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Root degree versus total depth is a natural tree dependence question, and the exact negative sign is informative. The submitted exact invariant adds no surviving gap once the explicit size-translated duplicate and the richer depth-resolved calculation are accounted for. Re-extracting the same coefficients in vertex notation is not a distinct scientific contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

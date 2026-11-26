@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:28:02.858911Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For p≥7 the branch polynomial is separable at λ≠0,1. The coefficient at x^(pi−j) can be nonzero only for j equal to the nonzero residue of pi modulo 5. Rows i and 5−i have complementary coefficient indices in the degree-(p−1) power in z=x^5, and their coefficients differ by a nonzero power of λ. The two row pairs give ranks 4,2,0. For p mod 5 equal to 1,2,3,4, the sums d3+d4 agree with floor(3(p−1)/5). The binomial coefficient ratio gives the displayed second-order ODE; P(0) and P(1) are nonzero by its constant coefficient and Vandermonde. If a root away from 0,1 had multiplicity m≥2, the unique lowest-order term of the ODE would come from z(1−z)P'', with coefficient proportional to m(m−1)≠0 since m≤d<p. The separable root counts follow by inclusion-exclusion. At p=23 the two polynomial degrees are 9 and 4, and the replay finds 13 rank-two values already over F529, exhausting the degree bound. The single 4-cycle of possible entries has zero fourth iterate when broken, irrespective of semilinear twists. Inversion is the full geometric equivalence by Ohashi–Kudo Prop. 3.3.4. Independently, the stabilizer of the ten branch points has faithful permutation action and hence 5-part at most 25; it cannot contain a subgroup of order 25, because a group of that order is abelian and the centralizer in PGL2 of a projective element of order 5 is a torus, with no 25th roots of unity in a subgroup of exponent 5. A cyclic subgroup of order 25 cannot act faithfully on ten points. Thus the visible order-five groups can be matched by target conjugacy and the residual change of coordinate is x↦a x or a/x. Its effect on the two fifth-power values gives exactly inversion or equality. The replay of t=λ+1/λ gives the seven distinct roots of the stated polynomial with fiber sizes 1,2,2,2,2,2,2 and three rational t values. This does not determine twists or all Ekedahl–Oort types.",
+      "replay": "python3 /workspace/reproductions/4.py; output /workspace/reproductions/4.log. Direct multiplication of the quadratic eleven times over F529; all 527 admissible elements tested. The arbitrary-prime degree and separability arguments are symbolic, not inferred from this finite check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ohashi–Kudo give the sparse Cartier entries and common zero test for superspeciality. The ordinary–supersingular dichotomy record covers p≡2,3 mod 5 for the Newton polygon and gives the explicit p=7 locus."
+        ],
+        "reasoning": "The all-prime rank test has known ingredients. The polynomial separability, locus sizes by nonmaximal a-number, and explicit p=23 marked/coarse arithmetic do not follow as stated classifications from the Newton polygon or the superspecial test alone.",
+        "searches": [
+          "arXiv:2312.16858 §3.3; Resultary 46e204a3e9d1"
+        ]
+      },
+      "checked_sources": [
+        "Ohashi–Kudo arXiv:2312.16858v1, §3.3 and Table 2",
+        "Resultary 2195b7dedd84 and 46e204a3e9d1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior sparsity implies ranks are determined by the two reciprocal coefficient pairs. The four-or-zero p-rank result does not specify the zero set or its residue fields. The frozen ODE yields simplicity at arbitrary allowed p and the p=23 calculation resolves a different finite field and the additional quotient census."
+        ],
+        "reasoning": "No originality credit for coefficient pairing as a rank criterion, the superspecial test, or using inversion; the distinct claims are the full separable-root parameter counts and the resulting finite exceptional geometry.",
+        "searches": [
+          "Ohashi–Kudo Props. 3.3.3–3.3.4; Resultary 46e204a3e9d1 and 2195b7dedd84 findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same pencil can be normalized to y²=x^10+s x^5+1 with s²=t+2; the characteristic-41 and dichotomy records use this normalization. Prop. 3.3.4 gives the exact inversion quotient."
+        ],
+        "reasoning": "The normalization changes neither the geometric classes nor the invariant; comparisons use the same pencil rather than treating the displayed models as different.",
+        "searches": [
+          "Resultary genus-four dihedral pencil p-rank a-number strata and characteristic 23",
+          "Ohashi–Kudo arXiv:2312.16858v1 §3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 2 lists no p=23 superspecial D10 class. Indexed characteristic-41 classification lists one superspecial class and ten intermediate classes at p=41 only. Targeted comparisons found no match for the characteristic-23 polynomial."
+        ],
+        "reasoning": "Zero superspecial classes is consistent with thirteen a=2 points, not a count of them. The p=41 data neither exhaust nor specialize to characteristic 23.",
+        "searches": [
+          "Ohashi–Kudo Table 2, D10, p=23",
+          "Resultary 2195b7dedd84; characteristic-23 nonordinary locus and coarse polynomial comparison"
+        ]
+      },
+      "rationale": "Credit prior work for the same family, Cartier sparsity, common-root superspecial criterion, geometric inversion and the four-or-zero p-rank phenomenon. The inspected statements do not provide the general separable-root a-number census together with, or subsuming, the characteristic-23 nonordinary rank-two locus and its exact moduli polynomial and arithmetic.",
+      "residual_risks": [
+        "Possible equivalent unpublished or unindexed coefficient calculation. The frozen attribution of the p-rank dichotomy as already known does not specify a primary citation, and the dichotomy is not given novelty credit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE",
+          "evidence": [
+            "Same branch equation, common coefficient vanishing for superspeciality and full inversion equivalence; the characteristic-23 D10 superspecial entry is zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.16858v1",
+          "material_read": "§3.3, pp. 16–18, Lemma 3.3.1, Cartier matrix and Props. 3.3.3–3.3.4; Table 2 p. 20",
+          "method": "OA primary PDF, passage inspection",
+          "title": "Computing superspecial hyperelliptic curves of genus 4 with automorphism group properly containing the Klein 4-group",
+          "trigger": "Same family and exact prior superspecial classification"
+        },
+        {
+          "assessment": "PARTIAL COVERAGE",
+          "evidence": [
+            "Characteristic exactly 41; v=s²=t+2; one (0,4) class and ten (2,2) classes rather than the characteristic-23 result."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-complete-p-rank-and-a-number-strata-of-the-genus-four-dihedral-p--2195b7dedd84/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–2272",
+          "method": "Local-mirror original text",
+          "title": "Complete p-rank and a-number strata of the genus-four dihedral pencil in characteristic 41",
+          "trigger": "Same family in normalized coordinates; potentially matching exact strata"
+        },
+        {
+          "assessment": "PARTIAL COVERAGE",
+          "evidence": [
+            "An isogeny and Newton-polygon dichotomy for p≡2,3; explicit (f,a) exceptional census only for p=7."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-an-ordinary-supersingular-dichotomy-in-a-dihedral-genus-four-pen--46e204a3e9d1/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–2417",
+          "method": "Local-mirror original text",
+          "title": "An ordinary–supersingular dichotomy in a dihedral genus-four pencil",
+          "trigger": "Broader Newton-polygon statement in same pencil"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The known absence of superspecial members in characteristic 23 makes the remaining nonordinary locus a meaningful missing layer of an already studied natural automorphism pencil: it has thirteen marked points, all p-rank zero but a=2, with seven coarse points of specified residue degrees. The exact polynomial locates those points rather than merely testing specialness. The all-prime argument distinguishes reduced marked-parameter strata, beyond a single factorization, without claiming a closed formula for the gcd degree.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

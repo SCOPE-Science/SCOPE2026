@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:38:10.908021Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–94, and VERIFICATION.md, lines 19–28",
+        "/workspace/repairs/4/RESULT.md, Finding and Proof",
+        "/workspace/repairs/4/VERIFICATION.md",
+        "/workspace/repairs/4/verify_intermediate.py (INTERMEDIATE_COVER_CHECK cases=435 PASS)"
+      ],
+      "rationale": "The frozen all-palette formula is mathematically correct; its failure was originality, not an incorrect enumeration. In its q=r case, each blade must initially be missing at most one leaf, and if the hub is blank it must be the first force and see all r-1 leaf colours. Relative to a proper completion the r-1 excluded patterns are exactly the patterns in which every blade omits the same colour. Counting relative to a completion does not duplicate seeds: every proper completion of a seed must agree with every forced step, by induction, so a successful seed has one completion. The repaired claim is restricted to r<q<=N. No leaf can be forced since its degree r-1 is less than q-1, so only total assignments or assignments blank solely at the hub can succeed. Proper total assignments have q choices for the hub and independent blade-wise injections. With a blank hub, precisely q-1 colours must appear on the leaves. Choosing the absent colour and applying inclusion–exclusion to unused colours gives the repaired z^(N-1) coefficient. It is positive throughout the claimed range: partition the q-1 available leaf colours into m groups of size at most r-1, then pad each blade with distinct colours. This is possible also at q=N, when every leaf must use a distinct colour. It proves the minimum and multiplicity. The stated probability model weights each monomial coefficient by p^k(1-qp)^(N-k), including the endpoints. Fresh enumeration of 139,868 initial states across eight cases, including both retained palette endpoints for W(3,2), matched the coefficient vectors and the probability transform at p=1/(2q). The repaired program separately compared union-size dynamic programming against inclusion–exclusion in 435 cases, also checking the factorial count at q=N and the vanishing coefficient at q=N+1.",
+      "residual_risks": [
+        "The two fresh computations are bounded; the unrestricted claim rests on the degree, counting and positivity arguments. The repair does not address heterogeneous blades or unique extension as an alternative rule."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The bouquet theorem at the chromatic palette specializes to identical blades. Farr gives zero below the chromatic number, the total-colouring formula above maximum degree plus one, and examples including complete graphs and small stars. The general probability sum weights assignments by seed size but does not evaluate the hub-blank coefficient."
+        ],
+        "reasoning": "The homogeneous q=r case and outside ranges are covered even without identical notation. For the repaired range, the maximum degree is N-1 and q<=N, so the all-vertices degree obstruction in Proposition 5 does not apply; only the leaves are blocked. The complete-graph and star examples do not include the same multi-blade family.",
+        "searches": [
+          "Resultary d80fcc5f6b79, heterogeneous clique bouquets",
+          "Farr arXiv:2609.17108v1, local rule, Propositions 4(a) and 5, and examples",
+          "Farr–Morgan arXiv:2406.15746v1, p. 13"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c1051e120f18, d80fcc5f6b79 and b3d5092b434e",
+        "Farr arXiv:2609.17108v1, Propositions 4–5 and examples; Farr–Morgan arXiv:2406.15746v1, p. 13",
+        "Repaired RESULT.md, Finding and Relationship to prior work and limitations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At q=r a leaf may force after the hub and the previously known petal polynomial includes missing leaves. For q>r no leaf can ever force. The additional intermediate-palette contribution instead requires the leaves jointly to cover all q-1 non-hub colours; the factor for a prescribed set of unused colours is the mth power of the falling factorial."
+        ],
+        "reasoning": "The chromatic formula cannot be evaluated at a different q by substitution: the degree obstruction changes the possible successful domains. The ordinary chromatic term and assignment-weight sum are prior; neither evaluates the surjective blade count at larger palettes. The repair credits only that count and its exact threshold and size consequences.",
+        "searches": [
+          "Farr arXiv:2609.17108v1, Propositions 4(a) and 5 and exact examples",
+          "Resultary c1051e120f18, Finding and stated limitations",
+          "Farr–Morgan arXiv:2406.15746v1, probability sum over seed domains"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary c1051e120f18 uses W=K1 join k K_s and q=s+1. Its (s+1)(s!)^k z^(k(s-1))[(1+z)(s+z)^k-s] becomes the frozen middle case exactly when k=m and s=r-1. The later b3d5092b434e uses petal size r-1 and palette Q=q, and matches both coefficients in the retained range."
+        ],
+        "reasoning": "Both record comparisons use the same labelled graph, named colours and local rule. The earlier equivalent covers exactly the frozen chromatic-palette branch, not the repaired range; the later equivalent covers the repaired enumeration and is expressly distinguished from earlier coverage.",
+        "searches": [
+          "Resultary semantic searches for forced-colouring seed-size polynomials of clique windmills, generalized friendship graphs and bouquets at arbitrary palettes",
+          "Farr forced colouring probability polynomial, clique windmill, bouquet, block graphs and arbitrary palettes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026-10-18 records c1051e120f18 and d80fcc5f6b79 cover the q=r slice. Resultary b3d5092b434e, dated 2026-11-02, explicitly gives the two larger-palette coefficients and the thresholds. No additional distinct same-day equivalent was returned in the bounded search."
+        ],
+        "reasoning": "The earlier indexed exact terms apply to a removed palette. The later exact match is disclosed; its existence is not evidence that the coefficient was already covered when the frozen result was recorded.",
+        "searches": [
+          "Resultary exact forced-colouring polynomial and seed minima for clique windmills and clique bouquets, including distinct same-day records",
+          "Farr arXiv:2609.17108v1, examples and complete-graph evaluation"
+        ]
+      },
+      "rationale": "This PASS applies only to the reassessed intermediate-palette claim r<q<=N. The frozen all-palette finding fails originality as stated: an earlier exact windmill result and an earlier broader bouquet result already cover its entire q=r seed enumerator, minimum, multiplicity and probability transform. The omitted q<r and q>N regimes are already consequences of Farr's general propositions. The necessary scientific repair is to remove all three regimes from the claimed contribution, retaining the nonzero hub-blank coefficient and its minimum-size consequences for the intermediate range. No earlier coverage of that narrower coefficient was established. A distinct later record gives the same larger-palette enumeration; it is equivalent coverage, not evidence of earlier priority.",
+      "residual_risks": [
+        "The comparison cannot rule out older results under other names for clique bouquets or other reductions for a universal hub. Later exact equivalent coverage is established, but historical priority is not."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact earlier chromatic-palette overlap; expressly does not claim larger palettes",
+          "evidence": [
+            "Same local rule and named colours. Its seed-size enumerator, minimum, multiplicity and probability formula agree at q=r under k=m and s=r-1."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-forced-colouring-polynomials-of-clique-windmills--c1051e120f18",
+          "material_read": "RESULT.md Finding and Proof §§1–5; Finding and scope offsets 73–2591; limitation near offset 7769",
+          "method": "Local Resultary mirror passages",
+          "title": "Forced colouring polynomials of clique windmills",
+          "trigger": "Earlier exact same-family result"
+        },
+        {
+          "assessment": "Broader exact earlier coverage at the chromatic palette",
+          "evidence": [
+            "Setting all blade sizes to r-1 gives the frozen q=r case."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-forcing-polynomials-and-parity-sensitive-real-zeros-for-cl--d80fcc5f6b79",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror passage",
+          "title": "Exact forcing polynomials and parity-sensitive real zeros for clique bouquets",
+          "trigger": "Earlier generalization over blade sizes"
+        },
+        {
+          "assessment": "Equivalent repeated enumeration in a distinct later record",
+          "evidence": [
+            "At Q=q and petal size r-1 the total and one-blank coefficients, coverage inclusion–exclusion and thresholds agree."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-palette-driven-two-step-forcing-threshold-for-clique-windmills--b3d5092b434e",
+          "material_read": "RESULT.md Finding and Proof, offsets 0 and 3760",
+          "method": "Local Resultary mirror passages",
+          "title": "A palette-driven two-step forcing threshold for clique windmills",
+          "trigger": "Strongest exact larger-palette match"
+        },
+        {
+          "assessment": "General extreme-palette implications and known model; no intermediate windmill coefficient in the inspected statements",
+          "evidence": [
+            "Proposition 5 gives FC_lambda(G;p)=P(G;lambda)p^n for lambda>Delta+1. The preceding chromatic obstruction covers q<r. Examples at smaller palettes for other families do not supply the retained count."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.17108v1",
+          "material_read": "Local rule, p. 2; Propositions 4 and 5, pp. 8–9, Proposition 5 near offset 23562; pp. 10–11 examples and large-palette discussion",
+          "method": "OA full-text passages",
+          "title": "The forced colouring function of a graph",
+          "trigger": "Primary framework, general coverage and explicit examples"
+        },
+        {
+          "assessment": "Known weighted transform, not the evaluated coefficient",
+          "evidence": [
+            "Each domain contributes a forcing count multiplied by p^|C|(1-lambda*p)^(n-|C|)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2406.15746v1",
+          "material_read": "p. 13, probability sum over initial domains",
+          "method": "OA full-text passage",
+          "title": "Graph polynomials: some questions on the edge",
+          "trigger": "General probability transform potentially determining the enumerator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding, Proof and Relationship to prior work and limitations",
+        "Resultary c1051e120f18 for the exact chromatic-palette comparison",
+        "Farr, Proposition 5 for the already known upper regime"
+      ],
+      "rationale": "The retained coefficient evaluates, for an unbounded natural graph family, the entire contribution of successful incomplete seeds above the chromatic palette and at or below the largest palette permitting any local force. A minimum-size statement alone would not give the seed count or the probability of a final hub force; the exact colour-coverage coefficient gives both and replaces a search over all partial assignments. It isolates a genuine structural change from the prior chromatic-palette case, in which leaves can still be forced and fewer seeds suffice. Its significance is this precise intermediate regime, not the already known extreme regimes or the simplicity of the inclusion–exclusion method.",
+      "residual_risks": [
+        "The result is specific to uniform clique windmills and is not presented as a general classification for all graphs with a universal vertex."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

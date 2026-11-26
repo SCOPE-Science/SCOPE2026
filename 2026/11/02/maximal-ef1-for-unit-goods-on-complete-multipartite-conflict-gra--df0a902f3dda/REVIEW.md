@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof is complete for finite nonempty complete multipartite graphs, every integer \(n\ge4\), and unit additive valuations. It checks feasibility, cardinality-equivalent EF1, and the requirement that *every* unallocated good conflicts with *every* agent's bundle. The crossing-prefix inequality gives feasible singleton/pair quotas without appeal to an unverified combinatorial lemma. The \(K_{3,3,3}\) nonexistence-of-complete-coloring argument is exact. The independent-rule finite checker passed 7,517 instances, including 5,118 with unassigned vertices. Finite checks supplement rather than replace the proof.
+PASS
 
-## Originality — PASS, residual publication-priority risk
+A nonempty feasible bundle occupies one part; if goods remain, maximality requires every bundle to be nonempty and every used part to be completely colored. Unit EF1 is exactly a class-size spread of at most one. If m≤n, singleton assignment is complete; if the largest part has at least n items, dividing that entire part evenly works. Otherwise choose the first prefix that reaches n, with previous sum B<n and last part size t≤a1. The sum of lower class quotas is B−Σ_{before last}⌊a_i/2⌋+⌈t/2⌉≤B+1≤n, while the upper quotas sum to at least n. Integer quotas totaling n therefore exist and each used part splits into exactly that many singletons and pairs. B+t≤2n−2; at m=n the bound also holds under a1<n (thus n≥2). The claimed time is valid by scanning explicit part lists, sorting r sizes, and writing the bundles. In K_{3,3,3}, a complete equitable split among four classes requires sizes 3,2,2,2, but each three-item part would need a class of size three. Two split parts do give a maximal partial coloring. Independent bounded replay checked 9,570 graph/agent instances via a direct search for pair quotas, including unsorted part lists and n=1.
 
-Equbal et al. 2026 Section 5.3 introduce the same maximal-equitable-partial notion and prove the tree case, not this complete multipartite family. Hummel and Hetland's 2021 equitable-coloring theorem assumes more agents than maximum degree and ensures completeness; the four-agent \(K_{3,3,3}\) example violates this implication and admits no complete equitable coloring. Haviv 2026 primarily develops strong-colorability sufficient conditions for complete allocations; an inaccessible full paper remains a research-priority risk, but its stated complete-coloring conclusions cannot imply this witness. An earlier more general **three-agent** existence claim is prior to this result; novelty is restricted to \(n\ge4\). Searches for equivalences, more general coverage, tables, and matching statements in mathematical records found no covering result. Unindexed prior coloring literature remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The result supplies a natural, previously unaddressed infinite class and a direct construction for the 2026 maximal equitable partial-coloring problem. It covers all numbers of agents rather than only sufficiently many compared with degree, and includes a concrete example where allocation of all goods is impossible while maximal EF1 is attainable. It is not a general-graph result and does not handle heterogeneous item weights, for which earlier bipartite counterexamples already exist.
+The exact notion is prior; the evidence supports the extension to all complete multipartite graphs in the additional agent range, not priority for EF1 or equitable coloring. A distinct later-dated catalogue record materially matches existence, time and the prefix pair/singleton construction. It is equivalent coverage of those results, but no evidence places it before the frozen result. The checked earlier statements cover trees, stronger valuation assumptions at three agents, or conditions for complete allocation, not the arbitrary-part unit-good case with four or more agents.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The result solves the maximal equitable partial coloring problem for a natural unrestricted family beyond trees and includes cases where complete equity is impossible. It yields an explicit efficient construction and a bound on the number of colored goods in a nontrivial regime. The motivating four-agent K_{3,3,3} case separates the task from a mere application of a complete coloring theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

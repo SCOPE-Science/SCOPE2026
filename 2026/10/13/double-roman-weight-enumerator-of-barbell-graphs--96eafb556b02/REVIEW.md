@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof conditions one clique side on the two bridge-endpoint labels. The four endpoint rows are derived from exhaustive local cases: endpoint label \(3\) protects the side automatically; endpoint label \(2\) fails only on \(\{0,1\}\)-assignments containing a zero; endpoint labels \(0\) or \(1\) require either an internal \(3\), at least two internal \(2\)'s, or the unique exceptional pattern of one internal \(2\) with all other internal labels \(1\). The endpoint-\(0\) bridge correction is then exact. Gluing the two endpoint-conditioned sides gives \(\operatorname{tr}(M_n^2)\). The packaged verifier independently checks every labeling for \(2\le n\le5\). For \(n\ge4\), the minimum-layer proof separately shows each clique side has weight at least \(3\), with equality exactly for a single label \(3\).
+## correctness
 
-## Originality
-PASS with residual literature risk. The 2016 introductory paper defines the invariant and gives general minimum-weight results, not an all-function barbell enumerator. The open full text of Yang–Zhou (2020) was inspected and contains no “barbell”, “polynomial”, or “clique” occurrence. The closest broader source found is the Banerjee–Henning–Pradhan block-graph algorithm, which computes the minimum double Roman domination number in block graphs but does not, from its accessible abstract, imply the full weight distribution. published-finding corpus searches under barbell, two-clique bridge, block-graph, polynomial, enumerator, and minimum-function formulations returned no equivalent or stronger statement.
+PASS
 
-## Value
-PASS. A barbell is a minimal nontrivial clique-sum obstruction to treating the two cliques independently: only the two bridge endpoints can receive help from the opposite side. The four-state transfer matrix isolates exactly that interaction and counts all feasible functions, not merely the optimum. The formula also exposes a sharp small-order boundary—multiplicities \(4\), \(13\), then \(n^2\)—and shows that from \(n\ge4\) the minimum functions decouple completely into one label \(3\) per clique. This is a natural coefficientwise refinement of an optimization invariant on a standard block-graph family.
+Condition on the endpoint labels (a,b) of the bridge. On the a side, a=3 protects all internal vertices; a=2 leaves only assignments with at least one zero and no internal 2 or 3 to delete. For a=0 or 1, internal validity requires a 3, two 2s, or one 2 and all remaining internal labels 1. The last case protects a=1 already, but protects a=0 only when b≥2. These give exactly the four matrix rows including the exceptional terms in G_n and J_n. The two sides involve disjoint choices conditioned on (a,b), so the weight exponents add and the sum of the products is tr(M_n²). For n≥4, a side weighing at most 2 necessarily leaves an undefended internal zero. A side of weight 3 without a 3 has either one 2 and one 1 (leaving an undefended internal zero) or only 1s and 0s (no defender for any internal vertex). Thus each side must contain one 3 at weight 6, giving n² choices. Fresh direct adjacency enumeration over all labelings for n=2 and 3 in /workspace/branches/769a392d-55ad-4d41-9a0d-d72547d36996/reproduce_barbell.py confirmed every coefficient: 114 and 2325 valid functions, with leading terms 4x⁵ and 13x⁶ respectively. The frozen verifier and recorded output were inspected, not executed; the independent finite test supports the boundary cases, not the all-n proof.
 
-The closest prior literature and remaining limitations are described in `RESULT.md` and `AUDIT.json`. The finite verifier is a consistency check; the infinite statement rests on the symbolic state decomposition.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct supported contribution is the full ordinary double-Roman weight polynomial on two K_n joined by one edge, including minimum-layer multiplicities. The strongest checked indexed hits either match the graph but not the domination rule, or match the rule but not the graph. Available primary descriptions of optimization do not give all-weight coefficients. This is a best-of-evidence pass for the coefficientwise result, not a priority claim for scalar minimum weights or for the transfer-matrix method.
+
+## value
+
+PASS
+
+A barbell is a natural first case of two dense blocks interacting through a cut edge. The polynomial gives all feasible weights and multiplicities, not just an optimization number; it identifies the extra tied optima at n=3 and the rigid one-3-per-block classification from n=4 onward. These exact coefficients and boundary layers are useful for evaluating counting methods and for comparison with other glued-clique graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

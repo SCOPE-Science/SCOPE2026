@@ -1,140 +1,70 @@
-# The four-to-five-state defect transition and stable pentagon rigidity
+# Quantitative pentagon rigidity for the planar quadratic defect
 
 ## Finding
 
-Let \(\mu\) be a probability law on exactly \(m\) distinct points of \(\mathbb R^2\), all of positive mass, satisfying
+Let \(\xi\) have exactly five distinct atoms \(x_j\in\mathbb R^2\), with positive masses \(w_j\), and suppose
 \[
 \mathbb E\xi=0,\qquad \mathbb E\xi\xi^{\mathsf T}=I_2,\qquad \mathbb E\xi^{\otimes3}=0.
 \]
-For a real symmetric trace-zero \(2\times2\) matrix \(A\), define the quadratic orthogonal-representation defect
+Set
 \[
-\Gamma_\mu(A)=\frac14\mathbb E(\xi^{\mathsf T}A\xi)^2,\qquad
-\Lambda(\mu)=\sup_{\operatorname{tr} A=0,\,\|A\|_F=1}\Gamma_\mu(A).
+\Lambda=\sup_{A=A^{\mathsf T},\ \operatorname{tr}A=0,\ \|A\|_F=1}\frac14\mathbb E(\xi^{\mathsf T}A\xi)^2.
 \]
-The following support-constrained conclusions hold.
-
-**Exact support frontier.** There is no such law with \(m\le3\). Every four-point law is, after an orthogonal change of coordinates and relabeling, exactly
+If \(0\le\Lambda-1/4\le\varepsilon\le10^{-8}\), there are a rotation angle \(\theta\) and a relabeling \(j=0,\dots,4\) for which, writing \(u(\phi)=(\cos\phi,\sin\phi)\),
 \[
-\Pr\{\xi=\pm p^{-1/2}e_1\}=p/2\ \text{at each sign},\qquad
-\Pr\{\xi=\pm(1-p)^{-1/2}e_2\}=(1-p)/2\ \text{at each sign},
-\quad 0<p<1.
-\]
-For this family \(\Lambda(\mu)=1/[8p(1-p)]\). Therefore the sharp minimum over laws on exactly \(m\) atoms is
-\[
-\inf\Lambda(\mu)=
-\begin{cases}
-1/2,&m=4,\\
-1/4,&m\ge5.
-\end{cases}
-\]
-At \(m=4\) equality occurs only for \(p=1/2\). At \(m=5\), equality occurs only for the uniform regular pentagon of radius \(\sqrt2\), up to orthogonal transformations; all regular \(m\)-gons of radius \(\sqrt2\), with uniform weights, attain \(1/4\) when \(m\ge5\).
-
-**Quantitative five-state rigidity.** If \(m=5\) and
-\[
-0\le\Lambda(\mu)-1/4\le\varepsilon\le10^{-8},
-\]
-then there are a rotation angle \(\theta\) and a relabeling \(j=0,\dots,4\) of the atoms and weights such that, writing \(u(\phi)=(\cos\phi,\sin\phi)\),
-\[
-\left|\Pr\{\xi=x_j\}-\frac15\right|\le6\sqrt\varepsilon,
+\left|w_j-\frac15\right|\le6\sqrt\varepsilon,
 \qquad
 \bigl\|x_j-\sqrt2\,u(\theta+2\pi j/5)\bigr\|_2\le440\sqrt\varepsilon
 \]
-for each \(j\). The displayed constants are explicit safe bounds, not claims of optimality.
+for every \(j\). In particular, no lower bound on the five masses or any separation of atoms is assumed; the near-minimal defect supplies them.
 
 ## Assumptions and scope
 
-The support count \(m\) refers to *distinct* atoms, with strictly positive weights; zero weights do not count. The laws are bounded because their support is finite. The Frobenius norm and matrix trace use the standard Euclidean normalization. The defect is the trace-free quadratic Galtchouk–Kunita–Watanabe residual for centered, isotropic, third-moment-free increments; no assertion is made about the full BSDE error or its optimal discretization. The near-extremizer theorem concerns exactly five atoms and does not claim the same coordinatewise stability for arbitrary larger supports.
+Here the Frobenius norm is the Euclidean matrix norm \(\|A\|_F^2=\sum_{i,j}A_{ij}^2\). The defect involves only the trace-free symmetric quadratic sector, not full BSDE approximation error. The claim is the quantitative estimate for five positive atoms, not a new exact cubature classification or a claim of optimal constants or exponent. Exact equality identifies the reference design, while the estimate controls the actual masses and positions of nearly optimal rules, which need not lie on a circle.
 
 ## Proof
 
-**1. Three or fewer states cannot match the moments.** In \(L^2(\mu)\), the three functions \(1,\xi_1,\xi_2\) are orthonormal by centering and covariance normalization. Thus \(m\ge3\). If \(m=3\), these already form a basis. Third-moment cancellation makes every centered quadratic \(\xi_i\xi_j-\delta_{ij}\) perpendicular to that basis. It must therefore vanish at each support point, implying \(\xi\xi^{\mathsf T}=I_2\) there. This contradicts the rank-one property of an outer product of a vector in \(\mathbb R^2\). Hence \(m\ge4\).
+Use the orthonormal basis \(A_1=2^{-1/2}\operatorname{diag}(1,-1)\), \(A_2=2^{-1/2}\begin{pmatrix}0&1\\1&0\end{pmatrix}\) of the trace-free symmetric sector. Let \(K_{ij}=\frac14\mathbb E[(\xi^{\mathsf T}A_i\xi)(\xi^{\mathsf T}A_j\xi)]\); then \(\Lambda=\lambda_{\max}(K)\). Put \(s=|\xi|^2/2\). The identities \(\mathbb E s=1\) and \(\operatorname{tr}K=\frac18\mathbb E|\xi|^4=\frac12\mathbb E s^2\) give \(\Lambda\ge1/4\). A uniform pentagon on the circle of radius \(\sqrt2\) has the first four angular moments zero; this gives the required moments and \(K=I_2/4\). Under the assumed upper bound, \(\operatorname{tr}K\le1/2+2\varepsilon\), and the smaller eigenvalue is at least \(1/4-\varepsilon\) because the trace is at least \(1/2\). Consequently
+\[
+\mathbb E(s-1)^2\le4\varepsilon,\qquad \|K-I_2/4\|_{\rm op}\le\varepsilon.
+\]
 
-**2. Classification of all four-state rules.** With \(m=4\), the orthogonal complement of \(\operatorname{span}\{1,\xi_1,\xi_2\}\) in \(L^2(\mu)\) has dimension one. Choose a nonconstant real function \(h\) spanning it. Every centered quadratic lies in that complement, so for one fixed real symmetric matrix \(B\), pointwise on the four atoms,
+Write \(\xi_1+i\xi_2=\sqrt{2s}\,z\) with \(|z|=1\), choosing an arbitrary direction at zero, and let \(m_k=\mathbb E z^k\). The exact moment constraints give \(\mathbb E s^{k/2}z^k=0\) for \(k=1,2,3\). For the first two moments, Cauchy–Schwarz and \(|\sqrt{s}-1|\le|s-1|\) give \(|m_k|\le2\sqrt\varepsilon\). For the third use \(|s^{3/2}-1|\le\tfrac32|s-1|(1+\sqrt{s})\) and \(\mathbb E(1+\sqrt{s})^2\le4\) to get \(|m_3|\le6\sqrt\varepsilon\). For the fourth, expansion in the chosen basis gives
 \[
-\xi\xi^{\mathsf T}=I_2+hB.
+\mathbb E(\xi_1+i\xi_2)^4=8(K_{11}-K_{22})+16iK_{12}.
 \]
-The matrix \(B\) cannot vanish because \(\xi\xi^{\mathsf T}\) has rank at most one, while \(I_2\) has rank two. Since every support value of \(h\) is a zero of the nonzero polynomial \(t\mapsto\det(I_2+tB)\), there are at most two distinct values of \(h\). There cannot be only one since \(h\) is nonconstant. The two associated matrices are nonzero rank-one positive semidefinite matrices: if one were zero, the other alone could not average to covariance \(I_2\).
+In particular \(|\mathbb Es^2z^4|\le8\varepsilon\): the modulus after dividing by four is twice the eigenvalue gap of \(K\), and this gap is at most \(2\varepsilon\). Also
+\[
+\mathbb E|s^2-1|\le \bigl(\mathbb E(s-1)^2\mathbb E(s+1)^2\bigr)^{1/2}\le5\sqrt\varepsilon,
+\]
+since \(\mathbb E(s+1)^2=4+\mathbb E(s-1)^2\). Thus \(|m_4|\le6\sqrt\varepsilon\) on the given range. Below we use the common weaker bound \(7\sqrt\varepsilon\) for \(k=1,2,3,4\).
 
-Thus the four positions lie on exactly two distinct lines through the origin. Their weighted means along these independent lines must both vanish. Each line must consequently carry at least two points; since there are four total, each carries exactly one antipodal pair, with equal within-pair masses. Write the total pair masses as \(p\) and \(q=1-p\) and the nonzero vectors as \(u,v\). Isotropy gives \(puu^{\mathsf T}+qvv^{\mathsf T}=I_2\); the square matrix with columns \(\sqrt p\,u,\sqrt q\,v\) is orthogonal, proving the displayed family. Conversely it clearly satisfies all required moments.
-
-**3. Exact four-state defect.** The trace-free Frobenius-orthonormal basis
-\[
-A_1=2^{-1/2}\begin{pmatrix}1&0\\0&-1\end{pmatrix},\qquad
-A_2=2^{-1/2}\begin{pmatrix}0&1\\1&0\end{pmatrix}
-\]
-puts the defect matrix into the diagonal form
-\[
-\bigl[\Gamma_\mu(A_i,A_j)\bigr]_{i,j=1}^2
-=\begin{pmatrix}1/[8p(1-p)]&0\\0&0\end{pmatrix},
-\]
-where \(\Gamma_\mu(A,B)=\frac14\mathbb E[(\xi^{\mathsf T}A\xi)(\xi^{\mathsf T}B\xi)]\). Its largest eigenvalue is \(1/[8p(1-p)]\ge1/2\), with equality precisely at \(p=1/2\).
-
-**4. Universal bound, attainability, and exact five-state equality.** For any supported law meeting the assumptions, the displayed basis gives the pointwise identity
-\[
-\sum_{i=1}^2(\xi^{\mathsf T}A_i\xi)^2=\frac12|\xi|^4.
-\]
-Hence the trace of the defect matrix is \(\mathbb E|\xi|^4/8\ge1/2\) by \(\mathbb E|\xi|^2=2\) and Jensen, and its largest eigenvalue is at least \(1/4\). For the uniform regular \(m\)-gon \(\xi_j=\sqrt2\,u(2\pi j/m)\) with \(m\ge5\), angular Fourier moments of orders one through four vanish. This proves the moment conditions and the defect matrix equals \(I_2/4\).
-
-If a five-atom law has defect \(1/4\), the preceding inequalities force \(|\xi|^2=2\) on all atoms and force its two-dimensional defect matrix to equal \(I_2/4\). Writing \(z_j=(\xi_{j,1}+i\xi_{j,2})/\sqrt2\) on the unit circle, the initial moment assumptions say \(\sum_jw_jz_j^k=0\) for \(k=1,2,3\); the equality of the two defect eigenvalues and vanishing cross term give the same identity for \(k=4\). Form the square matrix \(V_{kj}=\sqrt{w_j}z_j^k\), \(0\le k,j\le4\). The four Fourier equations and total mass one imply \(VV^*=I_5\); hence also \(V^*V=I_5\). Its diagonal says \(w_j=1/5\). Its off-diagonal says \(\sum_{k=0}^4(z_j/z_i)^k=0\) for \(i\ne j\), so the five ratios are precisely the nontrivial fifth roots of unity. The nodes are therefore a regular pentagon, up to rotation and reflection.
-
-**5. Quantitative five-state rigidity.** Fix \(m=5\) and \(0\le\Lambda-1/4\le\varepsilon\le10^{-8}\). Define \(s=|\xi|^2/2\). The trace identity and the upper bound on both defect eigenvalues give
-\[
-\mathbb E(s-1)^2=\mathbb E s^2-1\le4\varepsilon.
-\]
-Let \(K\) be the defect matrix in the preceding basis. Its trace is at least \(1/2\), while its largest eigenvalue is at most \(1/4+\varepsilon\). Thus its smallest eigenvalue is at least \(1/4-\varepsilon\) and
-\[
-\|K-I_2/4\|_{\mathrm{op}}\le\varepsilon.
-\]
-At each atom choose a unit complex number \(z\) in the direction of \(\xi\), arbitrary if the atom is zero, and set \(t=\sqrt s\). Write \(m_k=\mathbb Ez^k\). The exact moment conditions are \(\mathbb Et^kz^k=0\) for \(k=1,2,3\). Cauchy–Schwarz and \(\mathbb E(s-1)^2\le4\varepsilon\) yield
-\[
-|m_1|,|m_2|\le2\sqrt\varepsilon,\qquad |m_3|\le6\sqrt\varepsilon.
-\]
-For the cubic bound, use \(|s^{3/2}-1|\le\frac32|s-1|(1+\sqrt s)\) and \(\mathbb E(1+\sqrt s)^2\le4\). The identity
-\[
-\mathbb E(\xi_1+i\xi_2)^4=8(K_{11}-K_{22})+16iK_{12}
-\]
-gives \(|\mathbb Es^2z^4|\le8\varepsilon\); moreover
-\[
-\mathbb E|s^2-1|\le
-\bigl(\mathbb E(s-1)^2\mathbb E(s+1)^2\bigr)^{1/2}
-\le5\sqrt\varepsilon.
-\]
-Thus \(|m_4|\le8\varepsilon+5\sqrt\varepsilon\le6\sqrt\varepsilon\). In particular \(|m_k|\le7\sqrt\varepsilon\) for \(1\le k\le4\).
-
-For the five distinct atoms write \(w_j>0\) and define \(V_{kj}=\sqrt{w_j}z_j^k\), \(0\le k,j\le4\). The off-diagonal entries of \(VV^*-I_5\) are angular moments \(m_{|k-\ell|}\), so its operator norm is at most \(28\sqrt\varepsilon\). This is below one, so \(V\) is invertible. Since \(VV^*\) and \(V^*V\) have the same eigenvalues, also
-\[
-\|V^*V-I_5\|_{\mathrm{op}}\le28\sqrt\varepsilon.
-\]
-The diagonal entries give \(|5w_j-1|\le28\sqrt\varepsilon\) and \(w_j\ge0.19\). Off-diagonal entries give, for \(i\ne j\),
+For \(0\le k,j\le4\) define the square matrix \(V_{kj}=\sqrt{w_j}z_j^k\). The diagonal of \(VV^*\) is one and its off-diagonal entries are the first four moments or their conjugates. The maximum absolute row sum bounds the operator norm of the Hermitian matrix \(VV^*-I_5\) by \(28\sqrt\varepsilon<1\). Thus \(V\) is invertible and \(V^*V-I_5\) has the same norm bound. The diagonal now gives \(|5w_j-1|\le28\sqrt\varepsilon\) and \(w_j\ge0.19\). For \(i\ne j\), dividing the corresponding off-diagonal bound by \(\sqrt{w_iw_j}\) yields
 \[
 \left|\sum_{k=0}^4(z_j/z_i)^k\right|\le150\sqrt\varepsilon,
-\quad\text{hence}\quad |(z_j/z_i)^5-1|\le300\sqrt\varepsilon.
+\qquad
+\left|(z_j/z_i)^5-1\right|\le300\sqrt\varepsilon.
 \]
-Every unit-circle ratio is therefore within \(300\sqrt\varepsilon\) of one of the fifth roots of unity. To see this, choose the nearest fifth root, write its angular separation as at most \(\pi/5\), and use \(\sin(5x)\ge\sin x\) for \(0\le x\le\pi/10\). Relative to the first node, two distinct nodes cannot be assigned the same fifth root: otherwise their ratio is within \(600\sqrt\varepsilon\) of one, implying by \(|\sum_{k=0}^4w^k-5|\le10|w-1|\) that its five-term geometric sum has magnitude at least \(4.4\), contradicting the bound \(150\sqrt\varepsilon\le0.015\). Thus the assignments use all five fifth roots.
+The second inequality results from multiplying the geometric sum by \(z_j/z_i-1\), whose modulus is at most two.
 
-Finally, for each \(j\), the nonnegative weighted sum \(\sum_j w_j(s_j-1)^2\le4\varepsilon\) and \(w_j\ge0.19\) give \(|s_j-1|\le5\sqrt\varepsilon\). Since \(|\sqrt{s_j}-1|\le|s_j-1|\), the angular bound yields
+Relative to a reference node \(z_0\), assign each \(z_j/z_0\) a nearest fifth root of unity. If the angular distance to that root is \(2x\le\pi/5\), then \(\sin(5x)\ge\sin x\) on \([0,\pi/10]\); the preceding estimate therefore bounds the chord distance to the assigned root by \(300\sqrt\varepsilon\). The reference node is assigned the root 1. If two nodes had the same assigned root, their ratio \(w\) would satisfy \(|w-1|\le600\sqrt\varepsilon\). Telescoping each power gives \(|\sum_{k=0}^4w^k-5|\le10|w-1|\), so the sum would have modulus at least \(4.4\), contradicting its upper bound \(150\sqrt\varepsilon\le0.015\). The assignment is therefore bijective. Relabel the nodes by these roots and take \(\theta=\arg z_0\).
+
+The radial estimate and \(w_j\ge0.19\) give \(|s_j-1|\le5\sqrt\varepsilon\) for every atom; in particular none is zero. The radial and angular estimates together yield
 \[
-\|\xi_j-\sqrt2\,u(\theta+2\pi j/5)\|_2
-\le\sqrt2(5+300)\sqrt\varepsilon<440\sqrt\varepsilon,
+\bigl\|x_j-\sqrt2\,u(\theta+2\pi j/5)\bigr\|_2
+\le\sqrt2(5+300)\sqrt\varepsilon\le440\sqrt\varepsilon.
 \]
-while the diagonal bound gives \(|w_j-1/5|\le(28/5)\sqrt\varepsilon<6\sqrt\varepsilon\). This proves the quantitative assertion.
-
-## Verification
-
-The standalone standard-library program `verify.py` checks 49 exact rational four-point laws (all moments through degree three, the defect eigenvalue and its lower bound), 25 regular polygon designs (harmonics through degree four and the two-by-two defect matrix), and 200 reproducible near-pentagon Vandermonde perturbations. It produces `PASS 3762 finite exact/numerical assertions` in the present run. These finite tests do not certify the all-laws classification, support optimum, or perturbation theorem; those are established by the proofs above.
+The diagonal estimate gives the asserted weight bound. All bounds are non-strict, including at \(\varepsilon=0\).
 
 ## Relationship to prior work
 
-Tanaka, *Third-moment cancellation and predictable representation in finite-state BSDE approximation* (arXiv:2610.20880v1, 14 October 2026), defines the quadratic GKW defect, proves the support-unrestricted operator bound \(1/4\) in dimension two, and characterizes equality by weighted spherical 4-designs. Section 10 specifically asks about the support-size versus defect tradeoff. The same paper mentions the four-point equal-weight coordinate-axis rule and the six-point symmetric simplex, but does not determine the exact four-to-five-state frontier or a coordinatewise quantitative near-optimality estimate. The universal bound and extremal-design criterion are credited to it, not claimed anew.
+Tanaka's universal trace-free defect bound and its equality characterization by normalized weighted spherical 4-designs give the baseline \(1/4\) here. At equality with five atoms the angular problem is the five-node positive quadrature rule on the unit circle exact through trigonometric degree four. This exact rule is classical: in the unit-circle quadrature description of Peherstorfer, the node polynomial for Haar measure has the form \(z^5+\eta\), \(|\eta|=1\), giving a uniform regular pentagon. The quantitative comparison starts instead with small defect excess for a genuinely planar law. It uses radial concentration and the full operator bound to obtain an approximate square moment matrix before deriving atomwise bounds. It is not an estimate assuming beforehand that nodes are on the circle or close to prescribed locations.
 
-Classical cubature theory already supplies general lower bounds and symmetry of minimal degree-three rules. In particular, Cools's 1997 survey, Section 8.3, reports Möller's theorem that a rule attaining the symmetric degree-three lower bound is centrally symmetric. Therefore the antipodal aspect of the four-point classification should not be regarded as independently novel. Here it is used to evaluate and compare the precise defect, while the explicit five-point \(\sqrt\varepsilon\)-stability assertion controls *both* nodes and unequal weights from the excess martingale defect. General stability theorems for minimal positive quadratures, if available, might subsume that assertion after a nontrivial specialization.
+## Verification and limitations
 
-## Limitations
-
-The quantitative constants \(10^{-8},6,440\) are sufficient but not optimized, and no sharpness claim is made for the square-root exponent. The stability result concerns exactly five positive atoms; no separation-free atomwise control is asserted for larger support. The claims concern only planar trace-free quadratic residuals, not arbitrary Hessian sectors, full higher-dimensional schemes, or convergence rates. Novelty beyond the classical design/cubature theory requires independent priority assessment; the paper's unpublished companion manuscript was not accessible for full-text comparison. Numerical checks cannot establish universal quantifiers.
+The argument above establishes the inequalities for all laws under the stated assumptions. The accompanying tests in the original package for regular polygons and perturbed Vandermonde matrices are illustrations; the perturbed samples need not satisfy the theorem's exact low-order moments and are not a proof of stability. No optimal constants, optimal exponent, or extension to more than five atoms is asserted.
 
 ## References
 
-1. A. Tanaka, *Third-moment cancellation and predictable representation in finite-state BSDE approximation*, arXiv:2610.20880v1, first posted 14 October 2026, Sections 2, 6 and 10. https://arxiv.org/html/2610.20880v1
-2. R. Cools, *Constructing cubature formulae: the science behind the art*, Acta Numerica **6** (1997), 1–54, especially Sections 7–8. https://doi.org/10.1017/S0962492900002701
-3. H. M. Möller, bounds for minimal centrally symmetric odd-degree cubature formulae (1973), as cited and discussed in Cools, Section 8.3.
+1. A. Tanaka, *Third-moment cancellation and predictable representation in finite-state BSDE approximation*, [arXiv:2610.20880v1](https://arxiv.org/abs/2610.20880), Theorem 6.3 and Corollary 6.4.
+2. F. Peherstorfer, *Positive trigonometric Quadrature Formulas and Quadrature on the Unit Circle*, [arXiv:1001.2451](https://arxiv.org/abs/1001.2451), equations (4) and (9).

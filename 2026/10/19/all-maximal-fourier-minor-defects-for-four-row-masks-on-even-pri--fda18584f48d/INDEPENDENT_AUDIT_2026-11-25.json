@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:20:14.424430Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen proof's degree-four coefficient for mixed signs has an incorrect factor d-4; the frozen symbolic checker expands nodes epsilon*(1+a*u), not the required epsilon*(1+u)^a. For p=7, d=6 and (A,B,C,D)=(1,6,2,5), direct integer binomial expansion of the required determinant gives coefficient -4800, or 2 modulo 7, whereas the frozen formula gives 5 modulo 7. This is a proof and checker defect, not a false incidence statement. The replacement derives the true factor d-1 by formal log/exponential reparametrization with invertible denominators through degree four. For even d the cubic two-pair term forces equality of sums; for d other than p+1 the quartic term is a unit unless the unordered exponent pairs agree, while the cubic term has valuation at least p+2>4. The two pairs that do agree are precisely antipodal pairs. The repaired proof handles d=4 in the same argument. The three-plus-one cubic term is a unit, same-sign columns reduce to prime-order Fourier minors except the repeated row residues, and for odd d the Schur polynomial reduction gives exactly the two parity-pure exceptions. At d=p+1 the direct two-pair determinant is, up to sign, 2(a-b)(c-e)(ab-ce), with the expected equality of sums; the count follows since a fixed sum admits (p-1)/2 distinct unordered pairs in each parity. The first three Vandermonde rows give rank at least three for all column sets. This rechecks the unchanged finding including p=5, the counts and the uniformity equivalence. The new exact symbolic script at /workspace/repairs/5/verify_expansions.py was run successfully, and the direct binomial example independently checks the corrected coefficient. Neither check substitutes for the all-prime proof; the uploaded scripts were not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both accessed uniform-occupancy characterizations assume prime-power order. The conference abstract concerns coprime conditions for DFT submatrix spark; the paper itself was not accessible in the attempted public copies."
+        ],
+        "reasoning": "Prime-power hypotheses exclude 2p and the inspected statements do not classify the non-full-spark minors. Inaccessibility of the conference text is retained as risk, not a verdict.",
+        "searches": [
+          "Alexeev–Cahill–Mixon arXiv:1110.3548 Theorem 9",
+          "Osgood–Siripuram–Wu arXiv:1204.0992 Theorem 4",
+          "Achanta et al. DOI:10.1109/SAM.2014.6882460"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 18–66, VERIFICATION.md, check.py and verify_expansions.py",
+        "Corrected RESULT.md, VERIFICATION.md and verify_expansions.py",
+        "Resultary bb8a5601ae6d and be518195ffd5",
+        "arXiv:1110.3548 and arXiv:1204.0992",
+        "DOI:10.1109/SAM.2014.6882460 abstract/access lead"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prime-order nonvanishing applies to parity-pure blocks with distinct residues, but not to half-order mixed sign patterns. The fixed {0,1,2,4} classification says nothing about d=p+1, where distinct exponent pairs with the same sum also cause singularity."
+        ],
+        "reasoning": "The verified prior results explain particular regimes. The mixed-sign valuations and central determinant are additional arguments, not instantiation of an accessed all-orders or all-masks incidence theorem.",
+        "searches": [
+          "Resultary bb8a5601ae6d; be518195ffd5; known near-consecutive fixed-mask comparisons",
+          "arXiv:1110.3548 Theorem 9 and prime-order Chebotarev property"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full spark and universal sampling are equivalent formulations of the all-nonzero condition in the relevant Fourier setting. Conjugating the Fourier convention does not affect the exact d=4 overlap. The order-14 theorem establishes the dichotomy there but not this parametric column incidence."
+        ],
+        "reasoning": "An equivalent yes/no framework is not yet a description of which minors vanish, and the exact d=4 match is one degree rather than the variable family.",
+        "searches": [
+          "Resultary bb8a5601ae6d and be518195ffd5",
+          "arXiv:1110.3548 Definition 7 and Theorem 9; arXiv:1204.0992 Theorem 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At even N the first record gives precisely the two-antipodal-pair defects, rank three and binom(N/2,2) at d=4. The second covers all order-14 row subsets' full-spark status and some witness orbits, not the 133 central defects and their equal-sum incidence for d=8."
+        ],
+        "reasoning": "The exact d=4 result and the finite-order status are covered; neither exact comparison enumerates all columns for varying d and p.",
+        "searches": [
+          "Resultary bb8a5601ae6d Finding and proof; be518195ffd5 Finding and proof"
+        ]
+      },
+      "rationale": "The repaired proof does not change the mathematical statement. Credit the fixed d=4 incidence and the order-14 full-spark dichotomy as existing coverage. The distinct content is the uniform variable-d incidence and rank/count classification at order 2p, including the central equal-sum mechanism and count. The strongest inspected exact and general matches do not supply that content. This is a best-of-knowledge assessment, not a priority certificate.",
+      "residual_risks": [
+        "Achanta et al. full text was unavailable; a separate 2017 Fourier-spark article's journal page also was inaccessible. No whole-document noncoverage inference was made.",
+        "Unlocated equivalent composite-order minor results remain possible, particularly for fixed degrees or the yes/no condition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of one branch specialization",
+          "evidence": [
+            "For even N the singular column sets are two antipodal pairs; count binom(N/2,2), rank three."
+          ],
+          "identifier_or_url": "Resultary bb8a5601ae6d",
+          "material_read": "Mirrored RESULT.md, Finding and proof",
+          "method": "Local mirror statement and scope comparison",
+          "title": "Exact singular minors for the near-consecutive four-row harmonic frame",
+          "trigger": "Exact minor theorem for d=4"
+        },
+        {
+          "assessment": "Covers full-spark status at one prime, not complete singular-column counts",
+          "evidence": [
+            "All row subsets at order 14 are classified for full spark, with specified witness orbits rather than this incidence theorem."
+          ],
+          "identifier_or_url": "Resultary be518195ffd5",
+          "material_read": "Mirrored RESULT.md, Finding and proof",
+          "method": "Local mirror statement comparison",
+          "title": "Complete full-spark classification for row subsets of the order-14 Fourier matrix",
+          "trigger": "Covers p=7 row masks"
+        },
+        {
+          "assessment": "Prime-power characterization; prime-order result used on pure parity only",
+          "evidence": [
+            "Theorem 9's sufficient condition assumes prime-power order."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1110.3548",
+          "material_read": "Definition 7 p. 11, offset 41684; Theorem 9 p. 12, offset 45800 onward",
+          "method": "OA primary PDF passage inspection",
+          "title": "Full Spark Frames",
+          "trigger": "Prior divisor-uniform full-spark theorem"
+        },
+        {
+          "assessment": "Occupancy criterion in prime-power setting",
+          "evidence": [
+            "The theorem compares universality and occupancy for prime-power length, not mixed-parity counts at twice an odd prime."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1204.0992",
+          "material_read": "Theorem 4 p. 7, offset 48800 onward",
+          "method": "OA primary PDF passage inspection",
+          "title": "Discrete Sampling and Interpolation: Universal Sampling Sets in Discrete Bandlimited Spaces",
+          "trigger": "Equivalent universal-sampling claims"
+        },
+        {
+          "assessment": "Possible overlap in the yes/no direction remains unresolved",
+          "evidence": [
+            "The indexed abstract describes coprime conditions for spark; it does not expose a comparison of exact minor incidences."
+          ],
+          "identifier_or_url": "DOI:10.1109/SAM.2014.6882460",
+          "material_read": "Indexed abstract description only; full text not read",
+          "method": "Literature lookup; OA public PDF attempt and repository-page attempt",
+          "title": "Coprime Conditions for Fourier Sampling for Sparse Recovery",
+          "trigger": "Potential overlap with composite-order full-spark conditions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The row mask is a natural one-row extension of the ordinary three-row Vandermonde mask. An exact incidence theorem identifies the failure mechanism of each non-full-spark case (parity, antipodal pairs, or equal sums), including how the central mask differs from other even masks. It gives structure and ranks, not merely a computation of deficiencies for selected primes. The repaired proof preserves all of this information.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

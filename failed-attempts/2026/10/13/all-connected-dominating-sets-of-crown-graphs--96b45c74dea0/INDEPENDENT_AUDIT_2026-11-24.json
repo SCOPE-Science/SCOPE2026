@@ -1,0 +1,87 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:15:44.447308Z",
+  "axes": {
+    "correctness": {
+      "rationale": "If exactly one a_i is selected on one shore, domination forces b_i into the selected set, where it is isolated; an empty shore also cannot work. Two selections per shore suffice for domination. If either selected shore has at least three vertices, any two on the opposite shore share a selected neighbor, and all vertices of the larger shore have positive degree, giving connectivity. On two vertices per shore, the induced K_{2,2} loses at most one edge unless the two index pairs are equal, in which case it loses two and is disconnected. The counts follow by subtracting the excluded four-sets from the product. Every larger admissible set contains distinct index pairs, one per shore, so the inclusion-minima are exactly the admissible four-sets. This proof covers n≥3, including n=3. The frozen script and expected finite replay were inspected; no fresh computation is needed for this symbolic decision.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kumar–Pomeroy–Tran, Lemma 5.1 and proof (PDF pp. 14–15), rule out sizes ≤3 and exhibit a size-four minimally connected dominating set."
+        ],
+        "reasoning": "The paper establishes the scalar minimum, not the complete criterion or enumerator. No more general theorem is needed to establish prior coverage because the Resultary record is exact.",
+        "searches": [
+          "Resultary: Binomial edge ideals of crown graphs Lemma 5.1 connected domination",
+          "Web: arXiv:2507.03889 \"Lemma 5.1\" proof connected domination crown graphs",
+          "OA: arXiv:2507.03889v1, Lemma 5.1"
+        ]
+      },
+      "checked_sources": [
+        "2026/10/12/SCOPE-connected-domination-polynomial-of-crown-graphs--0ff1a0089415",
+        "arXiv:2507.03889v1, Lemma 5.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior all-set criterion tests every induced selected subgraph, not only four-sets."
+        ],
+        "reasoning": "For any admissible set with more than four vertices, choose two indices on each side, taking care that the two pairs are unequal. This is always possible since at least one side offers at least three distinct pairs. The resulting admissible four-set is proper, proving the one additional assertion about inclusion-minimality from the prior criterion alone.",
+        "searches": [
+          "Prior Resultary RESULT.md, Finding and Proof; local-mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/12/SCOPE-connected-domination-polynomial-of-crown-graphs--0ff1a0089415, RESULT.md Finding: at least two from each shore, excluding exactly {a_i,a_j,b_i,b_j}."
+        ],
+        "reasoning": "That exception is exactly the frozen equal-index pair P=Q with |P|=|Q|=2; the different polynomial notation does not alter the coefficients.",
+        "searches": [
+          "Resultary: crown graphs connected dominating sets classification polynomial",
+          "Resultary: connected domination number crown graph gamma_c(C_n,n) four"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior Finding gives ((1+x)^n−1−nx)^2−binom(n,2)x^4, minimum count binom(n,2)(binom(n,2)−1), and total (2^n−n−1)^2−binom(n,2)."
+        ],
+        "reasoning": "This is an exact symbolic family hit, not merely a numerical agreement at small named instances.",
+        "searches": [
+          "Resultary: crown graphs connected dominating sets classification polynomial",
+          "Local-mirror RESULT.md, 2026/10/12/SCOPE-connected-domination-polynomial-of-crown-graphs--0ff1a0089415"
+        ]
+      },
+      "rationale": "The earlier Resultary record gives the identical all-set criterion, polynomial, minimum value and multiplicity, and total count for the identical n≥3 crown graph. The only additional formulation, that all inclusion-minima have size four, is a direct consequence of the already published criterion. There is no surviving distinct claim to repair.",
+      "residual_risks": [
+        "The bounded literature search cannot determine the earliest appearance of the general criterion; that uncertainty does not change the demonstrated prior coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the classification and all frozen corollaries, explicitly or by immediate implication.",
+          "evidence": "The prior Finding gives the exceptional four-set by the same pair of deleted matching indices, and the same enumerator and counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-connected-domination-polynomial-of-crown-graphs--0ff1a0089415/RESULT.md",
+          "material_read": "Finding, hypotheses and proof; decisive Finding at local-mirror offsets 350–1438, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "method": "Local-mirror passage and statement comparison.",
+          "title": "Connected domination polynomial of crown graphs",
+          "trigger": "Exact same graph family and connected domination polynomial."
+        },
+        {
+          "assessment": "Establishes the scalar minimum but does not classify all feasible sets or all minimal sets.",
+          "evidence": "The proof excludes sets of at most three vertices and exhibits one size-four minimally connected dominating set, rather than quantifying over all larger sets.",
+          "identifier_or_url": "https://arxiv.org/abs/2507.03889v1",
+          "material_read": "Lemma 5.1 and proof, PDF pp. 14–15.",
+          "method": "OA primary text and logical comparison of statement and proof.",
+          "title": "Binomial edge ideals of crown graphs",
+          "trigger": "Same family and same scalar invariant."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The all-set formula is useful, but the frozen record supplies the same family answer already available in the earlier record. The additional minimality wording is an elementary subset consequence of that answer; it does not independently resolve another structural gap.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

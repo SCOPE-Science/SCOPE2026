@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:06:00.208514Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and proof; VERIFICATION.md and verify.py inspected without execution",
+        "Independent bounded replay: python /workspace/branches/audit_replay_1.py"
+      ],
+      "rationale": "With U=B e^T, the two frozen modes are block triangular with two copies of A on the diagonal. Independently checked the characteristic cubic and the Schur reduction: |c|=1/16, the reduced quadratic has leading coefficient 255 before dividing by 256, and the three strict quadratic conditions reduce to 135-16 beta>0, 272 beta>0 and 750-240 beta>0. Thus each frozen mode is Schur throughout 0<beta<25/8. Swapping the follower blocks gives K with block rows (U,A) and (A,0); P=K^2. Eliminating the identity block from I±K gives the four-dimensional determinants det(I-A^2±U). Exact rational-polynomial reconstruction gives beta(75-32 beta)/64 and beta(225-64 beta)/64 for I-K and I+K respectively. Their product at beta=3 is -6237/4096. On the full asserted open interval the product is negative, so the real monic characteristic polynomial of P has a real root greater than one. At beta=75/32 the product vanishes, the characteristic derivative in the multiplier is nonzero there, and the parameter derivative of det(I-P) is negative; this also checks a transverse crossing of a simple multiplier. An initial real eigenvector gives exponential two-step state growth. Nothing in this calculation certifies the schedule under endogenous predecessor selection.",
+      "residual_risks": [
+        "No full alternating stability classification outside the claimed sufficient interval. The imposed history is not claimed to be a trajectory of the original endogenous model."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kamimoto establishes finite-order operator identities for arbitrary history and termination for a static rooted tree; the infinite-order factorization needs a separate remainder condition.",
+          "Maadani–Butcher's accessible abstract covers Floquet analysis for periodic communication topologies including leader–follower systems. Liberzon–Morse note that switching stable systems can be destabilizing."
+        ],
+        "reasoning": "These are genuine general-history and method antecedents. The accessible statements do not give the PAT-specific determinant or a solution under the two alternating stable trees; a conditional infinite expansion does not impose automatic stability.",
+        "searches": [
+          "Kamimoto equations (16)–(18), (24), changing predecessor histories",
+          "DOI 10.1177/0142331220969055, periodic consensus and higher-order leader-follower systems",
+          "Liberzon–Morse 1999, general switching stability"
+        ]
+      },
+      "checked_sources": [
+        "Kamimoto arXiv:2610.23992v1",
+        "Liberzon–Morse 1999",
+        "DOI 10.1177/0142331220969055 and 10.23919/ACC.2018.8431606",
+        "Resultary 2e6dcefe1ee1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kamimoto's inequality produces the known 25/8 bound without switching. A finite identity for changing predecessor histories can hold even when the infinite remainder does not decay.",
+          "Generic switching instability and periodic analysis do not assert the unit-multiplier crossing for this parameter family."
+        ],
+        "reasoning": "The new comparison uses the actual coupling U and swap symmetry to prove a determinant sign over a nonempty window entirely inside the known strict filter-stability range. Neither a general possibility of instability nor exact characterization of filter Schur stability implies that sign for these trees.",
+        "searches": [
+          "Compare Kamimoto equation (20) and equations (16)–(18), (24) with the two-switch PAT determinant; compare accessible Maadani–Butcher abstract and Liberzon–Morse p. 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same follower recursion and position input are recovered from Kamimoto with a stationary leader, but the frozen record prescribes rather than selects its predecessor history.",
+          "The two bounds in Kamimoto equation (20) specialize to 25/8 and 135/16, so the earlier condition already gives the filter stability boundary 25/8."
+        ],
+        "reasoning": "This is exact prior coverage of the frozen filters, but Schur spectra of those individual matrices do not determine the spectrum of their noncommuting product. The imposed schedule is not equivalent to the state-dependent selection rule.",
+        "searches": [
+          "PAT proxy–auxiliary–transport recursion / periodically switching predecessor trees / Floquet instability",
+          "Kamimoto arXiv:2610.23992v1 equations (3)–(6) and supplement equation (20)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected Resultary finding concerns conditioning of a backward parent-shift operator on periodically branching rooted trees, not a finite switched PAT system.",
+          "No exact PAT threshold table was obtained; the wording search miss is not evidence of absence."
+        ],
+        "reasoning": "Periodic rooted trees and Floquet terminology alone do not identify the same operator. The related record does not supply any entry for the two-follower monodromy.",
+        "searches": [
+          "Local Resultary: PAT, alternating leader-rooted trees, determinant and 75/32 threshold",
+          "Resultary 2e6dcefe1ee1, Finding at offset 0"
+        ]
+      },
+      "rationale": "The PAT equations and the single-filter Schur upper endpoint are already known, and so are Floquet methods and generic switching instability. The supported distinct claim is the exact positive-multiplier instability window and monodromy factorization for the two prescribed PAT trees, in particular the lower endpoint 75/32, not a new single-filter theorem or a counterexample to distance-selected herding.",
+      "residual_risks": [
+        "The two Maadani full papers were not available in the bounded retrieval; exact overlap outside the inspected portions cannot be ruled out. A bounded comparison is not historical priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact PAT equations and filter boundary known; not exact two-mode sign result in inspected statements",
+          "evidence": "The stationary-input convention agrees; the Schur test specializes to beta<25/8; arbitrary history is permitted at finite expansion orders but the infinite sum requires a remainder hypothesis.",
+          "identifier_or_url": "https://arxiv.org/html/2610.23992v1",
+          "material_read": "Equations (3)–(6), (16)–(18), (24) and supplement S1 equation (20)",
+          "method": "Primary OA HTML, bounded passages",
+          "title": "Mathematics of Herding",
+          "trigger": "Original PAT equations and general predecessor histories"
+        },
+        {
+          "assessment": "Generic phenomenon known",
+          "evidence": "Explicitly notes that switching asymptotically stable systems can produce instability.",
+          "identifier_or_url": "https://www.eng.yale.edu/controls/1999/basic.pdf",
+          "material_read": "p. 2, extracted text offset 8200–12657",
+          "method": "Primary OA PDF bounded passage",
+          "title": "Basic Problems in Stability and Design of Switched Systems",
+          "trigger": "Generic stability-to-instability phenomenon"
+        },
+        {
+          "assessment": "General overlap; precise implication risk retained",
+          "evidence": "Studies higher-order and leader–follower periodic consensus and stable/unstable subsystems.",
+          "identifier_or_url": "https://doi.org/10.1177/0142331220969055",
+          "material_read": "Accessible SAGE abstract and references; article body not available",
+          "method": "Publisher public abstract, bounded lawful access",
+          "title": "Consensus Stability in Multi-agent Systems with Periodically Switched Communication Topology Using Floquet Theory",
+          "trigger": "Closest general periodic leader–follower Floquet work"
+        },
+        {
+          "assessment": "Potential general method antecedent; no claim of whole-document exclusion",
+          "evidence": "Citation identifies the 2018 ACC paper, pp. 3792–3797, as explicitly addressing Floquet stability under periodic communication topology.",
+          "identifier_or_url": "https://doi.org/10.23919/ACC.2018.8431606",
+          "material_read": "Bibliographic listing in 2021 article reference 10; body unavailable",
+          "method": "DOI, IEEE Xplore and identified ResearchGate retrieval attempts; accessible citing bibliography only",
+          "title": "Periodically Switched Communication Topology in Multi-agent Consensus Control: Stability and Floquet Theory",
+          "trigger": "Earlier conference Floquet consensus paper"
+        },
+        {
+          "assessment": "Different operator and invariant",
+          "evidence": "Studies the surjectivity modulus and critical conditioning of a backward parent shift on rooted trees, not the PAT recursion or its finite monodromy.",
+          "identifier_or_url": "Resultary 2e6dcefe1ee1",
+          "material_read": "Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp Floquet conditioning and branching-order instability for periodically branching rooted trees",
+          "trigger": "Nearest topical catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and scope",
+        "Kamimoto arXiv:2610.23992v1 static versus changing predecessor identities"
+      ],
+      "rationale": "Two followers are the first setting in which these distinct rooted predecessor chains can alternate. The explicit open interval and simple unit multiplier show precisely how an unrestricted-history stability assertion can fail even under rootedness at every step, with a stationary leader and individually Schur filters. This is a useful model-specific obstruction, not merely an instance of generic switching instability chosen without motivation.",
+      "residual_risks": [
+        "The obstruction concerns prescribed histories only and supplies no instability result for self-selected herds."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

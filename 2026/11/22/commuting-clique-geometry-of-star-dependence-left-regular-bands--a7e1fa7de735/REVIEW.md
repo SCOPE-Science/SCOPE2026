@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The three-state-per-leaf normal form for hub-containing elements follows by identifying the first hub occurrence and deleting repeated leaves. In the left regular band, this provides \(3^m\) forms in addition to \(2^m\) hubless subsets; each pair of distinct normal forms is separated by hub support or a two-generator noncommuting projection. Concatenation and first-occurrence deletion prove the complete commutation criteria and the maximal-family classification. Summing over uniquely determined hub-before sets proves the full clique polynomial, and summing exact centralizer cardinalities proves the commuting-pair formula. The standalone checker computes raw products directly and checks cases through six leaves. No infinite-domain conclusion rests on the finite computation.
+PASS
 
-## Originality
+The arbitrary-word left-regular-band identities are essential; the statement is not about the ordinary graph product with only generator idempotence. Delete repeated occurrences and sort leaves on each side of the first hub to get the stated forms. Projections onto the free two-generator bands on h and each individual leaf separate the support and before/after status of every leaf. In a product of two hub forms the first factor's prefix A is retained and every other leaf is placed in the suffix; commutativity is exactly equality of the two prefixes. Multiplying by a leaf-only form on the left adds its support to the prefix, so the mixed criterion is precisely containment in A. These rules make every M_A closed and inclusion-maximal, while a hubless family can be extended by x_([m],empty). Partitioning cliques by presence of a hub, then by their unique common prefix, gives the entire polynomial with the empty clique counted once. The two centralizer formulas sum to 3*4^m+5^m with diagonal pairs included; the resulting asymptotic follows by domination. A separate finite word-multiplication check reproduced all clique coefficients and maximal-family sets for m=1,2,3 and ordered totals 17,73,317; that check does not prove the general theorem.
 
-PASS, qualified. The general partially commutative left-regular-band normal forms and graph orientation interpretation are already in Margolis–Saliola–Steinberg (2012, 2015), so they are not new. Yang–Li centralizer theory of general graph products is a broader tool and likely covers structural centralizer deductions; the centralizer formulas are not claimed alone as original. The full family of maximal commuting-submonoid sizes and entire all-arity clique polynomial for the finite star-dependence left regular band were not found in the checked literature or related published enumerations. Free left legal semigroups are not the same variety, since they lack global idempotence. Priority against uncatalogued clique enumerations or implications from generic graph-product results is still a residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. A single noncommuting hub attached to an otherwise commuting leaf set is the first natural unbounded family between free semilattice monoids and free left regular bands. Its complete all-arity commuting-clique polynomial captures every higher-arity commutation count, and the maximal submonoid spectrum has strongly varying sizes. The exact exponential decay \(\operatorname{cp}(B_m)\sim(5/9)^m\) measures how even one dependence hub changes the geometry of commutation as dimension grows. The result is a complete structural model, not merely a small computed case.
+The general orientation/normal-form construction is not new. The surviving distinct exact invariant is the all-arity clique polynomial and maximal commuting-family spectrum for the dependence-star specialization, together with its pair count. The checked general results give the multiplication model but not the star commuting decomposition and counts. The strongest same-size, same-day comparison uses a different hub identity and agrees only in the leaf-only part; hub centralizers, and therefore global pair counts, disagree.
 
-## Closest work and limitations
+## value
 
-Margolis–Saliola–Steinberg's 2012 and 2015 papers supply the underlying graph-indexed left regular bands; Yang–Li's 2022/2023 centralizer theory is potentially stronger for individual centralizers. The proof does not classify arbitrary graph products or arbitrary commutation graphs. Independent literature and mathematical audit are still needed for publication-level assurance.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The dependence star is a natural non-free partially commutative band: the leaves form a large commuting core and the hub makes compatible prefixes observable. The polynomial counts all arities without overcounting the overlapping maximal families, and the exact spectrum distinguishes the smallest maximal families from largest ones. These are useful explicit graph invariants rather than a recomputation of the abstract orientation model or a finite tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

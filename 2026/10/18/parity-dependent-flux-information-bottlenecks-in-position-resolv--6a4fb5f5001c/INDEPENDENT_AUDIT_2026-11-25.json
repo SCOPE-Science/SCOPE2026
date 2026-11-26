@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:40:28.023094Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–107, especially line 100; repairs/3/RESULT.md, Proof",
+        "verify.py and VERIFICATION.md (784 source-reported finite checks; inspected, not rerun)"
+      ],
+      "rationale": "The replacement retains the theorem and fixes the odd-ring remainder argument. The frozen proof's exact p_±=A(x)±B(x,φ) formula incorrectly makes the average flux independent; even winding harmonics are allowed there (already for n=3, the farthest-site cos(2φ) coefficient begins at −x^6/40). In the replacement, complex conjugation and reflection instead give p_j(φ,−t)=p_{−j}(φ,t) and the same exchange for flux derivatives. Each farthest-site FI quotient extends analytically at t=0 after factoring its x^{2r} denominator; the sum is even, so the order-2r+3 Taylor term vanishes. The winding phase (−i)^{nℓ} establishes the all-time blind sets. Shortest-path interference yields the stated coefficients, with all nearer-site terms bounded using |q|+|q'|≥n for distinct windings. The leading constants prove the converse at fixed nonexceptional flux. Commutation gives the QFI as 4t² times the variance of ∂φH in the input; the two distinct one-hop sites give variance 2J²/n² even for n=3. The repaired analysis applies to the pointwise ordinary score and not to limiting information at support zeros.",
+      "residual_risks": [
+        "Small-time remainders are at fixed flux; no uniformity at exceptional flux or inference statement for limiting Hellinger information.",
+        "The QFI comparison is tied to the specified fixed encoding and local phase reference."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zanoli et al. study ground-state schemes with phase-independent eigenvectors. Seveso et al. estimate the tunnelling amplitude, and Amorim et al. estimate the input coin state."
+        ],
+        "reasoning": "A ground-state magnetic-only zero QFI does not apply to a localized superposition of all momenta. Neither alternative-parameter metrology scheme supplies a stronger flux-score theorem for this model.",
+        "searches": [
+          "Zanoli et al. DOI:10.3389/frqst.2026.1894991 §3",
+          "Seveso–Benedetti–Paris arXiv:1809.09211v2",
+          "Amorim et al. arXiv:2512.02186v2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 117–134; replacement prior-work section",
+        "Local Resultary catalogue and matching Findings; Luppi, Zanoli et al., Amorim et al., Seveso et al. passages listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Luppi's return-based orders are t^n (even) and t^{2n} (odd), and the conclusion leaves localized flux estimation open.",
+          "This theorem's order t^{n+1} in odd size comes from squaring and normalizing the farthest-site derivatives; the t^{2n} return signal does not determine them."
+        ],
+        "reasoning": "Known parity and winding formulas motivate the computation, but the inspected return statement does not give the full distribution or its optimal leading site contributions. The exact leading FI and converse at all other fluxes are the compared joint increment.",
+        "searches": [
+          "arXiv:2608.12519v1 Proposition 4 and Conclusion",
+          "DOI:10.3389/frqst.2026.1894991 §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform and boundary-twist gauges give the same site probabilities, but parameter-dependent gauges need not give the same QFI.",
+          "Luppi indexes a rooted return amplitude by winding and extracts an even/odd onset for return-based observables."
+        ],
+        "reasoning": "Compare total flux and position-outcome probability scores regardless of where the phase is placed. A return-only readout coarsens the outcome set and omits the farthest-site interference responsible for the leading FI.",
+        "searches": [
+          "Resultary catalogue searches on magnetic ring position Fisher information, parity and localized flux sensing",
+          "Luppi arXiv:2608.12519v1 §§VI.A–B, Eqs. (85)–(88), (92)–(93)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected entries are for long-time mean Krylov spread and repeated-measurement directional contrast."
+        ],
+        "reasoning": "The indexed observables are mathematically different, not renamed single-shot position FI. No exact matching formula or table was found; neither result is dismissed on date alone.",
+        "searches": [
+          "Resultary catalogue on parity-dependent magnetic ring sensitivity and localized state",
+          "Resultary 60ded3a5d13f and 6b103059d648, Findings"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the joint all-time ordinary position-blindness classification and sharp short-time position information law. Neither the winding technique nor the standalone commuting-generator QFI formula is claimed independently novel. The repaired symmetry proof does not change the observation model or conclusion. Luppi is the closest verified literature overlap and provides an earlier return-only parity law, not these resolved-site statements.",
+      "residual_risks": [
+        "A general propagator identity or chiral-walk metrology result outside the bounded lookup could contain an equivalent resolved-score theorem; the reviewed sources do not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior winding technique and return onset; not the resolved FI theorem",
+          "evidence": "Rooted returns determine the sequential observable studied; localized flux estimation is identified as open in the conclusion.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.12519v1",
+          "material_read": "PDF p. 1; pp. 9–10, §§VI.A–B, Eqs. (85)–(88), (92)–(93), offsets 63800–74712; p. 13 Conclusion, offset 87500",
+          "method": "Lawful OA full-text PDF, inspected passages",
+          "title": "Flux control of measurement back-action and Leggett–Garg correlations in chiral quantum walks",
+          "trigger": "Closest same-ring and localized-state literature"
+        },
+        {
+          "assessment": "Different input/encoding scheme",
+          "evidence": "Ground-state eigenvectors are phase independent; this does not make a localized evolving state phase independent.",
+          "identifier_or_url": "https://doi.org/10.3389/frqst.2026.1894991",
+          "material_read": "PDF p. 1, offsets 1800–5607; p. 3 §3, offset 19900",
+          "method": "OA primary article PDF",
+          "title": "Quantum walks on a ring as a versatile single-parameter sensor",
+          "trigger": "Magnetic ring metrology and apparently contrasting QFI"
+        },
+        {
+          "assessment": "Different parameter and readout",
+          "evidence": "Coin-state estimation using a binary absorbing boundary.",
+          "identifier_or_url": "https://arxiv.org/abs/2512.02186v2",
+          "material_read": "PDF pp. 1–2, offsets 0–5965 and 10695–13952",
+          "method": "OA primary PDF excerpts",
+          "title": "Absorption-based qubit estimation in discrete-time quantum walks",
+          "trigger": "Position-related quantum-walk metrology comparison"
+        },
+        {
+          "assessment": "Different parameter",
+          "evidence": "Tunnelling-amplitude estimation and incomplete node measurements.",
+          "identifier_or_url": "https://arxiv.org/abs/1809.09211v2",
+          "material_read": "PDF pp. 1–2, offset 0",
+          "method": "OA primary PDF excerpts",
+          "title": "The walker speaks its graph: global and nearly-local probing of the tunnelling amplitude in continuous-time quantum walks",
+          "trigger": "Continuous-time graph metrology"
+        },
+        {
+          "assessment": "Different spectral/dynamical observable",
+          "evidence": "Long-time Krylov spread tracks degeneracies, not position sensitivities at a known time.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-magnetic-flux-singularities-of-quantum-walk-krylov-spreading-on--60ded3a5d13f/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror primary text",
+          "title": "Magnetic flux singularities of quantum walk Krylov spreading on cycles",
+          "trigger": "Same magnetic walk and localized input"
+        },
+        {
+          "assessment": "Different protocol and asymptotic",
+          "evidence": "Repeated complete site measurements and signed directional contrast, not single-shot Fisher information.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-parity-dependent-zeno-suppression-of-magnetic-ring-directi--6b103059d648/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror primary text",
+          "title": "Sharp parity-dependent Zeno suppression of magnetic-ring directionality",
+          "trigger": "Same parity and short-time site-measurement context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Replacement Finding and Proof; Luppi §§VI.A–B and Zanoli et al. §3 as comparison protocols"
+      ],
+      "rationale": "Resolved positions are a natural experimentally accessible readout. The exact blind fluxes and coefficient-bearing latency penalty distinguish that readout from rooted returns and from fixed-encoding QFI. The opposite parity powers and their farthest-site carriers quantify which outcomes matter before long-time dynamics, while the support-zero caution avoids claiming that first-order blindness prevents all inference.",
+      "residual_risks": [
+        "No noisy-model guarantee, no uniform-flux performance near support changes, and no gauge-independent QFI resource claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

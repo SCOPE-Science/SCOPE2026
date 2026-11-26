@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** In the one-state merge cycle, the trajectories starting from distinct states must encounter different counts of effective merge actions modulo the coprime cycle. At least one encounters at least \(n-1\) merges, and between successive merges there is a positive-cost walk from state \(k\) to state \(0\). Each such walk costs at least the minimum of the clockwise and anticlockwise directed arc costs. Explicit words attain the resulting bound; equality forces the described arc choices. For noncoprime displacement, residue classes obstruct synchronization. The separate subset shortest-path verifier checks 162 weighted configurations through nine states and exponential tie enumeration.
+## correctness
 
-**Originality: PASS with risk.** The classical one-way cyclic merge theorem (item 3664293d-1f20-4950-a12f-75788f24e740) already gives its exact reset threshold and is only background, not a newly claimed result. The distinct new statement is the reversible, independently weighted three-letter phase transition and number of optimal words. Don and Zantema's 2018 switch-count framework (arXiv:1812.04050v1), the 2021 Černý-family manuscript (arXiv:2108.13927v1) and the 2022 general reset-word algorithm (arXiv:2207.05495v1) do not state this classification in the inspected material. An unindexed equivalent specialization remains possible.
+PASS
 
-**Value: PASS.** Allowing both rotation directions, with arbitrary positive unequal costs, is a natural control variation that changes optimal reset policies. The exact price boundary and \(2^{n-2}\)-fold cooptimality form an infinite classification not merely a finite example. The result is limited to the stated cyclic one-merge family and makes no independent-certification claim.
+The endpoint of a trajectory from q is q+A−C+kH_q modulo n. For d=gcd(n,k)>1 the starting residue differences modulo d are preserved. For d=1 and a reset, the H_q exhaust the residues modulo n, forcing some trajectory to meet at least n−1 effective b's. Each of its at least n−2 gaps goes from k to 0; ineffective b's do not move that trajectory and positive-price rotations cannot improve on either simple directed arc. Independently the image rank drops by at most one per b. The sum of the two lower bounds is attained: after the j-th b the deleted states are 0,−k,…,−(j−1)k, and translation by −k then b extends the list since k is still present. Equality forces exactly n−1 b's, all effective on the selected trajectory, no outer rotations, and one cheapest arc per gap. The arcs are distinct literal words at a tie, and n=2 has zero gaps and just b. This holds for all positive real prices, not just tested integers. The frozen verifier was inspected, not executed. An independent reverse multi-source shortest-path and path-count computation (python3 reproductions/frozen_math_checks.py, automata) agreed for 162 priced cases and 9 unreachable cases with n≤9; it does not prove the universal claim.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Pass the exact bidirectional positive-price optimum and the classification of all literal minimizers together. The gcd obstruction and the forward-only word are not the novelty; the cited and closest mirrored statements inspected do not imply the optimization over words with two independently priced directions. This is a bounded best-of-knowledge judgment.
+
+## value
+
+PASS
+
+This is a natural inverse-generator extension of the cycle-plus-one-merge family. The optimum is not just a unit-cost threshold: it determines when the cheaper letter need not give the cheaper arc, and identifies precisely when and how the set of optimum words grows exponentially. The same exact lower bound rules out cheaper interleavings or extra merges across all parameters and prices in the family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

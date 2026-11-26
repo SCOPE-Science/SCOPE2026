@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The analytical proof in RESULT.md does not rely on simulation. The independent computational diagnostic `corridor_checker.py` uses Python 3 and the standard library's exact fractions. Its state graph contains an unavailable state and one available-progress state per migration stage, with final completion absorbing. The diagnostic solves the first-step linear system directly and independently compares it to the renewal expression for 992 rational parameter instances with stage counts one through five. A rational finite-difference check is added for each instance (1,984 assertions altogether), along with 16 derivative-ordering and six explicit-polynomial assertions, totaling 2,006 passing tests.
+## correctness
 
-Reproduction: `python3 corridor_checker.py` from the directory containing these files. The expected final output is `PASS: 2006 exact rational assertions`.
+PASS
 
-The numerical finite differences support the sign calculations but do not certify the derivatives or uniqueness over the positive real line. Those require the explicit renewal and positivity arguments in RESULT.md. No field data, statistical confidence intervals, or external scientific validation were used. Independent audit remains unperformed.
+Fresh attempts start from the same closed state; the stage-sum Laplace transform gives success probability q=P_n⁻¹. An open attempt consumes mean (1−q)/(βλ) before success or closure and is preceded by mean 1/(αλ) closed delay. Dividing expected trial duration by q gives M_n=(P_n−p)/(pβλ), p=α/(α+β). The positive coefficients of P_n give strict convexity from the reciprocal term plus nonnegative second derivatives of the powers. The derivative is negative near zero; for n≥2 the positive quadratic coefficient in P_n makes it positive at sufficiently high turnover, whereas for n=1 only the decreasing reciprocal term varies. Appending rate ν increases the mean by (α+β)P_n/(αν); the positive derivative of this increment shifts the unique minimum left whenever the old finite minimum exists. With equal stage rates, P_n−λP_n′=p gives the stated strictly decreasing root equation on 0<βλ/μ<1/(n−1). The rescaled roots are bounded by n/(n−1), and every subsequential limit solves (1−y)e^y=p, whose sole root on [0,1] is on the principal Lambert branch. The unit-rate samples and c(1/2)=0.768039047013465… agree. This is an analytic result; the frozen rational diagnostics were inspected, not executed.
+
+## originality
+
+PASS
+
+The mean formula is directly covered by general interrupted-service/refractory renewal theory, and an intermediate fluctuation-rate optimum is not itself a new phenomenon. Originality is supported for the fixed-availability optimizer classification in this serial-stage model, in particular the strict arbitrary-rate stage-extension ordering and equal-stage optimizer convergence. The strongest inspected overlapping general formulas do not state those optimizing results; the distinct temporary-habitat record optimizes a deterministic window offset for one journey. No priority is inferred from dates shared by indexed records.
+
+## value
+
+PASS
+
+The modeled turnover decision fixes the usable fraction of time, so the competing mechanisms are waiting for a fresh opportunity and losing accumulated progress. The sharp one-stage versus multistage boundary and ordering under an arbitrary additional bottleneck isolate which feature generates a finite optimum and predict its shift without assuming stage homogeneity. The Erlang sequence further answers how the optimal clock changes for many comparable stages. These are substantive decisions about a motivated model beyond the routine mean transform or a single resonant example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

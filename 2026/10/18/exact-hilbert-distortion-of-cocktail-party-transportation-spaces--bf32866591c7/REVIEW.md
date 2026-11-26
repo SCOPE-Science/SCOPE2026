@@ -1,19 +1,21 @@
-# Scientific review: exact Hilbert distortion of cocktail-party transportation spaces
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof defines the graph metric, centered molecule hull and both orthogonal invariant summands. It establishes an exhaustive classification of extreme dual potentials using tight-edge connectivity, reduces every quadratic candidate by convex group averaging, calculates each dual vertex energy exactly, and supplies matching global lower and upper certificates for each integer range. The exceptional dimensions are treated separately; no numerical test is used as proof of the infinite cases. The independent standard-library rational checker passes all dimensions \(2\le k\le8\).
+PASS
 
-## Originality — PASS, subject to bibliographic limits
+The free ball is the edge-root hull: the molecule of a missing matching edge is an average of two adjacent edge roots. In H the active dual equations have rank 2k−1 exactly when the tight graph connects all vertices. Such a potential has integer differences and range at most two; range two forces opposite extremes in one pair with every other value intermediate. Thus all dual vertices are special potentials or centered binary cuts. The original Q and its inverse give the squared distortion product; scaling the primal radius and averaging by convexity of the inverse quadratic energies loses nothing. Independent swaps remove off-block terms, and pair permutations make each block scalar, with every edge root having squared block norms (1,1). A cut with h ones and r split pairs has total energy h(2k−h)/(2k) and U-energy r/2. For k≥4 these and the special energy 2 give the upper bound k at α=1/2. For even k the balanced all-split and whole-pair cuts match it; for odd k the all-split and one-split balanced cuts bound the two sides of 1/2. These witnesses are feasible even without the vertex argument. For k=2,3 the crossed lower bounds 2/α and W-energy 1 or 4/3 divided by 1−α meet at 2/3 and 3/5; the cut energy bound, using parity of r when h=3 for k=3, matches them. The argument holds for all real linear isomorphisms but only identifies the invariant optimizer.
 
-Dilworth–Kutzarova–Ostrovskii (arXiv:1807.03814v1) give the graph transportation quotient; Higashitani–Jochemko–Michałek (arXiv:1807.07678v1, Proposition 3.5) already classify the relevant facets; D'Alì–Delucchi–Michałek (arXiv:1910.05193v1) connect these polytopes to finite metrics. None of these inspected contributions optimizes Euclidean distortion for the complete multipartite family with all parts of size two. General Banach–Mazur extremal theory in Grundbacher–Kobos (arXiv:2407.08829v1) supplies bounds but not the formula. Comparisons with available mathematical research records found results for complete bipartite, equilateral and complete-multipartite inradii, none implying the new result for \(k\ge3\). The \(k=2\) four-cycle value is a previously known boundary check. Unindexed equivalents remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result computes a natural isomorphic Banach-space invariant for an infinite family of non-tree metric spaces, identifies the unique invariant ellipsoid shape in all dimensions, and proves a sharp low-dimensional symmetry-breaking cutoff. The proof yields exact optimality rather than an upper bound or numerical exploration. It makes the specific factor \(\sqrt{k}\) and the six-vertex exception available to future comparisons of metric-derived norms.
+The supported contribution is the exact optimization for k≥3, not the known four-cycle value, the edge-polytope identification or a new facet classification. The strongest same-day transportation result concerns a different graph family. An indexed result actually covering the same vertex metric optimizes a different invariant. The facet criterion plus the representation are not themselves a sharp ellipsoid calculation.
 
-## Limitations
+## value
 
-Only equal two-vertex parts, real scalars and unit graph edges are proved; uniqueness is claimed among invariant optimal forms rather than all forms. The finite checker verifies the stated cases but cannot replace the all-dimensional argument. Bibliographic completeness and independent external review remain unresolved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp distance and optimizer in a natural graph-transport family distinguish a genuinely anisotropic six-vertex exception from stabilization at a Euclidean form. Knowing the facets, obtaining a generic John bound, or computing the vertex-metric distortion would not answer this precise comparison. The complete classification provides an exact benchmark for other multipartite transportation balls.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,41 +19,24 @@
 }
 ---
 
-The standalone `verify.py` artifact was read from its actual packaged path and replayed.
+# Independent mathematical audit
 
-For products with two through five factors, it forms all nonempty proper supports, pairs each support with its complement, and exhaustively enumerates every one-side-per-pair selection. It rejects selections containing disjoint supports, computes the maximum weight among the surviving intersecting families, and checks both
-\[
-\alpha=\sum_{\{S,S^c\}}\max\{w(S),w(S^c)\}
-\]
-and the predicted count
-\[
-2^\tau.
-\]
+## correctness
 
-The tested parameter tuples include unequal-weight, tied-weight, and multiple-tie cases. In rank three it additionally checks agreement with the published formula
-\[
-n_1n_2+n_1n_3+\max\{n_1,n_2n_3\}.
-\]
+PASS
 
-The equivalent absolute-difference formula is checked independently for all test tuples, and larger six- and seven-factor tuples are checked algebraically without exhaustive family enumeration.
+A nonzero zero-divisor has nonempty proper support. Products vanish exactly for disjoint supports, so support cells are independent and duplicating a selected vertex within its cell creates no edge. A maximum independent set therefore takes whole cells, and the admissible support families are pairwise intersecting. Each complement pair gives a separate upper bound by the larger cell weight. Independently of logarithms, put P=∏a_i. A heavier or tied cell has weight at least √P. If two such supports are disjoint, their weight product equals the weight of their union and is at most P; because every a_i>1, equality requires a full union and two ties. Thus the only conflicts among heavier or tied supports are the tied complementary pairs themselves. Selecting exactly the stated sides achieves the bound, with all choices at ties independent; positivity forces every equality case to have this form. Summing the two weights of each pair counts N, and passing from unordered to ordered supports yields the factor 1/4. At (3,4,7) the two strict-heavy cells contribute 12 and 18 and the one tied pair contributes 6, giving 36 and two maximizers.
 
-Exact replay output:
+## originality
 
-```text
-q= (3, 3) alpha= 2 ties= 1 max_families= 2
-q= (3, 5) alpha= 4 ties= 0 max_families= 1
-q= (3, 3, 3) alpha= 12 ties= 0 max_families= 1
-q= (7, 5, 5) alpha= 64 ties= 0 max_families= 1
-q= (3, 4, 7) alpha= 36 ties= 1 max_families= 2
-q= (3, 3, 3, 3) alpha= 44 ties= 3 max_families= 8
-q= (3, 3, 4, 4) alpha= 81 ties= 2 max_families= 4
-q= (3, 4, 5, 7) alpha= 234 ties= 1 max_families= 2
-q= (3, 3, 3, 3, 3) alpha= 160 ties= 0 max_families= 1
-q= (3, 3, 3, 4, 5) alpha= 368 ties= 0 max_families= 1
-large q= (3, 3, 3, 3, 3, 3) alpha= 512 ties= 10 max_families= 1024
-large q= (3, 4, 5, 7, 8, 9) alpha= 21226 ties= 0 max_families= 1
-large q= (5, 5, 5, 5, 5, 5, 5) alpha= 59136 ties= 0 max_families= 1
-VERIFY_OK
-```
+PASS
 
-Finite enumeration is corroborative only. The arbitrary-rank conclusion is proved by the complementary-pair upper bound and the positive-logarithm intersection argument.
+Credit the support-cell setup and exact independence numbers in ranks two through five, and the known arbitrary-rank lower bound, to earlier work. The supported contribution is the closed sharp formula without a rank constraint for heterogeneous nonbinary products, together with the complete equality classification and exact tied-choice multiplicity. The closest inspected broader and indexed results did not cover that increment.
+
+## value
+
+PASS
+
+Maximum independent sets in direct products of fields are natural ring-graph objects. The result gives an exact arbitrary-rank rule for both optimal size and nonuniqueness, and explains how multiplicative balance of field-unit counts governs nonuniqueness without separate rank-by-rank casework. Knowing exactly which cells persist or can switch is useful beyond the scalar independence number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

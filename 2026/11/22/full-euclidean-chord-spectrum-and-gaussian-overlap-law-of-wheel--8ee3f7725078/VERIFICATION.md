@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run the included `check_wheel_chords.py` under Python 3.9+ without external packages. It enumerates all spanning-tree edge subsets for rim orders \(3\le m\le8\), independently forms the overlap histogram for every ordered pair, and verifies it coefficientwise against exact integer transfer-matrix powers. The exhaustive finite range consists of 5,688,628 ordered pairs. It checks the known diametral complementary-tree count, the number of diagonal pairs and the known wheel-tree total as boundary controls. It computes exact integer polynomial moments for rim sizes 20, 40 and 80 to compare with the constants of the proved asymptotic law.
+## correctness
 
-The finite checks do not certify the infinite theorem. Its all-order proof uses a state-transfer bijection, an explicit correction for the unique extra all-rim edge set, and a Perron eigenvalue analytic expansion. The independent mathematical audit channel remains unperformed.
+PASS
+
+In a tree, each path component of the chosen proper set of rim edges needs exactly one spoke. With a missing rim edge the cyclic scan resets at the next vertex, establishing a unique state history; with none missing, a closed scan permits no spoke and has two constant histories. Re-summing the pairs of local transitions with monomial q^(ss'+rr') gives M; weighting overlap with the all-rim set gives A. The ordered one-invalid contributions have multiplicity four overall; both-invalid contributes 4q^m, giving the displayed correction after eliminating the one-copy term. Each incidence vector is exposed by its own dot product, and since all trees have m edges, the squared pair distance equals 2(m-X). On antisymmetric pair states M acts by q; its symmetric three-dimensional block gives the stated cubic. A symbolic determinant and implicit differentiation independently reproduce the characteristic polynomial, mean and positive variance constants. At q=1 the positive M has a simple strict Perron modulus gap, also dominating the corrections from A and q^m. Continuity and analyticity give a uniform complex-neighborhood gap with a nonvanishing leading branch. Taylor expansion of the log of the normalized moment generating function at the imaginary scale m^(-1/2) gives the standard normal limit; Cauchy bounds control derivatives of the uniform exponential error for the moment limits.
+
+## originality
+
+PASS
+
+The supported distinct content is the fixed four-state exact transfer expression, including its cyclic corrections, and the wheel-specific nondegenerate limit in distribution. Bare computability of the full histogram by general spanning-tree formulas, the disjoint and diagonal endpoints, the wheel tree count, and moments derivable from prior covariance information are not credited as new. The inspected sources neither give the transfer reduction nor imply the wheel CLT.
+
+## value
+
+PASS
+
+The chord distribution is a natural geometric invariant and an exact random-spanning-tree overlap law. A fixed-width transfer computes the full distribution without summing over all forests or all tree pairs, and quantifies nontrivial Gaussian fluctuations in a sparse structured family. The exact cyclic correction and the limit in law, rather than the standard Perron theorem or already computable moments, make the result useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

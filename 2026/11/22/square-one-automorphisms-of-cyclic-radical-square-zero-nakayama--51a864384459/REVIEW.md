@@ -1,21 +1,21 @@
-# Review of square-one automorphism and fixed-algebra classification
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The algebra basis and multiplication are explicit. Orthogonal idempotent lifting gives the unique additive-radical/diagonal/rotation factorization, which is also known independently through the full endomorphism normal form in the closest published work. Squaring an automorphism reduces to a finite-order monomial action and its negative eigenspace, valid because the field has odd characteristic. This gives the exact counts without any statistical or numerical extrapolation. Additive-radical conjugation removes the lift parameter, and diagonal conjugation removes the half-turn scalars; rotational orbits give necklace classes. The fixed algebras follow by multiplying explicit invariant bases, and the large-field asymptotics compare two leading terms of degree \(n\). The standalone matrix checker directly confirms three finite cases and the conjugacy class sizes for \((n,q)=(4,3)\). The script is corroboration, not the source of the all-field proof.
+## correctness
 
-## Originality
-**PASS, subject to residual historical priority risk.** Xu--Han--Jiang study Hochschild cohomology of truncated basic-cycle algebras, Chen studies singularity categories of radical-square-zero algebras, and Zhang studies their module theory. The complete published endomorphism-rank work treats exactly this algebra and already implies the automorphism group order and normal form; those premises are **not** asserted as new. Its stated invariant is the rank distribution of self-maps, not the number and conjugacy orbits of square-one automorphisms, nor isomorphism types of their fixed subalgebras. The complete published power-map fibers of radical-square-zero quiver **unit groups** classify a different group and do not determine automorphism fixed rings. Elementary binary-necklace and split-semidirect-product facts themselves are classical. The proposed new combination is the exact orbit-classified involution fixed-algebra spectrum, including a half-turn class with cyclic fixed algebra and an even-cycle large-field mass of one half. More general finite-order automorphism/fixed-ring classifications could cover the result, and the literature comparison is not an exhaustive priority certificate.
+PASS
 
-## Value
-**PASS.** The fixed ring under an order-two algebra automorphism is a fundamental object in invariant theory. Here the full conjugacy classification separates arrow-sign symmetries, whose fixed algebras are radical-square-zero subquivers, from a geometrically different rotational symmetry whose fixed algebra is itself a shorter cyclic Nakayama algebra. The even-cycle asymptotic puts half the involution mass on a genuinely nonsemisimple fixed ring, whereas the odd-cycle limit is almost surely semisimple. Counting involutions alone would be a routine application of a known semidirect product; the fixed-algebra classification and parity-dependent change are the motivated structural contribution. The theorem applies to every cycle length and every odd finite field, without a chosen numerical cutoff.
+Reconstructed RESULT.md §§1–5. Modulo the radical only directed-cycle rotations survive. For an idempotent lift e_i+u_i, idempotence restricts u_i to the incoming and outgoing arrows, and summing the lifts forces opposite coefficients at each arrow's two endpoints. These coefficients give the unique inner translation by 1+x. Thus square-one requires h²=1 and x∈ker(1+h)=im(1−h), so translation conjugacy removes x. For a given diagonal sign pattern there are q^r lifts, and rotations give precisely the p patterns in its necklace. The half-turn admits q−1 choices of multiplier and q translation choices per arrow pair, and the reciprocal multipliers can all be scaled to one. The fixed idempotent and arrow orbit sums multiply as the quotient directed cycle with radical square zero; in particular for n=4 this means two idempotents and one arrow in each direction. The diagonal fixed algebra retains exactly the positive arrows. These dimensions give the stated polynomial; the all-negative and half-turn classes have weights q^n and q^n+O_n(q^{n−1}), respectively, while other diagonal classes total O_n(q^{n−1}). The identity contributes one at dimension 2n. Inspected the matrix checker and stored output in artifacts/; these corroborate finite instances but do not test the general fixed-algebra isomorphism types, which are established by the basis calculation.
 
-## Closest literature and limits
-- Xu, Han, Jiang, *Hochschild cohomology of truncated quiver algebras* (2005), arXiv:math/0509202v1: the same truncated-basic-cycle class, but a cohomological problem.
-- Chen, *The singularity category of an algebra with radical square zero* (2011), arXiv:1104.4006v1: cycle structure viewed homologically.
-- Zhang, *\(\tau\)-rigid modules for algebras with radical square zero* (2012), arXiv:1211.5622v1: module classification, not algebra automorphism fixed rings.
-- *The endomorphism rank spectrum of radical-square-zero cyclic Nakayama algebras* (public research result, 2026): exact same algebra and stronger coverage of all self-maps by a normal form, but no order-two conjugacy, fixed-algebra isomorphism, or parity-limit census. This is the key implication comparison.
-- *Complete power-map fibers in radical-square-zero quiver unit groups* (2026): arbitrary unit-group powers and prescribed fibers, but no conjugacy classification of **algebra automorphisms** or their fixed rings.
+## originality
 
-Odd characteristic and radical-square-zero truncation are essential stated limitations. Unseen classical generalities on finite-order automorphisms of split basic algebras remain possible precedence.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge pass for the square-one census, not the previously parameterized automorphism group. The strongest same-algebra evidence covers endomorphism ranks and the parametrization, not this joint conjugacy and fixed-algebra classification. Distinct parity-transition records in jet algebras are pertinent analogies but the available statements vary a jet parameter on a different algebra, not a field over a fixed oriented cycle.
+
+## value
+
+PASS
+
+The complete class-size/fixed-algebra data distinguish two dominant even-cycle populations with identical fixed-space dimension but different multiplication and semisimplicity. This is a usable exact distribution on a natural finite family, not merely the standard automorphism parametrization or a binary-necklace recount.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The full Gaussian-score reconstruction gives equation (1): the hub wins when its independent normal center difference exceeds the scaled maximum of the centered clique scores. Within each clique a peripheral score has variance \(r^2+r-1\), while scores from distinct cliques are independent. Selecting one score per clique supplies a matching lower bound on the expected maximum, and the moment-generating-function bound on all scores supplies the upper bound. This proves its leading scale, and Gaussian third moments make the Taylor remainder negligible. No finite computation is substituted for the proof. The checker verifies score identities and samples conditional probabilities.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-Braun–Meyer (2017) and Balletti–Hibi–Meyer–Tsuchiya (2017) establish the graph Laplacian simplex and related lattice properties but not the evaluated angular effect. The closest inspected published 2026 note proves that the star hub has leading normal-cone mass \(1/2\) and its leaves share the rest; this does not determine the \(\sqrt{\log m}/m\) correction. A separate complete-bipartite angular result and windmill stable-set metric results concern different objects or non-entailing claims. No indexed equivalent was found, but unindexed priority risk remains.
+PASS
 
-## Value — PASS
-The sharp coefficient quantifies how within-petal clique edges affect Euclidean random-objective stability. Turning a star with \(2m\) leaves into a friendship graph by adding one matching leaves the hub's degree and the number of vertices fixed, and multiplies the first angular deficit by \(\sqrt5\). The effect is a natural infinite-family geometric boundary phenomenon beyond the leading \(1/2\) law.
+Independent proof check of RESULT.md lines 4–23 and 25–92. For Gaussian objectives the score differences between hub and periphery are n(G_0−mean G_periphery)−(Z_{b,j}−mean G_periphery), with d=rm, n=d+1, and Z_{b,j}=rG_{b,j}−sum_{k≠j}G_{b,k}. Projecting onto the zero-sum hyperplane does not change the scores. The first normal factor is independent of the entire centered peripheral array. Its variance before multiplication by n is 1+1/d. The centered maximum is almost surely positive since the centered array has zero sum and is not identically zero. This proves the strict finite bound and the exact conditional probability. The uncentered maximum has mean squeezed between the maximum of m iid normals of variance r²+r−1 (one per clique) and sqrt(2 log(rm)) times their standard deviation (exponential-moment bound on all coordinates). The usual Gaussian tail bound at (1−ε)sqrt(2 log m) gives the matching lower asymptotic; the negative part of the iid maximum has bounded mean. Centering does not change the expected maximum, and integrating the union bound for the maximum magnitude gives a third moment O_r((log m)^(3/2)). Taylor expansion of Φ at zero thus yields the coefficient, with error from linearization O_r((log m)^(3/2)/n³). Transitivity gives the exact peripheral probabilities. At equal order the two logs differ only by log 2, so the deficit ratio is sqrt(5), not the ratio of the angles. The alternate direct Gaussian gap covariance is (n²+d+2) times the all-ones matrix plus block diagonal Cov(Z); it yields an independent one-dimensional quadrature for the star, including agreement with the bivariate arcsine formula at m=2.
 
-The main scope limitation is fixed \(r\) as \(m\) grows; independent validation and absolute literature priority are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the already indexed leading star law and the standard Gaussian orthant representation; those are not the claimed contribution. The supported distinction is the explicit first deficit for the fixed-r windmill family and its equal-order matching sensitivity. The closest same-family dihedral results concern a different quantity, and the closest rank-one cone family can cover the finite star representation without an identified joint dimension/sharp-deficit asymptotic. No examined statement covered the fixed-r coefficient or the sqrt(5) ratio.
+
+## value
+
+PASS
+
+The leading 1/2 mass is insensitive to the graph change. The first deficit supplies a useful Euclidean geometric test: adding a matching at fixed hub degree and vertex count changes the first correction by a sharp nontrivial factor. The family-level coefficient isolates within-clique structure and distinguishes measures that leading-angle or combinatorial information alone cannot distinguish.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof derives the exact equivalence between torus fixed points and constrained vectors in the discrete-Dirichlet inverse lattice \(K_N^{-1}\mathbb Z^N\). The congruence recursion \(u_i\equiv ik/m\pmod1\) is valid in both directions, because the endpoint values are fixed at zero. It accounts for the integral-residue class separately; this prevents missing an earlier lift. Minimizing absolute residues yields the exact first norm, and the counts explicitly account for half-integer tie choices and for saturated sine inverses at onset. Discreteness proves a genuine right-hand parameter interval with the stated count. This analytic proof applies for every integer \(m\ge2\). Independent exact-rational finite checks cover \(m=2,\ldots,16\); they corroborate but do not replace the proof. Risk: none identified within the stated unit-weight model; hyperbolicity is not asserted.
+## correctness
 
-## Originality — PASS under examined evidence
-The motivating paper's Sections 3–5 prove existence and dynamics only in the small-step gradient regime, and give the path matrix explicitly. The new theorem locates the first **non-potential modulo-lift fixed point** in the large-step regime and enumerates the exact discontinuous multiplicities. Searches for winding, wrapping, lattice lift, alias equilibrium, and path sine-coupled phase maps in the mathematical-record database did not identify an equivalent or stronger result. Closest historical findings for this path family concern a corank-one singularity and a supercritical temporal two-cycle; neither implies the arithmetic threshold or count. A prior general treatment of Euler map alias fixed points under different terms remains a possible bibliographic risk; database silence is not proof of novelty.
+PASS
 
-## Value — PASS
-For a natural and already analyzed dynamical family, this determines the sharp parameter at which its known list of fixed points ceases to be exhaustive. The threshold has nontrivial arithmetic dependence on the **least odd prime factor** of the number of oscillators, and the exact onset counts exhibit a real combinatorial transition between odd-factor and pure-power-of-two networks. This is neither a routine restatement of the small-step theorem nor a single isolated numerical example. It informs the global fixed-point structure after invertibility and Lyapunov descent have ceased. It does not classify stability or larger-step dynamics.
+With t=h/(2π) the exact fixed-point equation is K_N u∈Z^N, |u_i|≤t and sin z_i=u_i/t. Distinct u have disjoint torus preimages, with a factor of two per strict coordinate and one per saturated coordinate. The boundary values u_0=u_m=0 force all successive differences equal modulo one to k/m; conversely this residue condition suffices. Order d=m/gcd(k,m)>1 supplies each nonzero fraction of denominator d exactly m/d times, so the class's first radius is floor(d/2)/d. The nonzero integral vectors first enter at 1 and cannot minimize. If m has any odd factor, the uniquely minimizing order is the least odd prime p; each of its p−1 classes has one representative and 2m/p saturated coordinates. If m is a power of two, all m−1 nonzero classes minimize at 1/2; a class of order d has m/d half-coordinate ties, and the 2^(m/d) representatives exactly cancel the 2^(m/d) loss of sine multiplicity at threshold. Above threshold all coordinates are strict and no further lattice vectors enter until a positive norm gap, by discreteness for fixed m. This proves both formulas, also at m=2 and in the m=3,4 examples. The frozen exact-rational verifier checks small residue classes, not the infinite claim; it was inspected, not executed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The map and small-step absence of noncritical fixed points are prior. The actual comparisons do not cover the first large-step appearance of nonzero lift displacements or their geometric multiplicities. This conclusion is limited to best available evidence.
+
+## value
+
+PASS
+
+This locates the first genuine departure from the critical-point fixed-set picture of a standard path model, not merely a sufficient small-step bound. The least odd factor or power-of-two distinction changes the threshold and the multiplicity jump; knowing the lift order alone does not give the geometric count at a fold of the sine inverse. The count on both sides of the first birth is a meaningful exact benchmark for large-step dynamics, without stability or cycle claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

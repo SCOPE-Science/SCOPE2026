@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The frame/positive-trigonometric-moment equivalence is entrywise exact. The nodal-polynomial argument requires only Laurent moments of degrees at most four; padding with zero-weight roots remains valid when used in the lower bounds. The cyclotomic map at a primitive \(2p\)-th root is valid modulo an odd prime \(p\) and turns two algebraic vanishing conditions into the explicit nonzero parity tables. The eight-node construction has a strict angle separation for every \(p\ge11\), algebraically positive weights, and matching five cosine moments, which annihilate all required Fourier modes. The small primes are resolved by subgroup witnesses or Fourier inversion. The packaged standard-library checker supplements, but does not replace, the uniform proof.
+## correctness
 
-## Originality — PASS (best-knowledge)
-The most relevant accessible primary texts are Marshall–Waldron, *On the number of harmonic frames* (arXiv:1611.07121, inspected full-text sections including the frame construction and equivalence-counting theorems), and Bultheel–Cruz-Barroso–Díaz Mendoza, *Zeros of quasi-paraorthogonal polynomials and positive quadrature* (arXiv:2110.10460, inspected quadrature construction and prefixed-node sections). Marshall–Waldron count harmonic-frame equivalence classes rather than minimize positive-weighted character support over a prescribed spatial window. The quadrature literature treats free or preselected nodes on the circle, rather than the exact arithmetic support budget constrained to roots of unity of order twice an odd prime. A closely related known four-consecutive-site classification concerns a different moment system and does not imply this five-site classification; known prime-cycle results concern the different modulus \(p\), not \(2p\). Exact-title, alias, root-of-unity, and positive quadrature searches did not reveal direct coverage. Broad general quadrature characterizations are not falsely claimed to be inapplicable; they may encode a less explicit feasibility test. Priority against older exact-design tables remains unverified.
+PASS
 
-## Value — PASS
-The exact minimum is a natural spectral sampling resource: a Parseval frame provides zero condition-number loss on a fixed five-site aperture with as few distinct Fourier measurements as possible. The uniform eight-node construction for all large twice-prime orders, the finite exceptional-prime jumps, and the impossibility of seven nodes from an arithmetic symmetric-sum obstruction give a complete and reusable design classification. The result goes beyond a generic frame-rank bound or a finite numerical enumeration; no more general downstream result is asserted.
+The Toeplitz frame identity is exactly the normalized Laurent moment condition on degrees −4 through 4. For six or seven grid nodes the nodal polynomial times z^−4 has exponents in that range, so its constant coefficient e2 or −e3 must vanish. Padding any smaller support with zero-weight nodes is legitimate for the corresponding obstructions. Since Φ_(2p)(−1)=p, reduction ζ→−1 sends the symmetric sums to coefficients of (1+x)^a(1−x)^(s−a). Independent exact expansion gives e2 values 15,5,−1,−3,−1,5,15 (none divisible by 7) and e3 values −35,−5,5,3,−3,−5,5,35 (prime divisors only 3,5,7). For the upper bound the proposed eight indices are distinct since 0<a<b<p−a<p, and cos(πb/p)=sin(π/(2p)). Lagrange interpolation in X² independently recovers E,C,D from the moments 1,1/2,3/8, and the two odd moments fix the mass differences. Symbolic substitution verifies precisely the stated formulas and all Chebyshev cancellations. Uniform positivity follows from 1/4<c²<1/2 and 0<d<1/4: C,D>0; E−Δ_E has positive numerator by the displayed strict bounds; C+Δ_C has positive numerator (c+d)(1−4cd). The bounds on a follow directly at 11 and from p/4+1<p/3 thereafter. Conjugate pairing kills imaginary moments. For 3 the conjugate moments exhaust every nonconstant mode on six roots and force the uniform rule; for 5 and 7 the even-frequency subgroup supplies the witnesses and rank/parity supply the lower bounds. No finite numerical sampling is used for the infinite-prime assertion. The supplied checker was inspected, not executed.
 
-## Scope and residual risks
-All statements assume odd primes, five *consecutive* spatial positions, distinct strictly positive weights, and exact noise-free Fourier data. The complete set of optimizing supports is not classified; no claims are made about composite half-orders or equal-weight sampling. The available literature comparison does not prove absolute historical priority; an uninspected exact harmonic-design catalog remains a residual risk. All verification is internal to the mathematical package, and independent external validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The new-to-current-knowledge claim is the exact support law under the full twice-prime grid restriction and the uniform positive eight-node witness, not the general Parseval/quadrature correspondence or a free-node formula. The closest framework and indexed analogues do not give the two-sided result under these constraints.
+
+## value
+
+PASS
+
+The exact minimum is a natural resource for tight measurement on a fixed consecutive Fourier aperture. The prime-dependent exceptions and sharp large-prime budget are accompanied by a search-free strictly positive construction and an arithmetic obstruction reusable for restricted quadrature. They add more than a rank bound, a free-node existence theorem, or a list of small instances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

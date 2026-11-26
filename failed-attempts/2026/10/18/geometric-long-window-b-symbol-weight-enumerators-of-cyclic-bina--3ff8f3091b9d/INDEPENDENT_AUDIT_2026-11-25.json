@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:13:02.035997Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently, in the frozen exponent order a coefficient polynomial represents a Hamming codeword precisely when it is divisible by the degree-m minimal polynomial g of alpha. Its constant coefficient is 1, and cyclic wrapping is valid since g divides X^n−1. A nonzero word with a zero b-window has a unique maximal zero run of length at least b, since b>n/2; its complement is an arc of length ell≤n−b with both endpoints 1. Rotating this arc to start at zero yields a polynomial of degree ell−1 and constant coefficient 1. It equals g times a monic constant-one quotient of degree ell−1−m. For ell≤m this is impossible, for ell=m+1 the quotient is 1, and for ell=m+j with j≥2 there are 2^(j−2) independent choices. Conversely these words have a unique long zero run, and it contains exactly n−ell−b+1 zero windows. The weight is b+ell−1 and the n rotations do not duplicate each other because the unique run has a unique start. The sum of counts through j=t is n 2^(t−1); subtracting from 2^(n−m) after excluding zero gives the full coefficient. This checks t≤0, b=n and the exact (m,b)=(4,8) example. The phrase 'dimension-three case' is best read as field degree m=3; the corresponding Hamming code has dimension 4. The frozen verification script was inspected, not executed; its expected markers are not a run record.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhu–Shi's general cyclic-code theorem gives full nonzero b-weight for b at least the dimension K, exactly the frozen t≤0 branch.",
+          "Shi–Özbudak–Solé give cyclic enumerator stability from K, while their exact special results concern codes with the specified cyclotomic restrictions. Zhu et al. bound the number of distinct weights, not their counts. The inspected abstract of arXiv:2110.00805 concerns a class of two-weight irreducible codes."
+        ],
+        "reasoning": "The general cyclic saturation result directly covers one entire branch. The irreducible-code enumerators and cardinality bounds alone do not determine the other branch; classical burst enumeration does. The underlying degree-and-endpoint argument in fact works for any binary cyclic code with the specified redundancy.",
+        "searches": [
+          "HAL:hal-03189478, Theorems IV.3 and V.2",
+          "arXiv:2203.11567, Theorem 1",
+          "arXiv:2404.02471, Theorems 31 and 35",
+          "arXiv:2110.00805, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Peterson–Brown, Proc. IRE 49 (1961), Theorem 5 and its proof",
+        "RFC 3385, pp. 5–6",
+        "HAL:hal-03189478",
+        "arXiv:2203.11567",
+        "arXiv:2404.02471",
+        "arXiv:2103.16299",
+        "SCOPE-exact-local-pair-weight-profile-of-the-length-fifteen-binary-ham--dfa2bc77f2ec",
+        "SCOPE-exact-symbol-pair-spectra-of-all-length-seven-binary-hamming-int--395253d8cd05"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "There are 2^(ell−2) endpoint-one patterns of length ell≥2 at a fixed start. Multiplying by the known fraction gives precisely 1 at ell=m+1 and 2^(ell−m−2) at ell≥m+2. Rotating and taking the gap complement gives n distinct patterns for each base burst; the complement has length n−ell, hence w_b=b+ell−1."
+        ],
+        "reasoning": "The frozen Hamming code is the primitive-polynomial binary cyclic code of redundancy m in the burst problem. The endpoint constants follow independently from the divisible-polynomial form in Peterson–Brown's proof. With b>n/2 no two distinct long gaps can interact, so this is an exact reindexing of known counts, not an inference from approximate probabilities, distance bounds, or an unrelated ordering. Conservation of the total number of codewords provides only the residual full-weight count.",
+        "searches": [
+          "Peterson–Brown, Cyclic Codes for Error Detection, Detection of a Burst-Error and Theorem 5",
+          "RFC 3385, pp. 5–6, uniform burst fractions",
+          "arXiv:2203.11567, p. 2, Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Peterson–Brown define a burst of length ell by the inclusive distance between its first and last nonzero bits and identify an undetected input by divisibility by the generator.",
+          "RFC 3385 reports the exact fractions 0 for ell≤r, 2^(−(r−1)) for ell=r+1, and 2^(−r) for ell>r+1 for uniform interiors, with redundancy r.",
+          "The indexed pair-weight and interleaver records concern b=2 rather than long fixed-order windows."
+        ],
+        "reasoning": "A codeword on the complement of the unique maximal long zero run, rotated to the first nonzero, is exactly an undetectable burst of the corresponding length. The published fractions count it in another terminology.",
+        "searches": [
+          "Resultary: cyclic binary Hamming long-window b-symbol weight enumerator, and Hamming pair-weight/interleaver alternatives (focused catalogue checks)",
+          "Literature: cyclic code exact b-symbol weight distribution long windows Hamming code burst weight enumerator burst error undetectable generator polynomial shortened b-symbol MDS weight distribution",
+          "Literature: Peterson Brown Cyclic Codes for Error Detection 1961 pdf fraction undetected burst errors length r+1 2^-r generator CRC",
+          "RFC 3385, pp. 5–6, burst-length passage"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Liu–Pan give generalized support minima rather than multiplicities, and their binary-integer column order gives d_(8,1)=10 in the [15,11] example rather than 12 in the frozen exponent order.",
+          "The indexed length-15 record counts how many codes have prescribed pair-weight-four multiplicity; the length-7 record gives pair spectra for interleavers. Neither is a fixed exponent-order long-window table.",
+          "The technical reference gives exact fixed-burst fractions uniformly by redundancy rather than a numerical table of Hamming weights."
+        ],
+        "reasoning": "The small Hamming tables and catalogue entries are not counterexamples or exact enumerator coverage. The general exact burst fractions specify every needed coefficient instead.",
+        "searches": [
+          "arXiv:2103.16299, Definition 2.5 and §4, pp. 15–17",
+          "SCOPE-exact-local-pair-weight-profile-of-the-length-fifteen-binary-ham--dfa2bc77f2ec",
+          "SCOPE-exact-symbol-pair-spectra-of-all-length-seven-binary-hamming-int--395253d8cd05",
+          "RFC 3385, fixed-length burst fractions, p. 5"
+        ]
+      },
+      "rationale": "The nonfull-weight coefficients count the classical exactly-one-burst undetectable patterns in a primitive binary cyclic code, with their lengths relabelled by the number of zero windows. Their exact fixed-span counts follow from the inspected uniform-internal-bits burst fractions, and the only cyclic multiplicity is the n choices of a unique long gap's complement. The saturation branch is already a general cyclic-code theorem. No exact prior printing of this Hamming generating function is required for the implication, and none is asserted.",
+      "residual_risks": [
+        "No claim that a cited source explicitly prints the long-window Hamming generating polynomial in the frozen notation. The negative decision rests on exact known burst counts and their direct conversion.",
+        "The burst-model terminology in the RFC is broader in neighboring paragraphs; the exact-span convention and the coefficient match are independently substantiated by the endpoint divisibility argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General exact reduction from an endpoint-nonzero burst to a divisible polynomial; not claimed to print the nontrivial count in the inspected passage",
+          "evidence": "It defines inclusive span ell and writes the burst as X^i E_1 with degree ell−1 after translation; detection is nondivisibility by the generator.",
+          "identifier_or_url": "https://philiplucht.org/docs/doc-417 (linked scan); Proc. IRE 49, 228–235 (1961)",
+          "material_read": "Linked scan, PDF page 4, journal page 231, section Detection of a Burst-Error and Theorem 5 proof, offsets 23200–about 29100",
+          "method": "OA scan passage inspection",
+          "title": "Cyclic Codes for Error Detection",
+          "trigger": "Original burst definition, polynomial test and redundancy cutoff"
+        },
+        {
+          "assessment": "Gives the exact known fractions; its nearby broader random-span description is not needed to interpret the endpoint-defined counts",
+          "evidence": "For p=0.5 it states fractions 0, 2^(−(r−1)), and 2^(−r) in the three length regimes. Counting with the fixed endpoints from the standard burst definition and checking by polynomial division avoids conflating exact length with a prescribed containing interval.",
+          "identifier_or_url": "https://www.rfc-editor.org/rfc/rfc3385.html",
+          "material_read": "Printed pp. 5–6, single-burst passage and shortening paragraph, text offsets 10920–13070",
+          "method": "Public full-text passage inspection",
+          "title": "iSCSI Cyclic Redundancy Check (CRC)/Checksum Considerations",
+          "trigger": "Published exact undetected-burst length fractions under uniform interiors"
+        },
+        {
+          "assessment": "General stability and restricted exact calculations, not themselves the nontrivial Hamming coefficients",
+          "evidence": "Cyclic enumerators stabilize from the code dimension; the specified exact theorem has a one-coset hypothesis.",
+          "identifier_or_url": "https://hal.science/hal-03189478/document",
+          "material_read": "Theorem IV.3, PDF p. 6, and Theorem V.2, PDF p. 10 near offset 102800",
+          "method": "OA primary PDF passages",
+          "title": "Geometric Approach to b-Symbol Hamming Weights of Cyclic Codes",
+          "trigger": "Closest published geometric treatment of cyclic b-symbol enumerators"
+        },
+        {
+          "assessment": "Directly covers full-weight saturation",
+          "evidence": "For any cyclic code of dimension K, d_b=n for K≤b≤n.",
+          "identifier_or_url": "https://arxiv.org/pdf/2203.11567",
+          "material_read": "Theorem 1, PDF p. 2 around offset 6200",
+          "method": "OA primary PDF passage",
+          "title": "The b-symbol weight distribution of irreducible cyclic codes and related consequences",
+          "trigger": "Cyclic saturation and possible explicit weights"
+        },
+        {
+          "assessment": "Cardinality rather than coefficients; another bound restricted to irreducible codes",
+          "evidence": "It bounds the number of distinct weights, not the number of codewords realizing each one.",
+          "identifier_or_url": "https://arxiv.org/pdf/2404.02471",
+          "material_read": "Theorems 31 and 35, PDF pp. 19 and 21",
+          "method": "OA primary PDF passages",
+          "title": "Some bounds on the cardinality of the b-symbol weight spectrum of codes",
+          "trigger": "Possible implication from general spectra bounds"
+        },
+        {
+          "assessment": "Generalized minima in different order; not the frozen complete enumerator",
+          "evidence": "The [15,11] example uses binary-integer column order and gives different b=8 minimum weight.",
+          "identifier_or_url": "https://arxiv.org/pdf/2103.16299",
+          "material_read": "Definition 2.5, p. 5, and §4, pp. 15–17 including matrices and column order",
+          "method": "OA primary PDF passages",
+          "title": "Generalized b-symbol weights of Linear Codes and b-symbol MDS Codes",
+          "trigger": "Small Hamming weight tables"
+        },
+        {
+          "assessment": "b=2 and a count across orderings, not the same formula",
+          "evidence": "It counts indexed length-15 codes with a given number of pair-weight-four words.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-local-pair-weight-profile-of-the-length-fifteen-binary-ham--dfa2bc77f2ec",
+          "material_read": "Indexed finding and local-mirror statement comparison",
+          "method": "Local catalogue and record lookup",
+          "title": "Exact local pair-weight profile of the length-fifteen binary Hamming code",
+          "trigger": "Closest Hamming-specific indexed profile"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A complete b-symbol weight enumerator is a natural invariant, but this long-window regime is just the single-burst regime of a previously counted binary cyclic-code object, plus saturation. The Hamming field choice contributes no further case distinction or needed unknown invariant. The length-15 illustration and the residual full-weight coefficient do not form a surviving valuable repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

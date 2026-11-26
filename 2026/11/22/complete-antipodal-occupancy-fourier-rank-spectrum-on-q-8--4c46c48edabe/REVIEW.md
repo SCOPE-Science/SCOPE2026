@@ -1,18 +1,21 @@
-# Scientific review: antipodal-occupancy convolution rank on \(Q_8\)
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact quaternion decomposition proves \(\operatorname{rank}L_f=K(s)+2r(d)\) with four Walsh scalar blocks and one two-dimensional Fourier block. The sole nontrivial determinant is \(\sum_{t=0}^3d_t^2\). A singleton antipodal pair fixes \(d_t=\pm s_t\ne0\), while a doubled pair imposes \(s_t\ne\pm d_t\); the proof exhausts all possible scalar Walsh support sizes and isotropic/nonisotropic determinant alternatives. The constructive argument supplies all permitted cases, including the cyclotomic and square-root witnesses needed when there are no doubled pairs. The exclusion argument is algebraic, not an inference from exhaustive random examples. Independent in-code implementations, **not independent external auditors**, checked 64 canonical exact witnesses and 1,148 regular-matrix realizations across all 255 supports. The tests include exact group multiplication and explicit rank calculations.
+## correctness
 
-## Originality — PASS under bounded comparison
-Alagic–Russell, *Uncertainty Principles for Compact Groups* (arXiv:math/0608702, 2006), gives the general rank-weighted lower bound, not a support-geometric classification. Stanković–Moraga–Astola (AAECC 12, 2001, §2.4, Table 1) provides the Q8 Fourier transform, which is an important prior proof ingredient but not this support/rank census. The published binary-polyhedral spinor coefficient zero-set theorem classifies certain rank-two cases and those outcomes are acknowledged as already covered. Existing exact S3 and D10 Fourier-rank profiles do not imply the Q8 table. Searches for equivalent formulations, stronger results and exact tables in relevant public records and the relevant related research found no dominating result; an older unindexed equivalent calculation remains a priority risk. The new claim is the full fixed-support and full-rank combination of these constraints, not the known transform or individual rank-two cases.
+PASS
 
-## Value — PASS
-This is a complete natural uncertainty/rank profile for the smallest nonabelian Hamiltonian group. It resolves every rank realization for all 255 supports, identifies the intrinsic four-antipodal-pair geometry, and separates supports of equal cardinality whose convolution kernels behave differently. In particular, the rank-two boundary at four and six taps depends on antipodal occupancy, not only the number of nonzero coefficients. This is a substantive structural classification rather than a single arbitrary numerical slice. Limits: complex weights only, no conditioning or larger-group theorem, and no independent external validation.
+For exact complex support, pair sums give four scalar Walsh coefficients, and pair differences give the two-dimensional irreducible block, repeated twice in the regular representation. The determinant is the sum of the four squared differences; the block vanishes only when all differences vanish. Singleton differences have prescribed sign and magnitude, while doubles exclude just the two choices ±s. Walsh support sizes on 0,1,2,3,4 nonzero coordinates are respectively {0}, {4}, {2,4}, {3,4}, {1,2,3,4}; in particular two Walsh terms cannot make a three-coordinate vector. With no doubles, isotropy excludes a=1, excludes K=2 at a=2, and excludes K=1 at a=4 (a pure Walsh character has nonzero square sum); the remaining possibilities have explicit witnesses. With one double and no singleton isotropy is impossible for a nonzero block. Otherwise the real choices 7 on earlier doubles and an imaginary final difference solve the one quadratic equation without destroying exact support. The zero-block case requires no singleton. These exclusions and constructions give the whole table, not merely lower bounds. The affine group of F2^2 is S4 on its coordinates and preserves Walsh zero count; independent singleton sign changes preserve the determinant. Thus attainment holds on each specified support, with 255 total and 64 row-rank entries. Independently reproduced all 64 canonical entries by number-field rank of direct Hamilton regular matrices; no search was used to prove exclusion.
 
-## Sources and risks
-- Alagic–Russell, 2006, https://arxiv.org/abs/math/0608702 ; full-text introduction, Theorem 2 and finite-group consequences checked.
-- Stanković–Moraga–Astola, 2001, https://web.cecs.pdx.edu/~mperkows/CAPSTONES/Quaternion/fuxcxlltext.pdf ; §2.4, transform table and rendered page inspected.
-- Published binary-polyhedral spinor coefficient classification, https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-spinor-coefficient-zero-sets-and-projective-rigidity-across-fini--502b53e637a6 ; complete accessible RESULT.md compared.
-- Nearby but non-dominating S3 and D10 exact-rank claims compared in the relevant related research. Equivalent unindexed quaternion-convolution calculations remain the principal originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Supported scope is the complete joint scalar/matrix block classification on each fixed Q8 support, not the transform, the general uncertainty inequality, or the isolated spinor rank-two cases. The closest same-day analogue uses S3, which has a different Fourier and support structure. No inspected comparison dominates the combined claim.
+
+## value
+
+PASS
+
+Q8 is a standard minimal nonabelian test of Fourier uncertainty with both scalar and matrix blocks. The classification detects kernel dimensions not recoverable from sparsity alone: two doubled four-point pairs allow rank two and only even ranks, whereas a double and two singletons admit ranks 4 through 8. Resolving the complete profile, not just its minimum or the known isolated spinor cases, provides a concrete benchmark for nonabelian uncertainty and structured convolution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

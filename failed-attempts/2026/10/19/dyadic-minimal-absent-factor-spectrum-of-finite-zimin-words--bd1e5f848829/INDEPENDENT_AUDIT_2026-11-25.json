@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:21:37.379755Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions and scope, Proof; VERIFICATION.md; check_zimin.py (inspected, not executed)",
+        "python3 -B /workspace/independent_checks.py 1: constructed the words by positional valuation and enumerated absent one-letter appendages with present suffix; full sets, histograms and totals agree for k=1 through 9 (213 words for k=9)."
+      ],
+      "rationale": "The unique central letter excludes all proper borders longer than Z_(k-1); the shorter ones reduce recursively. Among prefixes of the smaller word, precisely its borders can gain the central letter as a successor. Induction therefore gives the stated extension sets and at most one possible successor for any other prefix. An absent word containing the new letter internally just once would be forced to occur by the prefix and suffix being anchored at that same unique position. Two copies can only be the endpoints, where the middle is exactly a border (including the empty one); a single endpoint copy instead requires a noninitial successor of a Zimin prefix. This exhausts the alternatives, includes k=1, and gives k-j diagonal and (k-j-1)(k-j-2) ordered off-diagonal terms at length 2^j+1.",
+      "residual_risks": [
+        "The exact alphabet and linear contiguous factors are essential; the bounded reproduction does not replace the induction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Charalampopoulos et al., pp. 1–2: general minimal absent words and algorithms",
+          "Ayad et al., pp. 1–2: output-sensitive construction",
+          "Akagi et al., §§2.4 and 5: RLE types and a general reporting structure"
+        ],
+        "reasoning": "These results can supply definitions or compute individual antidictionaries, but the inspected statements do not themselves determine the Zimin-specific unbounded formula. The exact catalogue match suffices without a stronger general theorem.",
+        "searches": [
+          "arXiv:1806.02718",
+          "arXiv:1902.04785",
+          "arXiv:2202.13591"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and decisive matching RESULT.md",
+        "arXiv:1704.03479",
+        "arXiv:1806.02718",
+        "arXiv:1902.04785",
+        "arXiv:2202.13591"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching set is the union of {a_(m+1) Z_m a_(m+1)} and {a_i Z_m a_j : i,j >= m+2}, with the identical recursive host and alphabet.",
+          "The disjoint count is 1+(n-m-1)^2 and summing gives n+n(n-1)(2n-1)/6."
+        ],
+        "reasoning": "The indexed theorem entails each frozen statement immediately, and conversely the endpoint decomposition recovers it. This establishes equivalence, not chronological priority.",
+        "searches": [
+          "Inspected matching Resultary theorem and primary definitions/algorithms above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/11/2/SCOPE-the-complete-anti-dictionary-of-finite-zimin-words--6a29e54c5e07, RESULT.md §Finding, exact theorem",
+          "Conlon–Fox–Sudakov, PDF p. 2: Zimin pattern unavoidability concerns substitutions, not literal minimal absent factors."
+        ],
+        "reasoning": "Identify m with j, n with k and a with x in the indexed record, then split its unrestricted upper-index square of endpoints into diagonal and off-diagonal parts. Its theorem is equivalent; the pattern literature is not.",
+        "searches": [
+          "Resultary search for finite Zimin minimal absent factors/antidictionary",
+          "Conlon–Fox–Sudakov, arXiv:1704.03479"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/2/SCOPE-the-complete-anti-dictionary-of-finite-zimin-words--6a29e54c5e07, RESULT.md offset 0: exact set, dyadic histogram, and total."
+        ],
+        "reasoning": "This is a distinct indexed record, not the frozen record returned under another URL; it covers the claim in full.",
+        "searches": [
+          "Resultary finite Zimin antidictionary lookup; local mirror of strongest distinct hit"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary theorem has identical mathematical coverage. Its grouping separates the j+1 diagonal pair and then takes all pairs at indices at least j+2; splitting those into equal and unequal endpoints yields exactly the frozen theorem, including every count. The date displayed on the matching record is later, not evidence against the frozen record's historical priority. The failure is of distinctness against verified existing coverage, not a claim about who first derived the result.",
+      "residual_risks": [
+        "Historical priority is not settled by this bounded comparison. The matching record's displayed date, 2026-11-02, is later than the frozen record's displayed date, 2026-10-19; no earlier exact result was established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EQUIVALENT",
+          "evidence": "Complete set and the exact histogram and total; upper-index square of endpoints re-partitions to the frozen formula.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-complete-anti-dictionary-of-finite-zimin-words--6a29e54c5e07/RESULT.md",
+          "material_read": "RESULT.md §Finding, assumptions, first proof steps, offset 0",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The Complete Anti-Dictionary of Finite Zimin Words",
+          "trigger": "Strongest Resultary match"
+        },
+        {
+          "assessment": "BACKGROUND",
+          "evidence": "Zimin's characterization of unavoidable patterns and threshold f(n,q) concern substituted instances.",
+          "identifier_or_url": "https://arxiv.org/abs/1704.03479",
+          "material_read": "PDF p. 2 around offset 5261",
+          "method": "Open primary text",
+          "title": "Tower-type bounds for unavoidable patterns in words",
+          "trigger": "Zimin recursion and possible equivalent pattern formulation"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "Proper-factor definition, bounds and general computation do not specify these Zimin families.",
+          "identifier_or_url": "https://arxiv.org/abs/1806.02718",
+          "material_read": "PDF pp. 1–2, offsets 4177–6531",
+          "method": "Open primary text",
+          "title": "Alignment-free sequence comparison using absent words",
+          "trigger": "General minimal absent word machinery"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "General output-sensitive enumeration, including length-limited absent words for concatenated texts.",
+          "identifier_or_url": "https://arxiv.org/abs/1902.04785",
+          "material_read": "PDF pp. 1–2, offsets 3865 and 6837",
+          "method": "Open primary text",
+          "title": "Constructing Antidictionaries in Output-Sensitive Space",
+          "trigger": "General antidictionary computation"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "RLE types and output data-structure result, not the exact Zimin spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.13591",
+          "material_read": "PDF §2.4, p. 3, offset 10490, and §5, p. 9, offset 28582",
+          "method": "Open primary text",
+          "title": "Minimal Absent Words on Run-Length Encoded Strings",
+          "trigger": "Possible broader compressed-word classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding and Proof",
+        "Exact matching Resultary theorem"
+      ],
+      "rationale": "The dyadic antidictionary is a natural, structurally motivated classification, not a trivial finite test. But as a distinct narrow exact invariant now, the families, histogram and total are already all available in a separate theorem; re-partitioning the endpoint pairs leaves no new mathematical conclusion. No genuine remaining claim merits repair. This does not deny the usefulness of the classification itself or make a priority judgment.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:33:53.025145Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Inward boundary signs give invariance, and positive y stays positive by the multiplicative prevalence equation. The disease-free eigenvalues are tau/(1+omega)-1 and -xi(1+omega). The endemic relation is tau=T(s)=1/s+omega s^(q-1), 0<s<1. Its derivative has numerator omega(q-1)s^q-1, so for all q from 1 through q_c it is strictly decreasing in the open interval, including the critical endpoint case. Above q_c there is a single minimum with T''=q/s_f^3>0 and the stated tau_f below T(1). This verifies the counts including equality at both thresholds. The Jacobian has negative trace and determinant -xi y s T'(s), verifying sink and saddle types. At the fold there is a simple zero eigenvalue; eliminating the contact equation, whose contact derivative is nonzero, gives a scalar equilibrium equation with nonzero parameter and quadratic derivatives. This supplies the saddle-node nondegeneracy. At tau=tau_0 and q<=q_c the cooperative flow traps all solutions between the monotone corner solutions; their limits are equilibria, and the disease-free point is the only one. The critical rates also follow directly without assuming instant contact adjustment or invoking center-manifold tracking: write g(y)=1/[1+omega(1-y)^q], w=z-g(y), a(y)=tau_0/T(1-y)-1, and B(y)=tau_0(1-y). Then y'/y=a+Bw and w'=-[xi/g+g' y B]w-g' y a. For k=1 below q_c and k=2 at q_c, Taylor expansion gives a=-c y^k+O(y^(k+1)), with c=[1-omega(q-1)]/(1+omega) or c=1/(2omega), respectively. Along a positive solution w/y^k solves a scalar linear equation with damping xi/g+g' y B+k y'/y tending to xi(1+omega)>0 and forcing -g'a/y^(k-1) tending to zero. Thus w/y^k tends to zero; y'/y^(k+1) tends to -c and y^(-k)/t tends to kc. This yields both amplitudes at every fixed xi>0, not just in a time-scale limit. The uploaded verifier was inspected but not executed. Its special-case symbolic and trajectory examples are not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general aNIMFA equations and endemic/disease-free relations include the system as a response specialization. The moment-closure AID example instead creates susceptible–infected links and breaks susceptible–susceptible links.",
+          "The inspected local multigroup 1/t profile assumes breaking vanishes at zero prevalence and disease-free link density one."
+        ],
+        "reasoning": "The general model and threshold identities are not a general sharp extinction-rate theorem. The particular power-law fold and the uniform-in-initial-state critical asymptotics need further response-specific analysis.",
+        "searches": [
+          "Achterberg–Sensi, arXiv:2209.01224v2, §§2–3",
+          "Achterberg–Van Mieghem, Phys. Rev. E 106 014308, §III C AID example via TU Delft repository",
+          "Resultary multigroup adaptive SIS critical clearance"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Achterberg–Sensi arXiv:2209.01224v2",
+        "Achterberg–Van Mieghem Phys. Rev. E 106 014308, OA TU Delft copy",
+        "Local Resultary index and specified mirror records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitution into the known endemic relation gives T(s), and the linear invasion threshold is prior. Elementary differentiation supplies the fold candidate. A nearby generic quadratic coefficient, formally evaluated on this response, agrees with the quadratic expression but vanishes at q_c outside its hypotheses."
+        ],
+        "reasoning": "Neither the established general equilibrium identity nor a positive quadratic-decay formula determines what happens after that coefficient cancels. One must show global convergence at the specified boundary and control the lag of the full two-dimensional flow to establish the cubic law. The originality verdict rests on the complete family analysis including that step, not on derivation of the model or invasion threshold.",
+        "searches": [
+          "arXiv:2209.01224v2 §§3.2–3.3 versus frozen RESULT.md proof steps 2–5",
+          "2026/11/8/SCOPE-critical-adaptive-sis-clearance-exact-two-term-law-and-a-curvatu--3dbf6638e1f1, hypotheses and coefficient derivation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Achterberg–Sensi's AID example uses quadratic breaking (1-y)^2, but creation 2y(1-y), not a constant. Its disease-free state (0,0) stays stable and the endemic states appear at a different fold.",
+          "A close local critical-clearance result assumes nondecreasing positive breaking and does not cover this decreasing response."
+        ],
+        "reasoning": "Sharing a quadratic breaking response or a saddle-node diagram does not identify the vector fields. The different creation response changes the contact nullcline, the disease-free link density and the critical linearization.",
+        "searches": [
+          "Resultary: power-law contact retention, adaptive SIS endemic bistability and critical inverse-square-root extinction",
+          "Adaptive SIS aNIMFA constant creation decreasing breaking (1-y)^q saddle node critical extinction lookup",
+          "arXiv:2209.01224v2, §4 AID example, equations (14a–b) and (16)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact local coefficient/decay records give nondegenerate 1/t laws in different response regimes. The moment-closure bifurcation figure and exact equilibrium examples are for AID's different creation rule. The same-day threshold-response hit had only an index summary available, so its exact content was not established."
+        ],
+        "reasoning": "A numerical table cannot establish this continuous-parameter theorem. The lookup tested for an indexed exact formula or diagram in the same response family; the verified alternatives do not supply q_c or the critical cubic amplitude for this system.",
+        "searches": [
+          "Resultary: exact exponent threshold q_c, endemic saddle-node and critical clearance profiles",
+          "Local single-group critical-adaptive-SIS two-term law, multigroup critical profile and same-day threshold-response hit",
+          "Phys. Rev. E 106 014308 Table I context and the §III C Fig. 3 discussion"
+        ]
+      },
+      "rationale": "The aNIMFA model, general disease-free threshold, scalar endemic relation, and examples of adaptive bistability are prior. The supported distinction is the sharp classification of this constant-creation power-law family together with the critical extinction exponent switch and its exact coefficient. A generic inverse-time critical law outside the decreasing-response/cancellation regime is not the degenerate law claimed here.",
+      "residual_risks": [
+        "The same-day threshold-response record could not be inspected beyond its summary; that access limitation is not evidence for or against coverage. An older unindexed degenerate critical-decay calculation may exist. The close nondegenerate critical law is not credited as new in itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General model and threshold are prior; AID is a distinct response, not the claimed critical exponent switch",
+          "evidence": "For AID, f_br=(1-y)^2 and f_cr=2y(1-y); the disease-free state is (0,0) and stable for all tau.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.01224v2",
+          "material_read": "§2 PDF pp. 2–3 (offsets 4800–9739); §§3.2–3.3 pp. 3–5 (9739–19630); AID example equations (14)–(16), p. 12 (39240–42390)",
+          "method": "Primary OA PDF passages",
+          "title": "A minimal model for adaptive SIS epidemics",
+          "trigger": "Same general planar dynamics and most similar published response example"
+        },
+        {
+          "assessment": "Prior saddle-node analysis for a different creation rule",
+          "evidence": "f_br=(1-X_i)(1-X_j) and f_cr=(X_i-X_j)^2, i.e. creating unlike-node links, not constant creation.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.106.014308; https://repository.tudelft.nl/file/File_e56cc372-5bf3-4629-a2b0-1caf5c4adc42",
+          "material_read": "§III C, AID discussion and Fig. 3, OA text offsets 37943–41753",
+          "method": "Primary OA PDF from the publisher paper's TU Delft repository copy after direct DOI failed",
+          "title": "Moment closure approximations of susceptible-infected-susceptible epidemics on adaptive networks",
+          "trigger": "Prior quadratic-response bifurcation and related exact moment-closure models"
+        },
+        {
+          "assessment": "Substantial nondegenerate overlap, not coverage of the decreasing-breaking cancellation",
+          "evidence": "Nondecreasing positive breaking and decreasing creation; the degenerate zero-quadratic-coefficient case here violates those hypotheses.",
+          "identifier_or_url": "2026/11/8/SCOPE-critical-adaptive-sis-clearance-exact-two-term-law-and-a-curvatu--3dbf6638e1f1",
+          "material_read": "RESULT.md Finding, assumptions at offset 0; coefficient proof around 4917–5315",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Critical adaptive SIS clearance: exact two-term law and a curvature criterion",
+          "trigger": "Same planar form and critical inverse-time behavior"
+        },
+        {
+          "assessment": "Different critical assumptions",
+          "evidence": "Vanishing breaking at zero infection and disease-free link density one, unlike nonzero breaking and link density 1/(1+omega).",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-critical-clearance-with-prevalence-responsive-links-in-mul--96c9306c6507",
+          "material_read": "RESULT.md Finding and assumptions at offset 0, comparison at 8149",
+          "method": "Local mirror",
+          "title": "Sharp critical clearance with prevalence-responsive links in multigroup adaptive SIS",
+          "trigger": "Exact critical clearance law in a broader network setting"
+        },
+        {
+          "assessment": "No statement-level coverage conclusion from this hit",
+          "evidence": "Summary describes logistic threshold-response networks, not this equation; the source itself was not read.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-contrast-extinction-critical-slowing-and-reentrant-pattern--bf3050d364b8",
+          "material_read": "Index summary only; exact matching file missing from the local snapshot",
+          "method": "Resultary search; local mirror retrieval not successful",
+          "title": "Sharp contrast extinction, critical slowing and reentrant pattern",
+          "trigger": "Same-date critical-slowing search hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The useful contribution is the sharp change of decay exponent at a precise cancellation point, together with the associated equilibrium classification for the stated family. Showing the inverse-square-root law on every positive initial trajectory at criticality, with a leading amplitude independent of the positive link relaxation speed, distinguishes the full planar dynamics from a formal nullcline approximation. This is a deterministic mean-field result, not a finite-network or empirical prediction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For all finite connected simple cacti of order at least two and all \(p\in(0,1)\), induced cactus cycle rank is the number of completely retained original cycles. Euler's component identity gives the expectation exactly. Differentiating Bernoulli subset probabilities gives the exact covariance. The derivative polynomial is convex; its endpoint and pure-cycle cases prove a unique interior maximum except for the single edge and triangle. The lower root is controlled by the four-cycle block polynomial, with explicit positive checks for all other cycle lengths, and the upper root by uniformly negative block contributions at \(3/4\). The three-vertex path and four-cycle bouquets prove the sharp endpoints. Exact coefficient checks on 746 finite graphs support but do not replace this proof.
+## correctness
 
-## Originality — PASS (historically qualified)
-Tittmann–Averbouch–Makowsky's 2008/2011 source defines the full induced-subgraph component generating polynomial and a vertex-failure distribution but does not state or prove the cactus-wide unique maximum or the sharp extremal interval. Liao–Hou's 2013/2014 full text discusses graph determination by the polynomial, notably cycles, tadpoles, and friendship graphs, without these percolation threshold inequalities. Related bridge/cactus bond-percolation work concerns a different random experiment and statistics. The comparison covers statements and obvious generating-function implications: the finite moment follows from the earlier framework, but the sharp all-graph sign classification and four-cycle extremality require the additional Euler/convexity/block argument. An older equivalent optimization result not located by the inspected search remains possible.
+PASS
 
-## Value — PASS
-The number of surviving connected clusters is a basic fragmentation descriptor for unreliable finite networks. The theorem identifies the complete class-wide one-peak dependence transition, makes the maximizer calculable using only cycle lengths and bridge count rather than graph placement, and produces *sharp* universal density bounds. The extremal role of four-cycles distinguishes the result from an obvious triangle-density heuristic and gives an explicit infinite near-extremal family. The bound is not a thermodynamic percolation threshold and should not be interpreted as such.
+On each retained subset the surviving simple cycles are exactly the fully retained original cycles. They are edge-disjoint and independent in the cycle space, and span it since every cycle-space element is a sum of simple cycles. Thus the Euler component identity gives the expected count. Differentiation of each subset probability gives the score (|S|−np)/(p(1−p)), proving the covariance formula for the fixed component-count statistic. Write b for the number of bridges and c for the number of cycle blocks. For f=μ′, f″≥0 and f(1)=1−b−c by the block counts. If b+c≥2, there is an interior root from the endpoint signs, and there cannot be two, since the secant slope from any second root to 1 would have to be nonnegative by convexity. A pure cycle of length ℓ≥4 has f(1)=0 and f′(1)=ℓ(ℓ−3)>0, giving a negative value just to the left of 1 and the same unique-crossing argument; the triangle and edge give 3(1−p)² and 2(1−p). For g_ℓ=ℓ−1−2ℓp+ℓp^(ℓ−1), independent exact rational evaluation gives g_4(2/5)=7/125 and g_4(41/100)=−4316/10^6; g_3(41/100)=443/10^4 and g_5(41/100)=4128805/10^8. The latter two decrease up to 41/100 and g_ℓ(ξ)>2/25 when ℓ≥6, so f(ξ)≥1. At 3/4 the bridge contribution is −1/2, g_3=−13/16 and each g_ℓ for ℓ≥4 is less than −1, proving f(3/4)≤0 with equality only for the path with two bridges. For a bouquet of t squares, the derivative is 1+t g_4; on [ξ,3/4], g_4′≤−5/4, so the unique root differs from ξ by at most 4/(5t). This proves the unattained lower infimum and sharp attained upper bound without relying on sampled roots.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The prior subgraph-component polynomial gives the general distribution framework, and an adjacent one-crossing result covers stars and the square via complete bipartite graphs. The supported distinct claim is the cactus-wide one-crossing classification and sharp extremal interval with square-bouquet infimum and the unique upper equality case, not the idea of a first moment or a covariance derivative identity.
+
+## value
+
+PASS
+
+The expected number of surviving fragments and the density at which it peaks are natural induced-subgraph statistics not captured by a connectedness probability. A single-crossing law and a sharp density interval independent of the size and arrangement of the blocks explain how squares, rather than triangles, control the low-density extreme, and identify the sole upper extremizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

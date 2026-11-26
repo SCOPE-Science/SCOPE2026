@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:14:56.992910Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–88",
+        "Frozen VERIFICATION.md and verify.py, inspected but not executed"
+      ],
+      "rationale": "In the energy coordinates the step is P=nnᵀ with n proportional to (−b sin θ,a cos θ), where 0<a≤b and θ is uniform. Independently, t=tan θ is standard Cauchy: partial fractions integrate E[n₁²]=b/(a+b), and differentiating this expectation in b gives 2E[n₁²n₂²]=b∂_b E[n₁²]=ab/(a+b)². Subtraction gives the two diagonal fourth moments, and reflection kills the mixed odd moments. Fresh sketches make the resulting positive 2×2 transfer exact at every iteration. Perron positivity of both the trace functional and every nonzero squared-coordinate start gives the same exponent even for an eigenaxis start and a circular Hessian. The expected projector gives the sharp one-step factor; the positive difference of the squared expressions is 8q(1−q²), and the Perron rate has derivative 3/4 at q=1, yielding the 3/2 gap coefficient. Independent integration of the rational Cauchy integrands matched 12 moment values for (a,b)=(1,1),(1,3),(2,5),(1,100) at 65 decimal places. These checks corroborate the exact proof; they are not a proof for all curvatures.",
+      "residual_risks": [
+        "The theorem concerns expected quadratic energy, not sample-path rates or higher-dimensional, dependent, or safeguarded updates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier Gaussian sketch-and-project work supplies the expected projector or a contraction bound from it. Random Pursuit and randomized subspace Newton give the relevant algorithmic setting and general convergence bounds."
+        ],
+        "reasoning": "A first-moment contraction bound does not identify the fixed-start long-run exponent. The exact planar first moment, combined with the variance derivative, does determine the necessary fourth moments; the inspected lemma does not itself state the resulting iid expectation transfer or its spectrum. The distinct Resultary finding explicitly supplies both.",
+        "searches": [
+          "arXiv:2208.09585 §3.1 equations (6)–(10)",
+          "arXiv:1506.03296v5 Appendix B Lemma 12",
+          "arXiv:1905.10874 Algorithm 1 and Theorem 2",
+          "arXiv:1111.0194 Theorem 5.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 433e68df3b50",
+        "arXiv:1506.03296v5",
+        "arXiv:2208.09585",
+        "arXiv:1111.0194",
+        "arXiv:1905.10874"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The counterpart's transfer yields the frozen trace formula for all k and all nonzero deterministic initial vectors, exactly the same characteristic roots and hence the same large-κ expansion.",
+          "The sharp one-step factor is also obtainable from the earlier exact planar expected-projector identity by taking the complementary projection."
+        ],
+        "reasoning": "The counterpart covers the central exact rate and finite-time sequence; expressing the spectral gap's leading coefficient separately is a Taylor expansion of that same formula and does not leave a distinct result.",
+        "searches": [
+          "Resultary 433e68df3b50, finding and transfer formula",
+          "arXiv:1506.03296v5 Lemma 12 and arXiv:2208.09585 §3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published finding assumes a planar SPD quadratic, exact line minimization and fresh iid circle directions. Gaussian length cancels, giving precisely that direction law and update."
+        ],
+        "reasoning": "In energy coordinates both recurrences act on squared components. Setting t=√κ and q=(t−1)/(t+1) makes them identical up to a coordinate swap. In increasing-curvature order, 2(t+1)²M has entries t(2t+1), t, t, and t+2.",
+        "searches": [
+          "Configured Resultary search for the planar Gaussian sketch-and-project / exact random-direction line-search mean-square transfer",
+          "Resultary 2026/11/8/SCOPE-exact-mean-square-rate-of-planar-gaussian-random-direction-line--433e68df3b50, RESULT.md, offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The counterpart supplies the full parameter formula rather than a finite table. For κ=9 it gives (13+√73)/32, and for every finite anisotropy it distinguishes its Perron rate from t/(1+t)."
+        ],
+        "reasoning": "Agreement holds coefficientwise after reparameterization and is not inferred from the example or from title similarity.",
+        "searches": [
+          "Resultary 2026/11/8/SCOPE-exact-mean-square-rate-of-planar-gaussian-random-direction-line--433e68df3b50, local mirror RESULT.md offset 0"
+        ]
+      },
+      "rationale": "A distinct published Resultary record gives materially the same planar iid Gaussian (or uniform-circle) exact-line-search model, full two-state expectation transfer, common Perron exponent for every nonzero initial error, and separation from the sharp one-step rate. The two coordinate conventions give the same formula, not just a similar asymptotic coefficient. This is a finding of existing equivalent coverage, not a determination of who obtained the theorem first: the catalogue counterpart is dated later than the frozen source path.",
+      "residual_risks": [
+        "The catalogue dates do not establish provenance or publication priority.",
+        "No independent broad external literature sweep was completed for this ordinal; earlier equivalent formulas under other terminology remain possible and would not undo the verified catalogue match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent full mathematical coverage in a distinct indexed record",
+          "evidence": [
+            "iid uniform-circle exact line search on SPD planar quadratics; same expectation recurrence, common exponent and sharp one-step comparison"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-mean-square-rate-of-planar-gaussian-random-direction-line--433e68df3b50",
+          "material_read": "RESULT.md offset 0, model, findings and transfer",
+          "method": "Local published-record mirror",
+          "title": "Exact mean-square rate of planar Gaussian random-direction line search",
+          "trigger": "Same model, dimension and exact rate"
+        },
+        {
+          "assessment": "Exact first moment gives the sharp one-step factor by complementation; the inspected statement is not the full recurrence",
+          "evidence": [
+            "E[ξξᵀ/(ξᵀξ)] = Ω^(1/2)/Tr(Ω^(1/2)) in dimension two"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1506.03296v5",
+          "material_read": "Appendix B Lemma 12, equation (63), text offset 100276",
+          "method": "OA original text",
+          "title": "Randomized Iterative Methods for Linear Systems",
+          "trigger": "Plausible exact planar Gaussian moment antecedent"
+        },
+        {
+          "assessment": "Expected-projector rate certificate, not the explicit fourth-moment law",
+          "evidence": [
+            "The contraction bound uses the smallest eigenvalue of the averaged removed projector."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2208.09585",
+          "material_read": "Section 3.1, pp. 7–8, equations (6)–(10)",
+          "method": "OA original text",
+          "title": "Sharp Analysis of Sketch-and-Project Methods via a Connection to Randomized Singular Value Decomposition",
+          "trigger": "Gaussian sketch-and-project rate theory"
+        },
+        {
+          "assessment": "General convergence guarantee rather than a closed planar Perron rate",
+          "evidence": [
+            "Theorem 5.1 bounds expected optimization error using general convexity constants."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1111.0194",
+          "material_read": "Theorem 5.1, p. 10",
+          "method": "OA original text",
+          "title": "Optimization of Convex Functions with Random Pursuit",
+          "trigger": "Exact random line search under equivalent terminology"
+        },
+        {
+          "assessment": "General method and convergence bound, not the exact anisotropic two-dimensional rate",
+          "evidence": [
+            "The theorem gives convergence under subspace-Newton assumptions, rather than the explicit fourth-moment transfer evaluated here."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1905.10874",
+          "material_read": "Algorithm 1 and Theorem 2, pp. 4–5",
+          "method": "OA original text",
+          "title": "Randomized Subspace Newton",
+          "trigger": "Equivalent algorithmic framework"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 13–41, 76–100",
+        "Resultary 433e68df3b50"
+      ],
+      "rationale": "The exact all-start transfer is a useful benchmark in the simplest anisotropic random-line-search problem. It quantifies why the best uniform one-step certificate is not the actual mean-square asymptotic exponent, with a nonvanishing difference in the leading gap coefficient. This is scientific utility of the mathematical statement, not a claim of added originality over the matched result.",
+      "residual_risks": [
+        "No consequence is claimed for general iteration complexity or pathwise behavior."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is supported by an explicit weighted-neighbour state quotient and a complete induction. At round one, degree recovers the number of middle-coordinate entries; each subsequent round separates the uniquely next-reached state in every tail, while unreached tails remain equitable. The largest second-highest distance in a tail is exactly \(2d-2\), and two distinct rooted orbits still coincide immediately before it. The stabilizer calculation using degrees and distances proves orbit exactness. Independent direct and weighted-quotient programs verify all intermediate partitions across the ranges reported in the verification file. The proof covers every integer dimension \(d\ge2\).
+## correctness
 
-## Originality — PASS, with residual literature risk
-The older works on general colour refinement, two-variable counting logic, universal covers and iteration lower bounds do not state this family-specific round-by-round classification. The result is not a corollary merely from the two-dimensional grid or binary-hypercube cases: those do not determine the refinement partitions on the higher-dimensional Cartesian powers of a three-vertex path. Search results did not reveal a stronger published all-dimensional formula; the absence of search hits is not proof of priority. Specialized earlier coverage remains a risk.
+PASS
 
-## Value — PASS
-The theorem computes a natural exact refinement-depth invariant of an exponentially large, highly symmetric family, proves an explicit propagation law for *every* round, and gives the full stable orbit sizes. The sharp depth \(2d-2\) grows linearly in the dimension but logarithmically in graph order; the last indistinguishable pair gives a matching obstruction. These details are useful benchmarks for the interaction between distance, degree, symmetry and counting refinement, beyond the mere observation that the algorithm eventually stabilizes.
+At round 1 the signature distinguishes the marked origin, identifies b by degree d+b and detects adjacency to the mark. Coordinate permutations preserve all signatures, so each (b,c) type is indivisible. From round t to t+1, in any fixed-b unreached class at most one type can have distance t+1; it alone sees a reached colour. All types at distance >t+1 have exclusively unreached neighbours, with d−b in the b+1 tail and 2b in the b−1 tail (zero-count tails are irrelevant), independently of c. Old colours prevent merging. The final two b=0 types at distances 2d−2 and 2d are still tied at 2d−3, including d=2; at 2d−2 all tails contain at most one type. No earlier equality could precede a later split. Root distance and degree are rooted-automorphism invariants and determine (b,c); coordinate permutations give transitivity on each type. The multinomial size and triangular count follow. The stronger proof statement about the full stabilizer is also sound: degree distinguishes 2e_i among the distance-two neighbours of e_i, and the difference of distances to 2e_i and to the origin determines x_i.
 
-## Scope and residual risks
-No claim of graph identification against arbitrary nonisomorphic competitors, general path lengths, or exact publication priority is made. There has been no independent audit of the argument or search.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the full time-dependent partition and sharp round 2d−2. Do not credit eventual rooted orbit recovery as distinct for d≥3: the inspected same-day rectangular-grid result covers it. Its stable-colour proof does not control intermediate colours or imply the sharp lower bound. The date alone does not establish priority.
+
+## value
+
+PASS
+
+This is a natural controlled family for distinguishing propagation from convergence. The formula tells exactly which types remain indistinguishable after any fixed number of rounds, and shows that orbit separation can finish two rounds before the distance-to-mark signal could reach the far corner. Eventual orbit identification alone does not give either fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

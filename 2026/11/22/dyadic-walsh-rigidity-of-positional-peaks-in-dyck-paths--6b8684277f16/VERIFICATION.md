@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The accompanying `verify.py` constructs every Dyck word from a balanced-prefix recursion, independently of the simultaneous-peak contraction argument. It converts words to positional-peak bit masks and applies an exact integer fast Walsh–Hadamard transform.
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and no external packages. The test finishes by printing `PASS`. It performs these checks: complete formula-versus-transform comparisons at every character for semilengths one through eight; complete direct Fourier transforms for semilengths nine and ten with systematically sampled formula comparisons; exact odd-order valuations and even-order full-support cancellations; direct tests of every compatible collection of prescribed peak positions at semilength six; and a bounded arithmetic check of the strict binary digit-sum inequality. The strongest correctness evidence for all semilengths is the written bijective and arithmetic proof, not finite computation.
+## correctness
 
-No Lean certificate, external independent proof, or unrestricted computational enumeration is claimed. The even-order nullity beyond the displayed finite instances and exact sharp positive multiplier gaps are not calculated here.
+PASS
+
+For any nonadjacent set J of prescribed UD start positions, delete the disjoint blocks. Reinserting them at the designated slots in the original word is uniquely defined and preserves the height constraint, so there are exactly C_(n-|J|) realizations; adjacent prescribed starts are impossible. Expanding the product of the selected Walsh signs proves the formula on all 2n-1 coordinates. Put N=n+1. For j>=2, s2(N)<=s2(N-j)+s2(j)<=s2(N-j)+j-1. For odd n, N is even and s2(N-1)>=s2(N), which supplies the j=1 case. With v2(C_m)=s2(m+1)-1, every nonempty term is divisible by 2^s2(N), whereas the empty term has precisely one fewer factor of two. This includes n=1 and C_0. At even n the Narayana symmetry pairs peak counts of opposite parity; the full-support eigenvalue is zero. The orthogonal Walsh basis gives invertibility, determinant valuation and inverse-norm bound with the specified unnormalized kernel. The phrase 'zero-frequency counts' at lines 64–67 is to be read as counts of vanishing multipliers, not as the multiplier at the empty frequency.
+
+## originality
+
+PASS
+
+The supported distinct claim is the exact congruence and valuation for every Walsh sign set at every odd semilength and the resulting invertibility classification. The classical Narayana full-support cancellation at even orders is prior input, not a new result. The closest accessible positional-peak literature and catalogue comparison do not cover the uniform valuation.
+
+## value
+
+PASS
+
+Adjacent UD is a canonical local observable on the Catalan ensemble. A uniform valuation for an exponentially large spectrum gives an exact recovery boundary, not just total Catalan parity or the Narayana histogram. For example C_5=42 is even, but every multiplier is nonzero of valuation one. The determinant and norm consequences are useful corollaries, not independent novelty claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

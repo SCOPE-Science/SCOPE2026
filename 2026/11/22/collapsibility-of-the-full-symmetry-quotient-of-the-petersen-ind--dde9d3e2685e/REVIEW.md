@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact claim is collapsibility of the **ordinary** quotient \(|\mathcal F(\operatorname{KG}(5,2))|/\mathfrak S_5\). The potential ambiguity between induced vertex-set and edge-set forests is excluded by a ten-vertex bitmask definition. The proof checks both tests of acyclicity over all 1,024 vertex sets. The group is the full automorphism group since the five star cocliques account for every independent four-set. Quotient cells are orbit classes of strictly increasing barycentric chains: stabilizers cannot permute the distinct ranks, so each simplex is mapped without inversions. For every one of the 7,627 recorded pairs, the independently reconstructed incidence table has precisely one live coface of codimension one, and the full complex closes under taking faces throughout. The integral chain identity and unique surviving vertex are separately verified. This is a finite proof, not a homology-only inference.
+## correctness
 
-## Originality — PASS relative to checked published evidence
-The closest exact-object public result computes a sixfold five-sphere wedge and irreducible rational symmetry, which implies only rational acyclicity of the quotient and does not eliminate torsion or the fundamental group. The invariant collapse from odd-cycle to forest complexes is a map between unquotiented objects; it does not assert collapse of their orbit spaces to a point. The published fixed-point subgroup census classifies \(\mathcal F(P)^H\), whereas the present problem concerns \(\mathcal F(P)/G\). Taylan's general matching-tree methods and Grady et al.'s cycle-independent graph parameters contain no specific result classifying this ordinary orbit space. Targeted searches of mathematical research records and web literature yielded no stronger encompassing statement. A hidden equivalent classification remains a priority risk, not a claimed proof of worldwide novelty.
+PASS
 
-## Value — PASS
-The original complex has nontrivial integral fifth homology, while its full-symmetry quotient was only known to have vanishing positive-degree rational homology. Rational vanishing leaves fundamental-group and torsion phenomena unresolved. An explicit integral **simple-homotopy** collapse of a natural 15,255-cell quotient is a stronger structural classification that decisively excludes all of those obstructions. The choice of the Petersen graph and the induced-forest complex is canonical in the older cycle-independence literature; this is not an arbitrary subparameter or numerical statistic.
+Pass the corrected RESULT.md in /workspace/repairs/5/. The original's terminal ID 2570 is wrong: dimension-first order makes IDs 0–22 the vertices, and 2570 has dimension 3. Under precisely that indexing the certificate actually leaves ID 21. This is a concrete numerical error in the text, not a failure of the collapse or a change in its indexing. Independent reconstruction and replay (independent_check.py and independent_full.json under /workspace/branches/8a8943a8-06a7-4341-8601-d50d42480064/) give 785 nonempty forest faces, 23 face orbits, 15,255 orbit cells with vector (23,283,1535,3984,5230,3360,840), integral boundary-square zero on every cell, and 7,627 successive valid free-face deletions leaving that vertex. The certificate SHA-256 is 542dc0c6bc9cd5fe217c95eecc1a01f5a32dff27ea72c0895ad3828a429dda1a. The uploaded verifier was inspected only; it checks exactly one zero-cell, not its ID. The full automorphism group is determined by the five maximum independent stars and their pairwise intersections. In the repaired proof, the ranks of the support of a point of a closed chain simplex determine its support within that simplex, and group elements preserve ranks and barycentric coefficients. This proves each closed simplex embeds into the quotient, not merely that there are no inversions on open simplices. Omitted ranks distinguish its faces, including the two intermediate cofaces that would exist below any higher surviving coface. Thus unique immediate coface gives an elementary collapse of the actual regular quotient-cell subcomplex, and not just algebraic cancellation. The full original evidence remains unchanged; no certificate data or verification status was changed. This is a finite mathematical replay, not formal proof-assistant verification.
 
-## Closest literature and risks
-- Taylan, arXiv:1501.06754v1, 2015: general devoid-complex and matching-tree methods; not a Petersen quotient result.
-- Grady et al., arXiv:1505.02268v1, 2015: cycle-independent vertex-set condition and graph parameters; not quotient topology.
-- *Six fifth-dimensional spheres and irreducible symmetry in the Petersen induced-forest complex*, public research record 25 October 2026: exact nonquotient homotopy, rational symmetry, no integral quotient classification.
-- *Ten symmetric simplicial collapses between Petersen odd-cycle and forest complexes*, public research record 25 October 2026: distinct equivariant inclusion, no quotient-to-point result.
-- *All nonidentity subgroup-fixed homotopy types of the Petersen induced-forest complex*, public research record 17 November 2026: fixed-point spaces, not geometric orbit spaces.
+## originality
 
-Primary residual risk: unknown historical or unindexed equivalent orbit collapse. The formal proof is computer-assisted but its entire finite certificate and independent checker are present. No independent mathematical audit has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Pass the repaired claim of an explicit collapse of the ordinary quotient by the full automorphism group to the best of current knowledge. Correcting the terminal cell label and supplying the rank-based embedding justification do not expand the novelty claim. The exact same unquotiented complex, its group action and rational quotient acyclicity are prior coverage, not claims of novelty. The earlier fixed sets and related quotient or equivariant collapse results do not imply this ordinary orbit-cell collapse.
+
+## value
+
+PASS
+
+The Petersen graph and its full action on the induced-forest complex form a canonical finite test case for how passage to an ordinary orbit quotient changes topology. The original has nonzero fifth homology, whereas the quotient has an explicit cellular collapse, strictly stronger than the already implied rational acyclicity. This determines the quotient's integral and simple-homotopy behavior and gives a reusable incidence certificate on the exact object, not just a one-off group-orbit count. Correcting the survivor ID leaves that motivation and mathematical contribution intact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

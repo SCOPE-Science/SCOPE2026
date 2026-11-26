@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:52:37.119946Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stated all-step contraction equivalence for every nonempty graph is false if nonempty means having a vertex, as allowed by the stated connected graph scope: on the one-vertex graph L=0 and M=I even for s<1/4. The equivalence holds precisely on the nonzero-Laplacian class: the spectral decrement is (2/s)x/(1+x)^2, attaining 1/(2s) when h=2/(s lambda) for any positive eigenvalue lambda. The principal positivity claim itself checks out. Independently differentiating the path resolvent from tridiagonal continuants (H_z=-z d[(I+zL)^(-1)]/dz) reproduces all off-diagonal classes on P2, P3 and P4; K3 follows from L=3(I-P_constants), and the singleton is immediate. The only off-diagonal sign change on P4 has numerator z(z+1)(2z^3-6z^2-5z-1), with one positive zero 3.7101505426193419…; spectral calculus gives H_z,ii<=1/4 and therefore nonnegative diagonals for s>=1/2. The strict negativity beyond the cutoff follows for all s>0, without claiming sufficiency below it when s<1/2. The frozen script was inspected, not executed; the independent continuant replay is /tmp/opencode/frozen-review-replay.py, function graph_filter, and supplements the analytic sign argument.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wu–Shu derives the two-sided map for general nonnegative splitting operators and discusses energy stability, not graph-specific signs.",
+          "Resultary f400c37aad47 additionally develops eventual negativity on weighted graphs via the Laplacian pseudoinverse and higher filter orders; c740afdf92d6 classifies matched-splitting weighted three-vertex paths by conductance ratio."
+        ],
+        "reasoning": "Neither a different weighted three-path classification nor a general stability theorem supplies a distinct novelty argument. The exact first-order matched-splitting subsection of f400c37aad47 is the decisive coverage.",
+        "searches": [
+          "Wu–Shu arXiv:2611.02282, §3.1 and Example 3.1",
+          "Resultary f400c37aad47 and c740afdf92d6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof and Relationship to prior work; VERIFICATION.md and verify.py",
+        "Resultary f400c37aad47",
+        "Resultary c740afdf92d6",
+        "Wu–Shu arXiv:2611.02282"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Matched record gives T1(k) eigenvalues in [1/2,1] for all k and its proof includes an explicit endpoint-edge entry with the cutoff cubic."
+        ],
+        "reasoning": "Positive off-diagonal scalar rescaling transfers all signs and the endpoint cutoff h*=2rho/s. Diagonals are at least 1-1/(2s), so the positive interval transfers for s>=1/2, not just s=1. The lower endpoint of the spectral bound is attained for k=2/lambda, which also gives the immediate 1/4 contraction threshold on edge-bearing graphs.",
+        "searches": [
+          "Resultary f400c37aad47, Finding and four-vertex rational certificate",
+          "Wu–Shu arXiv:2611.02282, Eqs. (3.13)–(3.14)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary f400c37aad47, Finding: same two-sided resolvent at s=1, global nonnegativity through order three, and exact P4 cutoff h^3-6h^2-10h-4=0 with the two endpoint edges negative beyond it."
+        ],
+        "reasoning": "Their step T1(k)=I-kL(I+kL/2)^(-2) gives M(h,s)=I+[T1(sh)-I]/s; k=2z converts their polynomial to 4(2z^3-6z^2-5z-1).",
+        "searches": [
+          "Resultary: symmetrically filtered graph-heat positivity",
+          "Resultary: exact four-vertex cutoff cubic",
+          "Web: \"two-sided resolvent filtered Euler\" graph heat positivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Matched record f400c37aad47 prints h*=7.42030108523868… for the same endpoint-edge transition under its h normalization."
+        ],
+        "reasoning": "The indexed invariant is already present at 2 rho; the different numerical normalization is not a second invariant. No separate graph table is needed to resolve that exact match.",
+        "searches": [
+          "Resultary: exact four-vertex cutoff cubic and sharp minimal graph"
+        ]
+      },
+      "rationale": "A distinct Resultary finding gives exactly the matched-splitting minimality and sign classification, and that statement mechanically implies the claimed variable-s positivity classification. This is a finding of equivalent coverage, not a finding of historical priority from a common posting date. The edge-bearing spectral threshold is a scalar rescaling of the matched-splitting spectral bound and can also be read off the already published scheme; it does not supply a distinct surviving claim.",
+      "residual_risks": [
+        "The two catalogue records' common calendar date does not establish who found the result first.",
+        "A web keyword miss is not evidence of exhaustive literature coverage; the positive equivalence is decisive independently."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING by rescaling and the matched-splitting spectral bound",
+          "evidence": [
+            "Every unweighted simple graph through order three is nonnegative; on P4 only the two endpoint-neighbor edge pairs turn negative after the unique positive root of k^3-6k^2-10k-4."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-four-vertex-positivity-frontier-for-a-symmetrically-filter--f400c37aad47/RESULT.md",
+          "material_read": "Finding and first-order proof, including the four-vertex rational certificate (offset near 4177)",
+          "method": "Bounded local mirror passages",
+          "title": "Sharp four-vertex positivity frontier for a symmetrically filtered heat step",
+          "trigger": "Exact matched-splitting function, graph and cutoff"
+        },
+        {
+          "assessment": "Covers the construction and energy-stability setting; the inspected passages do not give the exact small-graph sign frontier",
+          "evidence": [
+            "Example 3.1 uses p=1, R=J; J=(I+delta S/2)^(-1) and the map is T=v-delta RARv."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.02282",
+          "material_read": "§3.1 pp. 10–12, Eqs. (3.5)–(3.8) and (3.13)–(3.14); p. 15, Example 3.1",
+          "method": "Lawful OA PDF passages",
+          "title": "Unconditionally L2-stable explicit-implicit-null filtered Runge–Kutta methods for general nonlinear degenerate parabolic equations",
+          "trigger": "Named primary source of the identical update"
+        },
+        {
+          "assessment": "Related, not the decisive covering statement",
+          "evidence": [
+            "It fixes S=L and varies conductance ratio, rather than studying positivity of P4 as a function of s."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-positivity-frontier-of-two-sided-filtered-euler-diffusion--c740afdf92d6",
+          "material_read": "Statement on a weighted three-vertex path",
+          "method": "Local Resultary comparison",
+          "title": "Sharp positivity frontier of two-sided filtered Euler diffusion on a weighted three-vertex path",
+          "trigger": "Nearby exact graph-sign classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp small-graph separation of maximum-principle preservation from energy contraction is meaningful, but that separation and its exact threshold are already in the matched-splitting record. The purported added variable s only rescales off-diagonals at a rescaled time, and the remaining diagonal and spectral bounds are elementary consequences of the same formula. No distinct worthwhile remainder is established; a wording correction for L=0 would not rescue this.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:49:01.178705Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 7–51 and 53–99",
+        "VERIFICATION.md",
+        "verify.py"
+      ],
+      "rationale": "The map is square-preserving: each coordinate is a bilinear interpolation of its four corner values in [0,1]. All states except the two stationary corners have interior first images. The neutral fixed equation gives x=X(y); Q'=1+ac/R²>0 gives one neutral point on each H chord. Direct substitution gives the defect ΔH=εx(1−y)/b, not εx(1−y). Along each chord the first-coordinate derivative is the difference of two convex combinations, with absolute bound q*=max(1−min(a,b),c,ac/b)<1, uniformly up to its ends. The x-update is independent of ε, and the neutral projection is Lipschitz; subtracting the projected x at the next H gives |eₙ₊₁|≤q*|eₙ|+C|ε|. The reduced scalar Euler remainder per step is therefore O(|ε|q*ⁿ+ε²). Over n|ε|≤T the geometric sum and discrete Gronwall give O(|ε|) in H including n=0; taking floors adds O(|ε|). State-space approximation starts at δ>0 because the remaining q*ⁿ is then O(|ε|); on-curve initialization eliminates that term. Under H=Q(t) the reciprocal unsigned drift is (R²+ac)/(t(1−t)R); differentiating the three logs gives this expression, positive on (0,1), with the stated divergent endpoint logs. At the attracting corner the Jacobian characteristic polynomial at one is |ε|, with derivative tending to a+c at (0,0) and b+ac/b at (1,1); the simple Perron root thus has the stated first-order rate, and the other root stays inside the unit circle. Passage is in the first-crossing sense of the neutral-level coordinate H, not exact equality of the perturbed state to a point on the curve. H is monotone for fixed sign; nonzero limiting drift at interior target levels and the uniform H estimate justify the passage clock. The frozen symbolic and numerical checker was inspected, not executed.",
+      "residual_risks": [
+        "Fixed interior coefficients and fixed initial conditions only; the state estimate has an initial layer, and the constants are not uniform over unbounded slow times. The endpoint matching is a comparison of exponents, not an exchange of those time limits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rasulov Lemma 8(2), pp. 15–16, concerns fixed-coefficient common limits of continuous and discrete systems for nonexceptional tuples; Lemma 9 gives a boundary exception outside the interior hypotheses here.",
+          "Rasulov §8, pp. 33–35, solves special cases of the ODE ż=W(z)−z, not exact discrete trajectories.",
+          "The Nov. 2 mobilization result dc032b08058a gives compact-time O(|δ|) approximation and singular passage in a different one-dimensional threshold map with neutral two-cycles."
+        ],
+        "reasoning": "An averaging method or continuous limiting expression does not by itself imply discrete error control, which here uses summable contraction and the exact discrete defect. The analogous mobilization theorem assumes a different map and neutral dynamics.",
+        "searches": [
+          "arXiv:2610.06895v1 §§2–3, 8",
+          "Resultary: neutral continua singular relaxation compact slow-time error",
+          "DOI 10.1007/s11253-011-0568-y"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1808.01812",
+        "arXiv:2610.06895v1",
+        "DOI 10.1007/s11253-011-0568-y (full text not accessed)",
+        "Resultary dc032b08058a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed-parameter convergence and common first integrals at ε=0 do not yield a uniform estimate in the joint ε→0 and n|ε|=O(1) limit.",
+          "Rasulov Lemma 5 treats local criteria for the continuous system, not the discrete Perron multiplier comparison in this scaling regime; generic fast–slow methods do not evaluate G without the drift/projection calculation."
+        ],
+        "reasoning": "The elementary spectral step is supportive, not a stand-alone novelty claim. The nontrivial quantitative increment is the explicit limiting passage combined with a controlled initial layer and sharp discrete tracking.",
+        "searches": [
+          "arXiv:2610.06895v1 Lemmas 5 and 8(2), §§2–3 and 8",
+          "arXiv:1808.01812 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In Castaños–Jamilov–Rozikov notation the relabeling is (a_C,b_C,α_C,β_C)=(1−a,1−b,d,c); their neutrality equation is exactly bd=ac.",
+          "Rasulov's two-type determinant Δ₁₂ is bd−ac; invariant neutral segments and qualitative limiting behavior are prior.",
+          "Writing slow time as n|bd−ac| or using H=Q(t) gives the same profile, not different claims."
+        ],
+        "reasoning": "Parameter renaming does not make the model or neutral geometry novel. The possible distinction is the controlled discrete scaling limit and its integrated map-specific drift.",
+        "searches": [
+          "arXiv:1808.01812 (2.1), Theorem 1",
+          "arXiv:2610.06895v1 §3, Lemma 8(2)",
+          "Resultary: two-type discrete Volterra determinant weak-selection slow clock"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact clock hit is the assigned finding c20db74919f6 itself; the closest distinct catalogue comparison instead uses a mobilization drift H_{p₀}.",
+          "No matching exact three-log discrete scaling formula or matched rate expression is stated in the inspected same-map passages."
+        ],
+        "reasoning": "The check is for equivalent analytic expressions or transition tables, not just matching parameters; the self-hit supplies no priority evidence. The result is limited to the inspected catalogue and sources.",
+        "searches": [
+          "Resultary: explicit logarithmic Volterra near-neutral determinant clock, rescaled passage and endpoint multipliers",
+          "arXiv:1808.01812 and arXiv:2610.06895v1 map/convergence and explicit-solution passages"
+        ]
+      },
+      "rationale": "Credit the explicit map-specific passage clock, the compact-slow-time first-order discrete error, and the matching endpoint rates as a quantitative result. The map, neutral fixed curve and fixed-parameter convergence are not new. The closest same-map sources were compared with their actual parameter conventions and continuous/discrete statements; the 2011 access gap limits historical priority without establishing coverage.",
+      "residual_risks": [
+        "The full 2011 paper was not lawfully available through the inspected channels. Earlier equivalent slow-clock calculations outside the inspected sources remain possible; no broad priority claim is supported."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the map and neutral fixed continuum; inspected statements do not give the singular-determinant clock.",
+          "evidence": "Fixed continuum at α_C(1−b_C)=β_C(1−a_C); abstract treats regularity for five subfamilies.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.01812",
+          "material_read": "Abstract, equation (2.1) and Theorem 1, pp. 3–4",
+          "method": "Open-access primary text",
+          "title": "On Volterra quadratic stochastic operators of a two-sex population on S¹×S¹",
+          "trigger": "Same four-parameter discrete model"
+        },
+        {
+          "assessment": "Covers common fixed-parameter limits and neutral conserved coordinates, not quantified discrete slow tracking in the inspected material.",
+          "evidence": "Lemma 8(2) treats limits at fixed tuples; §8 integrates the continuous ODE in special cases, and the discrete iteration is not identified with that ODE.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.06895v1",
+          "material_read": "§§2–3, Lemmas 5 and 8–9, PDF pp. 2–3, 10–11 and 15–17; §8 pp. 33–35",
+          "method": "Open-access primary text",
+          "title": "Analytical solutions of one class of Volterra quadratic stochastic operators of a two-sex population with continuous time",
+          "trigger": "Same determinant and dynamics on the two-type face"
+        },
+        {
+          "assessment": "Unresolved overlap risk; no whole-paper exclusion.",
+          "evidence": "No independently inspected full-text passage from this article supports a coverage judgment.",
+          "identifier_or_url": "https://doi.org/10.1007/s11253-011-0568-y",
+          "material_read": "Bibliographic record and frozen source's abstract-level comparison only; full text not independently accessible",
+          "method": "Lawful OA retrieval and alternate-repository lookup did not yield the text",
+          "title": "Volterra quadratic stochastic operators of a two-sex population",
+          "trigger": "Earlier foundational same-model work"
+        },
+        {
+          "assessment": "Method-level overlap, not a theorem on the Volterra coefficients or clock.",
+          "evidence": "O(|δ|) compact-time tracking and inverse-detuning passage governed by a distinct scalar drift on a neutral two-cycle continuum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-neutral-two-cycle-continua-and-singular-relaxation-in-a-symmetri--dc032b08058a",
+          "material_read": "Original Finding",
+          "method": "Local mirror",
+          "title": "Neutral two-cycle continua and singular relaxation in a symmetric mobilization map",
+          "trigger": "Closest catalogue analogue in compact-time singular passage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof §§2–3",
+        "arXiv:2610.06895v1 Lemma 8(2)"
+      ],
+      "rationale": "When a neutral continuum splits, knowing the eventual attracting corner does not predict how long a trajectory remains near earlier neutral states. The explicit clock gives transition times between interior levels for a natural previously studied model, separates the short transverse transient from the slow motion, and makes the scaling and rate constants comparable to the local spectrum. It is a quantitative advance over qualitative endpoint selection, not a claim about a stochastic finite population.",
+      "residual_risks": [
+        "No finite-population or unbounded-time error estimate is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

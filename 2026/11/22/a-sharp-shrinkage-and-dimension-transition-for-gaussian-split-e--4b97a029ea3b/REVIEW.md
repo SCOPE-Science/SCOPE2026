@@ -1,11 +1,21 @@
-# Research assessment: Gaussian split e-value shrinkage
+# Independent mathematical audit
 
-**Correctness — PASS.** A conditional Gaussian moment integral proves the exact moment boundary, including nonintegrability at equality. A two-dimensional Gaussian precision determinant gives the crossfit second moment; algebra gives the exact variance formula and the strict divergence criterion. A product-normal central limit theorem and Taylor expansion establish the common lognormal limit and sharp \(d^{-1}\) swap discrepancy. Finally, direct expectation and strict quadratic concavity give the log-growth frontier. The independent numerical checker passed 89 assertions. The proof is limited to the stated Gaussian model; numerical work is not used as an infinite-parameter certificate.
+## correctness
 
-**Originality — PASS, qualified.** Earlier split-likelihood and e-value methodology, including null validity, is credited to Wasserman–Ramdas–Balakrishnan (2019), and the Gaussian split/crossfit construction to Dunn–Ramdas–Balakrishnan–Wasserman (2021). Tse–Davison (2022, Section 5) prove the *unshrunk* balanced crossfit's infinite variance and compute variance of unshrunk \(K\)-fold averaging. The new theorem makes no priority claim to those facts, but instead concerns deterministic training-mean shrinkage, its exact safe-moment frontier, the two swapped e-values' mixed moment, the sharp high-dimensional averaging gap, and the safe-oracle growth threshold. Primary source comparisons and published-record searches found no equivalent complete theorem. The strongest residual risk is an earlier computation in generalized Gaussian-quadratic-form or regularized e-process literature not retrieved here; public records could not all be opened in full.
+PASS
 
-**Value — PASS.** Failure of finite variance for balanced crossfit likelihood-ratio statistics is a documented practical obstruction. The theorem identifies the precise, nonzero regularization needed to restore moment-based calibration, quantifies the actual correlation cost of swap averaging, and determines when an expected-log-growth-optimal plug-in choice falls outside the finite-variance class. These results are about a natural statistical construction, not an arbitrary numerical slice. No superiority over likelihood-ratio tests or power improvement is asserted.
+Under the known-identity point null and independent splits, the conditional qth moment is exp(q(q−1)kλ²||X̄||²/2); the chi-square integral diverges even at equality. For the balanced product, the per-coordinate precision eigenvalues are (1−λ)² and (1+λ)². This gives the mixed moment, and F≥E₁/2 proves divergence of its second moment at the marginal boundary. At λ=c/√d the two logarithms have the same random term c∑UᵢVᵢ/√d and both norm penalties tend to c²/2. The second-moment and cross-moment exponents are c²+c⁴/d+O(d⁻²) and c²+c⁴/(2d)+O(d⁻²), respectively, so the swap difference has the stated sharp coefficient and the variance gain is one quarter of it. Independence under the alternative gives the stated concave expected-log quadratic; r/(1+r)<1/√2 is exactly r<1+√2, with an unattained supremum beyond the open boundary. The exact finiteness threshold at each fixed d is distinct from bounded, nonzero variance as d grows. RESULT.md, VERIFICATION.md and checker.py were inspected; the bundled checker was not executed.
 
-**Limits.** Known identity covariance, point null, deterministic scalar shrinkage, independent halves. The growth-optimal choice depends on the unknown alternative and is only an oracle benchmark; data-driven tuning requires separate validity arguments. A published priority review and independent mathematical audit have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the scoped deterministic-shrinkage comparison, in particular the sharp high-dimensional loss of benefit from averaging the swapped directions and its constant. The universal split likelihood ratio, validity and unshrunk cross-fitting are established background; the marginal moment and log-growth computations extend known special cases by routine Gaussian algebra and receive no separate priority credit for those cases.
+
+## value
+
+PASS
+
+The canonical nondegenerate bounded-null-variance scaling tests a concrete reason to use cross-fitting: reduction of null fluctuations. The common lognormal limit and the sharp e^(c²)c⁴/(4d) variance gain show that reversing the halves buys only a vanishing correction in that regime. This quantitative conclusion is useful even though the Gaussian integrals are elementary. The exact finite-moment versus oracle-growth boundary clarifies a second tradeoff; no power gain or data-dependent validity is established.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

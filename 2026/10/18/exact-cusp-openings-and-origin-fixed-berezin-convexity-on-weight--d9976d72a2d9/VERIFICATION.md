@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -17,8 +20,6 @@
 ---
 # Verification details
 
-The analytic proof uses a normalized reproducing-kernel identity, Schwarz–Pick to isolate the origin, a uniform small-radius expansion, a monotone radial inverse with continuously varying angle, and the exact range of one angular Fourier mode. This proves both section endpoints and the convexity obstruction for every eligible bounded composition operator.
+The proof in `RESULT.md` gives the complete local vertical interval near the attained Berezin value one for nonlinear origin-fixed symbols with nonreal multiplier and bounded composition operator on the fractional kernel space. It uses Schwarz–Pick localization, uniform angular inversion and the two extremes of the leading angular mode. Taylor expansion of the linear-symbol curve gives the canonical centerline's quadratic coefficient.
 
-The standalone standard-library checker was executed as \(\texttt{python3 check_berezin_cusp.py}\) from the package directory. It passed 48 normalized one-sided section-extremum checks over 12 explicit polynomial families and two scales each; these finite checks are not proofs of an infinite asymptotic or a uniqueness claim.
-
-Primary source dated 2026-02-10; the fractional-kernel range is \(0<s<1\), the symbol fixes zero, and the operator is assumed bounded. The existing Hardy-space analogue supplies related qualitative background but is not independently re-proved by numerical experiments. Independent audit has not been performed.
+The unchanged standard-library diagnostic `check_berezin_cusp.py` may be run with `python3 check_berezin_cusp.py` from the package directory. The original recorded run passed 48 endpoint checks from twelve polynomial families at two scales. That output tests finite diagnostics only; it does not prove the exact section structure or asymptotics.

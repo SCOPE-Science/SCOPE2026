@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact optimized unilateral action advantage is \(K(z_i-1/2-\eta)\); the opinion best response is \(cz_i+dx_i\), valid because the diagonal influence weights vanish. The crucial within-community difference identity proves no two agents in the same community can choose distinct strict best-response actions. Reduction to four two-community action profiles then yields the closed equilibrium counts and the sharp threshold by direct linear elimination. All equality cases use the stated defect-on-tie convention. Full rational enumeration from the included `verify.py` passed \(864\) cases and \(96{,}768\) binary-action profiles. This supports, but does not replace, the infinite proof.
+PASS
 
-Risks: tie semantics must be distinguished from unrestricted weak Nash equilibrium; the proof and headline expressly classify strict equilibria and the paper's deterministic fixed points, not all weak equilibria. No convergence or stability assertion is made.
+The unilateral material increment is alpha(r/n-1); minimizing the strictly convex opinion loss at y_i=c z_i+d x_i gives an optimized action difference K(z_i-1/2-eta). For two members of one community, z_i-z_j=-a(y_i-y_j)/(m-1) and (1+ca/(m-1))(y_i-y_j)=d(x_i-x_j). A cooperator would have weakly lower z than a defector in the same community, incompatible with strict cooperation and either strict or tie-selected defection, including a=0. Thus each block is constant. The block sum and difference equations give y_A+y_B=x_A+x_B and y_A-y_B=d(x_A-x_B)/(1-c(2a-1)). For a polarized pair only the cooperator threshold can bind: h d/[2(1-ch)]>eta, h=2a-1, is equivalent to the stated a>a_c and is feasible only at eta<1/2. The consensus means 0 and 1 give the other two cases. Defectors are strict in every surviving tie-selected block profile, so fixed points and strict Nash equilibria agree. Critical equalities give weak, not strict, cooperation.
 
-## Originality — PASS (qualified)
+## originality
 
-The exact source model (Davidson et al., arXiv:2604.08840v1, Sections II–IV) supplies the payoff, first-order best response, and sufficient consensus statements, but its conclusion explicitly leaves mixed equilibria open. Those pre-existing results are acknowledged. The additional result is the complete *necessity-and-sufficiency* classification for the balanced two-community family, including impossibility of heterogeneous actions within a block and the exact homophily threshold.
+PASS
 
-The closest earlier work on opinion-action coevolution is Dehghani Aghbolagh et al., arXiv:2206.07242v2 (equation (7), Section V-A, Theorems 2–3), and Liang et al., arXiv:2505.03078v1 (Sections III–V). Both feature coordination or anti-coordination payoffs depending on neighboring actions. Their polarization conditions are sufficient in different games, not statements that entail the present public-goods equilibrium census. Classical cohesion criteria for coordination games offer an important analogous vocabulary, not a direct match. Searches using the paper title, mixed equilibrium, two-community, homophily, polarization, and threshold terminology did not reveal a covering statement.
+The underlying payoff, optimized response, tie convention and consensus phenomena are established. The supported earlier distinct claim is the all-parameter balanced two-community strict phase diagram, including rigidity and exact tie boundaries, not a general mixed-equilibrium result for other networks.
 
-Residual risk: an unindexed theorem for the exact action-independent public-goods incentive may imply the result; novelty is assessed against inspected accessible literature, not certified globally.
+## value
 
-## Mathematical value — PASS
+PASS
 
-The motivating paper explicitly asks for mixed-action equilibria. The result gives an exact answer in a canonical modular-network family: polarized cooperation is impossible below a calculable homophily threshold, appears as two additional robust equilibria above it, and cannot occur inside either internally symmetric community. The threshold is strict, sharp and independent of community size at fixed \(r/n\). This is a structural classification and network-policy boundary, not merely a numerical demonstration or parameter substitution.
+Gives an exact mixed-equilibrium classification in a motivated specialization of a game whose defining paper leaves mixed equilibria aside. The within-block rigidity removes all heterogeneous candidates without enumeration and the threshold distinguishes consensus coexistence from additional strict polarization, including equality and size dependence.
 
-Limits: the two-block uniform model is an idealization and the statement does not establish stable convergence, broad heterogeneous-network behavior, or empirical predictions.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

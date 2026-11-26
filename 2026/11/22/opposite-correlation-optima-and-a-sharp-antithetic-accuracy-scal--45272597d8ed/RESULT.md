@@ -30,7 +30,7 @@ For example, let \(\kappa=\sigma^2=1\) and \(h=3/2\). At \(\rho=1/2\), \((V_h,L_
 
 ## Assumptions and scope
 
-The target density is proportional to \(\exp(-\kappa z^2/2)\); its variance is \(\kappa^{-1}\). The stochastic gradient is \(\kappa z+\xi_k\), with additive error independent of state and of all thermal noises. A stationary realization of the oracle is \(\xi_{k+1}=\rho\xi_k+\sigma\sqrt{1-\rho^2}\,\eta_{k+1}\), with iid standard Gaussian \(\eta_k\). The two independent innovation sequences are independent of each other. Only \(-1<\rho<1\) is allowed; boundary correlations appear solely as limits. Stationarity of \((Z_k,\xi_k,\chi_k)\) is assumed when evaluating variances and exists uniquely because its linear transition eigenvalues have moduli \(|r|,|\rho|,0<1\). The long-run coefficient concerns the linear test observable \(z\), not nonlinear sample means.
+The target density is proportional to \(\exp(-\kappa z^2/2)\); its variance is \(\kappa^{-1}\). The gradient used at step \(k\) is \(\kappa Z_k+\xi_k\). The error is generated externally: its dynamics do not depend on the position and its driving noise is independent of all thermal noises. A stationary realization is \(\xi_{k+1}=\rho\xi_k+\sigma\sqrt{1-\rho^2}\,\eta_{k+1}\), with iid standard Gaussian \(\eta_k\) independent of the iid thermal sequence \(\chi_k\). This does not assume statistical independence of \(Z_k\) and \(\xi_k\): in stationarity the position depends on past errors that are correlated with the current error. Only \(-1<\rho<1\) is allowed; boundary correlations appear solely as limits. The joint state \((Z_k,\xi_k,\chi_k)\) is taken in its unique stationary law when evaluating variances, which exists because its linear transition eigenvalues \(r,\rho,0\) all have modulus less than one. The long-run coefficient concerns the linear observable \(z\), not nonlinear sample means.
 
 ## Proof
 
@@ -75,7 +75,7 @@ Ye, Wang, Lin and Kong introduce SGLM and prove general error bounds and numeric
 
 ## Limitations
 
-The gradient error is an externally prescribed state-independent AR(1) Gaussian process, not necessarily a realizable minibatch-index law or a conditionally unbiased fresh sample. The conditions of published independent-minibatch bounds do **not** automatically apply. The theorem is scalar and quadratic, and covers the linear-observable asymptotic variance and Gaussian-target Wasserstein-2 distance only. It does not provide a guarantee for nonlinear targets, arbitrary state-dependent gradients, time-dependent step schedules or finite-length empirical accuracy. Endpoints \(\rho=\pm1\) are excluded; claims about these are limiting statements. This result establishes no runtime improvement and has not received independent mathematical validation.
+The gradient error is an externally prescribed AR(1) Gaussian process without feedback from the position, not necessarily a realizable minibatch-index law or a conditionally unbiased fresh sample. The conditions of published independent-minibatch bounds do **not** automatically apply. The theorem is scalar and quadratic, and covers the linear-observable asymptotic variance and Gaussian-target Wasserstein-2 distance only. It does not provide a guarantee for nonlinear targets, arbitrary state-dependent gradients, time-dependent step schedules or finite-length empirical accuracy. Endpoints \(\rho=\pm1\) are excluded; claims about these are limiting statements. This result establishes no runtime improvement.
 
 ## References
 

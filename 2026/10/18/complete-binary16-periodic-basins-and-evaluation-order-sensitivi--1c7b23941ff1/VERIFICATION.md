@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python3 verify.py` from the same directory. This uses only the Python standard library, integer arithmetic for authoritative transitions and `struct` half conversion as a separate computational check.
+## correctness
 
-The verified finite state set contains \(32{,}769\) distinct numerical binary16 values in \([-2,2]\). Every one of the resulting \(65{,}538\) successor calculations was compared to the alternative half-conversion oracle. In each of the two functional graphs, an exact indegree-peeling census found all directed cycles, full basins and entry depths. A direct successor walk verified that each starting state's reported depth reaches its assigned cycle.
+PASS
 
-One final rounding produced periods \(1,94,6,5,5,1\), full basin sizes \(20785,11706,168,60,48,2\), and a maximum transient length of \(59\). Separate square and final rounding produced periods \(1,44,4,8,1\), full basin sizes \(20341,12156,62,208,2\), and a maximum transient length of \(69\). The protocols have exactly \(1{,}842\) different transitions. All quoted finite-state Cesàro means were calculated with exact `fractions.Fraction` arithmetic. The program asserts these figures and terminates normally.
+Independently enumerated all 32,769 numerical binary16 inputs, retaining subnormals and identifying signed zeros. On the 2^24 integer scale, adjacent encoding distances and low-bit parity give exact nearest-even rounding; for G the square is rounded before subtracting from 2. A path-index traversal rather than indegree peeling reproduced every cycle-minimum word, least period, and full basin size for both maps, as well as 1,842 differing transitions, image sizes 2,049 and 1,946, and maximal transient lengths 59 and 69, each with multiplicity two. Exact basin weighting reproduced all four fractions (both initial sets, for both maps). Replay: python3 /workspace/branches/89413691-0878-4f51-83d8-e86b7ed4d105/independent_check.py; full_results.json in the same directory records the data. Inspected the frozen verify.py, not executed. Separately, u=(x+2)/4 conjugates the exact real map to the full logistic map, whose arcsine law is the ergodic pushforward of angle doubling; it is equivalent to Lebesgue measure in the interior and yields the asserted zero almost-sure real mean. Nothing about a physical analogue device is certified.
 
-Finite-state exhaustiveness is an algorithmic proof for the particular finite alphabet and rounding protocol, conditional on ordinary integer arithmetic and program correctness. The independently implemented half-conversion comparison is an additional check, not a claim of external certification. The almost-sure ergodic statement for the exact real map instead uses classical analytic conjugacy; it is not deduced from a numerical experiment. Nothing here verifies actual analogue-hardware behavior or any non-binary16 format.
+## originality
+
+PASS
+
+The supported distinct contribution is the exact signed-domain binary16 census for this pair of rounding protocols, not the real quadratic map, low-precision periodicity, or evaluation-order sensitivity as general phenomena. The strongest inspected alternatives give materially different discrete maps and statistics.
+
+## value
+
+PASS
+
+The canonical binary16 format and two common rounding abstractions give a natural, complete cutoff. The exact graph is a benchmark for reproducible low-precision chaotic dynamics: changing where rounding occurs changes the largest nontrivial period from 94 to 44, shifts macroscopic basin weights and changes the exact uniform-stored-state mean. A few simulated paths or the real invariant law cannot answer these questions, and the result does not overclaim transfer to other formats or arithmetic protocols.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

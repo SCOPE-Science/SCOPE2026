@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:32:23.848094Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With R=F_q[t]/(t^m), commutation is R-module linearity on R⊕F_q. Multiplication by f is the long-to-long map; the short-to-long map lands in the span of e=t^(m−1); the long-to-short map factors through evaluation at t=0. The basis t^(m−1),…,t, followed by the short vector, then 1 triangularizes the resulting map with diagonal f(0) repeated m times and d once. Nilpotency thus leaves m−1 coefficients in F=f∈tR and two free off-diagonal scalars b,c. Its square has long multiplier F²+bc e, and from the cube onwards it is just multiplication by F^j on the long summand, zero elsewhere. At valuation v≤m−2, the image of tR is t^(v+1)R, the image of 1 adds a dimension, and the short column already lies in t^(v+1)R. Hence the rank is m−v. For h=ceil(m/v)≥4 the index is h; for h=2 it is 2 exactly when bc=0, giving 2q−1 cases; for h=3 cancellation requires 2v=m−1 and bc=−a(0)² for F=t^v a, giving q−1 cases in any characteristic. When F=0 or v=m−1, the nonzero rank is 1 if bc=0 and 2 otherwise; the corresponding indices are 2 and 3. This gives the residual coefficients and covers m=2. For index ≤2, start with (2q−1)q^floor(m/2) choices including zero and add (q−1)²q^floor(m/2) for the middle valuation when m is odd. For index ≤j with j≥3 the count is q²q^(m−ceil(m/j)), giving the marginals by differences. Index m has count (q−1)q^m for m≥4 from v=1 and for m=3 from the index-three marginal; splitting v at sqrt(m) gives the stated bound on distinct indices. A new finite-field rank and repeated-matrix-power check matched all joint fibers in 9 parameter cases, 12026 matrices, including F_4 and F_9. Replay: python3 /workspace/branches/448a05a7-ad37-4153-be7f-04abc951c6b5/independent_nilpotent_census.py; per-case output in independent_census_output.txt in the same directory. The frozen verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Oblak gives the maximal possible index; Britnell–Wildon characterize possible partitions, with centralizer coordinates and valuation cases in the proof. Sharma counts simultaneous-similarity classes; Iarrobino et al. analyze a generic type and its fibers over an infinite field. The November 22 table gives the multiplicities of full rank profiles, not just support or similarity classes."
+        ],
+        "reasoning": "The literature's maximum, support, orbit and generic-type statements are not equal to point multiplicities. The indexed table is genuinely stronger, with the same fixed matrix and field hypotheses except it starts at m=3.",
+        "searches": [
+          "arXiv:math/0701561, §5 Theorem 16",
+          "arXiv:1001.0811, Proposition 4.4",
+          "arXiv:1409.2698, abstract and §1.1",
+          "arXiv:1409.2192, introduction",
+          "Resultary 2026/11/22/SCOPE-complete-nilpotent-jordan-multiplicities-in-finite-field-hook-ce--d4ef1eac31b1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary complete hook census and square-zero hook rank census",
+        "Britnell–Wildon arXiv:1001.0811",
+        "Oblak arXiv:math/0701561",
+        "Sharma arXiv:1409.2698",
+        "Iarrobino et al. arXiv:1409.2192"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Britnell–Wildon use the least nonzero Toeplitz coefficient and the off-diagonal product, isolating the middle case by whether X² vanishes. The indexed census explicitly gives the two middle multiplicities and all other exact weights."
+        ],
+        "reasoning": "The earlier coordinate proof leads to the census by counting leading coefficients and scalar pairs, with the middle count requiring the actual cancellation equation. The indexed exact table makes even that calculation unnecessary: multiply each weight by U^r1 T^(first zero power) and sum. Its top-density statement for m≥4 and the m=3 rows give the frozen density. For m=2 the same residual profiles follow immediately from the three scalar coordinates; there is no nontrivial uncovered family.",
+        "searches": [
+          "Britnell–Wildon Proposition 4.4 proof, pp. 24–25",
+          "November 22 complete hook census, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under n=m+1 in Britnell–Wildon, J(n−1,1) is precisely the fixed almost-regular matrix. In the indexed November 22 record their long-block variable n is instead m; its rank profiles and Jordan partition multiplicities are for the same fixed matrices over the same prime powers."
+        ],
+        "reasoning": "Both rank and nilpotency index are Jordan invariants: rank is total size minus number of parts, and index is largest part. Equivalently the two are r_1 and the first positive j for which r_j=0 in the full rank profile. This projection uses no comparison between conjugacy-orbit counts and point counts.",
+        "searches": [
+          "Resultary: finite-field hook nilpotent centralizer rank and nilpotency fibers",
+          "arXiv:1001.0811, Proposition 4.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first table gives F_s q² away from the square transition, the split F_s(q²−q+1) and F_s(q−1) at 2s=m−1, and F_s(q−1)² and F_s(2q−1) above it, with F_s=(q−1)q^(m−s−1). Its three residual multiplicities are the same as the frozen ones. The October 26 record gives the exact rank polynomial restricted to X²=0."
+        ],
+        "reasoning": "The match is at the level of exact symbolic strata, not numerical coincidence. The separate square-zero table covers only the index-at-most-two slice and is not sufficient on its own.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-complete-nilpotent-jordan-multiplicities-in-finite-field-hook-ce--d4ef1eac31b1, Finding table and residual profiles",
+          "Resultary 2026/10/26/SCOPE-parity-geometry-and-rank-census-in-hook-nilpotent-centralizers--50a5542dfb83, Finding"
+        ]
+      },
+      "rationale": "The audit found complete coverage of the substantive census by a distinct indexed hook-centralizer result: its exact labeled-matrix rank-of-powers table projects directly to the frozen rank/index coefficients for every m≥3. The residual m=2 case is a three-variable entry count, not an independent new contribution. The indexed result has a later catalogue path; the mathematical implication is verified, but no priority or attribution conclusion is drawn from those dates. Earlier work also gives essentially the same coordinate stratification, though not the numerical table.",
+      "residual_risks": [
+        "A targeted literature search yielded no additional relevant full text; the finding of exact coverage rests on the inspected table, not on the search miss.",
+        "Catalogue order does not determine historical priority or imply copying; the exact comparison is of currently inspectable scientific statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact stronger point census for all m≥3, with no characteristic restriction.",
+          "evidence": "Profile projection reproduces the frozen power-index and rank coefficients, including cancellation at 2s=m−1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-complete-nilpotent-jordan-multiplicities-in-finite-field-hook-ce--d4ef1eac31b1/RESULT.md",
+          "material_read": "Opening Finding, explicit profile table with residual rows, assumptions and start of proof (offset 0); comparison of proof §§1–4",
+          "method": "Resultary mirror primary-text inspection, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Complete nilpotent Jordan multiplicities in finite-field hook centralizers",
+          "trigger": "Direct stronger match returned by indexed search"
+        },
+        {
+          "assessment": "Partial coverage.",
+          "evidence": "Counts all square-zero elements by rank in the same hook centralizer.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-parity-geometry-and-rank-census-in-hook-nilpotent-centralizers--50a5542dfb83/RESULT.md",
+          "material_read": "Finding and centralizer/rank argument, offset 0",
+          "method": "Resultary mirror primary-text inspection, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Parity geometry and rank census in hook nilpotent centralizers",
+          "trigger": "Exact overlap on small indices"
+        },
+        {
+          "assessment": "Substantial overlap in proof and support; no explicit point-multiplicity table in this proposition.",
+          "evidence": "Lists allowable partitions, presents commuting coordinates, and treats valuations below, above, and at the middle square-cancellation threshold.",
+          "identifier_or_url": "https://arxiv.org/abs/1001.0811",
+          "material_read": "Proposition 4.4 and proof, pp. 24–25 (OA offsets 59750–65041)",
+          "method": "OA primary manuscript passage inspection",
+          "title": "On types and classes of commuting matrices over finite fields",
+          "trigger": "Earlier result on exactly the same Jordan centralizer"
+        },
+        {
+          "assessment": "Support at the top end, not a point count.",
+          "evidence": "Determines the maximal attainable nilpotency index.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0701561",
+          "material_read": "§5, Theorem 16, p. 11, OA offset 28936",
+          "method": "OA primary manuscript passage inspection",
+          "title": "The upper bound for the index of nilpotency for a matrix commuting with a given nilpotent matrix",
+          "trigger": "Older index result"
+        },
+        {
+          "assessment": "Different equivalence and counting unit.",
+          "evidence": "Counts simultaneous-similarity classes of commuting tuples rather than labeled matrices in a fixed nilpotent centralizer.",
+          "identifier_or_url": "https://arxiv.org/abs/1409.2698",
+          "material_read": "Abstract and §1.1, p. 1, OA offset 0",
+          "method": "OA primary manuscript passage inspection",
+          "title": "Simultaneous Similarity Classes of Commuting matrices over a finite field",
+          "trigger": "Potential finite-field counting overlap"
+        },
+        {
+          "assessment": "Generic type and partition preimages, not this finite-field census.",
+          "evidence": "The opening states an infinite-field setting and formulates the generic-type map.",
+          "identifier_or_url": "https://arxiv.org/abs/1409.2192",
+          "material_read": "Abstract and introduction, p. 1, OA offset 0",
+          "method": "OA primary manuscript passage inspection",
+          "title": "Nilpotent matrices having a given Jordan type as maximum commuting nilpotent orbit",
+          "trigger": "Potential broader partition fiber theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Rank and nilpotency index are natural invariants of random elements of this finite centralizer, and the full point census has mathematical use. As a distinct finding, however, this record gives a projection of an indexed complete census for the whole nontrivial family; marginal formulas and the top-index density follow by aggregation or a single row count. The uncovered m=2 case is the elementary boundary of the same residual count, not a separately motivated mathematical gap.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

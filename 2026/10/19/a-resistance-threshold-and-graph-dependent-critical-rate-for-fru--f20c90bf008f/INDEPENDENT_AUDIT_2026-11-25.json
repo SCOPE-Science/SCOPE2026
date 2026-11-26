@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:29:23.259125Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Removing the weak edge gives a spanning-tree coordinate torus, and the even length of its cycle path makes the removed edge aligned at z=0. The potential is E=−Σα_e cos z_e+w cos(cᵀz), with exact update z⁺=z−hK∇E. The rank-one Hessian D−wccᵀ loses its first positive direction at w=1/A and has kernel v there. In the weighted chord inequality, nonzero equality requires every successive increment on the unit circle to be the same nonzero vector times 1/a_j. Three distinct collinear unit points are impossible, so equality still forces all path deviations to vanish; the pendant terms force the same on other edges. For w>w_c there is a negative direction. Eliminating stationary transverse directions analytically leaves an even energy with quadratic coefficient A(1−wA)/2 to first order in w−w_c and quartic (A³−B₃)/24>0 at w_c. The divided derivative has one small positive root in s² above threshold, yielding two local minima and square-root displacement; compactness and critical uniqueness put every nearby-parameter global minimum on those branches. In centered vertex coordinates the critical Hessian is positive semidefinite and dominated by the usual positive Laplacian; thus the displayed step gives positive strict contraction multipliers off the one neutral mode. The left projection ℓ kills the linear gradient and satisfies ℓᵀK=vᵀ/Q. The center graph has no quadratic term because the map has no quadratic term and I−L_stable is invertible. Projecting the cubic along z=tv+O(t³) gives t⁺=t−h(A³−B₃)t³/(6Q)+O(t⁵). Local strong-stable tracking transfers the center-orbit asymptotic to the actual projected coordinate with exponentially small error: the leaf over zero contracts exponentially; all other center orbits have eventual sign and the telescoped inverse square grows at twice the cubic coefficient. Finally Q is the squared norm of the zero-mean vertex profile p solving Bᵀp=v; adding a leaf duplicates p_r before recentering and increases Q by N p_r²/(N+1). For the unit path Q is the variance sum of m+1 consecutive integers, m(m+1)(m+2)/12. For example the four-edge unit path has Q=10; a leaf at its endpoint increases Q to 40/3 and lowers the rate from 2h to 3h/2 at a common admissible h. The frozen verifier was inspected as finite diagnostics, not executed or used as an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Huygens paper provides descent, Laplacian bounds and odd-cycle frustration. The signed-Laplacian theorem is more general than the linear unicyclic calculation. The Max-Cut SDP catalog theorem works with arbitrary Euclidean unit vectors and gives a planar maximizing representative, the same w_c, and the same leading path displacement for the weighted cycle."
+        ],
+        "reasoning": "General descent and stability bounds do not compute a nonhyperbolic relaxation rate. For statics, the SDP is not unrelated: its objective on planar vectors is an affine rescaling of the negative XY energy, and its sharp spherical-to-planar reduction genuinely overlaps the static classification. No analogous implication for the discrete phase update or the metric Q is provided.",
+        "searches": [
+          "Buescu–D'Aniello–Oliveira arXiv:2610.10993 pp. 2, 5, 8, 20–21; Ling–Xu–Bandeira arXiv:1809.11083v2 pp. 5, 9; Wiley–Strogatz–Girvan Chaos 16, 015103",
+          "Resultary weighted odd-cycle Max-Cut SDP exactness and planar reduction e3e1a5c88df4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:1408.2187v1",
+        "arXiv:2610.10993",
+        "arXiv:1809.11083v2",
+        "Chaos 16, 015103 (abstract)",
+        "Resultary 2e5d3c4aa08c, d82e9767acc2, e3e1a5c88df4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "After alternating the spins along the tree, the energy gain relative to the aligned gauged state is a sum of the signed Laplacian quadratic forms of the two Cartesian coordinates. Positive semidefiniteness thus already implies global minimality below and at the threshold. At equality the kernel consists of constants and a profile with at least three distinct path levels; an affine vector embedding of those levels on the unit circle is constant. The later SDP result explicitly uses this same chord argument and additionally derives the near-critical planar angle law."
+        ],
+        "reasoning": "Most of the global boundary result follows from the prior signed-Laplacian result with an elementary equality argument, and the SDP theorem has direct static overlap. None determines the center-map cubic projected in the inverse edge metric; the specific solvable metric adjustment and graph-dependent dynamic asymptotic survive those reductions.",
+        "searches": [
+          "Zelazo–Bürger Theorem III.3 under the antipodal gauge; e3e1a5c88df4 Proof §§1–2; Resultary triangle 2e5d3c4aa08c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem III.3 gives L⪰0 iff the magnitude of the single negative edge is ≤ the reciprocal effective resistance after deleting it. The signed vertex Hessian here is B(D−wccᵀ)Bᵀ, and in the remaining tree the effective resistance is exactly A. Resultary triangle 2e5d3c4aa08c has the same leading h inverse-square coefficient in the two-unit-path-edge special graph."
+        ],
+        "reasoning": "The linear criterion is the same under the signed-Laplacian formulation, not merely a matching number. It fixes w_c but neither the quartic projection nor discrete dynamics. The triangle is outside the theorem's ≥5 cycle range and has no tree attachment dependence.",
+        "searches": [
+          "Resultary searches for odd repulsive oscillator rings, weak-link chirality, and critical relaxation in unicyclic graphs",
+          "Antiferromagnetic XY / weak Josephson link and signed-Laplacian exact-source searches; Zelazo–Bürger arXiv:1408.2187v1 Theorem III.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2e5d3c4aa08c gives an exact critical triangle relaxation law including the logarithmic term. The 2026-11-08 record d82e9767acc2 gives the equal-weight odd-ring threshold, paired chiral minima and critical quartic; the 2026-10-27 SDP record e3e1a5c88df4 gives the weighted static threshold and leading branches. Both static catalog records have later dates than the assigned 2026-10-19 record and neither has the Q law."
+        ],
+        "reasoning": "There is no finite coefficient table for this arbitrary weighted graph family. Exact matches to restricted graph families are credited; later catalog dates are not used to deny equivalence or to assert historical priority beyond the observed record dates. No exact graph-dependent relaxation entry was found in the bounded searches.",
+        "searches": [
+          "Resultary exact odd-ring and weighted-cycle threshold entries: 2e5d3c4aa08c, d82e9767acc2, e3e1a5c88df4; unweighted and weighted attachments with critical coefficient"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the weighted odd-unicyclic critical discrete-time law, notably the explicit coefficient based on the full centered vertex profile and its attachment law, together with the weighted symmetry-breaking analysis. Do not credit the signed-Hessian resistance criterion as new, or claim an independently novel static threshold simply by rephrasing that criterion in XY language. The known triangle critical asymptotic is a genuine precursor, and later exact catalog results substantially overlap statics but do not supply the asserted attachment-dependent dynamics.",
+      "residual_risks": [
+        "Older weak-junction Josephson/XY literature may further cover the static transition; the bounded searches do not establish priority for the static analysis.",
+        "The observed later dates of the two static records do not disclose their derivation or circulation history. The specific discrete rate with arbitrary positive pendant trees was not established in the checked prior statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the linear criterion, and implies global optimality by the spin-coordinate reduction",
+          "evidence": "Connected positive graph plus one negative edge gives L⪰0 iff |W(e−)|≤R_uv(G+)⁻¹.",
+          "identifier_or_url": "https://arxiv.org/html/1408.2187v1",
+          "material_read": "Theorem III.3 and proof opening, HTML offsets 21130–23363",
+          "method": "Primary HTML passage",
+          "title": "On the Definiteness of the Weighted Laplacian and its Connection to Effective Resistance",
+          "trigger": "One negative edge gives an exact prior threshold"
+        },
+        {
+          "assessment": "General framework, not the checked weighted critical coefficient",
+          "evidence": "Odd-cycle closure causes frustration; the gradient-map and Laplacian step bounds are given.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.10993",
+          "material_read": "pp. 2, 5, 8, 20–21, including offsets 63800–70452",
+          "method": "Primary PDF passages",
+          "title": "Morse–Smale dynamics in discrete Huygens networks",
+          "trigger": "Originating phase-map, stability and odd-cycle theory"
+        },
+        {
+          "assessment": "Genuine exact triangle precursor, no longer cycles or pendants",
+          "evidence": "Weights 1,1,1/2 and u_n⁻²=hn+(3h−1)log(n)/4+C+o(1), with exponential exceptional circle.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-critical-relaxation-and-an-exceptional-exponential-circle-in-a-d--2e5d3c4aa08c/RESULT.md",
+          "material_read": "Exact record, offsets 0–9968",
+          "method": "Local mirror",
+          "title": "Critical relaxation and an exceptional exponential circle in a discrete repulsive oscillator triangle",
+          "trigger": "Earlier same critical mechanism"
+        },
+        {
+          "assessment": "Exact static overlap for unit path weights, later catalog date; not the weighted attachment-dependent discrete rate",
+          "evidence": "w_c=1/(n−1), unique collinear minimum through equality, chirality pair beyond it and quartic critical energy.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-weak-link-chirality-transition-on-every-odd-repulsive-os--d82e9767acc2/RESULT.md",
+          "material_read": "Offsets 0–6059",
+          "method": "Local mirror",
+          "title": "A sharp weak-link chirality transition on every odd repulsive oscillator ring",
+          "trigger": "Same odd-ring threshold and branch structure"
+        },
+        {
+          "assessment": "Demonstrated weighted static overlap by reduction to the plane; later catalog date",
+          "evidence": "Identical weighted chord inequality and equality geometry; greatest-circle planar representative and deviations proportional to b_j⁻¹√(w−w_c).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-sharp-quadratic-onset-of-max-cut-sdp-gaps-on-inhomogeneously-wei--e3e1a5c88df4/RESULT.md",
+          "material_read": "Offsets 0–4445, Finding/Assumptions and Proof §§1–2",
+          "method": "Local mirror",
+          "title": "Sharp quadratic onset of Max-Cut SDP gaps on inhomogeneously weighted odd cycles",
+          "trigger": "Stronger vector formulation of the weighted static threshold"
+        },
+        {
+          "assessment": "Different weights and landscape regime",
+          "evidence": "Inspected cases study synchronizing interactions and unweighted dense or random graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1809.11083v2",
+          "material_read": "pp. 5 and 9, offsets about 18300 and 33100",
+          "method": "Primary PDF passages",
+          "title": "On the Landscape of Synchronization Networks: A Perspective from Nonconvex Optimization",
+          "trigger": "Related XY/synchronization landscape classification"
+        },
+        {
+          "assessment": "The abstract concerns a different basin question; not a full-document exclusion",
+          "evidence": "Identical oscillators with equal couplings to k neighbors, synchrony and twisted attractors.",
+          "identifier_or_url": "https://doi.org/10.1063/1.2165594",
+          "material_read": "Public PDF title page and abstract; further passage timed out",
+          "method": "Bounded public PDF inspection",
+          "title": "The size of the sync basin",
+          "trigger": "Earlier ring oscillator result cited by the originating work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The useful distinction is between where frustration destabilizes the minimizing spin pattern and how rapidly the critical map actually relaxes. Arbitrarily weighted pendant trees are invisible to the effective-resistance threshold yet can change the exact observable rate even for identical cycle weights. The explicit variance/attachment rule and codimension-one exception make this a usable comparison across graphs, not a repeated Laplacian threshold computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

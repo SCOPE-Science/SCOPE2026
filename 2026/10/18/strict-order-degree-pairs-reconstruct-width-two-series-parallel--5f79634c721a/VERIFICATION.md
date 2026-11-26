@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducible checks and limits
+# Independent mathematical audit
 
-Execute the embedded standard-library-only files from the same folder:
+## correctness
 
-```sh
-python3 verify_normal_form.py
-python3 verify_boundary.py
-```
+PASS
 
-The first program enumerates all 7,232 canonical width-at-most-two forms with at most twelve points. For each, it builds every strict comparison, computes all predecessor/successor pairs, decodes the unlabelled profile into the canonical form, checks profile uniqueness against all same-order forms, and compares equal profile pairs with the proved canonical orbit signature. Its complete standard output is `normal_form_output.txt`.
+Flattening a series–parallel tree leaves an ordered series decomposition identifiable by its incomparability components. Each nonsingleton factor is a top parallel node; additivity of width forces two nonempty chains. At prefix size p, the first point of each chain and no later factor has exactly p predecessors. At a two-chain factor with successor counts u and v at those points, the two lengths, as an unordered multiset, are n-p-1-u and n-p-1-v. Taking the full predecessor interval of width equal to the factor size consumes exactly that factor, since later factors start at the next prefix or above. Within a factor, identical pairs require identical chain positions and, for points in distinct chains, equal lengths; only then can the chain-swap automate the match. Counting vertices of each pair is expressible with two variables with counting, so the conclusion is internal to the strict-order class. The sum over unordered chain lengths is z^2/((1-z)(1-z^2)); carrying out the sequence expansion gives the listed coefficients. For the finite boundary, induct on size: a series composite introduces no cross-factor orbit collision because the predecessor ranges are disjoint; in a parallel composite work with the connected comparability components. An isolate has pair (0,0), and two size-two connected components are interchangeable chains. Through size five the only remaining possible cross-component collision is between a chain of size two and a connected size-three poset. The latter is a chain, V, or its dual. The three-chain's degree sums are 2 and cannot match the size-two chain's sums of 1, whereas V and its dual give exactly the claimed types. Independent enumeration of reduced series/parallel trees and all vertex permutations confirmed 1,2,5,15,48 types and 0,0,0,0,2 failures through order five. Width sharpness here concerns first-round orbits, not cross-structure reconstruction. The supplied scripts were inspected but not executed.
 
-The second program recursively enumerates all canonical series–parallel posets through six points, evaluates width by every subset, and computes automorphism orbits by **testing all permutations** of the underlying set. This tests every structure, not a sample, over its stated finite range. It finds no first-round orbit failure at orders one to four, and exactly two order-five failures, both of width three and dual to one another. Its complete standard output is `boundary_output.txt`.
+## originality
 
-No imported packages are required. No external solver or infinite certificate is asserted. Completeness of the finite enumeration follows from the explicit canonical recursive generator, while the all-order reconstruction and orbit theorem follow from the mathematical proof in `RESULT.md`. No independent audit has been performed.
+PASS
+
+The supported distinct contribution is exact all-order reconstruction and orbit recovery on the stated series–parallel class with the sharp finite orbit boundary. The numerical sequence and rational generating function, as series, already occur in another combinatorial setting; they are not an independent novelty claim. Same-day Resultary comparisons were made on scope, without inferring priority.
+
+## value
+
+PASS
+
+A weak invariant consisting of just one round of strict predecessor/successor counts recovers both an unlabeled order and its orbits on a natural hereditary class. The minimal boundary tells exactly where that orbit statistic first ceases to suffice within the series–parallel family; it is not merely a table of known counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

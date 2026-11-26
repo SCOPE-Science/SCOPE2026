@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:27:16.545458Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the repaired proof, on each r=±1 input class the normalized expansion modulo 3 is t−(a/3)r with derivative 1 modulo 3, so Hensel gives each whole r+9 Z_3 cylinder. For a=3b the zero-input branch divided by 27 is t^3−bt with derivative −b modulo 3, taking precisely one residue when b=1 modulo 3 and every residue when b=−1. For a=9c direct rescaling gives 27 V_c. Iteration stops at v_3=0 or 1 as stated in the repair; for a=0 the residual nested sets have intersection {0}. For a unit ≡−1 the three normalized derivatives are units and give three disjoint cylinders mod 9. A unit ≡1 is a square and reduces by unit rescaling to F_1, whose positive class is −2+27t²(t+1); t=±1 mod 3 maps onto both attained classes of t²(t+1), giving the two mod-81 cylinders on this branch, their negatives on the other branch, and the distinct 9 Z_3 branch. Their reductions indeed give counts 3,3,5 and then 13·3^(k−4). Counting disjoint reductions and solving δ(9c)=2/9+δ(c)/27 gives the stated phase law with fixed point 3/13. The repaired decreasing-cylinder argument establishes the limiting density. Independent enumeration checked 72 complete finite image sets, at a=0,3,−3,9,18,27,54,81 and k=1…9, not all parameters or depths; the repaired stopping rule is in particular consistent with the checked odd valuations.",
+      "replay": "python3 /workspace/branches/847f83d0-5e70-400f-b73d-bf1e5796180b/record4_replay.py; record4_replay_output.txt alongside it",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shang gives the extremal nonpermutation bound M(p^r)=p^(r−2)(p²−p+1) for r>1.",
+          "6a065e0bd9a3 requires p≥5 and a unit parameter.",
+          "Lawful OA attempts for the 1991 article and the identified alternate returned HTTP 403; theorem hypotheses could not be determined."
+        ],
+        "reasoning": "Neither the maximum over nonpermutation polynomials nor the tame, unit-parameter result decides the exact wild-prime nonunit sets. The Galois-ring article might specialize but no inspected theorem supports or excludes that implication.",
+        "searches": [
+          "Shang arXiv:2310.20226, §1 and Theorem 1.1",
+          "Resultary 6a065e0bd9a3: prime-index Dickson value sets",
+          "Bremser–Gomez-Calderon DOI and identified Academia alternate"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py; corrected repairs/4/RESULT.md",
+        "Resultary 8ac73addd4cb, a4218d5c4f84, 6a065e0bd9a3",
+        "Shang arXiv:2310.20226 Theorem 1.1",
+        "Bremser–Gomez-Calderon 10.1016/0022-314X(91)90087-R, metadata and attempted lawful full-text retrieval"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known fixed-unit counts are at v_3(a)=0. The audited valuation-one zero branch is 27(t³−bt), with its image changing from 81 Z_3 to 27 Z_3 according to b modulo three."
+        ],
+        "reasoning": "Neither those unit counts nor the general upper bound distinguish even the two cases at v_3(a)=1. The nonunit proof must identify which cylinders the normalized zero-input maps cover and then derive exact all-precision behavior. Standard Hensel lifting is a method here, not an earlier theorem already classifying this family.",
+        "searches": [
+          "8ac73addd4cb and a4218d5c4f84 Findings; 6a065e0bd9a3 Assumptions",
+          "arXiv:2310.20226 Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "8ac73addd4cb Finding covers x^p−px and thus exactly a=1 at p=3; a4218d5c4f84 Finding explicitly fixes D_3(X,1).",
+          "Z/3^kZ is the degree-one case of a Galois ring, making the 1991 paper a genuine hypothesis-level coverage risk."
+        ],
+        "reasoning": "Scaling x by a unit s scales the parameter by s² and the output by s³, and thus cannot turn any nonunit parameter into 1. Restricting x to 3 Z_3 can reduce the valuation by 2, but leaves the two outer cylinders to determine and hits valuation 1 for odd valuation.",
+        "searches": [
+          "Resultary: cubic Dickson x^3−3ax / Frobenius minus linear ternary value sets",
+          "DOI 10.1016/0022-314X(91)90087-R: Dickson value sets over Galois rings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8ac73addd4cb tabulates 3,3,5 then 13·3^(k−4) at a=1; a4218d5c4f84 has the same counts and gives full fibers at a=1",
+          "No separate local cube-map table was surfaced in the bounded search"
+        ],
+        "reasoning": "The fixed-unit tables are exact overlap on the unit terminal case only. The same-day fiber record is distinct but its date supplies no ordering; even with priority it does not compute nonunit images. The search result for the cube map does not establish absence of a prior standalone formula.",
+        "searches": [
+          "Resultary: fixed cubic Dickson X³−3X, ternary image counts and fibers",
+          "Resultary: nonunit cubic Dickson valuation phases and cube-map image"
+        ]
+      },
+      "rationale": "Credit is for the joint exact nonunit image classification, in particular the split at valuation one and its recursion across all nonunit parameters. The unit a=1 count is not new. A plausible earlier article directly treats Dickson polynomials over Galois rings; its coverage is unresolved, not negative evidence. No verified source here states this nonunit classification or supplies a stronger theorem from which it follows mechanically.",
+      "residual_risks": [
+        "The 1991 Galois-ring theorem remains the main specific priority risk: neither its degree/parameter assumptions nor its output invariant could be read. The PASS is based on affirmative mathematical comparison with sources that were accessible, not on the access failure or absence of hits.",
+        "The a=0 cube-map specialization may have independent prior coverage; it is not the basis of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unresolved scope for wild p=3 and nonunit parameter",
+          "evidence": [
+            "Journal of Number Theory 38 (1991), 240–250, title and DOI; no accessible theorem hypotheses"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0022-314X(91)90087-R",
+          "material_read": "Citation metadata and topical description only; no theorem or full text obtained",
+          "method": "Lawful OA requests to DOI/publisher and identified alternate https://www.academia.edu/48986625/Value_sets_of_Dickson_polynomials_over_Galois_rings; access returned 403",
+          "title": "Value sets of Dickson polynomials over Galois rings",
+          "trigger": "Same Dickson value-set problem over rings encompassing Z/3^k Z"
+        },
+        {
+          "assessment": "Exact positive-unit terminal overlap only",
+          "evidence": [
+            "x^p−px for odd p, including x³−3x and its explicit counts"
+          ],
+          "identifier_or_url": "Resultary 8ac73addd4cb (2026-11-02)",
+          "material_read": "RESULT.md Finding offsets 0–2571",
+          "method": "Local mirror text, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact prime-power value sets of a Frobenius-minus-linear polynomial",
+          "trigger": "Same cubic at p=3"
+        },
+        {
+          "assessment": "Distinct same-day record limited to a=1",
+          "evidence": [
+            "Fixes D_3(X,1) and gives fiber and image formulas"
+          ],
+          "identifier_or_url": "Resultary a4218d5c4f84 (2026-11-22)",
+          "material_read": "RESULT.md Finding and Assumptions offsets 0–2894",
+          "method": "Local mirror text",
+          "title": "The exact ternary fiber law for the cubic Dickson polynomial",
+          "trigger": "Same polynomial family name and same ring"
+        },
+        {
+          "assessment": "Different prime and parameter domain",
+          "evidence": [
+            "Hypotheses p≥5 and a a unit"
+          ],
+          "identifier_or_url": "Resultary 6a065e0bd9a3 (2026-11-22)",
+          "material_read": "RESULT.md Finding and Assumptions offsets 0–2951",
+          "method": "Local mirror text",
+          "title": "Exact prime-power value sets of prime-index Dickson polynomials",
+          "trigger": "Potentially broader Dickson classification"
+        },
+        {
+          "assessment": "A general upper envelope, not the nonunit image law",
+          "evidence": [
+            "Definition of M(p^r) as the maximum over nonpermutation polynomials; Theorem 1.1 gives M(p^r)"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2310.20226",
+          "material_read": "Abstract and §1, in particular Theorem 1.1, through offset 4661",
+          "method": "OA HTML text",
+          "title": "Value sets of non-permutation polynomials over the residue class rings of integers",
+          "trigger": "General prime-power value-set result potentially containing an exact count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem completely decides local solvability for a natural low-degree Dickson family at its wild prime, not merely sizes at selected precisions. It distinguishes the two valuation-one unit parts and transmits the resulting measures to arbitrarily large valuations, supplying exact phase limits and congruence counts that the unit case and general upper bounds do not give. These nonunit statements survive the correction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:33:50.976505Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The repaired finding passes. The frozen line 28 incorrectly scaled an absolute error by c1: for c1<0 with at least one switch this predicts a negative L1 error. The repair gives c1 on signed weak errors and |c1| on the strong error, and clarifies the possibly vanishing term in RESULT.md and SLOGAN.txt. Independently, on a monotone inverse branch t(s), the transformed weight is phi=w(t(s))/|S'(t(s))|, with phi'(0) exactly [w'S' - wS'']/|S'|^3, for both orientations. The kernel is the derivative of the even potential F_delta(s)=sqrt(s^2+delta)-|s|. Integration by parts on a fixed symmetric interval gives O(delta) boundary terms and minus the integral of F_delta*phi'. On sqrt(delta)<=s<=r, F_delta(s)=delta/(2s)+O(delta^2/s^3), and the inner part gives O(delta); hence its mass is (delta/2)log(1/delta)+O(delta). Multiplying by phi'(s)-phi'(0)=O(|s|) costs O(delta). Away from roots the kernel is uniformly O(delta). For the strong statement the even absolute kernel integrates on a symmetric interval to 2(r+sqrt(delta)-sqrt(r^2+delta)); the Jacobian at zero supplies the leading factor and its O(|s|) difference costs at most O(delta log(1/delta)). No roots gives O(delta). For the double integrator the terminal weights are 1 and T-t, yielding respectively zero and +1/2 logarithmic coefficients; an odd integrand gives exact velocity cancellation at the midpoint. The supplied high-precision quadrature script was inspected, not executed. This is a fixed-profile comparison, not an optimal-solution convergence theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Silva–Trélat's Theorem 1 gives qualitative strong L1 convergence of regularized optimal-control solutions, not a fixed-profile coefficient. Agamawi et al. use mesh refinement to locate discontinuities. The targeted distributional search returned no results."
+        ],
+        "reasoning": "Qualitative convergence and switch location are not quantitative weak asymptotics for this kernel. A distributional expansion for the same kernel could imply the result after coarea, but none was established by this lookup; an empty lookup is not evidence against prior coverage.",
+        "searches": [
+          "Resultary: strong L1 control error and fixed prescribed switching function",
+          "DOI:10.1109/TAC.2010.2047742",
+          "arXiv:1905.11895",
+          "websearch: distributional asymptotic expansion regularization kernel sqrt logarithmic Dirac delta (x^2+epsilon^2)^(-1/2) Estrada Kanwal inverse square root moment log epsilon"
+        ]
+      },
+      "checked_sources": [
+        "Resultary searches on surrogate, weighted and strong laws and terminal bias",
+        "arXiv:2309.03069v2",
+        "Heidrich 2021 thesis Table 2.1",
+        "DOI:10.1109/TAC.2010.2047742",
+        "arXiv:1905.11895"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same surrogate and switching application are explicit in Wang. The inspected studies do not give the orientation-sensitive derivative of the inverse-coordinate weight as the log-bias coefficient, or the corresponding sharp strong mass."
+        ],
+        "reasoning": "Knowing the approximation and numerical shooting behavior does not compute the odd first moment and its coefficient. The terminal example is a consequence of the general weighted expansion and serves as a sharpness witness, not a separately claimed novelty.",
+        "searches": [
+          "arXiv:2309.03069v2 §3; Heidrich thesis Ch. 2; Silva–Trélat Thm. 1; arXiv:1905.11895 §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang et al. use x/sqrt(delta+|x|^2) applied to the switching function, with the opposite control sign; the algebraic regularization in Heidrich is likewise related by epsilon=sqrt(delta)."
+        ],
+        "reasoning": "Rescaling the parameter or reversing the control does not distinguish the surrogate. The distinct claim is the explicit response of arbitrary fixed smooth weights, not a new sigmoid.",
+        "searches": [
+          "Resultary: normalized algebraic sigmoid with epsilon=sqrt(delta); weighted weak error in S-coordinate",
+          "arXiv:2309.03069v2 §3 Eqs. (16)–(17)",
+          "Heidrich thesis Table 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Eight focused semantic searches across the surrogate, both parameterizations, sharp weak/strong laws and terminal example yielded no matching statement among returned ranked results. The inspected thesis's table concerns choices of smoothing function, not a table of their weak-bias coefficients."
+        ],
+        "reasoning": "No exact coefficient match established by these bounded comparisons; the table match is on the regularization ingredient alone.",
+        "searches": [
+          "Resultary: weighted delta log(1/delta) coefficient, sharp absolute L1 constant, and double-integrator terminal position versus velocity"
+        ]
+      },
+      "rationale": "Best-knowledge pass for the exact weighted log-bias coefficient with curvature and cancellation, the strong constant, and their terminal illustration at a fixed prescribed switch. The surrogate and inverse switching coordinate are not claimed new. The corrections to scaling and wording do not add a new priority claim.",
+      "residual_risks": [
+        "A previously established distributional or asymptotic-integral formula for the same kernel could give an equivalent claim in the S-coordinate. The targeted web lookup was empty and the thesis comparison did not exhaust the thesis. No historical priority guarantee is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact match on smoothing, not the weighted law in the inspected passage",
+          "evidence": "x/sqrt(delta+|x|^2) with x=S(t), applied with the bang-bang sign convention of that paper.",
+          "identifier_or_url": "arXiv:2309.03069v2",
+          "material_read": "§3, Eqs. (16)–(17), OA offset 14300",
+          "method": "OA primary text",
+          "title": "A New Smoothing Technique for Bang-Bang Optimal Control Problems",
+          "trigger": "Identical surrogate in control"
+        },
+        {
+          "assessment": "Antecedent for the surrogate, no fixed weighted log rate in the inspected material",
+          "evidence": "Algebraic option parameterized by epsilon, corresponding to delta=epsilon^2.",
+          "identifier_or_url": "https://hanspeterschaub.info/Papers/grads/CaseyHeidrich.pdf",
+          "material_read": "Ch. 2, Table 2.1, p. 30, PDF text offset 90000",
+          "method": "OA primary PDF, partly garbled table extraction",
+          "title": "Optimal Covariance Control on Singular Manifolds with Application to Aerospace Mission Design",
+          "trigger": "Earlier algebraic sign regularization"
+        },
+        {
+          "assessment": "Different regularization and convergence question",
+          "evidence": "Strong L1 convergence for regularized optimal-control solutions under its assumptions.",
+          "identifier_or_url": "DOI:10.1109/TAC.2010.2047742",
+          "material_read": "Theorem 1, p. 5, OA text offset 15500",
+          "method": "HAL submitted-version primary text",
+          "title": "Smooth Regularization of Bang-Bang Optimal Control Problems",
+          "trigger": "Broader convergence theorem"
+        },
+        {
+          "assessment": "Different mechanism; no implication for fixed-switch algebraic bias",
+          "evidence": "Direct collocation mesh refinement locates control discontinuities.",
+          "identifier_or_url": "arXiv:1905.11895",
+          "material_read": "§1, pp. 3–4, OA offset 13200",
+          "method": "OA primary text",
+          "title": "Mesh Refinement Method for Solving Bang-Bang Optimal Control Problems Using Direct Collocation",
+          "trigger": "Different route to bang-bang approximation accuracy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact coefficient determines which weighted fixed-profile observations have an ordinary O(delta) error and which suffer logarithmic amplification, even when net velocity bias cancels. The sharp strong mass answers a complementary question about control error without cancellation. This is useful for interpreting a prescribed-switch smoothing scheme already in use; it does not claim to predict errors after reoptimization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

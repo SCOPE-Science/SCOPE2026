@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:36:06.692832Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md lines 26–48. Element derivatives of the nodal interpolant are averages of the exact derivative, giving Ritz orthogonality and error Σh_j³/12. The Dirichlet mixed moments give 36n(n+19)/(n)_6 before division by 144 for the second raw moment; subtracting the squared mean yields the stated variance. The exponential ratio has delta-method influence (Y³−18Y+12)/12 with variance 5/2. Integration against the empirical knot measure differs from Lebesgue integration of v² by at most 2δ||v′||²/π; Poincaré and a sine-interpolant trial sandwich n λ_min at π². For fixed M, the probability that Y_j≤M/n occurs at a boundary or in adjacent edges is O((M+M²)/n); the probability no such edge exists is e^(−M). On the complement, the short-edge sum has top eigenvalue 2T_n/Y_(1), and the scaled norm of the other edges is at most 4(T_n/n)/M. Letting n then M grow yields λ_max/n² ⇒ 2/Z and the stated Fréchet law by Slutsky. Inverse minimum-spacing moments bound κ_n moments for q<1. For the reverse, take h_2 arbitrarily small with h_1,h_n bounded away from zero on a positive-density simplex family: the all-ones nodal trial bounds λ_min from above using only boundary edges, whereas the opposite-sign interior-edge trial gives λ_max≥2/h_2. This proves divergence including q=1 and requires n≥3. The n=2 condition number is one and n=1 has no free matrix. The uniform eigenvalues 4n sin²(kπ/(2n)) give the comparison. VERIFICATION.md and verify.py were inspected, not executed; their finite tests do not certify the limit or divergence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The random-mesh estimator paper assumes controlled perturbations of quasi-uniform meshes; arbitrary-mesh stiffness estimates give deterministic eigenvalue and conditioning bounds, including effects of diagonal scaling.",
+          "Faggionato's stable-resistance case has infinite mean resistance and concerns finitely many lower eigenvalues; the diffusive case covers finite mean resistance but still only fixed indices."
+        ],
+        "reasoning": "Neither deterministic bounds nor fixed-index spectral convergence identify the coefficient 2 from an isolated maximally conducting interior edge.",
+        "searches": [
+          "Abdulle–Garegnani arXiv:2103.06204 §3.1",
+          "Kamenski–Huang–Xu arXiv:1201.3651v3, §1",
+          "Faggionato arXiv:0905.2900 Theorem 2.5 and Proposition 2.6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2103.06204",
+        "arXiv:1201.3651",
+        "arXiv:1801.05684",
+        "arXiv:0905.2900",
+        "Resultary 61ef290a3b87",
+        "Pyke (1965), bibliographic comparator only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact energy formulas and CLT follow directly from cubic Dirichlet spacing moments and the usual exponential representation; no independent probability novelty is credited.",
+          "The smallest spacing alone gives the order and a nonsharp norm bound. Obtaining the normalized condition law requires controlling adjacency and endpoint effects and recovering the top-eigenvalue prefactor 2."
+        ],
+        "reasoning": "The covered ingredients do not supply the top eigenvalue constant or the paired comparison under the stated nodal normalization.",
+        "searches": [
+          "Faggionato Proposition 2.6",
+          "Pyke (1965), Spacings, classical spacing-functional comparator",
+          "Resultary 61ef290a3b87 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K_n/T_n is exactly the Dirichlet barrier-model stiffness with iid resistances Y_j and conductances 1/Y_j. Multiplication by T_n does not change the condition number.",
+          "Faggionato Proposition 2.6 gives n²λ_k(K_n/T_n)→π²k² for fixed k and mean-one iid resistance. Flegel studies the low spectral edge on higher-dimensional lattices; this is not the top eigenvalue of the path."
+        ],
+        "reasoning": "The minimum eigenvalue asymptotic is covered after the LLN factor; neither inspected spectral result gives the required moving top index or controls the unpreconditioned condition number.",
+        "searches": [
+          "Primary literature: iid uniform knots, random weighted path spectra, FEM stiffness Fréchet and cubic spacings",
+          "Faggionato arXiv:0905.2900, (2.28)–(2.31)",
+          "Flegel arXiv:1801.05684"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/11/2/SCOPE-sharp-random-mesh-positivity-step-and-an-adjacent-spacing-extrem--61ef290a3b87, RESULT.md Finding: same mesh and inverse-moment cutoff q<1 for the mass-lumped forward-Euler positivity step; its limit is 2n³ log(n)τ* ⇒ Exp(1)."
+        ],
+        "reasoning": "The indexed record is a genuine overlap in the sampling law and a related moment cutoff. Its invariant is half the smallest adjacent spacing product, not a ratio of stiffness eigenvalues; the extra log factor reflects a different extremum. The shared displayed date supplies no priority inference.",
+        "searches": [
+          "Resultary: uniform order-statistic random finite element mesh, unpreconditioned stiffness condition number, Fréchet and Dirichlet spacings"
+        ]
+      },
+      "rationale": "The supported distinct result is the exact Fréchet law for the unpreconditioned condition number and its accompanying finite-moment/accuracy benchmark, not a new law for uniform spacings or the diffusive lower spectral edge. The nearest weighted-path theorem covers the latter exactly, not the large eigenvalue; the nearest indexed record analyzes a different operator and invariant on the same meshes.",
+      "residual_risks": [
+        "An earlier high-edge theorem for a one-dimensional reciprocal-resistance Laplacian may cover the extreme eigenvalue under other terminology.",
+        "No priority claim for the spacing formulas; exact occurrence in Pyke was not verified.",
+        "Only unscaled nodal stiffness and the stated Dirichlet constant-load model are assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different mesh distribution",
+          "evidence": "Perturbative quasi-uniform assumptions and error-estimator bounds.",
+          "identifier_or_url": "https://arxiv.org/pdf/2103.06204",
+          "material_read": "§3.1, pp. 8–9, passages around offsets 32426 and 34336",
+          "method": "OA PDF text",
+          "title": "A probabilistic finite element method based on random meshes",
+          "trigger": "Same numerical domain and random meshes"
+        },
+        {
+          "assessment": "Deterministic bounds, not this probabilistic spectral law",
+          "evidence": "Bounds for arbitrary meshes and discussion of Jacobi scaling.",
+          "identifier_or_url": "https://arxiv.org/html/1201.3651v3",
+          "material_read": "§1 scope and bounds discussion around offset 4449",
+          "method": "OA article text",
+          "title": "Conditioning of Finite Element Equations with Arbitrary Anisotropic Meshes",
+          "trigger": "General stiffness conditioning estimates"
+        },
+        {
+          "assessment": "Different dimension and spectral edge",
+          "evidence": "i.i.d. conductances, d≥2, localization at the bottom Dirichlet edge.",
+          "identifier_or_url": "https://arxiv.org/pdf/1801.05684",
+          "material_read": "PDF pp. 1–3 and Faggionato citation",
+          "method": "OA PDF text",
+          "title": "Eigenvector localization in the heavy-tailed random conductance model",
+          "trigger": "Heavy-tailed random conductance spectra"
+        },
+        {
+          "assessment": "Covers the lower spectral asymptotic, not the upper one",
+          "evidence": "Use τ=Y_j with Eτ=1 in Proposition 2.6; fixed k=1 gives the exact π² constant.",
+          "identifier_or_url": "https://arxiv.org/pdf/0905.2900",
+          "material_read": "PDF pp. 9–10, (2.28)–(2.31), Theorem 2.5 and Proposition 2.6",
+          "method": "OA PDF text",
+          "title": "Spectral analysis of 1D nearest-neighbor random walks and applications to subdiffusive trap and barrier models",
+          "trigger": "Equivalent iid barrier-model operator after scalar normalization"
+        },
+        {
+          "assessment": "Different invariant with distinct scaling",
+          "evidence": "Mass-lumped step τ*=min_i H_iH_(i+1)/2 and additional log n in the limit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-random-mesh-positivity-step-and-an-adjacent-spacing-extrem--61ef290a3b87/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "Sharp random-mesh positivity step and an adjacent-spacing extreme",
+          "trigger": "Closest matching sample model and inverse-moment cutoff"
+        },
+        {
+          "assessment": "No claim that this source lacks the cubic-power CLT",
+          "evidence": "Full text not accessible from the attempted publisher route; energy component already treated as classical spacing calculus.",
+          "identifier_or_url": "Pyke, JRSS B 27 (1965), 395–449",
+          "material_read": "Bibliographic identification; full text not inspected",
+          "method": "Lawful publisher retrieval attempt",
+          "title": "Spacings",
+          "trigger": "Classical survey for the cubic spacing functional"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp benchmark distinguishes a finite factor-six expected squared-energy penalty from an order-n typical conditioning penalty and a genuinely infinite conditioning mean at each nontrivial resolution. The exact scale identifies which mesh defect causes the conditioning problem and makes the result useful when comparing knot-generation rules or conditioning remedies; it does not make assertions about a preconditioner or runtime.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

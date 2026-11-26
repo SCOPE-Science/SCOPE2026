@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:53:49.358535Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–60",
+        "VERIFICATION.md, lines 18–30; artifacts/verify.py, lines 6–122"
+      ],
+      "rationale": "For P=R+p expand the affine bracket identity, evaluating the constant, one-variable and mixed terms at zero separately. This yields R(p)=0, commutation with ad_p, R²=R, and the weight −1 bilinear identity; evaluating at zero and subtracting is valid also in characteristic two and over F₂. For a projection the bilinear identity is equivalent to closure of both its image and kernel under brackets, since all mixed terms cancel. The Heisenberg bracket on the central quotient is a nondegenerate alternating determinant form, so precisely the planes containing the center are subalgebras. In rank one a complementary image line meets the center trivially, so a permitted kernel translation must centralize it and is then central. In rank two the image plane already contains the bracket and every complementary-line translation is allowed. An affine automorphism has linear Lie-automorphism part and a central translation, by the bracket identity with one input zero. Its action sends p to Gp+(I−GRG⁻¹)t. The linear group aligns the ordered quotient directions and the central shears align the chosen lifts. Central translations remove the rank-one translation but do nothing to rank two, where the line stabilizer is transitive on nonzero translations. Constants split into central and noncentral. This gives the listed six distinct orbits and idempotence. Over F_q there are q+1 planes containing the center and q² complementary lines per plane; splitting the q allowed rank-two translations into zero and nonzero gives the six stated orbit sizes and total. An independent exact finite check scanned all linear maps and translations at q=2,3, testing the original identity on zero and basis vectors in both slots (bi-affine residual), then on all inputs for each accepted map. It also conjugated the state permutations under all affine bracket automorphisms found by direct evaluation. The counts were 57 and 244 with orbit lists (2,6,24,12,12,1) and (3,24,108,36,72,1). The supplied standard-library checker was inspected, not executed; its package replay path is `python3 artifacts/verify.py`. The finite samples are corroboration, not the proof for arbitrary fields.",
+      "residual_risks": [
+        "The proof applies to the stated canonical bracket and affine weight −1 identity, not generic Lie-affgebra brackets or all linear weight −1 maps."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.4 writes each canonical operator as a projection plus a normalizing kernel vector; Proposition 4.5 gives the equivalence law.",
+          "The standing characteristic is zero, and the displayed canonical classifications are through dimension two."
+        ],
+        "reasoning": "This is substantive prior coverage of the structure and equivalence formalism, but not a solution of the characteristic-free Heisenberg orbit problem or a finite-field theorem.",
+        "searches": [
+          "Han–Khudoyberdiyev–Xie–Zhang arXiv:2610.14838v1, §1.1, Theorem 4.4, Proposition 4.5, §4.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.14838v1, §§1.1 and 4.3, Theorem 4.4 and Proposition 4.5",
+        "arXiv:2402.15428v1, §4",
+        "Resultary c77f6ea4e079",
+        "Frozen RESULT.md, lines 65–74"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general affine theorem labels parameters by complementary Lie subalgebras and a kernel vector satisfying a normalizer condition.",
+          "The finite-field result counts all linear operators at a given weight, not affine orbit sizes."
+        ],
+        "reasoning": "The affine theorem reduces the problem in characteristic zero, but does not determine which complementary decompositions are equivalent, when central translations act effectively, or the residual stabilizer orbits. The finite-field extension and counts require independent arguments, not evaluation of a covering formula.",
+        "searches": [
+          "Han et al. arXiv:2610.14838v1, Theorem 4.4 and Proposition 4.5",
+          "Resultary c77f6ea4e079, Finding and Scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "c77f6ea4e079 counts linear operators, including weight −1, not affine conjugacy classes.",
+          "Rathee characterizes linear weight-one operators over C using matrix equations (4.4)–(4.13). Negation converts weight −1 to weight +1 for linear operators, but does not add the missing affine conditions and orbit analysis."
+        ],
+        "reasoning": "Even after matching weight conventions, the affine problem imposes projection and normalizer conditions and permits nonzero translations under a larger equivalence group. The lists are not equivalent.",
+        "searches": [
+          "Resultary search for Heisenberg Rota–Baxter affine conjugacy and finite-field census",
+          "Resultary c77f6ea4e079",
+          "Rathee arXiv:2402.15428v1, §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary census gives q^6 for linear weight zero and q^6+q^4 for nonzero linear weights; it explicitly does not count conjugacy classes.",
+          "The inspected affine normal forms in Han et al. are in smaller dimensions. Ji–Hua full text was not accessible in this check; the frozen citations and the related Resultary record describe it as a linear classification."
+        ],
+        "reasoning": "The linear census does not split off exactly the projection subclass or weight it by the allowable normalizer translations, and no exact covering affine Heisenberg table was established.",
+        "searches": [
+          "Resultary c77f6ea4e079, exact finite-field census",
+          "Han et al. arXiv:2610.14838v1, §4.3 classification",
+          "Ji–Hua doi:10.11568/kjm.2018.26.1.53, cited Theorems 3.1–3.2"
+        ]
+      },
+      "rationale": "Credit the explicit six-orbit classification under the full affine automorphism group and the characteristic-free finite-field census. The image/kernel/translation parameterization and equivalence framework in characteristic zero are already in Han et al.; the new scope is not general affine Rota–Baxter factorization. The checked linear censuses include non-idempotent linear parts and do not classify translated operators or their conjugacy.",
+      "residual_risks": [
+        "The Ji–Hua primary theorem text was not retrieved. This bounded comparison cannot rule out an unindexed earlier affine Heisenberg classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General structural reduction and equivalence are prior; case and field scope differ",
+          "evidence": [
+            "Standing characteristic zero; canonical normal form as projection plus normalizing translation; explicit classifications through dimension two."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.14838v1",
+          "material_read": "§1.1 p. 2, Theorem 4.4 p. 26, Proposition 4.5 and §4.3 p. 27 (text offsets around 4600, 85120 and 87937)",
+          "method": "OA PDF passages",
+          "title": "Rota-Baxter operators and factorization of Lie affgebras",
+          "trigger": "General canonical affine parameterization and classification"
+        },
+        {
+          "assessment": "Partial overlap for the linear setting only",
+          "evidence": [
+            "Total q^6+q^4 for each nonzero linear weight; no conjugacy classification."
+          ],
+          "identifier_or_url": "Resultary:c77f6ea4e079",
+          "material_read": "RESULT.md, Finding and scope at offset 0; prior-work discussion around offset 4200",
+          "method": "Local Resultary mirror",
+          "title": "Exact finite-field census of Heisenberg Rota–Baxter operators",
+          "trigger": "Same algebra and finite fields, including linear weight −1"
+        },
+        {
+          "assessment": "Complex linear classification, not affine conjugacy or finite-field counts",
+          "evidence": [
+            "The entries lie in C and the conditions are the linear weight +1 equations; no affine translation parameters occur in the displayed matrices."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2402.15428v1",
+          "material_read": "Abstract; §4, equations (4.1)–(4.13) and the matrix families, text offset 20800 onward",
+          "method": "OA PDF passages",
+          "title": "Rota–Baxter operators and skew left brace structures over Heisenberg Group",
+          "trigger": "Explicit same-algebra classification with opposite linear weight convention"
+        },
+        {
+          "assessment": "Full text unavailable; no exclusion inferred",
+          "evidence": [
+            "The related record describes linear weight-zero and weight-one operators over an algebraically closed field."
+          ],
+          "identifier_or_url": "https://doi.org/10.11568/kjm.2018.26.1.53",
+          "material_read": "Frozen citation and the prior-work discussion of Resultary c77f6ea4e079; no primary theorem text retrieved",
+          "method": "DOI retrieval attempted; secondary scope comparison only",
+          "title": "Rota-Baxter operators of 3-dimensional Heisenberg Lie algebra",
+          "trigger": "Cited same-algebra linear classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 10–29 and 34–60",
+        "Han et al. arXiv:2610.14838v1, Theorem 4.4, Proposition 4.5 and §4.3"
+      ],
+      "rationale": "The three-dimensional Heisenberg algebra is the first nonabelian nilpotent Lie algebra, and the full affine equivalence problem is distinct from classifying linear solutions. The calculation determines explicitly when central translations remove a parameter and when a second affine orbit survives; it gives exact orbit-field counts, including in characteristic two, where the cited general characteristic-zero theorem cannot be invoked. This is a usable complete model case rather than just a new notation for the general reduction.",
+      "residual_risks": [
+        "The contribution is a low-dimensional classification, not a characteristic-free classification of arbitrary affine Rota–Baxter maps."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

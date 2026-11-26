@@ -1,15 +1,21 @@
-# Review: sink relocation creates an extensive-avalanche law on friendship graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-The three hub-sink pair states and three peripheral-sink gate states follow directly from Dhar's burning rule. All exact toppling-count cases have explicit nonnegative integer odometers with stable recurrent endpoints in the same reduced-Laplacian class, establishing uniqueness of stabilization for every admissible integer \(k\ge2\). Their enumeration yields both polynomial identities and the limiting distribution. Independent greedy and parallel-wave checkers reproduce the complete finite histograms through \(k=7\) and the analytic templates through \(k=8\). These finite tests do not replace the proof for all \(k\).
+## correctness
 
-## Originality — PASS on examined evidence
-The nearest general statement is the graph avalanche-polynomial framework and qualitative dependence on sink in Austin et al., arXiv:1605.02713 (2016). Its evaluated families do not include the two sink orbits of friendship graphs. The expanded-cactus results of Gauthier, arXiv:1110.6263 (2011), concern first-wave cell masses on growing balls with a different graph and boundary setting. Published friendship-graph graph-polynomial records concern different invariants, and the closest previously recorded sandpile comparison treats a planar-dual prism/bipyramid pair, not friendship-graph sink relocation. Direct source, alias, graph-family and observable searches did not show an exact evaluated equivalent. An inaccessible or unindexed broader finite-cactus theorem remains a priority risk; absence from searched records alone is not a novelty proof.
+PASS
 
-## Mathematical value — PASS
-The complete joint toppling/loss polynomial describes finite transport on a natural cactus family. The sink change leaves the sandpile group \((\mathbb Z/3\mathbb Z)^k\) unchanged but changes the maximum avalanche from two topplings to \(4k+1\), and creates explicit nonvanishing probabilities for macroscopic events and for zero-loss topplings. The three-atom scaling limit is a substantive infinite-family result rather than a parameter renaming or a single example. The model's growing hub degree restricts physical interpretations and does not establish infinite-volume criticality.
+Dhar burning at the hub gives independent ordinary triangle pairs (0,1),(1,0),(1,1). With the degree-two sink a_1, no triangle away from the sink can burn before the hub; b_1 burns first only at height one, which permits the hub to burn at height 2k−2 instead of 2k−1. This gives exactly the three stated gate states and the same independent pair choices on the other triangles. The central reduced Laplacian has k blocks with Smith factors 1,3, and the critical group is independent of the sink. To check the peripheral odometers, an unchanged outer pair has both toppling counts equal to the hub count. For a chosen outer pair, subtract the hub count from both coordinates: the increment vectors for the empty, single and double types are (0,0), (1,0) and (1,1), as follows by applying the two-site Laplacian to the claimed consecutive recurrent pair states with the input grain. Thus these types act on the gate as 0, 1 or 2 extra grains at c in the shifted height variables (h_c−(2k−2),h_b1); their reduced gate operator is the two-site matrix with diagonal 2 and off-diagonal −1. Its three-state addition cycles reproduce the gate toppling counts. The resulting states are recurrent, so uniqueness in each Laplacian class makes the candidate odometers the legal stabilization odometers; loss is u_c+u_b1. The gate-site terms carry weight 3^(k−1) per case, and each outer-site gate/pair type carries 2(k−1)3^(k−2). Of the nine such types four are negligible after division by k, four tend to 2, and one tends to 4. Counting the three gate-site and five outer-site types that reach 2k−1 gives the stated tail; the unique 4k+1 type and unique positive zero-loss type have identical counts. A fresh exhaustive check of both joint histograms passed for k=2 through 6; the all-k result follows from the recurrence and odometer argument, not the finite replay.
 
-## Closest literature and limitations
-Gauthier, https://arxiv.org/abs/1110.6263; Austin et al., https://arxiv.org/abs/1605.02713; Dhar, https://doi.org/10.1103/PhysRevLett.64.1613. Complete priority in unindexed literature and independent validation are unresolved. The proof assumes a finite, simple, undirected, unweighted friendship graph with the standard Abelian sandpile, one absorbing sink and uniform recurrent-state and nonsink addition-site sampling.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualitative sink dependence, a general avalanche polynomial, and an analogous wheel transition are already covered. One finite coefficient in the friendship laws is also implied by the full-avalanche bijection at a fixed sink-neighbor. The distinct contribution is the complete two-root joint evaluation, including repeated topplings from remote sources, and the resulting extensive-avalanche limit under uniform additions over all nonsinks. None of the compared statements imposes that evaluation or limit.
+
+## value
+
+PASS
+
+The example quantifies how changing only one sink, not the graph or its critical group, replaces a uniformly bounded toppling law with extensive events of two distinct scaled sizes. The zero-loss class clarifies that nontrivial toppling and dissipation are different. The joint law and limiting weights for uniform additions supply more than the already-known qualitative sink dependence and the fixed-source wheel example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

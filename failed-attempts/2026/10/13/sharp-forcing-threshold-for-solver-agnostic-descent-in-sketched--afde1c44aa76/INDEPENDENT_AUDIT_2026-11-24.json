@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:10:16.801171Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope and Proof",
+        "BMM arXiv:2506.03965v1, §2, eqs. (2.6)–(2.10), Lemma 2.1",
+        "Fong–Saunders doi:10.1137/10079687X, abstract and §1",
+        "Frozen VERIFICATION.md and artifacts/verify_forcing_frontier.py, artifacts/verification_output.txt (read, not executed)"
+      ],
+      "rationale": "The residual-only frontier is correct uniformly over nonzero g in range(B), not necessarily sharp for an individually fixed g. For H=B+mu I the worst directional derivative is -g^T H^-1 g + eta ||g|| ||H^-1 g||, attained by aligning rho with H^-1 g. Restricting H^-1 to range(B) and taking its minimum cosine gives 2 sqrt(ab)/(a+b), with endpoint weights a/(a+b), b/(a+b) in the H eigenbasis. This attains the threshold for each spectrum and gives ascent above it; for a=b the threshold is 1, reached by rho=g. Kernel components cannot worsen the directional derivative. In the sketch, range(A A^T)=range(A) for A=MJ^T. However, the frozen record also asserts s^T rho=0 for standard LSMR and uses it to explain the source guarantee. BMM does invoke that identity, but its eq. (2.9) is a primal least-squares minimization on the Krylov subspace (the LSQR property), whereas standard LSMR minimizes the normal-equation residual (MINRES on the normal equation). For H=diag(2,4), g=(1,1), the first LSMR step from zero is s=-(3/10)g by minimizing ||g+Hs|| over span(g). Then rho=(2/5,-1/5) and s^T rho=-3/50, not zero, even with ||rho||/||g||=1/sqrt(10)<1. It does satisfy s^T H rho=0. This example is realizable with mu=1, M=I, J=diag(1,sqrt(3)), F=(1,1/sqrt(3)). The implication from s^T rho=0 to strict descent for nonzero s is correct conditionally, but standard LSMR does not in general supply that premise. The example challenges the asserted orthogonality, not the sign of descent in that example or the source's entire convergence result.",
+      "residual_risks": [
+        "The script is float64 representative and seeded-random checking, not the exact symbolic/high-precision evidence described by the frozen verification notes, and does not test LSMR orthogonality. The threshold proof and counterexample are analytic.",
+        "The review does not infer that a particular implementation lacks extra safeguards, or decide the source's other convergence claims."
+      ],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gustafson's result applies to any SPD operator in finite dimension, including this restriction. BMM gives the precise sketch model and forcing rule, but does not assert that arbitrary residuals with eta<1 descend. Fong–Saunders clarifies the distinct normal-residual solver structure."
+        ],
+        "reasoning": "Restricting the domain to range(B) recovers an ordinary SPD operator; singularity adds no remaining algebraic issue for this quotient. The model application is within the larger theorem.",
+        "searches": [
+          "Gustafson, arXiv:1505.03678v1, §1",
+          "BMM arXiv:2506.03965v1, §2; Fong–Saunders doi:10.1137/10079687X"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1505.03678v1",
+        "arXiv:2506.03965v1",
+        "doi:10.1137/10079687X",
+        "Indexed SCOPE records ending 032bb3e46f06, f6a519d77ab4, 7198bd602fa7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The support function of the residual ball at H^-1 g is eta||g|| ||H^-1 g||. Thus descent for all residuals is exactly eta below the cosine. The classical theorem gives the minimum and a minimizing g; taking the support direction within the ball gives equality and ascent at or above the known bound. BMM's normal operator has the required range by the identity range(A A^T)=range(A)."
+        ],
+        "reasoning": "All three uniform cases and their attainability follow from these substitutions and one Cauchy–Schwarz support calculation. The source-specific setting and the distinction from an arbitrary solver do not change that implication.",
+        "searches": [
+          "Gustafson arXiv:1505.03678v1, §1 eqs. (1), (4)–(5); BMM arXiv:2506.03965v1, §2 eqs. (2.6)–(2.7)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gustafson defines the first antieigenvalue as min <Cx,x>/(||Cx|| ||x||) and gives 2 sqrt(lambda_min lambda_max)/(lambda_min+lambda_max) and its two-endpoint eigenvector mixture for SPD C.",
+          "For C=H^-1 on range(B), this quotient is precisely the fixed-g residual threshold; substitution of lambda_min=1/b and lambda_max=1/a gives the frozen formula without any extra spectral inequality."
+        ],
+        "reasoning": "It is the identical minimization under two familiar names (operator cosine and first antieigenvalue), not a numerical coincidence. The Kantorovich product form follows by setting z=C^(1/2)g.",
+        "searches": [
+          "Local Resultary/published SCOPE search: sharp residual-only descent, Kantorovich/antieigenvalue and SPD angle frontiers",
+          "Gustafson arXiv:1505.03678v1, §1, eqs. (1), (4), (5)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/12/SCOPE-sharp-true-residual-frontier-for-one-step-spd-sketched-gmres--032bb3e46f06, Proof Step 2, uses the same sharp angle constant for sketch-distortion control of GMRES; 2026/10/12/SCOPE-sharp-embedding-distortion-frontier-for-sketched-harmonic-ritz-p--f6a519d77ab4, Proof §1, states the same inverse-operator angular bound for a different task.",
+          "2026/10/13/SCOPE-sharp-first-step-normal-residual-separation-between-lsqr-and-lsm--7198bd602fa7 concerns sharp residual-norm ratios rather than descent."
+        ],
+        "reasoning": "A finite table cannot decide this continuous threshold; exact indexed formulas were compared. The other algorithmic targets are not identical, but the underlying known angle bound is exact.",
+        "searches": [
+          "Local Resultary/published SCOPE lookups for source-specific forcing, SPD angular bounds and related LSMR results"
+        ]
+      },
+      "rationale": "The corrected residual-only result is the classical first antieigenvalue applied to the inverse regularized normal matrix on its positive spectral space. An elementary maximization over a Euclidean ball identifies exactly the classical quotient, and the cited theorem already gives the sharp constant and extremizers. The named application does not supply a distinct exact fact.",
+      "residual_risks": [
+        "The original early Gustafson paper was inaccessible, but the exact formula and extremizers were checked in Gustafson's later OA primary exposition. It was not established whether the source-specific forcing wording appears elsewhere; the implication does not depend on that."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically covers the residual-only frontier",
+          "evidence": [
+            "Defines the quotient, gives the endpoint mixture and the explicit sharp SPD constant."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1505.03678",
+          "material_read": "§1, PDF pp. 1–2, offset 2020, eqs. (1), (4), (5)",
+          "method": "OA PDF passage inspection",
+          "title": "Antieigenvalue Analysis, New Applications: Continuum Mechanics, Economics, Number Theory",
+          "trigger": "Exact published SPD minimum cosine and sharp minimizers"
+        },
+        {
+          "assessment": "Gives the application and invokes a primal Krylov minimization, not the arbitrary-residual result",
+          "evidence": [
+            "Eq. (2.9) minimizes the augmented primal least-squares residual over K. The proof uses this to infer s^T rho=0 and calls the iterates LSMR."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2506.03965v1",
+          "material_read": "§2, eqs. (2.4)–(2.10), Lemma 2.1, pp. 2–4, offsets 10850–17954",
+          "method": "OA PDF passage inspection",
+          "title": "A variable dimension sketching strategy for nonlinear least-squares",
+          "trigger": "Primary regularized model, stopping rule and LSMR descent attribution"
+        },
+        {
+          "assessment": "Contradicts the identification of the primal minimization with standard LSMR",
+          "evidence": [
+            "Distinguishes LSQR (CG on normal equations) from LSMR (MINRES on normal equations). For the augmented system, the latter minimizes the normal-equation residual over the Krylov subspace."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/group/SOL/software/lsmr/LSMR-SISC-2011.pdf",
+          "material_read": "Abstract and §1, PDF p. 1, offsets 412 and 2210",
+          "method": "OA PDF passage inspection",
+          "title": "LSMR: An Iterative Algorithm for Sparse Least-Squares Problems",
+          "trigger": "Validate exactly which residual LSMR minimizes"
+        },
+        {
+          "assessment": "Identical angular bound, different algorithmic objective",
+          "evidence": [
+            "Frontier controls true-residual nonexpansion under sketch distortion, not forcing for descent."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-true-residual-frontier-for-one-step-spd-sketched-gmres--032bb3e46f06",
+          "material_read": "RESULT.md Proof Step 2",
+          "method": "Local Resultary lookup and mirror passage inspection",
+          "title": "Sharp true-residual frontier for one-step SPD sketched GMRES",
+          "trigger": "Same displayed frontier for SPD problems"
+        },
+        {
+          "assessment": "Uses the same classical angular inequality for a different objective",
+          "evidence": [
+            "Concerns harmonic Ritz positivity."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-embedding-distortion-frontier-for-sketched-harmonic-ritz-p--f6a519d77ab4",
+          "material_read": "RESULT.md Proof §1",
+          "method": "Local Resultary lookup and mirror passage inspection",
+          "title": "Sharp embedding-distortion frontier for sketched harmonic Ritz positivity",
+          "trigger": "Same inverse-operator quotient"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Gustafson arXiv:1505.03678v1 §1",
+        "BMM Lemma 2.1; Fong–Saunders §1"
+      ],
+      "rationale": "The advice that a norm test should not be transferred between solvers without checking geometry is useful, but the exact residual-only threshold is a direct application of the named classical formula. The additional LSMR explanation does not supply a valid distinct result. Removing it would leave only the covered deduction; no repaired finding is delivered.",
+      "residual_risks": [
+        "The value judgment does not preclude a different, independently proved theorem about safeguards or actual LSMR iterates."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

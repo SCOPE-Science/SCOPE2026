@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:24:15.819262Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on the stationary two-sided Poisson clock gives a centered Brownian integral with mean conditional variance, averaged over the clock, 2D times integral_0^infinity exp(-r(1-a^2)s) ds. Contraction on a common future clock gives uniqueness. Conditioning on a future clock yields E[X_t|X_0=x]=xE[a^N_t]=x exp(-r(1-a)t), valid also for negative a and a=0. Integrating the resulting stationary covariance over the observation square gives the exact variance with dimensionless tau=rT and b=1-a. The logarithmic objective derivative is H=R-mu, with R=1/(2-b)-1/b and mu the mean with density proportional to (tau-s)e^(-bs) on (0,tau); partial_b H=R'+Var(s)>0. H(1)<0, and at 4/3, R=1/b>mu because the nonconstant decreasing weight (tau-s)_+ strictly lowers the exponential mean. This proves global uniqueness and the claimed open interval. The text's final inference in Step 3 can be made explicit: smooth strict ordering alone does not imply a pointwise strict derivative, but Leibniz differentiation gives partial_tau mu=Cov(s,1/(tau-s))>0 for the same density. The endpoint term vanishes and the covariance is finite and strictly positive by the two-independent-copies identity for increasing functions on a nondegenerate interval. So a_*'=-partial_tau mu/(R'+Var(s))<0 at every tau; no change to the theorem is needed. The small-tau weighted mean is tau/3+O(tau^2) uniformly on the root interval. At large tau it is 1/b-1/(b^2 tau)+O(tau^-2) there, and (R-1/b)'(4/3)=27/8, which gives the 1/(6 tau) correction with the stated sign. The long-time rate 4D/[r^2 b^2(2-b)] minimizes at 4/3 and the ratio is 27/32; the snapshot variance minimizes at a=0 instead. Independent replay: python3 /tmp/opencode/brownian-window-replay.py (mpmath, 60 decimal digits, bisection of the closed objective derivative), confirms all eleven sampled root signs and ordering and gives -0.1351710457598, -0.2539189487560, -0.3145204058622 at tau=1,3,10. The deposited path simulation was inspected, not run: the Brownian bridge variance D duration^3/6 is correct; the stationary start is accurately truncated, not exactly infinite-series stationary. Neither finite exercise proves the continuum result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lapolla et al. treat time-average moments and spectral descriptions for reversible and irreversible ergodic dynamics, not optimum choice of a signed rescaling multiplier.",
+          "The refractory-clock result fixes 0<a<1 and h>0 and orders long-run area variance across distributions of the refractory wait R, not across a at fixed r and finite T. The formal no-refractory limit recovers only the positive-domain variance rate."
+        ],
+        "reasoning": "General time-average identities and the long-run observable must be credited. Neither imposes the root's interval or gives the necessary monotone variation in window length at the signed optimum.",
+        "searches": [
+          "Lapolla–Hartich–Godec arXiv:2004.09387 introduction and scope",
+          "Resultary 09a242f30c6d, Finding and Proof §§1–5",
+          "Web: partial resetting autocorrelation Brownian negative rescaling integrated position time average variance stochastic reset reflection optimization"
+        ]
+      },
+      "checked_sources": [
+        "Biroli et al. arXiv:2406.08387v1",
+        "Di Bello et al. arXiv:2305.13722v2 model/one-point density passages",
+        "Lapolla–Hartich–Godec arXiv:2004.09387 scope and moment framework",
+        "Resultary 6dfc6932c2a0 and 09a242f30c6d full result files; 615283e54117 synopsis"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Integrating the earlier signed exponential covariance proves the finite-window variance and taking the limit proves the long-run rate; even the limiting -1/3 optimum follows by one cubic maximization, so it is not the basis for originality alone.",
+          "Uniform uniqueness and strict motion of the optimizer throughout (0,infinity) require establishing the sign of the derivative of the root of R-mu, including covariance with the increasing reciprocal weight."
+        ],
+        "reasoning": "The strongest overlap is the exact covariance on the full signed domain, not just stationary marginals. Its known formula makes the optimization well-defined but does not by itself state or give a direct elementary substitution for the strict all-window ordering, tight root interval and asymptotics together.",
+        "searches": [
+          "Resultary 6dfc6932c2a0, part 3 and deterministic proof",
+          "Resultary 09a242f30c6d, model and rate formula",
+          "Biroli et al. arXiv:2406.08387v1, full-text model and stationary/first-passage passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 6dfc6932c2a0, Finding part 3 and proof Two-correlation reconstruction, specifies the exact stationary variance and covariance for Q=q in (-1,1).",
+          "Biroli et al. arXiv:2406.08387v1 model and stationary/MFPT sections implement the same instantaneous rescaling with signs."
+        ],
+        "reasoning": "Optimizing variance of signed area or its time average at fixed T is equivalent (scale T^-2); in either form the prior covariance fixes the objective before optimization. First-passage objectives, signed or not, are genuinely different and do not assert this optimizer.",
+        "searches": [
+          "Resultary: proportional partial Brownian resetting signed negative reflection time average finite observation variance optimum",
+          "Resultary: stationary finite-window sampling variance Green Kubo integrated area Brownian jumps position random multiplicative signed proportional resetting optimal sign reversal 27/32",
+          "Web: proportional partial resetting negative contraction Brownian signed reflection optimum time averaged position variance autocorrelation 1/3 finite time"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Biroli et al. give a stationary Fourier product and optimizing examples for a first-passage time. Their numerical optimum/statistics are not values of the finite-window averaged-position variance.",
+          "Related Resultary entries include sign-sensitive covariance reconstruction, and area fluctuations under Pareto renewal complete resetting (615283e54117), not tabulated optimizers of signed proportional Poisson resetting."
+        ],
+        "reasoning": "No exact table located in the targeted comparison gives the same signed-multiplier optimum, and the illustrated numerical bisection values are corroboration, not the novelty.",
+        "searches": [
+          "Resultary: stationary finite-window sampling variance Green Kubo integrated area Brownian jumps position random multiplicative signed proportional resetting optimal sign reversal 27/32",
+          "Biroli et al. arXiv:2406.08387v1 model, stationary and MFPT result sections"
+        ]
+      },
+      "rationale": "The exact signed resetting model and signed exponential covariance are known, and the finite variance formula itself follows by ordinary covariance integration. The supported increment is the complete optimizer over negative and nonnegative multipliers at every finite duration, its strictly signed derivative in duration, endpoint rates and exact optimal asymptotic gain, not a new resetting process or covariance formula.",
+      "residual_risks": [
+        "A general parameter-dependent additive-functional optimization theorem or an unindexed finite-window rescaling calculation might overlap; the comparison does not certify absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same process, prior stationary law and negative rescaling for first passage, not stationary finite-window variance optimization",
+          "evidence": [
+            "The stationary law is computed for the full contractive range; the negative-rescaling advantage in its abstract and first-passage results concerns MFPT."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2406.08387v1",
+          "material_read": "Open HTML abstract, rescaling dynamics, stationary distribution and first-passage result passages",
+          "method": "Read full-text sections and compare the optimized observable and range of signed rescaling",
+          "title": "Resetting by rescaling: exact results for a diffusing particle in one-dimension",
+          "trigger": "Same signed Poisson rescaling with explicit optimization"
+        },
+        {
+          "assessment": "Covers the exact covariance and hence supplies the variance objective by integration, not its all-duration minimizer",
+          "evidence": [
+            "C_1(t)=V exp[-r(1-q)t], V=2D/[r(1-q^2)] on the entire signed domain."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-hidden-reset-reflection-and-moment-rate-tomography-for-contracti--6dfc6932c2a0/RESULT.md",
+          "material_read": "Complete result, particularly deterministic part 3 and proof of two-correlation reconstruction",
+          "method": "Read local mirror and substitute its q=a in the stated covariance",
+          "title": "Hidden reset reflection and moment-rate tomography for contractive Brownian jumps",
+          "trigger": "Same signed process and exact two-time covariance"
+        },
+        {
+          "assessment": "Long-run variance for a different clock and fixed positive multiplier; no strict signed finite-window optimizer",
+          "evidence": [
+            "The parameter a is fixed in (0,1); the unique minimizing law is the deterministic refractory period of specified mean h>0."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-refractory-time-variance-is-identifiable-through-integrated-fluc--09a242f30c6d/RESULT.md",
+          "material_read": "Full theorem, assumptions and proof of rate and clock-law optimization",
+          "method": "Read local mirror and compare window, optimization variable and sign domain",
+          "title": "Refractory-time variance is identifiable through integrated fluctuations under partial Brownian resetting",
+          "trigger": "Integrated signed position variance in a related proportional model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Estimating the mean signed position is a natural use of a finite stationary trajectory; reset rescaling changes snapshot amplitude and correlation time in opposite directions. The theorem quantifies the design tradeoff for every observation length, proves a unique strictly negative optimum and exact horizon ordering, and gives asymptotic and short-window design scales. The novelty and value do not depend on the generator or integrating one exponential, or on treating a Monte Carlo match as a proof. The conclusion is specific to this loss and signed instantaneous resets, not a claim about first passage, entropy or optimal protocols in general.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

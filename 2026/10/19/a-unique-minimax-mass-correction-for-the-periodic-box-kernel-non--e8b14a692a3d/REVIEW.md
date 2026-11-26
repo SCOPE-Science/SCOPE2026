@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Fourier multiplier is derived directly from the specified kernel, and every horizon-dependent condition number is bounded by the continuum spectral ratio. Density as the horizon approaches zero proves sharpness across all horizons. Exact derivative-sign and tail inequalities isolate the unique coefficient; the strict comparison of maxima in \([0,2\pi]\) and minima in \((2\pi,\infty]\) proves unique minimax optimality. The standalone checker reproduces the derivative, stationary-point, endpoint, and comparison computations; finite numerical samples are not treated as an infinite proof.
+PASS
 
-## Originality — PASS with bibliographic uncertainty
+Direct periodic Fourier integration gives the positive product symbol 2Q_b. The sharp worst-horizon ratio is the continuum ratio because as delta tends to zero the same grid delta times the positive integers can approximate both extremizers (including zero by k=1 and infinity by delta*k growing). To enforce the minimum 1/6 requires b at least sup F(s)=1/(6a(s))-1/s². The sinc Taylor bound on (0,pi], the nonpositive-sine lobes, and the decreasing U(s)=s/[6(s−1)]−s⁻² on [4pi,infinity) leave only (2pi,3pi); F(5pi/2) exceeds those exclusions. I checked the derivative numerator N, its positive lower bound until 5pi/2, its strictly negative derivative after 5pi/2 up to 3pi and the endpoint signs. Hence t_* is unique. For b≤b_* the tail Q bound lies strictly below Q_b(pi); for b<b_* every minimizer is beyond 2pi by comparing Q_b(s)/Q_b(t_*), decreasing in b for s<t_*. Comparing a maximizer and minimizer at the larger b proves strict decrease of the extreme ratio up to b_*. For b≥b_* the fixed minimum and strictly increasing maximum give the other side, proving uniqueness. Independent high-precision numerical evaluation (/tmp/opencode/scope-review-analytic.py 4) gave t_*=7.87451945091259722, b_*=0.174777992381291262, peak s≈3.75263938870502440, K≈1.70020056456180867 and 6Q_{1/2}(4)≈4.01355210541606446. I also verified the strict improvement factor without using unvalidated extrema samples: rational Taylor remainder bounds give N(7.87)>0 and b_*≤U(7.87); on [1,6.284] use spacing 1/250, Taylor bounds at the grid points and |Q''|<15 (a=integral_0^1 (1−cos(us)) du) with interpolation error ≤15(1/250)²/8. For s≤1 use a(s)≤s²/6. These give K<1.7005, while 6Q_{1/2}(4)>4.0135, implying the claimed factor >2.36. Frozen checker was inspected, not executed.
 
-Lu–Nie–Zhang–Zhang (arXiv:2609.24143, first public September 21, 2026) already establish the additive preconditioner family, mass-selected scale, and general uniform spectral equivalence, which are excluded from the novelty claim. Their inspected full accessible manuscript does not optimize the exact worst-horizon continuum condition number over the mass coefficient. Related nonlocal \(\tau\)-preconditioner descriptions and indexed scholarly comparisons do not yield the displayed b*-formula or unique minimax characterization. Search indexing gaps and incompletely inspected older papers remain actual priority risks; nonmatching titles or absent hits alone were not used as uniqueness evidence.
+## originality
 
-## Value — PASS
+PASS
 
-The exact minimax coefficient and condition number resolve a natural robustness-design question. For the constant unit-mass kernel the mass-prescribed \(b=1/2\) gives a condition number at least \(4.01355\), whereas free robust tuning achieves \(1.70021\) or less (the stated exact scalar optimum), an improvement factor above \(2.36\). The proof also identifies the precise oscillatory-frequency lobe governing the coefficient. This is a continuum periodic benchmark, not a claim of superiority in finite-element work complexity.
+The retained claim is the sharp periodic continuum minimax over all positive masses and horizons, not the additive preconditioner, the mass-normalized choice, sinc symbol or the existence of uniform bounds. The closest published scalar benchmark and originating analytical preconditioning paper cover different quantifiers or only a fixed parameter.
 
-## Scope and risks
+## value
 
-The theorem does not cover finite elements, Dirichlet volume constraints, higher-dimensional kernels, different norm models, or finite-precision convergence. Partial access to secondary papers leaves nonzero novelty uncertainty. All supporting formulas are self-contained in RESULT.md.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The all-horizon comparison is a natural robustness design problem for an existing preconditioner, not an arbitrary slice: the equality at the low-frequency limit and a competing oscillatory lobe selects a distinct unique tuning. A certified >2.36 gap relative to the conventional mass coefficient gives a meaningful continuum benchmark, not merely a tiny numerical improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

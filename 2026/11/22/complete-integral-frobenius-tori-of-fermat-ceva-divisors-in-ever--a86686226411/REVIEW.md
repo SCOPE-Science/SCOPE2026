@@ -1,15 +1,21 @@
-# Scientific review: Fermat–Ceva Picard tori
+# Independent mathematical audit
 
-## Correctness
-PASS. The three-pencil incidence gives precisely three \(n\)-fold vertices and \(n^2\) triple points. The prescribed forest has three components, and the two distinguished rational branches connect them into a Galois-invariant spanning tree. Every remaining branch is a chord in one of two copies of the nonidentity-pair Galois set; its fundamental cycle gives a genuine integral, sign-free permutation basis of graph homology. Standard normalization and torus character descent imply the asserted group-scheme isomorphism, independent of finite tests. The packaged exact checker verifies the tree, Frobenius chord permutations and independently enumerated finite-field points. No statement about the full unipotent group is required.
+## correctness
 
-## Originality
-PASS, with provisional historical priority. The exact match in the published odd-degree Ceva result covers the \(q\equiv\pm1\pmod n\) cases for odd \(n\ge5\), \(p>n\); those are explicitly excluded as new contributions. The separate all-twist arithmetic-normalization result fully covers the displayed point count and zeta consequence; neither supplies an integral Picard-torus classification for all Frobenius orders. The new uniform Galois-invariant spanning-tree basis proves the strictly broader all-residue, all-degree, tame-characteristic torus isomorphism. A historical unindexed formula remains possible.
+PASS
 
-## Mathematical value
-PASS. An integral torus isomorphism gives the actual group of rational torus points, not just a rational Frobenius character or curve zeta function. The family is canonical in algebraic geometry, and the previous restriction to split/inversion Frobenius left all higher-order residue classes and even degrees unresolved at this integral level. The concrete examples \((n,q)=(7,2)\) and \((8,3)\) give respectively a pure cubic Weil-restriction torus and a mixed split/quadratic torus. This is a complete natural classification rather than an arbitrary parameter slice.
+The characteristic hypothesis makes the line factors, singular supports and branches split over a finite separable cyclotomic extension. The line families are separately defined, and the cross-family points are exactly (uv:v:1) with one branch from each family. Passing from local normalization units to branch residues gives (G_m^m)/G_m at an m-branch point; the kernel has a filtration by additive groups coming from truncated principal units. The normalization has zero connected Picard variety. Dividing the product of branch-residue tori by the component scalars, with diagonal kernel by connectedness, gives the torus quotient. Taking characters makes the map the integral oriented incidence boundary; its kernel is H_1, not a rational cycle space. The coordinate stars plus the one A-branch per triple point form three trees. The two additional branches at (1,1) join them, Galois-equivariantly. Restriction to the chord coefficients is an integral isomorphism on cycles (unique signed return path in the tree), and gives two unsigned copies of the nonidentity root-pair set. This works unchanged in small characteristic and over imperfect fields. Frobenius fixed-pair counts, orbit inversion, Weil restriction and the two numerical examples follow. The stated dimensions agree with the arithmetic genus minus the cycle rank. In the point count, the normalization contributes 3s(q^r+1), and gluing replaces 3s+3s^2 rational branches by 3+s^2 rational singularities, with s=gcd(n,q^r-1).
 
-## Sources and limits
-Artebani–Dolgachev (arXiv:math/0611590) gives the dual Hesse geometry; Nagel–Seceleanu (arXiv:1509.04977) treats Fermat point ideals. Full text of the previously published special-case integral-torus calculation and the all-twist arithmetic-normalization calculation was inspected and compared at the level of the actual statements and implications. The present result concerns the torus quotient and does not independently classify the unipotent factor in small characteristic. Formal external review and global historical priority verification are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinction supported by the evidence is the integral permutation lattice for every cyclotomic action on this untwisted plane divisor. The split and odd-degree inversion cases and the point counts are existing coverage, not separate novel claims. The nearest earlier proof pairs edges by a procedure that uses only two-element nonfixed orbits; it does not exhibit the uniform tree or imply the stated all-residue basis. No equivalent full statement was identified in the bounded comparison.
+
+## value
+
+PASS
+
+For a standard arrangement, the exact Galois lattice determines the k-isomorphism class and the finite groups of torus points, which rational zeta data cannot generally identify. Uniformly extending from split/inversion to all orbit lengths, even degree and small admissible characteristic solves a natural arithmetic classification problem. The equivariant fundamental cycles exhibit the mechanism directly; the known point counts are not the value claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

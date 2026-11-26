@@ -1,19 +1,21 @@
-# Scientific review: Fibonacci entrance time and limiting landing phase
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The original branch equations reduce exactly to the Fibonacci matrix while the state remains below the periodic triangle. Monotonicity of the coordinate sum makes one final half-plane inequality equivalent to all prior survival conditions. The exact triangle-area difference proves every stated uniform-law probability. For arbitrary continuous initial densities positive at the origin, uniform small-triangle approximation and Fibonacci asymptotics establish the sharp tail constants. Scaling first-hit polygons establishes the ray-supported weak limit, its explicit density, and the exponential-moment boundary. The standalone fraction-based polygon verifier cross-checks the finite geometry for nineteen successive durations; it is not substituted for the all-time proof.
+PASS
 
-## Originality
+On the upper triangle the triplet (x,y,2−x−y) is cyclically permuted and all three states remain in the triangle. Below it the linear branch A(x,y)=(y,x+y) has nondecreasing coordinate sum along its iterates. Thus T≥n iff the sum at the (n−1)st linear iterate is less than one, i.e. F_n x+F_{n+1}y<1. The two intercepts are within the square, and the difference of successive triangle areas is 1/(2F_nF_{n+2}); the upper triangle itself has area 1/2. Shrinking support allows uniform replacement of h by h(0,0), yielding both constants by Binet's formula and divergence at the critical moment exponent because the summands do not tend to zero. In coordinates u=F_n x,v=F_{n+1}y the normalized entry band converges in area to φ⁻¹≤u+v≤1; its limiting density is uniform since h(0,0)>0. The landing map tends uniformly to ((u+v)/φ,u+v), and the section u+v=t has length t in the measure coordinates (t,u). This gives the stated normalized weak limit as n→∞ (not a finite-n singular law). VERIFICATION.md and verify.py describe/check finite polygon areas at n=1,…,19 only; the final pre-entry check in the loop is waived on the last step, so strict entry timing is established by the proof, not that loop. The supplied code was inspected, not run.
 
-**PASS, with historical-priority uncertainty.** The 2016 Góra--Boyarsky--Li--Proppe manuscript gives eventual period-three capture at the critical parameter and the associated linear recursion. It does not give an exact distribution of the capture time, a universal conditional landing-position law, or an exponential-moment threshold. The 2016 sequel treats another parameter regime. Published mathematical result searches identified only distinct maps or different invariants among the closest results. The same-model full-text comparison distinguishes the new probabilistic geometry from already-established qualitative periodicity; an unindexed general first-passage result could still subsume these formulas.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The time until a continuum of exact three-cycles is reached is a canonical finite-time invariant of the critical dynamical transition. The formula supplies the entire transient distribution rather than a sample bound; the landing theorem shows that conditioning on rare long transients generates a deterministic singular golden-ratio direction independent of a broad class of initial densities. The sharp moment threshold quantifies the corresponding escape rate. This is a specific complete structural statistic of a studied system, not an arbitrary finite enumeration.
+Credit the critical half-memory dynamics and Fibonacci recurrence to Góra et al.; the uniform formulas are direct area consequences and the moment threshold follows from the mass asymptotic. The distinct contribution supported by the comparison is the quantitative entrance analysis, especially the normalized limiting landing distribution for all stated source densities. No priority claim is made for the recurrence or for a new derivation of eventual periodicity.
 
-## Scope and limits
+## value
 
-The exact Fibonacci probabilities are for uniform area initial data; the asymptotic and landing laws require density continuity and strict positivity at the origin. No parameter-neighborhood extension is claimed. Finite verification does not prove the limiting distribution; the analytic scaling argument does. Bibliographic searches do not certify absolute priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The conditional law answers where unusually late entrants reach the periodic region, not just whether or how fast they arrive. It identifies both the singular ray and the nonuniform probability measure along it, and shows why the law is insensitive to the source density near the repelling origin. These are useful quantitative additions to the previously known periodic dynamics at this critical parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

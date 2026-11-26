@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,4 @@
 }
 ---
 
-# Reproducibility and limits
-
-Run `python3 verify.py` with Python 3 and the standard library only. The local exact-fraction replay reported `exact_grounded_checks 1017`, `exhaustive_subset_checks 1656`, `strict_witnesses 3`, `limit_allocation_checks 930`, and `VERIFY_OK`.
-
-The complete symbolic proof is in `RESULT.md`: two eigenspaces of within-part zero-sum vectors, one two-dimensional block, a balanced endpoint product inequality, and a fixed-parameter asymptotic discrete minimization. The computation checks finite instances only and does not assert exhaustive verification of all network sizes or a simultaneous parameter limit.
-
-The literature comparisons and scientific limits appear in `REVIEW.md` and `AUDIT.json`. Publication priority and independent mathematical validation are not established.
+The complete proof is in `RESULT.md`. For a symbolic replay, subtract the displayed rational expressions for h(r+1)-h(r) with p=r(r+1), and for j(r+1)-j(r) with that substitution and k=3(r+1)/2. The differences after subtraction of the claimed answers simplify identically to zero. For the finite exact replay, use r=1..12 and k=1..3r+6 with p=r(r+1) at q=10^6 and q=10^8. Use rational arithmetic in (1) for each a=0..min(p,k), retain all minimizers, and check the complete count set against the finding. All 612 tested optimizations matched; this check does not prove the all-parameter quantifier or give an eventual cutoff.

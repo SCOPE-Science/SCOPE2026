@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:12:07.356354Z",
+  "axes": {
+    "correctness": {
+      "rationale": "All simple cycles of K_{2,n} use the two hubs and exactly two leaves. A directed cycle therefore occurs exactly when opposite hub-to-hub two-edge paths coexist. The endpoints differ on all edges, and flipping every a-edge then every b-edge avoids coexistence, so the distance is 2n and every minimizing path flips each edge exactly once. Open intervals for leaves have types determined by the first flip. Splitting an event order at every return to an empty open set yields unique monochromatic indecomposable blocks; a nonempty open set cannot change type in one step. For a prescribed type on m labeled leaves, (2m)!/2^m edge permutations obey the m disjoint precedence constraints. The EGF of a single indecomposable block is thus 1−1/S; a sequence of such blocks each with two types gives the formal EGF S/(2−S). Its coefficient comparison proves the recurrence and the arithmetic-operation bound, not a bit-complexity bound. For the asymptotic, Vandermonde bounds T_n=Σ s_k s_{n−k}/s_n by Σ 1/binom(n,k)=O(1/n) over 1≤k<n. The bound is below 1/2 for n≥7, and the direct ratios for n=2,…,6 are at most 1/2. The recurrence inductively yields 2s_n≤f_n≤4s_n and then 0≤f_n/s_n−2≤4T_n. The labeled count and uniform-order probability follow, with n=0 only a convention. A separate bounded subset-prefix DP reproduced the eight stated counts: extend a valid flip mask by any unused edge if the resulting mask has no opposite mixed leaf columns, summing predecessor counts from the empty mask. This tests finite instances only. The frozen BFS/DP code and its recorded log were inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cardinal–Steiner discuss skeleton shortest paths; Cameron et al. count acyclic orientations via lonesum matrices and poly-Bernoulli numbers.",
+          "The distinct same-day Walsh-spectrum record uses the same forbidden mixed-column criterion, but gives zeros, rank and singular values of an orientation indicator rather than paths."
+        ],
+        "reasoning": "Neither length optimization, a state census nor the Walsh spectrum of the state set gives the number of optimal paths between the two endpoints.",
+        "searches": [
+          "arXiv:2311.00779, shortest paths on generalized permutohedra",
+          "arXiv:1412.3685, bipartite acyclic orientation census",
+          "Resultary ...--14f193ec1237, same complete bipartite graph"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A321628, A321627, A001147, A193763 and raw term search",
+        "arXiv:2111.12387, arXiv:2311.00779, arXiv:1412.3685",
+        "Resultary ...--14f193ec1237 and ...--74566e1601f9 (self-match)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The catalogue recurrence implies exactly (2−S)F=S for the normalized formal series. The same recurrence combined with a convolution estimate analyzes numerical growth, without identifying its combinatorial target.",
+          "The reversal duality, graphical-region description and shared acyclicity criterion do not count sequences of allowed prefixes; the busy-period decomposition is the missing identification."
+        ],
+        "reasoning": "The resulting coefficient algebra is prior, but the natural graph invariant is not a restatement of a known recurrence until the graph-to-matching correspondence has been proved.",
+        "searches": [
+          "A321628 MAPLE and author fields, offset 0",
+          "arXiv:2111.12387 pp. 2 and 5",
+          "2026/11/22 ...--14f193ec1237, Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pilaud identifies regions with acyclic orientations and covers with legal single-arc flips. The graph enumeration is a prescribed-endpoint minimal-gallery count.",
+          "Forget leaf labels and pair the two flip positions of each leaf. The valid type color is constant on each connected component of the overlap graph of the corresponding position intervals, equivalently on each indecomposable interval block. OEIS A001147 counts the matchings without this weighting. The signed-permutation cross-reference A193763 uses ordinary factorials, not odd double factorials, and starts 1,2,6,22, rather than 1,2,8,44."
+        ],
+        "reasoning": "The gallery formulation is equivalent but no count in the inspected gallery passages subsumes it. Ordinary matching counts only enumerate the fixed-type ingredient, and the superficially analogous signed-permutation recurrence is different.",
+        "searches": [
+          "Graphical-arrangement minimal galleries and acyclic-reorientation covers: arXiv:2111.12387",
+          "Resultary: K_{2,n} orientation flips, antipodal geodesic multiplicity",
+          "OEIS A001147, A321628, A193763"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A321628 is Peter Luschny's 2018 row-sum sequence of A321627, with the exact normalized terms. Its MAPLE recurrence uses b(0)=2, b(n)=Σ_{k=1}^n (2k−1)!! b(n−k), and a(0)=1, a(n)=b(n) otherwise.",
+          "The raw lookup did not produce a match. The exact Resultary title match is the submission itself, not another result."
+        ],
+        "reasoning": "This is exact prior coverage of f_n rather than a coincidence of early terms. It is not catalogue evidence of the graph interpretation. No conclusion of historical absence is drawn from the empty raw lookup.",
+        "searches": [
+          "OEIS raw terms 2,16,264,7392,319200",
+          "OEIS normalized terms 1,2,8,44,308,2660,27764,343604,4948196: A321628 and linked A321627",
+          "Resultary ...--74566e1601f9"
+        ]
+      },
+      "rationale": "The normalized sequence and recurrence are precisely known (OEIS A321628), and the distance and one-type factors are background. The supported distinct finding is that this sequence multiplied by n! enumerates the shortest paths for the specified graph endpoints, proved through the graph-specific busy-period bijection. No primary passage inspected identifies that geodesic invariant with the known coefficients. The sequence itself, its recurrence in isolation, and a new integer sequence are not credited as original.",
+      "residual_risks": [
+        "Prescribed-endpoint gallery, signed-block or matching literature may contain an unlocated graph interpretation. A focused general-web query was not decisive.",
+        "A321628 should be credited for the known coefficient recurrence. This audit does not certify priority for every algebraic consequence of that sequence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The normalized sequence and recurrence are known; no graph path interpretation in the entry.",
+          "evidence": "The recurrence with b(0)=2 gives the frozen convolution exactly for n>0; attributed to Peter Luschny, 2018.",
+          "identifier_or_url": "https://oeis.org/A321628",
+          "material_read": "Entry offset 0, data, MAPLE, cross-references, attribution",
+          "method": "Primary public catalogue entry",
+          "title": "A321628: Row sums of A321627",
+          "trigger": "Exact normalized term match"
+        },
+        {
+          "assessment": "Known coefficient ingredient and a different analogue respectively.",
+          "evidence": "A001147 counts perfect matchings; A193763 substitutes k! in its recurrence and counts signed permutations avoiding specified patterns.",
+          "identifier_or_url": "https://oeis.org/A001147 ; https://oeis.org/A193763",
+          "material_read": "Matching interpretation at A001147 offset 858; A193763 definition and formulas at offset 90",
+          "method": "Primary public catalogue entries",
+          "title": "OEIS A001147 and A193763",
+          "trigger": "Matching and signed permutation aliases"
+        },
+        {
+          "assessment": "Prior flip-cover and arrangement interpretation, not exact multiplicity in inspected passages.",
+          "evidence": "Covers flip one arc; reversal gives duality; graphical regions encode acyclic reorientations.",
+          "identifier_or_url": "https://arxiv.org/pdf/2111.12387",
+          "material_read": "pp. 2 and 5, offsets 6819 and 17414",
+          "method": "Open primary PDF",
+          "title": "Acyclic reorientation lattices and their lattice quotients",
+          "trigger": "Equivalent graphical-gallery framework"
+        },
+        {
+          "assessment": "Different quantities in the inspected passages.",
+          "evidence": "Skeleton path metric versus number of lonesum matrices/acyclic states.",
+          "identifier_or_url": "https://arxiv.org/pdf/2311.00779 ; https://arxiv.org/pdf/1412.3685",
+          "material_read": "Cardinal–Steiner p. 4 offset 12444; Cameron et al. p. 1 offset 1167",
+          "method": "Open primary PDFs",
+          "title": "Shortest paths on polymatroids and hypergraphic polytopes; Acyclic orientations and poly-Bernoulli numbers",
+          "trigger": "General shortest paths and exact bipartite graph orientation counts"
+        },
+        {
+          "assessment": "Same state predicate, different invariant; date does not establish order.",
+          "evidence": "Walsh zeros/ranks/singular values, rather than ordered flip sequences.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-reversal-rigid-walsh-spectrum-of-acyclic-orientations-of-k-2-n--14f193ec1237/RESULT.md",
+          "material_read": "Finding, assumptions and proof on the acyclicity indicator and Walsh invariants",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Reversal-rigid Walsh spectrum of acyclic orientations of K_{2,n}",
+          "trigger": "Distinct same-day exact graph-family overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The number of optimal routes is distinct from their standard Hamming-length lower bound and from the orientation census. For a natural pair of opposite orientations, the bijection relates the reconfiguration obstruction to interval components, eliminates exponentially many graph states from exact counting, and estimates the viable fraction of edge orders. It is the graph interpretation and resulting exact path invariant, not recomputing a table, that carry value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

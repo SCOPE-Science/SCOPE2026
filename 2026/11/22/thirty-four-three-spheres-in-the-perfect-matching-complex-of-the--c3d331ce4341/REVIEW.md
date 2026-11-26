@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph, perfect matchings, and every face are exhaustively reconstructed from the stated vertex and edge sets. The embedded certificates independently check 14,436 valid elementary simplicial collapses, leaving a three-dimensional complex with face counts (30,270,694,487). A 29-edge spanning tree and 241 triangular relations kill all fundamental-group generators. The exact 694-by-487 integral degree-three boundary has 453 unit Smith factors and 34 zero columns; degree-two boundary rank is 241, so integral second homology is zero and third homology is free of rank 34. Hurewicz and Whitehead supply the complete homotopy classification. The standalone checker was executed from its actual packaged path.
+## correctness
 
-## Originality — PASS, subject to priority risk
-The closest motivating preprint, arXiv:2611.18058v1 (November 13, 2026), proves the open rectangular three-row grid case; inspection of the theorem and its complete edge definition shows that it omits the cycle-closing edges. The circular-ladder theorem arXiv:2608.30601 concerns two rows; the published matching-complex result on the identical graph concerns a distinct simplicial complex containing all partial matchings, not just extendible ones. Published transverse-closure results for C_3 Cartesian P_n also use a different graph. Targeted published-finding corpus and general-literature searches found no dominating result, but this is not a proof of global publication priority; a closely related paper's newer full revision was not fully inspected.
+PASS
 
-## Mathematical value — PASS
-The first unclassified even enlargement of the natural longitudinally periodic three-row cylinder gives a sharp topology contrast with the already classified open six-column strip, changing one two-sphere to 34 three-spheres. Exact integral homotopy and a nonshellability conclusion are stronger than a face count, rational Euler characteristic, or mod-prime Betti ranks. The parameter is a canonical cylinder width, not an arbitrary induced subcomplex or post hoc numerical slice. No wider-family formula is claimed.
+I independently reconstructed the checkerboard bipartition of the graph and tested all 9! bijections of its two parts for adjacency. This yielded exactly 108 perfect matchings; nonempty bit submasks produced the stated 30353 faces. For each of the 14436 listed collapse pairs I verified the unique immediate coface against the current face set, and checked that the upper face was maximal. The terminal down-set has f-vector (30,270,694,487) and no faces of larger dimension. The listed 29 tree edges connect all 30 vertices. In order, all 241 triangle relations then have exactly one not-yet-trivial edge loop after setting the tree edges to 1; every remaining generator is killed. This establishes simple connectivity, and the rank of the degree-two boundary is 270-29=241. I reconstructed the oriented degree-three boundary from the terminal masks and independently cleared the 453 indicated unit pivots by column additions, followed by row additions affecting only the pivot column. The terminal matrix is zero, giving image rank 453 and primitivity in the full degree-two chain group. The simplicial boundary identity puts that image in the degree-two kernel of rank 694-241=453, so they are equal (including integrally). Degree-three homology is free of rank 487-453=34. Hurewicz in degrees two and three makes the core two-connected and realizes a basis by three-spheres; wedging their maps gives a homology equivalence of simply connected CW complexes, hence a homotopy equivalence. The nonzero H3 precludes shellability of the original pure eight-dimensional complex.
 
-## Limits and closest prior literature
-The result applies only to P_3 Cartesian C_6 and the perfect-matching extendibility complex, not arbitrary square cylinders, all-partial-matching complexes or equivariant homology. Primary comparisons are arXiv:2611.18058, arXiv:2608.30601 and the two published computations cited in RESULT.md. Independent scientific validation has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The checked exact-graph, exact-complex-family, and related classification sources do not contain or imply the asserted wedge for the longitudinally closed, three-row, six-column extendibility complex. An exact Resultary hit is the assigned record itself.
+
+## value
+
+PASS
+
+Closing the six-column open strip is a natural boundary change in a studied family. It changes one two-sphere to 34 three-spheres; the result fixes connectivity, torsion and integral homotopy and disproves shellability for this cylinder. The exact topology gives a useful boundary-sensitive datum beyond face counts or homology ranks alone, without presuming a pattern for larger cylinders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

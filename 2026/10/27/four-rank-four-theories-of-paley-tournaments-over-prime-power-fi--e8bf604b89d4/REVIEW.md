@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim addresses all odd prime powers \(q\equiv3\pmod4\). For \(q\ge27\), a squarefree cubic character-sum bound gives at least \((q-15-2\sqrt q)/8>0\) witnesses for every prescribed orientation pattern around any triple. Exact exhaustive searches establish all eight patterns for every triple at orders 19 and 23. Three-existential closure supplies a four-round partial-isomorphism strategy, while explicit formulas distinguish the three smaller orders. An independent neighborhood-bitset implementation confirms the critical finite extension results through order 27. Two-extension checks and the rank-three game show the sharp earlier rank-three threshold of order seven. Every four-vertex tournament occurs in the 11-vertex representative; three-existential closure propagates this existential property to the tail. The attached replay and mathematical argument specify the boundary conditions and non-computational infinite step.
+PASS
 
-## Originality — PASS (best-knowledge assessment)
+For three distinct anchors, the full signed product sums to q minus the sum of three sign-pair products plus the signed cubic character sum. The two-factor sums are −1, the linear sums vanish, and the squarefree cubic defines an elliptic curve with Hasse bound 2√q. At the anchor vertices the omitted factors contribute at most 12 total. Thus 8N≥q−15−2√q>0 for all q≥27, including proper prime powers. My independent exact prime-field replay used Euler's criterion and intersections of incoming/outgoing neighborhoods. It checked all eight patterns on each of 969 and 1771 triples at q=19,23, and all four patterns for each pair at q=7,11. Four (respectively three) game rounds then require no more than three (respectively two) existing anchors; repeat choices are mapped to repeat choices. The replay confirmed a transitive triple first at q=7, a transitive four-set first at q=11, and no common in-neighbor of {0,1,3} at q=11. The latter sentence holds throughout the three-extension tail. The degree-sequence census confirmed all four isomorphism types at q=11 (55,55,55,165), but only three at q=7 (7,7,21); all types extend from triples in the tail. Labeled diagrams with identifications reduce to these induced types and their subdiagrams, proving existential-prenex agreement. The explicit forall-forall-forall-exists formula, notwithstanding the stray 'existential' label in the proof's Step 3 introduction, has rank four and separates the last two classes. The bound on representatives is within the stated family. Independent finite replay: /tmp/opencode/paley_review.py; the infinite portion is the character estimate plus the game, not a replay extrapolation.
 
-Bonato–Gordinowicz–Prałat (2010, DOI `10.55016/ojs/cdm.v5i2.62061`) already prove the minimum order 19 for 3-e.c. and 3-e.c. at the Paley order 23. Javier–Llano–Zuazua (2026, DOI `10.55016/0sre1423`) already prove a broad vertex-transitive doubly regular tournament implication and the prime-order Paley 3-e.c. tail. The present claim does **not** count that prior 3-e.c. result as new. Comparing the accessible substantive sections with the exact statements, neither presents a full four-class first-order rank-four equivalence theorem covering all allowed prime powers or the three-class existential fragment with a strict \(\forall\forall\forall\exists\) separation at orders 11 and 19. Searches of mathematical records and accessible historical claims found no equivalent statement. Because the logical consequences are close to known extension principles, this is a qualified originality assessment; unindexed prior statements remain a risk.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete bounded-rank invariant of a classical natural field family, not an arbitrary sliced census. It determines the sharp rank-three order-seven threshold and the **sharp** order-19 stabilization of all four-quantifier formulas and the strictly earlier order-11 stabilization of purely existential four-quantifier formulas. The resulting alternation boundary identifies precisely which additional quantifier pattern detects the last exceptional Paley tournament; this distinction is useful when selecting finite test representatives for logical properties of tournament families. The individual extension lemma is established through a uniform character argument, and the finite exceptions are characterized rather than merely sampled.
+Credit the earlier prime-order extension threshold and its immediate rank-four tail implication. The exact partition of the prime-power family, including the small classes and the 11-versus-19 existential-prenex gap, is distinct on the inspected evidence. A closely overlapping later-dated Resultary item covers the tail even for unrestricted-depth four-variable logic but does not state the small-class or fragment partition.
 
-## Limitations and closest work
+## value
 
-The infinite theorem depends on the known cubic Hasse–Weil estimate; finite computations alone do not establish it. The rank and family restrictions are essential. Published 2010 and 2026 3-e.c. results cover a substantial mathematical component, and potentially inaccessible literature could contain an equivalent logical reformulation. No independent audit has been undertaken.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The useful contribution is the precise classification and the sharp detectable difference between bounded-rank logic and its existential-prenex fragment, not a new claim of 3-e.c. at the known threshold. T11 already suffices for every four-variable existential-prenex witness in the family tail, yet no family member below T19 can represent all rank-four sentences there. That gives different, provably minimal finite tests for two natural classes of questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

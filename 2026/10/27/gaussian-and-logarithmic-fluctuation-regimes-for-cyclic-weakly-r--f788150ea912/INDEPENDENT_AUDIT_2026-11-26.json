@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:13:41.444571Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The process and positive deterministic initial weights fit Qin's LLN, with regular-graph edge rate 2/2=1. A vertex ring changes exactly one edge, so the compensated jump noise has diagonal predictable variation, with instantaneous diagonal tending to I. Differentiating the two endpoint probabilities gives the stated circulant J. Its Fourier spectrum is alpha sin^2(pi k/d); maximizing over integer k gives the stated threshold and odd/even ranks. For z=N/t-1 the localized normalized drift is (J-I)z/t+O(||z||^2/t). Killing at exit adds a nonpositive contribution to the squared-norm estimate. With beta_max<=1/2 its integrated expectation is O(t^(-1+epsilon)) for any small epsilon>0, and the probability of any exit after T goes to zero by the LLN. The resulting localized quadratic drift error in mode beta<1/2 is bounded after rescaling by a constant times t^(beta-1/2) times the integral of s^(-beta-1+epsilon); this vanishes including the borderline logarithm beta=epsilon. At beta=1/2 the corresponding integral is finite and the prefactor is (log t)^(-1/2). The finite-time random initial term also vanishes with these scalings. The stochastic convolution has integrable normalized bracket weights: their scalar masses tend to (1-2 beta)^(-1) or 1, and the mass on each fixed finite time interval vanishes. Off-block brackets tend to zero using orthogonal projections and the limiting identity bracket; a mixed critical/noncritical term has an additional (log t)^(-1/2) bound. Uniformly vanishing jumps give the multivariate martingale CLT and independent Gaussian blocks. The variance one for the total-count mode means projection onto the unit vector 1/sqrt(d); the unnormalized count sum has variance rate d, as expected from the Poisson clocks. The critical inverse is only on the complement. Frozen verify.py was inspected but not executed; its recorded 315 tests concern finite inputs. The independent bounded complex-step/eigenspectrum replay in python /workspace/reproductions/reproduce.py confirms critical multiplicities for d=3,4,7,8 and does not test or prove infinite-time convergence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Qin supplies all-parameter homogenization for this graph, and Couzinié–Hirsch supply earlier regimes. Qin credits Angel–Hermon–Yao with independent homogenization and reports related tree convergence; the exact preprint was not obtained."
+        ],
+        "reasoning": "Known LLNs control equilibrium but do not assert any second-order fluctuation law. The inaccessible preprint is a residual priority risk, not evidence for or against a fluctuation match.",
+        "searches": [
+          "Qin arXiv:2610.11780v1 Theorem 1.1 and Remark 1.2",
+          "Couzinié–Hirsch Theorem 2.2",
+          "Angel–Hermon–Yao exact preprint title, Long-time behavior of graph-based weakly reinforced Pólya urns"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.11780v1",
+        "10.1214/21-ECP404",
+        "arXiv:1211.1247v4",
+        "Angel–Hermon–Yao (citation context only)",
+        "Resultary 2c77f973f6ad, 9ac94d22f363, 60252b9f2ab4, f18ba4b12079"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier path result has one nontrivial imbalance eigenmode; at criticality its stated rank-one full-count limit is all at logarithmic scale. For cycles the noncritical block is retained at sqrt(t) while the critical block can be rank two and is shown independent of the first."
+        ],
+        "reasoning": "General martingale CLT machinery is established, but the input drift spectrum, killed local remainder estimate and mixed bracket asymptotics must be supplied to use it here. The path formulas, even with free rates, do not imply the cycle formula by parameter substitution.",
+        "searches": [
+          "2c77f973f6ad RESULT.md Finding, Assumptions and embedded-chain proof",
+          "Qin Theorem 1.1 and compensator model",
+          "Frozen RESULT.md proof §§2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first two sources use vertex clocks and edge weights, but the inspected theorems give LLNs. Benaïm et al. put bins on vertices and have one endpoint allocation per edge per synchronous round.",
+          "2c77f973f6ad uses the same clock reinforcement on a path with three vertices and two edge weights; its time-change/imbalance description does not turn that graph into a triangle or any longer cycle."
+        ],
+        "reasoning": "Neither a switch from counts to proportions nor a line-graph relabeling of the synchronous model supplies the requested covariance and joint critical scaling. The two-edge path shares the mode mechanism, but has no odd-cycle double frequency.",
+        "searches": [
+          "arXiv:2610.11780v1",
+          "DOI 10.1214/21-ECP404",
+          "arXiv:1211.1247v4",
+          "Resultary 2c77f973f6ad"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier 2c77f973f6ad gives Gaussian, critical logarithmic and supercritical polynomial regimes for a three-vertex path. 9ac94d22f363 is finite-time path anticorrelation; 60252b9f2ab4 is a discrete alternating-sign urn. Later item f18ba4b12079 studies the same cycle model's deterministic rate-to-limit derivative, with an odd-cycle threshold numerically identical to this one but a different even-cycle threshold."
+        ],
+        "reasoning": "The strongest exact overlaps are either the fluctuation mechanism on a different graph or the spectrum in a different limiting problem. None of these inspected statements gives the cycle CLT, its covariance, or the critical two-scale assertion.",
+        "searches": [
+          "Resultary cyclic WARM fluctuations / subcritical covariance / critical logarithmic Gaussian; 2c77f973f6ad, 9ac94d22f363, 60252b9f2ab4, f18ba4b12079"
+        ]
+      },
+      "rationale": "Credit is limited to the explicit cycle covariance and joint critical split with different log-enhanced ranks for the two cycle parities. Homogenization, generic stochastic approximation methods, and the occurrence of a log-enhanced critical mode on a different WARM graph are not new here.",
+      "residual_risks": [
+        "Angel–Hermon–Yao full text was not located, so its complete scope is unresolved.",
+        "The indexed and primary-literature checks were bounded and do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "LLN established under matching hypotheses; not a fluctuation theorem",
+          "evidence": "Allows positive finite initial weights and power exponent less than one; on the unit-rate degree-two regular graph the limit is one per edge.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.11780v1",
+          "material_read": "PDF pp. 1–3, Theorem 1.1 and Remark 1.2; p. 14 reference [3]",
+          "method": "OA original passages",
+          "title": "Homogenization of weakly reinforced Pólya urns on countable networks",
+          "trigger": "Exact WARM model and required LLN"
+        },
+        {
+          "assessment": "Homogenization regimes, not joint Poisson-clock cycle fluctuations",
+          "evidence": "Degree- and graph-dependent LLN results for the vertex-clock model.",
+          "identifier_or_url": "10.1214/21-ECP404",
+          "material_read": "Publisher PDF pp. 2–3, especially Theorem 2.2",
+          "method": "OA original passage",
+          "title": "Weakly reinforced Pólya urns on countable networks",
+          "trigger": "Earlier same-network dynamics"
+        },
+        {
+          "assessment": "Different synchronous process and result",
+          "evidence": "Independent endpoint allocations at each edge per round into bins at vertices; limiting proportions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1211.1247v4",
+          "material_read": "PDF pp. 1–3, model and Theorem 1.4",
+          "method": "OA original passage",
+          "title": "A generalized Pólya's urn with graph based interactions",
+          "trigger": "Potential graph-dual formulation"
+        },
+        {
+          "assessment": "Additional fluctuation coverage unresolved",
+          "evidence": "Qin reports independent homogenization proof and related edge-clock tree convergence; no direct statement of the preprint was used.",
+          "identifier_or_url": "Angel–Hermon–Yao, Qin arXiv:2610.11780v1 reference [3]",
+          "material_read": "Qin pp. 2–3 and 14 only; no direct full text located",
+          "method": "Bounded title lookup and OA citation context",
+          "title": "Long-time behavior of graph-based weakly reinforced Pólya urns",
+          "trigger": "Closest contemporary WARM preprint"
+        },
+        {
+          "assessment": "Substantial earlier methodological overlap but no cycle specialization",
+          "evidence": "Subcritical bivariate Gaussian, critical one-dimensional imbalance, rate-controlled threshold on a path with exactly two edges.",
+          "identifier_or_url": "Resultary 2c77f973f6ad",
+          "material_read": "RESULT.md Finding, Assumptions and start of Proof, offsets 0–3796",
+          "method": "Local mirror original passage",
+          "title": "A firing-rate-controlled fluctuation transition on a three-vertex reinforced path",
+          "trigger": "Same WARM fluctuation regimes"
+        },
+        {
+          "assessment": "Later-indexed deterministic response, not temporal fluctuations",
+          "evidence": "Odd-cycle response threshold matches numerically; no matching stochastic covariance or mixed logarithmic theorem.",
+          "identifier_or_url": "Resultary f18ba4b12079",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror original passage",
+          "title": "Exact firing-rate identifiability and sharp spectral response in cycle urns",
+          "trigger": "Same cycle and overlapping Fourier threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cycle has a simple equilibrium but exhibits a geometry-sensitive fluctuation threshold that the LLN cannot resolve. The exact covariance and critical rank distinguish the two parities and separate the log-enhanced modes from the ordinary ones. This is a finite-cycle distributional benchmark, not a supercritical or growing-graph result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

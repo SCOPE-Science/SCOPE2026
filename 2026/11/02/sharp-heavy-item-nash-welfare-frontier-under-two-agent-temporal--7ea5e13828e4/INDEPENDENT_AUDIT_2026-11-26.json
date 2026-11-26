@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:57:05.408870Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding, assumptions and proof §§1–4",
+        "VERIFICATION.md, inequality certificate and recorded finite check",
+        "verify.py, EF1 test, allocation enumeration and heavy equality examples"
+      ],
+      "rationale": "For sorted EF1 bundle values x<=y, removing the largest good in the larger bundle is the best possible single deletion; its value is <=h, so x>=y-h and x>= (V-h)/2. This also covers a tie or a largest good outside the larger bundle. Monotonicity of x(V-x) up to V/2 yields xy>=(V^2-h^2)/4. For h>=V/2 the bundle containing a largest good has load z>=h, so z(V-z)<=h(V-h), attained by isolating that good (always feasible in the unrestricted benchmark). Dividing and taking a square root gives the claimed bound. At every prescribed delta, the first two entries of (q,q,h), q=(V-h)/2, must split under EF1, and either last assignment leaves EF1, so every feasible trajectory has product q(q+h) versus 2qh offline. This applies pathwise to randomized as well as clairvoyant policies. The least-loaded assignment preserves EF1 since deleting the new good from its bundle leaves a pre-arrival load no larger than the other one; increasing a bundle cannot give its recipient new envy. Below delta=1/2 the unrestricted product is at most V^2/4, so the ratio squared is at least 1-delta^2>3/4. Above it the sharp squared ratio is strictly greater than 1/2 and tends to 1/2 as delta tends to one. With exactly two positive goods EF1 forces a split and reaches the offline optimum; the three-good witnesses have strict loss, even at the boundary delta=1/2.",
+      "residual_risks": [
+        "Frozen enumeration inspected, not executed. Its arithmetic checks do not extend to arbitrary real values; the structural inequalities and witnesses do. The frozen proof's feasibility qualifier for isolating the largest good is unnecessary, not a missing assumption."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barman et al. and Feng et al. give the population-uniform static identical-additive ratio e^(-1/e), which is below 1/sqrt(2).",
+          "Elkind et al. prove temporal EF1 feasibility for generalized binary values, which include identical positive values by setting p_j=w_j.",
+          "Yang et al. give the least-load rule for identical valuations and a specific temporal welfare-loss example (3,3,2,2,2)."
+        ],
+        "reasoning": "The broader static bound is weaker, and temporal existence and an example of a temporal gap do not optimize the welfare ratio over all policies and all instances at each dominant fraction.",
+        "searches": [
+          "arXiv:1707.04731 §7 Lemma 1",
+          "DOI:10.4230/LIPIcs.ICALP.2026.90 §2.2",
+          "arXiv:2410.14593 §3.2.2 Theorem 3.7",
+          "arXiv:2609.03846v4 §3.4 Theorem 5"
+        ]
+      },
+      "checked_sources": [
+        "Yang et al. arXiv:2609.03846v4",
+        "Barman et al. arXiv:1707.04731",
+        "Feng et al. ICALP 2026 paper 90",
+        "Elkind et al. arXiv:2410.14593",
+        "Resultary 3a45b8921f08"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The static EF1 load argument yields xy>=(V^2-h^2)/4, but the generic balanced benchmark V^2/4 would only give a product ratio of 1-delta^2. The stronger benchmark h(V-h) uses dominance and exact attainability by isolation.",
+          "The earlier fixed-weight witness covers the boundary only. The ordered arbitrary-ratio witness proves the lower bound is simultaneously attained against every temporal policy and yields a sharp limit as delta tends to one."
+        ],
+        "reasoning": "This is not just substitution into a prior valid parameter range. The comparison uses a different exact benchmark in the dominant regime and a matching forced-path family. No retrieved stronger theorem implying both was established.",
+        "searches": [
+          "Yang et al., arXiv:2609.03846v4, Theorems 4 and 5 and the following example",
+          "Resultary 3a45b8921f08",
+          "Barman et al. arXiv:1707.04731 Lemma 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For two agents, geometric-mean ratios are square roots of product ratios; normalizing by V converts the heavy formula to (1+delta)/(4delta) on products, and the witness to two unit goods followed by a good of weight 2delta/(1-delta).",
+          "Yang's two-agent form of rho_n is sqrt(1-delta^2), taking epsilon=2delta under the small-item condition delta<=1/2. It agrees at delta=1/2. The catalogue's (a,a,2a) attains exactly sqrt(3)/2 in the static setting, at that same delta."
+        ],
+        "reasoning": "Normalization and squaring demonstrate genuine overlap at the boundary, but the small-item hypothesis and the catalogue's fixed weight ratio do not encode the open dominant range.",
+        "searches": [
+          "Yang et al., arXiv:2609.03846v4, Theorems 4–5",
+          "Resultary 3a45b8921f08"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue formula for final EF1 and values in {a,2a}, n>=2 and m>=n is (3/4)^(floor(n/2)/n); the two-agent extremizer has delta=1/2.",
+          "Yang's exact five-good temporal example attains best feasible final loads 7,5 rather than 6,6. Its largest fraction is 1/4, and it concerns a different extremal question."
+        ],
+        "reasoning": "Credit the exact static boundary witness. Neither retrieved example is a table or formula for the continuum of dominant fractions. For two agents with values in {a,2a}, the only possible dominant cases above one-half have two goods, where no temporal loss occurs.",
+        "searches": [
+          "Resultary 3a45b8921f08 (two positive good values)",
+          "Yang et al., arXiv:2609.03846v4, §§3.3–3.4"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact dominant-item curve on 1/2<delta<1, and its sharp, all-policies three-arrival obstruction giving the two-agent universal infimum. The small-item formula at and below the boundary, the static boundary witness, temporal EF1 feasibility and the existence of some temporal welfare loss all have verified earlier or adjacent coverage and are not the basis for the pass.",
+      "residual_risks": [
+        "The literature assessment is best-of-knowledge and specific to inspected statements and hypotheses. An unindexed two-agent analysis of dominant goods or an earlier temporal witness under another formulation remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers delta<=1/2 estimate and known feasibility rule, plus a five-good example, not the dominant curve in the compared statements.",
+          "evidence": "Condition h<=epsilon V/n; rho_2(2delta)=sqrt(1-delta^2); example (3,3,2,2,2) forces best temporal product 35 vs 36.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.03846v4",
+          "material_read": "§3.3 Definition 4 and Theorem 4, p. 6, OA offset 27556; §3.4 Theorem 5 and example, p. 7, offsets 34468–38930",
+          "method": "Lawful primary OA passages",
+          "title": "EF1-Constrained Nash Social Welfare with Identical Additive Valuations: Complexity, Guarantees, and Experiments",
+          "trigger": "Same EF1 benchmark and exact two-agent small-item specialization; same temporal rule"
+        },
+        {
+          "assessment": "General static bound, quantitatively weaker in the reviewed regime.",
+          "evidence": "An epsilon-EF1 allocation is an e^((1+epsilon)/e)-approximation; epsilon=0 yields ratio e^(-1/e).",
+          "identifier_or_url": "https://arxiv.org/abs/1707.04731",
+          "material_read": "§7 Lemma 1, pp. 15–16, OA offset about 55800",
+          "method": "Lawful primary OA passage",
+          "title": "Finding Fair and Efficient Allocations",
+          "trigger": "General identical-additive EF1 to NSW gap"
+        },
+        {
+          "assessment": "Same general bound, not a sharp dependent or temporal theorem in the inspected passage.",
+          "evidence": "NSW at least e^(-1/e) times opt in the identical case; §5 flagged for a simpler proof.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ICALP.2026.90",
+          "material_read": "§2.2, p. 90:6, OA offset about 21000",
+          "method": "Lawful primary OA passage",
+          "title": "New Convex Programming Technique for Nash Social Welfare and Scheduling",
+          "trigger": "Later proof of the EF1 welfare gap"
+        },
+        {
+          "assessment": "Temporal feasibility, not a welfare-frontier claim.",
+          "evidence": "Polynomial-time TEF1 for generalized binary valuations v_i(g_j) in {0,p_j}.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.14593",
+          "material_read": "§3.2.2 Theorem 3.7, p. 8, OA offset about 29400",
+          "method": "Lawful primary OA passage",
+          "title": "Temporal Fair Division of Indivisible Items",
+          "trigger": "Temporal EF1 theorem with a class containing identical valuations"
+        },
+        {
+          "assessment": "Exact agreement on the static delta=1/2 example; no open dominant temporal frontier in the compared statement.",
+          "evidence": "Identical weights in {a,2a}; sharp final-EF1 ratio (3/4)^(floor(n/2)/n).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-nash-welfare-guarantee-of-ef1-for-two-positive-good-values--3a45b8921f08",
+          "material_read": "RESULT.md scope, theorem and (a,a,2a) example",
+          "method": "Local Resultary mirror",
+          "title": "Sharp Nash welfare guarantee of EF1 for two positive good values",
+          "trigger": "Exact same benchmark; prior static boundary extremizer"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof §§1–4",
+        "Yang et al. Theorems 4–5 and temporal example",
+        "Resultary 3a45b8921f08"
+      ],
+      "rationale": "Largest-item fraction is the natural boundary at which isolating that item is always the offline optimum. The result specifies the exact loss throughout that regime and shows a minimum-length witness that no lookahead or randomization can circumvent. It quantifies what is lost by retaining EF1 at every arrival, rather than merely observing that a particular greedy rule can miss optimum.",
+      "residual_risks": [
+        "Parameterwise sharpness for delta<1/2 and extensions to more or heterogeneous agents are not claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

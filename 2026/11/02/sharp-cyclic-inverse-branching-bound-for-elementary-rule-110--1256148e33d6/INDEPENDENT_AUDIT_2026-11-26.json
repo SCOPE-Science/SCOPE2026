@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:07:37.685280Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the pair predecessor graph the states 00 and 10 have identical labeled outgoing behavior after merging; neither the recovered central bit nor the previous-bit determination for states B and C is lost. Each indexed closed walk recovers precisely one input, also with repeated neighbor sites at n=1,2. The zero factor is a diagonal projection T0<=I, so multiplying nonnegative factors preserves the entrywise bound under every deletion of T0. The remaining trace counts P_m by T1^3=T1+I and the three trace seeds. For n>=7 the Perrin numbers strictly exceed every lower-index term (check the prefix and use P_k-P_(k-1)=P_(k-5)); the only envelope tie when n=5 or 6 is n=6,m=5. Its one-zero fiber has size 3 since (T1^5)_(B,B)=2. T0 powers give the all-zero count 2 and P_1=0 forces the weight-one counts. Independent replay: `cd /workspace && python3 review_replay.py 2` checked every indexed input and fiber for n=1..16 using a bit-parallel Boolean rewrite of the truth table. The finite replay corroborates, not proves, the all-length claims; the frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Powley gives the exact cyclic count from the powered transfer product for spatial period p dividing n, including p=n; this gives an evaluation method, without a uniform inequality in output weight.",
+          "Jen's maximizing-sequence examples address infinite-lattice blocks and other rules; they do not supply a global finite-ring comparison for Rule 110."
+        ],
+        "reasoning": "One can count each target from general transfer theory, but that does not give the inequality across all lengths and all weight-m targets.",
+        "searches": [
+          "Powley Chapter 9 §9.3, pp. 117–119",
+          "Jen §5.4, pp. 449–451",
+          "Resultary 53a22033084e equations (3)–(6)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting verification evidence",
+        "Resultary 53a22033084e",
+        "Powley thesis Chapter 9, York PDF",
+        "Jen 1989 §5.4",
+        "Powley–Stepney 2010 York abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "After dropping zero-length gaps the mirror merges H_a H_b into H_(a+b+1) and obtains h_(w+s-1), where w is target weight and s is the number of positive gaps. For 00110011, w=4 and s=2, so it gives h_5=3, not P_4=2.",
+          "The mirror's trace at w=1 is zero from the surviving H_1. Its proof compares to P_(w+s), not P_w. The thesis's general transfer product does not identify an order-decreasing zero factor."
+        ],
+        "reasoning": "The index shift in the merge proof matters. A three-state quotient in which the zero factor is dominated by identity gives the stronger kind of length-free comparison required here; it is not supplied by the inspected earlier count or the distinct mirror.",
+        "searches": [
+          "Resultary 53a22033084e RESULT.md offsets 2920–6351, equations (4)–(6)",
+          "Powley thesis Theorem 9.5, §9.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Distinct mirror 53a22033084e states exactly the same strict global extremum for n>=5 and also treats n<=4. Its zero-gap product also yields the zero- and one-one boundaries.",
+          "Powley thesis Example 9.2 directly states two preimages of the uniform zero target."
+        ],
+        "reasoning": "The maximum and boundary overlap are real; differently presented transfer matrices do not make them new. The separate bound on every target using weight alone remains distinct.",
+        "searches": [
+          "Resultary: Rule 110 Perrin cyclic inverse fiber Hamming weight bound all target unique maximum",
+          "Resultary: Rule 110 cyclic predecessor counts inhomogeneous periodic outputs trace Perrin",
+          "Powley thesis §§9.1–9.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirror supplies small-ring maxima as well as the all-n identity for the homogeneous one fiber; the thesis supplies an exact homogeneous-count method and discusses Rule 110 explicitly."
+        ],
+        "reasoning": "Neither the recurrence values of the homogeneous count nor the separate indexed record's exact maxima certify the inequality against the Perrin number at each target's own weight.",
+        "searches": [
+          "Resultary 53a22033084e Finding and §5",
+          "Powley thesis Example 9.2 and Theorem 9.5"
+        ]
+      },
+      "rationale": "The specific distinct contribution supported here is the length-independent Hamming-weight envelope for all target words. Credit Powley's exact all-zero count, the prior homogeneous and periodic counting methods, and the precise overlap of the strict global maximum with the separately indexed 53a22033084e. Do not count those overlaps as additional novelty. The distinct mirror is dated later on its path (Nov 8 versus the frozen Nov 2 path); that dating alone is not a historical priority determination. Even disregarding chronology its actual bound has a different index and does not supply the weight envelope.",
+      "residual_risks": [
+        "Powley–Stepney article full text was not obtained; an equivalent all-target argument in an uninspected source is not ruled out. The exact homogeneous count is not claimed as independently new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact extremum overlap; weight-sensitive statement differs in a mathematically consequential way",
+          "evidence": [
+            "Globally unique 1^n for n>=5",
+            "The merger invariant adds the number of positive gaps to weight"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-perrin-inverse-degree-law-for-cyclic-rule-110--53a22033084e/RESULT.md",
+          "material_read": "Finding and proof, especially equations (3)–(6), offsets 2920–6351; relationship to prior work offsets 6778–9176",
+          "method": "Local GitHub mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp Perrin inverse-degree law for cyclic Rule 110",
+          "trigger": "Same rule, boundary convention, Perrin sequence and strict all-length maximizer"
+        },
+        {
+          "assessment": "Exact all-zero count and general periodic method, not the all-target envelope",
+          "evidence": [
+            "Example 9.2 has the two preimages of 0^N",
+            "Theorem 9.5 gives the homogeneous eigenvalue sum",
+            "§9.3 handles p=N by the ordinary product and gives a Rule-110 ether example"
+          ],
+          "identifier_or_url": "https://www.cs.york.ac.uk/nature/group/theses/EdPowley.pdf",
+          "material_read": "§9.1 Example 9.2 pp. 109–110; §9.2 Theorem 9.5 pp. 112–113; §9.3 pp. 117–119 including Example 9.9",
+          "method": "Lawful institutional PDF, targeted primary passages",
+          "title": "Preimages of homogeneous configurations",
+          "trigger": "Plausibly subsuming homogeneous and heterogeneous cyclic counts"
+        },
+        {
+          "assessment": "Maximizing-block background for a different boundary model",
+          "evidence": [
+            "Rules 12, 76, 126 and 22 are discussed; the finite cyclic Rule-110 envelope is not provided by these comparisons"
+          ],
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+          "material_read": "§5.4, pp. 449–451",
+          "method": "Lawful published PDF",
+          "title": "Enumeration of Preimages in Cellular Automata",
+          "trigger": "General one-step preimage maxima"
+        },
+        {
+          "assessment": "Known homogeneous-method overlap; do not infer what the inaccessible article proves beyond the abstract",
+          "evidence": [
+            "Abstract describes one-step homogeneous counts and de Bruijn methods; lawful PDF retrieval failed"
+          ],
+          "identifier_or_url": "https://pure.york.ac.uk/portal/en/publications/counting-preimages-of-homogeneous-configurations-in-1-dimensional/",
+          "material_read": "York abstract only; full journal article not obtained",
+          "method": "Lawful York record and identified CiteseerX and Old City routes",
+          "title": "Counting Preimages of Homogeneous Configurations in 1-Dimensional Cellular Automata",
+          "trigger": "Same homogeneous finite-lattice preimage component and transfer method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The useful additional result is a bound on the probability of each output under uniform input that depends only on how many of its sites are one, even when the ambient ring is much larger. It constrains attainable one-step outputs and yields the natural worst-case inverse multiplicity without enumerating output patterns. The small exact quotient and projection give a structural reason for this sparsity effect, beyond recomputing the homogeneous recurrence or the global maximum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

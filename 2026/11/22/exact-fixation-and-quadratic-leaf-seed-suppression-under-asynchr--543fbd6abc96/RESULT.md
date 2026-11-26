@@ -6,7 +6,7 @@ For the asynchronous, pure-conformity binary imitation process defined below on 
 \lim_{m\to\infty}H_m=C,\qquad
 \lim_{m\to\infty}m^2L_m=2C,\qquad
 C=\left[1+e^{1/2}\sqrt{\frac\pi2}\,\operatorname{erf}\!\left(\frac1{\sqrt2}\right)\right]^{-1}
-=0.41481965886376976\ldots.
+=0.4148196588637697539\ldots.
 \]
 For comparison, under ordinary unbiased rate-one node-update copying on the same star, the respective single-hub and single-leaf fixation probabilities are \(1/2\) and \(1/(2m)\).
 

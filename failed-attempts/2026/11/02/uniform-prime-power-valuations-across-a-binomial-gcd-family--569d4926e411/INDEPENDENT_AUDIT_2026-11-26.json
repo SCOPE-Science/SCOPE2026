@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:47:57.297112Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 0≤t<N=p^a, the digits of N−1−t are the complements of the a digits of t. The two multiples (q−1)(N−1) and q(N−1) split into complementary length-a blocks (q−2,N−q+1) and (q−1,N−q), respectively. Both therefore have digit sum a(p−1) for the full range 2≤q≤N, including q=N. Legendre’s formula gives exact valuation a. Newton interpolation of F(X)=binom(kX,k) at 1 through k+1 gives F(0)≡k+1 modulo a common prime divisor of F(2),…,F(k+1), so p is the only possible prime in the gcd and the gcd is N. Independent exact binomial and factorial-valuation checks agreed across 11 prime powers through N=32, 136 individual terms, and all 11 gcds; replay: branches/4cc28ef1-1243-41ac-b84c-830949427918/bounded-repro.py. The finite replay is not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier indexed records give the exact gcd for general k+1, and hence p^a when k+1=p^a. The d7bb5de82236 extremal corollary states this case explicitly. Guo Lemmas 4 and 9 supply support and a prime-divisibility criterion, not exponents. Hong Theorem 1.1 concerns a coprimality condition on varying lower indices for a fixed upper index."
+        ],
+        "reasoning": "The broader minimum-valuation formula covers the gcd corollary outright. It cannot alone establish the uniform upper bound for individual multipliers; that needs the separate proof-level comparison below.",
+        "searches": [
+          "Resultary db4eebf1aab7, d7bb5de82236, 3e1a35f1b569, 2edfe8c68adb, a6fd10a206f7",
+          "Guo et al., arXiv:2606.22997; Hong, DOI:10.1016/j.crma.2016.06.001"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–63 and supporting verification package",
+        "Guo et al., arXiv:2606.22997",
+        "Hong, DOI:10.1016/j.crma.2016.06.001",
+        "OEIS A080170",
+        "Resultary db4eebf1aab7, d7bb5de82236, 3e1a35f1b569, 2edfe8c68adb and a6fd10a206f7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The October 18 proof explicitly writes X=N(q−1)+(N−q), uses Kummer’s exact residue test at every j, and counts the lowest a levels exactly as a−min(a,t), t=v_p(q−1). Its pure-power case has 1≤q−1<N and t<a."
+        ],
+        "reasoning": "For every higher level j=a+h (h≥1), the displayed X gives [X]_{p^{a+h}}=N[q−1]_{p^h}+N−q, since 0≤N−q<N. As [k]_{p^{a+h}}=N−1, the prior residue test is true exactly when [q−1]_{p^h}=0: if nonzero the residue is at least N, and if zero it equals N−q<N−1. There are therefore exactly t high levels and a−t low ones. This is direct substitution in the earlier proof’s formulas, with no further estimate or structural lemma. The earlier choice q=2 as a minimizing witness is not itself the reason for the verdict.",
+        "searches": [
+          "d7bb5de82236, RESULT.md, Proof ‘Lower bound for b<a’, offsets 1400–5213",
+          "db4eebf1aab7, Proof ‘Case a>t’, offsets 1250–3408"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "d7bb5de82236, Proof ‘Lower bound for b<a’: the valuation is the count of levels j with [qk]_{p^j}<[k]_{p^j}, where brackets are least residues. db4eebf1aab7 uses the equivalent Kummer criterion that the two summand residues add to at least p^j. Guo et al. give prime-support and divisibility criteria."
+        ],
+        "reasoning": "Digit sums, Kummer carries, and these residue comparisons refer to the same indexed binomial coefficients, not to a fixed upper index or to a Gaussian binomial. The earlier exact residue comparison is the mathematically relevant form for testing termwise novelty.",
+        "searches": [
+          "Resultary: binomial coefficient gcd D(k) from q=2 to k+1 upper qk lower k, k=p^a−1 prime power, each individual multiplier has exact valuation a across every q, uniform",
+          "Guo et al., arXiv:2606.22997, §§2.2 and 2.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A080170 indexes the unit-gcd predicate rather than the exact termwise valuations. The October indexed formulas give exact gcds, not merely initial tabulated values. The distinct same-day a6fd10a206f7 also gives a full gcd formula and a minimizing witness."
+        ],
+        "reasoning": "The indexed closed gcd formula is exact prior coverage of that conclusion. The date of the same-day record is not used to infer ordering, and the predicate table does not decide termwise coverage.",
+        "searches": [
+          "OEIS A080170",
+          "Resultary exact gcd and prime-power factorization records; especially d7bb5de82236 and 3e1a35f1b569"
+        ]
+      },
+      "rationale": "The exact gcd was already given for this family. Although the closest earlier gcd statements do not state every valuation as a theorem, the October 18 proof gives the exact all-level residue test, the exact low-block count, and X=N(q−1)+(N−q). In the pure-prime-power case, directly evaluating that test above the block counts exactly v_p(q−1) further carries, with all other levels automatically excluded. The termwise equality is mechanically implied by those available formulas, not by the minimum valuation alone.",
+      "residual_risks": [
+        "An additional exact external termwise antecedent may exist. A focused Jenkins comparison did not identify any pertinent primary source; that is not evidence of noncoverage.",
+        "No relative priority is inferred from the same-day hit; the concrete earlier indexed proof is sufficient for the mechanical implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact gcd coverage; termwise equality mechanically follows from its proof in the pure-power regime",
+          "evidence": [
+            "Exact least-residue inequality at any level; X=N(q−1)+(N−q); exact count of the first a boundaries."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-prime-power-valuations-of-a-binomial-coefficient-greatest--d7bb5de82236/RESULT.md",
+          "material_read": "Proof ‘Lower bound for b<a’, ‘Matching upper bound’ and ‘Extremal corollary’, offsets 1400–5213",
+          "method": "Resultary and local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact prime-power valuations of a binomial-coefficient greatest common divisor",
+          "trigger": "Earlier exact gcd and an all-multiplier carry test"
+        },
+        {
+          "assessment": "Exact gcd coverage; same carry-test structure",
+          "evidence": [
+            "Separates low and high boundaries and names q=p as a witness when the cofactor is one."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-exact-prime-power-factorization-of-the-binomial-progression-gcd--db4eebf1aab7/RESULT.md",
+          "material_read": "Proof lower bound and pure-power witness, offsets 1250–3408",
+          "method": "Resultary and local mirror",
+          "title": "Exact prime-power factorization of the binomial progression gcd",
+          "trigger": "Earlier strong formula for identical gcd and uniform carry lower bound"
+        },
+        {
+          "assessment": "Same gcd; states a lower bound for all multipliers and an exact minimum at q=2",
+          "evidence": [
+            "Pure-prime-power step gives at least a carries and exactly a for q=2."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-exact-prime-power-valuations-of-a-binomial-coefficient-gcd--3e1a35f1b569/RESULT.md",
+          "material_read": "Finding and Proof §4, offsets 0 and around 3600–5276",
+          "method": "Resultary and local mirror",
+          "title": "Exact prime-power valuations of a binomial-coefficient gcd",
+          "trigger": "Closest directly stated pure-power case"
+        },
+        {
+          "assessment": "Both cover the gcd corollary; the same-day record is not used to infer priority",
+          "evidence": [
+            "They prove the general gcd by lower bounds and explicit minimizing witnesses, treating the cofactor-one case separately."
+          ],
+          "identifier_or_url": "2edfe8c68adb; a6fd10a206f7",
+          "material_read": "2edfe8c68adb proof offsets 1400–4953; a6fd10a206f7 Finding and proof around offsets 1500–4790",
+          "method": "Resultary and local mirror",
+          "title": "Exact prime-power valuations of the fixed-lower-index binomial gcd; Exact prime-adic values of consecutive-multiple binomial gcds",
+          "trigger": "Other distinct exact formula overlaps, including a same-day hit"
+        },
+        {
+          "assessment": "Covers support and the unit-gcd criterion, not the exact valuation refinement in the cited statements",
+          "evidence": [
+            "Every prime divisor divides k+1; for p^a exactly dividing n, the associated p divides the gcd exactly when n/p^a≤p^a."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2606.22997",
+          "material_read": "Theorem 1, §2.2 Lemma 4 and §2.5 Lemma 9, offsets approximately 3518, 9655 and 21338",
+          "method": "OA HTML",
+          "title": "A Greatest Common Divisor Criterion of Certain Binomial Coefficients",
+          "trigger": "Source’s cited theorem on the exact same family"
+        },
+        {
+          "assessment": "Different varying index and hypotheses",
+          "evidence": [
+            "The upper index mn is fixed; k is restricted by gcd(k,m)=1."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.crma.2016.06.001",
+          "material_read": "Theorem 1.1, PDF p. 2 near offset 6358",
+          "method": "OA text/PDF",
+          "title": "The greatest common divisor of certain binomial coefficients",
+          "trigger": "Potential equivalence under a different gcd indexing"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Termwise valuation is a natural invariant and stronger than a minimum in isolation, but here it is exactly the fixed-block specialization of an earlier argument. The digit-sum presentation is a short verification of that consequence, not a separate new invariant, method of wider demonstrated use, or non-routine refinement. No distinct valuable claim remains to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

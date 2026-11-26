@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,32 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-From the embedded artifacts, run:
+# Independent mathematical audit
 
-```sh
-python3 verify.py
-c++ -std=c++17 -O2 verify_alt.cpp -o verify_alt
-./verify_alt
-```
+## correctness
 
-The Python program exhaustively enumerates all Hamiltonian paths of the Kneser graph, checks their complete rotation graph, tests the regular action of every element of \(S_5\), identifies four generators, and verifies the shortest-path distance shells from all states. It ends with `PRIMARY_CERTIFICATE_OK`.
+PASS
 
-The independent C++ program uses the pentagon/pentagram model \(GP(5,2)\), complete spanning-path enumeration, one-bit-per-edge masks and all unordered configuration pairs rather than generating rotations. It verifies the path count, all \(240\) single-edge reconfiguration edges, degree \(4\), and the same all-source distance shells. It ends with `ALTERNATE_CERTIFICATE_OK`.
+The separate finite check /workspace/branches/5e1de70f-c72b-48ff-9568-89b779f2d952/independent_check.py reconstructed KG(5,2), enumerated all ten-vertex spanning paths modulo reversal, and checked both-end rotations and BFS from every state. It obtained 120 paths (four for each of 30 nonedge endpoint pairs), 240 edges, degree four, and shells (1,4,11,25,39,29,11) at every state. The action preserves rotations. An element stabilizing the reference path cannot reverse it, since 01 and 24 are disjoint but their reversed images 14 and 04 are not; fixing the path pointwise fixes every two-subset and hence is the identity. The computed four reference neighbors give exactly the stated inverse pair, double transposition and transposition, with right multiplication as claimed; conjugates of (0 3) by (0 3 2 4) generate S_4 on its support, and (0 1)(2 3) then generates the missing transposition with 1. Full breadth-first enumeration gives eccentricity six. The edge-exchange criterion also follows: no old endpoints are adjacent in the non-Hamiltonian Petersen graph, so a one-edge addition must join an endpoint to an interior vertex; to undo the cycle and the degree-three vertex requires deleting the interior vertex's edge toward that endpoint. No frozen script was executed for the independent check.
 
-Observed outputs before packaging:
+## originality
 
-```text
-PETERSEN_PATHS_OK 120 ENDPOINT_PAIR_WITNESSES 4
-REGULAR_S5_ACTION_OK 120 GENERATORS ((1, 0, 3, 2, 4), (3, 1, 2, 0, 4), (3, 1, 4, 2, 0), (4, 1, 3, 0, 2))
-BACKBITE_CAYLEY_OK 240 EDGES
-EXACT_METRIC_OK [1, 4, 11, 25, 39, 29, 11] RADIUS 6 DIAMETER 6
-PRIMARY_CERTIFICATE_OK
-INDEPENDENT_GP_ENUMERATION_OK paths=120 endpoint_pairs=30
-INDEPENDENT_EDGE_FLIP_OK edges=240 degree=4
-INDEPENDENT_METRIC_OK shells=1,4,11,25,39,29,11 diameter=6
-ALTERNATE_CERTIFICATE_OK
-```
+PASS
 
-Limits: the proof is exhaustive because the finite state space is fully enumerated, not because of random trials. The programs make no assertion concerning graphs other than Petersen. Program agreement does not constitute an independent scholarly audit.
+The 120 path count and the existence of a containment-complex presentation of these paths are already covered. Supported distinct content is the exact backbite Cayley identification, including the right generators for the specified path, and the exact word metric distribution. No inspected prior statement supplies those invariants.
+
+## value
+
+PASS
+
+The known path count is not the gain. A natural non-Hamiltonian cubic test case lies outside the spanning-square connectivity theorem; identifying its reconfiguration graph with a specific S5 Cayley graph explains uniformity across all states and supplies exact answers for the reachability distance between configurations. The complete reference-path metric is a useful invariant of this specific move graph, not an arbitrary cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

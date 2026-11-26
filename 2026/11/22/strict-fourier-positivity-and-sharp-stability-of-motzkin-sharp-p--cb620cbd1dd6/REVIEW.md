@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The domain is ordinary one-color Motzkin excursions with the indicator of an *adjacent* \(UD\) pair, not a generic hump. The forcing bijection gives a finite exact inclusion-exclusion for every marked subset. The deletion identity is an equality of signed path sums (not a probabilistic approximation), with a smaller length and no negative boundary cases; the all-marked first-return recurrence has explicitly checked bases \(p_2=p_3=0\), \(p_4=p_5=p_6=1\). Induction proves the simultaneous bounds and strictness, the Walsh diagonalization gives exact spectral consequences, and square-root transfer yields the stated constant. The included exact checker independently compares path enumeration, weighted dynamic programming and separated-peak inclusion-exclusion for every frequency through length twelve. Infinite validity rests on the algebraic/inductive proof, not those computations.
+## correctness
 
-**Originality — PASS under bounded source comparison.** Sapounakis–Tsikouras [1, Proposition 3.6] explicitly contain the *univariate* number-of-peaks distribution. Thus the all-marked generating series alone is **covered**; it is used as an input, not presented as the independent novelty. The present claim is the *simultaneous strict positivity of all spatially marked sharp-peak Walsh coefficients* and their exact extremum/conditioning, which cannot be read off from only a univariate peak count. Ding–Du [2] studies total humps. Tirrell [3, Sections 1.4.4–1.4.6] includes marked negative peaks for an avoidance involution, producing a zero-weight forbidden local pattern, not the full \(-1\) pattern weight; a direct equivalence check found no statement implying this all-character positivity. The closest published-finding corpus Motzkin record examines up/down **step-position** profiles, a different incidence map. Primary PDF/full article and relevant thesis passages were read; an unindexed multivariate peak-weight equivalence in other literature remains possible.
+PASS
 
-**Value — PASS.** A classical Catalan-adjacent path family surprisingly yields globally positive Fourier multipliers under every independently selected local sign, with a strict least-stable character and an explicit exponentially growing sharp inversion condition number. These are infinite-order Fourier recovery and stability facts, beyond a routine signed peak enumeration or a finite checksum.
+Expanding the positionwise signs forces disjoint UD blocks; deletion preserves the excursion and is inverted by reinsertion at the specified positions. With one forced block at i, positions i−1 and i+1 cannot themselves start peaks; the surviving marked positions are unchanged to its left or shifted by two to its right. A new peak at the splice is not marked. Thus one mark deletion changes the multiplier by twice a lower-order multiplier. First return gives P=1+zP+z²P(P−2); the cancellation of the two p_0 terms gives the nonnegative recurrence for n≥3 with p_2=p_3=0 and p_4=1. Together these prove the sharp bounds and, using positivity at n−2≥4, strict mark deletion and uniqueness of the minimum from n=6. Ranks at n=2,3 follow from multipliers (2,0) and (4,2,2,0). Walsh diagonalization gives the exact inverse norm at n≥4. The singular coefficients are −2 at z=1/2 for P and −3√3 at z=1/3 for the ordinary Motzkin generating function, giving the claimed ratio and exponential rate. An independent direct enumeration of all frequencies at sizes 2–10 agrees, including three minimizers at n=4 and 5 and just one thereafter in that range.
 
-**Residual limits.** No assertion of priority against inaccessible or unindexed equivalent methods; no extension to non-Hilbert norms or other lattice-path ensembles. The 2015 general weighted-polynomial article was assessed at abstract level, not as a full-text negative novelty certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the simultaneous positional spectrum and its sharp extremizer, strictness threshold, ranks and conditioning, not for the all-marked generating function in isolation. Closest indexed results concern a different profile or path family, while classical total-peak counting determines only one of the multipliers.
+
+## value
+
+PASS
+
+The natural peak-profile counting kernel could have Fourier cancellation despite its nonnegative entries. The result identifies exactly when inversion begins, a unique worst mode from a sharp size threshold, and the rate at which conditioning deteriorates. This gives an all-order structural answer beyond counting total peaks or enumerating a finite spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

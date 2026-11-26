@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The family equation agrees with Asgarli–Ghioca (Theorem 1.2). Exact enumeration checks all admissible parameters for the three primes, and all 12 dehomogenized Jacobian ideals have Gröbner basis consisting of the unit. The standard Hasse–Witt coefficient formula computes every entry without approximation; determinants and two complementary rank certificates establish the stated arithmetic types. The Frobenius-stable rank and genus yield the Newton slopes. The local package recomputes the certificates with two coefficient-expansion methods. No extrapolation to further primes is asserted.
+## correctness
 
-**Originality — PASS, subject to residual literature risk.** The defining primary source (arXiv:2307.03072) gives the geometric family and rational-point smoothness criterion, but does not determine these Jacobian ranks. Duran Cunha (arXiv:1805.07345) proves ordinarity for a different family of degree-\(p+2\) curves. Adolphson–Sperber and Kudo–Harashita give general machinery, without tabulating the specific smooth \(p+3\) members. Targeted literature and mathematical-database comparisons disclosed no equivalent statement. General methods can of course reproduce the result, and incomplete indexing of specialized tables remains a risk.
+PASS
 
-**Value — PASS.** The arithmetic transition is motivated by the published extremal plane-filling construction: all its smooth members for the first two odd primes are ordinary, while all those at the next odd prime have a single nonordinary factor in their Newton data. The precise \(p\)-rank and \(a\)-number are natural invariants relevant to Jacobian arithmetic, and the all-admissible-parameter classification identifies a first finite-field boundary rather than an arbitrary slice of a parameter space. The scope is deliberately finite, with no unsupported general-prime theorem.
+The frozen four smooth-case entries were independently reproduced over the specified prime fields, together with all exclusions by rational singular witnesses, chart-unit-ideal tests and first and second Hasse–Witt ranks. The characteristic-seven Newton slopes follow from duality and divisibility of slope multiplicities by reduced denominators. The repair retains only characteristic five: chart tests prove that k=4 is geometrically smooth and direct rational witnesses exclude k=0,1,2,3. The plane-divisor cohomology identifies the 21-row coefficient matrix from F_4^4, with the source index in rows. The exact determinant is 4 modulo 5; hence the stable rank is 21 and the first rank defect is zero. The replacement script was run and passed, and the replacement verification front matter matches the original verbatim.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The frozen three-prime claim cannot pass as a wholly distinct classification: the exact characteristic-three arithmetic occurs in a same-day Resultary record, and both characteristic-seven entries and their Newton polygon occur in a later record. This is demonstrable overlap, not an inference about historical priority. The repair isolates the natural characteristic-five member. Its smoothness (already covered) identifies the object; its 5-rank 21 and a-number zero are the only distinctive arithmetic claimed. Targeted catalogue and literature comparisons found no exact table entry or broader theorem supplying those values.
+
+## value
+
+PASS
+
+The surviving value is an exact arithmetic stratum for the unique smooth plane-filling octic in a named existence pencil, not another computation of already known smoothness or a table of arbitrary parameters. Ordinarity is a natural question about this Jacobian, and the exact genus, 5-rank and a-number supply a concrete ordinary point for comparisons with the same pencil in other characteristics. For example, they separate this characteristic-five member from the known nearly ordinary characteristic-seven ones without inferring a general prime trend.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

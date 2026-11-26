@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproduction
+# Independent mathematical audit
 
-The mathematical proof is in `RESULT.md`, Steps 1–4. The key logical test is the distinction between a tuple generating an incidence algebra over its entire field of scalars and generating the same underlying unital ring from the tuple and the identity alone.
+## correctness
 
-Run `python3 verifier.py` with Python 3.10 or later. The program independently closes the unital prime-field additive span of each tuple under matrix multiplication and compares its size with the full incidence algebra. The code does not use the Frobenius criterion to decide generation. It exhaustively processes all ordered tuples for \((q,n,k)=(2,2,2),(3,2,2),(4,2,1),(4,2,2),(2,3,2)\) on chains, for a three-vertex fork over \(\mathbb F_2\) with two matrices, and for a two-vertex discrete poset over \(\mathbb F_4\) with two matrices. Polynomial-basis arithmetic handles \(\mathbb F_4\); modular arithmetic handles prime fields.
+PASS
 
-The expected generated-tuple counts are \(24,432,0,1440,384,96,120\), respectively. A successful execution prints `VERIFY_OK`. The checks cover chains, a fork, and a discrete poset; the theorem for all finite posets and all finite fields is established symbolically rather than by finite experiment.
+The diagonal image is polynomial evaluation from F_p[X_1,…,X_k]. Each coordinate is onto exactly when its label generates F_q, or has Frobenius orbit length e; equal kernels for two surjective evaluations are equivalent to conjugacy by a Frobenius power. Distinct maximal kernels give simultaneous surjectivity by CRT, and subfield Möbius inversion gives the number of full orbits. On a cover, the two-by-two restriction is a quotient map. Once its diagonal is full, a nonzero radical kernel gives the whole off-diagonal line by left scalar multiplication using diagonal lifts. If the kernel vanishes the image is commutative; commuting with the lift of (1,0), having off-diagonal entry t, forces each generator's cover entry to be t times its difference of diagonal entries. Conversely this common t places the image in a proper conjugated diagonal algebra. Globally, B∩J is nilpotent and B/(B∩J) is the full separable diagonal product over F_p. A Wedderburn–Malcev complement inside B is also a complement to J in A, so conjugacy by 1+J moves it to the standard diagonal algebra. Conjugation preserves cover-surjectivity; diagonal idempotents then cut out arbitrary cover matrix units with coefficients, whose saturated-chain products give every allowed entry. Thus given valid diagonals, cover restrictions factor independently and the noncovers are free. The count, probability, ratio where defined, and minimum follow, including c=0, k=1 and e=1. Independent exact replay `python3 /workspace/reproductions/incidence_gf4.py` used the F_2-span of words on the two-vertex algebra and returned 1440 unassisted and 2880 scalar-assisted pairs out of 4096; this checks the example, not the universal proof. The frozen verifier was read, not executed.
 
-The mathematical argument invokes the classical Wedderburn–Malcev splitting/conjugacy theorem for finite-dimensional associative algebras over perfect fields. It does not provide a computer-formal proof of that standard theorem. The paper-level novelty comparison is necessarily bibliographic, not a proof of uniqueness. Independent validation and external auditing have not been performed.
+## originality
+
+PASS
+
+The supported distinct contribution is the complete count for nonprime coefficients without adjoining field scalars, including its local-to-global lifting and the exact factorization. The scalar-assisted law (and thus the prime-field case) and the diagonal quotient count are prior. The full 2023 generator paper could not be inspected; this is a named residual risk, not proof for or against coverage.
+
+## value
+
+PASS
+
+Generation without the coefficient field is a natural distinct operation. The exact law resolves the interaction of a Galois-separation requirement and a nonzero radical, for arbitrary posets and every positive tuple length, with a clean conditional cover count and a poset-independent ratio once size is fixed. It determines when the known scalar-assisted census overstates generation and by precisely how much. The F_4 example exhibits the difference but is not the contribution by itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

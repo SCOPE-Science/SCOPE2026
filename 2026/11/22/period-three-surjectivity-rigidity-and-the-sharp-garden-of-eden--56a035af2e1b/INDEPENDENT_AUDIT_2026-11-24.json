@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:16:43.565331Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–49; VERIFICATION.md and both C++ checkers inspected",
+        "Replay: python3 /workspace/branches/replay_period3.py START STOP with NumPy; exact ranges [0,64), [64,128), [128,192), [192,256) and output JSONL in /workspace/branches/replay5/"
+      ],
+      "rationale": "For an output block at sites 0,1,2 the input window is at -1 through 3; two consecutive blocks share exactly the last two input bits of one window and the first two of the next. Thus labeled paths from the full set of boundary pairs characterize finite phase-aligned realizability. Shifts by multiples of three respect the rule assignment. Extending any finite prescribed output segment to aligned block boundaries gives finite solvability from all-block realizability; compactness of the bilateral binary full shift and closed preimage cylinders give a full preimage. Subset reachability from 15 to 0 therefore decides onto-ness and shortest length, with BFS run to actual closure; a shortest path to 0 cannot repeat a nonempty state. An independently written integer-array census constructs one-site maps and composes them, rather than building five-bit three-site windows as the supplied checkers do. A bounded four-way partition over the first rule covers every one of 16,777,216 triples exactly once. For shortest lengths 0 (onto), 1, 2, 3, 4 the exact counts are 12888, 7476480, 8825488, 453144, 9216; every higher bin is zero. Single-site automata detect precisely 30 homogeneous onto rules and give survivor masks 000 through 111 of 0,0,0,928,0,928,928,10104. Independently the witness (22,22,90) first reaches the empty set at depth four and repeated 010 gives masks 15,7,6,2,0. The triple (23,60,102) reaches closure without zero, with only its first constituent non-onto homogeneously. These confirm the full census, rigidity, and both sharpness claims under the stated block alignment.",
+      "residual_risks": [
+        "Finite computation supplies the counts after the rigorous finite-state reduction; no formal proof-assistant certification. The frozen grouped checker's flattened initialization of the nested ex array is not needed for the independent replay. No interpretation as a shortest unaligned bit word or finite-ring result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Recurrent-rule GoE equivalence applies to period-three. Salo credits the sofic language of surjective distributions and illustrates a De Bruijn-NFA/subset construction, with Proposition 3 for specified maps on Z_n, not a table for all 256 elementary rules."
+        ],
+        "reasoning": "The known general framework is not new here and can enable an exact calculation in principle. No verified prior statement fixes the resulting count, sharp depth-four horizon, or exclusion of two non-onto constituents. The method alone gives a larger generic finite-state depth bound.",
+        "searches": [
+          "Paturi–Kari Theorem 2; Salo abstract/introduction and Proposition 3 plus elementary-rule examples; Dennunzio–Formenti–Provillard 2012 journal and distinct LATA reference"
+        ]
+      },
+      "checked_sources": [
+        "Paturi–Kari and Salo primary passages; Dennunzio–Formenti–Provillard access and bibliographic comparison",
+        "Local exact identity hit and mirrored separate closest related findings above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A generic recognizer can test repeated rule words; the accessible primary results do not provide a precomputed 256-rule automaton/table containing these period-three results. Pre-injectivity equivalence contains no shortest-output-word statistic. The verified period-two horizon concerns two-cell blocks and a different set of maps."
+        ],
+        "reasoning": "The ordinary automata reduction is credited. The exact depth distribution and classification by homogeneous surjectivity require additional nontrivial reachability and census work; they are not merely an evaluation of a reported prior table or a substitution in a prior numerical theorem.",
+        "searches": [
+          "Compare primary known equivalence and sofic rule-language scope with the frozen four-boundary-state census and its exact witness; inspect mirrored distinct findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The finite aligned language is universal iff the bi-infinite CA is onto, and the elementary rule word fgh repeated in space is a periodic surjective-rule-language query. Paturi–Kari Theorem 2 also makes onto equivalent to pre-injectivity for these recurrent distributions."
+        ],
+        "reasoning": "These are equivalent tests of surjectivity. Neither the equivalence alone nor the existence of a language recognizer counts all ordered triples by constituent homogeneity or provides their shortest missing whole-block words. Finite cyclic input/output rings and unaligned word length are not equivalent to the declared scope.",
+        "searches": [
+          "Local Resultary nonuniform elementary cellular automata, ordered period-three surjectivity/onto, Garden-of-Eden cutoff and constituent rigidity",
+          "Salo, Realization Problems for Nonuniform Cellular Automata; Paturi–Kari arXiv:2507.06987"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit ending 56a035af2e1b is the assigned result. The inspected distinct 0611d3cb97b2 reports period-two elementary rules: 708 onto out of 65536, sharp five aligned pairs. Other distinct same-date 025e46223371 and 5550b94658cc cover alternating number-conserving four-input and homogeneous four-input rules respectively."
+        ],
+        "reasoning": "The self-hit is not independent coverage. The changed periods, arities and admissible rule sets in the other findings are not reformulations supplying the period-three masks or depth census. An assignment of fundamental period three is not a specialization of a period-two family. The same date establishes no chronology.",
+        "searches": [
+          "Local Resultary ordered period-three elementary rule triples, exact 12888/forbidden four-block cutoff, alternating elementary GoE; local mirror of nearest findings"
+        ]
+      },
+      "rationale": "The general surjective-rule language, automata method, and applicability of the recurrent-distribution Garden-of-Eden theorem are existing coverage. The supported distinct contribution is the full quantitative census and the exact phase-aligned horizon and constituent constraint for all ordered spatial period-three elementary assignments. Closest inspected indexed data concern other periods or local input arities; none verified supplies this census or obstruction.",
+      "residual_risks": [
+        "The Dennunzio–Formenti–Provillard journal full text was not accessible in the attempted routes; uninspected literature or an undocumented equivalent table could contain overlap. Access failure was not used as evidence of noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified broad qualitative equivalence, not the quantitative questions",
+          "evidence": [
+            "For a recurrent one-dimensional distribution, surjectivity is equivalent to pre-injectivity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2507.06987",
+          "material_read": "Theorem 2, PDF p. 8, extracted offsets about 22300–22700",
+          "method": "Open arXiv primary text",
+          "title": "On the surjunctivity and the Garden of Eden theorem for non-uniform cellular automata",
+          "trigger": "General theorem encompassing periodic assignments"
+        },
+        {
+          "assessment": "Prior general framework and specific constructions; inspected material does not report these ordered triples",
+          "evidence": [
+            "Sofic language of surjective distributions credited to prior work; Proposition 3 uses a De Bruijn NFA with combined output/rule labels for its specified maps."
+          ],
+          "identifier_or_url": "https://villesalo.com/article/RPfNCA.pdf",
+          "material_read": "Abstract/introduction PDF pp. 1–2, Proposition 3 and elementary examples pp. 10–11, references p. 27",
+          "method": "Open author PDF and relevant passages",
+          "title": "Realization Problems for Nonuniform Cellular Automata",
+          "trigger": "Rule-language automata or exact elementary-rule examples"
+        },
+        {
+          "assessment": "General setting established in accessible evidence; exact full-text coverage unresolved",
+          "evidence": [
+            "Salo attributes the sofic-language result to the separate LATA reference; journal full text was not retrieved."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.ic.2012.02.008",
+          "material_read": "Journal landing/abstract, plus Salo's introductory attribution and references to the separate LATA 2012 paper Computational complexity of rule distributions of non-uniform cellular automata",
+          "method": "Lawful DOI and publisher PDF/HTML attempts; secondary reference comparison",
+          "title": "Non-uniform cellular automata: Classes, dynamics, and decidability",
+          "trigger": "Possible general recognizer or exact table of elementary rules"
+        },
+        {
+          "assessment": "Period-two analogue, not period-three coverage",
+          "evidence": [
+            "65536 ordered pairs, 708 onto, sharp horizon five two-cell blocks."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-five-pair-garden-of-eden-test-for-all-alternating-elemen--0611d3cb97b2",
+          "material_read": "Mirrored RESULT.md Finding and Proof",
+          "method": "Local Resultary index and GitHub mirror",
+          "title": "A sharp five-pair Garden-of-Eden test for all alternating elementary rules",
+          "trigger": "Closest distinct same-date exact census and cutoff"
+        },
+        {
+          "assessment": "Four-input and number-conserving alternating rules",
+          "evidence": [
+            "Among 174 conserving pairs, 16 onto; three-pair horizon."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-three-pair-garden-of-eden-test-and-sixteen-surjective-al--025e46223371",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Local Resultary index and GitHub mirror",
+          "title": "A sharp three-pair Garden-of-Eden test and sixteen surjective alternating cases",
+          "trigger": "Related alternating cutoff and census"
+        },
+        {
+          "assessment": "Uniform four-input rules, rather than period-three spatial mixtures of elementary rules",
+          "evidence": [
+            "Sharp 18 raw-output-symbol horizon and 582 onto rules."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-first-forbidden-block-horizon-for-every-four-input-binary--5550b94658cc",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Local Resultary index and GitHub mirror",
+          "title": "Sharp first-forbidden-block horizon for every four-input binary rule",
+          "trigger": "Related exact horizon"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–49; full independent replay and witness tests; primary automata comparisons above"
+      ],
+      "rationale": "Mixing elementary rules spatially asks when globally onto behavior survives heterogeneous local dynamics. The first period beyond simple alternation gives a complete finite benchmark, a sharp uniform decision horizon much smaller than the generic subset-state bound, and a precise constraint on how many individually non-onto constituents can be rescued. Both sharp examples clarify the meaning of the census, and the phase scope is natural because period-three rescaling gives a block shift.",
+      "residual_risks": [
+        "No broader structural characterization for arbitrary rule periods or arities; the threshold is for aligned whole three-cell blocks only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

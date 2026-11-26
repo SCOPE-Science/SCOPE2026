@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:56:05.806880Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The 27 divisor classes span Picard and the anticanonical class A is primitive, so its inverse image is saturated of rank 21. Reconstructed the 45 tritangents directly from the two standard types and the Steiner grids by testing transversals of disjoint rows, rather than reusing the frozen program's partition-multiplicity test. A new exact Smith computation in /workspace/branches/reproduce_steiner_independent.py found 45 and 120 columns and invariant factors 1^21,0^6 and 1^20,3,0^6, respectively. The grid condition is the geometric conjugacy condition: a distinct tritangent cannot contain two lines of another tritangent, because they uniquely determine their common plane. The frozen same-row determinant method also has the right logic: the unit minor identifies the whole saturated target, the +3 minor bounds the relative index, and every grid maps to 3A under pi, giving the opposite bound by a surjective mod-three map. These are universal finite configurations in the stated characteristic-zero geometric setting, not a sample of surfaces. Read, but did not execute, the frozen verifier.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The tritangent result gives im B=pi^(-1)(ZA), a primitive rank-21 lattice.",
+          "The primary geometry papers give the 27 lines, 45 tritangents and 120 grids, with the 20+10+90 types, not the line-lattice cokernel."
+        ],
+        "reasoning": "Prior enumeration alone supplies only columns. The full-rank six-plane result supplies the decisive stronger integral bound after taking the image by B.",
+        "searches": [
+          "Resultary: integral tritangent presentation of the E6 weight lattice, d458bb2de263",
+          "arXiv:1006.1474, §2, Fact 2.9; doi:10.1007/s40879-017-0182-0, §2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5e25465878b3",
+        "Resultary d458bb2de263",
+        "Resultary 511e3e06b7dc",
+        "arXiv:1006.1474",
+        "doi:10.1007/s40879-017-0182-0",
+        "arXiv:2002.10367, abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The index of im C in Z^45 is 3 times 2^22. Applying B makes L_Tr/(2L_St) its quotient, and [L_Tr:2L_St]=2^21 [L_Tr:L_St]. Hence the desired index divides 6 and is divisible by 3 by the anticanonical coefficient.",
+          "If the index were 6, L_Tr/L_St would have a canonical quotient of order two. The symmetry on all tritangents is transitive: label permutations suffice within each of the two types, and the reflection in H-E1-E2-E3 takes {E1,L14,Q4} to {L23,L14,L56}. This standard configuration symmetry preserves Steiner supports.",
+          "The induced invariant nonzero functional L_Tr→Z/2 must be 1 on every tritangent generator, hence is the coefficient of A modulo 2. It takes value 1 on each grid (class 3A), contrary to vanishing on L_St."
+        ],
+        "reasoning": "The index is thus 3 and the degree map identifies the kernel and Smith form. This closes an implication that the Smith factors alone, with no configuration symmetry, would leave open. It is demonstrable coverage by a stronger available computation and canonical symmetry, not a finding of relative priority.",
+        "searches": [
+          "Resultary 5e25465878b3, Smith certificate and composition with tritangent incidence",
+          "Resultary d458bb2de263, primitive tritangent lattice",
+          "arXiv:1006.1474, standard cubic line and tritangent configuration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A six-plane grid counts every support line twice: if C is the six-plane map, B the tritangent-to-line map, and N the once-counted nine-line map, then BC=2N.",
+          "The toric record's cubic exchanges enumerate the same classical grids through common monomial signatures, but its exchange statements do not themselves calculate the line image."
+        ],
+        "reasoning": "The two incidence maps are not identical. The exact composition, not title similarity or the existence of a different Smith form, is the relevant comparison.",
+        "searches": [
+          "Resultary: Steiner pairs, nine-line supports, integral incidence and Smith factors",
+          "Resultary 5e25465878b3, six-plane map; Resultary 511e3e06b7dc, cubic Steiner exchanges"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 27-by-120 title hit 8a178617dee9 is the assigned record itself.",
+          "The distinct 45-by-120 six-plane record gives full-rank exact Smith factors (1^24,2^20,12) and a certified integral diagonalization. The classical valency 40 alone does not determine the Smith form."
+        ],
+        "reasoning": "No distinct identical table was established; the six-plane table instead implies the claimed index through composition and symmetry.",
+        "searches": [
+          "Resultary: 27-by-120 Steiner support incidence, Smith and index-three quotient",
+          "Resultary 5e25465878b3, Finding and proof §§1–3"
+        ]
+      },
+      "rationale": "The line matrix differs from the six-plane matrix, but the exact claim is a short corollary of the stronger available six-plane Smith result and the prior primitive tritangent theorem once their natural composition and the transitive tritangent symmetry are used. The identical assigned catalogue hit is not separate evidence. The six-plane record is distinct and dated the same day; its relative chronology is not established by that date.",
+      "residual_risks": [
+        "Chronology between the separate same-day incidence records is not established.",
+        "A low-signal literature query was not used as negative evidence; historical integral design tables could also contain the invariant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct six-plane map, with a stronger index bound that leads to this line map's exact index",
+          "evidence": "Full rank on 45 tritangent labels; 24 unit, 20 order-two, and one order-twelve factor; composing with line incidence gives twice the nine-line support.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-integral-steiner-trihedral-reconstruction-lattice-of-cubic-s--5e25465878b3",
+          "material_read": "Finding and proof §§1–3, local mirror offsets 0–6275, including the exact certificate and each line counted twice",
+          "method": "Resultary lookup and bounded local-mirror passages",
+          "title": "The integral Steiner-trihedral reconstruction lattice of cubic-surface tritangents",
+          "trigger": "Same 120 pairs and an integral incidence Smith table"
+        },
+        {
+          "assessment": "Exact antecedent for the tritangent image",
+          "evidence": "The 45 three-line columns generate pi^(-1)(ZA), with primitive image and 21 unit Smith factors.",
+          "identifier_or_url": "2026/11/2/SCOPE-integral-tritangent-presentation-of-the-e-6-weight-lattice--d458bb2de263",
+          "material_read": "Finding offsets 0–2693",
+          "method": "Resultary and local-mirror passage",
+          "title": "Integral tritangent presentation of the E6 weight lattice",
+          "trigger": "Ambient lattice in the claimed index"
+        },
+        {
+          "assessment": "Binomial relation lattice rather than support image",
+          "evidence": "120 cubic Steiner exchanges, whose signatures reproduce support enumeration, not its Smith form.",
+          "identifier_or_url": "2026/11/2/SCOPE-the-540-indispensable-quartic-trades-of-the-cubic-surface-tritan--511e3e06b7dc",
+          "material_read": "Finding and proof offsets 0–5100",
+          "method": "Resultary and local-mirror passages",
+          "title": "The 540 indispensable quartic trades of the cubic-surface tritangent configuration",
+          "trigger": "Steiner exchanges could encode the same support vectors"
+        },
+        {
+          "assessment": "Geometric enumeration, not a support cokernel theorem",
+          "evidence": "120 Steiner pairs with 20+10+90 support types and support-intersection data.",
+          "identifier_or_url": "https://arxiv.org/pdf/1006.1474",
+          "material_read": "§2 Fact 2.9, p. 5, extracted offset 11960",
+          "method": "Bounded OA PDF passage",
+          "title": "Cubic surfaces with a Galois invariant pair of Steiner trihedra",
+          "trigger": "Classical Steiner pair support types and incidence counts"
+        },
+        {
+          "assessment": "Geometry and incidence labels, not the characteristic-zero formal lattice quotient",
+          "evidence": "27 lines, 45 tritangents and 120 trihedral pairs in the standard types.",
+          "identifier_or_url": "https://doi.org/10.1007/s40879-017-0182-0",
+          "material_read": "§2, pp. 40–42, extracted offsets 8290 and 11577",
+          "method": "Bounded lawful Springer PDF passages",
+          "title": "Classification of cubic surfaces with twenty-seven lines over the finite field of order thirteen",
+          "trigger": "Possible exact design/geometry table"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The natural line-support normalization and exact obstruction would be worthwhile independently, but the available exact six-plane index bounds this to 3 or 6 immediately, and tritangent transitivity with odd Steiner degree excludes 6. No further independent invariant is obtained in the frozen claim. The rejection is of the claim as a distinct finding, not of the usefulness or correctness of its certificate.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

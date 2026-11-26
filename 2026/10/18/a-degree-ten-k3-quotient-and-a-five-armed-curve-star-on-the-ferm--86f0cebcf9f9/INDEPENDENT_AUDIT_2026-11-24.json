@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:27:18.024131Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5",
+        "Frozen VERIFICATION.md and artifacts/check_fermat_quintic_star.py (inspected, not executed)",
+        "/workspace/reproductions/finite_checks.py 1"
+      ],
+      "rationale": "Taking the graded invariants gives the asserted equation. The projective fixed loci are v=0 (a smooth fixed quintic with reflection action in its normal direction) and the isolated point in the v-chart. At the latter the u derivative is 5 and the remaining smooth coordinates z,w are acted on by simultaneous sign, yielding exactly one A1 point. Weighted adjunction, crepancy and the invariant summand of H^1 of the quintic, preserved by resolution of the rational singularity, give K3. The degree-two sections have no common zero; pullback from the ample Cartier O_Y(2) gives nef and big, with only E contracted. The square is 10 and cannot be divisible by the square of any integer at least 2. Locally on the resolution use q=z/w and p=w^2: the exceptional is p=0 and the five strict transforms are q=beta with distinct simple roots. The equation at v=1 gives u as w^5(q^5+1) times a unit; u^2 pulls back to order 5 on p=0 and order 2 on each arm. Thus the divisor identity is integral and linear, not just numerical. Adjunction and the Schur complement give the star's signature and determinant. The t=0 plane quintic is disjoint from o, maps isomorphically from the fixed curve, and is a genus-six member of H. Coordinate permutations and diagonal fifth-root scalings give the stated conjugacies. Independent replay: python3 /workspace/reproductions/finite_checks.py 1 checks the polynomial, square completion, local leading form and lattice identities; the geometric assertions are proved analytically.",
+      "residual_risks": [
+        "The configuration is a sublattice, not an assertion about its saturation or the full Néron–Severi group."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Miura–Takahashi classify the order-two Fermat reflections and give the transposition example.",
+          "Miura–Taki use quasi-Galois embeddings of degree-four surfaces to describe 2-elementary K3 surfaces of type (8,8,1)."
+        ],
+        "reasoning": "Reflection classification gives the group action, not the weighted quotient and the resolved polarization. In the quartic paper the K3 is the quartic, not the resolution of the Fermat quintic quotient.",
+        "searches": [
+          "arXiv:2610.09331v1",
+          "arXiv:2608.25445v1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.09331v1",
+        "arXiv:2608.25445v1",
+        "Resultary d9b4d7a381ac (actual Finding), 5c5d13b74e21, 64e78ac69b25 and c5ea883c23d9 (index statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classification implies the count and conjugacy, credited as prior input. Weighted adjunction and A1 resolution are standard, but the five directions, the Cartier pullback multiplicity five and the marked branch member require the special equation and local geometry."
+        ],
+        "reasoning": "No stronger inspected theorem supplies those marked statements as a special case. Distinctness is claimed for their explicit geometric synthesis, not the group classification, weighted K3 criterion or general properties of a double plane.",
+        "searches": [
+          "Miura–Takahashi Thm. 1.8, Example 4.3, Prop. 4.5",
+          "d9b4d7a381ac Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Completing the square in the quotient gives a birational double plane with equation 5y²=u(4u⁵−16z⁵−16w⁵), y=u(t+u²). The branch is a line and a smooth plane quintic meeting transversely at five points.",
+          "The inspected d9b4d7a381ac finding has two double-plane models of a different cubic-fourfold-associated K3, with smooth sextic and single-node sextic respectively."
+        ],
+        "reasoning": "The alternate model matters for detecting equivalent coverage; the actual sextics in the inspected record are not the line–quintic branch model or the marked quotient construction here.",
+        "searches": [
+          "Resultary: Fermat quintic transposition quotient, degree-ten K3, five-arm configuration and double plane",
+          "Resultary 2026/10/4 d9b4d7a381ac"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned related index entries concern a Klein cubic threefold quotient, Fermat quintic line arrangements over F2, and a degree-two del Pezzo quotient of a symmetric quartic, respectively; none of their returned statements matches the marked K3 quotient."
+        ],
+        "reasoning": "The same-day hit concerns a different variety and group; the line-incidence and double-plane hits concern different geometric constructions. These are bounded index comparisons, not a database proof of noncoverage.",
+        "searches": [
+          "Resultary searches for the exact title and the degree-ten Fermat quotient with five-arm intersection lattice",
+          "Resultary 2026/10/18 5c5d13b74e21; 2026/10/26 64e78ac69b25; 2026/11/22 c5ea883c23d9"
+        ]
+      },
+      "rationale": "Best of the comparisons made, prior sources cover the involutions and general geometric tools, not the specific Fermat transposition quotient together with the marked configuration and polarization degeneration. The degree-ten K3 is its minimal resolution, not the singular weighted quotient itself.",
+      "residual_risks": [
+        "An older equivalent special double-plane or lattice-polarized K3 description may exist. The Lehrer–Taylor reference was not independently read; the full c5ea883c23d9 text was not retrieved. The available indexed comparisons are not priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior for the reflections but not covering the marked quotient in the inspected passages.",
+          "evidence": "Theorem 1.8 gives d(n+2)(n+1)/2; Example 4.3 gives the swap, and Proposition 4.5 gives r_{e_i−ζe_j,−1}.",
+          "identifier_or_url": "https://arxiv.org/html/2610.09331v1",
+          "material_read": "Theorem 1.8, Example 4.3, Proposition 4.5",
+          "method": "OA HTML passage inspection",
+          "title": "Projective Lifting Theorem, Complex Reflection Groups, and Quasi-Galois Points for Fermat Varieties",
+          "trigger": "Identical Fermat involutions"
+        },
+        {
+          "assessment": "Different underlying quartic and involution geometry.",
+          "evidence": "Main Theorem relates smooth quartic quasi-Galois embeddings to K3 type (8,8,1); Proposition 3.1 gives a quartic normal form.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.25445v1",
+          "material_read": "PDF pp. 1–2 (abstract and Main Theorem), p. 5 Proposition 3.1",
+          "method": "OA passage inspection",
+          "title": "Quasi-Galois Points for Quartic Surfaces",
+          "trigger": "Potential closely related 2-elementary K3 result"
+        },
+        {
+          "assessment": "Different double planes and contracted configuration.",
+          "evidence": "One branch sextic is smooth, the other has exactly one ordinary node with a single contracted curve; base surface is V(A,B) in P²×P² from a specified cubic fourfold.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-asymmetric-double-plane-models-of-an-explicit-degree-14-k3-surfa--d9b4d7a381ac/RESULT.md",
+          "material_read": "Finding and Assumptions, local-mirror offsets 0–2180",
+          "method": "Read actual frozen mirror passages after Resultary hit",
+          "title": "Asymmetric double-plane models of an explicit degree-14 K3 surface",
+          "trigger": "Plausible alternate double-plane description"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§3–5",
+        "Miura–Takahashi Theorem 1.8 and Proposition 4.5"
+      ],
+      "rationale": "The classified Fermat involutions motivate asking what surface one obtains. The integral nef genus-six polarization and all six named curves, rather than just the K3 label, provide useful geometric data for classifying or comparing the model and its degree-two alternative. The reducible member and the fixed smooth member are in the same concrete linear system.",
+      "residual_risks": [
+        "No claim of genericity, full Picard classification or extension to arbitrary quintic involutions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

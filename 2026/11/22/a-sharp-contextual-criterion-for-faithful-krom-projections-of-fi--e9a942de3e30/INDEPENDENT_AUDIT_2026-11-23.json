@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:28:37.786502Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 26–50",
+        "Frozen VERIFICATION.md and verify.py (static inspection; replay path verify.py)"
+      ],
+      "rationale": "Replacing a nonempty rule body by one of its members strengthens the implication. Thus every projected model is a source model, and the projected least model equals M_F exactly when M_F satisfies every selected unary implication. For each body this permits precisely the atoms present in none of the M_F missing its head; retained facts and duplicate unary rules do not alter the test. Empty context families are vacuous. When no atom is permitted, pick a blocking context for each body member. A single width-t conjunction with t singleton body-member contexts (t≥2) forces all t contexts in a minimal obstruction. For the original least model alone, a missing head implies a missing body member. For all fact contexts, the singleton {b} tests entailment of a by b, which then holds in every source model containing b. For m=max(1,w(P)), start the padded body enumeration with the faithful choice and distribute the rest across factors. This reconstructs each original body (and every fact) in the body-union. Each factor's least model contains M_F and the first equals it, proving intersection equality including width zero. This does not require syntactic equality of programs.",
+      "residual_risks": [
+        "The reported finite comparison count is consistent with the loop sizes; the supplied script was not executed. The general proof, not those comparisons, handles arbitrary finite alphabets and designated context families.",
+        "No claim about negative rules, arbitrary rule extensions or necessity of one faithful factor for a jointly exact factor intersection."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 66 gives exact syntactic and least-model decomposition under the minimalist restriction; multiple clauses per head in the present domain may introduce cross-combined rules. Theorem 68 applies to arbitrary programs but gives upper inclusions.",
+          "The operator identities T_P(I)=PI and LM(P)=P^ω represent closures but supply no simultaneous projected choice from body atoms."
+        ],
+        "reasoning": "Minimalist syntactic exactness does not dominate a theorem for arbitrary programs; the unrestricted upper inclusion is not equality. The general operator representation does not establish the existence or size-of-obstruction claims.",
+        "searches": [
+          "Antić, Set-like Operations, Theorems 66 and 68",
+          "Antić, Sequential composition of propositional logic programs, §6.1 Theorems 35 and 40"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact frozen hit and related record 6a8acbcf31f9",
+        "Antić, Set-like Operations, Theorems 66 and 68",
+        "Antić, arXiv:2302.04664v2 §5",
+        "Antić, Sequential composition, §6.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The arbitrary-program theorem provides the source-to-factor inclusions without a selected factor that realizes equality. Uniform equivalence starts after two Krom programs are given. None of these statements gives the per-atom blocking contexts or the width-tight family."
+        ],
+        "reasoning": "The record reuses the body-union construction pattern, but needs the least-model witness test to choose a single factor exact across the designated contexts and a hitting argument for sharp obstruction. It does not claim the converse for jointly exact intersections.",
+        "searches": [
+          "Antić, Set-like Operations, proof of Theorem 68 and cross-combination discussion",
+          "Antić arXiv:2302.04664v2 §5; Sequential composition §6.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For all fact contexts the criterion is equivalent to each source clause admitting a unary consequence from one of its body members, tested in the closure of that singleton; for restricted contexts it is instead a validity test only on the specified M_F.",
+          "Antić §5 characterizes uniform equivalence of two already-Krom programs under all fact contexts, not existence of a rulewise unary selection for arbitrary positive Horn input."
+        ],
+        "reasoning": "An equivalence test for two given unary programs does not solve selection from source conjunctions. The all-context logical entailment reading is elementary; it is the restricted family, width obstruction and factor consequence that were assessed as the contribution.",
+        "searches": [
+          "Resultary lookup of faithful unary Horn/Krom projection, fact contexts and contextual Horn obstruction",
+          "Antić arXiv:2302.04664v2 §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match is the frozen record itself. The distinct indexed Helly-bound record concerns intersecting explanation families in Horn abduction, with a bound in terms of hypothesis atoms, not unary selections or clause-body width."
+        ],
+        "reasoning": "This is a universal decision criterion rather than a tabulated constant. An indexed exact theorem match was checked; the abduction certificate has different feasible objects and quantifiers and is not a second exact match.",
+        "searches": [
+          "Resultary exact contextual Krom projection hit e9a942de3e30",
+          "Resultary related obstruction record 6a8acbcf31f9, RESULT.md opening"
+        ]
+      },
+      "rationale": "The core additions are the criterion for simultaneous faithful rulewise selection over a prescribed family of fact contexts, its sharp width-sized obstruction, and the use of that choice to attain exact least-model intersection in the nonminimalist setting when the criterion holds. Antecedent entailment under all fact contexts and Horn closure machinery are standard; neither the Krom-only uniform equivalence result nor Antić's general factor approximation covers these additions. This is a bounded comparison, not a historical priority guarantee.",
+      "residual_risks": [
+        "An equivalent may be formulated elsewhere as a unary implicational-basis or closure-system reduction; the bounded sources inspected do not rule that out.",
+        "The structural factor construction and the validity of a unary implication on a family of models are not claimed as novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial structural overlap; different hypotheses or conclusion",
+          "evidence": "Minimalist exactness in Theorem 66; arbitrary-program upper approximation only in Theorem 68, where rules sharing a head can yield cross-combinations.",
+          "identifier_or_url": "https://doi.org/10.1017/S1471068426100696",
+          "material_read": "Printed pp. 34–37, Theorems 66 and 68 and proof material; OA offsets 138700–141168 and 145200–148231",
+          "method": "Bounded OA primary-text inspection",
+          "title": "Set-like Operations on Propositional Logic Programs",
+          "trigger": "Same Krom factors, body-union, width bound and least-model intersection"
+        },
+        {
+          "assessment": "Already-Krom equivalence; no reduction from arbitrary source bodies",
+          "evidence": "Definition and characterization for K and L with K∪I equivalent to L∪I for every interpretation I.",
+          "identifier_or_url": "https://arxiv.org/html/2302.04664v2",
+          "material_read": "§5, from OA offset 8600",
+          "method": "Bounded OA primary-text inspection",
+          "title": "Algebraic characterizations of least model and uniform equivalence of propositional Krom logic programs",
+          "trigger": "Fact-context equivalence via unary reachability"
+        },
+        {
+          "assessment": "Framework, not rulewise projection theorem",
+          "evidence": "T_P(I)=PI and LM(P)=P^ω.",
+          "identifier_or_url": "https://doi.org/10.1007/s10472-024-09925-x",
+          "material_read": "§6.1, printed pp. 23–24; Theorems 35 and 40; OA offsets 70600 and 75127",
+          "method": "Bounded OA primary-text inspection",
+          "title": "Sequential composition of propositional logic programs",
+          "trigger": "General Horn consequence-operator and closure formulation"
+        },
+        {
+          "assessment": "Different feasible objects and size parameter",
+          "evidence": "Explains obstruction to common abduction hypotheses, not to faithful rule-by-rule Krom projections.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-helly-bound-for-contextual-horn-abduction-explanations-wit--6a8acbcf31f9/RESULT.md",
+          "material_read": "RESULT.md opening, offset 0",
+          "method": "Resultary lookup and local-mirror inspection",
+          "title": "Sharp Helly bound for contextual Horn abduction explanations",
+          "trigger": "Indexed contextual Horn obstruction bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, contextual obstruction and decomposition",
+        "Antić, Set-like Operations, Theorems 66 and 68"
+      ],
+      "rationale": "The test addresses when a Krom upper approximation can be made exact with constrained rule choices, beyond the minimalist domain. For an explicit family one can compute source closures once and select per rule instead of enumerating the Cartesian product of choices. A failed instance has a checkable certificate whose worst-case context count is exactly the body width, not program size or total number of contexts. This contextual control is useful even though the proof and the original-model special case are short.",
+      "residual_risks": [
+        "The criterion assumes access to the listed fact contexts or an appropriate way to compute their closures. It does not promise preservation under arbitrary future rule extensions or characterize all possible jointly exact intersections."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

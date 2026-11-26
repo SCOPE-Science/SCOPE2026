@@ -1,15 +1,21 @@
-# Review: complete dihedral characters of fifth-power cycle three-cut complexes
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact full augmented integer boundaries are checked for every dual complex, and explicit unit-pivot chain cancellations leave free homology only in the documented degree. The separate unreduced mod-two rank computations agree. All 264 group elements have signed Lefschetz traces calculated both on the small Alexander dual and on the original cut complex by an independently coded invariant-orbit enumeration. These exact comparisons detect the ambient orientation-sign twist and show the character values are correct. Exact character averages give the stated rational quotient ranks. The mathematical chain-cancellation and finite-group averaging lemmas are specified in RESULT.md.
+## correctness
 
-## Originality — PASS
-This finding claims the dihedral representation and quotient ranks, **not** the integer Betti ranks or nonequivariant sphere types already reported in Chauhan–Shukla–Vinayak's Table 2. The contemporaneous larger-length theorem begins at 27 vertices for fifth powers. The published sharp threshold study addresses shellability of this small window, but not the dihedral action. The fully inspected relevant published character formula also begins at 27 vertices. Hence none implies these small-order reflection/rotation values. Priority remains contingent on unindexed work.
+PASS
 
-## Mathematical value — PASS
-The eight cases are the complete exceptional nonshellable window for one natural graph-power family. Four rational classes survive all dihedral symmetries precisely at lengths 16 and 17, despite zero invariant classes at six nearby lengths. This is a natural, exact equivariant boundary classification with a quotient-topology consequence; it does not merely repackage the known nonequivariant Betti table.
+The ordinary cut complex has a face exactly when its complement contains a disconnected triple. In the dual this means that the induced complement graph has maximum degree at most one: two missing edges of a triple share a vertex, and conversely two missing edges incident to one vertex give a disconnected triple. Fresh exact code tested this matching condition for every mask, then computed the augmented boundary ranks modulo 3. Those ranks are lower bounds on rational ranks; the resulting reduced mod-3 homology is supported in just one degree for every input. Rational homology is therefore zero elsewhere, and the Euler characteristic fixes the remaining rank. Alexander duality transfers the degree by n−d−3. The frozen integral calculation uses genuine unit pivots: the Schur complement and deletion in the adjacent maps follow from the chain identity after isolating the unit pair. The fresh replay concerns rational homology, not an independent torsion test. For each dihedral element, its fixed space is the complex of orbit unions that are faces of the original complex, since fixed barycentric coordinates are constant on each vertex orbit. The reduced Euler characteristic of this fixed space equals the reduced Lefschetz trace; alternatively, an invariant simplex on j vertices and m orbits contributes (−1)^(j−1)(−1)^(j−m)=(−1)^(m−1). This bypasses the ambient orientation twist in the dual formula and independently reproduces all 264 character entries. After barycentric subdivision there are no inversions; the rational quotient chain complex is the coinvariant chain complex of the subdivision, and averaging is exact. The independent character averages give the rotation ranks 1,0,3,6,4,1,1,0 and the full quotient ranks 0,0,0,4,4,0,0,0. For n=20 the rotation traces equal 2cos(2π·2k/20)+2cos(2π·6k/20) and both reflection traces vanish, so the stated real constituents describe the rational representation after extension of scalars.
 
-## Closest literature and limitations
-Primary articles: Chauhan–Shukla (2026), Chauhan–Shukla–Vinayak (2024/2025), and Bayer et al. (2023/2024). Relevant other public results classify large-length dihedral characters and fifth-power shellability, but not this range's equivariant homology. This work covers only rational character and rational quotient homology at eight finite orders; integer quotient torsion, integral module extensions and external independent review remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the equivariant window for the ordinary three-cut complex: complete rational characters and the ranks on the geometric orbit spaces for p=5, 13<=n<=20. The nonequivariant homology table and nonshellability range are prior results, not claimed as new. Verified general character results start at n=27 for p=5, and the source for the sharp shellability threshold does not determine the characters.
+
+## value
+
+PASS
+
+The eight cases form the entire naturally determined nonvoid nonshellable range for the fifth power, not an arbitrary cutoff. The character resolves behavior invisible from known Betti ranks: a nonzero rational class survives the full geometric quotient only at n=16,17, with rank four in both, and the n=20 rotation action separates the two real constituents. This is independently useful equivariant information for these ordinary cut complexes, not a recomputation of their nonequivariant table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

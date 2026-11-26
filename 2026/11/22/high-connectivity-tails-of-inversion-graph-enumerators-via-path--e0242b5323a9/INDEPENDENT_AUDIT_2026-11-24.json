@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:47:34.649700Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n≥4 the threshold is equivalent to connectedness of every induced four-vertex graph: a disconnected four-set gives an (n−4)-deletion, and any disconnecting deletion of at most that size leaves a four-set meeting two components. The complement consequently forbids K₁,₃ and K₂,₂ as subgraphs. Maximum degree two and the absence of induced cycles of length at least five in inversion graphs give exactly paths and triangles. Value complementation sends noninversions to inversions, and inversion components are direct-sum blocks. The known path block multiplicities and the single triangle block give precisely the weighted block sum; ordered concatenation gives the reciprocal formula. The three-vertex test at the next threshold reduces the complement to a matching and therefore gives the Fibonacci cumulative count, with the complete inversion graph represented just once. In the repaired statement the exact OEIS overlap is now proved: if l_i and r_i count left and right inversions incident with i, then the degree is their sum and displacement their difference. Under displacement ≤2, simultaneous l_i,r_i>0 forces σ(i)=i, at most one contributor on either side; otherwise the degree equals absolute displacement. Under this degree bound, four-cycles are induced and correspond exactly to 3412. The displacement bound also forces any occurrence to be on four consecutive positions and values, so the OEIS description by swapping adjacent pairs has no convention gap. The independent bounded OEIS-class comparison through order eight corroborates the identification; the all-order conclusion is analytic. The supplied verifier was inspected, not run; its replay from the frozen package remains unchanged.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Verkama explains the induced-subgraph/pattern and component/direct-sum correspondences and tabulates the connectivity statistic; the inspected §6 passage does not give the four-vertex complement classification.",
+          "The Albert sources establish the prohibition of induced cycles of length at least five and the exact oscillation multiplicities. These inputs apply here and are not novel parts of the result."
+        ],
+        "reasoning": "The general graph and permutation facts do not by themselves state that the A180965 class controls the all-order n−3 connectivity tail or determine its noninversion polynomial. The structural complement reduction is the link.",
+        "searches": [
+          "Verkama arXiv:2611.17237v1, inversion-pattern introduction and §6",
+          "Albert–Brignall–Ruškuc–Vatter arXiv:1602.00672, §9",
+          "Albert–Jelínek–Opler arXiv:1912.07713, §3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_inversion_connectivity.py; repairs/2/RESULT.md",
+        "OEIS A180965",
+        "arXiv:2611.17237v1",
+        "arXiv:1602.00672",
+        "arXiv:1912.07713",
+        "Resultary e0242b5323a9 (self) and 437bae4806c4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Discarding q from the new formula yields the known series; the reverse step is not determined by scalar counts. Known path multiplicities make the generating function routine after the path–triangle characterization and assignment of edge weights.",
+          "The substantive bridge is the equivalence between deleting n−4 vertices, the two distinct forbidden complement configurations and the known displaced permutation class once longer cycles are excluded."
+        ],
+        "reasoning": "No inspected antecedent supplies the connectivity-to-class bridge or the resulting joint refinement. The three scalar formulas are consequences and finite instances had already been tabulated; the value is not in recomputing them.",
+        "searches": [
+          "OEIS A180965 permutation comments and formula",
+          "arXiv:2611.17237v1, §6",
+          "arXiv:1602.00672, §9; arXiv:1912.07713, §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Morales's displacement-two, cdab-avoiding permutations are exactly the complementary path–triangle class, not merely equinumerous with it. The repaired proof identifies bounded displacement with maximum inversion degree two and cdab with the four-cycle obstruction.",
+          "For the original permutation the same threshold can be phrased as avoidance of all direct-sum-decomposable four-patterns, since the inversion graph of a pattern is its induced subgraph."
+        ],
+        "reasoning": "These equivalent descriptions are credited together. Exact class coverage defeats any unweighted permutation-class novelty, but the catalogue entry does not identify the connectivity statistic or give its edge-weight refinement.",
+        "searches": [
+          "OEIS A180965, COMMENTS and FORMULA",
+          "arXiv:1912.07713, sum closure of increasing oscillations",
+          "Resultary: path–triangle complements and high vertex connectivity of inversion graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "If G(z) is the OEIS series, the cumulative unweighted series is 1+zG(z). The OEIS permutation description itself gives exactly the value-complemented class.",
+          "For n=4,5,6,7 the totals 13,29,68,156 and coefficients 4,7,12,20 and 8,21,55,135 already follow from Table 1.",
+          "e0242b5323a9 is the assigned record; the distinct 437bae4806c4 treats minimum inversion counts and their odd-order two-connectivity minimizers, not this tail."
+        ],
+        "reasoning": "Both scalar and class matches are exact broad overlap, and finite connectivity data are not new. The strongest distinct local connectivity entry optimizes a different statistic under a different criterion.",
+        "searches": [
+          "OEIS A180965, COMMENTS, OFFSET and FORMULA",
+          "Verkama arXiv:2611.17237v1, Table 1",
+          "Resultary exact item e0242b5323a9 and nearby 437bae4806c4"
+        ]
+      },
+      "rationale": "The repaired text explicitly credits class-level overlap with the 2013 A180965 permutation interpretation, not merely matching scalar coefficients. The supported distinct result is the bridge from this known class to high vertex connectivity and the closed noninversion refinement of that connectivity tail; the scalar class, unweighted series, finite table values and path multiplicities are not claimed as new.",
+      "residual_risks": [
+        "Earlier unindexed forbidden-pattern descriptions or inversion-number refinements of the displacement-two class could overlap; bounded comparisons do not establish priority.",
+        "The scalar sequence and exact complementary class are known, and no direct tiling bijection is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact complementary permutation class and unweighted series, not connectivity interpretation or q-refinement",
+          "evidence": "The entry says |i−j|≤2 and excludes cdab, described as swapping two consecutive pairs; its GF has numerator 1+2z²−z³ and denominator 1−2z−2z³+z⁴ at the shifted index.",
+          "identifier_or_url": "https://oeis.org/A180965",
+          "material_read": "COMMENTS, OFFSET and FORMULA, HTML offset 400 onward, including Morales's June 2 2013 comment",
+          "method": "Direct OA website text and proof comparing its precise displacement and pattern conditions",
+          "title": "Number of tatami tilings of a 2 × n grid (with monomers allowed)",
+          "trigger": "Exact scalar match and possible class equivalence"
+        },
+        {
+          "assessment": "Exact statistic and finite coefficient overlap; no all-order weighted tail in the inspected statement",
+          "evidence": "Defines K_n(x), tabulates it through order seven and relates patterns to induced subgraphs.",
+          "identifier_or_url": "https://arxiv.org/html/2611.17237v1",
+          "material_read": "Induced-subgraph/pattern and direct-sum discussion; §6 and Table 1, HTML offsets 63000–69499",
+          "method": "OA article passage comparison",
+          "title": "Permutation patterns and higher connectivity in inversion graphs",
+          "trigger": "Initiating paper, exact connectivity statistic"
+        },
+        {
+          "assessment": "Known mathematical input",
+          "evidence": "Inversion graphs cannot contain induced cycles on five or more vertices.",
+          "identifier_or_url": "https://arxiv.org/html/1602.00672",
+          "material_read": "§9, p. 27, HTML offset 341300",
+          "method": "OA article passage inspection",
+          "title": "Rationality for subclasses of 321-avoiding permutations",
+          "trigger": "Prior long-cycle exclusion and oscillation structure"
+        },
+        {
+          "assessment": "Known path enumeration; no triangle-enlarged connectivity-tail claim",
+          "evidence": "Path inversion graphs correspond to increasing oscillations; there are two of each size at least three. The connectivity class also has an allowed 321 component.",
+          "identifier_or_url": "https://arxiv.org/html/1912.07713",
+          "material_read": "§3, Sum closure of increasing oscillations, HTML offset 26200",
+          "method": "OA article passage inspection",
+          "title": "Two examples of Wilf-collapse",
+          "trigger": "Possible coverage of path block enumeration and generating function"
+        },
+        {
+          "assessment": "Distinct threshold and extremal enumeration",
+          "evidence": "Determines minimum inversion count 3m and 3m−2 minimizers at odd order 2m+1 under two-connectivity, not all permutations with connectivity at least n−3.",
+          "identifier_or_url": "2026/11/22/SCOPE-odd-order-extremizers-for-two-connected-permutation-inversion-gr--437bae4806c4",
+          "material_read": "Finding, mirror offset 120",
+          "method": "Resultary and local mirror passage",
+          "title": "Odd-order extremizers for two-connected permutation inversion graphs",
+          "trigger": "Strong nearby catalogue result on inversion-count and connectivity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The high-connectivity tail of an existing permutation statistic is a natural all-order target. The repaired result identifies a structural reason an existing displacement-restricted class governs that tail and gives its joint connectivity-threshold/noninversion enumeration. The complement argument and recognition are useful beyond the already tabulated coefficients; the routine generating-function manipulation alone is not the value claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

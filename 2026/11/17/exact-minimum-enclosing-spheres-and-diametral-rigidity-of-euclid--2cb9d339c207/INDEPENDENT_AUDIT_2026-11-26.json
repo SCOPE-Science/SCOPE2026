@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:21:07.406513Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the certificate for every integer d>=3 and real t>0. Write v=e1+e2, k=t(t+1), s=2t+1, m=d-2 and D=ms²+2. The endpoint tv has barycentric weights (1,t,t)/s at 0,e1+tv,e2+tv. All other endpoints are exposed: select each basis point uniquely with a positive maximum coefficient while choosing the sign of the sum of the first two coefficients to select the segment endpoint; a strictly negative objective exposes 0. For the d stated contacts, equal distances reduce to B=sA-k, and the barycenter condition to 2A/s+mB=1. This gives the stated A,B and strictly positive weights A/s,A/s,B,...,B; the first two columns have determinant s, and the other columns are independent standard basis vectors. The common squared radius is 1-2B+2A²+mB² and reduces to the stated polynomial quotient. Subtracting squared-distance scores ||z||²-2<c,z> gives clearances 1-2B at 0, 2(A-B) at unshifted e1,e2, 4tA-2t² at shifted e_j for j>=3, and 1-2B+4tA-2t² at tv; substitution gives the stated formulas with strictly positive numerators throughout the domain. The weighted squared-distance identity at any competing center gives R² plus squared displacement from c. For the diameter, the mixed difference e_i+tv-e_j has squared norm 2t²+||e_i-e_j||²+2t v·(e_i-e_j). Its maximum needs i among 1,2 and j>=3, and all other mixed differences, distances from 0, and within-copy distances are strictly smaller. Strict convexity in either point excludes nonvertices as equality cases for both the enclosing sphere and the diameter. The contact and diameter-graph counts and t=1 specialization follow, including m=1; t=0 is excluded. Replay: frozen RESULT.md equations and the score identity above; check_pentasm.py and VERIFICATION.md inspected but no frozen code run. Finite checks are not used as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang and Yost define the segment direction in a triangular face; Vrahatis describes general enclosing-ball methods; 8160145e9189 proves radius = half the diameter and box-corner contacts for a different sum family."
+        ],
+        "reasoning": "The general algorithm does not identify this active set for all t and d without solving the metric inequalities. The shifted-sum theorem requires a realization fundamentally different from this pentasm: one contact e_j here has two distinct diameter partners, impossible at diameter equal to twice the enclosing radius.",
+        "searches": [
+          "arXiv:2611.07472v1, pentasm definition and decomposable-polytope context",
+          "arXiv:2410.11063, minimum enclosing ball methodology",
+          "Resultary 8160145e9189, shifted right-angle and Kozlov polytopes"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2cb9d339c207 (identical item)",
+        "Resultary 8160145e9189",
+        "arXiv:1509.08218 §4",
+        "arXiv:2611.07472v1 p.3",
+        "arXiv:2410.11063 p.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known combinatorial pentasm and the exact t=1 vertex list supply inputs, not the all-t metric active-set result. 8160145e9189 diametral vertex partners are coordinatewise complements, hence unique for a given endpoint."
+        ],
+        "reasoning": "The complete all-d,t strict contact selection and K_(2,d-2) classification are neither stated nor mechanically implied by these inspected results. Same-day dating was not used to discard distinct coverage.",
+        "searches": [
+          "1509.08218 §4; 2611.07472v1 p.3; 2410.11063 p.1; Resultary 8160145e9189 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pineda-Villavicencio, Ugon and Yost §4 identifies conv{0,e_i,e_i+e_1+e_2}, precisely the t=1 realization, as a combinatorial pentasm."
+        ],
+        "reasoning": "The exact realization and its vertex count are known, not claimed new. Classification up to affine or combinatorial equivalence does not impose Euclidean radii or diameters under that equivalence.",
+        "searches": [
+          "Resultary: pentasm enclosing sphere, simplex plus segment, contacts and diametral graph",
+          "arXiv:1509.08218 §4, simplex-plus-segment pentasm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2cb9d339c207 is the identical assigned record, not independent coverage. 8160145e9189 is a distinct same-day related result, and its Finding was inspected at local mirror offset 0."
+        ],
+        "reasoning": "The strongest distinct surfaced entry gives closed formulas for shifted right-angle simplex sums, not the pentasm formulas. No distinct exact entry was found in the bounded lookup.",
+        "searches": [
+          "Resultary: pentasm smallest ball, exact Euclidean diameter and contact vertices"
+        ]
+      },
+      "rationale": "The exact metric theorem for the prescribed orthonormal-coordinate family survived comparison. The pentasm construction, unit-displacement realization, and smallest-ball certificate technique are known. The closest distinct indexed metric result has a different radius-diameter relation and different equality structure, so is not a stronger theorem covering this family.",
+      "residual_risks": [
+        "Bounded comparison, not a comprehensive priority search. A more general simplex-plus-segment metric result under different terminology was not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior realization and combinatorics, not the audited metric classifications",
+          "evidence": [
+            "Defines the pentasm as a simplex plus a non-edge-parallel segment in a two-face direction and gives the unit-displacement coordinate realization."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1509.08218",
+          "material_read": "§4, PDF pp. 7–8, offsets 20501 and 21817",
+          "method": "Lawful OA PDF passages",
+          "title": "Lower bound theorems for general polytopes",
+          "trigger": "Exact unit-displacement pentasm coordinates"
+        },
+        {
+          "assessment": "Combinatorial coverage",
+          "evidence": [
+            "Identifies pentasms through their segment-sum construction, without a metric support or diameter assertion in the relevant passage."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.07472v1",
+          "material_read": "PDF p. 3, offset 7921",
+          "method": "Lawful OA PDF passage",
+          "title": "Decomposable polytopes with few vertices",
+          "trigger": "Recent pentasm coverage"
+        },
+        {
+          "assessment": "Algorithmic background, not an exact family comparison",
+          "evidence": [
+            "Formulates the general smallest enclosing ball problem and solution methodology."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2410.11063",
+          "material_read": "PDF p. 1, offset 0",
+          "method": "Lawful OA PDF passage",
+          "title": "Towards the methodology for solving the minimum enclosing ball and related problems",
+          "trigger": "General enclosing-ball theory"
+        },
+        {
+          "assessment": "Distinct domain and incompatible radius/diameter relation",
+          "evidence": [
+            "The centered coordinate box yields radius=diameter/2 and complementary diametral partners. The pentasm has a diameter-graph vertex with degree two for all d>=3."
+          ],
+          "identifier_or_url": "Resultary 8160145e9189",
+          "material_read": "Finding and Assumptions, local mirror offset 0",
+          "method": "Local mirror source file",
+          "title": "Outer-sphere contact transitions in shifted right-angle and Kozlov polytopes",
+          "trigger": "Strongest distinct indexed exact radius/contact/diameter classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Pentasms are a named few-vertex family from polytope classification, and the orthonormal realization and positive scalar displacement are natural. A radius computed once would be routine; this result instead identifies a fixed minimal support simplex with strictly positive slack at other vertices for the entire positive-parameter family, and shows all and only its contacts are endpoints of diameters even though radius is not half the diameter. The complete metric classification is useful for exact containment witnesses and diameter-graph examples without rerunning a dimension-dependent ball search. It does not transfer to arbitrary realizations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

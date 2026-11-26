@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:29:42.046597Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Anchor the Gram matrix at the attachment vertex. The mean-zero unmarked-clique and leaf sectors have eigenvalues 1/2 and q/2. On the remaining sector, using total load on each class, the Gram form has diagonal U_m and 1−β_n q and off-diagonal 1−q/2. Its determinant times four is F(q)=4U_m(1−β_n q)−(q−2)^2. It is positive at q=1,2 and negative at 1/β_n; strict concavity and its negative leading coefficient give one crossing for q≥1 and no later return. The positive pivot gives a one-dimensional kernel there, with class totals ((Q−2)/(2U_m),1) and their negative sum at the hub; rank gives the claimed affine dimensions. At a root 1−β_n Q>0, so decreasing U_m or increasing β_n decreases the upper crossing strictly. For ε=1/n and δ=Q−2 the equation is δ²+2U_m(1−ε)δ−4U_m ε=0. Its δ derivative at ε=δ=0 is bounded away from zero on U_m∈[1/2,3/4]; expansion gives δ=2ε+(−2+4/m)ε²+O(ε³) uniformly, and the logarithm gives the asserted second coefficient. The frozen script and notes were inspected, not executed. The separately written `python /workspace/branches/independent_reproduction.py 1` passed below/at/above full anchored Gram signs and nullity for 12 independently reconstructed shortest-path instances; the formulas, not the finite sample, prove the family theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected star-product result gives QEC bounds under one-point gluing, not an exact ordinary QEC across the full family.",
+          "The finite-metric criterion supplies a way to calculate the exponent, with explicit complete-bipartite rather than pineapple evaluation in the inspected application."
+        ],
+        "reasoning": "The general criteria cover the method. A general exact formula for this gluing's QEC would cover the endpoint via compression; neither general bounds nor the complete-bipartite specialization give that direct implication here.",
+        "searches": [
+          "Młotkowski–Obata arXiv:1802.01214 Theorem 4.5 and Corollary 4.7",
+          "Sánchez arXiv:1108.0451 Corollary 2.4",
+          "Obata–Zakiyyah DOI 10.5614/ejgta.2018.6.1.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1802.01214",
+        "arXiv:1108.0451",
+        "Resultary 3a1e7d142b23 and c1c32f0a27e4",
+        "DOI 10.5614/ejgta.2018.6.1.4 (full text not retrieved)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact QEC of P_{3,2} is prior; exact complete-bipartite p-negative type is prior, including the star as one part of size one.",
+          "In the assigned family the second coefficient of the large-n exponent is (2/m−3/2)/ln 2 and the first coefficient is independent of m."
+        ],
+        "reasoning": "The exact small gluing and star benchmark must not be counted as novelty. Those cases cannot give the strict two-parameter law or the uniform expansion; the explicit two-class compression and analysis of its root complete those tasks.",
+        "searches": [
+          "ArXiv:1802.01214 Example 4.10 and pp. 19–21",
+          "ArXiv:1108.0451 Corollary 2.4 and Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pineapple is the one-vertex gluing K_m ⋆ K_{1,n} at the star center. Młotkowski–Obata explicitly compute ordinary QEC for the small K_3 ⋆ P_3 gluings, including the center attachment P_{3,2}.",
+          "For a diameter-two graph, compression to the zero-sum subspace gives D_p=−qI−(q−1)A in quadratic forms, with A the adjacency compression."
+        ],
+        "reasoning": "With μ the smallest compressed adjacency eigenvalue and E=QEC=−2−μ, a finite threshold equals q*=(2+E)/(1+E), and the endpoint eigenspace is the corresponding zero-sum QEC maximizing space. Thus the cited exact p=1 example does mechanically cover the critical numeric value at m=3,n=2, not the entire two-parameter law.",
+        "searches": [
+          "Resultary: pineapple exponent or QEC; diameter-two negative type",
+          "ArXiv:1802.01214 Example 4.10",
+          "ArXiv:1108.0451 Corollary 2.4 and Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest inspected records treat C5 with uniform leaf bundles, or K_{m,n} with one intrapart edge; the latter concerns a threshold below one."
+        ],
+        "reasoning": "Neither graph family is this shared-clique-vertex leaf attachment. No relevant indexed exact two-parameter result was surfaced by the bounded search; this does not rule out an unindexed one.",
+        "searches": [
+          "Resultary: pineapple negative type/QEC; pineapple QEC; pineapple exponent; general diameter-two negative type"
+        ]
+      },
+      "rationale": "The general finite-metric and diameter-two methods are prior, as is an unpowered special-case QEC. The supported distinct contribution is the explicit two-parameter pineapple evaluation with equality loads, strict decreases and the clique-sensitive uniform second term. No inspected source states or mechanically supplies this whole package. The ordinary QEC and powered endpoint are not independent invariants for diameter-two graphs; exact prior QEC coverage is credited wherever found.",
+      "residual_risks": [
+        "A prior exact two-parameter QEC or constrained least adjacency eigenvalue could cover the endpoint by a direct conversion. The bounded review and inaccessible cited text do not settle historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General ordinary QEC bounds and exact one-instance overlap",
+          "evidence": [
+            "The definition uses ordinary graph distance. The example gives QEC for the two attachment topologies K_3 ⋆ P_3."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1802.01214",
+          "material_read": "Introduction pp. 1–2; Thm. 4.5, Cor. 4.7 and Example 4.10 pp. 19–21; offsets 1300, 49100, 51500",
+          "method": "OA PDF passage inspection",
+          "title": "On Quadratic Embedding Constants of Star Product Graphs",
+          "trigger": "Same one-point construction and possible exact QEC reduction"
+        },
+        {
+          "assessment": "General criterion and exact related family",
+          "evidence": [
+            "The theorem gives log₂(2nm/(2nm−n−m)) for the complete-bipartite path metric."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1108.0451",
+          "material_read": "Cor. 2.4 p. 5; Thm. 3.1 p. 7, offsets 17600 and 25300",
+          "method": "OA PDF passage inspection",
+          "title": "On the supremal p-negative type of a finite metric space",
+          "trigger": "General calculation procedure and star benchmark"
+        },
+        {
+          "assessment": "Related but different core and leaf distribution",
+          "evidence": [
+            "The core is a pentagon, with uniform leaf bundles attached to every vertex, not one clique vertex."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-negative-type-of-pentagonal-leaf-coronas--3a1e7d142b23/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local catalogue mirror",
+          "title": "Sharp negative type of pentagonal leaf coronas",
+          "trigger": "Close catalogue graph attachment and asymptotic"
+        },
+        {
+          "assessment": "Different graph class and regime",
+          "evidence": [
+            "Adds one intrapart edge to a complete bipartite graph; the critical exponent is below one."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-hilbert-snowflake-exponents-after-one-intrapart-edge-addit--c1c32f0a27e4/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local catalogue mirror",
+          "title": "Sharp Hilbert snowflake exponents after one intrapart edge addition",
+          "trigger": "Nearby exact diameter-two family"
+        },
+        {
+          "assessment": "Detailed coverage remains open; not negative evidence",
+          "evidence": [
+            "No exact claim is attributed to the inaccessible text."
+          ],
+          "identifier_or_url": "https://doi.org/10.5614/ejgta.2018.6.1.4",
+          "material_read": "No primary theorem text retrieved in the bounded attempt",
+          "method": "Lawful OA retrieval attempt",
+          "title": "Distance Matrices and Quadratic Embedding of Graphs",
+          "trigger": "Cited QEC and graph gluing background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Pineapples are natural one-point metric gluings. The exact root quantifies the loss relative to an isolated star, shows how each size affects the loss, and resolves which terms of the large-leaf exponent are universal or detect the clique. Together with the equality load this is more than computing an isolated ordinary QEC by a standard criterion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

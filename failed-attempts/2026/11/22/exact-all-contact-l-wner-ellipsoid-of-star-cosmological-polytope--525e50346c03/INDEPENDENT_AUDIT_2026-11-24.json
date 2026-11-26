@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:34:14.126426Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 23–117; replay by the two-layer second moments, gauge equalities, trace and determinant.",
+        "Frozen VERIFICATION.md and verify_star_cosmo.py inspected without execution; the recorded finite checks are not an all-m proof."
+      ],
+      "rationale": "The hub coordinate exposes the two layers separately. Their crosspolytope and simplex span orthogonal direction spaces of dimensions m and m−1, and the centroid contrast has squared length 4+2/m; this gives intrinsic dimension 2m and all 3m genuine vertices. The proposed positive orbit masses α=(m+1)/(2m+1) and β=m/(2m+1) give mean c=h+βδ. Direct within-layer second moments give covariance eigenvalues 2α/m and 2β/m on the within-layer spaces and αβ||δ||² on the contrast. For Q=2m times this covariance, the layer gauges are (1+β/m)/(2α) and (m−1+α)/(2mβ), both exactly one; the latter also works when the simplex is a point. Weighted containment and trace–determinant AM–GM prove unrestricted optimality and uniqueness; strict convexity excludes nonvertex contacts. The common squared vertex norm and weighted mean prove the radius formula and ball optimality. Multiplying the eigenvalues with their multiplicities yields the exact ratio, and the logarithm of the ratio base differs from log(2/3) by 1/(6m)+O(m^−2). Independent m=1 and m=2 checks give, respectively, two equal squared axes 8/3 and squared axes 24/5, 8/5, 12/5, 12/5 with ratio 24sqrt(3)/49.",
+      "residual_risks": [
+        "Scope is the canonical unweighted orthonormal-coordinate realization; no affine-metric or arbitrary-tree extension is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The free-join theorem gives layer barycentric weights τ_i=(d_i+1)/(d+1), factor-John-normalized squares d_i τ_i/d and barycentric covariance (diag(τ)−ττᵀ)/d. It permits different factors and affine changes of coordinates.",
+          "The cosmological-polytope papers identify the generator convention but their inspected passages do not compute the Euclidean ellipsoid."
+        ],
+        "reasoning": "For m≥2 both polar layer dimensions are positive, exactly within the broader theorem. The singleton at m=1 has a separate equilateral-triangle solution.",
+        "searches": [
+          "Resultary 639c47b45b03, Finding, Assumptions and Proof; arXiv:2209.08069 Definition 1.1 and Remark 1.2; arXiv:1709.02813 §3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 639c47b45b03, 099bd090b126, e97f64c007b7, 22da9e5835c2 and 625d9f71dd97; primary arXiv:2209.08069 and arXiv:1709.02813."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write the centered star as conv[(A,0,−βL),(0,B,αL)], where A and B are the centered crosspolytope and simplex, L=||δ|| and the last coordinate is a unit contrast. Its polar is specified by h_A(p)≤1+βLt and h_B(q)≤1−αLt, with h denoting support. Its slices therefore exhibit the polar as the free join of A°/α at t=1/(αL) and B°/β at t=−1/(βL). The barycentric weights of zero are (α,β), exactly the theorem's weights for dimensions m and m−1.",
+          "The factors' polar John squared radii are 1/(2α²) and 1/(β²·2(m−1)/m), by symmetry of the crosspolytope and regular simplex and their circumradii. Multiplying by d_i τ_i/d gives the tangential squares of the polar join's John ellipsoid. The contrast interval has length 1/(αβL), so barycentric variance αβ/d gives contrast square 1/(dαβL²). Reciprocating yields 4α, 4β and dαβL², respectively, the frozen squared axes.",
+          "A John ellipsoid of the polar centered at the origin has a polarity-dual Löwner ellipsoid globally, not just among centered competitors: in unit-ball coordinates the John contact vectors are also in the primal body, since their polar supporting hyperplanes are tangent to the unit ball. The same zero first moment and identity second moment certify unrestricted outer optimality. Substituting the layer vertices into the reciprocal shape shows every generator touches; strict convexity excludes other contacts. The established ball radius and determinant then give the exact ratio and its elementary expansion."
+        ],
+        "reasoning": "This is a replayable full implication. The prior join article limits its written conclusion to an inscribed ellipsoid, but that limitation does not block polarity for this particular centered polar free join.",
+        "searches": [
+          "639c47b45b03 RESULT.md offsets 0–5596, especially the Finding formula, and Limitations after offset 5596; compare with frozen RESULT.md lines 35–117."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "639c47b45b03 gives the John center and shape for arbitrary affine free joins of positive-dimensional factors. The star's two layers are a crosspolytope and a simplex. The close star PQ record 625d9f71dd97 instead concerns a 3m+1-vertex polytope, not the 3m-vertex cosmological realization."
+        ],
+        "reasoning": "An inscribed result is not directly an enclosing result on the same body. Here polarity at c transforms the problem into a free-join inscribed problem with its John ellipsoid centered at zero, giving exact duality rather than merely analogous methods.",
+        "searches": [
+          "Local Resultary: cosmological star outer ellipsoid, affine free-join ellipsoid and contact transfer, star PQ-adjacency Löwner ellipsoids"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "099bd090b126 supplies the exact denominator R²=3−1/(2m+1) in this realization.",
+          "e97f64c007b7 uses vertex-uniform covariance, whose center differs already at m=2. The star inball and the different PQ polytope do not give the outer shape."
+        ],
+        "reasoning": "Exact coverage does not rely on a table of star spectra: it comes from substituting polar layer data into the indexed general theorem and multiplying the resulting eigenvalues.",
+        "searches": [
+          "Local Resultary exact records for circumradius 099bd090b126, uniform vertex inertia e97f64c007b7, star inscribed ball 22da9e5835c2 and free-join John geometry 639c47b45b03."
+        ]
+      },
+      "rationale": "An earlier indexed affine free-join John theorem supplies this outer ellipsoid by polarity. The decisive point is not the similar title or a generic confusion of John and Löwner: for these orthogonal layers the centered polar is itself an affine free join, and its John center is exactly the polarity origin. The reduction then produces all claimed outer axes and contacts. The known circumradius yields the ratio. The m=1 exceptional case is the equilateral triangle.",
+      "residual_risks": [
+        "Historical priority beyond the established indexed implication is not assessed. The prior free-join finding does not claim a generic outer result directly; the applicability here depends on the explicit polar join and its zero John center."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implies the claimed outer result via the two-layer polar join and centered polarity",
+          "evidence": "General normalized factor squares d_iτ_i/d, barycentric covariance and dimension-weighted center; no direct outer-ellipsoid assertion in the text.",
+          "identifier_or_url": "Resultary 2026/10/18 639c47b45b03",
+          "material_read": "RESULT.md Finding, Assumptions and Proof at offsets 0–5596; Limitations after offset 5596",
+          "method": "Local Resultary mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A universal John ellipsoid and complete contact transfer law for affine free joins",
+          "trigger": "General free-join ellipsoid formula for the star's polar after centering"
+        },
+        {
+          "assessment": "Direct antecedent for center, ball radius and ball contacts",
+          "evidence": "For connected G the center is 1/D times the all-ones vector and R²=3−1/D, with every vertex on the ball.",
+          "identifier_or_url": "Resultary 2026/10/11 099bd090b126",
+          "material_read": "Local-mirror RESULT.md Finding",
+          "method": "Local Resultary statement inspection",
+          "title": "Every connected cosmological polytope has graph-independent Euclidean circumradius",
+          "trigger": "Same Euclidean ball used in ratio"
+        },
+        {
+          "assessment": "Different covariance measure and invariant",
+          "evidence": "Uniform-vertex inertia ellipsoid, not claimed as John or Löwner; the star m=2 uniform mean is not c.",
+          "identifier_or_url": "Resultary 2026/10/18 e97f64c007b7",
+          "material_read": "Local-mirror RESULT.md Finding and scope",
+          "method": "Local Resultary statement inspection",
+          "title": "Degree-rooted forests determine the vertex-inertia volume of cosmological polytopes",
+          "trigger": "Same family and ellipsoid determinant invariant"
+        },
+        {
+          "assessment": "Identifies the realization; inspected results address combinatorics",
+          "evidence": "The edge generators in the natural vertex/edge basis agree on the nonisolated star.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.08069",
+          "material_read": "§1 p. 1, text offsets 0–3452, Definition 1.1 and Remark 1.2",
+          "method": "OA primary PDF text",
+          "title": "Faces of Cosmological Polytopes",
+          "trigger": "Canonical generators and combinatorial structure"
+        },
+        {
+          "assessment": "Projective construction antecedent, not the decisive ellipsoid formula",
+          "evidence": "Gives the graph construction; the inspected material concerns the polytope and face setup.",
+          "identifier_or_url": "https://arxiv.org/pdf/1709.02813",
+          "material_read": "§3 printed p. 28, text offsets 99996–104963",
+          "method": "OA primary PDF text",
+          "title": "Cosmological Polytopes and the Wavefunction of the Universe",
+          "trigger": "Original realization and possible geometric overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen metric conclusions and proof lines 3–21 and 35–117; exact polar implication from 639c47b45b03 and ball comparison from 099bd090b126."
+      ],
+      "rationale": "The shape/volume question is natural, and the direct star certificate gives a useful worked example. But the entire exact invariant and contact classification follow from the broader join result by the displayed elementary polarity and metric substitutions, with the ratio using an already determined ball. The resulting exponential volume estimate is arithmetic on those known spectra, not an independent unresolved mathematical gap.",
+      "residual_risks": [
+        "This assessment does not address other tree shapes or extensions without the free-join structure."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,6 @@
 }
 ---
 
-The correctness argument is analytic. Its decisive ingredients are the killed Brownian Laplace transform, exact two-particle maximum transform under an exponential clock, and super-solution induction for the renewal equation. The Gaussian components are independent because they are orthogonal linear combinations of two independent centered Gaussian increments. The bound on the full absorption probability comes from a monotone limit over finitely many completed resets; Poisson local finiteness rules out any finite-time infinite-reset pathology. The positive survival event from an arbitrary starting point uses the strictly positive killed transition density. The zero-rate mean threshold is obtained from the exact reflection-principle survival formula.
+The sharp logarithmic rate follows from a two-sided analytic estimate. The lower bound is capture by the first alarm for one designated particle; the upper bound uses the freely evaluated two-particle maximum transform and iteration of a supersolution for the killed renewal operator. The proof checks contraction for all exponents strictly below the proposed rate and chooses an exponent depending on the distance to obtain the polynomial prefactor. Poisson nonexplosion justifies the limit from finite-cycle capture to eventual capture.
 
-The standalone checker numerically integrates the exact two-particle transform independently for four parameter triples, checks the closed critical constant, checks the finite super-solution inequality across sample points, and compares the no-reset first-passage survival with its asymptotic. Its output is limited to reproducibility diagnostics, not independent validation, uniqueness certification, or proof of asymptotic statements.
-
-To replay: `python checker.py` with Python 3, NumPy, SciPy and SymPy. No third-party paper or external executable is required.
+To reproduce the finite diagnostics, run `python3 checker.py` using only the Python standard library. The script performs six bounded quadratures and sampled checks on the contraction and prefactor inequalities. These computations do not prove the all-parameter result or the infinite-time limit.

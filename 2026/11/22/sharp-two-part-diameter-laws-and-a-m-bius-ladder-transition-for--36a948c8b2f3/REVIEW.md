@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The exact finite point-set domain, squared-distance formula, even and odd index parity, all ties, and strict versus non-strict partition quantifiers were reconstructed. For even order, the two longest pair classes form opposite chords and a single Hamiltonian rim; the union is a nonbipartite Möbius ladder, proving the lower bound for both two-color classes, and opposite-pair splitting or the two-ring partition gives upper bounds. At critical height the ladder has an explicit valid 3-coloring. For odd order each upper/lower antipodal pair gives the diameter and the within-ring farthest-pair cycle is odd, enforcing the two-part minimum. Strict monotonicities give the unique height. Embedded independent Cartesian and BFS checks corroborate 253 finite parameter examples, not the infinite theorem.
+## correctness
 
-## Originality (PASS, provisional historical priority)
-published-finding corpus searches for two-clustering, Borsuk partitions, diameter graphs, antiprisms, and Möbius ladders were compared with two full, highly relevant published records: an exact spherical covering theorem on the same sites and a hexagonal-antiprism persistence theorem for a fixed n. Their conclusions do not imply the all-n diameter-partition optimum or sharp critical graph realization. The old n=6 pair-distance table, standard Möbius-ladder chromatic fact and generic Borsuk framework are prior knowledge and are not claimed new. An equivalent treatment under classical diameter-graph or discrete clustering language remains possible.
+PASS
 
-## Mathematical value (PASS)
-The exact sharp two-cluster diameter problem is a natural quantitative version of the Borsuk partition problem. The discovery identifies a parity distinction, all integer ring sizes, the unique extremal height for even ring sizes and an exceptional Borsuk-number jump caused by nonbipartite Euclidean diameter contacts. These conclusions are not a routine restatement of the unrelated covering optimum or the fixed-size filtration table. The sharp equal-height phenomenon and explicit graph structure provide a motivated global invariant.
+Direct chord distances give the stated same-ring and cross-ring maxima. For even n=2m the farthest cross neighbors of U_j are L_(j+m−1) and L_(j+m), with indices modulo n. The cyclic order U_j,L_(j+m),U_(j+1),... exhibits the Hamiltonian rim; the same-ring diameter pairs are n steps apart along it. Their union has an odd cycle of length n+1. Thus a within-part bound strictly below min(A,B) in squared distance is impossible. The rings themselves attain A; alternatively, splitting each within-ring opposite pair gives a bound B since the next-largest same-ring distance squared is 4r²cos²(π/n)<B. At A=B the stated three-coloring separates the chords by using reversed parity on the interior of the second half and a third color at its ends. In either strict regime the farthest graph alone is bipartite (matching or even cycle). For odd n=2m+1, U_j and L_(j+m) are antipodes and the longest edges of one ring form a cycle with step m, hence an odd cycle. This forces 2rc_n and the ring partition attains it. The finite-set diameter-graph chromatic interpretation is exact; monotonicity of the two squared branches gives the unique even optimum and the odd limiting supremum. The last aside of proof step 2 should not be read as a two-color obstruction from the longer class alone in a strict regime: it is bipartite, and only the union is used in that lower bound.
 
-## Scientific limitations
-Only staggered regular equal-size and opposite-height two-ring point sets are considered; no unrestricted geometric Borsuk theorem is asserted. Finite tests supplement rather than replace the analytic proof. Historical novelty remains provisional. No independent mathematical audit was conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the threshold graph correspondence, standard Möbius-ladder coloring, and earlier distance/graph information for related two-ring configurations. On the available statements, the supported distinct result is the all-order quantitative two-part minimax law, its height optimization, and its association with the strict-diameter chromatic transition. No separate priority is assigned to the abstract ladder or to pair-distance computation. The terminal Rips record is serious potential graph-level overlap, not settled by the different title.
+
+## value
+
+PASS
+
+A quantitative optimum is determined on a natural sphere family, including a sharp and isolated obstruction to splitting into two strictly smaller-diameter parts. The contrast between odd matching/odd within-ring obstruction and the even ladder at one height yields a useful model of the distinction between weak min-max diameter and strict Borsuk coloring.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

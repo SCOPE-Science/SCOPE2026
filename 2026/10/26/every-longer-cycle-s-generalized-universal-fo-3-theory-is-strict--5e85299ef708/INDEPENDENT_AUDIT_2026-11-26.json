@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:10:16.487042Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–68; VERIFICATION.md and verify.py (inspected, not executed)",
+        "/workspace/branches/independent_replay.py, case 4"
+      ],
+      "rationale": "The fragment is the three-variable universal closure under conjunction and disjunction of literals, with equality. Negation pushed through the formula yields the dual existential fragment with the same variables. For an assignment from C4 paired with one from C_n, require all three pairwise distances (0, 1 or 2) to agree. After rebinding one variable, the two retained square positions are equal, adjacent or opposite. If equal, a position at any requested distance 0, 1 or 2 exists in C_n. If adjacent, either copy one endpoint or use the off-edge neighbor of the appropriate endpoint; for n≥5 it is exactly distance two from the other endpoint. If opposite, their images are distance two apart, so copy an endpoint or choose the common neighbor on a length-two path. This suffices for either of the square's common neighbors because the moved variable's old value is not retained. The strategy preserves all literals, so structural induction gives E3 truth transfer from square to longer cycle at all depths. Starting from constant assignments and dualizing gives U3 transfer from longer cycle to square. The separator η expresses that every third distinct vertex meets an edge at one of its ends; this holds in the square and fails at (0,1,3) for every n≥5, including n=5. The independently written finite replay checked all 9,960 distinct canonical extension signatures over 5≤n≤1000 and the strictness witness; it is not the proof for unbounded n or formula depth.",
+      "residual_risks": [
+        "The argument treats ordinary undirected cycles and the specified fragment; it asserts neither full FO3 equivalence nor transfers among arbitrary longer-cycle pairs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2023 survey discusses failure of submodel preservation for fragments over classes of structures, not a transfer across this prescribed family",
+          "The pebbling paper gives general existential-positive characterizations",
+          "The indexed cycle theorem classifies full counting-free FO^k equivalence by truncated component counts"
+        ],
+        "reasoning": "General preservation failures do not identify which theory is contained in a given other one, and a game characterization still needs a cycle-specific strategy. Existential-positive preservation alone does not preserve negated literals. Distinct full equivalence classes do not decide one-sided inclusion for the weaker fragment.",
+        "searches": [
+          "arXiv:2303.13222v2 §2 and the referenced 1995 preservation chapter",
+          "arXiv:1704.05124v1 pebble-game characterizations",
+          "Resultary 6ffa74c2d1c0, full finite-variable cycle theories"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2303.13222v2",
+        "1995 chapter repository metadata",
+        "arXiv:1704.05124v1",
+        "Resultary 6ffa74c2d1c0 and 888a8be52fca"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old alike evaluations require matching induced equality and adjacency relations",
+          "An old alike assignment to C6 can match square opposites with 0 and 3; there is then no response to a square common neighbor",
+          "The new invariant restricts images of opposite pairs to distance two"
+        ],
+        "reasoning": "The old strategy works in C5 where every unequal nonadjacent pair is at distance two; it fails unchanged at n=6. Theory distinction in full FO is compatible with either direction of weaker-fragment inclusion or with incomparability. The new rebinding and separator establish what the earlier statements leave open.",
+        "searches": [
+          "Andréka–van Benthem–Németi §1 proof of Lemma 2",
+          "Resultary full FO^k cycle-equivalence statement at 6ffa74c2d1c0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2023 paper states the C5→C4 universal inclusion, using existential transfer in the reverse direction",
+          "The same existential-dual transfer from C4 to every C_n under a distance-two extension invariant is stronger in the target family"
+        ],
+        "reasoning": "Dualization is mathematically equivalent and is old for n=5. This does not turn the single transfer into the family theorem; keeping only the older partial-isomorphism invariant permits a bad opposite pair already in C6.",
+        "searches": [
+          "Resultary semantic comparison of generalized universal three-variable cycle theories, square/pentagon, existential dual and one-sided pebble preservation",
+          "arXiv:2303.13222v2 §1 Lemma 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6ffa74c2d1c0 separates full FO3 theories of C4 and each C_n, not generalized-universal theory inclusions",
+          "888a8be52fca classifies rank-at-most-four theories of independent-set blow-ups of C5, not cycles of all lengths in U3"
+        ],
+        "reasoning": "There is no finite numerical invariant table to settle inclusion of all U3 sentences at arbitrary depth. The materially relevant indexed theory classifications were compared and neither lists or entails the required one-way inclusion.",
+        "searches": [
+          "Resultary exact-cycle-theory comparison with 6ffa74c2d1c0 and rank-four theory comparison with 888a8be52fca",
+          "The pair and fragment in arXiv:2303.13222v2 Lemma 2"
+        ]
+      },
+      "rationale": "The pentagon-to-square inclusion and the general assignment-extension proof template are credited to Andréka–van Benthem–Németi. The supported distinct contribution is the uniform inclusion for C_n with n>5, and the explicit separator witnessing the strict family relation. The original pentagon invariant is not sufficient uniformly; the added distance-two constraint is substantive. The inspected full-FO equivalence classification has a different conclusion and offers no such one-sided relation.",
+      "residual_risks": [
+        "The 1995 chapter full text remains uninspected.",
+        "The metric strengthening is short and may be uncatalogued folklore. Local and literature comparisons do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior C5→C4 inclusion and proof template, not the longer-cycle theorem.",
+          "evidence": [
+            "P and Q are C5 and C4; Lemma 2 transfers three-variable universal truth from P to Q by the alike-evaluation condition."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2303.13222v2",
+          "material_read": "§1 definitions and Lemma 2 (pp. 1–3) and §2 (p. 5)",
+          "method": "OA paper passages, offsets 0, 2494, 4999, 8128",
+          "title": "A note on the submodel preservation property in fragments of first-order logic",
+          "trigger": "Same square and generalized universal three-variable fragment"
+        },
+        {
+          "assessment": "Chapter coverage remains unresolved; no inference from missing full text.",
+          "evidence": [
+            "The 2023 note describes general preservation results; the repository lookup did not expose readable chapter text."
+          ],
+          "identifier_or_url": "UvA-DARE 4f80a365-7abb-4222-a941-cc57343d7fb8 (1995 chapter)",
+          "material_read": "Repository landing page/abstract and the 2023 note's discussion, not chapter full text",
+          "method": "Lawful repository lookup",
+          "title": "Submodel Preservation Theorems in Finite-Variable Fragments",
+          "trigger": "Earlier work cited by the authors of the pentagon lemma"
+        },
+        {
+          "assessment": "General framework and different positive fragment; no observed cycle strategy.",
+          "evidence": [
+            "The introduction includes existential-positive k-variable transfer and other game characterizations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1704.05124v1",
+          "material_read": "Abstract and introductory characterization, p. 1",
+          "method": "OA primary passage at offset 0",
+          "title": "The Pebbling Comonad in Finite Model Theory",
+          "trigger": "General games for finite-variable truth transfer"
+        },
+        {
+          "assessment": "Full counting-free FO^k equivalence, not one-sided U3 transfer.",
+          "evidence": [
+            "For k≥3 the equivalence classification uses cycle-component multiplicities truncated at k."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-finite-variable-theories-of-finite-unions-of-undirected-cy--6ffa74c2d1c0",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Exact finite-variable theories of finite unions of undirected cycles",
+          "trigger": "Closest indexed result on theories of the same cycles"
+        },
+        {
+          "assessment": "Different structures and fragment.",
+          "evidence": [
+            "The family is independent-set blow-ups of C5 and the theories have bounded rank."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-thirty-three-rank-four-theories-and-a-sharp-fifteen-vertex-kerne--888a8be52fca",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Thirty-three rank-four theories and a sharp fifteen-vertex kernel",
+          "trigger": "Indexed low-rank cycle-related theory classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding–Proof and Limitations",
+        "Andréka–van Benthem–Németi §1 Lemma 2"
+      ],
+      "rationale": "The cycles come from a canonical counterexample in finite-variable preservation. Determining the relation of an entire natural family to the square resolves a genuine one-sided theory question, not just a finite formula test. The short distance invariant works uniformly at arbitrary formula depth and the explicit separator makes the inclusion sharp. This is a useful structural family lemma, not a new general preservation theorem.",
+      "residual_risks": [
+        "No classification among longer cycles, generalization to arbitrary degree-two graphs, or strengthening to full FO3 is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

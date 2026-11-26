@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:02:51.630461Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent uniform parent and pre-existing removal draws give offspring type-1 probability x+μ(1−2x), x=k/n; multiplying with the opposite removal probabilities gives the two stated off-diagonal entries. Reflection is legitimate by allele symmetry. At the top it adds both jump probabilities when n is even and makes the original upward jump a hold when n is odd. Below the top p+q is at most 1−2x(1−x)<1, so holding is positive, and downward probabilities are positive even at μ=1. Finiteness and positive descending paths give eventual absorption with a geometric upper bound. By skip-free motion and the strong Markov property, starting one step higher adds a nonnegative first-passage time in distribution, so each survival vector is nondecreasing with initial minority count. The derivative D favors up over down on those vectors, with zero top row for even n and a nonnegative action at the odd top. Differentiating Q^t gives the sum of nonnegative terms; since D1 has first component (1−2/n)/n>0 for n>=3, the j=0 term reaches any r by t>=r using r−1 downward steps and arbitrary positive holds. Hence survival is one for t<r and strictly increasing in μ at every other horizon, endpoints included by integration. Summing finite means proves strict mean ordering. The primitive killed matrix has simple Perron root in (0,1). Its positive right Perron vector is a limit of rescaled nondecreasing survival vectors, so Dv is nonnegative with first component at least (1−2/n)v_1/n>0. The simple-root derivative w^T Dv/(w^T v) is therefore positive, including one-sided endpoint derivatives; the left and right Perron vectors give the positive survival prefactor. The one-state matrices at n=2 and 3 yield respectively 1/2 and (7+μ)/9. An independently written integer replay on the full allele count (python3 /workspace/branches/frozen_math_replay.py 5) used literal ordered individual draws and mutation weights; 1872 adjacent-rate comparisons passed, n=2..9, μ=j/4, t=0..12, including both small-size formulas. The reported exact-rational checks of the inspected supplied script cover other finite cases; the Perron conclusion is established by the proof, not by either computation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huillet treats ergodic mutation kernels, state hitting and return times, and spectral/duality tools; its inspected passages are not a mutation comparison for a killed first entrance to either boundary from a mixed state.",
+          "Díaz et al. study absorption for a selection/graph model without the recurrent flip parameter and compare mutant sets/fixation under their coupling. DeVille–Galiardi concern fitness-dependent games and large-population metastable switching."
+        ],
+        "reasoning": "Even wider models or state-space tools do not imply a strict comparison for every horizon in this killed model without a parameter order and a strict boundary-propagation step.",
+        "searches": [
+          "Huillet HAL hal-00843285, §§2–3.2",
+          "Díaz–Goldberg–Richerby–Serna arXiv:1311.7631 §§1–1.1.3",
+          "DeVille–Galiardi arXiv:1512.06886 §§2.1, 2.3, 4.1"
+        ]
+      },
+      "checked_sources": [
+        "Published Resultary catalogue, including indexed summaries 1c096b5d710b and 6bc27a374d06",
+        "arXiv:2402.12943",
+        "HAL hal-00843285",
+        "arXiv:1311.7631",
+        "arXiv:1512.06886"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A recursion for the expected hitting time (sum of survivals) or a comparison of means does not imply pointwise ordering. The observation that state-wise survival is increasing and the standard Perron formula require the separate sign calculation for D and its strictly positive boundary effect."
+        ],
+        "reasoning": "Strictness precisely at t>=min(k,n−k) and the positive endpoint Perron derivatives are substantive parameter statements, not numerical tabulations or substitutions into the prior mean result.",
+        "searches": [
+          "Gaeta arXiv:2402.12943 §8, OA offsets 50420–50640",
+          "Huillet §3.2, HAL OA offsets 42880–45359"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gaeta has the same independent pre-existing death draw, symmetric per-birth flip, and stopping at either pure state. Section 8 reports the mean time increases with mutation.",
+          "Neither the full survival law nor its killed Perron sensitivity follows as an equivalence of the mean-time statement."
+        ],
+        "reasoning": "The same model under complete-Moran and first-homogeneity terminology is genuine prior coverage for the model and mean, which are not claimed as novel.",
+        "searches": [
+          "Published Resultary: neutral symmetric Moran first homogeneous passage, all-horizon survival and killed Perron root",
+          "Gaeta arXiv:2402.12943, model description and §§7–8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed 1c096b5d710b studies contrasting mean/variance responses to graph edge changes; indexed 6bc27a374d06 compares conditional fixation-time means for different initial configurations. Full text of these two entries was not obtained."
+        ],
+        "reasoning": "The indexed statements vary the graph or initial configuration and supply different observables. Neither is exact coverage for the symmetric mutation-parameter order; their incomplete access is recorded, not evidence of absence.",
+        "searches": [
+          "Published Resultary: exact first-purity survival order as a function of mutation; neutral Moran first-entrance and fixation-time variants",
+          "Exact mirror checks of 1c096b5d710b and 6bc27a374d06"
+        ]
+      },
+      "rationale": "Gaeta treats exactly the update and first entrance in this record, and already reports the mean trend. The defensible distinct contribution is pointwise strict ordering at every reachable finite horizon, with its exact onset, and positivity of the mutation derivative of the reflected killed-chain Perron root. These do not follow from the prior mean recursion or from general state hitting and stationary analyses in the inspected results.",
+      "residual_risks": [
+        "An unlocated parameter-monotonicity or first-passage coupling theorem for reflected birth–death chains may specialize to this model.",
+        "The two nearby Resultary hits were assessed from indexed statements only, not full text.",
+        "The exact same model and mean trend are already documented, without a claim of priority for that part."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and mean trend, not the full survival or Perron claims in the inspected passages",
+          "evidence": "Uniform removal excludes the newborn but can remove its parent; process is stopped at either pure state. The mean first-purity time is reported to increase with mutation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2402.12943",
+          "material_read": "Model passage, OA offsets 12650–15689, and §8, PDF p. 18 at offsets 50420–50640",
+          "method": "Original OA PDF, scoped passage inspection",
+          "title": "On some dynamical features of the complete Moran model for neutral evolution in the presence of mutations",
+          "trigger": "Exact model and passage target; strongest prior overlap"
+        },
+        {
+          "assessment": "Relevant theory but a distinct hitting and spectral question",
+          "evidence": "Examines mutation chains as ergodic and discusses equilibrium hitting, return times and hitting N from 0, not a parameter derivative for a killed mixed-state kernel.",
+          "identifier_or_url": "https://hal.science/hal-00843285/document",
+          "material_read": "Submitted version pp. 2–3, 13–14 (§3.2)",
+          "method": "Lawful HAL alternate PDF after publisher access failed",
+          "title": "Fluctuations Analysis of Finite Discrete Birth and Death Chains with Emphasis on Moran Models with Mutations",
+          "trigger": "Potential general spectral or first hitting comparison for Moran mutation"
+        },
+        {
+          "assessment": "Selection and graph process without the target recurrent mutation parameter",
+          "evidence": "Absorption time as expected number of steps, and stated coupling comparisons of mutant sets/fixation probability, not all-horizon survival ordered by symmetric mutation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1311.7631",
+          "material_read": "§§1–1.1.3, pp. 1–5; Theorem 6 and Corollaries 7–8 comparison",
+          "method": "Original OA PDF",
+          "title": "Absorption Time of the Moran Process",
+          "trigger": "Potential stochastic-domination theorem for the absorption law"
+        },
+        {
+          "assessment": "Different model and stopping question",
+          "evidence": "Fitness-dependent reproduction and invariant distributions or metastable passage with large-population methods.",
+          "identifier_or_url": "https://arxiv.org/pdf/1512.06886",
+          "material_read": "§2.1 pp. 1–2, §2.3 p. 4, §4.1 p. 10",
+          "method": "Original OA PDF",
+          "title": "Finite-size effects and switching times for Moran dynamics with mutation",
+          "trigger": "Possible same-model mutation-dependent passage estimates"
+        },
+        {
+          "assessment": "Indexed statement varies graph edges; full text unresolved",
+          "evidence": "Opposite changes in absorption mean and variance under graph changes.",
+          "identifier_or_url": "1c096b5d710b",
+          "material_read": "Catalogue summary only",
+          "method": "Published Resultary query and unsuccessful local-mirror retrieval",
+          "title": "Six-vertex threshold for opposite mean and variance responses in neutral Moran absorption",
+          "trigger": "Closest indexed absorption distribution comparison"
+        },
+        {
+          "assessment": "Indexed statement varies initial configurations; full text unresolved",
+          "evidence": "Conditional fixation-time means for different initial configurations, including a path example.",
+          "identifier_or_url": "6bc27a374d06",
+          "material_read": "Catalogue summary only",
+          "method": "Published Resultary query and unsuccessful local-mirror retrieval",
+          "title": "Four vertices are sharp for equal-probability unequal-time neutral mutant configurations",
+          "trigger": "Nearby indexed comparison of first-passage times"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In a natural finite neutral model, strict comparison of the whole first-homogeneity law is stronger than comparison of its mean. It holds for the entire flip range even though mutation increases the probability of any allele-count change away from the central count. The order starts exactly at the first reachable horizon and has a sharp population-size boundary. The strict Perron derivative also resolves sensitivity of the asymptotic survival scale, which does not follow just from ordering finite horizons. This is about temporary pure-state entrance and does not claim biological fixation in a system with continuing mutation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

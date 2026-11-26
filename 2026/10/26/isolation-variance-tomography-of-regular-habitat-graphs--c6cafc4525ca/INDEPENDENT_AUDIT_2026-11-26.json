@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:58:56.835557Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A retained isolated indicator has mean pq^r. For adjacent endpoints the joint event is impossible, while nonadjacent endpoints with s common neighbors impose absence on a union of 2r−s sites disjoint from the endpoints. Summing diagonal, nr/2 adjacent and nonadjacent pair terms produces the stated factors, with codegree zero canceling. The normalized variance residual divides by 2p³q^r, nonzero at every permitted sample, and the geometric series gives triangular coefficients b_j=∑_{s≥r−j}N_s. Adjacent coefficient differences and exact interpolation at r distinct points prove inversion, including r=1 and the complete graph. The wedge count partitions into ∑sN_s open and 3T closed wedges. At cubic order the variance coefficient before substitution is n binom(r,2)+2nr(r+1)+2∑sN_s, which simplifies as claimed. The two cycle examples have ten distance-two pairs of codegree one and none of codegree two; disconnectedness is permitted. The uploaded certificate and checker were inspected, not executed. A separate exact retained-set enumeration and three-point interpolation for K3,3 and the triangular prism gave triangle counts 0 and 2 and the expected distinct normalized curves (python /workspace/review-evidence/independent_checks.py). The independent check is finite and numerical stability is not asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Diskin–Krivelevich study retained components in a forward site-percolation model. The recursive-tree record uses a mixed component-count/singleton covariance rather than singleton variance."
+        ],
+        "reasoning": "Connectedness and ordinary total component-count marking alone do not identify the singleton second moment. A richer singleton-marked polynomial can encode it, but the inspected materials do not directly recover the histogram from that single moment curve.",
+        "searches": [
+          "Diskin–Krivelevich arXiv:2107.13326v2",
+          "Resultary component-singleton covariance in percolated recursive trees (39564dc1d0da)",
+          "site reliability and induced-component graph polynomial formulations"
+        ]
+      },
+      "checked_sources": [
+        "Diskin–Krivelevich arXiv:2107.13326v2",
+        "Resultary 2c5facc9a2eb, 3c5511e203cb, c459fae012e1, 39564dc1d0da, 55771ce76a42"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Site isolation for two nonadjacent vertices retains information about neighborhood overlap; independence of incident edge retention in the bond calculation is a different condition. The later labeled covariance formula retains individual pair identities."
+        ],
+        "reasoning": "Neither the bond triangle formula nor forward component asymptotics imply the scalar moment inverse. The specific recovery uses the regular common baseline and triangular monomials after normalizing the aggregate site variance.",
+        "searches": [
+          "Resultary 2c5facc9a2eb and 3c5511e203cb, Findings",
+          "Diskin–Krivelevich site versus bond model comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The later tomography record gives nonedge covariance μ_u μ_v(q^(−c_uv)−1) for the same site-isolation indicators but uses labeled pair data. The later tree result uses the scalar variance only at a fixed probability and orders trees."
+        ],
+        "reasoning": "The frozen claim takes just the scalar sum, as a function of p. The stronger access to labeled entries is not equivalent to the aggregate inverse problem; the later pair formula reproduces the forward variance by summation, but it is later and does not assert the interpolation result.",
+        "searches": [
+          "Resultary isolation-only site-percolation tomography (3c5511e203cb)",
+          "Resultary isolated cluster variance at p=1/2 (c459fae012e1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 25 record gives a triangle-sensitive isolated-vertex/isolated-edge covariance in bond percolation. The distinct same-day record detects four-cycle components by a three-layer shuffled occupancy variance."
+        ],
+        "reasoning": "Neither tabulates this site-isolation variance or a stronger statistic from which the inverse claim follows under the same hypotheses. The same-day item is distinguished by its actual sampling and statistic, not by an inferred priority.",
+        "searches": [
+          "Resultary triangle-controlled isolated percolation covariance (2c5facc9a2eb)",
+          "Resultary same-day shuffled regular graph occupancy variance (55771ce76a42)"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact equivalence between the scalar site-isolation variance curve and the nonedge-codegree histogram for known regular parameters, with uniform exact sample sufficiency and derived triangle census. Pair probabilities and interpolation are not claimed as new techniques. No earlier exact recovery or stronger same-observable inversion was established by the inspected sources.",
+      "residual_risks": [
+        "An older equivalent recovery could be present in the reliability or graph-polynomial literature under a singleton marking. The targeted search does not establish absence.",
+        "With (1995), DOI 10.2307/2265819, and Neel et al. (2004), DOI 10.1023/B:LAND.0000030521.19856.cb, were not retrieved in full text; they are cited for ecological context, and no inverse equivalence is inferred from them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Forward component model, no matching inverse claim in inspected material",
+          "evidence": "Random retained vertices and their induced subgraph in the site model, as distinct from random edges in the bond model.",
+          "identifier_or_url": "https://arxiv.org/pdf/2107.13326v2",
+          "material_read": "P.1 introduction and model distinction, offset about 1812",
+          "method": "Lawful OA PDF text",
+          "title": "Site Percolation on Pseudo-Random Graphs",
+          "trigger": "Primary site-percolation comparison on regular graphs"
+        },
+        {
+          "assessment": "Different sampling scheme and moments",
+          "evidence": "Bond-percolation mixed covariance of isolated vertices and isolated edges.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-triangle-controlled-covariance-of-isolated-percolation-component--2c5facc9a2eb/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary local full-text mirror",
+          "title": "Triangle-controlled covariance of isolated percolation components",
+          "trigger": "Regular graph isolation covariance reconstructing triangles"
+        },
+        {
+          "assessment": "Closest forward formula; later and labeled-observation problem",
+          "evidence": "Labeled nonedge covariance μ_u μ_v(q^(−c_uv)−1), compared with the frozen aggregate.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-isolation-only-tomography-and-the-exact-percolation-parameter-am--3c5511e203cb/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary local full-text mirror",
+          "title": "Isolation-only tomography and the exact percolation parameter ambiguity",
+          "trigger": "Same site-isolation indicators and nonedge overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This identifies exactly which overlap invariant is retained by an accessible idealized aggregate, turns it into a finite exact reconstruction, and distinguishes triangle identifiability from graph or connectivity identifiability. The interpretation is mathematical, not a claim of robust ecological inference from noisy observations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

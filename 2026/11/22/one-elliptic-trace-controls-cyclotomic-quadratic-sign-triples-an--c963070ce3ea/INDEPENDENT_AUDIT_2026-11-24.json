@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:45:52.744198Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, both histogram displays and proof, lines 16–34 and 40–82",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/52f1f5a0-f9ef-468a-b21c-f5ec1bd5a85b/independent_finite_field_check.py; output independent_finite_field_check.txt in the same directory"
+      ],
+      "rationale": "Reflection about −1/2 turns the second cubic sum into δU, where δ=χ(−1). Substitution −x/(x+1) on the field minus −1 turns the quartic sum into δU−1, with the missing cubic summand δ at −1 accounting for the constant. In the sign-indicator expansion the two separable monic quadratic sums are −1. The zero terms at 0 and −1 are (1+b)(1+c) and (1+aδ)(1+c); at each cyclotomic root ρ the first two characters are 1 and δ because ρ=(ρ²)² and ρ+1=−ρ². Subtracting these terms gives the piecewise formulas with the stated singleton sign pair for each δ. The curve has q+1+U points and is smooth in the intended odd characteristics other than 3. Hasse yields simultaneous positivity by q≥71 (even the weakest lower bound q−19−6√q is positive and increasing there). Below 71 the 17 eligible primes and 25,49 exhaust the admissible orders. A fresh field enumeration verified all counts there and the exact exception list. In particular the bins at 49 in lexicographic order with + before − are (9,0,4,8,4,8,4,8); 41,43,47 and 53 have no missing bin. The stated cutoffs are the least eligible field orders after the last failure in their respective classes. Characteristic 3 is separate: the quadratic becomes (x−1)² and has no negative sign.",
+      "residual_risks": [
+        "The replay certifies the finite remainder, not the infinite Hasse argument; no histogram is claimed in characteristic 3."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.4 shatters all subsets up to a stated asymptotic cardinality using translates of the square set; its tests are translated linear residue conditions.",
+          "Wang–Fang is bibliographically a consecutive residue-sequence paper; lawful full-text access attempts did not yield its theorem passages."
+        ],
+        "reasoning": "Translate shattering is not a broader exact theorem specializing to a cyclotomic quadratic, and Hasse alone does not determine individual counts or the sharp finite cutoff. Exact scope in the unavailable full text is not inferred from title alone.",
+        "searches": [
+          "McDonald–Sahay–Wyman, arXiv:2210.03789, Definition 1.2 and Theorem 1.4",
+          "Wang–Fang, doi:10.1155/2023/5253261"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary search and statement inspection of ee13b7e84dbe, d08a73e76429, 50a43fac6cf7",
+        "arXiv:2210.03789, Theorem 1.4",
+        "Bibliographic/attempted full-text checks of doi:10.1155/2023/5253261 and doi:10.12386/A20210160"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reduction V=δU, W=δU−1 depends on the actual three polynomial factors and projective substitution.",
+          "The comparison sources either bound shattering or give exact counts for distinct factor systems."
+        ],
+        "reasoning": "Neither a generic error estimate nor the exact neighboring tuples imply that the apparent quartic trace here collapses to this cubic trace, or that 49 has a single missing bin.",
+        "searches": [
+          "arXiv:2210.03789 Theorem 1.4 and exact Resultary sign-word statements",
+          "Frozen character-sum reductions and zero corrections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest hit is the assigned record itself. The distinct triangular record uses T_n,T_{n+1},T_{n+2}, with T_n=n(n+1)/2, and prime threshold 19.",
+          "For characteristic at least 5 the triangular functions' combined quadratic branch set has four points (the consecutive zeros); the cyclotomic tuple has five over the algebraic closure (0, −1, infinity, and the two cyclotomic roots)."
+        ],
+        "reasoning": "A Möbius change preserves the number of branch points, and invertible products of sign coordinates preserve the union of their square-class supports. Thus even this natural candidate equivalence does not identify the tuples or histograms.",
+        "searches": [
+          "Resultary lookup of quadratic cyclotomic sign triples, elliptic trace and exceptional field orders",
+          "Resultary ee13b7e84dbe, Finding for three consecutive triangular numbers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 19-field remainder for the stated tuple found in the index belongs to the assigned record itself.",
+          "The other inspected tables concern triangular signs over primes or four/five consecutive linear shifts, not this triple."
+        ],
+        "reasoning": "Different factorizations and pattern lengths produce different bins and exclusions. The inspected threshold tables are not a source table for the cyclotomic bins, even after forgetting extra consecutive linear signs.",
+        "searches": [
+          "Resultary exact histogram, prime-power universality and alternate sign-word lengths",
+          "Resultary ee13b7e84dbe, d08a73e76429 and 50a43fac6cf7 Findings"
+        ]
+      },
+      "rationale": "The distinct result is the exact one-trace histogram for this nonlinear tuple, with its sharp extension-field exceptions. Related exact sign-pattern results use different functions, and the strongest inspected generic shattering theorem concerns translates of the square set and gives asymptotic existence, not these counts. Credit Hasse, character orthogonality and indicator expansion as standard tools.",
+      "residual_risks": [
+        "Lawful full-text attempts for Wang–Fang and the related Wang–Li source were unsuccessful. A differently normalized exact identity in older character-sum literature remains possible; the broad web lookup supplied no decisive comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General asymptotic translate shattering; not this fixed nonlinear histogram",
+          "evidence": [
+            "All subsets up to (1/2−ε)log₂(q) are shattered for sufficiently large q."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2210.03789",
+          "material_read": "Translate and graph definitions, PDF pp. 2–3, OA offset 2500; Theorem 1.4, p. 4, offset 7250",
+          "method": "Bounded primary PDF text inspection",
+          "title": "The VC dimension of quadratic residues in finite fields",
+          "trigger": "Broad finite-field quadratic-residue sign existence theorem"
+        },
+        {
+          "assessment": "Exact reach not independently established; no categorical exclusion based on the title",
+          "evidence": [
+            "Frozen text credits related work on arithmetic progressions of residue signs."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2023/5253261",
+          "material_read": "Bibliographic identification and frozen account; no full text retrieved independently",
+          "method": "Bounded lawful DOI, Wiley and Hindawi full-text attempts returned HTTP 403",
+          "title": "The Distribution Properties of Consecutive Quadratic Residue Sequences",
+          "trigger": "Plausible exact consecutive-sign counts cited in frozen record"
+        },
+        {
+          "assessment": "Different sign functions and domain, not a projective reformulation",
+          "evidence": [
+            "The triangular tuple uses four split linear factors over primes and has cutoff 19."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-sharp-eight-pattern-threshold-for-three-consecutive-triangul--ee13b7e84dbe",
+          "material_read": "Finding and prior-work comparison, offset 0",
+          "method": "Local Resultary mirror bounded read and mathematical comparison of branch sets",
+          "title": "The sharp eight-pattern threshold for three consecutive triangular numbers",
+          "trigger": "Closest independent indexed eight-bin elliptic-curve theorem"
+        },
+        {
+          "assessment": "Separate four- and five-linear-shift problems",
+          "evidence": [
+            "The sign coordinates are consecutive linear shifts, not a cyclotomic polynomial."
+          ],
+          "identifier_or_url": "Resultary d08a73e76429 and 50a43fac6cf7",
+          "material_read": "Both Findings, local offsets 0",
+          "method": "Local Resultary mirror bounded reads",
+          "title": "Sharp four-sign quadratic-residue universality over finite fields; Complete five-word quadratic-character universality in nonprime fields",
+          "trigger": "Close exact finite-field exception lists"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen histogram, field cutoffs and two transformations",
+        "Independent finite remainder replay"
+      ],
+      "rationale": "This natural cyclotomic tuple has symmetries that turn several apparent trace inputs into one and give two orbit types of counts without enumerating each field. The order-49 obstruction proves that the extension-field cutoff differs from the prime-field cutoff. This is a precise, motivated boundary phenomenon, not just a numerical table or a generic large-field positivity argument.",
+      "residual_risks": [
+        "The theorem concerns this specific tuple; it does not assert the same reduction for other polynomial tuples or in characteristic 2."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

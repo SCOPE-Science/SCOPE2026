@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:51:10.489806Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two end slots of a linear word are one cyclic edge; splitting its padding only changes a common origin. The expanded two-point support is determined up to rotation by the unordered complementary separation lengths. For either possible orientation, cancelling common edges leaves two sums of strictly positive gap lengths. Equal arc sets cost zero, strict inclusion is infeasible, and in the remaining case the initial deficit is a lower bound attained in one edge of the smaller exclusive part. If the supports share exactly one point a, the orientation fixing a is impossible, and the other has cost |r+s−n| for the two distinct clockwise offsets r,s from a. Each of the two exclusive edge sets is nonempty (they contain, respectively, the outgoing and incoming edges at a). Its maximum n−3 occurs exactly at offset pairs {1,2} and {n−2,n−1}. With disjoint supports, grouped or alternating membership gives a feasible orientation using opposite nonempty interpoint gaps of lengths alpha and gamma as the exclusive parts; their difference is at most n−4. This proves the count 4n for n>=4 and the separate zero cases n=2,3. `python3 -B /workspace/review_checks.py 4` independently checked 812 ordered pairs through n=7 by enumerating common padding allocations over all n+1 linear gaps by increasing total and testing literal rotations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two primary preprints pose broader minimum-length questions; the zero-only preprint gives a polynomial existence construction, not the needed exact weight-two comparison in the inspected section.",
+          "The prior Resultary finding applies to every same-length weight-two pair, includes the n=2 and n=3 boundary cases, and gives all optimal costs and sharp cases."
+        ],
+        "reasoning": "General feasibility and unrestricted-symbol optimization cannot supply the target minimum, but coverage by the earlier exact restricted result is already complete.",
+        "searches": [
+          "arXiv:2607.18452v1 §10.1",
+          "arXiv:2604.19504 §7",
+          "02e33461ac29 RESULT.md Finding and §§1–4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 02e33461ac29",
+        "arXiv:2607.18452v1",
+        "arXiv:2604.19504"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier proof §2 puts all padding for each feasible positive-cost orientation into one gap and proves optimality.",
+          "Earlier proof §4 counts strictly nested length 1/2, strictly nested length n−2/n−1, and disjoint length 1/n−2 cases. In the first type the shared endpoint has other positions at offsets 1,2 in one direction; the latter two types give exactly the cases with the same cyclic offsets that wrap around the chosen linear origin."
+        ],
+        "reasoning": "The original formulation of the extremizers recovers the cyclic shared-position characterization by reading the endpoints modulo n. No distinct quantified claim remains after identifying the two gap conventions; inclusion of the single trivial length-2 pair does not extend the prior result.",
+        "searches": [
+          "02e33461ac29 RESULT.md proof §§2–4, compared with frozen RESULT.md:39–72"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under edge i ↔ interior linear slot i+1 and with the two end slots identified, the frozen A and B are exactly the earlier I and J. The two alternatives are R=S and R+S=N.",
+          "The earlier equations (2) and (3) compare exactly the same exclusive parts: I\\J versus J\\I, and I∩J versus the outside of I∪J, respectively."
+        ],
+        "reasoning": "The alternative costs are |r−s| and |n−r−s| when feasible. The first is impossible only for strict containment; the second is impossible for disjoint intervals, since then r+s<=n−1 and there is no shared gap. If the intervals overlap, the second can use the intersection or the common outer gap. This is precisely the frozen minimum of the two Lambda terms.",
+        "searches": [
+          "Resultary: exact weight-two common zero-insertion and cyclic equalization cost; match 02e33461ac29",
+          "02e33461ac29 RESULT.md, proof §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior Finding lists the entire parametric optimum, the diameter n−3 and exactly 4n ordered maximizers; proof §§3–4 exhibit and count all three extremizer types."
+        ],
+        "reasoning": "This is not merely a numerical or title match: the indexed formula and classifications cover the same all-length problem and the same ordered input pairs.",
+        "searches": [
+          "Resultary: weight two, n−3 worst cost, 4n ordered extremizers; record 02e33461ac29"
+        ]
+      },
+      "rationale": "Resultary record 02e33461ac29 dated 2026-10-25 already gives the same instance-wise cost, optimal single-gap construction, sharp maximum, count, and a complete extremizer description for exactly this zero-only common insertion problem. The cyclic-edge expression rewrites its two exact minimizations and its three extremizer cases, rather than extending their mathematical scope.",
+      "residual_risks": [
+        "The search does not settle earliest worldwide priority; that is immaterial to the demonstrated coverage by the cited prior record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent prior theorem, including construction",
+          "evidence": "Proof equations (1)–(3), followed by the exact piecewise cost and §§3–4 classifications; n=2,3 are expressly treated.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-zero-only-cyclic-equalization-cost-for-binary-words-of-ham--02e33461ac29/RESULT.md",
+          "material_read": "Mirrored RESULT.md at offset 0, Finding, assumptions and proof §§1–4",
+          "method": "Compared linear and cyclic gaps, orientation equations and endpoint extremizers",
+          "title": "Sharp zero-only cyclic equalization cost for binary words of Hamming weight two",
+          "trigger": "Same zero-only cost, weight and sharp extremal quantities"
+        },
+        {
+          "assessment": "Motivates the problem; inspected statement not the special-case optimum",
+          "evidence": "Problem 1 asks for the minimum non-asymptotic length following a polynomial construction; targeted weight-two variants did not locate a passage, which does not establish absence.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.18452",
+          "material_read": "v1 PDF §10.1, p. 18, offset 47562, Problem 1",
+          "method": "Read the primary statement and compared quantifiers and objective",
+          "title": "0-Cyclic Equalizability of Binary Words Characterized by Hamming Weight",
+          "trigger": "Same allowed operation and broader optimal-length question"
+        },
+        {
+          "assessment": "General motivating question, not the equivalent prior result",
+          "evidence": "The minimum insertion length and alphabet restrictions are posed as questions in the inspected section.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.19504",
+          "material_read": "§7, p. 14, offset 40205",
+          "method": "Compared primary open questions with the frozen optimization domain",
+          "title": "Cyclic Equalizability Characterized by Parikh Vectors",
+          "trigger": "Potential broader exact bound, including restricted insertions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact weight-two optimum is a worthwhile response to the broader literature question, but its costs, construction, diameter and extremizer census are already available with proof. The change to cyclic-edge notation does not provide a separate invariant, stronger theorem or new case, so the frozen record adds no distinct scientific result. No genuinely new surviving claim was identified for repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:27:46.503824Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–70",
+        "Frozen VERIFICATION.md and verify.py (inspected without execution)",
+        "/workspace/record5_rate_certificate.py (independent exact and numerical checks)"
+      ],
+      "rationale": "Substitution of a Gaussian times its mass gives V′=2D−2V², m′=−2V(m−z_B), and per-capita mass growth r−V−(m−z_B)²−κM. Positive variance converges exponentially to √D and the mean converges to the periodic tracking solution with damping y=2√D. The harmonic lag multiplier has squared modulus ω²/(y²+ω²); the two frequencies are orthogonal over the common period and the mortality term is excluded by definition. This yields exactly f_B(y)=Λ_B−r as stated. I independently replayed the exact derivative identity, Q signs, all eight derivative signs at both B endpoints, and both polynomial endpoint comparison certificates with /workspace/record5_rate_certificate.py. The three Descartes sign variations of Q and its three disjoint sign brackets prove exactly three positive zeros of h′. Four sign brackets for f′ persist throughout [26,27] by affine dependence on B. Hence h=B has exactly four positive roots and all are simple: Rolle already puts the three h′ zeros strictly between the four roots, leaving none at a root. The maximum branches therefore vary smoothly and lie in disjoint advertised intervals. The exact B=26 and B=27 comparison polynomials are strictly positive on their required intervals, giving opposite branch-height orderings. The height difference has strictly positive envelope derivative because the high-branch argument is larger. Thus there is exactly one crossing, and the global maximizer switches discontinuously there; f_B(2)−f_B(0)=7/5+B/226>0 and f_B tends to −infinity, so no omitted endpoint can optimize. Numerical bisection independently reproduces B*=26.8881859300076 and D values 1.2664896175302, 175.4861044673641, and is not used in the proof.",
+      "residual_risks": [
+        "The theorem uses Gaussian initial data, intrinsic growth before density-dependent mortality, and B within [26,27]. It does not classify non-Gaussian dynamics, other spectra, or the final regulated mean population."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General quadratic evolution supplies the objective; the moving-optimum work gives an intermediate-rate selection mechanism via the c²/(4d) term. Ardaševa et al. find competing low/high-variation populations can be favored under different oscillation regimes."
+        ],
+        "reasoning": "These general evolution or selection tools do not supply a general uniqueness/coexistence theorem for multiple separated maximizers, and the one-frequency optimum calculation lacks the two-scale branch competition. The exact branch counts and exact endpoint inequalities must still be proved.",
+        "searches": [
+          "Pathiraja–Wacker general time-dependent quadratic Gaussian framework and §4.5",
+          "Carrère–Nadin periodic phenotypic diffusion §1.1 and §5.1; Duong–Balabanova–van Rensburg arXiv:2607.25573v1 §2.2 Eq. (17)",
+          "Ardaševa et al. DOI 10.1007/s00285-019-01441-5, abstract and discussion"
+        ]
+      },
+      "checked_sources": [
+        "Pathiraja–Wacker arXiv:2412.08178v2 §4.5",
+        "Carrère–Nadin DOI 10.3934/dcdsb.2020075 §§1.1, 5.1 via HAL",
+        "Ardaševa et al. DOI 10.1007/s00285-019-01441-5",
+        "Duong et al. arXiv:2607.25573v1 §2.2",
+        "Local Resultary bounded semantic comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work implies the scalar spectral objective under linear superposition. Affine dependence on B makes the difference of branch values monotone once two separated critical branches are established, but does not ensure both branches, exclude other maxima, or prove an ordering reversal."
+        ],
+        "reasoning": "The original contribution thus lies in certifying two competing optima and exactly one positive-amplitude tie for the given natural two-scale example. A numerical intermediate optimum, or a switch in relative fitness between two preselected rates, is strictly weaker than this optimizer theorem.",
+        "searches": [
+          "Compare arXiv:2412.08178v2 §4.5 single harmonic response with frozen critical-point and envelope proof",
+          "Compare Carrère–Nadin §5.1, Ardaševa discussion, and arXiv:2607.25573v1 §2.2 with frozen global-optimizer claim"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The one-frequency stationary tracking calculation in §4.5 translates to the rate by superposing periodic solutions and using orthogonality, so the rate formula is covered as an application. Carrère–Nadin optimize a regulated final mean population in their pulsed example, not this intrinsic rate over two-frequency amplitude and diffusion."
+        ],
+        "reasoning": "The y=2√D change is one-to-one and preserves maximizers; changing from intrinsic growth to regulated mean mass in a different landscape is not a reparameterization of the same problem. Neither prior passage identifies the equal-height two-maximum transition.",
+        "searches": [
+          "Local Resultary searches for two-positive mutation-rate co-optima in periodic trait models and two-harmonic growth-rate switches",
+          "Pathiraja–Wacker arXiv:2412.08178v2 §4.5; Carrère–Nadin DOI 10.3934/dcdsb.2020075, §§1.1, 5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No materially matching indexed title or summary surfaced. The closest concrete printed optimum inspected is D=0.3 for a pulsed-treatment example with T=2, τ=1/4 and M=2, a different objective and landscape. The frozen decimal values are localizations of an exact theorem, not external table entries."
+        ],
+        "reasoning": "No database comparison establishes priority by absence. The inspected numerical precedent at a different parameter set and with a different objective does not cover exact coexistence or unique branch switch.",
+        "searches": [
+          "Three bounded local Resultary semantic lookups for the two-frequency mutation-rate crossover, co-optima, and periodic trait-growth optimization",
+          "Compare exact rate and switch to the reported mutation-rate example in Carrère–Nadin §5.1"
+        ]
+      },
+      "rationale": "The exact rate is an application of prior Gaussian tracking and harmonic superposition, not the novelty. The supported distinct contribution is a proved global two-positive-optimizer crossing in one explicit periodic quadratic model, with exactly four simple stationary points throughout the interval, opposite branch ordering at the two ends, and a unique switching intensity. The closest periodic-mutation papers give positive or intermediate optima or comparisons between rates, not this global classification.",
+      "residual_risks": [
+        "Exact priority cannot be certified by the bounded search. The inference is limited to the inspected primary statements and their mathematical implications; generic positive or intermediate mutation optima are not claimed new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers Gaussian method and one-frequency response; two-frequency rate is a superposition application",
+          "evidence": [
+            "Derives stationary tracking for y(t)=y0+ξ sin(θt) and the long-time growth/decay response, not a two-frequency global branch classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2412.08178v2",
+          "material_read": "§4.5 PDF pp. 31–32, one-dimensional sinusoidal optimum and response",
+          "method": "OA full-text section inspection",
+          "title": "Mathematical description of continuous time and space replicator-mutator equations for quadratic fitness landscapes",
+          "trigger": "Exact Gaussian technique and oscillatory tracking response"
+        },
+        {
+          "assessment": "Substantive precedent for a positive optimum but different dynamics and objective",
+          "evidence": [
+            "Bounded trait domain/periodic density-regulated model; a pulsed-treatment calculation reports maximal final mean population at D=0.3, not an exact tie or a two-harmonic switching theorem."
+          ],
+          "identifier_or_url": "https://hal.science/hal-02273079/document",
+          "material_read": "§1.1 Eq. (1.1) PDF p. 2; §5.1 PDF pp. 18–19",
+          "method": "Identified lawful HAL full-text copy of DOI 10.3934/dcdsb.2020075, bounded passage reads",
+          "title": "Influence of mutations in phenotypically-structured populations in time periodic environment",
+          "trigger": "Closest periodic mutation-rate optimization, formerly noted access risk"
+        },
+        {
+          "assessment": "Competition between populations with different variation rates, not optimization over all positive rates",
+          "evidence": [
+            "Small/slow oscillations favor rarer variation; large/fast oscillations can favor greater variation. No theorem of two co-optimal rates in these passages."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00285-019-01441-5",
+          "material_read": "PDF abstract p. 1 and discussion p. 22",
+          "method": "OA article passages",
+          "title": "Evolutionary dynamics of competing phenotype-structured populations in periodically fluctuating environments",
+          "trigger": "Fast versus slow variation and mutation advantage"
+        },
+        {
+          "assessment": "Related mechanism, different time dependence and optimization structure",
+          "evidence": [
+            "Moving-optimum correction c²/(4d) can select an intermediate rate; this is not an equality of two interior global optima."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.25573v1",
+          "material_read": "Abstract PDF p. 1; §2.2 Eq. (17) PDF p. 12",
+          "method": "Bounded OA passage reads",
+          "title": "Global Dynamics of Trait-Structured Generalised Lotka–Volterra Systems with Trait-Independent Interactions",
+          "trigger": "Intermediate mutation rate in changing environments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen intrinsic objective and optimizer theorem",
+        "Exact endpoint, stationary-point, and envelope checks in this review",
+        "Primary periodic-selection comparisons above"
+      ],
+      "rationale": "The two forcing frequencies separate slow tracking from faster tracking and suffice to refute a single, continuously varying optimal mutation rate even in a scalar quadratic-Gaussian model. The exact number of branches and unique crossing make this a useful explicit witness, not a numerical observation or a claim based on two hand-picked rates. The roughly 139-fold diffusion contrast at equality illustrates the separated optimizer scales, without implying biological coexistence or generality beyond the model.",
+      "residual_risks": [
+        "The explicit constants witness the phenomenon; the result does not determine how common it is across spectra, real populations, or competing genotypes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

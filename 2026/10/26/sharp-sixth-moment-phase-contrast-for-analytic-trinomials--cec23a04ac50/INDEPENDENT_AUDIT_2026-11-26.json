@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:08:49.706379Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Findings, assumptions and Proof, lines 4–65",
+        "VERIFICATION.md, requirements.txt, artifacts/verify.py and artifacts/check_output.txt, inspected only"
+      ],
+      "rationale": "For circle Haar probability, the integral is the squared coefficient norm of (a+bz+cz²)³. Among its seven coefficients, only 3a(ac+b²), b(6ac+b²), and 3c(ac+b²) carry interference, and their squared moduli give a single cosine of δ=2arg b−arg a−arg c with coefficient 6AB²C(3A²+2B²+3C²). When ABC>0, both phases are achievable and the minimum integral is positive (also at least (A²+B²+C²)³ by Jensen). If any magnitude vanishes all phases tie. Divide the extrema by (AC)³ and set S=(A²+C²)/(AC)≥2 and T=B²/(AC)>0. The denominator H simplifies to S³+9TS²+(6−18T+9T²)S+18T−12T²+T³. The derivative numerator for 12T(3S+2T)/H in S is −36T[2S³+12ST²+5T³+T(11S²−14)], strictly negative. At S=2 the denominator is (T+2)(T²+4T+10); differentiation gives −24 times T⁴+6T³−40T−60 divided by its square. Descartes' rule and the opposite signs at zero and large positive T give exactly one positive root, with the derivative strictly changing from positive to negative. The maximum is attained exactly at A=C>0 and T=t_*, with δ=0,π respectively for the two extrema. A nontrivial integer rescaling preserves Haar by the power map; translating the spectrum only multiplies by a unit modulus monomial. Taking the sixth root gives the norm contrast, not the sixth moment contrast.",
+      "residual_risks": [
+        "The supplied finite quadrature is corroborative; the derivative sign and complete phase argument give the universal proof. Decimal values are approximations to the exact root and rational functions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "382775ed6a3d covers a wide class of three-coset packets and its order-r≥7 branch yields the same continuous coefficient-energy maximum. 26fe96de7ece treats all even orders but again with energy normalization.",
+          "Springer metadata for DOI 10.1007/BF01140526 identifies the 1980 article; attempts at the article PDF and OA repository resolution did not yield its primary text."
+        ],
+        "reasoning": "A coefficient-energy maximum is not a max/min distortion for a common magnitude triple. The inaccessible article remains a risk, not evidence for or against coverage.",
+        "searches": [
+          "Literature: \"Inequality of different metrics for trigonometric polynomials\" Arestov 1980 PDF DOI",
+          "382775ed6a3d Finding and relationship to the continuous-circle branch; 26fe96de7ece Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked queries and local mirror findings 382775ed6a3d, 7849dda51c79, 0eb0bba3de93, 753ad1798bf5, 26fe96de7ece, a69c2469822e",
+        "arXiv:math/0703236v1 and 1006.0409v3; Arestov DOI 10.1007/BF01140526 metadata and access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The competing energy optimum has B²/A²=(√105−5)/4, whereas the contrast optimum has t_*≈2.681. Phase collision at prescribed unit magnitudes does not optimize across unequal amplitudes.",
+          "The weak-mode and idempotent majorant comparisons change the support, the assumptions on magnitudes, or the exponent; in the open range 2k<p<2k+2 for k=2 they exclude p=6."
+        ],
+        "reasoning": "The retrieved facts cannot mechanically give the lower phase extremum combined with global optimization of the ratio. The strict endpoint balancing and different quartic optimum are the scientifically distinct step.",
+        "searches": [
+          "382775ed6a3d offsets 694–1833 and 7514; 7849dda51c79 offsets 894–1101 and limitations; 0eb0bba3de93 Finding; arXiv:1006.0409v3 p. 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On the three-dimensional complex analytic span the ratio to the one-sixth power is the worst norm of a diagonal unit-modulus coefficient multiplier. Even an endpoint sign flip suffices for the optimal pair: it shifts δ by π. This still concerns complex input coefficients, not positive or all-unit inputs.",
+          "Indexed a69c2469822e treats fourth-power sign distortion with a weighted Bergman measure, while Neuwirth treats the supremum-norm problem for trigonometric trinomials."
+        ],
+        "reasoning": "These are plausible alternate formulations, but the inspected weighted or supremum-norm cases change the measure or moment; they cannot give this H⁶ circle distortion constant.",
+        "searches": [
+          "Literature: unconditional basis constant first three monomials Hardy H6 quadratic polynomial degree two sharp coefficient sign multiplier L6 circle three terms phase ratio Arestov",
+          "Resultary: exact sharp L6 moment for analytic trinomials supported on consecutive frequencies 0 1 2 coefficient energy normalized Nikolskii"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact cited IDs 0b2c2efe6412 and 1a8e79d7e85a did not resolve, but the distinct indexed 382775ed6a3d directly supplies the stated order-seven/continuous maximum branch. It is not assumed to be identical to either cited record.",
+          "7849dda51c79 gives the first phase-sensitive collision term for unimodular coefficients; the arithmetic-progression case corresponds to a single magnitude point, whose ratio here is 47/15."
+        ],
+        "reasoning": "A fixed case and a same-support maximum-energy constant are indexed; no retrieved entry gives the all-magnitude distortion maximum, and search misses alone do not establish this absence.",
+        "searches": [
+          "Resultary and literature: Exact L2-to-L6 Nikolskii constant for analytic quadratics / 0b2c2efe6412",
+          "Resultary and literature: Sharp sixth moments and the order-seven transition for three-character progressions / 1a8e79d7e85a",
+          "Resultary: Even phase moments recover the normalized geometry of a three-frequency spectrum / 7849dda51c79"
+        ]
+      },
+      "rationale": "The strongest same-support results give a maximum divided by coefficient energy or a phase response restricted to unit magnitudes. Neither determines the maximal distortion relative to the minimum at the same unknown magnitudes. The known cubic-convolution mechanism is not the distinct claim; the contribution is the exact global ratio, its balancing and unique amplitude optimum. Arestov's 1980 article could not be compared in full; no absence is inferred from that access gap.",
+      "residual_risks": [
+        "Two exact cited IDs were not resolved; the verified distinct earlier maximum-energy record supplies the relevant mathematical comparison, not an identity of citations.",
+        "The Arestov primary article was inaccessible, and a historical equivalent in metric or multiplier terminology cannot be excluded by bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "strong overlap for energy-normalized maximum only",
+          "evidence": "The r≥7 branch has middle squared magnitude ratio (√105−5)/4 and sharp sixth moment per coefficient energy cubed 35(√105−3)/48; it recovers the continuous-circle value.",
+          "identifier_or_url": "382775ed6a3d",
+          "material_read": "Mirrored Finding offsets 283–1833 and relationship passage at 7514",
+          "method": "local mirror",
+          "title": "Sharp sixth moments and phase localization for three consecutive Fourier cosets",
+          "trigger": "same support in high-order quotient and same coefficient phases"
+        },
+        {
+          "assessment": "same interference mechanism at unit magnitudes",
+          "evidence": "At first phase-sensitive order 2B the response is D_B+2 binom(B,A)Re(z), with unit magnitudes fixed.",
+          "identifier_or_url": "7849dda51c79",
+          "material_read": "Mirrored Finding offsets 894–1101, assumptions 1457, Limitations 5916",
+          "method": "local mirror",
+          "title": "Even phase moments recover the normalized geometry of a three-frequency spectrum",
+          "trigger": "same phase-collision formula for three frequencies"
+        },
+        {
+          "assessment": "primary text not obtained; no coverage inference",
+          "evidence": "Publisher PDF attempts gave redirects; OA recovery did not surface an identified repository copy. The available metadata does not state the needed inequality.",
+          "identifier_or_url": "DOI:10.1007/BF01140526",
+          "material_read": "Springer bibliographic entry only, Math. Notes 27 (1980), 265–269",
+          "method": "publisher lookup, OA PDF and repository-resolution attempts",
+          "title": "Inequality of different metrics for trigonometric polynomials",
+          "trigger": "possible classical equivalent metric inequality"
+        },
+        {
+          "assessment": "different norm",
+          "evidence": "The optimization is of uniform norm/maximum modulus, not the ratio of sixth Haar moments.",
+          "identifier_or_url": "arXiv:math/0703236v1",
+          "material_read": "p. 1 (offset 1763), Thms. 1.4–1.5 p. 3 (offsets 6587, 7349)",
+          "method": "OA primary text",
+          "title": "The maximum modulus of a trigonometric trinomial",
+          "trigger": "phase extremization for trinomials"
+        },
+        {
+          "assessment": "different magnitudes and exponent range",
+          "evidence": "Signed idempotent comparisons for 2k<p<2k+2, not varying all magnitudes at p=6.",
+          "identifier_or_url": "arXiv:1006.0409v3",
+          "material_read": "p. 3 (offset 11836)",
+          "method": "OA primary text",
+          "title": "Three-term idempotent counterexamples in the Hardy–Littlewood majorant problem",
+          "trigger": "sign distortions and three-term support"
+        },
+        {
+          "assessment": "restricted different support and exponents",
+          "evidence": "Controlled small third magnitude on {0,1,k+2}, k≥2, with p in (2k,2k+2).",
+          "identifier_or_url": "0eb0bba3de93",
+          "material_read": "Mirrored Finding offsets 130–1163",
+          "method": "local mirror",
+          "title": "Quantitative weak-mode phase rigidity for Hardy–Littlewood trinomials",
+          "trigger": "phase monotonicity for trinomials"
+        },
+        {
+          "assessment": "broader orders, different objective",
+          "evidence": "Optimizes coefficient-energy normalized even moments, not the ratio of aligned to anti-aligned extrema.",
+          "identifier_or_url": "26fe96de7ece",
+          "material_read": "Mirrored Finding offsets 27–1244",
+          "method": "local mirror",
+          "title": "All-even sharp norms for three consecutive characters",
+          "trigger": "potential dominating same-support all-even theorem"
+        },
+        {
+          "assessment": "different measure and exponent",
+          "evidence": "Fourth-power distortion for real sign multipliers under the weighted Bergman regime β>1, not the sixth circle Haar moment.",
+          "identifier_or_url": "a69c2469822e",
+          "material_read": "Mirrored passage offsets 2689–4333",
+          "method": "local mirror",
+          "title": "Degree-two sign distortion under a weighted Bergman measure",
+          "trigger": "nearby multiplier norm formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Findings and proof of strict balancing and uniqueness",
+        "382775ed6a3d and 7849dda51c79 for the different energy and fixed-unit benchmarks"
+      ],
+      "rationale": "This is the exact largest phase distortion of the sixth norm for the shortest analytic progression with a genuine relative-phase interaction at this exponent. It measures a different property from the well-studied maximum norm per coefficient energy and identifies a different optimizing amplitude. The optimizer and constant give a concrete reference for coefficient-multiplier distortion on small spectra rather than a new claim about general majorant theory.",
+      "residual_risks": [
+        "Only an arithmetic progression of three frequencies at moment order six is covered; no general exponent, support or Bergman result is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

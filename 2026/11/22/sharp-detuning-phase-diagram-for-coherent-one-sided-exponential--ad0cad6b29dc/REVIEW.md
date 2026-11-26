@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The asserted sharp classification follows from an absolutely convergent geometric-series Zak symbol, the exact unit-circle numerator test, elementary minimization of a sinusoid on a finite phase arc and a quadratic discriminant calculation. Zero counts follow from the same sinusoid's strict monotonicity/unimodality. Endpoint zeros are properly interpreted through the essential lower bound. The supplementary checker passed 497 assertions across both detuning regimes, including independent reconstruction of zeros and direct partial Zak sums; no infinite statement depends on finite tests.
+PASS
 
-## Originality — PASS (best knowledge)
+Summing the causal geometric series on 0≤x<1 gives a uniformly bounded Zak extension to its closed one-sided cell; an edge zero lowers the essential infimum because the open cell approaches it through sets of positive measure. The numerator is U-rzV with U=1+c exp(-iθx), V=exp(-iθ)+c exp(-iθx); U and V cannot vanish together. The unit-circle criterion is Q=q(1+c²)+2cF=0, with F=Re[(1-r² exp(iθ)) exp(-iφ)], φ=θx. Q(0)>0. For θ≤π, F decreases to F(θ); requiring its minimum to be ≤−q gives r≥cos(θ/2). For θ>π, its unique minimum −|1-r² exp(iθ)| is interior (the displacement of the cosine places the minimum before the edge, where F′(θ)>0). The quadratic roots from these minima are positive reciprocal endpoints, including the singleton at onset; at h=1/2 they are (1±r)/(1∓r). The initial rising branch in the long regime is already above the target level; after the minimum a second open-cell intersection occurs precisely for Q(θ)>0, or an edge zero at equality. Tangency at the two long-regime amplitude endpoints and the short-regime one-sided edge behavior follow from the same geometry. The claimed conservative frame bound uses r^x≥r and the upper denominator bounds; inverse Fourier transformation gives the stated two distinct equally elevated Cauchy poles. Independently checked eight phase and boundary examples by harmonic roots and direct Zak sums, including the half-frequency endpoint and the long-detuning E=0 boundary: python3 /workspace/reproductions/check_frozen_math.py 3. No uploaded checker was executed; finite examples are corroboration only.
 
-The complete 2021 general rational-window framework, the 2022 single-pole Cauchy frame paper, and the 2022/2023 exponential frame-bounds paper were compared with the exact parameter statement. The full published half-frequency sideband result was also read: it already covers \(h=1/2\) and is explicitly excluded from novelty claims. None of these inspected works supplies a universal arbitrary-detuning phase diagram, the short/long detuning dichotomy or the long-detuning two-Zak-zero chamber. This conclusion is not a uniqueness proof; an independently obtained general sideband formula remains a residual priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-A complete three-parameter stability boundary for two coherent damped spectral components is a natural sampling-design question. The transition at half-integer detuning separates a damping-restorable regime from one with an unavoidable equal-amplitude obstruction. The explicit reciprocal thresholds and one-versus-two zero geometry determine when coherent interference destroys a critical Gabor Riesz basis. This is a structural classification, not a cosmetic restatement of the known half-frequency case.
+Pass is for the complete detuning classification and zero-geometry extension beyond h=1/2, which the finding explicitly credits. The strongest located predecessor treats a single detuning and cannot fix the movement of the cosine minimum through the cell edge as h varies. The general Zak criterion yields the starting test but does not evaluate the phase-constrained minimum or count its level crossings. No equivalent statement was identified in the material actually read; several pertinent full texts were not accessible.
 
-## Scope and limits
+## value
 
-Positive real amplitude, \(0<h<1\), unit critical lattice, causal exponential profile. Best-known prior result is limited to one special detuning and gives optimal frame bounds there; those bounds are not reasserted as new. No optimal positive frame constants or other-density statement is made. Independent review remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A critical two-tone window is a natural next case after the single pole and half-frequency slice. An explicit reciprocal forbidden amplitude interval is directly useful for choosing stable windows; the change from edge loss to an interior tangency, with a two-zero chamber, supplies more than a positivity check or a reparameterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

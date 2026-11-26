@@ -1,11 +1,21 @@
-# Scientific review of the multiple-erasure binary pair-sum classification
+# Independent mathematical audit
 
-**Correctness: PASS.** Every retained observation graph is a disjoint union of paths; the only two-source reading for a path is the all-one sum vector. The fiber-generating product, sharp extremizers, cyclic-mask coefficient identity, and square-root random-mask threshold are independently rederived in `RESULT.md`. The standalone exhaustive checker tested every mask for lengths 3 through 10. All universal limits are proved analytically, not inferred from experiments.
+## correctness
 
-**Originality: PASS, with residual priority risk.** Sporring and Darkner's 2022 fully inspected work already establishes the fundamental width-two *one-path* ambiguity, and that fact is credited, not reclaimed. Public unpunctured cyclic and single-known-erasure cyclic weighted-read results cover the zero- and one-erasure cases, not arbitrary masks. Searches compared edge-sum graph measurement and multi-erasure terminology; no matching all-mask inverse-spectrum and sharp square-root reconstructibility threshold was found. Because the local ingredient is elementary and equivalent graph formulations may exist, undocumented prior equivalent coverage remains the principal risk.
+PASS
 
-**Value: PASS.** A complete exact inverse-list law under arbitrary known erasures yields the optimal noiseless codebook size for every placement, sharp adverse and optimal placement prescriptions, exact aggregate ambiguity across masks, and a nontrivial birthday-type loss of all singleton readings when the erasure count reaches the square-root scale. This addresses a natural sensing-design and information-loss question, rather than merely recomputing a table or renaming an invariant.
+Fixing the first bit on a retained path determines the rest. Two binary preimages have alternating differences +1,-1, so both occur exactly for the all-one reading (empty for a singleton); this gives one doubleton and 2^v-2 singleton readings. Disjoint paths give independent Cartesian factors, proving the spectrum, maximal list, and image-size capacity. For a_v=2^v-1, a_(v+1)^2-a_v a_(v+2)=2^v>0. Strict ratio monotonicity proves that every unbalanced pair can be improved by balancing, and that moving one vertex from a smaller part at least two to a larger part strictly decreases capacity until at most one nonsingleton remains. All compositions are realizable. Marking one erased edge gives n anchored compositions per ordered type and e representations of each mask, yielding the stated generating function. A singleton fiber exists exactly when every gap is at least two. Marked positive gaps after subtracting one from each count these masks; for e=O(sqrt(n)) the log product is -e^2/n+O(e/n+e^3/n^2), while for sqrt(n)<<e<=n/2 the probability is at most 2 exp(-e^2/n), and it is zero beyond n/2. The all-erased mask has empty observation and one fiber of size 2^n. Independent replay: python3 -I -B /workspace/reproduce.py 4 checked 2032 masks and 1396040 source instances by packed observations, including both extremal equality tests and coefficient extraction; it also covered e=1 as a check, not as new scope. The uploaded script was inspected only. The n=100..6400 illustration in RESULT.md is not part of that uploaded script's output; the limit rests on the analytic proof.
 
-**Scope and closest literature.** The formulas require indexed binary circular width-two *integer sums*, not ordered pair observations, modulo-two parity, arbitrary window widths, or unknown erasure sites. Closest literature is Sporring–Darkner (Entropy 24, 433, 2022), the public complete cyclic weighted-read classification (identifier 21136e4ec91c), and the published one-erasure cyclic result (identifier 9ee0bce770fc). The primary 2024 weighted-read preprint is conceptually relevant but has a noncyclic boundary model; its full text was not obtained, so the associated priority comparison is qualified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The single-path ambiguity is known, and the exact one-erasure result covers that boundary. Multiplying the old local factors is straightforward once the surviving components are identified, and the random-mask exponent is a classical no-adjacency phenomenon once translated. The distinct claim is the combined exact arbitrary-mask classification with sharp placement conditions and aggregate list census for known cyclic pair-sum erasures. None of the inspected sources supplies that classification as stated or through a direct parameter substitution.
+
+## value
+
+PASS
+
+Mask geometry, not merely the number of reads remaining, changes the entire list spectrum and the optimal zero-error image size. The strict placement classification gives a concrete design and worst-case guarantee, and the generating function quantifies ambiguity across all placements. The random result locates loss of the existence of any uniquely decoded output, not source-average decoding success. These are natural exact invariants of a simple erasure model; the value is in their combination and mask dependence, not in the already known path lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

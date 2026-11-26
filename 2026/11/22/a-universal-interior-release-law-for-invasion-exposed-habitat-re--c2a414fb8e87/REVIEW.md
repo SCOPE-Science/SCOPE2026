@@ -1,15 +1,21 @@
-# Scientific review: fixed release of invasion-exposed habitat
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim refers to a fixed, nonadaptive release time in a two-site irreversible competing-colonizer model. Conditioning on the first-site native arrival and site-2 preemption gives the exact success probability. Differentiation yields a positive prefactor times the difference of two strictly monotone functions, one decreasing and one increasing in release time, proving an interior unique global optimum for every strictly positive parameter set. Implicit differentiation proves strict horizon monotonicity; Taylor expansion and dominated convergence yield the small- and long-horizon formulas. Direct independently integrated numerical checks, derivative comparisons and the extracted reproducibility script support the computation. Risks: none identified within the stated constant-rate irreversible model; extrapolation to field systems is unproved.
+PASS
 
-## Originality — PASS on examined evidence; priority provisional
+Conditioning on the first-site native winner gives the subdensity a exp(-ks), not a density normalized to one. The post-opening native-win probability for site 2 has the factor c/h, and for s>t the extra invasion-free factor is exp(-d(s-t)); those disjoint cases give the displayed P_T. The convolution satisfies J'(u)+(k+d)J(u)=1-exp(-hu), hence the derivative factors into a positive prefactor times F(T-t)-G(t). With positive rates F is strictly increasing for u>0 and G strictly increasing; the signs at t=0 and t=T are opposite. The implicit derivative is a strictly positive ratio below one. J(u)=hu^2/2+O(u^3) first forces t_T=O(T^2) and then gives dT^2/2; as T grows both time intervals diverge by the crossing equation, and J tends to 1/(k+d). Matching exponentials yields the specified slope and negative logarithmic offset. The two objective limits and their difference follow from the same integral, and at d=0 the bracket is strictly negative for t>0. Independently integrated the split density and maximized the illustration in /workspace/checks/scalar_checks.py, obtaining 0.349542502738..., 0.397028630291... and 0.340658177084...; the uploaded program was inspected, not executed. These conclusions concern only nonadaptive deterministic releases in the stipulated irreversible independent-clock model.
 
-The nearest experimental source (Torres et al., 2023, DOI 10.1111/1365-2664.14529) addresses removal timing, order and native/nonnative responses, not this analytic stochastic timing problem. Torres et al. (2024, DOI 10.1111/ele.14360) consider a three-species Lotka–Volterra framework, and Tielke and Vos (2024, DOI 10.1111/rec.14091) optimize restoration success in deterministic food webs. Southwell et al. (2017, DOI 10.1002/eap.1666) address single-species biodiversity-offset creation timing with financial effects. The latter was only materially available as abstract and metadata, so no full-document absence claim is made. Related published mathematical claims in habitat occupancy, invasion, rescue and sequential ecological monitoring were compared by implication; none of the accessible descriptions gave a stronger theorem implying the specified fixed second-site release result. This is best-knowledge novelty, not a guarantee of global historical priority.
+## originality
 
-## Value — PASS
+PASS
 
-Opening an empty patch early can expose it to invasion before its necessary native propagule source exists; opening late reduces its time to establish. The theorem identifies a universal nontrivial optimum, distinguishes the no-invasion boundary, determines its timing scales and quantifies the persistent asymptotic gain. It offers an interpretable benchmark for staged habitat creation and experimental design, while avoiding any claim of validated conservation policy. The exact result depends on irreversible first arrivals, an obligate native source and constant Poisson clocks.
+The distinct claim is the all-positive-rates interior optimizer and its two horizon laws for one gated native source with irreversible competing arrivals. Neither a standard exponential-race identity nor the existence of habitat timing or priority-effect studies supplies this specific optimum and asymptotic balance.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The minimal model isolates a natural tension: an opening delay protects the second site from invasion before propagule supply starts, but leaves less time after the source is ready. It gives a rigorous benchmark for a fixed schedule, with a quadratic delay at short horizons, a nontrivial fractional delay at long horizons, and a strictly positive limiting advantage over immediate opening. This is useful as a timing counterexample and baseline, not a field-effect or adaptive-management prediction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

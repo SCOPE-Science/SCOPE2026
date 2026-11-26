@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim covers every finite weighted Cartesian product of stars \(K_{1,r_j}\), with at least two factors, \(r_j\ge2\), and strictly positive real couplings. The local instantaneous mixing matrices commute with the same three projectors for all times. Their leaf-contrast and radial eigenvalues are derived directly from the explicit star propagator, and their Laurent coefficients are nonnegative. Tensorizing the instantaneous mixing matrices and taking the exact zero-frequency Cesàro coefficient yields the spectral formula without a hidden nonresonance assumption. Projector dimensions give rank and kernel. A single \(r_j=2\) contrast paired with constants produces a rigorously zero eigenvalue; when all \(r_j\ge3\), strictly positive constant coefficients prevent every zero eigenvalue. Integer-parity counting settles equal-frequency \(P_3\) powers. The separate spectral-projector reconstruction checks 17 profiles and 9,193 matrix entries. These finite profiles are corroboration, not the infinite proof.
+PASS
 
-## Originality — PASS, with residual literature risk
+Replayed via the star's adjacency spectral projectors E_0,E_+,E_- at 0,+nu,-nu. E_0 is the leaf-contrast projector. E_± have hub-hub entry 1/2, hub-leaf entry ±1/(2 sqrt(r)), and leaf-leaf entry 1/(2r). In the instantaneous mixing matrix the per-sign Fourier coefficients F_{±1}=E_0∘(E_++E_-) equal Q_L/r. F_{±2}=E_+∘E_- is (r+1)Q_R/(4r) by its radial row and zero row sums. The zero mode follows from M(0)=I: eigenvalues 1,(r-2)/r,(r-1)/(2r). Thus the stated polynomials and orthogonal sectors apply at every t. The commuting Cartesian summands give a tensor product before Cesàro averaging, and each finite Fourier term survives exactly when its weighted frequency is zero. All surviving weights in each sector are nonnegative; the resulting dimensions and kernel description follow without cancellations. All local constants are positive for r>=3, while an isolated contrast in any r=2 factor stays null at all weights. Off the bounded relation hyperplanes only zero modes survive, yielding the generic rank. Equal-frequency P3 powers allow exactly an even number of contrast factors, giving (3^d+1)/2; in P3 times K_{1,3}, the two distinct positive-frequency ratios restore dimensions two and one respectively, giving ranks 10 and 9 over the baseline 8.
 
-The main claim is the complete weighted Cartesian star-box spectral/rank classification, including an all-positive-coupling invertibility criterion and a bounded signed-frequency rank stratification, rather than the known rank of a single star. Godsil (2011) treats individual paths and general Schur-squared projectors. Coutinho et al. (2017) provide general rank/commutant bounds. Coutinho et al. (2022) provide an exact spectral algorithm for fixed integral Hamiltonians. Baptista, Coutinho and Marques (2023), Section 5, explicitly identify synchronous Cartesian tensorization but derive trace/covariance relations, not all-coupling star-box rank strata. Kimmerling (2023) treats single-star rank and windmill constructions; only the dissertation abstract and an indexed star theorem excerpt could be inspected, so potential unlocated stronger coverage remains. Existing related formulas for anisotropic hypercubes and complete-graph Cartesian products do not cover the three-sector, multiply degenerate star factors. Semantic published-finding corpus searches did not locate an equal or stronger statement, but absence from an index is not a novelty certificate. No independent priority assessment has been performed.
+## originality
 
-## Value — PASS
+PASS
 
-The star-box network is a natural modular hub-and-spoke architecture for coherent transport. Shared-time quantum averaging need not factor across Cartesian coordinates; the theorem nevertheless gives the full spectrum and kernel at every real coupling vector, and proves a robust invertibility threshold independent of resonances. It also distinguishes physical resonance behavior inside the smallest mixed star box: two unrelated frequency equalities restore different numbers of directions, producing ranks \(8\), \(9\), or \(10\) in dimension \(12\). This is a complete structural classification for a motivated graph family, not an arbitrary parameter sample or a single-star recomputation.
+Pass applies to the explicit three-sector weighted star-product spectrum and resonance rank/kernel classification. The general projector formula, synchronous tensorization and signed-frequency technique are established. Prior one-star work and the general projector identity already provide a short route to the robust positivity criterion alone; it is a consequence here, not the distinguishing advance. The extra radial sector and ±2 effective-frequency modes create rank jumps not covered by the inspected precedents.
 
-## Scientific boundaries
+## value
 
-There is no claim for zero or negative couplings, two-vertex stars, magnetic hoppings, or non-shared observation times. The full text of Kimmerling's dissertation could not be inspected; this is an access limitation, not evidence of noncoverage. Stronger unlocated general tensor results are a residual originality risk. Exact tests cover only finite, commensurate effective-frequency profiles, and there has been no independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Stars are a natural class containing a singular one-factor average (P3) and positive ones. For coupled clock frequencies the exact kernel can shrink without disappearing, and different commensurabilities restore different dimensions, even in the smallest hybrid. The sector calculation separates that phenomenon from known factor positivity and supplies a reusable exact rank and nullspace test instead of re-diagonalizing each product Hamiltonian.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

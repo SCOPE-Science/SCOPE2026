@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:25:16.315919Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an unselected cell the number of fort neighbors is the sum of its incidence degrees. Exactly the zero/one pair is forbidden, making the two side-coverage conditions necessary and sufficient. If both sides are covered, minimality requires a minimal edge cover, hence stars. A leaf in each class prevents a one-side-covering proper subfort, and a subfort omitting vertices on both sides would require a cycle. If there are no leaves on one side, its stars must all have two edges: degree ≥3 allows a deletion, and degree exactly two forces any proper subset either to leave a degree-one covered vertex opposite an isolate, or to omit an entire row or column opposite degree-one vertices. If just one side is covered, its vertices must all have degree two by deletion; a contained cycle is a fort, otherwise every proper subset that could be a fort would omit vertices on both sides and require a cycle. If both sides have isolates a cycle is necessary. A proper subset of a nonspanning simple cycle can neither keep an entire required side covered in degree two nor contain a cycle; a cycle spanning both sides contains a perfect matching and is not minimal. Counting star components by labeled sets gives S−B−C and the two degree-two exceptions, counted by pairing labeled leaves at each prescribed center. Suppression of the covered side in a subdivision forest gives distinct labeled edges of a simple forest, with an isolate still present. Cayley and subtraction of the no-isolate EGF give U. Alternating undirected cycles on fixed labels have k!(k−1)!/2 orders. For p≤q there are spanning forests of size q (one row star and p−1 single edges) and of size p+q−2 (complementary row- and column-centered stars); subdivision forests have 2p edges and require q≥p+2; cycles top out at 2p off the square diagonal and 2p−2 on it when present. This checks both extrema, including 2×2 and 2×3. My independent subset-DAG check matched the polynomial on all ten frozen boards and two transposes (1,189,956 subsets), and the set classification both ways on boards with at most 16 cells. Replay: python3 /workspace/branches/reproduce_frozen.py rook; log /workspace/branches/reproduction-rook.txt. These checks are finite, not a replacement for the coverage and counting arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The papers on fort hypergraphs and product bounds establish general methods and particular constructions, not exhaustive product taxonomy in the inspected passages.",
+          "Theorem 3.7 restates Fetchie–Jacob–Saavedra's F(K_n □ K_m)=nm−4 for n≥4, m≥2. The complement relation gives the previously known minimum fort size 4, not a count of inclusion-minimal forts.",
+          "The narrower extremal Resultary record 6c1c05ab5f5f gives the same upper-size formula, but not the whole taxonomy."
+        ],
+        "reasoning": "The failed-set size and the maximum size of an inclusion-minimal fort are different invariants. Product constructions and scalar bounds alone do not give the four-way classification.",
+        "searches": [
+          "Becker et al. arXiv:2404.05963, abstract and p. 4",
+          "Cameron et al. arXiv:2310.17904, introduction and Definition 2.1",
+          "Brimkov–Cameron–Grubbs arXiv:2507.10826, Theorems 5.1–5.2",
+          "Abara–Pelayo arXiv:2202.04997, Theorem 3.7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 406ca8b4ece6, 10cceec37c9c, dd424d573692, 6c1c05ab5f5f",
+        "arXiv:2202.04997",
+        "arXiv:2404.05963",
+        "arXiv:2310.17904",
+        "arXiv:2507.10826"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The star generating function is the same, with the mirror adding back exp(xy²z²/2) and exp(yx²z²/2). Extraction on p,q≥2 gives precisely q!/2^p if q=2p or p!/2^q if p=2q, at the appropriate z-degrees.",
+          "In the mirror's subdivision term (e^y−1)(e^(T(y,x,z))−1), an isolated column contributes y and a nontrivial column tree with k vertices contributes k^(k−2)y^k(xz²)^(k−1)/k!. This is exactly the isolated-vertex forest EGF U after substituting t=xz²; the removed edgeless term has x-degree zero. Extraction multiplies by p!q!, giving p!U(q,p)z^(2p). The transpose agrees.",
+          "The mirror's cycle term (e^(x+y)−1)Σ_(k≥2)(xyz²)^k/(2k) gives the binomial choice times k!(k−1)!/2 coefficient and omits exactly the cycles using all labels on both sides."
+        ],
+        "reasoning": "The full generating function agrees coefficient by coefficient, and the extrema follow from the common family conditions. This is demonstrated equivalent content even though the formulas and the number of top-level cases are written differently.",
+        "searches": [
+          "SCOPE 406ca8b4ece6, mirrored RESULT.md, Finding and coefficient formula at offset 0, proof offset 4244"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With (m,n)=(p,q), the mirror's three families are the frozen four with row and column subdivisions combined. In spanning star covers, no degree-one row means all centers are rows and none are single edges; the mirror excludes exactly those covers having a star of degree ≥3 in this case. The other orientation is symmetric.",
+          "The transposed contracted forest conditions match precisely: parallel contracted edges give a four-cycle in the incidence graph. The mirror excludes cycles covering both sides completely, just as the frozen record does."
+        ],
+        "reasoning": "The line-graph and row-column descriptions have identical vertex and label sets. Grouping the two transposed subdivision cases does not change the classification or scope.",
+        "searches": [
+          "Resultary minimal forts of rook graphs, line graphs of complete bipartite graphs, star covers and contracted forests",
+          "SCOPE 406ca8b4ece6 mirrored Finding, offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/8/SCOPE-minimal-forts-of-rook-graphs-star-covers-contracted-forests-and--406ca8b4ece6 gives the exact same full polynomial, with an additional thin-board gap specialization.",
+          "2026/10/12/SCOPE-fort-polynomial-of-rook-graphs-and-its-degree-five-gap--10cceec37c9c counts all forts, not only minimal forts. 2026/10/12/SCOPE-zero-forcing-polynomials-of-rook-graphs-via-bipartite-forests--dd424d573692 counts ordinary zero-forcing sets instead."
+        ],
+        "reasoning": "The exact hit is to a labeled family and coefficient formula on all rectangular dimensions, not just to the same minimum or some matching finite-board counts.",
+        "searches": [
+          "Configured Resultary rook minimal forts / fort polynomial search, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "rationale": "A distinct indexed record gives the same all-size taxonomy and the same exact labeled polynomial in an equivalent generating-function format. This is demonstrated scientific coverage, not a priority attribution from its later path date. Primary literature checked here establishes some components and general context but is not the cause of the full-claim failure.",
+      "residual_risks": [
+        "The relationship and priority of the two matching records are not established by the path dates, and no such attribution is made.",
+        "Fetchie et al. (2015) was checked here through the explicit theorem restatement and citation, not by direct reading of the original article."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full substantive coverage; no chronology inference",
+          "evidence": "Three cases equivalent to the four once the orientations are separated, with the same stars, forest and cycle EGF coefficients.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-minimal-forts-of-rook-graphs-star-covers-contracted-forests-and--406ca8b4ece6/RESULT.md",
+          "material_read": "Mirrored RESULT.md Finding and proof material at offsets 0 and 4244, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Configured Resultary search then local mirror passage inspection",
+          "title": "Minimal forts of rook graphs: star covers, contracted forests, and nonspanning cycles",
+          "trigger": "Exact object, classification and labeled cardinality polynomial"
+        },
+        {
+          "assessment": "Covers minimum-size consequence in its range; not entire inclusion-minimal census",
+          "evidence": "Theorem 3.7 explicitly credits Fetchie et al. (2015) for nm−4.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.04997",
+          "material_read": "§2 definition, p. 3/OA offset 7716; Theorem 3.7, p. 8/offset 22636",
+          "method": "OA PDF passage inspection",
+          "title": "Maximal failed zero forcing sets for products of two graphs",
+          "trigger": "Possible antecedent for cardinality extrema"
+        },
+        {
+          "assessment": "General count and product context; inspected passages do not supply the rook classification",
+          "evidence": "Focus on counts for various families and product-bound techniques.",
+          "identifier_or_url": "https://arxiv.org/pdf/2404.05963",
+          "material_read": "Abstract, p. 1 and product-bound discussion, p. 4/OA offset 14488",
+          "method": "OA PDF passage inspection",
+          "title": "On the number of minimal forts of a graph",
+          "trigger": "Minimal-fort counts in graph products"
+        },
+        {
+          "assessment": "Background rather than exact labeled enumeration",
+          "evidence": "Defines the minimal-fort hypergraph and identifies zero forcing with its transversal number.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.17904",
+          "material_read": "Abstract/introduction p. 1/OA offset 2378; Definition 2.1, p. 4/offset 13223",
+          "method": "OA PDF passage inspection",
+          "title": "Forts, (fractional) zero forcing, and Cartesian products of graphs",
+          "trigger": "Fort hypergraphs on Cartesian products"
+        },
+        {
+          "assessment": "Special constructions, not the frozen exhaustive product result",
+          "evidence": "Constructs examples including products of minimal forts when an independence condition holds.",
+          "identifier_or_url": "https://arxiv.org/pdf/2507.10826",
+          "material_read": "§5, Theorems 5.1–5.2, pp. 12–13/OA offset about 39634",
+          "method": "OA PDF passage inspection",
+          "title": "On the forts and related parameters of the hypercube graph",
+          "trigger": "Product-minimal-fort constructions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A full minimal-fort classification of this natural product graph would have clear intrinsic value. This package, however, does not add a distinct usable result beyond the equivalent recorded taxonomy and polynomial: the extrema are recoverable from those families, and the finite-board computations corroborate rather than extend the known coverage.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

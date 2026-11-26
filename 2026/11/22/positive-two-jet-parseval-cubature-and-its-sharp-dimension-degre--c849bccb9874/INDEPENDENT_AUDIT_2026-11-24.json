@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:52:05.061300Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For P_f the homogeneous harmonic extension, the Euclidean Hessian at a unit vector has tangent block Hess_S f+ℓ f I, mixed block (ℓ−1)∇_S f, and radial entry ℓ(ℓ−1)f. Using tr(Hess_S f)=−λ_ℓ f, its Frobenius contraction with the corresponding conjugate Hessian is H+2(ℓ−1)²G+ℓ²((ℓ−2)²−d)F, with the record's F,G,H notation. For degree n harmonic extensions the sphere-integrated ambient gradient Gram is n(2n+d−2) times the original Gram by radial homogeneity and integration by parts. Applying that twice gives normalization ℓ(ℓ−1)D_ℓ and independently verifies all three coefficients. Each ambient second partial is a degree-(ℓ−2) harmonic, proving sufficiency for the antipodal design. Product and polarized Bochner rules on the round sphere (Ric=(d−2)g) give G=(Δ+2λ_ℓ)F/2 and H=(Δ+2λ_ℓ−2(d−2))(Δ+2λ_ℓ)F/4. The resulting polynomial is (Δ+λ_{2ℓ})(Δ+λ_{2ℓ−2})/(λ_{2ℓ}λ_{2ℓ−2}), with strictly positive multipliers on all retained even degrees. The span of products is rotation-invariant, and its projections onto individual harmonic degrees stay in that span by spectral projection on the finite representation. The product |(x₁+i x₂)^ℓ|²=t^ℓ has a nonzero projection on each even degree 2r≤2ℓ by the Jacobi Rodrigues integral: r integrations by parts give binom(ℓ,r) B(ℓ+1,(d−4)/2+r+1)>0; all boundary terms vanish, also at d=3. Irreducibility then gives the full even-sector span, and testing the retained sectors forces exactly the asserted even moments. A polynomial of degree at most two in Δ normalized to one at zero and vanishing at both distinct top degrees is unique; the channel polynomials are a basis by their triangular leading degrees. For ℓ≥3 the next degree is distinct and cannot be a third root. At ℓ=2 every probability rule works, but a is negative. The frontier concerns nonnegative intrinsic channel coefficients only: the contracted ambient Hessian Gram is pointwise positive semidefinite even when a<0. The uploaded checker was read, not run. The geometric examples also follow exactly from coordinate moments: for the icosahedron the fourth moments are 1/5 on one coordinate and 1/15 on a distinct pair of squared coordinates, while a pure eighth moment is 7/75, not 1/9. For the 24-cell the corresponding fourth moments are 1/8 and 1/24. Sign and coordinate symmetries and normalization give the remaining required moments; neither numerical Gram check is needed for the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The framelet constructions are value-based and use exact polynomial quadrature; their optimization Hessian is not the Hessian of the sampled harmonic.",
+          "The Hermite paper's Theorem 1 describes a Sobolev error-functional norm, and §2 begins a weighted integral approximation allowing derivatives of the integrand with variable coefficients."
+        ],
+        "reasoning": "Ordinary exactness yields sufficiency for the ambient Hessian products once their lower degree is known. The inspected passages neither enforce the precise three intrinsic channel weights nor characterize their converse, optimal cancellation, or coefficient signs. A general derivative cubature framework alone is not such a characterization.",
+        "searches": [
+          "Xiao–Zhuang arXiv:2303.05365v1 §4 Theorem 6, equations (38)–(45)",
+          "Xiao–Zhuang DOI 10.1007/s43670-025-00105-4 §4",
+          "Jalolov–Isomiddinov institutional PDF, Theorem 1 and §2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5e30c4d0afca and 370d41c98f7b",
+        "arXiv:2303.05365v1",
+        "DOI 10.1007/s43670-025-00105-4",
+        "DOI 10.3103/S1066369X25700288, institutional OA copy"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A degree-(2ℓ−4) design integrates all ambient second-derivative products by ordinary exactness. The cubic first-derivative rule may also be applied to first partials in the specific quartic d=3 example, not to a general pair (d,ℓ).",
+          "The two first-order findings certify their own moment conditions but contain neither a general second-jet necessity assertion nor the sign threshold for the intrinsic value weight."
+        ],
+        "reasoning": "Separate the straightforward derivative-degree sufficiency and the fixed example from the distinct full iff and sharp intrinsic classification, which require the harmonic-product sector span and the two-root spectral argument. The checked precedents do not dominate the latter result.",
+        "searches": [
+          "Resultary 5e30c4d0afca and 370d41c98f7b, Findings and derivative-Gram proofs",
+          "arXiv:2303.05365v1 §4, polynomial exactness and band-limited tightness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The candidate is exactly the normalized Euclidean Hessian Gram of homogeneous harmonic extensions, not just formally a differential quadrature.",
+          "5e30c4d0afca uses the ambient gradient Gram on cubics in d=3; 370d41c98f7b uses the ambient gradient Gram on quadratics. Both include moment converses at first order."
+        ],
+        "reasoning": "The cubic first-jet rule annihilates degree 6 but keeps degree 4; the second-jet cubic case annihilates both and needs only degree 2. The quadratic first-jet rule needs an isotropic second moment, whereas the quadratic second jet is exact for all probability rules. Neither is an equivalent order-two claim.",
+        "searches": [
+          "Resultary: exact reduced-degree derivative Gram, spherical harmonics, Hessian/covariant two-jet Parseval; 5e30c4d0afca and 370d41c98f7b",
+          "Jalolov–Isomiddinov DOI 10.3103/S1066369X25700288, Hermite-type cubature"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest evaluated coefficients are 3/7 and 1/21 for the fixed cubic first-jet case and the normalized first-jet quadratic rule at α=2/(d+2), tied to different moment requirements."
+        ],
+        "reasoning": "No inspected independent table gives the all-(d,ℓ) second-jet coefficients or the zero-value frontier. The icosahedral and 24-cell examples are illustrations, not independently claimed new spherical designs.",
+        "searches": [
+          "Resultary: reduced-strength covariant Hessian Gram, positive two-jet harmonic rule and exact fixed-degree spherical examples",
+          "Resultary 5e30c4d0afca and 370d41c98f7b, exact coefficients and node examples"
+        ]
+      },
+      "rationale": "Credit ordinary polynomial-exact cubature and the two Resultary first-derivative Gram precedents. The direct sufficiency in the ambient formulation is an application of degree reduction; the supported contribution is the exact all-dimension, all-degree intrinsic second-jet equivalence, including necessity, uniqueness in the fixed scalar family, the degree-lowering limit, and the coefficientwise positivity boundary. The compared statements do not cover that classification. No timing or priority inference is made from the same-day records.",
+      "residual_risks": [
+        "A classical spherical or Hermite cubature source giving the exact second-jet moment converse or equivalent positivity calculation could remain unlocated. The retrieved passages and bounded comparisons do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest first-order precedent; not the all-degree second-jet classification",
+          "evidence": "For H₃(S²), 3F/7+G/21 equals the ambient-gradient Gram divided by 21; even degrees 2 and 4 must integrate exactly.",
+          "identifier_or_url": "2026/11/22/SCOPE-derivative-repaired-parseval-cubature-for-cubic-spherical-harmon--5e30c4d0afca",
+          "material_read": "Finding and Proof §§1–2, mirror offsets 0–5479",
+          "method": "Read bound Resultary mirror passages",
+          "title": "Derivative-repaired Parseval cubature for cubic spherical harmonics",
+          "trigger": "Exact reduced-degree derivative Gram and converse"
+        },
+        {
+          "assessment": "First-order quadratic rule, with a different moment requirement",
+          "evidence": "Ambient gradient normalization 1/[2(d+2)]; isotropic second moment and d-node minimum.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-minimal-node-first-jet-parseval-rule-for-spherical-quadrupoles--370d41c98f7b",
+          "material_read": "Finding, Theorem A and proof §1, mirror offsets 0–4513",
+          "method": "Read bound Resultary mirror passages",
+          "title": "A minimal-node first-jet Parseval rule for spherical quadrupoles",
+          "trigger": "Exact derivative Parseval rule in general ambient dimension"
+        },
+        {
+          "assessment": "General value cubature and a different use of Hessians, not the candidate classification",
+          "evidence": "Band-limited tight frames built from value-sampled kernels and polynomial quadrature; Hessians in design optimization refer to the objective on node coordinates.",
+          "identifier_or_url": "https://arxiv.org/html/2303.05365v1",
+          "material_read": "§4 Theorem 6, equations (38)–(45), offsets 80000–84910, and introductory discussion offsets 14000–20000",
+          "method": "Read bounded OA passages",
+          "title": "Spherical framelets from spherical designs",
+          "trigger": "Design-based tight frames and Hessian terminology"
+        },
+        {
+          "assessment": "The inspected framelet construction is not the second-derivative Gram rule",
+          "evidence": "Design-based approximation/framelets, without the exact Hessian coefficient or converse in the passage.",
+          "identifier_or_url": "https://doi.org/10.1007/s43670-025-00105-4",
+          "material_read": "Springer OA PDF §4 p. 16, offset 44105",
+          "method": "Read bounded OA passage",
+          "title": "Spherical designs for function approximation and beyond",
+          "trigger": "Later design-framelet treatment may subsume the rule"
+        },
+        {
+          "assessment": "Different functional and claim in the inspected passages; not an exact two-jet Gram theorem",
+          "evidence": "Theorem 1 gives the Sobolev error-functional norm via harmonic coefficients; §2 uses derivatives of the integrated function in an approximation formula.",
+          "identifier_or_url": "https://doi.org/10.3103/S1066369X25700288",
+          "material_read": "Institutional OA PDF pp. 3–4, Theorem 1 and start of §2, offsets 14000–19235",
+          "method": "Read the Bukhara State University copy after publisher retrieval failed",
+          "title": "On the Construction of Practically Asymptotically Optimal Weighted Cubature Formulas of Hermite Type in the Sobolev Space",
+          "trigger": "Most directly relevant Hermite cubature literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Within a natural sampling family that separately weights value, tangent-gradient and covariant-Hessian energies, the analysis identifies exactly when weak parity moment conditions suffice and when three nonnegative intrinsic measurement weights are possible. The derivative-only boundary gives a concrete usable rule at the 24-cell rather than just a normalization observation. The necessity and uniqueness make the four-degree improvement sharp for this family. This is not a claim that all positive Gram realizations fail outside the coefficient frontier; the ambient Hessian realization already shows otherwise.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:27:49.150979Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–27 and 29–63",
+        "VERIFICATION.md line 20",
+        "verify_char2_octonion.py lines 4–54 and verification_output.txt (inspected, not executed)"
+      ],
+      "rationale": "In characteristic two the cross-product terms cancel in the additive Zorn commutator. For operand coordinates (a,α,w) and (c,β,t), with α,β the traces and w,t the off-diagonal six-vectors, the target has equal diagonal entries s=ω(w,t), where ω is the split nondegenerate alternating pairing, and six-vector W=αt+βw. For a fixed first operand with α≠0, the image is the graph s=ω(w,W)/α and each attained target has q² second operands (β and c free). For W≠0 there are (q−1)q⁶ such first operands (q−1 choices of α, q choices of a, q⁵ choices of w), yielding (q−1)q⁸ pairs. For α=0 and w≠0 the image allows W in kw and all s; each attained target has q⁶ preimages, from a determined β, one affine hyperplane of t, and free c. A nonzero W admits q(q−1) such first operands, contributing (q−1)q⁷, so the total (q²−1)q⁷ is independent of s and norm. For nonzero scalar targets only α=0,w≠0 contributes, giving q(q⁶−1)q⁶=q¹³−q⁷. For z=0 all trace-zero nonscalars contribute that same number; scalar first operands add q⁹, and trace-nonzero first operands add (q−1)q⁹. This gives q¹³+q¹⁰−q⁷, and normalizing by q¹⁶ gives the stated commuting probability. All trace-zero fibers are positive for q≥2 and the trace obstruction handles all other targets. This fixed-first-operand count proves the parameter-general law without relying on binary enumeration or four-element samples.",
+      "residual_risks": [
+        "The supplied checker evaluates the fiber-sum test at q=2, not symbolically at multiple field sizes as suggested by one description in VERIFICATION.md. The general law and sum identity follow from the exhaustive algebraic partition and do not depend on that description.",
+        "No claim about odd fields, multiplicative commutators, or automorphism-orbit populations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The good-basis table gives structural input; Der(C)≅psl4 is a statement about derivations, not fibers of the octonion multiplication bracket.",
+          "Knarr–Stroppel's centralizer and commutative-subalgebra results cover the background needed for the zero count. Centralizer dimensions determine kernel sizes but not which nonzero targets lie in each image."
+        ],
+        "reasoning": "An arbitrary-base-field structural classification does not automatically count labeled pairs by a nonzero prescribed value. The shared zero-fiber implication is explicitly excluded from the originality credit.",
+        "searches": [
+          "arXiv:1503.05529 good-basis table and Theorem 15",
+          "arXiv:2303.00335 Lemma 3.1 and §7",
+          "arXiv:2208.08122v3 Theorem 4.4"
+        ]
+      },
+      "checked_sources": [
+        "Bound RESULT.md and VERIFICATION.md",
+        "Resultary a9de9b1b9f96 and 9c148c4c1298",
+        "arXiv:1503.05529",
+        "arXiv:2303.00335",
+        "arXiv:2208.08122v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The odd-q Cayley theorem classifies nonzero targets by zero norm and by the quadratic character of the nonzero norm expression; its proof uses division by 2. Over odd fields nonzero scalar elements are not trace zero.",
+          "The same-day regular-semisimple record counts conditioned first-operand fibers in sl2 over odd-residue chain rings, not all Cayley pairs. Centralizer data recover commuting probability only."
+        ],
+        "reasoning": "Substituting an even q into the odd-q formulas is invalid and misses a target stratum. The other results alter the algebra, input restrictions, or target, and do not imply the nonzero law.",
+        "searches": [
+          "Resultary odd-finite-field split octonion fibers a9de9b1b9f96, Finding and assumptions",
+          "Resultary regular-semisimple witness fibers 9c148c4c1298, Finding",
+          "arXiv:2303.00335 Lemma 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equation is XY+YX=Z in characteristic two and is unchanged in meaning by presenting the split algebra as Zorn matrices. Shifting either argument by a scalar leaves the additive commutator unchanged; quotienting the inputs by scalars divides counts by q², not by an automorphism orbit size.",
+          "Lopatin–Zubkov give minimal geometric G2-orbit representatives for pairs over an algebraically closed field, in arbitrary characteristic."
+        ],
+        "reasoning": "Geometric pair orbits are a plausible reformulation of the classification, but counting rational points in a specified target fiber requires rational orbit descent and stabilizer/population data not supplied by that theorem alone.",
+        "searches": [
+          "Characteristic-two split Cayley/octonion additive commutator fibers and exact-formula Resultary searches",
+          "arXiv:2208.08122v3 abstract, introduction and Theorem 4.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The search returned the bound record, the odd-field exact fiber theorem and a nearby odd-residue sl2 chain-ring calculation, but no separate exact even-field Cayley fiber table was identified.",
+          "The q=2 enumeration in verification_output.txt is supplied with this finding, not independent historical evidence."
+        ],
+        "reasoning": "Neither an exact table over odd fields nor a count in a different algebra covers even-q split Cayley fibers. The bounded lookup cannot rule out an older table.",
+        "searches": [
+          "Resultary exact-formula and semantic prescribed commutator fiber searches",
+          "Focused finite-field octonion characteristic-two literature query"
+        ]
+      },
+      "rationale": "Credit the known zero-fiber count from centralizers and the known Cayley structure. The distinct content is the ordered nonzero fiber law, in particular the separate scalar stratum and the uniform nonscalar trace-zero count. The closest direct odd-field fiber theorem excludes this characteristic; neither the inspected pair-orbit theorem over algebraically closed fields nor the centralizer results give these finite-field fibers.",
+      "residual_risks": [
+        "An older arithmetic orbit classification or counting theorem may imply the law without naming it as a commutator-fiber result. The bounded search did not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest direct overlap, restricted to odd characteristic",
+          "evidence": "Nonzero trace-zero targets split by the quadratic character and zero of the norm; the proof uses 2 inverse.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-commutator-fibers-of-split-octonion-algebras-over-odd-fini--a9de9b1b9f96",
+          "material_read": "RESULT.md Finding and assumptions/proof, offset 0",
+          "method": "Local repository mirror",
+          "title": "Exact commutator fibers of split octonion algebras over odd finite fields",
+          "trigger": "Exact same fiber question over finite fields"
+        },
+        {
+          "assessment": "Structural background, no stated count of prescribed fibers",
+          "evidence": "Split basis multiplication and Der(C)≅psl4 in characteristic two.",
+          "identifier_or_url": "https://arxiv.org/pdf/1503.05529",
+          "material_read": "Printed p. 2 table, offset 5900; Theorem 15, p. 14, offset 52150",
+          "method": "OA PDF passages",
+          "title": "Some special features of Cayley algebras, and G2, in low characteristics",
+          "trigger": "Characteristic-two Cayley structural theorem"
+        },
+        {
+          "assessment": "Covers zero-fiber structure, not a nonzero census",
+          "evidence": "Centralizers and commutative subalgebras include the characteristic-two cases.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.00335",
+          "material_read": "Lemma 3.1 p. 9, offset 24600; §7 pp. 26–27, offset 72300",
+          "method": "OA PDF passages",
+          "title": "Subalgebras of Octonion Algebras",
+          "trigger": "Known centralizers and commuting count"
+        },
+        {
+          "assessment": "Geometric orbit representatives over algebraically closed fields, not finite-field target fibers",
+          "evidence": "Arbitrary characteristic is allowed; representative classification does not provide rational populations over all even finite fields.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.08122",
+          "material_read": "v3 abstract/intro offsets 0 and 2200; Theorem 4.4 pp. 9–10 offset 34100",
+          "method": "OA PDF passages",
+          "title": "Classification of G2-orbits for pairs of octonions",
+          "trigger": "Pair classification might imply labeled counts"
+        },
+        {
+          "assessment": "Different algebra, characteristic scope, and operand conditioning",
+          "evidence": "Fibers in sl2 over odd-residue chain rings, conditioned on split or nonsplit regular-semisimple first operands.",
+          "identifier_or_url": "2026/11/22/SCOPE-split-and-nonsplit-regular-semisimple-witness-fibers-for-trace-z--9c148c4c1298",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local repository mirror",
+          "title": "Split and nonsplit regular-semisimple witness fibers for trace-zero commutators",
+          "trigger": "Related exact commutator-fiber search hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Zorn counting proof",
+        "Odd-field comparator, and prior centralizer work"
+      ],
+      "rationale": "This is a full distribution for a canonical map on a natural family, not a test at the smallest field or a recomputation of commuting probability. It exposes an enlarged scalar stratum specific to characteristic two and shows uniformity on the nonscalar trace-zero targets despite their different norms. The exact multiplicities give a benchmark and explain which distinctions the usual centralizer count misses.",
+      "residual_risks": [
+        "No claim to classify the internal orbit structure of these fibers or to settle finite-field Cayley value distributions for other words."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

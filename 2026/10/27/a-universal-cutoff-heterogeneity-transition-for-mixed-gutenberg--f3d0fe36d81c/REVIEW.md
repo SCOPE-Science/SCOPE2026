@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed exact domain is a probability mixture of positive exponential rates with a nondegenerate distribution and finite third moment. The log-slope differentiation is valid under this moment assumption. Strict Cauchy–Schwarz inequalities yield \(Q>0\) and \(Q'<0\); the derivative sign identity proves the sharp cutoff criterion and uniqueness, including the critical equality boundary. The implicit-function onset and the finite-support two-slowest-rate asymptotic follow from explicit expansions. The standalone code reproduces the exact two-rate example and 6,000 cutoff configurations but is explicitly supplementary, not an infinite proof.
+PASS
 
-## Originality — PASS, with identified residual risk
+With a=A(U), differentiation gives h'_U=C(a-Q)/(A-a)^2 and Q'=B(1-BE/C^2). Strict tilted Cauchy–Schwarz gives B^2<AC and C^2<BE for a nondegenerate positive-rate law, so Q is positive and strictly decreasing. A decreases from 1 to 0; Q(0)=H and Q(U)<A(U) give the unique threshold and both cases, including equality (zero right derivative only at 0). The minimizer increases with U and tends to zero as U decreases to U_c. One-sided Taylor expansion of Q at zero and A at U_c proves the onset coefficient; an open-domain implicit-function theorem at x=0 is unnecessary. For a fixed finite mixture, AC-B^2 is exactly the sum over i<j of w_i w_j (r_i-r_j)^2 exp(-(r_i+r_j)x). The (1,2) term uniquely dominates; dividing by C~w_1 r_1^2 exp(-r_1x) gives the claimed Q asymptotic. Equating at x_* with A(U)~w_1 exp(-r_1U) gives both the U coefficient and the logarithmic constant. The point-mass case gives Q=0 and strictly increasing slope. A bounded independent check solved the two-rate example via a quadratic in exp(-x), reproducing the threshold, minimum, and both slopes. The frozen script was inspected but not executed. Finite third moment is sufficient and gives the stated finite derivative at zero; the verification note's wording 'indispensable' is stronger than justified for the shape classification alone (finite second moment still gives the needed continuous Q at zero).
 
-Godano, Lippiello and de Arcangelis (2014, full text, eqs. 1, 2, 6; Fig. 2 and section 3.2) explicitly establish the classical untruncated mixture slope and observe an upper-tail upturn under finite magnitude limits. These premises and qualitative phenomena are excluded from the new claim. The sharp normalized-variance boundary for arbitrary mixing laws, strict universal single-minimum classification, cutoff derivative and two-slowest-rate asymptotic were not found in the inspected source. Relevant reliability papers by Navarro et al. (2009) and Block et al. (2008) concern general hazard mixtures but, in accessible abstracts, do not establish this particular right-truncated exponential-mixture theorem. Their full texts could not be compared conclusively; this is a substantive residual priority risk, not evidence of noncoverage.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result closes a natural question raised by the finite-cutoff mixed Gutenberg–Richter model: when does rate heterogeneity actually create a detectable interior slope trough? The exact threshold depends only on a normalized variance, while the large-cutoff trough position depends on the two slowest mixture classes. Those are motivated, sharp structural features of a whole class rather than a fitted-data recomputation or arbitrarily chosen numerical parameter slice. Its use for empirical seismology must respect the distinction between differential slope and fitted finite-sample exponent.
+The supported distinct contribution is the quantitative minimum law under a fixed upper conditioning cutoff: the exact heterogeneity test, movement from onset and, especially, the large-cutoff asymptotic with cancellation of the slowest rate and a second-rate logarithmic shift. The qualitative slope shape can be obtained by a generic finite-endpoint log-convex-density argument and is not credited as a new generic hazard-shape principle. No inspected source gives the quantitative package or mechanically yields the minimum-location asymptotic. A plausible older statement of the shape/threshold implication remains unresolved, not treated as evidence against or for priority.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Right conditioning creates a competition between rate heterogeneity and endpoint divergence. The exact threshold identifies when the observed local slope has an interior minimum without fitting a single exponent. The motion and asymptotic location explain why the second slowest class controls the minimum even though the slowest class dominates the mixture tail. This is a motivated distributional result, not an empirical earthquake-risk claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

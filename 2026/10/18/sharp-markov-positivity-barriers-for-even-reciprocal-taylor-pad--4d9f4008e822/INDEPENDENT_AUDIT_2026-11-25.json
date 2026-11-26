@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:25:02.513505Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing E=e^−z−Σ_(k≤m)(−z)^k/k!, the reciprocal is e^z+e^(2z)E+O(z^(2m+2)). For even m, the corrections through degree m+2 are −z^(m+1)/(m+1)! and [1/(m+2)!−2/(m+1)!]z^(m+2); adding the e^z terms cancels a_(m+1) and gives a_(m+2)=−2(m+1)/(m+2)!. In a reachable off-diagonal entry of shortest distance d, powers below d vanish and Q^d has a strictly positive entry. For d≤m this gives positivity. The remaining case d=m+1 on n=m+2 states requires a diagonal stay at power d+1: a walk with d+1 off-diagonal transitions repeats a vertex, and deleting a loop of length at least two contradicts minimal d. Exactly one diagonal stay occurs in any nonzero term at this power and one can insert it at the initial vertex of a shortest path, whose rate of exit is positive. Thus Q^(d+1) has a negative entry and the negative a_(d+1) makes the leading update coefficient positive. Unreachable entries are zero, diagonals approach one, and analyticity at zero and finiteness give a Q-dependent common interval. The m+3 birth chain has distance m+2 and Q^(m+2) entry one. At m=4, the transient denominator has diagonal D(h)/24>0 for all h≥0 and the terminal diagonal is one, so the inverse always exists for this chain. The independently written integer-polynomial recurrence in `/workspace/checks/exact_checks.py` checks the six transient numerators and five shorter absorption numerators, equality of the remaining numerator with h^6P, both Descartes sign transforms, and the strict rational bracket (τ≈0.326062780128963); replay with python3. Together with the nilpotent block expansion and conservation, these give exactly the positivity set stated, including the identity at zero. Terminology at RESULT.md line 22: the update has unit row sums whenever defined, not necessarily stochastic; standard stochasticity additionally requires nonnegativity. The row-sum identity, not that misnomer, is used in the proof, and the Finding explicitly states the negative-entry regime. Nothing here gives a universal step size or global positivity for arbitrary generators.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lóczi–Ketcheson p. 1 defines the radius using all derivatives on [−r,0]; p. 6 gives zero radius for the class containing only diagonal [2/2].",
+          "Xue–Ye p. 2 discusses nonnegative exact exponential semigroups and entrywise numerical accuracy for Metzler matrices."
+        ],
+        "reasoning": "A negative a_(m+2) also rules out positive scalar radius for [0/m]; this criterion does not predict the exact transition between fixed dimensions or the recovery interval. Positivity of e^(hQ) is not positivity of this rational approximant.",
+        "searches": [
+          "Resultary: absolute monotonicity finite dimension positivity rational approximation Markov generators path length",
+          "Lóczi–Ketcheson arXiv:1303.6651, radius of absolute monotonicity and [2/2] case",
+          "Xue–Ye expenm.pdf, opening sections"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4aad2a3f58ab; 1a149558ee9c; 5b0558f2856d; cbdb39e5b48d",
+        "arXiv:1303.6651 pp. 1,6; Xue–Ye expenm.pdf, pp. 2 ff.",
+        "OA attempts: Maynooth eprints 2195 and 2822"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both examples prove the positive coefficient after a Taylor zero using the identical shortest-path/one-diagonal-stay argument. Their exact sign analyses use different rational denominators and absorption polynomials."
+        ],
+        "reasoning": "The local-state proof skeleton generalizes to any positive-prefix, zero, negative Taylor pattern and materially reduces the novelty of the dimension argument; the even reciprocal family requires identifying that pattern for every m. These examples and scalar monotonicity do not imply the sign of the eleven other seven-state [0/4] entries or the exact root count. Those are new model-specific checks in a motivated first obstructed chain.",
+        "searches": [
+          "4aad2a3f58ab, local mirror Proof §§2–3, offsets 2360–7160",
+          "1a149558ee9c, local mirror Proof §§2–3, offsets 3900–6885"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 4aad2a3f58ab uses diagonal [2/2], with a₅=1/144, a₆=0, a₇=−1/1728; its cutoff is 7 and its first witness has 8 states.",
+          "In [0/4], a₅=0, a₆=−1/72, cutoff 6 and witness order 7. Resultary 1a149558ee9c is [0/2], with a₃=0 and a₄=−1/4."
+        ],
+        "reasoning": "The sign-equivalent Laplacian formulation uses −L=Q; changing notation preserves the rational map. The diagonal [2/2] and reciprocal [0/m] maps are different and no sign or scaling change shifts the first negative coefficient's degree.",
+        "searches": [
+          "Resultary: even denominator reciprocal Taylor Padé Markov generator sharp state count m+2 positivity pure birth chain",
+          "Resultary: [2/2] Padé Markov positivity eight-state obstruction first negative entry"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4aad2a3f58ab: [2/2] eight-state witness has a bounded positive-step interval [h₀,2√3], h₀≈0.596640561867.",
+          "1a149558ee9c: [0/2] five-state witness has positive-step interval [0.496605762665489…,∞).",
+          "[0/2] graph results 5b0558f2856d and cbdb39e5b48d give different thresholds for C₈ and P₅, not for the target chain."
+        ],
+        "reasoning": "These are genuine exact neighboring classifications for different maps and sometimes different generators. None uses this degree-18 sign polynomial or gives the seven-state [0/4] recovery at 0.326062780128963…. The comparison includes the same-day distance-four graph record.",
+        "searches": [
+          "Resultary: [0/2] reciprocal Taylor Markov positivity path coefficient zero pure birth",
+          "Resultary: [2/2] Padé Markov positivity eight-state obstruction first negative entry"
+        ]
+      },
+      "rationale": "The path-distance, Taylor-zero and diagonal-stay mechanism is known in the neighboring Padé records and generalizes once the relevant coefficients are known; do not count that mechanism as new. The reciprocal even-denominator family at m≥4 and, especially, the exact seven-state quartic all-step sign classification are distinct from the inspected results. The threshold and sign proof are not a reparameterization of the [2/2] or [0/2] witness. The assessment is bounded by the inspected sources, not a claim to publication priority.",
+      "residual_risks": [
+        "The Maynooth references did not yield independently readable full text in this review; the 1996 Arioli–Codenotti–Fassino body was not checked.",
+        "Some primary web searches were deferred; that is not a negative result. A broader unlocated theorem for truncated Taylor reciprocals or a matching exact threshold remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known mechanism, different rational function and all-step classification",
+          "evidence": [
+            "a₆=0, a₇=−1/1728; recovery interval has an upper endpoint 2√3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+          "material_read": "Mirrored Finding and proof §§2–3, offsets 0–7160 across bounded passages",
+          "method": "Local Resultary mirror; compare Taylor coefficients, path argument and witness threshold",
+          "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+          "trigger": "Closest earlier sharp state barrier and path mechanism"
+        },
+        {
+          "assessment": "The case m=2, outside the frozen range, is covered; its proof uses the same local mechanism",
+          "evidence": [
+            "Five-state [0/2] absorption numerator is h⁴(h⁴+8h³+12h²−4), not the degree-18 factor here."
+          ],
+          "identifier_or_url": "Resultary 1a149558ee9c",
+          "material_read": "Finding and proof §§2–3, offsets 0–6885 across bounded passages",
+          "method": "Local mirror and direct formula comparison",
+          "title": "Three-transition immunity and a sharp five-state positivity threshold",
+          "trigger": "Low-order reciprocal specialization"
+        },
+        {
+          "assessment": "Undirected graph versions with a different map and hypotheses",
+          "evidence": [
+            "[0/2] C₈ threshold ≈0.2137579658; P₅ threshold ≈0.2738702609."
+          ],
+          "identifier_or_url": "Resultary 5b0558f2856d; cbdb39e5b48d",
+          "material_read": "Mirrored Findings; C₈ proof material up to offset 7114; P₅ statement in offset 0–4200",
+          "method": "Local mirror",
+          "title": "Distance-four positivity obstruction and sharp eight-cycle recovery; Five-vertex and distance-four positivity barriers for Padé [0/2] graphs",
+          "trigger": "Exact positivity classifications for graph diffusion"
+        },
+        {
+          "assessment": "Different quantification, no finite-generator threshold in the inspected claims",
+          "evidence": [
+            "All derivatives are used; diagonal order-four radius is zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1303.6651",
+          "material_read": "pp. 1 and 6, offsets 2197 and 21079",
+          "method": "Lawful primary PDF, relevant passages",
+          "title": "Rational functions with maximal radius of absolute monotonicity",
+          "trigger": "Potential stronger monotonicity result"
+        },
+        {
+          "assessment": "Exact exponential positivity and numerical evaluation, not a fixed Padé sign threshold",
+          "evidence": [
+            "Essentially nonnegative matrices generate nonnegative exponential semigroups."
+          ],
+          "identifier_or_url": "https://www.ms.uky.edu/~qye/reports/expenm.pdf",
+          "material_read": "p. 2 and opening Padé discussion, text offsets 3066–7859",
+          "method": "Lawful primary PDF",
+          "title": "Computing Exponentials of Essentially Non-negative Matrices Entrywise to High Relative Accuracy",
+          "trigger": "Metzler exponential computations and Padé positivity"
+        },
+        {
+          "assessment": "Access risk; no independent whole-body negative claim",
+          "evidence": [
+            "The accessible [2/2] record distinguishes an 8×8 nilpotent example and a Hurwitz shift from a conservative generator."
+          ],
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/2195/ ; https://mural.maynoothuniversity.ie/id/eprint/2822/",
+          "material_read": "Independent repository attempts did not return readable full text; 4aad2a3f58ab reports the diagonal shift example as secondary evidence only",
+          "method": "Lawful OA attempts and local secondary comparison",
+          "title": "On the preservation of co-positive Lyapunov functions under Padé discretization for positive systems; Padé discretization for linear systems with polyhedral Lyapunov functions",
+          "trigger": "Potential direct Padé positivity overlap"
+        },
+        {
+          "assessment": "Unresolved full-text risk",
+          "evidence": [],
+          "identifier_or_url": "doi:10.1016/0024-3795(94)00190-1",
+          "material_read": "Bibliographic identity in frozen evidence; no primary body relied on",
+          "method": "Recorded source comparison and access limitation",
+          "title": "The Padé method for computing the matrix exponential",
+          "trigger": "Possible older broader Padé exponential coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The dimensions at which an update can stop being a transition matrix are useful independently of formal integrator order. The first obstructed fourth-order birth chain is forced by the sharp dimension bound rather than arbitrarily selected. Its exact recovery, where smaller positive steps can lose positivity while all larger steps preserve it, adds information not supplied by the leading negative coefficient or the examples for other Padé families.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

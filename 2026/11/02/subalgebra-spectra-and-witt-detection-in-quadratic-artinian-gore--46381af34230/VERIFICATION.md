@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,6 @@
 }
 ---
 
-`verify.py` independently enumerates all RREF subspaces of \(\mathfrak m\) for ten specified configurations in prime characteristics \(3\) and \(5\). For each candidate it tests closure under the actual algebra multiplication, without using the proposed subalgebra normal form as the closure test. It independently enumerates totally isotropic spaces, checks the coefficient polynomial, and verifies the even-dimensional Witt-type gap at additional parameter values. Successful execution prints `VERIFY_OK`; finite tests are not the proof of the all-parameter result.
+`verify.py` enumerates RREF subspaces of the nilpotent ideal in selected prime-characteristic examples and tests closure under its actual multiplication. It compares the resulting coefficient counts against the counting inputs and separately checks isotropic subspace numbers. The finite test is a check of the counting inputs, not of the large-dimension probability statements.
 
-The proof in `RESULT.md` checks the graph-versus-socle dichotomy, the orthogonal extension recurrence, Gaussian-binomial bounds, and the conditional discrete-Gaussian asymptotics for every odd prime power. No separate external or independent mathematical review was performed.
+The orthogonal quotient recurrence in `RESULT.md` supplies the counts for every odd prime power. The rarity estimate and dimension limits follow from uniform product bounds and discrete-Gaussian summation at fixed \(q\); no scale extrapolation from the finite checks is used.

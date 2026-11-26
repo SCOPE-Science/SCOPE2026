@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:31:29.751727Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Tracing the downdate gives g_i=||Ae_i||²/d_i, the Rayleigh quotient of A at A^{1/2}e_i. Thus Δ₀≤λ_max and Δ₁=tr(A²)/tr(A). Scaling λ_max to one and writing s for the other positive eigenvalues' sum yields (1+s)/(1+s²/(r−1)), maximized at s=√r−1. Rank one ties identically. The block family J_N/N ⊕ I_{r−1}/(√r+1) has gains 1 on the N-block and 1/(√r+1) on singletons, yielding the asserted limit. In size two the difference is (a−b)(g₁−g₂)/(2(a+b))=(a−b)²(1−|c|²/(ab))/(2(a+b))≥0; in size three J₂/2 ⊕ [2/3] gives 8/9 versus 13/15. For fixed real β>1, B_T has gains T on the m_T-block and one on the singleton; total block weight h_T=T^β m_T^{1−β} satisfies Th_T→0 under the stated q, so the ratio is asymptotic to T. These checks establish one-pivot expectations, not multistep performance. The supplied finite-test script was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Epperly's Lemma 4.2 bounds an expected trace of a convex function of the residual under the usual diagonal-proportional rule. Chen et al. give a multi-step trace-error bound. The accelerated algorithm simulates the same pivot distribution."
+        ],
+        "reasoning": "Bounds under one pivot law or on multi-step residuals do not give the sharp ratio between two different laws, the minimal reversal size, or the rank-two divergence for every superlinear power.",
+        "searches": [
+          "arXiv:2608.20633 Lemma 4.2",
+          "arXiv:2207.06503 §5.1",
+          "arXiv:2410.03969 pp. 4–5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–79, VERIFICATION.md and verify.py (inspection only)",
+        "Resultary 2bb9e4395f06",
+        "arXiv:2207.06503",
+        "arXiv:2404.11487",
+        "arXiv:2410.03969",
+        "arXiv:2608.20633"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier Frobenius proof takes t=m^a with 2/β<a<1/2 for β>4. The β=1 trace identity is an antecedent of the present bound."
+        ],
+        "reasoning": "For β>4 the earlier choice also yields trace-ratio divergence: trace expectation at β is at most t+m^{2−aβ}, whereas the uniform trace gain is asymptotic to m; indeed the β trace gain is asymptotic to t. Thus this subrange and the construction should not be credited as independent. Extending trace divergence to all β>1 uses the larger range 2/(β+1)<a<1 and is not supplied by the Frobenius theorem. The β=1 identity plus the Rayleigh bound provides an upper-bound route, but does not realize the extremal spectral profile at arbitrary ranks via coordinate multiplicities, or show the finite-size reversal.",
+        "searches": [
+          "2bb9e4395f06, Cluster formula and Sharpness above four",
+          "arXiv:2404.11487, β=1 identity and β=2 Frobenius guarantee"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2bb9e4395f06 defines A_{m,t}=diag(t,J_m), and the corresponding squared-Frobenius gain is (t^{β+2}+m³)/(t^β+m). The frozen B_T is, up to permutation, (T/m)A_{m,m/T}.",
+          "Primary passages define the same power-pivot family and give the familiar β=1 expectation identity."
+        ],
+        "reasoning": "The setup and rank-two family coincide. The trace gain on the unscaled family is instead (t^{β+1}+m²)/(t^β+m); trace and Frobenius-square expectations do not preserve the same ordering or critical exponent.",
+        "searches": [
+          "Resultary: one-step power-diagonal Cholesky pivots, rank-two exponent boundary (2bb9e4395f06)",
+          "arXiv:2207.06503 §2.3.4",
+          "arXiv:2404.11487 §§1.1–1.2 and 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mirror offsets 281 and 4323 give the indexed exact block family, a β=5 Frobenius witness, and a Frobenius failure family for β>4 (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)."
+        ],
+        "reasoning": "These are different quantitative targets, not a table or classification of the frozen trace-gain ratio. A finite table of pivot examples could not establish the supremum across sizes or every real β>1; the exact nearest corpus entry is the relevant check.",
+        "searches": [
+          "Resultary: 2026/10/12/SCOPE-a-sharp-rank-two-exponent-boundary-for-power-diagonal-cholesky-p--2bb9e4395f06/RESULT.md"
+        ]
+      },
+      "rationale": "The distinct contribution supported by the comparison is the sharp all-rank one-pivot trace-gain envelope and the trace-specific rank-two failure throughout β>1, including the regime 1<β≤4 not covered by the prior Frobenius failure. Neither the power family, the β=1 expected residual identity, nor the two-cluster example shape is new. This is a bounded statement-level assessment, not a priority claim.",
+      "residual_risks": [
+        "The original access gap for arXiv:2608.20633 was narrowed to the inspected relevant lemma, not an exhaustive full-document exclusion.",
+        "Other one-step rank or trace sampling comparisons could contain an equivalent inequality; this assessment is limited to the compared passages and indexed match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact family overlap; covers a restricted divergence subrange by implication; different target theorem",
+          "evidence": "Squared-Frobenius residual bound, sharp family cutoff at 4, and β>4 scaling t=m^a.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-a-sharp-rank-two-exponent-boundary-for-power-diagonal-cholesky-p--2bb9e4395f06/RESULT.md",
+          "material_read": "Offsets 281–6189, theorem, cluster formula and sharpness proof",
+          "method": "Local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp rank-two exponent boundary for power-diagonal Cholesky pivots",
+          "trigger": "Same pivot law, rank-two block construction and exponent comparison"
+        },
+        {
+          "assessment": "Supplies setup and trace baseline; located guarantee differs",
+          "evidence": "Gibbs power sampling identifies β=0 and β=1; trace-error bound treats repeated progress.",
+          "identifier_or_url": "arXiv:2207.06503",
+          "material_read": "§2.3.4 p. 6 and §5.1 p. 19, offsets 20731 and 72661",
+          "method": "OA full-text passages",
+          "title": "Randomly pivoted Cholesky: Practical approximation of a kernel matrix with few entry evaluations",
+          "trigger": "Baseline pivot comparisons"
+        },
+        {
+          "assessment": "Baseline and Frobenius result, not the located trace-ratio theorem",
+          "evidence": "β=1 expected residual identity and β=2 Frobenius guarantee.",
+          "identifier_or_url": "arXiv:2404.11487",
+          "material_read": "§§1.1–1.2 p. 2 and §2.1 p. 3, offsets 6087 and 8828",
+          "method": "OA full-text passages",
+          "title": "Randomly Pivoted Partial Cholesky: Random How?",
+          "trigger": "Power pivot family and objective comparisons"
+        },
+        {
+          "assessment": "Implementation of the same standard distribution",
+          "evidence": "Rejection sampling simulates diagonal pivot weights rather than providing a different comparison.",
+          "identifier_or_url": "arXiv:2410.03969",
+          "material_read": "pp. 4–5, offset 14081",
+          "method": "OA full-text passage",
+          "title": "Embrace rejection: Kernel matrix approximation by accelerated randomly pivoted Cholesky",
+          "trigger": "Possible alternate sampling theorem"
+        },
+        {
+          "assessment": "Located lemma concerns standard RPCholesky only",
+          "evidence": "Expected convex-function trace bounds for the residual, including the β=1 baseline.",
+          "identifier_or_url": "arXiv:2608.20633",
+          "material_read": "Lemma 4.2, p. 9, offset 39527",
+          "method": "OA PDF passage",
+          "title": "A new analysis of the randomly pivoted Cholesky algorithm",
+          "trigger": "Plausible stronger one-step trace theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp rank-only bound answers how much uniform sampling can outperform the standard Cholesky pivot rule on the actual expected trace progress, and the rank-two construction shows why that guarantee cannot be transferred to any heavier exponent. The first possible reversal in size three provides a compact diagnostic. The result does not depend on calling the family new or extrapolating to multiple pivots.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

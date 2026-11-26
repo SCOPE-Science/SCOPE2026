@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:18:34.089226Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An induced matching realizes all patterns by picking one endpoint per edge, then extending to an inclusion-maximal independent set. For cographs the key converse lemma is valid: for at least two query vertices, realizing the nonempty patterns suffices. In a union with queries in both factors, put a positive in one factor while realizing the local empty pattern in the other and then combine the two local empty witnesses. If all queries lie in one factor, induct; in a join spanning both factors the all-positive pattern is impossible, and if queries lie in one factor all nonempty patterns come from it. Thus nonsingleton shattered supports in a join come from one factor with no help from the other; singletons can take a mate across the join. This proves the all-support theorem, including empty, union, and isolate cases. It also gives the stated recurrences: the constant term is counted once at a join, the extra singletons are the isolated vertices of the factors, and other coefficients add. For a binary decomposition, the sum of products of child sizes is at most n(n−1)/2, charging pairs to their least common ancestor; child linear terms also total O(n²). This is an arithmetic-operation bound, not a bit-complexity bound. For the finite boundary, any shattered pair x,y has distinct private neighbors a,b from the one-negative assignments. In a gap at n≤5 the matching number must be one, and a,b must be adjacent (or xa,yb is an induced matching). With no remaining vertex, or an extra vertex adjacent to at most one of x,y, the empty trace is impossible: every pair of private choices on opposite sides is adjacent. Hence the fifth vertex is adjacent to both x,y, completing the path x-a-b-y to a C5; zero, one or two extra adjacencies to a,b give C5, house and gem. The fifth vertex witnesses the empty pattern, and the others are witnessed by independent pairs. No triple can be shattered on five vertices because each support vertex needs a distinct outside private neighbor. The automorphism group orders 10,2,2 give 12,60,60 labeled copies. The gem is chordal since its only other four vertices induce a path and the universal vertex cannot be on a chordless cycle of length at least four. Fresh independently written enumeration at /workspace/branches/11bf5394-2c59-43f5-aeb7-012b4e8d080e/independent_boundary.py reproduced zero gaps in orders 0–4 and exactly the three classes with those counts in order 5 (run_n0_to5.json). The frozen verifier was inspected, not executed. The census only checks its finite domain; the universal theorem uses induction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The arXiv lemma upper-bounds VCdim of the same maximal-independent-set membership class by the bipartite induced matching number. The search's arXiv:2607.15486 hit concerns hitting maximal independent sets, not their traces."
+        ],
+        "reasoning": "An induced bipartite matching does not require independence on each side. In C4, assigning adjacent vertices to each side gives an induced bipartite two-edge matching, even though an ordinary induced matching has size at most one. Thus even the dimension equality does not follow by squeezing the general bound on cographs.",
+        "searches": [
+          "Liu–Shangguan–Skokan–Xu arXiv:2403.17910, Lemma 2.20 and definitions",
+          "External cograph/MIS/VC/induced-matching query"
+        ]
+      },
+      "checked_sources": [
+        "Frozen record 4 RESULT.md, VERIFICATION.md and verifier",
+        "Frozen record 5 forest theorem",
+        "Resultary 8eeea05fd46b and e1690cca5815",
+        "arXiv:2403.17910",
+        "Primary-literature search results for cographs and maximal-independent-set shattering"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general proof uses private neighbors independently for each one-negative labeling and establishes only the cross-side condition. The forest proof relies on the ability to remove leaves; cographs can be leafless (e.g. C4)."
+        ],
+        "reasoning": "The cograph proof must turn individually witnessed patterns into compatible independent mates. The missing-empty-trace lemma and the union/join decomposition do this, and provide a structural reason for the polynomial recursion. This is not a restatement of a general dimension inequality.",
+        "searches": [
+          "arXiv:2403.17910 definition of bipartite induced matching and proof of Lemma 2.20",
+          "Frozen forest theorem, proof by pendant deletion",
+          "Resultary 8eeea05fd46b Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 8eeea05fd46b treats maximal-independent-set membership on cographs but compares static VC and adaptive Littlestone dimensions. Resultary e1690cca5815 studies shattering by the family of vertices covered by matchings, not by maximal independent sets. Frozen record 5 gives an analogous theorem for forests and the same C5 obstruction; the two graph classes are incomparable."
+        ],
+        "reasoning": "The same-date cograph finding is materially related, but its two five-vertex exceptions are for a different inequality. On the intersection with forests (disjoint unions of stars), the support theorems agree; neither theorem implies the other. A maximal-clique version on cographs would be equivalent by complementing, with induced co-matchings replacing induced matchings.",
+        "searches": [
+          "Resultary semantic queries for maximal-independent-set shattering, cographs, induced matchings, the five-vertex exceptions, and the exact frozen title",
+          "\"maximal independent sets\" \"VC dimension\" cographs induced matching shattered supports"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected five-vertex census is about a VC/Littlestone gap, not VC versus ordinary induced matching. The C5 example is shared with the frozen forest record, which does not give the full census."
+        ],
+        "reasoning": "A table of graph isomorphism types alone does not tabulate which graphs exhibit this invariant gap. The exact three-type boundary is meaningful only with the stated comparison and not credited as new merely because a fresh run reproduced it.",
+        "searches": [
+          "Resultary search for C5, house and gem as five-vertex shattering exceptions",
+          "Distinct Resultary 8eeea05fd46b Finding at offset 250",
+          "External cograph/MIS/VC/induced-matching query"
+        ]
+      },
+      "rationale": "On the evidence inspected, the cograph converse on individual supports and its counting recurrence, with the sharp general-graph boundary as corroboration, are distinct. The universal forward direction from induced matchings is not credited as new. The closest general bound uses a different matching invariant and does not imply this equivalence.",
+      "residual_risks": [
+        "The bounded catalog and literature comparison does not establish historical priority; an equivalent cograph result could be indexed under maximal cliques or graph decompositions.",
+        "Keyword searches for related general shattering frameworks did not locate decisive relevant passages; these misses are not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different invariant gap",
+          "evidence": "The pair of dimensions compared is VC and Littlestone, with examples of (1,2), including the join K2 ∨ (K2 ⊔ K1).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-first-maximal-independent-set-shattering-gap-and-its-connected-c--8eeea05fd46b/RESULT.md",
+          "material_read": "Finding near offset 250",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "First maximal independent set shattering gap and its connected-cograph amplifications",
+          "trigger": "Same-date cograph shattering and five-vertex gap"
+        },
+        {
+          "assessment": "Related general bound with a weaker matching condition",
+          "evidence": "Only cross-side adjacency is constrained; the lemma gives VCdim ≤ the resulting bipartite invariant.",
+          "identifier_or_url": "https://arxiv.org/pdf/2403.17910",
+          "material_read": "Definition on p. 9, around OA offset 37600; Lemma 2.20 (published numbering 27) on p. 11, around offset 43430",
+          "method": "Targeted primary-text retrieval",
+          "title": "Beyond Chromatic Threshold via (p,q)-Theorem, and Blow-Up Phenomenon",
+          "trigger": "Same concept class and general matching bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact support-wise characterization goes beyond the dimension and yields a usable polynomial for counting supports from a cotree. The smallest gap is an informative boundary: the gem shows that chordality alone is insufficient, while classifying every smallest witness avoids treating an isolated counterexample as representative without evidence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

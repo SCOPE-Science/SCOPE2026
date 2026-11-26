@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The scalar logit coordinate makes the full-period return displacement strictly increasing, proving unique interior periodicity and repelling separation. The original equations, normalized selection-weighted residence measure, and its zeroth and first moments independently fix the mean and permit differentiation of the variance. The strict bounded-support variance inequality gives \(V'(T)>0\); the Floquet formula gives a strictly decreasing but positive exponent. Endpoint limits are justified by the exact residence-time integrals, not extrapolated from finite simulation. The packaged checker reproduces 31 numerical parameter/period cases and verifies centered-difference period derivatives.
+PASS
 
-## Originality
+In logit coordinates the derivative of the return map is exp(∫a x(1−x)dt)>1, and the displacement has opposite limiting signs; thus the unique interior fixed point is repelling and separates the pure-state basins. On that orbit h1<ell<u<h2, ascent and descent traverse the same interval, and the weighted residence density w is the sum of the two reciprocal phase velocities after removing a_i. Its mass is abar T and its first moment is abar hT by integrating the logit drift. Differentiating these two moments gives w(u)u'=abar(h−ell)/(u−ell) and −w(ell)ell'=abar(u−h)/(u−ell), establishing endpoint order and (TV)'=(h−ell)(u−h). The expectation of (x−ell)(u−x) is strictly positive, so TV'>0. The logit and frequency fixed-point multipliers agree by conjugacy, and the weighted mean gives Lambda=abar[h(1−h)−V]. For small T the width is O(T); smooth positive w near h makes the midpoint differ from h by O(T²), and the first phase then gives width vT+O(T²). The normalized smooth density differs relatively from uniform by O(T), giving the variance coefficient v²/12. For large T the divergent ascent and descent times force ell→h1 and u→h2 respectively, and averaging (TV)' gives the asserted limit. Its positivity is the selection-weighted average of h_i(1−h_i) multiplied by abar. Independently at (a1,a2,h1,h2,p,T)=(3,3,1/3,2/3,1/2,12), symmetry and bisection on the elementary ascent-time integral give ell=0.33814357714 and u=0.66185642286. Integrating 1/(x−h1)+1/(h2−x) from ell to u and dividing by T gives Lambda=0.70397655882, and the identity gives V=0.01534114706.
 
-PASS with residual bibliographic uncertainty. Shu and Fu's original full text supplies the switched scalar equations, selected recurrent constructions and amplitude/dwell-time formulas in the symmetric case. These are not claimed anew. The independently proved result here is the selection-weighted exact variance derivative and the strict monotone Floquet slowdown for every asymmetric two-stage coordination pair and every period, with its sharp limiting rates and basin-separating interpretation. The 2006 Abel uniqueness literature potentially covers some uniqueness/hyperbolicity statements; no direct prior coverage of the principal monotonicity law was identified. The general possibility of an older equivalent parametric identity remains a literature risk.
+## originality
 
-## Value
+PASS
 
-PASS. Switching-induced oscillations may be misread as persistent attracting mixed strategy coexistence. The result separates an exact but fragile periodic threshold from an attracting coexistence state, and gives a sharp quantitative law: slowing environmental switching strictly reduces the local selection-divergence rate but can never stabilize the cycle. The all-period identity explains this via a measurable state-variance penalty and admits exact small- and large-period comparisons, including asymmetric duty fractions and payoffs.
+The supported distinction is the exact derivative and strictly decreasing per-unit-time exponent, with its endpoint rates for all fixed-duty parameter choices. Shu–Fu's exact same scalar model, interior periodic constructions and stage-time formulas are prior art, not discoveries of the frozen record. The compared published and indexed results do not establish the variance/Floquet law on this domain.
 
-## Relationship to literature and limitations
+## value
 
-The closest work is Shu and Fu (2022), arXiv:2208.13306, Sections 3.1–3.3. Álvarez, Gasull and Giacomini (2006), arXiv:math/0602468, supply general prior uniqueness results for Abel equations; Loginov (2021), arXiv:2106.08224, studies a different endogenous-payoff model. This contribution does not cover feedback-dependent schedules, multidimensional games or stochastic perturbations. Its Floquet monotonicity is per unit time; the per-cycle multiplier is a different quantity.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The residence derivative resolves the direction of a natural switching-timescale comparison that uniqueness and repulsion cannot answer. Its connection to strict variance growth identifies how the orbit widens while weakening the repulsion per unit time and yields both limiting rates; this is a structural quantitative result rather than another oscillating example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

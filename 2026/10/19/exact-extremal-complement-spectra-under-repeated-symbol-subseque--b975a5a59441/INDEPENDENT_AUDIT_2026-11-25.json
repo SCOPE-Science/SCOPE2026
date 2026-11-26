@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:13:37.947535Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–71; VERIFICATION.md lines 19–41; inspected verify.py and majorization_check.py, not executed"
+      ],
+      "rationale": "Read each output by scanning the unchanged ordered skeleton of non-a letters; the lengths in its successive slots, including the end slots, uniquely recover the deletions in every original positive a-run. This remains true even when several neighboring skeleton letters are identical or a whole run disappears. The exact polynomial is therefore the bounded-composition product. At fixed r≥1 the separator budget bounds the sum of run lengths by n-r+1; padding any run is coefficientwise monotone, and the constraints m≥r and m≥k are necessary and sufficient for the binary witness. A unit exchange x,y→x-1,y+1 for x≥y+2 increases the product of those two geometric sums by z^(y+1)+…+z^(x-1), and strictly decreases the sum of squared lengths, proving simultaneous dominance. For k=3 the types 1+1+1, 2+1 and 3 give B=C(r,3)+(r-1)min(r,d)+min(r,max(0,d-r)), d=n-2r+1. Writing r=R-h, R=floor((n+1)/2), d=2h or 2h+1, when d≤r the comparison with r=R follows from sum_{j=r}^{R-1} C(j,2)≥h C(r,2), for odd r≥4 and even r≥3 (the adjectives refer to the parity of n). For d>r and r≥5 this difference reaches at least r², the extra terms' upper bound; for r≤4 the small checks are decisive: r=4 with d>r forces R≥7 (odd n) or R≥6 (even n) and B≤20; r≤3 has B≤10, with even r=3 and d>r requiring R≥5, even r=2 giving B=1,3 at R=2,3 and B≤4 thereafter, and r=1 giving at most one. At odd n=3,5,7 direct evaluation gives 1,2,5. This verifies the global formula, achievable witnesses, coefficientwise comparison and all boundaries of the triple-deletion formula without relying on finite testing.",
+      "residual_risks": [
+        "No classification of all maximizing words, nor assertion for nonconstant deletion patterns, is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Wang–Fu prove a balanced ordinary-run optimizer in a divisible-length setting for arbitrary-symbol deletion and bound other lengths by padding. Vatter treats log-concavity for unrestricted distinct subsequences by length."
+        ],
+        "reasoning": "An extremum or log-concavity statement for the union of deletion patterns cannot by restriction determine the optimum of the contributions from just a^k. Preexisting run smoothing is methodological overlap, not a claim of new polynomial algebra.",
+        "searches": [
+          "Li–Wang–Fu arXiv:2601.06493 Sec. V Thm. 17, Cor. 18; Liron–Langberg arXiv:1202.1644 Sec. VII; Vatter arXiv:2608.22147 opening passage"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary matches above",
+        "arXiv:2603.20790v1",
+        "arXiv:2601.06493",
+        "arXiv:1202.1644",
+        "arXiv:2608.22147 opening passage"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected prior arbitrary-symbol theorems balance all-symbol runs or use per-run pattern bounds with collisions. The fixed-letter theorem optimizes over the number of positive runs of one letter and pays r-1 fixed separators, then evaluates those bounds across r for k=3."
+        ],
+        "reasoning": "Even accepting the standard bounded-composition smoothing, the skeleton bijection, correct length-budget reduction and triple coefficient maximization are not conclusions of the inspected prior theorems.",
+        "searches": [
+          "Compare arXiv:2603.20790v1 Sec. 5; arXiv:2601.06493 Thm. 17 and Cor. 18; arXiv:1202.1644 Sec. VII with frozen RESULT.md lines 38–71"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General per-run deletion patterns in Liron–Langberg can collide. The fixed-letter problem keeps a common skeleton, making its bounded compositions exact, not just a pattern upper bound.",
+          "Adamson–Fleischmann–Huch formulate precisely the more general distinct residual-word object and ask for upper bounds or special-case formulas."
+        ],
+        "reasoning": "The equivalent bounded-composition count is valid for the fixed-letter deletion because no separator is removed. General distinct-subsequence counts or embedding counts are not equivalent.",
+        "searches": [
+          "Local Resultary: monochromatic complement scattered factors, fixed-letter deletion, bounded per-run deletion patterns and balanced runs",
+          "arXiv:1202.1644 Sec. VII; arXiv:2603.20790v1 Introduction and Sec. 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/11/2 SCOPE-exact-run-pattern-collision-thresholds-and-short-deletion-extrem--2036e6f8e3be: arbitrary-symbol deletion, fixed ordinary run count and large-alphabet exact regimes.",
+          "Resultary 2026/11/22 SCOPE-fixed-composition-moment-laws-and-an-exponential-extremal-gap-fo--54c2b74d7974: monochromatic fixed-composition gap-product and balanced gaps. Both catalogue entries postdate the present record. No earlier exact evaluation of the claimed full maximum or triple law was identified in this comparison."
+        ],
+        "reasoning": "The first has a different statistic and parameter restriction. The second overlaps substantially with the coefficientwise mechanism but does not give the claimed global optimization or parity-sensitive triple formula; neither later entry establishes prior priority.",
+        "searches": [
+          "Local Resultary: repeated-symbol deletion and exact balanced-run coefficient extrema; inspected Findings/proofs in the closest composition and collision records"
+        ]
+      },
+      "rationale": "The supported distinct claim is the fixed-letter distinct-output extremum and triple-deletion evaluation, not the geometric-sum smoothing method in isolation. Closely related deletion-sphere extremal results concern deletions of arbitrary symbols and ordinary runs; they do not identify the collision-free fixed-letter statistic or optimize it under the budget for positive a-runs. The closest monochromatic fixed-composition catalogue comparison is later and does not state the global or k=3 optimization.",
+      "residual_risks": [
+        "The two cited inaccessible deletion-count works were not ruled out by full-text comparison.",
+        "An unlocated bounded-composition/rank-sequence source could overlap with the balancing mechanism; novelty is not assigned to that mechanism alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct motivation; no fixed-letter maximum in the inspected material",
+          "evidence": [
+            "Sec. 5 leaves upper bounds or closed formulas in specific cases open."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.20790v1",
+          "material_read": "Introduction near HTML offset 7800 and Sec. 5 near 93715",
+          "method": "Targeted OA full-text inspection",
+          "title": "(Sets of) Complement Scattered Factors",
+          "trigger": "Exact parent definition and stated extremal question"
+        },
+        {
+          "assessment": "Adjacent fixed-ordinary-run theorem for arbitrary-symbol deletion",
+          "evidence": [
+            "Thm. 17 handles divisible lengths; Cor. 18 bounds via padding. Neither fixes the deleted word to a^k."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2601.06493",
+          "material_read": "Sec. V, Thm. 17 and Cor. 18, offsets near 73039 and 77532",
+          "method": "Targeted OA full-text inspection",
+          "title": "Li–Wang–Fu deletion and insertion ball study",
+          "trigger": "Balanced-run extremal theorem"
+        },
+        {
+          "assessment": "Methodological overlap; not a fixed-letter bijection or global optimizer",
+          "evidence": [
+            "Different patterns may collide in their model."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1202.1644",
+          "material_read": "Sec. VII, offsets 57782–58586",
+          "method": "Targeted OA full-text inspection",
+          "title": "Liron–Langberg deletion-pattern bounds",
+          "trigger": "Per-run bounded deletion patterns"
+        },
+        {
+          "assessment": "Related later record with different model and constraint",
+          "evidence": [
+            "Arbitrary-symbol deletion; fixed ordinary-run count and a large-alphabet exact regime."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2 SCOPE-exact-run-pattern-collision-thresholds-and-short-deletion-extrem--2036e6f8e3be",
+          "material_read": "RESULT.md Finding and proof",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact run-pattern collision thresholds and short-deletion extremal counts",
+          "trigger": "Very close coefficient bound and balancing vocabulary"
+        },
+        {
+          "assessment": "Substantial overlap in a later exact mechanism; different optimization",
+          "evidence": [
+            "Fixed composition and balanced gaps; not the optimized r formula at fixed total n with the k=3 evaluation."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22 SCOPE-fixed-composition-moment-laws-and-an-exponential-extremal-gap-fo--54c2b74d7974",
+          "material_read": "RESULT.md Finding and proof",
+          "method": "Local mirror",
+          "title": "Fixed-composition moment laws and an exponential extremal gap for monochromatic complement deletions",
+          "trigger": "Same deletion word and gap product"
+        },
+        {
+          "assessment": "Title suggests embedding-count statistic, not enough to rule out internal overlap",
+          "evidence": [
+            "Readable full text not obtained."
+          ],
+          "identifier_or_url": "10.1142/S1793830917500422",
+          "material_read": "Bibliographic title only; no full-text passage recovered",
+          "method": "DOI lookup by direct and VPN routes",
+          "title": "A Near Optimal Algorithm to Count Occurrences of Subsequences of a Given Length",
+          "trigger": "Frozen reference on related counting"
+        },
+        {
+          "assessment": "Unresolved residual comparison",
+          "evidence": [
+            "Readable full text not obtained."
+          ],
+          "identifier_or_url": "Mercier, Khabbazian and Bhargava, 2008",
+          "material_read": "No full-text passage recovered",
+          "method": "DOI lookup",
+          "title": "Mercier–Khabbazian–Bhargava (2008) deletion-count paper",
+          "trigger": "Potential related bound on deletion outputs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2603.20790v1 Sec. 5; frozen Finding and proof"
+      ],
+      "rationale": "This is a natural and complete special-pattern answer to a stated complement-factor question. The reduction from arbitrary words over any alphabet to balanced binary witnesses yields an exact computable maximum for every n,k, and simultaneous fixed-run domination is stronger than a bound at a selected deletion order. The explicit k=3 transition and parity laws also give sharp benchmarks for broader deletion-pattern bounds.",
+      "residual_risks": [
+        "No inference for arbitrary deleted patterns or for all maximizers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

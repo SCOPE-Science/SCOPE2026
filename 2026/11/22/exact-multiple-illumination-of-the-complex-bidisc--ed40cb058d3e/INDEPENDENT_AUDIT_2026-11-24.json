@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:32:26.551669Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py"
+      ],
+      "rationale": "On a saturated disk coordinate the exact inward criterion is a strictly negative radial real part; equality cannot illuminate because the quadratic norm increment is then nonnegative. Both saturated coordinates give open half-circles in angle space. A direction simultaneously inward on two saturated coordinates works for the corresponding point with one nonsaturated coordinate as well by continuity, for small positive time. For the torus lower bound, 2r open half-arcs cannot r-cover: integral equality would force count r almost everywhere, while any starting endpoint loses at least one arc relative to the adjacent right cell. At each horizontal slice this requires at least 2m+1 active squares, whose second-coordinate arcs then require at least 4m+3 squares. With N=4m+3, an open half-circle contains at least 2m+1 consecutive starts of the regular grid even at an endpoint. Their doubled second starts have minimum cyclic gap 2/N and closing gap 3/N. Any closed half-circle contains at most m+1 such points, since m+2 would force span ≥2(m+1)/N>1/2; the complementary open half-circle therefore contains at least m. This proves the upper bound without discarding square edges or intersections. The two phases with offsets −1/4 give exactly the two specified open angular intervals.",
+      "replay": "python3 /tmp/opencode/frozen_nov24_replay.py 5; generated endpoints and exact cyclic intervening-stratum representatives, then checked the covering multiplicity by bit intersections for m=1,2,3,4,8,16,25. The frozen script was inspected but not executed.",
+      "residual_risks": [
+        "The replay is finite; the closed-complement argument proves the all-multiplicity assertion. The lower bound relies on openness and includes repeated directions with multiplicity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rotem–Schejter–Slomka give ordinary reciprocal-side-length torus coverings and real-weighted fractional mass; Sriamorn computes multiple illumination for smooth planar bodies. The focused broader lookup surfaced mainly topological torus coverings and general translative-covering discussions, not a source passage with the requisite integer torus theorem."
+        ],
+        "reasoning": "The reciprocal side-length parameter is not multiplicity. Sriamorn's smooth planar hypothesis does not cover the nonsmooth four-dimensional bidisc. Topological covering degree and the decomposability of plane covers do not answer this minimum-cardinality question.",
+        "searches": [
+          "arXiv:2410.12021v1 Theorems 1.3–1.6 and Propositions 2.3, 2.7",
+          "arXiv:2306.13517v1 Theorem 1.6",
+          "m-fold covering two-dimensional torus by translates of open half squares 4m+3 multiple illumination bidisc cyclic lattice k-fold torus covering semicircles"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2410.12021v1 and arXiv:2306.13517v1",
+        "Resultary ed40cb058d3e self-hit, bb97b5ac359b and f4e6962728dc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At reciprocal side length 2 in dimension 2, Proposition 2.7 uses exactly the rank-one progression (k/7,2k/7) for one-fold coverage. Proposition 2.3 uses disjoint slices and strict endpoints for the ordinary lower bound. Copying the one-fold cover gives 7m, whereas scaling fractional mass gives only 4m."
+        ],
+        "reasoning": "The mathematical novelty is not the rank-one template or the one-dimensional lemma in isolation. The integer optimum for m>1 requires keeping 2m+1 starts and controlling their doubled gaps against a closed complementary half-circle at N=4m+3. Neither the ordinary proof with its fixed cardinality nor the fractional result already determines this higher-multiplicity, open-boundary optimum.",
+        "searches": [
+          "arXiv:2410.12021v1 Proposition 2.7 proof p. 10 around offset 32336; Proposition 2.3 p. 9; arXiv:2306.13517v1 Theorem 1.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 2.2 proves the ordinary/fractional angular torus equivalence. Requiring at least m directions with integer multiplicity is precisely an open half-square m-cover, not the fractional problem."
+        ],
+        "reasoning": "Use both formulations in the comparison. The known angular reduction extends pointwise, but it does not fix the integer multicovering cardinality.",
+        "searches": [
+          "Resultary: exact bidisc multiple illumination 4m+3 and cyclic torus multicover",
+          "arXiv:2410.12021v1 Proposition 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit ed40cb058d3e is the assigned record, not an independent earlier result. Distinct inspected entries bb97b5ac359b and f4e6962728dc give spectra for convex polygons."
+        ],
+        "reasoning": "No separate inspected table or catalogue entry gives the exact bidisc integer sequence; the distinct polygon records apply to different objects, irrespective of dates.",
+        "searches": [
+          "Resultary: exact bidisc 4m+3, multiple illumination, cyclic torus multicover"
+        ]
+      },
+      "rationale": "Credit ordinary bidisc illumination, fractional mass, the slice argument, and the rank-one doubled-phase construction at multiplicity one to prior work. The distinct claim is the exact integer multicover spectrum at every higher multiplicity. The strongest compared prior construction is structurally very close but fixes the number of points by dimension and reciprocal side length and guarantees only one point of coverage. It does not state or mechanically yield the exact all-multiplicity optimum without the multiplicity-specific spacing and boundary check.",
+      "residual_risks": [
+        "An equivalent integer torus multicover may be indexed under different geometric covering terminology. The focused lookups did not establish its absence; the judgment rests on the inspected closest statements and construction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact ordinary and fractional coverage, and same rank-one template at m=1; not the integer multicover spectrum",
+          "evidence": "Ordinary polydisc number 2^(n+1)−1, fractional 2^n; their ordinary torus construction uses (u,bu,…,b^(n−1)u) for reciprocal side length b and one-fold cover. At b=2,n=2 this is the frozen m=1 progression.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.12021v1",
+          "material_read": "Theorems 1.3–1.6 p. 4 around offset 12329; Proposition 2.2 p. 8 around 22597; Proposition 2.3 p. 9 around 25964; Proposition 2.7 proof pp. 10–11 around 32336",
+          "method": "Open-access primary PDF passages and decisive construction inspection",
+          "title": "The complex Illumination problem",
+          "trigger": "Identical bidisc and torus formulations; strongest same-construction comparison"
+        },
+        {
+          "assessment": "Different dimension and smoothness hypotheses",
+          "evidence": "Theorem 1.6 gives 2m+1 for smooth planar convex bodies; nearby results concern balls and planar examples, not the bidisc or its two-dimensional torus angular cover.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.13517v1",
+          "material_read": "Theorem 1.6 and neighboring results, p. 3 around offset 8437",
+          "method": "Open-access primary PDF passage",
+          "title": "On the multiple illumination numbers of convex bodies",
+          "trigger": "Direct multiple-illumination literature, possible stronger geometric formula"
+        },
+        {
+          "assessment": "Different object",
+          "evidence": "Studies convex pentagons, not the complex bidisc or the angular half-square multicover.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-multiple-illumination-spectrum-of-convex-pentagons--bb97b5ac359b",
+          "material_read": "Mirrored finding and scope",
+          "method": "Local Resultary mirror",
+          "title": "Complete multiple illumination spectrum of convex pentagons",
+          "trigger": "Distinct same-day record on exact multiplicity spectra"
+        },
+        {
+          "assessment": "Different object and hypotheses",
+          "evidence": "Polygon results assume an antipodal edge-normal fan, not a Cartesian product of disks with two independent angular constraints.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-multiple-illumination-and-parity-rigidity-for-polygons-wit--f4e6962728dc",
+          "material_read": "Mirrored finding and scope",
+          "method": "Local Resultary mirror",
+          "title": "Exact multiple illumination and parity rigidity for polygons with antipodal edge normals",
+          "trigger": "Potential semicircle or parity-based equivalent in the local catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and constructive proof; ordinary/fractional and multiple-illumination comparisons"
+      ],
+      "rationale": "This computes the complete integral spectrum of a natural product body whose fractional coverage and ordinary illumination were already established. The constant three-direction excess for all m precisely measures the open-boundary covering penalty, and the sharp construction is explicit. Merely knowing the fractional mass or repeating the ordinary cover does not give that penalty.",
+      "residual_risks": [
+        "Two complex coordinates only; no claim about higher products, other square side lengths or uniqueness of optimal configurations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

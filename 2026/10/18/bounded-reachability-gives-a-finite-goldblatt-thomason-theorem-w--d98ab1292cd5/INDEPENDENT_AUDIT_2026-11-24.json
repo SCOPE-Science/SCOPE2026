@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:49:59.265527Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen stability, label diagram, and closure argument are valid. A lifted path proves preservation of the reachability cap under onto bounded morphisms. On a generated component the radius cap makes the finitely many boxed clauses apply everywhere. Their unique labels encode exactly the successor-image condition, and back lifts paths from the labelled root to show surjectivity onto the target generated subframe. A finite union over the target roots and an onto map to the target complete the definability proof, using only depth h+1. The frozen terminal-loop/dead-end comparison proves the pointed sharpness claimed there but does not prove sharpness under frame validity. In the repair G is the disjoint union of the dead-end path of length h and (for h>=1) the loop-ended path of length h-1; F adds the loop-ended path of length h. Under every valuation the added root transfers at depth h to the dead-end root, and each nonroot transfers exactly to a suffix of the shorter loop-ended path. Thus the two frames have identical depth-at-most-h validity, also for h=0. G validates the single-variable depth-(h+1) separator since the long walk is absent on the dead-end component and walks of lengths h-1 and h coincide at the loop in the short component. F falsifies it at the added root with different values of p at the final two worlds. Box false handles h=0. Check 3 in /workspace/independent_checks.py made 2412 exhaustive tiny diagram/map comparisons, with a literal multi-label valuation enumeration, and checked the pointed witnesses for h=0..5. The replacement python3 /workspace/repairs/3/CHECK.py passed seven frame pairs with exact one-atom type enumeration and separator validity; full arbitrary-valuation equivalence comes from the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Badia et al. give the ordinary-modal criterion with local p-morphic images on finite frames and the ordinary operation in the transitive case, without this sharp bound. Van Benthem et al. use a universal modality and discuss whether it can be removed. The finite transitive diagrams are a natural precedent for the depth upper bound."
+        ],
+        "reasoning": "General local-image or universal-diagram machinery can account for much of the closure argument once reachability is bounded. None of these inspected results gives the universal sharp depth threshold for relative basic frame-validity axiomatizations or the all-world matching lower bound. The repair does not rest on deciding whether the older local-image formulation implies the original qualitative criterion.",
+        "searches": [
+          "Badia–Caicedo–Noguera §4.3, Corollaries 19–20",
+          "van Benthem–ten Cate–Yang §5.1, Lemma 5.2 and Theorem 5.3",
+          "Sano–Virtema Theorem 36 and discussion of local bounded morphisms",
+          "Blackburn–de Rijke–Venema Modal Logic chapter 3, finite-transitive scope"
+        ]
+      },
+      "checked_sources": [
+        "Frozen record and supporting verifier",
+        "DOI:10.1016/j.apal.2023.103273",
+        "arXiv:2603.12171",
+        "arXiv:1502.07884",
+        "Blackburn–de Rijke–Venema chapter 3 guide and finite-transitive scope",
+        "Resultary 0129b441ec7c and ranked related depth hits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A terminal loop versus a dead end is visible at modal depth one when frame validity quantifies over all worlds, so the existing pointed example cannot supply global sharpness.",
+          "Adding the shorter loop-ended component hides all nonroot failures from the added long loop-ended path. Adding the long dead-end component matches its root up to h while preserving an explicit separating validity at h+1."
+        ],
+        "reasoning": "This transfers depth-h validity in both directions under unrestricted valuations and supplies a strictly stronger nonaxiomatizability claim. A qualitative closure theorem alone gives neither the optimal depth nor these witnesses, and the original pointed diagram failure is not mechanically a global frame-level failure.",
+        "searches": [
+          "Compare the frozen terminal-point witness, finite transitive/local-image criteria, and the repaired global separation construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ambient closure R*=union of powers up to h includes arbitrary nontransitive finite frames. Frame validity quantifies over all designated worlds and valuations, unlike depth bounds for a given pointed description.",
+          "November 1 Resultary 0129b441ec7c compares theories of finite serial deterministic frames using exact tail/cycle signatures and a size-parametrized bound."
+        ],
+        "reasoning": "The functional-record bound is in the number of points on a restricted serial family, not in the reachability radius across arbitrary finite definable classes. The repaired witness deliberately uses nonserial components to match every pointed possibility in both frames.",
+        "searches": [
+          "Local Resultary searches for sharp uniform frame-validity axiomatization depth on finite bounded-reachability/pretransitive frames",
+          "Literature lookup on sharp modal depth, relative finite Goldblatt–Thomason and terminal-loop/path witnesses"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The deterministic result concerns inclusion of theories of specified frames with a size parameter; the permutation search hit is about cycle spectra for modal formulas, with depth depending on the maximum permitted cycle length."
+        ],
+        "reasoning": "This is a symbolic hierarchy of relative axiomatizations over B_h, not a precomputed catalogue of individual formulas, cycle lengths, or small witness sizes. Similar numerical depth parameters do not identify these statements.",
+        "searches": [
+          "Local Resultary sharp-depth hits for deterministic/serial frames and permutation spectra (0129b441ec7c, 6ae01b024508)"
+        ]
+      },
+      "rationale": "Pass is for the repaired sharp bound on frame-validity axiomatizations; the diagram and relative closure argument supply the upper bound, not an unqualified novelty claim over prior finite definability machinery. The lower bound compares all worlds and valuations within the very same ambient class, and gives an explicit separator. The original pointed sharpness result does not imply this just by taking the negation of its diagram.",
+      "residual_risks": [
+        "The identified lawful copy of Lehtinen's 2008 thesis could not be read, so coverage of the qualitative pointed-diagram specialization is not settled by that source. The cited 2016 Sano–Virtema version could not be opened; the 2015 text was inspected.",
+        "Prior depth hierarchies under different formulations could overlap. The positive decision is restricted to the sharp relative frame-validity claim against the sources inspected, not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant qualitative general machinery, not sharp relative axiomatization depth",
+          "evidence": "General finite case uses local p-morphic images; finite transitive case uses ordinary images. No modal-depth bound occurs in these corollaries.",
+          "identifier_or_url": "DOI:10.1016/j.apal.2023.103273; arXiv:2206.12953",
+          "material_read": "§4.3 and Corollaries 19–20 (PDF pp. 11–12; HTML offsets 47800–48600)",
+          "method": "Open-access paper passages",
+          "title": "Frame definability in finitely valued modal logics",
+          "trigger": "Closest basic-language finite closure criterion"
+        },
+        {
+          "assessment": "Finite validity criterion with universal modality; not the repaired depth theorem",
+          "evidence": "The finite theorem uses the universal modality U and asks about removing it.",
+          "identifier_or_url": "arXiv:2603.12171",
+          "material_read": "§5.1, Lemma 5.2 and Theorem 5.3, PDF pp. 21–22",
+          "method": "Open-access PDF passage inspection",
+          "title": "When do modal definability and preservation theorems transfer to the finite?",
+          "trigger": "Most directly related finite Goldblatt–Thomason theorem"
+        },
+        {
+          "assessment": "Different scope and language, no matching global depth sharpness",
+          "evidence": "The finite transitive result uses universal modality; the discussion raises local bounded morphisms.",
+          "identifier_or_url": "arXiv:1502.07884",
+          "material_read": "Theorem 36, PDF p. 15; discussion p. 28",
+          "method": "Open-access PDF passage inspection",
+          "title": "Characterising Modal Definability of Team-Based Logics via the Universal Modality",
+          "trigger": "Related finite transitive closure and local morphisms"
+        },
+        {
+          "assessment": "Related sharp validity separation, different parameter and ambient frames",
+          "evidence": "Finite total-functional serial frames and a depth bound measured by the size of the premise frame, witnessed by tails and cycles.",
+          "identifier_or_url": "2026/11/1/SCOPE-arithmetic-antichain-classification-and-sharp-separation-depth-f--0129b441ec7c",
+          "material_read": "Finding and scope in the local-mirror text",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Arithmetic antichain classification and sharp separation depth for finite deterministic modal frames",
+          "trigger": "Closest indexed basic-modal validity depth result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This determines how much modal nesting a general relative axiomatization may actually require, not merely the depth of one diagram encoding. The matching pair shows that adding arbitrarily many shallower formulas cannot help, while the upper bound is independent of the number of worlds. The lower bound already uses one proposition in a single separator.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

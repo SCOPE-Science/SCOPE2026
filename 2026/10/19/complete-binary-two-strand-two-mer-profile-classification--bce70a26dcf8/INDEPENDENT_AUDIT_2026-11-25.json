@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:50:13.597371Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof and scope; VERIFICATION.md and verify.py inspected but not executed",
+        "Independent bounded reproduction, ordinal 3"
+      ],
+      "rationale": "For a single word, r positive cross-transitions determine alternating runs; either (odd r) sign is possible, and duplicating zeros or ones supplies any split of L−r loops. Zero transitions instead give a constant word. For t=±2 the strand transition counts are both positive odd, so their sum fills the even interval 2 through twice the largest odd integer ≤L. For t=0 choose opposite odd signs over that same interval and, for the remaining top row when L is even, take two even counts L. For t=±1 the positive odd and positive even count ranges add to every odd s from 3 through 2L−1; at s=1 the choices of constant strand fill the two adjacent 00-count intervals [0,L−1] and [L,2L−1]. This includes L=1 where the s≥3 interval is empty. Each positive count on both strands gives the full possible loop-count interval. Summation yields 3+L²+2L(L+1)+2(L²−1_{L even}); the optimum selects one preimage per profile. An independent last-bit/histogram DP and pooled set computation checked full sets for n=2..16 (python3 /workspace/reviews/evidence/reproduce.py 3). This tests the finite instances, not the all-length proof.",
+      "residual_risks": [
+        "No result on fibre sizes, noisy observations, other alphabets or unequal lengths is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Multi-strand Reconstruction from Substrings defines the same pooled ℓ-profile; Lemma 2 on p. 2 bounds asymptotic rate for short ℓ. The generalized paper's abstract describes asymptotic rate/read-length results. Gabrys–Milenkovic's abstract treats a single string."
+        ],
+        "reasoning": "The broader observation model and rate bounds do not provide the finite parity correction or exact feasible set.",
+        "searches": [
+          "arXiv:2108.11725v1; arXiv:2210.04471v2; arXiv:1804.04548v2"
+        ]
+      },
+      "checked_sources": [
+        "2108.11725v1",
+        "2210.04471v2",
+        "1804.04548v2",
+        "10.46298/dmtcs.2768",
+        "Resultary 13779c08da71, 5122acc1b9bd, 8aec71abaf03"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Single-strand feasible vectors are inputs to a Minkowski sum; the cardinality of the one-strand set does not give the cardinality of its self-sum."
+        ],
+        "reasoning": "The prior model and single-strand structure reduce the problem but do not supply the sumset decomposition, especially the odd-count saturation cutoff and s=1 constant-word union.",
+        "searches": [
+          "13779c08da71, Finding and single-strand profile object; 2108.11725v1, pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Counting Markov Types, pp. 388–389 uses a cyclic conservation constraint",
+          "Resultary exact aggregate binary cyclic two-gram spectrum (8aec71abaf03) has wraparound and B=C"
+        ],
+        "reasoning": "The path-flow histogram sum is the same object, but counting balanced cyclic histograms cannot produce nonzero imbalances or the equal-length odd-transition split constraints.",
+        "searches": [
+          "Primary literature: linear Markov types, binary pooled transition-count vectors, equal-length two paths; DOI 10.46298/dmtcs.2768",
+          "Resultary adjacent-pair profile and aggregate spectrum searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "13779c08da71 (single linear word), 5122acc1b9bd (single-word maximal fibre), 8aec71abaf03 (two cyclic words), Findings"
+        ],
+        "reasoning": "None of the inspected entries gives the exact table or formula for two equal-length linear binary words; the same alphabet and read length are not enough for equivalence.",
+        "searches": [
+          "Resultary exact binary two-multispectrum, worst-case ambiguity, and exact aggregate binary cyclic two-gram spectrum"
+        ]
+      },
+      "rationale": "The observation model and single-strand classification are prior; the pooled two-path feasible-set enumeration, including the excluded maximal-switch imbalances, is the distinct result. The bounded checks did not establish covering prior art.",
+      "residual_risks": [
+        "An unindexed multitrail or elementary sumset enumeration could cover the claim; no worldwide priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model, no finite exact result in compared statements",
+          "evidence": "Lemma 2 bounds asymptotic rate for short reads, not finite observation multiplicities.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.11725v1",
+          "material_read": "pp. 1–2, abstract and Lemma 2",
+          "method": "OA PDF passage inspection",
+          "title": "Multi-strand Reconstruction from Substrings",
+          "trigger": "Same pooled multiset channel"
+        },
+        {
+          "assessment": "Related asymptotic scope; not an exhaustive full-text exclusion",
+          "evidence": "States read-length tradeoffs and rate-achieving constructions.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.04471v2",
+          "material_read": "p. 1, abstract",
+          "method": "OA PDF passage inspection",
+          "title": "Generalized Unique Reconstruction from Substrings",
+          "trigger": "Potential broader model"
+        },
+        {
+          "assessment": "Different single-string object in statement read",
+          "evidence": "Reconstructs a coded string from its own substring multiset.",
+          "identifier_or_url": "https://arxiv.org/abs/1804.04548v2",
+          "material_read": "p. 1, abstract",
+          "method": "OA PDF passage inspection",
+          "title": "Unique Reconstruction of Coded Strings from Multiset Substring Spectra",
+          "trigger": "Substring multiset formulation"
+        },
+        {
+          "assessment": "Different boundary conditions",
+          "evidence": "Cyclic conservation forces balanced off-diagonal counts.",
+          "identifier_or_url": "https://doi.org/10.46298/dmtcs.2768",
+          "material_read": "pp. 388–389, PDF offsets 5800–7548",
+          "method": "OA PDF passage inspection",
+          "title": "Counting Markov Types",
+          "trigger": "Equivalent transition histograms"
+        },
+        {
+          "assessment": "One strand only",
+          "evidence": "Counts Q_{2m}=3m²−m+2 and Q_{2m+1}=3m²+2m+2 for a single linear word.",
+          "identifier_or_url": "Resultary 13779c08da71",
+          "material_read": "RESULT.md, Finding (offset 0)",
+          "method": "Resultary local mirror",
+          "title": "Exact binary two-multispectrum code size and singleton classification",
+          "trigger": "Nearest exact one-strand count"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Maximal one-word fibre size and maximizing profiles, not number of pooled outputs.",
+          "identifier_or_url": "Resultary 5122acc1b9bd",
+          "material_read": "RESULT.md, Finding (offset 0)",
+          "method": "Resultary local mirror",
+          "title": "Exact worst-case ambiguity of binary two-gram profiles",
+          "trigger": "Exact adjacent-pair profiles"
+        },
+        {
+          "assessment": "Wraparound both strands; not the frozen model",
+          "evidence": "In its full cyclic pair counts the 01 and 10 counts always agree.",
+          "identifier_or_url": "Resultary 8aec71abaf03",
+          "material_read": "RESULT.md, Finding (offset 0)",
+          "method": "Resultary local mirror",
+          "title": "Exact aggregate binary cyclic two-gram spectrum at prescribed strand lengths",
+          "trigger": "Two-strand exact aggregate count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md; arXiv:2108.11725v1 channel definition"
+      ],
+      "rationale": "The minimal nontrivial reads in this established pooled channel pose a natural exact finite-length benchmark. The result gives both attainable observations and the maximal zero-error code size for every n; in particular the parity correction identifies a constraint hidden by asymptotic rates and by treating pooled counts as unrestricted compositions.",
+      "residual_risks": [
+        "Neither an efficient encoder nor performance on any other channel is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

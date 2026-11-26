@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:11:49.708394Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the continuous-time chain from exponential residual clocks. An edge whose two endpoints are still free cannot have arrived earlier, so conditional on the history its residual clock has the original rate. With k free vertices per side and j intact planted pairs, the four available-edge populations are j planted and j(j-1), 2j(k-j), (k-j)^2 unplanted, of which the last three destroy respectively two, one and zero intact pairs. This gives the exact scaled drift in RESULT.md: (-x²-cy+y/n, -2xy-cy+2y/n, cy). Componentwise jump size is at most 2/n and total rate at most (1+c)n, giving O(1/n) quadratic variation for each fixed horizon and uniform convergence by Doob and Gronwall. More precisely, the limiting path stays in 0≤y≤x, z≥0, x+z≤1, not the full cube for arbitrary initial conditions: y=0 is invariant, (x-y)'=x² on y=x, and (x+z)'=-x². This compact region suffices for the Lipschitz estimate. Finite-time convergence extends to final overlap since at most X_n(T) further planted edges can be accepted and x(T)≤1/(1+T); the same bound controls the limiting z tail. Integrating (x+z)'=-x² and comparing x'≥-(1+c)x gives loss at least 1/[2(1+c)], in particular 1/10 at c=4. Read verification.py without executing it; a separate RK4 calculation at steps .01 and .005 to T=100 corroborated the quoted f(1) and f(4) to six decimals, not a certified numerical enclosure. The equal-weight-distribution comparison was independently checked in Moharrami–Moore–Xu, Theorem 1, including the endpoint: c=λ with no scaling, and expected overlap tending to one implies convergence in probability by bounded nonnegative deficit. The benchmark is fractional, not exact recovery, and c must be fixed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bennett–Bohman analyze uniform greedy regular-hypergraph matching and unmatched coverage.",
+          "Catalogue record 689d74f35ba9 has uniform-edge matching on K_n,n with deleted pairs; no planted rate class."
+        ],
+        "reasoning": "Neither uniform matching coverage nor the probability of a perfect matching on a graph with deletions gives the overlap of a perfect greedy matching on a complete graph with a privileged rate class.",
+        "searches": [
+          "arXiv:1210.3581, pp. 1–3",
+          "Resultary: K_n,n greedy weighted matching planted perfect matching distinguished edges faster exponential clocks rate c other edges 1/n fluid limit"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1912.08880",
+        "arXiv:1210.3581",
+        "arXiv:2202.10662",
+        "Resultary 1c37fc9be6a6 (self-hit)",
+        "Resultary 538d2c590718",
+        "Resultary 689d74f35ba9",
+        "Resultary 5199f30e2a94 (summary only)",
+        "doi:10.1287/stsy.2021.0082 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1 gives expected near-perfect overlap for the minimum-sum matching for λ≥4, with expected symmetric difference O(√n) at λ=4 and O(1) above it.",
+          "Greedy would require the two-variable availability drift and can lose planted edges even while producing a perfect matching."
+        ],
+        "reasoning": "The optimal half of the contrast is an immediate prior implication, but it cannot imply the greedy loss or its comparison with 1/[2(1+c)]; that part follows from the independently checked kinetic argument.",
+        "searches": [
+          "arXiv:1912.08880, pp. 1–2 and §2 Theorem 1, p. 4",
+          "arXiv:1210.3581, pp. 1–3",
+          "Resultary record 689d74f35ba9, Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The greedy process is weighted random-priority matching, or irreversible dimer adsorption, with planted-to-unplanted rate ratio cn.",
+          "Moharrami–Moore–Xu use identical edge laws but a minimum-sum estimator; arXiv:2202.10662 uses a different correlated geometric model."
+        ],
+        "reasoning": "The kinetic rule is not the global estimator and a uniformly random edge order is not equivalent when c is fixed and background rates are 1/n. The alternate greedy/adsorption terminology did not identify inspected equivalent coverage.",
+        "searches": [
+          "Resultary: planted bipartite matching exponential edge clocks irreversible greedy fluid limit distinguished matching overlap positive deficit",
+          "Web: \"planted matching\" exponential weights \"greedy\" matching edge arrival rate planted bipartite"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The leading identical result 1c37fc9be6a6 is the assigned entry, not independent corroboration.",
+          "Distinct same-date record 538d2c590718, Finding and assumptions, gives exact random-priority matching weights for the fixed Heawood graph."
+        ],
+        "reasoning": "An exact finite output law on Heawood or the fixed-size recursions in the assigned source do not cover the fixed-c asymptotic overlap and its deficit on planted K_n,n. No inspected exact table covers it.",
+        "searches": [
+          "Resultary: planted bipartite matching exponential edge clocks irreversible greedy fluid limit distinguished matching overlap positive deficit",
+          "Resultary: K_n,n greedy weighted matching planted perfect matching distinguished edges faster exponential clocks rate c other edges 1/n fluid limit"
+        ]
+      },
+      "rationale": "The same-disorder optimal threshold is prior and is credited. The inspected primary and catalogue statements do not cover the biased irreversible greedy overlap curve and its strictly positive deficit for every fixed finite c.",
+      "residual_risks": [
+        "No absolute priority claim: an unindexed preferential adsorption or weighted random greedy analysis could cover the same limit.",
+        "The tripartite record was not available in full, and the Arnosti full text was not independently read; neither access failure is negative coverage evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exactly the credited optimal benchmark, not greedy",
+          "evidence": [
+            "Planted mean 1/λ; other mean n; objective is sum of weights; Theorem 1 includes λ=4."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1912.08880",
+          "material_read": "PDF pp. 1–2 model and p. 4 §2 Theorem 1 and endpoint proof",
+          "method": "Primary OA PDF passage retrieval",
+          "title": "The Planted Matching Problem: Phase Transitions and Exact Results",
+          "trigger": "Identical rate model and threshold endpoint"
+        },
+        {
+          "assessment": "Different weighting and observable",
+          "evidence": [
+            "Random greedy regular-hypergraph matching, with unsaturated vertex count rather than planted overlap."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1210.3581",
+          "material_read": "PDF pp. 1–3, model and theorem",
+          "method": "Primary OA PDF passage retrieval",
+          "title": "A natural barrier in random greedy hypergraph matching",
+          "trigger": "Potential broader greedy matching result"
+        },
+        {
+          "assessment": "Different model",
+          "evidence": [
+            "Correlated geometric graph matching and an approximate greedy solver, not an exponential priority process."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2202.10662",
+          "material_read": "PDF pp. 1 and 9",
+          "method": "Primary OA PDF passage retrieval",
+          "title": "Random Graph Matching in Geometric Models: the Case of Complete Graphs",
+          "trigger": "Greedy literature query hit"
+        },
+        {
+          "assessment": "Related kinetic process, different graph and no claimed asymptotic curve",
+          "evidence": [
+            "Exact finite matching law on the Heawood graph."
+          ],
+          "identifier_or_url": "538d2c590718",
+          "material_read": "RESULT.md Finding and assumptions",
+          "method": "Local published-record mirror",
+          "title": "Exact random-priority dimer jamming and matching output weights",
+          "trigger": "Related same-date irreversible-dimer record"
+        },
+        {
+          "assessment": "No planted rate class",
+          "evidence": [
+            "Uniform-edge K_n,n with deleted pairs and imperfect-coverage probability."
+          ],
+          "identifier_or_url": "689d74f35ba9",
+          "material_read": "RESULT.md Finding, assumptions and proof",
+          "method": "Local published-record mirror",
+          "title": "Uniform logarithmic correction for greedy matching with partially deleted pairs",
+          "trigger": "Closest complete bipartite greedy catalogue model"
+        },
+        {
+          "assessment": "Not used for statement-level exclusion",
+          "evidence": [
+            "Summary describes complete tripartite adsorption and a surviving minority density."
+          ],
+          "identifier_or_url": "5199f30e2a94",
+          "material_read": "Index summary only; exact record not found by mirror fetch",
+          "method": "Resultary and attempted local-mirror retrieval",
+          "title": "Rate-selected minority survival in weighted tripartite dimer jamming",
+          "trigger": "Weighted dimer adsorption analogue"
+        },
+        {
+          "assessment": "Not used for statement-level exclusion",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1287/stsy.2021.0082",
+          "material_read": "No independent full-text passage obtained; DOI full-text request returned 403",
+          "method": "Attempted primary OA retrieval",
+          "title": "Greedy Matching in Bipartite Random Graphs",
+          "trigger": "Bipartite greedy algorithm comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This isolates the effect of irrevocability on a natural planted inference model while holding the entire weight distribution fixed. Both outputs can be perfect matchings, so cardinality misses the macroscopic gap. The exact overlap curve and quantitative obstruction persist at all fixed finite rates and make a concrete benchmark even at the optimal threshold, without requiring a stronger exact-recovery or growing-rate theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

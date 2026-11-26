@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The sharp side-slimness definition uses finite hyperbolic geodesic segments. The proof reconstructs all right-triangle identities, identifies the interior-angle threshold, compares all nonadjacent sides by common radial-coordinate parametrization and the hyperbolic cosine law, and establishes midpoint uniqueness by a monotonic adjacent-side distance. For acute angles the perpendicular foot lies strictly inside the finite adjacent segment. The result includes exact asymptotics, strict monotonicity, and a verified one-sided second-derivative jump. Independent hyperboloid-coordinate distance minimizations in the accompanying standard-library verifier pass 169 assertions. Numerical samples are not an infinite proof.
+## correctness
 
-## Originality — PASS, provisional
-The source `arxiv:2611.05429v1` develops the polygon-slimness notion and qualitative asymptotic Assouad–Nagata dimension criteria, not an exact finite-radius hyperbolic regular-polygon solution. The hyperbolic reduced-polygon papers by Lassak (2024) and Sagmeister (2025) study width, thickness, perimeter, diameter and circumradius, not the side-to-other-sides distance functional. Related indexed results cover ideal-polygon endpoint values, four-point hyperbolicity for a discrete Euclidean vertex metric, and a metric-theta-graph invariant. The present global compact-radius branch formula, nearest-contact switch and second-derivative jump are not implied by those statements. Searches may miss earlier equivalent formulations or unindexed literature; no assertion of absolute priority is made.
+PASS
 
-## Mathematical value — PASS
-For the natural family of compact constant-curvature regular geodesic polygons, side slimness is a basic quantitative measure of how geodesically non-tree-like the boundary is. The formula gives the entire continuous size profile for every polygon order, an exact finite-segment nearest-contact change at a sharp curvature-dependent radius, and a genuine smoothness phase transition. These are not obtained by simply substituting a parameter into the known ideal-polygon limiting formula. The proof's nonadjacent-side comparison is the structural ingredient that makes an all-sides classification possible.
+For the central right triangle, the sine and cosine rules give sinh(L/2)=s sinh R, tan(theta/2)=cot(a)/cosh R, and tanh r=c tanh R for midpoint distance r and interior angle theta. For a point at distance u from one end of a side, the hyperbolic cosine rule along its incident neighboring side gives cosh d(v)=cosh u cosh v-sinh u sinh v cos(theta). If theta>=pi/2 the unique minimizer is the shared vertex; otherwise tanh v=tanh u cos(theta), yielding an interior foot for u>0 because v<u<=L, and distance asinh(sinh u sin(theta)). The resulting one-neighbor distance is strictly increasing in u. The minimum over both neighbors therefore has a unique maximum at the midpoint. This is the actual maximum over the union of all other sides: at the midpoint a nonneighbor contact candidate has absolute polar angle at least 3a. Match its radial distance on an adjacent side using the same absolute angular offset from that side's midpoint ray, choosing the offset toward the fixed side. The matched absolute angle is at most 2a, so the hyperbolic cosine law gives strictly smaller distance. For n=3 all other sides are neighbors. Thus there are exactly the claimed two nearest points. Independently the Lorentz inner product of the midpoint with an adjacent unit side normal gives sinh of the supporting-line distance as 2s^2 sinh(r) cosh(r)=T, which is the segment distance on the acute branch. On the other branch the segment distance is L/2. The angle crosses pi/2 only for n>=5 at cosh R=cot(a). At the crossing theta'=-tanh R_n and B^2=cos(2a); the first derivatives match, and differentiating B sin(theta) twice versus B contributes -B(theta')^2/sqrt(1+B^2), the stated negative jump. The derivative of T as a function of y=sinh^2 R has positive sign from 1+(2-s^2)y. Expanding T=2c[1+(1/2-1/s^2)/y+O(y^-2)] gives the claimed approach coefficient after applying asinh. The frozen numeric checker was inspected, not executed.
 
-## Limits and audit status
-No result is claimed for arbitrary irregular polygons, higher-dimensional polytopes, or the four-point Gromov hyperbolicity constant. The verifier checks finite samples and is not an exhaustive mathematical certificate. The priority assessment is provisional until external expert review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The ideal endpoint and its midpoint maximizer are already given in a separate indexed record and are not credited as distinct. The compact finite-segment profile, the change of nearest contact from endpoint to interior foot, and the differentiability boundary and approach rate remain distinct from that result and from the inspected thin-polygon and hyperbolic-width work.
+
+## value
+
+PASS
+
+The regular compact family gives an exact benchmark for a standard metric invariant. The endpoint-constrained phase is a genuine geometric feature invisible from ideal polygons or support-line distances; the sharp contact threshold and derivative jump quantify it. The unique midpoint and the exact two-contact classification provide more than plugging a radius into a known limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

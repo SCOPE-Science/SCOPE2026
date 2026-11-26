@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:23:08.383808Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The supported Rademacher quadratic form has centered terms 2G_ij ξ_iξ_j for within-class distinct unordered pairs; those terms are uncorrelated except for identical pairs. This gives the stated factor 4 and flip gap −4∑_{i in S,j outside S} b_i b_j G_ij². Independently built the inverse by eliminating the five leaf coordinates and inverting the resulting 2×2 center block, verified QG=I as a rational-function identity, and reproduced every singleton, bridge and specified competitor gap (RESULT.md lines 53–84). The leaf gaps force x>α, the competitor forces x<β, and the remaining gaps are strictly positive there by the displayed factorizations. The interval is sharp for this conjunction, not a classification of all local traps. At x=1/3 independent enumeration over 63 admissible unlabeled partitions gave variances 384984171/95452900 for the proper coloring and 377990793/95452900 for the optimum, attained exactly by the three stated colorings. All grouped entries, including the harmless inadmissible constant-sign row entry, match. Reproduce this finite certificate with python /workspace/review-4-exact.py (SymPy); the supplied scripts were only inspected. For each fixed number of new leaves, at μ=1/3 the old gaps persist by continuity as ε→0. In the new-leaf row, G_zj=εG_3j/(μ+ε) for j≠z, so the new-new cross entries are O(ε²); the leading new-leaf variance gap is 4(ε/μ)² times H_3, independently verified as 223184259/190905800>0. The leaf-component move equals its singleton up to a global sign, and the competitor remains better. This establishes the arbitrary-order result for sufficiently small positive ε at each order, without requiring a common ε or the full screening window at every order.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The path result treats unique periodic global optima on paths, the cycle result globally optimal frustrated-bond colorings on odd cycles, and neither treats the branched-tree neighborhood.",
+          "The probing literature establishes generic variance formulas, graph-distance constructions and error bounds, not these exact locally stable but suboptimal bipartitions."
+        ],
+        "reasoning": "A path restriction or a distance-dependent error bound does not order the specified exact weighted-tree flip gaps; odd cycles are neither bipartite nor trees.",
+        "searches": [
+          "Resultary 42513c3dc5b2 weighted killed paths",
+          "Resultary 82aa4e3655f0 odd-cycle stochastic probing",
+          "arXiv:2009.01589v2 abstract/conclusion",
+          "arXiv:1302.4018v1 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, review, audit and verification files and both supplied checkers",
+        "Frommer–Rinelli–Schweitzer 2308.07722; Frommer–Schimmel–Schweitzer 2009.01589; Stathopoulos–Laeuchli–Orginos 1302.4018",
+        "Resultary 1b4aeb8c1bb2 (self-match), 1edc2b42b895, 42513c3dc5b2, 82aa4e3655f0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complete-bipartite result can concern trees only in the star case, and its global coloring thresholds do not establish local stability when improper colorings win. The current witness has two branch centers. The path theorem is for unbranched trees and the odd-cycle theorem has no initial proper bipartition.",
+          "The estimator theorem supplies the objective, but no sign conditions for all relevant cuts and no perturbation argument for arbitrary order."
+        ],
+        "reasoning": "Neither a global suboptimality example in another family nor variance-formula specialization proves strict positivity of all moves while a coordinated flip improves. The exact witness and persistence under adding weak leaves address this missing statement.",
+        "searches": [
+          "arXiv:2308.07722v1 §3.1–3.2",
+          "Resultary 1edc2b42b895, 42513c3dc5b2 and 82aa4e3655f0 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frommer–Rinelli–Schweitzer give the supported-probe variance summed over ordered pairs. The present energy is equivalently the complement of a cut with weights G_ij² on all unordered pairs, not an ordinary cut on T.",
+          "The complete-bipartite record has the same variance objective and a proper-coloring transition but a different graph family and no bridge/singleton strict local-minimum statement."
+        ],
+        "reasoning": "The graph whose weighted cut is optimized is not the original sparse tree; an ordinary tree cut or generic local MaxCut trap does not supply a realizable squared screened Green matrix or its strictly signed gaps.",
+        "searches": [
+          "Screened inverse-Laplacian variance, squared-resolvent MaxCut, proper bipartition local minima and subtree/component flips (Resultary and literature)",
+          "arXiv:2308.07722v1 Definition 3.2, Theorem 3.3",
+          "Resultary 1edc2b42b895"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1b4aeb8c1bb2 is the assigned record itself. The neighboring exact records classify different graph geometries; their data do not include this weighted seven-vertex tree or its optimum table."
+        ],
+        "reasoning": "The exact rational and symbolic entries were independently reconstructed, not read as known values from a table; same-day catalogue entries were compared by scope, not assumed later.",
+        "searches": [
+          "Resultary exact weighted-tree trap title and neighboring exact two-probe variance classifications",
+          "Resultary 1b4aeb8c1bb2, 1edc2b42b895, 42513c3dc5b2, 82aa4e3655f0"
+        ]
+      },
+      "rationale": "The exact variance functional is established background, and prior studies optimize it on other graph families. The supported distinct claim is the simultaneous strict local trap for bridge and singleton flips in a positively weighted branched tree, with a specified exact screening interval, global classification at one screening, and extension to each larger order. No inspected theorem gives that conjunction.",
+      "residual_risks": [
+        "Unindexed equivalent tree Green-matrix examples under cut-optimization or sign-recoloring terminology remain possible. One bounded external query returned no direct useful result; this does not establish priority.",
+        "The same-day entries were assessed by their mathematical statements, not by an inferred publication order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior variance formula, not a local/global optimization result",
+          "evidence": "Class-supported probing and the ordered-pair sum give the stated unordered-pair variance.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.07722v1",
+          "material_read": "§§3.1–3.2, Def. 3.2 and Thm. 3.3, eqs. (3.4)–(3.6), PDF pp. 6–7, offsets 22000–25900",
+          "method": "OA PDF passages",
+          "title": "Analysis of Stochastic Probing Methods for Estimating the Trace of Functions of Sparse Symmetric Matrices",
+          "trigger": "Exact shared objective"
+        },
+        {
+          "assessment": "Related bounds, not exact flip-gap classifications",
+          "evidence": "Decay bounds and distance-color partitions control approximation and trace errors.",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.01589v2",
+          "material_read": "Abstract and conclusion, PDF pp. 1, 25–26",
+          "method": "OA PDF passages",
+          "title": "Analysis of Probing Techniques for Sparse Approximation and Trace Estimation of Decaying Matrix Functions",
+          "trigger": "Prior coloring-based trace error analysis"
+        },
+        {
+          "assessment": "Different design and geometry",
+          "evidence": "Develops hierarchical graph-distance probing in the toroidal setting.",
+          "identifier_or_url": "https://arxiv.org/pdf/1302.4018v1",
+          "material_read": "Abstract, PDF p. 1",
+          "method": "OA PDF passage",
+          "title": "Hierarchical Probing for Estimating the Trace of the Matrix Inverse on Toroidal Lattices",
+          "trigger": "Origin of hierarchical inverse-trace probing"
+        },
+        {
+          "assessment": "Materially related global phase transition on a different geometry",
+          "evidence": "Classifies global optima on complete bipartite graphs, not simultaneous singleton and bridge-flip metastability on branched trees.",
+          "identifier_or_url": "Resultary 1edc2b42b895",
+          "material_read": "RESULT.md Finding and model",
+          "method": "Local mirror statement",
+          "title": "Sharp two-color stochastic probing transition on complete bipartite graphs",
+          "trigger": "Same objective and proper-coloring breakdown"
+        },
+        {
+          "assessment": "Distinct path geometry and conclusion",
+          "evidence": "Unique periodic global optimum for positively weighted and killed paths for each probe budget.",
+          "identifier_or_url": "Resultary 42513c3dc5b2",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror statement",
+          "title": "Universal variance-optimal periodic probing on killed weighted paths",
+          "trigger": "Same general family of inverses on a tree subclass"
+        },
+        {
+          "assessment": "Non-tree geometry",
+          "evidence": "The globally optimal near-alternation has one monochromatic edge on an odd unweighted cycle.",
+          "identifier_or_url": "Resultary 82aa4e3655f0",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror statement",
+          "title": "Odd-cycle stochastic trace probing",
+          "trigger": "Another exact classification for two probes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A proper bipartition is a natural low-cost default for trace probing on a tree; strict stability under both readily interpretable neighborhoods makes it a genuine obstruction to improving that default by either move family, rather than merely a bad coloring. The rigorous window and growth construction rule out an isolated numerical tie or fixed-order anomaly. The claim is existential, not a claim about minimal witness size, typicality, or all refinement heuristics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

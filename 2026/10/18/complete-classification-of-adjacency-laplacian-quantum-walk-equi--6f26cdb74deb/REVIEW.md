@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The statement includes all positive integer parameters and both vertex types, with the degree convention fixed as \(L=A-D\). The two-cell block decomposition yields both exact cross-part probabilities; matching fourth-order coefficients restricts the parameters to the complete case or \(b=2a-1\). A bright/dark antiunitary identity proves sufficiency for all independent sources. A separate three-cell full-parameter moment calculation gives the strictly nonzero clique-return fourth-order coefficient for all irregular members, closing the converse. Independently constructed finite full-matrix calculations exactly reproduce the rational coefficients across \(72\) size pairs and sample the complete classification across \(42\) pairs; those tests do not replace the proof.
+## correctness
 
-**Originality — PASS, subject to source-index coverage.** The nearest paper, Wong–Lockhart arXiv:2107.05580, Section IV, already identifies the same nonregular size relation and eligible initial type **numerically**. It does not present the all-parameter necessity, exclude every irregular clique start, or prove the complete classification for every complete split graph. Kirkland–Monterde–Plosker arXiv:2201.02720 proves results about perfect/pretty-good transfer and periodicity between twins rather than simultaneous equality of every vertex probability for all times between two Hamiltonians. Searches for the full iff condition, its spectral alias, and split-graph transition probability comparisons did not reveal an equivalent stronger result. The possibility of uncatalogued related work remains.
+PASS
 
-**Value — PASS.** Continuous-time quantum walks using adjacency and graph Laplacian Hamiltonians represent physically different choices on irregular graphs. The source's eighth family was numerically identified as a noteworthy infinite family; the exact necessary-and-sufficient classification resolves its sharply bounded split-graph parameter question and determines precisely which starting vertices cannot work. The quartic local obstruction and exact conjugation intertwiner explain why equivalence does or does not occur, rather than merely extending a finite table.
+Verified the repaired clique-return theorem directly, independently of the three-cell moment multiplication. For clique v, shift L up by a+b−1 times the identity, which does not affect probabilities. The shifted matrix B=A+(b−1)P_I, with P_I the coordinate projection onto I, has Be_v=Ae_v and zero diagonal at v. The second moments coincide, so the difference of the fourth-order return coefficients is (||A²e_v||²−||B²e_v||²)/12. Now B²e_v=A²e_v+(b−1)1_I and each I-component of A²e_v is a−1. This gives exactly −b(b−1)(2a+b−3)/12, including a=1, and the probabilities are even in t. The coefficient is strictly negative for b≥2. For the full classification retained as a corollary, on the real normalized part vectors the off-diagonal coupling is √(ab) for both matrices and the diagonal differences are a−1 and b−a up to sign. The cross-part single-vertex transition probabilities have fourth-order terms −[(a−1)²+4ab]/12 and −[(a−b)²+4ab]/12, forcing b=1 or 2a−1. In the complete case the degree is scalar. In the irregular candidate case the bright block identity L_B+aI=−RA_BR (R=diag(1,−1) in I,C order) and the independent dark eigenvalues 0 and −a verify the signed, conjugated amplitude relation for a localized independent source. No clique-dark component occurs for such a start. Thus the retained classification and its boundaries are correct.
 
-**Closest literature and limitations.** Wong–Lockhart (2021), Section IV and conclusions, https://arxiv.org/pdf/2107.05580. Kirkland–Monterde–Plosker (2022 preprint; 2023 journal), https://arxiv.org/pdf/2201.02720. The result is restricted to simple complete split graphs and localized starts; no claim is made about other graphs, superpositions, or mixing times. Self-review cannot replace an independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the repaired claim only. The frozen text treated the all-size proof for the independent-start family as distinct from numerical observations, overlooking an indexed stronger theorem that already proves the exterior-start iff criterion. The repair credits that coverage and foregrounds the universal quartic clique-return obstruction. The full source classification remains as an explicit corollary combining the two, with the exterior amplitude identity as context. The compared weighted finding and primary papers do not give this clique-return difference or exclude every irregular clique start by it.
+
+## value
+
+PASS
+
+The result distinguishes the two source orbits of a natural graph family: a single local measurement, the return probability to the clique start, rules out every irregular clique case. Knowing the exterior-start equivalence does not answer this other orbit's question. The strict coefficient explains the obstruction for all sizes, including cones, and fills the precise gap needed for the complete source classification rather than repeating the known positive family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The standalone `verify_double_six_tritangent.py` is executable using only standard Python 3. It enumerates the 27 line classes, all 72 disjoint sixers, 36 double-sixes, 36 opposite-root supports, and 45 anticanonical triples. It verifies the two independent double-six constructions agree, checks the 0-or-2 overlap dichotomy and complete (36,45) row/column incidence degrees, and performs integer unimodular Smith reduction independently on the overlap and non-overlap matrices. It asserts positive pivot divisibility, zero off-diagonal entries, and complete invariant-factor lists. The Gram annihilating identities are verified by exact independent matrix multiplication.
+# Independent mathematical audit
 
-The expected successful output starts `DOUBLE_SIX_TRITANGENT_INTEGRAL_INCIDENCE_OK` and contains Smith diagonals with nonzero factors `1*15,3*5,18` and `1*14,3*7`. A second exact computation using a distinct computer-algebra Smith implementation agreed. There are no floating-point, random, or truncated enumerations. The proof applies to every smooth cubic surface in the given characteristic because the 27-line intersection configuration is uniform. This verification does not establish novelty absolutely or supply independent audit.
+## correctness
+
+PASS
+
+The characteristic-zero six-point blowdown gives the universal 27-line meeting relation. The root orthogonality argument is valid: the three intersections with a root lie in {−1,0,1} and sum to zero, so the support overlap is zero or two. Independently I constructed the meeting graph directly: E_i meets L_jk precisely when i is in {j,k}, E_i meets Q_j for i≠j, L_ij meets Q_k for k in {i,j}, and two different L-classes meet when their indices are disjoint. Three pairwise meeting lines in a smooth cubic are planar (also at an Eckardt point, by the tangent plane) and make one anticanonical section. Enumeration gives 45 meeting triples, 72 pairwise skew sixers, a unique partner each with five opposite incidences at every line, and 36 unions. It gives exactly 1080 overlaps of size two and 540 zero overlaps. Direct integer Smith reduction on these independently constructed B and J−B gives 1×15,3×5,18,0×15 and 1×14,3×7,0×15 respectively, and exact Gram characteristic polynomials corroborate both ranks. The zero rows in the Smith forms give free rank 15; extra zero columns do not affect the cokernel.
+
+## originality
+
+PASS
+
+The contribution is the complete integer cokernels of the two relative 36-by-45 maps. Geometry, individual line incidence maps and rational configurations have substantial prior coverage. The closest examined statements give no cross-pairing Smith forms or specialized theorem giving both relative discriminants; the additional integral calculation is needed.
+
+## value
+
+PASS
+
+This compares two canonical configurations by the intrinsic containment/exclusion of lines, not a chosen submatrix. The precise relative relation quotients exhibit a 9-primary cyclic factor for overlap versus only elementary 3-torsion for nonoverlap, a discrepancy invisible in their common rank or the separate line-incidence Smith factors. These are useful invariants for integral calculations with the two configuration modules and give a meaningful comparison even without a general theorem for other root systems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

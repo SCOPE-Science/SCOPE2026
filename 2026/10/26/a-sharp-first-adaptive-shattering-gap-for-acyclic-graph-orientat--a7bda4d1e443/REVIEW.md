@@ -1,21 +1,21 @@
-# Scientific review — acyclic-orientation shattering gap
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The forest-extension argument proves \(\operatorname{VCdim}(\mathcal A(G))=|V|-c(G)\) for every finite graph. The classification of acyclic orientations of \(K_{2,3}\) as the union of two ternary cubes gives exactly \(46\) hypotheses. Since \(46<64\), depth six is impossible; a fully listed, replayed depth-five shattered tree supplies the matching lower bound. The additivity of VC and Littlestone dimensions on disjoint query domains is proved, and the constructed bridges do not occur in directed cycles. These steps yield exact dimensions \(5s-1\) and \(6s-1\). A second implementation verifies the finite certificate without invoking the first verifier.
+PASS
 
-Potential scientific risks: the standard optimal online mistake-bound characterization underlies the additivity proof, and the leaf-indexing convention must match the verifier. Both are explicitly stated and independently reconstructed. The main infinite-family statement is mathematical, not a claim extrapolated from computations.
+The revised statement keeps the valid Littlestone results. The forest criterion follows by extension along a topological order; any shattered tree has distinct witnesses at distinct leaves. For a cycle the count 2^r−2 rules out depth r. Product additivity follows by concatenating trees and, for the reverse inequality, running separate optimal mistake-bound predictors. I generated orientations from all 120 vertex orders, independently obtained 46 distinct concepts, then replayed the frozen certificate by filtering the feasible concepts at each branch and confirmed all 32 witnesses. Exact tree-feasibility and VC-trace checks found the gap only for the full edge mask among all 64 subgraphs of the 2+3 template; the remaining 1+4 and smaller cases are covered by the pseudoforest proof. The bridge endpoints in each interior block are distinct degree-two vertices; bridges preserve planarity, can be made bipartite by alternating sides, and make an independent product. This gives exactly 6s−1 versus 5s−1.
 
-## Originality (PASS; bounded checks)
+## originality
 
-Compared against direct acyclic-orientation-query research (Pikhurko 2009), generic Littlestone/tree-dimension results (Walker 2022; Pradeep–Nachum–Gastpar 2022), general dimension-computation hardness (Manurangsi 2023), relevant public research records, and earlier accessible comparison-class results. Pikhurko's \(c(G)\) measures worst-case adaptive **identification queries**, not adversarial **prediction mistakes**; a lower bound on identification queries does not yield a shattered binary mistake tree. The remaining general results do not establish the graph-specific \(46\)-hypothesis depth-five certificate or the exact connected planar subcubic amplification. Previous full-comparison results concern all pairs on a complete graph, and their restriction does not entail the depth-five lower bound for \(K_{2,3}\). No dominating result was found in the bounded searches. Historical priority remains uncertain because some relevant works or full texts may be unindexed or inaccessible.
+PASS
 
-## Mathematical value (PASS)
+The original broad novelty framing did not credit equivalent prior coverage of its forest shattering criterion and uniform VC formula. It does not pass for that component: Kozma–Moran expressly prove both. The replacement makes those results prior background and confines the contribution to the Littlestone gap, its finite certificate/minimality and its exact connected planar subcubic amplification. It explicitly credits overlapping generalizations indexed later; neither establishes earlier provenance nor states the connected bridge-chain result. Best-of-knowledge pass for the revised contribution, not a priority claim for the VC result or for generic additivity.
 
-The obstruction is the smallest bipartite example where acyclic-orientation VC dimension and Littlestone dimension differ, and the qualitative distinction is structural: a single cycle cannot create the gap but the two overlapping four-cycles of \(K_{2,3}\) can. Bridge additivity amplifies the five-vertex certificate into an unbounded quantitative separation even among **connected planar maximum-degree-three bipartite graphs**. This answers a natural structural question about how a graphic-matroid VC rank can differ from adaptive shattering while retaining strong graph restrictions.
+## value
 
-## Scope and outstanding validation
+PASS
 
-The exact graph-specific computation has independently replayable finite certificates. No assertion of a formula for arbitrary graph families, or of absolute publication priority, is made. The result is subject to independent proof review and wider literature checks.
+The five-vertex obstruction gives a genuine sharp boundary within bipartite graphs: the first two-cycle bipartite structure already admits adaptive shattering beyond forest rank. The graph family shows the gap is unbounded despite connectedness, planarity, bipartiteness and degree three, rather than merely under disjoint repetition. These are informative constraints on a natural orientation class; the revised work does not rely on the known VC formula for its contribution.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

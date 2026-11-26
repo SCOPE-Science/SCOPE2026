@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:34:38.497607Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the linear indexed proper-source map in RESULT.md lines 5–39, partition the source symbols into the low class {0,1} and the high class {2}. Read 1 is a low-to-low step whose endpoints alternate 0 and 1; read 2 switches classes. Once a read 1 is present it forces the two classes there and consequently throughout the word. Thus every internal run of 2s must be even and the outside runs are unrestricted. Each stretch of consecutive low sites has two choices of its first low symbol and all subsequent low choices there are forced. Every internal pair of 2s introduces one more such low stretch, and each outside run of length r adds floor(r/2) stretches; equivalently the two equal low endpoint counts and the high count transform by (a,b)↦(a,0) or (b,2a), and squaring the 2 transition multiplies both counts by 2. This proves the formula, including infeasibility and the factor two for reduced boundary cases. For 2^m the two alternating class patterns have free low symbols, giving 3·2^{m/2} for even m and 2^{(m+3)/2} for odd m. An outside run contributes (1+z)/(1−uz²), an inside run 1/(1−uz²); summing the factors for one or more reads 1 gives the claimed histogram series. At u=1 add all-2 words to obtain 1/((1−z)(1−z−z²)), hence F_{m+3}−1. One representative per nonempty fiber realizes this exact zero-error size. A fiber with a 1 cannot exceed 2^{1+floor((m−1)/2)}, strictly below the all-2 value. The minimum occurs when every run of 2 has length at most one, leaving only optional single 2s at the ends, with the stated m=1,2 boundary counts. Summing sizes counts the 3·2^m sources. At m=3 the histogram is one empty, four of size 2, two of size 4 and one of size 8. The frozen VERIFICATION.md and verify.py were inspected, not executed: the script compares full direct histograms and extrema through m=14; the loop through m=100 checks coefficients, mass and image totals rather than independently enumerating fibers or extrema at those lengths. The all-length derivation does not rely on those diagnostics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "MacDonald gives conditions for injective embeddings of subshifts under factor codes, not exact finite fibers of a specified code. Cahill et al. use real group-invariant max filters for orbit separation. Weindel et al. treat the tradeoff involving homopolymer constraints and errors, and Wei et al. treat noisy overlapping substring reads rather than symbolwise maxima."
+        ],
+        "reasoning": "A general graph/path-count representation computes fibers once the source and read labels are specified; its availability does not provide the closed run-product or bivariate histogram in an inspected broader theorem.",
+        "searches": [
+          "MacDonald, arXiv:2210.08150, Theorem 1.1",
+          "Cahill et al., DOI 10.1007/s10208-024-09656-9, introduction",
+          "Weindel et al., arXiv:2308.05952, abstract",
+          "Wei–Schwartz–Ge, arXiv:2312.04790, abstract/introduction"
+        ]
+      },
+      "checked_sources": [
+        "MacDonald arXiv:2210.08150",
+        "Cahill et al. DOI 10.1007/s10208-024-09656-9",
+        "Weindel et al. arXiv:2308.05952",
+        "Wei–Schwartz–Ge arXiv:2312.04790",
+        "OEIS A000071",
+        "The listed Resultary comparisons; also 2026/11/8/SCOPE-exact-ternary-adjacent-pair-spectrum-enumerator-for-linear-words--87bc1f36ef2d and the proper ternary skip-transposition record, Findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest same-day inverse-spectrum result treats indexed cyclic proper mod-five words with adjacent sum. The binary even-shift result starts with a bilateral even-shift domain and studies its radius-one outputs and entropies. The skip-transposition result shares the proper ternary source but measures swap-sphere sizes."
+        ],
+        "reasoning": "None of those statements yields the number of proper ternary walks labeled by each maximum-output word. From the identified even-shift image, the code-size number follows directly, so only its identification as the image and the extra fiber information are channel-specific. Catalogue date does not establish order or priority.",
+        "searches": [
+          "2026/11/22/SCOPE-exact-inverse-list-spectrum-of-the-cyclic-mod-five-adjacent-sum--79f0c0a62681, Finding",
+          "2026/10/25/SCOPE-complete-radius-one-factors-and-entropy-spectrum-of-the-binary-e--0234835f8973, Finding",
+          "2026/11/22/SCOPE-exact-skip-transposition-sphere-spectrum-of-proper-ternary-words--a6393332ba3a, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With 1 as marker and 2 renamed 0, the finite output language is precisely that of the binary even shift. The public search did not identify a comparator giving the full preimage spectrum.",
+          "The same-day cyclic mod-five adjacent-sum finding is an exact inverse-spectrum theorem for proper sources, but has a different alphabet, statistic and boundary condition."
+        ],
+        "reasoning": "An output-language isomorphism does not identify a presenting factor map or the number of underlying proper ternary lifts of a given finite block. The modular sum is not a relabeling: its odd-length words have singleton nonempty fibers, whereas this maximum channel has none.",
+        "searches": [
+          "Resultary: proper ternary adjacent-maximum inverse fibers; radius-one sofic factor; positional adjacent-pair channel",
+          "Primary-literature query: sliding maximum, ternary adjacent proper words, preimages and even shift"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A000071 is exactly F_n−1, so the total nonempty fiber count is its n=m+3 subsequence starting at n=4, with values 2,4,7,12,20. The catalogue ternary adjacent-pair enumerator instead counts distinct nine-entry pair multiplicity matrices."
+        ],
+        "reasoning": "This is exact known coverage for the numerical output count and not for the marked histogram. Neither the total sequence nor a table of unordered-in-position profiles gives fiber sizes for the ordered maximum read.",
+        "searches": [
+          "OEIS A000071, definition and initial table",
+          "Resultary: exact adjacent-maximum preimage spectrum and ternary adjacent-pair enumerator"
+        ]
+      },
+      "rationale": "Credit is limited to this channel's explicit finite preimage law and histogram (including the exceptional all-2 fiber), with their concrete extrema and code implications. The output language itself is the classical even shift at finite lengths and its total word counts are already known. The statement does not claim priority for that language, the Fibonacci sequence, generic graph counting or generic sliding-block coding.",
+      "residual_risks": [
+        "An equivalent weighted even-shift presentation or finite sliding-maximum fiber histogram may appear under different terminology in specialized symbolic dynamics or coding literature. The focused primary-literature search did not establish absence.",
+        "The exact Euler/graph-count machinery and known image sequence are not novelty evidence for this record; the comparison supports the particular closed inverse law only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Subshift embedding existence, not a fixed finite-channel preimage law",
+          "evidence": "The theorem concerns embeddings with periodic-point and entropy hypotheses.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.08150",
+          "material_read": "PDF p. 1, framing and Theorem 1.1, extracted offset 2700",
+          "method": "OA full-text targeted passage",
+          "title": "Encoding subshifts through sliding block codes",
+          "trigger": "Possible general sliding-block coding implication"
+        },
+        {
+          "assessment": "Different action, input space, and observable",
+          "evidence": "The filters are G-invariant real-valued functions on real inner-product spaces used for orbit separation.",
+          "identifier_or_url": "https://doi.org/10.1007/s10208-024-09656-9",
+          "material_read": "PDF p. 1 abstract and introductory framing, offset 0",
+          "method": "OA full-text targeted passage",
+          "title": "Group-Invariant Max Filtering",
+          "trigger": "Alternative exact max-filter formulation"
+        },
+        {
+          "assessment": "Homopolymer constraints in a different channel model",
+          "evidence": "Compares avoiding homopolymers and balancing GC content with tolerating substitution errors, without an adjacent-maximum readout.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.05952",
+          "material_read": "PDF p. 1 abstract, extracted offset 1000",
+          "method": "OA full-text targeted passage",
+          "title": "Embracing Errors Is More Efficient Than Avoiding Them Through Constrained Coding for DNA Data Storage",
+          "trigger": "Literature on the source constraint"
+        },
+        {
+          "assessment": "Different observations and errors",
+          "evidence": "Studies noisy consecutive substring observations with overlap, not the maxima of adjacent sites.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.04790",
+          "material_read": "PDF p. 1 abstract and introduction, extracted offset 0",
+          "method": "OA full-text targeted passage",
+          "title": "Reconstruction from Noisy Substrings",
+          "trigger": "Potential broader local-read reconstruction theorem"
+        },
+        {
+          "assessment": "Exact numerical match after shifting, not the preimage histogram",
+          "evidence": "Fibonacci(n)−1 is explicitly defined and tabulated; the m=1 entries start at n=4.",
+          "identifier_or_url": "https://oeis.org/A000071",
+          "material_read": "Definition and initial entries, offset 0",
+          "method": "OA public page",
+          "title": "A000071: Fibonacci(n) minus 1",
+          "trigger": "Exact total output-count sequence"
+        },
+        {
+          "assessment": "Separate same-day theorem, not equivalent coverage",
+          "evidence": "Cyclic proper words with adjacent sums mod five have singleton nonempty fibers in odd length and sizes 1–4 in even length.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-inverse-list-spectrum-of-the-cyclic-mod-five-adjacent-sum--79f0c0a62681",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Exact inverse-list spectrum of the cyclic mod-five adjacent-sum channel",
+          "trigger": "Strongest thematic inverse-fiber analogue"
+        },
+        {
+          "assessment": "Relevant known sofic language and factor theory; does not give the present weighted lifts",
+          "evidence": "The domain is the bilateral even shift, and the advertised results concern its radius-one images and entropies.",
+          "identifier_or_url": "2026/10/25/SCOPE-complete-radius-one-factors-and-entropy-spectrum-of-the-binary-e--0234835f8973",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Complete radius-one factors and entropy spectrum of the binary even shift",
+          "trigger": "Exact image language under symbol renaming"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A proper ternary source and overlapping positional maximum form a natural small deterministic channel that loses distinctions between low symbols. Identifying a known even-shift image alone would only give its size. The weighted classification instead answers exactly how much ambiguity remains for each read and why the all-maximum read is exceptional, with sharp finite benchmarks for injective coding. This delivers an exact invariant of the specified channel, not a new Fibonacci sequence or a claim about a physical sensor.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

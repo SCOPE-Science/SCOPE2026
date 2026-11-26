@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:05:42.117851Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§1–4",
+        "Frozen VERIFICATION.md and verify.py (inspected only; no replay claimed)"
+      ],
+      "rationale": "For F(t)=t²−t+1, any solution with equal coordinates or a coordinate equal to 1 is (1,1). For 2≤a<b, put r=F(a)/b, a positive integer strictly less than a. The identity rb≡1 (mod a) and F(b)≡0 (mod a) imply b(1−b)≡1 (mod a), so r≡1−b (mod a), and F(1−b)=F(b). Therefore (r,a) obeys both divisibilities and has smaller sum. It cannot have r=1 when a>1. This confirms the unrestricted descent, including the boundary case. Grouping the defining sum by gcd gives nH(n)=∑_{d|n}dφ(d), a multiplicative numerator whose prime-power factor is (p^(2e+1)+1)/(p+1) and is 1 modulo p. This excludes every prime power in particular p and p². For distinct p,q the numerator is F(p)F(q), so integrality would force exactly the forbidden two-cycle. Together with H(1)=1 this establishes the stated squarefree consequence and prime graph assertions.",
+      "residual_risks": [
+        "The proof does not exclude mixed higher powers at two primes or all longer prime cycles. The stored checker only samples finite ranges and is not the universal proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mills gives integer chains for x|y²+ay+1 and y|x²+ax+1 and classifies the three 1-chains. De Koninck–Letendre give the factorization and a nonzero upper bound for the odd-prime pair set."
+        ],
+        "reasoning": "The chain theorem gives the complete obstruction beyond primes. The modern counting proposition alone does not prove emptiness; the earlier classification supplies exactly the missing obstruction.",
+        "searches": [
+          "Mills (1953), §1 equation (1), §2 chain construction, §8 before Theorem 3",
+          "De Koninck–Letendre, arXiv:2610.10572v1 §5 Proposition 1"
+        ]
+      },
+      "checked_sources": [
+        "Mills (1953), §§1–2, 8 and Theorem 3",
+        "arXiv:2610.10572v1",
+        "Resultary exact same-day record",
+        "OEIS A070999 (unavailable in the attempted route)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the plus-sign system each solution pair extends to a 1-chain. The three chains have all terms positive, all terms −1, or alternating signs. For H, the known numerator factor at exponent one is Φ₆(p). The same-day indexed result explicitly covers all n>1 with Ω(n)≤2, including p²."
+        ],
+        "reasoning": "The only adjacent negative terms allowed by Mills are (−1,−1). Once that fact is applied, reduction of the gcd-sum numerator at each prime proves the semiprime exclusion immediately; the numerator is a unit modulo p for a prime power. No independent substantive claim remains.",
+        "searches": [
+          "Mills §2 and §8 chain list preceding Theorem 3",
+          "De Koninck–Letendre §5, Proposition 1 and normalization of H",
+          "November 2 indexed RESULT.md, Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mills Theorem 3 has distinct positive- and negative-linear-sign clauses. The plus-sign system has positive nontrivial solutions such as (3,13), while replacing both variables by their negatives transforms the stated Φ₆ problem into the adjacent-negative case of the plus-sign chain system."
+        ],
+        "reasoning": "The sign cannot be changed with both variables still positive. The substitution is valid in Mills's integer chain classification, and the negative-adjacency restriction is essential.",
+        "searches": [
+          "Resultary: reciprocal Phi6 divisibility, x²−x+1 and gcd-reciprocal semiprime obstruction",
+          "Primary search for quadratic reciprocal divisibility and signed Vieta chains; Mills §2 and Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A distinct indexed November 2 record states both exact conclusions. The modern paper lists initial integer values including 1, 614341, 618233; these examples do not certify the universal two-prime exclusion. No contents of the inaccessible A070999 entry are asserted."
+        ],
+        "reasoning": "Exact coverage comes from statement-level classifications, not from excluding small counterexamples in a finite sequence table.",
+        "searches": [
+          "Resultary exact statement of all-positive Φ₆ pair theorem and Ω(n)≤2",
+          "arXiv:2610.10572v1 introduction and its A317480 reference; attempted OEIS A070999 lookup"
+        ]
+      },
+      "rationale": "Mills's 1953 Theorem 3 treats the exact negative-linear-sign system, within a stronger chain classification. Even without trusting the corrupted equality in extracted text, §2 and the §8 chain list imply this case: change both input signs, then any two adjacent negative terms in a 1-chain must both be −1. The reciprocal-gcd factorization is known, and the semiprime implication is just its application to that classified pair. A separate same-day indexed record explicitly states both results with the same hypotheses; its date does not determine ordering.",
+      "residual_risks": [
+        "The theorem's last equality in the Mills extraction was not visually authenticated; the readable chain classification independently implies the exact result. No date ordering is asserted for the two indexed records. The review is not an exhaustive literature survey."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct precedent for the negative-linear-sign result and a stronger general framework",
+          "evidence": [
+            "Theorem 3 explicitly displays the same pair of minus-sign divisibilities for positive integers; extracted text corrupts the concluding equality.",
+            "The preceding listing of the three 1-chains is unambiguous: positive, constant −1, or sign-alternating. Equation (3) and §2 extend a solution pair to a chain, so negating both coordinates rigorously gives only (1,1), independently of that glyph."
+          ],
+          "identifier_or_url": "https://msp.org/pjm/1953/3-1/pjm-v3-n1-p15-p.pdf",
+          "material_read": "Printed pp. 209–210, §§1–2 equation (1) and adjacent-pair extension; p. 217, §8 chain list and Theorem 3 (text offsets 17300–19433)",
+          "method": "Bounded OA PDF text; ambiguous final equality independently checked through the adjacent-pair classification in the same text",
+          "title": "A System of Quadratic Diophantine Equations",
+          "trigger": "Exact signed mutual divisibility and broader classification"
+        },
+        {
+          "assessment": "Supplies the numerator normalization and related count, not the zero-pair theorem in inspected passages",
+          "evidence": [
+            "Bounds the number of odd-prime mutual-divisibility pairs with pq≤z; initial examples do not exclude all semiprimes."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.10572v1",
+          "material_read": "Introduction on the counting bound and initial integral cases; §5 Proposition 1, offset about 23812",
+          "method": "Bounded OA HTML passages",
+          "title": "The Integer Values of the Sum of Reciprocal GCDs",
+          "trigger": "Exact same arithmetic function and putative mutual-divisibility pairs"
+        },
+        {
+          "assessment": "Exact coverage of the theorem and application, not a priority claim from a same-day date",
+          "evidence": [
+            "States the iff (a,b)=(1,1) and excludes every n>1 with Ω(n)≤2; uses the same quotient descent in congruence form."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-reciprocal-cyclotomic-divisibility-and-a-semiprime-obstruction-f--85c9ab9d850e/RESULT.md",
+          "material_read": "Finding, assumptions and proof (decisive opening offsets 0–2316)",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Reciprocal cyclotomic divisibility and a semiprime obstruction for a gcd-reciprocal sum",
+          "trigger": "Exact distinct indexed match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof",
+        "Mills (1953) §8",
+        "arXiv:2610.10572v1 §5 and the exact indexed match"
+      ],
+      "rationale": "The exclusion is a natural question in reciprocal-gcd integrality, but the core obstruction is an already classified Diophantine system. The application from the existing multiplicative identity is immediate and independently already stated in the distinct indexed record. There is no additional case or genuinely new obstruction left to repair.",
+      "residual_risks": [
+        "Rejecting the submitted contribution does not deny the interest of the larger mixed-prime-power integrality problem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

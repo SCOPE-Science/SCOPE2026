@@ -1,11 +1,21 @@
-# Scientific review: complete Euclidean barcode-polytope chord spectrum
+# Independent mathematical audit
 
-**Correctness — PASS.** Jaramillo-Rodriguez's canonical copies and birth-order convention produce exactly the eight finite poset cover relations in `RESULT.md`. The rooted-tree hook formula gives 280 candidate permutations, each an exposed vertex by strict rearrangement. Independent topological-extension and complete permutation-filter implementations agree on all 280 vectors. Exhaustively computing all 39,060 unordered pairs with exact integer squared norms yields the 75-row CSV, \(152\) at 45 pairs, \(150\) at 15 pairs, no \(148\), and a 45-edge diameter matching. This is a complete finite proof because both the vertex enumeration and the pair enumeration are exhaustive; no statistical extrapolation is involved.
+## correctness
 
-**Originality — PASS (bounded historical priority).** The original barcode-polytope source defines the construction and discusses combinatorial orders and barcode distances; its Section 4.3 does not provide this chord table. The general Bruhat interval theorem about *diameter* by Tsukerman and Williams is for the graph metric and does not imply a Euclidean chord histogram. Gaetz's one-skeleton theorem concerns a poset/lattice rather than chord lengths. Indexed related exact spectra on Bruhat zigzags, linked type-C snakes, partial permutohedra and caracol polytopes describe different vertex sets. Remaining risk: an unindexed equivalent finite enumeration.
+PASS
 
-**Mathematical value — PASS.** The three-bar, first midpoint-refined case is a canonical smallest nontrivial three-way refinement of the barcode representation, relevant to how fine combinatorial signatures distinguish overlap configurations. Its exact 75-bin Euclidean metric and sparse diameter matching are substantive finite geometric data and give all thresholds at which edges can appear in an ambient Euclidean Vietoris–Rips filtration, without falsely asserting the filtration's homology. A larger-parameter formula is not established and is not required for the finite invariant.
+Sections 4.1 and 4.3 of the primary construction use the direct one-line permutation vector, not positions of the labels. At n=3,k=1 the three copies of each bar must appear in local order and the three first copies must appear in bar order, giving exactly the stated eight precedences. The inclusion of all representatives as vertices follows also from equal squared norm 285: the functional x -> p·x is strictly maximized at p since it equals 285 minus half the squared distance on permutation vectors. The rooted-tree subtree sizes (9,2,1,6,2,1,3,2,1) give 280 linear extensions. A separate exact replay starting from the constraints generated each linear extension by its unique series of available-label choices and counted all 39060 unordered distinct pairs. It verified every one of the 75 CSV rows, support {2,4,...,146,150,152}, 15 pairs at 150, 45 at 152 with 90 distinct degree-one endpoints, 190 isolated vertices, and distance sum 2737080 giving 15206/217. The diameter of the convex hull is attained over vertex pairs, by expressing any two points as convex combinations and applying the triangle inequality to their difference. Thus it is 2 sqrt(38).
 
-**Closest literature and limits.** E. Jaramillo-Rodriguez, arXiv:2206.05613 §4.3; E. Tsukerman and L. Williams, arXiv:1406.5202 §4.4; C. Gaetz, arXiv:2208.13826. The result uses the precise permutation-coordinate realization only; it is not a statement about bottleneck metrics, arbitrary affine images, or all \(n,k\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the complete Euclidean census of this particular direct-coordinate barcode polytope. The defining barcode paper provides the construction and one of the diametral witness vertices as a nested example, not the other endpoint or the pair census. Known one-skeleton diameters and structure do not determine this metric invariant. The strongest nearby indexed Euclidean diameter comparison is for zigzag Coxeter-element Bruhat intervals: its odd-order formula gives squared diameter 62 in the standard nine-entry embedding, incompatible with this instance's 152; it counts only farthest pairs in that distinct family. A full earlier census remains possible outside the inspected texts and summaries.
+
+## value
+
+PASS
+
+The chosen object is the standard first midpoint refinement for three bars, where the three-way canonical precedence structure yields hundreds of vertices; neither the Euclidean embedding nor the finite cutoff is tuned to the numerical answer. The exact shell data and isolated missing near-diameter shell give benchmarks for geometric comparisons in that realization. In particular the matching on the outermost shell is a structural constraint not obtained from a graph diameter or from the vertex count. The distance thresholds can be used in any Euclidean vertex filtration on this model without pretending to compute its homology or the metric between actual barcodes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

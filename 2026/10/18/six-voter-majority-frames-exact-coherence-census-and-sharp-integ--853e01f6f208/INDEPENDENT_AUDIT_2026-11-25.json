@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:43:30.213719Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The ten complementary triple pairs give independent bits; all larger and smaller coalition decisions are fixed. An independent exact walk under adjacent transpositions (python3 /workspace/branches/independent_checks.py 2) verifies that minima 0,1,3,7,15,19,20,21,28,29,58,126,220 have respective orbit sizes 6,60,180,60,6,20,90,180,180,90,120,20,12. It tests the six printed integer tuples on all 64 subsets, and checks the seven printed four-triple witnesses for distinctness, selection and incidence two at each voter. Four strict half-total inequalities cannot sum to twice total weight, so the latter certificates rule out even real additive weights; relabeling transfers both types of certificate to the whole orbit. The resulting totals are 332 and 692. For mask 3, winning 123 and 124 and losing 134,125,126 force w2>w3,w4 and both w3,w4>w5,w6. If all weights are ≤3 these coordinates must be 3,2,2,1,1 respectively; then the losing 125 must be strictly lighter than its winning complement 346, requiring w1<1. The printed maximum-4 tuple realizes the mask, so the common bound is sharp. Independently enumerating sorted positive tuples and relabeling gives 152 realizable masks with maximum ≤3 and 332 with maximum ≤4. The supplied checker constructs its own rows and witnesses rather than parsing the printed table; the independent replay verifies the literal table. The theorem is restricted to the designated six-voter majority frames.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition B.21 characterizes four-coherence in maximal frames by absence of balanced quadruples, but not full measurability from that absence. The four triples 123,145,256,346 occur in both printed listings for Example 5.4 and Proposition B.23 and are a balanced quadruple, contrary to the latter's assertion.",
+          "Kurz studies minimum-sum representations at general integer quotas, including uniqueness through seven voters as prior work and an enumeration of nonunique cases for nine. The inspected table counts general complete simple games."
+        ],
+        "reasoning": "The four-coherence criterion is a prior general implication, whereas the exact finite census proves that there are no further obstructions in this slice. Enforcing a broader quota model and optimizing total weight is not the same invariant as a positive per-coordinate cap under strict half. The printed source conflict is explained by the balanced quadruple, not by narrowing the frozen frame class after the fact.",
+        "searches": [
+          "arXiv:2606.23853 Examples 2.4, 3.4, 5.4, Propositions 5.5 and B.21–B.24",
+          "arXiv:1103.1445 abstract, introduction and Table 1",
+          "Gurk–Isbell Simple Solutions six-player majority games and old tables"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.23853",
+        "SCOPE-20261025-222c2db3b952",
+        "OEIS:A003184",
+        "arXiv:1103.1445v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The later six-voter result uses the same balanced quadruple implication and gives sharp maximum |wi|≤3 under the different centered integral parameterization 7+wi with sum wi=0. The frozen result minimizes a maximum of the actual positive singleton weights without fixing their total.",
+          "The older primary paper asserts absence of balanced quadruples in Example 5.4, but the explicitly balanced four winners show the premise does not hold for that printed frame."
+        ],
+        "reasoning": "The census and qualitative equivalence have definite later-listed coverage. A bound on deviations with fixed total 42 is not the claimed optimal cap on freely scaled integer singleton weights; a direct cap-3 impossibility plus a cap-4 tuple establishes the latter. Neither a prior one-way obstruction nor an erroneous example mechanically gives the census or the unrestricted sharp cap.",
+        "searches": [
+          "arXiv:2606.23853 Propositions B.21 and B.23",
+          "SCOPE-20261025-222c2db3b952 centered perturbation comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frame is a monotone self-dual simple game with fixed outer layers and complementary choices of triples. Strict real positive half-threshold representations may be replaced by positive rational ones by openness of the finite strict comparisons and then scaled to integers. For a represented self-dual game all losing coalitions are strictly below half because their complements win.",
+          "A003184 concerns NP-equivalence classes of self-dual threshold functions of exactly n variables, including counts of 14 for six essential variables; the fixed outer-layer filter and allowance of dummies are not part of that count."
+        ],
+        "reasoning": "The weighting notion is not a new Boolean or social-choice object. Normalizing a unate threshold rule to a positive monotone rule preserves self-duality, and between positive monotone rules NP-equivalence cannot negate an essential variable without making it decreasing. Thus old weighted game representative lists could be filtered to recover the weighted part if they supply the truth tables or representations, including lower essential arities; the bare count cannot do so.",
+        "searches": [
+          "Six-voter maximal standard measurable majority frames, self-dual simple games and strict-half integer weight representations (Resultary and literature)",
+          "arXiv:2606.23853 Proposition B.21",
+          "OEIS A003184"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 25 Resultary record really gives the same 1,024/332/692 counts and the same orbit-size split and representatives under its stated encoding; this is not just a parameter match.",
+          "The accessible classical sequence supplies aggregate weighted-threshold counts, not the filtered frame census. The alternate Isbell copy and Gurk–Isbell chapter text were not available for statement-level inspection; the volume landing page is not the chapter."
+        ],
+        "reasoning": "The later entry establishes exact catalogue coverage of the census. Earlier aggregate counts of weighted games do not establish the reported filtered orbit sizes or the obstruction for the excluded games. A full list of the right earlier representative games would be stronger evidence than the sequence presently inspected.",
+        "searches": [
+          "SCOPE-20261025-222c2db3b952 Finding, scope and census",
+          "OEIS A003184, Gurk–Isbell (1959) Simple Solutions, and Isbell (1959) On the Enumeration of Majority Games",
+          "arXiv:1103.1445 Table 1"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the frozen result. The exact census including the obstruction equivalence is also stated in a distinct later-listed catalogue record; the overlap is material, but independent discovery and priority are not established by the displayed dates alone. That record's quantitative invariant is a bound on integral deviations about a fixed total, not the unrestricted sharp minimum uniform cap on positive integer singleton weights. The earlier Moss–Pedersen primary paper supplies the definitions and four-coherence criterion, not sufficiency of that criterion for measurability in this family. The apparent published six-voter counterexample to sufficiency is invalid as printed, by explicit inspection below. Possible extraction of the weighted portion from early general catalogues remains a named risk.",
+      "residual_risks": [
+        "Gurk–Isbell (1959) Simple Solutions, cited by OEIS, and an identified alternative copy of Isbell's majority-game enumeration were not independently accessible in full. A historical representative table may mechanically disclose the weighted subcensus and possibly the cap; access failure is not evidence of noncoverage.",
+        "The same-census catalogue match is documented; the records do not establish independence or priority beyond the displayed ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior characterization of four-coherence and examples, not the complete six-voter implication or cap; claimed index-six example fails as printed",
+          "evidence": [
+            "Example 5.4 and Proposition B.23 list 123,145,256,346 as winning; each voter occurs exactly twice. Proposition B.21 gives the general four-coherence criterion."
+          ],
+          "identifier_or_url": "arXiv:2606.23853",
+          "material_read": "Examples 2.4, 3.4; Example 5.4 and Proposition 5.5, p.10 near extracted offset 39206; Propositions B.21 and B.23, pp.25–26 at offsets about 91319–95433",
+          "method": "OA arXiv PDF; read lists and compare incidence directly",
+          "title": "The Measurable Majority",
+          "trigger": "Same class, primary source of the obstruction and apparent counterexample"
+        },
+        {
+          "assessment": "Material later-listed coverage of the full census and balanced quadruple equivalence, plus an independently specified centered-weight invariant; not evidence of earlier priority",
+          "evidence": [
+            "Same counts, orbit representatives and sizes. Centered perturbation radius 3 about 7, with zero-sum perturbations, not actual singleton cap 4. Also calls out the balanced quadruple in the printed example."
+          ],
+          "identifier_or_url": "SCOPE-20261025-222c2db3b952",
+          "material_read": "RESULT.md Finding, scope with mask encodings and start of Proof, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact six-voter coherence census with sharp integer margins and a four-bloc obstruction",
+          "trigger": "Exact same frame family, numerical census and obstruction"
+        },
+        {
+          "assessment": "Broader aggregate count only; historical chapter was not retrieved for representative comparison",
+          "evidence": [
+            "n=6 count 14; cites Gurk and Isbell, Simple Solutions (1959), pp.247–265, for n=6."
+          ],
+          "identifier_or_url": "https://oeis.org/A003184",
+          "material_read": "Sequence, references and formula at offsets 350–2246",
+          "method": "OA website",
+          "title": "Number of NP-equivalence classes of self-dual threshold functions of exactly n variables",
+          "trigger": "Historical broad tabulation under Boolean functions alias"
+        },
+        {
+          "assessment": "General-quota minimum total-weight methods and aggregate game census, not the scoped half-threshold maximum-coordinate theorem in the passages inspected",
+          "evidence": [
+            "Sums rather than individual maxima optimized; Table 1 counts all complete simple games, e.g. 1171 at six voters."
+          ],
+          "identifier_or_url": "arXiv:1103.1445v2",
+          "material_read": "Abstract and Introduction at offset 0; minimum-sum optimization near offset 18700 and Table 1 caption and counts near offset 12195",
+          "method": "OA arXiv PDF",
+          "title": "On minimum sum representations for weighted voting games",
+          "trigger": "Optimization and cataloguing of small integer representations could subsume the weight bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Six voters give a natural small carrier where nonmeasurability actually occurs. The exact classification resolves which local four-coalition certificates suffice, exposes the conflict in a printed six-voter example, and gives an optimal integer implementation bound. The certificates are useful beyond the two aggregate counts: they decide each relabeling class and avoid solving a general feasibility problem. No all-electorate sufficiency is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

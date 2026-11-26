@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:59:23.564559Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For half-sides a≥b and center c, the vertical half-extent |u_y|+|v_y| is ≥b, and the maximum squared vertex norm is at least |c|²+a²+b²+2b|c| by the orthonormal component inequality. Hence a same-area feasible horizontal rectangle can be centered if h+b≤0, and can be placed with bottom h and top h+2b otherwise: the vertex bound then gives a²+(h+2b)²≤1 and h+2b>|h|. This proves the needed unrestricted reduction for every orientation and translation. With t the largest absolute endpoint height, the sharp area envelope is 2 sqrt(1−t²) min(2t,t−h). The interior optima of its two smooth branches are t=1/sqrt(2) and t=q; the second derivative test is not needed to select regimes because the branch derivatives change sign once and the second branch derivative at t=−h has sign 1−3h². This yields the three branches and the two transitions. Equality in the vertex bound plus the cutting constraint forces vertical half-extent b when h>−1/sqrt(2); in the centered comparison case use a²+b²=1, c=0 and b=−h. Thus the short side is vertical and the optimizer unique after the first threshold, including at the second. Before the first, equality of the disk bound gives exactly centered inscribed squares that pass the cut; at the first only the aligned square fits. Differentiation gives the stated one-sided second derivatives (on the last branch M′=−2 sqrt(1−q²), q′=q/(4q−h)); expansion q=1−(1−h)/3+O((1−h)²) and the cap-area integral yield the stated constants. Read VERIFICATION.md and checker.py: finite orientation samples, grid and quotients are diagnostic, not an unrestricted proof. Did not execute the uploaded script.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Behroozi p. 8–9 Thm 9 gives intersection with the symmetry axis, corner contacts on its two sides subject to an endpoint exception, and restrictions for squares or diagonals on the axis.",
+          "Cabello et al. give exact/approximation algorithms for convex polygons; the other closed-contour algorithm was seen only via search snippet."
+        ],
+        "reasoning": "The structural theorem covers the cap but does not select its orientation or optimal contact heights. Polygon approximation or a generic computational method does not supply exact curved-boundary equality and transitions.",
+        "searches": [
+          "Behroozi arXiv:1905.13246 Thm 9",
+          "Cabello et al. arXiv:1405.1223 abstract and introduction",
+          "largest area arbitrary orientation closed contour, PII S0096300312003207"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary, matching item eb24804c1856 is the identical frozen record",
+        "arXiv:1905.13246",
+        "arXiv:1405.1223",
+        "MSE 872223/2912879 (title only)",
+        "PII S0096300312003207 (snippet only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Behroozi Thm 9(1)–(4) does not require either side of a maximum rectangle to be parallel to any given line.",
+          "Cabello et al. frame the input as a convex polygon with finitely many edges."
+        ],
+        "reasoning": "These do not imply that every feasible box can be replaced by a same-area chord-parallel box for this cap, or when the number of circular corner contacts changes. The earlier axial symmetry results should be credited as relevant unrestricted background, not characterized as only fixed-axis.",
+        "searches": [
+          "Behroozi theorem passage at PDF text offset 36350",
+          "Cabello et al. PDF p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Behroozi explicitly distinguishes unrestricted from fixed-direction/axis-aligned optimization.",
+          "The cited online item concerns the semicircle, i.e. h=0; only the title could independently be checked."
+        ],
+        "reasoning": "A fixed-axis result cannot give the arbitrary center/orientation theorem without a valid reduction. The semicircle does not cover varying cut heights or either threshold; scaling or reflecting it cannot change the chord's relative offset from the disk center.",
+        "searches": [
+          "Local Resultary: circular segment/disk cap unrestricted largest rectangle and cut-contact transitions",
+          "Behroozi arXiv:1905.13246, unrestricted MAIR vs fixed-direction variants",
+          "MSE question 872223/answer 2912879"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both surfaced exact matches were the frozen record itself, not distinct coverage.",
+          "The classical h=0 problem only evaluates a single parameter, whereas the claimed branches switch at two negative offsets."
+        ],
+        "reasoning": "No inspected distinct exact profile covers all cut heights; a one-point benchmark is not an exact table of the family.",
+        "searches": [
+          "Local Resultary: maximum area rectangle in circular segment, exact area/contact thresholds and orientation",
+          "Local Resultary exact matching record eb24804c1856",
+          "MSE 872223 semicircle comparator"
+        ]
+      },
+      "rationale": "The strongest inspected theorem for axially symmetric sets applies but does not imply cut-parallel orientation, its equality cases, or the two exact contact transitions. The indexed exact match is this same record. No distinct covering statement was found in the compared sources; priority remains best-of-knowledge.",
+      "residual_risks": [
+        "The semicircle answer and closed-contour paper were not accessible in full. Older geometric literature may give an equivalent family-specific result not indexed under these terms."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Applicable structural background, not an orientation or area classification for circular segments",
+          "evidence": [
+            "Thm 9 requires a nontrivial axis intersection and certain boundary contacts and imposes conditions if a diagonal lies on the axis; it does not impose that an edge is parallel/perpendicular to the symmetry axis."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1905.13246",
+          "material_read": "PDF p. 2 distinction of variants and pp. 8–9 Definition 8 and complete Theorem 9 statement; text offset 36350",
+          "method": "OA primary PDF, including direct check of Thm 9",
+          "title": "Largest Inscribed Rectangles in Geometric Convex Sets",
+          "trigger": "Potentially stronger result for unrestricted optimization in axially symmetric convex sets"
+        },
+        {
+          "assessment": "Polygonal inputs only in the inspected claims",
+          "evidence": [
+            "Exact algorithms for convex n-gons and (1−epsilon)-approximation algorithms."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1405.1223",
+          "material_read": "PDF p. 1 abstract and introduction, text offsets 0–4408",
+          "method": "OA primary PDF",
+          "title": "Finding Largest Rectangles in Convex Polygons",
+          "trigger": "General exact unrestricted rectangle optimization"
+        },
+        {
+          "assessment": "The title identifies a special case, but no verdict on the exact contents of the inaccessible answer",
+          "evidence": [
+            "Semicircle corresponds to h=0 by scaling."
+          ],
+          "identifier_or_url": "https://math.stackexchange.com/questions/872223/maximum-area-of-a-rectangle-inscribed-in-a-semi-circle-with-radius-r/2912879",
+          "material_read": "Question title; not the answer passage",
+          "method": "Public page and alternate StackPrinter attempted; inaccessible",
+          "title": "Maximum area of a rectangle inscribed in a semi-circle with radius R",
+          "trigger": "Specific cited exact half-disk case"
+        },
+        {
+          "assessment": "Not a verified full-text comparison",
+          "evidence": [
+            "Snippet describes an approximation algorithm for arbitrary orientation."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0096300312003207",
+          "material_read": "Search snippet only",
+          "method": "Publisher and surfaced alternate public copy attempted; inaccessible",
+          "title": "Finding the largest area rectangle of arbitrary orientation in a closed contour",
+          "trigger": "Potentially broader arbitrary-orientation method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a classical curved family, the key obstruction is the free orientation, not finding a stationary height under a chosen axis. The same-area comparison resolves that obstruction and yields uniqueness and distinct contact thresholds as well as differentiability and thin-cap utilization for the actual unrestricted optimum. The result is more than an isolated semicircle value or a box-finding algorithm.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

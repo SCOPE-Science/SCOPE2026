@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:59:34.004756Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each nonempty ideal has the root and an independently chosen prefix on every arm, giving 1+∏b_i including the extra empty ideal. For a single arm with b prefixes, binary search shatters depth floor(log₂ b) (split into two sets of at least 2^(floor(log₂ b)−1) when b≥2) and the hypothesis count prevents any greater depth. For the pure disjoint-domain product, concatenate factor trees to attain the sum; conversely each query splits only one factor, whose smaller-dimensional nonempty child has dimension at most the original factor dimension minus one. Induction on version-space size gives the summed upper bound. In the augmented product keep the distinguished root even during negative restrictions, and allow a coordinate count of 1. The root query contributes one, and a depth-j query along arm i gives a pure product with count b_i−j on the positive side and an augmented product with count j on the negative side. This exhausts nonconstant queries; an all-ones augmented box, including zero arms, has rank one. For A=∑floor(log₂ b_i)>0, the induction hypothesis and the pure positive child bound every split by A+1. To achieve A+1 both children must have rank at least A; with a=floor(log₂ b_i), positivity forces j≤b_i−2^a≤2^a−1. The negative baseline has lost at least one level. Equality can only be rescued by its bonus, so j=2^a−1 and all other counts are Mersenne. Then b_i−j≥2^a forces b_i=2^(a+1)−1. Conversely this very split gives two children of rank A when all counts are Mersenne. The root query cannot supply the bonus for A>0, and monotonicity gives the baseline when no bonus is possible. This proves the formula in the full stated family; the 183-case frozen verifier and recorded output were inspected, not executed or used as the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hanneke–Moran–Waknine Proposition 2 is additive for the Cartesian product domain with product labels; Ghazi et al. study generic Boolean aggregation bounds. Later Resultary 68248a42b6fd gives a bounded-width ideal-rank algorithm and some grid ranks; 592889550999 gives uniformly layered formulas."
+        ],
+        "reasoning": "The product result is a closely related additivity law with different queries, and neither it nor the aggregation estimates controls the empty-ideal perturbation exactly. A generic rank algorithm can evaluate individual bounded-width instances but is not a formula or an implication of the sharp Mersenne criterion across arbitrary counts and arm lengths. Uniform layers likewise do not encompass arbitrary incomparable chains above a common root.",
+        "searches": [
+          "Hanneke–Moran–Waknine PMLR 247 (2024), Proposition 2",
+          "Ghazi et al. arXiv:2007.03668, §2",
+          "Resultary: finite poset order ideals cumulative online rank Littlestone dynamic program"
+        ]
+      },
+      "checked_sources": [
+        "PMLR 247 Hanneke–Moran–Waknine",
+        "arXiv:2007.03668, 1702.03956, 2203.12211, 2206.10293",
+        "Resultary e81fb3128ebc, 6262182a47f2, 68248a42b6fd, 592889550999",
+        "Frozen RESULT.md, VERIFICATION.md, verifier and recorded output"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Product additivity accounts for the sum alone. The short-arm catalogue theorem treats only lengths 1 and 2, and the two-row recurrence treats ordered cuts in a rectangular poset."
+        ],
+        "reasoning": "Neither product additivity nor a cardinality or generic augmentation estimate says when the added row of all-negative outcomes earns an extra complete level. The exact split condition identifying one Mersenne remainder on the queried coordinate and simultaneous Mersenne counts on all others is the missing implication.",
+        "searches": [
+          "PMLR 247 Hanneke–Moran–Waknine, product definition and Proposition 2",
+          "Resultary e81fb3128ebc Finding and local proof around offset 3300",
+          "Resultary 6262182a47f2 comparison of independent and constrained cuts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary e81fb3128ebc Finding is an exact overlap for two-edge arms with or without additional singleton leaves: rank t+1 for t≥1 alone; rank t+s when s≥1 leaves are added. General tree-rank formulations appear in Bhaskar (arXiv:1702.03956) and Walker (arXiv:2203.12211) introductions."
+        ],
+        "reasoning": "The finite threshold-vector class plus one all-negative successor of the root split is precisely the all-ideal class, not the pure threshold product. The later short-arm result agrees because b=3 is Mersenne and b=2 is not; it does not say how an arbitrary arm length affects the augmentation. General adaptive-tree rank definitions supply the formulation, not that condition.",
+        "searches": [
+          "Littlestone dimension order ideals finite posets downsets rooted spider threshold classes",
+          "online learning Horn implication ideals disjoint chains common minimum thicket rank Littlestone dimension exact thresholds bottom augmentation Mersenne order ideals",
+          "Resultary: rooted spider order ideal membership; empty ideal bottom augmentation product threshold classes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 6262182a47f2 gives an exact recurrence and rank thresholds for ideals of [2]×[n]. Resultary e81fb3128ebc gives the short-arm subfamily. a Campo's opening material treats counts of downsets and Dedekind numbers."
+        ],
+        "reasoning": "The earlier two-row table has constrained rather than independent cuts, and downset counts alone are not shattering ranks. The later short-arm thresholds agree on their precise overlap. No inspected table or catalogue entry gives the all-arm formula; this is a bounded comparison, not a proof of priority.",
+        "searches": [
+          "Resultary: exact Mersenne/arm-prefix variants, two-row order ideal Littlestone ranks, rooted two-edge arms",
+          "a Campo arXiv:2206.10293 finite-poset downset enumeration"
+        ]
+      },
+      "rationale": "The supported contribution is the exact one-bit change after adjoining the empty ideal and allowing the shared root query. Independent-arm binary search and additive rank are standard. The strongest identical restricted classification is for lengths 1 and 2, in a later catalogue record; an earlier two-row ideal problem uses coupled cuts and does not cover a spider with arbitrary arm lengths. The inspected broader definitions and algorithms do not themselves determine the Mersenne bonus.",
+      "residual_risks": [
+        "Older or less-indexed results on thicket ranks, Horn systems or threshold classes with one additional hypothesis may bear on priority; exact searches and comparisons are not exhaustive.",
+        "Do not assign new credit for single-arm threshold ranks or independently additive products."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Additive law for a product construction; no distinguished-root/empty-ideal effect",
+          "evidence": [
+            "LS(F⊗G)=LS(F)+LS(G); Cartesian product inputs and paired output labels"
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v247/hanneke24c.html",
+          "material_read": "PDF definition of ⊗ (p. 1, offset about 2680) and Proposition 2 (p. 4, offset about 12600)",
+          "method": "Compared product domains and labels and the asserted rank relation",
+          "title": "Open problem: Direct Sums in Learning Theory",
+          "trigger": "Possible direct product formula covering the claim"
+        },
+        {
+          "assessment": "General estimates, no exact spider equality criterion",
+          "evidence": [
+            "Bounds for aggregation of classes of given dimensions"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2007.03668",
+          "material_read": "Abstract and §2 (pp. 1–2, offsets about 3600 and 7400)",
+          "method": "Compared the Boolean aggregation results to the one-exception class",
+          "title": "Near-tight closure bounds for Littlestone and threshold dimensions",
+          "trigger": "General aggregation and closure results might include the augmentation"
+        },
+        {
+          "assessment": "Enumeration, not the rank",
+          "evidence": [
+            "Downset counts and applications to Dedekind numbers"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2206.10293",
+          "material_read": "Opening definitions and results, PDF p. 1, offsets about 600 and 1600",
+          "method": "Compared count of ideals to adaptive shattering depth",
+          "title": "A Flexible Approach for the Enumeration of Down-Sets and its Application on Dedekind Numbers",
+          "trigger": "Downset invariant may be catalogued under enumeration"
+        },
+        {
+          "assessment": "Exact restricted-case overlap; later catalogue date does not demonstrate prior coverage of the arbitrary-arm formula",
+          "evidence": [
+            "t two-edge arms alone yield t+1; adding s≥1 leaves yields t+s"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-leaf-erases-the-online-shattering-excess-of-rooted-two-edge-ar--e81fb3128ebc/RESULT.md",
+          "material_read": "Finding, proof excerpt on the extra hypothesis, Limitations (local offsets 0, 3300, 6650)",
+          "method": "Compared the arm types, inclusion of the empty ideal and stated dimensions",
+          "title": "A leaf erases the online shattering excess of rooted two-edge arms",
+          "trigger": "Exact same observable in the closest rooted class"
+        },
+        {
+          "assessment": "Same invariant, distinct poset family",
+          "evidence": [
+            "Ideals of [2]×[n] with coupled row cuts and an exact recursion"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-polynomial-state-littlestone-recurrence-for-two-row-order--6262182a47f2/RESULT.md",
+          "material_read": "Finding, rank computations and comparisons (local offsets 0, 3400, 7450)",
+          "method": "Compared constraints on the predecessor cuts and adaptations of the queries",
+          "title": "Exact polynomial-state Littlestone recurrence for two-row order ideals",
+          "trigger": "Earlier exact order-ideal membership ranks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Rooted spiders are a natural first branching family of order-ideal concept classes. The exact rank quantifies when one additional hypothesis and the shared-root query improve the worst-case adaptive mistake depth despite independent-arm additivity. The equality criterion is substantive: two arms with b=3 and b=5 and one arm with b=15 both give 16 ideals, but their dimensions are 3 and 4, respectively. The formula supplies a sharp baseline for studying which branching features beyond a single root alter online rank.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

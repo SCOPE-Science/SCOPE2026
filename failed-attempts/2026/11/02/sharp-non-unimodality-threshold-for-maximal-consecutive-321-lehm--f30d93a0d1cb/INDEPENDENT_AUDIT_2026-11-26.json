@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:06:29.713725Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Consecutive descents in a permutation are exactly strict descents of adjacent Lehmer coordinates. Writing the defects e_i=n-i-p_i, avoidance requires the positions with e_i>e_{i+1} to cover every edge of the path on the n−1 comparison positions. For a given cover S the smallest admissible defects are the lengths of successive runs in S starting at i (zero off S); their positive support is exactly S. Therefore minimal defects correspond precisely to inclusion-minimal covers. The omitted positions are independent and dominating, so their first and last gaps to the ends yield blocks of lengths 1 or 2 and the interior gaps yield lengths 2 or 3. A block of length b contributes binomial(b,2), giving the stated rational generating function including n=2. Coefficients from the block counts give the odd valley (m−1,m−2,(m−2)(m−3)) for m≥5; the even valley has first two entries binomial(m−2,2)>binomial(m−3,2) and last-to-middle ratio 2(m−5)/3>1 for m≥7. The recurrence verifies the remaining small strings, including the n=12 recovery. Reversal preserves unimodality. The independent exact replay `python /workspace/branches/independent_reproduction.py 5` matched direct permutation/Pareto histograms at n=2..8 and recurrence shape at n=2..160; the analytically proved valleys, not the finite test, give exhaustion. The frozen verification notes and code are finite diagnostics and were inspected without execution.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original primary text gives exactly the endpoint/interior block alphabet, the unweighted counts, and the extremal inversion numbers."
+        ],
+        "reasoning": "The established block structure mechanically gives the rational series; it does not state the shape classification in the inspected relevant section. The exact indexed result, rather than this structural parent, supplies the decisive coverage of the shape theorem.",
+        "searches": [
+          "arXiv:2609.33137v1 Lemma 4.4 and Theorems 1.4–1.5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/10/12/SCOPE-sharp-nonunimodality-threshold-for-maximal-consecutive-321-lehme--36b9abd7701f",
+        "arXiv:2609.33137v1",
+        "arXiv:2607.26900"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Block b contributes binomial(b,2); concatenating legal blocks gives the GF immediately.",
+          "The matched prior finding explicitly compares three coefficients in each parity and states exactly the classification sought."
+        ],
+        "reasoning": "The proof need not infer non-unimodality from known unweighted counts: the prior indexed statement and proof cover it directly.",
+        "searches": [
+          "arXiv:2609.33137v1, proof of Theorem 1.5",
+          "Resultary record 2026/10/12/SCOPE-sharp-nonunimodality-threshold-for-maximal-consecutive-321-lehme--36b9abd7701f, Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier Resultary finding 2026/10/12/SCOPE-sharp-nonunimodality-threshold-for-maximal-consecutive-321-lehme--36b9abd7701f has exactly the same coordinatewise-maximal consecutive-321 domain, defect series and iff lengths.",
+          "arXiv:2607.26900 concerns two distinct vincular patterns and Fibonacci counts, not this shape classification."
+        ],
+        "reasoning": "The inversion and inversion-defect versions are equivalent by reversing coefficient order; the indexed match already uses the same defect grading and not classical avoidance.",
+        "searches": [
+          "Resultary: maximal consecutive 321 Lehmer codes inversion defect, unimodality and exceptional n=12",
+          "arXiv:2609.33137v1 §4",
+          "arXiv:2607.26900"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Three focused catalogue searches independently surfaced 2026/10/12/SCOPE-sharp-nonunimodality-threshold-for-maximal-consecutive-321-lehme--36b9abd7701f; its actual Finding and proof give the same infinite classification and finite exception strings."
+        ],
+        "reasoning": "The existing entry is a theorem with derivation, not a coefficient table being extrapolated.",
+        "searches": [
+          "Resultary: sharp non-unimodality of maximal consecutive-321 Lehmer codes; defect generating function; n=11 and n=12"
+        ]
+      },
+      "rationale": "A distinct earlier indexed result contains the identical generating function and sharp all-length classification (including the same exceptional recovery), with the same parity-valley proof and exceptional coefficient strings. It is not merely a search hit on a similar title or an inference from the date. No distinct additional result is stated in this record.",
+      "residual_risks": [
+        "Catalogue coverage does not determine authorship, external priority, or the relationship between the two entries. The exact substantive match, not the catalogue date alone, controls this assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact distinct indexed coverage",
+          "evidence": [
+            "Same GF (x+qx²)²/(1−qx²−q³x³); unimodality exactly at 2..10 and 12, proved by the same odd/even valley arguments."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-sharp-nonunimodality-threshold-for-maximal-consecutive-321-lehme--36b9abd7701f/RESULT.md",
+          "material_read": "Actual finding, parity coefficient proof, exceptions",
+          "method": "Local catalogue mirror",
+          "title": "Sharp non-unimodality threshold for maximal consecutive-321 Lehmer codes",
+          "trigger": "Strong exact catalogue match"
+        },
+        {
+          "assessment": "Block model and grading covered; shape classification not stated in inspected section",
+          "evidence": [
+            "First and last lengths 1 or 2, all interior lengths 2 or 3; each block contributes binomial(b,2) to defect."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.33137v1",
+          "material_read": "§4, especially Lemma 4.4 and pp. 13–17, Theorem 1.5 proof",
+          "method": "OA PDF passage inspection",
+          "title": "Maximal Lehmer Codes for Permutations with Classical and Consecutive 321-Avoidance",
+          "trigger": "Cited structural parent"
+        },
+        {
+          "assessment": "Different pattern classes",
+          "evidence": [
+            "The abstract reports a reverse-complement bijection and counts of maximal elements for distinct vincular avoidance classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.26900",
+          "material_read": "Abstract",
+          "method": "OA PDF passage inspection",
+          "title": "Lehmer Codes and the Reverse-Complement Mapping from (32-1)-Avoiding Permutations to (3-21)-Avoiding Permutations",
+          "trigger": "Same authors, close alternative formulations of pattern avoidance"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a mathematical result the sharp shape boundary is substantive: it concerns the natural inversion grading, identifies a genuine transient recovery, and proves persistent valleys rather than extrapolating a table. This does not confer value as a new contribution over the matching result; that lack of increment is decisive under originality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

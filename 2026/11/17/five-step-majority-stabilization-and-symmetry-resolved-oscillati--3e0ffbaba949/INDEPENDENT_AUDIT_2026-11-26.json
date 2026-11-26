@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:16:04.547362Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The input graph and strict open-neighbor rule determine three distinct votes per vertex. Independent replay /workspace/reviews/replay4.py (Python 3 + NumPy) generates the adjacent-swap graph, builds majority by combining at-least-one and at-least-two truth tables on arbitrary 12-bit halves, and tests F^{t+2}=F^t on every 24-bit input from t=0 through first equality. The fixed and period-two columns agree at every t: [208,27808,185520,137856,35424,37728] and [43056,3314528,8819280,3471744,350880,353184]. No state remains after step 5; the witness 9762 has the stated trajectory and first equality at 5. Exhaustive adjacency/nonadjacency-preserving backtracking finds precisely 48 automorphisms, independently supporting the manuscript's terse group upper bound. Acting on fixed configurations and on unordered pairs {x,F(x)} gives precisely the stated orbit-size histograms, hence 20 and 717 classes. The only positive fixed masks of weight at most 4 are the six commuting-swap square masks. Analytically, the bipartite factorization's first even/odd equality conditions follow by projecting F^{2k} and F^{2k+1} to their sides; equality persists under F. This is a census by entry time and ultimate period, not individual basin sizes. The supplied programs and archived outputs were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior symmetric-threshold result credited by the manuscript is eventual period at most two. Majority bootstrap percolation on the permutohedron retains infected vertices, unlike the rule under audit."
+        ],
+        "reasoning": "The prior period bound covers qualitative eventual behavior but does not quantify the first two-step equality or how states and their symmetry classes are distributed. The bootstrap rule can never have a primitive temporal two-cycle and is a different problem.",
+        "searches": [
+          "Goles–Olivos, DOI 10.1016/0012-365X(80)90121-1, as described in RESULT.md §Relationship to prior work",
+          "arXiv:1405.2486 abstract and PDF requests for Goles/Olivos discussion (retrieval timed out)",
+          "RESULT.md §Relationship to prior work: arXiv:1508.03519 and arXiv:2507.06597"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, both verifier listings and both archived outputs",
+        "Resultary 3e0ffbaba949, 2085c475139a, e302e5333117, d99ab53f18c1",
+        "Goles–Olivos DOI 10.1016/0012-365X(80)90121-1 (prior result credited via frozen manuscript)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact claim includes F^7=F^5 with a depth-5 witness, both labelled entry histograms and group orbits on unordered temporal cycles. The known bound restricts limit periods only; analogous counts on the McGee and Nauru graphs concern different adjacency relations."
+        ],
+        "reasoning": "A bound of two on the eventual least period gives no exact entry clock or cycle census. Neither a distinct graph-specific count nor the topology of a matching complex supplies these data by specialization.",
+        "searches": [
+          "Resultary 2085c475139a, e302e5333117 and d99ab53f18c1 indexed statements",
+          "RESULT.md §Relationship to prior work: Goles–Olivos period bound and Kaaser–Mallmann-Trenn–Natale voting-time bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-graph Resultary matching-complex item 2085c475139a concerns a simplicial complex of edge matchings, not synchronous vertex states. The topical public search returned a face-count snippet rather than a comparable census."
+        ],
+        "reasoning": "The graph aliases identify the same graph, but a matching complex or face count is not the dynamics; in particular the condition that a cut is a matching neither counts all cut realizations nor determines the transient.",
+        "searches": [
+          "Resultary: truncated-octahedral graph, four-letter permutohedron, S4 adjacent-swap Cayley graph and majority counts",
+          "Public web search: truncated-octahedral/permutohedral majority dynamics census"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact hit 3e0ffbaba949 is the frozen item itself. The related 24-vertex McGee (e302e5333117) and Nauru (d99ab53f18c1) records give different recurrent counts under majority."
+        ],
+        "reasoning": "Same order or same maximum transient (Nauru) alone does not imply even the labelled counts, and the identical item is not a distinct covering result.",
+        "searches": [
+          "Resultary: 208 fixed, 43056 period-two states, truncated-octahedral graph/four-letter permutohedron"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the graph-specific cutoff, entry census and orbit/support classification, not for the general bound on eventual period or the graph's geometry and symmetry.",
+      "residual_risks": [
+        "An older exact census under a graph alias could be unindexed.",
+        "Full-text access to the linked comparison files and arXiv 1405.2486 was not obtained; no absence inference is made from timeouts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical item, not independent coverage",
+          "evidence": [
+            "The graph, five-step cutoff, 208/43056 totals and square supports match."
+          ],
+          "identifier_or_url": "Resultary 3e0ffbaba949",
+          "material_read": "Indexed description; frozen Finding and Assumptions",
+          "method": "Resultary and frozen text",
+          "title": "Five-step majority stabilization and symmetry-resolved oscillations on the truncated octahedron",
+          "trigger": "Exact title and numerical hit"
+        },
+        {
+          "assessment": "The stated matching-complex equivalence does not cover the majority census; no whole-document exclusion claimed",
+          "evidence": [
+            "The indexed object has simplices given by edge matchings and a wedge decomposition in dimensions 4 and 5."
+          ],
+          "identifier_or_url": "Resultary 2085c475139a",
+          "material_read": "Indexed statement; full linked text not retrieved",
+          "method": "Resultary; mirror request timed out",
+          "title": "The perfect matching complex of the four-letter permutahedron",
+          "trigger": "Same graph under an alias"
+        },
+        {
+          "assessment": "The statements no more specialize to this graph than their vertex counts do",
+          "evidence": [
+            "McGee: 550 fixed, 63715 primitive cycles, depth 11; Nauru: 494 fixed, 121771 primitive cycles, depth 5."
+          ],
+          "identifier_or_url": "Resultary e302e5333117 and d99ab53f18c1",
+          "material_read": "Indexed statements; no full comparison files retrieved",
+          "method": "Resultary",
+          "title": "Majority censuses on the McGee and Nauru graphs",
+          "trigger": "Strong same-order same-rule hits"
+        },
+        {
+          "assessment": "Credit period-at-most-two; no whole-paper exclusion based on retrieval failure",
+          "evidence": [
+            "Frozen lines 51–52 and 59 distinguish the qualitative theorem from graph-specific numbers."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+          "material_read": "Frozen attribution and description only; neither abstract-page nor PDF request supplied the text",
+          "method": "Frozen reference, attempted OA retrieval of arXiv abstract and PDF",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "Credited statement of the prior symmetric-threshold theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The truncated octahedron is a distinguished cubic bipartite graph (and a small permutohedron), rather than an arbitrary 24-vertex sample. The exact sharp clock and joint census by entry and period describe how the qualitative period-two theorem manifests on it. Unordered cycle orbits separate spatial degeneracy from temporal phase, and the identification of all minimal fixed supports with faces gives a structural check. These are useful benchmark data for comparisons across graph families without being a general convergence theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:51:23.617270Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the Cramér–Wold proof for the centered, untruncated pair sums under iid area-uniform sampling on S². For Z=cot(Θ/2), the pair density 2z/(1+z²)² gives mean π/2 for Z and 1/Z, absolute-tail mass O(M^-2), first-tail moment O(M^-1), and a clipped second moment 2(b²+c²) log M+O(1) for W=bZ+c/Z, with no log from the mixed product. At M=n(log n)^(1/4), clipping changes no pair with probability 1-O((log n)^-1/2) and its deterministic centering shift is O((log n)^-1/4). Rotation invariance gives exact degeneracy and constant row second moment v. The predictable variance's diagonal coefficient is 2(n-1)v/n; its remaining pair terms are orthogonal, and the kernel of H² has L² norm squared at most ||H||op² v=O(log n) by the uniform absolute row-integral bound. The off-diagonal deterministic squared weights sum to O(1), so the predictable variance divided by log n converges in probability to 4(b²+c²). Conditioning on the new spherical point gives the independent summands for the fourth-moment bound; the unconditional sum O((log n)^(1/2)+(log n)²/n)=o((log n)²) implies conditional Lindeberg in probability. Slutsky and Cramér–Wold yield the two independent coordinates and the stated finite-list covariance. For fixed n, isolate one colliding pair (or an antipodal pair if b=0) in separated caps with all other terms bounded. Its square has a divergent radial integral, even for signed channels. No variance convergence or power claim is used. The frozen verification references a finite-constant diagnostic; it was inspected, not run, and is not the infinite-limit proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The examined martingalized U-statistic result assumes E h_0²<∞ and discusses fourth-moment conditions; the raw kernel here lacks E h_0²."
+        ],
+        "reasoning": "General martingale tools under additional checked hypotheses are usable, but the cited finite-moment result does not give the result for the raw statistic; the cutoff and conditional variance bounds connect those tools to this case.",
+        "searches": [
+          "Focused primary-literature search on degenerate infinite-variance U-statistic logarithmic CLTs",
+          "arXiv:2611.00753v1, p. 5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2405.13531",
+        "arXiv:2611.00753v1",
+        "Resultary records de1ec85ab44c (self-hit) and 3e5f8742448d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary q=2 limit truncates at fixed Gegenbauer frequency and gives chi-squares; the two-ray result fixes n and explicitly excludes a joint sample-size and threshold limit."
+        ],
+        "reasoning": "Neither the fixed-frequency limit nor a one-large-pair tail with n fixed justifies the growing-cutoff CLT or the independence of the two limit channels. Same-day order is not inferred.",
+        "searches": [
+          "Same-statistic q=2 case in arXiv:2405.13531",
+          "Resultary 2026/11/22/SCOPE-two-ray-extreme-tail-law-for-a-stereographic-spherical-uniformit--3e5f8742448d, scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper has the same T_n(a) with ψ(θ;a)=cot(θ/2)+a tan(θ/2); the two coordinates are linear combinations of two distinct choices of a in [-1,1]."
+        ],
+        "reasoning": "A joint raw limit for two distinct parameter choices would be equivalent; the primary theorem instead excludes the untruncated q=2 case.",
+        "searches": [
+          "Resultary: centered raw stereographic statistic and two-channel logarithmic Gaussian law on S²",
+          "arXiv:2405.13531, pp. 3–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching hit is the record itself, suffix de1ec85ab44c. Distinct record 3e5f8742448d gives fixed-n extreme tails and a logarithmic truncated-second-moment coefficient, not the n→∞ law."
+        ],
+        "reasoning": "No independent match of the limiting law is established; the database's match in fixed-n moment quantities is real but not an exact limiting-law entry.",
+        "searches": [
+          "Resultary exact stereographic-law and two-ray tail hits, including the matching bound record"
+        ]
+      },
+      "rationale": "The exact same-statistic primary paper leaves the raw q=2 case out of its null theorem. The distinct same-day fixed-n two-ray result overlaps in tails and moment divergence but supplies no triangular-array limit. The supported distinct claim is the centered raw q=2 Gaussian null law, including its variance scale and independent channels, not the statistic, finite moment obstruction, or martingale technique.",
+      "residual_risks": [
+        "The bounded comparison does not establish historical priority, including order of the distinct same-day records. A broader infinite-variance degenerate-U-statistic theorem outside the compared passages could reduce novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial overlap; not covering the raw q=2 law",
+          "evidence": "Same untruncated statistic; Theorem 1 applies for q≥3; at q=2 the square moment is infinite and the limit given is for fixed truncation.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.13531",
+          "material_read": "pp. 3–4, statistic definition and Theorem 1 plus q=2 exception and fixed-frequency treatment (offsets 9700, 15300)",
+          "method": "OA paper, bounded full-text passages",
+          "title": "A stereographic test of spherical uniformity",
+          "trigger": "Same statistic and dimension"
+        },
+        {
+          "assessment": "Covers fixed-n moment divergence and tail behavior, not the joint CLT",
+          "evidence": "Threshold tends to infinity at fixed n; the record expressly does not give a joint n-threshold asymptotic.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-ray-extreme-tail-law-for-a-stereographic-spherical-uniformit--3e5f8742448d",
+          "material_read": "RESULT.md, Finding and scope",
+          "method": "Resultary hit followed by local mirror statement reading",
+          "title": "Two-ray extreme tail law for a stereographic spherical uniformity statistic",
+          "trigger": "Distinct same-day record on the identical kernel"
+        },
+        {
+          "assessment": "Method overlap, not raw-kernel coverage",
+          "evidence": "Assumes τ²=E h_0²<∞; the subject here violates that premise.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.00753v1",
+          "material_read": "Abstract and finite moment assumptions on p. 5, offset 11200",
+          "method": "Focused primary search and bounded OA paper passage",
+          "title": "Martingalized U-statistics-based sequential inference: a blessing of degeneracy",
+          "trigger": "Possible broader logarithmic martingale U-statistic theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Resolves the untruncated null scaling in the dimension where the original test paper's square-integrable theorem stops. The normalization and joint limit determine how different parameter choices co-vary, even though finite-n raw variances do not exist. This is a mathematically useful null law, not a finite-sample calibration or a claim of power.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -17,14 +20,6 @@
 ---
 # Verification
 
-Run `python3 verify.py`.
+Run `python3 verify.py`. It constructs the distinct reduction outputs directly by deletion of the second copy and finds runs by testing all factors for their least period and one-letter nonextension. For every one of the 4,094 nonempty binary words through length 11 and 3,279 nonempty ternary words through length 7, it checks that the out-degree equals the sum of run slots and that this sum is at most the sum of the integer Lyndon charges, which is at most the word length minus one. A successful run prints `CHECK_OK binary_words 4094 ternary_words 3279`.
 
-The checker enumerates all \(4094\) nonempty binary words of lengths at most \(11\) and all \(3279\) nonempty ternary words of lengths at most \(7\). For every word it computes one-step square-reduction outputs directly, independently constructs maximal match intervals for every root length, and checks equality of the two counts.
-
-For every match interval it reconstructs the corresponding maximal periodic factor, computes its minimum period, verifies divisibility into the square-root length, and confirms that the factor is one of the word's standard runs. It then checks
-\[
-\deg^+(W)\le\sum_R\left\lfloor\frac{e(R)}{2}\right\rfloor.
-\]
-The checker also confirms that `00100` has two distinct square-reduction outputs but only one distinct square factor.
-
-The finite census is not used to infer the theorem for arbitrary length. Universal validity comes from the proof in `RESULT.md` and the cited published run-exponent bounds. Independent audit has not been performed.
+The finite enumeration is supplementary. The universal result follows from the two-way match-interval correspondence, Fine–Wilf periodicity, and the published disjointness of the Lyndon-root start sets (see `RESULT.md`).

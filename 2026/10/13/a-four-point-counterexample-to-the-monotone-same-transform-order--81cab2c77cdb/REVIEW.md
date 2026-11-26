@@ -1,19 +1,21 @@
-# Review of the four-point same-transform correlation counterexample
+# Independent mathematical audit
 
-## Correctness
-PASS. The joint law of the minimum and maximum is obtained by exact counting of all ordered triples. The moment formulas for the one-parameter transform are rational polynomials, and their quotient gives the stated correlation. The comparison with the raw correlation factors exactly as
-\[
-\frac{-96(3a-1)(17a-6)}{143(95a^2-68a+28)},
-\]
-whose denominator is everywhere positive. This proves the full open interval of strict improvement. The derivative identity establishes the unique optimizer only within the stated one-parameter family. No finite experiment is used to infer a statement beyond these exact identities.
+## correctness
 
-## Originality
-PASS. The directly relevant source explicitly defines \(R_N'\) and \(R_N''\) and reports preliminary calculations indicating \(\rho_N=R_N^{{\prime\prime}}=R_N^{{\prime}}\), including a claimed formula for \((i,j,n)=(1,3,3)\) checked for small \(N\). The present four-point witness contradicts that equality. Searches using the source notation, the four-point uniform parent, minimum/maximum transforms, and correction terms found no later published correction or equivalent counterexample. The closest indexed finite-support result varies parent probabilities for a different sample/support configuration and therefore does not imply this fixed-parent same-transform phenomenon.
+PASS
 
-## Value
-PASS. This is not a routine recomputation of an already known table: it changes the qualitative conclusion of a stated general conjectural relation in a natural first finite case. The strict inequality persists on an open interval of monotone transforms, and the family has an exact internal optimizer, showing that the failure is structural rather than a numerical accident.
+Independent enumeration of all 64 ordered triples gives counts 1 on the diagonal and 6(j−i) above it. Reflection makes the two transformed variances equal. The exact variance and covariance numerators over 256 are respectively 95a²−68a+28 and −7a²+4a+4. Affine scoring at a=1/3 gives 41/143; a=7/20 gives 1817/6335 with gap 96/905905. The positive denominator and the two factors of the difference give the full open improvement interval. The derivative numerator is 96(a²−12a+4), proving the unique maximum 6−4√2 with value (5+6√2)/47 on the stated family. The witness belongs to both admissible same-transform classes; no global supremum is inferred.
 
-## Closest literature and limitations
-Papadatos (arXiv:2205.14360v1; DOI:10.3103/S1066530723020035) is the direct source of the proposed equality. López-Blázquez and Salamanca-Miño (DOI:10.1007/s00180-021-01103-5) study unrestricted maximal correlation with two independently chosen transforms and therefore do not cover the same-transform monotone quantity here. The exact global value of \(R_4''(1,3:3)\) remains outside this finding, and an obscure differently phrased observation remains a residual literature risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The explicit monotone witness and its sign interval contradict the preliminary equality in the inspectable arXiv v1 rather than restate it. The strongest matching Resultary findings alter the parent probabilities and/or sample size, not the scoring of the fixed uniform, three-draw law. No covering result was established. This is not a claim that a proven theorem in the journal edition is false.
+
+## value
+
+PASS
+
+The small gain matters because it changes the exact qualitative answer to a stated conjectural equality under its stricter monotone common-function constraint. A rational witness and an interval of strict improvement show that this is not a rounding accident or a change of parent distribution. The within-family optimum does not claim an unrestricted optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Review of exact leaf-peeling dynamics
+# Independent mathematical audit
 
-**Correctness:** PASS. The target-set induction holds because every update intersects the original relation with a common target set. Binary equivalence classes provide at most one opposite-valued partner per agent, identifying each evaluation with two colored-neighbor tests. Alternating path/cycle components admit a transparent induction on simultaneously removed endpoints; each strict target removal deletes a reflexive original arrow. The explicit matching path attains the ceiling bound. Independent finite enumeration checked 393042 models for up to six worlds, while the general proof is symbolic. Remaining correctness scope: only the named fixed formula and binary-cell class.
+## correctness
 
-**Originality:** PASS within inspected evidence. Yamada (2026, arXiv:2609.24006v1) defines the update and studies eventual properties; the single-agent valuation-type upper bound is already in its Lemma 6, and is excluded from the novelty claim. The 2026 public state-count finding covers arbitrary finite frames with an n-cycle witness but does not imply the present exact formula or binary-cell S5 sharp bound. Targeted database and primary-paper comparisons found no equivalent exact colored-path/cycle classification. The full text of the companion sigma-validity paper was inaccessible and remains a specific residual risk. The elementary graph-peeling algorithm itself is not claimed new.
+PASS
 
-**Value:** PASS. Two-agent S5 is the canonical knowledge setting, and two-point information cells are its smallest nontrivial uncertainties. The result classifies **all** finite models in that bounded-information class for a fixed natural agreement-on-opposition formula, gives a sharp stabilization time based solely on alternating components, and demonstrates arbitrary repeated epistemic change with a single propositional bit at modal depth one. The variable-free/depth-zero obstruction isolates genuine minimal logical resources. This addresses the iteration behavior independently of previously known general finite upper bounds.
+Fix the submitted formula requiring both an a-opposite and a b-opposite successor. The recurrence gives R_i^t=R_i^0 ∩ (W×S_t) with common decreasing target set S_t. Initial reflexivity makes distinct S_t distinguishable by self-arrows, though the updated relations need not be reflexive. The at-most-two initial class size makes each opposite successor unique if present, and restriction of targets makes it available exactly while in S_t. Each color is a matching; a connected component of the two-color multigraph is an alternating path or cycle, including isolated singletons and the two-edge parallel cycle. Path endpoints fail the test, both-colored cycle vertices never fail, and applying this recursively gives exactly the claimed stages and first unchanged update. A single alternating path realizes the bound for every positive n, including n=1. On the fixed valuation propositional truths are invariant; on an initially S5 model atom-free static modal truth is constant across worlds by total atom-free bisimulation with serial relations. Thus either no arrows or all arrows are deleted by an atom-free first update, so both resource bounds hold. Independently replayed direct relation semantics on a mixed model with path, singleton components, a parallel cycle and an ordinary four-cycle; the component stages matched.
 
-**Limits:** No claim is made about arbitrary modal formulas or larger equivalence classes, nor about novel graph-core algorithms. Literature priority is conditional on full-text access to the named companion paper; no external review has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct supported claim is the complete path/cycle target trace and exact half-world index for this fixed BOTH-partners formula on initial binary-cell two-agent S5. The strongest related records cover graph geometry, a general bound, a different fixed formula in the same resource class, or a different update. They do not give the trace for the submitted formula. No priority is claimed for the coarse resource boundary independently of that trace.
+
+## value
+
+PASS
+
+For the natural opposite-truth-witness rule, the theorem traces every target at every time, distinguishes permanently surviving cycles from transient paths, and gives exact time even for disconnected models. This is a structural semantics result, not just a large example or a general monotone deletion bound. It explains how a fixed tiny formula gives unbounded lifetimes even on binary S5 information cells without confusing the formula-specific constant with a maximum over all formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

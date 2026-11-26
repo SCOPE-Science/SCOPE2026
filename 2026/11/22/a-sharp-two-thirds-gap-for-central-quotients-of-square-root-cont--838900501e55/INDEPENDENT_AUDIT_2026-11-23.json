@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:47:58.996053Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use the standard reduced complete quotients α_j=(√D+m_j)/q_j, whose conjugates are in (−1,0); this holds initially and is preserved by the continued-fraction step. In particular √D−q_j<m_j≤A. Reversal of the integer numerator is the classical least-period symmetry. Independently, the involution I(α)=−1/conj(α) sends α_j to (√D+m_j)/q_{j−1}, sends α_1 to the terminal quotient, and reverses the Gauss step on the reduced cycle since I(α_j)=a_{j−1}−conj(α_{j−1}) for j≥2. Thus m_r=m_{r+1} for the even least period, and q_r C=2m_r. If q_r=1 then m_r=A, which is already the terminal state and contradicts leastness. If q_r=2 then C=m_r is A or A−1. Otherwise 3C≤2m_r≤2A. The case A=1 causes no spurious zero value since C>0. For D=(3t)²+3 the midpoint q=3 gives C=2t, and the next state is (3t,1), proving least period two and sharpness. For C=A−2 the bound leaves precisely A=3 through 6, and an independently written integer-state census of all 36 candidates confirmed the exceptional periods [1,6], [2,8], [1,1,2,1,1,8] and [4,12] for D=15,20,21,39 respectively. The census can be replayed via /workspace/branches/d7bf490b-3a87-4a68-b58e-3fc38a047141/audit_census.py; it agrees with an independent stop-on-repeat-state enumeration. Read VERIFICATION.md and verify.py without running the supplied code. The exact finite calculation establishes the offset classification only after the universal reduction; the result is not a classification of all attainable smaller C.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Riche's Thm. 3.4 concerns parity with specified surrounding quotients. Nimbran–Levrie study repeated-block patterns and focus on a_n=a_0 or a_0−1.",
+          "Nimbran's (3.2), with n=3 and m=t, gives exactly √(9t²+3)=[3t; overline{2t,6t}]. This witness is prior coverage, not new here.",
+          "The search snippet for PII S0022314X23001385 points to a prime case with p≡3 mod 8 and no partial quotient 1; full text was not retrieved."
+        ],
+        "reasoning": "A formula for period two, a parity restriction and a condition in a special prime family do not classify what is forbidden at a fixed initial coefficient over all even least periods and all nonsquares. The known witness proves attainment but not the universal exclusion.",
+        "searches": [
+          "Riche §4.1 and Theorem 3.4; Nimbran–Levrie JIS 23.2.8 abstract and §3; Nimbran arXiv:2207.06231 §3.1.2",
+          "Targeted literature lookup on midpoint coefficients including more restrictive prime cases"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Local Resultary midpoint/gap search",
+        "Riche DOI 10.33774/coe-2024-mmbtl-v2; Nimbran–Levrie JIS 23.2.8; Nimbran arXiv:2207.06231; PII S0022314X23001385 retrieval attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The midpoint identity is an immediate consequence of prior symmetry; the witness is a literal specialization of Nimbran (3.2). Both are credited.",
+          "The universal bound uses reduced-quotient conjugate inequalities to distinguish q=1, q=2 and q≥3. The inspected period-pattern and parity statements do not provide this classification of allowed relative sizes, or its cutoff for a fixed offset."
+        ],
+        "reasoning": "The originality decision does not count known continued fractions or the reversal calculation. It concerns the resulting sharp global exclusion and finite characterization across arbitrary least-period lengths, neither of which is furnished by the compared shorter-period/pattern theorems.",
+        "searches": [
+          "Riche (4.11)–(4.12) and Thm. 3.4; Nimbran (3.2)–(3.3); Nimbran–Levrie repeated-block formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "838900501e55 is the exact match and the same frozen record.",
+          "In Riche's notation m_j=A_{j−1} and q_j=α_{j−1}. His eq. (4.11) records Perron's reversal; it gives the midpoint equality from which the present proof starts."
+        ],
+        "reasoning": "Translation of indices yields the classical numerator symmetry and, with the recurrence, q_r C=2m_r. The compared prior symmetry, by itself, is not the restriction of C relative to the initial quotient: the denominator-one exclusion and denominator-two reduced-conjugate constraints matter.",
+        "searches": [
+          "Local Resultary continued-fraction even-period central quotient, denominator gap and A−2 exceptions",
+          "Riche DOI 10.33774/coe-2024-mmbtl-v2 §4.1, equations (4.11)–(4.12)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct exact hit was returned by the bounded Resultary comparison; 838900501e55 repeats the assignment.",
+          "The period-two formulas cover the individual period-two exceptions as well as the sharp family. The independently checked 36-case table confirms the all-period result conditional on the universal cutoff; it is not itself evidence of novelty."
+        ],
+        "reasoning": "Low-radicand period lists or a period-two classification can recover individual entries. They cannot imply that the list is exhaustive among all nonsquares without an independent cutoff or comparable classification.",
+        "searches": [
+          "Local Resultary exact gap and {15,20,21,39} comparison; frozen RESULT.md table",
+          "Nimbran arXiv:2207.06231 period-two formulae (3.2)–(3.3)"
+        ]
+      },
+      "rationale": "Credit the classical reversal identity and the already covered sharpness family. The distinct contribution supported by the comparison is the sharp denominator-gap restriction for all even least periods and the resulting exhaustive first-offset classification, including the unique longer-period D=21 among those exceptions. The inspected prior statements on central parity, block patterns and short periods neither state that universal restriction nor supply the four-case classification. This is a bounded best-of-knowledge decision.",
+      "residual_risks": [
+        "The simple denominator argument may occur implicitly or explicitly in a classical or unindexed continued-fraction source; the targeted paper indexed by PII could not be inspected in full.",
+        "The sharpness family is documented in prior work; originality is not assigned to that identity or to the individual expansions in the four-entry list."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of numerator symmetry; parity result for specified neighboring patterns, not the size gap",
+          "evidence": [
+            "A_h=A_{ℓ−h−1} in the complete-quotient numerator, citing Perron. Theorem 3.4 prescribes surrounding quotients, with a conclusion about parity."
+          ],
+          "identifier_or_url": "https://doi.org/10.33774/coe-2024-mmbtl-v2",
+          "material_read": "§4.1 p. 9 eqs. (4.11)–(4.12), OA offset about 52896; Thm. 3.4 p. 7",
+          "method": "Lawful OA working-paper PDF",
+          "title": "Riche, Parity of the central partial quotient of the continued fraction expansion of √D",
+          "trigger": "Closest general midpoint statements and reversal"
+        },
+        {
+          "assessment": "Related pattern families; no universal fixed-A gap established by inspected text",
+          "evidence": [
+            "Studies Q(n)=(an+b)²+(gn+h), with emphasis on a_n=a_0 or a_0−1 in even periods."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Nimbran/nimbran14.pdf",
+          "material_read": "Abstract p. 1 and selected §3 formulas on pp. 8–9",
+          "method": "Lawful OA journal PDF",
+          "title": "Nimbran and Levrie, Patterns in Continued Fractions of Square Roots",
+          "trigger": "Same even-period midpoint and two exceptional high values"
+        },
+        {
+          "assessment": "Direct earlier coverage of sharpness witness as a special case; not an all-period restriction in inspected passages",
+          "evidence": [
+            "Equation (3.2) displays √((mn)²+n) with period block (2m,2mn); n=3 gives the frozen witness exactly."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2207.06231",
+          "material_read": "Period/central term paragraphs pp. 2–3; §3.1.2 equations (3.2)–(3.3), p. 8, offset approximately 26800",
+          "method": "Lawful arXiv PDF",
+          "title": "Nimbran, On the Structure of the Period of the continued fraction for √d",
+          "trigger": "Potential direct coverage of sharpness and period-two exceptions"
+        },
+        {
+          "assessment": "Possible related coverage; no whole-document assessment",
+          "evidence": [
+            "Snippet reports a prime-case result with p≡3 mod 8 and no quotient equal to 1. It cannot exclude further overlapping statements in the paper."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0022314X23001385",
+          "material_read": "Available search snippet only; no primary full text",
+          "method": "Targeted literature lookup and lawful open full-text attempt",
+          "title": "Article indexed under PII S0022314X23001385",
+          "trigger": "Targeted search surfaced a central-quotient claim"
+        },
+        {
+          "assessment": "Same frozen record, not separate prior coverage",
+          "evidence": [
+            "The same identifier and mathematical assertions are returned."
+          ],
+          "identifier_or_url": "2026/11/22/838900501e55",
+          "material_read": "Finding/summary with gap, sharpness and four exceptions",
+          "method": "Local Resultary comparison",
+          "title": "A sharp two-thirds gap for central quotients of square-root continued fractions",
+          "trigger": "Exact indexed comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The central quotient is singled out canonically by the least-period symmetry. The theorem gives an optimal scale bound below the two large midpoint values, and an actual finite classification of the first lower deviation across unrestricted radicands. This rules out infinitely many otherwise plausible midpoint patterns and reduces the first-offset query from unbounded period computations to 36 exact cases. The useful result is that universal cutoff and its exact consequence, not recomputing familiar individual continued fractions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

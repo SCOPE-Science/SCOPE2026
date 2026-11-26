@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof explicitly constructs the eigenfunction using Bergman kernel projection identities, proves that the chosen root is the unique one in the disk by an exact polynomial-root modulus bound, and invokes the established essential-spectrum and finite-isolated-spectrum theorems only after their hypotheses are met. The sharp curve distance is attained at an explicitly identified boundary image point, not merely lower-bounded. A single-sign-change derivative proves the unique optimizer. The high-degree constants follow from the geometric-sum root equation, with all asymptotic approximations justified in the proof. The independent finite-truncation computations are supplementary and do not establish infinite-dimensional conclusions.
+PASS
 
-## Originality
+The factorization by z−α gives α^(n−1)(∑(z/α)^k−C_n); positivity and the triangle inequality put all remaining roots at radius ≥r_n|α|, with equality only for the positive-real quotient root. C_n>n; the lower equality gives a boundary root, and at and above t=1 the designated α is not interior. Reflecting the anti-analytic component (including the constant) gives the Bergman adjoint of multiplication by the conjugate-coefficient polynomial, with one-dimensional nullspace when the symbol-minus-λ has exactly one simple disk root. The Bergman monomial projection gives the analytic load z[a+h_n(z,α)], with zero constant because p_a(α)=λ; the coefficient sum is C_n. Evaluation at α cancels the sole interior pole and fixes the analytic component uniquely in zA². The essential curve and discreteness follow from the inspected spectral theorem. Independently, normalized harmonic monomial projection makes each analytic monomial shift differ from a bilateral shift power by weights tending to zero at both ends. This yields the same essential curve and index zero off it. In |λ|<|a|−1 the symbol-minus-λ has one simple disk root by Rouché; near any constructed nonzero λ the same analytic load criterion gives a finite list of possible eigenvalues, hence isolation. Both endpoint gaps are zero; the gap derivative changes sign exactly once between them, making the radial gap positive throughout. This also proves |a|>1 there. The boundary image at α/|α| attains the lower bound from the reverse triangle inequality, proving exact distance and the unique optimizer. For the lower asymptotic write r_n=1+x_n/n; bracketing x_n by c log n with fixed c below and above one and taking logs yield x_n=log n+log log n−log 6+o(1). The claimed scaled reciprocal threshold differs from x_n by o(1). The exact optimizer power tends to e^(−1), giving both other limits. Fresh rational n=4 check gave gap 187/2000 and verified projected anti-analytic rows and pole compatibility; large-degree computations were illustrative only.
 
-PASS under a best-knowledge comparison, with the residual risk below. The closest October 2026 source provides an abstract finiteness upper bound and an implicit determinant criterion for general polynomial symbols, not an all-degree family containing \(n-1\) isolated spectral points, their exact essential-spectral separation, its unique optimum, or the linear large-degree gap limit. The 2021 source's described low-degree cases and the 2020 study on a different Bergman space do not imply the proposed higher-degree optimized polygon. The new claim requires the specific quotient-root modulus theorem and the sharp extremal computation, beyond restating the finiteness theorem. Literature searches and mathematical research record comparisons located no implication-equivalent result.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The earlier global theorem gives an exponential-in-degree upper bound on exceptional spectral points but does not explain how large explicitly realizable isolated families can be or how far they can sit from the essential curve. The minimal two-term perturbation of a monomial gives a natural test family for both questions. Its explicit unbounded polygon and optimal spectral-gap law provide structural quantitative information, not a table entry or routine single-parameter example. The optimizer and the linear scaling are mathematically motivated by the operator's essential/isolated spectral dichotomy.
+Supported for the quantitative all-degree outlier branch, including the sharp root window, exact optimal gap, and high-degree laws. The eigenvalue candidate equation is a direct specialization of a prior criterion, not an independently original spectral method. The closest cubic and quadratic records are substantive antecedents but do not establish the stated higher-degree quantitative results.
 
-## Nearest literature and limitations
+## value
 
-Huang–Wang–Zhao, arXiv:2610.09638v1, Sections 2–3, is the primary input. Wang–Zhao (JMAA 2021) is a potentially relevant degree-two/three predecessor; the complete publisher full text was unavailable, so an implicit generalization cannot be ruled out, although its scope as documented in the 2026 article is limited to degree three. Guo–Zhao–Zheng, arXiv:2007.07532, studies a different projected Toeplitz operator. Other isolated points may coexist, and exact distance to the *rest of the full spectrum* is not claimed. Only geometric simplicity is proved. Publication priority and the proof have not been independently assessed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural two-term family realizes an unbounded explicit number of isolated points where the general theorem gives only an upper count bound. The gap extremum shows separation growing linearly with degree and resolves the distinct lower-edge scale; these are useful quantitative structural facts beyond the determinant specialization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

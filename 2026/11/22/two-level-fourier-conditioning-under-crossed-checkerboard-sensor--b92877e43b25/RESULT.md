@@ -1,7 +1,7 @@
 # Two-level Fourier conditioning under crossed checkerboard sensor jitter
 
 ## Finding
-For all even integers \(M,N\ge2\) and all real \(\delta,\varepsilon\), a two-way stagger of the complete tensor Fourier grid has *exactly two* squared singular-value levels, independent of the grid dimensions. With \(s=|\sin(\pi\delta)\sin(\pi\varepsilon)|\), the levels are \(1-s\) and \(1+s\), each repeated \(MN/2\) times. Thus, if \(s<1\),
+For all even integers \(M,N\ge2\) and all real \(\delta,\varepsilon\), a two-way stagger of the complete tensor Fourier grid has at most two distinct squared singular values, independent of the grid dimensions. With \(s=|\sin(\pi\delta)\sin(\pi\varepsilon)|\), the squared singular-value multiset contains \(MN/2\) copies of \(1-s\) and \(MN/2\) copies of \(1+s\). These levels are distinct for \(s>0\) and coincide at \(1\) with total multiplicity \(MN\) for \(s=0\). Thus, if \(s<1\),
 \[
 \kappa_2(A)=\sqrt{\frac{1+s}{1-s}},
 \qquad \|A^{-1}\|_2=(1-s)^{-1/2}.
@@ -47,10 +47,10 @@ For \(s<1\), the pairing matrix satisfies \(H^2=s^2I\), hence
 The adjoint requires only four ordinary rectangular Fourier transforms: expanding each of the two factors \(e^{-2\pi i m\delta(-1)^k/M}\), \(e^{-2\pi i n\varepsilon(-1)^j/N}\) into cosine and parity-weighted sine produces the transforms of the input data multiplied by \(1,(-1)^j,(-1)^k,(-1)^{j+k}\). Their scalar frequency-dependent linear combination gives \(A^*\) exactly. Applying the paired correction costs \(O(MN)\) more, yielding \(O(MN\log(MN))\) arithmetic complexity with standard FFT implementations.
 
 ## Verification
-The companion `checker.py` uses only the Python standard library. It independently builds the full complex matrix at several even rectangular sizes and offsets, computes all Gram entries by summation, compares every entry with the explicit partner-only formula, verifies \((G-I)^2=s^2I\), and checks the predicted frame bounds on the computed spectral blocks. These are finite diagnostics; the proof above establishes the all-size result.
+The companion `checker.py` uses only the Python standard library. It builds the full complex matrix at several even rectangular sizes and offsets and compares every directly summed Gram entry with the explicit partner-only formula. It also checks the quadratic identity for the predicted off-diagonal part. These are finite diagnostics; the proof above establishes the all-size spectrum and its frame bounds.
 
 ## Relationship to prior work
-Alberti, Housholder, Iosevich, Miller and Palsson study Fourier-ratio sampling and model independently displaced sensors through measurement-error bounds, rather than an exact eigenspectrum for structured two-coordinate jitter. Yu and Townsend give nonuniform DFT stability bounds for arbitrary one-dimensional perturbed grids. Austin and Trefethen study convergence of trigonometric interpolation and quadrature under one-dimensional perturbations. The present exact two-level *two-dimensional* crossed-parity spectrum is not implied by those stated results. Its zero-loss one-way-shear limit and explicit singular boundary provide benchmarks against general small-perturbation estimates.
+Alberti, Housholder, Iosevich, Miller and Palsson study Fourier-ratio sampling and model independently displaced sensors through measurement-error bounds, rather than an exact eigenspectrum for structured two-coordinate jitter. Yu and Townsend give nonuniform DFT stability bounds for arbitrary one-dimensional perturbed grids. Austin and Trefethen study convergence of trigonometric interpolation and quadrature under one-dimensional perturbations. Chen, Lin and Zhang use periodic nonuniform sampling to estimate singular-value bounds; their Theorem 1.4 is an inverse-norm bound for one-dimensional shifted nodes. These results do not give the product-of-sines spectrum of the two-dimensional crossed pattern. The exact unitary cases and singular boundary provide benchmarks against general perturbation estimates.
 
 ## Limitations
 The theorem concerns full rectangular Fourier bandwidth and precisely two-periodic crossed displacements. It does not cover arbitrary independently jittered nodes, incomplete Fourier sampling, odd side lengths, or nonlinear noisy recovery. The absence of a presently identified equivalent published theorem is not a proof of historical novelty. At the singular boundary, only the rank statement is made; inversion is impossible.
@@ -59,3 +59,4 @@ The theorem concerns full rectangular Fourier bandwidth and precisely two-period
 - N. Alberti, C. Housholder, A. Iosevich, S. J. Miller and E. A. Palsson, *Fourier Ratio Bounds and Sensitivity to Sensor Placement*, arXiv:2611.19755v1 (first public 2026-11-15), https://arxiv.org/html/2611.19755v1.
 - A. Yu and A. Townsend, *On the stability of unevenly spaced samples for interpolation and quadrature*, arXiv:2202.04722 (2022), https://arxiv.org/abs/2202.04722.
 - A. P. Austin and L. N. Trefethen, *Trigonometric Interpolation and Quadrature in Perturbed Points*, arXiv:1612.04018 (2016), https://arxiv.org/abs/1612.04018.
+- L. Chen, R. Lin and H. Zhang, *Smallest Singular Value Estimates for Nonuniform Fourier Matrices via Periodic Nonuniform Sampling*, arXiv:2608.21960v4 (2026), https://arxiv.org/abs/2608.21960v4.

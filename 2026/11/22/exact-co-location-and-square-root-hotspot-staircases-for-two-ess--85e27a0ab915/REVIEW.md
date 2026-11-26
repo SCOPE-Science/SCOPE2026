@@ -1,19 +1,21 @@
-# Scientific review: Two-essential-resource Monod hotspot allocation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The objective and feasible set are explicit: equal normalized carbon and nutrient budgets over any finite number of identical independent patches. The proof uses an exact nonnegative square decomposition, proving both the dual-to-single resource reduction and forced co-location for **all** maximizers. A factorized derivative rules out asymmetric positive scalar maximizers; all support patterns are compared by an exact adjacent-score threshold \(T^2=k(k+1)\). Endpoint and tie cases are covered. A standalone checker passed 60,282 supplementary assertions, mostly exact rational. Finite grids are not treated as exhaustive proofs of continuous domains.
+PASS
 
-## Originality — PASS on inspected evidence
+The feasible simplices are compact and the objective continuous. For each site 2 phi(c)phi(q)=phi(c)^2+phi(q)^2-(phi(c)-phi(q))^2; with identical normalized budgets each square sum is bounded by the same scalar maximum. Taking equal vectors attains it, and zero loss requires c_i=q_i at every site by strict monotonicity. For g(x)=x^2/(1+x)^2, g'(x)-g'(y) has sign (x-y)[1-xy(3+x+y)]. On the smaller-dose half of a two-site transfer with sum u, the bracket 1-x(u-x)(3+u) is strictly decreasing, so any stationary point there is a strict minimum, not a maximum. Thus every positive-dose subset is uniform at a global optimum, including optima on the boundary. For k positive sites the score is T^2 k/(T+k)^2; the sign of its adjacent increment is exactly the sign of T^2-k(k+1). The increasing thresholds give the stated unique support size or adjacent two-way tie, with every subset of each winning size attainable. The single-resource contrast follows by strict concavity of phi. The frozen finite checker and notes were inspected, not executed; the proof covers arbitrary real doses and finite n.
 
-The primary 2024 soil heterogeneity paper directly motivates two-substrate Monod kinetics but tests and simulates spatial glucose treatments rather than freely optimizing both resources. A 2020 experimental study varied one, two, and four glucose-feeding compartments without jointly allocating carbon and nutrient. Generic sigmoidal resource allocation is well established; the present exact co-location and radical support-switch law are not asserted to pioneer that field. Closely related mathematical records on Hill inhibitor dosage and Holling-III prey placement have single budget constraints and different response laws. The 1970 Vicentini report on S-shaped allocation was only accessible as an abstract; general historical coverage of the scalar stage remains a specific, genuine priority risk. Not all older literature has been exhaustively searched.
+## originality
 
-## Value — PASS
+PASS
 
-This complete allocation theorem isolates a sharp conflict between the need to **co-locate** essential substrates at low supply and **spread** them after local saturation. All support changes, exact transition ties, and all optimizing placement patterns are classified for arbitrary patch counts, and the contrast with the one-resource concavity theorem explains the importance of complementarity. The result is a controlled mathematical benchmark, not an experimentally calibrated microbial application guideline.
+The contribution is the exact two-budget all-optimizer identification together with the squared-Monod support law, not generic S-shaped allocation, or the already familiar phenomenon of support-size staircases. The closest exact staircases use different objectives, and the accessible general solver does not give this exact solution. The older general allocation report remains a specific access risk.
 
-## Closest literature and limits
+## value
 
-Endress et al., *Soil Biology and Biochemistry* (2024), doi:10.1016/j.soilbio.2024.109509; Shi et al. (2021), doi:10.1016/j.soilbio.2020.108068; Vicentini (1970), repository abstract; Udell–Boyd (2015), author PDF. Limits include equal normalized budgets, identical independent patches, static initial uptake, and no dynamic transport. Independent external verification has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Under the stipulated balanced complementarity model, the complete equality cases distinguish when adding a hotspot beats more concentrated supply and force both independently allocable inputs to use the same sites. Closed transition budgets and ties across all n are meaningful for a static benchmark and contrast with strict spreading for one resource. No optimization of growth over time, field recommendation, or unequal-budget extrapolation is justified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

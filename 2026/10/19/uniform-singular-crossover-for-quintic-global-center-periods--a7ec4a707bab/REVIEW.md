@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The analytic proof starts with an independently checked first integral and an exact rescaled physical-time quadrature. The uniform comparison is the covariance inequality for an increasing/decreasing function under a one-parameter exponential tilt, with exact worst-case constant \(3\). The limiting profile and its asymptotics have explicit integrable majorants, so neither finite tests nor pointwise limit swaps are used as infinite proofs. The packaged script replays symbolic identities and auxiliary quadrature checks.
+## correctness
 
-**Originality (PASS subject to priority risk).** The originating 2023 global-center paper establishes the parameter family, not the singular joint-limit profile. The closest published study *Strict period decrease and sharp large-amplitude laws for quintic global centers* establishes strict period monotonicity and fixed-parameter large-amplitude limits, and explicitly identifies nonuniformity in the velocity-coupling parameter as a limitation. The new statement gives one uniformly valid quantitative enclosure and a finite-to-infinite crossover profile across that boundary; neither follows from the *fixed-parameter limits alone*. The exact quadrature in the predecessor does supply a starting point, so equivalent estimates elsewhere remain a genuine priority risk. Broader multiplier and period-function sources were consulted only at accessible abstract/metadata level, with that access limitation recorded.
+PASS
 
-**Value (PASS).** The zero-coupling and fixed-positive-coupling limits have different amplitude laws, making the singular scaling \(\\(\alpha A^4\)\) a specific natural gap, not an arbitrary observable. The dimensionless strictly monotone crossover gives a quantitative transition law, while the explicit uniform error controls every rate at which velocity coupling approaches zero. This supports effective finite-amplitude predictions, unlike two disconnected pointwise asymptotics.
+Independently reconstructed RESULT.md:36–100. Differentiation of the stated first integral cancels the velocity-squared force, and its even coercive potential, increasing for x>0, and strictly positive kinetic weight give one compact regular oval per A>0. Integrating dt=dx/y on the positive quarter of the oval and multiplying by four gives the minimal period in physical time. The substitution x=Au gives the factor 2√2, the weight exp(λu⁴/4) with λ=αA⁴, and the denominator √(I₅+εI₁) with ε=(βA⁴)⁻¹. The log-integrand derivative is (u⁴−E[v⁴])/4<0; compact λ-ranges admit a locally uniform (1−u)⁻¹ᐟ² majorant. For the uniform enclosure, the tilted mean I₁/I₅ of v⁻⁴ decreases with λ by its opposite-monotonicity covariance with v⁴; it is integrable at u=0 and bounded by its λ=0 value 3/(1+u²+u⁴). The profile at zero follows by s=u⁶. For the large endpoint the change t=λ(1−u) yields the stated kernel. Its numerator is bounded by e^(−t/4); restricting w to [0,min(t,1)] bounds the normalized denominator integral below by e⁻² min(t,1)/32 for λ≥2. The resulting majorant on (0,∞) is integrable, and the limiting integral is 4∫₀¹(1−s²)⁻¹ᐟ² ds=2π. The multiplicative enclosure then gives finite-profile and divergent-profile matching without exchanging the A and λ limits. The analytic estimates also cover α=0 and every β>0; they do not use a β=0 normalization. The supporting script was inspected, not executed. Its symbolic check and finite quadratures are ancillary, and the moment comparisons there are numerical rather than exact certificates.
 
-Limits: the normalized result requires \(\\(\beta>0\)\); its error is a rigorous bound, not an optimal constant or full next-order expansion. Independent historical and mathematical checking remains desirable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported increment over the earlier indexed period theorem is the finite-amplitude relative-error enclosure uniform on the entire α≥0 half-line, together with the single crossover matching both endpoint regimes. Neither the period quadrature nor the two fixed-parameter constants are new. There is material exact coverage in a distinct later indexed record, d8280613f6f7; this review does not claim uniqueness across the index. No inspected evidence places that exact coverage before the frozen result.
+
+## value
+
+PASS
+
+The two fixed-parameter scalings leave a genuine singular regime near α=0. The all-amplitude multiplicative estimate controls that regime even along parameter sequences with divergent crossover argument, and quantifies when the linear restoring term is negligible without restricting α. This is useful quantitative information beyond rederiving the endpoint constants or the known period monotonicity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

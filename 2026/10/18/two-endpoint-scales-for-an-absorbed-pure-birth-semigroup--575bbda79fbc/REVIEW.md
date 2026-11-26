@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The stopped-Poisson matrix kernel is differentiated explicitly. Poisson unimodality gives complete, exact sign patterns of every row and column; terminal absorption creates the Poisson-tail column. The global \(\ell^\infty\) optimizer follows by exact piecewise monotonicity. The \(\ell^1\) terminal-column optimization has a unique critical root because a polynomial in inverse time is strictly decreasing. A uniform \(O(\sqrt n)\) bound rules out every nonterminal column for large \(n\). Uniform Stirling estimates and a Poisson Chernoff bound locate the optimizer in the \(\sqrt{n\log n}\) window; a geometric bound on the upper tail yields the second asymptotic. An independently evaluated finite matrix exponential agrees with each formula on sampled dimensions and times, which is corroboration, not a universal proof.
+PASS
 
-## Originality
+The derivative of a stopped-Poisson row has nonterminal entries p_(k-1)-p_k and terminal entry p_(n-i-1). The absolute row sum is twice the largest retained Poisson mass by unimodality and zero row sum; the nonterminal column sum is the variation of the truncated mass sequence starting at zero, and the terminal column sum is F_(n-1). This gives both formulas, including mode ties, n=1, and the real/complex counting norms. The piecewise time-weighted mode grows strictly to n and then decays. For the absorbing-column optimizer, F_(n-1)/(t p_(n-1)) is a strictly decreasing sum of inverse powers, so it crosses one exactly once. Stirling at t=n-c sqrt(n log n) gives t p_(n-1)~n^((1-c^2)/2)/sqrt(2 pi), while F tends to 1 (even Chebyshev gives an O(1/log n) upper tail there); derivative signs bracket the optimizer for c on either side of 1. At the optimizer p_n=F/n and the tail geometric bound loses only O(sqrt(n/log n)) in the time-weighted norm. The nonterminal branch is bounded by the infinity-mode expression, hence its supremum is O(sqrt n) and cannot compete for large n. The spectrum follows from triangularity.
 
-**PASS within inspected sources, with priority risk.** The classical Poisson distribution and its mode are acknowledged as ingredients. Inspected work on resolvent-controlled semigroup orbit decay, fractional linear birth–death distributions and irreducible birth–death mixing does not logically include the exact two endpoint derivative norms or the absorbed-chain optimizer shift. Relevant mathematical-record comparisons include pure-birth *numerical-step positivity* and unrelated *diagonal spectral-spacing maximal regularity*, neither of which covers the statement. Accessible earlier same-topic results concern cyclic, hypercube or symmetric lattice heat processes with different generators. An older absorption paper was available only by abstract, so historical coverage cannot be ruled out exhaustively.
+## originality
 
-## Value
+PASS
 
-**PASS.** Sharp \(t\|QT(t)\|\) controls dimension-dependent time-derivative sensitivity. The same fixed spectral set \(\{-1,0\}\) supports \(\sqrt n\) growth at one endpoint and almost \(n\) at the other, with an exact \(\sqrt{n\log n}\) optimizer displacement at \(\ell^1\). The boundary-driven distinction is a motivated semigroup feature and not merely an isolated Poisson probability computation.
+The supported contribution is the exact paired endpoint optimization and in particular the absorption-induced linear ℓ1 scale and its negative sqrt(n log n) time shift, not the stopped-Poisson representation or mode estimate. The closest inspected shift- and finite-chain results have different boundary dynamics and do not yield this pair.
 
-## Boundaries
+## value
 
-The theorem covers only \(\ell^1\) and \(\ell^\infty\) on counting-measure coordinates. The eventual \(\ell^1\) optimizer theorem does not give the smallest admissible \(n\). Historical priority remains subject to later independent full-text checking, especially older absorbed birth–death literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives a sharp absorption-driven mismatch between dual counting-norm endpoints despite the same two-point spectrum for every dimension. The quantitative time shift and the exact square-root endpoint calibration provide a useful test case for dimension-dependent semigroup estimates, not just a numerical norm calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

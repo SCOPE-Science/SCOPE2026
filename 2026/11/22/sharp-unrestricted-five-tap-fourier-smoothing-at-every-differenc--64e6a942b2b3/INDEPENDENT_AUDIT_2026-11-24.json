@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:48:51.282399Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Plancherel gives the asserted operator norm at positive integer order, and y=sin²(theta/2) maps the whole circle onto [0,1] with difference amplitude 2 sqrt(y). Normalized real even symbols of degree at most two are exactly q(y)=1-a*y+b*y². For r=kappa/2>0 and h>(r+2)/r, the ratio ((r+2)h-r)/(rh-r-2) decreases strictly from infinity to (r+2)/r, whereas h^(r+1) increases unboundedly. This proves the first root prescription including uniqueness. Q(z)=1-Az+Bz² has Q(h)<0, Q'(h)>0 and B>0. Beyond its zero on (h,infinity), z^r Q(z) increases strictly from zero to infinity, so the second positive-level equation has exactly one solution. Differentiating the candidate weighted polynomial gives (r/h)y^(r-1)(zy-1)(zy-h), so the interior extrema are 1/z and h/z, and their evaluations using the root equations have signed heights +C/z^r and -C/z^r, with +C/z^r at the right endpoint and zero at the left. There are no other contacts in y. On the circle the first two interior y levels correspond to symmetric pairs of frequencies. A competitor with no larger norm must have differences of signs <=0, >=0, <=0 at the contacts. Dividing the difference by the positive y produces an affine function, so the middle value is a strict convex combination of the other two and all three must vanish. Cosine expansion recovers (5); in particular b>0 and the middle contact is negative. The constrained Fourier-nonnegative minimum exists (closed constraints, and bounded level sets from evaluation at two distinct positive y); uniqueness then implies a strict gap. Independently ran `python audit_checks/independent_replays.py 4`: 16,001-point epigraph LP and off-grid stationary point checks at orders 0.5, 1, 5, 6 and 12. At order 5 the mesh gave about 0.733730431 with off-grid ripple error about 3.2e-8 and the claimed taps to about 1e-9. The mesh is not the proof; the exact argument covers all real positive orders. Submitted code was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gaitán–Garzón–Madrid explicitly credit known unrestricted k=1,2 and establish unrestricted k=3 for this setup, covering those cases at radius two.",
+          "Resultary ec4a8b1168c3 treats higher fixed radii and includes radius two, but with k tending to infinity. Same-day fb273cabcba0 is an exact radius-three result at order four with nonzero outer taps."
+        ],
+        "reasoning": "Broader support or a limiting result does not give the exact unrestricted finite-order radius-two minimizer. In particular a minimum over radius three cannot be taken as the radius-two solution when its optimizer has nonzero third-neighbor taps. Same-date indexing does not settle order or priority.",
+        "searches": [
+          "arXiv:2604.25074v1 Table 2 and first-page overview",
+          "Resultary: sharp high-difference binomial limits for fixed-radius discrete Fourier smoothers; seven-tap fourth difference sign-changing optimizer"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.25074v1 (p. 1)",
+        "DOI 10.1112/blms.12543 (attempted)",
+        "Resultary 97ecaa4cd5e9, ec4a8b1168c3, fb273cabcba0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper's abstract limits its fourth and sixth order results to nonnegative Fourier symbols and announces a k-to-2k relationship.",
+          "The exact radius-two candidate has a negative Fourier lobe at the second interior contact at every positive order; squaring a symbol cannot produce this candidate."
+        ],
+        "reasoning": "A solution over a sign-restricted subset cannot attain this unique minimizer, and the fixed-radius high-order limit does not specify finite-order coefficients. Known low-order unrestricted results do instantiate this theorem but do not imply its all-order extension.",
+        "searches": [
+          "arXiv:2604.25074v1 restricted cases and k to 2k relationship",
+          "Resultary: exact three-tap all-order smoothest averages and fixed-radius high-order binomial limits"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact equivalent formulation is uniform approximation of y^r by the span of y^(r+1) and y^(r+2) on [0,1].",
+          "Gaitán–Garzón–Madrid p. 1 states the same convolution minimization in the unrestricted normalized symmetric class for integer k and claims k=3 and a Fourier-sign restricted conclusion for k=4,6.",
+          "Resultary 97ecaa4cd5e9 is an exact all-order radius-one, degree-one solution."
+        ],
+        "reasoning": "General weighted alternation can characterize a minimizer, but an equivalent prior evaluation would have to identify the three contact locations/heights or an exact formula for the same three-power fit. The radius-one minimizer cannot equal the radius-two optimizer with nonzero quadratic term. Older weighted-Chebyshev special cases remain an access/coverage risk.",
+        "searches": [
+          "Resultary: all-order unrestricted five-tap smoothing, weighted quadratic minimax and exact smoothest average",
+          "arXiv:2604.25074v1",
+          "DOI 10.1112/blms.12543"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Retrieved neighboring records concern all-order three taps, higher-radius asymptotics, or seven taps at order four.",
+          "The retrieved PDF overview says Fourier-nonnegative for k=4,6; Table 2's placement of unrestricted values was not independently read."
+        ],
+        "reasoning": "The strongest catalog matches do not tabulate the exact radius-two unrestricted norm at order five or give the full finite-order rule. An exact table covering order five alone would constitute overlap on that example, not all orders.",
+        "searches": [
+          "Resultary: exact unrestricted fifth difference at five taps, 0.733730437749 and all positive order",
+          "arXiv:2604.25074v1 Table 2 (targeted retrieval attempted)"
+        ]
+      },
+      "rationale": "The convolution optimization, polynomial reduction and alternation framework have prior coverage; the same radius is included in known unrestricted integer orders 1–3. The distinct contribution supported on the evidence is the explicit all-positive-real-order, finite-order, unrestricted radius-two evaluation and its unique optimizer, notably at order five and the unrestricted fourth and sixth orders. No distinct source with full equivalent or dominating coverage was established. Priority is provisional; actual retrieval limits appear below.",
+      "residual_risks": [
+        "The full relevant approximation-theory papers and Table 2 were not accessible in the bounded retrieval. A preexisting special formula for this three-term power extremal problem could be indexed under weighted Chebyshev or Müntz approximation.",
+        "The nearest catalog records were compared at statement level; mirror timeouts limit stronger full-text exclusions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified overlap for orders 1–3; the reported 4,6 statements have extra Fourier-sign assumptions",
+          "evidence": "The abstract defines the normalized symmetric class on [-n,n], credits k=1,2, establishes k=3 and k=4,6 with nonnegative Fourier transform, and announces a relation between k and 2k.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.25074",
+          "material_read": "v1 PDF p. 1, abstract lines 7–26; Table 2 requested but unavailable",
+          "method": "OA literal passage lookup/alternate PDF preview",
+          "title": "The smoothest average and some extremal problems for polynomials",
+          "trigger": "Exact same optimization at integer orders and general support radius"
+        },
+        {
+          "assessment": "No independent detailed coverage result from this attempt",
+          "evidence": "The exact low-order overlap is independently supported by the 2026 paper's abstract, not by the title of this paper.",
+          "identifier_or_url": "https://doi.org/10.1112/blms.12543",
+          "material_read": "Bibliographic reference only; full text inaccessible",
+          "method": "Attempted OA retrieval",
+          "title": "The smoothest average: Dirichlet, Fejér and Chebyshev",
+          "trigger": "Earlier smoothest-average and Chebyshev formulation"
+        },
+        {
+          "assessment": "Degree one, not degree two",
+          "evidence": "Radius-one solution by a weighted two-branch minimax equation; separate Fourier-nonnegative solution.",
+          "identifier_or_url": "2026/10/4/SCOPE-all-order-sharp-three-point-smoothest-averages--97ecaa4cd5e9",
+          "material_read": "Resultary statement",
+          "method": "Local catalog, full mirror retrieval unavailable",
+          "title": "All-order sharp three-point smoothest averages",
+          "trigger": "Exact unrestricted all-order solution on a different support"
+        },
+        {
+          "assessment": "Asymptotic, not exact at each finite order",
+          "evidence": "As k tends to infinity gives fixed-radius asymptotic, including c_2.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-high-difference-binomial-limits-for-fixed-radius-discrete--ec4a8b1168c3",
+          "material_read": "Resultary statement",
+          "method": "Local catalog, full mirror retrieval unavailable",
+          "title": "Sharp high-difference binomial limits for fixed-radius discrete Fourier smoothers",
+          "trigger": "Same radius among those covered, with sharp constants"
+        },
+        {
+          "assessment": "Related exact method and sign phenomenon, different class and quantification",
+          "evidence": "Seven taps, all positive including the outer taps, fourth difference only; not feasible at radius two.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-seven-tap-fourth-difference-smoothing-with-a-sign-changing--fb273cabcba0",
+          "material_read": "Resultary statement",
+          "method": "Local catalog, full mirror retrieval unavailable",
+          "title": "Sharp seven-tap fourth-difference smoothing with a sign-changing Fourier symbol",
+          "trigger": "Same-day unrestricted negative-lobe exact minimizer"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Five taps are the first two-free-coefficient case of the same normalized smoother problem; the fifth difference illustrates a natural previous gap. The scalar equations turn qualitative equioscillation into the actual sharp finite-order value and a unique filter, rather than just a numerical or asymptotic prediction. The negative middle contact rigorously explains why Fourier positivity raises the optimum. No utility for larger radius or nonsymmetric filters is assumed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

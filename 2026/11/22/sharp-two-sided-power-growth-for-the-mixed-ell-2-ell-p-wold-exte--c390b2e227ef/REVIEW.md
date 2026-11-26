@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact shift formulas reduce both power norms to a comparison of \(n+1\) scalar entries. The norm comparison is sharp, explicit finitely supported equality vectors are supplied for every power, and the opposite direction is contractive. Rotation conjugacy plus polynomial growth gives precisely the unit-circle spectrum; unbounded two-sided powers exclude any equivalent isometric renorming.
+## correctness
 
-**Originality — PASS, with bibliographic risk.** The 8 November 2026 primary manuscript, arXiv:2611.11536v1 (Section 5), defines this very invertible extension and characterizes when it is isometric; the inspected full section gives a one-step upper estimate rather than the exact all-iterate formula. Relevant indexed literature on finite-block \(\ell_p\) extension distortion and other weighted-shift power laws concerns different operators and does not, in the inspected material, provide the junction-specific \(n+1\) power law. A general mixed-sequence-space shift theorem not located by the searches could subsume this result. Search absence is not proof of novelty.
+PASS
 
-**Value — PASS.** This answers the stability question directly prompted by an explicit extension intended to replace the Hilbert Wold unitary construction: the non-Hilbert defect accumulates at a sharp polynomial rate in only one time direction. The invariant is the exact full power-growth sequence, not just a one-step failure of isometry. It proves that equivalent renorming cannot stabilize this completion even though a different isometric completion exists, a useful distinction in selecting Banach operator models.
+Independently split the junction-crossing n coordinates from the two unchanged tails (RESULT.md:25–55). For the forward shift the positive tail contributes its norm as one scalar alongside n crossing coordinates; the distorted block is exactly a comparison of scalar l_p^(n+1) against l_2^(n+1). The backward shift reverses that comparison. Untouched negative coordinates contribute an identical square on the respective numerator and denominator. Equal-magnitude crossing coordinates and one extra positive coordinate attain the increasing norm, and one untouched negative coordinate attains each contractive norm 1. This also proves boundedness and bounded invertibility. Polynomial growth in both directions confines the spectrum to the unit circle, and phase conjugation plus nonemptiness proves equality. Uniform norm equivalence would make both directions power bounded for a surjective isometry, which is impossible for p!=2. The ordinary bilateral l_p shift is indeed a different isometric extension. No numerical optimization is required. The equality-witness description in the verification section should be understood as referring to the growing bounds: a negative single-coordinate vector suffices in the norm-one cases.
 
-**Closest work and scope.** The primary source provides the construction and qualitative criterion, not this quantitative classification. Elementary finite-dimensional \(\ell_p\) embeddings underpin the computation. No claim is made for arbitrary extensions or multiple Wold isometries. General mixed-norm shift literature may contain an implicit formulation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Limited to the explicit all-power profile and resulting quantitative obstruction for this particular mixed-tail model. The one-step construction, qualitative isometry question, finite-dimensional comparison and general renorming criterion are not claimed as novel. The exact profile is not a consequence of the mere existence of an invertible extension or of one-step norm estimates. The best available comparisons did not demonstrate equivalent coverage. The closest paper's pinpointed sections could not be inspected in primary text, so its exact degree of overlap is an explicit uncertainty, not a claim of exhaustive priority.
+
+## value
+
+PASS
+
+The object is motivated by a specific isometric-extension construction. The opposite-direction power profiles and attained sharp growth distinguish this canonical completion from an isometric extension and distinguish its spectral-radius behavior from actual power boundedness. The exact n+1 dimension is meaningful for controlling arbitrary iterates and not supplied by a one-step estimate. This is a narrow quantitative invariant, not a general extension theorem or a new finite-dimensional inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

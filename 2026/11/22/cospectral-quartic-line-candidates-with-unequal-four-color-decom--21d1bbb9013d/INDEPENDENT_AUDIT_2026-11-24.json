@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:55:09.268889Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Convention 2.12 and Theorem 3.20/Remark 3.21 of Degtyarev–Rams confirm four mutually disjoint (-1)-vertices whose four neighborhoods partition the (-2)-rook graph into independent transversals. The Latin-square labels encode exactly such a partition. To check exhaustiveness independently, reduce the first row and column of the neighborhood Latin square to (0,1,2,3) by index and symbol permutations. The four reduced squares are the Klein table and the three simultaneous relabelings of the cyclic table. Thus the known two embeddable abstract types must be these (the color counts distinguish them). Independently reconstructed 64 edges per graph, both exact characteristic polynomials and the coloring counts (replay: python /workspace/branches/independent_replay.py 4 with SymPy). For the spectra, the symbol column space splits into the grid constant direction and three rook eigenvectors of eigenvalue -2; B^T B=4I supplies the couplings. Its orthogonal complement leaves six modes each at 2 and -2. Subtracting the two prescribed self-intersection diagonals yields the weighted blocks and inertia (1,10,9). For the count, normalize the first rook row by the unique palette permutation putting it in order (0,1,2,3); enumerate all 24 remaining Latin grids with that top row by exhausting three permutation rows, and multiply the four numbers of permissible colors for the independent extra vertices. The resulting normalized counts are 225 and 357, so the labeled counts are 5400 and 8568. Neither the matrices nor this enumeration establish separate geometric realizability of the candidates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Besharati et al.'s order-four graphs have 16 vertices and put same-symbol edges between cells. Degtyarev–Rams's Figure 1 and Remark 3.14 are for 28 lines, not the two 20-line candidates. The opening of González-Alonso–Rams gives a quartic line-count problem rather than these finite invariants."
+        ],
+        "reasoning": "The scope of the Latin-square chromatic results and the alternative quartic configuration does not include these two graphs or the chromatic-polynomial evaluations. The classification equips the graphs with the right self-intersection weights but not their spectra.",
+        "searches": [
+          "arXiv:1510.02521v2, definition on pp. 1–2",
+          "arXiv:2506.22733v1, §3.4 and Figure 1/Remark 3.14",
+          "arXiv:1505.02018, opening passage"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2506.22733v1",
+        "arXiv:1510.02521v2",
+        "arXiv:1505.02018",
+        "Published-finding search, including exact self-match 21d1bbb9013d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The geometric paper provides the rook graph plus four transversals, but not the symbol-coupling block factorization or extensions of all 4-color grids. In particular, the symmetry orbit count for partitions defining the graph is not its count of proper color decompositions."
+        ],
+        "reasoning": "Neither classifying the candidates nor solving chromatic-number questions for conventional Latin-square graphs already gives the count separation under two equal spectra; the block calculation and exhaustive extension census are needed.",
+        "searches": [
+          "arXiv:2506.22733v1, Theorem 3.20 and Remark 3.21",
+          "arXiv:1510.02521v2, first-page claim and definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same two candidates can be specified as four independent transversals of GQ(3,1) with four extra vertices. The dual graph is on the resolution, so the four lines through O are pairwise disjoint for this graph."
+        ],
+        "reasoning": "The group-table labels re-encode existing candidates rather than providing new examples. The exact coloring census and spectral comparison give different information than their known two-type classification.",
+        "searches": [
+          "Degtyarev–Rams, arXiv:2506.22733v1, Convention 2.12, Theorem 3.20, Remark 3.21",
+          "Published-finding semantic searches for twenty-line resolved-quartic dual graphs, augmented rook graphs and C4/V4 Latin-square transversals"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact published-finding hit was the assigned article. The Latin-square chromatic tables use a different graph and statistic. The geometric remark gives two partition orbits of the rook subgraph for constructing the candidates, not a table counting four-partitions of the augmented graphs."
+        ],
+        "reasoning": "A classification of construction data or of chromatic numbers of another graph does not tabulate these coloring counts. The bounded search is not a claim about all finite graph tables.",
+        "searches": [
+          "Published-finding semantic search for the two augmented-rook models with 5400/8568 labeled colorings or 225/357 partitions",
+          "arXiv:1510.02521v2, abstract and graph definition",
+          "arXiv:2506.22733v1, Remark 3.21"
+        ]
+      },
+      "rationale": "The two abstract types and their permitted incidence structure are prior; the shared adjacency/weighted polynomials together with the exact differing natural four-partition counts are supported as the distinct result on the checked evidence.",
+      "residual_risks": [
+        "An equivalent entry in an uninspected finite graph enumeration may contain these invariants; the evidence does not certify priority.",
+        "The graph result does not settle realizability or identify a full Picard lattice."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of abstract candidate classification, not the spectra and census in those passages",
+          "evidence": [
+            "The (-2)-graph is GQ(3,1); each (-1)-line meets four pairwise disjoint (-2)-lines; the four neighborhoods split the rook graph into four maximal independent sets. Both types embed in the prescribed lattice; realization of both by quartic lines is not established."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2506.22733v1",
+          "material_read": "Convention 2.12 p. 7, OA offset 19450; Theorem 3.20 p. 18 offset 51800; Remark 3.21 p. 19 offset 52800; checked Figure 1 and Remark 3.14 pp. 14–15 for object identification",
+          "method": "OA full-text passages",
+          "title": "On large configurations of lines on quartic surfaces",
+          "trigger": "Strongest exact-object antecedent and geometry conventions"
+        },
+        {
+          "assessment": "Different adjacency and target statistic",
+          "evidence": [
+            "The vertices are cells, adjacent if they agree in row, column or symbol, with no independent symbol vertices. The paper reports chromatic-number data for main classes through order eight."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1510.02521v2",
+          "material_read": "PDF pp. 1–2, OA offsets 0 and 3500, title/abstract and graph definition",
+          "method": "OA full-text passages",
+          "title": "On the chromatic number of Latin square graphs",
+          "trigger": "Plausibly broader Latin-square coloring theorem or table"
+        },
+        {
+          "assessment": "Context on line bounds; inspected passage only, not a whole-paper exclusion",
+          "evidence": [
+            "The opening describes line counts and configurations on quartics, not these spectral or coloring invariants."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1505.02018",
+          "material_read": "PDF p. 1, OA offset 0, opening description",
+          "method": "OA full-text passage",
+          "title": "Counting lines on quartic surfaces",
+          "trigger": "Related primary quartic-line count reference"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The objects are the two pre-existing maximal twenty-line candidates, and four is the smallest possible number of disjoint families because a rook row already forms a 4-clique. The two exact numbers of minimal disjoint-line decompositions separate those candidates even with both ordinary and weighted intersection spectra fixed. This is a useful exact invariant at the level at which both abstract types are known, without asserting existence of both surfaces.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:14:10.524727Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Wrapping preserves integer Fourier moments; the exponential and Erlang moments at r are θ/(θ−ir) and its square. With A=1+θ² one obtains u=θ²/A−2qθ²/A² and v=θ/A+qθ(θ²−1)/A². Substitution gives D=|m−1/2|²−1/4=q²θ²/A² and v+√D=θ(1−u). Since q≥0 and u<1, the positive branch gives the claimed inverse; the (θ,q) Jacobian is 2qθ²/A³ and vanishes at the null. Under the null the gradient g=(2u−1,2v) has norm 1 and g·(u,v)=u. The second raw moment of g·(cos T,sin T) is (1+Re[(g₁−ig₂)² θ/(θ−2i)])/2. Subtracting u² gives the stated positive V(θ). The bounded vector triangular-array CLT and quadratic Taylor remainder give centered variance V(θ₀) for θ_n→θ₀>0 and q_n→0; the plug-in converges to θ₀ and the scaled population D at q_n=c n^(−1/4) gives exactly the claimed mean shift. At fixed q>0 the population D is positive and v/(1−u)>0, so the test is consistent. For the lower bound, differentiation of the unwrapped exponential then wrapping gives k_θ−h_θ=−θ∂_θh_θ. With θ in a compact positive-rate neighborhood, Taylor error against h_{θ(1−q)} is uniformly O(q²), and its density floor is strictly positive. The squared Hellinger distance is O(q⁴), tensorizes at most linearly in n and implies TV→0 below the fourth-root scale. The nearby null sequence stays in the neighborhood, so uniform near-rate size control, not merely pointwise size, suffices for the impossibility bound. No all-rate uniform calibration or local-efficiency claim is established. The supplied checker.py was read, not executed; it tests moments, inversion and variance on finite grids, not the limiting-testing theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The bounded literature results included general mixture singularities and fourth-root estimation rates, but did not verify a primary generic detection theorem applying to this exact null and tangent.",
+          "Resultary 19b32d8edddb reports an n^(−1/4) detection scale for linear tilts in a scalar uniformity U-statistic problem, not the wrapped exponential unknown-rate family."
+        ],
+        "reasoning": "Generic second-order tangency can explain the exponent and the Taylor/Hellinger method; an estimation rate by itself is not a testing theorem with composite-null calibration. None of the verified broader statements specifies this moment statistic, its null variance or its local Gaussian mean.",
+        "searches": [
+          "Resultary: generic finite mixture testing unknown nuisance parameter n^-1/4 detection boundary Hellinger lower bound",
+          "Web: finite mixture testing n^-1/4 detection rate composite null unknown nuisance parameter generic theorem singularity Hellinger lower bound"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–75; VERIFICATION.md; checker.py; REVIEW.md",
+        "Bhattacharjee 2020 DOI 10.28919/jmcs/4888, abstract and §§2.1–2.2",
+        "Bhattacharjee–Ahmed–Das 2021 Thai Statistician article 242815, Propositions 2–3 and conclusion",
+        "Resultary fc434f91e926 and 19b32d8edddb; bounded primary generic-mixture search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two published moment formulas imply the population algebra for D and its inverse once one solves the two real equations, so raw moment calculation is not distinct novelty.",
+          "Both published comparison passages describe likelihood fits, simulations or AIC/BIC against wrapped exponential models; those comparisons do not supply calibrated local-power and impossibility statements.",
+          "The lower bound requires the density tangent to coincide with a null-rate tangent, then a uniform local Taylor/Hellinger argument. A moment-level singular Jacobian alone does not imply TV indistinguishability of full samples."
+        ],
+        "reasoning": "The supported distinction is the explicit implementable statistic and its pointwise and local laws, together with an n-sample lower bound over nearby nuisance rates. No claim that generic theory could not recover the exponent is needed for that distinction.",
+        "searches": [
+          "Bhattacharjee 2020 §§2.1–2.2 and abstract, DOI 10.28919/jmcs/4888",
+          "Bhattacharjee–Ahmed–Das 2021 Proposition 2–3 p. 85 and conclusion p. 93, Thai Statistician article 242815",
+          "Resultary 19b32d8edddb and generic-mixture query above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bhattacharjee 2020 §§2.1–2.2, pp. 2393–2394, gives a/(1+a) and 1/(1+a) weights for wrapped exponential and wrapped shape-2 gamma; eqs. (2)–(4) give integer Fourier moments.",
+          "Bhattacharjee–Ahmed–Das 2021 p. 85, Prop. 2 eq. (7), gives θ²(θ+b−ip)/[(θ+b)(θ−ip)²]; Prop. 3 gives its noncentral trigonometric moments.",
+          "With b=θ/a both formulas agree, q=1/(1+a)=b/(θ+b). The adjoined null q=0 corresponds to a→∞ or b→0."
+        ],
+        "reasoning": "Exact alias equivalence covers the model and its moments. At q=0 the moment traces the circle |m−1/2|=1/2. The normal displacement is D, of order q², which is why the composite-null test concerns a singular boundary and not an ordinary reparameterized comparison of fitted likelihoods.",
+        "searches": [
+          "Resultary: wrapped exponential Erlang first trigonometric moment discriminant parameter inversion D fourth-root test",
+          "Resultary: wrapped quasi-Lindley wrapped two-parameter Lindley exponential Erlang circular data moments",
+          "OA queries: mixture (Bhattacharjee 2020) and trigonometric moments (Bhattacharjee, Ahmed and Das 2021), followed by offsets 8842 and 13060"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching entry fc434f91e926 is the assigned finding, not another source. Distinct indexed quarter-power comparator 19b32d8edddb concerns a different null, statistic and alternatives."
+        ],
+        "reasoning": "The finding index is an appropriate exact lookup. No finite data table could establish a composite-null local asymptotic experiment or the n-sample total-variation bound.",
+        "searches": [
+          "Resultary: unknown rate composite exponential null fourth-root detection boundary mixture singularity local power total variation",
+          "Resultary: wrapped exponential Erlang first trigonometric moment discriminant parameter inversion D fourth-root test"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the combined explicit first-moment inversion and calibrated composite-null test, with its local normal drift and matching near-rate total-variation lower bound. Both published Lindley names describe the same interior family, whose mixture representation and Fourier moments are already known. The inversion is short algebra from those moments, and no originality is awarded to the bare fourth-root rate as a generic phenomenon. The distinct supported content is the model-specific inferential theorem; the inspected primary passages give moment formulas and compare fits, not this test or lower bound.",
+      "residual_risks": [
+        "A general singular-mixture testing result may anticipate the exponent or lower-bound method. The evidence supports only the model-specific combined theorem, not broad priority.",
+        "The inspected primary passages do not rule out a separate circular-exponential test or another equivalent statistic in earlier material; unrestricted historical priority is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same density and integer moments; fit comparison in the abstract is not a composite-null local-power theorem",
+          "evidence": "The displayed mixture weights are a/(1+a) and 1/(1+a); the abstract describes simulation of likelihood estimates and comparing fits by log-likelihood, AIC and BIC.",
+          "identifier_or_url": "https://doi.org/10.28919/jmcs/4888",
+          "material_read": "Publisher PDF abstract and §§2.1–2.2, printed pp. 2393–2394, offset 8842 onward, eqs. (2)–(5)",
+          "method": "Lawful publisher PDF, targeted OA literal location and offset read",
+          "title": "Exploration of some distributional properties, parameter estimates and applications of the wrapped quasi Lindley distribution",
+          "trigger": "Same interior mixture under another parameterization"
+        },
+        {
+          "assessment": "Eq. (7) is exactly the same Fourier moment; the inspected estimation and fit claims differ from the singular-boundary test",
+          "evidence": "Eq. (7) gives θ²(θ+b−ip)/[(θ+b)(θ−ip)²]. The conclusion describes maximum likelihood, simulation and log-likelihood/AIC/BIC comparisons with wrapped exponential and wrapped Lindley models.",
+          "identifier_or_url": "https://ph02.tci-thaijo.org/index.php/thaistat/article/view/242815",
+          "material_read": "Publisher PDF Proposition 2 and Proposition 3 at printed p. 85, offset 13060 onward; conclusion at printed p. 93, offset 39520 onward",
+          "method": "Lawful publisher PDF, targeted OA literal location and offset reads",
+          "title": "Wrapped Two-Parameter Lindley Distribution for Modelling Circular Data",
+          "trigger": "Same family with a different mixture parameter"
+        },
+        {
+          "assessment": "Same exponent but a different statistical problem",
+          "evidence": "The indexed result treats blindness of a scalar uniformity U-statistic and fourth-root detection for linear tilts, not a wrapped exponential composite null.",
+          "identifier_or_url": "2026/11/22/SCOPE-monotone-blind-alternatives-and-a-quarter-power-detection-bounda--19b32d8edddb",
+          "material_read": "Indexed statement summary",
+          "method": "Local Resultary search",
+          "title": "Monotone blind alternatives and a quarter-power detection boundary",
+          "trigger": "Strongest distinct same-scale indexed finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fitting model already in use has a singular null when its rate is unknown. The result turns that singularity into a usable first-moment test with explicit local power and a matching impossibility scale for any test with local uniform size control. These are concrete inferential consequences beyond deriving another moment formula, without asserting optimal power, finite-sample size control or robustness to an unknown angular origin.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

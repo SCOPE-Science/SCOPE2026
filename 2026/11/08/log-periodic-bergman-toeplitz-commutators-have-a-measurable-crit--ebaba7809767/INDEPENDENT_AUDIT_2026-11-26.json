@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:05:56.279809Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stated monomial normalization follows from the weighted ball Dirichlet integral. The radial symbol has diagonal beta moments, and the first-coordinate shift maps distinct inputs to orthogonal outputs with coefficient sqrt[(α₁+1)/(m+d+τ+1)]. Thus |C| is exactly diagonal with the absolute weighted increments. For a Fourier mode ζ=ikω the exact finite difference is ζ U_k(m)/(m+d+τ+1−ζ); the gamma ratio gives Δ_m=m⁻¹G'(log m)+O(m⁻²), avoiding differentiation of an asymptotic error. Counting α₁=j and using a bounded-variation beta Riemann sum gives Γ(1+p/2)/Γ(d+p/2) times m^(d−1)+O(m^(d−2)) for the weights, with the single disk monomial handled directly. The d-th power has a summable O(m⁻²) shell error, and the Lipschitz periodic average integrates to the stated R log M+O(1); G is nonconstant since gamma has no zeros. Shell decay suffices for p>d, divergence at d implies divergence for all smaller positive p, and the degree count gives s_j=O(j⁻¹/d). For ordered sums at N=binom(M+d,d), the degree sum is a lower bound. Contributions from the at most N selected indices of degree >M are in total at most N·O(M⁻ᵈ)=O(1), giving the upper bound even if G' vanishes at some phases. Interpolating and using log N=d log M+O(1) proves the ordered coefficient R/d and the stated measurability. The beta average of |sin|^d gives both stated unweighted examples. Independent transformed beta quadratures and a disk sorted-sum check used python -B /workspace/independent_checks.py 2; these are finite diagnostics, not the spectral proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Engliš–Guo–Zhang give a boundary Poisson-bracket trace of products of commutators for smooth symbols. The radial Schatten paper concerns the Toeplitz operators themselves. Only a search summary of the latter commutators paper was accessible, describing finite-rank questions for monomial-type symbols."
+        ],
+        "reasoning": "No smooth boundary-value formula applies directly to a radial profile with no boundary limit. Schatten behavior of T_f does not give the critical trace of this compact [T_f,M_z1]. The scope of the inaccessible commutators article beyond its summary was not decided.",
+        "searches": [
+          "Engliš–Guo–Zhang arXiv:0707.2025 p. 2",
+          "Bendaoud–Kupin–Toumache–Touré–Zarouf DOI 10.15407/mag16.01.003, open PDF p. 2",
+          "Commutators and Semi-commutators of Toeplitz Operators on the Unit Ball DOI 10.1007/s00020-016-2326-x"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–122 and 128–140; VERIFICATION.md, CHECK.py and requirements.txt (read only)",
+        "Resultary 9530b76e3bef, 8dcf61e17ffb, 48fa5cf0ec0d",
+        "arXiv:2603.10879, 0707.2025; DOI 10.15407/mag16.01.003, 10.1007/s00020-016-2326-x"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Looi gives an oscillatory radial Toeplitz eigenvalue profile and Berezin comparison, not an eigenvalue-increment estimate through summable error. The special disk counting theorem uses strict monotonicity of a complex two-mode threshold separated from zero."
+        ],
+        "reasoning": "An O(m⁻¹) eigenvalue error cannot simply be differenced into O(m⁻²), and a real G' can vanish. The exact gamma recurrence plus degree counting and order-independent control yield a quantitative trace without assuming such threshold monotonicity.",
+        "searches": [
+          "Looi arXiv:2603.10879 Thm. 3.2, Props. 3.3–3.4; Resultary 9530b76e3bef original Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both Bergman examples reduce to weighted shifts using radial beta moments. 9530b76e3bef uses a disk symbol with two same-sign imaginary powers and a ratio restriction; the target uses conjugate-symmetric finite Fourier data in all complex dimensions."
+        ],
+        "reasoning": "Taking real parts of a complex symbol changes the increment to its real part before taking an absolute value. The existing singular counting and trace of the complex shift do not determine those of its real-symbol counterpart by linearity. The disk formula also does not account for total-degree multiplicity in higher dimensions.",
+        "searches": [
+          "Resultary 9530b76e3bef, Finding, scope and exact diagonal calculation",
+          "Looi arXiv:2603.10879 §3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first gives explicit disk counting and trace for the complex profile. 8dcf61e17ffb derives Gamma–Mellin oscillations and a measurable power for a positive geometric-circle measure Toeplitz operator. 48fa5cf0ec0d derives a critical residue for a Hardy-space Cantor moment-dilation commutator."
+        ],
+        "reasoning": "The latter two have different operators and shell spectra. The first materially covers the mechanism and an adjacent analytic-symbol regime but does not give the exact weight- and dimension-dependent residue for real profiles. The identical indexed record was excluded as an independent comparison.",
+        "searches": [
+          "Resultary 9530b76e3bef, 8dcf61e17ffb and 48fa5cf0ec0d"
+        ]
+      },
+      "rationale": "Limited to the explicit critical law for finite real log-periodic profiles across complex ball dimensions and power weights, including the Gamma-filtered residue and bounded-error ordered law. A same-day record closely overlaps the mechanism and gives a stronger counting law in a special complex disk family, not a dominating theorem for the profiles or dimensions here. Looi's beta-eigenvalue calculation is prior input, not the claimed novelty.",
+      "residual_risks": [
+        "A broad radial moment-commutator theorem in uninspected work could subsume spectral parts; relevant unit-ball commutator article was not retrievable in full.",
+        "The closest same-day disk work materially overlaps the spectral mechanism; date alone establishes neither priority nor independent invention."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap in disk, with stronger counting in the special regime, not full coverage. No priority inferred from the common date.",
+          "evidence": "Two normalized complex modes, 0<b<(1+τ)⁻¹, implicit threshold H, N_K(s)=H/s+O(1), measurable |K| with explicit integral.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-log-periodic-weyl-counting-with-bounded-remainder-for-a-bergman--9530b76e3bef/RESULT.md",
+          "material_read": "Finding, scope and opening proof; offset 0",
+          "method": "Original local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Log-periodic Weyl counting with bounded remainder for a Bergman Toeplitz commutator",
+          "trigger": "Strongest same-operator match, distinct same-day record"
+        },
+        {
+          "assessment": "Related beta eigenvalues, not the claimed commutator law.",
+          "evidence": "Half plus cosine log-radial example compares oscillating Toeplitz spectrum with Berezin behavior.",
+          "identifier_or_url": "arXiv:2603.10879",
+          "material_read": "§3.2 Thm. 3.2 and Props. 3.3–3.4, offsets 26300–31727",
+          "method": "Primary OA HTML",
+          "title": "Positive Berezin liminf does not imply essential positivity for radial Toeplitz operators on Bergman and Fock spaces",
+          "trigger": "Origin of the logarithmic radial symbol and eigenvalue profile"
+        },
+        {
+          "assessment": "Boundary smoothness excludes the frozen symbol; different trace formula.",
+          "evidence": "Dixmier traces of products of commutators of smooth-symbol Toeplitz operators via the boundary Poisson bracket.",
+          "identifier_or_url": "arXiv:0707.2025",
+          "material_read": "PDF p. 2, offset about 4800",
+          "method": "Primary OA PDF",
+          "title": "Toeplitz and Hankel operators and Dixmier traces on the unit ball of C^n",
+          "trigger": "General critical commutator traces on the same domain"
+        },
+        {
+          "assessment": "Addresses radial Toeplitz operators themselves.",
+          "evidence": "Abstract and introduction describe Schatten membership and spectral properties for radial or quasi-radial Toeplitz symbols.",
+          "identifier_or_url": "DOI 10.15407/mag16.01.003",
+          "material_read": "Open PDF p. 2, offsets about 1500–3200",
+          "method": "OA PDF copy",
+          "title": "Toeplitz Operators with Radial Symbols on Bergman Space and Schatten-von Neumann Classes",
+          "trigger": "Broader radial Schatten criteria"
+        },
+        {
+          "assessment": "Specific wider coverage unresolved, not used to assert noncoverage.",
+          "evidence": "Available summary concerns finite rank for monomial-type operators.",
+          "identifier_or_url": "DOI 10.1007/s00020-016-2326-x",
+          "material_read": "Search summary only",
+          "method": "Primary OA retrieval attempted; redirects prevented full-text inspection",
+          "title": "Commutators and Semi-commutators of Toeplitz Operators on the Unit Ball",
+          "trigger": "Matching operator and domain in the title"
+        },
+        {
+          "assessment": "Related mechanisms, different operators.",
+          "evidence": "Positive Toeplitz from geometric-circle measure; Hardy Cantor moment-dilation commutator.",
+          "identifier_or_url": "Resultary 8dcf61e17ffb; 48fa5cf0ec0d",
+          "material_read": "Original Findings, offset 0",
+          "method": "Local mirrors",
+          "title": "Log-periodic Mellin spectra and measurable weak traces for geometric-circle measures; A logarithmically periodic singular spectrum and critical residue",
+          "trigger": "Nearby Mellin oscillation and critical residue findings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The example answers a concrete question at the edge of smooth-symbol trace theory: a boundary-oscillating bounded symbol with no boundary limit still has a strictly positive measurable critical commutator power. The exact dimension- and weight-dependent trace and the uniform bounded error in ordered sums are useful quantitative invariants, not merely another radial Toeplitz moment calculation or a compactness test.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

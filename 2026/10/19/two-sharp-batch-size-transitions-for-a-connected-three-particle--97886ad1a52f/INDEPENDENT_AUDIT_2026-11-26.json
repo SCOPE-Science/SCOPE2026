@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:40:16.798391Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two-sided reset construction is stationary, and coupling with the same driving processes removes every initial coordinate after its first reset, since each marginal reset rate is rm/N>0. Given reset times, the squared positions of distinct labels have independent conditional means 2D times their ages. Independently of the generator proof, order the k age thresholds in the integral of their joint survival function: going backward, the protected set has sizes k,k-1,...,1 on the successive intervals, with Poisson hit rates r*q_j. Integration over unconstrained successive interval lengths, and k! possible orderings, gives M_k=(2D/r)^k k!/product(q_j). Thus the displayed normalized V is the third cross-cumulant, with positive denominators since q_j>=m/N. An independent SymPy 1.14 replay at /workspace/branches/40acab28-45a3-4de5-93a4-d5f0d96e69b1/independent_check.py checked the rational reduction, divisibility by m-3, the exact comparison with m=3, all listed coefficients in both positivity ranges, and the endpoint comparison. The substitutions cover 4<=m<=N-2 in full for N>=10, and V(3)>V(N-1)>V(N)=2>V(1)=0. The last difference has sign opposite N^2-77N+228; its smaller root is below 10 and the larger is strictly between 73 and 74, so there are no integer ties in the remaining range. Exact enumeration at 3<=N<=9 gives the stated unique maxima and runner-up 2 each time. Boundary spot checks also give V_10(3)-V_10(2)=325/1836 and V_74(3)-V_74(2)=-50653/360289620. The proof for unbounded N uses coefficient positivity, not finite enumeration. The frozen checker, notes and dependency file were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact Fokker–Planck recurrence determines marginals of every order using only marginals of at most that order.",
+          "The broader heterogeneous exemption theorem at uniform exemption probability 1/N and k=3 gives V_N(N-1)=2+2/(N-1)^3."
+        ],
+        "reasoning": "Third moments are covered as implicit exact input from the recursive hierarchy. All-but-one exemption fixes m and thus cannot compare it against m=2 or 3. No inspected general theorem classifies the third-cumulant global maximizers over all m.",
+        "searches": [
+          "arXiv:2601.20077v3 closure passage at offsets 6420–8720 and SM S6.2",
+          "arXiv:2603.03162v1 tuning-correlations passage",
+          "Resultary f771955abc35 all-but-one-reset Finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.20077v3",
+        "arXiv:2603.03162v1",
+        "Resultary f771955abc35 and 83d8c983aa19"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The existing recursion makes the three-label moment and rational objective computable at each N,m. The heterogeneous exemption theorem determines one endpoint. The multivariate excursion theorem concerns a rate function and transitions in excursion thresholds."
+        ],
+        "reasoning": "Computability and exact endpoint data do not certify dominance against every interior batch for unbounded N. The positive-coefficient range proof and the strict endpoint and quadratic comparisons establish a distinct global classification, rather than just evaluating the existing recursion at a new parameter.",
+        "searches": [
+          "arXiv:2601.20077v3 all-order closure statement and pair optimization S6.2",
+          "Resultary f771955abc35 and 83d8c983aa19 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior model is exactly the same; its optimized observable is the pair covariance of squared coordinates, with the change at N=6.",
+          "f771955abc35 concerns connected energies and contains the m=N-1 endpoint; 83d8c983aa19 concerns joint excursion far tails rather than cumulants."
+        ],
+        "reasoning": "Calling X^2 energy or choosing units D,r merely rescales a cumulant and cannot change the maximizing m. Pair versus third connected cumulants and far-tail rates versus integrated moments are mathematically different criteria: at N=10, the pair optimum is 2 but the cross-cumulant optimum is 3.",
+        "searches": [
+          "Resultary semantic search for third connected squared-displacement/energy cross-cumulant, fixed-size batch resetting and batch optimum",
+          "arXiv:2601.20077v3 Fig. 2 and Supplement S6.2",
+          "Resultary f771955abc35 and 83d8c983aa19"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact plotted/table-equivalent prior optimizer is for pair covariance (tie at N=6, m=2 for N>6). The retrieved exact all-but-one record gives one boundary value rather than an optimizer table."
+        ],
+        "reasoning": "Those results give neither the cutoff at 10 for replacing N-1 by 3, nor the cutoff at 74 where 2 wins over 3. Agreement of m=2 in the large-N range alone does not imply equality of classifications.",
+        "searches": [
+          "Resultary semantic search for uniform batch-reset N=10 or N=74 maximizer transition",
+          "arXiv:2601.20077v3 Fig. 2 and SM S64–S70"
+        ]
+      },
+      "rationale": "The same process and its all-order marginal recursion are prior, and the third-cumulant formula is extractable from that recursion. The all-but-one endpoint is also covered by a broader catalogue theorem. Credit the complete integer optimization with two distinct transitions and exact exclusion of all other batch sizes, not the closure or endpoint.",
+      "residual_risks": [
+        "The broader websearch returned no substantive match; comparison rests on the inspected primary passages and bounded Resultary results. This does not exclude unindexed third-order optimization results.",
+        "Coverage of moments via the prior hierarchy and of the explicit all-but-one endpoint is acknowledged; no calendar priority inference was made from the catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the hierarchy and the pair optimization, not the third-cumulant classification",
+          "evidence": "Closed exact marginals of all orders; for squared-position pair covariance the objective is (4D^2/r^2)N^2(m-1)/(m^2(2N-m-1)), with a tie at 6.",
+          "identifier_or_url": "https://arxiv.org/html/2601.20077v3",
+          "material_read": "Model/closure passage around offsets 0 and 6420–8720; Supplement S6.2, Eqs. S64–S70, offsets 88491–93490",
+          "method": "OA HTML passage inspection",
+          "title": "Tuning the strength of emergent correlations in a Brownian gas via batch resetting",
+          "trigger": "Identical reset model and exact earlier batch optimizer"
+        },
+        {
+          "assessment": "Reports pairwise strength tuning",
+          "evidence": "The batch-model passage gives the two-point correlation and discusses other observables as open.",
+          "identifier_or_url": "https://arxiv.org/html/2603.03162v1",
+          "material_read": "Tuning the strength of correlations in the NESS, HTML offsets 30000–35407",
+          "method": "OA HTML passage inspection",
+          "title": "Dynamically Emergent Correlations",
+          "trigger": "Review of the same model and related observables"
+        },
+        {
+          "assessment": "Covers the endpoint as a special case; no comparison across m",
+          "evidence": "At k=3 and uniform exemption 1/N gives the exact normalized value 2+2/(N-1)^3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-alternating-connected-energy-correlations-under-heterogeneous-al--f771955abc35/RESULT.md",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Resultary search, mirror inspection and specialization",
+          "title": "Alternating connected energy correlations under heterogeneous all-but-one resetting",
+          "trigger": "Strongest same-observable catalogue overlap"
+        },
+        {
+          "assessment": "Different observable and optimization variable",
+          "evidence": "Gives a far-tail rate function and age-pooling geometries conditional on excursion thresholds.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-multivariate-excursion-cones-and-optimal-age-pooling-under-batch--83d8c983aa19/RESULT.md",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Resultary search and mirror inspection",
+          "title": "Multivariate excursion cones and optimal age pooling under batch resetting",
+          "trigger": "Closest catalogue transition for at least three labels in the same batch model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Batch size is the natural control parameter in this solvable correlated Brownian model; the connected third moment isolates collective dependence not optimized by the known pair criterion. The complete all-size optimizer and strict integer cutoffs identify when large synchronized batches, triples, or pairs maximize it, with robustness to diffusivity and Poisson rate scaling. This is an exact classification across the model's full batch domain, not a few convenient numerical slices.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim concerns exactly the integrable ABC axis with normalized strengths \(1+\delta\) and \(1\). The Hamiltonian reduction gives the axial winding from a physical-time quadrature. A two-end logarithm with a uniform bounded remainder, followed by minimization of the singular variational profile, yields both leading and log–log terms. Energies away from the separatrix are excluded by explicit comparison, and continuity supplies the paired rational resonances. The proof neither extrapolates finite experiments to all parameters nor assumes a unique minimizing torus.
+## correctness
 
-**Originality — PASS under checked evidence, with a material priority risk.** Dombre et al. 1986 Appendix A is a very close and important predecessor: it already computes the integrable vortex winding in elliptic-integral form. This earlier result is credited, and the claimed contribution is not an alternative exact winding formula or existence of rational winding. The new statement is a two-term asymptotic **minimum under coalescing coefficients**, obtained by a singular simultaneous parameter-and-energy optimization of that formula. The 1986 full text and 2026 motivating text were inspected; neither inspected statement gives this minimization or its log–log coefficient. The known exact formula could have allowed another author to derive it independently; bibliographic uniqueness is not established.
+PASS
 
-**Value — PASS.** The optimization quantifies the collapse of the smallest accessible winding near equality of transverse strengths. Its secondary logarithm cannot be inferred from center linearization or simple fixed-energy separatrix period growth, and the resulting small-winding window gives geometrically distinct paired resonant tori. This is a natural singular limit of a physical rotation invariant, not a parameter chosen for numerical convenience.
+Reconstructed the physical-time quadrature from xdot squared = 1-(E-B cos x)^2 and sin(x/2)=sqrt(u) sin(phi), counting four quarters. The centre limit is 2 pi/sqrt(B). With s=E-delta and alpha=1-u, beta=w, the error after replacing the integrand on the lower half by (phi^2+beta)^(-1/2) is bounded in integral by O(1+alpha log(1/beta)); this is bounded on delta^3<=s<=s0. On the reflected upper half the analogous bound is O(1+(alpha+beta)log(1/alpha)); both logarithms have coefficient 1/2. For s<delta^3 the lower-half integrand is at least (phi^2+beta)^(-1/2), excluding this range by comparison with the trial s=delta/(2 log(1/delta)). In the small window the comparison reduces to minimizing 2Lt-log(t), t=s/delta, L=log(1/delta). Outside that window the explicit lower bound with subtractive term -CE (fixed C) increases up to a sufficiently small fixed E0, and for E>=E0 the period is bounded below directly by the quadrature (both factors under the square root are at most one). This proves the global two-scale asymptotic, near-edge localization of all minimizers, and attainment. The two-torus statement follows from continuity on either side of a minimizer and the endpoint values; it does not imply uniqueness. The supporting quadrature code was inspected, not executed; the singular limit is analytic.
 
-**Closest coverage and risk.** The central earlier source is Dombre et al., *Chaotic streamlines in the ABC flows* (1986), particularly §4 and Appendix A. The 2026 Szumiński–Llibre paper develops different perturbative orbit and integrability results. Any earlier quantitative treatment of the same coalescence optimization may affect the priority judgement. The theorem does not claim persistence when \(A\ne0\), a unique shearless torus or a limiting constant for the \(O(1)\) term.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the optimized two-term singular asymptotic and minimizing-energy localization. The elliptic winding formula and rational-periodic-torus criterion are prior work, not independent novelty claims. The checked nearby statements do not establish the global minimum through the log-log term.
+
+## value
+
+PASS
+
+This is an all-energy extremal claim in a natural degenerating vortex family. It resolves the rate at which the minimum available resonant winding collapses, with a secondary term not supplied by the winding quadrature alone. The exact scale and localization distinguish it from an example of a rational periodic orbit or a leading-order numerical fit; no nonintegrable or perturbative consequence is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:58:02.013785Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently assembled the two real steps in primary/auxiliary block order: their diagonal primary skew terms have opposite signs, so the negative step is the transpose of the positive one. An orthogonal singular-vector basis for A splits the real product into complex 2-by-2 Hermitian Gram blocks and their conjugates. For c=1-rho and t=eta*sigma, the step has diagonal c-it,c and real off-diagonal rho. The squared determinant modulus is (1-2rho)^2+c^2 t^2>0 and the squared Frobenius norm is 2(c^2+rho^2)+t^2. The period characteristic polynomial at 1 equals -rho(2-rho)t^2, so one root lies on each side of 1; both are positive. A synchronized mode (v,v) has period Rayleigh quotient 1+t^2/2 by direct application of the one-step block, so its expanding projection is nonzero. The upper-right Gram entry rho(2c+it) is nonzero, so the expanding eigenvector has nonzero primary component and the decaying component cannot conceal its asymptotic growth. Orthogonal real modes cannot cancel. This gives the asserted multiplicities and geometric divergence for exactly the specified initialization class. At rho=eta=1/2, the static complex step roots are 1/2 ± sqrt(3)/4 plus an imaginary part of magnitude 1/4, giving the stated radius, while the period roots are (5 ± sqrt(21))/8. The OGDA reduction follows from hat z_(k+1)=z_(k+1)+eta K_k z_k at rho=1/2. The strict inequality 1<1+t^2/2 follows simply from t>0. The attached verifier was not executed and is not essential to these exact calculations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 of the original DGDA paper concerns static bilinear convergence with restrictions on the step. Fiez et al. treat continuous-time periodic GDA. Resultary d44a5f263a5b concerns order of damped shear factors in a period-four model."
+        ],
+        "reasoning": "None has the alternating DGDA memory map as an included case with full damping and initialization coverage. In particular continuous-time recurrence is not a singular-value bound on a discrete two-step map.",
+        "searches": [
+          "arXiv:2403.09090, Theorem 2",
+          "arXiv:2111.03377, Theorem 1",
+          "Resultary: switching and Floquet stability of saddle updates"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verification package",
+        "arXiv:2403.09090",
+        "arXiv:2310.02604",
+        "arXiv:2111.03377",
+        "Resultary 149fcb8a5c56 and d44a5f263a5b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A Gram product alone ensures nonnegative multipliers but does not imply that they straddle 1 or that the primary trajectory expands under a synchronization constraint. The special determinant at 1 and synchronized Rayleigh quotient give these two different facts."
+        ],
+        "reasoning": "Neither substituting alternating stage matrices into a static stability bound nor replacing the game in the existing OGDA example supplies the determinant, projection, and primary visibility checks. The affirmative all-initialization result addresses a different quantifier from the older counterexample.",
+        "searches": [
+          "arXiv:2310.02604 Appendix C.1 expanding initialization",
+          "arXiv:2403.09090 static bilinear theorem",
+          "Frozen RESULT.md proof of the transpose-product mode reduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At rho=1/2 the frozen auxiliary system eliminates to time-varying OGDA with step eta/2. Feng et al. already give a sign-alternating rectangular 1-by-2 example with exponential growth from expanding starts."
+        ],
+        "reasoning": "The OGDA example is a qualitative precedent, not an equivalent statement: damping is fixed by the reduction, the dimensions are different, and the older proof uses an expanding subset of starts rather than the frozen synchronized-initialization quantifier.",
+        "searches": [
+          "Resultary: deterministic sign-flip Floquet instability of dissipative gradient descent-ascent",
+          "arXiv:2310.02604, Theorem 3.2 and Appendix C.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest returned exact-growth catalogue result, 149fcb8a5c56, computes a mean-square factor for randomly changing sequential sweep order in a scalar game. The other comparison uses different factors and period four."
+        ],
+        "reasoning": "Neither exact indexed quantity represents the DGDA period eigenvalues. The main claim is a symbolic spectrum on continuous parameters rather than one that a table of examples can settle.",
+        "searches": [
+          "Resultary: sign-flip DGDA Floquet spectrum",
+          "Resultary 149fcb8a5c56 and d44a5f263a5b"
+        ]
+      },
+      "rationale": "The static DGDA update, generic transpose-product identity, and qualitative period-two optimism counterexample are not new. The supported distinct result is the complete contractive/expansive Floquet spectrum and divergence of every synchronized nonzero start for every invertible square coupling and the entire stated damping and positive stepsize range. The strongest retrieved prior results did not imply that statement.",
+      "residual_risks": [
+        "The primary and indexed comparison is bounded, not a priority certification for every switched linear-system formulation. The broader general search produced no usable result and was not treated as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Static result, not periodic",
+          "evidence": "For a fixed bilinear A the theorem gives convergence for a stepsize restricted by 2rho/sigma_max(A)^2.",
+          "identifier_or_url": "arXiv:2403.09090",
+          "material_read": "Theorem 2, p. 5, PDF text offset about 33500",
+          "method": "Bounded OA primary passage",
+          "title": "Dissipative Gradient Descent Ascent Method: A Control Theory Inspired Algorithm for Min-max Optimization",
+          "trigger": "Defines the same DGDA update"
+        },
+        {
+          "assessment": "Qualitative overlap; different coupling and nonuniversal initialization",
+          "evidence": "The example alternates ±[1,-1] and demonstrates expanding starts, not divergence for all initial points.",
+          "identifier_or_url": "arXiv:2310.02604",
+          "material_read": "Sec. 3.2, Theorem 3.2, p. 7; Appendix C.1, p. 19; offsets about 29700 and 72400",
+          "method": "Bounded OA primary passages",
+          "title": "On the Last-iterate Convergence in Time-varying Zero-sum Games: Extra Gradient Succeeds where Optimism Fails",
+          "trigger": "Exact rho=1/2 elimination connects DGDA to periodic OGDA"
+        },
+        {
+          "assessment": "Continuous-time result",
+          "evidence": "Theorem 1 gives recurrence for periodic continuous-time GDA, not Floquet multipliers of simultaneous DGDA.",
+          "identifier_or_url": "arXiv:2111.03377",
+          "material_read": "Sec. 4.1, Theorem 1, p. 6, offset about 26800",
+          "method": "Bounded OA primary passage",
+          "title": "Online Learning in Periodic Zero-Sum Games",
+          "trigger": "Periodic bilinear games with common equilibrium"
+        },
+        {
+          "assessment": "Analogous failure of static reasoning, different operator and observable",
+          "evidence": "The exact fair-mixture mean-square factor is 1+t^4/2 for randomized sequential sweeps.",
+          "identifier_or_url": "2026/11/8/SCOPE-random-order-instability-of-bounded-alternating-descent-ascent-o--149fcb8a5c56",
+          "material_read": "Original finding for random scalar sweep order",
+          "method": "Resultary lookup and local-mirror comparison",
+          "title": "Random-order instability of bounded alternating descent-ascent",
+          "trigger": "Switching individually bounded saddle iterations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact spectrum separates full-state stability from what happens under the algorithm's standard initialization. The universal excitation result rules out reducing the positive step as a remedy for this concrete switch, and the separately stable static example makes the distinction operational for saddle algorithms. This is more than the familiar observation that arbitrary products of stable matrices can be unstable.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

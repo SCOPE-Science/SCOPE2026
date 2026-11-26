@@ -1,19 +1,21 @@
-# Scientific review: complete tangential-gradient interpolation ranks at icosahedral vertices
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The differentiated Legendre addition kernel gives the exact twelve-by-twelve Gram matrix of first derivatives. Its entries lie in \(\mathbb Q(\sqrt5)\) up to a positive common scaling. Exact rational-quadratic arithmetic proves the finite exceptional rank sequence through degree fourteen. A nonzero determinant modulo the specified unramified prime certifies each full-rank case from degree fifteen through ninety-nine. Strict Bernstein-based block dominance proves all remaining degrees. The antipodal parity fixes the target size at twelve. The bundled source programs are self-contained and their actual execution completed successfully.
+PASS
 
-## Originality — PASS, with residual literature risk
+Differentiation of parity gives opposite-point tangent gradients related by (-1)^(ell+1), leaving six independent tangent planes. Two tangent derivatives of the addition kernel give precisely the stated two-term Gram block and the diagonal ell(ell+1)/2 in orthonormal frames. I independently evaluated exact harmonic Cauchy extensions of the z^0 and z^1 coefficient data through degree 14: their gradients on the six representatives reproduce the entire rank vector including the rank-nine defect. A separate explicit Legendre polynomial expansion gave nonzero Gram determinants mod 10141 at every degree 15 through 99. The denominators are invertible there, so these are characteristic-zero lower bounds of 12. For ell≥100, the Bernstein bound at ±1/√5 gives |P_n|<0.09 for n≥99, and the derivative identity gives |P'_ell|<27ell/160. The resulting five-block off-diagonal row sum is strictly less than the diagonal ell(ell+1)/2. Hermitian block diagonal dominance establishes positivity for the whole infinite tail.
 
-The closest general literature concerns differentiation of spherical harmonics (Weniger), harmonic cubics with icosahedral vertex nodal sets (Hitchin), regional vector harmonic concentration (Plattner–Simons), and icosahedral symmetry harmonics (Cohan). Previous value-interpolation classifications on different icosahedral-related line sets share some resonant degrees but do not determine gradients at the six antipodal icosahedron vertex pairs; an eight-observation tetrahedral-gradient classification likewise does not imply this twelve-observation rank law. The entire 1958 Cohan paper was not accessible; its tables may entail a stronger earlier observation, and publication priority is therefore not independently established.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This theorem completely determines the all-degree solvability of a natural twelve-coordinate differential sampling problem at the vertices of a highly symmetric polyhedron. The last exceptional degree fourteen, after earlier full-rank degrees, is a meaningful failure of simple monotonic expectations. The result distinguishes exact-degree gradients from value interpolation and identifies a provable permanent recovery threshold without claiming broader sampling stability.
+The supported distinct claim is the all-degree derivative-only classification on the six antipodal icosahedral vertex axes, especially the final rank-nine defect at degree 14. The strongest retrieved rank-pattern match concerns scalar values on ten dodecahedral axes and is not the same sampling map. The older symmetry-harmonic full-text access gap remains explicit; no equivalent rank theorem was established from accessible evidence.
 
-## Limitations
+## value
 
-Only scalar harmonics at one exact degree and first tangential derivatives at regular icosahedron vertices are covered. No numerical conditioning or arbitrary-node theorem is asserted. Older symmetry tables unavailable in full remain a priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact-degree tangent interpolation on the vertex set of a Platonic solid is a concrete inverse problem. The result tells when all parity-compatible measurements are independently attainable, pinpoints three remaining compatibility conditions at degree 14 despite full rank just below it, and certifies that no later obstruction occurs. This information is not determined by the basic dimension count or by the available symmetry multiplicities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

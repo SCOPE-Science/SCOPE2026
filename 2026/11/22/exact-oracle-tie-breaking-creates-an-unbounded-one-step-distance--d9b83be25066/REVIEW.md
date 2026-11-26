@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Finding:** Exact-oracle tie-breaking creates an unbounded one-step distance transient under gradient-radius initialization.
+## correctness
 
-## Correctness — PASS
+PASS
 
-The domain, exact local linear minimization objective, gradient-radius initializer and clipped short-step agree with the primary algorithm. The nontied KKT multipliers are nonnegative and the tangential slope enforces uniqueness; substituting the resulting oracle into the accepted step proves the squared-distance expression and the strict sharp bound \(R<2\). In the tied case, all exact oracle points lie on one vertical feasible disk section. The clipped rational step has two monotone branches, giving the claimed complete piecewise maximum, minimum and the fixed-objective amplification family. The argument covers the stated boundaries \(a=0\), \(a=p\), and the one-sided nontied limit. Finite checks are supporting evidence only.
+The constrained minimizer is (0,0) and the gap is au+(u²+v²)/2 with Hessian I. On the default disk, q=0 forces precisely the face u=0, |y|≤√(a²+2ap). If q≠0, the asserted point on that face satisfies ball and halfspace stationarity with multipliers |q|/b>0 and p+a−p|q|/b≥0; the Lagrangian is strictly convex, proving uniqueness even at a=0. Then ||d||=||g|| and Cauchy–Schwarz makes the step the unconstrained line minimizer with 0<η≤1. Its final point has inner product ap with d (since (x₁+ae₁)·d=0); its transverse component has squared size p²(b−|q|)²/||d||². This gives the stated ratio. Its bracket is 2b²−2(ap+b|q|), hence R<2; substituting a=1, q=p³ gives R→2. On the tied face set w=p²+y², C=p(p+a). The ratio is (w−p²)/p² up to C and 1+(p+a)(a−p)/w thereafter on [p²,(p+a)²]. Monotonicity yields the two claimed maxima; continuity and y=0 give the full range. At a=p the second branch is constant, so y²=ap is a maximizer but not the only one; when a=0 the face degenerates and the ratio is zero. The off-tie limit is 2a/(p+a) and is strictly below a/p for a>p. With a=1, p=n⁻² and y=√p the step accepts the oracle output in full, with point-distance factor n and gap ratio (p/2)/(p+p²/2)=1/(2+n⁻²). Only the first update is covered. The source checker was inspected, not executed; its finite tests are ancillary to the exact reconstruction.
 
-## Originality — PASS (with residual risks)
+## originality
 
-The closest primary comparison is Kolzenburg--Richtárik, arXiv:2611.11354v1, which supplies the exact short-step algorithm and objective convergence, but not this first-step point-error sharp classification. The earlier exact local-oracle Fejér bounds of arXiv:2605.08850 and arXiv:2609.33383 require controlled admissible/Polyak radii, unlike the default gradient radius used here. The earlier negative distance construction with a relaxed oracle does not logically imply the exact-oracle tied-face result. Scientific record searches and full accessible primary-text comparisons did not locate the particular formula or fixed-problem discontinuity. Older implicit equivalences and incompletely accessible related records remain real priority risks; a failed search is not a novelty certificate.
+PASS
 
-## Value — PASS
+The algorithm, gradient-radius initialization and objective convergence are established. The distinct claim is the exact first-step distance envelope and discontinuity, including unbounded amplification on one fixed quadratic by exact tie selection and the sharp bound when selection is unique. The closest checked negative examples have materially different oracle or radius hypotheses.
 
-The result separates objective convergence from one-step solution-distance stability under the *actual default initialization* and *exact* oracle hypothesis. For a fixed, unit-conditioned strongly convex quadratic, two valid exact tie choices can respectively land at the optimizer or send the point error arbitrarily many times farther away, even while objective error contracts; the nontied case is sharply capped at squared factor two. This is a precise boundary for selecting exact local linear minimizers and interpreting point-error diagnostics, not an arbitrary parameter-table computation.
+## value
 
-## Scope and remaining limitations
+PASS
 
-The proof concerns only one update on the given halfspace and quadratic family. It does not imply failure of eventual convergence or quantify floating-point tie perturbations. A mathematical priority review beyond the inspected primary literature and accessible research records is still desirable; no independent audit has been performed.
+The example isolates a genuine failure mode of a documented default radius and exact oracle on a fixed condition-number-one objective. The sharp unique-oracle bound shows the blowup is tied to the permitted exact selection, not simply ill-conditioning or proximity to a tie; the gap contraction rules out conflating it with failure of objective descent. This meaningfully delimits first-step point-distance guarantees without claiming anything about eventual convergence or practical tie policies.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

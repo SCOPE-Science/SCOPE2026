@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:02:00.382818Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 19–96",
+        "Frozen VERIFICATION.md, lines 19–27",
+        "Frozen verify.py, lines 9–87, inspected without execution; separate grid/refinement of the scalar objective"
+      ],
+      "rationale": "For a fixed supercritical q the final susceptibility is on the lower branch below the peak q^(1/p); taking the seed to zero selects the nontrivial root of 1-s=q integral_s^1 u^(-p)du by strict concavity and continuity. Every interior s produces q in (0,1) with s<q^(1/p)<1, and the objective is positive inside and vanishes at the endpoints. For fixed s, h_p is the reciprocal L^p norm of the nonconstant 1/U_s, so evaluation at the larger exponent's interior maximizer gives strict decrease. At p=2 the objective is sqrt(s)-s, maximized at s=1/4. At large p, the bound on s<=1-epsilon loses a fixed fraction of log p; the band 1-s<=p^(-1/2) has at most (1/2+o(1))log p. On the intervening band, the exponent in h_p/s has size O(log p/p), so the uniform error in p(h_p-s) is O((log p)^2/p) plus an exponentially small term. The resulting strictly concave F_L has interior maximizer y=1/(1+z) with z+log z=L-1 and value z; it beats both edges. This proves the o(1) remainder and the claimed log-log correction. A separate 20,000-point grid with local refinement gave M(2)=0.25, M(2.5)=0.2323013, M(3)=0.2174250 and M(20)=0.0812554; this is finite corroboration only.",
+      "residual_risks": [
+        "No bound uniform in the initial seed or pointwise exponent ordering at fixed q is asserted. Numerical samples do not certify the infinite-parameter statements."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nguyen develops the invariant, final-size relation, peak and optimization for beta f(S)I, and uses it for f(S)=aS^3."
+        ],
+        "reasoning": "The general method contains the starting scalar optimization, but the inspected statements do not compare all real p or establish an asymptotic for its varying maximizer.",
+        "searches": [
+          "Primary literature: nonlinear incidence overshoot, exponent/pure-power family, sharp Lambert-W asymptotic",
+          "arXiv:2303.01653, pp. 3–4 and 14–15"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and its references",
+        "Primary and local sources listed in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior derivation applies to general f and furnishes final-size and peak identities. The distinct claims require a strict power-mean comparison at an attained maximizer and uniform asymptotic control in the maximizing region."
+        ],
+        "reasoning": "The new conclusion is not the operation of substituting S^p into the known identities. The cross-parameter and localization arguments are necessary to infer the claimed strictness and sharp remainder.",
+        "searches": [
+          "arXiv:2303.01653 pp. 3–4, 14–15; compare Frozen RESULT.md lines 45–96"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day exponential-escape record switches the discrete peak day for fixed initial fractions.",
+          "The Lambert-W/overshoot record uses a cutoff and log-periodic amplification for pooled finite differences in a two-rate group model.",
+          "The SEIR catalogue summary concerns a latency duality and a post-peak minimum, not the power exponent; full local record unavailable."
+        ],
+        "reasoning": "A peak-day jump, group finite-difference overshoot or optimization over SEIR latency is not the homogeneous SIR susceptibility drop optimized over q at each power exponent. The same date is not used as a priority criterion.",
+        "searches": [
+          "Resultary: power-law incidence, post-peak susceptibility drop and overshoot; Lambert-W overshoot",
+          "2026/10/18/SCOPE-a-unique-peak-day-transition-and-sharp-jump-in-an-exponential-es--38bab3caed7e",
+          "2026/11/22/SCOPE-a-sharp-overshoot-threshold-and-log-periodic-amplification-in-tw--30d76c685dc3",
+          "2026/10/26/SCOPE-reciprocal-latency-duality-and-the-unique-seir-overshoo--aecfc17f8040"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nguyen reports final susceptibility about 0.310 and optimized overshoot about 0.217 in the cubic case.",
+          "Nguyen et al. give 0.2984... for bilinear incidence, attained near R_0=2.151.",
+          "The inspected closest catalogue matches do not provide a power-family envelope or the claimed asymptotic."
+        ],
+        "reasoning": "Fixed-exponent values are credited; a finite collection of such values cannot give a strict ordering for all real p or the constant and log-log terms in the large-p law.",
+        "searches": [
+          "arXiv:2303.01653, pure-cubic worked optimum pp. 14–15",
+          "arXiv:2303.01650, p. 1",
+          "Resultary: exact peak and overshoot records in equivalent_formulations"
+        ]
+      },
+      "rationale": "Pass for the strict ordering of the optimized envelope and its sharp large-exponent asymptotic, to the best of current knowledge. The method for general nonlinear incidence and the cubic optimum are prior coverage, and the variational formula and elementary quadratic evaluation are not the basis for this pass.",
+      "residual_risks": [
+        "Bounded literature search; unindexed overlapping work remains possible. The SEIR hit was comparable only at catalogue-summary level."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior general invariant and optimization method plus cubic instance, not the inspected across-exponent law.",
+          "evidence": [
+            "Optimizes overshoot for incidence beta f(S)I using final-size and prevalence-peak identities; for f(S)=aS^3 gives s about 0.310 and overshoot about 0.217."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.01653",
+          "material_read": "PDF pp. 3–4 (text offsets 11300–17695), pp. 14–15 (offset 59600)",
+          "method": "Bounded passages from lawful open PDF",
+          "title": "Upper Bounds on Overshoot in SIR Models with Nonlinear Incidence",
+          "trigger": "Strong prior coverage of the setting, method and worked power example"
+        },
+        {
+          "assessment": "A fixed bilinear case outside p>=2.",
+          "evidence": [
+            "Peak-to-final drop at most 0.2984..., attained near R_0=2.151."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.01650",
+          "material_read": "PDF p. 1, text offset 1600",
+          "method": "Lawful open PDF, bounded passage",
+          "title": "Fundamental Bound on Epidemic Overshoot in the SIR Model",
+          "trigger": "Canonical exact optimization in the classical SIR setting"
+        },
+        {
+          "assessment": "Different observable, incidence model and seed regime.",
+          "evidence": [
+            "Peak-day switch and jump in a discrete exponential-escape model at fixed initial fractions."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-unique-peak-day-transition-and-sharp-jump-in-an-exponential-es--38bab3caed7e",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A unique peak-day transition and sharp jump in an exponential-escape SIR model",
+          "trigger": "Same-day peak and nonlinear transmission match"
+        },
+        {
+          "assessment": "Not the same overshoot quantity.",
+          "evidence": [
+            "Lambert-W cutoff and log-periodic growth for pooled finite differences."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-overshoot-threshold-and-log-periodic-amplification-in-tw--30d76c685dc3",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A sharp overshoot threshold and log-periodic amplification in two-rate group contagion",
+          "trigger": "Closest Lambert-W and overshoot wording"
+        },
+        {
+          "assessment": "Lead only; not a full-text exclusion.",
+          "evidence": [
+            "Catalogue describes a latency duality and minimum in SEIR."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-reciprocal-latency-duality-and-the-unique-seir-overshoo--aecfc17f8040",
+          "material_read": "Catalogue summary only; matching local file unavailable",
+          "method": "Local Resultary catalogue and mirror attempt",
+          "title": "Reciprocal latency duality and the unique SEIR overshoot minimum",
+          "trigger": "Nearby post-peak optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–31 and 98–105",
+        "arXiv:2303.01653 pp. 3–4 and 14–15"
+      ],
+      "rationale": "The classical post-peak burden question motivates the same maximization for nonlinear incidence. Known individual values do not describe how that bound changes as the exponent varies. Strict decay and the sharp log-log correction resolve that family-level question rather than just supplying another numerical instance. This is an abstract-model result, not a forecast or claim about arbitrary epidemics.",
+      "residual_risks": [
+        "No empirical estimate or extension to finite seeds, heterogeneous contact, or stochastic epidemics is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

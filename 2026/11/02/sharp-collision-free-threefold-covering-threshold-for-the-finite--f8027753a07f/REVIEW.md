@@ -1,18 +1,21 @@
-# Scientific review: restricted cubic moment sums
+# Independent mathematical audit
 
-## Correctness — PASS
-For every finite field of characteristic at least five, the proof determines the unrestricted fiber by a quadratic-character quartic in the auxiliary sum \(u=x+y\), then removes precisely three pair-collision loci by inclusion-exclusion, restoring the all-equal locus twice. The cubic collision equation has at most three roots, so at most nine ordered representations are removed. Nonsingular quartics have genus one and two rational points at infinity: Hasse's bound gives at least \(q-2-2\sqrt q>9\) unrestricted representations for \(q\ge23\). The singular locus \(w=s^3/9\) factors and is handled explicitly; the diagonal locus \(w=s^3\) has a direct count. Complete finite enumeration certifies every smaller eligible field and all claimed absence sets. The code was executed for 6,371 complete target fibers including extension fields. Risk: finite checks alone would not prove the infinite statement; the proof's genus-one and singular-case arguments supply that step.
+## correctness
 
-## Originality — PASS, with residual historical-priority risk
-Moreland--Zieve, arXiv:1304.1442, Section 6, studies the *same pair of moments* but asks for infinitely many rational solutions to fixed Diophantine equations, using elliptic curves of positive rank; it does not state a collision-free finite-field universal threshold or classify missing targets for six small fields. Choudhry (2010), Sections 2 and 5, studies rational/integer equal-sum and equal-cubes parametrizations, not all target fibers over finite fields. The closest accessible published cubic-graph Fourier results concern twofold energy, a sharp \(L^4\) norm, or orthogonal character spectra, not pairwise-distinct threefold covering. An accessible historical result on *unrestricted* threefold cubic sums for \(q\ge11\) does not imply the restricted conclusion: the present \(q=19\) example has six forbidden targets. Searches were performed by exact moments, distinctness, finite-field aliases, elliptic reductions, sharp bounds, and numerical exceptions. Residual risks include an unlocated specialist result or a full-text table not surfaced by searches; the general elliptic method is not claimed as new.
+PASS
 
-## Mathematical value — PASS
-This is an exact natural restricted-additive-basis classification for the cubic moment graph over **all** finite fields in the stated characteristics, rather than an isolated finite enumeration. It finds the optimal covering threshold \(23\), all smaller-field obstructions, and an exact formula for the number of ordered collision-free representations of *every* target. Distinctness is essential for additive configurations without repeated summands, and the difference between the unrestricted threshold and the restricted threshold is mathematically substantive. The answer combines the arithmetic structure of elliptic-curve point counts with exact local degeneracy correction.
+Fixing u=x+y and z=s−u leaves a quadratic for x,y except at u=0; multiplying its discriminant by u² gives precisely P. At u=0 there are q solutions iff w=s³. Each pair-equality condition has h solutions by substitution, with their common triple present iff w=s³/9; inclusion–exclusion gives −3h+2 times the indicated triple indicator. The quartic is squarefree off w=s³ and the repeated-root case w=s³/9 with s≠0 (the other critical point of the cubic factor, 2s, is excluded by the nonzero constant). Its two rational points at infinity yield R=q−2−t_E, while the singular factorization gives q−2−χ(−3) and w=s³ gives 3q−2 or 3q−3. Thus the bound q−2−2sqrt(q)>9 for q≥23 suffices after excluding all collisions, with larger lower bounds in the degenerate cases. The Finding's prose loosely identifies the character sum with the trace; in the proof's convention the sum is −1−t_E for a squarefree quartic, and line 68, the boxed count, and the theorem all use the correct normalization. I independently enumerated sorted distinct triples, adding six to each fiber, and sorted multisets with weights 1,3,6 for the unrestricted count. This recomputes every fiber for p=5,7,11,13,17,19,23,29,31, matches both formulas, confirms the scaling list for each nonzero s, and gives exactly 16,22,20,16,16,6 holes below 23. Reproduction: loop over combinations and combinations_with_replacement of range(p) of size 3, key by (sum of entries mod p, sum of their cubes mod p), and compare against the displayed formula with the quadratic character evaluated from the set of nonzero squares. The source checker was inspected, not executed; the universal characteristic and extension-field claim follows from the analytic proof, not the prime-field computation.
 
-## Closest literature and limitations
-- Moreland--Zieve (2013), arXiv:1304.1442: same moment equations over \(\mathbb Q\), different quantifiers and objective.
-- Choudhry (2010), DOI 10.46298/hrj.2010.171: integer/rational Diophantine parametrizations, not finite-field target coverage.
-- Hasse bound: established tool, not claimed as new.
-- Characteristics two and three excluded; residual historical-priority uncertainty remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the sharp restricted cutoff together with the exact restricted fibers and full small-field holes, not for the reduction of the moment equations to genus one or the nonsingular unrestricted Hasse bound. The strongest same-day record uses the identical curve pencil, identifies the same singular parameters in different coordinates, and already proves the nonsingular unrestricted lower bound. Its stated coverage permits repetitions, and its two exceptional-fiber assertions use repeated entries. The restricted theorem retains the collision count, genuinely different holes even at fields with unrestricted coverage, and distinct representations at the exceptional fibers. These are not contained in the checked unrestricted record; the matching date establishes neither direction of priority. Moreland–Zieve supplies the general change of variables but not the finite-field exact restricted classification.
+
+## value
+
+PASS
+
+A restricted additive-basis invariant is natural for a finite-field polynomial graph, and the exact cutoff shows when the unrestricted covering guarantee can be realized by three genuinely different summands. In particular q=19 separates the two phenomena although all other unrestricted targets also exist there. The result gives the quantitative restricted fiber formula and identifies every obstruction below the sharp boundary, which is more useful than an unspecified large-q bound and does not depend on claiming the elliptic method itself as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

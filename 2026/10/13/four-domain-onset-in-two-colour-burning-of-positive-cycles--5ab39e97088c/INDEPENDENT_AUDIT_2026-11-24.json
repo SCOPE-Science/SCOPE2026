@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:30:34.532591Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 18–61; VERIFICATION.md; frozen BFS/DFS programs, crosscheck and output logs (inspected, not executed)",
+        "Own replay: python /workspace/review_evidence/cycle_codes_independent.py",
+        "Fallat et al., arXiv:2610.02506v1, Definition 2.1, Proposition 2.9, Remarks 2.10(i) and 3.5"
+      ],
+      "rationale": "The successor rule computes both neighbor influences from the pre-spread state, then ignites exactly one remaining vertex unless terminal. Burned sets strictly increase, so exhaustive closure gives all and only legal terminal words. An independently written two-mask round search plus a multisource hypercube BFS reproduces all counts, run types, and distance histograms at orders 3–10. It confirms that the 8 nonconstant order-four words are exactly the singleton-minority words, and compares all two-boundary words at orders 5–10. At order ten the two alternating targets alone attain radius four; the independently enumerated path has radius three. For n≥10 fire from any given ignition cannot reach farther than its number of completed spreads: vertices 2, 4 and 6 evade all previous sources when ignited, in particular d(0,6)≥4 at round four. Their permanent alternating signs force a boundary on each of the four disjoint arcs in any completion. Balanced signatures form the positive switching class; switching carries the code by coordinate sign flips, giving the stated n minus radius plurality corollary.",
+      "residual_risks": [
+        "The infinite construction proves at least four boundaries, not an exact code, covering radius, or extremal boundary count for n>10. This is the Finding's quantifier; the shorthand in Limitations should not be read more strongly."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Remark 2.10(i) gives min plurality = n−cr(R) for an entire switching class, but no cycle radii. The distinct record requires at least three parts."
+        ],
+        "reasoning": "The general identity makes plurality a corollary once the new radius is known, not a means to obtain that radius. C4 has two parts, and larger cycles are not complete multipartite.",
+        "searches": [
+          "arXiv:2610.02506v1, Proposition 2.9 and Remark 2.10(i)",
+          "Resultary: positive-cycle covering radii; complete-multipartite code record d220abc99185"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.02506v1, passages listed above",
+        "Resultary focused published searches and distinct complete-multipartite RESULT.md d220abc99185"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work implies path radius 3 at order ten and the corollary mapping any newly established cycle radius to plurality. The multipartite theorem implies exactly the constant code and radius 1 at C3, not the n≥4 assertions."
+        ],
+        "reasoning": "Neither comparison implies the absence of four-boundary outputs up to n=9, nor the four alternating permanent ignitions for every n≥10; each needs independent cycle analysis.",
+        "searches": [
+          "arXiv:2610.02506v1, Definition 2.1, Proposition 2.9 and Remarks 2.10(i), 3.5",
+          "Resultary record d220abc99185, theorem assumptions and positive code"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition 2.1 is the same spread-before-ignition process; §3 treats signed paths. The distinct complete-multipartite record has the same code invariant, but a different graph class."
+        ],
+        "reasoning": "Two colours, sign words, runs and cyclic boundaries describe the same object; path endpoints and cycle closure give different successor graphs. The two classes intersect here only at C3 under the prior's ≥3-part assumption.",
+        "searches": [
+          "Resultary: positive-cycle terminal codes and boundary/domain classifications; first four-boundary onset",
+          "arXiv:2610.02506v1, Definition 2.1 and §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Remark 3.5 tabulates via formula the path radius ⌊(n+1)/3⌋, not a cycle table. Example 2.8 concerns an unbalanced example and a burning-number comparison. No checked table supplied the cycle run types or code data beyond the C3 overlap."
+        ],
+        "reasoning": "An exact table of the cycle codes would cover the finite enumeration; the located path formula and general definitions do not.",
+        "searches": [
+          "Resultary: order-ten 172-word reachable code, four cyclic run types, positive-cycle covering radii",
+          "arXiv:2610.02506v1, path section and cycle-related Example 2.8"
+        ]
+      },
+      "rationale": "The dynamics, switching-distance theorem and positive-path radius are prior results. A distinct complete-multipartite record covers the C3 base case; it has no bearing on cycles of order 4 or greater. No compared source covers the new cycle-specific codes, the order-ten threshold with a uniform witness, or the new cycle radii.",
+      "residual_risks": [
+        "Semantic index searches are bounded; unindexed or equivalent unpublished cycle calculations cannot be excluded. No priority inference is made from same-day dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers process, switching correspondence and path comparator, not the asserted cycle-specific findings",
+          "evidence": "Definition 2.1 orders spread before ignition; Proposition 2.9 identifies switching plurality with distance to a switch mask; Remark 3.5 is restricted to paths.",
+          "identifier_or_url": "https://arxiv.org/html/2610.02506v1",
+          "material_read": "Definition 2.1, Example 2.8, Proposition 2.9, Remark 2.10(i), §3 and Remark 3.5",
+          "method": "Lawful OA HTML, passages located and read in context",
+          "title": "Burning Signed Graphs",
+          "trigger": "Exact source process and strongest general code and radius theorem"
+        },
+        {
+          "assessment": "Partial coverage at C3 only",
+          "evidence": "At least three multipartite parts are required; for K1,1,1 every part is a singleton, giving the constant code and radius 1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-reachable-signed-burning-codes-of-balanced-complete-multipartite--d220abc99185/RESULT.md",
+          "material_read": "Finding and graph hypotheses, positive code and radius",
+          "method": "Local published mirror",
+          "title": "Reachable signed-burning codes of balanced complete multipartite graphs",
+          "trigger": "Strongest distinct indexed overlap, same-day publication date does not settle priority"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof; independent exact code and radius replay; arXiv:2610.02506v1, Proposition 2.9 and Remark 3.5"
+      ],
+      "rationale": "For the first cyclic graph family the theorem identifies precisely when two-colour competition first permits four alternating domains, and separates a finite obstruction from a uniform larger-order construction. The exact onset code and its distinct radius quantify a genuine difference from paths; the radius is independently useful for determining worst balanced-signature plurality, not merely an arbitrary table of small instances.",
+      "residual_risks": [
+        "Does not classify cycles above onset or treat unbalanced signatures."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

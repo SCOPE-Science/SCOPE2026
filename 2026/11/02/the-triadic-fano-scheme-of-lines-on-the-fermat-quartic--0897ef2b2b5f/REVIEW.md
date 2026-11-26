@@ -1,19 +1,21 @@
-# Scientific review: three-adic Fermat-quartic line scheme
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated object is the finite embedded-line Hilbert scheme of the *fixed* integral Fermat quartic over \(\mathbb Z_3\), not a variable K3 deformation. Hermitian polarization forces the 112 special lines to be \(\mathbb F_9\)-rational. The normal-bundle computation \(N_{L/X}=\mathcal O(-2)\) proves all Fano fibers geometrically reduced. The explicit pairing lines give 48 horizontal sections; the representative additional line satisfies \(F(u,v,u+v,u-v)=3(u^4+4u^2v^2+v^4)\), with an uncancellable middle coefficient modulo nine. Monomial symmetry transports the obstruction to all 64 additional lines. Nakayama's lemma over a complete unramified DVR then forces the complete local factors to be precisely \(R\) or \(R/(3)\). Frobenius orbit counting gives the quadratic and rational descent claimed. The standalone arithmetic program independently confirms the 112 line enumeration, 48/64 partition, all 112 Hilbert tangent ranks, eight fixed additional lines, and representative modulo-nine obstruction; the proof, not finite testing, establishes the complete relative result.
+PASS
 
-## Originality — PASS, with priority risk
+Polarizing the fixed quartic in characteristic three gives W^(3)=W^perp on a line, so W^(9)=W; these two-spaces are precisely the totally isotropic Hermitian two-spaces over F9. Norm-fiber sizes 1,4,4 give 2241 isotropic vectors counting zero, hence 280 points; the binary Hermitian quotient above each point gives 4 lines, each with 10 points. The 48 pairing lines are distinct. The four nonproportional coordinate forms of the extra representative identify its projective monomial stabilizer with PGL2(F3) of order 24, so its disjoint orbit has size 1536/24=64. On either smooth quartic fiber adjunction gives N=O(-2), hence zero Hilbert tangents. The proper, quasi-finite line scheme is finite, and complete-DVR idempotent lifting followed by Nakayama makes each rational closed-point factor a quotient of R. Simple roots of T^4+1 lift the 48 pairing lines. Independently expanding the representative restriction gives mixed coefficient 2*binom(4,2)=12. Every chart lift modulo nine adds 3 times linear forms to the last two coordinates, and the cubes multiplying the first-order corrections reduce to u^3±v^3. Thus the mixed coefficient remains 3 modulo 9. Liftable coordinate symmetries transport this obstruction, so each extra factor is exactly R/(3). There are no Frobenius-fixed pairing lines. Over F3 there are eight totally isotropic lines of the split quadratic form: 16 isotropic projective points, two lines through each, and four points per line. Frobenius descent therefore gives the claimed 24 horizontal pairs, 8 rational vertical points, and 28 vertical pairs. The proof and exact coefficient replay establish the scheme, rather than just reproducing a finite point count.
 
-The counts 48 (over characteristic zero) and 112 (over characteristic three), the Hermitian structure, and the complex Fermat symmetry group are not claimed as new. Veniani (arXiv:1708.01219), Rams–Schütt (arXiv:1409.7485), and Veniani (arXiv:1608.04209) address fieldwise lines, configurations, and incidence. Their inspected sections do not contain the displayed relative Hilbert-scheme isomorphism, a uniform inability to lift the 64 extra lines modulo nine, or the resulting component rings and Galois descent. Searches for equivalent lifting statements and dominating results found none; this does not preclude older unindexed coverage.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-An all-components classification over a complete DVR is a natural and meaningful strengthening of a familiar 48-to-112 line jump. The two disjoint classes have fundamentally different deformation behavior even though the quartic remains smooth: 48 uniquely horizontal components and 64 vertically confined reduced components. The explicit first-order obstruction makes the difference geometric rather than merely numerical. The exact distribution of residue fields over \(\mathbb Z_3\) is an integral part of the arithmetic moduli description.
+The fiber counts and the exact special-fiber field splitting are established prior coverage. The supported distinct finding is the mixed-characteristic local algebra at every line, in particular the uniform modulo-nine obstruction on the special-only orbit, and the induced splitting of the horizontal and vertical schemes over Z3. This is not a novelty claim for the special fiber alone.
 
-## Sources and limits
+## value
 
-Primary motivation: D. C. Veniani, *Symmetries and equations of smooth quartic surfaces with many lines*, arXiv:1708.01219 (2017-08-03), especially §§3, 7.2. Comparison: S. Rams and M. Schütt, *112 lines on smooth quartic surfaces (characteristic 3)*, arXiv:1409.7485, Example 2.1. Comparison: D. C. Veniani, *Lines on K3 quartic surfaces in characteristic 3*, arXiv:1608.04209, §§1–3. The scheme-theoretic theorem is local at three and specific to the displayed integral model; analogous phenomena for other primes or K3 surfaces are not asserted. An unindexed equivalent or stronger priority claim cannot be ruled out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The classical jump in line counts leaves an actual moduli question: whether the added lines occur only on the reduced special fiber or persist over a mixed-characteristic thickening. Determining the full local factors and their arithmetic descent answers that question for a natural fixed model, an invariant not read off from the familiar line counts or the Dwork calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

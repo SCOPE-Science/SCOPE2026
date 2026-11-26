@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-The embedded `verify.py` and `COEFFICIENTS.json` are sufficient to repeat the exact calculation with Python and SymPy. Execute `python verify.py` in their directory. No network, datasets, or Monte Carlo trials are needed. The code uses the full sixteen-state generator and exact polynomial arithmetic: it checks generator conservation, stationary normalization, rational current reconstruction, a coefficient-wise positive denominator, all seventeen exact numerator coefficients, the exceptional-factor identities, a positive translation of one factor, the intermediate-scale negative witness, and exact rational current differences at three scales. The stated arbitrary-real-parameter proof additionally uses elementary inequalities and Descartes' rule, not sampling.
+## correctness
 
-The numeric thresholds are approximations, while the signs and root count are exact analytical conclusions. Independent scientific auditing has not been performed.
+PASS
+
+In the stated saturated four-site chain, positive internal rates allow any state to be emptied at the right and rebuilt from the left. Reflection swaps c,d and reverses the signed current. A fresh exact 16-state generator solve gives the cross-difference −cd(c−d)P(c,d)/D(c,d), with all 154 coefficients of D positive and least total degree two. After c=rh,d=h, D/h² is strictly positive. All 17 ascending-h coefficient rows agree with the separate frozen arrays. The p11 and p12 factors cannot add a sign change: for r≥2 the shift of A is positive, and for 1<r≤2 the negative terms of B dominate. The remaining coefficients give exactly two sign changes. The constant and leading coefficients are positive and the exact negative witness P_r(1/r)=−2T(r)/r⁹ forces one root on either side. Descartes then gives exactly two simple roots, and the negative prefactor gives the negative–positive–negative polarity pattern. This proof uses the explicit rate rules, not their historical attribution.
+
+## originality
+
+PASS
+
+The supported distinct result is the exactly-two-simple-reversals theorem for every fixed contrast r>1 at saturated driving. The most relevant prior statements inspected concern a different sweep, a different disorder family, or approximate/general context. The identical catalogue result is the frozen record itself.
+
+## value
+
+PASS
+
+The result separates disorder contrast from timescale in a natural small transport model. Holding the contrast fixed still reverses the favored direction twice, and the simple-root count and the scale 1/r between the two thresholds give information that a sign example or local-response expansion would miss.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

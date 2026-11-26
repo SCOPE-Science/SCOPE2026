@@ -1,19 +1,21 @@
-# Assessment of parity-selective dyadic ear-profile Fourier rigidity
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Original-boundary ear tips cannot be adjacent, and prescribed mutually nonadjacent ears can be simultaneously deleted, leaving a convex polygon triangulated in exactly \(C_{n-k-2}\) ways. Expanding the product of the ear signs yields an exact all-frequency signed sum over independent subsets. The Catalan valuation \(v_2(C_t)=s_2(t+1)-1\) and elementary binary digit-sum inequalities show that all terms of degree two or higher vanish modulo the next power of two. The remaining constant and singleton terms give the claimed odd/even parity law. The Fourier determinant and rank statements follow from standard Walsh diagonalization with the explicitly stated counting normalization. The embedded exact checker independently compares geometrically enumerated Walsh coefficients with the inclusion-exclusion formula at every frequency for sizes five through eleven and verifies congruences through size eighteen. These finite checks are corroboration, not the infinite proof.
+PASS
 
-## Originality
+The frozen version conflated the minimum 2-adic valuation with the minimum magnitude: at n=5 the empty coefficient is 5 but a singleton coefficient is 1, and the gcd is 1. Taking the empty frequency also left odd common factors unaddressed. The replacement distinguishes these facts and proves the full gcd: the exact ear profile A={1,n−1} has multiplicity one by inclusion–exclusion over the independent subsets of a path on L=n−5 vertices. The resulting coefficient of z^(L+1) in C(z(1−z)) is 1 since C(z(1−z))=1/(1−z) by the formal Catalan recurrence. Walsh inversion implies the gcd divides 2^n. The core theorem follows independently: prescribed independent ears can be cut off yielding C_(n−k−2) extensions (with n−k≥3), and the signed product expansion gives the stated Walsh identity. For N=n−1 the k≥2 prefactors have valuation k+s_2(N−k)−1≥s_2(N), by k−1≥s_2(k) and subadditivity. The singleton prefactor has valuation s_2(N−1), at least s_2(N) in odd polygon size and exactly s_2(N)−1 in even size. This proves both laws, and the character basis gives the asserted determinant and rank bounds. It also shows the already dyadic gcd has exact valuation v_n.
 
-**PASS after bounded comparisons.** Relevant published mathematical records were queried for position-dependent ear signatures, binary Walsh valuations, Catalan dyadic congruences, and equivalent multivariate descriptions. The closest published ear-profile result is a cyclic-spatial **covariance Fourier** theorem, which uses only one- and two-point ear statistics rather than the full parity transform. The closest triangulation Walsh theorem acts on **all diagonal-incidence coordinates**, and ear-position characters are exactly its sector supported on the short diagonals \((i-1,i+1)\). Its all-diagonal modulo-four congruence already covers our odd-order valuations when \(v_n\le1\). The genuinely unaddressed infinite regime here is the sharper congruence and nonvanishing for \(v_n\ge2\), alongside the even-order ear-frequency valuation stratum. Primary papers by Hurtado–Noy, Callan, Asinowski–Regev, and Mansour–Rastegar give historical ear enumerations or aggregate generating functions; Postnikov–Sagan supplies the known Catalan binary valuation. None of the inspected full texts establishes the simultaneous exact valuations for all selected ear positions. This is a bounded priority assessment, not a proof of historical uniqueness: an unindexed signed multivariate ear-enumerator or an implicit specialization of a stronger identity remains a real residual risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** Binary Fourier invertibility of a natural, multiplicity-weighted Catalan ear-profile convolution is a distinct recovery question from first- and second-order covariance. The exact arithmetic conclusion settles all odd polygon sizes, including infinitely many with even Catalan counts where a simple parity-of-cardinality test cannot work. For even sizes it proves a sharp half-spectrum valuation dichotomy, useful as a boundary for further singularity and stability work. The object and parameter are natural rather than an arbitrary finite slice, and the all-order result follows from the structural prescribed-ear formula and a nontrivial two-adic comparison.
+The existing full-diagonal modulo-four theorem already covers the restricted odd cases with v_n=0 or 1; the repaired statement assigns that credit explicitly. The supported distinct core is the sharper odd-order congruence for v_n≥2 and the even-order all-frequency parity stratum. Known Catalan valuations and ear-count ingredients are not claimed as new, nor is independent priority claimed for the repaired gcd proof's auxiliary counting identity.
 
-## Closest literature and limits
+## value
 
-The chief comparison risks are general multivariate ear-position enumerators that might implicitly contain the same all-frequency congruence, and possible earlier unpublished formulations. The theorem does not classify all even-size cancellations or calculate exact odd-size condition numbers. It concerns multiplicity-weighted original-boundary ear profiles in the **short-diagonal-restricted** sector, not the unrestricted diagonal-incidence frequency space or the centered ear covariance matrix.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural short-diagonal observation sector admits all-frequency invertibility, even when the entire diagonal observation space can have cancellation. The higher-dyadic modulus settles the nontrivial infinite family of even Catalan counts beyond what unweighted parity or modulo four proves, and the even-order law gives a guaranteed nonzero half-spectrum without pretending to settle the rest.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

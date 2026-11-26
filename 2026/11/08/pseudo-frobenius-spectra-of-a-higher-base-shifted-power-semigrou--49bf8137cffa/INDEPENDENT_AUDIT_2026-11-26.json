@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:27:25.290212Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The weights for offsets 1,u,v are h,h²,h³. Replacing u unit coins lowers cost, so the 1,u optimum is H(M)=h² floor(M/u)+h(M mod u). Since v=hu+t and u−t=h, H(M+v)−H(M) is h³+ht before the residue wrap and h³ after it. This proves, without assuming strict improvement, that the maximum number of v-coins is optimal, giving O(M)=h³ floor(M/v)+H(M mod v). Coprimality makes offset classes bijective and a=mv gives O(r+ja)=O(r)+jmh³, so the minimal representative at residue dr is aO(r)+dr. For a generator ca+db, adding it to W_r−a requires O(r+b)−O(r)≤c−1 when unwrapped, and O(r+b−a)≤O(r)+c−1+d when wrapped. The first tests for v and then u exclude everything except the last u positions; the unit test excludes the nonboundary positions except s=hu−1 in the last v-block. The right endpoint s=v−1 also survives. Both have H(s)=2h²(h−1). Their u-steps wrap to h−1 and u−1, whose H values are lower; the v-steps wrap to s itself with sufficient cost, and the unit boundary step wraps to zero. Their offsets differ by t, giving F−dt and F, including the nonminimal m=1 case. Summing the block cost and the d-weighted residues yields the displayed genus. An independent integer Dijkstra/Apéry test on the 36 coprime triples with 3≤h≤6, 1≤m≤3, 1≤d≤4 matched PF and genus, including {895,899} and 504. Replay paths: branches/f1a4b85c-c28d-40ff-b434-61b3481dc1cc/record4_independent_check.py and record4_independent_box.txt. The frozen verifier, recorded 300-case log and notes were inspected, not executed; finite tests do not prove the general claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October catalogue result classifies the three-generator semigroup with the same first three generators at all a≥(h−1)u, including all a=v here.",
+          "When m=1 the last generator equals (h³+d)a. When m≥2 it has offset v<a and lies below the corresponding three-generator representative a(h³+ht)+vd."
+        ],
+        "reasoning": "The earlier range fully covers m=1 even if it does not name this specialization. For m≥2 it does not describe the enlarged semigroup. For the two-coin minimum, raising the offset by a≥v increases H, since it increases the quotient by at least h and the remainder cost can fall by at most h(u−1)<h³; thus the earlier representative at offset v really is as stated.",
+        "searches": [
+          "Resultary nonmonotone three-generator Frobenius data 37d6f575782b",
+          "arXiv:2306.03459v4 §7; arXiv:2306.10738v1 Thm. 3.5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 36–108, VERIFICATION.md, verify_semigroup.py, verification_output.txt",
+        "arXiv:2306.03459v4 and 2306.10738v1",
+        "Resultary 37d6f575782b and 49bf8137cffa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general family supplies weighted minimization but not a closed optimum for the modified-power offsets.",
+          "The last weighted denomination costs strictly less than the optimum built from the first two at offset v, and changes the Apéry set as soon as v<a."
+        ],
+        "reasoning": "The new periodic cost and the need to check wrapped generator steps prevent the result for m≥2 from being a mere parameter substitution. The covered m=1 restriction contributes no originality credit.",
+        "searches": [
+          "arXiv:2306.03459v4 §7; arXiv:2306.10738v1 Thm. 3.5; Resultary 37d6f575782b Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu–Xin–Ye–Yin, arXiv:2306.03459v4, p. 21, display the same family at length three, discuss its weighted optimization, and leave the corresponding Frobenius problem difficult.",
+          "Their arXiv:2306.10738v1, introduction and Thm. 3.5, use offsets (b^i−1)/(b−1), which are not the modified-power offsets at h≥3."
+        ],
+        "reasoning": "The semigroup statement is equivalent to a weighted 1,u,v offset problem and the full generator tests on its Apéry representatives. Introduction of the family or solution of the repunit-coefficient optimization does not give this special weighted optimum.",
+        "searches": [
+          "arXiv:2306.03459v4 modified-power family h^i−h+1, weighted Apéry optimization",
+          "arXiv:2306.10738v1 geometric-repunit offsets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact all-parameter hit 49bf8137cffa is the bound record itself.",
+          "The separate October catalogue result gives exact PF and genus in a different generator count except at the redundant m=1 endpoint."
+        ],
+        "reasoning": "A self-hit does not establish priority. The separate hit was compared at the level of the exact generator sets and covers only the stated endpoint. A table of individual finite semigroups would not decide the uniform formulas.",
+        "searches": [
+          "Resultary pseudo-Frobenius spectra shifted powers 49bf8137cffa; nonmonotone three generators 37d6f575782b"
+        ]
+      },
+      "rationale": "The weighted family and Apéry framework are established, and the m=1 restriction is covered by an earlier three-generator result because the fourth generator is redundant. The supported distinct contribution is the explicit PF/genus/F classification when the new offset v is a proper divisor of a, i.e. m≥2. No inspected statement gives or mechanically subsumes that range.",
+      "residual_risks": [
+        "An unindexed classification of the same terminal-divisible weighted family may exist; this is not exhaustive priority certification.",
+        "The approved distinctive range excludes the previously covered m=1 restriction for originality purposes. No claim is made for arbitrary a, length, or negative d."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "States family and weighted problem, not the terminal-divisible PF/genus formula",
+          "evidence": [
+            "Offsets h^i−h+1 and corresponding weighted optimization; solving the Frobenius problem is described as difficult."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.03459v4",
+          "material_read": "§7, PDF p. 21, text offsets 78400–83590",
+          "method": "OA primary PDF passage",
+          "title": "On the Frobenius Number and Genus of a Collection of Semigroups Generalizing Repunit Numerical Semigroups",
+          "trigger": "Contains the exact modified-power family"
+        },
+        {
+          "assessment": "Positive shift, repunit offsets rather than the audited offsets",
+          "evidence": [
+            "Uses (b^i−1)/(b−1) in Frobenius and genus calculations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.10738v1",
+          "material_read": "Introduction p. 2 offsets 6200–8945, Thm. 3.5 p. 6 offsets 24800–29062",
+          "method": "OA primary PDF passages",
+          "title": "A Note on Generalized Repunit Numerical Semigroups",
+          "trigger": "Possible broader geometric family formulas"
+        },
+        {
+          "assessment": "Covers m=1, not m≥2",
+          "evidence": [
+            "Three-generator family ⟨a,ha+d,h²a+ud⟩ for a≥(h−1)u, with exact PF, genus and Apéry data."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-exact-frobenius-data-for-a-nonmonotone-three-generator-family--37d6f575782b",
+          "material_read": "Mirror RESULT.md Finding, offset 0, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary and local mirror",
+          "title": "Exact Frobenius data for a nonmonotone three-generator family",
+          "trigger": "Exact earlier PF/genus formulas with common first three generators"
+        },
+        {
+          "assessment": "Identical record; no independent priority inference",
+          "evidence": [
+            "Same weighted offsets, divisibility constraint, PF pair and genus."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-pseudo-frobenius-spectra-of-a-higher-base-shifted-power-semigrou--49bf8137cffa",
+          "material_read": "Catalogue statement compared with frozen Finding and assumptions",
+          "method": "Resultary and frozen original",
+          "title": "Pseudo-Frobenius spectra of a higher-base shifted-power semigroup",
+          "trigger": "Exact indexed match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Alignment of a with the top offset is the natural regime where the weighted cost is exactly periodic and the Apéry problem separates into blocks. The resulting type-two formula and exact gap between the PF numbers solve the terminal-divisible subfamily of a previously posed weighted Frobenius family, with an actual additional generator for m≥2. The simultaneous formulas for PF and genus are more than a finite recomputation or a redundant-generator restatement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

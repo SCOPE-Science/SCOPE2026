@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:23:47.018161Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rotating a distinguished sampled point to zero makes the remaining circular spacings uniform on the (n-1)-simplex. Translating distinct exceedance coordinates and rescaling the remaining simplex gives the positive-part power in (5), including zero mass at saturation. In the mixed second moment the same-gap term uses s by nesting, while the distinct-gap term uses r+s; subtracting the product of means gives (1). Dividing by the positive factor n(1-s)^(n-1) yields the strictly decreasing bracket before s=1-r and its constant plateau thereafter. The plateau yields r_c, which is at most 1/2 since n<=2^(n-1), with equality only at n=2. Below r_c the variance at s=r is strictly positive: open simplex sets give exactly one and at least two exceedances. This supplies the unique interior crossing, and solving the bracket gives the stated s_*. At r=r_c the zero plateau includes all admissible s for n=2. For the PGF, each factor is 1+(u-1)I_r+u(v-1)I_s, so disjoint coordinate selections yield the claimed exact multinomial sum. Expanding the exact powers at r=x/n,s=y/n gives the stated kernel, and its positive diagonal and strict sign crossing justify bracketing the finite root; e^x-1>x^2 for x>0 follows from e^x>=ex>2x for the derivative comparison. Independent rational polygon clipping of the n=3 simplex at r=1/10 and s=3/5 gives means 243/100 and 12/25 and product moment 51/50, hence covariance -183/1250. Replay with python3 /workspace/branches/ac27b14d-0ad4-4dd3-bb1b-b3b51bab8d0b/exact_reproduction.py. The replay checks this example only; the uploaded VERIFICATION.md and verify.py were inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 75fed219f626 finding covers a general counted subset and symmetric Dirichlet shape. The 93f5621be126 finding covers the all-coordinate symmetric shape family for n>=3.",
+          "Lo Eq. (2.1) at spacing order k=1 gives the same Gaussian limiting covariance, not the finite phase diagram.",
+          "Koziol's journal and alternate landing-page attempts did not provide full text."
+        ],
+        "reasoning": "The indexed exact Dirichlet statements are stronger and directly applicable. The Gaussian limit is a different level of description and by itself gives neither exact finite zero sets nor a finite PGF. Access limitations for the historical papers do not affect the verified exact indexed coverage.",
+        "searches": [
+          "Resultary symmetric Dirichlet exceedance covariance with subset and shape generalizations",
+          "Lo arXiv:1406.7427 Sec. 2 Theorem 1; Koziol 1977 uniform-spacing empirical distribution function"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Eqs. (1)–(13), VERIFICATION.md and verify.py",
+        "Resultary 75fed219f626, 93f5621be126 and 66b375add4dc",
+        "Lo arXiv:1406.7427, Sec. 2; Koziol 1977 metadata and failed full-text retrieval"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set shape alpha=1, ambient dimension d=n, counted dimension k=n in 75fed219f626: the covariance, critical r, positive and zero intervals, and unique interior root become (1)–(3), including the two-spacing degeneracy.",
+          "Equation (4) follows directly from the elementary one-coordinate indicator product and the classic joint survival law (5), which determines every term.",
+          "Lo's k=1 limiting expression reproduces Eq. (12); monotonic crossing plus fixed-threshold limits brackets Eq. (13)."
+        ],
+        "reasoning": "No new inequality, missing hypothesis or parameter transfer is needed for the prior sign theorem to imply the all-size specialization. The finite PGF is a convenient encoding but requires only an algebraic expansion of the already-known orthant probabilities; it and the convergence corollary do not repair the originality failure.",
+        "searches": [
+          "Compare both indexed Dirichlet Findings and their uniform-simplex formulas with frozen RESULT.md Eqs. (1)–(5), (12)–(13)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/10/26/SCOPE-a-one-switch-dependence-law-for-nested-dirichlet-exceedance-coun--75fed219f626 gives the sign trichotomy and explicit uniform-simplex crossing for counts of a fixed set of coordinates.",
+          "Resultary 2026/10/26/SCOPE-one-crossing-covariance-law-for-threshold-exceedances-in-symmetr--93f5621be126 gives the all-coordinate version for n>=3, including shape 1."
+        ],
+        "reasoning": "A circular gap count is invariant under the arbitrary starting point for listing gaps. After rotation it is exactly a count on the symmetric Dirichlet vector with shape parameter 1, not merely an asymptotic analogy. Set both ambient and counted-coordinate dimensions equal to n in 75fed219f626 to obtain the same object and theorem.",
+        "searches": [
+          "Local Resultary: nested Dirichlet threshold-exceedance covariance, uniform-spacing exceedance counts and exact sign crossings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "75fed219f626 and 93f5621be126 are distinct indexed records with matching exact cutoffs and crossings in the shape-1 case.",
+          "Resultary 2026/11/8/SCOPE-one-negative-covariance-window-for-two-nested-uniform-spacing-ex--66b375add4dc repeats the covariance formula but varies n at fixed r,s instead of varying s at fixed n,r."
+        ],
+        "reasoning": "The first two exact coverage matches support rejection without relying on the later record, whose sign-indexing question differs. Neither of the two direct matches gives the bivariate PGF verbatim; that fact does not make the claimed sign diagram distinct.",
+        "searches": [
+          "Local Resultary exact finite threshold cutoff, plateau zero interval, and negative covariance for circular uniform gap counts"
+        ]
+      },
+      "rationale": "The submitted distinct claim is the explicit finite-size threshold-indexed sign diagram. An earlier distinct indexed finding gives it completely, including the zero interval and n=2 case, under the literal specialization to all coordinates of a symmetric Dirichlet vector with shape 1. A second earlier record independently covers the same specialization for n>=3. The frozen result specifically disclaims novelty for the simplex-volume input, PGF construction and limiting kernel. The PGF was not located verbatim in these matches, but is obtained mechanically by multiplying the elementary indicator factors and inserting the classical joint exceedance volumes, not a surviving distinct claim of the submitted kind. This is a coverage failure, not false mathematics or an access-based decision.",
+      "residual_risks": [
+        "The indexed matches establish coverage, not the first external scholarly publication of these formulas. Full historical priority was not established.",
+        "Koziol 1977, Pyke 1965, and Beirlant–van Zuijlen 1985 may contain implicit finite-dimensional laws; their full relevant texts were not inspected. This is not a reason for the fail verdict, which rests on verified indexed matches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the entire all-n sign diagram by specialization",
+          "evidence": "The symmetric Dirichlet subset theorem has the complete positive/zero/negative trichotomy and explicit shape-1 formulas; all coordinates and shape 1 give the frozen hypotheses.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-one-switch-dependence-law-for-nested-dirichlet-exceedance-coun--75fed219f626",
+          "material_read": "Mirror RESULT.md Finding and Proof, starting at offset 0, through end; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "A one-switch dependence law for nested Dirichlet exceedance counts",
+          "trigger": "Strongest direct sign and finite covariance match"
+        },
+        {
+          "assessment": "Covers the sign claim for n>=3",
+          "evidence": "The all-coordinate symmetric Dirichlet threshold theorem includes the uniform-simplex cutoff and crossing.",
+          "identifier_or_url": "2026/10/26/SCOPE-one-crossing-covariance-law-for-threshold-exceedances-in-symmetr--93f5621be126",
+          "material_read": "Mirror RESULT.md Finding from offset 0 and relationship/limitations near 6456, read through end",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "One-crossing covariance law for threshold exceedances in symmetric Dirichlet laws",
+          "trigger": "Second exact all-coordinate sign match"
+        },
+        {
+          "assessment": "Same covariance; distinct sign parameterization",
+          "evidence": "Thresholds are fixed and sample size varies, rather than the frozen r-fixed, s-variable sign problem.",
+          "identifier_or_url": "2026/11/8/SCOPE-one-negative-covariance-window-for-two-nested-uniform-spacing-ex--66b375add4dc",
+          "material_read": "Mirror RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "One negative covariance window for two nested uniform spacing exceedance counts",
+          "trigger": "Same object and exact finite covariance"
+        },
+        {
+          "assessment": "Matching limiting kernel, not cited as a finite classification",
+          "evidence": "The k=1 specialization of min(H_k(x),H_k(y))-H_k(x)H_k(y)-k^(-1)xy H'_k(x)H'_k(y) is frozen Eq. (12).",
+          "identifier_or_url": "https://arxiv.org/abs/1406.7427",
+          "material_read": "Sec. 2, Theorem 1 and Eq. (2.1), PDF p. 3, extracted offsets 5702–9147",
+          "method": "OA PDF passage inspection",
+          "title": "Gaussian Approximations and Related Questions for the Spacings Process",
+          "trigger": "Uniform-spacing process covariance comparison"
+        },
+        {
+          "assessment": "Unresolved external coverage, not negative evidence",
+          "evidence": "The metadata confirms the empirical uniform-spacings subject; no formula was obtained from this paper.",
+          "identifier_or_url": "https://doi.org/10.1111/j.2517-6161.1977.tb00602.x",
+          "material_read": "Index metadata and landing-page material only",
+          "method": "Journal OA attempt returned 403; alternate JSTOR attempt yielded only a landing page",
+          "title": "On Goodness of Fit Tests Based on the Empirical Distribution Function for Uniform Spacings",
+          "trigger": "Historical exact finite or empirical-process coverage possible"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The finite sign question is natural and the result is correct, but as a standalone contribution it fills no remaining gap: the complete boundary and the nested-count counterexample are supplied by the indexed stronger theorem. The remaining two-variable PGF is a routine coefficient encoding of classical simplex survival probabilities, and the scaled limit is known. No scientifically valuable unredundant remainder warrants a substantive repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

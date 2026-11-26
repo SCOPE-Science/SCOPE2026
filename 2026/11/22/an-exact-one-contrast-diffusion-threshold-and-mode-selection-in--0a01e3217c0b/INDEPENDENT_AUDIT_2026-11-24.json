@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:37:39.150681Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Summing the four PDEs and integrating with Neumann conditions gives total-biomass conservation. Differentiation at (1,1,1,1) gives the stated J. Independently eliminate the (N,Z,D) block, putting x=s+q: the determinant is x[(x+1/2)(x+1)(s+dq−1/4)+5x/8+7/16]. Thus det(sI−M)=(s+q)(s³+A s²+B s+C), with A=(d+2)q+5/4, B=(1+2d)q²+(1+3d/2)q+3/4, and C=[d(16q³+24q²+8q)−4q²+4q+5]/16. AB−C has coefficients 2(d+1)², 3d²/2+5d+7/2, 17d/8+5/2, 5/8 in descending q powers, all positive. Also b₀=qC, H₂=AB−C+A²q+Aq², and H₃=(AB−C)(q³+Aq²+Bq+C), giving the printed positive Hurwitz factors. Cubic Routh gives zero or one open-right-half-plane eigenvalue according to C>0 or C<0; in the latter case it is a positive real root. At C=0 the zero is simple and the remaining roots stable. AB≠C excludes a nonzero imaginary pair. At q=0 the only neutral direction is removed by the fixed-total constraint since the simple zero has left null vector (1,1,1,1); its cubic is strictly Hurwitz. The derivative numerator in RESULT.md changes sign once: by Descartes and its values −9043/32 at 9/4 and 163 at 4. Hence on the exact Neumann lattice the maximum is at n=4, comparing R(9/4)=25/1287 and R(4)=43/1440; R(25/4)=101/3915 is second. This covers the neutral equality and open single-unstable-mode interval. At the lower endpoint n=5 is neutral in addition to the unstable n=4, not an exception to the stated open interval. At q=4,d=1/100 the check gives b₀=−143/20. Inspected verify.py and VERIFICATION.md without executing the supplied checker; the argument is all-mode, linear, and not a nonlinear pattern claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper gives the same modal lattice and a quartic with general diagonal diffusion. It uses b₀<0 as a sufficient stationary-instability route and states the scale separation d₁≫d₃≫d₂,d₄ in Eq. (29). It does not derive positivity of the other Hurwitz constraints for the frozen specialization in that passage.",
+          "Public full thesis retrieval was attempted, but scientific full text was not obtained."
+        ],
+        "reasoning": "The earlier model covers these equations and allows the determinant to be specialized. The sufficient sign test does not imply the converse for the specialization, since a complex pair can cause instability without a negative determinant. Proving no other route and comparing the unbounded mode lattice are necessary to the new exact boundary.",
+        "searches": [
+          "arXiv:2611.10221v1 full PDF §2.2 pp.8–10, equations (25)–(29)",
+          "10012/22640, Turing Instability of a Closed Nutrient-Phytoplankton-Zooplankton Model with Nutrient Recycling"
+        ]
+      },
+      "checked_sources": [
+        "Xu–Campbell–Poulin arXiv:2611.10221v1",
+        "Xu thesis handle 10012/22640 (attempted)",
+        "Resultary 0a01e3217c0b (self-match) and fb3b848d47a4 (distinct)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Applying the paper's determinant formula does give b₀ and hence a parameter region of sufficient instability. The comparison result with a positive determinant and a complex unstable pair shows why determinant positivity cannot be used as a stability theorem for the general model."
+        ],
+        "reasoning": "A rational substitution into the prior determinant only settles one side. The cubic/Hurwitz audit establishes the missing all-mode converse and excludes nonstationary crossings in this family. The largest and second-largest values on the exact discrete mode lattice then identify the stationary threshold and the uniqueness window.",
+        "searches": [
+          "arXiv:2611.10221v1 §§2.2, 3.2",
+          "Resultary fb3b848d47a4 RESULT.md offsets 0–4681 and 6555–8877",
+          "Frozen RESULT.md lines 57–114"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (27) and Table 1 of Xu–Campbell–Poulin make the species order explicit; a late wording inconsistency labeling d₁ does not change the numerical diffusion profile. Table 1 varies nutrient d₁, with d₂=d₄=10⁻⁴ and d₃=10⁻³, not three equal rates and one phytoplankton exception.",
+          "Resultary fb3b848d47a4 treats an isolated Hopf-unstable cos(x) mode for nutrient-only contrast and different rates and equilibrium, with positive determinant for all q>0."
+        ],
+        "reasoning": "Relabeling species or changing time or length units cannot turn three distinct diffusivities into two, or make the isolated complex-pair instability the same as a simple real zero. The strong same-day overlap is scientifically distinct, irrespective of priority date.",
+        "searches": [
+          "Resultary comparison for NPZD closed ecosystem, single diffusion contrast, 43/1440 and unique Neumann mode",
+          "arXiv:2611.10221v1 §§2.2 and 3.2 Eq. (27) and Table 1",
+          "Thesis handle 10012/22640"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original numerical example uses a different equilibrium/rates and profile. The exact Resultary 43/1440 hit is the frozen record itself; the legitimate distinct one-mode record is for cos(x) and the unrelated oscillatory case."
+        ],
+        "reasoning": "Neither the numerical table nor the exact distinct oscillatory example gives either lattice threshold in the frozen setup. The matching catalogue hit does not count as independent prior evidence.",
+        "searches": [
+          "arXiv:2611.10221v1 §3.2 and Table 1",
+          "Resultary exact-threshold and isolated-mode queries; mirror 0a01e3217c0b and fb3b848d47a4"
+        ]
+      },
+      "rationale": "On the inspected evidence, the supported distinct result is the exact all-mode necessary-and-sufficient onset, absence of an oscillatory instability, and isolated harmonic window for this one-phytoplankton-contrast specialization. The ecological kinetics, Neumann modal decomposition and determinant-based sufficient test are prior. The directly relevant thesis remains a named access risk.",
+      "residual_risks": [
+        "The earlier related thesis could contain a broader stability theorem or the specialization; its full text was not inspected. The conclusion is bounded by the primary passages checked and is not a priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same kinetics and general determinant test, not the exact specialized classification in inspected passages",
+          "evidence": "Uses n/2 lattice and b₀<0 sufficient test, scale condition d₁≫d₃≫d₂,d₄, and a numerical example varying nutrient diffusivity with three distinct transport rates.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.10221",
+          "material_read": "v1 §2.2 pp.8–10, offsets 33400–41381, Eqs. (25)–(29); §3.2 Table 1 p.11, offsets 39500–47417",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Turing Instability of a Closed Nutrient-Phytoplankton-Zooplankton-Detritus Model",
+          "trigger": "Original exact model, same bounded domain and potentially broader spectral results"
+        },
+        {
+          "assessment": "Unresolved exact overlap, not negative evidence",
+          "evidence": "Public document size exceeded the OA retrieval limit and the institutional landing route was bot-gated; the frozen bibliography reports metadata/abstract only.",
+          "identifier_or_url": "https://hdl.handle.net/10012/22640",
+          "material_read": "Repository and bibliographic identification; no independently usable thesis body",
+          "method": "Lawful institutional handle and OA direct/VPN attempts; similar-titled ResearchGate candidate not verified and returned HTTP 403",
+          "title": "Turing Instability of a Closed Nutrient-Phytoplankton-Zooplankton Model with Nutrient Recycling",
+          "trigger": "Earlier related thesis with plausible exact model or stability specialization"
+        },
+        {
+          "assessment": "Material overlap in setup motif; distinct exact mechanism, equilibrium and contrast",
+          "evidence": "Nutrient-only D=(20,1,1,1), rates (22,2,1,1,2) and equilibrium (1,1,10,11/2); isolated cos(x) complex-pair instability despite positive modal determinant for every q>0.",
+          "identifier_or_url": "Resultary: 2026/11/22/fb3b848d47a4",
+          "material_read": "RESULT.md offsets 0–4681 and 6555–8877",
+          "method": "Resultary search and local mirror bounded passages",
+          "title": "A lone oscillatory Neumann mode in a closed plankton ecosystem with one diffusion contrast",
+          "trigger": "Same-day one-contrast closed NPZD exact isolated harmonic claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Whether a closed conservative ecosystem can destabilize when just one compartment differs in diffusion is a natural question raised by the original multi-scale sufficient condition. This gives a positive-equilibrium witness with an exact range, rules out missed oscillatory modes, and identifies the unique selected harmonic and the gap to the next onset on the actual domain. The fractions are useful because they resolve an all-mode classification of a minimal transport contrast, not as isolated numbers or as evidence of a nonlinear attractor.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

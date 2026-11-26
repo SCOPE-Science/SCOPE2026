@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:04:13.513817Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With q=e^(-x) and s=1-q, eliminating the stage gives R=q-rho s+rho(1+rho)s(1-s/x), the stated multiplier. For x>0, 0<s<min(x,1), so 1-R=(1+rho)s[1-rho(1-s/x)]>0 and R>-rho(1+rho)>-1 in the claimed contraction range. The derivative divided by q is -(1-rho^2)+rho(1+rho)[(2 sinh(x/2)/x)^2-2s/x]; this increases strictly from -(1+rho) to infinity since s/x decreases and the hyperbolic ratio increases. The unique minimum and positive endpoint limits, with R(2L)<0 by 4rho L<(1-rho^2)^2 for rho<=1/100, give two simple crossings and one bounded negative interval. At (1±eta)L, for 0<eta<1 fixed, the exponential and rho/x balances bracket the lower crossing, and the exponential and rho/x^2 balances bracket the stationary point. Thus both divided by L tend to 1. The respective exact equations yield e^(-x_-)=rho/x_-(1+o(1)) and e^(-x_m)=rho/x_m^2(1+o(1)); logarithms give coefficients 1 and 2 on log L with o(1) errors. For x=k/rho the scaled multiplier tends to 1-1/k, bracketing the upper crossing; there the exponential is superalgebraically small and the exact zero gives x_+=(1+rho)/rho+o(1). At x_m the term -rho/x_m dominates the other terms, giving the stated depth. The inspected checker is a numerical diagnostic, not the basis for these universal conclusions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Caliari et al. cover linear stability for lambda>=1/2, or rho<=1. Quan et al. analyze step-restricted unstabilized energy dissipation and separately unconditional stabilized energy dissipation. Resultary bc907224a5c8 studies the stabilized Allen–Cahn scalar energy frontier; 2edd05e49817 studies the third-order exprb32 Riccati cone map."
+        ],
+        "reasoning": "The known stability theorem covers the motivation but not the sign: bounding the modulus does not bound the multiplier below by zero. The other models' domain, coefficients or preserved property differ.",
+        "searches": [
+          "arXiv:2303.15861 Theorem 2.4",
+          "arXiv:2610.11532v1 Theorem 3.5 and §4.1",
+          "Resultary bc907224a5c8; 2edd05e49817"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_etdrk2.py (inspection only)",
+        "arXiv:2303.15861",
+        "arXiv:2610.11532v1",
+        "arXiv:1807.03728",
+        "Resultary bc907224a5c8, d036e6948156, 3afadf71d5b5 and 2edd05e49817"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior exact function provides the starting identity, but the inspected analyses do not give strict derivative-bracket monotonicity, two sign crossings, or the three singular location scales and depth. Hu–Shu's kinetic method preserves positivity under scheme-specific coefficient and CFL assumptions."
+        ],
+        "reasoning": "The new conclusions are deductions from the known function by a global sign analysis and singular balances, not just a parameter substitution into a previously established sign theorem.",
+        "searches": [
+          "arXiv:2303.15861 pp. 6–7, eq. (5) and Theorem 2.4",
+          "arXiv:2610.11532v1 §4.1 eq. (41)",
+          "arXiv:1807.03728 eq. (2.6), Proposition 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Caliari et al. eq. (5) becomes exactly R_rho with z=-(a+b)h, lambda=1/(1+rho) and c2=1. The same-date O2CP sign-resonance record uses a two-step parareal recurrence and exact-start data instead of this scalar one-step map."
+        ],
+        "reasoning": "The multiplier is credited as equivalent prior work under its alternate split-fraction convention. Different recurrence and step-count variables do not make the resonance result equivalent.",
+        "searches": [
+          "Resultary: c2=1 unstabilized Hochbruck–Ostermann ETDRK2 scalar multiplier, sign window and small-split scale",
+          "Caliari et al., arXiv:2303.15861, eq. (5)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact function was found in the primary literature, but no matching exact sign result was found among the inspected entries. The Huo–Su hit has an exact scalar positivity transition for a different fourth-order two-derivative stability function."
+        ],
+        "reasoning": "This is a continuum-parameter theorem, not a table of sampled roots or a finite catalogue invariant. Checks of the exact map and strongest sign analogues are relevant; numerical samples do not establish novelty or the asymptotic window.",
+        "searches": [
+          "Resultary queries for exact two positive zeros, scalar c2=1 stability function and reentrant positivity scales; hits d036e6948156 and 3afadf71d5b5",
+          "Caliari et al. eq. (5) and Theorem 2.4"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the bounded two-simple-zero sign-loss window with its unique minimum and sharp small-ratio locations and depth. The stage method, exact stability function, and unconditional linear stability (in a broader split range) are prior, not claimed as new. The strongest inspected positivity analogues involve different maps or different stabilizations and do not supply this sign theorem.",
+      "residual_risks": [
+        "The comparison is bounded to the local catalogue searches and named primary passages. An uncatalogued analysis of the same real split stability function under positivity or monotonicity terminology could cover some of the new sign conclusions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact multiplier and broader linear stability already covered; sign window not shown in inspected analysis",
+          "evidence": [
+            "With lambda=a/(a+b), their Phi equals the frozen R; lambda>=1/2 corresponds to rho<=1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2303.15861",
+          "material_read": "PDF p. 6, offset 20750, eq. (5) and Theorem 2.4",
+          "method": "OA primary PDF passage",
+          "title": "Accelerating exponential integrators to efficiently solve semilinear advection-diffusion-reaction equations",
+          "trigger": "Identical c2=1 stability function and exact split-stability theorem"
+        },
+        {
+          "assessment": "Identical method, different step-restriction and stabilization questions",
+          "evidence": [
+            "The c2=1 tableau is the one audited; the unstabilized energy bound in §4.1 is step restricted."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.11532v1",
+          "material_read": "Theorem 3.5, offset 36255, and §4.1 eq. (41), offset 43700",
+          "method": "OA primary HTML passages",
+          "title": "A unified framework for original energy dissipation of equilibrium-preserving exponential Runge–Kutta methods for L2 gradient flows",
+          "trigger": "Exact c2=1 tableau and ETDRK2 energy results"
+        },
+        {
+          "assessment": "Different positivity-designed scheme and assumptions",
+          "evidence": [
+            "Kinetic positivity follows under coefficient conditions and a CFL bound, not for the audited map."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1807.03728",
+          "material_read": "PDF p. 4, offset 11700, eq. (2.6) and Proposition 2.2",
+          "method": "OA primary PDF passage",
+          "title": "A second-order asymptotic-preserving and positivity-preserving exponential Runge–Kutta method for a class of stiff kinetic equations",
+          "trigger": "Potential exponential RK positivity coverage"
+        },
+        {
+          "assessment": "Different map and invariant",
+          "evidence": [
+            "Stabilized scalar Allen–Cahn on [-1,1], with all-step energy descent threshold alpha>=1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-one-step-energy-frontier-for-stabilized-etdrk2-on-the-sc--bc907224a5c8",
+          "material_read": "Mirrored Finding and assumptions",
+          "method": "Local semantic lookup and mirror passage",
+          "title": "A sharp one-step energy frontier for stabilized ETDRK2 on the scalar Allen–Cahn problem",
+          "trigger": "Closest indexed ETDRK2 energy finding"
+        },
+        {
+          "assessment": "Distinct two-step recurrence, not a priority exclusion by date",
+          "evidence": [
+            "Eventual sign loss with exact-start data and isolated resonances, not a two-root sign window for a one-step ETDRK2 multiplier."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/27/SCOPE-two-isolated-positivity-resonances-of-an-optimized-two-step-para--d036e6948156",
+          "material_read": "Mirrored Finding and assumptions",
+          "method": "Local semantic lookup and mirror passage",
+          "title": "Two isolated positivity resonances of an optimized two-step parareal scheme",
+          "trigger": "Same-date indexed scalar sign failure plus two special parameters"
+        },
+        {
+          "assessment": "Different fourth-order two-derivative map",
+          "evidence": [
+            "Its positivity transition and Markov obstruction are not the small-split ETDRK2 asymptotics."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-scalar-positivity-transition-and-three-state-markov-obst--3afadf71d5b5",
+          "material_read": "Mirrored Finding and assumptions",
+          "method": "Local semantic lookup and mirror passage",
+          "title": "A sharp scalar positivity transition and three-state Markov obstruction",
+          "trigger": "Exact scalar stability-function positivity threshold"
+        },
+        {
+          "assessment": "Different third-order Riccati map and cone thresholds",
+          "evidence": [
+            "The exprb32 result gives no sign boundary for the c2=1 ETDRK2 scalar split."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-sharp-cone-preservation-phase-diagram-for-the-third-order-expo--2edd05e49817",
+          "material_read": "Mirrored Finding and assumptions",
+          "method": "Local semantic lookup and mirror passage",
+          "title": "A sharp cone-preservation phase diagram for the third-order exponential Riccati map",
+          "trigger": "Earlier indexed positivity phase diagram for an exponential integrator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Unconditional quadratic contraction masks a structural failure of positivity even for scalar decay. Proving loss and subsequent recovery, and distinguishing the two logarithmic scales from the reciprocal recovery scale, identifies where the failure occurs and how weak but persistent it is as the explicitly treated split vanishes. The value is in this sharp failure mechanism and regime, not a restatement of known stability or a claim for nonlinear or matrix problems.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

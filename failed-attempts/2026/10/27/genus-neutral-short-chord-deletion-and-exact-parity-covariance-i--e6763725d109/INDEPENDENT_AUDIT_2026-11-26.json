@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:11:40.571468Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the face permutation gamma*pi, an adjacent pair a,b with gamma(a)=b gives the singleton cycle b. With a nonempty residual diagram, deletion removes that singleton and splices a out of its other cycle; thus Euler's formula leaves genus unchanged. At the final one-to-zero step, use the disk with one boundary component and genus zero, not the cycle count of the empty permutation. Marking one edge in a size-k matching of the 2n-cycle gives k A_{n,k}=2n*binom(2n-k-1,k-1) for k>=1, including k=n; each chosen collection has a uniform residual matching. Ordered marking and factorial simplification give the claimed coefficient, and binomial expansion gives the PGF. Differentiating the exact Harer–Zagier normalization in Chmutov–Pittel gives the odd-harmonic face mean and the two asserted genus-mean increments; multiplication by -2n/(2n-1) gives the covariance, tending to -1/2. For fixed k the normalization at n-k and at n differs by an asymptotically negligible change of center and scale. The uniform bound 2^k justifies exchanging the factorial series and the limit, and tightness follows from the bounded first short-chord moment and the genus marginal CLT. Every subsequential limit is identified by the mixed PGF and bounded continuous genus-scale tests. The frozen check.py was inspected, not executed; its reported exact enumeration is finite evidence only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Equations (7)–(8) uniquely determine the genus-, order- and full vertex-spectrum generating function for marked orientable 2k-gon gluings. The same paper's Proposition 6 proof identifies the local erasure case where the two distinct incident boundary components merge."
+        ],
+        "reasoning": "Set s1=t and every other degree variable to 1, multiply the series by x^2, set x^2=u and take the coefficient of y^(n-1). Dividing by (2n-1)!! yields the exact joint PGF on the frozen sample space. This is finer prior enumerative coverage, even though the earlier recurrence is not a sum of univariate Harer–Zagier polynomials.",
+        "searches": [
+          "Andersen Fuji Manabe Penner Sulkowski Enumeration of chord diagrams on many intervals boundary length spectrum arxiv",
+          "arXiv:1307.0967v4, pp. 5–6, Remark 1; pp. 15–16, Proposition 6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1307.0967v4, 1108.5214, 2104.01134 and 2004.06921",
+        "DOI 10.1007/BF01388864 retrieval attempts",
+        "Resultary 0749abe76974, 11c68f2d68b4, 30537820a0d6 and 5e6c4273f9e7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier transfer proof counts the same ordered feasible sets of adjacent chords with the same occurrence probabilities and conditions on a uniform residual matching. Erasing a monogon edge merges two faces and decreases the edge count by one, preserving genus. Harer–Zagier and Chmutov–Pittel give the exact univariate genus series and the genus marginal limit, respectively."
+        ],
+        "reasoning": "The previously established counting argument depends on the tested statistic only through its conditional residual law. For genus the known two-face erasure rule supplies exactly the needed equality (or contract the corresponding leaf of the dual); hence substitution in the same ordered-marking count gives the compact formula. The k=1 term and first derivative of the univariate series give the parity difference. The existing fixed-k transfer/PGF limit argument goes through using the genus marginal CLT and its explicitly negligible fixed size shifts. None of the crossing records alone states the genus result.",
+        "searches": [
+          "Resultary 0749abe76974, proof sections 1–3 and Finding",
+          "arXiv:1307.0967v4, Proposition 6 proof",
+          "arXiv:1108.5214, Eq. (2.1) and Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A cyclic short chord is a fixed point of gamma*pi, hence a monogon of the one-vertex ribbon graph. In the dual this is a degree-one vertex of the graph on the glued polygon perimeter. Alexeev et al. count degrees of that perimeter graph with the polygon edge marked.",
+          "Young instead counts linear adjacent endpoints, without genus."
+        ],
+        "reasoning": "Marking the fixed reference edge is the rooting convention for the cyclic labeling; it does not quotient the matchings by rotation. The vertex-spectrum variable s1 in Remark 1 counts exactly S_n, including the pair across the seam. The separate complete-backbone boundary-length convention in Theorem 2 includes an underside; it is not necessary to identify that convention with the cyclic monogon count.",
+        "searches": [
+          "chord diagrams genus monogons one vertex maps adjacent chords genus distribution monogon refined permutations Jackson face degree enumeration Harer Zagier",
+          "arXiv:1307.0967, Remark 1, equations (7)–(8)",
+          "arXiv:2004.06921, abstract and introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed crossing records 11c68f2d68b4, 0749abe76974 and 30537820a0d6 use the same cyclic matchings with a different second statistic. The exact spectrum generating function of Alexeev et al. gives all genus-by-monogon cells, beyond a finite table."
+        ],
+        "reasoning": "The crossing records are not exact genus tables: crossing number does not determine genus. The degree-spectrum recurrence, with its explicit initial condition, does determine all cells by the specialization above; a separately printed table of those cells is unnecessary.",
+        "searches": [
+          "Resultary cyclic simple-chord factorial deletion and global statistics",
+          "arXiv:1307.0967v4, Remark 1, initial condition and recurrence"
+        ]
+      },
+      "rationale": "Alexeev–Andersen–Penner–Zograf already enumerate a strictly finer statistic on the same marked polygon gluings: the entire vertex-degree spectrum at fixed genus and order. Their Remark 1, equations (7)–(8), directly gives every entry of the frozen joint law after degree specialization. The specific Harer–Zagier reduction is not printed there, but it uses the already explicit cyclic factorial-transfer count and the genus-neutral leaf case of known chord erasure. The parity and limiting formulas are not identified as verbatim earlier statements; they follow by the same transfer template with the known genus mean and genus CLT. The decision is established coverage of the finite law and a direct derivation of the displayed refinement and consequences, not evidence of copying or precise first publication of the simplified formulas.",
+      "residual_risks": [
+        "The exact historical priority of the compact Harer–Zagier expression, printed parity covariance, and phrasing of the mixed limit was not determined. The broader finite-law coverage rests on the inspected primary equations, not on missing sources or unsuccessful searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct broader coverage of the finite law, plus the local erasure case",
+          "evidence": "Remark 1 counts marked genus-g orientable 2k-gon gluings according to the degrees of vertices in the image of the polygon perimeter. Equation (7) marks those degrees and equation (8) with its initial condition uniquely determines the generating function. Proposition 6 describes chord erasure merging two distinct boundary components.",
+          "identifier_or_url": "https://arxiv.org/abs/1307.0967v4",
+          "material_read": "Definitions on PDF pp. 2–3, offsets 5730 and 9980; Theorem 2 and Remark 1 on pp. 5–6, offsets 16250 and 20350; Proposition 6 proof and diagrams on pp. 15–16, offset 51580",
+          "method": "OA PDF text",
+          "title": "Enumeration of chord diagrams on many intervals and their non-orientable analogs",
+          "trigger": "Broader face-degree or dual vertex-degree enumeration at fixed genus"
+        },
+        {
+          "assessment": "Exact method overlap, second statistic is different",
+          "evidence": "The proof counts matchings in C_{2n}, deletes the marked chord set and uses the conditional law on n-k chords before binomial expansion. Its displayed theorem weights crossings, not genus.",
+          "identifier_or_url": "Resultary 0749abe76974",
+          "material_read": "Finding, assumptions and proof sections 1–3, RESULT.md offsets 0 and 2158",
+          "method": "Local Resultary mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact short-chord/crossing transfer and independent Poisson–Gaussian limits",
+          "trigger": "Same cyclic factorial coefficient and residual-uniformity template"
+        },
+        {
+          "assessment": "Exact structural overlap with crossings",
+          "evidence": "Same matching model, same ordered-marking law and asymptotic independence, with crossing number and its different scale.",
+          "identifier_or_url": "Resultary 11c68f2d68b4",
+          "material_read": "Finding and opening assumptions, RESULT.md offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact joint crossing and simple-chord laws for uniform chord diagrams",
+          "trigger": "Same local statistic and factorial/PGF and normal-limit format"
+        },
+        {
+          "assessment": "Crossings only",
+          "evidence": "Exact transfer for simple chords; joint weak limits with crossings and several short-chord lengths.",
+          "identifier_or_url": "Resultary 30537820a0d6",
+          "material_read": "Finding and opening assumptions, RESULT.md offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Gaussian–Poisson decoupling for local chords and global crossings",
+          "trigger": "Broader local chord lengths with a global statistic"
+        },
+        {
+          "assessment": "Similar crossing theorem, later dated",
+          "evidence": "The displayed second statistic is crossings. This is catalogue comparison, not earlier priority evidence.",
+          "identifier_or_url": "Resultary 5e6c4273f9e7",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "A factorial deletion law and joint Poisson–Gaussian limit for random chord diagrams",
+          "trigger": "Same transfer/PGF language"
+        },
+        {
+          "assessment": "Exact univariate ingredients",
+          "evidence": "Prints the Harer–Zagier identity in the required normalization and proves the marginal genus local normal limit, not by itself the joint law.",
+          "identifier_or_url": "https://arxiv.org/abs/1108.5214",
+          "material_read": "Introduction p. 3; section 2, Eq. (2.1), p. 4/offset 4440; Theorem 3.1, p. 12/offset 27900",
+          "method": "OA PDF text",
+          "title": "The genus of a random chord diagram is asymptotically normal",
+          "trigger": "Exact genus normalization and marginal theorem used in proof"
+        },
+        {
+          "assessment": "Classical univariate result, original access limited",
+          "evidence": "The normalization actually used was read in Eq. (2.1), not inferred from metadata.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01388864",
+          "material_read": "Exact attribution and transcription in Chmutov–Pittel Eq. (2.1); original full text not retrieved",
+          "method": "Bounded OA attempts and exact transcription in accessible primary literature",
+          "title": "The Euler characteristic of the moduli space of curves",
+          "trigger": "Original source of the genus/face generating identity"
+        },
+        {
+          "assessment": "Marginal limit overlap",
+          "evidence": "Treats crossings normality and simple-chord Poisson approximation separately in the inspected results.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.01134",
+          "material_read": "Theorems 1.1–1.2, PDF p. 3/offset 8200",
+          "method": "OA PDF text",
+          "title": "Convergence rates of limit theorems in random chord diagrams",
+          "trigger": "Poisson simple chords under the same random model"
+        },
+        {
+          "assessment": "Different adjacency convention and no genus weighting",
+          "evidence": "The endpoints are linearly ordered for the short-chord count; the cyclic seam is not included.",
+          "identifier_or_url": "https://arxiv.org/abs/2004.06921",
+          "material_read": "Abstract and introduction, PDF pp. 1–2/offsets 0 and 3900",
+          "method": "OA PDF text",
+          "title": "Linear k-Chord Diagrams",
+          "trigger": "Finite short-chord enumeration"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Genus and monogons are natural observables, and the compact expression is convenient. But the exact law is already available as a projection of the full degree spectrum, and its simpler computation uses the established factorial transfer with the standard monogon erasure case. The parity formula and mixed limit are direct extractions from that reduction and the established univariate laws, not a distinct structural extension beyond these inputs.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

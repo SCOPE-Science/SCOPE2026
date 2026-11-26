@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:52:55.279120Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, all geometric and arithmetic claims",
+        "Frozen VERIFICATION.md, nieto_char2_verify.py, and recorded verifier output (inspection only)",
+        "Independent replay: node /workspace/audit_replay/3.js, enumerating all projective F₄ points and deduplicating lines spanned by point pairs"
+      ],
+      "rationale": "On the torus, differentiating (∏X_i)ΣX_i^{-1} on its zero locus gives partials proportional to X_i^{-2}; the hyperplane Jacobian condition makes them equal, so injectivity of squaring forces the all-ones point. Exactly one zero coordinate is impossible; with exactly two zero coordinates the gradient is nonzero only in the two corresponding entries, with equal nonzero value there; with at least three it vanishes. This gives the 20 distinct lines and the isolated point. Reducibility (intersection of distinct positive-degree factors) or a repeated factor would give a singular subvariety of dimension at least two in the projective hyperplane; neither occurs. The quintic hypersurface is S₂, regular in codimension one, and adjunction gives trivial dualizing sheaf. In X₅=1, the coefficient of σ_r(v) in the translation expansion of σ₅ is 6−r modulo 2; with Σv_i=0 this leaves σ₃(v)+σ₅(v). Putting v=(u₀,u₁,u₂,u₃,Σu,0) gives the two displayed homogeneous forms. The four cubic derivatives are (Σ_{j≠i}u_j)²; their common vanishing forces each u_i=Σu and hence u=0. The blowup charts have strict-transform equation Q₃(1,w)+t²Q₅(1,w)=0, smooth along the cubic; adjunction subtracts multiplicity 3 from ambient discrepancy 3. The intrinsic tangent space is Hom(ke,V/ke); e is permutation-fixed and ΣX_i³ restricts to V invariant under translation by e, so both the exceptional surface and the Segre cone base are the zero scheme of this same cubic on P(V/ke), with the same permutation action. The actual Hessian vanishes by characteristic two. The binary projective points on the quintic have weights 2, 4 and 6 (15, 15, 1), of which weights 2 and 6 are singular. Independent F₄ enumeration gives 45 cubic points (15 over F₂) and 27 lines, 15 fixed and six conjugate pairs; the classical 27-line theorem for a smooth cubic excludes further geometric lines.",
+      "residual_risks": [
+        "The finite replay checks each line via five projective F₄ points, enough for vanishing of its degree-three binary restriction. It is not the geometric singular-support or smoothness proof. The singular-locus statement concerns reduced support; the resolution is only near the isolated point."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier exact-model record also gives completed local Tjurina length 16. The classical papers describe ten ordinary nodes and twenty lines, with the modularity analysis singling out bad primes 2 and 3. Dolgachev–Duncan give the smooth Clebsch model, while Dolgachev notes the vanished Hessian in characteristic two."
+        ],
+        "reasoning": "The earlier exact-model result is stronger locally. The classical nodal description alone does not imply the mod-two germ, even though all ten sign-pattern points collapse to the same coordinates. A separate characteristic-three record has an ordinary node instead of the triple point and gives no additional coverage here.",
+        "searches": [
+          "October 26 Clebsch-exceptional-cubic record, proof §§2–4",
+          "Hulek–Spandaw–van Geemen–van Straten arXiv:math/0010049 and Hulek–Nieto–Sankaran arXiv:alg-geom/9712025v2",
+          "Dolgachev–Duncan arXiv:1712.01167; Dolgachev arXiv:2302.13101"
+        ]
+      },
+      "checked_sources": [
+        "Exact Barth–Nieto and Segre Resultary matches identified above",
+        "Hulek–Spandaw–van Geemen–van Straten; Hulek–Nieto–Sankaran; Dolgachev–Duncan; Dolgachev, passages listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The October 26 proof explicitly identifies C by Newton as Σ_{i=0}^4 y_i³ on the slice y₅=0. In V={ΣX_i=0}, subtracting X₅e gives the unique representative with last coordinate zero in V/ke. The six-variable power sum on V is translation-invariant under ke because ΣX_i=ΣX_i²=6=0 in the relevant expansion."
+        ],
+        "reasoning": "Thus the descended Segre polynomial, in the same slice, is already the prior tangent equation. The tangent identification T_[e]P(V)≅Hom(ke,V/ke) with fixed generator e is canonical under permutations, so equivariance requires no new conjugacy result. Normality and adjunction follow by standard hypersurface deductions from the prior singular support. The arithmetic does not isolate a substantively new geometric claim.",
+        "searches": [
+          "October 26 record, local-mirror RESULT.md offsets 3220–5609; November 2 Segre specialization, local-mirror Finding/Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 26 Clebsch-exceptional-cubic record uses the same coefficientwise V(e₁,e₅), the same all-ones point and twenty lines. In the same chart X₅=1 it gives C=e₃(y₀,…,y₄) and Q=∏y_i with y₄=Σ_{i≤3}y_i. These are precisely Q₃ and Q₅ in the frozen record.",
+          "The separate Segre specialization identifies the same explicit cubic quotient as the base of the cone; it does not itself discuss Barth–Nieto."
+        ],
+        "reasoning": "e_i and σ_i denote the same elementary symmetric form. Matching the exact affine equation and the integral model establishes coverage of the germ, not merely an isomorphic surface or a similar title. Neither reduction is identified with an actual Hessian scheme.",
+        "searches": [
+          "Resultary: characteristic-two Barth–Nieto quintic Clebsch exceptional cubic, crepant blowup, coefficientwise V(e₁,e₅)",
+          "Resultary: characteristic-two Segre cubic cone/27-plane specialization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 26 record directly gives the singular support and exact local theorem. The November 2 Segre record covers the cone and its Fano scheme of 27 planes. The October 18 cone record was located in the index, but the matching full text was unavailable."
+        ],
+        "reasoning": "The exact local-geometry match, rather than a point-count table, is decisive. The November 2 Segre entry is distinct and compared on its content, not assumed to precede the frozen entry. The unavailable October 18 file is not needed for the result.",
+        "searches": [
+          "Resultary: negative-characteristic comparison (same Barth–Nieto model, isolated nodes/triple point)",
+          "Resultary: 27-plane characteristic-two Segre specialization, and characteristic-two collapse of the symmetric Segre cubic"
+        ]
+      },
+      "rationale": "A distinct published catalogue record gives the same characteristic-two integral-model reduction, reduced singular support, exact local equation, smooth Clebsch exceptional cubic and crepant blowup, and further computes the local Tjurina length. The one potentially distinct comparison, the natural permutation-equivariant identification with the Segre cone base, follows directly from the prior explicit cubic on the standard tangent slice and from translation invariance of the Segre cubic on the hyperplane. The point/line counts are either acknowledged background or direct binary counts, not a surviving new structural claim. The decision is based on exact statement and equation overlap, not inaccessibility of historical literature.",
+      "residual_risks": [
+        "The original 1994 Barth–Nieto article and the October 18 Resultary Segre full text were not inspected. This is not an earliest-priority determination. The broader web lookup did not complete; no negative inference is made from it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the principal result; stronger by Tjurina length",
+          "evidence": "Same 20 lines plus isolated all-ones point, same C+Q with C=Σy_i³, same smooth cubic exception and discrepancy zero.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-clebsch-exceptional-cubic-at-the-characteristic-two-barth-niet--64e3a6b704e2",
+          "material_read": "Local-mirror Finding; Proof §§2–4 including offsets 3220–5609; Relationship to prior work",
+          "method": "Statement and exact local equation comparison",
+          "title": "A Clebsch exceptional cubic at the characteristic-two Barth–Nieto point",
+          "trigger": "Exact integral-model, singular-support, and crepant blowup match"
+        },
+        {
+          "assessment": "Covers Segre side only by itself",
+          "evidence": "The reduction is the cone with vertex [1:…:1] over the characteristic-two Clebsch cubic, with 27 planes; no direct Barth–Nieto assertion.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-27-plane-characteristic-two-specialization-of-the-segre-cubic--124356bfb044",
+          "material_read": "Local-mirror Finding and proof of cone structure",
+          "method": "Compare defining equations, projection and geometric Fano scheme",
+          "title": "A 27-plane characteristic-two specialization of the Segre cubic",
+          "trigger": "Exact Segre quotient/base comparison"
+        },
+        {
+          "assessment": "Classical geometry, not verified coverage of the mod-two triple point",
+          "evidence": "The twenty lines and ten ordinary nodes occur in the classical setting; p=2 and 3 are bad primes and the count formula applies to p≥5.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0010049",
+          "material_read": "PDF pp. 3, 5 (offset 12800 for classical lines and nodes), 13 (point-count range)",
+          "method": "Compare model, prime restrictions and singularity classification",
+          "title": "The modularity of the Barth–Nieto quintic and its relatives",
+          "trigger": "Same quintic symmetric equations and classical singularities"
+        },
+        {
+          "assessment": "Classical description only in inspected passages",
+          "evidence": "Gives the ten singular points and twenty lines but does not settle the mod-two local blowup in those passages.",
+          "identifier_or_url": "https://arxiv.org/abs/alg-geom/9712025v2",
+          "material_read": "Full-text OA source, pp. 1–2",
+          "method": "Compare inverse-coordinate equations and classical singular support",
+          "title": "Heisenberg-invariant Kummer surfaces",
+          "trigger": "Older related study previously recorded as unavailable"
+        },
+        {
+          "assessment": "Covers the cubic background, not its Barth–Nieto occurrence",
+          "evidence": "The Clebsch surface is smooth in characteristic two (the exception for this smoothness is characteristic five).",
+          "identifier_or_url": "https://arxiv.org/abs/1712.01167",
+          "material_read": "PDF pp. 30, 64–65",
+          "method": "Compare surface model and claimed application",
+          "title": "Automorphisms of cubic surfaces in positive characteristic",
+          "trigger": "Possible Clebsch model and characteristic-two coverage"
+        },
+        {
+          "assessment": "Background; does not assert this exceptional-divisor identification in the inspected passage",
+          "evidence": "Discusses the Segre primal in characteristic two, notes the symmetric form caveat and that the characteristic-two Hessian vanishes.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.13101",
+          "material_read": "PDF pp. 8–10, offsets 26300 and 29500",
+          "method": "Compare Segre models and Hessian statement",
+          "title": "K3 surfaces of Kummer type in characteristic two",
+          "trigger": "Characteristic-two Segre and Hessian comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and scope of the point/line census",
+        "October 26 Clebsch exceptional cubic and November 2 Segre specialization, as above"
+      ],
+      "rationale": "Understanding the bad-reduction germ is structurally worthwhile, but the exact germ and its crepant resolution are already covered. The apparent remainder identifies two copies of the same cubic on the same tangent quotient via the coordinate slice; the checked prior equations make this a direct reformulation. The independently reproduced arithmetic consists of known cubic-surface data and a binary weight count, for which this record does not isolate a separate motivated unknown invariant.",
+      "residual_risks": [
+        "This does not diminish the value of the prior geometric theorem or suggest that a genuinely new invariant of the characteristic-two quintic could not be valuable."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

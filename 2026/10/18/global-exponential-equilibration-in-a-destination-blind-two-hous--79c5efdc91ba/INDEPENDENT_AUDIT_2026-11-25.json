@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:21:27.464230Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 18–75",
+        "Frozen VERIFICATION.md and verify.py, inspected without execution"
+      ],
+      "rationale": "Checked the ordered source/destination flux including the factor bV/2 (or rV/2) and conservation of total neighborhood mass and both household counts. The two-density log-partition is strictly convex since the six states affinely span two dimensions; subtracting the linear mean constraints makes it coercive because the target mean is strictly inside the support triangle. For a relocation, factorials cancel against source multiplicity and destination vacancy, and (β+λr)a^r=β on allowed blue-source states with r=0 or 1, with the same identity for red. The three forward/reverse tests give p_B²=4p_00 p_BB, p_R²=4p_00 p_RR, and 2p_00 p_BR=a p_B p_R. Their reaction vectors span the mass-and-density tangent space. For interior p the usual paired-flux entropy dissipation vanishes only at the unique Gibbs law. Boundary data are also covered: the marginal rates A_B=2βρ_B+λp_BR, A_R=2βρ_R+λp_BR and the vacancy-scaled departure rates give uniform lower bounds on the connected graph's enabled transitions. Integrating along a path over any unit interval gives a uniform positive transition probability, hence a uniform component floor after time 1. The local entropy production quadratic is Σ F* (ν·diag(1/p*)ξ)²; if it vanishes on the tangent, diag(1/p*)ξ is orthogonal to that tangent and ξ·diag(1/p*)ξ=0, so ξ=0. The quadratic rate near equilibrium and the strict dissipation gap on the remaining compact positive set give exponential entropy decay, hence exponential ℓ¹ convergence. For the response, holding the two means fixed gives the positive conditional covariance Schur complement for br; strictness follows because br is not affine in (b,r). Since log a strictly decreases with λ, p_BR strictly decreases, and λ=0 gives the independent baseline. Also checked the displayed factorization for direct strict suppression. The frozen checker was inspected without execution; its finite rational event tests and entropy example do not certify the infinite-time or monotonicity results.",
+      "residual_risks": [
+        "The argument depends on exactly two houses and a positive baseline, two positive densities and positive vacancy. It does not provide a stochastic mixing claim or a rate uniform on parameter boundaries."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General detailed-balanced mass-action systems have a global-attractor theorem. The reviewed relocation equation is a mass-action network in ordered neighborhood pairs, and the verified detailed balance lets the general result apply to positive trajectories."
+        ],
+        "reasoning": "This is genuine broader coverage of the attraction step conditional on recognizing detailed balance, not a theorem giving this network's fugacities, boundary-data bound, exact rate comparison or mixed-state response.",
+        "searches": [
+          "Crăciun arXiv:1501.02860v3, detailed-balance and global attractor statement in abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.24998v1 §2.1",
+        "arXiv:1501.02860v3 abstract",
+        "Resultary 53610bc7b976",
+        "Durrett–Zhang citation and access attempts only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The trinomial equilibrium and convergence at zero intolerance are prior coverage. The generic global-attractor theorem can replace the qualitative positive-data step once the model-specific reversible equation is obtained.",
+          "The strict monotonicity argument uses a standard Schur complement but needs the established sufficient statistic br in this model's equilibrium family. General global attraction supplies neither that statistic nor a mixed-state response."
+        ],
+        "reasoning": "Do not credit general entropy theory or the general exponential-family derivative as new methods. Their applicability, the all-compatible-data quantitative result, and the strict comparison at fixed means are the supported model-specific findings for λ>0.",
+        "searches": [
+          "Cao–Cortez Proposition 2.4: λ=0 entropy proof",
+          "Crăciun arXiv:1501.02860v3, abstract; compared with frozen flux and response identities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cao–Cortez is the destination-agnostic ODE; their Proposition 2.4 identifies the trinomial equilibrium and entropy convergence for λ=0, β>0.",
+          "The frozen record identifies analogous static two-house relations in Durrett–Zhang with different relocation rules and equal densities; primary passage access failed, so the precise match is not independently established."
+        ],
+        "reasoning": "The λ=0 case is exactly the known kinetic result, not just a similar expression. Even identical stationary equations for a different relocation law do not entail entropy dissipation or relaxation rates for the same dynamics.",
+        "searches": [
+          "Cao–Cortez arXiv:2604.24998v1, §2.1, Eqs. (2.4)–(2.5) and Proposition 2.4",
+          "Durrett–Zhang DOI 10.1073/pnas.1414915111, Special Case L=2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest topical inspected hit 53610bc7b976 treats swap games on balanced K_n,n with equilibrium colorings and exact swap counts. It does not give a neighborhood-distribution ODE or a mixed-state response at fixed densities."
+        ],
+        "reasoning": "The nearest indexed topical claim concerns configurations and discrete swaps in a different process, not the frozen relaxation theorem. The bounded catalogue search does not rule out unindexed coverage.",
+        "searches": [
+          "Local Resultary: Cao–Cortez, destination-blind two-house equilibration, Schelling relocation and mixed-neighborhood response"
+        ]
+      },
+      "rationale": "Credit Cao–Cortez for the identical ODE and the zero-intolerance convergence theorem, and general detailed-balance theory for the positive-trajectory global-attraction implication once this network and equilibrium have been identified. The supported distinct contribution concerns the joint positive-intolerance and positive-baseline regime: model-specific detailed balance with arbitrary admissible, possibly unequal densities, an exponential bound from all compatible boundary or interior data, and strict response of the mixed fraction at fixed densities. The static two-house algebra alone is not credited as original.",
+      "residual_risks": [
+        "The historical extent of the two-house static overlap with Durrett–Zhang could not be determined from primary text. A stronger earlier model-specific treatment is not ruled out by the bounded checks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and exact overlap on zero-intolerance convergence; no joint positive-parameter result established by the inspected proposition",
+          "evidence": "Proposition 2.4 uses entropy to prove convergence to the trinomial law for λ=0, β>0.",
+          "identifier_or_url": "https://arxiv.org/html/2604.24998v1",
+          "material_read": "§2.1, Eqs. (2.4)–(2.5), Proposition 2.4 passage near HTML offset 32210",
+          "method": "OA primary text passage inspection",
+          "title": "Relocation without preference: A destination-agnostic Schelling-type metapopulation model",
+          "trigger": "Identical positive-baseline neighborhood ODE and possible convergence overlap"
+        },
+        {
+          "assessment": "Static overlap not independently resolved; not grounds to exclude kinetic coverage",
+          "evidence": "Frozen record identifies Special Case L=2 and different relocation rules. The primary passage could not be retrieved in the attempted copies.",
+          "identifier_or_url": "https://doi.org/10.1073/pnas.1414915111; PMC4191761",
+          "material_read": "Citation and frozen record's comparison only; no primary passage returned",
+          "method": "Lawful publisher, PMC and Europe PMC attempts",
+          "title": "Exact solution for a metapopulation version of Schelling’s model",
+          "trigger": "Plausible two-house static detailed-balance overlap"
+        },
+        {
+          "assessment": "Covers the qualitative attraction implication for positive data once the model-specific detailed balance is established",
+          "evidence": "The abstract states the global-attractor property for all detailed-balanced mass-action systems.",
+          "identifier_or_url": "https://arxiv.org/pdf/1501.02860",
+          "material_read": "Abstract, PDF printed p. 1, extracted offset 0–3200",
+          "method": "OA primary PDF passage inspection and application to the verified reaction representation",
+          "title": "Toric Differential Inclusions and a Proof of the Global Attractor Conjecture",
+          "trigger": "Broader theorem for positive solutions of detailed-balanced mass-action systems"
+        },
+        {
+          "assessment": "Different object and conclusion",
+          "evidence": "It concerns balanced complete-bipartite graph swap games and exact swap counts rather than the six-state mean-field distribution.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-three-regime-equilibrium-and-exact-convergence-law-for-balance--53610bc7b976",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Local Resultary search and mirrored source inspection",
+          "title": "A three-regime equilibrium and exact convergence law for balanced swaps",
+          "trigger": "Closest topical local catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof, particularly lines 60–72",
+        "Cao–Cortez Proposition 2.4",
+        "Detailed-balance general comparison"
+      ],
+      "rationale": "The regime with both background relocation and social intolerance is not settled by treating either of them alone. The exact equilibrium shows that positive baseline mobility precludes multiple compatible equilibria even while intolerance strictly suppresses mixing at fixed densities. The convergence bound includes initial distributions supported on only a few of the six types. The strict response is a useful quantitative distinction between uniqueness of the equilibrium and absence of segregation pressure.",
+      "residual_risks": [
+        "Two-house scope and no claim of spatial, many-house or finite-population generality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

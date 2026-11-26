@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:58:08.950704Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Two words can share a four-symbol receiver exactly when their componentwise minimum has sum at least four; any shared longer receiver also contains a four-symbol one. A heavy word contains a pure four-symbol receiver, and distinct selected heavy words cannot share a heavy coordinate, giving at most three heavy words. At n≥10 no light word exists, and the three pure words attain the bound. For 7≤n≤9 two light words intersect in at least 2n−9≥5; the three pure words and (n−6,3,3) are compatible. At n=6 each light word has two coordinates at least two, hence contains one of three distinct pair-type receivers; at most three light words coexist. The three pure and three (3,3,0)-type words attain six. At n=5 the nine displayed incompatible triples cover each of the twelve light vectors at least twice; counting incidences bounds selected light words by floor(9/2)=4, and the seven-word witness attains the total. In a separate exact finite check, I enumerated triples summing to n and represented each by the 15-bit mask of its four-symbol receivers. With words indexed in order, memoizing F(i,used) as the larger of skipping word i and taking it if its receiver mask is disjoint from used (terminate with F=0 after the last word) gave 7,6,4,4,4,3 for n=5,…,10. This corroborates all short cases independently of the recorded clique search; the unlimited tail is proved by the heavy-coordinate argument. RESULT.md, VERIFICATION.md, check.py and check_output.txt were inspected, not executed. The recorded script uses int.bit_count(), so Python 3.10 or later is the safe replay version despite its docstring's Python ≥3.9.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kovačević–Tan Theorem 11 concerns diameter-perfect codes on an infinite lattice; Theorem 14 supplies general finite lower and upper bounds. Proposition 12 of arXiv:2601.05636 is a three-survivor bound, and the other deletion-ball paper gives packing and Gilbert–Varshamov bounds. Resultary da6ffbe21ef7 generalizes the three-survivor result across alphabet sizes, not across survivor counts."
+        ],
+        "reasoning": "Infinite tiling optimality does not determine finite simplex boundary capacity; the generic volume/count bounds do not supply joint attainment and exclusion in the full target profile. Broader alphabet coverage at a stricter intersection threshold is not broader in the relevant direction.",
+        "searches": [
+          "Kovačević–Tan Theorems 11,14",
+          "Kreindel–Essayag–Zabokritskiy arXiv:2601.05636v2 §§4.4,5.3",
+          "arXiv:2603.18322v1 Theorems 16,17",
+          "Resultary arbitrary-alphabet three-survivor da6ffbe21ef7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py, check_output.txt",
+        "arXiv:1612.08837v5",
+        "arXiv:2601.05636v2",
+        "arXiv:2603.18322v1",
+        "Resultary d3a62a71c505 and da6ffbe21ef7",
+        "Geramita–Gregory–Roberts via the cited theorem only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior three-survivor work already uses heavy coordinates and receiver certificates. At intersection threshold three, the three (2,2,0)-type receivers cover the light words at n=6, and a six-word witness is feasible at this threshold but not the older one. Light-vector exclusion requires n≥10 instead of n≥7."
+        ],
+        "reasoning": "The proof technique is established, and the all-heavy tail bound alone is a direct threshold substitution. However, prior exact three-survivor sizes and general packing bounds do not imply the intermediate optimal allocations, particularly the coexistence of six words and matching upper bound at n=6. The breakpoint is sharp because the distinct four-word witness continues through n=9.",
+        "searches": [
+          "arXiv:2601.05636v2 Proposition 12 versus the n=6 certificate",
+          "Resultary d3a62a71c505 Finding and heavy-coordinate proof",
+          "arXiv:1612.08837v5 Theorem 14, Eqs. (20)–(21)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kovačević–Tan define the simplex and normalized multiset distance on PDF p. 3; the distance is n minus the multiset intersection. Resultary d3a62a71c505 treats the same alphabet but requires intersection at most two."
+        ],
+        "reasoning": "The exact packing problem has minimum distance n−3, not n−2 as in the earlier three-survivor record. The latter gives feasible codes but does not upper bound the larger four-survivor optimum.",
+        "searches": [
+          "Discrete simplex multiset packing M_3(n,n−4), minimum half-ℓ1 distance n−3; Kovačević–Tan arXiv:1612.08837v5",
+          "Resultary: exact ternary multiset deletion / four or three survivors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact catalogue profile is 4,4,3,… starting at n=5 with three symbols surviving. Proposition 17 explicitly implies S_3(5,1)=7. The inspected Kovačević–Tan table contexts are not an exact table for four survivors."
+        ],
+        "reasoning": "The exact single-deletion formula overlaps at n=5 only; neither a differently indexed three-survivor sequence nor the located simplex-code tables covers the decision at n=6 or the precise transition at n=10.",
+        "searches": [
+          "Resultary d3a62a71c505 and da6ffbe21ef7, exact code-size findings",
+          "arXiv:1612.08837v5 literal Table locators and Theorem 14",
+          "arXiv:2601.05636v2 §5.3 Proposition 17 and underlying triangular-grid result"
+        ]
+      },
+      "rationale": "The known n=5 endpoint is explicitly credited and is not accepted as new. The validated distinct contribution is the full four-survivor ternary profile for n≥6, especially the exact six-word case, the four-word plateau and the exact threshold for the pure code. No exact or mechanically dominating result for the full contribution was identified after comparison of the closest indexed and primary-source formulas.",
+      "residual_risks": [
+        "Older or differently notated finite simplex/triangular-grid packing results may escape this bounded search.",
+        "The Geramita–Gregory–Roberts primary full text was not accessible through the attempted route; only the ordinary independence result attributed in the inspected citation is used."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact same metric normalization; no full target profile in inspected results",
+          "evidence": [
+            "Theorem 11 is in the infinite lattice; Theorem 14 gives bounds involving φ(h,q) and β(h,q)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1612.08837",
+          "material_read": "PDF p. 3 metric setup; p. 8 Theorem 11; p. 9 Theorem 14, offsets 69950–73770; table contexts on pp. 2,6",
+          "method": "OA PDF passages and literal table locators",
+          "title": "Codes in the Space of Multisets—Coding for Permutation Channels with Impairments",
+          "trigger": "Equivalent discrete-simplex model and possible general exact packing result"
+        },
+        {
+          "assessment": "Known n=5 endpoint and closely related technique; different parameter elsewhere",
+          "evidence": [
+            "§5.3 gives ceil((n+1)(n+2)/6) for ternary single deletion except n=2,4; §4.4 bounds the three-survivor problem."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2601.05636v2",
+          "material_read": "§4.4 Proposition 12, HTML offset 70800; §5.3 Proposition 17 and referenced theorem, offsets 91290–91600",
+          "method": "OA HTML statement inspection",
+          "title": "Multiset Deletion Codes: Cyclic Constructions, Bounds, and Exact Results",
+          "trigger": "Strongest direct exact deletion-code comparison"
+        },
+        {
+          "assessment": "Constructions and general bounds, not matching exact capacity in inspected passages",
+          "evidence": [
+            "Construction regime t<q and general sphere-packing and Gilbert–Varshamov theorems."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.18322v1",
+          "material_read": "Abstract and pp. 1–5, offsets 0–15843; p. 36 Theorem 16, offset 91600; p. 39 Theorem 17, offset 99700",
+          "method": "OA PDF passage inspection",
+          "title": "Polynomial Constructions and Deletion-Ball Geometry for Multiset Deletion Codes",
+          "trigger": "Possible four-survivor exact small-alphabet coverage"
+        },
+        {
+          "assessment": "Indirect evidence supports known single-deletion endpoint; no whole-document negative finding",
+          "evidence": [
+            "The citing section invokes Theorem 5.4(2) for the ordinary triangular-grid independence number, not the higher-distance profile."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0022-4049(86)90029-0",
+          "material_read": "No original full text available by attempted DOI route; theorem scope inspected as attributed in arXiv:2601.05636v2 §5.3, offset 91290",
+          "method": "DOI retrieval attempt; indirect comparison only via inspected OA citing section",
+          "title": "Monomial ideals and points in projective space",
+          "trigger": "Original triangular-grid independence formula underlying exact single deletion"
+        },
+        {
+          "assessment": "Adjacent but stricter intersection criterion",
+          "evidence": [
+            "Exactly 4 at n=5,6 and 3 at n≥7 for n−3 deletions; uses heavy coordinates ≥3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-ternary-multiset-deletion-codes-when-three-multiset-elemen--d3a62a71c505/RESULT.md",
+          "material_read": "Finding, assumptions and start of proof, mirror offset 0 onward",
+          "method": "Local Resultary search and mirror inspection, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact ternary multiset deletion codes when three multiset elements survive",
+          "trigger": "Strongest earlier exact Resultary overlap"
+        },
+        {
+          "assessment": "Still three survivors; does not determine the four-survivor optimum",
+          "evidence": [
+            "q+1 for q+2≤n≤2q and q for n≥2q+1 in the three-survivor problem."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-three-survivor-multiset-deletion-codes-over-arbitrary-alph--da6ffbe21ef7",
+          "material_read": "Indexed Finding and three-survivor exact profile",
+          "method": "Local Resultary search and statement inspection",
+          "title": "Exact three-survivor multiset deletion codes over arbitrary alphabets",
+          "trigger": "Broader alphabet family in the local catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the next natural fixed-survivor profile beyond three symbols, with an operational ability to distinguish unordered ternary messages from just four remaining symbols. The six-word instance reaches a qualitatively different packing of light words, and the exact four-word interval and sharp onset of pure-code optimality determine the usable message alphabet at all lengths. The local receiver certificates explain both exceptions and are more useful than a table of small enumerations alone. The already known single-deletion endpoint is not counted as added value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

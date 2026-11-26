@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The unique \(k[t]\)-module endomorphism coordinates are justified by the three Hom spaces; nilpotence is equivalent to vanishing of both diagonal residue scalars. Matrix multiplication makes pairwise commutativity equivalent to rank at most one in the two-row coefficient matrix. Every invertible centralizer action reduces to one common scaling and two free top-coefficient translations. Projective direction, scalar-pair type, and quotient coordinate classify every orbit with no missing cases. Counting the strata yields the formula and reconstructs the total labeled tuple count. Seven exhaustive small-field configurations verified the formula and full orbit action. An external proof audit has not occurred.
+## correctness
 
-**Originality — PASS, subject to priority limitations.** Britnell–Wildon classify commuting matrix **types**, not finite-field simultaneous orbit counts for the fixed hook with unrestricted tuple arity. Sharma's published branching is limited to ambient dimensions at most four; its hook \((3,1)\) case is credited explicitly. A previously recorded class-size census for single invertible centralizer elements, including unipotent elements, does not cover simultaneous orbits of mutually commuting pairs or higher tuples. Another related result counts unquotiented commuting nilpotent tuples for the different fixed Jordan partition \((n-2,2)\). Residual risk: a more general representation-theoretic branching classification could imply this formula without matching terms.
+PASS
 
-**Value — PASS.** Classifying ordered commuting nilpotent companions of a fixed Jordan operator is a natural simultaneous-similarity problem. The result supplies all-arity complete orbit invariants, exact finite-field class sizes and a projective-geometric decomposition, beyond unquotiented tuple counts or single-element class spectra. The invariant is the full simultaneous conjugation quotient, not a selected small example.
+Over R=k[t]/(t^m), the centralizer is End_{k[t]}(R⊕k), and the induced action on the quotient by t is triangular with diagonal a(0),d. Nilpotence is equivalent to their vanishing: in that case X² sends the module into t times the module, so X^{2m}=0. Products of nilpotent companions yield only the antisymmetric off-diagonal-coefficient determinant in the top-left commutator, equivalently rank at most one on the two rows. Comparing gX with X'g gives the simultaneous action (b,c,z)↦(λb,λ⁻¹c,z+αc+βb), with all lower coefficients unchanged and all three parameters freely realizable. A zero row pair is fixed. A nonzero pair determines one line; normalized coefficients on it have two axis types or q−1 nonzero-product types, with q−1 representatives each. The translation orbit is exactly the q-vector affine line in the top coefficient space, leaving q^{r−1} cosets. Thus the stated numbers and sizes follow and sum to the raw tuple count. For the reduced variety the unrestricted coefficients split off; the rank-one charts of the determinantal factor are smooth of dimension r+1, it is geometrically irreducible by outer-product parametrization, and the vanishing linear parts of all minors give a 2r-dimensional tangent space at zero, singular for r≥2. The proof also works for m=2, when there are no lower coefficients, and in characteristic two.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Bounded pass for the uniform all-hook, all-arity nilpotent simultaneous-conjugation classification. Sharma already has the small-dimensional conjugacy equations and a genuine all-arity branching formalism in dimensions at most four. The frozen contribution is not the formalism, a single-element census, or determinantal geometry. The strongest matching sources checked do not give the simultaneous direction-and-coset classification with arbitrary hook length, nor a general result of which that full theorem is a stated or mechanical specialization.
+
+## value
+
+PASS
+
+The result gives a complete classification of a natural first nonregular Jordan-centralizer family, uniform in tuple arity and field, with class sizes and explicit invariants rather than only a raw count. It identifies precisely how commutation couples the coordinates and how an affine direction controls simultaneous conjugation. This is useful as a base family for branching computations; it does not depend on treating standard determinantal geometry as a discovery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

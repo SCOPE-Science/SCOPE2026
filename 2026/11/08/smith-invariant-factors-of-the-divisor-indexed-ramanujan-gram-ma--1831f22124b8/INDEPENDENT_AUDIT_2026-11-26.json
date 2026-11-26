@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:04:57.236121Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–83",
+        "Frozen VERIFICATION.md and verify.py (source inspection)",
+        "/workspace/replays/5.py (executed: 75 exact Smith computations using an alternate Ramanujan-sum formula)"
+      ],
+      "rationale": "The divisor identity factors C_n as M D Z^T with integral unimodular Möbius and zeta incidence factors. Thus the Gram is integrally equivalent to D(Z^T Z)D, not to the square of the Smith normal form of C_n. For p^a, U=Z^T Z has entries a+1−max(i,j), and differencing neighboring rows and columns of a leading i×i block gives determinant L=a−i+2. When the eliminated prefix U-block is a local unit, each of its remaining cross-columns is (a−j+1) times the all-ones vector, and its inverse sends that vector to its last basis vector divided by L. This gives the claimed residual formula. In the one-index branch the residual diagonal is a unit times p^(2i). In the pair branch the unweighted residual two-block has unit determinant as a−i is a unit; its weighted block has entries divisible by p^(2i+1) and, after division by that power, unit determinant. Elimination of either block is integral: with pivot indices I and later indices J, the multiplier is D_J R_JI R_II^(-1) D_I^(-1), whose entry for j∈J and ℓ∈I includes p^(j−ℓ) and a local-integer factor. The enlarged unweighted prefix is again a unit in both branches, proving the scan inductively (including an empty prefix and the final index). Coprime tensor factors are invertible at p except for the p-factor itself, so local Smith powers repeat with the stated multiplicity and global factors align in sorted order. The product gives n^τ(n); for odd p the last exponent is 2a, and for p=2 the last two indices necessarily form a pair so the last exponent is 2a−1. Only index zero could give a unit, which yields the stated rank. The empty product at n=1 yields (1). As finite corroboration, 75 independently constructed integer Smith computations using a totient-quotient formula for the entries agreed, including prime-power exponents up to 12 and mixed moduli.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 of the gcd-matrix paper diagonalizes (f(gcd(x_i,x_j))) on factor-closed sets by unimodular Möbius congruence. For the prime chain and f=τ it gives diag(1,...,1) for U. Theorem 1.2 addresses power-LCM matrices, not this scaling. The Ramanujan supercharacter result diagonalizes a column-weighted product, and supplies the coprime tensor factorization."
+        ],
+        "reasoning": "Congruence of U to I cannot be pushed through D using unimodular operations in general, because D has nonunit diagonal at p. The column weights in the supercharacter orthogonality are not generally units either. A normal form for either easier matrix is not a broader classification of the unweighted Gram.",
+        "searches": [
+          "Primary-literature search for Smith form of a diagonally scaled weighted divisor-incidence or chain meet matrix",
+          "arXiv:2609.07352, Theorems 1.1–1.2",
+          "arXiv:1201.1060v4, equations (2.19) and (3.18)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary assigned record and related entries 3189e6142132 and 71c380dd0362",
+        "arXiv:1201.1060v4",
+        "DOI 10.1007/s00013-021-01643-8",
+        "arXiv:2609.07352",
+        "ScienceDirect S0097316521001801 (search summary and access attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Schlage-Puchta's theorem exactly implies |det G_n|=n^τ(n) by squaring. The unscaled U normal form gives a unit determinant, not the individual valuations of DUD. At p=2,a=1 the weighted core is [[2,2],[2,4]], with Smith factors 2,2; replacing U by I would give 1,4."
+        ],
+        "reasoning": "The determinant is genuinely covered and is not counted as distinct. The two-index example shows why the published U normal form alone does not imply simply squaring the weights. Determining which neighboring valuations pair for all a requires the local analysis.",
+        "searches": [
+          "DOI 10.1007/s00013-021-01643-8, page 1, Theorem 1",
+          "arXiv:2609.07352, Theorem 1.1",
+          "arXiv:1201.1060v4, equation (2.19)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The supercharacter table S(n)_{i,j}=c_{d_i}(n/d_j) is C_n with permuted columns, which does preserve the unweighted row Gram. Transposing the table in the determinant paper preserves its determinant, not automatically the Smith form of the corresponding row Gram. After reversing prime-power indices, U is a gcd matrix with f=τ on a divisor chain."
+        ],
+        "reasoning": "The known table and the chain description are true overlaps, but no inspected statement applies a Gram Smith classification to that table. The Gram on unit residues with entries c_n(a−b) has a different indexing set and is not identified by a divisor-column permutation.",
+        "searches": [
+          "Local Resultary: Smith forms of divisor-indexed Ramanujan, unweighted Ramanujan Gram and primitive-position Ramanujan Gram",
+          "arXiv:1201.1060v4, equation (2.15)",
+          "arXiv:2609.07352, Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit is the assigned record. The distinct reduced-divisor result is a Smith form of the Ramanujan matrix on divisors >1; the primitive-position entry is a Gram Smith problem indexed by unit residues. The supercharacter prime-power table evaluates C_{p^a}, not invariant factors of C_{p^a} C_{p^a}^T."
+        ],
+        "reasoning": "None of these tables gives the asserted Smith scan. Knowing entries or invariant factors of C alone does not normally fix those of CC^T, since right-hand unimodular operations on C need not preserve its row Gram.",
+        "searches": [
+          "Resultary exact/modular/Smith searches for the all-divisor unweighted Gram; neighboring records 3189e6142132 and 71c380dd0362",
+          "arXiv:1201.1060v4, Section 3.1, equations (3.4)–(3.5)"
+        ]
+      },
+      "rationale": "The published table, its coprime factorization, its weighted orthogonality and the Gram determinant are prior mathematics. A general gcd-matrix normal form also covers the unscaled core U. The supported distinct claim is the full integral Smith classification of the unweighted Gram, especially the local pairs at indices i with p dividing a−i+1. None of the compared statements supplies the Smith classification after the nonunimodular weights D on both sides.",
+      "residual_risks": [
+        "The power-GCD/LCM divisibility article could not be inspected; a relevant theorem there or in an unindexed treatment of weighted chain matrices is not ruled out. The decision credits only the distinct Gram classification, not priority certification or novelty of the determinant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent table and genuine prior algebraic inputs, but no unweighted Gram Smith factors in the passages",
+          "evidence": [
+            "The table uses c_{d_i}(n/d_j); orthogonality inserts weights φ(k); the coprime factorization is a Kronecker product."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1201.1060v4",
+          "material_read": "Sections 2.2–2.3, pp. 6–7, equations (2.15), (2.19); Sections 3.1 and 3.2, pp. 8 and 11, equations (3.4)–(3.5), (3.18); OA offsets near 19800, 23500, 26400, 39400",
+          "method": "Targeted OA PDF passages",
+          "title": "Ramanujan sums as supercharacters",
+          "trigger": "Equivalent table, known weighted orthogonality and tensor factorization"
+        },
+        {
+          "assessment": "Covers the Gram determinant, not the Smith factors",
+          "evidence": [
+            "The transposed entry convention leads to the same signed determinant magnitude n^(τ(n)/2)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00013-021-01643-8",
+          "material_read": "OA PDF p. 1, opening definitions and Theorem 1",
+          "method": "Targeted DOI-linked PDF excerpt",
+          "title": "A determinant involving Ramanujan sums and So's conjecture",
+          "trigger": "Exact determinant of the same all-divisor table"
+        },
+        {
+          "assessment": "Unscaled congruence, not the Smith form under nonunit diagonal scaling",
+          "evidence": [
+            "Theorem 1.1 uses the unimodular Möbius-incidence matrix to diagonalize to (f*μ)(x_i); f=τ gives the identity. Theorem 1.2 concerns power-LCM matrices."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.07352",
+          "material_read": "Theorems 1.1–1.2, pp. 1–2, OA PDF near offset 3600",
+          "method": "Targeted OA PDF passage",
+          "title": "The Normal Form of Smith’s Matrices",
+          "trigger": "General gcd matrices include the unweighted chain core after index reversal"
+        },
+        {
+          "assessment": "Reduced Ramanujan table, not the Gram of the all-divisor table",
+          "evidence": [
+            "The row and column indices exclude the divisor 1, and the matrix is the Ramanujan table itself."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-smith-normal-form-of-the-reduced-divisor-indexed-ramanujan-matri--3189e6142132",
+          "material_read": "Mirrored statement of the reduced matrix and its Smith form",
+          "method": "Resultary and local source mirror",
+          "title": "Smith normal form of the reduced divisor-indexed Ramanujan matrix",
+          "trigger": "Same arithmetic entry family and exact Smith problem"
+        },
+        {
+          "assessment": "Different Gram problem, irrespective of the date",
+          "evidence": [
+            "Indexes units modulo n and uses c_n(a−b) rather than inner products of rows of the all-divisor table."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-integral-smith-classification-of-primitive-position-ramanujan-gr--71c380dd0362",
+          "material_read": "Mirrored claim and definition of the primitive-position matrix",
+          "method": "Resultary and local source mirror",
+          "title": "Integral Smith classification of primitive-position Ramanujan Gram matrices",
+          "trigger": "Very similar invariant and object name"
+        },
+        {
+          "assessment": "Access risk, not a whole-document exclusion",
+          "evidence": [
+            "The available description concerns divisibility relations between power GCD and LCM matrices on factor-closed sets; it does not display the audited scan."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0097316521001801",
+          "material_read": "Search-result summary only; full text not read",
+          "method": "OA direct and VPN delivery attempts both returned HTTP 403",
+          "title": "Gcd-closed sets and divisibility of Smith matrices",
+          "trigger": "Possible general theorem on gcd-related Smith matrices"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and scope",
+        "arXiv:1201.1060v4, equations (2.15), (2.19)",
+        "DOI 10.1007/s00013-021-01643-8, Theorem 1",
+        "/workspace/replays/5.py"
+      ],
+      "rationale": "The unweighted Gram on the natural divisor-indexed Ramanujan table has an integral cokernel that neither its determinant nor the standard weighted orthogonality identifies. The paired exponents explain departures from naive squared Smith factors and give the full finite abelian group, its exponent, and the modular rank behavior for all n. These are reusable precise invariants for that standard table, not an arbitrary slice or recomputation of its determinant.",
+      "residual_risks": [
+        "This assessment concerns exactly the all-divisor unweighted row Gram, not weighted or residue-indexed Gram forms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

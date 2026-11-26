@@ -1,19 +1,21 @@
-# Scientific review: joint domain and product-rank census
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For commuting self-inverse partial bijections, commuting with each other's squared partial identities forces every distinguished domain-membership block to be invariant. Restricted active maps therefore define a finite \((C_2)^k\)-action, and conversely every such family of actions defines a unique tuple. A transitive orbit of cardinality \(2^r\) has \(\binom{k}{r}_2\) possible stabilizer subgroups and automorphism group of order \(2^r\). This proves the full multivariate exponential formula. The product is defined exactly on the all-active block. The pair recurrence is obtained by formal differentiation, not numerical extrapolation. Exhaustive independently implemented direct-map tests verify all joint strata for the finite cases stated in RESULT.md; they are not substituted for proof.
+PASS
 
-## Originality — PASS, with limitations
+Injectivity and s³=s make s² the identity on the domain, and s is an involutive permutation there. For every i,j, s_i commutes with e_j=s_j²; the domains of the two compositions with this partial identity show that a defined s_i preserves both membership and nonmembership in D_j. A point therefore stays in the same membership block whenever any defined map acts. On a block with active set S, the named restrictions are a full (C₂)^S action with no faithfulness condition. Conversely arbitrary disjoint labeled such actions, undefined for inactive coordinates, give the required tuple, including empty blocks. A transitive action has a uniquely determined subgroup H, and by abelianness the equivariant automorphisms of (C₂)^S/H are precisely the translations, of number 2^r for r=codim H. On 2^r labels this gives (2^r)!/2^r actions per H; its EGF term is u^(2^r)/2^r. Ordered names are preserved, so there is no further quotient by coordinate permutations. The product is defined exactly on the all-active block, where it is an involutive permutation; multiplying the corresponding weights across the labeled set of orbits gives the master EGF. The empty carrier contributes 1, and t=1 correctly marks identical individual and product ranks. For t=2 the exponent is 4u+5u²/2+u⁴/4; logarithmic differentiation gives the stated recurrence, including the zero-index conventions, and a_6=45061. The supplied computations/checker.py and verification notes were inspected, not executed; the reported finite checks compare full marked strata and are not the all-parameter proof.
 
-The closest directly read source is Araújo–Bentz–Konieczny (arXiv:1205.1664v1), which establishes general criteria for commuting partial injections and studies extremal commutative inverse semigroups and graph diameters, but does not state this all-arity weighted tuple series. The elementary abelian full-permutation-action exponential is classical background; it is explicitly credited, not claimed as new. A published logical-type enumeration of commuting involutions and separately published single-involution constrained inverse-monoid spectra were compared by their statements, and neither includes arbitrary partial-domain membership blocks with the product-rank variable. The principal residual risk is an overlooked equivalent formulation in the combinatorics of partial group actions or an uninspected earlier enumeration; an unqualified priority guarantee is not asserted.
+## originality
 
-## Value — PASS
+PASS
 
-The induced commutation graph on the self-inverse elements of a central transformation semigroup is a natural algebraic object. Unlike a single small count, the result determines the complete ordered-clique enumerator in every arity and every joint rank stratum, and exposes the nontrivial \(u^4\) term in pairwise commutation via free Klein-four orbits. It also determines the common-product-rank distribution, an intrinsic semigroup statistic unavailable from unweighted counts of commuting full permutations. This is a reusable structural count, not a numerical re-tabulation.
+Credit is limited to the labeled multivariate census for pairwise commuting partial involutions, with all partial-domain blocks and the product-rank marker. The earlier commutation criterion supplies domain invariance for involutions, and labeled orbit counting for total actions is standard. Neither is claimed as new. The inspected results do not furnish a census encompassing this one. Turning the pairwise local criterion into an arbitrary-arity bijection with a labeled set of colored transitive actions, and identifying how joint partial-product rank behaves on those components, is the additional enumeration argument.
 
-## Limits
+## value
 
-No general commuting count for arbitrary partial injections is claimed. No proof of historical uniqueness or independent validation is claimed. The finite checker covers only its specified sizes, while the bijective proof covers every parameter.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The domain ranks and the domain rank of composition are natural simultaneous observables of partial permutations. The formula turns a global pairwise-commutation census into a tractable product of local labeled action counts, giving a usable all-size all-arity expression and the exact rank-conditioned coefficients. It applies to inactive and nonfaithful components as well as total actions. The usefulness comes from the full structural and marked classification, not a known group-action count or a list of a few small cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

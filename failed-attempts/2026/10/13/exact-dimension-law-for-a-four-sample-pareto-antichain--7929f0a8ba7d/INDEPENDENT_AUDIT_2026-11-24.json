@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:33:22.234471Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent atomless coordinate marginals and i.i.d. observations give independent uniform strict permutations of the four labels. After fixing the first permutation, incomparability of each pair is equivalent to its reversal in at least one of the remaining d−1 orders. For a subset S of the six pairs, the probability that none of its pairs ever reverses is (e(S)/24)^(d−1), where e(S) counts permutations respecting S. Inclusion–exclusion then gives the claimed law. The independent bounded reproduction `python3 /workspace/checks/finite.py 1` calculated e(S) for all 64 subsets by a predecessor-set recurrence on four vertices, reproducing the signed sums 1,−5,1,8,−6,1 at e=4,5,6,8,12,24, and zero at e=1,2,3. A separate intersection-of-unanimous-pairs count agreed through dimension 12; the finite coefficient computation plus inclusion–exclusion is exact for all d. At d=1 no pair reverses and the probability is zero. In the independent permutation coupling the event is increasing, and strict increase has a witness of positive probability when the first d orders coincide and the next is their reverse. The exact values 151/576<1/2 and 7207/13824>1/2 settle the threshold. In the complement the two largest bases are 1/2 and 1/3, and all remaining bases are at most 1/4, giving the stated asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The text following (3.30) says 'Some specific results for n = 2, 3, 4 and 5 and arbitrary d are given in Table 4.' The table is headed 'Exact Formulas for the Distribution of A_{nd} for Small n and General d', with columns by n and rows by the number of admissible points a."
+        ],
+        "reasoning": "The prior gives the distribution of the entire count, a stronger quantity than its mass at 4. Setting n=4 and a=4 obtains the exact same probability under the same atomless independence hypotheses. The one-dimensional endpoint is immediate from a total order.",
+        "searches": [
+          "Barndorff-Nielsen–Sobel, On the Distribution of the Number of Admissible Points in a Vector Random Sample, §3.2 Eq. (3.30) and Table 4"
+        ]
+      },
+      "checked_sources": [
+        "Barndorff-Nielsen–Sobel, Theory Probab. Appl. 11 (1966), §§1, 3.1 and 3.2",
+        "OEIS A007767",
+        "Hammett–Pittel arXiv:math/0605490",
+        "Resultary Pareto-frontier covariance and same-date consecutive-permutation-pattern matches (the latter is a different statistic)",
+        "Frozen result, verification notes and checker (inspected only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The continuous, independent marginals and i.i.d. vectors are explicit in §1. Equation (3.30) gives exact probabilities as combinations of dth powers described by the preceding lemmas, and sends the reader directly to Table 4 for n=4."
+        ],
+        "reasoning": "The prior is for the same sample and event even without changing coordinates. Evaluate the exact law at d=3 and d=4 and use monotonicity under appending independent ranks to get the first half-threshold; expanding the same finite sum gives its two leading bases. Neither is evidence that the prior wording itself explicitly highlighted the crossover or large-d asymptotic.",
+        "searches": [
+          "Barndorff-Nielsen–Sobel, §1 p. 1 and §3.2 text around OA offsets 44850–49594 and 50980–52458",
+          "Răducan et al., DOI:10.3390/math10101623 (bounded retrieval attempt)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 1966 paper’s first-layer first-orthant admissibility says there are no sample points larger in all coordinates, so all four first-layer points is exactly no comparable pair. There are no coordinate ties under the paper’s continuous marginals.",
+          "The later catalogue record 2026/11/2/SCOPE-exact-pareto-frontier-comparability-covariance-and-three-high-di--c663d8d03f4e computes covariance of frontier size and comparable-pair count, not the entire all-maxima probability. Its small cases do not give the law.",
+          "After fixing one order and reversing one of the two remaining orders, the d=3 event is weak-order comparability of the resulting permutation pair in the prescribed direction (inclusion of inversion sets)."
+        ],
+        "reasoning": "The first-layer count is an exact alias for the event in the 1966 work; covariance is not. The permutation alias validates a prior d=3 overlap independently of the all-d distributional source.",
+        "searches": [
+          "Resultary: four-observation Pareto antichain, all observations maximal, comparable sample pair",
+          "Barndorff-Nielsen–Sobel 1966, §1 and §3.2; OEIS A007767; Hammett–Pittel arXiv:math/0605490, Lemma 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 4, column n=4 row a=4, is the closed general-d probability for the target event; it is not a table of simulation estimates or only fixed d. Table 3 lists 151/576 at n=4, d=3, a=4. A007767 gives 151 qualifying pairs on four labels, out of 24²."
+        ],
+        "reasoning": "The exact Table 4 cell is decisive for the law, with Table 3 and OEIS confirming the known d=3 value. Some glyphs in the scanned Table 4 are garbled, so coverage is based on the identified probability and the source’s explicit distribution formula, not a claim of a perfectly transcribed row.",
+        "searches": [
+          "Barndorff-Nielsen–Sobel, Tables 3 and 4",
+          "OEIS A007767, n=4",
+          "Resultary: 151/576 and Pareto-frontier probabilities for four observations"
+        ]
+      },
+      "rationale": "Barndorff-Nielsen and Sobel (1966) already treat i.i.d. vectors with independent coordinates whose distribution functions are continuous; this is the same atomless product-marginal scope, not just a uniform-cube case. Their exact maxima-count distribution in §3.2, Eq. (3.30), has an explicit table for n=2,3,4,5 and arbitrary d≥2. The n=4, a=4 entry is exactly the probability that all four are maximal, equivalently the antichain probability. This is prior exact coverage, not inference from a similar title. The trivial d=1 endpoint, elementary dimension coupling, numerical half-threshold and two leading exponential terms do not supply a distinct substantial law.",
+      "residual_risks": [
+        "The full Răducan et al. 2022 paper was not available in the bounded OA attempts; no claim about what it excludes is made. The independent 1966 distribution is sufficient to decide coverage.",
+        "The 1966 scan partially garbles numerical glyphs in Table 4. The stated range, event definitions, table axes and exact distribution entry establish coverage without a complete literal transcription."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage in the same distribution-free model; the OCR is not sufficient for a glyph-for-glyph transcription of the entire cell",
+          "evidence": [
+            "§1 says the independent i.i.d. vector components have continuous distribution functions F_1,…,F_d.",
+            "§3.2 gives P(A_{nd}=a) and states that Table 4 covers n=2,3,4,5 and arbitrary d.",
+            "The n=4, a=4 cell is the probability of four first-layer admissible points; that is exactly this event."
+          ],
+          "identifier_or_url": "https://m.mathnet.ru/links/9aa10baefe69d0417ff3d3d8c98cde6d/tvp624.pdf",
+          "material_read": "§1 distribution and admissibility definitions; §3.1 Table 3; §3.2 Eq. (3.30) and Table 4, PDF pp. 16–17, OA offsets 44850 and 50980",
+          "method": "Lawful MathNet full-text extraction; bounded passage comparison by row, column and adjacent formula text",
+          "title": "On the Distribution of the Number of Admissible Points in a Vector Random Sample",
+          "trigger": "Distribution of the exact same Pareto maxima count and possible prior closed small-n law"
+        },
+        {
+          "assessment": "Confirms already known d=3 count; not alone the all-d source",
+          "evidence": [
+            "The qualifying pair count is 151 at n=4."
+          ],
+          "identifier_or_url": "https://oeis.org/A007767",
+          "material_read": "Definition, weak-order interpretation, and entry at n=4",
+          "method": "Exact database entry comparison",
+          "title": "OEIS A007767: Number of pairs of permutations of degree n that avoid (12,21)",
+          "trigger": "Equivalent permutation count in dimension three"
+        },
+        {
+          "assessment": "Provides the inversion-set order characterization relevant to the three-coordinate specialization",
+          "evidence": [
+            "Lemma 3 characterizes weak order by inclusion of non-inversion sets."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0605490",
+          "material_read": "Abstract and Lemma 3, PDF pp. 15–16",
+          "method": "Bounded OA passages",
+          "title": "How often are two permutations comparable?",
+          "trigger": "Weak Bruhat order alias of the dimension-three event"
+        },
+        {
+          "assessment": "Same frontier/comparability model; covariance is a different statistic from the all-maxima mass",
+          "evidence": [
+            "It gives Cov(M_{n,d},Q_{n,d}) and high-dimensional covariance scales, not P(M_{4,d}=4)."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-pareto-frontier-comparability-covariance-and-three-high-di--c663d8d03f4e",
+          "material_read": "Finding and its small (n,d) checks",
+          "method": "Resultary search and local mirror passages",
+          "title": "Exact Pareto-frontier comparability covariance and three high-dimensional scales",
+          "trigger": "Closest indexed distributional-model overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The four-point probability is a natural exact invariant, but the prior table already solves it for arbitrary dimension under the same marginals. The half-threshold is an elementary specialization of that law plus monotonicity, and the asymptotic is read off from the largest bases. Recomputing the known cell and naming these immediate consequences does not establish a worthwhile distinct result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

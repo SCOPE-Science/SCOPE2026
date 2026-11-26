@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact verification record
+# Independent mathematical audit
 
-Run `python verify.py` from the directory containing this file. The checker uses only the Python standard library and no network or external data. The actual execution reported `PASS`.
+## correctness
 
-The checker constructs all twenty lines using two independently organized finite-field methods (slope/intercept and pair displacement) and confirms that each pair of points determines exactly one line. It forms the 480 noncollinear triples and verifies 90 bases through each point and 12 through each pair. It then computes all 65,536 signed Walsh multipliers by a complete integer butterfly transform and independently recomputes each one via the exact incidence-moment identity. Both methods agree at every frequency.
+PASS
 
-The observed zero-weight histogram is six: 960; eight: 4,230; ten: 960; all others: zero. Every weight-six zero passes the unique line-plus-transversal test, and the twenty lines with 48 qualifying exterior pairs each exhaust the 960 witnesses. The full absolute histogram, convolution rank 59,386, smallest nonzero magnitude 4, and sharp endpoint projection kernel numerator 2,232,436 are checked by assertions. The resulting projection constant is \(558109/16384\), and the sharp positive-spectrum condition number is \(120\).
+There are 20 lines, 480 bases, 90 bases through a point and 12 through a pair. Expanding (1-2) to the intersection size yields W(S)=480-180k+48 binom(k,2)-8 binom(k,3)+8t, where t counts the collinear triples in S. For k<5 the part independent of t is positive, and at k=5 it is not divisible by 8. At k=6 cancellation needs t=5; without a full line, five collinear triples would partition the pairs of six points into triangles, impossible at odd vertex degree. With a full line the only extra collinear triple uses the two exterior points and the intersection of their joining line with the full line. This gives 20 times (66-18)=960. The independent field/coset replay matched the entire absolute Walsh table and complement-sign relation, the zero counts (960,4230,960) at weights (6,8,10), the rank 59386, and the projection-support transform numerator 2232436. Largest and least nonzero magnitudes are 480 and 4, so the nonzero-spectrum condition number is 120. Translation-averaging any projection preserves identity on the prescribed range, keeps the image in that range, and cannot increase its endpoint norm. The unique commuting projection is the support multiplier, with both endpoint norms equal to the absolute kernel sum (real or complex), giving exactly 558109/16384. Replay: /workspace/branches/93fb65a0-4dc7-420f-b86c-2cec86339a46/replay_record2.py and replay_record2.log, with the supplied verify.py and reproducibility notes inspected but not executed.
 
-The algebraic first-zero proof and the averaging proof of projection optimality are written in `RESULT.md`. The full finite histogram is an exhaustive computation, not an asserted structural classification in arbitrary affine orders. The verification is same-model only; independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+Best of knowledge, the supported contribution is the exact first-cancellation geometry, full multiplier data, and the resulting exact endpoint projection constant for the GF(4) affine plane's basis-incidence convolution. The coefficient expansion and the norm-minimizing averaging technique are methods, not original claims. Closely related affine-plane computations at other parameters are credited separately from this case.
+
+## value
+
+PASS
+
+AG(2,4) is a standard small affine plane with four-point lines; its natural basis-incidence operator tests cancellation outside the three-point-line Steiner setting. The nullity measures the precise obstruction to recovery, the minimal supports show that the first lost frequencies have a rigid geometric cause, and the sharp endpoint constants measure the unavoidable cost of projecting onto the recoverable modes even without imposing translation invariance. The full small-instance invariant is useful beyond an unsupported spectrum computation or a routine averaging lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

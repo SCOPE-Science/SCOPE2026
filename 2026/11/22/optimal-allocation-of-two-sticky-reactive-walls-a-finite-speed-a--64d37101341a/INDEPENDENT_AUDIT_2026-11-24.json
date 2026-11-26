@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:04:20.189532Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed the mean by first exit from the bulk and then renewal at the attached states. The two-heading exit equations with outward absorbing states give right-exit probability 1/2+h/A from the unbiased start and first-exit mean L/(2v)+alpha*x*(L-x)/v^2. After inward release at either wall the crossing probability is 1/A and the excursion mean is L/v. Thus the attached means solve (kappa_j+beta/A)W_j-(beta/A)W_other=B, with determinant kappa_0*kappa_L+beta*K/A>0 even at the endpoint allocations. Each released excursion has a uniformly positive probability of reaching the reactive wall and killing there on that visit; holding and exit times have bounded means for fixed parameters. This gives finite mean and validates the renewal system, including boundary starts. Weighting its solution by the exit probabilities reproduces the boxed mean. The derivative numerator G in RESULT.md is strictly increasing since c+h*delta is positive, and inserting the extreme allowed h at +/-K gives the stated strict endpoint signs. The rationalized quadratic picks the unique interior root, zero exactly at the midpoint. Dividing by K yields beta*(h+A*t)+(AK/4)*(h*(1+t^2)+A*t)=0, monotone in t. For h>0 the root is below -h/A, making the K derivative of the left side positive there and t strictly decreasing; reflection treats h<0. The small- and large-budget root equations give the claimed limits. The large-budget limiting root lies strictly inside (-1,1), so the time quotient may be expanded uniformly around it and gives the stated K^-1 coefficient. At the left wall h=-(A-1)/2 reproduces the positive distant share. Inspected checker.py and its reported 1,440 cases; did not rerun it or use records of finite tests as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bressloff develops separate wall reactions, the sticky boundary equations and passage/occupation-time transforms. Angelani optimizes bulk tumbling or analyzes a partially permeable wall against a fixed absorbing exit; the focused search returned no useful paper evidence."
+        ],
+        "reasoning": "The same-process equations cover the setup and underpin the mean, but solving those equations and proving the strict interior optimizer, budget law and wall-start limit is a further constrained optimization. Varying tumbling or a single wall is not a dominant feasible set that gives this optimum.",
+        "searches": [
+          "Bressloff arXiv:2302.01158v1, §§2, 5",
+          "Angelani DOI 10.1140/epje/s10189-023-00402-7, Eqs. (7)–(12)",
+          "Focused primary search for finite-speed run-and-tumble sticky-wall fixed-budget allocation"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.01158v1",
+        "DOI:10.1140/epje/s10189-023-00402-7",
+        "Resultary:2026/10/26/562e72eb5093",
+        "Resultary:2026/11/2/61f92a1dbbba",
+        "Resultary:2026/11/8/c5e90a3196ae",
+        "Resultary:2026/11/22/e0e709f4f0b3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Brownian mean-time analogue has a remote rate of order square root of budget for a boundary start, hence a vanishing remote fraction. The same-day competing-bulk-killing record has a boundary-only optimum below threshold. Bressloff Eq. (2.25) gives a centered-start mean; its two-wall transform formalism handles separate wall mechanisms."
+        ],
+        "reasoning": "Neither Brownian theorem implies the fixed finite-speed law; their boundary conclusions differ under their own hypotheses. A centered-start mean does not entail the off-center budget ordering, and the general first-passage formalism is credited separately from the new-to-these-sources optimization. Same-day dating supplies no order.",
+        "searches": [
+          "Resultary 2026/10/26/562e72eb5093 Finding and strong-budget law",
+          "Resultary 2026/11/22/e0e709f4f0b3 Finding",
+          "arXiv:2302.01158v1 p. 9 and §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sticky-wall model with separate killing rates is already in Bressloff Eqs. (2.5)–(2.6). Resultary 61f92a1dbbba uses instantaneous Bernoulli capture on each wall hit and a sum of capture probabilities."
+        ],
+        "reasoning": "The mapping from a physical rate to capture probability is kappa/(kappa+beta). It changes the linear constraint and erases the rate-dependent time spent attached if used in an instantaneous model. Exact equivalence of allocation theorems does not follow from the shared persistent motion.",
+        "searches": [
+          "Resultary: sticky reactive walls and run-and-tumble killing-rate optimization",
+          "Resultary: persistent-particle boundary allocation and per-collision capture",
+          "arXiv:2302.01158v1 pp. 5–6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalogue laws were for Brownian Robin endpoints, instantaneous capture, sticky-wall fluctuation optimization, and a Brownian surface-versus-bulk killing objective."
+        ],
+        "reasoning": "There is no isolated numerical invariant being claimed; a covering catalogue item would need the functional optimizer and limits on the physical-rate budget domain. None of these exact laws has that joint model and objective.",
+        "searches": [
+          "Resultary: fixed-sum two reactive boundary allocation and sticky tumbling records",
+          "Resultary 562e72eb5093, 61f92a1dbbba, c5e90a3196ae, e0e709f4f0b3"
+        ]
+      },
+      "rationale": "The process, boundary kinetics and first-passage framework are established and the mean is derivable from them. The supported distinct claim is the global physical-rate allocation theorem, its budget crossover and the distant-wall strong-budget limit. Neither the strongest same-process comparison nor the closest fixed-budget analogues inspected supplies that claim.",
+      "residual_risks": [
+        "A related optimization or equivalent implicit rate law may exist outside the sources inspected; the mean calculation is not claimed as a new first-passage framework."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established underlying model and first-passage framework, not the inspected allocation theorem",
+          "evidence": [
+            "Independent release and killing at each wall; centered-start mean and separate wall occupation-time/threshold transforms."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.01158",
+          "material_read": "v1 PDF pp. 5–6, 9, 19–21; Eqs. (2.5)–(2.6), (2.20)–(2.28), §5; text offsets 14000, 28500, 62000, 70000",
+          "method": "Primary OA PDF",
+          "title": "Encounter-based model of a run-and-tumble particle II: absorption at sticky boundaries",
+          "trigger": "Same model with separate wall killing rates"
+        },
+        {
+          "assessment": "Different control variable or one-sided reactive mechanism",
+          "evidence": [
+            "Sticky/reorienting-wall optimum over tumbling; partially permeable wall against a fixed absorbing exit."
+          ],
+          "identifier_or_url": "https://doi.org/10.1140/epje/s10189-023-00402-7",
+          "material_read": "Springer PDF pp. 1–3, Eqs. (7)–(12); text offsets 0 and 12000",
+          "method": "Primary OA PDF",
+          "title": "Optimal escapes in active matter",
+          "trigger": "Optimization of active-particle exit"
+        },
+        {
+          "assessment": "Strong analogy with a different limiting fraction",
+          "evidence": [
+            "Robin reactivity and Brownian motion; square-root growth of the remote rate at a boundary start."
+          ],
+          "identifier_or_url": "Resultary:2026/10/26/562e72eb5093",
+          "material_read": "RESULT.md Finding and strong-budget boundary-start law",
+          "method": "Local published-record mirror",
+          "title": "Optimal allocation of two reactive Brownian boundaries: a unique interior split and sharp budget laws",
+          "trigger": "Closest fixed-budget mean-time law"
+        },
+        {
+          "assessment": "Different constraint/kinetics and optimal splits",
+          "evidence": [
+            "Instantaneous midpoint-launched capture, probability sum, concentrated or equal optimal splits depending on reversal rate."
+          ],
+          "identifier_or_url": "Resultary:2026/11/2/61f92a1dbbba",
+          "material_read": "RESULT.md Finding and capture rule",
+          "method": "Local published-record mirror",
+          "title": "Boundary-capture allocation transition and variance selection for a persistent particle",
+          "trigger": "Closest fixed-budget persistent-particle law"
+        },
+        {
+          "assessment": "Same broad kinetics, different objective and design variable",
+          "evidence": [
+            "Identical wall rates and midpoint launch; tumbling optimized for relative fluctuations."
+          ],
+          "identifier_or_url": "Resultary:2026/11/8/c5e90a3196ae",
+          "material_read": "RESULT.md Finding and assumptions",
+          "method": "Local published-record mirror",
+          "title": "Sharp fluctuation-optimal tumbling threshold for sticky reactive run-and-tumble walls",
+          "trigger": "Related sticky-wall optimization"
+        },
+        {
+          "assessment": "Different process and objective, not an equivalent allocation law",
+          "evidence": [
+            "Reflected Brownian motion, surface capture before bulk death; transition from boundary-only to interior optimum."
+          ],
+          "identifier_or_url": "Resultary:2026/11/22/e0e709f4f0b3",
+          "material_read": "RESULT.md Finding",
+          "method": "Local published-record mirror",
+          "title": "A sharp boundary allocation transition under competing bulk and boundary killing",
+          "trigger": "Material same-day allocation overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A linear budget of two physical killing rates is a natural design constraint, unlike an arbitrary parameter slice. The law resolves whether one should concentrate or split at all launch locations and budgets. A positive remote allocation fraction even for a wall launch meaningfully distinguishes the fixed finite-speed large-budget regime from the corresponding Robin diffusion regime. This is not a uniform joint Brownian/strong-budget limit, a result about passage-time variance, or an empirical claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

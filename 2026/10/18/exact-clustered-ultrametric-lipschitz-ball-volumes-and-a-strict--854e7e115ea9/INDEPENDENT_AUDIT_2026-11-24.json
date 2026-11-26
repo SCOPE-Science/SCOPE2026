@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:34:38.444000Z",
+  "axes": {
+    "correctness": {
+      "rationale": "This is the coordinate volume of the real dual Lipschitz ball with one value fixed at zero. All distances are positive, so a small coordinate box gives full dimension. Basepoint change preserves the integer coordinate lattice and has determinant of absolute value one. With cross-class distance one and every t_i<=1, the unanchored constraints are exactly global range <=1 and the separate within-class ranges <=t_i. Translation by the anchored coordinate gives an affine cube-volume expression in the cube side L>=1 whose slope is the desired volume. Without the global constraint the cube integral factorizes; choosing the class minimum gives h_i(L)=t_i^(n_i-1)[n_i L-(n_i-1)t_i], with h_i(L)=L for a singleton. At L=1+epsilon the points lost to the global cutoff have one coordinate below epsilon and a different one above one, a union of slabs of total volume O(epsilon^2), so differentiating the product at one gives the heterogeneous formula, including t_i=1. Equivalently, partition the anchored ball by its unique global minimum, change the anchor to that point, and obtain a factor t_j^(n_j-1) for its class and h_i(1) for each other class; summing over minima yields the same formula. For common t, the formal product derivative gives the symmetric-polynomial expansion. A transfer a>=b+2 increases the degree-two product by a-b-1 and hence the volume strictly, since all higher elementary contributions are nonnegative and r>0. This proves the extrema up to permutation, with vacuous strictness when only one partition exists. At t=1 the volume is N. At fixed k,t along k|N, the balanced and concentrated bracketed terms after canceling t^(N-k) have leading terms (1-t)^(k-1)N^k/k^(k-1) and [k-(k-1)t]N; the stated coefficient follows. Three independent Ehrhart checks on sizes (2,1), (2,1,1), (2,2), at scale six with respective radii (1/2,1/3), (1/2,2/3,1/3), (2/3,1/2), gave volumes 7/4, 5/2, 17/9 from exact top differences 126, 3240, 2448. The supplied script was inspected, not executed; the finite tests corroborate only these cases, not the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The volume passage of Gordon–Petrov concerns equal simplex volumes in a unimodular triangulation of the root polytope, used to obtain an f-vector. Cúth–Doucha give an isomorphism to ell_1, and Dilworth et al. give a Banach–Mazur estimate in the finite ultrametric setting."
+        ],
+        "reasoning": "An isomorphism estimate controls at most norm comparison; a generic combinatorial classification or a volume fact about a root-polytope triangulation does not give the metric-dependent anchored volume.",
+        "searches": [
+          "Gordon Petrov Combinatorics of the Lipschitz Polytope arXiv Lipschitz polytope volume ultrametric",
+          "arXiv:1608.06848, abstract and root-polytope triangulation, p. 15",
+          "arXiv:1411.2434 and arXiv:1807.03814, ultrametric free-space structure"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_ultrametric.py",
+        "SCOPE-20261018-859334542018",
+        "SCOPE-20261011-471d4a0126f4",
+        "SCOPE-20261011-bd13acd51aa3 (index only)",
+        "arXiv:1911.10642",
+        "arXiv:1608.06848",
+        "arXiv:1411.2434",
+        "arXiv:1807.03814"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The multipartite integral formula assumes t>=1 and gives strict Schur-convexity above one. Below one the whole potential range is at most one, so the region with same-class extrema at distance above one in that calculation cannot occur. The four-point Banach–Mazur comparison optimizes ellipsoid distortion, not coordinate volume."
+        ],
+        "reasoning": "This is a genuine regime change, not an extension by notation, substitution or uniform rescaling that keeps cross-class distance one. The strict Schur-concavity and polynomial max/min ratio use the short-distance formula; known equilateral, distortion and projection results give neither. Same-day paths do not establish precedence.",
+        "searches": [
+          "SCOPE-20261018-859334542018/RESULT.md Finding and assumptions, offset 0",
+          "arXiv:1911.10642 §5.2, equilateral benchmark",
+          "Resultary within-cluster projection and four-point distortion comparators"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alexander et al. identify the Lipschitz-free ball and Lipschitz dual by polarity; their equilateral dual has the anchored volume n+1 on n+1 points. Gordon–Petrov define the same anchored polytope for a general metric but study numbers of faces. SCOPE-20261018-859334542018 uses the same coordinate convention and opposite within-part regime."
+        ],
+        "reasoning": "Primal volume, combinatorial face counts, isomorphic norm comparison and the coordinate volume of the polar are distinct quantities. Reduction to the equilateral case cannot decide heterogeneous within-part distances.",
+        "searches": [
+          "Resultary two-level clustered finite metrics, anchored Lipschitz dual volume and majorization",
+          "arXiv:1911.10642, finite metric polarity and equilateral case",
+          "arXiv:1608.06848, anchored Lipschitz polytope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day entry gives N+sum_i n_i(n_i-1) integral_1^t r^(n_i-2)(2-r)^(N-n_i) dr for common t in [1,2] and exact/limiting expressions at t=2. The balanced four-point entry gives a Euclidean Banach–Mazur distance, not an exact volume row."
+        ],
+        "reasoning": "The natural comparison is to indexed exact formulas rather than a table of individual small volumes. The one directly overlapping parameter value t=1 is known and yields N; the exact analogues for t>1 do not cover t<1.",
+        "searches": [
+          "Resultary exact clustered and multipartite Lipschitz-dual-ball volumes and size comparison",
+          "SCOPE-20261018-859334542018/RESULT.md formulas (1)–(5)",
+          "SCOPE-20261011-471d4a0126f4/RESULT.md"
+        ]
+      },
+      "rationale": "The decisive same-family catalogue comparison is for within-class distance t>=1, sharing only the equilateral benchmark with the frozen regime. For 1<t<=2 it actually reverses the ordering of balanced and concentrated sizes. Its separate formula and asymptotics at t=2 do not determine the heterogeneous short-distance volume or the exact common-t maximizing/minimizing ratio. The published equilateral volume is credited; the inspected general polytope, primal-dual, and isomorphism results do not supply the exact short-distance formula. The distinct claim is assessed on this bounded evidence, not on a claim of publication priority.",
+      "residual_risks": [
+        "An equivalent volume formula under other convex-geometric terminology or for a larger metric family could be unindexed or uninspected.",
+        "The full projection-constant record was not available via the attempted mirror path; its index alone is not a statement-level exclusion.",
+        "The equilateral benchmark is prior and not part of the distinct contribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shared equilateral result, different parameter side and opposite extremizers",
+          "evidence": [
+            "The formula assumes common t in [1,2] and establishes strict Schur-convexity for 1<t<=2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-strict-majorization-of-volumes-of-multipartite-lipschitz-dual-ba--859334542018/RESULT.md",
+          "material_read": "Finding and assumptions (offset 0); formulas (1)–(5)",
+          "method": "Local repository mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Strict majorization of volumes of multipartite Lipschitz dual balls",
+          "trigger": "Strongest exact same-family and same-invariant result"
+        },
+        {
+          "assessment": "Polarity and exact equilateral volume, not the heterogeneous short-distance formula in inspected material",
+          "evidence": [
+            "The equilateral dual is described as a zonotope with anchored volume n+1."
+          ],
+          "identifier_or_url": "arXiv:1911.10642",
+          "material_read": "PDF pp. 1–2, offsets 3600 and 9700; §5.2, pp. 16–18, offsets 82982–86910",
+          "method": "OA primary PDF text",
+          "title": "Geometry and volume product of finite dimensional Lipschitz-free spaces",
+          "trigger": "Primary literature on this exact type of volume and the equilateral endpoint"
+        },
+        {
+          "assessment": "Combinatorics of the anchored body and volume of unimodular root-polytope simplices, not a coordinate-volume formula for the dual ball",
+          "evidence": [
+            "The abstract states a generic metric face-number theorem. The inspected volume passage uses equal simplex volumes in Root(X) to relate triangulation f-vectors."
+          ],
+          "identifier_or_url": "arXiv:1608.06848",
+          "material_read": "Abstract and start of introduction, PDF p. 1; triangulation volume passage, PDF p. 15, offset 35155",
+          "method": "Lawful OA arXiv alternate to journal landing page; read primary PDF by offset",
+          "title": "Combinatorics of the Lipschitz polytope",
+          "trigger": "Same anchored body for arbitrary finite metrics, possible implication by a broader formula"
+        },
+        {
+          "assessment": "Isomorphic structure, not exact dual coordinate volume",
+          "evidence": [
+            "The result treats isomorphism to ell_1 rather than anchored volume."
+          ],
+          "identifier_or_url": "arXiv:1411.2434",
+          "material_read": "Abstract/introductory statement, PDF p. 1, offset 272",
+          "method": "OA primary PDF text",
+          "title": "Lipschitz-free spaces over ultrametric spaces",
+          "trigger": "Same metric type and related functional-analytic invariant"
+        },
+        {
+          "assessment": "Finite-ultrametric Banach–Mazur estimate, not exact volume",
+          "evidence": [
+            "The corollary bounds a normed-space distance."
+          ],
+          "identifier_or_url": "arXiv:1807.03814",
+          "material_read": "Corollary 2.5, PDF p. 9, offset 22059",
+          "method": "OA primary PDF text",
+          "title": "Lipschitz free spaces on finite metric spaces",
+          "trigger": "Finite-ultrametric specialization"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "The finding concerns Euclidean Banach–Mazur distance."
+          ],
+          "identifier_or_url": "SCOPE-20261011-471d4a0126f4",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local repository mirror",
+          "title": "Exact Hilbert distortion of a balanced four-point ultrametric",
+          "trigger": "Same metric at a small balanced profile"
+        },
+        {
+          "assessment": "Indexed projection invariant; unavailable actual text not used as negative coverage evidence",
+          "evidence": [
+            "The indexed result concerns projection onto within-cluster fluctuations, not identified as a volume formula."
+          ],
+          "identifier_or_url": "SCOPE-20261011-bd13acd51aa3",
+          "material_read": "Local index description only; RESULT.md was not available at the attempted mirror path",
+          "method": "Local index and attempted mirror retrieval",
+          "title": "Sharp optimal projection constants for clustered finite-metric free spaces",
+          "trigger": "Same clustered family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Anchored dual volume is a natural metric-sensitive convex-geometric invariant for these clustered spaces. The exact heterogeneous formula controls effects of individual radii, and the common-radius result gives a strict comparison of actual size profiles, reversed from the known other side of the equilateral regime. The sharp growth of the balanced-to-concentrated volume ratio quantifies the comparison beyond a qualitative bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

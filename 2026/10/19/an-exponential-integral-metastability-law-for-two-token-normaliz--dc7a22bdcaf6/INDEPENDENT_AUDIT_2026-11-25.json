@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:48:12.986565Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, complete map definition and Proof §§1–4",
+        "Frozen VERIFICATION.md and checker.py, inspected, not executed"
+      ],
+      "rationale": "The orthogonal half-sum and half-difference give equal normalization factors and an exact ratio multiplier 1−αp with 0<1−αp<1. The sum direction is preserved and the half-angle ratio tends to zero (p is bounded below at fixed β). To check the discrete approximation uniformly even near antipodality, use h=atanh c, the negative log of the half-angle ratio. One step is Δh=−log(1−αp)=αp(1+O(p)), with p≤p(c*) before crossing. Along the whole step |d log p/dh|=β(1−p)(1−c²)≤β, so the relative variation is O(βp(c*))=o(1), including on a final overshoot. Thus each full step contributes 1+o(1) to ∫dh/(αp) and the truncated step O(1). The number of steps diverges since the h displacement is bounded below in both regimes and the step upper bound decays exponentially. Changing back to c gives the stated clock integral. Its fixed lower endpoint gives the first limit by Laplace scaling. In the antipodal layer s=β(1+c), the exponential piece is dominated by e^(−s)/[s(1−c*)]; the nonexponential piece after normalization is O(e^(−2β) log β). The limit is E₁(z)/(2α), at fixed z>0, and π−arccos(c₀) is asymptotic to √(2z/β).",
+      "residual_risks": [
+        "The target must remain fixed below consensus in the two asymptotics; the claim does not give a simultaneous z→0 or moving-target theorem. Antipodal initial data are stationary and excluded from the clock law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Altafini studies general normalized discrete attention and equilibrium/stability, not a sharp singular hitting clock. Geshkovski et al. prove exponential metastable residence of continuous-time clusters; that theorem does not give the discrete-step prefactors. Menon–Murray's anisotropic bipodal escape analysis concerns a different continuous model and an escape-time fit in the population size."
+        ],
+        "reasoning": "Equilibrium stability, long residence and escape in different parameters are broader context but do not supply the target-specific discrete first-passage theorem.",
+        "searches": [
+          "arXiv:2610.13518v1, model and equilibrium/stability results",
+          "arXiv:2410.06833, Theorem 1.2 and Eq. (SA)",
+          "Menon–Murray public manuscript, model and bipodal escape discussion"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "arXiv:2610.13518v1",
+        "arXiv:2410.06833",
+        "Menon–Murray public manuscript",
+        "Resultary 56f902ee9956"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both continuous prefactors follow from the two-token ODE by integration and should not be credited as new continuous phenomena. The discrete recurrence gives a single-step multiplier but does not in itself bound accumulation of relative clock error through the antipodal layer."
+        ],
+        "reasoning": "A uniform estimate of clock variation within a step is needed for the discrete limit; ordinary finite-time ODE approximation is insufficient when the hitting time diverges exponentially. The frozen argument supplies that estimate and the residual-weight normalization.",
+        "searches": [
+          "arXiv:2410.06833, Eq. (SA) versus frozen Proof §§2–4",
+          "arXiv:2610.13518v1, Eq. (1) versus the half-angle recurrence and discrete clock proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Altafini Eq. (1) becomes the frozen residual map with two tokens, Q=K=√β I and V=I. The half-angle recursion is the symmetric two-token reduction of that map.",
+          "For two tokens, the spherical equation (SA) gives dc/dt=2pβ(c)(1−c²) and exactly the same integral with coefficient 1/2 instead of 1/α. Its two rescaled hitting constants are 1/[2(1−c₀²)] and E₁(z)/4."
+        ],
+        "reasoning": "The continuous and discrete statements share a leading clock when Tβ is compared with the continuous τβ multiplied by 2/α=(1+η)/η. They are not equivalent at finite β or as statements about discrete hitting times without a uniform integer-step comparison.",
+        "searches": [
+          "Altafini, arXiv:2610.13518v1, Eq. (1)",
+          "Geshkovski–Koubbi–Polyanskiy–Rigollet, arXiv:2410.06833, Eq. (SA)",
+          "Menon–Murray, On the Metastability of Bipodal States in Transformer Attention Dynamics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed two-token normalized discrete result treats V=diag(a,−b) and gives conditions for attracting sign-flip cycles. This is incompatible with the frozen identity-value consensus setting; its Finding has no E₁ hitting law."
+        ],
+        "reasoning": "The natural database comparison is exact indexed statements, not a special-function value table: the claim is that a specific map has a given first-passage limit, not that E₁ can be evaluated.",
+        "searches": [
+          "Local Resultary search for antipodal/metastable hitting clocks in two-token normalized attention; strongest related record 56f902ee9956"
+        ]
+      },
+      "rationale": "The discrete map is a known specialization and the clock integral with its E₁ limit is already directly derivable from the published continuous two-token equation, up to time normalization. The supported distinction is the sharp discrete update count, with its exact residual-weight constant and a relative comparison valid over exponentially many updates while the initial point approaches antipodality. Neither a known continuous-flow clock nor the closest discrete equilibrium result establishes that statement.",
+      "residual_risks": [
+        "Bounded literature comparison does not certify priority. The web lookup was low-yield; only the supported discrete statement receives originality credit, not the analogous continuous kernel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model covered, sharp two-token clock distinct",
+          "evidence": "Specializing to two tokens and isotropic query/key and identity values gives the same normalized map; the results concern equilibrium and stability.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.13518v1",
+          "material_read": "PDF p. 2, Eq. (1) and nearby scope (offset 12800)",
+          "method": "Bounded OA PDF inspection",
+          "title": "Asymptotic Analysis of Discrete-Time Self-Attention Dynamics in Transformers",
+          "trigger": "Identical discrete residual map under specialization"
+        },
+        {
+          "assessment": "Direct continuous-clock antecedent, not the discrete transfer",
+          "evidence": "Both projected cross-terms give dc/dt=2pβ(c)(1−c²). Theorem 1.2 is about continuous-time residence near separated clusters, not discrete update counts.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.06833",
+          "material_read": "PDF pp. 2–3, Eq. (SA) (offset 5411), and pp. 4–6, Thm. 1.2 (offset 13370)",
+          "method": "Bounded OA PDF inspection and direct two-token substitution",
+          "title": "Dynamic metastability in the self-attention model",
+          "trigger": "Continuous spherical attention with the same softmax and metastability"
+        },
+        {
+          "assessment": "Related continuous scenario with different degeneration",
+          "evidence": "Anisotropic model and a proposed C(K) log n+D(K) fit, with forward-Euler simulation, do not give the frozen β-dependent discrete clock.",
+          "identifier_or_url": "https://vasumenon.com/projects/metastability-transformer-attention/",
+          "material_read": "Public manuscript model/angular ODE and escape fit discussion (HTML offsets 0 and 14000)",
+          "method": "Bounded public manuscript inspection",
+          "title": "On the Metastability of Bipodal States in Transformer Attention Dynamics",
+          "trigger": "Bipodal escape from near-antipodal states"
+        },
+        {
+          "assessment": "Related object, different value map and conclusion",
+          "evidence": "Mixed-sign V and attracting sign-flip cycles rather than the identity-value global contraction and passage time.",
+          "identifier_or_url": "Resultary 56f902ee9956",
+          "material_read": "Mirrored RESULT.md, Finding and model assumptions",
+          "method": "Local Resultary and mirror inspection",
+          "title": "A sharp attention temperature threshold for coexisting attracting cycles",
+          "trigger": "Indexed exact two-token normalized attention result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Limitations",
+        "Geshkovski et al., Eq. (SA) and Theorem 1.2"
+      ],
+      "rationale": "The simplest nontrivial symmetric normalized attention model is a natural benchmark for the number of layers needed to leave an almost antipodal state. An exponential order alone misses both the weight-dependent prefactor and the change from a fixed-correlation endpoint to the E₁ angular layer. A quantitative comparison in actual update counts, justified despite the growing time horizon, is useful beyond the equilibrium description.",
+      "residual_risks": [
+        "No extension to anisotropic queries/values, more tokens, changing weights, or standard transformer layer normalization is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

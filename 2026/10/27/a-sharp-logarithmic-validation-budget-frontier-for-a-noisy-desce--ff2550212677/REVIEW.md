@@ -1,19 +1,21 @@
-# Scientific review: A sharp logarithmic validation-budget frontier
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof conditions on the exact training sign and the independent validation count. At the optimum it gives the strict \(3/4\)-majority binomial tail; beyond the optimum the state space closes on the two endpoints. Independence yields a finite survival product, while the \(B^{-1/2}\) binomial prefactor and an infinite-product test jointly prove the sharp thresholds at \(c=1/I\) and at the additional \(a=1/2\) correction. The two-state return impossibility establishes the permanent objective gap. The embedded standard-library verifier reproduced all transition probabilities by exact arithmetic for batches \(1\) through \(11\), covering \(24,564\) complete sign cases and four mixed-batch schedules. The infinite assertions are proved analytically rather than extrapolated from finite checks.
+PASS
 
-## Originality — PASS, with stated residual risks
+At zero the empirical loss change is 3/2−2J/B, giving the strict integer cutoff floor(3B/4)+1. The unit-step proposal is always ±1 regardless of the current iterate, so zero cannot be revisited after acceptance. Fresh draws give the asserted conditional hazard and multiply survival; after departure the gap is exactly 1/2. For every B the exterior tail is positive and at most 1/2, so permanent survival is positive iff the hazards are summable. For large B the consecutive binomial mass ratio from the first accepted count is <1/3, so the tail and its first mass are comparable; Stirling at 3B/4+θ, 0<θ≤1, gives B^(-1/2) exp(−BI) up to bounded factors since the entropy shift is θ log 3+O(1/B). For c>0 the floors are bounded perturbations and summation reduces to k^(-cI)(log k)^(-1/2), or to 1/[k(log k)^(a+1/2)] at critical scale. The two equality cases diverge; if c≤0 is allowed, B stays at one and departure is immediate in the almost-sure eventual sense. An additive B offset bounds the union of departure events via a summable envelope. A flip after departure instead requires a strict majority for the opposite endpoint and an opposite proposal; the resulting symmetric chain contracts by |1−2q_B| for fixed B. The supplied finite enumeration and output were read as corroboration only, not as proof of the thresholds.
 
-The primary 2026 source's independent hypergradient validation/null step is a direct antecedent, but its comparison sits inside an adaptive recurrence and its convergence theorem requires relative gradient and function-value noise. The present noninterpolating example violates the gradient-relative condition at zero (the function-value condition alone may still hold on the discrete reachable states), and the inspected relevant sections do not give the exact all-time binary false-acceptance law, KL validation-budget threshold or half-log-log critical correction. The 2015 probabilistic Wolfe paper has a different GP acceptance criterion; the 2011/2013 variable sample-size and 2017 adaptive-sampling sources address related questions but their accessible descriptions do not show these exact statements. The latter two were not fully inspected, leaving real priority risk. Comparisons were also made with published searchable mathematical results on scalar stochastic preconditioning, finite-time absorption and optimizer stability; those do not imply this claim. See the structured comparisons and inspection limits in `AUDIT.json`. Classical binomial asymptotics and product criteria are explicitly credited as standard ingredients.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A finite validation batch may falsely certify a step away from an exact minimizer. The finding gives an exact, natural worst-horizon event law and a quantitative design threshold for protecting the optimum, including the boundary missed by Chernoff-rate-only estimates. It separates conditional finite-iteration accuracy from infinite-horizon sample-path integrity and shows the offset needed for high-confidence long-time retention. Both the failure and its batch-budget cure are useful interpretations of a common independently sampled descent check.
+The covered ingredients are the independently sampled null-step rule, exact lattice-tail methods and the product/summability test. The distinct finding is the exact pathwise failure frontier of this specific noninterpolating, fixed-step repeated safeguard, including irreversibility and the sharply divergent equality at a=1/2. It is not a claim about full adaptive scaling or priority for any of the ingredients.
 
-## Sources, limitations and risks
+## value
 
-Primary source: Zhang--Gao--Ye--Udell (2026), dated May 28 at Optimization Online, Algorithm 2, Section 3 and Theorem 3.3. Related: Mahsereci--Hennig (2015), Krejić--Krklec Jerinkić (2011/2013), and Bollapragada--Byrd--Nocedal (2017). The theorem concerns only the precisely specified fixed-unit-step, two-loss, noninterpolating model with independent validation and strict rejection of ties. It does not claim nonconvergence of the complete adaptive algorithm or contradict its conditional theorem. Equivalent earlier reformulations and fuller comparison with inaccessible texts remain unresolved. No external independent mathematical audit has been completed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The model isolates how a shared but independently sampled validation batch can fail to protect even an exact global optimum. It distinguishes arbitrary finite fixed budgets, a sharp log slope, and the separate log-log refinement that a Chernoff exponent alone misses. It also gives an explicit way to control the probability of ever accepting a worse point in the regime where retention is possible, without claiming applicability to other step rules.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

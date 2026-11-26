@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:26:05.025718Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof; VERIFICATION.md; verify.py (inspected, not executed)",
+        "Independent replay: cd /workspace && python independent_exact.py 4 (python-flint); output in /workspace/independent_exact_1_4.txt (Record 4)"
+      ],
+      "rationale": "The 16 exceptional curves and 10 conic classes of the blow-up of five general points are the stated classical lists. Pairing with F_i=L−E_i gives a vertical index set of size zero on Q (the empty set), size two on L_ab (indices a,b), and size four on E_a (all indices except a). Pairing with G_i=−K−F_i gives the complementary indicator since (−K)·C=1. These are exactly the even-weight five-bit strings. Vertical exceptional curves belong to reducible fibers; a fiber cannot consist solely of a multiple of an exceptional curve, since its square would be negative. The independent parity reconstruction and exact integer Smith and determinant calculations give 1^15,5,20^4,80,320^4 at both a curve sink and a pencil sink. The determinant is 2^36 * 5^10 = 671088640000000000, nonzero, and the degrees 5 and 8 give 80 edges. The exponent is 320. The submitted Euclidean code uses integral unimodular operations, with tracked transformations and exact determinant checks; the independent computation did not use it.",
+      "residual_risks": [
+        "Uses the classical complex quartic del Pezzo blow-up and conic-class classification; no arithmetic descent is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For five parts of size 2, their theorem gives Z/4 ⊕ Z/16 ⊕ (Z/80)^3 since N=10, Ni=σi=8, g=4, h=16.",
+          "Eliminating 5I over Z_(2) leaves (4/5)L(K_{2,2,2,2,2}); multiplying this nine-nonzero-factor Laplacian by 4 raises each valuation by two. Its 2-primary torsion becomes (Z/4)^4 ⊕ Z/16 ⊕ (Z/64)^4."
+        ],
+        "reasoning": "The general theorem covers exactly the otherwise nontrivial integral prime-local calculation once the supplied Gram matrix is written as the multipartite Laplacian.",
+        "searches": [
+          "Jacobson–Niedermaier–Reiner, Critical Groups for Complete Multipartite Graphs and Cartesian Products of Complete Graphs, Theorem 1, PDF pp. 2–3"
+        ]
+      },
+      "checked_sources": [
+        "Jacobson–Niedermaier–Reiner, European J. Combin. 24 (2003), 1039–1054, Theorem 1",
+        "Resultary 6eecb2c62f8f and identical indexed entry 61b9e006398b",
+        "Frozen proof for the parity Gram and rational spectrum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At 5, eliminate 8I instead, obtaining 40I−BB^T up to a unit. Since 16 is a 5-unit, split off the constant direction and work on sum-zero vectors. The matrix there is annihilated by (t−32)(t−40), with eigenvalue multiplicities 5 and 10. Since 32−40 is a unit, integral polynomial projectors split these summands over Z_(5). Thus its 5-primary group is (Z/5)^10.",
+          "There are no other primes by the immediate tree product. Combining this with the multipartite 2-primary result gives exactly 5,20^4,80,320^4."
+        ],
+        "reasoning": "Neither the prior source alone nor the rectangular support cokernel states the frozen group. The prior theorem plus standard algebra applied to the classical incidence gives all its factors with no new Smith analysis or new geometric theorem; the frozen exact-invariant claim is mechanically implied.",
+        "searches": [
+          "Jacobson–Niedermaier–Reiner Theorem 1, PDF pp. 2–3, and specialization k=5, n_i=2",
+          "Frozen graph proof Steps 1–2, Gram eigenvalues and matrix-tree factorization",
+          "Resultary 6eecb2c62f8f RESULT.md, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph is the incidence of even five-bit strings with one-coordinate binary choices (the half-cube vertices versus coordinate slices). The 10-column Gram matrix has diagonal 8, value 0 between paired choices, and value 4 between other choices.",
+          "This is not the ordinary 16-vertex Clebsch graph; 40I−B^TB is instead four times the Laplacian of the complete five-partite graph with two vertices per part."
+        ],
+        "reasoning": "The parity alias preserves all incidences. The complete multipartite connection is a local Laplacian reduction, not graph isomorphism, and it is decisive at 2.",
+        "searches": [
+          "Resultary: quartic del Pezzo sixteen exceptional curves ten conic pencils parity incidence critical group 26 vertex 80 Z/5 20 80 320 Smith Laplacian",
+          "Parity/F_i-G_i model in the frozen proof; complete multipartite critical groups (Jacobson–Niedermaier–Reiner, Theorem 1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 26-vertex/80-edge catalogue hit is 61b9e006398b, the assigned record itself. The closest distinct result, 6eecb2c62f8f, gives cokernels of Frobenius-invariant support maps between integral permutation lattices, not the block Laplacian."
+        ],
+        "reasoning": "The best separate exact-geometry hit is a different integral object. The verdict is based on the prior general theorem and its implication, not the identical catalogue hit or an unverified table entry.",
+        "searches": [
+          "Resultary: quartic del Pezzo sixteen exceptional curves ten conic pencils parity incidence critical group 26 vertex 80 Z/5 20 80 320 Smith Laplacian"
+        ]
+      },
+      "rationale": "The exact group is mechanically implied by the classical parity incidence, the complete-multipartite critical-group formula of Jacobson–Niedermaier–Reiner (2003), and routine local Schur complements and eigenspace splitting. This is a demonstrated implication, not a claim that their paper directly names or tabulates the 26-vertex graph.",
+      "residual_risks": [
+        "A direct earlier table for the del Pezzo graph was not located; the established failure is mechanical implication, not a chronology claim for the exact wording."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The theorem directly supplies the key Smith data after the displayed Schur reduction",
+          "evidence": "For k>2 the group is the sum of (Z/N_i)^(n_i−2), Z/g, Z/h, and Z/(σ_i N) for i≥3, with g=gcd(k−1,N_i) and h=σ_1σ_2/g.",
+          "identifier_or_url": "https://www-users.cse.umn.edu/~reiner/Papers/CritComplete.pdf",
+          "material_read": "Theorem 1 and order check, PDF pp. 2–3; converted-text offsets 3850–6294",
+          "method": "Lawful OA author-hosted PDF passage read",
+          "title": "Critical Groups for Complete Multipartite Graphs and Cartesian Products of Complete Graphs",
+          "trigger": "Exact stronger theorem for the nontrivial 2-primary local block"
+        },
+        {
+          "assessment": "Different invariant; not used as evidence of priority or full Smith coverage",
+          "evidence": "The map sends each of the ten pencils to the sum of its eight reducible-fiber components among the sixteen curves, then restricts to invariant lattices in the finite-field setting.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-integral-frobenius-conic-support-lattices-for-quartic-del-pezzo--6eecb2c62f8f",
+          "material_read": "RESULT.md Finding, offsets 0–1742",
+          "method": "Local Resultary mirror passage read",
+          "title": "Integral Frobenius conic-support lattices for quartic del Pezzo surfaces",
+          "trigger": "Closest distinct indexed result for the same 16-by-10 incidence data"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen exact-invariant and prior-work claims",
+        "Jacobson–Niedermaier–Reiner Theorem 1 and the explicit local implications in this review"
+      ],
+      "rationale": "The configuration and its critical group are natural, and the correct values could be useful as reference data. But the entire proposed new exact invariant comes from a standard local block calculation, a direct substitution into the existing complete-multipartite formula, and the elementary 5-primary splitting. The frozen result adds no substantive integral theorem or independent mathematical gap beyond that specialization.",
+      "residual_risks": [
+        "No claim is made that general del Pezzo incidence critical groups, equivariant questions, or different configurations lack value."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,77 +1,54 @@
-# The Morse complex of \(K_{3,4}\): a 432-sphere wedge and its full bipartition-symmetry character
+# The full bipartition-symmetry character on Morse homology of \(K_{3,4}\)
 
 ## Finding
 
-For the complete bipartite graph \(K_{3,4}\), the simplicial Morse complex of acyclic discrete vector fields has integral homotopy type
-\[
-\mathcal M(K_{3,4})\simeq\bigvee^{432} S^5.
-\]
-The natural action of \(S_3\times S_4\), permuting vertices within the two bipartition classes, on its unique nonzero reduced rational homology \(\widetilde H_5\) has the **complete character** in the following table. Rows are \(S_3\) conjugacy classes \((1,1,1),(2,1),(3)\), and columns are \(S_4\) classes \((1,1,1,1),(2,1,1),(2,2),(3,1),(4)\), in that order:
+Let \(\mathcal M(K_{3,4})\) be the ordinary simplicial Morse complex of acyclic discrete vector fields on the graph \(K_{3,4}\). The bipartition-preserving automorphisms act on its reduced rational homology. The character of \(\widetilde H_5(\mathcal M(K_{3,4});\mathbb Q)\) under \(S_3\times S_4\) is:
 
-| Class of \(S_3\) | \((1,1,1,1)\) | \((2,1,1)\) | \((2,2)\) | \((3,1)\) | \((4)\) |
+| \(S_3\) type \(\backslash\) \(S_4\) type | \((1,1,1,1)\) | \((2,1,1)\) | \((2,2)\) | \((3,1)\) | \((4)\) |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| \((1,1,1)\) | 432 | -16 | 4 | 0 | -2 |
-| \((2,1)\) | 0 | 0 | 4 | 0 | -2 |
-| \((3)\) | -3 | -1 | 1 | -3 | 1 |
+| \((1,1,1)\) | 432 | −16 | 4 | 0 | −2 |
+| \((2,1)\) | 0 | 0 | 4 | 0 | −2 |
+| \((3)\) | −3 | −1 | 1 | −3 | 1 |
 
-The complete decomposition into rational irreducible outer products \(\operatorname{Sp}^{\lambda}\boxtimes\operatorname{Sp}^{\mu}\) has multiplicity matrix, with rows indexed by \(\lambda=(3),(2,1),(1,1,1)\) and columns by \(\mu=(4),(3,1),(2,2),(2,1,1),(1,1,1,1)\):
+The multiplicities of the rational irreducible outer products \(\operatorname{Sp}^\lambda\boxtimes\operatorname{Sp}^\mu\) are
 \[
 \begin{pmatrix}
 2&8&7&9&4\\
 5&17&12&19&8\\
 2&8&6&10&3
-\end{pmatrix}.
+\end{pmatrix},
 \]
-These coefficients are nonnegative integers and their dimension-weighted sum is 432. The result is a statement about the representation on rational homology, **not** an equivariant wedge decomposition.
+with rows \(\lambda=(3),(2,1),(1,1,1)\) and columns \(\mu=(4),(3,1),(2,2),(2,1,1),(1,1,1,1)\). In particular the invariant subspace has dimension two, whereas the whole module has dimension 432.
 
 ## Assumptions and scope
 
-View \(K_{3,4}\) as a one-dimensional simplicial complex with labeled vertices \(A=\{0,1,2\}\), \(B=\{3,4,5,6\}\), and all 12 edges between the two classes. Its Morse complex \(\mathcal M(K_{3,4})\) has 24 vertices, one for each incidence \((u,\{u,v\})\), encoded as an oriented arc \(u\to v\). A face is a set of incidences with pairwise distinct source vertices and pairwise distinct underlying graph edges, containing **no directed cycle**. This is precisely the acyclic Forman-vector-field condition for a graph, with all quantifiers over the 24 finite oriented incidences. The empty face is included for enumeration, but not as a cell of the geometric realization.
-
-The claim concerns the *ordinary Morse complex of discrete gradient vector fields*, not the generalized Morse complex, the graph's ordinary matching complex, its two-matching complex, or the algebraic Morse chain complex associated to one fixed vector field.
+Write \(A=\{0,1,2\}\) and \(B=\{3,4,5,6\}\). A vertex of the Morse complex is an incidence \((u,\{u,v\})\) along a graph edge, encoded as an arc \(u\to v\). A face has distinct sources and underlying edges and contains no directed cycle. These are exactly the acyclic Forman matchings on a graph: the distinctness is the matching condition, and a closed alternating path in the incidence matching is a directed cycle of arcs. Equivalently the faces are rooted forests oriented toward their roots. In the outgoing-neighbor description, a repeated underlying edge in opposite orientations is a directed cycle of length two and is rejected. The empty face contributes to reduced chain traces. The result concerns rational homology, not an equivariant wedge equivalence or the graph's two-matching complex.
 
 ## Proof
 
-**1. Exhaustive finite face enumeration with an independent count.** An oriented face determines a rooted directed forest: every graph vertex has at most one outgoing arc and a directed cycle is forbidden. The two standalone programs enumerate faces independently, one by iterating admissible subsets of the 24 incidences and the other by choosing one outgoing neighbor or none at every graph vertex and rejecting cycles. In both computations the numbers of faces of cardinality \(k=0,1,2,3,4,5,6\) are
+The previously established ordinary homotopy equivalence \(\mathcal M(K_{3,4})\simeq\bigvee^{432}S^5\) [1] gives the homological concentration in degree five. We use this homotopy type as input; it does not determine how graph automorphisms act.
+
+Enumerate faces by assigning to each of the seven vertices either no outgoing arc or one outgoing neighbor across the bipartition. Discard a choice if following outgoing arcs from any vertex returns to a vertex already visited on that path. The remaining choices enumerate every face exactly once, because a face determines each outgoing choice and these are precisely the acyclic choices. By cardinality \(0,1,\ldots,6\) the counts are \((1,24,234,1192,3357,4968,3024)\). They also agree with the coefficients of \((t+7)(t+4)^2(t+3)^3\) in descending degree by the rooted matrix-forest identity.
+
+For \(g=(\sigma,\tau)\), permute the sources and targets of all arcs in each face. A face that is not setwise fixed gives no diagonal chain contribution. For a fixed face \(F\), let \(o_g(F)\) count the orbits of its arcs under \(g\). Its orientation sign is \((-1)^{|F|-o_g(F)}\). The reduced chain sign is \((-1)^{|F|-1}\), also valid for the empty face with its degree −1 contribution. Consequently the reduced Lefschetz number is the sum of \((-1)^{o_g(F)-1}\) over fixed faces; homological concentration in odd degree five gives
 \[
-(1,24,234,1192,3357,4968,3024),
+\chi(g)=\sum_{F:\,gF=F}(-1)^{o_g(F)}.
 \]
-for a total of 12,800 faces. As a separate enumerative certificate, the complete bipartite Laplacian has nonzero eigenvalues \(7,4,4,3,3,3\), and the matrix-forest identity gives
-\[
-\frac{\det(tI+L)}{t}=(t+7)(t+4)^2(t+3)^3
-=t^6+24t^5+234t^4+1192t^3+3357t^2+4968t+3024.
-\]
-Here the coefficient of \(t^{7-k-1}\) counts rooted spanning forests with \(k\) arcs. Both algorithms agree with every coefficient, not merely the Euler characteristic.
+In particular the empty face contributes \(+1\) in this last sum. Evaluating by the outgoing-neighbor enumeration for all \(3!\,4!=144\) elements gives the character table above; the trace is constant within each of the 15 pairs of conjugacy classes. For example, at the identity the signed sum is \(1-24+234-1192+3357-4968+3024=432\).
 
-**2. A complete acyclic simplicial matching.** Order the oriented incidences by first listing underlying edges \((i,j)\) lexicographically for \(i\in A,j\in B\), then the two orientations \((i,j),(j,i)\). Regard each face as a 24-bit mask. Start with all 12,799 nonempty faces unmatched. At stage \(k=0,1,\ldots,23\), scan faces in their recursively defined order and match each currently unmatched face \(F\) lacking incidence \(k\) with \(F\cup\{k\}\) whenever both are currently unmatched. This definition completely determines 6,181 disjoint pairs, with critical cells: one vertex, two four-simplices, 434 five-simplices. To verify acyclicity, orient each nonempty Hasse covering edge down except matched edges, which are oriented up. The exact topological-sort routine visits all 12,799 vertices of this directed Hasse graph and its 60,456 arrows; thus the matching is acyclic.
+For partitions \(\lambda\vdash 3\) and \(\mu\vdash 4\), take the inner product of this table with the product of the two Specht characters. Explicitly, sum \(\chi(\alpha,\beta)\chi^\lambda(\alpha)\chi^\mu(\beta)/(z_\alpha z_\beta)\) over class types \(\alpha,\beta\), where \(z_\gamma=\prod_i i^{m_i}m_i!\) for type \(\gamma\) with \(m_i\) parts of length \(i\). This gives the displayed matrix. The irreducibles of each symmetric group are defined and absolutely irreducible over \(\mathbb Q\), so it gives the rational decomposition as stated.
 
-**3. Integral attaching maps.** The acyclic matching yields a Morse CW complex with exactly one zero-cell, two four-cells, and 434 five-cells. To compute its degree map from five-cells to the four-cell wedge, use simplicial incidence signs \(\langle\partial F,F\setminus\{k\}\rangle=(-1)^{\#\{i\in F:i<k\}}\), and recursively eliminate matched four-faces against their matched five-faces. This is the exact integral gradient-path boundary, implemented in `verify_morse.py`. The complete resulting integer \(2\times434\) matrix has entries only in \(\{-1,0,1\}\) and 22 nonzero entries. Its four-dimensional critical cells have masks 1198084 and 4331524; columns indexed by critical five-cells 1198240 and 4331680 are respectively \((-1,0)^T\) and \((0,1)^T\). This is a unit minor of determinant \(-1\); hence its Smith invariants are \(1,1\) and the map is a split surjection over the integers. Because \(\pi_4(S^4\vee S^4)\cong\mathbb Z^2\), the five-cell attaching maps are completely determined by those degree vectors. Integral changes of four- and five-cell bases cancel the two independent degree-one attachments, leaving 432 unattached five-cells, proving
-\[
-\mathcal M(K_{3,4})\simeq\bigvee^{432}S^5.
-\]
-There are no unaccounted cells in dimensions one, two, three, or above five. Independently, the mod-two top simplicial boundary has rank 2592 among 3024 top-dimensional faces, yielding a 432-dimensional kernel, consistent with the integral classification.
+## Reproducibility
 
-**4. Full rational automorphism character.** A permutation pair \((\sigma,\tau)\in S_3\times S_4\) acts by permuting the labels of the 24 incidences. On each simplex setwise fixed by it, the induced simplicial-chain trace is the parity of the permutation of that simplex's ordered vertices. Sum these signed fixed-face contributions with their alternating degree signs, including the empty-face reduced correction. The only nonzero reduced homology lies in odd degree five, so its trace is the negative of the reduced Lefschetz number. `verify_character.py` checks **all 144 group elements** using integer arithmetic and verifies conjugacy-class invariance, yielding the displayed \(3\times5\) matrix. Taking the standard weighted inner products with the irreducible characters of \(S_3\) and \(S_4\), with exact centralizer orders, yields the displayed multiplicity matrix. Thus all 15 class values and all 15 multiplicities are proved by a complete finite calculation.
+`verify_character.py` enumerates the rooted forests, checks the complete face counts, computes the signed reduced Lefschetz traces for every element, and performs the exact weighted character inner products. The additional `verify_morse.py` independently certifies the previously known homological concentration (and the ordinary wedge type): its acyclic matching leaves one vertex, two four-cells and 434 five-cells. Its integral Morse boundary has a determinant −1 two-column minor, giving two unit cancellations. The latter is a check of the baseline used here, not a second originality claim.
 
-## Verification
+## Relationship to prior work and limitations
 
-The self-contained Python 3 standard-library scripts `verify_morse.py` and `verify_character.py` are included alongside this file. From a directory containing both, run `python3 verify_morse.py` and `python3 verify_character.py`. Both assert all numerical claims and print `VERIFY_OK` on success. `verify_morse.py` independently constructs the face poset, checks the entire oriented Hasse graph for directed cycles, and computes the full integer Morse boundary; `verify_character.py` constructs faces by a different algorithm, checks the matrix-forest polynomial and top mod-two boundary rank, and exhaustively computes the character and Specht multiplicities. No external data, floating-point arithmetic, remote service, or unaudited saved cache is needed. These are exhaustive finite certificates for this single graph; they are not evidence for any unstated infinite graph family.
-
-## Relationship to prior work
-
-Scoville and Zaremsky, *Higher connectivity of the Morse complex*, arXiv:2004.10481 (first public 22 April 2020), define exactly this Morse complex in their Section 1. Their Theorem 4.3 gives connectivity bounds and Example 4.6 explicitly discusses complete bipartite graphs while leaving their homotopy type open at that time. Donovan, Lin and Scoville, *On the homotopy and strong homotopy type of complexes of discrete Morse functions* (arXiv:1909.11440), examine other graph families and do not present this computation. Jojić, *Shellability of complexes of directed trees* (2013), studies related directed-forest complexes, but the inspected shellability criteria do not apply directly to the bidirected four-cycle-containing graph \(K_{3,4}\). Scoville's *The complex of discrete Morse matchings of the \(n\)-simplex* (arXiv:2604.18172) instead treats simplices and their boundaries.
-
-Published computations of the Morse complexes of \(K_{3,3}\) and the family \(K_{2,n}\) do not logically determine that of \(K_{3,4}\). The reported two-matching complex of \(K_{3,4}\) is a different simplicial complex: it consists of sets of original graph edges subject to degree caps, whereas the present complex consists of compatible, acyclic **incidence pairs**. Neither equality of graph labels nor nearby parameter values gives an implication between these homotopy classifications.
-
-## Limitations
-
-This theorem is for the single, naturally motivated graph \(K_{3,4}\), and determines its ordinary homotopy type and rational \(S_3\times S_4\) homology character only. It does not claim a natural equivariant homotopy equivalence, integral representation-theoretic splitting, or a formula for arbitrary \(K_{p,q}\). No independent external audit has been carried out. There is residual bibliographic risk that an equivalent \(K_{3,4}\) result exists under an unindexed directed-forest formulation, despite the documented comparisons; a negative search alone cannot eliminate that risk.
+The earlier exact \(K_{3,4}\) record [1] proves the same ordinary wedge type but does not give the bipartition-symmetry character. Scoville–Zaremsky [2, Example 4.6] establish connectivity bounds for complete bipartite examples; Chari–Joswig [3, Proposition 3.1] give the graph Morse-complex interpretation by rooted forests. Neither the ordinary homotopy type nor that rooted-forest interpretation alone evaluates the signed fixed-forest sums and gives the irreducible multiplicities for this action. The complete-source or essentially undirected tree criteria in Jojić [4] do not cover the bidirected \(K_{3,4}\); ordinary connectivity or shellability would not by itself determine the character. This result treats only the rational homology representation for this graph, without an integral module classification or a conclusion for arbitrary bipartition sizes.
 
 ## References
 
-1. N. A. Scoville and M. C. B. Zaremsky, *Higher connectivity of the Morse complex*, arXiv:2004.10481, version 1 dated 2020-04-22, https://arxiv.org/abs/2004.10481 (particularly §1, Theorem 4.3 and Example 4.6).
-2. A. Donovan, M. Lin and N. A. Scoville, *On the homotopy and strong homotopy type of complexes of discrete Morse functions*, arXiv:1909.11440, https://arxiv.org/abs/1909.11440.
-3. D. Jojić, *Shellability of complexes of directed trees*, 2013, https://arxiv.org/abs/1109.4475.
-4. N. A. Scoville, *The complex of discrete Morse matchings of the \(n\)-simplex: homotopy types and structural results*, arXiv:2604.18172, https://arxiv.org/abs/2604.18172.
-5. R. Forman, *Morse theory for cell complexes*, Advances in Mathematics 134 (1998), 90–145.
-
+1. *The Morse complex of \(K_{3,4}\) is a wedge of 432 five-spheres*, Resultary record 48c1007aa5a6 (2026-10-11), https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-morse-complex-of-k-3-4-is-a-wedge-of-432-five-spheres--48c1007aa5a6.
+2. N. A. Scoville and M. C. B. Zaremsky, *Higher connectivity of the Morse complex*, https://arxiv.org/abs/2004.10481.
+3. M. K. Chari and M. Joswig, *Discrete Morse complexes*, https://arxiv.org/abs/math/0011234.
+4. D. Jojić, *Shellability of complexes of directed trees*, https://arxiv.org/abs/1109.4475.

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:47:12.858910Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–71; VERIFICATION.md, verify.py and verification_output.txt (inspected, not run)",
+        "/workspace/branches/cycles_replay.py and cycles_replay.txt"
+      ],
+      "rationale": "For m=n−1 and r=q−1 the exact overlap graph is balanced with degrees r, q, and 1 on weights 0,1,2. Zero appends lead to the root from every vertex, hence by balance every nonisolated vertex belongs to one strongly connected component. Each rotation class has a unique Euler edge sequence beginning at the labelled edge 0^m1, so the fixed-first-edge BEST count has no extra division. Each weight-two vertex's outgoing choice is forced and its zero path reaches a one-color vertex. On deleting the root row and column, elimination along these paths preserves the tree count: one-color index i can shift forward with its color unchanged or reflect to m−1−i in any of r colors. The operator on zero-sum colors is a triangular shift with diagonal q in each of q−2 directions; the constant-color block is the reflected index tree operator with weights 1 and r. Any reflected choice at i≥floor(m/2) traps the closed interval [m−1−i,i]; all assignments reflecting only at lower indices strictly progress to the root. Thus the remaining determinant is q^floor(m/2). This includes m=1, where colored self-loops must be subtracted and the index block determinant is 1. Combining the determinant and BEST gives the stated product. The number of distinct windows is n(q−1)+C(n,2)(q−1)² and a shorter period would repeat a window. Fresh depth-first enumeration by unused labelled windows independently matches 12, 432, 5184, 6912 at the four stated pairs; finite checks supplement the proof.",
+      "residual_risks": [
+        "Rotation only; labels and loops matter. Adding 0^n or quotienting symbols changes the counting problem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.4(ii) says the adjacent-Hamming-weight overlap graph is Eulerian for the admissible ranges; Corollary 3.5 covers general weight ranges. The ternary examples at p. 12 give cycles, not multiplicities."
+        ],
+        "reasoning": "These statements cover prior nonbinary existence even for broader weight intervals but do not evaluate the arborescence count at the two exact low shells.",
+        "searches": [
+          "Mitchell–Wild arXiv:2607.22350v1, Definition 2.1, Theorem 3.4(ii), Corollary 3.5 and examples"
+        ]
+      },
+      "checked_sources": [
+        "Primary passages and matched catalogue results detailed above",
+        "Frozen RESULT.md lines 73–88 and REVIEW.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fredricksen's t=2 calculation is a binary pure-cycling-register choice count. Mitchell–Wild prove Eulericity. Generic BEST leaves an unevaluated cofactor; the nonbinary q^{(n−1)(q−2)} factor is produced by the zero-sum color block in the frozen proof."
+        ],
+        "reasoning": "The binary case cannot determine the color block for q≥3 and is expressly outside the novelty claim. Existence plus generic BEST does not supply the specialized evaluated product.",
+        "searches": [
+          "Mitchell–Wild Theorem 3.4(ii) and Corollary 3.5",
+          "Fredricksen, IEEE Trans. Inf. Theory 39(6) (1993), §II"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mitchell–Wild use labelled symbols and number of nonzero coordinates, the same language at adjacent weights 1,2. Chee et al. instead prohibit nearby duplicate windows. For the ≤2 family one adds only the 0^n loop at the zero root; deletion gives exact-shell cycles, and each exact-shell rotation class has r slots at root visits for insertion."
+        ],
+        "reasoning": "The zero-loop normalization is a multiplication by q−1, not a distinct enumeration technique; at q=2 it is a bijection. A different local nonrepetition restriction is not equivalent.",
+        "searches": [
+          "Mitchell–Wild arXiv:2607.22350v1, cut-down de Bruijn sequences and Hamming weights",
+          "Chee et al. arXiv:2005.03102v1, constrained de Bruijn codes",
+          "Fredricksen 1993, binary ≤2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Nov. 8 record gives the same power of q and a factorial product larger by q−1 for q≥3,n≥3, with period one larger. The Nov. 2 exact weight-one/two and ≤2 matches are binary. No earlier nonbinary exact-shell enumeration was identified in inspected matches."
+        ],
+        "reasoning": "The later nonbinary count is equivalent for n≥3 through root-loop insertion/deletion and must not be dismissed as merely a title similarity. It is later-dated in the catalogue and does not provide evidence of earlier coverage. The frozen n=2 boundary is checked but not presented as the source of novelty.",
+        "searches": [
+          "Local Resultary, sparse nonbinary universal cycles / exact weights 1 and 2",
+          "2026/11/8/SCOPE-exact-all-length-count-of-sparse-nonbinary-universal-cycles--ba7bc15d9bf2"
+        ]
+      },
+      "rationale": "On available evidence the distinct claim is the nonbinary all-span count, not existence or the binary specialization. The later, strongly overlapping ≤2 enumeration is explicitly related by the zero-loop factor; this near equivalence is not evidence that it preceded the frozen finding.",
+      "residual_risks": [
+        "Bounded searches do not exclude equivalent earlier enumeration under a ≤2 or feedback-register formulation. The Li–Jiang–Lin article body was unavailable in this check."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier existence, no count in inspected statements",
+          "evidence": "Eulerian overlap digraphs, including wider weight ranges; examples supply particular ternary cycles.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.22350",
+          "material_read": "v1 Definition 2.1 p. 5, Theorem 3.4(ii) p. 8, Corollary 3.5 p. 10 and examples p. 12",
+          "method": "OA primary PDF by section offsets",
+          "title": "Weight-constrained cut-down de Bruijn sequences",
+          "trigger": "Same labelled nonbinary adjacent-Hamming-weight cycle language"
+        },
+        {
+          "assessment": "Explicit binary specialization, not nonbinary",
+          "evidence": "Binary rotation cosets; two choices per weight-two coset except one unique attachment for the antipodal even-span coset. The counted subclass is minimum-density joining.",
+          "identifier_or_url": "https://repository.tudelft.nl/file/File_f913e2cb-254d-40a6-b90e-1486aa2646b5?preview=1",
+          "material_read": "Fredricksen, journal p. 1989, Introduction and §II, extracted offsets 11450–17441",
+          "method": "Lawful institutional repository PDF containing the original journal page",
+          "title": "The Number of Nonlinear Shift Registers That Produce All Vectors of Weight ≤ t",
+          "trigger": "Earlier low-weight count cited in frozen source"
+        },
+        {
+          "assessment": "Later catalogue entry, equivalent count on shared spans after removing zero loop",
+          "evidence": "Includes 0^n; exact-shell count times q−1, same tree exponent, n≥3.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-all-length-count-of-sparse-nonbinary-universal-cycles--ba7bc15d9bf2",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact all-length count of sparse nonbinary universal cycles",
+          "trigger": "Strong same-q catalogue match"
+        },
+        {
+          "assessment": "Different class",
+          "evidence": "Nearby windows cannot repeat; no full exact Hamming-shell window prescription.",
+          "identifier_or_url": "https://arxiv.org/abs/2005.03102",
+          "material_read": "v1 Definition 2, p. 6",
+          "method": "OA primary PDF by offset",
+          "title": "Constrained de Bruijn Codes: Properties, Enumeration, Constructions, and Applications",
+          "trigger": "Prior nonbinary constrained enumeration"
+        },
+        {
+          "assessment": "Confirmed scope limited by access; no inference from nonretrieval",
+          "evidence": "Frozen comparison says its accessible portions concern binary register joining and selected counts.",
+          "identifier_or_url": "https://doi.org/10.1007/s10623-022-01100-9",
+          "material_read": "Full text not obtained in the independent check; frozen source reports binary abstract and appendix evidence",
+          "method": "DOI/publisher retrieval attempt and frozen comparison",
+          "title": "Properties of the cycles that contain all vectors of weight ≤ k",
+          "trigger": "Related low-weight enumeration in citation trail"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "Mitchell–Wild Theorem 3.4(ii)",
+        "Fredricksen §II",
+        "/workspace/branches/cycles_replay.txt"
+      ],
+      "rationale": "After known existence, the enumeration of every cycle in the first genuinely nonbinary low-shell family is a natural additional invariant. The uniform factorial and exponential factors distinguish labelled outgoing orders from the colored tree obstruction over all spans and alphabets; obtaining them requires a graph-specific evaluation, not just applying an existence theorem or a table.",
+      "residual_risks": [
+        "No enumeration for general weight ranges or additional symmetry quotients is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

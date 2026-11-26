@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The incidence definition is exact and verified against an independent LCF presentation. A perfect matching is a bijection from nine points to their incident nine line vertices, and recursive enumeration gives all 42. The exact pairwise-signature criterion requires a selected edge in every symmetric difference of two different perfect matchings. Enumeration of every edge subset of sizes zero through nine excludes smaller global forcing sets and counts all 13,608 optima; it cannot confuse an unsampled configuration with an impossibility. The complete optimum exchange graph is constructed via all single-edge replacements. Its 109 components, 104,490 edges and 108 strongly regular nine-state components are independently reproduced from a different graph representation. Every small component has a certified two-replacement bridge into the giant component, proving the sharp threshold. Four packaged programs were run on their actual contents; no infinite extension is asserted.
+PASS
 
-## Originality — PASS (qualified historical priority)
+For two perfect matchings, a selected edge distinguishes them exactly when it belongs to their symmetric difference. Each component of that difference is an alternating even cycle whose vertex complement is matched, so hitting every nice cycle suffices. Conversely the two alternating halves of a nice cycle extend by the same complementary matching, so each such cycle must be hit. I checked the explicit affine-to-LCF isomorphism on the complete edge sets. In the LCF graph I independently enumerated simple cycles by paths with fixed least vertex, deduplicated by edge mask, and used an exact cached complementary perfect-matching recursion. This gives 42 matchings and 603 nice cycles with all six stated length counts. Filtering the complete size-eight and size-nine mask families by the nice cycles gives 0 and 13,608 hits; monotonicity excludes every smaller size. Indexing nine-masks by eight-edge cores constructs every one-replacement edge and gives the exact degree histogram, 104,490 edges, and one component of size 12,636 and 108 of size nine. For each small component I verified an explicit grid characterization: its triangles partition into rows and columns intersecting at singletons, and edges are exactly pairs sharing a coordinate. Seven-edge core matches to the giant certify a two-replacement bridge from every small component (eight-edge overlap is impossible across one-replacement components). The threshold is therefore exactly two.
 
-The 2004 total-forcing and 2007 global-forcing papers introduce the criterion but treat triangular/grid families. Section 5.1 of the 2011 survey supplies general bounds, \(6\le\operatorname{gf}(P)\le10\), not the sharp value. Previously indexed Pappus matching results treat local forcing sets for individual matchings, flip graphs, induced matchings, or matching complexes; those statistics do not determine the minimum edge set separating all 42 matchings or the geometry of optimal edge-observation sets. Previously indexed global forcing results on other graphs, such as the Heawood and dodecahedral graphs, do not imply Pappus counts. Searches for global/total matching forcing and exact Pappus identifiers returned no established stronger coverage. The original 2004 and 2007 PDF files were not accessible in full, and unindexed computations remain a genuine priority risk; this is not a uniqueness or independent priority certification.
+## originality
 
-## Value — PASS
+PASS
 
-A canonical symmetric cubic incidence graph has 42 distinct perfect matchings but requires nine edge-membership observations, strictly between the information bound six and the general upper bound ten. The exact 13,608 optimum census exposes an unexpectedly fragmented one-move configuration space: 108 nine-state rook-graph islands coexist with one giant component. The sharp two-replacement repair threshold provides a meaningful flexibility distinction for optimal observation systems. The complete nice-cycle hypergraph supplies a second structural interpretation as a transversal problem. The result is a nontrivial exact natural invariant and reconfiguration classification rather than a generic substitution or isolated machine count.
+The forcing criterion and its nice-cycle formulation are prior general theory. The distinct bounded contribution is the exact Pappus optimum and the geometry of all optimal observation sets. The general bounds underdetermine the optimum and provide no exchange census. The closest inspected Pappus exchange computations use either perfect matchings or minimum maximal matchings as states, not optimal forcing sets; the analogous global-forcing census for Heawood concerns a different graph. No inspected statement or implication supplies the Pappus census. This is not a claim of historical priority.
 
-## Scope and remaining risks
+## value
 
-The theorem is fixed-graph and finite; neither the stated numbers nor their exchange pattern are extrapolated to other incidence graphs. The 2004 and 2007 original articles and possible unindexed historical databases were not exhaustively reviewed, though accessible summaries, the relevant 2011 survey section, primary graph descriptions, available indexed research and historical claims were compared. The only review represented here is a self-review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact number of membership observations needed to distinguish all matchings on this classical cubic incidence graph is a well-motivated invariant between nonmatching generic bounds. The result goes beyond the scalar optimum: 108 isolated rook components and one giant contrast sharply with connectivity under two simultaneous replacements. This quantifies how freely optimal measurement sets can be modified at fixed cost, and the nice-cycle census gives an independent transversal interpretation. These fixed-graph data are useful for comparing observation and reconfiguration behavior, not a generic computation on an arbitrary small graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

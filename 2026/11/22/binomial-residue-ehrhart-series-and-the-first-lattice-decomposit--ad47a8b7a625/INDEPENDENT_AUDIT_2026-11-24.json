@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:02:37.097789Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–49",
+        "Frozen VERIFICATION.md and verify_cycle.py (read, not executed)",
+        "/workspace/review_evidence/check_1_2_4.py"
+      ],
+      "rationale": "For odd n, det(I+wS)=1+w^n. Multiplying by the alternating geometric sum proves the inverse formula. Each row of this inverse, evaluated on b in {1,...,w}^n and multiplied by 1+w^n, is bounded below by 1 and above by w^n by selecting the respective extreme independently for each sign. Thus the w^n images and zero lie in the half-open coefficient cube; the determinant index proves exhaustiveness. The integer-degree cone lattice is the kernel of coordinate sum modulo w+1, not the entire ambient integer lattice. Splitting coefficients into integral and fractional parts gives the numerator and denominator (1-t)^n and the volume index (1+w^n)/(w+1). The bounded sums fill the interval [n,nw], and complementing every b_i reflects positive degree j to n-j. When w<=n-2, q>=2: the absence of positive representatives below q means every point in those dilates is an integral vertex combination and in degree one only vertices occur. The inequality q<=floor(nw/(w+1)) holds for odd n>=3, w>=2, so degree q has a nonzero representative whose unique fractional coefficients preclude decomposition. For fixed w=2 this yields unbounded q on odd n>=5. Independently checked nine sample parameter pairs by enumerating multiples of the class of e_0 (order 1+w^n by the inverse diagonal coefficient) restricted to k divisible by w+1, rather than constructing the candidate box representatives. For example (7,2) gives 1+21t^3+21t^4 and (11,2) gives 1+11t^4+330t^5+330t^6+11t^7. Replay: python3 /workspace/review_evidence/check_1_2_4.py. The exact proof, not the samples, establishes the uniform claim.",
+      "residual_risks": [
+        "Numerator for odd n and uniform integral w>=2 only. The sharp first nondecomposable dilation requires 2<=w<=n-2, the empty-simplex range."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The November 17 Resultary record proves positive-degree symmetry for nondegenerate weighted cycles, including unequal weights. The one-defect volume specializes to the uniform odd-cycle volume. Biermann et al. prove all naturally oriented cycles in their range are non-IDP and characterize unit-dilate nonvertex points."
+        ],
+        "reasoning": "These stronger and overlapping results remove the respective corollaries from the novelty claim, but do not give the general odd-cycle residue numerator or minimal hole degree.",
+        "searches": [
+          "Resultary shifted Ehrhart symmetry and a sharp log-concavity threshold",
+          "Resultary divisor-stratified lattice volumes of one-defect directed-cycle simplices",
+          "Biermann–Lin–O'Keefe Propositions 3.10 and Theorem 4.5"
+        ]
+      },
+      "checked_sources": [
+        "Primary and Resultary inspections above",
+        "Additional inspected Resultary Finding f90977c760e6 on lattice width for the same family",
+        "Resultary Finding e32575b66377 on signed oriented cycle root polytopes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inverse matrix is already known. Proposition 3.10 uses positivity and the hyperplane sum w+1, not exhaustion of the w^n+1 ambient residue classes by a full box. Theorem 4.5 constructs a witness at degree ceil(n/2), not the first hole. The cyclic-simplex residue criterion tests emptiness and the same-date width finding measures a different invariant."
+        ],
+        "reasoning": "The determinant and degree-one results motivate but do not provide the additional parallelepiped classification and its minimal-degree consequence. The contribution across all odd sizes is not obtained by evaluating a previously stated numerator or hole formula.",
+        "searches": [
+          "arXiv:2611.17047v1 Lemma 2.6, Proposition 3.10 proof and Theorem 4.5 proof",
+          "Doolittle et al. Proposition 3.7",
+          "Resultary parity-sharp lattice width and Lucas-number minimum directions of weighted cycles"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The weighted-edge convention in Biermann et al. gives exactly the target generators. The ambient quotient is cyclic (the class e_0 generates), as is the grading kernel of order (1+w^n)/(w+1), so the cyclic-simplex literature is relevant. Its inspected signed simplex family has not been identified with this one; root-polytope generators have signed head-tail differences in a different affine lattice."
+        ],
+        "reasoning": "Cyclicity is a structural overlap, not an identification of Ehrhart distributions. The weighted-edge simplex itself is not newly defined.",
+        "searches": [
+          "Biermann–Lin–O'Keefe arXiv:2611.17047v1, weighted oriented cycles",
+          "Doolittle–Katthän–Nill–Santos 10.1017/fms.2024.131, cyclic/circulant simplex",
+          "Kálmán–Tóthmérész arXiv:2105.00960 and Resultary oriented cycle root polytopes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The shifted-symmetry record gives the full numerator at n=5, which also determines the first hole for an empty five-cycle. The four-cycle record gives a uniform even-size result outside the range. The matching full odd-size Finding is the assigned record, not another result."
+        ],
+        "reasoning": "The checked exact formulas cover specific sizes or different polytopes; they do not cover all odd sizes, including the unbounded fixed-weight range.",
+        "searches": [
+          "Resultary shifted Ehrhart symmetry, uniform oriented four-cycle Ehrhart shape, and exact oriented-cycle root-polytope Ehrhart results"
+        ]
+      },
+      "rationale": "Credit antecedent weighted-cycle determinant and inverse, empty unit dilate, failure of IDP, positive-degree symmetry, and the exact five-cycle numerator; the volume also has overlapping same-date coverage. The surviving claim is the complete residue-filtered numerator for every odd size and the first dilation at which a lattice point fails to decompose in the empty range. The prior non-IDP witness is at degree ceil(n/2), strictly later than the claimed first hole when the new threshold applies; the earlier degree-one proof does not enumerate the integral-degree representatives across the cone. No same-date ordering is inferred.",
+      "residual_risks": [
+        "Targeted primary-reading and catalogue comparison, not exhaustive public-web priority search; equivalent unindexed cyclic-simplex formulas may exist.",
+        "Volume, positive-degree symmetry, five-cycle numerator, unit emptiness, and non-IDP alone do not receive originality credit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers inverse, degree-one classification and non-IDP; not full numerator or first failure",
+          "evidence": "The unit-dilate proof bounds each positive coordinate by w+2-n using total w+1; the non-IDP witness has degree ceil(n/2). Neither exhausts the coefficient parallelepiped or excludes all earlier holes.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.17047v1",
+          "material_read": "Definition 2.5 and Lemma 2.6 pp. 2–3 (offsets 8191,9682); Proposition 3.10 and proof pp. 7–8 (offset 24093); Theorem 4.5 and proof pp. 10–13 (offsets 36194,40311,45500)",
+          "method": "OA PDF targeted readings",
+          "title": "Integer Decomposition Property of Edge Polytopes of Weighted Oriented Graphs",
+          "trigger": "Exact same weighted oriented simplex and non-IDP result"
+        },
+        {
+          "assessment": "Relevant cyclic background but no identified matching calculation",
+          "evidence": "Its special generators are signed (1,m,0,...,0,-m). Proposition 3.7 gives a residue-modulo-volume emptiness criterion, not an all-degree count for the target.",
+          "identifier_or_url": "https://doi.org/10.1017/fms.2024.131",
+          "material_read": "Generators pp. 3–4, offsets 6250 and 11800; cyclic quotient p. 5, offset 21659; Proposition 3.7 pp. 10–11, offset 43000",
+          "method": "OA full-text targeted passages",
+          "title": "Empty simplices of large width",
+          "trigger": "Cyclic and circulant lattice simplex constructions"
+        },
+        {
+          "assessment": "Covers symmetry and uniform n=5 numerator",
+          "evidence": "h_j*=h_(n-j)* for positive degrees under broader weights; full uniform formula restricted to the five-cycle in this comparison.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-shifted-ehrhart-symmetry-and-a-sharp-log-concavity-threshold-for--b7680edb541b",
+          "material_read": "RESULT.md Finding from offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Shifted Ehrhart symmetry and a sharp log-concavity threshold for weighted cycles",
+          "trigger": "Weighted-cycle h* symmetry and exact formulas"
+        },
+        {
+          "assessment": "Material coverage of the volume, date does not settle ordering",
+          "evidence": "Specializes to the uniform volume (1+w^n)/(w+1) for odd n, but not to the claimed h* distribution or first hole.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-divisor-stratified-lattice-volumes-of-one-defect-directed-cycle--4f8956fb0c7e",
+          "material_read": "RESULT.md Finding from offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Divisor-stratified lattice volumes of one-defect directed-cycle simplices",
+          "trigger": "Overlapping exact volume"
+        },
+        {
+          "assessment": "Even-size classification",
+          "evidence": "Gives the full uniform four-cycle numerator; its size is outside the odd-cycle theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-ehrhart-shape-thresholds-for-uniform-oriented-four-cycle-s--67f25e9a2dad",
+          "material_read": "RESULT.md Finding from offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp Ehrhart shape thresholds for uniform oriented four-cycle simplices",
+          "trigger": "Exact h* for another uniform cycle size"
+        },
+        {
+          "assessment": "Different generator and lattice model",
+          "evidence": "Vertices are e_head-e_tail, not positive weighted edge vectors; their cycle dependencies do not describe the target lattice cone.",
+          "identifier_or_url": "https://arxiv.org/pdf/2105.00960",
+          "material_read": "Definition 2.1 p. 4, offset 13834; cycle dependencies pp. 8–10, offsets 25430 and 29087",
+          "method": "OA PDF targeted passages",
+          "title": "Root polytopes of directed graphs (Kálmán–Tóthmérész)",
+          "trigger": "Potentially equivalent directed-cycle circuit computations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof of the residue numerator and first hole",
+        "Biermann–Lin–O'Keefe Theorem 4.5 and witness degree",
+        "Independent bounded lattice-quotient check"
+      ],
+      "rationale": "The full graded residue distribution fills an invariant-level gap for the motivated weighted graph edge simplices; the first hole strengthens an existing yes/no nonnormality result to an exact dilation threshold. At constant weight the threshold can grow without bound, making this a natural explicit family of delayed obstructions and not just a rediscovery that these simplices are non-IDP.",
+      "residual_risks": [
+        "No claim of extremality over all empty simplices, or a classification of even cycles or first holes for nonempty simplices."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

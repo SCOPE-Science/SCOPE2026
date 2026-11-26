@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:43:05.558041Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The prescribed affine branches delete column 0 precisely on a minus-to-plus switch and column n−1 precisely on a plus-to-minus switch. With X=(epsilon,u,v) and Y rows (1^T,−e_0^T,e_{n−1}^T), direct multiplication and expansion of det(zI−YX) give the coefficients −E−b, AU−BV+Eb, and U(Ba−Ab); Sylvester includes the residual n−3 zero roots. An independent integer Bareiss determinant check compared both sides at n+1 distinct integer arguments for all 248 words of lengths 3–7, without executing the frozen checker. The interior Rademacher sum has the standard CLT independently of the endpoints; the variance of each switch count is O(n) by one-dependence. After scaling the polynomial the terminal and constant contributions vanish and the quadratic coefficient of degree zero is (U−V)/4. Continuity of the maximal root modulus includes repeated roots. For U=+1,V=−1 the complex roots have constant modulus 1/sqrt(2) on |Z|<sqrt(2); the boundary has zero probability and each other branch has zero mass at any single given value. The atom mass is erf(1)/4 = 0.21067519823742872. Row sums give the unsigned bounds, and the reciprocal determinant has the asserted singularity scale as a symbolic identity (if the matrix is nilpotent the reciprocal is identically 1, hence entire). No geometric zeta equality or finite-size exact atom of this mass is required.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Parry mixing record f035502a5c10 bounds the non-Perron spectrum of M, not that of diag(epsilon)M.",
+          "Switching record d13a003ecd84 describes a fixed-map physical process with terminal-equal orientations.",
+          "Rugh–Tan vary deterministic piecewise weights and treat kneading/zeta relations rather than a random-word spectral limit."
+        ],
+        "reasoning": "Unsigned Perron or mixing information is not the spectrum of the orientation-odd sector; orbit-time asymptotics are in a different probability space. General determinant formulae still leave the joint endpoint/bulk asymptotic and its atom to be established.",
+        "searches": [
+          "Resultary: Oliveira sharp uniform Parry mixing in all orientation high entropy interval maps universal switching statistics physical entropy gap minimal rank interval maps",
+          "arXiv:1407.5313, introduction and §2"
+        ]
+      },
+      "checked_sources": [
+        "Oliveira arXiv:2611.03287v1",
+        "Rugh–Tan arXiv:1407.5313",
+        "Resultary f035502a5c10, d13a003ecd84, c532b0d84eae"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Oliveira Theorem 7.2 already gives n−1 ≤ rho(M) ≤ n and the unsigned reduction.",
+          "The two Corollary 7.3 examples have identical unsigned determinants and opposite signed leading roots."
+        ],
+        "reasoning": "The unsigned part is already covered. The published signed factorization is an efficient starting point, but the two endpoint signs survive the LLN at the same order as the Gaussian bulk squared in the characteristic equation; the resulting spectral-radius law is additional.",
+        "searches": [
+          "arXiv:2611.03287v1, §§6.3, 7.1–7.2",
+          "Resultary: Oliveira sharp uniform Parry mixing in all orientation high entropy interval maps universal switching statistics physical entropy gap minimal rank interval maps"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Oliveira §6.3 Proposition 6.5 block-diagonalizes the orientation cover into M and S; Corollary 7.3 works two signed trace examples.",
+          "Rugh–Tan §2 sets out a general weighted-zeta framework."
+        ],
+        "reasoning": "The odd sector of the orientation cover and the reciprocal signed symbolic determinant encode the same signed spectrum. The prior identities do not give a law across independently sampled words or the discriminant event with positive mass.",
+        "searches": [
+          "Primary literature: Homological reduction and entropy Oliveira signed orientation random spectral radius Gaussian weighted Markov interval maps",
+          "Resultary: Oliveira orientation weighted signed interval Markov matrix random orientations spectral radius Gaussian atom rank three"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The search returned the frozen article itself, not an independent certificate.",
+          "Oliveira gives determinants 1+2t and 1−2t for two specific six-letter words. Corpus record c532b0d84eae concerns the unsigned entropy multiset and its typical defect."
+        ],
+        "reasoning": "Neither two signed examples nor an unsigned enumeration gives exact coverage of the signed large-size law.",
+        "searches": [
+          "Resultary: Oliveira orientation weighted signed interval Markov matrix random orientations spectral radius Gaussian atom rank three",
+          "Oliveira Corollary 7.3 and its worked examples"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the random signed spectral law and atom, not for the deterministic construction, its ordinary entropy estimate, the orientation cover, or weighted kneading theory.",
+      "residual_risks": [
+        "An equivalent older signed low-rank random matrix calculation or another specialization of weighted transfer theory may be unindexed. The corpus comparisons use summaries, not full-document exclusions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of deterministic prerequisites but not the random-word limit in the relevant passages",
+          "evidence": [
+            "Proposition 6.5, Eq. (19); Theorems 7.1 and 7.2; worked examples after Corollary 7.3"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.03287v1",
+          "material_read": "Relevant portion of §6.3, §§7.1–7.2 construction, cubic, and two signed examples, pp. 11–14",
+          "method": "Read relevant open PDF text and cross-checked branch-row convention against the displayed affine endpoint prescription",
+          "title": "Homological reduction and entropy of discontinuous interval maps",
+          "trigger": "Identical canonical maps and signed adjacency operator"
+        },
+        {
+          "assessment": "General deterministic weighted identities are relevant but are not the large-random-word asymptotic in the inspected material",
+          "evidence": [
+            "Introduction Eqs. (1)–(2), §2 definition of branch products and Eqs. (3)–(10)"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1407.5313",
+          "material_read": "Introduction and §2 notation, complex weights, product weights and kneading matrix definitions",
+          "method": "Open preprint PDF text",
+          "title": "Kneading with weights",
+          "trigger": "Potential broader signed-weighted zeta equivalent"
+        },
+        {
+          "assessment": "Summaries concern unsigned M, orbit switching, and unsigned entropy respectively",
+          "evidence": [
+            "The listed operators/observables differ from rho(diag(epsilon)M) for random words"
+          ],
+          "identifier_or_url": "Resultary: f035502a5c10, d13a003ecd84, c532b0d84eae",
+          "material_read": "Indexed claim summaries only",
+          "method": "Local published-result search",
+          "title": "Sharp uniform Parry mixing in all-orientation high-entropy interval maps; Universal switching statistics and a sharp physical-entropy gap in minimal-rank interval maps; Sharp and typical entropy loss across minimal-jump-rank affine interval maps",
+          "trigger": "Same-family mixing, switching and random-word limits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The atom is a concrete, non-Gaussian consequence of bounded-rank sign cancellation in a natural high-entropy family: conjugate roots lock the modulus on an interval of Gaussian values. Together with the different scaling of signed and unsigned growth this is useful spectral information not reducible to an entropy estimate or a finite table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

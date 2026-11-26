@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:52:08.126513Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–112",
+        "Frozen VERIFICATION.md and check.py (read as source evidence)",
+        "Independent replay: python -B /workspace/review-evidence/5.py"
+      ],
+      "rationale": "The bounded categorical summands have uniformly bounded fourth moments for their normalized centered sums (the fourth-moment expansion is O(N²) before scaling). The cyclic functional is continuous and at most 6 times the maximum coordinate magnitude, so its first two moments converge by uniform integrability even when the Gaussian covariance is singular. Coupling the Gaussian through the positive square root of diag(p)−ppᵀ gives simplex continuity. With three coordinates the statistic is twice the range, giving full permutation invariance. On the symmetric line S=Z₁−Z₃ and M=−3Z₂ have variances 2a and 18a(1−2a) and zero covariance; their independence and the identity |(M+S)/2|+|(M−S)/2|=max(|M|,|S|) give the stated polar integrand. Its first and second angular moments give the stated profile. As an independent symbolic route, forming the covariance of the three contrasts and using pairwise Gaussian absolute-value covariances gives V(u)=1.052263614148347, V′(1/3)=0, V″(1/3)=3(81−16π−24√3)/π≈−10.34637812770789, and V(b)=4(1−2/π)≈1.453520910529675. The Gaussian density restricted to the fixed tangent plane is positive definite near u; parameter derivatives of its first two range moments are dominated on a smaller neighborhood by a polynomial times a common Gaussian tail. Thus the Taylor Hessian exists, permutation symmetry makes it scalar on the tangent plane, and ‖(1,−2,1)‖²=6 converts the ray second derivative to the stated coefficient by division by 12. Since b majorizes u and gives a larger value, Schur concavity fails; nearby nonuniform vectors also majorize u but give smaller values, ruling out Schur convexity. The segment drops below both endpoint values before reaching b, violating quasi-concavity and forcing a minimum strictly between the two endpoints.",
+      "residual_risks": [
+        "This is a limiting variance for fixed p with category-matched centering. It does not address finite-sample optimality, probabilities changing with N, or the location or uniqueness of any global maximizer."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cyclic paper's uniform limit in Theorem 3.1 applies at fixed bin count n≥3, not just n≥5. Its nonuniform matched formula Proposition 5.4 has n≥5. Part 4 gives an open-chain Gaussian variance formula reaching n=3 as well as classical successive-difference precedents."
+        ],
+        "reasoning": "Uniform Theorem 3.1 covers the uniform baseline as a genuine special case. The higher-bin cyclic formula does not apply as stated to n=3, and the three-bin open chain omits the wrap-edge term and its covariance terms. Neither theorem as inspected states the three-bin cyclic Hessian or simplex shape results.",
+        "searches": [
+          "arXiv:2611.14735v1, Theorem 3.1, Corollaries 3.4–3.5, and Proposition 5.4",
+          "arXiv:2611.09592v1, Theorem 3.3, §4.1 and Corollary 6.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.14735v1 and 2611.09592v1",
+        "Resultary af353afb8e53",
+        "Bonetti et al. and Corrado citations and lawful access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The uniform reference value, classical pairwise Gaussian moment machinery, and the standard half-normal boundary variance are not put forward as stand-alone discoveries. The closest ray optimizer uses two contrast edges. The cyclic objective adds a third edge whose covariances with the first two affect the derivatives."
+        ],
+        "reasoning": "The uniform value supplies no tangent curvature; the open-chain derivative cannot be substituted for the cyclic derivative. The extra calculation of a varying matched Gaussian covariance along the line, with permutation symmetry and interior smoothness on the simplex, supplies the negative tangent Hessian and its conflict with the boundary comparison.",
+        "searches": [
+          "Cyclic Part 5 Theorem 3.1 and Proposition 5.4",
+          "Open-chain Part 4 Theorem 3.3 and Corollary 6.4",
+          "Resultary af353afb8e53, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In three categories the cyclic statistic is twice the range of the three matched residuals; the limit is four times the variance of the corresponding centered Gaussian range. It is not generally the range of raw counts. Under uniformity only, the matched residuals differ from the raw counts by a common shift."
+        ],
+        "reasoning": "The range and cyclic formulations are equivalent in the matched setting. Raw-count range results cannot be identified with the matched nonuniform statistic by a common shift. Reusing Gaussian pair formulas covers computing the variance from its covariance, not an already established extremal result for this covariance family.",
+        "searches": [
+          "arXiv:2611.14735v1, cyclic multinomial total variation",
+          "DOI 10.1098/rsos.190198 and 10.1007/s11222-010-9174-3, multinomial range",
+          "Focused Gaussian range variance optimization search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The close same-day record gives a ray maximum near 0.24003 and a local minimum near 0.47491 for the two-edge open chain. Its half-half boundary value is 1−2/π, versus 4(1−2/π) for the cycle. The two distribution papers could not be read independently beyond bibliographic coverage in this check."
+        ],
+        "reasoning": "A similar exact profile along the identical probability line is substantive overlap in motivation but does not give the cyclic profile or full-simplex conclusions; their different boundary values alone demonstrate different objective functions. An exact table for raw ranges would need additional analysis for matched residuals. No claims of table noncoverage follow from inaccessible texts or same-day dates.",
+        "searches": [
+          "Resultary af353afb8e53, two turning points for matched multinomial roughness",
+          "Bonetti–Cirillo–Ogay DOI 10.1098/rsos.190198 and Corrado DOI 10.1007/s11222-010-9174-3",
+          "Exact DOI and title lookup for lawful alternate Bonetti full text"
+        ]
+      },
+      "rationale": "The full permutation symmetry is the elementary three-point range identity. Credit the Gaussian/folded-normal framework and, in particular, the already covered uniform variance value at three bins from Part 5 Theorem 3.1; the simple standardized boundary law is a benchmark. The supported distinct claim is the full-simplex negative Hessian at uniformity coupled to a larger boundary value, with the resulting majorization and quasi-concavity counterexamples and the ray minimum for this matched cyclic statistic.",
+      "residual_risks": [
+        "The raw multinomial-range papers were not independently available in full text. Inaccessible coverage and a search miss do not prove novelty.",
+        "The search did not settle historical priority or rule out an equivalent result phrased solely as Gaussian range optimization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact uniform-value coverage for three bins, more restricted nonuniform theorem",
+          "evidence": "Uniform limit 2A+4B at fixed n≥3. Nonuniform matched leading variance in Proposition 5.4 assumes n≥5. Neither inspected statement gives the full-simplex local optimization result.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.14735",
+          "material_read": "v1 Theorem 3.1 p. 9 (offset 26800), Corollaries 3.4–3.5 pp. 10–11, and Proposition 5.4 pp. 23–24 (offset 78500)",
+          "method": "Lawful open-access primary-text inspection",
+          "title": "Discrete total variation under the multinomial, Part 5: cyclic total variation",
+          "trigger": "Identical cyclic statistic and variance under uniformity; possible broader nonuniform formula"
+        },
+        {
+          "assessment": "Same variance framework but open-chain statistic",
+          "evidence": "At n=3 it includes two successive differences and omits the cyclic wrap edge; §4.1 relates the uniform formula to classical normal-theory benchmarks.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.09592",
+          "material_read": "v1 Theorem 3.3 pp. 9–10, Corollary 6.4 p. 39, and §4.1 p. 23",
+          "method": "Lawful open-access primary-text inspection",
+          "title": "Discrete total variation under the multinomial, Part 4: variance under a general distribution",
+          "trigger": "Matched nonuniform Gaussian variance, including three categories"
+        },
+        {
+          "assessment": "Significant same-ray analogue, not the cycle or full-simplex statement",
+          "evidence": "The matched two-edge open-chain objective has different turning-point locations and a half-half limit one quarter of the cyclic value.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-two-turning-points-and-the-sharp-noise-variance-optimizer-for-re--af353afb8e53",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Two turning points and the sharp noise variance optimizer for recentered roughness",
+          "trigger": "Close optimizer and nonmonotone shape along the same probability ray"
+        },
+        {
+          "assessment": "Relevant raw-range literature, exact implications unresolved from accessible material",
+          "evidence": "Title names ordered multinomial counts; it does not establish any result for matched Gaussian residuals or their shape.",
+          "identifier_or_url": "https://doi.org/10.1098/rsos.190198",
+          "material_read": "Bibliographic title and recorded source summary only; underlying result not independently accessed",
+          "method": "Lawful publisher page and PDF attempts returned 403; exact-title/DOI lookup did not identify a usable alternate",
+          "title": "Computing the exact distributions of some functions of the ordered multinomial counts: maximum, minimum, range and sums of order statistics",
+          "trigger": "Exact multinomial range distributions as alternative formulation"
+        },
+        {
+          "assessment": "Unresolved detailed coverage; no negative verdict on inaccessible text",
+          "evidence": "Title concerns finite frequency distributions, not enough by itself to verify a statement on the matched-centered asymptotic Hessian.",
+          "identifier_or_url": "https://doi.org/10.1007/s11222-010-9174-3",
+          "material_read": "Bibliographic title and cited scope only; primary detailed passages not accessed",
+          "method": "Lawful Springer retrieval redirected or timed out",
+          "title": "The exact distribution of the maximum, minimum and the range of multinomial/Dirichlet and multivariate hypergeometric frequencies",
+          "trigger": "Exact general-probability multinomial range method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 12–27 and 60–112",
+        "Cyclic Part 5 Theorem 3.1 and Proposition 5.4",
+        "Open-chain comparison Resultary af353afb8e53"
+      ],
+      "rationale": "Three bins are the first genuine cyclic case, have full permutation symmetry, and sit below the hypotheses of the inspected general nonuniform cyclic formula. A proved local maximum at uniformity might suggest a majorization principle; pairing its exact curvature with an explicit larger half-half boundary value decisively refutes that principle, and the ray profile also refutes quasi-concavity. This adds a structural conclusion about a natural variance family, not just a repeated uniform benchmark or a numerical slice.",
+      "residual_risks": [
+        "No determination of the global optimum or extension to longer cycles is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

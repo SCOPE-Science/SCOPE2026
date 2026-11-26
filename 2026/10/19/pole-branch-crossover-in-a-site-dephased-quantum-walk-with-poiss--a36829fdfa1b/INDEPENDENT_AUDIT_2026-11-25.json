@@ -1,0 +1,195 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:11:32.301201Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions and proof",
+        "Frozen VERIFICATION.md, requirements.txt and artifacts/verify.py (read only)",
+        "review_checks/finite_checks.py, case 1"
+      ],
+      "rationale": "Resetting contracts differences of normalized states by e^(−rt) in trace norm, so the reset-age resolvent gives the unique stationary state. Site-projector dephasing gives Poisson position measurements at rate γ, not 2γ. The coherent interval kernel has characteristic function J₀(4ht sin(k/2)), so summing the measurement renewal series at reset Laplace rate r yields the stated normalized F. To check the split without a contour-sign convention, let W=(r+γ)²+8h²(1−cos k) and use 1/(√W+γ)=(1/π)∫₀^∞ √v/[(v+γ²)(v+W)] dv, which follows by setting v=x² and integrating partial fractions (with the equal-pole and γ=0 cases by limits). The coefficient of (W+v)⁻¹ is exp(−|m|y)/(8h² sinh y), where cosh y=cosh κ_b+v/(8h²). Its Jacobian cancels the sinh factor. Adding the simple pole from 2γ/(W−γ²) gives (1), including m=0, and the branch term is strictly positive. Expanding V=C_γ t+O(t²) gives the two fixed-rate branch exponents and constants. In the moving-rate window, V_γ(t)≥C_γ t gives the integrable rescaled majorant e^(−s)/√s. The branch limit is 1/√π−u e^(u²) erfc(u), while m(κ_b−κ)→u² and the scaled pole tends to 2u e^(u²), also at u=0. The Taylor coefficient of k² yields variance 4h²/[r(r+γ)]. Independent real-axis quadrature (`python3 review_checks/finite_checks.py 1`) compared 12 Fourier coefficients with the positive mixture (including m=0 and γ=0) with max error below 3×10⁻¹⁵ on the tested grid and checked three crossover points at m=10⁵; this corroborates but does not prove the limits.",
+      "residual_risks": [
+        "The γ_m sequence is a double limit through homogeneous models with fixed h and r, not a spatially varying dephasing rate within one model. This profile is for finite u, not a uniform estimate at arbitrarily large u or a finite-ring tail theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wald–Böttcher give the general resetting solution and eigenmode prescription for node occupations. Das–Dattagupta–Gupta cover general random nonunitary interventions, with coherent single-site resetting and a separate projection example. Bressanini et al. and Appendix D of arXiv:2603.17629 address position dephasing on finite graphs; the latter derives a uniform stationary state in the connected finite graph without Poisson resets."
+        ],
+        "reasoning": "The reset-resolvent and stochastic intervention methods are covering at the framework level. Neither a matrix-resolvent prescription nor a finite-graph uniform steady state provides the infinite-line positive spectral separation or a uniform tail limit as r,h stay fixed and γ tends to zero.",
+        "searches": [
+          "arXiv:2008.00510, equations (28)–(33)",
+          "arXiv:2106.14181v2, abstract and §2 on stochastic nonunitary intervals",
+          "doi:10.1007/s11128-022-03647-x, pp. 4–5",
+          "arXiv:2603.17629, Appendix D"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2106.14181v2",
+        "arXiv:2308.14040",
+        "arXiv:quant-ph/0506096",
+        "arXiv:quant-ph/0609128",
+        "arXiv:2008.00510",
+        "doi:10.1007/s11128-022-03647-x",
+        "arXiv:2603.17629",
+        "Resultary 4e0e911e9d37, 089eef514dd6, 1927f7539a31, fd0e95513bb2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The monitored-cycle distribution, free coherent Bessel law, reset resolvent and exact coherent endpoint are all prior ingredients. The crossover instead needs the quadratic pole-to-branch separation κ_b−κ∼γ²/C_γ, its vanishing residue, and the branch weight within a common rescaled inversion."
+        ],
+        "reasoning": "The prior formulas contain tools to derive the transform and solve the coherent case but not a stronger assertion quantifying the competing pole and continuum contributions in this limit. The contribution is not novelty of the error function or of singularity analysis in general.",
+        "searches": [
+          "arXiv:quant-ph/0506096, p. 1",
+          "arXiv:quant-ph/0609128, p. 1",
+          "arXiv:2008.00510, equations (28)–(33)",
+          "arXiv:2106.14181v2, equation (52)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Das–Dattagupta–Gupta equation (52) gives the single-site reset age integral λ∫e^(−λt)J_|m−N|(Δt)² dt and evaluates it as Legendre Q. With λ=r, Δ=2|h| and N=0 this is exactly the γ=0 spatial law, covering its coefficients and hence also the coherent endpoint. The 2023 conditional-reset article uses a sum of such coherent kernels, with two reset destinations."
+        ],
+        "reasoning": "Fourier inversion, Bessel age integration and Legendre Q give the same coherent law, which is not credited as new. Neither this exact equivalent nor the conditional reset mixture has an independently tunable site-dephasing channel or the positive-γ coalescence.",
+        "searches": [
+          "arXiv:2106.14181v2, single-site reset equations (48), (51)–(52)",
+          "arXiv:2308.14040, pp. 11–12, (58), (60)–(61), reference [22]",
+          "Tight-binding lattice Poisson stochastic resetting stationary probability Legendre Q Bessel site distribution asymptotic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest model record gives a finite-graph integrated hub-return law under position dephasing, without resetting. Indexed pole/continuum analogues concern Pelikan-map first returns or Brownian motion with switching diffusivity and resetting, not this lattice quantum law. The coherent Poisson-reset quantum lattice record addresses stationary purity rather than spatial tail coalescence."
+        ],
+        "reasoning": "The analogues are useful comparisons but none yields the exact positive-γ coefficients and erfc profile by relabeling. No matching indexed result was identified; a sampled numerical table would not establish the finite-u limiting function.",
+        "searches": [
+          "Resultary semantic search for quantum Poisson resetting, Haken–Strobl dephasing, pole–branch coalescence and stationary spatial decay",
+          "Resultary records 4e0e911e9d37, 089eef514dd6, 1927f7539a31, fd0e95513bb2"
+        ]
+      },
+      "rationale": "The pass is for the positive-dephasing pole/continuum split, the change of spatial tail type and the joint weak-dephasing/large-distance crossover. The general reset resolvent, coherent Bessel kernel, and the exact single-site reset stationary law at γ=0 are prior. In particular Das–Dattagupta–Gupta give the full coherent stationary law as a Legendre Q function, not just its existence. No inspected same-model result supplies the positive-dephasing separation or its coalescence scale and profile.",
+      "residual_risks": [
+        "A broader transform-asymptotic result evaluated for these rates or another tight-binding resetting paper may contain related calculations. One unidentified search-result PDF was not available and no inference about its contents is made. The coherent stationary endpoint is already covered and is not part of the originality pass."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact γ=0 coverage; no positive-dephasing crossover in the inspected claim",
+          "evidence": "Equation (52) evaluates the coherent reset Bessel-square integral as Legendre Q; the second example is projection to the initial state, not resetting in simultaneous site dephasing.",
+          "identifier_or_url": "https://arxiv.org/pdf/2106.14181",
+          "material_read": "Abstract and p. 16, equations (50)–(52), offset 55140",
+          "method": "Primary PDF bounded passages",
+          "title": "Quantum unitary evolution interspersed with repeated non-unitary interactions at random times",
+          "trigger": "Prior exact stationary spatial law for the coherent single-site reset model"
+        },
+        {
+          "assessment": "Coherent reset kernel calculations, distinct reset protocol",
+          "evidence": "Stationary solution (60) is a two-destination Legendre-Q sum; the text distinguishes prior single-destination resetting.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.14040",
+          "material_read": "pp. 11–12, equations (58)–(61); reference [22]",
+          "method": "Primary PDF bounded passages via lawful author copy",
+          "title": "Tight-binding model subject to conditional resets at random times",
+          "trigger": "Stationary tight-binding probabilities and apparently similar special-function inversion"
+        },
+        {
+          "assessment": "Relevant monitoring model, not the reset law",
+          "evidence": "Analyzes monitored finite-cycle occupation distributions.",
+          "identifier_or_url": "https://arxiv.org/pdf/quant-ph/0506096",
+          "material_read": "p. 1, offset 365",
+          "method": "Primary PDF bounded passage",
+          "title": "Continuous-time Quantum Walks on a Cycle Graph",
+          "trigger": "Continuous site monitoring of a quantum walk"
+        },
+        {
+          "assessment": "Coherent Bessel ingredients, not the combined model",
+          "evidence": "Bessel-function distributions of the free coherent walk across lattice boundary conditions.",
+          "identifier_or_url": "https://arxiv.org/pdf/quant-ph/0609128",
+          "material_read": "p. 1, offset 453",
+          "method": "Primary PDF bounded passage",
+          "title": "Distributions of continuous-time quantum walks",
+          "trigger": "Coherent lattice kernel"
+        },
+        {
+          "assessment": "Covers general reset framework, not the spatial asymptotic claim",
+          "evidence": "Eigenmatrix solution for quantum stochastic walks on networks; model-specific incoherent channels and no stated matching infinite-lattice coalescence in these equations.",
+          "identifier_or_url": "https://arxiv.org/pdf/2008.00510",
+          "material_read": "p. 1 and pp. 6–7, equations (28)–(33)",
+          "method": "Primary PDF bounded passages",
+          "title": "From classical to quantum walks with stochastic resetting on networks",
+          "trigger": "General quantum resetting and stationary occupancies"
+        },
+        {
+          "assessment": "Model background, not covering reset tails",
+          "evidence": "Studies position dephasing and classicalization on finite graphs.",
+          "identifier_or_url": "https://doi.org/10.1007/s11128-022-03647-x",
+          "material_read": "p. 1 and pp. 4–5",
+          "method": "Primary full-text bounded passages",
+          "title": "Decoherence and classicalization of continuous-time quantum walks on graphs",
+          "trigger": "Haken–Strobl site dephasing vs graph-based QSW decoherence"
+        },
+        {
+          "assessment": "Different finite-graph stationary model",
+          "evidence": "Pure onsite dephasing is distinguished from edge noise, and the unrestarted connected finite-graph steady state is uniform.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.17629",
+          "material_read": "pp. 1, 3 and Appendix D, pp. 13–14",
+          "method": "Primary PDF bounded passages",
+          "title": "Postselection-induced localization and coherence in quantum walks on heterogeneous networks",
+          "trigger": "Stationary Haken–Strobl dynamics and localization"
+        },
+        {
+          "assessment": "Different observable and no resetting",
+          "evidence": "Time-integrated return on a finite graph, not stationary displacement tails.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-integrated-hub-return-resonance-under-position-dephasing--4e0e911e9d37",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary semantic lookup and bounded mirrored passage",
+          "title": "Exact integrated hub return resonance under position dephasing",
+          "trigger": "Closest indexed model ingredient and exact law"
+        },
+        {
+          "assessment": "Different operator, control parameter and tail statistic",
+          "evidence": "First-return tail trichotomy for a random map, not a site probability under quantum resetting.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-a-pole-branchpoint-trichotomy-for-first-returns-in-the-pelikan-r--089eef514dd6",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary semantic lookup and bounded mirrored passage",
+          "title": "A pole–branchpoint trichotomy for first returns in the Pelikan random map",
+          "trigger": "Pole and square-root collision analogy"
+        },
+        {
+          "assessment": "Analogous structure, different dynamics",
+          "evidence": "Brownian switching diffusivity with resetting, not a lattice with projector dephasing; no matching weak-rate profile identified.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-stationary-spatial-tail-trichotomy-under-independent-diffu--1927f7539a31",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary semantic lookup and bounded mirrored passage",
+          "title": "Sharp stationary spatial tail trichotomy under independent diffusivity switching and resetting",
+          "trigger": "Exact positive pole/continuum split with resetting"
+        },
+        {
+          "assessment": "Unresolved search hit, not negative or positive scientific evidence",
+          "evidence": "No identity or statement could be verified from the available material.",
+          "identifier_or_url": "https://air.unimi.it/retrieve/08ad34d4-63f1-4599-b469-df13c6d6db1b/PHYSICAL%20REVIEW%20A%20113%2C%20042212%20%282026%29.pdf",
+          "material_read": "No primary text; bibliographic label in URL only",
+          "method": "Lawful repository attempt and check of publisher issue and conventional DOI; no accessible text located",
+          "title": "Unidentified PDF labeled Physical Review A 113, 042212 (2026)",
+          "trigger": "Unexplained PDF hit in topic search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(4)",
+        "arXiv:2106.14181v2, coherent stationary law (52)",
+        "arXiv:2008.00510, general reset prescription"
+      ],
+      "rationale": "At every positive dephasing rate the exponential pole ultimately wins, but its residue vanishes as dephasing is removed. The model-derived C₀/γ² distance and the error-function profile quantify exactly when the coherent m^(−1/2) regime gives way to the pole contribution. This is a useful singular-limit benchmark for noise plus resetting and is not supplied by the coherent law, the variance, or a generic resolvent prescription.",
+      "residual_risks": [
+        "The model-specific benchmark does not establish universality across other graphs, reset protocols or environmental noise laws."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

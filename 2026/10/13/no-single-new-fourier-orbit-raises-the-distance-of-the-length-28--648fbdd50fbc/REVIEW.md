@@ -1,15 +1,21 @@
-# Review of the one-orbit distance obstruction at \(q=16\)
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is about the fixed base Fourier-zero set \(D_0=\{(0,0),(\pm1,0),(0,\pm1)\}\) for the abelian length-\(289\) code over \(\mathbb F_{16}\). Fourier rank gives the asserted two dimensions, and a three-position Vandermonde argument proves the base distance lower bound \(4\). A rectangle supplies the matching base upper bound. Lagrange interpolation and the characteristic-two Frobenius involution construct legal four-position words from every vanishing four-point divided difference. The finite-field verifier enumerates the \(2380\) possible four-subsets exactly, leaves \(16\) exponent pairs from \(256\), and checks the partition into two eight-element symmetry classes. Both classes have explicitly exhibited weight-\(4\) words whose defining Fourier checks vanish. Exhaustive finite arithmetic is paired with proved reductions; no numerical tolerance, extrapolation or timeout inference is used. Limitation: the verifier implements finite checks only and relies on the analytic proof for the completeness reduction.
+## correctness
 
-## Originality — PASS
-The nearest primary source is Yu–Chen–Sun–Zhu, arXiv:2608.18664. Its Theorem V.3 introduces the base family, Questions V.4–V.5 pose the extension problem, Theorem V.13 supplies general conditional criteria, and Corollary V.15 / Example 3 settle \(q=2,4,8\), including a positive \(q=8\) example. No \(q=16\) resolution is stated in the inspected complete available manuscript. The new claim is the exhaustive negative result for all one-orbit additions at \(q=16\), not the source's preexisting characterization of the test or the base-code parameters. The earlier shift-bound framework, arXiv:1804.00367, does not supply this specific finite obstruction in the inspected material. Parameter, Fourier-alias and equivalence comparisons with identified published literature found no stronger statement implying the result. Search incompleteness and literature not identified remain residual originality risks; this is not a certification of global novelty.
+PASS
 
-## Value — PASS
-The source explicitly asks which additional Fourier orbits can raise the base distance from \(4\) to \(5\) and demonstrates that one orbit works for \(q=8\). The very next power-of-two case has a different answer: **none** works. This is a complete boundary classification of a natural construction parameter, not an arbitrary one-coordinate or one-pair deletion count. The proof's two-orbit obstruction and exact divided-difference profile distinguish why the source's positive case does not simply generalize. The result is scoped narrowly enough to be true, yet addresses a published mathematical extension question directly. Its value does not rely solely on computation or on a claim about unrestricted optimal codes.
+The Fourier transform over the splitting field is invertible; descent by the 16-power Frobenius gives one independent base-field constraint for zero and two for each nonzero conjugate pair. Thus the new dimension is 282. The 1,a,a^(-1) Vandermonde excludes support of size at most three when first coordinates are distinct. With exactly two distinct first coordinates, the singleton is killed by 1,a and the remaining coefficients by 1,b; with one first coordinate use the second-coordinate Vandermonde. For the upper bound, rectangles with coefficients 1 handle zero exponents. On each four-point norm-one line, the three-row matrix has a one-dimensional kernel with all cofactors nonzero; Frobenius swaps its last two rows, so the unique null vector normalized to first entry 1 is fixed by Frobenius. This independently verifies the subfield-coefficient step behind the divided differences. An independent polynomial-arithmetic and cofactor replay, /workspace/review-evidence/5/replay.py, checked all 2,380 four-subsets, reproduced the published count vector (accounting for its index w=k+1), and split all 142 new Frobenius orbits into 14 rectangle, 120 line, and 8 residual cases. The last 8 are covered by the two supplied words under independent axis inversions and axis exchange. The replay checked nonzero fixed-field coefficients and all seven Fourier equations for both words. This exhausts exactly the one-added-orbit family, not multiple additions or arbitrary codes.
 
-## Closest literature and residual limits
-Yu et al., *Constructing Good Abelian Codes via Shift Bounds and Genetic Algorithms*, arXiv:2608.18664, Theorem V.3 and Sections V–VI; Feng–Hollmann–Xiang, *The shift bound for abelian codes and generalizations of the Donoho–Stark uncertainty principle*, arXiv:1804.00367. No assertion about extensions by two or more new cyclotomic orbits, other base defining sets, or a general impossibility of a \([289,282,5]_{16}\) code is established. Independent validation of the proof and computations is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The base code, distance four, extension question and general test are prior art. The distinct content is the exact negative result over F16 for this fixed base and all 142 new orbits. The closest primary text poses this problem and gives explicit outcomes at q=2,4,8, not the exhaustive q=16 verdict. No inspected catalogue or other source supplies that verdict.
+
+## value
+
+PASS
+
+This is the next power of two after the successful q=8 example in the published one-added-orbit problem. Ruling out every such extension at q=16 resolves a motivated design case and shows that the preceding success does not persist at the next field size. The certificate is a complete result for a fixed-base family, not a claim about the best possible length-289 code.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

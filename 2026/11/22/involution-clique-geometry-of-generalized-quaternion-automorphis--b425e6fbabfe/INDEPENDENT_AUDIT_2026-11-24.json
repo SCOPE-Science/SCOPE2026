@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:06:08.176420Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 19–87",
+        "VERIFICATION.md lines 19–23 and verification.py, inspected only",
+        "/workspace/reproductions/frozen-check-4.txt"
+      ],
+      "rationale": "Elements outside the cyclic rotation subgroup have order four, so for N>=8 the subgroup is characteristic and checking images of the two generators gives the affine automorphism law. For odd u, exactly one of u-1,u+1 has 2-adic valuation one (interpreting zero as infinite valuation); the other must be divisible by N/2 when u^2=1. The four resulting multipliers with the translation condition (1+u)v=0 give exactly the listed pieces. In the commutation congruence, (h,1) commutes with everything; the two multiplier-(1+h) elements commute with each other and with exactly the even-translation piece besides that universal vertex. For even translations the h contributions vanish, so the remaining negative multipliers commute precisely at equal translation mod h. Odd reflection translations pair mod h; mod 4 already excludes commuting across the even and odd pieces for the negative multipliers. This gives the exact join. The maximal seven-cliques share a three-clique, with t more maximal three-cliques meeting the rest only at the universal vertex. This yields 35t+1 triangles, and degree sums give 21t+3 edges. A commuting pair generates its unique Klein four, which accounts for three edges. Independent generator-image permutation enumeration on quaternion groups of orders 16, 32 and 64 verified the graph and counted 15, 29 and 57 Klein-four subgroups. Replay: python3 /workspace/reproductions/frozen_checks.py 4.",
+      "residual_risks": [
+        "The computation covers only the three stated orders. The congruence proof uses k>=3 and does not include Q_8."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hol(C_N) has the cyclic normal translation group and abelian unit complement required by Velten. Theorem 1.2 handles connectivity, a diameter bound or disjoint complete components for the ordinary graph. No usable Hai–Liu article passage was retrieved."
+        ],
+        "reasoning": "That general factorization theorem has genuine object overlap, but its result about the whole graph does not classify the induced order-two congruence classes or their elementary abelian groups.",
+        "searches": [
+          "Velten, arXiv:2405.18103, cyclic-by-abelian factorization and Theorem 1.2",
+          "Hai–Liu, DOI:10.12386/A2022sxxb0014"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b425e6fbabfe (self-match)",
+        "arXiv:2405.18103, graph definition and Theorem 1.2",
+        "DOIs 10.1002/jgt.22871 and 10.12386/A2022sxxb0014 (access attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior theorem's diameter and component statements do not encode the odd/even translation separation, the even K4 blocks, or the odd edge blocks with the central involution restored."
+        ],
+        "reasoning": "The affine presentation permits a derivation, but the exhaustive modular commutation partition and resulting exact subgroup incidence are not direct parameter substitution in the checked theorem. The numerical counts once the graph is known are corollaries, not separate originality claims.",
+        "searches": [
+          "Velten, arXiv:2405.18103, Theorem 1.2; indexed maximal elementary abelian counts under the holomorph alias"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aut(Q_(2N)) is Hol(C_N) by the affine generator action; maximal involution cliques correspond exactly to maximal elementary abelian 2-subgroups. Velten's ordinary commuting graph takes every noncentral element, excluding even the universal central vertex of this finding."
+        ],
+        "reasoning": "Changing to the holomorph alias or to subgroup terminology describes the same object. The ordinary commuting graph, a graph of Q_(2N) rather than its automorphism group, and the deep commuting graph are not interchangeable with this induced graph.",
+        "searches": [
+          "Resultary: quaternion automorphism-group involutions, cyclic 2-group holomorph commuting graph, elementary abelian subgroup census",
+          "arXiv:2405.18103 PDF pp. 1–2",
+          "DOI:10.1002/jgt.22871"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed join and t maximal groups of each order are the assigned entry itself, b425e6fbabfe. No distinct returned entry was identified as stating that classification."
+        ],
+        "reasoning": "Exclude the identical self-match, not other entries by date. The absence of a distinct exact hit is corroborative only.",
+        "searches": [
+          "Three focused Resultary comparisons for involutions of Aut(Q_(2N))/Hol(C_N), exact clique join and elementary abelian counts; b425e6fbabfe"
+        ]
+      },
+      "rationale": "The affine identification and pairwise congruence are standard ingredients. The exact induced graph and resulting incidence of maximal elementary abelian subgroups are the distinct claims; the strongest available broader commuting-graph theorem does not mechanically imply them. No independent exact indexed match was established.",
+      "residual_risks": [
+        "The complete cited deep-graph and Coleman-automorphism articles were not independently available through the attempted paths. A subgroup lattice or maximal elementary-abelian census under holomorph terminology could alter the assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same record, not independent coverage",
+          "evidence": [
+            "Exact join and t cliques/groups of both maximal orders match."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-involution-clique-geometry-of-generalized-quaternion-automorphis--b425e6fbabfe",
+          "material_read": "Indexed summary and frozen finding lines 3–17",
+          "method": "Resultary and frozen record comparison",
+          "title": "Involution clique geometry of generalized quaternion automorphism groups",
+          "trigger": "Exact Resultary hit"
+        },
+        {
+          "assessment": "Same ambient class, different graph and theorem",
+          "evidence": [
+            "Vertices are G minus its center. Theorem 1.2 gives connected diameter at most four or a disjoint complete-component structure, not exact order-two incidence."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2405.18103",
+          "material_read": "PDF p. 1 offset 1171 graph definition; p. 2 offsets 3519 and 3900, factorization and Theorem 1.2",
+          "method": "OA PDF passage inspection",
+          "title": "The commuting graphs of certain cyclic-by-abelian groups",
+          "trigger": "Broad graph theorem for a group containing the affine holomorph case"
+        },
+        {
+          "assessment": "Unresolved at full-text level; not used as negative coverage evidence",
+          "evidence": [
+            "Public bibliographic title identifies the related graph comparison; no readable specialized theorem was available from the attempted paths."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/jgt.22871",
+          "material_read": "No full-text passage independently obtained",
+          "method": "OA DOI and Wiley full-text/PDF attempts returned HTTP 403",
+          "title": "Between the enhanced power graph and the commuting graph",
+          "trigger": "Nearby deep-commuting and enhanced-power graph terminology"
+        },
+        {
+          "assessment": "No whole-paper claim made",
+          "evidence": [
+            "The material retrieved did not include a theorem or subgroup census."
+          ],
+          "identifier_or_url": "https://doi.org/10.12386/A2022sxxb0014",
+          "material_read": "No usable article passage; landing extraction only",
+          "method": "OA landing retrieval attempt",
+          "title": "Coleman Outer Automorphism Groups of Generalized Quaternion Groups",
+          "trigger": "Potential quaternion automorphism subgroup comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 65–87",
+        "Velten, arXiv:2405.18103, Theorem 1.2"
+      ],
+      "rationale": "The naturally defined involution graph recovers intersections of maximal commuting involution families, not just the total number of involutions. The two maximal elementary abelian orders and their shared vertices explain how the 2-subgroup incidence changes by translation parity throughout the unbounded family. This exact structural invariant is not supplied by a whole-graph connectivity bound or by identifying the ambient group.",
+      "residual_risks": [
+        "Value is in the exact incidence description; the degree, edge and triangle arithmetic by itself is routine."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

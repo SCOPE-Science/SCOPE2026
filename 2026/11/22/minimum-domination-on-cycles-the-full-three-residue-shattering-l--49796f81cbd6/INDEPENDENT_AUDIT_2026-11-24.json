@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:57:02.578349Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–57",
+        "Frozen VERIFICATION.md and verify_cycle_gamma.py (inspected, not run)"
+      ],
+      "rationale": "The class is every minimum-cardinality dominating set, not the independent or inclusion-minimal families. A set of m=ceil(n/3) selected vertices dominates iff all consecutive cyclic gaps are at most 3, with budget 3m-n=0, 2, or 1 according to the residue. An arc between positive endpoints requires minimum deficit (-g mod 3), and zero deficit fixes every third vertex. On C_(3k+2), an all-positive triple leaves two consecutive zero-deficit arcs, and requesting their midpoint query negative exhausts the budget on the complementary arc and forces that midpoint positive. The same argument rules out the (2,0,0) minimum-deficit triple in C_(3k+1). For four queries, two consecutive zeros give the same contradiction; in the remaining alternating (1,0,1,0) pattern, requiring the first two anchors and omitting the next two leaves just one length-two jump on the complementary arc. Skipping the subsequent displacement-zero query then forces the next displacement-two query. Sufficiency follows from the C4 and C5 pair seeds and all eight C7 trace witnesses, checked by their gaps: subdividing an edge by three vertices permits a new selection at displacement three after the preceding old selection, changing its gap d into 3,d and preserving all old labels. Rooted gap compositions give nk pairs for residue 2 and n*binomial(k,2) triples for residue 1, including zero at n=4. Residue zero has only three periodic concepts; all singletons in all orders are shattered by rotation. The literal slip at RESULT.md line 51 is that the minimum deficits sum to 1 modulo 3, not the gap residues (which sum to 2); the definition and subsequent argument use the correct deficits. The all-order proof establishes the claim independently of the logged finite tests.",
+      "residual_risks": [
+        "The claim is for simple cycles n >= 3. Neither all trace multiplicities nor the online dimension is established here."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Independent i-sets exclude ordinary optima with a gap of length one, present when n is 1 modulo 3. The other indexed classes are fixed switch-count words, forbidden isolated-run factors, and open-neighborhood total domination."
+        ],
+        "reasoning": "None of the three word/domination claims is a theorem for arbitrary fixed-weight dominating cycle words. The independent class agrees with the ordinary class in two residues, but its stated result is about reconfiguration and counts, not shattered supports. Distinct same-day records were compared without assuming priority order.",
+        "searches": [
+          "arXiv:2303.08190v1 §§2.1, 3.1",
+          "Resultary cyclic switch classes, isolated-run avoidance, and minimum total domination: a836f384a08b, 0ffe62df9806, d4dd71a46f9d"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.3390/sym12122053",
+        "arXiv:2303.08190v1",
+        "Resultary 49796f81cbd6, 84ef6ec729bc, a836f384a08b, 0ffe62df9806 and d4dd71a46f9d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2020 description supplies the unrestricted family of minimum cycle solutions. The i-graph theorem connects solutions by token slides for minimum independent domination."
+        ],
+        "reasoning": "The 2020 families determine traces in principle, but obtaining the simultaneous positive/negative extension obstruction and explicit all-order residue law requires a new uniform argument; neither simple parameter specialization nor solution/edge counts give these traces.",
+        "searches": [
+          "Hernández-Gómez et al., §2.1.2, pp. 8–11 (PDF text offsets 24092–32976)",
+          "Brewster–Mynhardt–Teshima §3.1 (HTML text offsets 15700–20469)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target's indexed copy has the same statement and is not distinct prior art. The C11 trace result (84ef6ec729bc) uses 44 inclusion-minimal concepts and studies VC=4, Ldim=5 and the five-query trace census."
+        ],
+        "reasoning": "Restricting a concept class changes which traces are possible, and no result about C11 in that larger family supplies the optimal-family all-order law.",
+        "searches": [
+          "Resultary: minimum-cardinality domination on cycles, gamma-set Boolean traces and shattered-support residue law",
+          "Resultary 84ef6ec729bc and the identical target record 49796f81cbd6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier cycle classification gives periodic optima when 3 divides n and explicit optimum types and counts for other residues. The exact five-query table on C11 concerns inclusion-minimal, not minimum, sets."
+        ],
+        "reasoning": "An optimizer census or a support table for a different class is not the stated table of all faces by order and residue. No exact covering table was located.",
+        "searches": [
+          "DOI 10.3390/sym12122053 §2.1.2, minimum cycle dominators and counts",
+          "Resultary 84ef6ec729bc C11 support trace census"
+        ]
+      },
+      "rationale": "Credit the complete optimizer description and counts to prior work. The residue-only classification of which supports carry every trace, the all-order face polynomial, and the missing-label obstructions and subdivision argument are distinct from the optimizer description. The closest indexed learning-theory results change either the concept class or the graph; none of the inspected sources supplies a stronger lemma directly covering the stated trace tests. The bounded search does not certify historical priority.",
+      "residual_risks": [
+        "A broader trace theorem under different terminology or an unindexed equivalent was not ruled out by the bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full optimizer description and count, not the support tests",
+          "evidence": [
+            "For C_(3k), the only optima are the three every-third-vertex patterns; the other two residues admit additional neighboring-gap patterns."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym12122053",
+          "material_read": "§2.1.2, pp. 8–11 (text offsets 24092–32976), residue classifications and counts",
+          "method": "Primary PDF via lawful access; compared quantifiers and cyclic configurations",
+          "title": "Transitivity on Minimum Dominating Sets of Paths and Cycles",
+          "trigger": "Same optimal sets on every cycle"
+        },
+        {
+          "assessment": "Counts and reconfigures independent optima, no all-ordinary-family trace theorem",
+          "evidence": [
+            "i(C_n)=ceil(n/3); gap descriptions are used to classify the i-graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2303.08190v1",
+          "material_read": "§2.1 Lemma 2.1 (offset 9848), §3.1 (offsets 15700–20469)",
+          "method": "Primary arXiv HTML comparison",
+          "title": "The i-Graphs of Paths and Cycles",
+          "trigger": "Minimum independent cycle solutions, same gap methods"
+        },
+        {
+          "assessment": "No coverage of minimum-cardinality cycle support tests",
+          "evidence": [
+            "A census over 462 supports on C11 uses all inclusion-minimal dominators and distinguishes that class from minimum ones."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2, 84ef6ec729bc",
+          "material_read": "Finding and scope, text offsets 0–3780",
+          "method": "Primary record from local mirror; compared family definitions and order limits",
+          "title": "The first minimal-domination cycle gap: complete five-query traces and a vertex-transitive amplification",
+          "trigger": "Most similar cycle trace census"
+        },
+        {
+          "assessment": "Different classes and hypotheses, no identified reduction to the claim",
+          "evidence": [
+            "An exact switch count is not a fixed domination weight; forbidding 0 1^r 0 is not a maximum gap constraint; total domination uses open neighborhoods."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, a836f384a08b, 0ffe62df9806 and d4dd71a46f9d",
+          "material_read": "Each Finding, opening text",
+          "method": "Local mirror; compared fixed number of switches, factor avoidance and total-domination quantifiers",
+          "title": "Exact cyclic switch classes; isolated-run factor avoidance; four-residue shattering for minimum total domination",
+          "trigger": "Same-day cyclic shattering claims with potential broader coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings and Proof §§1–6",
+        "DOI 10.3390/sym12122053 §2.1.2"
+      ],
+      "rationale": "This gives a uniform, residue-only answer for every possible shattered support in a standard infinite optimum-solution family and pinpoints the changes in VC dimension, including the exceptional four-cycle. It answers simultaneous signed query extension without enumerating optimizers. Both the two-defect obstruction and the lifting of every old trace are substantive tools; this is not a recalculation of the previously known domination number or count.",
+      "residual_risks": [
+        "No value claim is made for adaptive shattering, non-cycle graphs or trace multiplicities."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

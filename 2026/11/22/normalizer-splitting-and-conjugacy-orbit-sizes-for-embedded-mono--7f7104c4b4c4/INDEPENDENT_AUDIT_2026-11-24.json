@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:35:14.155066Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The repaired claim in repairs/5/RESULT.md concerns f with at least one directed chain of length ≥2 and includes the ambient identity. A word in f and f⁻¹ acts by signed displacement on each chain wherever defined, and by the same exponent modulo each cycle length on cycles. Exponent zero is idempotent, an exponent of absolute value ≥2 strictly loses rank on a genuine chain, and exponents ±1 with full generator rank force f or f⁻¹. Each generator of the same embedded inverse submonoid has the same rank and the ambient identity is not a generator here. Hence the normalizer acts on this two-element fiber with kernel C_{S_n}(f). Centralizing permutations preserve directed components, with independent phase translations on cycles and position-preserving chain matches, yielding the stated kernel. The displayed reflection squares to 1 and conjugates f to the distinct generator f⁻¹, including the endpoints and undefined positions on chains. Negating cyclic phases negates each translation; reflection independent of component index commutes with index permutations of both types. This proves the split action globally, also with no cycles, trivial rotation factors, or singleton chains. Independent replay `python /workspace/branches/independent_math.py normalizer` checked generating-fiber and stabilizer sizes by finite enumeration through n=5 and evaluated the involution, rotation inversion and index-permutation action for a mixed example with repeated cycles and chains. The examples are not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chang et al. state the split normalizer of a regular cyclic subgroup as the cyclic group extended by unit multipliers x↦sx."
+        ],
+        "reasoning": "This genuinely covers the frozen result's single full cycle case, and componentwise multipliers are an elementary extension to the other no-chain-arrows cases. It does not address a generator that is not a permutation of its support and must be reversed on directed chains. The repair does not claim those classical or analogous no-chain-arrows cases as new.",
+        "searches": [
+          "Permutation normalizer cyclic subgroup multiplier and chain reversal partial bijections",
+          "Classification of Cyclic Steiner Quadruple Systems §2; Dixon–Mortimer Cor. 4.2B as cited there"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records ending d8394c30e54e and 77e542c8edb6",
+        "arXiv:1810.03208 Proposition 2.11",
+        "Chang et al., Classification of Cyclic Steiner Quadruple Systems, §2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The census proofs use signed exponents and rank or displacement to show rigidity. The element theorem gives existence of a conjugator to the inverse from the graph type; the inspected statements do not give an involution centralizing the selected component permutations."
+        ],
+        "reasoning": "Surjectivity onto C₂ and an index-two kernel do not on their own split an extension. The repaired proof simultaneously constructs an order-two lift, and computes the action on all centralizer factors using positions and phases. This is the specific surviving structural claim; it does not claim that the generator fiber, group order, or bipartitions are independently new.",
+        "searches": [
+          "Resultary d8394c30e54e RESULT.md Proof offset 3200",
+          "Resultary 77e542c8edb6 RESULT.md Proof offset 2200",
+          "arXiv:1810.03208 p. 7 Proposition 2.11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary records d8394c30e54e and 77e542c8edb6 prove the generator fiber is {f,f⁻¹} if a chain has an arrow. Proposition 2.11 classifies finite elements by cycle and chain type."
+        ],
+        "reasoning": "The repaired claim is an ordered description of the extension of the directed-component centralizer by simultaneous edge reversal. Equating it with classification of f, f⁻¹, or H_f up to conjugacy loses the extension and its action.",
+        "searches": [
+          "Resultary: embedded monogenic inverse submonoid generator fibers, chain-period spectrum and normalizer splitting",
+          "arXiv:1810.03208 Proposition 2.11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed census results count embedded submonoids and give exact generator fibers by profile. Combined with the element conjugacy types they give the orbit index by dividing the conjugacy-class size of a generator by the generator-fiber size."
+        ],
+        "reasoning": "This is exact implicit coverage of the frozen orbit-size formulas, including the φ(m) regime. Counts in those results do not classify the abstract stabilizer group or show which action is induced by a split quotient section.",
+        "searches": [
+          "Resultary: embedded monogenic inverse submonoids chain-period spectrum and exact census",
+          "Resultary d8394c30e54e proof §1 and 77e542c8edb6 proof Steps 1–2"
+        ]
+      },
+      "rationale": "This is a fresh decision on the narrowed repair, not an originality pass for all the frozen claims. The source's assertion that the available generator-fiber and element-conjugacy results do not supply orbit sizes is incorrect: conjugation realizes each generator image, and the fibers all have the same size, so exact sizes follow with the component-centralizer order. Also credit the established single-cycle multiplier splitting. The repair removes the numerical classification and no-chain-arrows splitting from the affected Finding and isolates the genuine-chain involutory section and its simultaneous-inversion action. The inspected exact antecedents give the order or the regular cyclic case, but not this section and action for partial bijections with chain arrows.",
+      "residual_risks": [
+        "Older Lipscomb and Konieczny centralizer literature may contain an equivalent reversal description; bounded lawful retrieval did not yield those full texts, so no noncoverage claim about them is made.",
+        "An unindexed theorem on automorphisms of a directed union of paths and cycles up to simultaneous global reversal could cover the same extension. The comparison establishes no absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies generator rigidity and counts, not a genuine-chain splitting",
+          "evidence": "On chains the signed exponent is translation wherever defined; equal rank forces a generator to be f or f⁻¹ when there is an arrow in a chain.",
+          "identifier_or_url": "2026/11/2/SCOPE-embedded-monogenic-inverse-submonoids-a-chain-period-spectrum-an--d8394c30e54e",
+          "material_read": "RESULT.md Proof §1, around offset 3200",
+          "method": "Local Resultary search and bounded mirror reading",
+          "title": "Embedded monogenic inverse submonoids: a chain-period spectrum and a half-density law",
+          "trigger": "Same embedded submonoids and exact generators in each regime"
+        },
+        {
+          "assessment": "Covers exact generator multiplicities and supports numerical orbit sizes once joined with element conjugacy, not the complement action",
+          "evidence": "Where f has a genuine chain, the signed displacement of each of two mutually generating words multiplies to 1. The chain-free regime uses generators of a cyclic local group.",
+          "identifier_or_url": "2026/11/8/SCOPE-embedded-monogenic-inverse-submonoids-exact-census-and-a-square--77e542c8edb6",
+          "material_read": "RESULT.md Proof Steps 1–2, around offset 2200 onward",
+          "method": "Local Resultary search and bounded mirror reading",
+          "title": "Embedded monogenic inverse submonoids: exact census and a square-root nilpotent law",
+          "trigger": "Second embedded-submonoid census for the same ambient monoid"
+        },
+        {
+          "assessment": "Element classification implies each possible generator image is conjugate to f, giving the index; an involutory section and its action are not part of the inspected theorem",
+          "evidence": "The finite cycle and chain types determine element conjugacy.",
+          "identifier_or_url": "https://arxiv.org/abs/1810.03208",
+          "material_read": "Proposition 2.11, p. 7",
+          "method": "Bounded open-access paper reading",
+          "title": "Conjugacy in inverse semigroups",
+          "trigger": "Ambient full-permutation conjugacy of partial injections"
+        },
+        {
+          "assessment": "Directly covers a frozen special case now outside the repaired claim",
+          "evidence": "The regular cyclic normalizer is Z_v⋊Aut(Z_v); Aut(Z_v) acts by unit multipliers on the cyclic labels.",
+          "identifier_or_url": "https://wrap.warwick.ac.uk/id/eprint/80062/7/WRAP-classification-cyclic-systems-Holt-2016.pdf",
+          "material_read": "§2, PDF text at offsets 7480–8092",
+          "method": "Bounded lawful open-access paper reading",
+          "title": "Classification of Cyclic Steiner Quadruple Systems",
+          "trigger": "Direct source for the full-cycle normalizer and multiplier split"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The surviving statement determines the actual stabilizer group and how its complement acts on independent cycle symmetries, not merely how many conjugates exist. In the genuine-chain case, reversing one chain alone does not realize a generator image; a single global reversal realizes the entire quotient and controls the cyclic rotation factors at the same time. This is a natural structural invariant for these embedded objects, not a new presentation of a known census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

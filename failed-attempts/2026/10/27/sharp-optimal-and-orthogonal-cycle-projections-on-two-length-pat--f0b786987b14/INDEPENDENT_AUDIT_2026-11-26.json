@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:40:24.690775Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A cycle flow is path-constant with sum of path coefficients zero. Averaging a projection over within-path permutations and equal-length path exchanges does not increase its norm and preserves its range and identity action on the cycle space, so the minimization covers all linear projections. In path means the projection subtracts w times their sum, with w=(u,(1-u)/r,...). The two edge-column sums rule out u outside [0,1]. Inside, with R=b/a, the short-path sum is (1+R)(1-u), and the long-path sum has slope 1/R-(r-2)/r. The crossing, endpoint, and constant-long-column boundary give exactly the stated branches, including r=2. Euclidean least squares instead uses w proportional to reciprocal path lengths; the short-path column dominates, and symmetry gives the same infinity norm. Substitution of (a,b)=(2,2r) yields the family and exact ratio, including r=3 on the branch boundary where the norms are 4/3 and 2. The bundled finite checker was inspected, not executed; the analytic argument covers all parameters. The formulas agree when a=b, as expected from symmetry.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 7 treats general ordered nonnegative norm-one coefficient sequences in ℓ1, including the finite-support normal (1,x,...,x,0,...) with x=a/b and r entries x.",
+          "The earlier generalized-theta record proves ||Q||∞=1+(k-2)/(sS) for the Euclidean circulation projector on k disjoint paths, s the shortest length and S their reciprocal sum, in unweighted edge coordinates. Its proof names the same path-mean projector, and symmetry also gives its ℓ1 norm."
+        ],
+        "reasoning": "With k=r+1, s=a, S=1/a+r/b, the earlier circulation formula is r(a+b)/(b+ra), exactly the frozen canonical norm on its full domain. Its hypotheses include this simple graph family.",
+        "searches": [
+          "Blatter–Cheney doi:10.1007/BF02417105, Theorems 5–7",
+          "2026/10/18/SCOPE-sharp-endpoint-stability-of-hodge-projections-on-generalized-the--2b53229efb3e Finding and Proof §§1–2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–66, VERIFICATION.md and projection_bundle_checker.py",
+        "doi:10.1007/BF02417105",
+        "Resultary 2b53229efb3e, 62967f313e66 and 4b41a971d62b",
+        "arXiv:2305.12582 §2.1 and arXiv:1807.03814 §5.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write x=a/b, a_n=1+(n-1)x, b_n=1+(n-1)/x, beta_n=b_n/(n-2) for prefixes of the positive coefficients. When rx>=r-2 the classical active-prefix formula at n=r+1 gives 1+2/(a_n beta_n-n)=1+2(r-1)/(2+r(x+1/x)), the first frozen branch. When rx<r-2, use the first prefix with a_n<=n-2 (ties give the same value); the other active-prefix coefficient test is automatic until the final zero coefficient. The denominator a_n beta_n-n+(beta_n-1/x)(n-2-a_n) then reduces to 2/x, giving the second frozen branch. The corresponding one-coordinate correction in this branch is a classical hyperplane projection of norm 1+x.",
+          "For G(2,2r;r) the older circulation norm is (r+1)/2 and the classical optimum at x=1/r is 1+1/r. Their ratio is r/2 with no additional extremal argument."
+        ],
+        "reasoning": "The transition and exact ratio are mechanical consequences of applying the established formulas to the two-length normal and the high-contrast graphs. Even qualitative unboundedness follows from the earlier growing canonical norm and the generic upper bound 2 for projection onto a hyperplane, transported by the path-mean reduction.",
+        "searches": [
+          "Blatter–Cheney Theorem 7 p. 224 and Theorems 5–6 pp. 221–223",
+          "Resultary 2b53229efb3e Finding, high-contrast family and Proof §§1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Let L=(a,b,...,b). Summing edge coordinates on each path is a contraction to ordinary ℓ1^(r+1); lifting a path total y_i by assigning y_i/L_i to each edge of that path is isometric. These maps restrict to inverse isometries between the cycle space and the hyperplane ker(sum_i y_i/L_i). Extending and compressing projections by these maps bounds the relative constants in both directions. Appending zero coefficients in ℓ1 adds an ℓ1 summand and also preserves the relative constant, by extension with identity and compression.",
+          "The one-defect theta Lipschitz record has the same path family but minimizes the complementary norm ||I-P|| for P onto the cycle space, not ||P||."
+        ],
+        "reasoning": "The edgewise minimum here is exactly the older ℓ1 hyperplane constant, not merely analogous to it. The distinct dual/quotient objective in the later Lipschitz record is not the basis of the overlap verdict.",
+        "searches": [
+          "Blatter–Cheney doi:10.1007/BF02417105 Lemma 3 and Theorem 7",
+          "Resultary 2026/11/2/SCOPE-exact-projection-constants-of-one-defect-theta-graph-lipschitz-s--62967f313e66"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October record is distinct and contains an exact formula explicitly specialized to lengths 2,M,...,M, not just an index summary. The November parallel-path record is also an exact endpoint result but concerns the gradient projector."
+        ],
+        "reasoning": "No table listing the frozen numeric ratios is needed: the earlier specialized circulation formula already contains the whole numerator family, with M=2r and k=r+1. The other record is corroborative context, not the exact circulation match.",
+        "searches": [
+          "Resultary query: Sharp endpoint stability of Hodge projections on generalized theta complementary circulation projector",
+          "2026/10/18/SCOPE-sharp-endpoint-stability-of-hodge-projections-on-generalized-the--2b53229efb3e",
+          "2026/11/1/SCOPE-exact-endpoint-norms-of-electrical-projections-on-parallel-path--4b41a971d62b"
+        ]
+      },
+      "rationale": "Both central norm formulas are covered by verified stronger results. The minimum is the classical Blatter–Cheney hyperplane constant after a contractive path-mean reduction and diagonal isometry. The canonical norm is a direct specialization of the earlier indexed generalized-theta circulation norm, which also explicitly covers the same high-contrast family. The exact ratio is then substitution, and the graph reduction does not change either invariant. This is confirmed coverage, not rejection based on an unavailable source.",
+      "residual_risks": [
+        "Full Baronti–Franchetti and Shekhtman–Skrzypek comparisons were not established; neither is needed for the two verified implications. No claim is made about the first appearance of the particular ratio's wording."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified stronger theorem; covers both branches",
+          "evidence": "Finite-support normal in the classical ℓ1 projection formula yields the frozen value above and below the transition; the equality case follows from the same formula or continuity.",
+          "identifier_or_url": "https://doi.org/10.1007/BF02417105",
+          "material_read": "Original Lemma 3 pp. 219–220 (PDF offsets about 9000–12400), Theorems 5–6 pp. 221–223 (offsets 14200–19200, 19600–22995), Theorem 7 p. 224 (offset 25100 onward)",
+          "method": "Original Springer PDF, bounded passages and coefficient substitution",
+          "title": "Minimal projections on hyperplanes in sequence spaces",
+          "trigger": "Exact minimum after the weighted-path-to-hyperplane isometry"
+        },
+        {
+          "assessment": "Verified stronger graph-specific coverage, including high-contrast subfamily",
+          "evidence": "For k paths gives ||Q||∞=1+(k-2)/(sS), with Q real symmetric and unit edge weights, and explicitly specializes to lengths (2,M,...,M).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-endpoint-stability-of-hodge-projections-on-generalized-the--2b53229efb3e/RESULT.md",
+          "material_read": "Finding, Assumptions and Proof §§1–2, mirrored offsets 0–5457",
+          "method": "Resultary search and original mirrored full statement and proof passages",
+          "title": "Sharp endpoint stability of Hodge projections on generalized theta networks",
+          "trigger": "Same graph class and exact orthogonal circulation norm"
+        },
+        {
+          "assessment": "Relevant method; not decisive exact overlap",
+          "evidence": "Averaging over symmetries and minimal projections for discrete tori and Hamming graphs, with other graph examples discussed.",
+          "identifier_or_url": "https://arxiv.org/pdf/2305.12582",
+          "material_read": "§2.1 p. 9, offset about 28874",
+          "method": "Original OA PDF passage",
+          "title": "Cycle spaces: invariant projections and applications to transportation cost",
+          "trigger": "Cycle-space minimization and invariant projections"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": "Minimizes ||I-P|| for P onto cycles, rather than the frozen ||P||.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-projection-constants-of-one-defect-theta-graph-lipschitz-s--62967f313e66",
+          "material_read": "Finding and objective reduction, mirror offsets 0–5440",
+          "method": "Indexed lookup and mirrored passages",
+          "title": "Exact projection constants of one-defect theta graph Lipschitz spaces",
+          "trigger": "Same repeated-path plus exceptional-path parameters"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The graph model and contrast between orthogonal and optimal projections are motivated, but this frozen contribution is a routine specialization once the two exact prior laws are identified. The graph-specific numerator law already treats the same high-contrast networks, the denominator comes from the classical hyperplane formula, and the ratio and transition require only substituting these parameters. No distinct structural result or useful unresolved exact invariant remains in the actual claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

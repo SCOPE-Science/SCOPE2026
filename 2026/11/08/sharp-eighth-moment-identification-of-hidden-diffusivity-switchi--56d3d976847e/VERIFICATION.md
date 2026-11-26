@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Reproducibility and proof boundary
+# Independent mathematical audit
 
-The accompanying `verify_stationary_moments.py` requires Python 3 and uses only the standard library. From the directory containing the files, run:
+## correctness
 
-```text
-python3 verify_stationary_moments.py
-```
+PASS
 
-Observed output from the packaged source file:
+The stationary solution is conditionally centered Gaussian with variance M+δU, where U is the exponential filter of a symmetric sign Z. Its stationary generator gives E[U^r]=E[ZU^(r−1)] and E[ZU^(r−1)]=[(r−1)γ/((r−1)γ+k)]E[U^(r−2)] for r≥2, independently of the density calculation. Thus E[U²]=γ/(γ+k), E[U⁴]=3γ E[U²]/(3γ+k), and odd moments vanish by symmetry. This verifies the exact moment map. The standardized ratio R strictly increases from 1 to 3 and physical positivity gives exactly M>δ, with δ²=2RB/(3−R). At fixed feasible M,B the interval 0<k/(2γ)<(M²/B−1)/2 preserves all moments through degree seven; the displayed dissipation is strictly increasing across that interval. The independent stationary diffusion-current calculation agrees with published Eq. (45) and fixes its factor-of-two convention. Both explicit ambiguity witnesses and their separation were reproduced by exact rational arithmetic: python3 /workspace/evidence/bounded_checks.py 3. The bundled checker was read, not executed. No finite-sample stability, unknown-γ recovery, or asymmetric-switching theorem is established.
 
-```text
-PASS 114 exact rational assertions
-shared (m2,m4,m6) = [Fraction(3, 1), Fraction(111, 4), Fraction(1755, 4)]
-distinct m8 = 79485/8 1749195/176
-distinct entropy production = 3/32 8/27
-```
+## originality
 
-The code separately calculates the weighted occupation moments from the two-state transport generator, the position moments from the coupled Markov-switching diffusion generator, and moments from the Gaussian beta-mixture representation. It compares exact fractions for five nondegenerate parameter choices, checks the inverse map, and verifies the two exact lower-moment ambiguity witnesses. No simulation is used as evidence for an all-parameter conclusion.
+PASS
 
-The mathematical proof in RESULT.md—not this finite diagnostic test—establishes the general stationary representation, strict admissible-data domain, inversion uniqueness, and existence of a continuum of lower-moment ambiguities. The source entropy-production formula is attributed in RESULT.md. Testing does not establish robustness to noisy or finite-sample moments. No independent scientific audit or external certification has been performed.
+Credit the known forward dissipation formula and standard variance-mixture tools. The supported distinct claim is the exact and sharp stationary-position inverse, including the feasible image and unavoidable ambiguity through sixth order with unequal dissipation. The closest indexed inverse uses a different observable and variance kernel. Zhang–Wang is a named access risk, not evidence for or against priority.
+
+## value
+
+PASS
+
+Identifying a hidden switching clock and dissipation from a stationary position snapshot is a natural inference question. The exact cutoff rules out all lower-order summaries even with ideal ensemble data, while the constructive inverse and strict feasibility conditions say when eighth-order data work. This is useful independently of practical high-moment estimation, which is not addressed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification instructions and scope
+# Independent mathematical audit
 
-Run both self-contained scripts from the extracted directory with Python 3.9 or later:
+## correctness
 
-```
-python verify_direct.py
-python verify_transfer.py
-```
+PASS
 
-`direct_output.txt` and `transfer_output.txt` are complete recorded standard outputs. An actual replay checks that both programs exit normally, print their success markers, and reproduce the recorded output.
+The simple-cycle hypothesis n >= 3 makes the two adjacent columns distinct. Each column has at most two selected vertices by independence on C5. An empty column forces both adjacent columns to contain every row; a singleton at row r forces both adjacent columns to contain the adjacent rows r+2 and r-2. Both are impossible. Write each independent pair uniquely as {t-1,t+1}; disjoint adjacent pairs have centers differing by +1 or -1 modulo 5. The unselected rows t+2 and t-2 each require a neighbor from the adjacent column with the corresponding center t+1 or t-1. Thus the two neighboring centers are opposite steps from t, and every consecutive increment is the same. Closure is equivalent to 5 dividing n. Conversely, this recurrence supplies the required outside neighbors, including two within the column at t; the first center and first step distinguish the ten labelled sets. The official 2016 paper uses matching graph and kernel definitions. An independent exact witness check, `python3 /workspace/branches/replay_2_3.py`, verifies the ten distinct C5 x C10 sets, each with 20 selected vertices of inside-degree zero and 30 outside vertices of inside-degree 2 or 4. The all-n conclusion is analytic, not extrapolated from this check. Inspected the two frozen checker sources without executing them.
 
-The direct script constructs graph-neighbor masks and enumerates independent subsets without assuming column-periodicity. For \(n\in\{3,4,5,6\}\), the exact numbers are \(0,0,10,0\). It also tests directly the formula for all \(5\mid n\) up to \(n=80\); this establishes validity of the explicit witnesses at those lengths, not completeness for every length.
+## originality
 
-The independent transfer script enumerates the eleven independent column masks of \(C_5\), builds 81 admissible pair states and 40 compatible transitions, and takes closed-walk traces for \(3\le n\le40\). These traces are ten exactly at multiples of five and zero otherwise. Its recurrent subgraph consists of two disjoint five-cycles. The proof in `RESULT.md`, not finite replay, establishes existence, nonexistence, and uniqueness for all arbitrary \(n\ge3\).
+PASS
 
-No external formal or independent validation has been performed. The originality comparison depends on the published 2016 theorem and the listed directly inspected sources, with residual unindexed-literature risk.
+The unequal-order family and exact ten-pattern classification for the fixed first factor are distinct on the evidence inspected. The 2016 theorem purports to give broader coverage, but its claimed necessity actually excludes the verified new examples. The equal-order case is credited rather than treated as a new count.
+
+## value
+
+PASS
+
+C5 is the smallest odd cycle that permits nontrivial two-element independent columns; the local necessity proves an all-length rigidity statement, not merely a short-grid check. The explicit family overturns a printed general existence criterion while replacing it on this factor by an exact classification and count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

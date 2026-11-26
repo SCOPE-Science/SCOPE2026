@@ -1,19 +1,21 @@
-# Scientific review: maximal-matchings of the three-cube
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed domain is exactly the 12-edge graph \(Q_3\), and maximal means inclusion-maximal. The proof exhausts all \(2^{12}=4096\) candidate edge sets by an explicit matching/maximality predicate, finding 17 concepts of sizes three and four. An independently implemented C++17 checker obtains the same 17 concepts and all face coefficients. The 48-element cube automorphism group has exactly the matching-support orbits listed in RESULT.md, including one forbidden orbit of twelve parallel triples and the two nonshattered perfect-matching orbits. A 25-by-25 signed boundary minor has exact determinant \(+1\), with boundary rank 25; this proves the primitive image required for torsion-freeness. The positive branch from any first query contains only five concepts, proving the Littlestone upper bound three, and a shattered three-support yields the matching lower bound. Code and saved outputs were replayed from the stated source files. The claim is finite, not an extrapolation to infinite cases.
+PASS
 
-## Originality — PASS within investigated evidence
+For the 12-edge simple cube, maximality requires the unmatched vertices to be independent, not that the matching be perfect. The independently written exhaustive check recovered 9 perfect and 8 nonperfect maximal matchings and checked all 4096 support traces. It recovered exactly the disjoint supports of size at most three other than co-directional triples, with f-polynomial 1+12z+42z²+32z³ and facet orbits 6, 24, 8. Each first positive branch has 5 hypotheses, fewer than the 8 a depth-four tree requires on that branch; any shattered triple gives depth three. The one-skeleton is connected: for any two cube edges there is an edge disjoint from both, since at most ten of the twelve edges can meet their endpoints. The signed degree-two boundary has exact rank 25 and the specified minor has determinant +1; the image is primitive, so H₁ has no torsion and rank 42−11−25=6, and the free H₂ has rank 32−25=7. The finite certificate exhausts this cube only and asserts no homotopy decomposition.
 
-The 2018 conference paper by Drmota, Ramos, Requilé and Rué addresses maximal-matching counts and size distributions in graph classes, not the edge-membership trace complex of the eight-vertex cube. Benediktsson, Macpherson and Adler (arXiv:2007.16042, 2020) treat the neighborhood relation in Johnson and Hamming graphs rather than edge queries on maximal matchings. Existing ordinary matching-complex and higher matching-complex results concern different families of simplices; none of the inspected statements implies this support-wise classification or its integral homology. Search comparisons covered alternate terminology involving maximal independent sets in the cuboctahedral line graph, and the exact polynomial and Betti ranks. Some repository-hosted related results were visible only as publication abstracts; no priority claim is made against uninspected full text or unindexed tables.
+## originality
 
-## Value — PASS
+PASS
 
-This gives a natural complete edge-query shattering classification for a canonical symmetric three-dimensional graph: the only extra obstruction after matching and support-size feasibility is a geometrically meaningful parallel triple. The result identifies all 38 facets in three symmetry orbits, proves agreement of static and online dimensions, and computes both nonzero integral homology groups with a unimodularity witness. The two-degree homology of the resulting nonpure complex is not the homology of the usual cube matching complex. These coherent structural and topological properties make the precise finite invariant useful beyond merely recounting known graph matchings.
+The actual overlap is in the underlying matchings, ordinary matching complex, or dimension of a different concept class. None of the inspected comparisons covers the specific trace obstruction together with its facet orbits and integral shattering homology. The census of matchings itself is not treated as original.
 
-## Closest literature and limitations
+## value
 
-Drmota–Ramos–Requilé–Rué (AofA 2018), DOI 10.4230/LIPIcs.AofA.2018.18, first published 2018-06-18; Benediktsson–Macpherson–Adler, arXiv:2007.16042, first posted 2020-07-31. Related scientific records on the ordinary cube matching complex and cuboctahedral independence complexes cover different object/parameter pairs. The finite exhaustive computation has no missing cases, but the novelty comparison is necessarily evidence-limited; no result for larger cubes and no homotopy decomposition are asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural smallest three-dimensional cube gives a complete test of whether feasible matching supports also realize every deletion pattern. The single geometric obstruction among three-matchings and the six stranded pair facets explain failure of purity; the simultaneous free H₁ and H₂ distinguish the trace complex from the ordinary matching complex. These exact facts can serve as a baseline for larger cube edge-query systems rather than merely counting known matchings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

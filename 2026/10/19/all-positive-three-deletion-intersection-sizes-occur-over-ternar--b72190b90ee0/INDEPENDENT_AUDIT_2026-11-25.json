@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:28:21.620774Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, certificates/witnesses.tsv, verification/verify_witnesses.py and verification/verify_binary_census.cpp",
+        "Independent replay: python /tmp/opencode/review3_exact.py 3 11; python /tmp/opencode/review3_exact.py 12 13. The recurrence was additionally cross-checked against deletion-position sets through n=6.",
+        "Sun–Ge arXiv:2606.25822v1, Theorem 1.1 and Definition 1.5"
+      ],
+      "rationale": "If the three-deletion intersection is nonempty but the two-deletion intersection is empty, the longest common subsequence length is exactly n-3. The number of distinct longest common subsequences of two words of lengths l+d and l+e and LCS length l is at most binomial(d+e,d): if the first symbols agree, all LCSs start with that common symbol (otherwise both suffixes would already have a subsequence of length l, which can be extended); stripping this symbol in both words reduces l by one. If the first symbols disagree, the LCSs come from the two first-symbol deletions, retaining only branches of LCS length l. The binomial recurrence bounds the union inductively, with bound 1 when either word has length l. Thus d=e=3 gives 20, agreeing with the cited theorem. An independent exact replay checked all 20 witness rows and verified the explicit ternary pair's 18 common words using deletion-position sets. Injections of the used symbols preserve all equality tests. The separate binary replay represented each deletion set as an integer bitmask and built all masks by the retain-or-discard-first-symbol recurrence; it checked every y<x at each length 3–13 using exact intersection and popcount. At n=13, 29,431,953 unordered pairs were admissible and their spectrum was 0–20 except 18, with no hits at 18 at earlier lengths either.",
+      "residual_risks": [
+        "The binary enumeration proves nothing about lengths greater than 13; no infinite binary exclusion or length minimality of the ternary witness is claimed. The supplied C++ was inspected, not run; the independent replay was exhaustive."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun–Ge give the universal upper bound and credit Zhang–Ge–Zhang with the endpoint cases 19 and 20. Wang–Li–Fu use distance at least two and determine maximum intersections and extremizers, rather than all feasible values at distance at least three."
+        ],
+        "reasoning": "The universal bound specializes exactly but gives only necessity. The other inspected coverage is extremal or uses a different separation, not a stronger spectrum result.",
+        "searches": [
+          "arXiv:2606.25822v1 Theorem 1.1 and §6",
+          "DOI 10.1109/ISIT57864.2024.10619639",
+          "arXiv:2609.16837v1 abstract and Theorem 4"
+        ]
+      },
+      "checked_sources": [
+        "Sun–Ge 2606.25822v1; Wang–Li–Fu 2609.16837v1; Zhang–Ge–Zhang DOI via Sun–Ge §6; Resultary 6fda50f1a93d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The upper bound and earlier endpoints supply no interior examples by specialization. The checked witnesses include an exact ternary example at 18; alphabet injections then mechanically propagate all examples to q>3."
+        ],
+        "reasoning": "Alphabet enlargement is not novel on its own. The missing realizability information is supplied by the finite certificates, and the binary exclusion at lengths 10–13 needs more than the known maximum list.",
+        "searches": [
+          "Sun–Ge Theorem 1.1, Definition 1.5 and §6; Resultary 6fda50f1a93d; Zhang–Ge–Zhang endpoint comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper defines the same feasibility condition; for equal lengths the separation is deletion distance (n minus LCS length) at least three. Section 6 conjectures feasibility for all positive values below the upper bound and exemplifies s=1,2."
+        ],
+        "reasoning": "Different descriptions of distance and of separated balls lead to the same condition. The motivating source does not solve the stated s=3 interior case.",
+        "searches": [
+          "Resultary: binary and ternary radius-three deletion intersection feasibility / disjoint two-deletion balls",
+          "Sun–Ge arXiv:2606.25822v1, Definition 1.5 and §6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched binary maximum is 2,4,6,8,11,15 at lengths 4–9 and 20 for every n>=10."
+        ],
+        "reasoning": "This exact profile rules out 18 through 9, but allows it as far as the maximum bound is concerned at 10–13; it gives neither an exact attainable-value census there nor the ternary witness.",
+        "searches": [
+          "Resultary 2026/10/4/SCOPE-exact-preasymptotic-profile-for-n-n-3-3-in-binary-deletion-recon--6fda50f1a93d"
+        ]
+      },
+      "rationale": "Applicable upper bounds and the extremal values 19 and 20 are prior work. The supported new scope is the complete realization of the intervening spectrum under two-deletion separation for q>=3, notably a ternary witness for 18, and the separate finite exclusion of binary 18 at the nontrivial lengths 10–13. Neither an extremal value nor an alphabet lift of known endpoint examples produces these results.",
+      "residual_risks": [
+        "The conference full text was not lawfully obtainable; isolated interior constructions there or elsewhere remain a priority risk. No exhaustive literature priority is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Bound and feasibility definition verified; supports prior endpoint coverage, not the interior result",
+          "evidence": "At s=t=3 the binomial bound is 20; §6 proposes all smaller positive sizes and gives examples only for s=1,2.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.25822",
+          "material_read": "Theorem 1.1 (PDF p. 3 at offset 13624); Definition 1.5 (PDF p. 4 offset 16341); §6 (HTML offset 47000)",
+          "method": "OA primary PDF and HTML",
+          "title": "Extremal Deletion-Ball Intersections under Run-Count and Lower-Order Deletion-Ball Intersection Constraints",
+          "trigger": "Exact motivating question and bound"
+        },
+        {
+          "assessment": "Endpoint overlap evidenced indirectly; interior holdings unresolved",
+          "evidence": "Sun–Ge explicitly credit the separation-constrained m=19,20 characterization to this paper.",
+          "identifier_or_url": "https://doi.org/10.1109/ISIT57864.2024.10619639",
+          "material_read": "Full text unavailable; endpoint attribution read in Sun–Ge §6",
+          "method": "Lawful direct and VPN DOI access attempted; no alternate OA copy identified",
+          "title": "Sequence Reconstruction over 3-Deletion Channels",
+          "trigger": "Same channel and endpoint constraints; possible interior examples"
+        },
+        {
+          "assessment": "Inspected results concern extrema at minimum distance two",
+          "evidence": "The abstract defines N_q as a maximum and focuses on d=2; Theorem 4 gives ternary N_3(n,2,t), not an attainable set at d=3.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.16837",
+          "material_read": "PDF abstract p. 1 and statement of Theorem 4 p. 4, offset 18896",
+          "method": "OA primary PDF",
+          "title": "On Sequence Reconstruction Problem for q-ary Deletion Channels",
+          "trigger": "Plausible broader q-ary deletion coverage"
+        },
+        {
+          "assessment": "Overlaps maxima and early-length binary exclusion only",
+          "evidence": "The maximum is 20 for every n>=10, so the result does not decide interior size 18 there.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-preasymptotic-profile-for-n-n-3-3-in-binary-deletion-recon--6fda50f1a93d",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Local Resultary mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact preasymptotic profile for binary 3-deletion reconstruction",
+          "trigger": "Closest same-parameter indexed record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md and witness table; Sun–Ge arXiv:2606.25822v1, Definition 1.5 and §6"
+      ],
+      "rationale": "Realizing, not just bounding, each cardinality closes the naturally posed order-three feasibility question for every alphabet with at least three symbols. The ternary value 18 is the one missing from the exhibited binary constructions, and the bounded binary exclusion records how far that obstruction is known, rather than treating an unbounded search as settled. The complete witness set is useful for arguments requiring specified feasible seed sizes.",
+      "residual_risks": [
+        "No general classification of witness shapes, general deletion-radius solution, or resolution of longer binary instances is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

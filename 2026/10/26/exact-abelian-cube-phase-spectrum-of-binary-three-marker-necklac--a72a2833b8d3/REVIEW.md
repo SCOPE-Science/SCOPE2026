@@ -1,12 +1,21 @@
-# Scientific review: Abelian-cube phase spectrum of binary three-marker necklaces
+# Independent mathematical audit
 
-## Correctness — PASS
-For each specified first marker the possible cut integers are the intersection of three explicit length-\(p\) intervals. Their pairwise endpoint differences are \(|d_i-p|\), giving the claimed minimum/maximum gap criterion with no generic-position assumptions. The three choices of first-block marker are disjoint. Superlevel thresholds become bounded compositions of \(3(p-k)\) into three parts; inclusion–exclusion counts them exactly, and Burnside's lemma handles the unique period-three symmetry. A direct checker confirmed \(24{,}531\) distinct labeled-support cases and the complete necklace distributions at each \(1\le p\le120\). The asymptotic law follows by a Riemann sum, not by extrapolation. Remaining correctness risk is limited to the ordinary possibility of an unnoticed proof error; no infinite machine certificate is claimed.
+## correctness
 
-## Originality — PASS under best-knowledge comparison
-The full-topic accessible primary papers by Fici and collaborators on Abelian powers in Sturmian/Fibonacci words analyze a special aperiodic infinite-word family and critical exponents rather than the cyclic fixed-content phase-count spectrum. The paper on algorithms for Abelian periods gives general detection procedures, but not a closed enumeration of phase multiplicities over these necklaces. The OEIS A096168 entry enumerates *ternary Abelian-cube-free linear words*, not the fixed-content cyclic three-block problem. Actual searches of mathematical literature and published research records were compared using equal-Parikh-block, Abelian-cube, cyclic-conjugate, three-marker, and composition aliases; no equivalent or dominating theorem was identified. Earlier accessible titles and recoverable mathematical claims on two-marker Abelian-square counts, three-marker Abelian-square sensitivity, Abelian-cube avoidance, and weakly Abelian unbordered rotations have different hypotheses/invariants. This is a bounded priority check, not a uniqueness certificate: an unlocated equivalent result may exist.
+PASS
 
-## Value — PASS
-The invariant answers a natural phase-synchronization question for an Abelian repetition of exponent three: which cyclic starts partition a sparse word into three anagram blocks, and how frequently do different exact multiplicities occur? The result gives the *entire* all-length distribution, a sharp gap criterion, and a nontrivial mixed limiting law (one-third non-occurrence, continuous positive-phase component). These are structural and distributional facts, not a lone small-case table or a mechanically restated ordinary-necklace count. The scope is intentionally sparse and does not claim an arbitrary-composition theorem.
+Fix which marker enters the first block. The three allowable cut intervals have p integer positions each and left endpoints differing by the shifts 0,d₁−p,p−d₃. Their common size is max(0,p−maxᵢ|dᵢ−p|). The three choices of first marker are disjoint even if the necklace is periodic, since cuts are indexed. For K=R/3≥k≥1 put q=p−k and shift the three gaps by k. The resulting ordered triples sum to 3q and have upper bound 2q on each coordinate. Inclusion–exclusion excludes three single-coordinate sets of size binomial(q+1,2), with no double exclusions. Burnside accounts for the equal-gap triple and gives (p−k)(p−k+1)+1 directed necklaces at or above k. Differences and subtraction from the total give the full spectrum, including R=3 as the sole value when p=1. The atom, density and mean follow by the given Riemann sums. An independent direct block-index test of 7,875 labeled supports through p=9 and canonicalization under word rotations verified the gap rule and all histogram entries on 369 necklaces.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The closest inspected indexed Abelian-cube statement counts distinct strings among linear factors, expressly not cyclic factors. The closely related work on Abelian periods and powers does not give the indexed-cut census. The supported distinct claim is the gap-to-cut multiplicity theorem and its exact all-size distribution over directed weight-three necklaces, not the definition or detection of Abelian cubes or the classical total necklace count.
+
+## value
+
+PASS
+
+The phase multiplicity answers more than existence: it measures how robust a full-circle Abelian cube is to a change of starting point. Three ones is the first positive feasible weight for three balanced blocks and makes this a natural exact test class. The min/max gap rule gives the multiplicity directly, while the finite law quantifies both failure and nonzero phase abundance and yields a mixed limit. The rotated-string distinction matters even at maximal symmetry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

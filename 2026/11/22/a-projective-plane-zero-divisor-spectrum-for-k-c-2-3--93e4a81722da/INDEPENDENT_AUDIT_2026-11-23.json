@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:30:19.802738Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Read frozen RESULT.md, AUDIT.json, CHECK_OUTPUT.txt, METADATA.json, REVIEW.md, SLOGAN.txt, VERIFICATION.md and checker.py. The all-field proof is algebraic; the frozen checker was inspected, not executed. The q=4 and q=8 logs count seeded draws, not necessarily distinct-pair tests: replay of the random index draws alone yields two equal-index skips at q=4 (24,998 actual pair comparisons), none at q=8. This reporting detail does not affect the universal theorem.",
+        "Independent q=2 computation by group-basis XOR convolution on the 127 nonzero augmentation-ideal elements, with zero loops and 1,281 edges: the exact characteristic polynomial is (λ+1)^105(λ-7)^7(λ²-6λ-71)^6(λ³-20λ²-323λ+210). Replay: /workspace/branches/f73c5cee-d757-45f7-a24d-5c0d311746d2/q2_group_algebra_charpoly.py and q2_group_algebra_check.md in the same directory. The same self-written check expands the displayed det T symbolically in q, not merely at q=2. The finite graph check does not prove general q."
+      ],
+      "rationale": "In characteristic two the three commuting g_i-1 square to zero, generate the group ring, and the squarefree quotient has the same dimension eight. Its positive-degree ideal J is nilpotent and every element with nonzero constant coefficient is a unit. Frobenius gives f²=0 for every f∈J; nevertheless the graph deletes diagonal loops. For f=v+w+txyz and g=v'+w'+t'xyz, the separate degree-two and degree-three product tests are v∧v'=0 and <v,w'>+<v',w>=0. The latter is the perfect pairing in complementary coordinate bases, and the former is exactly proportionality. For nonzero v=αu in a normalized projective direction, equal s=<u,w>/α is precisely the test within that point, and there are (q-1)q²q choices at fixed point and s. For v=0,w≠0, the direction of w defines the projective line and gives q(q-1) possibilities; those vertices annihilate one another. The nonzero degree-three vertices are universal. The cross test is the stated projective incidence, hence precisely a+mb+mqc=q⁷-1 vertices. Internal zero-sum clique vectors give -1, while zero-sum constants across the q separate cliques of a point give c-1. The centered line and point subspaces are preserved by N and Nᵀ since their row and column sums are q+1. On those spaces NNᵀ=qI, so each paired mode gives the displayed quadratic with coupling product bq²c. Uniform line and point coordinates and the universal coordinate give T; the sum of the dimensions is q⁷-1, including a=1 at q=2. At λ=0 the quadratic is 1-c-bq²c<0 and c-1>0. The verified determinant expansion is strictly negative for q≥2 because (q-1)³≥1 and q⁷≥2q⁴. This proves nonsingularity over the reals, not for an adjacency retaining square-zero loops.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mönius gives annihilator compression and weighted adjacency machinery; exact rank/nullity Theorems 4.1 and 4.3 assume products of residue-class rings. The present local ring is not a nontrivial product and has embedding dimension three, unlike a chain ring.",
+          "Masalkar et al. give a general unit-equivalence partition and generalized join of complete or empty graphs. This anticipates the quotient method for the graph; applying it here still requires computing the unit classes and cross adjacencies. Their explicit semisimple calculations do not cover a nonzero radical. Rather's simple-graph spectra for a univariate truncation over Z_p use one generator for the maximal ideal."
+        ],
+        "reasoning": "General partitions and weighted quotients are applicable tools but require the ring-specific incidence and quotient evaluation. Neither the semisimple formulas nor the explicit univariate/chain-ring spectral results can be specialized to this ring.",
+        "searches": [
+          "Mönius DOI 10.1007/s10801-020-00989-6 §§3–4",
+          "Masalkar–Khairnar–Lande–Patil arXiv:2106.15977v2 generalized joins",
+          "Rather arXiv:2604.03101 truncated polynomial rings"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1080/00927872.2013.827689 (abstract/bibliography only independently)",
+        "doi:10.1007/s10801-020-00989-6",
+        "arXiv:2106.15977v2",
+        "arXiv:2604.03101",
+        "Resultary b4dbafcd5467",
+        "Resultary c6e7cc1901a7",
+        "Resultary 95178287ccd5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The accessible Aliniaeifard–Li abstract addresses recognition of modular finite abelian p-group rank/order and isomorphism for semisimple group rings. Those stated implications do not construct the rank-three graph from its ring presentation. The frozen review reports fuller §2–3 inspection, but this was not independently reproduced.",
+          "Even with the general join theorem, to identify explicit unit classes one must compute how unit multiplication changes v,w,t; the image of multiplication by v in degree two is the kernel of the complementary pairing with v. This leads to the nontrivial normalized scalar s and the line-point blocks; quotient spectrum then requires NNᵀ on the centered subspaces.",
+          "The tensor quotient of the squarefree rigidity theorem classifies maps vanishing on already known zero products, not the incidence of the pairs themselves."
+        ],
+        "reasoning": "The new statement is not a substitute parameter into an existing displayed spectral formula. The explicit classes, cross-edges and determinant supply independent work beyond general methodology or rank/degree recognition.",
+        "searches": [
+          "Aliniaeifard Li Zero-Divisor Graphs for Group Rings 4790 4800 pdf elementary abelian annihilator recognition group ring",
+          "Mönius Theorems 4.1 and 4.3",
+          "Masalkar et al. arXiv:2106.15977v2 §2",
+          "Resultary squarefree radical zero-product rigidity 95178287ccd5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The commutative characteristic-two group ring, three-variable quadratic truncation, and characteristic-two three-generator exterior algebra are equivalent formulations of the ring. Recognizing the projective line directions in J₂ and the scalar fibers in directions of J₁ is additional structure, not another name for squarefreeness.",
+          "The nearby bivariate-cubic result concerns the square-zero induced graph of a nine-dimensional ring, with q⁵-1 vertices and one universal clique joined to q+1 cliques; the present ordinary graph has q⁷-1 vertices and nontrivial point–line incidence across the classes.",
+          "The squarefree-radical rigidity result uses the same truncation at r=3 but identifies multilinear tensor-span or bilinear-map quotients rather than the graph or eigenvalues."
+        ],
+        "reasoning": "Dualizing points and lines does not equate the compared same-algebra bilinear invariant or the other ring's two-stratum join with the claimed spectrum. The graph being ordinary rather than retaining square-zero loops is essential: retaining those loops adds I and shifts the eigenvalues.",
+        "searches": [
+          "zero divisor graph elementary abelian 2 group algebra C2 cubed squarefree truncated polynomial algebra spectrum projective plane incidence annihilator Aliniaeifard Li",
+          "Resultary: elementary abelian binary rank three group algebra zero divisor adjacency characteristic polynomial projective plane point line annihilator square-zero squarefree radicals"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same matching Resultary entry is the frozen claim itself. The modular exponent entry computes δ=q^(|G|/2)-2 when the exponent is two, agreeing with q⁴-2 for the point-scalar vertices here. It does not give the characteristic polynomial or just a table for the 127-vertex graph.",
+          "The closest retrieved explicit spectra are for other finite rings or graphs; the q=2 polynomial was independently computed in this review, not treated as evidence of earlier priority."
+        ],
+        "reasoning": "No separate indexed table or generating result for this characteristic polynomial was identified. An exact minimum degree establishes one scalar feature but cannot recover the incidence adjacency or its full spectrum.",
+        "searches": [
+          "zero divisor graph elementary abelian 2 group algebra C2 cubed squarefree truncated polynomial algebra spectrum projective plane incidence annihilator Aliniaeifard Li",
+          "Resultary: elementary abelian binary rank three group algebra zero divisor adjacency characteristic polynomial projective plane point line annihilator square-zero squarefree radicals",
+          "Resultary modular zero-divisor graph exponent b4dbafcd5467"
+        ]
+      },
+      "rationale": "The group-ring graph, its compression/generalized joins and the incidence spectral identity are known concepts. The contribution is the concrete projective-plane and scalar-class identification for this local squarefree ring and the resulting complete ordinary (loopless) adjacency factorization and nonsingularity across q. The compared sources cover methods, different rings or a weaker invariant, not that classification. One close early same-class article remained unavailable in independent full text.",
+      "residual_risks": [
+        "Same-class Aliniaeifard–Li full text was not independently accessible. An implicit prior decomposition in that or another modular group-algebra graph treatment remains possible.",
+        "A more specialized compressed-graph or finite geometry classification under different terminology may overlap. Searches and the finite q=2 computation are not priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Recognition of rank/cardinality in the abstract is weaker; no whole-document exclusion asserted independently.",
+          "evidence": [
+            "Abstract states that rank and cardinality of a finite abelian p-group are determined by the graph of its modular group ring; semisimple recognition has different hypotheses."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/00927872.2013.827689",
+          "material_read": "Indexed publisher-linked abstract claims and author bibliography; full publisher, identified ResearchGate PDF and open preview routes did not yield the article body",
+          "method": "Exact URL attempts and public abstract/bibliographic comparison",
+          "title": "Zero-Divisor Graphs for Group Rings",
+          "trigger": "Same modular group-ring graph and potential dominating structural theorem"
+        },
+        {
+          "assessment": "Relevant established methods; explicit spectral cases inspected do not cover this non-chain local ring with the required diagonal convention.",
+          "evidence": [
+            "Annihilator equivalence defines compressed vertices; Section 4 states exact rank and nullity under residue-ring product hypotheses."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10801-020-00989-6",
+          "material_read": "Definition 1.1, discussion of graphs with and without loops, weighted adjacency reduction and Theorems 4.1 and 4.3",
+          "method": "Publisher OA PDF excerpts",
+          "title": "Eigenvalues of zero-divisor graphs of finite commutative rings",
+          "trigger": "General compression and explicit spectral results"
+        },
+        {
+          "assessment": "Covers the abstract generalized-join framework, not the concrete projective incidence or the stated factorization.",
+          "evidence": [
+            "General join replaces quotient vertices by class graphs; the unit-based partition applies in this setting, but explicit examples/theorems announced for semisimple rings do not cover it."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2106.15977",
+          "material_read": "Abstract, Definition 1.1, introductory scope and §2 with Proposition 2.4 (unit equivalence)",
+          "method": "OA arXiv v2 PDF",
+          "title": "Spectra of the zero-divisor graph of finite rings",
+          "trigger": "Generalized-join theorem could cover the decomposition"
+        },
+        {
+          "assessment": "Exact spectrum but for a different, one-generator ring.",
+          "evidence": [
+            "The stated ring is Z_p[x]/(x^c), not the three independent quadratic generator truncations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2604.03101",
+          "material_read": "Abstract and ring definition in opening text",
+          "method": "OA arXiv PDF",
+          "title": "Spectral Properties of Zero-Divisor Graphs of Truncated Polynomial Rings",
+          "trigger": "Exact ordinary spectrum of a similarly named truncated local algebra"
+        },
+        {
+          "assessment": "Gives exact minimum degree and recognition, not spectrum or the class joins.",
+          "evidence": [
+            "Exponent two gives minimum degree q^(|G|/2)-2 via size of annihilators, which here is q⁴-2."
+          ],
+          "identifier_or_url": "2026/9/21/SCOPE-abelian-p-group-exponent-modular-zero-divisor-graph--b4dbafcd5467",
+          "material_read": "Theorem and augmentation ideal/Jordan-bound/degree proof passages",
+          "method": "Resultary local mirror full text",
+          "title": "The exponent of an abelian p-group from its modular zero-divisor graph",
+          "trigger": "Claims quantitative invariant for the precise ambient group-algebra class"
+        },
+        {
+          "assessment": "Different ring and induced graph, no point–line incidence cross-strata.",
+          "evidence": [
+            "Uses k[x,y]/(x³,y³), giving a universal clique joined to q+1 peripheral cliques on the square-zero locus."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-a-characteristic-uniform-square-zero-annihilation-graph-for-the--c6e7cc1901a7",
+          "material_read": "Theorem, graph definition and part of the square-zero derivation",
+          "method": "Resultary local mirror full-text passages",
+          "title": "A characteristic-uniform square-zero annihilation graph for the bivariate cubic truncation",
+          "trigger": "Close graph-theoretic blow-up in a modular algebra"
+        },
+        {
+          "assessment": "Different invariant, valid even in odd characteristic; does not resolve finite ordinary adjacency.",
+          "evidence": [
+            "The radical is zero-product determined and the unitization has an explicit factorization defect for bilinear forms."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-zero-product-rigidity-of-squarefree-radicals-and-exact-defect-of--95178287ccd5",
+          "material_read": "Finding, exact factorization scope and tensor-kernel proof passage",
+          "method": "Resultary local mirror full text",
+          "title": "Zero-product rigidity of squarefree radicals and exact defect of their unitizations",
+          "trigger": "Direct overlap of squarefree quotient rings for all ranks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The ordinary graph is a standard invariant of modular group rings and the three-generator case is where a point–line incidence geometry naturally appears in the zero-product constraints. Recovering that incidence and all real adjacency eigenvalues for every q, with no zero eigenvalue, gives useful exact structure unavailable from graph diameter or minimum degree. The proof treats an infinite family and is not a one-off small spectrum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

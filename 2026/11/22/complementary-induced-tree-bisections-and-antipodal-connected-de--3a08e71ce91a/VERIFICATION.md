@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The proof's nonstandard finite steps are wholly specified by the embedded programs; no external datasets, packages or network services are needed. `verify_fano.py` uses Python 3 with only its standard library, and `verify_hamilton.cpp` uses C++17 integer bitmasks.
+## correctness
 
-Run:
+PASS
 
-```
-python3 verify_fano.py
-c++ -std=c++17 -O2 verify_hamilton.cpp -o verify_hamilton
-./verify_hamilton
-```
+For a connected selected k-set in a cubic graph on 2m vertices with nonempty complementary forest, the complement has 3m−3k+e(S)≥3m−2k−1 edges, and at most 2m−k−1. Equality at k=m requires both sides to be trees. The displayed seven-set is an actual witness, so the bound is attained in Heawood. Independent all-subset reconstruction (branches/reproduce-exchanges.py heawood, with .out) used the Fano incidence mask, checked the given LCF isomorphism, and tested the forest identity e=|V|−components for every complementary mask. It returned fvs=4 with 70 choices and cfvs=7 with 770 choices; price 7/4 follows. All 770 complements qualify and give 385 unordered pairs of halves. To recover the full group, enumerate all permutations of the seven points carrying the seven incidence triples to themselves; the image of each line is then forced. The graph is connected bipartite, so all remaining automorphisms are obtained by composing these with the polarity switching the two shores. This gives 336 automorphisms and the five orbit sizes as claimed. Pairwise XOR population two constructs the exact jump graph, and unweighted distances from all 770 sources reproduce the edge and degree counts, seven distance multiplicities, constant eccentricity seven, and 5,460 Johnson-plus-one pairs. Every complement pair has Johnson distance seven, and there are no other distance-seven pairs. This proves uniqueness of each complementary antipode, not a statement about the unrestricted four-set exchange graph.
 
-**Independent graph encodings.** The Python checker derives incidence from nonzero three-bit vectors and their dot products. The C++ checker builds a fourteen-cycle with seven alternating LCF chords. The Python checker verifies the complete vertex isomorphism, rather than assuming the representations agree.
+## originality
 
-**Finite coverage.** The Python checker enumerates all seven-subsets of fourteen vertices (3,432 total), rejects insufficient smaller connected feedback sets, evaluates exact induced edge/component counts, enumerates 336 incidence automorphisms, builds all 770 swap neighborhoods and performs 770 complete breadth-first distance searches. The C++ checker enumerates all 16,384 masks and independently computes all swap neighborhoods and all 770 shortest-path tables. Both calculate cardinalities and distances using exact integers, without optimization solvers, random trials, approximate tolerances or search timeouts.
+PASS
 
-Expected results from both: ordinary minimum feedback sets of cardinality four (70); connected minimum feedback sets of cardinality seven (770); 385 complement pairs; degree multiplicities \((16:378),(18:56),(20:336)\); 6,888 exchange edges; radius and diameter seven; exchange-distance counts \((1:6888),(2:39312),(3:97524),(4:104412),(5:40656),(6:6888),(7:385)\); 5,460 pairs one move beyond the Johnson lower bound. Python also verifies orbit sizes \((42,56,168,168,336)\) for the complete 336-automorphism group.
+The ordinary optimum and its finite census are prior and explicitly credited. There is also earlier jump-metric work on Heawood's 70 unrestricted four-sets. The surviving claim concerns the very different family of seven-vertex connected optima and its exchange geometry; no checked source supplies or implies that census and metric.
 
-The elementary cubic lower bound is proved in the mathematical result. Executed exhaustive checks establish only this one finite graph's counts, not a theorem for all cubic graphs. The verifiers are independent implementations, not an independent external scientific audit.
+## value
+
+PASS
+
+The Heawood graph is a canonical cubic cage, and requiring a connected set of deletions is a natural distinction from its known ordinary feedback problem. At the optimum every deletion has a paired tree complement, so the classification identifies a concrete geometric space on which the mobility question is distinct from mere feasibility. An exact nearly Johnson metric and a unique farthest complement at every vertex are useful reconfiguration properties not automatic from the degree count or from the known ordinary four-set result. The contribution is a motivated exact single-graph benchmark, not a universal statement about cubic graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

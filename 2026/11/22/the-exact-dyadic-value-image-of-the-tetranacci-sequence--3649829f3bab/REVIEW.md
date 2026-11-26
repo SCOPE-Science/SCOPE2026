@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The recurrence's companion matrix satisfies the stated exact integer identity \(A^{10}=I+4B\). Its binomial expansions at four explicitly listed index branches yield two scaled isometries at modulus four and two scaled isometries at modulus sixteen, using the uniform divided-difference valuation bounds for binomial polynomials. The direct 40-term orbit modulo sixteen supplies the reverse inclusion. Finite recurrence and matrix checks in the accompanying checker provide independent computational corroboration at the stated bounds; no inference from a finite experiment to all \(k\) is made.
+PASS
 
-## Originality — PASS, with qualified historical priority
+The companion matrix advances the specified state, and the independently recomputed A^10=I+4B and four coefficient triples agree with the frozen proof. The interpolation series converges uniformly on Z2 because the binomial polynomials there take integral values, and the nonnegative integer inputs reproduce u_(10t+j). Subtracting two binomial polynomials factors out s-t at the numerator and loses at most v2(m!) in the denominator. For j=1,4 the odd linear coefficient therefore gives exactly two additional valuation units: all terms m>=2 have at least three. For j=5,8 restrict to even inputs and divide out 16 after subtracting u_j. The divided difference from the first two terms is b_(j,1)/2+b_(j,2)(2(s+t)-1), odd, and the remaining terms lie in 4Z2 since 2m-3-v2(m!)>=2 for m>=3 (check m=3 directly and use v2(m!)<=m-1 for m>=4). Each normalized map thus permutes every finite residue ring by isometry and finiteness; nonnegative input representatives suffice for every finite precision. This gives the four entire balls at every precision rather than merely many enumerated outputs. A^40=I mod 16 by expanding (I+4B)^4; independent recurrence enumeration of that returning state gave exactly the ten stated classes, so no other dyadic cylinders can occur. Projecting gives V_1,V_2,V_3, and disjoint Haar masses sum to 5/8. The finite check can be replayed by shifting the state (a,b,c,d) to (b,c,d,a+b+c+d mod 16) from (0,0,0,1) for 40 steps and taking first coordinates; the matrix and coefficient checks use integral powers for j=1,4,5,8. The supplied CHECK.py was inspected but not executed; its reported deeper tests are finite and no equidistribution or frequency assertion follows.
 
-The two full Waddill (1992) studies address the same characteristic polynomial and initial sequence (up to a one-place shift), but their theorems are on identities, periods, divisor structure, and sums; they do not provide the exact scalar image. Marques (2014) addresses power-of-two Diophantine sums. The nearby generalized-Fibonacci period result covers return times, not image support, and the published three-step Tribonacci closure result has a different recurrence. Searches of related research records and accessible number-theory archival claims found no stronger equivalent. This is evidence-based nonimplication for the inspected statements, not a proof that no prior equivalent exists anywhere.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact four-ball image and its rational Haar measure solve a natural complete local-representability problem for a classical arithmetic sequence. It distinguishes output coverage from the much-studied recurrence period, and determines all permanently forbidden classes at every dyadic depth without a cutoff. The result is useful for local solvability of equations prescribing a Tetranacci value and illustrates the scaled-isometry mechanism in order-four recurrences. Its value rests on the complete natural invariant, not computational cost or a claimed general theorem.
+The supported distinct result is exact four-ball support for the specific impulse Tetranacci sequence, equivalently ten mod-16 classes each saturated at every higher depth. Known periods and shifted initialization are credited, as are related Tribonacci results. The conclusion is qualified by bounded source access and is not a claim of historical priority.
 
-## Limits and risk
+## value
 
-The result treats classical impulse initial values and dyadic moduli only. A complete historical priority search is impossible; a latent earlier theorem about Tetranacci value images remains possible. Branch isometry proofs provide the unrestricted guarantee; numerical results alone do not. Independent mathematical audit has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The support of a classical recurrence is the natural inverse question to orbit periodicity: one wants to know whether any term reaches a specified residue. A single bounded congruence test answers that question at every dyadic precision, and the exact p-adic closure and measure distinguish this recurrence from nearby generalized Fibonacci sequences. This is not an arbitrary initial-vector slice or merely a finite residue table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

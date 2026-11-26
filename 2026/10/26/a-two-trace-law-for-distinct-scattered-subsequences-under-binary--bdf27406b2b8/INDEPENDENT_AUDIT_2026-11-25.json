@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:22:16.757978Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–117",
+        "Frozen VERIFICATION.md, lines 19–25; verify.py inspected as text",
+        "/workspace/branches/b5f7d4a0-f382-458a-b4b9-3f69666166ed/record4_replay.py"
+      ],
+      "rationale": "Appending symbol i replaces the whole set of i-ending strings by the injective image of all old strings, including the empty one, since any old i-ending string can use the new i as its last symbol. The other ending class stays unchanged. The resulting shifted two-coordinate state gives s+t−2, counting strings rather than embeddings. With the stated reverse product convention, complementation is conjugation by P and doubling gives A_next=(PA)^2. Since det A=1 and det P=−1, the squared trace is t²+2. Also P A_next=A P A, whose trace is tr(P A²) by cyclicity; Cayley–Hamilton and tr P=0 give st. Nonempty seeds, including monochromatic ones, have s>=2 and t>=1. The scalar logarithmic recurrence implies z_next=2z+epsilon for z_m=log(t_m)+log(t_(m+1)), and the normalized log t recurrence is a contraction with coefficient −1/2. The parity ratios for s_m/t_m have summable log increments since t doubles at least, so log N_m−log t_m=O(1). The tail bound follows by epsilon<=2/t² and geometric ratio 1/8, with the coefficient 8/21. Independent matrix/string replay covered four stages for 126 seeds; direct sets through m=5 of the seed 0 and a separate last-occurrence count at m=6 reproduce all seven stated values. A 100-digit series replay through j=6 gives h(0)=0.4502248047496114629262541073… and exp(h(0))=1.56866478915034433761643869…, with series truncation error below 2.712e−53.",
+      "residual_risks": [
+        "Finite replay and numeric evaluation do not prove the identities or limit. The entropy result is per seed, per doubling (or divided by seed length per host symbol); there is no extremal claim or claim for all, nondyadic Thue–Morse lengths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kása's inspected enumeration treats distance-restricted scattered subwords of rainbow words, and the complementary-morphism paper treats repetition avoidance.",
+          "Record 1009b6ccac44 gives an enumerator and growth rate for periodic hosts (0^a1^b)^m."
+        ],
+        "reasoning": "The periodic rate theorem does not contain complement doubling as a parameter choice for arbitrary seeds. Counting a single arbitrary word by a classical dynamic program also does not by itself give a closed autonomous recurrence on two statistics of the seed or an effective growth series.",
+        "searches": [
+          "arXiv:1104.4425 §3",
+          "arXiv:2310.15064 abstract",
+          "Resultary record 1009b6ccac44"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1812.07330, 1104.4425 and 2310.15064",
+        "Berstel–Crochemore–Pin author PDF, §2",
+        "Resultary 9824aedbf416, 1009b6ccac44, 7389806d175c",
+        "OEIS direct and +1 term queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The alternate closed matrix law is for shortest absent counts and yields a different two-variable recurrence; the rate analogue is for fixed-period concatenation.",
+          "Theorem 6 concerns length-n factor equivalence complexity using multiplicities through a prescribed length k."
+        ],
+        "reasoning": "No prior passage provides the specific trace pair for present support, its determinant-based closure under the actual doubling map, or the scalar log recurrence giving the effective entropy. The general per-word counting method is credited; the closed recurrence and rate are the additional consequences to be established here.",
+        "searches": [
+          "Resultary 9824aedbf416, local RESULT.md offset 0",
+          "Resultary 1009b6ccac44, local RESULT.md offset 0",
+          "arXiv:1812.07330, Theorem 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The shortest-absent-subsequence record 9824aedbf416 uses a similar complement-doubling matrix product but counts shortest absent strings.",
+          "The two Thue–Morse papers use embedding multiplicities of specified strings, respectively for binomial complexity or congruences of prefix embeddings."
+        ],
+        "reasoning": "The target counts the size of the entire nonempty support, not classes of factors, multiplicities, or the family of shortest failures. These observables are different even on the same host blocks. Counting the empty subsequence as well is only an additive-one variant, explicitly checked in the database comparison.",
+        "searches": [
+          "Resultary local searches for complement-doubling subsequence counts and growth",
+          "arXiv:1812.07330, Theorem 6",
+          "Berstel–Crochemore–Pin, §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both OEIS result pages were readable and did not match their queried consecutive terms.",
+          "The Resultary records enumerate shortest absent subsequences of Thue–Morse, present subsequences of periodic two-run blocks, or minimal absent subsequences of alternating hosts, respectively."
+        ],
+        "reasoning": "The two table queries test the exact example with and without the empty word. A miss does not rule out alternate indexed transforms or prove priority. The actual indexed matches are not entries for this sequence or recurrence.",
+        "searches": [
+          "OEIS consecutive terms 72,2664,3647088,6476006417760 and 73,2665,3647089,6476006417761",
+          "Resultary local mirror 9824aedbf416, 1009b6ccac44, 7389806d175c"
+        ]
+      },
+      "rationale": "The ordinary distinct-subsequence update is established background, as is the complement-morphism setting. The supported distinctive part is exact two-scalar closure for an arbitrary seed and the resulting convergent rate formula with a quantitative error, not the ordinary recurrence or a new notion of Thue–Morse complexity. The strongest inspected indexed matrix recurrence counts absent strings, and the strongest rate analogue uses different host words; neither supplies the claimed result.",
+      "residual_risks": [
+        "Older scattered-word or matrix-product literature could contain an equivalent derivation. Database term searches are not exhaustive, and abstract inspection is not an assessment of whole papers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different invariant",
+          "evidence": "Counts equivalence classes of same-length factors, with equivalence defined using numbers of embeddings up to length k.",
+          "identifier_or_url": "https://arxiv.org/pdf/1812.07330",
+          "material_read": "Definition, PDF p. 1 offset 656; Theorem 6, p. 4 offset 14057",
+          "method": "Lawful original PDF, bounded passages",
+          "title": "Computing the k-binomial complexity of the Thue–Morse word",
+          "trigger": "Same host and scattered subwords"
+        },
+        {
+          "assessment": "Same host blocks, different enumerated quantity",
+          "evidence": "§2 defines the coefficient as the number of distinct ways a specified word embeds and studies such coefficients for left factors; the abstract addresses congruences.",
+          "identifier_or_url": "https://www.irif.fr/~jep/PDF/ThueMorse.pdf",
+          "material_read": "Abstract/intro and §2 opening at offset 3106",
+          "method": "Lawful author-hosted PDF",
+          "title": "Thue-Morse sequence and p-adic topology for the free monoid",
+          "trigger": "Cited same-prefix scattered subword counting"
+        },
+        {
+          "assessment": "Strong structural analogue, different observable",
+          "evidence": "Recurrence is for distinct shortest absent subsequences, constructed using a complementary matrix product, not the present support of the block.",
+          "identifier_or_url": "2026/11/2/SCOPE-quadratic-recurrence-for-shortest-absent-subsequences-of-thue-mo--9824aedbf416",
+          "material_read": "Local RESULT.md finding/proof comparison, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Quadratic recurrence for shortest absent subsequences of Thue–Morse",
+          "trigger": "Same doubling and a two-variable matrix recurrence"
+        },
+        {
+          "assessment": "Different host family",
+          "evidence": "Enumerator and rate for periodic powers (0^a1^b)^m and balanced run lengths, not the doubling law.",
+          "identifier_or_url": "2026/11/8/SCOPE-balanced-two-run-periods-maximize-distinct-subsequences-with-an--1009b6ccac44",
+          "material_read": "Local RESULT.md finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Balanced two-run periods maximize distinct subsequences",
+          "trigger": "Same counting convention and explicit host growth"
+        },
+        {
+          "assessment": "Different hosts and statistics, irrespective of same-day dating",
+          "evidence": "Counts minimal absent subsequences of (01)^k.",
+          "identifier_or_url": "2026/10/26/SCOPE-padovan-enumeration-of-minimal-absent-subsequences-of-alternatin--7389806d175c",
+          "material_read": "Local RESULT.md finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Padovan enumeration of minimal absent subsequences of alternating words",
+          "trigger": "Nearby indexed subsequence recurrence"
+        },
+        {
+          "assessment": "Inspected class does not subsume the binary doubling result",
+          "evidence": "Scattered subwords with distance restrictions in rainbow words.",
+          "identifier_or_url": "https://arxiv.org/pdf/1104.4425",
+          "material_read": "§3, PDF p. 2 offset 4666",
+          "method": "Lawful original PDF",
+          "title": "On scattered subword complexity",
+          "trigger": "Broad scattered-word enumeration precedent"
+        },
+        {
+          "assessment": "Abstract addresses a different invariant",
+          "evidence": "Power-freeness of complementary morphisms, not size of scattered-word support.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.15064",
+          "material_read": "Abstract, PDF p. 1 offset 1579",
+          "method": "Lawful original PDF",
+          "title": "Power-free Complementary Binary Morphisms",
+          "trigger": "Complementary binary morphisms"
+        },
+        {
+          "assessment": "No match for these queries, not a global novelty verdict",
+          "evidence": "The pages explicitly show the matching inputs and report no table match.",
+          "identifier_or_url": "https://oeis.org/search?q=72%2C2664%2C3647088%2C6476006417760",
+          "material_read": "Result passage at offset 350 for both the queried terms and their +1 variant",
+          "method": "Public database result pages",
+          "title": "OEIS exact consecutive-term lookup",
+          "trigger": "Potential exact table of the Thue–Morse specialization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–41 and 68–117",
+        "Resultary 9824aedbf416 and 1009b6ccac44"
+      ],
+      "rationale": "Thue–Morse and its arbitrary-seed complement-doubling analogues are natural nonperiodic hosts. The exact count no longer requires storing or traversing the exponentially long doubled host once the two seed integers are computed. The same reduced state yields a per-symbol growth constant with a rigorously bounded series error; these structural and asymptotic uses, not the numerical illustration alone, make the result worthwhile.",
+      "residual_risks": [
+        "No by-length enumerator, extremal result, or growth theorem for general morphic words is supplied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

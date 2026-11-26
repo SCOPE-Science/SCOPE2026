@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:07:15.429552Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, proof lines 30–72",
+        "VERIFICATION.md, lines 1–15 and 21–37; verify_onehot_rll.py, lines 8–64, inspected without execution",
+        "/workspace/replays/1/one_marker_bounded_replay.py and replay_n4_n10.txt"
+      ],
+      "rationale": "For Z zeros, K ones, and surplus s=Z-(n-1), a marker at zero-rank a covers exactly [a-s,a] clipped to [0,n-1]. Covering all offsets requires K(s+1)≥n, and the host restriction gives Z≤2(K+1). For n≥4, s=0 is strictly too expensive; s=1 gives the asserted lower bound; s≥2 can attain it only at s=2 for odd n. At even length, the s=1 intervals must tile the target offsets in pairs. At odd length the s=2 word saturates all zero runs; at s=1 the first and last ranks must lie in {0,1} and {2m,2m+1}, respectively, and each gap is at most two. The feasible endpoint differences 2m and 2m-1 give precisely two end variants and the m single-short-gap variants. Each listed word meets the host constraint, covers the target offsets, has the required length, and in fact avoids 11. The boundary n=4 is included.",
+      "residual_risks": [
+        "Separate exhaustive replay checked 41,384 hosts for 4≤n≤10 and complete optimizer sets; it does not certify the reported run through n=14 or replace the general proof. No formal proof or expert attestation is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bilotta–Pergola–Pinzani count binary words avoiding a fixed contiguous pattern; there is no simultaneous scattered-cover requirement.",
+          "Elishco–Huleihel treat randomized constrained source strands; Ma et al. consider batches of balanced inputs."
+        ],
+        "reasoning": "The inspected general results respectively lack the all-offset coverage predicate, constrain random sources rather than deterministic hosts, or address a different target population and objective. None provides a theorem to specialize to the precise constrained equality problem.",
+        "searches": [
+          "arXiv:1108.3621v1, abstract/introduction",
+          "arXiv:2204.07013v1, abstract/introduction",
+          "doi:10.1186/s12859-025-06336-5, PDF p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary --522f2396053e and --a999d7db7c66",
+        "arXiv:1108.3621v1",
+        "arXiv:1309.0422v2",
+        "arXiv:2204.07013v1",
+        "doi:10.1186/s12859-025-06336-5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unrestricted lower bound can fall short of the constrained minimum even with exactly the same target family.",
+          "For n≥4 the one-marker target 1000… belongs to the golden-mean target family, whereas that family also contains multi-marker words. At odd length it has a different number of extremizers."
+        ],
+        "reasoning": "An unrestricted lower bound and a construction for a larger target family do not characterize the shorter or additional candidates under the present host restriction. The run-capacity equality argument is necessary to exclude other hosts and identify every attainable case.",
+        "searches": [
+          "Resultary --522f2396053e, fixed-marker and unrestricted minima",
+          "Resultary --a999d7db7c66, odd-length classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day Resultary comparison, SCOPE-exact-shortest-supersequences-for-all-one-marker-binary-words--522f2396053e, has exactly the same targets but unrestricted hosts.",
+          "Lagoutte–Tavenas restrict the input words rather than the host."
+        ],
+        "reasoning": "The order of the quantifiers and placement of the constraint are essential: target offsets range over all n positions, and the forbidden factor applies solely to the host. An input restriction is not an equivalent formulation.",
+        "searches": [
+          "Resultary local index: one-marker binary shortest common supersequences, run-limited hosts and golden-mean scattered covers",
+          "Primary lookup: one-marker binary supersequence with host zero-run avoidance (no relevant hit)",
+          "arXiv:1309.0422, PDF p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The unrestricted same-target entry gives minimum n-2+ceil(2√n) and unrestricted optimizer counts.",
+          "The golden-mean entry has m+2 extremizers for a different target class of odd length.",
+          "The binary pattern-avoidance enumeration tabulates avoidance by numbers of symbols, not a minimum cover layer."
+        ],
+        "reasoning": "No inspected exact entry enumerates hosts satisfying both this coverage constraint and zero-run restriction; numerical agreement at some small lengths would not identify the listed families.",
+        "searches": [
+          "Resultary records --522f2396053e and --a999d7db7c66, findings at offset 0",
+          "arXiv:1108.3621v1, abstract/introduction"
+        ]
+      },
+      "rationale": "This pass is for the output-constrained minimum and full equality classification. The strongest indexed comparison already solves the same target family without the output constraint. That is material overlap in the target family and rank method, but the unrestricted optimization is not the same, and its optimum can be strictly smaller (for example, 22 versus 24 at n=16). No equivalent constrained classification or stronger implication was found in the inspected passages.",
+      "residual_risks": [
+        "The Resultary date does not settle priority between same-day records.",
+        "Searches and bounded source passages do not rule out unindexed constrained-SCS work or equivalent formulations under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap, different constraints; relative priority not established by the date",
+          "evidence": [
+            "Gives n-2+ceil(2√n), fixed-marker minima, and counts without restricting host runs."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2, --522f2396053e",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror, bounded passage",
+          "title": "Exact shortest supersequences for all one-marker binary words",
+          "trigger": "Same target family"
+        },
+        {
+          "assessment": "Different target family and unrestricted master",
+          "evidence": [
+            "Covers all no-11 targets and gives m+2 odd-length extremizers."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, --a999d7db7c66",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror, bounded passage",
+          "title": "Complete odd-length extremizers of golden-mean scattered subsequence covers",
+          "trigger": "Similar optimizer words and same odd-length scale"
+        },
+        {
+          "assessment": "Avoidance enumeration rather than scattered coverage",
+          "evidence": [
+            "Enumerates and constructs words by number of ones under the stated pattern avoidance."
+          ],
+          "identifier_or_url": "arXiv:1108.3621v1",
+          "material_read": "Abstract/introduction, offset 217",
+          "method": "OA text, bounded passage",
+          "title": "Pattern 1^j0^i avoiding binary words",
+          "trigger": "Binary forbidden factors"
+        },
+        {
+          "assessment": "Restriction on inputs, not on the output",
+          "evidence": [
+            "Studies complexity of the resulting variants."
+          ],
+          "identifier_or_url": "arXiv:1309.0422v2",
+          "material_read": "PDF p. 1, offset 668",
+          "method": "OA PDF, bounded passage",
+          "title": "The complexity of Shortest Common Supersequence for inputs with no identical consecutive letters",
+          "trigger": "Short supersequences with run restrictions"
+        },
+        {
+          "assessment": "Different random-source setup",
+          "evidence": [
+            "The homopolymer restriction is on randomly generated source strands."
+          ],
+          "identifier_or_url": "arXiv:2204.07013v1",
+          "material_read": "Abstract/introduction, offset 1475",
+          "method": "OA text, bounded passage",
+          "title": "Optimal Reference for DNA Synthesis",
+          "trigger": "Constrained reference-sequence comparison cited by the finding"
+        },
+        {
+          "assessment": "Different target family and aggregate cost",
+          "evidence": [
+            "Treats batches of balanced sequences, including a two-batch result."
+          ],
+          "identifier_or_url": "doi:10.1186/s12859-025-06336-5",
+          "material_read": "PDF p. 1, offset 461",
+          "method": "OA PDF, bounded passage",
+          "title": "Batch optimization for balanced binary sequences and DNA sequences",
+          "trigger": "Exact SCS costs for a structured binary target family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof",
+        "Resultary --522f2396053e (unrestricted baseline)"
+      ],
+      "rationale": "A forbidden host factor changes the optimum for the natural all-offset, one-marker test family. The exact equality classification explains the parity effect and distinguishes the saturated zero runs from the near-tiling cases, supplying an explicit benchmark for constrained supersequence theory rather than a small-instance census.",
+      "residual_risks": [
+        "The result is specific to one-marker targets and a cap of two zeros per run; no general constrained-SCS complexity or applications are established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

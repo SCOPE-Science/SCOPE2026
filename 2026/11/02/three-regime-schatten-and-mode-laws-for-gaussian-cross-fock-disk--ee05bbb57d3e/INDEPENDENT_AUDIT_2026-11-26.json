@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:06:58.696418Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the normalized Gaussian monomial bases the pairing is diagonal between the two spaces, and its nth coefficient is t^n times the lower regularized gamma integral of shape n+1, hence t^n P(Pois(x)>=n+1). Bounding the integral by x^(n+1)/(n+1)! gives compactness and all positive Schatten powers at fixed x. Positive-term summation of the random finite geometric sum gives the nuclear formula also at t=1 by its continuous limit. Normalizing the Poisson tail by its first mass gives a positive series strictly increasing in x and decreasing in n. The successive ratios therefore strictly decrease in degree, and for fixed degree increase continuously from 0 to t as x increases; this yields exactly the claimed threshold crossings at fixed t>1. For t<1, domination is geometric. For t=1, Poisson concentration gives a bracket at (1±δ)x, with the infinite upper tail bounded by a summable Chernoff geometric series even after raising to any fixed p>0. For t>1, write m=n+1 and λ=tx. On each fixed √λ window the Poisson tail divided by its first mass converges uniformly to t/(t-1), giving d_n=(1+o(1))e^((t-1)x) Pois(λ){m}/(t-1). For m below (1+δ)x the crude bound t^n is exponentially negligible if (1+δ)log t<t-1. Above this cutoff the same normalized d_n is bounded by a constant times Pois(λ){m}. Stirling gives a Gaussian bound up to m=2λ using the quadratic lower bound on y log y-y+1 on a compact interval, and an exponentially summable bound beyond 2λ using its tangent there. This justifies the discrete Gaussian integral (and the supremum) after taking a growing window, giving the 1/√p constant and the normalized modal profile. Finally, the exact critical squared Hilbert–Schmidt norm is E min(X,Y) for independent equal-mean Poisson variables; the Skellam/Bessel sum telescopes to the displayed expression and gives the stated remainder. The supplied checks/verify.py was inspected, not executed. Its recorded finite quadrature and grid checks supplement rather than establish the uniform estimates. The limit is for fixed t and p, not a joint transition limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kisil defines mixed-weight projection with a bounded symbol, allowing the disk; Dewage–Ólafsson give the general radial eigenvalue integral. These cover the operator setup and, under the radial equivalence, its spectral coefficients.",
+          "The searched singular-value paper was accessible only at abstract level after redirects, so coverage of this varying disk symbol is unresolved."
+        ],
+        "reasoning": "General operator classes and radial eigenvalue integrals are relevant precedents. They do not in the inspected passages give the all-index asymptotic for a radial symbol whose truncation grows and whose diagonal peak moves with the cutoff.",
+        "searches": [
+          "arXiv:2108.13710, mixed-weight cross-Toeplitz framework",
+          "arXiv:2107.01465, radial Fock symbols",
+          "DOI 10.1007/s43037-025-00477-8, Fock-type singular values (full text unavailable)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–81, VERIFICATION.md and checks/verify.py",
+        "Resultary SCOPE-8bc755930d1c",
+        "arXiv:2107.01465 pp. 3, 7, 25",
+        "arXiv:2108.13710 pp. 26–27",
+        "arXiv:2308.05519v3 Proposition 2.4(i)",
+        "DOI 10.1007/s43037-025-00477-8 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior-indexed staircase proof uses the same tail/first-mass series; its monotonicity in x yields inversion of those thresholds. Its local large-deviation equivalent also yields a Gaussian shape by expansion at the saddle. Those features do not get separate originality credit here.",
+          "The exact nuclear formula is directly summed from the spectral coefficients. The full positive-p law additionally requires controlling the aggregate mass of the moving √(tx) band and both infinite tails, including for 0<p<1; sharp operator norm and Schatten membership do not give that coefficient."
+        ],
+        "reasoning": "Known modal formulas, elementary exact summation, and the L-infinity scale are not by themselves the stated L-p asymptotic. The genuinely supported claim is a global fixed-p asymptotic across all three regimes, based on the tilted mass and uniform tail estimates rather than a direct operator identification or parameter substitution.",
+        "searches": [
+          "SCOPE-8bc755930d1c, mirrored RESULT.md offsets 625 and 3447, modal staircase, norm proof and radial equivalence",
+          "arXiv:2308.05519v3, Proposition 2.4(i)",
+          "Frozen RESULT.md lines 49–73"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The projected mixed-weight disk operator of SCOPE-8bc755930d1c agrees with the frozen pairing under (alpha,beta,u)=(a,b,t); its spectrum u^n q_n and its sharp supercritical operator norm match exactly.",
+          "Identifying the Fock bases by a unitary makes the singular-value problem that of a same-weight radial Toeplitz symbol t^{-1} exp((1-t^{-1})b|z|²) supported on b|z|²<tx. The radial eigenvalue integral recovers the exact diagonal coefficients by substitution."
+        ],
+        "reasoning": "A different projection or basis notation does not make a new operator. In particular the threshold curves t=p_n(x)/p_(n+1)(x) are the same adjacent ties whether read in t or inverted in x. The full Schatten sum beyond membership and the norm are the distinct issue.",
+        "searches": [
+          "Resultary: disk-truncated Gaussian Fock transfer, weight mismatch, Poisson modal sequence and Schatten laws",
+          "SCOPE-sharp-gaussian-weight-mismatch-in-disk-truncated-fock-transfer--8bc755930d1c",
+          "arXiv:2107.01465, radial eigenvalue integral"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Akemann–Byun–Ebke–Schehr give the exact identity Σ P(j,R²)Q(j,R²)=R²e^{-2R²}[I0(2R²)+I1(2R²)] for the infinite complex Ginibre disk variance, with leading asymptotic R/√π.",
+          "Set R²=x in that identity. Here the quantities P are precisely the p_(j-1), Q=1-P, and Σ P=x. Subtraction therefore gives exactly the frozen critical squared Hilbert–Schmidt identity, including its correction by the standard Bessel expansion."
+        ],
+        "reasoning": "This is exact prior coverage in an equivalent invariant, not merely a similar Bessel formula. The identity should be used as corroboration or an alternate derivation, not credited as new. It is an equal-weight p=2 formula and does not cover the mismatched full p-power sum.",
+        "searches": [
+          "Fock Toeplitz disk indicator Hilbert Schmidt norm Bessel I0 I1 exact variance Ginibre number disk Poisson eigenvalues",
+          "Ginibre number variance disc exact modified Bessel I0 I1",
+          "arXiv:2308.05519v3, Proposition 2.4(i), Eqs. (2.45)–(2.47)",
+          "SCOPE-8bc755930d1c exact modal result"
+        ]
+      },
+      "rationale": "Credit is for the complete fixed-p Schatten regime theorem for the mismatched disk pairing, in particular the sharp t>1 asymptotic for the entire p-power sum, not for radial diagonalization, the critical Bessel identity, or the overlapping modal and operator-norm laws taken alone. The strongest distinct Resultary record gives the same operator family and much of the modal theorem; its catalogue date is later and does not settle priority. The exact equal-weight Bessel identity is demonstrably covered in the Ginibre literature. Neither comparison supplies the full three-regime Schatten law with its all-fixed-p constants in the inspected statements.",
+      "residual_risks": [
+        "The exact spectral/mode overlap and the established critical Bessel formula are not independently original, irrespective of chronology for the indexed modal record.",
+        "A uniform radial Toeplitz Schatten theorem or another exact asymptotic for powered incomplete-gamma sums may subsume the full three-regime law outside the inspected statements. Full text for the plausible DOI hit was unavailable; priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent coverage for several components; full fixed-p sum not given in the inspected statements; later index date does not settle priority",
+          "evidence": "Same target Gaussian projection, u^n q_n, adjacent thresholds, large-radius norm constant and degree law, and explicit unitary radial reduction.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-gaussian-weight-mismatch-in-disk-truncated-fock-transfer--8bc755930d1c",
+          "material_read": "Mirrored RESULT.md offsets 625–3447 and 3447–8047, finding, assumptions, strict ratios, sharp norm and radial equivalence",
+          "method": "Resultary catalogue and local OA mirror",
+          "title": "Sharp Gaussian weight mismatch in disk-truncated Fock transfer",
+          "trigger": "Material match for the operator, spectrum, modal staircase and supercritical norm"
+        },
+        {
+          "assessment": "Covers radial eigenvalue diagonalization and direct disk specialization; all-regime Schatten constants not established by that formula alone",
+          "evidence": "Eigenvalue integral with r^m e^{-r}/m!; attribution of the one-dimensional radial formula to Grudsky–Vasilevski, whose paper was not itself inspected.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.01465",
+          "material_read": "PDF pp. 3 and 7, OA offsets 9772 and 28690; bibliography p. 25, offset 102564",
+          "method": "Targeted lawful OA PDF text",
+          "title": "Toeplitz Operators on the Fock Space with Quasi-Radial Symbols",
+          "trigger": "General eigenvalue formula encompassing radial disk symbols"
+        },
+        {
+          "assessment": "Covers the bounded-symbol operator class, not the specific p-power law in the inspected passages",
+          "evidence": "Mixed-weight operators defined by target projection after multiplication; the disk indicator is a bounded-symbol instance.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.13710",
+          "material_read": "PDF pp. 26–27, OA offsets 97161 and 102250",
+          "method": "Targeted lawful OA PDF text",
+          "title": "Cross-Toeplitz Operators on the Fock–Segal–Bargmann Spaces and Two-Sided Convolutions on the Heisenberg Group",
+          "trigger": "Published broad framework for Gaussian weight mismatch"
+        },
+        {
+          "assessment": "Definitively covers the exact equal-weight Bessel identity by trace minus variance",
+          "evidence": "The centered infinite complex Ginibre disk variance is both the sum of complementary gamma products and R²e^{-2R²}[I0(2R²)+I1(2R²)], with R²=x in the Fock normalization.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.05519v3",
+          "material_read": "PDF p. 1 and p. 11, Proposition 2.4(i), Eqs. (2.45)–(2.47), offsets 0 and 44371",
+          "method": "Targeted lawful OA PDF text",
+          "title": "Universality in the Number Variance and Counting Statistics of the Real and Symplectic Ginibre Ensemble",
+          "trigger": "Exact equivalent formulation of the critical Hilbert–Schmidt correction as Ginibre number variance"
+        },
+        {
+          "assessment": "Exact relevance unresolved; not used as noncoverage evidence",
+          "evidence": "Abstract-level results for Fock-type operators do not determine whether the growing truncated exponential symbols and all-regime constants are treated.",
+          "identifier_or_url": "https://doi.org/10.1007/s43037-025-00477-8",
+          "material_read": "Search-result abstract only; OA full-text retrieval did not succeed",
+          "method": "Primary literature search and OA retrieval attempt",
+          "title": "2026 singular-value paper for Fock-type Toeplitz/Hankel operators",
+          "trigger": "Potential general singular-value theorem relevant to the p-power claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fixed weight mismatch can change not just the norm but the aggregate spectral mass from a finite geometric limit, to growth proportional to disk area, to amplification on a moving band of order √x modes. The full Schatten constants quantify that change for every positive p, including small powers that are sensitive to the tails. This is useful information about a natural compressed Gaussian transfer beyond a leading norm or an isolated known critical identity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

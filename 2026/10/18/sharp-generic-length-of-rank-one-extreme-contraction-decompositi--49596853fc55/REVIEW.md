@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The operator-norm identification, saturated-entry forcing, and rank-one sign-vertex representation are proved directly. The relevant face is an affine image of independent singleton and cross Walsh characters and has dimension \((m-r+1)(n-c+1)-1\). Independent-sign barycenters give membership; Carathéodory gives the upper bound. The generic lower bound follows because the rank-one parameter map is not contained in any affine hyperplane of that face. Rational hyperplane coefficients and the transcendence of \(e^{-1}\) make the exhibited witnesses exact. The checker verifies 100 affine-rank and barycenter cases and two exact small rational witnesses. There are no unproved infinite or computational implications hidden in the statement.
+PASS
 
-## Originality — PASS, with residual risk
+The frozen Finding's claim of positive factors in every signed stratum was false literally: e.g. the fully saturated row (1,−1) has no positive factorization. The complete corrected RESULT.md preserves each prescribed saturated index/sign and attaches the specified positive powers to enumerated unsaturated indices; positivity of the entire witness is asserted only in the all-positive stratum. Signed row and column flips permute the eligible atoms and preserve length. Independently, the norm is the entrywise maximum, so saturated cross entries force each positive-weight atom into the same face. In coordinates x_i,y_j,x_i y_j, these monomials and the constant are independent Walsh characters; thus D=(m−r)+(n−c)+(m−r)(n−c). Independent sign barycenters give membership, and affine Carathéodory gives D+1 terms. Each set of at most D sign vertices is contained in a rational affine hyperplane, by solving at most D homogeneous rational equations in D+1 coefficients. Pullback to rank-one factors gives a nonzero polynomial in distinct monomials, which has a closed, null, nowhere dense zero set relative to the box. At the witness the monomials are distinct binary-index powers of the transcendental number e⁻¹, so none of the rational equations vanish. This proves generic and explicit sharpness, including D=0 and r=c=1. The corrected proof also resolves the rational-hyperplane step for lower-dimensional spans and corrects the test-count wording. The verification note and checker were inspected, not executed. Independently in the 2×3 example, each conditional law of the two column signs given either row sign has marginals 3/5 and 4/7 for a positive sign. A distribution on at most two vertices of that sign square cannot have both marginals interior unless they are equal or complementary; hence at least three atoms per row sign are required, confirming the six-term witness.
 
-The relevant 2022 operator-cube paper and the subsequent rank-one extreme-contraction paper were inspected in full-text HTML. They characterize operator-ball geometry and qualitative extremality; they do not derive this saturation-sensitive, generic **minimum summand count**. The Bernoulli-correlation literature establishes realizability via sign-vertex mixtures, not this exact rank-one decomposition-length profile. Searches for Carathéodory length, sign outer products, and deterministic-strategy support revealed no equivalent exact theorem. Because the proof uses classical affine genericity, an earlier equivalent cut-polytope or probability-mixture statement remains a substantive bibliographic risk, not a proof of novelty by lack of search hits.
+## originality
 
-## Value — PASS
+PASS
 
-The paper-motivated restricted convexification problem admits a quantitative invariant: the minimum count of rank-one extreme contractions. Determining that count's worst-case value and its full generic saturation-stratum profile answers how efficiently the qualitative Krein–Milman representation can be realized. The result is not just another example of representability: it demonstrates an exact multiplicative \(mn\) lower bound for an object with only \(m+n-2\) free unsaturated factor parameters and supplies constructive sharp witnesses. The result is deliberately limited to this natural operator-pair family.
+The supported distinct claim is the matching generic lower bound on the rank-one locus, the saturation-sensitive exact maximum, and the uniform witness in the prescribed signed strata. Rank-invariant existence, cube atom counts, correlation feasibility and some upper bounds are prior. The sign repair does not narrow the all-stratum generic sharpness theorem or rely on a new priority assertion.
 
-## Closest literature and limitations
+## value
 
-Sohel–Sain–Paul (arXiv:2208.10184v1), Sain–Sohel–Paul (arXiv:2407.05545v1), and Huber–Marić (arXiv:1706.06182v2) are the most relevant inspected sources. The full exceptional-locus distribution of minimal lengths is not classified. Potential equivalence under correlation-polytope mixture terminology remains an originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem settles how many eligible extreme contractions may actually be needed even for a rank-one target, which is not answered by qualitative existence or arbitrary convex-hull dimension. It detects a generic multiplicative rather than additive support requirement, gives its exact reduction under saturation, and supplies a witness in every signed stratum. The corrected sign scope retains all of that content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

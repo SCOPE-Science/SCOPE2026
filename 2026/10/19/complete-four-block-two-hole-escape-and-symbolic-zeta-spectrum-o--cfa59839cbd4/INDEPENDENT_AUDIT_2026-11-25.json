@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:59:40.411865Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof, including all 16 table rows; VERIFICATION.md and certify_binary_pair_holes.py inspected, not executed",
+        "Independent exact enumeration and factor/root certificate"
+      ],
+      "rationale": "For n steps the fair-word measure is the number of paths of length n in the allowed three-block graph divided by 2^(n+3); this includes n=0. The total entry sum of A^n is comparable in fixed dimension to a matrix norm, so its nth-root limit is the spectral radius without a primitivity assumption. A based closed path is the uniquely coded binary point fixed by the corresponding shift iterate, including when the iterate is shorter than three, and trace/determinant gives the symbolic zeta. In a fresh exact reproduction of all 120 pairs, characteristic polynomials were recomputed with SymPy and the largest real roots isolated over the rationals. Merely placing roots in the same rational interval, as the uploaded classifier does, would not prove equality within a row. The independent check additionally verified that every polynomial in a row is divisible over Q by its listed row factor, that the factor changes sign across the row interval, and that every characteristic polynomial has exactly one distinct root in that interval. Thus each row shares its largest root exactly. Verified 26 polynomials and 16 ordered radii with multiplicities (2,22,10,4,6,8,4,4,28,4,4,2,4,4,6,8), both extremizer lists, and the witness zeta factorizations. Replay: python /tmp/opencode/frozen_review_reproduce.py holes, with SymPy 1.14.0.",
+      "residual_risks": [
+        "The source script's same-interval tests alone are not equality tests. The independent divisibility and isolation checks supply that step.",
+        "Periodic counts are for the symbolic shift; the Lebesgue escape calculation is unaffected by the dyadic endpoint convention."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ramsey treats two-word entropy perturbations, with the estimates using sufficiently long words on an irreducible SFT. Cheriyath–Agarwal Thm. 4.8 uses q>3p^2+2 for p>=3, and Thm. 4.12 needs q>=5 for p>=3 and zero cross-correlations; neither applies to binary p=4. Their length-two theorem also does not apply.",
+          "Agarwal–Cheriyath–Tikekar handle finite word collections for Markov measures, which includes the rate of each of these holes."
+        ],
+        "reasoning": "General exact computations for individual pairs cover the formula for an individual rate but do not decide the quotient of all 120 pairs by exact equality. No inspected general ordering result yields these multiplicities or extremizer lists in the stated parameter regime.",
+        "searches": [
+          "Resultary: two-word holes escape rate ordering binary shift Perron roots comparison theorem",
+          "arXiv:1902.03352v1 §§4–5; arXiv:1905.11767v5 §4; arXiv:2401.05118v2 §4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8c914d562cb2 and 34c65335df89",
+        "arXiv:1902.03352v1, 1905.11767v5, 2401.05118v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general linear system gives a computable pole for a given pair. Standard trace/determinant gives the periodic zeta for any adjacency matrix. The complement record concerns a union of renewal families for a global trajectory condition."
+        ],
+        "reasoning": "The methods can reproduce individual instances, but to get the frozen census one must compute actual determinants and establish exact coincidences and strict inequalities of their Perron roots across the entire set. Those comparisons are not a routine specialization of a theorem giving class counts or order for this regime.",
+        "searches": [
+          "Agarwal–Cheriyath–Tikekar Thms. 4.4–4.5; Cheriyath–Agarwal Thms. 4.8 and 4.12; Resultary 8c914d562cb2 Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed 8c914d562cb2 and 34c65335df89 enumerate cyclic words whose observed four-blocks contain no complementary pair, not words avoiding each independently prescribed two-word set.",
+          "Agarwal–Cheriyath–Tikekar, arXiv:2401.05118v2, Thms. 4.4–4.5 and Remark 4.6 identify the rate via a rational survival generating function."
+        ],
+        "reasoning": "Escape classes are equivalently topological entropy or largest eigenvalue classes in the fair model. A survival generating function counts all finite paths, not just closed ones, so equality of its leading pole is not equivalence of periodic zeta functions. Global complement incompatibility is not fixed-pair avoidance.",
+        "searches": [
+          "Resultary: binary complementary length-four forbidden pair survivor periodic orbit zeta spectrum six renewal families",
+          "Primary: \"two forbidden\" binary words length four escape rates zeta characteristic polynomial census Perron roots"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct indexed entries 8c914d562cb2 and 34c65335df89 state complement-pair-free cyclic-word counts. The inspected length-four complement-avoidance record has a renewal determinant factor 1-z-z^3, also seen in the fastest-rate algebra here, but no 120-pair equivalence table."
+        ],
+        "reasoning": "A shared factor or a complementary-word subclass is not an exhaustive rate or zeta census for arbitrary fixed pairs. No distinct exact matching table was established by these bounded checks.",
+        "searches": [
+          "Resultary: all 120 unordered pairs of distinct binary words length four escape rates symbolic zeta functions",
+          "Resultary: multiplicities 2 22 10 4 6 8 4 4 28 4 4 2 4 4 6 8 escape rates",
+          "Resultary: Complete four-block two-hole escape and symbolic zeta spectrum of the doubling map"
+        ]
+      },
+      "rationale": "The supported distinct result is the exhaustive binary length-four classification, including its exact multiplicities and all equality cases, not a new general method for obtaining an escape rate or zeta function. The strongest general formulas give an individual pair's rate, and the applicable comparison conditions do not provide this binary ordering. The indexed complement-avoidance classifications ask a different question even when a cubic factor agrees.",
+      "residual_risks": [
+        "A specialized entropy or forbidden-word table not surfaced in these bounded searches might give equivalent coverage. No claim of historical priority or of all-length novelty is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General method and asymptotic estimates",
+          "evidence": "Correlation polynomials and sufficiently long forbidden words; no binary length-four table in these results.",
+          "identifier_or_url": "https://arxiv.org/abs/1902.03352v1",
+          "material_read": "§4 near offset 61155; §5 Proposition 5 and estimates, offsets 78000–86000",
+          "method": "OA arXiv text",
+          "title": "Perturbing Subshifts of Finite Type: Two Words",
+          "trigger": "General two-word entropy method"
+        },
+        {
+          "assessment": "Two-hole comparisons outside the frozen parameters",
+          "evidence": "Relevant longer-word criteria require larger alphabet and sometimes zero cross-correlation.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.11767v5",
+          "material_read": "§4 Theorems 4.2, 4.8 and 4.12, decisive longer-word comparisons near offsets 51500 and 59300",
+          "method": "OA arXiv text",
+          "title": "Subshifts of Finite Type with a Hole",
+          "trigger": "Potentially stronger two-hole comparison theorems"
+        },
+        {
+          "assessment": "Computes individual rates in a broader setting",
+          "evidence": "Rational survival generating function, leading positive pole, finite linear system; no simultaneous rate and symbolic zeta classification.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.05118v2",
+          "material_read": "pp. 1, 13–15, abstract, Theorems 4.4 and 4.5 and Remark 4.6, offsets 0, 48825, 50929, about 52600",
+          "method": "OA PDF",
+          "title": "On Escape Rate for Subshift with Markov Measure",
+          "trigger": "General finite-hole rate method returned by focused search"
+        },
+        {
+          "assessment": "Different class of survivor constraints",
+          "evidence": "Circular words containing no complementary pair globally; six graph families and determinants involving 1-z-z^3 and 1-z-z^7.",
+          "identifier_or_url": "Resultary 8c914d562cb2",
+          "material_read": "RESULT.md offset 0, Finding and Proof §§1–3",
+          "method": "Local published-record mirror",
+          "title": "Periodic complement avoidance at block length four has six renewal families",
+          "trigger": "Exact block-four periodic/zeta overlap"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Aggregate cyclic count 4T_7(n)+2T_3(n)-4 for the global complement condition.",
+          "identifier_or_url": "Resultary 34c65335df89",
+          "material_read": "RESULT.md Finding",
+          "method": "Local published-record mirror",
+          "title": "Exact enumeration of complement-pair-free binary cyclic words at block length four",
+          "trigger": "Exact indexed cyclic four-block enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen 16-class table and extreme pairs; independent exact classification and witness zeta factorizations"
+      ],
+      "rationale": "This is a complete benchmark at a natural fixed cylinder resolution in the fair binary map, with sharp loss rates for equal-measure holes and an exact witness of what the escape rate forgets: one pair's periodic zeta has extra cyclotomic factors although its leading escape rate agrees with another's. The exact multiplicities and equality cases matter to comparison at this resolution, rather than constituting a collection of selected examples.",
+      "residual_risks": [
+        "The significance is limited to a fixed length-four, two-cylinder model. It gives no general ordering for longer words or for arbitrary interval holes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

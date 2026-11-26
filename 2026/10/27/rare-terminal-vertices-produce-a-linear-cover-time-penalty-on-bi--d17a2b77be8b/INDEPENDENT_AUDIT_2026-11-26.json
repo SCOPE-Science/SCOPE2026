@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:19:52.528360Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, all passage identities and limiting statements",
+        "VERIFICATION.md, verify.py and verification_output.txt",
+        "reproductions/audit_cycle.py"
+      ],
+      "rationale": "Removing j leaves a path with starting coordinate i=n-1-j. Success requires visiting both ends before exit. Multiplying the two initial gambler's-ruin probabilities by the respective success probabilities of the crossing stages gives wA+wB=(1-r)r^i/(1-r^(n-1)) and conditional wB/(wA+wB)=beta. For the passage-time calculation, with the killed kernel P on [0,L], (I-P)y=-d and (I-P)(y r^y)=d r^y. The weighted time u solves (I-P)u=h_L with zero boundary data, and substitution gives u/h_L=(L C_L-y C_y)/d. Reflection inverts r and d together and yields the left-exit formula. The second stages use the same interval length and distance one from the near barrier. After reaching both path ends, the exit time from [0,n] is unconditional, with mean (n h_n(y)-y)/d by the drift martingale. At j=1 or n-1 the initial stage is zero and only the positive-probability branch is needed. The uniform remainder follows from C_m-1=O_p(r^m), beta=O_p(r^(j-1)), and the O_p(n) bound on all branch means, with C_1=1/d. The law gives a geometric tail in n-1-j and the bounded normalized conditional means there converge pointwise to 1/d, so dominated summation proves the unconditional comparison. Independent replay: python3 /workspace/reproductions/audit_cycle.py; an exact-rational forward calculation tracks successive range expansions using tridiagonal exit kernels, rather than deleting the target label. Both probability and conditional first moment agree in all 408 pairs (4≤n≤15, p=51/100, 5/8, 7/11, 9/10), including both endpoints. The finite checks corroborate the proof and do not establish the asymptotic.",
+      "residual_risks": [
+        "Constants depend on fixed p>1/2. No symmetric or near-critical uniform statement is proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Idnani–Salem treat symmetric, biased and time-dependent walks but in the relevant passages count terminal-location probabilities and give the exact biased marginal in Thm. 4.1. The earlier Resultary coupling approximates the full joint law in total variation with mismatch bound 2 r^(floor((n-1)/2)+1)."
+        ],
+        "reasoning": "For x>1/2 the older bound is small relative to the conditioning probability and can assist conditional-law asymptotics there given further analysis of the coupled first passage. It does not give relative control across x≤1/2, or an unbounded expectation without moment control, and does not determine the exact expectation or its stated uniform error.",
+        "searches": [
+          "Idnani–Salem arXiv:2610.15115v1, §§3–4",
+          "Resultary f6cb2e88b6d0, Finding and coupling proof"
+        ]
+      },
+      "checked_sources": [
+        "Idnani–Salem PDF",
+        "Resultary f6cb2e88b6d0 and af96bb40f02e",
+        "Frozen references and unsuccessful direct and alternate retrieval of the 2021 public discussion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact published biased marginal implies the rare-event exponential rate directly; it does not specify the duration given the event. The older joint convergence is for fixed terminal deficit and Gaussian-scale typical timing. The 2021 discussion is reported in the frozen package as symmetric; its text was not independently retrieved."
+        ],
+        "reasoning": "The new part separates the two successful orders under a rare constraint, weights all their time contributions, then estimates them uniformly. It is not obtained by substituting the biased terminal law into a typical joint limit.",
+        "searches": [
+          "arXiv:2610.15115v1 Thms. 3.3 and 4.1, §4.2; Resultary f6cb2e88b6d0; Mathematics Stack Exchange 4273163"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target's moments determine the coefficients of the first time derivative at unit time argument of the joint time/last-site PGF. Idnani–Salem Thm. 3.3 records expansion directions, not their elapsed durations. The earlier coupling is an approximation of a joint law, not an exact joint PGF.",
+          "Later Resultary record af96bb40f02e treats typical pathwise stabilization and a Gaussian–geometric limit; the inspected PGF is for a first-passage increment."
+        ],
+        "reasoning": "Equivalent moment coefficients would suffice to cover the finite formula. Neither directional probabilities nor the zero-order transform determines these time-weighted coefficients.",
+        "searches": [
+          "Resultary joint cycle cover time and last site, biased walk, terminal deficit and range-hitting coupling",
+          "Biased-cycle conditional cover time and joint generating function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact formula found in §4.1 is for the last-vertex marginal. The closest indexed joint records concern a coupling, typical limit or pathwise stabilization, not a table or formula of exact time-weighted terminal probabilities."
+        ],
+        "reasoning": "A census is not the object here; the relevant database comparison is a published exact formula for the same moments. The matching marginal is credited, not treated as distinct because of notation.",
+        "searches": [
+          "Resultary exact terminal-conditioned mean, range-hitting and Gaussian–geometric records",
+          "Idnani–Salem main biased-cycle formula in §4.1"
+        ]
+      },
+      "rationale": "Pass applies to the exact conditional elapsed-time first moment and its uniform rare-terminal expansion, not to the last-site marginal, its exponential rate, or typical unconditional timing. Earlier joint results materially overlap but do not give this exact conditional calculation or uniform coverage across rare macroscopic terminal sites.",
+      "residual_risks": [
+        "The external literature query was null and establishes no absence of older conditional-time treatments.",
+        "An earlier exact transform or weighted gambler's-ruin specialization outside the inspected material could cover further parts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact marginal overlap; not the time-weighted moment in inspected results",
+          "evidence": "Thm. 3.3 describes expansion-sequence probabilities, Thm. 4.1 matches P(J=j); Lemma 4.2 and Cor. 4.3 concern the symmetric limit of the marginal.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.15115v1",
+          "material_read": "Abstract/intro pp. 1–2, Thm. 3.3 p. 7, Thm. 4.1 pp. 8–9, §4.2 pp. 11–12",
+          "method": "Open-access PDF passages",
+          "title": "Last-Coverage Probabilities of Random Walks on Cycle Graphs for Symmetric, Biased, and Time-Dependent Walks",
+          "trigger": "Same biased cycle and last-site law"
+        },
+        {
+          "assessment": "Strong partial overlap, not coverage of the uniform mean",
+          "evidence": "Coupling compares (T_n,D_n) with (H_(n-1-J_n),J_n), with mismatch of order r^(n/2), and the joint CLT concerns typical deficits.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exponential-range-hitting-coupling-and-a-joint-gaussian-geometri--f6cb2e88b6d0/RESULT.md",
+          "material_read": "Finding, assumptions and coupling proof up to offset 4519",
+          "method": "Published record full-text passages",
+          "title": "Exponential range-hitting coupling and a joint Gaussian–geometric law for biased cycle coverage",
+          "trigger": "Same walk and complete joint law approximation"
+        },
+        {
+          "assessment": "Later related claim, not prior exact conditional expectation",
+          "evidence": "Eventual pathwise equality and typical joint limit; the PGF is for a passage increment.",
+          "identifier_or_url": "Resultary af96bb40f02e (2026-11-02)",
+          "material_read": "Finding and first-passage transform",
+          "method": "Published record passage",
+          "title": "Pathwise stabilization and independent Gaussian–geometric limits",
+          "trigger": "Same terminal deficit and time process"
+        },
+        {
+          "assessment": "Unresolved direct check; reported symmetric scope is different",
+          "evidence": "Frozen RESULT describes symmetric uniformity and an unbiased conditional-time decomposition; this description is not a full-text comparison.",
+          "identifier_or_url": "https://math.stackexchange.com/questions/4273163/",
+          "material_read": "No fresh main text; frozen citation and scope description only",
+          "method": "Public question and alternate StackPrinter retrieval both denied",
+          "title": "Simple random walk on cycle graph (Ending on specific vertex after cover time)",
+          "trigger": "Possible older exact conditioning calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen conditional-time theorem and uniform proof",
+        "Earlier typical joint and marginal results"
+      ],
+      "rationale": "The result connects the temporal cost of coverage to a rare spatial endpoint on a natural Markov chain. The factor 2−x shows a macroscopic, endpoint-dependent slowdown not visible in the geometric terminal law or typical Gaussian scaling. Exact weights and a uniform error quantify the effect beyond an example or a numerical comparison.",
+      "residual_risks": [
+        "First moment only, no conditional fluctuation theorem or varying-bias statement."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

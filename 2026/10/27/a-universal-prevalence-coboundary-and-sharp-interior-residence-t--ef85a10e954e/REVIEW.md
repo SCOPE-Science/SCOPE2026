@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The cancellation is reconstructed from the original demographic SIR equations and the exact logistic perceived-risk equation, without quasi-steady substitution or unexplained normalization. Quantifiers distinguish arbitrary finite-time trajectories from compactly supported autonomous invariant probability measures. Integrating the resulting coboundary forces the exact stationary prevalence and susceptibility means, excludes positive compact interior recurrence at the threshold, and gives a finite strip-escape bound using only bounded endpoint terms. The supercritical witness satisfies all five stationary equations with strict positivity. The symbolic identity and rational witness were rechecked independently by an executable script, with numerical cross-checks for finite-time trajectories. The analytic argument, rather than those finite tests, proves the general statement.
+## correctness
 
-**Originality — PASS, provisional to independent assessment.** Liu and Wu (2022), arXiv:2207.05964, supplies the five-state equations and qualitative/steady-state analyses, and its accessible full text was compared with the exact integrated balance, compact-recurrence conclusion and finite-time residence inequality. No covering theorem was identified in the source. Doncel, Gast and Gaujal (2020) treat a finite-horizon SIR vaccination game without logistic perceived-risk feedback and cannot imply these exact cancellations. Relevant literature and indexed research comparisons did not reveal a matching mean-balance theorem. The algebraic identity could have been independently found or phrased as a Dulac/integrating-factor relation; exhaustive originality is not established.
+PASS
 
-**Mathematical value — PASS.** The result supplies a parameter-sharp persistence obstruction to a natural five-dimensional feedback model, a universal average prevalence for *any* interior stationary law (not just equilibria), and a quantitative finite-time residence bound independent of vaccine payoff dynamics. This distinguishes transient repeated epidemics and boundary scares from genuinely interior recurrent infection. The exact threshold is attainable via legitimate vaccine costs above the bound and applies to all positive timescale ratios.
+Writing a=γ+μ, the interior derivatives of logit(n), log I and S+I are respectively ε₂[1+θ−(2+θ)x], βS−a and μ(1−x−S)−aI. With the stated coefficients the x and S terms cancel and the constant is μ/β−μ/[a(2+θ)], giving H'=I−I_c independently of the x equation. Interior initial conditions keep both logs defined over finite times. Integrating against an invariant probability with compact interior support eliminates the bounded endpoint differences, giving ∫I=I_c, ∫x=(1+θ)/(2+θ), ∫S=1/ℛ₀ and, by the I equation, β∫SI=aI_c. Positivity excludes such measures at and below threshold, including criticality. On the entire prescribed strip, the displayed numerator bounds the oscillation of H and (δ−I_c)T≤ΔH, yielding the bound only for δ>I_c. Above threshold S*=1/ℛ₀, x*=(1+θ)/(2+θ), I*=I_c, and R*=1−S*−I*>0 (indeed S*+I*<1/(2+θ)); βI*/(βI*+μ)=f*, so the chosen costs with n*=f* cancel the payoff. These values and the rational example satisfy all equations. No assertion about arbitrary costs, global eradication or boundary-reaching averages is supported. Replay: RESULT.md lines 37–70. VERIFICATION.md and verify.py were inspected, not run; the finite checks are corroborative.
 
-Limits: No assertion of global disease eradication, general convergence or long-run averaging along boundary-approaching trajectories, or existence of periodic orbits. The strict threshold is an obstruction to compact interior persistence and a sufficient-for-existence statement only after suitable payoff selection. Standard dynamical averaging arguments may yield an equivalent result elsewhere; no independent audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The positive-interior equilibrium threshold allowing choice of costs is already encoded in Liu–Wu's fixed-point condition and is not credited as new. The distinct part is the exact finite-time elimination for the unreduced SIR/perceived-risk equations, including arbitrary admissible vaccination input, and its compact-invariant mean and uniform interior residence conclusions. The strongest inspected catalogue match has similar mean-balance methods for a different vaccination-memory model, not the same flow or constant.
+
+## value
+
+PASS
+
+The endpoint observable removes two time-dependent quantities, S and vaccination coverage, and constrains trajectories without a fast-epidemic approximation or particular payoff dynamics. It replaces equilibrium-only information with a universal mean for compact interior recurrence and a quantitative residence obstruction even before an asymptotic regime; it does not predict global disease clearance. The threshold alone is not the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

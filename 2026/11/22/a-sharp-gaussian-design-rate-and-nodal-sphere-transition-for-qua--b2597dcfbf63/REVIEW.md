@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The distributional stationary forward equation fixes the source uniquely, including among Borel measures. Direct differentiation produces the quartic radial Gaussian tilt; completing the square for its concave radial polynomial gives the necessary-and-sufficient global nonnegativity threshold. At the threshold, exact factorization establishes all zero sets and the dimension transition. Last-reset resolvent coupling establishes stationary existence and uniqueness, and the high-dimensional asymptotic is exact algebra. The standalone exact rational checker validates 413 independent symbolic identities for representative dimensions, not a substitute for the unrestricted proof.
+## correctness
 
-## Originality — PASS (qualified)
-The nearest general reset-generator and entropy work of Mori, Olsen and Krishnamurthy (2022) establishes the distributed-reset forward formalism but does not classify Gaussian inverse design in the quartic potential. Olsen (2023) gives harmonic-diffusion moment formulas, while Goerlich, Keidar and Roichman (2024) treat anharmonic resetting-based equilibration without this exact quartic Gaussian phase diagram. The closest publicly available Gaussian inverse-design classification concerns *linear* OU drift and a quadratic source tilt; here the drift is quartic, the source has a quartic radial tilt, and a dimension-dependent nodal-sphere transition and quadratic large-dimension rate law arise. Generic Fokker–Planck inversion itself is not new. Residual risks: unindexed inverse-generator treatments could include this specialization, and publication priority has not been independently established.
+PASS
 
-## Mathematical value — PASS
-This is a natural exact feasibility and inverse-design problem: which refresh distributions can make Gaussian stationary statistics compatible with nonlinear quartic confinement? The sharp minimal rate, unique non-Gaussian resetting law, boundary nodal topology, and quadratic high-dimensional intervention-rate scaling, plus feasibility of Gaussian target variances impossible for the corresponding purely harmonic confinement, form a complete parameter classification with a genuine structural difference from linear confinement. No broad optimal-control or energetic-cost interpretation is claimed.
+For d≥1, a≥0 and c,D,s>0, distributional stationarity forces a unique source even among Borel measures: q=p−(L*p)/r. Gaussian differentiation gives (L*p)/p=cs[dθ+(d+2−θ)y−y²]. Its integral against p is zero since E[y]=d and E[y²]=d(d+2). Maximization over y≥0 gives y_*=(d+2−θ)_+/2 and the stated sharp positive rate. Strictly below it the forced continuous density is negative on an open set. Completing the square, or factoring out y if the maximum is at zero, gives the positive-radius shell (two points if d=1), fourth-order origin zero, and quadratic origin zero in exactly the stated regimes. For sufficiency the conservative diffusion has a well-posed martingale problem; one can also identify the invariant last-reset resolvent directly. For compactly supported smooth f let M(t)=∫p P_t f. The dissipative drift gives contraction for synchronous diffusion starts, so P_t f has bounded gradient; applying the backward equation with a cutoff and Gaussian tails gives M'(t)=∫(L*p)P_t f. Thus r∫exp(−rt)∫q P_t f dt=∫exp(−rt)(rM−M')dt=M(0). This argument needs no assumption of a semigroup preserving C₀. Common resets give uniqueness. The quartic polynomial tilt is nonconstant for finite r and is not a Gaussian density ratio; the exact optimization also gives the claimed cs d²/4 leading asymptotic and the harmonic variance obstruction. The supplied VERIFICATION.md and verify_quartic_reset.py were inspected, not run; reported finite moment checks are not the stationarity or dimension proof.
 
-## Limitations and relevant literature
-Mori et al., arXiv:2211.15372; Olsen, arXiv:2310.04840; Goerlich et al., arXiv:2401.09958; and the publicly available linear-OU Gaussian inverse-design result at https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-gaussian-stationary-state-engineering-by-non-gaussian-stoc--08050fc52754/RESULT.md. The result assumes independent full-state Poisson resetting, a centered isotropic target, positive quartic confinement, and constant diffusion. The source density zero does not exclude a positive-volume region.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distributed-reset forward equation and its inverse rearrangement are not original. The assessed result is the exact nonlinear quartic-trap, isotropic Gaussian feasibility diagram, including its rate scaling and specific nodal boundaries. The strongest retrieved antecedents cover Gaussian targets with linear drift or analogous boundary geometry for a different target and drift, not the stated diagram.
+
+## value
+
+PASS
+
+This gives an exact feasibility benchmark for a natural nonlinear perturbation of the harmonic trap: the variance obstruction of the harmonic model disappears, but the critical intervention rate grows quadratically with dimension and the forced density can first fail at a nonzero radius. Those features require a global positivity analysis and cannot be read off from moment matching or the existence of a distributed-reset forward equation. Value lies in the model-specific sharp diagram, not in maximizing a quadratic as a standalone exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

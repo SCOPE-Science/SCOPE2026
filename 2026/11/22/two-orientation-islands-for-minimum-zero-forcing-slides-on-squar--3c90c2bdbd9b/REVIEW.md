@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The white-cell auxiliary graph is the bipartite incidence graph of rows and columns. A blue rook cell can force precisely when its two endpoints have white degrees zero and one. White cycles are unbreakable, and an isolate is necessary for any first force. Thus an optimal support with \(2n-2\) white cells is exactly one isolated bipartite vertex plus a spanning tree on the remaining \(2n-1\) vertices; a leaf on the opposite side initiates a complete peel. The proof exhibits concrete valid slides from every such tree to a fixed double star, a one-slide transfer of the missing row for \(n\ge3\), and a one-jump bridge between the two orientations. When a putative slide touches the missing row, the shared column cannot become isolated, so no orientation-crossing slide exists. The exception at \(n=2\) is separately checked. A direct forcing-rule checker and an independently implemented tree-pivot checker agree at \(n=2,3,4\), including all minimum configurations and moves; finite computation supports rather than replaces the proof.
+PASS
 
-## Originality — PASS with residual risk
+For a blue cell, the white-neighbor count is the sum of the degrees of its row and column in the white-edge graph. Hence the first force requires an isolate and a leaf on opposite sides; edges of any initial cycle can never be the first edge removed from that cycle. At most 2n-2 white edges are possible, and equality forces a single tree plus an isolate. If the isolate is a row, the 2n-2 degree sum on n columns forces a leaf column. Its removal creates a column isolate too, and a forest with isolates on both sides can be eliminated by leaf deletions; transpose for the other type. The bipartite tree formula gives the stated component sizes. A slide is a shared-endpoint white-edge exchange. If it touches the previously isolated row via the added edge, the common endpoint must be a column, so no column degree changes and no cross-type slide can result. For a fixed missing row, insert edges from a chosen active row to each missing adjacent column and drop the last edge of the original tree path to that column; this preserves the tree and shares the column. All other active rows then have degree one and can be pivoted to one column, producing the double star. A center row distinct from two missing rows exists for n>=3, and transferring the leaf edge at the center column connects the two double stars by a slide. A jump can instead delete a leaf column edge and attach the previously missing row to a different column, producing a tree on all rows and all other columns. At n=2 the rook graph is C4: exactly the four adjacent pairs are optimal, a slide produces an opposite pair, and a jump connects the adjacent pairs cyclically. The proof is uniform without enumeration. I inspected the frozen brute force and tree-support programs and recorded checks for n=2,3,4 without executing them; they are corroboration, not an all-size certificate.
 
-The precise slide-component theorem is distinguished from the previously known zero-forcing cardinality, complete zero-forcing polynomial and extremal spanning-tree count. The antecedent 2026-10-12 note *Zero-forcing polynomials of rook graphs via bipartite forests* explicitly determines the feasible subsets and counts, but does not state slide/jump connectivity or give the shared-endpoint pivot construction. Benson et al. (arXiv:1510.02421) discuss product zero forcing, and Geneson–Haas–Hogben (arXiv:2009.00220) introduce reconfiguration results, without this exact theorem in the relevant inspected material. Searches of graph-product, rook-graph, Hamming-graph, bipartite-tree and token-slide formulations revealed no mathematical implication covering the new two-component result. Unindexed or inaccessible pivot/reconfiguration literature remains a live priority risk, and the new result is a constructive structural refinement of prior feasible-set classification rather than an independent enumerator.
+## originality
 
-## Value — PASS
+PASS
 
-Individual feasibility and counts do not determine whether optimal solutions can move while preserving feasibility. On this natural infinite family, the same optimum family is split by **all** legal local token slides into two topologically distinct orientation classes, although one unrestricted one-token jump bridges them. The new proof translates sensor mobility to a nontrivial constrained edge-pivot connectivity theorem for labeled bipartite spanning trees and gives the sharp \(n=2\) boundary. It is a general structural difference between local and global reconfiguration, not a restatement of a scalar invariant or an arbitrary finite census.
+The distinct claim is the structure of valid constrained moves on the already known minimum supports, including the contrast with unrestricted jumps. The known optimum, support classification, and count are credited. No inspected distinct source covers the exact move theorem; same-day records were compared without assuming publication order.
 
-## Scope and remaining uncertainty
+## value
 
-The theorem is not about larger forcing sets, rectangular non-square boards, skew forcing, or precise all-size slide diameters. The antecedent forest characterization and counts are credited explicitly, and equivalent non-indexed mathematical terminology could diminish originality. The two standalone source programs and verification output are included for reproducibility; no third-party independent validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+On a standard graph family, an explicit geometric invariant gives two large connected mobility classes for local moves even though unrestricted moves connect all optima. Legal within-class paths and the exceptional 2-by-2 boundary make this stronger than disconnection alone or a recount of known states.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

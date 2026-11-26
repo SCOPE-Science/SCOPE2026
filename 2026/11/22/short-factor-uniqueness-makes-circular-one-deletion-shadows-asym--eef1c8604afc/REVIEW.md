@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The critical source-location anchoring lemma is proved directly: at least one length-\(\ell\) output factor is intact in both deletion presentations, its origin must agree because the cyclic source has unique factors, and the resulting linearly rooted deletion equality forces the removed positions into the same cyclic run. For the random bound, a complete shift-orbit cannot fit in a consecutive block of at most half the cyclic positions, so the factor-matching constraints form a forest and have probability \(q^{-\ell}\). The exact chromatic-cycle count and pairwise edge independence establish the cyclic run law, moments and CLT. The verifier passed exhaustive finite checks; no finite computation is used as a proof of an infinite assertion.
+## correctness
 
-## Originality
-PASS on inspected published and indexed evidence, with a priority qualification. Sloane's 2002 full text, especially Section 5, treats linear one-deletion descendants by ordinary runs; Liron and Langberg's 2012 full text treats linear deletion-subsequence counts and extremizers. The closest published circular result determines the maximum shadow size, not the source-wise short-factor guarantee or random full distribution. A special de Bruijn-cycle run-exact theorem does not provide the all-source short-factor criterion or q-ary random law. The 2025 circular trace reconstruction paper concerns sample complexity for an unknown source under repeated probabilistic deletions. Unindexed antecedents may exist, and independent priority review has not been performed.
+PASS
 
-## Value
-PASS. Arbitrary cyclic quotienting can merge deletions from distinct runs, so transfer of the familiar linear run law is invalid without an additional synchronizing property. A general finite-window criterion turns a nontrivial circular deletion statistic into the explicitly enumerated cyclic-transition law with an algebraic total-variation error, a usable approximation for any fixed alphabet and all sufficiently large lengths. This distinguishes deterministic collision prevention from an exact average-source output-count approximation and supplies the correct parity-constrained finite reference law in the binary case, beyond a mere central limit calculation.
+For two equal deletion necklaces, align the outputs. Each presentation has n−ell intact starts among n−1 output starts, so at least n−2ell+1 positions are intact in both. Uniqueness makes their source starts identical. Cutting there gives equal linear deletions, which force all letters between the two deleted positions to agree. Conversely positions in one cyclic run give the same output. For the probability, the selected starts of the d-shift cannot contain a whole shift orbit: with g=gcd(n,d), the shortest cyclic interval containing a residue class has size n−g+1. In particular the order-two case cannot select an antipodal pair, so no undirected edge is counted twice. The ell constraints form a forest and their exact match probability is q^(−ell). The union bound under the same indexed-word coupling implies the TV estimate. The cyclic transition PGF is the trace of the nth power of (1−z)I+zJ divided by q^n; moving the constant-word atom gives R_n*. This also handles the repeated boundary edge at n=2. For n≥3 the indicators are pairwise independent, and n−1 path indicators are independent, yielding the stated moments and CLT; the coupling error transfers them at the claimed rates. The source checker was inspected, not executed: its deterministic loop omits ell=n/2 for even n despite the broader account in RESULT.md. The independently written /workspace/review_checks.py, argument 5, exhausted that boundary through n=14,8,6 for q=2,3,4 respectively (including n=2), with no failures. The proof, not the finite check, covers the full range. The exact PGF is for R_n*, not for D_n, and the source model is indexed uniform, not uniform over necklaces.
 
-## Closest comparisons and limitations
-Relevant: Sloane (2002, https://arxiv.org/html/math/0207197v1), Liron–Langberg (2012, https://arxiv.org/html/1202.1644v1), sharp circular support maximum (https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-sharp-one-deletion-outdegree-of-binary-necklaces--2341722fce11/RESULT.md), and circular trace reconstruction (https://arxiv.org/html/2512.02412v1). The theorem does not enumerate exact short-length shadow-size frequencies, deletion probabilities, or outputs under more than one deletion. Novelty is not established as a theorem by database searches.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the general deterministic short-factor synchronization and its quantitative IID circular-shadow law. The traditional linear run identity, the binary circular maximum, and the de Bruijn special case are overlap, not the full claim. Priority is bounded by the available comparisons.
+
+## value
+
+PASS
+
+The cyclic quotient creates real cross-run collisions, so a deterministic sufficient condition and quantitative transfer to an explicit finite reference law are useful for circular deletion models. The bound is stronger than the displayed polynomial-rate corollary if ell=floor(n/2) is chosen, but the result does not determine the sharp failure probability or exact D_n histogram. Distinct outputs, not their probabilities, are the relevant invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

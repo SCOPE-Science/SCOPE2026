@@ -1,15 +1,21 @@
-# Scientific review — common-offset Brownian quadrature
+# Independent mathematical audit
 
-## Correctness
-PASS. The target is a Gaussian linear path integral, and a shared offset gives the **independent** data pair \(B_s+Z\) and \(B_t-B_s\). Gaussian projection gives the stated captured-variance identity. The second-time optimizer follows by a factored cubic derivative; the reduced first-time derivative factors into two quadratics whose positive roots are ordered strictly. The exact risk difference at the calibration design becomes a scalar rational inequality with a unique algebraic maximum, proving the only tie and the full parameter-domain classification. The packaged `verify.py` reproduces all critical symbolic identities and 7,000 independent covariance/design comparisons. Numerical tests do not replace the analytic uniqueness proof.
+## correctness
 
-## Originality
-PASS with residual priority risk. The novelty claimed is **not** Gaussian conditioning, the noiseless \((2/5,4/5)\) design, or the general OED formulation. The new assertion is the exhaustive positive-rank-one-common-error phase diagram, its nonzero algebraic switching threshold and the exact discontinuity of the optimal sampling times. Aksenov et al. (2017, 2019) optimize integrated **state reconstruction** uncertainty in Kalman filtering, not the Bayes risk for a single Brownian path integral with an exactly shared random offset. Attia and Constantinescu (2020/2022) develop correlated-observation covariance design, and a full-text comparison found their mathematical framework and numerical experiments do not establish this explicit two-time theorem; their standard inverse covariance formalism also does not directly handle the singular common-error covariance without reduction. Searches of published mathematical records and recoverable prior result claims found no identical or logically dominating claim. The entire 2019 continuation could not be read, so hidden historical overlap cannot be ruled out.
+PASS
 
-## Value
-PASS. A shared sensor zero offset is a natural systematic calibration error. Unlike independent observation noise, it can be eliminated by taking differences or by calibrating against a known initial value. The theorem identifies the **exact** variance at which a measurement should be sacrificed to calibration, predicts a discontinuous change of optimal sampling times, and shows an exactly flat irreducible risk beyond the threshold. The distinction matters for correlated-error numerical integration; it is not a reparameterization of independent-noise quadrature.
+Reconstructed Gaussian projection from J=∫(1-u)dB_u, Var(J)=1/3 and c(v)=v-v²/2. The transformed reading B_s+Z and increment B_t−B_s are independent with variances s+η and t−s. If a variance is zero the corresponding constant datum contributes zero; this covers coincident times and (s,η)=(0,0). For fixed s<1 the increment gain d(1-s-d/2)² has its unique maximum at d=2(1-s)/3; s=t=1 gives gain at most 1/4<8/27. The reduced derivative has the product factors in RESULT.md; for η>0 each quadratic has one positive root below one, and at the first factor’s root r the second is 3r(r−2)<0. The signs −,+,− leave only s=0 and the second root s_+(η) as winners. For η=0 cancel the common factors and the only winner is s=2/5. For s>0 the gain relative to calibration has the sign of H(s)−η, where H=s(12−12s−5s²)/(32(s²−3s+3)). The differentiated envelope has exactly one maximum at (15−√105)/10 and its value is (7√105−69)/64=0.04263524002683107316…; the unique interior tie there must be the local maximum already identified. Risk is 1/75 noiseless, 1/27 at and above the threshold, and otherwise obtained by subtracting the winning gain from 1/3. The low-noise branch is continuous up to its positive tied first time; the high-noise branch starts at zero. Read all frozen supporting material, including the symbolic/matrix verifier and dependency list; the script was inspected, not executed. The foregoing projection, factorization and root ordering are the replay, not the sampled design checks. This conclusion is for two deterministic samples and perfectly common Gaussian error, not independent readings, drift, many samples or adaptivity.
 
-## Closest literature and limitations
-Primary comparisons: Aksenov et al., *Optimal Measurement Times for Observing a Brownian Motion over a Finite Period Using a Kalman Filter* (2017), HAL hal-01479301; Aksenov et al., *Optimal Measurement Times for a Small Number of Measures of a Brownian Motion over a Finite Period* (2019), arXiv:1902.06126; Attia–Constantinescu, *Optimal Experimental Design for Inverse Problems in the Presence of Observation Correlations* (2020/2022), arXiv:2007.14476. A related published result for noiseless exponential-covariance quadrature concerns a different Gaussian kernel and no shared calibration offset. The theorem assumes exactly two nonadaptive measurements, a fixed common Gaussian offset and standard Brownian motion. General partially correlated noise and more observations remain outside scope. Independent review and definitive historical-priority verification have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest older two-measure Brownian primary text was accessible in this review and turns out to have both a different objective and independent sensor noise. The closest indexed shared-noise calibration record instead uses a Brownian bridge. Neither supplies the exact positive-noise common-offset transition for unpinned Brownian integral estimation. The noiseless calculation and Gaussian projection are not originality claims.
+
+## value
+
+PASS
+
+A common zero-offset is a natural nuisance parameter. The result tells when to spend one of exactly two measurements entirely on calibration and gives the full risk and exact coexistence point, rather than just demonstrating that an offset can cancel. The jump and risk plateau are useful benchmark behavior for this rank-one error model; robustness to even small independent noise is not asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

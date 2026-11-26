@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:22:03.204168Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–99, especially overlap, bounded uniqueness and the moving-time integral",
+        "VERIFICATION.md and verify.py inspected, not executed",
+        "Independent replay: python3 /workspace/branches/independent_replay.py 5; exact rational weighted greedy deletion on finite rings of 12, 16, 20 and 24 starts, testing zero, the positive-side two-stage limit, homogeneous rate and epsilon=1/1000; independent homogeneous quadrature"
+      ],
+      "rationale": "By irreversible occupancy a rejected start cannot become acceptable later, so first exponential clocks suffice. For an empty interval of length n>=2, an intersecting start lies from two sites left of its first site through its last site; conditioning on the union being empty gives exactly the hierarchy of lengths n,n+1,n+2, with the two parity-specific end rates and the stated interior sums. For a single site there are three possible covering starts, giving the stated derivative of v after averaging over parities. Factor out the interior hazard: exp(−(m−1)(1+epsilon)t) for length 2m and that factor times exp(−lambda_s t) for length 2m+1. The resulting three ODEs give a bounded hierarchy solution on every finite interval. Uniqueness follows by integrating factors for the nonpositive, possibly large diagonal rates and iterating the uniformly bounded off-diagonal integral operator, with factorial decay. Thus the ODE solution represents the actual interval probabilities; all three coefficients are nonnegative and, from the reduced equations, at most one. At epsilon=0 all three equal exp(−2(1−e^(−t))) and the integrated fast term is (1−e^(−2))/2. For epsilon>0 the fast term has the same limit by dominated convergence. Integrating the third equation up to u/epsilon shows that the epsilon-z term is uniformly O(epsilon), whereas the e^(−t)A term converges to its zero-rate integral for each u>0. Hence B_1(u/epsilon) tends to e^(−2), and a second dominated convergence with weight e^(−u) gives the limiting integrated slow term e^(−2). The sign and jump follow after multiplication by 3/2, and finite-time continuity explains noncommutation of the two limits. In the homogeneous case the symmetric explicit solution gives the quoted quadrature.",
+      "residual_risks": [
+        "The ring replay is a finite-instance diagnostic. For n=24 the exact ring zero and positive-side vacancies are about 0.3514991182 and 0.1485008818, not the exact infinite-line constants. The hierarchy and dominated convergence establish the infinite-line statements."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The targeted older bipartite-chain search yielded APS bibliographic material with no accessible paper text. The related Oct. 26 record reports exact sublattice coverage on a linear chain but could not determine the footprint or implication. This is a secondary lead, not verified coverage.",
+          "Percus is relevant to nonuniform lattice flux; its full text was not retrieved. The later Nov. 22 k-mer weak-channel result states k>=4 and identifies trimers as separate prior work."
+        ],
+        "reasoning": "Period two alone does not fix the geometry: trimers make start positions conflict at distances one and two, so overlapping starts include same-parity pairs. Exact formulas for a nearest-neighbor-only model would not specialize to this model. The older bipartite-chain footprint is unresolved, and the later k>=4 statement cannot be substituted at k=3.",
+        "searches": [
+          "de Oliveira–Tomé, Inhomogeneous random sequential adsorption on bipartite lattices, DOI 10.1103/PhysRevE.50.4523, targeted search for linear-chain footprint and lawful full text",
+          "Percus DOI 10.1016/S0927-7757(99)00443-4",
+          "Local Resultary k-mer weak-channel generalization"
+        ]
+      },
+      "checked_sources": [
+        "Privman–Yan arXiv:1606.01823 primary passages",
+        "Local Resultary search, exact trimer match and longer-rod study",
+        "Targeted de Oliveira–Tomé and Percus access attempts (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical dimer parking on the auxiliary even-start line explains the e^(−2) scale and the zero-rate reduction, but omits all positive-rate odd clocks. The earlier inspected imprecise-lattice formula is at a different geometric perturbation.",
+          "The later parity-resolved theorem implies every mean-vacancy conclusion and simplifies the transient system; the earlier bipartite-chain lead contains too little accessible statement evidence to establish or exclude such an implication."
+        ],
+        "reasoning": "An exact positive-side limit needs proof of the two-scale matching or equivalent depletion of available odd-start gaps, and the transient ODE must account for both interleaving arrival streams. Neither known homogeneous jamming numbers nor a geometric broadening limit gives this via a parameter substitution. The later exact implication is disclosed separately from originality relative to earlier accessible work.",
+        "searches": [
+          "Privman–Yan arXiv:1606.01823 §3",
+          "Oct. 26 Resultary parity-resolved trimer theorem and its relationship-to-prior-work passage at offset 5890",
+          "de Oliveira–Tomé DOI 10.1103/PhysRevE.50.4523 and Percus DOI 10.1016/S0927-7757(99)00443-4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Oct. 26 indexed trimer result takes rates a,b and derives two amplitudes u_0,u_1. At a=1,b=epsilon its system maps by A=u_0u_1, B_0=u_0², B_1=u_1², and its mean coverages are exactly one minus the two frozen vacancy limits.",
+          "Privman–Yan place centers in intervals of width w around lattice points; for exact integer-length objects, positive broadening changes the geometry to a rescaled continuum parking problem."
+        ],
+        "reasoning": "The amplitude map is an exact reduction, checked by differentiating the product and squares and matching the initial conditions. Coverage/vacancy complementation preserves exactly the jump magnitude. Changing the landing support instead changes the conflict graph, so the imprecise-lattice limit is not equivalent.",
+        "searches": [
+          "Local Resultary semantic search for alternating-start-rate trimer RSA, rare parity and jump",
+          "Privman–Yan arXiv:1606.01823 §§2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/26/SCOPE-parity-resolved-trimer-jamming-with-a-singular-slow-rate-crossov--8dc0ad127255 gives the exact endpoint mean coverages 3(1−e^(−2))/4 and 3(1+e^(−2))/4, hence the same jump and vacancies, and a stronger exact transient system.",
+          "2026/11/22/SCOPE-parity-controlled-weak-channel-jamming-for-alternating-rate-latt--6ffe8dfb183f is the related longer-rod case."
+        ],
+        "reasoning": "The first entry is an exact constant and formula match, not merely numerically similar. Its catalogue date is later; no prior publication or dependency relation is inferred from that overlap. The homogeneous value alone is not the claimed weak-channel endpoint.",
+        "searches": [
+          "Local Resultary search: trimer jamming parity-resolved vacancy, singular slow-rate boundary, alternating-rate k-mers"
+        ]
+      },
+      "rationale": "The supported distinct claim is the period-two exact transient trimer law and its finite jump from suppressing one arrival channel, not generic discontinuous RSA or the known homogeneous lattice law. The local catalogue has a demonstrably equivalent stronger finding that resolves parity and reduces three equations to two, but its stated date is later than the frozen record. This exact overlap is credited and does not establish older coverage or independence. The accessible earlier singular-perturbation paper changes the spatial support and hence the conflict geometry rather than the intensity on fixed integer starts. The very plausible older bipartite-chain paper could not be compared beyond bibliographic and reported abstract-level evidence after reasonable lawful attempts; that neither shows nor rules out prior implication.",
+      "residual_risks": [
+        "The precise linear-chain deposition/exclusion footprint of de Oliveira–Tomé (1994) remains the strongest earlier unresolved risk; a substantive theorem comparison could change the historical assessment. Percus (2000) and other cited nonuniform or heterogeneous lattice literature were not verified in full.",
+        "No claim of priority over inaccessible publications or proof of independence from later exact overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant singular-geometry result but not same site-clock model or limiting constant.",
+          "evidence": [
+            "A positive width allows a continuum of landing centers around each site; §3 reduces precise n-mer size with positive broadening to continuum car parking."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1606.01823",
+          "material_read": "Abstract, introduction and §§2–3, PDF pp. 1–9, bounded excerpts at offsets 0, 5917 and 11800–17758",
+          "method": "Lawful OA PDF passages",
+          "title": "Random Sequential Adsorption on Imprecise Lattice",
+          "trigger": "Earlier singular perturbation of one-dimensional lattice RSA"
+        },
+        {
+          "assessment": "Exact later match plus parity resolution and a lower-dimensional ODE.",
+          "evidence": [
+            "Set the even rate a=1 and odd rate b=epsilon; the product and squares of the two amplitudes solve the frozen initial-value system, and reported mean coverages complement the frozen vacancies."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-parity-resolved-trimer-jamming-with-a-singular-slow-rate-crossov--8dc0ad127255/RESULT.md",
+          "material_read": "Finding and transient system, relationship-to-prior-work passage at offset 5890",
+          "method": "Local Resultary mirror",
+          "title": "Parity-resolved trimer jamming with a singular slow-rate crossover",
+          "trigger": "Same trimers, alternating rates and singular jump"
+        },
+        {
+          "assessment": "Related later result; trimer length not in its theorem range.",
+          "evidence": [
+            "The statement takes k>=4 and discusses trimers as already studied."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-parity-controlled-weak-channel-jamming-for-alternating-rate-latt--6ffe8dfb183f",
+          "material_read": "Finding scope and trimer comparison",
+          "method": "Local Resultary mirror",
+          "title": "Parity-controlled weak-channel jamming for alternating-rate lattice rods",
+          "trigger": "Potential exact general k-mer theorem"
+        },
+        {
+          "assessment": "Concrete earlier coverage risk, neither excluded nor established; not assumed to be ordinary nearest-neighbor exclusion.",
+          "evidence": [
+            "The secondary passage reports exact linear-chain sublattice coverage and expressly leaves the footprint and implications unresolved. The targeted query returned only the APS article listing."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.50.4523",
+          "material_read": "Publisher bibliographic hit and report in the Oct. 26 record at offset 5890; no primary theorem or verified exclusion footprint retrieved",
+          "method": "Lawful DOI/PDF and repository resolution attempts followed by targeted title/DOI primary-literature query",
+          "title": "Inhomogeneous random sequential adsorption on bipartite lattices",
+          "trigger": "Highly plausible older exact sublattice law for a chain"
+        },
+        {
+          "assessment": "Relevant methodological risk; exact scope not compared.",
+          "evidence": [
+            "The frozen comparison identifies a nearest-neighbor-exclusion context; the inaccessible paper does not supply independently checked statements about the trimers' distance-two conflict model."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0927-7757(99)00443-4",
+          "material_read": "Bibliographic record and comparison in frozen references; no lawful full text obtained",
+          "method": "Lawful OA resolution attempt",
+          "title": "Lattice RSA and the Gaussian-mean spherical strategy",
+          "trigger": "Cited older nonuniform-flux lattice RSA closely related by exclusion geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md endpoint theorem, three-variable system and structural gap explanation",
+        "Privman–Yan competing singular-perturbation mechanism"
+      ],
+      "rationale": "Switching on arbitrarily rare odd starts changes jammed vacancy by a finite, explicit amount and beats homogeneous coverage in the limiting regime. This exposes a real order-of-limits effect and identifies a class of gaps that survive the fast stage and fill on the slow time scale. The exact finite-dimensional transient reduction shows how the macroscopic effect arises in a standard irreversible deposition model, rather than just fitting simulations or computing a known homogeneous constant.",
+      "residual_risks": [
+        "No uniform mixing or general finite-size scaling result, and no claim about spatially randomized inhomogeneity or off-lattice deposition."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

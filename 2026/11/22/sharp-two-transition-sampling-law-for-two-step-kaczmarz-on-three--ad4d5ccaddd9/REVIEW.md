@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two-step Kaczmarz norm-squared operator equals a positive weighted sum of the first projection matrices with coefficient \((a_i^\mathsf Ta_j)^2\). Taking the cheapest conditional second row produces a Loewner lower bound; reflecting first-row probabilities produces a diagonal matrix with two competing affine modes. Minimizing their maximum proves the full continuum formula. Equality cases require the specified conditionals, balanced leaf weights, and at \(u=1/2\) an orthogonal pair. All three boundary regimes and the exact sample comparisons were rechecked. The local standalone verifier passed 22 finite checks; it is supporting evidence only, while the analytic argument supplies the universal proof.
+## correctness
 
-## Originality — PASS, qualified
-A search for three-row planar joint Kaczmarz laws, two-step minimax projection coupling, independent-row alternatives, and angular thresholds found related work on independent sampling, sampled residual-greedy rules, and two-row relaxed coupling. Selected primary-paper results and methods were inspected, particularly Haddock--Ma (2019/2020) and Sun--Gu--Tang (2020); they do not state the exact unrestricted joint-law two-step result. The 2014 Agaskar--Wang--Lu exact-MSE article remains a plausible historical source whose available abstract and metadata do not settle the equivalence question. The full published public records for the most similar indexed results were not independently retrievable, and equivalent earlier formulas could exist. Absence from retrieved results is not a proof of publication priority.
+PASS
 
-## Value — PASS
-The problem is the smallest symmetric overdetermined planar frame on which one can jointly design two Kaczmarz labels. Its full minimax classification is not an arbitrary isolated coefficient: the two structural changes separately control the successor row and whether the center row is included at all. At \(u=3/8\), using a locally worse pair with positive probability improves the sharp worst-direction mean-square factor from the best deterministic \(1/16\) to \(3/80\); at \(u=3/4\), correlated sampling yields \(3/16\) versus \(11/18\) for two IID uniform draws. These exact finite-horizon benchmarks clarify what independent sampling and locally most-orthogonal scheduling each overlook. No actual computational speedup is claimed.
+The squared two-step map for pair (i,j) is (a_i^T a_j)^2 P_i because the complementary projections are rank one in the plane. Pay at least q_i per conditional successor (q_0=u, q_±=q=min(u,(2u−1)^2)); taking the two coordinate diagonals gives a lower bound max{q(1−u)(1−t), u t+qu(1−t)}, t=Pr(I=0), for every joint law. Balanced leaves and minimizing successors attain it. For u<1/2 the unique crossing gives the stated t and an isotropic optimal matrix; imbalance already raises the maximum eigenvalue of the cheaper matrix, while at balance any nonzero positive-semidefinite excess strictly increases it. For u>1/2 the vertical quadratic form forces t=0 and minimum successors, and any nonzero off-diagonal entry makes the optimum impossible. At u=1/2 the only zero-overlap pairs are the two opposite-leaf pairs, with arbitrary mixture. The identity (2u−1)^2−u=(4u−1)(u−1) gives the tie at 1/4. The exact benchmarks 3/80 vs 1/16 and 3/16 vs 11/18 follow from the same matrix. An independent diagonal density-matrix dual attains the bound: for u<1/2 its first diagonal is u(1−q)/(u+q(1−2u)), otherwise use the vertical unit projector. That dual and all nine supported/forbidden pair costs were checked at 102 exact rational parameters in /workspace/branches/independent_replay.py (kaczmarz); the grid is corroboration only.
 
-## Scope and risks
-The statement covers precisely two fixed-law unrelaxed updates, not arbitrary adaptive methods or long-run rates. The remaining originality risk is earlier exact work phrased as experimental design or projection coupling, especially inaccessible detailed parts of 2014 optimal-sampling work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported result is the exact unrestricted joint-law optimum and all equality cases for this symmetric three-row family. The matched variants change horizon, coupling/marginal constraints, relaxations, or the optimized selection rule. No covering statement was found in the actual material inspected; access gaps limit historical priority, not the mathematical decision.
+
+## value
+
+PASS
+
+A complete shortest-horizon benchmark on a natural symmetric overdetermined geometry separates local successor preference from global balancing of error directions. The exact 3/8 example shows that deliberately including a less favorable pair can improve minimax retention over every deterministic schedule. The two distinct changes in support and the classification of all ties make the result useful for comparisons with independent and coupled designs, without an extrapolation to runtime or long-run rates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

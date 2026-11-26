@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:16:31.359601Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–49, independently checked as above",
+        "Frozen VERIFICATION.md lines 19–21 and verify_conductor.py lines 9–43; inspected, not executed"
+      ],
+      "rationale": "In characteristic dividing 2m the Gauss-map ideal is (x,y), so the actual x-chart is the subring adjoining y/x in the fraction field, with domain presentation x²t=z^(2m), not an unsaturated chart. Adjoining w=z^m/x is finite (w²=t), birational, and normal by the hypersurface S2 property and the Jacobian R1 check, including when the z derivative vanishes identically. The y-chart is symmetric and ww'=1 on the overlap. To check the conductor independently, use x=u^m, z=uv, w=v^m, t=v^(2m). The normalized monoid consists of (a,b)≥0 with a≡b mod m. The raw monoid contains all such pairs with a≥m, and for a<m it contains exactly those with b−a a nonnegative even multiple of m. Thus adding (0,m) to a raw monomial of a<m moves it outside, while the pairs with a≥m are precisely x times the normalized monoid. Linear independence of monomials gives the same criterion for sums. The two conductor quotients are k[z,t]/(z^m) and k[z,w]/(z^m), giving thickness m and including the reduced case m=1. Reducing gives t=w², with degree two, separable and ramified only at zero/infinity in odd characteristic, and radicial and purely inseparable in characteristic two. The normalized chart origins are distinct, are smooth for m=1, and have the stated A_(m−1) equations otherwise.",
+      "residual_risks": [
+        "The packaged exponent-box test is finite and is not a universal proof. The monoid argument and integral-closure check above do not rely on it. No formal verification or expert attestation is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prime-characteristic toric theorem identifies a blowup ideal and addresses iteration of normalized Nash blowups.",
+          "The other located primary passages concern normalized blowups or combinatorial iteration/resolution of toric surfaces."
+        ],
+        "reasoning": "The general descriptions obtain the relevant chart setup, but a normalized fan alone does not retain the inclusion of the raw ring or its conductor, nor does it record the separability of the map on the conductor support. No dominating theorem giving these invariants was found in the passages inspected.",
+        "searches": [
+          "arXiv:2208.05599 pp. 2–3",
+          "arXiv:0910.5028 p. 1",
+          "arXiv:1110.4346 p. 1",
+          "arXiv:2410.15561 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary catalogue and matching SCOPE record 962316f3ade8",
+        "arXiv:2208.05599",
+        "arXiv:0910.5028",
+        "arXiv:1110.4346",
+        "arXiv:2410.15561",
+        "arXiv:1804.11050"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For even exponent in the stated characteristic the Nash ideal theorem yields (x,y), and thus the raw charts by specialization. The conductor needs the exact raw-to-normal inclusion: after reduction by x, the even-polynomial subring has zero conductor in the polynomial ring, including over k[z]/(z^m). The odd-exponent result has instead a generic numerical-semigroup defect."
+        ],
+        "reasoning": "Credit the known modification and normalized methods; neither theorem substitutes for identifying the conductor on the exceptional endpoints as well as the generic point and reading the reduced degree-two map.",
+        "searches": [
+          "arXiv:2208.05599 Theorem A and Theorem B",
+          "SCOPE record 962316f3ade8, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The logarithmic-Jacobian blowup is an alternative presentation of the modification, not a statement determining its conductor and residue-field extension.",
+          "The higher Nash source treats xy=z^4 over C and asserts singularity for every positive order; the order-one blowup there has a different Jacobian ideal."
+        ],
+        "reasoning": "Comparison by ring and morphism, rather than terminology or matching exponents, separates the known Nash construction and characteristic-zero singularity from the claimed conductor scheme and map.",
+        "searches": [
+          "Resultary: A-type Nash blowup conductor, exceptional cover, xy=z^(2m)",
+          "arXiv:2208.05599, Theorems A and B",
+          "arXiv:1804.11050, abstract and main theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-a-one-step-wild-conductor-jump-in-ordinary-nash-modifications-of--962316f3ade8, RESULT.md finding at offset 0 and discussion at offset 4947, treats odd n in xy=z^n with characteristic not 2 and the generic conductor semigroups <2,n> and <2,n−2>."
+        ],
+        "reasoning": "This is a close catalogue hit on the invariant and construction, but the parity and characteristic hypotheses and generic semigroup statements do not give the even family's full exceptional scheme or the square map. No exact prior entry beyond the assigned finding was identified.",
+        "searches": [
+          "Local Resultary and published SCOPE catalogue searches: A-type ordinary Nash conductor and exceptional double cover"
+        ]
+      },
+      "rationale": "The ordinary Nash ideal and methods for the normalized fan are known. The supported distinction is the unnormalized conductor on the full exceptional curve together with its exact thickness and characteristic-dependent reduced normalization map. No inspected source already gives or subsumes that calculation for the even-exponent family; this does not establish historical priority.",
+      "residual_risks": [
+        "Pass is limited to the explicit unnormalized conductor and cover, not novelty of the Nash ideal or normalized toric constructions.",
+        "Bounded primary-text comparison does not exclude an unindexed or uninspected even-exponent calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related, not equivalent or dominating",
+          "evidence": "Odd n and characteristic not 2; generic exceptional semigroups and conductor jump rather than even-exponent global thickening and residue cover.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-one-step-wild-conductor-jump-in-ordinary-nash-modifications-of--962316f3ade8",
+          "material_read": "RESULT.md finding and prior-work passages, offsets 0 and 4947, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror, bounded source passages",
+          "title": "A one-step wild conductor jump in ordinary Nash modifications of odd A-type surface singularities",
+          "trigger": "Closest indexed ordinary-Nash conductor match"
+        },
+        {
+          "assessment": "Known setup; normalized conclusions do not give the unnormalized conductor",
+          "evidence": "Theorem A identifies the logarithmic-Jacobian blowup; Theorem B concerns normalized toric surface modifications.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.05599",
+          "material_read": "pp. 2–3, offsets 5253 and 9205, Theorems A and B",
+          "method": "OA PDF, bounded text inspection",
+          "title": "Nash blowups of toric varieties in prime characteristic",
+          "trigger": "Positive-characteristic toric Nash theorem"
+        },
+        {
+          "assessment": "Different emphasis and invariant in the inspected passage",
+          "evidence": "The paper distinguishes ordinary from normalized Nash blowups and frames its resolution question around the latter.",
+          "identifier_or_url": "https://arxiv.org/pdf/0910.5028",
+          "material_read": "p. 1, offset 1337",
+          "method": "OA PDF, bounded text inspection",
+          "title": "Resolving toric varieties with Nash blow-ups",
+          "trigger": "General normalized toric descriptions"
+        },
+        {
+          "assessment": "No conductor formula in the inspected scope and results passage",
+          "evidence": "Iteration and combinatorial behavior of toric Nash modifications.",
+          "identifier_or_url": "https://arxiv.org/pdf/1110.4346",
+          "material_read": "p. 1, offsets 350 and 1752",
+          "method": "OA PDF, bounded text inspection",
+          "title": "Nash modification on toric surfaces",
+          "trigger": "Toric surface chart and iteration literature"
+        },
+        {
+          "assessment": "Different conclusion in the passages inspected",
+          "evidence": "Iteration and resolution properties for normal toric surfaces.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.15561",
+          "material_read": "p. 1, offsets 0 and 1641",
+          "method": "OA PDF, bounded text inspection",
+          "title": "Nash blowups of normal toric surfaces: the case of one and two segments",
+          "trigger": "Closely related toric surface family"
+        },
+        {
+          "assessment": "Non-dominating case in characteristic zero",
+          "evidence": "Singularity at every positive higher Nash order for z^4−xy over C, not positive-characteristic conductor data.",
+          "identifier_or_url": "https://arxiv.org/pdf/1804.11050",
+          "material_read": "pp. 1 and 3, offsets 0 and 5380, abstract and main theorem",
+          "method": "OA PDF, bounded text inspection",
+          "title": "Higher Nash blowups of the A_3-singularity",
+          "trigger": "Same exponent for m=2 and related construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 15–24 and 37–49",
+        "arXiv:2208.05599, Theorem B on normalized modifications"
+      ],
+      "rationale": "The exact conductor is a natural scheme invariant for a standard family and measures what is lost when the Nash blowup is normalized. The result identifies a codimension-one defect globally, determines its variable thickness and shows that the reduced normalization map changes separability. The normalized chart computation alone would not explain these distinctions.",
+      "residual_risks": [
+        "No claim is made for odd exponents, characteristics not dividing 2m, or arbitrary Nash blowups."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

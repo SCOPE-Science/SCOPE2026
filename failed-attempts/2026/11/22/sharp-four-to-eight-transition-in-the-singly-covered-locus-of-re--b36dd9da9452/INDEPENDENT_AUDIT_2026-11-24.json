@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:47:20.918821Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–90, VERIFICATION.md, and verify.py (read as evidence)",
+        "python3 /workspace/review-evidence/recompute.py 5; output /workspace/review-evidence/5.txt"
+      ],
+      "rationale": "For an interior point in the positive quadrant the largest corner projection strictly exceeds the squared norm; membership in just one closed disk requires the squared norm to strictly exceed the second projection |tx-y|. Axes tie. In polar coordinates the radial fiber has lower endpoint |t cos(theta)-sin(theta)| and upper endpoint min(t/cos(theta),1/sin(theta)). The only loss of a nonempty fiber occurs for 1/t<tan(theta)<t at 2 tan(theta)^2 - t tan(theta) + 1 <= 0. The double root removes the entire ray already at equality. The positive fibers are open intervals with continuous endpoints and hence connected over each surviving angular interval. Independently, Cartesian slicing yields F(t)=3/2-(1/(2t))*integral from 0 to min(3,sqrt(1+t^2)) of sqrt(1+t^2-z^2) dz. Indeed the two excluded horizontal widths are (sqrt(t^2+4y(1-y))-t)/2 and sqrt(max(0,t^2-4y(y+1))); they are disjoint. The omitted circular cap has height h=sqrt(1+t^2)-3. Rescaling its integral yields h^(3/2) times a smooth positive factor, proving C^1, failure of twice differentiability, and the stated coefficient 2*2^(1/4)/9. Differentiation of G_t confirms the equivalent angular antiderivative.",
+      "residual_risks": [
+        "Cartesian high-precision tests at eight aspect ratios and four cusp offsets are finite corroboration only. The analytic proof covers the continuum and critical equality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pavlík Theorem 5.1 covers all convex polytopes by the prescribed diameter balls, and Corollary 5.3 supplies power-diagram cells. Neither states the singleton multiplicity or topology.",
+          "The intersection-graph papers use polygon sides as diameters, not the center-to-vertex diameters of this problem."
+        ],
+        "reasoning": "General covering is already covered; the stronger lobe description in the distinct rectangle record is decisive for this specific geometry. The other general or related models do not supply that description.",
+        "searches": [
+          "Pavlík arXiv:2611.14277v1 §5",
+          "Huemer–Pérez-Lantero arXiv:1410.4126; Herrera–Pérez-Lantero arXiv:1805.10847"
+        ]
+      },
+      "checked_sources": [
+        "f60e87e98a2e exact Finding and lobe derivation; 1b3f060ecc28 exact regular-polygon finding",
+        "Pavlík §5; Huemer–Pérez-Lantero and Herrera–Pérez-Lantero model definitions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the positive quadrant, the twofold region is exactly x^2+y^2<=|tx-y|; its bottom lobe meets the top edge iff x(t-x)>=2, while the left lobe cannot meet the right edge when t>=1.",
+          "On every open-quadrant ray both disk-incidence and rectangular membership are radial cutoffs; the singleton fiber is the interval strictly between the twofold cutoff and the rectangular edge. A vanishing fiber corresponds exactly to a twofold contact at that edge."
+        ],
+        "reasoning": "The stated inequalities make the forbidden angular set empty below the threshold, a single ray at equality (the closed bottom lobe reaches the excluded edge at x=t/2), and a closed interval above. Continuous nonempty fibers give one or two components per quadrant and the tied axes separate quadrants. This count is a direct consequence of the compared geometry, not an independent unresolved classification.",
+        "searches": [
+          "f60e87e98a2e RESULT.md, Proof, the two quadrant lobe inequalities and cap paragraph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same four closed disks have N=1 or N=2 almost everywhere in both records, so F=1-q. The other record states q=pi*(t+1/t)/8-1/2-Phi/(4t) and the negative 2^(5/4)/9 cusp.",
+          "A separate regular-polygon result gives F(1)=3/2-pi/4, but not the non-square family."
+        ],
+        "reasoning": "A change from exact double to exact single coverage is only complementation for the Lebesgue-area observable under these hypotheses. Angular antiderivatives versus circular segments do not change the claim.",
+        "searches": [
+          "Resultary: centered rectangle vertex-to-center diameter disks, singleton area and exact twofold overlap transition",
+          "Resultary record f60e87e98a2e, Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f60e87e98a2e supplies an exact all-parameter formula and transition, not a finite table. The regular-polygon spectrum supplies the square endpoint from its n=4 entry."
+        ],
+        "reasoning": "The exact twofold formula in the indexed record determines the full target area curve; no finite table is required.",
+        "searches": [
+          "Resultary: rectangular Thales coverings, depth spectrum, singly covered area or twofold overlap",
+          "Resultary records f60e87e98a2e and 1b3f060ecc28"
+        ]
+      },
+      "rationale": "A distinct indexed same-day record on the identical centered rectangle, A sharp twofold-overlap transition for rectangular Thales coverings, explicitly establishes almost-everywhere multiplicities one and two, the entire exact twofold area law, the critical aspect ratio, and the same cusp with opposite sign. The frozen area fraction and singular expansion therefore duplicate that coverage by complementation. The other record does not print the singleton component count, but its exact pointwise lobe description gives it directly, including the critical equality with the stated closed disks. No publication order is inferred from the shared date.",
+      "residual_risks": [
+        "Priority between the two same-day records was not determined and is not necessary for the equivalent-coverage assessment.",
+        "The separately cited Exact diameter-disk depth of a regular polygon: mean redundancy and a quantitative limit law was not retrieved. This provides neither negative evidence nor grounds for the verdict.",
+        "The bounded primary-literature search returned no additional material passage; it does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent area and cusp; pointwise inequalities directly imply topology",
+          "evidence": [
+            "Finding defines identical closed disks, gives q, C^1 but not C^2 and the 3/2 term at sqrt(8). Proof gives S<=|A-B| and the two lobe inequalities."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-twofold-overlap-transition-for-rectangular-thales-coveri--f60e87e98a2e/RESULT.md",
+          "material_read": "Finding, Assumptions, and Proof, especially first-quadrant lobe and cap formulas",
+          "method": "Local mirror original text",
+          "title": "A sharp twofold-overlap transition for rectangular Thales coverings",
+          "trigger": "Strongest indexed match on the same disks and critical parameter"
+        },
+        {
+          "assessment": "Covers coverage, not singleton area or connectivity",
+          "evidence": [
+            "For P=conv S, balls with diameters [V,B] cover P; associated cells have disjoint interiors and each is contained in its ball."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.14277v1",
+          "material_read": "Theorem 5.1 and Corollary 5.3, offsets 45450 and 50217",
+          "method": "Open-access original text",
+          "title": "Thales's theorem in higher dimensions",
+          "trigger": "General disk-covering result on the same diameter rule"
+        },
+        {
+          "assessment": "Covers t=1 only among these rectangles",
+          "evidence": [
+            "For regular n>=4 the singleton fraction is 3/2-cos(2pi/n)-(pi/n)/sin(2pi/n)."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-exact-multiplicity-spectrum-of-vertex-to-center-diameter-disks-o--1b3f060ecc28",
+          "material_read": "RESULT.md Finding and Relationship to prior work, offsets 0 and 3800",
+          "method": "Local mirror original text",
+          "title": "Exact multiplicity spectrum of vertex-to-center diameter disks of regular polygons",
+          "trigger": "Exact singleton fraction for the same disk construction on regular polygons"
+        },
+        {
+          "assessment": "Distinct construction and invariant",
+          "evidence": [
+            "Both define disks with polygon sides as diameters and ask about intersection graphs."
+          ],
+          "identifier_or_url": "arXiv:1410.4126 and arXiv:1805.10847",
+          "material_read": "Both PDF first pages, model definitions (offsets 644 and 611)",
+          "method": "Open-access original PDF text",
+          "title": "Disks with polygon sides as diameters, two cited graph studies",
+          "trigger": "Related terminology and disk intersection geometry"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and angular argument; f60e87e98a2e Finding and pointwise lobe geometry"
+      ],
+      "rationale": "The singleton area and its cusp are natural, but the frozen contribution restates an already determined area profile. The change in component count is a useful geometric interpretation; after the exact lobes and their threshold contact are known, it follows by intersecting their radial bounds with the open rectangle. This leaves no substantively independent exact invariant here to repair.",
+      "residual_risks": [
+        "The interpretation is not printed as a component theorem in the comparator; the decision rests on the direct implication, not on identical wording."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

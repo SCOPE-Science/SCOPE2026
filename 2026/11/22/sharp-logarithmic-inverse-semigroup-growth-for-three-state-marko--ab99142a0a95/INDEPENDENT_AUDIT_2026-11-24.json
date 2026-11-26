@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:38:36.897710Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The counting ℓ¹ generator norm is twice the largest column exit rate q. For q=0 the generator vanishes. Normalize q=1, write the other exits b,c and t=b+c, and factor the characteristic polynomial of −Q as x times f(x)=x²−(1+t)x+p. The principal two-by-two minors give p=t+bc−∑_{i<j}Q_ij Q_ji≤t+t²/4. For t≥1/2 the mean of the two real parts is at least 3/4; for 0≤t≤1/2 one can independently see f(3/4)≤(2t−1)(2t+3)/16≤0, so there is a real root at least 3/4. This allows zero or repeated eigenvalues and reducible chains. Spectral mapping and norm domination of spectral radius give the logarithmic bound. For the explicit irreducible cycle at (1,1/4,1/4), exact arithmetic gives characteristic polynomial x(x−3/4)², stationary projection P and N=−Q0−(3/4)(I−P) with PN=NP=N²=0 and norm 4/3. Hence the inverse exponential at scaling h grows as e^{3h/4}h(4/3+o(1)) and the ratio tends to 8/3. In two states the nonzero spectral rate is r+s and the exit norm is 2 max(r,s). For exits h,0 the inverse norm is 2e^h−1, proving sharpness of 2; the one-state generator is zero. Replay: python3 /workspace/branches/frozen_math_reproductions.py 2 (SymPy); checks the threshold polynomial and computes the exact cycle projection from the nullspace, nilpotent, characteristic polynomial and norms. The uniform inequalities and scaling limits come from the proof, not the uploaded checker or numerical samples. The uploaded code was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Glück p. 2: ∥Q∥≤2|tr Q|≤2d log M for the stated column-stochastic semigroup and inverse norm bounded by M. The Cuthbert full text was not available."
+        ],
+        "reasoning": "Glück directly implies a logarithmic bound with coefficient 6 in d=3, not the smaller sharp 8/3 or the associated sharp spectral ratio. The uninspected inequality has unresolved scope.",
+        "searches": [
+          "Glück, arXiv:2004.05995, finite-dimensional bound",
+          "Cuthbert, doi:10.1112/jlms/s2-11.1.104, OA and alternate retrieval"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Finding, Proof and Relationship to prior work",
+        "Glück arXiv:2004.05995 p. 2",
+        "SCOPE-20261102-e5d1f1e388c4/RESULT.md",
+        "SCOPE-20261122-40ab4f079cbc catalog summary",
+        "Cuthbert DOI access/bibliographic evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The priced-cycle result optimizes the slowest decay under a positive price budget; equal prices include the repeated-root example. Glück's trace estimate uses no sharp three-state bound on the maximum exit rate relative to the spectral abscissa."
+        ],
+        "reasoning": "The cycle spectrum plus scaling can supply the obstruction to a coefficient below 8/3; it does not give the all-generator inequality at 8/3. The trace comparison is compatible with constants strictly larger than 8/3 and does not imply the sharp universal constant.",
+        "searches": [
+          "Glück p. 2 finite-dimensional estimate",
+          "SCOPE-20261102-e5d1f1e388c4 RESULT.md, Finding and Scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior cycle Q(1,1/4,1/4) in row convention is the transpose of the frozen witness. With q>0 the spectral version is equivalently min Re(z)≤1/4 over the two remaining eigenvalues, after removing one eigenvalue 1 from I+Q/q, a column-stochastic matrix with a zero diagonal entry."
+        ],
+        "reasoning": "The sharpness witness is genuinely shared after transposition. The earlier objective is the slowest decay exponent, not the maximum real part of −Q divided by a largest exit rate. Uniformization is an equivalence only with the normalization and diagonal restriction, not a change to arbitrary stochastic or M-matrices.",
+        "searches": [
+          "Resultary: three-state Markov-generator inverse semigroup and sharp largest real part",
+          "Spectral-abscissa design on a one-way three-state cycle, SCOPE-20261102-e5d1f1e388c4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-20261102-e5d1f1e388c4 explicitly covers the cycle-rate family containing the witness. Same-date SCOPE-20261122-40ab4f079cbc advertises mixing factor 2−√3 for minimal-support primitive discrete-time bistochastic chains. The target catalog entry itself is not a distinct match."
+        ],
+        "reasoning": "The indexed spectral family is exact overlap at witness level, not an extremal table for all conservative Markov generators at the imposed diagonal normalization. The same-date mixing hit is only a summary-level comparison and has different stochasticity conditions and objective.",
+        "searches": [
+          "Resultary: sharp three-state stochastic mixing, three-state spectra and exact inverse growth"
+        ]
+      },
+      "rationale": "The logarithmic inverse-semigroup problem and even the defective cycle used as witness have existing coverage. Pass the sharp universal three-state coefficient and its sharp largest-real-part form, not the example as a standalone new result, a general M-matrix claim, or an absolute historical-priority assertion. The closest full passages establish different extrema or a weaker logarithmic coefficient.",
+      "residual_risks": [
+        "Cuthbert 1975 remains a plausible historical overlap whose statement was not inspectable. An older inequality for the equivalent normalized stochastic spectrum or singular Markov M-matrix subclass may also cover the result; no priority claim beyond actual comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Weaker quantitative predecessor, not decisive coverage of sharp d=3 coefficient",
+          "evidence": "∥Q∥≤2|tr Q|≤2d log M.",
+          "identifier_or_url": "https://arxiv.org/abs/2004.05995",
+          "material_read": "p. 2 finite-dimensional estimate, OA offset 5979",
+          "method": "Targeted OA primary-text lookup",
+          "title": "On the decoupled Markov group conjecture",
+          "trigger": "Direct predecessor on inverse growth for Markov semigroups"
+        },
+        {
+          "assessment": "Witness-level overlap, not the universal extremum",
+          "evidence": "The budgeted optimization is for the slowest exponent, and its equal-price triangle condition admits square-root rates (1,1/2,1/2).",
+          "identifier_or_url": "SCOPE-20261102-e5d1f1e388c4",
+          "material_read": "RESULT.md Finding offset 294, equal-price passage near 1367, Scope offset 1832",
+          "method": "Resultary and mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact priced spectral-abscissa design on a one-way three-state cycle",
+          "trigger": "Same dimension and cycle witness; compare objective and range"
+        },
+        {
+          "assessment": "Different stated class and objective; no whole-document exclusion claimed",
+          "evidence": "Discrete-time primitive doubly stochastic minimal-support problem with mixing factor 2−√3.",
+          "identifier_or_url": "SCOPE-20261122-40ab4f079cbc",
+          "material_read": "Catalog summary only; mirror retrieval timed out",
+          "method": "Resultary search and attempted mirror read",
+          "title": "Sharp mixing on the sparsest primitive three-state bistochastic …",
+          "trigger": "Distinct same-date exact three-state extremum"
+        },
+        {
+          "assessment": "Unresolved; neither covering nor noncovering is established",
+          "evidence": "The title concerns the same general problem; no comparison against a primary theorem was possible.",
+          "identifier_or_url": "https://doi.org/10.1112/jlms/s2-11.1.104",
+          "material_read": "Bibliographic reference/access information only; not an inspectable theorem",
+          "method": "Targeted lawful OA lookup and search for alternate available copy",
+          "title": "An Inequality with Relevance to the Markov Group Problem",
+          "trigger": "Plausible historical equivalent bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The optimal coefficient is a natural extremal invariant for a pre-existing Markov inverse growth problem. It drops the general trace-based coefficient from 6 to the sharp 8/3 in the first dimension where 2 fails, including irreducible examples. The uniform upper estimate for all three-state rate allocations, rather than the already known cycle spectrum, supplies the substantive value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A new point is specified by a link graph; a forbidden tetrahedron containing that point is exactly a base triple whose three link edges are selected. For tight paths and cycles, the constrained pairs split into consecutive edges and short chords, so the transition matrix counts every link graph with precisely its edge-fugacity weight. The boundary vectors, free-pair powers and spectral trace are reconstructed in `RESULT.md`, and direct brute-force tests reproduce both the full finite polynomials and the small cycle totals. The all-length statements follow by exact bijections and eigenvalues, not experimental extrapolation.
+## correctness
 
-**Originality — PASS, with qualifications.** The classical homogeneous-limit extension theorem and the standard tight-cycle definition are prior inputs. The nearby published work of Frieze–Krivelevich–Loh concerns packing tight Hamilton cycles and does not state one-point extension spectra. A related indexed result for the generic \(K_4^-\)-free 3-hypergraph concerns a strictly different forbidden configuration, so its conclusions do not assert the formula for the \(K_4^{(3)}\)-free class here. The full transfer polynomial and its exact spectral asymptotic over both natural one-dimensional families were not found in the searches described in the structured originality review. An implicit equivalent in specialized transfer-matrix literature remains a real risk.
+PASS
 
-**Value — PASS.** Complete one-point spectra are a natural quantitative invariant in homogeneous model theory, and overlapping tight-cycle forbidden triples are the canonical cyclic stress test beyond independent local constraints. The exact fugacity polynomial gives the full distribution of possible incident hyperedges, not only one count. The closed spectral rate also proves that overlap increases the survival probability by an exponentially growing factor relative to treating the local obstructions as independent, which is a mathematically motivated distinction.
+Over an individually named finite base A, an extension point's link specifies the induced one-point extension. Two realizations of the same link are conjugate over A by homogeneity. A link is allowed exactly when it omits at least one of the three pairs of every hyperedge of A: a new tetrahedron must consist of the extension point and three adjacent base vertices. Every allowed link has arbitrarily many distinct realizations by taking copies with no edges involving two new points and using the age extension property. Thus the allowed links give all nonalgebraic types exactly once, and the only algebraic types are the n equality types. The designated bases are admissible: a tetrahedron extending the base triple (i,i+1,i+2) would require its fourth vertex simultaneously to be i−1 and i+3; this cannot occur on the path or modulo n≥5. For n=4 the cycle is forbidden. The constrained pairs are consecutive edges a_i and distinct distance-two chords b_i (including at n=5); each constraint is a_i a_(i+1) b_i=0. Summing over each private b_i gives 1+u except at (a_i,a_(i+1))=(1,1), where it gives 1. The weight u^(a_(i+1)) produces exactly the stated M; a fixed labelled starting edge leads to vM^(n−2)1 for the path and trace M^n for the cycle, without any rotational quotient. Isolated pair variables explain the free exponents. At u=1 the determinant is −2 and trace 3, so eigenvalue powers give all the stated counts and the fraction with decay base (3+√17)/8>7/8. The supporting verifier and recorded output were inspected, not executed. Independent inclusion-exclusion over sets of base triples gives the small totals, including 573, 16328 and 930432, and the n=5 cycle coefficient sequence (1,10,45,115,175,152,65,10); replay /workspace/branches/independent_small_checks.py. The proof, not the finite tests, covers all n.
 
-**Limitations.** The theorem concerns a fixed Fraïssé limit, individually named finite path/cycle parameters and nonalgebraic 1-types; it does not solve arbitrary-base or higher-arity counts. The comparisons are not a guarantee of worldwide novelty. Exhaustive checks are finite corroboration.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the explicit all-length, degree-refined type count and resulting probability over these two named-base families, not the Fraïssé framework or a new transfer-matrix method. The auxiliary problem is the weak independence polynomial of a loose hyperpath or hypercycle and was checked in that form too. The strongest inspected general weak-independence recurrences compute the invariant for any hypergraph but do not provide the family-specific two-state simplification or its sharp type-count asymptotic in the passages read. The inspected exact expansion result counts a different kind of independent set.
+
+## value
+
+PASS
+
+The tight path and cycle provide natural overlapping-edge bases in the same homogeneous structure, with respectively open and periodic boundary conditions. The formulas determine every rank of the link spectrum, not just small counts, and quantify the difference from treating consecutive tetrahedron constraints as independent. The exact family-wide reduction to two states gives usable information not supplied by brute force or the base's age alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

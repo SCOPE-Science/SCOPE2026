@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:53:58.997122Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions and scope, Proof, Verification",
+        "Frozen corridor_checker.py and VERIFICATION.md",
+        "calculations/numerical_examples.py and numerical_examples.txt (record 4)"
+      ],
+      "rationale": "Fresh attempts start from the same closed state; the stage-sum Laplace transform gives success probability q=P_n⁻¹. An open attempt consumes mean (1−q)/(βλ) before success or closure and is preceded by mean 1/(αλ) closed delay. Dividing expected trial duration by q gives M_n=(P_n−p)/(pβλ), p=α/(α+β). The positive coefficients of P_n give strict convexity from the reciprocal term plus nonnegative second derivatives of the powers. The derivative is negative near zero; for n≥2 the positive quadratic coefficient in P_n makes it positive at sufficiently high turnover, whereas for n=1 only the decreasing reciprocal term varies. Appending rate ν increases the mean by (α+β)P_n/(αν); the positive derivative of this increment shifts the unique minimum left whenever the old finite minimum exists. With equal stage rates, P_n−λP_n′=p gives the stated strictly decreasing root equation on 0<βλ/μ<1/(n−1). The rescaled roots are bounded by n/(n−1), and every subsequential limit solves (1−y)e^y=p, whose sole root on [0,1] is on the principal Lambert branch. The unit-rate samples and c(1/2)=0.768039047013465… agree. This is an analytic result; the frozen rational diagnostics were inspected, not executed.",
+      "residual_risks": [
+        "The stage-ordering comparison begins at n=2; one stage has no finite optimizer. The model starts closed and requires complete restart, independent clocks, and fixed availability; no conclusion was transferred to partial progress or a stationary initial state."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2025 service paper explicitly connects its complete-breakdown transform limit to Gaver's more general preemptive-repeat-different case.",
+          "Scher–Reuveni's ungated-passage formula assumes a gate state decoupled from position dynamics; it is not a theorem for erasure of all crossing progress at closure."
+        ],
+        "reasoning": "General job-completion and refractory transforms cover the mean by specialization; general gated reactions and resonant activation provide context but not the required stage extension claim. The fixed-availability tie αλ:βλ and optimizer comparison across arbitrary positive stage rates are decisive.",
+        "searches": [
+          "Baykal-Gürsoy–Figueroa-Candia–Duan DOI 10.1017/S0269964824000226 §2.1 and Cor. 2.3 with complete breakdown",
+          "Gaver DOI 10.1111/j.2517-6161.1962.tb00438.x",
+          "Scher–Reuveni arXiv:2101.05124 Eqs. (1)–(3)",
+          "Evans–Majumdar arXiv:1809.01551 §3.4"
+        ]
+      },
+      "checked_sources": [
+        "Evans–Majumdar 1809.01551",
+        "Baykal-Gürsoy et al. 10.1017/S0269964824000226",
+        "Scher–Reuveni 2101.05124",
+        "Resultary 36cb05c1a132 and related finite-time dispersal/occupancy records",
+        "Gaver 1962 and Doering–Gadoua 1992 (limited primary access)",
+        "Frozen Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set R=βλ and Eτ=1/(αλ). The active-start formula is (q⁻¹−1)(1/R+Eτ); adding Eτ supplies the frozen closed-start formula.",
+          "For deterministic traversal time T the same mean gives (e^{RT}−p)/(pR), so its dimensionless optimizer already solves (1−RT)e^{RT}=p. This derives the deterministic limiting constant from established renewal machinery, not convergence of finite-stage optima."
+        ],
+        "reasoning": "The mean is a covered corollary. For the optimizer the specialized positive polynomial supplies strict global convexity and a strictly positive difference of derivatives under every stage extension. The scale-limit proof additionally makes minimizer convergence rigorous; a heuristic substitution of a deterministic traversal time for Erlang time does not by itself justify interchanging the optimizer and the limit.",
+        "searches": [
+          "Specialize Evans–Majumdar Eq. (36) to Poisson reset, independent down time and hypoexponential service; compare exact same-day 36cb05c1a132 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The bridge is an interrupted job with i.i.d. fresh service requirements, failure rate βλ in the up state and repair/opening rate αλ down.",
+          "Evans–Majumdar Eqs. (36)–(38) give the active-start mean via reset-period and refractory contributions; adding the initial closed wait yields precisely the assigned mean."
+        ],
+        "reasoning": "These are model and formula equivalences, not just shared vocabulary. The renewal derivation is not counted as a distinct discovery. The inspected results do not give the optimizer when the interruption rate and mean refractory time vary together at fixed availability.",
+        "searches": [
+          "Resultary: multistage transient bridge, fixed-availability turnover optimum, restart with refractory duration",
+          "Literature: preemptive-repeat-different service, Poisson restart with refractory wait and Erlang/hypoexponential completion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact service/restart formulas include this mean; the distinct local two-stage result gives a closed equation for an opening-window offset, not a shared turnover rate.",
+          "The exact matching fixed-availability optimizer statement located in the local index is the assigned record itself."
+        ],
+        "reasoning": "Not a catalog problem; its analogue is exact optimizer and limit-law coverage. A mean transform or deterministic-window delay formula is not a tabulation or characterization of these serial-stage optima.",
+        "searches": [
+          "Resultary matched record 25b400aaf6a3 and closest separate matches 36cb05c1a132, d437ebce6f5e, acc3d9cfe952",
+          "Published exact completion-time formulas in 10.1017/S0269964824000226 and arXiv:1809.01551"
+        ]
+      },
+      "rationale": "The mean formula is directly covered by general interrupted-service/refractory renewal theory, and an intermediate fluctuation-rate optimum is not itself a new phenomenon. Originality is supported for the fixed-availability optimizer classification in this serial-stage model, in particular the strict arbitrary-rate stage-extension ordering and equal-stage optimizer convergence. The strongest inspected overlapping general formulas do not state those optimizing results; the distinct temporary-habitat record optimizes a deterministic window offset for one journey. No priority is inferred from dates shared by indexed records.",
+      "residual_risks": [
+        "A matching optimizer specialization may exist under interrupted-service or rescaled refractory-reset terminology; the earliest Gaver text and the resonant-activation paper were not independently inspected in full. The exact mean and generic possibility of an optimum are explicitly not treated as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mean directly covered after closed-start adjustment; no matching optimizer statement in these passages",
+          "evidence": [
+            "The mean equals an expected active-trial duration plus refractory time weighted by surviving to reset, divided by success probability."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1809.01551",
+          "material_read": "§3.4, Eqs. (36)–(38), pp. 11–12, offsets 36200–39731",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Effects of refractory period on stochastic resetting",
+          "trigger": "Exact equivalent general restart model with inactive waits"
+        },
+        {
+          "assessment": "Broader transform/mean framework; explicit attribution of complete breakdown to Gaver",
+          "evidence": [
+            "Cor. 2.3 treats exponential durations. The passage after Eq. (2.20) says taking α→0 in the service-state parameter gives a transform coinciding with Gaver's preemptive-repeat-different interruption case. This α is not the bridge's opening-rate coefficient."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0269964824000226",
+          "material_read": "§2.1 p. 192 near offset 21100; Cor. 2.3 pp. 193–194 near offsets 26000 and 34100–36463",
+          "method": "Lawful Cambridge OA PDF passage inspection",
+          "title": "Completion times of jobs on two-state service processes and their asymptotic behavior",
+          "trigger": "Independently resampled service under exponential up/down interruptions"
+        },
+        {
+          "assessment": "Related gated reaction, not the same event or restart mechanism",
+          "evidence": [
+            "Uses ungated first-passage and return quantities and assumes the gate state and position dynamics decoupled."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2101.05124",
+          "material_read": "§Gated reactions on networks, Eqs. (1)–(3), pp. 2–3, offsets 8500–11090",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "A unified approach to gated reactions on networks",
+          "trigger": "Potential broader first-passage result for switchable gates"
+        },
+        {
+          "assessment": "Same dispersal motif, different model/optimization",
+          "evidence": [
+            "One uniform departure from a fixed source window and two exponential stages; maximizes arrival into a destination window over the destination start d. There is no renewal across failed journeys."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-gap-to-overlap-transition-for-two-stage-dispersal-betwee--36cb05c1a132/RESULT.md",
+          "material_read": "§Finding, offsets 0–1729",
+          "method": "Local publication mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp gap-to-overlap transition for two-stage dispersal between temporary habitats",
+          "trigger": "Closest distinct temporary-habitat and serial-exponential-stage local result"
+        },
+        {
+          "assessment": "Access-limited original; formula-level overlap corroborated by the 2025 and 2018 sources",
+          "evidence": [
+            "Direct route returned 403. No assertion that the inaccessible paper lacks an optimizer result."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/j.2517-6161.1962.tb00438.x",
+          "material_read": "No primary full text; identification through the 2025 paper's p. 194 complete-breakdown passage",
+          "method": "Lawful DOI access attempt and cross-reference inspection",
+          "title": "A waiting line with interrupted service, including priorities",
+          "trigger": "Classic equivalent interrupted-service model identified in an accessible primary text"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof and Limitations",
+        "Published interrupted-service and refractory renewal comparisons"
+      ],
+      "rationale": "The modeled turnover decision fixes the usable fraction of time, so the competing mechanisms are waiting for a fresh opportunity and losing accumulated progress. The sharp one-stage versus multistage boundary and ordering under an arbitrary additional bottleneck isolate which feature generates a finite optimum and predict its shift without assuming stage homogeneity. The Erlang sequence further answers how the optimal clock changes for many comparable stages. These are substantive decisions about a motivated model beyond the routine mean transform or a single resonant example.",
+      "residual_risks": [
+        "Exact mathematical mechanism only; no ecological field validation, inference from landscape distance to stage count, or comparison for mortality, gate correlations or retained progress."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

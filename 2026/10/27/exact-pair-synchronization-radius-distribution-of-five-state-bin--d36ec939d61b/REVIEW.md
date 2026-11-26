@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The explicit ten-pair transition graph gives a finite, complete correctness argument for computing every prescribed-pair shortest merge length. Both exhaustive C++17 implementations independently enumerate all \(5^{10}\) ordered binary transition pairs and agree on each of the ten radius frequencies, \(1{,}702{,}240\) nonsynchronizing cases, and the \(240\)-member extremal set. The reverse implementation verifies that all extremizers form one orbit under the full state-and-letter symmetry. Source code, an independent direct witness checker, and a replay script are included. The sharp general upper bound and the classical witness are correctly attributed to prior work.
+PASS
 
-## Originality — PASS within examined literature
+In the ten-vertex graph of unordered nonmerged pairs plus a merged sink, the distance from a pair to the sink is its shortest merging word length. A shortest path cannot repeat a nonmerged pair, so its length is at most ten if finite. If all pairs can merge, successively merging any pair in the current image strictly reduces its size until a reset word has been built; the converse is immediate. A separately authored computation exhausted all 9,765,625 ordered map pairs with forward shortest-distance layers. It reproduced counts 31225, 1852520, 3544680, 1798320, 613920, 175440, 38160, 7440, 1440, 240 at radii 1 through 10, respectively; 1702240 infinite; and weighted finite sum 26027825 over 8063385, giving mean 5205565/1612677. The entire set of 240 radius-ten transition pairs equals the orbit generated from the displayed Černý representative by all state relabelings and both letter orders. Its ten pair distances and the ten-step word agree with the frozen proof.
 
-The closest source is M. Szykuła, *Synchronizing Automata: Open Problems* (2026), Sections 2.3–2.6. It gives the standard prescribed-pair upper bound and Černý tightness but no five-state distribution or equality-class census. M. de Bondt, H. Don, and H. Zantema, *Slowly synchronizing automata with fixed alphabet size* (2016), Section 4, census reset thresholds, which do not imply the distribution of worst prescribed-pair merger times. Related prior finite findings concern reset thresholds, unconstrained pairing, triple rendezvous, and reaching-diameter invariants rather than the radius defined here. Negative searches do not prove unique historical priority: an unindexed earlier pair-radius enumeration remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The prescribed-pair merge radius controls the hardest two-state synchronization instance and is central to pair-graph synchronizability algorithms. Its full labeled distribution gives a non-arbitrary benchmark for random binary five-state automata, an exact mean, a sharp finite tail, and an exhaustive orbit classification of all maximizers. Those facts are not implied by the already known quadratic upper bound or the global reset-length distribution. The result makes no unsupported claim for larger sizes.
+The closest enumerations count a different pair statistic or a different notion of compression. The known prescribed-pair bound and the Černý witness are not the contribution. Within the compared sources, the full labeled histogram of the worst prescribed-pair distance and the extremal set equality remain distinct.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The distance of the hardest prescribed pair is a natural measure of pair compression, finer in a different direction than the available reset-length or max–min censuses. The complete five-state binary distribution quantifies how rare slow pairs are, and the exact orbit equality gives the sharp statement that attainment of the general bound is confined to the classical example at this order. This addresses that concrete finite classification, not merely a rediscovery of the upper bound or witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

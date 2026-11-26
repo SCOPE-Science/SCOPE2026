@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:30:12.429172Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–55",
+        "VERIFICATION.md and check_factor.py, source inspected, not executed",
+        "/workspace/branches/1e677378-be2c-41e7-afb3-4dc66a79c41b/check_record1_independent.py: fresh exact-rational checks over n=2,…,24 and bounded factor examples at four rational w"
+      ],
+      "rationale": "Detailed balance and telescoping give the sharp factor at j=m+1 as F_m G_{m+1}/((m+1)²p_{m+1}); the lower tail and its complement attain the eventwise bound. At m=0 it is (1-p_0)/(4w)≥1/4. Summing the quadratic-geometric tail and using n=m+1 gives the factor bound 5/n in each regime (1-w)n≤1 or ≥1, which suffices for n≥25. For 2≤n≤24, bounding the three geometric-moment terms by their stated rational envelopes gives B_n with denominator 1140n(n+1). The numerator of 1/5−B_n is 23 at n=2 and is at least 135n²−236n−221>0 for 3≤n≤24. Thus every later site is ≤1/5 uniformly on the frozen interval, the maximizer is unique in its index, and the limit follows exactly. The events themselves need not have unique signs.",
+      "residual_risks": [
+        "The replay is finite; the two-regime analytic estimate covers the infinite index set. No maximal left endpoint or first-difference conclusion was established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general HNB theorem covers both factors for arbitrary fixed row parameters in some near-one interval. DeSalvo supplies the sharp supremum representation and asks for dense behavior. Eichelsbacher’s affine-rate estimates do not cover the quadratic birth rate."
+        ],
+        "reasoning": "Broader eventual coverage is real and is credited; specializing it does not certify a specific lower endpoint or vouch for the noninitial cap throughout the stated interval.",
+        "searches": [
+          "Resultary/SCOPE 4555ce60a28a, Finding and proof steps 1–3",
+          "DeSalvo, Proposition 3.17 and Open Problem 7",
+          "Eichelsbacher, Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "DeSalvo arXiv:2611.00275v1",
+        "Eichelsbacher arXiv:2609.25380",
+        "Resultary/SCOPE e5e20c204666, 4555ce60a28a, c61fadb74d75"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general proof first takes a limsup in w and then a remote-site cutoff; finitely many strict comparisons near one finish it. It does not supply this two-regime numerical uniform tail bound and the finite-range estimate for every w≥9/10. Its prior-work section explicitly recognizes an earlier special case providing a restricted size-factor window."
+        ],
+        "reasoning": "The exact formula and limit alone are mechanically implied in the eventual sense and are not novelty evidence by themselves. The frozen explicit parameter and site bounds are an independent quantitative part. The self-credit is recorded without inferring a precise chronology from identical date paths.",
+        "searches": [
+          "4555ce60a28a, proof step 3 and Relationship to prior work, mirrored offsets 1480–6817",
+          "DeSalvo, Proposition 3.17; Open Problem 7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Taking r=2, c=2 and both offsets zero in 4555ce60a28a gives weights (n+1)²w^n and b(n)=(n+2)², d(n)=n². Its exact eventual size formula then equals (1-p_0)/(4w). The record c61fadb74d75 instead takes first differences and constant birth."
+        ],
+        "reasoning": "The general HNB result is the same size factor in an unspecified eventual window; the constant-birth increment alias is not an equivalence.",
+        "searches": [
+          "Resultary/SCOPE HNB Stein size factor, lattice endpoint, eventual first-site optimality: e5e20c204666, 4555ce60a28a, c61fadb74d75",
+          "DeSalvo, Proposition 3.17"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched general theorem already fixes the same eventual exact value. Its 36-family diagnostic is described as checking finite examples and explicitly does not compute a threshold w_0."
+        ],
+        "reasoning": "A finite factor table cannot establish the all-w, all-n pair of bounds. The exact published expression is credited as qualitative eventual coverage.",
+        "searches": [
+          "Resultary/SCOPE e5e20c204666 (self-hit), 4555ce60a28a (distinct), c61fadb74d75",
+          "Proposition 3.17 and exact site-zero value"
+        ]
+      },
+      "rationale": "Pass for the explicit nonasymptotic parameter window and quantitative uniform separation of the noninitial sites. A distinct same-day general HNB result directly covers the qualitative eventual equality and the limit under the exact parameter substitution, and itself describes the two-row result as an earlier special case. Date paths do not establish priority. Its near-one compactness/finite-site argument does not give the certified window [9/10,1) or the uniform cap of 1/5. Those are proved here via a quantitative all-index estimate, not asserted as a new generic first-site principle.",
+      "residual_risks": [
+        "Exact publication order of the two same-day records is undetermined. The audit does not certify historical priority or exclude a differently parametrized quantitative inequality; unhelpful search results are not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior exact supremum representation, not endpoint evaluation",
+          "evidence": "The supremum is over F(m)G(m+1)/(d(m+1)p_{m+1}); the problem asks about both size and increment factors as w approaches one at fixed c.",
+          "identifier_or_url": "https://arxiv.org/html/2611.00275v1",
+          "material_read": "Proposition 3.17, offsets 88300–92499; Open Problem 7, offsets 157100–161300",
+          "method": "Original arXiv HTML, bounded relevant passages",
+          "title": "Stein's method for negative binomial and hyper-negative-binomial laws, with applications",
+          "trigger": "Closest general supremum formula and motivating open problem"
+        },
+        {
+          "assessment": "Exact eventual qualitative specialization; no certified [9/10,1) or uniform 1/5 later-site cap",
+          "evidence": "Both factors equal (1-p_0)/(w product_i(kappa_i+c)) for some unspecified w_0<1; the proof uses fixed-site limits and a uniform asymptotic tail argument.",
+          "identifier_or_url": "Resultary/SCOPE 4555ce60a28a",
+          "material_read": "Mirrored Finding offsets 650–1740 and proof/verification/prior-work offsets 1480–6817",
+          "method": "Configured Resultary semantic search followed by local mirror reading",
+          "title": "Eventual first-site optimality of both Stein factors for dense HNB laws",
+          "trigger": "Distinct exact coverage with dominating parameters"
+        },
+        {
+          "assessment": "Different factor and operator",
+          "evidence": "The result concerns a constant-birth first-difference factor, not the quadratic-birth indicator size factor.",
+          "identifier_or_url": "Resultary/SCOPE c61fadb74d75",
+          "material_read": "Mirrored RESULT.md offsets 0–2527",
+          "method": "Configured Resultary search and local mirror",
+          "title": "The first-lattice-site law for Stein increments of log-concave birth-death targets",
+          "trigger": "Earlier lattice-endpoint theorem"
+        },
+        {
+          "assessment": "Outside the quadratic rate assumptions",
+          "evidence": "The theorem uses b_k=a+rho k and bounds the envelope at a maximizing index; it is not a general first-site law.",
+          "identifier_or_url": "https://arxiv.org/html/2609.25380",
+          "material_read": "§3, Theorem 3.1, offsets 19600–21987",
+          "method": "Original arXiv HTML, theorem passage",
+          "title": "Eichelsbacher, Stein-factor bounds for affine birth rates",
+          "trigger": "Plausible broader birth–death envelope theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof",
+        "DeSalvo, Open Problem 7",
+        "Resultary/SCOPE 4555ce60a28a, Finding and limitations of its threshold"
+      ],
+      "rationale": "The HNB open problem motivates a natural Stein error constant. This result makes the eventual assertion usable at a stated finite parameter, including w=0.9, and certifies a gap of at least 1/20 against every competing site. Exact evaluation and robust localization across an entire explicit interval are more informative than computing the first site's value or observing its numerical dominance.",
+      "residual_risks": [
+        "The interval is sufficient rather than optimal; this does not resolve the general HNB question or independently add a new eventual-maximizer theorem beyond the overlapping result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

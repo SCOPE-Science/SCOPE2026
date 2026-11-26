@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,8 @@
   "schema_version": 1
 }
 ---
-# Verification of the algebraic classification
+# Reproducibility and scope
 
-The exact proof is in `RESULT.md`. The reproducibility check is the ordinary Python standard-library script `verify.py`: run `python3 verify.py` from this directory. It enumerates all invertible side blocks for complete-bipartite graph evolution algebras over the three prime fields \(\mathbb F_3\), \(\mathbb F_5\), and \(\mathbb F_7\), filters the bilinear product equations, and obtains \(8,8,24\) automorphisms of \(K_{2,2}\). It independently constructs the complete linear system of derivation conditions and calculates their modular ranks for the seven reported parameter cases. On its current execution the script returned `VERIFY_OK`.
+The scheme-level proof is in `RESULT.md`. It uses mixed products to determine the block-diagonal open over arbitrary coefficient algebras and shows that this open, together with its exchange translate in the balanced case, covers the scheme. The finite factor \(\mu_3\) accounts exactly for the characteristic-three tangent defect.
 
-The finite checks do not prove the infinite-field or scheme claims; the proof identifies the entire left-multiplication rank-one locus, solves the exact block equations, calculates the identity neighbourhood of the affine group scheme, and derives the tangent-space equations. No outside expert or independent audit was performed. The exclusions for characteristic two and noninvertible part sizes remain in force.
+`verify.py` is a standard-library Python diagnostic that can be run with `python3 verify.py`. It counts automorphisms in small rational-point examples and assembles the Leibniz equations in seven small prime-field cases, including characteristic three. The rational-point counts illustrate the distinction between field-valued points and the scheme; these calculations are not a proof of its structure over general coefficient rings. No results in characteristic two or with a noninvertible part size are asserted.

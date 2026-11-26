@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:29:43.301744Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The full-length Parikh vector fixes the labelled multiplicities. Common renaming therefore reduces completeness to the 22 partitions of eight with all their canonical labelled multiset permutations; the frozen checker generates each recursively, sorts all factor vectors retaining multiplicities, and compares whole fibers. Independently, if S_k sums the Parikh vectors of length k, then for k<=ceil(n/2) position i occurs min(i,n+1-i,k) times. Thus S_k-S_{k-1} gives the sum on the positions of mirror depth at least k, and a second difference recovers each unordered mirror pair and the center if any. I enumerated each word up to common symbol renaming by restricted-growth strings, tested every orientation of those pairs (at most 16 per word), and compared exact spectra using noncarrying base-9 codes with one digit per letter. All 48,816 candidate comparisons for lengths 1–8 agreed, including all 4,140 length-eight renaming representatives; private replay /workspace/branches/replay/length8.py and length8.txt. For the four-word template, swapping the inserted letters reciprocates the bracket in the prefix polynomial while reversal preserves spectra; the four words are distinct iff both pairs have distinct entries. The positions recover both unordered pairs separately, even when they intersect. Reversal implies every singleton is a palindrome and the classification makes every palindrome a singleton. Thus there are q^4 singletons and binom(q,2)^2 quadruples; the remaining words pair off, giving the stated fiber and zero-error code counts. The first-ambiguity statement is in the q>=2 regime.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Acharya et al. classify binary equicomposability via reciprocation of irreducible factors, and E_{p^k-1}=2^k for odd prime p gives E_8=4. Gupta–Mahdavifar give sufficient conditions for efficient binary reconstruction."
+        ],
+        "reasoning": "Broader length coverage for binary words and reconstruction algorithms do not by themselves supply the exact arbitrary-alphabet census or exclusion of further many-letter fibers. The recursive general-alphabet extension noted in Acharya et al. is not a stated all-alphabet counting theorem.",
+        "searches": [
+          "Acharya et al. arXiv:1403.2439, Theorem 8 and prime-power extremal results",
+          "Gupta–Mahdavifar arXiv:2201.09955 v2, abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1403.2439, Sections 1, 2, 4, 6 and the prime-power result",
+        "arXiv:2201.09955 v2 abstract",
+        "Local Resultary index and the Findings of the three binary SCOPE records identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Interleaving supplies the templates, and the exact binary row is covered. Theorem 8's explicit classification is for binary strings; equivalence to one's reversals in separate binary images does not amount to a full joint many-symbol fiber classification without additional consistency work."
+        ],
+        "reasoning": "Neither the known construction nor the binary restriction yields the converse for all multiplicity patterns. The census is elementary once that converse is established; novelty is assessed on the converse and complete census together.",
+        "searches": [
+          "Acharya et al. arXiv:1403.2439, Section 4 and Section 6 Theorem 8",
+          "Resultary binary 1–23 Finding, offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sections 1–2 treat reconstruction from multiplicity-preserving substring compositions; their first binary collision occurs at length 8. Section 4 proves reversal of one interleaving constituent preserves composition observations."
+        ],
+        "reasoning": "Equicomposability and equality of observations are the same relation. The zero-error size is simply the number of fibers in that relation, not a separate originality claim. Interleaving gives existence of the specified quadruples, not their exhaustiveness over q labelled symbols.",
+        "searches": [
+          "Resultary local index: substring composition spectra, equicomposable strings, arbitrary alphabet length-eight fibers",
+          "Acharya et al. arXiv:1403.2439, Sections 1, 2, 4 and 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later binary lengths 1–23 record contains the exact q=2 row: 16 singleton fibers, 118 pairs, one quadruple, 135 observations. The earlier length-23 and length-14 records are different finite binary censuses."
+        ],
+        "reasoning": "The binary table corroborates exact overlapping numbers, but has no q>2 coverage. None of the inspected tables gives the length-eight q-polynomial or its many-letter fiber description.",
+        "searches": [
+          "Local Resultary catalog, two semantic queries for equicomposability and exact spectra/censuses",
+          "2026/11/2/SCOPE-exact-composition-multiset-ambiguity-spectrum-for-binary-words-o--1ad4f8d99e9e",
+          "2026/10/25/SCOPE-complete-length-23-binary-substring-composition-ambiguity-census--2beb2bd84c74",
+          "2026/10/12/SCOPE-exact-binary-length-fourteen-substring-composition-ambiguity-cen--0b1ad3b32456"
+        ]
+      },
+      "rationale": "Supported for the complete arbitrary-alphabet fiber classification and exact census at length eight, not for the interleaving mechanism, the binary maximum fiber size, or the first-ambiguity boundary as standalone results.",
+      "residual_risks": [
+        "An unindexed all-alphabet enumeration or an explicit specialization of a stronger many-alphabet factor classification could overlap. The consulted binary follow-up abstract does not justify a whole-paper exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers construction and binary extremal facts; not the arbitrary-alphabet census in checked statements",
+          "evidence": [
+            "01001101 and 01101001 are the exhibited binary collision.",
+            "Interleaving has length (|s|+1)(|t|+1)-1 and allows reversal of the inserted constituent.",
+            "Theorem 8 describes all equivalent binary strings by choosing irreducible factors or their reciprocals."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1403.2439",
+          "material_read": "Sections 1–2 (printed pp. 1–2, offsets 2976 and 7915), prime-power result (p. 3, offset 11000), Section 4 (pp. 4–6, offset 17978), Section 6 Theorem 8 (p. 8, offset 28543)",
+          "method": "Lawful OA primary preprint, targeted passages",
+          "title": "String Reconstruction from Substring Compositions",
+          "trigger": "Foundational paper, exact binary ambiguity threshold and potential stronger classification"
+        },
+        {
+          "assessment": "Viewed statement concerns sufficient reconstruction conditions for binary strings, not a whole-paper exclusion",
+          "evidence": [
+            "Abstract describes sufficient conditions for polynomial-time binary reconstruction."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2201.09955",
+          "material_read": "Version 2 abstract, printed p. 1, offset 0",
+          "method": "Lawful OA primary preprint",
+          "title": "A New Algebraic Approach for String Reconstruction from Substring Compositions",
+          "trigger": "Follow-up using the same observation model and potentially stronger reconstruction"
+        },
+        {
+          "assessment": "Exact binary restriction in later record",
+          "evidence": [
+            "The length-eight row has 135 observations, with sizes 1:16, 2:118, 4:1."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-composition-multiset-ambiguity-spectrum-for-binary-words-o--1ad4f8d99e9e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact composition-multiset ambiguity spectrum for binary words",
+          "trigger": "Potential exact table overlap"
+        },
+        {
+          "assessment": "Different length and only binary",
+          "evidence": [
+            "Census at n=23 includes 160 quadruples, eight outside the classical interleaving family."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-complete-length-23-binary-substring-composition-ambiguity-census--2beb2bd84c74",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Complete length-23 binary substring-composition ambiguity census",
+          "trigger": "Earlier exact census using the same observation model"
+        },
+        {
+          "assessment": "Different length and only binary",
+          "evidence": [
+            "Census at n=14 includes 128 singleton fibers, 8104 pairs and 12 quadruples."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-exact-binary-length-fourteen-substring-composition-ambiguity-cen--0b1ad3b32456",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact binary length-fourteen substring-composition ambiguity census",
+          "trigger": "Earlier census of exact equicomposability classes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Length eight is the first intrinsically ambiguous length, not an arbitrary cutoff. The result gives the entire deterministic channel at that transition up to its observation fibers, including the overlap types of the symbol pairs and the exact loss of distinguishable words compared with reversal alone, for every finite alphabet. This is usable both as an exact benchmark for reconstruction and to determine the maximum zero-error code size at the boundary.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

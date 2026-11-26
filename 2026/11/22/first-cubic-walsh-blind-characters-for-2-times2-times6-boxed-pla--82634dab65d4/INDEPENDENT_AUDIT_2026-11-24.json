@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:07:52.719203Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An order ideal is a nested sequence of layers, each one of the six square lower ideals; conversely any such sequence defines an ideal. Using this independent enumeration and layer-major bit indexing, I reproduced the entire integer Walsh census for all six widths. Width six has 336 ideals, no zeros in degrees 0–2 and 32 triples. The orbit representatives and all four images of each agree exactly with direct parity sums, with no overlaps. Coordinate exchange preserves ideals; complement after reversal is an ideal bijection and multiplies the reversed character sum by (−1)^|S|. Complete zero counts for widths 1–6 are 6,61,680,0,107510,1414094, with least vanishing degrees 1,2,1,none,1,3. Fourier diagonalization gives rank 15363122 at width six and the singular values on the recoverable range have endpoints 2 and 336, hence condition number 168. The exact transform of the complementary frequency mask verifies that the absolute sum of the unnormalized recoverable-support kernel is 9182696964; division by 2^24 reduces to 2295674241/4194304. Convolution by the normalized kernel has ℓ¹ norm equal to its total absolute mass (test a point mass), and the same ℓ∞ norm (choose a sign vector aligned to one row). For any projection onto the range, its translation conjugates all fix that same space and all have image in it; their average remains a projection and its norm is no higher. Translation commutation diagonalizes it in the Walsh basis: identity on surviving characters, zero on lost ones. This proves the unrestricted real and complex minima. ‘32 triple orbits’ in the prior-work prose is a slip; the precise Finding, table and certificate consistently give 32 triples in eight orbits. The argument and all operators are finite-dimensional.",
+      "replay": "The frozen check.cpp was inspected, not run. From /workspace/reproductions run python3 5_layers.py n with NumPy >=2, one width at a time for n=1,…,6 (5_width1.log through 5_width6.log; 5_slice.log was the initial small run). The code enumerates nested layer ideals, directly checks every weight ≤3 multiplier against the full transform, checks Parseval and uses the complementary rather than surviving frequency mask to compute the final kernel norm. Signed-32-bit butterfly magnitudes are bounded by the indicator support size, at most 2^24 for either transform, and sums of magnitudes and squares use 64-bit integers. The proof of optimality is independent of computation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "MacMahon's count covers general boxes unsigned; Borodin–Gorin–Rains use structured elliptic parameters in a weighted identity.",
+          "The Pell-exceptional first-support classification concerns planar two-row diagrams."
+        ],
+        "reasoning": "The general unsigned count supplies W(empty), not the degree cutoff. The inspected elliptic weights share parameters rather than providing all 24 freely selected occupancy signs. The planar two-row classification does not cover a product of three chains of sizes 2,2,6.",
+        "searches": [
+          "arXiv:math/9808017 p.2",
+          "arXiv:0905.0679 Theorem 10.5",
+          "2026/11/16/SCOPE-a-pell-exceptional-first-walsh-cancellation-law-for-two-row-youn--3420cb34c845"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 009897c7d9c4",
+        "Resultary 507d0c4a74f3",
+        "Resultary d99fa3fae561 and 3420cb34c845 (ranked statements)",
+        "arXiv:math/9808017",
+        "arXiv:1310.7066",
+        "arXiv:0905.0679",
+        "arXiv:1305.1314"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2×3×4 work covers the transform and projection method; it neither fixes which frequencies vanish here nor the mass of this recoverable kernel.",
+          "The same-day width-ten planar diagram example has 30 vanishing triples among 4060 on 30 cells; the generalized Fibonacci cube has four cubic zeros for a language avoiding 111 at dimension 13."
+        ],
+        "reasoning": "An existence example of cubic-only cancellation in either different family does not imply its first occurrence for widths one through six of this three-chain box family. The exact count, orbit structure and endpoint mass require a new evaluation of this kernel. No date-only inference of priority is made.",
+        "searches": [
+          "Resultary 009897c7d9c4, exact Walsh spectrum and endpoint projection for 2×3×4",
+          "2026/11/22/SCOPE-a-first-cubic-only-walsh-blind-spot-in-three-row-rectangular-you--507d0c4a74f3",
+          "2026/11/22/SCOPE-first-cubic-walsh-blind-spots-in-the-thirteen-dimensional-genera--d99fa3fae561"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The q=−1 volume specialization gives the all-cubes parity character, not arbitrary selected triples.",
+          "Determinant signs for a matching/path model are not independent per-cube Walsh signs."
+        ],
+        "reasoning": "The order-ideal and plane-partition pictures are equivalent, and a lozenge-tiling transformation must carry all selected-cube parity choices to recover this census. The inspected signings do not do that.",
+        "searches": [
+          "Resultary: [2]×[2]×[6] order ideals, cube sign Walsh spectra and projection norm",
+          "arXiv:1310.7066 §5",
+          "arXiv:1305.1314 signed tiling and matching discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit containing 1414094 zeros, 15363122 rank and the endpoint value is the assigned record itself.",
+          "For the different 2×3×4 box the earlier record gives 490 ideals, 1234934 zeros, rank 15542282, condition number 245 and endpoint minimum 2769729587/4194304."
+        ],
+        "reasoning": "Equal ambient dimension and the same transform method do not identify different indicator kernels or authorize substituting one numerical table for the other. The primary literature query returned unrelated results and does not constitute evidence of absence.",
+        "searches": [
+          "\"2×2×6\" boxed plane partitions Walsh spectrum Fourier zero characters 32 triples",
+          "2026/11/16/SCOPE-exact-walsh-spectrum-and-optimal-endpoint-projection-for-2-times--009897c7d9c4",
+          "2026/11/22/SCOPE-first-cubic-walsh-blind-characters-for-2-times2-times6-boxed-pla--82634dab65d4"
+        ]
+      },
+      "rationale": "The closest earlier result gives the same type of exact spectral and projection calculation for a different 24-cube poset; no novelty is attributed to the Walsh algorithm or averaging. The separate same-day cube/diagram analogues do not determine this box's exact census or finite cutoff. The assessment is bounded and does not claim priority for the broad cubic-only phenomenon.",
+      "residual_risks": [
+        "An unindexed fully cube-weighted enumeration or an earlier box-specific signed calculation might give the same numbers. Targeted passages do not prove global priority; chronological order among same-day records was not inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same kind of invariants and projection framework; different box, spectrum and constants",
+          "evidence": [
+            "490 ideals, 1234934 zeros, rank 15542282, endpoint minimum 2769729587/4194304"
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-exact-walsh-spectrum-and-optimal-endpoint-projection-for-2-times--009897c7d9c4",
+          "material_read": "RESULT.md opening theorem at offset 0",
+          "method": "Local-mirror published-record comparison",
+          "title": "Exact Walsh spectrum and optimal endpoint projection for 2×3×4 boxed plane partitions",
+          "trigger": "Strongest exact 24-bit boxed-ideal and projection analogue"
+        },
+        {
+          "assessment": "Different two-dimensional incidence family and finite width range",
+          "evidence": [
+            "30 triples vanish at width ten, with no singleton or pair zeros"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-first-cubic-only-walsh-blind-spot-in-three-row-rectangular-you--507d0c4a74f3",
+          "material_read": "RESULT.md at offsets 0 and 4349, Finding and width comparison",
+          "method": "Local-mirror published-record comparison",
+          "title": "A first cubic-only Walsh blind spot in three-row rectangular Young diagrams",
+          "trigger": "Same-day first cubic-only classification for rectangular ideals"
+        },
+        {
+          "assessment": "Unsigned box enumeration, not arbitrary parity coefficients",
+          "evidence": [
+            "MacMahon product formula"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/9808017",
+          "material_read": "p.2, OA offset 4072",
+          "method": "Targeted primary OA PDF text inspection",
+          "title": "Plane Partitions I: A Generalization of MacMahon's Formula",
+          "trigger": "Classical boxed ideal count"
+        },
+        {
+          "assessment": "All-cubes volume sign only",
+          "evidence": [
+            "Volume-generating function at q=−1 counts self-complementary plane partitions"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1310.7066",
+          "material_read": "§5 p.15, OA offset 37102",
+          "method": "Targeted primary OA PDF text inspection",
+          "title": "The q=−1 Phenomenon via Homology Concentration",
+          "trigger": "Signed plane-partition census"
+        },
+        {
+          "assessment": "Elliptic weights use shared parameters, not arbitrary cube-wise binary signs",
+          "evidence": [
+            "Weighted MacMahon product identity"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0905.0679",
+          "material_read": "Theorem 10.5 p.54, OA offset 145035",
+          "method": "Targeted primary OA PDF text inspection",
+          "title": "q-Distributions on Boxed Plane Partitions",
+          "trigger": "Structured weight identity may imply signed values"
+        },
+        {
+          "assessment": "Determinant-related path and matching signs are not arbitrary occupancy signs",
+          "evidence": [
+            "Signs of tilings and matchings"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1305.1314",
+          "material_read": "Abstract p.1 offset 563 and sign discussion offset 18651",
+          "method": "Targeted primary OA PDF text inspection",
+          "title": "Enumerations of Lozenge Tilings, Lattice Paths, and Perfect Matchings and the Weak Lefschetz Property",
+          "trigger": "Potential signed tiling reformulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical 2×2×n family gives a motivated finite least-degree cutoff, separating protection of first- and second-order parity information from cubic information loss. The orbit census specifies the lost low-order observables, while the rank, restricted condition number and exact optimal endpoint amplification supply complementary recovery benchmarks. These values concern this natural family and are not a restatement of the unsigned count; no larger-width theory is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

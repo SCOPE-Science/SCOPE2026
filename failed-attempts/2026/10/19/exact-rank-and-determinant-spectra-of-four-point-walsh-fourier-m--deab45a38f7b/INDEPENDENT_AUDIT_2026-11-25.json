@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:51:01.548321Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After dephasing, four rows either give the four orthogonal characters of a plane or give columns (1,(-1)^x,(-1)^y,(-1)^z). In the latter case no three distinct cube vertices are collinear. For four distinct vertices, anchoring at one and removing the dephased first row and column extracts a factor of 8 times a binary 3-by-3 determinant. Mod-two independence makes it odd, and the Hadamard bound on the original sign matrix forces magnitude 8. For a projected affine plane, normals of weights one and two give coordinate/equality planes over the reals (six faces and six diagonal rectangles, rank three); the two parity cosets have determinant magnitude 16, as follows from the anchored columns 110, 101, 011. Of 70 projected four-sets this gives 56, 12 and 2 in the respective categories. Counting original four-sets by fiber occupations (4), (3,1)/(2,2), (2,1,1), (1,1,1,1) and weighting by P=N(N-1)(N-2)/24 and I=P(N-4) reproduces all formulas. I independently multiplied out the occupancy polynomials with denominator 2359296 and compared coefficients for each rank; all four identities held. D8=56I(N/8)^4 and D16=P(N/4)^4+2I(N/8)^4 simplify to the stated polynomials. These arguments include N=8 and empty occupancy classes. RESULT.md line 48's wording about faces is imprecise; the count is six faces plus six diagonal rectangles. The frozen checker.cpp was read, not executed; it checks the two finite orders by integer rank/determinant tests against occupancy formulas, not the symbolic polynomial identity. The replay of the independent coefficient check is to expand the occupancy expressions stated in the originality comparison below after substituting u=N/4, v=N/8, T=P(N-4), and multiply each polynomial by 2359296. No finite test is needed for the quantified proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The four-sparse record controls zero patterns with all coefficients nonzero; the target includes ranks with sparse dependencies and all determinant magnitudes. The later November 8 record gives stronger fixed-row local counts, from which the global counts follow."
+        ],
+        "reasoning": "Cyclic DFT Hadamard compatibility and support constraints are not the full binary Walsh histogram. The later broader match is context, not needed for the rejection.",
+        "searches": [
+          "10.1080/03081087.2016.1250863",
+          "arXiv:1909.13145",
+          "arXiv:2205.09222",
+          "2026/10/4/SCOPE-four-sparse-walsh-spectra-are-controlled-by-affine-dimension-on--1491c27461f4",
+          "2026/11/8/SCOPE-complete-fourth-order-walsh-minor-rank-defects-in-every-boolean--5d4edc982159"
+        ]
+      },
+      "checked_sources": [
+        "Resultary October 18 and November 8 Walsh censuses",
+        "Resultary four-sparse Walsh and SCOPE037",
+        "Huckle–Kravvaritis DOI",
+        "arXiv:1909.13145",
+        "arXiv:2205.09222"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "That finding determines each minor by the four-character plane or eight-character cube projection, rank = distinct images up to three, and parity-coset versus other-plane versus independent-quadruple classification for four distinct images."
+        ],
+        "reasoning": "The target's geometric claim survives neither as a new ingredient nor as an additional consequence: the earlier Finding states it outright. Hadamard equality identifies the modulus-16 family in both.",
+        "searches": [
+          "2026/10/18/SCOPE-exact-four-by-four-walsh-minor-rank-census-in-every-binary-dimen--16a955cfcc7a, structural Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 18 formula A1=4P binom(u,4)+8T binom(v,4) expands to R1; A2=6P(2u binom(u,3)+binom(u,2)^2)+28T(2v binom(v,3)+binom(v,2)^2) expands to R2. A3=12P binom(u,2)u^2+T(168 binom(v,2)v^2+12v^4), A4=Pu^4+58Tv^4 expand to R3 and R4, with T=I, u=N/4 and v=N/8."
+        ],
+        "reasoning": "Same group, normalization, dimension bounds, counted selections and ranks; complex and real rank agree on these real matrices. Factoring the polynomials differently is not a distinct theorem.",
+        "searches": [
+          "Resultary: exact rank and determinant histograms of arbitrary 4-by-4 Walsh/Sylvester minors",
+          "2026/10/18/SCOPE-exact-four-by-four-walsh-minor-rank-census-in-every-binary-dimen--16a955cfcc7a, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE037 gives order-eight maxima by size, M4=16, not histograms. October 18 gives the same rank examples at N=8,16 and a full exact histogram: D8=56Tv^4, D16=Pu^4+2Tv^4, D0=A1+A2+A3."
+        ],
+        "reasoning": "An exact all-parameter catalogue match is present, not just agreement of two small instances.",
+        "searches": [
+          "2026/9/9/SCOPE037",
+          "2026/10/18/SCOPE-exact-four-by-four-walsh-minor-rank-census-in-every-binary-dimen--16a955cfcc7a, examples and formulas"
+        ]
+      },
+      "rationale": "A distinct earlier indexed statement gives the identical all-d rank and absolute determinant distributions and the same projection-level classification. All of the headline polynomials are algebraic re-expressions of that statement. This is demonstrable equivalence to the earlier catalogue finding, not an attribution of human priority or a conclusion from search similarity alone.",
+      "residual_risks": [
+        "Uninspected Huckle–Kravvaritis full text may give additional antecedent coverage; it cannot remove the demonstrated catalogue equivalence.",
+        "Catalogue comparison does not establish human priority or provenance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equivalent earlier indexed coverage",
+          "evidence": [
+            "A1–A4, D8/D16 and structural projection classification; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-four-by-four-walsh-minor-rank-census-in-every-binary-dimen--16a955cfcc7a/RESULT.md",
+          "material_read": "Finding, assumptions, proof; mirror offsets 120–7295 across inspections",
+          "method": "Resultary retrieval and focused local-mirror reading; coefficient comparison",
+          "title": "Exact four-by-four Walsh minor rank census in every binary dimension",
+          "trigger": "Same family, minor size and census"
+        },
+        {
+          "assessment": "Later overlap, not antecedent",
+          "evidence": [
+            "Plane- and tetrahedron-row conditional histograms recover the same global result."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-complete-fourth-order-walsh-minor-rank-defects-in-every-boolean--5d4edc982159",
+          "material_read": "Finding, offsets 0–4371",
+          "method": "Resultary and local mirror",
+          "title": "Complete fourth-order Walsh minor rank defects in every Boolean dimension",
+          "trigger": "Potentially broader local-to-global coverage"
+        },
+        {
+          "assessment": "Full scope unresolved",
+          "evidence": [
+            "Routes returned 403 or no repository hit; frozen source describes leading principal spectra, which is not evidence of full-text noncoverage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/03081087.2016.1250863",
+          "material_read": "Bibliographic identification and frozen description; primary text not independently obtained",
+          "method": "DOI / publisher request, lawful repository discovery and DOI/title search",
+          "title": "Properties of submatrices of Sylvester Hadamard matrices",
+          "trigger": "Potential arbitrary-minor spectral result"
+        },
+        {
+          "assessment": "Inspected criterion does not cover the histogram",
+          "evidence": [
+            "Cyclic primitive-set compatibility tests Hadamardness; no real rank census of elementary abelian Walsh minors in these statements."
+          ],
+          "identifier_or_url": "arXiv:1909.13145",
+          "material_read": "PDF abstract p. 1, relevant classification p. 4",
+          "method": "OA passage reading",
+          "title": "Identifying Complex Hadamard Submatrices of the Fourier Matrices via Primitive Sets",
+          "trigger": "Hadamard-selection subcase"
+        },
+        {
+          "assessment": "Context, not census in inspected passages",
+          "evidence": [
+            "Support and balancing of individual functions, not row-column selection histograms."
+          ],
+          "identifier_or_url": "arXiv:2205.09222",
+          "material_read": "Abstract and introduction, PDF p. 1, near offset 1145",
+          "method": "OA passage reading",
+          "title": "On the Walsh and Fourier-Hadamard Supports of Boolean Functions From a Quantum Viewpoint",
+          "trigger": "Same binary Fourier geometry"
+        },
+        {
+          "assessment": "Geometric precursor",
+          "evidence": [
+            "Zero patterns for functions with four nonzero coefficients."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-four-sparse-walsh-spectra-are-controlled-by-affine-dimension-on--1491c27461f4",
+          "material_read": "Finding, offset 0 onward",
+          "method": "Local mirror",
+          "title": "Four-sparse Walsh spectra are controlled by affine dimension",
+          "trigger": "Same plane/cube split"
+        },
+        {
+          "assessment": "Fixed order and maxima only in inspected statement",
+          "evidence": [
+            "M4=16, not the frequencies of each modulus."
+          ],
+          "identifier_or_url": "2026/9/9/SCOPE037",
+          "material_read": "RESULT.md around offset 1406",
+          "method": "Local mirror",
+          "title": "Exact hereditary discrepancy and determinant-bound gap for the canonical order-8 Sylvester Hadamard matrix",
+          "trigger": "Exact determinant tables"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A complete census is a natural interpolation/design invariant, but this submission adds only expanded forms of an already available exact count and repeats the classification and finite examples. There is no distinct gap, meaningful quantitative improvement, or independently useful new remainder to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

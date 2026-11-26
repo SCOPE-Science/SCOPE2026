@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:17:32.875407Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–54; VERIFICATION.md lines 18–22; verify.py lines 5–53",
+        "Hou arXiv:1303.0568, §3 equations (3.1)–(3.6) and discriminant calculation"
+      ],
+      "rationale": "With h(u)=u²+tu−1, h has no torus zero: subtracting the conjugate equation multiplied by u² forces u²=1, where h=±t≠0. The lift gives exactly one preimage x=y/h(u) per direction u mapping to v=y^(q−1), and F(0)=0. At v=±1 the remaining quadratics are u²+(t±2)u+1 with respective nonsquare discriminants 2(t±1)²; their conjugate inverse roots lie on the torus, and coincidence with the first root would force t=∓4, impossible since char≠2,3. For v≠±1 set ε=v−v⁻¹, A=ε²=s²−4 and τ=t+εU. Then τ is never zero, x=(y/τ)^q and u=v⁻¹τ^q/τ. Multiplying u−u⁻¹=εU by ττ^q yields AU³−AU²+(2−2ts)U+2=0, so the reduction is reversible. For this monic cubic the discriminant, after reduction by t²=−2, is −16(s+5t)²/A³. Since ε^q=−ε and ε≠0, A is nonsquare in F_q, as is −1. For s≠−5t the Frobenius permutation is even on three distinct roots, giving zero or three rational roots. At s=−5t the cubic is (U−1/3)³ with A=−54≠0. The two critical directions are exactly the roots of v²+5tv+1 with discriminant −54 and character χ_q(3); they belong to the torus iff this character is −1. Multiplying nonzero direction counts by q−1 and adding the singleton at zero yields S, and conservation of the q² inputs gives the two remaining counts. In an independent bounded computation enumerate the norm-one torus by (a+i)/(a−i) for a∈F_q, plus 1, i²=−1, and evaluate u h(u)^q/h(u) directly using conjugation. For q=11,19,1331, the respective direction histograms in multiplicity order (0,1,2,3) are (8,0,0,4), (12,2,0,6), (888,0,0,444), for both signs of t. For q=1331 the base field was represented by F_11[Z]/(Z³+Z+4), irreducible by checking all eleven residues. The singleton directions matched 2 Re(v)+5t=0 in all cases.",
+      "residual_risks": [
+        "The frozen prime-only script was inspected, not executed. The independent bounded check includes a proper prime power but is not used to prove the all-prime-power result. Characteristic three and other q or coefficient regimes are outside the claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact earlier trinomial's cubic and discriminant are in Hou 2013. The April/May 2026 cubic classification places f_{−3,1} in Class III-c for q≠1 mod 6, with no F_q-rational ramification points, and in III-d for q≡1 mod 6, with ramification type (3/1,3/1). Class III excludes 2-fibers. The many-to-one paper's publisher text was unavailable; its abstract-level description is not needed for the verdict."
+        ],
+        "reasoning": "Class III membership alone does not exclude one rational point and a conjugate pair in an unramified fiber. Here the specific representative has two total ramification points and is the Rédei cube: if d²=−3 then (R(z)+d)/(R(z)−d)=((z+d)/(z−d))³. For d rational this acts on F_q^× away from 0,∞, and otherwise it acts on the norm-one group of order q+1. In each case the relevant group order is divisible by 3 (d rational iff q≡1 mod 3 by the cube-root-of-unity equation); its nonempty fibers have size 3. The two separate branch values give the only possible rational singletons, exactly as the prior ramification types prescribe.",
+        "searches": [
+          "Hou arXiv:1303.0568 §3 and arXiv:1404.1822 Theorem A",
+          "Hou–Peng–Qiang–Zhao arXiv:2604.18954v2, Class III definition, Theorem 6.4, Corollary 6.20, §§6.7–6.8",
+          "DOI:10.1016/j.ffa.2026.102901, Rational functions of degree two or three that are many-to-one on the projective line"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.18954v2, 1303.0568, 1404.1822",
+        "DOI:10.1016/j.ffa.2026.102901 (no full text)",
+        "Resultary 6fe70918d61c, 12c657c2ed19, 885544239843, e53f8a54a2d0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Transfer the prior representative as above. In original direction coordinate u the derivative numerator of Φ is (u²−tu+1)², so its two geometric branch points have u+u⁻¹=t. At either, h(u)=2u² and Φ(u)=u⁻³, hence the branch value has v+v⁻¹=t³−3t=−5t. Its direction is rational on the torus exactly when the quadratic in v has nonsquare discriminant −54, with character χ_q(3). Counting gives 1+(q−1)(1−χ_q(3)) singletons including zero, then (q²−S)/3 triples and twice that many empty targets."
+        ],
+        "reasoning": "The extra localization is a direct translation of the two known ramification values, not an additional independent classification. The claimed exact value-set size and absence of all other multiplicities are routine corollaries of the specific known class and the scalar-fiber lift; the frozen proof by Hou's discriminant is an alternative derivation.",
+        "searches": [
+          "arXiv:2604.18954v2 pp. 12–13, 16, 35–36 (eq. (6.1), Theorem 6.4, Corollary 6.20 and §6.7)",
+          "Hou arXiv:1303.0568 Theorem 1.1 and §3; independent algebraic comparison of branch values"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Let i²=−1, C(u)=(u−1)/(i(u+1)), a bijection from the torus to P¹(F_q). With w=C(u), the direction map satisfies C(Φ(u))=−w(tw²+t+4)/((t−4)w²+t). Let λ=t/(t−4)=−(t+1)²/9, b=(t+1)/3 and w=bz. The last expression becomes −3λb R(z), R(z)=(z³−9z)/(3z²−3), since (t+4)/t=9λ. For z=2X−1, R(2X−1)+1=(2/3) f_{−3,1}(X). All substitutions are automorphisms of the projective lines in question, with nonzero denominators in the constants; the rational-map equality also covers poles."
+        ],
+        "reasoning": "These explicit degree-one source/target transformations identify the full direction map, not merely an observed numerical match. Its distribution therefore transfers from the classified representative, and the torus lift preserves each nonzero target's preimage count.",
+        "searches": [
+          "Resultary polynomial, spectrum and norm-one/Rédei cubic equivalents",
+          "Primary literature search for many-to-one projective cubics; arXiv:2604.18954v2 eq. (6.1) and Theorem 6.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No directly matching odd-characteristic histogram was returned. The same-day indexed binary cycle-spectrum record 6fe70918d61c concerns characteristic two; norm-perturbation 12c657c2ed19 summarizes x^(q+1)+a x^q+b x; mirrored 885544239843 states a spectrum for x^q+a x². The §6.8 representative table, by contrast, explicitly lists the very F_q-projective class of the induced map."
+        ],
+        "reasoning": "The related indexed polynomial families are not this census. The prior exact projective class table plus the lift and branch translation supply more decisive coverage than a keyword match to an explicit target-count table.",
+        "searches": [
+          "Resultary searches by exact title/trinomial, multiplicity, value set and degree-three Rédei equivalents",
+          "arXiv:2604.18954v2 Table of canonical representatives in §6.8"
+        ]
+      },
+      "rationale": "The exact trinomial and its cubic reduction already appear in Hou 2013, but the permutation criterion alone is not a multiplicity census. Decisively, the induced direction map is two-sided projectively equivalent over F_q to the already classified cubic f_{−3,1}(X)=(X³−3X+1)/(X(X−1)) in Hou–Peng–Qiang–Zhao, arXiv:2604.18954v2 (2026-05-19), §6.1 and §§6.3, 6.6–6.8. Their Class III and ramification classification supplies exactly the fiber alternatives. Translating its branch values back and counting the q−1 targets per direction gives the claimed histogram and singleton directions by substitution and elementary counting. This is positive prior-coverage evidence in an equivalent formulation, not an exact textual match or an inference from an inaccessible article.",
+      "residual_risks": [
+        "The related many-to-one journal article and two indexed mirrors were not available in full. This does not affect the explicit comparison with the earlier preprint. No claim of textual identity, attribution of discovery, or global earliest priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The pre-existing representative is exactly the quotient direction map up to degree-one transforms. This is decisive broader coverage; the application to the extension-field trinomial need not be stated verbatim.",
+          "evidence": [
+            "v2 dated 19 May 2026, p. 1",
+            "p. 3 Class III definition; pp. 12–13 normalization; p. 16 ramification, near offset 50661; p. 35 split/nonsplit cases at offsets 103194 and 105682; p. 36 representative list near 108095"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2604.18954v2",
+          "material_read": "Title/version; Class III definition; §6.1 eq. (6.1); §6.3 Theorem 6.4 and Corollary 6.5; §6.6 Corollary 6.20; §6.7 split case and §6.8 representative list",
+          "method": "OA PDF passage inspection plus explicit two-sided equivalence and comparison of hypotheses",
+          "title": "Classification of Rational Functions of Degree Three over Finite Fields",
+          "trigger": "Primary cubic equivalence and ramification classification could determine the complete direction map"
+        },
+        {
+          "assessment": "Same polynomial, cubic and discriminant; the cited 2013 permutation proof itself does not state the exact nonpermutation counts",
+          "evidence": [
+            "p. 1 Theorem 1.1; pp. 3–4 offsets 8494 onward, equation (3.6) near 10328"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1303.0568",
+          "material_read": "Theorem 1.1, Section 3 equations (3.1)–(3.6) and discriminant",
+          "method": "OA PDF primary passages",
+          "title": "A Class of Permutation Trinomials over Finite Fields",
+          "trigger": "Exact original trinomial and cubic"
+        },
+        {
+          "assessment": "a=−1, b=t gives nonsquare 1−4a/b²=−1; establishes nonpermutation but not the census",
+          "evidence": [
+            "p. 2 near offset 6200"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1404.1822",
+          "material_read": "Theorem A",
+          "method": "OA PDF passage and parameter substitution",
+          "title": "Determination of a Type of Permutation Trinomials over Finite Fields, II",
+          "trigger": "Broader permutation classification"
+        },
+        {
+          "assessment": "Full text unavailable; not used as affirmative or negative scientific evidence",
+          "evidence": [
+            "Publisher PII S1071579726001127"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.ffa.2026.102901",
+          "material_read": "Title and indexed abstract description only",
+          "method": "DOI and identified publisher OA route attempted",
+          "title": "Rational functions of degree two or three that are many-to-one on the projective line",
+          "trigger": "Potential independent general statement directly on many-to-one cubics"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–17 and 56–60; arXiv:2604.18954v2 §§6.3, 6.6–6.8"
+      ],
+      "rationale": "The spectrum of this trinomial is a natural invariant, but the narrow exact result is the cyclic cubic representative's known fiber behavior, transferred to F_{q²} by a projective change of coordinates and a scalar counting factor. The printed histogram is a useful specialization, not an independently new exact invariant under this standard. A separate claim about an unclassified map or a genuinely new use of the reduction was not delivered.",
+      "residual_risks": [
+        "The assessment is restricted to the frozen histogram and singleton-direction characterization; no stronger family or new application is evaluated."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

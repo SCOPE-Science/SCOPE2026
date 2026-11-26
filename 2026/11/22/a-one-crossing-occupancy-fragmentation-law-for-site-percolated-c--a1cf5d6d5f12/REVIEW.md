@@ -1,9 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** The random induced graph has a two-binomial state reduction and an exact component-count identity. Differentiation of the Bernoulli likelihood gives the covariance score identity; elementary algebra yields the explicit factor. The critical strict-positivity inequality is the bound on \(H_q\) by \(2b/(a+b)\) when the classes are unequal, alongside a separate balanced-class derivative. Endpoint signs and root uniqueness are checked for all integer class sizes, including the single-edge exception. Uniform analytic root bracketing establishes the proportional and fixed-side asymptotics; 713 finite rational checks independently test the exact identities. No computer output is used as a proof of a universal assertion.
+## correctness
 
-**Originality — PASS, qualified.** The general exact site-percolation framework of Allard et al. (arXiv:1509.01207v1) is closely relevant and includes algorithms for finite component distributions. Materially inspected parts discuss component distributions and examples, rather than a global covariance sign theorem for retained vertices and components on every biclique. Related bond-percolation and bipartite isolation findings do not imply this sign classification. The one-crossing inequality and the different proportional versus fixed-side threshold limits are the claim beyond general enumerability. Historic priority remains qualified by possible equivalent specializations in broader percolation literature.
+PASS
 
-**Value — PASS.** On an induced network, the occupied-vertex count is a natural size measure, whereas the number of connected components captures fragmentation. The unique covariance reversal locates a nontrivial finite-size fragmentation maximum, and the asymptotic phase diagram separates sparse activation on balanced networks from macroscopic activation when one shore is fixed. This is a structural characterization rather than a numerical sample or a routine substitution.
+Condition on the two independent binomial shore counts. Both positive gives C=1; otherwise C=N, including zero for the empty graph. This gives F=(1-q^a)(1-q^b)+apq^b+bpq^a. The Bernoulli score (N-np)/(pq) gives Cov(N,C)=pqF'(p), and differentiation factors F'=nq^(a-1)H. Endpoint covariance is zero by determinism. For r=b-a>0, replacing bq^(b-1) by its upper bound bq^r shows H_q≥u-(a-1)q^(r-1)[br(1-q)+aq]/n≥2b/n; the last inequality follows because q^(r-1)[r(1-q)+q] is increasing to one. At balance H_q=m+1-mq^(m-1)>0. In the p coordinate H(0)=1 and H(1)<0 except K_1,1, for which H=1-p. This proves the strict signs and the unique maximum above F(1)=1 in the nonexceptional cases. At p=t/n the limiting H is analytic, nonincreasing, equals one at zero and tends to minus infinity; two roots would force it to vanish on an interval. Positive-root bracketing proves the stated proportional limit, including c+exp(-c)=2 at balance. For fixed a the pointwise interior limit H→1-(a+1)p gives the fixed-side limit by the same bracketing. The supplied finite rational checker was inspected, not executed; the bounded independent transition and derivative verification is documented in branches/47ffd03c-78d1-4092-9b43-487eabe2e90b/ordinal-2-root-check.md.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact finite joint distribution and hence the displayed covariance formula are already covered by a closed complete-bipartite specialization of the subgraph component polynomial. The surviving contribution is the strict one-crossing/unique-maximum theorem over the full parameter family and the two critical-root regimes. Best-of-knowledge comparison found no source that establishes those claims or implies them by simple specialization.
+
+## value
+
+PASS
+
+The globally unique expected-fragmentation maximum is a meaningful structural boundary for independently thinned bicliques. Its location is of order one over graph size for proportional shores and of order one for a fixed small shore. These uniform and asymptotic results go beyond prior finite enumeration; they do not extrapolate to arbitrary hosts, unequal retention or bond percolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

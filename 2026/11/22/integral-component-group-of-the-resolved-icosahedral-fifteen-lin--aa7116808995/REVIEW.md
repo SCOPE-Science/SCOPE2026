@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete incidence lattice is obtained by exact arithmetic over the quadratic field from all 105 line pairs. The 31-vertex/75-edge dual graph follows from the explicit blowup prescription, and the genus and stability checks are exact. Two integer cofactor determinants, the full Laplacian characteristic polynomial and all local modular ranks identify the full Smith normal form without assuming that the spectrum determines it. The component-group interpretation is conditional on a regular split semistable smoothing with unit-thickness nodes.
+## correctness
 
-**Originality — PASS, provisionally.** The classical fifteen-line configuration and the general graph-Néron theorem are acknowledged; neither supplies the present complete Smith form. Full primary sections of the icosahedral-configuration study and two related published research notes were compared at statement level; the latter concern reductions of the same lines, not the Jacobian of this resolved graph. The older Hirzebruch text treats line arrangements and covers, not this particular graph critical group. A specialist historical calculation or an inaccessible detailed monograph may still contain an equivalent result, so priority remains provisional.
+PASS
 
-**Mathematical value — PASS.** The full singular-point resolution is a canonical geometric boundary of a distinguished Coxeter line arrangement, rather than an arbitrary graph slice. Its genus-45 degeneration has an intrinsic component group, and the nontrivial 11-, 17- and 31-primary *integral* structure is not determined by a spanning-tree number or rational spectrum alone. A complete finite invariant is useful for future arithmetic degenerations even without a new general component-group theorem.
+Separate exact arithmetic in the quadratic field reconstructed the 15 lines from the six poles and classified all 105 line pairs into 15 double, 10 triple and 6 quintuple points. Replacing only the higher-multiplicity points by exceptional stars gives a connected graph with 31 vertices, 75 edges, and genera zero on the components; its arithmetic genus is 45. Distinct tangent directions separate on blowup, and the vertex degrees 6, 3 and 5 establish stability. Two independently built reduced cofactors give determinant 595146407909049887=11^4·17^5·31^5. Modular nullities 4, 5 and 5 match the respective determinant valuations; this forces all positive Smith valuations to be one and gives C527 plus four C5797 factors. Nonzero determinant and the exact factorization exclude other primes. The graph-to-Néron conclusion applies only to the specified proper regular split semistable model with reduced special fiber and thickness one, by the component-group comparison theorem.
 
-**Closest literature and limits.** Hirzebruch (1983), Hoge–Röhrle (2015), Calvo (2022) and earlier modular-reduction studies give the arrangement geometry; graph-Jacobian references give the general correspondence. This calculation fixes all integral invariant factors only for the stated stable boundary and unit-thickness regular smoothings. The precise historical priority is not guaranteed by a finite literature search.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The arrangement and its singularity counts are classical, and the graph-to-Néron comparison is an existing theorem. The exact integral computation concerns the particular partial resolution retaining all 15 double intersections; neither the same-arrangement arithmetic studies nor the analogous exact groups of other resolved arrangements cover it.
+
+## value
+
+PASS
+
+The partial resolution is dictated by the geometry: blow up the non-nodal points and preserve the ordinary nodes. This gives a natural stable curve and a concrete component group for eligible degenerations. The exact statement that all primary torsion is elementary, with the indicated ranks at three primes, is information beyond the known line census and a spanning-tree count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

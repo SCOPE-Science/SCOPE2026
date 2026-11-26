@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:46:45.834778Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–46 and 55–91",
+        "Frozen check.py lines 20–54, 94–137 and VERIFICATION.md lines 21–25 (packaged, not executed; replay: python3 check.py from the record directory)",
+        "Independent finite check: modular Eulerian recurrence for descents 0,1,2 through n=k+4·3^k−1; compare histogram with directly counted square roots and the odd center from the log series and digit lifting; test both maximal proper period divisors"
+      ],
+      "rationale": "For n≥k, 3^n vanishes modulo 3^k and separating parity gives precisely g_0 and g_1. The restricted power series for 4^t has all its positive-degree coefficients divisible by 3; the first and second derivative reductions of the branches are t−1 and 1. Each noncritical input disc maps isometrically onto the stated residue ball. The simple derivative roots lift uniquely; in the even branch both factors vanish at −1/2 because 4^(−1/2) is the square root of 1/4 congruent to 1. For the odd center g_1(1)=−26≡1 mod 9 and moving to its critical point does not change this residue. At each critical point substitute t=β+3s: after removing 9s² the Taylor quotient is 2 modulo 3 as a restricted series. Dividing by 2 and taking the square root congruent to 1 yields a coordinate congruent coefficientwise to s modulo 3, hence a bijective isometry. The resulting square condition is modulo 3^(k−2) with s modulo 3^(k−1), giving the factor 3, with k=1 checked by the six-term pattern (2,0,0,1,2,0). That pattern forces any eventual period to be a multiple of six; applying a regular isometry forces 3^k to divide the half-period. The even sheet is already contained in the full 0 mod 3 ball. The odd sheet has measure (1/9)(3/8); counting its possible leading valuations yields the stated finite image sizes and zero fibers. Independently, recurrence-based enumeration of two tail blocks agreed on every fiber and the least period at k=1–6 (support sizes 3,7,20,58,173,517).",
+      "residual_risks": [
+        "The finite check is bounded; the analytic proof supplies the all-depth conclusion. The claim does not apply to isolated transient values or identify a sharp starting index."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Krattenthaler–Müller Theorems 59 and 62 address moving central indices. Fulman–Röllin sum over descent indices congruent to j mod b at fixed n, normalized by n!.",
+          "Full text of the directly relevant valuation paper was unavailable by the DOI and publisher routes."
+        ],
+        "reasoning": "Central-index ternary congruences do not specialize to fixed two descents. Distribution of the descent statistic within permutations of fixed size does not count residue classes of the integer two-descent coefficient as size varies.",
+        "searches": [
+          "Primary literature on ternary Eulerian congruences, valuations and modular distribution",
+          "arXiv:1308.2856 §17",
+          "arXiv:2603.21464v1 Theorem 2.1",
+          "DOI 10.1080/10586458.2014.981899"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1c3a3c08654b, 0b100cd06a37 and 05dba94c6d35",
+        "arXiv:1308.2856 and arXiv:2603.21464v1",
+        "DOI 10.1080/10586458.2014.981899 (attempted)",
+        "OEIS A000460"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical inclusion–exclusion formula is already known. No inspected theorem gives the ternary critical point or the two square-root corrections to the histogram."
+        ],
+        "reasoning": "The sequence formula is an input, not a theorem giving the regular and critical branch multiplicities. Obtaining the latter requires separating parities, finding two derivative zeros, and controlling the square coordinate and lifts.",
+        "searches": [
+          "Krattenthaler–Müller Eq. (17.1) and Theorems 59, 62",
+          "Fulman–Röllin Theorem 2.1",
+          "Resultary 0b100cd06a37 and 05dba94c6d35"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact catalogue match 1c3a3c08654b is the frozen item itself. Distinct record 0b100cd06a37 gives uniform dyadic fibers for the same column. Record 05dba94c6d35 treats the three-descent dyadic column."
+        ],
+        "reasoning": "A shift of Eulerian column notation does not change the object; a change in descent count or in the prime does. Neither dyadic distribution transfers to 3^k.",
+        "searches": [
+          "Resultary semantic searches for two-descent Eulerian ternary eventual period, image and fiber laws",
+          "OEIS A000460 (two descents; A(n,3) with one-based column numbering)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS lists the underlying sequence with offset 3 and its closed formula, not the all-depth histogram. The exact Resultary match is the item being audited; the nearest distinct same-column record is dyadic."
+        ],
+        "reasoning": "A table or expression for sequence terms allows finite counting at any given modulus, but is not an exact all-depth formula for the tail inverse images.",
+        "searches": [
+          "OEIS A000460",
+          "Resultary two-descent ternary eventual image/fibers"
+        ]
+      },
+      "rationale": "The inspected results supply the sequence identity, different-prime or different-column distributions, or modular behavior of a different statistic. They do not establish the fixed two-descent ternary tail image or all-target multiplicity law. Priority beyond these comparisons is not certified.",
+      "residual_risks": [
+        "The full Castro–González–Medina paper was not available for comparison; relevant implicit coverage is not ruled out.",
+        "The cited Xiong–Tsao–Hall source was also inaccessible via the attempted publisher routes; its formula is independently available in the inspected sources. Catalogue matches do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies background; not the fixed-column theorem",
+          "evidence": "The section studies A(2n,n)=A(2n,n+1) and A(2n−1,n), with central n-dependent columns.",
+          "identifier_or_url": "https://arxiv.org/pdf/1308.2856",
+          "material_read": "§17, PDF pp. 45, 53, 56; Eq. (17.1), Theorems 59 and 62; OA offsets 169500, 202700, 215450",
+          "method": "OA arXiv PDF passages",
+          "title": "A method for determining the mod-(3^k) behaviour of recursive sequences",
+          "trigger": "Direct ternary Eulerian congruence comparison"
+        },
+        {
+          "assessment": "Coverage unresolved",
+          "evidence": "No result or appendix was available to compare against the exact ternary fiber formula.",
+          "identifier_or_url": "https://doi.org/10.1080/10586458.2014.981899",
+          "material_read": "No full text retrieved in this review; the frozen record reports inspection of the abstract and bibliography",
+          "method": "DOI and publisher attempts, access denied",
+          "title": "The p-adic Valuation of Eulerian Numbers: Trees and Bernoulli Numbers",
+          "trigger": "Closest named valuation-focused work"
+        },
+        {
+          "assessment": "Different variable reduced modulo the modulus",
+          "evidence": "The probability is the sum of A(n,r)/n! over r≡j mod b at fixed n.",
+          "identifier_or_url": "https://arxiv.org/html/2603.21464v1",
+          "material_read": "§§1–2 and Theorem 2.1, OA offset 0",
+          "method": "OA arXiv HTML",
+          "title": "Stein's method and the modular behavior of Eulerian numbers",
+          "trigger": "Potential broader Eulerian modular theorem"
+        },
+        {
+          "assessment": "Does not cover the ternary result",
+          "evidence": "Each residue occurs twice per eventual period 2^(k+1), for modulus 2^k.",
+          "identifier_or_url": "Resultary 0b100cd06a37",
+          "material_read": "Mirrored RESULT.md, statement at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Uniform dyadic residues in the two-descent Eulerian column",
+          "trigger": "Distinct same-column indexed result"
+        },
+        {
+          "assessment": "Different column and prime",
+          "evidence": "Ninefold and singleton classes are for three descents and powers of two.",
+          "identifier_or_url": "Resultary 05dba94c6d35",
+          "material_read": "Mirrored RESULT.md, statement at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Ninefold and singleton dyadic fibers in the three-descent Eulerian column",
+          "trigger": "Distinct same-day structural analogue"
+        },
+        {
+          "assessment": "Underlying sequence covered; fiber result not found in inspected entry",
+          "evidence": "The explicit formula matches 3^n−(n+1)2^n+n(n+1)/2.",
+          "identifier_or_url": "https://oeis.org/A000460",
+          "material_read": "Entry with offset, initial values and explicit formula, page offset 0",
+          "method": "Public OA page",
+          "title": "Eulerian numbers counting permutations with two descents",
+          "trigger": "Exact sequence index and potential table coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–46 and 85–91"
+      ],
+      "rationale": "For a classical fixed Eulerian column, the result determines both which ternary residues can persist and how often every target occurs. The distinction between a quadratic sheet hidden inside a full residue ball and one visible in the support is structurally informative: an image-only theorem would miss the extra zero fibers. The exact period, compact value set and measure 17/24 give usable invariants at all depths.",
+      "residual_risks": [
+        "No claims about other columns, other primes, or every initial transient residue are supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review: canonical Schreier shift power growth
+# Independent mathematical audit
 
-## Correctness
-PASS. Schreier admissibility of output indices yields a pullback set with cardinality at most its minimum plus the translation. Geometric rank blocks are individually admissible and prove the uniform dyadic upper bound. A truncated harmonic vector, normalized via the exact logarithmic Schreier inequality, supplies the matching lower bound. The harmonic-number expansion gives the optimal leading constant. Dense bounded-orbit behavior is explicit and residual unbounded-orbit behavior follows from the uniform boundedness principle. The finite checker tests supporting cases without replacing the proof.
+## correctness
 
-## Originality
-PASS under the accessible literature comparison, with residual priority risk. The 2010 Bird–Laustsen shift theorem establishes boundedness for controlled increasing injections and an upper bound based on maximal multiplicative coordinate distortion. It does not provide this sharp additive-translation logarithmic law. The 2026 Gulgowski–Sawicki article treats compactness and combinatorial set covers rather than powers of the right shift. Nearby searchable operator-power results concern different sequence spaces or distinct weighted shifts, and their statements do not imply the fixed Schreier translation claim. Equivalent older treatments not located by these searches remain possible.
+PASS
 
-## Mathematical value
-PASS. The right coordinate shift is the canonical natural nonsymmetric basis operator on first Schreier spaces. The theorem determines the optimal coefficient and the universal \(p\)-root exponent of its otherwise unbounded power growth, replacing a generic polynomial-in-translation estimate. The coexistence of a dense set of eventually stable orbits and generic unbounded orbits is a structural operator-theoretic consequence; no general theorem for arbitrary combinatorial families is claimed.
+Pull an admissible output set back, after discarding zero coordinates. If the resulting nonempty set has minimum m and size s, then s≤m+n. Greedy blocks of capacities m, 2m, 4m, … are admissible because the rank of the first entry in a full-capacity block forces its index to be at least the block capacity. Their total capacity after l blocks is m(2^l−1), giving the ceiling upper bound. For the lower bound use p-th powers 1/(j+1) for 1≤j≤n+1: each admissible sum is at most the integral from m to 2m of dt/t, and all n+1 entries can be used together after translation. This works for n=0 and all real or complex 1≤p<∞. Density then extends the one-step operator and its powers. An eventually admissible shifted finite support yields the eventual ℓp norm; if a closed set of uniformly bounded orbits had interior, taking differences on a ball would bound all operator norms, contrary to the lower bound. This is a proof-level check; the frozen finite diagnostic was inspected, not executed or relied on.
 
-## Limitations and closest sources
-Bird–Laustsen, *An amalgamation ... Part I*, Section 3.15–3.17, treats the closest same operator family; Gulgowski–Sawicki, arXiv:2610.09810v1, gives recent primary-space context. The available comparisons did not establish worldwide publication priority. The finite exact norm values are not classified, and neither infinite-family extensions nor independent checks are claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the two-sided bounds with sharp leading coefficient for powers of the additive right translation. Prior work already gives boundedness and even a logarithmic lower bound of smaller coefficient. Neither a generic doubling of ranks nor Banach–Steinhaus is claimed new; the orbit contrast is a consequence of the power law.
+
+## value
+
+PASS
+
+The canonical shift is a natural basis operator in a nonsymmetric space. An optimal logarithmic scale and coefficient materially resolve the gap between the direct prior estimates. The contrast between eventual constancy on finite supports and generic unbounded orbits is an interpretable consequence, not the main contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

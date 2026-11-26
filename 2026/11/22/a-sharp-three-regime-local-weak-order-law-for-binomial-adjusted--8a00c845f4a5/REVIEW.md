@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The completed-step law, not a conditional degenerate-event law, is expanded through order two. The exact bounded-generator semigroup coefficients and the method's \(P=0,1,2\) branches agree if and only if the specified first two propensity ratios avoid binomial thinning. The leading nonzero coefficients in the other two regions are explicit and use indicator test functions as witnesses. All remainders are controlled using bounded rates and the \(O(h^3)\) Poisson tail. The embedded exact rational/symbolic checker confirms 2,376 parameter triples; the proof supplies the universal quantifiers.
+## correctness
 
-## Originality — PASS (qualified)
-Scott--McCallum--Foster arXiv:2611.16975v1 provides the exact algorithm and its general local-error comparison, including an \(O(h)\) conditional-degeneracy bound and the prospect of a modified generator. Their Section III, Section IV and Appendix A were read for the same branch and same parameters; no unconditional, necessary-and-sufficient three-regime classification by \(a_1/a_0\) and \(a_2/a_0\) appears there. The 2012 higher-order tau-leap review and 2011 \(\theta\)-trapezoidal paper concern different methods. Overlap queries against published mathematical records returned unrelated positivity and binomial results, not a theorem with this statement. Older or unindexed algebraically equivalent special cases remain a priority risk; search absence is not proof of novelty.
+PASS
 
-## Value — PASS
-The precise first- and second-propensity drop thresholds distinguish a failure of consistency from loss of second-order local accuracy. These are motivated practical questions for a newly proposed backtracking method intended to handle reaction exhaustion. The sharp parameter phase diagram identifies exactly when decreasing \(\theta\) can salvage local order, and when no admissible choice can. The classification is intentionally about a one-reaction benchmark and does not assert global convergence.
+For fixed theta in [1/2,1), A=a0>0 and nonincreasing nonnegative rates, I recover both branch laws from Definition 3 of Scott–McCallum–Foster. At r_m=c_theta the ordinary branch adds zero jumps and the alternative binomial would retain all m jumps. Uniformization at rate A bounds exact-chain paths of three or more jumps by O(h^3); P>=3 has the same bound and the active second-stage rate is at most (1-theta)A. Write s=theta A, b0=(1-theta)A, b1=A(r1-c_theta)/(2 theta) when r1>=c_theta. In the ordinary branches the numerical mass at 0 is exp(-Ah), and the h^2 coefficient of the mass at 2 is b0^2/2+s b1+s^2/2=A a1/2; normalization and first-order mass give the exact coefficient at 1. Changing the P=1 outcome to Bernoulli thinning changes the first-order mass at 1 by s(p1-1), with opposite mass at 0. If P=1 is ordinary but P=2 thins, the h^2 perturbation is (s^2/2) times Binomial(2,p) minus unit mass at 2. The given indicator witnesses give strict nonzero coefficients in both unsafe regions. The safe boundary is inclusive, with theta=1/2 allowed and r=1 safe for all admissible theta. Sharpness is over bounded tests, not a claim for each individual test. The result is local from the specified state, not a global convergence claim. Reconstruct from RESULT.md lines 20–65 or the coefficients above. VERIFICATION.md and verify.py were inspected as evidence, not executed; the analytic argument supplies the uniform-in-h tail bounds and quantifiers.
 
-## Closest work and limits
-The primary method's conditional-degeneracy conclusions cannot by themselves imply the unconditional classifications. The result uses a bounded nonincreasing single-channel propensity and fixed stepsize. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the sampling algorithm, earlier weak second-order framework and generic O(h) local error bound to the literature. The supported distinct claim is the sharp unconditional three-regime classification for a bounded nonincreasing pure-birth channel, including explicit defect coefficients and the necessary-and-sufficient second-order boundary. Neither the original article's expansion and bound nor the inspected related same-day record states or mechanically implies this classification. This is a best-of-knowledge comparison, not a claim of historical priority over the distinct same-day result.
+
+## value
+
+PASS
+
+The positivity adjustment changes the generator already at order h in one explicit region and preserves generator consistency but loses order two in another. Exact ratio cutoffs, including when no choice of theta can restore consistency, are useful for choosing or diagnosing the method even in this deliberately simple channel. The sharp witnesses and the transition driven by predictor count two add information beyond a generic local upper bound. No network-wide or global-order conclusion is needed or credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

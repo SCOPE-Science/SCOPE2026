@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:09:18.955447Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Centralizing 1+x in 1+J is exactly the homogeneous linear equation xy-yx=0 for y, so the size exponent is the additive commutator rank over the original field, without a characteristic restriction. Multiplying blocks gives exactly the (13), (24), (14) outputs in the proof; the (14) input block is free. For b!=0, projection onto the first two outputs is surjective, with kernel on (u',b',w') consisting of multiples of (u,b,w). On that kernel the remaining tensor image is u tensor W plus U tensor w, because the multiple contributes only p tensor w minus u tensor t. Its dimension is epsilon*c+delta*a-epsilon*delta. For b=0 the first projected rank is 1 iff u or w is nonzero, and the remaining rank is that of span(u,p) tensor W plus U tensor span(w,t). Their intersection is precisely the tensor product of the two spans, as is seen by extending bases of both spans, so the rank is i*c+a*j-i*j. The count for each span/status is given by choosing the first vector, then choosing the second inside or outside its span; it also handles dimension one and zero vectors. Multiplying the counts, including the central factor q^(ac), gives both sums. The hand check a=c=1 gives coefficients (2,6,32,24) at q=2 and total class-number formula 2q^3+q^2-2q. The frozen artifacts/check.py and checker_output.txt were inspected, not executed; their ten recorded prime-field cases are finite corroboration, not a check of arbitrary prime powers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goodwin–Röhrle's polynomiality theorem includes these four-block radicals but concerns the number of conjugacy classes. Pak–Soffer's inspected pattern-group enumeration concerns k(P).",
+          "Hennecart–Perry's explicit commuting-pair results for maximum path length two exclude the length-three chain. Yang's four-block scope and character degrees are highly relevant, but the accessible description does not supply a theorem about element class sizes."
+        ],
+        "reasoning": "The earlier parabolic theorem is broader in the allowed block dimensions but not in the statistic. Irreducible-character degree counts and element-class size counts are distinct; no identity taking the former to the claimed complete latter distribution was located.",
+        "searches": [
+          "Goodwin–Röhrle, arXiv:0901.0667, Theorem 1.2",
+          "Pak–Soffer, arXiv:1507.00411, introduction and recursive k(P) algorithm",
+          "Hennecart–Perry, arXiv:2208.07738, Conjecture 3.1 and path-length scope",
+          "Yang, DOI 10.1017/S1446788725101328"
+        ]
+      },
+      "checked_sources": [
+        "Resultary October 25 records 0a65f82a581d and 1cc1861b1eb7",
+        "Goodwin–Röhrle arXiv:0901.0667",
+        "Pak–Soffer arXiv:1507.00411",
+        "Hennecart–Perry arXiv:2208.07738",
+        "Yang DOI 10.1017/S1446788725101328 (full text unresolved)",
+        "Frozen RESULT.md, VERIFICATION.md, artifacts/check.py and artifacts/checker_output.txt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Use the prior coordinates X=(u,s,w,p,z,h), Y=(v,t,x,r,y,l). For fixed X with s!=0, the earlier length-two equations determine v,x from t, and the map (r,y) to (tp-sr,sy-tz) is bijective for fixed t,p,z. The stated rank of Phi therefore gives exactly the frozen nonzero-middle-block rank, including its zero/nonzero refinement.",
+          "For s=t=0 the previous proof sums over M=[u,-v,p,-r] and N with MN=0. Fixing M does not fix X, and fixing X fixes only two columns of M and two rows of N. Its rank count thus describes a different grouping of commuting pairs. The pointwise rank in that stratum requires the two separate fixed spans, their intersection term, and the separate t direction when s=0."
+        ],
+        "reasoning": "The exact nonzero-scalar part is mechanically recoverable and is not credited as new. The prior joint rank distribution, its aggregate, and the free long-path factor do not recover the zero-scalar histogram by substitution. Computing the pointwise tensor-space rank and weighting its joint span/first-vector strata supplies the remaining distribution for the same group.",
+        "searches": [
+          "Same-family Resultary 0a65f82a581d, Proof at local mirror offsets 1950–4783 (zero and nonzero middle scalar pairs)",
+          "Frozen RESULT.md lines 54–73"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 25 same-family record uses exactly the positive-length path spaces U, k, W, U, W, U tensor W. Its endomorphism algebra identification can reverse multiplication, which preserves the centralizer kernels.",
+          "Element class-size coefficients are equivalent to multiplicities of adjoint ranks or centralizer dimensions; the earlier pair count is their weighted sum rather than an equivalent invariant."
+        ],
+        "reasoning": "This is a comparison on the same underlying algebra despite the parabolic-versus-path presentation. The aggregate class number must be credited, but a sum over centralizer sizes is not the multiset of those sizes.",
+        "searches": [
+          "Resultary local searches on commuting-pair counts, centralizer spectra and parallel-arrow quiver radicals",
+          "2026/10/25/SCOPE-commuting-pair-counts-for-four-level-quiver-radicals-with-parall--0a65f82a581d, Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first entry gives an exact aggregate for the same family. The second gives a rank/centralizer spectrum for the algebra truncated at path length three, with equal arrow multiplicities; it deletes the length-three tensor space that contributes to ranks in the present proof.",
+          "The UT4 special case gives q+q(q^2-1)z+q^3(q-1)(q+2)z^2+q^3(q-1)(q^2-1)z^3. No novelty is claimed for the small unitriangular specialization or its total."
+        ],
+        "reasoning": "An exact census for a differently truncated multiplication and the exact total for this algebra do not match the desired distribution at general a,c. No earlier full table or exact all-parameter formula for it was identified in the bounded searches.",
+        "searches": [
+          "Resultary 2026/10/25, 0a65f82a581d and 1cc1861b1eb7",
+          "Frozen artifacts/checker_output.txt, a=c=1 specializations"
+        ]
+      },
+      "rationale": "Credit is for the complete element class-size distribution in this family, principally the individualized zero-middle-block ranks and their multiplicities. The same-family October 25 Resultary result already gives the exact class number and its proof yields the nonzero-middle-block ranks by fixing the first input. It does not give the zero-middle-block rank distribution: its method sums over a joint matrix built from both members of a commuting pair. The exact overlap in the nonzero stratum and total number is not a prior full histogram. Other inspected sources cover aggregate class counts, a different truncated algebra, or a different invariant. Yang's highly relevant paper remains a source-access limitation, not a finding of noncoverage.",
+      "residual_risks": [
+        "Yang's full paper was not available for passage-level review, so it could include useful ancillary ranks or equivalent data beyond the character-degree abstract.",
+        "These bounded searches do not exclude another earlier exact element spectrum. No novelty is assigned to the already recoverable nonzero-middle-block stratum, the class-number specialization, or the small UT4 case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact aggregate and nonzero-middle-scalar rank overlap; zero-scalar case sums using a different joint-rank statistic",
+          "evidence": [
+            "Zero scalar pair reduces to MN=0 and is counted by rank(M); the nonzero pair reduces to Phi with ranks 0, a, c, a+c-1."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-commuting-pair-counts-for-four-level-quiver-radicals-with-parall--0a65f82a581d",
+          "material_read": "RESULT.md Finding and class-number passage; Proof at offsets 1950–4783, including both scalar pair cases",
+          "method": "Local mirror statement and bounded proof inspection; fixed-first-input comparison",
+          "title": "Commuting-pair counts for four-level quiver radicals with parallel arrows",
+          "trigger": "Exact same algebra and a commuting-pair theorem with a plausible auxiliary full-rank formula"
+        },
+        {
+          "assessment": "Different algebra and parameters",
+          "evidence": [
+            "The algebra is F_q Q/J_Q^3 with equal multiplicities; the defining quotient kills length-three paths."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-centralizer-spectra-and-commuting-pairs-in-truncated-parallel-ar--1cc1861b1eb7",
+          "material_read": "RESULT.md statement and algebra assumptions",
+          "method": "Local mirror statement comparison",
+          "title": "Centralizer spectra and commuting pairs in truncated parallel-arrow radicals",
+          "trigger": "Closely related exact rank histogram indexed under another name"
+        },
+        {
+          "assessment": "Class-number polynomiality, not multiplicities by class size",
+          "evidence": [
+            "The theorem addresses the number of conjugacy classes for flags of length at most five."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0901.0667",
+          "material_read": "p. 1 Theorem 1.2, OA offset 2588",
+          "method": "Primary open-access PDF statement inspection",
+          "title": "On the number of conjugacy classes in unipotent radicals of parabolic subgroups of general linear groups",
+          "trigger": "Prior parabolic theorem covers the block-count regime"
+        },
+        {
+          "assessment": "The inspected results concern k(P), not the frozen two-parameter element histogram",
+          "evidence": [
+            "The algorithm enumerates the number of conjugacy classes of a pattern group."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1507.00411",
+          "material_read": "pp. 1–2 and 19, OA offsets 1226, 5037 and 57193",
+          "method": "Primary open-access PDF, class-count formulations and algorithm comparison",
+          "title": "On Higman's k(U_n(F_q)) conjecture",
+          "trigger": "Pattern-group exact enumeration and recursive algorithm"
+        },
+        {
+          "assessment": "Shorter maximum path length for the solved subclass and an aggregate invariant",
+          "evidence": [
+            "The explicit subclass has no directed path of length greater than two; the conjecture concerns the count of radical commuting pairs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2208.07738",
+          "material_read": "p. 1 path-length scope and p. 3 Conjecture 3.1, OA offsets 736 and 8482",
+          "method": "Primary open-access PDF, explicit range and invariant comparison",
+          "title": "A Quiver Analogue of Higman's Conjecture",
+          "trigger": "Same general quiver-radical setting"
+        },
+        {
+          "assessment": "Character-degree focus is distinct; indirect or additional element-spectrum coverage cannot be ruled out",
+          "evidence": [
+            "The frozen cited abstract-level description concerns numbers of irreducible characters by degree, not the distribution of sizes of conjugacy classes."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S1446788725101328",
+          "material_read": "Bibliographic and abstract-level description only; full text not obtained",
+          "method": "Lawful DOI/OA retrieval and exact-title/identifier repository search; no readable open full text retrieved",
+          "title": "A Geometric Approach to Polynomial Property for Pattern Subgroups in U_(a,b,c,d)",
+          "trigger": "Highly relevant earlier article for four-block pattern subgroups"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A four-block radical with scalar middle blocks is a natural untruncated chain with an actual length-three product. Knowing how many elements lie in classes of every size separates behavior that exact total class numbers cannot distinguish. The fixed-element tensor-rank analysis for a vanishing middle block identifies precisely how the two outer spans control these centralizers. The resulting finite polynomial computes this invariant throughout the family and across field characteristics, rather than just reworking prime-field examples or the already known aggregate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

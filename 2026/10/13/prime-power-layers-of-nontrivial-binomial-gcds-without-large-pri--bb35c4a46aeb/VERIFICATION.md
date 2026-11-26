@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -17,8 +20,6 @@
 ---
 # Verification
 
-The standalone program `artifacts/verify.py` uses only exact Python integer operations for its finite checks. It computes the defining binomial GCD directly for \(3\le n\le150\), independently factors each \(n\) and checks the published prime-power criterion, and then compares a direct factorization-based census with the exact disjoint prime-power formula for every \(n\le20000\).
+The standalone program `artifacts/verify.py` uses exact Python integer operations. It compares the defining binomial GCD with the imported prime-power criterion for \(3\le n\le150\). It then compares direct trial-factorization census counts by layer with the exact disjoint prime-power formula at \(X=10,100,1000,10000,20000\); these are comparisons at five cutoffs, not every cutoff through 20,000.
 
-It also evaluates the exact counts at \(X=10^6,10^9,10^{12}\), including the first two dominant exponents, and records them in `artifacts/replay.txt`. These numbers are checks of finite identities only. The infinite asymptotics are established analytically in the proof using the prime number theorem and partial summation; no finite sequence of ratios is asserted to certify a limit.
-
-The public materials do not certify a uniform-in-exponent estimate or the exact positive binomial-GCD values.
+It also evaluates exact counts at \(X=10^6,10^9,10^{12}\), including the first two exponent layers, recorded in `artifacts/replay.txt`. These are finite checks. The fixed-exponent asymptotics use the prime number theorem and partial summation, while aggregation uses a separate uniform upper bound for exponents at least three. Neither uniform-in-exponent asymptotics nor exact positive binomial-GCD values are certified here.

@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:20:47.058618Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For t>1 the largest eigenvalue is at least 1, so det(G_n−t^(−2)I)<0 is equivalent to the claimed small-eigenvalue event. The Schur complement yields Q<n t^(−2)[σ²+(Z−μ)²/(1−t^(−2))]. Its radius lies between R(Z)/t and (1+O(t^(−2)))R(Z)/t uniformly, so a squeeze preserves the sharp equivalent including a possible log. The Euclidean diagonal-coordinate Jacobian is √n; on compact mean intervals the rescaled cross section has volume V_(n−1) R(z)^(n−1). Near zero the intermediate region z≥C/t has product density uniformly within 1+O(1/C) of f(z)^n; the layer z<C/t is O_C(t^(−nα)), and the reflected estimates use β. Thus at n(α−1)=−1 the log coefficient is unchanged by the fixed lower cutoff C/t. In each subcritical corner the rescaling x_i=y_i/t gives J_n, with integrable product powers on bounded boxes and envelope proportional to s^(n(a−1)) at diagonal coordinate s≫1. This justifies both convergence and strict positivity, gives the convergence threshold for J_n, and handles tied endpoint contributions by disjoint localization. Layer cake gives divergence also at the moment boundary. As independent checks, for two uniform samples the exact event integrates in mean/difference coordinates with Jacobian 1; t times the probability has limit 4∫_0^1 sqrt(1/12+(z−1/2)^2) dz=2/√3+asinh(√3)/3. For n=3 the corresponding integral without the square root equals 1/6 and gives π√3/2. These analytic formulas are replayable from the displayed integrals; no supplied script was executed and no simulated tail was needed to justify the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Royen already gives the exact lower tail of Q for all n with uniform density and for f_a(x)=a x^(a−1), 0<a<1, including all three exponent/log cases with exact constants.",
+          "Xu–Zhang's sampling-rate theorems are different from fixed-degree large thresholds; Osan–Chu–Yu's abstract concerns n=3 variance including polynomial cases."
+        ],
+        "reasoning": "The uniform and pure-power templates cover all local regimes of Beta density, regardless of whether both endpoints are singular. Left and right applications are independent localizations, not an assumption that the density is globally a one-sided power.",
+        "searches": [
+          "Royen arXiv:0810.1572 uniform thin-cylinder passage, Theorem 3 equations (47)–(50)",
+          "Xu–Zhang arXiv:2407.10221 Theorems 1.1 and 1.4",
+          "Osan–Chu–Yu arXiv:2609.25333"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verification_output.txt and verify.py",
+        "arXiv:0810.1572, 2407.10221, 2609.25333",
+        "Resultary f275509045a1 and 83040a6c4736"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Partition the support into a finite collection of interior intervals and two endpoint intervals of length d. Because Q=O(t^(−2)), samples crossing a fixed interior cut must all be within O(1/t) of that cut; they contribute O(t^(−n)). In an interior interval I, squeeze R and f by their extrema. Royen's exact uniform result, scaled to I, gives leading coefficient brackets √n V_(n−1)|I| (inf or sup f)^n (inf or sup R)^(n−1). Mesh refinement produces the exact weighted Riemann integral.",
+          "In [0,d], squeeze the Beta density by (1+O(d))x^(a−1)/B and R by its endpoint extrema. The pure-power total multiplier is (d^a/(aB))^n, and the argument of Royen's F_Q is (R/(dt))². If na<n−1 or na=n−1 the d powers cancel, and log(1/x) gives 2 log t. In the critical case Royen's (50) gives C_an=(√n V_(n−1) a^n)/2, so the frozen coefficient follows exactly. A bulk-order endpoint with 0<a<1 has coefficient O(d^(na−n+1)); for a≥1 the uniform comparison with bounded density suffices. Repeat after reflection, adding tied leading endpoints.",
+          "For the subcritical constant, the integral of (h^-_a)^n+(h^+_a)^n in Royen (50) equals a^n √(π/n)∫_{y_i>0} exp(−Q(y))∏y_i^(a−1)dy, by integrating over the common center on the real line. Homogeneity gives the last integral Γ(1+na/2) J_n(a,1), so the (50) coefficient is a^n J_n(a,1). The interval scaling therefore gives exactly J_n(a,R(e))/B^n, not merely its exponent."
+        ],
+        "reasoning": "The affine determinant identity, local sandwiches of the two source asymptotics, and homogeneity exhaust the asserted constants, normalization and ties. Moment thresholds are then routine layer cake. The implication relies on read source formulas and an explicit reduction rather than on a similar title or a conjectured general joint theorem.",
+        "searches": [
+          "Royen arXiv:0810.1572 offset 13000, PDF pp. 4–5; offsets 32600–37664, Theorem 3",
+          "Resultary f275509045a1 Finding and tube-coordinate proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xu–Zhang identify empirical-to-population stability with λ_min(G)^(-1/2). The affine Schur complement reduces this specific event to the classical spread Q with continuous positive mean-dependent radius.",
+          "Resultary f275509045a1 works with sample variance S²=Q/2 at n=3 with all positive Beta shapes, not the norm.",
+          "Later Resultary 83040a6c4736 uses noisy OLS slopes and the same moment index, not the same random variable."
+        ],
+        "reasoning": "The bare unweighted variance and the norm are not identical in law. The difference is exactly a local radius change, so one needs the positive-radius localization in the implication check, not a direct substitution at a single radius globally.",
+        "searches": [
+          "Xu and Zhang arXiv:2407.10221 Lemma 2.3",
+          "Royen arXiv:0810.1572 sample variance and pure-power lower tails",
+          "Resultary f275509045a1 and 83040a6c4736"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "There is no finite table claim, but the analogous exact-constant check has positive overlap: Royen gives the exact unweighted constants, and the three-sample record gives exact Beta coefficients in all three regimes.",
+          "For n=3 in the bulk, the older C_S for S²=Q/2 is 2√3π∫ f³; the frozen coefficient is (3/2) C_S times E[σ²+(U−μ)²], U∼Beta(3α−2,3β−2). In the critical and corner cases the local substitution S²<R(e)²/(2t²) and homogeneity give the exact same endpoint coefficients."
+        ],
+        "reasoning": "π√3/2 is the uniform specialization of that weighted beta integral; it is not a separately unknown benchmark once the local formula is applied.",
+        "searches": [
+          "Royen arXiv:0810.1572 uniform thin-cylinder formula and (50)",
+          "Resultary f275509045a1 exact three-sample Beta variance constants"
+        ]
+      },
+      "rationale": "The exact all-n constants and three regimes are recoverable from existing sharp constant-radius small-ball results, not just from bounds on the exponent. Royen's uniform thin-cylinder asymptotic and exact pure-power Theorem 3 can be localized by simple density and radius sandwiches after the affine 2×2 Gram identity. This produces the exact mean-weighted constants for all positive Beta shapes; the older three-sample Beta result independently exhibits the same mechanism in the n=3 slice. The norm-specific statement is not quoted verbatim in those sources, but the claimed exact information is mechanically implied as detailed below.",
+      "residual_risks": [
+        "The one primary search yielded no relevant additional paper; no comprehensive historical priority conclusion is made.",
+        "The conclusion is an implication from verified earlier results, not a claim that Royen or Xu–Zhang explicitly state the full Beta stability law in this notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact local templates sufficient for the frozen asymptotic by localization",
+          "evidence": "Uniform F_Q(x)∼√n V_(n−1)x^((n−1)/2); exact pure power C_an and critical logarithm.",
+          "identifier_or_url": "https://arxiv.org/pdf/0810.1572",
+          "material_read": "Definition of Q p. 2; uniform passage printed pp. 4–5 offset 13000; Theorem 3 pp. 11–12 equations (47)–(50), offsets 32600–37664",
+          "method": "Lawful OA text extraction and explicit coefficient reduction",
+          "title": "The exact distribution of the sample variance from bounded continuous random variables",
+          "trigger": "Classical spread exact small balls with matching thresholds"
+        },
+        {
+          "assessment": "Covers the analogous unweighted n=3 theorem and implies the n=3 norm constants with the local radius change",
+          "evidence": "Threshold 2/3 and variance bulk, critical and corner constants; S²=Q/2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-lower-tail-phase-diagram-for-the-three-sample-beta-varianc--f275509045a1/RESULT.md",
+          "material_read": "Finding and tube-coordinate argument from offset 0",
+          "method": "Local mirror and comparison of constants",
+          "title": "Exact lower-tail phase diagram for the three-sample Beta variance",
+          "trigger": "Same Beta parameters and exact diagonal/corner mechanism"
+        },
+        {
+          "assessment": "Norm identification established; not the fixed-degree tail theorem itself",
+          "evidence": "K=λ_min(G)^(-1/2); sample-size high-probability stability elsewhere.",
+          "identifier_or_url": "https://arxiv.org/pdf/2407.10221",
+          "material_read": "Lemma 2.3 p. 14 offset 43352; Theorems 1.1 and 1.4 p. 3 and p. 8 offsets 9411 and 24190",
+          "method": "Lawful OA PDF passages",
+          "title": "Stability of Least Squares Approximation under Random Sampling",
+          "trigger": "Exact definition and relation between norm and Gram eigenvalue"
+        },
+        {
+          "assessment": "Related but not dispositive",
+          "evidence": "Restricted three-sample variance results and later noisy slope moment threshold, not exact all-n norm constants by themselves.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.25333; Resultary 83040a6c4736",
+          "material_read": "arXiv abstract p. 1 offset 0; catalogue Finding offset 0",
+          "method": "OA PDF passage and local mirror",
+          "title": "Exact n=3 sample variance study by Osan, Chu and Yu; Sharp moment budget for noisy affine fits under Beta-distributed sampling",
+          "trigger": "Adjacent sharp variance and Beta affine-fit results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Fixed-sample instability probabilities and moment thresholds are natural reliability questions for empirical affine fits. Packaging exact constants and the transition cases in the norm of interest is scientifically useful; this does not establish novelty over the prior local small-ball results.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

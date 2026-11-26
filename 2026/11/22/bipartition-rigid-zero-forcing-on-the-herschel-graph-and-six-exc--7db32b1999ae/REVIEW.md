@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph has an explicit eighteen-edge definition and a certified bipartition. Both complete algorithms independently establish zero-forcing number five and the precise 114 minimum states: all 2048 masks are closed under the forcing rule in one checker, and all forts are searched in the other. The signature \((3,2)\) proves all token slides impossible. One program enumerates the 540 unrestricted exchanges and uses complete BFS, while the second uses a different representation and Floyd–Warshall. All 6441 pairwise distances and the six exceptional pairs agree, with the 12-automorphism orbit checked directly. Finite exhaustion is an exact proof for the named finite graph; it does not support any unrestricted generalization.
+PASS
 
-## Originality — PASS, with residual historical risk
+For the explicit eleven-vertex graph, a forcing set must hit every nonempty fort, since otherwise the first force into it is impossible; if closure stalls the final white set is itself a fort. Hence testing the inclusion-minimal forts is sufficient. An independently written bounded replay, branches/1791af5a-f25c-4121-a0c7-8c5fcc027d75/herschel_replay.py, exhausts the 2,047 candidate forts and finds 558 forts, 30 inclusion-minimal. The resulting hitting sets have minimum size five, with 114 optima, all with signature (3,2) in the stated bipartition. An edge slide necessarily changes this signature, whereas jumping is Hamming distance two on the optimum masks. The independently regenerated 540 jump edges give a connected graph with every eccentricity five and pair counts (540,1938,2664,1167,132). Subtracting half symmetric difference gives (6183,252,6) for excess 0,1,2; the six excess-two pairs all have exchange distance four and Johnson distance two. Exhaustive degree-preserving permutations yield 12 automorphisms, under which those six pairs are one orbit. The replay matches the exact exceptional mask pairs in certificate.json, lines 2375–2408. The supplied verifiers were inspected, not run. The conclusion is a complete classification of the stated ordinary rule on the supplied labeled graph, not of other forcing rules or graph families.
 
-The 2020 Geneson–Haas–Hogben article defines and analyzes the token-exchange zero-forcing graph, but its accessible full text does not contain the Herschel graph or this exact bipartition/metric classification. The 2022 Bong et al. paper treats addition/removal, not the minimum-size exchange metric; its searchable full text likewise has no Herschel result. The 2025 Bong et al. paper compares general token exchange/sliding rules with emphasis on PSD and skew forcing, and its searched full text does not contain this Herschel classification. Relevant published finite results on other graphs, including Pappus/Desargues and the Frucht graph, do not imply Herschel's roster or all-pairs metric. Specific Frucht published data were checked to guard against the risk of relabeling a previously tabulated result; they do not cover this distinct base graph. Primary literature and known research records were compared by mathematical parameters, not title alone. An unindexed equivalent or comprehensive machine-readable table remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The Herschel graph is a canonical smallest non-Hamiltonian polyhedral graph with a nontrivial twelve-element symmetry group. The exact result makes a structural rigidity mechanism visible: a fixed optimal bipartition occupancy entirely prohibits local token movement even though unconstrained one-token exchange yields a connected, self-centered 114-state network. The complete, almost-Johnson metric and the single six-pair symmetry orbit of exceptional two-move detours provide a reproducible natural benchmark for shortest optimal-solution reconfiguration, not an arbitrary parameter slice. This is a finite classification, not a family-wide theorem.
+There is close prior catalogue coverage of both patterns—slide freezing from a bipartition-count constraint and distance-four exchanges with Johnson distance two—but not located on the stated Herschel graph. The structurally similar Möbius–Kantor results deserve explicit credit as precedents for the type of claim, not as implications for an eleven-vertex graph. The exact Resultary match for the Herschel theorem is this frozen record itself. The supported distinct content is the explicit Herschel roster signature and exact exchange metric, particularly the single six-pair excess-two orbit.
 
-## Closest sources and limits
+## value
 
-Geneson–Haas–Hogben, arXiv:2009.00220v1; Bong–Carlson–Curtis–Haas–Hogben, arXiv:2205.09668v1; Bong et al., arXiv:2501.03642v1; SageMath's HerschelGraph documentation; and the published Frucht zero-forcing exchange-filtration result. Numerical and algorithmic evidence is embedded, not an external certificate of authorship or independent proof. Historical uniqueness is not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The smallest non-Hamiltonian polyhedral graph is a natural fixed benchmark for reconfiguration under an observability rule. An exact obstruction freezes every edge slide despite connected unrestricted movement, and the unique orbit of six two-move detours gives structural information beyond a minimum-set count or a generic diameter bound. The full finite metric also distinguishes the example from close graph analogues without claiming a family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

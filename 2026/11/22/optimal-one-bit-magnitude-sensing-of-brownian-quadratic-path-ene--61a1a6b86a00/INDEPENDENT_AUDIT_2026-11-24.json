@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:08:05.102376Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Gaussian regression and integration of min(t,x)^2 give E[Q|W_x]=1/2+x(1-2x/3)(Z^2-1), and the Gaussian fourth-moment formula gives Var(Q)=1/3. Any independent-randomized binary kernel induces r(y)=P(B=1|Z^2=y); at fixed nontrivial bit mass and with the positive covariance convention, moving any mass below the upper-tail cutoff to above it strictly improves the objective unless the kernel already equals the tail indicator almost surely. Thus randomized encoding cannot improve the optimum. The time factor is positive for x>0 with unique maximum 3/8 at 3/4; x=0 transmits no information. For chi-square-one Y and cutoff c, differentiating centroid distortion gives the sign of 2c-mu_--mu_+. The lower-cell scaled centroid strictly decreases by the exponential tilt on (0,1). The upper-cell scaled survival ratio decreases strictly since z h(z) strictly increases for positive z (h is the normal hazard, with h'=h(h-z)>0 by Mills' inequality). Hence the sum of scaled means decreases from infinity to one, proving the unique interior global cutoff. Normal integration by parts gives the stated equation, conditional means and risk. A separate 60-digit solution gave a=1.48207243570106119220381297475, F=1.30448970814641475910340001849, risk=0.14988946812524375783441770573, and the two decoder values 1.5690062644358755 and 0.3283977640627816. The supplied script and stored output were inspected, not executed; sampled monotonicity in that evidence is not used as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Foster–Lyons–Oberhauser condition the integral of squared Brownian increments on the terminal increment and space-time area. Fesl–Koller–Utschick study one-bit channel estimation with Gaussian inputs. Guo–Kostina optimize event-triggered causal tracking; the catalogue bridge theorem uses covariance min(s,t)-st and two full observations."
+        ],
+        "reasoning": "The inspected theorems do not cover the combination of a preselected noiseless single Brownian snapshot, an arbitrary one-bit kernel, and squared error for the nonlinear integrated energy.",
+        "searches": [
+          "arXiv:1904.06998, Theorem 3.7",
+          "arXiv:2212.04470",
+          "arXiv:1909.01317",
+          "Resultary Brownian-bridge quadratic observation 5b6200720fdd"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt (inspection only)",
+        "Resultary exact self match 61a1a6b86a00 and records 24c538a32a15, 5b6200720fdd",
+        "arXiv:1904.06998, arXiv:2212.04470, arXiv:1909.01317",
+        "Stanford quantization notes, pp. 3–4 (Lloyd–Max conditions)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Midpoint/centroid stationarity already gives the cutoff equation once the target is reduced to chi-square-one. Stationarity alone does not give the unique global solution; the full-value observation time does not give the remaining two-level distortion."
+        ],
+        "reasoning": "Credit the classical optimization conditions and the shared full-observation time. The proof of strict global uniqueness for the specific distribution and exact Brownian one-bit loss are not supplied by those inspected results.",
+        "searches": [
+          "Lloyd–Max scalar-quantization conditions, Stanford quantization notes pp. 3–4",
+          "Resultary full-valued Brownian two-time finding 24c538a32a15",
+          "arXiv:1904.06998 §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The problem is exactly a two-level mean-square quantizer for Z^2, not one for the signed Gaussian Z; the gain for the path target is (3/8)^2 times the scalar explained variance.",
+          "The catalogue's Brownian two-time full-value record 24c538a32a15 cites 3/4 as the best full-value one-time location but does not optimize a bit."
+        ],
+        "reasoning": "The scalar reduction identifies real potential equivalent coverage. A known sharp chi-square-one two-level quantizer, combined with the posterior regression, would cover the threshold and sharp risk; a normal sign quantizer or a full-value time optimum does not.",
+        "searches": [
+          "Resultary: Brownian quadratic energy one-bit or full snapshot",
+          "Targeted literature lookup for chi-square-one/Gamma two-level scalar quantization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match 61a1a6b86a00 is the assigned record. The scalar lookup retrieved general centroid and midpoint rules but no specific chi-square-one table. Available generic material is not a tabulation of c=a^2 or its cell centroids."
+        ],
+        "reasoning": "A table for Gamma(shape 1/2) would be relevant if its scale is adjusted to chi-square-one and it gives the optimum among two squared-error levels. No such entry was inspected; search limits cannot exclude one.",
+        "searches": [
+          "Resultary: optimal one-bit magnitude sensing of Brownian quadratic path energy",
+          "Targeted chi-square/Gamma binary quantizer table lookup",
+          "Lloyd DOI 10.1109/TIT.1982.1056489"
+        ]
+      },
+      "rationale": "The full-value one-time location and Lloyd–Max stationarity are not credited as new. The supported distinct result is the sharp Brownian one-bit design: uniqueness over kernels, the explicit chi-square-one cutoff, and the exact loss for the path energy. The inspected sources do not determine that claim.",
+      "residual_risks": [
+        "An explicit existing optimal two-level chi-square-one or Gamma(shape 1/2) quantizer would materially reduce the mathematical originality; none was located in the bounded search.",
+        "OA retrieval of the Lloyd DOI was unavailable; generic stationarity is credited regardless. One broader search was deferred and provides no negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant but different conditioning and no bit optimization in passage",
+          "evidence": "Conditions the integrated square on the terminal increment and space-time area, using an independent residual in the polynomial decomposition.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.06998",
+          "material_read": "§3, Theorem 3.7, p. 16, Eq. (3.4) and opening proof, PDF text offset 59552",
+          "method": "OA PDF passage",
+          "title": "An optimal polynomial approximation of Brownian motion",
+          "trigger": "Conditional regression of the same quadratic path functional"
+        },
+        {
+          "assessment": "Different model described in abstract",
+          "evidence": "Gaussian channel estimation with quantization, rather than a chosen Brownian snapshot for an integrated energy.",
+          "identifier_or_url": "https://arxiv.org/abs/2212.04470",
+          "material_read": "p. 1 abstract",
+          "method": "OA PDF passage",
+          "title": "On the Mean Square Error Optimal Estimator in One-Bit Quantized Systems",
+          "trigger": "One-bit minimum mean-square estimation"
+        },
+        {
+          "assessment": "Different design described in abstract",
+          "evidence": "Event-triggered timing and sign-of-innovation codewords for trajectory tracking.",
+          "identifier_or_url": "https://arxiv.org/abs/1909.01317",
+          "material_read": "p. 1 abstract",
+          "method": "OA PDF passage",
+          "title": "Optimal Causal Rate-Constrained Sampling of the Wiener Process",
+          "trigger": "One-bit Wiener sampling design"
+        },
+        {
+          "assessment": "Covers the full-value time benchmark, not the binary quantizer",
+          "evidence": "Two full-value optimum at about (0.5184446,0.8523345), with 3/4 stated as the one-value optimum.",
+          "identifier_or_url": "Resultary 2026/11/22/24c538a32a15",
+          "material_read": "Finding",
+          "method": "Catalogue and local mirror passage",
+          "title": "Unique two-time observation design for Brownian quadratic path energy",
+          "trigger": "Same target and same one-value time benchmark"
+        },
+        {
+          "assessment": "Different process and information available to the estimator",
+          "evidence": "Two exact observations of a bridge, with a midpoint single-observation optimum.",
+          "identifier_or_url": "Resultary 2026/11/22/5b6200720fdd",
+          "material_read": "Finding",
+          "method": "Catalogue and local mirror passage",
+          "title": "Globally optimal two-point observation of Brownian bridge quadratic energy",
+          "trigger": "Same type of energy and optimized observation times"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural Brownian path functional, the result specifies what one bit should measure and exactly what information it retains. A sign observation is useless, the best magnitude bit retains about 55% of prior variance, and a full snapshot retains about 84%. The globally unique magnitude design over arbitrary kernels, with a sharp quantitative benchmark, is more than a numerical Lloyd iteration or a rederivation of the full-value time.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

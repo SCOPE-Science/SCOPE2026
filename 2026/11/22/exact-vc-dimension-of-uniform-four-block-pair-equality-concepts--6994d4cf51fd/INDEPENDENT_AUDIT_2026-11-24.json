@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:48:09.503475Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof lines 17–49",
+        "VERIFICATION.md, VERIFY.py and verification_output.txt, inspected without executing supplied code"
+      ],
+      "rationale": "With all edges positive the support lies within an exact-four partition; no internal cycle can be shattered since negating one edge leaves a positive path between its endpoints. At ≥3m−1 edges, m−1 spanning four-vertex trees can be kept positive while an edge in the remaining block is negated. The trees force all the other blocks, so those endpoints are still together. For the lower bound take m−2 three-edge stars and two two-edge stars in disjoint nominated fours. Positive cores have vacancies s_i and e_i free unqueried leaves (e_i=1 for the last two groups, 0 otherwise). A negative token forbids just its own core. Any vacancy set meeting multiple cores sees all tokens; a one-core set gives exactly 2s_i≤∑s_j+e_i. Failure in a full star forces s_i=3, both deficient capacities 1 and all other full capacities 0; put the offending center with one deficient core, one offending leaf with the other, and the remaining two leaves with the two free tokens. Failure in a deficient star forces s_i=3, its partner at 1 and all full capacities 0; put the offending center with the partner core and its two negative leaves with the two free tokens. All blocks and negative separations check in both cases. For m=2 only the latter exception can arise; m=1 is a singleton class of VC dimension zero.",
+      "residual_risks": [
+        "Finite checks reported for m=2,…,5 and partition enumerations for m=2,3 were not rerun. The Hall reduction and exceptional packings give the all-m proof and a replayable witness construction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "All partitions have VC dimension 4m−1 on this ground set; the at-most-four class has dimension 3m. Refinement-closed classes admit all refinements, unlike exact fours."
+        ],
+        "reasoning": "The first two give only weaker upper bounds by inclusion, and their shattering witnesses can use an incorrect number of smaller blocks. The refinement theorem's closure hypothesis fails outright.",
+        "searches": [
+          "Bressan et al., arXiv:1905.11902v1, Theorem 6",
+          "2026/11/8/SCOPE-shattering-complexes-and-maximal-face-spectra-of-size-capped-equ--8b7b35a2f27d",
+          "2026/11/2/SCOPE-refinement-closed-partition-concepts-exact-shattering-supports-o--2203ea0ddc4a"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and listed closely related Resultary records",
+        "Bressan et al. Theorem 6",
+        "Liu–Mukherjee §1.2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cap proof can assign each positive component its own block. The cut criterion at n=8,a=4 gives the boundary and rules out all five-edge forest profiles; the triple result does not assert the case k=4."
+        ],
+        "reasoning": "With exact fours, saturated positive components force an additional two-edge loss in the upper bound, and realizing labels requires exact repacking. None of these claims resolves the four-slot Hall failures for m≥3.",
+        "searches": [
+          "Size-cap forest criterion, 8b7b35a2f27d Finding",
+          "Uniform triple law, 165fac9eb392 Finding",
+          "Fixed-cardinality cut coefficient criterion, e71e3de9534e Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For two blocks, unordered cuts and equivalence pair labels coincide up to the global label reversal between cut and same-side. The size-profile criterion gives dimension four for two fours, including the shattered profile (3,3,1,1). Adaptive exact identification in Liu–Mukherjee uses the same query but is not a VC question."
+        ],
+        "reasoning": "The two-cut reformulation is actually equivalent only for m=2; more than two equal fours require a multigroup exact-capacity partition, not a single cut.",
+        "searches": [
+          "Resultary: static VC shattering of equal-size four-block partitions by pair equality",
+          "2026/11/2/SCOPE-forest-size-profiles-determine-shattering-by-fixed-cardinality-c--e71e3de9534e",
+          "Liu–Mukherjee arXiv:2112.07897v1 §1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit is the assigned record itself. The distinct triple result gives 2m−2 for blocks of size three; the same-day fixed-count result imposes interval convexity on a chain and does not require block size four."
+        ],
+        "reasoning": "Neither distinct result is an exact table for this class; no priority is inferred from same-day dates. The distinct fixed-cardinality cut record covers the m=2 row.",
+        "searches": [
+          "Local Resultary exact four-block VC and fixed-block variants",
+          "2026/11/22/SCOPE-exact-vc-dimension-of-uniform-four-block-pair-equality-concepts--6994d4cf51fd",
+          "2026/11/8/SCOPE-a-sharp-static-online-gap-for-uniform-triple-partitions--165fac9eb392",
+          "2026/11/22/SCOPE-exact-shattering-of-fixed-block-convex-equivalence-relations-on--84f06d23fe03"
+        ]
+      },
+      "rationale": "The distinct contribution is the all-m exact-four law and constructive packing for m≥3, not the previously covered m=2 boundary or the trivial singleton case, both excluded from priority credit. The closest size-cap, two-block, uniform-triple and fixed-count results do not imply the new regime.",
+      "residual_risks": [
+        "The catalogue and primary literature comparison is bounded and does not establish historical priority; a general equal-size partition theorem outside inspected sources could alter the assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader concepts, weaker subclass upper bound",
+          "evidence": "The VC dimension of the class of all partitions of n elements is n−1.",
+          "identifier_or_url": "https://arxiv.org/pdf/1905.11902v1",
+          "material_read": "Theorem 6, PDF p. 7, offset 34054",
+          "method": "OA bounded primary passage",
+          "title": "Correlation Clustering with Adaptive Similarity Queries",
+          "trigger": "Identical pair concept on wider partition class"
+        },
+        {
+          "assessment": "Covers m=2 only",
+          "evidence": "The component-side assignment coefficient uses exactly two sides, with n=8 and side size 4 for this specialization.",
+          "identifier_or_url": "2026/11/2/SCOPE-forest-size-profiles-determine-shattering-by-fixed-cardinality-c--e71e3de9534e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded local mirror inspection",
+          "title": "Forest size profiles determine shattering by fixed-cardinality cuts",
+          "trigger": "Exactly prescribed cardinalities and two blocks"
+        },
+        {
+          "assessment": "Size cap, not equality",
+          "evidence": "Shattered supports are forests with components of order at most r; the maximal dimension is n−ceil(n/r).",
+          "identifier_or_url": "2026/11/8/SCOPE-shattering-complexes-and-maximal-face-spectra-of-size-capped-equ--8b7b35a2f27d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded local mirror inspection",
+          "title": "Shattering complexes and maximal-face spectra of size-capped equivalence relations",
+          "trigger": "Closest block-size constraint"
+        },
+        {
+          "assessment": "Three-vertex blocks only",
+          "evidence": "Exact VC dimension 2m−2 for triples, with a distinct online result.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-static-online-gap-for-uniform-triple-partitions--165fac9eb392",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded local mirror inspection",
+          "title": "A sharp static–online gap for uniform triple partitions",
+          "trigger": "Exact equal blocks and same queries"
+        },
+        {
+          "assessment": "Neither equivalent nor dominating",
+          "evidence": "Blocks are intervals of a chain with variable lengths.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-shattering-of-fixed-block-convex-equivalence-relations-on--84f06d23fe03",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded local mirror inspection",
+          "title": "Exact shattering of fixed-block convex equivalence relations",
+          "trigger": "Distinct same-day fixed-block-count match"
+        },
+        {
+          "assessment": "Adaptive exact identification, not static shattering",
+          "evidence": "Theorem 1.1 is an adversarial query lower bound for identifying the partition.",
+          "identifier_or_url": "https://arxiv.org/pdf/2112.07897v1",
+          "material_read": "§1.2, p. 2, offset 6884",
+          "method": "OA bounded primary passage",
+          "title": "Tight Query Complexity Bounds for Learning Graph Partitions",
+          "trigger": "Same equality oracle"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen proof and comparison with capped, exact two-block and uniform-triple results"
+      ],
+      "rationale": "This is a motivated exact capacity-constrained VC invariant, not an isolated finite example. The upper deficit from the size-cap class measures a real saturation obstruction, and the explicit optimal support and two exceptional packings are useful witnesses for subsequent constrained shattering and general block-size analysis.",
+      "residual_risks": [
+        "No value credit is assigned to the known two-block boundary, or to an unproved extension to other block sizes or to online dimension."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

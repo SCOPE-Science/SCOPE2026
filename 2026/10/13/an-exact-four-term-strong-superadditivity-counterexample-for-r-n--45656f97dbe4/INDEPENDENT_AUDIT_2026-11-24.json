@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:03:44.932284Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Cornelio–de Oliveira's Eqs. (1), (6), and (7) give the stated cut, convex roof, and concurrence formula at α=2. With the frozen qubit order the coefficients for the large cut are the diagonal (3,2,6,3)/√58, not a 2×2 Schmidt matrix. Squaring and normalizing gives reduced purity 737/1682. In either direct-pair reduction only the |00⟩,|11⟩ block survives, with diagonal 13/58 and 45/58 (interchanged for the other pair) and coherence 24/58. For such a positive 2×2 block with entries a,d,z, the square roots of the nonzero spin-flip eigenvalues are √(ad)±|z|, so concurrence equals 2|z|=24/29. Each convex-roof factor is 1−C²/2=553/841. The residual log₂[(553/841)²/(737/1682)] is log₂(611618/619817), strictly negative by integer comparison. Tracing either crossed pair leaves distinct traced-out labels and a separable diagonal state. Independent exact bit-index partial traces and arithmetic replayed with `python3 /workspace/branches/independent-checks.py 4` give these fractions and −0.0192114588808 bits; the uploaded checker was read, not executed. This establishes a witness, not optimality, a result at other orders, or the general monogamy equivalence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first paper addresses the same inequality and gives the general two-qubit evaluation formula. The other inspected comparators concern concurrence or tangle hierarchies, or squared formation-entanglement monogamy."
+        ],
+        "reasoning": "A general evaluation formula supplies the tool, but not a violation for these amplitudes without calculation. A different monogamy functional or number of qubits does not cover this exact strong-superadditivity claim.",
+        "searches": [
+          "Cornelio–de Oliveira arXiv:0906.0332, Eqs. (1), (6), (7) and numerical violation discussion",
+          "Cornelio arXiv:1302.1179; Regula et al. arXiv:1405.3989; de Oliveira et al. arXiv:1312.7287"
+        ]
+      },
+      "checked_sources": [
+        "Cornelio–de Oliveira arXiv:0906.0332 Eqs. (1), (6), (7) and numerical discussion",
+        "Three arXiv monogamy comparators listed above",
+        "Three local Resultary Findings listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Numerical existence of violations is already known. The source does not supply exact rational amplitudes for the quoted numerical counterexample; the closest catalogue result analyzes convexity of a different three-qubit measure."
+        ],
+        "reasoning": "The known phenomenon could motivate exact witnesses, but it does not yield these amplitudes and certified rational residual or the four-term sparse form. The Finding does not ask for credit for the general existence or for a stronger optimum.",
+        "searches": [
+          "Read Cornelio–de Oliveira's numerical passage against RESULT.md's exact witness and stated nonoptimization scope",
+          "Read closest Resultary mixed-state order-two Finding (0fa8cb671c55)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The old spectrum is approximately {0.66,0.14,0.14,0.06}, versus {36,9,9,4}/58 here. The bounded catalogue search did not surface a matching amplitude pattern."
+        ],
+        "reasoning": "Comparison is invariant under local unitaries preserving the main cut and under relabeling Schmidt terms. Reshaping amplitudes into a 2×2 table indexed by direct-pair labels is just another description of this state's 4×4 diagonal main-cut coefficient matrix, not another state.",
+        "searches": [
+          "Resultary: exact four-coefficient pattern 3,2,6,3 and Rényi-2 superadditivity",
+          "Compare Cornelio–de Oliveira's ψ_vio with the exact vector through the Schmidt spectrum and the direct-pair reductions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching stated ratio among examined catalogue candidates. The prior reported residual is about −0.0197 and its spectra are only approximate."
+        ],
+        "reasoning": "The spectra and residual distinguish the numerical entry from this exact witness. Nearby Resultary records use different Rényi constructions, so their data are not a table of examples for this functional.",
+        "searches": [
+          "Resultary: exact residual 611618/619817 and near −0.0192114589 bits",
+          "Numerical order-two violation and reduced-spectrum data in Cornelio–de Oliveira, PDF p. 3"
+        ]
+      },
+      "rationale": "The existence of four-qubit order-two violations and the concurrence formula are prior work. The relevant distinct claim is the explicit elementary four-term state with a fully exact violation. Its large-cut spectrum differs from the published numerical witness at the stated precision, so that example is not identical up to cut-local unitaries. No inspected source gives or implies this exact state and residual as a particular instance without a separate witness calculation.",
+      "residual_risks": [
+        "The checked literature does not exclude an obscure earlier exact witness or an unindexed equivalent four-term example. No priority claim for the phenomenon or inferred equivalence to the published numerical state."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the violation phenomenon and formula, but different numerical witness",
+          "evidence": "Numerical ψ_vio has residual about −0.0197, global spectrum about {0.66,0.14,0.14,0.06}, and direct-pair spectra about {0.997,0.003,0,0}.",
+          "identifier_or_url": "https://arxiv.org/pdf/0906.0332",
+          "material_read": "Eqs. (1), (6), (7), PDF pp. 1–2 (offsets around 3300 and 8500–13968); numerical witness discussion p. 3 (19500–20462 and 20500–25975)",
+          "method": "OA PDF passage lookup and bounded reads",
+          "title": "Strong superadditivity and monogamy of the Rényi measure of entanglement",
+          "trigger": "Same measure, inequality, and four-qubit numerical violation"
+        },
+        {
+          "assessment": "Related phenomena but not this measure and exact witness",
+          "evidence": "Generalized concurrence for three qubits, a strong-monogamy tangle hierarchy, and squared entanglement of formation, respectively.",
+          "identifier_or_url": "arXiv:1302.1179; arXiv:1405.3989; arXiv:1312.7287",
+          "material_read": "Abstracts; Regula et al. Eq. (9) near offset 33800",
+          "method": "OA PDF passages",
+          "title": "Concurrence and entanglement monogamy comparators",
+          "trigger": "Nearby multipartite inequalities and potential reductions"
+        },
+        {
+          "assessment": "Different functionals and claims",
+          "evidence": "A geometric mean of three mixed-state quantities and convexity failure, fermionic magic from Gaussian fidelity, and Dicke-state stabilizer moments; none is the two-qubit convex roof in the compared inequality.",
+          "identifier_or_url": "Resultary/SCOPE: 0fa8cb671c55, 5c5091bd52c2, 867c58f80465",
+          "material_read": "Local RESULT.md Findings near offsets 0, 422, 861 respectively",
+          "method": "Local mirror reads after ranked catalogue lookups",
+          "title": "Resultary Rényi and four-mode comparators",
+          "trigger": "Nearest entries by measure name and witness type"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This answers a concrete gap left by the numerical counterexample: a short state whose violation can be checked strictly and by hand. The shared Schmidt labels let one read off global purity, while a repeated corner amplitude gives equal nonzero direct-pair coherences, producing the sign by a rational comparison. The example can be used as an exact benchmark for the convex-roof formula and for the inequality without accepting a numerical search or tolerance. It is not valued as a slight numerical improvement or a new violation phenomenon.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

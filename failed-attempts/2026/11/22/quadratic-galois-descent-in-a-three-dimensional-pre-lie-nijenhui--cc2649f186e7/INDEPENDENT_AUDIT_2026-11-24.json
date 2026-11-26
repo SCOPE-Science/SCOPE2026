@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:23:58.315804Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The left multiplications commute and commutators act trivially on the left, so the product is pre-Lie; t·(t·v)=T²v≠0=(t·t)·v demonstrates nonassociativity. Writing N(v)=f(v)t+Sv, the t-coordinate of the torsion on (v,w) gives f(v)f(Tw)=0 for all v,w; invertibility forces f=0. The (t,t) and (t,w) equations then give BTu=B[T,B]=0 for B=S−aI, and the other pairs vanish. For rank-one B=v⊗φ the equation is φ(Tv)φ=φ(v)φT. If φ(v)=0 then φ annihilates both v and Tv, impossible for irreducible T; otherwise φ is a forbidden rational eigenfunctional. Invertible B commutes with T and forces u=0. The centralizer is the field k[T] (a vector and its T-image are a cyclic basis), giving exactly the stated rational union and rank counts. For split T=diag(λ,μ) with nonzero distinct entries and B=[[p,r],[s,h]], the equations reduce to pr=rs=hs=0 and BTu=0. Separating r≠0, s≠0 and diagonal B gives the four listed maximal linear spaces, of dimensions 3,3,4,4; the assertion is about the reduced locus. For a fixed a≠0 the ranks are 1+rank(aI+B); rank 3 has Q²+(Q−2)²+2Q(Q−2)+2Q(Q−1)² choices, and rank 2 has 2Q²+2Q−4. For a=0 the rank is rank([u B]); rank 2 has (Q−1)²+2(Q−1)²+2(Q−1)³ choices. These counts and subtraction agree with the split polynomial. Frobenius exchanges eigenlines and the two larger components. Irreducibility persists in odd-degree extensions, and formal logarithms give 2Q³+(−1)^sQ+1_(s even)(2Q⁴−4Q²), exactly the stated counts. Independent direct evaluation of the bilinear torsion on all nine ordered basis pairs reproduced 14, 51 and 183 for the respective F₂ irreducible and F₃ irreducible and split actions, and 580 with rank counts (1,66,189,324) after base-changing the same F₂ action to F₄. These finite checks do not establish the geometric statement or arbitrary-q proof, and no scheme-theoretic reducedness is inferred.",
+      "replay": "python3 /workspace/branches/replay/prelie_4.py",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang–Bai–Liu–Sheng introduces general pre-Lie Nijenhuis theory. Gao et al. PDF p. 1 gives two-dimensional complex pre-Lie and three-dimensional complex associative classifications, not the present algebra. The matched same-product result applies over finite fields in ideal dimension d≥2, with a universal criterion and a rank-at-most-one census."
+        ],
+        "reasoning": "The primary low-dimensional classification is not a covering theorem here; the same-product classification is the stronger matching evidence. In dimension two the single stratum outside its stated rank range is invertible B, solved just by multiplying its universal equations by B⁻¹.",
+        "searches": [
+          "Resultary: 3D irreducible nonassociative pre-Lie Nijenhuis classification",
+          "arXiv:1710.03749",
+          "arXiv:2308.12121",
+          "Resultary:3727f808683c"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:3727f808683c",
+        "arXiv:2308.12121",
+        "arXiv:1710.03749",
+        "Resultary:084219c5b8b0",
+        "Resultary:89d1f3df751a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The comparator explicitly gives, for B=v⊗φ, a square-zero branch φ(v)=φ(Tv)=φ(Tu)=0 and an eigenline branch φ(v)≠0, φT=λφ, φ(u)=0. It expressly limits its stated classification and rank formulas to rank(B)≤1."
+        ],
+        "reasoning": "With two distinct split eigenlines the square-zero equations force v to span one eigenline, ker φ that line, and u on it. The eigenline branch likewise gives ker φ an eigenline and u on it; the two cases together give all nonzero B vanishing on that line with u on it. Their closures are exactly the two four-spaces, one per line. The zero-deviation space is already covered, and invertible deviations have u=0 and form the open invertible subset of the diagonal centralizer, whose closure is the remaining three-space. Frobenius permutes the two eigenlines, so extension parity gives the asserted two counts from the already determined rank strata and the displayed elementary complement. Their logarithmic generating function gives the zeta mechanically. Thus the unrestricted and reduced geometric claims, although not stated in the comparator, are immediate consequences in this dimension, not independent refinements of it. No ordering or derivation history is inferred from the same date.",
+        "searches": [
+          "Resultary:3727f808683c universal equations, rank-one branches and scope; RESULT.md offsets 0, 1000, 5564",
+          "Resultary:084219c5b8b0 quadratic-splitting comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "3727f808683c uses the identical multiplication (at+u)·(bt+v)=aTv and identical bilinear torsion, with E=D−aI denoting the present B. It proves the universal equations E[T,E]=0 and ETc=0, and classifies all zero and rank-one deviations, including their rank polynomial."
+        ],
+        "reasoning": "Calling the algebra pre-Lie rather than left Leibniz leaves the actual Nijenhuis identity unchanged. The irreducible rational branch U is exactly the comparator's entire rank-at-most-one stratum for d=2. Same-day publication dates do not order the claims.",
+        "searches": [
+          "Resultary: t·v=Tv scalar deviation Nijenhuis left Leibniz rank one",
+          "Resultary:3727f808683c RESULT.md offsets 0 and 1000"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3727f808683c supplies the exact rank polynomial for rank(B)≤1. The 2D Burgers record 084219c5b8b0 has a different multiplication and dimension. Same-day 89d1f3df751a gives three components and zeta for a different characteristic-three anti-pre-Lie algebra on a restricted subscheme."
+        ],
+        "reasoning": "No verbatim matching full zeta or table was established. The exact rank polynomial nevertheless follows by adding the invertible-B count to the recorded restricted polynomial. In the split case, B diagonal with both entries nonzero adds (Q−1)z+[(Q−1)²+2(Q−1)(Q−2)]z²+(Q−1)(Q−2)²z³. In the irreducible case the invertible elements of k[T] add (Q−1)z+(Q²−1)z²+(Q−1)(Q²−2)z³.",
+        "searches": [
+          "Resultary: Nijenhuis geometric components extension-field zeta quadratic splitting",
+          "Resultary:3727f808683c rank polynomial",
+          "Resultary:084219c5b8b0",
+          "Resultary:89d1f3df751a"
+        ]
+      },
+      "rationale": "Substantial same-product coverage is verified, and the uncovered stratum in the comparator's stated enumeration is an immediate order-two completion of its universal criterion. This is not a claim that the comparator states the final formulas verbatim or was published earlier within the day. Rather, a distinct scientific claim beyond the stronger available equations, rank-one classification and rank counts is not established: the exact geometric and arithmetic conclusions follow by the short case-completion below.",
+      "residual_risks": [
+        "Within-day priority and dependence are not determined; the decision is on demonstrable mathematical coverage, not historical precedence.",
+        "Further pre-Lie classifications might give additional direct coverage; they are not needed for the demonstrated implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap on universal equations and low-deviation strata; invertible deviation and resulting full reduced census follow by elementary specialization, not verbatim coverage",
+          "evidence": [
+            "E[T,E]=0 and ETc=0; precise square-zero and eigenline rank-one conditions and restricted rank polynomial."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-eigenline-controlled-rank-strata-of-scalar-deviation-nijenhuis-o--3727f808683c/RESULT.md",
+          "material_read": "RESULT.md Finding, rank-one branches, rank polynomial and limitations (offsets 0, 1000, 5564)",
+          "method": "Local mirror primary passages and direct dimension-two specialization",
+          "title": "Eigenline-controlled rank strata of scalar-deviation Nijenhuis operators on hemi-semidirect Leibniz algebras",
+          "trigger": "Same product, torsion, and all rank-one deviations"
+        },
+        {
+          "assessment": "Scope differs on dimension and associativity",
+          "evidence": [
+            "Two-dimensional complex pre-Lie and three-dimensional complex associative algebras."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.12121",
+          "material_read": "v3 PDF p. 1, abstract and contents",
+          "method": "OA primary PDF passages",
+          "title": "Nijenhuis operators on low dimensional pre-Lie algebras and solutions of CYBE",
+          "trigger": "Possibly stronger low-dimensional classification"
+        },
+        {
+          "assessment": "Introductory scope comparison only, not a whole-paper exclusion",
+          "evidence": [
+            "General Nijenhuis theory and examples; no matching exhaustive family stated there."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1710.03749",
+          "material_read": "v1 PDF p. 1, abstract",
+          "method": "OA primary passage",
+          "title": "Nijenhuis operators on pre-Lie algebras",
+          "trigger": "General theory and constructions"
+        },
+        {
+          "assessment": "Different two-dimensional algebra",
+          "evidence": [
+            "Quadratic splitting and finite-field counts do not identify the present three-dimensional family."
+          ],
+          "identifier_or_url": "Resultary:084219c5b8b0",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror primary passage",
+          "title": "Arithmetic splitting of the Burgers pre-Lie Nijenhuis locus",
+          "trigger": "Same type of arithmetic invariant"
+        },
+        {
+          "assessment": "Different product and a restriction to the derived-ideal-preserving locus",
+          "evidence": [
+            "Three components; the record allows additional nonpreserving solutions after splitting."
+          ],
+          "identifier_or_url": "Resultary:89d1f3df751a",
+          "material_read": "RESULT.md Finding and qualification near offset 11452",
+          "method": "Local mirror primary passages",
+          "title": "Affine orbit compensation and Galois splitting for characteristic-three operators",
+          "trigger": "Same-day component and zeta claim"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The rational versus geometric contrast is an attractive illustration, and the formulas are correct. However, relative to the checked identical-product general criterion and exact rank-one strata, the remaining 2×2 stratum has only the automatic invertible-centralizer solution. The added rank terms, component closures and Frobenius factors computed from these strata are mechanical. No surviving nonmechanical exact invariant, obstruction or classification is established in the asserted scope; the scheme structure that might distinguish the work is explicitly not claimed.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

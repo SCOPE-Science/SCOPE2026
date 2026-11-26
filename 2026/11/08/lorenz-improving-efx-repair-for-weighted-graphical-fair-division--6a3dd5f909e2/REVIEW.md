@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is for finite loopless multigraphs with positive edge weights shared equally by both endpoints. Positive-good EFX is equivalent to \(L_i\ge S_{ij}-s_{ij}\) for every ordered adjacent pair with at least one edge assigned to \(j\). If this fails, moving the smallest edge \(s_{ij}\) to \(i\) has \(L_j>L_i+s_{ij}\), giving a strict two-coordinate balancing transfer and strict sum-of-squares decrease. Finiteness proves termination; majorization transitivity proves the global comparison. Because total welfare remains constant, all compared vectors have equal sums. The optimization corollaries follow by applying the repair to an optimizer. The asymmetric boundary is checked directly. An independent exhaustive checker verified 9,401 small weighted multigraphs, 159,039 orientations and 500 seeded larger cases; the proof is not based on sampling.
+PASS
 
-## Originality — PASS (with risk)
+Positive-good EFX reduces exactly to L_i≥S_ij−s_ij for a nonempty parallel-edge subbundle owned by j, because deletion of its lightest edge leaves its highest remaining value to i. At a violation, L_j−L_i>s_ij>0. The two loads after moving that edge are a doubly stochastic mixing of the old pair, with parameter s_ij/(L_j−L_i) strictly between 0 and 1. This proves the Lorenz comparison for the entire vector even if the loads cross. The square cost drops by 2s_ij(L_j−L_i−s_ij)>0; finite orientations ensure termination for arbitrary real weights. Fixed total, exact endpoint assignment and majorization give the Schur-objective consequences. In the nonexistence example, vertex 2 has possible load 0,4,8; load 4 forces max at least 7 and min at most 4, and load 8 forces min at most 5 and max at least 8, proving the two cited optima are incomparable and undominated. In the asymmetric example, every split has peak R and the unconstrained minimum is 2. The frozen checker was inspected, not run; its bounded integer checks are not the real-weight proof.
 
-The 2026 multigraph existence theorem (arXiv:2606.18665) and the 2024 restricted-additive theorem (arXiv:2407.05139) already imply existence under broader EFX conventions, but they do not give an EFX outcome Lorenz-dominating **every specified orientation** or exact zero price for all symmetric Schur-convex objectives. The 2021 dichotomous theorem (DOI:10.1609/aaai.v35i6.16647) covers uniform unit weights much more strongly; the arbitrary heterogeneous positive weights are outside its premises. Primary material was examined and the targeted scholarly and structural-equivalence searches did not uncover a covering statement. Earlier unindexed equivalent majorization results or a derivation hidden in wider convex load-balancing work remain a residual risk. The result claims neither general EFX existence novelty nor a universally Lorenz-dominating weighted orientation.
+## originality
 
-## Value — PASS
+PASS
 
-The relevant gap is compatibility of stringent pairwise fairness with *egalitarian optimization*, rather than another existence construction. The theorem says every initial welfare-optimal orientation can be made fair while weakly improving every inequality-sensitive Schur-convex objective (and improving every Schur-concave welfare objective), a particularly useful guarantee when the orientation is itself the output of an optimizer or heuristic. The unbounded two-item asymmetric counterexample isolates the exact assumption making the zero-price property work. Arbitrary positive shared edge weights make this result strictly beyond the uniform binary special case.
+The supported distinct assertion is Lorenz cofinality of positive-good EFX orientations at heterogeneous symmetric weights, or equivalently a balancing repair of every complete orientation. Prior existence in richer classes and Lorenz dominance in dichotomous classes do not give that assertion. No independent covered statement or local transfer theorem establishing the weighted property was identified in the compared sources.
 
-## Limits and closest literature
+## value
 
-Positive-good EFX only; weights are identical at an edge's two endpoints; no strong polynomial-time claim; no single globally Lorenz-best outcome is promised. Closest: Afshinmehr et al. (2026) for general multigraph EFX existence; Kaviani et al. (2024) for restricted-additive existence; Babaioff et al. (2021) for binary Lorenz dominance.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The repair preserves every Lorenz lower-tail bound simultaneously from a prescribed allocation without discarding value. This materially strengthens mere existence and transfers to all Schur objectives in a weighted class where a single globally Lorenz-best orientation need not exist. It is not claimed as a polynomial-time optimization algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

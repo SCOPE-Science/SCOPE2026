@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:47:23.917929Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A change occurs exactly when the two neighbors agree against the vertex, so a fixed coloring has no singleton run. In a nonconstant profile the r blue runs and r white runs are alternating. Subtracting one from each run size gives the two positive-composition factors; mark one labeled blue-run start, count n choices for its location, then divide out r marks. This handles n=3 and the monochromatic and singleton-count endpoints. The pair-state trace counts labeled closed walks with one factor of z per blue vertex. Its quartic at z=1 factors as (λ²−λ−1)(λ²−λ+1), yielding the Lucas plus cosine total. The implicit derivatives of the Perron root are λ′(1)=φ/2 and λ″(1)=(5−√5)/40, so log λ(e^t) has second derivative (5+3√5)/40 at zero. The other three roots are simple at z=1 and have modulus ≤1 there. After factoring out λ(e^t)^n, each of their normalized powers contributes O(n²φ^(−n)) to the first two derivatives at zero; the Perron gap uniformly near zero gives the centered √n-scale Gaussian limit by the moment-generating function. Exact centering follows from complementing the colors. An independently written finite reproduction compared direct one-step synchronous updates, the run sum and the weighted trace through n=16 coefficient by coefficient; all agreed, including total 2206 at n=16. It did not execute the supplied verifier and does not certify the limiting arguments. Uniform fixed-point sampling is not assumed to equal a law induced by the dynamics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zehmakan obtains Θ(φ^n) for the stable-profile count. The closest catalogue Gaussian law concerns swap-equilibrium welfare, with the number of bichromatic edges as its statistic."
+        ],
+        "reasoning": "An asymptotic total count, or a law for the number of bichromatic edges, does not imply weighted occupation fluctuations. A general Perron-gap argument can give a CLT once the weight and transfer operator are supplied; the explicit variance and coefficients are not stated by that general method.",
+        "searches": [
+          "arXiv:2302.06760v1, p. 1; doi:10.1007/s10458-024-09651-y, Theorem 2.8",
+          "Resultary: Gaussian fluctuations of uniform stable cycle profiles versus cycle welfare equilibria"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2302.06760v1",
+        "doi:10.1007/s10458-024-09651-y",
+        "Resultary 2026/11/2/…36b74fe06c98",
+        "OEIS A007040"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published earlier same-model proof supplies the run restriction and exponential order, not a generating variable for blue occupation. The related catalogue run sum agrees on the interior and the generating variable there marks bichromatic edges."
+        ],
+        "reasoning": "The composition sum is elementary given the run criterion, but the inspected earlier theorem is not a stronger weighted count or fluctuation theorem. The explicit occupation variance cannot be recovered by substituting an edge-weight statistic; the frozen pair-state trace and its derivatives supply the missing calculation.",
+        "searches": [
+          "doi:10.1007/s10458-024-09651-y, proof of Theorem 2.8",
+          "2026/11/2/…36b74fe06c98, mirror offsets 0 and 7637"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published proof calls a vertex whose two neighbors have the opposite color solitary, and shows fixed profiles have no solitary node. It maps such colorings to a cyclic red-green restriction for counting."
+        ],
+        "reasoning": "This is the same unweighted ensemble. Wall sets are even independent sets of cycle edges, and each admits two colorings, which explains why classical cycle counts can recover the total. Wall count does not determine blue count: even a two-wall profile of a fixed cycle can have different blue run lengths. Exact color composition requires a weighted refinement.",
+        "searches": [
+          "Primary literature and Resultary: circular binary words with no singleton runs; majority fixed points on cycles by color composition",
+          "Zehmakan 2024, Theorem 2.8 and its proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A007040 uses the different restriction that cyclic binary runs are no longer than two, so it is not the weighted table at issue. The later swap-equilibrium record has the same interior coefficients for 2≤k≤n−2, but includes n extra profiles in each singleton-color slice."
+        ],
+        "reasoning": "The latter is material enumerative overlap and can recover the counts by removing its exceptional slices, but is later-dated and its published count pertains to another equilibrium notion. Its Gaussian law and weighting variable do not cover the blue-count variance. No exact earlier weighted table was established by these checks.",
+        "searches": [
+          "OEIS A007040",
+          "2026/11/2/SCOPE-exact-equilibrium-census-and-gaussian-welfare-law-for-two-color--36b74fe06c98, Finding and comparison"
+        ]
+      },
+      "rationale": "The inspected same-model literature establishes the fixed-point/run equivalence and unweighted growth order. The supported distinct claim is the blue-count distribution on labeled uniform majority fixed points, including the explicit variance density and the sharp exponential scale of the variance error. Neither the unweighted total in isolation nor the method of transfer matrices and Perron-root perturbation is credited as new.",
+      "residual_risks": [
+        "Equivalent weighted counting or one-dimensional finite-state variance formulas may exist in circular word enumeration or statistical mechanics. The bounded comparisons do not assert absolute priority; overlap in the later interior counts is explicitly recognized."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Inspected passage gives exponential growth order only",
+          "evidence": "The count for MM on C_n is Θ(φ^n), as opposed to two for RMM.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.06760v1",
+          "material_read": "PDF p. 1, offset 3004",
+          "method": "Bounded OA PDF passage",
+          "title": "Random Majority Opinion Diffusion: Stabilization Time, Absorbing States, and Influential Nodes",
+          "trigger": "Same deterministic majority model and cycle fixed-point counts"
+        },
+        {
+          "assessment": "Direct prior coverage of the no-singleton characterization and unweighted exponential order",
+          "evidence": "MM stable iff there is no solitary node; the counting argument uses a cyclic red-green restriction.",
+          "identifier_or_url": "https://doi.org/10.1007/s10458-024-09651-y",
+          "material_read": "Theorem 2.8 p. 15 and proof p. 16, offsets 50312 and 50092",
+          "method": "Bounded OA full-text passages",
+          "title": "Majority opinion diffusion: when tie-breaking rule matters",
+          "trigger": "Published same-ensemble characterization and enumeration"
+        },
+        {
+          "assessment": "Later-dated different ensemble; exact interior coefficient overlap but different singleton slices and different fluctuation statistic",
+          "evidence": "Mixed swap counts include an n term even if one color is a singleton; the Gaussian law concerns welfare through bichromatic edges.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-equilibrium-census-and-gaussian-welfare-law-for-two-color--36b74fe06c98",
+          "material_read": "Finding and comparison, mirror offsets 0 and 7637",
+          "method": "Bounded local-mirror full-text inspection",
+          "title": "Exact equilibrium census and Gaussian welfare law for two-color cycle equilibria",
+          "trigger": "Exact cycle color composition and Gaussian law"
+        },
+        {
+          "assessment": "Different length constraint; not an exact lookup of the weighted count",
+          "evidence": "Cyclic binary strings with no runs longer than two.",
+          "identifier_or_url": "https://oeis.org/A007040",
+          "material_read": "Description at page offset 421",
+          "method": "Bounded OA webpage passage",
+          "title": "OEIS A007040",
+          "trigger": "Cited cyclic binary run-restriction sequence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Blue occupation is a natural state variable for this uniform majority-fixed-point ensemble, not an arbitrary filter or an absorption probability. The full labeled composition law and its explicit variance density expose excess fluctuations relative to independent fair colors that the equilibrium count cannot reveal. The result is useful as an exact benchmark for this ensemble without claiming a general opinion-dynamics theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

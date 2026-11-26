@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:36:18.142195Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The orthogonal splitting into constants, classwise zero-sum vectors, and class-constant global zero-sum vectors gives the diagonal resolvent at a vertex in class p as [1+Nt+(N-p)t²]/[(1+Nt)(1+(N-p)t)], t=θh. Subtraction for p>q gives the positive difference t(p-q)[1+(N-1)t]/[(1+Nt)(1+(N-p)t)(1+(N-q)t)]. The inverse is nonnegative: if (I+tL)x is nonnegative and x has a negative minimum at i, then [(I+tL)x]_i≤x_i<0. T=[R−(1−θ)I]/θ for θ>0, and T preserves constants. For finite h the diagonal resolvent is strictly above 1/N and tends to 1/N as h→∞; hence θ=1−1/N is included in the unbounded regime. Below that threshold, clearing positive denominators gives 1+Bh−Aθh²; the unique positive root for θ>0 is the stated radical. Euler gives the exact linear restriction and the same active classes, with equality allowed. The strict increase with s is in the finite-horizon regime, as in the proof, and the Crank–Nicolson specialization follows by substitution. At h=c/N the diagonal limit is 1/[1+θ(1−α)c], also for bounded s when α=0 since the nonconstant denominators coalesce. Bracketing the level 1−θ at two fixed c proves the scaled limit; Euler is direct. Independent replay: python3 /workspace/review_checks.py 1 checks 78 full rational step matrices, including exact roots and both sides, and a step at the critical θ; finite corroboration only. Frozen verification and checker were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026/10/13/SCOPE-an-exact-positivity-criterion-on-complete-multipartite-diffusion--690509e7de2b, Finding and opening proof: scalar all-graphs criterion for f(hL_G) and spectral-projector formula for unweighted complete multipartite graphs."
+        ],
+        "reasoning": "The common projector data reduce the calculation but do not state the graph-specific θ-step horizon. The simplification and strict ordering of the resulting diagonals at positive t are needed to eliminate all other parts; this is not just renaming a scalar bound.",
+        "searches": [
+          "Resultary: all-theta sharp positivity horizon unweighted complete multipartite diffusion"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and recorded self-review evidence",
+        "Published graph-diffusion records identified in source_inspections",
+        "Targeted primary-literature query (no decisive additional passage recovered)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2026/10/18/SCOPE-sharp-positivity-cutoff-for-squared-laplacian-heat-on-every-comp--e4f9c89a420f, Finding: e^(−tL²) positivity recovery depending on the largest part, not a θ-step upper bound."
+        ],
+        "reasoning": "Knowing either the bipartite all-θ law or the multipartite θ=1/2 evaluation does not give the all-θ active-class statement for r≥3. The full asymptotic with arbitrary limiting minimum fraction and fixed θ follows after the class reduction. The squared-Laplacian recovery result changes both the operator and the relevant extremal class.",
+        "searches": [
+          "Statement comparison: 10/4 resolvent return; 10/13 multipartite spectral criterion; both 11/8 horizon records; Resultary all-θ and scaled-horizon queries above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a, Finding: C_h=2R−I, and entrywise nonnegativity iff all resolvent diagonal entries are ≥1/2; also a complete-graph evaluation."
+        ],
+        "reasoning": "Diffusion positivity and stochasticity here are equivalent because the step preserves constants. The resolvent criterion is already known at θ=1/2, but its generic minimum-diagonal test neither evaluates the class ordering nor gives the all-θ horizon.",
+        "searches": [
+          "Resultary: complete multipartite resolvent positivity threshold smallest part size N",
+          "Literature: A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains; multipartite graph theta-step positivity horizon"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/8/SCOPE-complete-multipartite-crank-nicolson-positivity-is-governed-by-t--c6c4fa5f4e74, Finding: same θ=1/2 threshold and minimum-class zeros, with those diagonals negative beyond the threshold.",
+          "2026/11/8/SCOPE-sharp-positivity-horizons-for-the-theta-method-on-complete-bipar--b76cdd4675ef, Finding: all-θ exact horizon for complete bipartite graphs, with Crank–Nicolson star and balanced asymptotics 2/N and 4/N."
+        ],
+        "reasoning": "These are meaningful exact overlaps—not evidence that the full all-θ multipartite law is already covered. The latter source includes singleton bipartite cases outside the frozen claim and cannot by itself extend its formulas to multiple parts.",
+        "searches": [
+          "Resultary: theta-step first failure diagonal vertices smallest class complete multipartite",
+          "Resultary: scaled horizon limit N H theta multipartite diffusion"
+        ]
+      },
+      "rationale": "The supported distinct result is the sharp fixed-graph all-θ horizon with smallest-part reduction, including its exact failure class and general scaled limit. Prior spectral-projector and diagonal-resolvent frameworks are credited. The overlap with the later Crank–Nicolson record is exact within that specialization; the complete-bipartite record overlaps a subfamily only. The date ordering is not used as proof of priority.",
+      "residual_risks": [
+        "The evaluation is elementary once the projectors are available; an equivalent special-family calculation in unindexed literature remains possible.",
+        "The prior-relationship history of the overlapping later records is not established by statement comparison or date labels; no historical priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known framework and complete-graph case; no multipartite ordering there",
+          "evidence": "C_h=2R−I; the minimum resolvent diagonal is compared with 1/2.",
+          "identifier_or_url": "2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+          "material_read": "RESULT.md, Finding (offset 0)",
+          "method": "Published-record mirror",
+          "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+          "trigger": "General positivity threshold via diagonal resolvent"
+        },
+        {
+          "assessment": "General functional-calculus framework, not evaluated fixed-graph θ-step crossing",
+          "evidence": "Iff scalar positivity criterion over the unweighted complete multipartite family for f(hL_G); projector representation.",
+          "identifier_or_url": "2026/10/13/SCOPE-an-exact-positivity-criterion-on-complete-multipartite-diffusion--690509e7de2b",
+          "material_read": "RESULT.md, Finding (offset 0) and opening projector proof",
+          "method": "Published-record mirror passage inspection",
+          "title": "An exact positivity criterion on complete multipartite diffusion networks",
+          "trigger": "Same graph family and spectrum"
+        },
+        {
+          "assessment": "Equivalent on the shared Crank–Nicolson domain; not the all-θ theorem",
+          "evidence": "Same radical and first vanishing precisely in minimum-size parts.",
+          "identifier_or_url": "2026/11/8/SCOPE-complete-multipartite-crank-nicolson-positivity-is-governed-by-t--c6c4fa5f4e74",
+          "material_read": "RESULT.md, Finding (offset 0)",
+          "method": "Published-record mirror",
+          "title": "Complete multipartite Crank–Nicolson positivity is governed by the smallest part",
+          "trigger": "Exact mathematical overlap at θ=1/2"
+        },
+        {
+          "assessment": "Exact subfamily overlap",
+          "evidence": "Bipartite exact horizon, including singleton sides, with star and balanced CN limits.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-positivity-horizons-for-the-theta-method-on-complete-bipar--b76cdd4675ef",
+          "material_read": "RESULT.md, Finding (offset 0)",
+          "method": "Published-record mirror",
+          "title": "Sharp positivity horizons for the θ-method on complete bipartite graphs",
+          "trigger": "All θ on the bipartite subfamily"
+        },
+        {
+          "assessment": "Different operator and positivity condition",
+          "evidence": "e^(−tL²) positivity recovery controlled by the largest part.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-positivity-cutoff-for-squared-laplacian-heat-on-every-comp--e4f9c89a420f",
+          "material_read": "RESULT.md, Finding (offset 0)",
+          "method": "Published-record mirror",
+          "title": "Sharp positivity cutoff for squared-Laplacian heat on complete multipartite graphs",
+          "trigger": "Same graph family and positivity cutoff"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a diffusion integrator the precise loss of nonnegativity matters, not just stability or a sufficient step bound. The structural result replaces a full-matrix positivity test on arbitrary multipartite profiles by two graph parameters, identifies exactly which vertices cause failure, and determines the large-N scaling under arbitrary admissible profiles. The general resolvent framework alone does not supply that graph-level reduction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

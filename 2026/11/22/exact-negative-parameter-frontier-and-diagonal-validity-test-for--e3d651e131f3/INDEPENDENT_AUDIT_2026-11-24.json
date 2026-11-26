@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:43:40.646552Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 33–121",
+        "Frozen VERIFICATION.md and verify_or3.py inspected, not run",
+        "Independent rational recheck of exponential bounds and witness endpoint values"
+      ],
+      "rationale": "For b>=0 the denominator is positive and the margins are uniform. Continuous mixed-density nonnegativity is equivalent to two-increasingness; a negative boundary density also gives a negative interior rectangle by continuity. For C=xy g(t), t=(1-x)(1-y), differentiation gives g-hg'+xy t g'', where h=x+y-3xy. For OR3 the resulting numerator is affine in s=(1-x)+(1-y) at fixed t, with attainable endpoints 2sqrt(t) and 1+t. On the positive side the axis endpoint is positive, leaving exactly the displayed diagonal test. On the negative side put k=-a and w=kt. At (0,1) one needs k<=b+1; under this bound P=k/(1+b exp(w))<=1 and Pw<=1, the latter by exp(w)>=1+w and w<=b+1. For z>=b the numerator divided by (b+z)^2 is at least 1-P, and for z<b it is at least 1-P+Pxy(1-w), nonnegative by the two bounds. This includes b=0 and equality at the frontier. The valid (2,1) witness follows from 1-exp(-2v^2)<=2v^2<=2v. At (21,20) and x=y=2/3, the witness is the quadratic (3600-3560z+205z^2)/9 with z=exp(7/3); exact Taylor bounds give 10<z<11, and convexity with negative endpoint values certifies failure.",
+      "residual_risks": [
+        "No formal verification is claimed. The positive region is characterized by a continuous inequality, not a closed-form frontier."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A general smooth transform criterion for xy g((1-x)(1-y)) can apply to this functional form; usable full text of the cited paper was not retrieved. The consulted Analytics abstract addresses other generalized Celebioglu–Cuadras versions."
+        ],
+        "reasoning": "Evaluating a general dependence criterion on this g needs a global parameter inequality; the negative sufficiency and the asymmetric boundary witnesses are what add coverage. No unsupported claim is made about the unavailable paper’s examples.",
+        "searches": [
+          "Manstavičius–Bagdonas DOI 10.1016/j.fss.2020.12.022",
+          "Exact title and DOI author-manuscript/Vilnius repository lookup",
+          "Chesneau, Analytics 2 (2023), DOI 10.3390/analytics2010003"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e3d651e131f3 (self), 30899b0f61c3 and 4a4678330877",
+        "Chesneau Symmetry (2023), Proposition 3 and p. 9; Analytics abstract and Modelling Table 7",
+        "Manstavičius–Bagdonas DOI and lawful retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original sufficient rectangle cannot establish validity at either a=-(b+1) or (a,b)=(2,1) for b>0, and does not rule out (21,20). The fixed-t endpoints themselves give the two-scalar conditions for general g; the sign of g' on the positive side drops the axis condition."
+        ],
+        "reasoning": "The general reduction is not the novelty basis. The substantive implication still requires proof of the negative half-plane inequality and specific positive-side interior obstruction.",
+        "searches": [
+          "Chesneau Proposition 3, p. 8 Eq. (6); follow-up OR3 remark p. 9",
+          "Manstavičius–Bagdonas DOI and accessible locator attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 3 gives the same formula and density for the sufficient rectangle -1<=a<=1, b>=0; p. 9 identifies b=0 as Celebioglu–Cuadras."
+        ],
+        "reasoning": "The b=0 specialization and the construction are known. For b>0, the theorem evaluates the full negative side beyond the known rectangle and shows the symmetric positive extension fails in general.",
+        "searches": [
+          "Resultary: OR3 ratio-exponential copula validity and negative frontier",
+          "Chesneau, Symmetry 15 (2023), 977, Proposition 3 and p. 9 remark"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical OR3 index is the assigned record. Distinct Resultary 30899b0f61c3 is a logarithmic-factor validity problem, while 4a4678330877 studies the product score of uv(u+v)/(1+uv). Table 7 describes different original-ratio formulas."
+        ],
+        "reasoning": "These compared results neither use the same exponential denominator nor give the relevant b-dependent cutoff.",
+        "searches": [
+          "Resultary: OR3 parameter frontier, neighboring ratio copula validity and product laws",
+          "Chesneau Modelling 4 (2023), Table 7"
+        ]
+      },
+      "rationale": "The supported distinct result is the evaluated sharp negative frontier for OR3 for all b>=0 and its certified contrast with the positive side. The original expression, density, published sufficient rectangle and b=0 exponential special case are prior. The one-dimensional test is a family-specific formulation of a general affine-endpoint calculation, not credited as a new universal transform characterization. The closest accessible statements do not cover the family-specific sharp inequalities or directly imply the asymmetric boundary behavior.",
+      "residual_risks": [
+        "The full text of the broad Manstavičius–Bagdonas paper was not available; its possible explicit examples and any already-evaluated OR3 consequences remain unverified. This assessment is limited to consulted statements and proven implications."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same construction and restricted sufficient range; not exact full frontier in inspected statements",
+          "evidence": [
+            "OR3 with -1<=a<=1 and b>=0; b=0 is Celebioglu–Cuadras"
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym15050977",
+          "material_read": "Proposition 3, p. 8 Eq. (6), and p. 9 OR3 and b=0 remark; PDF offsets 35000 and 39600",
+          "method": "Bounded lawful journal PDF read",
+          "title": "A Collection of Two-Dimensional Copulas Based on an Original Parametric Ratio Scheme",
+          "trigger": "Original formula with identical parameters"
+        },
+        {
+          "assessment": "Specific OR3 implication unverified",
+          "evidence": [
+            "The functional form attributed to this source encompasses OR3; retrieval did not supply the passage needed to compare evaluated parameter inequalities"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.fss.2020.12.022",
+          "material_read": "Bibliographic description only; no usable theorem or examples retrieved",
+          "method": "Publisher/OA and alternate-location attempts, including exact title/DOI repository search",
+          "title": "A class of bivariate independence copula transformations",
+          "trigger": "Natural broader result on the same smooth functional form"
+        },
+        {
+          "assessment": "Different formulas in inspected passages",
+          "evidence": [
+            "Generalized exponential families and other ratio transforms rather than the OR3 frontier"
+          ],
+          "identifier_or_url": "10.3390/analytics2010003; 10.3390/modelling4020008",
+          "material_read": "Analytics abstract, PDF offset 500; Modelling Table 7, pp. 129–130, PDF offsets 137100 and 139641",
+          "method": "Bounded journal PDF reads",
+          "title": "Related generalized exponential and original ratio copulas",
+          "trigger": "Adjacent copula families and domain tables"
+        },
+        {
+          "assessment": "Distinct objects or targets",
+          "evidence": [
+            "Logarithmic-factor cutoff and separate multiplicative-score distribution"
+          ],
+          "identifier_or_url": "30899b0f61c3; 4a4678330877",
+          "material_read": "Findings, local-mirror offset 0",
+          "method": "Resultary search and bounded statement read",
+          "title": "Ratio-logarithmic validity and ratio copula product-score laws",
+          "trigger": "Closest distinct indexed ratio-copula hits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen theorem and witnesses, RESULT.md lines 13–31 and 94–117",
+        "Original published sufficient rectangle, Proposition 3"
+      ],
+      "rationale": "The exact sharp negative interval resolves an actual domain question for an existing copula family. The positive diagonal criterion reduces continuum checking to one variable and identifies what the corner bound misses: two exact examples on a=b+1 distinguish a valid extension from a genuine interior obstruction. This matters for selecting legal parameters, not merely comparing pointwise bounds.",
+      "residual_risks": [
+        "No elementary explicit positive frontier, extension to b<0, or statistical-efficiency claim is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

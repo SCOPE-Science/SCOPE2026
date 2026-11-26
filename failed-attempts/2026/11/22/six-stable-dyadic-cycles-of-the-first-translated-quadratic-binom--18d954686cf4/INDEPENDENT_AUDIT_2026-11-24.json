@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:56:45.414989Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding–Verification; VERIFICATION.md and verify.py (inspected)",
+        "/workspace/audit-replays/dyadic.py"
+      ],
+      "rationale": "The odd divided difference makes the reductions bijective. F(x)−x has valuation one, so F is the identity mod 2 but swaps each parity class mod 4, forcing an even period at every finer level. Exact polynomial multiplication confirms F²(x)−x=8(x²+3x+3)(x²+4x+5), with valuations 3 and 4 on the even and odd classes respectively. All iterates of F² have derivative 1 mod 4. If an iterate H has displacement h of valuation s≥2 then H(H(x))−x=(1+H′(x))h+O(h²) has valuation s+1, since v₂(1+H′(x))=1 and 2s≥s+2. The first returning power of two for F² is the exact least period (which divides that power); doubling it gives the exact F-period at k≥2. Dividing each parity population by its period confirms the cycle counts, including k=1,2,3. The fresh checker verified the identity coefficient by coefficient and the full decompositions through k=14; the lifting proof gives unbounded k.",
+      "residual_risks": [
+        "Finite computation does not replace the exact lifting proof. No classification of other binomial shifts is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 6.7 treats y²+y−d for d≡1 mod 4 and nonsquare d, classifies 3+4Z₂ as II-[1], and for d=5+8t with v₂(t)≤1 classifies 1+4Z₂ as II-[v₂(t)+2]. Here d=−3≡5 mod 8 and t=−1, so these are II-[1] and II-[2]."
+        ],
+        "reasoning": "This is a stronger parameter theorem whose hypotheses are explicitly verified, not merely a general lifting technique or an ergodicity test.",
+        "searches": [
+          "Fan Liao On minimal decomposition of p-adic polynomial dynamical systems quadratic Z_2 even a odd b case Theorem 6 quadratic number of minimal components",
+          "arXiv:1010.5583v2, §6, Theorem 6.7 and definition of type II-[s]"
+        ]
+      },
+      "checked_sources": [
+        "Fan–Liao arXiv:1010.5583v2, §6, Theorem 6.7 and type II-[s] definition (primary text)",
+        "Resultary 68ab08bc975b and 51eb70e0da22 (indexed statements)",
+        "Frozen RESULT.md §§Finding, Assumptions and Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Modulo 8 the odd-y restriction has two 2-cycles, (3,7) and (1,5). Type II-[s] means split for s levels (each lift has the same length, with twice as many cycles), then grow forever (doubling each length at successive levels). Therefore for n≥3 the y-periods mod 2^n are 2^{1+max(n−4,0)} and 2^{1+max(n−5,0)} respectively. Substitute n=k+1; mod 4 both odd residues are fixed. The stable cycle counts are 2^1=2 and 2^2=4."
+        ],
+        "reasoning": "Both parity clocks and all finite-precision boundary cases follow from the established split/grow classifications plus the affine substitution. The short factorization proof does not assert a new result beyond them.",
+        "searches": [
+          "Fan–Liao arXiv:1010.5583v2, §6, type II-[s] definition before Theorem 6.3 and Theorem 6.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For h(x)=2x+3, h(F(x))=h(x)²+h(x)+3. Thus h is a bijective conjugacy onto odd y, with x mod 2^k corresponding to odd y mod 2^{k+1}. Even x maps to y≡3 mod 4, odd x to y≡1 mod 4."
+        ],
+        "reasoning": "The normal form applies to this exact iteration problem, with neither the parity class nor the finite precision lost in the affine change.",
+        "searches": [
+          "Resultary: exact polynomial 2x²+7x+6 and translated second binomial column",
+          "Fan–Liao §6, quadratic normal form x²+x−d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact shifted-map Resultary hit was the assigned record. The fifth-column and dyadic doubling entries concern output laws on their indexed statements. The prior quadratic classification gives the relevant exact types even though it does not name this binomial polynomial."
+        ],
+        "reasoning": "An explicit display with the binomial notation is unnecessary: the stronger published case table is mathematically sufficient. No absence-of-results inference is made for the other sources.",
+        "searches": [
+          "Resultary: shifted quadratic binomial iteration, parity-resolved six cycles",
+          "Resultary 68ab08bc975b and 51eb70e0da22",
+          "Fan–Liao §6, Theorem 6.7 case table"
+        ]
+      },
+      "rationale": "Fan–Liao, arXiv:1010.5583v2, Theorem 6.7 and its type II-[s] definition directly cover the stated six-cycle census and every least period. The shifted binomial map is the one-parameter specialization of their classified odd-ball dynamics under the affine conjugacy y=2x+3, with the reduction precision shifted by exactly one. This is verified prior coverage, not a decision based on an unavailable source.",
+      "residual_risks": [
+        "Some nearby source passages were unavailable. They are not used to establish priority or fail this record; the directly inspected 2010 theorem suffices for coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 6.7 covers both parity classes after h(x)=2x+3; its cycle-type conclusion gives all lengths and counts",
+          "evidence": [
+            "3+4Z₂ is of type II-[1]; for d=5+8t with v₂(t)≤1, 1+4Z₂ is of type II-[v₂(t)+2]. The definition specifies s splits followed by indefinite growth."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1010.5583v2; https://ar5iv.labs.arxiv.org/html/1010.5583",
+          "material_read": "Primary text, §6 normal-form discussion, definition of type II-[s] before Theorem 6.3, and Theorem 6.7",
+          "method": "Focused OA requests attempted; inspected the relevant passages in the lawful arXiv HTML rendering and confirmed title/version against the arXiv PDF opening",
+          "title": "On minimal decomposition of p-adic polynomial dynamical systems",
+          "trigger": "Direct stronger theorem for dyadic quadratic polynomial dynamics, including affine-equivalent maps"
+        },
+        {
+          "assessment": "Indexed statements of output distributions, not relied on for the coverage verdict",
+          "evidence": [
+            "The former is a fifth-column output-fiber census over an index period; the latter states equality of output laws and a parity-restricted isometry."
+          ],
+          "identifier_or_url": "Resultary 68ab08bc975b and 51eb70e0da22",
+          "material_read": "Indexed mathematical summaries; full mirror passages unavailable",
+          "method": "Configured Resultary search and bounded mirror attempts",
+          "title": "Exact three-level 2-adic fibers of the fifth binomial column; Dyadic isometric doubling of every fixed binomial column",
+          "trigger": "Related binomial-column distribution and restricted isometry"
+        },
+        {
+          "assessment": "The cited results as described are weaker or different, but not the decisive antecedent",
+          "evidence": [
+            "The frozen comparison concerns image surjectivity on index progressions and ergodicity criteria; neither comparison resolves the stronger Fan–Liao coverage."
+          ],
+          "identifier_or_url": "arXiv:0812.3089; arXiv:0710.1418",
+          "material_read": "Frozen RESULT.md and AUDIT.json discussions; focused primary passages unavailable",
+          "method": "Frozen references and bounded OA lookup",
+          "title": "Binomial coefficients and the ring of p-adic integers; Non-Archimedean Ergodic Theory and Pseudorandom Generators",
+          "trigger": "Cited binomial image and single-cycle criteria"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding and Proof",
+        "Fan–Liao arXiv:1010.5583v2, Theorem 6.7"
+      ],
+      "rationale": "The parity split is mathematically natural, and the short proof is sound. But the claimed exact fact is a mechanical parameter substitution in the existing quadratic cycle-type classification. The record does not establish a new structural result for translated columns or a distinct valuable remainder.",
+      "residual_risks": [
+        "The assessment concerns this finite-level classification claim, not the value of studying genuinely new higher-column or shift families."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

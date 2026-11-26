@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_fermat_quartic_fano.py` using Python 3 standard library only; the expected final line is `FERMAT_QUARTIC_MIXED_CHAR_48_64_FROBENIUS_8_28_AND_MOD9_PASS`.
+## correctness
 
-The program enumerates exactly 7462 row-reduced two-dimensional subspaces of \(\mathbb F_9^4\), verifies that 112 satisfy the Hermitian conditions, partitions these into 48 pairing and 64 additional lines, and enumerates the full 1536-element monomial group orbit. It verifies exactly eight Frobenius-fixed additional lines and zero Frobenius-fixed pairing lines, and computes the rank-four Hilbert tangent matrix at every one of the 112 special lines. The exact polynomial identity at the additional representative line and the coefficient modulo nine are checked using integer arithmetic; the proof explains why no first-order deformation can cancel this coefficient.
+PASS
 
-The complete relative-scheme classification is proved in RESULT.md using a smooth-quartic normal-bundle argument, properness/quasifiniteness, Hensel lifting, and Nakayama. Finite tests alone do not prove completeness over an algebraic closure or over all Artin thickenings. Historical priority is subject to the sources and residual risks documented in AUDIT.json. No independent external validation has been performed.
+Polarizing the fixed quartic in characteristic three gives W^(3)=W^perp on a line, so W^(9)=W; these two-spaces are precisely the totally isotropic Hermitian two-spaces over F9. Norm-fiber sizes 1,4,4 give 2241 isotropic vectors counting zero, hence 280 points; the binary Hermitian quotient above each point gives 4 lines, each with 10 points. The 48 pairing lines are distinct. The four nonproportional coordinate forms of the extra representative identify its projective monomial stabilizer with PGL2(F3) of order 24, so its disjoint orbit has size 1536/24=64. On either smooth quartic fiber adjunction gives N=O(-2), hence zero Hilbert tangents. The proper, quasi-finite line scheme is finite, and complete-DVR idempotent lifting followed by Nakayama makes each rational closed-point factor a quotient of R. Simple roots of T^4+1 lift the 48 pairing lines. Independently expanding the representative restriction gives mixed coefficient 2*binom(4,2)=12. Every chart lift modulo nine adds 3 times linear forms to the last two coordinates, and the cubes multiplying the first-order corrections reduce to u^3±v^3. Thus the mixed coefficient remains 3 modulo 9. Liftable coordinate symmetries transport this obstruction, so each extra factor is exactly R/(3). There are no Frobenius-fixed pairing lines. Over F3 there are eight totally isotropic lines of the split quadratic form: 16 isotropic projective points, two lines through each, and four points per line. Frobenius descent therefore gives the claimed 24 horizontal pairs, 8 rational vertical points, and 28 vertical pairs. The proof and exact coefficient replay establish the scheme, rather than just reproducing a finite point count.
+
+## originality
+
+PASS
+
+The fiber counts and the exact special-fiber field splitting are established prior coverage. The supported distinct finding is the mixed-characteristic local algebra at every line, in particular the uniform modulo-nine obstruction on the special-only orbit, and the induced splitting of the horizontal and vertical schemes over Z3. This is not a novelty claim for the special fiber alone.
+
+## value
+
+PASS
+
+The classical jump in line counts leaves an actual moduli question: whether the added lines occur only on the reduced special fiber or persist over a mixed-characteristic thickening. Determining the full local factors and their arithmetic descent answers that question for a natural fixed model, an invariant not read off from the familiar line counts or the Dwork calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

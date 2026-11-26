@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:32:17.820771Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–38, VERIFICATION.md, verify_primary.py and verify_alt.cpp inspected",
+        "Corrected affected file: /workspace/repairs/3/RESULT.md",
+        "Independent replay: python3 /workspace/branches/5b4a13f9-dc6b-4294-b8c3-034ba7f306cc/reproduce_kempe_k35.py",
+        "Replay output: /workspace/branches/5b4a13f9-dc6b-4294-b8c3-034ba7f306cc/reproduction_results.json"
+      ],
+      "rationale": "The original numerical assertions were correct. The repaired claim keeps the full labelled state graph and narrows the contribution to its Kempe-move invariants. A proper colouring is exactly a Latin rectangle, with each row a permutation and each column injective. Each legal move is enumerated by grouping the six bichromatic edges by endpoint connectivity and switching the edges of exactly one whole component. This move preserves properness and is an involution on that component. First-row normalization is unique; enumerating all row and column permutations then renormalizing removes precisely the colour action for the sole purpose of orbit classification. I checked the independent replay's enumeration, union–find component construction, orbit partition, reciprocity check and FIFO BFS. Its full calculation found 66,240 states, 1,094,400 directed incidences, 547,200 edges and the three stated orbit sizes and degrees. From the three representatives BFS reached all 66,240 vertices with profiles (1,15,180,1480,8302,27868,26713,1675,6), (1,16,182,1472,8243,27793,26899,1634), and (1,17,191,1540,8609,28689,25974,1219). Automorphism invariance establishes every vertex's eccentricity, so radius 7 and diameter 8 follow. The repairs additionally state exact consequences checked directly: 25,920 unordered diametral pairs (6 per each of 8,640 eccentricity-eight states, divided by two) and 57,600 central states. The alternate frozen program prints the profiles but does not assert their equality; the primary one and independent replay do assert the full profiles.",
+      "residual_risks": [
+        "The numerical proof is exhaustive for one fixed labelled state space and move rule; it does not determine metrics for an isotopy quotient or for other move sets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "McDonald et al. discuss the usual general sufficient bound with two extra colours and low-degree results, not Δ=χ′=5 with exactly five colours.",
+          "Belcastro–Haas treat three-edge-coloured cubic graphs.",
+          "Hong–Miklós Theorem 3.1 allows composite steps creating and correcting deficiencies, and their Theorem 4.4 assumes a k-regular bipartite graph, unlike K3,5."
+        ],
+        "reasoning": "Neither a broader edge-Kempe equivalence criterion outside the parameters nor an upper bound using additional move patterns is a dominating theorem for the stated metric on proper colourings. In particular no cited bound yields the exact profiles.",
+        "searches": [
+          "McDonald–Mohar–Scheide, arXiv:1005.2248, results on low-degree and surplus-colour equivalence",
+          "Belcastro–Haas, arXiv:1209.1730, introduction and scope",
+          "Hong–Miklós, arXiv:2103.11990, Theorems 3.1 and 4.4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen and repaired RESULT.md",
+        "McKay Latin-rectangle isotopy table",
+        "arXiv:2103.11990, arXiv:1005.2248, arXiv:1209.1730",
+        "Resultary SCOPE-3cb51ea39814"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known classes reduce the BFS sources to three but do not encode the labelled graph's legal neighbours or shortest-path layers.",
+          "The Hong–Miklós composite step may change an edge adjacent to another of the same resulting colour internally, then correct the deficiency. A strict whole-component switch is itself properness-preserving and is exactly one primitive move."
+        ],
+        "reasoning": "The exact metric does not follow from isotopy class representatives and a theorem about a richer permitted transition set alone. It requires reconstruction of strict adjacency and exploration within that graph. The earlier exact orbit count is used only as structural input/context for the final finding.",
+        "searches": [
+          "McKay's order-5x3 isotopy table",
+          "Hong–Miklós Theorem 3.1 proof listing the composite step, Theorem 4.4 hypotheses",
+          "McDonald et al. edge-Kempe colour bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A proper edge-colouring here is bijective with a 3×5 Latin rectangle. Vertex permutations on the two parts and palette permutations act exactly as independent row, column and symbol permutations; the resulting isotopy classes are the three already tabulated.",
+          "Resultary SCOPE-3cb51ea39814 instead computes a vertex-colouring Kempe graph on the Petersen graph (120 states, diameter 4), under a non-equivalent move/state rule.",
+          "Viewed as vertex-colouring on the line graph, the model still uses five colours and a line graph with degree 6, not low-degree/surplus settings."
+        ],
+        "reasoning": "The orbit equivalence is an exact alias that must be credited; neither the Latin-rectangle isotopy table nor the nearest indexed vertex-colouring graph provides the full labelled whole-component edge-Kempe distances. The repair isolates the latter.",
+        "searches": [
+          "Resultary comparison for exact whole-component edge-Kempe metrics of K3,5 and Latin rectangles; SCOPE-3cb51ea39814",
+          "Primary query: Kempe equivalence exchanges five-edge colorings K_{3,5} diameter Latin rectangle switching isotopy McKay three rows 5 exact Kempe graph",
+          "McKay, Isotopy classes of Latin rectangles, order 5x3 (3)",
+          "Hong–Miklós, arXiv:2103.11990, §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "McKay's actual table lists order 5x3 (3), with no Kempe degree or distance entries there.",
+          "The strongest indexed distance census inspected is for the Petersen vertex-colouring graph, not the three-row edge-colouring case.",
+          "Hong–Miklós give upper bounds for their distinct chain, not a table of strict-switch distances or profiles."
+        ],
+        "reasoning": "This direct exact-table match changes the disposition of the unqualified structural claim; it is not merely a date or parameter resemblance. The repaired metric classification asks information not in that exact table.",
+        "searches": [
+          "McKay, Combinatorial Data: Latin Squares, Isotopy classes of Latin rectangles, row order 5x3",
+          "Resultary SCOPE-3cb51ea39814, original Finding",
+          "Hong–Miklós §4, Latin rectangles"
+        ]
+      },
+      "rationale": "Originality fails for the unqualified original three-stratum classification as a new finding: McKay already tabulates the three exact isotopy classes of order 5×3, the identical group action in opposite dimension notation. The repaired finding instead treats the state and isotopy enumeration as background, uses the known classes to index the full exact Kempe distance profiles, and claims the resulting graph census and geometry rather than rediscovery of those classes. That distinct remainder survives comparison with the strongest available strict-Kempe and Latin-rectangle recolouring results.",
+      "residual_risks": [
+        "The decisive exact-table overlap is established for the isotopy count. Unindexed strict-switch distance tables or equivalent finite calculations could remain; the metric comparison does not assert global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior coverage of the three isotopy classes; no strict-switch graph metric in the inspected table",
+          "evidence": [
+            "The published table entry reads 'order 5x3 (3)'; transposed display dimensions do not change the row/column/symbol isotopy relation."
+          ],
+          "identifier_or_url": "https://users.cecs.anu.edu.au/~bdm/data/latin.html",
+          "material_read": "Isotopy classes of Latin rectangles, website offsets 2880–3378, row order 5x3 (3)",
+          "method": "OA website passage inspection",
+          "title": "Combinatorial Data: Latin Squares (Brendan D. McKay)",
+          "trigger": "Exact prior table of orbit-equivalent Latin rectangles"
+        },
+        {
+          "assessment": "Related diameter work using a different chain, not the claimed strict-switch metric",
+          "evidence": [
+            "Theorem 3.1 bounds 6|E| steps of M(G,k), whose composite moves can create and remove deficiencies. Theorem 4.4 bounds 3|E| steps of the chain in the k-regular case."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2103.11990",
+          "material_read": "Theorems 3.1 and 4.4 and adjoining proofs, text offsets 37670–41170 and 61700–65595",
+          "method": "OA PDF passage inspection",
+          "title": "A Markov chain on the solution space of edge-colorings of bipartite graphs",
+          "trigger": "Same edge-colouring state model and potential dominating Latin-rectangle diameter bound"
+        },
+        {
+          "assessment": "General or different-instance equivalence results, not this exact metric",
+          "evidence": [
+            "The general two-surplus-colour theorem and low-degree theorem exclude this parameter regime; K5 is not K3,5."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1005.2248",
+          "material_read": "Introductory bounds, Theorem 1 and Theorem 3; Proposition 4 passage on K5 around offsets 6350–8715",
+          "method": "OA PDF passage inspection",
+          "title": "Kempe equivalence of edge-colourings in subcubic and subquartic graphs",
+          "trigger": "Closest strict edge-Kempe general setting"
+        },
+        {
+          "assessment": "Different colour count and regularity; class connectivity not a metric profile",
+          "evidence": [
+            "Highlights 2-connected planar bipartite cubic graphs and three colours, not five-colourings of K3,5."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1209.1730",
+          "material_read": "Abstract and introduction, PDF pp. 1–2",
+          "method": "OA PDF passage inspection",
+          "title": "Counting edge-Kempe-equivalence classes for 3-edge-colored cubic graphs",
+          "trigger": "Nearby strict bipartite edge-Kempe classification"
+        },
+        {
+          "assessment": "Different graph and vertex-colouring state model",
+          "evidence": [
+            "Petersen vertex three-colourings, 120 labelled states and diameter 4, not five-edge-colourings of K3,5."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-petersen-three-colouring-kempe-graph-an-oriented-edge-quotient-a--3cb51ea39814",
+          "material_read": "Original RESULT.md Finding, offset zero",
+          "method": "Local mirror text inspection",
+          "title": "Petersen three-colouring Kempe graph: an oriented-edge quotient",
+          "trigger": "Strongest indexed similar graph-invariant census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding and labelled BFS proof",
+        "McKay isotopy table",
+        "Hong–Miklós strict-vs-composite move comparison"
+      ],
+      "rationale": "The repaired theorem answers the exact reconfiguration question in a natural small Latin-rectangle case at the chromatic index, where allowing defective intermediates changes the mathematical problem. It provides a benchmark stronger than reachability or a count: every state's eccentricity and full distance distribution, the peripheral and central classes, and the precise maximal detour. The value is the move geometry, not a recomputation of the known isotopy table.",
+      "residual_risks": [
+        "This is an exact finite benchmark rather than a classification of all K3,n, and it does not infer rapid mixing."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

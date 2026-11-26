@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:24:24.889215Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With cumulative service m_i(t), conservation gives g_i(t)=g_i(0)+m_{i+1}(t)-m_i(t). Thus m_i(t+1)=min(m_i(t)+c,g_i(0)+m_{i+1}(t)). Induction gives lost service ct-m_i(t) as the maximum prefix deficit over lengths 0..t, and a full circuit has nonpositive deficit when H≥ck. Hence lost service ceases growing after time k−1, equivalent to every site being at or above capacity. Conversely a fixed point has all outgoing services equal; under H≥ck their common value is c. Attainment of τ=k−1 requires a strictly new deficit record at length k−1 at some i; subtracting all shorter prefixes gives exactly the strict backward partial-sum inequalities at the omitted site j. Two omitted sites cannot work since the strict inequalities for the complementary arcs would imply H<ck. In one event each backward word of length L=k−1 satisfying sum_{i≤s} a_i<cs leaves a uniquely determined inventory H−sum a_i≥c+1. In preorder with c initial root slots and c+1 slots added per internal vertex, immediately before the s-th internal vertex there are cs−sum_{i≤s}a_i slots; strict positivity is exactly what is needed, and the remaining slots become leaves. Lagrange inversion yields the stated Raney number; nonemptiness gives sharpness. The argument in fact also works for c=1, so c≥2 is a scope restriction, not necessary for the formula. Independent bounded replay: exhaust weak compositions of ck+j into k parts and simulate the displayed map until min(g_i)≥c, tabulating τ; all 24 cases c=2,3, k=2..5, j=0..2 agreed (e.g. k=5 counts 715 and 3060). The supplied verify.py in the frozen package is a separate, inspected but unexecuted replay. Finite agreement does not prove the general count.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jha et al. study Rule 184, with vehicles moving by at most one lattice site (2602.08991 p. 2 and pp. 12–13; 2501.08417 pp. 1–2). The indexed Rule 184 extremizer record explicitly counts Catalan extremizers at speed one. The classical Raney formula concerns forests, not relaxation."
+        ],
+        "reasoning": "Those sources explain the capacity-one analogy and the standard counting tool; their cited results alone do not give the batch-capacity dynamics. The indexed high-speed theorem, by contrast, covers the full stated range.",
+        "searches": [
+          "arXiv:2602.08991, §II.A and §V",
+          "arXiv:2501.08417, introduction and setup",
+          "Resultary: Catalan extremizers for cyclic traffic relaxation under Rule 184",
+          "Frozen reference: G. N. Raney, Trans. Amer. Math. Soc. 94 (1960), 441–451"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Configured Resultary searches and the two named traffic records",
+        "Primary Rule 184 passages of arXiv:2602.08991 and arXiv:2501.08417"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed proof yields maximum delay m−1, a unique last-delayed car, and the v-forest count before converting to indexed positions."
+        ],
+        "reasoning": "The delay, surplus independence for gaps, and per-site forest interpretation are all covered. The indexed 2026/11/17 path is distinct from the frozen 2026/10/27 path; catalogue paths are not an independent determination of historical priority.",
+        "searches": [
+          "Local mirror high-speed traffic RESULT.md, Finding and proof §§1–4 (offset 0); prior work offset 7368"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Raney-forest extremizers of high-speed cyclic traffic relaxation, Finding and proof §§1–4, use the exact map in gaps g'_i=g_i−min(g_i,v)+min(g_{i+1},v)."
+        ],
+        "reasoning": "Set v=c, m=k, N=H+k. The traffic condition N≥(v+1)m becomes H≥ck; a car moving below speed v is precisely a site below capacity, and the last relaxation time agrees step for step. This is a conjugate description, not merely an analogy with a traffic model.",
+        "searches": [
+          "Resultary: Raney forests and maximal relaxation of high-speed cyclic traffic",
+          "Resultary: deterministic zero-range or vacancy-gap duals of capped cyclic transport"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The high-speed record's Finding counts physical placements by (N/k) binom((c+1)k−2,k−1) in the translated parameters."
+        ],
+        "reasoning": "The frozen k Raney_{c+1,c}(k−1) equals binom((c+1)k−2,k−1). Counting pairs of a physical placement and a marked car gives k copies per placement and N copies per ordered gap vector, including for symmetric placements. Thus the formula for labelled gap vectors is exactly the indexed count times k/N, without an orbit-counting assumption.",
+        "searches": [
+          "Resultary: exact closed counts for Raney-forest traffic extremizers and maximal relaxation delay"
+        ]
+      },
+      "rationale": "A distinct indexed result gives the same exact extremal theorem in deterministic high-speed traffic gaps. The parameter map is exact, and the only discrepancy in the count is the lift from labelled gaps to physical placements. No additional distinct mathematical content of the frozen finding is established. This is a finding of equivalent coverage, not an assertion about which work was discovered or released first.",
+      "residual_risks": [
+        "Historical priority and additional unindexed high-speed traffic coverage were not determined; neither is needed to establish the exact indexed equivalence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent theorem across all claimed parameters after exact change of state convention.",
+          "evidence": "Gap dynamics, maximum m−1, unique last delay, same forest count, N/k physical-placement factor.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-raney-forest-extremizers-of-high-speed-cyclic-traffic-relaxation--3d55c73e47d6/RESULT.md",
+          "material_read": "Finding and proof §§1–4 from offset 0; prior work around offset 7368",
+          "method": "Configured local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Raney-forest extremizers of high-speed cyclic traffic relaxation",
+          "trigger": "Exact alternate-model coverage"
+        },
+        {
+          "assessment": "Narrower speed-one analogue.",
+          "evidence": "The statement gives maximum m−1 and N Catalan(m−1) for physical low-density traffic states at speed one.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-catalan-extremizers-for-cyclic-traffic-relaxation-under-rule-184--59fbc93a8b51/RESULT.md",
+          "material_read": "Finding",
+          "method": "Configured local mirror",
+          "title": "Catalan extremizers for cyclic traffic relaxation under Rule 184",
+          "trigger": "Exact counts for a traffic analogue"
+        },
+        {
+          "assessment": "Discusses relaxation and jam statistics of speed-one Rule 184, explicitly not higher-speed vehicle models in the inspected discussion.",
+          "evidence": "§II.A moves each vehicle one step or zero; §V contrasts its scope with v0>1 models.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.08991",
+          "material_read": "§II.A pp. 2–3 (6960–12079); §V pp. 12–13 (46780–50944)",
+          "method": "Targeted OA PDF text",
+          "title": "Equilibrium-like statistical mechanics in space-time for a deterministic traffic model far from equilibrium",
+          "trigger": "Frozen record's main motivating comparison"
+        },
+        {
+          "assessment": "A speed-one numerical study, not evidence of a batch-capacity extremal count.",
+          "evidence": "Introduction says vmax=1, p=0 for its Rule 184 model.",
+          "identifier_or_url": "https://arxiv.org/pdf/2501.08417",
+          "material_read": "Introduction and setup pp. 1–2 (7000–9712)",
+          "method": "Targeted OA PDF text",
+          "title": "Evidence of Non-Equilibrium Critical Phenomena in a Simple Model of Traffic",
+          "trigger": "Possible earlier traffic comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp delay and forest structure answer a natural traffic/transport question, but in this finding they reproduce the already covered high-speed gap theorem. Counting labelled gap vectors rather than indexed vehicles introduces only the elementary placement multiplicity; no new independent invariant or structural gain is shown.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

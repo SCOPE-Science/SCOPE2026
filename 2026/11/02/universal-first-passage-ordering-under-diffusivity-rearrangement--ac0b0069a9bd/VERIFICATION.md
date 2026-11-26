@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The full continuum result follows analytically from a fixed optical length, a sharp rearrangement inequality, the explicit upper Skorokhod reflection map, and synchronization of renewal attempts. The proof in `RESULT.md` supplies these steps, the first-passage quantifiers, and a continuous construction attaining every intermediate arrangement value.
+## correctness
 
-Running `python verify.py` with standard Python produces:
+PASS
 
-```
-PASS: 66696 finite assertions (rearrangement, reflection coupling, resetting, means)
-```
+The optical map is bi-Lipschitz and yields generator ∂yy by the stated optical-pullback definition. Equimeasurability fixes Y and leaves only u=∫₀ᵃD⁻¹ᐟ² to vary. Layer cake bounds this prefix integral by the smallest and largest a-mass slices of the sorted optical density; monotone diffusivity realizes both. Sliding the length-a window from 0 to L−a in the sorted profile and cyclically shifting the full profile realizes every intermediate u by continuity. Pathwise, the upper-reflected unkilled coordinate is √2 B_t+min{u,Y−sup_{s≤t}√2 B_s}, increasing in u, so its first crossing of zero is ordered. The same ordered Brownian segment in each cycle and common reset intervals preserve completion order by induction. For u<v, pick t₀ with positive reset survival; a small Brownian tube around a descending path crossing −u but not −v by t₀ prevents upper reflection and has positive probability. On this event and no first reset before t₀ the laws separate. The same support argument gives positive success probability per cycle, hence almost-sure completion. The renewal recursion splits on the first reset; the Poisson transform and mean follow from qₛ''=s qₛ with qₛ(0)=1, qₛ'(Y)=0 and a geometric renewal calculation. For the illustrative two-material example, Y=.75 and the two starts are .2 and .4. The display uses u and ν for the same endpoint/window-integral quantities; the definitions disambiguate this notational slip.
 
-The finite checker executes 720 six-layer material permutations, sampled window-shift checks, 800 shared Brownian-path comparisons, 200 shared deterministic-reset multi-cycle comparisons, 74 Poisson-rate Laplace/mean comparisons, and limiting mean checks. The exact arithmetic of sorting and the independently computed Poisson mean are diagnostics only; the path samples discretize a continuous process and cannot establish pathwise order for all Brownian sample paths.
+## originality
 
-The continuum proof is insensitive to reset-time moments, provided each reset interval is iid, strictly positive and finite almost surely and independent of the Brownian motion. The independent renewal clock must be identical across designs. The displayed Poisson mean is already established in arXiv:2408.04726v1 Eq. (19), and its appearance here checks normalization rather than originality.
+PASS
 
-Unresolved scientific limits include the applicability of this optical-coordinate model at discontinuous interfaces versus different stochastic prescriptions, and possible implicit coverage by more general stochastic-comparison and rearrangement theorems. No independent audit or external validation has been performed.
+The optical transform and Poisson mean are established prior components, as is propagation of one-cycle stochastic order through a shared renewal clock. The sort order here concerns static equimeasurable materials on a finite reflecting interval at a fixed physical start/reset point. The inspected results do not provide the sharp design-law classification, in particular the exact continuum of attainable laws. The supported distinct claim is that classification, not a new general renewal principle.
+
+## value
+
+PASS
+
+For an inventory-constrained design, the result replaces optimizing any particular mean or resetting rate with one sharp pathwise order and shows exactly how many laws the material placement can realize: a single continuous interval of strictly ordered parameters, possibly degenerate for a constant inventory. This gives clock-independent choices for objectives such as deadline failure, quantiles and monotone penalties without solving the distribution for each profile. Sharp attainability and independence of the clock law give the design statement value beyond the known optical transform and Poisson mean.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

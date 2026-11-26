@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:39:50.017952Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact recurrence and Proof 1–5",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "arXiv:2407.21221, equations (2.4)–(2.7)"
+      ],
+      "rationale": "The fixed 1/4 step gives separate multipliers 1/4 and 1-lambda_k on the extrapolated coordinates. The inner coordinate contracts by at most 3/4 on successive two-step running maxima. The FISTA quadratic identity gives t_k^2-t_k=t_(k-1)^2, with t_k comparable to k+1 and increments tending to 1/2. To check the critical energy identity, write y for the extrapolated outer coordinate, substitute z=t y-(t-1)v and z_next=z-lambda t y, v_next=(1-lambda)y, and complete the square; the remaining y^2 terms have coefficients lambda t and lambda^2 t^2(1-lambda). Monotonicity of lambda_k then yields E_next<=E-lambda_k t_k y^2, with the k=0 term t_0^2-t_0=0. For gamma<2 the v^2 coefficient grows like k^(2-gamma). At gamma=2 it is bounded below, so v and z are bounded; y-v=(z-v)/t gives O(1/k) increments and energy dissipation gives sum y_k^2/k<infinity. The log-mesh interpolation is Lipschitz at infinity and L^2 there, forcing y_k to vanish by the disjoint-interval argument. For every gamma>2, dominated convergence makes S(a)=sum lambda_k t_k<1 for some integer a, using the summable majorant proportional to (k+1)(k+2)^(-gamma). Starting from v=1, the convex combination for y and telescoping z give 1>=z_k>=1-S(a)>0 and 0<v_k,y_k<=1. z decreases to a positive limit; the v recurrence averages that convergent input with weights 1/t_k whose sum diverges. The initial u=0 stays zero. This proves convergence to a strictly nonoptimal inner minimizer for a chosen offset, not for all offsets.",
+      "residual_risks": [
+        "The result concerns the exact scalar recurrences with the given initialization and majorizer; neither finite prefixes nor this proof settle general composite bilevel problems, arbitrary momentum initialization or finite-precision limits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published FBi-PG pointwise theorem is for 1<gamma<2 and a>2; its gamma>=2 bounds cited here concern the inner objective. The TIREPROG sufficient condition t_k^2 epsilon_k->infinity fails at the endpoint for the scale in question. IPATRE does have a genuine critical-exponent convergence result, even applicable to a zero minimum-norm target under its own update. The PIATR selection regime 1<p<q+1 with 0<q<1 does not include p=2."
+        ],
+        "reasoning": "Broader hypotheses were compared at their endpoints, including stronger-looking minimum-norm results. None of these inspected theorems subsumes the quantifiers and exact discrete dynamics of the reviewed endpoint and obstruction.",
+        "searches": [
+          "arXiv:2407.21221, Theorem 5, Proposition 5 and Theorem 1",
+          "arXiv:2407.10350v1, Theorem 4 and Remark 5",
+          "arXiv:2104.11987v1, Theorem 13",
+          "arXiv:2302.02115v4, PIATR rate and selection regimes"
+        ]
+      },
+      "checked_sources": [
+        "Resultary search and record d0e5a5995235",
+        "arXiv:2407.21221",
+        "arXiv:2407.10350v1",
+        "arXiv:2104.11987v1",
+        "arXiv:2302.02115v4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Control of 3u_k^2/2 is silent about v_k. The endpoint instead uses weighted outer-coordinate dissipation and controlled log-time increments. For gamma>2 the positive nonoptimal limit uses the exact z update and the limit S(a)->0, neither of which follows from a bound on the inner rate."
+        ],
+        "reasoning": "The result does not claim priority for the scale gamma=2. Transferring prior selection at that scale would require a theorem matching the update and offset or a justified reduction; neither was found in the most relevant inspected statements.",
+        "searches": [
+          "arXiv:2407.21221, summary table, Proposition 5, Theorems 1 and 5",
+          "arXiv:2104.11987v1, algorithm definition and Theorem 13"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With zero nonsmooth parts and beta=4 the published FBi-PG update specializes to the frozen recurrence. Selection coincides with minimum-norm selection on this solution line, but IPATRE uses 1-alpha/k inertia and subtracts c x_k/k^2 before its proximal step."
+        ],
+        "reasoning": "Compared both objective formulations and their discrete updates. A common target point and a common asymptotic scale for the regularization do not identify two recurrences.",
+        "searches": [
+          "Resultary: dynamic FISTA, rank-deficient quadratic, critical Tikhonov selection and supercritical failure",
+          "arXiv:2407.21221, (2.4)–(2.7)",
+          "arXiv:2104.11987v1, IPATRE"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest thematic local record uses a product limit in SAA-RMGDA on a one-dimensional Pareto interval, not the original FBi-PG update. The reviewed claim is an infinite-time boundary for a continuum of exponents, not an entry in a finite table."
+        ],
+        "reasoning": "Summable weights alone do not imply nonselection for an inertial recurrence: the frozen endpoint has summable weights but divergent accumulated lambda_k t_k. This distinguishes the catalog result even on the qualitative limit.",
+        "searches": [
+          "Resultary: summable regularization with convergence to a nonselected minimizer; exponent-two exact dynamic-FISTA boundary",
+          "Resultary record 2026/10/4/SCOPE-summable-tikhonov-weights-do-not-select-the-center-of-a-symmetri--d0e5a5995235, mirrored RESULT.md"
+        ]
+      },
+      "rationale": "The original FBi-PG iteration and subcritical convergence ideas are prior. The supported increment is the sharp uniform-in-offset selection boundary on this benchmark, specifically endpoint selection for the actual quadratic-identity FISTA recurrence and an obstruction at a sufficiently large offset for each supercritical exponent. Related critical convergence theorems use different discrete updates; an exact-recurrence inner objective rate cannot distinguish points on this line of inner minimizers.",
+      "residual_risks": [
+        "The final publisher version of the TIREPROG paper was not accessible on the attempted route; the available preprint was read. Other recurrence-specific endpoint results under different terminology may not have surfaced. No priority for the exponent itself is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same algorithm; endpoint and supercritical selection claims not supplied",
+          "evidence": [
+            "Theorem 5 expressly requires 1<gamma<2 and a>2. The reported endpoint and supercritical rates concern the inner objective."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.21221",
+          "material_read": "PDF p. 5, (2.4)–(2.7) and summary; pp. 11–12, Proposition 5 and Theorem 1; p. 19, Theorem 5 (offset 88960)",
+          "method": "Bounded primary PDF passages and exact theorem read",
+          "title": "Dynamic FISTA for Convex Composite Bi-Level Optimization",
+          "trigger": "Source of exact iteration and strongest same-algorithm pointwise theorem"
+        },
+        {
+          "assessment": "Different update and hypotheses; endpoint condition not met",
+          "evidence": [
+            "Theorem 4 uses t_k^2 epsilon_k->infinity for minimum-norm convergence; Remark 5 does not deduce convergence of the sequences in the bounded case."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.10350v1",
+          "material_read": "Algorithm and schedule assumptions, Theorem 4 (p. 7) and Remark 5 (p. 11)",
+          "method": "Open preprint PDF after publisher full-text access failed",
+          "title": "László's TIREPROG convergence analysis",
+          "trigger": "Potential coverage by a FISTA-scale discrete selection theorem"
+        },
+        {
+          "assessment": "Critical result for a different algorithm, not a stronger theorem on the reviewed iteration",
+          "evidence": [
+            "Theorem 13 assumes alpha>3 and its outside-ball proof uses norm(x_k)>=norm(x*) eventually, automatically satisfied when x*=0; the update nevertheless uses distinct inertia and Tikhonov evaluation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2104.11987v1",
+          "material_read": "IPATRE definition, PDF p. 22; Theorem 13 and beginning of proof, p. 28 (offset 109205)",
+          "method": "Bounded primary preprint PDF comparison",
+          "title": "Attouch–László's IPATRE analysis",
+          "trigger": "Known critical-exponent discrete selection analogue"
+        },
+        {
+          "assessment": "Does not cover the target endpoint or recurrence",
+          "evidence": [
+            "The full minimum-norm convergence condition 1<p<q+1 with 0<q<1 excludes p=2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.02115v4",
+          "material_read": "PDF pp. 3–4 and 24–25, PIATR selection regime",
+          "method": "Bounded primary preprint passage comparison",
+          "title": "On the convergence of an inertial proximal algorithm with a Tikhonov regularization term",
+          "trigger": "Nearby inertial Tikhonov selection regimes"
+        },
+        {
+          "assessment": "Different optimization problem and recurrence",
+          "evidence": [
+            "SAA-RMGDA product-limit obstruction on a symmetric one-dimensional Pareto set."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-summable-tikhonov-weights-do-not-select-the-center-of-a-symmetri--d0e5a5995235",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Resultary lookup and mirrored statement comparison",
+          "title": "Summable Tikhonov weights do not select the center of a symmetric Pareto interval",
+          "trigger": "Nearest thematic Resultary overlap on nonselection"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Exact statement and Proof Steps 4–5",
+        "Merchav–Sabach–Teboulle, Theorem 5 and endpoint inner-objective discussion"
+      ],
+      "rationale": "The rank-deficient quadratic cleanly distinguishes convergence of the inner objective from selection of a point on its minimizer line. It gives a sharp endpoint where summability alone predicts neither failure nor success, plus an explicit stable obstruction on the other side for every supercritical exponent. That is an informative boundary for the original FISTA schedule, not an unsupported general impossibility claim.",
+      "residual_risks": [
+        "Value is as an exact benchmark and counterexample, not a theorem on the threshold for every bilevel problem or on failure for every supercritical offset."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

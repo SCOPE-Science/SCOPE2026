@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:29:21.309610Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact raw sum has sign convention I_Q−I_P: expanding both cardinalities leaves quotient avoidance minus product avoidance. The permutations Q_g(x)=gx and P_g(x)=x⁻¹g give independent-set counts on their cycles, including L₁=1 for a forbidden loop. For a rotation g=a^j, the stated gcds and parity give exactly the rotation summands. For g=a^j b, Q_g has n four-cycles. P_g swaps cosets: a^i maps to a^(j−i)b and a^i b maps to a^(i−j), so P_g² fixes rotation exponents 0,n and nonrotation exponents j,j+n. This corrects the frozen proof's local labeling of the four fixed elements, without changing the claimed count of two 2-cycles and n−1 4-cycles or the resulting −4n·7^(n−1). The Lucas bound L_k≤7^(k/4) for k≥3 follows from its two bases and 7^(1/2)>7^(1/4)+1. This gives the displayed B(n) by retaining the order-two quotient term and bounding the remaining product terms. At n=41 the exact bound is positive and the three normalized subtracted terms strictly decrease thereafter, so the finite sweep suffices. Independent replay: python -B /workspace/review_replay.py 5 constructs the graphs from ordered group products and right quotients for n=2–40 and counts independent sets by path/cycle recursion. It reproduces all finite signs, both boundary values, and the exact value of 3B(41). This does not assert any count comparison for product- versus quotient-dominant subsets.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Amit et al. Theorem 7.6 gives a general character/conjugacy-class expression for the first moment; p. 5 and §8 identify dicyclic groups as needing further analysis.",
+          "Miller–Vissuet Theorem 1.1 says almost all subsets give both sets equal to the group as group size tends to infinity."
+        ],
+        "reasoning": "The first theorem is a framework from which a family-specific calculation is possible, not a stated dicyclic threshold; typical balance does not give the signed contribution of the remaining subsets. The distinct catalogue result resolves the exact threshold itself.",
+        "searches": [
+          "arXiv:2610.12912v1 Theorems 7.5–7.6 and §8",
+          "arXiv:1308.2344v1 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8342e2266f87",
+        "arXiv:2610.12912v1",
+        "arXiv:2602.09073v1",
+        "arXiv:1308.2344v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mandal–Neetu count dominant or balanced sets at selected cardinalities and leave larger cardinalities open; their counts do not weight each subset by its signed cardinality discrepancy.",
+          "The catalogue proof uses a sufficient positivity cutoff n=80 and checks the omitted finite range, whereas the frozen proof uses n=41. Both prove the identical exhaustive sign result."
+        ],
+        "reasoning": "Neither fixed-cardinality counts nor typical balance imply the raw moment sign boundary. The exact catalogue theorem already proves it. A smaller auxiliary cutoff for one proof of the same boundary has no separate stated consequence.",
+        "searches": [
+          "arXiv:2602.09073v1 abstract and conclusion",
+          "Resultary 8342e2266f87 Proof §§4–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "8342e2266f87 defines the same presentation and group order 4n, includes all subsets, and expands the same right quotient xy⁻¹.",
+          "Its I_j has exactly the frozen Lucas recurrence and initial conditions including I₁=1; c_t and h_t are d_j and e_j after renaming the summation index."
+        ],
+        "reasoning": "The catalogue formula equals the frozen formula term by term. Normalizing by 2^(4n) would not change any sign, but neither statement makes that normalization, so even the first-moment values agree exactly.",
+        "searches": [
+          "Resultary: dicyclic Dic first raw moment product quotient sign reversal",
+          "arXiv:2610.12912v1 Theorem 7.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finding and assumptions: identical signs on 2≤n≤29 and n≥30, both exact integers at 29 and 30, and the same all-n formula. Proof §§1–5 give the corresponding full argument."
+        ],
+        "reasoning": "This is more than coincident entries in a small table: the precise full-range theorem, including the normalization and exact arithmetic, is covered.",
+        "searches": [
+          "Resultary 8342e2266f87, sharp first-moment sign reversal in dicyclic groups"
+        ]
+      },
+      "rationale": "A distinct indexed result gives the identical dicyclic first-moment formula and exhaustive 29/30 sign boundary. This is verified statement-level coverage. The different proof bounds and the later displayed catalogue path do not establish historical priority in either direction.",
+      "residual_risks": [
+        "The relationship, provenance, and historical priority of the two distinct records were not established; their displayed path dates alone do not resolve these questions.",
+        "Statement-level coverage is established independently of the exhaustiveness of the primary-literature search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the frozen finding; distinguish coverage from priority",
+          "evidence": "Same presentation, right quotient, raw sum, exact formula and values at the identical sign threshold.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/26/SCOPE-a-sharp-first-moment-sign-reversal-in-dicyclic-groups--8342e2266f87/RESULT.md",
+          "material_read": "Finding, assumptions and Proof §§1–5 (offsets 0–5036)",
+          "method": "Resultary search and mirrored text",
+          "title": "A sharp first-moment sign reversal in dicyclic groups",
+          "trigger": "Exact apparent catalogue match"
+        },
+        {
+          "assessment": "General method, not an exact dicyclic threshold in the inspected material",
+          "evidence": "Formula takes conjugacy and cycle data; the discussion explicitly calls for further dicyclic analysis.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.12912v1",
+          "material_read": "PDF p. 5, Theorem 7.6 pp. 26–27, §8 pp. 27–28",
+          "method": "OA PDF passages",
+          "title": "Product and Quotient Set Dominance in Finite Groups",
+          "trigger": "General exact first-moment formula and discussion of dicyclic cases"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "Counts subsets of selected sizes classified by dominance or balance, not all-subset raw differences.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.09073v1",
+          "material_read": "PDF p. 1 abstract and p. 18 conclusion",
+          "method": "OA PDF passages",
+          "title": "Exact and Asymptotic Counts of MSTD, MDTS, and Balanced Sets in Dicyclic Groups",
+          "trigger": "Same group family and product/quotient comparison"
+        },
+        {
+          "assessment": "Does not fix the sign of the unbalanced contribution",
+          "evidence": "The theorem concerns probability of equality to the whole group, and leaves relative dominance behavior unresolved.",
+          "identifier_or_url": "https://arxiv.org/abs/1308.2344v1",
+          "material_read": "PDF p. 2, Theorem 1.1 and following discussion",
+          "method": "OA PDF passage",
+          "title": "Most Subsets Are Balanced in Finite Groups",
+          "trigger": "Possible broader group-average implication"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact cutoff is a naturally motivated invariant of a family singled out by prior work, but the identified distinct catalogue result already supplies the same invariant and expression. The frozen proof saves a finite range of checks using a sharper sufficient estimate; neither that proof economy nor the local proof correction gives a separate mathematical finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:45:25.459707Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the original degree-k Kummer cover the three zeros of x³+1 have multiplicity two and 0,∞ have poles of order three. All five places are totally and tamely ramified since gcd(k,6)=1, which also ensures connectedness; Riemann–Hurwitz gives 3(k−1)/2. The involution has fixed field K(u,z), z^k=u(u+1)². On that quotient the quadratic equation for x is equivalent, via w=(x+1)/u, to w²+w=1/u. Its sole pole is over u=0 with order k odd, hence precisely one point is totally ramified and all other points are unramified in the quadratic extension. Deuring–Shafarevich gives γ(C_r)=2γ(E_k). On E_k the tame branch valuations of (u+1)^v du/z^j are k−1−j, k−1+kv−2j, −k−1−kv+3j; they yield the two stated intervals, and the distinct tame characters and genus (k−1)/2 certify a basis. The Cartier identities give the inverse-doubling partial permutation: the lower-interval even j maps outside the interval union and is killed, the upper-interval even j maps into the lower interval, and each odd j maps into the upper interval. Thus stable rank counts residues whose entire doubling orbit stays in the union, not just nonzero one-step images. Binary rotations with 00 leave the union; if no 00 occurs, the first difference from the alternating comparison word after initial 01 or 10 must increase, and odd period rules out equality. The closed-walk count for the allowed transition matrix is L_r, with the all-ones residue discarded. This proves the formula and gives 6,20,56,150 from the Lucas recurrence. The frozen script and its verification note were inspected, not executed; the universal argument does not rely on their finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Timpanella covers all odd coprime k,M≥3 for the genus and covers the rank reduction and upper bound in Proposition 4.6.",
+          "Borges–Gonçalves give a combinatorial rank formula for y^m=x^n+1. An entire Fermat rank is an aggregate over characters and does not separate the character contribution of this quotient."
+        ],
+        "reasoning": "Neither the upper bound nor the full Fermat rank formula yields the closed Lucas value by specializing parameters; even an orbit-counting formula for cyclic covers would still need the no-00 classification and closed evaluation for this particular branch vector.",
+        "searches": [
+          "Timpanella arXiv:2609.34709v1 Theorem 1.2, Proposition 4.6 and (4.14)",
+          "Borges–Gonçalves arXiv:2212.03987v3 Theorem 1.1 and §6",
+          "Bouw, Compositio Mathematica 126 (2001), 295–322"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary indexed records listed above",
+        "Timpanella arXiv:2609.34709v1",
+        "Borges–Gonçalves arXiv:2212.03987v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The genus follows immediately from Timpanella; the known rank identity leaves the quotient rank unevaluated, and the inequality is not an equality.",
+          "The missing step is selective survival of all rotations for the quotient characters; the explicit binary constraint and resulting Lucas trace are not supplied by the inspected Fermat-type statements."
+        ],
+        "reasoning": "The review does not claim novelty for the setup, Cartier method or Lucas enumeration in isolation. It credits their exact family-specific identification rather than a restatement of a rank bound.",
+        "searches": [
+          "arXiv:2609.34709v1, Proposition 4.6 and Eq. (4.14)",
+          "arXiv:2212.03987v3, Theorem 1.1 and §6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest same-right-hand-side catalog result has equation y²+y=x³+x^(−3), genus three and rank one; it is an Artin–Schreier cover, not this decreasing-rank-fraction Kummer family.",
+          "Timpanella does reach the equivalent quotient z^k=u(u+1)² at M=3, but does not give γ(E_k)=L_r−1."
+        ],
+        "reasoning": "The relevant alias is the three-point cyclic Kummer quotient with branch exponents (1,2,−3), equivalently a Fermat quotient via u=X^k, z=XY² on X^k+Y^k=1. This is not the same curve as the inspected Artin–Schreier example or the full Fermat curve.",
+        "searches": [
+          "Resultary: y^(2^r−1)=x³+x^(−3) in characteristic 2, exact 2-rank and Lucas numbers",
+          "Primary query: y^k = x^3 + x^{-3} p-rank characteristic two Lucas",
+          "arXiv:2609.34709v1, Eq. (4.11) and Proposition 4.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected catalogue entries are an exact genus-three rank calculation for the Artin–Schreier equation and a Lucas-number enumeration for graph dissociation sets. Neither tabulates this family or identifies the rank with that standard cycle count."
+        ],
+        "reasoning": "No exact table of the family was identified in the bounded indexed comparison. A standard Lucas sequence match is not curve-rank evidence without a theorem connecting the two.",
+        "searches": [
+          "Resultary: exact rank sequence 6,20,56,150 for the Mersenne cyclic-dihedral curves",
+          "Resultary 2026/11/2/SCOPE-complete-elliptic-splitting-of-the-first-wild-c-6-boundary-curve--5b1f4e3a572e",
+          "Resultary 2026/10/13/SCOPE-dissociation-polynomials-of-m-bius-ladders-and-lucas-periodic-op--95b85b647057"
+        ]
+      },
+      "rationale": "Credit is restricted to the exact geometric 2-rank evaluation in Lucas numbers. The family, genus, quotient and doubling of rank are prior. The specifically Mersenne rotation criterion and closed orbit count are not supplied by the strongest inspected general formulas or catalog claims.",
+      "residual_risks": [
+        "Bouw could not be read via the bounded attempts; older exact three-point-cover results may contain an equivalent computation under another description. No exhaustive priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of family, genus, quotient and rank reduction; not the exact evaluation",
+          "evidence": [
+            "Theorem 1.2 gives 2g=M(k−1); Proposition 4.6 gives the quotient and γ(original)=2γ(quotient), with an upper bound (4.14)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.34709v1",
+          "material_read": "p. 3 Theorem 1.2 (offset 11120); p. 22 Proposition 4.6 (offset 71649) and associated equations",
+          "method": "Primary OA PDF passages",
+          "title": "Large cyclic automorphism groups and cyclic subgroups of index two in characteristic two",
+          "trigger": "Same family, genus and involution"
+        },
+        {
+          "assessment": "Related combinatorial formula but no explicit quotient Lucas value found in these passages",
+          "evidence": [
+            "The main model is y^m=x^n+1, not the three-exponent quotient evaluated here."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2212.03987v3",
+          "material_read": "p. 2 Theorem 1.1 (offset 8035) and §6 applications (offset 92806 onward)",
+          "method": "Primary OA PDF passages",
+          "title": "The p-rank of curves of Fermat type",
+          "trigger": "A Fermat curve dominates the quotient"
+        },
+        {
+          "assessment": "Unresolved access, not negative evidence",
+          "evidence": [
+            "No primary passage was recovered in those attempts."
+          ],
+          "identifier_or_url": "Compositio Mathematica 126 (2001), 295–322",
+          "material_read": "Bibliographic identification only; no readable primary text in the attempted routes",
+          "method": "Bounded lawful OA retrieval attempts",
+          "title": "The p-rank of ramified covers of curves",
+          "trigger": "General cyclic-cover rank methods could cover an orbit-counting form"
+        },
+        {
+          "assessment": "Different defining extension",
+          "evidence": [
+            "Its equation has y²+y, not y^k, on the left and its stated geometric rank is one."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-complete-elliptic-splitting-of-the-first-wild-c-6-boundary-curve--5b1f4e3a572e",
+          "material_read": "Original finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Complete elliptic splitting of the first wild C6 boundary curve",
+          "trigger": "Same rational right-hand side over characteristic two"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact stable rank resolves the gap left by the known upper bound in a natural cyclic-dihedral family and differs materially from a one-step Cartier count. The Mersenne choice converts doubling into rotation, exposes a concrete local survival constraint, and gives a closed formula across unbounded genus, rather than a fitted finite table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

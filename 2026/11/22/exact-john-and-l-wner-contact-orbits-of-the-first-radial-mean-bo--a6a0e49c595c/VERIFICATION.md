@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of exact radial contacts
+# Independent mathematical audit
 
-Run `python3 verify.py` beside `RESULT.md`. The script uses only the Python standard library and prints `CUBE_R1_EXACT_CONTACT_CHECKS_OK` if all exact and independent checks succeed. It verifies the values of \(H^2\) at the interior stationary point, axial endpoint, body-diagonal endpoint and relevant edge critical point; checks the exact rational gap \(31/729\); and checks the gradient and edge-derivative factorizations over rational sample points. It independently integrates the original covariogram, rather than the closed polynomial form, over \(160\) deterministic unit directions using composite Simpson quadrature and checks the error against the closed formula.
+## correctness
 
-These are finite consistency checks, not an exhaustive proof for uncountably many directions. The global argument consists of the exact sign of \(D-S\), factorization of interior stationarity, and complete boundary critical-point analysis in `RESULT.md`. Classical convexity and uniqueness of John–Löwner ellipsoids are used as identified, not independently reproved. Independent mathematical audit remains unperformed.
+PASS
+
+With the positive-ray Gardner–Zhang normalization, Fubini gives the normalized cube covariogram integral. Sort by largest absolute coordinate and use [0,1]^2 ratios s,t; integrating (1-z)(1-sz)(1-tz) on [0,1] gives H/6, H=sqrt(S)D for S=1+s²+t², D=6−2s−2t+st. The scaled derivatives have difference (s−t)(D−S); D−S decreases in both ratios and vanishes only at (1,1), so interior stationarity is diagonal. Its derivative numerator factors as (1−s)^2(3s−2), giving the only interior candidate (2/3,2/3) with H²=19652/729. On a zero edge the derivative numerator is −2(2t−1)(t−1), yielding candidate squared values 36, 125/4 and 32 including endpoints. On a unit edge the numerator is −2(t−1)^2, yielding endpoint squared values 32 and 27. Hence the interior minimum is strict, with gap 31/729 below the body diagonal, and (0,0) is the only reduced maximum. Convexity at this positive parameter and uniqueness of John and Löwner ellipsoids imply cubic invariance: reflections force zero center and a diagonal form, permutations make that form scalar. Thus extremizing the radial function gives both radii and exactly 3·8 inner and 3·2 outer contacts. The result fixes [-1,1]^3 at p=1; no general p or dimensions are treated. The analytic proof is exhaustive over directions; verify.py was inspected, not executed.
+
+## originality
+
+PASS
+
+Pass the global three-dimensional radial extrema and full contact orbits, not the generally known radial integral or the axis and body-diagonal evaluations. The exact oblique minimizer requires a global two-variable calculation not provided by the strongest inspected sources.
+
+## value
+
+PASS
+
+John and Löwner contacts are canonical geometric data for a fundamental radial-mean test body. Exact oblique equality points disprove the natural axis/diagonal guess and quantify a small but strict body-diagonal gap. This all-direction comparison is useful for sharp geometric bounds and is not simply the evaluation of a known formula at preassigned directions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

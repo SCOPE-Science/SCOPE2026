@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:17:27.693769Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–58; VERIFICATION.md, lines 19–23; verify_gt4.py, lines 35–137; independent exact grounded-graph re-enumeration."
+      ],
+      "rationale": "The outward facet normals are the directed edge differences on seven nodes, with the fixed endpoint of each single-coordinate bound treated as ground. Their matrix is totally unimodular. I reproduced the finite face certificate without the supplied code: take all six-edge spanning trees of the grounded graph on the twelve labelled inequalities, propagate the tight differences from ground 0, discard infeasible points and deduplicate. This gives 40 vertices. For each mask of the twelve inequalities take its matching vertices, discard empty sets, and deduplicate by intersecting all active masks of its vertices. Graph rank (seven minus the number of components) of the resulting tight mask equals face codimension. This gives all faces, since each vertex arises from six independent active normals and every nonempty face is an intersection of the inequalities. All twelve single-facet masks occur; the face vector is (40,132,186,139,57,12,1). Active masks with more edges than rank give (16,28,16,3,0,0,0) singular orbits by face dimension; their inclusion-minimal masks are {2,3,7,8}, {8,9,11,12}, {4,5,9,10}. Here simplicial implies smooth by total unimodularity, so there is no lattice-index exception. The outer pair forces incompatible values of y₂. The two adjacent intersections are edges, one with only y₃ free on [1,2], one with only y₁ free on [3,4]. Common subfaces describe the orbit-closure intersections, and each edge gives a complete normal toric curve, hence P¹. For each maximal singular face the four normals satisfy v₁+v₂=v₃+v₄ in the displayed order, and any independent triple gives a basis of the rank-three saturated span by total unimodularity. In the cone basis of the proof the dual semigroup is {(x,y,z)≥0 : z≤x+y} on integers; its generators (1,0,0), (0,1,0), (1,0,1), (0,1,1) have the single sum relation pairing opposite generators. This gives the transverse node, with a torus factor at the associated orbit. The same nonsimplicial cones determine the non-Q-factorial locus.",
+      "residual_risks": [
+        "The supplied checker was not executed. The geometric comparison is for reduced singular support and the generic transverse germ, not a singular scheme or non-generic analytic types."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1.4 states that the singular locus consists of the codimension-three W_b for boxes b and that the generic transverse type is an ordinary double point. Its proof identifies the quadrilateral cones explicitly. NNU give the equality-loop and unit determinant description and independently explicitly call these codimension-three conifold strata."
+        ],
+        "reasoning": "This is stronger direct coverage of components and germs across flag types, including regular GL4, and the determinant criterion identifies smoothness and simpliciality on the same fan.",
+        "searches": [
+          "arXiv:math/9803108, §3.1, Theorem 3.1.4; arXiv:0810.3470v2, §4 Lemma 4.3 and §5 following Theorem 5.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and AUDIT.json; arXiv:math/9803108, arXiv:0810.3470v2, arXiv:1606.05957; Resultary 2594d254a1ea and d342892e7b65."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "There are exactly three unit boxes in the triangular grid of positions i≤j: the upper-left corners (1,2),(1,3),(2,3). Their edge normals are respectively {2,3,7,8}, {8,9,11,12}, {4,5,9,10} in the frozen order. The first and third pin y₂ to 3 and 2 respectively. Equating the middle box with an outer box leaves one closed coordinate interval, as in the correctness check."
+        ],
+        "reasoning": "This explicitly specializes the prior theorem to the three components, all of dimension three, and their nodes. The two P¹ intersections and the disjoint pair are immediate from these labels and ordinary toric orbit closure correspondence, not a further singularity classification.",
+        "searches": [
+          "arXiv:math/9803108, pp. 6–9 and 16–17, Definitions 2.1.2–2.1.5 and 3.1.3, Theorem 3.1.4; NNU arXiv:0810.3470v2, pp. 16–18"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ladder has dot coordinates (i,j) for 1≤i<j≤4 and stars (i,i); write the top entries at the stars, (y₁,y₂,y₃) at (1,2),(2,3),(3,4), (z₁,z₂) at (1,3),(2,4) and w at (1,4). Steps increasing either coordinate are exactly the twelve frozen interlacings. The ladder boundary map δ is head minus tail after omitting star coordinates, exactly the twelve outward normals. NNU identify the central fibre with the Gelfand–Cetlin toric variety. The two nearest inspected same-day indexed findings instead use the normal fan of a path stable-set polytope and the face fan of a type-A root polytope, respectively."
+        ],
+        "reasoning": "The full-flag degeneration used by the primary box theorem and the frozen toric variety have the same lattice and fan. The nearby indexed findings are not equivalents, regardless of date.",
+        "searches": [
+          "Batyrev–Ciocan-Fontanine–Kim–van Straten arXiv:math/9803108, Definitions 2.1.1–2.1.5 and 2.2.5, Definition 3.1.3; Nishinou–Nohara–Ueda arXiv:0810.3470v2, §§4–5; Resultary 2594d254a1ea and d342892e7b65, Findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An–Cho–Kim supply the ladder face-lattice identification. Definitions 2.1.5 and 3.1.3 in the earlier singular-locus paper give an exact box-to-stratum catalogue, not only an f-vector. The same-day path example has a different incidence graph, and the root-fan example has isolated nodes on a threefold."
+        ],
+        "reasoning": "The exact box catalogue specializes directly without a GL4 table. The unrelated indexed counts do not supply coverage; the original general box catalogue does.",
+        "searches": [
+          "An–Cho–Kim arXiv:1606.05957, Theorem 1.9 and Remark 1.11; arXiv:math/9803108, Definitions 2.1.5 and 3.1.3; Resultary 2594d254a1ea and d342892e7b65, Findings"
+        ]
+      },
+      "rationale": "Batyrev–Ciocan-Fontanine–Kim–van Straten already prove for the partial-flag ladder toric degeneration that the singular locus has precisely the codimension-three orbit closures indexed by four-edge boxes, with ordinary double point transverse type. That is a stronger same-object result, not merely a face-count or a rule for testing individual cones. In the regular GL4 ladder its three boxes are exactly the four-facet sets in the finding. Pairwise incidence requires only substituting the forced equalities into the written inequalities. Simpliciality plus the known unimodularity of the remaining cones gives the non-Q-factorial assertion. The absence of the three frozen names or the printed GL4 incidence chain in the general theorem does not make this specialization materially distinct.",
+      "residual_risks": [
+        "No claim about historical priority beyond the inspected general theorem or authorship of any frozen calculation. The primary proof states the general box rule; the three-label and two-edge deductions above were carried out in the audit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger coverage; exact components indexed by boxes and generic ordinary double points already established",
+          "evidence": [
+            "A box is a four-edge cycle; W_b is the orbit closure for the cone of its four δ-images. Theorem 3.1.4: the singular locus consists of the codimension-three W_b, with ordinary double point transverse to a generic point."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/9803108",
+          "material_read": "Definitions 2.1.1–2.1.5, pp. 5–9 (offsets 9930 and 13350 onward), Definition 3.1.3 and Theorem 3.1.4 with proof, pp. 16–17 (offset 27400 onward)",
+          "method": "Lawful original arXiv PDF; direct proof-to-frozen-grid comparison",
+          "title": "Mirror symmetry and toric degenerations of partial flag manifolds",
+          "trigger": "The original source cited for general conifold strata"
+        },
+        {
+          "assessment": "Identifies the variety and supplies the loop criterion and unimodularity; credits the general box theorem",
+          "evidence": [
+            "Loops give nonsimplicial cones, while acyclic full-rank ray sets have determinant ±1; the central fibre's singular locus consists of codimension-three conifold strata."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0810.3470v2",
+          "material_read": "§4 Lemma 4.3 and determinant proof, pp. 16–17 (offset 46000 onward); §5 following Theorem 5.1, p. 18 (offset 52200)",
+          "method": "Lawful original arXiv PDF, targeted theorem passages",
+          "title": "Toric degenerations of Gelfand-Cetlin systems and potential functions",
+          "trigger": "Same Gelfand–Cetlin toric variety and smooth-cone test"
+        },
+        {
+          "assessment": "Dimension-preserving face-lattice description; contributes combinatorics, not the decisive singular-locus theorem",
+          "evidence": [
+            "The order-preserving correspondence of faces with ladder diagrams preserves dimensions; the regular case has all multiplicity blocks of size one."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1606.05957",
+          "material_read": "Theorem 1.9 and Remark 1.11, p. 5, offset 17400 onward",
+          "method": "Lawful original arXiv PDF, targeted passage",
+          "title": "On the f-vectors of Gelfand-Cetlin polytopes",
+          "trigger": "Exact combinatorics for general face lattices"
+        },
+        {
+          "assessment": "Different polytope and component adjacency",
+          "evidence": [
+            "For the five-vertex path the two outer components meet and the middle one is disjoint from both; the frozen GT variety has the reverse pattern."
+          ],
+          "identifier_or_url": "Resultary 2594d254a1ea",
+          "material_read": "Finding, offset 0",
+          "method": "Original record through the lawful local mirror",
+          "title": "Conifold components and path independence incidence in stable-set toric varieties of paths",
+          "trigger": "Same-day normalized toric conifold classification with three components at one parameter"
+        },
+        {
+          "assessment": "Different fan, dimension and strata",
+          "evidence": [
+            "The face fan of the type-A root polytope at n=4 yields six isolated nodes on a threefold."
+          ],
+          "identifier_or_url": "Resultary d342892e7b65",
+          "material_read": "Finding, offset 0",
+          "method": "Original record through the lawful local mirror",
+          "title": "Singular strata and anticanonical degrees of complete type-A root toric Fano varieties",
+          "trigger": "Same-day type-A singular-stratum result with nodes"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Reduced singular support of a natural toric degeneration is a useful invariant, but here the established theorem already provides each component and its generic local type. The only additional tabulation in the central claim is the immediate pairwise compatibility check for three known boxes: two pairs fix all but one free coordinate and the third is infeasible. Together with the standard normal-fan criterion for non-Q-factoriality this is a routine small-instance specialization, not a surviving substantial new classification. No intersection singularity or scheme calculation is supplied as an independent remainder.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

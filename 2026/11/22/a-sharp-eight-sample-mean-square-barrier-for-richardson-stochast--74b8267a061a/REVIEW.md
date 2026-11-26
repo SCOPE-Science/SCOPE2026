@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationary OU generator is explicitly applied to the quadratic observable and then twice; empirical action entries reduce to the exact ratio of the second and fourth Gaussian sample moments. A polar Gaussian decomposition proves independence of the chi-square radius and bounded angular fourth-power sum. Its radial inverse-moment condition is necessary and sufficient for *every* positive moment order; a nonzero leading polynomial coefficient transfers the condition to each update rule. Direct Gaussian integration of the true semigroup image converts coefficient-square integrability into prediction-risk integrability, and small-radius chi-square asymptotics give the constants and exponents. The special cancellation in the second-order Taylor method at unit step is treated separately. The rational-arithmetic checker tests 78,095 finite algebraic identities. Finite tests do not replace the analytic moment proof.
+PASS
 
-## Originality — PASS, qualified
+For the stationary OU generator, Lx²=2−2x² and L²x²=−2Lx², so a_m=−2+2S₂/S₄ and b_m=−2a_m. The Gram S₄/m is positive almost surely and iid sample averages give a_m→−4/3 almost surely. With R²~χ²_m independent of U=ΣΘ_i⁴∈[1/m,1], a_m+2=2/(R²U). Its qth absolute moment is finite exactly for m>2q, and χ² small-ball normalization gives P(a_m>z)~E[U^(−m/2)]z^(−m/2)/Γ(1+m/2). The multipliers are polynomials of degrees 1,2,1 (degree 0 for generator-Taylor when h=1), with leading coefficients h,h²/2,h−h². The integrated squared loss against e^(−2h)x²+1−e^(−2h) is 3Q²−2(1+2e^(−2h))Q+1+2e^(−4h). Hence Q's second moment controls the loss, and a leading monomial k a_m^d in Q yields P(loss>z)~C_m(3k²)^(m/(4d))z^(−m/(4d)); there is no unbounded negative branch for a_m. This proves all thresholds, tail constants, and logarithmic divergence at exponent one. At h=1 the Taylor loss is the deterministic 2(1−e^(−2))². The frozen verify.py was inspected, not run; its exact finite algebra cannot establish integrability or asymptotics.
 
-The closest primary source is Xu, arXiv:2611.00793, particularly the scheme definitions (2.5)–(2.8), Theorem 3.3, Proposition 3.6 and Remark 3.7, and the distinct trigonometric OU example in Section 5.2. It establishes deterministic or high-probability finite-data bounds, not the sharp unconditional Gaussian inverse-moment cutoff or the precise rare-error tail constants for the one-observable quadratic OU dictionary. Llamazares-Elias et al., arXiv:2405.00539, analyze Monte Carlo convergence of Galerkin approximations under broader conditions, not this scheme-comparison threshold. Closest publicly indexed results concerning inverse-Gram moment barriers are on Anderson extrapolation, random quadrature, Fourier sketches and regression control variates, not SDMD. No search proves historical uniqueness; equivalent unindexed special cases remain a risk. The basic inverse-chi-square integrability calculation is classical and is not claimed as novel.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source paper recommends second-order Richardson SDMD for its fixed-data accuracy while its finite-sample guarantees are probabilistic. Here, a natural and explicit unbounded dictionary proves that the Richardson step has an infinite unconditional squared Koopman error at sample counts where first-order and generator-Taylor steps already have finite risk, despite an almost-surely positive Gram. The sharp \(m/8\) versus \(m/4\) Pareto tails identify the statistical mechanism and exact sample budget at which mean-square reliability first exists. This addresses a genuine solver-design distinction rather than an arbitrary isolated numerical value. The phenomenon does not assert poor typical-case accuracy or refute conditional high-probability bounds.
+The update maps, Gaussian polar decomposition and inverse-chi-square moments are prior; the surviving contribution is their exact unconditional one-step risk comparison for this noninvariant OU dictionary, including the finite sample budgets, tail constants and Taylor cancellation. Closest inspected results do not cover this conjunction. Priority is bounded by the inspected evidence.
 
-## Scope and residual risks
+## value
 
-The result is only for iid Gaussian training points, an unregularized scalar Gram, a noninvariant polynomial dictionary and a single fixed step; it does not apply to bounded trigonometric dictionaries or regularized inverses. Primary literature on operator estimation can contain related general moment phenomena under different names. No external expert audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp mismatch at m=5,…,8 identifies a real statistical tradeoff for higher-order extrapolation: even an almost surely invertible Gram and negative population generator do not guarantee finite unconditional risk. The rare-error rates and exact budget needed to recover square integrability are useful design diagnostics, and the separate Taylor action isolates the cause. Scope is one unregularized, reused-sample step with the stated dictionary, not typical numerical accuracy or long-horizon behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

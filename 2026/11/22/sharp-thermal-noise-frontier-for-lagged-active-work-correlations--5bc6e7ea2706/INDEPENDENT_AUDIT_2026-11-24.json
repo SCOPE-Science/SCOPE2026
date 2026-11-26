@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:44:56.735991Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently split the stationary position into the response to V and the centered thermal OU position, independent of V. The two resulting work integrals have zero cross covariance by conditioning on V. The thermal OU position covariance is (D/kappa) exp(-kappa |t|); its mixed time derivative is 2D delta_0 - D kappa exp(-kappa |t|). Multiplication by the independent propulsion covariance gives exactly the negative regular thermal term and the contact term in RESULT.md:48–66. For the active part write Y=V-kappa X_active, y=exp(-t), x=exp(-kappa t), and b=(y-x)/(kappa-1), or b=t y at resonance. The stationary identities Cov(Y,X_active)=0 and Cov(Y,V)=A/(kappa+1) give Cov(Y_0,V_t)=Ay/(kappa+1), Cov(Y_0,Y_t)=A(y-kappa b)/(kappa+1), and Cov(V_0,Y_t)=A(y-kappa b)-kappa A x/(kappa+1). Pairing V_0 Y_0 with V_t Y_t by Wick gives precisely the two exponential terms and the resonant limit, continuously at all separated lags; averaging this kernel over the two disjoint increment intervals proves the defining limit. The initial regular value A² kappa(d_c-d), the monotonic single-exponential bracket on each side of kappa=1, and the linear resonant bracket verify the sign classification including strict negativity at positive lag on the frontier. Differentiating the crossing and d_c verifies both monotonicities; direct integration gives the stated variance rate. For kappa=2, A=1, D=1/10 the crossing is log(41/30); at kappa=A=1, D=1/2 it is 1/4. Inspected VERIFICATION.md and check.py; did not execute the frozen script. Its finite diagnostics are not needed to extend the proof to all parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2023 abstract describes stationary and nonstationary work large deviations, not a finite-duration covariance formula",
+          "3f986da2e9c0 search summary: long-time cross-particle work covariances in a switching trap"
+        ],
+        "reasoning": "A general Gaussian-process method is not coverage of the evaluated kernel or frontier without a formula or bound implying it. The switching cross-particle and cycle-engine results concern different dynamics and observables.",
+        "searches": [
+          "arXiv:2302.12535",
+          "arXiv:2103.11369",
+          "arXiv:2311.14724",
+          "Resultary 3f986da2e9c0"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Resultary 5bc6e7ea2706, e795ee52c808, 3f986da2e9c0",
+        "arXiv:2302.12535 abstract; arXiv:2103.11369 and arXiv:2311.14724 source leads"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The public abstract states results about large-deviation rate functions. A single asymptotic variance rate is 2DA + 2 integral_0^infty K(s) ds; finite-duration variance instead gives K(T) via its second duration derivative."
+        ],
+        "reasoning": "The reported long-time scope does not imply the local sign law by differentiating the cumulant parameter. A finite-duration generating function with evaluated variance could materially change the assessment; no such passage was recovered.",
+        "searches": [
+          "Semeraro et al. arXiv:2302.12535 abstract; targeted OA attempts for Toeplitz treatment and APS supplement",
+          "Frozen RESULT.md:184–190 for its reported comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Semeraro et al. 2023 abstract: harmonically confined active work with stationary and uncorrelated starts, long-time large-deviation rate functions",
+          "e795ee52c808 search summary: successive integrated cycle work in an active information engine"
+        ],
+        "reasoning": "A stationary finite-duration integrated variance is equivalent by differentiating twice in duration for T>0, but a cycle-integrated covariance does not give this local law without a continuous range and an appropriate limiting argument. The integrated large-deviation statement alone is also not that equivalent formulation.",
+        "searches": [
+          "Resultary: harmonic active Ornstein–Uhlenbeck active work lag covariance and sign transition",
+          "arXiv:2302.12535 / DOI 10.1103/PhysRevLett.131.158302",
+          "Resultary e795ee52c808"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5bc6e7ea2706 search summary reproduces the exact phase law under audit; e795ee52c808 and 3f986da2e9c0 are distinct records"
+        ],
+        "reasoning": "The exact hit is the identical record, not independent coverage. A numerical table is not an equivalent source for this continuous all-parameter classification.",
+        "searches": [
+          "Resultary: regular separated active-work covariance, thermal-noise and stiffness frontiers"
+        ]
+      },
+      "rationale": "The supported distinct claim is the full finite-lag sign frontier and crossing law for stationary separated work increments, not the model, the integrated work large deviations, the Wick identity, or asymptotic variance. The closest distinct evidence concerns other observables or long-time rather than lag-resolved fluctuations; no inspected statement supplies the stationary finite-time variance or equivalent kernel that would cover this result. This decision is limited by explicitly identified full-text access gaps.",
+      "residual_risks": [
+        "The 2023 full preprint and supplemental passages were not recovered independently; a finite-duration variance or equivalent spectral formula there or in related literature could cover the lag law.",
+        "Distinct Resultary comparisons are summary-level; same-day dates do not establish order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Abstract establishes integrated-work scope; body-level or supplement coverage unresolved",
+          "evidence": [
+            "Abstract describes rare fluctuations and singularities of large-deviation rate functions; full-text retrieval did not supply the decisive passage"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.12535",
+          "material_read": "Public abstract; frozen source's comparison at lines 184–190 is secondary evidence only",
+          "method": "Primary abstract and targeted lawful arXiv/APS full-text and supplement attempts",
+          "title": "Work Fluctuations for a Harmonically Confined Active Ornstein–Uhlenbeck Particle",
+          "trigger": "Same model, observable and stationary start"
+        },
+        {
+          "assessment": "No independent body-level exclusion",
+          "evidence": [
+            "RESULT.md:186–198 identifies rare fluctuations and generating-function-domain discussion as the respective topics"
+          ],
+          "identifier_or_url": "arXiv:2103.11369; arXiv:2311.14724",
+          "material_read": "Bibliographic identifications and source account; no independently retrieved full passages",
+          "method": "Primary metadata and targeted OA attempts",
+          "title": "Work Fluctuations in the Active Ornstein–Uhlenbeck Particle Model; Comment on Work Fluctuations for a Harmonically Confined Active Ornstein–Uhlenbeck Particle",
+          "trigger": "Earlier model and related comment"
+        },
+        {
+          "assessment": "Identical record plus cycle-work and cross-particle observables in distinct settings",
+          "evidence": [
+            "Target summary states d_c and resonance; distinct summaries describe cycle-integrated active engine work and a common flashing trap, respectively"
+          ],
+          "identifier_or_url": "Resultary 5bc6e7ea2706; e795ee52c808; 3f986da2e9c0",
+          "material_read": "Statement summaries; no distinct full passage recovered",
+          "method": "Local Resultary search and local mirror attempts",
+          "title": "Lagged work and neighboring work-correlation records",
+          "trigger": "Exact and adjacent catalog matches, including distinct same-day record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The frontier determines when nearby separated work increments switch from correlated to anticorrelated and when they are anticorrelated at every positive lag. The stochastic thermal cross term is essential, and the result distinguishes a negative regular covariance from a positive contact term and variance. Neither the threshold with equality nor the lag transition can be read from the long-time variance alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

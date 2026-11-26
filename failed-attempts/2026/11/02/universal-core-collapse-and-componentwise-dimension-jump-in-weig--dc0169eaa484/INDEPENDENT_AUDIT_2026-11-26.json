@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:02:22.628321Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Deleting i removes its incoming and outgoing internal weights and leaves i as the sole outsider; summation of the resulting core upper bounds gives αW≤(3α−1)W. For W>0 this rules out every α<1/2. At equality, all bounds are tight, and D/2 is feasible since the minimum incoming sum is bounded by the incoming cut sum. Above the threshold the included positive scaling of the edge-splitting zonotope has affine direction space spanned by positive-edge endpoint differences, of rank n−c, including isolates. Opposite sides of each positive-support component cut have external worth zero even if listed zero arcs cross it, so each component sum is fixed. The argument does not require arbitrary coalitional values to be additive across those components. For a restriction to S and T⊆S, if there are exterior incoming arcs from N∖S the minimum for T is at most the exterior minimum for S; otherwise it is at most the incoming sum from S∖T. This verifies the proposed restricted allocations with the original coalition values. If W=0 the singleton constraints and zero total force the zero allocation for all α. An independent two-vertex unit-arc calculation gives x₁∈[0,2α−1], reproducing the threshold and dimension on that instance only. The uploaded verifier was inspected, not run; the 2,555 reported rational cases are supplementary, not an independent audit or universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The insertion criterion F(U⊎{b})≤F(U)+b covers F=((1−α)/α)min in the nonempty-coalition range α≥1/2 with min of the empty list defined as zero",
+          "The cited graphical-game paper was inaccessible"
+        ],
+        "reasoning": "The insertion criterion gives total balancedness but not the per-graph obstruction or exact dimension. Classical endpoint splitting is useful machinery for the dimension lower bound, not by itself the full classification.",
+        "searches": [
+          "Resultary 2026/10/26/...--8b418e1d5e04, aggregation-operator insertion criterion",
+          "Deng–Papadimitriou DOI 10.1287/moor.19.2.257"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary ...--1ea4d375a399, ...--8b418e1d5e04 and ...--4bdaf1b91eda",
+        "AAMAS 2024 Trust in Shapley",
+        "arXiv:2605.18157v1",
+        "DOI 10.1287/moor.19.2.257"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The trust-game papers establish the additive model and boundary stable core; Ryzák–Kroupa identify mixing the components as future work",
+          "The indexed theorem already gives the empty, unique and n−c phases, including every restricted game at and above the threshold"
+        ],
+        "reasoning": "The additive-game papers alone do not imply the two-sided classification. The exact indexed theorem supplies precisely that missing statement.",
+        "searches": [
+          "Bandhana–Kroupa–García, Trust in Shapley, Definition 3.1",
+          "arXiv:2605.18157v1, §5 and §6",
+          "Resultary ...--1ea4d375a399, Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/10/25/...--1ea4d375a399 matches the minimum incoming aggregator, the parameter range and the three affine-core phases",
+          "Ryzák–Kroupa's I+E is the same boundary game after multiplication by 1/2"
+        ],
+        "reasoning": "Rescaling every coalition value by a common positive factor rescales the core without changing dimension or nonemptiness. The catalogue match goes beyond the fixed-sum boundary to the whole mixture.",
+        "searches": [
+          "Local Resultary search for parametric directed trust games, min-external aggregation and half-weight transition",
+          "arXiv:2605.18157v1, Definition 2.1 and Lemma 5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/25/SCOPE-sharp-half-weight-transition-and-core-dimension-in-parametric-di--1ea4d375a399; mirror offset 0 and proof, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "2026/11/8/...--4bdaf1b91eda covers positively weighted directed in-stars"
+        ],
+        "reasoning": "The October entry contains the exact theorem for arbitrary positive support, not just particular graphs or a parameter table. The in-star match is a narrower example and is not the basis for failure.",
+        "searches": [
+          "Configured local catalogue, core dimension and interpolation in directed trust games"
+        ]
+      },
+      "rationale": "An indexed result states and proves the same arbitrary-graph phase classification, exact n−c dimension, zero-weight exception and total balancedness result for the same convex mixture. This is substantive equivalent coverage, not an inference about provenance from catalogue dates. The stable zonotope is a proof device and is not asserted to be the whole core; the illustrative three-vertex allocation does not form an independently valuable distinct claim.",
+      "residual_risks": [
+        "The scientific comparison establishes existing catalogue coverage, not the relationship or priority between the entries.",
+        "The cited graphical-coalition article was inaccessible; the primary literature search added no usable further evidence. Neither limitation alters the demonstrated overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage",
+          "evidence": "Empty below 1/2 when W>0, singleton at 1/2, affine dimension n−c above; restricted cores and W=0 exception match.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/25/SCOPE-sharp-half-weight-transition-and-core-dimension-in-parametric-di--1ea4d375a399/RESULT.md",
+          "material_read": "Finding and assumptions at offset 0, deletion, component-sum and restricted-game proof passages",
+          "method": "Local mirror primary text",
+          "title": "Sharp half-weight transition and core dimension in parametric directed trust games",
+          "trigger": "Direct mathematical overlap"
+        },
+        {
+          "assessment": "Covers total balancedness after rescaling",
+          "evidence": "The insertion-budget inequality applies to the scaled minimum for the specified weights.",
+          "identifier_or_url": "2026/10/26/SCOPE-an-exact-insertion-budget-criterion-for-stable-directed-trust-ga--8b418e1d5e04",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror primary text",
+          "title": "An exact insertion budget criterion for stable directed trust games",
+          "trigger": "Broader aggregation theorem"
+        },
+        {
+          "assessment": "Narrower family",
+          "evidence": "In-star box cores and the same threshold do not cover general positive-support component geometry.",
+          "identifier_or_url": "2026/11/8/SCOPE-core-boxes-and-a-sharp-shapley-entry-threshold-in-interpolated-d--4bdaf1b91eda",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror primary text",
+          "title": "Core boxes and a sharp Shapley-entry threshold in interpolated directed trust games",
+          "trigger": "Same phase in a named family"
+        },
+        {
+          "assessment": "Additive model and nonempty core only",
+          "evidence": "Internal arc sum plus minimum external incoming weights, with no phase parameter.",
+          "identifier_or_url": "https://aamas.csc.liv.ac.uk/Proceedings/aamas2024/pdfs/p132.pdf",
+          "material_read": "Abstract at offset 3732; Definition 3.1 at offset 18112",
+          "method": "Open PDF passages",
+          "title": "Trust in Shapley: A Cooperative Quest for Global Trust in P2P Network",
+          "trigger": "Original definition of trust game"
+        },
+        {
+          "assessment": "Boundary proven; general mixing posed",
+          "evidence": "Proves singleton and total balancedness for I+E, then names convex mixing as future work.",
+          "identifier_or_url": "arXiv:2605.18157v1",
+          "material_read": "Definition 2.1, Lemmas 5.1–5.2, §6; offsets 7872, 33498, 37049–37881, 47153",
+          "method": "Open primary text passages",
+          "title": "A Tractable Class of Cooperative Games Defined by Directed Networks: Unanimity Decomposition and Shapley Value",
+          "trigger": "Prior single-core and total-balancedness claims"
+        },
+        {
+          "assessment": "Inaccessible; no inference about additional coverage",
+          "evidence": "DOI source returned 403; no lawful repository copy was identified.",
+          "identifier_or_url": "10.1287/moor.19.2.257",
+          "material_read": "No primary theorem passage retrieved",
+          "method": "DOI and lawful repository retrieval attempts",
+          "title": "On the Complexity of Cooperative Solution Concepts",
+          "trigger": "Cited antecedent for induced-edge games"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A precise empty-to-singleton-to-componentwise-dimensional transition on every nontrivial support is a useful structural classification of a motivated cooperative game. This significance does not make a second report of the same theorem original.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

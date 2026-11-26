@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:46:28.538728Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–83",
+        "Frozen VERIFICATION.md",
+        "Frozen check_gate_reversals.py, inspected without execution",
+        "Independent replay: python /workspace/audit-evidence/01_sturm.py (SymPy); exact zero- and one-root counts in /workspace/audit-evidence/01_sturm.txt"
+      ],
+      "rationale": "In the fixed-root out-tree each downstream vertex contributes exactly p^depth to expected occupation. Closing its gateway removes that contribution, and no other branch is affected. A feasible branch profile starts with 1 and the remaining widths form an arbitrary positive composition of its remaining size; assigning every vertex at each level a parent in the preceding level realizes every profile, including the singleton with empty composition. Every admissible tree is therefore represented by a pair of profiles whose sizes sum to n−1; identical profiles give a tie. The fractional-linear map p=t/(1+t) sends the open unit interval bijectively to the positive half-line and clearing denominators gives the stated integer coefficients; Descartes' bound applies after ignoring zeros. Independently, I enumerated compositions by cut combinations, visited unequal-sized profile pairs once and equally sized pairs by combinations, removed endpoint factors and counted distinct roots by exact Sturm sequences. Across orders 3–13, 3056 distinct profile pairs were checked and none had more than one interior root. Orders below 3 cannot support two gateways. At 14 the listed graph has profiles (1,1,4) and (1,2,1,1,2). Their benefit difference factors as −p²(2p−1)(p²+p−1), with exactly two simple interior roots and signs negative, positive, negative. The preferred closure is indeed the one with greater benefit.",
+      "residual_risks": [
+        "The exhaustive lower-order check concerns profiles, not individual labeled trees. Completeness rests on the exact profile reduction. Neither a classification of all order-14 witnesses nor a calibrated containment forecast was checked or asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Khorramzadeh et al. explicitly discuss several possible reliability-polynomial intersections and exhibit a single edge-importance switch near 0.618.",
+          "The optimal-edge-cut record 8974612ce954 considers a uniform random source and finds a first single-switch phenomenon at eight. The variance record 8b64466bf53a and phylogenetic record 0dffbe31b8d3 have two switches, but different quantities and feasible polynomials."
+        ],
+        "reasoning": "These comparisons cover reordering as a phenomenon, not the feasibility bound for two rooted level profiles at fixed combined order. The altered objectives and seed assumptions do not specialize to the target.",
+        "searches": [
+          "arXiv:1403.7074v2, Section IV",
+          "Resultary: first transmissibility-sensitive optimal edge cuts in tree epidemics; outbreak-variance ranking reversals; expected future phylogenetic diversity"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 85–102",
+        "Resultary self-hit 5f97596b5f38 and distinct records above",
+        "Khorramzadeh et al., arXiv:1403.7074v2, Section IV",
+        "Carter et al., DOI 10.1002/eap.2982 (full text unavailable); Enns et al., DOI 10.1016/j.mbs.2011.11.006 (landing/abstract notice only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source-ranking paper gives the familiar unique-path distance identity and exact one-crossing witnesses, with thresholds 1/2 and (sqrt(5)−1)/2.",
+          "The reliability paper gives a one-switch example from x³(1−2x+x³), not a double switch; the phylogenetic criterion uses leaf extinction rather than level polynomials."
+        ],
+        "reasoning": "The exact threshold values and the one-switch mechanism are not original in isolation. The cited one-switch witnesses cannot supply exclusion at larger orders, and the other two-switch objectives do not provide the present profile constraints. A new finite exclusion and two-simple-root witness are required.",
+        "searches": [
+          "Inspect Resultary 51f5bbdc1318, 8974612ce954, 8b64466bf53a, 0dffbe31b8d3; arXiv:1403.7074v2 Section IV"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frozen proof identifies the comparison as a difference of two rooted level polynomials, with one factor of p from entering the respective branches.",
+          "For adjacent candidate endpoints on an undirected tree, cutting their common edge gives rooted components with rooted expected-size polynomials H_A,H_B. Their source-size difference is (1−p)(H_A−H_B). Thus two-switch minima in this equivalent adjacent-endpoint problem would be at order 13, one less than the gateway problem. The inspected source-ranking result proves one switch first at seven and checks only orders through seven."
+        ],
+        "reasoning": "The positive factors p and 1−p cannot alter interior crossings. An adjacent-source two-switch census would therefore be material prior coverage. The compared result does not perform that census, and the targeted equivalent-formulation lookup supplied only different statistics or graph families.",
+        "searches": [
+          "Resultary: 14-vertex gateway closures, transmissibility-sensitive tree edge cuts, two reversals in expected phylogenetic diversity",
+          "Resultary: adjacent candidate sources on opposite ends of a bridge in a tree independent bond percolation expected component size two reversals crossings difference of rooted level polynomials sharp size 13",
+          "Resultary 51f5bbdc1318, Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching entry 5f97596b5f38 is the bound record itself, not independent coverage.",
+          "The inspected adjacent-source near-match's exact catalogue of minimal examples is a Prüfer census through order seven; the random-source catalogue is also for a different invariant."
+        ],
+        "reasoning": "A prior exact table would need to give the two-crossing exclusion at combined branch order ≤12 and a witness at 13, or imply both through an equivalent model. Neither inspected catalogue reaches that conclusion.",
+        "searches": [
+          "Resultary: sharp 14-site two-reversal gateway containment",
+          "Resultary 51f5bbdc1318, Proof section 3; 8974612ce954 Finding"
+        ]
+      },
+      "rationale": "Changing reliability rankings, reliability polynomials, and even the two individual threshold values are known. The supported distinct claim is the sharp least total order for two strict changes in the single-root, two-gateway expected-size comparison. The strongest inspected source-ranking near-match shares the same adjacent-endpoint mechanism but establishes only a one-switch result and enumerates only through seven vertices. The inspected random-source, variance and phylogenetic results do not yield the required two-crossing minimum.",
+      "residual_risks": [
+        "The full decision-model passages of Carter et al. and Enns et al. were not retrieved, so detailed comparisons to those sources are not independently confirmed. Other unindexed adjacent-source or level-polynomial results may exist; nonresponsive queries do not establish absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shares the rooted level-polynomial mechanism for adjacent endpoints; establishes the one-reversal boundary, not the two-reversal boundary",
+          "evidence": "Sharp minimum seven, exactly two minimal examples each with one interior zero; exhaustive tree census through seven only.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-seven-vertices-are-sharp-for-transmissibility-dependent-epidemic--51f5bbdc1318/RESULT.md",
+          "material_read": "Finding and Proof sections 1–3, offsets around 0–1710 and 2990–5140",
+          "method": "Local published mirror",
+          "title": "Seven vertices are sharp for transmissibility-dependent epidemic-source ranking reversals on trees",
+          "trigger": "Closest potential equivalent under the adjacent-endpoint reduction"
+        },
+        {
+          "assessment": "Different seed law and optimization; not direct coverage",
+          "evidence": "Uniformly random source, competing edge cuts, order eight and one transition on each exceptional tree.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-first-transmissibility-sensitive-optimal-edge-cuts-in-tree-epide--8974612ce954",
+          "material_read": "Finding, offset 0",
+          "method": "Local published mirror",
+          "title": "First transmissibility-sensitive optimal edge cuts in tree epidemics",
+          "trigger": "Same type of intervention on trees"
+        },
+        {
+          "assessment": "Different objective and sharp bound",
+          "evidence": "Outbreak-size variance, not mean size after a closure.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-seven-vertices-are-sharp-for-two-outbreak-variance-ranking-rever--8b64466bf53a",
+          "material_read": "Finding, offset 0",
+          "method": "Local published mirror",
+          "title": "Seven vertices are sharp for two outbreak-variance ranking reversals on trees",
+          "trigger": "Same number of reversals for a tree statistic"
+        },
+        {
+          "assessment": "Different response polynomial and size measure",
+          "evidence": "Expected surviving phylogenetic diversity with leaf-extinction probability; minimality measured in leaves.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-eleven-leaves-are-sharp-for-two-reversals-in-expected-future-phy--0dffbe31b8d3",
+          "material_read": "Finding, offset 0",
+          "method": "Local published mirror",
+          "title": "Eleven leaves are sharp for two reversals in expected future phylogenetic diversity",
+          "trigger": "Two switches between expectation polynomials on rooted trees"
+        },
+        {
+          "assessment": "Covers reliability ranking sensitivity and the golden-ratio threshold in an example, not an exact two-gateway minimum in the inspected statements",
+          "evidence": "Discusses possible multiple intersections and displays x³(1−2x+x³) as a one-switch edge-importance difference.",
+          "identifier_or_url": "https://arxiv.org/html/1403.7074v2",
+          "material_read": "Section IV, structural motifs to find edge importance, OA offsets 30273–36811",
+          "method": "OA original full-text passage",
+          "title": "Analyzing network reliability using structural motifs",
+          "trigger": "Prior reliability-dependent edge rankings and multiple intersections"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and prior-work discussion",
+        "Khorramzadeh et al., Section IV",
+        "Resultary 51f5bbdc1318 and 8974612ce954, Findings",
+        "Independent exact lower-order Sturm count"
+      ],
+      "rationale": "Rooted reliability rankings and parameter-dependent edge importance are independently motivated by prior network-reliability work. The fixed-root, two-gateway restriction isolates whether ranking can return to its initial order with a single varying probability even when site values and intervention costs are identical. The exact 14-site boundary and explicit strict preference intervals answer that question more sharply than an isolated reversal or example without minimality.",
+      "residual_risks": [
+        "This is a mathematical boundary for an abstract model, not empirical support for applying its thresholds to real networks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

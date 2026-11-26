@@ -1,23 +1,21 @@
-# Review: Two-median conservation and exact relaxation on bipartite opinion networks
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Define weighted medians as observed values, with strict uniqueness on both sides of each initial center. Positive affine order equivariance proves the medians along the candidate trajectories. Their derivatives exactly match every agent equation, and full initial data are recovered. Prior global Lipschitz guarantees uniqueness; the exact proof covers every finite \(m,n\), positive normalized shared row weights and real initial opinions. The nearest-observed-neighbor \(K_{2,2}\) tie boundary is verified algebraically. The standalone exact-rational checker passes 1,289 admissible finite cases and four boundary rational times; it is corroboration only.
+PASS
 
-The strict half-weight conditions guarantee a unique median at every finite time by positive affine equivariance. The differential equation is directly satisfied, including all initial values. In the tie boundary example, the median choice must be among observed neighbor opinions, not an arbitrary point of an interval; this distinction is built into the proof and verifier. The infinite family is proved analytically, not inferred from finite testing.
+The frozen proof's two justifications for uniqueness are invalid as written. With B=(-1,1), uniform cross-weights, and one A opinion moved from −ε to +ε, the nearest observed median switches from −1 to +1 although the profile changes by only 2ε (0<ε<1). Thus the quoted global nonexpansiveness assertion fails for the specified tie rule even though Han et al. v1 states it. Also, two equal opinions of weight 1/2 have a unique median but arbitrarily small splits give two. The corrected proof replaces both premises: if the comparison profile has unique median m, there is mass >1/2 at or below m and also at or above m, so every median of a profile at sup distance d lies in [m−d,m+d]. Along the explicit solution the medians remain unique by positive affine equivariance. The difference of vector fields against any competing solution is consequently bounded by 2d, and the integral inequality and Grönwall give uniqueness. Differentiating the explicit group shifts gives P′=Q−P and Q′=P−Q; the remaining deviations decay as e^(−t), which checks the ODE and initial data. Their median sum and gap then prove the consensus and both rates, with rates active only for nonzero modes. The K2,2 boundary path has matching signs and strictly closer same-sign medians, so its nonconsensus limit is valid. The verification program was inspected and not run; its sample checks cannot establish uniqueness. The complete corrected files are in repairs/3.
 
-## Originality — PASS, with residual priority uncertainty
+## originality
 
-The v1 initiating paper introduces this ODE and proves well-posedness, stable equilibria, and convergence; its v3 revises and expands qualitative claims. Both were inspected for the initial-data-to-limit map and partwise median invariance. Earlier asynchronous and synchronous discrete-time median models have different update laws. Exact statements and implications, not merely keyword nonmatches, were compared. Searches found no preempting two-median finite-time formula; unindexed equivalence remains a risk.
+PASS
 
-The initiating definition and general convergence are prior art: [https://arxiv.org/html/2404.16318v1](https://arxiv.org/html/2404.16318v1) and its same-work [https://arxiv.org/html/2404.16318v3](https://arxiv.org/html/2404.16318v3). Comparators include asynchronous discrete-time [https://arxiv.org/abs/2212.08808](https://arxiv.org/abs/2212.08808) and synchronous-inertia [https://arxiv.org/html/2406.17552v3](https://arxiv.org/html/2406.17552v3). The first paper's convergence-to-an-unspecified-equilibrium conclusion does not logically supply the exact selected equilibrium nor the two finite-time decay rates. A published but unindexed equivalent remains possible and is not treated as a disproved possibility.
+The same-model star result already contains the singleton-part consensus specialization, now credited in the corrected result. The checked evidence does not establish the exact selection and two modes for the continuous-time observed-median rule with two nonsingleton groups using arbitrary positive common cross-group profiles. Exact mode calculations for other bipartite drifts do not determine the median invariant.
 
-## Value — PASS
+## value
 
-A natural two-community structure supports a conserved pairwise order-statistic sum and gives a complete consensus-selection map, which qualitative global convergence does not determine. Exact \(e^{-t}\) internal and \(e^{-2t}\) intergroup transients identify different mixing timescales; robustness to nonmedian outliers and independence from group size make the invariant socially and mathematically interpretable. A four-agent tie example isolates the assumption controlling the phase transition to possible dissensus.
+PASS
 
-## Scientific limitations
+The explicit invariant determines which consensus is selected, not just whether a group reaches consensus. For two nonsingleton parts the answer suppresses all within-part nonmedian modes and separates two sharp transient rates, with a concrete two-cluster boundary example showing the risk of dropping uniqueness. The repair preserves this full content and its weighted scope.
 
-Assumptions of positive, identical cross-group weights within each group and unique initial weighted medians are material. The conclusion does not extend unchanged to arbitrary row-heterogeneous weights, nonunique initial medians, or stochastic weighted-median models. The two exponentials are separate sharp modes only when their coefficients are nonzero. Numerical and exact-rational experiments are not substitutes for the general proof. No external independent audit has taken place.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof is analytic, based on strict conditional negative type of the Euclidean distance matrix, an exact one-dimensional quadratic reduction, and the strict convexity of a positive three-focus sum of distances.
+## correctness
 
-Run `python3 verify.py` with Python 3 standard library. The checker directly solves both the three-site and four-site mass-one gauging equations, independently evaluates the three-focus potential, checks the exact quotient for the fourth weight, and compares signs. It checks the exhibited convex quadrilateral and verifies the critical strict inequality using elementary radicals. Its fixed seed generates 381 nondegenerate, distinct configurations that meet the separation criteria; it checks 9 interior-of-edge points for the last randomly selected triangle. The observed output was:
+PASS
 
-```
-PASS: explicit exposed negative site; 381 independent random four-site checks; open-edge checks
-```
+Ordinary Euclidean distance is strictly conditionally negative definite on distinct sites: the displayed Fourier integral is integrable at zero by the zero sum, at infinity by boundedness, and strictly signed by independence of distinct exponentials. This makes signed mass-one energy strictly concave and the gauging solution unique. With positive triangle limbs l_i, substitution of v_i=(1−1/(T l_i))/2, T=∑l_i^−1, gives the stated common potential. For fixed new mass t, solving the original-site projected stationarity equation gives (1−t)v+tq, with the scalar in Dq+r determined by pairing with v. The affine tangent (q−v,1) is a nonzero zero-sum vector; its negative quadratic energy gives Q>0. Differentiating the resulting quadratic gives exactly the stated t and sign, including distinct-site zeros. The potential is coercive and strictly convex because equality along any segment would put all three noncollinear foci on its line. Its level set is the boundary of a bounded convex body with nonempty interior and no boundary segments; it is analytic away from foci since convexity rules out a stationary value above the minimum. Both the interior and open sides of the original triangle lie strictly inside, permitting an open negative region beyond each side. The equilateral witness satisfies the strict radical inequality and all four points are exposed. Up to three distinct sites the direct gauges have nonnegative masses, including collinear triples with a zero middle mass. As a separate exact check, for foci (±1,0),(0,4/3) and fourth site (0,−9/40), rational gauging gives potential 989/840, threshold 25/21, Q=2189/2100 and fourth mass −5/398 in convex position.
 
-The randomized tests are finite floating-point consistency tests, not exhaustive proof or independent mathematical audit. The universal and minimality claims are supplied by the symbolic argument in `RESULT.md`. The four-point system is defined only for distinct points; although the sign curve runs through the original three foci, the microscopic weight is not assigned a four-distinct-site meaning at those three collisions.
+## originality
+
+PASS
+
+The general signed energy, gauging, and circumcenter criterion, and the phenomenon of exposed negative weights itself, are established. The supported increment is the full moving-fourth-site locus in the original Euclidean plane for an arbitrary noncollinear triple, together with the sharp planar four-site exposed witness. The checked related classes either use more sites, have an interior negative site, or are nonplanar. This is a bounded comparison, not proof of priority.
+
+## value
+
+PASS
+
+The result gives a computable geometric sign test for a new site and diagnoses exactly where negative mass can coexist with hull exposure, which a generic signed maximizer statement does not tell a user working in the original plane. The open negative collars beyond every edge show robustness, and the smallest exposed counterexample pinpoints the boundary between universal nonnegativity and possible negativity by cardinality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

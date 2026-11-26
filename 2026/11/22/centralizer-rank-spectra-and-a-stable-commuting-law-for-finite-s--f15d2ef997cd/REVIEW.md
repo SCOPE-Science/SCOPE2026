@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the bracket \([ (X,v,c),(Y,w,d) ]=([X,Y],Xw-Yv,\omega(v,w)z)\), the centralizer constraints reduce to the rank of a \(2\times n\) matrix when \(X=0\), and to the symplectic annihilator of \(\ker X\) when \(X\ne0\). Every nonzero trace-zero \(2\times2\) matrix in odd characteristic has a one-dimensional commutant inside \(\mathfrak{sl}_2\). Nilpotent \(X\) has Lagrangian kernel; invertible \(X\) has trivial kernel. Exact counts and an independent adjoint-matrix rank enumerator agree at \((q,n)=(3,1),(5,1),(3,2)\), including all commuting pairs. The theorem for infinitely many fields and dimensions relies on the written proof, not these finite experiments.
+PASS
 
-## Originality — PASS, qualified
+The bracket gives the three centralizer constraints [X,Y]=0, X_V w=Y_V v and omega(v,w)=0, with the last coordinate free. At X=0, the common sl2-annihilator of the columns of v has dimension 3, 1 or 0 in column-span rank 0, 1 or 2; also omega(v,-) has rank one precisely when v is nonzero. For nonzero X in odd characteristic, X is nonscalar, its matrix commutant is spanned by I and X, and taking trace zero gives Y=tX. Thus w=tv+u for u in ker X_V, with omega(v,u)=0. In the nilpotent case the kernel is Lagrangian, so the last condition cuts its dimension by one exactly for v outside it. Each of the q+1 possible kernel lines permits q-1 nonzero maps from the quotient line back to it, giving q²-1 nonzero nilpotents. The invertible case has u=0. These give the six counts, allowing empty or coincident strata. The sum of counts times q to the centralizer dimension is q^(4n+1)+q^(3n+1)(q+1)(q²-1)+q^(2n+2)(q^4+q^3-q²-2q+1); division by q^(4n+8) verifies the exact probability and fixed-q limit. This derivation applies to extension fields as well; the checked support describes finite prime-field examples only. The uploaded checker was not executed.
 
-Sosnov (arXiv:2611.16812v1, Sections 1–3) establishes the Lie family, the bracket and a width-one criterion rather than centralizer multiplicities. Fulman–Guralnick (arXiv:1611.05499, abstract) concerns classical matrix Lie algebras. Relevant published work on affine, mirabolic, Takiff, and nilpotent Lie algebra centralizers concerns nonisomorphic algebra families and does not imply these counts without a new Heisenberg-semiproduct argument. Searches of equivalent descriptions \(\mathfrak{sl}_2\ltimes\mathfrak h_n\), adjoint ranks, element centralizers, and commuting degree revealed no directly covering result. Priority is provisional: historical or unindexed equivalent counts remain possible; the 2016 paper was inspected through its abstract and scope, not as a full-text negative finding.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A complete all-dimension element-centralizer distribution is a natural invariant of a recently studied perfect nonreductive Lie family. The positive \(q^{-7}\) limiting commuting probability is not visible from the ambient dimension or the bracket-width-one property; the exact six-stratum count identifies its mechanism and finite-size corrections. This connects semidirect-product geometry, symplectic linear algebra, and finite-field commuting statistics without claiming a new bracket-width theorem.
+The supported distinction is the complete elementwise adjoint-rank distribution and its probability law for the Heisenberg extension with the given sl2 action. The inspected closest published conditions concern bracket width/addition, different commuting Lie algebras, or distinct fibers; none yields the census.
 
-## Limitations
+## value
 
-The proof assumes odd characteristic, and only small prime-field cases were exhaustively checked. Small-dimensional rows can share centralizer dimensions. Historical priority requires independent literature review beyond the listed inspected sources. Independent mathematical audit remains unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a complete distribution for a natural nonreductive Lie family, not just a finite sample or a count transported from the sl2 quotient. The Lagrangian incidence split changes the centralizer rank for an entire structural stratum. The exact distribution explains why the commuting probability stays positive as the module dimension grows: when both sl2 components vanish only symplectic orthogonality remains, producing the q^-7 limiting contribution. The census quantifies the contribution of the other strata, including the first correction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

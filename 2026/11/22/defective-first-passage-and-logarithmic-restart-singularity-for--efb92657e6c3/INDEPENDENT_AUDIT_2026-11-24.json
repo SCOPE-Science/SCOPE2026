@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:18:48.232374Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof §§1–5; frozen VERIFICATION.md and check.py read as evidence, not executed",
+        "Independent replay: python3 /workspace/branches/27786df6-fa22-4e65-a615-737ce4464b71/independent_check.py; nine direct-versus-reduced quadrature comparisons agree within 2e−9 and sampled limit prefactors corroborate the proof"
+      ],
+      "rationale": "For fixed positive A,B, solving the two backward equations on x<L with boundedness at −∞ and the right-moving boundary value 1 gives the displayed positive root for s>0. At s=0 monotone convergence leaves (A−B)_+/v in the transport exponent. The Laplace difference law then gives half plus 1/[2(1+β)] as the hit probability. The near-tie singularity is also obtained without special functions: write d=|A−B|, u=2 min(A,B)/λ and h=sqrt(sλ). The square-root increment over d is Δ=sqrt(d²+4s(s+d+λu))−d. In the d<h portion its averaged contribution is O(h²)=O(s); for d≥h use Δ=2s(s+d+λu)/d+O(s²(s+d+λu)²/d³). The integrated error is O(s), as is the error from linearizing 1−exp(−LΔ/(2v)). The signed-rate averaging weight at d=0 is 1/λ and E[u]=1, giving (L/(2v))s log(λ/s) with O(s) remainder. Monotone convergence of the difference quotient gives the infinite first moment on finite hitting paths. Fresh independent episodes make success probability φ(r) and mean episode length (1−φ(r))/r. Expanding the reciprocal gives exactly the claimed small-r coefficients. At high r, T_L≥L/v and the atom at L/v is the no-switch flight, of mass E exp(−AL/v)=1/(1+β). Bounded convergence after removing exp(−rL/v) gives the large-r prefactor. The two divergences and continuity prove existence, not uniqueness, of an interior minimizer.",
+      "residual_risks": [
+        "Finite quadrature does not certify any limit. The renewal conclusion requires independently redrawn rates at every reset; it does not hold by the same argument with rates held fixed across cycles."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Markov telegraph hitting distributions assume fixed switching rates; the three-dimensional GCP model has four directions and an unevaluated general barrier decomposition. Fractional telegraph reset models use different homogeneous dynamics, and the slow-return result uses fixed Poisson switching with noninstantaneous return."
+        ],
+        "reasoning": "None of these sources gives an annealed two-clock defect plus a uniform estimate across almost equal hidden rates. Likewise none covers the claimed renewal protocol and extreme-rate coefficients as a direct special case.",
+        "searches": [
+          "arXiv:2102.04905 §2; Iuliano–Verasani DOI 10.1007/s11009-024-10083-0 §6; Resultary telegraph first-passage and resetting variants"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and three distinct indexed neighbors (including fixed-rate slow-return record ending 264e39f8cf09)",
+        "arXiv:2310.10231",
+        "arXiv:2102.04905",
+        "DOI 10.1007/s11009-024-10083-0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The conditional root can be obtained with standard fixed-rate tools. The random gap has positive density at zero, where fixed-rate Taylor coefficients are not uniform. The general renewal identity takes the annealed transform as input, without computing it."
+        ],
+        "reasoning": "Mixing known conditional laws is a starting point, not a statement of the sharp nonuniform O(s) remainder: the d≈sqrt(sλ) boundary and logarithmic d^{-1} integral require a separate estimate. That estimate and the ballistic atom produce the sharp paired reset asymptotics.",
+        "searches": [
+          "Ratanov fixed-rate first passage, §2; geometric counting model definitions, arXiv:2310.10231 §2; Poisson reset equation (13)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The geometric counting process has a mixed-Poisson representation with exponential intensity fixed during a movement episode. The closest model paper reports position laws and expressly lists barrier first passage and its mean as future work. Ratanov solves the conditional deterministic-rate model."
+        ],
+        "reasoning": "The known transport definition is equivalent to the no-reset mixture, not to its first passage characterization. The exponential rate mixing across near-zero rate differences introduces the nonanalytic term absent in a generic fixed unequal-rate solution.",
+        "searches": [
+          "Resultary: iid exponential directional rates, quenched telegraph/geometric counting clocks, defective first passage and reset logarithm",
+          "Di Crescenzo et al. arXiv:2310.10231, §2 and Conclusion; Ratanov arXiv:2102.04905, §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact top hit is the assigned record itself. Distinct same-day hits cover a reversal-count transform for successful fixed-rate crossing of a finite interval and mean-passage resetting in fractional models."
+        ],
+        "reasoning": "Neither a matching keyword nor a shared telegraph first-passage theme matches the object and quantity; no inspected distinct indexed result states the coefficients in this hidden-rate, fresh-reset protocol.",
+        "searches": [
+          "Resultary: exact geometric-clock telegraph defect, small-discount logarithm and renewed reset-rate asymptotics"
+        ]
+      },
+      "rationale": "The supported distinction is the defective annealed first-passage law with a sharp near-tie logarithm and the resulting fresh-rate Poisson-reset mean asymptotics. Known conditional Markov solutions, the geometric-clock transport definition and the generic renewal identity are not credited as new. The closest transport paper leaves first passage open, and its reset convention in position/velocity alone should not be read as an independently established refresh of the hidden rates.",
+      "residual_risks": [
+        "The closest prior transport paper's reset of latent rates is not explicit; the comparison does not assume they are redrawn.",
+        "The bounded literature search does not establish priority or exclude a differently formulated equivalent annealed result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same no-reset mixed-clock construction, position studies and reset state description, not the first-passage theorem; latent refresh not explicit",
+          "evidence": [
+            "The random intensity is exponential, giving dependent GCP intertimes. Eq. (13) restores position and velocity. The Conclusion identifies first-passage time through a barrier and its mean as future work."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.10231",
+          "material_read": "§2, pp. 5–8, offsets 16312–28270; Conclusion, pp. 26–27, offset 86511 onward",
+          "method": "Targeted OA PDF passages",
+          "title": "On the Telegraph Process Driven by Geometric Counting Process with Poisson-Based Resetting",
+          "trigger": "Closest overlapping geometric counting model and Poisson reset protocol"
+        },
+        {
+          "assessment": "Conditional Markov-rate precedent; not annealing or refreshed resetting",
+          "evidence": [
+            "The fixed switching-rate telegraph first-passage distributions are obtained for the two-state process."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2102.04905",
+          "material_read": "§2, pp. 2–3, offsets 8943 and 9955",
+          "method": "Targeted OA PDF passages",
+          "title": "On Telegraph Processes, Their First Passage Times and Running Extrema",
+          "trigger": "Fixed-rate first-passage results directly relevant to conditioning on A,B"
+        },
+        {
+          "assessment": "Different four-direction three-dimensional motion; partial decomposition rather than the two-rate theorem",
+          "evidence": [
+            "First passage concerns the first spatial component. It is decomposed by motion cycles and further explicit computations are left open."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11009-024-10083-0",
+          "material_read": "§6, pp. 19–21, offsets 68340–77322",
+          "method": "Targeted OA passages",
+          "title": "A Cyclic Random Motion in Three Dimensions Driven by Geometric Counting Processes",
+          "trigger": "Closest primary geometric-counting first-passage calculation in a related model"
+        },
+        {
+          "assessment": "Finite interval, fixed rates, and conditioned reversal counts; no fresh-rate reset asymptotics",
+          "evidence": [
+            "The law describes reversal counts conditional on successful crossing."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-compound-poisson-reversal-pair-law-for-a-successful-telegraph-cr--809b0f9b369d/RESULT.md",
+          "material_read": "Mirrored finding and model assumptions",
+          "method": "Targeted local-mirror inspection",
+          "title": "Compound-Poisson reversal-pair law for a successful telegraph crossing",
+          "trigger": "Distinct same-day closest passage-law hit"
+        },
+        {
+          "assessment": "Reset first-passage means for homogeneous fractional models, not exponential latent directional rates",
+          "evidence": [
+            "The comparisons concern two fractional telegrapher models rather than renewal of iid hidden directional rates."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-separated-reversal-windows-in-optimally-reset-fractional-tel--6367f7c87235/RESULT.md",
+          "material_read": "Mirrored finding and model assumptions",
+          "method": "Targeted local-mirror inspection",
+          "title": "Two separated reversal windows in optimally reset fractional telegraph models",
+          "trigger": "Distinct same-day closest reset-optimization hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof §§2–5",
+        "Closest geometric-clock transport paper, Conclusion"
+      ],
+      "rationale": "Equal directional clock marginals conceal a trajectory-specific drift: the exact defect quantifies that distinction, and the successful trajectories still have infinite first moment because of nearly balanced episodes. The two sharp reset regimes quantify how restarting cures the defect but eventually suppresses the earliest ballistic flight. These limits provide a meaningful existence result for a positive optimal rate, beyond a formal substitution of a generic renewal formula.",
+      "residual_risks": [
+        "No uniqueness, numerical location of the minimum, alternative reset protocol or quenched-optimal claim is made."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

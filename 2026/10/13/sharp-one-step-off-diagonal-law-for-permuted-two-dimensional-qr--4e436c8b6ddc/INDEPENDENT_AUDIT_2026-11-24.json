@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:59:16.661190Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof, lines 15–88 and 108–288",
+        "Frozen VERIFICATION.md and verify.py, exact rational witnesses and equality cases"
+      ],
+      "rationale": "With r=||Ae1||, the columns of Q are (a,b)/r and (-b,a)/r under the positive-R-diagonal convention, and A(-b,a)=(0,det A). Their inner product through A yields b⁺/b=det A/r², with the swapped denominator d²+b². Since both diagonals are positive, comparing column norms compares a and d. Their squared norms sum to μ²+L², so the larger is at least half this sum; a 45-degree eigenbasis realizes equality and leaves b nonzero. For larger-eigenvalue weight w on e1 the fixed-order ratio is κ/[1+(κ²−1)w]; this grows above one exactly for 0<w<1/(κ+1) in the assumed non-diagonal domain, equals one at the boundary, and tends to its unattained supremum κ as w decreases to zero. The boxed bound is an upper bound on the multiplier, which is the precise reading of the later informal contraction wording. The supplied rational checker was inspected, not run; its witnesses do not establish the universal assertions.",
+      "residual_risks": [
+        "No claim for b=0 (the ratio is undefined), shifted QR, higher dimension, or finite precision."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Krishnamoorthy treats general symmetric QR permutations but evaluates eigenvalue-estimation error and discusses instantaneous convergence, not a sharp bound on off-diagonal magnitude at fixed condition number.",
+          "The Jacobi record proves m⁺/m≤√2τ for its pivot regime and has a 3×3 sharp witness; this supplies no QR bound.",
+          "No full Watkins passage was obtained."
+        ],
+        "reasoning": "Generality of the iteration or pivot heuristic does not by itself cover a different one-step performance measure or its extremum.",
+        "searches": [
+          "arXiv:1402.5086, §§II–III and eigenvalue-estimation objective on p. 2",
+          "Watkins, DOI:10.1137/060659454 (lawful retrieval attempted)",
+          "Resultary 64d092f98ee3, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "arXiv:1402.5086",
+        "Resultary 64d092f98ee3",
+        "DOI:10.1137/060659454 (retrieval only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known QR similarity and first-column normalization readily give the scalar update; that identity alone is classical algebra.",
+          "At fixed spectrum, the sharp minimax for the two orders is obtained by balancing the two squared column norms and showing that this balance is realizable. The fixed-order supremum instead requires approaching an excluded diagonal boundary."
+        ],
+        "reasoning": "The primary passages supply the algorithm and its motivation, not an already-established off-diagonal optimization or a sharp estimate that specializes to the two constants. The proof computes these extrema from the classical setup; credit is limited to that comparison.",
+        "searches": [
+          "arXiv:1402.5086, eqs. (8)–(9), power-iteration explanation and §III",
+          "Frozen RESULT.md, Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Krishnamoorthy eqs. (8)–(9) give symmetric permutation followed by QR similarity, and §III orders by diagonals of A or A². The QR power-iteration view appears on p. 2.",
+          "Here the same multiplier applies to |b| and the Frobenius norm of the off-diagonal part; sorting on A² is exactly column-norm sorting.",
+          "Resultary's same-day Jacobi record 64d092f98ee3 bounds a different map and size of off-diagonal diagnostic."
+        ],
+        "reasoning": "The changed norm terminology does not distinguish equivalent claims in dimension two; what distinguishes the claim from the prior permutation paper is the sharp oriented one-step law for this invariant, rather than the choice of permutation itself. A Jacobi rotation annihilates its pivot by construction and is not the unshifted QR step.",
+        "searches": [
+          "Resultary: unshifted QR two by two off diagonal permutation SPD determinant column norm",
+          "Web: two-by-two symmetric positive definite unshifted QR iteration exact off-diagonal update formula determinant first column norm sharp permutation bound",
+          "arXiv:1402.5086, §§II–III"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bounded ranked results yielded no match for the factor 2κ/(κ²+1) on this QR map; the material same-day match inspected was the Jacobi record 64d092f98ee3.",
+          "verify.py samples rational matrices and equality cases, not a catalogue of all orientations."
+        ],
+        "reasoning": "No separate finite table would certify a sharp law for this continuous family. The same-day date does not decide equivalence or priority; the statements differ in map and assumptions.",
+        "searches": [
+          "Resultary: unshifted QR two by two off diagonal permutation SPD determinant column norm"
+        ]
+      },
+      "rationale": "Credit the classical QR identities and existing diagonal/column-norm permutation heuristics. The supported distinct claim is the exact sharp best-versus-fixed one-step off-diagonal comparison for 2×2 SPD inputs, not the algorithms, the power-iteration viewpoint, or the elementary column calculation in isolation. The closest bounded mathematical comparisons did not establish that sharp comparison or a stronger bound implying it.",
+      "residual_risks": [
+        "Classical QR/power-iteration texts, exercises or older analyses may state the equivalent comparison; Watkins full text was not obtained. The bounded searches do not establish global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior heuristic and classical setup; no equivalent sharp off-diagonal comparison in passages checked.",
+          "evidence": "p. 2 explicitly orders diag(A²), equivalently column norms; the stated criterion is eigenvalue-estimation error.",
+          "identifier_or_url": "https://arxiv.org/pdf/1402.5086",
+          "material_read": "§II eqs. (8)–(9) and power-iteration explanation, PDF text offsets 7300–10841; §III ordering and error criterion, offsets 10224–12802 and 14962–17056",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Symmetric QR Algorithm with Permutations",
+          "trigger": "Identical two permutation heuristics on symmetric QR"
+        },
+        {
+          "assessment": "Different map and optimization predicate; no equivalent coverage.",
+          "evidence": "Sharp √2τ bound and threshold τ=1/√2 for maximum-pivot Jacobi; sharp 3×3 SPD construction.",
+          "identifier_or_url": "2026/10/13/SCOPE-a-sharp-max-entry-transient-law-for-maximum-pivot-jacobi-diagona--64d092f98ee3",
+          "material_read": "Finding, local mirror RESULT.md offsets 349–1140 at 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search then local mirror bounded text",
+          "title": "A sharp max-entry transient law for maximum-pivot Jacobi diagonalization",
+          "trigger": "Strongest nearby indexed same-day transient bound"
+        },
+        {
+          "assessment": "Unresolved access, not a negative comparison.",
+          "evidence": "Direct and alternate retrieval returned HTTP 403.",
+          "identifier_or_url": "DOI:10.1137/060659454",
+          "material_read": "No full-text passage obtained",
+          "method": "Lawful direct and alternate OA attempts; no repository copy identified",
+          "title": "The QR Algorithm Revisited",
+          "trigger": "Classical QR account could contain an equivalent local law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and scope",
+        "arXiv:1402.5086, §§II–III"
+      ],
+      "rationale": "The existing ordering heuristic and the standard off-diagonal measure motivate the optimization without selecting an arbitrary example. The exact worst-case multiplier and equality orientation quantify a guarantee for the heuristic on every two-dimensional SPD input, while the adverse orientation and nearly κ-fold transient show precisely what the heuristic prevents. This is useful as a sharp diagnostic for the elementary QR case, not a claim of better general eigensolver complexity.",
+      "residual_risks": [
+        "The extremal calculation is small and its direct practical scope is one unshifted two-dimensional step."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

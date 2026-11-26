@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:34:52.748459Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Transitivity on nonzero vectors gives mean one. Ordered simultaneous nonzero idempotents cannot be distinct collinear vectors (t²=t forces t=1). For the D=(q^n−1)(q^n−q) ordered independent pairs, prescribing the images of both squared vectors has probability 1/D when those squares are independent and zero otherwise. In odd characteristic, for fixed x of support s, y with proportional squares has the same support and is a nonzero scalar times a coordinatewise sign change; this gives (q−1)2^{s−1} distinct y, of which q−1 are collinear. Summing the remainder against binomial(n,s)(q−1)^s gives exactly B=(q−1)((2q−1)^n−2q^n+1)/2. Since the mean is one, 1−B/D is the variance. B>0 from s=2; the correction (not the variance) tends to zero in both stated regimes, and for n=2 it equals (q−1)/(q(q+1)). In characteristic two Frobenius preserves independence, and a binary-independent list of fixed vectors is field-independent: applying T to a first relation over the extension makes its unique coefficients Frobenius-fixed. Thus R≤n, expected counts of ordered fixed k-frames are exactly one, and E[{R choose k}_2]=1/|GL_k(F₂)|. The proposed inverse follows from {k choose r}_2{j choose k}_2={j choose r}_2{j−r choose k−r}_2 and the binary binomial product ∏_{i=0}^{j−r−1}(1−2^i), which vanishes when j>r. This proves the full law and extension independence. Audited the frozen checker without executing it. Independent replay: python3 -I /workspace/independent_reproductions.py enumerates matrices with a direct kernel test and counts point solutions for (2,2), (4,2), (3,2), (3,3). Variances 1,1,5/6,23/26; the F₂ and F₄ dimension-two normalized histograms agree exactly. These are bounded cross-checks, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Harper’s Shintani class correspondence preserves centralizer sizes, hence uniform class weights on the relevant coset and binary group.",
+          "The survey gives the exact mean and proposes asymptotic permutation fixed-point data, not a finite-q second moment."
+        ],
+        "reasoning": "With F the binary Frobenius, Lang gives M=h^{-1}F(h) over the closure. If F^f(M)=M, C=F^f(h)h^{-1} is binary. In w=hx coordinates, T-fixed x in F_{2^f}^n is equivalent to F(w)=w and Cw=w. The centralizer identity transfers uniform law on the coset to the uniform binary conjugacy-class law. Thus the characteristic-two law is already implied by the general machinery. In odd characteristic x↦x² is not a field automorphism, so this comparison does not imply the support-collision count or variance.",
+        "searches": [
+          "arXiv:2304.10213 §2.2 (Shintani descent, p. 6)",
+          "arXiv:2610.22248, Remark 23 and Conjecture 2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.22248",
+        "arXiv:2304.10213",
+        "arXiv:2310.12368",
+        "Resultary:d6208b7fbb9a",
+        "Resultary:3591a9c3116b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Remark 23 uses precisely the mean-one normalization in the uniform invertible ensemble.",
+          "Conjecture 2 describes a large-field fixed-dimension law via a generic symmetric-group Galois group; the exact variance defect depends on finite-q proportions of bad independent pairs."
+        ],
+        "reasoning": "The mean, a limiting law, and an isomorphism count do not determine the finite-q collision rate; even a limiting second moment of one would leave the positive correction undetermined. Credit the prior normalization and Shintani coverage while assessing the odd formula separately.",
+        "searches": [
+          "arXiv:2610.22248, p. 19 Remark 23 and p. 27 Conjecture 2",
+          "Web: \"random perfect evolution algebras\" idempotents finite fields variance Shintani"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary d6208b7fbb9a (2026-11-02) gives the identical labelled-matrix odd defect by counting coordinate-square collisions.",
+          "Resultary 3591a9c3116b (2026-10-25) gives the identical characteristic-two law for the total count; subtracting one gives the nonzero count."
+        ],
+        "reasoning": "One can replace vector idempotents by fixed projective lines of M composed with coordinate squaring: each fixed projective line yields a unique nonzero idempotent by rescaling. The collision obstruction on distinct lines is the same as B after accounting for representatives. The two later catalogue findings are mathematically overlapping, not the same record, and their dates do not establish earlier priority or whether the results were derived independently.",
+        "searches": [
+          "Resultary: uniform random finite-field evolution algebra nonzero idempotents variance characteristic two Shintani survey Conjecture 2",
+          "Web: \"random perfect evolution algebras\" idempotents finite fields variance Shintani"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary d6208b7fbb9a and 3591a9c3116b give exact formula overlaps after the frozen date.",
+          "Wei–Zou enumerate isomorphism classes of algebras with E²=E, rather than distributions of x²=x among labelled invertible structure matrices."
+        ],
+        "reasoning": "The ranked search does contain exact catalogue matches and they must be disclosed. Their displayed dates are later; the existing finite-field isomorphism enumerations use a different observable and measure and do not determine the finite-q point-idempotent variance.",
+        "searches": [
+          "Resultary: uniform random finite-field evolution algebra nonzero idempotents variance characteristic two Shintani survey Conjecture 2",
+          "arXiv:2310.12368, pp. 1–2"
+        ]
+      },
+      "rationale": "The supported distinct contribution as of the frozen finding is the exact all-dimension odd-characteristic finite-q variance defect. The mean was explicitly known; the binary distribution is a consequence of established semilinear descent and binary fixed-space counting, albeit with a self-contained proof here. Two separate later catalogue findings overlap exactly with these components; they are not independent evidence of pre-finding priority. No inspected earlier source gives or implies the odd-characteristic defect.",
+      "residual_risks": [
+        "An earlier exact collision calculation may be indexed under projective power maps or finite-field polynomial-system moments rather than evolution algebras.",
+        "The visible later catalogue dates do not settle independent derivation or unobserved precedence. The ranked literature search is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct mean coverage; different asymptotic claim",
+          "evidence": [
+            "Mean of the nonzero count under uniform invertible structure matrices is one; proposed generic S_{2^n−1} law is asymptotic."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.22248",
+          "material_read": "Remark 23 (p. 19, offset 68960) and Conjecture 2 (p. 27, offset 94318)",
+          "method": "Bounded OA PDF reading",
+          "title": "Evolution algebras: a survey of results and a list of open problems",
+          "trigger": "Same random labelled algebra questions"
+        },
+        {
+          "assessment": "Covers mechanism for binary extension independence, not odd coordinate-square statistics",
+          "evidence": [
+            "Shintani class bijection and centralizer information."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.10213",
+          "material_read": "§2.2, p. 6, offset 21152",
+          "method": "Bounded OA PDF reading and mathematical specialization",
+          "title": "Totally deranged elements of almost simple groups and invariable generating sets",
+          "trigger": "Stronger semilinear descent"
+        },
+        {
+          "assessment": "Different observable and sample measure",
+          "evidence": [
+            "Idempotent describes E²=E; the enumeration is of isomorphism classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2310.12368",
+          "material_read": "pp. 1–2, offsets 1800 and 4000",
+          "method": "Bounded OA PDF reading",
+          "title": "Isomorphism classes of idempotent evolution algebras",
+          "trigger": "Exact finite-field enumeration with closely overlapping terminology"
+        },
+        {
+          "assessment": "Identical variance, in later catalogue entry; no earlier public disclosure shown by this hit",
+          "evidence": [
+            "Same labelled GL_n sample and identical positive odd-characteristic correction."
+          ],
+          "identifier_or_url": "Resultary:2026/11/2/d6208b7fbb9a",
+          "material_read": "RESULT.md opening statement and square-collision method",
+          "method": "Local Resultary mirror",
+          "title": "Exact variance of the nonzero idempotent count in random perfect evolution algebras",
+          "trigger": "Strongest exact odd-characteristic match"
+        },
+        {
+          "assessment": "Equivalent binary law after subtracting zero, in later catalogue entry",
+          "evidence": [
+            "Total idempotent count distributed as 2^{dim ker(C−I)} for uniform binary C."
+          ],
+          "identifier_or_url": "Resultary:2026/10/25/3591a9c3116b",
+          "material_read": "RESULT.md opening statement and Lang approach",
+          "method": "Local Resultary mirror",
+          "title": "Field-independent idempotent count law for characteristic-two perfect evolution algebras",
+          "trigger": "Strongest exact full-law match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact, strictly positive odd-characteristic defect answers a natural second-moment question left open by the known normalization and large-field motivation. Its dimension and field dependence is essential: it quantifies the finite ensemble’s difference from characteristic two and identifies the projective square-collision obstruction. This is an all-parameter refinement, not a single field/dimension census; no full odd-characteristic law is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

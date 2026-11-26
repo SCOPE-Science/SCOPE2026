@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:19:49.994868Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The prime-power ranks and lcm rule give (a',b',c')=(max(u(a),2·1_{b>0}), max(1_{a>0},b−1,0),c), with u=(0,0,1,1,2,3,…) and u(a)=a−2 for a≥3. Lemmas 2.2–2.3 supply the nontrivial 2/3-ranks and the lcm; the 5-rank is also obtained from Lemma 2.9 using z(5)=5 and F_5=5, while z(1),z(2),z(4) follow from initial Fibonacci numbers. In the invariant a≥2,b≥1 quadrant the deficits from (2,1) decrease by (2,1) truncated at 0, so the time is the maximum of the two integer clocks. For a=1,b≥1 the first step goes to (2,max(b−1,1)); a=0,b≥2 goes to (2,b−1). For a≥4,b=0 the first step goes to (a−2,1). The exceptional chain (1,0)→(0,1)→(2,0)→(1,1)→(2,1) also handles these boundary times and (3,0) goes to (1,1). The origin is fixed. Hence the record's exact formula and a uniform absolute difference at most 4 from max(a/2,b) follow. With L=log X the unit cubes based at eligible integer exponents contain the budget-L simplex and fit in the budget-(L+log 30) simplex. Inclusion–exclusion shifts the first two coordinates by floor(2tL)+1 and floor(tL)+1; rounding costs O((L+1)^2) uniformly after positive-part truncation. Replacing the continuous clocks by H affects only fixed-width strips with O((L+1)^2) points. Division by the Θ(L³) denominator gives the stated uniform CDF error. The limit is the maximum of two scaled coordinates of a uniform simplex point. Since A>B, it has support [0,1/B] with mass in every interior open interval. Bounded support uniformly for large L allows integration of the error, and each cubic tail integrates to 1/(4q). Independent modular recurrence replay checked 216 triples (0≤a≤8, 0≤b≤5, 0≤c≤3), including arrival and first-hit times, and exponent iteration 63,001 pairs with a,b≤250. Exact-cutoff sampling at 10^6, 10^12, 10^24 and 10^36 corroborates the distribution; it cannot establish the stated error rate. Replay: /workspace/branches/0f4c8041-0546-4e2b-8ce5-ff57aaddd7e4/independent_check.py. Supplied code was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemmas 2.2–2.3, 4.2 and 5.1 in arXiv:2309.14501 give classical ranks, pure-two-power hitting times and iterated lcm; Theorems 1.3–1.5 concern reachability and global convergence.",
+          "Luca–Tron bound the global counting function of n dividing F_n, not first passage."
+        ],
+        "reasoning": "Global convergence and counts of self-divisibility neither specify the two-clock stopping law nor estimate the exponent vectors selected by the smooth height constraint.",
+        "searches": [
+          "Resultary: Fibonacci order of appearance rank iterations five smooth hitting time distribution limiting law fixed point two three five exponents",
+          "arXiv:2309.14501v1 §§2,4,5; arXiv:1410.2489 Thm 1.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2309.14501v1",
+        "arXiv:1410.2489",
+        "Trojovská, Mathematics 8 (2020), 773",
+        "Author-hosted Fibonacci dynamics preprint; 2025 journal metadata",
+        "Resultary query listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lcm formula can combine prime-power state trajectories but component stopping times cannot simply be maximized without checking exponent masking, for example (a,b)=(1,1) stops in 1 step whereas 2 alone stops in 4.",
+          "The CDF additionally requires normalized counts in a three-dimensional exponent simplex, with two shifted budgets and the mixed inclusion–exclusion term."
+        ],
+        "reasoning": "The recurrence is close to the established rank-rule framework and the overlapping exact cases should not be credited as new. The lattice calculation and the uniform transfer to H are distinct from applying the published stopping-time or reachability statements.",
+        "searches": [
+          "arXiv:2309.14501v1 Lemmas 4.2, 5.1, pure-power and 5-factor proof passages; Trojovská Table 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dynamics preprint defines fixed-point order by exactly the first equality of successive iterates.",
+          "In Trojovská's setup the number of distinct orbit points is H+1 when the orbit reaches a fixed point."
+        ],
+        "reasoning": "Translating from stopping order or orbit size to H does not eliminate the change from finite unrestricted sampling to asymptotic uniform sampling on five-smooth integers under a height bound.",
+        "searches": [
+          "Web: Fibonacci order of appearance iteration smooth integers five smooth hitting time distribution stopping time rank map FitzGibbons Miller Verga 2 3 5",
+          "Web: order of appearance / fixed point order / stopping distribution / Javaheri"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Trojovská Table 2 counts orbit lengths for each integer 1–50,000; the corpus search retrieved this submitted law but no historical numerical table for its particular sampling model."
+        ],
+        "reasoning": "A finite enumeration even with the same dynamics has neither the smooth-height selection nor an implication for a uniform error bound as X grows.",
+        "searches": [
+          "Web: Trojovská On Periodic Points PDF Table 2",
+          "Resultary smooth Fibonacci-rank distribution search"
+        ]
+      },
+      "rationale": "The rank identities, fixed-point set, and the exact pure-two-power hitting times (also lifted to 2^a5^c by the prior iterated lcm result) are not novelty. The main addition is the smooth-height sampling theorem with an explicit uniform quantitative CDF and mean, using the complete mixed-exponent dynamics. No statement in the inspected work covers that law.",
+      "residual_risks": [
+        "The complete 2025 journal version was not inspected; unindexed equivalent asymptotics under smooth-number or orbit-size terminology remain possible.",
+        "The exact recurrence and some hitting-time subfamilies are elementary or already covered by the dynamics literature; the value and originality decision rests principally on the quantitative law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior input and partial exact overlap, not the height-sampling law",
+          "evidence": "Lemma 4.2 gives ceil(a/2)−1 steps for a≥4; Lemma 5.1 gives iterated lcm for coprime components.",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.14501",
+          "material_read": "Abstract; Lemmas 2.2–2.3, 2.9, 4.2 and 5.1 and related theorem/proof passages",
+          "method": "Primary open PDF; checked decisive formulas",
+          "title": "Dynamics of the Fibonacci Order of Appearance Map",
+          "trigger": "Same map, fixed points, and stopping times"
+        },
+        {
+          "assessment": "Different event and index population",
+          "evidence": "A(x) counts n≤x with n|F_n, not lengths of orbits in the smooth core.",
+          "identifier_or_url": "https://arxiv.org/pdf/1410.2489",
+          "material_read": "Abstract, counting function definition, Theorem 1.2 and Lemma 1.3",
+          "method": "Primary open PDF",
+          "title": "The Distribution of Self-Fibonacci Divisors",
+          "trigger": "Distributional title under the same rank notation"
+        },
+        {
+          "assessment": "Finite and differently sampled",
+          "evidence": "Table 2 counts orbit sizes 1–10 from all n≤50,000.",
+          "identifier_or_url": "https://pdfs.semanticscholar.org/c1ad/8c62d91f63050526f7e6fbfad304c351827a.pdf",
+          "material_read": "Periodic-point setup and discussion and columns of Table 2",
+          "method": "Open primary article PDF mirror",
+          "title": "On Periodic Points of the Order of Appearance in the Fibonacci Sequence",
+          "trigger": "Actual orbit-length distribution table"
+        },
+        {
+          "assessment": "Final full text not independently verified",
+          "evidence": "Accessible scope centers on fixed points, specified stopping orders and convergence.",
+          "identifier_or_url": "https://doi.org/10.1080/00150517.2025.2515497",
+          "material_read": "Public scope/metadata only; inspected author's freely available preprint copy separately, not confirmed to be the journal version",
+          "method": "Publisher abstract lookup and author-hosted preprint comparison",
+          "title": "Dynamics of the Fibonacci Order of Appearance Map (journal version)",
+          "trigger": "Later version could strengthen preprint results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Five-smooth inputs give an invariant domain containing all the fixed points, not a cutoff selected after computation. The theorem supplies typical first-passage behavior, an explicit compactly supported fluctuation law, and an O(1) error for the mean time on that domain. Those results go beyond confirming eventual convergence or giving sample trajectories. No assertion for uniform unrestricted integers is warranted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:09:33.243065Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–54; VERIFICATION.md and verify_ps_reversal_three.py inspected, not executed",
+        "Independent exact replay: /workspace/branches/088013b4-f1eb-4ea8-8f24-45a6a5aeb984/independent_check.py and independent_check_output.txt"
+      ],
+      "rationale": "For two agents, if the tops differ both rules give each agent her top, and if the tops coincide both split each object equally. For three agents, a fresh exact-rational calculation over all 216 profiles compared the eating process to serial dictatorship averaged under the proposed law. It found equality everywhere, ten relabeling orbits, and exactly two exceptional classes of 36 profiles each, represented by 012 021 102 and 012 021 120. The exceptional-law matrices coincide with the listed PS matrices; the uniform-law row distances in the canonical ordering are 1/12, 0, and 1/12. The four permitted orders are reversal-closed and equiprobable, as are the six ordinary orders. Reversal gives probability 1/2 to either relative order of two agents, and an agent choosing first between the two cannot envy the later chooser. A Pareto improvement of a realized serial-dictatorship assignment would have a first agent in priority order whose allocation changes; the agent had a free choice among exactly the objects left by the unchanged earlier agents, so cannot be improved. The four-agent obstruction was independently confirmed on all 12 reversal pairs: PS gives agent 3 probability 5/12 of a or b while any such law gives 1/2.",
+      "residual_risks": [
+        "The finite audit is exhaustive for the stated small domain, not a large-market implementation. The obstruction is for reversal-symmetric laws only; no support-minimality or strategyproofness is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 gives an EF decomposition of every SD-envy-free assignment matrix for at most three agents; it does not prescribe a reversal-symmetric law. Hosseini–Larson–Cohen exhibit a three-agent PS/uniform-priority discrepancy in one of the exceptional classes."
+        ],
+        "reasoning": "Enlarging the input class to all SD-envy-free matrices in an unrestricted existence theorem does not enforce the additional feasible-lottery constraint on the output. A discrepancy under a fixed uniform law also does not produce an implementing symmetric law.",
+        "searches": [
+          "arXiv:2604.16973v1, section 3 Theorem 1",
+          "arXiv:1503.01488v1, Example 2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.16973v1",
+        "arXiv:1503.01488v1",
+        "The two October 4 catalogue findings in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Reversal symmetry implies Dec-EF, not the converse as a construction of a priority law. Example 5 is the exact negative half of the sharpness statement and predates the finding. The uniform-law census provides no choices of weights on the nonuniform profiles."
+        ],
+        "reasoning": "Even establishing that each matching in a decomposition is obtainable by some serial dictatorship does not identify compatible probabilities on each order and its reverse. The new positive half verifies that constraint explicitly for PS; the earlier four-agent example supplies the upper boundary only.",
+        "searches": [
+          "arXiv:2604.16973v1, Proposition 1, Theorem 1 and Example 5",
+          "SCOPE-exact-small-market-stochastic-dominance-census-for-probabilistic--67db019723a1, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kawase et al. use reversal-symmetric serial dictatorship and show the fairness implication and its representational limit at four agents. Their known sufficient property for the symmetric lottery is the same symmetry condition used here."
+        ],
+        "reasoning": "In terms of reversal pairs, the new law uses the uniform mixture of the two pairs whose singleton-top agent is at the ends, and otherwise all three pairs. Neither the fairness implication nor the negative example gives those positive mixture weights.",
+        "searches": [
+          "Resultary: profile-dependent reversal-symmetric serial dictatorship for three-agent probabilistic serial; four-order construction",
+          "arXiv:2604.16973v1, Proposition 1 and Example 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 4 census gives 144 PS/RSD equalities and 72 incomparable profiles. The related envy census gives two 36-profile classes of uniform-RSD SD-envy failures, the same exceptional set as independently checked here."
+        ],
+        "reasoning": "The numerical counts and class overlap are real earlier coverage. The censuses compare the uniform priority law or its envy, whereas the new assertion is about an explicit nonuniform implementation on that set.",
+        "searches": [
+          "Resultary: 72/144 profiles for PS vs uniform RSD at n=3",
+          "SCOPE-exact-small-market-stochastic-dominance-census-for-probabilistic--67db019723a1",
+          "SCOPE-two-preference-types-restore-stochastic-dominance-envy-freeness--6e7d900d7fa1"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the explicit reversal-symmetric priority law implementing PS for all strict three-agent profiles. The uniform-law 144/72 split, the same exceptional-profile sets in a prior envy census, the general Dec-EF results, and the four-agent negative example are verified coverage and are not credited as new. The checked work does not supply the four-order correction.",
+      "residual_risks": [
+        "The primary and catalogue comparisons are bounded; an unlocated equivalent PS implementation in different terminology is possible. The negative boundary and uniform-law census remain credited to earlier work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known implication and four-agent boundary; broader existence result does not require the new priority-law structure",
+          "evidence": [
+            "Reversal-symmetric serial dictatorship is Dec-EF. Every SD-EF matrix with at most three agents is EF-decomposable. Example 5 shows failure of reversal-symmetric implementation of the stated PS instance at four agents."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.16973v1",
+          "material_read": "Proposition 1, HTML offset 14823; section 3, Theorem 1, offset 15534; Example 5, offsets 47156 and 51436",
+          "method": "Bounded primary HTML inspection",
+          "title": "Decomposition Envy-Freeness in Random Assignment",
+          "trigger": "Same fairness notion and reversal restriction, plus a stronger existence theorem"
+        },
+        {
+          "assessment": "Overlapping example, not the implementation rule",
+          "evidence": [
+            "Example gives a discrepancy between PS and uniform RSD in one of the exceptional classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1503.01488v1",
+          "material_read": "Example 2, HTML offset 21798",
+          "method": "Bounded primary HTML inspection",
+          "title": "Random Serial Dictatorship versus Probabilistic Serial Rule: A Tale of Two Random Mechanisms",
+          "trigger": "Prior small-market PS versus priority comparison"
+        },
+        {
+          "assessment": "Earlier coverage of the baseline count",
+          "evidence": [
+            "The n=3 census gives 144 equalities and 72 unequal/incomparable profile outcomes."
+          ],
+          "identifier_or_url": "SCOPE-exact-small-market-stochastic-dominance-census-for-probabilistic--67db019723a1",
+          "material_read": "Mirrored RESULT.md, offset 591",
+          "method": "Local mirror inspection",
+          "title": "Exact small-market stochastic-dominance census for probabilistic serial versus random serial dictatorship",
+          "trigger": "Exact matching profile counts"
+        },
+        {
+          "assessment": "Same exceptional set, different conclusion",
+          "evidence": [
+            "The uniform-RSD SD-envy failures give two classes of 36 profiles, all with three distinct rankings."
+          ],
+          "identifier_or_url": "SCOPE-two-preference-types-restore-stochastic-dominance-envy-freeness--6e7d900d7fa1",
+          "material_read": "Mirrored RESULT.md, offset 537",
+          "method": "Local mirror inspection",
+          "title": "Two preference types restore stochastic-dominance envy-freeness of random priority",
+          "trigger": "Two exceptional three-agent classes of matching sizes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen explicit priority rule and proof",
+        "Independent all-profile reproduction",
+        "Kawase et al., Example 5"
+      ],
+      "rationale": "The construction links a fractional eating allocation to a lottery over efficient integral priority outcomes with a simple pairwise fairness guarantee ex post in probability. Unlike an unrestricted existence theorem or a count of uniform-law failures, it gives implementable weights from the submitted rankings. The established four-agent obstruction makes three agents a meaningful sharp boundary for the representation.",
+      "residual_risks": [
+        "Value attaches to the exact constrained implementation, not to the already known census or a strategyproof mechanism."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:11:02.378469Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–91",
+        "Frozen VERIFICATION.md, lines 19–29",
+        "Frozen check.py, lines 11–79 (inspected, not executed)",
+        "Independent determinant, sign-regime integrals and scalar maximization, replayed in the rationale"
+      ],
+      "rationale": "Scale time by a, set R=b/a>1 and w=e^(−(R−1)t), u=e^(−t). The Gram entries 1/2, 1/(R+1), 1/(2R) give determinant (R−1)²/[4R(R+1)²]. Inverting and changing input variable to z=e^(−s) gives the row integral Du∫_0^1|A+Bz^(R−1)|dz, with D=2(R+1)/(R−1)², A=R+1−2Rw, B=R((R+1)w−2). The signed integral inside equals (R−1)(1−w). The endpoint row is 2(R+1)(Re^(−Rs)−e^(−s))/(R−1), with unique zero at log(R)/(R−1) and total signed mass zero. Twice the positive mass yields L(R)=4(R+1)R^(−1−1/(R−1)), and the sign step attains it by continuity up to the boundary even in the open-half-line essential supremum. To exclude later rows, put z_*=R^(−1/(R−1)). In the early mixed-sign region w>(R+1)/(2R), solving for the zero gives z_0≤z_*; integrating below it and bounding by z_* gives J(w)≤uL(R)+2(R+1)u(1−4z_*)(1−w)/(R−1)≤uL(R), with z_*≥1/e. In the nonnegative region 1/R≤w≤(R+1)/(2R), differentiation of w^(1/(R−1))(1−w) gives its maximum at w=1/R and the row bound L(R)/2. In the late region 0<w<1/R, integrating at the zero then bounding z_0≤1 gives J(w)≤[2(R+1)/(R−1)]w^(1/(R−1))((R+2)/R−3w). This bound peaks at (R+2)/(3R²). Its ratio Q to L(R) has log Q≤log((R+2)/(2R))−2/(3R), negative at R=1 and decreasing for R>1. This verifies the strict boundary maximum. The derivative of log L has numerator log R−2(R−1)/(R+1) over (R−1)²; the numerator starts at zero and its derivative is (R−1)²/[R(R+1)²]. The stated limits, R=2 check, and equal-rate rank-one norm 2 then follow directly. The unique zero and the norming step concern the boundary kernel row, not every kernel row.",
+      "residual_risks": [
+        "The result concerns the canonical bounded extension, not an L² requirement on its extremizer. No higher-rank or floating-point conditioning result follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kayumov obtains exact partition-uniform norm 3 for the finite-segment piecewise L-spline projector with local modes e^(±λx), and a uniform bound for unequal opposite-sign modes.",
+          "Resultary 1b3aca384765 gives an exact endpoint row norm and global limits for a damped conjugate pair, not finite-parameter global endpoint rigidity; 939a27f6792e uses span{1,e^(−λt)} on a finite interval.",
+          "The other primary papers concern derivative inequalities or regularized polynomial-frame sample fitting."
+        ],
+        "reasoning": "The closest same-norm literature changes the domain and mode signs or allows knot partitions. The closest same-domain catalogue result changes to complex-conjugate rates. These are material differences, not just different parametrizations.",
+        "searches": [
+          "Kayumov §1.3 Theorems 1–2; Protasov arXiv:2209.12250; Adcock–Shadrin arXiv:2110.03755",
+          "Local Resultary: half-line damped-modal projection and finite-interval exponential projector norms"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary exact self-match 4ad1686eb11b and distinct entries 1b3aca384765, 939a27f6792e, 57a70e7bfcf9",
+        "arXiv:math/0408418, 2209.12250, 2110.03755",
+        "Borwein–Erdélyi–Zhang on the defining Müntz–Legendre measure"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general L∞ kernel principle gives the supremum of absolute row integrals and the sign extremizer once the dominant row is known. The primary exact partition norm and catalogue limits provide no inequality establishing strict dominance over each positive output time for two real rates."
+        ],
+        "reasoning": "Credit both the general kernel principle and the overlapping coalescent limit. The claimed finite-ratio formula and unique maximum require ruling out all other rows in the specified measure and domain, which is not mechanical from those sources.",
+        "searches": [
+          "Compare the two-rate statement with Kayumov Theorems 1–2, the weighted-Müntz change of variable, and Resultary 1b3aca384765 and 939a27f6792e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The substitution x=e^(−t) makes the modes x^a,x^b but transforms the inner-product measure to dx/x. Classical Müntz–Legendre orthogonalization uses dx.",
+          "Resultary 57a70e7bfcf9 has a one-step witness for the BV-to-L² residual of projection in span{1,x^q} with dx; it does not evaluate the L∞ projector norm."
+        ],
+        "reasoning": "A common shift of both exponents via a multiplier does not preserve the unweighted norm and the inner product together, so a result for a constant plus one decay, or ordinary dx and span{1,x^q}, does not transfer by merely relabeling variables.",
+        "searches": [
+          "Local Resultary: half-line two-real-rate exponential least-squares norm, endpoint evaluation and weighted Müntz projection",
+          "Borwein–Erdélyi–Zhang, Müntz Systems and Müntz–Legendre Polynomials",
+          "Kayumov §1.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact formula hit is the assigned record itself (4ad1686eb11b). The other exact 3 is Kayumov's partition-uniform constant for another family; the other 8/e is shared with the coalescing damped conjugate pair, whose fast-oscillation limit is 8/π."
+        ],
+        "reasoning": "Numerical coincidences at one ratio or a shared singular limit do not establish the exact two-parameter-family invariant or the endpoint maximum at finite ratio.",
+        "searches": [
+          "Local Resultary: exact two-exponential norm 4(R+1)R^(−1−1/(R−1)), R=2 norm 3, coalescent limit 8/e and envelope 4",
+          "Kayumov §1.3 exact constant and local damped-modal limiting values"
+        ]
+      },
+      "rationale": "The Gram inversion and sign-of-row arguments are standard. The distinct result supported by the checks is the fixed ordinary-measure, two-real-decay half-line norm, including strict endpoint dominance for every rate ratio and the sharp rate envelope. The inspected primary and local comparators do not entail it.",
+      "residual_risks": [
+        "Equivalent work in older weighted Müntz or specialized continuous projection literature may remain unlocated. Same-day catalogue dates do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related finite-segment norm, not coverage of the specified projector",
+          "evidence": "For L=D²−λ², Theorem 1 gives the exact supremum 3 over spline partitions; Theorem 2 treats unequal opposite-sign exponents with a partition-uniform bound.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0408418",
+          "material_read": "Open paper §1.3 p. 3, Theorems 1 and 2",
+          "method": "Lawful open PDF passage comparison",
+          "title": "Least-squares approximation by second-order L-splines",
+          "trigger": "Exact uniform norm of an orthoprojector built from exponential modes"
+        },
+        {
+          "assessment": "Different measure from the equivalent half-line problem",
+          "evidence": "The usual system is orthogonalized on [0,1] with dx; the half-line dt problem transforms to dx/x.",
+          "identifier_or_url": "Borwein, Erdélyi and Zhang, by title",
+          "material_read": "Orthogonality measure and Müntz polynomial setting",
+          "method": "Lawful source comparison of the defining normalization",
+          "title": "Müntz Systems and Müntz–Legendre Polynomials",
+          "trigger": "Possible equivalent power-basis formulation"
+        },
+        {
+          "assessment": "Related exponential space, different operator",
+          "evidence": "The question bounds derivatives of exponential polynomials, rather than the orthoprojector on arbitrary bounded inputs.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.12250",
+          "material_read": "Statement of the derivative inequality problem",
+          "method": "Lawful open-paper scope comparison",
+          "title": "Generalized Markov-Bernstein inequalities and stability of dynamical systems",
+          "trigger": "Half-line exponential-polynomial sharp inequalities"
+        },
+        {
+          "assessment": "Sampled and regularized, unlike the fixed continuous projection",
+          "evidence": "The setting uses polynomial frames and sample data on finite intervals.",
+          "identifier_or_url": "https://arxiv.org/abs/2110.03755",
+          "material_read": "Problem statement on polynomial-frame fitting from samples",
+          "method": "Lawful open-paper scope comparison",
+          "title": "Fast and stable approximation of analytic functions from equispaced samples via polynomial frames",
+          "trigger": "Least-squares projection stability"
+        },
+        {
+          "assessment": "Genuine overlap at coalescence only; different family and no finite-frequency global endpoint claim",
+          "evidence": "Modes are a damped conjugate pair; global limits are 8/e and 8/π and the exact endpoint calculation is not asserted to be globally norming for every frequency.",
+          "identifier_or_url": "Resultary 1b3aca384765",
+          "material_read": "Mirrored original finding, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary statement comparison",
+          "title": "Two sharp singular limits for damped-modal least-squares projections",
+          "trigger": "Half-line projection norm, exact endpoint and 8/e limit"
+        },
+        {
+          "assessment": "Different domain and subspace",
+          "evidence": "The span is {1,e^(−λt)} on [0,1], with distinct constants and limits.",
+          "identifier_or_url": "Resultary 939a27f6792e",
+          "material_read": "Mirrored original finding",
+          "method": "Local Resultary statement comparison",
+          "title": "Sharp endpoint norms and a logarithmic boundary layer for exponential projection",
+          "trigger": "Exponential projector endpoint norm"
+        },
+        {
+          "assessment": "Different input norm and extremized operator",
+          "evidence": "Optimizes a BV-to-L² residual for span{1,x^q} with dx, not the L∞ projection itself with dx/x.",
+          "identifier_or_url": "Resultary 57a70e7bfcf9",
+          "material_read": "Mirrored original finding",
+          "method": "Local Resultary statement comparison",
+          "title": "Sharp worst-jump switching for two-mode Müntz projection",
+          "trigger": "Power-basis projector and single-step extremizer"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–27 and 47–91",
+        "Kayumov §1.3",
+        "Resultary 1b3aca384765"
+      ],
+      "rationale": "The worst amplification of a bounded perturbation by a fixed least-squares projector is a natural stability invariant for decays. Its exact dependence on the ratio, locating the unique worst output and simplest saturating input, resolves questions that a Gram-matrix bound or pointwise endpoint computation alone does not answer. The discontinuity at rank loss is mathematically distinct from coefficient ill-conditioning.",
+      "residual_risks": [
+        "No claim about arbitrary projections onto the same span, weighted input measures, larger mode sets or sampled-data conditioning."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

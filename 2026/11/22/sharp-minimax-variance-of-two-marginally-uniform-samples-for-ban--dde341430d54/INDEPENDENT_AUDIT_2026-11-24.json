@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:48:40.446941Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniform marginals make each normalized test function centered with second moment one. For the √2-normalized sine and cosine at frequency k, the average cross-covariance is c_k=E cos(2πk(Y−X)); therefore the worst-direction variance is at least (1+max c_k)/2 even for nonstationary couplings. The nonnegative squared geometric sum of length m+1 has expectation m+1+2 sum_{k=1}^m(m+1−k)c_k. Since the positive weights sum to m(m+1)/2, max c_k≥−1/m. With a uniform independent nonidentity root offset the discrete Fourier sum gives −1/m in every occupied frequency, so the cross-covariance quadratic form is −||f||²/m, proving isotropic attainment. An optimal law has every c_k≤−1/m; strict positivity of the Fejér weights forces equality for each k and almost-sure vanishing of the kernel. Its zeros are exactly the required nonidentity roots. These are necessary constraints, not an asserted classification of all nonstationary couplings. For a constant shift at m≥2 the first two moment identities give 2/m²−1=−1/m, requiring m=2. At m=1 the half-turn annihilates the band, and at m=2 the 1/3 and 2/3 shifts attain the value. The uploaded diagnostic was inspected, not run. An independent check of the exact without-replacement variance representation for selected zero-sum populations is reproducible with python3 /workspace/reviews/evidence/reproduce.py, output 5; the all-coupling theorem is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Casarin et al. p. 2 gives the covariance-reduction framework for antithetic designs with preserved marginals.",
+          "Dick–Goda–Suzuki pp. 2–3 and 14 and Kritzer et al. p. 2 describe shifted rank-1 lattices, random point counts or generating vectors, and error rates in weighted smoothness spaces.",
+          "Roach–Wright full text was not lawfully accessible in this check; only the bibliographic/abstract coverage described in the original is available."
+        ],
+        "reasoning": "A general design framework or a rate for one constructed family does not give the best variance over arbitrary couplings of exactly two sites with fixed weights. The optimum here must simultaneously guard all directions of the same normalized frequency band. No verified general theorem among these sources resolves that optimization.",
+        "searches": [
+          "Casarin et al. arXiv:2110.15124; Dick–Goda–Suzuki arXiv:2109.11694; Kritzer et al. arXiv:1706.04502; Roach–Wright 10.1080/00949657708810144"
+        ]
+      },
+      "checked_sources": [
+        "1ff31d2c46cc",
+        "13f14d6dc85f",
+        "2306aa685e20",
+        "cc73f18777b4",
+        "arXiv:2110.15124",
+        "arXiv:2109.11694",
+        "arXiv:1706.04502",
+        "Roach–Wright DOI 10.1080/00949657708810144, access attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The spherical source estimates f as a function of z and optimizes integrated squared recovery error; its optimal angle zeros the kernel 1+d<X,Y>.",
+          "Same-day 13f14d6dc85f optimizes expected Bayesian posterior variance for a Brownian-bridge kernel and allows conditional-mean weights; its source distinguishes the fixed-weight worst-input criterion.",
+          "The independent replay confirms the finite-population computation only for selected populations; the algebraic finite-population identity covers all of them."
+        ],
+        "reasoning": "Even though exact angular constraints, symmetry and variance reduction recur, neither of these objectives supplies the positive triangular Fourier moment certificate for the scalar pair estimator. Attainment alone also supplies no rigidity among arbitrary optimal laws. The common publication date is not evidence of priority.",
+        "searches": [
+          "Actual Findings for 1ff31d2c46cc and 13f14d6dc85f; rotated-rule finite-population reduction; shifted-lattice and antithetic literature above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit dde341430d54 is the assigned record, not separate publication evidence.",
+          "Equivalence: rotate the regular N=m+1 point grid by a Haar angle and pick two distinct indices uniformly without replacement. Their nonzero index difference is uniform, independent of the uniform first point. Conditional on the angle the grid population mean is zero, and for the size-two mean the exact conditional variance is (N−2)/(2(N−1)) times the grid average of f²; Haar averaging gives the stated variance.",
+          "Mirror 1ff31d2c46cc gives a paired first-band spherical Fourier estimator with kernel factor K(z,X), not scalar integration."
+        ],
+        "reasoning": "The rotated-grid representation is exactly the exhibited coupling and explains attainment by an established variance identity. It places no restrictions on competing Borel couplings, so it does not prove the lower bound or the equality constraints. Spherical recovery with a kernel factor cannot be transferred by simply changing bandwidth.",
+        "searches": [
+          "Resultary: exact two uniform samples Fourier-band minimax variance; rotated grid and finite-population correction; related pair-estimator records 1ff31d2c46cc and 13f14d6dc85f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit is the same record. The distinct spherical result gives (d−1)/2 for normalized expected squared reconstruction error, while the stratified pair records use interval panels and different integrand classes."
+        ],
+        "reasoning": "A generic sequence/table lookup is not probative for this simple rational expression: it must be associated with the same all-coupling and Fourier-band minimax. No distinct matching statement was recovered in the bounded catalogue comparisons.",
+        "searches": [
+          "Resultary exact (m−1)/(2m) two-marginal Fourier-band risk and nonidentity root construction; comparisons 1ff31d2c46cc, 13f14d6dc85f, 2306aa685e20, cc73f18777b4"
+        ]
+      },
+      "rationale": "The rotated root-grid sampler and its variance are recoverable from exact periodic-grid integration and classical finite-population correction; do not credit these in isolation. The distinct, supported result is that no Borel coupling of the two Haar marginals can do better for the entire real finite band, with a necessary root-support and cosine-moment condition for every optimizer. Nearby studies of spherical function recovery, Bayesian quadrature, and randomized lattices do not imply this minimax/rigidity claim.",
+      "residual_risks": [
+        "The full Roach–Wright text remains unavailable; a general antithetic or harmonic-moment minimax theorem could give equivalent coverage.",
+        "The rotated lattice and finite-population calculation are standard; only the global lower bound and universal optimizer restrictions support distinctness here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Function reconstruction rather than scalar integration; no arbitrarily high circle-band covering claim.",
+          "evidence": "Estimator uses f(X)K(z,X) and its pointwise cross-kernel factor vanishes at the angle <X,Y>=−1/d.",
+          "identifier_or_url": "1ff31d2c46cc",
+          "material_read": "Finding, Assumptions and initial proof",
+          "method": "Resultary mirror, offsets 0–3390",
+          "title": "The sharp simplex-angle law for paired first-band spherical Fourier estimation",
+          "trigger": "Strong distinct all-coupling minimax and support-rigidity analogy"
+        },
+        {
+          "assessment": "Expected posterior variance with site-dependent weights, not the fixed equal-weight Fourier minimax.",
+          "evidence": "The source distinguishes its Bayesian criterion from worst-input fixed-weight squared error.",
+          "identifier_or_url": "13f14d6dc85f",
+          "material_read": "Finding and scope",
+          "method": "Resultary mirror, offsets 0–2697",
+          "title": "Unique uniform-marginal coupling for two-point Brownian-bridge kernel quadrature",
+          "trigger": "Distinct same-day optimization with two uniform marginals"
+        },
+        {
+          "assessment": "Prior covariance-reduction methodology, not the stated finite-band theorem in the passages inspected.",
+          "evidence": "Negative average covariance reduces estimator variance while individual margins are preserved.",
+          "identifier_or_url": "https://arxiv.org/abs/2110.15124",
+          "material_read": "Introduction, p. 2",
+          "method": "OA PDF offsets 3300–5490",
+          "title": "Living on the Edge: An Unified Approach to Antithetic Sampling",
+          "trigger": "General antithetic dependence method"
+        },
+        {
+          "assessment": "Randomized lattice rules and rates, not an all-law two-site minimax.",
+          "evidence": "Defines shifted rank-1 lattice point sets and uses randomized counts or generators in weighted-space analysis.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.11694",
+          "material_read": "pp. 2–3 and 14",
+          "method": "OA PDF offsets 8400–10977 and 57000–59081",
+          "title": "Component-by-component construction of randomized rank-1 lattice rules achieving almost the optimal randomized error rate",
+          "trigger": "Related shifted Fourier lattices"
+        },
+        {
+          "assessment": "Near-optimal smooth-space rates with random lattice size, not exact equal-weight two-site risk.",
+          "evidence": "Random prime point count and random good generating vector, with a shifted version using at most n evaluations.",
+          "identifier_or_url": "https://arxiv.org/abs/1706.04502",
+          "material_read": "p. 2, sampling setup and error-rate statements",
+          "method": "OA PDF offsets 5700–8262 and 8500–10211",
+          "title": "Lattice rules with random n achieve nearly the optimal error independently of the dimension",
+          "trigger": "Potential broader periodic quadrature theorem"
+        },
+        {
+          "assessment": "Residual coverage risk, not ruled out.",
+          "evidence": "Bibliographic match concerns optimal antithetic plans; no relevant theorem passage could be verified.",
+          "identifier_or_url": "https://doi.org/10.1080/00949657708810144",
+          "material_read": "Original's bibliographic and abstract evidence only; no primary full text obtained",
+          "method": "Attempted lawful OA and repository lookup; publisher route inaccessible",
+          "title": "Optimal antithetic sampling plans",
+          "trigger": "Potential older direct optimal-antithetic framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact tradeoff is useful at a fixed two-evaluation budget where independent samples are the natural baseline. It shows that changing dependence alone reduces worst-direction variance, quantifies the saving as 1/m of that baseline, and proves that beyond bandwidth two a fixed shift cannot attain it. The universal restrictions on optimal displacements add structural content even when the saving is small. The finding does not claim comparable gains outside the band or for other weighting schemes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

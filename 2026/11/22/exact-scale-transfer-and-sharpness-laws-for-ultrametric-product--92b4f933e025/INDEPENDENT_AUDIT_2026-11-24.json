@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:33:42.066433Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For nonempty finite ultrametrics, distance at most r is an equivalence relation and its classes are exactly the closed r-balls. Since the product metric dominates each coordinate, no centered product ball meets another class rectangle; covering optima add. In an ultrametric class, every center has eccentricity equal to its diameter by applying the strong triangle inequality to a diametral pair. The farthest coordinates in a rectangle can be chosen independently, so the rectangle takes exactly one ball iff the sum of the two diameter powers is at most r^p. The maximum over rectangles uses the maximum class diameter in each factor, giving both directions and strictness otherwise. With equilateral X-class of size m and interpoint distance a, a center covers its own row and only radius-t portions of other rows, t=(r^p-a^p)^(1/p). One center per row or a radius-t cover projected from one row gives both upper bounds. Any cover using fewer than m centers leaves an uncentered row, and covering that row forces the projections of all centers to cover the Y-class at radius t. This proves the exact minimum on each rectangle. Singletons use a=0 and cost one with t=r; a=r gives t=0 and distinct Y-points are singleton t-classes. The equilateral extremal family and two-scale example give min(m,n) and 5 respectively. The normalized diameter-power condition is monotone in p but need not hold at any finite p when one normalized diameter is 1 and the other positive; the maximum metric separately always multiplies. The proof handles every finite real p>=1, not just the integer powers in the inspected frozen checker, which was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Cieliebaks formulate the general p=1 product lower bound and prove cases including a tree-subset factor; they give a p>1 counterexample to a general lower bound. Dovgoshey–Martio prove maximum-product multiplicativity for ultrametrics."
+        ],
+        "reasoning": "A broader lower bound cannot characterize equality or give the exact formula. The max-metric theorem makes both coordinate inequalities independent and does not imply the finite-p sum-of-powers condition.",
+        "searches": [
+          "Primary: ultrametric product covering numbers, exact multiplicativity, sum and max product metrics",
+          "Cieliebak–Cieliebak arXiv:2611.15599v1, pp. 1–3 and Corollary 3.6",
+          "Dovgoshey–Martio, Section 4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Four Resultary comparisons on ultrametrics, maximum products, sum/tree products and domination graphs",
+        "Dovgoshey–Martio 2009",
+        "Cieliebak–Cieliebak arXiv:2611.15599v1",
+        "Kazemi–Pahlavsay–Stones 2018"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dovgoshey–Martio's product formula is at the maximum metric; the Cieliebaks' Corollary 3.6 is also for the maximum metric with tree-graph hypotheses. Product-domination calculations use different neighborhood constraints or lack the arbitrary hierarchy."
+        ],
+        "reasoning": "Even when each factor is an equilateral class at distance r, every finite p gives min(m,n) rather than the one ball from the max-metric result. A finite-p hierarchy calculation also needs the row alternative and a separate covering problem at t inside each Y-class; neither max-metric factorization nor the two-level rook case supplies that step.",
+        "searches": [
+          "Dovgoshey–Martio, Theorem 4.1 and Lemma 4.2",
+          "Cieliebak–Cieliebak, product lower-bound discussion and Corollary 3.6",
+          "Kazemi et al., Proposition 3.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The highest exact catalog match was the frozen record itself. Kazemi–Pahlavsay–Stones define k-tuple total domination by open neighborhoods; Proposition 3.8 treats k=2 on the product of two complete graphs."
+        ],
+        "reasoning": "The cover is ordinary closed-neighborhood domination in the graph defined by the product distance threshold. The equilateral-at-r case is a rook graph, but its ordinary domination is not open-neighborhood 2-tuple domination, and the hierarchical case permits multiple Y-distance levels and changed thresholds.",
+        "searches": [
+          "Resultary: finite-p ultrametric product covering, exact equality and scale transfer",
+          "Resultary: Cartesian products, rook graphs, domination and intrinsic ball covers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Besides the bound record, closest inspected records were 2026/11/22/SCOPE-sharp-three-ball-covering-radius-and-rigidity-for-products-of-we--cd6084230291 (weighted four-cycles) and 2026/11/22/SCOPE-sharp-first-order-onset-of-a-three-site-covering-of-the-flat-squ--1d1462528a8a (prescribed sites in a product of circles)."
+        ],
+        "reasoning": "These are exact or first-variation covering computations on non-ultrametric factors, not a competing formula or table for arbitrary finite ultrametric radius classes.",
+        "searches": [
+          "Resultary: intrinsic metric product coverings, exact radius and sharp threshold",
+          "Resultary: sum-metric tree/product exact covers and maximum-metric coverings"
+        ]
+      },
+      "rationale": "The strongest retrieved coverage concerns the maximum product, different general sum-metric hypotheses, or simpler domination instances. None supplies the finite-p closed-ball diameter threshold and equilateral-to-hierarchical scale transfer. This is a bounded comparison of actual statements, not a global priority certification.",
+      "residual_risks": [
+        "The literature comparison is bounded; an equivalent graph-domination or metric-entropy theorem under different terminology could escape it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers maximum-product multiplicativity and a characterization via packing under additional hypotheses, not the finite-p law",
+          "evidence": "The multiplicativity compares covering/packing counts in the maximum product.",
+          "identifier_or_url": "https://www.csm.ro/reviste/Revue_Mathematique/pdfs/2009/5-6/8Dovgoshey.pdf",
+          "material_read": "Section 4, Theorem 4.1 and Lemma 4.2, PDF pp. 12–13, OA offset 27530",
+          "method": "OA PDF statement inspection",
+          "title": "Products of metric spaces, covering numbers, packing numbers, and characterizations of ultrametric spaces",
+          "trigger": "Closest older theorem on ultrametric product multiplicativity"
+        },
+        {
+          "assessment": "Related lower-bound, tree, and maximum-product results; no finite-ultrametric equality or hierarchical sum in the inspected results",
+          "evidence": "The general lower bound is conjectured at p=1, proved for stated tree cases, and fails in general at p>1.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.15599",
+          "material_read": "pp. 1–3 and Corollary 3.6 p. 8; OA offsets 1433, 6080, 17300",
+          "method": "OA PDF statement inspection",
+          "title": "Covering numbers of metric spaces",
+          "trigger": "General product lower bound and p-metric conventions"
+        },
+        {
+          "assessment": "Different domination invariant and substantially more restricted product structure",
+          "evidence": "Uses open neighborhoods and treats the 2-tuple total domination number of K_n square K_m.",
+          "identifier_or_url": "https://www.pmf.ni.ac.rs/filomat-content/2018/32-19/32-19-16-4805.pdf",
+          "material_read": "Definition p. 1 and Proposition 3.8 PDF p. 15, journal p. 6728; OA offsets 893, 44108",
+          "method": "OA PDF statement inspection",
+          "title": "Cartesian Product Graphs and k-Tuple Total Domination",
+          "trigger": "Rook-graph special case via domination"
+        },
+        {
+          "assessment": "Different metric class and exact optimization objective",
+          "evidence": "16-point product of weighted cycles, with an exact three-center radius and a strict decrease versus multiplying factor counts.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-three-ball-covering-radius-and-rigidity-for-products-of-we--cd6084230291",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "Sharp three-ball covering radius and rigidity for products of weighted four-cycles",
+          "trigger": "Closest catalog match outside the bound record on exact product coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The diameter law completely answers when a natural product-cover lower bound is an equality, including arbitrarily large excess in sharp examples. The scale-transfer law reduces a potentially large product covering problem to single-hierarchy counts at explicitly shifted radii, with no equilateral restriction on the second hierarchy. It is a useful exact reduction beyond the maximum-product or rook-graph cases.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

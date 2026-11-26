@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:05:57.416177Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–48; VERIFICATION.md and verify_quadrupole.py inspected but not executed",
+        "Independent replay: python /workspace/branches/79ee2759-4c5e-451a-92bf-ee6a194f19dc/audit_record5.py. The symbolic blocks and exact positive-root count give η_*=3.379224327784561. The independently assembled physical j=1 generator at η=2.5 gives dipoles −2.5,−2,−0.5 and the quadrupole pair −1.315158±1.144540i. With ε=0.1 the state has minimum eigenvalue about 0.1333 and the pair has nonzero observable residues."
+      ],
+      "rationale": "In dimensionless time the dissipator is −η ad(J_z)² with η=Γ/(2NΩ). The spin-j operator representation contains one copy of each rank 0 through 2j, so rank two exists for every j≥1. Reflection in tensor index q block-diagonalizes rank two into a two-site odd chain and a three-site even chain. The determinants are p_−=z²+5ηz+4η²+1 and p_+=z³+5ηz²+(4η²+4)z+12η. Their discriminants are 9η²−4 and 16Q(η²), Q(s)=9s³−103s²+4s−16. Q is negative on [0,10] by the stated polynomial bounds and strictly increasing on [10,∞), with Q(12)>0. At its unique positive zero the depressed-cubic linear coefficient 4−13η²/3 is nonzero, so the repeated root is double. In each block the nonzero adjacent couplings determine an eigenvector from its first component, so each double eigenvalue is defective. Rank one has −η and the roots of z²+ηz+1, all real for η≥2. For η>0 any rank-two eigenvalue has Re z=−η||K_z u||²/||u||²<0: the only vector in ker K_z is the q=0 direction, which K_x does not preserve. The state I/(2j+1)+εQ_zz is physical for sufficiently small positive ε. Its Q_zz response uses the q=0 resolvent numerator N(z)=(z+η)(z+4η)+1. Since p_+=zN+3(z+4η) and N(−4η)=1, neither simple nonreal root cancels. Thus the physical signal has a damped oscillatory term throughout 2<η<η_*.",
+      "residual_risks": [
+        "In the source's witness calculation the response prefactor is ε tr(Q_zz²); it is positive only when ε>0, which is an allowed choice and sufficient for the finding. Finite computations are not the all-j proof. No statement is made about ranks above two or persistent oscillations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first paper has the exact k-block hopping matrix for arbitrary k and notes increasing numbers of oscillatory modes and exceptional points at higher k. Appendix E explicitly diagonalizes k=1. The other source gives general Liouvillian PT symmetry, including symmetry-compatible dephasing; its nearby concrete generalized DDM uses a lowering jump and a different Hamiltonian."
+        ],
+        "reasoning": "The first paper subsumes the starting block data, but it does not give a general resolved exceptional-point spectrum or quadrupole-residue theorem from which the specific cutoffs and interval follow by substitution. The PT framework also does not fix these local spectral thresholds.",
+        "searches": [
+          "arXiv:2604.14291v1, Section IV.1, Eqs. (13)–(18), Appendix E, Eqs. (66)–(74)",
+          "arXiv:2406.09018, Supplement D.1–D.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.14291v1",
+        "arXiv:2507.06998v2",
+        "arXiv:2406.09018",
+        "Resultary rank-two exceptional point, quadrupole survival, and dephasing-spectrum searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specializing the prior k-block already supplies every rank-two matrix entry. Qualitative discussion of higher-rank eigenvalue mergers is antecedent; the earlier weak-dissipation spectrum is first order, while its exact expectations concern the dipoles."
+        ],
+        "reasoning": "The claim is not the matrix specialization itself. Resolving and comparing the two defect thresholds needs a parity, discriminant, and defective-root analysis; a complex pair in a spectrum also does not by itself prove a nonzero term for the specific prepared state and observable. The checked resolvent supplies that missing implication.",
+        "searches": [
+          "arXiv:2604.14291v1, Section IV.1 end and Appendix E",
+          "arXiv:2507.06998v2, Model B, Eqs. (17)–(19)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Writing the older normalized collective spin as 2S/N maps its transverse model to Ω=2Ω_x and Γ=4Γ_p, up to reversal of the precession sign by a z rotation. Its dipole critical condition maps to η=2. The z rotation leaves Q_zz invariant. Model C uses parallel-axis dephasing, not an equivalent threshold calculation."
+        ],
+        "reasoning": "Different rate names do not make the model or dipole boundary new; the exact even and odd rank-two cutoffs and the observable witness remain distinct after rescaling.",
+        "searches": [
+          "Resultary semantic checks for quadrupole exceptional points and higher-rank oscillation under collective dephasing",
+          "arXiv:2507.06998v2, normalized spin definition and Section IV.2, Model B, Eqs. (15)–(19)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected prior exact eigenvalue expressions are for k=1; the arbitrary-k expression is the matrix, not a table of transition rates. Returned spin-two catalogue hits concerned distinct spherical-harmonic sampling/concentration rather than this non-Hermitian operator."
+        ],
+        "reasoning": "The decimal is only a rendering of an algebraically characterized transition and does not establish novelty. No equivalent rank-two threshold entry was identified in the bounded catalogue or prior spectral inspection.",
+        "searches": [
+          "Resultary searches for the rank-two dephasing spectrum, quadrupole survival above dipole threshold, and spin-two exceptional-point thresholds",
+          "arXiv:2604.14291v1, Appendix E and Section IV.1"
+        ]
+      },
+      "rationale": "The transverse model, arbitrary-rank tridiagonal operator, reflection method at rank one, exact dipole threshold, and qualitative expectation of higher-rank exceptional points are antecedent. The distinct result supported here is the exact two-threshold rank-two classification, with an explicit noncanceling quadrupole response throughout the interval above dipole overdamping.",
+      "residual_risks": [
+        "The inspected exact arbitrary-rank operator makes the rank-two calculation accessible and limits the novelty to the resolved transition and response, not the construction of the matrix. Bounded literature and catalogue checks do not rule out earlier equivalent spin-multipole calculations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the generator and block starting data, exact rank-one solution, and qualitative higher-rank coalescences; not the resolved rank-two claim in the inspected sections.",
+          "evidence": "Eqs. (16)–(17) give the standard rank-k hopping and q² damping. Appendix E specializes to k=1 and gives the dipole eigenvalues with κ=Γ/(2NΩ).",
+          "identifier_or_url": "arXiv:2604.14291v1",
+          "material_read": "Section IV.1, Eqs. (13)–(18), offsets 21151–26550 and 27760–29426; Appendix E, Eqs. (66)–(74), offset 67839",
+          "method": "OA HTML passage inspection",
+          "title": "Operator Space Transport and the Emergence of Boundary Time Crystals",
+          "trigger": "Same generator and exact higher-rank block; qualitative exceptional points"
+        },
+        {
+          "assessment": "Same generator up to scaling and rotation; exact dipole and weak-dissipation higher-rank behavior, not the exact rank-two classification in the inspected passages.",
+          "evidence": "Its critical κ=ω corresponds to η=2; Eq. (17) is first-order in dissipation and Eqs. (18)–(19) concern dipole expectations.",
+          "identifier_or_url": "arXiv:2507.06998v2",
+          "material_read": "Normalized spin definition (offsets 8949–13137); Section IV.2, Model B, Eqs. (15)–(19), offsets 24912–29226; contrast with Section IV.3",
+          "method": "OA text passage inspection",
+          "title": "Analytical solution of boundary time crystals via the superspin basis",
+          "trigger": "Equivalent transverse precession/dephasing in different normalization"
+        },
+        {
+          "assessment": "Broader symmetry perspective, not the same finite-rank calculation in the inspected example.",
+          "evidence": "D.1 lists dephasing among symmetry-compatible channels; D.2 uses a collective lowering jump and a Hamiltonian with an additional quadratic term.",
+          "identifier_or_url": "arXiv:2406.09018",
+          "material_read": "Supplement D.1–D.2, PDF offset 91100",
+          "method": "OA PDF passage inspection",
+          "title": "Continuous time crystals as a PT symmetric state and the emergence of critical exceptional points",
+          "trigger": "Cited general exceptional-point and collective-spin symmetry theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 15–44",
+        "arXiv:2604.14291v1, Section IV.1 and Appendix E"
+      ],
+      "rationale": "Rank two is the first non-dipole spin sector. An exact interval where dipole measurements miss an actual, preparable oscillatory second-moment signal is a physically interpretable boundary of the usual dipole damping criterion. The distinct parity cutoffs resolve when this first higher-multipole witness is available, not just how one finite matrix diagonalizes at a sample value.",
+      "residual_risks": [
+        "The witness is a finite-spin damped signal, not a time-crystalline order parameter, and robustness or experimental detectability is not established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

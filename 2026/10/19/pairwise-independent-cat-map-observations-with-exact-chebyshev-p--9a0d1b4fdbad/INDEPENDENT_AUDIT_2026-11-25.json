@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:57:34.484350Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–68; independent check of the simultaneous eigenvalue and modular constraints",
+        "VERIFICATION.md and verify.py, inspected, not executed; finite checks are not the all-trace proof"
+      ],
+      "rationale": "For B=Aᵀ, neither eigendirection can contain a nonzero rational vector: its eigenvalue would be rational, but z²−tz+1 has no rational root for integer t≥3. A nonzero sensor therefore has both eigencomponents, and Bⁱk and Bʲk are independent for i≠j. The resulting full-rank integer torus maps send Haar to product Haar regardless of the sensor's content. The consecutive phase recurrence and independent sine signs given the two cosines give the two-atom law, including coincident atoms, and the predictor and moment 1/4. For a cubic signed-frequency sum, project onto the expanding and contracting directions. If all multipliers coincide, positivity would require a sum of two powers to equal the third in both directions; multiplying these equalities gives 1=2+λᵈ+λ⁻ᵈ, impossible. If two multipliers are t, divide by the sensor's integer content and reduce mod t: the remaining unit term contradicts primitivity and invertibility of B mod t. If exactly one multiplier is t, the two unit terms cannot have opposite signs (their differences have opposite signs in the two equations, or are both zero). With equal signs their product equation gives 2+λ^|p−q|+λ^−|p−q|=t², so |p−q|=2 and the t-multiplier is at their midpoint. This includes all repeated-index cases. Thus only consecutive unordered triples contribute, each c/4, with six permutations; pairwise independence and Fourier orthogonality give N(1+c²)/2. The result handles c=0 and N=1,2, where the third moment is zero, and its standardization agrees with the stated asymptotic for nonzero c.",
+      "residual_risks": [
+        "No conclusion of higher-order independence for nonconsecutive times follows from the absence of cubic resonances in only the chosen harmonics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barash–Shchur study rational-coordinate grids and binary outputs, with unequal five-bit block frequencies; those passages do not show Haar-cosine pair independence or the mixed resonance lemma.",
+          "The other abstracts concern limit theorems for sequences/products of toral maps and observables."
+        ],
+        "reasoning": "A finite modulus allows frequency cancellations modulo the grid denominator, not the exact integer-vector cancellation used here. A CLT, even if applicable to the observable, does not evaluate its finite-N cubic law. No claim is made about the full scope of the abstract-only sources.",
+        "searches": [
+          "Barash–Shchur arXiv:physics/0409069v3, §§II and IV",
+          "Ayyer–Liverani–Stenlund arXiv:0711.3818v1 abstract; Conze–Le Borgne–Roger arXiv:1006.4051v1 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1c8338de5160, 3e085e5fa150, 3e975e5976c5",
+        "arXiv:physics/0409069v3 §§II, IV, arXiv:0711.3818v1 abstract, arXiv:1006.4051v1 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Starting with the indexed Haar phase law, a two-sign calculation produces the Chebyshev conditional expectation and the consecutive harmonic moment 1/4. Neither that consecutive calculation nor a distinct-time pair law gives the nonconsecutive mixed-harmonic vanishing.",
+          "The frozen result proves exactly which solutions with three signs and multipliers {1,t} survive all possible lag patterns, thereby ruling out additional N-dependent terms in the sum."
+        ],
+        "reasoning": "The conditional law is a short implication of known structure and is not the decisive remainder. The exact third cumulant requires a separate all-lag arithmetic classification, not implicit just from phase-pair independence, consecutive block laws, or a band-limited pair-correlation calculation.",
+        "searches": [
+          "1c8338de5160 Haar-pair and recurrence proof; comparison to the frozen three-term signed resonance proof",
+          "3e085e5fa150 finite-band pair correlation and arXiv:physics/0409069v3 finite-grid block correlations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The factor X ↦ (U₁,U₀) sends Haar to Haar and intertwines A with the trace-t companion matrix, so using more general A,k does not by itself create a different phase process.",
+          "The indexed bin record uses these Haar phases and the same trace recurrence but reads out floor(qU_n); the frozen sum weights the two continuous cosine modes 1 and t."
+        ],
+        "reasoning": "The Haar phase model is equivalent; replacing the sensor and computing an exact polynomial-observable cumulant at all N is the comparison that matters. Bin-law overlap alone is not an identical cubic formula.",
+        "searches": [
+          "Resultary: hyperbolic toral map trace recurrence, pairwise independent Haar phases, three-symbol independence, cubic Fourier resonances and Chebyshev observable",
+          "1c8338de5160, proof §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1c8338de5160 has a consecutive equal-bin law and trace divisibility criterion (and an all-time binary-label triple theorem). 3e085e5fa150 is a pair-correlation cutoff for a finite Fourier band. 3e975e5976c5 examines a five-observation half-circle binary law.",
+          "No finite moment table would cover unrestricted t,N,c and sensors; the inspected statements do not list the mixed-harmonic cubic classification."
+        ],
+        "reasoning": "Even a matching trace or exact finite block number is not a tabulation for this sensor and all observation-window lengths. The inspected indexed hits are analogues, not exact matches to the distinct claim.",
+        "searches": [
+          "Resultary: cat-map resonances, exact three-observation law and finite third cumulants; inspected records 1c8338de5160, 3e085e5fa150, 3e975e5976c5"
+        ]
+      },
+      "rationale": "Credit is for the exhaustive three-time resonance classification in the two specified harmonics and its exact finite-time cubic law. Pairwise phase independence, the trace recurrence, and the recovery of the two-atom conditional law by applying the cosine quotient to that known phase law are not independent originality grounds. The closest Haar companion-map record supplies the phase model but not the requisite elimination of nonconsecutive resonances across all times and multiplier patterns. The accessible literature on finite-grid blocks and asymptotic limit laws does not supply that missing classification in its inspected passages. The verdict is limited to the supported distinct content.",
+      "residual_risks": [
+        "An equivalent specialization in older all-order Fourier resonance results is not excluded; inspected CLT abstracts are not full-text precedence checks.",
+        "The known phase factor and conditional implication are not credited as independently novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same phase process; different observable and accessible claims",
+          "evidence": "The proof has independent uniform circle-coordinate pairs and x₂=tx₁−x₀ mod 1. It integrates equal bins to obtain their exact consecutive joint law, not the all-lag mixed-harmonic cubic selection rule.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-trace-divisibility-threshold-for-three-symbol-independence-in-hy--1c8338de5160/RESULT.md",
+          "material_read": "Finding, scope and proof §§1–2 from offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Trace-divisibility threshold for three-symbol independence in hyperbolic toral maps",
+          "trigger": "Closest prior Haar phase law with the same trace and potential exact block-law implication"
+        },
+        {
+          "assessment": "Different order of correlation",
+          "evidence": "It studies a sharp pair-correlation cutoff for the standard cat map in a finite frequency band.",
+          "identifier_or_url": "Resultary 3e085e5fa150",
+          "material_read": "RESULT.md finding",
+          "method": "Local mirror passage inspection",
+          "title": "Exact Fibonacci decorrelation cutoff and four resonant modes",
+          "trigger": "Potential finite-band resonance overlap"
+        },
+        {
+          "assessment": "Binary sensor and different interaction",
+          "evidence": "It uses Haar measure with a half-circle binary readout and a five-observation law with a fourth-order interaction.",
+          "identifier_or_url": "Resultary 3e975e5976c5",
+          "material_read": "RESULT.md finding",
+          "method": "Local mirror passage inspection",
+          "title": "Four-block Bernoulli mimicry and a sharp fifth-block interaction",
+          "trigger": "Another exact finite cat-map block law"
+        },
+        {
+          "assessment": "Finite-grid/binary analogue, not same phase measure or harmonic moment",
+          "evidence": "The map acts on rational-coordinate lattices including g=2^m and the binary outputs have examples of nonuniform five-bit block frequencies.",
+          "identifier_or_url": "https://arxiv.org/html/physics/0409069v3",
+          "material_read": "Abstract, §II around offsets 12505 and 15505, §IV around 38696",
+          "method": "OA HTML passage inspection",
+          "title": "Periodic orbits of the ensemble of Sinai-Arnold cat maps and pseudorandom number generation",
+          "trigger": "Cited analogue concerning exact higher-order cat-map dependence"
+        },
+        {
+          "assessment": "Asymptotic context; no whole-document exclusion made",
+          "evidence": "The abstract concerns annealed and quenched CLTs for sequences of iterated hyperbolic toral maps.",
+          "identifier_or_url": "https://arxiv.org/html/0711.3818v1",
+          "material_read": "Abstract, offset about 420",
+          "method": "OA HTML abstract inspection",
+          "title": "Quenched CLT for random toral automorphism",
+          "trigger": "Cited toral-observable asymptotic framework"
+        },
+        {
+          "assessment": "Asymptotic context; no whole-document exclusion made",
+          "evidence": "The abstract treats sums of Hölder observables under sequences/products of toral automorphisms.",
+          "identifier_or_url": "https://arxiv.org/html/1006.4051v1",
+          "material_read": "Abstract, offset about 255",
+          "method": "OA HTML abstract inspection",
+          "title": "Central limit theorem for products of toral automorphisms",
+          "trigger": "Cited Fourier-decorrelation and limit-theorem context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof §§2–4",
+        "Haar phase comparison in Resultary 1c8338de5160"
+      ],
+      "rationale": "The trace harmonic is motivated by the map's minimal second-order recurrence, rather than a fitted parameter. A complete cubic resonance rule exposes a reproducible difference between pairwise independence and higher-order fluctuations: the finite window length and even the sign and magnitude of the cubic moment can be read off exactly. This gives an exact non-Gaussian diagnostic for a standard measure-preserving system without relying on higher-order asymptotics or on a numerical example.",
+      "residual_risks": [
+        "No new CLT, higher cumulant or expansion is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

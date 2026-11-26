@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:01:24.680323Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–45; VERIFICATION.md and verify.py inspected, not executed.",
+        "Independent analytic replay: the last position for embedding the first receiver half cannot exceed m+1, and a nonpalindromic embedding cannot omit both parent endpoints; these exhaust the needed boundary cases. The recorded finite verifier demonstrates only its named finite cases."
+      ],
+      "rationale": "Fix the exact length difference two, ordinary reversal, and count words, not embeddings. If a receiver is xxᴿ with |x|=m−1, any embedding uses its last first-half letter by parent index m+1. Either x already fits in the parent first half, or the other half must use the whole final m−1 suffix, again forcing x to fit in the parent first half. Reflection gives the converse. For a fixed inserted symbol only consecutive insertion sites separated entirely by that symbol give identical words, hence summing duplicate histories over all symbols removes exactly m−1 from qm. For a nonpalindromic receiver with equal outer letters c, a parent with a different outer letter would have to spend both deletions on its ends, leaving a palindrome. Thus all parents have outer letter c, and an embedding can use both ends without changing its internal matches, yielding the shell-stripping bijection. With unequal core ends a and b, a candidate parent must use one of those letters as its outer pair and delete its opposite endpoint; it cannot delete both endpoints. This reduces each of two branches to an even-palindrome parent from a single insertion into an odd word. Parity forces the inserted symbol, if possible. Two different placements of that symbol would have opposite discrepancies at the first and last differing positions, whereas the disagreement positions of two palindromes are symmetric and their letters on those positions are equal within each palindrome. Thus each branch has at most one word, and insertion and verification reconstruct all of them. The two exhibited distinct halfwords really contain a^(2m−3)b after two deletions for every m≥2, while the palindromic count is then at least three. This proves exactly q^(m−1) maximizers; m=1 gives the empty receiver and q parents directly.",
+      "residual_risks": [
+        "This is an existence-of-deletion-pattern inverse list, not a count or probability of deletion histories; no optimal running time or size of a correcting subcode is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General or constrained-source deletion-code bounds concern admissible codebook sizes; two-deletion code constructions concern selected correcting subcodes.",
+          "The same-day two-read record compares pairs of sources that share two distinct outputs of one deletion each, not one output of two deletions."
+        ],
+        "reasoning": "None of those stronger-looking channel or graph statements determines the fixed receiver column degree in the incidence matrix of all palindrome parents and exact-two-deletion outputs.",
+        "searches": [
+          "Kulkarni–Kiyavash arXiv:1211.3128, introduction and §V",
+          "Gabrys–Sala arXiv:1712.07222, p. 1",
+          "Resultary one-deletion confusability 9646637bbf2e and same-day two-read record 44730930a81c"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e477b9a9610d (same frozen theorem), 9646637bbf2e, 44730930a81c, 8af4e5cf362e, 36e6413ec4b9, 3e8681b41f88",
+        "arXiv:math/0207197v1, 1211.3128, 1707.00052v2, 1712.07222"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-deletion rigidity follows from the prior result that distinct even palindromes share no odd one-deletion descendant. This directly covers Lemma 1 and is credited.",
+          "The known insertion count yields the palindromic formula only after proving the fixed-parity two-omission embedding reduction; the two-branch restriction is a separate argument needed for nonpalindromic receivers."
+        ],
+        "reasoning": "The fact that a one-deletion receiver has one even-palindromic parent does not limit the number of possible intermediate odd words after a second deletion. The shell and mismatch argument is what reduces those possibilities to two relevant odd cores, and is not a code-capacity or sphere-size substitution.",
+        "searches": [
+          "Resultary 9646637bbf2e, rigidity passage at offset 2850; 44730930a81c, Finding at offset 0; exact outgoing sphere 8af4e5cf362e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact alias is the list of even palindromic supersequences two symbols longer than a fixed word. The inspected Resultary LPS record 36e6413ec4b9 treats a restricted longest-subsequence length; shortest universal-supersequence record 3e8681b41f88 requires one host for every binary palindrome of a given length.",
+          "Palindromic-duplication deletion removes a contiguous factor vvᴿ and differs from two arbitrary deletions from a palindrome source."
+        ],
+        "reasoning": "A shortest-supersequence length does not determine the distinct even witnesses at exact excess two; in the palindromic-receiver case the exact-length target is not shortest at all. The universal-subsequence and operation-restricted formulations have different quantifiers or channels.",
+        "searches": [
+          "Resultary: even-palindrome two-deletion inverse list, fixed-receiver palindromic insertion supersequences, deletion confusability, palindrome subsequences and shortest universal hosts",
+          "Lenz–Wachter-Zeh–Yaakobi arXiv:1707.00052v2, pp. 2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected exact two-deletion polynomial counts labeled source words by their number of outgoing descendants. Sloane's tables/formulas concern source-side deletion-descendant counts; neither counts even palindromic parents by receiver.",
+          "The available exact palindrome confusability statements for one-deletion outputs are not exact-two-deletion incoming list tables."
+        ],
+        "reasoning": "Knowing the distribution of row sums (even for the same incidence matrix) does not determine any particular column sum, its maximum, or which columns attain it.",
+        "searches": [
+          "Resultary exact size distribution of two-deletion descendants over every finite alphabet, ID 8af4e5cf362e, original Finding",
+          "Sloane arXiv:math/0207197v1 §5, Theorems 5.1–5.3",
+          "Resultary palindrome one-deletion and two-read statements"
+        ]
+      },
+      "rationale": "One-deletion rigidity and the single-insertion sphere count are antecedents. The distinct result combines them with a two-omission symmetric embedding and a two-branch reduction, obtaining sharp fixed-receiver list sizes for all lengths and alphabets. The matching index entry for the frozen theorem itself is the object under review, not another source of priority.",
+      "residual_risks": [
+        "An uninspected equivalent exact-length palindromic supersequence enumeration or inverse-list result could exist; targeted searches do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct partial coverage of one lemma; not the incoming two-deletion dichotomy.",
+          "evidence": [
+            "Two distinct even palindromes cannot share a single-deletion descendant."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-exact-one-deletion-confusability-and-capacity-of-palindromic-cod--9646637bbf2e",
+          "material_read": "Original RESULT.md, rigidity proof passage at offset 2850.",
+          "method": "Local mirror bounded passage.",
+          "title": "Exact one-deletion confusability and capacity of palindromic codes",
+          "trigger": "Same parent symmetry, exact antecedent for uniqueness under one deletion."
+        },
+        {
+          "assessment": "Different observation model regardless of ordering on the day.",
+          "evidence": [
+            "Edges require two distinct shared one-deletion outputs from pairs of sources; the present ambiguity conditions on a single exact-two-deletion output."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-forest-structure-and-sharp-two-read-deletion-capacity-of-palindr--44730930a81c",
+          "material_read": "Original RESULT.md Finding at offset 0.",
+          "method": "Local mirror bounded passage.",
+          "title": "Forest structure and sharp two-read deletion capacity of palindromic codes",
+          "trigger": "Same-day palindrome result with two and deletion in the claim."
+        },
+        {
+          "assessment": "Forward sphere sizes, not inverse lists; general words rather than restricted parents.",
+          "evidence": [
+            "Its polynomial sums z raised to |D₂(w)| over length-n source words w."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-exact-size-distribution-of-two-deletion-descendants-over-every-f--8af4e5cf362e",
+          "material_read": "Original RESULT.md Finding, assumptions and start of proof, offsets 0–2669, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "method": "Local mirror bounded passage.",
+          "title": "Exact size distribution of two-deletion descendants over every finite alphabet",
+          "trigger": "Exact all-length and all-alphabet two-deletion distribution."
+        },
+        {
+          "assessment": "Definitions and source-side enumeration, not this inverse list.",
+          "evidence": [
+            "Disjoint deletion descendants define correcting codes; the enumerations inspect outgoing binary descendants."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/math/0207197v1",
+          "material_read": "§1 at HTML offset 0; §5 Theorems 5.1–5.3 at offsets about 30800–34216.",
+          "method": "OA original arXiv HTML bounded passages.",
+          "title": "On Single-Deletion-Correcting Codes",
+          "trigger": "Classic definitions and exact known counts."
+        },
+        {
+          "assessment": "Codebook-size bounds, not conditioned parent lists.",
+          "evidence": [
+            "Concerned with code sizes, including transmission under constraints on source words."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1211.3128",
+          "material_read": "Introduction around PDF offset 1182 and §V Definition 5.1, p. 12, around offset 89060.",
+          "method": "OA original PDF bounded passages.",
+          "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+          "trigger": "Constrained-source results may have given a stronger relevant statement."
+        },
+        {
+          "assessment": "Different edit operation.",
+          "evidence": [
+            "Removal of a factor vvᴿ rather than arbitrary loss of two positions from palindrome codewords."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1707.00052",
+          "material_read": "v2 pp. 2–3, OA offsets about 6500–8300.",
+          "method": "OA original PDF bounded passages.",
+          "title": "Bounds on Codes Correcting Tandem and Palindromic Duplications",
+          "trigger": "The name palindromic deletion may hide an equivalent channel."
+        },
+        {
+          "assessment": "Construction guarantees for selected codes, not all symmetry-constrained lists.",
+          "evidence": [
+            "General two-deletion code construction objectives."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1712.07222",
+          "material_read": "p. 1, OA offsets 855–1329.",
+          "method": "OA original PDF bounded passage.",
+          "title": "Codes Correcting Two Deletions",
+          "trigger": "Primary paper on correcting exactly the considered number of deletions."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, theorem, constructive branches and sharp witnesses; one-deletion rigidity and forward-sphere prior statements for the distinction from known counts."
+      ],
+      "rationale": "The receiver-conditioned ambiguity is a natural decoder quantity. A palindromic output admits a list growing linearly with semilength and alphabet size, while any nonpalindromic output admits at most two independently of either, with a sharp witness and full branch reconstruction. This distinction and the exact set of worst receivers are usable without solving the unrelated code-size problem.",
+      "residual_risks": [
+        "The theorem does not count nonpalindromic receivers by list size or determine the size of an optimal correcting subcode."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

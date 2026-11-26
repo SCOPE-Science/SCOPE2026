@@ -1,15 +1,21 @@
-# Scientific assessment of the subcritical spectral limit
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement has one fixed real parameter \(1<\alpha<2\) and quantifies over every fixed positive singular-value index. Exact radial monomial norms give the finite coefficient matrix. The columnwise harmonic-sum estimate controls the otherwise singular region near logarithmic coordinate zero; on its complement the rescaled matrix kernels converge by dominated convergence. This proves convergence in Hilbert–Schmidt norm, which independently implies all fixed-index singular-value limits and the squared spectral-mass identity. The moment-ratio adjustment and output-tail estimate justify the claimed exact function-space norms and infinite Bergman output. The weighted Volterra Bessel singular spectrum is a previously established result (Böttcher–Dörfler, 2009) and is also recovered from the stated Sturm–Liouville boundary conditions. The embedded finite checker is corroborative, not a substitute for the infinite-dimensional proof. The analysis does not assert a bounded subcritical full map.
+## correctness
 
-## Originality — PASS within the inspected evidence, with residual priority risk
-The closely related full text by D. Norrbo (arXiv:2610.00252v1, first submitted 2026-09-23) proves only a boundedness/unboundedness threshold for the complete Hilbert transform into Bergman space, not finite polynomial-section singular asymptotics. The Böttcher–Dörfler author preprint (2009, Theorem 5.1) does establish the Bessel spectrum of the continuous model and is expressly credited for that ingredient; it gives no logarithmic Hilbert-matrix section limit. Inspected published mathematical findings on compactness and exact essential norms concern \(\alpha\ge2\), whereas the present result requires \(1<\alpha<2\) and yields a sharp diverging Bessel-profile law. Related finite Cesàro spectral-edge work involves a different matrix and constant-order norm. Searches for exact and equivalent formulations did not identify a covering result. The inference is based on actual source comparison, not merely absent matching titles. A comprehensive historical-priority audit remains outstanding.
+PASS
 
-## Value — PASS
-Norrbo's critical threshold makes the finite-section growth of the unbounded regime a natural next invariant; the leading exponent alone would not determine the sharp constants or the number of emerging singular channels. The result determines *every fixed singular value*, not only the operator norm, and proves a Hilbert–Schmidt convergence principle with an independent squared-mass limit. The Bessel constants reveal a nontrivial compact continuum structure hidden in a matrix with two different analytic-space normalizations. This is substantive exact information about a naturally occurring regularization at a sharp operator threshold, not a renamed textbook estimate.
+Reconstructed the result for fixed 1<alpha<2 and each fixed positive j. Normalized area gives target monomial squared norm 1/(m+1) and source moment v_n. Substituting u=(n+1)(1-t) in v_n gives pointwise exponential density and normalized logarithmic weight tending to one, dominated by C exp(-u/2)(1+|log u|)^alpha for n>=1. Thus v_n has leading coefficient one and the model entries in RESULT.md (46) have the stated normalization. Dividing each normalized entry by the square root of the two cell lengths gives kernel (75)-(77), with limit y^(-alpha/2) for x<y and zero for x>y. On y>=epsilon uniform domination applies. The sum over m of the squared entries in column n is O((log(n+2))^(1-alpha)/(n+1)); integral comparison bounds the normalized sum on y<epsilon by O(epsilon^(2-alpha))+o(1), including a cell straddling epsilon (its upper logarithmic coordinate differs by O(1/log(N+2))). The limit kernel has the same integrable small-column behavior. A bounded diagonal correction tending to one in high columns preserves convergence, as the finitely many early columns vanish after normalization. The exact full-output squared tail is O((log(N+2))^(-alpha)); embedding its additional cells in L2(0,infinity) gives the same limit with zero extension. For the Bessel reduction the adjoint implies x^alpha u'=-s^(-2) integral_0^x u and hence the zero flux condition; the J branch has zero flux and the independent branch has leading behavior x^(1-alpha) with nonzero flux, also at integer order. Conversely, a regular solution satisfying u(1)=0 gives f=-x^(alpha/2)u' in L2 and reproduces the adjoint eigen-equation by integrating the flux. This yields exactly the stated Bessel zeros; norm convergence controls fixed-index singular values, and the squared kernel norm is 1/(2-alpha).
 
-## Boundaries and remaining risks
-The claim excludes both endpoint exponent \(\alpha=2\) and growing singular-value index. No rate of convergence is proved. The older weighted-Volterra spectrum is not claimed to be new. A possible unindexed or alternate-normalization predecessor remains a historical priority risk. Independent review and validation have not yet occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the subcritical finite-section Hilbert–Schmidt transfer and its spectral consequences, not the continuous Bessel spectrum, the moment asymptotic, or the boundedness threshold. The checked stronger and adjacent results do not give that transfer.
+
+## value
+
+PASS
+
+Quantifies the spectral divergence of the natural polynomial truncations below a known mapping threshold. The full compact limit gives the entire squared mass and each fixed-index constant, matters not determined by unboundedness or norm growth alone, and identifies a reusable operator approximation rather than just fitting a first singular value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:56:06.078040Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–62, and submitted VERIFICATION.md and verify.py (inspected, not executed)",
+        "Fresh independent replay: python3 /workspace/branches/0b31c929-160d-4669-9a12-f46d8a1130be/independent_enumeration.py; output independent_enumeration.out in the same directory. Tested 2,044 inputs and 1,071 realized fibers through n=10, plus all ternary outputs through n=7; maxima were 2,2,4,6,10,16,26,42,68, all uniquely central."
+      ],
+      "rationale": "For the labeled reflexive path with the same relation for both approximations, the endpoint output classifies a two-bit window as 00, 11, or mixed; the interior output classifies a three-bit window as 000, 111, or mixed. Fixing the two-bit states determines every compatible extension; checking the six nonconstant triples gives precisely M_*. The product accepts exactly the inputs for the target word, including unattained words and the empty product when n=2. For n>=3, after the first interior symbol the state vector is at most (1,1,1,1), attaining it only for an all-star prefix. The upper envelope s_k=(F_k,F_{k+1},F_{k+1},F_k) propagates since s_k M_*=s_{k+1} and a forced symbol kills both mixed coordinates. Each incoming state contributes to exactly one mixed coordinate of M_*, so any strict deficit reduces the next mixed total and cannot vanish. At the final endpoint a forced symbol accepts at most F_{n-2}, strictly less than 2F_{n-1}, while a star attains 2F_{n-1} only after all stars. Independently, the first and last runs must be singleton and the remaining runs have lengths 1 or 2, giving F_{n-1} compositions per initial bit. The n=2 outputs are 00, 11 and ** with counts 1,1,2. This proves the transfer count and the unique fully uncertain maximum for all n>=2.",
+      "residual_risks": [
+        "Linear time here means O(n) fixed-state arithmetic operations. Integer counts can have Theta(n) bits, so the product does not show O(n) bit complexity. The finite tests are corroboration only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The forest-wide theorem applies to every forest without isolated vertices using exactly the same approximation operators. It gives central count 2^c e(T), a sharp deficit for noncentral outputs, and the complete edge-cover count with anchor parity for all fibers.",
+          "The same-day bouquet theorem gives the whole spectrum and a central maximum of 2 times the product of (2^{s_i}-1), but for clique bouquets rather than general paths."
+        ],
+        "reasoning": "The later forest result genuinely dominates the path maximum theorem. The bouquet result is on the same observable but covers at most small path instances (P2 or P3 with an appropriate center), not arbitrary path lengths. Sharing a catalogue date does not determine priority.",
+        "searches": [
+          "Published forest-wide ambiguity gap for closed-neighborhood rough observations, f889b5906330",
+          "Published rough observation spectra of clique bouquets, 2b287c9e586f"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1303.6332 and arXiv:1811.09609",
+        "Published Resultary records f889b5906330, e0bbe5363d74, 2b287c9e586f and d72c6473df5e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a path, covers are edge-bit strings with the end edges included and no consecutive missing edges. The count is F_{n-1}, including the one-edge case, so the forest extremum specializes directly to 2F_{n-1} and its stronger one-half gap proves uniqueness.",
+          "The transverse-read theorem gives a maximum F_{m+3} attained by two raw read vectors, all 1 or all 2. All-star path outputs allow a varying raw sum at even centers and impose additional unobserved channel conditions."
+        ],
+        "reasoning": "The forest theorem mechanically implies the extremal claim when available and determines every fiber by a different description, but does not state the displayed four-state product. The maximum of individual raw-sum fibers gives no bound of the required strength on the appropriate unions and intersections of such fibers, and matching Fibonacci indices do not imply path rigidity.",
+        "searches": [
+          "Forest-wide ambiguity gap f889b5906330, Finding and Proof §§1–3",
+          "Binary transverse-read d72c6473df5e, model and extremal theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Example 4.3 uses exactly the closed-neighborhood tolerance on a five-vertex path to show nonexistence of a lattice join/meet. It studies the image poset, not the counts of preimages.",
+          "Coarsening 0,3,1/2 of the transverse-read sums to 0,1,* gives only the even-centered interior symbols of the path. It omits the other centers and both endpoints and collapses two distinct sums to one symbol.",
+          "The mixed-operator paper uses (X_E,X^T), not the two operators of the same path tolerance."
+        ],
+        "reasoning": "The known five-vertex example is precisely the same rough map at one n but asks a different question. Coding each observed path neighborhood by a ternary symbol does not turn its fibers into the fixed raw-sum fibers of the channel, nor is it merely a re-labeling of the mixed-equivalence model.",
+        "searches": [
+          "Primary literature: reflexive path tolerance \"rough sets\" path graph approximation \"fiber\" cardinality original subsets rough pairs Fibonacci ambiguity preimage",
+          "Järvinen–Radeleczki arXiv:1303.6332 Example 4.3 and Järvinen–Kovács–Radeleczki arXiv:1811.09609",
+          "Resultary binary (3,2) transverse-read exact record d72c6473df5e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-path census gives the image-size generating function (1+t+t^3+t^4)/(1-t-t^2-t^3); its values 3,7,13,23,... start with the reproduced distinct-output counts, not the maxima.",
+          "The later forest formula is an exact non-tabular family giving every fiber by edge covers and parities; the earlier published channel formula gives F_{m+3} for a raw-sum read channel."
+        ],
+        "reasoning": "The exact-family catalogue check is more decisive than a table for an all-n result. Image size alone does not give the largest inverse fiber, and the raw-sum channel table is for a different observable. The forest formula is a real alternative exact enumeration.",
+        "searches": [
+          "Resultary exact path rough-pair census e0bbe5363d74, Finding and generating-function proof",
+          "Resultary forest exact count f889b5906330 and earlier channel extremal count d72c6473df5e"
+        ]
+      },
+      "rationale": "The contribution is the exact, efficient path-fiber transfer and unique worst-case fiber, not the rough-set construction or the number of distinct outputs. The earlier transverse-read exact result does not imply either path claim. A later forest-wide theorem is genuine stronger coverage of the extremum and an alternate all-fiber count; the later catalogue date is not evidence that an earlier theorem already covered the frozen result. The exact four-state transfer remains a useful path-specific representation.",
+      "residual_risks": [
+        "The inspected later forest theorem has full mathematical coverage of the path maximum, independent of unresolved historical relationships.",
+        "The IEEE channel full texts were not obtained. The available channel statement does not settle what those papers or unindexed rough-set literature may contain."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact small graph and operators, different invariant",
+          "evidence": [
+            "Example 4.3 lists the five closed path neighborhoods and exhibits failures of least upper and greatest lower bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1303.6332",
+          "material_read": "Definitions and Example 4.3 (p. 13), also cited path use at p. 21",
+          "method": "Lawful arXiv PDF passage",
+          "title": "Rough sets determined by tolerances",
+          "trigger": "Exact same path tolerance in the foundational literature"
+        },
+        {
+          "assessment": "Different pair of relation operators",
+          "evidence": [
+            "The pair uses the equivalence E for one operator and tolerance T for the other."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1811.09609",
+          "material_read": "PDF pp. 1 and 3, offsets 300–1681 and 10600–12223",
+          "method": "Lawful OA passages",
+          "title": "Defining rough sets using tolerances compatible with an equivalence",
+          "trigger": "Potentially equivalent rough approximation framework"
+        },
+        {
+          "assessment": "Later catalogue record; covers path extremum and exact fiber counts by specialization",
+          "evidence": [
+            "No isolated vertices, central count 2^c e(T), and all other fibers at most 2^-s times that count; the exact formula uses edge covers subject to prescribed path parities."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-forest-wide-ambiguity-gap-for-closed-neighborhood-rough--f889b5906330",
+          "material_read": "RESULT.md offsets 0–4469, Finding, hypotheses and edge-cover proof",
+          "method": "Published local mirror",
+          "title": "A sharp forest-wide ambiguity gap for closed-neighborhood rough observations",
+          "trigger": "Stronger result for a class containing all paths in scope"
+        },
+        {
+          "assessment": "Image census rather than multiplicity",
+          "evidence": [
+            "The generating function counts the distinct pairs, not how many inputs map to each one."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-tribonacci-rough-pair-census-for-closed-neighborhood-tolerance--e0bbe5363d74",
+          "material_read": "RESULT.md Finding and generating-function proof, offsets 0–6571",
+          "method": "Published local mirror",
+          "title": "A tribonacci rough-pair census for closed-neighborhood tolerances",
+          "trigger": "Same exact path observable and recurrence"
+        },
+        {
+          "assessment": "Different graph family; no arbitrary path implication",
+          "evidence": [
+            "The theorem uses cliques meeting at a common vertex and gives a product rather than the path recurrence."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-rough-observation-spectra-of-clique-bouquets-reconstruct-every-b--2b287c9e586f",
+          "material_read": "RESULT.md Finding, assumptions and proof, offsets 0–3869",
+          "method": "Published local mirror",
+          "title": "Rough observation spectra of clique bouquets",
+          "trigger": "Same day, same rough-set operator and unique fully uncertain maximum"
+        },
+        {
+          "assessment": "Analogous extremal count, not equivalent under natural coarsening",
+          "evidence": [
+            "The channel reads the raw Hamming sums of every second triple and has two constant maximizing read vectors."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-fibonacci-worst-case-ambiguity-of-the-binary-3-2-transverse-read--d72c6473df5e",
+          "material_read": "RESULT.md offsets 0–3147 and 3300–5815",
+          "method": "Published local mirror",
+          "title": "Fibonacci worst-case ambiguity of the binary (3,2) transverse-read channel",
+          "trigger": "Earlier exact Fibonacci fiber maximum with overlapping binary triples"
+        },
+        {
+          "assessment": "No external paper-wide coverage verdict from inaccessible text",
+          "evidence": [
+            "Statement-level comparison of the channel extremum uses the accessible exact channel record instead."
+          ],
+          "identifier_or_url": "DOI 10.1109/ISIT45174.2021.9518271 and journal successor cited in d72c6473df5e",
+          "material_read": "Bibliographic references in the exact channel record; no primary full-text passage relied on",
+          "method": "Lawful DOI requests and identified open-copy search; full text not obtained",
+          "title": "Coding for Transverse-Reads in Domain Wall Memories and Transverse-Read-Codes for Domain Wall Memories",
+          "trigger": "Primary literature behind the closest channel analogy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings and Proof",
+        "Published distinct-path-pair census and forest-wide comparison"
+      ],
+      "rationale": "Worst inverse ambiguity is a natural measure of information lost by the rough approximation map, genuinely distinct from counting its image. The result identifies an exact extremal output and exponential rate for all path lengths, proves strict rigidity, and supplies a compact algorithm for arbitrary output words, including impossible observations. That is a useful baseline for more general graphs and a sharper answer than a path image census.",
+      "residual_risks": [
+        "The four-state product counts one specified inverse fiber; it is not a complete classification by fiber size or a claim of linear bit cost."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

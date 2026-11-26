@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:22:37.107542Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof §§1–7 and variance/scope conventions",
+        "Frozen VERIFICATION.md and check_brownian_design.py (inspected without executing uploaded code)",
+        "Independent replay: /workspace/review-evidence/check_brownian_algebra.py"
+      ],
+      "rationale": "Independently integrated the two Brownian covariance sections, inverted the noisy two-observation matrix and reproduced all boundary derivative identities and the cubic expansion by symbolic algebra (python /workspace/review-evidence/check_brownian_algebra.py). A measurement at zero is pure noise and an extra positive-time observation yields a strictly positive integrated reduction; the ordered split derivative and terminal inward directions eliminate every remaining boundary point, including (1,1). Compactness and uniform convergence of the gain divided by ε=1/η localize every maximizer at (1,1). Uniform Hessian control near that corner makes the ordered gain strictly concave for small ε and thus gives global uniqueness in that regime. At the interior stationary point, the derivatives of the order-ε² term at the corner are −1 and −1/3, while A′(t)=2t(1−t), yielding endpoint deficits ε/2 and ε/6 with O(ε²) errors. The cubic gain coefficient is 8/3+u−u²+v/3−v² for bounded rescaled deficits u,v; substituting those asymptotics gives 53/18. On the diagonal a single observation of variance η/2 is sufficient; differentiating 2εA(t)/(1+2εt) gives the optimal deficit ε/3+O(ε²) and the coefficient 26/9. Their difference is 1/18, comparing optimized designs rather than a fixed replication benchmark. Uniform analytic remainders and the localization justify using the corner expansion at the optima.",
+      "residual_risks": [
+        "All-noise strict interior and distinctness do not give all-noise uniqueness. The threshold for sufficient noise is not quantified. No extension to other losses or noise structures is assessed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ji–Müller primary opening describes trajectory recovery and noisy pilot data. The Mukherjee note introduces exact process observations at distinct sites, with asymptotic design sequences.",
+          "The product covariance paper is a real broader candidate since min(x,y)=x on the ordered region. No theorem passage for its precise observation assumptions was recovered."
+        ],
+        "reasoning": "A general integrated trajectory-design criterion does not determine this global optimizer. Exact-observation asymptotics with growing sample count are not the fixed-two, large-error problem. No whole-document exclusion is asserted for inaccessible work.",
+        "searches": [
+          "Ji–Müller arXiv:1604.05375, especially cited §2; Mukherjee product covariance DOI 10.2307/3315904; Mukherjee exact-observation note and dissertation; Müller-Gronbach DOI 10.1016/0378-3758(95)00017-8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4293b65a498d, 689f315478aa, 15716724ea95, 2fe7f897a316",
+        "Ji–Müller and Mukherjee primary opening pages",
+        "Product covariance paper, thesis and Müller-Gronbach retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The singular high-noise optimizer is driven to the endpoint because the leading marginal variance-reduction function A is maximal there. The next-order cross term changes the two gradients to unequal constants."
+        ],
+        "reasoning": "Generic Gaussian conditioning supplies an objective but not the sign for every η, localization and uniqueness, or the comparison to optimally relocated replication. Replacing two independent colocated observations by one with half the noise gives only the constrained half of the sharp comparison.",
+        "searches": [
+          "Mukherjee author manuscript p. 1; Ji–Müller arXiv opening; four local analogue records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 4293b65a498d gives a parallel type of result for stationary exponential (OU) covariance. 689f315478aa gives two noisy bridge path sensors, and 15716724ea95 targets the bridge integral. 2fe7f897a316 treats one integrated-Wiener sensor, including Brownian as order zero."
+        ],
+        "reasoning": "The OU endpoint/variance geometry differs; bridge covariance subtracts st and does not preserve posterior risk at common nodes. A bridge integral loss is a different functional, and a one-sensor theorem does not treat optimal splitting. The comparison is based on scope, not same-day posting order.",
+        "searches": [
+          "Local Resultary: two noisy Brownian path sensors; strict interior, noncollocation, high-noise separation, collocation penalty",
+          "Published literature lookups for noisy/fixed two-site and product covariance Brownian path design"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Single-sensor 2fe7f897a316 lists the Brownian 1/(6η) endpoint offset, but not the joint offsets or the gain comparing the two optimized configurations. No independent exact table for the reported two-site risk was identified."
+        ],
+        "reasoning": "A matching one-site constant can occur without entailing the two-site optimum; two observation covariance inversion introduces a shared cross term. Product covariance tables for exact sampling, to the extent identified through the note, are not these noisy comparison data.",
+        "searches": [
+          "Local Resultary lookups for the exact Brownian split coefficients, replicated gap, and the one-versus-two sensor boundary layers; published exact product covariance design reference"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the fixed-two-sensor Brownian theorem, with the general Gaussian design criterion credited. Related results change the covariance, the sensor count, the target, or the observation/noise regime; their verified statements do not imply the joint conclusion.",
+      "residual_risks": [
+        "Mukherjee's 2003 full text and dissertation, Ji–Müller §2 and matching catalogue mirror passages were not directly inspected. Best-of-knowledge finding, not absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified opening describes broader framework; no whole-paper exclusion",
+          "evidence": "Opening describes design of time locations for trajectory recovery and noisy pilot data.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.05375",
+          "material_read": "Primary opening page; §2 targeted but not retrieved",
+          "method": "Open PDF preview and lawful OA passage attempt",
+          "title": "Optimal Designs for Longitudinal and Functional Data",
+          "trigger": "Noisy trajectory-recovery design framework"
+        },
+        {
+          "assessment": "Different exact-observation asymptotic problem",
+          "evidence": "The setup observes Y(t_i) at distinct sites and concerns asymptotically optimal sampling design sequences.",
+          "identifier_or_url": "https://websites.umich.edu/~bhramar/research/synote1.pdf",
+          "material_read": "Author manuscript p. 1",
+          "method": "Open primary PDF text preview",
+          "title": "A Note on Sampling Designs for Random Processes with No Quadratic Mean Derivative",
+          "trigger": "Exact process sampling and product covariance comparison"
+        },
+        {
+          "assessment": "Named residual priority risk; neither coverage nor exclusion verified",
+          "evidence": "The title names a genuinely relevant covariance class; the exact/noisy assumption could not be checked in this paper itself.",
+          "identifier_or_url": "https://doi.org/10.2307/3315904",
+          "material_read": "Citation only; no exact theorem text returned",
+          "method": "Lawful DOI and JSTOR route attempts",
+          "title": "Exactly optimal sampling designs for processes with a product covariance structure",
+          "trigger": "Brownian covariance is of ordered product form"
+        },
+        {
+          "assessment": "Scope not fully checked",
+          "evidence": "No thesis theorem available for comparison.",
+          "identifier_or_url": "https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+          "material_read": "Frozen catalogue-level reference; no decisive primary text",
+          "method": "Lawful institutional route attempt",
+          "title": "Optimal designs for estimating the path of a stochastic process",
+          "trigger": "Related thesis could contain a finite exact-design result"
+        },
+        {
+          "assessment": "No decisive theorem passage obtained",
+          "evidence": "No whole-text conclusion based on the bibliography.",
+          "identifier_or_url": "https://doi.org/10.1016/0378-3758(95)00017-8",
+          "material_read": "Bibliographic material only",
+          "method": "Lawful retrieval attempt",
+          "title": "Optimal designs for approximating the path of a stochastic process",
+          "trigger": "Prior stochastic-path design theorems"
+        },
+        {
+          "assessment": "Different covariance, prediction loss or number of sensors",
+          "evidence": "The single-sensor Brownian result specifically gives one endpoint deficit; the bridge and OU records change the kernel or target.",
+          "identifier_or_url": "Resultary 4293b65a498d, 689f315478aa, 15716724ea95, 2fe7f897a316",
+          "material_read": "Local indexed statement summaries; mirror passages unavailable",
+          "method": "Local Resultary and attempted matching source retrieval",
+          "title": "Noisy two-sensor OU and Brownian bridge design; single-sensor integrated Wiener boundary layer",
+          "trigger": "Closest indexed design/penalty statements"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Assumptions; independent derivative and expansion proof"
+      ],
+      "rationale": "The design question has a nontrivial competition: at leading order maximal noise drives both measurements to the same endpoint, but for every finite noise the exact optimum is distinct and strictly interior. The sharp split, uniqueness in the singular regime and optimized cubic risk gap quantify the limits of replication rather than simply computing an objective at a few locations.",
+      "residual_risks": [
+        "Not a design theorem for general Gaussian processes, unequal noise or more than two sensors."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

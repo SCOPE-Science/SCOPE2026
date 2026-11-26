@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:43:04.331905Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–62, coefficients.json, VERIFICATION.md line 21 and verify.py (inspected, not executed)",
+        "Faber–Grantham–Howe arXiv:2207.14307, Theorem 1.1, Table 1 and §8",
+        "/workspace/branches/5e8e2d53-aaf6-4b90-9b99-ed13cc37322d/independent_cartier.py and independent_cartier_output.txt, output lines 1–22. Replay: use python3 on independent_cartier.py with the assigned coefficients.json path as its sole argument."
+      ],
+      "rationale": "Count the arithmetic isomorphism classes separately over each base field, as in the published census; the invariant computed on each is the geometric a-number, not a tally of distinct geometric classes. The plane-quartic sequence identifies H^1(O_C) with H^2(O_P²(−4)), with Čech basis represented by the reciprocals of X^(v_X+1)Y^(v_Y+1)Z^(v_Z+1) for the three degree-one basis vectors v. Frobenius on these representatives takes the p-th power and multiplies by F^(p−1); extracting the surviving basis monomials gives the record’s displayed matrix up to transpose. Cartier duality and invariance of rank under scalar extension and field Frobenius give a=3−rank(H). A fresh exact computation of the supplied coefficients reproduced every per-field row and the totals (179,32,4,0), as well as the four rank-one matrices at (3,5), (9,25), (9,26), (9,27). Their encodings give the stated equations, including the conjugate pair under r↦r³. Invertible H is equivalent to ordinarity; no a=3 excludes a superspecial Jacobian. The published theorem provides completeness and the per-field row counts agree independently with its Table 1.",
+      "residual_risks": [
+        "The independent computation tests the attached transcription, not the upstream Magma files byte for byte. The upstream supplement was not retrievable for a 215-equation comparison. This review relies on the provenance of the furnished coefficients and the published classification for their smoothness, nonisomorphism over each base field and completeness; matching the field counts alone does not prove those facts about the transcription.",
+        "One model counts over both F_2 and F_32, as the source notes. The distribution must not be advertised as 215 distinct geometric classes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Faber–Grantham–Howe classify the same field-specific excessive curves and give the supporting equations, but the inspected article’s enumeration does not provide Cartier ranks.",
+          "73ce32174c78 concerns coefficient-marked Ciani quartics in characteristic three, with exact Cartier-related rank strata; the families intersect (the displayed F_9 exceptions have Ciani form), but the stratum counts do not identify the distribution over all the excessive arithmetic classes."
+        ],
+        "reasoning": "Classification of curves is prior, as are general coefficient formulas and rank results for overlapping subfamilies. None of those inspected supplies the full computed census across the listed fields.",
+        "searches": [
+          "Faber–Grantham–Howe arXiv:2207.14307, Theorem 1.1 and §8",
+          "Resultary 73ce32174c78, characteristic-three Ciani quartic rank strata"
+        ]
+      },
+      "checked_sources": [
+        "Faber–Grantham–Howe arXiv:2207.14307, Theorem 1.1, Table 1, §8; upstream supplement attempted only",
+        "Resultary f87748594236 (self), 73ce32174c78 (not equivalent)",
+        "Frozen rank census and independent exact output"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A Weil polynomial can give p-rank and can identify ordinary cases. Stable rank under iterated semilinear Frobenius is not, in general, the first-step rank, whose corank is the a-number.",
+          "The separate matrix extraction and rank census over 215 specified models determines, in particular, which nonordinary classes have a=2 rather than a=1."
+        ],
+        "reasoning": "Prior equations are the inputs for computing any invariant of these models, but not a table mechanically identifying this exact classification from the published field counts or the cited isogeny data. The classification plus an executed, finished exact rank computation gives an additional invariant.",
+        "searches": [
+          "Faber–Grantham–Howe Table 1 and §8; comparison of first Hasse–Witt rank with stable Frobenius rank; Resultary 73ce32174c78"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary title hit f87748594236 is the assigned record, not another result. Article Table 1 counts classes by field; the Cartier occurrence located in the article is unrelated to the rank census."
+        ],
+        "reasoning": "An equivalent result could list first Hasse–Witt ranks, Cartier nullities, or EO types from which the a-numbers can be read. No inspected independent result gives those data on the full classified family. Keyword misses alone do not establish that no such result exists.",
+        "searches": [
+          "Resultary: Cartier a-number, Hasse–Witt rank, Ekedahl–Oort data for all 215 excessive genus-three quartics",
+          "Faber–Grantham–Howe full article searches: a-number, Hasse-Witt, Ekedahl, p-rank and Cartier"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 agrees on all base-field sizes and numbers of classes. Section 8 describes the model enumeration; the supplement is described as including models and real Weil/automorphism data, but the exact upstream file was not readable in this review.",
+          "The related Ciani rank table counts a different parameter space; the supplied attachment plus our independent output is evidence for the new tally, not evidence of priority."
+        ],
+        "reasoning": "The inspected public table lacks a rank or a-number column. It is not possible to rule out an uninspected supplement or an independent EO/database entry, so the best-of-knowledge originality claim is explicitly limited.",
+        "searches": [
+          "Faber–Grantham–Howe Table 1 and §8; AllGenus3.magma version 1.02 upstream supplement",
+          "Resultary exact census and characteristic-three rank-table searches"
+        ]
+      },
+      "rationale": "Supported for the complete field-by-field Cartier rank and exact geometric a-number distribution on the established excessive-quartic census, including the four rank-one cases. The supplied models, base-field counts, and the general rank algorithm are not new. The closest inspected tables do not give the new rank distribution, and Weil/isogeny data do not generally determine the single Cartier rank.",
+      "residual_risks": [
+        "An uninspected rank or EO table and contents beyond the article’s description of the supplement remain possible. A deferred external lookup supplied no evidence and is not a novelty argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verifies base-field scope and row counts; provides prior census of curves, not the claimed rank distribution.",
+          "evidence": [
+            "Offsets near 3939, 10321, 60412–61151; one curve contributes over both F_2 and F_32."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2207.14307",
+          "material_read": "Theorem 1.1 p. 3, Table 1 p. 5 and §8 p. 20, including the double-counting footnote",
+          "method": "Bounded primary OA passages and targeted article term checks",
+          "title": "On the Maximum Gonality of a Curve over a Finite Field",
+          "trigger": "Exact same excessive quartic classes and completeness"
+        },
+        {
+          "assessment": "Precise row-wise authentication and the file’s full schema were not independently confirmed.",
+          "evidence": [
+            "§8 identifies the list of all 215 models; lawful access attempts did not return the script text."
+          ],
+          "identifier_or_url": "https://github.com/RationalPoint/excessive/blob/main/scripts/AllGenus3.magma",
+          "material_read": "The article’s account in §8; the exact script contents were unavailable",
+          "method": "Bounded OA/local lookup and alternate raw/CDN retrieval attempts",
+          "title": "AllGenus3.magma",
+          "trigger": "Exact data provenance and possible preexisting invariant columns"
+        },
+        {
+          "assessment": "The rank strata are for marked Ciani parameters, not arithmetic isomorphism classes of all excessive quartics.",
+          "evidence": [
+            "Characteristic-three family only, with restrictions and counts on coefficients rather than the gonality-four census."
+          ],
+          "identifier_or_url": "73ce32174c78",
+          "material_read": "Finding and scope",
+          "method": "Resultary lookup and bounded mirror passages",
+          "title": "Normal crossings nonordinary locus and exact rank counts for characteristic-three Ciani quartics",
+          "trigger": "Potential exact Cartier/Hasse–Witt rank table for a material overlapping family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Faber–Grantham–Howe, Theorem 1.1 and Table 1; Frozen RESULT.md, Finding and limitations; independent exact output lines 1–22."
+      ],
+      "rationale": "The family is an established, finite census of genus-three curves with maximal gonality over their base fields. A geometric p-torsion invariant on every arithmetic class is a natural refinement that is not supplied by the class counts. The identification of all four rank-one exceptions, and exclusion of rank zero, give precise examples and exclusions usable in studying nonordinary Jacobians with this gonality; neither an arbitrary sample nor a routine extraction from a known a-number column would do so.",
+      "residual_risks": [
+        "No full EO, Newton-polygon or p-torsion classification is asserted. Value is judged for the exact invariant and exceptions on the field-specific census."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

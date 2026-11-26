@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:02:43.598254Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, line 8 and proof lines 39–79",
+        "/workspace/repairs/3/RESULT.md, full corrected file",
+        "Frozen CHECK.py, lines 1–55",
+        "Frozen requirements.txt and VERIFICATION.md"
+      ],
+      "rationale": "Frozen Finding line 8 did not specify that the equilateral triangle must be on a great circle. Under the ordinary Euclidean meaning the unqualified equality assertion is false: take three equally spaced points at height 1/2 on the sphere, with horizontal radius sqrt(3)/2; their three sides are all 3/2 and the perimeter is 9/2, not 3sqrt(3). The frozen proof already identifies the right locus. The complete repaired RESULT.md states it explicitly; indeed sum ell_ij^2=9-||sum X_i||^2 and equality in Cauchy–Schwarz require equal lengths and zero centroid, equivalent to the three inner products all -1/2. For the remaining claim the reduction in (u,v,s_1) is continuous on a compact product and has that unique maximum at (-1/2,-1/2,-1); hence the entire high-perimeter event enters the nondegenerate chart. Conditioning on the frame selected from the first two points leaves the last point uniform. The resulting f_d(u)f_d(v) density times the single-hemisphere surface Jacobian divided by area(S^{d-2}) is continuous and positive at the maximum. Independently expanding w+1/2 with a=u+1/2 and b=v+1/2 gives -a-b+2(a^2+ab+b^2)/3+3||eta||^2/8+O(||y||^3). The chord expansion then gives deficit (a^2+ab+b^2)/sqrt(3)+sqrt(3)||eta||^2/8+O(||y||^3). The 2x2 Hessian block has determinant 1, and the remaining eigenvalues are sqrt(3)/4. In Hessian coordinates the event is uniformly bounded and its indicator tends off the unit sphere to the unit-ball indicator. The local density at the maximum times 2^(d/2) times ball volume divided by sqrt(det H_d) simplifies to the stated C_d, including d=3,4. The normalized densities converge in L1; the deficit differs from squared mark radius by O(sqrt(epsilon)) on the event, yielding joint weak convergence to the mark and its squared radius, which is Beta(d/2,1). No joint TV assertion is needed. The unchanged probabilistic result and the corrected equality characterization both pass.",
+      "residual_risks": [
+        "Frozen source and its overbroad literal wording remain unchanged as evidence; the delivered assessment applies to the complete corrected file.",
+        "The uploaded script and finite quadrature were inspected, not rerun; the fixed-d limit and TV conclusion follow analytically."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Miles's Isotropic Random Simplices full text was not available; it is distinct from the spherical surface joint-density paper credited by Finch–Jones.",
+          "Koroleva–Nikitin prove the unit-circle three-point endpoint with coefficient 4/(3pi) and exponent 1, the d=2 analogue."
+        ],
+        "reasoning": "A stronger theorem specifying the same sampling, statistic and mark would count as coverage even if it did not print the constant separately. Neither the inspected planar theorem nor the available evidence for the Miles papers establishes that broader coverage.",
+        "searches": [
+          "Miles, Isotropic Random Simplices, DOI 10.2307/1426176, direct and alternate lawful routes",
+          "Miles, Random points, sets and tessellations on the surface of a sphere, via Finch–Jones reference [1]",
+          "Koroleva–Nikitin arXiv:1301.1360, Lemma A"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1009.5329 and arXiv:1301.1360",
+        "Le DOI 10.2307/1427637, publisher abstract",
+        "Miles Sankhyā A 33 citation in Finch–Jones, and DOI 10.2307/1426176 limited access",
+        "Resultary 4e61cd3549f1, ae5faf7cf86a and 7cf2c9011deb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The geodesic maximum locus allows side-angle variation at fixed sum; the chord maximum requires the specific great-circle equilateral shape. Consequently its local deficit also penalizes changes of the two in-circle gaps.",
+          "The spherical-code event requires each angular separation above a threshold; its local region and stated scaling differ from the ellipsoid obtained from the chord sum.",
+          "The planar result uses no higher-dimensional transverse law. The exact old joint-side-density route for d=3 is credible but the primary formula was not read."
+        ],
+        "reasoning": "An older marginal law or different near-optimal event cannot be used as a substitution to recover the full chord law and mark. General local quadratic-volume asymptotics explain the proof method but do not supply its problem-specific Hessian, normalization and resulting distribution by themselves.",
+        "searches": [
+          "Finch–Jones arXiv:1009.5329, pp. 1–2 and p. 31 reference [1]",
+          "Resultary 4e61cd3549f1, ae5faf7cf86a, 7cf2c9011deb exact Findings",
+          "Le publisher abstract; Koroleva–Nikitin Lemma A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same chord statistic can be written 2 sum sin(a_ij/2) in shortest-arc side lengths. Finch–Jones p. 1 state that joint angle/side densities are known and cite Miles's spherical surface paper.",
+          "Le's accessible abstract gives a labelled shape density in an S^2 cap model.",
+          "A geodesic-perimeter marginal uses sum a_ij; neither that sum nor the minimum angle determines chord perimeter."
+        ],
+        "reasoning": "An exact joint shape density, unlike a perimeter marginal, is genuinely applicable to the chord function if the sphere sampling hypotheses match. It could supply part of the result but still requires the correct near-endpoint region and chart/mark; the accessible passages do not show the full implication.",
+        "searches": [
+          "Le, DOI 10.2307/1427637, Cambridge publisher abstract and OA routes",
+          "Finch–Jones, arXiv:1009.5329, trivariate side-length-density references",
+          "Resultary spherical triangle chord versus angular perimeter and spherical code endpoint"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact circle endpoint at exponent 1 is known and outside d>=3.",
+          "Resultary 4e61cd3549f1 gives geodesic endpoint 2pi with exponent (d-2)/2 and a different mark. The distinct same-day ae5faf7cf86a uses S^2 geodesic perimeter under dipole/quadrupole densities; 7cf2c9011deb uses minimum angular separation with exponent (d+2)/2 and inner-product slack marks."
+        ],
+        "reasoning": "The catalogue formulas are material neighbors but integrate different events or dimensions. Same-date entries are assessed on statements rather than presumed priority; no independent exact table or theorem for the repaired all-d chord law was found among those inspected.",
+        "searches": [
+          "Resultary complete-sphere extremal chord perimeter, geodesic marked endpoint and three-point spherical code comparison",
+          "Koroleva–Nikitin, Lemma A exact planar constant"
+        ]
+      },
+      "rationale": "For the corrected result, the distinct supported claim is the explicit complete-sphere Euclidean chord coefficient for every fixed d>=3 together with the rescaled Euclidean shape's conditional TV law. The deterministic extremum and the dimension-two perimeter endpoint are not new. Earlier exact spherical triangle shape densities are a real implication risk, especially in d=3, but the available passages do not establish coverage of the all-dimensional theorem or of its exact mark.",
+      "residual_risks": [
+        "Le's complete shape-density article and the two Miles full texts were unavailable. In particular, the known exact side density could yield at least a d=3 chord-law consequence. No claim is made that those unavailable works lack such coverage.",
+        "Historical priority for explicit chord-endpoint guarantees is not certified. The known maximum, planar probability and topic-related catalogue work are not credited as part of the distinct claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant cap model on S^2; complete-sphere specialization and implications unresolved",
+          "evidence": "The abstract describes labelled random spherical triangles from independently uniform vertices in a cap bounded by a small circle.",
+          "identifier_or_url": "https://doi.org/10.2307/1427637",
+          "material_read": "Cambridge public abstract, publisher-search offset 9650; article pp. 581–594 not retrieved",
+          "method": "Public publisher abstract; lawful OA DOI attempts via direct and alternate routes",
+          "title": "Random spherical triangles II: Shape densities",
+          "trigger": "Exact shape density potentially implying chord endpoint in dimension three"
+        },
+        {
+          "assessment": "Different perimeter marginal; joint density potentially useful in d=3",
+          "evidence": "The paper sets tau=a+b+c<=2pi, reports divergence of its density at 2pi, and explicitly credits Miles for known trivariate side-length densities.",
+          "identifier_or_url": "https://arxiv.org/pdf/1009.5329 ; Miles, Sankhyā A 33 (1971) 145–174",
+          "material_read": "Finch–Jones p. 1 offset 2965, p. 2 offset 5905 and p. 31 offset 88953 reference [1]; Miles's primary joint-density formula not retrieved",
+          "method": "Located passages in Finch–Jones open primary PDF, with its exact bibliographic citation for joint density",
+          "title": "Random Spherical Triangles; Random points, sets and tessellations on the surface of a sphere",
+          "trigger": "Geodesic competing observable and exact joint-side-density route"
+        },
+        {
+          "assessment": "Coverage unresolved; not the Miles paper that Finch–Jones cite for the joint sides",
+          "evidence": "The attempted routes did not yield readable full text.",
+          "identifier_or_url": "https://doi.org/10.2307/1426176",
+          "material_read": "Bibliographic record; no primary theorem passage retrieved",
+          "method": "Lawful DOI direct and alternate access, publisher and JSTOR attempts",
+          "title": "Isotropic Random Simplices",
+          "trigger": "Plausible general simplex law giving the claimed specialization"
+        },
+        {
+          "assessment": "Exact coverage of the d=2 analogue only",
+          "evidence": "The probability of perimeter at least 3sqrt(3)-epsilon is asymptotically 4epsilon/(3pi).",
+          "identifier_or_url": "https://arxiv.org/pdf/1301.1360",
+          "material_read": "Lemma A, p. 3 offset 10100, specialized to three vertices",
+          "method": "Located open primary PDF passage",
+          "title": "U-max-Statistics and Limit Theorems for Perimeters and Areas of Random Polygons",
+          "trigger": "Earlier sharp endpoint of the same chord statistic on a circle"
+        },
+        {
+          "assessment": "Geodesic sum or extremal minimum angle, not Euclidean chord sum",
+          "evidence": "The geodesic result has exponent (d-2)/2, and the spherical-code result (d+2)/2; their marked variables are distinct. The dipole/quadrupole result is for shortest-arc perimeter on S^2.",
+          "identifier_or_url": "Resultary 4e61cd3549f1, ae5faf7cf86a, 7cf2c9011deb",
+          "material_read": "Published Findings, local mirror offsets 0",
+          "method": "Configured Resultary lookup and bounded local mirror inspection",
+          "title": "Dyson circular shape laws at maximal perimeter; dipole-quadrupole spherical triangle perimeter; three-point spherical-code endpoint",
+          "trigger": "Closest high-dimensional and distinct same-day spherical shape/endpoints"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md, Finding and fixed-d local analysis",
+        "Finch–Jones and the all-dimensional Resultary geodesic statement for contrast"
+      ],
+      "rationale": "The repaired conclusion answers a concrete extreme-value question for the elementary Euclidean perimeter of an isotropic spherical triangle. Tail calibration changes qualitatively from the intrinsic perimeter: the angular gap degrees of freedom are penalized at the chord optimum, producing the extra power of epsilon, not just a change of units. The explicit coefficient and anisotropic conditional mark describe both how rare the event is and what the near-maximizing sample looks like. Clarifying the maximum locus preserves these substantive results.",
+      "residual_risks": [
+        "No joint TV limit for deficit and mark, uniformity in dimension, nonuniform sampling, or finite-threshold accuracy is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

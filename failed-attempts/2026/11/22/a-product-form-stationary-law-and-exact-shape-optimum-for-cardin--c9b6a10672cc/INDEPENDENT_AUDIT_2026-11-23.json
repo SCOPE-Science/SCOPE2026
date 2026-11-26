@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:52:53.338743Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and proofs 1–4; VERIFICATION.md; verify.py inspected read-only",
+        "Exact signed-exponential kernel and occupation computation in the rationale"
+      ],
+      "rationale": "Independently reconstructed the full invariant distribution using the chain of positions at redraws, avoiding any generator-core assumption. Put a=v/γ for one axis. From the normalized measure (dx+aδ₀+aδ_L)/(L+2a), a positive clipped flight of exponential duration has interior density [1−exp(−y/a)+exp(−y/a)]/(L+2a): the second term comes from the lower atom. It cannot leave an atom at 0 and has mass 2a/(L+2a) at L. Reflection gives the negative flight, and the fair-sign average preserves the original scalar measure. Every axis update therefore preserves the product, and so does the arbitrary-weight mixture. The mean occupation of each flight is obtained by integrating over ages s with density γ exp(−γs), since the durations are independent and exponential; the same signed-flight pushforwards give the heading-resolved law at an ordinary stationary time. This checks both wall and corner normalizations. A specified succession of long positive runs has positive probability independent of the initial state and resets every coordinate to the upper corner, proving fixed-time minorization and uniqueness. The outward-heading occupation gives force Nζv_i(w_i/2)·2a_i/(L_i+2a_i) on that face; division by V/L_i gives the stated P_i. Integrating force gives the log work potential. In log-lengths the fixed-volume constraint is affine and the Hessian strictly positive; the strictly increasing scalar product ∏ℓ_iλ/(D_i−λ) runs from zero to infinity, guaranteeing a unique stationary point and hence global minimum. No Monte Carlo assertion was used as proof.",
+      "residual_risks": [
+        "All conclusions use positive speeds and weights, a state-independent Poisson full redraw, and the hard clipped flow. They do not establish trajectory independence, a result for other flight-time laws, or higher-dimensional sphere-heading behavior."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Component-wise invariant transitions fix the joint target if they preserve the corresponding conditional law, and mixtures thereof preserve it; the uniform scan in the cited paper is one instance. With a product target the conditional laws are the known scalar measures. Arbitrary fixed weights follow simply by linearity. The sphere-heading model in the motivating box reference is different and is not the source of this implication."
+        ],
+        "reasoning": "No novel factorization obstruction remains after identifying the transitions at redraws. This comparison uses the standard invariance argument, not the quantitative scan-gap theorem or any of its extra assumptions.",
+        "searches": [
+          "Kwon arXiv:2610.01121, Introduction and component-wise kernels (1)–(2)",
+          "Frydel arXiv:2410.06393, Eq. (13), scalar solution",
+          "Li–Eichhorn–Dabelow arXiv:2610.01287, model and ideal-gas law"
+        ]
+      },
+      "checked_sources": [
+        "Frydel arXiv:2410.06393",
+        "Li–Eichhorn–Dabelow arXiv:2610.01287",
+        "Kwon arXiv:2610.01121",
+        "Published Resultary index and near comparators"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Writing K_i for the scalar signed-Laplace motion with clipping averaged over signs, the embedded kernel is Σ_i w_i(I⊗⋯⊗K_i⊗⋯⊗I). Since μ_iK_i=μ_i, each summand fixes the tensor product individually. In the standard occupation law, exponential independent holding recovers the signed version of the very same scalar flight; this gives the full active-axis conditional law and all inactive factors, including the outward atom. Multiplying that atom by the stall force and integrating the resulting separable force give the displayed pressure and potential. The shape equation then follows by standard strict convexity in log-lengths."
+        ],
+        "reasoning": "This accounts for the complete claimed static law and its downstream equalities from the prior one-axis exact solution by the usual random-scan and occupation constructions plus elementary algebra and optimization. The implication is not a claim that the older papers print the identical formulas.",
+        "searches": [
+          "Frydel arXiv:2410.06393, jump representation and d=1 solution",
+          "Kwon arXiv:2610.01121, component-wise construction and scan mixture",
+          "Frozen RESULT.md, pressure and shape corollaries"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At each global redraw, the next position update touches only axis i chosen independently with weight w_i. The signed displacement has density γ exp(−γ|z|/v_i)/(2v_i), and is clipped exactly as in Frydel's one-dimensional chain."
+        ],
+        "reasoning": "The apparently coupled system is the random scan of known one-axis kernels after sampling at the independent clock. Exclusivity of instantaneous velocities does not mean interaction between the coordinate kernels at those epochs.",
+        "searches": [
+          "Resultary: cardinal heading run-and-tumble particles rectangle stationary independent position product form discrete directions shape pressure",
+          "Literature: random scan Markov chain coordinate-wise product invariant measures independent coordinate transition kernel Gibbs mixture preserves product distribution",
+          "Frydel arXiv:2410.06393, §§ III–V"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The index located the frozen result itself and nearby slit, harmonic and discrete-heading studies, not a separately identified table of the complete hard-box law. Frydel supplies the exact matching d=1 bulk and wall masses."
+        ],
+        "reasoning": "No separate exact multidimensional table was relied upon. The decisive evidence is an explicit implication, not absence from a literature index. Harmonic trapping and slit models cannot be identified with the entire clipped box.",
+        "searches": [
+          "Resultary: cardinal heading run-and-tumble particles rectangle stationary independent position product form discrete directions shape pressure",
+          "Literature: run and tumble particle four directions square rectangular box exact stationary distribution boundary corner product discrete cardinal run tumble sticky hard walls multidimensional random scan",
+          "Literature: run-and-tumble rectangular box discrete velocity orientations exact stationary distribution hard walls one axis corner probability active particles"
+        ]
+      },
+      "rationale": "The exact hard-box formulas are correct, and neither of the two cited active-particle papers was found to state the combined box result in this form. Nevertheless, its central product and weight-invariance claims are direct random-coordinate lifts of the previously solved scalar clipped Laplace jump kernel. The precise implication is given below, including how the heading law, pressure and shape follow. The objection is prior mathematical coverage by a standard construction applied to an already solved kernel, not a claimed verbatim duplicate, nor an inference from search failure.",
+      "residual_risks": [
+        "An exact rectangular specialized statement could also exist elsewhere; the rejection is not contingent on that possibility.",
+        "The transfer relies on the record's precise memoryless clock and its mutually exclusive coordinate flows. It does not prove a product law for models with other headings or noise."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Matches the component update exactly, not the full multidimensional slit dynamics.",
+          "evidence": "Eqs. (8)–(9) use the exponential-run jump representation; Eq. (13) gives the d=1 Laplace density; the d=1 calculation gives uniform bulk and total adsorbed fraction 2/(2+L/(τv₀)).",
+          "identifier_or_url": "https://arxiv.org/abs/2410.06393",
+          "material_read": "OA full-text sections II–V and d=1 solution; returned-text offsets around 7930, 15832 and 23817–31762",
+          "method": "Exact OA PDF text by bounded offsets",
+          "title": "Run-and-tumble particles in slit geometry as a splitting probability problem",
+          "trigger": "Exact prior scalar kernel and wall law"
+        },
+        {
+          "assessment": "Supplies the established random-scan setting; no claim that it treats active particles.",
+          "evidence": "One-block moves hold other coordinates fixed and use kernels reversible for the appropriate full conditional; equations (1)–(2) form the scan mixtures. Product conditionals and linearity immediately give the invariance used here.",
+          "identifier_or_url": "https://arxiv.org/html/2610.01121",
+          "material_read": "Introduction and component-wise kernel definitions, offsets 0–6429 and 6429–11124",
+          "method": "Exact OA full text",
+          "title": "Cost Comparisons for Random and Deterministic Scans in Component-Wise Markov Chains",
+          "trigger": "Possible broader random-coordinate invariance construction"
+        },
+        {
+          "assessment": "Not the same multidimensional process; not a direct duplicate.",
+          "evidence": "RTP redraws are uniform on the sphere and the model has thermal white noise. Exact d=1 RTP work is distinguished from higher-dimensional numerical RTP comparisons.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.01287",
+          "material_read": "OA Model/Steady-state, Ideal gas law, Conclusions; offsets around 7988, 23867 and 31858",
+          "method": "Exact OA PDF text by bounded offsets",
+          "title": "Ideal gas of active particles in a box",
+          "trigger": "Closest apparent physical model and pressure law"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; exact prior scalar kernel and random-scan comparison above"
+      ],
+      "rationale": "There is a clear physical motivation, and the formulas are useful as a benchmark or explanatory example. But this package, as a finding, adds no independent nonmechanical invariant to the known clipped single-coordinate law: the Cartesian product is preserved by each chosen update, the same flight law supplies its stationary occupation, and the optimization is of the resulting separable log potential with one scalar volume constraint. The record does not identify a further obstruction, a new shape regime, or another substantive question not already settled by those routine steps. The verdict is about research value of this exact package, not the general problem of hard-wall active-particle stationarity.",
+      "residual_risks": [
+        "Possible informative use as a standard solvable benchmark does not establish distinct research content for this frozen claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

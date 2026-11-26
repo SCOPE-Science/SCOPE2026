@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:17:57.001081Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The five labeled zero runs (including prefix and suffix) give a bijection from the 126 length-nine words to weak compositions of 5 into 5 parts; an output corresponds to decrementing one positive coordinate. Distinct inputs share an output iff they differ by a single unit transfer, i.e. their ordinary ℓ1 distance is 2. The checksum changes by a nonzero residue on each transfer. The zero fiber has size (126+4)/5=26 by the root-of-unity filter, since every nontrivial Fourier term has generating function (1−z^5)^{-1}. The frozen verify.py branches exhaustively on membership of still-available vertices; a nonnegative clique cover with total weight W bounds every remaining independent set by W, so its strict rational prunes have the right direction. The supplied verifier and certificate were inspected as evidence, not executed. An independent exact computation at /workspace/branches/d3ebd70a-26e7-4975-ba94-879b723cb5c8/independent_check.py uses the complementary compatibility graph and greedy proper-coloring bounds on the remaining vertex prefixes; choosing vertices in reverse order partitions all extensions by their first chosen candidate. It found no 27-clique and exactly six 26-cliques; all are the orbit from 120 coordinate permutations (saved independent_check_output.txt). The affine group of size 20 preserves the zero checksum since the total is 5; orbit size six makes it the entire stabilizer. This is the normalizer of the cyclic translation subgroup: a normalizing permutation sends translation by 1 to translation by a nonzero a and has form i↦ai+b. Thus the orbit is indexed by the conjugate cyclic order-five subgroups. The result is specific to a single zero deletion and uses a complete finite enumeration, not a numerical optimizer or a general deletion theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zabokritskiy uses the same transfer graph and proves α5(5)=26 in Proposition 9.4. Machacek asks for numbers of maximum independent sets as well as α, but the inspected large-parameter passage does not classify this case."
+        ],
+        "reasoning": "The general graph framework and exact bound explain the known cardinality but do not, by themselves, imply exactly six optima. The earlier exact indexed multiset theorem, rather than these numerical bounds, establishes that coverage.",
+        "searches": [
+          "Zabokritskiy arXiv:2607.13733, profile graph and Proposition 9.4",
+          "Machacek arXiv:2010.11112, definitions and scope"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and cert_six_maxima.json structure",
+        "Independent independent_check.py and independent_check_output.txt",
+        "Resultary 18af41f331e1",
+        "arXiv:2010.11112, 2607.13733 and the mismatched 1103.3309"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The multiset classification states the same coordinate-permutation action and affine redundancy among bijective checksum weights. The α proof supplies the size alone."
+        ],
+        "reasoning": "Transporting the exact multiset result along the run bijection gives every frozen assertion, including orbit and stabilizer. The indexing by Sylow 5-subgroups follows directly because the affine stabilizer normalizes the translation group and equals its normalizer; it is no new extremal classification.",
+        "searches": [
+          "18af41f331e1/RESULT.md, wording on labeled codes and f′=af+b",
+          "arXiv:2607.13733, Proposition 9.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed multiset theorem uses exactly S_{5,5}, deletes one occurrence and states exactly the six checksum fibers up to affine change. Machacek defines the same ℓ1-distance-2 conflict adjacency on monomials."
+        ],
+        "reasoning": "Label symbol i by the position of the i-th zero run and assign it multiplicity x_i. Deleting one zero maps to deleting one occurrence of that symbol and vice versa; this is an isomorphism of channels preserving literal labeled optimum sets. It is not a wrapped Lee-metric or unrestricted binary deletion model.",
+        "searches": [
+          "Resultary: zero-run / multiset deletion, five symbols, degree five maximum codes",
+          "18af41f331e1/RESULT.md, Finding and proof",
+          "arXiv:2010.11112, monomial-graph definitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed theorem lists the exact six codes of size 26 as a single S5 orbit with order-20 affine stabilizer. It even gives their positive-coordinate partition counts and says the deletion shadows partition all 70 outputs. Zabokritskiy explicitly gives α5(5)=26."
+        ],
+        "reasoning": "Exact codebook coverage is in the indexed theorem, not inferred merely from the published numerical optimum or from code equivalence classes counted without labels.",
+        "searches": [
+          "Resultary: six perfect maximum quinary length-five multiset deletion codes",
+          "18af41f331e1/RESULT.md, Finding and checksum classification",
+          "arXiv:2607.13733, §9 Proposition 9.4"
+        ]
+      },
+      "rationale": "Resultary 18af41f331e1 explicitly gives the same six labeled maximal-size codes, checksum orbit, stabilizer and size, under its five-symbol size-five multiset formulation. Zero-run counts identify the input and output sets and preserve each possible deletion, so this is exact equivalent coverage. The older profile-graph work also contains the optimum 26; the distinct part claimed in the frozen record, the six-code classification, is itself fully covered by the indexed multiset record.",
+      "residual_risks": [
+        "The exact overlap establishes indexed coverage, not an exhaustive priority history. The actual Babcock–Van Tuyl source was not established from the incorrect frozen identifier. Neither limitation weakens the exact equivalence to the indexed multiset theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent coverage",
+          "evidence": "Exactly six labeled 26-word codes; bijective checksum weights modulo affine transformations; S5 orbit and stabilizer of order 20.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-six-perfect-maximum-quinary-length-five-multiset-deletion-codes--18af41f331e1/RESULT.md",
+          "material_read": "Finding, assumptions, checksum construction and stabilizer proof passage (offsets 0 and 3409)",
+          "method": "Local mirror, paged source",
+          "title": "Six perfect maximum quinary length-five multiset deletion codes",
+          "trigger": "Exact graph, labels, checksum and count in the equivalent multiset channel"
+        },
+        {
+          "assessment": "Same framework; no exact six-code classification in inspected passages",
+          "evidence": "Distance-2 edges, independence number and number of maxima are defined; analogous higher-variable questions are noted.",
+          "identifier_or_url": "https://arxiv.org/pdf/2010.11112",
+          "material_read": "p. 2 definitions, offset 4518; p. 3 scope, offset 8114",
+          "method": "Lawful OA PDF",
+          "title": "Unique maximum independent sets in graphs on monomials of a fixed degree",
+          "trigger": "Prior count and uniqueness for the identical monomial-graph domain"
+        },
+        {
+          "assessment": "Exact numerical optimum; classification not asserted by that proposition",
+          "evidence": "A weighted cover proves α5(5)≤26, and additive coloring attains equality.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.13733",
+          "material_read": "p. 3 definition (offset 9888), §9 Proposition 9.4 (offset 109179)",
+          "method": "Lawful OA PDF",
+          "title": "Independent Sets in Multiset Profile Graphs via Weighted Local Covers",
+          "trigger": "Degree-five, five-variable independence bound used in the frozen record"
+        },
+        {
+          "assessment": "Reference identifier mismatch",
+          "evidence": "The linked document is by Erickson, Ruskey, Woodcock and Schurch, not the named spreading-number paper.",
+          "identifier_or_url": "https://arxiv.org/pdf/1103.3309",
+          "material_read": "Page 1, title/authors",
+          "method": "Lawful OA PDF",
+          "title": "Auspicious tatami mat arrangements",
+          "trigger": "Frozen Babcock–Van Tuyl entry gives this arXiv link"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A complete maximum packing classification is a natural question, but at this scope the frozen record recodes a known complete classification with the same labeled conflict graph and checksum orbit. The additional rational branch certificate and the interpretation of the affine stabilizer in terms of cyclic subgroups do not supply a new mathematical boundary or invariant.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

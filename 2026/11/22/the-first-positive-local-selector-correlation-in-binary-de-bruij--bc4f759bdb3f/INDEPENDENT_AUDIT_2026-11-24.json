@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:56:39.002081Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–75, VERIFICATION.md, verify.py and verification_output.txt",
+        "Independent replay: python3 /workspace/replay/4.py (standard library), depth-first exact rotation-class census and overlap cross-checks"
+      ],
+      "rationale": "A binary rotation class is represented once by starting at its unique 0^n arc; local bijections determine and are determined by the cyclic successor permutation. Independently enumerated successive n-bit windows by depth-first traversal with no repeated windows, closing at 0^n, without using selector-table enumeration. The counts at n=2,3,4,5 were 1,2,16,2048; the only negative pairs through n=4 and all exact covariances agree with the record. At n=5 the chosen pair has marginals 1/2,5/8, joint 11/32 and covariance 1/32. For the infinite family, each prescribed crossed selector enforces the occurrence of a unique 0v1 path; the two paths are disjoint for m=n−1≥4. Shortcutting preserves Euler circuits with the prescribed bonds, taking the new arcs as labeled. The affected intermediate outdegrees become one, so all BEST factorials remain one, with the unaffected 0^n start arc fixing rotation. The balanced Laplacian update for a→b→c is (e_a−e_b)(e_b−e_c)^T. The product P^m is uniform averaging, so the finite inverse on the zero-sum subspace and the determinant lemma give the stated probability matrix. Checked the all-order suffix/prefix table algebraically: for overlap length k=m−t, suffix integers of b1=2 are 0 at k=1 and 2 otherwise; of c1=5 are 1 for k≤2 and 5 otherwise; of b2=2^(m−1)+1 are 1 for k<m and b2 otherwise; of c2=3 are 1 at k=1 and 3 otherwise. The prefixes of a1=1 are 0 except at k=m, of b1 are 0 through m−2, then 1,2, of a2=2^(m−2) are 0 at k=1 and 2^(k−2) otherwise, and of b2 are 2^(k−1) except at k=m. Comparing these lists gives exactly the four signed overlap rows in the frozen proof, including m=4. Thus the determinant has off-diagonal entries 2^(1−m) and −1/4, giving covariance 2^(−m−1) with the displayed marginals and joint probability. This uniform calculation does not rely on extrapolation from the finite census.",
+      "residual_risks": [
+        "Uniform sampling on rotation classes only, not quotienting by complementation or reversal. No full pair-covariance classification at n≥5 or higher-order association is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md line 81 credits Rødland with the general path-contraction method and implication of the unreduced joint-probability determinant. The available circuit-partition summary has a different focus. Relevant full passages of Rødland were not retrieved; the comparison to its theorem uses the frozen citation and explanation."
+        ],
+        "reasoning": "The already-credited general counting framework yields an unevaluated determinant for the joint event. The evaluated sign requires comparing mixed directed overlaps and establishing absence of positive pairs at smaller orders, neither of which follows merely by citing the general formula. The known Euler-tour encoding does not give this correlation sign.",
+        "searches": [
+          "Rødland, Exact Distribution of Word Counts in Shuffled Sequences, DOI 10.1239/aap/1143936143, cited Theorems 1 and 3",
+          "Campbell–Godbole–Kay, arXiv:1304.2820 (frozen reference)",
+          "Resultary circuit partitions, 33e2bbb0da78"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 80–89",
+        "Resultary IDs 6864ba365d1a, 24dbaf279086, 02203ca2da50, 33e2bbb0da78",
+        "Bounded direct and alternate access attempts for DOI 10.1239/aap/1143936143"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Under contraction an event pair has covariance −M12·M21, as opposed to either diagonal marginal. The frozen proof derives opposite signs from the all-order overlap table and excludes positive pairs at orders 2–4 by exact census. The alphabet-size and next-window statements supply neither fact."
+        ],
+        "reasoning": "Computability by a general moment formula is credited, but does not itself identify opposite signs at a fixed family for all n≥5 or show their absence at every lower binary order. The earlier alphabet result changes a different parameter in a different motif comparison and cannot be used as the minimum over binary orders.",
+        "searches": [
+          "Rødland DOI 10.1239/aap/1143936143; Resultary 6864ba365d1a and 24dbaf279086"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For binary rotation classes a crossed selector equals the occurrence indicator of 0v1; equivalently it fixes a local turn in a labeled Euler tour. 6864ba365d1a gives a single specified length-(n+1) factor probability, 02203ca2da50 gives support of such factors, and 33e2bbb0da78 concerns circuit partitions for colored-permutation profiles."
+        ],
+        "reasoning": "A two-factor correlation theorem in the same model would be equivalent. Knowing all one-factor probabilities or attainable single-factor support does not determine the two-factor event probabilities. A related transition-system encoding alone does not compare the uniform covariance measure.",
+        "searches": [
+          "Resultary Euler tour, next-window and circuit-partition comparisons; IDs 6864ba365d1a, 02203ca2da50, 33e2bbb0da78",
+          "Rødland, DOI 10.1239/aap/1143936143"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed alphabet threshold 24dbaf279086 concerns order-two three-letter motifs as alphabet size varies. 6864ba365d1a is a distinct same-day computation of a single-window likelihood. 02203ca2da50 tabulates support, not joint probabilities."
+        ],
+        "reasoning": "Neither the earlier alphabet-size onset nor the same-day marginal formula supplies a binary-order covariance table or the exact witness family. Distinct same-day work was compared on statements, not discounted by date. The catalog comparisons are bounded.",
+        "searches": [
+          "Resultary: 6864ba365d1a, 24dbaf279086, 02203ca2da50, 33e2bbb0da78"
+        ]
+      },
+      "rationale": "The supported distinct content is the evaluated sign transition in binary order, with its small-order exclusion and uniform explicit witness. General Eulerian contraction/joint-factor machinery and the one-factor marginal framework are not novel. No inspected available statement supplies the same transition or a theorem from which the evaluated sign and first order are immediate.",
+      "residual_risks": [
+        "The central Rødland passages and closest Resultary full text were not retrievable in these attempts. An earlier evaluated binary-order application or an interlacement theorem controlling the sign could bear on priority. The primary-literature search limits are not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General counting overlap credited; no full-text exclusion of an evaluated example",
+          "evidence": [
+            "Frozen source says Theorems 1 and 3 imply the unreduced joint-probability determinant and expressly excludes that method from the novelty claim."
+          ],
+          "identifier_or_url": "https://doi.org/10.1239/aap/1143936143",
+          "material_read": "Frozen RESULT.md lines 80–89 identifying Theorems 1 and 3; primary passages not retrieved",
+          "method": "Bounded DOI paper and alternate Project Euclid HTML/PDF attempts, including available direct/VPN routing",
+          "title": "Exact Distribution of Word Counts in Shuffled Sequences",
+          "trigger": "Closest general joint-factor theorem via Eulerian path contraction"
+        },
+        {
+          "assessment": "Single specified window likelihood is not the joint sign or threshold in the material read",
+          "evidence": [
+            "Four-overlap calculation gives a single length-(n+1) factor probability; the target requires two factor indicators."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-quadratic-time-exact-next-window-likelihood-for-random-binary--6864ba365d1a",
+          "material_read": "Indexed statement; decisive full mirrored text not retrieved",
+          "method": "Resultary and exact mirror attempt",
+          "title": "A quadratic-time exact next-window likelihood for random binary de Bruijn cycles",
+          "trigger": "Same sampling model and overlaps; directly gives selector marginals"
+        },
+        {
+          "assessment": "Same broad correlation question but different parameter and order",
+          "evidence": [
+            "Varies alphabet size with order two and three-letter motifs, rather than order with alphabet fixed to binary."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-alphabet-threshold-for-correlations-of-three-letter-factor--24dbaf279086",
+          "material_read": "Indexed statement and frozen comparison",
+          "method": "Resultary and frozen RESULT.md line 81",
+          "title": "Sharp alphabet threshold for correlations of three-letter factors",
+          "trigger": "Most closely related sharp sign phenomenon in de Bruijn cycles"
+        },
+        {
+          "assessment": "Possible individual factors, not joint frequencies",
+          "evidence": [
+            "The available statement identifies achievable next-order factors."
+          ],
+          "identifier_or_url": "02203ca2da50",
+          "material_read": "Indexed statement",
+          "method": "Resultary",
+          "title": "Exact next-order factor support across de Bruijn cycles",
+          "trigger": "Equivalent length-(n+1) factor formulation of selector events"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen sharp threshold and overlap calculation",
+        "Independent census /workspace/replay/4.py",
+        "Indexed alphabet-threshold comparison 24dbaf279086"
+      ],
+      "rationale": "A uniform de Bruijn cycle couples binary local choices through the single-orbit condition. The exact first positive covariance disproves a natural nonpositive-pair pattern suggested by all smaller orders. The fixed kind of witness persists at every larger order, and the opposite signs in the cross terms explain the mechanism. That is more informative than the general determinant, a single computed order, or a numerical coincidence.",
+      "residual_risks": [
+        "The result does not characterize positive pairs at large order or imply general association or sampling guarantees."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

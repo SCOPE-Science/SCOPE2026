@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:11:25.091753Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4",
+        "Frozen VERIFICATION.md and checks.py (inspected, not run)",
+        "Lasserre arXiv:1412.4617, Theorem 2.2",
+        "Gravin–Lasserre–Pasechnik–Robins arXiv:1106.5723, §5 Lemma 2"
+      ],
+      "rationale": "For generic normals a vertex-only triangulation gives the truncated-power sum, with coefficient d times simplex volume divided by the vertex height differences. This normalization is the derivative of the simplex sublevel-volume formula, with unit-normal coarea factor 1. No triangulation interface contributes extra section measure in a generic direction: a shared facet cannot lie in a section plane when all vertex heights differ. Taking d distributional derivatives gives atoms of weight (d-1)! C_u. To verify noncancellation even at nonsimple vertices, choose a generic direction uniquely maximizing at u. Every simplex incident to u then contributes with the same sign (-1)^d, so the homogeneous rational coefficient is not identically zero and its zero set has empty interior away from poles. At the prescribed relative-interior edge normal only the two edge endpoints maximize. A small tilt gives one top vertex and one unique runner-up, within epsilon/3 of support. Select a generic such direction with nonzero runner-up coefficient; strict gaps and continuity then allow a fixed open interval J holding all runner-up heights for a small direction patch, no other vertex heights, and lying inside every support strip in that patch. The runner-up vertex is nonzero since zero is interior, so its projection is nonconstant on every open sphere patch for d>=2. Select infinitely many distinct projected heights. The restricted derivatives are distinct nonzero Dirac masses; testing a finite relation near each mass proves independence of the profiles. Restriction of a separated representation to J would put all profiles in a finite-dimensional span even if its factors have no regularity.",
+      "residual_risks": [
+        "The square and tetrahedron examples only illustrate the density identity and moving knots in those examples, not the all-polytopes argument. The finite-rank conclusion is for the absolute section coordinate t, not for the recentered coordinate h_P(theta)-t."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.3 applies the absolute-t near-support condition to infinitely smooth convex bodies in even dimensions and concludes a centered ball. Theorem 4.2 treats central intervals in odd dimensions, concluding ellipsoids. The spline statement in Proposition 2.1 is global in t."
+        ],
+        "reasoning": "The smoothness hypothesis of the near-support theorem excludes full-dimensional polytopes. Nonseparability on a central interval does not imply nonseparability in an arbitrarily thin strip at support. Neither theorem supplies the edge-local common-J assertion.",
+        "searches": [
+          "Fish–Ryabogin–Sun–Yaskin arXiv:2610.10229, Theorems 4.2 and 4.3",
+          "Shapiro arXiv:2605.15917, Proposition 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary",
+        "arXiv:1106.5723",
+        "arXiv:1412.4617",
+        "arXiv:2605.15917",
+        "arXiv:2610.10229",
+        "Resultary c8bf8fc6ec2a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general position vertex weights, including their nonzero property under triangulation, are prior. Lasserre gives the simplex density identity. The smooth rank theorem gives no localization for polytopes."
+        ],
+        "reasoning": "The claim is not a direct restriction of a prior rank bound: infinite rank of global profiles would not force infinite rank on a shared near-support interval. The edge tilt puts two vertices ahead of all others while making their positive height difference arbitrarily small; the patch has to be reduced again so the moving runner-up knot stays inside the intersection of all strips with all other atoms outside. This gives new local rank information from known generic atoms. No novelty is credited to the nonvanishing lemma by itself.",
+        "searches": [
+          "Gravin et al. arXiv:1106.5723 §5",
+          "Lasserre arXiv:1412.4617 Theorem 2.2",
+          "Fish et al. arXiv:2610.10229 Theorem 4.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shapiro identifies the spline/Dirac representation. In the Gravin et al. notation, the triangulated vertex weight D-tilde_u is exactly (d-1)! C_u for a unit direction: the simplex tangent determinant is d! times simplex volume. Lemma 2 proves its generic nonvanishing at every vertex, including nonsimple vertices."
+        ],
+        "reasoning": "The global slice-knot description and the directional moment formulation encode the same atom weights. The frozen theorem uses those weights for independence on a fixed interval of the original variable, not merely a generic global projection identity. Support shifting changes the function family in the separation problem.",
+        "searches": [
+          "Shapiro arXiv:2605.15917, Proposition 2.1",
+          "Gravin–Lasserre–Pasechnik–Robins arXiv:1106.5723, §5 Eqs. (35)–(38) and Lemma 2",
+          "Resultary near-support and section separability searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Finding for c8bf8fc6ec2a gives a four-stratum classification for common centered intervals in dimension three, including infinite rank for all nonellipsoidal bodies in that setting."
+        ],
+        "reasoning": "This is an exact rank classification, not a finite table entry. It overlaps for the object class of 3D polytopes, but the domains and tests of rank differ: a band about zero versus the common interval arbitrarily close to support in a prescribed edge-normal neighborhood.",
+        "searches": [
+          "Resultary near-boundary rank, polytope sections and spatial separability classification; checked c8bf8fc6ec2a"
+        ]
+      },
+      "rationale": "Credit is for the edge-local infinite-rank statement on one common absolute near-support interval, not for generic vertex-knot noncancellation, the simplex spline formula, or the separability framework. Generic noncancellation is already in Gravin–Lasserre–Pasechnik–Robins. Their projection-moment formulas and the known spline representation give the global atoms; they do not localize a moving atom in an arbitrary support strip and edge neighborhood on a product domain with a common interval. The smooth or centered-interval rank theorems inspected do not cover that problem.",
+      "residual_risks": [
+        "Best-of-knowledge comparison is bounded; an equivalent localized rank statement in uninspected geometric tomography sources is not ruled out. Generic knot noncancellation itself is demonstrably covered, irrespective of the frozen record's framing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of generic noncancellation under vertex-only triangulation, not the edge-local separation claim",
+          "evidence": [
+            "D-tilde is a sum of simplex coefficients; its analytic continuation is nonzero by positivity in the interior dual cone."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1106.5723",
+          "material_read": "§5, printed pp. 13–15, Eqs. (35)–(38), Lemma 2 and its proof, offset 51540",
+          "method": "OA PDF passage inspection and weight normalization comparison",
+          "title": "The inverse moment problem for convex polytopes",
+          "trigger": "Earlier stronger-looking exact vertex moment weights, including nonsimple polytopes"
+        },
+        {
+          "assessment": "Supplies the simplex normalizing formula used as an ingredient",
+          "evidence": [
+            "Sublevel-volume and section formula for a Euclidean unit normal"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1412.4617",
+          "material_read": "Theorem 2.2, pp. 3–4, offset 6200",
+          "method": "OA PDF passage inspection",
+          "title": "Volume of slices and sections of the simplex in closed form",
+          "trigger": "Exact directional section formula"
+        },
+        {
+          "assessment": "Gives global representation with knots among projected vertices, not the support-strip rank result",
+          "evidence": [
+            "Projected density is piecewise polynomial of degree at most d-1; d-th derivative is discrete."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.15917",
+          "material_read": "Proposition 2.1, pp. 2–3, offset 7900; bibliography locator for inverse moment result, offset 51853",
+          "method": "OA PDF passage inspection",
+          "title": "Projections of convex polytopes to a line and higher univariate Prony systems",
+          "trigger": "Spline and atomic derivative equivalence"
+        },
+        {
+          "assessment": "Smooth near-support theorem and odd-dimensional central theorem; not the polytope edge-local theorem",
+          "evidence": [
+            "Even-dimensional infinitely smooth near-support result; odd-dimensional centered band result"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.10229",
+          "material_read": "Theorem 4.2, p. 14, offset 46125; Theorem 4.3, pp. 15–16, offset 49049",
+          "method": "OA PDF passage inspection",
+          "title": "On determination of convex bodies by their section functions",
+          "trigger": "Same separability condition and potentially dominating rank/characterization results"
+        },
+        {
+          "assessment": "Center rather than support; overlap in objects only, not localization",
+          "evidence": [
+            "Infinite rank in a centered band for nonellipsoids in R^3"
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-a-four-stratum-separability-rank-classification-for-spatial-para--c8bf8fc6ec2a",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Resultary lookup and local mirror inspection",
+          "title": "A four-stratum separability-rank classification for spatial parallel sections",
+          "trigger": "Material adjacent rank classification for convex bodies"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, §§3–4, and limitations",
+        "Fish et al. arXiv:2610.10229, Theorem 4.3"
+      ],
+      "rationale": "The result gives a concrete obstruction in the nonsmooth class omitted by the known smooth near-boundary theorem. It applies in each dimension, for any edge, even when the separated factors would be arbitrary functions. The local moving-knot proof exhibits a common interval and arbitrarily large independent families, substantially more than a statement about global spline complexity or a single pair of profiles.",
+      "residual_risks": [
+        "No approximate-rank lower bound or general nonsmooth/smooth odd-dimensional classification is shown."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

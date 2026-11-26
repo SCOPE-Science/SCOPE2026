@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The component-contraction graph is acyclic: no external vertex can meet one marked component twice, and deleting or contracting forest edges preserves acyclicity. This yields a budget of at most one new external multiple-neighbor pattern per inter-component link. Internal multiple-neighbor patterns are bounded using the two leaves of every nontrivial marked tree component. The combined inequality is \(|\mathcal T_F(A)|\leq2m-t(F,A)\). Equality forces the marked set to be independent, exactly \(m-1\) degree-two external bridge vertices and hence a spanning-tree family of two-element traces. Subdivision plus private leaves proves the converse; Cayley's theorem counts the families and a witness-counting argument gives the minimum host. The included checker executed the recorded finite tests successfully. Risk: the proof covers only finite simple loopless forests and one-point open-adjacency traces.
+PASS
 
-## Originality
+For c=i+t marked components, an outside vertex w meeting at least two marks cannot repeat a component. Contracting the marked components and keeping the incidences to these outside vertices gives a forest on c+|W| vertices, hence sum_w(deg_A(w)-1)<=c-1. Internal nonsingleton open traces can come from at most m-i-2t marked vertices by the two leaves in every nontrivial component. With one empty trace and at most m singletons this gives 2m-t. At 2m, t=0 and all small traces plus m-1 distinct outside nonsingletons are forced. Equality in the edge budget forces all of those outside witnesses to have degree two in the incidence graph and makes it connected; suppression recovers the labelled tree. For the converse, subdivide its edges and give each mark a private leaf. These distinct singleton and pair witnesses must all be unmarked, so at order 3m-1 their forced edges already span a tree: there is no freedom left in the marked host. Cayley applies including the one-family m=1 convention; at m=0 every vertex of a nonempty host supplies the empty trace. The displayed sharpness example has t=0. Even the stronger interpretation for every feasible t is true: use t marked disjoint edges and m-2t isolated marks, connect the m-t components by a tree of new degree-two unmarked connectors, add a private leaf at each mark and append one vertex beyond a private leaf for the empty trace. This gives exactly 1+m+(m-t-1) traces and stays a tree. An independently written bitmask DFS that branches on each edge and adds it only when its endpoints are disconnected enumerated 2932 and 36961 labelled forests at orders 6 and 7, respectively. With the first m labels marked for each m, it observed 2761 and 36079 instances of 2m traces, all consistent with the bound, trace classification and host-order lower bound.
 
-PASS within inspected evidence, with residual historical-priority risk. The closest general result, Sylvester–Zamaraev–Zhukovskii (2026, arXiv:2611.15299), yields a qualitative linear upper bound for open-neighborhood patterns, not the exact extremum or rigidity. Berthe–Foucaud–Lehtilä–Parreau (2026, arXiv:2607.16889, Section 3) analyze closed neighborhoods and obtain a different sharp constant. Both comparisons were made against material text, including the relevant definitions. A 2025 general radius/profile paper was found by search but its full text was not inspected. Related exact analyses of other graph classes do not imply the present forest classification. This is not a formal uniqueness or historical-priority certification.
+## originality
 
-## Value
+PASS
 
-PASS. The result changes a broad linear existence theorem into an exact one-variable type count on a canonical width-one graph class. The equality structure is a complete classification of the extremal set systems, making their precise number the classical labelled-tree count rather than merely establishing an asymptotic coefficient. The sharp minimum-size host makes the structural representation optimal. These are natural, reusable invariants of graph adjacency concept families, not arbitrary parameter slices.
+No equivalent or dominating theorem was identified in the bounded comparison. The distinct contribution is the refined exact open bound with its labelled equality families and marked minimum-host rigidity; neither contraction of components nor Cayley's formula is new.
 
-## Literature and limits
+## value
 
-- Sylvester, Zamaraev and Zhukovskii, *Small classes have linear neighbourhood complexity* (2026), https://arxiv.org/abs/2611.15299.
-- Berthe, Foucaud, Lehtilä and Parreau, *Neighbourhood complexity and identification problems for graphs of bounded treewidth and pathwidth* (2026), https://arxiv.org/abs/2607.16889.
-- Beaudou, Bok, Foucaud, Quiroz and Raymond, *Profile and neighbourhood complexity of graphs with excluded minors and tree-structured graphs* (2025), https://arxiv.org/abs/2501.08895.
+PASS
 
-The claim is limited to quantifier-free, open-neighborhood traces. General first-order and closed-neighborhood type classifications are outside its scope. Prior-art searches and selected full-text inspections reduce but do not remove priority risk; independent external audit is outstanding.
+For a basic forest shatter invariant, the strengthened bound detects the cost of internal marked adjacency. The theorem converts every maximizer into an arbitrary labelled tree, and additionally determines the exact minimum realization and its rigidity. These facts are more informative than the asymptotic linear bound or the leading constant alone.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

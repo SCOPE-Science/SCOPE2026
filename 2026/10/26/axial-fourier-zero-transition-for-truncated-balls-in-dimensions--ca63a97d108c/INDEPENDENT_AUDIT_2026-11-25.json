@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:26:51.694820Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Transverse integration yields the unit transverse-ball volume times the stated polynomial integral (conjugation changes no real zero). I checked the decisive identities via Q_s+itQ=(it)^(2m+1)p, so d|Q|²/ds=2p Re((it)^(2m+1) conjugate(Q)). For m=1 this is 2pp′t⁴; for m=2 it is 2pp′t⁸−2pp‴t⁶; for m=3 it is 2pp′t¹²−2pp‴t¹⁰+2pp^(5)t⁸. Integrating from 1 to h with κ=1−h² gives exactly the three factorizations in (3). The first two are strictly positive for t≠0; the zero-frequency integrals are positive. For m=3 solving the quadratic in t² gives the stated high branch, with t=√3/δ−3√3/2+O(δ), δ=1+h. The dominant right endpoint term is 48(it)³; the left endpoint uses p_3(−1+δ)=8δ³+O(δ⁴) and its first three derivatives. The resulting scaled endpoint limits are −144√3 i and 216−72√3 i respectively, so their ratio is e^(iπ/3)+O(δ). The continuous phase difference is 2√3/δ−4√3−π/3+O(δ), hence takes every sufficiently large value 2πn. Those solutions are distinct, must approach −1, and satisfy δ_n=√3/(πn)+O(n⁻²); using t_n(2−δ_n)=2πn+π/3+O(δ_n) gives the reported frequency constant. At fixed proper h the nonzero boundary term of order 1/t dominates the order 1/t² remainder, and analyticity and positivity at zero rule out accumulation in the bounded real interval left over. These arguments are exact. The included script and recorded output were inspected, not executed; the 27 quadratures and three numerical zeros are evidence for those finite instances only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The convex-domain paper's example has a different longitudinal section, with a zero-free axial expression proportional to (ξ−sin ξ)/ξ³.",
+          "The quoted monotone-kernel criterion applies after shifting the cap lower endpoint to zero when h≥0, but not when h<0, since the section then increases on the initial segment.",
+          "The d=6 incomplete-gamma crossing theorem in the inspected record is dimension-specific, not a theorem for every section exponent above 2."
+        ],
+        "reasoning": "Neither a different shape nor the positive-height regime covers the negative-height rigidity or the d=7 zeros. The d=6 example rules out treating d=7 as the first failure among all dimensions; the frozen claim compares only 3, 5 and 7.",
+        "searches": [
+          "Benguria–Levitin–Parnovski, arXiv:0801.1617, §4.11 (PDF p. 15)",
+          "Dimitrov–Rusev, Zeros of entire Fourier transforms, §§3 and 6 as cited; Pólya monotone-kernel criterion",
+          "Resultary 04f6ee8c64a5, actual construction and theorem scope"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, AUDIT.json, VERIFICATION.md and supplied check files",
+        "Resultary 04f6ee8c64a5",
+        "Benguria–Levitin–Parnovski arXiv:0801.1617",
+        "Dimitrov–Rusev and Pólya, access-limited comparison to the attributed criterion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same moving-cutoff/high-frequency geometry was treated for d=6, using an amplitude crossing and implicit-function argument. The present exact polynomial moduli are strictly ordered at m=1 and 2; at m=3 they match on a closed-form branch with limiting endpoint phase π/3."
+        ],
+        "reasoning": "The known d=6 branch cannot be substituted into the endpoint-polynomial identities for d=3,5,7 or used to infer the d=7 constants. Conversely, d=7 zeros do not imply infinitely many real zeros at one fixed height.",
+        "searches": [
+          "Resultary 04f6ee8c64a5, Finding and incomplete-gamma crossing construction",
+          "arXiv:0801.1617 §4.11",
+          "Frozen RESULT.md lines 39–105, endpoint modulus and resonance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With x=(1−s)/2, the one-dimensional transform is proportional to e^(it) times the Fourier integral of x^m(1−x)^m truncated to [0,(1−h)/2] at frequency −2t (using the conjugated convention). The d=6 record is the same reduction but with m=5/2, not with m=1, 2 or 3."
+        ],
+        "reasoning": "An incomplete symmetric beta transform is an equivalent description; the full beta interval, a hemisphere alone, or one different exponent does not decide the claimed zero behavior over all cutoffs at the three exponents.",
+        "searches": [
+          "Resultary semantic lookup for axial Fourier nulls of spherical caps and truncated beta section densities",
+          "Primary literature lookup for incomplete Fourier integrals of polynomial cap sections",
+          "Resultary 04f6ee8c64a5, mirrored RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected record gives h_n=−1+c*/(πn)+O(n⁻²) and t_n=πn+θ*+O(n⁻¹) for six-dimensional solid caps, with constants from an incomplete gamma condition.",
+          "The frozen candidate IDs for bipyramid zeros or concentration determinants use different sections or different invariants; they are not exact tables of these cap zeros."
+        ],
+        "reasoning": "Matching asymptotic scales without matching section exponent, phase constant and zero question does not identify the same theorem; no earlier exact table or formula at m=1,2,3 was established in this bounded check.",
+        "searches": [
+          "Resultary semantic lookup for exact spherical-cap Fourier zeros and large-frequency cutoff sequences",
+          "Resultary 04f6ee8c64a5, offsets 0–7966",
+          "Frozen AUDIT.json lines 57–68, previously flagged bipyramid and hemispherical-spectrum records"
+        ]
+      },
+      "rationale": "The supported distinct statement is global axial nonvanishing at proper heights in d=3 and d=5 and the explicit d=7 near-full-ball zero sequence. The earlier indexed d=6 construction is a close and material analogue, not a theorem at these dimensions. Fixed-height finiteness and monotone-section nonvanishing are standard consequences and not credited as new.",
+      "residual_risks": [
+        "The earlier d=6 record should be expressly distinguished in priority comparisons; its date and analogous method alone do not settle more general priority.",
+        "The retrieved evidence does not exhaust classical Fourier-integral results under incomplete-beta or other aliases; the survey and the 1918 paper were not independently read in full text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong prior analogue but does not cover the frozen d=3,5,7 statement",
+          "evidence": [
+            "Exponent 5/2 and an incomplete-gamma amplitude crossing give the d=6 sequence with h_n=−1+c*/(πn)+O(n⁻²), t_n=πn+θ*+O(n⁻¹)."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-six-dimensional-spherical-cap-fourier-nulls-from-an-incomplete-g--04f6ee8c64a5",
+          "material_read": "Mirrored RESULT.md Finding and construction, offsets 0–7966",
+          "method": "Compared allowable section exponents, hypothesis on cap and constants in the sequence",
+          "title": "Six-dimensional spherical-cap Fourier nulls from an incomplete gamma crossing",
+          "trigger": "Same axial geometry and same asymptotic scaling"
+        },
+        {
+          "assessment": "Different body of revolution",
+          "evidence": [
+            "The example has a simple-power section profile and a positive transform expression proportional to (ξ−sin ξ)/ξ³ for ξ>0."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0801.1617",
+          "material_read": "PDF p. 15, §4.11 (text offset about 40800)",
+          "method": "Compared the section profile and exact axial expression",
+          "title": "Fourier transform, null variety, and Laplacian’s eigenvalues",
+          "trigger": "Axial zero-free convex body in primary directional-zero literature"
+        },
+        {
+          "assessment": "Only covers the monotone subregime by this criterion; no whole-source exclusion asserted",
+          "evidence": [
+            "The translated kernel increases until the equator when h<0, whereas monotone-kernel sine positivity requires decreasing density."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/264963140_Zeros_of_entire_Fourier_transforms; frozen RESULT.md refs. 2–3",
+          "material_read": "Attributed criterion in frozen RESULT.md lines 110–115; independent survey retrieval unsuccessful and original not inspected",
+          "method": "Tested the stated monotonicity premise on the translated section kernel",
+          "title": "Zeros of entire Fourier transforms / Pólya's 1918 monotone-kernel results",
+          "trigger": "Possible general nonvanishing criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Axial nulls are a natural invariant of the cap. The proof settles all proper cuts in two odd dimensions, including the nonmonotone negative-height regime missed by standard monotone-kernel methods, and constructs an exact sequence of genuine nulls in the next odd dimension with explicit phase and cut scales. The result is not a claim about the first zero across all dimensions, nor does it rest on the standard fixed-height tail observation or on finite numerical witnesses.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The theorem is analytic and unrestricted over odd moduli. The executable `verify.cpp` supplies **finite corroboration**, not an all-dimensional proof. Compile it with `g++ -std=c++17 -O3 verify.cpp -o verify` and execute `./verify`. The code constructs every entry of the integer \(n^3\times n^3\) left-regular matrix for \(n\in\{3,5,7,9\}\); performs modular exact Gaussian elimination over the verified prime \(1004221\); computes the conductor product separately in the prime field using a verified primitive root; compares determinants for unweighted and independently weighted coefficient triples; and checks the expected modular nullity of each unweighted operator.
+## correctness
 
-Observed outputs were eight matching determinant comparisons, with unweighted ranks \(25,125,343,715\) and nullities \(2,0,0,14\), respectively. Nonzero determinants modulo the prime certify nonsingularity over the complex numbers; a modular zero determinant alone would not prove a complex determinant zero. The exact analytic factorization and cyclotomic root argument provide that proof. Modular ranks are not used as a substitute for the general nullity theorem.
+PASS
 
-Important limits: the code does not enumerate all odd moduli; large finite checks cannot establish the general formula. It is a direct, standalone matrix test of the first four selected moduli, not a proof assistant or an external certification.
+Fourier-transform the actual left action in x and z. For each pair of characters (k,l), the n-dimensional y-space has X diagonal with entries zeta^(k+l*y), and Y a unit cyclic shift. For m the order of zeta^l, Y^m commutes with both and has all (n/m)-th roots as eigenvalues, each on an m-dimensional block. X^m is zeta^(km), with each permitted scalar occurring for m values of k. There are phi(m) choices of l. On each block, the identity and full cyclic shift give the determinant, with sign positive because m is odd; the m=1 block is just scalar. If the shift coefficient is nonzero, the cyclic first-order kernel recurrence takes a solution from a single initial coordinate. If that coefficient is zero and the diagonal generator has nonzero coefficient, distinct diagonal entries imply at most one zero; scalar-only and all-zero operators are covered separately. Hence the displayed singular factors count actual dimensions, not determinant multiplicities alone. In the unweighted case the only cancelling ordered pairs are the two primitive cube roots in either order, and multiplicativity of the resulting divisor sum gives the claimed product.
+
+## originality
+
+PASS
+
+Support is for the full odd-composite extension with the exact weighted kernel law and arithmetic unweighted classification. The determinant at prime modulus and the ternary unweighted nullity already have exact prior coverage; the Fourier framework is also known. No inspected prior statement covers the distinct composite extension in this form.
+
+## value
+
+PASS
+
+The canonical generating support combines the identity with both noncommuting unit directions. The exact complex kernel dimension, rather than just invertibility or eigenvalue zeros counted algebraically, is a useful invariant of this natural directed convolution. The conductor census explains the dependence on the full prime-power factorization of n/3 and handles simultaneous singular factors and arbitrary weights; the value is not an isolated recomputation of a prime case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

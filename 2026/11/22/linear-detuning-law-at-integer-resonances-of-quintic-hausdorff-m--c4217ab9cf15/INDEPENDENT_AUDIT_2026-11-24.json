@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:27:31.424652Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–147, VERIFICATION.md and verify.py inspected; frozen checker not executed.",
+        "Independent replay: python3 -B /workspace/branches/independent_arithmetic.py, section 2, exact checks of the quartic coefficient and damping slope."
+      ],
+      "rationale": "All positive polynomial factors increase on the nonnegative integers and the weight ratios tend to 1. Telescoping gives the degree-five norm-polynomial for W and P(0)/P(n) for its Cauchy dual. Laplace inversion of the two quadratics gives the difference of the damped sines with factor c^(-3)/(r^2-1); convolution with exp(-a u) adds the factor c^(-1) on rescaling. The resulting continuous-on-(0,1) signed density is integrable and unique by polynomial density, so a negative value at positive time is a genuine obstruction. Large damping makes the initial positive interval dominate the bounded later integrand; integration by parts makes the admissible set a closed upper ray. At zero separation and integer m the strict sine-multiple inequality off t=2 pi k gives precisely the quartic zeros. There the damping derivative is t_k/m^2 and the r derivative is zero. The trigonometric positivity inequality depends on the slow phase epsilon t exactly; replacing its rational coefficients by their resonant values incurs O(|epsilon|) uniformly at all times. The quartic versus |theta||phi| comparison yields log M_m(theta)=O(|theta|^(4/3)), so the positive variational maximum is attained. Above it, exponential slack dominates the uniform error for t beyond a fixed cutoff. Below the cutoff, short-time positivity and the O(|epsilon|^(4/3)) optimized loss near finitely many positive quartic contacts are controlled by the positive order-|epsilon| damping gain. Below the coefficient, times with prescribed fast phase and |epsilon|t approaching the selected slow phase give a strict negative witness, for both signs using evenness in theta. This proves the stated limit on the stipulated half-plane.",
+      "residual_risks": [
+        "The observation about fixed tests concerns the leading critical separation: any fixed compact time range is positive for small nonzero detuning at each fixed positive K with delta=K|epsilon|, even below kappa_m. At delta=0 fixed positive resonance zeros can already reveal failure; this does not resolve the linear scale. Fixed truncated moment vectors at resonance are interior relative to normalization since the density is positive almost everywhere, and hence cannot distinguish this scale either.",
+        "No negative-separation, higher-order, or arbitrary-frequency classification follows from this proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The rightmost-nonreal-root obstruction does not apply here: -a is at least -b. Reza–Zhang expressly leave the general nonvertical degree-five classification incomplete. The operator-weighted shift polynomial result and the 2-isometry Cauchy-dual setting do not give this degree-five gap."
+        ],
+        "reasoning": "The broader Laplace and operator frameworks support the translation but do not impose or estimate positivity for the varying distinct pair in the required parameter regime.",
+        "searches": [
+          "Reza–Zhang arXiv:1903.00116v1 Theorem 1.8 and §5",
+          "arXiv:2407.17233v2 §3",
+          "arXiv:1702.01264"
+        ]
+      },
+      "checked_sources": [
+        "Resultary self-hit, c875a5a6b9b6, 53a17c5c3699",
+        "arXiv:1903.00116v1, arXiv:2407.17233v2, arXiv:1702.01264"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The resonance theorem fixes Delta(m)=0 and excludes delta=0 at a noninteger ratio. The same-day thresholds are confined to r=3/2 or a repeated complex pair."
+        ],
+        "reasoning": "Zeroth-order resonance classification does not control the ratio Delta(m+epsilon)/|epsilon|. Neither neighboring threshold imposes its values on a punctured neighborhood. The all-time phase-slack and matching beat-time obstruction are substantive new implications, not substitutions into those theorems.",
+        "searches": [
+          "arXiv:1903.00116v1 §5 versus the near-resonance threshold",
+          "Resultary c875a5a6b9b6 and 53a17c5c3699 full-result comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 1.10 treats coincident real parts for the three root groups and gives integer frequency ratio as necessary and sufficient. The exact-topic Resultary match was the assigned result itself."
+        ],
+        "reasoning": "Positive rescaling by P(0) does not change the Hausdorff condition. Via the signed inverse-Laplace density, the two-phase critical damping law is equivalent to a reciprocal-moment or a weighted-shift subnormality boundary; the known vertical-line theorem supplies only the zero-gap slice.",
+        "searches": [
+          "Resultary: quintic Hausdorff moment detuning, Cauchy-dual subnormality thresholds",
+          "Reza–Zhang arXiv:1903.00116v1 Theorem 1.10 and §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record c875a5a6b9b6 gives the exact fixed r=3/2 threshold as the positive root of (8 lambda^2+13) exp(-2 pi lambda)=5. Record 53a17c5c3699 gives a sharp threshold with a repeated conjugate pair. Both are distinct same-day results; date does not determine priority."
+        ],
+        "reasoning": "Neither exact value has an r-domain approaching a fixed integer m>=2. They are not entries for the variational detuning coefficient; no exact earlier coefficient hit was identified.",
+        "searches": [
+          "Resultary: exact damping threshold nonvertical quintic reciprocal polynomial frequency ratio; repeated conjugate pole Cauchy dual"
+        ]
+      },
+      "rationale": "The accepted distinction is the exact positive first-order threshold for varying r on both sides of every fixed integer, not the integer-resonance criterion, rational moment representation, or weighted-shift characterization. No inspected result covers that detuning limit.",
+      "residual_risks": [
+        "An unlocated equivalent asymptotic in positive exponential splines or damped trigonometric positivity could affect priority. Distinct same-day records provide coverage comparisons, not chronology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers zero-gap resonance, not nonvertical detuning",
+          "evidence": [
+            "Vertical-line positivity iff larger/smaller imaginary frequency ratio is an integer.",
+            "§5 notes incomplete general degree-five classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1903.00116v1",
+          "material_read": "Theorem 1.8 (HTML offset about 14750), Theorem 1.10 (about 18400), §5 (about 73000)",
+          "method": "Open primary full text, bounded theorem and proof passages",
+          "title": "Hausdorff moment sequences induced by rational functions",
+          "trigger": "Same quintic at equal real parts; possible broader root criterion"
+        },
+        {
+          "assessment": "Covers fixed ratio only",
+          "evidence": [
+            "At r=3/2 the condition is delta>=lambda_*, with (8 lambda_*^2+13) exp(-2 pi lambda_*)=5."
+          ],
+          "identifier_or_url": "Resultary c875a5a6b9b6",
+          "material_read": "RESULT.md statement, local snapshot 36a7204, offset 0",
+          "method": "Local full-result mirror, bounded mathematical statement",
+          "title": "A sharp nonvertical quintic Hausdorff moment threshold at the three-to-two frequency ratio",
+          "trigger": "Same pole geometry, sharp nonvertical gap"
+        },
+        {
+          "assessment": "Distinct multiplicity and no near-integer variable",
+          "evidence": [
+            "P(x)=(x+a)((x+b)^2+c^2)^2 has a repeated pair, rather than distinct frequencies near an integer ratio m>=2."
+          ],
+          "identifier_or_url": "Resultary 53a17c5c3699",
+          "material_read": "RESULT.md statement, local snapshot 36a7204, offset 0",
+          "method": "Local full-result mirror, bounded mathematical statement",
+          "title": "A sharp damping threshold for Cauchy-dual subnormality of repeated-pole quintics",
+          "trigger": "Close quintic positivity classification by damping"
+        },
+        {
+          "assessment": "Context for polynomial data only",
+          "evidence": [
+            "The paper studies polynomial characterizations for m-isometric weighted shifts with operator weights."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.17233v2",
+          "material_read": "Public abstract, offset about 266; §3 theorem locations reviewed in frozen source comparison",
+          "method": "Abstract scope comparison, not full-text independent implication claim",
+          "title": "m-isometric weighted shifts with operator weights",
+          "trigger": "General polynomial weighted-shift model"
+        },
+        {
+          "assessment": "Context for 2-isometries; not a direct degree-five threshold candidate",
+          "evidence": [
+            "The motivating subnormality question is framed for 2-isometries."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1702.01264",
+          "material_read": "Public abstract, offset about 834",
+          "method": "Abstract scope comparison",
+          "title": "A solution to the Cauchy dual subnormality problem for 2-isometries",
+          "trigger": "Operator formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§2–6 and Reza–Zhang Theorem 1.10"
+      ],
+      "rationale": "The arithmetic resonance in a natural reciprocal-polynomial moment problem is unstable, and the theorem quantifies exactly how much separation restores positivity. The positive coefficient and the necessity of logarithmic times proportional to inverse detuning give information that a classification solely on the resonant slice or a local Taylor expansion cannot provide.",
+      "residual_risks": [
+        "First-order local classification in the frequency ratio only, not a global phase diagram."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

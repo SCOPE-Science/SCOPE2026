@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:39:14.631516Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations, all-time and critical proofs, rational equilibria and asymptotic integration",
+        "Frozen VERIFICATION.md and verification/check.py, inspected but not executed",
+        "Wang et al. doi:10.1371/journal.pcbi.1013512, Eq. (10) and Table 1"
+      ],
+      "rationale": "The polynomial equations have boundary factors and bounded interior logit derivatives, giving global forward interior solutions. Subtracting κ times the risk-logit derivative from the cost-logit derivative cancels x and gives h(r−ρ), with h=(α−β)s. For a=(c−β)/(α−β) and u=1−r, one has min(a,u)^(1+κ)≤au^κ=Q(1−a)r^κ≤Q. For ρ>1, Q(t)≤Q(0)e^(−λt), proving the uniform-in-trajectory exponent, with an initial-state-dependent prefactor. When ρ=1, either ∫u diverges and Q→0, or ∫u converges and bounded u' forces u→0 by uniform continuity. Both cases give the boundary-union limit and exclude nonempty compact interior forward-invariant sets. For the sharp witness, ρ=2, κ=11/20 and λ=11/10. At x*=102/155 the identity 2b x*(1−x*)=β makes E* an equilibrium. The three diagonal entries in the triangular linearization are β(1−2x*)=−49/775, −(4−5x*)=−22/31 and (11/20)(2−5x*)=−22/31. Hyperbolic attraction gives exponential convergence on an open interior part of the neighborhood. Division of the scalar u and c−β equations by their positive deficits then gives two log derivatives equal to −22/31 plus integrable errors. Integration yields strictly positive asymptotic coefficients, establishing actual saturation of the bound rather than just equal linearized exponents. For b=1, E₀ has diagonal spectrum −3/4, −4, −11/10. At E₁ the cost eigenvalue is −121/80; the in-face block has trace −3/25 and determinant 3/50 (off-diagonals 32/625 and −75/64), giving the claimed stable conjugate pair. The basins contain interior points, and the two limits exclude replacing the union by either face alone. Direct substitution also checks the stated counterexample at ρ=1/2.",
+      "residual_risks": [
+        "The exponent is optimal over the stated model class in the claimed sense, not asserted optimal for each separate parameter tuple; no critical rate or convergence to a single equilibrium is proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang et al. introduce the same ODE and classify equilibria including stable boundary types. The October record uses the same cancellation under Δ>0 equivalent to ρ<0, with additional assumptions for its collapse result. The two-variable record omits adaptive cost."
+        ],
+        "reasoning": "The local stability results and odds identity are pre-existing, and the closest odds-clock result covers a slightly broader group-size and quota range. None of these inspected statements establishes sharpness of the supercritical face-union decay through a matched attracting boundary example.",
+        "searches": [
+          "Wang et al., doi:10.1371/journal.pcbi.1013512, Eq. (10), Table 1, supporting-information description",
+          "Resultary October global-collapse record, 2026/10/18/SCOPE-global-collapse-despite-positive-coexistence-equilibria-under-ri--238b78f6c336",
+          "Resultary two-variable first-integral record, 2026/11/2/SCOPE-first-integral-and-sharp-orbit-extinction-separatrix-in-a-collec--caf974f7f068"
+        ]
+      },
+      "checked_sources": [
+        "Wang et al., primary PLOS main text Eq. (10) and Table 1",
+        "Distinct same-day Resultary odds-clock finding",
+        "October global-collapse and November two-variable Resultary findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The odds estimate implies the stated supercritical bound via an elementary product inequality. Critical union convergence also starts from the same identity but requires the integrable-versus-nonintegrable deficit argument; the indexed critical statement is exclusion of compact interior invariance.",
+          "The sharp witness matches the two independent normal contraction rates at an attracting fully saturated corner of the (r,c) rectangle and proves their positive amplitudes by integration. The same-day source's sharpness notion is unrelated to this exponent."
+        ],
+        "reasoning": "Credit mechanically implied estimates and already classified equilibrium types. Neither a monotone odds clock nor a list of feasible or stable equilibria alone gives a trajectory minimizing the possible decay exponent of min(a,u). The matched stable construction and asymptotic argument are the substantive remaining claim.",
+        "searches": [
+          "Same-day odds-clock paper, full Finding, proof and scope/limitations passages",
+          "Wang et al. Eq. (10) and Table 1",
+          "October global-collapse record, logit-cancellation proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The odds-clock source has exactly r_*=ρ, k=κ and h=(α−β)s, with e^ℒ=Q. It gives Q(t)≤Q(0)e^(−h(ρ−1)t) and excludes compact interior recurrence for ρ≥1.",
+          "Its explicit sharpness construction is an interior equilibrium with prescribed 0<r_*<1; its statement and proof do not give a supercritical trajectory attaining an exponent for the face-union distance."
+        ],
+        "reasoning": "These are the same objects in odds and normalized-deficit coordinates. The supercritical inequality transfers by min(a,u)^(1+κ)≤au^κ≤Q. Equality of the optimal rate does not transfer: the clock constrains a weighted product and does not establish that the two factors can decay at the same rate with positive limiting amplitudes along actual interior trajectories.",
+        "searches": [
+          "Resultary: universal boundary saturation rate adaptive collective risk game rho critical logit",
+          "Resultary: risk-cost feedback logit cancellation global collapse coexistence equilibria",
+          "Odds-clock alternative, 2026/11/22/SCOPE-an-exact-risk-cost-odds-clock-rules-out-persistent-interior-recu--5d4f74c81834, Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 provides a census and stability conditions for boundary/interior equilibria. The odds-clock example table/construction concerns feasibility of interior equilibria and signs of r_*, not observed or exact face-union decay at exponent 22/31."
+        ],
+        "reasoning": "A classification of equilibrium types can help find a witness but is not an exact table of saturated trajectory rates or matching transverse amplitudes. No checked exact table supplied this claim.",
+        "searches": [
+          "Wang et al., main-text Table 1, PDF p. 6",
+          "Resultary same-day odds-clock Finding, proof and limitations"
+        ]
+      },
+      "rationale": "Credit the strongest same-day indexed comparison, not just the previously cited opposite-sign result: it gives the identical cancellation, strict odds bound and exclusion of compact interior invariance at and above the threshold. Its odds bound mechanically implies the displayed supercritical minimum estimate, so the rate bound as an upper estimate is not counted as distinct. The pass is for the sharpness claim, supported by a stable interior-accessible example whose two face deficits attain the predicted exponent, together with the explicit critical face-union convergence and counterexamples to strengthening that union. The checked same-day source proves sharpness only for existence of a compact interior invariant set at subcritical ratios, not sharpness of the saturation exponent. The shared date does not settle priority.",
+      "residual_risks": [
+        "The supporting S1 stability material was not obtained from the attempted lawful routes. The cited eLife feedback model was seen only at landing/abstract level, not used as a whole-paper negative comparison. Unindexed equivalent sharpness examples remain possible.",
+        "Same-day index dates do not determine priority. The assessed distinct result is the optimality construction and asymptotics, not the already covered odds estimate or its simple coordinate restatement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material equivalent coverage of the odds and resulting supercritical upper estimate, not of exponent optimality",
+          "evidence": [
+            "It explicitly gives ℒ'=h(r−r_*) and e^ℒ(t)≤e^ℒ(0)e^(−h(r_*−1)t) for r_*>1, and compact-interior exclusion including r_*=1.",
+            "The construction called sharpness only realizes an interior fixed point for each r_* in (0,1). The critical limitations specify exclusion rather than face-union convergence."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-an-exact-risk-cost-odds-clock-rules-out-persistent-interior-recu--5d4f74c81834/RESULT.md",
+          "material_read": "Finding, assumptions, proof and limitations, offsets 0–7385 in snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and direct bounded mirror passages",
+          "title": "An exact risk–cost odds clock rules out persistent interior recurrence under imbalanced feedback",
+          "trigger": "Same system, feedback ratio and odds decay in the exact same regime"
+        },
+        {
+          "assessment": "Same equations and general equilibrium/stability census; supporting stability details remain an access limitation",
+          "evidence": [
+            "Eq. (10) is the three-ODE system with unit strategy/risk update speeds as used here.",
+            "Table 1 discusses stable corner and edge equilibria. The main text assigns additional stability conditions and variants to S1; unavailable S1 is neither negative evidence nor a reason by itself for a verdict."
+          ],
+          "identifier_or_url": "https://doi.org/10.1371/journal.pcbi.1013512",
+          "material_read": "Open PLOS PDF Eq. (10), pp. 3–4, offsets 12454–18887; Table 1 p. 6, offsets 26035–28635; main-text description of S1. S1 itself was not obtained.",
+          "method": "Bounded OA main-text reading; lawful PLOS supplementary and alternate PMC paths attempted",
+          "title": "Coevolutionary dynamics of cooperation, risk, and cost in collective risk games",
+          "trigger": "Primary source for the exact model and boundary stability"
+        },
+        {
+          "assessment": "Prior cancellation; different feedback-sign regime and payoff assumptions",
+          "evidence": [
+            "The proof uses Δ>0, hence ρ<0 in the frozen coordinates, and adds a payoff restriction for the global corner-collapse statement."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-global-collapse-despite-positive-coexistence-equilibria-under-ri--238b78f6c336",
+          "material_read": "Local-mirror proof at offsets 2748–4442",
+          "method": "Resultary search and bounded local-mirror reading",
+          "title": "Global collapse despite positive coexistence equilibria under risk–cost feedback",
+          "trigger": "Known use of the same logit cancellation"
+        },
+        {
+          "assessment": "Different two-variable system",
+          "evidence": [
+            "It has x and r but no adaptive cost coordinate and does not describe joint risk and cost deficits."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-first-integral-and-sharp-orbit-extinction-separatrix-in-a-collec--caf974f7f068",
+          "material_read": "Local-mirror scientific statement",
+          "method": "Resultary search and bounded local inspection",
+          "title": "First integral and sharp orbit–extinction separatrix in a collective-risk feedback game",
+          "trigger": "Related claim of sharp boundary behavior in a collective-risk game"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, matched-eigenvalue witness and stable alternative outcomes",
+        "Wang et al. Eq. (10), Table 1",
+        "Distinct odds-clock Resultary result"
+      ],
+      "rationale": "An odds bound controls a product, not the actual slowest approach of the two coordinates to the stated union. The rational hyperbolic witness proves that the loss in passing to a minimum really occurs on an open set of strictly interior starts, rather than being only an artifact of an inequality. The stable alternative outcomes and critical analysis further give a precise interpretation of what can and cannot be concluded about long-time saturation in the motivated three-variable model.",
+      "residual_risks": [
+        "The conclusion is about trajectories of the deterministic model, not empirical rates or robustness to varying the update model; it does not claim a sharp rate for every parameter tuple."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:04:23.154112Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions, Proof and Verification; accompanying VERIFICATION.md, verify_klein120.py and verify_output.txt inspected, not executed",
+        "Independent replay: python3 /workspace/independent_checks.py 1 (SymPy and python-flint); /workspace/check-1.txt",
+        "Dolgachev arXiv:math/0304258 §10.9; Pokora–Szemberg–Szpond arXiv:2010.08863 §§2–3"
+      ],
+      "rationale": "The classical sixty points and sixty planes give separate vertex sets and the stated algebraic bilinear zero test. I reconstructed the projectively normalized supports in F_37 with i mapped to 6: each Gaussian dot product is a+bi with |a|,|b|≤4, so a+6b has magnitude at most 28 and vanishes mod 37 exactly when a=b=0. The integer incidence matrix has degree 15 on both sides and 900 edges. Exact characteristic polynomials agree, including simplicity of the zero Laplacian root; the cofactor determinant is 2^235·3^15·5^48·7^30. Direct integer Smith reduction of the 119-by-119 cofactor returned 64 ones and factors 2^×7, 4, 20^×3, 40^×14, 1120^×16, 4480^×3, 13440^×7, 40320^×3, 201600, where × denotes multiplicity. The product and divisibility check, so all primes and multiplicities are accounted for. The frozen verifier's local proof also uses valid equivalences: unit pivots split factors, and reducing precision on division by p of the entire residual block preserves the remaining information. No pivot reaches the cutoff.",
+      "residual_risks": [
+        "The block-matrix display around RESULT.md line 42 has a missing row-separator backslash; the intended block Laplacian is unambiguous from the incidence definition, degree and code.",
+        "Verifies the characteristic-zero model; no analogous positive-characteristic configuration or canonical geometric degeneration is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dolgachev supplies the configuration and its incidence counts; Pokora–Szemberg–Szpond supply coordinates and results on unexpected surfaces and projection complete intersections. The inspected results are not integral graph-lattice classifications.",
+          "The computed Laplacian has eight distinct roots; the incidence matrix has multiple distinct nonprincipal singular values. The strongly regular and balanced-design Levi-graph hypotheses, respectively, do not apply."
+        ],
+        "reasoning": "No compared theorem includes this graph and forces its integral elementary divisors. Merely knowing the incidence model permits a computation but is not already a Smith classification.",
+        "searches": [
+          "Targeted 120-Klein graph critical-group query",
+          "Dolgachev arXiv:math/0304258 §10.9",
+          "Pokora–Szemberg–Szpond arXiv:2010.08863 §§2–3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and distinct comparators e49b5f236b21, f5f69caa3f6c, e8bf274dc1e0; exact self-hit d10e8fd16d9f",
+        "arXiv:math/0304258 §10.9",
+        "arXiv:2010.08863 §§2–3",
+        "MathWorld Klein Configuration; Klein Graphs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The geometry gives 60 points and 60 planes and the integral presentation. Even the full ordinary Laplacian spectrum fixes only the cofactor determinant, not the integral distribution.",
+          "For example, the 2-primary contribution has 55 positive valuations spread over levels 1, 2, 3, 5 and 7; the total valuation 235 alone does not force them."
+        ],
+        "reasoning": "Neither the classical geometric statements nor the separate graph-Jacobian computations specialize to this integral factor list.",
+        "searches": [
+          "Dolgachev arXiv:math/0304258 §10.9",
+          "Pokora–Szemberg–Szpond arXiv:2010.08863 §§2–3",
+          "Resultary same-day distinct Klein-configuration records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "MathWorld identifies the 60-point/60-plane Levi graph as the 120-Klein graph; the 24- and 56-vertex names denote different graphs.",
+          "The same-day e49b5f236b21 and f5f69caa3f6c results compute graph Jacobians respectively for a 49-vertex Klein-quartic bitangent incidence and a 42-vertex Klein line/quadruple-point incidence; e8bf274dc1e0 concerns a 70-vertex arrangement boundary dual graph."
+        ],
+        "reasoning": "Critical group, sandpile group and graph Jacobian are the same invariant here; sharing the name Klein does not identify the underlying incidence relations or matrices.",
+        "searches": [
+          "120-Klein graph critical group Smith normal form Laplacian incidence graph",
+          "Resultary: Klein 60_15 point–plane incidence / 120-Klein Levi graph critical group",
+          "MathWorld Klein Configuration and Klein Graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit is the assigned record itself, d10e8fd16d9f. The three distinct same-day nearby statements were read and concern other vertex sets.",
+          "The graph-reference pages identify and enumerate the graphs; they do not tabulate the claimed Smith factors."
+        ],
+        "reasoning": "An exact self-hit is not independent coverage. The inspected graph entries and related graph-Jacobian results supply no matching table.",
+        "searches": [
+          "Resultary: full 119-entry 120-Klein reduced-Laplacian Smith form",
+          "MathWorld Klein Configuration; Klein Graphs",
+          "Targeted 120-Klein graph Smith normal form search"
+        ]
+      },
+      "rationale": "The geometry, Levi graph and valencies are classical. No distinct inspected statement gives or forces the complete integral reduced-Laplacian Smith decomposition of this graph. The supported contribution is the integral group, not the configuration or its name. This is a bounded best-of-knowledge assessment.",
+      "residual_risks": [
+        "The Klein and Hudson original full texts were not inspected. An unindexed Smith table or an equivalent classification under another graph name is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same geometry, not the claimed integral group in inspected results",
+          "evidence": "Klein 60_15 incidence from 60 vertices and 60 faces, 15 incidences per object.",
+          "identifier_or_url": "arXiv:math/0304258",
+          "material_read": "§10.9, PDF pp. 33–34",
+          "method": "OA full-text passage",
+          "title": "Abstract Configurations in Algebraic Geometry",
+          "trigger": "Classical definition and possible prior incidence calculation"
+        },
+        {
+          "assessment": "Same coordinate model; inspected results instead on unexpected surfaces and projection complete intersections",
+          "evidence": "§2 has the 60 planes and 60 vertices; §3 lists the four projective coordinate classes.",
+          "identifier_or_url": "arXiv:2010.08863",
+          "material_read": "§§2–3, PDF pp. 2–4",
+          "method": "OA full-text passages",
+          "title": "Unexpected Properties of the Klein Configuration of 60 Points in P^3",
+          "trigger": "Same configuration and explicit coordinates"
+        },
+        {
+          "assessment": "Resolves naming, no relevant Smith table in the inspected entries",
+          "evidence": "The 120-Klein graph is the 60/60 Levi graph, not the 24-Klein graph.",
+          "identifier_or_url": "https://mathworld.wolfram.com/KleinConfiguration.html ; https://mathworld.wolfram.com/KleinGraphs.html",
+          "material_read": "Klein Configuration at offset 159; Klein Graphs at offset 0",
+          "method": "OA website passages",
+          "title": "Klein Configuration; Klein Graphs",
+          "trigger": "Graph aliases and possible invariant table"
+        },
+        {
+          "assessment": "Different graphs regardless of same-day ordering",
+          "evidence": "49, 42 and 70 vertices respectively, from different incidences and a resolved arrangement boundary.",
+          "identifier_or_url": "2026/11/22: e49b5f236b21, f5f69caa3f6c, e8bf274dc1e0",
+          "material_read": "RESULT.md Findings at offset 0 for each",
+          "method": "Resultary and local mirror statements",
+          "title": "Same-day Klein-quartic bitangent, quadruple-point and arrangement boundary graph results",
+          "trigger": "Distinct nearby graph-Jacobian results"
+        },
+        {
+          "assessment": "Unchecked original full-text coverage, no inference of absence",
+          "evidence": "Classical geometry was independently checked in the accessible Dolgachev and Pokora–Szemberg–Szpond passages.",
+          "identifier_or_url": "Klein, Math. Ann. 2 (1870), 198–226; Hudson (1905), §25",
+          "material_read": "Klein bibliographic citation through MathWorld; no readable original passages obtained for either",
+          "method": "Bounded DOI and Internet Archive retrieval attempts",
+          "title": "Zur Theorie der Liniencomplexe des ersten und zweiten Grades; Kummer’s Quartic Surface",
+          "trigger": "The historical primary geometry sources"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, Proof and Limitations; independent exact cofactor and Smith replay; MathWorld identification of the Levi graph"
+      ],
+      "rationale": "This is the complete integer chip-firing invariant of a standard 120-vertex geometric Levi graph. In particular it gives a minimal generator count of 55, exponent 201600, and the precise local structure beyond the tree number. Those data are useful for computations with divisors on this graph and for the component group of a regular split unit-thickness model with this dual graph; the graph is motivated independently of its answer and the invariant is not a repackaging of the spectrum.",
+      "residual_risks": [
+        "A finite exact invariant, not a classification for other Klein graphs or a proof of canonical geometric realization in a smoothing of the original arrangement."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

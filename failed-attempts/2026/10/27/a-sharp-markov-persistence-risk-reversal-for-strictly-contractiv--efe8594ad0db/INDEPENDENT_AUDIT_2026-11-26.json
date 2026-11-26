@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:32:28.668874Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The joint-moment recursions condition on the index used for the current affine update before transitioning to the next index. Their homogeneous diagonal blocks have column norms at most 1/2 and 1/4, and the block-triangular affine recursion converges for independent square-integrable starts. Independently, encode the state by σ=±1 with E[σ_next|σ]=ρσ and write the update as (−1/8−3σ/8)x+σ. At stationarity the first-moment sum and contrast satisfy E[x]=−ρ/3 and E[σx]=ρ. For M=E[x²] and N=E[σx²], expansion then gives 27M−3N=32 and (32−5ρ)N−3ρM=−64ρ²/3. Elimination yields M=(64−10ρ−4ρ²)/[9(6−ρ)], the stated rational function. Factoring the difference from M(0) gives the two zeros and all signs; differentiation gives the sole interior maximum at 6−√35. The endpoint values are limits under the stated sampler domain. Continuity of the fixed point, and of the full-objective minimizer, preserves the strict comparisons at the three specified correlations under sufficiently small perturbations, not an unchanged numerical threshold. Read the supplied symbolic and rational checker; the proof, not the finite path tests, establishes the continuum claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hu–Syed's H_i=a_i, G_i=c_i specialization gives both frozen affine moment systems exactly.",
+          "Even's two-state example has equal curvatures and a finite-time exact correlation expression.",
+          "185fdcb80ccc states the full stationary risk over a continuum of contracting scalar quadratics and the closed interval of switching probabilities."
+        ],
+        "reasoning": "The first source covers the method, the second is a related but different example, and the third directly covers the stronger risk formula. All nearby scalar quadratic pairs can be recentered at the full minimizer, at which their two linear terms are opposite. The curvatures retain a fixed ordering and the affine residual stays nonzero locally, so the covering normal form applies nearby as well.",
+        "searches": [
+          "arXiv:1906.06781 §2, equations (7)–(9), and Corollary 2",
+          "arXiv:2302.14428 Appendix D.2",
+          "185fdcb80ccc Finding, Assumptions and Proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (read only)",
+        "185fdcb80ccc",
+        "2e4ff5de9e1e",
+        "arXiv:1906.06781",
+        "arXiv:2302.14428"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Subtract the covered formula at ρ=0 to obtain 2ρ(1−6ρ)/[27(6−ρ)]. The stronger source's endpoint tie occurs at h(1−t²)=1, which holds here but is distinct from the frozen interior comparison against iid."
+        ],
+        "reasoning": "Sign, derivative, peak and iid crossover require only arithmetic/calculus on the existing expression. Continuity gives the nearby strict witness comparisons; synchronous contraction extends the limit from deterministic to independent square-integrable starts. No independently supported substantive remainder survives this coverage. This does not assert that the later dated source preceded or sourced the frozen proof.",
+        "searches": [
+          "185fdcb80ccc Finding and Step 3; arXiv:1906.06781 equations (7)–(9)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "185fdcb80ccc uses f_s=a(1+st)x²/2+sbx, h=ηa and r=2p−1. Taking (a,t,b,h,r)=(9/8,1/3,−1,9/8,ρ) gives exactly the two frozen maps and Markov kernel, with h<2/(1+t)."
+        ],
+        "reasoning": "This is a reparametrization with identical iterate dynamics, not a resemblance based on keywords or equal numbers.",
+        "searches": [
+          "Resultary: endpoint optimal Markov sampling scalar SGD two-state stationary risk curvature frontier",
+          "primary: Markovian SGD Markov jump linear systems exact stationary mean square error two state scalar temporal correlation improves iid quadratic Hu Syed stochastic gradient descent"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "With the matching parameters Q=5/32 and U=0, the multiplied numerator is 1−5ρ/32−ρ²/16 and the denominator is 9(6−ρ)/64.",
+          "2e4ff5de9e1e instead tabulates a different mean-square stability window about the shared origin."
+        ],
+        "reasoning": "The first entry provides an exact functional database match by specialization: the result is the entire rational curve, not an approximate or coincidental numerical agreement at one correlation.",
+        "searches": [
+          "Resultary: Markov-SGD stationary squared error, reentrant quadratic stability and endpoint-optimal risk",
+          "185fdcb80ccc exact V(r) in Finding"
+        ]
+      },
+      "rationale": "The complete stationary-risk curve is directly covered by the broader published Resultary record 185fdcb80ccc, including its admissible interior and nearby centered two-quadratic problems. This is a finding of demonstrable mathematical coverage in the inspected corpus, not a ruling on historical priority: the covering entry's displayed date is later than the frozen path date. Independent earlier work already gives the exact general affine moment system, though the inspected passages do not themselves select this reversal example.",
+      "residual_risks": [
+        "Priority and dependence between the differently dated records are not established.",
+        "Classical Markov-switching system literature may contain further equivalent expressions; no such source is required for the demonstrated coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct exact coverage, no priority conclusion",
+          "evidence": "The V(r) expression yields the full frozen risk by explicit parameter substitution; stability includes the open interval and the two limits.",
+          "identifier_or_url": "185fdcb80ccc",
+          "material_read": "Finding, Assumptions and start of proof offsets 0–3977, endpoint argument at about 4900, relationship at 7280",
+          "method": "Published Resultary local mirror",
+          "title": "Endpoint-optimal Markov sampling and a sharp curvature frontier for scalar SGD",
+          "trigger": "Exact stronger stationary-risk result on the same scalar Markov sampler"
+        },
+        {
+          "assessment": "Exact general method, not the selected iid crossover in the inspected text",
+          "evidence": "The general jump-model recursion uses state-marginal-weighted conditional affine moments; the fixed-point system gives the limit under Schur stability.",
+          "identifier_or_url": "https://arxiv.org/abs/1906.06781",
+          "material_read": "Equations (7)–(9), PDF offset 16370, and Corollary 2, offset 43960",
+          "method": "OA primary PDF",
+          "title": "Characterizing the Exact Behaviors of Temporal Difference Learning Algorithms Using Markov Jump Linear System Theory",
+          "trigger": "General exact first and second stationary moment system"
+        },
+        {
+          "assessment": "Exact equal-curvature finite-horizon analogue",
+          "evidence": "Uses f_0=(x−1)²/2, f_1=(x+1)²/2 and the sign correlation (1−2p)^k to produce a correlation sum for a lower bound; no unequal-curvature reversal there.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.14428",
+          "material_read": "Appendix D.2, PDF offset 149753",
+          "method": "OA primary PDF",
+          "title": "Stochastic Gradient Descent under Markovian Sampling Schemes",
+          "trigger": "Stationary symmetric two-state quadratic example"
+        },
+        {
+          "assessment": "Related dynamics, different observable",
+          "evidence": "Homogeneous updates about zero yield a stability window, not an affine limiting risk.",
+          "identifier_or_url": "2e4ff5de9e1e",
+          "material_read": "Finding and exact transfer in Proof at offset 0",
+          "method": "Published Resultary local mirror",
+          "title": "A reentrant mean-square stability window for Markov-sampled quadratics",
+          "trigger": "Exact two-state quadratic second-moment comparisons"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The counterintuitive ordering is useful as an illustration, but the frozen narrow numerical frontier and its nearby strict witnesses are mechanically implied by a covered, motivated full risk curve. The frozen statement supplies no further independently useful gap beyond that specialization. This value failure is about the claim as reviewed, not about who first computed the example.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

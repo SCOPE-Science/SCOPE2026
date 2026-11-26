@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:58:03.179442Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The local three-column condition exactly tests every outside vertex, including n=3 where the two horizontal neighbors are distinct. Consecutive empty columns force the all-empty walk. With (0,0) removed, fixed labels correspond bijectively to walks rooted at column zero; the sum of reduced costs is |F|-n. I independently rebuilt the transfer certificate using set-valued columns, mutual reachability and walk traces (replay: python3 /workspace/branches/replay_2.py). It confirmed 255 states, 2671 admissible edges, nonnegative reduced costs, no tight loops, bipartite recurrent components of sizes 4,4,10,10, and characteristic polynomials t^4-1 and t^10-t^8-2t^6, each twice. Tight odd walks are impossible. The alternating opposite-row pairs attain the claimed size: each empty column is flanked by identical selected masks, also at odd wraparound, and every outside vertex in a selected column has two vertical neighbors in the fort. Trace of T^n gives the even formula. For odd length, each rooted walk has exactly one cost-one edge; cyclic invariance of trace gives n times tr(B(T^2)^m). The independent two-step walk counts give h_1=6, h_2=10 and all 255 residual zeros. Cayley–Hamilton for the 255-dimensional matrix T^2 propagates those zeros to every subsequent index, so this is a finite certificate for the all-order recurrence, not extrapolation. Translation averaging and the uniform 1/f_n weights give the fractional corollary. The frozen script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cameron et al. give Cartesian-product fort and fractional bounds and diagonal forts in C_m square C_m for m≥5.",
+          "Becker et al. give product constructions/bounds and count inclusion-minimal forts for other families.",
+          "Brimkov et al. classify minimum forts in Q4 (Proposition 3.9)."
+        ],
+        "reasoning": "The general results neither enforce the parity obstruction nor classify/count all cardinality minimizers in width four. The Q4 theorem applies exactly to n=4 but cannot be specialized to arbitrary n.",
+        "searches": [
+          "arXiv:2310.17904 §4.2, PDF pp.16–17",
+          "arXiv:2404.05963 pp.1,4",
+          "arXiv:2507.10826 §3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2310.17904",
+        "arXiv:2404.05963",
+        "arXiv:2507.10826",
+        "Resultary a06a1735df72",
+        "Resultary 4b4a85b72c98"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Vertex-transitive averaging turns an exact minimum fort size into the fractional value without counting forts.",
+          "The prior classifications concern C_n squared and Q4; the product results do not give the tight and one-defect walk multiplicities for C4 square Cn."
+        ],
+        "reasoning": "Neither an optimum cardinality nor a construction of a fort forces a multiplicity distribution. The parity-sensitive all-order enumeration is not an immediate consequence of the inspected literature.",
+        "searches": [
+          "Cameron et al. §4.2, Becker et al. product results, Brimkov et al. Proposition 3.9 and Corollary 3.10",
+          "Resultary a06a1735df72 and 4b4a85b72c98, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cameron et al. use the fort obstruction and its fractional transversal on Cartesian products.",
+          "The close same-day Resultary result a06a1735df72 counts minimum forts of C_n squared, not C4 square Cn."
+        ],
+        "reasoning": "The complement of a minimum fort is a largest failed ordinary zero-forcing set: a terminal white set is a fort and an initial coloring avoiding a fort cannot enter it. This translates the labeled census but does not identify it with ordinary successful zero forcing, or with the squared-cycle census on a different graph. The empty focused lookup is not evidence of noncoverage.",
+        "searches": [
+          "Local Resultary semantic searches for C4 square Cn minimum-fort census",
+          "arXiv:2310.17904 §4.2",
+          "Focused literature lookup on four-row toroidal minimum forts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 2 Q4 inclusion-minimal census gives exactly 28 forts of size four. Its overlap is n=4 only; the hypercube classification already covers this case. No returned record tabulates the width-four family."
+        ],
+        "reasoning": "The exact 28 is existing coverage for a single member, not for the family census. The bounded catalogue search does not exclude an unindexed table.",
+        "searches": [
+          "Local Resultary searches for the width-four minimum fort counts",
+          "Resultary 2026/11/2 record 4b4a85b72c98, Finding",
+          "arXiv:2507.10826 Proposition 3.9"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the labeled minimum-fort census for the width-four family, not the general fort-transversal interpretation, vertex-transitive fractional formula, or the already covered four-cube member. No inspected prior statement supplies the all-order parity formula.",
+      "residual_risks": [
+        "Unindexed work on failed zero forcing, stopping sets, or toroidal grids could contain an equivalent census. The comparisons are not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework, bounds and constructions, not this census",
+          "evidence": [
+            "Cartesian-product bounds and diagonal square-torus forts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2310.17904",
+          "material_read": "§4.2, PDF pp.16–17, offset 57985",
+          "method": "Open primary PDF text, bounded passage",
+          "title": "Forts, (fractional) zero forcing, and Cartesian products of graphs",
+          "trigger": "Same invariant and graph product"
+        },
+        {
+          "assessment": "Different minimality and graph families",
+          "evidence": [
+            "Counts are chiefly inclusion-minimal and the product passage gives a bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2404.05963",
+          "material_read": "Abstract p.1, offset 721, and product lower bound p.4, offset 14488",
+          "method": "Open primary PDF text, bounded passages",
+          "title": "On the Number of Minimal Forts of a Graph",
+          "trigger": "Fort counts and Cartesian products"
+        },
+        {
+          "assessment": "Covers the n=4 member only",
+          "evidence": [
+            "Classifies Q4 minimum forts as neighborhoods or members of an exceptional automorphism orbit; establishes hypercube minimum size."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2507.10826",
+          "material_read": "§3, PDF pp.8–9 at offset 28500, Proposition 3.9 and Corollary 3.10",
+          "method": "Open primary PDF text, bounded passages",
+          "title": "On the forts and related parameters of the hypercube graph",
+          "trigger": "C4 square C4 is Q4"
+        },
+        {
+          "assessment": "Different graph and range",
+          "evidence": [
+            "C_n squared for n≥6, with a mod-three census, not C4 square Cn."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-minimum-forts-of-squared-cycles-a-cyclic-gap-classification-and--a06a1735df72",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Minimum forts of squared cycles",
+          "trigger": "Closest same-day semantic hit"
+        },
+        {
+          "assessment": "Confirms coverage of the already acknowledged special case, not an all-order formula",
+          "evidence": [
+            "28 forts of size four and additional larger inclusion-minimal forts."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-five-orbit-types-of-inclusion-minimal-forts-of-q-4--4b4a85b72c98",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Five orbit types of inclusion-minimal forts of Q4",
+          "trigger": "Exact overlap for one member"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "On a natural fixed-width torus the complete census determines the multiplicity of sharp forcing obstructions, distinguishing parity and divisibility by four. It resolves an all-order counting question substantially beyond the known bounds and the one hypercube case, with a replayable finite-state mechanism that separates tight walks and a single defect.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete theorem is for the unweighted path on four vertices, both diagonal and off-diagonal, and supremum over all real times. The exact reversal-sector block matrices reconstruct every complex transition amplitude. The difference operator has identically zero antisymmetric block and a two-by-two explicit symmetric block, giving the claimed \(f\) formulas. Trigonometric optimization and the irrational two-frequency density theorem prove all four sharp constants, not merely sampled values. The independently implemented complex matrix exponential checker verifies 12,864 formula comparisons and 116,733 phase-grid bound pairs. It does not stand in for the infinite-time proof.
+PASS
 
-## Originality — PASS (with stated priority risk)
+The reversal blocks exponentiate using traceless parts squaring to 5I/4. In V-e^(-it)U(-t) the antisymmetric block cancels exactly; halving the entries of the symmetric block gives |sin t|sqrt(c^2+s^2/5) within each degree class and (2/sqrt5)|s cos t| across classes. Within a degree class the moduli form the unordered pair a+b, |a-b| with a+sqrt5 b<=1 (Cauchy–Schwarz), so the difference is at most 2/(1+sqrt5), the sum at most 2, and the product at most 1. The difference bound is sharp when the paired absolute coordinates in both unit vectors match, with the smaller squared coordinate 1/(1+sqrt5) giving a=b; the sum and product use a=1,b=0. Across classes the moduli are 2|sC|/sqrt5 and 2|sS|/sqrt5, making the difference extremal at |s|=|C|=1 and the sum and product extremal at |s|=1, |C|=|S|=1/sqrt2. The within-class complex contrast uses |c|=1 and |sin t|=1; the across-class one uses |s|=1 and |cos t|=1 on the torus. For any fixed phase phi=t/2 mod 2pi, the times 2phi+4pi k generate a dense first phase via irrational rotation by 2pi sqrt5. Thus all upper bounds have actual time sequences approaching them, without claiming finite-time attainment. The supplied verification notes and script were inspected, not executed; reported finite checks do not prove sharpness.
 
-Coutinho--Guo--Schmeits (arXiv:2505.11986v1) provide individual quantum state-transfer bounds and small-graph existence tables, but not simultaneous path/complement sharp extrema. Cooper and collaborators (arXiv:2610.07673v1, published after the motivating source) define the same four comparisons, derive non-sharp general bounds, and explicitly ask for their sharp values for paths. Their cross-degree bound \(f\le1\) does not give the stricter \(2/\sqrt5\) constant. The known phenomenon of path-endpoint pretty-good transfer plausibly implies certain trivial same-class \(\sigma=2\), \(\rho=1\) entries, which are credited as covered components rather than separately claimed novelty. Searches of published mathematical records revealed no equivalent full classification. A hidden exact specialization of a general theory remains a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The four-vertex path is the smallest connected nonregular self-complementary graph. An exact all-pairs comparison of transport on a graph and its complement is a natural small-system classification: the cross-degree sum and product are sharply limited to \(2\sqrt{2/5}\) and \(2/5\), respectively, unlike the generic ceilings. The result makes phase-compatibility constraints measurable rather than simply adding individual maximum amplitudes. No larger-path conclusion, time-to-optimum bound, robust control claim, or quantum-computing speedup follows.
+The metrics and general framework are already in Cooper et al.; known transfer/recurrence facts account for the same-class sum and product endpoints. The supported distinct claim is the exact joint amplitude optimization yielding the nontrivial sharp contrasts and across-class sum and product. The strongest primary comparison has slack in those cases and explicitly asks for tight bounds on paths.
 
-## Sources and limitations
+## value
 
-Primary motivating public source: arXiv:2505.11986v1, May 17, 2025, with primary MSC 81P45. Subsequent direct-comparison literature: arXiv:2610.07673v1, October 6, 2026, inspected for potentially stronger coverage. The finite numerical test is only corroboration. The theorem makes exact supremum statements, not claims of finite-time attainment. Scientific priority has not been independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+P4 is the smallest self-complementary path with nontrivial degree classes and supplies a concrete benchmark for the published tight-path question. The across-class bounds quantify a simultaneous tradeoff not visible from individual entry bounds, and the complete exact table distinguishes trivial recurrence or transfer from phase-constrained extrema. No paper-sized generalization, physical advantage or device claim is needed for this benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

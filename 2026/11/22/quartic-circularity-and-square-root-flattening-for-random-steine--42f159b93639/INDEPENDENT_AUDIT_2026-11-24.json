@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:15:57.253143Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–30,34–100; independent axis, localization and density arguments",
+        "Frozen VERIFICATION.md:19–29, requirements.txt, and checker.py:9–55, inspected without execution",
+        "Angle-simplex pushforward cross-check: density 2/π² and R∼√3 A/2 near a generic angle edge give the same coefficient 4√3/π"
+      ],
+      "rationale": "The affine image of an equilateral triangle gives the Steiner ellipses; their squared-axis ratio is the eigenvalue ratio of the centered scatter matrix S. Its trace and determinant are Σ/3 and 4A_T²/3, and the circumradius-one area identity gives K=√3 ℓ12ℓ23ℓ31/Σ=2R/(1+R²). In particular K≤√3 d/2 for shortest chord d, so continuity through collisions after setting K=0 there rules them out as an additional near-circular locus. Equality K=1 means isotropic scatter, hence an equilateral triangle. Expanding the trace-free entry at the two labelled equilateral points gives eigenvalue contrast (2/3)√(u²+v²−uv)+O(u²+v²). With e²=2Q/(1+Q), both t²-scaled domains converge within a fixed bounded set to the indicated ellipse of area 9π/(8√3). The uniform angle density and two configurations give 3√3/(16π); convergence of the indicators off the ellipse boundary proves the marked TV result. Conversely K≥√3 d/6 by the triangle inequality, so R<η implies a shortest angular gap of size O(η). Assign the mark by the shortest pair (ties have probability zero). For a fixed scaled signed gap and third angle away from coincidence, R/η tends to √3 |Δ/η|/4 and the marked pair is uniquely shortest. In these coordinates the indicator vanishes outside a fixed compact scaled-gap strip; dominated convergence on this strip times the two angle circles gives L1 convergence, since the exceptional collision and window-boundary sets have measure zero. Each pair contributes 4/(π√3), with pair labels uniform by exchangeability; normalization gives independent uniform limiting gap and angles. Overall rotation in the circular regime is exactly uniform and independent. The substitution η=√(2t−t²) gives the flat eccentricity constant 4√6/π and widens the scaled gap interval by √2.",
+      "residual_risks": [
+        "The finite Sobol diagnostics cannot verify the TV statements or either asymptotic. The analytic calculation is for iid circle-boundary points, not for iid interior points or other sampling laws."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The maximum-exradius theorem has the same iid arclength law and rare-shape limits, but concerns a different function on the angle simplex.",
+          "The side-tangent-ellipse law randomizes side contacts on a fixed triangle and measures normalized area; it does not randomize the triangle or select its midpoint-tangent ellipse."
+        ],
+        "reasoning": "Knowledge of a joint shape measure permits a fresh level-set integration for any statistic, but a law or conditional limit for one shape functional does not establish these eccentricity level sets or their exact asymptotics.",
+        "searches": [
+          "Resultary maximal-exradius and random ellipse laws, 8f77bad5e4d0 and e71b71af54e1",
+          "Minda–Phelps DOI 10.1080/00029890.2008.11920581 and author copy; Scimemi bibliographic record and Forum Geometricorum full-text attempt"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 42f159b93639, 8f77bad5e4d0 and e71b71af54e1",
+        "arXiv:1502.01367",
+        "MathWorld Circle Triangle Picking",
+        "Minda–Phelps and Scimemi retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ellipse construction and uniform angular input measure supply the starting identities; the closest rare-shape theorem conditions on exradius rather than semiaxis ratio."
+        ],
+        "reasoning": "The circular threshold requires the positive-definite local eccentricity form and both labelled branches; flattening requires its own uniform localization to three collision strips and gap derivative. Neither result is an eccentricity reparameterization of the prior statistics.",
+        "searches": [
+          "Rohe arXiv:1502.01367 p. 1; MathWorld Circle Triangle Picking; Resultary 8f77bad5e4d0 RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The circumellipse has the same axis ratio; the eigenvalue ratio and normalized area K=4√3 A_T/Σ are one-to-one descriptions of R.",
+          "The shape representation on A+B+C=π has density 2/π² and K=2√3 sin A sin B sin C/(sin²A+sin²B+sin²C). Rohe describes the deterministic ellipse and foci; MathWorld treats ordinary area under the boundary sampling law."
+        ],
+        "reasoning": "The existence of a known area law for A_T alone does not yield a law for A_T/Σ or for its marked level sets; the equivalences identify the relevant normalized-area law, not a statement of it in the inspected sources.",
+        "searches": [
+          "Primary and Resultary comparisons for Steiner inellipse axis ratio and eccentricity, circumellipse, centered triangle inertia, and side or angle shape of random cyclic triangles",
+          "arXiv:1502.01367, p. 1; Circle Triangle Picking, MathWorld"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "42f159b93639 reproduces the assigned record itself. The exact distribution and marked limits in 8f77bad5e4d0 are for maximum exradius, not the ratio of Steiner semiaxes."
+        ],
+        "reasoning": "The exact tail constants and both marked eccentricity laws were compared with the closest exact-law entry; the top exact wording match is the same work, not independent coverage.",
+        "searches": [
+          "Resultary exact endpoint laws for random cyclic-triangle shapes, especially IDs 42f159b93639 and 8f77bad5e4d0"
+        ]
+      },
+      "rationale": "The supported distinct claim is the pair of sharp eccentricity tails and the marked conditional TV limits under iid circle-boundary sampling. The Steiner geometry and circle-triangle shape law are premises. No inspected independent theorem gives these asymptotics for this statistic; the closest indexed rare-shape laws use a different statistic or a different, non-equivalent sampling mechanism. The identical Resultary copy is not a separate finding.",
+      "residual_risks": [
+        "Scimemi and Minda–Phelps full texts were unavailable through the attempted lawful routes. Earlier unretrieved deterministic formulas or unindexed probability results may exist; the verdict is relative to the inspected evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical deterministic result",
+          "evidence": "Midpoint tangencies and derivative-root foci, not an iid eccentricity distribution in the inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.01367",
+          "material_read": "PDF p. 1, OA offset 430",
+          "method": "Primary OA PDF",
+          "title": "Visualizing Marden's theorem with Scilab",
+          "trigger": "Steiner inellipse formulation via derivative roots"
+        },
+        {
+          "assessment": "Sampling and area context",
+          "evidence": "Boundary sampling and ordinary area; this is not the normalized scatter invariant.",
+          "identifier_or_url": "https://mathworld.wolfram.com/CircleTrianglePicking.html",
+          "material_read": "Entry opening, OA offset 0",
+          "method": "OA website",
+          "title": "Circle Triangle Picking",
+          "trigger": "Same probability space and possible area-statistic reformulation"
+        },
+        {
+          "assessment": "Closest distinct catalogue comparison; different statistic",
+          "evidence": "Complete law and endpoint shape limits for maximum exradius rather than Steiner inellipse eccentricity.",
+          "identifier_or_url": "SCOPE-exact-maximal-exradius-law-and-dual-rare-shape-limits-for-random--8f77bad5e4d0",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact maximal exradius law and dual rare shape limits for random circle triangles",
+          "trigger": "Same random triangles and conditional rare-shape laws"
+        },
+        {
+          "assessment": "Different inputs, ellipse choice and output statistic",
+          "evidence": "Random side contacts in a fixed triangle and normalized ellipse area.",
+          "identifier_or_url": "SCOPE-a-universal-hypergeometric-area-law-for-independently-side-tange--e71b71af54e1",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A universal hypergeometric area law for independently side-tangent ellipses",
+          "trigger": "Exact law for an ellipse in a triangle"
+        },
+        {
+          "assessment": "Identical work to the assigned record",
+          "evidence": "Same Finding, constants, and proof, not an independent statement of the result.",
+          "identifier_or_url": "SCOPE-quartic-circularity-and-square-root-flattening-for-random-steine--42f159b93639",
+          "material_read": "RESULT.md offsets 0 and 4000–7400",
+          "method": "Local Resultary mirror",
+          "title": "Quartic circularity and square-root flattening for random Steiner inellipses",
+          "trigger": "Exact match for both asymptotic tails and marked claims"
+        },
+        {
+          "assessment": "Access limitation, not a coverage verdict",
+          "evidence": "No probability statement inferred from the citation alone.",
+          "identifier_or_url": "https://doi.org/10.1080/00029890.2008.11920581",
+          "material_read": "Bibliographic identification; no full text retrieved",
+          "method": "DOI and identified public author copy both attempted; HTTP 403",
+          "title": "Triangles, Ellipses, and Cubic Polynomials",
+          "trigger": "Deterministic Steiner formulas potentially equivalent to the shape invariant"
+        },
+        {
+          "assessment": "Access limitation, not a coverage verdict",
+          "evidence": "A related side/inertia formula may be present; no claim about coverage of the stochastic result is inferred from the title.",
+          "identifier_or_url": "https://portal.mardi4nfdi.de/wiki/Simple_relations_regarding_the_Steiner_inellipse_of_a_triangle",
+          "material_read": "Bibliographic landing page; no full-text passages retrieved",
+          "method": "OA index and identified Forum Geometricorum host attempt (DNS failure)",
+          "title": "Simple Relations Regarding the Steiner Inellipse of a Triangle",
+          "trigger": "Potential exact deterministic relation for semiaxis ratio"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–26,60–100",
+        "Resultary 8f77bad5e4d0 (comparison with other rare-shape functionals)"
+      ],
+      "rationale": "This is the extreme shape law for a canonical affine ellipse in a basic random cyclic polygon. The distinct powers, exact constants and marked limits distinguish concentration near two isolated equilateral shapes from three families of pair collisions with an unconditioned third-angle limit. The marks give information absent from a tail exponent alone.",
+      "residual_risks": [
+        "No full eccentricity distribution or universality across boundary shapes is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:19:23.107628Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each selected core forces inclusion of its mate in a fort; an unselected core's mate is required with one selected core neighbor, forbidden with zero, and removable with at least two. No nonempty fort has empty core support. In a tree, three fort neighbors at an outside vertex allow an entire branch to be dropped. Once there are at most two, retaining one component of the two-step link graph requires no new mates and gives a smaller fort if the graph is disconnected. Conversely, any subfort's support must take both ends or neither across each link since the middle core's mate is absent, so connectedness proves minimality. On a path the supports are contiguous length-k parity runs; their weights are 2k plus the number of ends that do not touch a core endpoint. For even n the two maximal parity runs each touch one endpoint; for odd n one maximal run touches both endpoints and the other touches neither. They give the only size-n+1 forts. Singletons at endpoints give the only size-three forts; endpoint intervals and interior intervals realize the intervening odd and even weights. The total is the sum of interval counts over the two parity classes. Each nonempty A gives a distinct fort. Independent replay: python3 /workspace/review_checks.py 1 tests the defining neighbor condition and proper containment on all labelled cores through order 5 (1,1,3,16,125 trees) and combs through order 8, with exact families and comb coefficients; the finite check is not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.3 applies to every tree, including W(T)",
+          "Abiad–Ghasemi Nezhad gives an algorithm for the scalar number of minimal forts of any tree, not a size-resolved polynomial",
+          "Becker et al. count minimal forts of unwhiskered paths and spiders and give a four-comb illustration"
+        ],
+        "reasoning": "The general classification, not merely the scalar algorithm, is decisive. For a path its alternation condition leaves only consecutive parity runs, yielding the sum and all endpoint consequences without a further structural result.",
+        "searches": [
+          "arXiv:2512.12874v3 Theorem 3.3",
+          "arXiv:2609.11754v1 §4, Theorem 4.14",
+          "arXiv:2404.05963v1 Corollary 12, Theorems 16–17"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2512.12874v3",
+        "arXiv:2404.05963v1",
+        "arXiv:2609.11754v1",
+        "Resultary 7b2f2ef29c50, 6a92bd2ea251"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cut formulation yields exactly a connected path of two-step links for each allowed comb support",
+          "Its two parity classes of lengths ceil(n/2) and floor(n/2) exhaust the supports"
+        ],
+        "reasoning": "The weight is immediately twice the run length plus zero, one or two boundary mates. The exponential lower bound is also elementary: unions of the singleton-core forts are forts and yield one distinct core support for every nonempty core subset. There is no independent unexpected size phenomenon left beyond the interval count.",
+        "searches": [
+          "arXiv:2512.12874v3 Theorem 3.3 and Resultary 7b2f2ef29c50 proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cameron–Li pp. 5–6: F induces maximum degree <=1; each vertex outside has zero or two neighbors in F; no outside–outside edge separates F",
+          "Resultary 7b2f2ef29c50 states canonical leaf-corona forts and the same two-step link connectedness criterion for cycle cores"
+        ],
+        "reasoning": "In W(T), the core support A and its selected mates force the canonical S(A); the maximum-degree condition makes A independent. On every core path joining members of A, an edge joining two outside cores would violate the cut condition. The path therefore alternates; each intervening outside core already has two neighbors in A and no selected mate, so suppressing it gives exactly a link. Conversely connected links put all core support in one component after deleting all outside–outside edges. Every pendant in S(A) attaches to this component, directly or through its core with one neighbor in A. A is independent by bipartiteness, and three selected neighbors of an outside core would occupy distinct components of T-v with no links across them. Thus the original test is exactly the earlier criterion in these coordinates.",
+        "searches": [
+          "arXiv:2512.12874v3 Theorem 3.3",
+          "Resultary: minimal forts of sunlet graphs, quadratic census and lifting"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 7b2f2ef29c50 gives the cycle-corona scalar census, not the comb size profile",
+          "Resultary 6a92bd2ea251 concerns super-domination, not forts",
+          "Becker et al. show a four-comb example; their Padovan recurrence counts a path without whiskers"
+        ],
+        "reasoning": "No directly matching exact polynomial was found in those comparisons, but absence from an exact table does not overcome the implication from the general tree theorem.",
+        "searches": [
+          "Resultary: minimal forts of sunlet graphs, quadratic census and lifting; inclusion-minimal super-domination of leaf coronas",
+          "arXiv:2404.05963v1 four-comb illustration"
+        ]
+      },
+      "rationale": "Cameron–Li Theorem 3.3 on arbitrary trees directly yields the main characterization. The link graph is the suppressed alternating subtree allowed by their cut condition, and the comb polynomial and size claims are mechanical counts of intervals in its two parity classes. This is demonstrated prior coverage, not a failure to find the same polynomial in print.",
+      "residual_risks": [
+        "The precise version in which Theorem 3.3 first appeared was not established; the inspected March 2026 version predates the frozen finding.",
+        "The bounded search does not settle whether the comb polynomial was also stated separately in another source; that is immaterial to the demonstrated implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the claimed classification by direct equivalence; v3 directly verified",
+          "evidence": "The three conditions on internal degree, outside degree and cuts along edges disjoint from the fort.",
+          "identifier_or_url": "https://arxiv.org/pdf/2512.12874v3",
+          "material_read": "Theorem 3.3 p. 6, extracted offset about 17800",
+          "method": "Lawful OA PDF passage",
+          "title": "On the minimal forts of trees",
+          "trigger": "Stronger arbitrary-tree characterization"
+        },
+        {
+          "assessment": "Related earlier example and other tree families, not a literal all-order comb enumerator",
+          "evidence": "The path recurrence is for P_n; the four-comb example is an illustration.",
+          "identifier_or_url": "https://arxiv.org/pdf/2404.05963v1",
+          "material_read": "Corollary 12 p. 7; Theorems 16 and 17 and four-comb figure pp. 9–10",
+          "method": "Lawful OA PDF passages",
+          "title": "On the Number of Minimal Forts of a Graph",
+          "trigger": "Earlier comb discussion and tree counts"
+        },
+        {
+          "assessment": "Scalar all-tree count, no stated size enumerator",
+          "evidence": "Computes f_m(T) with O(n) additions and multiplications on O(n)-bit integers.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.11754v1",
+          "material_read": "§4 task definition p. 10 and Theorem 4.14 p. 15",
+          "method": "Lawful OA PDF, substantive passages",
+          "title": "Fort Abundance in Zero Forcing",
+          "trigger": "Same invariant on all trees"
+        },
+        {
+          "assessment": "Earlier equivalent formulation on a distinct core family; not the tree theorem or the comb polynomial",
+          "evidence": "Canonical forts B(X) are minimal precisely for connected H_X on cycle cores.",
+          "identifier_or_url": "Resultary 7b2f2ef29c50",
+          "material_read": "Finding and proof, offsets 0 and 4306–8306",
+          "method": "Local Resultary mirror",
+          "title": "Minimal forts of sunlet graphs: a quadratic census and a lifting",
+          "trigger": "Same leaf-corona canonical construction and distance-two graph"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The corona coordinates are convenient, but the only residual results are the direct interval count on a path and a union-of-forts lower bound. They do not supply a distinct structural or extremal result beyond the covered characterization. The rejection is not a correctness objection or an objection to the graph family itself.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

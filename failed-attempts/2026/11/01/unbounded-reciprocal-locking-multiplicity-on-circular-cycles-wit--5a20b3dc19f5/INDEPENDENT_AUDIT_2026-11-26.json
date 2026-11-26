@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:36:34.580394Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Assumptions and Proof 1–6",
+        "Frozen VERIFICATION.md and verify.py, inspected, not executed",
+        "Buescu–Oliveira arXiv:2610.15686v1, Definition 2.4, Theorem A, Corollary 2.9, Theorem B and equation (2.7)"
+      ],
+      "rationale": "For odd m=2q+1, 1+(-1)^(q+1)U_(2q)(x) is even and zero at x=0, hence divisible by x². The quotient defining h_m is analytic at both cosine zeros; h_m(0)=0. On a thin annulus the phase is strictly increasing in the angle and differentiation gives dot Theta_i=omega exactly. Thus the increasing phase-zero sections are radial at angle zero, the periods are 2pi/omega, and the radial contractions give the prescribed transverse multipliers. At r=1 the phase gradients are e_theta and e_theta+h_m e_r, yielding a cos(theta) and (-1)^(q+1) sin(m theta) for the two translations. H_m(psi) is their reciprocal difference. At the 2m alternating extrema of the sine, a<1 preserves alternating signs. Multiplication of the Laurent polynomial by z^m bounds the total root multiplicity by 2m. Thus the 2m roots are simple with m slopes of each sign, and H_m(0)=-a excludes simultaneity. To check local persistence independently, take a section just before oscillator 1 emits, with two radial coordinates and relative phase. In a small neighborhood of each root the crossing order is fixed and receiver states are away from their own emission sections at both kicks. The local return is smooth in state and epsilon by transverse crossings. At epsilon=0 the radial part is the diagonal contraction with the prescribed multipliers and the relative phase is unchanged. The phase displacement divided by epsilon extends smoothly there, and on the cycles its epsilon=0 value is H_m, because the relative phase changes only at the kicks. The fixed-point equations have a block-triangular Jacobian at epsilon=0 with the two nonzero radial displacement derivatives and H'_m. The implicit function theorem, followed by the simple eigenvalue perturbation at 1 (the off-diagonal couplings in the return are O(epsilon)), gives the relative multiplier 1+epsilon H'_m+O(epsilon²). The other multipliers stay inside the unit circle, even if their limiting values coincide. This proves the simultaneous local persistence and the stable/saddle counts. Finally the effective field e_x-a cos(psi)e_theta has distance at most a<1 from e_x, giving winding zero and signed difference +1 from the cycle tangent. The m=1 case needs no exception: the shear vanishes and the balance still has two simple roots.",
+      "residual_risks": [
+        "No global return assertion, event regularity across simultaneous emissions, or threshold uniform in the harmonic order is inferred. Exact root count is for the leading balance; the full impulsive-system count is a lower bound. The finite diagnostics are not persistence or all-orders certification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Buescu–Oliveira already give the continuation/stability theorem for any simple nonsimultaneous balance root and a separate winding lower bound. They do not specify this high-harmonic shear in these statements.",
+          "Adjacent Resultary records concern two cycles of one planar field and polynomial degree for phase-response synthesis. Neither supplies the coupling multiplicity result; the exact overlap is instead a632e71d1e14.",
+          "The readable pulse-locking literature materials for Canavier–Achuthan were limited to landing/abstract; no whole-paper exclusion is claimed."
+        ],
+        "reasoning": "A general local root-to-lock theorem covers the persistence step, not the choice of physical realization. The earlier exact construction supplies that choice and the unbounded count, so it is more decisive than the general theory.",
+        "searches": [
+          "arXiv:2610.15686v1, §2.1 Hypotheses/Definition 2.4, §2.3 Theorem A and Corollary 2.9, §2.4 Theorem B",
+          "Canavier–Achuthan PMC3022482, lawful OA landing/abstract and identified Europe PMC alternate",
+          "Resultary 72aee0c65402 and 246d4796943a"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a632e71d1e14, 72aee0c65402, 246d4796943a",
+        "arXiv:2610.15686v1",
+        "PMC3022482, limited landing/abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For m=1 mod 4 let k=m+2=3 mod 4 and use the earlier shear g_k with g_k cos(theta)=sin(k theta)+sin(theta). Then h_m=g_k-2 sin((m+1)theta), since sin((m+2)theta)+sin(m theta)=2 sin((m+1)theta)cos(theta). This gives exactly the remaining sign choice and includes m=1.",
+          "Replacing 1/2 by any a<1 preserves both the alternating signs and the nonvanishing straight-line homotopy. Choosing a common angular speed and either radial decay rate just changes the phase-correcting vector fields' free constants and preserves the on-cycle gradients used by the same theorem."
+        ],
+        "reasoning": "The narrower exact odd-count and calibration assertions extend the letter of the earlier statement, but follow from its realization by this explicit elementary alteration and parameter changes with the same proof. They do not recover the already-covered unbounded-witness claim as a distinct result.",
+        "searches": [
+          "Resultary a632e71d1e14, phase-shear identity and root/winding arguments",
+          "Buescu–Oliveira arXiv:2610.15686v1, Theorems A and B"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier family takes k=4M-1, a=1/2, common period 2pi and radial multipliers e^(-2pi). In the target q=2M-1 then (-1)^(q+1)=1, so both give sin(k psi)-(1/2)cos(psi), with the same translation directions and shear identity.",
+          "The earlier text labels its winding difference -1, but its stated windings 1 for the tangent and 0 for W yield +1 in the Buescu–Oliveira convention. The magnitude and force of the lower bound are identical."
+        ],
+        "reasoning": "This matches the mathematical realization, not just the count or a common source. As k grows, the exact overlap already realizes arbitrarily many locks and an arbitrarily large ratio to the winding lower bound.",
+        "searches": [
+          "Resultary ranked searches: reciprocal translated circle oscillators, pulse-locking multistability, high-harmonic phase balance, Buescu–Oliveira winding criterion",
+          "Resultary a632e71d1e14, mirrored RESULT.md offsets 0 and 7000"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a632e71d1e14 states k=4M-1 stable and k phase-unstable locks, exactly 2k simple leading zeros, and fixed unit winding-gap magnitude, with identical parameterized circles and fixed Cartesian translation coupling."
+        ],
+        "reasoning": "The database check is a match of indexed theorem statements, not a finite table of harmonic diagnostics. Exact coverage on an unbounded subsequence suffices for the frozen record's main unbounded-multiplicity consequence.",
+        "searches": [
+          "Resultary a632e71d1e14, exact construction checked in mirrored RESULT.md",
+          "Resultary adjacent entries 72aee0c65402 and 246d4796943a"
+        ]
+      },
+      "rationale": "The central witness of arbitrarily many stable and saddle locks at fixed winding under fixed reciprocal Cartesian translations on identical unit-circle cycles is already given by Resultary a632e71d1e14. On m=4M-1, a=1/2 and omega=lambda_1=lambda_2=1 the full realization and exact leading counts coincide. The differences in theorem wording are real but do not constitute a distinct construction: the other odd class follows from a single sine addition identity on the earlier shear, and the free a, angular speed and contractions are direct parameter extensions of the same argument. This is a rejection for verified core overlap and a mechanically obtainable extension, not a claim that the prior writes the full strengthened quantifiers verbatim.",
+      "residual_risks": [
+        "Earliest historical priority has not been established. Additional pulse-locking literature could increase the known overlap; the demonstrated direct coverage does not depend on that unresolved access."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap on the unbounded 4M-1 subfamily; remaining odd orders follow by a harmonic identity",
+          "evidence": "g_M cos(theta)=sin((4M-1)theta)+sin(theta), horizontal and half-vertical translations, same phase balance when m=4M-1, exact leading root count and fixed winding magnitude.",
+          "identifier_or_url": "Resultary a632e71d1e14",
+          "material_read": "Mirrored RESULT.md offsets 0 and 7000, Finding and phase-shear construction",
+          "method": "Ranked catalogue, local mirror and mathematical substitution",
+          "title": "Unbounded stable impulse locking at fixed winding with identical circular cycles",
+          "trigger": "Exact same geometric setting, realization and winding contrast"
+        },
+        {
+          "assessment": "Supports local continuation and slope test; the winding theorem gives a lower bound only",
+          "evidence": "Equal-period hyperbolic cycles and positively oriented section crossings; simultaneous impulses use pre-impulse states. A simple phase zero in (0,2pi) gives a local lock and the stated multiplier signs. Winding difference is defined as tangent minus effective field winding.",
+          "identifier_or_url": "https://arxiv.org/html/2610.15686v1",
+          "material_read": "§2.1 Hypotheses 2.1–2.2 and Definition 2.4, equation (2.3), OA offsets 8000 and 12000; §2.3 Theorem A and Corollary 2.9 offset 17911; §2.4 Theorem B, equations (2.7)–(2.9), offset 19600",
+          "method": "Open primary passage comparison",
+          "title": "Winding number forces universal synchronisation",
+          "trigger": "Primary source of return, event and winding theorems"
+        },
+        {
+          "assessment": "Full-text coverage unresolved, not evidence against originality by itself",
+          "evidence": "Limited readable material does not substantiate absence of this construction from the full paper; it was not used to decide the rejection.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3022482/",
+          "material_read": "Landing and abstract only; Europe PMC alternate did not supply text",
+          "method": "Lawful OA and identified alternate attempt",
+          "title": "Pulse Coupled Oscillators and the Phase Resetting Curve",
+          "trigger": "Potential pulse-locking multistability antecedent"
+        },
+        {
+          "assessment": "Different problem",
+          "evidence": "Two cycles of opposite stability in one rotation-equivariant polynomial field, not reciprocal kicks.",
+          "identifier_or_url": "Resultary 72aee0c65402",
+          "material_read": "Mirrored RESULT.md, statement-level scope",
+          "method": "Ranked catalogue and local mirror",
+          "title": "Sharp polynomial degree trichotomy for two prescribed circular limit cycles",
+          "trigger": "Same-day prescribed circular oscillators"
+        },
+        {
+          "assessment": "Adjacent synthesis result, not a locking theorem",
+          "evidence": "Studies polynomial degree of a phase-response realization, not multiplicity under reciprocal translation.",
+          "identifier_or_url": "Resultary 246d4796943a",
+          "material_read": "Mirrored RESULT.md, statement-level scope",
+          "method": "Ranked catalogue and local mirror",
+          "title": "Sharp polynomial degree for exact circular oscillator phase responses",
+          "trigger": "Circular phase-response synthesis"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Proof and Limitations",
+        "Resultary a632e71d1e14",
+        "Buescu–Oliveira Theorem B"
+      ],
+      "rationale": "An unbounded multiplicity witness with fixed winding is a useful sharpness test of the cited lower bound, but the earlier construction already gives exactly this test under the same physical restrictions. The only additional precision is filling a residue class of harmonic orders and allowing direct calibration of kick ratio, angular speed and radial decay factors. In this statement that does not establish a new winding obstruction, a new regime of coupling, or a differently motivated exact threshold; it is a routine extension of the existing witness.",
+      "residual_risks": [
+        "The judgment concerns value as a distinct scientific contribution, not the correctness or usefulness of the already-known multiplicity example."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

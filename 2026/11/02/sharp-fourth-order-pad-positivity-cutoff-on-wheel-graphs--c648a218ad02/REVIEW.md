@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof directly decomposes the wheel Laplacian, obtains explicit positive rational formulas for all off-diagonal entry classes on rim sizes three through five, and derives the asymptotic obstruction for every larger rim using an exactly computed pseudoinverse. The uniform positive Green-kernel bound is strict. For rim size six, full rational formulas and Descartes' rule give the exact interval with a single positive algebraic endpoint. The standalone symbolic verifier checks critical finite identities; infinite quantifiers rest on the analytic proof.
+## correctness
 
-**Originality: PASS, with documented uncertainty.** The 2010 and 2012 foundational Padé-positivity works were inspected at their relevant propositions, examples and conclusions, and an earlier wheel-spectrum reference was inspected. They do not state the wheel sharp cutoff or first-failing-wheel polynomial in the inspected material. Semantic searches across the mathematical research database and public literature, together with recoverable earlier claim comparisons, identified no equivalent or stronger implication. The path/cycle result does not imply wheel positivity because the wheel Laplacian is a different operator. Residual risk is previously unindexed specialized work; search absence alone is not a proof of novelty.
+PASS
 
-**Value: PASS.** Unconditional positivity is a natural numerical integrity property for graph heat diffusion. Wheels are the canonical hub-augmented cycles; the complete cutoff is sharp, demonstrates that the hub makes the six-vertex wheel safe while the first larger wheel is unsafe, and the explicit first failing root gives a usable exact step restriction. The Green-kernel obstruction offers a structural explanation across all larger rim sizes, rather than isolated numerical examples.
+Reconstructed the scalar multipliers and orthogonal projections of the wheel. Spectral cross-multiplication in the two coefficient coordinates for √5 verifies all twelve stated off-diagonal class formulas for m=3,4,5,6. For W6 the two nonadjacent rim classes and hub–rim class are positive at every positive step; the adjacent numerator changes sign at the sole positive root by Descartes and the endpoint signs. Rational outward-rounded Horner intervals certify both requested bracket signs. Periodizing the Green kernel of 3I−adjacency and including the hub–rim eigenvector in the pseudoinverse gives the claimed eventual adjacent negativity via the uniform positive bracket, since 5·147²−325²=2420. The scalar numerator is everywhere positive and the zero mode gives row sums one. At zero step the map is the identity; at the W6 cutoff only the adjacent off-diagonal class is zero.
 
-Closest literature: Zappavigna–Colaneri–Kirkland–Shorten (2010, 2012) on general Padé positivity; Mednykh (2015) on wheel spectra; related previous results on paths/cycles and on directed Markov generators. Scope excludes heterogeneous weights and the detailed safe-time sets for all larger wheels.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the sharp wheel-family cutoff, including W5, the W6 degree-six positivity horizon and the all-m≥6 obstruction. W3=K4 and W4=K_{1,2,2} are already exact special cases of the complete-multipartite record, including their off-diagonal formulas. The cycle threshold shares the first failing rim lengths but is not the wheel map. No priority claim is made for the generic Gauss–Padé scheme, spectral facts, or the covered special cases.
+
+## value
+
+PASS
+
+For a natural hub-coupled geometry, the theorem distinguishes positive definite row-preserving timesteppers from entrywise positive ones and identifies precisely where unconditional positivity breaks. The exact first failure matters for choosing a positivity-preserving timestep, and the pseudoinverse argument explains all larger wheels without finite extrapolation. The result is useful independently of the previously covered complete-multipartite cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

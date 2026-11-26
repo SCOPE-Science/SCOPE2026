@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete 27-trigram property and tight counting force every nine-position candidate to be the single set \(E=\{3,6,\ldots,27\}\). The explicitly tabulated residue obstruction excludes it for each possible cut. Adding one mark hits the sole previously uncovered bigram, while length-three uniqueness propagates coverage to all longer factors. The standalone checker reruns direct coverage of every substring for all 27 cuts. The finite case is fully covered; there is no inference about untested lengths or cycles.
+PASS
 
-## Originality — PASS, with limits
+The cycle has all 27 cyclic triples once. A nine-mark solution must partition the 27 linear triple starts into three-start consecutive intervals; covering start 1 with full capacity forces mark 3 and induction forces 3,6,…,27 (one-based). This marks cyclic residue r=c+2 mod 3. In residues 0,1,2 the omitted bigram respectively is 02, 01, 12, with start residues 1,2,0, so both coordinates avoid the marks, including any repeated unmarked suffix. Independently computed occurrence-union bitmasks for every length in every one of the 27 cuts give exactly one missed factor with these nine marks, and adding one position in that factor hits every factor. Analytically, any factor longer than three has a unique triple suboccurrence, so hitting all triples already hits all such factors. This proves both minima exactly ten and both quantifiers over the given instance.
 
-Whittington (2024, §5, Theorem 29) asks the all-de-Bruijn-cycles unfolding question but only proves existence for selected Lyndon-generated cycles at prime orders. His example of an unfavorable single cut has a favorable alternative cut and therefore is not the present all-cuts counterexample. The 2019 Mantaci et al. general attractor bounds and the 2023 Fuchs–Whittington decision-complexity result do not imply the exact instance. The accessible indexed research and historical claims searched by literal word, unfolding synonyms, and implication yielded no matching example. Equivalence in unindexed literature remains a live originality risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This answers the explicit universal-versus-existential question about de Bruijn unfoldings in the negative. It supplies a concrete small word, a proof that every standard unfolding misses the tight nine-mark threshold, and the sharp optimum ten. It does not classify maximal attractors among all de Bruijn cycles.
+Best-of-knowledge PASS for the explicit universal-cut witness with exact minima 10 for both ordinary and 3-attractors. The elementary lower bound and a single bad unfolding are prior context; the distinct claim is that all unfoldings of one cyclic ternary order-three word fail the target nine. The primary text explicitly separates this all-cycles question from the existence of some favorable cycle and has a favorable cut for its own illustrative cycle. The closest inspected Resultary profile is binary order four and has favorable cuts, not this witness.
 
-## Closest literature and limits
+## value
 
-Primary: P. Whittington, *Online String Attractors*, arXiv:2407.15599v1, §5 (2024); S. Mantaci et al., *String Attractors and Combinatorics on Words*, arXiv:1907.04660 (2019). The finding addresses one explicit finite counterexample, not the separate conjecture that some favorable cycle exists for every order/alphabet. Indexed searches and self-review are not an independent external validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The explicit witness rejects a universal rotation fix (not just a single bad linear representation); it separates forcing the exact-length factors from hitting all shorter factors. The modest finite certificate resolves a natural quantifier in the de Bruijn attractor question and gives a structural obstruction through the forced residue class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

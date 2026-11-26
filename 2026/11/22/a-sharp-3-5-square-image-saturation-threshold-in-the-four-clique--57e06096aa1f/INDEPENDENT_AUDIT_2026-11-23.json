@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:24:15.605501Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen proof correctly factors the square map through J_4-I_4, whose determinant is -3, and uses coordinatewise square counts when invertible. In characteristic three its image is the sum-zero hyperplane, and the affine fiber s_i=t-y_i gives the root-count product. The uniform character bound in the frozen proof works at q>=729: exclusion costs at most 28+4, and the sum of Weil coefficients is at most 17. The supplied small-field algorithm and output were inspected, not executed. Separate enumeration by generating all translated subsets of the inclusive reflected square set reproduced the deficits at 3, 9, 27 and 81. At q=243 an analytic check suffices: for four distinct entries each pair sum is exactly -1 (substitute (t-a)/(t-b) over t!=b); four triples and the quartic cost at most 11√q, giving the positive bound q-38-11√q for q>=243; smaller supports extend to a four-set. The revised package instead proves the exact F27 statement. Here X^3-X+1 is an irreducible cubic by a root test; the new script constructs all translated d-subsets of the inclusive reflected square set for d=3,4 and was executed via python3 check_deficit_27.py in the revised package. It reproduced all 2,925 triples, 16,146 covered quartets, and 1,404 missing quartets, of which 52 have sum zero. Every four-support has exactly one sum-zero translate since 4=1 in the field; smaller supports extend to covered triples. The ordered deficit is 24*52, and subtracting it from 27^3 gives 18,435. This is a finite exact classification, not a fiber histogram or a field-size claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Elduque–Labra supply the natural-basis graph construction. The complete-multipartite square-zero record supplies 8q-7 for the resonant zero fiber at K4. Graham–Spencer's displayed theorem is for prime p≡3 (mod 4) above k²2^(2k-2), and p. 47 mentions a P_3 example at order 27."
+        ],
+        "reasoning": "Linear span and the fiber at zero do not evaluate the number of nonzero targets missed. P_3 implies covered triples where it holds; P_4 existence or failure in a loopless setting is not a count of missed closed quartets. The earlier large-prime bound alone does not cover 243.",
+        "searches": [
+          "arXiv:1312.4685v1 §2",
+          "Resultary 555bc289f00b",
+          "Graham–Spencer DOI 10.4153/CMB-1971-007-1, pp. 45–47"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1312.4685v1",
+        "arXiv:2210.03789",
+        "DOI 10.4153/CMB-1971-007-1",
+        "Brouwer Paley graphs domination-number data",
+        "Resultary 555bc289f00b, 04160d23af3c, c53aa05fd9d3, 981ee7b69845, 52d16daa341d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Paley-27 full-shattering and off-support polynomials distinguish two hypotheses but do not tabulate missing all-positive closed neighborhoods. The earlier 89-vertex four-extension result explicitly disclaims an upper stabilization threshold and gives a mixed-pattern witness at 81. The separate F81 orbit census is enough to determine its closed-quartet deficit by representative checks."
+        ],
+        "reasoning": "No inspected quartic shattering statistic mechanically implies the F27 deficit: a nonshattered support might realize the all-positive pattern but miss a different one, and adding zero can rescue some remaining cases. By narrowing to the exact closed deficit at 27, the replacement is not simply the known common-dominator cutoff, the earlier shattering result, or a new name for a covered number.",
+        "searches": [
+          "Resultary 04160d23af3c Finding, Assumptions and trace criterion",
+          "Resultary 52d16daa341d Finding; c53aa05fd9d3 Finding and §§2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Paley-27 tournament: nonpure VC shattering and a center-exclusion gap (04160d23af3c, Finding and trace criterion) reports all triples shattered and 5,967 fully shattered ordinary quartets; none has all sixteen off-support patterns. A sharp rank-five genericity threshold for finite Paley tournaments (981ee7b69845, Finding) treats all sixteen loopless orientation patterns and the common-dominator property."
+        ],
+        "reasoning": "Every four-tuple in characteristic three normalizes uniquely into the hyperplane by common translation. The exact alias is coverage of a quartet by a translate of the negative square set including zero; it is one binary pattern with closed neighborhoods. Full-shattering counts or a Boolean failure of the loopless property do not count these misses. At 243 the stronger loopless existence theorem does imply the originally claimed saturation.",
+        "searches": [
+          "Resultary: Paley tournament 27 four sets missing all-positive common neighborhood quadratic-residue translations deficits 12 240 1248",
+          "Resultary: one-sided Paley four-extension and quartet orbits"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Brouwer compilation places Paley tournament 243 in domination-number-5, guaranteeing a strict common dominator for every four-set. At 81 its graph domination number does not itself evaluate closed four-supports. The same-date corpus record c53aa05fd9d3 lists the three nonshattered F81 quartet orbits of sizes 810, 3240 and 810; all other quartets are shattered. Independent evaluation of its stated representatives found inclusive witness counts 9, 4 and 0 respectively, so the orbit list gives 810 missed four-supports, hence 810*24/81=240 ordered sum-zero misses; strict triple coverage handles repeats. McDonald–Sahay–Wyman's numerical experiments are restricted to prime fields."
+        ],
+        "reasoning": "There is direct compiled overlap in the frozen claim, including a case where a stronger table entry supplies the algebraic conclusion. At 27 a domination number or exact full-shattering total is not a table of single closed-pattern failures, and the published prime-field experiments omit this extension field.",
+        "searches": [
+          "Brouwer, Paley graphs, domination-number tables, offsets 4300–4865",
+          "arXiv:2210.03789, §4 numerical comparison",
+          "Resultary: exact Paley-81 nonshattered four-support orbits"
+        ]
+      },
+      "rationale": "For the frozen record, the claimed sharp-threshold emphasis overlaps substantially with Paley common-neighbor results: strict existence at 243 is already implied by both a compiled domination table and the rank-five Paley-tournament theorem, and the dated-matching Paley-81 orbit classification determines the 81 obstruction and even its deficit by checking three representatives. Same-date corpus overlap does not establish who was first. This is not a pass for the frozen threshold novelty. The delivered replacement centers the exact deficit over F27 and drops the other field sizes and saturation threshold as contributions. Under the sign/zero conventions of the actual sources, no inspected earlier statement supplies the F27 all-positive closed-support count. The known triple coverage is credited, not counted as a separate new theorem.",
+      "residual_risks": [
+        "The underlying Lee article cited by Brouwer was not retrieved; the accessible compiled table is evidence for the 243 implication, not for a new exact F27 count.",
+        "An unindexed table of one-sided closed-neighborhood failures at 27, or an exact support-orbit study not inspected, could affect priority. Co-dated corpus findings do not establish chronological precedence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers triples and full-pattern statistics, not the count of closed all-positive quartet misses",
+          "evidence": [
+            "Zero difference is negative in the concept class; 5,967 ordinary four-supports and no center-excluded four-supports realize all sixteen traces."
+          ],
+          "identifier_or_url": "Resultary 04160d23af3c",
+          "material_read": "Mirrored RESULT.md offsets 0–3360: Finding, Assumptions and trace criterion",
+          "method": "Read exact source via local mirror",
+          "title": "The Paley-27 tournament: nonpure VC shattering and a center-exclusion gap",
+          "trigger": "Exact same field and essentially the same neighborhood concepts"
+        },
+        {
+          "assessment": "Its exact orbit data determine the original F81 deficit; different field from the revised claim",
+          "evidence": [
+            "All but exactly three four-support orbits are shattered. Only the size-810 orbit with representative (0,3,46,52) has no closed all-positive witness."
+          ],
+          "identifier_or_url": "Resultary c53aa05fd9d3",
+          "material_read": "Mirrored RESULT.md Finding and orbit proof, offsets 0–3826 and 4680–8517",
+          "method": "Read statements, then independently tested its three representatives in its specified field",
+          "title": "Three exceptional quartet orbits and a rank-five shattering plateau in the Paley graph of order 81",
+          "trigger": "Potential exact coverage of the frozen last obstruction"
+        },
+        {
+          "assessment": "Strict existence at 243 covered; no F27 closed-deficit count",
+          "evidence": [
+            "No four-set dominates a tournament with domination number five, so every four-set has an external vertex pointing to all its members. Reversal of the Paley tournament gives the opposite orientation if needed."
+          ],
+          "identifier_or_url": "https://aeb.win.tue.nl/graphs/Paley.html",
+          "material_read": "Public HTML tournament/graph domination tables, offsets 4300–4865",
+          "method": "Read OA HTML and translate domination into the common-neighbor condition",
+          "title": "Paley graphs",
+          "trigger": "Exact table of common-dominator implications at the threshold"
+        },
+        {
+          "assessment": "Implies strict common-neighbor existence at 243, not the exact F27 deficit",
+          "evidence": [
+            "All sixteen off-support orientation patterns hold for admissible q≡3 (mod 4), q>=107."
+          ],
+          "identifier_or_url": "Resultary 981ee7b69845",
+          "material_read": "Mirrored RESULT.md, Finding and scope",
+          "method": "Read primary claim in local mirror",
+          "title": "A sharp rank-five genericity threshold for finite Paley tournaments",
+          "trigger": "A prior stronger incidence theorem reaching the frozen threshold"
+        },
+        {
+          "assessment": "Related existence theorem, not an F27 exact table",
+          "evidence": [
+            "At k=4 the stated large-prime sufficient condition is p>1024; the finite-field example T_27 concerns P_3."
+          ],
+          "identifier_or_url": "https://doi.org/10.4153/CMB-1971-007-1",
+          "material_read": "OA Cambridge PDF pp. 45–47, definition, prime-order bound and finite examples",
+          "method": "Read extracted PDF passage",
+          "title": "A Constructive Solution to a Tournament Problem",
+          "trigger": "Classical potentially covering common-dominator result"
+        },
+        {
+          "assessment": "No F27 computations in described numerical scope",
+          "evidence": [
+            "The authors expressly restrict numerical experiments to prime fields."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2210.03789",
+          "material_read": "OA PDF pp. 6–7, §4 setup and Proposition 1.7, offset 14430",
+          "method": "Read bounded primary passage",
+          "title": "The VC-dimension of quadratic residues in finite fields",
+          "trigger": "Primary literature on the translate alias and numerical data"
+        },
+        {
+          "assessment": "Zero-fiber overlap only",
+          "evidence": [
+            "The resonant statement gives 8q-7 for x²=0 in the K4 case."
+          ],
+          "identifier_or_url": "Resultary 555bc289f00b",
+          "material_read": "Mirrored RESULT.md, Finding and resonant specialization",
+          "method": "Read local mirror",
+          "title": "Finite-field square-zero geometry of complete multipartite evolution algebras",
+          "trigger": "Same algebra and field family, potentially stronger fiber theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired exact F27 invariant is worthwhile on its own: in this naturally occurring resonant field every three-point support is covered but coverage fails at four, so the known linear rank and the known three-point property substantially overstate the nonlinear image. An exact count is useful for distinguishing a property failure from its prevalence: the 52 uncovered supports modulo common translation and their ordered-target weight determine the entire image size. The repair does not rely for value on a known saturation statement, a change of vocabulary, or merely replaying a known table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

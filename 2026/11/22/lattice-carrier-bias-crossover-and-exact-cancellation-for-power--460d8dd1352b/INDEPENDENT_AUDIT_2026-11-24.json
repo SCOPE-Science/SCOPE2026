@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:04:10.926227Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–96; VERIFICATION.md and verify_mean_excess.py inspected without executing the frozen script.",
+        "Fresh 90-digit, 48-term numerical diagnostic: python3 /workspace/branches/3659b202-8006-4419-a814-e15a894353ae/independent_mrl_check.py; output alongside it. At u=400 the critical x³B_u is −0.0500000611 for c=1, κ=1/2 and −0.2500027902 for c=2, κ=7/8, against −0.05 and −0.25. Off-critical and untwisted checks corroborate the leading terms."
+      ],
+      "rationale": "The tail at integer threshold is S(x)=1−[1−(c/x)^p]^κ, x=u+c, and conditioning on Y≥u gives the numerator ∑_{j≥1}S(x+j), not a sum starting at zero. Since S(x) is asymptotic to κc^p x^(−p), finiteness is exactly p>1. The fixed-parameter Taylor remainder is summable uniformly over x+j≥x; upon normalization the remainder through the third survival term is O(x^(1−3p)). Euler–Maclaurin for x^s ζ(s,x+1) gives x/(s−1)−1/2+s/(12x)−s(s+1)(s+2)/(720x³)+O(x^(−5)). The common −1/2 cancels from carrier differences. At p=2, write a=c², d=(κ−1)/2 and e=(κ−1)(κ−2)/6. Then C1=1/6+2da/3 and C3=−1/30−da/6+a²[(2/3)d²−(4/5)e]; the next error is O(x^(−5)). The unique admissible zero of C1 requires a>1/2 and yields C3=(1−4a)/60<0, including −1/20 at a=1. The lattice/carrier ordering off p=2 and the exact κ=1 baseline follow by order comparison, and structural zero inflation cancels at positive thresholds.",
+      "residual_risks": [
+        "Finite numerical diagnostics do not establish eventual signs or asymptotic remainders. The proof is pointwise in fixed parameters and does not give a uniform boundary-layer approximation when parameters vary with threshold."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The continuous penultimate result is on the exceedance tail index. The discrete-extremes half-unit shift matches probabilities to first order; the cited count-model diagnostic uses mean-residual-life plots."
+        ],
+        "reasoning": "Neither a continuous tail-index expansion nor a first-order half-unit statement controls the interaction in the discrete conditional expectation through cubic order at the admissible zero of C1. General Euler–Maclaurin is the method, not a prior model-specific phase diagram.",
+        "searches": [
+          "Papastathopoulos–Tawn arXiv:1111.6899 §2.4",
+          "Hitz–Davis–Samorodnitsky arXiv:1707.05033 p. 10",
+          "Ahmad–Arshad arXiv:2409.18719 pp. 2–3"
+        ]
+      },
+      "checked_sources": [
+        "Ahmad–Gaetan–Naveau, Ahmad–Arshad, Hitz–Davis–Samorodnitsky and Papastathopoulos–Tawn passages itemized above",
+        "Resultary four searches, excluding 460d8dd1352b as an antecedent"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The continuous parent determines S(x) and its leading carrier correction, not the discrete sum to this order. The discrete GP continuity correction in Hitz et al. concerns the no-carrier baseline."
+        ],
+        "reasoning": "Normalizing and expanding a summable discrete tail yields a new coefficient competition, with the cubic residue requiring the next carrier terms and cancellation of the common lattice constant. This is not simply renaming the continuous family or substituting parameters into an existing conditional-mean result.",
+        "searches": [
+          "Papastathopoulos–Tawn EGP3 and penultimate sections; Hitz–Davis–Samorodnitsky continuity-correction passage; both cited DEGPD papers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The EGP3 CDF is the GP CDF raised to the carrier power; flooring that continuous variable gives this count model. The population discrete mean excess adds the integer tail-sum normalized at Y≥u."
+        ],
+        "reasoning": "The continuous tail-integral mean excess duplicates the leading carrier term but has no lattice p/(12x) term and hence no interaction or cancellation at p=2. The exact discrete count law is already known.",
+        "searches": [
+          "power mean excess mean residual life discrete extended generalized Pareto Euler Maclaurin carrier cancellation lattice Daouia Gamet",
+          "Papastathopoulos–Tawn arXiv:1111.6899 §2.2; Ahmad–Gaetan–Naveau arXiv:2210.15253"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Each returned the exact assigned record 460d8dd1352b as the top material match; another mean-residual-life hit concerned a different UMg model and other cancellation hits were unrelated."
+        ],
+        "reasoning": "The exact self-match is not earlier coverage. No distinct catalogue result surfaced with the conditional-mean crossover and cubic equality case; this is bounded evidence, not proof of absence.",
+        "searches": [
+          "Resultary: power-carrier discrete extended generalized Pareto mean residual life sharp asymptotic",
+          "Resultary: discrete generalized Pareto mean excess Euler Maclaurin half-unit correction asymptotics",
+          "Resultary: continuous extended generalized Pareto mean excess penultimate tail index asymptotic",
+          "Resultary: lattice carrier interaction exact cancellation x^-3 mean excess p=2"
+        ]
+      },
+      "rationale": "The supported distinction is the combined sharp population conditional-mean classification for the discretized power carrier, including the admissible cancellation curve and surviving negative cubic term. The count family, continuous parent, mean-excess diagnostic, and classical half-unit correction are not new.",
+      "residual_risks": [
+        "Full text of Daouia et al. and Gamet–Jalbert was not recovered in these attempts; an equivalent expansion in those works or other unindexed literature remains possible. A focused extra web lookup produced no material comparison; it does not strengthen any negative coverage claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior parent model, unlike a discrete conditional-mean crossover",
+          "evidence": "EGP3 is the power GP CDF; penultimate passages concern continuous exceedance convergence and tail index.",
+          "identifier_or_url": "arXiv:1111.6899",
+          "material_read": "§2.2, PDF p. 5 / offset 44000; §2.4, pp. 7–8 / offset 53087",
+          "method": "OA original PDF",
+          "title": "Extended Generalised Pareto Models for Tail Estimation",
+          "trigger": "Exact continuous parent and higher-order literature"
+        },
+        {
+          "assessment": "Prior discretization and count model",
+          "evidence": "Constructs DEGPD via differences of the extended GP CDF and describes discrete GPD.",
+          "identifier_or_url": "arXiv:2210.15253",
+          "material_read": "PDF p. 3 / offset 9193 and p. 4 / offset 10273",
+          "method": "OA original PDF",
+          "title": "An extended generalized Pareto regression model for count data",
+          "trigger": "Same discrete family"
+        },
+        {
+          "assessment": "Diagnostic context, not the cubic phase formula in the inspected passage",
+          "evidence": "Mean-residual-life plot used for threshold diagnostics.",
+          "identifier_or_url": "arXiv:2409.18719",
+          "material_read": "PDF pp. 2–3 / offset 7842",
+          "method": "OA original PDF",
+          "title": "New flexible versions of extended generalized Pareto model for count data",
+          "trigger": "Discrete model and explicit mean-residual-life context"
+        },
+        {
+          "assessment": "Prior half-unit probability matching, not this interaction",
+          "evidence": "The optimal first-order continuity shift in probability matching is δ=1/2.",
+          "identifier_or_url": "arXiv:1707.05033",
+          "material_read": "PDF p. 10 / offset 28046",
+          "method": "OA original PDF",
+          "title": "Discrete Extremes",
+          "trigger": "Earlier discrete lattice normalization"
+        },
+        {
+          "assessment": "Unchecked comparison, not a negative coverage finding",
+          "evidence": "No accessible material from these attempts to establish or refute equivalent expansions.",
+          "identifier_or_url": "10.1098/rsos.220977; 10.1002/env.2744",
+          "material_read": "Identifiers and topical context only; no decisive full-text passages",
+          "method": "OA attempts at DOI and official publisher routes returned HTTP 403",
+          "title": "Extreme value modelling of SARS-CoV-2 community transmission using discrete generalized Pareto distributions; A flexible extended generalized Pareto distribution for tail estimation",
+          "trigger": "Applied discrete mean excess and nearby carrier models"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md fixed-parameter phase diagram and proof; Ahmad–Arshad mean-residual-life diagnostic passage."
+      ],
+      "rationale": "A mean-excess plot for a tail model depends on the direction and size of the systematic population bias. The result delineates whether discretization or the carrier controls that bias, and resolves the sign and exact changed order on their cancellation boundary. That boundary information is useful even without a uniform or sampling-theoretic extension.",
+      "residual_risks": [
+        "No calibration of estimator uncertainty or inference at a drifting critical parameter is supplied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

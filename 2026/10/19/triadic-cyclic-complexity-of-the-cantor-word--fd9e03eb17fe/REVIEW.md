@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The proof reconstructs the complete length-\(3^k\) language from the substitution's separated blocks; the occurrence of \(010\) supplies every candidate window. It then classifies the two cyclic candidate families for each positive weight by their circular inter-one gaps. All internal gaps are even; the wrap gap is uniquely odd. Reflection therefore preserves that marked entry, reducing coincidence to a palindromic binary-valuation gap sequence, which occurs exactly at power-of-two weights. The proof includes \(k=0\), empty gap sequences, and all possible weights. The standalone program independently checked full factor covers and minimal rotations for \(0\le k\le7\). Finite verification is corroboration, not a substitute for the infinite proof.
+## correctness
 
-**Originality (PASS against inspected sources).** The inspected full arXiv text of Cassaigne–Fici–Sciortino–Zamboni, arXiv:1402.5843, establishes the framework of cyclic complexity and studies other word classes, but does not supply a Cantor-word triadic formula. The accessible substantial indexed scientific text of Lü–Chen–Guo–Wen, DOI 10.1016/j.tcs.2015.12.022, gives the Cantor-like word and its ordinary factor and permutation complexities, not the claimed conjugacy profile. The ordinary formula \(p_C(n)=2n-1\) neither determines nor implies the number of cyclic orbits: it does not identify cross-orientation mergers. Related \(k\)-abelian and Lie complexity have different equivalence relations. Targeted literature and research-index searches found no dominating statement. Residual risk: the complete text of the Cantor-like permutation paper was not accessible, and an equivalent unindexed result may exist.
+PASS
 
-**Value (PASS).** The object is the classical non-uniformly recurrent Cantor word and the invariant is a standard complexity measure for combinatorics on words. The complete infinite triadic profile gives not merely a numerical sequence but a weight-resolved structural dichotomy caused by the two-adic positions of the largest gaps. It yields the exact sublinear order \(c_C(N)\asymp N^{\log_3 2}\) on triadic lengths, contrasting with the established linear ordinary factor count. No result at arbitrary nontriadic lengths is claimed.
+For N=3^k, write W=μ^k(1). It is palindromic with endpoint ones, and distinct W blocks in C=μ^k(C) have at least one whole zero block between them because C has no consecutive ones. A length-N window therefore has ones from at most one W and is either all zero or a zero-padded prefix or suffix of W (including the whole W). Every needed representative is realized inside μ^k(010)=0^N W 0^N, since 010 occurs. At positive weight j the zero-padded prefixes all yield the same necklace and the suffixes give its reversal. With zero-based positions p_i of the ones, the internal gap p_(i+1)−p_i is 2·3^r−2(1+3+⋯+3^(r−1))=3^r+1 with r=v_2(i), by the binary-to-ternary digit carry. Every internal gap is even, while the circular closing gap N−p_j is positive and odd. Thus a rotation identifying a necklace with its reversal must align that unique closing gap, equivalently reverse the internal gap list onto itself. For j=2^a the valuation list is symmetric under i↦j−i. Otherwise, for j>1, the unique largest internal gap occurs at i equal to the largest power of two at most j−1. A palindrome would put that gap at i=j/2, forcing j to be a power of two. The empty internal list at j=1 is symmetric, including k=0. This gives one all-zero class, two candidates at each positive weight and exactly k+1 identifications, for 2^(k+1)−k.
 
-Independent scientific validation remains outstanding; no claim of external certification or exhaustive literature coverage is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the triadic cyclic class count refined by weight and the exact palindrome criterion on the gap lists. The closest same-word results cover other equivalence relations or require a whole cyclic class rather than an occurring representative. The judgment concerns the inspected evidence, not exhaustive publication priority.
+
+## value
+
+PASS
+
+The scale 3^k is intrinsic to the substitution, not an arbitrary slice. The result settles a natural cyclic invariant at every such scale, quantifies how far it is from the abelian count, and gives a structural criterion identifying exactly the weights with one rather than two necklaces. The marked-gap technique explains the counting law rather than just listing computed values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:56:24.444908Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:7–78, VERIFICATION.md and verify_spread.py (inspected, not executed)",
+        "Grange arXiv:2610.26149v1, Eqs. (8)–(15), (29)–(31)",
+        "Replay: python /workspace/evidence/reproduce.py 2; output /workspace/evidence/2.txt"
+      ],
+      "rationale": "Grange's stationary flux equations and matching yield F=v rho/v_0, F'=-chi rho on x>0, F(0)=c, F(b)=1, with the selected low-density root on the gas side and b=log(c)/(mu chi)>0. The normalization is exact: integrating the flux slope with F(infinity)=0 gives mass c/chi per side. The flux itself gives a direct independent moment computation: P(|X|>x)=F(x)/c. In the tail integral for E|X|, change variable from x to z=F(x); the integrand after factoring out 1/(c chi) is z/rho(z). In the core rho=mu z, so the integral from z=1 to c is (c-1)/mu. In the gas z/rho(z)=(1+sqrt(1-4z/mu))/2, positive and bounded on [0,1], with the continuous limit at zero. Its integral is 1/2+(mu/12)[1-(1-4/mu)^(3/2)], equal to (1+q+4/q)/6 using mu=q^2/(q-1), q in (1,2). Differentiating gives dE|X|/dmu=[q(q+2)/6-(c-1)]/(c chi mu^2). Since q strictly decreases, q(q+2)/6 falls strictly from 4/3 to 1/2. This gives strict monotonicity even at c=3/2 and 7/3 (the endpoints are excluded), and a unique maximum with q_*=-1+sqrt(6c-5) otherwise. Using (c-1)=q_*(q_*+2)/6 in the moment gives the claimed height; q=2 and 1 give both endpoint limits. The half-width decreases directly at fixed c,chi. Independent flux-coordinate quadrature at 90 settings agreed to absolute error below 6.2e-10; the analytic derivative, not the grid, proves the classification.",
+      "residual_risks": [
+        "The proof follows the specified matched stationary branch. It does not show that time evolution selects it or that it is dynamically stable, and the endpoint values are limits only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary c82a3ef3fe29 extends matched flux to general dense constitutive laws, deriving core mass and width and reset optima, not global gas-controlled mean radii.",
+          "Record 87cfaf099ebd varies liquid tumbling and proves conserved condensed mass and a singular layer; it changes a different law and does not include the fixed-rate crowding phase diagram."
+        ],
+        "reasoning": "General branch constructions contain ingredients for an integral calculation, but the inspected outputs concern geometry, conserved mass or a separate varying parameter rather than the convexity/monotonicity boundary of the spatial first moment.",
+        "searches": [
+          "Resultary: general matched-flux and power-law active droplet",
+          "Resultary: two-rate local-reset active droplets",
+          "arXiv:2610.26149v1, stationary profile equations"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.26149v1",
+        "Resultary: 4870f5e28646, deefcd2d517d, c82a3ef3fe29, 87cfaf099ebd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old W_1 formula overlaps materially with the first-moment integral but is proved for 1<h<m/4 in its notation, while the frozen droplet branch only needs c>1 and mu>4.",
+          "The derivative of b at fixed c,chi is always negative. Nothing in that sign or in stochastic ordering between two laws at a single mu fixes the sign of the droplet mean derivative as mu varies."
+        ],
+        "reasoning": "Credit the earlier profiles and partial-domain moment relation. The new trichotomy still requires identifying the gas interface root's dependence on mu and finding the full range of the derivative sign factor; neither earlier optimization states that conclusion.",
+        "searches": [
+          "arXiv:2610.26149v1, Eqs. (17)–(35)",
+          "Resultary: deefcd2d517d exact W_1 formula and pure-gas coexistence assumptions",
+          "Resultary: c82a3ef3fe29 matched-flux finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grange's R=v rho and rho_m are normalized here to F=R/v_0 and mu=rho_m. His optimized quantity is b versus reset rate.",
+          "Resultary deefcd2d517d establishes radial stochastic order, so its W_1 is a difference of radial means, not merely a similarly named localization measure."
+        ],
+        "reasoning": "The earlier transport observable implies a related mean after adding/subtracting a separate gas-branch mean on coexistence. It is not a reparameterization of the fixed-mass, fixed-rate sweep of one droplet branch.",
+        "searches": [
+          "Resultary: active-droplet mean radius/absolute position versus crowding",
+          "Resultary: radial transport or localization under local resetting",
+          "arXiv:2610.26149v1, Eqs. (29)–(35)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns the assigned record 4870f5e28646 itself. deefcd2d517d has a crowding threshold near 7.3222 for a different, interbranch transport optimization; Grange's exact width optimum varies the reset intensity."
+        ],
+        "reasoning": "No distinct compared table or closed formula is an exact evaluated classification of the global mean-radius dependence on mu at fixed c and chi. A query miss is not evidence of absence.",
+        "searches": [
+          "Resultary: local-reset droplet first-moment thresholds c=3/2 and c=7/3",
+          "Resultary: transport separation and crowding thresholds",
+          "arXiv:2610.26149v1, profile and width results"
+        ]
+      },
+      "rationale": "The branch, mass relation, width and the necessary flux primitive are prior ingredients. The mean is directly computable from published profiles and recoverable on the pure-gas coexistence domain via the earlier W_1 difference and gas mean. The supported distinct contribution is the global exact response of this one branch as crowding varies at fixed rates and mass, with two mass-flux cutoffs and an optimizer across the full admissible domain.",
+      "residual_risks": [
+        "An unindexed calculation from the same closed-form profiles or the earlier transport primitive could affect priority; the new contribution is not the underlying steady state or a new integration method."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides exact branch and width result, not reported global fixed-rate mean response",
+          "evidence": [
+            "Matched velocity-weighted flux gives F(b)=1 and rho_m>=4; M/2=exp(rho_m chi b)/chi gives F(0)=c. Width optimization is against reset rate."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.26149v1",
+          "material_read": "PDF pp. 4–8, Eqs. (8)–(15), (17)–(35); offsets 12600–27904 in bounded passages",
+          "method": "Primary OA PDF passage inspection and notation comparison",
+          "title": "Motility-Induced Phase Separation of Run-and-Tumble Particles under Local Stochastic Resetting",
+          "trigger": "Original matched stationary two-phase branch and possible covering moment result"
+        },
+        {
+          "assessment": "Material partial-domain equivalence for a mean difference, not the whole single-branch parameter classification",
+          "evidence": [
+            "Radial order turns W_1 into the difference of two first moments for the coexisting gas and droplet; the transport optimum varies reset rate instead."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8: deefcd2d517d",
+          "material_read": "Mirrored RESULT.md, Findings and transport formulas (offsets 0–3939, 1450–4817)",
+          "method": "Local Resultary lookup and actual statement inspection",
+          "title": "Exact transport separation and a universal crowding threshold in resetting active-matter coexistence",
+          "trigger": "Closest exact radial moment overlap on the same physical model"
+        },
+        {
+          "assessment": "Generalizes profiles and core width rather than this moment response",
+          "evidence": [
+            "Matched flux yields liquid mass and width formulas including power-law reset optima."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8: c82a3ef3fe29",
+          "material_read": "Mirrored RESULT.md, offset 0–3817",
+          "method": "Local Resultary lookup and actual statement inspection",
+          "title": "Gas-independent droplet geometry and power-law optimal resetting in active matter",
+          "trigger": "More general flux/matching regime might contain the claimed classification"
+        },
+        {
+          "assessment": "No covering claim about mean radius versus gas crowding",
+          "evidence": [
+            "Varies the liquid tumbling intensity and treats width, phase masses and a singular limit."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2: 87cfaf099ebd",
+          "material_read": "Mirrored RESULT.md, offset 0–4280",
+          "method": "Local Resultary lookup and actual statement inspection",
+          "title": "Two-rate active droplets: conserved condensed mass and a singular tumbling layer",
+          "trigger": "Same stationary droplet with a different parameter sweep"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:3–40, 53–78",
+        "arXiv:2610.26149v1, Eqs. (29)–(35)",
+        "Resultary: deefcd2d517d"
+      ],
+      "rationale": "The normalized mean distance is a whole-distribution localization statistic, whereas the known shrinking core describes only one boundary. The core mass remains fixed as crowding changes, yet the increasing, peaked and decreasing global response regimes differ. The exact parameter cutoffs and peak location identify when the core width is a misleading proxy for spread. This is a complete parameter response across a natural branch, not a numerical counterexample or an isolated integral.",
+      "residual_risks": [
+        "Scientific value here is a stationary continuum comparison; it does not predict nonequilibrium behavior beyond the model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

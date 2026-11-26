@@ -1,19 +1,21 @@
-# Scientific review: ultrafilter boundary for conjunction-preserving \(\omega\)-accumulation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof establishes the basic union law and the exact complement equivalence for the neighbourhood-mod-finite filter. The ultrafilter dichotomy gives the meet law in both directions without a separation assumption. For first-countable spaces, a decreasing infinite-neighbourhood base supports two disjoint sets each accumulating infinitely at the same point. For the sharp example, the free-ultrafilter neighbourhood topology is checked directly to be Hausdorff and zero-dimensional, and its operator values are computed explicitly. The general claims are proved, not extrapolated from finite tests. The bundled checker passed 57 finite-filter and 36,084 ordered valuation-pair checks, confirming only the Boolean abstraction.
+PASS
 
-## Originality — PASS (self-review)
+At an active point every neighbourhood is infinite. The sets that contain a neighbourhood modulo finite error form a proper filter by intersecting the two witnessing neighbourhoods, and contain all cofinite sets, hence form a free filter. Nonmembership of x in D_omega(A) is exactly membership of X\A in that filter. For any A, at least one of A and its complement accumulates at x, since intersecting witnesses of two failures would give a finite neighbourhood. Meet preservation makes the two alternatives mutually exclusive, giving ultrafilter dichotomy; conversely an ultrafilter makes positivity exactly filter membership, which preserves meets as well as unions, complements and bounds in the power set of S. In a decreasing countable local base at an active point, select two fresh points in each infinite member. The two disjoint selections each meet every neighbourhood infinitely and disprove the equality. If S is empty all outputs are empty. For the free-ultrafilter extension of N, all natural numbers are isolated and the ultrafilter point is active; the basic neighbourhoods are clopen and separate it from each natural number. An input accumulates at that point exactly when its trace on N is in the ultrafilter. This verifies the counterexample under the stated choice assumption, with no separation condition needed for the obstruction.
 
-Montacute, *Halo Semantics for Modal Logic* (arXiv:2606.31885, 2026), was materially examined for the operator definition, correspondence with nonstandard halo semantics, and modal consequences. The inspected material establishes the operator and universal K4 law, not the all-valuation meet-preservation boundary. A related result about KD45 on the indiscrete countable halo space studies a different fixed topology and a different modal question. Standard facts about free ultrafilters, finite Boolean homomorphisms, and the one-point filter topology are acknowledged as ingredients rather than originality claims. Targeted searches of published mathematical records for the asserted ultrafilter and first-countability equivalence returned no covering result. Residual risk: prior Stone-duality or topological modal literature may express an equivalent full theorem under different terminology.
+## originality
 
-## Value — PASS
+PASS
 
-This gives an exact semantic criterion for a nontrivial modality to satisfy the conjunctive diamond law, sharply separates first countability from countability, Hausdorffness, and zero-dimensionality, and locates the mechanism in the neighbourhood filter modulo finite sets. The obstruction/example pair distinguishes a genuine class of frames rather than an arbitrary numerical slice. A complete modal-logic axiomatization is not claimed or required.
+The accumulation operator, filter/grill mechanism and one-free-ultrafilter topology are standard or previously supplied. The supported distinct result is the combined all-valuations characterization for this operator with its sharp topological obstruction and simultaneous Hausdorff, countable and zero-dimensional witness. The strongest inspected same-operator comparisons study disjunction, the logic of a particular nonexample, or closure of the image family rather than this law.
 
-## Limits and closest literature
+## value
 
-No ZF-only free-ultrafilter construction is asserted. Neither exhaustive computer checks on finite spaces nor the negative results of a search are treated as proof of an infinite theorem or novelty, respectively. The older generic ultrafilter representation theorem remains a possible source of equivalent partial or complete coverage; independent historical auditing is needed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+It gives an exact validity criterion for a natural conjunctive law of the halo operator, not merely a filter construction: local countable bases rule it out everywhere any accumulation is possible, whereas countability of the whole space plus strong separation still allows a nontrivial model. That contrast distinguishes the relevant topological hypothesis and gives an explicit test and witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

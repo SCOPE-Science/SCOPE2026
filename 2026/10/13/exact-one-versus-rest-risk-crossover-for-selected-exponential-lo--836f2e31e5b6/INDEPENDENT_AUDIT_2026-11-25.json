@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:49:33.611820Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With independent samples, exponential memorylessness gives iid E_i=n(M_i−μ_i)/σ of rate 1 and V=S/σ∼Gamma(K,1) independent of the minima, with EV=K and EV²=K(K+1). These moments give both stated unselected corrections. Let M=max_{i<k} E_i, E=E_k, and D=M−E. The selected scaled overshoot A obeys nA=E+D·1_{D>t} (ties have probability zero). Conditioning on E shows P(D>s)=∑_{j=1}^{k−1}(−1)^{j+1} binom(k−1,j)e^(−js)/(j+1) for s≥0. Tail integration yields the stated H. Expanding E[(A−cV)²] and subtracting at the two c's cancels E[A²] and gives exactly (1−2KH)/(n²K(K+1)). H(0) is the harmonic number at k minus 1, at least 1/2, whereas 1/(2K)≤1/4. H tends to zero and H'(t)=−t f_D(t)<0 for t>0 because the convolution density is positive there, proving the unique crossing and its sign. An independent 60-digit root computation for H₂(t)=1/[6(n−1)] gave 4.1114506064200021, 4.9611811353194030, 5.9230058153332692 and 6.4367530360963220, with residuals below 2×10⁻⁶². The frozen VERIFICATION.md and verify.py were inspected, not executed; they describe finite quadrature, risk-algebra and bisection checks, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The later introduction describes Vellaisamy's unequal-location, common-unknown-scale selected-quantile model and the study of natural estimators and inadmissibility. The publisher and alternate ResearchGate copy did not provide full text; the author publication list confirms the citation.",
+          "The accessible exact formula in Masihuddin–Misra assumes two populations."
+        ],
+        "reasoning": "A general-k exact risk comparison for the same two corrections, or an exact selected residual moment under the one-best geometry, would imply the crossover. The accessible descriptions do not show such a formula or specify the needed specialization.",
+        "searches": [
+          "Vellaisamy DOI 10.1016/S0378-3758(02)00156-8, publisher and lawful alternate copy lookup",
+          "arXiv:2110.13842v1, introduction p. 2 and exact risk §4"
+        ]
+      },
+      "checked_sources": [
+        "Masihuddin–Misra arXiv:2110.13842v1",
+        "Vellaisamy DOI 10.1016/S0378-3758(02)00156-8 (bibliography and later description only)",
+        "Resultary 2026/10/13/…b9b1403450f3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Subtracting their risks gives [1−2(n−1)(t+1)e^(−t)]/[2n²(n−1)(2n−1)], exactly this result with H₁=(t+1)e^(−t)/2."
+        ],
+        "reasoning": "The known continuous risk identity yields the entire k=2 threshold and sign pattern. Its two-population hypothesis cannot produce the maximum of k−1 independent competitors, whose binomial tail and truncated moment are the distinct calculation.",
+        "searches": [
+          "arXiv:2110.13842v1 Eq. (4.1), p. 8, and δk1,δk2 on pp. 4–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Masihuddin–Misra's δk1 and δk2 equal δ_U and δ_B at k=2 on identifying their scaled separation μ with t. The selected-location UMVUE in their Theorem 3.1 is a different rule.",
+          "The same-day indexed hazard crossover uses sample sums, no shift and entropy loss."
+        ],
+        "reasoning": "Selected guarantee time is the same target here; the selected hazard on a scale-only model is not. A selected quantile is μ_J plus a scale multiple and could give the selected-location case if the general formulas admit the lower endpoint.",
+        "searches": [
+          "arXiv:2110.13842v1, selected guarantee time / selected location, §§3–4",
+          "Resultary selected exponential location and risk-crossover lookup; hit …b9b1403450f3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior numerical comparison includes n=3,5,10,15 but uses two populations; the inspected Resultary threshold is for selected hazard under entropy loss."
+        ],
+        "reasoning": "Matching n values do not reproduce the k=3 thresholds. The tables/plot comparison for k=2 uses H₁, whereas k=3 additionally has a nonzero e^(−2t) term.",
+        "searches": [
+          "Masihuddin–Misra arXiv:2110.13842v1, §6 pp. 26–27",
+          "Resultary lookup of selected-exponential risk phase diagrams"
+        ]
+      },
+      "rationale": "The distinct claim supported by this review is the k≥3 exact one-versus-tied-rest risk law and crossover. The k=2 result is fully implied by the earlier exact two-population risk formula, not just illustrated in previous numerics. Vellaisamy's general-k selected-quantile article is a plausible broader overlap, but the inspected accessible material does not establish the implication.",
+      "residual_risks": [
+        "The unavailable full Vellaisamy text could contain general-k risk identities with a quantile-to-location specialization. This is a material priority risk, not evidence either way. No novelty is claimed for k=2."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact k=2 specialization already implied, no k≥3 assertion in this risk formula",
+          "evidence": [
+            "Eq. (4.1) is pointwise for every scaled separation μ≥0; the two rules in §3 match c_U and c_B when K=2(n−1)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2110.13842",
+          "material_read": "Introduction p. 2, model and spacing law pp. 3–5, exact risk Eq. (4.1) p. 8, numerical comparison §6 pp. 26–27",
+          "method": "Primary open PDF, located and inspected stated passages",
+          "title": "Equivariant Estimation of the Selected Guarantee Time",
+          "trigger": "Same target, loss and linear rules in the two-population model"
+        },
+        {
+          "assessment": "Indeterminate overlap in exact k≥3 formulas; no inference of noncoverage",
+          "evidence": [
+            "The citation is JSPI 115 (2003), 461–470; Masihuddin–Misra describe natural quantile estimators with a common unknown scale and unequal locations."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0378-3758(02)00156-8",
+          "material_read": "Bibliographic entry on author's IIT Bombay publications page and later paper's introduction describing its scope; no primary full text",
+          "method": "Lawful publisher and identified ResearchGate alternate retrieval attempts, then accessible description and publication entry",
+          "title": "Quantile estimation of the selected exponential population",
+          "trigger": "Same multi-population selection and scale framework, with potentially broader risk results"
+        },
+        {
+          "assessment": "Different sufficient statistic, target and loss",
+          "evidence": [
+            "Selects by sample sum, compares hazard estimators under entropy loss, and has a threshold in the hazard ratio."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-exact-risk-phase-diagram-for-two-natural-selected-hazard-estimat--b9b1403450f3",
+          "material_read": "Finding and model definition",
+          "method": "Resultary lookup and mirrored primary RESULT.md",
+          "title": "Exact risk phase diagram for two natural selected hazard estimators",
+          "trigger": "Indexed exact threshold for selected exponential risks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These two fixed corrections come from the same standard unselected estimation problem. The one-best against symmetric competitors geometry is a natural way to vary selection bias while controlling all other parameters, and the exact crossover identifies when the preferable correction reverses. It gives an analytically usable benchmark for genuinely multiple competitors without claiming either rule is optimal after selection.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run the included standard-library-only Python 3 file `verification.py` using `python3 verification.py`. It reconstructs \(G\) as affine pairs modulo \(N=2^k\), computes all units and exact nonidentity involutions, compares the actual commuting adjacency matrix with the proposed partition for each \(k\) from \(3\) through \(8\), and checks degrees, edges, triangles and explicit maximal-clique candidates. Successful output terminates with `QUATERNION_AUTOMORPHISM_INVOLUTION_GRAPH_VERIFIED`.
+## correctness
 
-The standalone checker uses integer congruences and exact sets, not floating-point sampling. The proof for all \(k\ge3\) is algebraic and independent of the finite checks. Finite checking cannot rule out a failure at untested ranks and does not verify historical priority. All resulting counts and subgroup statements refer to nonidentity involutions of the automorphism group, not to elements of the original quaternion group.
+PASS
+
+Elements outside the cyclic rotation subgroup have order four, so for N>=8 the subgroup is characteristic and checking images of the two generators gives the affine automorphism law. For odd u, exactly one of u-1,u+1 has 2-adic valuation one (interpreting zero as infinite valuation); the other must be divisible by N/2 when u^2=1. The four resulting multipliers with the translation condition (1+u)v=0 give exactly the listed pieces. In the commutation congruence, (h,1) commutes with everything; the two multiplier-(1+h) elements commute with each other and with exactly the even-translation piece besides that universal vertex. For even translations the h contributions vanish, so the remaining negative multipliers commute precisely at equal translation mod h. Odd reflection translations pair mod h; mod 4 already excludes commuting across the even and odd pieces for the negative multipliers. This gives the exact join. The maximal seven-cliques share a three-clique, with t more maximal three-cliques meeting the rest only at the universal vertex. This yields 35t+1 triangles, and degree sums give 21t+3 edges. A commuting pair generates its unique Klein four, which accounts for three edges. Independent generator-image permutation enumeration on quaternion groups of orders 16, 32 and 64 verified the graph and counted 15, 29 and 57 Klein-four subgroups. Replay: python3 /workspace/reproductions/frozen_checks.py 4.
+
+## originality
+
+PASS
+
+The affine identification and pairwise congruence are standard ingredients. The exact induced graph and resulting incidence of maximal elementary abelian subgroups are the distinct claims; the strongest available broader commuting-graph theorem does not mechanically imply them. No independent exact indexed match was established.
+
+## value
+
+PASS
+
+The naturally defined involution graph recovers intersections of maximal commuting involution families, not just the total number of involutions. The two maximal elementary abelian orders and their shared vertices explain how the 2-subgroup incidence changes by translation parity throughout the unbounded family. This exact structural invariant is not supplied by a whole-graph connectivity bound or by identifying the ambient group.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

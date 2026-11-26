@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact distinct-string ending-letter recurrence gives two explicit 3-by-3 polynomial transfer matrices; both are self-adjoint under the same invertible form \(H(t)\), with determinant \(2t^2\). Matrix reversal and the relation \(He_3=tr\) give both asserted identities for every half-word and for both central letters. The proof is not an inference from finite tests. The independent checker compared 24,573 even/odd coefficient vectors and 381 explicit subsequence sets without discrepancies.
+PASS
 
-## Originality — PASS (bounded bibliography)
+The last-position bijection maps all distinct subsequences of x, including empty, bijectively to those of xc ending in c by appending c; the other ending class is unchanged. This gives precisely the two transfers. Both adjoint identities, det H=2t^2 and H e_3=t(1,1,0)^T give M(u^R)=H^{-1}M(u)^T H over Q(t). Inserting the identity or T_c between the two half transfers gives the two stated polynomials without specializing at t=0. Empty half gives P=0 for the empty host and P=t for either center. Exact symbolic multiplication and an explicit distinct-string oracle agreed coefficientwise on 381 hosts from all 127 halves of lengths 0–6. Replay with Python 3 and SymPy: /workspace/branches/db63b1c3-41e7-4fe0-be69-70be77ccef6a/adjoint_check.py. These finite checks corroborate the general proof; uploaded script inspected, not executed.
 
-The most relevant inspected prior source, Żak (arXiv:2210.00342), proves the ungraded concatenation and total-count statements; the present \(t=1\) instance is *prior-covered* and is not the claimed contribution. The graded identities for all coefficient degrees and the common adjoint form do not follow from those ungraded scalar identities. Flaxman–Harrow–Sorkin (2004) proves unrestricted-host length-graded extremality, not a symmetric-host half-word transform. Mahalingam–Pandoh concerns counting palindromic subsequence outputs, not the unrestricted subsequence language of a palindrome. Relevant published-record and relevant mathematical-record comparisons found no exact graded reflective identity. Search incompleteness and unindexed equivalent transfer formulations remain possible; one adjacent source was only inspected by abstract.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete graded subsequence fingerprint of an arbitrary binary palindrome is determined by two half-word polynomials via a nontrivial, uniform self-adjoint transfer identity. It is valid for arbitrary length and both centers, so it can be used in constrained subsequence-complexity and palindrome source comparison without constructing the full reflected host. Unlike the known ungraded count, this resolves each individual subsequence length, including the boundary cases. The result is a structural exact enumeration, not an arbitrary numerical slice.
+Qualified to the explicit length-graded reflection identity and common adjoint for both parities. The ungraded case for either parity and the distinct-subsequence recurrence are prior background. The elementary length-weighted algebra can be viewed as an extension of the known concatenation method; no inspected prior theorem supplies the polynomial pairing or implies it merely by specializing an existing stronger graded formula.
 
-## Scope and scientific limits
+## value
 
-This result does not give a coefficientwise extremal theorem and does not address larger alphabets; the self-adjoint form is obtained in \(\mathbb Q(t)\) before the polynomial identities are recovered. The previously known ungraded formula is explicitly credited. Independent examination remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The useful fact is the explicit quadratic pairing that translates two half-word ending profiles to every length of an unrestricted subsequence spectrum, uniformly for no center or either center. It gives a direct reflection rule without propagating a second half through the dynamic program and exposes which graded statistics of the half enter. This is a modest structural enumeration result, not a claim of a new DP, faster general algorithm or new extremal theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

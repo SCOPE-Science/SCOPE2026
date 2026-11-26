@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Reproduction and mathematical checks
+# Independent mathematical audit
 
-Run `python checker.py` with NumPy and SciPy. The code evaluates \(K_{n,t}\) using the exact binomial-tail representation, verifies positivity and symmetry on finite grids, checks the degree-one formula against \(C_1^2=1/48\), and checks the Gaussian-tail integral and several scaled numerical residuals. These checks are finite and approximate where noted; the continuum maximization, equality classification and limiting theorem rest on the analytic proof in RESULT.md. No independent verification has been performed.
+## correctness
+
+PASS
+
+On the affine quotient the second derivative is precisely the hinge-mixture measure, so the unit total-variation ball gives the supremum of the L² kernel norms, attained by an interior atom. Equality in the Hilbert norm of the signed mixture forces a common normalized direction almost everywhere; distinct kernels cannot be proportional since their distributional second derivatives have atoms at different interior knots. The moving-knot CLT uses bounded second moments for the hinge expectation and an integrable square majorant of order min(1,|s|⁻²) after rescaling. For t→0 the three-interval bound is O(n⁻²)+O(t^(3/2)n^(-3/2)); reflection gives the bound at 1. Integration by parts for the Gaussian square profile gives 2(1−1/√2)/(3√π); the boundary-layer Jacobian and squared amplitude supply [t(1−t)]^(3/2). Its unique maximum is 1/8 at 1/2, proving both the sharp coefficient and localization of every maximizing sequence. An independent exact degree-two check gives 37/7290 at t=1/3 versus 1/320 at t=1/2, consistent with the stated finite-degree limitation.
+
+## originality
+
+PASS
+
+The supported distinct result is the sharp integrated Bernstein error in the second-variation class, with equality rigidity and moving-knot localization. Pointwise kink asymptotics and the hinge-mixture method are not claimed in isolation. The nearest indexed statements change either the operator or the input variation seminorm. Best-of-knowledge assessment, not a priority guarantee.
+
+## value
+
+PASS
+
+For the natural curvature-variation ball this replaces a pointwise estimate by the sharp global approximation error, identifies all worst inputs, and finds the leading constant and every asymptotically worst knot. The distinction from ordinary BV and the failure of exact finite-degree centering make the localization more than a symmetry argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

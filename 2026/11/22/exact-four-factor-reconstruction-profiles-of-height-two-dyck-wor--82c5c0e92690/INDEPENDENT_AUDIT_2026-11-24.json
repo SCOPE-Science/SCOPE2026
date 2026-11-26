@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:45:23.327378Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–80; VERIFICATION.md; verify_exhaustive.py and verify_transfer.py (inspected, not executed)",
+        "/workspace/audit_evidence/analytic_checks.py and analytic_checks.out, DYCK_NUM, DYCK_REMAINDERS and DYCK_INITIAL"
+      ],
+      "rationale": "The height bound forces a unique sequence of primitive components 1(10)^(p−1)0. A length-four window is internal, crosses one boundary, or crosses two around a unit component. The stated table follows by counting the four adjacency types and interior unit components; in particular 1100, 1101 and 0011 recover b, c and d, and 0110 and 1001 separately recover the two endpoint bits. The endpoint bits determine the terminal length-three words, so successively summing over one-symbol extensions and adding a terminal indicator recovers all shorter counts. The all-unit word has no 1100 or 1101; n=1 only has this case. With k=L−d runs there are k−1 required nonempty separating groups, plus the specified endpoint groups. An extended component absorbs all surplus when c>0; otherwise surplus must go into an existing unit group, with none available precisely in the forced-all-long case. Independently summing the common tail first via the geometric factor (1−z^L)/(1−z), then subtracting z^3/((1−z)(1−z²)) for the exceptional surplus, gives the boxed numerator and all initial values. The numerator at 1 is 4, giving 1/[3(1−z)^4] as leading pole; primitive third and fourth poles survive (remainders 1 and −2z), and the possible polynomial part is constant, irrelevant for n≥1. Thus the least period is twelve and the leading term is n³/18. The observation capacity follows by taking one witness per attainable vector.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General polynomial growth of k-Abelian classes and sequence-profile quasipolynomial theorems are available. Dyck-statistics results treat Nτ for a fixed τ, not simultaneous profile feasibility."
+        ],
+        "reasoning": "Polynomial/quasipolynomial machinery is not the profile census. A bounded counter can be encoded in a finite-state source, but the de Bruijn profile projection must still be analyzed to recover the attainable joint vectors, exact numerator and period. Marginal statistics cannot generally be combined into a joint image.",
+        "searches": [
+          "arXiv:1301.5104v1 general k-Abelian class growth",
+          "arXiv:1502.00517 Theorem 3.3 and restricted de Bruijn graphs",
+          "EJC 18 P74 fixed-pattern Dyck statistics"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 41c8259b7595, d7a18695ef7b",
+        "arXiv:1301.5104, 1510.01952, 1502.00517",
+        "EJC 18 P74; attempted DOI 10.1016/j.disc.2008.08.005"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published-record comparison excludes height constraints and factors beyond length three. The sequence-profile theorem counts constrained words under its graph model but does not supply the stated height-two joint count."
+        ],
+        "reasoning": "Neither a projection to coarser observations nor a general technique identifies b,c,d,f,g with all realizable profiles, or the exception n=2b when there is no unit gap or extended component. That distinction controls the exact rational function and is not a change of conventions.",
+        "searches": [
+          "Compare the tuple feasibility inequalities with Resultary 41c8259b7595 Finding and limitations; compare Kiah–Puleo–Milenkovic Theorem 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Karhumäki–Saarela–Zamboni define exactly the same equivalence relation for k=4 on general words. Manes et al. use occurrence-position equivalence for one specified string. Resultary 41c8259b7595 classifies all length≤3 multiplicity profiles of unrestricted Dyck words."
+        ],
+        "reasoning": "The shared relation does not determine the restricted image. Position equivalence for one pattern is neither the target observation nor a tabulation of the joint image. Even among height-two words, components (1,1,2) and (1,3) agree through length three but differ at 1100.",
+        "searches": [
+          "Resultary semantic search: exact linear four-factor profiles of bounded-height Dyck words and neighboring 3-Abelian or cyclic four-gram classifications",
+          "arXiv:1301.5104v1 pp. 1–2; arXiv:1510.01952v1 pp. 1, 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "41c8259b7595 gives P_m=m(m²−3m+5)/3 for unrestricted Dyck length≤3 profiles. d7a18695ef7b gives feasible profiles and fibers for cyclic binary necklaces avoiding 11. No distinct matching table or rational series in the inspected results."
+        ],
+        "reasoning": "An unrestricted three-factor table cannot determine the four-factor refinements, and a cyclic table includes different boundary factors and excludes 11, which valid height-two Dyck words can contain.",
+        "searches": [
+          "Resultary semantic lookup for exact Dyck length-4 profile counts and cyclic four-gram profile/fiber tables",
+          "Resultary 41c8259b7595 and d7a18695ef7b local Findings"
+        ]
+      },
+      "rationale": "The exact feasibility and count for linear four-Abelian profiles on height-at-most-two Dyck words are distinct from the strongest inspected nearby findings: a strictly coarser unrestricted-Dyck profile, cyclic restricted binary profiles, single-pattern Dyck statistics, and general k-Abelian or sequence-profile machinery. Priority of statements actually shared with related records is not inferred from their dates.",
+      "residual_risks": [
+        "The 2009 paper was not available in full through the attempted lawful routes. The decision is bounded, not a guarantee of historical priority.",
+        "The identified neighboring cubic census is dated the same day; no priority order is established or needed for the demonstrated distinction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different image; priority within the date not inferred",
+          "evidence": "Unrestricted Dyck paths, linear overlapping factors through length three only.",
+          "identifier_or_url": "Resultary 2026/11/22 …--41c8259b7595",
+          "material_read": "Finding and limitations, offsets 0 and 7800",
+          "method": "Local mirror",
+          "title": "A complete cubic census of 3-Abelian observations of Dyck words",
+          "trigger": "Closest same-day closed form and feasibility characterization"
+        },
+        {
+          "assessment": "Different word family and wraparound normalization",
+          "evidence": "Cyclic binary necklaces with forbidden 11.",
+          "identifier_or_url": "Resultary 2026/11/2 …--d7a18695ef7b",
+          "material_read": "Finding and later comparison, offsets 0 and 7600",
+          "method": "Local mirror",
+          "title": "Exact fibers and uniquely reconstructible profiles for cyclic four-gram observations",
+          "trigger": "Exact four-gram profile feasibility and counts"
+        },
+        {
+          "assessment": "Shared framework, not exact restricted image",
+          "evidence": "Defines equality of occurrence counts through k and gives polynomial growth for general words.",
+          "identifier_or_url": "https://arxiv.org/abs/1301.5104",
+          "material_read": "v1 pp. 1–2, OA offsets 1513 and 4700",
+          "method": "Lawful OA primary text",
+          "title": "On a generalization of Abelian equivalence and complexity of infinite words",
+          "trigger": "Equivalent terminology and possible stronger general theorem"
+        },
+        {
+          "assessment": "Different equivalence",
+          "evidence": "Uses positions of one specified factor; considers lengths two and three for ballot paths and length three for Dyck paths.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.01952",
+          "material_read": "v1 pp. 1 and 3, OA offsets 0 and 10400",
+          "method": "Lawful OA primary text",
+          "title": "Equivalence of ballot paths modulo strings",
+          "trigger": "Potential equivalent Dyck classification"
+        },
+        {
+          "assessment": "Marginal rather than joint profiles",
+          "evidence": "The statistic Nτ counts occurrences of one fixed τ.",
+          "identifier_or_url": "https://doi.org/10.37236/561",
+          "material_read": "pp. 1–2, OA offsets 0 and 3776",
+          "method": "Lawful OA journal text",
+          "title": "General Results on the Enumeration of Strings in Dyck Paths",
+          "trigger": "Dyck pattern statistics including prior systematic length-four work"
+        },
+        {
+          "assessment": "Remaining comparison risk; not a full-text noncoverage finding",
+          "evidence": "Related journal paper describes earlier work as systematic individual-pattern enumeration through length four.",
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2008.08.005",
+          "material_read": "Indirect description in EJC 18 P74; full text not obtained",
+          "method": "DOI and bounded lawful OA retrieval attempts",
+          "title": "Enumeration of strings in Dyck paths: A bijective approach",
+          "trigger": "Plausible length-four Dyck precedent"
+        },
+        {
+          "assessment": "Related methodology, not the height-two Dyck census",
+          "evidence": "Length-ℓ substring profiles, their equivalence classes and restricted de Bruijn-graph counting.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.00517",
+          "material_read": "pp. 2, 4, 7; OA offsets 12889, 20392, 38073 (Theorem 3.3)",
+          "method": "Lawful OA primary text",
+          "title": "Codes for DNA Sequence Profiles",
+          "trigger": "Restricted profile sets, coding interpretation, quasipolynomial counting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§1–5",
+        "Kiah–Puleo–Milenkovic sequence profiles, arXiv:1502.00517"
+      ],
+      "rationale": "Height two is the first nontrivial bounded Dyck language. Joint four-factor observations already collapse an exponentially large family to cubic growth; unlike individual pattern averages, the tuple constraints tell which observation vectors are possible and construct witnesses. The exact period and zero-error code size are usable as benchmarks in structured reconstruction or in testing general constrained sequence-profile methods.",
+      "residual_risks": [
+        "No class-size census, noisy reconstruction claim, or arbitrary-height generalization is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

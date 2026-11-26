@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,8 @@
 }
 ---
 
-# Verification details
+# Exact rational diagnostics
 
-To verify the rational diagnostics, run `python checker.py` using Python 3.9 or later. It uses only the standard library, with the expected terminal output `PASS 14412 exact assertions`.
+Run `python3 checker.py` with Python 3.9 or later. This unchanged standard-library checker has expected output `PASS 14412 exact assertions`. It verifies the exact derivative-sign factorization at rational tuples with integer powers 2 through 5, the strict elevation of the exponent, both rational examples, and selected cases of the classical pointwise height envelope.
 
-The checker verifies the cross-term expression for the apparent local exponent against derivatives of the two-power discharge, derivative signs against the polynomial-power sign expression, positivity of the excess and the two rational examples for integer powers \(2\) through \(5\). It also verifies several exact amplitude envelopes for the special square-law case. The continuum proof, uniqueness and sharp boundary rest on the algebra and monotonicity argument in `RESULT.md`, not on finite samples.
-
-The model assumes independently draining stores, no inputs during the recession and no measurement noise. Independent external mathematical and bibliographic validation has not been performed.
+The continuum temporal classification, uniqueness, endpoint case and sharp contrast for possible positive-time peaks follow from the sign proof in `RESULT.md`, not from finite samples. The square-law pointwise threshold is credited as a consequence of the Kantorovich envelope.

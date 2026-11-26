@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof first derives the full conserved-variable mass-action equations and their Jacobian, then uses an incidence Gram matrix and the numerical-range disk of a cyclic permutation. The disk inequality excludes every eigenvalue with nonnegative real part except the conservation zero mode, which is removed on the fixed-substrate-total tangent space. No diagonalizability or generic-rate hypothesis is used. The exact-rational checker tests the independent Jacobian formula on \(126\) rational families; stability for all dimensions follows from the analytic inequality, not the finite tests.
+## correctness
 
-## Originality
-**PASS on inspected evidence, subject to historical-priority risk.** Joshi–Nguyen (arXiv:2611.02523v1), Theorems 1.1–1.3 and Section 7, cover general uniqueness/persistence, distinct-enzyme global convergence, and selected shared-enzyme Hopf examples, not the balanced all-partition local-stability theorem. Donnell–Banaji (arXiv:1211.2153) work under structural factorization which need not hold with shared enzymes. Closest indexed work on enzyme sharing treats stationary flux cross-responses or perturbations of a particular Hopf threshold; those conclusions neither imply nor contradict uniform balanced stability for all partitions. The literature search cannot exclude an unindexed equivalent Gram-matrix proof.
+PASS
 
-## Value
-**PASS.** Enzyme sharing is known to introduce oscillatory regimes, but this theorem isolates a broad, explicit stable manifold of parameter-and-conservation choices for *every* enzyme partition. The generality over ring length and arbitrary grouping, including irregular noncirculant grouping, explains exactly why a common-rate balanced regime avoids the Hopf mechanism and provides a useful constructive stability benchmark for full mass-action cycles. The result is structural rather than a numerical special case.
+Eliminating the conserved free enzymes and setting y_i=X_i+C_i, z_i=C_i gives the stated Jacobian. Binding supplies all z directions, and catalysis together with binding supplies all zero-sum y directions, so sum(y)=0 is the full remaining stoichiometric tangent. The pool incidence Gram matrix is positive semidefinite even for unequal or interleaved pools. The eigenvector equation yields lambda^2+eta*lambda+alpha*k_c*zeta=0, with eta>=alpha+h and zeta in the unit disk centered at 1. For a nonreal eigenvalue with real part u>=0, the disk inequality forces (2u+eta)^2<=2*alpha*k_c, contradicted by (alpha+h)^2>=4*alpha*h>2*alpha*k_c. The real case only permits zero; its eigenvector has z=t*1 and sum(y)=t*[n*(alpha+h)+beta*sum_g(m_g^2)]/alpha, excluding any nonzero such vector in the tangent. Smooth linearization then gives local exponential stability and rules out a Hopf bifurcation at an equilibrium in this positive balanced family. The supporting checker was inspected, not executed: it checks the Jacobian at finite rational sample points, not stability. The analytical argument supplies the universal certificate without relying on those samples.
 
-## Limitations
-The conclusion is local, not global; arbitrary kinetic heterogeneity and unbalanced positive equilibria are not covered. The condition of equal free enzyme concentrations is obtained by choosing pool totals according to the pool sizes, and is a substantive restriction. No independent validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest checked work proves unrestricted-assignment steady-state results, a stronger convergence theorem in the no-sharing case, and selected shared-pool instabilities. None gives stability simultaneously for every sharing partition at positive equal-rate balanced states. The exact indexed match is the target itself, not an independent precedent. The other close catalogue result studies a different parameter regime and a Hopf-threshold shift. This is a bounded determination of coverage, not proof of absolute priority.
+
+## value
+
+PASS
+
+Shared-enzyme cycles can lose stability, and arbitrary sharing can break the symmetry necessary for Fourier-mode decoupling. The result gives a precise, easily tested boundary within the full dynamical model where no choice of partition can trigger a local loss of stability. The argument isolates why the pool coupling is harmless at balance without claiming global behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

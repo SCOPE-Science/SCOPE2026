@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact matrix identities are reproducible with the bundled rational-arithmetic checker. The Gram minors establish physical tetrahedra throughout \(Q\le2\); direct comparison of all six squared edges at each of the three stages leaves just the condition \(x+y\ge-3/4\). The level-set support of this linear form gives the exact cutoff \(63/32\). Irrationality of the normalized return implies density and equidistribution for every positive quadratic level; it establishes obstruction beyond the cutoff and the arcsine frequency formula. The sharp marked-boundary volume ratio follows from the Gram determinant and exact diameter bounds. Finite trajectory sampling is only a consistency check.
+## correctness
 
-**Originality — PASS, with risk.** The closest source, Adiprasito--Kalmanovich--Solomon, arXiv:2609.08846v1, Section 4.2, proves the three-step elliptic construction on \(Q=1/16\), not its maximal uniform legality level or illegal-block frequency; Section 4.3 treats a *different* nine-step word. Michaud--Korotov, arXiv:2512.07315v1, Sections 3.2--3.4, study finite orbits and numerically investigated shape families under another normalization. Trujillo--Suárez--Moreno-García, arXiv:2609.26522v1, develop convex sextuple-pattern regions and finite-state LEB trees for distinct families, without characterizing the irrational three-step ellipse or its transition. The closest mathematical record on bisection concerns largest-dihedral-angle bisection rather than the three-step longest-edge word. Targeted mathematical-record and public-literature searches did not reveal direct coverage; algebraically equivalent consequences in unindexed work remain possible.
+PASS
 
-**Mathematical value — PASS.** The cutoff answers a natural, previously unquantified question in the published elliptic mechanism: how large a family of tetrahedral shapes allows the identical infinite admissible word? The exact interval increases the certified quadratic level by a factor of \(63/2\) over the source's example. The first three-edge contact, the impossibility of infinite continuation beyond it, and the square-root frequency of invalid proposed blocks form a complete local admissibility phase transition, useful when designing and comparing refinement words. It is not a claim about the global LEB algorithm or all tie-breaking rules.
+Reconstructed the three replacements by the squared-distance midpoint formula d(k,mid(i,j))=(d(k,i)+d(k,j))/2−d(i,j)/4, where d denotes squared distance. Acting on labels by the stated cycle sends the final 03, 01, 02 entries to 01, 02, 03 respectively and returns D/4 with parameters (−3x/2−y,x). The return preserves Q, has determinant 1 and trace −3/2, which cannot be the rational algebraic-integer sum of two roots of unity. In the Gram basis of edge vectors v1,v2+v3,v2−v3 from vertex 0, writing s=x+y and t=x−y gives diagonal entries 23+4s,2+2s,10 and off-diagonals 6+9s/2,t/2,t. Its determinant divided by 4 is 25−35Q/4; the original first two leading minors are positive on Q≤2 by the dual norm estimates. The two intermediate winners are tied at squared lengths 20 and 10; the other three variable entries stay below these lengths using |x|,|y|<2. Thus only s≥−3/4 remains, and Q=(7s²+t²)/2 gives cutoff 63/32 with unique negative contact. The orbit visits the open violating arc at every higher level if an infinite admissible branch is hypothesized, without requiring physicality of the whole higher ellipse. On Q≤2 the arc fraction is arctan(sqrt((q−q_c)/q_c))/π above threshold, proving the frequency and onset; its endpoints have zero angular measure. Midpoint replacement preserves nondegeneracy, compact phase images give compact shape sets, and the two fixed squared lengths 20 force the scale factor to be one at marked returns; finite relabelings cannot eliminate infinitely many distinct normalized parameters. The determinant minimum 995/128 and diameter-squared maximum 26 are simultaneous at (3/8,3/8), proving the sharp marked volume bound.
 
-**Limitations and residual risk.** The formal orbit is not a valid LEB trajectory beyond its first illegal choice. The frequency theorem is restricted to \(q\le2\). The sharp volume ratio applies only at marked block boundaries. Standard irrational-rotation equidistribution is not new; the new component is the exact physical admissibility boundary and its application to this specific tetrahedral family. A full independent literature audit could reveal equivalent prior parameter inequalities.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact marked return, affine ellipse, and irrational dynamics are prior. The supported increment is the sharp entire-family cutoff, its all-phase obstruction and formal angular frequency/onset, and the sharp marked-boundary normalized-volume bound. These are not in the inspected proof on the sample ellipse or supplied by convexity of pattern cells.
+
+## value
+
+PASS
+
+For a prescribed nonperiodic refinement mechanism, the maximum invariant set by quadratic level is a natural robustness question. The cutoff decides legality simultaneously for every phase, rules out all infinite repetitions above it, and quantifies near-boundary failure and guaranteed block-boundary shape quality. It is an exact range of the known mechanism rather than another arbitrarily small legal example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

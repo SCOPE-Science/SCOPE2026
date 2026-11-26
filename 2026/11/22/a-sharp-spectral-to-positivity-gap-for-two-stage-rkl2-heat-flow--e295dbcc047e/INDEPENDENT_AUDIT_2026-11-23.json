@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:17:26.846362Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cited RKL2 polynomial with two stages reduces to I−hL+h²L²/2. Its diagonal entries 1−dh+d(d+1)h²/2 are positive, the nonedge entries are nonnegative, and the ij edge entry is h[1−h(2d−(A²)ij)/2]; an edge minimizing (A²)ij stays negative at every h>2/(2d−t). The connected d≥1 condition excludes an empty edge set. The symmetric Laplacian gives Euclidean contraction exactly for hΛ≤2, since its multipliers are [1+(1−hλ)²]/2. The rows and columns sum to one at all h. For J(n,2), counting common neighbors gives t=n−2, and the unsigned vertex–edge incidence matrix of K_n gives A=BᵀB−2I, BBᵀ=(n−2)I+J. The latter is nonsingular, while B has a nonzero null space for n≥4, so Λ=d+2=2(n−1); the two cutoffs, equality at n=4, strict gap thereafter, and ratio follow. The n=5 edge arithmetic at 7/30 yields −7/600 exactly. The nonlinear necessity argument is not an inference from linear stability: matching the signs of a negative-entry row gives heat output equal to its absolute row sum, greater than one. In this example it is 57/50 before the last half-flow. The reaction fixes input signs, preserves the cube, and cannot bring an outside coordinate back into it at finite time. Uploaded verify.py was inspected only; its rational finite checks do not support an all-graph inference without the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The older paper gives c≤1/2 for two-stage RKL2 on the 1D central-difference discretization. The newer paper concerns 1D periodic or Neumann central differences and acknowledges failures of numerical monotonicity in 2D.",
+          "0aa3ec090e79 gives cutoff 2/N for degree-two Taylor steps on complete multipartite graphs. It includes J(4,2)=K₂,₂,₂, but not the triangular graphs for n≥5. The distinct record 096a0ea22672 concerns a cubic RKL2 polynomial on Kp,q."
+        ],
+        "reasoning": "Neither a mesh-specific sufficient CFL nor the complete multipartite calculation yields the all-regular-graph edge criterion or its two-stage J(n,2) consequences.",
+        "searches": [
+          "arXiv:2507.17062v1 §§5.1–5.2.1",
+          "arXiv:2611.16238v1 Theorem 4.1 and Remark 4.3",
+          "Resultary 0aa3ec090e79; 096a0ea22672"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.16238v1",
+        "arXiv:2507.17062v1",
+        "Resultary 0aa3ec090e79, 395a6d422888, 096a0ea22672, and the identical e295dbcc047e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior Strang argument uses positivity of the linear step for sufficiency. It does not provide the sign-vector converse for the reaction–heat–reaction composition on a regular graph.",
+          "If 'linear stability constraint' in the 1D Theorem 4.1 is read as the exact finite-grid eigenvalue condition of §3.1, periodic C₅ at h=8/15 is stable but has edge entry −8/225. The older c≤1/2 sufficient condition excludes that step. The scope/convention matters and no exact-cutoff implication is taken from the ambiguous wording."
+        ],
+        "reasoning": "The existing monotone sufficient conditions and stage formulas do not identify the full stable-but-nonpositive interval. An interpretation that asserts universal agreement with the exact finite-grid spectral cutoff cannot be used as a covering proof.",
+        "searches": [
+          "arXiv:2611.16238v1 Theorem 4.1 and Eq. (12)",
+          "arXiv:2507.17062v1 §5.2.1, Lemma 3",
+          "Resultary 395a6d422888"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At two stages the completed method is exactly the degree-two Taylor/Heun polynomial, regardless of stage naming.",
+          "The distinct two-stage Euler-superstep record uses two real Euler factors; matching the two nontrivial coefficients would require roots of a real quadratic with discriminant −h² for h>0."
+        ],
+        "reasoning": "Search by the polynomial and positivity/monotonicity, not simply the RKL2 name. An exact product of two real Euler substeps is not this polynomial.",
+        "searches": [
+          "Resultary: degree-two Taylor/Heun and two-stage RKL2 positivity on regular graphs",
+          "arXiv:2611.16238v1 §3.1 Eq. (12)",
+          "Resultary 395a6d422888"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical e295dbcc047e hit is the assigned work. The distinct exact positivity result 0aa3ec090e79 provides the complete multipartite cutoff, which overlaps at n=4. Standard triangular-graph spectral data give the stability side only."
+        ],
+        "reasoning": "The new exact datum is a sign cutoff of a matrix polynomial, not a recomputation of the tabulated adjacency spectrum or of the multipartite case.",
+        "searches": [
+          "Resultary: exact positivity radii for degree-two Taylor diffusion and triangular graphs J(n,2)"
+        ]
+      },
+      "rationale": "The completed scheme, its scalar stability radius, the triangular-graph spectrum and the forward sufficiency of a monotone heat step are not new. The distinct claim is the graph-dependent exact positivity criterion and consequent exact stable-but-not-positive interval, including an unbounded family and the corresponding necessary and sufficient cube condition. The strongest inspected results cover particular discretizations, particular graph families or different polynomials, not this combination.",
+      "residual_risks": [
+        "The focused primary search supplied no additional relevant evidence; separately indexed fixed-generator monotonicity results may exist. Comparison is bounded; the precise intended CFL convention in Theorem 4.1 is not necessary for the graph proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Scheme and 1D analysis already established; exact graph cutoff not treated",
+          "evidence": [
+            "The theorem concerns periodic or Neumann 1D central differences and its proof invokes prior monotone stability. The remark notes 2D nonmonotonicity."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.16238v1",
+          "material_read": "§3.1 Eq. (12), §4.1 Theorem 4.1 and Remark 4.3",
+          "method": "OA full text, §3.1 offsets near 18300–22043 and §4.1 at 25500–29293",
+          "title": "Fully Explicit Stabilized Runge–Kutta Methods for Allen–Cahn and Cahn–Hilliard Dynamics",
+          "trigger": "Same RKL2 and Allen–Cahn splitting"
+        },
+        {
+          "assessment": "Retrieved in this review; related 1D stencil, not graph-dependent cutoff",
+          "evidence": [
+            "c≤(s²+s−2)/8 gives c≤1/2 at two stages."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2507.17062v1",
+          "material_read": "§5.1 and §5.2.1 Lemma 3",
+          "method": "OA full text, offsets 44524 and 48971–53747",
+          "title": "Explicit Monotone Stable Super-Time-Stepping Methods for Finite Time Singularities",
+          "trigger": "Potential stronger monotone-stability theorem; inaccessible in original record"
+        },
+        {
+          "assessment": "Covers J(4,2) but not J(n,2) for n≥5",
+          "evidence": [
+            "The 2/N cutoff is proved for complete multipartite graphs. In J(n,2) for n≥5, disjointness of vertex-pairs is not transitive on distinct vertices, so it is not complete multipartite."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-positivity-radii-and-an-order-three-reversal-for-taylor-ru--0aa3ec090e79",
+          "material_read": "Degree-two positivity finding, RESULT.md at offset 900",
+          "method": "Local published-record mirror",
+          "title": "Exact positivity radii and an order-three reversal for Taylor Runge–Kutta diffusion on complete multipartite graphs",
+          "trigger": "Same quadratic polynomial and exact graph positivity"
+        },
+        {
+          "assessment": "Different polynomial",
+          "evidence": [
+            "Its operator factors into two real forward-Euler matrices, which this Taylor update cannot do for h>0."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-triangle-count-law-for-positive-two-stage-euler-supersteps-on--395a6d422888",
+          "material_read": "Main law and product definition",
+          "method": "Local published-record mirror",
+          "title": "A triangle-count law for positive two-stage Euler supersteps on regular graphs",
+          "trigger": "Same graph parameters and two-stage positivity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cutoff is an exact step-size test depending on a local graph statistic, rather than a generic sufficient bound. The triangular graphs show a constant-factor gap approaching 3/2 and give an explicit stable one-step failure of the nonlinear maximum principle. This is a substantive distinction for a completed diffusion step even though the spectral calculation and graph entry expansion are elementary.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

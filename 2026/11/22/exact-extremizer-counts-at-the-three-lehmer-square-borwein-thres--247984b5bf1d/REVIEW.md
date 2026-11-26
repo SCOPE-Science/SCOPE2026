@@ -1,23 +1,21 @@
-# Review of the exact extremizer census
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For any prescribed degree \(D\), normalization at the constant coefficient and the triangular identity for the quotient \(H=Q/L^2\) give an exhaustive bijection from selected ternary coefficient prefixes to all possible candidates. The symmetry constraints reduce the search without discarding any polynomial. Two complete enumerations test respectively \(3^{14}\), \(3^9\), and \(3^{10}\) prefixes and independently return precisely the same five normalized quotient vectors. Exact convolution, nonzero endpoints, and symmetry tests establish every accepted product. The proof does not use a finite numerical sample to infer an infinite statement.
+PASS
 
-## Originality
+G=L² is monic and reciprocal of degree 20 with constant term one. For exact degree D, normalize the sign by Q(0)=1. Division, or coefficient comparison starting at the constant term, gives the unique quotient H of degree e=D−20; each trit prefix uniquely fixes the corresponding quotient prefix. Since G*=G, cancellation gives Q*=±Q iff H*=±H. In the self-reciprocal case at D=38 one enumerates a_1..a_9 and mirrors the resulting quotient through its midpoint, and at D=41 antireciprocity one enumerates a_1..a_10 and reflects with sign. The unrestricted proof covers all 3^14 trit prefixes with a nonzero lead check. The frozen program's exact convolution gates all degrees; a conservative recurrence bound gives every intermediate convolution absolute sum at most 137789545, so the integer type suffices. I independently recomputed G from L and ran a two-ended exact enumeration: for the unrestricted class it chooses trits from both ends (including both leading signs) to determine disjoint quotient sections, then explicitly checks every remaining product coefficient. For the symmetry classes it mirrors the quotient and handles a forced zero middle for even antireciprocal degrees. Bound-checked signed integer arithmetic gives no solutions below the respective thresholds and exactly the five normalized vectors printed in the record at the thresholds. The degree-34 vectors are reversals; reversal on the antireciprocal vectors stays within each sign pair. The exact signed counts are 4,2,4, and independent integer multiplication gives the self-reciprocal quotient factorization in the notes.
 
-**PASS, with residual bibliographic risk.** The closest paper, El Otmani–Idris–Sac-Épée (2026), gives the minimum degrees and one witness per admitted degree, but no complete minimizer count or uniqueness theorem. Mossinghoff (2003) provides search-generated examples, not a complete enumeration at these exact thresholds. The earlier restricted-coefficient divisor literature is not equivalent to this explicit five-vector classification. Targeted published-result queries found no direct equivalent; such absence is not proof that no unindexed census exists.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The source's central extremal question asks how short a restricted-coefficient polynomial can be while having Lehmer's square as a factor. The number and rigidity of the shortest polynomials are its natural next invariant, not an arbitrarily chosen slice. The answer distinguishes a single reversal orbit in the unrestricted class, unique symmetric minimization up to sign, and two genuinely different antisymmetric minimizers up to sign. Exact quotient vectors allow reproduction and further structural comparison.
+The minimum degrees and one witness at each are prior. In degree 34 both listed vectors are already implied as witnesses by that prior polynomial and reversal; the degree-38 quotient is already explicit; one of the two degree-41 sign classes is already in the appendix. The supported increment is exact exhaustive multiplicity and orbit classification at the thresholds, including a second antireciprocal sign class. The feasibility article's degree spectra and witness table do not imply those exact multiplicities.
 
-## Closest literature and limitations
+## value
 
-- S. El Otmani, M. Idris, J.-M. Sac-Épée, arXiv:2611.18323v1, full text Sections 2–3 and Appendix, https://arxiv.org/html/2611.18323v1 .
-- M. J. Mossinghoff, *LMS Journal of Computation and Mathematics* 6 (2003), Section 4, pp. 322–323, https://doi.org/10.1112/S1461157000000474 .
-- P. Drungilas, J. Jankauskas and J. Šiurys, *Mathematics of Computation* 87 (2018), https://doi.org/10.1090/mcom/3258 .
+PASS
 
-The census applies only at the three existing minimum-degree thresholds for \(L^2\). No claims are made about other degrees or higher powers; independent verification remains outstanding.
+The first permitted degrees for Lehmer-square divisibility are natural boundary parameters fixed by the prior theorem, not arbitrary slices. Their multiplicities distinguish a single orbit, uniqueness under the positive-reversal constraint, and two genuinely different antireciprocal sign classes, the last impossible to read off from a single witness and its reversal. Exact counts and representatives give a useful benchmark for algorithms or structural work on extremal restricted-coefficient multiples.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

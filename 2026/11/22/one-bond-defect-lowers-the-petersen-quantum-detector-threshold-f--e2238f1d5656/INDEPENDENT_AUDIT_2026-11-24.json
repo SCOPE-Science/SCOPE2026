@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:09:18.526201Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, definitions and proof",
+        "Frozen VERIFICATION.md and both source checkers (read, not executed)",
+        "Independent exact reproduction: python3 /workspace/checks/petersen_incidence.py (SymPy 1.14.0; polynomial, walk minors and spectral projection ranks)"
+      ],
+      "rationale": "If K has an imaginary-axis eigenvector, taking the real part of its eigenvector identity shows that the sum of strictly positive site losses on it is zero, so it is a Hamiltonian eigenvector vanishing on all sinks. Conversely all such Hamiltonian modes form a reducing subspace for K, evolving unitarily; its orthogonal complement is exponentially damped in finite dimension. The complement is the sum of the sink-visible spectral projection ranges, equivalently the Krylov space. Independently constructed H₁=J−MᵀM+I using the 5×10 point-versus-pair incidence M and MMᵀ=3I+J, yielding eigenspace dimensions 1,4,5 for 3,−2,1. The symmetric off-diagonal update has rank two, leaving at least three 1-eigenvectors; two site evaluations cannot see them all. A rank-two resolvent calculation reproduces the entire stated characteristic polynomial. Exact weighted walks and determinant expansion reproduce −2(t−1)^3 for (1,2,8) in the specified order and −2 for (0,1,2,4,5) at t=1. The triple's projected ranks at t=1 are 1,3,3, so exactly 7/10 is captured from I/10, versus 1 for nonunit t by the nonzero minor. At t=1 the 1-eigenspace demands five sinks. Fixed finite-time evolution is continuous by the matrix exponential; no uniform decay-rate assertion is used.",
+      "residual_risks": [
+        "Conclusions assume adjacency hopping, strictly positive constant site losses and one-excitation finite-dimensional dynamics. They do not classify degree-normalized, diffusion or Laplacian detectors, or finite-time performance."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected perturbation work treats dark-state removal in other networks, single-edge transfer on a complete network, or unit transfer with specified localized/superposition inputs. A general trap-visible Krylov description is established."
+        ],
+        "reasoning": "The PBH test is a criterion, not a theorem that a coordinate triple exists and works across the stated weight range. Results for some initial states or a different graph and target do not imply all-state Petersen capture.",
+        "searches": [
+          "Literature lookup on weighted Petersen quantum capture and exact controllability",
+          "arXiv:1707.07482v1; arXiv:1504.04398; arXiv:2205.09408; DOI 10.3390/e23010085"
+        ]
+      },
+      "checked_sources": [
+        "Original Resultary 1d711c8bda6b Finding and assumptions",
+        "Resultary a7a6781d41c6 indexed summary and mirror attempt",
+        "arXiv:1707.07482v1, 1504.04398, 2205.09408 (passages above)",
+        "DOI 10.3390/e23010085 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complementary graph gives the t=1 threshold and rank through identical eigenspaces. For t≠1, exact nonvanishing of the particular coordinate Krylov minor proves an everywhere statement, not genericity or a transfer result for selected initial states."
+        ],
+        "reasoning": "The old PBH and symmetry-breaking results supply methods, not a proof that there are no other positive exceptional weights or that the same three coordinate sinks work throughout. The graph-specific obstruction and uniform upper witness are the distinct claims.",
+        "searches": [
+          "Original Resultary 1d711c8bda6b Finding and assumptions",
+          "arXiv:2205.09408 pp. 1 and 3; arXiv:1707.07482v1 p. 1; arXiv:1504.04398 p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The PBH eigenspace test and positive-loss capture criterion are equivalent here. The inspected triangular-graph rank formula includes J(5,2); A_J=A_P²−3I with injective eigenvalue map on {3,−2,1}. The unweighted ranks, including seven for the triple, therefore transfer.",
+          "The exact same-day Petersen census index describes diffusion-actuator placements, four required under a nonunit conductance rather than three for adjacency hopping. The original full statement could not be opened in the mirror."
+        ],
+        "reasoning": "The equivalence with the triangular complement holds at t=1 and does not give a weighted complement rule. For a conductance-weighted Laplacian the defect adds diagonal degree changes and is a rank-one update, unlike the symmetric off-diagonal adjacency update here; the diffusion record's precise conventions remain unconfirmed from full text. Neither coordinate-control terminology nor the catalogue date identifies the same theorem.",
+        "searches": [
+          "Resultary: single-edge Petersen adjacency, detector threshold and coordinate controllability",
+          "SCOPE-bipartite-component-formula-for-the-absorbing-spectral-rank-of-t--1d711c8bda6b; SCOPE-single-edge-detuning-and-the-exact-104-set-petersen-controllabil--a7a6781d41c6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact nearby index reports 104 four-actuator placements in the diffusion setting. The earlier triangular record tabulates or characterizes unweighted bright ranks by a different graph invariant; it does cover the unweighted numerical rank after the spectral reduction."
+        ],
+        "reasoning": "The candidate's all-parameter fixed triple and sharp three-site minimum for the adjacency generator are not a re-tabulation of the unweighted baseline or the indexed diffusion count. The exact original census was not readable, so its scope beyond the index is not adjudicated.",
+        "searches": [
+          "Resultary a7a6781d41c6 and 1d711c8bda6b",
+          "Weighted-Petersen exact coordinate controllability and capture-threshold lookup"
+        ]
+      },
+      "rationale": "Best-knowledge pass for the sharp weighted Petersen statement with a fixed three-site witness on the entire positive nonunit parameter range and the associated efficiency discontinuity. The dark-space criterion and the unweighted baseline are covered. Closely matched diffusion work and the cited one-trap article have access limitations; neither is used to assert verified absence of deeper overlap.",
+      "residual_risks": [
+        "The original same-day diffusion census and Razzoli et al.'s decisive full-text passage were inaccessible. A deeper relation or unindexed weighted-Petersen theorem is not excluded.",
+        "The unweighted spectral-rank baseline and perturbative dark-state mechanisms are not new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material adjacent overlap; full comparison limited, no priority inferred from date",
+          "evidence": "Index identifies diffusion conductance and 104 four-actuator successes for nonunit positive weights; exact RESULT.md missing on the supplied mirror path.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-single-edge-detuning-and-the-exact-104-set-petersen-controllabil--a7a6781d41c6",
+          "material_read": "Indexed summary only; no original Finding accessible",
+          "method": "Resultary search and exact local mirror attempt",
+          "title": "Single-edge detuning and the exact 104-set Petersen controllability census",
+          "trigger": "Strongest graph/defect and rank overlap"
+        },
+        {
+          "assessment": "Weighted theorem not implied; unweighted baseline is prior coverage",
+          "evidence": "Exact spectral-rank formula for J(n,2), n≥5 with positive local losses. The unweighted complementary A_J=A_P²−3I preserves the three eigenspaces; at the specific triple it gives rank seven.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-bipartite-component-formula-for-the-absorbing-spectral-rank-of-t--1d711c8bda6b",
+          "material_read": "Original RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "Bipartite-component formula for the absorbing spectral rank of triangular quantum graphs",
+          "trigger": "Complementary unweighted adjacency theorem"
+        },
+        {
+          "assessment": "Mechanism overlap, not the graph-specific threshold in material read",
+          "evidence": "Perturbing couplings can suppress dark states; the named application is the M13 light-harvesting structure.",
+          "identifier_or_url": "https://arxiv.org/pdf/1707.07482v1",
+          "material_read": "p. 1, offset 2445",
+          "method": "OA PDF passage",
+          "title": "How to Suppress Dark States in Quantum Networks and Bio-Engineered Structures",
+          "trigger": "General coupling-perturbation technique"
+        },
+        {
+          "assessment": "Different graph and input model",
+          "evidence": "A single hopping change improves Lindblad source-to-sink transport on a complete network.",
+          "identifier_or_url": "https://arxiv.org/pdf/1504.04398",
+          "material_read": "p. 1, offset 0",
+          "method": "OA PDF passage",
+          "title": "Perfect quantum excitation energy transport via single edge perturbation in a complete network",
+          "trigger": "Single-edge coherent-transfer antecedent"
+        },
+        {
+          "assessment": "General trap-visible subspace and perturbative methods, not a universal three-site Petersen classification in material read",
+          "evidence": "Discusses unit transport from selected localized or two-site-superposition inputs with one or two changed edges.",
+          "identifier_or_url": "https://arxiv.org/pdf/2205.09408",
+          "material_read": "p. 1 and p. 3, offsets 3076 and 19782",
+          "method": "OA PDF passages",
+          "title": "Perturbed graphs achieve unit transport efficiency without environmental noise",
+          "trigger": "Potential stronger theorem on single-edge perturbations and capture"
+        },
+        {
+          "assessment": "Unverified independently; frozen record credits unweighted single-absorber work",
+          "evidence": "Full-text attempts returned a landing/abstract page or HTTP 403; no whole-paper exclusion is inferred.",
+          "identifier_or_url": "https://doi.org/10.3390/e23010085",
+          "material_read": "Landing/abstract only, no decisive full-text passage",
+          "method": "Lawful publisher/open-paper access attempts",
+          "title": "Transport Efficiency of Continuous-Time Quantum Walks on Graphs",
+          "trigger": "Cited single-trap Petersen analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and detector sets",
+        "Independent polynomial and projection-rank checks"
+      ],
+      "rationale": "A natural resource question is how many local sinks guarantee trapping of an arbitrary single-particle state. A lone defective edge sharply reduces that number, but an invariant eigenspace still forbids using two sinks. The same exact triple for all positive nonunit weights and its jump from 7/10 capture at symmetry to full capture separate eventual capture from finite-time behavior; this is not just a perturbed example at a single weight or a generic-rank computation.",
+      "residual_risks": [
+        "No quantitative uniform time scale or experimental efficiency prediction is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

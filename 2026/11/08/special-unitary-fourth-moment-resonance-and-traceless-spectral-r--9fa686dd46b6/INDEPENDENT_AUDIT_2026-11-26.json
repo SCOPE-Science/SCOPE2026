@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:35:49.991612Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–57",
+        "su4_fourth_checker.py and VERIFICATION.md inspected, frozen script not run",
+        "Repaired RESULT.md: moment reduction, unrestricted optimization and prior comparison; repaired SLOGAN.txt, REVIEW.md and VERIFICATION.md"
+      ],
+      "rationale": "Re-audited the narrowed unrestricted theorem. With Z=tr(A*U), central selection leaves only the balanced second and fourth terms, except for Z^4 and its conjugate in dimension four. Schur orthogonality on the symmetric and exterior squares gives E|Z|^4=(S^2+Q)/(n(n+1))+(S^2-Q)/(n(n-1)); the alternating determinant projector gives EZ^4=conjugate(det A) when n=4. Normalizing by (S/(2n))^2 gives the two polynomials. Outside n=4 the two extrema of r are 1/n and 1, with exactly equal singular values and rank one. For n=4, the upper deficit splits into the nonnegative singular-value and phase deficits. For the lower endpoint, the geometric mean of the six pair products is sqrt(product x_i), so 1-r is at least 12 sqrt(product x_i); the lower deficit is at least (2/15)(1-r), vanishing at the minimum only for rank one. The normalized complex matrix sphere is connected, giving every intermediate ratio. The original restricted values were not false: Newton's identity and the stated endpoint examples confirm them. The repair removes the restricted optimization as a separate contribution, retaining only an attributed comparison.",
+      "residual_risks": [
+        "The sampled computations are corroborative only. Trace-zero diagnostics in the unchanged checker do not enlarge the repaired theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general unitary and special-unitary formulas cover the contractions needed for the raw fourth-moment identities. The SU formula has the degree charge condition and alternating-tensor determinant terms.",
+          "The sharp sample kurtosis bound applies at all sample sizes and specializes to the reported restricted determinant bound at four."
+        ],
+        "reasoning": "The general Haar formulas are stronger as integration results and are attributed as such; they do not assert the unrestricted inequalities or equality cases. The sample bound is stronger in sample size but applies to centered real samples, not to the unrestricted Haar optimization.",
+        "searches": [
+          "Collins–Śniady arXiv:math-ph/0402073, §2.2 Corollary 2.4",
+          "Borisenko–Voloshyn–Chelnokov arXiv:1812.06069v1, §§2 and 3.1",
+          "Cox DOI 10.1177/1536867X1001000311 §2.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen and repaired RESULT.md",
+        "arXiv:math-ph/0402073",
+        "arXiv:1812.06069v1",
+        "Cox §2.1 equation (2) with attribution to Dalén",
+        "Resultary 9fa686dd46b6 and be6850b8f4f8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Only in dimension four does a pure fourth power survive. The SU moment polynomial contains a term of either sign at fixed singular spectrum. The frozen restricted affine ratio is (14+56d)/5, so its numerical endpoints are images of the prior determinant endpoints."
+        ],
+        "reasoning": "The unrestricted endpoint/equality theorem does not come from substituting A=I or substituting into a stronger optimizer theorem; it uses sharp control of the unfavorable determinant sign as well as simultaneous phase and singular-value equality at the top. The old bound on the trace-zero slice is mechanically implied by the earlier centered-sample result plus Newton and is absent from the list of new assertions in the repair.",
+        "searches": [
+          "Repaired RESULT.md versus SU moment charge formulas, Cox §2.1, and Resultary be6850b8f4f8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Raw standardized fourth moment is K_n, not excess kurtosis; the embedding norm is K_n^(1/4).",
+          "For trace-zero Hermitian size four with eigenvalues forming a centered sample, b2=4Q/S^2 and det(A)/S^2=1/8-b2/16. Cox §2.1 equation (2) records Dalén's sharp b2 upper bound (n²-3n+3)/(n-1); the same section gives b2≥1."
+        ],
+        "reasoning": "Thus at n=4 the two prior kurtosis bounds map exactly to -1/48 and 1/16 for the determinant. The one-outlier sample attains the first and the balanced two-point sample attains the second. This deterministic slice is not new as a bound. The repaired unrestricted ratio allows complex nonnormal matrices and an independent determinant phase; the centered-sample inequality does not cover them.",
+        "searches": [
+          "Resultary searches for SU(n)/SU(4) sharp fourth-moment embedding, kurtosis, determinant resonance, and trace-zero determinant rigidity",
+          "Cox The limits of sample skewness and kurtosis Dalén maximum kurtosis",
+          "arXiv:1812.06069v1 charge and trace generating formulas"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit 9fa686dd46b6 is the assigned frozen result. Same-day be6850b8f4f8 has a different group and real coefficient class (SO(4), reported [2,4]). The old kurtosis bound gives an exact parameter-four match for the restricted determinant endpoints regardless of indexing."
+        ],
+        "reasoning": "Neither the same source nor the SO(4) result establishes coverage of the unrestricted SU bounds. The restricted numerical match is a true implication, not just a coincident number.",
+        "searches": [
+          "Resultary exact sharp SU fourth moment/equality searches",
+          "Resultary 9fa686dd46b6 and be6850b8f4f8",
+          "Cox §2.1 equation (2) and sharp examples"
+        ]
+      },
+      "rationale": "The frozen record's separate originality claim for the sharp trace-zero determinant interval is not supported: prior sharp centered-sample kurtosis bounds imply its exact endpoints under Newton's identity, and the Haar ratio on that slice is an affine translation of the same bound. The delivered repair removes that classification as a new theorem from the Finding, title and slogan and attributes the restricted comparison. The fresh pass applies to the surviving unrestricted sharp L2-to-L4 optimization, in particular the complete rank and determinant-phase equality classification. The inspected prior sources give the moment polynomials, not optimization over arbitrary coefficient matrices and phases.",
+      "residual_risks": [
+        "Dalén's original full text was not relied on; the exact inequality and its attainment are explicitly verified in Cox's article. No assertion is made about whether Dalén also classified all endpoint samples.",
+        "The SO(4) record comparison is limited to the indexed statement. An unlocated equivalent sharp inequality for the unrestricted SU coefficient space remains possible; the result is not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers moment integrations, not the unrestricted interval and its equality cases in the inspected passages",
+          "evidence": [
+            "Entrywise integrals have the charge condition s-r=Nq and alternating contractions; trace formulas specialize accordingly."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1812.06069v1",
+          "material_read": "§2 equations (19)–(21), offsets 12000–13982; §3.1 equations (29)–(31), offsets 17000–18949",
+          "method": "OA primary passages",
+          "title": "SU(N) polynomial integrals and some applications",
+          "trigger": "Stronger special-unitary integration formulas that may subsume the resonance"
+        },
+        {
+          "assessment": "Covers the balanced integration ingredient",
+          "evidence": [
+            "Unitary Weingarten calculus evaluates the paired fourth moment; it is not an optimization statement for real SU coefficients."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math-ph/0402073",
+          "material_read": "§2.2 Corollary 2.4 and its fourth-entry-moment application, PDF p. 6 around offsets 15161–16612",
+          "method": "OA primary passages",
+          "title": "Integration with respect to the Haar measure on unitary, orthogonal and symplectic group",
+          "trigger": "Prior balanced Haar moments"
+        },
+        {
+          "assessment": "Explicit exact prior bound; Cox attributes the sharp upper inequality to Dalén (1987)",
+          "evidence": [
+            "Cox defines b2=m4/m2², notes b2≥1 by Cauchy–Schwarz, displays b2≤(n²-3n+3)/(n-1), and notes sharpness via samples with all but one observation equal."
+          ],
+          "identifier_or_url": "https://doi.org/10.1177/1536867X1001000311",
+          "material_read": "§2.1, journal pp. 483–485, equation (2) and sharp one-outlier cases; offset 4300–7700 of the same article's open copy",
+          "method": "OA same-paper text at https://docslib.org/doc/3191082/speaking-stata-the-limits-of-sample-skewness-and-kurtosis after publisher route unavailable",
+          "title": "Speaking Stata: The limits of sample skewness and kurtosis",
+          "trigger": "Exact prior upper and lower bounds under the equivalent centered-sample formulation"
+        },
+        {
+          "assessment": "Different compact group and coefficient space in the available statement; no ordering inferred from the date",
+          "evidence": [
+            "SO(4) real coefficients with interval [2,4] and rank-one/orientation-reversing conformal lower extremizers, not SU(4) complex coefficients."
+          ],
+          "identifier_or_url": "Resultary:2026/11/8/SCOPE-sharp-fourth-moments-and-two-distinct-minimizer-geometries-for-r--be6850b8f4f8",
+          "material_read": "Indexed scientific statement; full mirror retrieval timed out",
+          "method": "Local Resultary plus attempted mirror passage retrieval",
+          "title": "Sharp fourth moments and two distinct minimizer geometries (indexed SO(4) record)",
+          "trigger": "Nearby same-day sharp fourth-moment equality theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding and unrestricted optimization"
+      ],
+      "rationale": "In the repaired finding the natural embedding norm is determined sharply on a canonical full coefficient space, with a unique dimension of Gaussian excess. The extremizer conditions distinguish a determinant phase not detectable from any singular-value-only statistic; the same comparison also gives a nonzero lower deficit away from rank one. The value is the complete sharp invariant and its extremizer geometry, not recalculation of the raw integrals or the known restricted sample bound.",
+      "residual_risks": [
+        "No higher-moment or other representation consequence is needed or claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

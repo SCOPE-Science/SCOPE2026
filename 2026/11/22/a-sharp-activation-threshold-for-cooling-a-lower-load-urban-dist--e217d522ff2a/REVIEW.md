@@ -1,19 +1,7 @@
-# Scientific review
+# Scientific assessment
 
-## Correctness — PASS
+**Correctness.** The stationary matrix has positive inverse entries. The derivative numerator for the sum is strictly increasing with allocation, and its boundary value decreases through one budget zero. On each side of temperature equality the derivative of the currently hotter cell has the sign that favors moving toward that equality; if equality is infeasible, the same sign forces the boundary. At equality the sum has strictly negative derivative, implying that the aggregate threshold comes first and that the aggregate split is strictly more weighted toward the lower-source cell once the optimizers separate. Both thresholds and both boundary cases are accounted for.
 
-The stationary inverse matrix is positive and its determinant \(D(y)\) is strictly positive over the full closed budget interval. The exact derivative numerator \(Q(y)\) has a positive derivative on the entire allocation interval, giving a global uniqueness argument, not only local stationarity. The unique budget activation follows from a strictly decreasing quadratic in \(B\), with boundary equality and equal-heat-source cases included. The source-free district's optimizer, large-budget law, and peak-temperature monotonicity follow by exact substitution. An exact rational comparison and the reproducible checker support the proof; finite sweeps are not mistaken for exhaustive proof.
+**Originality.** The exact single-source problem is shared with the two-zone pollutant formulation, and is not claimed. The two-positive-source comparison includes a finite peak threshold and strict disagreement after both controls are active. The closest inspected transport, lifetime, and inverse-trace optimization statements do not establish this joint diagram. See `AUDIT.json` for scope and unresolved access limits.
 
-## Originality — PASS on inspected evidence
-
-The most relevant inspected sources are Li et al. (arXiv:2307.09725; related 2024 open-access full article), Sellila et al. (2023), Fernández et al. (2015) and Quijano–Passino (2004). They cover urban cooling disparities, PDE optimal green-space placement, and multizone thermal resource allocation. None of their materially inspected formulations, displayed results or conclusions supplies the necessary-and-sufficient activation budget for fixed *proportional* cooling rates in the specified steady two-cell model or the global aggregate-versus-peak conflict. Semantic searches of public mathematical records found related two-box tracer exchange and diagonal resource/pinning optimizations, but with different objectives and controls; their claims do not imply this precise classification. Generic calculus and positive-system principles are not claimed to be new. Priority outside the inspected record, and possible unpublished derivations, remain risks.
-
-## Value — PASS
-
-The exact answer resolves a meaningful optimization question suggested by the cooling-spillover and spatial-inequality literature: whether a thermally connected but externally unheated district should ever receive scarce cooling resources. It identifies an unexpected, sharp positive-budget activation and a persistent disagreement between minimizing **average** and **peak** excess heat. The complete parameter classification and explicit example can serve as a benchmark or diagnostic for reduced-order spatial heat-allocation models. This is not a calibrated intervention rule: actual green-space benefits need not act as proportional damping, and urban heat transfers are not generally symmetric and linear.
-
-## Residual limits
-
-The claim is restricted to the explicitly stated linear steady model; no physical calibration or real-city validation is asserted. Cross-model and stronger-prior-result searches are necessarily bounded. The 2015 manuscript was inspected through available online text sections, not a separate independently checked publisher PDF. The mathematical result has no independent external audit.
-
-Self-review: passed. Independent audit: not yet performed.
+**Value.** Positive inputs allow peak-optimal cooling to change from a boundary allocation to temperature equalization. The different aggregate threshold then identifies two distinct regimes of disagreement, one where only the aggregate objective spreads cooling and one where both spread cooling but still choose different allocations. This is a benchmark for the stated stationary model, not an empirical rule for cities.

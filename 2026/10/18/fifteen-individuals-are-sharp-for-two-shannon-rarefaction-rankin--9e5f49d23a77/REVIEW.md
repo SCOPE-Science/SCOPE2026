@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact hypergeometric identity follows by applying \(\mathbb E[J_i\log J_i]\) to the sample-count distribution. The exhaustive partition generator covers every positive integer abundance multiset with \(2\le N\le15\), and every unordered pair of equal part count. For all sample sizes the compared entropies have a shared rational denominator, and logarithms are certified by explicit atanh-series rational intervals. Sign decisions fail closed if unresolved; no finite precision is mistaken for mathematical equality. The displayed witness has nine positive, four negative, then one positive differences. Direct subset enumeration cross-checks selected sample sizes. This is a finite exact census, not a claim about larger populations.
+PASS
 
-## Originality
+I reproduced the full finite classification with a different exact computation. For each census size and species abundance I enumerated all labelled subsets by binary masks, recording sample size m and intersection count j. For a profile let P(m) be the product of j^j over every subset of size m and every species with j>=2. The expected plug-in entropy is log(m)-log(P(m))/(m*binom(N,m)), so direct integer comparisons of the products give signs, and equality gives exactly zero. Choosing cuts among N-1 positions and accepting nondecreasing part lengths enumerates each unordered positive partition with at least two parts exactly once. Comparing unordered pairs within each part count and omitting zero signs before counting reversals gives no pair with two or more reversals for any N=2..14. At N=15 there are 175 profiles and 1708 eligible pairs, of which 1684 have no change, 23 have one and exactly one has two. The witness and its nine positive, four negative, and final positive signs match exactly. The frozen hypergeometric expression and its rational atanh-series remainder bound are also valid; the independent replay uses neither binomial weighting nor logarithm approximation for its comparisons.
 
-**PASS, with bibliographic residual risk.** Chao, Wang and Jost (2013) examine entropy estimators and species-accumulation rates, not the particular sharp same-census/same-richness double-ranking boundary. Chao et al. (2014), Appendix J, explicitly illustrate coverage-based Shannon-diversity crossings for much larger unequal-richness assemblages, with no crossings of the corresponding sample-size curves; the estimands and sample-size restrictions differ. Prior enumerations of sampled richness, singleton expectation and richness variance do not imply entropy comparisons. Targeted published-index searches found no identical smallest-census classification. Main-text access to the 2014 paper was incomplete, and an unindexed earlier equivalent computation remains possible.
+## originality
 
-## Value
+PASS
 
-**PASS.** Shannon diversity is a standard frequency-sensitive ecological measure and its observed value depends heavily on sample depth. A first-size classification at fixed total abundance and fixed species count isolates composition-driven ranking instability from trivial differences in census size or species richness. The unique minimal configuration exhibits three sample-depth regimes, distinguishing this phenomenon from a generic single crossing. The result is a finite structural benchmark, not a claim of large practical effect sizes or a general ranking guarantee.
+The supported distinct claim is the first and unique two-reversal pair for equal-census, equal-richness expected sample plug-in Shannon entropy without replacement. The closest published comparators either use another statistic, use a different sampling index, or study an estimator without establishing this finite classification. No checked source established a duplicate or an implication to the bound result.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Equal census and fixed richness control two confounders of a common diversity comparison. The exact smallest finite population and unique witness show when absolute sample depth alone can flip the expected Shannon ranking twice; that is a motivated sharp boundary, not an arbitrary size slice. The witness and full sign pattern are useful for testing ranking heuristics and implementations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

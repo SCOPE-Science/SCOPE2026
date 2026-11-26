@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:21:21.333962Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent replay /tmp/opencode/check_majority_independent.py built all transitions by bitboard swaps along the four XOR dimensions and strict majority of the five bitboards (self plus four neighbors); then tested the first t with X_(t+2)=X_t separately for each word, and distinguished p=1 by X_(t+1)=X_t. Exhaustion found every pinned word in the eleven cells (t=0..6, counts by p=1:425,5490,12713,5171,1224,198,24; by p=2:602,3187,3562,172,0,0,0). There are 425 fixed points and 602/2=301 two-cycle orbits, with no others. All 24 words first entering at t=6 land at word 1: the wording 'attainable at time six' is read in its first-entry census context, not as a claim about the image of P^6. The witness 35537->35025->32977->209->81->17->1 certifies P^7 != P^5 and exhaustion gives P^8=P^6. All-one and word-1 basins have sizes 9383 and 3696. Unpinned replay gave max t=4 both for all 65536 starts and for the same 32768 odd starts, which have all-one basin 8229. The matched sets have difference 1154 and reverse difference zero. The order-preservation proof compares both iterates starting at the same x, because clamping dominates an ordinary update and the ordinary map is increasing. No inference about eventual fixedness of two-cycle starts or time to consensus.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The period-at-most-two result is general and credited; neither it nor voting-time bounds gives this exact start-by-period census.",
+          "The pinned ring has all trajectories fixing and a Fibonacci consensus basin. The related Petersen and Franklin studies use three and four pins respectively on different graphs."
+        ],
+        "reasoning": "Period restrictions, broad convergence bounds, and pin examples on other graphs do not imply the paired sharp cutoff or precise basin enlargement on Q4.",
+        "searches": [
+          "arXiv:1508.03519 introduction and voting-time definition",
+          "Goles–Olivos DOI 10.1016/0012-365X(80)90121-1",
+          "Resultary: pinned cyclic ring exact relaxation, pins and consensus on Petersen and Franklin"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, both checkers (read only), logs and census.csv",
+        "Resultary unpinned Q4, pinned ring, pinned Petersen, pinned Franklin records",
+        "arXiv:1508.03519; DOI 10.1007/s10955-020-02625-w; DOI 10.1016/0012-365X(80)90121-1 landing material"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Monotonicity alone already implies zero all-one loss; credited unpinned census gives the four-update bound. Neither gives strict enlargement by 1154 nor longer sharp first-entry time after pinning. Forcing changes the whole orbit after the first step at which the ordinary vertex would disagree with the pin."
+        ],
+        "reasoning": "The original content is the combined quantitative comparison with pinned orbits, basins and sharp cutoff, not monotonicity, general period two, or the unpinned cutoff in isolation.",
+        "searches": [
+          "Unpinned four-cube RESULT.md offset 0, rule, invariant and counts",
+          "Kaaser et al. arXiv:1508.03519 p.3",
+          "Pinned ring, Petersen and Franklin mirrored RESULT.md findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On a degree-four cube, majority with tie retention is strict majority of the four neighbors plus current self; for the pin the update is a constant, not an ordinary self-loop. The proper trajectory statistic is first entry into a period, not time to consensus.",
+          "Kaaser et al. use synchronous ordinary tie-retaining majority. Mukhopadhyay et al. use Poisson updates and randomly sampled neighbors in a fully connected population."
+        ],
+        "reasoning": "The self-feedback rewrite preserves the unpinned sites only; neither it nor a stochastic zealot interpretation identifies a known table for this forced synchronous map.",
+        "searches": [
+          "Resultary: Q4/Boolean four-cube pinned majority incumbent ties, sharp entry time and paired basins",
+          "arXiv:1508.03519 Defs. 2–3",
+          "DOI 10.1007/s10955-020-02625-w"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching pinned hit is the bound record itself. The distinct ordinary record tabulates 702 fixed points, 885 two-cycles, full unpinned entry-period table and sharp four steps over all 65536 starts. It has neither the single-pin dynamics nor the paired census on odd starts."
+        ],
+        "reasoning": "A table of unpinned attractors, orbit types and entry-time frequencies is not the trajectory census of the forced map or a matched-initial basin comparison.",
+        "searches": [
+          "Resultary: pinned Q4 425 fixed 301 two-cycles consensus 9383",
+          "2026/11/2/SCOPE-thirty-geometric-recurrent-classes-and-a-sharp-four-step-clock-f--c8cd34678da7, mirrored RESULT.md offset 0"
+        ]
+      },
+      "rationale": "The credited unpinned four-cube census and general majority theory cover the baseline, not the specific pinned transient, two basin sizes, or exact matched gain. Different pin graphs and stochastic stubborn-agent models are meaningful context but do not specify the pinned Q4 map used here. The evidence supports the distinct paired gain-and-delay result without a global priority claim.",
+      "residual_risks": [
+        "A missed or unindexed frozen-spin/zealot or synchronous self-feedback cube result may contain equivalent counts; unproductive external discovery is not evidence of absence.",
+        "Original Goles–Olivos full text was not retrieved; period credit uses the inspected later account.",
+        "No within-day ordering inferred from related same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers credited ordinary orbit census and cutoff only",
+          "evidence": [
+            "702 fixed, 885 two-cycle orbits, T=4 maximum on 65536 starts."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-thirty-geometric-recurrent-classes-and-a-sharp-four-step-clock-f--c8cd34678da7",
+          "material_read": "Mirrored RESULT.md opening finding and census",
+          "method": "Statement and domain comparison",
+          "title": "Thirty geometric recurrent classes and a sharp four-step clock for majority dynamics on the four-cube",
+          "trigger": "Exact same graph and ordinary update baseline"
+        },
+        {
+          "assessment": "Different pinned graph and basin formula",
+          "evidence": [
+            "Pinned cyclic ring, three-site majority, all states reach fixed points, all-zero basin F_(n+1)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-fibonacci-consensus-basin-and-exact-relaxation-shells-in-pinne--37de8febdb29",
+          "material_read": "Mirrored RESULT.md offset 0, finding",
+          "method": "Compared graph, rule and invariants",
+          "title": "A Fibonacci consensus basin and exact relaxation shells in pinned majority on a ring",
+          "trigger": "Closest pinned relaxation and basin analogue"
+        },
+        {
+          "assessment": "Related value context, not Q4",
+          "evidence": [
+            "Three pinned opinions, placement-dependent basins and periodic-entry counts on Petersen."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-three-pinned-opinions-on-the-petersen-graph-exact-consensus-basi--f4681d963512",
+          "material_read": "Mirrored RESULT.md offset 0, finding",
+          "method": "Compared graph and pin placement quantifier",
+          "title": "Three pinned opinions on the Petersen graph: exact consensus basins",
+          "trigger": "Related exact pin intervention with census"
+        },
+        {
+          "assessment": "Universal forcing with four pins on Franklin is not this result",
+          "evidence": [
+            "Concerns consensus clocks and pin sets on a different graph."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-six-symmetry-types-and-two-sharp-consensus-clocks-for-minimal-pi--101acf869621",
+          "material_read": "Mirrored RESULT.md offset 0, finding",
+          "method": "Compared graph, pin count and target statistic",
+          "title": "Six symmetry types and two sharp consensus clocks for minimal pinning",
+          "trigger": "Pin intervention and exact timing analogue"
+        },
+        {
+          "assessment": "Classical period result and voting-time bounds are not a pinned four-cube count",
+          "evidence": [
+            "Synchronous incumbent tie retention, time to a period at most two; auxiliary self-loop discussion does not implement a pin."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1508.03519",
+          "material_read": "PDF pp. 2–3, Defs. 2–3; p. 26 self-loop discussion",
+          "method": "Primary full-text passages compared",
+          "title": "On the Voting Time of the Deterministic Majority Process",
+          "trigger": "Same ordinary rule and entry-time concept"
+        },
+        {
+          "assessment": "Random fully connected updating, not synchronous Q4",
+          "evidence": [
+            "Poisson clocks, random peer sampling and mean-field stationary behavior."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10955-020-02625-w",
+          "material_read": "Journal pp. 1240–42, introduction/model, text offsets ~2300 and 9400",
+          "method": "Primary model comparison",
+          "title": "Voter and Majority Dynamics with Biased and Stubborn Agents",
+          "trigger": "Stubborn/zealot terminology"
+        },
+        {
+          "assessment": "No full-document claim; general period restriction is not treated as new",
+          "evidence": [
+            "Kaaser et al. attribute period at most two to Goles–Olivos and Poljak–Sura."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+          "material_read": "Landing page/abstract only; full-text account of the theorem in Kaaser et al. p. 2",
+          "method": "Bounded retrieval, secondary attribution of precise period statement",
+          "title": "Periodic behaviour of generalized threshold functions",
+          "trigger": "Classical theorem on periods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Single-vertex permanent forcing and the canonical even-degree cube make a specific natural intervention/relaxation test. On the same starts this intervention increases the all-one basin by exactly 1154 without loss yet lengthens the worst first-periodic-entry time from four to six, while a highly polarized equilibrium still attracts 3696. It is a sharp finite witness that monotone improvement of consensus attraction does not imply faster worst relaxation, with a full reusable entry-period census; not an empirical social claim or an all-dimensional result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

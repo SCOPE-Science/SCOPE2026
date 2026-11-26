@@ -1,15 +1,21 @@
-# Scientific comparison and self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof differentiates the exact angular gap, derives the complete candidate-root quadratic and monotone mixing-weight map, and checks the Fourier zero is simple even at the double-frequency-root discriminant boundary. The sharp normalized lower bound follows by minimizing the magnitude of two phase-separated complex vectors. The real-shape threshold and first-order approach follow explicitly. Classical Wiener Tauberian equivalence supplies the L¹ translate-density statement. Principal-branch conventions, all parameter quantifiers and non-absolute nature of the margin are documented. `check.py` and `checker_output.txt` supply reproducible finite numerical cross-checks, not an infinite proof.
+## correctness
 
-## Originality — PASS, with priority risk
-The closest mathematical antecedents found concern gamma-mixture statistical modeling (Evin–Merleau–Perreault, 2011), distributions with zeros of gamma Laplace transforms sharing a common decay rate (John, Chapter 3), and transforms for products of gamma variables (Gaunt, arXiv:1507.07696). Comparison of the actual operations and hypotheses shows these inspected results do not imply the two-distinct-rate, common-real-shape phase-cancellation classification. The Wiener implication is classical. Search of published mathematical records found no precise earlier all-parameter classification, but a failure to find a result is not a guarantee of priority. Gharib's earlier gamma-mixture characterization paper was read only at abstract level; its uninspected full text remains a risk.
+PASS
 
-## Mathematical value — PASS
-Every individual gamma component is a cyclic element of the translation representation on \(L^1(\mathbb R)\), yet suitable *positive mixtures* cease to be cyclic when their complex Fourier phases become opposite. The complete shape-two dividing line, exact critical rate ratio for any real shape, finite exceptional weights, and sharp quantitative noncancellation margin identify the precise boundary and its conditioning. The statement is intrinsically about a natural analytic family, not an arbitrary finite parameter slice.
+For the positive-exponent convention the gamma transform is exp[-m log(1-it/c)] on the principal branch. For t>0 the argument gap before multiplying by m has derivative (b-a)(ab-t^2)/[(a^2+t^2)(b^2+t^2)], so its range, together with t=0, is the entire interval from 0 to Theta_r. After normalizing component magnitudes, the squared modulus is 1-4u(1-u)sin^2(m theta/2). Its minimum over u gives the asserted sharp margin and unique balanced weight at each of the two subcritical minimizing frequencies. At a zero the gap must be an odd multiple of pi and the weights balanced. Tangent subtraction gives the stated quadratic; when its discriminant is zero there is only one positive frequency but the Fourier zero is still simple, since the log modulus ratio has a nonzero derivative there. Strict monotonicity of that ratio separates all exceptional weights. Conjugacy, F(0)=1, the derivative of Theta_r with respect to r, and the L1 Wiener theorem give the remaining claims, including the exact threshold and slope. The bound is relative, not uniform in absolute magnitude. Independent finite cross-check: python /workspace/checks/3.py with mpmath (output /workspace/checks/3.txt) brackets frequencies without using the quadratic and tests first and higher mergers, distinct weights, and shapes on either side. It is not the proof of the universal quantifiers. The submitted scripts were inspected, not executed.
 
-## Limits and verification state
-The result is restricted to two positive gamma components with common real shape, real Fourier zeros, and positive mixing weights. It does not classify all complex zeros or arbitrary multicomponent mixtures. The uninspected older source and undiscovered alternative formulations remain originality risks. The numerical checker is a supplementary finite test. The theorem is not independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass is for the full fixed-endpoint, fixed-weight real-zero classification (including uniqueness and simplicity even at mergers), and the optimized phase diagram as a whole, not for angular nonvanishing, midpoint projection, antipodal balancing, or Wiener cyclicity. The earlier generalized Stieltjes result is substantial overlap: its no-zero direction and midpoint-rotation proof already give the subcritical quantitative lower bound; its measure class differs for supercritical zero attainability at a specified frequency. The checked prior statements do not give the fixed-weight exceptional locus and multiplicity classification. Gharib's full text was available for this review. This is a best-of-knowledge assessment.
+
+## value
+
+PASS
+
+A union of attainable zeros does not say which particular positive mixtures lose cyclicity. The fixed-endpoint classification isolates finitely many weights, identifies and distinguishes all higher branches, and shows that a merger in the frequency equation still gives a simple transform zero. That exact locus is useful for deciding cyclicity of a specific mixture; the relative margin quantifies conditioning in the regime where none are exceptional.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

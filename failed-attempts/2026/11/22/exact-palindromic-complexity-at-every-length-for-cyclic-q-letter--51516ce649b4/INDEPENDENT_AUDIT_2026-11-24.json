@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:06:04.941818Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md lines 5–30; VERIFICATION.md line 19; both supplied Python scripts and the recorded 384 and 546 check outputs inspected. Neither script was executed.",
+        "Separate bounded enumeration of the first 100,000 symbols for q=3..8 directly compared deduplicated palindromic substrings at lengths 1–63; all counts agreed. Replay by forming tuples of valuation residues from the positive index, retaining substrings equal to their reversals, and counting each length's set."
+      ],
+      "rationale": "In positive indexing write the center c=2^r m with odd m. For offsets of valuation unequal to r both side valuations are their minimum with r. For t=2^r z with odd z, one side's additional valuation is 1 and the other must be 1 modulo q to match. If offsets 2^r and 3·2^r both occur, the first matching forces m congruent to ±1 modulo 8, and at the second the additional valuations are 1 and 2, which do not match. Thus only r>=k+1, r=k, and possibly r=k-1 survive for 2^k<=h<2^(k+1). Large r gives all q different center letters in the same offset profile. r=k gives one exceptional profile; r=k-1 gives another precisely when k>=1 and h<3·2^(k-1). In both exceptional cases m=1+2^(q+1) is large enough for c>h and realizes the needed match; the changed offset at 2^(k-1) separates the latter profile from the former and baseline. The h=1 case simply has no negative r. Equal adjacent letters must both be zero with the even position of valuation a positive multiple of q, so the outer even neighbor has valuation 1 and the outer odd neighbor has valuation 0. That proves the length-two and no-longer-even claims, and powers of two realize all singleton letters. This counts words, not their occurrences.",
+      "residual_risks": [
+        "Finite-prefix enumeration cannot alone rule out absent rarer factors; the valuation argument supplies universality. No formal certification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Forward Theorem 3.1 yields both palindromic images for each palindromic source factor of length >2. Inverse Theorem 3.2 gives the exhaustive decomposition; p. 440 identifies 00 as the only even-length palindromic factor. The 2025 preprint restates the inverse morphism for the same family."
+        ],
+        "reasoning": "The earlier structural classification is stronger than numeric enumeration: the uniform morphism is injective and determines the actual factor strings. Thus a length census follows without finding new families.",
+        "searches": [
+          "Barro–Kaboré–Bognini, AJC 83(3) (2022), Theorems 3.1–3.2 and note after Theorem 3.2; arXiv:2511.20881v1 Theorem 2."
+        ]
+      },
+      "checked_sources": [
+        "AJC 83(3) (2022) 435–447, especially 438–440; arXiv:2511.20881v1; local Resultary 51516ce649b4 and c8d7b40c0705."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Target length 2h+1 uses source length h in S_q(v)0, or h+1 in 0^{-1}S_q(v). Each branch is injective and their images are disjoint by initial zero-run parity (or by the parity position of any nonzero letter). At h>=3, both sources are in the forward theorem's length range, giving Pal_q(2h+1)=Pal_q(h)+Pal_q(h+1). The 00-only even rule leaves only the odd source, of length 2 floor(h/2)+1. For h=1 the images from single letters are all 0a0, plus the image 101 of 00; for h=2 there are the images from the q+1 length-three words, plus 01010 from 00. These short images occur by the fixed-point property, and the inverse theorem exhausts their lengths."
+        ],
+        "reasoning": "Writing F(h)=Pal_q(2h+1), this is F(h)=F(floor(h/2)) for h>=3 with bases F(1)=q+1 and F(2)=q+2. Exactly the binary leading digits 10 reach 2 rather than 1, equivalent to k>=1 and 2^k<=h<3·2^(k-1). This gives the exact frozen cutoff, not merely a bound or structural analogy.",
+        "searches": [
+          "Inspect original 2022 PDF, pp. 438–440, offsets 9700–14588, and derive exact recurrence from Theorems 3.1–3.2."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2022 paper defines S_q(a)=0(a+1 mod q), with fixed point P_q. In positive indexing this gives s_(2i-1)=0 and s_(2i)=s_i+1 mod q, so P_q is exactly the frozen valuation word. Theorem 3.2 partitions palindromes other than 00 by parity of initial zero-run into S_q(v)0 and 0^{-1}S_q(v)."
+        ],
+        "reasoning": "This is the same alphabet, infinite word and distinct-factor object, under an exact change of representation rather than an analogy to the binary case.",
+        "searches": [
+          "Cyclic valuations and generalized period-doubling palindrome complexity in Resultary; Barro–Kaboré–Bognini 2022 §3, PDF offsets 8515 and 9700–14588; arXiv:2511.20881v1 §3."
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "51516ce649b4 is the same finding, not independent evidence. The earlier dyadic reflection record c8d7b40c0705 gives count 1 at length two and 0 at lengths 2^k, k>=2. The 2022 note already gives all even counts."
+        ],
+        "reasoning": "The distinct catalogue record alone does not settle the non-dyadic odd profile. The novelty failure instead uses actual primary-theorem implication, irrespective of whether the exact odd profile is printed in a table.",
+        "searches": [
+          "Local Resultary records 51516ce649b4 and c8d7b40c0705, comparison of actual Findings, and 2022 Theorem 3.2 note."
+        ]
+      },
+      "rationale": "Demonstrably covered as a direct counting corollary of Barro–Kaboré–Bognini (2022), Theorems 3.1–3.2 and their note on even palindromes. The previous paper need not print the closed form: it gives the exact distinct-word desubstitution from which that form follows by elementary halving. The frozen result's valid valuation proof is an alternative proof of the covered count, not evidence the invariant was previously undetermined.",
+      "residual_risks": [
+        "The earlier exact formula is established by implication, not claimed to be printed verbatim. The date of the earliest version of the underlying substitution classification is not adjudicated and does not affect coverage by 2022."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior implication of the exact all-length complexity for the same word",
+          "evidence": "Theorems 3.1–3.2 supply the two word bijections separated by the parity rule; p. 440: the only even-length palindromic factor is 00.",
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/83/ajc_v83_p435.pdf",
+          "material_read": "Substitution at PDF offset 8515; Theorems 3.1–3.2 and even-palindrome note at pp. 438–440, offsets 9700–14588",
+          "method": "OA primary PDF passage and independent recurrence extraction",
+          "title": "On the palindromic zl-factorization and c-factorization of the generalized period-doubling sequences",
+          "trigger": "Same family and exhaustive forward/inverse claims may imply the full count"
+        },
+        {
+          "assessment": "Later prior-art restatement, less explicit on the no-leading-zero case than the 2022 original",
+          "evidence": "Repeats inverse representation and cites the 2022 article.",
+          "identifier_or_url": "https://arxiv.org/html/2511.20881v1",
+          "material_read": "§3, Theorem 2 at offset 13300 and reference [5] at offset 53817",
+          "method": "OA original HTML",
+          "title": "A new factorization of the generalized period-doubling sequences through kernel words and gaps sequences",
+          "trigger": "Same morphic family and palindrome structure"
+        },
+        {
+          "assessment": "Independent catalogue overlap at even dyadic lengths only",
+          "evidence": "One length-two palindrome; none at dyadic lengths of at least four.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-dyadic-factor-and-reflection-complexity-of-cyclic-period-d--c8d7b40c0705/RESULT.md",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact dyadic factor and reflection complexity of cyclic period-doubling words",
+          "trigger": "Same family and exact palindromic overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md lines 5–30 and 36–42; Barro–Kaboré–Bognini 2022 pp. 438–440."
+      ],
+      "rationale": "The complete palindrome complexity is a natural invariant and the arithmetic proof is valid, but the frozen finding is the count and sharp profile already obtained by routine length bookkeeping from the published morphism theorem. It does not establish an independently new structural or quantitative remainder beyond that covered census. A clearer proof of a covered exact invariant does not on its own rescue the frozen claim.",
+      "residual_risks": [
+        "This does not deny pedagogical utility of the alternative valuation proof or value of the underlying natural invariant."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

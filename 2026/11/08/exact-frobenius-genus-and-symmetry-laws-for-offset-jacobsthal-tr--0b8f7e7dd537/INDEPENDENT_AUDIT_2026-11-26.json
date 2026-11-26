@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:00:24.124229Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof §§1–6",
+        "Frozen VERIFICATION.md, checker.py and verification_output.txt (inspected)",
+        "/workspace/branches/audit_spotchecks.py jacobsthal; /workspace/branches/audit_spotchecks.log"
+      ],
+      "rationale": "Writing s=(-1)^n, the recurrence gives b=8a+3s and c=16a+5s, so gcd(b,c)=1, gcd(a,b)=gcd(a,3), and 3c=8a+5b. Also 3 divides a exactly when 2^n=(-1)^n mod 9, or 3 divides n. In that branch c belongs to the two-generator semigroup T on a/3,b/3, and its residue shifts by 0,c,2c yield F=3F(T)+2c and g=3g(T)+c-1, also when T=N_0 at n=3. Otherwise an Apéry element can have neither an a summand, nor three c summands, nor a copies of b. In the class kb mod a there are therefore exactly the three candidate forms obtained from y=0,1,2 and the corresponding reduced b coefficient. For t=5/3 mod a and D=c-tb, the candidates differ from kb by yD plus the wrap terms 0,ab, or 2ab. When a=1 mod 3, D<0 and 2D+ab>0, giving the 0,1,2 strips; when a=2 mod 3 and a>=11, D+ab>0 and 2D+ab<0, giving the 0,2,1 strips at u=2t-a and t. Endpoint comparison gives the claimed maxima. In both coprime branches the strip sum differs from a(a-1)b/2 by a(a-5)(8-b)/3, giving the genus. The n=4 redundant c case has F=167 and g=84. Substitution gives both defects and establishes the exact symmetry condition. A separate forward membership computation through a full run of a consecutive representable integers verified F, genus, and the claimed residue minima for n=3,...,11 wherever applicable; it is finite corroboration only.",
+      "residual_risks": [
+        "Only the usual Jacobsthal recurrence and specified offsets for n>=3; no positive-p Frobenius claims."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed families use (W_i,W_{i+2},W_{i+k}). The wider 2023 family is (a,va+d,va J_{k-1}(v)+d J_k(v)), with positive v,d, k≥3 and gcd(a,d)=1. Matching the ordered first generators forces d=(8-v)a+3s, so 1≤v≤8 and gcd(a,d)=gcd(a,3)."
+        ],
+        "reasoning": "Offset-two indexed coverage cannot match the sorted offsets (0,3,4). Even in the broader family the divisible-by-three branch is outside the coprimality assumption. For a≥43 and k=3 the third generator has a-coefficient 8+8v-v², never 16, and its parity term differs from 5s by at most 22, so it does not equal c. At k=4 the a-coefficient is at least 23 and the parity correction differs by at most 46; the third generator already exceeds c, and grows thereafter because both defining coefficients are positive. Thus this is not a direct specialization for the all-index family.",
+        "searches": [
+          "arXiv:2304.00443, p. 3 generator family, Theorem 1",
+          "DOI:10.3390/axioms13090608, recurrence definition, indexed family and odd-k theorem"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2304.00443; DOI:10.3390/axioms12020098; DOI:10.3390/axioms13090608",
+        "Resultary 7b957de190bd and 4fc5ef1c6bae"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Pell proof uses the standard three-generator symmetry criterion and a gluing with factor 5. Known two-generator and gluing formulas give the factor-3 branch once its relation is identified. The nonsymmetric Jacobsthal branches require evaluating residue wrap positions and comparing the three candidate costs."
+        ],
+        "reasoning": "Existing gluing principles and Apéry identities are credited and explain the symmetric branch; that is not evidence of a previously evaluated whole family. They do not themselves give the ordered minimizing strips and exact summed and maximal values for the nonsymmetric indices. An algorithm that computes individual three-generator semigroup invariants is not by itself these uniform formulas.",
+        "searches": [
+          "Resultary 7b957de190bd, Finding and gluing proof; Resultary 4fc5ef1c6bae, Finding",
+          "arXiv:2304.00443, Theorem 1; DOI:10.3390/axioms12020098, Theorem 1; DOI:10.3390/axioms13090608, odd-k Frobenius theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Pell comparison explicitly treats P_n,P_{n+3},P_{n+4} and uses 5P_{n+4}=P_n+12P_{n+3}. The assigned Jacobsthal relation is 3c=8a+5b. The shifted generalized-Jacobsthal record treats the infinite generating set U_4+U_j over j≥0; its reduced generators include successive integers m,m+1."
+        ],
+        "reasoning": "The Pell equality is not the Jacobsthal equality under an index relabeling, and the matching pattern of symmetric indices does not give the exact other invariants. The shifted family has a different generating rule and different Apéry description.",
+        "searches": [
+          "Local Resultary: offset-three/four Jacobsthal numerical semigroup, gap-three symmetry, Apéry, Frobenius and genus; 7b957de190bd and 4fc5ef1c6bae",
+          "DOI:10.3390/axioms12020098, Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two tables give residue cases for their offset-two or related generator families. The Pell finding gives the exact symmetric indices and its own gluing; the shifted generalized-Jacobsthal finding gives exact Apéry, Frobenius and genus formulas for a different infinite generating-index set."
+        ],
+        "reasoning": "Those are directly relevant exact data, but their arguments are not the assigned semigroups as n varies. In particular the Pell symmetry classification supplies no three-strip Apéry minimizers or defects for the target.",
+        "searches": [
+          "arXiv:2304.00443, Table 1; DOI:10.3390/axioms12020098, Table 1",
+          "Local Resultary: exact Jacobsthal Apéry and genus formulas; 7b957de190bd and 4fc5ef1c6bae"
+        ]
+      },
+      "rationale": "The strongest indexed analogue treats the same offsets for Pell numbers and shares the gluing/symmetry theme, but it uses a different recurrence and does not determine the Jacobsthal residue strips, Frobenius numbers or genera. The inspected Jacobsthal and generalized recurrence theorems use offset two, and the broader generator parameterization in the 2023 paper does not contain this family even when treated as an unindexed generator parameterization. The supported distinct contribution is the exact all-index invariant and Apéry determination, not a new general gluing or symmetry criterion.",
+      "residual_risks": [
+        "This is a bounded comparison of relevant theorem passages. An unlocated general closed form for related three-generator families could cover the exact formulas; no exhaustive historical priority is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Indexed and broader statements do not cover the all-index target",
+          "evidence": "The indexed specialization includes offset two. The broader form forces va+d=b and requires gcd(a,d)=1; the resulting third-generator check rules out a uniform match.",
+          "identifier_or_url": "arXiv:2304.00443; DOI:10.3390/sym15040852",
+          "material_read": "PDF p. 3 at offset 6270 onward, generator definition and parameter assumptions; Theorem 1 and Table 1, pp. 5–6",
+          "method": "Primary OA PDF passage and algebraic parameter matching",
+          "title": "p-Numerical Semigroups of Generalized Fibonacci Triples",
+          "trigger": "Broad generator parameterization might directly contain the assigned triples"
+        },
+        {
+          "assessment": "Exact but different index pattern",
+          "evidence": "The generator triple is (J_i,J_{i+2},J_{i+k}), not (J_n,J_{n+3},J_{n+4}).",
+          "identifier_or_url": "DOI:10.3390/axioms12020098",
+          "material_read": "PDF Theorem 1, p. 2 at about offset 8800, and Table 1, p. 6 at about offset 23600",
+          "method": "Primary OA PDF passages",
+          "title": "The Frobenius Number for Jacobsthal Triples Associated with Number of Solutions",
+          "trigger": "The same sequence, exact Frobenius theorem and residue table"
+        },
+        {
+          "assessment": "Broader recurrence class, narrower offset pattern than needed",
+          "evidence": "The Jacobsthal choice u=1,v=2 is allowed but the second generator remains W_{i+2}.",
+          "identifier_or_url": "DOI:10.3390/axioms13090608",
+          "material_read": "PDF p. 2, recurrence and indexed family at offsets about 1700–7843; p. 12 odd-k Frobenius theorem at offset about 54000",
+          "method": "Primary OA PDF passages",
+          "title": "p-Numerical Semigroups of Triples from the Three-Term Recurrence Relations",
+          "trigger": "Later recurrence theorem encompassing Jacobsthal parameters"
+        },
+        {
+          "assessment": "Genuine analogy, not an equivalent family or all-invariant implication; same-day date does not order the records",
+          "evidence": "It fixes the ordinary Pell recurrence and derives 5c=a+12b with gluing factor 5. It classifies symmetry, not the assigned Jacobsthal all-index genus, Frobenius and Apéry data.",
+          "identifier_or_url": "Resultary 7b957de190bd; https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-symmetry-classification-for-a-gap-three-pell-numerical--7b957de190bd/RESULT.md",
+          "material_read": "RESULT.md Finding, assumptions and opening proof through symmetric cases, offsets 0–3339",
+          "method": "Local Resultary and original mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Complete symmetry classification for a gap-three Pell numerical-semigroup family",
+          "trigger": "Strong distinct same-day match on offsets and symmetry"
+        },
+        {
+          "assessment": "Distinct infinite generating-index rule",
+          "evidence": "It uses all U_4+U_j, j≥0, for fixed parameter b and reduces the semigroup to generators m,m+1,m+c,m+d. Its formulas do not specialize to the three offset generators here.",
+          "identifier_or_url": "Resultary 4fc5ef1c6bae",
+          "material_read": "RESULT.md Finding and scope, offsets 0–1740",
+          "method": "Local Resultary and original mirror",
+          "title": "Complete Apéry and pseudo-Frobenius formulas for shifted generalized Jacobsthal semigroups",
+          "trigger": "Exact Jacobsthal-related Apéry, genus and Frobenius formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§2–6",
+        "arXiv:2304.00443, generator hypotheses",
+        "Resultary 7b957de190bd, Finding"
+      ],
+      "rationale": "The offsets retain a short recurrence relation but lie outside the common offset-two triple, a natural nearby family in work on recurrent numerical semigroups. The exact thresholds describe every residue, not just exceptional indices or a finite sample. They determine both principal gap invariants in all indices, identify exactly where the defect vanishes, and provide Apéry data that can be used without running a residue graph search for each index. This is more than applying the known gluing or symmetry criterion to the symmetric branch.",
+      "residual_risks": [
+        "The result does not cover all offsets or positive-p invariants."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

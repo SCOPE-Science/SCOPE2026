@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:05:44.522214Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–45 and worked example at line 51",
+        "Frozen VERIFICATION.md and checker.py (inspected, not executed; supplied PASS counts are expected output)",
+        "/workspace/branches/a75e3130-a655-4bff-880c-e642e9d8a177/independent_check.py; replay via python3; q=3,4 and source lengths at most 6, deduplicating all fixed-parent receivers"
+      ],
+      "rationale": "For fixed nonempty receiver y, matching greedily assigns each admissible parent a unique prefix, internal skipped blocks and suffix. A skipped block must avoid the next matched symbol; the first skipped symbol of an internal block must also differ from the previous matched symbol. A prefix of length s>0 has (q-1)(q-2)^(s-1) choices. An internal block for unequal targets has (q-2)^s choices including s=0; for equal targets it has (q-1)(q-2)^(s-1) choices and s>=1. The suffix has (q-1)^s choices. These counts respect both adjoining matched positions, so concatenation and the greedy decomposition are inverse. Multiplying gives the exact excess-length series, including m=1 and d=0, with no count of deletion masks. Coefficients a_t of (1+z)/(1-(q-2)z)^m are positive, and C(t)-(q-1)C(t-1)=a_t proves strict ordering and exact support. If d>0, either r>0 and the prefactor is at least two, or r=0 and C(d)>1. Independently choosing the initial letter and the equality locations gives the class sizes and binomial law; the LLN and the lattice-normalized binomial CLT give the threshold and stated floored window. At m>=d+1 the last nonzero class is r=d with C(0)=1. Independent finite enumeration verified each receiver size and adjacency-class multiplicity in 42 parameter configurations (8,901 receivers).",
+      "residual_risks": [
+        "Enumeration is bounded; the all-radius assertion rests on the unique-decomposition proof. The excluded empty receiver, circular case and q=2 are not certified by the theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The RLL coding comparison gives single insertion/deletion code constructions and redundancy bounds, not all-parent lists. A deterministic receiver-prefix automaton crossed with a source-language automaton does give rationality generically."
+        ],
+        "reasoning": "Generic automata can enumerate a fixed instance, but their rationality theorem does not evaluate the entries of this spectrum, derive dependence on adjacent equalities alone, or show strict order across repeat classes. Neither the code construction nor a distribution involving embeddings covers these distinct-source list sizes.",
+        "searches": [
+          "Resultary semantic searches for dependence on receiver adjacencies and automata enumeration",
+          "Takemoto–Nozaki arXiv:2012.13536v1",
+          "Atashpendar et al. arXiv:1802.00703v2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen proof, lines 27–45",
+        "Local Resultary searches and local golden-mean Finding",
+        "OA primary passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Canonical initial embeddings in unrestricted settings and greedy gap products in the binary golden-mean setting are material methodological overlap. The published binary formula is for a different transition rule and uses different receiver statistics."
+        ],
+        "reasoning": "The unrestricted embedding results and distinct constrained-language formula do not specialize to this equality-step factorization. One must compute separate internal factors when a matched pair is equal versus unequal, then sum and order the full coefficient classes. Credit the counting method, not priority for that method.",
+        "searches": [
+          "Atashpendar et al. §IV Theorems IV.3 and IV.6 and Eq. (17)",
+          "Resultary record 2026/11/22/SCOPE-exact-inverse-list-spectra-for-deletions-from-the-golden-mean-bi--4f16a0a76781, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Benerjee–Banerjee arXiv:2305.10741, Definition II.1 and HF-sphere discussion, uses the same homopolymer-free language but Hamming distance. Atashpendar et al., arXiv:1802.00703v2, §IV, studies unrestricted binary supersequences using initial masks."
+        ],
+        "reasoning": "Fixed-receiver restricted supersequence enumeration is the equivalent formulation here. Hamming spheres are not order-preserving deletions, and unconstrained binary supersequences have neither the same alphabet range nor the defining adjacency restriction.",
+        "searches": [
+          "Primary search: homopolymer-free q-ary deletion subsequence supersequences inverse list distinct source words",
+          "Resultary semantic searches for restricted inverse lists and restricted supersequences"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact golden-mean deletion inverse-list record, 4f16a0a76781, counts binary parents avoiding 11, depending also on the count of ones. The run-two survivor record bf9864c108ef counts constrained outputs, not parents for a fixed receiver. Adjacency-distinct subsequence universality 4cd9e1de10a7 checks which subsequences appear collectively rather than this inverse-list census."
+        ],
+        "reasoning": "The closest exact spectrum allows 00 in its parents; the present source language forbids all repeated neighbors and has q>=3. Neither changing alphabet size nor relabelling symbols makes the two constraints the same. The inspected indexed hits do not supply a table for these fibers.",
+        "searches": [
+          "Resultary semantic searches for all-radius restricted inverse-list spectra and distinct restricted supersequences"
+        ]
+      },
+      "rationale": "Pass for the explicit all-radius coefficient law and the resulting adjacency-ordered inverse spectrum for linear adjacency-distinct q-ary parents. Greedy matching and regular-language rationality are established ideas. The closest same-day inverse-spectrum work uses a genuinely different source constraint; no chronological priority is inferred from its date.",
+      "residual_risks": [
+        "Bounded searches cannot exclude an older equivalent in regular-language subword enumeration or constrained deletion coding. Same-day publication date alone does not establish priority, and no novelty is attributed to greedy gap decomposition as a general technique."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same language, different metric",
+          "evidence": [
+            "Hamming spheres and code bounds, not ordered-subsequence inverse lists."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2305.10741",
+          "material_read": "Abstract, HTML offset about 488; Definition II.1 and HF-sphere discussion about 5309",
+          "method": "OA primary text",
+          "title": "Bounds on Size of Homopolymer Free Codes",
+          "trigger": "Same adjacency-distinct source language"
+        },
+        {
+          "assessment": "Precedent for canonical embedding, not this model or spectrum",
+          "evidence": [
+            "Unique initial masks and run-dependent singleton counts are for unrestricted binary parents."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1802.00703v2",
+          "material_read": "§IV, Theorem IV.3 around offset 47075; Eq. (17) and Theorem IV.6 around 62400",
+          "method": "OA primary text",
+          "title": "From Clustering Supersequences to Entropy Minimizing Subsequences for Single and Double Deletions",
+          "trigger": "Canonical embeddings and distinct supersequences"
+        },
+        {
+          "assessment": "Different goal and statistic",
+          "evidence": [
+            "Single-insertion/deletion correcting code construction and redundancy bounds are not an all-radius fixed-receiver parent count."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2012.13536v1",
+          "material_read": "Abstract about offset 553; §IV, Theorem 4 about 48186",
+          "method": "OA primary text",
+          "title": "Construction and Encoding Algorithm for Maximum Run-Length Limited Single Insertion/Deletion Correcting Code",
+          "trigger": "Possible existing constrained insertion/deletion characterization"
+        },
+        {
+          "assessment": "Substantial overlap in method and type of result, but non-equivalent source constraints irrespective of date",
+          "evidence": [
+            "Binary avoiding 11 permits 00; its formula tracks receiver ones and adjacent 11, not all equal neighbor pairs of q-ary words."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-inverse-list-spectra-for-deletions-from-the-golden-mean-bi--4f16a0a76781",
+          "material_read": "Mirrored RESULT.md, offset 0, Finding",
+          "method": "Local mirror statement inspection",
+          "title": "Exact inverse-list spectra for deletions from the golden-mean binary language",
+          "trigger": "Same-day all-radius inverse-list formula with constrained parents"
+        },
+        {
+          "assessment": "Summaries concern other invariants, not full-text exclusions",
+          "evidence": [
+            "The former is about constrained output counts, the latter about universality."
+          ],
+          "identifier_or_url": "2026/11/22 bf9864c108ef; 2026/11/8 4cd9e1de10a7",
+          "material_read": "Local indexed scientific summaries only",
+          "method": "Resultary search summaries",
+          "title": "Sharp survivor deletion spectrum of run-two words; Subsequence universality in adjacency-distinct words",
+          "trigger": "Possible constrained deletion tables or broader subsequence result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–21, 39–45 and 51",
+        "Inspected constrained coding and inverse-list comparisons"
+      ],
+      "rationale": "Exact inverse-list size for a receiver is a natural uncertainty measure in a deletion channel with a nearest-neighbor constraint. The result collapses variation across q^m outputs to one easily measured statistic, gives the complete sorted nonzero sizes and their exact frequencies at every radius, and distinguishes impossible observations from possible ones, including a sharp feasibility window. Those are independently useful even though the derivation uses elementary enumeration.",
+      "residual_risks": [
+        "Neither list multiplicities nor feasibility counts are a posterior under a stochastic deletion channel or a maximum deletion-correcting code size."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-An exact affine transformation of the five-dimensional ellipsoid yields the fourth-dimensional section volume with exponent two and scale \(\pi^2ab^4/(2q^{5/2})\). The section numerator is a quartic polynomial in offset. Vandermonde interpolation proves the least number of separable terms equals the dimension of its five angular coefficient functions, even with arbitrary nonregular separating functions. The even/odd polynomial split gives ranks \(1,3,4,5\) with complete parameter cases and no unaddressed boundary among the admissible parameters. The symbolic checker independently reproduces nine exact numerical cases and a formal determinant factorization. No finite computation is substituted for the general proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The closest literature is Fish–Ryabogin–Sun–Yaskin, arXiv:2610.10229v1 (2026-10-07), specifically Theorem 4.2, which characterizes the bodies admitting some finite local separation but neither computes the minimum number of product terms nor classifies focal/one-third-squared focal displacements. Yaskin–Zawalski, arXiv:2306.17127, studies origin-symmetric separably integrable bodies and not the noncentral rank degeneracies. Searches of indexed mathematical findings using the exact parameter conditions and alternative descriptions found no direct coverage. The generic ellipsoid volume formula and linear algebra are background. Undiscovered equivalent calculations in older ellipsoid tomography remain possible.
+PASS
 
-## Value — PASS
-The newer structural theorem makes minimal local separation complexity of ellipsoids a motivated quantity. This classification gives all ranks for an entire three-parameter, geometrically canonical family, including two exceptional noncentral loci that are invisible from the mere finite-rank characterization. The focal case is geometrically intrinsic, while the second displacement creates a distinct rank-four resonance. The distinction between minimal rank and an arbitrary expansion length is a concrete information-complexity invariant of the section kernel.
+Under x=se+M^(1/2)y the section cuts the unit ball at signed offset (t-sw)/sqrt(q), where w=u·e and q=u^T M u. The hyperplane Jacobian is sqrt(det M)/sqrt(q), so the four-volume is a nonvanishing angular factor times (h+2zt-t²)², with z=sw and h=q-z². Since q-z²=b²(1-w²)+(a²-s²)w² is uniformly positive, a common interior interval exists. Five distinct offsets in that interval recover all monomial coefficients by Vandermonde interpolation, proving the lower bound even for arbitrary separable factors. At s=0 the span is {1,h,h²}, of dimension 1 or 3 according as h is constant or nonconstant. At s≠0, h=b²+βz² with β=(a²-b²-s²)/s² and z ranges over an interval. The odd coefficients span {z,b²z+βz³} and the even ones span {1,(4-2β)z²-2b²,(b²+βz²)²}. The respective dimensions are (1,2) at β=0, (2,2) at β=2, and (2,3) otherwise. The leading pivots also give the stated determinant 32β³(β-2). Both exceptional conditions require a>b. This independent symbolic reconstruction proves every regime; the frozen CHECK.py is an inspected cross-check, not the basis of the lower bound.
 
-## Verification and limitations
-The analytic argument applies to all \(a,b>0\) and \(|s|<a\) in dimension five, not to arbitrary nonaxial ellipsoids. Computation is diagnostic. Priority remains subject to further historical review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest recorded analogue classifies ranks in dimension three and already identifies a focal exception there. The available primary rigidity theorems identify possible bodies but do not give the minimal local rank. The exact five-dimensional classification, especially the second exceptional displacement, is distinct on the checked evidence.
+
+## value
+
+PASS
+
+Minimal rank measures the exact number of angular and offset channels, a quantitative refinement of local separability. This is the complete axial family in the first odd dimension above the three-dimensional example, not a chosen parameter slice. The second exceptional position changes the minimal channel count without having the focal geometry; the parity split explains why expanding the quartic alone misses it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

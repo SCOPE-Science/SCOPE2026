@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:05:58.592564Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–91; independent rederivation using z=theta/t+t/theta",
+        "Frozen VERIFICATION.md and verify.py read as supporting evidence, not executed",
+        "Corrected repairs/1/RESULT.md, proof and exact t=10 illustration"
+      ],
+      "rationale": "Assessment of the delivered corrected RESULT.md: the first-step direction is Fb and the energy minimizer on its span subtracts (b^T F b)^2/(b^T F A F b) from the initial squared error. Scaling F and taking the two active coordinates gives (theta-lambda)^2/[lambda(theta^2+t lambda)] for lambda=1,t^2. Each weighted initial contribution is 1/t; the probabilities give the stated one-step risk. Independently, put a=t-1 and z=theta/t+t/theta. The risk simplifies to (t-2)/(ta)+(z-a)^2/[ta(z^2+a^2/t)]. Here z>2 is strictly increasing in theta>t, and differentiating the variable part gives the sign of z-a since az+a^2/t is positive. This yields the t=3 transition, strict increases for t<=3 including equality at the excluded boundary, and the unique interior root theta_+ for t>3. Subtracting the attained risk from the theta=t value gives the claimed gain. The scaled SPD eigenvalues are 1,theta,theta,t^2, and q_t(t)<0<q_t(t^2) at t>3, so conditioning is unchanged at the optimum. The frozen illustrative example mislabeled 81/605 as the initial risk. The repaired example correctly specifies initial risk 1/5, ordinary one-step risk 81/605, optimized one-step risk 4/45, theta_+=45+5 sqrt(77), and condition number 100. The repair also corrects the minimum-certificate heading and wording about the vanishing square term; the theorem and hypotheses are unchanged.",
+      "residual_risks": [
+        "Exact arithmetic and one standard PCG step only. No claim about other directions, workloads or iteration budgets; the supplementary script is not a formal proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fan–Hu–Zhang analyze the additive construction for nonsingularity, Richardson bounds and FGMRES. Diouane et al. give eigenmode selection/scaling for finite-budget PCG on a fixed right-hand side. Stathopoulos–Orginos recycle deflation information across systems."
+        ],
+        "reasoning": "These stronger methods cover parts of the construction and motivation but their stated hypotheses/objectives do not set the same one-parameter two-query minimization problem. A successive-solve deflation method is not a theorem about the expected one-step risk under the fixed shared inverse-preconditioner family.",
+        "searches": [
+          "arXiv:2609.11097v1, §§3.1–3.5",
+          "arXiv:2603.28969v1, equations (7)–(10) and Theorem 3",
+          "Stathopoulos–Orginos, arXiv:0707.0131v2, abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.11097v1",
+        "arXiv:2603.28969v1",
+        "arXiv:0707.0131v2",
+        "Resultary records ending 2c112d7d6145 and d5c120ddf620"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two one-step losses separately vanish at theta=1 and theta=t^2; the first target is outside theta>t. For the common parameter, the summed risk has an interior optimum precisely when t-1 enters the z>2 range."
+        ],
+        "reasoning": "One right-hand side's optimum is not a sufficient statistic for determining the best common parameter of a weighted sum: the two problems have distinct targets and compete. The new one-step consequence concerns the threshold, exact gain and condition-number obstruction together, not the standard PCG line-search identity or a fixed-RHS evaluation of the prior preconditioner theorem.",
+        "searches": [
+          "arXiv:2603.28969v1, Theorem 3 and equations (7)–(10)",
+          "Frozen and corrected RESULT.md, one-step identity and shared-risk minimization",
+          "Closest paired Resultary inspections below"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fan–Hu–Zhang define M_(1)=(tilde M+alpha I)^(-1), whose inverse is the same additive construction. Rescaling the inverse preconditioner by 1/alpha represents it as identity plus a rank-two spectral update.",
+          "The latter prior work uses finite-iteration A-energy error as its criterion, but for a fixed system and right-hand side."
+        ],
+        "reasoning": "Changing inverse-preconditioner notation or multiplying by a scalar does not change the one-step iterate. The matched framework still leaves a different objective: one shared parameter minimizes a weighted expected squared energy loss for two distinct right-hand sides.",
+        "searches": [
+          "Fan–Hu–Zhang, arXiv:2609.11097v1, §3.1",
+          "Diouane et al., arXiv:2603.28969v1, §3 and Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first record gives Type-II one-step Euclidean Richardson tuning for a worst-case metric, including a different spectral/contraction mismatch.",
+          "The second gives robust rank-one one-step PCG tuning on a two-dimensional problem with direction uncertainty and threshold T=1/2."
+        ],
+        "reasoning": "The closest exact frontiers solve different algorithms or state/uncertainty families, losses and parameters. No matched record merely reparametrizes this fixed Type-I rank-two update across a weighted pair of right-hand sides.",
+        "searches": [
+          "2026/10/12/SCOPE-exact-euclidean-tuning-frontier-for-codimension-one-additive-red--2c112d7d6145",
+          "2026/10/12/SCOPE-sharp-angle-uncertainty-frontier-for-rank-one-spectral-pcg-preco--d5c120ddf620"
+        ]
+      },
+      "rationale": "Best of current knowledge: the surviving result is the exact boundary and optimal shared parameter for the balanced two-query Type-I PCG problem, including positive one-step energy gain when no allowed parameter improves the spectral condition number. Neither Type-I preconditioning nor tuning PCG at a finite iteration budget is claimed as new.",
+      "residual_risks": [
+        "The targeted broader literature lookup was unavailable and contributes no evidence of absence. An equivalent shared-parameter average-case tuning theorem could exist under other Krylov terminology. The bounded comparison supports the scoped finding rather than a priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same construction in inverse notation; different objectives in relevant passages",
+          "evidence": "M_(1) is the inverse of the additive reduced-basis matrix; the analyzed metrics include Richardson and FGMRES, not the shared two-query one-step PCG energy risk.",
+          "identifier_or_url": "https://arxiv.org/html/2609.11097v1",
+          "material_read": "§3.1 definition (HTML offset 18327) and relevant passages in §§3.1–3.5",
+          "method": "Primary OA HTML bounded passages",
+          "title": "Additive Reduced Basis Preconditioners for Large-Scale Parametrized PDEs",
+          "trigger": "Same Type-I preconditioner construction"
+        },
+        {
+          "assessment": "Strong general framework for a fixed right-hand side, not an expected-risk conditional on one shared regularizer",
+          "evidence": "Its update F=I+SDS^T and eigenmode construction optimize finite-budget energy for a fixed system and query.",
+          "identifier_or_url": "https://arxiv.org/html/2603.28969v1",
+          "material_read": "§3, Eqs. (7)–(10) (offset 12500), and Theorem 3 (offset 16486)",
+          "method": "Primary OA HTML bounded passages",
+          "title": "A Spectral Preconditioner for the Conjugate Gradient Method with Iteration Budget",
+          "trigger": "Possible stronger finite-budget energy tuning result for rank-constrained updates"
+        },
+        {
+          "assessment": "Relevant context, not matching objective in the material read",
+          "evidence": "Deflation learned across successive solves is a different objective from shared regularization under the specified probability mixture.",
+          "identifier_or_url": "https://arxiv.org/pdf/0707.0131",
+          "material_read": "Abstract, PDF text offset 0",
+          "method": "Primary OA abstract comparison",
+          "title": "Computing and Deflating Eigenvalues While Solving Multiple Right Hand Side Linear Systems in Quantum Chromodynamics",
+          "trigger": "Multiple right-hand-side precedent"
+        },
+        {
+          "assessment": "Different algorithm and metric",
+          "evidence": "Type-II and worst-case Euclidean Richardson contraction, not Type-I PCG with two explicit energy losses.",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-euclidean-tuning-frontier-for-codimension-one-additive-red--2c112d7d6145",
+          "material_read": "RESULT.md, Finding and setup (offsets 0–4397)",
+          "method": "Resultary search and local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact Euclidean tuning frontier for codimension-one additive reduced-basis preconditioning",
+          "trigger": "Closest additive-basis exact tuning result"
+        },
+        {
+          "assessment": "Different optimization problem",
+          "evidence": "Robust tuning over angle uncertainty T for a rank-one direction in a 2-by-2 SPD system; T=1/2 threshold, no balanced b_L and b_H risk.",
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-angle-uncertainty-frontier-for-rank-one-spectral-pcg-preco--d5c120ddf620",
+          "material_read": "RESULT.md, Finding and setup (offsets 0–4474)",
+          "method": "Resultary search and local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp angle-uncertainty frontier for rank-one spectral PCG preconditioning",
+          "trigger": "Closest one-step spectral PCG threshold result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md, Finding and condition-number analysis",
+        "arXiv:2603.28969v1, finite-budget energy objective"
+      ],
+      "rationale": "Condition-number tuning and fixed-budget error tuning are meaningful competing objectives for reduced-basis preconditioning. This balanced workload gives a sharp witness: a shared Type-I parameter helps neither on average below the threshold nor in spectral condition number at any t, yet above the threshold it yields a unique strict expected-error improvement. The exact transition, condition-number equality at the optimum, and gain quantify the mismatch rather than asserting typical solver performance.",
+      "residual_risks": [
+        "The diagonal four-dimensional example is structural; no large-scale performance or universal tuning prescription is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,367 +1,53 @@
-# NOT-Exp endpoint limits invalidate all four displayed hazard-shape examples
+# NOT-Exp endpoint limits contradict four hazard-shape assignments accompanying Figure 1
+
 ## Finding
-For the NOT-Exp distribution, let
-\[
-\alpha>0,\qquad \gamma>0,\qquad \theta>0,
-\]
-and define
-\[
-v(y)=1-e^{-\theta y}.
-\]
-The source gives the CDF
-\[
-G(y)
-=
-\left[
-\frac{(1+\alpha)v(y)}
-{\alpha+v(y)}
-\right]^\gamma,
-\qquad y>0.
-\]
-Its density is
-\[
-g(y)
-=
-\frac{
-\alpha\gamma\theta(1+\alpha)^\gamma
-e^{-\theta y}
-v(y)^{\gamma-1}
-}{
-\{\alpha+v(y)\}^{\gamma+1}
-},
-\]
-and the hazard is
-\[
-h(y)=\frac{g(y)}{1-G(y)}.
-\]
 
-The hazard has exact endpoint asymptotics
+For \(\alpha,\gamma,\theta>0\) and \(y>0\), put \(v=1-e^{-\theta y}\). The NOT-Exp distribution of Alotaibi and Elshahhat has CDF and density
 \[
-\boxed{
-h(y)
-\sim
-\gamma
-\left(
-\frac{(1+\alpha)\theta}{\alpha}
-\right)^\gamma
-y^{\gamma-1}
+G(y)=\left[\frac{(1+\alpha)v}{\alpha+v}\right]^\gamma,\qquad
+g(y)=\frac{\alpha\gamma\theta(1+\alpha)^\gamma e^{-\theta y}v^{\gamma-1}}{(\alpha+v)^{\gamma+1}}.
+\]
+Its hazard \(h=g/(1-G)\) satisfies
+\[
+h(y)\sim \gamma\left(\frac{(1+\alpha)\theta}{\alpha}\right)^\gamma y^{\gamma-1}\quad(y\downarrow0),
 \qquad
-(y\downarrow0)
-}
+h(y)\longrightarrow\theta\quad(y\to\infty).
 \]
-and
-\[
-\boxed{
-h(y)\longrightarrow\theta
-\qquad
-(y\to\infty).
-}
-\]
+In particular, \(h(0+)\) is \(+\infty\) for \(0<\gamma<1\), \((1+\alpha)\theta/\alpha\) for \(\gamma=1\), and \(0\) for \(\gamma>1\).
 
-The small-time limit therefore has a sharp trichotomy:
-\[
-0<\gamma<1
-\quad\Longrightarrow\quad
-h(y)\to\infty,
-\]
-\[
-\gamma=1
-\quad\Longrightarrow\quad
-h(y)\to
-\frac{(1+\alpha)\theta}{\alpha},
-\]
-and
-\[
-\gamma>1
-\quad\Longrightarrow\quad
-h(y)\to0.
-\]
+These endpoint laws contradict all four assignments in the prose accompanying Figure 1 (Alotaibi and Elshahhat, §2, p. 5). The order is \((\alpha,\gamma,\theta)\).
 
-These endpoint limits impose necessary global hazard-shape constraints.
+| Prose assignment | Parameter triple | Incompatible behavior |
+| --- | --- | --- |
+| Increasing | \((0.1,0.1,0.1)\) | Starts at \(+\infty\) and tends to \(0.1\). |
+| Decreasing | \((2.8,4.5,1.5)\) | Starts at \(0\) and tends to \(1.5\). |
+| Bathtub | \((1.5,2.8,1.5)\) | The positive hazard starts at \(0\), ruling out initial decline. |
+| Upside-down bathtub | \((2.5,0.9,3.2)\) | Starts at \(+\infty\), ruling out initial rise. |
 
-If
-\[
-0<\gamma<1,
-\]
-a globally increasing hazard is impossible because the hazard begins at \(+\infty\) and ends at the finite value \(\theta\).
-
-If
-\[
-\gamma=1,
-\]
-a globally increasing hazard is again impossible because
-\[
-\frac{(1+\alpha)\theta}{\alpha}>\theta.
-\]
-
-If
-\[
-\gamma>1,
-\]
-a globally decreasing hazard is impossible because the hazard begins at \(0\) and ends at the positive value \(\theta\).
-
-The same endpoints rule out the initial directions required by the two standard nonmonotone shapes used in the source. A bathtub hazard is described there as initially declining and then increasing. Such an initial decline is impossible when
-\[
-\gamma>1,
-\]
-because a nonnegative hazard already starts at its minimum boundary value \(0\). An upside-down-bathtub hazard is initially increasing and then declining; this initial rise is impossible when
-\[
-0<\gamma<1,
-\]
-because the hazard starts at \(+\infty\).
-
-Consequently all four Figure 1 parameter labels conflict with the model's endpoint mathematics:
-
-\[
-(\alpha,\gamma,\theta)=(0.1,0.1,0.1)
-\]
-is labeled increasing, but
-\[
-\gamma=0.1<1
-\]
-forces
-\[
-h(0+)=\infty
-\quad\text{and}\quad
-h(\infty)=0.1.
-\]
-
-\[
-(\alpha,\gamma,\theta)=(2.8,4.5,1.5)
-\]
-is labeled decreasing, but
-\[
-\gamma=4.5>1
-\]
-forces
-\[
-h(0+)=0
-\quad\text{and}\quad
-h(\infty)=1.5.
-\]
-
-\[
-(\alpha,\gamma,\theta)=(1.5,2.8,1.5)
-\]
-is described as bathtub-shaped with an initial decline, but
-\[
-\gamma=2.8>1
-\]
-forces the hazard to begin at \(0\).
-
-Finally,
-\[
-(\alpha,\gamma,\theta)=(2.5,0.9,3.2)
-\]
-is labeled upside-down-bathtub, but
-\[
-\gamma=0.9<1
-\]
-forces the hazard to begin at \(+\infty\).
-
-Thus the paper's plotted examples cannot realize the four global hazard shapes assigned to them under the standard meanings used in its own prose. The long-run failure rate is also universally
-\[
-\theta,
-\]
-independent of \(\alpha\) and \(\gamma\).
+These are **prose assignments**, not a transcription of the hazard-panel legend. In Figure 1 (p. 6), the prose's \((1.5,2.8,1.5)\) triple appears in the density-panel legend; the hazard-panel legend instead lists \((1.5,1.2,1.5)\) and also lists \((0.5,1.1,1.5)\). Neither of those additional hazard-panel triples can have a global bathtub hazard with an initial decline, since both have \(\gamma>1\). This does not assign a shape label to any otherwise unlabelled curve.
 
 ## Assumptions and scope
-The parameter domain is the source's full positive domain
-\[
-\alpha,\gamma,\theta>0,
-\]
-with
-\[
-y>0.
-\]
 
-The finding is an endpoint theorem. It supplies necessary conditions for global monotonicity and for the initial direction of standard bathtub and upside-down-bathtub shapes. It does not give a complete finite-\(y\) phase diagram for every parameter triple.
-
-The statements about the two nonmonotone shapes use the descriptions adopted in the source itself: bathtub means initial decline followed by increase, while upside-down bathtub means initial rise followed by decline.
-
-The result does not challenge the CDF, PDF, likelihood, censoring mechanism, or inferential algorithms. It corrects the reliability interpretation of the model's advertised hazard flexibility.
+The hazard is the one obtained from the paper's printed CDF and density on the entire positive half-line. Bathtub means initial decline followed by increase; upside-down bathtub means initial rise followed by decline. The constraints concern global shapes, not an impression on a finite plotting window. They do not classify all possible turning points or modify the inferential procedures. The parameter \(\theta\) is the coefficient of \(y\) in the exponential; the tail hazard is therefore \(\theta\), not \(1/\theta\).
 
 ## Proof
-As
-\[
-y\downarrow0,
-\]
-one has
-\[
-v(y)
-=
-1-e^{-\theta y}
-\sim
-\theta y.
-\]
-Therefore
-\[
-\frac{(1+\alpha)v(y)}
-{\alpha+v(y)}
-\sim
-\frac{1+\alpha}{\alpha}\theta y,
-\]
-and hence
-\[
-G(y)
-\sim
-\left(
-\frac{(1+\alpha)\theta}{\alpha}
-\right)^\gamma
-y^\gamma.
-\]
-Writing
-\[
-C=
-\left(
-\frac{(1+\alpha)\theta}{\alpha}
-\right)^\gamma,
-\]
-differentiation of the leading term gives
-\[
-g(y)
-\sim
-\gamma C y^{\gamma-1}.
-\]
-Since
-\[
-1-G(y)\to1,
-\]
-the small-time hazard asymptotic follows:
-\[
-h(y)
-\sim
-\gamma C y^{\gamma-1}.
-\]
 
-For the far tail, put
+Write \(a=\alpha/(1+\alpha)\). As \(y\downarrow0\), \(v\sim\theta y\), \(e^{-\theta y}\to1\), and \(\alpha+v\to\alpha\). Substituting directly in the **exact density**, \(g(y)\sim\gamma(\theta/a)^\gamma y^{\gamma-1}\). Since \(G(y)\to0\), this is also the asymptotic of \(h(y)\).
+
+For the far endpoint, set \(\epsilon=e^{-\theta y}\). The inner CDF factor is
 \[
-\varepsilon=e^{-\theta y},
-\qquad
-\varepsilon\downarrow0.
+\frac{(1+\alpha)v}{\alpha+v}=\frac{1-\epsilon}{1-(1-a)\epsilon}=1-a\epsilon+O(\epsilon^2).
 \]
-Then
-\[
-v(y)=1-\varepsilon,
-\]
-and
-\[
-\frac{(1+\alpha)v(y)}
-{\alpha+v(y)}
-=
-\frac{1-\varepsilon}
-{1-\varepsilon/(1+\alpha)}
-=
-1-\frac{\alpha}{1+\alpha}\varepsilon
-+
-O(\varepsilon^2).
-\]
-Therefore
-\[
-G(y)
-=
-1-
-\frac{\gamma\alpha}{1+\alpha}
-e^{-\theta y}
-+
-O(e^{-2\theta y}),
-\]
-so
-\[
-1-G(y)
-\sim
-\frac{\gamma\alpha}{1+\alpha}
-e^{-\theta y}.
-\]
+Raising to \(\gamma\) gives \(1-G(y)\sim\gamma a\epsilon\); the exact density gives \(g(y)\sim\gamma a\theta\epsilon\). Their ratio tends to \(\theta\).
 
-The density formula gives
-\[
-g(y)
-\sim
-\frac{\gamma\alpha\theta}{1+\alpha}
-e^{-\theta y}.
-\]
-Dividing yields
-\[
-h(y)
-=
-\frac{g(y)}{1-G(y)}
-\longrightarrow
-\theta.
-\]
+A globally nondecreasing function cannot have its initial limit above its terminal limit. This excludes increasing hazards for \(\gamma\le1\), since \(\theta/a>\theta\). A globally nonincreasing function cannot have its initial limit below its terminal limit; this excludes decreasing hazards for \(\gamma>1\). Moreover, a strictly positive function with left limit zero cannot be nonincreasing on any initial interval, and a finite-valued function with left limit \(+\infty\) cannot be nondecreasing on one. These facts give the bathtub and upside-down-bathtub exclusions and apply to the entries above.
 
-The shape exclusions are then immediate from nonnegativity and endpoint order. A globally increasing function cannot start above its finite terminal limit. A globally decreasing nonnegative function cannot start at \(0\) and end at a positive value. Likewise, a hazard that starts at its nonnegative boundary minimum \(0\) cannot initially decline, while a hazard that starts at \(+\infty\) cannot initially rise.
+## Verification and relation to prior work
 
-## Verification
-The included checker evaluates the published CDF, density, and hazard at high precision.
+The bundled `verify_notexp_endpoints.py` evaluates the CDF, density and hazard at high precision for the prose triples, with additional small-time checks, including \(\gamma=1\). These finite checks are not proofs of the limits or of the global exclusions. The hazard-panel alternatives are covered by the same symbolic \(\gamma>1\) argument. The source comparisons use the assignments in the article text and the separate legend of Figure 1; they do not reconstruct the original plotting code.
 
-It first differentiates the CDF numerically and confirms the published density formula.
+The inner CDF factor also equals a Marshall–Olkin exponential CDF with tilt \(a\) and rate \(\theta\), so the NOT-Exp law can be written as the \(\gamma\)-th power of that CDF. The point here is the concrete conflict between the model's endpoint behavior and the four source-specific hazard assignments, not a new construction of a distribution family or a new asymptotic method.
 
-For parameter values on both sides of
-\[
-\gamma=1,
-\]
-it checks the ratio
-\[
-\frac{
-h(y)
-}{
-\gamma
-\left(
-\frac{(1+\alpha)\theta}{\alpha}
-\right)^\gamma
-y^{\gamma-1}
-}
-\to1
-\]
-as
-\[
-y\downarrow0.
-\]
+## Reference
 
-It also verifies
-\[
-h(y)/\theta\to1
-\]
-for large \(y\).
-
-For the four Figure 1 parameter triples, the checker confirms the endpoint classifications:
-the purported increasing example starts arbitrarily large and approaches \(0.1\);
-the purported decreasing example starts arbitrarily close to \(0\) and approaches \(1.5\);
-the purported bathtub example starts at \(0\);
-and the purported upside-down-bathtub example starts arbitrarily large.
-
-These computations are consistency checks. The endpoint statements and shape exclusions are proved analytically above.
-
-## Relationship to prior work
-Alotaibi and Elshahhat introduce the NOT-Exp model and advertise four reliability patterns: increasing, decreasing, bathtub, and upside-down-bathtub hazards. Their Figure 1 prose assigns one parameter triple to each pattern and describes the bathtub case as an initial decline followed by increasing risk.
-
-The endpoint analysis above is obtained directly from the same CDF and density printed in the source. It shows that the four displayed parameter choices are incompatible with those labels before any numerical plotting issue is considered.
-
-The result is stronger than checking the figure visually. It supplies a parameter-wide endpoint law:
-\[
-h(0+)
-=
-\begin{cases}
-+\infty,&0<\gamma<1,\\
-(1+\alpha)\theta/\alpha,&\gamma=1,\\
-0,&\gamma>1,
-\end{cases}
-\]
-and
-\[
-h(\infty)=\theta.
-\]
-Hence the source's shape claims must respect these constraints for every future use of the model.
-
-Focused searches using the exact DOI, NOT-Exp name, hazard-shape terminology, Figure 1 parameter values, endpoint limits, and correction/erratum aliases did not locate a published corrigendum or a source already stating this endpoint correction.
-
-## Limitations
-The result gives necessary endpoint constraints, not a complete classification of all possible internal turning-point patterns.
-
-It does not reconstruct the original Figure 1 plotting code. The contradiction follows from exact model formulas and does not depend on that code.
-
-A very recent unindexed author correction could exist outside the records examined.
-
-## References
-1. R. Alotaibi and A. Elshahhat, “A New Exponential-Type Model Under Unified Progressive Hybrid Censoring: Computational Inference and Its Applications,” Mathematics 14 (2026), 1182. DOI: 10.3390/math14071182.
+R. Alotaibi and A. Elshahhat, “A New Exponential-Type Model Under Unified Progressive Hybrid Censoring: Computational Inference and Its Applications,” *Mathematics* **14** (2026), 1182, DOI `10.3390/math14071182`; §2, Eqs. (2)–(5) and accompanying prose, p. 5, and Figure 1, p. 6.

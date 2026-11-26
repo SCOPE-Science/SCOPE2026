@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The map/downset correspondence follows from monotonicity and all three nonempty inverse images. The back condition for target \(2\) is satisfied by the top Boolean world, and the only remaining nontrivial requirement is an image-\(1\) extension above each maximal image-\(0\) world. Saturated chains reduce this to immediate covers. Inclusion–exclusion over the forbidden immediate covers gives an exact formula with the induced remainder poset and exactly one excluded full second ideal. Independent C++ enumeration by nested downsets and by direct monotone functions agrees at all \(n\le5\); a third Python inclusion–exclusion computation agrees through \(n=3\).
+## correctness
 
-## Originality: PASS, subject to literature risk
-The closest inspected 2021 paper by a Campo counts all monotone maps into the three-element chain rather than maps satisfying the stronger forth-and-back condition. The older Daykin thesis abstract covers monotone poset maps but does not supply this exact invariant. Available related modal-frame studies concern different source frames or different algebraic properties. No equivalent Boolean-frame back-lifting census or stronger covering result was identified. Specialist prior work on open finite-poset maps could still contain an equivalent statement and has not been exhaustively inspected; publication priority is not independently certified.
+PASS
 
-## Value: PASS
-The 32-world Boolean inclusion frame has millions of distinct onto order-preserving three-colour maps, but fewer than half are valid modal quotients. The exact distinction between \(7{,}805{,}614\) surjective monotone maps and \(3{,}242{,}450\) bounded morphisms supplies a motivated exact invariant of a canonical finite Kripke frame, together with a structural boundary characterization and an all-dimensions formula. This addresses genuine logical back-lifting behavior, not merely a reparametrization of ordinary order-polynomial values.
+Each onto monotone map corresponds to nested nonempty proper ideals I strictly inside J. The top world supplies a 2-witness. For a 0-world, extend to a maximal element a of I; it suffices to lift at each such a. If a has a 1-witness above it, the first cover on a saturated chain to that witness is in J but outside I. For the inclusion–exclusion term indexed by S, I is disjoint from U_S and B_n minus U_S is a downset; a downset of the induced remainder gives a downset of B_n on adjoining I, since any predecessor is either in I or still in the remainder. J=I fails and J=B_n passes the frontier test but omits 2, giving precisely the subtraction by one. The rank-capped map witnesses existence for n≥2; cardinality rules out n=0,1. An independently written antichain enumeration through n=5 generated each ideal as the union of the principal ideals of its maximal elements. For each eligible pair it tested the full 0-to-1 lift by taking the downward closure of J minus I, without using covers. It obtained 0,0,3,63,3604,3242450 and the claimed onto-monotone comparison 7805614 at n=5. Replay paths in the frozen package: verification/ideal_pairs.cpp and verification/direct_ternary.cpp with the corresponding logs; verification/verify_ie.py demonstrates inclusion–exclusion at n≤3 only. The uploaded code was inspected, not executed. No enumeration is used to justify the all-n formula.
 
-## Sources and limits
-The explicit bounded-morphism definition is in PlanetMath's *p-morphism* article (2013-03-22). Full text of a Campo's arXiv:2104.03079 was examined in relevant portions (introduction, definitions, and applications in Section 4) and searched for a bounded-morphism treatment; no such condition was found. The Daykin thesis was consulted only at abstract level. The exact finite values have reproducible code, while the infinite statement has a written proof rather than finite extrapolation. A broader literature or independent mathematical review might change the originality assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the Boolean-lattice back-lifting census and its all-dimension frontier formula, not for the p-morphism definition, unrestricted order-map enumeration, or the overlapping small grid cases. The available closest statements do not give the count in general or at dimension five.
+
+## value
+
+PASS
+
+The labelled Boolean lattice is canonical and C3 is the first chain target for which an intermediate lift poses a real obstruction. The formula isolates that obstruction for every dimension, and its exact finite census quantifies it: 4,563,164 of the 7,805,614 onto monotone maps at n=5 fail back. Knowing the ordinary three-colour order-map count does not supply this quotient invariant. No efficiency claim or generalization beyond the stated target is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

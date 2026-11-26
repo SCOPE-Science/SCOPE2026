@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Classifying the forward-height-two components proves the exact profile enumerator by a bijection. The joint logarithmic weight has a unique stationary point; the strictly positive determinant of its negative Hessian, an explicit radial concavity gap, and uniform Stirling errors establish exponential concentration for all sufficiently large finite model sizes. The checker independently exhausts the six smallest domain sizes; it is corroborative only.
+## correctness
 
-**Originality — PASS within examined sources.** The closest new logic source develops closure and finite-model-property criteria and uses bounded-height DAGs, without computing uniform labelled layer counts. A separate paper treats expansion randomness on fixed bounded-height trees, which does not imply the present uniform-base distribution. Higher-order Bell numbers provide relevant iterated-EGF precedent but the inspected work treats a different asymptotic limit. Targeted mathematical-record queries did not yield an equivalent profile or stronger applicable result. Prior finite idempotent models concern depth at most one and do not determine the depth-two regime. Earlier multivariate analytic-combinatorics or transformation-semigroup results remain a genuine priority risk.
+PASS
 
-**Value — PASS.** The first-order-definable family \(f^3=f^2\) is a basic bounded-closure unary finite-model class. Its full depth profile reveals three sharply separated natural population scales, rather than merely a model count; the concentration estimate quantifies this structural fact under the canonical uniform model measure. These are nontrivial, testable statistics of a natural theory, with applications to asymptotic sampling and finite-model heuristics.
+The identity fixes f²(x), so these are labelled rooted forests of height at most two, including shallower components. Choosing and connecting the three layers proves the profile count, with the identity map the only r=n, s=t=0 case. The nested labelled set construction proves the EGF including its empty-size term. Differentiating the entropy weight F gives b=ae^a, r=ae^b and n=r[1+b(1+a)]; all factors increase and the last expression ranges from zero to infinity. The displayed negative Hessian has the stated positive determinant. In relative coordinates on the ε-rectangle, its top diagonal entry is bounded below by a constant times s_*, its cross term is O(s_*), and its bottom diagonal is bounded below by a constant times t_*; t_*/s_*=a→∞, so its minimum eigenvalue is bounded below by a positive multiple of s_*. Integrating twice gives an Ω(ε²s_*) loss on the boundary, and concavity extends it to all exterior profiles, including the limit t=0. Along the ray to the identity profile the finite endpoint limit is F=−n log n, consistent with its weight one up to the same Stirling error. Rounding the two saddle coordinates costs O(s_*/r_*²+t_*/s_*²)=o(1) in F. Uniform O(log n) Stirling errors and O(n²) profiles are negligible compared with s_*~n/W(log n), since log n=b+O(log b). This proves the joint bound and then T/n→1. The inspected checker is finite corroboration for the count through n=6, not evidence for the concentration bound; it was not run.
 
-Scientific scope is confined to the stated signature and uniform measure; no first-order zero-one law or Gaussian limit is claimed. Absolute novelty cannot be certified from a finite literature search.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The elementary labelled profile count and nested exponential construction are not the basis for an originality pass. The supported distinction is the joint relative concentration of root and depth-one layer sizes under uniform labelled sampling, with explicit saddle scales and an exponential rate at scale n/W(log n). The closest inspected records change either the measure, the observable, or the limit, and general counting constructions alone do not give the two-coordinate tail on this nonuniform scale.
+
+## value
+
+PASS
+
+The axiom gives a natural test case in which almost all vertices lie at depth two, yet the two smaller layers are separated by another diverging scale. An explicit joint exponential estimate, rather than total model counts or a marginal limit, makes it possible to control simultaneous depth-profile exceptions. It is a structurally informative quantitative result for the uniform labelled model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

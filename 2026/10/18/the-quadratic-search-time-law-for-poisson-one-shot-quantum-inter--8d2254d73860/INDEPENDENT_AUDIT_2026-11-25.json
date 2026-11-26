@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:31:28.842343Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Fourier coefficient of the free lattice propagator gives probability J_n(2|h|t)^2. Full re-preparation makes the next trial independent of the first pair (duration, outcome). The renewal mean uses the unconditional first duration 1/r, not independence of duration and outcome within a trial. With a=r/(2|h|), the Laplace transform is Q_(n-1/2)(1+a^2/2)/pi, so the success probability is a times that transform and the stated normalization follows. The cosine and positive toroidal integrals have the same normalization: setting rho=exp(-eta), the cosine coefficient expands using the binomial series for the two factors (1-rho exp(±i theta))^(-1/2), and the positive integral with exp(-t)=rho*s reproduces those coefficients times pi via the beta integral. The success rate rq tends to zero at both ends for n>=1 (the fast-rate behavior is q~binom(2n,n)(|h|/r)^(2n)), ensuring an attained finite optimum. At alpha=na and beta=n eta, translation of the rescaled lower endpoint bounds the positive integrand by exp(-(s+beta))/sqrt(s(s+2 beta)), uniformly dominated on compact interior alpha intervals, and gives the K_0 limit. For a<=1 the global bound alpha^2 K_0(c alpha) tends to zero at both alpha boundaries; for a>=1 the bound C n^2 exp(-(n-1)c) tends to zero uniformly. Hence no sequence of global optimizers can escape. The derivative of R=alpha K_1/K_0 is alpha[(K_1/K_0)^2-1]>0; R ranges from 0 to infinity, giving the unique limiting optimizer and convergence for every minimizing sequence. Independent numerical calculation checked alpha=1.552651255645364 and constant 3.262211749335942; the frozen numerical script was inspected, not executed. Neither numeric check substitutes for compactness and the limiting proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yin and Barkai's prescribed-count restart includes a one-test deterministic spacing case; the sharp-restart work has repeated monitoring within an attempt. The October 4 catalogue record optimizes iid waiting laws with full renewal on a finite complete graph; the November 22 chiral-ring record optimizes renewed Poisson interrogation on three vertices."
+        ],
+        "reasoning": "Changing the lattice geometry changes the success function optimized by a renewal theorem. Allowing all iid waits on a complete graph does not dominate the line's growing-distance problem. Fixed test spacing or bounded noise does not establish the independent exponential one-shot tail behavior.",
+        "searches": [
+          "arXiv:2205.01974",
+          "arXiv:2301.06100",
+          "2026/10/4/SCOPE-exact-renewal-protocol-optimum-for-first-detection-on-the-fully--1683e0413749",
+          "2026/11/22/SCOPE-exactly-two-optimal-poisson-interrogation-rates-on-a-chiral-quan--6b48e0978c4f"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–135, VERIFICATION.md and verify.py",
+        "arXiv:0803.3446, 2305.15123, 2509.08556, 2205.01974 and 2301.06100",
+        "Resultary records 1683e0413749, 6b48e0978c4f and 21a1afc56634"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior full-renewal comparisons account for the scalar mean formula in their setting. The single-trial Bessel-Legendre transform is classical and fixed-scaled-rate convergence by itself says nothing about optimizers outside that scale."
+        ],
+        "reasoning": "The nonescaping-optimizers bounds and unique limiting maximizer are required to infer the sharp law from any local special-function limit. None of the checked implications supplies those steps for the infinite-line success probability. Later catalogue dates are not a basis for dismissing a mathematically matching statement; the closest later result genuinely differs in the model and asymptotic question.",
+        "searches": [
+          "Yin and Barkai arXiv:2205.01974, restart protocol",
+          "Varbanov et al. arXiv:0803.3446, Eq. (7)",
+          "October 4 exact renewal optimum and November 22 chiral Poisson catalogue results, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Varbanov et al. p. 3 Eq. (7) apply the failure projector at Poisson times. Kulkarni and Majumdar Eqs. (9)–(11) apply complementary projection and normalization on a failure. Del Vecchio Del Vecchio and Majumdar p. 3 Eq. (1) likewise retain the projected state despite allowing iid waiting times."
+        ],
+        "reasoning": "Poisson monitoring, random projective resetting, and explicit source-state renewal are not equivalent descriptions. Here the state after any miss is exactly the same fixed source state, while the cited projected-state schemes do not have that renewal even when their time law is exponential.",
+        "searches": [
+          "Resultary: Poisson one-shot target interrogation after resetting to the origin, infinite lattice optimized hitting time",
+          "arXiv:0803.3446",
+          "arXiv:2305.15123",
+          "arXiv:2509.08556"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The complete-graph catalogue entry gives r=NJ for its exponential waiting law, and the chiral-ring entry gives a two-optimum phenomenon for a three-site model. The same-day weak-edge Pell waiting-time finding concerns high-fidelity transfer, not renewed first detection."
+        ],
+        "reasoning": "These are exact optimization data for different single-trial functions or a different objective. A numerical table of finitely many line rates would not certify all-optimizer convergence; no distinct indexed match for the full normalized infinite-line theorem surfaced in the checked searches.",
+        "searches": [
+          "Resultary: exact renewal optimum, Poisson target interrogation, quadratic search time and infinite lattice",
+          "Resultary 2026/10/4 record 1683e0413749 and 2026/11/22 record 6b48e0978c4f",
+          "Resultary 2026/10/18 record 21a1afc56634"
+        ]
+      },
+      "rationale": "Poisson probing, renewal, the single-trial lattice Bessel amplitude, and the Laplace/Legendre identity are not new. The checked literature and catalogue do not give the globally optimized large-distance theorem for this precisely renewed exponential one-shot protocol on the infinite line. The surviving claim is the compactness and sharp asymptotic for all global optimizers and their value, not priority for its constituent identities or a general advantage over other restart laws.",
+      "residual_risks": [
+        "Bounded search and targeted source passages do not establish exhaustive priority. An unindexed equivalently normalized lattice result remains possible.",
+        "The theorem does not claim a unique optimizer for any given finite distance or superiority over nonexponential waiting laws and repeated-monitoring protocols."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlaps in Poisson monitoring, not independent restart of every miss",
+          "evidence": "The survivor after a miss is projected by Q_f and used for subsequent probes.",
+          "identifier_or_url": "https://arxiv.org/abs/0803.3446",
+          "material_read": "PDF pp. 1 and 3, Eq. (7)",
+          "method": "Targeted lawful arXiv passages",
+          "title": "Hitting time for the continuous quantum walk",
+          "trigger": "Foundational Poisson-time continuous quantum-walk detection"
+        },
+        {
+          "assessment": "Exponentially timed tests but a distinct failure state",
+          "evidence": "Failure updates are by normalized complementary projection, not a re-prepared source state.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.15123",
+          "material_read": "PDF pp. 2–3 and 6–7, Eqs. (9)–(11)",
+          "method": "Targeted lawful arXiv passages",
+          "title": "First detection probability in quantum resetting via random projective measurements",
+          "trigger": "Closest terminology for random detection/resetting"
+        },
+        {
+          "assessment": "Allows iid times but does not match the frozen model's renewal mechanism",
+          "evidence": "Projective failure retains the complementary component.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.08556",
+          "material_read": "PDF p. 3, Eq. (1) and protocol",
+          "method": "Targeted lawful arXiv passages",
+          "title": "Optimal detection of quantum states via projective measurements",
+          "trigger": "Possible general iid-interval optimization theorem"
+        },
+        {
+          "assessment": "Closest lattice restart precedent, but tests are at fixed spacing",
+          "evidence": "Restart after a prescribed number of equally spaced tests, rather than iid exponential one-shot trials.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.01974",
+          "material_read": "PDF pp. 2–3, measurement and restart protocol",
+          "method": "Targeted lawful arXiv passages",
+          "title": "Restart expedites quantum walk hitting times",
+          "trigger": "Lattice detection with a one-step reset special case"
+        },
+        {
+          "assessment": "Related restarted walks, not the growing-distance Poisson one-shot optimization",
+          "evidence": "Repeated monitoring with sharp restart rather than the stated independent exponential resets on every miss.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.06100",
+          "material_read": "PDF p. 1 and Sec. II, protocol and sharp restart",
+          "method": "Targeted lawful arXiv passages",
+          "title": "Instability in the quantum restart problem",
+          "trigger": "Timing noise in restarted quantum detection"
+        },
+        {
+          "assessment": "Overlaps in exact renewal, not lattice scale or constants",
+          "evidence": "Fully connected finite model; exponential optimum r=NJ.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-renewal-protocol-optimum-for-first-detection-on-the-fully--1683e0413749/RESULT.md",
+          "material_read": "Finding and renewed waiting-law comparison",
+          "method": "Resultary search and targeted local mirror passages",
+          "title": "Exact renewal protocol optimum for first detection on the fully connected graph",
+          "trigger": "Closest earlier full re-preparation result and broader iid waiting-law optimization"
+        },
+        {
+          "assessment": "Same renewal mechanism on a different finite graph, no growing-distance limit",
+          "evidence": "A three-site chiral ring supports two optimal Poisson rates.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exactly-two-optimal-poisson-interrogation-rates-on-a-chiral-quan--6b48e0978c4f/RESULT.md",
+          "material_read": "Finding and protocol scope",
+          "method": "Resultary search and targeted local mirror passages",
+          "title": "Exactly two optimal Poisson interrogation rates on a chiral quantum ring",
+          "trigger": "Very close match in waiting law and re-preparation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This isolates a meaningful gap between ballistic propagation and physical first-detection time in a specified renewal experiment. The sharp quadratic law and rate give more than a formal stationary point or an upper estimate at one chosen rate: every physical-rate optimum has the same scaling, with no unexamined parameter escape. That distinction is useful for comparisons among explicitly different quantum detection protocols.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

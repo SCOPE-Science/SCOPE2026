@@ -12,7 +12,7 @@ Over **all continuous, real-valued, pointwise nonnegative, positive-definite** f
 \]
 In particular, the proposed universal matrix lower bound \(K_f\succeq J_8/8\) would give \(2\) in this direction, whereas the optimal attainable deficit is exactly \(-2/7\).
 
-One extremizer is the following positive trigonometric polynomial. Write \(y_j=\cos x_j\), and let \(E_r(y_2,\ldots,y_7)\) denote the elementary symmetric polynomial of degree \(r\) in those six entries. Then
+One extremizer is the following pointwise nonnegative trigonometric polynomial. Write \(y_j=\cos x_j\), and let \(E_r(y_2,\ldots,y_7)\) denote the elementary symmetric polynomial of degree \(r\) in those six entries. Then
 \[
 \boxed{
 f_*(x)=\frac3{28}+\frac1{28}E_2(y_2,\ldots,y_7)
@@ -64,7 +64,7 @@ f\left(\pi e_1+\pi\sum_{j\in S}e_j\right)\ge0.
 \]
 The inequalities follow from pointwise nonnegativity; the Fourier expansion gives \(F_{0,3}=\sum_uP_u A_k\) and \(F_{1,4}=\sum_uP_u B_{h,k}\).
 
-**Step 3: Exact fourteen-case dual certificate.** The elementary integer identity
+**Step 3: Exact fourteen-case dual certificate.** The elementary inequality
 \[
 7\bigl(5-2k-(-1)^h\bigr)^2-12-40A_k-60B_{h,k}\ge0
 \]
@@ -81,7 +81,7 @@ There are no omitted parity sectors: \(h,k\) classify all 128 parities up to per
 \]
 The table entries are finite, rational, exhaustive consequences of the displayed binomial formula, so this is an analytic lower bound on the entire function class.
 
-**Step 4: Construct an attainable extremizer.** Every product of cosine factors is a nonnegative average of Fourier characters, so each of the three terms of \(f_*\) has nonnegative Fourier coefficients. Their coefficients sum to
+**Step 4: Construct an attainable extremizer.** Every product of cosine factors is an average of Fourier characters with nonnegative coefficients, so each of the three terms of \(f_*\) has nonnegative Fourier coefficients. Their coefficients sum to
 \[
 \frac3{28}+\frac1{28}\binom62+\frac1{56}\binom63=1.
 \]
@@ -104,7 +104,7 @@ The accompanying `check_certificate.py` uses only Python's standard library and 
 
 ## Relationship to prior work
 
-Hinrichs and Vybíral (2011) proposed the universal bound \(K_f\succeq J_n/n\) for normalized nonnegative positive-definite functions. Vybíral (2026) supplied a counterexample on this same eight-point configuration using a **one-negative/seven-positive** sign vector with deficit \(-1/10\), and discussed a symmetric linear program for that different contrast. The present result instead fixes a **two-negative/six-positive** contrast and obtains the exact optimum over *every* normalized continuous doubly-positive torus kernel, with a new two-average dual certificate and an explicit extremizer. Indeed, the earlier polynomial has \(f(\pi e_j)=9/35\) for every leaf and \(f(\pi(e_i-e_j))=0\) for distinct leaves, so its quadratic value for this **two-negative** contrast is \(82/35>2\): the earlier witness does not even violate the proposed bound in this direction. Neither its one-contrast optimization nor its original polynomial implies the displayed global sharp two-contrast bound. Vybíral's Schur-product inequality concerns kernels represented as squared moduli of positive-definite functions, a narrower class that cannot contain the extremizer here.
+Hinrichs and Vybíral (2011) proposed the universal bound \(K_f\succeq J_n/n\) for normalized nonnegative positive-definite functions. Vybíral (2026) supplied a counterexample on this same eight-point configuration using a **one-negative/seven-positive** sign vector with deficit \(-1/10\), and discussed a symmetric linear program for that contrast. The present result instead fixes a **two-negative/six-positive** contrast and obtains the exact optimum over *every* normalized continuous doubly-positive torus kernel, with a two-average dual certificate and an explicit extremizer. Vybíral's polynomial has \(f(\pi e_j)=9/35\) for every leaf and \(f(\pi(e_i-e_j))=0\) for distinct leaves. With the present contrast the center contributes sign \(-1\) and the sum of the seven leaf signs is \(5\). Its quadratic value is therefore \(8+2(9/35)(-1)(5)=38/7>2\), so this earlier witness does not violate the proposed bound in the stated direction. Neither its one-negative optimization nor its original polynomial implies the global sharp two-negative bound. Vybíral's Schur-product inequality concerns kernels represented as squared moduli of positive-definite functions, a narrower class that cannot contain the extremizer here.
 
 ## Limitations
 

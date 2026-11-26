@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The local swap energy increment is an exact four-color indicator identity; its strict positivity gives the claimed long-domain/singleton classification. Marked cyclic-domain enumeration proves the rational generating function, the cubic root-power identity, and the entropy/singleton-density limits. Independent direct Hamiltonian enumeration, local rule and domain classification, and symbolic Newton sums agreed on 180008 test configurations. The asymptotic claims use a separate analytic singularity argument and are not inferred from enumeration.
+## correctness
 
-**Originality — PASS (best-knowledge, residual risk).** The complete 2002 De Smedt–Godrèche–Luck preprint treats constrained binary Ising, where the allowed moves and alphabet differ. Grynberg's 2010 article treats Ising Kawasaki spectral gaps, and Krzakala's 2004 full preprint studies two-dimensional coarsening and glassy response of Ising and Potts models. Those results do not imply a general \(q\)-color strictly blocked cyclic domain classification or cubic marked counting identity. Keyword and semantic mathematical-result searches for these aliases yielded no equivalent claim; this is not a uniqueness proof, and unindexed transfer-matrix work remains possible.
+PASS
 
-**Value — PASS.** The all-size count resolves a natural nonequilibrium metastability invariant, and the exact structural distinction between the binary model (no singleton domains) and all multicolor models (positive singleton density) identifies a kinetic-freezing mechanism not captured by ordinary domain-length-two heuristics. Its cubic complexity law is directly useful for finite-volume benchmarking and for separating available frozen states from dynamically selected states. It makes no claim about quench probabilities or equilibrium transitions.
+At an unequal boundary a,b|c,d the two exterior-bond changes are +1 for matching the adjacent interior color, -1 for matching the opposite interior color, and 0 otherwise. Strict positivity requires no -1 and at least one +1. This holds at long-long boundaries and gives exactly the stated flank and isolation rules for singletons, including the wrapped n=3 case. After removing singletons the cyclic long-domain colors form a proper coloring, counted by the trace of the kth power of the off-diagonal all-ones matrix. Each long domain and optional singleton contribute t=z²[1+(q−2)uz]/(1−z); counting configurations with a distinguished long-domain start in two ways gives the n/k factor even for rotationally symmetric words. Adding constants cancels the factors (1−z), giving the claimed two polynomials, with the first two coefficients conventionally q. The positive solution of (q−1)t=1 is simple and the consecutive support powers rule out another zero at its modulus, including the q=2 test for 1+t. Continuity of the other roots gives a uniform spectral gap for the dominant reciprocal root near u=1. Thus the logarithm of the moment generating function of the singleton count has first two derivatives of order n, with limiting mean density α′(1)/α(1); implicit differentiation and Chebyshev give the stated limit (identically zero at q=2). Independent replay: /workspace/review_reproduction.py 3, direct full-energy enumeration of 180008 configurations in the three recorded grids, and exact polynomial agreement by evaluating −zW′/W at more marks than the coefficient degree. This corroborates only the finite grids.
 
-The closest relevant primary sources are De Smedt–Godrèche–Luck, arXiv:cond-mat/0202465 (2002); Grynberg, arXiv:1009.4511v1 (2010); and Krzakala, arXiv:cond-mat/0409348 (2004). A specialized unindexed earlier enumeration remains the main originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass concerns the multicolor strict-blocking classification and its marked cyclic enumeration and density, not transfer matrices, cyclic color counting, binary domain heuristics, or a claim of absolute priority. The closest exchange and coloring comparators differ in either the move rule or the underlying state space in ways that change the count.
+
+## value
+
+PASS
+
+The exact labeled-ring count separates available frozen states from dynamically selected states and shows a substantive kinetic distinction: strict binary blocking forbids singletons but for q≥3 the all-populations blocked ensemble has a positive limiting singleton density. The marked finite-volume law gives exact benchmarking information as well as the growth rate, without making an unsupported claim about relaxation or fixed-population ensembles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

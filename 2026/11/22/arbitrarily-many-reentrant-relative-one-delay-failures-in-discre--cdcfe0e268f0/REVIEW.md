@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normal-form eigenvalues and eigenvectors of the Dirichlet tridiagonal matrix are explicit. Strictly decreasing affine-exponent crossing times give unique modal dominance on each comparison interval. In the large-lag limit, the four successive normalized snapshots around each \(s_j\) converge to \(v_{j+1},v_{j+1},v_j,v_j\); the least-squares sine identity yields the claimed \(0,1,0\) residual pattern for all indices simultaneously at sufficiently large finite lag. Absolute-error monotonicity follows by applying the heat contraction to the preceding least-squares residual, with strictly positive defect for all finite times. The standard-library check passed 273 assertions. Numerical checks are not the infinite proof.
+PASS
 
-## Originality — PASS, with risks
+By symmetry of the heat semigroup, the absolute defect optimized over c is the operator norm of the difference of the two observable functionals, i.e. the Euclidean least-squares residual. Its next-functional normalization is the sine of the angle between successive snapshots. At s_j−1,s_j the consecutive affine-exponent differences select mode j+1; at s_j+1,s_j+2 they select mode j. The winners are unique: the crossing times are decreasing, separated by four and are half-integers. Writing η=min_j(ν_{j+1}−ν_j)/2>0, every competing exponent at those snapshots is at least η below the winner, by telescoping. The normalized distance from a snapshot to its winner is at most √(m−1)exp(−Lη), so a common sufficiently large finite lag gives all strict inequalities, with the proposed limits by orthogonality. Reusing the old minimizer at the next burn-in gives E_L(s+1)≤e^(−Lν_1)E_L(s); distinct semigroup eigenvalues and all nonzero modal coefficients imply a strictly positive residual at every finite step. Independently compared normalized snapshots with the wedge-product formula in dimensions 2, 4 and 8 at lag 30, as a numerical supplement only.
 
-Full text was examined for Han, Xiu and Zikatanov, arXiv:2611.19040v1, especially Theorem 7, eq. (34), and Corollary 9, eq. (39). They give *absolute* closure guarantees rather than the relative one-delay time-profile. Full published RESULTS for *Arbitrarily many Fourier-ratio peaks under periodic heat flow* were compared: its \(\ell^1/\ell^2\) ratio differs from the consecutive-time projection angle and does not logically yield the latter. Standard spectral angle bounds at a single burn-in cannot produce the separated extremal sequence. The shared exponential crossing method is not claimed to be new. Some semigroup-angle literature may be unindexed, so exhaustive priority is unproved.
+## originality
 
-## Value — PASS, with limits
+PASS
 
-The result supplies a concrete boundary to interpreting contractive absolute error after burn-in as reliable normalized forecasting: arbitrarily many near-total relative failures arise despite strictly decreasing absolute defect. This directly informs how one-delay prediction quality should be assessed. The construction requires nonlocal, lag-dependent, highly imbalanced modal weights, and does not demonstrate common sensor behavior, noisy stability, or higher-memory failure.
+The absolute one-delay approximation is covered in prior heat-closure work, and spectral crossover engineering is shared with an earlier Resultary record. The supported distinct claim is the multiple prescribed integer peaks of the relative optimal one-delay operator-norm defect, including the near-one peaks and near-zero neighbors despite absolute contraction. Neither overlap supplies that conclusion as stated or by the checked reductions.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This separates two explicit operator measures of one-delay reliability on a standard heat semigroup. It shows that absolute contraction at every update cannot certify even eventual improvement through a prescribed long sequence of relative-quality checks in growing dimension, and quantifies the distinction by neighboring windows with opposite limiting quality. This is useful as a boundary on what a closure error bound means, not as a claim about typical sensors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

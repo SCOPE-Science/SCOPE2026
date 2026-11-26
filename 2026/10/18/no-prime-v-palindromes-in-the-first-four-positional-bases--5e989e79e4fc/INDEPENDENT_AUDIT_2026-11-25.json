@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:22:25.515842Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 10–65; VERIFICATION.md lines 19–23; verify.py lines 10–79; independent exact small-prime check"
+      ],
+      "rationale": "For a prime q, multiplying by q increases v by q, 2, or 1, according to its previous exponent. Induction gives v(n) ≤ n, and for a composite n=qs with q and s at least d, v(n) ≤ q+s ≤ n/d+d. An admissible reversal keeps the digit length; a prime reversal of equal weight would equal the original prime. For a composite reversal, binary parity allows d=3; in bases 3 and 5 the parity and mod-3 checks allow d=5. In base 3 the odd prime is at least M+2 for M=3^(L−1). In base 4, odd leading digits give d=5 by digit-sum congruence, while leading digit 2 forces the sole candidate 2M+1 by the even-composite bound; its reversal M+2 fails the same bound. In base 5 the bound leaves only M+2 and M+4; their reversals dM+1 have weight at most (dM+1)/5+5 < M+d for both digits d and M≥25. All 32 cutoff cases (p<8,9,64,25 respectively, with primes divisible by the base omitted) were independently recomputed by extracting digits and factoring the reversal; no exceptions. The frozen checker was inspected, not executed.",
+      "residual_risks": [
+        "The frozen scans below 40000 and of composite weights are auxiliary and were not replayed. The conclusion is unbounded only by the proved analytic cutoffs, not by the scans."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Conjecture 13 was a conjecture and the 2024 text gives counterexamples in bases 16 and 276. Boran et al. characterize base 10 only. The Resultary obstruction applies when the even base has odd leading digit d with 2d≥b."
+        ],
+        "reasoning": "That obstruction dominates all binary candidates and leading digit 3 in base 4. It has no odd-base consequence and does not handle leading digits 1 or 2 in base 4.",
+        "searches": [
+          "arXiv:2111.10211v1 Conjecture 13",
+          "arXiv:2307.00770v1 Theorem 1.1",
+          "2026/10/13/SCOPE-a-leading-digit-obstruction-for-prime-v-palindromes-in-even-base--63e2cb041f68"
+        ]
+      },
+      "checked_sources": [
+        "Tsai arXiv:2111.10211v1",
+        "Boran et al. arXiv:2307.00770v1",
+        "Bispels et al. arXiv:2405.05267v1",
+        "Resultary 63e2cb041f68 and focused catalogue comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest actual prior theorem is the even-base leading-digit obstruction; no distinct co-dated result establishing the full claim surfaced in the bounded comparison."
+        ],
+        "reasoning": "Reversing a prime candidate cannot turn the composite reversal into a prime input for the obstruction; it does not close the missing cases. The scope distinction is mathematical, not based on date.",
+        "searches": [
+          "Resultary record 63e2cb041f68, RESULT.md at mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "arXiv:2307.00770v1 Theorem 1.1",
+          "arXiv:2405.05267v1 Problem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tsai's nonzero last digit and unequal reversal are the same restrictions; Bispels et al. frame the same question by the set of bases admitting prime examples."
+        ],
+        "reasoning": "Ruling out v(r_b(p))=p on exactly that restricted domain excludes the four bases from the earlier classification problem. Ordinary positional palindromes, excluded by definition, do not bear on it.",
+        "searches": [
+          "Resultary targeted prime v-palindrome/base comparisons",
+          "arXiv:2111.10211v1 p. 2",
+          "arXiv:2405.05267v1 p. 19, Problem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 gives least examples 175, 1280, 6, 288 in the four bases respectively; all composite. Exact reversal checks give 245, 1600, 9, 432 respectively."
+        ],
+        "reasoning": "The table is about existence and least size without primality, so gives no classification of prime candidates.",
+        "searches": [
+          "arXiv:2111.10211v1 Table 1 p. 9",
+          "arXiv:2405.05267v1 p. 19",
+          "Resultary prime v-palindrome searches"
+        ]
+      },
+      "rationale": "Credit the earlier binary exclusion and the covered leading-digit-3 slice in base 4. The audited distinct claim is the completed four-base exclusion, in particular bases 3 and 5 and the closure of the uncovered base-4 cases. Neither the decimal classification, examples in larger bases, nor the earlier even-base obstruction implies this completion. The located coverage is partial, not a priority claim for binary.",
+      "residual_risks": [
+        "Bounded comparison does not establish priority or rule out an unlocated stronger base theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Context, not a theorem establishing the claim",
+          "evidence": [
+            "Definition; Conjecture 13; Table 1 composite minima"
+          ],
+          "identifier_or_url": "arXiv:2111.10211v1",
+          "material_read": "pp. 2, 8–9, offsets 5032, 26883, 29055",
+          "method": "OA full-text passages",
+          "title": "v-palindromes: an analogy to the palindromes",
+          "trigger": "Original definition, all-base conjecture and small-base table"
+        },
+        {
+          "assessment": "Decimal, not the audited bases",
+          "evidence": [
+            "Theorem 1.1 restricts the prime characterization to base 10"
+          ],
+          "identifier_or_url": "arXiv:2307.00770v1",
+          "material_read": "p. 3, Theorem 1.1, offset 8713",
+          "method": "OA full-text passage",
+          "title": "A characterization of prime v-palindromes",
+          "trigger": "Possibly broader prime characterization"
+        },
+        {
+          "assessment": "Poses the base classification; examples in other bases",
+          "evidence": [
+            "Problem 1; prime examples in bases 16 and 276"
+          ],
+          "identifier_or_url": "arXiv:2405.05267v1",
+          "material_read": "p. 19, offset 45577",
+          "method": "OA full-text passage",
+          "title": "v-Palindromes: An Analogy to the Palindromes",
+          "trigger": "Updated base problem and known prime examples"
+        },
+        {
+          "assessment": "Material partial prior coverage",
+          "evidence": [
+            "Even base, odd leading digit d with 2d≥b: covers all binary candidates and base-4 leading digit 3."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-a-leading-digit-obstruction-for-prime-v-palindromes-in-even-base--63e2cb041f68",
+          "material_read": "RESULT.md theorem and assumptions, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and mirror text",
+          "title": "A leading digit obstruction for prime v-palindromes in even bases",
+          "trigger": "Strongest material Resultary overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bispels et al. Problem 1; Tsai Table 1; RESULT.md proof and scope"
+      ],
+      "rationale": "This answers the first four nontrivial cases of an explicit published base-classification problem and makes a mathematically useful distinction between bases that already have composite examples and bases admitting prime ones. The prime-factor thresholds and digit restrictions give exact unbounded exclusions for the missing bases/cases, rather than arbitrary scan cutoffs or recomputation of the known binary result alone.",
+      "residual_risks": [
+        "No classification outside the four bases and no claim about the first base permitting primes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

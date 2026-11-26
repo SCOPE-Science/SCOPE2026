@@ -1,20 +1,21 @@
-# Review: forty minimum geodesic transversals of the four-dimensional cube
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is an exact finite theorem, not an extrapolation. Every maximal geodesic of the four-cube is an antipodal coordinate-flip path; all 192 undirected paths are generated. The direct verifier examines every one of the 4,368 five-vertex and 8,008 six-vertex subsets. An independently replayed 50-orbit certificate checks the full 8,008-set partition under all 384 automorphisms, with valid disjoint-path witnesses on 48 losing orbits. Exactly two orbits are accepted and coincide with the constructive families. Their total size is 40. The published six-vertex lower bound supplies a second route to the known minimum size.
+## correctness
 
-## Originality — PASS, provisional historical priority
-The closest 2026 source [2] explicitly proves \(\operatorname{gt}(Q_4)=6\) but does not enumerate or classify all minimizers in its inspected hypercube analysis. The newer source [3] considers scalar hypercube values; [1] develops the original transversal framework. published-finding corpus comparisons using the alternative *maximal shortest paths cover* terminology and exact six-set/orbit queries found no implication covering the 40-set, two-orbit result. Accessible earlier related claims concern other four-cube invariants. A differently indexed older enumeration remains possible and is not ruled out by negative searches.
+PASS
 
-## Value — PASS
-Minimum transversals of a network are natural optimal covering configurations, and knowing only their size does not determine multiplicity, structure or symmetry. The finite four-cube is the first known scalar-tight four-dimensional case of the recent sharp bound; its complete extremizer census shows two distinct geometry types (independent middle layers and three-edge matchings), not merely one obvious middle layer. The 40-count, the two-orbit classification and reproducible exclusion certificate give a precise natural invariant beyond a scalar recomputation. No general higher-dimensional consequence is claimed.
+Every shortest path flips distinct coordinates; if any coordinate is unused the path can be extended, so the maximal paths are exactly the antipodal ones. Each ordering traces a maximal Boolean-lattice chain, which can be translated to any starting vertex. Their 192 vertex sets were generated independently; all 4,368 five-subsets fail and exactly 40 of the 8,008 six-subsets hit them. Upward closure excludes smaller sizes. The distance-intermediate-value argument applies to the middle spheres and to the Q3 projections, establishing the two constructions. The successful masks are exactly the eight spheres and 32 lifted neighborhoods. Independent replay checked all 50 certificate orbits, disjoint complete coverage, and each of the 48 disjoint-path witnesses. Translations and coordinate permutations are transitive on each family, and the induced independence vs matching distinguishes them. Replay: python3 /workspace/review_evidence/cube.py.
 
-## Limits
-The classification applies only to labelled \(Q_4\), and its mathematical verification is same-model, not independent. Historical priority remains provisional. Verification artifacts are standalone and include no dependence on other result files.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-## References
-[1] Manuel, Brešar, Klavžar, *The geodesic-transversal problem*, arXiv:2101.08042v1 (2021-01-20).
-[2] Chen, Ma, Wu, *On two problems concerning the geodesic transversal number of graphs*, arXiv:2610.39298v1 (2026-10-29), Remarks 2.1 and 3.4.
-[3] Prabha, Sandhiya, Manuel, *Geodesic Transversal of Hypercube and Butterfly networks*, arXiv:2611.06107v1 (2026-11-04).
+The claim credited as distinct is the exhaustive labelled census and the two-orbit classification, not the minimum six or the known middle spheres. The strongest plausible compatible earlier statements inspected establish the minimum and give an extremizer but do not classify the minimizers. A later Resultary record explicitly treats the forty minima as known starting states. The conflicting earlier preprint claim of eight is not compatible coverage.
+
+## value
+
+PASS
+
+At a natural first small case of the hypercube transversal problem with a known sharp minimum, identifying all equality cases resolves whether the standard layer construction is forced. It is not: all the other optima form a single structurally different matching orbit. The resulting explicit extremizer set supports further questions about the geometry and reconfiguration of optimal transversals, distinct from computing the scalar minimum again.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

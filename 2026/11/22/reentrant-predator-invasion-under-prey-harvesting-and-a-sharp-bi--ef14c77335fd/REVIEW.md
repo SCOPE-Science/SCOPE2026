@@ -1,19 +1,21 @@
-# Review of the reentrant-invasion theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The paper's integer-order equations reduce the prey-only equilibrium to the strictly decreasing harvest map \(H(x)=r(1-x/K)(1+qx)\) when \(qK\leq1\). The rare-predator eigenvalue is \(G(x)=Ax/(1+Bx)-d-vx\). Multiplying by \(1+Bx>0\) gives one concave quadratic, which has exactly two positive simple roots if and only if \(A>(\sqrt v+\sqrt{dB})^2\). The decrease of \(H\) proves the complete strict-invasion classification, with explicit boundary and carrying-capacity cases. The center-manifold calculation independently establishes the criticality of each simple collision: the quadratic coefficient is \(Q=-m-RG'(x_0)\), with \(R=f_y/f_x>0\), giving the sharp self-limitation cutoff at the low-harvest collision. The rational witness and finite numerical equilibrium checks passed after running the standalone checker. No finite check is being used to prove an infinite classification.
+PASS
 
-## Originality — PASS, with bounded historical risk
+H decreases strictly from r to 0 on (0,K) when qK<=1, including qK=1 away from x=0. At a prey-only equilibrium f_x=xH'/(1+qx)<0, and the other eigenvalue is G. Its numerator is -vBx²+(A-v-dB)x-d; there is a positive interval iff the quadratic has two distinct positive roots, equivalently A>(sqrt(v)+sqrt(dB))². Intersecting (x_-,x_+) with (0,K) and applying the decreasing H gives every stated root/capacity case, with the equality cases excluded from strict invasion. At in-range simple thresholds, solve f=0 as x=phi(y,h) with phi(0,h)=x_h and phi_y=-R. The positive equilibrium relation G(phi)-my=0 then has y-derivative Q=-m-G'R and h-derivative lambda'=G'/H'. When Q!=0, IFT gives slope -lambda'/Q. On the positive branch the dynamical Jacobian has negative trace sufficiently near collision and determinant y f_x[-m-G'(x)f_y/f_x]; thus Q>0 makes a saddle and Q<0 a sink. At x_+, lambda'>0 and Q=m_crit-m; at x_-, lambda'<0 and Q<0. This proves the branch-side and stability claims without relying on a numerical center manifold. The example gives exact H(3)=26/25, H(1)=44/25, m_crit=299/5500 and slopes -125/61 and -125/118, with nearby finite-state determinant signs independently checked.
 
-The originating 2026 study provides the ecological system and prey-only stability criterion, not the complete two-harvest-window classification together with the direction and stability of both transcritical coexistence branches. Prior ecological work already contains reentrant invasion and backward bifurcations in other models; the broad phenomena are **not** claimed new. The comparison concerns the exact 2026 model with simultaneous Holling-II predation, prey-proportional counterattack and saturated harvesting, and the explicit critical value \(m_{\rm crit}\). Earlier pest-impulse and three-species fear models use different equations and do not imply this classification. The 2025 anti-predator/refuge/additional-food manuscript was accessible only at the abstract level, so overlapping unpublished/older specializations remain a material priority risk. No full-text non-coverage claim is made for that source.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source model's harvesting control and prey counterattack compete in the predator invasion exponent in a way that makes monotone threshold intuition fail. Determining whether there are zero, one or two invasion crossings, locating both exact thresholds, and deciding whether coexistence enters from the stable or unstable side address ecological interpretation of harvest variation. The local backward branch is particularly important: it permits a positive saddle coexistence state on the non-invasion side, so an invasion eigenvalue by itself does not describe the full equilibrium structure. The explicit discriminant and self-limitation criteria are substantive sharp boundaries, not merely a numerical example.
+The model and invasion eigenvalue are existing results, and the window follows by elementary algebra from that eigenvalue. The supported distinct claim is the combined sharp model-specific two-harvest-crossing and criticality classification, including the positive m cutoff at one end and exclusion of backward entry at the other; it is not a new general bifurcation mechanism or method.
 
-## Limits and competing literature
+## value
 
-This does not determine global basins, nonlinear cycle behavior, extinction for finite predator introduction, or Caputo fractional-order bifurcation properties. The result is a model-specific local classification, not first discovery of reentrant invasion. Closest fully available source: Govindan and Singh (2026), https://doi.org/10.1371/journal.pone.0360316. Other compared literature: Qin and Dong (2024), https://doi.org/10.1186/s13662-024-03804-9; Öztürk (2026), https://doi.org/10.1140/epjp/s13360-026-07832-0. Incomplete comparison risk: Ojha and colleagues (2025), https://doi.org/10.1016/j.chaos.2025.116409.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Harvesting a prey can improve rare-predator growth by lowering prey counterattack and then make growth worse by limiting food. The exact capacity and harvest thresholds distinguish that regime from monotone or absent invasion. Even on the non-invasion side of the lower threshold, weak predator self-limitation allows a nearby positive saddle, while the upper threshold cannot have that backward entry in this model. This makes the cutoff useful for interpreting equilibrium diagrams rather than a mere reformulation of the invasion eigenvalue.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

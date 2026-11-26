@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For all finite abelian factor groups of orders at least two and all real exponents strictly between one and infinity, the Fourier image of a two-axis-supported function is exactly the additive-array subspace. Normalization of any nonzero maximizing Fourier entry is legitimate under modulation. Strict convexity proves the affine minimizer exists uniquely. Independent permutations of nonidentity dual indices force exactly four block values, and conjugation forces them to be real. The derivative equations yield the stated unique global minimizer, while inverse character orthogonality gives every coefficient of the extremizing support function. Differentiating the exponent-dependent powers proves the unique sign transition. The standard-library checker passed 4,768 supplementary evaluations; the universal theorem is analytic and does not rely on those finite samples.
+## correctness
 
-## Originality
-**PASS relative to inspected primary material and indexed results, with explicit residual risk.** The closest general synthesis paper by Iosevich, Li and Yu assumes affine-transitive supports in the exact theorem, whereas a coordinate cross has multiple orbits. The 2025 paper by Bhowmik, Deodhar and Iosevich gives broad estimates, not this exact all-exponent rectangular-cross optimizer. Two publicly indexed sharp fourth-moment results for coordinate crosses instead maximize \(L^4\) Fourier extension from coefficient \(\ell^2\), a distinct operator norm. Existing exact \(r=4\), equal-factor cross and line-pencil synthesis results are covered special cases and are explicitly acknowledged. The new contribution is the simultaneous unequal finite-abelian factor order, full \(1<r<\infty\) sharp formula, complete complex equality class, and unique critical-exponent phase diagram. The possibility of a general older point-evaluation theorem for additive product subspaces is not eliminated.
+PASS
 
-## Mathematical value
-**PASS.** The two-axis union is a natural minimal nontransitive Fourier support in finite harmonic analysis, and unequal factor orders are not captured by transitive-affine formulas. The exact all-exponent norm and equality family directly identify how the two arms compete in Fourier synthesis. The intersection coefficient changes sign at an explicit dimension-dependent critical exponent, a structural feature absent from a single fourth-power computation. The classification may inform sharp interpolation or nontransitive synthesis bounds but none of those downstream results is claimed here.
+On the dual grid, the unnormalized transform of the two-axis support is exactly the additive subspace F=u(chi)+v(psi), by inversion on the factors. Translating a largest entry by a character modulation and scaling it to 1 gives the normalization; the computed minimizer itself has every other entry of modulus strictly below 1. The counting-measure r-power is strictly convex on complex arrays for r>1. Independent permutations fixing the trivial index preserve additivity and the constrained minimum; the unique constrained minimizer therefore has four levels, 1,a,b,t, with t=a+b-1. For M=m-1 and N=n-1 the objective minus 1 is N|a|^r+M|b|^r+MN|t|^r, under a+b-t=1. As a cross-check, weighted Hölder bounds this below by [N^(-1/(r-1))+M^(-1/(r-1))+(MN)^(-1/(r-1))]^(-(r-1))=MN/D^(r-1), with equality at (a,b,t)=(alpha,beta,-1)/D and no other triple. Inverting gives the claimed arm levels by character orthogonality and the center by subtracting the arm masses from 1. At r=2 the result reduces to sqrt((m+n-1)/(mn)), and on equal orders the fixed-r asymptotic follows by retaining the two growing terms in D. The sign is measured on the distinguished sum-normalized representative, not after an arbitrary complex scalar. Its numerator equals mn at r=2, is positive below 2, and for both orders above 2 decreases strictly to 2m+2n-mn. This limit is zero exactly at the finite-r strictly positive boundary (m-2)(n-2)=4; a negative limit gives exactly one crossing after 2. If m=2 the numerator is 2+2 beta>0, and the transpose gives the n=2 case. With equal orders q>=5 solving the crossing equation gives the stated logarithm. Endpoints are not part of the uniqueness assertion.
 
-## Scope and limitations
-The result covers only finite abelian groups, a union of two coordinate axes meeting at one point, counting-measure Fourier norms, and the strict-convexity range of exponents. No claims are made about endpoints, weighted norms, arbitrary subgroup unions, or near-extremizer stability. Independent mathematical audit is not performed. Literature priority is provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact finite-field equal-order r=4 specialization, its equality cases, and its sign split already occur in distinct catalogue records, and the transitive (2,2) case is covered by a primary theorem. The supported distinct contribution is the exact all-r additive-product solution for arbitrary factor orders and the resulting complete origin-sign transition, not those special cases or the general synthesis framework. The exact overlapping catalogue records share the assigned date, which does not determine relative priority.
+
+## value
+
+PASS
+
+A cross is a natural non-product Fourier support beyond the usual transitive synthesis model. The exact result shows how asymmetric arm multiplicities jointly control synthesis at each exponent and gives a concrete cancellation phenomenon: as r passes the unique threshold, the normalized central coefficient can vanish and then become negative even though both punctured axes remain positive. Unlike a single Fourier table, this distinguishes the support of the optimizer and its coefficient signs throughout the parameter range.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

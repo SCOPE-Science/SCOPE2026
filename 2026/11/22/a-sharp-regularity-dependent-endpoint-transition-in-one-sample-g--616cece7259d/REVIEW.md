@@ -1,15 +1,21 @@
-# Review of a sharp endpoint transition in one-sample Volterra quadrature
+# Independent mathematical audit
 
-## Correctness — PASS
-The sole claim is the global one-point design classification for every real \(\alpha\geq0\) and every finite noise variance \(\eta\geq0\). The integral representation, Ito isometry and Gaussian conditioning establish an exact posterior variance reduction. The critical structural lemma is that \(\log c_\alpha(e^x)\) is concave in \(x\): the substituted integrand is jointly log-concave on the convex region \(y<x\leq0\), and Prékopa's marginal theorem applies. Differentiating the strictly decreasing logarithmic-time slope against the monotone observation-variance fraction gives **at most one** stationary point, with the global boundary tests completing the proof. The exact endpoint values derive the sharp threshold, and the special \(\alpha=0\) limit correctly has no finite endpoint activation. The supplementary finite code verification passed 3,653 assertions and does not replace this continuous proof.
+## correctness
 
-## Originality — PASS (with publication-priority risk)
-Direct comparisons were made with Cai, Lam and Scarlett (2022, https://arxiv.org/abs/2202.10615), whose noisy Bayesian-quadrature analysis supplies general rates and Gaussian posterior formulas but not the one-site all-Volterra-order sharp activation theorem, and Zhang, Stringer, Brown and Stafford (2023, https://arxiv.org/abs/2302.02053), which constructs integrated-Wiener models and FEM approximants rather than optimizing one noisy integral observation. Historical stochastic-process design papers by Plaskota, Ritter and Wasilkowski (2004) and Mukherjee (2003) are materially relevant. Their abstracts concern noiseless weighted integration designs and product-form covariance designs, respectively; neither abstract states the present all-real-order noisy threshold. Their **full texts remained inaccessible**, so no whole-document noncoverage claim is made. The novelty judgment is bounded by those access limits, by terminology differences in fractional-process literature, and by possible unpublished equivalent results. No independent publication-priority confirmation has been performed.
+PASS
 
-## Value — PASS
-The finding addresses a natural minimal-budget design problem for integrating Gaussian stochastic trajectories and supplies a complete, parameter-exact decision rule instead of a local numerical optimum. The contrast between Brownian roughness and all strictly smoother Riemann--Liouville Volterra orders is a sharp qualitative phase transition, with a factorial-dependent threshold and a constructive unique-root equation whenever the optimum is interior. The result can guide endpoint placement and noise calibration for one-sample Bayesian quadrature under known integrated-Wiener priors. The particular order, integral and noise normalization arise from the actual stochastic-process model, rather than an arbitrary matrix slice or table entry.
+Stochastic Fubini and the isometry give the target kernel (1−s)^(α+1)/Γ(α+2) and the stated covariance and variance; conditional Gaussian minimization is equivalent to maximizing c(t)^2/(v(t)+η). Its continuous zero limit at t=0 is never optimal. With t=e^x and s=e^y the log integrand is a sum of affine terms and nonnegative multiples of log(1−e^z) at z=y−x and z=y on the convex support y<x≤0. Prékopa applies to the zero extension and gives that u(t)=t c′(t)/c(t) is nonincreasing. After s=tr, the remaining integral has analytic dependence on t on compact interior subintervals (the factor 1−tr is bounded away from zero there), so unequal endpoint slopes force strict decrease. That same scaled integral gives u(0+)=α+1 and u(1−)=2α(α+1)/(2α+1), including α=0. Thus the log-gain derivative H is strictly decreasing, starts positive (1 at η=0 and 2(α+1) for η>0), and its right-end sign yields the stated threshold for α>0 and the unique interior optimum at every finite η for α=0. At equality the gain is still strictly increasing on the open interval. Increasing η raises H at each fixed t; its unique interior root moves right and tends to 1 at activation by continuity. The Brownian quadratic and the α=1 and 2 examples agree with the endpoint calculation; the Brownian root tends to 1 only at infinite noise.
 
-## Residual limitations
-The theorem does not address multiple samples, non-Gaussian observations, correlation in observation noise, unknown smoothness or diffusion intensity, nonlinear loss, or alternative output functionals. The historical 2003 and 2004 primary full texts were not accessible. The packaged numerical checks sample finitely many orders and noise values; only the proof supports the continuum claim. Independent mathematical and literature-priority assessment remains to be done.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A distinct indexed same-day result covers exactly the α=1 value-sensor case, including the 1/24 transition. That specialization is not credited separately as original, and date alone establishes no order of priority. The supported distinct claim is the sharp all-real-order Volterra law, its strict single-site shape and the Brownian versus positive-order dichotomy. Neither the exact α=1 overlap nor the other inspected statements implies this general result. This is a bounded determination, not a certification of historical priority.
+
+## value
+
+PASS
+
+In the canonical one-sample Gaussian quadrature problem the result determines when terminal data are exactly optimal at finite noise, not just asymptotically good. It covers all real Volterra orders with a unique maximizing design and explains why the Brownian limit is singular. The concavity argument supplies the global comparison missing from an endpoint derivative calculation alone, and the threshold is directly usable in the specified variance units.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

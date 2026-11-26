@@ -1,15 +1,21 @@
-# Review: exact stationary mixed-lag zero-count staircase
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Stationarity follows from the causal harmonic convolution and a uniform, mixing angle law. The two orientation–position cross-correlations are evaluated from independent heading covariance and filtered future propulsion, giving the exact two-exponential-plus-oscillation formula. For a weaker trap, strict positivity of both harmonic coefficients reduces zeros to intersections of a decaying cosine with a positive constant. Every later positive cosine lobe has one computable maximum, proving the exact number and type (two transverse roots or one quadratic tangency). The coincident-rate and achiral boundaries are separately evaluated. Numerical checks of 70 independent covariance calculations, 150 lobe counts and symbolic coefficients passed; computations are not the infinite proof.
+PASS
 
-## Originality — PASS, qualified
+In the stationary causal convolution, the orientational dot kernel is C(u)=exp(-d|u|)cos(wu), and the independent translational noise has zero mixed covariance. The difference divided by v is the integral of exp(-ks)[C(t-s)-C(t+s)] over s>=0. Splitting at s=t and integrating exponentials gives the stated a and b, with A'(0+)>0. For k<d and w>0 both coefficients are positive; after arranging the zero equation as exp(-(d-k)t)cos(wt+phi)=cos(phi), the initial positive lobe decreases from the level and contributes no positive root. The j-th later positive lobe has its unique maximum at (2πj-delta-phi)/w, with negative second derivative there. Its height exceeds the root level iff j<z and equals it iff j=z, giving the stated rounding rule including quadratic contact and exclusion of t=0. At fixed d,w>0 the logarithm in z is smooth as k tends up to d, so the coefficient of 1/(d-k) and O(1) remainder follow. At k=d>0 with w>0 the two cosine solutions per period are distinct and simple. For k>d and w>0 the oscillatory term dominates after factoring exp(-dt); both the residual and its derivative decay in that normalization, giving infinitely many eventual simple sign changes. At w=0 the scalar difference has positive sign for k≠d and extends to vt exp(-dt) at k=d. Independent replay: python3 /workspace/checks/frozen_replay.py 3; four covariance quadratures including matched and achiral limits, and sampled sign counts 0,2,14 for w=1,3,10 at k=1/2,d=1. Sampling corroborates but does not prove the counts or certify tangencies.
 
-Pattanayak et al.'s Appendix A gives an equal-time position–heading expectation, not the two stationary time directions or exact count. Barman's velocity–heading delay imposes a deterministic initial position, not a stationary joint law. A related positional lag-area theorem uses two positions rather than one position and one propulsion heading and only gives a qualitative finite/infinite transition plus an asymptotic, not the present exact integer staircase or tangency parameters. Searches for the mixed temporal arrow, alternate terms, and published records identified no theorem that implies the displayed count; unindexed work and recognition of equivalent oscillatory-root classifications remain real risks.
+## originality
 
-## Value — PASS
+PASS
 
-Both lagged observables can be collected from heading-and-position tracking. Rather than merely observing oscillations or a decay-rate threshold, the theorem determines the **exact number** of directional correlation reversals at every positive parameter choice, identifies fine-tuned tangencies, and predicts a sharp divergence of the count near a relaxation matching point. The integer count is a physically motivated natural invariant; unlike a sample of numerically found roots, it is a complete parameter classification, independent of thermal position noise and swimming amplitude. Its limitations are the harmonic/isotropic assumptions and absence of a statistical estimation theorem.
+The supported distinct contribution is the exact integer staircase, tangencies and regime classification for the stationary mixed heading–position dot statistic in the planar chiral harmonic model. Exponential kernels and lobe counting are standard; related equal-time, velocity–heading and positional memory results are not the same classification.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+For a measurable stationary lag statistic, the exact finite count, its tangencies and its growth at rate matching are stronger than detecting some oscillation. The formula separates robust sign reversals from touches and isolates the roles of trap, orientational noise and chirality, with thermal positional noise and the positive swimming amplitude irrelevant to the zeros. This is a benchmark for the ideal harmonic model, not a finite-sample detection or generic irreversibility theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

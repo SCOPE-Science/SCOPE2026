@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Exact finite simple graph definition and power-observation process are specified. When at least one original vertex is selected, a chosen set is feasible if and only if the unobserved edge-subdivision graph on the unselected original labels is acyclic: every remaining cycle is a permanent forcing obstruction, while a forest can be leaf-peeled after selected-original incident subdivision nodes force all originals. Edge-count inequality gives lower bound n-2 and only two equality types; original-free sets below this size are excluded by the same cycle obstruction, with n=3 singleton edge case verified. The bijection maps each type-B optimum to a unique edge between two type-A Johnson vertices; local slides precisely join the midpoint to its two endpoints. Exact distance formulas for a subdivided graph prove all eccentricities and sharp radius/diameter, including n=3,4,5 boundaries. Included standalone scripts check full brute-force power domination through n=7 and an independent standard-library adjacency-set graph construction and simulation through n=6, with structural and metric checks through n=16. All tests passed from delivered source files. Finite tests support but do not substitute the all-order proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2205.09668v1 gives general TAR-isomorphism and connectedness properties, not exact optimal token sliding.",
+        "arXiv:2201.01798v1 and 2026 open-access article develop universal reconfiguration and examples, not a theorem classifying optimum configurations of S(K_n).",
+        "“Paired domination minima in subdivided cliques: a rooted-pseudoforest enumeration” treats a different optimization predicate on the same subdivided graph, not minimum power domination."
+      ],
+      "reasoning": "The broadest accessible reconfiguration theorems apply to a different rule or a different feasible-set predicate; neither contains a theorem from which the present exact incidence-graph enumeration and slide metric follows. A stronger, as-yet-unindexed general subdivision-graph theorem is a residual risk, not assumed absent.",
+      "searches": [
+        "\"power domination\" \"subdivision graph\" \"feedback vertex set\"",
+        "\"power domination\" \"incidence graph\" \"edge\" \"forest\"",
+        "\"power domination\" \"fully subdivided\" clique",
+        "\"power domination\" \"subdivision\" \"complete graph\" \"n-2\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2205.09668v1 (2022-05-19), full-text ar5iv HTML",
+      "arXiv:2201.01798v1 (2022-01-05), same-paper open-access 2026 Springer HTML",
+      "arXiv:2406.05509 (2024-06-08), survey abstract and scope (not full-text-inspected)",
+      "OEIS A002411, numerical table interpretation",
+      "Published mathematical finding records concerning full subdivisions, Johnson graphs, power domination, and token sliding; titles compared by implications"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bong et al., arXiv:2205.09668v1, Section 1 and Sections 2-3, proves TAR-related generalities; no claim of optimal sliding graph.",
+        "Bjorkman et al., open access Springer, intro and Section 6 Problems 6.2-6.3, leaves parameter-specific TS study open; no exact S(K_n) configuration graph.",
+        "The same-object paired-domination published finding concerns a feasibility property that neither contains nor implies ordinary power domination."
+      ],
+      "reasoning": "Even if a generic statement gives feasible-set connectivity under TAR or jumps, it cannot conclude TS connectivity: TS imposes graph-edge adjacency not present in the former. The present theorem establishes full optimizer membership, a canonical bijection with Johnson edges, and exact radii/diameters. None of the materially inspected primary implications contains these hypotheses and conclusions together.",
+      "searches": [
+        "arXiv:2205.09668 power domination TAR isomorphisms",
+        "arXiv:2201.01798 power domination reconfiguration token sliding",
+        "\"subdivided complete graph\" \"power domination\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A related published analysis titled “Exact component profiles for power-domination reconfiguration of triangular graphs” concerns the triangular graph L(K_n) rather than its incidence graph S(K_n); a second titled “Exact total-domination sequence enumerator for subdivided cliques” concerns a different feasible-set predicate.",
+        "Arxiv preprint arXiv:2205.09668v1, full HTML https://ar5iv.labs.arxiv.org/html/2205.09668 has no subdivision or token-sliding theorem; scope TAR for general X-set properties.",
+        "Springer full text of arXiv:2201.01798, https://link.springer.com/article/10.1007/s44007-025-00187-5, Section 6 proposes token sliding for power domination, and contains no S(K_n) family result."
+      ],
+      "reasoning": "Equivalence would require the same power-domination predicate on the subdivided incidence graph and adjacency-restricted one-token exchanges. A result for power domination on L(K_n), for total domination on S(K_n), or for general TAR graphs does not yield the exact Sub(J(n,2)) token-slide graph, including its type-A/type-B bijection. The comparison was made by implication and graph identity, not title only.",
+      "searches": [
+        "power domination of the once subdivided complete graph S(K_n), minimum power dominating sets exactly n-2 vertices, one subdivision vertex and n-3 originals; token sliding graph subdivision of Johnson J(n,2)",
+        "line graph of triangular Johnson graph subdivided as power domination reconfiguration graph of subdivision of clique",
+        "subdivision complete graph power domination number optimal sensor placement spanning forest cycle obstruction",
+        "\"subdivided Johnson graph\" \"power domination\"",
+        "\"power domination\" \"incidence graph\" \"complete graph\" reconfiguration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A002411 https://oeis.org/A002411 lists 6,18,40,75,126,..., with formula m^2(m+1)/2; this coincides with the optimizer count under index shift m=n-1. No power-domination or slide-graph interpretation appears in the inspected entry.",
+        "Exact-object and Johnson-edge-subdivision searches in mathematical finding records did not retrieve an indexed published table of minimum power-dominating placements on S(K_n)."
+      ],
+      "reasoning": "The numerical count appears in a classical integer sequence, so the bare number formula is explicitly not asserted as a new number sequence. Existing sequence entries or combinatorial formulas do not imply the minimum-sensor classification or the geometric identity R_n = Sub(J(n,2)).",
+      "searches": [
+        "site:oeis.org \"6, 18, 40, 75, 126\" Johnson",
+        "\"minimum power dominating sets\" \"subdivided complete graph\"",
+        "\"power domination\" \"subdivision\" \"Johnson graph\""
+      ]
+    },
+    "rationale": "The claim is the full classification of minimum power dominating sets of S(K_n) together with the exact token-slide graph Sub(J(n,2)), sharp radius and diameter. Published source arXiv:2205.09668v1 (2022-05-19) treats TAR reconfiguration, not this optimization-state slide graph. Published arXiv:2201.01798v1 treats TAR and jumps and presents slides as further direction (2026 expanded article Section 6). Literature searches with object aliases (full subdivision, incidence graph of K_n), the Johnson-subdivision equivalence, counts, and full text checks found no theorem implying this result. OEIS A002411 matches the optimizer-count numerals with a different combinatorial interpretation, not the power-domination or relocation theorem. Same-object paired/total-domination work is logically distinct. Residual risk: unindexed or unread historical sources, including possible alternative graph notation; search failure is not a uniqueness proof.",
+    "residual_risks": [
+      "No literature index can establish absolute historical novelty. An unindexed or differently named subdivision-graph power-domination claim could predate this result.",
+      "The same-object paired-domination and total-domination records were compared on result summaries and predicates, not materially inspected full texts, because their feasibility rules differ; an unexpected ancillary result remains possible.",
+      "The numerical optimizer-count sequence is already in OEIS A002411; novelty is not claimed for the bare count formula.",
+      "Independent expert audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for stated token-slide incidence-graph claim; TAR, not TS",
+        "evidence": "HTML lines 0-18 establish TAR scope and primary MSC; sections concerning complete graphs establish zero-forcing TAR, not power domination on S(K_n). Full-text search returned no subdivision or sliding matches.",
+        "identifier_or_url": "arXiv:2205.09668v1; https://ar5iv.labs.arxiv.org/html/2205.09668",
+        "material_read": "Full-text HTML introduction, power-domination definitions, sections on TAR structure and component connectivity, propositions on complete graphs; full HTML queried for subdivision and sliding",
+        "method": "Direct HTML reading and searched terms",
+        "title": "Isomorphisms and properties of TAR reconfiguration graphs for zero forcing and other X-set parameters",
+        "trigger": "Same power-domination and reconfiguration framework; primary 68R10; earliest public posting 2022-05-19"
+      },
+      {
+        "assessment": "NOT_COVERING for the precise graph-family result; identifies TS as further area",
+        "evidence": "Article lines 73-80 define TS versus TJ/TAR, lines 127-136 give a small unrelated graph example, lines 658-670 pose power-domination TS study as further work; no subdivision text matches.",
+        "identifier_or_url": "arXiv:2201.01798v1; https://link.springer.com/article/10.1007/s44007-025-00187-5",
+        "material_read": "Open-access article HTML introduction, formal definitions, initial examples, Section 6 future problems, whole-HTML search for subdivided graphs",
+        "method": "Open publisher full-text HTML (same paper, no PDF required)",
+        "title": "Power Domination Reconfiguration",
+        "trigger": "The primary power-domination reconfiguration study, first public 2022-01-05"
+      },
+      {
+        "assessment": "NUMERIC_MATCH_ONLY; no same optimization statement",
+        "evidence": "Count sequence agrees under index shift, but interpretations in the entry are figurate numbers and other objects; exact power-domination/sensor-mobility statements not present.",
+        "identifier_or_url": "https://oeis.org/A002411",
+        "material_read": "Sequence terms, formula, descriptions, and listed interpretations",
+        "method": "Read indexed OEIS entry",
+        "title": "A002411: Pentagonal pyramidal numbers",
+        "trigger": "Exact sequence-match search for optimal-state counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "58aff7a8-6fea-4b94-832e-b3ace7e9da02",
+  "value": {
+    "rationale": "Power domination models low-budget network monitoring. Subdividing every link of a clique is a natural operation, but changes optimal sensor count to n-2, and creates two distinct optimizer types. Their adjacency-constrained migration graph is not merely connected: it is an exact edge-subdivision of Johnson J(n,2), giving canonical shortest migration routes and an exact diameter that stabilizes at six despite the growing underlying graph and budget. This precise structural realization provides an infinite-family benchmark for physically feasible optimal sensor migration and a nontrivial correspondence between propagation, forests, and reconfiguration geometry. The known OEIS count alone would not confer value; the additional classification and sharp metric do.",
+    "status": "PASS"
+  }
+}

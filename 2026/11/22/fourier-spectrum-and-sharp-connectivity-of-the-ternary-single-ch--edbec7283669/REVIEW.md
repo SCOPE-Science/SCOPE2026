@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The codeword set is exactly the vertex set in the one-hot product-of-simplices embedding. A coordinate face yields a necessary-and-sufficient minimal-zero-sum adjacency criterion, not just a sufficient combinatorial test. There are only three nonzero minimal-zero-sum sequence patterns over \(\mathbb F_3\), giving precisely the stated length-two and length-three generators. Fourier diagonalization on the finite abelian single-checksum subgroup produces the exact cubic-root character identity. Its multiplicity quotient is free, and the minimization of the exact positive form \(F\) is proved uniformly, with all equality cases. Verified finite exhaustive tests and an independent linear-programming midpoint test agree with the statement.
+## correctness
 
-## Originality — PASS (priority provisional)
-Rosnes and Helmling's 2015 ternary conference paper and 2017 arXiv paper already treat the **same ternary single-parity codeword polytopes** and provide the complete facet inequalities; neither is claimed as new. Their inspected full 2017 paper (especially Theorem 3, p. 15) establishes a complete facet description but does not evaluate the one-skeleton's complete spectrum or its Fiedler eigenvalue and multiplicity. The earlier 2015 full text was not obtained; its abstract identifies facet/decoder work, so it is retained as a residual priority risk. Frede–Kaibel–Merkert (2024) treats **binary**, not ternary, cyclic transversal polytopes. Existing related checksum Fourier-sampling and binary edge-census results concern distinct operators or fields, and do not imply the evaluated ternary cubic character polynomial without the separate new adjacency analysis. Search absence alone was not used as the novelty argument.
+PASS
 
-## Mathematical value — PASS
-For the full, naturally embedded family of ternary single-check codeword polytopes, the result exactly determines the edge metric census **and the complete graph Laplacian spectrum**, not merely an isolated example. The sharp, all-length connectivity and multiplicity theorem gives an explicit spectral benchmark for a highly symmetric but noncomplete coding polytope graph. The normalized connectivity \(9/[2(n+1)]\) and the exceptional complete-graph case at length three expose structural information beyond known facet representations.
+One-hot words are vertices of the ambient product of simplices. The minimal coordinate face for two words only allows their two symbols at each differing coordinate. If there is no proper nonempty zero-sum set of switches, its intersection with the codeword polytope is their segment. Otherwise complementary switches give two other vertices with the same midpoint; an edge face cannot contain that midpoint without containing the other vertices. The minimal nonzero ternary difference multisets are (1,2),(1,1,1),(2,2,2). Thus the step counts are 2*C(n,2), 2*C(n,3) and squared distances 4,6. Translations preserve adjacency, pair steps generate the group, and halving the total number of incident edges yields the two multiplicities. As an alternate Fourier check, each inverse pair of generators contributes 3 to the Laplacian eigenvalue exactly when its character phase is nontrivial. Pair moves contribute for unlike labels; triple moves contribute exactly for triples having two equal character labels and one different (neither all equal nor all distinct). This gives 3*sum_{i<j} c_i*c_j*(1+(c_i+c_j-2)/2)=3F(c)/2, including zero counts by omitting that pair. Exponents modulo the all-ones direction give the stated multinomial generating polynomial with a factor 1/3 from the free shifts. With largest count n-t, F=nt(n-t)+(3t-2n)c1*c2 and t<=2n/3. For t>=2 this is at least the increasing cubic h(t) in the proof, and h(2)-n(n-1)=(n-2)(n-3)>0 for n>=4. Thus only one-defect counts minimize there, giving 2n characters. At n=3 the (1,1,1) characters add two to the six one-defect characters; at n=2 there are just two nontrivial characters. The normalized gap divides by d_n and is 9/(2(n+1)). The graph is complete at 2 and 3, and the zero-sum support-four word (1,1,2,2,0,...) is not a generator at any n>=4. An independent exact check of endpoint-switch faces and character sums through n=5 matched the full spectrum and the gaps/multiplicities (3,2),(9,8),(18,8),(30,10). The frozen exact and LP scripts were read but not run; the fresh finite check is bounded corroboration. Replay: RESULT.md Proof Steps 1–4 or enumerate all shifts and inverse step pairs with the above integer phase test.
 
-## Limits
-The proof concerns the unweighted graph of the all-ones ternary check; no other checks, characteristic, or edge-length-weighted Laplacians are covered. The cited 2015 conference version was compared at abstract level, not inspected in full. A bibliographically unindexed equivalent could exist. All computational checks are finite and do not independently certify the all-length proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same ternary polytope and its facets are prior; standard minimal-switch adjacency and Cayley Fourier diagonalization are not credited as new methods. The supported distinct result is the exact ternary edge census and the complete spectral law and sharp gap with multiplicity of the one-hot one-skeleton. The closest indexed exact graph calculation uses a different group and a different phase count.
+
+## value
+
+PASS
+
+The one-skeleton of a standard ternary SPC polytope is a natural graph family. Identifying its actual edges and the complete unweighted Laplacian spectrum supplies structure not conveyed by a facet count. The sharp spectral gap and its eigenspace multiplicity are exact dimension-dependent connectivity data, with a genuine boundary at lengths two and three; this is not a small test-instance result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

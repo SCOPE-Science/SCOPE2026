@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:37:19.018346Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof §§1–6; VERIFICATION.md, verify.py and verification_output.txt inspected read-only",
+        "Independent exhaustive replay: /workspace/branches/b2e97d15-ea5f-4bad-90ed-94e37a0d70c7/check_idempotents.py and check_full.txt. Direct enumeration gave 8 and 50 at F=K=F7 with α=2,3, and 17 and 1025 at F=F16, K=F2 with α=t,t²+t respectively."
+      ],
+      "rationale": "In K[(F,+)] the original product is ρ_α(u)ρ_β(v) with ordinary multiplication on the right. The augmentation ideal I is nilpotent and each augmentation-zero idempotent lies in I^{2^j} for every j, so only the algebra zero is lost on restricting to augmentation one. Frobenius and px=0 give v^p=0 for v∈I, so 1+I is an elementary abelian p-group under ordinary multiplication. Its idempotents in the transported product are the F_p-linear kernel of ρ_α+ρ_β−1, stable under both automorphisms. The equivariant quotients of the principal-unit filtration equal I^j/I^{j+1}; Maschke applies over F_p since p does not divide |F×| and identifies 1+I noncanonically with I as an F_p[F×]-module. The basis X^x−1 for x≠0 is permuted regularly, so after scalar extension the characters t↦t^k give exactly the claimed nullity over K. This also verifies the gcd and Frobenius lower bound; the excluded F2 case is the only case where the stated parameter set is empty. The zero vector of W corresponds to the nonzero algebra idempotent e_0, so there is one additional algebra zero, not an extra point of W.",
+      "residual_risks": [
+        "The finite counts corroborate rather than establish the all-field theorem. For the subquandle structure the proof uses F_p-linear equivariance; it does not assert a K-linear map from the original idempotent set."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "b444981bf71f allows arbitrary elementary abelian dimension and coefficient field orders for p≥5, but its scalar is in F_p. 19ae35bdc12d uses a prime-order base.",
+          "Sangare–Ta's characteristic-two result is for commutative quandles; a scalar law in characteristic two has α≠β, hence is not commutative. Bardakov–Elhamdadi's inspected midpoint result excludes the modular case under discussion."
+        ],
+        "reasoning": "Freely varying dimension at prime scalars does not produce a genuine extension scalar. An F_p-linear conjugate of a scalar λI is again λI, so those cases cannot be reached by a change of basis.",
+        "searches": [
+          "Resultary b444981bf71f and 19ae35bdc12d; OA arXiv:2608.01550v1 and arXiv:2601.07057v1; focused primary search for finite-field modular Alexander idempotent classifications"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md prior-work and proof sections",
+        "Resultary b444981bf71f and 19ae35bdc12d",
+        "OA primary passages of arXiv:2610.08204v1, 2609.03799v1, 2608.01550v1, 2601.07057v1; focused literature lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known group-ring transport identifies the product, but by itself does not determine the F_p representation of principal units or the kernel multiplicities of extension-scalar actions.",
+          "The prime-scalar case can use characters of F_p×; the frozen result uses all multiplicative characters of F×, and their restriction cannot resolve the action of α outside F_p."
+        ],
+        "reasoning": "Comparing the stronger-looking settings leaves a genuine extension-field remainder, not a second proof of the same parameter family. No inspected theorem has hypotheses that subsume that remainder.",
+        "searches": [
+          "b444981bf71f and 19ae35bdc12d compared with the frozen semisimple H-module filtration; Zhang Proposition 2.1 and Theorem 5.2; Elhamdadi–Ta–Virgin Lemma 6.2 and Corollary 6.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For α∈F_p the exponent condition is periodic modulo p−1, so d(F,α)=d(F_p,α)(p^s−1)/(p−1), the exponent in b444981bf71f.",
+          "19ae35bdc12d gives the same count and coordinate Alexander law for s=1. The integral character condition in Elhamdadi–Ta–Virgin carries additional constraints and lives over a different ring."
+        ],
+        "reasoning": "Equivalent reformulation accounts for the overlapping prime-scalar and prime-order cases. Fourier terminology does not turn the integral condition into the characteristic-p principal-unit representation.",
+        "searches": [
+          "Resultary: scalar Alexander quandle modular idempotents, finite-field character counts and midpoint; b444981bf71f and 19ae35bdc12d",
+          "Zhang arXiv:2610.08204v1 and Elhamdadi–Ta–Virgin arXiv:2609.03799v1 for group-ring/Fourier forms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier exact formulas account for the prime-order counts including the F7 cases. The inspected catalogue hypotheses do not include the F16 characteristic-two examples or the full character count for extension parameters."
+        ],
+        "reasoning": "The relevant exact comparison is at the theorem level, not whether a numerical test row matches. The prime-order examples are illustrations of the already covered subrange.",
+        "searches": [
+          "Resultary formula and classification records b444981bf71f and 19ae35bdc12d"
+        ]
+      },
+      "rationale": "There is exact prior catalogue coverage of the prime-order base case and substantial prior coverage of prime-subfield scalars on elementary abelian groups. Credit those cases rather than a new general prime-subfield census. The supported distinct result is the exact count and nonzero-idempotent quandle for genuine extension-field scalars, including characteristic two. Their multiplication operators can have no invariant F_p-lines, and the prime-scalar eigenspace formulas and integral/ordered treatments inspected do not give this case.",
+      "residual_risks": [
+        "The unnamed earlier midpoint result was not uniquely identified; inspected catalogue work already covers many of its subcases. A general treatment of nonscalar modular Alexander automorphisms could imply the extension-scalar result if found. The frozen prior-work claim about finding no prior scalar classifications needs qualification in view of verified partial overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact partial coverage, not extension scalars",
+          "evidence": "For p≥5 and λ∈F_p the count exponent is d(F_p,λ)(p^s−1)/(p−1); classification is by the prime-scalar eigenspaces.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-modular-idempotents-in-scalar-alexander-quandle-algebras--b444981bf71f/RESULT.md",
+          "material_read": "Finding and classification/previous-work passages at offsets 2 and 6256",
+          "method": "OA local Resultary mirror",
+          "title": "Modular idempotents in scalar Alexander quandle algebras",
+          "trigger": "Same modular algebra, count and subquandle conclusion"
+        },
+        {
+          "assessment": "Covers s=1, not s>1",
+          "evidence": "Base F_p and characteristic-p coefficients; count 1+q^|J| and character-coordinate law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-complete-modular-idempotent-quandle-classification-for-prime-o--19ae35bdc12d/RESULT.md",
+          "material_read": "Offsets 0 and 5473, count, coordinates and midpoint discussion",
+          "method": "OA local Resultary mirror",
+          "title": "A complete modular idempotent-quandle classification for prime-order Alexander quandles",
+          "trigger": "Same count and quandle law in prime order"
+        },
+        {
+          "assessment": "Transport credited; inspected classification does not cover modular extension-field result",
+          "evidence": "Thm. 5.2 uses integral coefficients and finite odd-order commutative Alexander quandles.",
+          "identifier_or_url": "arXiv:2610.08204v1",
+          "material_read": "Prop. 2.1, p. 3 offset 9048; Thm. 5.2, p. 8 offset 25171",
+          "method": "OA PDF",
+          "title": "Group-ring methods for Alexander quandle rings",
+          "trigger": "Same product transport and idempotent theorem"
+        },
+        {
+          "assessment": "Similar expression, different coefficient regime and conditions",
+          "evidence": "Complex Fourier analysis of integral coefficients, with additional nontriviality and χ(−1)=1 restrictions.",
+          "identifier_or_url": "arXiv:2609.03799v1",
+          "material_read": "Lem. 6.2, p. 10 offset 35530; Cor. 6.3, p. 11 offset 39538",
+          "method": "OA PDF",
+          "title": "Fourier Analysis and Idempotents in Quandle Algebras",
+          "trigger": "Similar character equation"
+        },
+        {
+          "assessment": "Inspected results do not give the noncommutative characteristic-two scalar case",
+          "evidence": "Uses ordered commutative settings or subset sums in finite commutative quandles.",
+          "identifier_or_url": "arXiv:2608.01550v1",
+          "material_read": "Thm. 3.8 and Cor. 3.9, p. 7 offset 17739, Prop. 3.11, p. 8 offset 20593",
+          "method": "OA PDF",
+          "title": "Idempotents, automorphism groups, and commutator widths of quandle algebras",
+          "trigger": "Possible characteristic-two modular classification"
+        },
+        {
+          "assessment": "Related result excludes the matching modular characteristic",
+          "evidence": "Midpoint construction over a field of characteristic different from the underlying odd order 2n+1.",
+          "identifier_or_url": "arXiv:2601.07057v1",
+          "material_read": "Prop. 5.5, p. 10 offset 29979",
+          "method": "OA PDF",
+          "title": "Idempotents and Powers of Ideals in Quandle Rings",
+          "trigger": "Prior midpoint idempotents"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen theorem, proof and characteristic-two examples",
+        "Prime-scalar and prime-order comparator records b444981bf71f and 19ae35bdc12d"
+      ],
+      "rationale": "The result explains how a modular idempotent locus that is not a linear subspace in the original algebra becomes an explicit Alexander quandle, and counts it over every finite coefficient extension. The genuine extension-scalar range allows large differences on the same additive group (17 versus 1025 idempotents in the F16 examples) and includes characteristic two where a midpoint reduction is unavailable. The regular-character mechanism explains those differences rather than just fitting small counts.",
+      "residual_risks": [
+        "It does not classify nonscalar automorphisms, other coefficient characteristics, or the action of algebra automorphisms on idempotents."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

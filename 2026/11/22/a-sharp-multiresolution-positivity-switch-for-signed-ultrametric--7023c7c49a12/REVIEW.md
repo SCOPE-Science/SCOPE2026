@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The uniform nested-ball expansion is derived from strict radial increments and diagonalizes by character conductor. The relative increments are ordered using the derivative of \(s\coth s\), with \(0<g'(s)<1\), so the conductor ratios are strictly monotone. The Haar-mode ratio is compared to the first conductor by monotonicity of \(m_p(a)e^a\). This establishes all exact threshold cases, boundary strictness, uniform approximation and quotient nullities. Taylor expansion of the full conductor tail gives the claimed finite-depth excess. The embedded checker confirms 1,222 finite spectral, ordering and asymptotic assertions, not an infinite proof.
+## correctness
 
-## Originality: PASS, best-knowledge
-The Fourier positivity criterion itself is classical and not claimed as new. The inspected 2023 field-theory paper uses compact p-adic convolution and finite quotients but does not derive this two-exponential Loewner comparison. Hierarchical heat-kernel work studies different operators and time asymptotics, while ultrametric metric-preservation work does not address positive-type subtraction. The closest published log-periodic p-adic covariance classification has a different oscillatory geometric valuation profile. The asserted new object is the exact two-rate cutoff with strict conductor ordering, the opposing endpoint universality behaviors and the finite-depth rank loss. Unindexed or differently formulated historical theorems remain a genuine priority risk; a negative search is not proof of novelty.
+PASS
 
-## Value: PASS
-Subtracting competing spatial covariance scales on a compact ultrametric group raises the natural question of the largest allowed negative component. The theorem gives the entire sharp parameter classification and determines precisely why coarse observation can lose an entire high-conductor layer even though the infinite limiting covariance remains universal. Its explicit nullity and rate \(p^{-N}\) are useful for rigorously assessing finite-resolution covariance matrices rather than merely applying a qualitative positivity test.
+The nested expansion is a telescoping sum with total absolute increment 1−e^(−a); Haar integration and the character integral on each ball give the stated mass and conductor tails. The positive-coefficient expansion is absolutely summable over all characters (their sum is F_a(0)=1), so spectral testing captures finite-set positivity. An independent way to check the strict ratio ordering is to write Δ_a(j)/Δ_b(j) as (a/b) times the average of e^(−(a−b)t) with positive weight e^(−bt) on [p^(−j),p^(1−j)]. These successive intervals are ordered and disjoint except for endpoints. Thus these ratios tend strictly monotonically to a/b, and removing the first term of each positive weighted tail gives the same ordering for c_a(n)/c_b(n). Since c_a(1)=m_a−e^(−a) and e^a m_a strictly increases, the Haar ratio lies below the whole tail for a>b and above it for a<b. Averaging over p^NG preserves levels 0 through N; the unnormalized full finite Gram eigenvalues are p^N times the coefficients there. Hence the endpoint nullity is 1 or p^N−p^(N−1), respectively, with all modes zero for a=b at λ=1. Expanding each increment through t² and summing weighted terms reproduces the p^(−2N) and p^(−3N) terms of c_{p,a}(N), and division gives the stated p^(−N) excess. At the infinite endpoint for a<b, every coefficient stays positive: the limiting ratio is not attained by a single mode. For a>b only the constant is absent. A finite atomic measure killing all nonconstant characters would be a multiple of nonatomic Haar measure by Fourier uniqueness, so the kernel is still strictly positive definite on distinct sites. The RKHS contains every character with positive coefficient; character polynomial density gives all of C(G), or its closed Haar-mean-zero subspace if only the constant is absent.
 
-## Scientific limitations
-Only compact \(\mathbb Z_p\), nonnegative subtraction and coset-averaged finite quotients are treated; the result does not assert the same boundary for point-sampled quotients or general ultrametric groups. The supporting finite checks are not an infinite-dimensional certificate. Historical priority is provisional; the closest comparisons are analytical, not independent peer verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical radial Fourier or hierarchical spectral decompositions account for the diagonalization. The comparably scoped result resolved in the catalogue has a different radial profile and positivity mechanism. No inspected primary result supplies the extremizing-ratio switch with its sharp coset-averaged excess and endpoint distinctions. This is a best-of-knowledge comparison, not a priority finding.
+
+## value
+
+PASS
+
+The Fourier cutoff is a natural quantitative test for subtracting one covariance profile from another. The same exact benchmark distinguishes finite-depth spectral degeneracy, infinite finite-set strictness, and uniform RKHS density, which are not interchangeable. When a<b, the depth-dependent gap and rank loss show explicitly why a coarse quotient can certify positivity at a subtraction level the compact group cannot support. This is a useful structural result beyond re-diagonalizing a single radial kernel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:17:42.298342Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 25–168; VERIFICATION.md; verify.py",
+        "Sun, arXiv:1402.6641, Conjecture 2.7(i)",
+        "Rosser–Schoenfeld, DOI 10.1215/ijm/1255631807 (classical bound)"
+      ],
+      "rationale": "Write x=kn, A=π(x) and d=π(x+n)−A. All primes in the increment interval are odd, so kd≤k ceil(n/2)≤3x/5 for n≥5. For x≥17 the Rosser–Schoenfeld lower bound and monotonicity of u log u give A log A>x(1−log log x/log x)>3x/5. The strict logarithm estimate follows from 17^(2/5)>3>log 17 and positivity of (x^(2/5)−log x)' thereafter. Thus k log(1+d/A)≤kd/A<log A, including d=0, which gives exactly the stated strict power inequality. Independently enumerated the kn<17 cases by trial-division primality and integer powers; all 17 pairs and both columns of powers agree with RESULT.md, lines 144–166. The finite rectangle in the supplied checker is supportive only; it was inspected, not executed.",
+      "residual_risks": [
+        "The exact location of the classical bound in the original Rosser–Schoenfeld full text was not independently inspected; direct lawful retrieval did not expose the theorem passage."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "abe6896d468d covers n≥2 and k≥1, with exceptions only (2,1), (2,2), (4,1); it supplies n≥5 with no bound on k."
+        ],
+        "reasoning": "No exception is in Sun's domain; the frozen proof itself does not require k≤n, but its resulting n≥5 extension is also covered.",
+        "searches": [
+          "Resultary: general prime-counting root monotonicity on integer rays",
+          "Resultary: Rosser–Schoenfeld bound applied to root monotonicity"
+        ]
+      },
+      "checked_sources": [
+        "Sun arXiv:1402.6641",
+        "Resultary abe6896d468d and 621ed7cb2aa5",
+        "OEIS A238277",
+        "Rosser–Schoenfeld DOI 10.1215/ijm/1255631807",
+        "Corciovei-Bănescu, NNTDM 17 (2011), §1 (different stronger lower bound for x≥5393)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The covering proof uses d≤ceil(n/2), A log A>x(1−log log x/log x), and log log x/log x<2/5 for x≥17, just as the frozen proof does on the shared domain.",
+          "Its relationship section explicitly mentions an earlier bounded-index proof but does not identify it."
+        ],
+        "reasoning": "The exact implication is restriction of n,k in the covering theorem. The classical lower bound by itself is an ingredient rather than a theorem about integer rays. The earlier-reference ambiguity changes priority attribution, not the comparison of statements.",
+        "searches": [
+          "abe6896d468d RESULT.md: Finding, Proof and Relationship to prior work",
+          "Sun 2.7(i) and the explicit Rosser–Schoenfeld prime-counting bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun, arXiv:1402.6641, p. 4, states the exact frozen inequality as Conjecture 2.7(i).",
+          "Resultary abe6896d468d, Finding, explicitly classifies the sign of π(nk)^(k+1)−π(n(k+1))^k; the broader web search supplied no additional decisive comparison."
+        ],
+        "reasoning": "The signs agree under positive integer powers; the frozen statement is an exact restriction of that classification, not just a similar lower estimate.",
+        "searches": [
+          "Resultary: exact Sun 2.7(i) π(kn) root inequality and power-sign form",
+          "Web: Sun Conjecture 2.7(i) prime-counting root monotonicity proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "abe6896d468d gives a theorem and exact exception list, not just empirical matches.",
+          "A238277 is about the square-valued interval count in part (ii), not a table verifying part (i)."
+        ],
+        "reasoning": "The mirrored catalogue theorem is decisive; the unrelated square-count sequence cannot supply the infinite root inequality.",
+        "searches": [
+          "Resultary exact-formula search",
+          "OEIS A238277 as cited by Sun"
+        ]
+      },
+      "rationale": "A distinct Resultary record gives the identical inequality throughout the frozen range as part of its complete integer-ray classification, and uses the same parity/logarithmic proof of the n≥5 region. The exact frozen claim is covered in the compared catalogue. The covering record is dated later and refers to an unnamed earlier bounded proof; this comparison does not establish precedence against the frozen record or authorship of the earlier proof.",
+      "residual_risks": [
+        "An earlier independent proof may exist; the relative dates of the catalogue records and the unnamed earlier bounded proof do not settle priority.",
+        "Original Rosser–Schoenfeld full-text locator remains unconfirmed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FULL_COVERAGE_OF_FROZEN_STATEMENT; historical priority not determined",
+          "evidence": [
+            "All n≥2 and k≥1 with exactly two strict reversals for n=2 and one tie for n=4; same n≥5 margin and shared analytic input."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-global-root-monotonicity-classification-for-prime-counts-o--abe6896d468d/RESULT.md",
+          "material_read": "Finding, scope and opening proof, offsets 0–2669; prior work and limitations, offsets 3780–5352",
+          "method": "Lawful local mirror, actual text compared by parameter restriction and proof inequalities",
+          "title": "Sharp global root-monotonicity classification for prime counts on integer rays",
+          "trigger": "Closest broader catalogue match and possible proof-level overlap"
+        },
+        {
+          "assessment": "Exact conjecture, not its proof",
+          "evidence": [
+            "Integer n>4 and k=1,...,n; the square-valued claim is separate."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1402.6641",
+          "material_read": "p. 4, Conjecture 2.7 and surrounding discussion, text near offset 9500",
+          "method": "Open primary PDF passage",
+          "title": "Problems on combinatorial properties of primes",
+          "trigger": "Verify exact conjecture, boundary and related sequence"
+        },
+        {
+          "assessment": "Full-text location not established; not used as negative originality evidence",
+          "evidence": [
+            "The attributed inequality is π(x)>x/log x for x≥17; the audited proof uses it only in this range."
+          ],
+          "identifier_or_url": "https://doi.org/10.1215/ijm/1255631807",
+          "material_read": "Bibliographic landing information only; no decisive full-text passage recovered",
+          "method": "Lawful Project Euclid full-text/PDF/download attempts and DOI recovery",
+          "title": "Approximate formulas for some functions of prime numbers",
+          "trigger": "Classical explicit bound used as main input"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Sun, Conjecture 2.7(i)",
+        "Frozen proof and scope"
+      ],
+      "rationale": "As mathematics the theorem resolves the entire domain of an explicitly posed prime-counting conjecture and explains it by a short uniform argument rather than a tested rectangle. That merits scientific interest, independently of the lack of distinct catalogue content.",
+      "residual_risks": [
+        "No consequence for part (ii) or prime gaps; the stronger catalogue theorem already supplies this application."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

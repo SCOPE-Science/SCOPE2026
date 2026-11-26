@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A complete all-positive-parameter proof reconstructs reciprocal logistic trajectories, the unique crossing time, the increasing late/early weighted-area ratio, both limiting regimes and the exact duration discriminant. It includes strict boundary \(r\tau=\log(1+\sqrt2)\), arbitrary positive initial abundance, and an exact rational-logarithmic crossover example. Standalone standard-library `verify.py` passed 144,156 deterministic checks, including exact rational identities and independent numerical quadrature. Finite tests do not prove uniqueness; the weight-ratio lemma and limiting integral do.
+PASS
 
-## Originality — PASS (provisional)
+For z=rt, the reciprocal obeys Y′=−Y+1/K. Subtracting the two affine evolutions gives (b−a) times 1−e^(−z) in the first stage and (b−a) times [(2−e^(−h))e^(−(z−h))−1] in the second, with a=1/K_H<b=1/K_L. The latter starts positive and ends at −(b−a)(1−e^(−h))², giving the stated unique positive-time crossing and the terminal ranking. For the time integral, the weight is W_y=e^(2z)/[(y+H_HL)(y+H_LH)] with y=1/N_0 and both H increasing. If y₂>y₁, W_y₂/W_y₁ strictly increases with time across both stages (and is continuous at the switch). Hence the ratio of the negative late contribution to the positive early contribution strictly increases with y. At y↓0 the early contribution diverges logarithmically since the signed factor is asymptotic to z and both H_i are linear to leading order; the late contribution stays finite. At y→∞, y²W_y→e^(2z) uniformly. Integrating the two pieces gives −(E−1)²(E²−2E−1)/2 with E=e^h. This proves the claimed regime split and strictness even at the critical duration, where the ratio reaches one only in the y→∞ limit. The population tie, when it exists, is unique; reciprocating y gives the stated orientation. Exact rational stage products for the example are both 16/7 before taking logarithms.
 
-Actual semantic indexed-result comparisons found nearby work on seasonal discrete Ricker terminal-output reversals, a four-season Beverton–Holt inverse-biomass majorization theorem, two-season quota changes, and Holling-III treatment order. None of their stated hypotheses/conclusions directly proves a universal continuous-time two-stage **integrated** logistic biomass threshold or its unique density crossover. Accessible full primary material from Shepherd and Stojkov (2007) and Hasanbulli and colleagues (2013) concerns smooth variation or periodic harvested populations with different outcomes. Castilho and Srinivasu's article was accessible only through abstract and metadata; its infinite-horizon harvesting problem differs, but some full-text content remains unknown. A broader rearrangement/ordering theorem could imply this result and is a priority risk. Absence of a search match is not proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete, natural dimensionless classification for accumulated abundance under a fixed two-season environmental exposure. The exactly universal cutoff, uniqueness of the population-dependent reversal after that cutoff, and opposite ranking of accumulated and final biomass identify a substantive mathematical distinction between two ecological objectives. This goes beyond a routine calculation at chosen parameter values. The model is idealized; no field-management inference is claimed.
+The supported distinction is a sharp duration boundary for finite population-time, including strict one-tie classification and its contrast with the terminal order. Existing logistic solutions supply the reciprocal dynamics; the inspected related results do not give the sign classification for these two fixed schedules.
 
-## Limits and priority context
+## value
 
-Finite horizon, equal stage durations, fixed growth rate, fixed capacities, deterministic unharvested logistic dynamics. Independent audit and external historical priority confirmation have not been performed; the closest inaccessible full text and broader ordering theory remain uncertainty.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Even in the simplest exact setting, terminal stock gives misleading guidance if the objective is cumulative abundance. With exposure durations and capacity levels controlled, the theorem isolates when that disagreement is universal and when initial density matters, gives the unique possible tie, and distinguishes this threshold from the within-trajectory crossing. This is a structural comparison, not a field prescription or an arbitrary numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

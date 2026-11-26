@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact derivative of \(\log(x_i^{1/r_i}/x_a^{1/r_a})\) equals \(-p_{i-1}x_{i-1}/r_i\) for the first initially occupied anchor \(a\), because its predecessor is absent. The occupancy logistic lower comparison forces a positive global population floor; bounded ratios then force every run root above zero. Induction along each occupied run alternates exponentially suppressed downstream species with positive surviving species. All predation products decay, giving exponential convergence of total occupancy to \(1-\delta\). Monotonicity of the limiting total-occupancy map yields convergence of every density and sharp logarithmic extinction exponents. The Jacobian calculation verifies transverse stability while explicitly retaining tangent zero eigenvalues. These steps cover all finite lengths, nonempty initial support faces, and heterogeneous positive rates under the shared break-even condition. Finite exact and numerical tests supplement, but do not establish, the unrestricted theorem.
+## correctness
 
-## Originality — PASS, with residual risk
-Samanta et al. (arXiv:2609.09027v1, Sections II and VI, Appendix A/B) derive the model, impose adjacency restrictions on equilibrium support, count feasible independent sets, and discuss examples of coexistence and stability. Their equilibrium constraints do not establish that a specific independent set is selected from every initially occupied support face, nor global exponential convergence and exact extinction exponents, especially for unequal reproduction rates with equal break-even vacancy. Poley–Baron–Galla (arXiv:2208.01569v1) study hierarchical random-interaction generalized Lotka–Volterra ensembles, not a deterministic nearest-predecessor chain with the exact ratio identity. Baigent–Ching (2020) establish attracting balance simplices for three-species May–Leonard systems, but not this all-length, support-conditioned survivor classification. Published-record similarity searches did not identify an equivalent statement. The main unresolved risk is subsumption by an older, broader competitive-system convergence theorem whose precise specialization has not been identified; absence of a search hit alone is not novelty certification.
+PASS
 
-## Mathematical value — PASS
-The motivating paper bounds what ecological communities could coexist, but feasible support is not the same as the set globally selected by every positive trajectory. The result turns that distinction into an exact theorem: a finite arbitrary-length chain is attracted to the alternating set forced by its initial occupancy runs, with quantitative extinction exponents and a full equilibrium composition formula. The robust result under arbitrary heterogeneity in reproduction and predation rates clarifies which ecological structure, rather than rate ordering, decides asymptotic survival. It is a complete naturally motivated dynamical classification, not a parameter substitution or an isolated numerical check.
+Checked the entire initial-support and rate quantifiers. The simplex and all coordinate faces are invariant. With s*=1−δ, W=Σr_i x_i and G=Σp_i x_i x_{i+1}, the exact identity S′=(s*−S)W−G yields S′≥s*r_min S−(r_max+Σp_i)S², hence an eventual positive population floor. The ratio y_i=x_i^(1/r_i)/Z with Z=x_a^(1/r_a) at the first occupied index cancels the vacancy term exactly: (log y_i)′=−p_{i−1}x_{i−1}/r_i. Since all y_i are nonincreasing, S≤Σ(y_i(0)Z)^(r_i), so the population floor bounds Z away from zero. The first species of each occupied run has constant y_i; a predecessor bounded away from zero forces exponential decay, while an integrable predecessor yields a strictly positive limiting y_i. This proves alternating support on each run, including singleton runs and initially absent gaps. Every adjacent product decays exponentially, and the forcing equation (S−s*)′=−W(S−s*)−G makes S−s* exponentially small. The survivor quadrature has a unique normalization root with positive derivative, giving exponential coordinate convergence. Time averaging the exact log ratio gives the extinction exponents for initially present eliminated species only. At a fully supported odd equilibrium the even rows form the diagonal invasion block; the odd block has rank one and eigenvalue −Σ_odd r_iℓ_i, leaving precisely the asserted tangent zeros. Read the checker without executing it: there are 420 ratio assertions over 105 rational cases, not 420 distinct cases, plus the population-balance assertions and four finite RK4 examples. This wording issue does not affect the analytic proof.
 
-## Scientific limits and comparison risk
-The mortality-to-birth ratios must all agree, predation coefficients must be strictly positive, and species initially absent cannot recolonize. Extinction may be arbitrarily slow and individual equilibria lie on a nonisolated attracting manifold. The stochastic, spatial and cyclic models have not been analyzed here. The source comparison does not exclude obscure encompassing convergence theorems.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier homogeneous-demography version already covers run-parity selection and exponential convergence and implies its own corresponding extinction exponents. The frozen theorem's substantive extension is to genuinely unequal reproduction and proportional mortality rates with common break-even vacancy. That class, with weighted limit composition and sharp exponents, is not implied by the homogeneous theorem or the general convergence statements inspected.
+
+## value
+
+PASS
+
+The unequal-rate extension separates the effect of turnover from the common ecological threshold: distinct clocks and attack strengths change terminal composition and extinction speed but not the support picked from each initially occupied run. That answers a selection question left open by equilibrium counting and identifies which individual disappearance rates depend on the selected trajectory. The contribution is more than the equilibrium independent-set restriction or a rerun of the homogeneous rule.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

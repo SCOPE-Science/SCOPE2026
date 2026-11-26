@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The covering strip lift metric is exhaustive; an inner increasing/decreasing quadratic maximization gives the unique longitudinal candidate; the remaining transverse maximization is handled by strict monotonicity on its crossing branch and convexity after crossing. Explicit formulas are continuous at \(lpha\) and \(eta\). The global minimax comparison reduces to two heights and has the unique threshold \(7/\sqrt{15}\). Numerical checker only diagnoses; it is not a continuous proof.
+## correctness
 
-## Originality — PASS (provisional)
-The basic quotient distance kernel, random two-point distance laws and narrow boundary-distance maximum are prior results and are credited. Direct full-text comparisons with those works do not identify an all-point eccentricity profile, exact Chebyshev-center bifurcation, or complete boundary–interior maximizer classification. Since the known kernel makes the new result derivable by an elementary constrained optimization, earlier unpublished or hard-to-find accounts remain a material risk; no historical priority is certified.
+PASS
 
-## Mathematical value — PASS
-The exact minimax-center set of a natural nonorientable flat surface changes topology and location at a non-obvious algebraic aspect ratio, and the full maximizer locus explains a separate boundary-to-interior diameter transition. These are global geometric invariants and clarify why known boundary measurements can lose width information even when full intrinsic extrema remain informative.
+Reconstructed the continuous optimization, including equality cases. In the convex covering strip the shortest path is a straight segment to a lift; the closest representatives of the two parities suffice. For u,z nonnegative the rising and falling squared distances cross at t=C/2+2uz/C, so the unique longitudinal maximizer is this point clipped at C. Before 4uz=C² the maximized value increases strictly with z; beyond it the value C²+(u−z)² is strictly convex in z. Thus the only transverse candidates are H/2 and C²/(4u) when admissible; their comparison has sign equal to the sign of 2u−H/2−C²/(4u) for interior minus boundary. At u=α the candidates coalesce, at β they are distinct and both attain the maximum. Since α<C/2<β<H/2 for H>C, monotonicity reduces the global minimum to 0 or β, and equality is 3H(H+sqrt(H²+8C²))=28C², giving H/C=7/sqrt(15), β=sqrt(15)C/6 and radius 4C/sqrt(15). The only maxima for H>C are α and H/2 with equal value, and t=C reflects the partner's sign at the same longitude; for H≤C the boundary offset is (C²+H²)/(2C), including the seam case H=C. Solving the diameter equation for H≥C gives the asserted branch. Read verify.py: it shares the longitudinal reduction and checks a finite transverse mesh, not equality loci or quantifiers; the exact derivation above is the certificate. In proof step 1, 'a path lifts to a straight segment' is read as the minimizing representative, not a statement about arbitrary lifted paths.
 
-## Limitations
-Only the rectangular flat quotient with intrinsic path distance; not arbitrary curved or embedded physical bands. Public prior-work descriptions establish nearby but not all relevant historical sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge assessment is for the pointed profile and complete equality loci, especially the coexistence of two center circles, not the known lift kernel or scalar invariants obtainable from the random-pair law. The compared related theorems do not supply the pointed extremum. The underlying constrained optimization is elementary and derivative-priority risk remains.
+
+## value
+
+PASS
+
+The minimal intrinsic enclosing radius is a natural invariant not visible in boundary-only measurements. The analytic classification identifies two different transitions: the type of a farthest point and the global change from core to a separated noncore center, with both loci at the critical aspect ratio. Exact ties and maximizing locations add information beyond a scalar support endpoint.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

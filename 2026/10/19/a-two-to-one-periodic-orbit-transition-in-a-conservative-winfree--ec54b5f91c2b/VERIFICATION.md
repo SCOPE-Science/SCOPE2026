@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Use Python 3's standard library; run `python3 verify_triad.py` in the directory containing this file and the verifier. The program reconstructs both the original and transformed phase equations from independent formulas, checks their equality for 1,000 deterministic sampled phase states, checks 30 stationary-point Hessians, and verifies the key exact rational polynomial certificates at three parameter values. Its successful output begins `VERIFY_OK`.
+## correctness
 
-The analytic all-parameter proof is in `RESULT.md`. Exact root exhaustiveness comes from the circle-level quadratic and the positive factor \(1+\varepsilon-2\varepsilon\cos t\); it is *not* inferred from sample grids. The 1- or 2-component result follows from the absence of other critical values and compact regular-level continuation, not from numerical contour plots. Python floating-point validation does not certify a universal identity independently of the proof.
+PASS
 
-There has been no independent audit; the listed checking is reproducibility support for the self-review.
+Positivity makes the reciprocal-response coordinate a global circle diffeomorphism of the stated circumference. The chain rule gives ∂_u log A=A' and hence the claimed constant-Poisson equations. The tangent half-angle transformation gives A=k²/(1−ε cos t); scaling both derivatives gives k²B∇ℋ. The sum of t_i is a Casimir because the column sums of B vanish. On its zero leaf (not the original phase-sum-zero set), equilibrium means the three values of ε sin t/(1−ε cos t) agree. A nonzero value gives at most two phases by a genuine quadratic in tan(t/2), with t=π excluded; the zero value gives just 0 and π. Two phases must coincide, and substituting (w,w,−2w) yields sin w(2 cos w+1)(1+ε−2ε cos w)=0; the final factor is strictly positive. This exhausts the six candidates. The constrained Hessians are definite at the equal-coordinate points, and at each mixed point the determinant is −ε²(1+3ε)/((1−ε)(1+ε)²). The three values are strictly ordered by the positive product differences in the proof. Near the extrema compactness excludes any other local level components. On each closed band of regular values, ∇h/||∇h||² transports levels diffeomorphically, so the counts persist throughout each indicated open energy interval. The Hamiltonian field is nonzero on each compact circle component, making it one periodic orbit.
+
+## originality
+
+PASS
+
+The skew Winfree equations are prior, and the constant-Poisson reduction in their positive-response zero-frequency case is a short consequence. A prior skew phase-difference model even has the same critical-point and level-count pattern for the leading-order potential. Neither inspected model supplies the exact finite-ε census and levels for this product response over the whole stated interval.
+
+## value
+
+PASS
+
+An explicit all-parameter census on the distinguished symmetry leaf of a published oscillator family is a natural finite phase-portrait question. It identifies both energy ranges and their exact orbit multiplicities without a small-response approximation, beyond what general conservative structure or the limiting sinusoidal portrait tells a researcher.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

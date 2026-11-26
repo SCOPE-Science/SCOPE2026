@@ -1,11 +1,21 @@
-# Review of signed-cut commutation formulas
+# Independent mathematical audit
 
-**Correctness — PASS.** The left-priority sign multiplication and unique common product are standard, and the proof explicitly constructs the coarsening boundary bijection, including the special central-to-first signed-block boundary. A separate restriction-and-merge argument derives individual centralizers. The signed-suffix overlap and pole asymptotics follow by direct finite combinatorics and ordinary coefficient transfer. The supplied standalone checker directly enumerates every face in the stated small ranks and independently tests all centralizers, several tuple arities, and chamber intersections. Finite verification is not the proof for arbitrary rank.
+## correctness
 
-**Originality — PASS (best-knowledge, with residual priority risk).** Full-text examination of foundational semigroup papers and the closest published type-A and rank-three records did not reveal a statement of the all-rank type-B signed centralizer and all-arity count plus overlap law. The type-A theorem's unsigned counts do not supply involution-fixed type-B counts, and the rank-three theorem covers one fixed rank only. The signed Bell sequence itself, the sign-product definition, and the unrefined counting mechanism are not claimed new. Earlier general Coxeter-face-monoid enumeration remains a genuine priority risk; a negative search cannot prove uniqueness.
+PASS
 
-**Value — PASS.** This is a complete, natural commutation invariant of the entire hyperoctahedral face-monoid family, not a hand-picked parameter slice. The structural centralizer and chamber-overlap laws supplement the rational tuple series and quantify how signed zero blocks alter type-A behavior.
+PASS for the repaired package only. The frozen centralizer proof at line 43 incorrectly forbids merging across more than one boundary: for example the zero face below a rank-three chamber deletes all three cuts and certainly commutes. The replacement proof counts fibers over the actual common product, not hypothetical locally allowable merges. Compatible sign vectors have a coordinate-wise union, realizable by the face product. Any refinement gamma of alpha gives exactly 2^r commuting beta below gamma with product gamma, since beta must retain every cut missing from alpha and is free on alpha's r cuts. Refinements of alpha split its zero block by an arbitrary signed face and each nonzero magnitude block by an independent ordered partition with fixed signs. This proves the frozen centralizer formula, including rank 0. In the tuple formula, cuts of the common product must survive in nonempty position subsets, giving the stated weight; feeding the signed-block count into the EGF gives the stated denominator. Its nearest pole is the unique positive real pole, with negative derivative of the denominator −2^(t+1), giving the displayed asymptotic. Common signed suffixes index the same one-cut rays in two chambers; any subset of common rays gives one common subface. Every clique embeds in some chamber interval, and its chamber makes that interval maximal. No numerical formula was changed.
 
-**Limits and comparison.** The result covers type B only, includes the identity, counts tuples with repetitions, and has not received an independent external audit. Closest comparative sources: Saliola (2005); Margolis–Saliola–Steinberg (2012); published braid-face complete commuting-clique geometry (2026); and published rank-three face commuting spectra (2026).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for the distinct content of the repaired record: the type-B structural centralizer and exact numerical overlap test in signed-suffix coordinates. The all-arity EGF and asymptotic are explicitly treated as consequences of the weighted face vector, rather than independent innovations. The closest type-A theorem has almost the same architecture but its element formulas count ordinary partitions, not signed refinements of the zero block; equality of unsigned cuts need not detect the shared signed rays. Counting those type-B refinements and identifying the shared rays are the distinct specialization work. The rank-three record already covers the rank-three tuple count, not the all-rank element structure. No stronger inspected statement supplies the full signed formulas mechanically by parameter substitution.
+
+## value
+
+PASS
+
+The corrected result gives a natural exact structural invariant of a whole face-monoid family: element centralizers indexed by the signed zero block and refinement sizes, and maximal commuting-clique intersections encoded by common signed rays. A user need not enumerate chambers or test covectors to compute either invariant on a specified input. These are the substantive contributions, not resumming the face numbers or extracting the residue alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

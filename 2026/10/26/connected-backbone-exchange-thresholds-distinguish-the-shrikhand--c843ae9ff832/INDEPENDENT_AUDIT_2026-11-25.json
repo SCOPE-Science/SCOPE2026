@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:31:43.119644Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A fresh exact set-based replay, without running either supplied checker, generated the two coordinate graphs, enumerated all k-subsets for k=1,…,6, tested induced reachability by closure and domination by neighborhood union, then bucketed eligible states by all their (k−1)-subsets. Joining all pairs in each bucket is exactly the one-replacement rule and introduces no false adjacency. BFS gave all components and every within-component eccentricity at k=5. At k=1,2,3 neither graph has a state (maximum connected coverage 7, 10, 13). At k=4,5,6 the triples (states,edges,component sizes) were Shrikhande (32,0,32 singletons), (672,5136,[672]), (4064,74304,[4064]); rook (8,0,8 singletons), (384,2112,[192,192]), (3744,63024,[3744]). The size-five degree and eccentricity histograms agree in full, with 48 eccentricity-six and 144 eccentricity-seven states per rook component. Direct degree/common-neighbor checks give A²=4I+2J, hence eigenvalues 6,2,−2 with multiplicities 1,6,9; local neighborhoods distinguish the graphs. The replay also matched all induced claws to the Shrikhande four-states and all rows/columns to the rook four-states. Structurally the rook states correspond to connected selected edge supports in K₄,₄ that cover one entire side. Five edges covering four rows require exactly two columns and form a tree with one bridge row. Switching the leaf assignments, moving the bridge by removing one of its incidences and adding a missing incidence at another row, and replacing the extra cell of a whole-column-plus-one support connect an orientation. An exchange across orientations would give a connected spanning union on eight vertices with at most six edges, which is impossible. Transposing the board exchanges the two components isomorphically. Together with the reproduced six-state connectivity this proves the first connected layers, without inference about later layers. The bounded replay recipe above reproduces the finite census; inspectable package verification paths are verify.py and verify_alt.cpp, both read but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary record 435ff036ec07 classifies inclusion-minimal connected dominating sets of rectangular rook graphs; in the square case the minimum size is p and the count is 2p",
+          "Resultary record 1bb2bf043c50 is indexed as a complete connected-domination polynomial and classification for K_m □ K_n; exact file was unavailable"
+        ],
+        "reasoning": "The available rook classification covers the minimum-size fact. A complete connected-domination polynomial entails the rook state totals by coefficient extraction, not which pairs intersect in k−1 vertices or their paths. The accessible generalized TAR result does not compute those paths either.",
+        "searches": [
+          "Resultary: rectangular rook connected-domination polynomial and minimal-set classifications",
+          "IPEC 2020 paper 24, connected dominating set under TAR"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verify_alt.cpp",
+        "arXiv:1401.5714",
+        "IPEC 2020 paper 24",
+        "Resultary records 435ff036ec07 and b1d04ec503f1; index summaries for 1bb2bf043c50 and 2c284c49b918",
+        "Bibliographic identification and access attempts for Shirkol et al. (2013)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2013 report is identified by its minimum-total-domination/PBIB title and the frozen bibliography; its substantive full text could not be opened",
+          "The accessible rook classification is static and the complexity paper addresses TAR"
+        ],
+        "reasoning": "Every connected dominating set with at least two vertices is total dominating, but the converse is false in general. Possible overlap of minimum configurations or state totals therefore does not force the exchange disconnection at rook k=5, its exact eccentricity distribution, or the contrasting first connected layers.",
+        "searches": [
+          "Shirkol, Shekharappa and Gudgeri (2013), minimum total domination on the non-square lattice graph",
+          "Resultary 435ff036ec07 Finding",
+          "Lokshtanov et al. IPEC 2020 pp. 2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both inspected primary reconfiguration papers use size-capped token addition/removal, not exactly-k replacement; the former allows disconnected dominating sets",
+          "Resultary record b1d04ec503f1 uses the same two graphs and jump/slide metrics but reconfigures global locating-dominating codes"
+        ],
+        "reasoning": "A size-capped path can visit smaller feasible sets, while a single jump may have an infeasible deletion intermediate. Neither a TAR graph nor a change of feasible-set predicate recovers the exchange graphs under review.",
+        "searches": [
+          "Resultary: Shrikhande and rook graph fixed-size connected domination exchanges, token jump, components and distances",
+          "Suzuki–Mouawad–Nishimura arXiv:1401.5714 pp. 1, 3",
+          "Lokshtanov et al., IPEC 2020 paper 24 pp. 2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "In b1d04ec503f1, the minimum global locating-dominating exchange graphs are both jump-connected, with radius/diameter 5, and slide radius/diameter 6",
+          "Record 2c284c49b918 is indexed as minimum total-domination exchanges on rook graphs, not as this connected-domination census"
+        ],
+        "reasoning": "Matching board dimensions or a number 5 or 6 under another invariant is not a matching table. No inspected table matches the six connected-domination exchange layers and their metrics.",
+        "searches": [
+          "Resultary related records 1bb2bf043c50, 435ff036ec07, b1d04ec503f1 and 2c284c49b918",
+          "Shirkol–Shekharappa–Gudgeri, General Mathematics Notes 17 (2013), 91–102"
+        ]
+      },
+      "rationale": "The supported distinct claim is the different first connected fixed-cardinality one-replacement layers for these cospectral graphs, with their exact exchange structure and size-five metrics. Neither the common SRG parameters nor the rook minimum-size classification or state counts alone are credited as new.",
+      "residual_risks": [
+        "The potential overlap of static rook totals with 1bb2bf043c50 cannot be established from its summary alone.",
+        "The 2013 minimum-total-domination paper and 2c284c49b918 were not available as full texts; possible overlap with minimum configurations is not excluded.",
+        "The accessible statements do not establish publication priority against unindexed work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different feasible sets and moves",
+          "evidence": [
+            "D_k uses domination, size at most k, and single additions and deletions"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1401.5714",
+          "material_read": "pp. 1 and 3",
+          "method": "OA primary PDF passages",
+          "title": "Reconfiguration of Dominating Sets",
+          "trigger": "Potential formulation of the same exchanges"
+        },
+        {
+          "assessment": "Connected domination but size-capped TAR, not the fixed-size exact census",
+          "evidence": [
+            "Move and size-cap definitions; complexity focus"
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.IPEC.2020.24",
+          "material_read": "pp. 2–3",
+          "method": "OA Dagstuhl PDF passages",
+          "title": "On the Parameterized Complexity of Reconfiguration of Connected Dominating Sets",
+          "trigger": "Same connected-domination predicate"
+        },
+        {
+          "assessment": "Exact overlap unresolved; named predicate alone does not imply the target",
+          "evidence": [
+            "General Mathematics Notes 17 (2013), 91–102; minimum total domination rather than connected domination"
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/269518541_PBIB_designs_and_association_scheme_arising_from_minimum_total_dominating_sets_of_non_square_lattice_graph",
+          "material_read": "Bibliographic identification and frozen record description; no independent abstract or full text",
+          "method": "Direct and alternate lawful retrieval attempts returned access errors",
+          "title": "PBIB designs and association scheme arising from minimum total dominating sets of non square lattice graph",
+          "trigger": "Shrikhande minimum configurations with possible overlap"
+        },
+        {
+          "assessment": "Minimum-size and equality overlap; no exchange results in the inspected statement",
+          "evidence": [
+            "Square result p and 2p; inclusion-minimal structural classification"
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-inclusion-minimal-connected-domination-of-rectangular-rook-graph--435ff036ec07",
+          "material_read": "Finding, offsets 0–4280",
+          "method": "Local published-record mirror",
+          "title": "Inclusion-minimal connected domination of rectangular rook graphs",
+          "trigger": "Same rook invariant and minima"
+        },
+        {
+          "assessment": "Treat state-count overlap as plausible; no full-text judgment",
+          "evidence": [
+            "Summary describes a complete polynomial for K_m □ K_n"
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-connected-domination-and-minimal-set-spectrum-of-rectangular-rook-graphs--1bb2bf043c50",
+          "material_read": "Indexed summary only; exact record absent from the local mirror",
+          "method": "Local Resultary search and mirror retrieval",
+          "title": "Connected domination and minimal-set spectrum of rectangular rook graphs",
+          "trigger": "Broader state enumeration may cover rook totals"
+        },
+        {
+          "assessment": "Distinct feasibility predicate and different connectivity comparison",
+          "evidence": [
+            "Both minimum-code jump graphs connected; jump radius/diameter 5 and slide radius/diameter 6"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-minimum-global-locating-dominating-codes-distinguish-the-shrikha--b1d04ec503f1",
+          "material_read": "Finding, offsets 0–4308",
+          "method": "Local published-record mirror",
+          "title": "Minimum global locating-dominating codes distinguish the Shrikhande and rook graphs",
+          "trigger": "Same graph pair, moves and metrics"
+        },
+        {
+          "assessment": "Potential minimum-configuration overlap, with a different stated predicate",
+          "evidence": [
+            "Summary concerns optimum total domination on rectangular rook graphs"
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-frozen-supports-and-desargues-islands-in-optimum-total-domination-exchanges-of-rook-graphs--2c284c49b918",
+          "material_read": "Indexed summary only; exact record absent from the local mirror",
+          "method": "Local Resultary search and mirror retrieval",
+          "title": "Frozen supports and Desargues islands in optimum total-domination exchanges of rook graphs",
+          "trigger": "Similar optimum-exchange problem on rook graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical same-spectrum graph pair has the same minimum size but different first connected jump layers, so the spectrum cannot determine this reconfiguration threshold. The bipartite orientation barrier explains why rook k=5 is qualitatively different and why testing k=6 is meaningful. The exact components and within-component distances describe that obstruction and contrast, not an arbitrary list of subset counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

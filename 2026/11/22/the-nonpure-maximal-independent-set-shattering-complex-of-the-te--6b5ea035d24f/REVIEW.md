@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The claimed object and quantifiers specify all maximal independent sets of the \(27\)-vertex ternary Hamming three-cube and every Boolean labeling of each query support. The unique increasing-index enumeration of independent sets, domination equivalence for maximality, exhaustive trace criterion and one-vertex facet criterion are correct and complete. Two standalone implementations reconstructed \(11776\) independent sets and \(390\) concepts and matched all polynomial coefficients and facets; the Python program independently checked the coordinate-transversal triple description and five symmetry orbits. The claims are finite and do not extrapolate beyond the enumerated graph.
+## correctness
 
-## Originality (PASS, subject to stated residual priority risk)
-The closest inspected primary binary-Hamming work by Kahn and Park concerns asymptotic counting of maximal independent sets, not ternary exact query traces. Dong studies induced-subgraph degree bounds. A directly related ternary-three-cube independence-complex homotopy record concerns a different complex, and published Hamming neighborhood shattering records use different concepts. Searches for the exact numbers, aliases, stronger implications and the same graph/concept pairing produced no match establishing these face counts. The ternary independence-complex full text was inaccessible; therefore the originality conclusion is best-knowledge, not an assertion of exhaustive worldwide priority.
+PASS
 
-## Mathematical value (PASS)
-This is a complete natural finite structure at the first three-coordinate nonbinary Hamming product. The three different maximal-code cardinalities, a shattering dimension of five, the precise nonpure facet gap (sizes three and five, but not four), a geometric transversal characterization of all small facets and five large-facet orbits supply structural information not determined by a scalar dimension, a maximal-code count or ordinary independence-complex topology. Such exact trace data are useful for comparing finite maximal-code membership concept systems and testing conjectures about shattering-complex purity.
+An independent pivoted maximal-clique search on the complement generates all inclusion-maximal independent sets. Every independent set is contained in one, so taking the union of their submasks gives exactly all possible all-positive query supports, with 11776 candidates. Exact distinct intersection counts against all 390 concepts reproduce 54/324/12 concepts at sizes 5/7/9 and shattered counts 1,27,270,1278,2862,2322 and zero at larger sizes. Removing all immediate subfaces of shattered supports leaves precisely 36 coordinate-transversal triples and 2322 quintuples; applying all 1296 coordinate/symbol permutations gives the stated orbit sizes. This is the full group: the three pairs of neighbors of 000 can be permuted and swapped within pairs, and an automorphism fixing 000 and those neighbors is forced on each successive distance layer by common neighbors of its predecessors. The exact maximum shattered size is five.
 
-## Boundaries
-No general-dimension or independent-validation claim is made. The strongest uninspected historical overlap is a same-graph independence-complex study, although its stated invariant does not imply the present shattering profile.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinctive content is the complete trace/facet classification of the class of inclusion-maximal order-three partial Latin squares. Prior work addresses possible concept sizes, complete Latin squares, binary cubes, neighborhoods or ordinary independence complexes. Those results are pertinent but do not establish the incidence patterns and orbits for the full 390-concept class.
+
+## value
+
+PASS
+
+The ternary order-three case is a natural small instance of maximal partial Latin squares, unlike a general collection of arbitrarily selected concepts. Finding triple facets that cannot extend even though many quintuples are shattered—and describing the triples by a complete coordinate-transversal rule—explains a concrete failure of purity. The exact polynomial and orbit refinement give a useful finite benchmark for that geometric phenomenon, independent of count-only results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

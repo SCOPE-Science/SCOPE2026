@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:31:17.176646Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The claimed laws are normalized on {1,2,…}: ω(0)=0 and ω(n)→∞ for U, and each V survival factor lies in (0,1−e^(−1)) so its product tends to zero. They are not the literal inconsistent zero-plus-positive-index pmf in the reference. Log(Rθ+1) has positive first and second derivatives, so ω is strictly increasing and strictly convex and the interpolated hazard difference increases to 1−e^(−1). At x=1 equality reduces to z=e^(−z) with z=1−e^(−ω(1)); the difference there decreases strictly with α, proving the exact Lambert-W trichotomy. The survival ratio starts at one; above threshold it first increases and ultimately strictly decreases after at most one plateau at a ratio greater than one. As ω(n)∼const·e^(2θn)/n², the deficits of (1−b_n)/(1−e^(−1)) from one are summable and the limiting product lies strictly between zero and one. This gives the survival and mass equivalents, forces the ratio to zero, and proves the moment cutoffs (divergence also at equality for V). For the crossing location, xα→∞ by the fixed-x sign; the ratio ω(xα−1)/ω(xα) tends to e^(−2θ) and the scalar crossing has a continuous unique positive root there. Using Rθ(x)∼(1+θ)e^(θx)/(θx) then gives θxα=log α+log(θxα)+log(√(2wθ)/(1+θ))+o(1), first implying θxα/log α→1 and then the stated constant. This replays the estimates at positive parameters and fixed θ in the α limit; the source's floating-point check.py was inspected, not run or used to prove a limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The survey gives the construction by multiplying one-minus-hazard terms, including a Weibull example. Ahmad gives the Rayleigh–Lindley specialization and the decreasing second hazard."
+        ],
+        "reasoning": "The general product method and hazard-recursion logic are standard. They do not give, without the model-specific convexity and root analysis, a Lambert-W regime boundary or a log-plus-log-log expansion with its constant.",
+        "searches": [
+          "Chakraborty DOI 10.1186/s40488-015-0028-6, §2.6",
+          "Ahmad DOI 10.3390/math12081261, §§2.1–2.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Ahmad (2024), DOI 10.3390/math12081261",
+        "Chakraborty (2015), DOI 10.1186/s40488-015-0028-6",
+        "Resultary afcc6b3fbff2 (self), 646ecb6220e4 and 85698de6e3a0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ahmad's given positive-index hazard already implies b_n→e^(−1) and hence a limiting survival ratio; the positive product constant follows readily once the summable correction is identified. The inspected formulas do not establish the paired all-index threshold or asymptotic location."
+        ],
+        "reasoning": "The basic geometric decay rate is not a separate priority claim; the exact constant and moment boundary are consequences for the normalized law. The core sharp ordering requires relating the two hazards and analyzing their one crossing, not just reading off the limit of the second hazard.",
+        "searches": [
+          "Ahmad DOI 10.3390/math12081261, equations (2), (5), (7)–(12)",
+          "Chakraborty §2.6 product formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ahmad's nonnegative count can be shifted by one to obtain U only using the conditional failure probability, not the printed first hazard odds; V comes from the positive-index product, not the index-zero branch of the printed pmf.",
+          "Resultary afcc6b3fbff2 is the frozen result itself; 646ecb6220e4 treats an agewise Rayleigh–Weibull threshold, and 85698de6e3a0 treats two half-logistic analogues."
+        ],
+        "reasoning": "Aligning support and hazard conventions recovers the input laws but not the comparison. The distinct catalogue comparators have different laws and either different threshold quantifiers or different observables; the shared date does not settle priority.",
+        "searches": [
+          "Resultary: discrete Rayleigh–Lindley, paired survival/hazard discretizations, single crossing and geometric moment boundary",
+          "Ahmad DOI 10.3390/math12081261, Section 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact same entry afcc6b3fbff2 is not an independent source; distinct entries 646ecb6220e4 and 85698de6e3a0 give different exact thresholds and crossovers after statement-level inspection."
+        ],
+        "reasoning": "A table of sampled crossings would not decide the all-parameter classification or the first-index analytic boundary. The relevant exact finding catalogue comparison yielded no equivalent distinct statement in the inspected results.",
+        "searches": [
+          "Resultary: sharp hazard reversal thresholds and exact paired-discretization crossover"
+        ]
+      },
+      "rationale": "Credit the original two constructions, the second hazard's shape, and the immediate geometric ratio implication. The supported distinction is the sharp paired hazard and survival classification together with the asymptotic crossing location and exact tail equivalent for the coherently normalized laws.",
+      "residual_risks": [
+        "Historical priority remains bounded by the statement-level comparisons; other reliability-order literature may contain equivalent model-specific consequences. The geometric survival ratio by itself is already a direct consequence of the published hazard."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies both constructions and second-hazard shape, with normalization distinction; not the paired theorem in the inspected passages",
+          "evidence": "First hazard printed as e^(Δω)−1 (odds under the present indexing); positive-index survival product and the separately printed unit mass at zero cannot hold jointly; Eq. (12) gives the decreasing hazard.",
+          "identifier_or_url": "https://doi.org/10.3390/math12081261",
+          "material_read": "Abstract, p. 1; §2.1 pp. 3–4 and §2.2 pp. 6–7, including equations (2), (5), (7)–(12)",
+          "method": "Lawful alternate copy of the same OA PDF https://pdfs.semanticscholar.org/283f/8fb5703e66d8d47b5009ffd168fb0888359f.pdf; bounded PDF passages at offsets 14563, 22486 and 29906",
+          "title": "The Efficiency of Hazard Rate Preservation Method for Generating Discrete Rayleigh–Lindley Distribution",
+          "trigger": "Same paired models and potential direct coverage"
+        },
+        {
+          "assessment": "Prior product construction, not a model-specific comparison",
+          "evidence": "Generic discrete survival P(Y≥k)=∏_{j<k}(1−λ_X(j)) with positive indices; application to a different discrete Weibull model.",
+          "identifier_or_url": "https://doi.org/10.1186/s40488-015-0028-6",
+          "material_read": "§2.6 Methodology VI and start of §2.6.1, PDF p. 20",
+          "method": "Publisher OA PDF passage, offset 71200",
+          "title": "Generating discrete analogues of continuous probability distributions—A survey of methods and constructions",
+          "trigger": "Potential general discretization coverage"
+        },
+        {
+          "assessment": "Distinct object and threshold",
+          "evidence": "Agewise hazard thresholds and late-age asymptotics for a discrete Rayleigh–Weibull law, not the two Rayleigh–Lindley analogues.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-hazard-reversal-thresholds-for-the-discrete-rayleigh-weibu--646ecb6220e4",
+          "material_read": "Finding of RESULT.md",
+          "method": "Resultary search and local mirror",
+          "title": "Exact hazard reversal thresholds for the discrete Rayleigh–Weibull model",
+          "trigger": "Strongest different catalogue hazard-threshold match"
+        },
+        {
+          "assessment": "Distinct constructions and crossover",
+          "evidence": "Survival-preserving versus density-mimicking half-logistic count laws, including a scaled mass crossover, not the present hazard-based crossover.",
+          "identifier_or_url": "2026/11/22/SCOPE-likelihood-ratio-ordering-and-sharp-discretization-bias-for-two--85698de6e3a0",
+          "material_read": "Finding of RESULT.md",
+          "method": "Resultary search and local mirror",
+          "title": "Likelihood-ratio ordering and sharp discretization bias for two half-logistic laws",
+          "trigger": "Closest exact comparison of two discretizations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The pair of previously motivated discretizations has a sharp order boundary that diagnoses when one lifetime is uniformly shorter and when their survival comparison must reverse. The logarithmic-plus-logarithmic delay and separation of exponential-moment domains show why the choice of discretization matters even when both start from the same continuous law. The contribution is this model-specific structural classification, not the standard product construction or correction of a normalization issue alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

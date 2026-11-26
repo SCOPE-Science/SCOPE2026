@@ -1,17 +1,21 @@
-## Correctness
+# Independent mathematical audit
 
-**PASS.** The update matrix is reconstructed from the source recurrence. The cycle's common row sum gives its Perron root; the star's two-dimensional nonzero block gives its exact spectral radius. The comparison reduces to explicit polynomials, with a coefficient-sign proof for every \(n\ge6\) and separate exact identities for \(n=3,4,5\). The result is strict for every \(\delta\in(0,1)\).
+## correctness
 
-## Originality
+PASS
 
-**PASS.** The primary full text of Fatas et al. was inspected. It supplies the general recurrence and a four-agent star solution, and reports a four-agent network comparison; it does not state the arbitrary-size spectral-radius classification. Targeted searches for the model, the star/cycle comparison, and aliases involving distance-decay and spectral radius returned related network-dynamics records but no statement implying the sharp \(n=5\) crossover. Accessible own-ledger claims about cycle public-goods equilibria concern static Nash sets, not this recurrence. Residual risk: an unindexed paper may contain an equivalent spectral comparison.
+The recurrence puts total weight δ^{d(i,j)}/(n−1) in row i for each target j≠i, distributed over its allowed first hops. The cycle has identical row sums by distance counts, with two vertices at each distance below n/2 and one antipode for even n. The common row sum is both an eigenvalue and the nonnegative matrix row-norm bound. On the star the center averages the leaves with total weight δ, and each leaf updates solely from the center with coefficient [δ+(n−2)δ²]/(n−1). Reduction to the center coordinate and common leaf coordinate gives the two nonzero eigenvalues ±ρ_S as claimed. Independently, let F=(n−1)ρ_C/δ, and P=(n−1)(1+(n−2)δ)−F², with the sign of ρ_S²−ρ_C². For n=3 and 4 this is 2δ−2 and −(1−δ)² respectively. For every n≥5, F is a polynomial with nonnegative coefficients, F(0)=2, F′>0 on [0,1], and F(1)=n−1. Thus (F²)″=2(F′)²+2FF″>0, so P is strictly concave, P(0)=n−5≥0 and P(1)=0. This gives P>0 on the whole open interval, including n=5. The verification notes are consistent; the comparison is spectral, not an ordering of finite-time paths, and eigenvalues of opposite sign on bipartite graphs cause no problem for the spectral radius.
 
-## Value
+## originality
 
-**PASS.** The source motivates comparing hubs with rings because the hub can coordinate distant agents while the ring has more uniform local information. The theorem supplies a complete, parameter-uniform group-size classification for the asymptotic decay rate and identifies the exact first size at which the hub's persistence advantage appears. It does not claim that the spectral factor orders all finite-time averages or welfare.
+PASS
 
-## Closest literature and limitations
+Fatas et al. establish the recurrence and four-player examples, not the sharp all-group-size, all-decay-parameter crossover. The closest inspected indexed star–cycle ranking reversal uses adjacency and degree for SIS dynamics, not this updating matrix. The decision credits only the uniform size classification and its formulas where not already covered, not the model or the four-player analysis.
 
-Fatas et al. (2014 online; 2015 issue), “Public goods and decay in networks,” DOI \(10.1007/s13209-014-0114-x\), is the direct model source. Related indexed findings on spectral tuning for distributed consensus and fading-memory dynamics use different update operators and do not imply the star/cycle theorem.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+This gives a precise answer about whether hub concentration or a cyclic arrangement better preserves contributions under an established inference model. The ranking reverses at a small, sharp size and stays reversed for every larger size without a restriction on the interior decay parameter. The uniform result identifies a limit of extrapolating the four-player model comparisons, rather than just evaluating a few more instances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

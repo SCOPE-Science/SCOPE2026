@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:30:56.995880Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The corrected finding passes; the frozen witness geometry failed. For 0x7889, the sextuple contacts have second coordinate [0:1] at each of the three rational first coordinates. The three points originally listed as sextuple contacts are instead the double-contact points of the fourth plane; just one is shared. The frozen wording also suggested that only six masks have three distinct sextuple-contact planes without the four-plane restriction. A counterexample is smooth mask 0x6bbb with e=3: on [r:w]=[t:s+t], [s:t], [s+t:s] its restrictions are all t^6, with distinct contact points. It has a unit Jacobian ideal on each chart. The repaired RESULT.md explicitly limits the six-mask count to e=4 and displays the verified graph parametrizations and contact locus of 0x7889, and the accompanying REVIEW.md no longer claims the wrong coincidence. Independent replay: python /workspace/branches/independent-reproductions/contact_reproduction.py 4. It enumerates all 65535 masks using direct binary substitution on six graphs and membership in linear-times-square spaces on the nine reducible sections. The criterion on the latter uses odd degree on each fibre and even multiplicities off their crossing, so each fibre restriction has odd multiplicity at that crossing; addition gives even contact. A smooth (3,3) divisor cannot contain a ruling fibre or the graph, since any complementary effective divisor then meets it. The mask census agrees with all frozen e-buckets. For e>4, 1009 have F2 singular witnesses and two further F4 witnesses; for e=4 the exclusion counts are 8280 and 60. On all four charts the 60 e=4 survivors have unit ideals (f,f_x,f_y), certifying geometric smoothness. Independent substitutions by the 72 quadric symmetries give disjoint orbits of sizes 18,36,6 and stabilizers 4,2,12. Binary cubic factors, including the root at infinity and the reducible-section crossing multiplicities, verify all three frozen partition multisets and the corrected witness. The frozen scripts and data were inspected as evidence, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xarles' genus-four census covers the underlying binary curves: 264 hyperelliptic and 780 trigonal isomorphism classes. Displayed tables concern point counts and common L-polynomials.",
+          "The classical space-sextic paper studies real and complex hyperplanes, not Frobenius-fixed planes over F2."
+        ],
+        "reasoning": "The model classification provides an alternative finite starting set but needs actual contact analysis, including local multiplicities. The real/complex results are not a dominating result over the binary field.",
+        "searches": [
+          "Xarles arXiv:2007.07822, §3, Theorem 10 and pp. 8–9",
+          "Real Space Sextics and their Tritangents, arXiv:1712.06274"
+        ]
+      },
+      "checked_sources": [
+        "Resultary SCOPE-sharp-three-plane-proper-tritangent-bound-for-smooth-3-3-curves--a013937b8ce5",
+        "arXiv:2007.07822",
+        "arXiv:1712.06274"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Among the repaired inclusive maximizers, the three orbits have respectively 3,2,1 proper planes but all have four even-contact planes. The companion's tau<=3 constrains none of the nonreduced-plane increments responsible for the new bound.",
+          "Curve equations from a model census can be tested by fifteen section restrictions and geometric contact factorization; those tests are extra deductions, not stated implications or reaggregation of the published point data."
+        ],
+        "reasoning": "Credit the precise proper-tritangent overlap. The additional even-contact strata and incidence multiplicities require new checks, rather than mere change of field, notation, or table regrouping.",
+        "searches": [
+          "Resultary SCOPE-sharp-three-plane-proper-tritangent-bound-for-smooth-3-3-curves--a013937b8ce5, Finding and Assumptions",
+          "Xarles Theorem 10, displayed point-count and L-polynomial tables"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A contact plane counted here cuts twice an effective degree-three divisor; hyperosculation contributes a nonreduced divisor. The closest indexed proper-tritangent claim requires that degree-three divisor to be reduced, and gives a sharp bound of three.",
+          "Kulkarni–Ren–Sayyary Namin–Sturmfels count 120 complex tritangents through odd theta characteristics and use three distinct real points in the totally real condition."
+        ],
+        "reasoning": "Canonical divisor language is a meaningful alias, but neither the complex count nor the proper three-distinct-point condition captures the rational nonreduced planes of this characteristic-two problem.",
+        "searches": [
+          "Resultary: rational tritangents, nonreduced even contacts and sextuple hyperplanes on binary split (3,3) curves",
+          "arXiv:1712.06274, p. 1, tritangents and odd theta characteristics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed companion's representative 10723 is 0x29e3 under U=t,V=s,S=w,T=r, an exact match of its 18-mask maximizer orbit. The companion tabulates a different maximization statistic.",
+          "Xarles lists point-count data and multiplicities of shared L-polynomials; no inclusive plane count or multiplicity profile is recorded in those inspected tables."
+        ],
+        "reasoning": "The matching 18-element row is real coverage of the proper-tritangent maximizers. Neither inspected table contains, or by summation alone gives, the inclusive count of 60 and the other two profile rows. An L-polynomial may encode individual p-rank but does not supply the actual hyperosculating contact divisors.",
+        "searches": [
+          "Resultary: genus-four split quadric F2 4 planes / 60 coefficient masks / orbits 18,36,6",
+          "Xarles arXiv:2007.07822 census tables pp. 8–9"
+        ]
+      },
+      "rationale": "Pass for the repaired inclusive extremum, 60 masks, and nonreduced contact profiles. The 18-element proper-tritangent maximizer orbit is shared with a distinct same-day indexed result, now precisely credited; no priority ordering is imputed from the date. The coordinate correction does not create a separate novelty claim.",
+      "residual_risks": [
+        "The supplemental Xarles repository was not inspected file by file, so no conclusion is drawn about uninspected per-curve supplements. A further primary literature lookup was unavailable; unindexed equivalent computations are not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlaps with the proper-tritangent statistic on one orbit; explicitly excludes the new nonreduced contacts",
+          "evidence": [
+            "Proper half-divisor is reduced; tau<=3; 18 maximizers in one orbit; representative 10723."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-three-plane-proper-tritangent-bound-for-smooth-3-3-curves--a013937b8ce5/RESULT.md",
+          "material_read": "Finding and Assumptions and scope, offsets 0–5491",
+          "method": "Published record through local mirror",
+          "title": "Sharp three-plane proper-tritangent bound for smooth (3,3) curves",
+          "trigger": "Same ambient field, quadric and bidegree; exact overlapping orbit"
+        },
+        {
+          "assessment": "Underlying curve classes covered, inclusive plane-contact statistic not tabulated in inspected material",
+          "evidence": [
+            "Theorem 10 gives 264 hyperelliptic and 780 trigonal classes. Tables describe degrees of points and shared L-polynomials. §3 gives a link to census data/code."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2007.07822",
+          "material_read": "§3, Theorem 10 p. 7 and tables pp. 8–9, offsets 21972–28464",
+          "method": "Lawful OA primary PDF passages",
+          "title": "A census of all genus 4 curves over the field with 2 elements",
+          "trigger": "Comprehensive binary curve census could dominate embedded classification"
+        },
+        {
+          "assessment": "Classical comparison, not binary arithmetic coverage",
+          "evidence": [
+            "120 complex tritangent planes via odd theta characteristics; totally real condition refers to distinct real contact points."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1712.06274",
+          "material_read": "p. 1, offsets 1333–1850 and 3289–3900",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Real Space Sextics and their Tritangents",
+          "trigger": "Same canonical contact geometry and theta-characteristic alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The rational canonical even-contact statistic is a natural arithmetic invariant, and the complete classification of its extremizers separates proper from genuinely nonreduced contact in the smallest field. The 60-mask and three-profile classification answers a precise finite question not furnished by curve-model catalogues; in particular the sharp inclusive maximum is not the proper-plane maximum. The repair retains this result and corrects the sextuple witness without extending the assertion to nonsplit quadrics or other genera.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -23,7 +23,7 @@ P_{\mathrm{full}}(p)&=\sum_{k,t}C_{k,t}p^k(1-p)^{12-k}\\
 &=72p^5-204p^6+204p^7-63p^8-16p^9+12p^{11}-4p^{12}.
 \end{aligned}
 \]
-At \(p=1/2\), the probability is \(393/1024\). The displayed joint table additionally specifies the entire conditional completion-time law at every \(p\in[0,1]\).
+At \(p=1/2\), the probability is \(393/1024\). For \(0<p\le1\), the conditional probability of completion at round \(t\), given eventual complete activation, is \(\sum_k C_{k,t}p^k(1-p)^{12-k}/P_{\mathrm{full}}(p)\), with the numerator evaluated as a polynomial at \(p=1\). At \(p=0\), there is no activation and the conditional law is undefined; the unconditional law has \(T=\infty\) almost surely.
 
 ## Assumptions and scope
 The ordinary three-cube \(Q_3\) has vertex set \(\{0,1\}^3\), with one edge between binary words at Hamming distance one. The twelve vertices of its line graph \(G\) represent the twelve cube edges; two vertices of \(G\) are adjacent exactly when their corresponding cube edges meet. Thus \(G\) is a four-regular graph with twelve vertices and 24 edges.
@@ -45,10 +45,10 @@ Summing the joint entries over times gives the Bernoulli polynomial in the state
 Run `python3 verify_dynamics.py` and `python3 verify_paths.py` from the same directory. Both programs use only the Python standard library. The first program checks the exact joint histogram and every five-seed activation profile. The second enumerates edge-disjoint linear forests by a separate disjoint-set computation, constructs all cube Hamiltonian paths, and confirms the three automorphism orbits. Assertions terminate with an error if any claimed count fails.
 
 ## Relationship to prior work
-Bootstrap percolation on general random regular graphs and thresholds was analyzed by Balogh and Pittel (2006/2007); later work of Garbe, Mycroft, and McDowell (2018) gives general degree-proportional contagious-set bounds. These papers establish the model and general principles, not the present explicit four-regular cuboctahedral joint distribution. The existence and number of 72 Hamiltonian paths on the ordinary three-cube are previously tabulated (OEIS and other combinatorial sources); that Hamiltonian-path count is credited rather than claimed as new. The contribution assessed here is the exact cuboctahedral *joint* contagious-seed/completion-time distribution and its geometric interpretation under the three-neighbor rule. The cuboctahedral graph identity, twelve-vertex count, 24-edge count, and 48 symmetries are standard and are likewise credited.
+Bootstrap percolation on general random regular graphs and thresholds was analyzed by Balogh and Pittel (2006/2007); later work of Garbe, Mycroft, and McDowell (2018) gives general degree-proportional contagious-set bounds. The existence and number of 72 Hamiltonian paths on the ordinary three-cube are previously tabulated. The reconfiguration study *Sharp six-move backbite geometry of the three-cube* also describes the 72 minimum feedback vertex sets of the cuboctahedral graph, their Hamiltonian-path correspondence, and their three 24-element orbits. Minimum feedback vertex sets are minimum contagious sets here by the forest criterion above. That shared geometry is not claimed as distinct; the contribution is the exact cuboctahedral *joint* seed-size and synchronous completion-time distribution under the three-neighbor rule. The cuboctahedral graph identity, twelve-vertex count, 24-edge count, and 48 symmetries are standard.
 
 ## Limitations
-This is a finite exact result for one canonical twelve-site graph, one homogeneous deterministic threshold, and permanent synchronous activation. It is not a universal percolation threshold, large-size asymptotic law, statement about recovery, or result for other polyhedra. The minimum-seed Hamiltonian path count is known independently; historical priority of the full joint distribution has not been independently certified. No independent scientific audit has been performed.
+This is a finite exact result for one canonical twelve-site graph, one homogeneous deterministic threshold, and permanent synchronous activation. It is not a universal percolation threshold, large-size asymptotic law, statement about recovery, or result for other polyhedra. The minimum-seed Hamiltonian path count is known independently; historical priority of the full joint distribution is not certified.
 
 ## References
 - J. Balogh and B. G. Pittel, *Bootstrap percolation on the random regular graph*, first published 13 December 2006, https://doi.org/10.1002/rsa.20158.
@@ -56,3 +56,4 @@ This is a finite exact result for one canonical twelve-site graph, one homogeneo
 - E. W. Weisstein, *Cuboctahedral Graph*, MathWorld, https://mathworld.wolfram.com/CuboctahedralGraph.html.
 - OEIS A091299, *Number of (directed) Hamiltonian paths (or Gray codes) on the n-cube*, https://oeis.org/A091299. Its third term 144 corresponds to 72 unoriented paths.
 - E. W. Weisstein, *Hamiltonian Path*, https://mathworld.wolfram.com/HamiltonianPath.html.
+- *Sharp six-move backbite geometry of the three-cube and its cuboctahedral decycling dual*, Resultary, 2026-11-22, https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-six-move-backbite-geometry-of-the-three-cube-and-its-cuboc--d828e9887f71.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The map is taken directly from the fixed-increment definition in Zhang [1, Eq. (2.1)]. Differentiation of normalized sampled projectors gives formula (1); an orthogonal rank-one tangent/normal decomposition gives (2). The adjoint-product eigenanalysis proves every multiplicity, including degenerate alignment by continuity, and furnishes an exact worst perturbation. The derivative is smooth under nonzero overlaps. A standalone deterministic program completed 1,563 corroborating checks. The formal proof, not numerical sampling, establishes the universal quantifiers.
+## correctness
 
-## Originality
-PASS, subject to residual literature risk. Zhang [1, Theorem 2.2] supplies the broader finite-error estimate, but does not determine the exact local derivative or singular spectrum. The familiar two-sided projector itself is prior art: Epperly [2, Section 10.1], citing Stewart, explicitly defines it. Nobile–Riffaud [3] and Hauck–Kusch–Schotthöfer [4] treat integration and robustness rather than the infinitesimal two-sided sampling condition numbers. Published-record semantic searches for the same map, aliases, principal angles, and condition numbers found no specific covering spectrum. The result is therefore a narrow refinement of a known algorithm, not a new algorithm or a priority guarantee.
+PASS
 
-## Value
-PASS. The exact singular spectrum separates tangent errors (unmodified), normal errors (which can leak into tangent channels), and tangent-normal input combinations that cancel at first order; it quantifies a dimension- and singular-value-independent accuracy budget for a newly analyzed same-increment low-rank update. The sharp angular norm improves the source's rank-one finite-error prefactor only for infinitesimal defects, from \(\sqrt{2+\alpha^2+\beta^2}\) to \(\sqrt{1+\alpha^2+\beta^2}\). Its sharpness witnesses rule out any better universal local guarantee at fixed alignments. This matters for selecting numerical increment tolerances when old bases drift; it does not imply a new global integration order or general dynamic stability.
+The nonzero overlaps keep both projection denominators away from zero locally. At the target the two projectors are onto a and b and fix the rank-one target. Differentiate the projector onto a sampled vector: at c*a, a unit and c nonzero, only the orthogonal part of the vector variation contributes, with factor 1/c, in each off-diagonal block of the projector. Applying the product rule to the sampled Galerkin map cancels sigma and gives the tangent output (e11,e12+p^T Z,e21+Zq), with normal output zero, where p=u_perp/(a^T u), q=v_perp/(b^T v). Rotate the two complement bases so p and q lie along their first axes, using arbitrary such axes for zero p or q. The row and column tangent coordinates away from those axes each receive a distinct normal coordinate with coefficients alpha or beta, respectively, giving singular values sqrt(1+alpha^2) n-2 times and sqrt(1+beta^2) m-2 times. The two axial tangent coordinates receive one shared normal coordinate with coefficients alpha and beta, giving the two eigenvalues 1 and 1+alpha^2+beta^2 of their squared singular-value matrix. The scalar coordinate gives another 1, and the identity on tangent inputs fixes the rank at m+n-1, leaving (m-1)(n-1) zero singular values. This argument includes zero misalignments, both dimensions equal to two, and coincident bands. If s=sqrt(alpha^2+beta^2)>0, take a unit normal Z along the outer product of the two first axes, and T=[p^T Z,Zq]/s in the tangent off-diagonal pair. Input (T,sZ) attains amplification sqrt(1+s^2) for the derivative, and the Fréchet remainder transfers this to the claimed local supremum limit. With s=0 any unit tangent direction attains one. Independently checked 150 full central-difference spectra of the nonlinear map in rotated coordinates with signed overlaps, zero and nonzero alignment losses, and multiple scales. Replay: python3 /workspace/independent_replays.py 1.
 
-## Closest literature and limitations
-Primary sources: Zhang, arXiv:2611.15175, Section 2; Epperly's 2025 thesis, Section 10.1; Nobile–Riffaud arXiv:2502.07040; Hauck–Kusch–Schotthöfer arXiv:2608.27749. Unindexed earlier matrix perturbation derivations may contain equivalent formulas. Rank \(r>1\), roundoff, singular reference overlaps, and finite-error global optimization are unproved. No independent audit or external certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Zhang and the Epperly/Stewart projection sources establish antecedents for the map itself, not the exact derivative spectrum. Zhang's bound concerns finite errors and is not sharp for the infinitesimal question. A close oblique tangent projector has different linear action, with a scalar normal-to-tangent coupling absent from this map. The inspected primary and Resultary statements do not cover the claimed fixed-sketch Frobenius spectrum; absolute priority is not established.
+
+## value
+
+PASS
+
+The exact local amplification is a meaningful benchmark for fixed-increment sampled low-rank updates, distinct from a sufficient finite-error bound. The spectrum identifies which perturbation directions amplify, shows that the two alignment losses enter through a coupled band rather than a product, and recovers local norm one exactly when both bases are aligned. The natural rank-one case exposes the mechanism without claiming nonlinear or higher-rank stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

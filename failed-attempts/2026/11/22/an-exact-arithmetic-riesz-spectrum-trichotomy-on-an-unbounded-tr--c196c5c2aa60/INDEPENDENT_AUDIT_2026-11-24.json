@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:15:52.682442Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The residue intervals define a measure-one integer fundamental domain. Over [0,1/2) there are exactly two points in each fiber, t and t+1/2+m_j. With the unitary coefficient transform √2 times the Fourier series on that half interval, synthesis is multiplication by M_j(t)/√2. Its squared singular values are 1±|cos(πα(m_j+1/2))|. Localizing a normalized eigenvector on a positive-measure J_j and approximating with Fourier polynomials proves sharpness. For reduced odd a, a(2m+1) runs through every odd residue mod 2b, giving distance one from a multiple of 2b and the exact positive lower bound. For even a, b is odd and m=(b−1)/2 gives a singular fiber; right and left kernels localized there give an ℓ² synthesis kernel and incompleteness, including the indexed collision at even integers. For irrational α each fiber is invertible but irrational rotation makes the lower singular values arbitrarily small on positive-measure intervals. The adjoint therefore has zero kernel but is not bounded below, proving completeness and failure of the frame inequality, not merely failure of a synthesis bound. The half-angle ratio, orthonormal case and detuning asymptotic follow as stated. Replay at RESULT.md lines 28–88. Inspected CHECK.py and verification notes without running the finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cabrelli–Carbajal identify completeness by the fiber spans and give the sharp uniform Riesz criterion in terms of the matrix and its inverse; equation (2.3) is the actual exponential entry formula. Cabrelli–Hare–Molter give the equivalent Bohr-closure determinant criterion for prescribed offsets. Asipchuk–Drezels treat another family on interval unions."
+        ],
+        "reasoning": "The first two sources already identify the complete tests for the prescribed structured family, not just an existence result for an unspecified Riesz basis. Cabrelli–Carbajal Example 3.3 also shows that on a different unbounded tile an irrational offset difference can give a basis; that is not a counterexample here.",
+        "searches": [
+          "arXiv:1701.07042 Theorems 2.11 and 2.13, equation (2.3)",
+          "arXiv:2001.11563 Proposition 3.2 and Theorem 3.3",
+          "arXiv:2211.03821 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "Resultary exact self-hit and distinct conditioning record 1e706b439add",
+        "Cabrelli–Carbajal 1701.07042",
+        "Cabrelli–Hare–Molter 2001.11563",
+        "Asipchuk–Drezels 2211.03821"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Use heights 0,h and offsets 0,α/2 in the published matrix. Up to column phase it is [[1,1],[1,exp(πiαh)]]. After measure-one normalization its squared singular values are 1±|1+exp(πiαh)|/2. For h running over the positive odd heights of Example 2.7, odd a gives all odd residues ah mod 2b and the extremum cos(π/(2b)); with even a, the odd multiples of b hit exact singularities. For irrational α these positive odd heights are an irrational-rotation semiorbit: none is singular and their phases are dense, which gives full fiber span but no lower frame bound. Including every negative odd h changes none of the three conclusions. The ratio and detuning follow by half-angle and are likewise unchanged."
+        ],
+        "reasoning": "This is a plug-in to the published example and matrices, plus the odd residue permutation or rotation density, not a deduction from a generic existence theorem alone. No new gap invariant or subtle dependence on the new two-sided geometry remains.",
+        "searches": [
+          "arXiv:1701.07042 Example 2.7 and equation (2.3) versus RESULT.md lines 43–86",
+          "arXiv:2001.11563 Theorem 3.3 on character closure"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Scale the frozen set to 2Ω and change offsets to 0,α/2 over frequency lattice ℤ: its fibers are separated by signed odd integers. Cabrelli–Carbajal Example 2.7 has the same doubled construction over [0,1), with positive odd separations 2j+1 for j≥1. Dividing that tile by two already gives an unbounded integer fundamental domain because the two points reduce to opposite half-intervals mod 1."
+        ],
+        "reasoning": "Discarding or adding negative odd heights and finitely many positive odd heights leaves all odd residue classes represented infinitely often and leaves the same irrational phase closure. This preserves both the exact squared bounds and all singular-fiber tests.",
+        "searches": [
+          "arXiv:1701.07042 Examples 2.6–2.7, Theorem 2.13 and equation (2.3)",
+          "Resultary fixed two-coset unbounded tile odd translation heights complete nonframe trichotomy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact title hit is the frozen record itself. The distinct conditioning result calculates exact bounds for two fiber heights on a bounded two-interval domain. No separate exact table for the infinite classification was identified by the catalogue checks."
+        ],
+        "reasoning": "The bounded record confirms that extremal two-coset conditioning is governed by those fiber phases; its finite height set cannot establish the irrational limiting obstruction. Decisive coverage comes from the published positive odd-height example and general criterion, not from the self-hit or a numerical table.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-an-exact-arithmetic-riesz-spectrum-trichotomy-on-an-unbounded-tr--c196c5c2aa60",
+          "Resultary 2026/11/8/SCOPE-optimal-two-coset-fourier-conditioning-on-separated-unit-interva--1e706b439add"
+        ]
+      },
+      "rationale": "The full asserted spectral behavior is a direct specialization of established fiber formulas to the positive odd-height example of Cabrelli–Carbajal, which after scaling is already an unbounded integer fundamental domain. Changing to all signed odd heights is a genuine geometric change but leaves exactly the same extremal and singular-fiber tests for every offset, so it does not supply a distinct spectral result. This is coverage by implication, not a claim that the earlier example prints the three cases or their constants verbatim.",
+      "residual_risks": [
+        "No assertion is made about who first printed the three closed-form cases or about all other spectra of the two-sided tile.",
+        "The conclusion is tied to the prescribed two-coset families; adding independently perturbed frequencies is not covered by this review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same spectral cases by direct specialization; different two-sided geometry",
+          "evidence": "Example 2.7 uses the positive odd heights 2j+1; the exact uniform spectral tests apply to prescribed offsets.",
+          "identifier_or_url": "https://arxiv.org/pdf/1701.07042",
+          "material_read": "Definition 2.4, Examples 2.6–2.7 pp.4–5; fiber spans, Theorems 2.11 and 2.13 and eq. (2.3) pp.5–7; Example 3.3 pp.9–10",
+          "method": "OA original PDF; Example 2.7 and matrices checked at offsets 13440 and 18800",
+          "title": "Riesz Bases of Exponentials on Unbounded Multi-tiles",
+          "trigger": "Nearly identical odd-height tile and exact fiber criterion"
+        },
+        {
+          "assessment": "Fixed-offset uniform lower test in character closure",
+          "evidence": "Uniform invertibility is equivalent to no singular matrix on the Bohr closure of the fiber height tuples.",
+          "identifier_or_url": "https://arxiv.org/pdf/2001.11563",
+          "material_read": "Proposition 3.2, Theorem 3.3 and Remark 3.4, p.5 near offset 14950",
+          "method": "OA original PDF",
+          "title": "Riesz bases of exponentials and the Bohr topology",
+          "trigger": "Stronger fixed-offset arithmetic criterion"
+        },
+        {
+          "assessment": "Related special family, not the decisive overlap",
+          "evidence": "Sufficient arithmetic gap conditions for a particular perturbed-lattice family B*.",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.03821",
+          "material_read": "Theorem 1.1 p.3, around offset 8827",
+          "method": "OA original PDF",
+          "title": "Examples of exponential bases on unions of intervals",
+          "trigger": "Gap arithmetic and potentially unbounded interval union"
+        },
+        {
+          "assessment": "Finite-height version of the method, not infinite offset classification by itself",
+          "evidence": "Exact bounds depend on only two finite heights on a bounded two-interval domain.",
+          "identifier_or_url": "2026/11/8/SCOPE-optimal-two-coset-fourier-conditioning-on-separated-unit-interva--1e706b439add",
+          "material_read": "Original RESULT.md Finding and initial setup, offset 0",
+          "method": "Resultary search and local original mirror",
+          "title": "Optimal two-coset Fourier conditioning on separated unit intervals",
+          "trigger": "Exact two-coset conditioning based on fiber heights"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A complete nonframe arbitrarily close to an orthogonal spectrum is a meaningful illustration, but the known positive odd-height example and sharp fiber criterion already give this exact boundary and the same conditioning constants. Adding negative heights is not motivated by a different tested invariant, and the arithmetic evaluation is mechanical; the pedagogical example does not survive as a distinct scientific invariant.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

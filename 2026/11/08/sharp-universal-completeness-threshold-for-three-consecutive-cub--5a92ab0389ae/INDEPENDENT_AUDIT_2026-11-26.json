@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:56:08.881798Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each target color and nonzero argument the root-of-unity filter is exactly 3 or 0, and at zero it is 1. Removing starts 0,−1,−2 from the field sum subtracts at most 27 before division by 27. The 27-term expansion has constant term p; the six one-support terms vanish by character orthogonality; the twelve two-support and eight three-support terms are bounded by √p and 2√p respectively. In the last two cases the polynomial is not a cube because its distinct linear factors have exponents 1 or 2, so the distinct-root version of the Weil bound applies. The error phases all have modulus one, giving 27N≥p−28√p−27. For √p≥29 the lower bound is (√p−29)(√p+1)+2>0. Independently reran the entire finite interval by an Eratosthenes sieve and direct Euler-character values x^((p−1)/3), identifying the first nontrivial value with color 1. This reproduced the 70 eligible primes through 840, all 42 successes between 307 and 840, the full list of thirteen failing primes, and the last failure 283 with just (0,0,0) missing. It also confirmed (2,0,2) is absent at 151 and 163 while (0,0,0) occurs. The next eligible prime is 307. The proof is for eligible prime fields and ordinary starts 1,…,p−3, not a least integer lower bound or a claim for proper extensions. Replay: python3 /workspace/audit_evidence/05-cubic.py. The frozen dual-enumeration script and its recorded output were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier 25e842088320 classifies triples of cubes that are also nonsquares over eligible fields, a subset of 000. The 1983 abstract describes shifted patterns of kth-power residues, not heterogeneous cosets. The proper-extension and four-letter records are later and have different hypotheses or thresholds."
+        ],
+        "reasoning": "A tighter condition on a monochromatic triple may imply existence of 000 where the tighter condition holds, but never guarantees an arbitrary mixed word and does not imply its own negative cases for cubes. The later extension result excludes prime fields; the later four-letter bound of 571 does not determine 307.",
+        "searches": [
+          "Resultary 25e842088320 nonsquare cubes; 864031916acd proper extensions; a9bb42f1c936 length four",
+          "E. Lehmer, Patterns of Power Residues, DOI 10.1016/0022-314X(83)90004-5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, VERIFICATION.md, verify.py and verify_output.txt",
+        "1962 Lehmer–Lehmer–Mills–Selfridge Theorem 1",
+        "Emma Lehmer 1983 indexed abstract",
+        "Resultary 5a92ab0389ae, 25e842088320, 864031916acd, a9bb42f1c936"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At eligible primes 151 and 163 the word 000 occurs while 202 does not in the chosen labeling, confirmed by the independent Euler-character enumeration. The 1962 theorem already fixes the obstruction 000 at 283."
+        ],
+        "reasoning": "The presence of 000 is necessary but not sufficient in general; its known boundary does not settle mixed words beyond that boundary. The full threshold uses an all-word tail inequality and checks all intervening primes; an implication from an inspected stronger prior statement was not established.",
+        "searches": [
+          "1962 Theorem 1(a)–(b), all-cube existence and exceptions",
+          "25e842088320 Finding, nonsquare-cube existence",
+          "E. Lehmer (1983), indexed scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "5a92ab0389ae is the indexed target itself. The 1962 paper defines exceptionality as absence of a triplet of cubic residues and lists 283 as the largest exception."
+        ],
+        "reasoning": "A triplet of cubic residues is exactly the 000 word for eligible primes. Relabeling the two nontrivial cubic cosets cannot turn any mixed word into 000 and does not establish completeness. Therefore the exact numeric threshold for one word is credited without attributing the all-word theorem to the earlier result.",
+        "searches": [
+          "Resultary: all 27 words and cutoff 307, mixed cubic-coset triples, ternary cubic word completeness, Lehmer 1983 power-residue patterns",
+          "Lehmer–Lehmer–Mills–Selfridge (1962), Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The recovered classical exception list records which primes lack all-cube triples; it provides no full cubic-coset-word census in the retrieved passage. The exact Resultary match is the assigned record. The potentially relevant 1983 full text and any tables therein were not obtained."
+        ],
+        "reasoning": "A list keyed to a single color triple omits the required mixed-word occurrence data. The reproducible finite census establishes the claim's remaining range, but is not evidence of historical originality by itself.",
+        "searches": [
+          "Resultary: exact 27-word / 307 cutoff and missing word at 283",
+          "1962 Theorem 1 exceptional-prime list; 1983 Lehmer article via indexed abstract and attempted full text"
+        ]
+      },
+      "rationale": "The last failure 283 for the all-cube word is classical, as is the general character-sum method. The distinct statement is simultaneous occurrence of all 27 words already at every eligible prime beginning at 307, with 000 the sole omission at the preceding eligible prime. The decisive earlier results inspected concern one homogeneous word or a narrower subset of one word, not all mixed words. Priority remains qualified by the inaccessible 1983 full text.",
+      "residual_risks": [
+        "The full 1983 Patterns of Power Residues paper was not available from the attempted routes; its abstract does not rule out pertinent tables or additional statements.",
+        "The literature and index checks do not constitute exhaustive priority verification. No priority is claimed for the 000 exception or for the character-sum technique."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the classical 000 boundary, no mixed-word conclusion in the retrieved theorem",
+          "evidence": "Exceptionality means no triplet of cubic residues. Theorem 1(a) lists 283 as the largest exception, and 1(b) bounds the first triplet for all nonexceptional primes.",
+          "identifier_or_url": "https://www.cs.umd.edu/~gasarch/TOPICS/res/llms.pdf",
+          "material_read": "p. 407 (scan PDF p. 2), definitions and Theorem 1(a)–(b) in retrieved matched passages at offsets 2699 and 2814; bounded re-open timed out",
+          "method": "Targeted primary literature search, AMS OA attempt, lawful university copy with OA passage extraction",
+          "title": "Machine Proof of a Theorem on Cubic Residues",
+          "trigger": "Classical same-threshold result and exceptional-prime list"
+        },
+        {
+          "assessment": "Available result description concerns homogeneous power-residue patterns; full-paper coverage unresolved",
+          "evidence": "The abstract describes whether x,x+a_1,…,x+a_{m−1} can form a pattern of kth-power residues; it does not claim a full coset-labeled census.",
+          "identifier_or_url": "https://doi.org/10.1016/0022-314X(83)90004-5",
+          "material_read": "Indexed abstract only; attempted OA routes including ScienceDirect and a CORE PDF did not yield the paper text",
+          "method": "Targeted literature search and lawful OA route attempts",
+          "title": "Patterns of Power Residues",
+          "trigger": "Highly plausible older mixed-pattern formulation or classification table"
+        },
+        {
+          "assessment": "Different predicate inside the same 000 word",
+          "evidence": "Classifies fields containing three consecutive nonsquare cubes; 283 appears among the exceptions. It does not require any element from a noncube coset.",
+          "identifier_or_url": "2026/11/2/SCOPE-complete-exceptional-field-classification-for-three-consecutive--25e842088320",
+          "material_read": "RESULT.md Finding at local mirror offset 86",
+          "method": "Resultary search and local mirror excerpt",
+          "title": "Complete exceptional-field classification for three consecutive nonsquare cubes",
+          "trigger": "Earlier nearby exact threshold and exception list"
+        },
+        {
+          "assessment": "Later and proper-extension-only",
+          "evidence": "The statement assumes q=p^e with e≥2 and gives a distinct threshold, so it does not include the frozen prime fields.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-cubic-coset-triple-universality-over-proper-finite-field-e--864031916acd",
+          "material_read": "RESULT.md Finding, offset 80",
+          "method": "Resultary search and local mirror excerpt",
+          "title": "Sharp cubic-coset triple universality over proper finite-field extensions",
+          "trigger": "Exact 27-word theorem in a nearby field domain"
+        },
+        {
+          "assessment": "Later result, larger cutoff and different length",
+          "evidence": "All 81 four-letter words occur for eligible primes from 571; projection covers length three there, but says nothing about the full prime interval beginning at 307 and is not earlier evidence.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-completeness-threshold-for-four-consecutive-cubic-power-co--a9bb42f1c936",
+          "material_read": "RESULT.md Finding at offsets 594 and 1052",
+          "method": "Resultary search and local mirror excerpt",
+          "title": "Sharp completeness threshold for four consecutive cubic-power cosets",
+          "trigger": "Longer words imply shorter words within overlapping prime ranges"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Simultaneous occurrence of all coset words on three consecutive nonzero positions is the natural mixed-color strengthening of the classical first triplet question. The finite threshold is meaningful because the lone classical obstruction could have been overtaken by a mixed-word obstruction; smaller primes show those conditions really differ. The proved all-word tail and complete finite interval resolve this sharp boundary rather than just listing examples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

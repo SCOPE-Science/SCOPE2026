@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim's graph is specified by fifteen explicit original Petersen edges and standard line-graph adjacency. Two independently written programs compute the 105 shortest-path bisectors and exhaustively inspect all \(2^{15}=32768\) vertex subsets, checking the same exact minimum sizes and optimum counts. The Python program checks all 1365 eleven-subsets contain a bisector, and both programs prove that the six complements of minimum six-resolving configurations coincide with all six Petersen perfect matchings. The universal high-robustness formula and impossibility boundary follow algebraically from bisector size five and monotonicity. The finite verification is exhaustive, not probabilistic.
+## correctness
 
-## Originality — PASS, subject to literature coverage limits
-The 2014 foundational article and 2016 bisector study were inspected in HTML full text, especially the Petersen-graph example (a different graph) and theoretical bisector characterization. The 2020 primary full-text article covers fault-tolerant *line graphs of prisms and necklaces*, not this graph. Bailey's 2013 small-graph paper treats ordinary metric bases, not the full \(k\)-spectrum. Related published mathematical records on Petersen-line zero forcing, locating domination and Rips topology address different operators; no broad theorem in the inspected sources determines the 105 five-bisector patterns, ten optimal counts, or the six perfect-matching complements. Searching both equivalence and stronger coverage found no decisive prior implication. Unindexed sources or works not accessed remain possible.
+PASS
 
-## Value — PASS
-This is the exact robust landmark-placement spectrum for a canonical nontrivial fifteen-vertex graph, refining the classical graph-metric dimension and making concrete the number and geometry of designs robust to \(k-1\) landmark losses. The six perfect-matching complements at \(k=6\), the strict two-landmark jump at \(k=7\), and the onset of universal optimality have structural rather than merely procedural interpretation. Exact finite objects and natural invariants are the scope; no extension to other graph families is asserted.
+Reconstructed the line graph on the stated GP(5,2) edges, not the vertex metric on the Petersen graph. An independent exhaustive calculation of distances and all 105 unordered pairs reproduced 105 distinct five-element bisectors. A set S guarantees |S| minus its maximum bisector intersection, so evaluating all 32768 masks certifies all ten dimension and count rows, with no k above ten feasible. Separately enumerating the perfect matchings on the ten original vertices gives exactly the six complements of optimal six-metric bases. Every 11-subset contains a bisector, so cannot be a 7-generator; every (k+5)-subset has at most five nondistinguishing landmarks. Deletion lowers the guaranteed multiplicity by at most one, so the lower bound at seven propagates to k=8,9,10 and all these claimed minimizers are exact. As a structural check on bisector cardinality, represent a Petersen edge by two disjoint pairs in [5]. The missing symbol groups its line-graph vertex into one of five triples; distance three is exactly the two other vertices of that triple. Within a triple the two disjoint four-neighbor sets leave four equidistant vertices outside plus the third member. Across triples each vertex has one neighbor in the other's triple, and there is exactly one common neighbor (the third edge at a shared endpoint for distance one; the unique bridging edge for distance two). Among the nine vertices outside both triples the two three-neighbor sets then have symmetric difference four, again leaving five equidistant vertices. This reasoning supports sizes; distinctness and the bases census were checked exhaustively.
 
-## Limitations
-Only the fifteen-vertex Petersen line graph is considered. The main classification uses complete finite integer search; there is no external independent review or guarantee of historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the full labeled robustness census and the perfect-matching classification at k=6. Possible earlier knowledge of the ordinary metric dimension or its fault-tolerant variant is not credited as novel. The strongest identified statements on the same graph concern different landmark tests, or just the standard metric-dimension parameter.
+
+## value
+
+PASS
+
+The Petersen line graph is a canonical test for robustness under landmark loss. At the boundary k=6 the least-size sets are governed by a different invariant of the underlying graph (perfect matchings), while at k=7 the optimum size jumps by two and every set of that size works. The exact counts and uniform bisectors separate these regimes and give useful benchmark data beyond the ordinary dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

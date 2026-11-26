@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-Two standard-library Python programs reproduce the exact finite enumeration using different algorithms: `verify_global.py` constructs every globally disjoint-shadow family and checks each family against references, while `verify_reference.py` constructs each reference's word set and searches its deletion-shadow graph directly.
+# Independent mathematical audit
 
-The measured reference counts by maximum correcting-code size are:
+## correctness
 
-| Reference length | Capacity-count distribution |
-|---|---|
-| 3 | 1:27 |
-| 4 | 1:81 |
-| 5 | 1:33, 2:210 |
-| 6 | 1:39, 2:336, 3:342, 4:12 |
-| 7 | 1:45, 2:570, 3:1074, 4:498 |
-| 8 | 1:51, 2:1002, 3:2490, 4:3018 |
-| 9 | 1:57, 2:1824, 3:5292, 4:11214, 5:1296 |
+PASS
 
-The exact optimizer set at reference length six is the orbit of `012021` under alphabet relabeling and reversal. All twelve support one four-word correcting code whose one-deletion output sets partition the nine ternary digrams. The finite calculations check exhaustive reference spaces, not randomly selected samples.
+For labeled ternary length-three words, singleton deletion shadows are exactly constants; two-shadow words are two-run and consume a diagonal digram. With five disjoint shadows, zero constants would exceed nine digrams, one constant would force four two-shadow words with only two diagonals free, and two constants would force at least two two-shadow words with one diagonal free. Thus five words require all three constants, and the only compatible remaining pairs are reversed permutations of the alphabet. This proves the global ceiling and T≥9 for five words. For shorter lengths, embeddings of distinct correcting words intersect in at most one position; two and three words need at least five and six positions respectively. The stated length-five, six, and nine witnesses and monotonicity yield the exact all-length frontier. At T=6 four embeddings have each position used twice by the degree count and each pair meeting once, hence positions are edges of K4. A constant aaa would force its three companion stars to each include exactly one a and otherwise use the two remaining symbols on the triangle. At least two companions must consume only one of the four a-involving off-diagonal digrams, hence have repeated adjacent non-a symbols; two monochromatic incident pairs on that triangle would force the same repeated symbol and a diagonal collision. Thus there are no constants. Three words must be two-run using distinct diagonal digrams, and the fourth uses all three symbols. At the distinct-symbol star, its three spokes must each supply a duplicate to the other endpoint, since the three triangle edges can supply at most three of the six required duplicate occurrences. Orientation of the triangle edges toward the vertex using their duplicate then gives a directed 3-cycle. With the distinct-symbol word normalized to 012, the two cycles force the remaining ordered words 200,110,221 or 100,211,220 by the unused off-diagonal digrams. The position constraints order the six edges uniquely in each case, yielding 201210 and 210120, respectively. These lie in disjoint relabeling orbits exchanged by reversal up to relabeling; within each orbit the distinct-symbol word and hence the code are unique. A separate exact nine-bit-mask exhaustion over all 729 references confirms capacities 1:39, 2:336, 3:342, 4:12 and one code per optimum. For the cyclic comparison, 011,022,120 fit in 012012 and adding 000 is possible in 0120120; the census excludes four at the shorter length. The two frozen scripts and VERIFICATION.md were inspected, not executed. The independent finite replay forms all index-triple words, deduplicates each one-deletion shadow, then iterates include/skip transitions indexed by occupied digram mask, counting optimizer ties.
 
-The all-length capacity claim relies additionally on the mathematical proof: every five-word correcting code is one of three classified families, all containing three copies of each constant word, so a reference must have at least nine positions to synthesize it; the shorter-length bounds follow from embedding-set intersections. No result beyond ternary length-three codewords is asserted.
+## originality
+
+PASS
+
+The supported distinct contribution is the optimal synthesis-time frontier with short-reference rigidity, not the unconstrained five-word ceiling or the deletion-shadow criterion. The strongest prior formulates the exact same optimization and supplies finite-length bounds, but its bounds do not resolve the decisive lengths, optimizer orbit, or gap versus cyclic references.
+
+## value
+
+PASS
+
+The smallest ternary case in this formulation gives a useful exact benchmark: it exhibits a one-cycle gap between an optimized reference and the unrestricted-subsequence-optimal cyclic strategy. The census makes the gap structural rather than an isolated witness, and determines when full use of the digram space is forced. The work does not claim scalability to longer words.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

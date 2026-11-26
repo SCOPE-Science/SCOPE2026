@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:33:04.597550Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the edge-seeded unrooted tree C counts all unordered leaf pairs at a common neighbor, not only centers of degree three. Start the leaf drifts at n=3, with (S,X,C)=(6,4,1), where S=sum d² and X=sum d·ell. Attachment at a nonleaf adds ell pairs and d+ell+1 to X; attachment at a leaf loses ell_w-1 pairs at its old neighbor w and changes X by 2-d_w. Degree-weighted averaging gives E[ΔX|T_n]=1+S_n/[2(n-1)] and (n-1)E[C_(n+1)|T_n]=(n-2)C_n+X_n/2. The S drift is E[S_(n+1)|T_n]=nS_n/(n-1)+2; telescoping these three identities from the deterministic starts reproduces the exact finite mean. With U=sum d³, its expected growth recursion has multiplier 1+3/[2(n-1)] and forcing O(log n); dividing by the product of multipliers, of order n^(3/2), gives E U_n=O(n^(3/2)). The martingale increments of M are (2d_selected-S_n/(n-1))/n, with expected square summable via U. The star and path at n=4 are equiprobable and give M_4=±1/3. The centered X-increment's expected square is O(n^(1/2)): contributions at leaves combine by old neighbor and use ell_w≤d_w, as do the nonleaf degree weights. The C-increment innovation multiplied by n-1 has expected square O(n^(5/2)) by the same bound. Dividing these by n and n² respectively gives square-summable martingale series; Kronecker gives the required almost-sure noise control and orthogonality gives L² control. Cesàro first transfers the limit to centered X_n/n as M∞/2; the weighted sum of those centered X values then transfers it to centered C_n/n as M∞/8. The mean contributes γ/4−1/8 after subtracting (log n)/4, and the limiting variance is at least (1/9)/64. Independent exact-rational enumeration checked 17,757 bounded assertions through n=8; replay with /workspace/branches/4ada986c-83c3-4279-8c37-933b0df8664f/spotcheck.py. The source checker was inspected but not run; its recorded 184,947 assertions through n=9 are finite checks, not an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fixed finite fringe counts have multivariate Gaussian limit results, while the current unbounded leafdegree weight depends on contributions from arbitrarily large centers. Zhang's PORT formula and recursion for S have the same size-two degree-proportional initial condition. The half-degree bound concerns a maximum/norm in probability and also uses the exact S drift."
+        ],
+        "reasoning": "Knowing all fixed-shape limits without uniform summation control does not give an unbounded quadratic aggregate. Likewise the maximum leafdegree approximation is not o(n) control of its global squared sum: summing degree times the uniform error can be much larger than n. A Zagreb-index result alone does not transfer the fluctuations to leaf pairs.",
+        "searches": [
+          "Holmgren–Janson–Šileikis arXiv:1603.08125 §§1,2.2",
+          "Zhang arXiv:1706.02441v2 §4.1; Feng–Hu arXiv:1901.04657 §3",
+          "Resultary half-degree bound 309f47c597b3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–125 and supplied verification package",
+        "arXiv:2602.01021v1, 1706.02441v2, 1901.04657, 1603.08125; Magner et al. primary PDF",
+        "Resultary d3480f1053f7, 0fa7304eba95, 6c93f3f984c0, 309f47c597b3 and 52e0d376292e",
+        "PII S0166218X24005109 (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known S drift gives the same centered degree martingale by dividing by n-1 and subtracting the harmonic drift; the prior cubic moment has the requisite order. The current derivation adds exact closed drifts for X and C, and noise estimates for two successive integrations of centered processes."
+        ],
+        "reasoning": "The leafdegree tail suggests a logarithmic mean but does not give its finite-size constant or random correction. To go from the degree martingale to C requires the new comparison with X and control of martingale errors after centering; neither the quadratic-degree moment formulas nor fixed-leafdegree frequencies imply this mechanically.",
+        "searches": [
+          "Hartle–Krapivsky §§II–IV; exact S drift and PORT degree moments in arXiv:1706.02441v2 and arXiv:1901.04657",
+          "The degree sequence of the preferential attachment model, PII S0166218X24005109 (lawful retrieval attempt)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The statistic is the second factorial sum of leafdegree divided by two, or the count of swappable sibling-leaf pairs, with multiple pairs allowed per center. Magner et al. §3.2 proves a positive asymptotic probability of a cherry, rather than its global count law."
+        ],
+        "reasoning": "Existence of a cherry does not identify the expectation or fluctuation of all pairs. The uniform Cayley pair-count records use the same invariant under a different tree law; rooted terminal sibling counts also have a different convention at the root.",
+        "searches": [
+          "Resultary unbiased sibling leaf pairs, terminal sibling clustering, cherries, and half-degree leaf law in preferential attachment",
+          "Hartle–Krapivsky arXiv:2602.01021v1",
+          "Magner et al., On Symmetry of Uniform and Preferential Attachment Graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day U​​RT comparison gives E Y_n=n/6 in its stated n>=5 range and joint covariance under uniform parent selection. The Cayley records are conditional enumeration and a size-biased leaf law for uniform labelled trees. Hartle–Krapivsky give a limiting leafdegree frequency with tail m_ell∼ell^(-3)."
+        ],
+        "reasoning": "Different sampling laws cannot supply the fixed finite PA expectations. The limiting histogram has divergent second factorial moment and cannot be summed as a convergent table of the desired quantities; the finite-size cutoff and dynamics matter.",
+        "searches": [
+          "Resultary sibling clustering and leaf-sibling Palm laws: d3480f1053f7, 0fa7304eba95, 6c93f3f984c0",
+          "Hartle–Krapivsky eq. (13) degree–leafdegree data"
+        ]
+      },
+      "rationale": "Pass for the exact sibling-leaf pair mean and the strong, nonconstant n-scale correction identified with one eighth of the quadratic-degree limit in the specified model. The degree-square statistic (Zagreb index), its exact mean and conditional drift, and degree-moment bounds have substantial antecedents. The centered degree martingale and its L² convergence are readily obtained from those facts and are not credited as a standalone novelty. The inspected prior work does not supply the corresponding transfer to the unbounded sibling statistic.",
+      "residual_risks": [
+        "No claim of historical priority. More general additive-functional or degree-sequence work could cover a component of the proof or the result; the 2025 degree-sequence full text was not retrieved. The pass does not depend on treating the Zagreb martingale or its mean as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap for leafdegree frequencies and related fluctuations; no exact finite aggregate mean or strong centered n-scale result in the inspected passages.",
+          "evidence": [
+            "Leafdegree is the number of adjacent leaves; m_ell∼ell^(-3); the fluctuations discussed at the cited location concern selected fixed degree–leafdegree classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.01021v1",
+          "material_read": "§II definition; §III eq. (13), offsets about 12000–16988; §IV at offset about 16988",
+          "method": "OA arXiv HTML passages",
+          "title": "Leaves of preferential attachment trees",
+          "trigger": "Same attachment/leafdegree observable and heavy tail"
+        },
+        {
+          "assessment": "Degree-square drift and mean are prior for the same undirected degree dynamics; normalized degree martingale follows directly. This proposition concerns degrees, not sibling-leaf pairs.",
+          "evidence": [
+            "Uses Z_2=2 and parent selection d/[2(n-2)] at the insertion to size n; states E Z_n=2(n-1)(Ψ(n)+γ), with Ψ(n)+γ=H_(n-1)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1706.02441v2",
+          "material_read": "§4.1 Proposition 4 and proof, pp. 7–8, offsets 29010–32481",
+          "method": "OA arXiv PDF full-text passage",
+          "title": "On several properties of plain-oriented recursive trees",
+          "trigger": "Exact prior Zagreb statistic, drift and normalization"
+        },
+        {
+          "assessment": "Confirms older exact quadratic/cubic moment inputs; no pair-count transfer in these passages.",
+          "evidence": [
+            "Proposition 3 gives a gamma-ratio expression of order n^(3/2) for the mean cubic sum; equations (5) and (6) give the quadratic and cubic one-step increments."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1901.04657",
+          "material_read": "§3, Proposition 3 and equations (5)–(6), pp. 7–9, offsets 21590–30093",
+          "method": "OA arXiv PDF passages",
+          "title": "On the Zagreb index of several random models",
+          "trigger": "Possible overlap on the order-n quadratic-degree limit and inputs"
+        },
+        {
+          "assessment": "Cherry existence in the m=1 setting; not the exact aggregate asymptotics.",
+          "evidence": [
+            "A swappable sibling leaf pair is a cherry; the argument gives asymptotically positive probability of at least one."
+          ],
+          "identifier_or_url": "https://cs.pwr.edu.pl/cichon/Opus5/aofa2014-final-1.pdf",
+          "material_read": "p. 6 and §3.2 pp. 9–10",
+          "method": "Primary PDF passages",
+          "title": "On Symmetry of Uniform and Preferential Attachment Graphs",
+          "trigger": "Direct alternative formulation of sibling leaves as a cherry"
+        },
+        {
+          "assessment": "Rooted weights and fixed finite fringe counts do not establish this unbounded unrooted count.",
+          "evidence": [
+            "Each coordinate counts a prescribed finite fringe-tree shape; the attachment weights in the stated model use rooted outdegree."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1603.08125",
+          "material_read": "Abstract and §1 offsets 1101–1803; §2.2 offsets 8677–13877",
+          "method": "OA full-text passages",
+          "title": "Multivariate normal limit laws for the numbers of fringe subtrees in m-ary search trees and preferential attachment trees",
+          "trigger": "Possible general theorem on subtree or sibling counts"
+        },
+        {
+          "assessment": "Correct analogue in a different tree model; does not imply the preferential-attachment result, regardless of same-day priority.",
+          "evidence": [
+            "Each vertex chooses a uniform parent; Y_n counts pairs of terminal children, with mean n/6 in the stated range."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-terminal-sibling-clustering-covariance-in-uniform-recursiv--d3480f1053f7/RESULT.md",
+          "material_read": "Finding offsets 0–1681",
+          "method": "Resultary and local-mirror exact passage",
+          "title": "Exact terminal-sibling clustering covariance in uniform recursive trees",
+          "trigger": "Same-day exact sibling-pair count and second-order analysis"
+        },
+        {
+          "assessment": "Different conclusion: max deviations and extremal ratio, not the centered global quadratic aggregate.",
+          "evidence": [
+            "Gives maximum error O_P(n^(1/4)(log n)^2) between ell_v and d_v/2 and records the exact degree-square mean."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-uniform-half-degree-law-for-leaves-in-preferential-attachment--309f47c597b3/RESULT.md",
+          "material_read": "Finding, scope and Proof §§1–2, offsets 0–3216",
+          "method": "Resultary and local-mirror exact passage",
+          "title": "A uniform half-degree law for leaves in preferential-attachment trees",
+          "trigger": "Identical edge-seeded model and a uniform leafdegree comparison"
+        },
+        {
+          "assessment": "Coverage unresolved; not used as evidence of absence.",
+          "evidence": [
+            "The scope indicated by the accessible citation is the preferential-attachment degree sequence."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0166218X24005109",
+          "material_read": "Bibliographic/search view only; full text not recovered",
+          "method": "Primary literature search and OA attempt",
+          "title": "The degree sequence of the preferential attachment model",
+          "trigger": "Possible more recent exact Zagreb or additive-functional comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This global leaf-pair statistic counts symmetries at all occupied centers and weights hubs quadratically. The result goes beyond an existence result or a density limit: it separates a deterministic n log n leading term from an order-n, genuinely random limit that can be tracked via quadratic degrees, with an exact finite-size expectation. The moment control that transfers fluctuations to this unbounded observable is substantive, and the statistic and scale are naturally motivated by the heavy-tailed leafdegree law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

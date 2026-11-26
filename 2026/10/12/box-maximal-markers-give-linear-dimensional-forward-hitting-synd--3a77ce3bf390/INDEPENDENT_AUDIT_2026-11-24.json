@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:22:25.856207Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Original proof: FAIL at RESULT.md line 51, not a refutation of the claimed bound. The frozen argument does not exhibit an LCL whose decoding enforces collisions between markers on different branches. A binary common-base rule of the referenced type is insufficient: on the positive shifts of X={(i,j):i,j≥0}∪{(i,j):i≥1,j≥−1}, p=(0,0) and q=(1,−1) have a common future via different generators but no common predecessor. Mark p,q and the lattice (2k,2l+1), k≥1,l≥0; every point reaches a lattice marker in at most three moves inside the radius-two forward box, and the only close marker pair is p,q, unseen from a common base. Thus even actual binary feasible local patterns need not be globally forward-independent. Repaired proof: PASS. An explicit clopen greedy maximal box net in every free continuous group action gives the centered budget 2nr; its clopen construction uses a countable clopen independent cover, with the final complement the open union of nonzero neighbor translates. Each group point has at most one predecessor marker at offset α∈[0,r]^n since two would be box-adjacent. Label each point by that offset or an unmatched symbol. A forward-window predicate requires a zero label within the budget and requires every zero-labeled marker to propagate its offset to its future box. The group labeling is continuous since its offset classes are disjoint clopen translates. Shinko–Weilacher–Yu Theorems 1.7/3.24 and Proposition 3.22 apply to this explicit finite-alphabet M-LCL, with Γ=Z^n, M=N^n and a free bounded-to-one Borel action on the free part; the free part is Borel and forward invariant. A collision forces equal offsets because the shared future has one label; if the offsets are coordinatewise disjoint, equality forces both zero and the two bases to coincide. The proof works for n=1 and r=1 as well as larger positive integers, and for noninjective actions. The revised proof establishes the full original bound, not just the group case.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shinko–Weilacher–Yu give LOCAL equivalence/transfer for valid M-LCLs and a general marker-based reduction for finite Borel dimension in Proposition 6.2. Its nearest-marker offset labels are used for a dimension problem on an abelian group, not exclusion of unequal approaching marker offsets at common futures.",
+          "Gao–Hu–Zou use radius nr in the graph metric and center by (nr,…,nr)."
+        ],
+        "reasoning": "Generic transfer plus a local MIS solves neither the encoding nor the quantitative estimate without the box and forward-offset arguments. The prior budget is not dominating when n>1, and an equality at n=1 does not cover the varying-dimension result.",
+        "searches": [
+          "Shinko–Weilacher–Yu arXiv:2608.18439, Theorems 1.7 and 3.24, Proposition 3.22, Proposition 6.2",
+          "Gao–Hu–Zou arXiv:2608.15422, Theorems 3.1–3.3 and Proposition 3.4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact-title, quantitative, alias and offset-label queries (bounded results)",
+        "arXiv:2608.15422",
+        "arXiv:2608.18439"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The motivating common-base rule compares two labels visible at offsets from one base; this misses the explicit two-branch counterexample. The SWY theorem transfers a finite-window predicate, not its desired interpretation.",
+          "The repaired rule propagates each marker's relative offset; two different incoming offsets to the same site force a contradiction without inverse maps."
+        ],
+        "reasoning": "This is neither routine specialization of a prior numeric bound nor repair by disclaimer. The new encoding gives exactly the missing implication for arbitrary branch mergers, and the group geometry gives the smaller total budget.",
+        "searches": [
+          "Gao–Hu–Zou pp. 7–9, explicit binary LCL and centering argument",
+          "Shinko–Weilacher–Yu Definitions 3.5–3.6 and Theorem 3.24"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gao–Hu–Zou Definition 2.6 separates markers with short coordinatewise disjoint offsets to a common future; its Theorem 3.1 states 2n²r.",
+          "The focused primary search surfaced Gao–Hu–Zou. Bounded catalogue hits for the repaired rule did not identify a relevant theorem on these marker sets."
+        ],
+        "reasoning": "The shared-future test is box displacement on the group but not a common-forward-window binary test on the monoid. Synonymous box packing results on groups alone omit the Borel monoid lift checked here; n=1 gives equality of bounds and is not claimed as a new estimate in isolation.",
+        "searches": [
+          "Resultary exact marker title, 2nr with Gao–Hu–Zou, and box-graph/forward-independence aliases",
+          "Resultary: Borel free commuting bounded-to-one monoid action forward-independent hitting marker 2nr shared future offsets single-valued predecessor labels box Gao Hu Zou",
+          "Primary search: Borel commuting bounded-to-one maps N^n forward-independent syndetic marker Gao offset labels collision box Shinko"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected exact prior parameter bound is 2n²r; its proof uses coordinate allowances up to 2nr individually. The bounded catalogue search found no exact result with total budget 2nr and these hypotheses."
+        ],
+        "reasoning": "No finite invariant table is involved: the relevant exact lookup is for a universal upper bound and its parameter regime. A per-coordinate bound of 2nr from the ℓ¹-net proof is not the claimed total budget.",
+        "searches": [
+          "Resultary exact 2nr versus 2n²r, box-maximal forward hitting, and offset-label theorem searches",
+          "Gao–Hu–Zou Theorem 3.1 and Proposition 3.4"
+        ]
+      },
+      "rationale": "The strongest same-hypothesis comparison, Gao–Hu–Zou Theorem 3.1, states 2n²r, with the ℓ¹-net estimate in Proposition 3.4, not the linear 2nr bound. The originating LOCAL transfer supports arbitrary finite-alphabet problems but does not state this bound or the offset propagation for colliding markers. Both the conflict-box centering and a correct forward encoding are needed to obtain the repaired conclusion under the original noninvertible hypotheses. Catalogue searches for the exact theorem, coordinate-box aliases, quantitative improvement, and the repaired shared-future offset encoding returned no material overlapping statement in their bounded results. The positive distinction is based on inspecting the closest primary results, not on the misses alone.",
+      "residual_risks": [
+        "No claim of earliest publication or exhaustive coverage of marker/LOCAL literature; differently indexed quantitative or offset-label formulations remain possible.",
+        "The exact geometric bound is not claimed optimal. The comparison uses the stated 2n²r budget; this review does not adjudicate other conclusions of Gao–Hu–Zou."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "States the same qualitative goal with bound 2n²r; binary rule does not check across branches",
+          "evidence": "The pattern compares marked offsets from one base, and the graph-metric group argument centers by nr per coordinate. Theorem 3.2 as printed says continuous M-actions in item (1), unlike the originating group-action formulation; the repaired proof uses the primary statement.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.15422",
+          "material_read": "Definition 2.6 and free part p. 6 (around offset 19400); Theorem 3.1 p. 7 (29109); binary LCL and Theorems 3.2–3.3 pp. 7–8 (30650–34440); Proposition 3.4 argument pp. 8–9 (around 35100)",
+          "method": "Bounded lawful OA PDF passage inspection",
+          "title": "Borel graphs generated by commuting functions",
+          "trigger": "Same exact class of maps and quantitative forward-hitting theorem"
+        },
+        {
+          "assessment": "Supplies applicable generic transfer, not the inspected quantitative forward-independent marker result",
+          "evidence": "An M-LCL is a predicate on finite-window labels. Continuous labeling of every free continuous group action implies LOCAL_M and Borel transfer in the stated setting. Proposition 6.2's labels choose a nearby marker as part of a group dimension construction rather than forcing a single incoming offset at a merger.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.18439",
+          "material_read": "Theorem 1.7 p. 3 (offset 11291); Definitions 3.5–3.6 p. 7 (28600–31189); Proposition 3.22 and Theorem 3.24 p. 10 (40100–42991); Proposition 6.2 p. 16 (69107–71101)",
+          "method": "Bounded lawful OA PDF passage inspection",
+          "title": "Hyperfiniteness of bounded-to-one actions of commutative monoids",
+          "trigger": "Originating transfer and possible broader implication or offset-label predecessor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired theorem reduces the dependence on the number of commuting generators from quadratic to linear at the same separation scale and under the same Borel hypotheses, an unbounded improvement factor when dimension varies. Centering by the coordinate conflict box accounts quantitatively for the gain, and carrying offset labels supplies a reusable way of enforcing an exclusion condition at a common future without assuming a common past. The result is not just a group-model exercise because the repair proves global marker independence after the monoid transfer.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

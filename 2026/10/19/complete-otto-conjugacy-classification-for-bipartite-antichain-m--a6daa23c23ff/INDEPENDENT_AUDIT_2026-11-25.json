@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:50:57.976812Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof, lines 5–73",
+        "Frozen VERIFICATION.md and verify.py"
+      ],
+      "rationale": "Column products decouple. For inputs (t,b) and (s,c), the witness equations are (t-s)u=0, (1-s)z=c-bu and (t-s)v=0, (1-t)w=b-cv. When neither scalar is 1, take u=v=0 and solve by division. When both are 1, the equations require reciprocal scalar multiples, equivalent to equal nonzero lines or two zero vectors. In the mixed case the diagonal-1 vector must vanish, which is also sufficient. All choices assemble into allowed witnesses. Thus the one-column star and line fibers have sizes 1+(q-1)q^d and q-1 respectively; line count is (q^d-1)/(q-1), and products give every class multiplicity. Squaring yields precisely t=0 with arbitrary b or (t,b)=(1,0) as idempotents. For q=2 this equals the star fiber; over any larger field diag(I,aI) for a not 0 or 1 disproves equality. As a bounded cross-check from actual block multiplication, K_{1,1} over F_3 has a seven-element star class (six t≠1 plus the identity) and one two-element class, with four idempotents. The counterexample X(0,2) and the identity are mutually intertwined by X(0,0). This check is additional to the universal algebraic argument; uploaded code was inspected but not executed.",
+      "residual_risks": [
+        "No formal verification claimed; the bounded reproduction does not exhaust arbitrary graphs or fields."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The incidence paper treats several relations; Theorem 7.1 is on primary conjugacy and Proposition 7.4 gives mutual Otto conjugacy in the idempotent semigroup.",
+          "Diagram-monoid results give universal Otto conjugacy or parity criteria in different monoids."
+        ],
+        "reasoning": "Neither a different relation on the same incidence monoid nor the same relation on those diagram monoids is a dominating theorem for the specified witness monoid.",
+        "searches": [
+          "Resultary: general semigroup conjugacy and incidence monoids",
+          "arXiv:2208.01073 §§7.1–7.5",
+          "arXiv:2301.04252 §5.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2208.01073",
+        "arXiv:1503.00915",
+        "arXiv:2301.04252",
+        "Resultary record suffix 6a1397d4daa1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact question is ‘Is it true that E(M) is a single ∼o-conjugacy class in M?’ The preceding proposition concerns elements of E(M) conjugate in E(M)."
+        ],
+        "reasoning": "Mutual conjugacy of idempotents supplies containment only, not equality with their containing class in M. The nonidempotent scalar witness answers the question negatively over the complex base in the maximal-antichain family; the tag classification gives the entirety of that class and all other classes.",
+        "searches": [
+          "arXiv:2208.01073 p. 27, Proposition 7.4 and Open Problem 7.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "One column is a monoid of affine scalar maps, with product (t,b)(u,z)=(tu,z+ub). The two intertwiners must remain inside this monoid.",
+          "Araújo et al., pp. 2, 31, distinguishes Otto conjugacy, the restricted c-relation, and transformation-semigroup results with different ambient witnesses."
+        ],
+        "reasoning": "An unrestricted affine or transformation witness may mix vector directions; it does not supply a witness in the scalar-column monoid. A true monoid zero would collapse the relation, but the elements with lower diagonal zero do not give a two-sided zero here.",
+        "searches": [
+          "Resultary: bipartite antichain Otto conjugacy; affine homotheties and two-sided intertwiners",
+          "arXiv:1503.00915, definition and discussion of transformations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The materially nearest returned record, 2026/11/2/SCOPE-automorphism-orbits-in-the-square-radical-of-three-level-inciden--6a1397d4daa1, assigns projective-column multisets in a three-level incidence algebra under automorphisms and double-monomial equivalence."
+        ],
+        "reasoning": "Its multiset quotient and acting group differ from independent indexed tags and nonunit Otto witnesses. No returned table gave the projective products and star sizes under this relation; search limits do not certify absence.",
+        "searches": [
+          "Resultary: Otto conjugacy classification; Open Problem 7.5; affine intertwiners; general semigroup conjugacy"
+        ]
+      },
+      "rationale": "The exact prior question and three strong nearby formulations were compared against the all-column partition with restricted witnesses. The evidence supports the specific star/projective-line classification and the idempotent-class answer for the stated family, not priority for Otto conjugacy itself or a solution of the other questions in Open Problem 7.5.",
+      "residual_risks": [
+        "A later solution or an unindexed treatment of conjugacy in affine scalar-map monoids may exist. No independent claim of exhaustive literature priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct antecedent, not the full Otto classification",
+          "evidence": "Proposition 7.4 restricts to E(M); Problem 7.5 asks separately about its being a whole class in M and other conjugacy relations.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.01073",
+          "material_read": "PDF p. 27, Proposition 7.4 and Open Problem 7.5 (text offsets 76650–80196), and Theorem 7.1, p. 24",
+          "method": "Bounded full-text passage inspection",
+          "title": "Idempotent Varieties of Incidence Monoids and Bipartite Posets",
+          "trigger": "Same antichain monoid and original question"
+        },
+        {
+          "assessment": "Definition and related ambient transformation results; not coverage",
+          "evidence": "The two equations define Otto conjugacy; zero makes it universal. The full transformation-semigroup discussion does not restrict the witnesses to column homotheties.",
+          "identifier_or_url": "https://arxiv.org/abs/1503.00915",
+          "material_read": "PDF pp. 2 and 31",
+          "method": "Bounded full-text passage inspection",
+          "title": "Four notions of conjugacy for abstract semigroups",
+          "trigger": "General equivalence or transformation reduction"
+        },
+        {
+          "assessment": "Different monoids and invariants",
+          "evidence": "Relations in P_n and BP_n are universal; the B_n criterion concerns cycle-count parity.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.04252",
+          "material_read": "PDF §5.4, pp. 42–43, Theorems 5.32, 5.33, 5.38",
+          "method": "Bounded full-text passage inspection",
+          "title": "Conjugacy in Semigroups: the Partition and Brauer Diagram Monoids, Conjugacy Growth, and Partial Inner Automorphisms",
+          "trigger": "Later general and concrete Otto classifications"
+        },
+        {
+          "assessment": "Different action, object and invariant",
+          "evidence": "Double-monomial equivalence on J² and projective-column multisets, not mutual monoid intertwiners.",
+          "identifier_or_url": "2026/11/2/SCOPE-automorphism-orbits-in-the-square-radical-of-three-level-inciden--6a1397d4daa1",
+          "material_read": "Result statement on square-radical automorphism orbits",
+          "method": "Resultary search and local mirror inspection",
+          "title": "Automorphism orbits in the square radical of three-level incidence algebras",
+          "trigger": "Strongest indexed projective-column analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2208.01073, Proposition 7.4 and Open Problem 7.5",
+        "Frozen RESULT.md, lines 20–44"
+      ],
+      "rationale": "The open problem asks for more than idempotents being mutually conjugate: the result identifies their full containing class, produces a counterexample over the original complex base, distinguishes the F_2 exception, and gives a uniform classification with class sizes for noncomplete as well as complete bipartite graphs. Dependence on the witness monoid makes this useful beyond a conjugacy calculation by units.",
+      "residual_risks": [
+        "Does not answer the questions about primary, norm or trace conjugacy, or the analogous classification for other antichains."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

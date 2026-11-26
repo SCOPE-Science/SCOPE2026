@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:54:04.069483Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In 4n=n+3n, a carry forces divisibility by 3; without carries the only Lucas factor equal to -1 mod 3 is the adjacent pair 11. Leading and trailing zeros contribute unit factors. This gives the symmetric signed transfer matrix B, with B² rows (3,0,1), (0,2,1), (1,1,1) and B³=3B+I. Thus D_0,D_1,D_2=1,3,4 yield the rational series and positive recurrence at all complete cutoffs. Its simple dominant pole gives the stated positive residue coefficient; the other real roots have moduli 2 cos(2pi/9) and 2 cos(4pi/9). Conversely, on a ternary-aligned block whose upper digits are admissible, fixing the first upper digit amounts to an extra terminal matrix factor selecting that digit; the absolute block sum is at most ||B^(j+1)||_2=theta^(j+1) for a block of length 3^j. There are at most two blocks per scale in [0,X), giving the uniform bound; the nearest lower power of three proves the lower bound for max_{X<=Y}. The unsigned transfer growth is greater than theta, proving relative equidistribution on the nonzero support. Exact independent binomial counts through n<3^7 gave D_0..D_7=1,3,4,10,15,34,55,117 and (N_0,N_1,N_2)=(572,106,51) at L=6 and (1834,235,118) at L=7. Replay: branches/cd8a9689-48f6-4c88-9154-3d152592732d/independent_direct_counts.py and check_log.md. The frozen checker was read, not executed. Its loop checks L=7 but does not print that row, contrary to the minor reporting detail in RESULT.md:70; this does not affect the finding.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barat–Grabner §2 Lemma 1, equations (2.4)–(2.6): block-multiplicative summatory functions admit matrix products and arbitrary-prefix decomposition",
+          "fca5ba9f3d60 covers all primes for the unsigned transfer; 88cd6f9d99bb concerns binom(4n,2n) modulo five and square-root signed-prefix growth"
+        ],
+        "reasoning": "The general summation method is prior, but the application requires the diagonal-specific signed local rule, its spectrum and a nonzero projection to the signed count. The broader unsigned result cannot recover the signed transfer, and changing both the diagonal and modulus changes the local factors and bias.",
+        "searches": [
+          "Barat–Grabner DOI 10.1112/S0024610701002630, author PDF Lemma 1",
+          "Cinkir–Ozturkalan arXiv:2309.00109",
+          "Resultary fca5ba9f3d60, 88cd6f9d99bb"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Resultary fca5ba9f3d60, f83dcdb19f8b, 41041c609d2c (full decisive statements), 88cd6f9d99bb (catalogue comparison)",
+        "OEIS A006356 and A188022",
+        "Barat–Grabner Lemma 1; arXiv:2309.00109 source lead"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The valuation enumerator specializes at t=0 to the known unsigned series; it does not weight the adjacent pair 11 by -1",
+          "The quadrinomial Finding has base 1.893289... and its scope explicitly limits claims to complete blocks",
+          "The signed OEIS series yields the same growth base for its own sequence"
+        ],
+        "reasoning": "Only after proving the signed-residue correspondence can the OEIS series supply the block bias. Neither that table nor the unsigned counts control sums on aligned subblocks inside a general prefix. The stably distinct contribution is the signed correspondence and prefix discrepancy theorem together.",
+        "searches": [
+          "fca5ba9f3d60 and f83dcdb19f8b Findings",
+          "41041c609d2c Assumptions and scope",
+          "Barat–Grabner §2; A188022 COMMENTS"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "fca5ba9f3d60 treats F_p(n)=binom((p+1)n,n)/(pn+1) and tests p-nondivisibility; f83dcdb19f8b treats the 3-adic valuation of exactly C_4(n)",
+          "41041c609d2c counts [x^floor(3n/2)](1+x+x²+x³)^n, with signed series (1+3z+2z²)/(1-2z²-3z³) and complete-block scope"
+        ],
+        "reasoning": "Multiplying by 3n+1 is invisible mod 3, so the Fuss–Catalan reformulation is indeed identical for signed residues. Neither nondivisibility nor the full valuation census records the residue of a ternary unit. The quadrinomial is a different statistic with a different signed recurrence.",
+        "searches": [
+          "Resultary: signed ternary residue bias binom(4n,n), Fuss–Catalan unit residues",
+          "fca5ba9f3d60, f83dcdb19f8b, 41041c609d2c local mirrors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A006356 gives the unsigned recurrence with initial entries 1,3,6",
+          "A188022 offset 0 has GF z(1+z)/(1-3z²-z³) and a 4-by-4 tridiagonal matrix interpretation"
+        ],
+        "reasoning": "Removing the linear term and shifting by two gives precisely the signed rational series, so D_L=A188022(L+2) as numerical sequences. The entry gives no identification with binomial unit residues and no bound on nonaligned binomial prefixes.",
+        "searches": [
+          "OEIS A006356, A188022"
+        ]
+      },
+      "rationale": "The support count, numerical recurrences as sequences, and standard digit-transfer methods are known. What remains distinct is the identification of the signed unit-residue count for this binomial diagonal with that particular sequence, and the sharp signed bound for arbitrary prefixes. The strongest same-family and same-method matches were inspected at statement level and do not give that identification or bound.",
+      "residual_risks": [
+        "The cited general methods make the specialization natural; an unlocated worked-out diagonal specialization could change historical priority.",
+        "No independently retrieved body passage for arXiv:2309.00109; same-day dates were not used to order the distinct records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact unsigned coverage, not signed unit labels",
+          "evidence": [
+            "Adjacent-digit criterion and all-prime nonzero count; valuation-generating variable t marks only the number of carries"
+          ],
+          "identifier_or_url": "Resultary fca5ba9f3d60; f83dcdb19f8b",
+          "material_read": "Findings and assumptions; first proof step for fca5ba9f3d60",
+          "method": "Local mirror RESULT.md, offset 0 for both",
+          "title": "Prime-relative Fuss–Catalan nondivisibility; Exact ternary valuation spectra of four-ary Fuss–Catalan numbers",
+          "trigger": "Same Fuss–Catalan numerator and base"
+        },
+        {
+          "assessment": "Different coefficient family, different signed law, complete-block scope",
+          "evidence": [
+            "Q_n is the central coefficient of (1+x+x²+x³)^n; the text expressly disclaims arbitrary cutoffs"
+          ],
+          "identifier_or_url": "Resultary 41041c609d2c",
+          "material_read": "Finding, scope and start of proof",
+          "method": "Local mirror RESULT.md, offset 0",
+          "title": "Exact ternary residue census and a sharp bias for central quadrinomial coefficients",
+          "trigger": "Strongest same-day signed ternary block match"
+        },
+        {
+          "assessment": "Establishes the general technique, not the signed identification in the inspected passage",
+          "evidence": [
+            "F(q^(r+s))=UF(q^r) and the prefix product decomposition"
+          ],
+          "identifier_or_url": "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+          "material_read": "§2 Lemma 1, formulas (2.3)–(2.6), text offset 10560",
+          "method": "Lawful author PDF",
+          "title": "Distribution of Binomial Coefficients and Digital Functions",
+          "trigger": "General digit-block transfers and prefixes"
+        },
+        {
+          "assessment": "Not excluded at body level",
+          "evidence": [
+            "Frozen RESULT.md:73 describes the related congruences and binomial-sum scope"
+          ],
+          "identifier_or_url": "arXiv:2309.00109",
+          "material_read": "Bibliographic lead and frozen account of §§1–4, no independent body passage recovered",
+          "method": "Lawful OA access attempts",
+          "title": "An extension of Lucas Theorem",
+          "trigger": "Related Lucas-type binomial congruences"
+        },
+        {
+          "assessment": "Exact numerical matches, without the signed binomial interpretation in the inspected material",
+          "evidence": [
+            "A188022 lists 0,1,1,3,4,10,... and a tridiagonal interpretation; A006356 lists 1,3,6,14,31,..."
+          ],
+          "identifier_or_url": "https://oeis.org/A188022; https://oeis.org/A006356",
+          "material_read": "Series/recurrence headings, offsets, initial values, comments",
+          "method": "Ordinary public entry pages",
+          "title": "OEIS recurrence entries",
+          "trigger": "Exact recurrence match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result resolves more than support density or a table of complete intervals: it identifies a systematic positive bias between the two unit residues and proves the optimal discrepancy scale uniformly over arbitrary ternary prefixes. This quantitative refinement of the natural nondivisibility census needs sign information discarded by valuations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

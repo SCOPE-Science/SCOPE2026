@@ -1,19 +1,21 @@
-# Mathematical review: heterogeneous feedback on complete bipartite graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The matrix-tree/rank-two determinant derivation is valid for positive gains and a connected unit-weight graph; the explicit pseudoinverse kernels follow from the four Laplacian eigenspaces. The exact identities for the differences between all four leader-placement orbits have been reconstructed algebraically and verified by rational symbolic computation. The comparison denominators are positive. Strict positivity of the factor in the same-part comparison and the signs of the mixed-orientation comparison reduce the global optimum to just two candidate orbits. The remaining comparison is controlled by a quadratic with negative linear and constant coefficients and (when its leading coefficient is positive) one positive root. The direct diagonal evaluation establishes that the positive threshold strictly exceeds the weaker gain. The seven-vertex onset follows from the integer inequalities. A standalone verifier confirms the rational identities and selected direct inverses; the universal conclusions follow from the analytical inequalities, not numerical sampling.
+PASS
 
-## Originality — PASS, with limits
+The pinned Laplacian is positive definite: a vector in the Laplacian kernel is constant and the positive pins exclude every nonzero constant. Its covariance for independent unit-intensity disturbances is one half the inverse. I checked the rank-two determinant expansion and independently reproduced all three rational comparisons (3)–(5) with an equitable quotient rather than the frozen pseudoinverse calculation. Use a singleton for each leader and one cell for the unpinned vertices of each part; the quotient has diagonal degree plus assigned gain and off-diagonal entries minus opposite-cell sizes. Add contrast contributions (cell size minus one)/part degree to the inverse trace, omitting an empty cell; if retained symbolically at size zero its diagonal inverse contribution cancels the formal contrast term. Compute the quotient inverse trace as the sum of diagonal cofactors divided by its determinant. This gives AB−BA with the sign of (a−b)(p−q), AA−BB strictly negative, and AB−AA with the opposite sign of P(a)=Da²−Ea−F. The displayed bounds on H, W and V are positive for the entire integer domain, and P(b)<0 accounts for equal gains and forces the positive root above b when D>0. D≤0 gives P<0 for all allowed a. The positivity criterion q²−q>3p² and enumeration of p+q≤7 give the unique smallest graph K_{2,5}. Independent exact inversion with b=1 gives J_AB−J_AA=−(a²−26a−45)/[(7a+5)(8a+5)], verifying 27, 28, and the radical tie. The finite witness supplements rather than proves the uniform algebra.
 
-Lin–Fardad–Jovanović, arXiv:1302.0450, Sections II–III, formulates arbitrary positive feedback strengths and develops relaxation/greedy methods and low-rank inverse updates, but does not establish a complete bipartite, all-size, all-gain global placement classification. Fitch–Leonard, arXiv:1407.1569, explicitly assumes equal leader feedback strengths and solves cycle/path special cases; the unequal-gain relocation threshold cannot be read off as its equal-gain special case. Clark–Bushnell–Poovendran, arXiv:1208.0946, concerns link disturbances and supermodular selection rather than the specified independent state-noise objective. Related complete-bipartite theorems with three or four leaders, optimal *continuous* gain allocation, and discounted hitting objectives do not imply the two-distinct-leader, prescribed-unequal-gain switching law. Searches for the alternative phrasings of this claim and associated formulas did not locate an equivalent published statement. Searches alone do not establish novelty, and a specialized equivalent calculation outside the inspected literature remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The objective is a physically interpretable steady-state variance and the graphs are basic heterogeneous-degree communication networks. The sharp result gives a complete placement decision with no combinatorial search, discovers a true qualitative relocation transition governed jointly by network imbalance and leader-gain heterogeneity, and identifies the smallest possible seven-vertex instance with a simple exact radical threshold. The effect is not a monotone re-expression of the known equal-gain optimum, since the optimal leader-part allocation changes from two-in-the-small-part to a split design for sufficiently unequal gains. No general-graph or large-leader-count impact is asserted.
+The inverse-trace objective and the general update methods are prior. The supported distinct statement is the full placement and tie classification with two prescribed heterogeneous gains across all unequal unit complete bipartite graphs. The strongest inspected overlaps share either the graph, the pair-of-gains setup, or the general objective, but not the resolved heterogeneous bipartite comparison.
 
-## Residual limitations
+## value
 
-Only unit-weight complete bipartite graphs with part sizes \(2\le p<q\), two distinct leaders, prescribed positive finite gains and isotropic state noise are proved. Comprehensive bibliographic uniqueness and independent validation remain unestablished. The result has not been extended to weighted graphs or unequal disturbance intensities.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural design question has a nontrivial answer: unlike at equal gains, one of two noisy leaders can relocate to the larger part when the other becomes strong enough, but only in sufficiently imbalanced graphs and below a cutoff on the weaker gain. The all-parameter rule, tie classification and first feasible graph give more than a recomputed objective or isolated example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

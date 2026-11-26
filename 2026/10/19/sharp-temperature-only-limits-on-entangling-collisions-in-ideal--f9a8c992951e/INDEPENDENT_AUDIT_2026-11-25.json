@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:49:28.605927Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From the two mixed basis states of each gate the reduced target population is q_k=h q_(k-1)+(1-h)x, with x=p for exchange and x=1-p for anti-exchange; tracing removes the sole off-diagonal pair. Thus q_(k-1)=x(1-z), z=h^(k-1). In the ordered computational basis the inert diagonal entries multiply to xr q(1-q) for both gates (r=1-x), while the sole coherence has squared modulus x^2 z^2 h(1-h). Partial transposition places it in the inert block, making negativity equivalent to F(z)=h(1-h)z^2-r(1-z)(r+xz)>0. The leading coefficient is positive and the constant negative; the unique positive root, in (0,1), rationalizes to the stated z(r,h) since (x-r)^2+4rx=1. Strict inequality makes exactly ceil(log(z(r,h))/log(h)) indices eligible, even at an integer boundary: for example h=1/2 and r=(sqrt(2)-1)/2 give exact zero at collision two. For delta=1-h, z(r,h)>=1/(1+delta/r)>h^(1/r) by the square-root bound and strict logarithmic inequality. The log ratio is positive, smaller than 1/r and tends to 1/r from below as h tends to 1, so every sufficiently weak nonzero angle gives the claimed ceiling, integral 1/r included. At fixed h the plus root is a positive constant times p asymptotically, giving the stated logarithm in 1/p; p=0 leaves the minus gate inert and the plus coherence nonzero at each finite collision. The supplied checker was inspected, not executed: its test combines exact rational signs with floating-point matrices and logarithms; the strict-threshold and uniform-angle arguments are analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pal et al. Eq. (8) supplies the geometric population transient, including diagonal ground-state initialization, and Eqs. S3–S4 give the gate matrices.",
+          "Both indexed entanglement-lifetime results impose I/2 for the target; the inverse-noise optimization in 919c784f4ad8 gives a limiting constant about 0.23196 for p times the optimized mixed-target count."
+        ],
+        "reasoning": "The general population recurrence does not bound the sign of a joint-state partial transpose at each collision or optimize that sign threshold over angles. The specialized near matches are not broader in initial target state.",
+        "searches": [
+          "arXiv:2609.04905v1 main Eq. (8) and supplement S2, S4",
+          "Resultary 919c784f4ad8 and 0b8b4d81aa54 assumptions"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting files",
+        "Pal et al. arXiv:2609.04905v1 main and relevant supplement",
+        "Resultary 0b8b4d81aa54 and 919c784f4ad8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Pal passages say entanglement occurs during the early collisions and is appreciable for the first few iterations; S4 treats entropy of the reset. The gates and population law permit derivation of the determinant, but do not establish the sharp angle-independent bound without a uniform inequality and weak-angle limit.",
+          "A distinct input-dependent root controls each indexed mixed-target lifetime. Neither a fixed-angle asymptotic nor the general two-qubit NPT equivalence entails the claimed sharp angle-optimized counts."
+        ],
+        "reasoning": "The contribution is the complete cutoff and optimization for these ground-initialized joint states. Model equivalence and the known qualitative behavior are credited, not counted as the extension.",
+        "searches": [
+          "arXiv:2609.04905v1 PDF p. 4, Eq. (8) and discussion of Fig. 3(d); arXiv HTML S2 and S4",
+          "Resultary 0b8b4d81aa54 Finding and assumptions, mirror offsets 0–2885"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pal et al. use fresh identical diagonal ancillas and the same ordinary and bit-flipped partial swaps. The latter is conjugation by an ancilla bit flip.",
+          "Resultary 0b8b4d81aa54 gives exact pre-reset negativity and a logarithmic ceiling with no revival for I/2 initial target and the same anti-exchange gate, not a ground-state input."
+        ],
+        "reasoning": "Compare excitation p=(1-m)/2 and q=h between the records. At p=0.4 and h=1/2, the mixed-target threshold m>1/sqrt(2) fails, whereas the ground target entangles at collision one since its inert determinant is strictly negative. The initial target cannot be removed by changing a parameter label.",
+        "searches": [
+          "Resultary: ground initialized target qubit ordinary exchange maximum TWO entangling collisions and counter rotating anti-exchange maximum ceil(1/p) entanglement lifetime fresh thermal reset ancilla fixed weak angle PPT negativity",
+          "arXiv:2609.04905v1 main Eqs. (1), (3), (6)–(8), supplement S1–S2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest exact formulas and optimized count law concern I/2 with the plus gate only. Fig. 3(d) and the surrounding text concern early appreciable negativity rather than exact universal entangling counts."
+        ],
+        "reasoning": "The indexed formulas and the figure measure relevant observables but do not tabulate or imply the two ground-target ceilings. An exact table for that scope was not identified in the bounded search.",
+        "searches": [
+          "Resultary inverse-noise lifetime and optimized weak collisions, 919c784f4ad8",
+          "Resultary exact polarization threshold and logarithmic entanglement lifetime, 0b8b4d81aa54",
+          "arXiv:2609.04905v1 Fig. 3(d) and surrounding text"
+        ]
+      },
+      "rationale": "The assessed addition is the exact ground-target, two-gate pre-reset horizon and its sharp temperature-only maxima over all fixed nontrivial angles. The primary literature already supplies the gates, reduced populations and qualitative transient negativity. The strongest indexed horizon and optimization records treat a maximally mixed target, a condition that changes the exact determinant and even whether the first collision entangles. No claim of originality for the model, fixed points, partial transpose, or logarithmic lifetime as a general phenomenon is credited.",
+      "residual_risks": [
+        "An unlocated analytic collision result for arbitrary diagonal initial populations could include this initial state or its sharp maxima.",
+        "Inspected primary passages and ranked searches do not establish historical priority or exhaust the collision literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and reduced dynamics; inspected entanglement passages are qualitative and the inspected supplement supplies gates and reset entropy, not the sharp count",
+          "evidence": [
+            "Eqs. (6)–(7) and S3–S4 give the exchange blocks; Eq. (8) gives the plus stationary population and geometric decay; Fig. 3(d) discussion describes entanglement in the ‘early collisions’"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.04905v1",
+          "material_read": "Main Eqs. (1), (3), (6)–(8) and Fig. 3(d) discussion, PDF pp. 2–4; HTML supplement S1, S2 Eqs. S3–S4, S4 Eqs. S6–S15",
+          "method": "Read primary passages and lawful HTML supplement and compare hypotheses and outputs",
+          "title": "Ancilla mediated steady-state engineering in open quantum systems",
+          "trigger": "Same two gates, resets, observable and population recurrence"
+        },
+        {
+          "assessment": "Strong overlap in observable and method, but no ground-target instance",
+          "evidence": [
+            "Starts at I/2 and requires m>1/sqrt(1+4h(1-h)) for any entanglement at fixed h"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-polarization-threshold-and-logarithmic-entanglement-lifeti--0b8b4d81aa54/RESULT.md",
+          "material_read": "Finding and assumptions, mirror offsets 0–2885, and proof passages",
+          "method": "Read indexed source; identify target initialization and compare explicit root",
+          "title": "Exact polarization threshold and logarithmic entanglement lifetime in anti-thermalizing qubit collisions",
+          "trigger": "Same anti-exchange observable and exact lifetime/no-revival statement"
+        },
+        {
+          "assessment": "Different sharp asymptotic for a maximally mixed target; not a ground-start result",
+          "evidence": [
+            "p times optimum tends to about 0.23196 rather than 1; optimizing sin^2(theta) is asymptotic to a positive multiple of p"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-inverse-noise-entanglement-lifetime-and-optimal-weak-collisions--919c784f4ad8/RESULT.md",
+          "material_read": "Finding, initialization and optimization passages in mirror offsets 0–11031",
+          "method": "Read indexed source and distinguish target initialization and optimizing law",
+          "title": "Inverse-noise entanglement lifetime and optimal weak collisions in a thermal qubit battery",
+          "trigger": "Same anti-exchange gate and optimizes pre-reset entanglement counts over angle"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The count is a natural, measurable boundary for use of a fresh ancilla before reset. The distinction between a universal two-collision ceiling and a sharp bath-dependent inverse-excitation ceiling is qualitative, as is the logarithmic fixed-angle versus inverse-excitation optimized low-temperature growth. This is a complete sharp comparison rather than a parameter example. The count measures neither magnitude nor retained entanglement after reset; attaining a cap near the identity can give very small entanglement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,5 +19,24 @@
 }
 ---
 
-# Reproducibility and proof boundary
-The supplied source file `verify_opposite_subseq.py` requires Python 3 and only standard-library modules. Run `python3 verify_opposite_subseq.py`. It returns `VERIFY_OK parameter_pairs 100 word_checks 73719` if all assertions hold. For every pair of thresholds from one through ten, the program builds the reachable greedy-product automaton, compares its states against the explicit four-region classification, and executes a final/nonfinal partition-refinement minimization. For nine parameter pairs, it checks all binary words of lengths zero through twelve using an independently written direct subsequence predicate. The checks are finite and do not establish an infinite-parametric theorem by themselves. The all-parameter proof consists of the complete reachability witness/exclusion argument and the exhaustive four-case right-quotient threshold argument in RESULT.md. An independent audit has not been performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Each coordinate of the greedy product represents the longest matched prefix and leaves exactly the corresponding pattern tail. In the region with i<r and j=s+t, the t post-threshold zeros are among the i zeros read, so t<=i; the other one-threshold region is its mirror. The first threshold crossing before the other forces the earlier finisher to progress when the later threshold is crossed, excluding (r,s). The supplied witnesses cover all other listed states. Testing whether continuations intersect 0*1* and 1*0* distinguishes the four regions. For example in the second region a continuation 0^a1^s0^b is accepted exactly when a>=r-i and a+b>=r-t; since r-i<=r-t, these are separately attained minima and recover both coordinates. The mirror test, two single-threshold tests in the first region, and independent remaining letter counts in the fourth cover all pairs. The four cardinalities sum to (r+s)(r+s+3)/2+rs. The acceptor is complete, with the terminal pair accepting and absorbing, and the count also gives 3t(t+1) when r=s=t.
+
+## originality
+
+PASS
+
+The inspected older literature provides subsequence-ideal and piecewise-testable frameworks and general bounds, not the exact restricted quotient count. A distinct later catalogued finding explicitly states the same intersection result alongside a union theorem; that is equivalent coverage, but does not show earlier coverage of the frozen finding. This is a bounded pass, not an absolute priority determination.
+
+## value
+
+PASS
+
+This family tests simultaneous satisfaction of two opposite-order subsequence constraints, a natural composition of simple pattern monitors. The result gives the exact achievable memory in states for every threshold pair and identifies the full quotient structure, rather than only bounding the product or reporting a minimum accepted length. The two threshold regions and their separately observable continuation minima explain the state count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

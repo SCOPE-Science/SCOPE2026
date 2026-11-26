@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:12:48.861390Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof and occurrence table; VERIFICATION.md; debruijn_attractor_check.py (inspected only)",
+        "Replay: python /workspace/audit-evidence/4.py; output /workspace/audit-evidence/4.txt"
+      ],
+      "rationale": "The cycle has all 27 cyclic triples once. A nine-mark solution must partition the 27 linear triple starts into three-start consecutive intervals; covering start 1 with full capacity forces mark 3 and induction forces 3,6,…,27 (one-based). This marks cyclic residue r=c+2 mod 3. In residues 0,1,2 the omitted bigram respectively is 02, 01, 12, with start residues 1,2,0, so both coordinates avoid the marks, including any repeated unmarked suffix. Independently computed occurrence-union bitmasks for every length in every one of the 27 cuts give exactly one missed factor with these nine marks, and adding one position in that factor hits every factor. Analytically, any factor longer than three has a unique triple suboccurrence, so hitting all triples already hits all such factors. This proves both minima exactly ten and both quantifiers over the given instance.",
+      "residual_risks": [
+        "Linear unfoldings as specified; not a claim about all ternary cycles, circular attractors, or nonexistence of some favorable cycle."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 29 gives favorable Lyndon-generated sequences for prime orders; it is existential, while the all-sequences question is stated separately. The binary order-four profile has at least eight optimal cuts per cycle."
+        ],
+        "reasoning": "The prime-order existence result, including order three, is logically consistent with the explicit counterexample to universality. The binary profile cannot be specialized to a ternary order-three cycle.",
+        "searches": [
+          "Whittington, Online String Attractors, §5 pp. 18–19, question, conjecture and Theorem 29",
+          "Resultary b89f933847cc, complete binary order-four attractor profile"
+        ]
+      },
+      "checked_sources": [
+        "Whittington arXiv:2407.15599v1 as hosted by ETH Research Collection; publisher DOI:10.1007/978-3-031-81396-2_15 (record only)",
+        "Resultary exact-witness and semantic searches, including b89f933847cc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sharp bound follows from unique length-three factors and does not test bigram coverage. The separate existential conjecture and earlier example provide no cycle failing every cut; the three residue-specific missing bigrams do exactly that here."
+        ],
+        "reasoning": "Forcing position marks does not alone certify missing bigrams or the minimum at ten. The residue table and the all-factor ten-mark certificate provide a specific negative answer not implied by the proofs of favorable examples or by the generic lower bound.",
+        "searches": [
+          "Whittington, arXiv:2407.15599v1, §5 formal sharp/ordinary distinction and all-cycles question",
+          "Resultary b89f933847cc Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Whittington's example fails at one ternary order-three unfolding but has a favorable alternative of the same cycle. The frozen cycle has universal failure at nine and uses the ordinary inclusive 3-attractor, not just the exact-length sharp criterion.",
+          "Uniqueness of the triples makes full and 3-attractor requirements equivalent here once the shorter factors are hit."
+        ],
+        "reasoning": "Being favorable for at least one cut is invariant under rotation and alphabet relabelling (also reversal when all cuts are taken). Thus the prior bad unfolding of a cycle with a good unfolding cannot be this witness in equivalent notation. The lower bound using exact-length factors alone is not the obstruction at shorter lengths.",
+        "searches": [
+          "Whittington, arXiv:2407.15599v1, §5 and Theorem 29 (ETH OA copy)",
+          "Resultary search by displayed witness and near-exact title"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact witness matched the returned entries. The local-mirror binary profile (Finding about offset 947) has 192 of 256 rooted unfoldings of minimum 4 and 64 of minimum 5, with favorable cuts on every cycle."
+        ],
+        "reasoning": "The latter is a relevant exhaustive table but in different alphabet and order, with no corresponding obstruction on all its cuts. The exact-witness search is bounded and may miss an unindexed or relabelled witness.",
+        "searches": [
+          "Resultary exact witness 000110120102202002122211121",
+          "Resultary near-title and semantic claim searches for a ternary order-three all-cuts attractor obstruction",
+          "Resultary b89f933847cc"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the explicit universal-cut witness with exact minima 10 for both ordinary and 3-attractors. The elementary lower bound and a single bad unfolding are prior context; the distinct claim is that all unfoldings of one cyclic ternary order-three word fail the target nine. The primary text explicitly separates this all-cycles question from the existence of some favorable cycle and has a favorable cut for its own illustrative cycle. The closest inspected Resultary profile is binary order four and has favorable cuts, not this witness.",
+      "residual_risks": [
+        "Publisher-version text was not accessible; an updated result there or an independently published unindexed or symmetry-equivalent witness cannot be excluded. No absolute priority is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports the question and quantifier distinction; prior example is not all-cuts failure",
+          "evidence": "Asks whether every cycle admits a suitable unfolding, then separately conjectures existence of some favorable cycle per order/alphabet; Theorem 29 gives favorable Lyndon constructions for prime orders.",
+          "identifier_or_url": "https://www.research-collection.ethz.ch/server/api/core/bitstreams/b0f485e3-8895-4683-b04c-a6a65e69f55f/content",
+          "material_read": "arXiv v1 front matter and §5, pp. 18–19 (offsets 62304–69920), example, question, conjecture and Theorem 29",
+          "method": "Bounded full-text reading of lawful ETH Research Collection PDF copy",
+          "title": "Online String Attractors",
+          "trigger": "Exact source of the claimed all-cycles question and an earlier ternary example"
+        },
+        {
+          "assessment": "Differences in publisher version not assessed",
+          "evidence": "Publisher full-text retrieval encountered redirects; only the accessible ETH-hosted v1 was used for the statement comparison.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-81396-2_15",
+          "material_read": "Bibliographic record only; publisher full text not reached in bounded retrieval",
+          "method": "Lawful OA availability check; alternate publicly available manuscript read as separately identified above",
+          "title": "Online String Attractors (publisher chapter)",
+          "trigger": "Possible later public version of the same primary text"
+        },
+        {
+          "assessment": "Distinct binary order-four exact table; not this ternary case",
+          "evidence": "Counts 192 minimum-four and 64 minimum-five rooted unfoldings and at least eight optimal cuts in each binary cycle.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-complete-attractor-rank-profile-of-binary-order-four-de-bruijn-u--b89f933847cc",
+          "material_read": "Local mirror RESULT.md, Finding passage near offset 947",
+          "method": "Local Resultary search and bounded mirror inspection",
+          "title": "Complete attractor rank profile of binary order-four de Bruijn unfoldings",
+          "trigger": "Closest catalogue attractor census on de Bruijn unfoldings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Proof and Relationship to prior work"
+      ],
+      "rationale": "The explicit witness rejects a universal rotation fix (not just a single bad linear representation); it separates forcing the exact-length factors from hitting all shorter factors. The modest finite certificate resolves a natural quantifier in the de Bruijn attractor question and gives a structural obstruction through the forced residue class.",
+      "residual_risks": [
+        "No general extremal bound or progress on the separate existence conjecture is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

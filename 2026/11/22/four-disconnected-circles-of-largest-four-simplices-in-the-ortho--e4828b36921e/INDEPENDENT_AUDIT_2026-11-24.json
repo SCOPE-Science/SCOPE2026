@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:08:56.753389Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof and Verification, lines 5–51",
+        "Frozen VERIFICATION.md and verify.py (inspected, not run)"
+      ],
+      "rationale": "Write s=sin(2π/5) and t=sin(π/5). The absolute augmented determinant for a 2-square/3-pentagon vertex choice is the square-pair determinant (0 or 1) times the triangle double area (s+2t or 2s−t); the reverse split is at most 2s, and the other splits have rank too small. Because s+2t>2s, the same-sign endpoint condition in the convex expansion of the determinant enforces the 2/3 split in every positive-support tuple and forbids any mixed-plane support. The square determinant attains 1 only at an adjacent vertex pair, by strict convexity of the norm and equality in the area bound. In the pentagon each vertex belongs to three maximizing vertex triples. Supports of distinct triangle points must be disjoint (a repetition gives zero area), so two nonsingleton supports would give at least four distinct triples through a fixed vertex, impossible. For T_0={0,1,3}, the two maximal triples sharing two vertices are T_2={0,2,3} and T_3={1,3,4}; rotating gives the full five-cycle. The two alternative third vertices are adjacent and on the same side of the fixed chord, so the slide maintains signed area. The induced map from each finite glued cycle to unordered vertex sets is continuous and one-to-one: an interior point has exactly one nonvertex and uniquely determines the other two pentagon vertices. Compactness and the Hausdorff metric give a homeomorphism; the four fixed square pairs distinguish the four components. The sharp ratio follows also by the 20 four-simplices of determinant s in the product of the two central triangle fans, giving vol(P)=20s/24 and (s+2t)/(20s)=√5/20. No finite-to-infinite inference is needed.",
+      "residual_risks": [
+        "The source's finite exact verifier is corroborative; the review used the determinant and support proof, not its output or any formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Medgyes classifies the maximal-volume nine-vertex ambient 4-polytope, E–45 concerns planar triangles, and the recorded arbitrary-point argument in the double pentagon specializes determinant compatibility to that polytope."
+        ],
+        "reasoning": "The ambient equality theorem is for a different optimization problem; the general multiaffine averaging principle alone does not determine the compatibility of extremal vertex supports or topology here.",
+        "searches": [
+          "arXiv:2611.10078v1 Theorem 7.1",
+          "Arhimede Mathematical Journal 4(2), E–45, pp. 136–137",
+          "Resultary 81f2c10e9065"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8fd04d9c4b23 and 81f2c10e9065",
+        "Medgyes, arXiv:2611.10078v1",
+        "Espuny Díaz, E–45 (2017)",
+        "Targeted primary-literature query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "E–45 identifies a planar sliding motion; neither the ambient theorem nor a vertex spectrum excludes square motion, mixed supports, or simultaneous motion. The double-pentagon record gives a connected trivalent graph rather than four cycles."
+        ],
+        "reasoning": "The four-component conclusion needs the strict 2/3 determinant split, square saturation, and a matching pentagon support/adjacency argument. Same-day dating of the double-pentagon record gives no priority inference.",
+        "searches": [
+          "8fd04d9c4b23, 81f2c10e9065, Medgyes Theorem 7.1, E–45 solution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "8fd04d9c4b23 excludes arbitrary-point equality; 81f2c10e9065 classifies arbitrary-point equality in a double pentagon."
+        ],
+        "reasoning": "Changing from oriented determinant to absolute volume or from labelled tuples to unordered simplices does not remove the key arbitrary-point requirement. The double pentagon uses genuinely different factors and has a different locus.",
+        "searches": [
+          "Resultary: largest simplex equality locus in the orthogonal square–pentagon free sum; related double-pentagon record",
+          "Literature: all equality maximizers for largest four-simplices in the square–pentagon orthogonal free sum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-polytope spectrum exhausts 126 vertex simplices with 20 maximizing choices and expressly declines classification beyond vertices. The ten-vertex locus has 50 nodes and 75 edges, not the spectrum or locus in the present polytope."
+        ],
+        "reasoning": "The known table covers the endpoints and value, not which motions are allowed nor their topology.",
+        "searches": [
+          "Resultary vertex-supported four-simplex spectrum 8fd04d9c4b23",
+          "Resultary arbitrary-point locus 81f2c10e9065"
+        ]
+      },
+      "rationale": "The distinct result is the entire arbitrary-point equality locus in this fixed free sum, not the ambient polytope, maximum volume, vertex-supported cases or planar sliding phenomenon. None of the compared sources covers the combination of plane rigidity, sole pentagon motion and four circle components.",
+      "residual_risks": [
+        "A targeted search found no closer material; unindexed or implicit prior classifications remain possible.",
+        "No priority inference from the same-day related record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the vertex cases and maximum, not the arbitrary-point locus",
+          "evidence": "126 vertex simplices, 20 vertex maxima; explicit limitation to the vertex-supported classification.",
+          "identifier_or_url": "Resultary 8fd04d9c4b23",
+          "material_read": "RESULT.md finding and limitation, offsets 0 and 1277",
+          "method": "Local mirror passage inspection",
+          "title": "The five-level four-simplex spectrum of the extremal nine-vertex four-polytope",
+          "trigger": "Exact ambient object and maximum"
+        },
+        {
+          "assessment": "Different polytope and equality locus",
+          "evidence": "Ten vertices in two pentagons; 50 nodes and 75 one-vertex slides in one connected trivalent graph.",
+          "identifier_or_url": "Resultary 81f2c10e9065",
+          "material_read": "RESULT.md finding and equality argument, offsets 0 and 6000",
+          "method": "Local mirror passage inspection",
+          "title": "Complete largest-simplex locus and four-volume spectrum of the orthogonal double pentagon",
+          "trigger": "Closest arbitrary-point locus and method overlap"
+        },
+        {
+          "assessment": "Ambient volume/equality, not contained-simplex classification",
+          "evidence": "Equality shape is the orthogonal square–pentagon free sum, up to orthogonal transformation.",
+          "identifier_or_url": "https://arxiv.org/html/2611.10078v1",
+          "material_read": "Theorem 7.1, offset 59660",
+          "method": "Open-access theorem passage",
+          "title": "The inscribed 4-polytope of maximal volume with nine vertices",
+          "trigger": "Ambient extremal shape and equality theorem"
+        },
+        {
+          "assessment": "Covers the planar mechanism, not four-dimensional rigidity or topology",
+          "evidence": "Sliding the opposite triangle vertex on a parallel pentagon side preserves maximal area.",
+          "identifier_or_url": "https://amj-math.com/wp-content/uploads/2018/02/AMJ2017-vol4iss2.pdf",
+          "material_read": "pp. 136–137, offset 89934",
+          "method": "Open-access PDF passage",
+          "title": "Solution of Problem E–45, Arhimede Mathematical Journal 4(2)",
+          "trigger": "Planar equality slide"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and equality proof",
+        "Resultary 8fd04d9c4b23 explicit limitation"
+      ],
+      "rationale": "A known natural extremal polytope and its vertex volume spectrum leave open whether allowing arbitrary simplex vertices creates isolated points, separate families or additional motions. Resolving that question completely, with one sliding coordinate and exactly four components, determines geometry that neither the volume nor the vertex spectrum answers.",
+      "residual_risks": [
+        "No generalization to other polygonal free sums or near-maximal stability is credited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

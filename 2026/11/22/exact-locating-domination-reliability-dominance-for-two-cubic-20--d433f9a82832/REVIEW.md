@@ -1,15 +1,21 @@
-# Review of locating-domination reliability dominance
+# Independent mathematical audit
 
-## Correctness — PASS
-For each of the two explicitly defined twenty-vertex graphs, ordinary locating domination is equivalent to requiring distinct nonzero selected-neighborhood signatures for every unselected vertex. Both `checks/verify_cpp.cpp` and `checks/verify_python.py` exhaust all \(2^{20}\) subsets without sampling. The C++ implementation uses a five-symbol disjointness realization of the Desargues graph, while Python uses \(\(GP(10,3)\)\) and checks an explicit isomorphism. The complete coefficient lists agree, so subtraction proves the exact seven-degree difference and its strictly positive Bernoulli reliability expansion for \(0<p<1\). The endpoint and fixed-budget statements follow directly. Verification covers exactly these two graphs, not a family.
+## correctness
 
-## Originality — PASS, subject to residual priority uncertainty
-The 2014 and 2015 primary literature provides definitions, girth-based characterizations, and bounds on minimum locating-domination size, not the full two-graph enumerations or a global comparison of their reliability polynomials. Two directly relevant public mathematical findings prove the previously known minimum sizes and optimum counts, but their inspected full result statements do not determine the counts at larger cardinalities. The new statement is therefore not a relabelling of those optimum counts. Searches included full-spectrum, reliability, test-cover, graph-name, coefficient and dominating-parameter terminology. Unindexed older computations remain a possible priority risk; a negative index search cannot certify uniqueness.
+PASS
 
-## Value — PASS
-An exact full success polynomial is the natural invariant for random local-detector placement. The proven coefficientwise domination supplies a strict answer at every intermediate random deployment probability and an exact fixed-budget comparison, not merely the already known difference between minimum detector counts. The phenomenon involves two canonical cubic graphs of the same order, and the exact equality beyond thirteen detectors is an additional non-obvious boundary. The result is a finite benchmark, with no unsupported generalization to other networks.
+For ordinary locating domination it is necessary and sufficient that the selected set hit each closed neighborhood N[x] and each set {x,y} ∪ (N(x) △ N(y)). The pair condition is automatic if either vertex is selected, and otherwise says that their selected-neighbor signatures differ. I independently formed these hitting constraints and computed the upward closure of their complements' failure indicators via a Boolean subset transform: a detector mask fails exactly when its complement contains a required hitting set. The replay /workspace/independent-evidence/1.py exhausts all 2^20 masks and matches all 21 coefficients in both graphs and both models of Desargues. Totals D=362841 and P=384459; P−D has exactly (220,2460,6660,7228,3880,1050,120) at degrees 7–13. The supplied Python isomorphism certificate is a bijection with the stated adjacency test. A uniform k-set divides the coefficient by binomial(20,k); the independent deployment difference has a positive sum of Bernoulli weights for 0<p<1. At p=0 both fail; at p=1 both succeed. No authored script was executed.
 
-## Sources and limits
-The original locating-domination literature is Balbuena–Foucaud–Hansberg, arXiv:1407.7263 (2014), and Foucaud–Henning, arXiv:1412.2865 (2014). Closest exact minimum-only records are *All 1,475 minimum locating-dominating sets of the Desargues graph* (2026) and *Location-dominating code reconfiguration on the dodecahedral graph* (2026), both in the public published-finding corpus mathematical-results repository. Reproducibility requires executing the two included programs, while independent scholarly priority and proof review remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the known minimum sizes and minimum counts, and the same-day analogue on the same graph pair. The inspected earlier statements do not supply the complete ordinary locating-domination vectors or their strict Bernoulli ordering. Pass for those exact statements, not for first counting the minima or introducing a general reliability transformation.
+
+## value
+
+PASS
+
+Locating domination is a natural detection invariant, and the full labelled cardinality distribution is the sufficient precise data for uniform and iid detector deployment. The two canonical cubic graphs have equal order but different geometry; the exact dominance at every interior probability, and its limited support in budget, are nontrivial information beyond the known difference of minima.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

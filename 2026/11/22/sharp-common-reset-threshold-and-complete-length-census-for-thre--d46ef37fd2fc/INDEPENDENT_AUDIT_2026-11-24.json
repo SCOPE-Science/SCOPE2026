@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:32:39.493280Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, triple_catalogue.py, triple_bfs.py and their recorded outputs",
+        "Replay: python3 /workspace/branches/independent_4.py; output /workspace/branches/independent_4.txt"
+      ],
+      "rationale": "A subset that becomes a singleton stays a singleton, so collapsing all singleton states to one absorbing reset state preserves shortest reset lengths in each factor and in the triple. Independently of the frozen signature quotient, I partitioned all 729 tables into 129 orbits under simultaneous state relabeling of both letters, found 94 synchronizing orbits of total mass 549 by subset reachability, and ran full product BFS over every multiset of three such orbit representatives. Weighting by the product of orbit sizes and 3! divided by the factorials of the orbit-index repetitions restores all ordered labeled triples. The exact length counts for 1–7 were 1062153, 48991068, 66420432, 35524872, 10653120, 2651616, and 165888, totaling 165469149. A separate word scan confirmed the 28 signatures and the six length-seven reset words for the specified witness, including 0010110; BFS excludes shorter words. The supplied seven-level signature quotient is also valid: each individually resettable subset graph has a singleton path of length at most six, right extensions preserve reset, and every signature triple had a nonempty intersection by seven. In arXiv v1 the cited product results are Lemma 5 and Proposition 7, not Lemma 3.1 and Proposition 3.4; this bibliographic slip does not enter the finite proof.",
+      "residual_risks": [
+        "The exhaustive proof is for exactly three three-state complete synchronizing machines on the same ordered binary alphabet, with repeats and independent state labels; no extrapolation to other domains."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 7 gives general max/sum reset-length bounds; Szykuła's opening is background on the single-machine and subset settings.",
+          "Resultary 7df3c0143ebf gives product formulas for a specific pair of Černý machines, not all triples."
+        ],
+        "reasoning": "The inequality and special-family results do not fix the threshold or classify this full finite domain.",
+        "searches": [
+          "arXiv:2611.09136v1 §3; arXiv:2608.24245 opening page",
+          "Resultary product synchronization and triple search"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records d46ef37fd2fc, 380e9ee945e9, c176f0fc06e0, 84be6b9865c2, 7df3c0143ebf",
+        "arXiv:2611.09136v1 and arXiv:2608.24245 as scoped in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pairwise nonempty intersections of length-six reset sets do not force a nonempty triple intersection; the frozen sharp witness confirms the obstruction for this domain.",
+          "General length bounds and the pair census give no frequencies for the first nonempty three-way intersection."
+        ],
+        "reasoning": "The new joint classification requires three-way behavior, not a renaming or a numerical specialization of a pair result.",
+        "searches": [
+          "Resultary 380e9ee945e9, Finding and proof",
+          "Fernau–Rystsov Lemma 5 and Proposition 7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fernau–Rystsov Lemma 5 identifies the reset language of a direct product with the intersection; iterating gives precisely the common reset language of interest.",
+          "A three-state subset in one machine (e.g. Resultary record c176f0fc06e0) is not a triple of factors."
+        ],
+        "reasoning": "The intersection formulation is truly equivalent to the problem; converting to it supplies no histogram or sharp three-factor bound.",
+        "searches": [
+          "Resultary: common reset for three binary three-state automata; product synchronization; triple merging",
+          "arXiv:2611.09136v1 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact triple hit d46ef37fd2fc is the frozen record itself, not a separate publication; 380e9ee945e9 is the 549² pair census with sharp length six.",
+          "The web query returned unrelated material; it supplies no negative evidence."
+        ],
+        "reasoning": "No independent matching triple table was verified in the bounded search; the two-factor table has a different domain.",
+        "searches": [
+          "Resultary: seven-letter shortest common reset, 549 machines, and ordered triple census",
+          "Primary-literature web search on three binary three-state automata and common reset"
+        ]
+      },
+      "rationale": "The exact triple threshold and weighted labeled census are not supplied or implied by the strongest located pair or product results. The 549 single machines and the pair length census are not separately novel; the general product identity is established background.",
+      "residual_risks": [
+        "Bounded search does not rule out an unindexed or independently compiled triple census.",
+        "Same-day pair catalogue date does not establish order of discovery or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General identity and bounds, not the finite census",
+          "evidence": "Lemma 5 and Proposition 7: intersection and max/sum inequalities.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.09136v1",
+          "material_read": "PDF pp. 5–6, §3, around extracted offset 15000",
+          "method": "OA primary PDF",
+          "title": "Shortest Synchronizing Words on Product Automata",
+          "trigger": "Closest general product theory"
+        },
+        {
+          "assessment": "Exact pair census only; shared catalogue date shows no within-day order",
+          "evidence": "549² ordered pairs, sharp 6, counts 13041,154008,87552,37872,7488,1440.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-simultaneous-reset-threshold-and-full-spectrum-for-two-bin--380e9ee945e9",
+          "material_read": "RESULT.md, Finding and proof around offsets 856–1549 and 2200 onward",
+          "method": "Resultary local mirror",
+          "title": "Sharp simultaneous reset threshold and full spectrum for two binary three-state automata",
+          "trigger": "Closest exact table"
+        },
+        {
+          "assessment": "Background only; no whole-document negative conclusion",
+          "evidence": "Opening scope centers on the Černý conjecture and related subset synchronization.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.24245",
+          "material_read": "Opening page, offset 0",
+          "method": "OA primary PDF",
+          "title": "Synchronizing Automata: Open Problems",
+          "trigger": "Cited survey"
+        },
+        {
+          "assessment": "Different object",
+          "evidence": "Merges a three-state subset in one five-state machine.",
+          "identifier_or_url": "2026/10/4/SCOPE-the-five-state-binary-triple-rendezvous-extremal-is-unique--c176f0fc06e0",
+          "material_read": "RESULT.md Finding (offset 0)",
+          "method": "Resultary local mirror",
+          "title": "The five-state binary triple rendezvous extremal is unique",
+          "trigger": "Triple synchronization and same maximum seven"
+        },
+        {
+          "assessment": "Different object",
+          "evidence": "Prescribed triple of states in one eight-state circular family.",
+          "identifier_or_url": "2026/11/22/SCOPE-prescribed-triple-synchronization-spectrum-of-eight-state-circul--84be6b9865c2",
+          "material_read": "RESULT.md Finding (offset 0)",
+          "method": "Resultary local mirror",
+          "title": "Prescribed-triple synchronization spectrum of eight-state circular automata",
+          "trigger": "Triple length census"
+        },
+        {
+          "assessment": "Specific two-factor family",
+          "evidence": "Formulas for C_n × C_3, not for all three-factor products.",
+          "identifier_or_url": "2026/11/22/SCOPE-mod-three-latency-and-shortest-word-multiplicity-for-a-ern-produ--7df3c0143ebf",
+          "material_read": "RESULT.md Finding (offset 0)",
+          "method": "Resultary local mirror",
+          "title": "Mod-three latency and shortest-word multiplicity for a Černý product",
+          "trigger": "Product reset formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and seven-letter witness",
+        "Independent weighted state-orbit census",
+        "Resultary 380e9ee945e9 pair baseline"
+      ],
+      "rationale": "The natural first extension from two to three shared-letter components has a distinct obstruction: even universal six-letter pair compatibility does not give six-letter triple compatibility. The exact seven-layer classification, including 165888 worst-case labeled triples, gives a usable complete benchmark for simultaneous synchronization rather than an arbitrarily sampled enumeration.",
+      "residual_risks": [
+        "No asserted structural characterization of all worst-case triples or result for larger tuple/state counts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

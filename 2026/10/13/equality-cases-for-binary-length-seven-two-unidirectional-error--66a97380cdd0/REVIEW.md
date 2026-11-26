@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The channel was reconstructed directly: for each binary word of length seven, every received word from zero, one or two changes in a single direction was generated. For every pair of ambient words, disjointness of these error balls was independently checked against the classical unidirectional-distance criterion \(d_u\ge5\). The resulting \(128\)-vertex graph has \(2976\) edges. Exhaustive four-clique enumeration gives exactly \(1680\) candidates, and every four-clique has empty common-neighbor set, excluding all five-cliques. The weight profiles, coverage totals, group orbits and stabilizers were recomputed from the complete census.
+## correctness
 
-## Originality
-PASS, subject to the residual historical-search risk below. Bose--Rao gives the fundamental necessary-and-sufficient correction criterion, while Weber--de Vroedt--Boekee proves the exact optimum \(A_3(2t+3,t)=4\), hence \(A_3(7,2)=4\). Their inspected full texts do not enumerate all equality cases or classify them up to symmetry. Targeted semantic searches for the exact parameter, unidirectional-distance aliases, single-direction-error terminology, equality cases and optimal-code classifications returned no implication-equivalent result. The nearest published records concern other coding metrics or only cardinality bounds.
+PASS
 
-## Value
-PASS. Length seven is the first nontrivial point in the classical two-unidirectional-error small-length theorem where the optimum rises from two to four. A complete equality-case census therefore describes the entire extremal landscape at a natural threshold rather than an arbitrary slice. The two symmetry types have different weight profiles and different total received-word coverage, showing genuine structure not captured by the already-known optimum cardinality.
+For incomparable supports, a shared reception must cover both supports or be contained in both; the least required radius is max(N(x,y),N(y,x)), attained by the union or intersection. For comparable supports the best shared reception splits the coordinate gap and has radius ceil(gap/2). Thus the d_u>=5 rule and radius-two disjointness agree, but the independent reproduction uses only the literal balls. Its increasing-label pairwise disjointness search exhausts the 128 words and finds 2976 edges and 1680 four-cliques; each has empty common-neighbor intersection, ruling out any larger family. Generating the S_7 times complement images of both given representatives exhausts the census in disjoint classes of sizes 1260 and 420; dividing 10080 gives stabilizers 8 and 24. Both directional-difference multisets and coverage totals 72 and 80 agree. The individual ball size independently equals 1+7+binom(weight,2)+binom(7-weight,2); maxima meet the compatibility constraints with exactly the stated profiles. Replay: python3 /workspace/branches/e6cdbafd-8755-46f7-9adf-cde3f6429f90/direct_census.py; corresponding output is direct_census_output.txt in the same directory. No uploaded program was executed and no assertion about the full graph automorphism group is needed.
 
-The principal limitation is historical priority: an obscure or unindexed finite enumeration might exist. The two most directly relevant primary papers were nevertheless inspected in full, and neither contains nor implies the classification claimed here. The order-\(10080\) symmetry group is explicitly the natural coordinate-permutation/complement group, not a claim about the full graph automorphism group.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the known optimum and directional-distance criterion, not as novelties. The supported distinct claim is the exhaustive length-seven two-unidirectional-error equality classification: labeled multiplicities, the declared symmetry orbits, and their invariants. The strongest inspected indexed census changes both the channel and length. The closest historical primary papers could not be retrieved in full during this review, so this is not a finding about the absence of equality results in those papers.
+
+## value
+
+PASS
+
+This is the first two-error case of the cited short-length optimum family, with an exact equivalence question not settled by the known cardinality. Classifying all optima under the channel's natural coordinate and bit symmetries identifies precisely two choices up to equivalence. These differ structurally (a comparable pair occurs only in the smaller orbit) and cover different numbers of received words at the same code size. A researcher choosing or comparing extremal codebooks can use these distinctions; the value is not a replay of the known bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

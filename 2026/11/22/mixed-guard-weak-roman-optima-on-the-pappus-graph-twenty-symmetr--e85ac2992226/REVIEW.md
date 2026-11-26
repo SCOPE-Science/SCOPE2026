@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite claim has exact scope: the eighteen-vertex Pappus incidence graph, standard one-attack weak Roman feasibility, and unit-guard reconfiguration restricted to minimum functions. The support criterion in RESULT.md is a necessary and sufficient reduction of the definition. Exhaustive enumeration of every function of weight at most eight establishes the minimum and optimum counts. Independent affine-pair Python and ternary-code C++ implementations agree on \(2691\) optima and the three multiplicities. The affine checker generates all twenty full-automorphism orbits and proves that its group is complete by checking all nine-factorial point permutations; exhaustive shortest-path searches confirm the jump/slide graph data. Both packaged programs executed successfully.
+PASS
 
-## Originality — PASS (priority not certified)
+For the connected 18-vertex Pappus incidence graph, a function with positive support S and doubled set T is valid exactly when S dominates and each zero can either borrow from a neighbor in T or replace a singly occupied neighbor in S and still dominate. The independent replay exhausted 985,663 assignments of weight at most eight. Nothing below eight worked, and the 2,691 minima split as 1,755/882/54 by number of doubled vertices. Enumeration of point permutations preserving line triples and of point-to-line bijections preserving incidence gave all 216 automorphisms: connected bipartiteness makes these the only two possibilities. The orbit distributions by class are 27×1, 108×8, 216×4; 18×1, 108×2, 216×3; and 54×1, giving 20 orbits. Every unit transfer to a distinct vertex with occupancy at most one was tested against the minimum set, with graph adjacency imposed for slides. All-source BFS reproduced connectedness, 18,846 jump and 6,372 slide edges, radii and diameters (8,9) and (9,12), and the respective eccentricity counts (1,323,1,368) and (567,1,422,486,216).
 
-The 2003 foundational paper and 2014 weak Roman bounds paper do not state this Pappus exact weighted configuration and relocation classification in the inspected materials. Earlier computational work on the same Pappus graph already covers the all-singleton, secure-domination subfamily: \(1755\) configurations, thirteen orbits and their transfer metrics. These are excluded from the novelty assertion. The new classification is the entire weak Roman optimum family, especially \(882+54=936\) mixed-guard optima in seven additional orbits, and the connected transfer graphs on all \(2691\) functions. Full historical publication priority has not been independently established; some potentially relevant records are not fully accessible.
+## originality
 
-## Value — PASS
+PASS
 
-This determines a natural optimal-configuration space under a historically motivated guard-defense rule on a canonical symmetric incidence graph. It shows that allowing two guards to occupy a vertex does not improve the minimum weight over secure domination, but substantially expands the optimizer family and changes both exact relocation metrics. The seven mixed-guard symmetry classes and sharp diameters supply precise structural information not provided by the known binary subcase. No infinite-family consequence is claimed or required.
+Credit the exact all-singleton subcase to the secure-domination work. The supported distinct claim is the complete weighted optimum classification, including the 936 doubled-label optima in seven orbits and the full unit-transfer graphs. The strongest inspected same-graph source does not cover those claims; broader weak Roman results are background, not the weighted census.
 
-## Evidence and limitations
+## value
 
-The proof is an exhaustive finite determination with two distinct implementation strategies, not a sample and not an independent mathematical certification. The all-singleton subcase is prior coverage; inaccessible additional work remains a historical novelty risk. Full reproduction requires only Python 3 standard library and a C++17 compiler.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Pappus graph is a standard cubic symmetric test object. The weighted optimum and transfer invariant answers a concrete question left by the secure-set census: do the doubled optima occur, and how do they change the move geometry? They constitute over a third of the optima and introduce distinct symmetry types; the exact slide diameter increases from 10 to 12 even though additional optimizers and moves are allowed. This gives a substantive finite benchmark for distinguishing jump and slide reconfiguration, not a new name for the singleton enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

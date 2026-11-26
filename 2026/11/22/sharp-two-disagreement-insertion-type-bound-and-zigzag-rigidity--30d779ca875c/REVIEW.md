@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact type/discrepancy identification follows from homogeneity and the two insertion gaps. Parity and cardinality restrict discrepancy-two types to precisely \(3(n-1)\) candidate gap pairs. Simultaneous saturation implies one directed edge across every initial cut and displacement at most two. The cut argument forces a spanning permutation cycle and excludes fixed points from size four onwards; an explicit inductive edge-expansion proves uniqueness of the undirected Hamilton cycle of the squared path. The two orientations and the size-two/three exceptions complete necessity and sufficiency. The included verifier checks 409112 permutations and a separately implemented direct definition; these finite tests are not offered as a general proof.
+## correctness
 
-**Originality — PASS (provisional historical priority).** The exact four-point extremizers \(2413\) and \(3142\) appear already in Cameron's 2002 p. 5 under a different adjacency criterion; their four-point identification is credited and excluded from novelty. The new claim is the universal discrepancy-two insertion-type inequality and the all-size rigidity theorem. Comparisons with Cameron (2002), Linman–Pinsker (2015), Cameron (2000), and mathematical-record searches did not disclose this exact theorem or a dominating general result. Equivalent terminology or unpublished priority remains a substantive residual risk.
+PASS
 
-**Mathematical value — PASS.** This classifies the complete set of maximizers of an intrinsically defined logical-type filtration in a canonical homogeneous structure. The sharp bound and all-size rigid two-pattern classification are stronger than a small computation or a routine next coefficient: the proof reveals a structural cut-to-Hamiltonicity mechanism. The sharp contrast with the one-disagreement layer supplies additional motivation but is not used as a novelty substitute.
+Re-audited /workspace/repairs/4/RESULT.md and SLOGAN.txt. The generic two-order extension property realizes each of the two-gap placements, and ultrahomogeneity over the named base identifies their complete types. Parity and size limit discrepancy two to the three stated diagonals with exactly 3(n-1) candidates. The repaired proof assigns P_i subset Q_(i+2) to the inverse-displacement inequality and Q_i subset P_(i+2) to the forward inequality (the frozen prose interchanged the order). The diagonal contribution tests one crossing in each direction across every proper prefix cut. Each nontrivial permutation cycle occupies all cuts between its extrema; distinct cycles cannot overlap in a cut, and adjacent cut intervals would share a vertex, so all cuts belong to one cycle joining 1 to n. For n>=4 the endpoints' displacement excludes its being a transposition. A fixed internal vertex would require that cycle to traverse the unique admissible edge over that vertex both ways, which would make the cycle a transposition. The path-square Hamilton cycle is unique by deleting vertex 1 and contracting 2-1-3 into 2-3, with an inverse at each stage down to the triangle. The explicit zigzag has the two end edges and every length-two edge, hence crosses each proper cut twice and either orientation meets the directed condition. For n=2 and 3, the displacement conditions are vacuous and the diagonal checks give the listed exceptions. Independently enumerated direct pairwise order comparisons for all base permutations of sizes 2 through 7 with exact matching maxima and equality lists (python3 /workspace/reproductions/4.py); not used as the all-size proof. Frozen verification script and recorded output remain applicable.
 
-**Closest coverage and limitations.** Cameron (2002) already gives the exceptional four-point patterns; the present result does not claim that endpoint separately. It applies to one new distinct point over a finite pointwise-named base and to discrepancy exactly two. No independent mathematical audit or exhaustive historical priority search has been completed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Frozen originality failed in part: its related-work statement treated the all-size sharp numerical maximum as part of the contribution, but the distinct indexed all-grade theorem already includes that bound and attainability as a special case. This is statement-level coverage, not a priority finding from the date. The repair explicitly credits the envelope and retains the complete grade-two equality classification as the contribution. Best-of-knowledge PASS only for this repaired claim; the other record's full text was not retrieved, and its available statement of sharp bounds with witness families does not give exhaustiveness of the grade-two list. The size-four pair was already identified under another adjacency condition, as the repaired text acknowledges.
+
+## value
+
+PASS
+
+The repaired contribution classifies all bases where a natural logical-type statistic is extremal. An attaining example or a value formula does not answer the inverse structural question. The all-size passage from equality in elementary prefix tests to precisely two inverse base patterns supplies a useful rigidity theorem, with explicit small exceptions; its value does not rest on restating the known envelope or recomputing the four-point pair.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

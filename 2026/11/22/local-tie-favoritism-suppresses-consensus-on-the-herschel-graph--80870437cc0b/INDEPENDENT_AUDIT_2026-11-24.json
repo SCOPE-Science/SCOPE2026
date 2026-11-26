@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:50:28.058481Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–75",
+        "Frozen VERIFICATION.md, scripts/peeling_certificate.py, scripts/direct_walk.py, scripts/build_census.py, and certificates/census.json (read as source evidence)",
+        "Independent replay: python -B /workspace/review-evidence/4.py"
+      ],
+      "rationale": "The stated symmetric adjacency has 18 edges and exactly degree-four vertices 2, 4, 11. Both listed permutations preserve its edges and induce generators of S₃ on those vertices; permuting coordinates conjugates the corresponding updates. In an independent exact program I encoded states as subsets of the vertex set. Each unbiased even site has a self-loop and uses strict majority; each biased site uses threshold two on four open neighbors; at degree three use threshold two. Recurrence was computed independently of the frozen scripts: start from all roots of F_B²(x)=x, distinguish fixed roots from two-cycle pairs, and grow successive disjoint preimage layers. A state appears at its true first-entry time, and inherits its attracting orbit from its successor. All 2,048 starting states were assigned at every one of the eight policies, excluding longer periods directly. The exact tables agree with all stored fixed- and two-cycle basin histograms and entry-time/period distributions. For k=0,1,2,3 respectively the combined unanimous basins are 1002, 852, 795, 763; unanimous-one basins are 501, 567, 624, 672; two-cycle counts are 61, 48, 44, 55; the sharp maximum times are 6, 6, 6, 4. For the all-biased case, the labelled integer trajectory 37→26→549→1050→869→1178→869 witnesses first entry at four. The same reproduction prints witnesses for each other policy. The frozen builder compares aggregate censuses, not paired state-by-state arrays as one verification sentence suggests, but the proof and frozen aggregate claims are confirmed by the independent full partition.",
+      "residual_risks": [
+        "Exact for the specified graph and synchronous update conventions only. Entrances are first periodic states, not the time of first repeated-state detection; cycle orbits, not cycle states, are counted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Symmetric interaction results yield periods at most two; global colour-favoring tori and random tie rules are different policies and models."
+        ],
+        "reasoning": "The threshold theorem characterizes allowed recurrent lengths only. It cannot determine exact joint distributions or even whether increased bias decreases the combined unanimous basin. Random or global bias analyses in the inspected statements do not compute these localized deterministic counts.",
+        "searches": [
+          "arXiv:1108.2974v2, Corollary 3.4",
+          "arXiv:1711.10920, abstract and §3.3",
+          "DOI 10.1007/s10458-024-09651-y, abstract",
+          "Focused Herschel localized majority ties search"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d2fd4ae979a1",
+        "arXiv:1108.2974v2, 1711.10920",
+        "DOI 10.1007/s10458-024-09651-y"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known six-update cutoff is for incumbent ties. Period at most two holds more generally. Monotone maps with increased tie favoritism explain inclusion of the favored unanimous basin along nested interventions, not its strict integer gains or the net combined outcome."
+        ],
+        "reasoning": "Expansion of the unanimous-one basin and contraction of the unanimous-zero basin under pointwise increasing policies do not order their sum. The exact nonempty-policy census and sharp cutoffs add information beyond these implications.",
+        "searches": [
+          "Resultary d2fd4ae979a1, Finding and Assumptions",
+          "arXiv:1108.2974v2, PDF pp. 4–6",
+          "arXiv:1711.10920, §3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For bi-threshold up/down conventions the thresholds are (3,2) at unbiased degree-four vertices and (2,2) at biased degree-four and degree-three vertices. Alternatively incumbent ties at even degree are ordinary strict majority after adding self-loops; that does not implement tie-to-one at selected sites."
+        ],
+        "reasoning": "Bias sets of any fixed cardinality are conjugate on this graph, but changing cardinality is not a relabeling of the incumbent-tie map. General threshold equivalence does cover the period bound, not counts or entrance times.",
+        "searches": [
+          "arXiv:1108.2974v2, synchronous symmetric bi-threshold networks",
+          "Resultary d2fd4ae979a1 (Herschel baseline)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact same-graph table with retention at all ties gives 20 fixed configurations, 61 two-cycle orbits, 501 starts per unanimous basin, 1092 total fixed-point basin and sharp entrance six, as well as full distributions."
+        ],
+        "reasoning": "This is exact coverage of k=0, regardless of historical order. Its update hypotheses and table are for B empty; they do not cover any nonempty intervention. A shared date does not resolve priority.",
+        "searches": [
+          "Resultary d2fd4ae979a1, exact Herschel majority census and six-update clock"
+        ]
+      },
+      "rationale": "The full incumbent-tie census is already covered and only the comparison baseline. The general eventual-period bound of two is also covered by a threshold-network theorem. The supported distinct result is the complete nonempty localized intervention census, including the opposite unanimity trends, nonmonotone two-cycle count, and sharp policy-dependent entrance cutoffs.",
+      "residual_risks": [
+        "The full Goles–Olivos text was unavailable on bounded lawful retrieval; coverage of the period bound is verified independently in the later threshold reference.",
+        "Bounded search does not rule out another exact finite census or establish publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap with k=0 only, credited as baseline",
+          "evidence": "Tie retention everywhere, the 20/61 orbit counts, both 501 basins, 1092 fixed basin, and sharp time six.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-majority-attractor-basins-and-a-six-update-clock-on-the-he--d2fd4ae979a1",
+          "material_read": "RESULT.md Finding and tables from offset 0; assumptions and update near offset 900",
+          "method": "Local published-record mirror",
+          "title": "Exact majority attractor basins and a six-update clock on the Herschel graph",
+          "trigger": "Identical graph and exact finite attractor census"
+        },
+        {
+          "assessment": "Covers periods at most two, not quantitative intervention census",
+          "evidence": "A symmetric-interaction synchronous bi-threshold network has eventual period at most two.",
+          "identifier_or_url": "https://arxiv.org/abs/1108.2974",
+          "material_read": "v2 PDF pp. 4–6, definitions, theorem, Corollary 3.4; extracted offsets near 14000 and 22130",
+          "method": "Lawful open-access primary-text inspection",
+          "title": "Bifurcations in Boolean Networks",
+          "trigger": "General theorem for local threshold rule"
+        },
+        {
+          "assessment": "Related global bias, not selected Herschel vertices",
+          "evidence": "Uniformly favors a chosen colour at ties and studies toroidal behavior under random initial conditions.",
+          "identifier_or_url": "https://arxiv.org/abs/1711.10920",
+          "material_read": "Abstract p. 1 and §3.3 p. 18",
+          "method": "Lawful open-access primary-text inspection",
+          "title": "(Biased) Majority Rule Cellular Automata",
+          "trigger": "Deterministic tie favoring in related dynamics"
+        },
+        {
+          "assessment": "Inspected comparison is incumbent retention versus random ties",
+          "evidence": "Does not identify a deterministic localized Herschel census in the inspected passage.",
+          "identifier_or_url": "https://doi.org/10.1007/s10458-024-09651-y",
+          "material_read": "Abstract p. 1",
+          "method": "Lawful open-access primary passage",
+          "title": "Majority opinion diffusion: when tie-breaking rule matters",
+          "trigger": "Tie rule and convergence comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–38 and 50–64",
+        "Independent complete-state comparison in /workspace/review-evidence/4.py",
+        "Baseline Resultary d2fd4ae979a1"
+      ],
+      "rationale": "The graph is a natural fixed benchmark whose only tie-capable sites form a single symmetric three-vertex orbit. The intervention isolates the effect of tie policy rather than changing edges. The full exact partition shows how support for one unanimous outcome can increase while the total probability of consensus under uniform initial conditions decreases, and identifies how recurrent alternatives and the time cutoffs change. These are meaningful unknown finite quantities beyond the incumbent-tie table and beyond the period-two theorem.",
+      "residual_risks": [
+        "The strict monotonicities and cutoffs are graph-specific and do not establish general-network or random-tie behavior."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

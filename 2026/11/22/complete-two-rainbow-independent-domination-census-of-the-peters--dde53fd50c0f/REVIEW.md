@@ -1,15 +1,21 @@
-# Evidence-based assessment
+# Independent mathematical audit
 
-## Correctness
-PASS. The vertex representation \(\operatorname{KG}(5,2)\) translates the two color classes into disjoint intersecting edge families of \(K_5\). The intersecting-family lemma and two-edge transversal obstruction force both classes to have at least three members, and prohibit two disjoint four-stars. Exhausting the only surviving star/triangle types gives one named-color family of size \(30\) at weight \(6\) and four of size \(20\) at weight \(7\). The orbit statement follows from the natural \(\mathfrak S_5\) action and the five maximum independent stars. Two fully distinct exact enumerations verify every one of the \(3^{10}\) labelings and agree on their entire feasibility bitmap. The conclusion concerns these ten vertices only; no infinite extrapolation is made.
+## correctness
 
-## Originality
-PASS, subject to historical access limits. The 2021 announcement/2023 full expanded generalized-Petersen work computes the minimum *weight* (and related tropical matrices) but not the named-color weight distribution or its five orbits. The 2025 full complementary-prism paper proves \(\gamma_{\mathrm{ri}2}(P)=6\) in Lemma 12, not the count of its minimizers. Separate published research about **ordinary** two-rainbow domination of the Petersen graph allows different labeling rules and therefore does not imply this census. A targeted search did not identify a table of the \(30,80\) counts. The full 2021 proceedings section was not retrieved, so claims of exhaustive historical priority would be premature.
+PASS
 
-## Mathematical value
-PASS. The ten-vertex Petersen graph is a canonical test object for the 2021–2025 two-rainbow independent domination literature. Beyond the already known optimum of six, the exact result identifies an unexpectedly sparse feasible-weight spectrum, the \(30\)-element geometric family of all minima, and four distinct nonminimal orbit types. The Kneser representation explains why the spectrum terminates already at weight seven: two disjoint color classes cannot both be four-stars. This is a motivated complete natural classification rather than an arbitrary subset of configurations.
+In KG(5,2), color classes are intersecting edge sets of K5. For each class, any outside edge meeting all its edges is forced into the other class. A singleton edge forces two disjoint other-color edges; for a two-edge star ab,ac the forced edges ad and bc are disjoint. Empty classes are impossible. Intersecting families of size at least three are triangles or stars. A 3-star forces its missing spoke into the other class; that other class must be the full star at the missing leaf (a triangle would overlap and a 3-star there would have a missing spoke the first class cannot cover). Two full stars overlap. A full star can pair with any triangle or 3-star on its four remaining points. Two edge-disjoint triangles necessarily share exactly one ground point. In each allowed case the intersection transversals are already colored, so all zero vertices see both colors. This gives 30 ordered triangle pairs and four 20-member types at weight seven. Each type is a transitive S5-set, and the five full stars are the maximum independent sets, so their pair intersections force Aut(P)=S5. An independent support-first replay oriented bipartite components in every induced nonzero subgraph and filtered for the zero-neighbor requirements; it reproduced 30 at weight six, 80 at seven, the five precise orbit sizes, and the triangle characterization for all 30 optima.
 
-## Closest literature and limits
-Kraner Šumenjak–Rall–Tepeh (2018) establishes the invariant. Gabrovšek–Peperko–Žerovnik (2021 announcement, 2023 journal) give the minimum-value theory for \(P(n,2)\). Božović–Radić–Tepeh (2025), Lemma 12, gives the Petersen minimum six by a different argument. None of the available inspected full-text passages contains a count of all admissible functions or their orbits. The 2021 original proceedings text and other unindexed sources remain a priority risk. No external independent validation has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the full named-color census, in particular all weight-seven functions and their four orbits, together with completeness of the five-orbit classification. The optimum value six is already known. The triangle-pair data at weight six have a substantive equivalent overlap with a distinct same-day Resultary class-domination result, as verified by a bijection; I do not credit those optimum data as exclusive novelty or infer priority by publication date. The class-domination polynomial does not count the feasible weight-seven functions.
+
+## value
+
+PASS
+
+The whole weight enumerator and orbit decomposition are natural invariants of the canonical Petersen graph with named independent colors. The four distinct weight-seven families plus the optimum orbit give exact symmetry-reduced data for comparing two-rainbow variants and for testing proposed generalized-Petersen enumerators. Neither the already known minimum nor the adjacent optimum partition calculation provides those data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Review: exact directional fragmentation of quantum dimers on the four-cube
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem concerns exactly 272 perfect matchings of one sixteen-site binary cube and all 64 subsets of six directional square-plaquette moves. Two independently organized exact enumerators agree on every state; mask-adjacency BFS and edge-set DSU agree on all 64 component spectra. All eleven row sums are 272 and the class multiplicities sum to 64. The RK ground-space statement follows from the positive semidefinite graph-Laplacian form: zero energy requires and is implied by component-constant amplitudes. The finite proof is exhaustive and makes no infinite-size extrapolation. `verify_directional_plaquettes.py` replays the certificate using only Python 3.
+## correctness
 
-## Originality — PASS on examined evidence
-Syljuåsen (2005) establishes the underlying planar quantum-dimer plaquette Hamiltonian. Klivans–Saldanha (2020), Example 2.2, already explicitly record the isotropic four-cube 272 states, the 264-state component and eight frozen configurations. Hartarsky–Lichev–Toninelli (2023) give higher-dimensional connectivity when longer cycles are permitted. Published exact flip-distance records also analyze the full six-orientation graph. The present claim is only the **64 anisotropic move-repertoire classification, eleven symmetry-class component spectra, and sharp five-versus-six-type disconnection**. The inspected stronger or equivalent formulations do not determine the components of the edge-deleted subgraphs. Unindexed prior equivalent computations remain a residual historical-priority risk.
+PASS
 
-## Mathematical value — PASS
-Anisotropic suppression of selected plaquette resonances is a natural physical control on accessible dimer Hilbert-space sectors. This gives a complete exact small-cube benchmark, identifies the sharp six-type necessity for full mobile-sector connectivity, and translates each of the eleven component spectra into the positive-weight RK zero-mode multiplicity. The result is finite but concerns a natural full classification, not a cosmetic reformulation of the isotropic census.
+I enumerated all 8! assignments from even to odd vertices, retaining exactly the 272 adjacent bijections. A transposition of two assigned odd vertices is legal exactly when both cross-edges are cube edges, which identifies the unique coordinate square and its orientation. Merging component labels over the retained links exhausts all 64 repertoires, agreeing with all eleven frozen rows and JSON component totals. Each orientation has 128 links; the full case is 264 plus eight isolated states. Each single deletion gives 198,32,32 and ten singletons, eight of which were already isolated, so no proper subset can preserve the original mobile component. Coordinate permutations act on repertoires. At two edges the orientation graph is adjacent or disjoint, at three it is a triangle, path or star, and complements check the larger cases; degrees distinguish these classes and all eleven computed signatures are distinct. Positivity of each RK term forces equality along every enabled flip, so one constant per component gives the full kernel.
 
-## Scientific limitations
-The conclusion is restricted to the sixteen-site four-cube, uniform inclusion or exclusion of all four faces of a chosen coordinate plane type, square-flip moves alone, and positive enabled coefficients for the RK ground-space statement. No results about spectral gaps, non-equilibrium mixing or larger cubes are claimed. Independent scientific audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known full square-flip graph already has the credited 264-state mobile component plus eight frozen states. The supported distinct claim is the eleven-class census as a function of the enabled coordinate-plane types, including the sharp single-deletion split and six-type necessity. Neither the prior isotropic and distance results nor connectivity with longer cycles determine these subgraphs. The RK degeneracy is a standard corollary rather than an independent priority claim.
+
+## value
+
+PASS
+
+The move repertoire is a natural anisotropic control on the smallest stated hypercube setting with a large mobile component and frozen states. The one-deletion split resolves whether any orientation is redundant; the full census gives the exact ways such controls alter fragmentation and positive-weight zero-mode multiplicity. Neither the arbitrary choice of representative labelling nor recalculating the known isotropic graph is the source of value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

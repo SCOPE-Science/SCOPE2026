@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:50:01.963554Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof",
+        "Frozen VERIFICATION.md and verify_flux.py, inspected only",
+        "Bressloff arXiv:2402.16403 §III.B for normalization and flux convention",
+        "Mirrored exact current transform 6de9da8f8562"
+      ],
+      "rationale": "On coordinates centered at L/2 take the odd half-density w on [0,L/2], with the reset on the positive side at d=|x₀−L/2|. It has source r/2 at d, w(0)=0 and Dw′(L/2)+2κw(L/2)=0, with J=2κw(L/2). Testing against sinh(√(r/D)x) and integrating the Wronskian gives J=κr sinh(√(r/D)d)/(D√(r/D) cosh z+2κ sinh z). The other source side reverses the sign, and the flux boundary conditions imply mass one on integrating the full equation. For the given profile, log of z sinh(uz)/sinh z has second derivative strictly negative by sinh(uz)<u sinh z. The denominator coth z+k/z of the remaining factor is a sum of positive log-convex functions. Thus the log slope H decreases strictly, and the flux tends to zero at both ends for 0<u<1. H_u and H_k are positive by sinh v cosh v>v, so the unique optimizer moves upward in u and k. In the near-membrane scaling δ=2ℓ/L, y=δz, η_ℓ=δk, H/δ tends to 2/y−1−1/(y+η), locally uniformly in y even for η→∞ with the last term tending to zero. The limit is strictly decreasing and changes sign at G(η); bracketing traps the true optimizer, so r_*ℓ²/D→G(η)² with endpoints 1 and 4. All these conclusions use fixed κ when varying r; log-concavity is in z, not asserted in r.",
+      "residual_risks": [
+        "A midpoint reset produces zero flux and is excluded. No extension to general reset distributions or multiple membranes was tested. Diagnostic grids were not used as proofs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "9bd1a590e00a allows arbitrary reset laws but optimizes interfacial entropy in κ with r fixed.",
+          "6de9da8f8562 gives current for arbitrary reset laws and determines the reflection-antisymmetric component, with no optimization theorem in its stated results."
+        ],
+        "reasoning": "Broader coverage of the forward map and of the different entropy/permeability optimization is already credited. None of those optimizer statements specializes to reset-rate optimization of stationary current.",
+        "searches": [
+          "Resultary exact entropy optimizers 3bb98581842f, 9bd1a590e00a and arbitrary-law current transform 6de9da8f8562",
+          "Bressloff arXiv:2402.16403 §III.B"
+        ]
+      },
+      "checked_sources": [
+        "Bressloff 2402.16403 §III.B",
+        "Resultary records 6de9da8f8562, 3bb98581842f, 9bd1a590e00a and f8d346c6a6a6",
+        "Frozen RESULT.md §§Proof and Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bressloff gives interfacial entropy, involving current times a log density ratio, and the same stationary transport model. Swapping control from κ to r changes the derivative condition.",
+          "The same-date biased-jump theorem classifies current reversals, with sign rather than throughput as the observable feature."
+        ],
+        "reasoning": "The known forward curve makes the new analysis possible, but uniqueness, the comparative statics and arbitrary-family near-contact scaling require the log-slope and root comparison, not a substitution in a prior theorem. No calendar ordering is inferred from the same-date hit.",
+        "searches": [
+          "Direct comparison with Bressloff Eqs. (3.11a–b), (3.18) and mirrored findings of 6de9da8f8562, 3bb98581842f, 9bd1a590e00a, f8d346c6a6a6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Taking μ=δ_x₀ in the tomography formula produces the frozen entire signed forward curve, with |λ(x₀−L/2)|=uz and λL/2=z.",
+          "The equivalent stationary Robin/flux jump problem is Bressloff §III.B, Eqs. (3.11a–b), accounting for permeability convention."
+        ],
+        "reasoning": "Changing to r, z or λ and reexpressing the resolvent is not novelty. Qualitative nonmonotonicity of entropy is not an equivalent formulation of the unique clock optimizing |J|.",
+        "searches": [
+          "Resultary reset-ring point reset, absolute stationary membrane current versus reset rate, unique optimum",
+          "Exact observable transform in 6de9da8f8562",
+          "Bressloff 2402.16403 stationary circle calculation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact forward curve is known. The inspected exact extrema or zeros in the other records concern different objectives, controls or interfaces."
+        ],
+        "reasoning": "This is a continuous optimization theorem rather than a finite catalog; the relevant exact-coverage analogue is an optimizer/root formula and its regimes, not a numerical table. The shared forward formula is not itself such coverage.",
+        "searches": [
+          "Published exact current curve in 6de9da8f8562; exact optimizers in 3bb98581842f and 9bd1a590e00a; same-date f8d346c6a6a6"
+        ]
+      },
+      "rationale": "The forward stationary current is demonstrably covered, including as an exact point-mass specialization of the arbitrary-law tomography formula. The supported distinct claim is the global clock optimization of absolute stationary flux: strict log-concavity, strict parameter shifts and the entire near-contact crossover. The entropy optimizer records vary permeability or concern entropy rather than this current; the related biased-membrane theorem seeks a zero of signed current, not a maximum of its magnitude. No inspected claim or stronger theorem establishes the optimization package.",
+      "residual_risks": [
+        "Unindexed analyses of the same known current formula could overlap. The verdict credits forward formula identity and does not certify publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact forward coverage, inverse rather than clock-optimum claims",
+          "evidence": [
+            "J_μ is κλ times the weighted sinh moment divided by cosh(λL/2)+(2κ/(Dλ))sinh(λL/2); point-mass specialization exactly agrees. The inference theorem identifies the antisymmetric part from a rate sweep."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-boundary-current-tomography-and-its-reflection-blind-subspace-in--6de9da8f8562/RESULT.md",
+          "material_read": "§Finding, Exact observable transform, probability-law fiber and observation boundary, offset 0–2894",
+          "method": "Local publication mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Boundary-current tomography and its reflection-blind subspace in a resetting diffusion ring",
+          "trigger": "Strongest formula-level overlap, same ring and same r-dependent current"
+        },
+        {
+          "assessment": "Prior forward model/current and nonlinear entropy observable; inspected passage does not establish the optimization theorem",
+          "evidence": [
+            "The stationary equation and equal endpoint current are stated for point reset; the interfacial dissipation is not identical to |J|."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2402.16403",
+          "material_read": "§III.B starting p. 8/offset 53200, stationary Eqs. (3.11a–b) and entropy formula (3.18)",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Entropy production for diffusion processes across a semipermeable interface",
+          "trigger": "Primary stationary reset ring and membrane observables"
+        },
+        {
+          "assessment": "Different objective and optimized parameter",
+          "evidence": [
+            "Maximizes interfacial entropy over κ with D,L,r fixed."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-unique-optimal-membrane-permeability-and-sharp-universal-bounds--3bb98581842f",
+          "material_read": "§Finding from offset 0",
+          "method": "Local publication mirror, same snapshot",
+          "title": "Unique optimal membrane permeability and sharp universal bounds for resetting diffusion on a ring",
+          "trigger": "Apparent same-system uniqueness overlap"
+        },
+        {
+          "assessment": "Broader reset-law entropy result but not reset-clock coverage",
+          "evidence": [
+            "The optimizing variable is κ at fixed r for arbitrary reset laws; the objective is interfacial entropy."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-universal-unique-membrane-permeability-optimizer-for-reset-dif--9bd1a590e00a",
+          "material_read": "§Finding and Exact theorem from offset 0",
+          "method": "Local publication mirror, same snapshot",
+          "title": "A universal unique membrane-permeability optimizer for reset diffusion on a circle",
+          "trigger": "Generalized reset law and unique optimizer"
+        },
+        {
+          "assessment": "Current reversal for directionally biased interface, not throughput optimum",
+          "evidence": [
+            "The reported classification is no reversal or one signed-current reversal for one-semicircle reset laws, with a biased jump condition."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-one-sided-resetting-forces-a-unique-permeability-independent-cur--f8d346c6a6a6",
+          "material_read": "§Finding from offset 0",
+          "method": "Local publication mirror, same snapshot",
+          "title": "One-sided resetting forces a unique permeability-independent current reversal at a biased membrane",
+          "trigger": "Distinct same-date ring current theorem in a reset-rate sweep"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding and Proof, especially steps 2–4",
+        "Mirrored tomography comparison 6de9da8f8562"
+      ],
+      "rationale": "For a natural driven stationary model the result identifies the unique throughput-maximizing clock, determines how it moves with two physical controls, and gives an arbitrary-family scaling law when proximity and contact strength compete. In particular the factor-four difference between the limiting clock scales is quantitative information absent from a statement that flux merely vanishes at both extremes. The current objective is distinct from dissipation and first-passage time.",
+      "residual_risks": [
+        "An ideal stationary probability current, not a calibrated transport-device performance measure; the asymptotic comparison does not interchange arbitrary endpoint and rate limits."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

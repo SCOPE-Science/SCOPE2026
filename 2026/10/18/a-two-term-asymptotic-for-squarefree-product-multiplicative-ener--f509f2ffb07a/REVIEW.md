@@ -1,11 +1,21 @@
-# Review of the squarefree-product energy asymptotic
+# Independent mathematical audit
 
-**Correctness — PASS.** The precise bijection between common-product-squarefree collisions and four pairwise-coprime squarefree components is established by the unique polynomial-gcd factorization. The coefficient extraction gives an exact identity for every degree. The holomorphic Euler-product correction has cancellation of all linear prime-local terms, permitting four-variable Cauchy estimates and the stated exponentially small remainder. Separate direct finite-field enumeration and irreducible-assignment dynamic programming agree on 15 finite cases.
+## correctness
 
-**Originality — PASS (subject to residual risk).** Afifurrahman's published unrestricted energy formulas do not impose squarefreeness on the product, nor yield the new two-term constant. Lieb's pairwise-coprime polynomial counts do not impose squarefreeness on each component and focus on different asymptotic regimes. Related earlier work on individually squarefree factors holds the degree fixed and sends field size to infinity, whereas the present **product-squarefree, fixed-field, increasing-degree** theorem has a separate arithmetic constant and exponentially accurate secondary term. The conclusion is a best-knowledge comparison, not proof of uniqueness: a general unexamined Euler-product theorem might imply this case.
+PASS
 
-**Mathematical value — PASS.** The recent exact unrestricted collision counts invite a natural refined question: how many degree-balanced multiplicative collisions have *squarefree common product*? Unlike a bare qualitative density or a routine small-degree extension, this result obtains both main and boundary-order constants with effective exponentially decaying normalized error for every field size. It also supplies an exact degree-balance coefficient identity that can support other prescribed local product restrictions. These quantities are natural multiplicative-energy invariants, not an arbitrary sliced finite table.
+With U=gcd(A,C), divide it out to obtain coprime X,Y. Then X B=Y D gives B=VY and D=VX with a unique monic V. Squarefreeness of UVXY is exactly individual squarefreeness and pairwise coprimality of the four components; equal input degrees force component degrees (k,k,n-k,n-k). Unique factorization therefore gives one empty and four single-slot choices at each prime, and factoring off the four geometric series gives the stated H_q. A coefficient indexed by j contributes q^(2n)h_q(j) for each integer k from max(j1,j2) through n-max(j3,j4), including the degree-zero endpoints. On any common radius R<sqrt(q) the Euler product converges normally because all linear local terms cancel and the total bound on local deviations is a constant times sum_d (R^2/q)^d. At R=q^(1/4), Cauchy gives exponential coefficient decay q^(-|j|/4). Replacing the positive part by its linear argument only changes indices with |j|>n; using at most binom(m+3,3) indices of weight m and an O(m+n+1) multiplier proves the stated O_q((n+1)^4 q^(-n/4)) error. The two untruncated sums are H_q(1,1,1,1) and the displayed b_q. The leading product is positive since every factor is positive and the sum of squared prime reciprocals converges. Independent replay `python3 /workspace/audit_recompute.py 2` compared the exact positive-part coefficient identity to direct squarefree-product multiplicities in 19 cases: the 15 stated test cases plus four over F4. The frozen AUDIT.json count of 17 is a bookkeeping discrepancy, not a theorem failure; RESULT.md, VERIFICATION.md and the actual loop ranges specify 15. Finite checks do not prove the asymptotic.
 
-Limits: this is not an independently audited theorem, and the secondary constant is a convergent analytic expression rather than an elementary number. The finite checks are not infinite proofs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The assessed claim is the fixed-field two-term law, including the absolutely convergent secondary coefficient and exponential normalized remainder, for collisions with squarefree common product. The closest sources count unrestricted collisions, coprime tuples, or collisions with individually squarefree inputs. The last has substantially overlapping coefficient machinery, but a distinct prime-local rule and no corresponding secondary evaluation for this count. No priority is inferred from a same-day listing.
+
+## value
+
+PASS
+
+Squarefree common products are a natural stratum of multiplicative energy and have a different local prime-allocation law. At fixed field the exact secondary coefficient separates true boundary contributions of the degree balance from a generic bounded error. The exact coefficient identity and exponentially small remainder are useful quantitative statements beyond a finite census or the known unrestricted formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

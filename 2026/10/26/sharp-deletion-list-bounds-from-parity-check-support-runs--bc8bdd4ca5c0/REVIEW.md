@@ -1,11 +1,21 @@
-# Review of the support-run deletion-list theorem
+# Independent mathematical audit
 
-**Correctness: PASS.** The insertion-tree edges correspond bijectively to deleted positions; their labels are recovered as the interval symmetric difference of odd-syndrome vertices, proving the run upper bound. A concrete compatible construction attains the bound whenever the run parity condition is solvable, and the unique even-run exception is proved by an odd-syndrome contradiction and matched by a two-odd-parent witness. The Fibonacci exceptional count follows from unique tilings. Exact finite computations from the standalone source reproduce the stated lists.
+## correctness
 
-**Originality: PASS with residual risk.** Remark 9 of Verma--Hollanti--Tajeddine (arXiv:2610.23270v1) covers the alternating singleton-run mask; it does not imply the run-count inequality, equality for arbitrary parity-check supports, or the exponential prevalence statement. Earlier half-Singleton and insdel-construction papers focus on edit distances and rates rather than exact output parent-list sizes. Semantic prior-result searches found no stronger or equivalent formula. An implicit older combinatorial treatment remains a priority risk.
+PASS
 
-**Value: PASS.** Exact worst-case deletion-list size is a fundamental receiver ambiguity invariant in high-rate binary linear codes. The theorem translates coordinate geometry of the lone parity-check row into an actionable exact formula for all but an exponentially small subset of masks, and sharply delineates a parity-dependent boundary without relying on a finite code census.
+For a fixed received word, the rightmost insertion representatives are the two appends and the insertion opposite to the symbol at each of the n−1 other positions, giving n+1 distinct parents. Deleting positions i and j from the same parent gives the same output only if entries i through j are constant; thus each parent's deletion set is an interval. The n edges each flip exactly the corresponding check coordinate and consecutive edges share a parent, so the edge syndromes recover the mask as the XOR of odd-parent intervals. Its 2r padded boundaries require at least r odd parents. For the proposed y the prescribed symbols do not conflict even with a single zero between support runs. The selected intervals reproduce those edge syndromes, and the actual syndrome of X_1 is r−1+Σ_j ℓ_j t_j=1 mod 2, ruling out global complement. For a single even run one odd parent alone would have to be constant on the whole support and would in fact be even. The block of ℓ−2 ones gives exactly two odd parents, including the ℓ=2 case. Unique tiling by 0 and 11 gives F_{n+1}, including the zero mask. Read the frozen proof, checker and recorded output; independently tested all masks and outputs through n=8 by canonical rightmost insertions with `python /workspace/branches/review-computations/check_finite.py`. The finite run corroborates the all-length argument, and does not classify the exceptional masks.
 
-**Limitations.** No equality claim for all odd-count, all-even-length multi-run masks, and no general claim for one-insertion received words or multiple edits. Independent priority and validation remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The checked predecessor supplies a list cap for the alternating singleton-run family, not the run-sensitive result for arbitrary fixed hyperplanes. Credit that family as overlap; the new content is the all-mask interval-XOR bound and its stated sharpness regimes and prevalence. No stronger covering result was verified.
+
+## value
+
+PASS
+
+Worst-case distinct-parent ambiguity is a receiver-relevant invariant of the highest-rate proper binary linear codes. The result explains structurally why coordinate geometry, not just the number of parity checks or the Hamming distance, controls this ambiguity, and gives attainable values for exponentially nearly all masks without a length cutoff. The unresolved regime is expressly delimited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof was inspected step by step: the fastest right-to-left influence path is unique; its Boolean derivative factors into local derivatives; the successive unperturbed center bits use new fair leftmost input coordinates, hence are independent; the resulting expectations give the stated trichotomy and class census.
+# Independent mathematical audit
 
-The embedded `check_edge_influence.py` independently enumerates all 16 left-permutive elementary rules and all finite initial assignments for each time from 1 through 6. It passed 96 exhaustive rule/time comparisons plus 80 exhaustive boundary-independence and fastest-path factorization comparisons for times 1 through 5. Execute using `python check_edge_influence.py`. Finite enumeration is not used as proof for unbounded times.
+## correctness
 
-Publication priority is provisional. The motivating primary text was inspected, but a broader 2025 survey was available only through an indexed excerpt. No external independent audit has been performed.
+PASS
+
+An influence from t at time 0 reaching 0 at time t has exactly one nearest-neighbor path, moving one step left each update. No other input to a path update can depend on the flipped bit. Thus the output indicator is the product of the local right differences δ at the successive unperturbed center bits. Left-edge permutivity of (F^s X)_i follows by induction: the left input to the last update uniquely contains X_(i−s), once and with XOR coefficient one, and the other inputs exclude it. The center at step s therefore has unique fresh pivot X_(t−1−2s), XORed with a function of bits strictly to its right. Conditional on all nonpivot initial bits used by the centers, the center-word map from pivots is triangular and bijective. Hence the centers are jointly fair, turning the product into 0, 2^(−t), or 1 exactly. Each ordered derivative pair leaves two independent table entries, yielding the 4/8/4 census. Rule 30 corresponds to h(b,c)=b OR c, so its right derivative is nonconstant; leftmost influence is always one. An independent direct iteration using Wolfram rule numbers and full finite cone truth tables checked both edges for all 16 rules at t=1..5.
+
+## originality
+
+PASS
+
+Same-observable Monte Carlo profiles and the exact left-edge influence are antecedents; the left edge is explicitly not credited. The inspected statements do not cover the exact rightmost product expectation for Rule 30 or the all-rule derivative census. Distinct Resultary analogues have different observables or dynamics. The decision concerns the exact right-edge claim, not historical priority for qualitative right-side decay.
+
+## value
+
+PASS
+
+The extreme edge is a natural, observable boundary of the empirical Rule 30 sensitivity profile. Its exact all-time formula gives an analytic reference, distinguishes qualitative irrelevance from exponential survival and full transmission, and explains the distinction uniformly across the whole naturally defined left-permutive elementary class. The fresh-pivot argument matters: local marginal fairness on its own would not determine survival along the path.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

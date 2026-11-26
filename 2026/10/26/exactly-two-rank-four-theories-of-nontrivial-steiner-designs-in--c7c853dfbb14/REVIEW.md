@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The incidence-matrix rank gives the universal lower bound \(v\ge k(k-1)+1\), which ensures fresh witnesses in every branch of the complete ordered-triple extension analysis. Matching extension inventories implies a four-round Ehrenfeucht–Fraïssé winning strategy for any pair on the same side of the block-size dichotomy. The explicit four-quantifier collinearity sentence separates the two cases, and rank-three matching proves sharpness. Five exact finite checks corroborate the theorem but are not extrapolated as its proof.
+## correctness
 
-**Originality — PASS (best-knowledge, not independently certified).** published-finding corpus searches on the exact four-round classification, ternary collinearity, and equivalent terminology yielded no implication-equivalent entry. The most relevant examined sources were Fisher's incidence inequality, Linial–Luria's enumerative Steiner triple systems, Barbina–Casanovas on infinite Steiner quasigroups, and Paolini–Quadrellaro on nondegenerate free incidence models. Closest accessible earlier findings concern rank-four two-sorted affine-plane incidence and marked Steiner designs in two-variable counting logic; neither states nor entails the universal unrestricted-rank-four **point-only ternary** theorem. Specialist unindexed or partially inaccessible earlier literature remains a priority risk.
+PASS
 
-**Value — PASS.** The theorem fully identifies an invariant of the entire class of nontrivial finite Steiner designs rather than a narrow parameter slice. It pinpoints the exact first-order rank at which any distinction occurs, while proving that designs of every larger block size remain indistinguishable at rank four. The complete result is valid uniformly, including nonclassical designs, and clarifies expressive-power loss under the point-collinearity reduct.
+The replication number is r=(v-1)/(k-1)>1; the point-by-block incidence matrix has Gram matrix (r-1)I+J and full row rank. Thus b>=v, and double-counting pairs gives v>=k(k-1)+1. Up to two selected points, equality moves can be matched and distinct triples can be completed on or off a pair-line. For a collinear distinct triple all three pair-lines coincide; a fresh point has either all three relations (available iff k>=4) or none (v>k). For a noncollinear triple the three pair-lines meet only at chosen points, have k-2 fresh points each, and leave v-3k+3>=(k-2)^2 other points. These realize the three single incidences and no incidence, and no pair of incidences is possible. With repeats, only the relations using the distinct pair can be nontrivial, and both on/off choices are available if that pair exists; reusing an old point is forced by equality. This exhausts the extension inventory in both directions, giving the four-round EF strategy on each side and the common three-round theory. A rank-four existential sentence asking for four distinct points on the same pair-line separates the two classes. Fano and projective order three realize the two sides. The inspected frozen output exhibits five samples only and is not the arbitrary-design proof.
 
-**Limitations.** No assertion is made for rank five, other languages, partial designs, variable block size within a structure, or counting logics. Independent audit and external priority certification have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The examined papers do not cover the exact quantifier-rank classification for every finite nontrivial uniform Steiner 2-design in the point-only language. Stronger four-variable results on affine and projective geometries do imply much of the geometrical subfamily, and are credited as such; they neither quantify over arbitrary designs nor provide earlier coverage on the evidence checked.
+
+## value
+
+PASS
+
+This gives a natural exact expressibility boundary: no design can be distinguished in three rounds in the point-only signature, and the first separating level records just whether a pair-line admits a fourth distinct point. The classification holds across all finite designs satisfying the axioms, not just highly symmetric examples, and gives both a separating sentence and a uniform obstruction to any stronger distinction at that rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

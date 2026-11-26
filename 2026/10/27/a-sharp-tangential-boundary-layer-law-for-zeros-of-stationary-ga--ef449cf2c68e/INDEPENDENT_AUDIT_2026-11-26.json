@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:06:05.983311Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the spectral Fourier convention of the cited Gaussian power-series literature, the diagonal kernel is u/(1-r²), with u the Poisson extension at the same angle (the opposite Fourier convention reflects the angular label). Positivity and harmonicity give Δ log u=-|∇u|²/u², and the ordinary-area Edelman–Kostlan formula gives (3), including the factor π. Under C^(2m+2), the derivative Fourier series converge uniformly up to the boundary. The Poisson quotient at the zero is dominated by a constant multiple of w(θ0+s)/(1-cos s), integrable because m>=1; its limit is b>0 and u_r tends to -b there. Consequently u=as^(2m)+bδ+o(δ)+O(|s|^(2m+1)) for δ=1-r and s→0, with derivatives tending to (-b,0); the δ remainder is uniform along approaching angles. At s=δ^(1/(2m))x the denominator after dividing by δ is uniformly bounded below on compact x-sets, yielding the profile, including x=0. At fixed x≠0 the outer and inner powers give respectively normalized limits 1 and 0. For δ=εt, t in [1,2], the same uniform estimate gives u/ε→bt+ax^(2m) and ε²ρ tends to the stated integrand with 1/(4πt²). The polar area factor is (1-εt)ε^(1+1/(2m)); the resulting constant is positive for C>0. A closed-form sanity check is w=2-2 cos θ, for which u=2(1-r cos θ), b=2, and the normalized formula is 1-[(1-r²)/(2(1-r cos θ))]². The frozen checker corroborates the critical-scale profile and boundary slopes only; it does not itself test both off-critical angular exponents or prove uniformity. The analytic proof covers those claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shirai's fixed-angle regimes give the full leading singularity off the zero and smaller intensity at the zero itself, including a finite limit for m>=2.",
+          "Noda–Shirai's finitely dependent disk-count correction at an order-2m spectral zero has the same power (2m-1)/(2m)."
+        ],
+        "reasoning": "The fixed-direction expansion has coefficients depending on the angle and is not a uniform substitute in a joint scaling limit. A radial count integrated over all angles does not determine a finite-window coefficient as a function of C.",
+        "searches": [
+          "arXiv:2501.02586v2, §2 Theorem 2.1",
+          "arXiv:2106.02860v1, Theorem 1.3 and Corollary 1.5",
+          "arXiv:2501.03704, §2.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2501.02586v2",
+        "arXiv:2106.02860v1",
+        "arXiv:2501.03704",
+        "Resultary a2142a95ac70",
+        "Resultary 83ff40e0e0f9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known fixed directions yield exactly the endpoints of the normalized law but not the compact-uniform transition between them.",
+          "The indexed moving-angle profile is for a discontinuous endpoint; the prior disk-count power is global and supplies no interval-in-x intensity formula."
+        ],
+        "reasoning": "The matched angular scaling and integration over an arbitrary fixed scaled angular width are not parameter substitutions in these claims. The finite-Fourier exact examples are special cases and not evidence of a previously stated general smooth-zero law.",
+        "searches": [
+          "Shirai arXiv:2501.02586v2, Theorem 2.1 and Remark 2.2",
+          "Noda–Shirai arXiv:2106.02860v1, Theorem 1.3 and Corollary 1.5",
+          "Resultary a2142a95ac70, Finding and Proof §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shirai's Poisson diagonal (2.3) and Theorem 2.1 give the exact intensity through the covariance; harmonically differentiating the diagonal yields the same normalized deficit as (3).",
+          "Shirai arXiv:2501.02586v2, Remark 2.2 gives the same integral for the nonlocal slope at the zero after symmetrization and the density normalization."
+        ],
+        "reasoning": "The intensity and slope in an equivalent normalization are prior ingredients. The exact formula does not state a moving-angle asymptotic; one still has to select the matched scale and establish the uniform estimates through the vanishing denominator.",
+        "searches": [
+          "stationary Gaussian power series zeros spectral density vanishes boundary angular scaling transition moving angle Poisson Shirai Noda",
+          "arXiv:2501.03704, Eqs. (2.1)–(2.5)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a2142a95ac70 gives an angular profile on the 1-r scale at a band-limited jump endpoint, and a logarithmic count correction.",
+          "83ff40e0e0f9 treats a strictly positive cusp density and radial zero-deficit convergence."
+        ],
+        "reasoning": "There is no discrete invariant table for this continuum limit. The closest exact indexed profile and scale laws use different spectral hypotheses; neither gives the smooth order-2m angular profile or sector coefficient.",
+        "searches": [
+          "Resultary: stationary Gaussian zeros spectral zero tangential/angular boundary layer",
+          "Resultary: stationary Gaussian zero deficit and endpoint profile"
+        ]
+      },
+      "rationale": "The nonlocal slope, covariance description and fixed-angle asymptotics have explicit precedents. The distinct claim is the compact-uniform angular crossover at a smooth even-order zero, its scale separation and the local sector coefficient. The closest inspected moving-angle result concerns a jump, while the closest smooth-zero results give a radial direction or disk integral, not this local law. No priority beyond the compared evidence is asserted.",
+      "residual_risks": [
+        "An equivalent two-parameter formulation under other terminology or an unindexed crossover calculation may exist. The inspected fixed-direction and disk-count theorems are not evidence of priority for their shared ingredients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed directions and the known nonlocal factor",
+          "evidence": "Distinct fixed-direction density orders for positive density, quadratic zero and higher-order zero; the remark gives the integral with denominator 1-cos s.",
+          "identifier_or_url": "https://arxiv.org/html/2501.02586v2",
+          "material_read": "§2 Theorem 2.1 and Remark 2.2, HTML offsets 8297–11890",
+          "method": "Bounded OA HTML locate and read",
+          "title": "The density of zeros of random power series with stationary complex Gaussian coefficients",
+          "trigger": "Closest fixed-angle spectral-zero results"
+        },
+        {
+          "assessment": "Global disk-count comparison, not a moving-angle law",
+          "evidence": "Exponent (2m-1)/(2m) from a spectral zero of order 2m, but no local C-dependent sector intensity statement in those claims.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.02860",
+          "material_read": "Theorem 1.3 and Corollary 1.5, pp. 4–5, OA offsets 14500–18661",
+          "method": "Bounded OA theorem inspection",
+          "title": "Expected number of zeros of random power series with finitely dependent Gaussian coefficients",
+          "trigger": "Matching exponent from exact spectral-root asymptotics"
+        },
+        {
+          "assessment": "Exact kernel identity and intensity input",
+          "evidence": "Poisson diagonal divided by 1-r², and the exact Edelman–Kostlan/intensity representation; no claimed crossover in these statements.",
+          "identifier_or_url": "https://arxiv.org/abs/2501.03704",
+          "material_read": "§2.1, pp. 2–3, Eqs. (2.1)–(2.5) and Theorem 2.1, OA offsets 6480–10943",
+          "method": "Bounded OA PDF locate and read",
+          "title": "Spectral representation of correlation functions for zeros of Gaussian power series with stationary coefficients",
+          "trigger": "Potential exact formula or a more general correlation statement"
+        },
+        {
+          "assessment": "Different edge, scale and profile",
+          "evidence": "Jump endpoint produces width 1-r and global logarithmic correction, not balanced leakage at a smooth even-order zero.",
+          "identifier_or_url": "Resultary a2142a95ac70",
+          "material_read": "RESULT.md Finding and Proof §4, mirror snapshot 36a7204",
+          "method": "Local catalogue search and bounded mirror inspection",
+          "title": "Universal endpoint logarithms for zeros of band-limited stationary Gaussian series",
+          "trigger": "Candidate matching moving-angle boundary-layer law"
+        },
+        {
+          "assessment": "Strictly positive spectral cusp, radial zero deficit",
+          "evidence": "No smooth spectral zero or moving-angle limit in the stated result.",
+          "identifier_or_url": "Resultary 83ff40e0e0f9",
+          "material_read": "RESULT.md Finding",
+          "method": "Bounded local mirror reading",
+          "title": "Sharp half-Hölder transition in the zero deficit of stationary Gaussian series",
+          "trigger": "Candidate cusp/transition equivalent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fixed-ray law cannot quantify how zeros return to the generic intensity across the boundary near spectral degeneracy. The theorem gives the exact crossover scale, distinguishes a local Taylor coefficient from a nonlocal spectral contribution, and determines a measurable sector first moment on that scale for any width and finite even order. The conclusion is local and first-moment only, with no supported claim about fluctuations or convergence of the zero process.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

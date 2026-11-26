@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.10 or later; no external packages are needed. The retained `verify_output.txt` is the observed result of the included script. There were 362894 assertions: exact exhaustive inversion-degree identities on all permutations of orders 2 through 8, rational uniform-margin/boundary checks for a positive asymmetric density, and reproducible finite-sample diagnostics with 350 samples of size 1800. The first two scaled-degree empirical means were 0.878900 and 1.318990, compared with the Poisson limits 0.886227 and 1.329340.
+## correctness
 
-The checker does not certify functional weak convergence or an infinite Poisson/Gaussian law; the proof in `RESULT.md` separately supplies the boundary-strip functional CLT, de-Poissonization, Poisson-mark independence, and Chernoff localization. No independent mathematical audit was performed. The result does not cover singular permutons, zero corner density, or growing rank.
+PASS
+
+The exact inversion count is the sum of the two lower marginal counts minus twice their overlap (and has the same form at the reflected corner). In a compact corner window the overlap is O_P(1), and counting the vertex itself changes the result by at most a constant. In the Poissonized sample, excising all four compact corner squares separates the four strips from one another and from the two retained corner configurations. Each excised count is tight; uniform marginals give strip intensity t sqrt(n)+O(1) uniformly on compacts. The independent Poisson FCLTs thus give the four Brownian motions, and continuity of the density gives the independent rare corner intensities. Coupling N~Pois(n) to exactly n iid draws changes strip counts by O_P(1) and changes a corner configuration with probability o(1), so the limiting independence is preserved. For localization, density bounded below gives h>=c min(x+y,2-x-y)/2; for R>4t/c, outside the corner triangles of scaled radius R, conditional binomial means exceed 2t sqrt(n) for all sufficiently large n. An exponentially small Chernoff tail beats the union bound. The limiting Poisson configurations supply k vertices below a large t with probability approaching one, and their summation coordinates are almost surely separated in each bounded window, justifying actual-degree sorting and the tie convention. The Jacobian s gives the Gamma rank transform, and evaluating the same Brownian paths yields the conditional covariance and marginal normal law.
+
+## originality
+
+PASS
+
+The scalar first minimum is already known in broader settings and the ranked Poisson geometry substantially overlaps related catalogue work. The distinct contribution supported here is the second-scale marked degree law, jointly with the ranked corner points, in which vertices at a common corner share the same Brownian paths. Neither the scalar Rayleigh law nor the inspected first-scale marked geometry implies that joint residual law.
+
+## value
+
+PASS
+
+The result explains a concrete dependence invisible to the scalar minimum or a Poisson description of leading ranks: vertices at a common corner are driven by common marginal-strip fluctuations, with an explicit geometry-dependent covariance. Independence between corners and dependence within a corner are useful distinctions for subsequent extreme-degree statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:19:15.890574Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–78",
+        "Frozen VERIFICATION.md and checker.py (read, not executed)",
+        "Independent exact coefficient replay: node /workspace/evidence/4-quotient.js; equivalent polynomial calculation returned zero determinant difference and positive coefficients after the shift"
+      ],
+      "rationale": "The six labeled families are distinct by cross-edge patterns and the two within-part clique flags; neighborhood toggles close the list and reach all members from the biclique. For instance at U_i an X leaf does nothing, the X center removes all Y clique edges and connects its neighbors across the parts (giving C_X), and a Y vertex toggles the Y clique among its neighbors and the i-to-other-Y spokes (giving W_ij). At W_ij only the centers act; complementing at i makes the X clique and cross spokes into j, giving V_j. The generators are involutions, so the uniform vertex-choice operator is symmetric even with repeated and null moves. On part-constant functions the Laplacian is a six-cycle quotient in the order B,C_X,U,W,V,C_Y, with diagonal N,N,n+1,2,m+1,N and adjacent off-diagonal products n^2,m,n,m,n,m^2. Exact expansion as 18 signed matching terms and two full-cycle terms gives t(t-N-1)p(t); independent coefficient substitution at t=1-h has positive constant 8 in u=m-2,v=n-2,h and no negative coefficients. The quotient is real-symmetrizable by family sizes. A zero-sum X contrast has Laplacian block [[n+1,-n],[-1,2]] with eigenvalues 1,n+2; the Y analogue gives 1,m+2. Doubly zero-sum W tensors give 2. Dimensions exhaust the labeled orbit and give a simple zero eigenvalue and a first positive eigenvalue 1, including m=n=2. Scaling by N yields the claimed one-sided gap.",
+      "residual_risks": [
+        "The gap orders eigenvalues algebraically. It does not establish the absolute gap, a sharp total-variation mixing result, or the gap of a walk that samples distinct neighbors instead of vertex labels."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The study maps 587 local-complementation orbits through nine qubits. It reports numerical/qualitative random-walk stationary behavior and proposes investigating mixing rates further."
+        ],
+        "reasoning": "Broader orbit classes in a finite census and general random-walk discussion do not dominate the unbounded exact biclique spectral formula.",
+        "searches": [
+          "arXiv:1910.03969v2, Abstract, §2, Discussion"
+        ]
+      },
+      "checked_sources": [
+        "Tzitrin arXiv:1805.05968",
+        "Adcock et al. arXiv:1910.03969v2",
+        "Local Resultary records 809005b2a545, 6a9ca238b9fe, 5b75bead5e92"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Once A counts named-vertex generators taking G to H, the conversion P=A/N and L=NI-A is immediate. The known structural orbit provides input to that calculation; the finite census permits finite diagonalizations."
+        ],
+        "reasoning": "The distinct mathematical step is the uniform contrast/quotient decomposition and the bound of all quotient roots away from 1, not matrix formation from a fully known finite transition graph. Neither source reports an equivalent formula or a stronger spectral statement that gives it by substitution.",
+        "searches": [
+          "Tzitrin arXiv:1805.05968, §III.1; Adcock et al. arXiv:1910.03969v2, §2 and Discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tzitrin states the complete biclique orbit up to vertex permutation, including asymmetric bicliques. Adcock et al. formulate the vertex-index-edge-labeled orbit graph and distinguish labeled and isomorphism-quotiented graphs."
+        ],
+        "reasoning": "These formulations match the structural objects, not the stated all-parameter normalized spectrum. Keeping fixed labels and counting parallel moves and loops distinguishes the exact operator.",
+        "searches": [
+          "Primary literature query: local complementation K_{m,n} orbit spectrum random walk spectral gap biclique orbit",
+          "Tzitrin arXiv:1805.05968, §III.1, Claim 1 discussion",
+          "Adcock et al. arXiv:1910.03969v2, §2 and Discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The small-case census can encode the same finite operators if move labels and null moves are retained or determined. The closest mirrored titles concern synchronous integer charge diffusion (809005b2a545), square-supported spanning-tree exchanges (6a9ca238b9fe), or continuous-time facilitated spins (5b75bead5e92)."
+        ],
+        "reasoning": "A common biclique parameter or word 'gap' is not an operator match. The states and generators in those other results differ, and the finite LC census has no all-size eigenvalue formula.",
+        "searches": [
+          "Local Resultary search: K_{2,n} or biclique local-complementation random walk, gap and orbit spectrum",
+          "Adcock et al. arXiv:1910.03969v2, vertex-labeled orbit census"
+        ]
+      },
+      "rationale": "The orbit structure and the study of random local-complementation walks are existing work. The contribution supported by the comparisons is the parameter-uniform exact spectrum and Poincaré gap for this labeled, vertex-uniform chain, not the enumeration of isomorphism classes or the extraction of small-case spectra from existing finite data.",
+      "residual_risks": [
+        "A finite data source can already encode some instances; no priority is claimed for those instances or the orbit structure. A single broad search with irrelevant hits does not rule out an unlocated alternative spectral derivation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers biclique orbit up to relabeling, not walk spectrum",
+          "evidence": "Explicit complete orbit up to vertex permutation, with asymmetric extension.",
+          "identifier_or_url": "https://arxiv.org/html/1805.05968v1",
+          "material_read": "§III.1 Claim 1 discussion, offsets 16400–21344",
+          "method": "OA full text and statement comparison",
+          "title": "On the local equivalence of complete bipartite and repeater graph states",
+          "trigger": "Exact prior object and structural orbit"
+        },
+        {
+          "assessment": "Finite labeled orbit graphs and qualitative random-walk study, not the exact all-size gap",
+          "evidence": "Edges are indexed by complemented vertex; 587 orbits through nine qubits; mixing rates noted as a further direction.",
+          "identifier_or_url": "https://arxiv.org/html/1910.03969v2",
+          "material_read": "Abstract offsets 950–3045; §2 offsets 10400–12153; Discussion offsets 40500–41852",
+          "method": "OA full text and statement comparison",
+          "title": "Mapping graph state orbits under local complementation",
+          "trigger": "Finite labeled census and possible prior random-walk gap"
+        },
+        {
+          "assessment": "Different state and observable",
+          "evidence": "Hub-gap is an integer charge difference for periodic configurations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-two-cycle-counts-and-sharp-hub-gap-spectrum-for-integer-di--809005b2a545",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact two-cycle counts and sharp hub-gap spectrum for integer diffusion",
+          "trigger": "K_{2,n} hub-gap spectrum title"
+        },
+        {
+          "assessment": "Different operator",
+          "evidence": "States are spanning trees and moves are square exchanges; its own Laplacian gap is 4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-square-supported-spanning-tree-exchanges-of-k-2-n-exact-distance--6a9ca238b9fe",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Square-supported spanning-tree exchanges of K_{2,n}",
+          "trigger": "Exact biclique reconfiguration spectrum"
+        },
+        {
+          "assessment": "Different Markov chain",
+          "evidence": "Continuous-time FA-1f on spin states, with eigenvalue branch giving a bound, not an LC orbit gap.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-size-independent-nonradial-relaxation-modes-of-facilitated-spins--5b75bead5e92",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Size-independent nonradial relaxation modes of facilitated spins",
+          "trigger": "Biclique relaxation modes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and orbit/symmetry proof",
+        "Adcock et al. arXiv:1910.03969v2, Discussion"
+      ],
+      "rationale": "Random walks on local-complementation orbits were independently motivated before this calculation. The exact algebraic relaxation scale, independent of imbalance even though the orbit grows with mn, and the multiplicities identifying the slow modes are reusable information. This is more than recomputing a finite case or enumerating graph types.",
+      "residual_risks": [
+        "No quantitative total-variation mixing result or quantum mixing assertion follows without additional analysis."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

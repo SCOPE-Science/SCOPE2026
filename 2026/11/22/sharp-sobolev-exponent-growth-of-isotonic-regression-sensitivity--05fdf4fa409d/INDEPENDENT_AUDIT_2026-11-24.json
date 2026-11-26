@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:41:04.233434Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the stated unweighted Euclidean projection on a path, translation equivariance makes the gradient quotient well-defined. The chamber map Q is averaging on consecutive blocks; each gradient column of DQD⁻¹ is obtained by taking output gradients of a unit step. For adjacent blocks of lengths m,l this gives a boundary row with nonnegative ramp weights, central entry one and row sum (m+l)/2. The two contributions of an internal edge to neighboring boundary rows add to one before missing endpoint rows are discarded; a separating edge contributes one. Weighted Hölder and these column/row bounds give (n/2)^(1−1/p), including p=1; the row sum gives p=∞ directly. The finitely many closed affine cells partition each line segment into subsegments on which these estimates apply, including a segment lying on cell boundaries. Strict chambers with decreasing raw data inside pooled blocks and distinct ordered means give genuine finite witnesses: the block pattern (1,n−2,1) sends a ramp to a gradient with two equal entries (n−1)/2, yielding the lower bound, and (1,n−1) attains the infinity upper bound. The latter's row has entry one plus a further positive entry for n≥3, so its dual p-norm bound is strictly above one for p>1, even at n=3. The increasing chamber yields equality at p=1, and n=2 follows from its upper bound and the identity chamber. Dividing by (n/2)^(1−1/p) gives the uniform error at most 1/n. No complete finite interior-p formula is claimed. Read RESULT.md:3–57, VERIFICATION.md and check_isotonic_wp.py without executing uploaded code; the independent_matrix_check.py and .log in /workspace/branches/49ed2a84-f4f4-492d-aba9-c2ac3ab8e796 corroborate exact row/column sums and genuine fitted pairs for bounded n, with floating evaluation of selected p-norm ratios. The general conclusion comes from the analytic argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two same-day indexed weighted-variation findings specialize to TV factor one in the unweighted case. The general finite-poset finding concerns value-space stability; the Németh–Németh abstract concerns coordinatewise order-isotonicity of projections."
+        ],
+        "reasoning": "Broader chain weights cover the p=1 instance, under which nonnegative column sums have the correct interpretation. They do not furnish sharp row sums or matched superlinear-exponent lower bounds; finite-poset value contraction is a different property.",
+        "searches": [
+          "Resultary: SCOPE-sharp-ell-p-isotonic-regression-stability-on-every-finite-partia--7bfc7f16ca62",
+          "Resultary: SCOPE-sharp-weighted-variation-lipschitz-constant-of-finite-chain-isot--77de1978bb36 and SCOPE-the-concave-envelope-law-for-sharp-weighted-variation-sensitivit--fcea9cd47ab7",
+          "Németh–Németh, arXiv:1503.08458v2"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md:3–72, VERIFICATION.md, check_isotonic_wp.py, independent_matrix_check.py/.log",
+        "Resultary fcdc0a30e6a2, 77de1978bb36, fcea9cd47ab7 and 7bfc7f16ca62 statements",
+        "Yang–Barber arXiv:1706.01852v3 p.1; Guyader et al. arXiv:1211.3930v2 p.1; Németh–Németh arXiv:1503.08458v2 p.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "RESULT.md:24–55 supplies the independent n/2 row calculation, actual endpoint witness, and two-boundary ramp lower construction. The known p=2 and p=1 norms alone do not state the infinity norm or supply lower norms outside those exponents."
+        ],
+        "reasoning": "Endpoint interpolation is routine once endpoint bounds are known, and no originality is assigned to interpolation itself. The matching lower family across all exponents, sharp infinity row extremum, and relative gap uniform in p are the distinguishing result.",
+        "searches": [
+          "Comparison with cap-independent p=2 result fcdc0a30e6a2 and weighted TV results 77de1978bb36/fcea9cd47ab7",
+          "Focused Yang–Barber source lookup for the contraction criterion and total variation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Yang–Barber abstract/introduction studies contraction in data/value-vector norms; the Guyader et al. abstract concerns iterative regression in a bounded-variation setting. The frozen record already credits the two-input TV endpoint."
+        ],
+        "reasoning": "The distinction is the norm on differences of adjacent entries of the difference of two fits, rather than the norm of their value-vector difference or variation of just one fitted vector. The equivalence with a gradient-coordinate matrix norm does not identify it with a data-space ℓp norm.",
+        "searches": [
+          "Resultary: finite-chain isotonic projection Sobolev/gradient amplification",
+          "Contraction and uniform convergence of isotonic regression and total variation, Yang–Barber, arXiv:1706.01852v3",
+          "Guyader et al., arXiv:1211.3930v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier fcdc0a30e6a2 indexed statement gives 1, sqrt(5)/2, sqrt(14)/3 for n=2,3,4 and sqrt((n−1)/2) for n≥5 for all positive edge caps. The TV entries give one at the unweighted endpoint; the available statements do not give an all-p table."
+        ],
+        "reasoning": "The upper bound from the bounded-slope result transfers to the uncapped p=2 projection: scale any fixed pair down so both uncapped fits are feasible for positive caps, then the capped and uncapped fits coincide and the ratio is homogeneous. The frozen ramp matches for n≥5; the one-row two-block patterns match the small-n constants. This is real existing coverage of p=2, not merely a numeric coincidence.",
+        "searches": [
+          "Resultary exact coefficient: fcdc0a30e6a2 sharp discrete-Sobolev sensitivity of bounded-slope isotonic projection",
+          "Resultary: 77de1978bb36 and fcea9cd47ab7 weighted variation coefficients"
+        ]
+      },
+      "rationale": "Credit the sharp uniform all-exponent leading constant with explicit finite two-sided error, the sharp infinity endpoint and the contraction/expansion transition for this two-input derivative seminorm. The TV endpoint and the Hilbert-exponent coefficient have existing coverage and are not separately credited. The available recognized value-space results and these special exponents do not supply the matching bounds uniformly over all exponents.",
+      "residual_risks": [
+        "Primary text beyond the available passages and the full matched catalogue records were not available in this pass; an earlier sharp gradient result stated in different matrix or perturbation language remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Transfers to the present p=2 coefficient by scaling and explicit uncapped witnesses; no all-exponent implication in the available statement",
+          "evidence": [
+            "Cap-independent constants 1, sqrt(5)/2, sqrt(14)/3 and sqrt((n−1)/2) for n≥5."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-discrete-sobolev-sensitivity-of-bounded-slope-isotonic-pro--fcdc0a30e6a2",
+          "material_read": "Resultary catalogue finding, including precise constants and all positive caps quantifier; matching full text not obtained",
+          "method": "Local Resultary search and lawful mirror lookup attempt",
+          "title": "Sharp discrete-Sobolev sensitivity of bounded-slope isotonic projection",
+          "trigger": "Earlier reference with exact matching Hilbert scale"
+        },
+        {
+          "assessment": "Same p=1 content in the unweighted case; not all-p or a same-day priority determination",
+          "evidence": [
+            "Both give weighted total-variation constants via a least concave majorant."
+          ],
+          "identifier_or_url": "Resultary 77de1978bb36 and fcea9cd47ab7 (2026/11/22)",
+          "material_read": "Both catalogue findings; full records not obtained",
+          "method": "Local Resultary search and matching mirror attempt",
+          "title": "Sharp weighted variation Lipschitz constant / concave-envelope law for finite-chain isotonic projection",
+          "trigger": "Distinct indexed same-day sharp coefficient on the same chain"
+        },
+        {
+          "assessment": "Available text covers general contraction and ℓp in value space; does not settle all historical coverage of gradient operator criteria",
+          "evidence": [
+            "p. 1 discusses contraction in norms on the observations and isotonic estimates."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1706.01852",
+          "material_read": "Public v3 PDF p. 1 title, abstract and introduction; targeted OA attempt for total variation did not return decisive full text",
+          "method": "Primary-literature search and lawful public-text attempts",
+          "title": "Contraction and uniform convergence of isotonic regression",
+          "trigger": "Most relevant global contraction and local averaging criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Isotonic projection is contractive on values and in gradient TV, but the bias this suggests for stronger gradient seminorms is wrong. The exact infinity gain, failure at each p>1 even in the shortest nontrivial dimension, and quantitative all-exponent interpolation with a matching leading constant give a sharp stability benchmark for arbitrary input perturbations. Uniform relative error controls exponents varying with dimension, not just one fixed exponent at a time.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

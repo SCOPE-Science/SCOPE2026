@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -17,8 +20,6 @@
 ---
 # Reproducibility and evidence
 
-The graph is constructed from 15 duads and 15 synthemes on a fixed six-element set; every allowed incidence is derived directly. A landmark resolves an edge pair exactly when the two vertex-to-edge distance values differ. This reduces basis verification to finite 990-pair coverage.
+Construct the graph from its 15 duads and 15 synthemes. A candidate landmark set resolves the edges exactly when it separates all 990 unordered edge pairs. `python3 verify_python.py` regenerates the complete list of optimum bases, the exchange edges and the distance-seven pairs. Independently compile `c++ -O2 -std=c++17 verify_cpp.cpp -o verify_cpp` and run `./verify_cpp` for the minimum and exchange statistics using edge signature uniqueness rather than pair masks. The expected marginal and scalar summaries are in `verify_python_output.txt` and `verify_cpp_output.txt`.
 
-Run `python3 verify_python.py` in this directory to recreate the exhaustive five-element minimum-basis list, the 37320 exchange edges and the 360 diametral pairs. Check its output against `verify_python_output.txt`. Independently compile `c++ -O2 -std=c++17 verify_cpp.cpp -o verify_cpp` and run `./verify_cpp`; compare its output with `verify_cpp_output.txt`. The C++ code does not load the Python certificates and instead uses uniqueness of edge-distance signature vectors. Both implementations check all subsets below the claimed optimum and all-source exchange distances. The output of each run is deterministic; output files use ASCII and LF.
-
-`basis_states.txt` contains all 4560 lexically ordered five-element bases, one line per basis. `exchange_edges.txt` contains every edge of the reconfiguration graph as an ordered pair of distinct zero-based basis-line indices, with the smaller first. `distance_7_pairs.txt` similarly contains the 360 unordered diametral pairs. A reproduced instance may be compared byte-for-byte with these certificate files. Counts, optimization, distances, and configuration composition are restricted to the exact graph and adjacency rule. The finite scripts and their outputs have been checked together; independent external verification is not performed.
+The certificate files `basis_states.txt`, `exchange_edges.txt` and `distance_7_pairs.txt` retain their original ordering and contents. In a directory containing those files, run `python3 verify_joint.py` (or supply the certificate directory as the first argument). This script reconstructs the exchange edges from the four-subset buckets of the bases and compares the whole edge list, recomputes every eccentricity and the complete distance-seven list, and tallies degree with eccentricity on the same source. The joint output is in `verify_joint_output.txt`. In particular the marginal counts from the original programs do not establish which vertices contribute to both bins, and the new check reports that pairing explicitly. Each check is a finite exact calculation for this graph and adjacency rule.

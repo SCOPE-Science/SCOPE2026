@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:26:01.348117Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding and Proof; verify_rosenhain.py, rosenhain_80.csv and VERIFICATION.md",
+        "Independent exact replay: /tmp/opencode/frozen_audit_exact.py 4",
+        "Keum, §2; Dolgachev, introduction and §5"
+      ],
+      "rationale": "For the usual geometric Rosenhain tetrads in characteristic not two, the enumeration is complete: of the 35 binary two-dimensional linear subspaces, 15 are isotropic, and each of the other 20 has four cosets. The four coordinate sums vanish modulo two on every affine plane, while the second difference of the displayed quadratic refinement equals the symplectic pairing, hence has sum one on each nonisotropic plane. This proves inclusion in the stated mod-eight and parity kernel. The zero node and the four differences of coordinate nodes from zero generate the target of order 128. I independently filtered all 1,820 four-subsets by zero XOR and nonisotropic direction, obtained all 80 rows (matching the CSV including its selected rows), computed the signed minor +128 and obtained the full integer Smith list 1^11, 2^4, 8. Inclusion and the equality of indices prove the exact criterion. The first coordinate of each basis image is odd, giving order eight for every node. The claim concerns formal coefficients, not a quotient of divisor classes.",
+      "residual_risks": [
+        "The frozen verification instructions overstate backwards Python compatibility: the shipped checker calls int.bit_count(), available from Python 3.10, not 3.8. The determinant, proof, and independent replay do not rely on the unsupported compatibility statement.",
+        "No ordinary sixteen-node model claim in characteristic two or claim about algebraic cycles is being passed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "0614ee86c808 uses 315 syzygetic tetrads on 28 genus-three bitangents, with 1^21, 2^6, 4, a different object and dimension.",
+          "Dolgachev's general characteristic context and affine geometry describe which sets occur, but not a theorem on the integer image of the nonisotropic matrix."
+        ],
+        "reasoning": "Neither the related congruence construction nor the general classical classification supplies a stronger integral theorem with this recovery as a special case. A matrix on all affine planes also mixes the two direction types and would not determine this sublattice.",
+        "searches": [
+          "Local Resultary: Boolean moments, radical, design and Smith-form formulations",
+          "0614ee86c808, syzygetic tetrad congruence lattice; Dolgachev §5"
+        ]
+      },
+      "checked_sources": [
+        "Keum (1997) §2",
+        "Dolgachev arXiv:2302.13101, introduction and §5",
+        "Local indexed records 2fe9c0537bec, 89f00be3afc4 and 0614ee86c808"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For isotropic columns the quadratic parity is zero and the known conditions are total sum mod four, four linear parities and a quadratic parity. For nonisotropic columns the quadratic parity is one, making total mass and quadratic parity couple modulo eight.",
+          "These identities alone give only inclusion in the new kernel. The independent full-index proof is needed for equality and the sharp per-node obstruction."
+        ],
+        "reasoning": "Knowing the old kernel or the geometric description does not make this exact index/equality a formal corollary.",
+        "searches": [
+          "Keum §2; Dolgachev §5; 2fe9c0537bec's stated integral criteria and quotient"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Keum §2 and Dolgachev §5 identify exactly the 80 translates of nonisotropic planes; the older terminology does not add an integral quotient.",
+          "2fe9c0537bec gives the complementary 60 isotropic tetrad span with different congruences and exponent four."
+        ],
+        "reasoning": "Changing affine symplectic coordinates or transposing the incidence matrix for Smith purposes is equivalent; changing the type of its direction is not. The checked geometry identifies the matrix, not its integral span.",
+        "searches": [
+          "Local Resultary: Rosenhain incidence, symplectic nonisotropic affine two-planes, integral tetrad lattice",
+          "Primary lookup for Rosenhain tetrads and their node incidence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-date record 89f00be3afc4 counts Frobenius profiles of 60 Göpel tetrads, not a Smith table.",
+          "The actual indexed Göpel formula is Z/4 plus five Z/2 factors, not Z/8 plus four Z/2 factors; the bounded primary lookup surfaced Keum's geometric treatment."
+        ],
+        "reasoning": "The inspected exact matches concern combinatorial geometry, different columns or a different invariant; the review did not locate an exact Rosenhain table. This is not an exhaustive absence claim.",
+        "searches": [
+          "Local Resultary: Rosenhain Smith form, integral node quotient and exact exponent eight",
+          "Same-date indexed record 89f00be3afc4",
+          "Bounded primary lookup for Rosenhain incidence tables"
+        ]
+      },
+      "rationale": "Best of current knowledge, the supported distinct claim is the integral span and coupled order-eight obstruction of the 80 nonisotropic tetrads. The underlying configuration is classical. The strongest indexed analog uses complementary, isotropic directions and has exponent four; the matching index is not matching lattice information.",
+      "residual_risks": [
+        "Cullinane's cited PG(3,2) page was not available on a bounded attempt.",
+        "An equivalent nonisotropic-plane integer-incidence calculation in a coding/design source not found by the bounded checks is possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical geometry only in the inspected passage",
+          "evidence": "Identifies 80 Rosenhain affine planes, distinguished from 60 isotropic Göpel planes.",
+          "identifier_or_url": "https://doi.org/10.1023/A:1000148907120",
+          "material_read": "§2, PDF p. 5, around text offset 14364",
+          "method": "Read relevant full-text passage",
+          "title": "Automorphisms of Jacobian Kummer surfaces",
+          "trigger": "Exact classical tetrad geometry on the 16 nodes"
+        },
+        {
+          "assessment": "Establishes geometric setting, not the stated lattice",
+          "evidence": "Characteristic different from two has 16 ordinary double points; Rosenhain tetrads are translates of nonisotropic planes.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.13101",
+          "material_read": "Introduction, PDF p. 1 and §5, PDF p. 15, around offset 47677",
+          "method": "Read located full-text passages",
+          "title": "K3 surfaces of Kummer type in characteristic two",
+          "trigger": "Exact two-torsion and characteristic scope; possible equivalent geometric classification"
+        },
+        {
+          "assessment": "Substantial overlap, different incidence problem",
+          "evidence": "60 isotropic tetrads, Smith list 1^10, 2^5, 4 and index 128.",
+          "identifier_or_url": "2fe9c0537bec",
+          "material_read": "Finding and scope at offset 0",
+          "method": "Local published-record mirror",
+          "title": "The integral Göpel-tetrad lattice of a Kummer quartic",
+          "trigger": "Strongest published same-setting integral claim"
+        },
+        {
+          "assessment": "Distinct invariant and tetrad type",
+          "evidence": "Arithmetic Frobenius profiles for Göpel tetrads, not an integer Smith computation.",
+          "identifier_or_url": "89f00be3afc4",
+          "material_read": "Finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "Frobenius descent and rational node profiles of the sixty Göpel tetrads",
+          "trigger": "Same-date tetrad match"
+        },
+        {
+          "assessment": "Different underlying node/bitangent set and matrix",
+          "evidence": "28 bitangent labels and Smith list 1^21, 2^6, 4.",
+          "identifier_or_url": "0614ee86c808",
+          "material_read": "Finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "Integral congruence lattice of the 315 syzygetic tetrads of a plane quartic",
+          "trigger": "Closest methodological integral congruence match"
+        },
+        {
+          "assessment": "Unresolved access; no coverage inferred either way",
+          "evidence": "No readable passage obtained.",
+          "identifier_or_url": "https://m759.github.io/35/hudson.html",
+          "material_read": "Citation only; page not retrieved in bounded attempt",
+          "method": "Lawful public page attempt",
+          "title": "Rosenhain and Göpel Tetrads in PG(3,2)",
+          "trigger": "Plausible binary projective equivalent formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen statement and exact reproduction",
+        "Göpel lattice 2fe9c0537bec and Keum §2"
+      ],
+      "rationale": "The 80 generators are the complete canonical nonisotropic incidence family on the Kummer node set. Researchers using integral combinations can now decide membership by five explicit moments and know the optimal coefficient for reconstructing any node. Rank, binary parity and even knowledge of the index alone would miss the coupled order-eight obstruction, and the complementary Göpel lattice of the same index has a genuinely different exponent.",
+      "residual_risks": [
+        "The utility is for the formal integer incidence lattice; no geometric divisor reconstruction or arithmetic descent is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

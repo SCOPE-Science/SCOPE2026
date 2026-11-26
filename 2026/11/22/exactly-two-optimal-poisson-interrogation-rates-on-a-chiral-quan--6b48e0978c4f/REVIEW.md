@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Hermitian generator obeys \(H^3=3H\), so its propagator and a target-transition amplitude follow exactly. Poisson integration of its squared modulus gives a strictly positive rational single-try success probability. The independent renewal after *active* re-preparation, not projection alone, gives the exact mean detection time. An exact nonnegative perfect-square gap determines the full forward set of global extrema; the reverse derivative has a positive quartic multiplier, proving unique reverse optimization. Both singular boundaries have infinite expected detection time. These steps establish all positive rates without extrapolating from finite computations. Standalone execution gave 16 symbolic identities and 614 numerical assertions against full matrix-exponential quadrature; finite checks do not replace the analytic proof.
+PASS
 
-## Originality — PASS (subject to scientific priority risk)
+Independently recomputed the one-attempt rational functions by summing the exact Laplace transforms of differences of the three eigenfrequencies using spectral projectors, rather than relying on the source checker. They agree for both fixed source-target orientations. Unit-hopping |0⟩ preparation and |2⟩ detection are unchanged under the diagonal gauge D=diag(1,i,i). The forward matrix gauged as D*H₊D has 01 and 12 entries one and 02 entry −i; this gives sin Φ=−1 in the matching stationary-reset source. Independently renewed durations and outcomes justify E[T]=1/(rp) without assuming success independent of its own trial duration; the sum of durations weighted by survival to each trial is a convergent geometric sum. In the repaired proof division by r² gives rp=2(x∓3)/(x²+3) for x=r+6/r≥2√6. The forward rational function has a unique strict maximum in x at 3+2√3>2√6, with value 1/(3+2√3); both positive inverse images are exact and distinct. The backward function is strictly decreasing in x on the entire interval, giving the unique fixed-point rate √6 and mean 27/(6+4√6). This proves global optimality, reproduces the original rates and signs, and explains why the same reciprocal symmetry permits different optimizer multiplicities.
 
-Closest antecedents are quantum monitoring/restart studies by Yin–Barkai (2022) and Kulkarni–Majumdar (2023), and magnetic three-ring monitoring by Wang and collaborators (2024) and Finocchiaro and collaborators (2025). The deterministic sharp-restart and passive-projection schemes are not the explicitly renewed exponential interrogation used here. Full inspected treatments and published mathematical result records did not state the exact two equal optimal *rates* for the fixed triangle, nor their conversion to one optimal rate on circulation reversal. An unindexed general renewal theorem or equivalent parametrization could still imply this specialization, so priority is not independently certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Two distinct equal global control optima in a single exact quantum detection experiment, and their disappearance under mere magnetic reversal, are structural, model-motivated distinctions: rate tuning can have a genuinely nonunique optimum under coherent interference rather than the unique qubit behavior observed in previously solved cases. The proof yields a complete rate optimization with a simple exact sum/product relation, not a hand-picked numerical comparison. The degeneracy is model-specific and may be lifted by nonideal resets or arbitrary Hamiltonian perturbations.
+Pass for the repaired global optimizer classification, not the one-attempt probability law. The exact same-gauge individual populations in 848fc77e7b52 supply both probability functions on specialization. The strongest inspected matching result instead optimizes the stationary site-population imbalance. It does not classify global optima of the different elapsed-time objective, or imply the reciprocal symmetry's two-preimage optimum from its imbalance theorem.
 
-## Remaining scientific limits
+## value
 
-Results do not cover measurements without active source re-preparation, realistic reset overhead, general flux, multi-site generalizations or higher detection-time moments. The first public motivating work predates the present calculation. The assertion of originality is a search-supported statement about examined sources, not exhaustive publication priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A maximally chiral three-site ring is a natural smallest cycle with flux, and mean detection time with renewal is a standard objective. A precisely tied finite pair, in contrast to a strict single optimum on changing only flux direction, is stronger than finding multiple local extrema and provides a sharp benchmark for attempts to prove single-optimum behavior. The reciprocal-rate symmetry shows the mathematical mechanism and explains why it produces two rates only for one orientation. The value is not in re-integrating the known site occupation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

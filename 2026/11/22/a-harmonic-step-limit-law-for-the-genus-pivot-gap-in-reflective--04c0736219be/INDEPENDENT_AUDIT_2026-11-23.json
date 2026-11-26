@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T18:05:16.207052Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen formulas check; the repair changes scope and attribution rather than the mathematics. Shor's decomposition makes g a gap and gives the run [qa+1,g], with the ordinary a=g+1 case correctly contributing R=g. The frequency condition is a divides g-t and a>t. The exact mean numerator and denominator have the correct extra ordinary contribution and zero-entry exclusion. For the limiting result, discard u<g^(-1/2) with grid and interval cost O(g^(-1/2)), then count at most floor(sqrt(g))+1 affine level-set intervals with error at most 2/g each. Removing at most 2 sqrt(g) divisors, adding a=g+1 and renormalizing preserve the bound. The k-th branch contributes density 1/k on (0,1/(k+1)), giving a telescoping CDF tail 1/(K+1) and the term x H_K. Its second-moment contribution is 1/[3k(k+1)^3], hence 1-(zeta(2)+zeta(3))/3 after telescoping, and variance follows by the boundedness of X_g and the first-moment formula. Independent closure enumeration through genus 14 reproduced every histogram; at g=12 the counts are {1:1,2:2,3:1,4:1,5:1,12:1}. Exact replay is /workspace/repairs/4/check_by_reflectiveness.py. The frozen checker was inspected, not executed. The finite reproduction does not establish the asymptotic theorem. The repaired result and supporting public texts were checked against these derivations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shor's fixed-Frobenius count is a marginal with a different conditioning; the exact genus/multiplicity and Frobenius formulas give the full finite population. En-naoui gives sums and quotient grouping, and lists distributional questions as future work. The indexed Wilf-surplus law is for U^2 floor(1/U), rather than 1-U floor(1/U); the isolated-gap law is discrete with divergent limiting mean."
+        ],
+        "reasoning": "A known marginal over a different population, or a different transform on the same one, does not supply the CDF and error for this law. The quotient grouping is prior and is not treated as a new technique.",
+        "searches": [
+          "Shor §§3,5, in particular Proposition 5.2 and §5.2",
+          "En-naoui arXiv:2509.10592v1 §§3,5,6.2,10",
+          "Resultary: isolated-gap distribution and Wilf-surplus law in reflective numerical semigroups"
+        ]
+      },
+      "checked_sources": [
+        "Shor arXiv:2207.00051v1",
+        "OEIS A372727, A111490, A004125",
+        "En-naoui arXiv:2509.10592v1",
+        "Resultary c016095bed6e and ea4be85dd313"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For t<g the finite cell formula is immediate from g-t=qa and a>t, and Shor's symmetric-semigroup count explicitly supplies the t=1 cell for g>1. The prior remainder-sum identity and main term immediately imply the population mean on dividing by gM_g."
+        ],
+        "reasoning": "The finite overlaps are mechanical and excluded as standalone contributions. The repaired law evaluates every threshold via a branch-wise harmonic sum, controls threshold indicators uniformly despite the jumps of the underlying transform, and obtains strict additional information in the second moment and variance. The first-moment Riemann sum does not carry out those steps.",
+        "searches": [
+          "Shor Prop. 5.3 and §5.2; A004125 Riemann-sum comment and A111490 formula; En-naoui Prop. 5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "R=g mod a=2g-F(S) at fixed genus. The finite law is also the row law of g mod a divided by g, with zero remainders deleted and the exceptional entry g included."
+        ],
+        "reasoning": "The finite pivot-run law and fixed-genus Frobenius law are affine transforms, not separate invariants at fixed genus. A law for the normalized remainder over all moduli with the same cutoff would imply the limit with a controlled deletion error, so the novelty search must include arithmetic sources independent of semigroups.",
+        "searches": [
+          "Shor arXiv:2207.00051v1, Proposition 3.4, Corollary 3.6 and §5",
+          "Resultary: normalized remainder random uniform divisor non divisor fixed dividend genus reflective numerical semigroup Frobenius gap harmonic step distribution zeta variance",
+          "Web: distribution n mod k random modulus remainders harmonic numbers limiting distribution uniform modulus normalized remainder reciprocal floor"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nonzero entries of row g of A372727 coincide with the complete finite multiset, using its modulus-zero entry for the ordinary semigroup. A111490 exactly equals the sum of run lengths and states (1-pi^2/12)g^2+O(g log g); A004125 is the same sum minus g and states the same leading coefficient."
+        ],
+        "reasoning": "These are positive instances of prior exact coverage, including the data underlying the histogram. Neither the tabulation nor the mean asymptotic computes the continuous CDF or the second moment.",
+        "searches": [
+          "OEIS A372727, A111490, A004125",
+          "Resultary fixed-genus gap/run and remainder search above"
+        ]
+      },
+      "rationale": "PASS for the repaired claim only. The frozen record counts the divisor histogram among its additional findings and overlooks direct coverage of the underlying finite table and the mean. The corrected package makes the finite histogram and first moment attributed background and claims only the explicit continuous distribution, uniform CDF estimate, and second moment and variance. Those do not follow from a relabeling of prior statements or from their first-moment estimates.",
+      "residual_risks": [
+        "An unindexed normalized remainder or fixed-genus Frobenius limit might give the same CDF. The external arithmetic keyword lookup did not settle bibliographic priority.",
+        "Related indexed statements were not read as complete proofs. The CDF rate is an upper bound, not an optimality claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Determines finite law, not the inspected continuous profile or discrepancy",
+          "evidence": [
+            "F=2g-r; all admissible multiplicities occur once; Proposition 5.3 counts the symmetric t=1 case"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2207.00051v1",
+          "material_read": "Proposition 3.4 and proof, Corollary 3.6, Proposition 5.2, Proposition 5.3 and §5.2",
+          "method": "Primary full text; compared gap decomposition, exact counting conditions and conditioning",
+          "title": "Reflective Numerical Semigroups",
+          "trigger": "Exact same population and the Frobenius reparametrization"
+        },
+        {
+          "assessment": "Exact underlying data, numerator and leading first moment",
+          "evidence": [
+            "A372727(g,0)=g; A111490(g)=g+A004125(g); A111490 formula section gives the limiting coefficient"
+          ],
+          "identifier_or_url": "https://oeis.org/A372727",
+          "material_read": "Complete entries A372727, A111490 and A004125",
+          "method": "Direct table and formula comparison, including the zero-modulus entry",
+          "title": "OEIS modular remainder triangle and row sums",
+          "trigger": "Potential exact table coverage of the finite histogram and mean"
+        },
+        {
+          "assessment": "Covers the diagonal first-moment identity, not the repaired law",
+          "evidence": [
+            "Propositions 3.3 and 5.1; §10 explicitly lists distributional questions as future work"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2509.10592v1",
+          "material_read": "Sections 3, 5, 6.2 and 10",
+          "method": "Public full text; compared identities and conclusion rather than relying on tabulated examples",
+          "title": "The Modular Energy Function: the Sum of Remainders",
+          "trigger": "Same diagonal remainder sum and grouping by the floor quotient"
+        },
+        {
+          "assessment": "Different observables; no implication of the repaired law from these statements",
+          "evidence": [
+            "Discrete 1/[k(k+1)] isolated-gap limit; atomless U^2 floor(1/U) Wilf-surplus limit"
+          ],
+          "identifier_or_url": "c016095bed6e; ea4be85dd313",
+          "material_read": "Indexed mathematical statements only",
+          "method": "Resultary and direct comparison of statistics and pushforwards",
+          "title": "An exact isolated-gap distribution and harmonic tail law for reflective numerical semigroups; A zeta-moment limit law for Wilf surplus in reflective numerical semigroups",
+          "trigger": "Same random population and closely worded distributional claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired theorem gives a complete, quantitative description of a natural normalized fixed-genus Frobenius statistic: a continuous law with a harmonic-step density, compact limiting support, uniform error at all thresholds, and an explicit fluctuation scale. This is information beyond averaging the classical remainder array and applies to the uniformly defined semigroup population. The finite rearrangement and first-moment constant alone would not carry this value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

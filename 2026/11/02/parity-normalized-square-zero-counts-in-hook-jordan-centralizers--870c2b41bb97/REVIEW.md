@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The hook centralizer is represented as \(\operatorname{End}_{\mathbb F_q[t]}(\mathbb F_q[t]/(t^n)\oplus\mathbb F_q^r)\). Its square equation is derived explicitly; the lower-right block is partitioned by rank using square-zero image/kernel flags, and the residual bilinear pairing is counted with its lift multiplicity. The even/odd valuation arguments and finite-field scalar-square equation determine every term without characteristic restrictions. The independent multiplication verifier exhaustively reproduces 13 full counts and 9 block-rank distributions. The excluded case \(n=1\) is necessary.
+## correctness
 
-**Originality — PASS, provisional.** Searches of the available prior-claim database, accessible previous local research claims, and relevant full primary texts did not exhibit the exact labelled cardinality or the parity normalization. Britnell–Wildon (2010) address commuting similarity *types* for hooks; Ngo–Levy–Šivic (2021) and Boij–Iarrobino–Khatami (2024) study geometric commuting varieties; Bogdanić et al. (2022) treat two equal blocks. The particularly close later Khatami–Košir hook paper (2026) classifies *admissible Jordan types*, not finite-field point counts. These existence and geometry results do not imply the precise count without additional enumeration. Hall-polynomial generalizations remain a material priority risk.
+PASS
 
-**Mathematical value — PASS.** This is a complete natural enumeration of the index-two nilpotent locus in a fixed centralizer family, valid over all finite fields and arbitrarily long hook blocks. The explicit strict parity discrepancy survives normalization and is not explained by the usual dimension of the centralizer. It provides a concrete benchmark for broader finite-field nilpotent commuting-variety and representation-counting questions; the result is substantially beyond a rephrasing of the centralizer parametrization.
+As t-modules, R=F_q[t]/(t^n) and W=F_q^r with tW=0 give diagonal blocks f,D and off-diagonal maps t^(n−1)b and evaluation at zero times c. Their lower-right cross product vanishes since n≥2, while their upper-left cross product is t^(n−1)bc. The constant term forces f(0)=0; the remaining equations are D²=0, bD=Dc=0 and f²+t^(n−1)bc=0. The flag im D=U⊆K=ker D and the induced isomorphism W/K→U yield exactly G_{r,k}; b descends to (K/U)* on restriction and c to K/U, each with q^k lifts. The first nonzero coefficient of f², when present, is the square of the first nonzero coefficient of f at twice its degree. For n=2h this forces valuation at least h and bc=0; for n=2h+1 it leaves only the equation a_h²+bc=0. In both cases the higher free coefficients give q^h. On a quotient of dimension s>0, a nonzero form has q^(s−1) vectors in every pairing fiber, while the zero form gives q^s vectors and forces a_h=0 when relevant. This produces the stated H factors, both equal to 1 at s=0, and their difference is (q−1)q^(s−1)(q^s−1) for positive s. The k=0 term gives strictness for r≥1; no square-root count or characteristic assumption is used. Centralizer size follows from n+2r+r² free coordinates. Independent spot replay enumerated all d×d matrices over each listed prime field by base-q expansion and filtered by ordinary matrix products XB=BX and X²=0: for (n,r,q)=(2,1,3),(3,1,2),(2,2,2), the centralizer sizes and square-zero counts were (243,15),(64,8),(1024,44). The all-parameter decision rests on the proof; the frozen checker and recorded output were inspected but not executed.
 
-The counts are for labelled matrices, not centralizer-group conjugacy orbits; the result is restricted to one nonsingleton Jordan block. Finite checks support but do not replace proof. Priority has not been independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The credited distinct content is the all-tail count and normalized parity separation for a long hook, especially the odd n≥3, r≥2 fiber. Resultary 0260ec1ac7b2 already gives (and rank-refines) n=2, and 50a5542dfb83 already gives the r=1 parity family and more rank information there. The even normalized generalization is effectively the n=2 count after extracting free coefficients; neither overlap evaluates the odd hook when the square-zero tail can have positive rank. Inspected primary frameworks encode the counting problem or classify possible types, but do not give a theorem that evaluates this mixed pairing and valuation fiber. Pass is best of available evidence for the general result, not originality of the subcases or of the flag factor.
+
+## value
+
+PASS
+
+The natural finite-field fiber is determined for every rank of the square-zero tail block, and its size exhibits a strict residual parity gap after the free long-block coordinates are divided out. This separates parity from simple dimension growth and gives the probability of square-zero for a uniform commuting matrix. In the previously uncovered mixed regime it is an exact invariant of the hook centralizer, including characteristic two, rather than a tiny test instance or re-enumeration of the two known boundary slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

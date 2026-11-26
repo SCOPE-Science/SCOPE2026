@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:40:49.724779Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A fixed point requires y=0 and bx²+d=0, impossible. On a two-cycle the first coordinates move by +t and −t with t>0, so the points can be written with midpoint m and first coordinates m∓t/2. The difference of the two vertical return residuals is 2t((1+b)m−2), and at m=2/(1+b) each residual is −Q(t). This proves an exact bijection; the sign of the concave quadratic's maximum, strict monotonicity for c≥c₀, and the positive-root formula give the counts and the expansion in c₀−c. The two signed Jacobians have lower rows (h∓w, α∓z), giving the trace and determinant and det(I−DF²)=2(1+b)tQ′(t). It vanishes at the double root and is negative at the larger simple root, so that root has a multiplier >1. The strict Schur conditions characterize linear asymptotic stability, not nonlinear behavior on the unit circle or a nondegenerate normal form at every double root. A fresh symbolic reproduction in /workspace/review-checks/two_cycle.py also obtained the rational example's amplitudes 1/2 and 31/2 and the stated Schur signs; the frozen checker was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed proof introduces F_{a,b,c,d} for all a,b,c,d>0 and proves the converse and exclusion of other itineraries before specializing. Its two-step Jacobian identities are explicitly for every two-cycle."
+        ],
+        "reasoning": "Despite the specific slice used for the two-band theorem, the proof's general statements apply to this record's entire positive domain. The founding article's one numerical slice alone does not do so.",
+        "searches": [
+          "cc95e26c74ab, proof §§1–2; Huynh et al. §2 and §2.1"
+        ]
+      },
+      "checked_sources": [
+        "Huynh et al., Entropy 21 (2019), 279",
+        "Resultary cc95e26c74ab"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On a root the indexed variables W=K/t−a and H=(1+b)t/2 satisfy W+H=z and H−W=w−z. Its −2Q=0 gives K−at=tQ′(t); hence its first Schur expression and +1/unstable-branch consequences are identical. The two-term amplitude expansion follows by Taylor expansion of its explicit quadratic roots."
+        ],
+        "reasoning": "These are direct algebraic implications, not mere model or parameter matches. The published 2019 paper supplies the map, fixed-point obstruction and observed period-two regime, not those identities; coverage comes from the distinct indexed proof.",
+        "searches": [
+          "Huynh et al., DOI 10.3390/e21030279, Eq. (1), Eqs. (2)–(3), §2.1 and Fig. 2",
+          "cc95e26c74ab, RESULT.md offsets 3070–6483"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sibling uses Lt²−2at+K=0, with L=−2(c−c₀), K=2C: this is −2Q=0, with the same orbit points and positive-root bijection."
+        ],
+        "reasoning": "The amplitude and primitive-orbit conventions agree exactly. Rewriting the coefficients does not produce another invariant.",
+        "searches": [
+          "Resultary search for two-cycle census, fold, escape and stability for the fixed-point-free Huynh quadratic map",
+          "cc95e26c74ab, RESULT.md offsets 3070–6483"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed record gives the exact orbit-count discriminant rule and stronger explicit attraction intervals for a=1/100 and b=d=1/10 in addition to the general quadratic and derivative identities."
+        ],
+        "reasoning": "A literal table of all positive parameter values is unnecessary: the indexed exact formulas already determine the general count. The frozen rational example uses a different point, but is routine substitution in these formulas.",
+        "searches": [
+          "Resultary exact-map search for period-two parameter classifications and attraction intervals",
+          "cc95e26c74ab, RESULT.md proof §§1–3"
+        ]
+      },
+      "rationale": "The distinct indexed attraction-band record cc95e26c74ab has a narrower headline theorem but its proof already establishes the all-positive-parameter orbit bijection and general return trace, determinant and Schur test in different variables. The headline census, multiplier classification and escape expansion here are direct consequences of that general kernel. This is a finding of existing mathematical coverage, not a priority determination: the covering record has a later displayed date, and the evidence does not support a claim about who first arrived at the result or derivation between records.",
+      "residual_risks": [
+        "The visible dates do not establish mathematical priority or dependence between the records. No assertion is made about coverage of other dynamics or nonlinear unit-multiplier behavior."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same map and no-fixed-point result, numerical c-slice, not the general algebraic census",
+          "evidence": [
+            "Uses a=0.01 and b=d=0.1 while varying c in the numerical bifurcation study."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/e21030279",
+          "material_read": "Publisher PDF pp. 2–3, Eq. (1), Eqs. (2)–(3), §2.1 and Fig. 2 discussion",
+          "method": "Lawful OA primary PDF, bounded passages",
+          "title": "Chaotic Map with No Fixed Points: Entropy, Implementation and Control",
+          "trigger": "Founding work on the exact map and first observed periodic regime"
+        },
+        {
+          "assessment": "General proof covers reduction and multipliers; separate detailed attraction bands concern its slice",
+          "evidence": [
+            "Positive-root bijection for the larger positive-parameter family; formulas for trace, determinant and 2(1+b)(K−at), followed by standard Schur test."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-two-disjoint-attracting-two-cycle-bands-in-a-fixed-point-free-qu--cc95e26c74ab/RESULT.md",
+          "material_read": "RESULT.md at offsets 3070–6483, proof §§1–2 and beginning of §3",
+          "method": "Local published-record mirror; direct read of passage and algebraic comparison",
+          "title": "Two disjoint attracting two-cycle bands in a fixed-point-free quadratic map",
+          "trigger": "Exact overlap despite narrower title theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact classification is intrinsically relevant to the founding numerical bifurcation, but there is no substantial additional finding left after accounting for the indexed general bijection and derivative identities. The remaining Taylor coefficient and a new numerical parameter choice with exact substitution do not by themselves constitute a motivated independent classification or witness. No surviving repair is asserted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

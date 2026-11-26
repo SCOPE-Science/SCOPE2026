@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:52:14.977845Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding–Verification; VERIFICATION.md; VERIFY_FORESTS.py, VERIFY_DYNAMIC.py and min_forcing_sets.csv (read, not executed)",
+        "/workspace/audit-replays/franklin.py with the frozen CSV as data"
+      ],
+      "rationale": "The all-unpinned-zero start is the coordinatewise least compatible state, and its orbit is increasing under the monotone pinned update. Its zeros peel by simultaneous deletion of degree-at-most-one vertices: a cycle must survive, while a finite forest peels completely. The edge count 18−3k+e(S) exceeds the forest bound 11−k for k≤3. At k=4 a forest complement has two components when e(S)=0 and one when e(S)=1. A fresh enumeration used connected-component edge counts and tree diameters (a tree of edge diameter D strips in floor(D/2)+1 rounds). Independently, each part-preserving automorphism is determined by its even-vertex permutation, since odd vertices have distinct neighborhoods. Exhaustion over the six even vertices, and composition with the verified part swap v↦1−v, give all 48 automorphisms. The independent six orbit tuples match the table, including representatives, sizes, clocks and induced pin edges. It also agrees with all 144 CSV rows and direct majority updates on all 36,864 compatible starts; for each set the least start reaches consensus at its stated deadline, not sooner.",
+      "residual_risks": [
+        "The finite census is exhaustive for the specified labeled Franklin graph with synchronous permanent pins, not a claim about other graphs or transient seeds."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed five-graph majority result includes Franklin but explicitly concerns unpinned attractors. The frozen discussion describes general dynamic-monopoly bounds and degeneracy duality, with the girth-at-least-five setting excluding this girth-four graph. The primary passages were unavailable."
+        ],
+        "reasoning": "Including the right graph in a broader unpinned census does not include an intervention parameter. General cardinality bounds and the FVS characterization do not themselves enumerate placements or timings.",
+        "searches": [
+          "arXiv:1202.1146 strict majority passage (including HTML attempt); arXiv:1601.02099; arXiv:1405.2486",
+          "Resultary 4f7c0bf360a7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f4681d963512, 4f7c0bf360a7, db619faaacbc, 83a003d33b54 and 7595f50168ff (indexed statements)",
+        "Frozen RESULT.md lines 22–42 and 50–66; frozen AUDIT.json literature comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed Petersen analogue gives 20 successful triples and a three-update bound for that graph only. The same-graph unpinned result concerns fixed points, two-cycles and attraction basins, not the time to force consensus with a permanent choice of pins."
+        ],
+        "reasoning": "These results give motivation and comparisons, not the exhaustive partition of the 144 Franklin optima or the 72/72 timing split.",
+        "searches": [
+          "Resultary f4681d963512 and 4f7c0bf360a7; frozen RESULT.md lines 28–42 and 50–58"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen least-state argument identifies the working pin sets with FVSs and minimum optima with minimum-cardinality FVSs. Inclusion-minimal sets need not be minimum. Ordinary unpinned majority and paired domination are different properties."
+        ],
+        "reasoning": "An exact Franklin minimum-FVS census would cover the size/count/orbit part regardless of the dynamics terminology; the simultaneous leaf-peeling depths govern the additional sharp clocks.",
+        "searches": [
+          "\"Franklin graph\" (decycling set OR \"feedback vertex set\" OR decycling number) table",
+          "Resultary: Franklin LCF [5,-5]^6, strict majority pins, minimum feedback vertex sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Franklin pinned hit is the assigned record. The exact Heawood FVS comparator has 70 optima and two orbits on fourteen vertices, not Franklin. The separate same-day Franklin paired-domination entry counts 184 optima for a different invariant."
+        ],
+        "reasoning": "No distinct exact Franklin FVS or pin table with the claimed data was retrieved. The lack of a hit is not evidence against an unindexed historical table.",
+        "searches": [
+          "Franklin decycling/FVS table query above",
+          "Resultary 83a003d33b54, 7595f50168ff, db619faaacbc and exact Franklin pinned census"
+        ]
+      },
+      "rationale": "The distinct supported contribution is the joint labeled, symmetry and sharp-time census for minimum-cardinality permanently pinned sets on Franklin. The threshold/forest equivalence and cubic lower bound are credited reductions, not new. The exact Franklin forcing clocks were not implied by the unpinned dynamics, by bounds on the minimum seed size, or by exact results for other graphs.",
+      "residual_risks": [
+        "Primary literature and the mirror full texts were unavailable on bounded requests. An unindexed Franklin decycling table may cover the cardinality or orbit part; same-day metadata does not determine priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unpinned dynamics comparison, not the permanent-pins census",
+          "evidence": [
+            "Attractor periods/transients and basins include Franklin; pin sets and forced clocks are absent from the indexed theorem."
+          ],
+          "identifier_or_url": "Resultary 4f7c0bf360a7",
+          "material_read": "Indexed mathematical summary; underlying full record unavailable",
+          "method": "Configured Resultary search; mirror request",
+          "title": "Exact majority attraction spectra of all five cubic bipartite graphs on twelve vertices",
+          "trigger": "Same graph in a broader dynamics census"
+        },
+        {
+          "assessment": "Related classifications for different graphs",
+          "evidence": [
+            "Petersen's twenty triples and time three; Heawood's seventy four-sets in two orbits."
+          ],
+          "identifier_or_url": "Resultary f4681d963512, 83a003d33b54",
+          "material_read": "Indexed statements",
+          "method": "Configured Resultary search",
+          "title": "Three pinned opinions on the Petersen graph; All seventy minimum feedback-vertex sets of the Heawood graph",
+          "trigger": "Closest intervention and exact-FVS precedents"
+        },
+        {
+          "assessment": "No whole-document noncoverage inference from failed requests",
+          "evidence": [
+            "The available comparisons describe bounds/duality or unpinned convergence, not the Franklin table."
+          ],
+          "identifier_or_url": "arXiv:1202.1146; arXiv:1601.02099; arXiv:1405.2486",
+          "material_read": "Frozen prior-work descriptions; targeted OA passages unavailable",
+          "method": "Frozen RESULT.md lines 52–58 and bounded OA requests",
+          "title": "On dynamic monopolies of graphs: the average and strict majority thresholds; Dynamic Monopolies for Degree Proportional Thresholds in Connected Graphs of Girth at least Five and Trees; Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "Potential general seed-set or time theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding–Proof; independent orbit and timing replay"
+      ],
+      "rationale": "A standard small cubic bipartite graph is a natural test for whether equally economical consensus interventions are equally fast. The complete orbit census and two sharp timing classes answer that question in a form useful for comparing placement geometry or benchmarking synchronous threshold dynamics. Neither the optimum size alone nor vertex symmetry gives the timing partition.",
+      "residual_risks": [
+        "A finite benchmark, not a general intervention algorithm or an assertion about other update rules."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

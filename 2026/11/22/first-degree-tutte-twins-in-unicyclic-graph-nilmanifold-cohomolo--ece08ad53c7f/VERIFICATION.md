@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducible exact checks
+# Independent mathematical audit
 
-Run from the directory containing this file:
+## correctness
 
-```shell
-python3 checks/verify_unicyclic_six.py > reproduced.json
-```
+PASS
 
-`checks/verification_output.json` records the complete reference output. The script requires **Python 3 standard library only**. It enumerates every labelled simple connected unicyclic graph on 3–6 vertices by choosing precisely \(n\) edges, then identifies unlabeled classes by checking all \(n!\) relabelings. It verifies the two named collision pairs by canonical graph signatures, not only by the number of classes. The asserted class counts are \((1,2,5,13)\).
+Contracting the n-c bridges of a connected unicyclic graph gives T_G=x^(n-c)(y+x+...+x^(c-1)); at fixed order the cycle length can also be read from T_G(1,1). An independent census over labelled edge sets, canonically quotiented and using the subset-rank definition of the actual Tutte polynomial, gives 1,2,5,13 unlabelled classes and only the two listed ties, at n=6. Structurally, cycle length 3 at n=6 allows attachment-size patterns (3,0,0), (2,1,0) and (1,1,1) with 4,2,1 rooted-tree possibilities, respectively. Only the attached fork and the chain-plus-leaf repeat a degree profile. For c=4 the two extra vertices give a single chain, two leaves at one vertex, or one leaf at each of two vertices either adjacent or opposite; only the latter pair ties. The other cycle lengths at n=6 give one graph each. Nomizu's theorem identifies the dimensions with those of the graph CE complex (which is defined over Q and extends to the real invariant complex). Exact rational elimination in an independent implementation confirms every differential rank and Betti entry in the four vectors, including the total ranks 1280/1320 and 1280/1316 and the splits 76/75 and 76/77 at degree three. The replay also checks d squared on all 4096 basis monomials per graph, Poincare duality and Euler characteristic.
 
-For each of the four labelled six-vertex graphs, the script enumerates the \(4096\) exterior monomials in the graph Chevalley–Eilenberg complex, builds all signed differential columns, verifies the square of the differential is zero on every basis monomial, and computes rational ranks block-by-block with exact Fraction arithmetic. It recomputes all Betti numbers from rank-nullity and asserts the expected vectors, Poincaré duality and Euler characteristic zero. The output's `differential_ranks` array is the rank of \(C^{k-1}\to C^k\) for \(1\le k\le12\).
+## originality
 
-As a cross-check independent of the sparse-rank implementation, a separate NetworkX graph-atlas enumeration and SymPy exact-rational DomainMatrix elimination gave the same four Betti vectors. This ancillary implementation is not required to reproduce the standalone certificate.
+PASS
 
-**Proof limits.** Exhaustive search proves only the finite unicyclic range through six vertices, and exact rational linear algebra proves rational Betti dimensions rather than integral homology or ring structure. The identification with rational cohomology of the compact graph nilmanifold is the standard Nomizu theorem for rational two-step nilpotent Lie algebras. No independent audit or definitive novelty certification has been performed.
+The supported contribution is the paired finite classification with complete Betti data, in particular the two exact separations of total rational Betti rank at the first size. The four-cycle pair already occurs in a distinct prior record. Its twin status and the use of the CE model, support decomposition, or a formula for b3 are not separately original contributions. The inspected broader results do not supply the higher Betti entries or totals of the two pairs.
+
+## value
+
+PASS
+
+Degree sequence and the Tutte polynomial are natural joint graph descriptors. The exact totals show that even the total rational cohomology is not fixed by the joint invariants, a stronger information-loss statement than finding a difference at one degree. The complete pairs at the first possible order give concrete counterexamples and exact benchmark profiles for broader formulas, not simply new names for the known four-cycle pair or a substitution into a low-degree formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

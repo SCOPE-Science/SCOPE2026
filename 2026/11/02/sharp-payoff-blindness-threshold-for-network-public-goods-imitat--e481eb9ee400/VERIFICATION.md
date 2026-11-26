@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,8 +21,4 @@
 
 # Verification report
 
-The exact statewise cutoff is proved by an affine payoff calculation and an attained binary-edge optimization. For every edge, the rows of the square of the closed-neighborhood incidence operator supply the complete coefficient vector. Both endpoint assignments respect the two fixed, opposite strategies. This establishes the theorem for every connected finite regular graph and every positive synergy and finite imitation temperature.
-
-The standalone `verify.py` was executed using only standard-library exact rational arithmetic. It passed 114 graph/synergy comparisons, including exhaustive binary-profile comparisons on 17 small regular graphs, and 4096 local configurations each for the torus side lengths 6, 7 and 10. It verified the coefficient histogram and the sharp torus transition for six rational parameter values.
-
-The finite computations do not establish the theorem for untested graph orders; the mathematical proof does. The classical voter fixation consequence uses uniform asynchronous vertex-neighbor sampling and not the adaptive or conformist variants. The 2023 source prints ambiguous notation for one payoff term, so the delivered result explicitly uses the shared-pool convention documented in the 2013 review and 2024/2026 model. Originality is not externally certified.
+Run `python3 verify.py`. The exact-rational checks directly accumulate payoffs over groups for every profile on \(C_4\) and \(K_5\) at selected synergy parameters. They check payoff blindness at \(\Theta=\varepsilon=0\) on \(C_4\) at \(r=9\), retained nonzero comparisons at positive equality, and neutrality above the maximum. The torus checks determine the stencil from group incidences and enumerate its free spins at side lengths 6, 7 and 10. The run printed `PASS: C4 and K5 boundary checks; exhaustive nonzero torus stencils for L=6,7,10`. The proof in `RESULT.md`, not these finite checks, establishes the general theorem.

@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is the complete finite set of unordered seven-spread partitions of all 35 lines of the binary projective three-space. The proof recovers the classical eight-symbol/Fano correspondence by pair-counting, gives seven explicit three-spread moves, and reduces completeness of the exchange list and metric to a finite exact-cover certificate. The first independent checker constructs 35 lines from the nonzero vectors of a four-dimensional binary vector space, 56 spreads, and 240 packings. It tests all 28,680 distinct packing pairs and all 240 BFS roots; the second checker independently uses complementary four-partitions and all 40,320 label permutations. Both pass. No infinite conclusion follows from these computations.
+PASS
 
-## Originality — PASS, qualified
+The geometric encoding is consistent: distinct label triples yield disjoint spreads exactly when their intersection has size one (triples in a common 4-side share a split at intersection size two; disjoint triples can instead lie on complementary sides). In a packing the seven triples thus meet pairwise once. The degree identities sum d_x=21, sum binom(d_x,2)=21 and d_x<=3 force seven degrees 3 and one 0. Every pair of used labels lies on a unique triple, giving a Fano system. On the same seven labels two different Steiner systems cannot differ in at most three blocks: a removed abc needs three distinct replacement blocks for ab, bc and ca. Then conservation of point degrees requires each of a,b,c to occur once more in the other removed blocks, impossible for two blocks each meeting abc at most once. On different supports at most four blocks can be common, because exactly three contain the label lost from the first support. Swapping the omitted label with that lost label fixes the four possible common blocks; the same-support argument forces uniqueness of that neighbor. The star transpositions on a fixed reference omitted label generate S8 on the cosets, and the even Fano stabilizer makes parity well defined. Independently written coordinate exact covers gave 35 lines, 56 spreads and 240 packings; all 28680 pair comparisons gave common-spread counts (13560,8400,5040,840,840) for k=0 through 4 and zero higher. The independent eight-label construction checked all star images and parity over 40320 permutations. BFS from all 240 roots gave (1,7,42,105,77,8). Thus the graph is connected with diameter five, 840 edges, and two parity classes of 120. Bipartiteness and at most one common neighbor per vertex pair exclude cycles shorter than six, and the independent check exhibited a six-cycle. This is exhaustive for PG(3,2), not an extrapolation.
 
-**What is old.** The 56-spread 8-symbol representation is explicitly in Bussemaker–Seidel, Theorem 5.2 (1970). The counts of 240 packings and two 120-member projective collineation orbits are historical, and independently certified in Magaud's 2021/2022 study. Green (2025), Sections 1–4, already gives the Fano labelling and the action of transpositions; Proposition 4.2 includes the equivalence of ordinary and signed transpositions on this finite set. Neither the historical representation, the orbit count, nor the bare permutation action is attributed to this finding.
+## originality
 
-**What is claimed.** The sharp three-spread trade threshold, the proof that *every* allowable minimum local trade is a missing-symbol swap, the exact seven-regular connectivity graph, and the complete shortest-path and girth census. Green's graded Bruhat-like comparability is not the same binary relation as sharing exactly four whole projective spreads. In the examined original report, formal-census paper, and later group-action manuscript, the all-pairs trade graph and distance vector are not presented. Searches covered aliases involving parallelisms, Kirkman's seven day schedules, labelled Fano configurations, Schreier graphs, and star transpositions. Absence from searches is not treated as proof of uniqueness. An inaccessible, highly plausible older Jeurissen paper remains a real priority risk.
+PASS
 
-## Value — PASS
+The 56 spreads, 240 packings, Fano encoding, S8 action, even stabilizer and two 120-element parity classes are documented prior inputs. The supported distinct claim is the identification of minimum whole-spread trades with the unused-label moves together with their precise metric and girth. The closest inspected action and graph results use a different length/order or adjacency relation, and do not furnish these invariants.
 
-A packing is an exact schedule/parallelism of the 35 lines into seven projective spreads, the finite-geometric form of Kirkman's classical schoolgirl scheduling construction. The minimum number of entire daily schedules that must change to move between valid global schedules is a natural exchange invariant. The theorem shows that one or two changed schedules cannot work, but three give global reachability in no more than five moves. A full finite metric and a structural Fano-label rule quantify this sharp mobility threshold rather than reporting only the already-known static packing count. Its 240-state classification supplies a practical testbed for parallelism-trade algorithms and local Markov chains; no unproved broader applicability is asserted.
+## value
 
-## Literature and limitations
+PASS
 
-Closest items: Bussemaker–Seidel (1970), Soicher (2000 classification checkpoint), Betten (full text publicly available April 2015), Magaud (2021/2022), and Green (2025). Jeurissen (1995), *Special Sets of Lines in PG(3,2)*, could not be assessed in full despite open-access and arXiv searches, and is a specific originality risk. This is a finite exact theorem for one geometry; no independent review or general-order classification is claimed.
+Local reconfiguration of a classical line parallelism is a natural question: the minimum number of entire spreads that can change, which minimal changes are legal, and how many steps they take to reach any parallelism. The star characterization and exact layers answer these questions for the full space and give a usable distance benchmark. This is not a re-enumeration of the known 240 packings or a change of notation for the known disjointness graph.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

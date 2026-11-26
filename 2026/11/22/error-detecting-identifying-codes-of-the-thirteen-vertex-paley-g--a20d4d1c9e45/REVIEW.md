@@ -1,11 +1,21 @@
-# Review of the Paley-13 error-detecting identifying-code census
+# Independent mathematical audit
 
-**Correctness (PASS).** The graph, criterion, and normalization are explicit. For adjacent pairs, directed closed-neighborhood differences have three elements apiece, so the first failure under four omissions is a two-plus-two union of disjoint difference sets. For nonadjacent pairs the differences have size four and cannot fail with fewer than six omissions. A 13-orbit exhaustive finite certificate classifies all 715 omitted tetrads, with 351 unique obstructions; a 19-orbit certificate shows all 1287 omitted quintuples contain one. Therefore monotonicity proves the full polynomial. The direct checker independently tests 8192 vertex masks, and the orbit checker derives the same coefficients from forbidden subsets and affine actions. A nine-vertex code is given explicitly. No unbounded implication is inferred from finite experiments.
+## correctness
 
-**Originality (PASS, provisional).** The 2022 error-detecting identifying-code source establishes the directed 2-witness criterion but does not give Paley-13 values. The 2021 redundant-code criterion differs (symmetric 2-witness) and the 2015 Paley identifying-code literature addresses the ordinary one-witness invariant; neither yields the new multiplicities by implication. The 2025 source depicts Paley 13 but studies edge-graceful labeling. Related available published research findings about 26-vertex projective-plane incidence graphs, the dodecahedral graph, and non-identifying Paley-13 topology do not cover this error-detecting problem. Actual title, alias, numeric and parameter searches identified no exact table. Unindexed sources and historical priority remain risks.
+PASS
 
-**Mathematical value (PASS).** This is a natural smallest prime-order conference graph beyond the 5-vertex case with a nontrivial neighborhood-separation fault model. Its full optimal code multiplicity is supported by a precise design-like obstruction: 351 forbidden four-omission patterns, each with a unique edge witness, and an exact 5-subset covering property. The result quantifies detector redundancy and identifies seven optimal affine orbits; it is a motivated finite extremal classification, not an arbitrary slice or a restatement of the published DET criterion.
+The asymmetric condition uses a maximum of two directed closed-neighborhood witness counts, not their sum. With omission set U, the two differences are disjoint and each has size 3 for an edge and 4 for a nonedge; |N[u]|=7 throughout. Consequently all omissions through size 3 work, and for size 4 the only obstructions consist of choosing two from each difference of an adjacent pair. I independently enumerated the set-valued predicate for all 8192 subsets, generated the 39×9 adjacent-pair tetrads with multiplicity, tested every five-set, and canonically grouped four- and five-sets under all 78 affine maps. Counts by omissions 0 through 4 were (1,13,78,286,364) with none larger; the 351 generated tetrads were distinct and exactly the bad four-sets. Five-set obstruction multiplicities were 1:273, 2:312, 3:546, 4:156, with no zero. Monotonicity explains why every larger omission set fails as well. The valid four-sets have seven affine orbits of sizes 26,26,39,39,78,78,78; complementation is equivariant and the displayed detector set passes. These checks reproduce the polynomial and the full claimed structural obstruction.
 
-**Limits.** This is a closed-neighborhood asymmetric false-negative-detection result on the fixed Paley graph of order 13. It does not classify all Paley orders, and does not claim an independent audit, peer review, or exhaustive priority clearance.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the published general DET:IC predicate and distinguish ordinary and redundant codes. The nearest distinct Resultary record counts ordinary identifying codes and locating-dominating sets, not error-detecting codes. The exact polynomial, the obstruction hypergraph census and its five-set coverage, and the seven affine orbits are distinct on the available statement-level evidence.
+
+## value
+
+PASS
+
+P13 is a standard small strongly regular graph, and DET:IC is a preexisting fault model with a distinct separation rule. The full labeled polynomial gives an exact benchmark beyond the minimum and the partition by affine symmetry makes the optimal patterns reusable. The forbidden-four-set uniqueness and full coverage of five-sets identify what forces the optimum, a meaningful finite cutoff rather than an arbitrary tested slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

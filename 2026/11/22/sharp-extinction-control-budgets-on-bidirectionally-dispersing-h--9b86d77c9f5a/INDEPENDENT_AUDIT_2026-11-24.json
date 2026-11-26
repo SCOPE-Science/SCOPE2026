@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:29:51.329229Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 43–127",
+        "Frozen VERIFICATION.md lines 19–25 and check.py (witness at lines 60–68), read-only"
+      ],
+      "rationale": "Irreducibility of the column-conservative migration matrix with a diagonal perturbation gives positive left and right Perron vectors. Nonnegative solutions are invariant and global (total population has a logistic upper bound); if the spectral abscissa s≤0, the positive left-vector pairing V satisfies V′≤−(min c_i)V²/(sum w_i), so the zero-eigenvalue boundary still gives extinction for every initial state. If s>0, a sufficiently small positive right-vector multiple is a stationary subsolution, and cooperative comparison rules out extinction from that initial state. The budget minimum exists by compactness of 0≤sum h_i≤nr, since uniform h_i=r works and s is continuous. Summing the right-vector equations gives nr−ns plus the paired edge terms; AM–GM forces s=0 and v_j/v_i=sqrt(m_ij/m_ji) at equality. Path integration constructs v up to scaling if and only if the ratios close around all cycles; substituting gives exactly h* and feasibility/uniqueness. Trees satisfy the cycle condition. Any optimum must have s=0, since when s<0 some nonzero control could be reduced. For two patches, minimizing bt+a/t in log t gives t=sqrt(a/b) if feasible; when a>b and r<a−sqrt(ab), the feasible left endpoint (a−r)/b is larger than this and yields exactly the stated downstream control. On the homogeneous biased triangle, the log-ratios sum to zero and strict Jensen forces the optimum at constant v, yielding H=3r. Independently checked the rational tree witness by B(1,3,6)^T=0 and the cost 16=21−5; for (a,b,r)=(9,1,1) the low-growth control (0,9/8) gives B(1,8)^T=0.",
+      "residual_risks": [
+        "The frozen script was not executed. The algebraic witness and proof, not randomized tree samples, establish the claimed regimes. Outside the exactness regime there is no general explicit allocation in this Finding."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Preciado et al. give spectral decay constraints and a general geometric-programming approach to budget/rate allocation.",
+          "Nguyen et al. use this conservative logistic migration and list ‘Minimum total control effort for extinction’ with min sum h_i as a further problem."
+        ],
+        "reasoning": "A generic program can encode closely related diagonal allocation; its existence does not yield the explicit equality conditions and active-set formulas from edge data. The model-specific prior primarily has a different objective.",
+        "searches": [
+          "arXiv:1309.6270v1/v2 minimum-cost positive-network protection and geometric programming; arXiv:2602.05071v1 optimal stream-network harvesting"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Proof and Relationship to prior work",
+        "arXiv:2602.05071v1, arXiv:1309.6270v1/v2, Aldous–Fill §3.1",
+        "Resultary records 9b86d77c9f5a, d9aabbabb22e, f9d2261216a7, c6be2955be70"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Nguyen discussion explicitly poses the minimization, without the claimed formulas. Classical reversibility characterizes cycle feasibility for the edge ratios, without h_i≥0 or the two-patch boundary. A Perron persistence theorem on a path does not predict the budget cost on a cycle."
+        ],
+        "reasoning": "The nonnegative-control constraint changes the tree result below the threshold, and the balanced but nonreversible triangle shows precisely why edgewise optimal ratios cannot be assumed. These are not furnished merely by the spectral optimization framework or by reversibility.",
+        "searches": [
+          "Nguyen et al. Eq. (2.3) and §5; Preciado et al. §§II–III v2; Aldous–Fill §3.1; Resultary d9aabbabb22e Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Detailed balance for rates m_ij is pi_i m_ij=pi_j m_ji; writing v_i=sqrt(pi_i) gives the exact same edge ratios. The unconstrained Perron parametrization also reduces the edge-cost sum to diagonal-similarity total-mass minimization.",
+          "The logistic critical case and the nonnegative-harvest constraints are additional: the detailed-balance vector need not yield permitted mortalities."
+        ],
+        "reasoning": "The cycle-consistency alias is classical and must not be passed as a new matrix result. It identifies when the unconstrained AM–GM minimizer of the edge sum exists, not whether it is a feasible extinction control or how the active boundary changes the optimum.",
+        "searches": [
+          "Resultary: Perron AM–GM cycle-consistency extinction-budget equality; asymmetric two-patch logistic extinction harvesting",
+          "Aldous–Fill, Reversible Markov Chains and Random Walks on Graphs, §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9b86d77c9f5a is the assigned record itself. Distinct results f9d2261216a7, d9aabbabb22e and c6be2955be70 treat periodic pulses, path persistence and seasonal harvest maximization, respectively."
+        ],
+        "reasoning": "The nearby records were compared on their assumptions, not excluded by date; none gives the matching allocation, tree threshold or circulation obstruction in the same control model.",
+        "searches": [
+          "Resultary: sharp extinction-control budgets on bidirectionally dispersing networks; asymmetric two-patch low-growth optimum; three-patch biased-cycle extinction budget"
+        ]
+      },
+      "rationale": "The comparison credits classical detailed balance, Perron stabilization and diagonal-similarity optimization. The inspected work that poses the same extinction objective does not solve it in the stated regimes. In the bounded comparisons no distinct source gives or implies the full closed-form budget and exactness/active-set classification under the required nonnegative constant controls. The supported claim is this constrained extinction result and its explicit contrasting regimes, not novelty of the spectral criterion or cycle balance.",
+      "residual_risks": [
+        "The broad web query returned unrelated results and is uninformative. Earlier equivalent matrix-balancing specializations or unindexed constrained-control results remain possible; historical priority is not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and open objective covered, not the explicit extinction solution",
+          "evidence": "§5 lists ‘Minimum total control effort for extinction’ and writes the minimization over h_i≥0 subject to u_i(t)→0.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.05071v1",
+          "material_read": "Eq. (2.3), pp. 2–3; Discussion §5, p. 23",
+          "method": "Direct OA PDF with bounded passages",
+          "title": "Optimal Harvesting in Stream Networks: Maximizing Biomass and Yield",
+          "trigger": "Same ecological equations and explicitly posed minimization"
+        },
+        {
+          "assessment": "General allocation machinery, not the exact ecological boundary",
+          "evidence": "Optimizes allocations through a spectral decay constraint and geometric programs; the edge and cycle closed forms are not supplied by those statements.",
+          "identifier_or_url": "https://arxiv.org/pdf/1309.6270v2",
+          "material_read": "v2 §§II–III, pp. 3–6, spectral constraint and GP statements; v1 abstract also inspected",
+          "method": "Direct OA PDF passages",
+          "title": "Optimal Resource Allocation for Network Protection Against Spreading Processes",
+          "trigger": "Candidate broader theorem for diagonal stabilization"
+        },
+        {
+          "assessment": "Directly covers the reversible-rate structure, not the extinction allocation",
+          "evidence": "Detailed balance is pi_i q_ij=pi_j q_ji, equivalent to the squared edge ratio after identifying migration with q.",
+          "identifier_or_url": "https://www.stat.berkeley.edu/~aldous/RWG/book.pdf",
+          "material_read": "§3.1, pp. 58–59, continuous-time detailed balance",
+          "method": "OA PDF passage",
+          "title": "Reversible Markov Chains and Random Walks on Graphs",
+          "trigger": "Classical equivalent formulation of cycle consistency"
+        },
+        {
+          "assessment": "Three-patch path, no cycle-budget optimization",
+          "evidence": "Analyzes migration-driven persistence/extinction with upstream births on a path.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-reentrant-persistence-window-in-a-three-patch-advective--d9aabbabb22e",
+          "material_read": "RESULT.md Finding, offset 0–4648",
+          "method": "Local Resultary mirror",
+          "title": "A sharp reentrant persistence window in a three-patch advective system",
+          "trigger": "Closest Perron/extinction Resultary match"
+        },
+        {
+          "assessment": "Different time dependence, dynamics and cost",
+          "evidence": "Periodic stage-specific pulses in a two-stage linear problem, with a Floquet multiplier.",
+          "identifier_or_url": "2026/11/22/SCOPE-an-exact-log-kill-budget-separating-extinction-from-growth-in-a--f9d2261216a7",
+          "material_read": "RESULT.md Finding, offset 0–4937",
+          "method": "Local Resultary mirror",
+          "title": "An exact log-kill budget separating extinction from growth",
+          "trigger": "Distinct exact extinction-budget match by topic"
+        },
+        {
+          "assessment": "Fixed-budget yield, not minimum cost for extinction",
+          "evidence": "Two-season harvest controls maximize sustainable catch under a prescribed budget.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-seasonal-allocation-law-for-fixed-budget-beverton-holt-h--c6be2955be70",
+          "material_read": "RESULT.md Finding, offset 0–4947",
+          "method": "Local Resultary mirror",
+          "title": "A sharp seasonal allocation law for fixed-budget Beverton–Holt harvesting",
+          "trigger": "Distinct exact harvest allocation match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–41, 58–108",
+        "Nguyen et al., Discussion §5"
+      ],
+      "rationale": "The Finding gives an edge-data budget and unique controls on an entire network class above a sharp threshold, detects exactly when the local edge lower bound is unattainable, and contrasts an active two-patch boundary with a circulation obstruction. These answer a natural extinction-allocation question rather than merely restating a solver or a spectral test.",
+      "residual_risks": [
+        "Value is for the deterministic model with common growth and unweighted, constant control. No operational harvesting policy, general below-threshold tree solution or stochastic guarantee is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

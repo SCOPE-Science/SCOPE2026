@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The conditional expectation of the initial coordinate given the full-branch image is computed from the \(m\) equi-Jacobian inverse branches, giving \(\mathbb E[X_0-1/2\mid f_\varepsilon(X_0)=y]=S(y-1/2)/m^2\). Cellwise integration proves the precise Spearman covariance identity. The permutation second moment and sign-symmetry follow from centered rank sums. Chen–Fang Theorem 1.1, applied to the explicitly standardized centered-rank product array, yields the stated \(O(N^{-1/2})\) Kolmogorov rate. The conditional expectation identity also proves all-future orthogonality for \(S=0\); choosing the identity permutation and lag one gives necessity. Boundary points have stationary probability zero. Exact-fraction tests cover 2,576 instances but do not substitute for proof.
+PASS
 
-## Originality — PASS, with priority risk
+The repaired result holds. Generate uniform X0 by choosing an independent uniform branch J and uniform Y, and write X0=(J-1/2+epsilon_J(Y-1/2))/m; this gives the signed conditional mean S(Y-1/2)/m^2. In the cell representation Y-1/2=(a_I+U-1/2)/N and X1-1/2=(a_pi(I)+U-1/2)/N with I and U independent, giving the Spearman term plus the common within-cell variance. Every future observable is a function of Y, so S=0 suffices; identity shuffle at lag one proves necessity for the stated universal quantifiers. Uniform rank sampling gives Var(Q)=(sum a_i^2)^2/(N-1), and reversal negates Q, not the uncentered covariance. The variance-normalized array is centered in rows and columns and uniformly O(N^-1/2), so Chen–Fang (1.5) gives the asserted rate for S nonzero. The frozen proof's line 89 incorrectly says the reversal magnitude vanishes for N=2. For m=N=2 with both signs positive the exact identity and reversal covariances are 1/24 and -1/48. Replacing that aside with the exact magnitude ratio 1-2/N^2 preserves the extrema, their strict comparison, and every Finding statement. Replayed the affected claim by the affine formula and strict rearrangement, not the supplied finite checker.
 
-The object is the mixed-orientation map family of Byott–Lin–Zhang (arXiv:1405.0481), whose inspected results concern transfer-operator and topological mixing. Byott–Holland–Zhang (arXiv:1203.5145) analyzes all-increasing maps and their spectral mixing properties. Neither inspected treatment states the sign-sensitive rank-covariance law or universal all-future initial-coordinate orthogonality. The mathematical reduction is the specific new claim. Spearman rank covariance, rearrangement extrema, normal approximation of permutation sums, and special-map zero autocorrelations are pre-existing results, *not* independently claimed as novel. Accessible source searches and related-statement comparisons found no matching dynamical reduction, but indexing and priority coverage are incomplete; an earlier general result could subsume the present derivation.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A fixed Lebesgue-invariant expanding-map class with highly variable mixing properties exhibits two quantitatively different behaviors: exactly zero initial-coordinate correlations at every positive lag when orientations balance, and an explicit nondegenerate finite-ensemble rank-statistic law otherwise. The exact expectation, variance, extreme shuffles, symmetry, and Gaussian scale answer a motivated dynamical observable question distinct from the previously studied transfer-spectrum mixing rate. The classification is structural across every sign vector and permutation, not a single arbitrary small example.
+The supported distinct claim is the exact signed dynamical Spearman reduction and balanced universal orthogonality. The map family, classical rank-law ingredients and combinatorial CLT are existing work. The repair changes only a mistaken numerical aside in the proof and does not broaden the originality claim.
 
-## Limits and comparable literature
+## value
 
-The conclusions concern the original coordinate, not arbitrary past observables or state independence; the random-permutation CLT is a classical theorem applied after a new deterministic dynamical identity. Comparisons used the original mixed-sign article, its all-positive predecessor, and Chen–Fang's classical permutation CLT. Earlier unindexed autocorrelation studies could overlap the reduction.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+On a natural established family that is generally analyzed via mixing, the result identifies a finite-size covariance offset that a ranks-only guess misses and supplies an exact test for persistent linear orthogonality uniformly across shuffles. Those are reusable diagnostic distinctions, beyond the routine moment/CLT corollaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:47:31.441777Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The kth root-start Krylov space is the first k coordinate directions: the newly reached coordinate in B^j e_1 is (-1)^j times the product of the first j positive weights. The residual lies in the first k+1 coordinates and is perpendicular to each e_j-w_j e_{j+1} for j<=k. The orthogonal complement there has dimension one, and its vector normalized at the first coordinate has entries 1, 1/w_1, and the successive reciprocal products. Projecting the unit e_1 onto this line gives the inverse sum of squared entries, including R_0=1. The full Krylov space and unit triangular invertibility give R_n=0. In a fixed multiset each j-prefix product is bounded by the products of its j smallest and j largest elements; the sorted arrangements realize the appropriate bound in every term. Equality with pairwise distinct weights requires each of the first k prefix sets to be extremal and hence fixes the first k positions only. The two blocks give prefix-square sums (5*4^m-2)/3 and (8-5*4^(-m))/3; their quotient in the stated order and the square root yield the sharp ratio and limit constant. Coordinate reversal of the transpose reverses exactly the subdiagonal sequence, preserving singular values, and the unit diagonal gives the same eigenvalues. The supplied verifier was inspected but not executed; its reported 39,018 finite checks are supplementary. The argument is exact arithmetic, not an estimate of roundoff or a reordering of one fixed linear system.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liesen–Strakoš give a general pseudoinverse identity and exact canonical-start scaled-Jordan norms, including the constant-weight case of the target.",
+          "The accessible APS parameterization in Chen–Soodhalter preserves chosen eigenvalues with prescribed residual histories; it does not fix the singular values, the chain, or a coupling multiset."
+        ],
+        "reasoning": "General Krylov identities cover the projection method and, once evaluated, the residual formula. The homogeneous exact case cannot distinguish orderings. Prescribed histories with fixed eigenvalues do not imply a pair within the specific ensemble, still less the sharp maximum over it.",
+        "searches": [
+          "Liesen–Strakoš DOI 10.1137/S0895479803424967, author-hosted full text, Eq. (1.3), Theorem 2.1 and Example 2.3",
+          "Chen–Soodhalter arXiv:2609.24751 Theorem 2.8; Greenbaum–Pták–Strakoš DOI 10.1137/S0895479894275030"
+        ]
+      },
+      "checked_sources": [
+        "Liesen–Strakoš, author-hosted PDF, Eq. (1.3), Theorem 2.1 and Example 2.3",
+        "Chen–Soodhalter arXiv:2609.24751",
+        "Dargaville–Pain arXiv:2611.00552v1",
+        "Greenbaum–Pták–Strakoš via accessible restatement",
+        "Resultary 20723474f61a, 5d97da22428e, 68a29983ed85"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With a diagonal similarity, the weighted shift can be made homogeneous, but Euclidean GMRES is not preserved by nonorthogonal diagonal similarity. Toeplitz/constant-weight results cannot be transferred by that route without changing the norm.",
+          "The inspected spectral constructions and ordering motivations do not give a fixed-RHS sharp pair at fixed singular spectrum."
+        ],
+        "reasoning": "The specific prefix-product extremization and compatibility of its attaining pair with exact reversal isosingularity, quantified by the stated exponential constant, are extra steps and conclusions, not a parameter substitution into a known residual or ILU performance formula.",
+        "searches": [
+          "Liesen–Strakoš Example 2.3, Eq. (2.9); Chen–Soodhalter Theorem 2.8 and pp. 9, 20 indexed passages; Dargaville–Pain p. 2 ordering passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact indexed match was the target itself. Distinct Resultary 20723474f61a treats an existential two-step stagnation criterion for a three-site upper-bidiagonal matrix with variable initial vector.",
+          "Reversal-transpose is a standard way to obtain the same singular values; its existence is not the new convergence claim."
+        ],
+        "reasoning": "A directed weighted shift is the same chain after changing the sign of the subdiagonal or reversing the coordinate convention, provided the starting endpoint is changed correspondingly. The arbitrary-start, two-step stagnation criterion under that translation still does not solve either the all-horizon permutation comparison or the specific penultimate gap.",
+        "searches": [
+          "Resultary: variable weighted shifts, bidiagonal chains, exact GMRES residual order and isosingular reversal",
+          "Chen–Soodhalter arXiv:2609.24751, scaled Jordan block and flip-symmetrization passages"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 20723474f61a gives a three-site stagnation frontier; 5d97da22428e gives a constant-subdiagonal one-step transfer threshold.",
+          "Dargaville–Pain compare orderings of practical ILU solves using performance, not an exact freely ordered coupling-multiset envelope."
+        ],
+        "reasoning": "Neither indexed exact threshold covers this distinct all-horizon ordering invariant. Empirical ILU tests are not a table of sharp norms for all positive chain multisets or of the reversal ratio.",
+        "searches": [
+          "Resultary exact residual envelopes and two-block chain reversal; inspect 20723474f61a and 5d97da22428e",
+          "Dargaville–Pain arXiv:2611.00552v1, ordering performance study"
+        ]
+      },
+      "rationale": "The homogeneous endpoint formula and general residual identities are known, and the weighted residual identity also follows by computing the standard projected direction for this matrix. Novelty credit is for the simultaneous sharp fixed-multiset extremization and its explicit fixed-start, fixed-singular-spectrum exponential witness, not for general GMRES projection or qualitative spectral insufficiency.",
+      "residual_risks": [
+        "Original 1996 DOI full text not accessed; the inspected restatement suffices for the assigned fixed-spectrum comparison but not a census of older variations.",
+        "An equivalent ordering theorem or matching orientation example may appear in unindexed weighted-shift literature. Priority is bounded to the inspected evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of homogeneous endpoint formula and standard framework, not the distinct ordered-multiset extremum",
+          "evidence": "Scaled Jordan block J=gamma(S+tau I) has uniform coupling; Example 2.3 gives inverse square root of the sum of |tau|^(2j).",
+          "identifier_or_url": "https://www.karlin.mff.cuni.cz/~strakos/download/2004_LiSt.pdf",
+          "material_read": "Pp. 1–2 pseudoinverse and scope passages; section 2 Theorem 2.1 (offset 6561); Example 2.3 (offset 12061), Eq. (2.9)",
+          "method": "Author-hosted full-text PDF passages via lawful alternate copy",
+          "title": "Convergence of GMRES for Tridiagonal Toeplitz Matrices",
+          "trigger": "Plausible exact bidiagonal residual predecessor"
+        },
+        {
+          "assessment": "Prescribed eigenvalues, constant-coefficient or symmetrized spectral background; not fixed-singular-value ordered chains",
+          "evidence": "The APS restatement chooses the system and right-hand side; its constraints do not hold the target ensemble fixed. The Jordan section assumes a scalar multiple of the down shift.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.24751",
+          "material_read": "Abstract, Theorem 2.8 p. 7 (offset 22500), pp. 9, 11, 20 relevant passages (offsets 29460, 37000, 79200)",
+          "method": "Lawful arXiv full-text passage inspection",
+          "title": "Constraints on Admissible Behavior of GMRES Applied to Tridiagonal Toeplitz Systems",
+          "trigger": "Exact admissible curves, Jordan blocks and singular spectra"
+        },
+        {
+          "assessment": "Known fixed-eigenvalue freedom; residual access risk for original details",
+          "evidence": "The read restatement does not claim arbitrary histories at fixed singular values or a fixed positive subdiagonal multiset.",
+          "identifier_or_url": "https://doi.org/10.1137/S0895479894275030",
+          "material_read": "Result as restated by Chen–Soodhalter, abstract and Theorem 2.8; original DOI full text inaccessible",
+          "method": "Publisher retrieval attempt and lawful arXiv restatement comparison",
+          "title": "Any Nonincreasing Convergence Curve is Possible for GMRES",
+          "trigger": "Standard counterexample to eigenvalue prediction of GMRES"
+        },
+        {
+          "assessment": "Practical ILU ordering comparison, not the frozen extremization problem",
+          "evidence": "Orderings are alternative orderings of unknowns, evaluated by solve behavior, not alternative arrangements of the weights of a directed chain.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.00552",
+          "material_read": "P. 2 ordering passage, text offset 8170",
+          "method": "Lawful arXiv full-text passage inspection",
+          "title": "A Comparison of Parallel Iterative Methods for ILU Triangular Solves",
+          "trigger": "Motivation from practical GMRES ordering sensitivity"
+        },
+        {
+          "assessment": "Different quantified starting vectors and target observable",
+          "evidence": "An exact criterion for some start to yield two-step stagnation in dimension three, not a fixed-start permutation extremum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-anisotropic-two-step-gmres-stagnation-frontier-for-a-three--20723474f61a",
+          "material_read": "Finding",
+          "method": "Resultary search and matching mirrored result inspection",
+          "title": "Sharp anisotropic two-step GMRES stagnation frontier for a three-site bidiagonal system",
+          "trigger": "Closest distinct indexed exact bidiagonal GMRES result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed-multiset optimization is solved sharply at every horizon by one pair of orientations, and the reciprocal two-block case gives a structured witness with identical full singular spectra, coupling multisets and starting vectors yet exponentially separated penultimate residuals. This is useful as a numerical-analysis counterexample and benchmark, rather than merely a rederivation of homogeneous convergence or a prescription for general ILU ordering.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

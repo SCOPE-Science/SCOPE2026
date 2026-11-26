@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:40:21.610704Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The strict coefficient bounds control deviations of each edge factor from +1 or −1 over the entire edge, giving a counterclockwise boundary with no intervening equilibria. The corner rates follow from the diagonal entries −2xP and −2yQ at x,y=±1, where P,Q are the printed quadratic factors. Multiplying the four stable-to-unstable rates gives (1). Integrating the logarithmic rates in shrinking saddle boxes gives each saddle passage exponent; regular transitions from fixed sections to smaller boxes and along open edges have nonzero finite derivatives, hence exponent 1. Composition gives the logarithmic exponent, not an exact monomial return map. On the slice the denominator stays positive and the sign is the sign of 4h²(1+ε)²−8ε(1+ε²). The finding's iff phrasing is valid only off equality, as explicitly scoped by the repeated exclusion of ρ=1; it cannot establish nonattraction or nonrepulsion at equality. The focus has eigenvalues −ε±i and the formal second root is strictly below x=−1. The attracting collar excludes the focus basin closure from the boundary, so its interior basin boundary is a nonempty compact invariant set with no rest point. Poincaré–Bendixson gives an interior periodic orbit, without claiming uniqueness, hyperbolicity or stability. The witness gives ρ=32019867/26185967 and second root −10001/2525; no witness was inferred from the finite mesh, and the uploaded checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bastos–Buzzi–Santana's polynomial factor class allows arbitrary quadratics (and higher degrees). Although Eq. (31) is written within a structural-stability proof, its hypotheses for calculating the ratio are just the counterclockwise square of four saddles: each factor is a corner linearization entry up to sign. The p. 4 Cherkas criterion does not require structural stability.",
+          "Gasull–Gouveia–Santana already study invariant-square examples with several interior cycles in a broader setting, including the evolutionary subclass containing this slice; those examples alone do not prove the frozen claim.",
+          "Grau–Szántó introduce the exact six-parameter family with local cycle results; they are not the decisive general-product antecedent."
+        ],
+        "reasoning": "The supporting general formula and criterion cover this directed square regardless of the stronger global structural-stability hypotheses used in some applications. Prior existential cycle counts are distinguished from the formula that actually recovers the threshold.",
+        "searches": [
+          "arXiv:2305.16529 Eq. (6), p. 4, Lemmas 8 and 13",
+          "Gasull–Gouveia–Santana arXiv:2410.15354v1 §§1–2",
+          "Grau–Szántó DOI 10.1007/s12346-024-01106-9 §2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and VERIFY.py",
+        "arXiv:2305.16529; arXiv:2410.15354; doi:10.1007/s12346-024-01106-9",
+        "Resultary d9a0fbcc188c, 114cf2c96c23, 049c73988719 and 73607523fe89"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Inserting g=c+e=h, d=−h, λ=−ε and b=0 after the affine change reduces the known product to (1−ε)^4/[(1+ε)^2((1+ε)^2−4h²)]. Comparing with one gives the claimed square-root threshold by clearing a positive denominator.",
+          "The prior p. 4 statement gives stable for product >1 and unstable for <1. Lemma 13 treats inner collars for the generic square. The local logarithmic exponent is obtained by adding logarithmic time contributions at a saddle and multiplying the four passage exponents, without additional slice-specific analysis.",
+          "With a local trapping neighborhood for the focus and an attracting square collar, the compact separator argument gives an orbit by the standard no-equilibrium Poincaré–Bendixson conclusion."
+        ],
+        "reasoning": "The exact slice is not stated in the prior article and is not claimed to be; the frozen conclusion mechanically follows from its broader product and criterion with elementary root and sign calculations and the planar trapping argument. The frozen record does not determine the leading neutral return coefficient or other higher-order behavior that might remain distinct.",
+        "searches": [
+          "arXiv:2305.16529 p. 4 and Lemma 8 Eq. (31), Lemma 13 pp. 18–19",
+          "Classical hyperbolic saddle passage and Poincaré–Bendixson as used in frozen Proof §§3–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bastos–Buzzi–Santana use the square [0,1]² and x(x−1)f, y(y−1)g. Their Eq. (31) gives r=g(0,0)f(1,0)g(1,1)f(0,1)/(f(0,0)g(1,0)f(1,1)g(0,1)) for counterclockwise traversal.",
+          "Setting u=(x+1)/2,v=(y+1)/2 gives f(u,v)=−2P(2u−1,2v−1) and g(u,v)=−2Q(2u−1,2v−1), with no time change. The four factors −2 cancel above and below; pairing corner factors yields the two stated numerator and denominator differences of squares exactly."
+        ],
+        "reasoning": "The prior formula applies to the same characteristic product after affine conjugacy, not merely to a different polycycle or a similar threshold.",
+        "searches": [
+          "Resultary: invariant-square polycycle, corner exponent, threshold and boundary sink",
+          "Evolutionary stable strategies square boundary polycycle; arXiv:2305.16529 Lemma 8 Eq. (31)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The decisive exact lookup is an analytic corner-value quotient, not a numerical table: Eq. (31) specifies all eight entries at the relevant four vertices.",
+          "d9a0fbcc188c and 114cf2c96c23 concern equilibrium counts/sink capacity, not the four-saddle threshold. 049c73988719 and 73607523fe89 concern center-period growth rather than this dissipative slice."
+        ],
+        "reasoning": "There is no tabulated cutoff to check. The equivalent exact corner quotient from the primary literature is stronger; substituting the given coefficients directly returns the exact frozen threshold and rational example.",
+        "searches": [
+          "arXiv:2305.16529 Eq. (31) exact corner-value formula",
+          "Resultary d9a0fbcc188c, 114cf2c96c23, 049c73988719 and 73607523fe89"
+        ]
+      },
+      "rationale": "Bastos–Buzzi–Santana's earlier Eq. (31) is exactly the four-corner product in a broader polynomial invariant-square class, and its preceding Cherkas criterion already gives the strict dynamical interpretation. An affine square change and direct corner substitution recover (1) for the frozen family, then direct substitution on the chosen slice gives the claimed h threshold. The logarithmic exponent is the classical product of saddle passage exponents. The remaining existence assertion is the standard planar trapping argument once the one focus and the stable square have been checked; no separately original theorem survives the exact broader comparison.",
+      "residual_risks": [
+        "The listed comparison does not establish whether the precise two-parameter slice was ever printed before; that is not required for the demonstrated broader implication.",
+        "The neutral return map remains unclassified by the frozen argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact broader corner quotient and prior stability rule",
+          "evidence": "Eq. (31) is the counterclockwise four-corner product; Lemma 13 also exhibits an inner transverse boundary to the generic polycycle collar. Lemma 8 uses structural stability for exclusion of neutral products in its setting, not to define or compute the product.",
+          "identifier_or_url": "https://arxiv.org/pdf/2305.16529",
+          "material_read": "PDF p. 4 offset 15980 (Cherkas criterion), p. 16 offset 69330 (Lemma 8 and Eq. (31)), pp. 18–19 offset 79400 (Lemma 13 and return/collar passage)",
+          "method": "OA PDF, decisive text by offset",
+          "title": "On structural stability of evolutionary stable strategies",
+          "trigger": "Exact same invariant-square characteristic product in a broader polynomial class"
+        },
+        {
+          "assessment": "Exact model, other cycle questions",
+          "evidence": "Eq. (3) is the frozen vector field; Theorem 4 concerns small-amplitude cycles rather than this boundary threshold.",
+          "identifier_or_url": "https://doi.org/10.1007/s12346-024-01106-9",
+          "material_read": "OA PDF §2 Eq. (3), offset 7200; Thms. 1–4 at offsets 10117–12121",
+          "method": "OA PDF",
+          "title": "A Polynomial System of Degree Four with an Invariant Square Containing At Least Five Limit Cycles",
+          "trigger": "Same six-parameter family"
+        },
+        {
+          "assessment": "Broader cycle constructions, not the decisive quotient",
+          "evidence": "The slice fits the evolutionary subclass: in coordinates x/2,y/2 its factors in their 4u²−1 convention are εu+v and −u+εv−2hu²+2huv. Their examples with nested cycles do not themselves supply this threshold.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.15354",
+          "material_read": "§1 offsets 1000, 8970–11480; §2 offset 14000",
+          "method": "OA PDF",
+          "title": "On the limit cycles of a quartic model for evolutionary stable strategies",
+          "trigger": "Broader invariant-square quartic class"
+        },
+        {
+          "assessment": "Different boundary invariants",
+          "evidence": "Counts of boundary equilibria or sinks do not calculate a return exponent for one four-saddle cycle.",
+          "identifier_or_url": "Resultary d9a0fbcc188c and 114cf2c96c23",
+          "material_read": "Mirror findings at offset 0 in each",
+          "method": "Resultary and local mirror",
+          "title": "Sharp eleven-equilibrium boundary chamber; Five is the sharp boundary-sink capacity",
+          "trigger": "Boundary classifications of the same or broader quartic family"
+        },
+        {
+          "assessment": "Different center regimes",
+          "evidence": "These results concern center subfamilies and periods in a periodic annulus, not the dissipative focus and attracting square coexistence. The shared date does not establish priority.",
+          "identifier_or_url": "Resultary 049c73988719 and 73607523fe89",
+          "material_read": "Mirror findings at offset 0 in each",
+          "method": "Resultary and local mirror",
+          "title": "Logarithmic period walls and a critical crossover; Universal two-term period growth in an invariant-square quartic",
+          "trigger": "Nearby period claims including same-day catalogue entry"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An explicit interior-cycle region would be useful if it required new analysis of this family. Here the exact product is already available for arbitrary polynomial corner factors; the proposed chamber and two-parameter slice just make its substitution simple, and the existence proof supplies a standard planar consequence of the resulting trappings. The package proves neither the neutral return behavior nor the type, count or other genuinely new precise feature of the interior orbit. A notation or scope correction would not produce a separately valuable surviving invariant.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

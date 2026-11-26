@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:07:19.199121Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Read VERIFICATION.md and verify.py without executing the frozen script. Recorded direct enumeration for r=1,2,3,4 and the separate cycle checks are consistent with the proof.",
+        "Independent fiber diagnostic beyond the recorded range: for r=5 fix p=(0 1 2)(3 4), q=id. Iterate all 2^10 independent first-coordinate assignments in row-major order, using these second-coordinate maps; test α and each product map by counting distinct outputs. Found 32 one-sided permutations and 4 two-sided permutations, consistent with two relative cycles. This is not an exhaustive r=5 census or a proof for all r."
+      ],
+      "rationale": "RESULT.md lines 29–52: write α(i,j)=(a_i(j),b_i(j)). The map xα(x) is bijective exactly if b_0=p and b_1=q are permutations. For α itself to be bijective, each target second coordinate has two preimages with complementary output first coordinates, independently giving two choices at each target, hence L_r=2^r(r!)². The map α(x)x additionally requires complementary output first coordinates at each source column, so write them ε_j and 1−ε_j. The target condition now reads ε_j=ε_(q^(−1)p(j)), proving the fixed-(p,q) count including common matching edges (fixed points). Summing over ρ=q^(−1)p gives r! times its cycle enumerator at 2; inserting a singleton or using one of r−1 insertion positions multiplies by r+1, yielding B_r=r!(r+1)! and the stated fraction. Opposite-band symmetry exchanges the two products, and inversion exchanges the two one-sided sets, so the counts also hold for two columns. Minor scope wording: the displayed premise min(|I|,|J|)=2 forces r≥2, even though the proof and assumptions discuss r=1. The r=1 extension indeed holds for 2×1 and 1×2 (both maps are complete); the displayed implication for its stated premise remains true.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper treats one-sided maps on bands, including characterizing uniqueness. The later finite-band result counts one-sided complete mappings and gives a cycle spectrum for xα(x); the rectangular-group result is for a different algebra with a C2 factor."
+        ],
+        "reasoning": "A one-sided marginal count or spectrum of xα(x) does not control α(x)x for the same α. In a rectangular group over C2 the extra group-coordinate constraints are not the two-row band intersection. Neither is a dominating theorem for the stated fibers.",
+        "searches": [
+          "arXiv:2608.25092v1 §12, pp. 53–56",
+          "2026/11/8/SCOPE-orthomorphism-fibers-and-cycle-spectra-of-finite-bands--522c8013084e",
+          "2026/11/8/SCOPE-exact-transversal-counts-for-rectangular-groups-over-c-2--6264cf1f154b"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.25092v1",
+        "Cameron post 2026-08-27",
+        "Resultary b83f36e791a9 (summary), 904ca12df0bd, 522c8013084e, 6264cf1f154b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A map that is left-complete need not be right-complete (already B_2=12<L_2=16). The identity sum 2^c=(r+1)! over S_r supplies the final sum, not the number of permissible first-coordinate maps for fixed p,q."
+        ],
+        "reasoning": "The existing existence and orthomorphism results give no implication to the intersection count. The missing combinatorial step is exactly the necessity and sufficiency of equality of the column bits along the relative cycles, which retains information about each fiber.",
+        "searches": [
+          "arXiv:2608.25092v1 Proposition 1.3 and §12",
+          "Cameron, Complete mappings of semigroups, 2026-08-27",
+          "standard permutation cycle polynomial compared to RESULT.md lines 34–50"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 1.3 converts the handedness by taking the inverse; Proposition 1.5 gives the transversal interpretation for one table. Section 13 uses the distinct complete-plus-orthomorphism definition of strong. With p,q considered as bipartite matchings, the relative cycles are the alternating components, including doubled edges for fixed points."
+        ],
+        "reasoning": "Two-sided completeness counts the intersection of one-sided completeness with its inverse-set, not the cardinality of either set or separate existence. In matching language one must still impose complementary source-column and target-column output labels to identify which alternating components contribute choices.",
+        "searches": [
+          "arXiv:2608.25092v1 Proposition 1.3, Proposition 1.5 and §13",
+          "bipartite degree-two perfect matchings, double cosets, and simultaneous left/right transversals",
+          "Resultary orthomorphism fibers and cycle spectra of finite bands"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest nearby same-day graph hit b83f36e791a9 describes binary bipartite degree-two cycle-partition dynamics; its exact RESULT.md was unavailable in the local mirror. The other same-day record 904ca12df0bd counts minimum supports admitting inverse matchings in three-row zero bands. Neither inspected actual claim gives a table of the joint counts; the graph hit remains partially uninspected."
+        ],
+        "reasoning": "A partition description of a graph switch process does not by itself count admissible permutations of a rectangular band with fixed row maps; support-minimization with inverse matchings is also a different invariant. No identified accessible exact table supports prior coverage; this is not an absence proof.",
+        "searches": [
+          "Resultary simultaneous transversals and cycle refinement",
+          "Resultary b83f36e791a9, 904ca12df0bd, 522c8013084e and 6264cf1f154b"
+        ]
+      },
+      "rationale": "The supported distinction is the same-permutation intersection and its relative-permutation fiber theorem on the first nontrivial rectangular bands. One-sided existence and the cycle polynomial are standard; the closed count follows from the polynomial once the band-specific fiber characterization has been proved. Bounded comparisons did not identify this characterization or the joint count in prior work.",
+      "residual_risks": [
+        "Equivalent enumerations may appear under matching or Latin-transversal terminology. No full-text negative conclusion or priority ordering is taken from the unavailable same-day graph record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "One-sided existence, transversals and different strong definition; not the same-map fibers",
+          "evidence": [
+            "Inversion in Prop. 1.3; complete-plus-orthomorphism condition of §13."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.25092v1",
+          "material_read": "p. 5 Prop. 1.3 (OA offset 17139) and Prop. 1.5 (19362); §12 pp. 53–56 (178000–187872); §13 p. 57 (187700)",
+          "method": "Primary OA PDF, targeted statements and adjacent passages",
+          "title": "Complete Mappings of Semigroups",
+          "trigger": "Same semigroup and handedness definitions"
+        },
+        {
+          "assessment": "One-sided discussion",
+          "evidence": [
+            "Transversal interpretation, no simultaneous enumeration in read passage."
+          ],
+          "identifier_or_url": "https://cameroncounts.wordpress.com/2026/08/27/complete-mappings-of-semigroups/",
+          "material_read": "Transversal and necessary conditions passage, offset 344",
+          "method": "Public author post, targeted text",
+          "title": "Complete mappings of semigroups",
+          "trigger": "Author exposition of the prior result"
+        },
+        {
+          "assessment": "Plausibly related mechanism; exact overlap not resolved from summary",
+          "evidence": [
+            "Binary bipartite graphs and switch dynamics on cycle partitions; no full-text exclusion asserted."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-cycle-partition-lumping-for-bipartite-degree-two-switch-walks--b83f36e791a9",
+          "material_read": "Indexed summary only; local-mirror RESULT.md unavailable",
+          "method": "Resultary search and local-mirror retrieval attempt",
+          "title": "Exact cycle-partition lumping for bipartite degree-two switch walks",
+          "trigger": "Same-day degree-two cycle interpretation could encode fibers"
+        },
+        {
+          "assessment": "Different semigroup and optimization/counting target",
+          "evidence": [
+            "Counts minimum labeled supports admitting inverse matchings."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sparsest-permutation-matchable-three-row-rectangular-zero-bands--904ca12df0bd",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Sparsest permutation-matchable three-row rectangular zero bands",
+          "trigger": "Same-day exact rectangular-band permutation count"
+        },
+        {
+          "assessment": "Later one-sided result, different cycles",
+          "evidence": [
+            "The spectrum is of xα(x), not the joint condition and its relative p,q cycles."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-orthomorphism-fibers-and-cycle-spectra-of-finite-bands--522c8013084e",
+          "material_read": "RESULT.md Finding and Limitations, offsets 0 and 6250",
+          "method": "Resultary and local mirror",
+          "title": "Orthomorphism fibers and cycle spectra of finite bands",
+          "trigger": "Candidate broader band count"
+        },
+        {
+          "assessment": "Later result for a different algebra and one-sided statistic",
+          "evidence": [
+            "Nontrivial C2 group factor, one multiplication-table constraint."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-transversal-counts-for-rectangular-groups-over-c-2--6264cf1f154b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Exact transversal counts for rectangular groups over C2",
+          "trigger": "Candidate exact transversal enumeration on related algebra"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Requiring a single transversal permutation to work in both the table and its opposite is a natural symmetric restriction unnoticed by separate-existence statements. The two-row family is the first nondegenerate family, the exact fraction quantifies failure of simultaneous compatibility, and the fiber count identifies when prescribed row maps admit many choices. The value is in the structural enumeration, not in re-evaluating the standard cycle polynomial or a finite table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

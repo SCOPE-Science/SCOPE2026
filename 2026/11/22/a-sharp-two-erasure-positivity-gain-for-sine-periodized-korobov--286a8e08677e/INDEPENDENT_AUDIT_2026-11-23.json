@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:57:42.450551Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions, RKHS norm, variational derivation and asymptotics, lines 33–114; VERIFICATION.md and verify.py inspected but not executed.",
+        "Independent analytic replay: integrate sine against the nearest hat and against the quadratic ordinary-gap bubble as in the rationale; the asymptotic does not use dense numerical solves."
+      ],
+      "rationale": "For variations vanishing at all nodes, the mean term and derivative term in the norm give S''=4π²γ∫S on each gap. The linear interpolant minus 2π²γ(∫S)Q is exactly that solution; solving for its mean using ∫Q=T/6 and integrating against the density yields the rank-one correction to the hat masses. The sign threshold is therefore a unique scalar crossing for this design once its denominator is positive. Independently, setting h=1/N and x=2πh, integration of the nearest hat on [−h,h] and [h,2h] gives the exact ratio [1+(sin x−sin 2x)/x]/(6h)=(7/9)π²h+O(h³). Ordinary hats have the sine value at the node times sinc²(πh), with smallest ratio 2π²h+O(h³), so exactly the four symmetric nearest sites minimize eventually. Two doubled gaps give T=h²+12h³. On each ordinary gap, the ratio of bubble mass to density mass is exactly (2/k²)(1−(kh/2)cot(kh/2)), k=2π, by integrating the cosine about the midpoint; this is h²/6+O(h⁴). Both doubled gaps carry only O(h²) density mass with an O(h²) bubble. Hence B=h²/6+O(h⁴), and the denominator is π²h²/3−7π⁴h³/27+O(h⁴). Its reciprocal gives the displayed (7/3)N+49π²/27+O(1/N). The strict minimum gap and monotonicity in γ check all three sign cases. The same calculation for the intact even grid has minimum [1−sin x/x]/(2h)=π²h/3+O(h³), giving the stated comparison. For a general density with minimum hat ratio zero, the exact criterion permits no positive γ; the scalar crossing is then at the endpoint γ=0 of the extended correction function, not a positive threshold.",
+      "residual_risks": [
+        "The four-zero sign classification and finite positive threshold are for sufficiently large even N in this design; not asserted at every small eligible N. The general-mesh statement is the exact formula and scalar test, not a universal threshold asymptotic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arbitrary-node weighted H¹ rules and a linear-spline construction are known under different norm and boundary conditions.",
+          "General one-dimensional Bayesian quadrature positivity uses other assumptions such as total positivity; the indexed higher-order result is for intact grids and principally fixed γ."
+        ],
+        "reasoning": "Neither an interval H¹ formula with different conditions nor general sign criteria give a necessary-and-sufficient threshold in the γ~N regime for this periodic erased mesh.",
+        "searches": [
+          "Novak–Zhang arXiv:1609.01146v1, pp. 5–6",
+          "Karvonen–Kanagawa–Särkkä DOI 10.1007/s11222-019-09901-0, pp. 1319–21",
+          "Resultary higher-order positivity feb80935de99"
+        ]
+      },
+      "checked_sources": [
+        "Bartel et al. arXiv:2610.01113v1",
+        "Resultary f2630b796e0e, 598f5f115f42, b54fb697d31c, feb80935de99",
+        "Novak–Zhang arXiv:1609.01146v1",
+        "Karvonen–Kanagawa–Särkkä DOI 10.1007/s11222-019-09901-0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The subsampling framework calls for the inverse on the retained node set. The intact sharp threshold assumes the complete uniform grid; the sine-zero erasures double two gaps."
+        ],
+        "reasoning": "Restricting the intact-grid solution does not in general solve the retained Gram system, even when the erased sites are zeros of the density. Recomputing the new threshold requires control of the changed interpolant and minimum hat ratio, rather than a substitution into the intact result.",
+        "searches": [
+          "Bartel et al., subsampling formula in §1",
+          "Resultary f2630b796e0e and b54fb697d31c, actual findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source of the method already defines a sine-periodized RKHS integral and optimal subsampled Gram weights.",
+          "The same-day Resultary two-erasure Fourier rule instead imposes trigonometric exactness for Lebesgue measure on an odd grid, with no γ."
+        ],
+        "reasoning": "The Bayesian/RKHS presentation gives the same weights when kernel, measure and nodes agree. The odd-grid trigonometric rule has a different defining linear system, so its exact signs are not an equivalent erased Korobov result.",
+        "searches": [
+          "Resultary: sine-periodized Korobov quadrature, two-erasure sign laws, complete-grid positivity",
+          "Bartel et al. arXiv:2610.01113v1, Eqs. (2.5), (3.2), (3.4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed complete-grid formula already gives N+π²/3+O(N⁻¹); the indexed exact erasure formula tabulates signs as a function of cyclic separation for a different trigonometric rule."
+        ],
+        "reasoning": "These are the relevant exact-formula comparisons for a grid-dependent analytical threshold. Neither is a table or formula of Korobov thresholds after the two sine-zero erasures.",
+        "searches": [
+          "Resultary sharp intact-grid threshold f2630b796e0e and positivity/constant-mass thresholds 598f5f115f42",
+          "Resultary exact two-erasure Fourier quadrature b54fb697d31c, original Finding"
+        ]
+      },
+      "rationale": "The kernel, unconstrained optimization and subsampling prescription are known; the intact-grid threshold is also prior coverage. The supported distinction is the quantitative classification of this specific nonuniform two-erasure design, including the two coefficients and four minimizing sites, derived via the local formula.",
+      "residual_risks": [
+        "An unlocated periodic spline formula or equivalent erasure-specific result is not ruled out by bounded literature coverage. The local-hat decomposition uses established interpolation and variational principles; no historical priority is assigned to those principles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the method and exact defining system, not the two-erasure threshold.",
+          "evidence": [
+            "First-order Bernoulli kernel and sine kernel mean; restricted weights defined by a retained-system Gram solve."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.01113",
+          "material_read": "v1 §1 subsampling formula; §§2.1, 3.2, 3.4, Eqs. (2.5), (3.2), (3.4).",
+          "method": "OA primary text, bounded passages approximately at offsets 18000, 32500, 52000, 58037.",
+          "title": "A higher order lattice-based method for high-dimensional numerical integration using periodization",
+          "trigger": "Same kernel, density and method, including subsampling."
+        },
+        {
+          "assessment": "Covers the comparison baseline only.",
+          "evidence": [
+            "Uniform complete grid, minimizing sites at density zeros, sharp N+π²/3+O(N⁻¹) threshold."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-sharp-positivity-threshold-for-sine-periodized-korobov-quadratur--f2630b796e0e",
+          "material_read": "RESULT.md Finding, offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "method": "Local mirror, bounded passage.",
+          "title": "Sharp positivity threshold for sine-periodized Korobov quadrature",
+          "trigger": "Same first-order kernel, density and positivity invariant."
+        },
+        {
+          "assessment": "Distinct quadrature problem; not equivalent regardless of publication order.",
+          "evidence": [
+            "Odd grid, exact integration of degree (n−3)/2 trigonometric polynomials against Lebesgue measure; positivity determined by cyclic separation, not γ."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-exact-two-erasure-fourier-quadrature-sign-law-and-random-noise-f--b54fb697d31c",
+          "material_read": "RESULT.md Finding, offsets 0–2752, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "method": "Local mirror, bounded passage.",
+          "title": "Exact two-erasure Fourier quadrature sign law and random-noise floor",
+          "trigger": "Same-day result on exact signs after two grid erasures."
+        },
+        {
+          "assessment": "Different norms and boundaries; background for spline approach.",
+          "evidence": [
+            "Weighted interval H¹ formulas with piecewise-linear spline algorithm, not the periodic mean-penalized threshold."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1609.01146",
+          "material_read": "v1 pp. 5–6, OA offset about 11300.",
+          "method": "OA original PDF bounded passage.",
+          "title": "Optimal Quadrature Formulas for the Sobolev Space H1",
+          "trigger": "Arbitrary-node weighted first-order Sobolev quadrature and spline formulas."
+        },
+        {
+          "assessment": "Relevant positivity theory, not a threshold for this kernel and design.",
+          "evidence": [
+            "K⁻¹k identity and positivity under total-positivity-related hypotheses rather than this parameter-dependent scalar crossing."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11222-019-09901-0",
+          "material_read": "pp. 1319–21, weight identity and positivity assumptions; OA offsets about 10300 and 17000–24000.",
+          "method": "OA original PDF bounded passages.",
+          "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+          "trigger": "Potential general sign theorem for optimal kernel weights."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact formula, asymptotic and comparison",
+        "Resultary f2630b796e0e for the intact baseline"
+      ],
+      "rationale": "The two sites are distinguished by exact density zeros before computation. Erasing them changes both the minimum normalized hat mass and the allowable scale of γ by an exact factor greater than two, and identifies which retained weights lose positivity. This is a quantitative robustness fact about the unmodified quadrature weights, not a recomputation of the intact case or a postprocessed improvement.",
+      "residual_risks": [
+        "The gain concerns positivity, not quadrature accuracy or random/high-dimensional erasure designs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

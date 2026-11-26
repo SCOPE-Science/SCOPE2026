@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:42:38.597194Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–4",
+        "Frozen VERIFICATION.md and check.py (inspected, not executed)",
+        "Independent pairwise arm replacement and polygon-interval argument in this review"
+      ],
+      "rationale": "Translate the hub to zero. A direct check of the arm replacement uses the pairwise squared-distance formula for variance. Fix the other arms. The contribution within this arm is bounded by the sum of squared radial differences, which the straight ray attains. Up to a fixed term the cross-arm contribution is (1-P)∑_j p_j||y_j||²−2⟨∑_j p_j y_j,W⟩, where P is this arm's total mass and W is the partial mean off this arm. The bounds ||y_j||≤r_j are attained simultaneously on a ray pointing opposite W (any ray if W=0), and that same choice also attains the within-arm bound. Since (1-P)p_j>0, equality requires every radial distance to be saturated. Successive positive edge lengths and the triangle inequality then force all edge vectors on the arm to have one direction. Replacing one arm at a time shows that radial maps suffice, even in an infinite-dimensional Hilbert space, and equality forces every maximizer to be radial. For them the variance is R−||∑_i q_i u_i||². In a plane, the norms attainable by a sum of vectors of fixed lengths form a closed interval because the product of circles is compact and connected. Starting with one length, appending length w to a previous interval [L,U] gives extrema dist(w,[L,U]) and U+w. Inductively the minimum is max(0,2 max_i q_i−Q). The reverse triangle bound holds in any Hilbert space, and if the minimum is positive its equality forces the dominant arm to oppose all the others. The same arm argument works on the real line, where radial unit directions are signs and the optimum is R−η². Thus η=δ is exactly the line-valued optimum criterion; otherwise a plane is necessary and sufficient as the smallest possible affine dimension. Equal arm moments for a three-leaf unit star of uniform masses give the advertised 3/4 and 11/16 bounds.",
+      "residual_risks": [
+        "The strict radial equality argument uses positive vertex masses and edge lengths. Minimal affine dimension two does not rule out higher-dimensional maximizers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5 of the weighted rotational-dimension paper gives an optimal embedding of dimension at most treewidth plus one for all node/edge data. Theorem 4 gives weighted separator-shadow structure, and Theorem 6 identifies the graph-wide rotational dimension via forbidden minors. The older unit-edge tree Corollary 30 already gives a ray or separator-edge line structure for every optimizer.",
+          "The 2011 paper records the general weighted realization formulation and a conditional coupled-problem dimension bound."
+        ],
+        "reasoning": "The weighted treewidth theorem covers planar sufficiency outright. The graph invariant in Theorem 6 ranges over the weights and lengths; a spider having worst-case rank two does not say whether a particular weighted instance requires it. Binary closure of the arm moments and the sharp scalar value require a fixed-instance argument.",
+        "searches": [
+          "The Rotational Dimension of a Graph, Chemnitz preprint 16 (2008) PDF p. 5, DOI:10.1002/jgt.20502",
+          "Embedded in the Shadow of the Separator (2005 preprint), Corollary 30",
+          "On Minimizing the Spectral Width of Graph Laplacians and Associated Graph Realizations (2011 preprint), Table 1 and §4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, proof and prior-work discussion",
+        "Local Resultary, self-match d054889aff7c and distinct records listed above",
+        "Göring–Helmberg–Wappler 2005 Corollary 30 and 2008 Theorems 4–6",
+        "Göring–Helmberg–Reiss 2011 Table 1 and §4",
+        "Sun–Boyd–Xiao–Diaconis §4.1",
+        "Fiedler (1990), citation only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unweighted precedent describes every optimal tree realization, not just one witness; the weighted shadow theorem supplies substantial additional structural overlap. A method for classifying unconstrained-dimensional optimizers or bounding their minimum dimension does not evaluate the constrained scalar optimum when it is strictly smaller.",
+          "The frozen result gives the precise η−δ comparison from positive arm moments, not just a graph-level guarantee. Fiedler's full text was unavailable and is not treated as noncovering."
+        ],
+        "reasoning": "Even when ray geometry is granted, the attainable moments of a plane versus a line have different exact minima. In particular the scalar optimum requires showing that straight arms also suffice in the constrained scalar problem, beyond characterizing the unconstrained optimum. The fixed-weight pair of formulas and exact cutoff are the part supported as distinct.",
+        "searches": [
+          "The Rotational Dimension of a Graph, Theorems 4–6, PDF p. 5, offset 9150",
+          "Embedded in the Shadow of the Separator Corollary 30, offset 81868",
+          "Fiedler (1990), DOI:10.1080/03081089008817967, referred to in the remark following Corollary 30"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Centering the embedding and taking node weights proportional to probabilities identifies the Hilbert variance problem with the earlier maximum-spread or weighted realization objective. Passing to the reciprocal absolute algebraic connectivity is spectral duality, not a distinction.",
+          "The local exact match ending d054889aff7c is the reviewed record itself. Related scalar path-fibre and double-broom records do not have the same weighted spider and vector target."
+        ],
+        "reasoning": "The weighted problem is not a new objective. Compare the evaluated optimum and the rank-one criterion at a specified weighting rather than nomenclature or the general existence of a rank-two optimum.",
+        "searches": [
+          "Local Resultary searches for weighted-spider spread, Hilbert variance and signed partition",
+          "Göring–Helmberg–Wappler, The Rotational Dimension of a Graph, problem (3) and Theorems 4–6",
+          "Sun–Boyd–Xiao–Diaconis, maximum variance unfolding, problem (8)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact formula returned by the local catalog is the reviewed record. Other entries address scalar path-fibre rigidity and double brooms, continuous star pairwise distance variance, or Hilbert/scalar gaps on multipartite, cyclic and rectangle metrics.",
+          "Frozen RESULT.md line 73 mentions a scalar weighted-spider calculation without a citation or record ID. The searches did not resolve its identity or exact scope."
+        ],
+        "reasoning": "An earlier formula for scalar spread on this weighted spider could cover R−η² separately; it would not by itself supply the Hilbert residual and equality geometry. No ruling on the isolated scalar component's priority is made from the missing citation.",
+        "searches": [
+          "Local Resultary records d054889aff7c, 3a3d1be45dcb, 9cf3fbd8846d and 0d11d8090866; related Hilbert/scalar records 8a5786a62d5b, 0c0fc375b1fc, 6ed6e449c449"
+        ]
+      },
+      "rationale": "The bare planar bound is directly covered even with arbitrary weights and lengths, and prior tree and separator results establish closely related optimizer geometry. The distinct supported contribution is the joint fixed-instance evaluation: the weighted arm-moment residual gives the sharp variance and the full maximizing direction condition, and the signed-partition residual evaluates the possibly smaller scalar optimum and decides precisely when a plane is needed. The strongest inspected weighted theorem gives an upper dimension bound or a worst-over-weights graph parameter rather than the fixed-data cutoff and scalar gap. This pass does not claim priority for planar existence, tree rigidity in general, or an uncited possible earlier scalar formula in isolation.",
+      "residual_risks": [
+        "Fiedler's full text and the identity of the uncited scalar weighted-spider calculation remain unresolved. The comparison is bounded and does not establish within-day priority for similarly dated catalog entries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers general weighted planar sufficiency for trees and gives weighted separator structure",
+          "evidence": "Theorem 5: bound by treewidth plus one for arbitrary data; Theorem 6: graph-wide bound characterized by minors; Theorem 4: separator shadow for weighted optimizers. Not a fixed-weight scalar gap theorem.",
+          "identifier_or_url": "https://www.tu-chemnitz.de/mathematik/preprint/2008/PREPRINT_16.pdf",
+          "material_read": "Problem (3) context and Theorems 4–6, PDF p. 5, OA offset 9150",
+          "method": "OA primary PDF from university copy after publisher/other copy failed",
+          "title": "The Rotational Dimension of a Graph",
+          "trigger": "Broader weighted maximum-variance embeddings and rank theorems for trees"
+        },
+        {
+          "assessment": "Direct overlap in ray/line geometry for uniform unit-edge trees",
+          "evidence": "A centered optimal tree realization either has rays from a root at the origin or is collinear with the origin inside a separator edge. The following remark attributes prior absolute algebraic connectivity of trees to Fiedler.",
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2005/09/1202.pdf",
+          "material_read": "Abstract and formulation; Corollary 30 with following remark (OA offset 81868); Theorem 19",
+          "method": "OA primary PDF passage inspection",
+          "title": "Embedded in the Shadow of the Separator",
+          "trigger": "Potential exact tree-geometry result"
+        },
+        {
+          "assessment": "General weighted formulation; cited the stronger applicable shadow result for the maximum-variance problem",
+          "evidence": "Node parameters and lengths are allowed; connected strictly active subgraph condition in Corollary 20 is for the coupled spectral width objective, not a limitation of the earlier weighted treewidth theorem.",
+          "identifier_or_url": "https://www.tu-chemnitz.de/mathematik/preprint/2011/PREPRINT_04.pdf",
+          "material_read": "§1 and Table 1; Corollaries 19–20 and discussion (offset 40530)",
+          "method": "OA primary PDF passage inspection",
+          "title": "On Minimizing the Spectral Width of Graph Laplacians and Associated Graph Realizations",
+          "trigger": "Weighted separator and exact optimization framework"
+        },
+        {
+          "assessment": "Supplies objective and edge constraints, not weighted spider evaluation",
+          "evidence": "Maximizes centered squared spread subject to upper bounds on edge distances.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "§4.1 problem (8), pp. 689–690, offset 25608",
+          "method": "OA primary PDF passage inspection",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Equivalent maximum-variance formulation"
+        },
+        {
+          "assessment": "Known tree precedent; exact weighted scope unresolved here",
+          "evidence": "The remark explicitly credits the earlier determination of tree absolute algebraic connectivity; publisher returned HTTP 403 and DOI retrieval yielded no repository copy.",
+          "identifier_or_url": "https://doi.org/10.1080/03081089008817967",
+          "material_read": "Citation and coverage statement in the remark after Göring–Helmberg–Wappler Corollary 30; full text not available in attempted retrieval",
+          "method": "DOI/OA retrieval attempt and secondary passage inspection",
+          "title": "Absolute algebraic connectivity of trees",
+          "trigger": "Original tree solution via the dual invariant"
+        },
+        {
+          "assessment": "Distinct metric and target scope",
+          "evidence": "Scalar variance on balanced path fibres with maximizing signed slopes, not weighted spiders with Hilbert-valued arm directions.",
+          "identifier_or_url": "2026/11/8/SCOPE-variance-rigidity-under-balanced-path-fibre-refinements--3a3d1be45dcb",
+          "material_read": "Finding",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Variance rigidity under balanced path-fibre refinements",
+          "trigger": "Nearby scalar rigidity comparison"
+        },
+        {
+          "assessment": "Different tree family, uniform scalar result",
+          "evidence": "Unit-edge double-broom optimum, with edge saturation and monotonicity along its central path.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-lipschitz-spread-of-length-two-double-brooms-and-its-three--9cf3fbd8846d",
+          "material_read": "Finding",
+          "method": "Resultary local mirror",
+          "title": "Sharp Lipschitz spread of length-two double brooms",
+          "trigger": "Exact scalar spread with tree equality classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and equality proof",
+        "The Rotational Dimension of a Graph, Theorems 4–6",
+        "Embedded in the Shadow of the Separator, Corollary 30"
+      ],
+      "rationale": "The theorem computes both target-dependent extrema from simple weighted arm statistics and identifies when increasing dimension genuinely improves variance. In particular it isolates a discrete obstruction to attaining the continuous optimum on a line even when the arm moments close as a polygon. Straightness for every optimizing arm across arbitrary subdivisions yields an equality description rather than only a sufficient planar construction. The sharp fixed-data cutoff, not the already known treewidth upper bound, is the substantive consequence.",
+      "residual_risks": [
+        "The sign formula is an exact criterion, not an efficient algorithm for general weighted partition. It does not extend by this proof to trees with branching within an arm or to arbitrary Banach targets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

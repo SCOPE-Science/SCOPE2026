@@ -1,15 +1,21 @@
-# Scientific review: integer-quantized first corrections for unlabelled bijections
+# Independent mathematical audit
 
-## Correctness (C) — PASS
-An unlabelled bijection is exactly a partition into cycle lengths. Removing prescribed copies of a fixed cycle length yields the exact partition-ratio formulas. Expanding the classical partition asymptotic at fixed shifts yields the first-order \(\pi/\sqrt{6n}\) term. Two independent short-cycle defects require a mixed second finite difference and have probability \(O(n^{-1})\). Bounded-degree Hanf locality reduces a sentence to finitely many saturated and single-defect structures. The long-cycle-type failure probability is exponentially small in \(\sqrt n\). These ingredients prove an effective integer coefficient and \(O(n^{-1})\) remainder. Sentences excluding an \(m\)-cycle supply every positive integer and their negations every negative integer. The standalone checker confirms finite identities but not the infinite theorem.
+## correctness
 
-## Originality (O) — PASS with residual priority risk
-The zero-one law for **unlabelled** one-bijection models is **old**, not a result of this work. Albert, Bouvel and Féray explicitly cite an earlier zero-one law (arXiv:1808.05459v2, pp. 2 and 4); Burris, Compton, Odlyzko and Richmond establish broad fine-spectrum zero-one criteria; Woods treats MSO unlabelled convergence for component classes. The present claim is narrower but **quantitatively different**: a universal first-order expansion through order \(n^{-1/2}\), an effective integer formula for its coefficient, a uniform \(O(n^{-1})\) sentence-dependent remainder, and the sharp complete coefficient spectrum. A qualitative zero-one/convergence theorem does not imply those quantitative assertions. The 2020 preprint was inspected beyond its abstract, including its remarks on prior zero-one results; no matching coefficient theorem was located there. The full text of the 1997 fine-spectrum article was not obtained, so priority uncertainty remains. The abstract of that article alone does **not** establish that its full text lacks all quantitative information; this residual risk is explicit.
+PASS
 
-## Value (V) — PASS
-This is not a new proof of the known zero-one law. It answers the natural finer question **how** rapidly any fixed first-order property approaches its Boolean limit and which leading constants are arithmetically possible. The signed integer lattice, automatic improvement to \(O(n^{-1})\) when the coefficient cancels, and an effective recipe based on finite representatives give useful structural information not provided by mere convergence. The logical scope is natural (all sentences in one-bijection language), not an arbitrary special invariant.
+Cycle type bijects isomorphism classes with integer partitions under the stated uniform law. Deletion and inclusion–exclusion give exact tail and prescribed-multiplicity counts even when shifts exceed n, using p(k)=0 for k<0. For the ratio, the leading Rademacher term with x=n−1/24 and c=π√(2/3) is exp(c√x)/(4√3 x) times (1−1/(c√x)), up to exponentially subleading error; taking a fixed shift changes the main exponential by 1−ch/(2√n)+O_h(n^(-1)) and the prefactors by 1+O_h(n^(-1)). A prescribed multiplicity at length j therefore costs πj/√(6n)+O(n^(-1)), while the two-length mixed difference cancels both constant and linear-shift terms. Effective bounded-degree Hanf locality gives a radius ρ and saturation t. The Gaifman balls in cycles of length ≤2ρ+1 are the whole directed cycles and in larger cycles are identical directed paths, with the radius-zero loop case distinguished. Thus short-type counts are j a_j and the long-type count is the total number of vertices in longer cycles. If fewer than t such vertices occur, their parts come from a finite list and all other parts are bounded in size, giving only polynomially many partitions against exponential-in-√n p(n). At order n^(-1/2) only the finitely many isolated short-type deficiencies matter, each evaluated on its explicit representative. This yields the stated effective weighted integer sum and its sign, with all other events contributing O_φ(n^(-1)). Absence of any prescribed m-cycle realizes (0,m), negation realizes (1,−m), and constants cover m=0. Nonzero coefficient forces the claimed sharp rate.
 
-## Boundaries and sources
-The result does not claim newness of the qualitative zero-one law, a full higher-order asymptotic expansion, applicability to labelled permutations, or independent verification. The main comparison sources are Albert--Bouvel--Féray (arXiv:1808.05459), Burris--Compton--Odlyzko--Richmond (1997, doi:10.4153/CJM-1997-030-6), Woods (1997, doi:10.2307/2275580), and Koponen (arXiv:2610.16163). The 1997 full texts were not completely accessible and may contain stronger unpublished-in-abstract observations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The qualitative law for the exact unlabelled model is known. Judged only on the effective first correction, its quantization and attainable spectrum, and the O(n^(-1)) remainder: inspected close sources do not cover or imply that combined quantitative result. A fixed multiplicity cap has a different limiting local law even though it uses the same logical machinery. This is best-of-knowledge, without dating-based priority inferences.
+
+## value
+
+PASS
+
+A qualitative zero–one law leaves open whether finite structures approach it slowly, rapidly, or in a sentence-dependent continuum of leading coefficients. The theorem instead determines the complete discrete first-correction spectrum, a computable test for whether the leading term vanishes, and the resulting improvement to O(n^(-1)). It identifies exactly which local defects control the rate in a canonical unlabelled model, rather than tabulating a few examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:15:00.954485Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–44, VERIFICATION.md, verify_boolean_rank.py",
+        "Independent replay /workspace/review-evidence/cactus.js (node /workspace/review-evidence/cactus.js): enumerates depth-two topologies within the small state bounds, tests each edge for two alternative simple paths, and enumerates relation masks obtained by assigning rectangle labels to the middle states. For all 15 binary and 511 ternary nonempty relations it recovered the claimed pair of minima; ternary frequencies are 49 at (3,3), 306 at (4,4), and 156 at (5,6)."
+      ],
+      "rationale": "Trimming preserves the language and graph restriction. A state on successful paths cannot occur at depths i and j with i≠j, because one common successful suffix would yield two accepted lengths. All surviving transitions increase depth by one (any transition between trim states lies on a successful computation). Every middle state contributes the rectangle of its first and second labels; their union is exactly R. Hence the unrestricted minimum is b(R)+2. Three different middle neighbors of one final yield two four-cycles sharing an edge at the start, so each final serves at most two middle states. Pairing the middle states from an optimal cover attains the resulting bound as a bipartite cactus, including a singleton when needed. For inequality, sets of rectangle indices containing each row symbol constitute an antichain because every ordered off-diagonal pair must be covered; equal-size subsets give the converse. Any null rectangle in the converse would reduce the number below the proved Sperner lower bound. Nonemptiness and k≥2 are used in the respective statements.",
+      "residual_risks": [
+        "Small-alphabet enumeration is only corroboration; the universal bound follows from the depth and incidence arguments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former gives existence for every regular language, not optimal state counts. The latter gives exact values and rigidity only for the diagonal family."
+        ],
+        "reasoning": "Broader language scope without optimality and stronger diagonal-only bounds are not the arbitrary-relation minimum.",
+        "searches": [
+          "arXiv:2610.11717, Theorem 1.1, p. 2",
+          "Resultary diagonal state-cost and matching-rigidity result 00e635271147"
+        ]
+      },
+      "checked_sources": [
+        "Resultary record 00e635271147; assigned record 2",
+        "arXiv:2610.11717, Theorem 1.1",
+        "arXiv:1406.0017, Section 5",
+        "Fishburn–Hammer DOI landing page/abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior biclique-cover results account for the rectangle representation; existence of cactus automata gives no sharp state penalty. The known exact diagonal count fixes one case. The inequality Boolean rank follows directly from Sperner, but translating it to an exact cactus state count uses the general cactus theorem."
+        ],
+        "reasoning": "The capacity bound on distinct incoming middle states per final and its exact joint achievement with an arbitrary optimum cover are the additional mathematical content; they are not supplied by the inspected prior statements.",
+        "searches": [
+          "arXiv:1406.0017, Section 5; arXiv:2610.11717, Theorem 1.1; Resultary 00e635271147; Fishburn–Hammer DOI 10.1016/0012-365X(95)00154-O"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boolean rank is an unweighted biclique-cover count; the primary paper uses weighted biclique covers to optimize transition count."
+        ],
+        "reasoning": "The middle-state/rectangle translation is known background, but the weighted edge-count optimization does not count finals or require their graph to be a cactus.",
+        "searches": [
+          "Resultary: length-two relation, rectangle rank, biclique cover and cactus NFA state count",
+          "arXiv:1406.0017, Section 5, Propositions 6–7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct indexed 00e635271147 covers the diagonal specialization. The bounded search located no distinct exact arbitrary-relation state-cost statement verified in the indexed sources."
+        ],
+        "reasoning": "Credit the positive exact match to the diagonal. The negative remainder is bounded search evidence, not proof of priority.",
+        "searches": [
+          "Configured Resultary index for exact state minima of depth-two bipartite cactus NFAs, including diagonal and inequality relations"
+        ]
+      },
+      "rationale": "The supported distinction is the exact cactus state cost for arbitrary nonempty length-two relations. The unrestricted rectangle construction, the classical Sperner bound, and the already covered diagonal specialization are not separate originality claims. The nearest inspected primary theorems do not give this general constrained state cost.",
+      "residual_risks": [
+        "The Fishburn–Hammer full text was not accessible; exact crown-formula attribution remains uncertain and no novelty is assigned to it.",
+        "The bounded comparison does not exclude an earlier exact state result elsewhere. Catalog ordering is not a priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the equality specialization, not general nonempty relations",
+          "evidence": [
+            "Exact diagonal cactus and unrestricted state counts agree at b(R)=k."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-state-cost-and-matching-rigidity-for-diagonal-languages-in--00e635271147",
+          "material_read": "RESULT.md Finding and proof/relationship, offsets 0 and 4863",
+          "method": "Configured Resultary index and local mirror",
+          "title": "Exact state cost and matching rigidity for diagonal languages",
+          "trigger": "Closest exact indexed result"
+        },
+        {
+          "assessment": "Existence only in the inspected theorem",
+          "evidence": [
+            "Every regular language has an epsilon-free NFA whose transition graph is a bipartite cactus; no exact state-minimum formula in that theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.11717",
+          "material_read": "Theorem 1.1, p. 2, PDF text offset 4750",
+          "method": "Open primary PDF",
+          "title": "Every Regular Language Has a Bipartite Cactus Automaton",
+          "trigger": "General construction in the matching graph class"
+        },
+        {
+          "assessment": "Computes transition rather than cactus state cost",
+          "evidence": [
+            "Proposition 6 writes the constructed automaton's size as a transition count, and Proposition 7 relates it to weighted biclique-cover cost."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1406.0017",
+          "material_read": "Section 5, Propositions 6–7, around p. 10/text offset 31000",
+          "method": "Open primary PDF",
+          "title": "Biclique coverings, rectifier networks and the cost of ε-removal",
+          "trigger": "Two-letter-language reduction to biclique covers"
+        },
+        {
+          "assessment": "Exact paper-level attribution of the crown formula not established; no inference from the inaccessible text",
+          "evidence": [
+            "The frozen antichain proof supplies the classical rank calculation independently of access to this source."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(95)00154-O",
+          "material_read": "Landing page and abstract only",
+          "method": "Publisher and bounded lawful open-copy lookup",
+          "title": "Bipartite dimensions and bipartite degrees of graphs",
+          "trigger": "Plausible source of classical crown-graph biclique-cover overlaps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–21 and 33–44; arXiv:2610.11717, Theorem 1.1; arXiv:1406.0017, Propositions 6–7."
+      ],
+      "rationale": "This is a complete sharp answer for a natural class of languages, relating a graph restriction on nondeterministic representations to a well-defined Boolean-rank invariant. It separates the reachability labeling cost from the exact cost of grouping finals, and shows that restricted-state overhead tracks the relation rather than the alphabet size (linear for equality versus logarithmic for inequality). This is a constrained optimization result, not a new claim for the standard Sperner calculation.",
+      "residual_risks": [
+        "Does not address longer words, epsilon transitions, multiple initial states, or transition-weight optimization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

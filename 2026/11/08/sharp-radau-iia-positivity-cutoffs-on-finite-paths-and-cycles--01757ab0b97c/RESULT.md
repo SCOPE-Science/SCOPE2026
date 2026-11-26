@@ -1,69 +1,42 @@
-# Sharp Radau IIA positivity cutoffs on finite paths and cycles
+# Sharp all-step Radau IIA positivity on finite undirected cycles
 
 ## Finding
 
-**Theorem.** Let \(G\) be an unweighted simple path \(P_n\) with \(n\ge2\), or an unweighted simple cycle \(C_n\) with \(n\ge3\). Let \(L_G=D_G-A_G\) be its combinatorial Laplacian. Apply the ordinary two-stage, third-order Radau IIA Runge–Kutta method to the linear graph heat equation \(u'=-L_Gu\); its completed step is
+Let \(C_n\) be the unweighted simple undirected cycle on \(n\ge3\) vertices, and let \(L=D-A\) be its combinatorial Laplacian. The completed step of the ordinary two-stage Radau IIA method on \(u'=-Lu\) is \(T(h)=R(hL)\), where
 \[
-T_G(h)=R(hL_G),\qquad R(x)=\frac{1-x/3}{1+2x/3+x^2/6},\qquad h\ge0.
+R(x)=\frac{1-x/3}{1+2x/3+x^2/6}.
 \]
-Then \(T_G(h)\) is entrywise nonnegative for **every** \(h\ge0\) if and only if
-\[
-G=P_n\text{ with }2\le n\le5,\quad\text{or}\quad G=C_n\text{ with }3\le n\le9.
-\]
-For every listed graph, every entry is **strictly positive** whenever \(h>0\), so the step is a positive, symmetric, row-stochastic matrix. For each excluded path (\(n\ge6\)) and cycle (\(n\ge10\)), any vertices at graph distance five have \(T_G(h)_{uv}<0\) for all sufficiently small positive \(h\).
-
-More generally, if a finite **connected** simple unweighted undirected graph has diameter at least five, the same method has a negative matrix entry at arbitrarily small positive steps. For a disconnected graph the conclusion holds if one of its connected components has diameter at least five. This diameter obstruction is a lemma explaining the sharp endpoints, not a claim about graphs of smaller diameter.
+Then \(T(h)\) is entrywise nonnegative for every \(h\ge0\) if and only if \(3\le n\le9\). In this range every entry is strictly positive when \(h>0\), and the matrix is symmetric with row sums one. For \(n\ge10\), the previously known distance-five obstruction gives a negative entry for sufficiently small positive steps. The additional conclusion here is *all-step* positivity through nine vertices; positivity separately for small and large steps does not rule out an intermediate failure.
 
 ## Assumptions and scope
 
-Paths carry unit conductance between consecutive numbered vertices; cycles carry unit conductance around their ring. For \(C_3\), its three distinct edges are counted once each. There are no boundary killing terms, no extra reaction terms, and no spatial mesh normalization: \(h\) is the scalar time step multiplying the **unweighted** Laplacian. A positive initial vector here means componentwise nonnegative input; preservation for every such input is equivalent to entrywise nonnegativity of \(T_G(h)\). Claims concern the *completed* step, not the internal RK stages.
+The edges of the undirected cycle have unit conductance and are counted once, including on \(C_3\). There is no boundary killing, reaction term, or mesh normalization. The result is about the completed step and arbitrary nonnegative input, not about internal stages or time steps on a different graph family.
 
 ## Proof
 
-**The small-step obstruction.** Ordinary exact power-series division gives
+For \(3\le n\le9\) set
 \[
-R(x)=1-x+\frac{x^2}{2}-\frac{x^3}{6}+\frac{x^4}{36}+\frac{x^5}{108}+O(x^6).
+Q(h)=I+2hL/3+h^2L^2/6,\qquad B(h)=I-hL/3.
 \]
-If \(d_G(u,v)=5\), all \((L_G^j)_{uv}\) vanish for \(0\le j<5\), since each off-diagonal factor can traverse at most one edge. In \((L_G^5)_{uv}\), exactly five off-diagonal moves are required. Thus every contributing term has sign \((-1)^5\); writing \(\nu_5(u,v)\ge1\) for the number of shortest five-edge walks, we have
+The eigenvalues of \(L\) are nonnegative, so \(Q(h)\) is positive definite for \(h\ge0\). The step \(T=Q^{-1}B\) is symmetric and circulant, hence it suffices to compute its entries \((0,j)\) for \(0\le j\le \lfloor n/2\rfloor\). In exact arithmetic reduce each to a rational fraction \(N_{n,j}(h)/D_{n,j}(h)\) with positive leading denominator coefficient. For the seven cycles the number of fractions per order is \(2,3,3,4,4,5,5\), respectively. The cycle blocks of `CERTIFICATE.json` supply all 26 fractions. Every numerator is nonzero with nonnegative coefficients; every denominator has nonnegative coefficients and positive constant term. The signs certify strict positivity for every \(h>0\), not just for a sample of steps. For example the distance-four entry for \(C_9\) is
 \[
-(L_G^5)_{uv}=-\nu_5(u,v),\quad
-[T_G(h)]_{uv}=-\frac{\nu_5(u,v)}{108}h^5+O(h^6)<0
+\frac{4h^4+36h^5+54h^6+20h^7+h^8}
+{144+864h+2376h^2+3728h^3+3580h^4+2088h^5+708h^6+120h^7+9h^8}.
 \]
-for sufficiently small \(h>0\). Every \(P_n\) with \(n\ge6\) contains a distance-five pair, as does every \(C_n\) with \(n\ge10\). For the boundary witnesses \((P_6,0,5)\) and \((C_{10},0,5)\), \(\nu_5\) equals one and two respectively. The same argument proves the diameter lemma for arbitrary finite simple unweighted connected graphs; disconnected graphs with a diameter-five component also qualify componentwise.
+The finite computation is reproducible by building \(L\) from the \(n\) cyclic edges, solving \(Qv=Be_0\) in \(\mathbb Q(h)\), canceling numerator and denominator of each component up to cyclic distance \(\lfloor n/2\rfloor\), and checking the described signs. At \(h=0\), \(T=I\); \(L\mathbf1=0\) and \(R(0)=1\) give the row-sum assertion.
 
-**The all-step finite half.** Only the eleven graph orders \(P_2,\ldots,P_5\) and \(C_3,\ldots,C_9\) remain. Put
-\[
-Q_G(h)=I+\frac{2h}{3}L_G+\frac{h^2}{6}L_G^2,\qquad
-A_G(h)=I-\frac h3L_G.
-\]
-Since \(L_G\) is symmetric positive semidefinite and \(1+2x/3+x^2/6>0\) for \(x\ge0\), \(Q_G(h)\) is invertible for every \(h\ge0\), and \(T_G(h)=Q_G(h)^{-1}A_G(h)\). In exact rational arithmetic each relevant entry reduces to \(N_{uv}(h)/D_{uv}(h)\) with integer polynomial coefficients. The full, independently reproducible data appear in `CERTIFICATE.json`. Across all sixty distinct symmetry-reduced entries, **every** coefficient of \(N_{uv}\) and \(D_{uv}\) is nonnegative, \(D_{uv}(0)>0\), and \(N_{uv}\) is not zero. Every off-diagonal \(N_{uv}\) has zero constant term but at least one strictly positive higher coefficient. Consequently all entries are strictly positive for every \(h>0\).
-
-The certificate exhausts the full upper triangle for each path, since \(T_G\) is symmetric, and only distances \(0,1,\ldots,\lfloor n/2\rfloor\) for each cycle, since \(T_G\) is symmetric circulant. The verifier computes the exact matrix rational functions from \(Q_G^{-1}A_G\), checks these coefficients against the embedded certificate and independently checks the fifth-order witness identities. There is no inference from finite *numerical sampling* to an infinite time interval: the signs of exact polynomials certify all real \(h\ge0\).
-
-Finally \(L_G\mathbf1=0\) and \(R(0)=1\), so \(T_G(h)\mathbf1=\mathbf1\). Symmetry and entrywise positivity establish strict stochasticity for \(h>0\), completing the proof.
+For completeness, if \(n\ge10\), choose vertices \(u,v\) at distance five. The Taylor coefficients of \(R\) through order five are \(1,-1,1/2,-1/6,1/36,1/108\). No power \(L^j\) with \(j<5\) has a nonzero \((u,v)\) entry. Every five-edge walk contributing to that entry of \(L^5\) has sign \((-1)^5\), so \([T(h)]_{uv}=-\nu_5(u,v)h^5/108+O(h^6)\) with \(\nu_5(u,v)>0\). This reproduces the known exclusion and finishes the classification.
 
 ## Verification
 
-Run `python VERIFY.py` alongside `CERTIFICATE.json` with SymPy installed. The checked exact rational identities cover all path upper-triangle entries and all cycle-distance entries for the eleven listed orders. The script reports `VERIFY_OK` only after comparing all sixty rational numerator/denominator coefficient pairs and independently testing the Taylor coefficient and the path/cycle distance-five walks.
-
-A representative stringent certificate is the antipodal-distance-four entry for \(C_9\):
-\[
-[T_{C_9}(h)]_{0,4}=\frac{4h^4+36h^5+54h^6+20h^7+h^8}{144+864h+2376h^2+3728h^3+3580h^4+2088h^5+708h^6+120h^7+9h^8}.
-\]
-Every coefficient in this displayed fraction is nonnegative and the denominator is positive. The general claim is covered by the complete certificate rather than by this example alone.
+Read the 26 cycle-distance rows of `CERTIFICATE.json` using ascending coefficient order. The accompanying `VERIFY.py` recomputes them over the rational-function field and checks the Taylor coefficient and the first excluded cycle. The package retains additional path calculations, which are not needed for the cycle theorem. The proof of all-step positivity rests on exact polynomial coefficient signs, not on a finite grid in \(h\).
 
 ## Relationship to prior work
 
-Bolley and Crouzeix (1978) proved a universal obstruction to unconditional positivity of higher-order one-step methods over *all* positive parabolic generators; their proof uses matrix chains to expose derivative signs. That quantified universal result does not classify any single fixed path or cycle family for all timesteps. Lóczi and Ketcheson (first public arXiv version March 26, 2013) analyze absolute-monotonicity radii of rational Runge–Kutta stability functions, rather than graph-order cutoffs for the specific two-stage Radau IIA map. Horváth, Song and Terlaky (first public arXiv version June 26, 2014) develop general step-length bounds for rational discretizations on invariant polyhedra, not a sharp exact finite-size classification for these graphs.
+*Ten-vertex small-step positivity barrier and oscillatory lattice tails for Radau IIA* (Resultary, 2026-10-13, record `cf8fc1888ee6`) gives the negative small-step conclusion for \(C_n\), \(n\ge10\), the positive small-step conclusion through \(C_9\), and eventual positivity for finite cycles. The all-step result above closes the gap between small and large steps for the seven listed cycles. *A diameter-five positivity obstruction and exact six-path recovery* (Resultary, 2026-10-26, record `79ccecc67e03`) gives the stronger obstruction for positive weighted graphs and the exact path cutoff. Neither the diameter obstruction nor the path cutoff is claimed as a contribution here. The cycle calculation is also distinct from general absolute-monotonicity radii and step restrictions for invariant polyhedra.
 
-The present claim combines the fifth-order path-distance obstruction with all-step exact positivity of the finite exceptional set. It does **not** assert general unconditional positivity across all graphs, or novelty of the Radau IIA stability function, absolute monotonicity, matrix functional calculus or the shortest-walk argument as separate techniques.
+References for the related general settings: C. Bolley and M. Crouzeix, *Conservation de la positivité lors de la discrétisation des problèmes d'évolution paraboliques*, DOI:10.1051/m2an/1978120302371; L. Lóczi and D. I. Ketcheson, *Rational functions with maximal radius of absolute monotonicity*, arXiv:1303.6651; Z. Horváth, Y. Song and T. Terlaky, *Steplength thresholds for invariance preserving of discretization methods of dynamical systems on a polyhedron*, arXiv:1406.6755.
 
 ## Limitations
 
-The theorem is restricted to **unweighted** paths/cycles with no killing boundary condition. Different conductances, directed networks, reaction terms, internal-stage positivity and nonlinear problems are not addressed. The rational-coefficient certificate relies on reproducible exact computer algebra for the finite part; no independent external mathematical audit has been performed. The accessible literature comparison does not establish global publication priority beyond the inspected sources and searched records.
-
-## References
-
-1. C. Bolley and M. Crouzeix, *Conservation de la positivité lors de la discrétisation des problèmes d'évolution paraboliques*, RAIRO Analyse numérique 12 (1978), 237–245, https://doi.org/10.1051/m2an/1978120302371, full text https://www.numdam.org/article/M2AN_1978__12_3_237_0.pdf.
-2. L. Lóczi and D. I. Ketcheson, *Rational functions with maximal radius of absolute monotonicity*, arXiv:1303.6651 (first publicly posted 2013-03-26), https://arxiv.org/abs/1303.6651; LMS Journal of Computation and Mathematics 17 (2014), 159–205.
-3. Z. Horváth, Y. Song and T. Terlaky, *Steplength thresholds for invariance preserving of discretization methods of dynamical systems on a polyhedron*, arXiv:1406.6755 (first posted 2014-06-26), https://arxiv.org/abs/1406.6755; DCDS 35 (2015), 2997–3013.
+This does not classify the recovery threshold for longer cycles or solve the corresponding problem with unequal conductances, orientations, reactions, or nonlinear dynamics. The all-step conclusion for the finite admissible set uses an exact rational certificate.

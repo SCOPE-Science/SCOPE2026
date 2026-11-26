@@ -1,21 +1,21 @@
-# Scientific review: nonadjacent-repeat four-letter universal cycles
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem counts precisely the four-letter windows `abac`, `abcb`, `abca` for pairwise distinct letters, not the broader square-free or three-distinct families. The word-overlap graph has \(q(q-1)\) repeated-endpoint triple vertices of degree \(q-2\) and \(q(q-1)(q-2)\) distinct-letter triple vertices of degree two. The rotation, reversal, and one-letter replacement paths prove strong connectivity for every integer \(q\ge4\). Eliminating the order-three rotation block yields an explicit pair-array Laplacian determinant. The constant, standard, symmetric zero-sum, and antisymmetric zero-sum pieces have dimensions summing to \(q(q-1)\), and their evaluated factors give the exact tree count. The BEST theorem fixes one distinguished edge, avoiding a spurious division by circle length.
+PASS
 
-A full direct-cofactor check for \(q=4\), three modular checks for \(q=5\), an independent six-point symbolic-factorization comparison modulo two primes, and constructive window checks agree with the theorem. These finite checks are corroboration, not the proof for all alphabet sizes.
+The two overlap vertex types and the three arrows follow from the actual windows. The graph is balanced; rotations, reversal via a two-edge path, and substitution of one letter connect the distinct triples and attach every repeated-endpoint triple. For the outgoing Laplacian the rotation block has determinant (s^3-1)^(n/3). Eliminating it gives the stated pair-space operator: the first term of the inverse sums along a row, the second along a column, and the third transposes the ordered pair. The off-diagonal symmetric row-sum map has rank q (its dual kernel would require y_i+y_j=0 on every pair), and the skew row-sum map has rank q-1 (its dual kernel consists of constants). The constant and centered additive spaces supply the remaining dimensions. On the constant space the eigenvalue simplifies to t(t+q-1)(s^2+s+1); on centered additive arrays the two-by-two block gives determinant 14q(q-2) at t=0. Balanced strong connectivity makes the derivative at zero the number of vertices times the common rooted cofactor. BEST with a fixed initial arc multiplies by the factorials of outdegree minus one, and this uniquely fixes rotation since that arc occurs once. Initial letters of edge labels give the claimed frequencies. An independent exact direct-cofactor computation matched q=3,4,5,6, including both printed integers, and directly checked the q=4 witness windows: `python /workspace/audit-replay.py 1`.
 
-## Originality — PASS, qualified
+## originality
 
-The exact previously published count for **adjacent** repeats uses the disjoint target set `aabc`, `abbc`, `abcc` and does not imply this nonadjacent-target result. The exact locally square-free count includes additional all-distinct targets for each \(q\ge4\), and its spectral formula does not specialize by substituting alphabet size or a theorem parameter to the present restriction. Its ternary count of twelve does cover the \(q=3\) boundary, so novelty is explicitly claimed only for \(q\ge4\). The original broader non-injective and restricted-word studies establish existence statements for different word sets, not the current enumerator. Detailed statement and graph comparisons are recorded in the accompanying structured audit. An unindexed equivalent restricted-window computation remains a historical-priority risk.
+PASS
 
-## Value — PASS
+The supported distinct content is the exact product for the labeled nonadjacent-repeat edge set at all q>=4. Neither the known ternary boundary nor the use of BEST and the cofactor theorem is credited as new.
 
-The three nonadjacent equality patterns form a natural, closed, proper sublanguage of ordinary four-letter square-free factors and an opposite structural class to previously counted adjacent-repeat motifs. The new all-alphabet product counts the exact number of admissible compressed circular listings and isolates the spectral effect of excluding all-distinct four-mers. It distinguishes the quaternary value \(1{,}177{,}583{,}616\) from both the adjacent-repeat and locally square-free counts. This is an exact structural enumeration rather than a routine fixed-size table entry.
+## value
 
-## Limits
+PASS
 
-The result counts rotation classes with labeled letters, not reversal classes. No statement about longer windows or globally square-free circles is made. The all-\(q\) theorem is analytically proved, but independent mathematical audit has not been performed.
+The nonadjacent one-repeat patterns form a natural complement to the adjacent-repeat motif class and a strict restriction of local square-freeness. The exact all-alphabet enumerator distinguishes these combinatorially close problems and supplies a formula beyond an Euler-existence argument or a small table.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

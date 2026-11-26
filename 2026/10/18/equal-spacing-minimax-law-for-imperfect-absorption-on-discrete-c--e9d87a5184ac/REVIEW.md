@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For every cycle of at least three vertices and each divisor trap count, the killed graph Laplacian is positive definite. The maximum principle makes the inverse positive; its two endpoint norms therefore equal the largest row sum. Summing the Poisson equation fixes the sum of trap values, and exact quadratic interpolation on each intertrap arc gives a pair-averaged central lower bound. Discrete convexity makes the equal-gap arrangement optimal. Symmetry attains equality for every positive killing rate, including the single-trap and all-vertices-trapped cases. The finite checker independently verifies 516 exact-rational and 17,274 floating-point cases, but the universal proof does not depend on enumeration.
+## correctness
 
-**Originality — PASS within examined evidence.** The first-public 2001 imperfect-trapping preprint treats asymptotic survival through a one-trap ring approximation rather than the exact all-position multi-trap minimax resolvent norm. Earlier Robledo–Woodhouse (1978) covers equal-spaced perfect-trap analysis, and Evans–Nord (1985) provides complete-trap walk-length machinery, but the inspected descriptions do not establish the positive-killing all-placement optimum with strength-independent gap correction. The closest published mathematical-record entry proves a continuous delta-interaction *ground-state eigenvalue* optimization, which does not logically imply the sharp discrete inverse norm. Exact equivalence and implication searches found no direct published match; searches alone cannot certify uniqueness. Full text of the 1978 article was inaccessible, so its possible stronger coverage remains the main residual priority risk.
+PASS
 
-**Value — PASS.** A natural worst-case survival-time stability invariant is optimized over all spatial placements at all absorption strengths; the precise additive separation of absorption and diffusion costs does not follow from mean or spectral survival estimates. The theorem explains why a common spatial deployment is optimal from weak to strong killing, without assuming the traps are perfect. The result is limited to divisible lengths and identical trap strengths; it does not classify other minimizers.
+The quadratic form is strictly positive since the cycle is connected and has a killed vertex. The minimum principle gives entrywise nonnegativity of the inverse, and symmetry identifies both induced endpoint norms with max u for the solution u of the killed Poisson equation with right side 1 (also the mean lifetime). Summing the equation fixes the mean trap value at q/kappa. On each arc of length ell the solution is the linear endpoint interpolation plus j(ell-j)/2. The symmetric two central positions, including both endpoints at ell=1, have average equal to the mean of their endpoint trap values plus floor(ell^2/4)/2. Averaging over all arcs counts each trap twice. Discrete convexity follows from the nondecreasing forward differences ceil(ell/2) of floor(ell^2/4); at mean gap q it gives the sharp geometric lower bound. Rotational symmetry of equal gaps makes all trap values identical, attaining the bound. The one-trap arc closes at the same vertex, and all traps gives 1/kappa. Nothing requires uniqueness of the optimal configuration.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The distinct supported claim is the sharp global worst-start minimax with an explicit geometric and finite-killing decomposition for every positive common strength and divisor trap count. Equal spacing, the calculation for one predetermined placement, and perfect-trap or spectral objectives are not credited as new by themselves. The closest accessible indexed and primary evidence concerns different objectives or only a restricted configuration. Access limitations are real and preclude a priority guarantee, but no inspected statement establishes the global positive-strength endpoint theorem or implies it.
+
+## value
+
+PASS
+
+Worst-case mean lifetime is a natural performance criterion for spatially deployed imperfect traps. The theorem computes it exactly for the best configuration across all common finite strengths and separates absorption cost from discrete diffusion cost, with the same optimal deployment throughout. Neither a mean-start statistic nor a spectral decay-rate estimate answers this placement question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

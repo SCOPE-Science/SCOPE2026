@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:02:36.311969Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the exact unnormalized linear map on Herm_3, the angular Fourier transform at each orbit has real row norms 1/sqrt(3), 1/sqrt(6), 1/sqrt(6) with orthogonal rows, giving the claimed sqrt(3)/18 Jacobian. The diagonal block has determinant Delta_2/2, and the complex off-diagonal block has determinant of modulus (r1 r2 r3)/2 times |−Au1+Bu2−Cu3|. Its modulus squares in real coordinates, with an additional factor 2^-3 from the Hilbert–Schmidt coordinates. Combining the Gaussian and Fourier factors gives 81 sqrt(3)/8. Factoring B−A−C gives the strictly positive Vandermonde in the radii; both triangle-inequality equality conditions are exact since A,B,C>0. At the maximizing phases, the radial log-objective has Hessian at most −6I on the convex ordered cone. The Gaussian and the vanishing wall factors give an interior maximum, strict concavity gives uniqueness, and differentiating in the scale direction gives 6 sum(r_i^2)=18. Independent replay: cd /workspace && python3 branches/53273f2a-7a63-45a2-a594-a07aa39a8daa/reproduce_radii_volume.py. It gives radii (0.4195865012772835,0.9258607660691042,1.4024011586560459), squared sum 3, and direct volume 0.0082399703668547333; this checks the decimals, not global optimality. Frozen support was inspected, not executed. Statistical interpretation is the fixed-noise linear-design one (e.g. independent Gaussian additive noise with common variance), not a general noise/conditioning theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wellershoff's density theorem concerns discrete infinite sampling under geometric hypotheses; Sych et al. use homodyne quadrature settings in truncated dimension; Nunn et al. optimize a Cramér–Rao trace criterion over allocations, including state-averaged OED."
+        ],
+        "reasoning": "None of these inspected broader frameworks specializes to a nine-node exact coherent-intensity Jacobian, let alone fixes the unique radial optimum and relative angles.",
+        "searches": [
+          "Wellershoff arXiv:2507.14556 Theorem 1 and polynomial/Gabor examples",
+          "Sych et al. arXiv:1211.4967 abstract and truncation rank topic",
+          "Nunn et al. arXiv:0911.4310 pp. 3, 6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 060d785a0f00",
+        "arXiv:2507.14556",
+        "arXiv:1211.4967",
+        "arXiv:0911.4310"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equal staggering is reported strictly suboptimal in the distinct indexed Hardy problem when r<s. Here in the Hermitian lift the exact phase bound is attained uniquely at u1=u3=−u2. Mere full-rank informational completeness, even if known for a different geometry, would not supply the positive difference factor, the orientation extremes or the radial log-objective."
+        ],
+        "reasoning": "Angular DFT and log-concavity are standard ingredients, but the frozen aliases and Gaussian weights produce a new-to-the-checked-sources objective, not a special case of the inspected determinant designs. The shared index date does not establish ordering.",
+        "searches": [
+          "060d785a0f00 angular claim at mirror offset 4140",
+          "Wellershoff Theorem 1; Sych et al. abstract; Nunn et al. allocation criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "060d785a0f00 has a nine-node three-triangle specialization m=3, but its Gram matrix is a complex linear Hardy polynomial evaluation matrix with two inner orbits at the same radius. The corresponding angular optimizer depends on the outer-to-inner radius ratio."
+        ],
+        "reasoning": "Treating both as real determinants, squared displacements, or output rotations does not identify the signal spaces and the aliased angular modes: the frozen matrix contains both z and conjugate z entry contributions and has a separate three-radius radial Vandermonde. A coincident radius would make that frozen map singular.",
+        "searches": [
+          "Resultary full record title/ID and numerical radii",
+          "Resultary three equilateral orbits coherent-state volume-optimal design",
+          "060d785a0f00, opening Finding and angular optimizer statement"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearby 060d785a0f00 gives an exact determinant and a different optimal angle; it does not list the frozen radii, volume, or equalities for the Hermitian map. No identical-record hit surfaced in the bounded search."
+        ],
+        "reasoning": "Numerical coordinates are only one consequence of an exact strictly concave optimization problem; an exact coverage match would require the same measurement map and constraints or a direct result that implies its optimizer.",
+        "searches": [
+          "Resultary title, full record ID and quoted optimized radii",
+          "Resultary 060d785a0f00 actual Finding"
+        ]
+      },
+      "rationale": "The strongest inspected indexed design is close at the level of nine points on three triangles and angular determinant optimization, but answers a different problem: it evaluates analytic Hardy polynomials and repeats an inner radius, whereas this theorem evaluates a real Hermitian Gaussian intensity lift with three distinct positive radii. Its phase law and determinant do not transfer. None of the actual inspected statements gives the frozen factorization, angle equalities, and radial uniqueness for this measurement map. Pass is for that scoped result, not three-orbit designs or information-complete tomography generally, and not exhaustive historical priority.",
+      "residual_risks": [
+        "The reference to earlier Cartesian three-by-three coherent sampling in the frozen record is not bibliographically identified there. An earlier equivalent computation outside the inspected literature remains possible.",
+        "The bounded primary search yielded no useful additional comparison; this is not negative proof or a priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material related design; not equivalent or dominating",
+          "evidence": "Two inner orbits at r, one outer at s; Hardy complex polynomial evaluation Gram determinant; different, radius-ratio-dependent optimizing phase.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-radius-dependent-staggering-for-optimal-three-orbit-hardy-interp--060d785a0f00/RESULT.md",
+          "material_read": "Finding and angular optimizer statement, mirror offsets 0 and 4140",
+          "method": "Resultary lookup and actual published record via local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Radius-dependent staggering for optimal three-orbit Hardy interpolation",
+          "trigger": "Strongest distinct indexed match: three regular polygon orbits and angular optimum"
+        },
+        {
+          "assessment": "Sampling uniqueness, not finite Hermitian design optimization",
+          "evidence": "Uniformly discrete sampling with lower density and geometric conditions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2507.14556",
+          "material_read": "Theorem 1, pp. 3–4 and polynomial example, offset 8600",
+          "method": "OA PDF bounded passage inspection",
+          "title": "On a dense set of functions determined by sampled Gabor magnitude",
+          "trigger": "Possible coherent/Bargmann phase-sampling result"
+        },
+        {
+          "assessment": "Related homodyne family; no claim about uninspected sections",
+          "evidence": "Rank of finite-dimensional truncations for homodyne settings, not the specified intensity lift.",
+          "identifier_or_url": "https://arxiv.org/pdf/1211.4967",
+          "material_read": "Abstract and stated rank topic, p. 1",
+          "method": "OA PDF statement inspection",
+          "title": "Informational completeness of continuous-variable measurements",
+          "trigger": "Possibly covering finite Fock informational completeness"
+        },
+        {
+          "assessment": "Distinct objective and design variables",
+          "evidence": "Minimizes tr(F^-1) over allocations; no equivalence to the frozen optimization is obtained.",
+          "identifier_or_url": "https://arxiv.org/pdf/0911.4310",
+          "material_read": "Definition of OED and state-averaged OED, pp. 3 and 6, offsets 19200 and 41100",
+          "method": "OA PDF bounded passage inspection",
+          "title": "Optimal experiment design revisited: fair, precise and minimal tomography",
+          "trigger": "Possibly covering exact optimal tomography"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A saturated equally weighted nine-measurement design on the full Hermitian space is a natural constrained tomography problem. The determinant quantifies how choices of offsets affect the linear measurement volume, even though all offsets are informationally complete, and gives both sharp orientation requirements and a reproducible unique radial optimum. This is useful within the stated three-orbit family without claiming optimal design over arbitrary placements or noise models.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

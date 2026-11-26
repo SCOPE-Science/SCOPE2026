@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:50:07.061778Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rechecked repairs/2/RESULT.md and its slogan. Conditioning on a prescribed set of children S all being leaves preserves independence of parent choices and restricts P_i to the earlier labels outside S. For the s-th member i_s of S the allowed count is i_s−s, so the conditional factors 1/(i_s−s) cancel the numerators of the leaf-set law, yielding 1/(n−1)_r for a compatible cylinder, including r=n−1. A marked child that is also a prescribed parent or a child with two prescriptions is impossible. For j<k and each child h>k, j has n−j−2 compatible choices, excluding k and h. Subtracting the product of means gives the displayed negative covariance, whereas the two same-parent marks never have those conflicts and give the stated positive covariance. In arbitrary fixed mixed factorial order, collision and forbidden-label exclusions cost at most O(n^(r−1)) uniformly over parent indices; dividing by (n−1)_r proves convergence of all mixed factorial moments to those of the moment-determinate product Poisson law, also at u_s=1. The single-parent indicator law is identified by inclusion-exclusion with a subset of coordinates of a uniform (n−1)-permutation. Subtracting the leaf probability gives protection, and removing one constrained coordinate proves strict adjacent differences except for the two final zero probabilities. Termwise magnitudes are bounded by 1/r!, giving the stated profile by dominated convergence. Independent replay (python /workspace/branches/independent_checks.py 2) passed 33,866 exact cylinder checks over all orders in trees of n=2..6 and exact protection probabilities for every label in that range. It does not prove the limit. The frozen supplementary script was read, not run, and its reported finite result is not an independent certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first record gives the product of factors (i_s−s)/(n−s) and preserves the conditional uniform choices on allowed earlier labels.",
+          "The fixed-leaf-erasure record states uniformity of the reduced tree under conditioning; it is dated later and does not prescribe the removed leaves' parents.",
+          "The related Mahmoud–Smythe full text was not available in the bounded lawful attempt."
+        ],
+        "reasoning": "The existing conditional-product framework covers the exact cylinders, not the analysis of interactions among marks across parents, their mixed-moment limit, or the probability ordering of protection at all labels. A subtree leaf statistic could be relevant, but is not relied on as negative evidence.",
+        "searches": [
+          "0a1a1c4bbf35 Eq. (1) and Proof §1",
+          "4490954b5d10 Proof §1",
+          "4e2828958fad fixed-leaf erasure",
+          "DOI 10.1214/aoap/1177005874"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and support; repairs/2/RESULT.md and SLOGAN.txt",
+        "Resultary 0a1a1c4bbf35, 4490954b5d10, 4e2828958fad and 13fd4c758041",
+        "Devroye–Janson arXiv:1310.0665v1",
+        "Mahmoud–Ward DOI 10.1239/jap/1429282623",
+        "Mahmoud–Smythe DOI 10.1214/aoap/1177005874 (metadata only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conditional on i_1<⋯<i_r all being leaves, specifying parents outside that set costs ∏(i_s−s)⁻¹, recovering the exact cylinder directly.",
+          "Devroye–Janson's root at Yule age t has Poisson mean 1−e^(−t); Mahmoud–Ward give root and aggregate protection."
+        ],
+        "reasoning": "The Yule formula aligns with the scalar age mean after formally substituting u=e^(−t), but this does not establish deconditioning at deterministic labels in the finite tree or joint Poisson independence for multiple prescribed parents. Those need mixed compatible-assignment bounds. The exact root and aggregate protection results do not imply the claim at each label or the strict order, which comes from the event with two constrained fixed points.",
+        "searches": [
+          "0a1a1c4bbf35 Proof §1, conditional choices at later arrivals",
+          "Devroye–Janson §7, pp. 9–10",
+          "Mahmoud–Ward pp. 292–293, Theorem 2.1 / Eq. (2.4)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "4490954b5d10 has exactly the root-only marked cylinder and a bivariate root/total-leaf count law.",
+          "0a1a1c4bbf35 gives all specified labels being leaves with no parent prescriptions.",
+          "The later 13fd4c758041 uses conditioning on survival of a peeling layer, not deterministic birth-label fractions."
+        ],
+        "reasoning": "Whole-tree leaf-birth locations, a peeling-conditional mixture and a single fringe root are different observables or conditioning regimes from several distinct deterministic parents' direct leaf-child counts. The root-only slice and the underlying cylinder calculation are credited, not claims of new equivalence.",
+        "searches": [
+          "Resultary: exact joint leaf law at the root; oldest leaves at specified birth labels; fixed leaf erasure; conditional Poisson leaf neighbors",
+          "Devroye–Janson arXiv:1310.0665v1 §7",
+          "Mahmoud–Ward DOI 10.1239/jap/1429282623"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact root marked-child identity; exact arbitrary leaf-set law; exact mean of total protected vertices and exact root protection probability."
+        ],
+        "reasoning": "The exact symbolic comparisons settle coverage of the preliminary law and named boundary/aggregate cases. An enumeration through order eight is not coverage of a joint scaling theorem or all ages.",
+        "searches": [
+          "Resultary 4490954b5d10 and 0a1a1c4bbf35",
+          "Mahmoud–Ward Theorem 2.1 and Eq. (2.4)"
+        ]
+      },
+      "rationale": "Pass for the repaired theorem, not for the frozen presentation of the arbitrary-parent cylinder as a new claim. The earlier leaf-set proof itself gives the conditional uniform parent choices, so multiplying the probability of the leaf set by the conditional probabilities of the specified parents yields the full cylinder law. The restricted fixed-point identity is then a direct inclusion-exclusion consequence. The repair explicitly credits this coverage and removes both as independent novelty claims. The surviving result concerns joint direct-child dependence across prescribed parents, the simultaneous Poisson age limit from mixed compatible assignments, and birth-label-resolved protection and its ordering. The strongest inspected comparisons give the root-only exact law, leaf-only birth-label events, a scalar root Yule/mixture law, or the aggregate and root protection formulas. None gives that joint deterministic-age theorem or the all-label protection analysis without the additional interaction and limiting arguments. This is a bounded best-of-knowledge assessment, not a historical priority claim.",
+      "residual_risks": [
+        "The 1991 source and potential general marked-tree laws beyond the inspected sources may implicitly cover some of the surviving consequences. Historical priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its conditional uniform choices imply the arbitrary-parent cylinder. Its limit is for the earliest leaf locations, not for parents' direct leaf-child counts.",
+          "evidence": [
+            "The exact product ∏(i_s−s)/(n−s) applies through r=n−1; the proof keeps parent choices uniform among allowed labels."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-the-oldest-leaves-of-random-recursive-trees-form-a-poisson-point--0a1a1c4bbf35/RESULT.md",
+          "material_read": "Eq. (1), Proof §1, including local-mirror offsets 1746–3518",
+          "method": "Bounded local public corpus full-text inspection",
+          "title": "The oldest leaves of random recursive trees form a Poisson point process",
+          "trigger": "Exact law of arbitrary specified leaf sets in the same model"
+        },
+        {
+          "assessment": "Covers the common-parent-at-root cylinder and root leaf-child marginal, not cross-parent marks with arbitrary birth labels.",
+          "evidence": [
+            "Prescribed root leaf children occur with probability (n−r−1)!/(n−1)!; other results couple the root count to the total count of leaves."
+          ],
+          "identifier_or_url": "Resultary:4490954b5d10",
+          "material_read": "RESULT.md Finding and Proof §1, local-mirror offset 0 onward",
+          "method": "Bounded local public corpus full-text inspection",
+          "title": "Exact joint leaf law at the root of a uniform recursive tree",
+          "trigger": "Exact same leaf-parent marks in root case"
+        },
+        {
+          "assessment": "A scalar precursor in a Yule embedding and an aggregate asymptotic proportion, not the deterministic-label multi-parent theorem.",
+          "evidence": [
+            "Root leaf children have mean 1−e^(−t) at Yule age t; the random fringe calculation gives limiting protected fraction 1/2−e⁻¹."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1310.0665",
+          "material_read": "v1 §7, pp. 9–10, including Eq. (7.2)",
+          "method": "Lawful open preprint, bounded PDF passage inspection",
+          "title": "Protected nodes and fringe subtrees in some random trees",
+          "trigger": "Potential scalar or joint Poisson leaf-child law and protection profile"
+        },
+        {
+          "assessment": "Exact aggregate mean and root probability are covered and excluded from novelty.",
+          "evidence": [
+            "The theorem gives the exact expected total; Eq. (2.4) gives root protection, the derangement case."
+          ],
+          "identifier_or_url": "https://doi.org/10.1239/jap/1429282623",
+          "material_read": "Theorem 2.1 and Eq. (2.4), printed pp. 292–293",
+          "method": "Lawful full-text bounded passage inspection",
+          "title": "Asymptotic properties of protected nodes in random recursive trees",
+          "trigger": "Exact protection formula may cover individual birth labels"
+        },
+        {
+          "assessment": "Potential implicit historical overlap is unresolved, and not used as evidence for noncoverage.",
+          "evidence": [
+            "The identifiable subject is distributions of leaves in rooted subtrees; direct-child limit implications could not be checked from primary text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/aoap/1177005874",
+          "material_read": "Bibliographic identification only; attempted Project Euclid text access was blocked",
+          "method": "Bounded lawful access attempt, no full-text finding attributed",
+          "title": "On the distribution of leaves in rooted subtrees of recursive trees",
+          "trigger": "Related leaves parameter for a specified birth label"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "After removing the novelty claim for the exact cylinder, the repaired result still separates within-parent and cross-parent dependence at finite size and shows when the latter vanishes at the joint distribution level across different birth fractions. Direct leaf children are exactly the obstruction to protection for nonleaves. The all-label probability and strict ordering give information that a root law or total expectation cannot recover. The result is useful at fixed dimension without making an unsupported claim of asymptotic independence over all parents.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

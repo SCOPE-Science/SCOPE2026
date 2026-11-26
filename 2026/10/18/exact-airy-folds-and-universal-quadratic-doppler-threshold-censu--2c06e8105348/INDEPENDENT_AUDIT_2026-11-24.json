@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:29:22.388782Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the unit-norm amplitude and symmetric 2π-frequency convention, expansion reduces the integral to a Gaussian-damped cubic with a=2π, b=12λτ and c=λτ³−2πν. The Airy Fourier representation evolved by the Gaussian heat semigroup gives a nonvanishing positive prefactor times Ai[(c+a²/b)/(sgn(b)|b|¹ᐟ³)]. In the heat identity the proposed solution is tempered, tends to Ai as heat time decreases to zero, and solves the heat equation by Ai″(x)=xAi(x), so uniqueness applies. At τ=0 the integral is a strictly positive Gaussian. Solving for each simple negative Airy zero gives exactly the displayed signed curves, no zeros on either axis, and a nonzero Doppler derivative. Pointwise strict Airy ordering and divergence at both delay endpoints make the branches disjoint and proper. For each q>0, q²Vⱼ′ is the sum of strictly increasing positive powers q⁴ and q⁴ᐟ³ minus π/(6κ), so it crosses zero once and the second derivative is positive there. This gives the two, one, or zero intersections per branch, and evaluating at the next branch's minimizer proves strict threshold ordering. With κq=uⱼ⁻³ᐟ⁴y, the rescaled objective is π/(6y)+12¹ᐟ³y¹ᐟ³/(2π)+uⱼ⁻³y³/(2πκ²). The first two terms are coercive and uniquely minimized at π³ᐟ²/12¹ᐟ⁴; comparison there bounds all minimizing y in a compact subinterval and gives convergence to that minimizer. The Airy zero law yields both stated leading constants and the inverse threshold count √3 R²/4. At fixed delay instead, the Airy argument is affine in frequency and the Airy count gives the stated R³ᐟ² coefficient. The limits are for fixed κ>0. Two independent 40-digit quadrature cases checked signs and normalization and a computed first-zero residual was approximately 10⁻⁴³; these corroborate the analytic proof. Frozen code and the saved transcript were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The phase-gate transform applies beyond pure even Gaussian inputs; standard Airy transforms and Airy asymptotics predate the result. The general STFT study addresses phase derivatives around zeros, not the quartic-Gaussian vertical-level branch optimization."
+        ],
+        "reasoning": "Broader transform theory fixes the nodal graphs, but an explicit asymptotic for the minima and their count is a different, nonlinear question involving a varying delay as the Airy index increases.",
+        "searches": [
+          "Moore–Filip arXiv:2504.04851v1 §II.1",
+          "Babusci–Dattoli–Sacchetti arXiv:1002.2517 §§2–3",
+          "Balazs et al. arXiv:1103.0409 §4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md steps 1–5; VERIFICATION.md, checker.py and checker_output.txt",
+        "Moore–Filip arXiv:2504.04851v1 §II.1",
+        "Babusci–Dattoli–Sacchetti and Balazs et al. passages above",
+        "DLMF §9.9",
+        "Related Resultary threshold record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior formula and parity give zeros by setting the Airy argument to a negative zero. The frozen theorem instead optimizes the resulting frequency over delay and proves a compact scaled minimization: the reciprocal and Airy terms balance at κq of order uⱼ⁻³ᐟ⁴, with the cubic term asymptotically negligible for fixed chirp."
+        ],
+        "reasoning": "The zero formula and fixed-delay spacing are direct consequences of prior transform and Airy laws. They do not state the optimized minimum value, its high-index scale including the sharp constant, or the inverted quadratic census; those require the global monotonicity and coercivity arguments.",
+        "searches": [
+          "Moore–Filip arXiv:2504.04851v1 Eq. (18) and quartic specialization in Eqs. (12)–(15)",
+          "NIST DLMF §9.9(iv), Eqs. (9.9.3), (9.9.6)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the even waveform f, the Wigner convention W_f(x,ξ)=∫f(x+t/2)overline{f(x−t/2)}e^(−2πiξt)dt gives W_f(x,ξ)=2A_f(2x,2ξ) by t=2u and parity. Moore–Filip treat quartic gates and give a closed Airy transform for Gaussian input, Eqs. (15), (18)."
+        ],
+        "reasoning": "The Wigner result is directly relevant, not merely analogous: the positive prefactor and Airy argument in the Gaussian formula transfer to the same zeros in rescaled coordinates. The contribution assessed is the optimized branch thresholds and their counting asymptotics, not use of the name ambiguity rather than Wigner.",
+        "searches": [
+          "Moore–Filip arXiv:2504.04851v1 §II.1, Eqs. (8)–(18), especially (12), (15), (18)",
+          "Primary query on quartic-Gaussian ambiguity and Wigner Airy zeros"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "DLMF gives classical Airy zeros and their asymptotic, not the optimized threshold sequence. A nearby local record, 2026/10/25/SCOPE-sharp-doppler-null-thresholds-and-a-dimension-induced-topology-c--0e6509f16d66, has sharp thresholds and zero topology for a polynomial times a Gaussian, not the even quartic chirp."
+        ],
+        "reasoning": "Tabulating the roots of Ai does not minimize the delay-dependent frequency for each index. The adjacent threshold theorem applies to a different window and gives no exact Airy-branch census.",
+        "searches": [
+          "Resultary: Airy quartic-Gaussian ambiguity folds and exact Doppler threshold census",
+          "NIST DLMF §9.9(i), (iv)"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the global Doppler-fold census, especially its sharp high-index minimizing-delay and threshold laws and the chirp-independent quadratic counting coefficient. Moore–Filip's Gaussian-input quartic Wigner formula already implies the Airy ambiguity formula and hence the Airy zero graphs by parity and scaling; the transform and those graphs alone receive no novelty credit. The inspected work does not solve the global minimization over each branch or derive the threshold asymptotic.",
+      "residual_risks": [
+        "Older time-frequency, optics or quantum phase-space literature could contain an equivalent optimized fold asymptotic. The bounded search does not establish absence.",
+        "Moore–Filip constitute stronger overlap than a different-transform label suggests; originality is credited only to the branch optimization and exact census beyond that formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly subsumes Airy representation and gives the nodal graphs; inspected passages do not give the optimized threshold laws",
+          "evidence": [
+            "Eq. (15) supplies the quartic Wigner Airy transform with a position-dependent scale; Eq. (18) evaluates the transform of a Gaussian as a positive prefactor times Ai and explicitly applies it to cubic or quartic gates."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2504.04851v1",
+          "material_read": "§II.1, Eqs. (8)–(18), offsets 10067–18500; quartic transform Eqs. (12)–(15) and Gaussian evaluation Eq. (18) checked directly",
+          "method": "OA primary HTML passages and even-waveform Wigner-to-ambiguity comparison",
+          "title": "Nonlinear Phase Gates as Airy Transforms of the Wigner Function",
+          "trigger": "Potentially equivalent quartic-Gaussian Wigner nodal result"
+        },
+        {
+          "assessment": "Transform antecedent, not a threshold classification",
+          "evidence": [
+            "Develops the Airy transform and its integral representation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1002.2517",
+          "material_read": "§2 Eq. (2.8), §3 Eqs. (3.1)–(3.2), PDF pp. 3–4, text offset around 10500",
+          "method": "OA primary PDF passages",
+          "title": "The Airy transform and the associated polynomials",
+          "trigger": "Underlying transform identity"
+        },
+        {
+          "assessment": "Different question about general STFT zeros",
+          "evidence": [
+            "Describes phase derivative near zeros rather than exact quartic-phase Doppler folds."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1103.0409",
+          "material_read": "Abstract and §1; §4 Theorems 4.7–4.9, PDF pp. 11–13, offset around 33500",
+          "method": "OA primary PDF passages",
+          "title": "The Pole Behaviour of the Phase Derivative of the Short-Time Fourier Transform",
+          "trigger": "Time-frequency transform zeros"
+        },
+        {
+          "assessment": "Supplies standard root facts, not optimized Doppler thresholds",
+          "evidence": [
+            "Negative real zeros and the classical Airy asymptotic used in both inverse counts."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/9.9",
+          "material_read": "§9.9(i), (iv), Eqs. (9.9.3), (9.9.6), offsets around 1150 and 5200",
+          "method": "OA reference passages",
+          "title": "NIST Digital Library of Mathematical Functions: Airy zeros",
+          "trigger": "Classical root law might subsume the exact counting claim"
+        },
+        {
+          "assessment": "Later inequivalent waveform and different zero classification",
+          "evidence": [
+            "The window is (|x|²+c)exp(−|x|²/2); results concern compact ovals, topology in higher dimensions and a quartic touch, not Airy-branch minima for a chirped Gaussian."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-doppler-null-thresholds-and-a-dimension-induced-topology-c--0e6509f16d66/RESULT.md",
+          "material_read": "Finding on exact ambiguity zeros and Doppler thresholds",
+          "method": "Local published-record mirror",
+          "title": "Sharp Doppler null thresholds and a dimension-induced topology change",
+          "trigger": "Closest indexed threshold-and-zero-topology result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The global optimization and sharp counting law quantify how many Airy branches become reachable at a Doppler magnitude and locate the increasingly small delays where they first appear. The universal quadratic law and its contrast to the fixed-delay R³ᐟ² count answer a geometric question not settled by evaluating the Airy transform or listing its roots. No physical detection guarantee is implied.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

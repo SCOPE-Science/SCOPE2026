@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:35:20.448112Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–65",
+        "Frozen VERIFICATION.md, lines 19–27; CHECK.py, lines 7–58 (inspected only)",
+        "/workspace/audit_evidence/reproduce.py, ordinal 2"
+      ],
+      "rationale": "In the normalized Weyl matrix basis, analysis of each basis matrix on the projector orbit is a character of the two orbit indices times its value at the unshifted projector. Character orthogonality gives singular values sqrt(N) times ambiguity moduli on the full complex matrix space, including the maximum sqrt(N) at the identity. Expanding the constant and impulse terms gives the two axis branches and the mixed branch (up to phase and conjugation conventions). All residues occur as mixed products, including zero from 2 times N/2. Writing z=rho exp(i theta), AM–GM optimizes the mixed ratio at rho=sqrt(N); even N gives the zero grid pi Z/N, hence numerator sin(d) with d the distance to that grid and denominator at least sqrt(N)-cos(d). The ratio is strictly increasing for d between 0 and eta=pi/(2N). At equality theta must be at distance eta from pi, giving precisely the two claimed impulses. Both axis numerators at these points are N-2sqrt(N)cos(eta), at least 2sqrt(N)sin(eta) by equality at N=6 and monotonicity in N thereafter. Thus axes do not spoil attainment, the lifting is invertible, and applying it to xx* yields phase retrieval. A separate full-lifting check of Weyl column norms and orthogonality at N=6,8,12 for both optimizers passed (`python3 /workspace/audit_evidence/reproduce.py 2`).",
+      "residual_risks": [
+        "The numerical check is bounded evidence, not a uniqueness proof; the analytic equality conditions give uniqueness. No claims for N=2 or 4, arbitrary windows, or optimal nonlinear inverse stability."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bojarovska–Flinth treat phase retrieval from full Gabor measurements; Li's all-order constructions use other seeds such as constant–Chu and two-site Chu; the earlier exact minimax is prime-order only."
+        ],
+        "reasoning": "A general criterion for injectivity or the existence of other stable windows does not determine the minimax of this fixed family. The proof can also be adapted to odd composite orders with a different angular equality condition, but that deduction is not an inspected prior covering theorem.",
+        "searches": [
+          "arXiv:1503.05800 Theorem 2.2",
+          "arXiv:2609.09614 PDF abstract",
+          "Resultary c114096c73ba and 4ad1eba7465a"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c114096c73ba, 4ad1eba7465a, 03361b3cff9c, 66a38431d63f, 51cfce1c5210",
+        "arXiv:1503.05800",
+        "arXiv:2609.09614 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prime result gives only z=±i sqrt(p) and kappa=sqrt(p)/sin(pi/p); a nonzero-zero product pair changes the mixed branch in even composite orders. Axis and mixed branches tie at N=6 only after a separate sharp inequality."
+        ],
+        "reasoning": "General spectrum or rank results supply the objective but not the minimax and tie conditions; neither the prime proof's grid nor its optimizer implies the even formula.",
+        "searches": [
+          "Resultary c114096c73ba, proof, mirror offsets 0 and 4000",
+          "Resultary 4ad1eba7465a and 03361b3cff9c",
+          "arXiv:1503.05800, Theorem 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rank discriminant uses (w,1,...,1) with w=1+z. A quadratic chirp conjugates the Weyl orbit by the shear (u,v) -> (u,v+2au), so it does not change the spectrum; the inspected chirp theorem takes a positive real impulse and has an even-order kernel."
+        ],
+        "reasoning": "The reparameterization gives the same windows, but rank alone does not optimize a singular value. The shear transfers results with the same impulse parameters; a kernel statement on the positive real ray does not determine a complex minimax.",
+        "searches": [
+          "Resultary one-coordinate rank discriminant 4ad1eba7465a",
+          "Resultary quadratic-chirp spectrum 03361b3cff9c",
+          "Primary literature query for sharp composite/even one-coordinate Weyl lifting conditioning"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prime-order exact formula and same-day exact margins for prime-power cubic chirps are catalogued. A same-date geometric-window result uses z^j. The frozen record itself appears in the catalogue and is not independent evidence."
+        ],
+        "reasoning": "The exact invariant depends on an unbounded order and on optimization over the whole complex plane, so even exact values at isolated dimensions would be corroborative only. The competing exact formulas found change either the phase grid or window.",
+        "searches": [
+          "Local Resultary exact conditioning and ambiguity searches, including c114096c73ba, 66a38431d63f and 51cfce1c5210"
+        ]
+      },
+      "rationale": "The Weyl frame spectrum, rank characterization and chirp shear are prior ingredients. The exact sharp even-order condition number, equality set and attainment are distinct from the strongest inspected statements. In prime order the mixed phase grid lacks the residue zero, so even-order optimization is not a substitution into the prime formula. Nearby exact same-date results concern different windows or orders.",
+      "residual_risks": [
+        "Focused primary search yielded no usable closer comparison; that is not proof of absence. Unindexed Weyl-covariant measurement or polyphase-window formulations remain possible. Same-date catalogue order is not used as proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest exact precedent with non-equivalent order hypothesis",
+          "evidence": "p>=5 prime, missing product zero and optimizers ±i sqrt(p).",
+          "identifier_or_url": "Resultary c114096c73ba",
+          "material_read": "Finding and proof, mirror offsets 0 and 4000",
+          "method": "Local published-record mirror",
+          "title": "Optimal complex impulse in prime-cyclic Gabor tomography: a sharp conditioning barrier",
+          "trigger": "Same window and exact optimum"
+        },
+        {
+          "assessment": "Covers rank, not sharp smallest singular value",
+          "evidence": "At the proposed optimum the exceptional loci are avoided, consistent with invertibility but not an optimality result.",
+          "identifier_or_url": "Resultary 4ad1eba7465a",
+          "material_read": "Finding and exceptional loci, mirror offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact rank discriminant for one-coordinate cyclic Gabor measurements",
+          "trigger": "Same windows after w=1+z; all orders"
+        },
+        {
+          "assessment": "Equivalent chirped family under the shear, but the exact result inspected applies to the positive-impulse ray",
+          "evidence": "Even-order lifted kernel there; no minimax over complex impulses.",
+          "identifier_or_url": "Resultary 03361b3cff9c",
+          "material_read": "Mirror offsets 0, 3866 and 7072",
+          "method": "Local published-record mirror",
+          "title": "Single-impulse quadratic chirps: exact cyclic Gabor tomography spectrum and arithmetic rank obstruction",
+          "trigger": "Weyl shear equivalence"
+        },
+        {
+          "assessment": "Premise, not a sharp window-family optimum",
+          "evidence": "Sufficiency of full-orbit Gabor measurements under nonvanishing ambiguity.",
+          "identifier_or_url": "https://arxiv.org/pdf/1503.05800",
+          "material_read": "PDF p. 4, Theorem 2.2, text offset 15180",
+          "method": "OA PDF passage",
+          "title": "Phase Retrieval from Gabor Measurements",
+          "trigger": "Standard Weyl basis and implications of nonvanishing ambiguity"
+        },
+        {
+          "assessment": "Adjacent positive evidence for different families, not an exhaustive exclusion from the text",
+          "evidence": "Different seed families and quantitative existence of stable windows.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.09614",
+          "material_read": "PDF abstract, offset 0",
+          "method": "OA abstract inspection",
+          "title": "Explicit Full-Spark and Quantitatively Phase-Retrievable Gabor Windows via Algebraic Perturbations",
+          "trigger": "All-order stable constructions"
+        },
+        {
+          "assessment": "Distinct despite similar objective",
+          "evidence": "Positive perturbation of cubic chirps in odd prime-power orders, not arbitrary complex perturbation of a flat window in even orders.",
+          "identifier_or_url": "Resultary 66a38431d63f",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Local published-record mirror",
+          "title": "Sharp one-impulse repair of prime-power cubic Gabor chirps",
+          "trigger": "Strong same-day overlap in impulse and condition-number terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–25 and 40–76",
+        "Resultary c114096c73ba and 4ad1eba7465a"
+      ],
+      "rationale": "This natural two-real-parameter perturbation gives a usable exact conditioning ceiling rather than just an invertible window. The result gives the only window parameters attaining it, explains the parity-sensitive obstruction and threshold where the axis branches become harmless, and quantifies the deterioration of the best attainable stability with dimension. The linear-lifting objective makes this useful for choosing and benchmarking a simple window even though it makes no unrestricted window claim.",
+      "residual_risks": [
+        "Value is for the restricted full-orbit design problem, not better conditioning than arbitrary windows or a nonlinear optimum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:51:27.153167Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated fixed symmetric probes and independent equal-variance Gaussian noises, D=R_+-R_- is independent of M=(R_++R_-)/2, with respective laws N(2ca,2σ²) and N(0,σ²/2). With b=2σ² and x=D², the conditional squared error divided by a² is (λ²+bx)/(x+λ)². Its difference from the risk at b is x(λ-b)²/((x+λ)²(x+b)), strictly positive almost surely when λ≠b. At λ=0 the risk is infinite. The unregularized error is -2aM/D, and f_D(0)>0 gives the exact moment threshold 0<q<1 and, by dominated convergence conditional on M, lim t·Pr(|Z_0-θ|>t)=4a f_D(0)E|M|=(2a/π)exp(-c²a²/σ²). The result is for the stated one-coefficient penalty and a single projection, not for a full iterated algorithm. The proof is analytic; the uploaded script was inspected, not executed, and its quadratures do not check the tail asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The phase diagram permits correlated Gaussian noises and off-center prescribed probes and derives a reciprocal-tail coefficient and the full positive-order moment cutoff.",
+          "The earlier moment-threshold record has the general threshold q<d-m+1 and moment restoration with positive Tikhonov regularization, not this exact penalty calibration."
+        ],
+        "reasoning": "Set the phase diagram's midpoint offset and correlation to zero and its probe separation to 2a. Its affine contractive slope convention is not an obstacle: multiplication of both residuals by the same nonzero scalar leaves the unregularized quotient unchanged, can put the slope in the contractive range, and simply rescales both noise standard deviations. The tail coefficient depends on the resulting unchanged |c|a/σ.",
+        "searches": [
+          "Resultary: SCOPE-gaussian-coupling-phase-diagram-for-depth-one-anderson-extrapola--30f28a658eb2",
+          "Resultary: SCOPE-sharp-gaussian-moment-threshold-for-noisy-anderson-extrapolation--6e96c99497d7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof, Relationship to prior work and Limitations",
+        "Frozen VERIFICATION.md and verify.py (static inspection)",
+        "arXiv:2110.01543",
+        "Resultary records 30f28a658eb2, 6e96c99497d7 and 2a3edc5dee7a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conditional on D, the response R_+ is D/2+M, with noise variance σ²/2, and the target coefficient is exactly 1/2.",
+          "The squared-error risk of every homogeneous linear estimator at fixed coefficient 1/2 equals its Bayes risk at fixed design under an independent centered Gaussian coefficient with second moment 1/4. Completing the Gaussian square gives the standard ridge posterior mean DR_+/(D²+(σ²/2)/(1/4))."
+        ],
+        "reasoning": "The centered design does not require a new optimization theorem: over gains at each D it gives the usual noise-variance / coefficient-second-moment ratio. This optimizer is in the exact penalty family and is uniform in D, so it is also the unconditional optimizer. The direct gain reduction is decisive even though the Anderson method paper does not print λ=2σ².",
+        "searches": [
+          "Wei, Bao and Liu, arXiv:2110.01543, projection and regularization equations",
+          "Gaussian coupling phase diagram, Finding and Gaussian ratio derivation",
+          "Scalar linear minimum mean-square gain / Gaussian ridge posterior-mean identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gaussian coupling phase diagram for depth-one Anderson extrapolation, Finding items 1–4",
+          "Wei, Bao and Liu, arXiv:2110.01543, §§2.1–2.2"
+        ],
+        "reasoning": "In the unregularized case R_+-Dγ=0, so the residual-mixing displacement is zero: the extrapolation of the noisy images in the phase diagram is the same as the projection of the probes here. The regularized estimator is a data-dependent attenuation D²/(D²+λ) of the secant coefficient, not a constant damping factor or the full mixed iteration.",
+        "searches": [
+          "Resultary semantic search: independent Gaussian depth-one Anderson projection, exact ridge penalty and secant ratio tail",
+          "Primary-literature lookup: Gaussian noisy or damped secant, regularized Anderson projection, ratio tail and MSE"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The phase-diagram catalogue record gives K_(ρ,0)=|d|/π·sqrt((1+ρ)/(1-ρ))·exp[-c²d²/(4σ²(1-ρ))].",
+          "The two-point ridge-risk record studies a symmetric two-coefficient penalty; its small-noise optimum for a nonzero offset is not the stated finite-noise optimum for λγ²."
+        ],
+        "reasoning": "The exact unregularized constant is an indexed specialization, not merely a matched tail exponent. No substantive table of λ values is needed for the optimizer, which follows from the general gain identity below; the bounded lookup did not identify a prior statement of that exact tuning in this Anderson notation.",
+        "searches": [
+          "Resultary: exact Gaussian depth-one Anderson regularization, risk and tail",
+          "Resultary: SCOPE-sharp-gaussian-ridge-risk-law-for-two-point-anderson-mixing--2a3edc5dee7a"
+        ]
+      },
+      "rationale": "The unregularized law, moment cutoff and exact tail coefficient are already covered by a distinct indexed result (publication order within the same day is not established). The remaining optimizer is a direct specialization of scalar linear minimum mean-square estimation, with regression design D and independence given by the same Gaussian decomposition. No distinct substantive mathematical remainder was established; this is not a finding that the optimizer is false or that an earlier paper prints the identical λ formula in Anderson notation.",
+      "residual_risks": [
+        "The bounded primary-literature lookup did not settle historical priority for the exact optimizer in Anderson/secant terminology.",
+        "The distinct indexed phase diagram has the same displayed date; exact coverage is established, within-day ordering is not."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full unregularized conclusion by specialization; does not establish the regularized optimum. Same date is not evidence of priority.",
+          "evidence": "Independent ratio representation, exact K_(ρ,m), moment threshold q<1, and formula for K_(ρ,0).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-gaussian-coupling-phase-diagram-for-depth-one-anderson-extrapola--30f28a658eb2/RESULT.md",
+          "material_read": "Finding items 1–4 and assumptions, characters 0–3538; reciprocal-tail derivation around offsets 4568 and 5095",
+          "method": "Indexed search and bounded mirrored full-text passages",
+          "title": "Gaussian coupling phase diagram for depth-one Anderson extrapolation",
+          "trigger": "Strongest nonidentical indexed match to the unregularized claim"
+        },
+        {
+          "assessment": "Projection is separated from mixing; coefficient damping/regularization are part of the prior method. These passages do not state the exact benchmark calibration.",
+          "evidence": "Projection least squares, separate mixing update and Tikhonov coefficient regularization.",
+          "identifier_or_url": "https://arxiv.org/abs/2110.01543",
+          "material_read": "§2.1 equations (4a)–(6) and §2.2 equations (8)–(10), around text offsets 9500, 11500 and 15000",
+          "method": "Bounded open-access full-text passages",
+          "title": "Stochastic Anderson Mixing for Nonconvex Stochastic Optimization",
+          "trigger": "Primary source for the projection and ridge method"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A balanced benchmark can be useful as a check on an implementation, but its sole residual contribution here is a standard scalar gain calculation for a prescribed penalty and inputs centered on an already known root. The midpoint is exactly the root, and no tuning conclusion for off-center probes or the actual mixing dynamics follows. The heavy-tail benchmark and its exact constant are already supplied by the broader Gaussian coupling law. This does not establish a worthwhile unknown invariant or a new useful boundary for the algorithm.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,4 +1,4 @@
-# Exact two-transition acuteness law for triangles inscribed in spherical small circles
+# Dilogarithmic evaluation and the two-nonacute-angle transition for spherical small-circle triangles
 
 ## Finding
 
@@ -19,7 +19,7 @@ and set \(B(k)=0\) for \(k\ge1/2\). Then the *complete* law is
    0,&0<k\le1/3.
  \end{cases}
 \]
-In particular, \(P\) decreases strictly from the limiting Euclidean value \(1/4\) to zero on \((0,R_*)\), where \(R_*=\arccos(1/\sqrt3)\), and vanishes identically on \([R_*,\pi/2)\). A second transition occurs at \(R=\pi/4\), where triangles having at least two nonacute angles first appear with positive probability.
+In particular, \(P\) decreases strictly from the limiting Euclidean value \(1/4\) to zero on \((0,R_*)\), where \(R_*=\arccos(1/\sqrt3)\), and vanishes identically on \([R_*,\pi/2)\). The probability of at least two nonacute angles is zero for \(R\le\pi/4\) and positive for \(R>\pi/4\).
 
 Both nonzero branches are explicit in dilogarithms. To eliminate the one-dimensional integral, for \(0<k<1/2\) put
 \[
@@ -41,7 +41,7 @@ The endpoint and transition laws are sharp:
  3B(k)&=\frac{24}{\pi^2}(\tfrac12-k)^2+O((\tfrac12-k)^3)&&(k\uparrow\tfrac12).
 \end{aligned}
 \]
-The probability is continuously differentiable across both transitions but not twice differentiable there. For illustration, \(P(\pi/4)=0.0447497197384094\ldots\).
+The probability is continuously differentiable across both transitions but not twice differentiable there. For illustration, \(P(\pi/4)\approx0.0447497197384097\).
 
 ## Assumptions and scope
 
@@ -95,7 +95,7 @@ and \(\int_0^1 g_u(u)du=1/4\).
  =\frac{\operatorname{Li}_2((1-k)/(1+k))
    -\operatorname{Li}_2(-(1-k)/(1+k))}{\pi^2}.
 \]
-The three equal pair overlaps disappear if \(k\ge1/2\). If \(1/3<k<1/2\), a pair overlap is
+Outside the positive simplex, at most one cotangent product can be positive, so a triangle there cannot have two nonacute angles for \(k>0\). The three equal pair overlaps inside the simplex are empty if \(k\ge1/2\), including equality, since the remaining coordinate is strictly positive. If \(0<k<1/2\), the pair overlap has positive area (take \(u,v>k\) with \(u+v<1\)); its probability is
 \[
 \begin{aligned}
  \int_{u=k}^{1-k}\int_{v=k}^{1-u}g(u,v)\,dv\,du
@@ -105,9 +105,9 @@ The three equal pair overlaps disappear if \(k\ge1/2\). If \(1/3<k<1/2\), a pair
 \]
 Inclusion-exclusion therefore proves the displayed piecewise formula. Direct differentiation using \(\frac{d}{dz}\operatorname{Li}_2(z)=-\log(1-z)/z\) gives \(F_k'(u)=\log((1-k)/(u(u+k)))/(1-u^2)\) and the stated dilogarithmic expression for \(B\).
 
-**5. Strict monotonicity and sharp expansions.** The density \(g\) is strictly positive in the open simplex. If \(1/3<k_1<k_2<1\), the regions \(\max\{u,v,s\}<k_1\) and \(\max\{u,v,s\}<k_2\) differ by positive mass; hence \(P\) is strictly increasing in \(k\), and strictly decreasing in \(R\) up to the critical radius. At \(k\downarrow1/3\), translate \((u,v,s)\) about \((1/3,1/3,1/3)\). The allowed region is an equilateral coordinate-simplex triangle of area \(\frac92(k-1/3)^2\) in the \((u,v)\) plane. Its density at the central point is \(27/(8\pi^2)\). Thus
+**5. Strict monotonicity and sharp expansions.** The density \(g\) is strictly positive in the open simplex. If \(1/3<k_1<k_2<1\), the regions \(\max\{u,v,s\}<k_1\) and \(\max\{u,v,s\}<k_2\) differ by positive mass; hence \(P\) is strictly increasing in \(k\), and strictly decreasing in \(R\) up to the critical radius. At \(k\downarrow1/3\), translate \((u,v,s)\) about \((1/3,1/3,1/3)\). In the \((u,v)\) coordinates the allowed region is a triangle of area \(\frac92(k-1/3)^2\). Its density at the central point is \(27/(8\pi^2)\). Thus
 \[
- P(k)=\frac{243}{16\pi^2}(k-1/3)^2+O((k-1/3)^3).
+ P(R)=\frac{243}{16\pi^2}(k-1/3)^2+O((k-1/3)^3).
 \]
 Since \(k-1/3=(2\sqrt2/3)(R_*-R)+O((R_*-R)^2)\), the critical-radius formula follows. Similarly, the pair-overlap domain near \(k=1/2\) is a triangle with area \((1-2k)^2/2\), and \(g(1/2,1/2)=4/\pi^2\) (interpreting the third coordinate tending to zero); multiplying by the three pairs gives \(3B(k)=24(1/2-k)^2/\pi^2+O((1/2-k)^3)\). Finally the Taylor series of the first branch, noting \(B=0\) for small \(R\), yields the small-radius expansion. These quadratic turn-ons also establish the stated regularity at both transitions.
 
@@ -117,11 +117,13 @@ The self-contained program `check.py` numerically tests the cotangent identity, 
 
 ## Relationship to prior work
 
-The Euclidean probability \(1/4\) for three boundary-uniform circle points is classical. Akopyan, Edelsbrunner and Nikitenko, *The Beauty of Random Polytopes Inscribed in the 2-sphere* (arXiv:2007.07783, first public 2020-07-15), §3–4 and Lemma 4, analyze **Euclidean chord-triangle** acuteness for points distributed over the *entire sphere*, obtaining probability \(1/2\). Their §4.1 also carefully distinguishes a uniformly sampled circumcircle from the conditional-on-circumcircle law; neither is the fixed small-circle arclength-uniform *intrinsic geodesic* law here. Huiling Le, *Random spherical triangles II: Shape densities* (1989), studies three points uniformly in a **spherical cap**, not only on its boundary small circle. Maeda, *Seven Types of Random Spherical Triangle in \(S^n\) and Their Probabilities* (2008), studies seven ambient-sphere triangle types, but the available abstract does not establish a fixed-small-circle arclength law. The survey *Geometric Probability on the Sphere* (Maehara and Martini, 2017; chapter 2024) is potentially related, but its complete chapter text was not available for comparison. This result is consequently offered with provisional historical priority, not as a claim of a certified first discovery.
+The [sharp-latitude treatment of the same spherical small-circle model](https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-latitude-threshold-and-exact-acute-triangle-law-on-spher--711f5d6843db/RESULT.md) gives the same probability as a one-dimensional arccosine integral. It also gives the \(k=1/3\) cutoff, strict monotonicity, and the leading quadratic onset there; its integration endpoint changes at \(k=1/2\). The [small-geodesic-circle curvature formula](https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-curvature-from-the-acuteness-deficit-of-random-geodesic-circle-t--7951fcdc74c5/RESULT.md) specializes to the same \(R^2\) term on the unit sphere. The distinct contribution here is the cotangent-simplex inclusion–exclusion and the explicit two-branch dilogarithmic evaluation, together with the interpretation of \(k=1/2\) via the number of nonacute angles, the quadratic overlap coefficient, and the \(R^4\) term. The shared probability law, cutoff, monotonicity and leading terms are presented together for context, without a separate claim of priority for them.
+
+The Euclidean probability \(1/4\) for three boundary-uniform circle points is classical. Akopyan, Edelsbrunner and Nikitenko, *The Beauty of Random Polytopes Inscribed in the 2-sphere* (arXiv:2007.07783), §3–4 and Lemma 4, analyze **Euclidean chord-triangle** acuteness for points distributed over the *entire sphere*, obtaining probability \(1/2\). Their §4.1 distinguishes uniform arclength sampling from the law induced on the circumcircle by full-sphere sampling. Huiling Le's *Random spherical triangles II: Shape densities* (1989) is described as treating spherical cap sampling; the complete text was unavailable for comparison. The available material for Maeda (2008) and Maehara–Martini (2024) does not settle whether either includes related fixed-circle formulas. Historical priority for the explicit evaluation is therefore not asserted categorically.
 
 ## Limitations
 
-This is a spherical-intrinsic angle law for one-dimensional arclength-uniform boundary sampling only. It does not apply to uniform surface-area sampling inside a cap, full-sphere uniform vertices, Euclidean chord angles, arbitrary curves, or higher-dimensional simplices. The probability vanishes identically past the sharp radius; it does not identify radii beyond that threshold. Sources not available in complete text remain a historical-priority risk. No independent mathematical validation has been performed.
+This is a spherical-intrinsic angle law for one-dimensional arclength-uniform boundary sampling only. It does not apply to uniform surface-area sampling inside a cap, full-sphere uniform vertices, Euclidean chord angles, arbitrary curves, or higher-dimensional simplices. The probability vanishes identically past the sharp radius; it does not identify radii beyond that threshold. Sources not available in complete text remain a historical-priority risk.
 
 ## References
 

@@ -1,0 +1,183 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:58:57.191688Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof Steps 1–5",
+        "Frozen VERIFICATION.md, CHECK.py and recorded CHECK_OUTPUT.txt for q=2,3,4,5,7,8,9,11,13 inspected, not executed"
+      ],
+      "rationale": "Invertibility ensures that each projective fixed point of the coordinate-square map followed by A-transpose yields one nonzero idempotent. The fixed-point polynomial is a nonzero homogeneous cubic, so K<=3. A uniform projective linear transformation sends any ordered triple of distinct points to any other with the same probability. Squaring identifies no inputs in characteristic two; otherwise it identifies just the (q-1)/2 nonzero opposite pairs. Their ordered pair and ordered triple collision counts are q-1 and 3(q-1)^2, respectively. The three factorial moments and total mass therefore yield the four M_j. Independent basis squares force automorphisms to be monomial. The diagonal kernel is trivial except for the zero-diagonal matrices, where it has size gcd(3,q-1); the swap condition and the nonzero idempotent equation there use the same cube-solvability condition. Any swap is an involution in the zero-diagonal case and inverts the diagonal kernel; this yields S3 when that kernel has size three. In the other swap stratum (ad nonzero, ca^3=bd^3), rescaling the basis yields diagonal entries 1 and common off-diagonal entry z with z^2!=1; for each allowed z there are exactly (q-1)^2 labeled matrices. There is one equal-coordinate idempotent. Off-diagonal solutions occur in a pair: in odd characteristic the difference squared is (1-3z)/((1-z)^2(1+z)), and the Möbius expression (1-3z)/(1+z) omits -1 and -3. In characteristic three -3 is zero, not a nonzero square. In characteristic two, off-diagonal solutions are parametrized by t^2+t=z/(1+z); the image of t^2+t is the trace-zero subspace, and 1 is the single excluded right-hand value, of trace m mod 2. These counts give R and leave the trivial-group row by subtraction. This argument covers q=2 and q=3 without any separability or group-scheme assumption, and the strata exhaust all matrices.",
+      "residual_risks": [
+        "Uniform labeled invertible matrices only; not uniform isomorphism classes. Automorphism orders are rational point counts, not group-scheme lengths. Finite enumerations are corroboration, not the universal proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The over-domains theorem and field corollary describe algebra moduli, including finite fields",
+          "Wei–Zou enumerate total isomorphism orbits",
+          "The Hopf-algebra paper analyzes automorphism group schemes by type",
+          "The survey discusses random-matrix questions and a first moment for idempotents"
+        ],
+        "reasoning": "A classification enables an orbit approach but one must still count the roots of the idempotent equation by parameter and weight by natural-basis orbit size. A total orbit count discards the coupling, and even taking rational points of a known group scheme does not determine the rational idempotents. None of the retrieved results states the needed parameter split.",
+        "searches": [
+          "DOI:10.1007/s10801-022-01196-1 Theorem 1 and Corollary 2",
+          "arXiv:2310.12368v1 Theorem 4.1",
+          "arXiv:2407.15769v2 §2.2",
+          "arXiv:2610.22248 p. 23"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e8db04aa8932, 34e38832dbaa and a6f1df44ea9b",
+        "DOI:10.1007/s10801-022-01196-1",
+        "arXiv:2310.12368v1, 2407.15769v2, 2005.05793 and 2610.22248"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier group marginal counts the whole symmetric locus without testing the idempotent quadratic",
+          "The new count on this locus depends on a nonzero-square test excluding -1 and -3 in odd characteristic, and on the absolute trace of 1 in characteristic two"
+        ],
+        "reasoning": "The two marginal totals and covered antidiagonal entries do not determine how much order-two mass belongs in columns 1 and 3 instead of the corresponding trivial-group columns. In an isomorphism-class enumeration, those same square/trace tests and matrix weights would still have to be derived. This is a new arithmetic refinement of a known stratum, not a relabeling of existing orbit or marginal counts.",
+        "searches": [
+          "Resultary 34e38832dbaa proof at offsets 3600–7350, together with e8db04aa8932 and a6f1df44ea9b",
+          "Cabrera Casado–Martín Barquero–Martín González Corollary 2, field classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The dimension-two weighted directed-cycle family is exactly a=d=0 with bc nonzero, containing (q-1)^2 labeled matrices",
+          "Its prior profile yields (G,K)=(2,1) when gcd(3,q-1)=1, and (6,3) or (3,0) with weights 1/3 and 2/3 when the gcd is three, after removing the zero idempotent",
+          "Narkuziyev studies idempotent equations in permutation-supported algebras, including a two-dimensional case"
+        ],
+        "reasoning": "The cycle result is exact coverage of a full stratum, including the order-three and order-six entries, but its support restriction excludes the nonzero-diagonal swapping family. Removing the zero idempotent does not add scientific content in the covered stratum.",
+        "searches": [
+          "Resultary semantic comparison for simultaneous idempotent counts and automorphism orders of random perfect two-dimensional algebras",
+          "Resultary e8db04aa8932 Finding",
+          "arXiv:2005.05793 §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "34e38832dbaa counts automorphism orders on the same sample and counts all-nonzero symmetric cases by t^2!=1, separately from diagonal and antidiagonal support",
+          "a6f1df44ea9b has the unrestricted idempotent-count marginal",
+          "e8db04aa8932 has the joint distribution on single directed cycles"
+        ],
+        "reasoning": "Neither all-matrix record resolves the other invariant. Even when the antidiagonal and diagonal-support entries are fixed, the all-nonzero swapping cases require a K-dependent partition; the earlier automorphism count uses only the exclusion t^2=1. The earlier joint table covers the antidiagonal family but not all invertible matrices.",
+        "searches": [
+          "Resultary e8db04aa8932, 34e38832dbaa and a6f1df44ea9b for the same or a containing labeled-matrix sample"
+        ]
+      },
+      "rationale": "Pass for the all-GL2 cross-tab and specifically the extra K=1 versus K=3 split on the nonzero-diagonal swap stratum. The separate marginals, monomiality, possible automorphism groups, and the whole zero-diagonal joint law are already covered and are not the distinct scientific content. The retrieved classification results give normal forms but not the additional square/trace counts required for the joint table.",
+      "residual_risks": [
+        "Assessment is limited to the inspected statements and comparisons. A less visible joint enumeration by isomorphism types and natural-basis weights is not ruled out. The covered antidiagonal profile and separate marginals do not support priority for those parts of the frozen result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Subsumes the antidiagonal joint law exactly but not the broader sample",
+          "evidence": [
+            "Single directed-cycle support becomes antidiagonal in dimension two, with the stated cubic alternatives."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-arithmetic-isomorphism-and-idempotent-symmetry-profiles-of-cycli--e8db04aa8932/RESULT.md",
+          "material_read": "Local mirror Finding, offsets 0–3801",
+          "method": "Semantic catalogue lookup and actual record text",
+          "title": "Arithmetic isomorphism and idempotent-symmetry profiles of cyclic evolution algebras",
+          "trigger": "Prior joint profile over finite fields, including dimension two"
+        },
+        {
+          "assessment": "Automorphism marginal plus structural enumeration, not a joint idempotent-count split",
+          "evidence": [
+            "All-nonzero C2 matrices are counted by s(q-1-h) after excluding t with t^2=1; diagonal and antidiagonal supports are counted separately."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-automorphism-group-law-for-random-two-dimensional-perfect--34e38832dbaa/RESULT.md",
+          "material_read": "Finding near offset 0 and support-stratum proof at offsets 3600–7350",
+          "method": "Semantic catalogue and local mirror file",
+          "title": "Exact automorphism-group law for random two-dimensional perfect evolution algebras",
+          "trigger": "Same labeled-matrix sample, potentially same refinements on the swapping locus"
+        },
+        {
+          "assessment": "The prior law covers the K-marginal, not its coupling to G",
+          "evidence": [
+            "The inspected finding tabulates the distribution of the nonzero-idempotent count."
+          ],
+          "identifier_or_url": "Resultary:a6f1df44ea9b",
+          "material_read": "Local mirror Finding starting at offset 0",
+          "method": "Semantic catalogue and actual record excerpt",
+          "title": "Exact distribution of nonzero idempotents in random two-dimensional evolution algebras",
+          "trigger": "Same labeled-matrix sample and K invariant"
+        },
+        {
+          "assessment": "Moduli/classification result; the inspected statements do not count parameter-dependent rational roots or weighted joint frequencies",
+          "evidence": [
+            "The corollary specializes the classification to fields, not to a probability distribution."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10801-022-01196-1",
+          "material_read": "§4 Theorem 1 (offset 51284), Corollary 2 p. 587 (offset 57385)",
+          "method": "OA primary PDF passages",
+          "title": "Two-dimensional perfect evolution algebras over domains",
+          "trigger": "Potential stronger classification of the same finite-field algebras"
+        },
+        {
+          "assessment": "Total isomorphism class count, not a joint census",
+          "evidence": [
+            "Theorem 4.1 counts finite-field isomorphism classes by orbit enumeration."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2310.12368v1",
+          "material_read": "Abstract and Theorem 4.1 p. 13 (offset 30800)",
+          "method": "OA primary PDF passages",
+          "title": "Isomorphism Classes of Idempotent Evolution Algebras",
+          "trigger": "Possible finite-field orbit-table coverage"
+        },
+        {
+          "assessment": "Group schemes by algebra type, not a labeled finite-field joint law",
+          "evidence": [
+            "The inspected section works out an automorphism scheme for a specific type."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.15769v2",
+          "material_read": "Abstract and §2.2 p. 4 (offset 14000)",
+          "method": "OA primary PDF passages",
+          "title": "Hopf algebras and associative representations of two-dimensional evolution algebras",
+          "trigger": "Same dimension and automorphism groups by type"
+        },
+        {
+          "assessment": "Idempotent equations in particular algebras, not the all-matrix joint table",
+          "evidence": [
+            "The retrieved passage analyzes idempotent roots in a two-dimensional case."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2005.05793",
+          "material_read": "§4 pp. 9–10 (offset 33400)",
+          "method": "OA primary PDF passage",
+          "title": "Some remarks on evolution algebras corresponding to permutations",
+          "trigger": "Possible equivalent cubic or quadratic splitting under permutation-support terminology"
+        },
+        {
+          "assessment": "Motivation and first moment; no joint table in this passage",
+          "evidence": [
+            "The passage poses random-matrix questions and gives the mean nonzero-idempotent count of one."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.22248",
+          "material_read": "p. 23 (offset 81250)",
+          "method": "OA primary PDF passage",
+          "title": "Evolution algebras: a survey of results and a list of open problems",
+          "trigger": "Prior random-algebra questions and idempotent statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof Step 4",
+        "Resultary separate marginals and cyclic joint law",
+        "arXiv:2610.22248 p. 23"
+      ],
+      "rationale": "The first full perfect dimension gives a canonical all-matrix sample for questions about random algebra symmetries and rational idempotents. The additional coupling tells precisely how often order-two symmetry coexists with one versus three idempotents and separates field-size and characteristic effects through concrete trace and quadratic-character exclusions. This is a natural exact invariant not obtained by merely tabulating the already-known marginals or cyclic examples.",
+      "residual_risks": [
+        "The statement is confined to perfect two-dimensional algebras and the labeled-matrix measure; downstream higher-dimensional behavior is not established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

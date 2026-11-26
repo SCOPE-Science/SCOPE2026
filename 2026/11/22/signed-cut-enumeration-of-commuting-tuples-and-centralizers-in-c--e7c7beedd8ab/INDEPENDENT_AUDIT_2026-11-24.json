@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:12:04.317139Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–47, frozen VERIFICATION.md and bundled checker inspected without running the uploaded code",
+        "Complete corrected RESULT.md and scientific verification notes in /workspace/repairs/1/; verified the new common-product fiber and signed-refinement proofs",
+        "Own bounded replay: python3 /workspace/review_checks.py 1; /workspace/review-evidence/1.txt. Independent compressed-coordinate sign vectors test each centralizer and tuple pairs through n=4, triples and all chamber overlaps through n=3, including n=0."
+      ],
+      "rationale": "PASS for the repaired package only. The frozen centralizer proof at line 43 incorrectly forbids merging across more than one boundary: for example the zero face below a rank-three chamber deletes all three cuts and certainly commutes. The replacement proof counts fibers over the actual common product, not hypothetical locally allowable merges. Compatible sign vectors have a coordinate-wise union, realizable by the face product. Any refinement gamma of alpha gives exactly 2^r commuting beta below gamma with product gamma, since beta must retain every cut missing from alpha and is free on alpha's r cuts. Refinements of alpha split its zero block by an arbitrary signed face and each nonzero magnitude block by an independent ordered partition with fixed signs. This proves the frozen centralizer formula, including rank 0. In the tuple formula, cuts of the common product must survive in nonempty position subsets, giving the stated weight; feeding the signed-block count into the EGF gives the stated denominator. Its nearest pole is the unique positive real pole, with negative derivative of the denominator −2^(t+1), giving the displayed asymptotic. Common signed suffixes index the same one-cut rays in two chambers; any subset of common rays gives one common subface. Every clique embeds in some chamber interval, and its chamber makes that interval maximal. No numerical formula was changed.",
+      "residual_risks": [
+        "Small-rank reproduction does not certify the general proof. The corrected common-product argument supplies the all-rank result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The rank-three chamber-polygon census gives every ordered commuting-tuple count at that rank and the common-face property",
+          "Face-monoid sign embedding and left-priority sign multiplication are established generally"
+        ],
+        "reasoning": "The standard sign rule and common-product argument give the tuple framework. Rank-three formulas do not give the arbitrary-rank signed refinement factors or overlap test. The bounded external query was uninformative, not proof of absence.",
+        "searches": [
+          "Resultary 8c75760483b9 on arbitrary essential rank-three face monoids",
+          "Saliola arXiv:math/0511717; Margolis–Saliola–Steinberg arXiv:1212.6683",
+          "External query: ‘face monoid’ ‘commuting tuples’ Coxeter type B centralizers generating function"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 493f7b5a1c64 and 8c75760483b9; arXiv:1212.6683 and math/0511717; repaired RESULT.md relationship section"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cut marking already counts tuples in type A; the Boolean-interval argument generalizes it immediately to any simplicial face enumeration",
+          "Neither the inspected unsigned formula nor the rank-three result identifies the signed zero-block residue and shared signed rays of two arbitrary chambers"
+        ],
+        "reasoning": "Credit the general mechanism and the mechanically implied weighted f-vector. The final comparison limits distinct content to the signed refinement and suffix computations, rather than treating use of the standard common-product argument as new.",
+        "searches": [
+          "Type-A Resultary 493f7b5a1c64, Finding and cut proof; essential rank-three Resultary 8c75760483b9; arXiv:1212.6683 §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target-specific hit is the identical record e7c7beedd8ab and is not separate prior evidence",
+          "Type-A centralizers are 2^(b−1) times the product of unsigned ordered Bell numbers; overlaps use common unsigned prefix cuts"
+        ],
+        "reasoning": "Restricting type A to involution-fixed faces does not derive a fixed-face centralizer count from total centralizer counts, or derive signed suffix equality from ordinary cut equality.",
+        "searches": [
+          "Local Resultary for commuting tuples, centralizers and maximal clique overlaps of Coxeter face monoids",
+          "Exact braid-face alias: Resultary 493f7b5a1c64"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ordinary face f-vector mechanically yields the commuting-tuple weighted enumeration",
+          "The exact type-A catalogue and rank-three spectrum do not tabulate individual signed type-B centralizers in all ranks"
+        ],
+        "reasoning": "The t=1 counts and the weighted EGF consequences are not relied on for a novelty pass. Finite numerical data for one rank would not cover the remaining all-rank signed block and overlap statements.",
+        "searches": [
+          "Local Resultary comparison of exact commuting counts and centralizer formulas: 493f7b5a1c64 and 8c75760483b9",
+          "Type-B face f-vector and signed ordered Bell count identified in frozen Finding and comparator"
+        ]
+      },
+      "rationale": "PASS for the distinct content of the repaired record: the type-B structural centralizer and exact numerical overlap test in signed-suffix coordinates. The all-arity EGF and asymptotic are explicitly treated as consequences of the weighted face vector, rather than independent innovations. The closest type-A theorem has almost the same architecture but its element formulas count ordinary partitions, not signed refinements of the zero block; equality of unsigned cuts need not detect the shared signed rays. Counting those type-B refinements and identifying the shared rays are the distinct specialization work. The rank-three record already covers the rank-three tuple count, not the all-rank element structure. No stronger inspected statement supplies the full signed formulas mechanically by parameter substitution.",
+      "residual_risks": [
+        "An earlier unlocated all-Coxeter or type-B commuting formula may supply the signed result. Bounded searches and inspected passages do not certify global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same general approach in type A, different signed face enumeration and overlap criterion",
+          "evidence": "Centralizers 2^(b−1) product F_|A_i|; overlap by common ordinary prefix cuts; ordered tuple EGF (exp(x)−1)/(1−(2^t−1)(exp(x)−1)).",
+          "identifier_or_url": "2026/10/26/SCOPE-complete-commuting-clique-geometry-of-the-braid-face-monoid--493f7b5a1c64",
+          "material_read": "Finding offsets 0–4165; proof offsets 5700–8398, local snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Bounded local mirror reading",
+          "title": "Complete commuting-clique geometry of the braid face monoid",
+          "trigger": "Closest prior tuple, centralizer and overlap theorem"
+        },
+        {
+          "assessment": "Covers type-B tuples in rank three only",
+          "evidence": "The theorem takes an essential rank-three arrangement and computes the tuple spectrum from chamber facets and face counts.",
+          "identifier_or_url": "2026/11/2/SCOPE-rank-three-face-monoid-commuting-spectra-are-chamber-polygon-spe--8c75760483b9",
+          "material_read": "Finding offsets 460–2760 and common-upper-face argument",
+          "method": "Bounded local mirror reading",
+          "title": "Rank-three face-monoid commuting spectra are chamber-polygon spectra",
+          "trigger": "Potential broader arrangement coverage"
+        },
+        {
+          "assessment": "Foundational product rule, not signed structure formula",
+          "evidence": "Coordinate signs compose by keeping the left sign unless it is zero; face monoids embed in products of the sign monoid.",
+          "identifier_or_url": "https://arxiv.org/abs/1212.6683",
+          "material_read": "§3, printed pp. 5–6, text offset 14734",
+          "method": "Bounded OA primary-paper passage",
+          "title": "Semigroups embeddable in hyperplane face monoids",
+          "trigger": "General covector and face monoid results"
+        },
+        {
+          "assessment": "General setup and Coxeter context; inspected passage not a signed centralizer theorem",
+          "evidence": "Face product and hyperplane arrangement face semigroup setup.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0511717",
+          "material_read": "pp. 2–3, text offset 4161",
+          "method": "Bounded OA primary-paper passage",
+          "title": "The Face Semigroup Algebra of a Hyperplane Arrangement",
+          "trigger": "Possible Coxeter-wide precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and Proof §§3–4; type-A and rank-three comparisons in originality"
+      ],
+      "rationale": "The corrected result gives a natural exact structural invariant of a whole face-monoid family: element centralizers indexed by the signed zero block and refinement sizes, and maximal commuting-clique intersections encoded by common signed rays. A user need not enumerate chambers or test covectors to compute either invariant on a specified input. These are the substantive contributions, not resumming the face numbers or extracting the residue alone.",
+      "residual_risks": [
+        "Scope is the full commuting graph with identity in type B; no arbitrary Coxeter types or reduced graph classification asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

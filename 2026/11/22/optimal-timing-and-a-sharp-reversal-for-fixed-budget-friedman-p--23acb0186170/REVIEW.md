@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact squared-difference recurrence follows by conditioning on a uniform drawn colour and the deterministic total size. Recomputing two consecutive updates proves the signed adjacent exchange; all subsequent multipliers are strictly positive when \(a>b>0\), giving unique global extrema by inversion removal. The beta moment of the future pure-Pólya continuation gives the terminal-risk formula. The two opposite-reinforcement examples lie on opposite sides of the exact sign threshold. The self-contained `check.py` passed 12,517 exact-rational assertions across exhaustive small urn histories, swaps and terminal-Pólya risk invariants. These tests do not establish the universal result independently of the analytical argument.
+PASS
 
-## Originality — PASS under inspected evidence
+Conditioning on the draw gives X'=X+alpha eta with E[eta|X,T]=X/T and eta squared equal to 1. The second-moment map is affine with slope 1+2 alpha/T. Applying the two maps at totals T and T+c gives PF minus FP equal to 2c(c-d)(V/T+d)/(T+c), where V is the preceding uncentered second moment. For d=a-b>0 this is strictly positive, and the common suffix has positive slopes. Adjacent exchanges give both unique sorted endpoints for arbitrary horizons and budgets. The Pólya continuation formula follows either from the conditional beta law or from the invariant (V+cT)/(4T(T+c)) under one more P step and bounded convergence of the Pólya fraction martingale. At d=0 a balanced initial state gives a two-step tie; for d<0 the swap sign depends on V/T+d. Already for two steps, balance gives a negative sign and sufficiently imbalanced positive starting counts give a positive sign for any d<0. For the explicit (a,b)=(1,3) examples the differences are -48/7 and 528/35. The theorem optimizes uncentered squared imbalance under precommitted schedules, not variance or adaptive policies.
 
-Shi–Yin–Miao (2026) analyze fixed-probability random mixture Gaussian limits, not fixed-budget timing optimization. Alves–Rosales (2025) analyze fixed-parameter convergence. The quenched harmonic-frequency theorem concerns an eventual convergence/nondegeneracy threshold for arbitrary schedules, rather than finite-horizon risk extrema. Janson's general balanced-urn moment results supply moment methods but not this noncommuting-schedule rearrangement theorem. The exact swap sign, unique minimizer/maximizer for every budget and initial composition, persistent Pólya risk comparison and signed boundary are not implied by the inspected cited statements. Residual historical priority risk remains from unindexed schedule-control literature and materials inspected at abstract level.
+## originality
 
-## Value — PASS
+PASS
 
-A nontrivial optimal-design question arises when a reinforcement protocol is allowed exactly a prescribed number of mixing interventions. The theorem completely solves the order-design problem for all positive-eigenvalue balanced two-colour urns and all finite budgets rather than merely bounding a single trajectory. The persistent beta-limit risk shows that timing effects are not washed out by continuing the urn indefinitely; the sharp state-dependent sign reversal demonstrates why the result is not a generic maxim that mixing should always occur early. The result concerns one natural imbalance loss, not every loss.
+The supported distinction is the strict finite-budget ordering for the squared imbalance, its extension to a pure Pólya tail, and the opposite-sign boundary. Closed moment equations and the beta limit are not claimed as new. No inspected source supplied or implied the full timing comparison.
 
-## Limits and independent assessment
+## value
 
-Open-loop schedules only; the claim does not optimize adaptive rules, general convex order or the centred count variance. A full literature priority guarantee is impossible. The opposite-eigenvalue case is restricted to a concrete counterexample and sign identity, not a complete optimal-schedule solution. External independent mathematical validation is not available.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A fixed intervention budget is a natural way to ask whether mixing early or late controls fluctuations. The result sharply distinguishes timing and budget, including the loss of a state-independent rule at negative replacement eigenvalue. That boundary and the exact transfer of the risk ordering to the terminal Pólya fraction make the result useful beyond an isolated moment calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

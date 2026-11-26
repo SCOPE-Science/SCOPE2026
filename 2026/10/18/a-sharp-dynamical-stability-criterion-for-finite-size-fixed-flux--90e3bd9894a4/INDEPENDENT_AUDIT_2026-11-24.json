@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:55:21.508161Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct linearization at a=g(E)>0 gives v_t=-a(v_x+kappa v), since u_E'+kappa u_E=0, with v(t,0)=b m(t), b=-Bg'(E)/a^2 and m=integral v. Scaling time by a gives after transit the stated truncated exponential renewal equation and 1-R(1-e^-k)=h'(E)/a. For R<=0 the shifted characteristic equation cannot have a root with Re s>=0 by the modulus bound. For subcritical R>0 the integral modulus is bounded by R(1-e^-k)<1; for supercritical R>0 the real integral decreases strictly to zero and yields a positive root. At equality the unmultiplied characteristic function has nonzero derivative at zero. At s=i omega the real and imaginary equations, for R>0, force (k omega)(e^k-cos(k omega))=k sin(k omega), impossible for omega nonzero since e^k-1>k. The root s=-1 introduced by clearing the denominator is not used. On L1 the transport semigroup is eventually compact: after one transit v(sigma,x)=b e^(-kappa x)m(sigma-x), and differentiation of the integral in moving-endpoint coordinates gives m'=(b-kappa)m-b e^(-kappa L)m(sigma-L). Finite-time mass bounds from the characteristic Volterra equation give equi-Lipschitz profiles after two transits. Thus exclusion of closed-right-half-plane roots gives exponential decay of the full linearized evolution, not only of a formal mode. The example independently follows from h(3/5+x)=21/125+x^3-2x/25, with extrema x=±sqrt(6)/15 and central roots x=0,±sqrt(2)/5. The equal-slope case is neutral in the spectral sense stated, not positive-real instability; no nonlinear basin follows. Frozen verify.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bernard compares stability with that of a discrete delay of the same mean and allows Hopf in other parameter ranges; this does not directly yield the coupled-coefficient no-imaginary-root statement.",
+          "Wang–Yu's stated framework contains the special form of rates but its inspected stationary results do not assert linear dynamical stability of those equilibria."
+        ],
+        "reasoning": "Standard root methods and positive-kernel criteria explain the positive-feedback part. In particular, subcritical positive feedback is an immediate integral bound. The checked prior statements did not establish the full unrestricted-sign classification, including absence of imaginary roots even on the unstable side, for this model.",
+        "searches": [
+          "Bernard arXiv:0910.4520 introduction and §2, scalar equations with distributed delay",
+          "Wang–Yu arXiv:2607.03790 §§1, 2.1",
+          "Resultary: monotone/truncated exponential renewal and imaginary roots"
+        ]
+      },
+      "checked_sources": [
+        "Wang–Yu arXiv:2607.03790",
+        "Bernard arXiv:0910.4520",
+        "Chu–Magal DOI 10.3934/dcds.2013.33.4891 (access attempted)",
+        "Resultary records 361cf4b95c9f and 1bf03c5987ac"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closure slope fixes the zero-frequency threshold; by itself it gives no imaginary-axis exclusion.",
+          "Cancellation of the speed perturbation in the transport equation leaves a boundary-only feedback and constrains the two coefficients of the scalar delay equation. The trigonometric exclusion uses that constraint, not an arbitrary delay comparison."
+        ],
+        "reasoning": "The equilibrium example and its fold heights are elementary once the closure and general spectral result are given, not a separate strong claim. The contribution is that a single slope completely classifies linear stability in this physical subclass, despite finite transit and arbitrary feedback sign.",
+        "searches": [
+          "Wang–Yu, arXiv:2607.03790, closure and fold-resonance discussion",
+          "Bernard, arXiv:0910.4520, §2 dispersion relation and delay comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang–Yu use prescribed inflow flux and a scalar stationary closure, with its derivative entering equilibrium persistence and fold resonance.",
+          "Resultary 2026/10/12/SCOPE-decreasing-feedback-alone-stabilizes-every-finite-state-equilibr--1bf03c5987ac gives a Hurwitz/zero/positive-root split in a finite-state Situ–Lei stem-cell Jacobian."
+        ],
+        "reasoning": "Neither observed result is an equivalent formulation of the frozen distributed-memory spectral problem. The stem-cell sign classification is abstractly similar, but it is not a linearization with the truncated exponential residence kernel.",
+        "searches": [
+          "Wang–Yu arXiv:2607.03790, introduction and §2.1",
+          "Resultary: fixed-flux finite-size equilibrium stability, derivative criterion, renewal kernel"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/9/18/SCOPE-two-stage-kernels-close-age-structured-threshold-dynamics--361cf4b95c9f treats a noncompact Gurtin–MacCamy age model with a two-stage hypoexponential kernel and an exact planar reduction, including dynamics with three equilibria.",
+          "The distinct finite-state stem-cell comparator 1bf03c5987ac uses a different spectral model."
+        ],
+        "reasoning": "Neither catalogue statement gives the finite-absorbing-end characteristic relation or the same explicit stable/unstable/stable flux window. Targeted catalogue checks are not exhaustive.",
+        "searches": [
+          "Resultary: finite-size fixed recruitment flux, cubic equilibrium fold window, exponential renewal"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the joint spectral classification for the specified finite, absorbing, fixed-flux model, particularly exclusion of nonzero imaginary roots for unrestricted real feedback and the corresponding classified example. The scalar equilibrium closure, generic stationary folds, conversion by characteristics, and general delay methods are not separately original.",
+      "residual_risks": [
+        "Chu–Magal full text was inaccessible; exact theorem comparison remains open.",
+        "Older structured-population stability and scalar-delay literature could contain a directly applicable stronger theorem. For example, Wang–Yu cite Farkas–Hagen, JMAA 328 (2007) 119–136, as earlier size-structured stability work; its theorems were not verified in this review.",
+        "This is a best-of-knowledge comparison, not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior model, closure, and fold resonance; distinct from the reviewed spectral claim in inspected statements",
+          "evidence": [
+            "Closure derivative controls equilibrium persistence and adjoint/harvesting resonance in the cited work; this is not a dynamical stability criterion."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2607.03790",
+          "material_read": "Introduction and §2.1, offsets 4552–13275 in bounded passages; bibliography passages for structured-population stability",
+          "method": "Primary OA article passages read",
+          "title": "Optimal Harvesting of Size-Structured Populations with Environmental Feedback and Fixed Recruitment Flux",
+          "trigger": "Parent model with same prescribed-flux boundary and scalar equilibrium closure"
+        },
+        {
+          "assessment": "Related general delay method rather than the same model-specific assertion",
+          "evidence": [
+            "Comparison with same-mean point delay and potential Hopf in other coefficient ranges, not the finite-size fixed-flux coefficient constraint."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/0910.4520",
+          "material_read": "Introduction and §2, offsets 0–9999 in bounded passages",
+          "method": "Primary OA article passages read",
+          "title": "Distributed delays stabilize negative feedback loops",
+          "trigger": "Broader scalar-delay stability theorem"
+        },
+        {
+          "assessment": "Unresolved at theorem level; not negative evidence",
+          "evidence": [
+            "Frozen RESULT.md describes a distinct resting-phase/nonlocal boundary model; that comparison was not independently confirmed in full text."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/dcds.2013.33.4891",
+          "material_read": "No full text obtained",
+          "method": "Lawful publisher and alternate OA retrieval attempted without a readable copy",
+          "title": "Hopf bifurcation for a size-structured model with resting phase",
+          "trigger": "Size-structured imaginary-root/Hopf comparator"
+        },
+        {
+          "assessment": "Different age model and kernel",
+          "evidence": [
+            "Noncompact age domain and two-stage hypoexponential reproductive kernel give exact planar reduction, not the finite transit truncated exponential kernel."
+          ],
+          "identifier_or_url": "2026/9/18/SCOPE-two-stage-kernels-close-age-structured-threshold-dynamics--361cf4b95c9f",
+          "material_read": "Local mirror RESULT.md, opening finding",
+          "method": "Resultary and local mirror passage comparison",
+          "title": "Two-stage kernels close age-structured threshold dynamics",
+          "trigger": "Exact renewal reduction and three equilibrium branches"
+        },
+        {
+          "assessment": "Closest sign analogue, not model equivalence",
+          "evidence": [
+            "The criterion concerns the finite-dimensional Situ–Lei Jacobian and derivative of the stem-cell feedback law."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-decreasing-feedback-alone-stabilizes-every-finite-state-equilibr--1bf03c5987ac",
+          "material_read": "Local mirror RESULT.md, opening finding",
+          "method": "Resultary and local mirror passage comparison",
+          "title": "Decreasing feedback alone stabilizes every finite-state equilibrium",
+          "trigger": "Abstract derivative-sign classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result converts a stationary fold diagnostic into a complete linear criterion for a natural, finite-residence subclass. In particular the imaginary-root exclusion for any real feedback is useful beyond calculating three stationary roots and prevents mistaking the distributed memory in this subclass for a mechanism of oscillatory linear destabilization. The classified example illustrates the distinction; it does not claim nonlinear hysteresis dynamics or basins.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:40:36.791656Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–33 and 35–67",
+        "VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent exact reflected-map/gap check and rational example: python /workspace/review_checks.py, check swimmer"
+      ],
+      "rationale": "Reflecting the position after each run gives decreasing contractions G_m(z)=−1+q^m(1−z), so the positive-start return map is F_mn=G_n∘G_m. The attractor for {G₁,G₂} is also the attractor of its twofold composition by uniqueness. On the stated hull I, G₂(h)=ℓ and G₁(ℓ)=h, and G₂<G₁ pointwise. The interval gap G₁(h)−G₂(ℓ)=2q(1−q−q²)/(1+q+q²) is positive precisely below φ⁻¹. It gives strict separation there, single-endpoint contact at equality, and interval coverage thereafter. Independent exact algebra also verifies the three four-map signed gaps and canonical q=1/2 intervals. The middle two images need not have ordered left endpoints above threshold, but the reverse overlap inequality F₁₁(h)−F₂₂(ℓ)=2q(q⁴−q+1)/(1+q+q²)>0 confirms that the stated chain covers the hull. The similarities satisfy (q^s+q^{2s})²=1 and the iid equally weighted pair has entropy log 4 and Lyapunov exponent 3 log(1/q), giving the two distinct dimensions under strong separation. In equilibrium physical time, each two-run cycle of mean 3τ starts in the embedded stationary law; each of its two monotone runs has normalized speed at least 2κq²/(1+q+q²)>0. Occupation time in a set is therefore bounded by a constant times its length, yielding an essentially bounded physical-time density independently of the event measure's regularity.",
+      "residual_risks": [
+        "The dimension of the switching measure is asserted only in the strict separation regime; interval support above it does not imply a density. Physical time here means equilibrium phase or long-run occupation, not a synchronized lattice-time marginal."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Farago–Smith works with general waiting laws, numerical tumbling currents and occupation densities, with examples exponential, semi-Gaussian and half-t, and leaves checking a discrete waiting law for future work (Section V). Hutchinson's similarity-dimension framework handles attractors after the geometry is known. Indexed 1bb9343a7e6c concerns a different six-branch reshuffling IFS."
+        ],
+        "reasoning": "The general steady-law framework and dimension theorem supply starting methods, but neither computes the model's reflected threshold or compares its event and equilibrium occupation laws. A separation theorem for different affine branches does not specialize to these maps from the available statement.",
+        "searches": [
+          "Primary literature search: trapped alternating-renewal swimmer with discrete waiting times and switching support",
+          "arXiv:2401.01576v2, Sections II–V",
+          "10.1512/iumj.1981.30.30055; Resultary 1bb9343a7e6c"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2401.01576v2 primary passages",
+        "Resultary 8cb7ca113d37, 3baa3630f98c, 1bb9343a7e6c and 08fdea0f343f",
+        "Resultary 3590eb1cf344 (retrieval attempt and recorded description)",
+        "10.1512/iumj.1981.30.30055 (standard IFS theorem)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Farago–Smith explicitly uses event points as inputs to a steady-state computation and identifies the discrete waiting-time check as open for that method. The known general IFS claims yield formulas after separation is established, not its model-specific condition."
+        ],
+        "reasoning": "Even a formula expressing physical occupancy from event data does not force interval filling or determine the dimension of those data. The binary durations and strict flip determine the specific gap factor; the occupation argument uses speed away from the trap equilibria on the entire return hull.",
+        "searches": [
+          "arXiv:2401.01576v2, tumbling points Eq. (23) and discrete g(t) near the end of Section V",
+          "Resultary 1bb9343a7e6c, 3baa3630f98c, 3590eb1cf344"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reflecting the coordinate after each run reduces the four maps to the square of a two-contraction IFS. Farago–Smith Eqs. (12), (13), (17)–(18), (23) describe tumbling-current/occupation quantities in the same physical framework. Indexed 3baa3630f98c and 08fdea0f343f concern stationary moments, spectroscopic recovery or radial-energy memory, not this event section."
+        ],
+        "reasoning": "Treat the reflected IFS and the positive-start return IFS as equivalent; the steady-time position or energy autocorrelation statistics are not equivalent to their invariant compact support or local dimension.",
+        "searches": [
+          "Resultary: harmonic renewal swimmer, binary waiting times, switching-position Cantor/interval transition",
+          "arXiv:2401.01576v2, Sections II and III.B",
+          "Resultary 3baa3630f98c, 08fdea0f343f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit 8cb7ca113d37 is the assigned record. The distinct same-day indexed 08fdea0f343f is a 3D radial-energy result; earlier indexed 3baa3630f98c concerns moments and recovery. The citation 3590eb1cf344 was not independently retrieved."
+        ],
+        "reasoning": "The self-hit is not corroborating priority evidence. The other available indexed statements address different observables and do not give exact gaps or dimensions for the same return section.",
+        "searches": [
+          "Resultary: exact binary alternating run-time switching support and golden-ratio boundary; harmonic swimmer variance envelope"
+        ]
+      },
+      "rationale": "The alternating-renewal harmonic-trap model, generic IFS methods and the distinction between tumbling and physical-time occupation are established background. Credit the distinct exact binary-clock event-section phase diagram and the contrast of its two dimensions with bounded equilibrium physical-time density. Farago–Smith's primary text treats tumbling positions but leaves discrete-law checks for future work; the examined general and indexed statements do not provide this section's gap calculations or quantitative threshold.",
+      "residual_risks": [
+        "Indexed comparisons are statement-level only where full local mirrors could not be retrieved. Alternative discrete walk/renewal terminology may hide an equivalent result; priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same framework and event/inter-event distinction; no covering binary section theorem in the decisive inspected passages",
+          "evidence": [
+            "Eqs. (3)–(5) define the tumbling currents; (12), (13), (17)–(18) supply integral equations; Eq. (23) computes steady occupation from tumbling points.",
+            "Section V, before Acknowledgments (text offset about 55,800): verifying the method for a Pearson walk with discrete g(t) is left for later work."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2401.01576v2",
+          "material_read": "Primary PDF pp. 1–4, Sections II–III and examples description; closing Section V p. 8",
+          "method": "OA PDF passage lookup and bounded offsets",
+          "title": "Confined run and tumble particles with non-Markovian tumbling statistics",
+          "trigger": "Same sign-flipping model and possible general or discrete-clock coverage"
+        },
+        {
+          "assessment": "Different observables in available statement",
+          "evidence": [
+            "Noise bounds, recovery of switching-time law and stationary variance, not support of the embedded return-section law."
+          ],
+          "identifier_or_url": "Resultary 3baa3630f98c",
+          "material_read": "Indexed statement; full local mirror unavailable",
+          "method": "Resultary and local-mirror attempt",
+          "title": "Sharp dwell-time noise bounds and trap-spectroscopic recovery for alternating-renewal propulsion",
+          "trigger": "Same trapped renewal-swimmer framework"
+        },
+        {
+          "assessment": "Reported moments/correlations; no independent full-text conclusion",
+          "evidence": [
+            "Frozen record describes a stationary spatial variance envelope, not event support."
+          ],
+          "identifier_or_url": "Resultary 3590eb1cf344",
+          "material_read": "Description in frozen RESULT.md lines 69–83; exact-title search and local mirror did not recover the result",
+          "method": "Resultary and local-mirror attempt",
+          "title": "Sharp variance envelope for harmonically trapped alternating-renewal swimmers",
+          "trigger": "Same trap and alternating-renewal model"
+        },
+        {
+          "assessment": "Different maps in available statement",
+          "evidence": [
+            "Six-branch reshuffling system with separated-regime dimension formula."
+          ],
+          "identifier_or_url": "Resultary 1bb9343a7e6c",
+          "material_read": "Indexed statement; full local mirror unavailable",
+          "method": "Resultary and local-mirror attempt",
+          "title": "Exact separation and interval-filling thresholds for three-sample reshuffling",
+          "trigger": "Closest indexed IFS separation and interval alternative"
+        },
+        {
+          "assessment": "Different dimension and observable in available statement",
+          "evidence": [
+            "Three-dimensional radial-energy fluctuations and memory."
+          ],
+          "identifier_or_url": "Resultary 08fdea0f343f",
+          "material_read": "Indexed statement, not full result",
+          "method": "Resultary",
+          "title": "Quadrupole-blind radial energy memory separates matched run and tumble models",
+          "trigger": "Distinct same-date nearby trapped-propulsion claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–22 and 39–63",
+        "Farago–Smith arXiv:2401.01576v2, Sections III.B and V"
+      ],
+      "rationale": "The two binary dwell times give a natural test of event-sampled versus time-sampled steady-state data in a standard trapped-particle model. The exact boundary, the separate measure and support dimensions, and a speed-based density bound quantify a failure of physical-time measurements to reveal singular switching geometry. This is a complete benchmark for this clock, not just an isolated fractal example.",
+      "residual_risks": [
+        "No theorem for other duration ratios, for Brownian translational noise, or for switching-measure regularity in the overlap regime."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

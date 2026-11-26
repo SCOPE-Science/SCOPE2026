@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:31:40.204503Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the repaired finding, anchor one labeled point and order the other two: the uniform longitudes give joint half-gap density 2/pi². Using the tangent dot products, with X dot Y=1-2(1-k)sin²(a) and the two cyclic analogues, reduces the angle inequalities to the three cotangent products <k. These products sum to one. A nonpositive cotangent leaves exactly the other product potentially positive, and that product is at least one, so such a shape is never acute and cannot have two nonacute angles for k>0. On the positive simplex the inverse cotangents in the proof are positive with pair sum one and reproduce the unique angles with sum pi. In variables A=cot(a), B=cot(b), C=(1-AB)/(A+B), the determinant for (u,v)=(AB,BC) relative to (A,B) is 2ABC/(A+B); multiplying by (1+A²)(1+B²) and using AB+BC+CA=1 gives 2(1-u)(1-v)(1-s), establishing the claimed density. Integration over the levels gives the marginal and Q by w=(1-u)/(1+u); the inner overlap integral uses 1/((1-v)(u+v)) and yields exactly the logarithm stated. Differentiating Phi/2 gives log(u)/(1-u²) and differentiating H_k gives log(u+k)/(1-u²), so the given antiderivative and real arguments are valid. A pair of coordinates cannot both be >=1/2 because the third is positive, while for k<1/2 choosing u,v>k with u+v<1 gives positive mass. Triple failure is impossible for k>1/3, exactly the range where inclusion–exclusion is used. The quadratic central and edge triangles have coordinate areas (9/2)(k-1/3)² and (1-2k)²/2, with densities 27/(8pi²) and 4/pi² at the limiting points. Their analytic local expansions give continuous first derivatives and distinct second derivatives at the two transitions. The small-R series follows from w=R²/2+R⁴/12+O(R⁶) and the odd dilogarithm difference. Independent bounded replay: python3 /workspace/reproductions/frozen_checks.py spherical (mpmath) checks strict two-failure witnesses with direct 3D tangent products and gives P(pi/4)=0.0447497197384097058662068 by tail quadrature. It supplies examples and a numerical value only; the proof covers the continuum. Frozen verification code and notes were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "7951fcdc74c5 gives the same R² coefficient on specializing its smooth-surface curvature formula to the unit sphere, but does not give the R⁴ coefficient or the all-radius evaluation.",
+          "e75fde9a2b70 treats curvature -1, not +1. Whole-sphere and chord models use different sampling and/or angle tests."
+        ],
+        "reasoning": "The prior general surface leading term is covered. Neither that expansion nor whole-sphere angle densities imply the finite-radius boundary-law dilogarithms or the quadratic turn-on of the pair overlap.",
+        "searches": [
+          "Resultary: curvature from random geodesic-circle acuteness and exact hyperbolic analogue",
+          "Akopyan–Edelsbrunner–Nikitenko arXiv:2007.07783 §4.1",
+          "Finch–Jones arXiv:1009.5329"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py; repaired RESULT.md",
+        "Resultary 711f5d6843db, 7951fcdc74c5, d66cc98a9db3 and e75fde9a2b70",
+        "Akopyan–Edelsbrunner–Nikitenko arXiv:2007.07783",
+        "Finch–Jones arXiv:1009.5329",
+        "Ismailov arXiv:2601.02929v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The arccosine integral determines P for all radii and already locates changes at k=1/3 and k=1/2 in its domain representation. It does not give the two-coordinate probability formula or its strict positivity range for k<=1/3 (where the prior acute probability is identically zero).",
+          "The expanded repaired proof uses the product identity and positive-simplex density to get an independent decomposition into single and pair failures, a real dilogarithm overlap primitive, and a transition coefficient from local density at a simplex edge."
+        ],
+        "reasoning": "A different representation of a known function counts here only because the exact evaluation is stronger than an unevaluated quadrature and gives mathematically meaningful event probabilities and local behavior; simple reparameterization would not be sufficient.",
+        "searches": [
+          "711f5d6843db RESULT.md Finding and proof of its q_0 cutoff",
+          "7951fcdc74c5 RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "711f5d6843db has exactly the same sampling and probability, with lambda=k and K=(1+k)/(1-k). Its q_0 branch changes at K=3, equivalent to k=1/2, and its k=1/3 onset coefficient is identical.",
+          "Ismailov's planar circle probability of containing the center gives the classical 1/4 limit, not the positive-radius spherical law."
+        ],
+        "reasoning": "The arccosine integral must equal the acute probability here; this does not exhibit a dilogarithmic antiderivative or the probability of two nonacute angles on their own. The repaired contribution is a useful evaluation and event analysis, not discovery of the function or its leading onset.",
+        "searches": [
+          "Resultary: spherical small circle intrinsic acute-triangle law and both thresholds",
+          "Resultary 711f5d6843db, exact arccosine integral and q_0 cutoff",
+          "Ismailov arXiv:2601.02929v1, planar center containment"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact indexed formula is the alternate one-dimensional integral in 711f5d6843db, not a dilogarithmic evaluation. The planar angle-simplex density in d66cc98a9db3 and the trivariate full-sphere densities described by Finch–Jones do not have the repaired model's cotangent-simplex distribution.",
+          "Akopyan et al. obtain 1/2 for ambient chord acuteness for full-sphere points and explicitly distinguish the 1/4 probability for uniform arclength sampling in the Euclidean circle."
+        ],
+        "reasoning": "The repaired result is a continuous parameter formula, not numerical tabulation. An exact known model or endpoint probability does not match the special-function evaluation and refined event boundary.",
+        "searches": [
+          "Resultary: spherical and planar triangle angle/gap distributions and fixed-radius boundary sampling",
+          "Akopyan–Edelsbrunner–Nikitenko Lemma 4",
+          "Finch–Jones p. 1, cited trivariate angle/side densities",
+          "Resultary d66cc98a9db3, planar acute angle law"
+        ]
+      },
+      "rationale": "For the repaired finding only: the same exact probability function, sharp vanishing threshold, monotonicity, and leading k=1/3 onset are credited to overlapping work without inferring priority from catalog order. The supported distinct result is the piecewise dilogarithmic evaluation via the positive cotangent simplex and the sharp analysis of the at-least-two-nonacute event and higher expansion terms. These are not supplied by the overlapping arccosine integral. The k=1/2 location is visible in the other integral's endpoint, so that location alone does not count as a distinct contribution.",
+      "residual_risks": [
+        "Complete lawful primary text for Le (1989) and Maeda (2008) was unavailable; the complete Maehara–Martini survey chapter was not inspected. These are priority risks, not exclusion evidence.",
+        "Catalog dates alone neither establish chronology for materially overlapping records nor establish independence. The exact same-model coverage is credited, and a prior independent dilogarithmic evaluation remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent probability via an inverse-trigonometric integral; direct overlap with the threshold, monotonicity and leading onset, not the repaired explicit evaluation.",
+          "evidence": "The integration endpoint q_0 changes at K=3; the quoted onset is 243(k-1/3)²/(16pi²).",
+          "identifier_or_url": "Resultary 711f5d6843db",
+          "material_read": "RESULT.md Finding (offsets 0–1100) and ordered-gap proof around offset 4954",
+          "method": "Local Resultary mirror",
+          "title": "A sharp latitude threshold and exact acute-triangle law on spherical small circles",
+          "trigger": "Same fixed small-circle sampling, same exact full-radius law"
+        },
+        {
+          "assessment": "Covers the leading deficit under specialization; no fourth-order term in the statement.",
+          "evidence": "P_p(r)=1/4-3K_g(p)r²/pi²+O_p(r³).",
+          "identifier_or_url": "Resultary 7951fcdc74c5",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Curvature from the acuteness deficit of random geodesic circle triangles",
+          "trigger": "Exact matching small-radius term from a stronger curvature model"
+        },
+        {
+          "assessment": "Different sampling and ambient chord angles.",
+          "evidence": "Induced circumcircle distribution from full-sphere points is not uniform along the circumference; they contrast the two Euclidean acute probabilities.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.07783",
+          "material_read": "Lemma 4 p. 4 and §4.1 p. 5",
+          "method": "Lawful open primary PDF passages",
+          "title": "The Beauty of Random Polytopes Inscribed in the 2-sphere",
+          "trigger": "Spherical and circumcircle acuteness comparisons"
+        },
+        {
+          "assessment": "The primal model is whole-sphere-uniform, not the fixed small-circle boundary law.",
+          "evidence": "The vertices are independently uniform on the sphere in the defined model.",
+          "identifier_or_url": "https://arxiv.org/abs/1009.5329",
+          "material_read": "p. 1 definition of primal triangles and reference to trivariate densities",
+          "method": "Lawful open primary PDF passage",
+          "title": "Random Spherical Triangles",
+          "trigger": "Possible known spherical angle densities"
+        },
+        {
+          "assessment": "Covers the classical planar limit at the center, not intrinsic positive-radius sphere angles.",
+          "evidence": "The inscribed triangle contains the center with probability 1/4.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.02929v1",
+          "material_read": "Introduction and Theorem 1.1",
+          "method": "Lawful open primary HTML passages",
+          "title": "With what probability does an inscribed triangle contain a given point?",
+          "trigger": "Exact planar-circle endpoint comparator"
+        },
+        {
+          "assessment": "No full-text exclusion; possible historical overlap not settled.",
+          "evidence": "Available descriptions report cap sampling, which differs from boundary sampling; they do not rule out boundary specializations in the text.",
+          "identifier_or_url": "https://doi.org/10.2307/1427637",
+          "material_read": "Frozen abstract-based description and parallel description in the 711f5d6843db comparison; primary full text unverified",
+          "method": "Lawful DOI retrieval attempt and comparison of available descriptions",
+          "title": "Random spherical triangles II: Shape densities",
+          "trigger": "Potentially relevant spherical cap versus boundary shape law"
+        },
+        {
+          "assessment": "No statement-level exclusion asserted for the unread chapter.",
+          "evidence": "Available summary describes ambient-sphere triangle types, not a matching fixed-radius boundary formula.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-540-89550-3_13",
+          "material_read": "Frozen abstract summary; chapter not retrieved through the lawful publisher route",
+          "method": "Publisher DOI attempt; redirects left the chapter unreadable",
+          "title": "Seven Types of Random Spherical Triangle in S^n and Their Probabilities",
+          "trigger": "Possible known classification by numbers of nonacute angles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired contribution gives a computable explicit evaluation of a natural geometric probability and a structural decomposition into nonacute-angle counts, with a strict transition and its sharp quadratic coefficient at the first overlap. The small-radius fourth-order term and second-derivative jump sharpen meaningful boundary behavior, independently of the already covered leading deficit and zero threshold.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

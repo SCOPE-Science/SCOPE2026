@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:54:16.024133Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Nontrivial additive-character orthogonality gives the exact polynomial Gram kernel ∏ᵢ(1+z(q·1_{xᵢ=yᵢ}−1)). Under torsor translation it is convolution on H₁. Inserting the product-one constraint by multiplicative-character orthogonality yields the one-site multipliers Q+z (trivial) and qz (nontrivial); averaging over diagonal shifts gives the claimed F_[e], one eigenmode per orbit. The rational coefficients are integral by the integral Gram kernel (or by reducing the numerator mod Q, where each of the Q terms reduces to z^d). Each summand has a positive coefficient at every degree from d−m through d, so shell and band have exactly the same supported character modes. Counting excluded occupancy words and dividing by the free diagonal action proves the rank formula including the empty-sum case; balanced occupancies attain the pigeonhole bound. At k=d−1 subtract the top coefficient from q^d; integer transfers and strict convexity of q^(−m) give concentrated maxima and balanced minima of the omitted coefficient. Counting their orbits proves both spectral edge multiplicities, with Q=1 giving the single 2^d−1 value separately. The proof uses field-character orthogonality, not a prime-field-only argument. Independent direct replay at /workspace/branches/6ee37c19-4ac8-46e6-9d38-3b7adc500732/independent_check.py corroborated the rank-58 case and last-band extrema 156 and 500 in F₅,d=4, and 21 and 48 in F₄,d=3. The submitted checker was inspected, not executed; its broader recorded run is self-review evidence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Poisson-binomial conditional eigenvalues 1−β_T are for a union of coordinate hyperplanes in heterogeneous finite abelian products, not a checksum fiber with an additive matrix.",
+          "The Hamming-sphere result gives harmonic eigenspaces and Λ_(s,j) levels for fixed-weight observation spheres, not for the multiplicative product constraint."
+        ],
+        "reasoning": "Neither observation set specializes to the reviewed operator with all the same hypotheses and all-degree additive weights.",
+        "searches": [
+          "Resultary b286e6b4e2c8, Exact Poisson-binomial conditioning, Entire block spectrum",
+          "Resultary f3d01cadaa90, An all-degree spectral law for Fourier sampling on q-ary Hamming spheres"
+        ]
+      },
+      "checked_sources": [
+        "Fraser–Rakhmonov arXiv:2505.09293 §5.2",
+        "Resultary 75b261de521c, b286e6b4e2c8, f3d01cadaa90 and self-match 32f66dbfde20"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specializing alphabet size to Q, length to d and degree to k yields the known occupancy threshold; the earlier checksum paper explicitly excludes weighted Fourier sampling in Limitations. Its per-orbit multiplicative counts can help carry out the averaging, but the local additive Gram eigenfactors, and thus the complement and extremizers of its highest-order term, must be computed for this different sampling operator.",
+          "Fraser–Rakhmonov compute μ̂_j(m)=(−1)^(d−ℓ_m)(|F|−1)^(−(d−ℓ_m)) when ℓ_m≥1 and a decay bound at ℓ_m=0. An entrywise Fourier formula or decay bound is not already a shell Gram diagonalization or sharp singular bound."
+        ],
+        "reasoning": "Direct specialization covers the rank framework only; the inspected theorems do not mechanically supply the claimed additive weights and stability formula without the new operator calculation.",
+        "searches": [
+          "75b261de521c, Finding, Proof §§1–3 and Limitations, exact integer alias blocks versus weighted shell Gram",
+          "Fraser–Rakhmonov §5.2, Lemma 5.3, Proposition 5.4 and Corollary 5.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fraser–Rakhmonov work on exactly H_j for j≠0, but their §5.2 quantities are scalar surface-measure Fourier coefficients, not Gram eigenvalues.",
+          "The alias result 75b261de521c uses the same product-one group after cyclic coordinates; its columns are multiplicative characters, whereas this operator restricts full additive-frequency shells on the field."
+        ],
+        "reasoning": "The two alias descriptions share a character basis and the observation set, but replacing frequency characters by restricted additive phases changes the local spectral multiplier and cannot be treated as a relabeling.",
+        "searches": [
+          "Resultary: additive Fourier Hamming shell/band spectra and exact alias spectra for parity-check sampling",
+          "Fraser–Rakhmonov arXiv:2505.09293, §5.2 multiplicative hypersurface H_j"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact polynomial and final-band extrema in indexed record 32f66dbfde20 are the frozen submission itself. The exact alias table of 75b261de521c instead counts multiplicative words of bounded support within each diagonal orbit, and the exact Hamming-sphere table f3d01cadaa90 concerns a different observation operator."
+        ],
+        "reasoning": "The exact self-match supplies no antecedent, and the independent exact spectral tables inspected do not give the additive levels.",
+        "searches": [
+          "Resultary exact-additive Hamming-band spectrum on finite-field multiplicative varieties; alias/checksum and Hamming-observation spectral tables"
+        ]
+      },
+      "rationale": "Credit only the weighted additive-frequency multimode spectrum and its sharp last-band spectral consequences, not the diagonal quotient or the previously covered occupancy rank threshold. The closest same-variety and same-checksum results inspected do not already evaluate this weighted operator.",
+      "residual_risks": [
+        "A more general explicit weighted Fourier theorem on subgroup restrictions, or a known spectral evaluation in other terminology, could cover the result. Bounded inspected comparisons do not establish universal priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same H_j; surface-measure Fourier coefficients and decay, not reviewed sparse sampling spectra",
+          "evidence": "Exact coefficient for ℓ_m≥1 and decay for all-nonzero m; subsequent conclusions concern Salem behavior and extension bounds.",
+          "identifier_or_url": "https://pure.st-andrews.ac.uk/ws/portalfiles/portal/336282202/Fraser_2026_PAMS_Improved-L2-restriction-finite-fields_AAM_CCBY.pdf",
+          "material_read": "§5.2, PDF pp. 11–12, Lemma 5.3, Proposition 5.4, Corollary 5.5",
+          "method": "Lawful direct OA PDF text",
+          "title": "An improved L² restriction theorem in finite fields",
+          "trigger": "Same finite-field multiplicative variety and additive Fourier analysis"
+        },
+        {
+          "assessment": "Covers shared rank threshold and multiplicative-character bands; does not evaluate the additive-weighted spectrum",
+          "evidence": "Integer levels count admissible aliases; the limitations expressly exclude weighted Fourier sampling.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-alias-spectra-and-the-binary-nyquist-boundary-for-parity-c--75b261de521c",
+          "material_read": "Finding, assumptions, Proof §§1–3 and Limitations (local offset 7052 onward)",
+          "method": "Resultary lookup and local mirror",
+          "title": "Exact alias spectra and the binary Nyquist boundary for parity-check Fourier sampling",
+          "trigger": "Identical checksum group and diagonal occupancy framework"
+        },
+        {
+          "assessment": "Different observation set and local constraints",
+          "evidence": "Union-of-coordinate-hyperplane restriction; the exact modes have levels 1−β_T with the least given by a Poisson-binomial tail.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-poisson-binomial-conditioning-for-heterogeneous-fourier-sa--b286e6b4e2c8",
+          "material_read": "Finding and Entire block spectrum passage",
+          "method": "Resultary lookup and local mirror",
+          "title": "Exact Poisson-binomial conditioning for heterogeneous Fourier sampling on coordinate hyperplanes",
+          "trigger": "Possible dominating weighted spectral theorem"
+        },
+        {
+          "assessment": "Hamming sphere is the observation set rather than a product-one torsor",
+          "evidence": "Eigenvalues indexed by harmonic/Krawtchouk levels Λ_(s,j) for observation on a fixed-weight sphere.",
+          "identifier_or_url": "2026/10/11/SCOPE-an-all-degree-spectral-law-for-fourier-sampling-on-q-ary-hamming--f3d01cadaa90",
+          "material_read": "Finding, assumptions and Proof §§1–3",
+          "method": "Resultary lookup and local mirror",
+          "title": "An all-degree spectral law for Fourier sampling on q-ary Hamming spheres",
+          "trigger": "Possible equivalent Hamming sampling spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-degree character law gives exact small and large singular levels on a natural finite-field multiplicative observation variety, not just identifiability. At the last proper band it identifies both worst and best stability modes, with exact condition number and extremal multiplicities. These are meaningful sampling invariants across all q and d; the known occupancy threshold is not counted toward this value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

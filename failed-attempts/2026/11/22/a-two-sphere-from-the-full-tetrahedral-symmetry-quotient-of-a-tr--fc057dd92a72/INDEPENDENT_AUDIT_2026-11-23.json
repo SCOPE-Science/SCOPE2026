@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:43:39.380502Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–43; verify.py, collapse_pairs.json, VERIFICATION.md and verify_output.txt inspected read-only",
+        "Independent computation /tmp/opencode/review_flag_orbits_4_5.py, truncated-tetrahedron case"
+      ],
+      "rationale": "The four triangles are exactly the first-coordinate triples; the reversal edges uniquely identify which triangle each vertex pairs with. An automorphism is consequently determined by permuting the four triangles, and every such permutation acts. Independent subsets are partial functions without fixed points or mutual reversals. In the barycentric subdivision the distinct cardinalities in any one flag force identifications within a closed simplex to fix its supporting vertices and coefficients, so closed cells embed in the orbit space. All facets have distinct omitted ranks, giving the stated regular CW collapse test. I independently generated faces and flags by combinations and strict submask recursion and recovered (12,48,72,30) source faces, 3342 flags and (11,42,63,30) orbit cells. Replaying the actual frozen collapse_pairs.json against rebuilt incidence verified all sixty free-face pairs, with each higher cell maximal on removal, and the resulting closure has (6,12,8) cells. Each edge has two incident triangles and each vertex has a connected 2-regular link with multiplicities; the core is connected and has Euler characteristic two. This proves the closed PL sphere core and the simple-homotopy claim by the regular cellular collapses. The core is a regular triangular cellulation with parallel edges (e.g. two between vertices 1 and 6 under frozen indexing), not an abstract simplicial complex without subdivision; its barycentric subdivision is a combinatorial two-sphere in the strict simplicial sense.",
+      "residual_risks": [
+        "The quotient collapses onto the indicated sphere and is not asserted to be homeomorphic to it. Use the regular CW or subdivided interpretation of the spherical core, not a claim that its unsubdivided incidence is an abstract simplicial complex."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "eabf618ad7d5 proves simple connectivity and rational degree-two rank one for the same geometric quotient but explicitly disclaims an integral identification.",
+          "2b26dff9db46 concerns 2-independence; 35f2c44e32ab concerns the matching complex of the 18-edge truncated tetrahedron.",
+          "cd45e6d28233 covers the full quotient itself without weakening integral coefficients."
+        ],
+        "reasoning": "The earlier rational and adjacent graph results are not dominating theorems for the integral claim. The actual stronger coverage comes from the exact same quotient/collapse computation in the distinct dated peer.",
+        "searches": [
+          "Resultary eabf618ad7d5, Finding/Assumptions and quotient proof §4",
+          "Resultary 2b26dff9db46 and 35f2c44e32ab",
+          "cd45e6d28233, Proof §§1–3"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary/SCOPE index; mirror records cd45e6d28233, eabf618ad7d5, 2b26dff9db46 and 35f2c44e32ab",
+        "Frozen collapse_pairs.json and independently reconstructed incidence; directly remapped sibling certificate"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Simple connectivity and rational rank one in this three-dimensional model force H3=0 and rank H2=1, not torsion-free H2; a wedge of S^2 with a degree-two torsion Moore space illustrates the logical gap.",
+          "The sibling residual core has twelve edges with two incidences each and cyclic vertex links; it is connected with Euler characteristic 6−12+8=2. Thus even without its attaching-word simplification, the sibling certificate gives sixty collapses onto a PL S^2. The collapse also implies the simple-homotopy statement."
+        ],
+        "reasoning": "Guard against overstating what the November 8 rational argument gives. In contrast, the same-day certificate directly supplies the additional integral and geometric assertion under the very same assumptions. An alternate list of free faces, absent a mathematically significant extra property, does not salvage novelty for the claimed existence theorem.",
+        "searches": [
+          "eabf618ad7d5, rational quotient result and limits",
+          "cd45e6d28233, attaching maps and independent reconstruction of its recorded residual complex"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "eabf618ad7d5 identifies the ordinary independence complex with the matching complex of the once-subdivided K4, due to the line-graph description.",
+          "cd45e6d28233 uses the very same ordered-pair graph, ordinary geometric quotient, and simultaneous S4, and states the integral S^2 homotopy type."
+        ],
+        "reasoning": "The ordered-pair and matching descriptions carry the same simultaneous permutations. The exact same-object sibling is not the unquotiented matching complex of the truncated tetrahedron itself, nor its 2-independence complex. The exact frozen hit is separate from the sibling.",
+        "searches": [
+          "Resultary: truncated-tetrahedral independence complex, full tetrahedral symmetry and once-subdivided K4 matching quotient",
+          "Original mirror records eabf618ad7d5 and cd45e6d28233"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both initial orbit-cell vectors are (11,42,63,30) and both certificates remove sixty cell pairs to leave (6,12,8). The frozen index orders flag tuples of bit masks; the sibling orders flag tuples of sorted vertex-index tuples.",
+          "After converting the sibling IDs to the frozen IDs, four pairs occur in both lists and the surviving subcomplexes are not equal. The remapped sibling list passes the free-face tests; every one of its twelve edges has exactly two triangular incidences, and every vertex link is connected and 2-regular (link-vertex counts 8,2,2,4,6,2 in ascending remapped vertex order)."
+        ],
+        "reasoning": "This is exact scientific coverage, not an exact sequence match. The alternate certificate can be recognized directly as the same kind of spherical core, not merely as a CW complex reducible to a sphere by later moves.",
+        "searches": [
+          "Resultary exact quotient and collapse certificate; cd45e6d28233 RESULT.md offsets 1900–5792, certificate.json full pair data and verify.py canonical-indexing passages",
+          "Frozen collapse_pairs.json"
+        ]
+      },
+      "rationale": "A distinct indexed record, cd45e6d28233, demonstrably covers the same integral sphere claim and the same stronger existence of a sixty-step elementary collapse onto a PL sphere. Its stated core-recognition proof uses attaching words rather than surface links; however I checked its actual certificate in a common orbit indexing, and its residual core itself satisfies the same closed-surface criterion. Its pair sequence really is different, but gives equivalent scientific coverage, not a new quotient or stronger structural conclusion. Both records have publication date 2026-11-22 UTC; within-day order and priority are not established, and this coverage finding is not a claim about who was first.",
+      "residual_risks": [
+        "There is no priority inference from identical UTC publication dates. A second cited November 8 rational-homology record, 1ca9caa90c0c, was unavailable in the local mirror; that limitation is not the basis of the negative decision. This is a scoped result comparison, not a general historical-priority conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent integral and spherical-core collapse coverage with a different collapse list; relative date within UTC day unresolved",
+          "evidence": [
+            "Same 146-cell regular orbit model and 60 verified free-face pairs; exact residual counts (6,12,8).",
+            "Published recognition uses a spanning tree and seven attaching-word cancellations. Independent incidence and link checks on that exact residual model give a closed PL two-sphere directly."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-the-full-tetrahedral-quotient-of-a-truncated-tetrahedral-indepen--cd45e6d28233",
+          "material_read": "Mirrored RESULT.md, finding and §§1–3, including offsets 1900–5792; certificate.json collapse array and triangle indices; verify.py canonical-flag and sorted-cell passages around offsets 1110–2018; METADATA.json publication_date",
+          "method": "Local Resultary and targeted original mirror passages; independent orbit remapping and replay of numerical certificate, no execution of uploaded verifier",
+          "title": "The full tetrahedral quotient of a truncated-tetrahedral independence complex is a two-sphere",
+          "trigger": "Exact same quotient and apparently the same strong collapse claim in a distinct indexed record"
+        },
+        {
+          "assessment": "Covers same-object quotient simple connectivity and rational homology, not by itself the integral or collapse claim",
+          "evidence": [
+            "Source complex is nonequivariantly a wedge of five 2-spheres; full quotient is simply connected with one-dimensional rational H2. Scope expressly does not identify integral quotient homology."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-homotopy-and-tetrahedral-symmetry-of-a-subdivided-complete-graph--eabf618ad7d5",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions offsets 0–2056 and Proof §4 offsets 5900–8094",
+          "method": "Local Resultary search and bounded original mirror text",
+          "title": "Homotopy and tetrahedral symmetry of a subdivided-complete-graph matching complex",
+          "trigger": "Earlier result on the same complex and geometric quotient"
+        },
+        {
+          "assessment": "Different simplicial complex; no implication",
+          "evidence": [
+            "The two-independence complex permits induced components of size two and its unquotiented homotopy type has sphere summands in degrees three and four."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-mixed-sphere-wedges-and-tetrahedral-symmetry-in-the-truncated-te--2b26dff9db46",
+          "material_read": "Mirrored RESULT.md Finding around offset 262",
+          "method": "Local Resultary and original mirror passage",
+          "title": "Mixed sphere wedges and tetrahedral symmetry in the truncated-tetrahedron two-independence complex",
+          "trigger": "Same graph and related homotopy classification under tetrahedral symmetry"
+        },
+        {
+          "assessment": "Different complex (matchings of the truncated tetrahedron itself)",
+          "evidence": [
+            "Its simplicial vertices are the 18 edges of T, not the twelve edges of the once-subdivided K4, and it reports a rationally acyclic full quotient."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-full-tetrahedral-symmetry-of-truncated-tetrahedral-matching-homo--35f2c44e32ab",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Local Resultary and original mirror passage",
+          "title": "Full tetrahedral symmetry of truncated-tetrahedral matching homology",
+          "trigger": "Matching-complex rephrasing could otherwise be mistaken for the same graph"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–15 and 25–49",
+        "cd45e6d28233 Proof §§2–3 and certificate.json",
+        "Independent comparison of both residual cellulations"
+      ],
+      "rationale": "The original integral upgrade over rational quotient data is a worthwhile exact question. Against the confirmed same-object coverage, however, the only surviving difference is another sixty-pair matching with a different cellulated sphere core and a link-based recognition. The other certificate already leaves a closed PL sphere by the same link test. There is no stronger geometric target, shorter collapse count, minimality claim, extension or independently motivated reason to need this particular set of free-face pairs. This provides corroboration, but not a scientifically distinct finding of the asserted scope.",
+      "residual_risks": [
+        "No claim that an alternative collapse program could not be useful in another context; no such substantive additional application or property is established here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

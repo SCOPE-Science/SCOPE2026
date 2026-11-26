@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:00:59.283602Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Assumptions lines 3–26, Proof lines 39–51, Limitations lines 61–63",
+        "Frozen VERIFICATION.md and verify_six_obstructions.py (inspected, not executed)",
+        "Independent replay: python3 /tmp/opencode/frozen_dependence.py; tries every two-way assignment split on all three- and four-edge subsets of selected rectangles through 5×5 and separately implements the duplicated-edge example"
+      ],
+      "rationale": "The six types, sharp witness bound, and the two counts for projected edge sets are correct. Satisfaction is fiberwise mixed-cover existence, via a split into rows with one y and rows with one z. Two disjoint edges leave only two candidate cross covers, each of which can be excluded by one further edge. The sole three-edge failure is a matching. Four-edge minimality then forces matching number two, so König gives a same-shore two-vertex cover, with both degrees two; zero/one/two common neighbors give the same-shore star pair/path/cycle, and transposition supplies the other orientations. The factors are six matchings, one cycle, six paths (three shared vertices times two attachments), and six star pairs (choose two leaves for a specified center), per choice of vertices. However, the Finding asserts counts of distinct subteams and the stated team scope allows multiple full assignments per projected edge. On a complete 2×2 projected fiber take one assignment for three edges but two for (0,0), distinguished only on an extra variable. Removing any edge from the cycle makes it satisfiable. Either representative of (0,0) completes a distinct four-assignment minimal bad subteam, so the actual count is 2, not A4(2,2)=1. The proof coalesces projection duplicates and counts edge sets, which does not identify subteams differing in the representative retained. The Limitations gesture toward projected counts, but do not make the Finding's literal full-subteam count valid. If read as a projected-only statement, this issue disappears, but the originality failure remains.",
+      "residual_risks": [
+        "The replay checks finite instances (4×4: 96 and 396; 5×5: 600 and 1900). The general graph statement follows from the proof, not finite testing. To count full subteams with arbitrary extra variables, sum products of edge multiplicities over projected witnesses."
+      ],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 22 establishes coherence level four for this formula; Fig. 5(a) and the proof give a tight example and a general four-row extraction, not the six-type list.",
+          "Resultary 5b6689bad5fa multiplies the one-fiber count by m to enumerate all minimally falsifying projected teams across m x-values."
+        ],
+        "reasoning": "Sharp witness size is directly covered by the earlier primary theorem. Exact projected counts are a special case of the indexed enumerator, not a consequence of the earlier cutoff alone.",
+        "searches": [
+          "Fröhlich–Kolaitis–Meier, CSL 2026 Theorem 22 and proof, OA offsets 42100 and 44250",
+          "Barlag et al., arXiv:2605.31269, introduction"
+        ]
+      },
+      "checked_sources": [
+        "Fröhlich–Kolaitis–Meier Theorem 22 and proof",
+        "Resultary 5b6689bad5fa and e22bc6a91416",
+        "Barlag et al. introduction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The CSL proof selects a bounded bad quartet, but deriving the full list from this needs additional analysis.",
+          "The exact indexed theorem gives precisely the catalogue and count for m=1, with the identical labeled shore convention. Any extension to projected witnesses of richer teams uses only discarding extra variables; counting their lifts is immediate independent choice of one representative per edge."
+        ],
+        "reasoning": "The distinct indexed result, rather than the cutoff alone, supplies exact coverage of the valid claim. No inference of chronological order from catalogue dates is needed to establish equivalence.",
+        "searches": [
+          "CSL Theorem 22 proof, §§4, pp. 11–12",
+          "5b6689bad5fa Finding, Assumptions and fiberwise reduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary records use the same fiberwise row–column cross (choose at most one vertex of each shore) for exactly the same lax splitting semantics.",
+          "The finite three-variable model is equivalent to the projection of the stated arbitrary finite teams for satisfaction; duplicates do not affect existence or projected minimality."
+        ],
+        "reasoning": "The simple graph, bipartite colors, disjunction and projected witnesses are the same scientific objects in the comparator; comparing literal full subteam counts only exposes the scope error.",
+        "searches": [
+          "Resultary common-determinant split / bipartite mixed covers search; hits e22bc6a91416 and 5b6689bad5fa",
+          "Fröhlich–Kolaitis–Meier, proceedings §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first record lists the matching, cycle, both P5 center colors, and both same-shore star pairs, and gives A=6 choose(r,3)choose(s,3) and B with path terms 2r choose(r−1,2)choose(s,2) and transpose.",
+          "It gives (A,B)=(0,1),(6,45),(96,396) on square sizes 2,3,4. The second record counts all satisfying teams, which is a distinct enumeration."
+        ],
+        "reasoning": "The exact structural catalogue and counting sequences agree on the whole shared domain: 2r choose(r−1,2)=6 choose(r,3) and likewise on the other shore.",
+        "searches": [
+          "Resultary mirror 5b6689bad5fa, Finding and Assumptions; independently inspected exact Finding at offset 0",
+          "Resultary mirror e22bc6a91416, Finding and Proof Step 1"
+        ]
+      },
+      "rationale": "A distinct indexed statement, Resultary 5b6689bad5fa, gives the identical six shore-preserving minimal types for the same formula and exactly the same two complete-fiber counts in algebraically equivalent form. Its one-fiber case covers the original's valid projected counting claim. The later path date does not settle priority or provenance; the finding is equivalent coverage in the inspected material, not an allegation about origin. The prior CSL proof already establishes the sharp witness cutoff. Restricting the claim to projections or one representative per edge does not leave a novel remainder.",
+      "residual_risks": [
+        "The relationship in provenance between the frozen and distinct indexed records has not been established. The assessment relies on their verified scientific equivalence, not an assumption that the indexed item was first.",
+        "The broader database literature was not exhaustively surveyed; that does not weaken the direct statement-level match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE",
+          "evidence": "Coherence level four and tight example; does not enumerate all minimal types in that proof. Theorem is numbered 22 in proceedings and 21 in arXiv v1.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CSL.2026.10",
+          "material_read": "CSL §4, Theorem 22, Figure 5 and proof, pp. 11–12, OA offsets 42100 and 44250; arXiv v1 table for numbering",
+          "method": "Targeted lawful OA proceedings and preprint reads",
+          "title": "Disjunctions of Two Dependence Atoms",
+          "trigger": "Same formula and sharp cutoff"
+        },
+        {
+          "assessment": "EXACT EQUIVALENT COVERAGE of projected claim",
+          "evidence": "Same six colored patterns; counts agree for every p,q by binomial identity, setting m=1. Distinct record; date not used as a priority decision.",
+          "identifier_or_url": "2026/11/22/SCOPE-six-minimal-forbidden-bipartite-patterns-for-a-common-determinan--5b6689bad5fa",
+          "material_read": "Mirrored RESULT.md Finding, Assumptions and Proof, offsets 0–10649; exact Finding reread at offset 0",
+          "method": "Local Resultary lookup and lawful local-mirror bounded reads",
+          "title": "Six minimal forbidden bipartite patterns for a common-determinant dependence split",
+          "trigger": "Exact six types and complete-fiber census"
+        },
+        {
+          "assessment": "DISTINCT COUNT; shared criterion",
+          "evidence": "Computation counts all satisfying teams, not minimal falsifying witnesses.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-size-enumerator-for-a-two-dependence-atom-disjunction--e22bc6a91416",
+          "material_read": "Finding and first proof step, mirror offset 0",
+          "method": "Local Resultary lookup and bounded local-mirror read",
+          "title": "Exact size enumerator for a two-dependence-atom disjunction",
+          "trigger": "Same mixed-cover semantics and related counting"
+        },
+        {
+          "assessment": "BACKGROUND in inspected passage",
+          "evidence": "General coherence discussion citing Fröhlich et al.; no direct evidence of the exact basis in the passage read.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.31269",
+          "material_read": "Introduction pp. 2–3, OA offset 7992",
+          "method": "Targeted OA read",
+          "title": "Aspects of Coherence in Dependence Logic",
+          "trigger": "Broader work on coherence and first-order rewritability"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Proof Steps 5–6 and Limitations",
+        "Resultary 5b6689bad5fa, Finding",
+        "CSL Theorem 22"
+      ],
+      "rationale": "A complete minimal obstruction basis is mathematically useful compared to a witness size bound alone, but here that basis and its exact census are already supplied by the distinct indexed theorem. The literal full-subteam counts are not functions of the two rectangle dimensions under the stated assumptions; the multiplicity correction is just an independent choice of a representative per edge. There is no surviving distinct valuable claim to repair within this submission.",
+      "residual_risks": [
+        "The useful known catalogue should be distinguished from the incremental value of this submission. No claim is made about difficulty of other dependence disjunctions or repair enumeration."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

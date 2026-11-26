@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:35:47.799720Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions and Proof, lines 3–105",
+        "Frozen VERIFICATION.md and CHECK.py, lines 6–79"
+      ],
+      "rationale": "Averaging Fourier coefficients over the regular polygon gives Q(θ)=P_{q,0}(mθ), q=r^m. Harmonic evaluation of log terms under P_{t,φ} gives the claimed reverse loss; for t>0 it is minimized in phase exactly when cos(mφ)=1. The aligned loss minus the uniform loss is F=2log(1−qt^m)−log(1−t²), and tends to +∞ at t→1. For t>0 write v=√(1−t²). The sign of F is the sign of g(v)−q, where g(v)=(1−v)/(1−v²)^{m/2}; (log g)′=((m−1)v−1)/(1−v²). Thus for m≥3 the unique nonzero tie occurs at v=1/(m−1), with exactly the claimed q_c and t_c. The derivative of F has the sign of 1−qt^{m−2}[m−(m−1)t²]; for m≥3 the bracketed product has a single turning point, and only the descending branch can give a positive-radius local minimum. Above q_c this minimum beats zero and is at t>t_c. For m=2 the derivative is strictly positive at all positive radii when q≤1/2, and otherwise changes from negative to positive at √(2−1/q). These facts give all the counts and the one-sided limits. In the forward direction the aligned average log candidate is log(1−t²)−(2/m)log(1−qt^m); it strictly decreases for t>0 since 1−qt^{m−2}>0. The symmetric second difference of x log x and the binomial series yield the two large-m formulas. CHECK.py was inspected, not executed; grids and quadrature there are diagnostics, not the global proof.",
+      "residual_risks": [
+        "The theorem does not cover r=1, irregular angles, unequal weights or non-Poisson candidates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary …fa07f8ed31c0, Finding, assumptions, and Fourier reduction: forward-KL heat-to-Poisson fitting, H_t coefficients e^{−tn²}, nonuniform optimum, reverse orientation expressly excluded.",
+          "Nielsen–Okamura §3, arXiv:2101.12459, p. 22, Theorems 4 and 5."
+        ],
+        "reasoning": "The related heat result uses the same candidate family and Fourier cross-entropy method but a source whose first harmonic is strictly positive. The cited general pairwise divergence formulas may be used to obtain forward cross-entropy by averaging; they do not establish the reverse global minimum of the mixture loss.",
+        "searches": [
+          "Primary literature: Poisson kernel harmonic variational problem Fourier coefficients relative entropy projection regular polygon mixture",
+          "Resultary: circle Poisson kernel mixture forward reverse KL projection regular polygon"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Resultary …67718666ce63 and …fa07f8ed31c0",
+        "Nielsen–Okamura arXiv:2101.12459 §3",
+        "Nielsen (2020); Kalantan–Einbeck (2019), abstracts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In …67718666ce63 squared error gives a first-order m=3 tie at fitted radius √(2/3) and no positive-radius optimum for any m≥4. Here m=3 ties at √3/2 and every m≥4 has a reverse-KL transition.",
+          "Nielsen–Okamura Theorem 4 applies to pairs of disk-parameter Poisson densities; Theorem 5 is the wrapped parametrization."
+        ],
+        "reasoning": "The L² result does not imply the KL thresholds even at m=3. A proof needs the sign and global extrema of the log-loss difference, not just aliasing or pairwise symmetry. The cited unversioned arXiv PDF does contain Theorems 4–5; the older v3 text is not the controlling version for those citations.",
+        "searches": [
+          "Resultary …67718666ce63 and …fa07f8ed31c0, actual Finding and assumptions",
+          "Primary literature: wrapped Cauchy distributions f-divergences Kullback-Leibler Nielsen Okamura 2021 Theorems 4 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wrapped/circular Cauchy is the circle Poisson family; Nielsen–Okamura §3 states its density and Theorems 4–5 cover pairwise divergence.",
+          "Kalantan–Einbeck (2019) describe weighted-quantile mixture parameter estimation, not this population projection."
+        ],
+        "reasoning": "Rephrasing the problem as fitting one wrapped Cauchy to the specified mixture does not remove the logarithm of the mixture in the reverse loss. Pairwise invariance and symmetry compare two individual kernels; Q is not in that family because its first harmonic is zero but its mth is nonzero.",
+        "searches": [
+          "Resultary: equal regular polygon mixture circular Poisson kernel reverse Kullback-Leibler projection minimizers phase transition",
+          "Primary literature: Kullback Leibler approximation single wrapped Cauchy to finite mixture wrapped Cauchy circle projection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact Resultary hit …db760cf84463 is the assigned record, not a separate priority source.",
+          "The distinct close match …67718666ce63 gives explicit thresholds for integrated squared error, including r=1/√2 for m=2 and q_c(3)=3√6/8."
+        ],
+        "reasoning": "Not a finite invariant table; the indexed exact-candidate check found the target itself and a closely neighboring but different loss. The two m=2 thresholds coincide but the optimal radius formulas differ, and for m≥4 the classifications contradict any claim of identical minimizers.",
+        "searches": [
+          "Resultary: wrapped Cauchy divergence projection mixture KL optimizer critical radius",
+          "Resultary: L2 projection equally spaced circular Poisson kernels regular polygon"
+        ]
+      },
+      "rationale": "The all-order reverse-KL optimizer switch and the exact coexistence radius are distinct from the closest known squared-error and pairwise-KL results. Credit the common Poisson aliasing and phase symmetry as established ingredients, and the m=2 critical radius as a coincidence shared with squared error, not by itself a distinctive number.",
+      "residual_risks": [
+        "Full Kent–Tyler (1988) wrapped-Cauchy MLE text was not retrieved; an older equivalent in mixture-projection or harmonic variational literature could have been missed.",
+        "The shared-date Resultary neighbors were compared on content, not assigned an unverified priority order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Pairwise circular and wrapped results verified; does not optimize mixture projections",
+          "evidence": "Theorem 4 maps two circular Cauchy distributions to corresponding two Cauchys and states symmetry; Theorem 5 does the same for wrapped Cauchys.",
+          "identifier_or_url": "https://arxiv.org/pdf/2101.12459",
+          "material_read": "§3, PDF pp. 21–22, offsets 78615–84836; v3 univariate comparison separately",
+          "method": "Open PDF text, literal locate then read by offset",
+          "title": "On f-divergences between Cauchy distributions",
+          "trigger": "Closest primary pairwise circular/Poisson KL result and version check"
+        },
+        {
+          "assessment": "Substantial setting overlap, decisively different objectives and minima",
+          "evidence": "Squared error has a continuous two-source threshold, a three-source tie at 3√6/8 in q, and uniform minima for all m≥4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-two-three-four-cluster-threshold-for-single-poisson-appr--67718666ce63/RESULT.md",
+          "material_read": "Finding, offset 0–2500",
+          "method": "Local mirror",
+          "title": "A sharp two–three–four cluster threshold for single-Poisson approximation on the circle",
+          "trigger": "Exact same source and candidate family, plausibly overlapping thresholds"
+        },
+        {
+          "assessment": "Different source and no reverse projection",
+          "evidence": "Positive first heat harmonic forces positive fitted radius; the reverse orientation is expressly excluded.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-unique-directed-relative-entropy-projection-of-the-circle-heat-k--fa07f8ed31c0/RESULT.md",
+          "material_read": "Finding, assumptions and beginning of Proof, offset 0–2500",
+          "method": "Local mirror",
+          "title": "Unique directed relative-entropy projection of the circle heat kernel onto Poisson kernels",
+          "trigger": "Same candidate and forward-KL orientation"
+        },
+        {
+          "assessment": "Evidence limited to stated aims",
+          "evidence": "Abstract describes divergence-based Voronoi diagrams for sets of Cauchy distributions.",
+          "identifier_or_url": "https://doi.org/10.3390/e22070713",
+          "material_read": "Open PDF p. 1, abstract",
+          "method": "Open PDF passage",
+          "title": "On Voronoi Diagrams on the Information-Geometric Cauchy Manifolds",
+          "trigger": "Cauchy information-geometric comparisons"
+        },
+        {
+          "assessment": "Different estimation objective in examined material",
+          "evidence": "Abstract describes an EM-type algorithm based on weighted component quantiles.",
+          "identifier_or_url": "https://doi.org/10.3390/sym11091186",
+          "material_read": "Open PDF p. 1, abstract",
+          "method": "Open PDF passage",
+          "title": "Quantile-Based Estimation of the Finite Cauchy Mixture Model",
+          "trigger": "Mixture fitting comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Resultary …67718666ce63, Finding"
+      ],
+      "rationale": "The result gives a global classification where symmetry alone does not select a unique candidate. Simply reversing KL turns a uniformly centered fit into one with competing symmetry-breaking minima; the proof determines their exact tie, jump and multiplicity rather than just instability. The distinction for all m≥4 is also real compared with squared-error fitting of the same natural mixture.",
+      "residual_risks": [
+        "No inference is made about robustness to uneven component spacing or weights."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

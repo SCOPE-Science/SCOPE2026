@@ -13,7 +13,7 @@ Then, for **every** \(h\ge0\), the RK4 step is row stochastic if and only if
 \[
 \boxed{F(h)-(M+u)G(h)\ge0,\qquad 1-MF(h)+M^2G(h)\ge0.}\tag{1}
 \]
-Here “row stochastic” means that the row sums are one and every entry is nonnegative. Thus the exact condition is independent of the cyclic ordering of the three departure rates. Formula (1) is a complete test for any specified step, not an assertion about numerical roundoff.
+Here “row stochastic” means that the row sums are one and every entry is nonnegative. The two largest rates determine **which entries to test**, not the values of those entries: the coefficients \(F\) and \(G\) depend on all three rates through \(S\) and \(T\). The exact condition is independent of the cyclic ordering of the three departure rates. Formula (1) is a complete test for any specified step, not an assertion about numerical roundoff.
 
 There is a sharp **mechanism-switching transition** on the natural two-equal-rate family \((a,b,c)=(\lambda,\lambda,\lambda r)\), \(\lambda>0\), \(0<r\le1\). Put \(z=\lambda h\) and
 \[
@@ -108,16 +108,16 @@ A self-contained SymPy-based Python verifier is supplied as `verify.py`. It inde
 
 Nüßlein, Ranocha and Ketcheson (2020, arXiv:2005.06268) study modifying Runge–Kutta weights to enforce positivity, whereas (1)–(2) concern the *unmodified* classical RK4 end-step. Blanes, Iserles and Macnamara (first public preprint 2021-02-16; arXiv:2102.08242) develop positivity-preserving methods for graph-Laplacian ODEs but do not give this rate-bias phase classification. Horváth, Song and Terlaky (2014) provide general polynomial-root methods to obtain valid invariant-set step bounds, rather than the exact two-test reduction, the nonreentrant rate-one-parameter classification, or the algebraic mechanism switch.
 
-Relevant publicly available numerical-analysis results have classified (i) the equal-rate directed three-cycle RK4 cutoff, and (ii) the heterogeneous directed one-way cycles with at least five vertices. Neither covers the unequal-rate three-cycle: the fourth power of a three-cycle generator includes wrapped returns and hence has a distinct positivity mechanism. The known equal-rate answer is correctly recovered at \(r=1\) and is not claimed as new. No blanket novelty or historical-priority guarantee is asserted.
+The indexed statements in references 4 and 5 classify (i) the equal-rate directed three-cycle RK4 cutoff, and (ii) heterogeneous directed one-way cycles with at least five vertices. Those stated scopes do not include the unequal-rate three-cycle: in three states, three or four forward jumps can wrap around the cycle, unlike in cycles with at least five vertices. The known equal-rate answer is recovered at \(r=1\) and is not claimed as new. No blanket novelty or historical-priority guarantee is asserted.
 
 ## Limitations
 
-The exact full-rate formula is a pair of polynomial inequalities; the explicit interval and algebraic phase change are established for the two-equal-rate family only. This is a final-step entrywise positivity result, not positivity of internal RK stages, and not a guarantee about nonlinear or time-dependent problems. It does not imply every nonnegative step forms an accurate approximation. Independent scientific review and further specialist publication-priority checking remain unperformed.
+The exact full-rate formula is a pair of polynomial inequalities; the explicit interval and algebraic phase change are established only when the two largest rates are equal. This is a final-step entrywise positivity result, not positivity of internal RK stages, and not a guarantee about nonlinear or time-dependent problems. It does not imply every nonnegative step forms an accurate approximation.
 
 ## References
 
 1. S. Nüßlein, H. Ranocha and D. I. Ketcheson, *Positivity-Preserving Adaptive Runge–Kutta Methods*, arXiv:2005.06268, first posted 2020-05-13. https://arxiv.org/abs/2005.06268
 2. S. Blanes, A. Iserles and S. Macnamara, *Positivity-preserving methods for ordinary differential equations*, arXiv:2102.08242, first posted 2021-02-16; ESAIM: M2AN 56 (2022), 1843–1870. https://arxiv.org/abs/2102.08242
 3. Z. Horváth, Y. Song and T. Terlaky, *Steplength thresholds for invariance preserving of discretization methods of dynamical systems on a polyhedron*, arXiv:1406.6755, 2014. https://arxiv.org/abs/1406.6755
-4. *Sharp cycle-length positivity frontiers for fourth-order Runge–Kutta*, published mathematical research record, 2026-11-02. https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-cycle-length-positivity-frontiers-for-fourth-order-runge-k--6cbc274839ff
-5. *Exact RK4 positivity on heterogeneous directed cycles and a sharp CFL gain*, published mathematical research record, 2026-11-08. https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-rk4-positivity-on-heterogeneous-directed-cycles-and-a-shar--36d0a038ee0c
+4. *Sharp cycle-length positivity frontiers for fourth-order Runge–Kutta*, published mathematical research record, 2026-11-02. https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-cycle-length-positivity-frontiers-for-fourth-order-runge-k--6cbc274839ff
+5. *Exact RK4 positivity on heterogeneous directed cycles and a sharp CFL gain*, published mathematical research record, 2026-11-08. https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-rk4-positivity-on-heterogeneous-directed-cycles-and-a-shar--36d0a038ee0c

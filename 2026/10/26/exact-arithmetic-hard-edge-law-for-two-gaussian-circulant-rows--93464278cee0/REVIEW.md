@@ -1,11 +1,21 @@
-# Review of the two-row Gaussian circulant hard-edge law
+# Independent mathematical audit
 
-**Correctness — PASS.** The stated Gram reduction and cyclic Fourier spectrum give two exact nonnegative Gaussian quadratic forms. A finite-dimensional Gaussian ellipsoid small-ball identity supplies their constants, and the overlap is strictly lower order; singular-value and condition-number moment cutoffs follow from radial/angular integration. The reproducibility code checks the key matrix identities in representative dimensions and is not substituted for the dimension-free proof.
+## correctness
 
-**Originality — PASS, best-knowledge assessment.** The exact coefficient and shift-gcd/parity inverse-moment classification were compared with the partial-circulant restricted-isometry results of Krahmer–Mendelson–Rauhut and the independent-column randomized-sketch bounds of Saibaba–Międlar. The former are high-probability sparse recovery bounds, and the latter require independence conditions absent for cyclically shifted rows. Neither implies this exact Gaussian hard-edge law. A previously published Gaussian-Hankel two-row result has a different observation dependence and does not imply the cyclic-gcd law. No covering equivalence was found among checked sources; an unindexed older Gaussian autocorrelation/structured-sketch paper could contain the same formula.
+PASS
 
-**Value — PASS.** This is a sharp structural benchmark for numerical stability of a dependent two-row sketch. Changing only the sampling offset changes the exponent from the coprime value to as little as half the number of columns. The exact coefficient and parity effect also distinguish almost-sure full row rank from the existence of expected pseudoinverse or condition-number moments. Those are natural quantities for stable inversion and sketch design; this is not an arbitrarily selected finite table entry.
+The two Gram diagonals are ||g||^2 and the off-diagonal is g^T C g for C=(S+S^T)/2. The lower eigenvalue is the minimum of the forms I-C and I+C. Each of d cycles has the L cosine eigenvalues, giving the I-C nullity d and the I+C nullity d only for even L. On each cycle the nonzero product for I-C is L^2/2^(L-1): taking absolute squares in the roots-of-unity identity prod_(j=1)^(L-1)(1-exp(2 pi i j/L))=L proves it. When L is even the alternating signs conjugate I+C to I-C. On the positive k-dimensional eigenspace Gaussian density at zero times the ellipsoid volume gives t^k/[2^(k/2) Gamma(k/2+1) sqrt(pseudodet)]. For odd L the other event is O(t^m); for even L their intersection implies ||g||<=t by summing the forms, hence is again O(t^m). The leading positive coefficient proves full row rank a.s. and the pseudoinverse moment cutoff by the tail integral, with logarithmic divergence at equality. Independently, write g=Ru with R independent of u; for p<m, E R^(-p) is positive finite and factors exactly from E sigma_min(g)^(-p). On the sphere, 1<=sigma_max(u)<=sqrt(2), so the same criterion holds for the condition number at p<m. For p>=m divergence follows from the already divergent p=k moment and kappa>=1. At m=2,r=1 the two singular forms give independent absolute coordinates scaled by sqrt(2), consistent with the coefficient 2/sqrt(pi). An independent exact cofactor check on signed cycle Laplacians passed 212 cases for 2<=m<=18, including the two-cycle parallel-edge convention; replay with python3 /workspace/reproductions/independent_finite_checks.py. The frozen verifier was read, not run; its numerical and positivity checks do not prove the hard edge.
 
-The claim concerns fixed dimension, exactly two rows, standard real Gaussian entries and unnormalized sketches. It makes no statement about uniform high-dimensional constants, complex generators or general circulant submatrices. Verification is analytical with finite computational checks, not external validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the explicit fixed-size unnormalized shifted-row arithmetic law, not for Gaussian ellipsoid small-ball geometry, generic quadratic-form distributions, or Fourier diagonalization. The closest Hankel result agrees with the coprime exponent but changes the dependence, gives bounds rather than the coefficient, and has no cyclic parity. The closest Gaussian rectangular circulant paper treats growing aspect ratio, not this hard edge. The real numerical shadow is a known equivalent angular variable and gives a general distributional representation; the contribution here is the explicit two-endpoint repeated-spectrum and radial small-value analysis with the arithmetic constant, not a new angular distribution principle. No inspected source covers that full law as a straightforward parameter substitution.
+
+## value
+
+PASS
+
+The sampling shift is an actual design parameter. Within one ambient m it changes the exponent from m-1 in the coprime case to m/2 for a half-cycle shift when m is even, and parity independently counts the contributing rank-loss mechanisms. The exact law quantifies rare instability, distinguishing almost-sure invertibility from finite inverse moments. It provides a sharp fixed-size benchmark for dependent sketches, beyond a generic probability bound or an obvious statement of full row rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

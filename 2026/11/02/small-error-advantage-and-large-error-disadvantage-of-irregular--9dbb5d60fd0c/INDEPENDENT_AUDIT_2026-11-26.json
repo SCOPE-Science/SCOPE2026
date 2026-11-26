@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:41:38.073000Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–61",
+        "Frozen VERIFICATION.md, lines 19–25",
+        "Prochno–Schütt–Sonnleitner–Werner, arXiv:2404.02870v1, proof of Theorem 1, equation (8) and Poisson-corner construction"
+      ],
+      "rationale": "The cited product CDF is equation (8) in the proof of Theorem 1 with perimeter one; rescaling the polygon gives n d_H/P. In a Poisson wedge let x,y be the first distances on its rays. All convex combinations of ray points have coordinates a,b≥0 with a/x+b/y≥1 in the ray basis, so radial scaling to equality cannot increase distance; the first-point segment is itself in the hull. Its distance is at least min(x,y)cos(α/2) by projection on the bisector. At fixed x>0 the distance divided by y tends to 1 in the acute case (the y-endpoint is nearest for small y) and to sin α in the obtuse case (the perpendicular foot is inside); the perpendicular formula at π/2 also tends to 1. The event D≤t lies in the two small-coordinate strips; their overlap is O(t²), and dominated convergence after rescaling one coordinate by t gives the coefficient 2ℓ(α). For the tail the point with equal ray coefficients xy/(x+y) gives the upper distance bound (x+y)cos(α/2)/2. The exponential-minimum lower bound and gamma-sum upper bound agree on logarithmic rate. The polygon product takes the smallest of those rates. The flat part of log ℓ ends at π/2, after which it is strictly convex; nonconstant angles averaging at least π/2 cannot all be in the flat part, so strict Jensen applies, including at m=4. The least angle is strictly smaller than the regular angle, giving the opposite sign in the tail. These strict inequalities transfer to the converging finite-n CDFs at each fixed threshold, not uniformly in threshold or sample size.",
+      "residual_risks": [
+        "The numerical script named in the frozen text is not part of the bound package, and no numerical execution is independently credited. The analytic proof does not require it.",
+        "The displayed statement of Theorem 1 is about expectation, not the full CDF; the distributional premise is in its proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former has the exact integral law and a coarser tail estimate; Corollaries 3–4 are about expectations. The latter includes uniform boundary distributions and discusses rates and deviation inequalities."
+        ],
+        "reasoning": "Neither the inspected expectation comparisons nor general concentration give the exact lower-tail angle product, least-angle exponential rate and resulting reversal of CDF order. The exact limiting CDF is broader information from which the comparison can be derived with additional endpoint analysis.",
+        "searches": [
+          "arXiv:2404.02870v1, Theorem 1, Corollaries 3–4 and proof",
+          "Brunel, arXiv:1503.01504v2, random-polytope Hausdorff rates and concentration"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2404.02870v1",
+        "arXiv:1503.01504v2",
+        "Resultary records 3fe000dbc9a1 and c6177123ed93"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published exact law determines all endpoint quantities in principle; the inspected text states neither sharp endpoint formula nor strict comparison. The proof here isolates the lower-tail strips and obtains matching large-tail rates, then uses strict angle-sum Jensen and a strict minimum-angle contrast."
+        ],
+        "reasoning": "Knowing the CDF integral does not itself identify its dominant regions at both endpoints or how those coefficients compare under the angle-sum constraint. This is a derived result with additional analysis, not a new distribution theorem or a restatement of the existing expectation estimates.",
+        "searches": [
+          "arXiv:2404.02870v1, proof of Theorem 1, wedge survival integral and tail estimate",
+          "Resultary crossing and least-angle-rate comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (8) is the same product CDF, and the proof constructs independent rate-one rays and reduces to a maximum of corner distances.",
+          "Resultary 3fe000dbc9a1 uses the same maximum representation for regular polygons before taking m→∞."
+        ],
+        "reasoning": "Using nearest independent exponentials is an equivalent formulation of the prior CDF, not new. The later limit in m for regular polygons is not equivalent to comparisons of two fixed m-gons as the error threshold goes to either endpoint.",
+        "searches": [
+          "Resultary: polygon Hausdorff limit under boundary sampling; angle-dependent small-error coefficient; least-angle tail exponent; crossing versus regular polygon",
+          "arXiv:2404.02870v1, proof of Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The wedge integral already contains the angle-dependent integration endpoint, equal to 1 at the right angle in either convention. Resultary 3fe000dbc9a1 indexes regular-polygon limits; c6177123ed93 indexes an exact small-perimeter-deficit coefficient under weighted edge sampling."
+        ],
+        "reasoning": "The matching integration endpoint is not a tabulated coefficient or a crossing statement. A perimeter deficit is a different random variable, and a regular-only formula does not cover nonconstant angle vectors. Matching a square or rhombus example would not decide this all-polygon theorem.",
+        "searches": [
+          "Resultary angle-dependent small Hausdorff threshold, tail rate and regular comparator searches",
+          "arXiv:2404.02870v1, exact wedge integral and regular-polygon corollary"
+        ]
+      },
+      "rationale": "Credit the fixed-polygon sharp endpoint laws and their strict all-non-equiangular comparison with the regular polygon, not the full limiting distribution or Poisson construction, which are already established. The inspected catalogue and primary comparisons supply either a prior premise or a different limit/statistic, not the joint endpoint-and-crossing conclusion.",
+      "residual_risks": [
+        "The bounded checks do not establish exhaustive priority for endpoint analysis derived from the same published exact integral, or for comparisons under alternate convex-geometric terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the normalized CDF; supplies the starting law, not the inspected sharp comparison",
+          "evidence": "After perimeter normalization, equation (8) is the product of 1−q_i(r), with independent rate-one ray processes.",
+          "identifier_or_url": "arXiv:2404.02870v1; DOI:10.1007/s00208-025-03186-7",
+          "material_read": "Theorem 1 and Corollaries 3–4 (HTML offset 10379); proof of Theorem 1, Sec. 2, equation (8) (19323), Poisson rays, corner maximum and wedge survival integral (23323–31165)",
+          "method": "Targeted primary OA HTML read",
+          "title": "Random approximation of convex bodies in Hausdorff metric",
+          "trigger": "Exact same polygon sampling and limiting law"
+        },
+        {
+          "assessment": "General rate and deviation theory; no angle-specific endpoint or crossing in inspected passages",
+          "evidence": "Distinguishes almost-sure rates and deviation inequalities; uniform boundary distributions included.",
+          "identifier_or_url": "arXiv:1503.01504v2; DOI:10.3150/18-BEJ1035",
+          "material_read": "Abstract, p. 1, and Introduction, p. 2 (offset 6407)",
+          "method": "Targeted OA PDF passage read",
+          "title": "Uniform Behaviors of Random Polytopes under the Hausdorff Metric",
+          "trigger": "Potential broader Hausdorff rate theorem with boundary sampling"
+        },
+        {
+          "assessment": "Regular fixed-m premise plus subsequent large-m limit",
+          "evidence": "Fixed-m error is a maximum of unit-exponential corner distances; main expansion varies m rather than comparing nonconstant angles at fixed m.",
+          "identifier_or_url": "Resultary 2026/10/11 SCOPE-gumbel-transition-and-second-order-hausdorff-error-for-randomly--3fe000dbc9a1",
+          "material_read": "RESULT.md Finding, offset 0 onward",
+          "method": "Targeted local mirror read",
+          "title": "Gumbel transition and second-order Hausdorff error for randomly sampled polygons",
+          "trigger": "Same Hausdorff statistic and exponential wedge construction"
+        },
+        {
+          "assessment": "Different statistic and sampling law; date does not establish priority",
+          "evidence": "The exact angle-dependent constant is for perimeter loss under weighted edge sampling, not Euclidean Hausdorff error under uniform arclength.",
+          "identifier_or_url": "Resultary 2026/11/2 SCOPE-sharp-small-perimeter-error-law-and-parity-of-optimal-polygon-ed--c6177123ed93",
+          "material_read": "RESULT.md Finding, offset 0 onward",
+          "method": "Targeted local mirror read",
+          "title": "Sharp small-perimeter error law and parity of optimal polygon edge sampling",
+          "trigger": "Same-day sharp small-error polygon coefficient"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, endpoint laws, comparison, and example",
+        "Prochno–Schütt–Sonnleitner–Werner expectation corollaries and CDF premise"
+      ],
+      "rationale": "The exact asymptotics explain why non-equiangular polygons are favored at small errors but disfavored in the extreme tail, ruling out either first-order stochastic dominance for every such polygon at fixed m. The tail identifies a geometric parameter, the smallest angle, whereas the lower-tail coefficient combines all angles. This is useful information not supplied by mean comparisons alone.",
+      "residual_risks": [
+        "No unique crossing, uniform finite-n threshold range, or treatment of growing vertex count follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

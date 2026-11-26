@@ -1,25 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The statistic is explicitly defined for \(n\ge4\) and fixed \(q>0\). The deterministic local-extrema identity reduces its length to a boundary descent plus turning-point indicators. Mallows block stationarity and disjoint-block independence reduce all first and second moments to six local probabilities on at most five labels, all enumerated in the standalone checker. Algebra gives \(\operatorname{Var}(L_n)=nV(q)+K(q)\). The derivative factorization and exactly two positive roots of the reciprocal polynomial, established by Descartes' rule and sign changes, prove the global extremizer classification. The checker passed 110,195 exact assertions, but finite enumeration is not substituted for the infinite argument.
+PASS
 
-## Originality: PASS, with priority uncertainty
+The down-first convention is essential: each consecutive comparison of a subsequence must use a step with the matching sign in its disjoint index interval. At most one such step can be used in each maximal sign run, and the initial run must be skipped if it ascends. Turning points and the final point, with the initial point added exactly when the first step descends, attain this bound. Under the Mallows law fixing the value sets of disjoint consecutive blocks makes cross-block inversions fixed while the within-block weights factor; the unchanged conditional laws prove independence without conditioning as well. Thus only turning-window lags one and two and the two overlaps with the first descent contribute. Exact descent-word counts on lengths two through five reproduce all six probabilities, the covariance multiplicities n-3 and n-4, and the separately verified V and K rational functions; n=4 is valid and has no lag-two turning pair. For complementary positive q the leading coefficient is reciprocal. Its positive numerator equals (1-q)(1-q^5)+2q^3 up to the positive prefactor, and its limits are zero at the extremes. Differentiation gives the displayed reciprocal degree-ten polynomial; exactly two coefficient sign changes, P(0)=1, P(1)=-25 and positive leading coefficient yield exactly one simple positive root on each side of one. The derivative signs +,-,+,- establish the outlying maxima and the strict local minimum at one. The derivative of 2q/T has the sign of 1-q^2. Independent replay python3 -B /workspace/reproduce_frozen.py 1 checks the symbolic identities and rational root bracket, and exhausts all subsequences of permutations of lengths 4–7, checking exact moments at q=2/5,1,5/2. This does not claim to optimize the full variance at any fixed n.
 
-The uniform mean/variance and the canonical local-extrema representation belong to Stanley and Romik. Houdré–Restrepo's full-text treatment is uniform or based on words/Markov models. Bhatnagar–Peled's Mallows results concern monotone, not alternating, subsequences. Crane–DeSalvo–Elizalde prove weak dissociation and a generic single-pattern variance identity, which are known ingredients of this proof. Their published statement does not assert the combined turning-point statistic or reciprocal off-uniform global maxima. The combination requires four-pattern overlap covariances and an algebraic classification of a degree-ten stationary equation. A complete priority search cannot exclude a concealed derivation in historical enumerative literature or later work; the novelty assessment is best-knowledge, not a uniqueness certificate.
+## originality
 
-## Value: PASS
+PASS
 
-Alternating subsequence length measures the oscillation of a ranked order, while the Mallows inversion parameter describes ranking concentration. The result exposes a nontrivial contrast: expected oscillation density is highest at the uniform law but its fluctuation strength is locally *lowest* there and globally maximized at two specific biased laws. The all-size exact variance enables finite-sample calibration, and the two-maximizer theorem gives a natural global phase classification, not an arbitrary parameter slice.
+Credit the deterministic representation, the one-window mean ingredients, the uniform moments, and the known Mallows local-dependence machinery. A distinct later catalogue record already implies the exact coefficient V(q) through its peak/valley covariance identities; an isolated discovery of V is not the point of the pass. The retained contribution is the exact finite-size down-first variance including the first-descent boundary correction and the explicit reciprocal off-uniform maximizer classification of the leading coefficient. No located statement covers those conclusions together or reports the extremal classification.
 
-## Closest literature and limitations
+## value
 
-- Stanley (2005) and Romik (2010/2011): uniform law and deterministic representation.
-- Houdré–Restrepo (2010): uniform/permutation-word and Markov probabilistic asymptotics.
-- Bhatnagar–Peled (2013): Mallows LIS/LDS, different statistics.
-- Crane–DeSalvo–Elizalde (2016), especially Section 8: single consecutive-pattern count and weak dissociation; closest general method.
-- Fang et al. (2021): Mallows rise/fall generated walks and arcsine behavior, not alternating-subsequence variance.
+PASS
 
-No new CLT, finite-\(n\) variance maximizer, or independent validation is claimed. Additional older generic inversion-refined alternating-run identities may imply some formulas; this is a residual historical-priority risk.
+A natural parameter governing inverse biases controls two different optimizations: the uniform law maximizes the density of the alternating length but is an interior local minimum for its fluctuation coefficient. The exact pair of reciprocal optima gives a structural answer on the full positive half-line, not a comparison of selected q values. The boundary correction also determines exact finite moments for the specified asymmetric orientation. The known uniform values or isolated slope identity are not the reason for a value pass.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

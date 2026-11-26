@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Starting from a reset at time zero, conditioning on age gives the OU second moment exactly, with \(a=2\kappa\). A first-renewal decomposition gives the stated rational Laplace transform of \(u(t)=\mathbb E[e^{-aA_t}]\). The stationary age distribution and its integral give the exact stationary variance. Inverting its rational transform gives poles at renewal roots and the OU damping rate; the leading pair of complex renewal roots has explicitly nonzero residues. This establishes infinitely many crossings whenever the complex pole pair strictly dominates. At shape three, the exact positive cubic-pole coefficient gives eventual approach from below for the complementary closed parameter range, including equality. Shapes one and two have only real poles. The accompanying standalone program completes 730 symbolic, matrix-resolvent, convolution and pole checks. Finite checks support rather than replace the global pole proof.
+## correctness
 
-## Originality — PASS (self-review)
-Eule and Metzger, arXiv:1510.07876, provide the general renewal propagator and Gamma-reset time-dependent first and second moments for constant advection and free diffusion. Those formulas are explicit prior art. Trajanovski et al., arXiv:2301.12304, treat the harmonic OU process but under memoryless Poisson resetting. Radice, arXiv:2201.01829, combines Gamma resetting with free diffusion and noninstantaneous returns. Bodrova and Serdyukov, arXiv:2310.14357, use exponentially distributed resets for generalized OU. No inspected result provides the all-integer-shape, all-positive-parameter spectral dominance classification or the exact shape-three transition. This comparison concerns mathematical implications, not merely titles: arbitrary renewal propagators can be specialized to the present formula, but the sharp root noncancellation and dominance analysis remains an additional theorem. A broader spectral theorem in the resetting literature could subsume it; this remains a nontrivial residual priority risk and merits independent review.
+PASS
 
-## Scientific value — PASS
-The renewal-clock shape changes the qualitative *late-time* relaxation of a natural stationary observable in a harmonic trap, despite monotone within-run variance growth. The exact necessary-and-sufficient boundary \(m\ge4\) or \(m=3\) with \(r<4\kappa\) distinguishes unavoidable asymptotic ringing from eventual one-sided relaxation, a dynamical feature not specified by stationary moment formulas alone. The decay exponent, angular frequency, and nonzero amplitude permit reproducible quantitative predictions. This is not a generic restatement of the renewal identity or an arbitrary parameter slice; the case split is forced by the geometry of complex Erlang renewal poles relative to the physical OU decay pole.
+Conditional on the renewal age A, the OU mean is zero and the variance is (D/κ)(1−exp(−aA)), a=2κ. Write H(s)=∑_{k=0}^{m−1}r^k/(s+a+r)^{k+1} for the shifted survival transform. Summing over the last renewal gives the independently reconstructed age transform H(s)/[1−(r/(s+r))^m], initially for Re s>0. Its residue at zero is (r/m)H(0). The nonreal leading roots are s=r(z−1), z=exp(2πi/m) and its conjugate. The first root's residue is (rz/m)H(s); cancellation would require (a+rz)^m=r^m. For m≥4, |a+rz|>r. For m=3, equality of moduli is possible only at a=r, but then (a+rz)^3=−r^3. For m≥4 the pair has real part at least −r and strictly beats −(a+r); for m=3 it beats that real exponent exactly at r<2a. At r≥2a the cubic-pole coefficient in the age transform is r²a³/(a³+r³), so the negative variance deviation is led by (D/κ) times its negative inverse-Laplace contribution, including equality where the t² factor dominates the sinusoid. The nonzero leading sinusoid in the complementary phase gives opposite signs along successive extrema. Shapes 1 and 2 have only real poles, even if they coincide; the last nonzero exponential-polynomial mode fixes the eventual sign. Exponential-polynomial analyticity and V(0)<V∞ exclude accumulating zeros at finite times in every eventually one-sided case. These checks prove the dichotomy and constants without relying on the bundled finite tests.
 
-## Limitations and closest literature
-The result is restricted to integer Erlang shapes, zero-location instantaneous resets, nonstationary initialization at an initial reset event, linear OU trapping, and positive physical parameters. An infinitely oscillatory relaxation tail can be exponentially small. The general renewal response from Eule--Metzger is a powerful antecedent; a full mathematical priority determination, including any uncatalogued exact spectral specializations, requires independent inspection. Other relevant full-text comparisons are Trajanovski et al. (2023), Radice (2022), and Bodrova--Serdyukov (2023).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct result supported by the comparison is the full harmonic Erlang crossing classification and leading asymptotics, not the general renewal transform or the Poisson harmonic model. The closest explicit catalogue crossing result uses a different motion/rest process and has a different boundary; primary antecedents do not determine this classification without the mode and noncancellation analysis.
+
+## value
+
+PASS
+
+The integer clock shape controls whether a natural transient observable crosses its own equilibrium infinitely often, despite monotone variance growth within each excursion. The exact threshold, exceptional equality case, and oscillation frequency and damping distinguish relaxation mechanisms that the equilibrium moment alone cannot diagnose.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

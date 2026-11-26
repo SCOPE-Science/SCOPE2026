@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary fixed 0<x<y<1 the bridge Markov property yields exact piecewise-linear conditional mean and independent local residual bridges. Integration gives estimator (1), Gaussian fourth moments give Var(E[Q|U,V])=2tr[(H Sigma)^2], and Wick/kernel integration yields Var Q=1/45. Direct symbolic matrix multiplication supplies polynomial G(r,t). On 0<=r<=1/4 it is convex in t^2 so maximizers are centered or at a one-observation boundary, the latter below the strict centered peak. On 1/4<=r<1/2 the derivative in r is negative throughout the shrinking feasible strip by a factored endpoint upper bound, hence values are below the peak. Centered derivative has the unique positive interior root (sqrt(41)-1)/40. Continuous limits handle repeated and endpoint sites. The packaged independent segment-integration verifier passed symbolic identities, 325 rational-matrix checks and 5151 finite grid checks; finite tests do not establish the continuum step.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Foster et al. arXiv:1904.06998v3 main results use polynomial Brownian path approximation and an integrated path observable; full HTML material read: introduction, Theorems 1-3, main framework, conclusion.",
+        "Mukherjee, Optimal designs for estimating the path of a stochastic process, Purdue abstract: criterion is path integrated linear mean-squared error, not energy estimation.",
+        "Tang–Xiao 2019 DOI:10.1007/s10444-018-9638-0 abstract/preview: asymptotic approximation through Karhunen–Loève expansion with a different observation budget."
+      ],
+      "reasoning": "General Gaussian-conditioning methods can derive the fixed-site Bayes risk but do not on their own give the exact radical maximizer across all two-site designs; more importantly the cited broader theorems optimize different information or targets. The older Tang–Xiao full text was not verified, which is a residual historical-priority risk rather than evidence of coverage.",
+      "searches": [
+        "Brownian bridge integrated squared path L2 norm Q=integral_0^1 B(t)^2 dt optimal conditional expectation two point observations minimum mean square error Bayesian optimal sampling mesh",
+        "Bayesian estimation integrated squared Brownian bridge two point sensors quadratic functional risk symmetric optimal",
+        "\"Asymptotically optimal approximation of some stochastic integrals\" \"Tang\" \"Xiao\" 2019 pdf",
+        "\"Brownian bridge\" \"integral of square\" \"optimal\" observation points reconstruction"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1904.06998 (v1 first 2019-04-15; v3 HTML read)",
+      "https://arxiv.org/html/1904.06998v3 (Theorems 2-3, sections 1 and 5)",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-unique-optimal-i-i-d-two-node-design-for-brownian-bridge-kernel--1c7b05ec88c4 (entire RESULT.md)",
+      "https://docs.lib.purdue.edu/dissertations/AAI3043760/ (abstract only)",
+      "https://doi.org/10.1007/s10444-018-9638-0 (indexed abstract/preview only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full published RESULT.md for the two-node Brownian-bridge kernel-quadrature design optimizes a prior-linear integral and random iid nodes; its explicit fixed-node error is cubic gaps rather than the quadratic energy F(x,y).",
+        "For unpinned standard Brownian motion, the covariance is min(s,t), rather than min(s,t)-st; the resulting optimization is not equivalent to the pinned problem.",
+        "Foster et al. Theorem 2 conditions the quadratic integral on different Gaussian information; conditioning on endpoint and time integral is not equivalent to two selected point values."
+      ],
+      "reasoning": "The mathematical objectives and information sigma-fields differ. The exact pinned covariance and fixed-site polynomial need a separate optimization; no stronger theorem inspected has the new statement as a corollary. No mere parameter substitution of the unpinned result creates the pinned bridge, because changing the covariance changes the conditional information matrix.",
+      "searches": [
+        "Brownian bridge integrated squared path L2 norm Q=integral_0^1 B(t)^2 dt optimal conditional expectation two point observations minimum mean square error Bayesian optimal sampling mesh",
+        "quadratic Wiener functional Brownian bridge two time observations optimal information conditional variance exact design",
+        "Bayesian estimation integrated squared Brownian bridge two point sensors quadratic functional risk symmetric optimal",
+        "\"optimal\" \"integral\" \"squared Brownian bridge\" \"sampling\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact target is the second-Wiener-chaos quantity Q=integral B(t)^2 dt, with Bayes conditional expectation based on two bridge values, not kernel quadrature for integral B.",
+        "Foster et al. arXiv:1904.06998v3 Introduction Theorem 2 explicitly conditions on W_1 and integral_0^1 W(t)dt, not bridge values at two selected times.",
+        "published-finding corpus closest indexed paper 2026/11/2/SCOPE-unique-optimal-i-i-d-two-node-design-for-brownian-bridge-kernel--1c7b05ec88c4 optimizes iid sites for the linear integral in its full RESULT.md."
+      ],
+      "reasoning": "Gaussian fourth moments make the objective tr[(H Sigma)^2] and its global optimizer a specific radical pair. This is neither the linear-Gaussian posterior integral variance (Schur complement) nor the polynomial-basis/linear observation scenario. No inspected source states an equivalent optimization or dominating result.",
+      "searches": [
+        "Cramér von Mises statistic integral squared Brownian bridge best predictor based on two point observations optimal sampling points 0.3649219 0.6350781 sqrt41",
+        "quadratic Wiener functional Brownian bridge two time observations optimal information conditional variance exact design",
+        "\"Brownian bridge\" \"quadratic functional\" \"optimal\" sampling locations mean squared",
+        "\"optimal approximation\" \"integral of squared Brownian motion\" \"point evaluations\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact pair x=(21-sqrt(41))/40, y=(19+sqrt(41))/40, minimum 1009/96000-287 sqrt(41)/288000 was found in searched indexed records or targeted public literature.",
+        "published-finding corpus hits include Cramér–von Mises statistic covariance and Brownian-bridge iid linear quadrature; neither computes this finite two-observation energy design."
+      ],
+      "reasoning": "The searches provide a finite record of noncoverage rather than a proof that no equivalent historical table exists. The exact expression and all-boundary classification must be compared with any subsequently identified specialized optimal-design table.",
+      "searches": [
+        "Cramér von Mises statistic integral squared Brownian bridge best predictor based on two point observations optimal sampling points 0.3649219 0.6350781 sqrt41",
+        "Brownian bridge quadratic energy Q integral B^2 pairwise point observations minimax risk optimal sampling 41",
+        "\"integrated squared Brownian bridge\" \"optimal\" \"design\" point",
+        "\"squared L2 norm\" \"Brownian bridge\" \"observation times\" optimal approximation"
+      ]
+    },
+    "rationale": "Compared the exact claim and its implications with the accessible historical and published records. Foster–Lyons–Oberhauser Theorem 2 conditions integrated squared Wiener motion on an endpoint and a path integral, not on two optimally located bridge point evaluations. Published Brownian-bridge kernel quadrature has a linear functional and an iid node law, whereas the new target is quadratic and the pair is deterministic. Earlier local Wiener quadratic-energy optimization changes covariance and has a different asymmetric optimizer; it does not imply the pinned result. Targeted mathematical and published-finding corpus searches did not return the displayed radical pair, risk, or an equivalent two-point fixed-design classification. Priority is provisional because inaccessible older quadratic-functionals literature may contain an equivalent result.",
+    "residual_risks": [
+      "Unexamined specialized Gaussian quadratic-functional design literature could contain an equivalent radical optimum under an alternate formulation.",
+      "Tang–Xiao 2018/2019 full text not inspected; its published abstract suggests a different information model but this is not a full-text exclusion.",
+      "Purdue path-design dissertation full text not inspected; abstract indicates a different criterion.",
+      "Search and record retrieval cannot prove global historical novelty or publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "RELATED_NOT_COVERING: conditional quadratic Wiener functionals with endpoint and integrated-path observations, not globally optimized pair of Brownian-bridge point evaluations",
+        "evidence": [
+          "Theorem 2 displays E[int W^2 | W_1,int W]; Theorem 3 gives conditional variance for that information.",
+          "Section 5 describes polynomial approximations and integral information; no two selected point-location classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1904.06998v3",
+        "material_read": "Full HTML main statement, introduction lines 43-99, mathematical framework and conclusion lines 758-819, with Theorems 2 and 3 and relevant references",
+        "method": "Read HTML full text and targeted statements and conclusion; checked official arXiv submission history, v1 public 2019-04-15",
+        "title": "An optimal polynomial approximation of Brownian motion",
+        "trigger": "Exact quadratic-integral conditional estimation and 65C30 primary inspiration"
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING: two iid samples to estimate linear integral of bridge, not deterministic two fixed samples to estimate integrated square",
+        "evidence": [
+          "States target I(f)=integral f with reproducing kernel k(s,t)=min(s,t)-st, and optimizes probability density p*(x) for iid nodes.",
+          "Own criterion is expected squared fixed-node worst-case integration error, whereas new one is quadratic-functional posterior prediction."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-unique-optimal-i-i-d-two-node-design-for-brownian-bridge-kernel--1c7b05ec88c4",
+        "material_read": "Entire published RESULT.md, including finding, proof, scope, references",
+        "method": "Read direct public repository raw RESULT.md using GitHub read connector",
+        "title": "Unique optimal i.i.d. two-node design for Brownian-bridge kernel quadrature",
+        "trigger": "Same bridge covariance, two nodes and optimizing a numerical-integration criterion"
+      },
+      {
+        "assessment": "DIFFERENT_TARGET_WITH_ACCESS_RISK: weighted integrated path-prediction MSE, not prediction of nonlinear integrated square",
+        "evidence": [
+          "Abstract gives BLUE of unsampled path values and weighted IMSE; claims explicit optimal Brownian bridge sites for that linear prediction criterion."
+        ],
+        "identifier_or_url": "https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+        "material_read": "Dissertation abstract only; full dissertation not retrieved",
+        "method": "Read indexed institutional abstract",
+        "title": "Optimal designs for estimating the path of a stochastic process",
+        "trigger": "Exact site design for Brownian bridges with integrated error"
+      },
+      {
+        "assessment": "HISTORICAL_RISK_UNRESOLVED_BUT_NOT_DECISIVE: abstract describes KL asymptotic integral approximation, not two fixed bridge point locations",
+        "evidence": [
+          "Published abstract describes asymptotically optimal approximation based on a Karhunen–Loève expansion.",
+          "Full proof/appendix was not inspected; cannot state full-document noncoverage."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10444-018-9638-0",
+        "material_read": "Abstract and publicly indexed initial preview only; full text access unsuccessful",
+        "method": "Searched published abstract and preview; further read attempt returned HTTP 429",
+        "title": "Asymptotically optimal approximation of some stochastic integrals and its applications to the strong second-order methods",
+        "trigger": "Related exact integral of squared Wiener motion in numerical SDE schemes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5b620072-0fdd-4867-98f0-0a4f4f8bf488",
+  "value": {
+    "rationale": "The integrated squared bridge is a natural Cramér–von Mises-type quadratic path energy and a leading nonlinear Wiener functional used in numerical SDE approximation. Given only two function evaluations, the result answers an exact budgeted optimal information-design question, including unrestricted placement, nonlinear optimal estimator, uniqueness and all boundary/collision competitors. Its radical nodes differ strictly from standard trisection sites for the linear integral; the exact risk gain is nonzero. This is a natural complete small-budget classification, not an arbitrary restricted numerical invariant; no claim of broader SDE solver gains is made.",
+    "status": "PASS"
+  }
+}

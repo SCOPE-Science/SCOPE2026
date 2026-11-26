@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:25:35.105466Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The derivative accounts for current coordinates: c=alpha/N and y_i=-c(sum_{j<i}y_j+sum_{j>=i}x_j). Thus M=-c(I+cL)^(-1)(I+R), where L and R are strictly lower and upper all-ones triangles. Both triangular factors have unit diagonal, so det M=(-c)^N. Independently, in the characteristic pencil the first row is (z+c,c,...,c). Subtract each original preceding row from rows 2,...,N; these become bidiagonal with entries -d,z in columns i-1,i, where d=(1-c)z+c. Expansion yields (z+c)z^(N-1)+c sum_{j=1}^{N-1}d^j z^(N-1-j), including N=1. Multiplying by z-1 and using z-d=c(z-1) gives the frozen numerator. Differentiating at z=1 gives 1+alpha, so the apparent extra root is absent. For 0<c<1, any root with |z|>=1 would satisfy z=(1-c+c/z)^N, contradicted by the strict triangle inequality off z=1. A C^1 map with derivative spectral radius less than one is locally exponentially attracting. At c=1 the roots are distinct nontrivial (N+1)-st roots of unity, giving the matrix identities and exact linear period via a primitive root. For c>1 the product of moduli is c^N>1. Fixed permutations give conjugacy; the logistic slope and synchronous rank-one Jacobian are as stated. Equality is not a claim about nonlinear stability. Independent exact check `python /workspace/checks.py 1` updates basis vectors and checks 48 matrices in dimensions 1–6 at four slopes in two orders, including exact boundary periods. The finite checks corroborate the arbitrary-N proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For an SPD system, classical SOR converges for 0<omega<2; outside that interval convergence fails. Sun–Ye solve the equicorrelation Gauss–Seidel eigenvalue equation for all matrix sizes. The 1998 dynamics model includes identical mean replacement at coupling one but randomizes the schedule. The 2004/2005 analysis uses ordered vertex Jacobians then a random-neighbor heuristic."
+        ],
+        "reasoning": "The strict convergence threshold is exactly c<1 along the frozen SOR family; for c>1 the SOR determinant gives an eigenvalue outside the disk. The SOR convergence theorem alone does not give the finite-period boundary. The equicorrelation pencil comparison below does. Random-permutation dynamics are not interchangeable with the fixed sweep.",
+        "searches": [
+          "Templates §2.2.3, Choosing the Value of omega",
+          "arXiv:1604.07130 Lemma 6.1, Eqs. (26)–(27)",
+          "arXiv:chao-dyn/9805015v1 p. 1 Eq. (2)",
+          "arXiv:nlin/0407014v2 §4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1604.07130",
+        "Templates §2.2.3",
+        "arXiv:chao-dyn/9805015v1",
+        "arXiv:nlin/0407014v2",
+        "doi:10.1016/S0375-9601(99)00663-5 (abstract only)",
+        "doi:10.1103/PhysRevE.61.4614 (citation and access limits)",
+        "Resultary 65682c1c69b9, f0328ba972a3, 179ddfb2cdd5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the SPD matrix with unit diagonal and constant off-diagonal t, let G_t=-(I+tL)^(-1)tR. Sun–Ye give the eigenvalues of (I+tL)^(-1)(I+tL+tR)=I-G_t as 1-q^N, with q^N(q-1+t)=tq, including q=0 and discarding q=1. The ordinary GS characteristic pencil is zI+ztL+tR."
+        ],
+        "reasoning": "For an included q!=0 put z=q^N; then q(z-t)=(1-t)z, hence z(z-t)^N=(1-t)^N z^N. Include the zero eigenvalue and discard z=1. For real t in an interval below 1 Lemma 6.2 ensures distinct q roots, and the Möbius relation gives distinct nonzero included z roots; the monic determinant is [z(z-t)^N-(1-t)^Nz^N]/(z-1). Polynomial identity extends this to all t. Now put t=cz/(z+c) and multiply the ordinary GS pencil by (z+c)/z: it becomes exactly the frozen (z+c)I+zcL+cR. Multiplying its known determinant by ((z+c)/z)^N yields [z^(N+1)-((1-c)z+c)^N]/(z-1), extending at the excluded substitution points by polynomial identity. Setting c=1 proves the roots of unity and exact period immediately; the other clauses use standard SOR or linearization. This is the full polynomial, not just the same threshold or a small-N special case.",
+        "searches": [
+          "Sun–Ye arXiv:1604.07130 Lemmas 6.1–6.2, Eqs. (26)–(27), OA offsets 89950–94050",
+          "Frozen RESULT.md characteristic pencil, lines 26–46"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With J=11^T, the frozen one-coordinate linear update is x_i <- x_i-[(I+cJ)x]_i. For A=I+cJ, SOR uses the correction -(omega/A_ii)(Ax)_i evaluated at the current partial iterate, with A_ii=1+c."
+        ],
+        "reasoning": "Choose omega=1+c. This is exactly SOR on a real symmetric positive definite system, including the self-coordinate term and fixed sequential order. It is not the unrelaxed Gauss–Seidel iteration on the same A.",
+        "searches": [
+          "Resultary: fixed sequential complete self-inclusive mean stability threshold alpha=N",
+          "Gauss-Seidel equicorrelation matrix cyclic coordinate update product exact spectrum self-inclusive mean",
+          "Barrett et al., Templates for the Solution of Linear Systems, §2.2.3, Eq. (2.7) and Fig. 2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest same-day match uses I+aJ with ordinary GS but derives fixed-sweep asymptotic residual and error limits. Another indexed entry is on one-step Euclidean nonexpansion for a three-dimensional equicorrelation quadratic. The screened-Poisson entry has nearest-neighbor blocks."
+        ],
+        "reasoning": "These facts do not constitute an exact table or formula match for the frozen relaxed spectrum and boundary; same-day entries were not excluded on chronological grounds. Exact coverage instead comes from reducing to the published equicorrelation spectral result.",
+        "searches": [
+          "Local Resultary polynomial/model wording, fixed complete mean threshold, and equicorrelation spectral query",
+          "SCOPE-a-fixed-sweep-gauss-seidel-residual-illusion-for-rank-one-gram-s--65682c1c69b9",
+          "SCOPE-two-sharp-condition-number-frontiers-for-euclidean-nonexpansion--f0328ba972a3",
+          "SCOPE-sharp-optimal-cyclic-block-gauss-seidel-contraction-and-a-screen--179ddfb2cdd5"
+        ]
+      },
+      "rationale": "The spectral threshold follows from classical SOR convergence, and the entire characteristic polynomial, including the critical resonance, is a direct pencil substitution into Sun–Ye's existing equicorrelation Gauss–Seidel spectral formula. The nonlinear local interpretation is a standard consequence of the linearization. This is verified earlier mathematical coverage by reduction; it is not based on the unavailable Jiang full texts or on date proximity of Resultary entries.",
+      "residual_risks": [
+        "The Jiang articles and Deshmukh–Matte–Gade doi:10.1140/epjb/e2019-100078-1 were not accessible in full; they may offer additional antecedents. They are not the basis of the fail verdict.",
+        "The original dynamics wording may be useful for exposition; no claim is made that the cited numerical linear algebra papers state it in those words."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full target determinant follows by the documented rational change of pencil parameter",
+          "evidence": "Lists all eigenvalues of the triangular-preconditioned equicorrelation matrix as 1-q^N and specifies the excluded root.",
+          "identifier_or_url": "arXiv:1604.07130",
+          "material_read": "Lemmas 6.1–6.2 and Eqs. (26)–(27) near OA offsets 89950–94050",
+          "method": "OA PDF locate and bounded passage inspection",
+          "title": "Worst-case Complexity of Cyclic Coordinate Descent: O(n^2) Gap with Randomized Version",
+          "trigger": "Exact prior eigenvalues of the equicorrelation GS pencil"
+        },
+        {
+          "assessment": "Exact linearization equivalence and strict convergence threshold, not the all-multiplier resonance",
+          "evidence": "Gives current-coordinate SOR correction by omega/A_ii and convergence for SPD systems for 0<omega<2.",
+          "identifier_or_url": "https://netlib.org/templates/templates.pdf",
+          "material_read": "§2.2.3 Eq. (2.7), Fig. 2.3 and Choosing the Value of omega, printed pp. 9–11",
+          "method": "OA PDF locate and offset read 40450–44685",
+          "title": "Templates for the Solution of Linear Systems: Building Blocks for Iterative Methods",
+          "trigger": "Classical SOR could contain the sweep threshold"
+        },
+        {
+          "assessment": "Same site rule at full coupling, different schedule",
+          "evidence": "A new randomized permutation per pass or randomly selected sites within substeps.",
+          "identifier_or_url": "arXiv:chao-dyn/9805015v1",
+          "material_read": "p. 1 Eq. (2) and neighboring schedule descriptions near OA offset 3300",
+          "method": "OA PDF passage inspection",
+          "title": "Globally coupled maps with asynchronous updating",
+          "trigger": "Same complete-mean dynamics at full coupling"
+        },
+        {
+          "assessment": "General framework and randomized heuristic, not exact fixed complete-mean spectrum in inspected material",
+          "evidence": "Uses products of noncommuting coordinate-update Jacobians and cancellation of randomly updated neighbors.",
+          "identifier_or_url": "arXiv:nlin/0407014v2",
+          "material_read": "§4 pp. 17–18, OA offsets 38250–43173",
+          "method": "OA PDF passage inspection",
+          "title": "Stability analysis of coupled map lattices at locally unstable fixed points",
+          "trigger": "Possible general product-of-update-Jacobians result"
+        },
+        {
+          "assessment": "Full comparison unresolved",
+          "evidence": "No readable full body found; abstract scope does not settle exact spectral coverage.",
+          "identifier_or_url": "doi:10.1016/S0375-9601(99)00663-5",
+          "material_read": "Publisher landing page/abstract only",
+          "method": "Lawful OA retrieval and alternate-copy check",
+          "title": "Globally coupled maps with sequential updating",
+          "trigger": "Close title and sequential dynamics"
+        },
+        {
+          "assessment": "Full comparison unresolved",
+          "evidence": "Title alone does not determine schedule-specific spectrum or exact coverage.",
+          "identifier_or_url": "doi:10.1103/PhysRevE.61.4614",
+          "material_read": "Publisher citation; no usable article passage",
+          "method": "OA retrieval via publisher/DOI returned 403; no identified repository copy",
+          "title": "Numerical studies on the dynamics of the globally coupled maps with sequential updating",
+          "trigger": "Close sequential logistic-map model"
+        },
+        {
+          "assessment": "Different conclusion despite related matrices; no priority inference",
+          "evidence": "Studies unrelaxed GS on I+aJ and sharp residual/error limits for a fixed number of sweeps at large dimension.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-fixed-sweep-gauss-seidel-residual-illusion-for-rank-one-gram-s--65682c1c69b9/RESULT.md",
+          "material_read": "Finding and stated hypotheses, mirrored offsets 0–4591",
+          "method": "Local mirror bounded read",
+          "title": "A fixed-sweep Gauss–Seidel residual illusion for rank-one Gram systems",
+          "trigger": "Strongest same-day indexed rank-one fixed-sweep match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The fixed-sweep question is naturally motivated and the exact resonance is useful to know. However the audited specification needs no further exact invariant beyond the existing equicorrelation spectrum under a direct pencil substitution and textbook SOR/local stability consequences. A self-contained alternate determinant proof and the logistic slope substitution do not establish an independent mathematical gain here. Nonlinear stability at criticality would be a separate question and is not proved in the frozen result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

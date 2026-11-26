@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:50:32.250103Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With almost surely distinct distances, an endpoint choosing a neighbor must also choose every intervening point, since each is closer. Thus components are consecutive. A cut after site i requires two closer same-side neighbors for each endpoint; this is exactly the pair of strict inequalities comparing G_i to the two adjacent gaps summed on each side. If they hold, vertices at least two positions from the break have two closer vertices between themselves and the break; the second vertex from the break on either side has the boundary vertex and its immediate neighbor on the outer side closer than the crossing, by the same inequalities. No cut can leave fewer than three vertices on a side. Consequently C_n is one plus m=(n-5)_+ cuts, including the deterministic n=3,4,5 cases. Dirichlet spacings are normalized independent exponentials and the common denominator cancels from the cut tests. Disjoint five-gap blocks at distance at least five give independence of families, while centers at distance one or two would each have to exceed the other, which is impossible. I separately integrated the joint probabilities by ordering the two exponential centers x<=y. With F the Gamma(2,1) CDF, lag 3 has conditional factor F(x)^2 F(y). At lag 4 the shared exponential and the two distinct exponential companions give the factor F(x)+(1-x-exp(-x))*exp(-y) in addition to the outer factors F(x)F(y). Exact polynomial-exponential integration gives p=7/54, q3=2071/90000 and q4=6389/324000; these are joint probabilities for lag 3 and 4, and the covariances subtract p^2. Counting m-h admissible pairs where positive yields precisely the finite variance and the stated slope and intercept. The positive long-run variance legitimizes the bounded stationary four-dependent CLT; the mean and O(n) variance imply the claimed L^2 law, and slope/p is 2463/5000. Replay: python -B branches/independent_reproductions.py 3 from /workspace with SymPy. This audit is for iid uniform points on a line and the union graph with exactly two neighbors, not a mutual-choice, circular, or random-link model.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior nearest-neighbor graph work supplies the general component-count CLT (abstract-level comparison for Penrose–Yukich) and a positive Poissonized mean-component density c_(d,k) (arXiv:1711.04712 Theorem 1). Wade treats the same union-of-neighbor graph but bounds weighted total edge length."
+        ],
+        "reasoning": "Existence of a Gaussian limit or of a positive limiting mean density does not evaluate the lag probabilities, finite-sample correction, or exact limiting variance. No conclusion is drawn about uninspected passages of the 2001 full text.",
+        "searches": [
+          "DOI:10.1214/aoap/1015345393 and lawful publisher/Bath/author access routes",
+          "arXiv:math/0603559 Section 2.1",
+          "arXiv:1711.04712 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0603559, math/0603561 and 1711.04712 original passages",
+        "DOI:10.1214/aoap/1015345393 and Bath portal (full text unresolved)",
+        "Resultary c9d68f2da8c6, f51047a8a8b8, ab86211def3e and ba659e0e3387"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Poissonized component density gives the growth order and a limiting constant but not its exact value in the inspected result. The Resultary mutual-neighbor count variance uses iid edge weights on a complete graph, not common ordered spacings; the rare-connectivity result conditions on one connected 1NN graph."
+        ],
+        "reasoning": "The two-neighbor overlap integral is the required new model-specific computation. General proofs and exact comparisons for other statistics do not give the rational q3 and q4 or their positive and negative covariance balance.",
+        "searches": [
+          "arXiv:1711.04712 Theorem 1 and Table 1",
+          "Resultary c9d68f2da8c6, f51047a8a8b8, ab86211def3e and ba659e0e3387"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The moments are equivalent to those of a five-consecutive-exponential local cut process after normalization of the uniform spacings. The lag 3 and 4 entries are joint cut probabilities; subtract p^2 for the covariance.",
+          "The closest local interval fragmentation result c9d68f2da8c6 concerns mixed covariance with edge length and one-neighbor choices, not component variance for two-neighbor choices."
+        ],
+        "reasoning": "One- and two-neighbor cuts are different events: the latter require sums of two gaps and introduce additional overlap lags. Random-link or mutual-neighbor versions are not equivalent to the line graph or its cut process.",
+        "searches": [
+          "Resultary one-dimensional two-nearest-neighbor components, fragmentation and cut gaps",
+          "Primary literature exact interval 2-nearest-neighbor component count variance and overlap probabilities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Penrose–Wade Table 1 reports asymptotic directed one-neighbor edge-length variance constants. Table 1 in the randomized-neighbor paper reports Monte Carlo estimates of mean density at d=2,3,4, not d=1 nor variance.",
+          "The nearby Resultary exact laws are for mixed edge-length covariance in the interval or component statistics in different models. The same-date random-link component-density result and rare-connectivity interval result were compared by assumptions, not date."
+        ],
+        "reasoning": "These are the relevant numeric and model matches; none of the inspected tables is an exact 1D two-neighbor joint-cut or variance table.",
+        "searches": [
+          "arXiv:math/0603561 Theorem 2.3 and Table 1",
+          "arXiv:1711.04712 Table 1",
+          "Resultary: identical probabilities/finite variance and graph-model alternatives"
+        ]
+      },
+      "rationale": "Pass the exact two-neighbor cut joint laws, finite-sample moments and explicit asymptotic variance. General nearest-neighbor component-count Gaussian theory and positive component density are prior, not the novelty. The closest inspected explicit constants are for different observables, degrees or graph models. The Penrose–Yukich full-text limitation remains a risk, not evidence of noncoverage.",
+      "residual_risks": [
+        "The 2001 Penrose–Yukich article could not be checked beyond bibliographic and abstract-level evidence despite lawful direct and identified alternate attempts; an exact result there remains possible.",
+        "An older equivalent cut calculation might be indexed under different geometric fragmentation terminology. A bounded search is not priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "general CLT credited; exact-constant coverage unresolved",
+          "evidence": [
+            "Publisher PDF access failed; the Bath portal gives only a DOI, and the author publications lookup did not resolve an OA copy. No whole-document exclusion is asserted."
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/aoap/1015345393",
+          "material_read": "abstract-level information reported in the frozen literature assessment; Bath research portal bibliographic/DOI-only entry independently checked; no full-text theorem or appendix retrieved",
+          "method": "publisher PDF/landing attempts, public alternate author/institutional lookup",
+          "title": "Central limit theorems for some graphs in computational geometry",
+          "trigger": "closest general CLT and potentially exact 1D constants"
+        },
+        {
+          "assessment": "shared graph definition but different functional",
+          "evidence": [
+            "The law of large numbers concerns power-weighted total edge length, not connected-component cuts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0603559",
+          "material_read": "Section 2.1, pp. 4–5, OA offsets about 11247 and 14625",
+          "method": "lawful PDF, original model and result passages",
+          "title": "Explicit laws of large numbers for random nearest-neighbour type graphs",
+          "trigger": "same union-of-neighbor graph"
+        },
+        {
+          "assessment": "exact directed 1NN length calculations, not 2NN fragmentation",
+          "evidence": [
+            "The table is of asymptotic edge-length variance constants V_alpha."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0603561",
+          "material_read": "Section 2.2, Theorem 2.3 and Table 1, pp. 7–9, offsets about 22319 and 26400",
+          "method": "lawful PDF, theorem and table inspection",
+          "title": "Limit theory for the random on-line nearest-neighbour graph",
+          "trigger": "potential exact nearest-neighbor variance table"
+        },
+        {
+          "assessment": "general Poissonized mean of same component type, not fixed-size exact moments",
+          "evidence": [
+            "The theorem gives E X_n/n -> c_(d,k)>0 for Poisson process input. Table 1 is labeled Monte Carlo and covers d=2,3,4."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1711.04712",
+          "material_read": "p. 2 Theorem 1 and Table 1, OA offsets 5620–8318",
+          "method": "lawful PDF, original theorem and table passages",
+          "title": "Randomized Near Neighbor Graphs, Giant Components, and Applications in Data Science",
+          "trigger": "same component statistic with potentially matching limiting density table"
+        },
+        {
+          "assessment": "one-neighbor mixed component and edge-length covariance",
+          "evidence": [
+            "It gives Cov(C_n,L_n) and E C_n=n/3 for an interval 1NN graph, not the focal variance."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26, c9d68f2da8c6",
+          "material_read": "local-mirror original Finding",
+          "method": "configured local Resultary and mirror",
+          "title": "Exact fragmentation-length covariance in an interval nearest-neighbor graph",
+          "trigger": "exact interval component moments"
+        },
+        {
+          "assessment": "different graph and component structure",
+          "evidence": [
+            "The components are in a complete-graph random-link mutual-neighbor model, not interval union-of-two-choices."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8, f51047a8a8b8",
+          "material_read": "local-mirror original Finding",
+          "method": "configured local Resultary and mirror",
+          "title": "Exact mutual-nearest-neighbor component law in symmetric random-link graphs",
+          "trigger": "nearby exact component-count law and variance"
+        },
+        {
+          "assessment": "different graph/source or conditional statistic",
+          "evidence": [
+            "The first uses iid random links and one-neighbor choices, giving asymptotic component size densities. The second gives root moments under connectivity in the 1NN line model."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, ab86211def3e and ba659e0e3387, respectively",
+          "material_read": "two original Findings from the local mirror",
+          "method": "configured local Resultary and mirror",
+          "title": "Complete finite component densities in symmetric random-link nearest-neighbor graphs; A joint Gaussian root location law under rare connectivity of an interval nearest-neighbor graph",
+          "trigger": "same-day close component and CLT matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The interval union of two-neighbor choices is a natural sparse geometric graph and connected-component count is a basic fragmentation observable. The exactly evaluated positive and negative overlap terms quantify why independent or Poisson cuts would fail: the true limiting variance-to-mean ratio is below one, and the finite correction is available without simulation. The main value is the finite-sample and local covariance information, not a generic Gaussian-limit theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

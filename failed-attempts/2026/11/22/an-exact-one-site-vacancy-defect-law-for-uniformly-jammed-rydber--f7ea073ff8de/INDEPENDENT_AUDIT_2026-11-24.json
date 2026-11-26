@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:34:15.599850Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the stated rings L≥4b+5 set B=b+1. An intact gap is in [B,2B−1]; a gap of length g can expose only the g−(2B−1) central sites if this number is positive. Hence the extra sector has a unique gap 2B anchored at ±B, all other gaps ordinary. Rooting a cyclic composition at any atom counts each intact n-atom state n times; the exceptional gap has a fixed root and needs no division. For example b=1,L=9 gives intact 3y³+9y⁴, intact with 0 empty 2y³+5y⁴ and extra 2y³. The intact count rooted at occupied site 0 has generating function yG/(1−yG); combined with the count in RESULT.md lines 32–62 this supplies the density limit directly without interchanging an asymptotic and a derivative. The pole at yG(z)=1 is simple and unique on its circle since consecutive exponents cannot both have phase 1 off the positive ray. Residues give limits 1 for Z times z^L, rho for the occupied-site contribution times z^L, and y rho z^(2B) for the exceptional contribution times z^L. Line 57's 'root of yG' is a local wording error; the intended denominator and root equation are explicit. At y=1, u=−B log z obeys the printed root equation; bounded u would force an unbounded geometric sum, and u/B bounded away from zero would contradict the same equation. Thus u exp(u)~B. The excess length has the mean of a truncated geometric law, bounded by 1/(exp(u/B)−1), yielding rho~1/B and P~(log b)^2/b^3 after taking the stated limits in order. Read checker.py and VERIFICATION.md without executing them.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The intact renewal law at fixed activity has iid atom-to-atom spacings of masses q_d=y z^d on B≤d≤2B−1, with intensity rho=1/E[d]. The prior intact pair renewal expansion specialized at distance 2B has one term q_B².",
+          "The OA Rydberg passages in Krapivsky–Luck establish the dominant generating-function denominator and the large-blockade bulk spacing scale, from which z^(2B) follows at unit activity."
+        ],
+        "reasoning": "The more general exact renewal result yields pair occupancy rho q_B² at all fugacities; even just Luck's intact unit-weight case covers the headline uniform defect law. The finite-ring coefficient is the same intact composition count with two known gaps fixed to B.",
+        "searches": [
+          "arXiv:2302.08852 §6, activity-weighted Rydberg renewal law",
+          "arXiv:2311.14393 §3 and §6, exact pair correlations",
+          "arXiv:2302.08791 p.5, intact block enumeration"
+        ]
+      },
+      "checked_sources": [
+        "Luck, arXiv:2311.14393",
+        "Krapivsky–Luck, arXiv:2302.08852",
+        "Došlić et al., arXiv:2302.08791",
+        "Resultary f7ea073ff8de and catalogue result 5ddc40587134"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The involutive insertion/deletion correspondence gives the defect-to-intact ratio 1−rho+(1/y)rho q_B², not just a bound. Normalizing its second summand gives the exact boxed probability.",
+          "At y=1, prior bulk root and density asymptotics reduce that same summand to rho z^(2B)~(log B)^2/B^3; its normalizing denominator tends to one."
+        ],
+        "reasoning": "This is a local event substitution in an exact prior observable and its established bulk asymptotics. A different partition-function interpretation and longer generating-function derivation do not supply a distinct exact mathematical fact.",
+        "searches": [
+          "arXiv:2302.08852 §6 pp.21–23",
+          "arXiv:2311.14393 pp.7,12,17,19–22",
+          "Frozen RESULT.md lines 32–68"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Luck gives the intact pair-correlation law and the permitted gap range. For B=b+1, having occupied sites −B and B in the intact ensemble forces the intervening occupation at 0: 2B is too long for one ordinary gap, and two or more gaps can fit only as B+B.",
+          "Deleting that forced atom gives precisely the inert-only states, with a weight factor 1/y. Conversely an inert-only state gains exactly that atom to become intact."
+        ],
+        "reasoning": "At finite L in the stated range the exceptional partition function divided by Z is exactly Pr_intact(X_{−B}=X_B=1)/y. The other term is 1−Pr_intact(X_0=1). Thus the central claim is entirely a known type of intact local statistic, not merely a statistic heuristically analogous to one.",
+        "searches": [
+          "Resultary comparison for the uniformly jammed Rydberg one-site/inert-site law and pinned gap",
+          "arXiv:2311.14393 §3 and §6, pair occupancy and Rydberg gaps"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit with suffix f7ea073ff8de is the same frozen record. Distinct nearest-neighbor transient Palm-dependence hit 5ddc40587134 is only catalogue-level: its local statement was unavailable.",
+          "The stronger analogue of a table here is the available exact all-separation intact pair formula, which includes the required separation 2B."
+        ],
+        "reasoning": "Neither the identical record nor the nearby but differently weighted kinetic setting establishes priority. The exact analytic pair formula does supply the decisive local entry without a separate enumeration.",
+        "searches": [
+          "Resultary semantic search for single-site defect and pinned oversized gap",
+          "arXiv:2311.14393 §3, exact C_n"
+        ]
+      },
+      "rationale": "The exact intact pair-correlation law already covers the purported new defect observable after a direct invertible change of configurations. This is demonstrable implication, not a claim that the earlier text used the wording 'inert site' or that a search hit alone duplicates the record.",
+      "residual_risks": [
+        "No assertion is made that an earlier paper explicitly stated the partition ratio under the same defect terminology. The conclusion is prior mathematical coverage via a verifiable bijection. The distinct Palm-dependence record was not compared at full statement level."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact broader coverage after the event bijection",
+          "evidence": "Exact C_n from the renewal framework, ordinary Rydberg gap range, and bulk high-blockade estimates.",
+          "identifier_or_url": "https://arxiv.org/pdf/2311.14393",
+          "material_read": "§3 pp.7,12 (offsets 20574,37600), §6 pp.19–20 (58814); asymptotics pp.17,22 (52173,64500)",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "On the structure factor of jammed particle configurations on the one-dimensional lattice",
+          "trigger": "Intact pair probability may already encode the pinned defect sector"
+        },
+        {
+          "assessment": "Supplies the fugacity-dependent ingredients and high-blockade scale",
+          "evidence": "Independent clusters with holes b through 2b, activity denominators, dominant root and large-b mean spacing.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.08852",
+          "material_read": "§6 pp.21–23, offsets 59900,62000,64100",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "A renewal approach to configurational entropy in one dimension",
+          "trigger": "Exact activity-weighted intact law and bulk small-root regime"
+        },
+        {
+          "assessment": "Intact enumeration background",
+          "evidence": "The ordinary gap-block polynomial and intact generating function are present; no explicit inert ratio in the passage.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.08791",
+          "material_read": "p.5, offset 16556",
+          "method": "Lawful OA PDF passage",
+          "title": "Complexity Function of Jammed Configurations of Rydberg Atoms",
+          "trigger": "Earlier enumeration with the same allowed blocks"
+        },
+        {
+          "assessment": "Not relied upon for prior coverage",
+          "evidence": "Catalogue describes transient nearest-neighbor adsorption, not a single defect in a weighted equilibrium ensemble.",
+          "identifier_or_url": "Resultary: 2026/10/26/5ddc40587134",
+          "material_read": "Resultary catalogue description only; local mirror passage unavailable",
+          "method": "Resultary semantic and mirror retrieval",
+          "title": "Strict positive transient three-site Palm dependence in nearest-neighbor adsorption",
+          "trigger": "Distinct indexed local-correlation claim in a neighboring jamming model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A pinned site is a natural perturbation and the formula can be convenient, but the submitted exact invariant is a normalization of two already accessible intact local probabilities. Insertion/deletion of the forced central atom and evaluation at distance 2B recover both the finite count and the thermodynamic law; the scale then follows from the standard bulk root. No additional independent gap or defect phenomenon survives as a new exact finding on the stated scope.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:32:20.579011Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:4–89",
+        "VERIFICATION.md:19–21",
+        "verify.py (inspected)",
+        "requirements.txt",
+        "python3 /workspace/replay/1.py (passed integer occupation-space, Hamiltonian and Pauli checks)"
+      ],
+      "rationale": "An independent integer occupation-basis replay checked the fermion signs: on (d₊,s₋) the Hamiltonian is U I/2 + 2t(qZ−X), and the other two levels have energies U and 0. The replay also checked the three commuting Pauli syndromes and the signs of the logical Paulis. The +++ joint eigenspace is exactly the two-level block: the first two Paulis impose the sector and the third splits each complementary occupation pair. An encoded stabilizer mixture passes Pauli postselection; hence the logical block detects nonmembership of the full four-qubit polytope, regardless of weights on the other levels. The reverse implication follows by combining the encoded octahedron decomposition with the two complementary stabilizer projectors. The conditioned qubit has Bloch vector (1,0,−q)tanh(2tg/T)/g, yielding the claimed iff test, with the zero-temperature limit and U=0 case handled. At q>0 the test crosses once in T. For L=atanh(g/(1+q)), L'=(q−1)/(2qg); the derivative sign of g/L is the sign of qL/g−(q−1)/(2q), positive for q≤1 and also for q>1 by L>g/(1+q). Under q↦1/q, L is invariant and g is divided by q. The exact logarithm 2L=log((1+q+g)^2/(2q)) gives both endpoint equivalents and surjectivity, and q_c is exponentially small at low T, so the O(q_c) log correction and O(q_c²t/T) exponent correction go to zero, preserving the inverse prefactor. The free mixing interval has width g/(1+q), uniquely minimized at q=1.",
+      "residual_risks": [
+        "Scope is the fixed N↑=N↓=1 canonical ensemble and ordinary occupation-qubit stabilizer theory; neither a grand-canonical criterion nor a formula for robustness outside the free region follows. The integer replay checks algebra, not the continuum claim by numerical sampling."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Appendix B describes a free interval of two-eigenstate mixing and contrast with stabilizer admixture; Sec. V finds the thermal line numerically.",
+          "The standard logical-qubit octahedron is prior; it is not on its own an iff test on this full four-qubit Gibbs mixture."
+        ],
+        "reasoning": "The syndrome and postselection argument supplies necessity in the full mixed state as well as sufficiency, not just cancellation inside a selected two-level subspace. An unfocused search return is not negative evidence.",
+        "searches": [
+          "arXiv:2605.18494v2 Sec. V and Appendix B analytic versus numerical boundary and eigenstate ratios",
+          "Focused Hubbard-dimer thermal magic primary-literature search"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.18494v2",
+        "Resultary b0fc3b108848",
+        "Local exact-record and semantic Resultary lookups"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior reports thermal death and a way to invert the numerical threshold, but does not identify the analytic condition or prove the monotonicity, reciprocity, endpoint asymptotics and the inverse formula with its prefactor in the decisive passages.",
+          "The stronger-looking local-filter invariant in b0fc3b108848 concerns a different state, observable and resource question."
+        ],
+        "reasoning": "Existence of a numerical inverse and an interval of free two-state mixtures do not give the specified analytic full-state equivalence or the exact reciprocal and scaling identities. No priority is inferred from the date of the unrelated record.",
+        "searches": [
+          "arXiv:2605.18494v2 Sec. V and Appendix B compared with RESULT.md:7–30,61–89",
+          "Resultary b0fc3b108848 finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior spectrum and four-state Gibbs mixture use the same fixed spin-number and occupation basis. Its robustness-one line is the same physical boundary, not a different normalization.",
+          "The nearby Resultary b0fc3b108848 treats partial-transpose inertia in spin-one XXZ, not a stabilizer polytope."
+        ],
+        "reasoning": "Numerical location and qualitative explanation of the same boundary are credited as prior. A PPT/NPT threshold does not test stabilizer mixtures.",
+        "searches": [
+          "arXiv:2605.18494v2 Secs. III, V and Appendix B: fixed-sector thermal magic death, robustness one, eigenstate mixing",
+          "Published Resultary exact-record ID and Hubbard-dimer thermal magic semantic search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fig. 4 plots T_c(U/t) and the text discusses the inverse U_c, but that plot does not provide the closed curve or inverse exponential prefactor.",
+          "No direct match was retrieved; the corresponding frozen-record path was not available in the checked mirror snapshot."
+        ],
+        "reasoning": "The phase diagram is direct prior numerical evidence for the same boundary. Neither a plotted line nor mirror nonretrieval supplies an earlier analytic statement.",
+        "searches": [
+          "arXiv:2605.18494v2 Fig. 4 and Sec. V",
+          "Local Resultary search for exact frozen ID 4d9a5f29a799 and thermal-magic boundary"
+        ]
+      },
+      "rationale": "The same-sector spectrum, thermal death and its explanation by mixing the two nonstabilizer states are prior. The distinct supported claim is an explicit all-U iff characterization of the full stabilizer boundary, together with its proved threshold properties and sharp inverse onset.",
+      "residual_risks": [
+        "The general literature search did not yield an additional usable candidate. An independent unindexed derivation is not excluded; the unavailable identical-record path is not evidence of publication or nonpublication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same boundary plotted and mechanism identified; inspected sections do not give the claimed exact boundary and its analytic properties",
+          "evidence": [
+            "Four fixed-spin eigenstates enter the canonical Gibbs mixture; Fig. 4 dashed line is T_c(U/t); Appendix B discusses a finite free interval when the two nonstabilizer eigenstates are mixed."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.18494v2",
+          "material_read": "Sec. III offsets 24136–30075; Sec. V and Fig. 4 discussion offsets 41442–47244; Appendix B offsets 65861–71840",
+          "method": "OA full-text comparison of model and thermal-critical passages",
+          "title": "Quantum magic of strongly correlated fermions – the Hubbard dimer",
+          "trigger": "Exact model, sector, magic measure and prior thermal phase diagram"
+        },
+        {
+          "assessment": "Not equivalent or dominating coverage",
+          "evidence": [
+            "Local-filter theorem for PPT/NPT applied to a spin-one XXZ dimer, rather than conventional four-qubit stabilizer magic of a number-fixed Hubbard dimer."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-uniform-longitudinal-fields-preserve-partial-transpose-inertia-i--b0fc3b108848",
+          "material_read": "Mirrored RESULT.md offsets 0–4494, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Published Resultary lookup and local mirror read",
+          "title": "Uniform longitudinal fields preserve partial-transpose inertia",
+          "trigger": "Closest indexed same-day dimer/resource-boundary hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:7–30,61–89",
+        "arXiv:2605.18494v2 Sec. V and Appendix B"
+      ],
+      "rationale": "This closes an explicit boundary question in a previously plotted canonical strong-correlation example. An exact class membership test removes the need to solve a robustness program at every parameter, explains why the other energy levels cannot hide the magic in the selected block, and gives the low-temperature interaction onset with a prefactor that is not reliably read from a phase diagram. The contrast with the minimum-width two-level interval shows that the thermal crossing is not simply controlled by mixing geometry without its energy scale.",
+      "residual_risks": [
+        "The use is a benchmark and analytic criterion for this canonical dimer; portability to larger systems or other ensembles is not established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

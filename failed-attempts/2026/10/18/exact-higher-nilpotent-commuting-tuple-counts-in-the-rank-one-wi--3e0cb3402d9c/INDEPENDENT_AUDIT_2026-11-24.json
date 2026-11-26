@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:32:20.139592Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the stratification for p≥5 over the finite field and its algebraic closure. For a unit coefficient, nilpotence is equivalent to 1 lying in the image (the kernel is one-dimensional), or equivalently f⁻¹ having no t^(p−1) term. For the converse choose the antiderivative with zero constant term; its nonzero linear term then gives a valid change of coordinate in the local algebra. Unit centralizers are scalar lines by the quotient rule. Linear-order coefficients are not nilpotent; order ≥2 raises the degree filtration. At minimal nonlinear order k≤h, the first possible term of fg′−gf′ has coefficient (ℓ−k)f_k g_ℓ, forcing proportionality modulo t^(p−k+1). Each normalized truncated direction has p−2k free coefficients; for each such direction the m entries have k coordinates each and at least one leading scalar must be nonzero. The order ≥h+1 locus is abelian by degree. These disjoint strata give the stated sum. Over the closure the low strata have affine parameters with a nonzero scalar vector, giving dimensions p−2k+mk; the unit stratum has dimension p−2+m and the high one mh. Pivot charts recover the normalized direction regularly. The largest dimension is attained at k=h and exceeds the unit dimension by (m−2)(h−1). The finite checker was inspected, not rerun; its only in-domain exhaustive field is F_5, and it does not check the geometric dimension.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two-tuple paper supplies the elementwise centralizer pattern, not merely dimension p. The later indexed all-arity full-Witt theorem counts tuples in the entire algebra, and hence does not by itself give a count of the nilpotent sublocus.",
+          "The 2015 paper is on the exact higher nilpotent geometry; the available bibliographic material did not expose its theorem."
+        ],
+        "reasoning": "Distinguish a geometric theorem over a closure from fieldwise counts, and ordinary commutation from nilpotent commutation. The usable prior input is the centralizer structure and its descent by explicit coefficient conditions.",
+        "searches": [
+          "arXiv:1301.5667, Lemma 3.3, Corollary 3.4 and Theorem 3.6",
+          "10.1016/j.jpaa.2015.02.005",
+          "10.3969/j.issn.1000-5641.2021.03.001",
+          "Resultary: commuting counts for the full one-variable Witt algebra"
+        ]
+      },
+      "checked_sources": [
+        "Yao–Chang arXiv:1301.5667",
+        "Yao 2015 DOI 10.1016/j.jpaa.2015.02.005 (bibliographic only)",
+        "Yao–Zhang 2021 DOI 10.3969/j.issn.1000-5641.2021.03.001 (secondary bibliographic lead)",
+        "Resultary and mirrored p=5 restricted, full-Witt all-arity and ordinary-triple findings",
+        "Frozen RESULT.md, VERIFICATION.md and verify_witt_commuting_tuples.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For first minimum-order entry at position i and 2≤k≤h, there are (q−1)q^(p−k−1) pivots, with earlier entries in a (k−1)-dimensional tail and later ones in a k-dimensional abelian centralizer. Summing over i gives q^(p−2k)(q^(mk)−q^(m(k−1))). The same pivot charts give the geometric dimensions. For units the normalized inverse parametrizes the regular nilpotent scalar directions by p−2 free coefficients over the base field."
+        ],
+        "reasoning": "The finite-field step is elementary descent of the bracket equations and counting free coefficients, not counting via dimension alone. Once the known centralizers are fixed, the product counts and maximum dimension need no new structural lemma.",
+        "searches": [
+          "Yao–Chang, arXiv:1301.5667, Lemmas 2.3 and 3.1",
+          "Frozen RESULT.md, proof steps 1–6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yao–Chang uses filtration degree i=k−1; its lower-stratum centralizer kx⊕g_(p−1−i) is the frozen scalar line plus t^(p−k+1)A∂ in coefficient-order notation.",
+          "The inspected five-dimensional restricted census gives (q+1)q^(2m)+(q^3−q)q^m−q^3, identical to the frozen formula at p=5."
+        ],
+        "reasoning": "Changing from filtration index to coefficient order leaves the same centralizer. The p=5 result is exact overlap, not evidence by itself for all primes or earlier priority.",
+        "searches": [
+          "Yao–Chang, arXiv:1301.5667, Lemmas 2.3 and 3.1",
+          "Resultary: finite-field nilpotent commuting tuples in rank-one Witt algebra"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published p=5 census is exactly the p=5 specialization for every m; it contains no geometric dimension formula. The full-Witt and ordinary-triple counts count different loci."
+        ],
+        "reasoning": "No all-p restricted count table was confirmed in the inspected sources; the exact p=5 hit is narrower and its date does not establish a priority order.",
+        "searches": [
+          "Resultary: finite-field commuting nilpotent tuple census for the five-dimensional Witt algebra",
+          "Resultary: all-arity finite-field commuting counts for the one-variable Witt algebra"
+        ]
+      },
+      "rationale": "An earlier explicit all-q, all-m restricted count was not established. The exact count and dimension nevertheless follow mechanically from the known nilpotent-cone strata and centralizer formulas: choose the first entry of minimal order and then count earlier coordinates in the tail and later coordinates in that abelian centralizer. This is stronger prior coverage than just knowing the m=2 dimension. The inaccessible 2015 higher-tuple paper is not the basis of the decision.",
+      "residual_risks": [
+        "The 2015 higher-arity theorem was not inspected in full text; whether it states the dimension in the frozen form is unresolved. Explicit priority for the arithmetic polynomial is also unresolved. The exact prior-implication check does not depend on either priority question."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact structural input, explicit geometry at arity two, mechanical implication at higher arity",
+          "evidence": [
+            "Regular nilpotents have scalar centralizers; lower strata have a scalar line plus a filtration tail; the two-tuple dimension is p."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1301.5667",
+          "material_read": "Preliminaries and Lemmas 2.3, 3.1, 3.3, Corollary 3.4, Theorem 3.6, pp. 2–6; OA offsets 6551, 8464, 11416, 14014",
+          "method": "Primary arXiv PDF passages and statement-to-coefficient comparison",
+          "title": "Nilpotent commuting varieties of the Witt algebra",
+          "trigger": "Same Witt algebra and nilpotence notion; centralizers decide higher tuples"
+        },
+        {
+          "assessment": "Potential explicit dimension coverage; no finding inferred from unavailable text",
+          "evidence": [
+            "The bibliographic record identifies the same higher nilpotent-tuple subject."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jpaa.2015.02.005",
+          "material_read": "DOI and OA bibliographic/landing material; no theorem pages obtained",
+          "method": "Lawful DOI/OA retrieval attempt",
+          "title": "On nilpotent commuting varieties of r-tuples in the Witt algebra",
+          "trigger": "Exact higher restricted-nilpotent geometric object"
+        },
+        {
+          "assessment": "Exact p=5 specialization; no inferred priority, dimensions or other primes",
+          "evidence": [
+            "The all-arity polynomial agrees with the frozen formula on setting h=2."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-finite-field-commuting-nilpotent-tuple-census-for-the-five-dimen--a210a44aa91b",
+          "material_read": "Mirrored RESULT.md at offsets 0 and 3402",
+          "method": "Resultary lookup and local mirror read",
+          "title": "Finite-field commuting nilpotent tuple census for the five-dimensional Witt algebra",
+          "trigger": "Exact narrower restricted finite-field census"
+        },
+        {
+          "assessment": "Counts the full algebra rather than the restricted-nilpotent locus",
+          "evidence": [
+            "The valuation-centralizer method is related but the unrestricted total is a different invariant."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-all-arity-finite-field-commuting-counts-for-the-one-variable-wit--9efd53206c29",
+          "material_read": "Mirrored RESULT.md at offsets 0 and 3361",
+          "method": "Resultary lookup and local mirror read",
+          "title": "All-arity finite-field commuting counts for the one-variable Witt algebra",
+          "trigger": "Same primes and arity; potentially broader count"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Arity-dependent nilpotent commutation densities and the dimension jump are natural invariants. In this case the stated gains are the direct cardinality and maximum-dimension calculations for already known explicit abelian centralizers, without a new geometric or arithmetic obstruction or an independently undetermined exact invariant.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

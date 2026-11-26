@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The nonadaptive estimator is reduced to independent singular-direction Gaussian coordinates. The two energy terms converge in \(L^2\); a fixed-dimensional multivariate Lyapunov CLT gives the joint cross-product limit, and the continuous mapping theorem gives the centered chi-square law. The existing exact Gaussian variance identity supplies uniform integrability needed to exchange clipping expectation with the limit. The gamma recurrence yields the exact bias. Both large-sketch exponents and constants follow from endpoint/interior Laplace expansions; the rank-one saddle is uniquely at \(u=2\), with curvature \(3/4\). Program checks corroborate but do not establish the infinite claims.
+## correctness
 
-## Originality
-**PASS under the inspected literature, with residual risk.** The full accessible source Chen--Halikias--Musco--Persson (arXiv:2609.28472) presents Hutch# and the same exact variance but not the limiting signed distribution, exact positivity-clipping bias or the rank-one sign tail. The related Hutch++ method of Meyer et al. (arXiv:2010.09649) has a different nonnegative projection-based structure. A 2022 Nyström++ paper studies other adaptive estimators. Targeted mathematical-literature searches for Hutch# and the chi-square signed limit did not reveal an equivalent statement. Generic Gaussian CLT and chi-square asymptotics provide proof tools but do not by themselves contain the estimator-specific decomposition and two spectral comparisons. Unindexed or inaccessible results may still overlap.
+PASS
 
-## Value
-**PASS.** For a quantity known to be positive, the estimator can return a negative value with limiting probability about 15.73% at one sketch pair, no matter how large and spectrally flat the input becomes. The natural nonnegative repair incurs a 25.78% limiting relative mean bias at that same budget, while rank-one and flat high-rank inputs have sharply different sketch-budget sign tails. These explicit laws supply a parameter-choice and downstream-domain-validity diagnostic absent from variance-only guarantees. The result does not claim any impact for other estimator variants or a joint two-parameter limit.
+Reassessed repairs/3/RESULT.md. In the singular-value basis the squared-norm terms each converge to 1 in L² with variance 2/(rR_j). The vectorized Gaussian cross term has covariance I_(r²); its fourth norm moment sum is E(||X||⁴||Y||⁴)/R_j, so multivariate Lyapunov applies at fixed r even with changing dimensions. This yields 2-chi²_(r²)/r² and gives sign convergence at the continuity point zero. From H-F=-tr(L A M A^T) for the independent centered Wisharts, conditioning and the diagonal/off-diagonal variances give exactly 2(F²+tr((A^TA)²))/r². This yields the uniform integrability needed for clipping, followed by x f_k=k f_(k+2). The repaired tail proof after rescaling u=2+t/k is dominated by exp(-t/4)/2, yielding (pi k)^(-1/2)exp(-k I(2)), k=r². The removed stand-alone rank-one result was not false: in the original proof the saddle is at u=2 with J''(2)=3/4 and prefactor 1/(4pi); the complementary integral is exponentially smaller by the gamma Chernoff bound and coercivity. It remains a credited comparison only. The uploaded script was inspected, not run; its finite Monte Carlo tests cannot certify either asymptotic regime.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Narrowed the originality claim in repairs/3/RESULT.md to the high-effective-rank signed law and clipping bias, with the q_r tail as a chi-square consequence. The original stand-alone rank-one law and sharp tail have exact coverage in the weighted Resultary result at alpha=1; its catalogue date does not settle historical priority. The corrected file treats this only as credited context. The compared estimator and probability papers do not supply the high-effective-rank Hutch# signed/clipped limit.
+
+## value
+
+PASS
+
+The repaired theorem identifies a non-Gaussian signed limit for a natural unbiased estimator of a nonnegative target, uniformly in the sense of arbitrary sequences satisfying the effective-rank condition. It gives the exact upward penalty of the practical clipping operation and shows this cost persists even as spectral concentration vanishes at fixed budget. Neither the variance alone nor qualitative sign failure gives this information; the claim is worthwhile without relying on the overlapping rank-one result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

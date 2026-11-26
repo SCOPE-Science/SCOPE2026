@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:15:31.987071Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent derivation: write X_i=S_i A_i with A_i=|X_i| and independent fair signs S_i conditional on the magnitudes. The conditional signed-rank mean is constant and its conditional variance is sum r²/4, giving n(n+1)(2n+1)/24. The conditional covariance with the mean is (1/(2n)) sum r A_(r). With no ties, sum r A_(r) equals sum A_i plus the sum over unordered pairs of max(A_i,A_j). The identity max(|x|,|y|)=(|x+y|+|x-y|)/2 and symmetry give expected pair maximum Δ. Thus the unconditional covariance is μ_1/2+(n−1)Δ/4 without using the Walsh representation. The frozen Walsh proof agrees: a diagonal pair contributes E|X|/2 and each off-diagonal pair contributes E|X-X'|/2 before division by n. Atomlessness and independence give the required no-tie conditions, and the second moment guarantees finite covariance. At n=1 only the diagonal survives. Normalizing by σ²/n and the rank variance gives the displayed general, Gaussian and uniform correlations and the limit. The 3/π comparison is numeric equality with the Gaussian efficiency, not an asserted efficiency theorem for all laws. The bundled finite checker was inspected, not executed; these analytic identities apply to all n and do not rely on its checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The classical Walsh representation is a pair-kernel sum plus its n diagonal terms. The cited Hodges–Lehmann comparison concerns Pitman efficiency; it was not available for full-text inspection in this audit. No inspected joint-limit or rank-moment theorem giving the exact finite Gini term was identified."
+        ],
+        "reasoning": "The generic overlapping-index rule for U-statistics reduces the problem to a population mixed moment but does not evaluate it or account for the separately scaled diagonal term of the rank statistic. The evaluation as E|X-X'| uses symmetry of the pair law. A limiting efficiency comparison alone does not determine a same-sample finite covariance.",
+        "searches": [
+          "Walsh pair sums and order-two U-statistic covariance with order-one sample mean",
+          "10.1214/aoms/1177728261, Hodges–Lehmann",
+          "Geyer, Section 2, equations and induction steps"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_signed_rank_mean_gini.py",
+        "C. J. Geyer, Wilcoxon Test Theory Notes (2006), Section 2",
+        "Resultary 44317224c161, 3bfb4b0a87a1 and 50b596d23f6a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unsigned magnitudes, unobserved by the signed-rank marginal distribution, enter the covariance through a weighted order-statistic sum. Rewriting that as a sum of pair maxima produces the Gini identity. The closest same-day exact covariance is for an independent choice of statistics, not the same mixed moment under a scale or sign convention."
+        ],
+        "reasoning": "Prior identification of the signed-rank statistic as a Walsh count supplies a useful kernel, but obtaining the exact mixed covariance still requires evaluating the off-diagonal contribution and the diagonal finite-n term; this is not a rescaling of a known efficiency or rank table.",
+        "searches": [
+          "Geyer 2006, Section 2, p. 1 and equation (1)",
+          "10.1002/9781118445112.stat02791, Randles",
+          "Resultary 2026/10/13/SCOPE-sign-blind-runs-couple-to-sample-variance-through-adjacent-magni--44317224c161"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Geyer's pp. 1–2 give the positive ranks/above-center Walsh-count equivalence including the diagonal pairs. The same-day Resultary 44317224c161 instead has a sign-run count and centered sample variance. The earlier Gini record 3bfb4b0a87a1 couples the sample Gini to sample variance under exponential sampling."
+        ],
+        "reasoning": "The positive-Walsh count is genuinely equivalent to the statistic, not an equivalent assertion of its covariance with the sample mean. Switching from one-sample signs/ranks to a runs statistic, or switching to a sample Gini and another population law, changes the moment.",
+        "searches": [
+          "Wilcoxon signed rank statistic positive Walsh positive pairwise averages textbook PDF signed rank one sample Walsh identity",
+          "Resultary: signed-rank sample mean exact covariance, Walsh sums, Gini mean difference",
+          "Geyer, Wilcoxon Test Theory Notes, Section 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected records report exact moments for different statistic pairs and/or null laws. The known distribution-free signed-rank moments are marginal; the frozen theorem's mixed moment changes with μ_1 and Δ even at fixed n."
+        ],
+        "reasoning": "A distribution-free signed-rank null table cannot determine a joint moment with the sample mean for arbitrary symmetric parents. The relevant exact symbolic result lookup did not identify a matching independent entry in the inspected set.",
+        "searches": [
+          "Resultary: exact covariance of positive signed rank and mean, under atomless symmetric sampling",
+          "Resultary records 44317224c161, 3bfb4b0a87a1 and 50b596d23f6a, original findings",
+          "Rank and Walsh-count equivalence, Geyer Section 2"
+        ]
+      },
+      "rationale": "The signed-rank null variance, the Walsh identity and Gaussian Pitman efficiency are not new. The accepted distinct statement is the exact finite-n mixed covariance of the signed rank and sample mean, with its law-dependent Gini coefficient and exact diagonal correction. The inspected references and catalogue results do not state or directly supply that mixed identity. The conclusion is bounded by the reported access limitations.",
+      "residual_risks": [
+        "Older linear-rank or joint-moment literature may express the exact formula in a different normalization or as a probability-weighted moment. The named historical sources were not all readable, and the bounded search is not proof of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior equivalent statistic representation, not the claimed mixed identity in the inspected passage.",
+          "evidence": [
+            "The notes equate the sum of positive ranks to the number of above-center Walsh averages and explicitly index them by i≤j."
+          ],
+          "identifier_or_url": "https://www.stat.umn.edu/geyer/s06/5601/theo/wilcox.pdf",
+          "material_read": "Section 2, pp. 1–2, Eq. (1), text offsets 0–3400.",
+          "method": "Lawful university OA PDF, located Walsh averages and read the bounded original passage.",
+          "title": "Wilcoxon Test Theory Notes",
+          "trigger": "Classical Walsh representation and any implication for the claimed mixed moment."
+        },
+        {
+          "assessment": "Distinct mixed moment.",
+          "evidence": [
+            "The statistic is a sign-run count and the partner is centered sample variance, not positive signed rank and sample mean."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-sign-blind-runs-couple-to-sample-variance-through-adjacent-magni--44317224c161",
+          "material_read": "Original RESULT.md finding, offset 650.",
+          "method": "Configured Resultary search and local-mirror original passage.",
+          "title": "Closest same-day sign-runs covariance finding",
+          "trigger": "Same-day exact covariance, using signs and magnitude orderings."
+        },
+        {
+          "assessment": "Distinct statistics and models.",
+          "evidence": [
+            "The first concerns an exponential sample Gini and sample variance; the second a two-sample permutation rank sum paired with runs."
+          ],
+          "identifier_or_url": "Resultary 2026/10/12/3bfb4b0a87a1 and 2026/11/2/50b596d23f6a",
+          "material_read": "Original findings from offset 0 in the configured mirror.",
+          "method": "Configured Resultary search and bounded local-mirror inspection.",
+          "title": "Exponential sample Gini versus variance; squared rank sum versus runs",
+          "trigger": "Closest other exact moments involving Gini or rank covariance."
+        },
+        {
+          "assessment": "No document-level claim of noncoverage; access limitation.",
+          "evidence": [
+            "The frozen discussion, pp. identified by RESULT.md lines 273–305, distinguishes known Walsh representations and Gaussian efficiency from the claimed mixed covariance; that discussion is not independent full-text evidence."
+          ],
+          "identifier_or_url": "10.1002/9781118445112.stat02791; 10.1214/aoms/1177728261; JSTOR 3001968",
+          "material_read": "No primary full-text passage obtained for these three sources in this audit; bibliographic context only.",
+          "method": "Lawful OA attempts; landing page or no readable full text.",
+          "title": "Wilcoxon Signed Rank Test; The Efficiency of Some Nonparametric Competitors of the t-Test; Individual Comparisons by Ranking Methods",
+          "trigger": "Plausible historical or textbook coverage of the joint moment under another normalization."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For two standard location statistics, the exact dependence on the same sample is a useful quantity when comparing or combining them. The finite formula identifies the population quantity controlling that dependence, including the small-n correction and limiting contrast between Gaussian and uniform parents. This interpretation is distinct from a null marginal table or a rederivation of Gaussian efficiency.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

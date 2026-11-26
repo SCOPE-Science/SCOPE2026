@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:07:32.874684Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 34–132",
+        "Frozen VERIFICATION.md lines 19–31 and verification/check.py, inspected only",
+        "Independent finite quadrature: python3 /workspace/review_evidence/finite_checks.py 4, four dimensionless lags 0.003, 0.2, 3, and 25; integrated-kernel quadratures agreed with the closed form within 1e-33"
+      ],
+      "rationale": "The exponential-age stationary resolvent has vertical decay exp(-alpha|y|) with alpha=sqrt(r/D_y); integrating across zero gives amplitude r/(2 D_y alpha+D_x k^2), yielding the stated product Laplace law. The local-time normalization gives conditional horizontal variance (D_x/D_y)L_t=2D_x times backbone occupation density integrated in time. The independent reset event contributes no initial–terminal covariance on reset paths; on no-reset paths, conditional martingale means give the ordinary covariance matrix and autonomous vertical motion gives the reverse mixed-square covariance zero. The forward mixed-square covariance is 2D_x exp(-rt) times the time integral of Cov(Y^2,p_s(0|Y)), strictly negative at every s>0 by the independent-copy argument on |Y|. Differentiating the Gaussian–exponential integral with respect to its exponential rate twice gives the stated kernel; differentiating its erfc primitive and checking its value at zero verifies the displayed all-lag formula. The kernel tends to -1 in dimensionless units with O(sqrt(rt)) correction. For an independent check of the long-lag coefficient, the integrated heat-kernel difference from the kernel at y=0 is -|y|/(2D_y); covariance with Y^2 under the Laplace law thus integrates to -2/(D_y alpha^3). These arguments cover every positive lag under the stated strictly positive parameters and exact stationarity.",
+      "residual_risks": [
+        "Finite quadrature is corroborative only. The result requires independent complete Poisson resetting and the specified continuous local-time clock."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eq. (30) represents a generic joint two-time resetting density; Eqs. (31)–(32) give autocorrelation representations."
+        ],
+        "reasoning": "General renewal representations already supply the reset/no-reset decomposition. The strictly signed backbone occupation covariance, its explicit evaluation and the short- and long-lag constants are not supplied by that representation alone.",
+        "searches": [
+          "Taźbierski–Metzler–Magdziarz, DOI 10.1088/1367-2630/adee40, Secs. 3.1.2–3.1.3"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1103/PhysRevResearch.2.033027",
+        "DOI 10.3390/e25111529",
+        "DOI 10.1088/1367-2630/adee40",
+        "Resultary 2a4c114152a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Static factorization follows from known spatial calculations; renewal formulas identify how to propagate a parent kernel across a lag. The inspected results do not evaluate the corresponding comb mixed-square kernel integral."
+        ],
+        "reasoning": "The directed sign and exact closed form require a further model-specific evaluation and are not rephrasings of the static law or a plug-in of previously specified covariance constants.",
+        "searches": [
+          "Compare Domazetoski et al., Sec. V, Taźbierski et al., Eq. (30), and Resultary 2a4c114152a4 with RESULT.md lines 5–31"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sec. V of Domazetoski et al. specializes the global-reset spatial solution to two dimensions. Sec. 3.3 of Masó-Puigdellosas et al. uses reset to the origin from fingers and backbone and computes coordinate MSDs, not time-ordered mixed-square stationary moments."
+        ],
+        "reasoning": "The same transport model and spatial or MSD formulas do not constitute the asymmetric lag observable. Rewriting the lag covariance as an ordered fourth moment uses one-time marginals but still requires a transition calculation.",
+        "searches": [
+          "Primary-literature search on continuous comb resetting and time-ordered fourth-order covariance",
+          "Domazetoski et al., DOI 10.1103/PhysRevResearch.2.033027, Sec. V",
+          "Masó-Puigdellosas et al., DOI 10.3390/e25111529, Sec. 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed record 2a4c114152a4 gives an equal-time square covariance for a gamma reset clock and recovers zero and product-Laplace independence for exponential inter-reset times."
+        ],
+        "reasoning": "The indexed result overlaps at equal time only. The best matching exact record differs in both the lag quantifier and the invariant it evaluates; there is no independence-in-time conclusion from its same-time product law.",
+        "searches": [
+          "Resultary semantic search for the continuous globally resetting comb, stationary square-coordinate moments and ordered lags"
+        ]
+      },
+      "rationale": "The distinct content is the evaluated nonzero-lag negative-versus-zero mixed-square contrast, including the all-lag strict sign and scale constants. The static product law, generic renewal decomposition, and ordinary covariance comparison are not credited as new. No inspected source covers the evaluated directed lag result.",
+      "residual_risks": [
+        "An unlocated earlier model-specific evaluation may exist; generic two-time renewal laws substantially overlap the method. This is a best-of-knowledge assessment, not absolute priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers earlier spatial modeling and its 2D specialization, not the directed temporal evaluation in inspected passage",
+          "evidence": [
+            "Section V explicitly identifies its x,y results with those for the two-dimensional global-reset comb."
+          ],
+          "identifier_or_url": "https://webs.uab.cat/vmendez/wp-content/uploads/sites/97/2009/05/115.pdf",
+          "material_read": "Section V, p. 8, offset around 59219",
+          "method": "Lawful OA full-text passage inspection",
+          "title": "Stochastic resetting on comblike structures",
+          "trigger": "Same global-reset comb and possible stationary-law overlap"
+        },
+        {
+          "assessment": "Closely related coordinate MSDs; different statistic",
+          "evidence": [
+            "Global resetting acts regardless of finger or backbone location; the displayed renewal formulas concern the MSD."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/e25111529",
+          "material_read": "Section 3.3, p. 9, Eqs. (31)–(35), offset around 44669",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Random Walks on Comb-like Structures under Stochastic Resetting",
+          "trigger": "Same global-reset protocol"
+        },
+        {
+          "assessment": "Contains general two-time machinery; no evaluated comb mixed-square covariance in these results",
+          "evidence": [
+            "Eq. (30) is a general renewal representation; Brownian and scaled-Brownian cases are discussed, not a comb-specific fourth-order evaluation in inspected passages."
+          ],
+          "identifier_or_url": "https://doi.org/10.1088/1367-2630/adee40",
+          "material_read": "p. 2 and p. 7, Secs. 3.1.2–3.1.3, Eqs. (30)–(32), offsets around 27908 and 33877",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Series representation approach to stochastic processes with complete and incomplete renewal resetting",
+          "trigger": "Potential stronger two-time renewal formula"
+        },
+        {
+          "assessment": "Material static overlap, distinct ordered lag claim",
+          "evidence": [
+            "The normalized equal-time square covariance is (1-k)/(5(k+1)); at k=1 it is zero with product-Laplace stationary law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-universal-gamma-clock-correlation-reversal-and-poisson-indepen--2a4c114152a4",
+          "material_read": "RESULT.md offsets 0–4988",
+          "method": "Resultary semantic retrieval and local mirrored text",
+          "title": "A universal gamma-clock correlation reversal and Poisson independence",
+          "trigger": "Same continuum comb and exact square-coordinate covariance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–31 and 89–132",
+        "General renewal and comb-reset comparisons listed under originality"
+      ],
+      "rationale": "A natural hidden coupling of the canonical comb is screened both by the stationary position distribution and by every ordinary covariance. The signed, time-ordered exact statistic distinguishes this dynamics even at arbitrarily small or large positive lags and quantifies the decay; it is also a direct witness against reversibility of the stationary pair. The result gives more than a new quadrature for an arbitrary parameter sample.",
+      "residual_risks": [
+        "No inference about empirical detectability, incomplete resetting or discrete combs is needed for this value judgment."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

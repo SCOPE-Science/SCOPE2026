@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "The 20-vertex Folkman graph and all degree-four updates are given by explicit incidence equations. Exhaustive finite successor-graph traversal classifies each of 2^20 states, giving the 12 exact nonzero first-entry/period populations. A separate NumPy bit-sliced implementation derives those populations independently by testing F^(t+2)=F^t for t=0,...,7, with no unclassified states and exact witnessed sharp time seven. The 960 maximal-delay states all reach unanimity (480 of each colour). The complete 3840-element automorphism group follows from five duplicate-neighborhood vertex pairs; generator traversal yields 44 fixed-state and eight two-cycle space-time classes, whose component populations sum exactly to 4036 and 702. C++ source, independent checker, outputs and witness are provided in this same package.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goles and Olivos (1981), abstract: symmetric threshold automata eventually have period at most two.",
+        "Kaaser, Mallmann-Trenn and Natale (arxiv:1508.03519), §1 and Appendix C: general convergence and voting-time/module bounds, not exact labelled Folkman attractor populations."
+      ],
+      "reasoning": "Period-at-most-two is strictly weaker than a first-entry distribution, sharp numerical cutoff, attraction-basin size or symmetry orbit census. General finite upper bounds do not supply the exact claimed values.",
+      "searches": [
+        "synchronous majority dynamics graph every trajectory period at most two Goles Olivos 1981 arxiv 2015",
+        "majority dynamics on sparse random graphs",
+        "Folkman graph voting time threshold 7 orbit 2 census"
+      ]
+    },
+    "checked_sources": [
+      "Folkman 1967 DOI 10.1016/S0021-9800(67)80069-3 (abstract only)",
+      "Kaaser–Mallmann-Trenn–Natale arxiv:1508.03519 (accessible full HTML sections and Appendix C)",
+      "Goles–Olivos 1981 DOI 10.1016/0166-218X(81)90034-2 (abstract)",
+      "MathWorld Folkman Graph (full short entry)",
+      "Indexed McGee graph majority census record e302e5333117 (summary)",
+      "Indexed Tutte-Coxeter graph majority census record 937ad301f17d (summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kaaser et al. full arxiv HTML: Definition 3 defines first two-periodic entry; Theorem 1.2 concerns upper bounds and graph contraction; textual search for Folkman has no occurrence.",
+        "Nearest published-finding corpus record on the McGee cage gives an eleven-step clock and a different 24-vertex cubic graph, not the Folkman graph.",
+        "Folkman (1967) abstract concerns regular edge transitivity and graph construction and predates the specific modern deterministic-majority census."
+      ],
+      "reasoning": "Neither the general eventual two-period theorem nor a voting-time bound on families determines the 12 exact first-entry populations, symmetry classes, or unanimous terminal splits. Existing numerical claims for nonisomorphic graphs do not dominate this result. Source unavailability and unindexed priority remain documented.",
+      "searches": [
+        "Folkman graph 20 vertices majority dynamics exact attraction basin recurrent",
+        "McGee graph 24 vertices smallest cubic girth seven majority dynamics exact recurrent cycles",
+        "On the Voting Time of the Deterministic Majority Process arxiv 1508.03519"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 20-vertex Folkman graph is the subdivided double of K5 with ten twin vertices and ten edge-vertices (Folkman 1967; MathWorld Folkman Graph).",
+        "Exact graph aliases checked: semisymmetric 20-vertex graph, subdivided double of K5, Folkman graph, degree-four 20-vertex bipartite graph.",
+        "Direct matching of 4036 equilibria, 351 temporal two-cycle orbits, 44/8 symmetry classes and sharp seven-step cutoff found no equivalent indexed statement."
+      ],
+      "reasoning": "Alternative graph constructions describe the same graph; the search was therefore at claim and numerical-invariant level, not based on missing title matches. The closest available scientific results use other graphs or state only general convergence bounds.",
+      "searches": [
+        "Folkman semisymmetric graph majority 4036 fixed 351 two cycle seven steps",
+        "Folkman graph voting time threshold 7 orbit 2 census",
+        "subdivided double K5 Boolean majority attractors 44 symmetry classes eight two cycles",
+        "Folkman graph 20 vertices smallest semisymmetric construction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic published-finding corpus index nearest matches include: 2026/11/17/SCOPE-sharp-eleven-step-majority-relaxation-and-symmetry-resolved-attr--e302e5333117 (McGee graph); 2026/11/17/SCOPE-tutte-coxeter-majority-dynamics-eighteen-graph-types-and-a-four--937ad301f17d (Tutte–Coxeter graph).",
+        "MathWorld Folkman Graph describes graph structure and spectrum; no majority-dynamics table."
+      ],
+      "reasoning": "Both indexed finite majority tables concern different graphs, so their exact numerical conclusions cannot imply this graph-specific census. Database index coverage is not a completeness guarantee; the original full paper was unavailable.",
+      "searches": [
+        "Folkman semisymmetric graph majority 4036 fixed 351 two cycle seven steps",
+        "Folkman graph voting time threshold 7 orbit 2 census",
+        "subdivided double K5 Boolean majority attractors 44 symmetry classes eight two cycles"
+      ]
+    },
+    "rationale": "This claim concerns the complete first-entry-time and temporal-period table and complete symmetry quotient on the specific 20-vertex Folkman graph. The complete inspected 2015 preprint on deterministic majority proves general eventual two-periodicity and graph contraction bounds, but gives neither the exact Folkman counts nor its sharp seven-step tail. The 1967 original Folkman article addresses graph symmetry rather than threshold dynamics according to its accessible abstract. Closest indexed finite majority censuses concern nonisomorphic McGee, Nauru, Heawood, four-cube, Tutte-Coxeter and other graphs; none implies the claimed Folkman-specific integer table. The original full 1967 paper was inaccessible and unindexed historical equivalences remain a residual priority risk.",
+    "residual_risks": [
+      "Original 1967 Folkman full article could not be accessed after open-access attempts and a disconnected institutional connection. Its accessible abstract does not address dynamics, but no full-text absence claim is made.",
+      "Unindexed unpublished computational majority tables may contain equivalent Folkman counts.",
+      "Repository full text for indexed comparisons was not available; noncoverage is based on clearly different graph objects, not snippet-based exclusion within a plausible same-object paper.",
+      "Independent external confirmation of the finite classification is not yet performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes eventual two-periodicity and general voting-time upper bounds; no Folkman-specific fixed-state or orbit census",
+        "evidence": [
+          "Definition 3 gives the same first-periodic-entry time",
+          "Theorem 1.2 concerns contracted graph upper bound",
+          "No Folkman occurrence in full accessible page"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1508.03519",
+        "material_read": "Complete accessible arxiv HTML sections 1 introduction/preliminaries and Appendix C on computational properties, with full-page search for Folkman",
+        "method": "Direct web full-text reading and within-document keyword search",
+        "title": "On the Voting Time of the Deterministic Majority Process",
+        "trigger": "Same deterministic neighbour-majority process; potentially broader convergence and graph contraction result"
+      },
+      {
+        "assessment": "Accessible material concerns semisymmetric graph construction, not majority dynamics; cannot assert full-text absence",
+        "evidence": [
+          "October 1967 journal article pages 215-232",
+          "Institutional source access unavailable; historical-priority risk retained"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0021-9800(67)80069-3",
+        "material_read": "Public publisher abstract and bibliographic record only; original full text inaccessible",
+        "method": "Publisher abstract/DOI search and lawful institutional full-text request after unsuccessful open access search",
+        "title": "Regular line-symmetric graphs",
+        "trigger": "Original primary source of exact Folkman graph construction"
+      },
+      {
+        "assessment": "Covers general eventual period at most two, but does not imply any Folkman-specific labelled counts",
+        "evidence": [
+          "Abstract states fixed points or period-two cycles for symmetric threshold functions"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0166-218X(81)90034-2",
+        "material_read": "Publication abstract",
+        "method": "Scholarly abstract inspection",
+        "title": "Comportement périodique des fonctions à seuil binaires et applications",
+        "trigger": "Foundational symmetric-threshold period bound"
+      },
+      {
+        "assessment": "Confirms the canonical 20-vertex semisymmetric object; no majority dynamics classification",
+        "evidence": [
+          "20 nodes and named Folkman graph; 1967 Folkman reference"
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/FolkmanGraph.html",
+        "material_read": "Graph description, spectrum and references on complete accessible page",
+        "method": "Direct graph-encyclopedia entry review",
+        "title": "Folkman Graph",
+        "trigger": "Cross-check named graph identity and automorphism setting"
+      },
+      {
+        "assessment": "Different 24-vertex cubic cage, and therefore no implication of the Folkman-graph numbers",
+        "evidence": [
+          "Index summary: 550 fixed, 63715 temporal two-cycles, sharp eleven-step clock on 24-vertex McGee graph"
+        ],
+        "identifier_or_url": "2026/11/17/SCOPE-sharp-eleven-step-majority-relaxation-and-symmetry-resolved-attr--e302e5333117",
+        "material_read": "Indexed title and abstract summary only; linked full text unavailable",
+        "method": "Semantic literature-index comparison and attempted repository open",
+        "title": "Sharp eleven-step majority relaxation and symmetry-resolved attractors on the McGee cage",
+        "trigger": "Closest indexed symmetry-resolved finite-graph majority census"
+      },
+      {
+        "assessment": "Different cage graph; no stronger coverage of the 20-vertex Folkman graph",
+        "evidence": [
+          "Index concerns the Tutte–Coxeter graph, not the Folkman graph"
+        ],
+        "identifier_or_url": "2026/11/17/SCOPE-tutte-coxeter-majority-dynamics-eighteen-graph-types-and-a-four--937ad301f17d",
+        "material_read": "Indexed title and abstract summary only; linked full text unavailable",
+        "method": "Semantic index comparison and repository open attempt",
+        "title": "Tutte–Coxeter majority dynamics: eighteen graph types and a four-step clock",
+        "trigger": "Bipartite graph exact majority enumeration, potentially analogous technique"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cdd89c0e-adf8-4269-86fa-e9d6dbf0e4e3",
+  "value": {
+    "rationale": "The smallest semisymmetric graph is a canonical natural benchmark for symmetry-sensitive threshold dynamics because its 20 vertices occupy two fundamentally inequivalent graph orbits. Exact 44/8 recurrent symmetry classes and a consensus-only seven-step tail describe the full discrete phase portrait, rather than a chosen small subfamily or routine parameter variation. The sharp separation between oscillatory basin entry at t<=3 and fixed-state entry up to t=7 is not implied by eventual period-two theory and can test voting-time symmetry reductions. The exact invariant is valuable as a complete benchmark without a claimed broader family theorem.",
+    "status": "PASS"
+  }
+}

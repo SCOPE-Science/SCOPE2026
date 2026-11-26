@@ -1,0 +1,84 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:28:00.527293Z",
+  "axes": {
+    "correctness": {
+      "bounded_reproduction": "Replay `python3 /workspace/reviews/3-check.py`: independent alternating-deletion rank computation on the actual cyclic Hasse diagram of the six-vertex projective plane (31 vertices, 120 arrows, upward covers plus all triangle-to-vertex returns). In degree n, permissible chains are the kernel of the forbidden projection F_n of the full deletion matrix B_n; the differential rank is rank(B_n)−rank(F_n). This verifies cyclic path Betti numbers in degrees 1–3 of (1,1,1) over F2 and (1,0,0) over F3 and F5. Over fields finite-degree path homology and path cohomology have equal dimensions by duality. These tests do not establish any multiplication, vanishing in all higher degrees, or infinitude; those are assessed by the proof.",
+      "rationale": "Reconstructed both coefficient cases from the path-algebra presentation. Quadratic relations preserve the return count: in rank modulo d+1 every arrow advances one step, and for d>=2 each two-step relation is either entirely ascending or is one of the two endpoint sums across a return. The latter kill Lρ and ρR and make dρ=0 without orientation. Fixing endpoints with vertex idempotents gives every return arrow from ρ. Split paths at their returns: in the path algebra each resulting tuple of ascending segments determines a unique path because all returns exist. In the quotient, ascending relations act within factors; the cross-return sums impose the terminal L and initial R relations and no others. Hence a path with n returns is in the tensor quotient of Ω/L, n−1 copies of Ω/(R+L), and Ω/R. In characteristic other than two the middle quotient vanishes as a complex, not just in cohomology: Lemma 5.6 identifies it with the top cohomology, zero by nonorientability. This leaves the one-return ideal square-zero. Lemma 5.9 and Proposition 3.9 give acyclicity of R and L by the contractible cone posets, using local homology of links (Proposition 4.5), not global duality. The sign (−1)^|x| on xρy turns its surviving differential into the shifted tensor differential. The restriction connecting map is exactly 1⊗[x]−[x]⊗1; its positive-degree components are injective by bidegree, while it kills the unit. The long exact sequence now gives the stated dimensions, vanishing above 2d−1, and representatives in the square-zero ideal in every positive degree. In characteristic two, the local conditions plus field-valued Poincaré duality satisfy the three hypotheses of Theorem 5.3 of Ivanov–Zhang, so Theorem 6.3 applies directly without assuming integral orientability. The nonzero orientation character gives a degree-one class even after field extension; its one-dimensional projection is a degree-zero idempotent of the graded endomorphism algebra, and multiplication with t verifies all positive powers. Substitution of surface Betti numbers gives both Hilbert series. The inspected projective-plane script only checks ordinary homology and PH^1; it is neither used nor executed as a proof of higher-degree cohomology. The argument can be replayed from RESULT.md Steps 1–6 and the primary-source passages listed below.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 6.3 requires a d-dimensional duality pair whose orientation quotient is one-dimensional; field orientability in characteristic two gives precisely that input via Theorem 5.3."
+        ],
+        "reasoning": "This stronger prior theorem covers the characteristic-two result but its hypotheses fail in the entire odd/zero regime; an ordinary topological cohomology computation would not determine the cyclic path ring. The unavailable query yields no negative evidence.",
+        "searches": [
+          "arXiv:2611.19813v1, Theorems 5.3 and 6.3 and Corollary 6.4",
+          "Web query: Ivanov Zhang cyclic Hasse diagrams manifolds noncommutative path cohomology orientability nonorientable arxiv 2611.19813 square zero (unavailable)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.19813v1",
+        "Resultary semantic evidence as scoped above",
+        "Frozen RESULT.md, AUDIT.json, REVIEW.md, METADATA.json, SLOGAN.txt, VERIFICATION.md, check_projective_plane.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (7.28) precedes choosing an orientation and can be used unchanged for zero top cohomology. It makes all multiple-return pieces vanish, but does not compute the one-return contribution modulo the connecting map."
+        ],
+        "reasoning": "The earlier paper supplies substantial machinery; the result requires a different cohomology calculation (injecting positive classes into the one-return tensor cohomology and taking its cokernel), not a parameter substitution into the existing classification.",
+        "searches": [
+          "arXiv:2611.19813v1, Lemmas 5.6 and 5.9, Equations (7.15), (7.19), (7.26)–(7.28)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The semantic query retrieved the assigned record itself and nearby ordinary-homology or other-digraph path-homology records, not an alternate statement of its cyclic-Hasse algebra.",
+          "Ivanov–Zhang define the identical cyclic diagram and GLMY ring. Their completed algebra theorem has a field-Poincaré-duality hypothesis, excluding the zero-top case."
+        ],
+        "reasoning": "The matching digraph and cohomology theory make Ivanov–Zhang decisive, but a rank-one orientation quotient cannot be identified with the vanishing quotient by renaming or changing grading.",
+        "searches": [
+          "Resultary: cyclic Hasse diagrams nonorientable manifolds GLMY path cohomology square zero characteristic two",
+          "arXiv:2611.19813v1, Sections 2, 5–7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior paper gives an oriented torus example and oriented surface results. Its formula recovers the displayed mod-two Hilbert series from h middle-dimensional generators, but gives no odd-characteristic crosscap Hilbert series."
+        ],
+        "reasoning": "The finite-dimensional surface Hilbert polynomial is not an extract from an inspected table; identical Betti counts without the requisite top class do not qualify for the prior formula.",
+        "searches": [
+          "arXiv:2611.19813v1, Corollary 6.4, Example 6.7, Corollary 6.8",
+          "Resultary query above"
+        ]
+      },
+      "rationale": "Best of knowledge, the contribution is the zero-top-cohomology algebra computation and combination into a characteristic dichotomy, not the cyclic Hasse construction, the general machinery or the characteristic-two matrix tower by itself. The latter is covered by the earlier duality-pair theorem. The nonequivalent odd-characteristic hypothesis requires taking the zero, not one-dimensional, middle quotient and recomputing the residual connecting map. No overlapping full classification was established by the sources below; wider search availability limits the conclusion.",
+      "residual_risks": [
+        "General literature query unavailable; absence of other published or unpublished derivations is not certified.",
+        "The odd case is a short extension of very closely related machinery and should continue to be presented and credited as such."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the mod-two case by field duality. Supplies tools, but not the odd/zero classification in its main theorem.",
+          "evidence": [
+            "(5.11) gives the chain-level top quotient; (5.24) relates ideal cohomologies to augmented cones.",
+            "(7.19) identifies the cross-return relations; (7.28) is the tensor quotient before orientation; (6.2)–(6.3) are the prior matrix grading and multiplication."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.19813v1",
+          "material_read": "Original arXiv HTML: definition and path algebra in Section 2; Proposition 3.9, Proposition 4.5 and Corollary 4.6; Definitions 5.1–5.2 and Lemmas 5.5–5.9; Theorem 6.3/Corollary 6.4 and examples; proofs of Lemmas 7.2–7.3 with the pre-orientation factorization.",
+          "method": "Checked stated hypotheses and equations against the text and followed the factor relations and change of differential.",
+          "title": "Cyclic Hasse diagrams of manifolds and noncommutative path cohomology",
+          "trigger": "Same graph construction and main prior algebra theorem; indispensable technical lemmas."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The same finite digraph changes from a completely described finite algebra with square-zero positive ideal to one with a nonnilpotent element and infinitely many nonzero degrees. The zero-orientation computation resolves a natural missing topological regime for the whole regular-cellulation family, including every crosscap surface, and is not a low-degree example or a field substitution into the prior theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

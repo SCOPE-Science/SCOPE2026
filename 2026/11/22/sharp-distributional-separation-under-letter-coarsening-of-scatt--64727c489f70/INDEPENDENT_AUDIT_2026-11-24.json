@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:22:01.455894Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof lines 37–60",
+        "Frozen VERIFICATION.md, verification.py and verification_output.txt"
+      ],
+      "rationale": "For every family of indexed embeddings, the joint indicator expectation is either zero on a letter conflict or q^(−union size) by independent uniform letters. Coarsening can only remove conflicts. This proves coefficientwise comparison of the generating polynomials expanded in t−1 and also raw integer-moment comparison, with equal means. If m≤n<m+d, ranks sharing a host site differ by at most n−m<d; coarsening cannot alter any family's compatibility, so the full polynomials, hence laws, agree. If n<m the laws are both zero counts. At length m+d the explicit pair of embeddings uses one shared site at ranks i,j realizing a shortest merge, all other shared sites at equal ranks, and d private sites on each side of the conflict. This pair gives strict PGF inequality at t>1 and, by repeating a member, strict comparison for every integer order r≥2. The witness persists with extra sites; equal means give the first variance separation as well. Every nonconstant pattern has an unequal adjacent pair, and a repeated-endpoints-only pattern shows sharpness of the uniform distinct-pattern threshold 2m−1 when q≥m. For the second moments the constant case has three site types, giving the multinomial, while equal-rank overlap in the injective case makes each of k+1 gaps an interleaving of equal-sized private runs, yielding the central-binomial generating factor. Independently enumerated the worked q=4 example using a prefix dynamic program on host words: equal laws for n=4,5,6 and exact second-moment gap 1/8192 at n=7 (python3 /workspace/branches/review_replay.py 5). Inspected the frozen script and recorded output, but did not execute the script.",
+      "residual_risks": [
+        "Strict exponential-moment conclusions here are for t>1; t=1 gives equality. No strict order at real raw-moment orders outside the specified integers, ordinary stochastic order, or biased-host comparison was established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact pair expansion expresses the second moment using joint occurrence probabilities, which in a uniform iid host give q^(−union size) for compatible overlapped assignments. Their Theorem 1 uses pair overlap to describe the leading variance coefficient under general gap constraints.",
+          "The general pair formula already yields weak second-moment order by recognizing that coarsening changes only conflict feasibility, and it can be specialized to the constant and injective moments with pair enumeration."
+        ],
+        "reasoning": "Treat the overlap calculations and their weak-comparison implication as covered in substance. The inspected broader results do not identify the smallest host length at which a newly merged rank pair can share a site, nor a sharp all-length full-law equality and separation statement.",
+        "searches": [
+          "Flajolet, Szpankowski and Vallée, Hidden Word Statistics, author-hosted PDF §3.2 eq. (13), Theorem 1",
+          "Janson–Szpankowski arXiv:2003.09584v1"
+        ]
+      },
+      "checked_sources": [
+        "Flajolet, Szpankowski and Vallée, Hidden Word Statistics, §§3.2–3.3",
+        "Janson–Szpankowski arXiv:2003.09584v1",
+        "Jeong–Pernice arXiv:2604.07234",
+        "Resultary 222e52b47c22, 55e26c912018, 045006e3e432 and 32657d530628"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known overlap formulas describe the effect of a chosen compatible pair; equality of full laws until a universal threshold needs the bound on rank mismatch for every family. Strictness at that threshold needs a pair which realizes the shortest new conflict with no other unresolved shared ranks.",
+          "The binary variance table compares some incomparable patterns, but finite tables and asymptotic variance cannot identify the stated first separation for arbitrary m, d and q."
+        ],
+        "reasoning": "The additional minimal-host-length geometry controls both the equality range and sharp strictness. This is not a numerical re-evaluation of a known variance table or an immediate statement of the inspected variance theorem.",
+        "searches": [
+          "Hidden Word Statistics, author-hosted PDF §3.2 and Theorem 1",
+          "Resultary 222e52b47c22, exact moment table and hierarchy"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed count is the ordinary unconstrained hidden-word embedding count, not a count of unique subsequences or of contiguous starts.",
+          "Janson–Szpankowski formulate this count in terms of selected increasing host indices. Jeong–Pernice use an embedding partition function but their read statements use jointly random binary pattern and host, with null/planted free energies."
+        ],
+        "reasoning": "The old underlying random variable and its partition-function form are credited. Neither a limit law for the same count nor averaging over random patterns gives the finite comparison of two fixed equality relations.",
+        "searches": [
+          "Hidden Word Statistics, DOI 10.1145/1120582.1120586, §§3.2–3.3",
+          "arXiv:2003.09584v1 unconstrained hidden words",
+          "arXiv:2604.07234 random subsequence partition function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier binary length-four catalogue groups all sixteen patterns into six variance formulas; its 0000 row has coefficients 1,20,90,140,70 of 2^(−L) binom(n,L), exactly the target's constant special case.",
+          "Same-day 55e26c912018 counts contiguous starts on indexed circles. Same-day 045006e3e432 and 32657d530628 give scattered-pattern results in fixed binary Parikh fibers, for alternating patterns and 010 respectively."
+        ],
+        "reasoning": "The exact binary catalogue covers a real finite subcase but cannot test the injective four-letter formula or give a general coarsening threshold. The same-day circle and conditional-fiber results differ in occurrence object or host law; same-day indexing is not a priority ordering.",
+        "searches": [
+          "Resultary 222e52b47c22, 55e26c912018, 045006e3e432 and 32657d530628"
+        ]
+      },
+      "rationale": "The supported distinct content is the all-length coarsening order together with the exact first full-law and variance separation length, and the resulting sharp extremizer cutoffs. Overlap-based moment computation is existing hidden-word machinery; an earlier exact binary formula is recovered in one subcase. The evidence does not support calling the general overlap method, or every closed-form second-moment specialization, new.",
+      "residual_risks": [
+        "An equivalent finite rank-overlap cutoff or either closed-form second-moment specialization may be buried in uninspected hidden-word theory. The bounded comparison does not establish historical priority.",
+        "The Menon–Singh retrieval timed out; no conclusion is made about that text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Actual overlap machinery is prior, including the weak second-moment implication; inspected theorem is an asymptotic variance statement, not the rank threshold",
+          "evidence": "The second-moment O₂ coefficient is a sum of joint-indicator terms, with compatible-joint mass π(W)^2/π(W at shared indices); the leading variance depends on full intersecting pairs with one shared block.",
+          "identifier_or_url": "https://www.cs.purdue.edu/homes/spa/papers/jacm-paper.pdf (DOI 10.1145/1120582.1120586)",
+          "material_read": "§3.2 pair expansion and eq. (13), offsets 36300–41074, printed pp. 157–158; Theorem 1, offsets 41900–45855, printed pp. 158–159",
+          "method": "OA author-hosted primary PDF from the Purdue bibliography after DOI/ACM routes were blocked",
+          "title": "Hidden Word Statistics",
+          "trigger": "Strongest potential general finite overlap and variance result for the same scattered counts"
+        },
+        {
+          "assessment": "Same underlying count, main comparison is asymptotic rather than finite coarsening",
+          "evidence": "Defines unconstrained occurrences at increasing positions and analyzes their projections and limit behavior.",
+          "identifier_or_url": "https://arxiv.org/html/2003.09584v1",
+          "material_read": "Unconstrained pattern definition and U-statistic/asymptotic discussion, offsets 2097, 2995 and 4491",
+          "method": "OA primary HTML, bounded passages",
+          "title": "Hidden Words Statistics for Large Patterns",
+          "trigger": "Same indexed increasing-subsequence count and projection machinery"
+        },
+        {
+          "assessment": "Random binary pattern and host, not fixed coarsening threshold",
+          "evidence": "Counts embeddings via a partition function and treats null/planted free energies.",
+          "identifier_or_url": "https://arxiv.org/html/2604.07234",
+          "material_read": "Model and result overview, offsets 241–6225",
+          "method": "OA primary HTML, bounded passage",
+          "title": "The Random Subsequence Model and Uniform Codes for the Deletion Channel",
+          "trigger": "Potential embedding partition-function reformulation"
+        },
+        {
+          "assessment": "Constant-pattern subcase already tabulated; no general law or threshold conclusion",
+          "evidence": "Reports six variance formulas for all sixteen patterns, including the matching 0000 coefficients, and strict hierarchy from n≥6.",
+          "identifier_or_url": "Resultary 222e52b47c22",
+          "material_read": "Mirrored RESULT.md exact second-moment rows and hierarchy",
+          "method": "Local Resultary mirror",
+          "title": "Exact variance hierarchy for all binary four-symbol subsequence patterns",
+          "trigger": "Prior exact table and extrema for a special case"
+        },
+        {
+          "assessment": "Contiguous cyclic starts, not scattered embeddings",
+          "evidence": "Uses starts on an indexed circle and gives an iid Poisson–binomial occurrence law.",
+          "identifier_or_url": "Resultary 55e26c912018",
+          "material_read": "Mirrored RESULT.md stated host and occurrence definition",
+          "method": "Local Resultary mirror",
+          "title": "Exact cyclic occurrence laws for unbordered motifs under composition and iid sampling",
+          "trigger": "Distinct same-day indexed occurrence-law match"
+        },
+        {
+          "assessment": "Conditional binary fibers, not the uniform-iid fixed-pattern comparison over any alphabet",
+          "evidence": "The former handles alternating (ab)^k a within fixed Parikh fibers; the latter handles scattered 010 within binary Parikh matrix classes.",
+          "identifier_or_url": "Resultary 045006e3e432 and 32657d530628",
+          "material_read": "Mirrored RESULT.md stated patterns, host law and formulas for both",
+          "method": "Local Resultary mirror",
+          "title": "Gaussian factorial moments for alternating scattered patterns; Sharp scattered triple spectra inside binary Parikh matrix classes",
+          "trigger": "Distinct same-day scattered-pattern exact moment and distribution results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof of the sharp separation and extrema",
+        "Independent replay of the delayed-separation example"
+      ],
+      "rationale": "The equality partition of the pattern is a natural coarsening parameter for an indexed count whose mean cannot distinguish patterns. The smallest newly merged rank distance governs exactly when the entire law and the variance begin to detect the coarsening. That sharp cutoff provides a usable comparison even before evaluating any histogram, and explains the sharp ranges of uniqueness for the canonical maximal and minimal patterns. The conclusion is stronger than a known variance calculation at a single alphabet or length.",
+      "residual_risks": [
+        "No classification of minimizing patterns is asserted when q<m, and the result concerns uniform independent hosts only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-The exact determinant of the equilibrium Jacobian is \(\lambda(\lambda^2-Q)\), and the critical profile derivative is \(B'_a(u)=2(A(u)-a)/u^2\). Differentiating \(A\) yields the single interior critical coordinate \(u_*\); the sign analysis in RESULT.md proves every quantifier and endpoint of the count.
+## correctness
 
-Run `python verify.py` with Python 3 and SymPy. The script validates the two exact Jacobian characteristic polynomials, Cayley–Hamilton cubic identities, the two branch derivatives, the derivative of \(A\), numerical location of the unique cusp, sign witnesses for the four-point region, and sampled root counts at six parameter pairs. The six finite root samples are diagnostics and are **not** offered as a proof that no other zeros exist. The infinite parameter theorem instead follows from the explicit derivative-sign argument.
+PASS
 
-Boundary conventions: \(a=a_*\), including \(b=b_*\), has two distinct neutral points per punctured circle (the lower point is a triple zero at the cusp). With \(a>a_*\), equality with either fold produces three distinct points (including one double lower zero), while strict inclusion produces four. At the common origin the absolute-value vector field has no smooth Jacobian; it has been omitted throughout. Other nonlinear stability properties have not been proved.
+At a smooth equilibrium the Jacobian has nonzero blocks (1,-ay-by^2)^T and (2x-sign(x),2y), so its characteristic polynomial is lambda(lambda^2-Q), with Q=cos(theta)-(a/2)sin^2(theta)-(b/4)sin^3(theta) on either circle; the c-term vanishes. The first quadrant contains exactly one strictly decreasing crossing and the second none. Below the axis solve for b=G_a: the quadrant with cos(theta)<0 is strictly decreasing from +infinity to 2a, the join has derivative -4, and the other quadrant uses u=-sin(theta) and B_a'(u)=2(A(u)-a)/u^2. A diverges at both ends and its derivative changes sign once at u_* because 2u^4-9u^2+6 has precisely one simple root there. This proves the fold order, the 2/3/4 counts, the nondegenerate folds, and the unique triple cusp (the derivative's double zero and nonzero a-unfolding). Fold heights are positive by substitution. The simple crossings, endpoints and the (10,20) witness check; the excluded origin is never counted. At any neutral point the first row of J^2 is nonzero, and J^3=0, proving index three. The spectral sign statement makes no inference of nonlinear stability.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact vector field and the two touching equilibrium circles are prior art. The eligible claim is the all-positive-parameter classification of pointwise transverse degeneracies for that field, including the fold and cusp multiplicities, not the circles or trajectory chaos.
+
+## value
+
+PASS
+
+The census identifies precisely where the smooth equilibrium manifold loses its nonzero transverse pair and detects an otherwise hidden four-point region and index-three degeneracies. This is useful for selecting parameter ranges for local nonlinear analysis of an existing flow. The justification is the complete diagram and its degeneracies, not routine Jacobian computation or a nonlinear stability claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

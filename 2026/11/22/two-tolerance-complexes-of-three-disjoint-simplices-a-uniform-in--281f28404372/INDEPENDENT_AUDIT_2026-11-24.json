@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:29:42.245596Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 24–120, VERIFICATION.md, CHECK.py and its recorded output",
+        "INTEGRAL_CHECK.py, INTEGRAL_CHECK.txt and recorded exact Smith checks for (2,3,3) and (3,3,3). Supplied executables were inspected, not run."
+      ],
+      "rationale": "The cover pieces Uᵢ are joins with a full simplex, hence contractible. Counting vertices outside each block gives the pair intersection (Sᵢ*Sⱼ)∪B∪Sₖ and triple intersection B∪S₁∪S₂∪S₃, with B=D₁*D₂*D₃. B is simply connected with H₂ free of rank xyz. Adding a same-block edge creates one H₁ generator without changing H₂; to select it choose a return path through a vertex of the other block. In a pair intersection the i,j paths may be chosen inside Dᵢ*Dⱼ, so the corresponding cycles map to zero inside Sᵢ*Sⱼ, while every k-edge cycle survives. Thus the H₁ differential is a signed integral isomorphism. The overlap of Sᵢ*Sⱼ and B is the connected graph Dᵢ*Dⱼ, whose free H₁ is the quotient of H₂ of their union by H₂(B). This supplies a retraction to H₂(B) for each pair. In particular the signed triple-to-pair H₂ differential is split injective by projecting to just one pair and using its retraction. Its cokernel has rank Σ_{i<j}(nᵢ−1)(nⱼ−1)nₖ−xyz=B₃. H₃ of a pair is the H₃ of the join Sᵢ*Sⱼ, with rank the product of its graph cycle ranks, so their direct sum is B₄. The cover spectral sequence has only these two positive-degree entries after the first differential and no higher differentials or extension problems. Van Kampen applied first to two cover pieces and then the third makes X simply connected, and H₂=0 gives π₂=0. For an independent check of the homotopy upgrade, choose A=∨^{B₃}S³→X inducing an isomorphism on π₃ and H₃. Its mapping-cylinder pair with A is 3-connected. Relative Hurewicz in degree four and the homotopy and homology sequences show π₄(X)→H₄(X) is onto: π₄(X) surjects onto π₄ of the pair and H₄(X) maps isomorphically onto H₄ of the pair. Representatives of a free H₄ basis therefore extend A to the asserted homology-equivalent sphere wedge, and the simply connected Whitehead theorem finishes. The argument includes size-two blocks; B₄ is positive exactly when at least two blocks reach size three. For (2,3,m) the ranks are 7m−5 and binom(m−1,2).",
+      "residual_risks": [
+        "The finite modular and integral runs are recorded corroboration only. The proof asserts ordinary homotopy, not an equivariant splitting."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Selvaraja gives the applicable 5-collapsibility bound at tolerance two for chordal clique complexes and a general bound of 8 from three facets.",
+          "Kim–Lew give a two-disjoint-facet sharp example S^{2t} and Leray bounds.",
+          "1dfcb36ecbc3 gives integral H₄ and explicit pair cycle generators for any number of disjoint filled triangles."
+        ],
+        "reasoning": "Vanishing bounds do not determine exact positive-degree ranks, torsion or homotopy. The triangle-lattice result varies the number of blocks but fixes each size at three, making it broader only in a different parameter; it cannot provide the arbitrary sizes or H₃.",
+        "searches": [
+          "Kim–Lew, Leray Numbers of Tolerance Complexes, general bound and sharp example",
+          "Selvaraja arXiv:2611.14384v1 chordal and arbitrary-facet tolerance bounds",
+          "Resultary: top pair-sphere lattice for any number of disjoint triangles"
+        ]
+      },
+      "checked_sources": [
+        "Resultary dddd6dd9af86, 1dfcb36ecbc3, 21ea0f3e7b55, f6b5c138b0b0, dedd0ab9e953, 61d0b213c45a",
+        "Kim–Lew DOI 10.1007/s00493-023-00044-5; Selvaraja arXiv:2611.14384v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "21ea0f3e7b55 has the pair term binom(nᵢ−1,2)binom(nⱼ−1,2) at t=2, with two blocks only.",
+          "The novel H₃ rank involves a three-block incidence term xyz, and the all-size argument uses the split signed diagonal map of triple to pair intersections."
+        ],
+        "reasoning": "The known pair sphere ranks suffice to suggest the sum in degree four but not to prove how the spheres survive three-block gluing or to calculate H₃. The triangle-only lattice does not supply the missing arbitrary-size map and homotopy classification.",
+        "searches": [
+          "Read two-block tolerance result 21ea0f3e7b55 and triangle lattice result 1dfcb36ecbc3 against the three-piece cover"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact all-size result returned at 281f28404372 is the same record.",
+          "The graph-tolerance result f6b5c138b0b0 requires a strictly one-dimensional input complex. The disjoint-clique wedge dedd0ab9e953 has filled blocks but tolerance one."
+        ],
+        "reasoning": "A disjoint union of full simplices is the clique complex of a cluster graph, not the graph regarded as a one-dimensional simplicial complex. Changing the tolerance parameter changes precisely the count conditions and resulting triple intersections.",
+        "searches": [
+          "Resultary: tolerance two of three disjoint filled simplices, clique complex of a cluster graph, and polyhedral joins"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "dddd6dd9af86 agrees exactly with the (3,3,3) specialization.",
+          "No distinct all-size exact match was identified in the compared statements; the identical match is not independent evidence."
+        ],
+        "reasoning": "The finite nine-vertex wedge is explicit overlap, not a new result here. Its same-day date does not establish mutual ordering. The already-covered profile leaves the arbitrary-size classification and mixed-dimensional threshold to assess.",
+        "searches": [
+          "Resultary: three filled triangles, 28 three-spheres and three four-spheres",
+          "Resultary: all-size (n₁,n₂,n₃) tolerance-two wedge ranks"
+        ]
+      },
+      "rationale": "The (3,3,3) example is already described in a distinct record and is explicitly not reclaimed here. The two-block formula and the top-homology lattice for a variable number of filled triangles also materially overlap, but neither gives the uniform three-block arbitrary-size sphere-wedge formula. General tolerance bounds do not give its ranks, its primitive lattice argument, or its homotopy upgrade.",
+      "residual_risks": [
+        "Unindexed exact formula or a stronger theorem in different polyhedral-complex language is not excluded. Overlap at (3,3,3) is known irrespective of same-day chronology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full overlap only on (3,3,3); no relative chronology inferred",
+          "evidence": [
+            "Three filled triangles give 28 copies of S³ and three of S⁴."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-mixed-wedge-of-28-three-spheres-and-three-four-spheres-from-th--dddd6dd9af86",
+          "material_read": "Finding at offset 0 and prior-work passage near offset 5000",
+          "method": "Local mirror (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "title": "A mixed wedge of 28 three-spheres and three four-spheres from three disjoint triangles",
+          "trigger": "Exact finite case"
+        },
+        {
+          "assessment": "Partial coverage in the degree-four triangle subfamily",
+          "evidence": [
+            "H₄ free on one generator per block pair; no determination of the lower homology or complete homotopy type."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-integral-pair-sphere-lattice-in-two-tolerance-complexes-of-disjo--1dfcb36ecbc3",
+          "material_read": "Finding at offset 0 and Limitations near offset 8000",
+          "method": "Local mirror",
+          "title": "Integral pair-sphere lattice in two-tolerance complexes of disjoint filled triangles",
+          "trigger": "Broader block count and exact top homology"
+        },
+        {
+          "assessment": "Covers pair formula only; no third-block gluing",
+          "evidence": [
+            "Two full simplex blocks; at tolerance two the sphere dimension is four and multiplicity equals the corresponding B₄ summand."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-equivariant-homology-and-fixed-point-topology-of-two-block-toler--21ea0f3e7b55",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Equivariant homology and fixed-point topology of two-block tolerance complexes",
+          "trigger": "Two-block pair summand and general tolerance parameter"
+        },
+        {
+          "assessment": "Leray bound and an exact example; not the asserted three-block homotopy type",
+          "evidence": [
+            "Two disjoint facets of size t+1 yield the boundary of the simplex on their union, of type S^{2t}."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00493-023-00044-5",
+          "material_read": "Printed pp. 987–988, OA offsets about 7300 and 8500; definition, Theorems 1.2 and 1.5 and two-facet example",
+          "method": "Bounded OA Springer PDF reading",
+          "title": "Leray Numbers of Tolerance Complexes",
+          "trigger": "Foundational tolerance and exact two-block example"
+        },
+        {
+          "assessment": "Applicable vanishing/collapsibility estimates; no exact homotopy classification in those statements",
+          "evidence": [
+            "5-collapsibility for chordal t=2, and a facet-count bound yielding 8 in this case."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.14384v1",
+          "material_read": "Definitions, Theorem 1.3, Theorem 4.2 and Corollary 4.3, offsets 3070, 8500, 47000 and 50765",
+          "method": "Bounded OA HTML reading",
+          "title": "Tolerance complexes of chordal graphs and squarefree symbolic powers",
+          "trigger": "Applicable broader chordal theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen uniform theorem and its integral incidence proof",
+        "Compared exact fixed-size and top-homology Results and general bounds"
+      ],
+      "rationale": "A natural fixed-tolerance three-facet family has an exact integral homotopy classification, including a sharp transition to two simultaneous sphere dimensions. This explains how lower homology arises from triple gluing while the top rank is a sum of pair contributions. It substantially extends the single nine-vertex profile and answers more than either a Leray bound or modular Betti computations can.",
+      "residual_risks": [
+        "This does not extend the classification to four or more arbitrary blocks or larger tolerances."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

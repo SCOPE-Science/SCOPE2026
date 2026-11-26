@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducible exact checks
+# Independent mathematical audit
 
-From the directory containing the four standalone artifacts, execute:
+## correctness
 
-```sh
-python3 verify_census.py
-c++ -std=c++17 -O2 verify_census.cpp -o verify_census
-./verify_census
-```
+PASS
 
-Expected output fragments are `PYTHON_PENTAGONAL_CENSUS_PASS rooted=84 total=2050 orbits=12 VC=2` and `PENTAGONAL_LOCAL_ONLINE_PASS rooted=84 count=2050 root_pairs=2100 roots_1=2000 roots_2=50 orbits=12 orbit_200=9 orbit_100=2 orbit_50=1`.
+The field equation gives exactly the four open Cartesian neighbors. Distinct leaves must have distinct Boolean concepts and hence distinct centers, so depth three requires at least eight centers and depth four is impossible on eight. Each root branch on eight needs four centers, forcing the root's full four-neighbor set inside the same E. On each four-center branch the next query must split two against two, and each pair can be separated precisely when its two centers have different adjacency to some query in E. The published rooted reduction tests exactly binomial(20,3)=1140 candidates at a fixed root; translating then gives the rooted pairs. The independent replay scanned all 1,081,575 eight-sets directly, without the fixed-root translation reduction, finding 84 at the origin, 2,050 total and 2,100 rooted pairs (2,000 one-root sets and 50 two-root sets). It tested all static traces on triples and pairs as needed, yielding VC dimension exactly two on every winning set. An elementary ambient upper bound also holds: a shattered triple would share a common neighbor; three of the four neighbors of one vertex include an opposite pair, whose only common neighbor is that vertex, ruling out the trace consisting of that pair alone. The replay verified the exact representatives of the 200-map symmetry group (9 orbits of size 200, 2 of 100, 1 of 50) and all eight length-three paths of the supplied witness. Both queries and leaves are inside E throughout.
 
-The first program uses a direct quadratic-distance predicate, all 1140 rooted subsets and a recursive binary decision-tree trace definition; it recomputes local VC dimension, verifies the twelve complete group orbits and checks eight explicit leaf witnesses in `witness_tree.json`. The second program independently constructs adjacency and uses an explicit four-center 2-versus-2 splitting test. The finite search is exhaustive only **because** every eight-point depth-three support must contain some possible root and its complete four-neighbor set. The proof of that reduction, together with the exact recurrence, is in RESULT.md. No larger-case extrapolation or independent mathematical audit is claimed.
+## originality
+
+PASS
+
+The static predicate and the general binary-tree cardinality bound are known; the distinct contribution is the exact self-restricted online minimizer classification in the pentagonal torus, including root multiplicities and the symmetry quotient. The closest same-predicate paper treats static VC and leaves small supports outside its size guarantees. The inspected online analogues are for other graph families or have ambient queries. No independent matching census was established; this is a bounded comparison, not a claim of absolute priority.
+
+## value
+
+PASS
+
+The support size eight is forced by the leaf bound rather than chosen for computational convenience. Attainment in this symmetric degree-four graph is not automatic once queries and centers must share the support. The census identifies every minimal-size support achieving an adaptive depth not available statically, and the orbit and root counts distinguish essentially different witnesses and quantify where adaptation can start. This is a precise baseline for studying how graph symmetries and locality constrain online learning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

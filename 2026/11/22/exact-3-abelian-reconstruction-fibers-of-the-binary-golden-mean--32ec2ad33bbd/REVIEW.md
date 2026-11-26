@@ -1,11 +1,21 @@
-# Scientific review: exact 3-Abelian reconstruction on a forbidden-`11` source
+# Independent mathematical audit
 
-**Correctness — PASS.** The zero-gap representation is bijective. Exactly five integer parameters are both recoverable from the complete 3-Abelian observation and sufficient to reconstruct it; choosing long interior gaps and distributing their excess zeros gives the stated product of binomial coefficients. Its singleton criterion follows from the equality cases of those factors. Partitioning these feasible parameter tuples gives both rational generating functions by formal geometric-series summation, for all lengths. `verify_direct.py` independently enumerates actual source words through length 23, while `verify_series.py` independently checks the parameter and rational identities through length 130. These finite checks corroborate, but do not replace, the universal proof.
+## correctness
 
-**Originality — PASS, qualified.** Karhumäki et al. (2016) provide general \(k\)-Abelian equivalence and singleton methods, and Kiah et al. (original 2014 preprint; expanded 2015) provide general multiplicity-profile/restricted-graph methods. Neither inspected primary text gives the exact full forbidden-`11` linear order-three fiber spectrum or both explicit series. Closest published exact calculations address a two-run constraint (forbid `000` and `111`) with endpoint-free three-gram data, unrestricted linear three-gram data, or cyclic four-gram data with forbidden `11`; their statements neither imply the endpoint-aware constrained fiber distribution directly nor provide its singleton count. The contribution is a specialized, complete all-length fiber classification, not a new general reconstruction framework. A prior unindexed equivalent specialization remains a meaningful risk.
+PASS
 
-**Value — PASS.** In a standard constrained-sequence model, the exact maximum distinguishable-message count grows quadratically while only linearly many words have uniquely decodable observations. More strongly, every individual inverse fiber has an explicit closed cardinality, allowing exact ambiguity quantification rather than only a crude upper bound. The first collision is determined sharply at length six. The phenomenon is a natural complete reconstruction classification, not a narrow arbitrary parameter calculation; it does not solve noisy decoding.
+For each two-gram, subtract counts of its extensions on one side from its two-gram count to recover the indicator of the corresponding boundary two-gram. For n≥3 and m≥1 these boundaries determine u,v; 101 counts the interior single zeros and 000 counts exactly the excess zeros over length two. Conversely, the five allowed triple counts in the proof follow by counting the long gap ends (001 and 100), the short interior gaps (101), the ones with two zero neighbors (010) and the three-zero windows (000). The triple data and the boundaries recover all shorter counts. The all-zero word and lengths 0,1,2 are correctly separated. Choosing c of m−1 interior gaps to be long and distributing h among the r labeled long gaps gives precisely the binomial product, also checking realizability and the singleton condition. Independently simplified the geometric interior sum to z/[(1−z²)(1−z³)]. Allowing all h and removing excess when r=0 gives the stated C series; summing c=0, then c=m−1 with m=2 and m≥3 separately, gives the U series. Partial fractions give the stated parity formulas and small-length checks give the two listed first collisions. Independent replay compares the complete partitions, not just their sizes, through n=19. The zero-error claim follows by exactly one representative per profile.
 
-Scientific limitations: binary alphabet, no adjacent `11`, complete linear counts of all contiguous factors through length three, no missing reads or errors. The observation includes endpoint information implicitly through shorter factors. General classes and algorithms are prior work; absolute historical priority is unverified. The public evidence is a symbolic all-length argument with finite, standalone independent corroboration.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general exact Euler-trail fiber formula and general singleton criterion already apply, since any 3-Abelian equivalent word has the same count zero of 11. The supported distinct result is the explicit feasible endpoint/run spectrum, binomial reduction, and its exact all-length profile and singleton counts for the linear forbidden-11 language, not a new general class-size method or a new generic polynomial-growth theorem.
+
+## value
+
+PASS
+
+Forbidden-11 is a classical finite-state source. Exact capacity versus singleton counts distinguish choosing one codeword per observable profile from the stronger property that the full source word is uniquely identified. The quadratic versus linear growth and every-fiber binomial formula quantify both properties uniformly and enable exact finite-length ambiguity checks beyond a general Euler method or asymptotic growth bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

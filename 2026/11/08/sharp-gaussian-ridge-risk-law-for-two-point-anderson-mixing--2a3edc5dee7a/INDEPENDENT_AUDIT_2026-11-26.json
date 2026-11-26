@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:52:04.941509Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen ratio formula and tail are correct, but their inclusion in the finding created demonstrated prior coverage. The complete replacement restricts its finding to positive-ridge risks. Reconstructing the ridge minimizer gives γ=-WT/(T²+λ), with W and T independent by Gaussian sum/difference orthogonality, yielding E=θ+Whλ(T) with hλ(t)=(dt-λ)/(t²+λ). The regularized moments are finite. For fixed σ, substituting T=√λ s gives the integrable kernel s²/(1+s²)² with integral π/2; splitting off the bounded part of hλ and using Cauchy–Schwarz bounds all mixed and linear terms by O(λ^(-1/4)). This gives the claimed positive inverse-square-root coefficient also at θ=0. For λ=cσ² the Gaussian mass away from the nonzero mean of T is exponentially small against the bound on hλ. Expanding the squared conditional bias and the conditional noise variance locally gives the replacement’s displayed derivative formula for Q, including the c² contribution solely from the deterministic ridge bias. A separate bounded SymPy expansion gave zero difference for both A and Q and, at r=1/2 and θ=d=1, yields A=10, c*=21, Q(c*)=-1140. Strict convexity gives uniqueness on the specified fixed-c domain only; compact-positive-c uniformity follows from the same remainder bound. The frozen script/output were inspected, not executed; the saved 155 assertions are not proof of either limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "6e96c99497d7 gives moment cutoff D-m+1 at fixed affinely independent sites, recovering 1 in scalar depth one.",
+          "Scieur et al. analyze coefficient-norm regularization and stochastic extrapolation stability; their inspected passages give bounds, not exact Gaussian coefficients.",
+          "40757d6ff514 has a reciprocal tail in an above-threshold bounded-uniform setting, not the Gaussian positive-ridge claims."
+        ],
+        "reasoning": "The broader unregularized moment theory covers the old cutoff, not a ridge regularization scale. Related noise-stability results do not determine the exact singular risk coefficient or the quartic tuning optimum.",
+        "searches": [
+          "Resultary: fixed evaluation two-site Anderson small-noise fourth-order ridge calibration",
+          "Resultary 6e96c99497d7 and 40757d6ff514",
+          "Scieur–d’Aspremont–Bach arXiv:1706.07270, literal regularization"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, and verification_output.txt",
+        "Resultary 2a3edc5dee7a, 30f28a658eb2, 6e96c99497d7, 40757d6ff514",
+        "arXiv:1706.07270",
+        "OSTI 1408509 (attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taking zero correlation in the prior gives the frozen λ=0 tail exactly, not just its exponent.",
+          "The generic regularization construction controls noise amplification but does not evaluate the singular integral at λ→0 or the quartic coefficient when λ=cσ²."
+        ],
+        "reasoning": "Knowing an unregularized tail alone neither determines how shrinkage cuts off the singularity nor fixes the interaction of deterministic ridge bias with random residuals at order σ⁴. The repaired statements require those positive-ridge calculations.",
+        "searches": [
+          "30f28a658eb2 RESULT.md, items 1–2 and scope",
+          "arXiv:1706.07270 pp. 3–4, offsets 10037 and 15416"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At ρ=0 the prior N,D variances are σ²/2, 2σ²; taking its c=1-r, m=θ and d>0 gives the same W,T means and exactly the frozen 2d pσ(0)E|W| coefficient.",
+          "The prior step is the unsafeguarded unregularized residual minimizer; there is no λ>0 in its formula. The symmetric weight penalty η(w₀²+w₁²) is equivalent to the replacement’s λγ² with λ=2η."
+        ],
+        "reasoning": "Explicit reparameterization establishes exact unregularized overlap; a relabeling of the ridge is not the novelty. Positive-ridge risk and its two asymptotic scales are the distinct scope.",
+        "searches": [
+          "Resultary: two-point Anderson scalar Gaussian noise ridge exact risk tail calibration",
+          "Resultary: Anderson mixing Gaussian ratio tail square-root ridge risk",
+          "30f28a658eb2 RESULT.md offset 690, items 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2a3edc5dee7a is the assigned record itself and the exact catalogue hit for the ridge coefficients; 30f28a658eb2 is a distinct exact hit for the tail only.",
+          "The bounded searches did not obtain a distinct exact positive-ridge coefficient table or statement."
+        ],
+        "reasoning": "The object is a symbolic risk law with continuous parameters, so exact-formula matches matter more than numerical table entries. An unsuccessful search is not proof of absence.",
+        "searches": [
+          "Resultary exact ridge risk/tail/calibration and fixed-site fourth-order queries",
+          "Literature searches for Gaussian-ratio tails, Gaussian Anderson risk, and fixed-site fourth-order ridge tuning"
+        ]
+      },
+      "rationale": "The original Finding fails originality in part: 30f28a658eb2 items 1–2 give exactly the unregularized tail coefficient and moment classification at ρ=0, independently of any priority inference from dates. The replacement removes these from the finding, describes them only as credited background, and keeps the exact positive-ridge blow-up and fourth-order fixed-scale risk calibration. Those surviving claims were compared separately; the inspected stronger unregularized coupling law and iterative regularization bounds do not give either coefficient.",
+      "residual_risks": [
+        "A synonymous positive-ridge Gaussian ratio risk calculation may exist outside the inspected sources. The identified Toth manuscript was not retrieved.",
+        "The exact unregularized overlap is established regardless of those limits; dates alone are not used to assign priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of original unregularized ratio, tail constant and moment cutoff at ρ=0; not positive ridge",
+          "evidence": [
+            "Z minus the fixed point is m+dN/D; the explicit K_(ρ,m) at ρ=0 is 2d pσ(0)E|W|."
+          ],
+          "identifier_or_url": "30f28a658eb2",
+          "material_read": "RESULT.md offset 690 onward, items 1–2, scope and initial algebra",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Gaussian coupling phase diagram for depth-one Anderson extrapolation",
+          "trigger": "Exact or stronger correlated-Gaussian ratio law"
+        },
+        {
+          "assessment": "Covers original scalar depth-one cutoff; does not give positive-ridge asymptotics",
+          "evidence": [
+            "0<p<D-m+1 with D=m=1 gives 0<p<1."
+          ],
+          "identifier_or_url": "6e96c99497d7",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp Gaussian moment threshold for noisy Anderson extrapolation",
+          "trigger": "General Gaussian moment threshold"
+        },
+        {
+          "assessment": "Different noise law, not a positive-ridge result",
+          "evidence": [
+            "Independent bounded uniform noise gives a reciprocal tail above a threshold."
+          ],
+          "identifier_or_url": "40757d6ff514",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Bounded oracle noise has a sharp three-regime tail transition",
+          "trigger": "Related exact two-site tail"
+        },
+        {
+          "assessment": "Related regularization method and bounds, not the claimed exact one-step constants",
+          "evidence": [
+            "Coefficient-norm regularization and stability/nonlinearity estimates for noisy iterates."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1706.07270",
+          "material_read": "Algorithm 1 and regularization discussion, pp. 3–4, offsets 10037 and 15416",
+          "method": "OA PDF literal lookup and bounded passages",
+          "title": "Nonlinear Acceleration of Stochastic Algorithms",
+          "trigger": "Regularized Anderson-type extrapolation with noisy evaluations"
+        },
+        {
+          "assessment": "No inference from failed access",
+          "evidence": [
+            "Identified manuscript of DOI 10.1137/16M1080677; no exact comparison from this retrieval."
+          ],
+          "identifier_or_url": "https://www.osti.gov/servlets/purl/1408509",
+          "material_read": "No original passage retrieved on the attempted copy",
+          "method": "OA manuscript retrieval, timed out",
+          "title": "Local Improvement Results for Anderson Acceleration with Inaccurate Function Evaluations",
+          "trigger": "Potentially relevant inaccurate-evaluation precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The surviving claim quantifies two effects not captured by knowing the unregularized moment cutoff: exactly how regularization restores finite mean-square risk, and which fixed ridge/noise-variance ratio minimizes the first coefficient that distinguishes such choices. In a natural benchmark where the leading small-noise risk is common to all fixed c, the fourth-order coefficient gives meaningful information rather than a generic stability bound. The fixed-site and fixed-positive-scale restrictions are explicit.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

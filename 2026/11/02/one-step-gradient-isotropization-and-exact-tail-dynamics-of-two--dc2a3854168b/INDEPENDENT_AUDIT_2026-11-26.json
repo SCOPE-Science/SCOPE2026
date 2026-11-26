@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:42:23.145684Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–59",
+        "VERIFICATION.md:19–23",
+        "VERIFY.py:34–78 (inspected, not executed)",
+        "Independent bounded replay: python3 /workspace/branches/independent_replay.py, polar_tail: three dense or terminating examples checked via the direct Gram square-root formula"
+      ],
+      "rationale": "For a full-row-rank gradient G=AO, the first updated gradient is BO with OO^T=I and B=A−(tr A/tr H)H symmetric and traceless. Its two eigenvalues are opposite, so its Gram matrix after multiplication by O is a scalar identity, including the zero case. On the nonzero equal-singular-value manifold the nuclear-scaled polar direction is 2G. The multiplier C=I−2H/tr H preserves that manifold because C^2=ρ^2 I; it commutes with H, giving the stated error and objective identities. G1=0 iff A=(tr A/tr H)H, equivalently the initial error is a positive multiple of a row isometry on the full-rank stratum. At rank one the canonical polar direction scales to G, and the invertible multiplier I−H/tr H gives the claimed slower factor along the low-curvature eigenspace. Nonterminating rank-two starts approach that rank-one start because the nonzero equal-singular-value termination set cannot accumulate there.",
+      "residual_risks": [
+        "At rank one the thin SVD must mean the compact positive-singular-value decomposition; this is fixed by the explicitly specified canonical partial isometry.",
+        "The packaged rational checker propagates the proposed tail multiplier rather than independently recomputing the nonlinear update; the universal claim is established by the algebra, not the finite checks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jawanpuria–Garai–Mishra give an exact energy identity, rank-aware admissible steps and invariant-direction examples.",
+          "Lau–Long–Su define the nuclear-scaled update in Eq. (8) and prove a rank-sensitive contraction under strong convexity."
+        ],
+        "reasoning": "These broader settings cover the optimizer or convergence statements, not the identification of the next Gram matrix or the resulting trajectory equality from noncommuting full-row-rank starts.",
+        "searches": [
+          "arXiv:2610.27747v1, Theorem 3 and Appendix C",
+          "arXiv:2505.21799v2, Section 4.1 and Theorem 4.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.27747v1",
+        "arXiv:2505.21799v2",
+        "Resultary 748c30f86df2 (actual statement); later Resultary leads fc3e895d0275 and ba79f41dad85"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day record restricts curvature to a scalar multiple of the identity and concerns finite termination; on this overlap C=0 after identification.",
+          "The energy identity is scalar and the directional examples impose invariant structure."
+        ],
+        "reasoning": "The elementary trace-zero step extends the isotropic mechanism, but one cannot specialize a scalar-curvature result to arbitrary noncommuting A,H. Nor do the general energy bounds force equal singular values. The distinct content is the anisotropic statement, not the trace-zero algebra itself.",
+        "searches": [
+          "Resultary 748c30f86df2 at mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "Jawanpuria–Garai–Mishra Appendix C, arXiv:2610.27747v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same-day Resultary 748c30f86df2, Finding and Limitations: exact line search on isotropic curvature; rank-two starts terminate in at most two steps; fixed normalized step 1/2 also terminates from every rank-two start."
+        ],
+        "reasoning": "At full row rank the frozen coefficient multiplying O is itself the exact line minimizer, since <G,O>=tr A and <HO,O>=tr H. Thus there is genuine mechanistic overlap at H=λI, not two different algorithms on that domain. But anisotropy gives two distinct curvature modes and a generically nonterminating tail; the isotropic theorem neither states nor entails those dynamics. Same-day dating is not evidence of priority.",
+        "searches": [
+          "Resultary semantic searches: one-step isotropization; equal singular values from full row rank; exact gradient-descent tail; rank-conditioned polar rates",
+          "Focused literature search on two-row nuclear-scaled polar one-step singular-value equalization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "748c30f86df2 covers isotropic rank-two exact termination. Later hits fc3e895d0275 and ba79f41dad85 concern isotropic contrast/rank-loss or one-step contraction, not the review statement."
+        ],
+        "reasoning": "An exact catalogue of finite examples or rates would not itself establish this all-real matrix trajectory identity. No matched catalogue theorem returned an equivalent anisotropic statement.",
+        "searches": [
+          "Resultary local semantic catalogue searches on exact two-row dynamics and rank-dependent contraction"
+        ]
+      },
+      "rationale": "The optimizer, the isotropic rank-two finite-identification mechanism, and general spectral convergence are not new here. The supported distinct claim is universal one-step identification for anisotropic two-row curvature and the exact nonterminating GD tail (with its termination and rank-boundary characterization). The strongest available matching statement is isotropic and does not encompass that anisotropic dynamics.",
+      "residual_risks": [
+        "Older spectral-norm steepest-descent work may express the same exact-line-search specialization in different terms. No priority order is inferred for same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General convergence coverage, not the exact identification theorem",
+          "evidence": [
+            "Theorem 3 assumes 0<α tr H<2; Appendix C gives the one-step energy identity and sharp invariant-direction examples, leaving general-initialization rates open."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.27747v1",
+          "material_read": "Theorem 3 and Appendix C; OA text offsets about 16800 and 53446–61440",
+          "method": "Targeted primary full-text reading",
+          "title": "Constant Step Sizes for Muon-Type Spectral Optimizers on Strongly Convex Quadratics",
+          "trigger": "Same update and SPD quadratic model"
+        },
+        {
+          "assessment": "Covers update and rank-sensitive convergence, not the exact two-row dynamics",
+          "evidence": [
+            "Theorem 4.1 uses steps depending on L and rank under smooth strong convexity and gives objective contraction."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2505.21799v2",
+          "material_read": "Section 4.1 Eq. (8) and Theorem 4.1; OA text offsets about 52725 and 60200–65681",
+          "method": "Targeted primary full-text reading",
+          "title": "PolarGrad: A Class of Matrix-Gradient Optimizers from a Unifying Preconditioning Perspective",
+          "trigger": "Same nuclear-scaled polar direction"
+        },
+        {
+          "assessment": "Material isotropic overlap; different anisotropic conclusion",
+          "evidence": [
+            "Rank two with unequal positive singular values terminates in exactly two line-search steps on the isotropic quadratic; the Limitations explicitly exclude anisotropic curvature."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/2/SCOPE-the-rank-two-finite-termination-resonance-of-nuclear-scaled-pola--748c30f86df2",
+          "material_read": "Mirrored RESULT.md, Finding, Assumptions, Limitations (offsets 0–2165 and 7736 onward)",
+          "method": "Local mirror, bounded passage inspection",
+          "title": "The rank-two finite-termination resonance of nuclear-scaled polar descent",
+          "trigger": "Same-day rank-two finite identification and rank discontinuity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:15–31, 39–59",
+        "arXiv:2610.27747v1, Appendix C"
+      ],
+      "rationale": "The result replaces an asymptotic bound for a nonlinear optimizer by an exact identification time and complete linear tail for arbitrary full-rank two-row starts, including noncommuting polar and curvature factors. The rank-one discontinuity explains why this sharp tail rate cannot be transferred across rank, and the termination criterion identifies the exception rather than obscuring it in a worst-case bound.",
+      "residual_risks": [
+        "Exact only for the specified fixed step, exact polar arithmetic and two-row left curvature; no practical finite-precision or higher-row guarantee follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

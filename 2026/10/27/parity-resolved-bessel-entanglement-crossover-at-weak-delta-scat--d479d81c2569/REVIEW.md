@@ -1,19 +1,21 @@
-# Scientific review: parity-resolved weak-transmission entanglement crossover
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result specifies a homogeneous delta-scattering coin, initial preparation, simultaneous limit and both parity subsequences. The proof gives a uniform two-step Fourier matrix bound, global-state convergence, a reduced-state Bloch integral, a Bessel identity, and entropy continuity. The 244 standalone finite checks corroborate separate matrix representations and limiting values without being substituted for an infinite proof.
+PASS
 
-## Originality — PASS (best-knowledge)
+The delta amplitudes have t/r=i k/gamma and |r|=cos(theta), giving the stated coin after removing a common phase. With D(q)=diag(e^(iq),e^(-iq)) and A=D(q)sigma_x, A is Hermitian with A^2=I. The two-step multiplier differs uniformly from exp(2i theta cos(q) A) by O(theta^2): the cross term is 2i sin(theta)cos(theta)cos(q) A. Telescoping the unitary products controls the even factor by O(n theta_n^2), and on odd lengths the leftover multiplier differs from A by O(theta_n). The final scaled-phase difference is at most |n theta_n-tau|. This tends to zero for every allowed sequence, implies norm convergence in the phase convention used, then trace-norm convergence of the reduced coin by contractivity. For the initial x-directed Bloch vector the limit uses an axis a=(cos q,-sin q,0); the pointwise x-component is cos^2(q)+(-1)^n sin^2(q)cos(2 tau cos q). Reflection q -> -q reverses the other two components. The weighted cosine average equals [J_0(2 tau)+J_2(2 tau)]/2=J_1(2 tau)/(2 tau), with value 1/2 at zero. Thus the normalized Bloch radii and the larger eigenvalues (3 +/- B)/4 have the claimed signs and factors. The bound |B|<=1 follows from the same integral, so strict monotonicity of h_2 on [1/2,1] gives equality exactly at B=0, with sign changes at the simple positive zeros. h_2'(3/4)=-log_2(3), and J_1(2 tau)/tau has leading cos(2 tau-3 pi/4)/(sqrt(pi) tau^(3/2)), yielding the claimed signed envelope and remainder. The endpoints are pure versus maximally mixed at tau=0, and the common entropy tends to h_2(3/4) for diverging tau on the limiting curves only.
 
-The source paper, Spak dos Santos–Tsutsui–Andrade (arXiv:2609.03272v1), proves the physical coin and fixed-wavenumber late-time density. The fixed-coin general theorem of Ide–Konno–Machida (arXiv:1012.4164v2) does not control wavenumber depending on observation length. Carneiro et al. (2005) give numerical singular-coin oscillations. The general two-step continuous-time relation is covered by Manighalam–Kon (2020) and is **not** claimed as novel. The narrow asserted contribution is the explicit delta-parameter, two-parity Bessel coin-state/entropy crossover and zero structure. No comparison uncovered a stronger statement already yielding it. A possibly uninspected equivalent finite-time calculation is a genuine residual originality risk, not a certified absence.
+## originality
 
-## Value — PASS
+PASS
 
-The crossover quantifies the exact observational regime in which transmission collapses while the experiment length grows. At zero scaled time, parity produces incompatible entropies (zero versus one bit); as scaled time grows both converge to the previously known fixed-transmission endpoint. Bessel zeros locate finite crossover times at which the two branches agree, and the explicit decay envelope quantifies the surviving oscillations. This supplies a motivated finite-time phase law beyond routine finite-step computations.
+Credit the explicit parity-resolved reduced-state and entropy scaling functions, not the energy-dependent coin, the swap endpoint, or the stroboscopic continuous-time dynamics or their global Bessel propagators. The source scattering paper gives an exact finite-step spectral integral for the same setup and recognizes weak-transmission nonuniformity; it takes a fixed-wavenumber long-time limit, not the joint observable crossover. General continuum theory is strong enough to recover the even limiting evolution and, with a remaining swap-and-shift, the odd one. Extracting the two reduced-state functions requires the momentum-dependent overlaps with the initial coin, retaining the oscillating term instead of averaging it out, and evaluating its weighted Bessel integral. The inspected statements do not give this reduced observable or an equivalent already evaluated contrast. The crossings and envelope are consequences of the explicit new contrast, not separate priority claims.
 
-## Limitations and nearby literature
+## value
 
-The source's physical system, initial state and finite scaled-time regime are essential. The Bessel large-time expansion applies only after taking the stated scaling limit. Existing continuous-time reductions, fixed-coin asymptotic formulae and early numerical near-swap observations are acknowledged. No statistical noise guarantees, arbitrary-spinor theorem, uniformly diverging scaled-time theorem or literature-wide priority guarantee is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The loss of uniform entanglement decay at vanishing transmission is posed by the same physical model in prior work, independently of any Bessel calculation. The two explicit state functions quantify what fixed-k equilibration and the swap endpoint cannot tell an observer working at n k/gamma of order one: how much coin coherence survives, when the parities first and repeatedly coincide, and how their contrast decays. The weighted Bessel reduction is the useful analytic output, rather than a new continuum walk or a routine check at zero transmission.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

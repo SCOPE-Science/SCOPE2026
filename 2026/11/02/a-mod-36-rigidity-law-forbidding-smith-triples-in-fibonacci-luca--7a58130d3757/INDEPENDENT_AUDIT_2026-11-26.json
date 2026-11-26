@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:44:08.864087Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–56; VERIFICATION.md and artifacts/verify.py inspected without executing the script",
+        "Dario–Gonçalves–Oliveira arXiv:2609.01955v1 §§5–6 for the imported common-Smith example"
+      ],
+      "rationale": "For the Fibonacci recurrence matrix Q, the off-diagonal entry is F_n, its trace is L_n, and the off-diagonal entry of (Q^n)^2 is their product. The congruences Q^6=I mod 4 and Q^24=I mod 9 certify complete periods without requiring minimality. Independent recurrence calculation reproduced all 6 and 24 obstruction residues: modulo 4 the entries are 2 exactly at indices 0 and 3 and 3 otherwise, while modulo 9 the table is nowhere zero and hits a multiple of 3 only at 5,13,21, where it equals 3. Hence T_n is nonzero, the displayed valuations of |T_n| are exact, and neither 4 nor 9 divides T_n at any positive n. Complete additivity of P_b, valid even for noncoprime factors, would force equality of the digit sum of F_{2n} with the sum of the other two digit sums if all three were Smith. The digit congruence modulo b-1 would force b-1 to divide T_n. Either 4 or 9 dividing b-1 contradicts the complete-period certificates. The definition excludes noncomposites, including 1, so those indices do not pose exceptional Smith cases. Independent decimal-string recurrence and multiplication confirmed both transcribed factor products, F_827 L_827=F_1654, digit sums 809,802,1592, transcribed factors' sums 809 and 802, and deficit -19.",
+      "replay_paths": [
+        "Compute Q powers modulo 4 and 9 by repeated matrix multiplication; alternatively advance (F_n,F_{n+1},L_n,L_{n+1}) by the recurrence from (0,1,2,1) until both pairs return after 6 or 24 steps. Tabulate F_n L_n-F_n-L_n along those proved periods.",
+        "For the example, advance separate F and L decimal arrays with exact addition, multiply the factor lists in frozen artifacts/verify.py by digit convolution with carry, and compare to the separately evolved F_827 and L_827. Continue F to 1654 and sum decimal digits. This independently yielded matching products and the displayed sums; no primality test was used."
+      ],
+      "residual_risks": [
+        "Primality of the transcribed large factors is imported from the published Smith example and its factor sources, not independently certified. The all-index theorem is independent of this illustration and of any prime factorization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The valuation-tree theorem applies to a single order-two Fibonacci recurrence, including fixed aF_n+bL_n. The kernel concerns Fibonacci terms. The later square-spectra entry is about joint square status of individual terms, not valuations of the nonlinear difference."
+        ],
+        "reasoning": "A valuation of the individual factors or a fixed linear combination is not a valuation of F_n L_n-F_n-L_n. The product contributes order-two growth at doubled index, so this is not just substituting initial values into the two-term recurrence classification.",
+        "searches": [
+          "Resultary: exact two-adic valuation trees for Fibonacci-type initial pairs (1a32370fbccf), four-adic Fibonacci kernel (19b900b0ac8d), and joint three-adic square spectra (d7ce96c3c3b7)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.01955v1",
+        "OEIS A382922 and A395686",
+        "Resultary 1a32370fbccf, 19b900b0ac8d, d7ce96c3c3b7 and 73b69d8c625c",
+        "Frozen RESULT.md lines 61–72"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Section 6 reports the common index 827 and raises the separate possibility of other common indices. The semiprime record uses s_b(t)=t mod b-1, with conclusions for semiprime factors under stated base conditions."
+        ],
+        "reasoning": "The classical digit congruence and product additivity reduce a hypothetical Smith triple to divisibility of T_n, but supply no reason that the divisibility fails at every index. The complete residue-period calculation evaluates that missing obstruction, rather than generalizing the semiprime-only statement by notation.",
+        "searches": [
+          "Dario–Gonçalves–Oliveira §6 and Resultary Smith semiprime sieve 73b69d8c625c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The predecessor analyzes even-index decimal Smith tests via F_{2m}=F_m L_m and P(F_{2m})=P(F_m)+P(L_m). The obstruction being evaluated is exactly the difference between the product and the sum of those factors, or the failure of their digit-sum additivity modulo b-1."
+        ],
+        "reasoning": "The same doubling relation and prime digit sum are acknowledged. The inspected predecessor passages calculate Smith status using additivity; they do not give the mod-4 and mod-9 obstruction or conclude that the three statuses are incompatible.",
+        "searches": [
+          "Focused literature search for Smith Fibonacci–Lucas doubling and F_{2n}-F_n-L_n valuations",
+          "Dario–Gonçalves–Oliveira arXiv:2609.01955v1 abstract and §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The OEIS entries list the two individual decimal Smith index sequences and both include 827. They do not certify an all-index conclusion about F_{2n} or give the residue law for T_n. The related Resultary hits evaluate different valuation or square-status objects."
+        ],
+        "reasoning": "A shared table entry already covers the example of two Smith numbers but is not a complete table for the third or for all indices and bases.",
+        "searches": [
+          "OEIS A382922 and A395686 text entries",
+          "Resultary exact Fibonacci–Lucas obstruction/Smith-triple matches"
+        ]
+      },
+      "rationale": "The paper that motivates the problem already gives the doubling identity, additive prime-factor digit sums in the decimal search, and the common Smith index 827. These ingredients and standard modular Fibonacci periodicity are not original. The unsupported-by-prior-formulas remainder is the complete sharp local calculation for the nonlinear product-minus-sum obstruction, which yields a uniform triple exclusion in the stated bases. The inspected sources do not give that exact obstruction law or a stronger statement implying it.",
+      "residual_risks": [
+        "A differently formulated older product obstruction or a table of this exact nonlinear recurrence might exist outside the inspected sources. Keyword misses and separately listed indices do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct methodological and example coverage, no exact obstruction in compared passages",
+          "evidence": "F_{2m}=F_mL_m, additivity of the prime-factor sum, and common decimal index 827.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.01955v1",
+          "material_read": "p. 1 abstract and §§5–6, including the even-index sum identity and shared index",
+          "method": "Open primary PDF extraction, targeted passages",
+          "title": "When Fibonacci and Lucas Meet Smith: A Computational Exploration",
+          "trigger": "Direct overlap with doubling and example"
+        },
+        {
+          "assessment": "Independent lists, not the doubling-triple theorem",
+          "evidence": "Both include 827; entries classify membership in their own individual sequences.",
+          "identifier_or_url": "https://oeis.org/A382922?fmt=text and https://oeis.org/A395686?fmt=text",
+          "material_read": "Definitions and index lists, text near offset 300",
+          "method": "Public primary catalogue entries",
+          "title": "Numbers k such that Fibonacci(k) is a Smith number; Numbers k such that Lucas(k) is a Smith number",
+          "trigger": "Possible exact claim or table coverage"
+        },
+        {
+          "assessment": "Different, linear recurrence object",
+          "evidence": "Valuations for arbitrary initial pair of U_{n+2}=U_{n+1}+U_n, not a product-minus-sum sequence.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-two-adic-valuation-trees-for-every-fibonacci-type-initial--1a32370fbccf",
+          "material_read": "Finding and assumptions",
+          "method": "Resultary local mirror",
+          "title": "Exact two-adic valuation trees for every Fibonacci-type initial pair",
+          "trigger": "Potential stronger theorem covering the mod-4 part"
+        },
+        {
+          "assessment": "Related reduction, not Fibonacci–Lucas triple coverage",
+          "evidence": "Uses the same positional digit congruence for its semiprime sieve, not a recurrence period law.",
+          "identifier_or_url": "2026/10/13/SCOPE-a-base-parity-law-and-residue-density-sieve-for-smith-semiprimes--73b69d8c625c",
+          "material_read": "Digit congruence argument around offset 2250 and semiprime scope",
+          "method": "Resultary local mirror",
+          "title": "A base-parity law and residue-density sieve for Smith semiprimes",
+          "trigger": "Generic digit-root obstruction in related bases"
+        },
+        {
+          "assessment": "Different property, and dated later",
+          "evidence": "Counts both terms' square status modulo powers of three, not valuation of the doubling obstruction.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-joint-three-adic-square-spectra-of-fibonacci-and-lucas-num--d7ce96c3c3b7",
+          "material_read": "Finding",
+          "method": "Resultary local mirror",
+          "title": "Exact joint three-adic square spectra of Fibonacci and Lucas numbers",
+          "trigger": "Nearby indexed three-adic result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–19 and 46–65",
+        "arXiv:2609.01955v1 §§5–6"
+      ],
+      "rationale": "The product F_n L_n is naturally singled out by the existing even-index Smith search and its known common Smith index, not by choosing an arbitrary recurrence or sampling modulus. The exact low-prime valuations resolve a factorization-free obstruction at all indices, explaining why the common-index phenomenon cannot persist under doubling as a triple, in decimal and uniformly for two base families. That complete restriction is useful in interpreting or extending expensive Smith searches. It is stronger than testing the known example and is not a claim about the rarity or uniqueness of the underlying pair.",
+      "residual_risks": [
+        "The theorem does not rule out further common Smith indices for just F_n and L_n, and does not assert triple exclusion in every base."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

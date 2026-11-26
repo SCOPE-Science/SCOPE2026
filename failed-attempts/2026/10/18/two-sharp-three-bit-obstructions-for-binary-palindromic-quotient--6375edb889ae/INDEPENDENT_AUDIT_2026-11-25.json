@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:44:08.402935Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With N=A/B and L=ℓ(N), the length difference of A and B is L−1 or L. Normalize N into (p,p+1) for odd N of length ≥6, take the two leading-interval scales 4 and 8, and reverse the leading blocks to get the residue condition. The only short palindromic denominators 1 and 3 have padded leading blocks 100 and 110, whose reversals are their residues; their normalized values are valid lower endpoints. The ratio still lies strictly inside the claimed necessary product/quotient bounds. Independently checked all 16 cells in exact fractions with the equivalent product interval test and recovered the stated witnesses and exactly two empty cells (5,1),(7,3). For each length shell [4t,8t), t=2^k, earlier shells contribute t/4+O(1); the two residue classes add affine ramps of slope 1/8 on [5t,6t) and [7t,8t), up to bounded errors. Dividing by X gives an affine-over-linear ratio on each quarter. At X/t=4,5,6,7,8 the limiting values are 1/16,1/20,1/16,3/56,1/16, yielding both exact densities. Even numbers are disjoint from the two odd cylinders and unrepresentable, proving the 11/20 lower bound. Passing this test is not a statement of representability. Replay of finite classification: python3 /workspace/replay/finite_checks.py.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 14-bit record proves the local necessary condition for every k≥3 with long denominators and gives the shell-counting argument for arbitrary forbidden-cell sets. Its global conclusion is lower density of nonquotients at least 200769077/240599040>5/6. A96's automaton M_(N,k) is constructed for a fixed integer N and base k."
+        ],
+        "reasoning": "The automaton alone cannot answer a uniform cylinder theorem. The broader indexed theorem actually specializes to the same three-bit test and dominates the global lower bound.",
+        "searches": [
+          "Resultary 5777ec49529c",
+          "INTEGERS A96 §2.2.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "INTEGERS 22 (2022), A96 §§2.2.3 and 2.4",
+        "Resultary 5777ec49529c RESULT.md and expected_output.txt",
+        "Resultary 7130ea3b3fc0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A96 gives only (5,1) and a 1/40 lower density; the suggestion of other intervals does not establish them. In the broader width-k source, specializing (1)–(2) gives the actual cell test, and taking the maximum instead of the minimum over its affine-ratio shell endpoints gives 1/16. At width three there are only two exceptional denominator candidates, 1 and 3."
+        ],
+        "reasoning": "For B=1 or 3 the padded values β=4 or 6 satisfy the reversal congruence and the product normalization used in that same test, so short denominators do not create a further case in the claimed cylinders. The finding is mechanically recovered by specialization and elementary boundary checks, not from the numerical dominance alone.",
+        "searches": [
+          "Resultary 5777ec49529c Steps 1–3",
+          "INTEGERS A96 §2.4 Theorem 6, Corollary 1, Remark 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The later record's §Proof Step 1 uses reversed k-bit residues and overlap of [pβ,(p+1)(β+1)) with [sα,s(α+1)), s∈{2^(k−1),2^k}. At k=3 the two scales are 4 and 8."
+        ],
+        "reasoning": "For half-open intervals the overlap conditions are exactly pβ<s(α+1) and sα<(p+1)(β+1), the same strict inequalities as in the frozen quotient formulation.",
+        "searches": [
+          "Bai–Meleshko–Riasat–Shallit arXiv:2202.13694 and INTEGERS A96",
+          "Resultary 5777ec49529c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The former expected_output.txt expressly lists k=3, T=2, best_q=1, min=1/20. Its predicate yields exactly (5,1) and (7,3), as independently enumerated. The latter record concerns binary antipalindromes, not this quotient set."
+        ],
+        "reasoning": "The width-three count and lower density are actually tabulated by the same exact predicate. The other record is a distinct notion, not evidence of exact overlap.",
+        "searches": [
+          "Resultary 5777ec49529c expected_output.txt",
+          "Resultary 7130ea3b3fc0"
+        ]
+      },
+      "rationale": "The 2022 paper does not give the second cylinder or the 16-cell classification. But a distinct indexed width-k theorem uses exactly this interval-and-reversal predicate at k=3, with its exact enumeration and the 1/20 lower density already present. The remaining upper density and short-denominator detail are immediate from its boundary-count argument and checking B=1,3. Its 14-bit bound also strictly dominates 11/20. The broader record has a later displayed date: this is statement-level coverage, not a claim about priority or derivation of the frozen result.",
+      "residual_risks": [
+        "No conclusion about chronology of discovery or independence of these related proofs follows from statement overlap. The result does not settle membership outside the two cylinders or sharpness of the global density bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact first-cell antecedent; per-input automata only",
+          "evidence": "Excludes 5·2^k<N<6·2^k with N≡1 mod 8, obtains 1/40, and suggests additional intervals. The automaton for fixed N checks A=NB.",
+          "identifier_or_url": "https://math.colgate.edu/~integers/w96/w96.pdf",
+          "material_read": "§2.4 pp. 20–21 Theorem 6, Corollary 1 and Remark 4; §2.2.3 pp. 12–13",
+          "method": "OA full-text passages",
+          "title": "Quotients of Palindromic and Antipalindromic Numbers",
+          "trigger": "Same quotient set, prior three-bit obstruction and exact decision procedure"
+        },
+        {
+          "assessment": "Decisive broader coverage by exact specialization; priority not adjudicated",
+          "evidence": "Equations (1)–(2) are equivalent to the frozen test at width 3; endpoint-count analysis gives exact forbidden-set density, and k=3 output shows T=2 and min=1/20. The same analysis takes a maximum for upper density.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-one-sixth-upper-density-bound-for-binary-palindrome-quotients--5777ec49529c/RESULT.md",
+          "material_read": "Finding and Proof Steps 1–3, short-denominator discussion, expected_output.txt k=3 line",
+          "method": "Local published-record mirror, RESULT.md offsets 0, 2510, 5126 and exact output offset 0",
+          "title": "A one-sixth upper-density bound for binary palindrome quotients",
+          "trigger": "Same local obstruction method, broader widths and stronger global density bound"
+        },
+        {
+          "assessment": "Different objects",
+          "evidence": "Concerns binary antipalindromes, not ordinary binary palindromes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-2-adic-exclusion-family-for-quotients-of-binary-antipalindrome--7130ea3b3fc0/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "A 2-adic exclusion family for quotients of binary antipalindromes",
+          "trigger": "Indexed same-day quotient-exclusion family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Sharpness of the small necessary test is a natural question, and the density calculation is sound. In the presently available comparison, however, the exact width-three classification and density behavior follow mechanically from the broader interval predicate and shell formula, and the global inequality is strictly weaker. The short-denominator check is needed for exact statements but does not leave a distinct valuable invariant on its own.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

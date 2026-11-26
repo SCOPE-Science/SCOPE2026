@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:16:02.235318Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the stated unrescaled inner product, a convex combination y of signed edges is the projection exactly when each signed-edge inner product with x−y is at most ⟨x−y,y⟩. For d=1 the residual is zero; for d=2, y=x/2 and the nonadjacent endpoints give support 1/2 and squared norm 1/2. For d=3 along the chosen arc, the weights (3,1,3,2,2)/11 yield residuals (6,2,−2,−6)/11 along the arc, with 2/11 immediately before it and −2/11 immediately after it. Adjacent differences have magnitude at most 4/11, including the closing −2/11 to 2/11 jump at n=6, and all five selected signed edges attain that support. The squared norm is (72+16)/121=8/11. For d≥4 both arcs separate the two triples of nonzero values by at least one zero; the quarter-weighted incident edges attain support 1/4 and the residual has squared norm 2(1/2)^2+4(1/4)^2=3/4. The support test also gives uniqueness and covers both shortest-arc choices at a tie. For a convex combination of roots, the squared norm of the corresponding combination of their residuals bounds the squared distance above. Equality at the maximum requires all contributing residuals to have the maximal norm and be identical by the strict variance identity. The unique extrema in each such residual recover the ordered endpoints. Thus no nonroot is farthest. The root counts are 2n per nonantipodal cyclic separation and n at an antipodal separation, giving all three stated Hausdorff and farthest-count regimes. Reading the supplied checker corroborates the certificate design; its two directions of an even antipodal separation coincide as ordered-root inputs and the all-n proof does not rely on this finite test.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected general graph definition specifies vertices, not their projections from the full root hull. Normal-cone optimality gives a test of candidate vectors; convexity gives a maximum at some vertex, not the entire equality locus.",
+          "The available path theorem concerns paths and endpoint blocks, not a class containing cycles."
+        ],
+        "reasoning": "Those general results reduce the problem but do not specify the cycle residues or when the strict-convexity bound can be an equality. No checked broader statement was found to do so.",
+        "searches": [
+          "Graph-root Euclidean projection and Hausdorff comparison, Resultary and primary lookup",
+          "arXiv:1807.07678, 1910.05193 and 1812.00397"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_cycle_root_shells.py",
+        "Resultary 7de9ca961324 and b04bbad994e7",
+        "arXiv:1807.07678 p. 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The path proof supplies endpoint-block certificates, and the path hull is contained in the cycle hull after a rim edge is restored. In the cycle proof a shortest 3-arc couples the endpoints' neighboring residuals, whereas at 4 they no longer touch.",
+          "The strict residual-variance criterion excludes all nonvertex maximizers because the cycle residuals distinguish ordered endpoints."
+        ],
+        "reasoning": "Inclusion alone gives a one-sided bound. Even crediting the local 3/4 behavior already seen for sufficiently separated interior path endpoints, the four-hop onset, short-separation certificates, and the continuous cycle equality locus are not consequences of the stated path farthest-point result.",
+        "searches": [
+          "Resultary b04bbad994e7, mirrored RESULT.md offsets 0 and 700; compare with frozen proof at lines 44–81"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary b04bbad994e7, RESULT.md offset 0, gives squared Hausdorff distance 11/12 for paths at n≥6 and only the two oriented endpoint roots farthest.",
+          "Higashitani–Jochemko–Michałek, arXiv:1807.07678 p. 1, gives the usual symmetric edge polytope definition for a graph."
+        ],
+        "reasoning": "Reversing root orientation or using zero-sum ambient coordinates is already accounted for. Deleting one cycle edge gives the path but changes the projection and creates distinguished endpoints. An intrinsic transportation norm on a cycle is not this ambient Euclidean distance.",
+        "searches": [
+          "Resultary semantic searches on cycle root-polytope projections, Euclidean distance shells, path Hausdorff approximation and farthest points",
+          "Primary-literature search comparing cycle symmetric edge and complete type-A root hulls"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed record 7de9ca961324 is the assigned theorem itself. At separations ≥5 related record b04bbad994e7 distinguishes squared distances 11/12, 5/6, 3/4 depending on how many path endpoints occur."
+        ],
+        "reasoning": "Partial coincidence of a saturated value is not an indexed cycle shell table. The path has neither the same Hausdorff maximum nor the cycle's large family of maximizers. The two records have the same date; no priority order is inferred.",
+        "searches": [
+          "Resultary exact graph, distance shells, path analogue and farthest-point locus"
+        ]
+      },
+      "rationale": "The standard symmetric edge hull and normal-cone criterion are not new. The distinct result is the combination of exact cycle-specific Euclidean shells (including saturation at four) and the full set of continuous maximizers. The strongest indexed analogue uses a path; it shares an interior 3/4 value but is not a statement of this law.",
+      "residual_risks": [
+        "Same-day order relative to the related path record is not established; verified common content is credited independently of order.",
+        "Two cited primary papers were not inspected at the decisive passages after retrieval attempts. Search coverage is bounded and cannot exclude equivalent earlier formulations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial methodological overlap but different graph, shell profile and extremizers",
+          "evidence": "11/12 Hausdorff square for n≥6, only two farthest roots, and endpoint-sensitive long-separation shells.",
+          "identifier_or_url": "Resultary b04bbad994e7; mirrored snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "material_read": "RESULT.md offsets 0 and 700, statement and endpoint-block certificates",
+          "method": "Local indexed search and mirrored record inspection",
+          "title": "A five-edge saturation law for Hausdorff approximation of complete root hulls by path hulls",
+          "trigger": "Closest indexed exact Euclidean metric result"
+        },
+        {
+          "assessment": "Verifies standard setup; inspected passage does not state this metric result",
+          "evidence": "The definition takes the convex hull of the two signed roots of every graph edge.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.07678",
+          "material_read": "p. 1, general graph definition",
+          "method": "Lawful primary full-text passage inspection",
+          "title": "Arithmetic aspects of symmetric edge polytopes",
+          "trigger": "Primary source for the same polytope construction"
+        },
+        {
+          "assessment": "Overlap outside the available evidence is unresolved",
+          "evidence": "The frozen bibliography identifies the two comparators; their full contents were not established here.",
+          "identifier_or_url": "arXiv:1910.05193; arXiv:1812.00397",
+          "material_read": "No decisive primary passage retrieved",
+          "method": "Lawful OA retrieval attempts",
+          "title": "Many faces of symmetric edge polytopes; Polytopal Bier spheres and Kantorovich–Rubinstein polytopes of weighted cycles",
+          "trigger": "Graph-class and weighted-cycle papers named in the frozen result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cycle is the natural closed counterpart of the path, and its exact Hausdorff error against the complete root hull measures the Euclidean effect of keeping only rim edges. The short-shell transition and saturation explain why many ordered roots, rather than two path endpoints, tie for worst error. Classifying the equality locus in the full continuous hull, not merely identifying a root with maximal error, is independently useful for extremal comparisons.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

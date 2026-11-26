@@ -1,19 +1,21 @@
-# Scientific review: hidden-matching recovery from local maxima
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The event decomposition is exhaustive: a maximum-priority vertex is always a peak, and only its one nonneighbor can also peak; that nonneighbor peaks precisely when it is second in priority. Both singleton and two-peak probabilities sum to one. Because the singleton likelihood is independent of the missing matching and every two-peak event reveals an actual missing edge with equal probability, the uniform prior stays uniform over completions. This establishes the exact minimax posterior identity. Factorial moments of unseen pairs prove the critical Poisson law and the explicit hyperbolic-cosine curve. Negative pairwise covariance of unseen indicators proves the subcritical side. Exhaustive permutation tests for every perfect matching through six vertices and exact rational checks support the finite identities; the infinite results use analysis, not the finite tests.
+PASS
 
-## Originality — PASS, with residual priority risk
+The global maximum kills every other candidate except its unique nonneighbor. That partner is a peak exactly if second in the order; this gives each true matching edge mass 2/[n(n−1)] and each singleton the same matching-independent mass. A uniform prior therefore yields a uniform posterior over all completions on the uncovered vertices. Uniform random completion attains the Bayes upper bound on minimax success because relabeling makes its risk constant. Absence of r specified coupons has probability (1−rp_n)^m, proving the factorial moments and inclusion-exclusion. In the window, mp_n² vanishes and the factorial moments tend to λ^r, determining Poisson(λ); summing the reciprocal completion count uses u!(2u−1)!!=(2u)!/2^u. Above the window E[U]→0. Below it E[U]→∞ and the absent-edge indicators have nonpositive pairwise covariance, so U→∞ in probability. The n=2 and empty-sample boundaries work with (−1)!!=1 and an empty product equal to one, including the 0^0 term at q=1, m=0.
 
-Burdzy and Pal, *Twin peaks*, arXiv:1606.08025 (first public posting June 26, 2016), investigate local-maxima positions conditional on one or two peaks, especially on tori, ladders and trees. Their primary full HTML does not supply a hidden-matching inference problem or its minimax recovery law. The classical coupon collector provides the unseen-coupon limit, but not the exact observation channel, uniform-completion likelihood, or recovery profile. Published graph reconstruction by covariance of maxima and minima is different data: it uses both extrema and does not supply an exact sample-complexity transition for peak-only observations. Other graph tomography results likewise use degree or threshold-graph observations. Overlap searches found no direct covering claim; absence of a search hit is not a mathematical proof of priority. Possible unindexed statistical reconstruction literature remains the main risk.
+## originality
 
-## Value — PASS
+PASS
 
-Random priorities provide a natural repeated observation mechanism when only the locations of local maxima are accessible. The matching-deleted complete graph is the sharp dense test case: one nonedge can only be exposed when its two endpoints lead a random ranking. The exact minimax law describes both an information-theoretic lower bound and an attaining estimator; the transition scale is \(\Theta(n^2\log n)\). The curve differs from the ordinary full-coupon-collection probability because the last unseen edge is uniquely determined by the remaining two labels, and two or more unseen edges leave ambiguous completions. The explicit critical recovery probability therefore makes a substantive inference distinction, not merely a rephrased coupon collector.
+Best of checked evidence for the exact peak-only matching minimax law and recovery profile, not for generic recovery from extrema or Poisson coupon collection. The most relevant distinct indexed records solve reconstruction under different observation channels and do not settle the claimed posterior or its risk. The exact indexed self-match is not independent coverage.
 
-## Scope and limitations
+## value
 
-The result assumes a known labelled vertex set, a known complete-minus-perfect-matching graph family, independent uniform random priority orders, and full visibility of the local-maximum vertex set. It does not establish a general-host-graph minimax rate. The source comparisons cannot exclude an equivalent theorem in historical literature not indexed or available for examination. Numerical tests do not substitute for the analytic asymptotic proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The matching-deleted family isolates a quantitative inference bottleneck in a natural censored graph experiment: the rare pair events alone carry information, but the structural promise can force completion without seeing all pairs. The exact achievable success and the non-coupon critical curve quantify this distinction at the optimal sampling scale, not merely identifiability or a sufficient bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

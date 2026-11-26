@@ -1,19 +1,21 @@
-# Mathematical review — exponential Hardy composition iterates
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The iterate identity follows by telescoping an entire exponential weight and an invertible Hardy multiplier. For each fixed exterior degree, a single minimal monomial-index tuple dominates, and the remainder converges to zero in Hilbert–Schmidt norm after rescaling. The rank-one exterior limit has a positive Toeplitz Gram determinant; taking ratios gives every fixed-index singular limit. Jensen's formula plus a reversed-exponential polynomial approximation prove strict inflation, monotonicity, and convergence of the constants to one. The finite-matrix checker corroborates three positive parameters, several contraction sizes, and the first four singular values. Numerical convergence is not used as a proof.
+PASS
 
-## Originality — PASS, with priority limitations
+Exponential conjugacy gives the simple eigenvalues q^k and the exact iterate M_{exp(A(1−q)z)}D_q, q=r^n. On the j-fold exterior space, q^{−j(j−1)/2} times the exterior power of D_q differs from the projection onto the first j monomials wedged together by an operator of norm q: all other index sums increase by at least one. The multipliers converge in operator norm as q→0, giving the stated rank-one limit; the exterior norm is the singular-value product. The limiting squared norm is the positive Gram determinant of z^k exp(Az), with entries I_{k−ℓ}(2A). Division for consecutive j gives the asserted fixed-rank law. For the strict bound, reverse the minimizing monic polynomial to p*, with p*(0)=1 and identical boundary modulus. The trial integral is the squared Hardy norm of exp(Az)p*, which is at least 1 from its constant coefficient and equals 1 only if p*=exp(−Az), impossible for A>0. Multiplying the monic trial by z gives monotonicity, and reversed exponential Taylor polynomials give the limiting upper bound 1. At A=0 the operator is diagonal. RESULT.md, VERIFICATION.md and checker.py were inspected; finite truncations are corroboration, not the proof.
 
-The closest published approximation-number work, Lechner–Li–Queffélec–Rodríguez-Piazza (arXiv:1612.01177), proves a large-index spectral-radius formula for a fixed weighted composition operator, not this large-iterate fixed-index coefficient law. Chalendar–Partington (arXiv:1910.01475) establish convergence of powers, not their entire leading approximation-number hierarchy. Putinar–Tener (arXiv:1612.03970) study a derivative-weighted geometric class and exterior-power estimates, not exponential weights with modified-Bessel Gram constants. Related published claims for two-tap Hardy weighted compositions and Fock-space affine composition iterates use different operators and parameter limits. Historical work on Toeplitz determinants, finite-past prediction, and exterior-power asymptotics might admit a derivation of the formula; independent historical priority is not established.
+## originality
 
-## Value — PASS
+PASS
 
-Approximation numbers quantify optimal low-rank compression of iterates; eigenvalues alone do not determine those errors for a nonnormal weighted composition. The result supplies every fixed-rank leading coefficient explicitly and proves a global rank pattern: coefficients are strictly larger than the eigenvalue coefficients but approach them in high rank. The Bessel–Toeplitz determinants provide reproducible, natural spectral invariants, not an arbitrary numerical slice.
+Pass for the explicit fixed-rank iterate coefficients in the exponential Hardy model and their comparison to its eigenvalue coefficients. The graded exterior-power method has been used for other families, and the Toeplitz prediction-error interpretation and rank limit are classical in substance. No inspected distinct result supplies this operator's Bessel Gram ratios as its fixed-index iterate asymptotics.
 
-## Scope and unresolved risks
+## value
 
-The theorem holds for fixed \(0<r<1\), \(a>0\), and fixed rank \(j\) as the iterate number diverges. It gives neither a simultaneous rank/iteration limit nor an exact finite-iterate singular spectrum. The exterior-power method is classical; a general earlier theorem specialized to this family could affect attribution. Computer checks are finite corroboration only, and independent review is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Optimal fixed-rank approximation errors for these iterates are not determined by the exactly geometric spectrum. The constants measure that discrepancy at every fixed rank and prove that it disappears as the rank of the coefficient increases, a useful quantitative refinement of convergence to rank one. No simultaneous rank/iterate limit is required for that interpretation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

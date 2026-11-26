@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:58:26.031631Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed the drift and first-exit argument in RESULT.md:32–62. Both branches give the same linear increment μ+α|x| for x+y; the quadratic correction gives the exact additional term λ[y²−(−δx+E₂)²]. On the ball, Q=x²+y²+μ² and s=|x|+|y|+μ satisfy s²≤3Q and s≤3η. Thus the cost from the remainder sum is at most 6CQ, and λ(−δx+E₂)²≤2λD²x²+54λC²η²Q. The radius conditions leave at least μ/2+α|x|/2+(6C+1)y² of drift, on the switch as well. These conditions admit a positive radius including C=0. The bound |Φ|≤K yields a contradiction if all iterates through floor(4K/μ)+1 stay in the closed ball; only updates from inside are needed. The proof uses no sign restrictions on δL,δR and no smoothness beyond the stated remainder hypotheses. The inspected verify.py is a supplementary finite exact-fraction test of the weaker drift μ/2 for one remainder pair and four determinant-sign patterns; it was not executed and is not needed for the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Simpson sets out the broader nonlinear local-exit assertion as a conjecture.",
+          "The available Simpson–Glendinning §3 passages concern persistence of a chaotic attractor under trapping-region and cone assumptions."
+        ],
+        "reasoning": "The conjecture is not an established theorem; chaos persistence starts with a trapping regime, which the present positive affine drift excludes.",
+        "searches": [
+          "arXiv:2406.04587 §4, Conjecture 2",
+          "arXiv:2111.12222 §3, Theorem 3.2",
+          "Web: site:arxiv.org/html/2406.04587 \"Nonsmooth folds as tipping points\" \"Proposition 6\" \"Conjecture 2\" linear divergence (providers unavailable)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2406.04587",
+        "arXiv:2111.12222 (bounded passages)",
+        "Resultary b9cfe10e48ed (matched statement)",
+        "Resultary f562904f9577 (index comparison)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The linear drift proves divergence only for the affine truncation. Appendix A applies x+y−2y² with E₁=0, E₂=−y² and δL>0>δR.",
+          "The frozen gauge depends on the common quadratic bound and controls both coordinates uniformly."
+        ],
+        "reasoning": "No prior implication was established for branch- and parameter-dependent perturbations in both coordinates with signs unrestricted, or for the resulting explicit exit-time bound.",
+        "searches": [
+          "arXiv:2406.04587, Theorem 1 and Appendix A Proposition 6",
+          "Resultary b9cfe10e48ed, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The switch, affine matrices and b=(1,0) agree exactly with Simpson's companion family; det(I−A_L)=α, det(I−A_R)=−α and (1,1)b=1.",
+          "Resultary b9cfe10e48ed imposes E₁=0, E₂=−g(y), with g=o(|y|)."
+        ],
+        "reasoning": "The scalar-feedback theorem allows a weaker order condition within its family but does not handle two arbitrary remainders depending on (x,y,μ). The exact affine equivalence leaves the nonlinear problem untouched.",
+        "searches": [
+          "Resultary: uniform local escape quadratic remainders planar nonsmooth fold companion normal form Simpson Nonsmooth folds as tipping points positive drift",
+          "arXiv:2406.04587, §§3–4 and Appendix A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest distinct hit was Resultary b9cfe10e48ed, dated 2026-11-17, for scalar feedback; Resultary f562904f9577 concerns a different four-parameter map."
+        ],
+        "reasoning": "There is no tabulated invariant or finite census to check. The exact indexed-theorem comparison does not show the same hypotheses or exit guarantee.",
+        "searches": [
+          "Resultary: nonsmooth fold planar companion map arbitrary quadratic remainder two coordinates E1 E2 local escape positive drift all branch slopes"
+        ]
+      },
+      "rationale": "The supported increment over prior work is quantified uniform exit for both arbitrary quadratically bounded coordinate remainders in the specified planar companion family. Neither the exact affine theorem nor the published special nonlinear example implies that claim. The closest later indexed overlap covers a different, scalar-feedback class. This is bounded evidence, not a definitive priority claim.",
+      "residual_risks": [
+        "The external literature search did not return because providers were unavailable; direct primary-source and indexed comparisons were still possible.",
+        "A general nonlinear theorem elsewhere could cover the family; no claim of exhaustive priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Affine case and a special nonlinear case covered; general nonlinear assertion is a conjecture",
+          "evidence": [
+            "Theorem 1 concerns the piecewise-affine map; Proposition 6 fixes E₂=−y², E₁=0 and opposite determinant signs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2406.04587",
+          "material_read": "Theorem 1 (p. 7), §4 Conjecture 2 (p. 9), its linear-gauge example (p. 10), and Appendix A Proposition 6 (pp. 18–19)",
+          "method": "OA primary PDF passage comparison",
+          "title": "Nonsmooth folds as tipping points",
+          "trigger": "Same companion matrices and proposed nonlinear extension"
+        },
+        {
+          "assessment": "The inspected theorem is a persistence result in a different regime; no whole-paper exclusion is asserted",
+          "evidence": [
+            "Trapping and cone assumptions precede persistence of a chaotic attractor."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2111.12222",
+          "material_read": "§3, retrieved trapping-region, cone, and Theorem 3.2 passages, pp. 6–7; extended read timed out",
+          "method": "OA primary PDF locator passages",
+          "title": "Inclusion of higher-order terms in the border-collision normal form: Persistence of chaos and applications to power converters",
+          "trigger": "Possible higher-order perturbation coverage"
+        },
+        {
+          "assessment": "Later overlapping subfamily; does not cover general pairs of remainders",
+          "evidence": [
+            "One scalar remainder g(y)=o(|y|) only; it does not require opposite determinant signs."
+          ],
+          "identifier_or_url": "Resultary 2026/11/17/SCOPE-a-sign-free-scalar-feedback-escape-theorem-at-nonsmooth-folds--b9cfe10e48ed/RESULT.md",
+          "material_read": "Finding and scalar-feedback assumptions",
+          "method": "Local published-source mirror",
+          "title": "A sign-free scalar-feedback escape theorem at nonsmooth folds",
+          "trigger": "Closest distinct indexed statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A motivated partial resolution of an explicit nonlinear nonsmooth-fold question: at a fixed local radius the same quantitative O(μ⁻¹) exit estimate works over both branches and an infinite family of remainders, including parameter-dependent cross terms. The quadratic gauge handles a genuine breakdown of the linear drift near the switch. This is not a claim about higher dimensions, arbitrary first-order-small errors, or global divergence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:02:53.942777Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With probability-normalized measure the Beta integral gives m_j=Γ(j+1)Γ(α+2)/Γ(j+α+2). Projection of the normalized j-th input monomial onto holomorphic modes is zero for j<2 and has squared norm m_j/m_(j−2) otherwise. Distinct residuals have distinct angular frequencies, hence the squared norm on every f is the weighted sum of the squared diagonal values; this extends from the dense polynomials by boundedness. With p=α+1 and w_j=(j+1)(j+2)/[(j+p+1)(j+p+2)], v_0=w_0, v_1=w_1 and v_j=w_j−w_(j−2) for j≥2. The adjacent difference for w is 2p(j+2)/[(j+p+1)(j+p+2)(j+p+3)], valid also at j=−1 with w_(−1)=0. Taking the difference of those differences yields the stated positive-factor multiple of Q_n(α)=α²+(1−n)α−2n²−5n, while v_1−v_0 is positive. The denominators are positive, Q_n(−1)<0, Q_n(2n)=−3n and Q_n(2n+1)=2. Thus the sole root above −1 lies strictly between the indicated integer endpoints and those intervals order the roots without ambiguity. The mode sequence increases then decreases except for the one adjacent tie; equality requires the coefficient support to lie precisely in the maximizing eigenspace. The bounds on the thresholds yield n_α/α→1/2 for either maximizer at a tie. Substitution into the exact V_n yields αV_n→4t/(1+t)^3 at t=1/2, or 16/27. The supplied script and its recorded output were inspected, not executed; its finite checks include floating-point projection and asymptotic samples, so they are not proofs of the unbounded claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October 26 record a15dc160f0c2 states its asymptotic theorem for m≥3, but the diagonal products, compact-t expansion and index-tail estimates work at m=2, with profile 4t/(1+t)^3 and maximizing limit t=1/2.",
+          "Pau's Theorem 1 characterizes Schatten membership by a mean oscillation condition, not the largest eigenvalue or equality space. The 1988 full result text was not retrieved."
+        ],
+        "reasoning": "The nearest broader calculation essentially covers the high-weight consequences, but does not supply the exact finite-weight threshold and tie laws; Schatten membership cannot recover them either.",
+        "searches": [
+          "Resultary: general fixed-power Bergman Hankel norms and large-weight index localization",
+          "arXiv:1502.04721v1, Theorem 1",
+          "Arazy–Fisher–Peetre exact title and DOI 10.2307/2374685, lawful full-text lookup"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verify_output.txt",
+        "Resultary records a15dc160f0c2 and e0c2d9c7498d",
+        "arXiv:2102.01743v1 and arXiv:1502.04721v1, cited passages",
+        "doi:10.2307/2374685, bibliographic and landing-level only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting m=2 in the October 26 diagonal gives the exact V_n after simplification. In its high-weight proof m=2 still makes the low-index contribution o(1/α) and both scaled tails vanish; the maximum profile value is 16/27. These parts do not establish the staircase.",
+          "Finding the actual maximizing degree and multiplicity for every real α>-1 requires the sign of every adjacent difference, control of mode zero, and strict ordering of all the roots. These are not consequences of an O(1) index localization, a max-over-n representation or fixed-weight singular-value asymptotics."
+        ],
+        "reasoning": "The finite-α threshold and equality results resolve the discrete infinite optimization left open by the prior exact diagonal and asymptotic analysis. They are the supported distinct content.",
+        "searches": [
+          "October 26 Resultary record a15dc160f0c2, Finding and Proof §§1–4, especially the exact diagonal, tail bound and differentiated expansion",
+          "Bourass et al. §8 and November 8 Resultary record e0c2d9c7498d, contrasting the varying parameters"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distance to the entire holomorphic subspace equals the norm of (I−P_α)M_(conjugate(z)^2), not a square of the operator with linear conjugate symbol.",
+          "Bourass et al., §8, compute the radial singular-value sequence for the linear conjugate symbol; §7 addresses large singular-value index at fixed weight.",
+          "The earlier October 26 Resultary article writes the Beta-moment difference for arbitrary fixed symbol power m, whose m=2 case is the frozen diagonal."
+        ],
+        "reasoning": "Known diagonalization and equivalent Hankel formulations must be credited, but the linear-symbol sequence and fixed-weight index asymptotics do not give the quadratic family's maximizing eigenspaces as α varies.",
+        "searches": [
+          "Resultary: weighted Bergman quadratic conjugate best approximation and exact norming monomials",
+          "Primary literature: big Hankel operator with symbol conjugate(z)^2, sharp norm and transitions",
+          "arXiv:2102.01743v1, weighted radial monomial singular values"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct exact staircase entry surfaced in the focused queries. The later November 8 record e0c2d9c7498d, Finding and Proof Steps 2–5, takes high symbol power at fixed weight; it includes the α=0 value 1/2 at degree m−1, agreeing at m=2.",
+          "October 26 record a15dc160f0c2 does not give finite-weight threshold tables or exact equality spaces."
+        ],
+        "reasoning": "The isolated unweighted benchmark is shared, not distinct evidence for the infinite weight staircase. The search does not establish exhaustive absence of an exact table or equivalent formula.",
+        "searches": [
+          "Resultary: exact quadratic-symbol weight thresholds and √7 first transition",
+          "Resultary: boundary-to-bulk transition for weighted Bergman Hankel operators"
+        ]
+      },
+      "rationale": "The distinct claim is the finite-weight mode classification, exact transitions, and complete equality spaces for the quadratic conjugate symbol. The radial monomial diagonal and the leading high-weight consequences are not credited as separate advances. The closest earlier general-power result gives the exact diagonal, and its high-weight argument extends at once to m=2, but it does not order all finite-weight modes. The 1988 source remains an explicit access risk, not evidence for or against coverage.",
+      "residual_risks": [
+        "The exact statements of Arazy–Fisher–Peetre (1988) remain materially unverified; equivalent weighted-shift or special-symbol literature may be unindexed.",
+        "The result is specifically for the quadratic conjugate product and the standard power weight, not all anti-analytic symbols or radial weights."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior diagonal and material high-weight implication, not finite-weight classification",
+          "evidence": "General moment ratios and a high-weight profile with maximizer (m−1)/2; proof works at m=2 for the claimed leading behavior, but not as a description of exact finite-weight breakpoints.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-universal-second-order-bergman-approximation-law-for-conjugate-m--a15dc160f0c2",
+          "material_read": "Finding and Proof §§1–4, including offset 1410 onward for product formula, estimates and localization",
+          "method": "Published-record local mirror",
+          "title": "Universal second-order Bergman approximation law for conjugate monomials",
+          "trigger": "Same Hilbert problem, exact diagonal and large-weight optimal-index results"
+        },
+        {
+          "assessment": "Related diagonal and large-index asymptotics",
+          "evidence": "The explicit radial symbol in the relevant passage is the linear conjugate; its large-index result fixes the weight.",
+          "identifier_or_url": "https://arxiv.org/pdf/2102.01743",
+          "material_read": "First public version, §7 and §8, especially PDF p. 28 (offset 92954)",
+          "method": "Targeted OA PDF passages",
+          "title": "On singular values of Hankel operators on Bergman spaces",
+          "trigger": "Radial-weight anti-analytic singular-value sequences"
+        },
+        {
+          "assessment": "Later overlap at α=0; different limit and no exact quadratic staircase",
+          "evidence": "The asymptotic varies the symbol power, not α. Its exact α=0 norm is the matching benchmark 1/2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-boundary-to-bulk-transition-in-high-power-weighted-bergman-han--e0c2d9c7498d",
+          "material_read": "Finding and Proof Steps 2–5",
+          "method": "Published-record local mirror",
+          "title": "A boundary-to-bulk transition in high-power weighted Bergman Hankel operators",
+          "trigger": "Same power-weight family and optimizing-degree transition terminology"
+        },
+        {
+          "assessment": "Membership criterion, not sharp norm optimization",
+          "evidence": "Criterion concerns simultaneous Schatten membership of the Hankel maps in terms of local mean oscillation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1502.04721v1",
+          "material_read": "Theorem 1, PDF p. 1, offset 890–2390",
+          "method": "Targeted OA PDF passage",
+          "title": "Characterization of Schatten class Hankel operators on weighted Bergman spaces",
+          "trigger": "General weighted Hankel criteria potentially covering the family"
+        },
+        {
+          "assessment": "Unresolved material full-text comparison, not negative evidence",
+          "evidence": "No lawful full-text copy was obtained in the bounded attempt, so the exact weighted-shift or symbol results in this article are not assessed.",
+          "identifier_or_url": "https://doi.org/10.2307/2374685",
+          "material_read": "Bibliographic and landing-level information only; no theorem or appendix retrieved",
+          "method": "Lawful OA lookup of the DOI and an exact-title alternate-copy search; the MaRDI hit did not yield paper text",
+          "title": "Hankel operators on weighted Bergman spaces",
+          "trigger": "Plausibly covering classical analysis by Arazy, Fisher and Peetre"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp best-approximation norm and its complete equality space are natural operator invariants. Here knowing an exact moment diagonal or asymptotic scale does not tell which input mode to use for a given weight. The global sign test supplies exact transition weights, all two-mode ties, and shows that no fixed finite collection of modes supplies an extremizer for all weights. This is a complete and usable classification of the motivated quadratic case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

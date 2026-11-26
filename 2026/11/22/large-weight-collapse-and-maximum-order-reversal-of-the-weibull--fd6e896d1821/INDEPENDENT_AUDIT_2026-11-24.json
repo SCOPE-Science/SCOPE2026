@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:54:51.963111Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, definitions and proof; frozen VERIFICATION.md and verify_min_cf.py inspected, supplied code not executed",
+        "/workspace/branches/e5e88704-369a-46c3-a84d-3b7d122a0b08/check_record5_tie.py and recorded output"
+      ],
+      "rationale": "The profiled Weibull scale enforces sum Y_j=n. Writing A(t)=n^{-1}∑(tY_j−1)_+ and d(t)=t e^{−1/t}, the empirical-minus-null difference is d−A. For any positive mean-one vector A=0 on (0,1/n], and both minCFs are in [0,1], so the absolute error relative to the common integral is bounded by the integral of (1+t²)e^{−γt} from 1/n onward. Integrating gives all displayed coefficients. The common integral is the K_3 integral, whose saddle at t=√(2/γ) gives the stated factor 2^{5/4}√π. In the joint regime the relative error is bounded by a polynomial prefactor times exp(−γ/n+2√(2γ)), which tends to zero uniformly. For fixed data A first becomes active at t_0=1/M, with slope rM/n just to the right, so n(2dA−A²)=2r e^{−M}(t−t_0)+O_Y((t−t_0)²). The further tail is polynomially bounded and exponentially smaller. Integrating the linear onset gives the negative correction to T with relative O_Y(1/γ) error. Deficits for a larger M eventually dominate those for a smaller M at fixed common n, regardless of ties within either sample. Independent 80-digit replay for the fitted raw sample (1,e,e), r=2, found correction-to-prediction ratios 1.03308, 1.01458, 1.00677 at γ=40,80,160, and checked the bound. The proof, not the quadrature, establishes the limits.",
+      "residual_risks": [
+        "No growing-n second-order expansion, fitted-maximum limit law, or zero calibrated power conclusion is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fixed-weight consistency does not cover γ→∞. MLE transformation equivariance addresses standardization, not this varying weight. The nearby Pareto record uses a different null and γ_n/n transition."
+        ],
+        "reasoning": "Neither a fixed-weight limit nor a different model's growing-weight law supplies the deterministic and sample-dependent terms here.",
+        "searches": [
+          "arXiv:2310.12348 §5 Theorem 5.8",
+          "arXiv:2307.03429 §2 Proposition 2.1",
+          "Falk–Stupfler doi:10.1007/s13171-019-00184-1",
+          "Resultary Pareto minCF Gaussian–Poisson bandwidth transition"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2310.12348",
+        "arXiv:2307.03429",
+        "doi:10.1007/s13171-019-00184-1 (full text unavailable in review)",
+        "Resultary Pareto transition record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact formula determines the statistic but does not resolve domination after combining terms. The mean-one exact cancellation up to 1/M and the signed linear onset of the first truncation yield the coefficient 2r e^{−M}."
+        ],
+        "reasoning": "The Bessel and Laplace tools are classical. The fixed-weight theorem and the presence of K_3 in a kernel are not stronger results implying the supported asymptotic comparison; the first active breakpoint and gap to subsequent contributions must be analyzed.",
+        "searches": [
+          "arXiv:2310.12348 equation (4.3) and Theorem 5.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equations (3.3), (4.1)–(4.3) give the same test. Equation (4.3) contains I(γ) as the positive K_3 contribution, but does not state dominance in T or the endpoint deficit."
+        ],
+        "reasoning": "Kernel and integral representations are of the same statistic; credit the identical Bessel contribution, not just an analogous formula. The new claim concerns the combined statistic and ordering.",
+        "searches": [
+          "arXiv:2310.12348 §§3–4, exponential-weight L^W_γ kernel",
+          "Resultary: Weibull min-characteristic function Bessel term / high-weight collapse / tied maximum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact frozen record appears as a self-hit. The distinct Pareto catalogue entry states no such Weibull correction or reversal."
+        ],
+        "reasoning": "No separate numerical table of exact finite invariants is at issue; tabulation of K_3 concerns only the previously known kernel term, not the asymptotic ordering or uniform collapse.",
+        "searches": [
+          "Resultary exact Bessel-leading term, tied-maximum correction and reverse-order queries"
+        ]
+      },
+      "rationale": "The minCF test, standardization, exponential weight, and even the K_3 term as a summand of its exact kernel are prior. The supported distinct conclusion is that this term leads the whole statistic at diverging weight, with a sharp tied-maximum deficit that reverses sample order, and a uniform bound for mean-one arrays. The bounded comparison does not certify global priority.",
+      "residual_risks": [
+        "Bounded literature coverage; a specialized prior large-weight analysis may be unindexed. Falk–Stupfler retrieval failure is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identity of statistic and Bessel component; fixed-weight result distinct",
+          "evidence": [
+            "(4.3) has the K_3 component; Theorem 5.8 is fixed-weight consistency."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2310.12348",
+          "material_read": "§§3–4 pp.4–5 equations (3.3), (4.1)–(4.3), §5 Theorem 5.8 p.9",
+          "method": "OA PDF passage comparison",
+          "title": "Goodness-of-Fit Tests Based on the Min-Characteristic Function",
+          "trigger": "Exact original Weibull statistic and weight"
+        },
+        {
+          "assessment": "Standardization background",
+          "evidence": [
+            "Equivariance under root-type transformations for the relevant family; no growing-weight assertion in the proposition."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.03429",
+          "material_read": "§2 Proposition 2.1 p.3",
+          "method": "OA PDF passage comparison",
+          "title": "MLE-Equivariance, Data Transformations and Invariant Tests of Fit",
+          "trigger": "Weibull fitted standardization"
+        },
+        {
+          "assessment": "No whole-paper exclusion inferred",
+          "evidence": [
+            "Identified general characterization source; decisive varying-weight passage not available."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s13171-019-00184-1",
+          "material_read": "Bibliographic identification; full text not obtained during this review",
+          "method": "Lawful publisher PDF attempt failed on redirects",
+          "title": "The Min-characteristic Function: Characterizing Distributions by Their Min-linear Projections",
+          "trigger": "General minCF theory"
+        },
+        {
+          "assessment": "Material thematic overlap but different statistic/null and asymptotic regime",
+          "evidence": [
+            "Pareto null and transition in γ_n/n; not a Weibull mean-one cancellation or a tied-maximum endpoint law. No priority inferred from same-day date."
+          ],
+          "identifier_or_url": "Resultary:2026/11/22/SCOPE-a-gaussian-poisson-bandwidth-transition-for-the-pareto-min-chara--e3850722f1d5",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A Gaussian–Poisson bandwidth transition for the Pareto min-characteristic-function statistic",
+          "trigger": "Closest distinct varying-weight catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen limitations and asymptotic statements",
+        "Original test paper arXiv:2310.12348"
+      ],
+      "rationale": "The result diagnoses what this specific existing fitted goodness-of-fit statistic actually compares at high weight. Its apparent fit discrepancy becomes sample-independent to leading order, yet the first visible ordering is by decreasing score as fitted maxima increase. This distinction between collapse of magnitude and retention of an extreme-based ordering is useful when interpreting weight sensitivity or numerical cancellation. The growing-n bound supplies a deterministic regime rather than an extrapolation from fixed examples.",
+      "residual_risks": [
+        "No universal weight-choice or significance/power recommendation follows from these limits alone."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:12:59.152324Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–65, VERIFICATION.md, verify.py and certificate.json",
+        "Independent exact replay: python3 /workspace/branches/replay_independence_3.py (Python with SymPy)",
+        "Final files under /workspace/repairs/3: python3 verify.py matches certificate.json exactly; front matter unchanged"
+      ],
+      "rationale": "For the repaired statement, a face fails exactly when it contains a connected five-vertex subset. Generating those subsets by adjacency growth from singletons and removing all supersets gives 21,973 faces. A fresh exact computation with bit order 15,..,8,0,..,7 produced 10,976 disjoint toggle pairs and checked acyclicity by sorting every face across all 135,760 oriented incidences. The only augmented critical cells are 21 in dimension seven. Removing the empty face releases its matched vertex, preserving acyclicity; the resulting ordinary Morse CW model has one vertex and 21 seven-cells with constant attaching maps. The repaired artifact reproduces certificate.json exactly. For the frozen original proof, the independent replay rebuilt every stage and reproduced its signed matrices, the three lifted zero boundaries and their supports, and both determinant-+1 minors. In addition an alternate matching on the relative chain complex of (Ind_3,Ind_2) has four critical cells in each of degrees six and seven, with Smith factors all 1; its relative homology is zero. This independently confirms the claimed natural inclusion on homology. The original absolute Morse models are simply connected; Hurewicz and the homological Whitehead theorem justify the asserted homotopy types and map, not merely their Betti ranks.",
+      "residual_risks": [
+        "The exact computation is exhaustive only for GP(8,3) and the stated cutoffs. The repaired result and proof do not assert an equivariant type or a statement for an arbitrary graph."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Deshpande–Singh: component-bound definition; paths, cycles, multipartite, fully whiskered and selected trees",
+          "Deshpande–Shukla–Singh Thm. 16 assumes chordality",
+          "2a89db0cb1fd gives a sequence of 4,192 pairs only for Ind_3 collapsing onto Ind_2"
+        ],
+        "reasoning": "The outer vertices induce a chordless eight-cycle in this cubic graph, so it is neither a cycle graph nor chordal nor a tree. No inspected family theorem classifies its cutoff-four homotopy type. The collapse is stronger for the lower pair, but does not include the enlarged cutoff-four complex.",
+        "searches": [
+          "Deshpande–Singh arXiv:2001.05448v2 families; Deshpande–Shukla–Singh arXiv:2001.06775v1 Thm. 16; Abdelmalek et al. arXiv:2106.10863 scope",
+          "Resultary 2a89db0cb1fd exact relative collapse"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2a89db0cb1fd, 2b99cf38fc97, a29edadde6ba, b0d62cfde5f3, 38da9889ff02",
+        "Deshpande–Singh arXiv:2001.05448v2, Deshpande–Shukla–Singh arXiv:2001.06775v1 and Abdelmalek et al. arXiv:2106.10863"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Collapse ⇒ homotopy equivalence Ind_2→Ind_3; with the known Ind_2 type it gives Ind_3≃∨³S⁶",
+          "Cutoff-four matching has 21 dimension-seven cells and no others after reduction except a vertex"
+        ],
+        "reasoning": "That implication is exact and is credited. The previously untreated faces at cutoff four can change homotopy, and neither the lower spaces nor their deformation retract determines the next type or the death at cutoff four. Proving the terminal cutoff requires the additional combinatorics in the repaired result.",
+        "searches": [
+          "Compare assumptions and proof scope of 2a89db0cb1fd and 2b99cf38fc97 to the repaired assertion; compare theorem for chordal graphs and same-graph dominance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2b99cf38fc97 states the same cutoff-two type under the equivalent three-path-free predicate; 2a89db0cb1fd states the same pair at cutoffs two and three",
+          "Resultary 38da9889ff02, Finding and Proof: same graph, dominance complex excludes closed neighborhoods"
+        ],
+        "reasoning": "The aliases identify the same graph by its edge lists. The corrected cutoff-four face predicate excludes every connected five-set. The ordinary independence and dominance complexes instead exclude edges or closed neighborhoods, and in particular every 4-set is allowed at cutoff four while a full closed neighborhood is disallowed in the dominance complex. Their exact types therefore do not identify this stage.",
+        "searches": [
+          "Resultary: Möbius–Kantor/GP(8,3), higher-independence homotopy, component-bounded complexes, filtration inclusion",
+          "Resultary: GP(8,3) Mobius Kantor four-independence 4-independence complex cutoff 4 twenty-one 7-spheres homotopy",
+          "External search for four-independence of GP(8,3) and the 21-sphere type"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2b99cf38fc97 and a29edadde6ba have exact wedge of three six-spheres at cutoff two",
+          "b0d62cfde5f3 is ordinary independence; 2a89db0cb1fd is the lower relative pair; 38da9889ff02 is dominance with seven seven-spheres"
+        ],
+        "reasoning": "The inspected matches contain exact different entries or the lower pair, not the fourth row. Coverage is assigned to the identical lower computations no matter the ordering of catalogue dates. The search miss for the fourth stage is not used as proof of priority.",
+        "searches": [
+          "Resultary cutoff-four and exact 21 seven-sphere query; older stages and same-graph homotopy results"
+        ]
+      },
+      "rationale": "Pass applies only to the cutoff-four homotopy type and the resulting vanishing of its degree-six homology. The earlier plateau is explicitly credited as background; no priority determination between distinct overlapping records is necessary. The matching uses a different vertex order to prove the surviving claim, but is not itself offered as the originality reason.",
+      "residual_risks": [
+        "There could be a broader graph-family result or a homotopy table not retrieved under these aliases. The available direct overlaps resolve coverage of earlier stages but not historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly strengthens the frozen inclusion, not the repaired cutoff-four claim",
+          "evidence": [
+            "Ind_3 simplicially collapses onto Ind_2 in 4,192 free-face pairs; scope limited to cutoff two to cutoff three."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-an-elementary-collapse-between-m-bius-kantor-higher-independence--2a89db0cb1fd",
+          "material_read": "Finding offset 0, Relationship to prior work and Limitations offset 4549",
+          "method": "Resultary search and local mirror passages",
+          "title": "An elementary collapse between Möbius–Kantor higher independence complexes",
+          "trigger": "Identical graph and inclusion"
+        },
+        {
+          "assessment": "Identical cutoff-two type; no claim at cutoff four",
+          "evidence": [
+            "Same GP(8,3) three-path-free complex has homotopy type ∨³S⁶; limitations confine the computation to that complex."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-three-six-spheres-in-the-two-independence-complex-of-the-m-bius--2b99cf38fc97; a29edadde6ba",
+          "material_read": "Findings offset 0 and (2b99cf38fc97) Relationship to prior work offset 6114",
+          "method": "Resultary search and local mirror passages",
+          "title": "Three six-spheres in the two-independence complex of the Möbius–Kantor graph and related second treatment",
+          "trigger": "Exact overlapping wedge type and alias"
+        },
+        {
+          "assessment": "Different complex, not an alternative formulation",
+          "evidence": [
+            "Dominance excludes closed-neighborhood sets of size four, with 32,391 augmented faces."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-seven-seven-spheres-in-the-m-bius-kantor-dominance-complex-and-i--38da9889ff02",
+          "material_read": "Finding, Assumptions and Proof face model, offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "Seven seven-spheres in the Möbius–Kantor dominance complex and its cyclic homology character",
+          "trigger": "Same graph and sphere dimension from exact cutoff-four query"
+        },
+        {
+          "assessment": "Same definition; not a classification for this graph",
+          "evidence": [
+            "Named families include cycles, complete multipartite and fully whiskered graphs and perfect m-ary trees."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2001.05448v2",
+          "material_read": "Abstract and graph-family scope, offset 578",
+          "method": "OA full-text passage",
+          "title": "Higher Independence Complexes of graphs and their homotopy types",
+          "trigger": "Same complex, possible family coverage"
+        },
+        {
+          "assessment": "Chordal type theorem inapplicable",
+          "evidence": [
+            "The input graph of the homotopy classification is chordal; GP(8,3) has an induced eight-cycle."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2001.06775v1",
+          "material_read": "Abstract and Theorem 16 (offset 46067)",
+          "method": "OA full-text passages",
+          "title": "Distance r-domination number and r-independence complexes of graphs",
+          "trigger": "Higher-independence homotopy theorem might imply the cutoff-four type"
+        },
+        {
+          "assessment": "Inspected tree, chordal and caterpillar results do not apply",
+          "evidence": [
+            "No cutoff-four formula for GP(8,3) follows from the listed graph hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2106.10863",
+          "material_read": "Introduction p. 1 (offset 1257)",
+          "method": "OA PDF passage",
+          "title": "Chordal graphs, higher independence and vertex decomposable complexes",
+          "trigger": "Potential structural theorem for these complexes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, complete single-degree Morse proof",
+        "Resultary 2a89db0cb1fd and 2b99cf38fc97 for the preceding plateau"
+      ],
+      "rationale": "Cutoff four is the immediate, structurally motivated test after two adjacent, homotopy-equivalent stages of a canonical cubic graph. The result shows that the old degree-six classes vanish there and that new integral degree-seven topology appears, with its full sphere rank and homotopy type. It is useful for the upper endpoint of the known plateau and as an exact benchmark distinguishing the dependence on the component cutoff; neither a recomputation of cutoff two nor an arbitrary isolated stage.",
+      "residual_risks": [
+        "This is a motivated finite invariant, not a classification of the eventual filtration, nor an asymptotic theorem about generalized Petersen graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

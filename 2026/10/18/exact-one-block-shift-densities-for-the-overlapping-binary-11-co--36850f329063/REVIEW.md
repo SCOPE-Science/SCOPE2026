@@ -1,15 +1,21 @@
-# Scientific review: exact one-block shift densities
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact rational conditional laws are those of the established binary block-count recurrence in [1, Proposition 3.2]. The proof calculates the length-four boundary, shows that the length-five increment is a polynomial \(K(z)\) divisible by \((z-1)^2\), and proves all later increments are \((z/2)^hK(z)\). Their support contains no negative exponent and their total mass is zero, so the negative tail is *identical* for all lengths \(k\ge4\). Explicit Laurent expansions at this boundary give the two limiting negative masses. The dyadic-shift formula proves the second stabilized value, while exact finite base identities handle \(k\le3\). These steps cover all integers \(k\ge1\) and \(j\ge0\). The executable reproducer independently evaluates the crucial algebra and finitely many exact rational cases; no infinite inference rests on finite counts.
+## correctness
 
-## Originality — PASS within inspected evidence
-Sobolewski--Spiegelhofer [1] explicitly formulate the strict nonnegative-difference density question. Their Proposition 3.2 *does* give a general algorithm for deriving individual densities, and those identities are acknowledged as prior art; they do not state the uniform eight-value theorem, the sharp one-block bound, or a negative-tail stabilization for arbitrary run lengths. The present result is derived using their identities, so it must not be presented as an independent new general recurrence. Their main Gaussian approximation is for many runs and cannot establish this one-run theorem. Sobolewski's later general-block Gaussian approximation [2] likewise does not cover the fixed-one-run parameter regime. The related digit-sum correlation decomposition [3] addresses a different statistic. Public mathematical-record searches and nearest retrieved prior findings provided no stronger theorem implying the full family. An earlier unindexed specialization or a more abstract general transfer-matrix theorem remains possible.
+PASS
 
-## Mathematical value — PASS
-The one-run case is exactly outside the many-runs method in [1], despite being a complete natural family of binary shifts. An exact sharp improvement over \(1/2\) settles that family of the published open inequality. The exact *eventual constancy* for arbitrary longer runs is structural: all additional probability changes have nonnegative Laurent support, which is not visible from an individual recurrence evaluation. The finite table is the boundary data of this infinite classification, not an arbitrary short computation. This does not settle all binary shifts.
+For a fixed shift, after the highest shift bit the carry survives across h further bits only on a cylinder of frequency 2^(-h); one more bit accounts for the last adjacent pair. Finite cylinders have natural frequencies on all initial integer intervals, so taking the cutoff to infinity establishes the natural law without loss of mass. The identity r(4q+b)=r(q)+floor(b/2)(q mod 2)+[b=3] gives the stated parity recurrences. At shift 1, the even case flips a low zero; the odd case with h trailing ones loses h-1 pairs and gains the bit above the first zero. Its geometric law gives the stated starting functions. For the Mersenne shifts T_k, B_{T_k}=H for k>=3 follows from the power-of-two laws, and A_{T_{k+1}}=(z A_{T_k}+H)/2. The negative terms of these functions arise solely from c/(2z-1): the numerator value at z=1/2. In this recurrence c maps to c/4+(27/64)/2, and the length-four initial value 9/32 is exactly the fixed point. The increments therefore have polynomial support, also after multiplication by 1+z. Doubling an odd shift gives the displayed boundary weighting; further doublings leave the law unchanged by the 4u recursion. The negative masses of the weighted length-four terms are 27/64 and 73/64; the latter adds H's constant coefficient 19/64 to twice its negative mass. These facts give both infinite plateaus. An independent exact carry enumeration checked all six boundary values and the plateau for k=4..10 at j=0..3, giving both rows and the claimed strict minimum/equality comparison.
 
-## Closest literature and limits
-[1] B. Sobolewski and L. Spiegelhofer, *Block occurrences in the binary expansion*, arXiv:2309.00142v1 (2023), Sections 2–3, especially Question (2.4), Proposition 3.2 and 3.3. [2] B. Sobolewski, *On the behavior of binary block-counting functions under addition*, arXiv:2412.15851v1 (2024), Sections 1 and 4. [3] B. Sobolewski and L. Spiegelhofer, *Decomposing the sum-of-digits correlation measure*, arXiv:2411.07779v1 (2024), abstract. No claims about multi-run shifts, rates, or publication priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the published general conditional recurrence and the separate catalog overlap on the Mersenne row. The cataloged records dated 2026-10-25 and 2026-11-08 explicitly duplicate that row or strengthen its tail description, but they postdate the frozen record and neither states the shifted row or its sharp family-wide minimum. The November vector certificate is also relevant to the shifted variant, which uses a different initial row. No inspected earlier statement establishes the one-run plateau and sharp minimum; this is a bounded priority assessment, not an exclusivity claim.
+
+## value
+
+PASS
+
+A full single-run family with unbounded length and position lies outside the many-run approximation. Its sharp uniform 39/64 and exact finite onset of stabilization answer the published greater-than-one-half question for that natural family, not just a handful of individual shifts. The fixed negative law explains why increasing the run length ceases to matter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

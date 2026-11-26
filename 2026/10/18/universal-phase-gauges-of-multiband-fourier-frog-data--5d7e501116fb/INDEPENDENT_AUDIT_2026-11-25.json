@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:30:39.007673Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–47 and 49–79",
+        "Frozen VERIFICATION.md lines 19–25; artifacts/frog_phase_check.py, artifacts/test_multiband.py and artifacts/checks.txt (inspected, scripts not executed)"
+      ],
+      "rationale": "At m=0 the unordered-pair monomials in the complex amplitude have coefficients 1 or 2. The monomials in A and conjugate A are linearly independent as complex polynomials in the real and imaginary parts (an invertible linear change of variables), so the coefficient for each ordered selection of two distinct pair monomials forces equal phase products. Conversely those products give a common unit phase per row for every delay, including delays where some terms cancel. Adjacent equal sums make phase quotients constant within each interval; comparing (b_i+1)+b_j and b_i+(b_j+1) equates these quotients across intervals. Integer interval sums have no holes, so precisely the listed overlap relations survive after removing the uniquely fixed slope. Integral unimodular row and column operations reduce M to Smith form on the tori, giving the claimed dimension and component count. In the two-band case 2a<2b: the two possible intersection intervals [b,2a] and [2b,b+a+c] are disjoint, and either enforces equal offsets. On either nonempty intersection the flat-input intensity has a strictly positive cos(δ) coefficient; elsewhere there is only one pair type. Their inclusive endpoint counts therefore give H, also at equality in either threshold. The no-wrap bound ensures that none of these arguments misses a modular coincidence.",
+      "residual_risks": [
+        "Recorded finite Smith and trace checks do not prove the universal result and report no observed multiband torsion instances; the component formula follows algebraically without requiring such an instance.",
+        "The conclusion is not a fixed-input ambiguity classification, generic identifiability, signed recovery from cos(δ), or a stability bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The reconstruction statements are generic in their specified bandlimited or analytic signal classes and use sampling or side-information hypotheses.",
+          "The bandlimited definition in arXiv:1706.08494 uses a consecutive block of Fourier zeros."
+        ],
+        "reasoning": "A generic result on the class permitting a consecutive band does not control a disconnected fixed support, which may lie entirely in its exceptional set. A fixed-input fiber result also need not give this group uniformly for all amplitudes.",
+        "searches": [
+          "arXiv:1701.02831 Theorem 2 and Corollary 3; arXiv:1706.08494 Proposition 2.2 and Theorem 2.3; arXiv:2103.08660 analytic-signal recovery"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1701.02831, 1706.08494 and 2103.08660",
+        "Resultary dcec63467712, 355e59ad0dcf and 52a1191ef6d6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior FROG symmetry supplies the common two-torus; a pair-sum formulation supplies the uncompressed lattice. Neither cited statement specifies the independent band offsets, which depend on intersections among all band-pair intervals.",
+          "Cubic bispectrum constraints compare u_j u_k with u_{j+k mod n}; FROG compares u_p u_q with u_v u_w."
+        ],
+        "reasoning": "The compression uses the common adjacent-pair slope and full integer Minkowski intervals. The row formula further uses disjoint supports of the self-band pair types and positive interference coefficients. These conclusions do not follow as stated special cases of the inspected generic or aggregate results.",
+        "searches": [
+          "arXiv:1706.08494, pp. 3–5; Resultary dcec63467712 and 52a1191ef6d6; frozen RESULT.md lines 49–74"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bendory–Edidin–Eldar, Proposition 2.2, already gives the continuous bandlimited phase ramp and scalar together with reflection.",
+          "Resultary dcec63467712 gives Var(X_A)=8T(A)+32Q(A) for random phases in a single L⁴ aggregate; 52a1191ef6d6 uses supported bispectral triples."
+        ],
+        "reasoning": "The underlying equal-pair-sum constraint is a torus-valued Freiman-2 condition. The random-phase variance and cubic triple constraints are not equivalent to the full universal multiplier classification with interval compression. The known scalar and ramp are the baseline, not the new freedom.",
+        "searches": [
+          "Resultary: multiband FROG gauges, pair-sum/Freiman-type relations and disconnected-band phase gaps; dcec63467712, 355e59ad0dcf, 52a1191ef6d6",
+          "Primary literature: universal phase gauge, bandlimited FROG and additive pair sums"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact catalog comparisons tabulate a quartic variance, an extremum/first obstruction for sparse supports, or a bispectral threshold, not a FROG Smith matrix or row census."
+        ],
+        "reasoning": "The claimed object is a general group law and exact two-band parameter formula, not an isolated support-table entry. The inspected exact numbers describe different invariants.",
+        "searches": [
+          "Resultary dcec63467712 (non-Sidon variance), 355e59ad0dcf (first phase-frustrated support), 52a1191ef6d6 (asymmetric bispectrum)"
+        ]
+      },
+      "rationale": "The standard consecutive-band scalar and frequency ramp, and the additive pair-sum viewpoint, receive no novelty credit. The supported distinct claim is the exact overlap compression for all nonwrapped interval unions, including the Smith description and the sharp two-band transition and active-row count. The strongest inspected FROG results establish known symmetries or generic reconstruction in other support classes; the closest catalog records handle quartic phase statistics or cubic invariants, not the stated classification.",
+      "residual_risks": [
+        "Bounded comparison, not a historical-priority finding. Equivalent interval compression may exist under additive-combinatorial or optical gap terminology. A search miss is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Generic, not the claimed universal group",
+          "evidence": "Almost-all result with L=1, a consecutive zero block and power-spectral side information; x₁=x₂ gives FROG.",
+          "identifier_or_url": "https://arxiv.org/pdf/1701.02831",
+          "material_read": "p. 3, Theorem 2 and Corollary 3, offset 22334",
+          "method": "Bounded open PDF text inspection",
+          "title": "On the Uniqueness of FROG Methods",
+          "trigger": "Direct FROG uniqueness comparison"
+        },
+        {
+          "assessment": "Covers standard bandlimited gauge and generic recovery, not the claimed interval-overlap formula",
+          "evidence": "Consecutive zero block; symmetry group with scalar, continuous ramp and reflection; recovery theorem expressly generic.",
+          "identifier_or_url": "https://arxiv.org/pdf/1706.08494",
+          "material_read": "pp. 3–5, offsets 10465, 11797 and 15675; Proposition 2.2 and Theorem 2.3",
+          "method": "Bounded open PDF text inspection",
+          "title": "On Signal Reconstruction from FROG Measurements",
+          "trigger": "Known diagonal and non-diagonal bandlimited FROG symmetries"
+        },
+        {
+          "assessment": "Distinct support and recovery problem",
+          "evidence": "Generic analytic-signal reconstruction and parity/sampling setup, not multipliers for all amplitudes on arbitrary interval unions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2103.08660",
+          "material_read": "pp. 1 and 6, offsets 0 and 18846",
+          "method": "Bounded open PDF text inspection",
+          "title": "FROG-measurement based phase retrieval for analytic signals",
+          "trigger": "Potential extra phases in a different FROG support class"
+        },
+        {
+          "assessment": "Related pair-sum detection, not the evaluated gauge",
+          "evidence": "Variance counts progression/quadruple relations and detects Sidon supports; the statistic aggregates frequencies and averages phases.",
+          "identifier_or_url": "Resultary dcec63467712",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local catalog mirror text inspection",
+          "title": "Random-phase fourth-moment variance detects the non-Sidon relations of a finite integer support",
+          "trigger": "Quartic invariant built from the same pair sums"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": "Phase-only fourth-moment minimum with multiplicity/progression restrictions; not a universal multiplier group.",
+          "identifier_or_url": "Resultary 355e59ad0dcf",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local catalog mirror text inspection",
+          "title": "The first phase-frustrated low-multiplicity Fourier support occurs at six points",
+          "trigger": "Exact quartic additive obstruction on sparse supports"
+        },
+        {
+          "assessment": "Different measurement and relation lattice",
+          "evidence": "Cubic supported triple relations, with exact fiber threshold for a specified signed support.",
+          "identifier_or_url": "Resultary 52a1191ef6d6",
+          "material_read": "RESULT.md Finding and proof, starting offset 0",
+          "method": "Local catalog mirror text inspection",
+          "title": "Sharp asymmetric bispectral identifiability and minimal phase sampling",
+          "trigger": "Band phase-gap thresholds under a different measurement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–47 and 62–85"
+      ],
+      "rationale": "A support-only classification decides when a continuum of indistinguishable band phases persists despite arbitrarily many delays and nonzero amplitudes. The compressed integer matrix makes this computable from interval endpoints rather than all frequencies. The exact two-band count quantifies the rows that can carry this phase information, beyond simply noting that a gap can hide it.",
+      "residual_risks": [
+        "Absence of an extra universal gauge does not certify reconstruction or noise robustness."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

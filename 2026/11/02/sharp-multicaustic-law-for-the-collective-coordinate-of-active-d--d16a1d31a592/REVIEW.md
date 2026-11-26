@@ -1,15 +1,21 @@
-# Scientific assessment of the collective multicaustic claim
+# Independent mathematical audit
 
-## Correctness — PASS
-The pair-force cancellation establishes an exact independent telegraph filtering representation; the known symmetric beta law is correctly normalized. The finite-support convolution is decomposed by its endpoint selections. Positive beta integrals yield both asymmetric power amplitudes, a logarithmic coefficient at the critical exponent, and sharp endpoint behavior. The noncritical continuous regime follows from generalized Young and translation continuity. Direct \(N=3\) convolution and \(N=2\) critical quadrature corroborate finite examples, not infinity-wide conclusions. The claim is limited to symmetric independent flip signs, common harmonic relaxation and zero thermal diffusion.
+## correctness
 
-## Originality — PASS, qualified
-Touzo–Le Doussal–Schehr (2023), arXiv:2302.02937, **already derives** the center-of-mass differential equation and studies the same singularity exponent and logarithm for the **single-particle stationary spatial density**. Neither fact is presented here as new. Basu and colleagues (2019), arXiv:1910.10083, establish analogous three-state caustics; the N=2-like case is not claimed. The assessed novelty is the closed stationary collective law and the \(N\ge3\) list of exact two-sided amplitude constants and critical edge values, together with the force-independent many-body application. The original paper and supplementary material were compared claim by claim; no equivalent center-density amplitude classification was identified in assessed primary literature. Broader mathematical convolution results might imply the coefficients, so complete priority verification remains outstanding.
+PASS
 
-## Mathematical value — PASS
-The center of mass of an interacting active gas is a natural collective observable with a simple exact law even where the single-particle distribution is interaction-dependent. Pinning down \(N+1\) strong caustics and their asymmetric strengths gives finite-size predictions across all \(N\ge3\) and all allowed flip rates below a sharp threshold; the logarithmic/continuous crossover is a meaningful boundary classification. It resolves a collective finite-N question rather than recomputing the already known single-particle stationary density.
+The pair-force double sum vanishes by antisymmetry, so solving the scalar damped equation backward in the stationary regime gives the sum of N independent telegraph filters. The initial homogeneous term vanishes in probability by stationarity (tightness) and exponential damping, so there is no need for an extra moment assumption on the stationary regime. The one-filter zero-current identity gives p_±=(1±z)f/2. Substitution into the sign transport equations gives ((1−z²)f)′=−2αzf and normalization by B(1/2,α) gives the stated f. The two edge expansions have identical coefficient b_α/Γ(α). Split each factor with smooth cutoffs into two endpoint pieces and an interior piece. The latter gives smooth convolutions, and endpoint pieces can only be singular at their signed endpoint sums, which are 2k−N. For m same-side factors the deficit-sum density is b_α^m x^{mα−1}/Γ(mα) times 1+O(x), by scaling the positive simplex; the cutoff and smooth multiplier also give smoothness away from its zero deficit. This proves the endpoint formula directly. For mixed signs, put a=kα, b=(N−k)α: the positive displacement is lower deficit minus upper deficit, so the singular integral on the right is ∫₀^δ u^{a−1}(u+q)^{b−1}du. For a+b<1, scaling by q and applying the beta integral gives Γ(a)Γ(1−a−b)/Γ(1−b); the left side exchanges a and b. Multiplication by the summed-deficit normalizations and the binomial multiplicity yields exactly the stated amplitudes. At a+b=1 the range u<q gives O(1), while on [q,δ] the integrand equals 1/u+O(q/u²); the smooth deficit multipliers change the integral only by O(1). Thus the critical log coefficient agrees on both sides, and at the endpoint the positive-simplex coefficient tends to b_α^N at exponent zero. For α>1/N, f∈L^{N/(N−1)} so the first N−1 convolutions belong to L^N; Hölder and continuity of L^{N/(N−1)} translations prove that the last convolution is bounded and continuous, with zero boundary values by support. The coordinate change has Jacobian μN/v.
 
-## Limits and closest literature
-The zero-temperature theorem does not extend to thermal smoothing, correlated flips, heterogeneous confinement, or nonlinear trap laws without new work. The closest direct text is Touzo et al. (2023), especially their supplementary equations (37) and (55)-(58); Basu et al. (2019) covers the related three-state phase transition. An exhaustive priority or independent mathematical audit is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The active-Dyson center equation and one-filter beta law are covered, and the stationary independent-filter representation follows by solving that known linear equation. Neither this reduction, interaction independence, generic convolution regularity nor the qualitative power/log mechanism is credited on its own. The supported distinct claim is the exact locus and two-sided amplitude classification, including critical endpoint values, for the N≥3 stationary center law.
+
+## value
+
+PASS
+
+The frozen theorem separates the stationary collective marginal from the much less tractable interacting spatial densities. It gives explicit geometry and normalized site-dependent coefficients for a natural many-particle law, not just an exponent: mixed sign groups generally differ on the two sides below threshold, share a log coefficient at threshold, and at threshold the endpoints instead stay finite. These distinctions are useful to distinguish collective singularities analytically or in numerical data, independently of repulsion strength.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

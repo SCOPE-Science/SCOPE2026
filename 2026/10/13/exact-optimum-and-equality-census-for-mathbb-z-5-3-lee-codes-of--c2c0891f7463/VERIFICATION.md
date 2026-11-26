@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-`artifacts/verify.py` uses only the Python standard library.
 
-It generates all \(125\) words of \(\mathbb Z_5^3\), computes Lee distance directly, and independently constructs the seven-point radius-one Lee ball around every word. It checks all unordered pairs of centers and confirms that minimum-distance compatibility is exactly disjointness of these balls.
+# Independent mathematical audit
 
-For the upper bound, the script runs an exact bit-set maximum-clique branch-and-bound. Each search node greedily colors its candidate-induced graph; the number of colors is a rigorous upper bound for any clique extension, and pruning occurs only when that bound cannot improve the incumbent. The complete search returns maximum \(15\) and checks an explicit attaining code.
+## correctness
 
-A distinct target-size recursion enumerates every fifteen-clique containing \(000\), obtaining \(24\). Translations produce exactly \(200\) distinct labeled maxima. Applying the full declared natural action of size \(6000\) to one maximum produces all \(200\), giving one orbit and stabilizer \(30\). The script then independently recomputes every coordinate symbol count and every pairwise Lee distance in all maxima.
+PASS
 
-The computation is finite and exhaustive for the stated parameter only. It is not evidence for any larger alphabet, length, or distance, and no external solver status is used.
+I independently enumerated the five horizontal layers of the torus, without using the frozen clique search. Within a layer, disjoint radius-one balls of size five cap the size at five. The legal layer counts for sizes zero through five are 1,25,150,200,50,10. Between adjacent layers the horizontal Lee distance must be at least two (ban the occupied horizontal radius-one neighborhoods); between nonadjacent layers it must be at least one (ban identical horizontal positions). Exact recursive combination of compatible layers through 000 excludes size 16 and yields 24 size-15 codes. Translation takes every nonempty code to one through 000, and a larger code would have a 16-subcode. Full translation gave 200 labeled sets, exactly the orbit of one witness under all 6000 distinct signed coordinate permutations with translations. The stabilizer has order 30, and direct counts give every stated symbol multiplicity and pair-distance tally. For the linear contrast, a two-dimensional code has at least 25 points, excluded even by the radius-one packing bound 17; the span of (1,1,1) attains size five.
+
+## originality
+
+PASS
+
+The checked exact table is for linear codes, not arbitrary subsets; the checked unrestricted table does not evaluate these parameters. The closest indexed same-alphabet equality census uses a different pair relation. The independently supported distinct finding is the unrestricted maximum together with the complete labeled census and orbit and profile information.
+
+## value
+
+PASS
+
+Single-error packing in the small three-dimensional Lee torus is a natural unrestricted coding parameter with an independently motivated linear comparison. The exact optimum closes a gap left by the elementary packing bound, and the complete equality orbit with uniform balance and distance profile gives a concrete structural benchmark for nonlinear Lee-code bounds or searches. This is not just a rerun of the linear table or a witness without optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

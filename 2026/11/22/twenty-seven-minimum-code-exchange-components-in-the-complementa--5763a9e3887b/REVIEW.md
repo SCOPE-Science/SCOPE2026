@@ -1,15 +1,21 @@
-# Scientific assessment: identifying-code exchanges in the complementary nine-cycle prism
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph is explicitly defined by eighteen vertices and the three edge families. A code is identifying exactly when it hits the eighteen closed-neighborhood sets and the 153 pairwise symmetric differences, an identity proved in RESULT.md. This is a complete finite criterion, not a heuristic. The standalone C++ checker exhausts all 262,144 subsets; the independent Python checker uses direct neighborhood traces over all 63,004 subsets of size at most seven. Both establish minimum size seven, exactly ninety minima, eighty-one exchange edges and component types nine bowties, nine three-vertex paths and nine edges. The symmetry checker verifies the six dihedral orbit classes and preservation of exchange adjacency. Source files have been executed as supplied; no outside certificate is assumed.
+## correctness
 
-## Originality — PASS (subject to residual historical risk)
-Cappelle et al., arXiv:1507.05083v1 (July 17, 2015), define the same graph family and identifying-code model. Their complete accessible text gives the nine-column seven-code construction and a coarse \(7n/9+\Theta(1)\) size theorem, not the exact size-seven optimum count, exchange graph or orbit classification. Felix and Cappelle, doi:10.21711/231766362023/rmc5516 (2023), prove general complementary-prism bounds and solve complete split and complete bipartite host families, not the nine-cycle exchange classification. Searches on equivalent terminology (sensor replacement, token jumping, minimum identifying-code reconfiguration) and related indexed mathematical claims found no implication covering the full statement. The 2009 locating-domination paper is a different invariant, but its original full text was not inspected. Such gaps mean priority is not absolutely certified.
+PASS
 
-## Value — PASS
-The circumference nine is singled out by the initial exact nine-column pattern in the 2015 complementary-cycle-prism construction. Classifying all optimal patterns at this natural block and their allowable exchanges addresses an interpretable mathematical gap: optimum size does not determine the ability to reconfigure an optimal sensor deployment. The exact twenty-seven-component decomposition, three distinct local component topologies, and dihedral orbit structure are more informative than merely rechecking the published construction or a routine numerical bound. The statement is deliberately finite and does not claim a general theorem about other circumferences.
+The closed-neighborhood hitting reduction is exact: the neighborhood constraints test nonemptiness and the pairwise symmetric-difference constraints test all trace inequalities. A fresh independent set-based reproduction constructs adjacency by explicit modular predicates and checks all 63004 subsets of sizes 0–7 by taking the set of the 18 literal traces; there are no codes below seven and 90 at seven, including the stated witness. Equal-size codes are adjacent exactly when they have a common six-element subset, so grouping optima over those subsets independently reconstructs all exchange edges. It gives 81 edges and nine components of each reported degree pattern. In a five-vertex component the universal vertex leaves four vertices of degree one after deletion, hence two disjoint edges and a bowtie; the other two patterns force P3 and K2. Applying all 18 simultaneous rotations/reflections gives the six listed representatives, orbit sizes, degrees and component types and covers all optima. The same actions preserve the host relation (both cycle layers and the matching) and hence identifying traces and exchanges.
 
-## Closest literature and limits
-The most directly comparable primary source is arXiv:1507.05083v1. The 2023 general-bound paper gives a lower bound of six for nine host vertices, so it cannot imply the sharp minimum of seven; neither source establishes the exchange decomposition. Indexed findings on ordinary cycles, circular ladders and Kneser graph codes involve other graphs. Unindexed historical priority and the 2009 locating-domination full text remain limitations. This verification is not an independent scholarly audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact optimum-family and exchange classification for the nine-cycle is distinct from the known seven-code construction and the asymptotic size theorem. The latter and the later complementary-prism bounds do not themselves force this minimum, let alone the census.
+
+## value
+
+PASS
+
+Nine columns are the fundamental block size of the known seven-per-nine construction, not an arbitrary truncation. A complete answer there determines exactly which optimal deployments can be reached without adding a landmark and distinguishes several component geometries and symmetry types; neither the asymptotic size nor a single optimal example answers that question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

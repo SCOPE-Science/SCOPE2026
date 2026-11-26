@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:00:08.112785Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a nonempty finite set in a meet-tree, fix one element s. All meets s∧x lie on the same lower chain; their minimum is the meet of the full set. Therefore every finitely generated point is a pairwise meet (allowing x=s), a fact that uses semilinearity and not just associativity. In the finite closure, unselected vertices must have two child branches containing selected points. Conversely each such vertex is the meet of marked leaves in two of its branches. The age property realizes every permitted shape, and meet-language ultrahomogeneity identifies exactly the isomorphic colored closures. The ordinary multiset cycle index applies to the unordered children; each term is rooted at a marked point or at an unmarked point with two or more children, and root weights determine a unique solution by total degree. If a vertex has k+1 children at n=k+1, each branch consumes its only marked point as a leaf, and neither the vertex nor an ancestor can be marked or carry any additional branch with a leaf. Thus the only excluded type is the unmarked star. The excess-child count over internal vertices is L-1 for L leaves, so w≤L−1≤n−1, equality forces full binary branching with only leaves marked, and binary trees with an extra unary marked chain realize the full range. The chain case k=1 gives z/(1-z). Own replay: python3 /workspace/review_replay.py 3 decorates initially uncolored rooted shapes of up to 11 vertices, checks exact pairwise-meet coverage, all available thresholds, and the n=6 unrestricted vector [20,72,103,80,32,6]. This is finite corroboration; the recorded source checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "KRS establish the ages/ultrahomogeneity both without and with finite arity and identify pairwise-meet closure.",
+          "Record 73b1513e978e concerns growth types of color-preserving tree-plan-closed structures, not this subset-orbit grading or finite arity detection.",
+          "W17-3402 treats root degree in labelled-survivor Greg trees; p. 13 defines them with m labelled surviving and n unlabelled hypothetical vertices."
+        ],
+        "reasoning": "The background structural theorem supplies embeddings and orbit extension; one can restrict the prior shape correspondence to shapes satisfying a cap at every vertex. It does not count the first excluded type or identify the extremal overheads. A root-degree slice cannot impose a degree cap at other vertices.",
+        "searches": [
+          "arXiv:1904.05144, Fact 2.16 and the paragraph after Fact 2.19",
+          "Resultary: finite tree closures 73b1513e978e",
+          "ACL Anthology W17-3402"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1904.05144",
+        "OEIS A052300",
+        "OEIS A048160",
+        "ACL Anthology W17-3402",
+        "Resultary c94a218292fe",
+        "Resultary 73b1513e978e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Forgetting marked labels in the prior equivariant tuple identification yields the graded unrestricted subset shape classification; bounded classes follow by applying the KRS age condition to those shapes.",
+          "White child degree at least two and marked leaves are prior constraints; identifying the sole minimal excluded shape requires the branch-counting and saturation argument."
+        ],
+        "reasoning": "The underlying model and its classical enumeration machinery are covered or direct consequences. The substantive comparison is not obtained by relabelling a sequence or specializing a parameter: it identifies when the induced restriction of shape classes is first strict, the precise overhead of the lost orbit, and how largest overhead is independent of k≥2.",
+        "searches": [
+          "Resultary record c94a218292fe, Finding and scope",
+          "arXiv:1904.05144, Fact 2.16",
+          "ACL Anthology W17-3402 pp. 11–13"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier Resultary record describes injective ordered tuple orbits by rooted Greg trees with labelled marked vertices; its EGF and Stirling transform are for tuples.",
+          "OEIS A052300 describes unlabelled black/white Greg trees with white child-degree at least two. A048160 and W17-3402 label the marked/surviving vertices."
+        ],
+        "reasoning": "Tuple orbits modulo coordinate permutations biject to subset orbits with the same overhead. The old unrestricted result has real implied coverage, not merely similar terminology; its labelled EGF is not the subset OGF. Neither root-degree restrictions nor labelled counts establish the all-vertex arity threshold of the finding.",
+        "searches": [
+          "Resultary: Greg-tree orbit profile of the universal homogeneous meet-tree c94a218292fe",
+          "OEIS A052300 and A048160",
+          "Hoenen–Eger–Gehrke W17-3402, §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A052300 matches the unrestricted totals 1,2,6,21,78,313 exactly and gives the prior unlabelled class description; A048160 grades labelled shapes by the two node counts, so is not a table of the submitted orbit polynomials.",
+          "Rooted-tree and full binary endpoint sequences are classical."
+        ],
+        "reasoning": "No credit for recovering listed numbers. The distinction is the sharp comparison across all finite caps and characterization of which orbit types occur in both endpoint ranks, not a particular low-order coefficient.",
+        "searches": [
+          "OEIS A052300",
+          "OEIS A048160",
+          "Resultary records c94a218292fe and 73b1513e978e"
+        ]
+      },
+      "rationale": "The unrestricted colored shape model and its grading are already implicit in the earlier ordered-tuple orbit result: quotienting injective tuple orbits by coordinate permutations forgets precisely the marked labels and preserves overhead. No standalone originality is credited to that implication, the OEIS totals, the classical multiset equation, or the Fraïssé construction. The finding's distinct arity-sensitive assertion is the sharp first-difference law with its exact one-orbit witness, together with the overhead endpoint characterization uniform across all caps k≥2. No inspected source states these threshold and rank results for finite subset orbits.",
+      "residual_risks": [
+        "The unrestricted model is specifically covered by a prior equivalent quotient, regardless of indexing terminology. Distinct unindexed work on the all-vertex cap or relative arity ranks may exist; this is a bounded comparison, not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Structural prior input, not a graded arity-fingerprint theorem",
+          "evidence": [
+            "Fraïssé classes in the meet language; closure consists of pairwise meets."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1904.05144",
+          "material_read": "p. 6, Fact 2.16, Remark 2.17, and note after Fact 2.19 (text near offset 18627)",
+          "method": "Lawful OA primary PDF passages",
+          "title": "On the automorphism group of the universal homogeneous meet-tree",
+          "trigger": "Defines the same ambient structures"
+        },
+        {
+          "assessment": "Exact prior ungraded count",
+          "evidence": [
+            "Unlabelled two-color trees, white nodes at least binary; leading terms 1,2,6,21,78,313."
+          ],
+          "identifier_or_url": "https://oeis.org/A052300",
+          "material_read": "Entry description, comments and leading terms",
+          "method": "Public database entry",
+          "title": "Number of rooted Greg trees",
+          "trigger": "Exact unrestricted table and combinatorial family"
+        },
+        {
+          "assessment": "Different orbit convention",
+          "evidence": [
+            "Only black nodes have individual labels."
+          ],
+          "identifier_or_url": "https://oeis.org/A048160",
+          "material_read": "Entry description and labelling comment",
+          "method": "Public database entry",
+          "title": "Triangle giving the number of labelled rooted Greg trees by numbers of black and white nodes",
+          "trigger": "Potential exact refined table"
+        },
+        {
+          "assessment": "Implies unbounded graded subset shapes by quotient; does not analyze the arity filtration",
+          "evidence": [
+            "Injective ordered tuples encode labels on black nodes, plus an EGF and Stirling transform for repeated coordinates."
+          ],
+          "identifier_or_url": "Resultary/2026/2026/10/4/SCOPE-greg-tree-orbit-profile-of-the-universal-homogeneous-meet-tree--c94a218292fe",
+          "material_read": "RESULT.md Finding and scope, offsets 0–3976",
+          "method": "Indexed Resultary lookup and local mirror inspection",
+          "title": "Greg-tree orbit profile of the universal homogeneous meet-tree",
+          "trigger": "Closest prior orbit theorem"
+        },
+        {
+          "assessment": "Different tree-plan closure and growth theorem",
+          "evidence": [
+            "Counts closed finite structures for a tree plan and classifies growth, rather than generic meet-tree finite subset orbits."
+          ],
+          "identifier_or_url": "Resultary/2026/2026/10/13/SCOPE-polynomial-intermediate-dichotomy-for-finite-tree-closures-in-tr--73b1513e978e",
+          "material_read": "RESULT.md Finding and scope, offsets 0–3954",
+          "method": "Indexed Resultary lookup and local mirror inspection",
+          "title": "Polynomial/intermediate dichotomy for finite tree closures",
+          "trigger": "Related indexed finite-closure multisets"
+        },
+        {
+          "assessment": "Root-degree data for Greg trees with labelled surviving vertices, not all-vertex bounded arity",
+          "evidence": [
+            "§2 specifies m labelled surviving and n unlabelled hypothetical vertices; the latter have outdegree at least two. Separate results for complete historical trees have a different role."
+          ],
+          "identifier_or_url": "https://aclanthology.org/W17-3402.pdf",
+          "material_read": "pp. 11 and 13, abstract and rooted Greg-tree definition, including text at offsets 12090–15367",
+          "method": "Lawful OA primary PDF; literal match located then full relevant passage read",
+          "title": "How Many Stemmata with Root Degree k?",
+          "trigger": "Closest published degree refinement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The arity bound is a structural parameter of the homogeneous limit; a precise smallest rank of unordered subset data that recovers it is useful in comparing those limits through their orbit profiles. The first extra orbit has an explicit geometric witness and exact overhead, and the other endpoint identifies a rank whose counts cannot detect any arity ≥2. This is a quantified result for every k and n, not value ascribed to computing another entry of the classical Greg-tree table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

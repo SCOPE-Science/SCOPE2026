@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:49:38.449231Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 29–73",
+        "Frozen VERIFICATION.md and artifacts/verify.py and artifacts/replay.txt",
+        "Corrected /workspace/repairs/3/RESULT.md and VERIFICATION.md",
+        "arXiv:2606.22997v1, Theorem 1 and Lemma 9"
+      ],
+      "rationale": "This PASS is for the complete corrected files in /workspace/repairs/3/. In the frozen proof, line 68 bounded the sum over integers m>Y by the tail integral from Y, which is not valid for arbitrary nonintegral Y. For example, when a=3 and Y=29/10, the terms m=3,4,5 alone sum to more than 1/(2Y²) before multiplying by X. The corrected proof starts at L=floor(Y)+1, retaining the first term and bounding the rest by the integral from L. This gives at most Y^a+Y^(a+1)/(a−1), uniformly O(X^(2/3)) for a>=3; for Y<2 the sum starts at 2 and the corrected integral estimate is at most X·2^(−a)(1+2/(a−1))<2√X. I reconstructed the other steps: Theorem 1 of arXiv:2606.22997v1 has k=n−1>=2 and gives D=1 iff n/M>M; negation gives the stated criterion. Distinct exact blocks are coprime and have product dividing n, so two cannot be at least √n. An exponent-one dominant block would violate P^+(n)<=√n, since equality would force n=p². For a>=2 and n=p^a b with b<=p^a and p not dividing b, p²<=n and every other prime q has q²<=b²<=n, proving the converse. The floor formula counts b<=min(p^a,X/p^a) excluding multiples of p exactly. At Y=X^(1/(2a)), partial summation with the prime number theorem gives Y^(a+1)/((a+1)log Y) and X·Y^(1−a)/((a−1)log Y) for the leading pieces. The floor and far-tail errors are O_a(X^(1/a)); the two coprimality corrections are O_a(X^(1/2)). Both exponents are strictly below (a+1)/(2a) for any fixed a>=2. Conversion from log Y gives 4a²/(a²−1). The corrected uniform estimate sums over at most log_2 X exponents, giving o(X^(3/4)/log X) beyond the a=2 layer, whose coefficient is 16/3. The verification notes now distinguish the direct binomial-GCD check from the five cutoff comparisons; no uploaded code was run or needed to prove the asymptotic.",
+      "residual_risks": [
+        "The layer equivalents hold for fixed a only; the uniform tail bound is not a uniform equivalent. Finite checks cover only their reported ranges and cutoffs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "db4eebf1aab7 gives the exact valuation max(0,a−floor(log_p b)) of the same D(k). e2fc2d267b2f gives fixed positive moments of D(k) and treats the same dominant-power exception by an upper bound. Cui and Yang, arXiv:2611.25794v1, count gcd(n,binom(n,k)) and fixed-parameter GCDs of one binomial coefficient with an index."
+        ],
+        "reasoning": "Exact valuations are stronger pointwise. The fixed positive moments are dominated by different rows, are not uniform as their moment exponent tends to zero, and do not recover the precise counts by dominant exponent in this exceptional population. The other paper concerns a different GCD and different population.",
+        "searches": [
+          "Resultary db4eebf1aab7: exact prime-power factorization",
+          "Resultary e2fc2d267b2f: two-term binomial row GCD moments",
+          "Web: The distribution of greatest common divisors of binomial coefficients and their upper indices; asymptotic exact prime power layers square root"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.22997v1",
+        "OEIS A080170",
+        "Resultary db4eebf1aab7 and e2fc2d267b2f",
+        "arXiv:2611.25794v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The valuation formula implies membership and uniqueness of the nontrivial supporting prime in the exceptional class. The moment proof similarly groups the exceptional components at t=p^a and splits at t=√X, but only bounds their weighted contribution with an error term."
+        ],
+        "reasoning": "The exact b-count is an elementary corollary of the criterion, not credited as a replacement criterion. The distinct quantitative claim evaluates both sides of that sum for every fixed a and rigorously controls all larger exponents. An upper bound for fixed positive moments or a pointwise value theorem does not supply these constants.",
+        "searches": [
+          "Compare arXiv:2606.22997v1 Theorem 1 and Lemma 9 and Resultary db4eebf1aab7, Finding, to the prime-sum split and aggregation",
+          "Resultary e2fc2d267b2f, Exceptional prime powers proof passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under the theorem the population is exactly the set with dominant exact p^a>√n, a>=2; the local equation is n=p^a b with p not dividing b and b<=p^a. Equality b=p^a cannot occur. The equivalent criterion in the preprint is D(k)=1 iff n/M>M."
+        ],
+        "reasoning": "Searching both the GCD formulation and the dominant-component formulation matters. Existing membership or exact valuations determine which n to count pointwise but do not assert their frequency or the constants.",
+        "searches": [
+          "Resultary: nontrivial binomial progression GCDs without primes larger than sqrt(n); dominant exact prime powers, disjoint exponent layers and 16/3",
+          "arXiv:2606.22997v1, Theorem 1 and Lemma 9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A080170 lists precisely the indices k for D(k)=1; its comment notes that the relation to A051283(n)−1 was proved in arXiv:2606.22997. The supplied replays and this table are finite lists, not a layer theorem."
+        ],
+        "reasoning": "The complementary GCD condition is definitively covered, but does not itself tabulate or determine asymptotics by dominant exponent under P^+(n)<=√n. The repair credits the preprint for this condition.",
+        "searches": [
+          "OEIS A080170 and its A051283 cross-reference"
+        ]
+      },
+      "rationale": "The repair leaves all counting claims unchanged and separates them from the imported pointwise membership criterion and its exact-valuation strengthening. I compared the closest indexed GCD valuation work, the related moment law on the same sequence, the exact OEIS entry, and the closest located external asymptotic paper. None of their inspected results supplies the layer equivalents or the sharp unweighted total on the specified square-root-smooth class. The uniform-bound correction is not itself claimed as novel.",
+      "residual_risks": [
+        "The search is bounded; a related density theorem phrased purely in terms of largest exact prime-power components may exist in material not located. Only the arXiv version of the imported theorem was verified here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers membership but not the submitted quantitative counts",
+          "evidence": "For k>=2, n=k+1, D(k)=1 iff n/ppart(n)>ppart(n); the local form is p|D(k) iff b<=p^a.",
+          "identifier_or_url": "https://arxiv.org/html/2606.22997v1",
+          "material_read": "Theorem 1 around offset 3298 and §2.5 Lemma 9 around offset 21118",
+          "method": "Open arXiv HTML, bounded passages",
+          "title": "A Greatest Common Divisor Criterion of Certain Binomial Coefficients",
+          "trigger": "Exact definition and imported criterion"
+        },
+        {
+          "assessment": "Stronger exact GCD information; no exponent-layer asymptotic in the compared statement",
+          "evidence": "Valuation is max(0,a−floor(log_p b)) at the exact component, with an explicit witness attaining the positive minimum.",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-prime-power-factorization-of-the-binomial-progression-gcd--db4eebf1aab7",
+          "material_read": "RESULT.md, Finding, scope and first proof passages, offsets 0–3408",
+          "method": "Resultary and mirrored record",
+          "title": "Exact prime-power factorization of the binomial progression gcd",
+          "trigger": "Strongest matching indexed pointwise theorem"
+        },
+        {
+          "assessment": "Weighted moments on a larger population; related error bound, not the layer equivalents",
+          "evidence": "The moments are for fixed s>0; the dominant prime-power layers with a>=2 are bounded as an exceptional contribution rather than counted asymptotically.",
+          "identifier_or_url": "2026/11/8/SCOPE-two-term-moment-laws-for-the-binomial-row-gcd-sequence--e2fc2d267b2f",
+          "material_read": "RESULT.md, Finding and Dominant rows and Exceptional prime powers proof passages, offsets 0–3222",
+          "method": "Resultary and mirrored record",
+          "title": "Two-term moment laws for the binomial row GCD sequence",
+          "trigger": "Asymptotic on the identical arithmetic sequence"
+        },
+        {
+          "assessment": "Different GCD in its stated asymptotics",
+          "evidence": "S_d(x) counts pairs (n,k) with gcd(n,binom(n,k))=d; the related fixed-parameter law concerns gcd(m,binom(dm,jm)), not the full progression GCD.",
+          "identifier_or_url": "https://arxiv.org/html/2611.25794v1",
+          "material_read": "Abstract and opening definitions, offsets 0–2271",
+          "method": "Targeted literature search, then open author preprint rather than secondary summary",
+          "title": "The distribution of greatest common divisors of binomial coefficients and their upper indices",
+          "trigger": "Plausible nearby literature on binomial-GCD asymptotics"
+        },
+        {
+          "assessment": "Complementary membership covered",
+          "evidence": "The comment cites the theorem proving the A051283 shift, not the square-root-smooth layer sizes.",
+          "identifier_or_url": "https://oeis.org/A080170",
+          "material_read": "Definition, terms, comments and links",
+          "method": "Public OEIS page",
+          "title": "Indices k with gcd(C(2k,k),…,C((k+1)k,k))=1",
+          "trigger": "Exact complementary sequence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md, Finding and proof",
+        "Guo–Qiu–Cao–Feng–Gao, Theorem 1",
+        "Resultary e2fc2d267b2f, Exceptional prime powers"
+      ],
+      "rationale": "The square-root cutoff is intrinsic to the imported exact GCD criterion. Removing the large-prime cases isolates the place where nontriviality depends on higher exact prime powers; quantifying that exception with a power-law scale, a sharp constant, and disjoint layer equivalents is substantially more informative than zero density or finite counts alone. The corrected proof keeps these findings and the boundary unchanged.",
+      "residual_risks": [
+        "No exact positive GCD-value frequencies or asymptotic for exponents growing with X are claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:48:55.897498Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§ Assumptions and scope, Proof; VERIFICATION.md; verify.py (read, not executed)",
+        "Independent exact replay: python3 /workspace/checks/check_exact.py 3",
+        "Chambolle et al. arXiv:1706.04957 Algorithm 1, p. 5"
+      ],
+      "rationale": "The two proximals give 10(x−z̄)/11 and (y_i+x_new)/2, and the dual extrapolation is the updated sum plus twice the selected increment. Basis evaluation reproduces the exact Lyapunov slacks. Independent determinant expansion gives the stated positive leading minors for P and H(1/100), with H(0)=I. The affine slack is positive on the closed interval, uniformly by bounding it below by the smaller endpoint minimum eigenvalue. Conditional on the current state the new subset is independent, so the expected quadratic energy contracts uniformly, and norm equivalence controls all four coordinates. The repeated full-batch update on (x,y_1+y_2,z̄) has eigenvalues −2,0,15/22, and the legitimate start has first-coordinate coefficients −25/59 and 16/177 on the two surviving eigenmodes. For k>=1 the latter contributes at most (25/118)2^k in magnitude, so the event of probability q^k proves the reported lower bound. At q=1/4 it is strictly positive, not an exponential lower bound; above it the lower bound grows. The unique saddle is zero from the linear saddle equations.",
+      "residual_risks": [
+        "No classification of 1/100<q<1/4, almost-sure divergence, or extension beyond the fixed quadratic and i.i.d. rounds is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The unit-step single-block ESO test gives v_i>=1>p_i=1/2. The later arbitrary-sampling theorem's norm condition gives ||D||=2+4q, not <1; the serial sufficient rule with p_i^{-1}τ σ_i||A_i||^2 requires a value below 1, not 2."
+        ],
+        "reasoning": "The broader arbitrary-sampling and strongly convex results are conditional; they neither imply the stable interval at these steps nor contradict the unstable cases.",
+        "searches": [
+          "Chambolle et al. arXiv:1706.04957 Theorems 4.3, 6.1; Alacaoglu–Fercoq–Cevher arXiv:1911.00799 p. 4; Gutierrez–Delplancke–Ehrhardt arXiv:2207.12291 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary searches and three specific cross-algorithm findings",
+        "arXiv:1706.04957, 1911.00799, 2207.12291, listed passages",
+        "Bounded primary literature search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "DIANA has the same q-law and a threshold 1/10, including unstable independent transmissions; SAGA reverses stability under iid versus epoch reshuffling; the arbitrary-sampling SPDHG norm test excludes the entire q family here."
+        ],
+        "reasoning": "Concept and sampling design have real precedent; within-round dependence with independent rounds under the published dual-proximal update and the stated exact bounds is not an implication of the inspected results.",
+        "searches": [
+          "Resultary 19daf89b1caa and ffcd0da8490f (Finding and scope); arXiv:2207.12291 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Algorithm 1 gives the same primal-first, probability-extrapolated dual proximal iteration. The close DIANA and SAGA examples use gradient-memory updates; the residual-tracking example uses different least-squares state dynamics."
+        ],
+        "reasoning": "The four-state example is published SPDHG in specialized coordinates, not a new algorithm. An instability bound for a gradient-memory or residual-tracking update is not the same SPDHG assertion, even at identical scalar marginals and selection probabilities.",
+        "searches": [
+          "Resultary fixed-marginal two-block SPDHG / correlated sampling / mean-square instability searches (two ranked result sets)",
+          "Chambolle et al. arXiv:1706.04957 Algorithm 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest local exact-law result is the two-worker DIANA record 19daf89b1caa; the same law also appears in residual-tracking record 8f68962ed292, with a stepsize frontier for a distinct update."
+        ],
+        "reasoning": "This is an algorithm-specific existence and bound, not a statistic with a natural external database. The inspected exact-law catalogue matches do not establish the SPDHG statement.",
+        "searches": [
+          "Local Resultary ranked searches for fixed-marginal SPDHG, dual batching counterexamples and sampling-dependent stability boundaries"
+        ]
+      },
+      "rationale": "Strong prior conceptual coverage exists for dependence-induced stability changes, including the very same selection law for DIANA. The supported distinct claim is the exact SPDHG instance and its opposed mean-square bounds at fixed blocks, marginals and step sizes, not the general phenomenon or the certificate methods. Bounded statement-level comparisons did not yield an earlier theorem implying this instance.",
+      "residual_risks": [
+        "An equivalent unindexed special case or sharper mean-square theorem could affect priority. No priority is claimed for the fixed-marginal stability-reversal concept itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Algorithm matches; sufficient results do not cover the steps",
+          "evidence": "Dual extrapolation uses inverse marginal weights; ESO requires v_i<p_i, and Thm. 6.1 uses 0<θ<1.",
+          "identifier_or_url": "https://arxiv.org/abs/1706.04957",
+          "material_read": "Algorithm 1 p. 5 offset 17995; Thm. 4.3 p. 7 offset 25684; Thm. 6.1 p. 13 offset 46718",
+          "method": "OA PDF bounded passages",
+          "title": "Stochastic Primal-Dual Hybrid Gradient Algorithm with Arbitrary Sampling and Imaging Applications",
+          "trigger": "Exact algorithm and possible general convergence coverage"
+        },
+        {
+          "assessment": "Does not give stable endpoint under these steps",
+          "evidence": "p_i^{-1}τ σ_i||A_i||²<=γ<1, while the left side here is 2.",
+          "identifier_or_url": "https://arxiv.org/abs/1911.00799",
+          "material_read": "Serial sampling and stepsize conditions p. 4 offset 15312",
+          "method": "OA PDF bounded passage",
+          "title": "On the Convergence of Stochastic Primal-Dual Hybrid Gradient",
+          "trigger": "Plausible serial stability coverage"
+        },
+        {
+          "assessment": "Condition not met for any stated q",
+          "evidence": "θ=1 and proper sampling with ||D||<1; here D has diagonal 2 and off-diagonal 4q, hence norm >=2.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.12291",
+          "material_read": "Theorem 1, p. 4 offsets 17794–20818",
+          "method": "OA PDF bounded passages",
+          "title": "On the convergence and sampling of randomized primal-dual algorithms and their application to parallel MRI reconstruction",
+          "trigger": "Strongest arbitrary-sampling convergence comparison"
+        },
+        {
+          "assessment": "Covers broad phenomenon and exact sampling design, not SPDHG",
+          "evidence": "Half-marginals, expected size one and the same q-law, with mean-square stability q<1/10 and instability q>1/10 for DIANA gradient-memory updates.",
+          "identifier_or_url": "2026/10/12/SCOPE-a-sharp-two-worker-diana-stability-boundary-under-correlated-hal--19daf89b1caa",
+          "material_read": "Finding and Assumptions and scope",
+          "method": "Local Resultary mirror bounded passages",
+          "title": "A sharp two-worker DIANA stability boundary under correlated half-rate transmissions",
+          "trigger": "Material prior overlap in q-law and mean-square reversal"
+        },
+        {
+          "assessment": "Different dynamics and temporal dependence",
+          "evidence": "Original SAGA contrasts iid and epoch random reshuffling, not within-round subset correlation in SPDHG.",
+          "identifier_or_url": "2026/10/12/SCOPE-a-two-way-sampling-stability-reversal-for-two-component-saga--ffcd0da8490f",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror bounded passage",
+          "title": "A two-way sampling stability reversal for two-component SAGA",
+          "trigger": "Scalar strongly convex sampling-stability reversal"
+        },
+        {
+          "assessment": "Same sampling law, different algorithm",
+          "evidence": "Gives h_*(u)=(sqrt(9u²+12(1-u))-3u)/6 for residual-tracking least squares, not the dual-proximal state of SPDHG.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-correlation-frontier-for-fixed-marginal-two-row-residual-t--8f68962ed292",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror bounded passage",
+          "title": "Sharp correlation frontier for fixed-marginal two-row residual tracking",
+          "trigger": "Exact subset law and stepsize boundary analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding, proof and limitations; published SPDHG sufficient conditions"
+      ],
+      "rationale": "At identical work in expectation, blockwise marginals, objective and extrapolated SPDHG steps, serial-like laws give uniform geometric mean-square contraction while independent inclusion is already insufficient and stronger batching drives exponential second-moment growth. This is a practical caution about substituting a batching law without joint analysis, with exact positive and negative certificates rather than a qualitative warning. Its relevance is outside existing sufficient step bounds, not a refutation of those bounds.",
+      "residual_risks": [
+        "Narrow scalar instance; no work-normalized performance, sharp threshold, or practical MRI generalization is proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

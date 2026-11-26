@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:25:03.732747Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof and verify.py, read without executing the submitted script",
+        "Independent replay: python3 /workspace/branches/reproductions/check4.py; stdout in /workspace/branches/reproductions/replay.txt"
+      ],
+      "rationale": "The complete finite-type recursion is exact because at each stage both directions of the one-move extension game must be met. In a separate direct two-sided EF replay, I matched fresh moves by adjacency to each previously chosen vertex and, where marked, by side; repeats can be answered by the existing image and place no additional constraint. The replay confirmed all 21 distinctions among parameters 1–7, the unmarked 7–8 identity, and the marked 8–9 identity (and marked 7–8 distinction). For the unbounded tail, the marked sum puts precisely the edges from earlier A to later B across factors. Local strategies run in parallel for at most four moves, and their union preserves all cross adjacencies and equality even when moves alternate between factors. Consequently the marked 8–9 identity propagates to every consecutive pair from 8 onward. Forgetting the marking and using the unmarked 7–8 identity gives exactly the claimed seven classes. Within the given family the smallest member of the saturated class is H_7 on 14 vertices.",
+      "residual_risks": [
+        "The finite replay supplies the base decisions, while the symbolic sum supplies the tail. The 14-vertex minimum is only within the family, not among all graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The catalogue covers the full rank-four partition and also treats lower ranks and bounded purely existential/universal sentences.",
+          "The primary stability theorem concerns graphs without the given order property; the graph-logic survey provides a general tuple-type recurrence, not the half-graph partition."
+        ],
+        "reasoning": "The catalogue is at least as strong as the frozen finding. A general EF technique or a theorem for graphs excluding the half-graph obstruction is not a more general rank-four classification.",
+        "searches": [
+          "e77e43428634 Finding and proof §1",
+          "arXiv:1102.3904 Theorem 5.18",
+          "arXiv:1003.4865 §§2.2–3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e77e43428634 exact Finding, assumptions and proof approach",
+        "arXiv:1102.3904 p. 2 and Theorem 5.18",
+        "arXiv:1003.4865 §§2.2–3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The catalogue gives the exact claim explicitly, using transfer from finite orders plus finite comparisons; the frozen proof uses marked sums.",
+          "The survey's general recurrence does not supply the sharp unmarked 7–8 comparison. The bounded external search returned tangential hits."
+        ],
+        "reasoning": "The finite-order transfer provides an upper-tail route, not the sharp threshold by itself; the catalogue independently includes the missing exact comparison. Alternative proofs of the same finding do not establish statement-level novelty.",
+        "searches": [
+          "e77e43428634 Finding and proof §1; arXiv:1003.4865 §2.2; external literature query: ‘half-graphs’ ‘quantifier rank four’ first-order equivalence threshold 7 graph H_n"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "e77e43428634 defines undirected edges a_i b_j exactly for i<=j, and equality/adjacency only.",
+          "Malliaris–Shelah use strict i<j; removing the two isolated endpoint vertices from the strict graph of parameter n+1 yields the connected H_n after relabelling."
+        ],
+        "reasoning": "The catalogue match needs only a common index shift and no change of signature. The regularity paper's strict graph is a related comparator, not itself the stated rank-four theorem.",
+        "searches": [
+          "Resultary: rank-four theories of finite half-graphs, e77e43428634",
+          "Malliaris–Shelah arXiv:1102.3904 p. 2: half-graph order-property convention"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue Finding has the same six singleton classes, saturated class n>=7, and sharp 14-vertex in-family minimum."
+        ],
+        "reasoning": "This exact match is for the same family, vocabulary and all parameter values. Directed paths or one-red linear orders are not the decisive match.",
+        "searches": [
+          "Resultary e77e43428634 exact mirrored Finding; related entries 75a6b05e7112 and eec9053b6af5 concerned other families"
+        ]
+      },
+      "rationale": "Published Resultary record e77e43428634 states the exact cutoff, class count, and sharp in-family minimum for the identical unmarked graph language and all the same parameters. Changing vertex indices from 0 through n−1 to 1 through n has no mathematical effect. Its catalogue path is dated later than the frozen source path, establishing current exact catalogue coverage, not who discovered the theorem first or transferred it from whom. The side-labelled sum gives another proof but does not change the frozen finding's explicitly unmarked conclusion.",
+      "residual_risks": [
+        "Do not infer historical priority from catalogue dates. A textbook exercise or unindexed source may also contain the threshold; resolving that is not required to establish the exact present catalogue match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct catalogue result, full coverage at the same signature and parameter range",
+          "evidence": "H_m ≡_4 H_n iff min(m,7)=min(n,7); the smallest in-family representative of the last class has fourteen vertices.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-seven-rank-four-theories-of-finite-half-graphs--e77e43428634/RESULT.md",
+          "material_read": "Finding, Assumptions, start of proof §1 at offset 0–2800; bounded prior-work and limitations passages around offsets 6400 and 7600",
+          "method": "Local mirror's original RESULT.md passages",
+          "title": "Seven rank-four theories of finite half-graphs",
+          "trigger": "Exact rank, family and threshold match"
+        },
+        {
+          "assessment": "The particular passages supply context and a stability theorem, not the finite rank-four partition",
+          "evidence": "Strict half-graphs witness the order property; the theorem gives regularity under a non-order-property condition.",
+          "identifier_or_url": "https://arxiv.org/abs/1102.3904",
+          "material_read": "p. 2 near offset 6040 and Theorem 5.18, pp. 28–29 near offset 104850",
+          "method": "Bounded full-text passages",
+          "title": "Regularity lemmas for stable graphs",
+          "trigger": "Primary half-graph context and convention"
+        },
+        {
+          "assessment": "Provides general methods, not exact coverage in the inspected material",
+          "evidence": "Successor-type recurrence for tuples and graph EF games.",
+          "identifier_or_url": "https://arxiv.org/abs/1003.4865",
+          "material_read": "§2.2 pp. 8–10 near offsets 23500 and 26285; §3 p. 12 near offset 33680",
+          "method": "Bounded full-text passages",
+          "title": "Logical complexity of graphs: a survey",
+          "trigger": "Possible coverage via general graph logical depth"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp logical cutoff on the natural half-graph family is meaningful, and naming the sides changes the boundary game. The actual unmarked classification and in-family kernel, however, are already stated precisely in e77e43428634. The marked structure is an instrument in this proof, not an additional final result, and the different proof of the already covered finding does not supply a distinct substantive outcome here.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:38:04.753433Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Any two compatible placements specify two distinct input-output assignments of a permutation of three letters, so they belong to just one full permutation block, which also contains any third compatible placement extending them. Each vertex alone occurs in two blocks; two distinct permutations meet in n vertices iff they differ by a transposition. The nine intersecting pairs form K_{3,3}, with n distinct identifications per pair. All blocks are connected: given two rook positions in Δ_{3,n}, choose a row and column avoiding the row and column of both. To check the gluing, replace identifications by intervals in the disjoint union of the blocks. The intervals are disjoint because each block-slot vertex is used once, so each can be collapsed as a contractible CW subcomplex; the quotient recovers X_n up to homotopy. Instead one can move the endpoint attaching maps to chosen block basepoints by paths (homotopy invariance of the graph-of-spaces attachment), then contract a spanning tree. The resulting wedge has six blocks and 9n−5 circles; the decomposition is not a canonical choice of based wedge maps. At n=3 every edge belongs to a unique triangle, so one distinct free edge can be removed per triangle; the graph has 9 vertices and 12 edges, giving 4 circles per block. At n=4 vertex links are K_{3,3} minus a matching (six-cycles), and adjacent triangles swap the appended unused column with one row column, giving opposite orientations along their shared edge. The connected orientable surface has Euler characteristic 0, hence is a torus. For n≥5, BLVZ Theorem 1.1 makes each ordinary block simply connected. The rank of its free H₂ is χ−1=3n−3n(n−1)+n(n−1)(n−2)−1; Hurewicz and homological Whitehead give the claimed two-sphere wedge. These checks yield 46 circles at n=3, six tori and 31 extra circles at n=4, the sphere/circle formulas thereafter, and the fundamental groups and torsion-free integral homology. Read the bundled finite checker, not run; no inference from finite-field ranks to integer homology is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two sizes are 3,3, so BLVZ Theorem 3.1 gives a connectivity parameter ν=2 and does not give simple connectivity. Proposition 3.4 gives an ordinary-board homology summand via a coordinate projection with a section. Athanasiadis Theorem 3.2 uses ν=min(n_1−1,⌊(n_1+n_2−2)/3⌋), which is 1 here; his general theorem gives connectedness and a vertex-decomposable 1-skeleton, not decomposition of the two-dimensional complex."
+        ],
+        "reasoning": "Even a sharp connectivity bound does not fix a nonzero fundamental group's rank or presentation or the full homotopy type of these boards. A split homology inclusion for one ordinary board is not an identification of six entire factors and their vertex gluing.",
+        "searches": [
+          "BLVZ, Theorems 1.1 and 3.1 and Proposition 3.4",
+          "Athanasiadis Decompositions and Connectivity of Matching and Chessboard Complexes 2004 multidimensional chessboard",
+          "Athanasiadis, Theorems 1.2(ii) and 3.2",
+          "Wachs, §9.1 and New developments"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1112/jlms/49.1.25",
+        "doi:10.1007/s00454-003-2869-x",
+        "arXiv:0710.5252",
+        "Wachs survey pp. 40–41",
+        "Resultary 0bbcbb52ec65, f6ab14dd0ec4 and 2e1452e7c48b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day nonmatching result on K_{2,2,2} has graph-edge subsets of matching number at most two; the bipartite three-matching-avoidance hit is also about avoidance among graph edges. BLVZ gives ordinary simple connectivity for Δ_{3,n} at n≥5 and higher-dimensional connectedness but does not supply the attaching graph."
+        ],
+        "reasoning": "Unlike the inspected general theorems, the audited proof identifies the intersection graph as K_{3,3} and exactly n point-identifications per edge. These data give the free factor F_{9n−5} even when each block is simply connected. The graph-matching and avoidance statements cannot specialize to these incidences or their homotopy pushout, regardless of catalog date.",
+        "searches": [
+          "BLVZ Proposition 3.4 and Athanasiadis Theorem 1.2(ii)",
+          "Resultary 0bbcbb52ec65, f6ab14dd0ec4 and 2e1452e7c48b statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "BLVZ define the multidimensional complex by avoiding repeated coordinates. Equivalently it is the clique complex of the categorical product of K_3, K_3 and K_n. A graph matching complex on the ordinary Cartesian grid instead has grid edges as vertices; neither its faces nor its graph product agree."
+        ],
+        "reasoning": "An indexed grid or tripartite graph result is equivalent only if its face condition translates to this three-coordinate rule, not merely because the dimensions or side sizes agree. The primary multidimensional definition does translate, so its results were compared directly.",
+        "searches": [
+          "Resultary: matching complex of complete tripartite 3-uniform hypergraph K_{3,3,n}; multidimensional chessboard Δ_{3,3,n}; six ordinary chessboard blocks",
+          "Björner–Lovász–Vrećica–Živaljević, §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "BLVZ and Vrećica–Živaljević explicitly identify the ordinary Δ_{3,4} torus. The nearest three-dimensional grid-matching indexed hit concerns P_2 □ P_3 □ P_3, not the rook-placement complex audited here."
+        ],
+        "reasoning": "The known small-board torus belongs to an ordinary block; the six-factor decomposition and the 31 extra circles at n=4 are assertions about a different complex. No exact matching three-way classification was found in the inspected indexed comparisons; search absence alone does not establish novelty.",
+        "searches": [
+          "Resultary: six Δ_{3,n} blocks with 9n−5 circles, with the (3,3,3) and (3,3,4) cases",
+          "BLVZ ordinary-board examples around p. 9 and Vrećica–Živaljević arXiv:0710.5252 p. 12",
+          "Resultary grid-matching record 2e1452e7c48b"
+        ]
+      },
+      "rationale": "The supported distinct statement is the gluing and full homotopy type of the three-coordinate (3,3,n) matching complex, not the connectivity or types of the ordinary two-coordinate blocks. The directly checked general multidimensional results give connectedness and an ordinary-board homology summand, not the six factors and additional fundamental group. Related indexed ordinary graph matching/avoidance results are different functors on different objects.",
+      "residual_risks": [
+        "A decomposition published under hypergraph matching or categorical product terminology could escape these bounded comparisons.",
+        "The nonequivariant result does not classify all coordinate-permutation actions; no canonical based splitting or priority ordering among same-day records is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known ordinary inputs, multidimensional connectivity, and a split homology summand; not the full splitting.",
+          "evidence": "Theorem 1.1 gives ordinary connectivity min{m,n,⌊(m+n+1)/3⌋}−2. Proposition 3.4 proves the split injection via i(x_1,x_2)=(x_1,x_2,…,x_2) and π∘i=id.",
+          "identifier_or_url": "https://lovasz.web.elte.hu/morepapers/chess.pdf",
+          "material_read": "Theorem 1.1, p. 2 around offset 4500; ordinary torus on p. 9; Theorem 3.1 on p. 10, offset 25548; Proposition 3.4, pp. 12–13 at offset 33202",
+          "method": "Bounded primary PDF passage inspection",
+          "title": "Chessboard Complexes and Matching Complexes",
+          "trigger": "Original ordinary and multidimensional board theorems"
+        },
+        {
+          "assessment": "Exact model and stronger general skeleta results; in this regime only the 1-skeleton decomposition and connectedness, not the whole homotopy type.",
+          "evidence": "The ν_{n_1,n_2}-skeleton is vertex decomposable, where ν=min(n_1−1,⌊(n_1+n_2−2)/3⌋); this equals 1 for (3,3,n).",
+          "identifier_or_url": "https://doi.org/10.1007/s00454-003-2869-x",
+          "material_read": "Publisher PDF Theorem 1.2(ii) at offset 4410 and Theorem 3.2 with proof setup at offset 12715",
+          "method": "Bounded primary PDF passages through lawful publisher access",
+          "title": "Decompositions and Connectivity of Matching and Chessboard Complexes",
+          "trigger": "Potentially dominating theorem for the same multidimensional object"
+        },
+        {
+          "assessment": "Cycle-free restrictions and ordinary block, not the full three-coordinate complex.",
+          "evidence": "Defines the cycle-free ordinary subcomplex and recalls Δ_{3,4}≅T².",
+          "identifier_or_url": "https://arxiv.org/pdf/0710.5252",
+          "material_read": "pp. 3 and 12, offsets 7600 and 33300",
+          "method": "Bounded primary PDF inspection",
+          "title": "Cycle-free chessboard complexes and symmetric homology of algebras",
+          "trigger": "Different potential chessboard convention and ordinary torus"
+        },
+        {
+          "assessment": "Relevant context and pointer to sharper connectivity and shellability, not the full splitting.",
+          "evidence": "Surveys problems on multidimensional boards and reports Athanasiadis's sharp bound and specified shellable skeleta.",
+          "identifier_or_url": "https://www.math.miami.edu/~wachs/papers/tmc.pdf",
+          "material_read": "§9.1 p. 40 and p. 41 New developments, offsets 98800 and 100400",
+          "method": "Bounded primary survey PDF inspection",
+          "title": "Topology of matching, chessboard, and general bounded degree graph complexes",
+          "trigger": "Survey of broader multidimensional classification and later developments"
+        },
+        {
+          "assessment": "Different underlying object and opposite matching constraint.",
+          "evidence": "Nonmatching subsets of ordinary graph edges, with matching number at most two, have a wedge of three S⁵s.",
+          "identifier_or_url": "2026/10/18/SCOPE-three-fifth-spheres-and-signed-octahedral-symmetry-in-a-three-no--0bbcbb52ec65",
+          "material_read": "Indexed finding on K_{2,2,2} nonmatching complex",
+          "method": "Bounded Resultary statement comparison",
+          "title": "Three fifth spheres and signed octahedral symmetry in a three-nonmatching complex",
+          "trigger": "Same-day tripartite matching-related homotopy type"
+        },
+        {
+          "assessment": "Different complex.",
+          "evidence": "Matching complex of the Cartesian graph P_2 □ P_3 □ P_3, not the clique complex on pairwise coordinate-disjoint placements.",
+          "identifier_or_url": "2026/10/25/SCOPE-the-three-dimensional-2-times3-times3-grid-matching-complex-is-a--2e1452e7c48b",
+          "material_read": "Indexed finding identifying the underlying graph",
+          "method": "Bounded Resultary statement comparison",
+          "title": "Three-dimensional 2×3×3 grid matching complex",
+          "trigger": "Three-dimensional grid alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This natural small-side infinite family has an exact, integral homotopy classification, not merely a connectivity bound or table of ranks. The block graph explains why the fundamental group is nontrivial at arbitrarily large n even though each ordinary block is simply connected, and why there are genuine torus summands at n=4. That gives structural information of independent use when testing broader multidimensional chessboard claims.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

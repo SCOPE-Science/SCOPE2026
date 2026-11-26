@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:26:33.012887Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Re-audited /workspace/repairs/4/RESULT.md and SLOGAN.txt. The original mathematical boundary and coefficient formula are correct; the repair changes the contribution, not the underlying law or limits. The exact published PGF gives distinct numerator factors 1+bs and 1−rs and the double pole factor (1−qs)^(−2), so λ_k=(2q^k−r^k+(−1)^(k+1)b^k)/k as a formal coefficient. The positive zero atom gives n[s^k]G(s)^(1/n)→λ_k, so a negative coefficient rules out arbitrarily fine PGF roots. The b≤q case has strictly positive summable intensities even at equality; the b>q case has positive odd coefficients and eventually negative even coefficients. For fixed θ, ρ=r/q<1 and t=log(b/q)>0, even k is forbidden exactly when exp(kt)+ρ^k>2. Since each finite prefix is strictly positive at t=0, K→infinity. The first even k≥log(2)/t bounds K from above (ρ^k>0), and at K one has log(2−ρ^K)<Kt≤log 2+2t. This proves the exact limit and the finite-prefix consequence without a θ-uniform claim. Independent bounded replay: at θ=1 and b/q=1+1/n, compare the two rational powers (1+1/n)^k+(2/3)^k to 2 for even k starting at 2; n=10,100,1000 give first indices 8,70,694. Also, direct finite expansion of log(G/G(0)) from the convolved rational masses agreed with the formula through degree 11 at three θ values and b below, at, and above q. The supplied script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Letac, Malouche and Maurer's author-posted abstract specifies real powers and the two-factor series (1+z/c)^x(1−z)^(−y).",
+          "Bakouch et al. §3.2 gives the BPL PGF and uses it to derive moments, including expectation and variance.",
+          "Initial Resultary comparisons included ordinary Poisson–Lindley, which is unperturbed; Willmot's mixed-compound-Poisson result applies to an infinitely divisible mixer, not to the added Bernoulli convolution."
+        ],
+        "reasoning": "The two-factor convolution-power result can illuminate the dominant pole/zero comparison, but its family does not contain the BPL three-factor PGF. Neither a criterion for moment formulas nor divisibility of the unmodified starting law establishes the approaching-boundary coefficient-index asymptotic after the perturbation.",
+        "searches": [
+          "Resultary: BPL Bernoulli Poisson Lindley convolution powers Letac negative binomial Bernoulli",
+          "Primary literature: the real powers of the convolution of a negative binomial distribution and a Bernoulli distribution Letac Malouche Maurer pdf Toulouse full text",
+          "Bakouch et al., doi:10.3390/axioms12090813, §3.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary original match and same-family thinning RESULT.md at offsets 0 and 6500",
+        "doi:10.3390/axioms12090813, p. 7 §3.2",
+        "doi:10.1090/S0002-9939-02-05352-2, author-posted abstract",
+        "Willmot, doi:10.1017/S051503610001165X, p. 5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching thinning result explicitly derives v_(2j)<0 eventually for b>q and v_(2j)>0 for b≤q, exactly covering the boundary and intensity part of the original record.",
+          "Its main theorem tests v_1≥v_2 and v_2≥v_3 in the compound-Poisson domain. This compares adjacent canonical coefficients, not the earliest strictly negative coefficient outside that domain."
+        ],
+        "reasoning": "The retained scale requires controlling the first crossing uniformly in the competing small t and large k regime: fixed-index positivity at t=0, the positive subdominant term ρ^K, and parity rounding are all used. The cited cutoff or a stronger thinning characterization does not as stated give that exact moving-index law; the repair makes no originality claim for the ingredient sign formulas.",
+        "searches": [
+          "Resultary: A two-index thinning self-decomposability criterion for Bernoulli-Poisson-Lindley counts",
+          "doi:10.3390/axioms12090813, p. 7 §3.2",
+          "doi:10.1090/S0002-9939-02-05352-2, author-posted abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching thinning record has the same normalized PGF and exact λ_k formula in Proof §1, then proves b≤q iff ordinary compound Poisson in §2 (RESULT.md offset 0).",
+          "The exact moving-index hit is the supplied finding itself, not an antecedent."
+        ],
+        "reasoning": "The variables q,r,b use the same definitions and the same model, so the cutoff and intensities are genuinely equivalent. In contrast, nonnegativity of every coefficient below the boundary or eventual negativity above it is not a first-failure rate; the repaired claim needs the k→infinity and t→0 limits together.",
+        "searches": [
+          "Resultary: Bernoulli Poisson-Lindley infinite divisibility alpha 1/(theta+2) first negative coefficient",
+          "Resultary: A two-index thinning self-decomposability criterion for Bernoulli-Poisson-Lindley counts",
+          "Resultary: first negative even log PGF coefficient divergence K log(b/q) log 2 obstruction threshold Bernoulli Poisson Lindley Bernoulli perturbation geometric two same poles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The supplied exact Resultary entry includes the limit. The same cutoff in the thinning record is used for its finite adjacent-comparison criteria; the latter's Relationship to prior work and Limitations (RESULT.md offset 6500) describe that holding-region result, not K above the cutoff."
+        ],
+        "reasoning": "No independent exact tabulation or statement of the retained limit was identified. Low-order canonical tests in the regime where the law is already compound Poisson do not tabulate first negative logarithmic coefficients above the cutoff. Search scope does not certify global priority.",
+        "searches": [
+          "Resultary: first negative even log PGF coefficient divergence K log(b/q) log 2 obstruction threshold Bernoulli Poisson Lindley Bernoulli perturbation geometric two same poles",
+          "Primary literature: Bernoulli Poisson Lindley logarithmic generating function first negative coefficient log 2 near threshold index infinite divisibility Bernoulli perturbation negative binomial"
+        ]
+      },
+      "rationale": "Only the repaired first-negative-coefficient asymptotic is passed for originality. The original boundary and logarithmic intensities are independently covered by Proof §§1–2 of the matching-family thinning result. Its listing is dated the same day as the supplied record, so no intraday priority is inferred. The repair cites that coverage, keeps ordinary divisibility solely as background, and retains the separately motivated limit for the first detecting index. The inspected comparisons do not state or settle that limit as a criterion or table of values.",
+      "residual_risks": [
+        "The exact boundary overlap is certain; ordering of the two same-day findings is not inferred.",
+        "The original full text of Letac, Malouche and Maurer was not independently readable. General calculations on the first obstruction for perturbed mixed-Poisson laws might imply similar rates; priority is limited to the comparisons made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact same PGF; this passage gives moment formulas, not the moving-index result.",
+          "evidence": [
+            "P(s)=[1+(s−1)α] θ²(θ+2−s)/[(1+θ)(1+θ−s)²]."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/axioms12090813",
+          "material_read": "Primary PDF p. 7 §3.2, passage at text offset 24200 and PGF near 24592",
+          "method": "Read bounded original PDF passage",
+          "title": "A Flexible Dispersed Count Model Based on Bernoulli Poisson–Lindley Convolution and Its Regression Model",
+          "trigger": "Exact primary BPL distribution and possible divisibility analysis"
+        },
+        {
+          "assessment": "Direct coverage of cutoff and intensities; the inspected result does not cover the retained moving-index limit.",
+          "evidence": [
+            "Proof §2: b≤q is exactly the ordinary compound-Poisson domain. The theorem in the Finding then imposes two adjacent canonical comparisons for thinning."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-two-index-thinning-self-decomposability-criterion-for-bernoull--12cdb9820df2/RESULT.md",
+          "material_read": "Finding, assumptions and Proof §§1–3 (offset 0), Relationship to prior work and Limitations (offset 6500)",
+          "method": "Read exact linked claims and proofs",
+          "title": "A two-index thinning self-decomposability criterion for Bernoulli–Poisson–Lindley counts",
+          "trigger": "Possible exact or stronger coverage of the original record"
+        },
+        {
+          "assessment": "Different generating function in the abstract; no whole-paper noncoverage claim.",
+          "evidence": [
+            "The family addressed in the abstract is (1+z/c)^x(1−z)^(−y) and the computed set concerns the existence of real convolution powers."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9939-02-05352-2",
+          "material_read": "Author-posted abstract, https://dhafermalouche.netlify.app/publication/letac2002-real-powers/; original full text unavailable in the inspected routes",
+          "method": "Read author's public abstract and attempted lawful original full-text retrieval",
+          "title": "The Real Powers of the Convolution of a Negative Binomial Distribution and a Bernoulli Distribution",
+          "trigger": "Plausibly broader coefficient-positivity theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired claim gives a naturally defined detection index for a false compound-Poisson diagnosis, rather than just observing that some very high coefficient is negative. Above the boundary at fixed θ it shows quantitatively how long every finite sign test can misleadingly pass: the required order grows like log(2)/log(b/q), with exact leading constant and parity. This is an independently useful limitation of truncation diagnostics in a published count family. The already covered cutoff is not used as the basis of the originality or value determination.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

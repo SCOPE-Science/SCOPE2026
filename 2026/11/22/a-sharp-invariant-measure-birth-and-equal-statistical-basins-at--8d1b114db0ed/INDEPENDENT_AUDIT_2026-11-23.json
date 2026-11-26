@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:40:23.827464Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the positive left half, the return is G(x)=16cx^2(1-x)^2, strictly increasing as a function on the half interval. The ratio G(x)/x peaks at 64c/27 and at 1/2 equals 2c. Thus the sign regions and monotone, no-overshoot returns give the 0/1/2 positive fixed-point census and the precise phase limits. The only genuine cycles of F have period two. At 0, the polynomial is an extension, not the true return: 0->1/2->1->c. This attaches 0 to the periodic basin at and above threshold and to the ghost below. The right separator is L(r)=1/2+sqrt(r/(4c)), giving ghost length r+sqrt(r/(4c)); its two terms decrease strictly with c above the fold. Direct exact substitution gives 7/9 and 1/2 at the two marked parameters. Empirical limits are the phase averages; applying bounded convergence to continuous test functions against any invariant measure makes it a mixture of those limits with basin-mass weights. Since only the ghost limit changes under pushforward, its coefficient must vanish. This proves the invariant-probability census without using continuity of F at the border. Independently, x(1-x)^2=4/27-h^2+h^3 for h=x-1/3. Expansion of 1/(16c) gives the 16/27 fold coefficient, and at the fold h_next=h-(9/4)h^2+O(h^3) on the attracting side so n*h_n->4/9. For positive left ghost returns, y_n=16c*x_n satisfies y_next=y_n^2(1-x_n)^2. The positive increments of -2^(-n)log y_n are -2^(-n)log(1-x_n); the weighted tail times 2^n tends to zero, proving the stated doubly exponential equivalent. The even-phase rate in part (iii) uses positive left ghost starts, as given by its basin formula. If extending the rate to the subcritical start x=0, reindex at F^3(0)=c: the original even iterates then tend to 1/2, not to 0. This phase exception does not affect the all-orbit empirical claim. Independent exact identities are replayable with python /workspace/branches/independent-algebra.py (item 3); continuum claims follow from the orbit argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-day variable-exponent theorem and earlier quadratic cusp assume a>b, with q=(1-a)/(1-b)<1. At d=2 the limiting normalized return at q=1 is r(2u-u^2)^2 with r=2c, and the limiting fold r=27/32 corresponds to c=27/64. The statements do not include q=1 and do not analyze the actual orbit of the exceptional point there.",
+          "The November 1 border theorem does cover a=b ghosts with no invariant probability but assumes c<b/d^2, hence c<1/8 in this slice, strictly below 27/64."
+        ],
+        "reasoning": "A continuous limit of formulas for nonzero return fixed points does not transport invariant probabilities or empirical basins through the discontinuity. The small-c result really covers part of the subcritical side, not the sharp transition or coexistence.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-a-variable-exponent-cusp-and-inevitable-high-degree-bistability--b9e8fc30adbd",
+          "Resultary 2026/11/8/SCOPE-a-cusp-of-coexisting-two-cycles-in-a-fixed-point-free-quadratic--dd9acbf9570b",
+          "Resultary 2026/11/1/SCOPE-an-attracting-two-cycle-disappears-into-a-nonstationary-ghost-at--3ab687079720"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3390/sym15071311",
+        "arXiv:1812.04534",
+        "arXiv:1108.1501",
+        "Resultary b9e8fc30adbd, dd9acbf9570b, 3ab687079720",
+        "doi:10.1007/s11071-024-09349-6 (limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The interior strict-alternation return has positive image of zero, so its theorem cannot distinguish the boundary return extension from the genuine F^2(0)=1. A limiting fold value plus the contraction-only no-invariance theorem does not prove the three-regime partition, the 2/9 physical onset, or the half/half endpoint.",
+          "The 2024 follow-up is a named plausible overlap. Direct OA and targeted open manuscript search yielded no usable primary full text; this is not a finding of noncoverage."
+        ],
+        "reasoning": "The novel increment needs the real branch convention, the full basin argument and the invariant-versus-empirical distinction, not just parameter substitution into a prior analytic fold number.",
+        "searches": [
+          "Resultary b9e8fc30adbd Finding/Assumptions/Proof §1",
+          "Resultary 3ab687079720 Finding/Assumptions/Proof §1",
+          "\"10.1007/s11071-024-09349-6\" \"Discrete one-dimensional piecewise chaotic systems without fixed points\" Lawnik Moysis Baptista Volos accepted manuscript PDF open repository"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lawnik–Moysis–Volos Eq. (15) specializes exactly to the same map, including the side taking the endpoint at b. Lemma 1 excludes fixed points for d>=1 and Figs. 4–5 present fixed-point and Lyapunov scans; those passages do not classify invariant probabilities or empirical basins.",
+          "Kryzhevich's T(x)=x/2 for x>0 and T(0)=1 already has no invariant probability, but has a different return and no threshold. Catsigeras et al. formulate ghost orbits for piecewise contracting maps; the quantitative family here is not piecewise contracting throughout its range."
+        ],
+        "reasoning": "Nonexistence and ghost behavior are not themselves new. The joint classification uses the actual two-step map on positive starts and its discrepancy with the extension at zero; changing to the extension can add an artificial stationary point.",
+        "searches": [
+          "Lawnik–Moysis–Volos doi:10.3390/sym15071311 Eq. (15), §4.1",
+          "arXiv:1812.04534 Example 0.1",
+          "arXiv:1108.1501 §4, Definition 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct exact catalogue laws are the two strict-interior cycle/fold classifications and the small-c border ghost. Their parameter conditions exclude an exact classification of the entire closed endpoint range under review.",
+          "The source paper's scans for b=1/2,d=2 classify fixed-point conditions or signs of the Lyapunov exponent, not exact Lebesgue empirical basin lengths such as 7/9 and 1/2."
+        ],
+        "reasoning": "An exact fold value as a boundary limit or a numerical plot over the same parameter coordinates is not a table of invariant probabilities or basin masses. No priority date is assigned by same-day catalogue appearance.",
+        "searches": [
+          "Resultary b9e8fc30adbd, dd9acbf9570b, 3ab687079720",
+          "doi:10.3390/sym15071311 §4.1 and Figs. 4–5"
+        ]
+      },
+      "rationale": "Fixed-point absence, non-invariant limit phenomena, and low-c border nonexistence are known. The strict-alternation fold even has this numerical threshold as a boundary limit. What survives is the true discontinuous-border orbit and invariant-measure classification across the sharp threshold, with positive critical basin and exact supercritical empirical partition including the equal endpoint split.",
+      "residual_risks": [
+        "The 2024 follow-up could not be inspected in relevant full text. No noncoverage conclusion follows from a retrieval problem or an irrelevant search result.",
+        "Equivalent unindexed sharp border results are possible; numerical fold limits and previously known pieces are credited regardless of priority ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same map family; fixed-point theorem and numerical diagrams, not the assessed invariant and empirical classification",
+          "evidence": "Eq. (15) includes x=b on its first branch. Lemma 1 excludes period one for d>=1. Figures 4 and 5 cover parameter sweeps for fixed-point and Lyapunov analyses.",
+          "identifier_or_url": "https://doi.org/10.3390/sym15071311",
+          "material_read": "Publisher PDF pp. 5–7, §4.1 Eq. (15), Lemma 1 and Figs. 3–5 with text (OA offsets 22500 and 28741)",
+          "method": "Lawful publisher-static original PDF passage reads",
+          "title": "A Family of 1D Chaotic Maps without Equilibria",
+          "trigger": "Original same-family definition and exact quadratic example"
+        },
+        {
+          "assessment": "Excluded border, with a real fold boundary-limit overlap",
+          "evidence": "Assumes 0<c<b<a<1; at q->1 and d=2 its fold tends to r=27/32. Its theorem does not continue the invariant or empirical statements across a=b.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-a-variable-exponent-cusp-and-inevitable-high-degree-bistability--b9e8fc30adbd",
+          "material_read": "Mirrored RESULT.md Finding, Assumptions, Proof §1 through offset 4454",
+          "method": "Local catalogue and mirror",
+          "title": "A variable-exponent cusp and inevitable high-degree bistability",
+          "trigger": "Same-family stronger exponent variation and same-day fold overlap"
+        },
+        {
+          "assessment": "Requires strict 0<b<a",
+          "evidence": "The normalized k[1-q(1-t)^2]^2 return is analyzed for q<1, not the discontinuity-specific q=1 classification.",
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-a-cusp-of-coexisting-two-cycles-in-a-fixed-point-free-quadratic--dd9acbf9570b",
+          "material_read": "Mirrored RESULT.md Finding, Assumptions and exact-return Proof through offset 4055",
+          "method": "Local catalogue and mirror",
+          "title": "A cusp of coexisting two-cycles in a fixed-point-free quadratic interval map",
+          "trigger": "Same d=2 return and exact fold/cycle geometry"
+        },
+        {
+          "assessment": "Covers a strict lower subset of subcritical parameters",
+          "evidence": "Contraction condition c<b/d^2 gives c<1/8 here, not c<27/64 or any of the invariant-cycle birth and coexistence statements.",
+          "identifier_or_url": "Resultary 2026/11/1/SCOPE-an-attracting-two-cycle-disappears-into-a-nonstationary-ghost-at--3ab687079720",
+          "material_read": "Mirrored RESULT.md Finding, Assumptions and Proof §1 through offset 4496",
+          "method": "Local catalogue and mirror",
+          "title": "An attracting two-cycle disappears into a nonstationary ghost at a discontinuity",
+          "trigger": "Direct border non-invariance and nonexistence overlap"
+        },
+        {
+          "assessment": "General phenomenon known; different dynamics",
+          "evidence": "T(0)=1, T(x)=x/2 otherwise has no invariant Borel probability.",
+          "identifier_or_url": "https://arxiv.org/pdf/1812.04534",
+          "material_read": "p. 1, Example 0.1, OA offset 1910",
+          "method": "Primary OA PDF passage",
+          "title": "Invariant measures for interval translations and some other piecewise continuous maps",
+          "trigger": "Prior nonexistence for a discontinuous compact interval map"
+        },
+        {
+          "assessment": "General piecewise-contracting ghost mechanism, not an exact theorem on the audited family",
+          "evidence": "Ghosts are generalized orbits for piecewise contracting maps; the positive return in this record can have multiplier exceeding 1.",
+          "identifier_or_url": "https://arxiv.org/pdf/1108.1501",
+          "material_read": "§4, Definition 4.1 and preceding example discussion, OA offset 28780",
+          "method": "Primary OA PDF passage",
+          "title": "On the asymptotic properties of piecewise contracting maps",
+          "trigger": "Prior ghost terminology and asymptotic behavior outside true orbit dynamics"
+        },
+        {
+          "assessment": "Named residual access/priority risk",
+          "evidence": "The packaged account describes a logistic/tent construction; that cannot by itself rule out overlapping results elsewhere in the paper.",
+          "identifier_or_url": "https://doi.org/10.1007/s11071-024-09349-6",
+          "material_read": "Identification and packaged scope comparison; no independent full text",
+          "method": "Lawful publisher OA request and targeted manuscript lookup",
+          "title": "Discrete one-dimensional piecewise chaotic systems without fixed points",
+          "trigger": "Same authors' later fixed-point-free construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The quadratic symmetric border is a natural part of the motivating family: the apparent return fixed point at zero is not an actual one. The full alternation-range classification shows exactly when true invariant probabilities first appear despite universal time-average convergence and quantifies how much initial mass selects the non-invariant limit. The 2/9 physical birth and the half-basin endpoint give real structural information beyond a known ghost example or a generic saddle-node. No claim is made beyond the stated border slice or about finite-precision behavior.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

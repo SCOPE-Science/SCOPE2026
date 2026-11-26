@@ -1,28 +1,21 @@
-# Mathematical review: two-local automorphisms of finite dihedral groups
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For every integer \(n\ge3\), automorphisms of \(D_{2n}\) are exactly \(r\mapsto r^a,\ s\mapsto r^bs\), with \(a\) a unit modulo \(n\). Two-point interpolation on pairs of rotations forces one global multiplier \(u\); pairs of reflections are simultaneously interpolable precisely when the gcd of their index difference with \(n\) is preserved. The necessary unit-multiplier congruence is proved prime-power by prime-power, with the Chinese remainder theorem ensuring the converse. Mixed pairs impose no coupling because a reflection translation parameter remains free. The resulting congruence-preserving reflection permutations split into rooted-tree automorphism groups at each prime power. The number of internal tree nodes gives the complete order formula. The cases \(n=1,2\) are treated separately because the rotation subgroup is not characteristic at \(n=2\). All assertions follow from explicit constructive arguments, not extrapolation.
+PASS
 
-The checker independently constructs actual dihedral automorphisms and tests every ordered pair for every proposed two-local permutation for \(3\le n\le8\). It also enumerates all underlying-set permutations directly for \(n=1,2,3\). These are corroborations, not substitutes for the proof.
+For n≥3 the rotations are characteristic because any generator of a cyclic subgroup of order n must be a rotation. The presentation then gives exactly the automorphisms (a,b) acting by ai on rotations and ai+b on reflections. Pairing with r fixes all the rotation images using one unit u, and the reflection images define a permutation π by injectivity. Interpolation at reflections i,j asks for a unit a with a(i−j)=π(i)−π(j) modulo n. At each p^e a common capped valuation t<e reduces this to division of units modulo p^(e−t); any lift is a unit. At t=e there is no restriction. CRT combines the choices. Mixed pairs impose no coupling because a=u fixes the rotation and the freely chosen b fixes the reflection. Composition is coordinatewise. Each congruence relation modulo p^k is preserved in both directions. At k=e this forces the p^e output to factor through the p^e input, so the CRT factors are independent; the lower congruence levels yield precisely the rooted p-ary tree automorphisms. The independent child permutations at (p^e−1)/(p−1) internal nodes give the stated order. The automorphism subgroup has size nφ(n), and taking u=1 and π(i)=−i gives a nonhomomorphic local map for every n≥3. The order-two and Klein-four boundaries follow directly from fixing the identity and being injective. Independent enumeration of all set permutations for n=3,4 gave respectively 12 and 16 two-local maps, agreeing at the level of sets, not just counts.
 
-## Originality
+## originality
 
-**PASS with historical-priority qualification.** Molnár and Šemrl, *Local automorphisms of some classical groups* (arXiv:2604.24299, first public 2026-04-27), define the same two-point group-locality condition but establish results about real and complex matrix groups, not finite dihedral groups. The more traditional equivalent concept is the 2-closure of a permutation group in its given action; treating the word "local" alone as a novelty test would be inadequate. Yu and Pan (2019) address primitive holomorph-type actions, whereas the action here is intransitive and is the natural action of the finite dihedral automorphism group on all group elements. Grech and Kisielewicz (2022) study the 2-closure of abelian permutation groups in general but do not state the present finite-dihedral classification.
+PASS
 
-Importantly, Klin and Kovács (2010), Theorem 1.1 and Section 6, establish generalized-wreath-product descriptions for automorphism groups of cyclic congruence block structures. The reflection gcd-preserving factor is therefore **not** presented as independently new. The claimed contribution is the exact full-group two-point interpolation classification, the independence of rotation and reflection parameters, and its all-\(n\) index. Searches under "2-local automorphisms", "pair-orbit closure", "dihedral", "gcd distance", and associated finite-permutation formulations found no statement covering those combined assertions. Historical priority against all equivalent coherent-configuration descriptions has not been established by independent audit; another source may imply the formula.
+The distinct claim is the full intransitive natural-action 2-closure, with mixed interpolation allowing independent choices of the rotation multiplier and the reflection permutation. The cyclic affine factor and tree order technology are not credited as new. In the inspected sources neither that full uncoupling nor its all-n consequence for the index is stated or supplied by a theorem specialized to this action.
 
-## Mathematical value
+## value
 
-**PASS.** The 2026 group-local-automorphism work explicitly motivates determining when local behavior forces global homomorphisms. The theorem completely resolves that question for every ordinary finite dihedral group, not a hand-selected group order: every \(n\ge3\) admits nonglobal two-local maps, and the order and group structure of all such maps are exact. The natural nontrivial arithmetical separation between unit slopes on rotations and congruence isometries of reflections gives a structural mechanism, while the index and rooted-tree factors reveal the extent of nonrigidity. This is a motivated finite-group classification, though no assertion of broad consequences for unrelated group families is made.
+PASS
 
-## Closest sources and limits
+This is a natural complete family calculation for two-point interpolation: it identifies precisely the independent choices responsible for local but nonglobal automorphisms and gives their exact excess for every modulus, including composite moduli and the two boundary groups. That answers more than finding an isolated counterexample or recomputing automorphism orders.
 
-- Molnár–Šemrl (2026), arXiv:2604.24299: identical locality definition, different groups.
-- Klin–Kovács (2010), arXiv:1008.0751: strong prior coverage of congruence-block automorphism and generalized-wreath factors; does not state the full dihedral two-local map classification.
-- Yu–Pan (2019), DOI:10.1515/math-2019-0063: primitive holomorph-type 2-closures, different permutation action.
-- Grech–Kisielewicz (2022), DOI:10.1007/s10801-021-01060-8: criteria for abelian permutation groups, not this generally nonabelian action.
-
-Research limitations: no claim on general finite groups, noncyclic generalized-dihedral kernels, or 1-local maps. Potential implicit earlier coverage through orbital/coherent-configuration language remains a specific historical-priority risk. Independent human validation has not been conducted.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

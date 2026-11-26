@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:35:46.994605Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Positive-good EFX reduces exactly to L_i≥S_ij−s_ij for a nonempty parallel-edge subbundle owned by j, because deletion of its lightest edge leaves its highest remaining value to i. At a violation, L_j−L_i>s_ij>0. The two loads after moving that edge are a doubly stochastic mixing of the old pair, with parameter s_ij/(L_j−L_i) strictly between 0 and 1. This proves the Lorenz comparison for the entire vector even if the loads cross. The square cost drops by 2s_ij(L_j−L_i−s_ij)>0; finite orientations ensure termination for arbitrary real weights. Fixed total, exact endpoint assignment and majorization give the Schur-objective consequences. In the nonexistence example, vertex 2 has possible load 0,4,8; load 4 forces max at least 7 and min at most 4, and load 8 forces min at most 5 and max at least 8, proving the two cited optima are incomparable and undominated. In the asymmetric example, every split has peak R and the unconstrained minimum is 2. The frozen checker was inspected, not run; its bounded integer checks are not the real-weight proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first gives constructive EFX existence for broader cancelable valuations. The second gives complete EFX with two relevant agents and common positive value per good, using a basic feasible start, virtual values and a potential with satisfied-agent count and Nash welfare."
+        ],
+        "reasoning": "Existence and the cited virtual-value or Nash-welfare comparisons do not guarantee Lorenz improvement of realized loads from every orientation. A better value of one welfare objective alone cannot establish all Lorenz inequalities.",
+        "searches": [
+          "arXiv:2606.18665, multigraph EFX with cancelable valuations",
+          "arXiv:2407.05139, Section 8, p=2 restricted additive valuations"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary semantic index (including assigned self-hit 6a3dd5f909e2 and path record 8c2d9b382e72)",
+        "arXiv:2606.18665",
+        "arXiv:2407.05139",
+        "DOI 10.1609/aaai.v35i6.16647"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen transfer uses the same indivisible weight gained and lost and strict gap L_j−L_i>s. The inspected prior methods instead give broader existence by different update invariants or a binary Lorenz guarantee."
+        ],
+        "reasoning": "A known weighted local exchange from every violating orientation that is a doubly stochastic mixing of realized loads would imply the theorem. The compared statements and inspected update invariants do not provide this. Pareto efficiency, total welfare, or EFX existence do not imply Lorenz cofinality.",
+        "searches": [
+          "arXiv:2407.05139, Section 8 PQRAX update invariant",
+          "arXiv:2606.18665, EFX existence and tree-reduction potential",
+          "Babaioff–Ezra–Feige, Lorenz guarantee"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Babaioff–Ezra–Feige construct Lorenz-dominating allocations, hence EFX, in the submodular dichotomous domain. The assigned statement is Lorenz cofinality under fixed-total utility vectors, not existence of a common maximum."
+        ],
+        "reasoning": "The binary-marginal domain includes unit edge weights, but arbitrary heterogeneous edge weights do not satisfy dichotomous marginals. Scaling the whole instance or replacing a weighted edge by independently assignable unit goods does not preserve that edge's indivisibility.",
+        "searches": [
+          "Resultary: weighted graphical EFX, majorization and Lorenz improving orientation repair",
+          "Babaioff–Ezra–Feige, DOI 10.1609/aaai.v35i6.16647"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The top hit 6a3dd5f909e2 is the assigned result. The distinct weighted-path record 8c2d9b382e72 gives exact sharp counts for zero-inclusive EFX, including a recurrence and a perturbation example."
+        ],
+        "reasoning": "This is an order comparison over arbitrary real-weight instances, not an exact finite census; the closest counting theorem concerns a different EFX quantifier and does not compare load profiles.",
+        "searches": [
+          "Resultary: EFX orientations with positive equal endpoint weights; 6a3dd5f909e2 and 8c2d9b382e72"
+        ]
+      },
+      "rationale": "The supported distinct assertion is Lorenz cofinality of positive-good EFX orientations at heterogeneous symmetric weights, or equivalently a balancing repair of every complete orientation. Prior existence in richer classes and Lorenz dominance in dichotomous classes do not give that assertion. No independent covered statement or local transfer theorem establishing the weighted property was identified in the compared sources.",
+      "residual_risks": [
+        "Statement-level comparisons and selected proof passages do not rule out an equivalent weighted exchange lemma elsewhere in the allocation or load-balancing literature. No global priority conclusion is reached."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader EFX existence; no same load-repair conclusion in inspected statements",
+          "evidence": [
+            "Cancelable valuations and constructive EFX; tree-reduction potential uses depth, not Lorenz constraints on realized loads."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.18665",
+          "material_read": "PDF pp. 1–3 at offsets 3065 and 11092; tree-reduction potential, p. 14",
+          "method": "OA primary text and focused passage lookup",
+          "title": "EFX Allocations Exist on Multi-Graphs",
+          "trigger": "Same multigraph EFX question in a broader valuation class"
+        },
+        {
+          "assessment": "Nearby complete EFX theorem and different update invariant; no arbitrary-start Lorenz statement in passages read",
+          "evidence": [
+            "The Section 8 invariant quantifies over every g in the target bundle and uses virtual value. The algorithm uses satisfied-agent count and Nash welfare as potential."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.05139",
+          "material_read": "Abstract, restricted-additive definition, and Section 8 pp. 21–22 at offset 85427",
+          "method": "OA primary PDF text",
+          "title": "Almost Envy-free Allocation of Indivisible Goods: A Tale of Two Valuations",
+          "trigger": "Same common value per good with two relevant agents"
+        },
+        {
+          "assessment": "Covers the uniform dichotomous case, not arbitrary positive weights",
+          "evidence": [
+            "Lorenz-dominating allocation and EFX under submodular dichotomous valuations."
+          ],
+          "identifier_or_url": "https://doi.org/10.1609/aaai.v35i6.16647",
+          "material_read": "Primary PDF p. 1 near offset 2231 and p. 3 near offset 16176",
+          "method": "OA primary PDF text",
+          "title": "Fair and Truthful Mechanisms for Dichotomous Valuations",
+          "trigger": "Direct relation of Lorenz domination and EFX"
+        },
+        {
+          "assessment": "Counts labelled zero-inclusive EFX path orientations, not arbitrary-start repair",
+          "evidence": [
+            "Its quantifier includes deletion of goods valued at zero. Its exact formulas count orientations as a function of path size and weight pattern."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-efx-orientation-entropy-on-weighted-paths-and-its-collapse--8c2d9b382e72",
+          "material_read": "Mirrored RESULT.md Finding and assumptions, offsets 0–2494",
+          "method": "Resultary search and local mirrored primary text",
+          "title": "Sharp EFX orientation entropy on weighted paths and its collapse under monotone perturbations",
+          "trigger": "Distinct indexed work on symmetric weighted graphical EFX, even though dated the same day"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repair preserves every Lorenz lower-tail bound simultaneously from a prescribed allocation without discarding value. This materially strengthens mere existence and transfers to all Schur objectives in a weighted class where a single globally Lorenz-best orientation need not exist. It is not claimed as a polynomial-time optimization algorithm.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

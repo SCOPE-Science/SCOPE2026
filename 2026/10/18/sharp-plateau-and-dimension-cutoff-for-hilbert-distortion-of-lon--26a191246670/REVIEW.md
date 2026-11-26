@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The cycle-edge Lipschitz inequalities give the exact clipped-cube dual, and invariance under coordinate permutations rigorously reduces **every** positive-definite Hilbertian form to two eigenvalues. Exhaustive vertex classification gives the exterior maximum; dual quadratic support functions of the coordinate and sum facets give the exact boundary minimum. Explicit comparison of the two switching parameters followed by monotonicity on each of three intervals proves the global optimum for all real parameter values, not merely the sampled rational ones. The dimension cutoff is reduced to a polynomial sign calculation. The independently implemented checker passes ninety rational shell comparisons and forty-five numerical minimizations; these support, but do not substitute for, the proof.
+## correctness
 
-## Originality
-PASS under documented bibliographic limits. The weighted graph quotient (Ostrovska--Ostrovskii, arXiv:1910.03625) supplies the model but not the distance. The fully inspected close one-defect four-cycle proof concerns dimension three; the fully inspected one-short-edge cycle proof covers only \(0<t\le1\). The present domain is dimension at least five, odd dual dimension, and \(1<t\le2\). An equilateral-cycle result states only the common boundary value. Their statements do not imply the six-through-sixteen plateau and sharp disappearance at eighteen. Targeted semantic and literature searches produced no full-dimensional long-edge result. Inaccessible or differently named prior ellipsoid calculations cannot be categorically ruled out.
+PASS
 
-## Value
-PASS. The sharp disappearance of an interval of optimal Euclidean distortions above a finite, nontrivial dimension is geometric phase information, not a routine restatement of a volume, facet, or four-cycle formula. The theorem resolves the natural one-long-edge deformation of every higher even cycle in a uniform interval, determining a dimension-dependent boundary between flat and strictly varying Hilbert distortion. It generalizes a previously isolated four-cycle phenomenon without counting that special case as new.
+Reconstructed RESULT.md lines 20–81. Unit-edge increments identify the anchored Lipschitz ball with the cube intersected by |Σx_i|≤t; the closing edge is essential since t<m. Duality preserves the real Hilbert distance. Averaging the two homogeneous norm-square inequalities over coordinate permutations preserves the distortion bounds, so optimizing the quadratic with eigenvalues 1 on the zero-sum subspace and r>0 on the constant direction is unrestricted. Odd m and 1<t≤2 leave exactly two feasible exterior vertex shells: cube sign vectors with sum ±1, or strip-edge vertices with fixed sign sum ±2 and free coordinate ±(t−2). This includes t=2. Evaluating q_r gives the two stated affine outer terms. The inverse quadratic gives the two exact facet-support squares (m−1+1/r)/m and m/(t²r); multiplying their maximum by the outer maximum gives the squared distortion. The exterior switch r_F exceeds r_G (the support-square switch), and r_F≥1+m/3≥√(m+1). In fact the first outer term alone times the support maximum is a global lower bound, strictly decreasing to r_G and then minimized at max(r_G,√(m+1)); at this minimizer the first outer term is still active. This proves the claimed global optimum without a symmetry restriction or any assumption about later contacts. The crossing r_G=√(m+1) occurs exactly at T_m, giving both formulas, which agree there. Differentiation shows strict decrease in the first region before T_m; the limit of the square as t↓1 is m. T_m>1 follows from √(m+1)<m+1. Since m²−4>0, squaring the T_m≤2 criterion gives the stated cubic; it is negative at each odd m=5 through 15 and positive for m≥17 (then m²(m−16)+8m+16>0). Thus equality T_m=2 does not occur in scope and every asserted plateau is nontrivial. The frozen checker was inspected, not executed here; the listed PASS lines are expected and the finite tests are not used in the proof.
 
-## Closest literature and limitations
-Primary starting point: Ostrovska--Ostrovskii, arXiv:1910.03625v1, and Alexander--Fradelizi--García-Lirola--Zvavitch, arXiv:1911.10642v1. Closest direct theorems: "Exact Euclidean distortion of a one-defect four-cycle transportation space" (cycle order four only), "Opposite parity laws for exact Hilbert distortion of one-edge weighted cycles" (exceptional edge at most one), and "Scalar-field parity in Euclidean distortion of cycle transportation spaces" (equal edges). The final theorem is restricted to even cycle orders at least six, real scalar spaces, and \(1<t\le2\). The possibility of unpublished or differently formulated equivalent results remains a residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The quotient and dual clipped-cube model are known, as are the unrestricted formulas for the four-cycle and for an exceptional edge no longer than one. The inspected statements do not cover the exact long-edge Hilbert optimum for odd m≥5, its two branches, or the order-sixteen plateau cutoff. This is a best-of-knowledge statement about the new parameter regime, not priority for the graph model or the general ellipsoid method.
+
+## value
+
+PASS
+
+The optimum concerns unrestricted real linear maps on a natural weighted cycle space, not just a proposed ellipsoid or near-optimal bound. It gives a sharp change from strictly improving distortion to constant distortion, and pinpoints the last even cycle order where the plateau occurs. That all-dimensional cutoff distinguishes the effect from the already known four-cycle plateau and is useful for understanding which active facets govern Euclidean conditioning as the exceptional length varies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

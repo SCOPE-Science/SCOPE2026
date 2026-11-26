@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:06:08.214745Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–42, with explicit one-insertion intervals, fiber count and sharp witnesses",
+        "VERIFICATION.md, verify.py and verify_output.txt: inspected, supplied script not executed",
+        "Independent enumeration by generating distinct double-deletion reads from every parent, grouping by syndrome and read, lengths 2–10; maxima (2,1,1) at n=2 and floor(n/2)+1 uniformly for 3–10"
+      ],
+      "rationale": "For one insertion the increments are 0 through w for inserting a zero and w+1 through n for inserting a one, with repetitions exactly the equivalent positions across constant runs. Thus the n distinct intermediate words over a fixed read map to unique parents in each fixed syndrome, and every two-deletion parent is reached. If two deleted coordinates were in different runs, their two individual deletions give different intermediates, so a singleton fiber requires a doubled symbol in one gap. The doubled-zero and doubled-one checksums are the two step-2 progressions in the proof, with opposite parity. Each has fewer than N terms for N=n+1: for odd N each can hit a residue at most once, and for even N at most one progression can hit that residue and at most twice. At most two singleton fibers imply 2L≤n+2. For sharpness, the all-zero read uses complementary pairs, or for odd n and odd a the fixed-point-free residue involution with its zero-incident pair removed. The odd-n even-a cases use the stated short supports and triples; for a≥6 the pairs incident to 0 and 1 are distinct and remove exactly two pairs. For even n the five triple branches have sums N+r, and the retained one is respectively at r, r+2, r, r+1, r+2, shifted back by 0,2,0,1,2 positions. They have distinct below/equal/above-r patterns except the second and last branches, distinguished by r−1; each branch recovers its original pair. The short supports and reversal finish the construction. Direct parent-word enumeration also confirms the n=2 exception (2,1,1).",
+      "residual_risks": [
+        "The independent enumeration is bounded; the all-length conclusion comes from the proof. The recorded supplied run extends through n=13 for exhaustive maxima and n=80 for witness tests, not for an exhaustive census at n=80."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The average-list paper addresses a broader class of single-edit-correcting codes and gives average results, including averaging over VT classes.",
+          "e9733e35c471 optimizes codebook size with lists for length-two subsequences, deleting n−2 symbols. 0e97f122e867 optimizes arbitrary length-seven codebooks for two deletions and list budgets."
+        ],
+        "reasoning": "Neither generality in codebook choice nor a constraint on list budgets determines the optimum over reads for each specified checksum class; the average estimates also change the quantifiers.",
+        "searches": [
+          "Banerjee–Con–Wachter-Zeh–Yaakobi, arXiv:2610.15767v1, pp. 1–2",
+          "Resultary e9733e35c471",
+          "Resultary 0e97f122e867"
+        ]
+      },
+      "checked_sources": [
+        "Wachter-Zeh, arXiv:1701.02612v4",
+        "Banerjee et al., arXiv:2610.15767v1",
+        "Resultary 62b2e855dedf, 0e97f122e867 and e9733e35c471"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2 is a lower bound on a maximum for VT₀, not the asserted equality simultaneously for all syndromes. The candidate-generation algorithm gives at most n candidates before collapsing coincident parents.",
+          "The deletion results of Banerjee et al. studied here concern averages, including a lower bound averaged across syndromes."
+        ],
+        "reasoning": "The algorithm's natural n bound (not an assertion of exact list size in Theorem 2) does not give the sharpened bound: one must control the singleton fibers after identifying coincident parents. Neither prior average bounds nor the VT₀ lower bound constructs worst-case reads for each syndrome.",
+        "searches": [
+          "Wachter-Zeh, arXiv:1701.02612v4, Theorem 2 and two-deletion VT algorithm, pp. 6–7",
+          "Banerjee et al., arXiv:2610.15767v1, average bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wachter-Zeh uses intermediate supersequences and one-deletion decoding, so the insertion-superset and deletion-list perspectives really address the same parents there.",
+          "62b2e855dedf is differential VT at power-of-two lengths and counts distinct received words for each transmitted word under adjacent deletions."
+        ],
+        "reasoning": "Inverting the incidence relation identifies a deletion list with distinct insertion parents; it does not make row degrees of a burst-deletion incidence matrix into a maximum column degree for arbitrary deletions in ordinary VT classes.",
+        "searches": [
+          "Resultary: ordinary binary VT syndrome, exactly two arbitrary deletions, maximum number of distinct insertion supersets per read",
+          "Wachter-Zeh, arXiv:1701.02612v4, VT discussion",
+          "Resultary 62b2e855dedf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The length-seven indexed values are maximum codebook sizes at fixed list budgets, not maxima of each VT syndrome. The spectral catalogue counts outputs of differential VT codewords under a burst, not ordinary VT parents.",
+          "The focused lookup did not supply a matching table or formula; no absence inference is made from that lookup."
+        ],
+        "reasoning": "Even an exact length-seven capacity table or an infinite differential-VT output spectrum would not enumerate the stated all-length per-syndrome maximum. Frozen finite test output is corroboration only, not prior coverage.",
+        "searches": [
+          "Resultary 0e97f122e867 exact length-seven capacity values",
+          "Resultary 62b2e855dedf exact spectra",
+          "Focused literature lookup for the binary VT exact two-deletion maximum"
+        ]
+      },
+      "rationale": "The supported distinct statement is the sharp all-syndrome maximum for exactly two arbitrary deletions from ordinary binary VT classes, with achievable reads and explicit parents. The inspected closest results concern averages, lower bounds, candidate generation, deletion balls in the opposite direction, or different code/channel families.",
+      "residual_risks": [
+        "The focused comparison does not establish universal historical priority. An unlocated prior exact determination in ordinary VT classes could change the originality assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlaps in candidate-generation method, not exact all-syndrome maximum",
+          "evidence": [
+            "Theorem 2 is labeled a lower bound for deletion lists; the algorithm uses length-(n−1) supersequences and the single-deletion decoder."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1701.02612v4",
+          "material_read": "pp. 6–7, Theorem 2 and algorithm, extracted passages near offsets 50400 and 56511",
+          "method": "Bounded primary text inspection",
+          "title": "List Decoding of Insertions and Deletions",
+          "trigger": "Same VT parent lists and two-deletion algorithm"
+        },
+        {
+          "assessment": "Average rather than fixed-class worst-case result",
+          "evidence": [
+            "The deletion lower bound is an average result over VT codes, not sharpness for each syndrome."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.15767v1",
+          "material_read": "Opening and relevant average-list passages, extracted offsets 1671, 10783 and 13184",
+          "method": "Bounded primary text inspection",
+          "title": "On the Average List Size of VT Codes under Two Insertions or Two Deletions",
+          "trigger": "Same channel and VT family"
+        },
+        {
+          "assessment": "Different code, permitted deletions and counting direction",
+          "evidence": [
+            "Adjacent two deletions and distinct output counts, at power-of-two lengths."
+          ],
+          "identifier_or_url": "62b2e855dedf",
+          "material_read": "Opening RESULT.md finding, offset 0",
+          "method": "Local mirror statement inspection",
+          "title": "Two exact burst-deletion sphere spectra in power-of-two differential VT codes",
+          "trigger": "Closest exact VT-index match"
+        },
+        {
+          "assessment": "No exact per-syndrome VT table",
+          "evidence": [
+            "Length-seven arbitrary-codebook capacities at list budgets 1–6."
+          ],
+          "identifier_or_url": "0e97f122e867",
+          "material_read": "Opening RESULT.md finding, offset 0",
+          "method": "Local mirror statement inspection",
+          "title": "Exact low-list profile and fractional packing gap for seven-bit deletion codes",
+          "trigger": "Exact table in two-deletion list coding"
+        },
+        {
+          "assessment": "Different retained-length domain and extremum",
+          "evidence": [
+            "Optimizes codebook size given list budgets for subsequences of length two."
+          ],
+          "identifier_or_url": "e9733e35c471",
+          "material_read": "Opening RESULT.md finding, offset 0",
+          "method": "Local mirror statement inspection",
+          "title": "Sharp saturation of binary two-symbol deletion list codes",
+          "trigger": "Potentially equivalent same-day deletion-list result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 18–42, upper bound and witness constructions",
+        "Wachter-Zeh two-deletion algorithm and Banerjee et al. average-list scope"
+      ],
+      "rationale": "A decoder for a specified VT class needs the worst possible number of distinct candidates, not a class-averaged typical list size. The sharp improvement over the immediate n-candidate bound is substantial, and the proof explains it through the one-deletion intermediate fibers and supplies worst-case reads for every class rather than a single favorable syndrome.",
+      "residual_risks": [
+        "This is an exact list-size guarantee, not a decoding runtime guarantee or a claim about other edit channels."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

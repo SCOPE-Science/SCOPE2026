@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-`verify.py` reconstructs the eight-letter alphabet, the source transition relation, the map from letters to pairs of residue classes, and the four numerical residue-class parameters of the sharp pair. For every structurally admissible word of lengths \(1\) through \(7\), it solves the chained linear Diophantine system exactly by repeated gcd congruence reduction. It then checks the same-parity distinctness criterion symbolically on the resulting affine one-parameter family.
+# Independent mathematical audit
 
-The output verifies the exact triples \((n,	ext{total},	ext{integer},	ext{exact})\): \((1,8,8,8)\), \((2,16,8,8)\), \((3,32,8,8)\), \((4,64,6,6)\), \((5,128,4,4)\), \((6,256,2,2)\), and \((7,512,0,0)\). It also identifies the two length-\(6\) survivors, evaluates the four displayed integer cycles directly, and checks the least-common-multiple and certificate-minimality assertions.
+## correctness
 
-The calculation is finite and exact. The implication from zero exact length-\(7\) interpretations to finite order, and the divisor \(840\) upper bound for finite order, are cited from Theorems 6.4 and 7.1 of arXiv:2610.01793v1 rather than inferred computationally.
+PASS
+
+Checked the χ table, overlap rule, integer-chain equations and same-parity distinctness against Iskra §3. Equivalently, after χ(XY) the next letter must start at the partner of Y in its transposition; there are two choices. Each next index is a rational affine function of the original integer index. Its integrality gives one linear congruence; after reducing each, the whole system is solvable iff the residue differences are divisible by the pairwise gcds of the moduli. On a nonempty solution progression, nonidentical affine forms at same-parity positions exclude at most one value per pair, while identical ones preclude exactness. An independent exact implementation, replayed as `python3 /workspace/branches/independent-checks.py 5`, obtained total counts 8,16,32,64,128,256,512, both interpretation counts 8,8,8,6,4,2,0, and precisely LqRpQl and LqPrQl at length six. At length seven integer infeasibility implies exact infeasibility, which is the hypothesis actually used in Theorem 6.4. Direct application of b then a reconstructed all four recorded cycles on distinct integers. Theorem 7.1 gives the reverse divisibility once finiteness holds, so the order is 840. With lengths at most eight, the factors 8, 5 and 7 force three separate lengths and the factor 3 forces a fourth. This is minimality only for individual-cycle certificates under that bound. Read the frozen verification, checker and stored output; this replay did not execute the uploaded checker and makes no Lean or expert-attestation claim.
+
+## originality
+
+PASS
+
+The order, the source theorems, existence of the relevant cycle lengths, and the elementary factor-count argument are not credited as new. The distinct supported content is the exact integer and exact-interpretation census, the concrete terminal words, and the explicit point-cycle data giving a check without RCWA. No examined prior statement supplies or forces those data merely from the already-known order or the aggregate cycle lengths.
+
+## value
+
+PASS
+
+This is the extremal example chosen by the source for the universal bound, not an arbitrary small pair. Its exact depth-six survivors and the obstruction to even integer interpretation at depth seven give a useful benchmark for the interpretation test, stronger than checking the known order. The short explicit cycles furnish a checkable lower-bound certificate without the original RCWA computation. Recomputing order 840, or the elementary minimum of four alone, would not justify acceptance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

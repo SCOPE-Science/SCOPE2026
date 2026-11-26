@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:40:39.648555Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For binary index i, take the state pair (parity of adjacent 11, last bit), encoded 0=(0,0), 1=(0,1), 2=(1,1), 3=(1,0). Appending a 0 preserves the parity and sets last bit zero; appending a 1 adds the old last bit and sets last bit one. These are precisely the stated uniform images, proving the sequence identification. All eight state pairs occur by the fourth substitution and expanding these pairs introduces no other pairs. Every length-2^k window meets at most two aligned blocks of length 2^k; each allowed pair really occurs, so the eight concatenations with offsets 0 through 2^k give exactly the infinite word's factor set. The separate exact replay at /workspace/branches/8bdc29b3-6289-4e2b-8b53-2f5c60787748/independent_replay.py uses fixed-width integer factor keys and exact lexicographic least rotations, with no probabilistic equality. Its class sizes count represented factors, not cyclic positions. /workspace/branches/8bdc29b3-6289-4e2b-8b53-2f5c60787748/replay_4_13.txt lines 3–12 give all ten complete rows and line 13 gives REPLAY_OK. Endpoint rows (n, factor total, class total, singleton, double, full) are (16,120,58,52,2,4) and (8192,65528,32762,32756,2,4). The replay tests that no other class sizes occur. The frozen C++ verifier was inspected, not run. This is exhaustive only for k=4 through 13, with no inference outside the range.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 13 all-length Lie complexity theorem dominates the finite range for the full-bin statistic only.",
+          "Cassaigne et al. give exact dyadic results for period-doubling and complete classes for paperfolding; Krawchuk–Rampersad give the Thue–Morse dyadic cyclic-complexity total 2(2^k)−4."
+        ],
+        "reasoning": "Those broader ranges apply to a narrower statistic on the same word or to different infinite words; none of the inspected passages gives the entire Rudin–Shapiro occupancy histogram.",
+        "searches": [
+          "Resultary: Rudin–Shapiro Lie complexity across lengths, 56200583f0ee",
+          "Cassaigne et al., arXiv:1402.5843 §§5.1–5.3",
+          "Krawchuk–Rampersad, Cyclic Complexity of Some Infinite Words and Generalizations, Proposition 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.cpp (inspection only)",
+        "Independent replay and all-ten-length output",
+        "Resultary 56200583f0ee and 19ea4a6cc4c2",
+        "arXiv:1402.5843",
+        "Krawchuk–Rampersad, INTEGERS 18A (2018), A12"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two Rudin–Shapiro findings together imply the four complete length-n classes, but their statistics do not specify how the other occurring factors are partitioned."
+        ],
+        "reasoning": "Even fixing the total 8n−8 and the four complete primitive necklaces leaves 4n−8 factors in partially represented necklaces, with many arithmetically possible size distributions. The exact partial distribution needs additional work; it is not a parameter substitution in the prior Lie result.",
+        "searches": [
+          "Resultary 56200583f0ee and 19ea4a6cc4c2, exact Finding sections",
+          "Cassaigne et al. arXiv:1402.5843 §§5.1–5.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 13 result counts four rotation classes all of whose rotations occur at every dyadic length 2^k for k≥3. The October 18 result gives at least four complete primitive classes at dyadic lengths in scope."
+        ],
+        "reasoning": "Lie complexity only counts complete classes (potentially nonprimitive); the second result confirms that the four complete classes here are primitive and thus contain n distinct factors each. Neither counts partially filled necklaces. Abelian profile equivalence is also coarser than equality after a cyclic rotation.",
+        "searches": [
+          "Resultary: Exact Lie complexity of the binary Rudin–Shapiro word 56200583f0ee",
+          "Resultary: Four complete primitive rotation orbits at every dyadic Rudin–Shapiro length 19ea4a6cc4c2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed four-complete-classes datum overlaps the full-rotation bin for all tested lengths. No partially filled-bin table for the same word and lengths was identified in the inspected hits. The exact literature results located for another word are not checks of these rows."
+        ],
+        "reasoning": "Exact matches were compared by word, length, and occupancy statistic, not by the shared word 'cyclic' or the number four alone.",
+        "searches": [
+          "Resultary: dyadic Rudin–Shapiro cyclic factor class histogram; full-orbit hits 56200583f0ee and 19ea4a6cc4c2",
+          "arXiv:1402.5843 cyclic-complexity passages; Krawchuk–Rampersad Proposition 1"
+        ]
+      },
+      "rationale": "The number four for complete primitive classes at these dyadic lengths is already covered by the two checked Rudin–Shapiro records. The distinct accepted content is the exact finite histogram of partially represented classes, in particular the two doubletons, the absence of intermediate multiplicities other than two, and the resulting full census. The complete-orbit statistic and the total number of ordinary factors do not determine this histogram. This is a bounded comparison, not a priority certificate.",
+      "residual_risks": [
+        "No exhaustive literature coverage; a bounded general web lookup was uninformative, and unindexed Rudin–Shapiro occupancy tables may exist.",
+        "The four full classes are not independently novel; the comparison credits only the previously unmatched partial census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader length range, exact coverage of complete count only.",
+          "evidence": "Exact Lie count is four at dyadic lengths 2^k with k≥3.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-lie-complexity-of-the-binary-rudin-shapiro-word--56200583f0ee",
+          "material_read": "RESULT.md, Finding, dyadic case",
+          "method": "Local mirror",
+          "title": "Exact Lie complexity of the binary Rudin–Shapiro word",
+          "trigger": "Same word and exact number of complete classes"
+        },
+        {
+          "assessment": "Lower bound for complete primitive classes, no partial census.",
+          "evidence": "At least four primitive orbits are entirely represented at the dyadic lengths in scope.",
+          "identifier_or_url": "2026/10/18/SCOPE-four-complete-primitive-rotation-orbits-at-every-dyadic-rudin-sh--19ea4a6cc4c2",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local mirror",
+          "title": "Four complete primitive rotation orbits at every dyadic Rudin–Shapiro length",
+          "trigger": "Same dyadic lengths and primitive full classes"
+        },
+        {
+          "assessment": "Other words, not the frozen partial census.",
+          "evidence": "Includes dyadic period-doubling counts, complete paperfolding classes and a Thue–Morse lower-limit result.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.5843",
+          "material_read": "§§5.1–5.3, pp. 13–15, OA offsets about 49446–55800",
+          "method": "OA paper passage inspection",
+          "title": "Cyclic Complexity of Words",
+          "trigger": "Same equivalence relation and dyadic comparisons"
+        },
+        {
+          "assessment": "Exact count for a different sequence.",
+          "evidence": "The dyadic formula 2(2^k)−4 for k≥3 is for Thue–Morse.",
+          "identifier_or_url": "https://math.colgate.edu/~integers/sjs12/sjs12.pdf",
+          "material_read": "Proposition 1, pp. 3–4, offsets about 4500–7000",
+          "method": "OA PDF passage inspection",
+          "title": "Cyclic Complexity of Some Infinite Words and Generalizations",
+          "trigger": "Explicit dyadic cyclic-complexity formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Rudin–Shapiro is a standard substitution word and occupancy of represented necklaces distinguishes nearly rigid factors from freely rotatable ones. The ten substitution-aligned scales give a reproducible exact benchmark for the intermediate cases that ordinary factor complexity and Lie complexity omit: only two partial classes contain more than one factor at each scale. The highest scale is a computational cutoff, not a claimed structural threshold; the value is in the complete aligned census rather than in guessing an infinite law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:30:54.077347Z",
+  "axes": {
+    "correctness": {
+      "rationale": "This pass is for the corrected claim in /workspace/repairs/1/RESULT.md and SLOGAN.txt. The frozen equality characterization is false: for n=2, w=(4) and a=b=(-4) yield correlation 1 but are not positive multiples of w. For each index pair, swapping the adjacent values j,j+1 flips E_j and leaves D_i unchanged unless both occupy i,i+1. In that exceptional event D_i=E_j, and its probability is 2/[n(n-1)]. This verifies the constant cross block. Disjoint adjacent-position comparisons are independent, whereas a triple has both descents with probability 1/6. Thus A_n is the stated strictly diagonally dominant symmetric positive-definite matrix. For a,b nonzero the numerator is c_n(1^T a)(1^T b); Cauchy–Schwarz in A_n gives simultaneous equality in magnitude exactly for a=sw,b=tw with s,t nonzero, w=A_n^(-1)1. The sign is sign(st), proving the corrected characterization st>0 for the signed maximum and any sign combination for the absolute one. The same normal equations give the common affine projection of each E_j. Substituting the explicit weights into 3w_i-w_(i-1)-w_(i+1)=12 with w_0=w_n=0 checks the inverse profile; summing by a geometric series gives the stated rho_n. Independently inverted the rational matrices for n=2,...,8: rho is 1,1,13/14,21/25,34/45,62/91,813/1316. For n>=7 the strict bound w_i<12 gives rho_n<6/n; the closed sum differs from 12(n-1) by a bounded term, giving n rho_n->6. The exponential terms in w_i give both boundary-layer limits. Replay by forming 12A_n with diagonal 3 and neighbor entries -1, solving the displayed Dirichlet equations, and checking correlation at (-w,-w). The supplied verifier was read, not executed; its square-based inequalities alone do not check the sign characterization. The repaired result retains the original theorem's numerical content and treats uniqueness as a coefficient direction, not as uniqueness of an oriented coefficient pair.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chatterjee–Diaconis give the sum variance and asymptotic joint distribution of the two total counts; subtracting marginal variances gives the aggregate cross-covariance.",
+          "Restricting the indexed comparison covariance to adjacent-position edges gives exactly A_n; inversion symmetry gives A_n for the other margin."
+        ],
+        "reasoning": "The aggregate covariance specifies one sum, not the position-by-value block. The broader incidence law supplies the marginal blocks but does not pair value-adjacent inverse comparisons with position-adjacent ones. Neither result solves the optimized two-family problem.",
+        "searches": [
+          "arXiv:1608.01666, Theorems 1.1 and 5.1 and Section 3",
+          "arXiv:1210.3799, bivariate total-count generating function",
+          "Resultary: incidence precision law and fixed-point–descent dependence"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1017/fms.2024.89",
+        "Foulkes 1976 (available theorem statement via Gessel–Zhuang)",
+        "arXiv:1608.01666",
+        "arXiv:1210.3799",
+        "SCOPE-f6af0a8c3805",
+        "SCOPE-6e228e1e9495",
+        "SCOPE-dcf8be666c20"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The all-composition count is strong enough to calculate every finite moment in principle; the independently verified swap argument instead directly evaluates all cross entries by one exceptional probability.",
+          "The optimized ordinary/inverse-descent scores require selecting the A_n^(-1)1 direction, not the unweighted total-count score."
+        ],
+        "reasoning": "The generic joint counting, covariance restriction and linear algebra leave the uniform position-by-value simplification, exact optimization and boundary profile to establish. The distinct scope is the closed-form extremal calculation, not a new joint law.",
+        "searches": [
+          "Foulkes's theorem as stated by Gessel–Zhuang p. 6, Theorem 2.1",
+          "Chatterjee–Diaconis p. 1 and Theorem 5.1",
+          "Comparison-incidence RESULT.md, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Foulkes's ribbon scalar product counts the full joint descent and inverse-descent compositions; summing the appropriate cells yields the mixed inclusion probabilities.",
+          "The optimized score is equivalently the single nonzero singular direction of the cross block after whitening by the marginal covariance, then translated back to coefficient space."
+        ],
+        "reasoning": "The joint enumeration can recover every entry but is not a stated explicit evaluation, and the inspected statement does not solve the whitening/Dirichlet problem or specify the projection and boundary weights. Credit only the evaluated structure and optimized consequences.",
+        "searches": [
+          "Resultary: uniform local descent/inverse-descent covariance, two-sided descent-composition enumeration, optimal descent scores",
+          "Gessel–Zhuang DOI:10.1017/fms.2024.89, Section 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The incidence result gives exact indicator covariance/precision for a single family; the mixed indexed records evaluate either fixed points versus descents or one global Spearman statistic versus local descents."
+        ],
+        "reasoning": "Those exact formulas are not tables for the cross block between descents and inverse descents or for its whitened canonical correlation. No matching evaluated optimizer was identified in the inspected records.",
+        "searches": [
+          "Resultary: exact cross-block covariance, sharp canonical correlation, common projection and boundary layer for ordinary/inverse descents",
+          "SCOPE-f6af0a8c3805, SCOPE-6e228e1e9495, SCOPE-dcf8be666c20"
+        ]
+      },
+      "rationale": "For the repaired claim, the credited result is the evaluated position-by-value structure together with the optimized linear correlation, common affine projection and exact Dirichlet profile. The published marginal covariance and total-count results, and the classical joint enumeration, are prior ingredients or constraints. Sign correction removes an error without adding a novelty claim.",
+      "residual_risks": [
+        "The original Foulkes text was not available. The full joint enumeration remains a serious implicit-derivation risk; neither a limited index nor passage inspection proves historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains the stronger enumeration; explicit optimized claim not in inspected passages",
+          "evidence": [
+            "Ribbon scalar products count prescribed pairs of descent compositions; Foulkes 1976 is cited for this theorem."
+          ],
+          "identifier_or_url": "DOI:10.1017/fms.2024.89",
+          "material_read": "Open PDF pp. 4, 6, 36; Section 2.1 Theorem 2.1 at offset 28000",
+          "method": "Primary open PDF passage comparison",
+          "title": "Two-sided permutation statistics via symmetric functions",
+          "trigger": "Full joint enumeration could cover the mixed moments"
+        },
+        {
+          "assessment": "Cannot exclude an evaluated special case in the primary paper",
+          "evidence": [
+            "Gessel–Zhuang Theorem 2.1 explicitly attributes the exact joint composition count to Foulkes."
+          ],
+          "identifier_or_url": "Foulkes, Discrete Mathematics 15 (1976), 235–252",
+          "material_read": "Theorem as reproduced and attributed by Gessel–Zhuang; no primary body",
+          "method": "Attempted lawful original retrieval; lawful secondary presentation inspected",
+          "title": "Enumeration of permutations with prescribed up-down and inversion sequences",
+          "trigger": "Original full joint descent enumeration"
+        },
+        {
+          "assessment": "Aggregate overlap; does not furnish the evaluated optimizer",
+          "evidence": [
+            "Theorems 1.1 and 5.1 concern total descent-count statistics and asymptotic joint normality."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1608.01666",
+          "material_read": "Open PDF p. 1 offset 2500, p. 5 offset 16400, p. 8 offset 29500",
+          "method": "Primary theorem and section passages",
+          "title": "A central limit theorem for a new statistic on permutations",
+          "trigger": "Mixed descent-count covariance and asymptotics"
+        },
+        {
+          "assessment": "Aggregate generating-function result",
+          "evidence": [
+            "Tracks total descent and inverse-descent counts, not their position-resolved optimized linear scores."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1210.3799",
+          "material_read": "Open manuscript p. 1 at offsets 0 and 1800",
+          "method": "Primary open passages",
+          "title": "Some remarks on the joint distribution of descents and inverse descents",
+          "trigger": "Two-sided descent recurrences"
+        },
+        {
+          "assessment": "Directly covers the marginal block by restriction, not the joint cross block",
+          "evidence": [
+            "Adjacent edges of the comparison graph give A_n as a principal submatrix."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805",
+          "material_read": "Local-mirror RESULT.md, Finding",
+          "method": "Indexed statement comparison",
+          "title": "Incidence precision law for all inversion indicators of a random permutation",
+          "trigger": "Potentially stronger covariance theorem"
+        },
+        {
+          "assessment": "Different mixed block",
+          "evidence": [
+            "Uses fixed-point indicators and has sparse boundary cancellation."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495",
+          "material_read": "Local-mirror RESULT.md offset 0",
+          "method": "Indexed statement comparison",
+          "title": "Boundary localization of fixed-point–descent dependence in a uniform permutation",
+          "trigger": "Similar local mixed covariance and boundary profile"
+        },
+        {
+          "assessment": "Different global statistic paired with local descents",
+          "evidence": [
+            "Gives position-independent covariance with Spearman's statistic rather than an inverse-descent vector."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-uniform-local-descent-covariance-with-spearman-s-rho--dcf8be666c20",
+          "material_read": "Local-mirror RESULT.md offset 0",
+          "method": "Indexed statement comparison",
+          "title": "Uniform local descent covariance with Spearman's rho",
+          "trigger": "Potential covariance equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Position-adjacent and value-adjacent order each give a natural signature of a random ranking. The sharp optimized dependence measures what can be gained beyond unweighted counts: the common affine prediction is rank one, all zero-sum score contrasts are invisible to the other family at second order, and the exact extremizing pattern distinguishes boundary and bulk. This supplies a useful finite-size and asymptotic benchmark without claiming conditional independence or nonlinear optimality. The sign repair preserves this value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:48:10.448067Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–106",
+        "Frozen VERIFICATION.md and CHECK.py (read as source evidence)",
+        "Independent replay: OPENBLAS_NUM_THREADS=1 python -B /workspace/review-evidence/1.py"
+      ],
+      "rationale": "For the integer digit gap (as required by the digit and gcd setup), grouping by the top frequency bit and last spatial bit removes the cross term with the previous spatial prefix modulo one. The only remaining twist is diagonal unitary on the lower frequencies. The product factorization is singular exactly when a level has dt divisible by b. Upon inverting, the two blocks of a selected inverse row are scalar multiples of the same lower-level row, with a unitary right twist. Its norm squared therefore multiplies by 1/(2ps²) or 1/(2(1-p)s²), as given by the two-by-two inverse. The inverse Gram diagonal equals that row norm squared. Summing the inverse masses yields the trace; the block determinants yield the stated modulus with exponent N/2 per level. The trace is minimized exactly by maximizing every sine and every p(1-p); for the largest diagonal the minimum cell mass is at most 1/N with equality only for uniform masses. All nonzero residues modulo q are attained, enough for the stated congruences; the proof's claim about all residue classes need not include zero when gcd(b,d)=1. At the even-q optimum each level block is unitary, and at odd q the mean of reciprocal squared singular values and the row normalization give the obstructions without claiming equality. Independent construction from integer residues and direct Gram solves checked 180 positive-weight nonsingular cases (max relative diagonal error 6.69e-14), 210 cases with exactly one zero-sine level, and unitary and nonunitary optima through depth 5. The all-depth proof is exact, not numerical.",
+      "residual_risks": [
+        "Scope is a square finite integer-digit tower with positive Bernoulli product masses. The quoted obstructions for singular matrices mean zero least singular value and infinite condition number; inverse objectives are defined on nonsingular choices.",
+        "Editorially state 'integer digit gap' and 'all nonzero residues' explicitly; neither wording point affects the substantive inference on the stated digit setup."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lai–Wang's Definition 1.1 concerns stagewise frame inequalities; Łaba–Wang's compatible-pair definition gives a unitary digit-pair endpoint; de Dios Pont–Liehr–Taylor's Theorem 1.1 concerns the infinite odd-base measure."
+        ],
+        "reasoning": "Unitary endpoint and general near-isometry bounds do not give a finite nonunitary inverse variance per spatial cell, nor does an obstruction to Fourier frames of the limiting measure give the stated finite normalized inverse trace.",
+        "searches": [
+          "arXiv:1509.06855v2, almost-Parseval frame towers",
+          "arXiv:math/0109126v1, compatible pairs and Cantor measures",
+          "arXiv:2607.08656v1, odd-base non-frame theorem"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 078452622ace, e923fb13ff56, 3754c9ae0870",
+        "arXiv:1509.06855, math/0109126, 1710.01224, 2607.08656"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior normalized determinant yields at optimal steps σmin² ≤ S_q^n and cond₂ ≥ S_q^(-n/2) by the geometric mean; normalized inverse trace gives σmin² ≤ S_q^(2n) and cond₂ ≥ S_q^(-n)."
+        ],
+        "reasoning": "The new obstruction is stronger for odd q, but is not an extremal singular-value formula. Previously known congruences are reused; they solve A and worst-coordinate optimization here because of the new inverse law and mass argument, not via the determinant formula alone.",
+        "searches": [
+          "Resultary 078452622ace, Finding and step optimization (offsets 0 and 4307)",
+          "Frozen RESULT.md inverse-block proof and design optimization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The uniform determinant source treats the same tower; multiplying each column by √(Nw) recovers all mass dependence of the determinant and changes the inverse diagonal by 1/(Nw). The residual uniform inverse row norm is not determined by either operation.",
+          "The weighted-exponential source weights Fourier functions, not spatial atoms."
+        ],
+        "reasoning": "Compare the uniform inverse statement after removing column weights, and credit that the phase-separated block structure is shared. The needed additional invariant is preservation of each inverse-row norm under that interlevel unitary twist, not a formula for a pure tensor product or a determinant alone.",
+        "searches": [
+          "Resultary 078452622ace (uniform Fourier volume and parity barrier)",
+          "arXiv:1710.01224v2 (weighted Fourier self-affine frames)",
+          "Focused finite Cantor inverse-Gram tower search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The unrestricted depth-two record reports a determinant maximum 0.639651… over four distinct residues modulo nine, above the binary-digit-tower maximum 9/16. The cyclic four-sample record does compute an A criterion but for a 4-by-2 sampler with a different model."
+        ],
+        "reasoning": "The determinant example genuinely dominates the restricted volume optimum when the design class is enlarged, but says nothing about inverse-trace dominance across those classes. Neither catalogue hit supplies the finite product-weight diagonal law. No order is inferred from same-day dates.",
+        "searches": [
+          "Resultary 078452622ace",
+          "Resultary e923fb13ff56 (unrestricted depth-two centre-third four-frequency spectrum)",
+          "Resultary 3754c9ae0870 (four-sample cyclic design)"
+        ]
+      },
+      "rationale": "Credit the previous uniform determinant law, step congruences, and parity obstruction. The weighted determinant follows from uniform by column scaling and is not a standalone novelty either. The distinct supported claim is the coordinatewise inverse law for the finite tower, its inverse-moment identity, joint A- and worst-coordinate criteria, and strengthened odd-q obstruction; these are not supplied by the checked prior statements.",
+      "residual_risks": [
+        "Older equivalent inverse-factorization or finite Fourier optimal-design calculations may be unindexed. A bounded search is not publication-priority evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verifies determinant, congruences, and weaker spectral precedent",
+          "evidence": "Uniform determinant is the product of sine factors with exponent 2^(n−1); it lacks an inverse-row law in the inspected theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-fourier-volume-and-the-parity-barrier-in-binary-cantor-dig--078452622ace",
+          "material_read": "RESULT.md Finding and step optimization, offsets 0 and 4307",
+          "method": "Local published-record mirror",
+          "title": "Exact Fourier volume and the parity barrier in binary Cantor digit towers",
+          "trigger": "Exact same finite digit tower with uniform masses"
+        },
+        {
+          "assessment": "Broader determinant extremum, not evidence of A-optimal dominance",
+          "evidence": "Unrestricted frequency choices attain more than the tower volume 9/16.",
+          "identifier_or_url": "Resultary e923fb13ff56",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "The unrestricted four-frequency volume spectrum at the second Cantor stage",
+          "trigger": "A broader frequency class on exactly the same depth-two points"
+        },
+        {
+          "assessment": "Different sampling matrix and objectives' relationship",
+          "evidence": "An unweighted rectangular cyclic sampler, not a square binary product-mass tower.",
+          "identifier_or_url": "Resultary 3754c9ae0870",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Sharp four-sample two-mode cyclic Fourier designs",
+          "trigger": "Exact inverse-trace and determinant criteria for a Fourier design"
+        },
+        {
+          "assessment": "Related stagewise bounds, not the identity",
+          "evidence": "Almost-Parseval condition concerns near-isometry of finite-level matrices.",
+          "identifier_or_url": "https://arxiv.org/abs/1509.06855",
+          "material_read": "Definition 1.1, PDF p. 3, offset 7300",
+          "method": "Lawful open-access primary-text inspection",
+          "title": "Non-spectral fractal measures with Fourier frames",
+          "trigger": "Potential broader finite Fourier tower theorem"
+        },
+        {
+          "assessment": "Known unitary endpoint context",
+          "evidence": "Compatible pairs require a normalized digit matrix to be unitary, rather than controlling nonunitary weighted inverses.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0109126",
+          "material_read": "Compatible pairs, PDF p. 2 offset 6884; Theorem 1.2, p. 3 offset 8585",
+          "method": "Lawful open-access primary-text inspection",
+          "title": "On spectral Cantor measures",
+          "trigger": "Unitary digit-pair reformulation"
+        },
+        {
+          "assessment": "Different weights",
+          "evidence": "Uses scalar multiples of exponentials, not positive spatial atomic masses.",
+          "identifier_or_url": "https://arxiv.org/abs/1710.01224",
+          "material_read": "Introduction, PDF p. 1, offset 3425",
+          "method": "Lawful open-access primary-text inspection",
+          "title": "Weighted Fourier frames on self-affine measures",
+          "trigger": "Potential equivalent weighted Fourier formulation"
+        },
+        {
+          "assessment": "Infinite theorem outside the finite restricted optimization",
+          "evidence": "Nonexistence of a Fourier frame for the limiting odd-base measure gives no finite inverse-diagonal law.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.08656",
+          "material_read": "Theorem 1.1, PDF p. 2, offset 5768",
+          "method": "Lawful open-access primary-text inspection",
+          "title": "Cantor measures with odd base do not admit Fourier frames",
+          "trigger": "Odd-base spectral obstruction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–48, 66–106",
+        "Earlier determinant tower Resultary 078452622ace"
+      ],
+      "rationale": "The coordinatewise noise-amplification law addresses the inverse problem for a natural tower, not just the volume of its sampling map. It shows exactly how smaller masses increase local estimation variance, makes the A and worst-coordinate objectives share all optimizers with explicit parity costs, and improves an instability obstruction. These provide usable design and inverse-conditioning information not determined by a known determinant alone.",
+      "residual_risks": [
+        "Does not establish optimal arbitrary-frequency designs, exact singular-value extrema, or an infinite-measure theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

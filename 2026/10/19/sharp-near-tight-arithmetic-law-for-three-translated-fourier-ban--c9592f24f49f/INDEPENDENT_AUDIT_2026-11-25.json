@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:31:17.804600Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fourier synthesis on one interval and columnwise unitary multiplication reduce the three indexed cosets to the stated three-row phase matrix. The optimal squared norm bounds are the extreme eigenvalues, not their square roots; a collision of cosets is a rank loss in the prescribed three-coset basis problem. An independent way to check the Taylor matrix is to shift the column powers to −1,0,1 by a row phase: its Gram entries become 1+2 cos of the angle differences. At angles 0, 2π/3+d/n, 4π/3+a/n, the first-order off-diagonals, divided by √3/n, are −d,a,d−a. Exchange of the first two rows/columns sends a to d−a and convexity of spectral diameter gives the midpoint minimum. At the midpoint the antisymmetric vector yields eigenvalue d and the other eigenvalues are d(−1±√3)/2. The candidate gives a=d/2 with |d|=2π/3 in both residues. Conversely, actual minimizers exist away from rank loss; trace 9 and the candidate bound force all entries of G−3I to be O(1/n). Simple roots of 1+z+z² and the bound on the row-pair difference force distinct equilateral orientations, conjugate to the one above. After picking that orientation, cluster points of d belong to 2π(Z+(2−r)/3) in residue r, all with |d|≥2π/3; a is bounded. The spectral-diameter lower bound thus applies to every potentially minimizing subsequence, and division by the limiting lower eigenvalue 3 gives the claimed constant. The exact tightness criterion follows from the same roots; the bundled NumPy checker was inspected as finite corroboration, not run or relied on for the infinite limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The multi-rectangle criterion reduces Riesz bases to a finite phase matrix and its singular values.",
+          "Theorem 4.2 bounds separated-node multivariate Vandermonde matrices in a separation regime with d≥2."
+        ],
+        "reasoning": "Neither theorem supplies the asymptotically optimizing continuous arithmetic shift or the exact leading diameter for this three-node family.",
+        "searches": [
+          "Asipchuk–De Carli arXiv:2505.00870 Theorem 2.5",
+          "Kunis–Nagel–Strotmann DOI 10.1016/j.acha.2022.01.001 Theorem 4.2"
+        ]
+      },
+      "checked_sources": [
+        "Berman–Feuer (2007)",
+        "Asipchuk–De Carli arXiv:2505.00870",
+        "Kunis–Nagel–Strotmann (2022)",
+        "Resultary 1200745c9cae, a0b1e6f9ca2a, e6b7a2d650e7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Complete residues in {0,1,n} imply exactly the known n≡2 mod 3 case.",
+          "At a fixed trace, a determinant's quadratic deficit near 3I measures the sum of squared eigenvalue deviations, not their diameter; even the attaining determinant shift does not prove its optimality for the ratio."
+        ],
+        "reasoning": "The missing inequality is a lower bound on spectral diameter across all putative optimizing t, which needs the arithmetic cluster constraint plus the midpoint minimax argument; it is not a determinant substitution.",
+        "searches": [
+          "Berman–Feuer Theorem 3.2",
+          "Resultary a0b1e6f9ca2a Finding",
+          "Resultary 1200745c9cae Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The squared Riesz ratio equals κ₂(V)² for unit-circle nodes (1,z,zⁿ).",
+          "Reflection x→n+1−x maps the present physical domain to E_m=[0,1)∪[m,m+2) with m=n−1, and changes t to −t; thus the determinant record concerns the same family, not merely similar parameters."
+        ],
+        "reasoning": "The objective must still be matched under this equivalence: Gram determinant and the extremal eigenvalue quotient are different spectral functions.",
+        "searches": [
+          "Berman–Feuer DOI 10.13001/1081-3810.1190 §3",
+          "Resultary a0b1e6f9ca2a, reflected three-band family"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1200745c9cae gives exact optima on a discrete finite cycle with fixed spatial triple {0,1,2} and an arbitrary three-element frequency set.",
+          "a0b1e6f9ca2a gives determinant deficit 6π²/m² in non-tight classes and a matching shift expansion after reflection; e6b7a2d650e7 studies volume with arbitrary nodes.",
+          "Berman–Feuer gives the exact residue criterion for perfect conditioning."
+        ],
+        "reasoning": "These are real nearby exact results, not an exact table or law for the continuously constrained non-tight ratio.",
+        "searches": [
+          "Resultary 1200745c9cae, a0b1e6f9ca2a, e6b7a2d650e7",
+          "Berman–Feuer Lemma 3.1 and Theorem 3.2"
+        ]
+      },
+      "rationale": "Only the optimized non-tight first-order rate is credited. Existing sources give the fiber mechanism, exact tightness or different optimizations; most notably a later matched-family determinant result does not provide this norm-condition-ratio optimum.",
+      "residual_risks": [
+        "The bounded web lookup did not add decisive evidence; an unindexed equivalent scalar-matrix optimization under different aliases remains possible.",
+        "Chronology is not the basis for distinguishing determinant from condition-ratio coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior tightness coverage, not the non-tight rate",
+          "evidence": "Normalized integer exponents must form a complete residue system for perfect conditioning.",
+          "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/437/437/437",
+          "material_read": "§3, Lemma 3.1 and Theorem 3.2, pp. 158–160",
+          "method": "Lawful journal PDF, selected passages",
+          "title": "On Perfect Conditioning of Vandermonde Matrices on the Unit Circle",
+          "trigger": "Exact tightness in the same Vandermonde model"
+        },
+        {
+          "assessment": "Known reduction, not this optimum",
+          "evidence": "Nonsingularity of a finite phase matrix yields the Riesz basis and its singular values quantify the bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.00870",
+          "material_read": "§2, Theorem 2.5 (HTML offset 19400)",
+          "method": "Primary preprint passage",
+          "title": "Methods of Construction of Exponential Bases on Planar Domains",
+          "trigger": "General fiber reduction for translated bands"
+        },
+        {
+          "assessment": "Different hypotheses and stability objective",
+          "evidence": "Bounds under multivariate dimension and node separation conditions, not optimization of this shift family.",
+          "identifier_or_url": "https://doi.org/10.1016/j.acha.2022.01.001",
+          "material_read": "§4, Theorem 4.2, PDF p. 8",
+          "method": "Primary PDF passage",
+          "title": "Multivariate Vandermonde Matrices with Separated Nodes on the Unit Circle Are Stable",
+          "trigger": "Potential broader sharp condition bound"
+        },
+        {
+          "assessment": "Discrete different optimization",
+          "evidence": "Three-element frequency sets in Z_N, with balanced cyclic-gap classification for the spatial set {0,1,2}.",
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-riesz-conditioning-for-consecutive-triples-on-finite-cycle--1200745c9cae",
+          "material_read": "Finding and proof at start of RESULT.md",
+          "method": "Resultary retrieval and local mirror passage",
+          "title": "Sharp Riesz conditioning for consecutive triples on finite cycles",
+          "trigger": "Earlier exact triple condition-ratio optimum"
+        },
+        {
+          "assessment": "Strong objective overlap but not equivalent; later dated",
+          "evidence": "Gives 27−6π²/m²+O(m⁻³) for the maximum determinant in the non-tight classes and a corresponding shift expansion.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-arithmetic-determinant-gap-for-three-coset-fourier-bases-o--a0b1e6f9ca2a",
+          "material_read": "Finding at start of RESULT.md",
+          "method": "Resultary retrieval and local mirror passage",
+          "title": "Sharp arithmetic determinant gap for three-coset Fourier bases",
+          "trigger": "Same three-coset family after reflection"
+        },
+        {
+          "assessment": "Later volume theorem with a different node class and objective",
+          "evidence": "Arbitrary circle nodes, with the same exact tight residue boundary.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-sharp-three-node-fourier-volume-gap-for-the-sparse-modes-0-1--e6b7a2d650e7",
+          "material_read": "Finding at start of RESULT.md",
+          "method": "Resultary retrieval and local mirror passage",
+          "title": "The sharp three-node Fourier volume gap for the sparse modes 0, 1 and m",
+          "trigger": "Three-node Fourier volume on the same sparse exponent pattern"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first-order constant measures the unavoidable conditioning loss in natural translated-band bases when exact root-of-unity conditioning is forbidden. Both the attainable explicit construction and the matching all-shifts lower bound go beyond generic stability bounds. This is an exact asymptotic benchmark for the specified three equally spaced cosets, not a claim about unrestricted bases.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

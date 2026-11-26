@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Direct multiplication yields the complete finite matrix-entry formulas. The hub cubic is strictly decreasing by a negative derivative discriminant. The hub–leaf entries have a strictly positive quadratic bracket. Every leaf diagonal strictly dominates the hub diagonal by a separately certified negative discriminant. Every leaf–leaf transition's first positive zero lies strictly after the hub zero, by an explicit positive polynomial. The sharp normalized constants follow from comparison to one-spoke and diffuse-weight limiting cubics. These steps cover every stated quantifier and boundary; independent rational-matrix checks add reproducibility, not an infinite proof.
+## correctness
 
-**Originality — PASS on inspected evidence, with residual bibliographic risk.** The full text of Gottlieb–Shu–Tadmor (2001) gives sufficient SSP step bounds, and the complete Horváth (2005) paper concerns thresholds over broad positive-IVP classes and positive-invariant subsets. Neither provides the fixed symmetric heterogeneous weighted-star necessary-and-sufficient degree-three cutoff, universal first-failing center entry, and sharp normalized bounds. Semantically close repository results treat different time integrators, or unweighted complete-multipartite graphs. Those cross-method statements do not imply the present heterogeneously weighted RK3 classification. Repository full texts were not all available, and unindexed historical specializations remain a residual priority risk.
+PASS
 
-**Value — PASS.** Positive completed transitions matter for stable probabilistic diffusion. Generic SSP yields only \(h\le1/S\), while the exact star-specific result proves a uniform strict improvement with a sharp range and requires solving only a single cubic no matter how many or how uneven the spokes are. Identifying which entry fails first also provides a structural diagnostic rather than a small numerical improvement.
+Multiplying the generator gives the four displayed entry types. C' is an everywhere negative quadratic, by T2<=S^2 and its negative discriminant. Each hub-leaf quadratic has positive leading coefficient and negative discriminant, also ruling out negative h if steps are interpreted on the whole real line. Independently expanded the leaf-minus-hub quadratic discriminant and -2(S+x+y)^3 C(3/(S+x+y)) in /workspace/checks/scalar_checks.py. The former is strictly negative since the residual spokes have B>0 and 0<U2/B^2<=1; the latter is strictly positive even at B=0 by xy<=(x+y)^2/4. These checks force the hub root to precede both other obstruction types strictly. The normalized cubic at beta is negative since beta>3/2, and at alpha it is positive since r3<=r2<1. A dominant spoke and increasingly many equal spokes converge to the respective strictly crossing scalar cubics; both limits are sharp. The code supplied with the record was inspected, not executed. This verifies the completed polynomial, not any stagewise bound.
 
-The result is limited to symmetric weighted stars, completed standard cubic RK endpoints, and finite positive weights. It asserts neither stagewise positivity above the SSP limit nor an all-graph criterion.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the universal strict ordering of obstructions on arbitrary symmetric positively weighted stars and the sharp improved lower constant alpha. The same-day bipartite record already gives the exact minimum-of-cutoffs rule and non-reentry for the entire weighted-star class, as well as the same sharp upper constant and the equal-spoke limiting sequence. Credit that overlap explicitly; the blanket prior-work comparison about the lack of an arbitrary-weight degree-three criterion should be qualified. The actual hub-only theorem is not the unsimplified minimum rule and does not follow by merely substituting star degrees.
+
+## value
+
+PASS
+
+The arbitrary-weight hub-first ordering replaces a scan over all local candidates by one scalar cubic, establishes which entry fails without numerical step searches, and yields a sharp improvement uniformly over natural heterogeneous stars. These remaining facts are useful even with the broader bipartite cutoff rule available; the previously covered upper bound and no-reentry are not the reason to pass value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

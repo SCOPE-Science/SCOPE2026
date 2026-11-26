@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The full claim is a precise ray-count existence spectrum for smooth complete complex toric surfaces. The reduction to absence of torus-invariant \((-2)\)-curves uses the published criterion and adjunction. The short-ray obstruction is an exhaustive finite combinatorial classification, but with an integer-affine parameter \(n\), so all Hirzebruch models are covered, not just small samples. A determinant-one eight-ray fan, a nine-ray refinement and a two-step growth identity cover the infinite positive existence direction. The standalone `verify.py` checks the symbolic obstruction and reproducibility. It is not a substitute for the cited categorical criterion or toric surface classification.
+## correctness
 
-## Originality (PASS, provisional)
-Ito--Zeng--Zeng (arXiv:2610.22279v1) supply the general toric \(\otimes\)-generation test; its specialization to a no-\((-2)\)-curve condition is background and not asserted as new. The new statement is that exactly one positive Picard rank is absent and all larger ones occur, with explicitly smooth fans. Cox--Little--Schenck's fan classification is a premise, not this rank-existence conclusion. Broomhead--Ploog's autoequivalence theorem concerns a related invariant and does not state the spectrum in the material accessed. published-finding corpus and accessible historical-claim searches identified toric dual-degree, singularity and Cox-ring records, but no equivalent ray spectrum. Search failure does not establish priority. Unretrieved full sections of the closest preprints are residual risks.
+PASS
 
-## Mathematical value (PASS)
-The exact set of possible Picard ranks for a tensor-generating canonical line bundle is a natural complete classification attached to a categorical positivity property, not a chosen small slice. Its isolated hole at rank \(5\) and unbounded examples with negative \(K_X^2\) show a non-monotone boundary invisible from standard Fano positivity. The constructive proof explains both the obstruction and its disappearance at larger fan complexity.
+Ito–Zeng–Zeng use classical (thick) generation by all integral tensor powers; their proper-toric criterion applies to this smooth complete complex fan. The anticanonical polytope is full-dimensional because the origin is strictly inside all defining half-spaces, and bounded by completeness. Thus X itself passes the big/anti-big criterion; points do also. Adjunction on each invariant P¹ gives anticanonical degree 2+D_i², so the remaining obstruction is exactly an invariant (−2)-curve. For the gap, the standard minimal-model list reduces seven rays to four star subdivisions of the projective-plane fan or three of a Hirzebruch fan. A separate geometric replay used v_i+v_{i+1} at every cyclic edge and computed each self-intersection as −det(v_{i−1},v_{i+1}). All 360 plane histories give (−2), with 13 dihedral strings. All 120 Hirzebruch histories give a constant (−2) entry, with 21 formal strings: in the starting fan (1,0),(0,1),(−1,n),(0,−1) only y coordinates depend on n, which remains true after subdivisions and makes every determinant affine; evaluation at n=0 and 1 recovers its constant and slope exactly. Thus there is no cutoff in n in this replay. The small fans have strings (1,1,1), (0,0,0,0), (0,−1,−1,−1,0) up to rotation, and all −1 at six rays. The specified eight- and nine-ray strings were independently recovered, respectively (−3,−1,−3,−1,−3,−4,0,3) and (−3,−1,−3,−1,−4,−1,−5,0,3). For each, the stated two-edge operation preserves a triple with central −1 and both neighbors ≤−3, proving the infinite tail by induction, not by finite iterations. The toric divisor sequence gives ρ=r−2; Noether's formula uses χ(O_X)=1 and e(X)=r, giving K²=12−r.
 
-## Closest literature and limits
-The arXiv HTML introduction of Ito--Zeng--Zeng was accessible, but attempts to retrieve later sections and PDF failed. The Cox--Little--Schenck publisher preview was checked for toric surface classification and blowup rules; the Broomhead--Ploog abstract was inspected for possibly stronger categorical coverage, with full text still unchecked. This is a self-review only. No independent audit or exhaustive historical-priority certification is claimed. The theorem concerns existence by rank, not a list of all isomorphism types at each rank.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general categorical criterion is prior and the invariant (−2)-curve statement is its direct toric-surface specialization. The listed small ray counts already have qualifying examples in an earlier Resultary theorem. The supported distinct claim is the unique seven-ray exclusion together with attainability of all higher ray counts, not the individual numerical criterion or the small examples.
+
+## value
+
+PASS
+
+A geometric condition for a naturally specified line bundle leads to a complete, nonmonotonic existence spectrum: the only missing Picard rank is five, while explicit families work at every larger rank and have K² unbounded below. This answers which ranks a researcher can realize, rather than merely testing individual fans or repeating the categorical criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:38:52.497769Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–68 and supporting verification files",
+        "Previous independent proof and exact replay summary in /workspace/previous/3/review.json (3,413 mappings over n=1..5 and 100 exact checks); not rerun"
+      ],
+      "rationale": "The prior independent proof check stands. Conditioning on an ordered set of j labels missed by all n images gives independent uniform images in its complement; no deleted vertex is cyclic. Summing the indicators proves the factorial transfer, and the binomial expansion gives the PGF. The case j=n has probability zero. Forest enumeration gives the mass k(n)_k/n^(k+1), including k=n, and its telescoping survival (n)_k/n^k is increasing with n and strictly so at k=2. The j=1 transfer therefore proves the strict covariance for increasing h. For the size difference of the cyclic mean the survival-product corrections are i/((n-1)(n-i)); for k/sqrt(n)→x their sum times n tends to x²/2 and the product error is quadratic in that sum. The bound C k²/n² times exp(-k(k-1)/(2n)) up to n/2 and the exponentially small far tail justify the half-Gaussian moment integral. This yields sqrt(n)(E K_n−E K_(n−1))→sqrt(pi/2)/2, giving the negative covariance limit. The Rayleigh and empty-box variance coefficients are 2−pi/2 and e^(−1)−2e^(−2); these give the claimed correlation limit.",
+      "residual_risks": [
+        "The previous replay is finite, not a proof of the limits; its original script is not included in the supplied prior-work folder. The asymptotic proof is analytic.",
+        "The conclusion requires uniform self-maps; h in the strictly increasing covariance assertion is real-valued. The transfer alone does not assert likelihood-ratio ordering."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pruning invariance RESULT.md offset 480 states the same falling-factorial identity for an arbitrary function of the entire cycle-length count vector.",
+          "Arney–Bender's abstract advertises cyclic-point distributions under restrictions including on origins, not merely separate marginals. Its exact formulas could not be inspected.",
+          "Flajolet–Odlyzko §3.1 marks the two statistics separately; with a leaf-marked tree T=z(exp(T)+t−1), the joint EGF is 1/(1−s z exp(T)). Substituting T−z(t−1)=T0(z exp(z(t−1))) produces the exact transfer on coefficient extraction."
+        ],
+        "reasoning": "For a vector (c_l) of cycle counts by length, K=Σ_l l c_l. The prior vector result therefore directly yields the frozen transfer by taking the test function h of that sum (pad the smaller vector with zeros). No conclusion about Arney–Bender's subleading covariance is needed to establish that coverage.",
+        "searches": [
+          "Resultary: pruning invariance and sharp terminal–component anticorrelation",
+          "Arney–Bender, doi:10.2140/pjm.1982.103.269",
+          "Flajolet–Odlyzko, doi:10.1007/3-540-46885-4_34, §3.1"
+        ]
+      },
+      "checked_sources": [
+        "The two distinct published Resultary Finding passages above",
+        "Arney–Bender publisher abstract",
+        "Flajolet–Odlyzko §3.1 as recorded in /workspace/previous/3/review.json",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior conditional mean g(k)=(n−k)(1−1/n)^(n−k−1), with g(n)=0, is strictly decreasing. Thus Cov(h(K_n),L_n)=Cov(h(K_n),g(K_n))<0 by the independent-copy covariance identity for any strictly increasing h, since K_n is nonconstant for n≥2.",
+          "The exact expression for that same covariance follows by taking j=1 in the already-covered transfer. The signed leading constants are explicitly in the prior conditional-core finding."
+        ],
+        "reasoning": "The frozen specific statistics, strictness for transforms, and limits are either explicit in the compared records or direct consequences under exactly the same uniform mapping assumptions. A different argument for an existing limit does not turn this filed claim into a new result.",
+        "searches": [
+          "007c2a04bfe9 RESULT.md offset 305: conditional mean and covariance limits",
+          "e4cf3e3e51f2 RESULT.md offset 480: vector-level pruning",
+          "Frozen RESULT.md lines 6–29"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Origins are the same indegree-zero vertices as terminal vertices/leaves in the prior record. For m=n−k, the prior conditional factorial moment is (m)_j(1−j/n)^(m−1), with L_n=0 when k=n.",
+          "Multiplication by P(K_n=k)=k(n)_k/n^(k+1) gives k(n)_(k+j)(n−j)^(n−k−1)/n^n for k≤n−j. The identity (n)_(k+j)=(n)_j(n−j)_k shows equality with (n)_j(1−j/n)^n P(K_(n−j)=k), with both sides zero outside that range for j>0."
+        ],
+        "reasoning": "Summing the preceding equality against h(k) gives the exact frozen transfer, not just a matching approximation. Expanding the factorial generating polynomial gives the joint PGF. The classical Flajolet–Odlyzko separate cyclic and terminal markings also combine to yield this transform, as independently derived in the previous review; it is not attributed to them as an explicitly stated joint identity.",
+        "searches": [
+          "random mapping origins vertices indegree zero covariance cyclic points mixed moments conditional deleting leaves Hansen Jaworski Arney Bender Flajolet Odlyzko",
+          "Resultary: uniform random mapping origins indegree zero cyclic points covariance deletion mixed factorial moments",
+          "Cyclic-core conditioning RESULT.md, finding at offset 305"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 007c2a04bfe9 states Cov(K_n,L_n)=−sqrt(pi/2) sqrt(n)/(2e)+o(sqrt(n)) and Corr(K_n,L_n)∼−c/sqrt(n), where c=(sqrt(pi/2)/(2e))/sqrt(((4−pi)/2)(e^(−1)−2e^(−2))).",
+          "Record e4cf3e3e51f2 states the pruning identity for the full cycle-count vector. Both are distinct from the frozen record."
+        ],
+        "reasoning": "These are statement-level matches in two distinct catalogue records with full finding passages verified. The correlation constant is exactly the frozen constant on cancelling a factor e. The later indexed joint-law entry 0c1fa0e07cad is not needed for the finding of coverage.",
+        "searches": [
+          "Published Resultary ranked lookup: random mapping cyclic core origins factorial covariance",
+          "Resultary local mirror: 2026/10/18 entries 007c2a04bfe9 and e4cf3e3e51f2, RESULT.md Finding passages"
+        ]
+      },
+      "rationale": "Two distinct published Resultary records demonstrably cover the central claims, not merely the notation or marginal scales. Pruning invariance for any function of the cycle-length count vector immediately specializes to the frozen factorial transfer and PGF. The cyclic-core-conditioning record gives the exact conditional law, the same signed covariance and correlation asymptotics, and strict conditional mean monotonicity, which yields the claimed sign for every strictly increasing transform. The frozen proof gives a different route to the limits, but it does not add a distinct result beyond these demonstrated implications. This is not a verdict based on inaccessible literature or an inference of historical priority from a date alone.",
+      "residual_risks": [
+        "The exact extent of any earlier Arney–Bender coverage remains unresolved and does not affect the demonstrated overlap.",
+        "The conclusion is about mathematical coverage by distinct published records, not allocation of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exact bivariate law by conditioning, strict conditional mean monotonicity, covariance and correlation limits",
+          "evidence": [
+            "Conditional factorial moments for every feasible j and k and explicit k=n case; exact constants as above."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-cyclic-core-conditioning-and-the-sharp-leaf-covariance-in-unifor--007c2a04bfe9/RESULT.md",
+          "material_read": "Finding, assumptions, and conditional rooted-forest and terminal-deletion proofs, offsets 305–3636",
+          "method": "Literal locator then bounded passage in published local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Cyclic-core conditioning and the sharp leaf covariance in uniform random mappings",
+          "trigger": "Exact same statistics and signed constant"
+        },
+        {
+          "assessment": "Specializes directly to the frozen transfer and bivariate PGF",
+          "evidence": [
+            "The displayed pruning identity is stated to hold for any function of the entire vector of cycle-length counts."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-pruning-invariance-and-sharp-terminal-component-anticorrelation--e4cf3e3e51f2/RESULT.md",
+          "material_read": "Finding, offsets 480–1464, including pruning identity and its cycle-length-vector scope",
+          "method": "Literal locator followed by bounded passage in published local mirror",
+          "title": "Pruning invariance and sharp terminal–component anticorrelation in random mappings",
+          "trigger": "Potentially stronger result despite component-count title"
+        },
+        {
+          "assessment": "Abstract establishes scope overlap, not exact formula coverage; not a basis for FAIL",
+          "evidence": [
+            "The abstract mentions restrictions on origin counts and tabulates statistics including cyclic points."
+          ],
+          "identifier_or_url": "https://doi.org/10.2140/pjm.1982.103.269",
+          "material_read": "Publisher abstract, not §§2,5–9 or Table II",
+          "method": "Read publisher abstract; tried publisher PDF variants and the identified Project Euclid route, without readable decisive passages",
+          "title": "Random mappings with constraints on coalescence and number of origins",
+          "trigger": "Possible older conditional cyclic-core law"
+        },
+        {
+          "assessment": "Existing framework yields transform, independently of stronger directly covering Resultary records",
+          "evidence": [
+            "Cyclic and terminal markings appear separately; a cyclic root cannot be an origin, yielding the reconstructed bivariate composition."
+          ],
+          "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/maps.ps.gz",
+          "material_read": "Prior review inspected §3.1 near (21)–(25) and related §3.2 passages",
+          "method": "Author-archived typeset text extracted as data; reviewer combined the markings algebraically",
+          "title": "Random Mapping Statistics",
+          "trigger": "Classical marked-tree construction for both statistics"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "Previous value assessment",
+        "Published cyclic-core conditioning and pruning findings"
+      ],
+      "rationale": "The previously validated mathematical-value assessment of the result itself stands: the dependence of two natural global graph counts and its smaller signed correlation scale are meaningful, and a deletion proof explains the coupling. This does not credit an additional scientific advance over the published coverage.",
+      "residual_risks": [
+        "No general dependence claim beyond uniform self-maps or new classification is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

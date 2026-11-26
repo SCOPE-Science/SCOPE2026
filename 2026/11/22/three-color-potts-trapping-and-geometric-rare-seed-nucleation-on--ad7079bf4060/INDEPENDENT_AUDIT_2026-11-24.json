@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:41:03.683487Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A vertex recoloring changes the agreeing-edge count by its new same-color neighbor count minus its old count. Every allowed change increases this integer, so the chain is acyclic up to absorption and has at most fifteen jumps. Its embedded jump chain chooses uniformly among allowed ordered recolorings, not first among vertices; terminal values therefore propagate uniquely in descending agreement score. A fresh pentagon/pentagram/spokes implementation enumerated all 59,049 labeled states, validated strict score increases on all transitions and propagated exact named terminal probabilities. It reproduced the (population, count, score) rows ((10),3,15), ((5,5),36,10), ((5,3,2),360,8), ((4,3,3),180,7); all four frozen exact uniform-initial fractions and the exact nonconsensus total 1130139522395301525645463/3686384171559531241800000 agree. For all 360 placements it reproduced the five adjacency counts 90,120,30,60,60 and found nonconsensus only in class (0,1), with probability 11/270 and terminal named populations (5,5,0). Thus the uniform-placement mean is 11/810. This independently verifies the agreeing-edge column and the complete seeded terminal law, which are not both reported by the packaged diagnostics. Replay with Python 3 using /workspace/branches/4bd1aaed-95ae-4737-9ff8-939e8c296b3d/independent_petersen_check.py; exact output and each named placement law are in independent_petersen_results.json in the same directory. The finite check exhausts the specified graph and dynamics, not other graphs or rates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected kinetic passages concern one-dimensional domain growth, single-spin-flip Ising attractors or random graphs, or low-temperature Metropolis tunneling on a two-dimensional torus. The separate same-graph Ising trapping law covers two colors, not all ordered improvements with three colors."
+        ],
+        "reasoning": "None of those stated results contains the exact three-color Petersen generator and the corresponding terminal law. A second independent enabled recoloring at a vertex, possible with three colors, changes even the embedded-chain weights.",
+        "searches": [
+          "Primary literature on zero-temperature Potts kinetic absorption and exact Petersen dynamics",
+          "Derrida–Hakim–Pasquier hep-th/9505066; Godrèche–Luck cond-mat/0412077; Baek–Ha–Jeong 1112.5927; Bet–Gallo–Nardi DOI 10.1007/s10955-021-02814-1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9090c4dd259d, 08f9fbc10858 and daf48b28408b",
+        "Derrida–Hakim–Pasquier hep-th/9505066, p. 1",
+        "Godrèche–Luck cond-mat/0412077 pp. 1–2; Baek–Ha–Jeong 1112.5927 p. 1; Bet–Gallo–Nardi 10.1007/s10955-021-02814-1 p. 3",
+        "Honari-Latifpour–Miri 10.1515/nanoph-2020-0256, bibliographic identification only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The synchronous companion's fixed-point test identifies the states but not the positive-transition DAG or its weights; it explicitly has two-cycle basins. The binary law does not sample three-color initial states or distinguish the (7,2,1) seed geometry. The antiferromagnetic generalized-Petersen record targets a ground-energy envelope."
+        ],
+        "reasoning": "Knowing the common terminal set, optimizing ground energy, or knowing the absorbing law on the two-color restriction does not determine the ordered probabilities over all initial three-color states. The exact seeded law requires additional genuinely kinetic information.",
+        "searches": [
+          "Resultary 9090c4dd259d, synchronous eventual fixed/two-cycle basin counts",
+          "Resultary 08f9fbc10858 and daf48b28408b",
+          "Cited optical Petersen paper 10.1515/nanoph-2020-0256"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The synchronous ternary rule uses just the three neighbors, retaining the incumbent on a triple tie. A coloring is fixed for that map iff no vertex has a color with strictly more neighbors than its own, exactly the strict Potts absorbing condition. This proves equality of the static sets directly, not just equality of their cardinalities."
+        ],
+        "reasoning": "The static reformulation is genuinely equivalent; it is not a kinetic equivalence. Simultaneous updates can have temporal two-cycles, whereas every asynchronous accepted move strictly increases the score. The synchronous attraction counts therefore do not supply the absorbing Markov law.",
+        "searches": [
+          "Resultary: Petersen three-color Potts kinetic absorption, incumbent-retaining ternary plurality, exact terminal classes and rare (7,2,1) geometry",
+          "Resultary 9090c4dd259d Assumptions and scope, neighbor-only update"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day plurality table reports 579 fixed configurations and the split 3/36/540, exactly the static set and its counts by number of colors. Its 33,543 unanimous-basin states are for its synchronous deterministic map. The binary Ising exact absorption formula Q(p)=2[p(1−p)]³(924+425p(1−p))/189 tabulates a different state space. No distinct exact table was identified for the four kinetic fractions or the 11/270 placement law."
+        ],
+        "reasoning": "Preserve the direct static overlap without inferring priority from a shared date. Proper graph-coloring counts and antiferromagnetic ground energies are not strict ferromagnetic terminal kinetic distributions.",
+        "searches": [
+          "Resultary 9090c4dd259d Finding table; Resultary 08f9fbc10858 exact binary trapping law; Resultary exact Petersen three-color absorption and placement tables"
+        ]
+      },
+      "rationale": "PASS is supported by the distinct kinetic content: the full four-class rate-one-per-recoloring absorption probabilities and the placement-selective mixed-minority law. Do not credit the bare total 579 or its one-/two-/three-color split as distinct from the verified same-day Resultary fixed-point census. Its more detailed energy/population breakdown is a useful accompanying census, not the sole basis for originality.",
+      "residual_risks": [
+        "Same-day date does not establish priority on the static census, which overlaps demonstrably. Full text of the optical comparison was not obtained. An unindexed calculation of the ternary kinetic law or a component is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EQUIVALENT STATIC SET AND COARSE CENSUS; DISTINCT KINETICS",
+          "evidence": [
+            "No self-neighbor included; synchronous neighbor plurality retains incumbent on ties. Petersen table gives 579 fixed states and 2,175 primitive two-cycle orbits, with 3 uniform, 36 bichromatic and 540 trichromatic fixed states."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-ternary-plurality-separates-two-binary-indistinguishable-general--9090c4dd259d/RESULT.md",
+          "material_read": "Finding and Assumptions, offsets 0–2904, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror original passage",
+          "title": "Ternary plurality separates two binary-indistinguishable generalized Petersen graphs",
+          "trigger": "Exact same graph and same number of ternary stable configurations"
+        },
+        {
+          "assessment": "CLOSE BINARY KINETIC PRECURSOR, NOT TERNARY COVERAGE",
+          "evidence": [
+            "A binary majority absorption law with 12 nonconstant absorbing states and a polynomial in p(1−p)."
+          ],
+          "identifier_or_url": "Resultary 08f9fbc10858",
+          "material_read": "Mirrored RESULT.md offsets 0 and 2800",
+          "method": "Local mirror statement and scope",
+          "title": "Exact zero-temperature trapping law for the Petersen Ising ferromagnet",
+          "trigger": "Same graph and a sharp trapping law"
+        },
+        {
+          "assessment": "DIFFERENT DOMAIN AND OBSERVABLE",
+          "evidence": [
+            "One-dimensional domain growth and first-passage/persistence exponents."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/hep-th/9505066",
+          "material_read": "Page 1 at offset 0",
+          "method": "OA PDF opening scientific passage",
+          "title": "Exact first-passage exponents of 1D domain growth: relation to a reaction diffusion model",
+          "trigger": "Three-or-more-color Potts kinetics"
+        },
+        {
+          "assessment": "ACCESS LIMIT; NO FULL-TEXT NONCOVERAGE CLAIM",
+          "evidence": [
+            "The title identifies oscillator kinetics; the exact Petersen passage was not verified in primary text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1515/nanoph-2020-0256",
+          "material_read": "Bibliographic identification only; full-text retrieval did not yield a readable source",
+          "method": "Lawful publisher and DOI routes attempted",
+          "title": "Optical Potts machine through networks of three-photon down-conversion oscillators",
+          "trigger": "Cited optical three-state Potts Petersen example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "On the Petersen graph, a natural minimal cubic girth-five example, a complete strict-cooling kinetic benchmark distinguishes which static minima are actually reached and with what mass. In particular the (7,2,1) selection rule isolates an exact difference between identical populations arranged in different local geometries, including the disappearance of the third color on the nonconsensus paths. This is meaningful without extrapolation to other graphs and is not merely the overlapping fixed-point count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

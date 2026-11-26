@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:24:33.169824Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–62",
+        "VERIFICATION.md",
+        "verify.py"
+      ],
+      "rationale": "At z=-1 any flat energy equals u-2a or a resonator eigenvalue. Cyclicity makes the resonator eigenvalues simple and the root component of each eigenvector nonzero, so none of those eigenvalues survives in a fiber at z different from -1 (the projected lower equation forces backbone amplitude zero and the upper equation kills the resonator component). For nonresonant E the scalar Schur complement is (u-E-2a)+(a-b^2 G(E))|1+z|^2. Hence both coefficients vanish precisely at the proposed tuning. Equivalently the candidate energies are the eigenvalues of K-(b^2/a)ee^T; positivity of the spectral weights makes the interlacing strict, with one energy below the first pole and in each successive internal gap, none above the last. At a tuning, Schur congruence gives inertia equal to that of diag(0,K-E) at every z. There are exactly j-1 negative eigenvalues and one zero for E_j, proving the index and simplicity; continuity on the compact circle gives a global positive gap to all other bands. The eigenvector with backbone component 1 and resonator component -b(1+z)(K-E_j I)^{-1}e has exactly two occupied cells. Its lower block forces any constant-vector Bloch eigenfunction to be zero; its norm is bounded below and above, so translates span the full point eigenspace by Fourier density. The path characteristic and endpoint cofactor recurrences yield the stated Chebyshev equation with the correct sign and factor of c.",
+      "residual_risks": [
+        "Simplicity and gap are for fixed positive hoppings and cyclic root. No parameter-uniform lower gap bound is proved; the recorded finite checker covers paths, not arbitrary resonators."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2017 generator includes sawtooth as a two-band U=2 case. The universal generator constructs matrices from a prescribed compact state and partial Hamiltonian. General Floquet theory characterizes compact states and shows the flat-band potential locus is semialgebraic."
+        ],
+        "reasoning": "The broader framework covers the construction of Hamiltonians and trigonometric eigenvectors but does not mechanically give a discrete set of exactly m permissible backbone onsite energies when all resonator data and hoppings are fixed, or the band-index guarantee.",
+        "searches": [
+          "arXiv:1810.08199 §III",
+          "arXiv:1610.02970 abstract/p. 1",
+          "arXiv:2304.06465 §§2 and 7",
+          "arXiv:2403.17578 pp. 4–5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5a20a1dcc1e8",
+        "arXiv:1610.02970",
+        "arXiv:1810.08199",
+        "arXiv:2304.06465",
+        "arXiv:2403.17578"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The triangle-bridge determinant forces a different energy, fixed relative to a third onsite potential, and an ensuing 2x2 determinant constraint. In the resonator problem the coefficient forces a root Green-function condition with m interlacing roots independent of u."
+        ],
+        "reasoning": "Evidence of broad generation or similar Schur methods is not evidence of the exact fixed-family theorem. The scalar resolvent reduction, the exhaustion of poles and the band-inertia argument provide the missing model-specific implications.",
+        "searches": [
+          "arXiv:1810.08199 pp. 1–3 and §III",
+          "arXiv:2304.06465 §§2 and 7",
+          "Resultary 5a20a1dcc1e8 RESULT.md offsets 1332–3081"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The flat-energy polynomial equals a det(EI-K+(b^2/a)ee^T), so strict rank-one interlacing already gives its root count once the model-specific Schur compatibility has been derived."
+        ],
+        "reasoning": "Interlacing is prior linear algebra; it does not by itself identify which onsite values make these energies simultaneously eigenvalues of all Bloch fibers or show a global gap.",
+        "searches": [
+          "Frozen Schur criterion, RESULT.md lines 38–50; rank-one secular equation reduction",
+          "Resultary search for fixed cyclic resonator sawtooth flat-band onsite tuning"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier indexed weighted triangle-bridge chain has exact locus alpha beta=s^2 and a bottom or middle isolated band with a two-cell state. Its intracell triangle is connected to the next cell by A_n–B_{n+1}; in the m=2 endpoint path model the triangle instead contains adjacent backbone sites and the root, which also has a pendant site. The ordinary sawtooth case has only one resonator site."
+        ],
+        "reasoning": "The graph and free-parameter slices differ; the exact triangle-bridge locus does not contain the m=2 resonator path, let alone the general cyclic-root family. No earlier equivalent tuning table was established in the bounded search.",
+        "searches": [
+          "Resultary SCOPE-20261013-5a20a1dcc1e8, RESULT.md Finding and assumptions/proof",
+          "arXiv:1610.02970 two-band U=2 family"
+        ]
+      },
+      "rationale": "The supported distinction is the exact necessary-and-sufficient one-parameter design law for a fixed arbitrary cyclic resonator, with the placement, isolation and minimal cell support of each attainable band. Ordinary sawtooth examples, rank-one interlacing, and general compact-state generators are antecedents, not novel components themselves. The strongest inspected comparable classifications did not supply the whole claim.",
+      "residual_risks": [
+        "The generator framework could admit another derivation of the theorem; the inspected passages did not give a direct implication. A focused lookup without substantive results is not negative evidence, and priority beyond the sources checked is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers two-band U=2 models, not arbitrary cyclic resonators",
+          "evidence": "A complete two-parameter family for two bands includes the sawtooth model.",
+          "identifier_or_url": "https://arxiv.org/abs/1610.02970",
+          "material_read": "PDF p. 1, offsets 1834 and about 2391",
+          "method": "Primary OA PDF bounded reading",
+          "title": "Compact localized states and flatband generators in one dimension",
+          "trigger": "Direct sawtooth design antecedent"
+        },
+        {
+          "assessment": "General inverse design; exact constrained onsite count and ordered isolated bands not established in inspected passages",
+          "evidence": "Algorithm uses a chosen compact state and partial Hamiltonian to reconstruct remaining hopping matrices.",
+          "identifier_or_url": "https://arxiv.org/abs/1810.08199",
+          "material_read": "PDF pp. 1–3, offsets 5200 and 21106, including §III",
+          "method": "Primary OA PDF bounded reading",
+          "title": "Universal d=1 flat band generator from compact localized states",
+          "trigger": "Potential stronger generator at arbitrary band count and support size"
+        },
+        {
+          "assessment": "General Floquet and semialgebraic framework without the claimed exact slice count",
+          "evidence": "Trigonometric-polynomial eigenvectors correspond to compact eigenstates; periodic onsite-potential locus discussed with a two-site dimension bound.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.06465",
+          "material_read": "PDF §2 pp. 3–4 offset 10256, §7 pp. 20–21 offset 79622",
+          "method": "Primary OA PDF bounded reading",
+          "title": "Flat bands of periodic graphs",
+          "trigger": "Potential stronger theorem about periodic-potential loci and compact states"
+        },
+        {
+          "assessment": "Known ordinary sawtooth constructions, not the arbitrary fixed cyclic resonator theorem",
+          "evidence": "Sawtooth CLS and generator or line-graph tuning examples.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.17578",
+          "material_read": "PDF pp. 4–5, offsets 25429 and 33643",
+          "method": "Primary arXiv OA version after DOI route denied access",
+          "title": "Flat band fine-tuning and its photonic applications",
+          "trigger": "Sawtooth fine-tuning context"
+        },
+        {
+          "assessment": "Material isolation/localization analogue, different connectivity and tuning slice",
+          "evidence": "Intracell triangle with a single intercell A–B edge; flat energy Q_C-qr/p and the quadric alpha beta=s^2.",
+          "identifier_or_url": "SCOPE-20261013-5a20a1dcc1e8",
+          "material_read": "RESULT.md Finding and offsets 1332–3081 (Assumptions and Proof)",
+          "method": "Resultary search and local mirror full-text passages",
+          "title": "Complete gapped flat-band phase diagram of a weighted triangle-bridge chain",
+          "trigger": "Closest indexed same-design-style result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–17 and 38–62",
+        "arXiv:1810.08199 §III",
+        "arXiv:2403.17578 pp. 4–5"
+      ],
+      "rationale": "With resonator and all hoppings frozen, the exact law gives both necessity and a constructive choice of a bottom-to-next-to-top isolated flat band by varying one scalar, including how to read the entire design list from a single finite matrix. The ordered isolation and exact minimal cell support go beyond existence or an ordinary sawtooth example. The interlacing step is textbook; its linkage to the full Bloch tuning and localization problem is the useful structural result.",
+      "residual_risks": [
+        "No bound on usable gap size across designs or robustness to disorder is supplied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

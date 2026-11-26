@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` with Python 3. The script uses only the standard library.
+# Independent mathematical audit
 
-It independently implements the descendant definition for binary length-four words, scans every subset of the 16-word space, and recomputes the maximum size and every maximum code. It then checks the five normalized forms containing 0000, equality with the full translation orbit of the canonical representative, the Hamming-distance profile, the XOR index, and the orbit/stabilizer under all 16 translations and 24 coordinate permutations.
+## correctness
 
-Expected final line:
+PASS
 
-`VERIFY_OK vertices=16 maximum=5 labeled_maxima=16 normalized_maxima=5 translation_orbit=16 natural_group=384 stabilizer=24 hamming_profile=2x6,3x4 xor_index=true maxima_sha256=243c8672229ef0d1ab8c6599b28cebfcf77356c939433924a2f0647c4c1a5145`
+The repaired claim classifies five-word binary length-four 2-frameproof codes. After a translation to include zero, the other supports must be a pairwise-intersecting antichain: containment frames the smaller support via zero, and disjointness frames zero. Singletons and the full set cannot coexist with another support. Four supports are possible as exactly four triples or as a three-edge star and its opposite triple; zero, one, two or three two-sets and the triangle case exhaust the options. The representative is frameproof by the pair types (two units, or a unit and all-ones), and its translates by its five words realize the five pointed forms. All translates are distinct by XOR indexing; pair distances follow by the same pair types. Independently evaluated all 4368 five-sets and 8008 six-sets using strict Hamming triangle inequalities on their triples. Found 16 valid five-sets, no six-set, the five pointed forms, all distance profiles (2×6,3×4), and the unique code after translating by total XOR. No larger code is possible by heredity. Coordinate permutations fix the representative, giving the stated order-24 stabilizer. Frozen verifier inspected, not executed; the repaired verification notes state its actual size cutoff.
+
+## originality
+
+PASS
+
+Pass is for the narrowed equality classification, not for the numerical bound as a new result. The frozen Finding foregrounds the exact maximum and its comparison omits the publication under an equivalent graph formulation. The complete replacement explicitly credits both gp(Q_4)=5 and the representative construction, leaving the 16-code orbit classification, pointed forms and invariants as the claimed contribution. The strongest compared sources do not give or imply that classification in the inspected passages.
+
+## value
+
+PASS
+
+For a natural finite extremal problem, an equality classification determines all optimal objects rather than reproducing their cardinality. It explains the rigidity at length four: one orbit even without permitting coordinate permutations, with an intrinsic XOR index and explicit pointed forms. This gives exact reference data for both separating codes and small hypercube general-position sets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

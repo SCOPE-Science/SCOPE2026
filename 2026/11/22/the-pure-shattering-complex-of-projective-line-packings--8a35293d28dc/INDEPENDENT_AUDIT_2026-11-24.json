@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:06:16.838362Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen statement is for unlabeled packings as concepts on the 56-element spread universe. An independent exact-cover search using the nonzero binary vectors reconstructed 35 lines, 56 spreads and 240 packings: at either cover level selecting a block through the least remaining element enumerates every cover. Reproduction recovered compatible counts 56,840,4200,7560,5040 for k=1,…,5, with multiplicities 30,6,2, then 6720 single and 840 double completions, then all single. This supplies all trace estimates: for a four-set the three-positive pattern always fails if both triple completions contain the fourth spread and always exists if only one does. For each pair or singleton inside a compatible four-set, a union bound on completions involving forbidden spreads is smaller than the number of completions of the required positives, and the all-negative trace exists since 4·30<240. The same argument works on smaller compatible supports. Incompatibility loses the all-positive pattern. A shattered five-set would have a shattered four-subset whose unique completion already contains the fifth spread, which is impossible. Each compatible triple extends to a unique-completion quartet by taking a spread present in only one of its two completions, giving purity. The independent enumeration also compared direct trace masks on all compatible supports through k=5 and traversed the linear group action, recovering order 20160 and the orbit sizes 3360,3360 and 840. Replay: /workspace/branches/c833c554-25e5-4075-bddf-16a10a351f4c/reproduce.py and reproduction.log; supplied verify.py, symmetry.py and verify_fano.py were inspected, not executed. The finite result is exhaustive on this space, with no inference for other field sizes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Green supplies an equivariant model and two size-120 packing orbits; Magaud constructs the whole finite packing universe; the switch-graph record identifies a KG(8,3) spread graph."
+        ],
+        "reasoning": "The packings and graph give a domain for the calculation; none of these statements is a broader theorem on Boolean traces or orbits of four-spread query supports. Enumerating the concepts does not by itself certify all patterns on a collection of queries.",
+        "searches": [
+          "arXiv:2201.00541, spreads and packings census",
+          "arXiv:2511.03040, 240 packings, A8 orbits",
+          "Resultary 6c50c36fdfd9, regulus switching on spreads"
+        ]
+      },
+      "checked_sources": [
+        "Resultary",
+        "arXiv:2201.00541",
+        "DOI 10.4230/LIPIcs.ITP.2022.25",
+        "arXiv:2511.03040",
+        "954d9bec6481",
+        "6c50c36fdfd9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A compatible triangle of three lines uses six labels and admits a unique completion on each choice of seventh label; a concurrent triple uses seven and has two completions there. The four lines avoiding a point form the shared quartet of two completions interchanging the seventh and omitted labels. The other quartets have a unique completion."
+        ],
+        "reasoning": "These cross-label completion facts can be derived from Fano incidence (for a triangle take the three pairwise intersections as a binary basis; for concurrency the remaining lines are one of two complementary parity selections). In particular the related triangle-facet count can be used to recover the 6720 unique completions by complementation and varying the omitted label. The local stabilizer also distinguishes the two types of complements, but the prior packing orbits alone say nothing about the stabilizer action on subsets. To obtain the global trace theorem still requires resolving the completion incidences, obtaining all negative patterns and higher-support obstructions, and relating local stabilizers or computing the actual support orbits. No compared theorem supplies those conclusions for this family.",
+        "searches": [
+          "Magaud ITP 2022, DOI 10.4230/LIPIcs.ITP.2022.25",
+          "Green arXiv:2511.03040, A8 action and Fano realization",
+          "Resultary 954d9bec6481, fixed-seven-label Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fixed-seven-label record classifies all traces of 30 Fano systems on 35 triples; its facets are triangular three-line supports and no four-set is shattered. It has 840 facets in one S7 orbit. The frozen claim has 240 concepts on 56 triples with a variable omitted label."
+        ],
+        "reasoning": "Via Green's labelled Fano encoding, fixed-seven-label traces are one subfamily of the query problem, not an equivalent formulation. Signs can depend on packings omitting different labels. There is a concrete correspondence between a triangular triple on seven labels and its four-line complement in its unique Fano completion, but this concerns incidence inside a specific completion and does not itself preserve Boolean traces between the families.",
+        "searches": [
+          "Resultary: PG(3,2) 240 packings spreads shattering trace VC dimension support classification",
+          "Literature: \"PG(3,2)\" \"shattering\" spreads packings VC dimension 240 packings",
+          "Resultary 954d9bec6481, fixed seven-label Fano-plane shattering"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalog exact hit ends 8a35293d28dc and is the frozen finding itself. The distinct fixed-seven-label classification 954d9bec6481 and prior switch graph 6c50c36fdfd9 were inspected and are different. The frozen finding credits 840 pairs of packings with four spreads in common to an uncited prior calculation, not independently identified."
+        ],
+        "reasoning": "Given maximum quartet multiplicity two, the pair count is indeed the count of double-completion compatible quartets and is not new on this evidence. It does not yield the trace criterion, purity, or the orbit structure. The 840 triangular facets in the fixed-seven-label family are a different statistic.",
+        "searches": [
+          "Resultary: projective line spread packings PG(3,2) 3360 840 two orbits",
+          "Resultary: PG(3,2) packings intersection four spreads common packings trade",
+          "Resultary: packing trades PG(3,2) 840 pairs sharing four spreads"
+        ]
+      },
+      "rationale": "Credit the packing universe, its two packing orbits, the labelled Fano encoding, and the reported prior overlap count. The supported distinct claim concerns the complete eight-label packing trace complex, including its unique-completion criterion and exact orbit decomposition on supports, not the census of packings. The nearest other trace result has substantial related incidence structure but uses a different concept family and does not determine these traces by relabeling or parameter substitution.",
+      "residual_risks": [
+        "The uncited prior packing-trade calculation could contain more than the overlap count; the comparison gives no novelty credit for that count. Hirschfeld §17.5 was not independently inspected. Same-day catalog entries have no established priority order. Older unindexed equivalences are not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Census and two packing classes; not a trace classification",
+          "evidence": [
+            "56 spreads, 240 packings, two packing isomorphism classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2201.00541",
+          "material_read": "pp. 4–5, text offsets 10411 and 12683",
+          "method": "Primary OA PDF, reached via DOI 10.4204/EPTCS.352.12",
+          "title": "Spreads and Packings of PG(3,2), Formally!",
+          "trigger": "Underlying exact finite census"
+        },
+        {
+          "assessment": "Closely relevant packing action prior, on concepts rather than four-spread supports",
+          "evidence": [
+            "The two disjoint classes each contain 120 packings."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ITP.2022.25",
+          "material_read": "pp. 1 and 13, text offsets 993 and 38854",
+          "method": "Primary OA PDF passages",
+          "title": "Proof Pearl: Formalizing Spreads and Packings of the Smallest Projective Space PG(3,2) Using the Coq Proof Assistant",
+          "trigger": "Could contain orbit or table coverage"
+        },
+        {
+          "assessment": "Model and packing orbits, not trace or support orbits",
+          "evidence": [
+            "Two size-120 A8 orbits and one S8 orbit of entire packings; study focuses on the partial order and E8."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2511.03040",
+          "material_read": "p. 1, text offset 2956, action and scope passages",
+          "method": "Primary OA text comparison",
+          "title": "A partial order on the 240 packings of PG(3,2)",
+          "trigger": "Exact equivalent labelled model and group action"
+        },
+        {
+          "assessment": "A fixed seven-label subfamily; three-element facets, not eight-label packing traces",
+          "evidence": [
+            "Exactly the compatible triples with distinct intersection points shatter at size three; no size-four traces."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-boolean-shattering-and-mod-two-homology-of-the-labelled-fano-pla--954d9bec6481",
+          "material_read": "Mirrored RESULT.md, Finding and assumptions at offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Boolean shattering and mod-two homology of the labelled Fano-plane incidence class",
+          "trigger": "Strongest same-language catalog comparison"
+        },
+        {
+          "assessment": "Graph on spreads, not shattering by packings",
+          "evidence": [
+            "The regulus-switching graph is identified with KG(8,3)."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-regulus-switching-of-spreads-in-operatorname-pg-3-2-gives-the-kn--6c50c36fdfd9",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Regulus switching of spreads in PG(3,2)",
+          "trigger": "Same 56-spread query universe"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural incidence concept class receives a complete local characterization, not just a numerical VC dimension. The criterion tells exactly when positive constraints force a forbidden spread, explains purity, and identifies two geometric facet types tied to distinct packing types. This makes the result a useful exact benchmark for trace questions on packing designs rather than a recomputation of the known packing census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

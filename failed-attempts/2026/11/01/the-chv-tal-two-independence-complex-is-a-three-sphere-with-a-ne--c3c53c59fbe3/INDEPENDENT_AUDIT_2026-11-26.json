@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:40:07.164285Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 19–64 and 70; VERIFICATION.md, lines 19–25; CHECKS.txt; inspected verify_chvatal_twoind.py",
+        "Independent replay: python3 /workspace/branches/1801a785-8263-48d8-9cbb-2b40be4b6276/cleanroom_check.py"
+      ],
+      "rationale": "Induced maximum degree at most one is equivalent to component size at most two, including the empty simplex. Independent exhaustive replay gave 72 wedge triples, 424 nonempty faces, and 211 disjoint matches; all 424 nodes in the 1,428-arrow directed Hasse graph sort topologically. Masks 2048 and 232 give one critical vertex and one critical 3-cell, proving S³ by the Morse CW model, not by modular ranks. Independent adjacency-preserving backtracking gave exactly eight automorphisms, all r^a s^b. On the original oriented simplex chains the signed fixed-face sum L gives 1-L on H3, yielding (-1)^a for all eight elements. On the prior ordinary-independence S² the sign is instead L-1, and the replay yields (-1)^(a+b). The quotient conclusion follows after barycentric subdivision, where simplex stabilizers are pointwise and rational averaging identifies homology of orbit chains with invariants. The nontrivial orientation line has none in positive degree; the quotient remains connected.",
+      "residual_risks": [
+        "The verification concerns the labeled graph and specified reflection. It does not classify integral quotient torsion or equivariant homotopy. Frozen code was not executed; a compatible interpreter for it is Python 3.10 or later."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The selected published framework results concern graph families such as cycles, complete multipartite graphs, whiskered graphs, trees and forests; the Chvátal graph is not shown to be covered by these passages.",
+          "0139a1a23a59 gives the sphere and orientation character and also distinguishes deletions and links for the vertex orbits."
+        ],
+        "reasoning": "The stronger exact-graph result covers the frozen theorem independently of the general framework literature.",
+        "searches": [
+          "arXiv:2001.05448v2, abstract on r-independence",
+          "arXiv:1501.06754v1, Theorem 3.14",
+          "arXiv:2106.10863v3, abstract",
+          "Resultary: 0139a1a23a59, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b08ae37a270b, 0139a1a23a59, 676b14391238, 3077dabdf181",
+        "arXiv:2001.05448, arXiv:1501.06754, arXiv:2106.10863"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited two-independence orientation line is nontrivial. Its rational D4-invariants vanish, and the sphere has no other reduced rational homology.",
+          "The two previously stated characters already give the change of reflection sign between the two complexes."
+        ],
+        "reasoning": "The quotient and the comparison with ordinary independence add no separate computation once these exact prior results are in hand.",
+        "searches": [
+          "b08ae37a270b and 0139a1a23a59, findings",
+          "3077dabdf181, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior catalogue findings use the induced-component cutoff two or equivalently avoid a P3; containing a three-vertex path is exactly the obstruction to maximum induced degree at most one.",
+          "b08ae37a270b has the same r and s on the same vertices; the sign is (-1)^a in both statements."
+        ],
+        "reasoning": "The dissociation, P3-devoid and two-independence names describe the same complex here. The agreement of the action is on the labeled generators, not just the abstract abstract-group type or sphere dimension.",
+        "searches": [
+          "Resultary: b08ae37a270b and 0139a1a23a59, findings",
+          "Taylan, arXiv:1501.06754v1, Theorem 3.14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b08ae37a270b Finding and proof state S³, χ_3(r^a s^b)=(-1)^a, the same generators, and 424 nonempty faces.",
+          "0139a1a23a59 also states S³ and the same orientation character. The separate 676b14391238 and 3077dabdf181 deal with ordinary independence and give S² and reflection-odd orientation, rather than a different instance of the same cutoff."
+        ],
+        "reasoning": "The first two are distinct records with exact coverage of the frozen main theorem; the latter two support the ordinary-independence contrast but are not themselves exact matches.",
+        "searches": [
+          "Resultary: b08ae37a270b, 0139a1a23a59, 676b14391238, 3077dabdf181"
+        ]
+      },
+      "rationale": "Two distinct Resultary records state the same S³ and integral orientation theorem on the same Chvátal graph. The direct Oct. 25 match uses the same graph labels and generators, and the Oct. 18 match also states the core theorem while going further to deletion links. The quotient statement is implied by the known orientation character and rational finite-group averaging. This is demonstrated statement-level coverage, not an inference about independent discovery from dates.",
+      "residual_risks": [
+        "The comparison establishes existing coverage, not first discovery, and does not exhaust possible other literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact core coverage by a distinct record",
+          "evidence": [
+            "S³ and χ_3(r^a s^b)=(-1)^a on the same labeled graph and generators; 424 nonempty faces."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-the-chv-tal-two-independence-complex-is-a-three-sphere-with-a-re--b08ae37a270b/RESULT.md",
+          "material_read": "RESULT.md, Finding, labeled assumptions and proof passages",
+          "method": "Resultary lookup and local mirror",
+          "title": "The Chvátal two-independence complex is a three-sphere with a reflection-even character",
+          "trigger": "Appears to assert the exact sphere and action"
+        },
+        {
+          "assessment": "Covers the core and adds deletion-link results",
+          "evidence": [
+            "K ≃ S³, χ(r^a s^b)=(-1)^a, plus a deletion-link dichotomy."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-the-chv-tal-two-independence-sphere-and-its-reversed-deletion-li--0139a1a23a59/RESULT.md",
+          "material_read": "RESULT.md, Finding",
+          "method": "Resultary lookup and local mirror",
+          "title": "The Chvátal two-independence sphere and its reversed deletion links",
+          "trigger": "Potential stronger theorem for the identical graph"
+        },
+        {
+          "assessment": "Supports ordinary-independence comparison only",
+          "evidence": [
+            "Ordinary Ind(C) ≃ S² and orientation (-1)^(a+b)."
+          ],
+          "identifier_or_url": "Resultary 676b14391238 and 3077dabdf181",
+          "material_read": "RESULT.md, Theorem in the first record and Finding in the second",
+          "method": "Local mirror",
+          "title": "Chvátal ordinary independence and equivariant collapse to the open-neighborhood complex",
+          "trigger": "Closest comparator in the frozen text"
+        },
+        {
+          "assessment": "Provides general setting, not coverage from inspected classification families",
+          "evidence": [
+            "Complete multipartite, fully whiskered, cycle and perfect m-ary tree families."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2001.05448",
+          "material_read": "v2 abstract, p. 1",
+          "method": "Open-access primary text",
+          "title": "Higher independence complexes of graphs and their homotopy types",
+          "trigger": "Identical component-size definition and possible family coverage"
+        },
+        {
+          "assessment": "Forest theorem does not apply",
+          "evidence": [
+            "D(F; P3) is contractible or a wedge of spheres for a forest F."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1501.06754",
+          "material_read": "v1 Theorem 3.14, p. 9 (offset 28990)",
+          "method": "Open-access primary PDF text",
+          "title": "Matching trees for simplicial complexes and homotopy type of devoid complexes of graphs",
+          "trigger": "P3-devoid description of the exact object"
+        },
+        {
+          "assessment": "Relevant framework but inspected chordal and tree classes do not encompass this triangle-free graph with cycles",
+          "evidence": [
+            "Chordal and tree-related results, including caterpillars."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.10863",
+          "material_read": "v3 abstract, p. 1 (offset 1881)",
+          "method": "Open-access primary text",
+          "title": "Chordal graphs, higher independence and vertex decomposable complexes",
+          "trigger": "Search hit for potential higher-independence family coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and relationship to prior work; b08ae37a270b and 0139a1a23a59 findings"
+      ],
+      "rationale": "A new integral homotopy and orientation calculation for this canonical graph would be worthwhile, but the frozen claim repeats an existing exact calculation and character. The quotient acyclicity is a routine consequence of that character; the ordinary-independence contrast is already implied by the two known characters. The replay increases confidence but supplies no distinct scientific remainder.",
+      "residual_risks": [
+        "This does not assess a different claim about integral quotient homology or vertex deletion links."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

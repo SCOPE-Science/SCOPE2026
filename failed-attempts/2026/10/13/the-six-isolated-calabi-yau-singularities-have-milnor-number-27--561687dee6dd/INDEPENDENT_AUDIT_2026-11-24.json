@@ -1,0 +1,83 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:48:23.926945Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Burek §4 provides all six local equations. At v=0 and ∞ the principal part is −z²+4s⁴−q; at v=±1 and ±i it is 4z²−16s⁴−q in the given coordinates (swap the two factor functions for ±i). The weights of x,y,s,z are 1,1,1,2 and all corrections have weight greater than 4. By Euler's identity any common projective zero of q_x,q_y would be a multiple projective root of q, which has four distinct linear factors. Their length is 3·3 as a regular sequence of cubics; the z and s factors of the principal Jacobian have lengths 1 and 3. Semiquasihomogeneous invariance gives μ=27 for the exact germs without claiming analytic equivalence to the initial forms. The Milnor fiber of an isolated complex threefold hypersurface germ is a bouquet of 27 three-spheres, so χ=−26. Burek's 9 is for a surface fiber. Frozen verify.py and its recorded output cover the binary quartic and the weight check at v=0; the other five points were checked from the source, not from a replay of that script. No global smoothing follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source gives weights (1,1,1,2), principal degree 4, nonzero z² and s⁴ coefficients, and squarefree binary q. The proof of Proposition 4.2 covers the points over 0, ∞, ±1 and ±i."
+        ],
+        "reasoning": "These are stronger local equations at exactly the objects of the record, not a result about another model or an estimate. They give the isolated weighted principal part required by the standard invariant formula.",
+        "searches": [
+          "arXiv:2610.01276v1 §4 Lemma 4.1 and proof of Proposition 4.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.01276v1 §§4, 8",
+        "Local Resultary result 17541f49c289 (search description, different model)",
+        "Standard Jacobian-algebra formula for isolated weighted-homogeneous hypersurface singularities and its semiquasihomogeneous invariance",
+        "Milnor, Singular Points of Complex Hypersurfaces (bouquet theorem)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The isolated degree-4 principal part with those weights gives ∏(4/w_i−1)=3³·1=27; the higher-weight terms do not affect μ.",
+          "The bouquet theorem then imposes reduced H_3 of rank 27 and Euler characteristic 1−27."
+        ],
+        "reasoning": "This is substitution into a standard formula with hypotheses already established, not an additional analytic classification or a separate nonroutine invariant computation.",
+        "searches": [
+          "arXiv:2610.01276v1 §4; standard semiquasihomogeneous invariance and weighted Milnor formula; Milnor's bouquet theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest same-source indexed result, 17541f49c289, concerns a projective model of the 96-node elliptic threefold, not the six quartic germs.",
+          "For these isolated hypersurface germs reduced H_3 rank, local Milnor-fiber Euler characteristic and μ are related by Milnor's bouquet theorem."
+        ],
+        "reasoning": "Rephrasing as a vanishing-cycle rank or Euler characteristic has no originality independent of μ. The source's printed surface-fiber μ=9 is for a different germ.",
+        "searches": [
+          "Local Resultary lookup by Burek arXiv:2610.01276v1, total-space Milnor number and vanishing cycles",
+          "arXiv:2610.01276v1 §4 and §8 Remark 8.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Remark 8.4 explicitly computes the surface number 9. The inspected source passages do not list 27 for the total space; the indexed same-source neighboring model is not the same quartic germ."
+        ],
+        "reasoning": "This is an invariant of six named germs, not a census parameter with a relevant general database. The most pertinent numerical evidence is the source calculation itself; its printed 9 is not an exact total-space match.",
+        "searches": [
+          "arXiv:2610.01276v1 §4 local equations and §8 Remark 8.4 invariant calculation",
+          "Local Resultary same-source/invariant lookup"
+        ]
+      },
+      "rationale": "The number 27 is not quoted as an explicit total-space value in the inspected source; it is nevertheless mechanically implied by stronger local data explicitly given there. The source furnishes the isolated weighted principal form at every point, and the standard semiquasihomogeneous Milnor formula directly determines the invariant and hence the stated fiber topology. This is prior implication, not a finding that Burek printed the number 27.",
+      "residual_risks": [
+        "Another source might explicitly print the same total-space number; the rejection does not depend on locating such a statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger local data already imply the total-space headline; explicit numerical calculation in Remark 8.4 is only for the surface fiber",
+          "evidence": [
+            "At zero the source equation is (z−1−s⁴)(z²−4s⁴)−q=0; it treats infinity in the other chart and the four remaining points with a translated z and a base function vanishing to order two.",
+            "Remark 8.4 uses the two-variable Jacobian quotient of q on the singular surface fiber."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.01276v1",
+          "material_read": "§4 Lemma 4.1 (PDF p. 4), Proposition 4.2 proof (p. 5), §8 Remark 8.4 (p. 13)",
+          "method": "Targeted original OA PDF passages",
+          "title": "An elliptic Calabi–Yau threefold of rank twelve",
+          "trigger": "Initiating primary source for the six local equations and numerical comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The total-space versus surface distinction is mathematically relevant, but the frozen numerical result follows from the initiating paper by the standard weighted formula and bouquet theorem alone. No new local hypothesis, computation beyond this textbook deduction, or further consequence is required or established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

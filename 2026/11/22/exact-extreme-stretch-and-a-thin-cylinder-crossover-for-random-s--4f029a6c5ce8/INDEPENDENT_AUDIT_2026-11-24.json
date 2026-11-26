@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:40:44.643128Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5 of Proof, VERIFICATION.md, and verify.py (read, not run)",
+        "Independent replay: python3 /workspace/reproductions/geometry_and_dynamics.py cylinder (SciPy); five thin-window scaled values checked, with absolute error below 2e-6 at ε=1e-6"
+      ],
+      "rationale": "Unwrapping in the shortest angular class gives squared intrinsic and ambient distances r²(θ²+x²) and r²(4 sin²(θ/2)+x²). The independent angular and normalized axial differences have densities 1/π and 2(1-v), respectively. This yields the exact threshold formula; for any two positive heights its integrand drops strictly on a positive-length interval just above θ_t. The ratio extends continuously at coincidence with value 1 by its axial-independent bound θ/(2 sin(θ/2)); continuity and positive-measure neighborhoods establish the essential range, with the stated maximizing distinct pairs. At the maximum the loss in (δ,x²) is δ/2+βx² plus a quadratic remainder. Positivity localizes δ=O(ε), x=O(√ε). After scaling the remainder lies in a level shell of width O(ε) in scaled variables; the fixed-height density correction is O_h(√ε), giving precisely the stated ε^(3/2) coefficient and O_h(ε²) remainder. Squaring the axial coordinate in the uniform parabolic limit gives the claimed Dirichlet density. For bounded λ, sandwiching the angular admissible length at fixed v between 2[ε(1−βλ²v²)±O_Λ(ε²)]_+ gives a uniform error including at clipping. Integration yields both branches, with third derivative jump 8/π in L=λ√β. Independent axial-first integration at fixed h and across the clipping point corroborates the coefficients.",
+      "residual_risks": [
+        "Numerical replay is corroboration only; claims about uniformity at unbounded λ and other endpoint measures were not tested or inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Capsule chord result has a linear window and C¹ transition; Chen and Chen §3.1 treats periodic geodesic computation."
+        ],
+        "reasoning": "Neither the computational generality nor a distinct chord-length transition gives the cylinder stretch distribution, normalization, uniform error, or C² transition.",
+        "searches": [
+          "Resultary local mirror: h proportional to sqrt(epsilon) and extreme metric-distortion crossovers; arXiv:1011.5320"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local statement mirror (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; sources above)",
+        "Chen and Chen, arXiv:1011.5320v1, relevant full-text passages",
+        "Targeted primary search, no useful scholarly match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "d=2 closed circle product states the same Dirichlet parameters; cone has a fixed-opening parabolic limit; same-cylinder results state only one metric each."
+        ],
+        "reasoning": "The separate laws do not supply the joint event. A common parabolic limit does not imply the cylinder's coefficient, triangular-density clipping, derivative jump or uniform thin-window estimate.",
+        "searches": [
+          "Stratified distortion on products of circles, cone sidewall ratio, and the two same-cylinder marginal results (local mirror)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact bound record is a self-hit, not a second finding; the cone and product-of-circles Findings were actually inspected."
+        ],
+        "reasoning": "Cone radial geometry and the closed product of circles (no height interval, different axial chord and angular sampling) share the limiting shape, not the full finite-cylinder observable or strict ordering with its triangular height law.",
+        "searches": [
+          "Resultary local mirror: uniform cylinder sidewall ratio law and aspect ordering; intrinsic/chord distortion tails"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Checked the full intrinsic-pair-law, Euclidean-moment, and invariant-line chord Findings; no distinct matching table or record surfaced."
+        ],
+        "reasoning": "Their statistics or pair sampling differ; the self-hit is not independent coverage.",
+        "searches": [
+          "Resultary local mirror exact cylinder ratio and window queries; same-cylinder marginal and extreme-chord records"
+        ]
+      },
+      "rationale": "The closest actual ratio-tail laws share a parabolic limit, including the same Dirichlet parameters, but do not imply the finite-cylinder triangular-height law or its thin-window crossover. The same-surface records treat separate marginals. No equivalent coverage of the assessed cylinder claim was established in the bounded comparison; no priority is inferred from publication dates or retrieval gaps.",
+      "residual_risks": [
+        "WSCG 2005 full text not obtained; historical priority is not established.",
+        "Same-date analogue records establish real mathematical overlap, not relative order. Semantic retrieval is bounded and does not rule out an exact equivalent elsewhere."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material partial analogy, not equivalent coverage",
+          "evidence": "Exact cone ratio law, fixed-opening ε^(3/2) tail, conditional parabolic region; excludes uniformity toward degeneracy.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-stretch-distribution-and-sharp-extreme-distortion-on-a-cir--681d4e624b00/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact stretch distribution and sharp extreme distortion on a circular cone",
+          "trigger": "Closest sidewall ratio and exponent"
+        },
+        {
+          "assessment": "Same conditional parameters in d=2 but different model",
+          "evidence": "A closed product torus embedded in R⁴; its fixed-shape theorem is not the triangular axial difference or varying-height theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-stratified-extreme-metric-distortion-on-products-of-circles--f11768ee0021/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Stratified extreme metric distortion on products of circles",
+          "trigger": "Same tail exponent and Dirichlet shape"
+        },
+        {
+          "assessment": "Different statistic and scaling",
+          "evidence": "Complete boundary, Euclidean chords, a=λε, and C¹ crossover.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sphere-to-capsule-crossover-in-the-extreme-surface-chord-distr--7e754e9fe5a0/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A sphere-to-capsule crossover in the extreme surface chord distribution",
+          "trigger": "Crossover analogue"
+        },
+        {
+          "assessment": "Intrinsic marginal only",
+          "evidence": "States the law of d_g without the ambient distance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-full-intrinsic-pair-distance-law-on-a-finite-circular-cylinder--fff233fea091/RESULT.md",
+          "material_read": "Finding and intrinsic scope, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Full intrinsic pair-distance law on a finite circular cylinder",
+          "trigger": "Same surface and sampling"
+        },
+        {
+          "assessment": "Ambient moments only",
+          "evidence": "States d_e moments and explicitly excludes intrinsic paths.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-two-moment-ambiguity-transition-and-rational-three-momen--99e743811ab8/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A sharp two-moment ambiguity transition and rational three-moment inverse for cylinder sidewalls",
+          "trigger": "Same surface and inverse shape problem"
+        },
+        {
+          "assessment": "Different sampling and statistic",
+          "evidence": "Invariant-line chords of the solid, not two independent sidewall points; four-coordinate Dirichlet law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-joint-endpoint-and-deficit-laws-for-near-diameter-chords-of-roun--4bf8d7c4bf65/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Joint endpoint and deficit laws for near-diameter chords of round cylinders",
+          "trigger": "Cylinder extreme-value law"
+        },
+        {
+          "assessment": "Underlying shortest-path computation, not random ratio law",
+          "evidence": "Compares candidate lifts on copies of the parameter domain; the relevant sections address geodesic algorithms.",
+          "identifier_or_url": "arXiv:1011.5320v1",
+          "material_read": "Abstract p. 1, §3.1 p. 6 and surface-of-revolution example p. 7",
+          "method": "OA full-text passage comparison",
+          "title": "Computation of the shortest path between two curves on a parametric surface by geodesic-like method",
+          "trigger": "Primary shortest-path method on periodic surfaces"
+        },
+        {
+          "assessment": "Unverified access, no negative inference",
+          "evidence": "Both routes returned HTTP 404.",
+          "identifier_or_url": "https://visielab.uantwerpen.be/sites/default/files/huysmans2005.pdf",
+          "material_read": "No full text inspected",
+          "method": "Identified OA PDF direct and VPN retrieval attempts",
+          "title": "Parameterization of Tubular Surfaces on the Cylinder",
+          "trigger": "Cited cylinder-geometry source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md equations (1)–(3)",
+        "Compared same-cylinder intrinsic and ambient marginal Findings"
+      ],
+      "rationale": "The coupled metric distortion is a natural observable not captured by either metric alone. The exact probability law identifies height-to-radius from one fixed threshold; the explicit crossover quantifies when fixed-height rare-event behavior ceases to describe a thin cylinder and detects a specific nonanalytic transition from the axial cutoff. Together with the conditional limit, this goes beyond a routine distance computation.",
+      "residual_risks": [
+        "Value is for this normalized sidewall model, not a claim about arbitrary developable surfaces or other collapse regimes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

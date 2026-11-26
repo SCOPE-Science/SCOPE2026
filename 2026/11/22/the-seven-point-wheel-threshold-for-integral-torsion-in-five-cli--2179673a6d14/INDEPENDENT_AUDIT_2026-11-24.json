@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:40:36.830212Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An individual one-point type forbids a K4 in its old neighborhood. To realize two adjacent new vertices neither type alone creates a K5; a K5 using both exists exactly when their common neighborhood contains a triangle. Homogeneity and universality give the converse, including two distinct realizations of the same type. The type family is hereditary, so the subset zeta matrix is unitriangular and integer Möbius inversion diagonalizes the meet matrix by unimodular congruence. Each diagonal coefficient depends only on the induced K4-free graph on the corresponding type's neighborhood. I independently exhausted all labelled K4-free graphs up to order seven by adding vertices and allowing only triangle-free neighborhoods, with an incremental bitset update for the triangle-free subsets. Every graph is generated once through its unique labelled predecessor. The 420 nonunit cases all have coefficient 2, a universal vertex and six vertices of degree three; a K4-free such graph cannot have a rim of two triangles, so it is exactly the wheel. The wheel's coefficient histogram independently gives 22 units, one 2 and 105 zeros. The direct-sum cyclic factors of a general diagonal matrix may need gcd/lcm operations rather than mere reordering to put them into invariant-factor order; the wheel has just one nonunit and the stated theorem is unaffected.",
+      "replay": "python /workspace/independent/check_wheel.py 6 for a bounded slice, then python /workspace/independent/check_wheel.py 7. Output /workspace/independent/check_wheel.log: 1486597 labelled K4-free graphs at order seven, 420 exceptions; wheel diagonal {-1:12, 0:105, 1:10, 2:1}.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Conant establishes the extension framework. The same-day cycle result concerns union of positive requirements in the triangle-free homogeneous graph. The same-day cube result concerns adjacent realizations in the K4-free homogeneous graph over triangle-free parameters, and first odd torsion at Q3."
+        ],
+        "reasoning": "Neither related classification ranges over the induced K4-free graphs governing this K5-free threshold. A cycle union-compatibility matrix is not the intersection-based adjacency-feasibility matrix on arbitrary named bases.",
+        "searches": [
+          "Conant arXiv:1401.1570, Def. 3.1 and Prop. 3.2",
+          "Resultary c61bbf0f5bb4 and 7609cd4368fa"
+        ]
+      },
+      "checked_sources": [
+        "Conant arXiv:1401.1570",
+        "Ghosh–Selvaraja arXiv:2602.09623",
+        "Resultary c61bbf0f5bb4, 7609cd4368fa, acf4a6fabe72 and 51b9079b1da6",
+        "Resultary 2179673a6d14 (identical target)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cycle result already involves the independence-polynomial evaluation at -1 and a factor 2 at C6. Subsets of the wheel containing the hub require an independent rim subset; those without the hub cancel in the total alternating sum."
+        ],
+        "reasoning": "Existing cycle evaluations help give the single wheel witness, and standard Möbius factorization explains how coefficients control torsion. Neither rules out nonunit coefficients in every smaller arbitrary K4-free graph or on every other graph of order seven. That exhaustive negative part and the unique exception are the distinct finite classification.",
+        "searches": [
+          "Resultary c61bbf0f5bb4, RESULT.md proof offset 5368",
+          "Resultary acf4a6fabe72, RESULT.md Finding",
+          "Ghosh–Selvaraja arXiv:2602.09623 pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The coefficient w_H(V) equals (-1)^(|V|+1) times the reduced Euler characteristic of CF_3(H). Ghosh–Selvaraja, pp. 1–2, identifies this very triangle-free-subset complex, while the catalog's icosahedral example uses twelve vertices and gives a different invariant."
+        ],
+        "reasoning": "The comparison used the equivalent classification of all K4-free graphs on at most seven vertices by the absolute alternating triangle-free subset sum, not just the Henson terminology. Known definitions and the icosahedral example do not classify that range.",
+        "searches": [
+          "Resultary: Henson one-type adjacency Smith torsion, wheel threshold; clique-free complex alternating sums",
+          "focused literature search: K4-free seven-vertex induced triangle-free subset Euler characteristic wheel threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit 2179673a6d14 is the frozen target itself. The other matches concern different compatibility relations, a different forbidden clique, Fourier data, or a different host graph. No independently verified prior table of the stated finite classification was identified."
+        ],
+        "reasoning": "A graph catalogue alone does not tabulate the relevant coefficients. The admitted empty literature search did not establish absence, and the self-match supplies no evidence of competing coverage.",
+        "searches": [
+          "Resultary 2179673a6d14, c61bbf0f5bb4, 7609cd4368fa, acf4a6fabe72 and 51b9079b1da6",
+          "literature lookup under clique-free-complex and Euler-characteristic formulations"
+        ]
+      },
+      "rationale": "The new supported statement is the sharp universal seven-parameter cutoff and uniqueness, together with the full integral wheel form. Neither the Henson extension criterion, subset Möbius inversion, nor the value of the C6 independence polynomial alone is new here. Inspected overlapping same-day records do not cover the classification; this assessment does not infer priority from ordering within that day.",
+      "residual_risks": [
+        "An earlier small-order table may encode the classification under Euler characteristic, hypergraph independence, or meet-matrix terminology. The failed supplied URL does not establish anything about publication status of the separate icosahedral record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior framework, not Smith classification",
+          "evidence": "Generic K_n-free graph and its permitted finite induced extensions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1401.1570",
+          "material_read": "p. 3, Definition 3.1 and Proposition 3.2",
+          "method": "Lawful OA primary PDF passage",
+          "title": "Forking and dividing in Henson graphs",
+          "trigger": "General type and extension framework"
+        },
+        {
+          "assessment": "Covers CF_t formulation, not evidence of the finite coefficient cutoff",
+          "evidence": "Studies shellability/decomposability of subsets inducing no t-clique.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.09623",
+          "material_read": "pp. 1–2, definition and scope passages",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Shellability in Clique-Free Complexes of Graphs",
+          "trigger": "Equivalent triangle-free-subset complex"
+        },
+        {
+          "assessment": "Important polynomial and matrix analogue, distinct statement",
+          "evidence": "Union compatibility in the triangle-free homogeneous graph; a factor 2 when 3 divides the cycle length, first for C6 in its range.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-integral-join-compatibility-spectra-for-one-types-over-cyc--c61bbf0f5bb4",
+          "material_read": "RESULT.md Finding at offset 0 and proof passage at 5368",
+          "method": "Resultary local mirror",
+          "title": "Exact integral join compatibility spectra for one-types over cycles",
+          "trigger": "Closely related Möbius Smith form and cycle factor 2"
+        },
+        {
+          "assessment": "Different parameter and prime cutoff",
+          "evidence": "K4-free homogeneous graph, triangle-free bases, unique eight-point cube for first odd torsion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-the-eight-parameter-cube-threshold-for-odd-torsion-in-henson-typ--7609cd4368fa",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "The eight-parameter cube threshold for odd torsion in Henson type compatibility",
+          "trigger": "Same adjacent-realization invariant at a nearby forbidden clique"
+        },
+        {
+          "assessment": "Related numerical pattern, different invariant",
+          "evidence": "Walsh multipliers of independent sets with magnitude 2 occurring in the stated modulo-three case.",
+          "identifier_or_url": "Resultary acf4a6fabe72",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Cycle independent sets: a modulo-three Fourier invertibility law",
+          "trigger": "Cycle evaluation underlying wheel witness"
+        },
+        {
+          "assessment": "Different graph and result",
+          "evidence": "States CF_3 of the icosahedron has type M(Z/2,4), not the seven-point classification.",
+          "identifier_or_url": "Resultary 51b9079b1da6",
+          "material_read": "RESULT.md Finding near offset 390; supplied URL failed",
+          "method": "Resultary local mirror, after failed lawful retrieval of cited URL",
+          "title": "A Moore space from the triangle-free vertex subsets of the icosahedral graph",
+          "trigger": "Exact CF_3 computation cited by the frozen result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Pairwise adjacency of types is the natural local extension relation of the generic K5-free graph. The first failure of integral saturation is a sharp phenomenon, not an arbitrary wheel computation: the unique seven-point obstruction explains exactly where mod-two rank first differs from rational rank, including when the base graph itself can contain a K4. The equivalent signed Euler characteristic classification is useful independently of the model-theoretic notation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

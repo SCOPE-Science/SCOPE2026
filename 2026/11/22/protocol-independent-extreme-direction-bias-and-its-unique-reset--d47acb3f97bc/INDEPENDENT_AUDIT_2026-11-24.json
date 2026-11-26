@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:33:22.408410Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–34 and 36–80",
+        "VERIFICATION.md and CHECK.py inspected, not executed; the 363 assertions are source-reported"
+      ],
+      "rationale": "Regeneration gives the unique stationary law as the unreset evolution at independent Exp(r) age; even trajectories that have stayed ballistic give densities after mixing the age. The Fourier phase equations give the p₀ transform in the proof. In y=λ² its denominator polynomial at 0, (r+β)²/v², and +∞ has signs +, −, +, ensuring two distinct roots and placing the slow root below the ballistic killing rate in spatial units. The numerator at the slow pole is strictly positive for both reset weights. Hence p₀ has a positive e^(−λ|x|) term and a strictly faster remainder. Independently via the phase Green kernels, p₊ convolves p₀ against (δ/2v)e^(−tu/v) on x−u, u≥0, and p₋ on x+u; the reset sources alone give one-sided e^(−t|x|/v). Multiplying by e^(λx) and using e^(λu) as a bound on the slow contribution proves the coefficients δ/[2(t∓vλ)] times the p₀ tail amplitude, giving both ratios and the reflected left limit. In z=P² the physical equation has F_z<0, and F_R=(1−z)[2R+b+1−3a(R+1)²z]. The positive critical curve z₁ decreases strictly; the second curve z₂=1−3b/[(R+1)(R+2b−1)] increases on R>max(0,1−2b), starting negative and tending to 1. Their single crossing is physical and gives precisely the cubic and admissibility conditions. At R=0 the derivatives give (1+b)/(a+b). For large r the small root y<(r+δ)/D implies v²y/t²→0 and r+δ−Dy=O(1/r), yielding z∼1/(aR). The vanishing endpoints and single critical point imply strict monotonicity on either side. In the unit benchmark the cubic reduces to 3R²+4R−8=0, giving R=(2√7−2)/3 and P²=2/[3(R+1)], consistent with the reported numbers.",
+      "residual_risks": [
+        "The all-parameter conclusion follows analytically, not from numerical Fourier or optimization tests. The endpoints are limits, not assertions of a stationary law at r=0."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior paper's Appendix A computes stationary position marginal mixtures; its reset optima concern mean first-arrival time.",
+          "The distinct same-day e9f574cebd88 covers arbitrary mixed-phase reset weights, with shared roots, two-exponential position densities and optimization of the mixture to get a Laplace position law. Earlier a1ab52a1b12f concerns positional aliasing on v²=D(β+ρ) and lagged covariance differences."
+        ],
+        "reasoning": "Broader mixture coverage is real but refers to positional statistics. The optimizer there varies mixture weight or concerns other objectives, not the reset rate maximizing the direction imbalance among tail relocations.",
+        "searches": [
+          "arXiv:2401.16849 §III-A and Appendix A",
+          "Resultary e9f574cebd88 and a1ab52a1b12f, same model and more general reset mixtures"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Relationship to prior work",
+        "arXiv:2401.16849 passages above",
+        "Resultary e9f574cebd88 and a1ab52a1b12f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The shared decay root and the phase coupling make the tail ratio recoverable with a dominant-mode and noncancellation argument; the pole itself is not a new result.",
+          "No inspected result establishes the single crossing of the two physical stationary-point curves, the admissible cubic for the polarization optimum, or the all-positive-parameter monotonicity. Equality of full position marginals on an aliasing locus is distinct from an equal limiting conditional phase composition for all parameters."
+        ],
+        "reasoning": "The mode relation is a close analytic consequence of the known forward system. The actual reviewed contribution includes the global classification of the polarization as a function of reset rate, not simply substituting protocol weights in known marginals. The same UTC day cannot settle order of publication.",
+        "searches": [
+          "Flaquer-Galmés–Campos–Méndez stationary equations and mixture comparison",
+          "Resultary e9f574cebd88 Finding, scope and formula derivations; a1ab52a1b12f Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2401.16849 §II Eqs. (1)–(8) is the same model with δ=1/τ_D and β=1/τ_v. §III-A gives the same stationary renewal problem for the position marginal.",
+          "On the right the reviewed observable is equivalently twice the conditional probability of the outward phase, given relocation at far-right position, minus one. It is not the marginal tail weight or likelihood ratio between two marginal densities."
+        ],
+        "reasoning": "The prior notation and pure protocols match, but a ratio of directional phase components of one law is not the ratio of two position marginals. The positive slow-mode coefficient and optimizer comparison apply to the former.",
+        "searches": [
+          "Primary search for intermittent diffusion/ballistic Poisson restart, phase-resolved far-tail polarization and optimal restart",
+          "Resultary semantic comparison: directional polarization, intermittent resetting, stationary phase composition and mixture protocols"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalogue formula matches the spatial roots and marginal densities, not the directional ratio or the admissible cubic. Prior exact stationary formulas specify different observables."
+        ],
+        "reasoning": "This is a symbolic continuum family, not a finite invariant with a standard census table. The nearest exact closed-form and catalogue entries were checked for coverage of the function and critical point, not merely the unit benchmark.",
+        "searches": [
+          "Resultary catalogue for the phase-conditioned ratio, unique optimum and exact mixed-mode stationary transport laws",
+          "arXiv:2401.16849 Eqs. (26)–(30), (A1)–(A5) as exact-formula comparisons"
+        ]
+      },
+      "rationale": "Credit the exact model, phase-reset preparations, renewal method, marginal spatial laws and decay polynomial to closely related work. The supported claim is the conditional outward relocation imbalance in the extreme tail, including the noncancellation for both preparations and the unique optimum with admissible cubic for all positive parameters. Neither the marginal-law computations nor first-passage optimization supply that combined conclusion.",
+      "residual_risks": [
+        "Within-day order for the same-day distinct record is not established. A bounded search is not exhaustive of phase-resolved stochastic transport literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "covers model, renewal and positional stationary laws; different optimization observable",
+          "evidence": [
+            "Diffusion and ± relocation preparations map to the reviewed parameters; reset phase mixtures yield mixtures of spatial marginals. The positional expressions do not state the extreme directional ratio or its maximum."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2401.16849",
+          "material_read": "§II Eqs. (1)–(8), pp. 2–3 (OA offsets 12200–18366); §III-A Eqs. (26)–(30), pp. 4–5 (33000–43481); Appendix A Eqs. (A1)–(A5), p. 11 (88200–94289)",
+          "method": "original OA arXiv PDF passages",
+          "title": "Intermittent random walks under stochastic resetting",
+          "trigger": "exact switching and reset model; possible prior optimization"
+        },
+        {
+          "assessment": "material overlap of model and poles, not same observable or optimum",
+          "evidence": [
+            "Position-marginal transforms, ordering, crossing and unique Laplace-design mixture; scope is stationary position rather than joint phase."
+          ],
+          "identifier_or_url": "Resultary e9f574cebd88, 2026-11-22 UTC",
+          "material_read": "RESULT.md offsets 0–4969 and 4969–9899, including Finding, scope and formulas",
+          "method": "local mirror full-text excerpts",
+          "title": "Sharp likelihood-ratio ordering and exact Laplace design by mixed-phase resetting",
+          "trigger": "same-day exact model, preparations and shared stationary roots"
+        },
+        {
+          "assessment": "different positional equality and covariance result",
+          "evidence": [
+            "Equality of marginal stationary position laws on the stated aliasing locus, with strictly different lagged covariances; no conditional polarization optimizer."
+          ],
+          "identifier_or_url": "Resultary a1ab52a1b12f, 2026-10-26 UTC",
+          "material_read": "RESULT.md offsets 0–4955 and 4955–9626",
+          "method": "local mirror full-text excerpts",
+          "title": "Exact spatial aliasing and strict temporal separation in intermittent resetting transport",
+          "trigger": "same pure reset protocols and stationary-law comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "arXiv:2401.16849 §III-A and Appendix A for the positional comparison"
+      ],
+      "rationale": "A phase-conditioned tail statistic discriminates the direction of motion in an otherwise symmetric stationary model. The same tail composition survives different full-reset preparations even when positional laws differ, and the exact global tuning rule quantifies a nonmonotone effect for every physical parameter choice, distinct from optimizing search time.",
+      "residual_risks": [
+        "No inference about partial resetting, nonsymmetric phase switching, bounded domains or a first-arrival optimum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

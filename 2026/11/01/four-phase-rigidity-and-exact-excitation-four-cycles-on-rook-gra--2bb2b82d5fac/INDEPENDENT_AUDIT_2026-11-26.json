@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:08:21.765571Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On a primitive temporal four-orbit every vertex is excited exactly once in a cyclic four-word: excitations are separated by at least three steps; a never-excited site remains resting and forces its neighbors never to excite, impossible on the connected graph unless all-zero. The local rule precisely forbids adjacent opposite phases and requires an adjacent predecessor phase at every vertex. A row must be bichromatic (otherwise every column contains all globally present phases); rotate its colors to 0,1. The phase-0 cell's predecessor 3 is in its column in a second row. That 3 must find phase 2 in its own row, not in its column above a 0, and this 2 must be in a column with first-row phase 1. The two colors 3,2 then fix the entire second row in agreement with the two column classes. These reference rows restrict all other rows to {0,3} on one class and {1,2} on the other; opposite-phase exclusions force exactly the first or second row type. Conversely the cyclic rectangle labelling meets both phase conditions, and each vertex's four-word has least period four. The partitions are recoverable from the labelled phase array, and phase rotation removes only the phase origin, leaving two cyclic orders per pair of unordered bipartitions. The independent NumPy transition-table enumeration, with exact ternary integers and phase recovery from actual trajectories, checked all 20,280,861 configurations on the nine frozen boards and reproduced all counts; this is corroboration, not the all-size proof. The frozen C++ guard should not be taken as supporting arbitrary 20-cell tests, since signed int cannot represent 3^20; none of the nine samples exceeds 15 cells, so that does not affect the recorded calculation or statement.",
+      "replay_path": "/workspace/replay/rook.py",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gravner–Lyu–Sivakoff give synchronization via irrotationality and the exact maximum cycle-mean limiting activity on finite graphs.",
+          "Durrett–Griffeath study threshold/range transitions, spiral cores and stable periodic objects in locally interacting lattice systems, as specified by the abstract and introduction."
+        ],
+        "reasoning": "An asymptotic firing-rate invariant does not identify the exact-period-four configurations or their arrangements; lattice spatial wave results do not treat clique rows and columns of arbitrary rectangular rook graphs.",
+        "searches": [
+          "arXiv:1610.07320 Theorem 3",
+          "Durrett Griffeath 1993 \"Asymptotic Behavior of Excitable Cellular Automata\" pdf Durrett Duke lattice periodic orbit 9303002",
+          "Durrett–Griffeath author copy introduction and lattice-wave scope"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1610.07320",
+        "Durrett–Griffeath 1993 author PDF paper79.pdf",
+        "Resultary bc07c832e978 and 41763c4e3744",
+        "OEIS A087291"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3's observable is a long-time normalized count, not an equality test F^4(x)=x or a classification by labelled bipartitions.",
+          "The 4-by-4 census has no arbitrary-size claim; its symmetry census additionally quotients by graph automorphisms, unlike the headline shift-only count.",
+          "The complete bipartite count is on a graph with edges between shores; row/column clique restrictions of the line graph require their own argument."
+        ],
+        "reasoning": "No inspected general result mechanically forces the two reference row types and hence the entire rectangular phase array. The all-size proof supplies that additional constraint, after which the count is an elementary consequence.",
+        "searches": [
+          "arXiv:1610.07320 p. 4 offset 14610",
+          "Durrett–Griffeath pp. 1–2, author copy paper79.pdf",
+          "Resultary bc07c832e978 and 41763c4e3744 offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target graph is L(K_(a,b)) = K_a □ K_b, since two cells share a row or column exactly when the corresponding bipartite edges share an endpoint.",
+          "Resultary 41763c4e3744 treats K_(a,b) itself, with vertex rather than edge configurations of the underlying bipartite graph.",
+          "The phase problem is equivalently a labelling by cyclic 4-phases with no opposite adjacent labels and a predecessor-neighbor condition."
+        ],
+        "reasoning": "The graph and the state space must both be translated under any alternative formulation. Identical update rules and formulas on K_(a,b) and L(K_(a,b)) do not identify those state spaces; the partition rigidity is the line-graph assertion.",
+        "searches": [
+          "Greenberg Hastings model finite graph period four periodic configurations rook graph Cartesian product complete graphs line graph complete bipartite phases orbit count Durrett Griffeath",
+          "Resultary Greenberg–Hastings rook graphs, period four, complete bipartite line graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary bc07c832e978 gives 98 primitive cycles for the 4-by-4 rook graph and symmetry-orbit sizes 32,48,18; all agree with the current formula and the two split-size types.",
+          "Resultary 41763c4e3744 gives 2(2^a−2)(2^b−2) exactly period-four configurations at entry time zero on K_(a,b), i.e. the same orbit count after dividing by four, on a different graph.",
+          "OEIS A087291(n) = 2(2^n−1)^2 for coprime polynomial pairs over GF(2); Q_4(n,n) = A087291(n−1)."
+        ],
+        "reasoning": "The census covers a single same-object case, and the sequence and complete bipartite table supply numerical overlap, not the claimed all-size dynamical characterization.",
+        "searches": [
+          "Resultary bc07c832e978 and 41763c4e3744 Findings",
+          "OEIS A087291 definition, offset and formula"
+        ]
+      },
+      "rationale": "The supported distinct claim is the rigidity and shift-only count on every labelled rectangular rook graph, not the novelty of the square-board integer sequence or the 4-by-4 count. The inspected general excitation results give activity or existence of waves, not the phase-array rigidity or exact orbit count. The two strongest exact Resultary neighbors are later: one gives a census of the same dynamics on one rook graph, and the other counts the same period on the complete bipartite graph itself, not its line graph. The latter even gives the same two-parameter numeric period-four formula, but its proofs about shore adjacency do not mechanically classify row/column cliques of the line graph. Remaining historical/equivalent-formulation risk is acknowledged.",
+      "residual_risks": [
+        "Equivalently formulated constraints or obscure earlier graph-automata results may exist; the searches are not exhaustive.",
+        "The full Durrett–Griffeath document was available via an author copy, but the comparison is based on the specified passages, not an asserted exhaustive read.",
+        "The pass does not claim originality of the integer sequence, the 4-by-4 census, or a classification of other periods."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General activity, not periodic-orbit classification",
+          "evidence": "Conclusions are synchronization and the maximum directed-cycle mean limit.",
+          "identifier_or_url": "https://arxiv.org/abs/1610.07320",
+          "material_read": "Abstract and Theorem 3 (PDF p. 4, offset 14610)",
+          "method": "OA primary PDF",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "General arbitrary-graph characterization of the same model"
+        },
+        {
+          "assessment": "Inspected scope and results concern lattice thresholds and spiral-wave objects; not the finite labelled rook problem",
+          "evidence": "The model uses local neighborhoods in Z^2 with interaction radius, contact threshold and shape; the main results are threshold cutoffs for stable periodic objects. No whole-paper keyword noncoverage is inferred.",
+          "identifier_or_url": "https://sites.math.duke.edu/~rtd/reprints/paper79.pdf",
+          "material_read": "Author-copy abstract, contents and introduction (offset 0), and wave/threshold discussion (offset 47100)",
+          "method": "Lawful same-paper author-hosted PDF located by primary search; arXiv direct and alternate route returned 404",
+          "title": "Asymptotic Behavior of Excitable Cellular Automata",
+          "trigger": "Historical GHM periodic-wave literature; cited arXiv route unavailable"
+        },
+        {
+          "assessment": "Later exact finite case and distinct automorphism analysis",
+          "evidence": "The table reports 98 primitive four-cycles, with a census over all 3^16 states on the two fixed graphs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-four-cycle-excitation-clocks-distinguish-the-shrikhande-and-rook--bc07c832e978/RESULT.md",
+          "material_read": "Finding and assumptions (offset 0), census method around offset 4900",
+          "method": "Configured Resultary search and exact local-mirror passages",
+          "title": "Four-cycle excitation clocks distinguish the Shrikhande and rook graphs",
+          "trigger": "Exact same-model same-graph overlap at 4-by-4"
+        },
+        {
+          "assessment": "Later count on a different graph family",
+          "evidence": "The (0,4) entry is 2uU for K_(m,n); the target uses L(K_(m,n)).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-temporal-basin-polynomial-for-greenberg-hastings-dynamics--41763c4e3744/RESULT.md",
+          "material_read": "Finding, graph definition and (0,4) table entry (offset 0)",
+          "method": "Configured Resultary search and exact local-mirror passages",
+          "title": "Exact temporal-basin polynomial for Greenberg–Hastings dynamics on complete bipartite graphs",
+          "trigger": "Closest related arbitrary-size family and exact temporal count"
+        },
+        {
+          "assessment": "Identical shifted numbers with a different interpretation",
+          "evidence": "Counts coprime bounded-degree polynomial pairs; its formula is 2(2^n−1)^2.",
+          "identifier_or_url": "https://oeis.org/A087291",
+          "material_read": "Definition, data, offset and formula (offset 410)",
+          "method": "OA primary database page in website mode",
+          "title": "OEIS A087291",
+          "trigger": "Exact numerical overlap on square rook boards"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Period four is the first nontrivial period above the intrinsic three-state firing/recovery cycle, and rook graphs form a natural two-parameter family with overlapping large cliques. The theorem gives a complete structural classification, not just an exact count or an observed firing rate: exponentially many orbit states are all determined by two independent labelled cuts and orientation. It explains the known finite-board numbers and computes an exact dynamical invariant for arbitrarily large boards without enumerating configurations. Neither the scope nor the significance depends on a claim about other periods or basins.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

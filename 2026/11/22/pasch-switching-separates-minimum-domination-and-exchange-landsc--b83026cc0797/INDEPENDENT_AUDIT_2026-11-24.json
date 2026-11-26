@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:58:41.934301Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–76; VERIFICATION.md; verify_p_first.py and verify_q_first.cpp (read only)",
+        "Independent replay: /workspace/branches/94430dbe-88ed-4342-b46d-808cb1eb4b9e/replay_closed_neighborhoods.py",
+        "Saved replay masks and results: /workspace/branches/94430dbe-88ed-4342-b46d-808cb1eb4b9e/replay-results.json"
+      ],
+      "rationale": "Both explicit designs have 26 distinct triples and cover all 78 pairs once. In any dominating set, 13-p<=3q, and at most 6p-binomial(p,2)+t(P)+q block vertices are covered, where t(P) counts triples in P. For p+q=8 the first bound forces p<=5. For p<=3 even the cruder bound 6p+q<=23 fails; for p=4 at most one triple fits, and for p=5 at most two fit (three triples have union size at least six). Both bounds leave too many disjoint blocks to select. Smaller sets extend to size eight and are excluded. Two intersecting blocks give a five-point union P and four disjoint blocks, which cover every point outside P since any such point has six incident blocks but at most five meeting P. Thus gamma=9. The same inequalities force 5<=p<=7 at size nine, and the containment of all disjoint blocks plus point coverage is necessary and sufficient. An independent exhaustive replay instead branches on uncovered closed neighborhoods in the 39-vertex graphs, without using that occupancy restriction. It found 1456 and 1511 minimum sets, respectively 2652 and 3192 undirected one-replacement edges, and component profiles {676^1,17^39,1^117} and {936^1,51^1,48^3,24^6,17^3,13^1,10^9,1^82}. In the order (5,canonical), (6,canonical), (6,noncanonical), (7,canonical), the occupancy counts are (195,624,507,130) and (195,574,612,130). Both sorted labelled-mask digests agree exactly with the frozen digests. No supplied script was executed.",
+      "residual_risks": [
+        "The census counts labelled configurations, not symmetry orbits. Component orders and edge totals do not certify component isomorphism types."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goldberg et al. give general incidence-graph domination analysis plus the STS comparison.",
+          "Tang–Zhou describe scalar domination-number results including projective planes and symmetric designs; §1 specifies the conjectures studied.",
+          "Pavone p. 1 describes both STS(13) types and representation of the 26 noncyclic triples."
+        ],
+        "reasoning": "Scalar bounds, coverage conditions for candidates and design descriptions specify the problem or permit enumeration; the checked statements do not give an output formula or existing census for the optimum and exchange counts.",
+        "searches": [
+          "Goldberg–Rajendraprasad–Mathew §7",
+          "Tang–Zhou arXiv:1603.07398v1 Abstract and §1",
+          "Pavone DOI:10.26493/2590-9770.1564.2b8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b83026cc0797 (self) and 8652e89ae3d4",
+        "Goldberg et al. arXiv:1405.3436v1",
+        "Tang–Zhou arXiv:1603.07398v1",
+        "Pavone DOI:10.26493/2590-9770.1564.2b8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited conjecture and question concern the domination number, which remains nine in both graphs. The cross-free placement result counts solutions to another constraint system."
+        ],
+        "reasoning": "Equality of the minimum cardinality does not determine the optimum-set family, and giving the underlying designs does not calculate their replacement graphs. The specifically checked occupancy and component counts therefore add independent information.",
+        "searches": [
+          "Goldberg et al. §7, Conjecture 7.1 and Question 7.7",
+          "Resultary 8652e89ae3d4 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary match is the frozen finding itself. The distinct same-day result 8652e89ae3d4 analyzes exchange between size-three cross-free placements on the same pair, obtaining 6214 versus 6148 placements.",
+          "Goldberg et al. explicitly treats domination of Levi graphs and asks about the scalar invariant under Pasch trades."
+        ],
+        "reasoning": "A three-placement family has different feasibility conditions and vertices from the nine-vertex dominating sets; it is not a reformulation of the replacement graph here. The scalar question uses the same graphs but does not ask for the exchange landscape.",
+        "searches": [
+          "Resultary semantic comparison: STS(13) Pasch trade minimum dominating sets and exchange landscape",
+          "Goldberg–Rajendraprasad–Mathew, arXiv:1405.3436v1 §7, including Question 7.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The STS table explicitly gives two STS(13) types and domination number nine, but not the minimum-set totals or replacement data.",
+          "The closest distinct indexed exchange census has different states; Pavone's accessible abstract describes structural data, including triples."
+        ],
+        "reasoning": "The exact known table is credited for gamma=9. Neither that table nor a list of triples supplies the occupancy, edges or component-size multiset.",
+        "searches": [
+          "Resultary exact/near match comparison b83026cc0797 and 8652e89ae3d4",
+          "Goldberg et al. arXiv:1405.3436v1 §7 STS table",
+          "Pavone publisher PDF p. 1"
+        ]
+      },
+      "rationale": "The common domination number nine and the existence of two STS(13) types are prior facts, and the frozen text does not claim otherwise. The supported distinct result is the complete minimum-set, occupancy and replacement-graph census for the pair, showing what the scalar invariant and its invariance under this Pasch switch do not capture.",
+      "residual_risks": [
+        "Pavone's visual material was not fully inspected; the accessible abstract is not evidence about the entire article. Unindexed enumerations are not excluded. The dated 2014 result has established priority for the scalar invariant, not demonstrably for the new census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior for the scalar invariant, not for the census in that section",
+          "evidence": [
+            "The row for order 13 records two systems and gamma=9; Question 7.7 asks about scalar domination under a Pasch trade"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1405.3436v1",
+          "material_read": "§7 STS table and discussion including Conjecture 7.1 and Question 7.7",
+          "method": "Primary OA HTML, offset 20700 onward",
+          "title": "Domination in designs",
+          "trigger": "Exact designs and domination parameter; plausible prior census"
+        },
+        {
+          "assessment": "Checked material concerns scalar domination rather than an enumeration of optima",
+          "evidence": [
+            "Abstract and §1 frame the project around bounds and conjectures on projective planes and symmetric designs"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1603.07398",
+          "material_read": "PDF Abstract and §1 through statement of the conjectures studied, offsets 0–5392",
+          "method": "Primary OA PDF passages",
+          "title": "Domination number in block designs",
+          "trigger": "General incidence-graph domination results possibly implying the claim"
+        },
+        {
+          "assessment": "Relevant design reference; no census evidence in the material read",
+          "evidence": [
+            "The abstract describes the two nonisomorphic systems and visualizations of the noncyclic triples and structural data"
+          ],
+          "identifier_or_url": "https://doi.org/10.26493/2590-9770.1564.2b8",
+          "material_read": "Publisher PDF English abstract on p. 1, searchable offset 1173; later visual material not independently read",
+          "method": "OA publisher PDF text; identified institutional alternate returned 403",
+          "title": "A visual representation of the Steiner triple systems of order 13",
+          "trigger": "Exact two designs and switched block structure"
+        },
+        {
+          "assessment": "Different configurations and counts; same-day date is not a priority order",
+          "evidence": [
+            "The counts 6214 and 6148 are for size-three cross-free placements, not minimum dominating sets"
+          ],
+          "identifier_or_url": "Resultary: 8652e89ae3d4",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Cross-free triple placements distinguish the two thirteen-point Steiner systems",
+          "trigger": "Same STS pair, Pasch switch and type of exchange census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding",
+        "Independent replay-results.json",
+        "Goldberg et al. §7, Question 7.7"
+      ],
+      "rationale": "The two known STS(13) types exhaust the natural comparison class, and domination and its one-replacement connectivity are standard, interpretable invariants of the corresponding Levi graphs. The exact census shows a genuine distinction not visible at the optimum size: the Pasch switch changes the six-point sector, the number of isolated optima and the sizes of reachable components. This gives a reproducible comparison for the study of exchange connectivity, not a recomputation of gamma alone.",
+      "residual_risks": [
+        "No extension to arbitrary Pasch trades or larger Steiner systems is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

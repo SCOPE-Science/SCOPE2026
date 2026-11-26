@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The update-rule parity partition is exact. Same-parity strings are identical or complements; neither can cause a change. Opposite parity means one agreement and one disagreement, hence exactly one possible flip-generating discussed issue under any strict noncritical threshold. With replacement, each sign of the parity-count transition has probability \(i(N-i)/(2N^2)\). The finite chain absorbs almost surely; the martingale gives terminal complementary-family probabilities. The harmonic recurrence and the transient matrix prove mean and distributional formulas. Reconstructed the strict inequalities and both with-/without-replacement normalizations. The packaged exact-rational checker gives independent finite cross-checks, not an infinite proof.
+PASS
 
-## Originality — PASS (self-review only)
+Equal-parity pairs are identical or complements and never change. An unlike-parity pair agrees on one issue and differs on one. Away from weight ties it has exactly one update-causing issue, the differing issue for copying and the agreeing issue for opposition, so it independently converts the focal parity to that of the target with probability 1/2. Thus the entire parity dynamics is a lazy voter step, with probabilities i(N−i)/(2N²) each way and the other attempts retained as holding probability. With distinct agents the denominator is 2N(N−1). Endpoints are exactly the union of consensus and complementary-pair configurations; each interior state has a positive-probability path to an endpoint, implying finite mean absorption for fixed N. The bounded martingale fixes at N with probability a/N. Killing on endpoints gives Q^t 1 for survival. Taking first differences of the Poisson recurrence yields d_{i+1}−d_i=−2N(1/i+1/(N−i)); d_i=2N(H_{N−i}−H_{i−1}) telescopes and sums to zero across the N differences. Summation by parts gives the equivalent mean 2N[N H_N−a H_a−(N−a)H_(N−a)], yielding the claimed entropy limit from H_k=log k+γ+O(1/k) and an O(N²) maximum. The two-agent example has success probability 1/4 each attempted step, with copying giving consensus and opposition giving strict polarization; a similarity tie can instead freeze both parities. Inspected verify.py: exact finite lumping and mean checks, not the universal proof; not executed.
 
-The closest originating literature is Mintz et al. (arXiv:2603.04939, 2026): its accessible full main article defines the same stochastic rule and discusses symmetry and endpoint types, not this strong-lumpability and threshold-invariance statement. General voter-model absorption formulas are classical: Pickering and Lim (arXiv:1408.2130) are cited explicitly, so the original part is the equality-in-law reduction, not gambler's-ruin theory. Related compatibility-graph findings use different graph/observable and do not imply this exact parameter-independent two-issue model reduction. Targeted primary-literature and mathematical-record queries did not identify a directly covering statement. Missing supplementary analysis and unindexed equivalent work remain priority risks; searching alone cannot prove novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem settles an exact finite-population property directly motivated by stochastic convergence-time plots: arbitrary salience and generic friend/enemy thresholds cannot change the hitting-time law when there are precisely two binary issues. It rules out exponential expected absorption time here and separates invariant duration from threshold-dependent final outcome type. A structural symmetry, not a numerical special case, is responsible.
+The specific projection and resulting attempted-update invariance across strict shared thresholds are the distinct claim. The update model, absorbing categories, and neutral voter-chain calculations are prior. Mintz et al. do give qualitative L=2 absorption-time discussion in the inspected v2, but no equivalent exact law was found. An isolated attracting interior point of the type in their schematic cannot attract different initial parity masses in the frozen regime, whose deterministic drift preserves total parity mass. The caption alone does not specify an actual threshold/rate experiment in that regime.
 
-## Limitations
+## value
 
-Two issues, complete mixing, equal chance of discussing either issue, zero noise, common strict noncritical threshold, and explicit selection normalization. Other opinion counts, threshold equalities and general networks are unproved. Classical voter formulas alone are not claimed as new. Independent validation is not asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This motivates a structural invariant in the stochastic two-issue model rather than a new gambler's-ruin computation. Researchers comparing parameter-dependent convergence can know exactly when attraction versus opposition is invisible even to the full attempted-update absorption law, while still changing consensus versus polarization. The finite-N distribution and uniform polynomial mean bound rule out a plausible metastability mechanism in the stated regime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

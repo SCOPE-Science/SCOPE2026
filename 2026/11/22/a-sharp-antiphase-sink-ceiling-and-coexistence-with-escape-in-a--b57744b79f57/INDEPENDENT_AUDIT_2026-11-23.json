@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:59:55.106084Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the invariant anti-diagonal, g(u)=(1-u)e^{-u}, u=s²>0, decreases from 1 to -e^{-2} at u=2 and increases to 0 from below, giving all 0/2/4 counts, including the exclusion of u=0 and the single radius at c=0. Differentiating the actual two-coordinate map yields the normal multiplier a e^{-u}(1-5u+2u²) and the tangent multiplier 1+2au(u-2)e^{-u}. At u=2 the tangent multiplier is 1; the outer branch is expanding. For a<e² the inner branch approaches a normal multiplier strictly inside (-1,1), and its tangent multiplier approaches 1 from below. For a≥e² the normal multiplier is at most -1 for 1≤u<2 since (5u-2u²-1)e^{-u} decreases there to e^{-2}; on 0<u≤3/20 it is at least e^{37/20}/4>1. On [3/20,1], u(2-u)e^{-u} has just one interior maximum and its two endpoint values exceed e^{-2}; hence the tangent multiplier is below -1. The fold curvature g''(2)=e^{-2} gives the stated splitting with coefficient 2e/√a. The half-difference outside M_a/(2|b|-1) grows geometrically in excess of that bound, proving an open escaping set in the same parameter interval as the two local sink basins. No nonlinear stability at (1,-1) or claim about all finite attractors follows. The frozen verify.py implements sampled radius/Jacobian diagnostics, not the continuum proof; it was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier exact same-map boundedness record f463338d3c52 proves an open escape region for |b|>1/2 and expressly excludes finite-attractor classification.",
+          "Soula et al. §2 and Fig. 1 give numerical stability regions for fixed points and attracting cycles; they do not certify a gain-uniform analytical obstruction on the specified invariant line."
+        ],
+        "reasoning": "The broader escape result covers precisely the escape half used here; the compact-absorber/escape dichotomy provides no nonzero hyperbolic antiphase sink theorem. Numerical regions do not settle the full parameter quantifiers.",
+        "searches": [
+          "A sharp global boundedness interval and logarithmic critical escape in a coupled Gaussian map (Resultary)",
+          "Soula et al. §2, Fig. 1 and §4"
+        ]
+      },
+      "checked_sources": [
+        "Soula et al., doi:10.3390/math11061517",
+        "Resultary same-map predecessor f463338d3c52",
+        "Resultary index results including target and related positive-coupling summary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For each a>0 the proposed fold lies at -1/2-a/(2e²)<-1/2. Thus the earlier theorem already implies escape throughout the small near-fold interval chosen below -1/2.",
+          "The anti-diagonal reduction determines the fold geometry but does not bound the normal multiplier on the inner branch or exclude all sinks for a≥e². The two-multiplier exclusions provide that additional implication."
+        ],
+        "reasoning": "No originality credit for the escape estimate or Lambert W notation alone. The substantive addition is the exact gain ceiling, backed by the two-multiplier classification and hyperbolic attainment on the escaping side.",
+        "searches": [
+          "same-map boundedness record f463338d3c52, open escape assertion and Limitations",
+          "Soula et al., §§2 and 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Soula et al. eqs. (2)–(3) identify the exact map and the same sign and scaling of b. Section 4 discusses the diagonal synchronization subspace, not the antiphase branch criterion.",
+          "An equivalent antiphase calculation must use c=(1+2b)/a and test both eigenvalues at the roots of (1-u)e^{-u}=c (or the corresponding Lambert W branches). Coordinate exchange and central inversion supply the invariant line and sign pairing, but not the sink ceiling."
+        ],
+        "reasoning": "The exact antiphase sink test is not a change of notation for synchronization. A fixed point becomes a period-two orbit under composition with central inversion, but applying that operation changes (a,b) to (-a,-b), outside the positive-gain family. The nearby positive-coupling antipodal-cycle summary is not evidence of an equivalent result.",
+        "searches": [
+          "gain ceiling e^2 anti-diagonal nonzero sink coexistence escaping open set (Resultary)",
+          "\"anti-diagonal\" \"sink\" \"escaping\" dynamical system gain e^2",
+          "Soula et al., doi:10.3390/math11061517, §2 and §4; literal checks anti-diagonal and antisym"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The corpus returned the target itself and the earlier boundedness result, which tabulates no antiphase classification. A related positive-coupling bistability hit was available only as an indexed summary.",
+          "The same-map figure encodes numerical parameter domains, not exact (0,2,4) antiphase branch counts or a certified e² threshold."
+        ],
+        "reasoning": "The checked exact corpus result and numerical diagram do not duplicate the analytical census and stability frontier. This is not a claim that no exact diagram or equivalent table exists.",
+        "searches": [
+          "gain ceiling e^2 anti-diagonal nonzero sink coexistence escaping open set (Resultary)",
+          "Soula et al. §2, Fig. 1",
+          "same-map boundedness record f463338d3c52, statement and Limitations"
+        ]
+      },
+      "rationale": "The identical map, numerical stability diagrams and an analytic escape region predate this result. The checked work does not furnish the exact all-coupling obstruction a≥e² or the inner-branch hyperbolic attainment and resulting coexistence for all a<e². Priority is assessed only against the inspected material.",
+      "residual_risks": [
+        "The related positive-coupling index hit was not inspected in full; an unindexed same-map antiphase calculation may exist.",
+        "The one external keyword search returned unrelated material and provides no basis for an absence claim. The primary comparison is bounded to the relevant passages and is not an exhaustive priority survey."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers model and numerical stability/basin investigations; the inspected passages do not establish the exact antiphase ceiling",
+          "evidence": [
+            "Eqs. (2)–(3) specify the identical map; §2 describes numerically constructed domains; §4 explicitly treats invariant diagonal dynamics."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math11061517",
+          "material_read": "Open article PDF: pp. 2–3, eqs. (2)–(3) and §2/Fig. 1 discussion; p. 9 §4 synchronization passage",
+          "method": "Located and read primary PDF passages by page and text position; compared map, b normalization, symmetry and stability domains",
+          "title": "Dynamics and Global Bifurcations in Two Symmetrically Coupled Non-Invertible Maps",
+          "trigger": "Identical Gaussian-cubic map and coupling, with stability regions and synchronization"
+        },
+        {
+          "assessment": "Covers the escaping-set component, not finite sink existence or nonexistence",
+          "evidence": [
+            "Open escape for |b|>1/2; finite attractors and their basins explicitly outside scope."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-global-boundedness-interval-and-logarithmic-critical-esc--f463338d3c52/RESULT.md",
+          "material_read": "Statement and limitations (text positions 0 and 6600), snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Read the mirrored result and compared its quantified escape region to the fold interval",
+          "title": "A sharp global boundedness interval and logarithmic critical escape in a coupled Gaussian map",
+          "trigger": "Same-map exact global absorber/escape result predating the antiphase classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The precisely motivated invariant is the gain range for stable nonzero antiphase equilibria in the original full-plane map. It turns numerical evidence into a sharp obstruction across every coupling and proves that bounded attractors can persist on an entire open coupling interval where open sets escape. The critical (1,-1) linear spectrum marks where the near-fold sink mechanism ceases to work, without claiming a nonlinear codimension-two classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:35:29.447875Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 32–70",
+        "Frozen VERIFICATION.md and verify.py (read, not executed)"
+      ],
+      "rationale": "A distinct-window orbit gives a closed trail. Across the cut by whether a vertex begins with a nonzero symbol, every bad edge goes U to B, and cyclic rotation bijects good U-to-B edges with all B-to-U edges. Thus each used bad edge costs an omitted good U-to-B edge, proving the bound tr(A^n). For attainment, each good-edge vertex has equal incoming and outgoing symbol options, and appending zeros gives paths to the all-zero vertex, from which any admissible vertex can be built. Its Euler circuit is primitive by distinct windows. The trace count exceeds the number of linear (n−1)-words: the differences start with q,q at n=2,3 and satisfy the same positive recurrence. This proves the exact gap r^(n−1). For the all-maximizer claim the frozen cylinder proof explicitly handles only Euler witnesses; the needed equality case follows as follows. At equality all good edges outside U-to-B must be present. Relative to the complete good-edge graph, a maximizing trail therefore changes only U-to-B edges. Outdegrees of all B vertices are unchanged, hence by balance their indegrees are unchanged. But added bad edges end at B vertices ending in a nonzero symbol, and omitted good U-to-B edges end only at vertices ending in zero. No addition can be balanced there. Thus every maximizer uses all and only good edges (also for n=2, when bad edges are absent). This supplies the missing inference without changing the claim. For any large orbit with longest common prefix L, the finite bound at n=L+1 gives the content upper bound lambda+tau^(L+1)/lambda^L, and L tends to infinity uniformly with orbit size. The Euler orbits give the matching limit; changing the exponent multiplies by a power of the gap and gives zero above s and infinity below it. Fixing k−1 transitions of a closed n-walk gives exactly the stated matrix entry. The positive and negative eigenvectors yield the Parry cylinder masses and spectral correction, with beta<alpha; q=2 gives alpha=2/3 and beta=1/3 as claimed.",
+      "residual_risks": [
+        "All-maximizer statistics concern exact finite maximizers with distinct n-windows, not arbitrary sequences approaching the critical content. The review fills the equality-case justification; finite verifier diagnostics alone do not establish it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kong–Wang–Yu give the periodic-content definition and a homogeneous full-shift de Bruijn construction. Relabeling zero as the largest symbol, the substring-avoidance and intersection cases of Sawada–Williams–Wong cover universal-cycle existence for the good window set. Gardner–Godbole give the general construction background."
+        ],
+        "reasoning": "These results furnish definitions, methods and the constrained Euler witness, but the full-shift construction and restricted existence theorem do not bound arbitrary star-admissible competing trails or enforce the window set at equality.",
+        "searches": [
+          "arXiv:2609.16296, §1.1 and Proposition 3.3",
+          "DOI 10.37236/5517, Theorem 1 and §§3.3.6, 3.3.9",
+          "arXiv:1711.07029, Introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records aa3ac12cc70f and 475811a7997d (summaries)",
+        "arXiv:2609.16296",
+        "DOI 10.37236/5517",
+        "arXiv:1711.07029",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An existing good-window universal cycle gives a lower bound on the critical content. The cut upper bound and the vertex-balance equality case give, respectively, the opposite bound and that every finite maximizer uses just those good windows."
+        ],
+        "reasoning": "Counting closed words using A^n mechanically gives the statistics of the known type of witness. What requires extra proof is that one cannot beat that witness or replace its windows while attaining the same period; the inspected prior existence and full-shift claims do not give that inference.",
+        "searches": [
+          "arXiv:2609.16296, Proposition 3.3",
+          "DOI 10.37236/5517, Theorem 1",
+          "Frozen RESULT.md, lines 40–70"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A universal cycle on cyclically admissible words is the Euler witness. The optimization problem is instead a maximum closed trail in the full linear-word overlap graph, including windows failing the extra closing transition."
+        ],
+        "reasoning": "The witness translates to a known universal-cycle problem, but optimality is not equivalent to existence. The larger optimization includes competing trails containing bad edges.",
+        "searches": [
+          "Sawada–Williams–Wong, DOI 10.37236/5517, §1.2 and §§3.3.6, 3.3.9",
+          "Frozen RESULT.md, lines 40–52"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later doubly run-limited binary record concerns forbidden 000 and 111, with a canonical maximizing window set. The earlier run-limited record concerns shortest cyclic covers of every linearly admissible window. No exact star-shift entry was identified in the bounded lookup."
+        ],
+        "reasoning": "Different constraint systems and the shortest-cover objective are not identical to this maximum; neither accessible summary establishes the trace formula or exact cylinders here. Results from summaries are limited to those statements.",
+        "searches": [
+          "Resultary semantic lookup for distinct-window maximum and canonical window set",
+          "Resultary records aa3ac12cc70f and 475811a7997d (catalogue statements)"
+        ]
+      },
+      "rationale": "The periodic-content framework and existence of restricted universal cycles are covered prior art. The supported distinction is the finite upper bound over the full admissible window graph and its rigidity at equality, yielding the exact critical content and quantitative cylinder law. The spectral evaluation after the window set is identified is standard matrix counting.",
+      "residual_risks": [
+        "Full statement-level comparison of the two related catalogue records was limited by mirror availability. This is a bounded priority assessment; no claim of new universal-cycle existence is credited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework and homogeneous full-shift construction, not the inspected theorem's constrained upper bound or maximizing orbit statistics.",
+          "evidence": [
+            "Tail supremum defining periodic content; period m^n and gap r^(n−1) in the full-shift construction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.16296",
+          "material_read": "§1.1, p. 3 and Proposition 3.3, p. 10 (OA offsets near 9000 and 33372).",
+          "method": "Targeted OA primary-source passages.",
+          "title": "Asymptotic separation of periodic orbits and fractal dimension",
+          "trigger": "Introduces the invariant and gives exact full-shift orbit construction."
+        },
+        {
+          "assessment": "Implies existence for the desired cyclic window set after relabeling, not the optimization over all legal cyclic words.",
+          "evidence": [
+            "Universal-cycle definition, avoidance with distinguished largest symbol, closure under intersections."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/5517",
+          "material_read": "§1.2 (p. 3), Theorem 1 (p. 4), §§3.3.6 and 3.3.9 (including p. 11).",
+          "method": "Targeted OA primary-source passages.",
+          "title": "Generalizing the Classic Greedy and Necklace Constructions of de Bruijn Sequences and Universal Cycles",
+          "trigger": "General restricted-word universal-cycle existence."
+        },
+        {
+          "assessment": "Supplies Eulerian criterion and general background, not an inspected exact star optimization statement.",
+          "evidence": [
+            "de Bruijn existence by word length and alphabet size; balanced digraph criterion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1711.07029",
+          "material_read": "Introduction, p. 1 (OA offset near 1200).",
+          "method": "Targeted OA primary-source passage.",
+          "title": "Universal Cycles of Restricted Words",
+          "trigger": "Restricted de Bruijn cycle background."
+        },
+        {
+          "assessment": "Later and different constraint; exact broader implication not established from the available material.",
+          "evidence": [
+            "Summary concerns binary words avoiding 000 and 111."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8/aa3ac12cc70f",
+          "material_read": "Catalogue summary; mirrored full text unavailable.",
+          "method": "Configured Resultary lookup and local-mirror attempt.",
+          "title": "Sharp Fibonacci capacity and canonical window set for doubly run-limited words",
+          "trigger": "Same maximum/distinct-window structure with rigidity."
+        },
+        {
+          "assessment": "Different objective and restriction; comparison bounded to the catalogue statement.",
+          "evidence": [
+            "Summary describes a shortest cyclic cover of all linearly admissible windows under a single-symbol run restriction."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18/475811a7997d",
+          "material_read": "Catalogue summary; mirrored full text unavailable.",
+          "method": "Configured Resultary lookup and local-mirror attempt.",
+          "title": "Exact shortest cyclic covers of run-limited words over arbitrary alphabets",
+          "trigger": "Closely related admissible cyclic-window optimization."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–30 and 40–70",
+        "Kong–Wang–Yu, §1.1 and Proposition 3.3"
+      ],
+      "rationale": "This natural constrained shift tests how much periodic separation is lost relative to counting all linear words: arbitrary optimizing words may try to gain windows by using nonclosing edges, and the cut proves there is no gain. The exact content gives a normalized metric benchmark beyond the dimension alone. The forced window set and nonzero alternating Parry discrepancy give additional information on exactly extremal orbits without dependence on the Euler circuit chosen.",
+      "residual_risks": [
+        "The value is for the specified star constraint and prefix metric. It does not assert exact rigidity for arbitrary shifts, near-extremizers, or Euclidean metrics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

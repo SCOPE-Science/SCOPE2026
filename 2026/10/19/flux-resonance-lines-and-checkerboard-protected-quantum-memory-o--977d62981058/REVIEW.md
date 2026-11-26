@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof reconstructs the Lindblad generator with independent positive rates, establishes no nonzero peripheral eigenvalues by Hilbert--Schmidt dissipation and bipartiteness, identifies the fixed algebra from connectivity of length-two even paths, and derives the two flux congruences by Bloch diagonalization. Each congruence has exactly \(\gcd(m,n)\) solutions when soluble and the sole overlap is the two zero-flux momenta. It then proves the full limiting-state formula and exact local return. Thirty-six matrix-spectrum comparisons and ten stationary-state checks passed in the packaged numerical verifier. Those finite checks do not substitute for the proof.
+## correctness
 
-**Originality — PASS within inspected sources, with residual risk.** The Lindblad stationary-algebra framework of Baumgartner--Narnhofer is established prior mathematics, and the \(4\times4\) zero-flux case coincides with a known hypercube specialization. The claim under review is the *complete two-flux arithmetic resonance classification on even rectangular tori*, the exceptional one-state half-flux enhancement, and the three-level return law, none of which follows as a stated theorem from the inspected physical-network, full-dephasing-hypercube, or ordered-chain studies. Exact equivalence searches for flux twists, checkerboard dephasing, zero-energy torus modes and return probabilities did not disclose the complete combination. Generic Fourier and fixed-point methods plainly apply; originality is claimed for the concrete combined classification, not for those tools. Relevant unindexed treatments of magnetic-lattice dark modes remain a risk.
+PASS
 
-**Value — PASS.** The classification resolves the full holonomy phase diagram of a physically natural, translation-invariant, half-monitored two-dimensional network. It determines precisely which fluxes protect an extensive-in-circumference coherent sector, exhibits an extra mode at simultaneous half flux, and gives a testable three-level long-time return signature. This goes beyond a single lattice-size computation or a normalization check. It does not claim topological stability under arbitrary disorder.
+The real Hilbert–Schmidt energy identity forces any imaginary-axis eigenoperator to commute with all even-site projectors. Such operators are parity-block diagonal; the Hamiltonian commutator is off-block, eliminating nonzero imaginary frequencies. Write H with off-diagonal block B. The even diagonal entries of a fixed operator agree wherever BB* has a nonzero entry. For each diagonal step the two length-two paths have the same flat phase, and these steps connect the even sublattice, so the even block is scalar. The odd block is then scalar on im B* and arbitrary on ker B. The adjoint has the same kernel, and Hilbert–Schmidt contractivity excludes a peripheral Jordan block; orthogonal projection onto the resulting algebra gives the trace-preserving limit. For the count, the two opposite-cosine branches on the momentum torus are cosets of kernels of (i,j)↦ni±mj mod mn, each of size g if solvable. Intersection forces both twists zero and consists of two momenta. Equal even/odd sizes give rank-nullity k=dim ker H/2. Independent exact phase matching corroborated 1,152 rational-twist cases. Odd parity-preserving translations fix the dark projection's diagonal (no symmetry of the numerical rates is required); its common odd value is 2k/N. This gives the stated finite return and rescaled square limits, including the different k but equal rescaled limit at the two crossings.
 
-The work assumes a flat connection, even circumferences at least four, no onsite terms or loss, and strictly positive dephasing at every monitored site. The long-time limit precedes the large-size limit. Source novelty is not externally certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General fixed-space theory, exact dark-projector limits for lossy networks, and gcd flux switching on two-trap cycles are real prior overlaps. The distinct result supported here is the explicit rectangular two-holonomy arithmetic and the corresponding trace-preserving limit and return law under checkerboard dephasing.
+
+## value
+
+PASS
+
+An explicit, rate-independent classification of which twists preserve quantum memory pairs a finite-dimensional dynamical invariant with a measurable initial-site return signature. The rectangular gcd formula distinguishes actual resonance lines from a mere generic mixing statement and resolves the two double crossings, where the dimensions differ by one.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

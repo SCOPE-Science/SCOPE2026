@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:48:07.913221Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The reciprocal sample mean of X^{-1} converges to (k-1)θ. The bounded transform and its V-statistic representation give the claimed scale-independent population discrepancy. The transform integrand's sign follows from (1+t/(4h))²-(1+t/h)=t(t-8h)/(16h²), where h=k-1. Multiplication by exp(8ha) makes its integral strictly decreasing, with strictly negative derivative, because the signed integrand has a single crossing. At a→0+ the tail diverges positively (logarithmically at k=5/2); at large a the negative linear term of the transform difference at t=0 dominates. The root is simple and has the claimed sign orientation. For fixed a>0 the kernel and scale derivatives are uniformly bounded on a compact scale neighborhood; first projection plus Taylor expansion and the delta method for the reciprocal mean give the stated influence function, with diagonal and degenerate terms negligible at √n scale. The fitted-scale derivative equals (a/λ*)F'_k(a) at the root, so the 1/X singularity cannot be canceled by the bounded projection; it has finite second moment for k>2. This proves the positive, finite alternative variance and the strict power limit for positive finite thresholds (also for thresholds tending in probability to such a constant). Under a Lévy null, the population kernel mean is identically zero in the scale and its derivative vanishes; the continuous first projection tends to a strictly positive constant as x→∞ and has mean zero, so its variance is positive on the full-support null. Independent replay: python /workspace/independent_checks.py (levy routine), using Tricomi U for the Laplace integrals, gives a=0.0375490493204766893 and derivative −42.31764123508 at k=9/4. The decimal is a numerical check, not the uniqueness proof. Read the submitted verification notes and code without executing it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 is a limit under the Lévy null; Remark 1 proves fixed-alternative consistency for J only and uses pointwise equality in the Laplace characterization."
+        ],
+        "reasoning": "Neither the null CLT nor the characterization establishes where a signed integral vanishes or what the fitted-scale influence function does at its alternative root.",
+        "searches": [
+          "Literature: signed Lévy characterization-based Laplace test Gamma alternatives and consistency",
+          "arXiv:2308.00460, pp. 3–5, especially Remark 1 and Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary matching record 100a279860bf (identical)",
+        "Lukić–Milošević arXiv:2308.00460",
+        "Kumari–Bhati doi:10.1080/02664763.2023.2251098 (abstract-level)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary result characterizes a pointwise Laplace equality and proves a null CLT. The audit separately used the sign change at 8(k−1), the tail endpoint, and the nonzero fitted-scale derivative at the alternative root."
+        ],
+        "reasoning": "Standard projection and delta methods are prior tools; the one-crossing and noncancellation steps at this non-null zero are not consequences of the source's null or supremum statements.",
+        "searches": [
+          "arXiv:2308.00460, Eq. (4), Remark 1, Theorem 2 and alternative simulations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lukić–Milošević Eq. (4)–(5) uses the same signed Laplace integral and calls the reciprocal inverse-moment estimator the MLE. Their J statistic takes a supremum instead.",
+          "The closest Resultary hit was the frozen record itself (100a279860bf); the Kumari–Bhati abstract describes a different scale-ratio test."
+        ],
+        "reasoning": "Renaming the MLE, changing Gamma scale to rate, or removing the common alternative scale does not change the reviewed problem. Supremum consistency does not prevent an integral with positive and negative contributions from vanishing.",
+        "searches": [
+          "Resultary: signed fitted Lévy Laplace goodness-of-fit, Gamma blind weight and alternative CLT",
+          "arXiv:2308.00460, Eq. (4)–(5), Theorem 2 and Remark 1",
+          "doi:10.1080/02664763.2023.2251098"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching Resultary ID is the audited record, not independent coverage. Tables 3 and 10 use Gamma shapes 3 and 0.4 and weights 0.2, 0.5, 1, 2, 5; Table 1 gives null variances at selected weights."
+        ],
+        "reasoning": "The cited table entries neither include the reviewed shape-and-weight example nor express the all-shapes root or an alternative asymptotic law.",
+        "searches": [
+          "Resultary: Gamma blind weight for the signed Lévy statistic",
+          "arXiv:2308.00460, Tables 1, 3 and 10"
+        ]
+      },
+      "rationale": "The published signed statistic and Lévy-null calibration are not new. The supported distinction is the simple, unique population blind weight throughout the stated Gamma shape interval and the nondegenerate fitted-scale alternative law at that weight. The closest checked primary article neither states this nor implies it from its light-tailed alternative simulations, null limit, or supremum consistency result. No distinct covering catalog statement was identified in the bounded comparison.",
+      "residual_risks": [
+        "The distinct Kumari–Bhati test was not compared at full-text level; an unindexed equivalent alternative calculation could exist. This is not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the statistic, null limit and supremum consistency, not the Gamma blind-weight result",
+          "evidence": [
+            "The Remark 1 statistic is J, not R; the Theorem 2 premise is a Lévy sample; the Gamma simulations use shape 3 and 0.4 and selected weights."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.00460 (doi:10.1080/02331888.2023.2238236)",
+          "material_read": "Preprint pp. 3–4, Eq. (4)–(5), Remark 1, Theorem 2 and Table 1; pp. 9–10 definitions and Table 3; p. 22 Table 10",
+          "method": "Located passages in the lawful OA preprint and read bounded page extracts",
+          "title": "Characterization-based approach for construction of goodness-of-fit test for Lévy distribution",
+          "trigger": "Identical statistic and estimator; possible consistency or alternative-power overlap"
+        },
+        {
+          "assessment": "Different estimator-ratio statistic on the accessible evidence",
+          "evidence": [
+            "No checked part supplies a Gamma zero of the Lukić–Milošević signed Laplace functional."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/02664763.2023.2251098",
+          "material_read": "Abstract-level comparison only",
+          "method": "Comparison of the accessible description of the test, no whole-text conclusion",
+          "title": "Goodness-of-fit test for the one-sided Lévy distribution",
+          "trigger": "Other one-sided Lévy test cited in the evidence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The blind weight is a rigorously identified failure mode of a published signed goodness-of-fit test at ordinary non-null, fully supported alternatives. It distinguishes cancellation from a true characterization zero and rules out asymptotic power one rather than just showing small power in finite simulations. This is useful for tuning and interpreting the signed test even though the demonstrated weights are not the standard published grid; it does not discredit those recommended weights or the supremum test.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

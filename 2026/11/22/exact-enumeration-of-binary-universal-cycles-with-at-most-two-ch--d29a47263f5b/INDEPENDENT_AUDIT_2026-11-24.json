@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:39:11.344621Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the labelled overlap graph. An m=n-1 word with two changes has forced predecessor and successor, and forward shifts along its forced extensions eventually remove its first run. Thus there are no all-degree-one components. Contracting these paths gives a directed cycle through A_0,...,A_m,B_1,...,B_(m-1), two constant-word loops, and reciprocal links A_j to B_(m-j). In a tree to A_0 the loop at A_m cannot be chosen; if B_j is the first B-vertex to choose its cross-link, the set A_(m-j),...,A_m,B_1,...,B_j is closed away from the root. All B choices are therefore forced. Each internal A choice then reaches the forced B chain independently, giving 2^(m-1) trees (one when m=1). This construction also makes the graph Eulerian. The fixed-first-edge BEST multiplier is one since all outdegrees are 1 or 2. The unique occurrence of 0^n gives exactly one rotation of each admissible host; no reversal or colour quotient enters. Counting change locations gives n^2-n+2 windows. The uploaded checker was inspected as evidence; it checks reduced transitions, exact cofactors at 2<=n<=10, and exhaustive fixed-first-edge tours at 2<=n<=7. The all-n argument here does not depend on those recorded runs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Leitner–Godbole treat existence for several restrictions including equitable or inequitable words; Blanca–Godbole Theorem 1 concerns a Hamming-weight interval and Theorem 11 concerns prescribed included/excluded letters."
+        ],
+        "reasoning": "These existence statements neither select this exact set of windows in all lengths nor enumerate its hosts. A bound of two on Hamming weight is related after taking successive XORs, but the switch-word graph retains an initial-bit layer and a transition-dependent change of that layer. Counts on the base difference-word graph are not counts on its lift.",
+        "searches": [
+          "arXiv:0808.1309, abstract and introduction",
+          "arXiv:1008.2251, Theorems 1 and 11"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0808.1309",
+        "arXiv:1008.2251",
+        "DOI:10.1109/ISIT50566.2022.9834795 (access attempted)",
+        "Resultary: SCOPE-d29a47263f5b, SCOPE-a6349247ec63, SCOPE-e2d581ba51c3, SCOPE-7c5764be6af8, SCOPE-0456cecb5943, SCOPE-aa3ac12cc70f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither exact Hamming-weight formula treats a lifted graph with the initial bit, and general BEST leaves an arborescence factor to evaluate."
+        ],
+        "reasoning": "The forced chain and independent cross-link choices in the reduced switch graph provide that factor for all n. The claimed structural and numerical result is not the mere application of the general circuit-counting identity.",
+        "searches": [
+          "arXiv:1008.2251, Theorem 1",
+          "SCOPE-a6349247ec63 and SCOPE-e2d581ba51c3, Findings",
+          "Classical BEST and last-exit tree formulation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a binary window, internal changes <=2 is equivalent to cyclic changes <=2, or at most three linear runs of unrestricted lengths. The inspected restricted-cycle sources concern different word classes.",
+          "SCOPE-0456cecb5943 and SCOPE-aa3ac12cc70f use a maximum individual run length of two (that is, forbid triples), not a maximum number of changes."
+        ],
+        "reasoning": "A constant window is permitted here even at large n, while a long alternating one is excluded; the run-length restriction does the reverse. Neither an alternative host convention nor reversing or complementing a host was used to match counts.",
+        "searches": [
+          "Primary literature lookup for binary universal cycles with at most two changes/runs",
+          "Resultary semantic lookup for transition-limited universal-cycle enumeration",
+          "arXiv:0808.1309 and arXiv:1008.2251"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-d29a47263f5b is the frozen record itself. SCOPE-a6349247ec63 and SCOPE-e2d581ba51c3 give powers of two for weight-restricted cycle families, not the switch-restricted interpretation. SCOPE-7c5764be6af8 concerns next-window support rather than this count."
+        ],
+        "reasoning": "The abstract power-of-two sequence is of course familiar; the indexed enumerated objects, not numerical coincidences, decide coverage. No distinct exact table for the same object was identified.",
+        "searches": [
+          "Local Resultary index for the exact switch-cycle object, formula, and related weight/run restrictions"
+        ]
+      },
+      "rationale": "No inspected primary source or distinct catalogued record states or directly entails the switch-restricted count and its freely binary last-exit choices. Restricted-cycle existence and the use of overlap digraphs and BEST are established methods; neither is credited as new here.",
+      "residual_risks": [
+        "The search is bounded and exact switch-constrained counts might appear under an unindexed rotation-register or necklace formulation.",
+        "The cited ISIT run-length-limited paper was not available in readable full text; no negative whole-paper claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related existence, different restrictions",
+          "evidence": "Abstract lists non-bijections, equitable words, ranked permutations, passwords; inequitable-word definition on p. 2 uses numbers of each letter.",
+          "identifier_or_url": "https://arxiv.org/pdf/0808.1309",
+          "material_read": "PDF pp. 1–2, abstract and introduction near offsets 446 and 3103",
+          "method": "OA PDF statement and hypothesis comparison",
+          "title": "Universal Cycles of Restricted Classes of Words",
+          "trigger": "Closest cited restricted-word existence work"
+        },
+        {
+          "assessment": "Existence for weight intervals or prescribed alphabet constraints, not this enumeration",
+          "evidence": "Theorems 1 and 11, offsets around 6146 and 28249.",
+          "identifier_or_url": "https://arxiv.org/pdf/1008.2251",
+          "material_read": "PDF p. 3 Theorem 1; p. 12 Theorem 11",
+          "method": "OA PDF theorem comparison",
+          "title": "On Universal Cycles for New Classes of Combinatorial Structures",
+          "trigger": "Could cover a broader restriction"
+        },
+        {
+          "assessment": "Different window family; support result is also a different invariant",
+          "evidence": "Weight at most two, weight one or two, or bounded-density next-window support, respectively.",
+          "identifier_or_url": "Resultary: SCOPE-a6349247ec63; SCOPE-e2d581ba51c3; SCOPE-7c5764be6af8",
+          "material_read": "Original Findings and defining assumptions",
+          "method": "Local Resultary search and local mirror read",
+          "title": "Exact binary universal cycles under restricted Hamming weights",
+          "trigger": "Exact counts or structurally similar claims in the catalogue"
+        },
+        {
+          "assessment": "Bounds individual runs rather than number of changes",
+          "evidence": "First result allows repetition in a shortest cover and gives a Lucas length; second gives maximal length with distinct windows under no-triple restrictions.",
+          "identifier_or_url": "Resultary: SCOPE-0456cecb5943; SCOPE-aa3ac12cc70f",
+          "material_read": "Original Findings",
+          "method": "Local mirror read",
+          "title": "Binary run-length-limited cyclic covers and distinct-window sets",
+          "trigger": "Run-limited alias"
+        },
+        {
+          "assessment": "Unresolved access; no substantive coverage inference",
+          "evidence": "DOI and citation identify the paper, not its theorem statements.",
+          "identifier_or_url": "https://doi.org/10.1109/ISIT50566.2022.9834795",
+          "material_read": "Bibliographic identification from nearby record; no primary full text",
+          "method": "OA retrieval attempted, no readable text",
+          "title": "Run Length Limited de Bruijn Sequences for Quantum Communications",
+          "trigger": "Run-limited construction cited by a nearby catalogue record"
+        },
+        {
+          "assessment": "Identical self-hit, not independent coverage",
+          "evidence": "Same rotation convention, object and count.",
+          "identifier_or_url": "Resultary: SCOPE-d29a47263f5b",
+          "material_read": "Original Finding",
+          "method": "Local Resultary and frozen text comparison",
+          "title": "Exact enumeration of binary universal cycles with at most two changes",
+          "trigger": "Top exact hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A change cap tests universal cycling on the first family admitting a return to a previous letter within a window while allowing arbitrary run lengths. The exact host multiplicity and binary parameters say considerably more than Eulerian existence, giving a construction and an exact all-length test case for restricted universal-cycle enumeration. A routine uncomputed tree determinant would not supply that classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

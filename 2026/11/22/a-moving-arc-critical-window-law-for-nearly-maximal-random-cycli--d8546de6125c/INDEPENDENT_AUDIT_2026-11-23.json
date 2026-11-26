@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T18:02:30.361352Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md and supporting package; verify_critical_arc.py inspected, not executed",
+        "Independent bisection and midpoint quadrature: solve F(s)=M−ε on either side and integrate the exact width 4(2L−s) asin√((F(s)−M+ε)/(2 sin(s/2))) at λ=−2,−0.5,0,0.5,1,3. At ε=10^−8, for example the ratios at λ=−2,0,3 were 0.00907405,0.25467244,4.10174515 versus profile values 0.00907095,0.25467244,4.10350794."
+      ],
+      "rationale": "In ordered angles the area is sin(s/2)(cos d−cos(s/2)); the span envelope has its unique interior maximum at s=4π/3 (with d=0), and is increasing up to that point. The coefficients of the quadratic deficit are 3√3/16 and √3/4. Compactness away from this unique maximizing pair and the local quadratic lower bound put the exact event in a common bounded box after rescaling, uniformly on compact λ-sets. Centering at the moving maximum produces the +4γ min(λ,0)^2 term, not a constant threshold below criticality. In the scaled variables the ordering constraint |√ε z|<s/2 is inactive on that box for small ε; the determinant is ε^(3/2) and the ordered sample density is 3/(4 L^3). The symmetric difference of the exact and limiting domains lies in a quadratic shell of width O_K(√ε). In (w=u+v,z) that shell has area O_K(√ε) by mapping it into a circular annulus, and the remaining slice has length w bounded on the box. Thus the indicators converge uniformly in L^1; continuity, positivity and a compact lower bound for the limiting volume permit normalization and give the claimed TV convergence. The critical value, full-ellipse first moment, and beta integral ∫x√(1−4γx)dx=1/(60γ²) on [0,1/(4γ)] give the three stated profile formulas. The positive linear branch begins when the ellipse first lies entirely in w≥0. The proof's intermediate u+v=2L−s refers to unscaled deficits, as clarified unambiguously by the subsequent exact scaled substitution.",
+      "residual_risks": [
+        "Quadrature is corroborative, not a proof. The estimates concern compact λ-sets, not simultaneous ε→0 and |λ|→∞."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nikitin–Simarova use a fixed rotationally invariant kernel and hypotheses at its maximizers for fixed sampling laws and large sample sizes; Koroleva–Nikitin's three-point precursor uses uniform points on the whole circle."
+        ],
+        "reasoning": "Neither produces estimates for a sequence of supports whose endpoints simultaneously cut the equilateral neighborhood at deficit scale √ε.",
+        "searches": [
+          "arXiv:2010.04460, setup in §§1–3; arXiv:1301.1360, Lemma B and polygon setup"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1301.1360",
+        "arXiv:2010.04460",
+        "Resultary fixed-arc transition and threefold-oval crossover entries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-arc predecessor's indexed statement gives ε^(5/2), ε^(3/2), ε laws and conditional limits in the three regimes. The fixed critical problem is the λ=0 slice. The two matching ends of the present profile agree with the singular limits of the fixed-L coefficients."
+        ],
+        "reasoning": "Fixed-parameter limits do not give the shape or volume of the clipped ellipse for finite nonzero λ. Substituting L=Lc+λ√ε into a fixed-L equivalent lacks uniform error control and misses the moving maximum below threshold. The needed new estimate controls motion and deficit jointly.",
+        "searches": [
+          "Resultary: 2026/11/17/SCOPE-a-three-regime-extreme-area-transition-for-triangles-sampled-on--e6ba3f77d6e7",
+          "arXiv:1301.1360; arXiv:2010.04460"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026-11-17 three-regime circular-arc result concerns the same object and gives fixed-parameter tails and conditional limits; the 2026-10-25 oval crossover changes radial shape and rotational phase, not the allowable angular support."
+        ],
+        "reasoning": "Using angular span and the offset from the endpoint midpoint makes the equivalent moving truncation explicit: after rescaling the angular start has a slice of length u+v. The full-circle rotational factor and full-oval phase truncation are not that slice.",
+        "searches": [
+          "Resultary: nearly maximal cyclic triangle area uniform random arc critical window equilateral endpoints moving support",
+          "Web: random triangle uniform on circular arc near maximal area equilateral transition asymptotic moving arc critical support Koroleva Nikitin random inscribed polygons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The corpus returned the reviewed record itself and related fixed-arc and oval results; Lemma B tabulates a full-circle coefficient, not the function of λ."
+        ],
+        "reasoning": "This is a continuum asymptotic and a distributional limit, not a finite catalogue entry. The closest exact-coefficient comparisons do not specify the moving-domain profile.",
+        "searches": [
+          "Resultary search for nearly maximal cyclic triangle area uniform random arc critical window equilateral endpoints moving support",
+          "Koroleva–Nikitin Lemma B"
+        ]
+      },
+      "rationale": "The novelty assessed is the moving-support normalized profile and joint conditional law uniformly across the critical window, not the equilateral maximizer, the fixed critical coefficient or the fixed-arc exponents. No covering moving-support statement was identified in the inspected literature and configured corpus search.",
+      "residual_risks": [
+        "The highly related fixed-arc and oval notes were assessed from their indexed statements, not independently from their full text. Unindexed or inaccessible uniform moving-support analyses may exist.",
+        "A future account should explicitly identify the fixed-arc predecessor, especially for the critical slice, and not imply priority for that special case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Whole-circle fixed law, not moving arc",
+          "evidence": [
+            "Lemma B assumes three independent uniform points on the unit circumference and gives a linear upper tail."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1301.1360",
+          "material_read": "Introduction, area Theorem B and Lemma B in open PDF text",
+          "method": "Open arXiv full-text inspection",
+          "title": "U-max-Statistics and Limit Theorems for Perimeters and Areas of Random Polygons",
+          "trigger": "Fixed-circle triangle upper-tail antecedent"
+        },
+        {
+          "assessment": "No moving support in inspected setup",
+          "evidence": [
+            "Section 3 states a fixed kernel on the circle and imposes interior maxima in relative angles."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2010.04460",
+          "material_read": "Introduction, Poisson approximation setup and Section 3 kernel setup and maximum assumptions",
+          "method": "Open arXiv full-text inspection",
+          "title": "Generalized Limit Theorems For U-max Statistics",
+          "trigger": "Possible broader theorem for nonuniform angular distributions"
+        },
+        {
+          "assessment": "Definite credit for the fixed-arc transition; no claim of a whole-text exclusion",
+          "evidence": [
+            "Indexed statement describes the separate fixed-arc exponents and shape limits at the 4π/3 transition."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-three-regime-extreme-area-transition-for-triangles-sampled-on--e6ba3f77d6e7",
+          "material_read": "Indexed statement of the three regimes and conditional shape results; full text not obtained",
+          "method": "Configured Resultary lookup; exact full-text URL did not return content",
+          "title": "A three-regime extreme-area transition for triangles sampled on a circular arc",
+          "trigger": "Same geometry and rare event, plausible antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen moving-window and conditional theorem",
+        "Resultary fixed-arc transition entry",
+        "Koroleva–Nikitin full-circle area upper tail"
+      ],
+      "rationale": "The window is forced by the first appearance of an equilateral configuration and by the competition of a quadratic area deficit with the available position interval. The full clipped-domain law quantifies the transition, identifies the exact onset of linearity and gives the joint endpoint/midpoint distribution where the fixed-arc laws cannot be used uniformly. This is more than a restatement of the endpoint exponents.",
+      "residual_risks": [
+        "The identified value is for this moving-support critical window with three points, not for an unproved smooth-curve or large-sample extension."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

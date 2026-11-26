@@ -1,19 +1,21 @@
-# Review of the ordered composite-DNA capacity improvement
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The exact three-input, four-output transition matrix follows from two independent binary symmetric channels. Its conditional entropy is constant across inputs. Symmetry gives an optimal endpoint-balanced law and linear independence of the three rows guarantees uniqueness for strictly positive, nonmaximal noise. The derivative of output entropy has strictly negative second derivative, is positive at the repetition-only boundary, and negative at the pure mixed-symbol boundary. These facts prove the strict capacity gain over all \(0<p<1/2\). The noiseless and pure-noise endpoints are direct. An analytic implicit-function argument identifies the unique small-noise-contrast root; exact rational coefficient calculations check the sixth-, eighth-, and tenth-order gain coefficients. The supplied independent code paths verify the transition matrix and numerical and formal-series calculations, not the theorem by finite enumeration alone.
+PASS
 
-## Originality: PASS with priority risk
+The three rows have equal conditional entropy, so capacity maximizes output entropy. For t=1−2p>0 the two-bit transition matrix is invertible, so distinct input laws give distinct outputs; strict concavity and reverse-complement symmetry give the unique symmetric optimizer. The two endpoint slopes of the symmetric output entropy are t² ln((1+t²)/(1−t²))>0 and t ln((1−t)/(1+t))<0 for 0<t<1, proving full support and strict gain over the equiprobable restriction. At p=0 the respective alphabets have three and two distinguishable letters; at p=1/2 all rows coincide. Independently group outputs by whether their bits agree: put x=t², q=(1−x)/2+xβ, z=tβ/q. Output entropy in nats is ln 2+h(q)−q[(1+z)ln(1+z)+(1−z)ln(1−z)]/2. The analytic stationarity equation divided by t² has value −2β at t=0 and nonzero β derivative. Parity and the implicit-function theorem make B=β/x analytic near x=0. The grouped gain divided by x³ expands as 2B−B²−3xB²+x²(2B/3−B²+2B³)+O(x³). Stationarity gives B=1−3x+(34/3)x²+O(x³); substitution gives the gain coefficients 1, −3, 32/3 in nats, with the asserted bits conversion. The independent finite numerical checks corroborate these coefficients, not the all-noise result.
 
-The directly relevant Dollma–Elishco–Yaakobi paper establishes the model, symmetry reduction, and numerical capacity comparison. The stronger statements here are the all-noise strict gap, unique interior optimum, and quantified sixth-order high-noise expansion. The multiple-read repetition channel lacks the mixed ordered symbol. Existing multinomial composite-DNA optimization concerns a different sampling law; the relevant 2025 journal article was available only through its bibliographic metadata and abstract. Search comparisons did not identify an equivalent all-noise theorem, but nonindexed or inaccessible literature could affect priority.
+## originality
 
-## Value: PASS
+PASS
 
-The ordered composite architecture offers an extra mixed information symbol, but at large bit-noise rates it appears to achieve nearly the same capacity as ordinary repetition. Showing an improvement at every nontrivial crossover rate and identifying the exact sixth-order suppression explains that phenomenon quantitatively, resolving a motivated analytic comparison rather than merely tabulating numerical optima.
+The exact channel, symmetry reduction, and repetition baseline are known. The strongest exact-model prior gives a numerical comparison, not the strict all-noise conclusion and sharp high-noise expansion. Credit is limited to the strict/interior-optimizer analysis and the quantified cancellation, not the model or the optimization itself.
 
-## Limitations
+## value
 
-The result does not provide an elementary closed capacity expression at all noise levels or optimize other ordered resolutions. Independent external mathematical validation and exhaustive publication-priority certification remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the exact fixed channel in which prior numerical curves were nearly indistinguishable, the result resolves whether there is a genuine advantage and shows why it is hard to see: the optimizing mixed-symbol weight is second order in t, and the advantage is sixth order. The explicit higher terms make this a quantitative explanation of a prior comparison, not just a positive but arbitrarily tiny numerical improvement or a claim about practical storage.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

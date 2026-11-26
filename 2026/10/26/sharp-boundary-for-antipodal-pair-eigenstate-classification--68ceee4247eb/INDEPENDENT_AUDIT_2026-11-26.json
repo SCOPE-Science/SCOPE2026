@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:23:24.882247Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–44, VERIFICATION.md and verification.py (read, not executed)",
+        "Chiba–Yoneta arXiv:2403.12330 Eqs. (3)–(7), Theorem 1 and Lemma 1 of the supplement",
+        "Independent replay: python3 /workspace/reproductions/check_review_math.py, function spin, implements basis-state flips for four Bell sign pairs"
+      ],
+      "rationale": "The four displayed sites are distinct for every m>=1 and the two Bell pairs link the first to the third and the second to the fourth. Pushing the first site's X through its pair and commuting X operators on distinct sites gives P_0|Ψ>=ω_1^x P_1|Ψ>; pushing the second site's X through its pair gives P_2|Ψ>=ω_{1+m}^x P_1|Ψ>. Since P_1 is unitary, its image vector is nonzero and the three coefficients have one nonzero real constraint. The plane contains (0,1,-ω_{1+m}^x). Chiba–Yoneta use ordinary index diameter. With N=4m, translation by N/2 interchanges P_0 and P_2 and sends P_1 to the string on {1,1+3m}, of diameter 3m. The proposed inclusive extension would disallow this last coefficient and force b=0; the P_0,P_2 relation then leaves only the stated line. The counterexample is an actual zero-eigenvalue state for a Hamiltonian of maximal diameter m. It does not contradict the strict theorem.",
+      "residual_risks": [
+        "Only the stated three-string subspace and ordinary site-index diameter are assessed. A periodic circular-distance version must account for the wraparound string separately."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The crosscap paper has a transpose-pushing identity and a sufficient null-state construction for a length-2L chain, support range r<=L and half-periodic couplings α_j=α_{j+L}.",
+          "A nonzero translate-density coefficient for P_1 under half-periodic coupling also supplies its image on {1,1+3m}, outside the frozen three-string span. The 2024 classification itself assumes absence of every string of diameter at least N/4."
+        ],
+        "reasoning": "A sufficient construction for antipodally repeated couplings, even with a larger interaction range, is not a necessary-and-sufficient criterion on this arbitrary real three-term coefficient space. Its matching subset does not establish the sharpness witness.",
+        "searches": [
+          "arXiv:2503.15640v1, Eqs. (1)–(2), (17), (21) and Theorem 1",
+          "arXiv:2403.12330 Theorem 1, Eq. (7), and supplemental Lemma 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2403.12330 / PRL 133, 170404",
+        "arXiv:2503.15640v1",
+        "Bounded local Resultary comparisons including SCOPE-20261108-311989a6e17a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq. (4) does supply the algebra for the witness once the three quarter-spaced supports are chosen. Eq. (7) as a classification does not apply to these supports, since all have diameter exactly N/4.",
+          "The new test direction has b=1 without a translated partner for P_1. The cited half-periodic construction does not imply that this unpaired direction is allowed in the restricted support subspace."
+        ],
+        "reasoning": "The known identity readily verifies a designed counterexample; it does not already assert a sharp cutoff or present this support choice. If a prior orbit grouping or explicit witness at equality covered this geometry with no periodic-coupling hypothesis, that would change the conclusion; the inspected results do not provide one.",
+        "searches": [
+          "Direct implication comparison: arXiv:2403.12330 Eqs. (3)–(7), supplemental Lemma 1, versus arXiv:2503.15640v1 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The operator-pushing identity is equivalently a Bell-pair stabilizer relation. Flipping one partner carries P_0 to P_1 in their action on the state, even though the antipodal translation of the full support does not do so.",
+          "Eq. (7) pairs entire antipodally translated strings, while the witness exploits partial replacement of support sites; Lemma 1's strict upper bounds separate these situations in the source proof."
+        ],
+        "reasoning": "The plane has an extra partial-partner direction and is not a differently written version of the translate-pair line. The new point is the equality geometry and implication for sharpness, not a new formulation of the stabilizer algebra.",
+        "searches": [
+          "Resultary: EAP coefficient-pair rule, the N/4 boundary and three-XX-string kernel",
+          "arXiv:2403.12330, main PDF pp. 2–3 and supplement Lemma 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The semantic Resultary hit SCOPE-20261108-311989a6e17a uses antipodal terminology for positive cyclotomic polynomial relations and is not a spin-chain record.",
+          "The published exact coefficient statement is Eq. (7) under D<N/4, not a table or example exhibiting the extra equality direction."
+        ],
+        "reasoning": "The searches did not identify an exact table or a matching sharpness witness. This is bounded search evidence; the substantive exclusion relies on the actual scope of the closest statements.",
+        "searches": [
+          "Resultary queries for the EAP quarter-chain boundary, Pauli-string coefficient relations and the three-term annihilator",
+          "arXiv:2403.12330 Theorem 1 and exact range of its supplemental support-pair lemma"
+        ]
+      },
+      "rationale": "The Bell-pair pushing identity is known and the plane calculation then uses elementary algebra. Credit only the explicit equality-boundary support construction as a sharpness witness: it stays inside the proposed inclusive diameter bound and makes a coefficient nonzero that its paired rule would exclude. Neither the inspected strict theorem and supplement nor the broader crosscap ansatz gives that witness or a covering coefficient classification.",
+      "residual_risks": [
+        "A different uninspected boundary example could reproduce the witness using the standard Bell-pair identity. No general priority or classification at equality is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies known algebra and strict classification, not its boundary witness",
+          "evidence": [
+            "Eq. (5) gives max absolute site-index difference. Theorem 1 sets all coefficients with D(X)>=N/4 to zero; the supplementary lemma also uses strict diameters."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2403.12330; DOI:10.1103/PhysRevLett.133.170404",
+          "material_read": "PDF p. 2 Eqs. (3)–(5), p. 3 Theorem 1 and Eq. (7), supplement p. 7 Lemma 1 Eq. (S1); OA offsets around 11800, 14300 and 53900",
+          "method": "Check actual diameter convention, strict support premise, push signs and the scope of the support-pair lemma",
+          "title": "Exact Thermal Eigenstates of Nonintegrable Spin Chains at Infinite Temperature",
+          "trigger": "The theorem whose support cutoff is tested"
+        },
+        {
+          "assessment": "Related broader pushing setup, but the inspected theorem does not cover the unpaired three-term witness",
+          "evidence": [
+            "The half-periodic weights introduce both members of a translate pair. The construction is sufficient and does not classify arbitrary independent coefficients in the displayed span."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2503.15640v1",
+          "material_read": "PDF p. 2 Eqs. (1)–(2), pp. 4–5 Theorem 1, Eqs. (17), (21) and surrounding proof, OA offsets 5800 and 15150–20297",
+          "method": "Compare hypotheses on supports and half-periodic translated-density couplings, and sufficient versus necessary conclusions",
+          "title": "Crosscap states with tunable entanglement as exact eigenstates of local spin chain Hamiltonians",
+          "trigger": "Plausibly broader crosscap operator-pushing theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–44",
+        "Chiba–Yoneta Theorem 1 and supplemental Lemma 1"
+      ],
+      "rationale": "Whether one can include equality in the support assumption of the published classification is a specific mathematical question that matters when applying the theorem. Quarter spacing achieves a partial Bell-partner replacement while leaving the full antipodal image of P_1 outside the allowed ordinary diameter. This shows precisely why including equality fails, with a two-dimensional kernel rather than the predicted line. The contribution is the motivated sharpness construction, not the routine rank computation or a new general eigenstate classification.",
+      "residual_risks": [
+        "Use as a boundary obstruction, not as a classification of all equality cases or as a statement about a thermodynamic phase."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

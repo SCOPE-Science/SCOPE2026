@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:30:00.411335Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An entry at (i,j) appears in every corner from i to j; weight below three is therefore confined to the diagonal and first superdiagonal. The allowable nonzero supports are at most two diagonal positions, or a nonzero first-superdiagonal entry and its two adjacent diagonal positions, where both nonzero corners have rank one. Avoiding these supports is exactly the pair and adjacent-triple independence condition on parity-check columns. The one-error syndromes exhaust the syndrome space once the diagonal directions exhaust projective space. At α=2 the adjacent pair already spans the syndrome space; α=1 would give n=1 and no nonzero weight-three codeword. For α≥3, one may choose each adjacent image outside the corresponding two-space, independently. A projective direction of the sum of two independent representatives supplies an explicit three-diagonal dependence, so the distance is exactly three over every finite field, not just primes. Higher coordinates cannot affect the low-weight test. The syndrome maps are surjective and changing the quotient basis acts freely, giving the stated count. Inspected VERIFICATION.md and the nested verification/verify.py and verification/verify_output.txt: the finite checks cover four prime-field parameters and not general prime powers or all kernels. Independently, the binary case gives 21+6·4=45 weight-two words and the code count 30·2^57. No uploaded code was run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Before Theorem 4.13 the earlier paper obtains the rank lower bound from any entry above the relevant band. Proposition 4.16's first assertion is for every A in the two-diagonal band, irrespective of the dimension of any parity check. It identifies exactly the support family N.",
+          "The proof of Proposition 4.19 translates the support family into pair and consecutive-triple column independence using no identity special to dimension three."
+        ],
+        "reasoning": "Apply the stronger ambient support assertion before restricting to any code. It controls whether a kernel of any codimension has distance at least three; high-diagonal basis images are irrelevant by the same support exclusion. The prior construction itself fixes those images to zero and is not relied on to prove all-image freedom.",
+        "searches": [
+          "arXiv:2303.16653, low-band reduction preceding Theorem 4.13, Proposition 4.16 and Construction C",
+          "arXiv:2606.12934, radius-one sphere size in Theorem 5.4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verification/verify.py and verification/verify_output.txt",
+        "arXiv:2606.12934",
+        "arXiv:2303.16653",
+        "Resultary flag-rank search including 414104402c7d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For any α-row H, apply the prior support family N: no nonzero kernel vector supported on I is equivalent to independence of precisely the columns in I. The complete diagonal directions follow by substituting the prior length formula into the pair test. The triple test merely picks any vector off the adjacent two-space; all three-column dependencies on a projective line produce weight-three diagonal words. So the coded parameters and the complete parity-check choices follow from these two results by dimension-independent linear algebra.",
+          "The same lists of independent choices give n!, (q−1)^n, (q^α−q²)^{n−1}, and q^{α(n−1)(n−2)/2}. The only quotient is the standard free GL(α,q) change of basis of U_n/ker H."
+        ],
+        "reasoning": "The change from PG(2,q) to PG(α−1,q) requires no new distance or packing argument once the prior unrestricted support statement and volume criterion are combined. The exact formula is a direct multiplication of column choices followed by the usual quotient-basis factor, not a separately resolved enumeration constraint.",
+        "searches": [
+          "arXiv:2303.16653, Proposition 4.16 and proof of Proposition 4.19",
+          "arXiv:2606.12934, Theorem 5.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 5.4 gives n=(q^α−1)/(q−1) iff perfect for a distance-three code, and α≥3. Theorem 5.8 constructs only α=3 in that paper.",
+          "Proposition 4.19 already states the distinct-diagonal-point and off-the-neighbor-line conditions for a 3-row parity check; its proof is explicitly phrased in ordinary column dependence."
+        ],
+        "reasoning": "Here labeled codes are kernels in one fixed coordinate space, not isometry classes. The prior local parity-check condition uses a projective line spanned by neighbors, exactly the vector two-space exclusion in the frozen record.",
+        "searches": [
+          "Resultary: one-perfect flag-rank linear codes, projective syndrome columns, labeled kernel count",
+          "arXiv:2606.12934, §5.2 Theorem 5.4 and Theorem 5.8",
+          "arXiv:2303.16653, §4.3.2, Proposition 4.19"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The adjacent Resultary record 2026/11/2/SCOPE-exact-radius-four-spheres-in-the-flag-rank-metric--414104402c7d concerns a radius-four sphere and a distance-nine necessary divisibility condition, not radius-one distance-three kernels."
+        ],
+        "reasoning": "No exact table/catalogue entry for the labeled kernel counts was established in the bounded search. This is not negative proof of novelty; the positive implication comes from the inspected primary results.",
+        "searches": [
+          "Resultary: full projective classification and displayed labeled count for one-perfect flag-rank codes"
+        ]
+      },
+      "rationale": "The conditional length criterion and α≥3 are exactly prior. The submitted classification, unrestricted existence, and count are not quoted as verbatim prior theorems: they are mechanically obtained by applying the prior complete support test in arbitrary syndrome dimension and the prior perfectness criterion. The earlier 3-row formulation does not impose a rank restriction on its underlying column-dependence test. The derivation below checks this distinction rather than confusing a prior rank-three construction with an all-rank existence claim.",
+      "residual_risks": [
+        "No claim is made that an earlier paper explicitly printed the labeled count or stated the all-codimension existence conclusion. The finding is covered by the demonstrated combination of prior results, not by a claim of exact publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact conditional criterion and codimension bound; explicit rank-three construction only",
+          "evidence": [
+            "Theorem 5.4 states the length equation iff perfectness given δ=3, and α≥δ.",
+            "Theorem 5.8 exhibits α=3, n=q²+q+1."
+          ],
+          "identifier_or_url": "arXiv:2606.12934",
+          "material_read": "Section 5.2 Theorems 5.4 and 5.8, PDF pp. 12–13 (offsets 44150 and 48490)",
+          "method": "Open arXiv full text",
+          "title": "On perfect flag-rank metric codes",
+          "trigger": "Exact metric, radius-one and minimum distance three"
+        },
+        {
+          "assessment": "Complete low-weight support test and the equivalent parity-check test in the rank-three presentation",
+          "evidence": [
+            "Proposition 4.16 characterizes weight below three for every matrix in D(2,n,F) by support in N; the entry-bound argument excludes other matrices.",
+            "Proposition 4.19's proof uses only independence of two columns and noncollinearity of the adjacent triple, conditions with the same interpretation for any number of rows."
+          ],
+          "identifier_or_url": "arXiv:2303.16653",
+          "material_read": "Entry-bound passage preceding Theorem 4.13; §4.3.2 Propositions 4.16 and 4.19, Construction C and Theorem 4.20, PDF pp. 13–16",
+          "method": "Open arXiv full text, including the Proposition 4.19 proof at offset 61141 and Proposition 4.16 at 58088",
+          "title": "Maximum Flag-Rank Distance Codes",
+          "trigger": "Possible general support criterion underlying the frozen classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The labeled count and all-codimension formulation are natural, but the exact count here is a direct product of already-determined local column choices with a standard change-of-basis divisor. No further metric-specific enumeration, isometry classification, or obstruction independent of the prior support and volume results remains.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

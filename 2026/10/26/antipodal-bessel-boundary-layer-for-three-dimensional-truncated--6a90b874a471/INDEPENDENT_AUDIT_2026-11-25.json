@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:32:55.842546Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Legendre generating function and its derivative give the full Poisson kernel in the stated normalization. With q=cos(z/N)+i sin(z/N)cos(φ), parity and the Laplace integral express each omitted term as the integral of (2n+1)(−rq)^n. Because |q|≤1 and r<1, the sum can be taken inside the integral. The tail divided by (−r)^(N+1) is the average of q^(N+1) times [(2N+3)/(1+rq)−2rq/(1+rq)^2]. For fixed z, q^(N+1) tends uniformly to exp(iz cos(φ)), while the bracket divided by N tends uniformly to one. The normalized integral is therefore J₀(z). With δ=1−r_N(c), Nδ²→0 and N²r_N(c)^(N+1)/log N→e^(−c); the full kernel is δ/4·(1+o(1)) since the denominator tends to 8. Subtracting the tail yields the stated sign and prefactor for both parities. The series for J₀(4) has partial sum −1/3 at k=4, followed by a negative alternating remainder of decreasing magnitudes. Negativity for each fixed c below the respective threshold implies R_N<r_N(c), and taking c upward yields the liminf with the stated inequality direction. At r=1−β log N/N, the full-kernel to Nr^(N+1) ratio is O(log N·N^(β−2)), proving strict negativity at z=4 along even N for 0<β<2. These are obstructions only. The frozen numerical script was read, not run; the rational alternating-sum bound is in the proof, not the numerical script.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reusken Lemma 11 treats odd degrees for every β∈(0,2), and Remark 7.3 notes that its planar even-degree construction does not apply in higher dimensions. Corollary 12 includes a global positivity bound of order 3 log N/N in dimension three. Durand's inspected formulas concern individual special functions."
+        ],
+        "reasoning": "The odd obstruction and global bound do not imply a nonzero-angle even obstruction. Uniform small-angle asymptotics for individual polynomials supply a Bessel factor near n=N but need actual summation and scale comparison before they determine the truncated kernel.",
+        "searches": [
+          "truncated Legendre series near antipodal point Mehler Heine asymptotics tail sum (2n+1) r^n P_n",
+          "arXiv 2610.13540 Reusken Lemma 11 Remark 7.3 Corollary 12 spherical harmonics maximum principle odd even truncation radius",
+          "arXiv:1803.09396"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–109, references, VERIFICATION.md, check.py",
+        "arXiv:2610.13540v1 Introduction and §7",
+        "arXiv:2511.01616v1 abstract and introduction",
+        "arXiv:1803.09396 pp. 1–2",
+        "Resultary 3b9ce027ad13, 3ca1f0356687, 54f46419b07f Findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Reusken's exact odd numerator at t=−1 is 1−r−(2N+3)r^(N+1)−(2N+1)r^(N+2), over (1+r)^2. Substituting the frozen r_N(c) directly yields 1/2−e^(−c) on the normalized scale, hence the odd log 2 bound. The planar paper studies Schwarz-Fourier approximation on overlapping discs."
+        ],
+        "reasoning": "The odd z=0 comparison follows from the earlier exact formula even though Lemma 11 only states a leading-order obstruction. The even negative direction z=4 and the continuum of fixed-z parity-sensitive profiles require the angular tail calculation, not a parameter substitution in that slice. Neither one-sided obstruction proves a sharp radius or different actual parity constants.",
+        "searches": [
+          "arXiv:2610.13540v1 Lemma 11 proof exact formula and Remark 7.3",
+          "arXiv:2511.01616v1 abstract and introduction",
+          "arXiv:1803.09396 pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reusken identifies the very same projected continuous Poisson kernel and maximum-principle radius. Durand gives Bessel approximations to single Legendre/Jacobi functions. The inspected Resultary antipodal critical-window record is a Fourier-extension integral, not a truncated Poisson sum."
+        ],
+        "reasoning": "The aliases projected Poisson kernel and truncated Legendre zonal kernel refer here to the same finite sum. An asymptotic of a single polynomial or an undamped extension integral cannot be read as an asymptotic for the signed, r-damped omitted tail.",
+        "searches": [
+          "Legendre truncated Poisson kernel antipodal asymptotics Bessel boundary layer parity partial sums",
+          "spherical harmonic projection ball positivity radius maximum principle parity asymptotic truncation kernel near antipode",
+          "arXiv:2610.13540v1 §7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The compared Resultary entries cover spherical Fourier-extension parity, pairs of untruncated antipodal Poisson densities, and complex-ball Bergman Bessel zeros. Reusken's proof does give the exact odd t=−1 finite-degree slice."
+        ],
+        "reasoning": "A catalogue of Legendre or Bessel values could certify an input such as the sign of J₀(4), not the fixed-parameter asymptotic. A prior exact angular tail formula could matter; the exact source slice found fixes z=0 and does not capture even negativity away from the antipode.",
+        "searches": [
+          "Resultary 3b9ce027ad13, 3ca1f0356687, 54f46419b07f",
+          "arXiv:2610.13540v1 §7 exact antipodal evaluation"
+        ]
+      },
+      "rationale": "The supported distinctive part is the fixed-angle antipodal-window law for the finite sum and its genuinely off-antipode even-degree obstruction. Reusken already treats the same projected kernel, proves the leading odd obstruction, and gives the exact odd t=−1 identity; that identity yields the odd z=0 second-order comparison by substitution. The comparison clause deserves no separate priority credit. Classical polynomial/Bessel limits are prior input, not the finite-sum law.",
+      "residual_risks": [
+        "The local search was ranked, not exhaustive. No missing textual access was treated as evidence of novelty; an equivalent summed Legendre tail in specialized approximation literature remains possible. DLMF full-text access was unavailable via the attempted route; the classical input is proved directly or standard, and no novelty is asserted for it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of leading odd obstruction and exact odd t=−1 slice; no angular even result in the passages read",
+          "evidence": "Lemma 11 proves negativity at r=1−β log N/N for odd N via its exact t=−1 formula. The remark distinguishes the even case. Corollary 12 bounds the deficit on the leading logarithmic scale.",
+          "identifier_or_url": "https://arxiv.org/html/2610.13540v1",
+          "material_read": "Introduction OA offsets 7800–10383; §7 Lemma 11 proof, Remark 7.3 and Corollary 12, offsets 63600–68235",
+          "method": "OA HTML bounded passages",
+          "title": "On a maximum principle in discretization with spherical harmonics",
+          "trigger": "Same kernel, dimension and positivity-radius question"
+        },
+        {
+          "assessment": "Related special-function input, not the finite-sum claim",
+          "evidence": "Expansions for Legendre and Jacobi functions near forward/endpoint angles, not the parity of a Poisson tail minus its smooth bulk term.",
+          "identifier_or_url": "arXiv:1803.09396; DOI 10.1063/1.5030869",
+          "material_read": "Abstract and PDF pp. 1–2, OA offsets 0–3560",
+          "method": "OA PDF bounded passage",
+          "title": "Asymptotic Bessel-function expansions for Legendre and Jacobi functions",
+          "trigger": "Potential existing antipodal Bessel boundary-layer approximation"
+        },
+        {
+          "assessment": "Different spatial dimension and projection",
+          "evidence": "Studies a Schwarz method for overlapping planar discs with Fourier subspaces; spherical harmonics are contextual rather than the kernel of this study.",
+          "identifier_or_url": "arXiv:2511.01616v1",
+          "material_read": "Abstract and introduction, offsets 0–2306",
+          "method": "OA HTML bounded passage",
+          "title": "Analysis of a Schwarz-Fourier domain decomposition method",
+          "trigger": "Earlier motivating work on positivity and Fourier truncation"
+        },
+        {
+          "assessment": "Distinct claims after comparing objects and asymptotic parameters",
+          "evidence": "Respectively a Fourier-extension quadratic form with antipodal correlations, separation of antipodal source densities without projection, and Bergman zeros on complex balls. None supplies the critical three-dimensional Legendre sum in the inspected statements.",
+          "identifier_or_url": "Resultary 3b9ce027ad13; 3ca1f0356687; 54f46419b07f",
+          "material_read": "RESULT.md findings",
+          "method": "Local Resultary mirror",
+          "title": "Antipodal spherical Fourier-extension profile; antipodal spherical Poisson potential resolution; microscopic Bessel zeros on complex balls",
+          "trigger": "Ranked local hits for parity/Bessel/antipodal scaling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sign of the projected kernel controls a maximum-principle property. The angular scale is not an arbitrary evaluation slice: at fixed z near the antipode the first oscillatory tail can compete with the small smooth Poisson term, and the negative Bessel lobe provides an even-degree obstruction in the regime left untreated by the prior odd proof. The profile explains this mechanism and determines a second-order obstruction without overclaiming the global positivity radius.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

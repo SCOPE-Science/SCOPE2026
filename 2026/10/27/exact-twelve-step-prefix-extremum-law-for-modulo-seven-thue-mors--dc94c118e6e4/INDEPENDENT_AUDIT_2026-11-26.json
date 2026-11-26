@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:48:12.689433Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In RESULT.md:32–71, use both empty and full prefixes, with T,H,B the seven-coordinate totals, maxima and minima. For 0≤n<2^r, t(2^r+n)=−t(n), and the second half shifts residues by δ_r=2^r mod 7. Thus its prefix values in class j are T_j minus the first-half prefix values in class j−δ_r. This proves the total, max and min transitions exactly, with the stated initialization at r=0. Independent direct digit-parity enumeration at r=7 and 19, not iteration of the proposed transition, reproduced the full two rows of the certificate and all 21 affine equalities (replay: /workspace/reproductions/4.py). The update with phase δ_r commutes with (T,H,B)↦(49T,49H+32,49B−32): for example both max alternatives acquire +32, and both min alternatives −32. Since δ_{r+12}=δ_r, induction proves all r≥7. At j=0, H_7=1 and B_7=−9 give both closed forms; 49^(r/12)=2^(αr) and the twelve progressions bound all prefixes. The extrema magnitudes grow like 49^k at lengths at most 2^(12k+7). Their attaining prefix lengths must diverge, and the normalization stays bounded away from zero along both sequences with opposite signs. The supplied checker was inspected, not executed. Its reported 131071 nonempty checks count all levels 0–16 cumulatively, not the largest level alone; it uses int.bit_count, requiring Python 3.10+ rather than the stated 3.8+. These documentation points do not affect the integer certificate or induction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goldstein–Kelly–Speer treat rarefied sums by a spectral/fractal framework; only landing/abstract material and the frozen discussion were available, not their theorem passages.",
+          "Drmota–Stoll inspect generalized sign phenomena and cite prior families (2,2,3κ) and (2,2,4κ+1) for ordinary Thue–Morse."
+        ],
+        "reasoning": "A scale exponent or sign theorem does not determine the exact finite-window maxima and minima with offsets ±32. No inspected broader theorem yields them; inaccessible full-text coverage remains possible.",
+        "searches": [
+          "doi:10.1016/0022-314X(92)90104-W",
+          "doi:10.1090/S0002-9947-99-02277-1",
+          "Drmota–Stoll Newman’s phenomenon manuscript, pp. 1–4"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1016/0022-314X(92)90104-W (limited access)",
+        "doi:10.1090/S0002-9947-99-02277-1 (primary access unavailable)",
+        "Drmota–Stoll author manuscript",
+        "arXiv:2302.09436",
+        "Resultary d0dd28c1a584"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Scaling of block sums and the spectral exponent are related to the homogeneous part of the law, but are not the extrema transition.",
+          "The frozen theorem certifies the exact additive offsets in every residue and shows why they persist: the sign-reversed translated half interchanges max and min with the corresponding additive offsets."
+        ],
+        "reasoning": "Asymptotic power bounds tolerate bounded perturbations to extrema and therefore cannot fix the constants or starting level. The available exact fixed-block result at modulus nine provides neither the modulus-seven certificate nor its extrema law.",
+        "searches": [
+          "Goldstein–Kelly–Speer DOI and accessible abstract material",
+          "Drmota–Stoll manuscript abstract and pp. 3–4",
+          "Resultary d0dd28c1a584 offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shallit uses f_{b,j}(n)=Σ_{i<n}t(bi+j), which under the prefix reindexing is the same rarefied object, and gives exact modulus-five bounds and equality languages in §6.",
+          "The strongest indexed exact dyadic match, d0dd28c1a584, uses modulus nine and fixed complete-block sums for each j."
+        ],
+        "reasoning": "The distinction is not the choice of rarefaction index. Extrema of the modulus-seven sums over entire prefix windows are not fixed complete-block totals, nor do the inspected modulus-three or modulus-five formulas determine them.",
+        "searches": [
+          "Shallit arXiv:2302.09436 Introduction and §6",
+          "Ranked Resultary searches for the modulus-seven exact extrema recurrence and title"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest indexed exact recurrence is d0dd28c1a584 for nine-rarefied complete dyadic sums F_j(k)=Σ_{i<2^k}t(9i+j).",
+          "The inspected exact bounds of Shallit's Theorem 10 are for b=5."
+        ],
+        "reasoning": "Neither is a table or an exact result determining the seven-state maxima and minima. The ranked queries returned no direct match, with no claim of exhaustive absence.",
+        "searches": [
+          "Ranked Resultary search for U_(r+12)=49U_r+32 and L_(r+12)=49L_r−32 for modulo seven",
+          "Resultary d0dd28c1a584 Finding",
+          "arXiv:2302.09436 §6 Theorem 10"
+        ]
+      },
+      "rationale": "Credit the prior spectral exponent and rarefaction/sign framework. The supported distinct claim is an exact affine recursion for extrema over finite dyadic prefix windows, with additive constants and a proved starting level across all seven residue classes. The strongest inaccessible same-object paper leaves real priority risk, but the inspected passages and indexed matches do not establish equivalent coverage.",
+      "residual_risks": [
+        "Full primary passages in Goldstein–Kelly–Speer and Drmota–Skałba could not be retrieved through attempted lawful routes. Especially for the former, exact modulus-seven priority cannot be ruled out.",
+        "An indexed or unindexed equivalent finite-window law under another rarefaction convention may have been missed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strongest unresolved exact-priority risk",
+          "evidence": [
+            "The accessible material establishes the subject and spectral/fractal approach, not the exact content of the paper's interior on prefix extrema."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0022-314X(92)90104-W",
+          "material_read": "Landing/abstract material only; also the frozen discussion at RESULT.md:77–82, not a substitute for primary text",
+          "method": "DOI/publisher retrieval, then lawful OA recovery attempt; full text unavailable",
+          "title": "The fractal structure of rarefied sums of the Thue–Morse sequence",
+          "trigger": "Classical spectral/fractal work on the same rarefied sums including modulus seven"
+        },
+        {
+          "assessment": "Full-text scope unresolved",
+          "evidence": [
+            "The secondary passage cites Newman-like families for moduli 3κ and 4κ+1; it cannot settle the modulus-seven contents of the primary article."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9947-99-02277-1",
+          "material_read": "No primary result passage retrieved; secondary citation discussion in Drmota–Stoll pp. 3–4, offset 6516 onward",
+          "method": "DOI/AMS routes and lawful OA recovery attempt; secondary passage read separately",
+          "title": "Rarified sums of the Thue–Morse sequence",
+          "trigger": "Plausibly relevant analysis of rarefied sums and signs"
+        },
+        {
+          "assessment": "Related signs and growth, not exact finite-window extrema in these passages",
+          "evidence": [
+            "The abstract concerns modulo-three sign phenomena and extensions to generalized sequences and progressions."
+          ],
+          "identifier_or_url": "https://www.dmg.tuwien.ac.at/drmota/newman.pdf",
+          "material_read": "Abstract and Introduction pp. 1–2, generalized families pp. 3–4",
+          "method": "Author-hosted PDF passages, offsets 0 and 6516 onward",
+          "title": "Newman’s phenomenon for generalized Thue–Morse sequences",
+          "trigger": "Broader rarefied classes and sign analysis"
+        },
+        {
+          "assessment": "Exact bounds for different moduli",
+          "evidence": [
+            "The Introduction defines f_{b,j} and focuses on b=3; Theorem 10 concerns bounds and their equality languages for b=5."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.09436",
+          "material_read": "Introduction pp. 1–2 (offsets 1287–4279), §6 Theorem 10 p. 8 (offsets 23492–26017)",
+          "method": "Targeted OA PDF passages",
+          "title": "Rarefied Thue-Morse Sums Via Automata Theory and Logic",
+          "trigger": "Exact rarefied-sum formulas and bounds in related moduli"
+        },
+        {
+          "assessment": "Different modulus and statistic",
+          "evidence": [
+            "Gives a two-scale recurrence for F_j(k)=Σ_{i<2^k}t(9i+j), not all-prefix extrema of modulus-seven sums."
+          ],
+          "identifier_or_url": "d0dd28c1a584",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary lookup and local mirror",
+          "title": "Two-scale exact dyadic renormalization for nine-rarefied Thue–Morse sums",
+          "trigger": "Same-day exact dyadic renormalization in an adjacent rarefaction problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These natural finite-scale envelopes measure both overshoots of a classical oscillatory rarefied sum, not just its growth order. The exact affine constants and all-residue law determine an infinite family of extremal values from finitely many seeds at high levels, quantitatively distinguishing it from a homogeneous rescaling. No claim is made for exact normalized limsup or liminf constants.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,98 +1,99 @@
-"""Reproducible finite checks for the neutral-feedback sinusoidal map theorem.
-
-These tests supplement, rather than replace, the analytic proof.
-Run: python3 check_resonance.py
-"""
+"""Finite checks for the neutral-feedback sinusoidal map. Python 3, stdlib only."""
 import math
 import random
 
-R = random.Random(202311)
-
 
 def step(x, y, z, a, b, d):
-    g = d - b
-    return y, math.sin(z), a + b*x + g*y - d*math.sin(z) + z
+    return y, math.sin(z), a + b*x + (d-b)*y - d*math.sin(z) + z
 
 
 def w(x, y, z, b, d):
     return z + b*x + d*y
 
 
-def eigen_radius_nonnegative(b, d):
-    return (d + math.sqrt(d*d + 4*b))/2
+def fiber(x, y, theta, b, d):
+    return y, math.sin(theta - b*x - d*y)
 
 
-def positive_root(s):
-    assert s > 1
-    l, u = 1e-8, 1.0
-    assert math.sin(s*l) - l > 0
-    assert math.sin(s*u) - u <= 1e-14
+def roots(b, d, cosine):
+    # The Jacobian is [[0,1],[b*cosine,d*cosine]], not cosine times M.
+    trace, negative_det = d*cosine, b*cosine
+    discr_root = math.sqrt(trace*trace + 4*negative_det)
+    return (trace + discr_root)/2, (trace - discr_root)/2
+
+
+def positive_root(t):
+    lo, hi = 1e-8, 1.0
+    assert math.sin(t*lo) > lo and math.sin(t*hi) <= hi
     for _ in range(100):
-        m = (l+u)/2
-        if math.sin(s*m) - m > 0:
-            l = m
+        mid = (lo+hi)/2
+        if math.sin(t*mid) > mid:
+            lo = mid
         else:
-            u = m
-    return (l+u)/2
+            hi = mid
+    return (lo+hi)/2
 
-identity_tests = 0
-for _ in range(400):
-    b = R.uniform(0.01, 0.45)
-    d = R.uniform(b, 1.8)
-    a = R.uniform(-3, 3)
-    x, y, z = (R.uniform(-4, 4) for _ in range(3))
-    x1, y1, z1 = step(x, y, z, a, b, d)
-    assert abs((w(x1, y1, z1, b, d)-w(x, y, z, b, d))-a) < 5e-14
-    identity_tests += 1
 
-contraction_tests = 0
-for _ in range(100):
-    b = R.uniform(.004, .30)
-    d = R.uniform(b, .95-b)
-    s = b+d
-    a = R.uniform(-math.pi, math.pi)
-    W = R.uniform(-5, 5)
-    x1, y1 = R.uniform(-2, 2), R.uniform(-2, 2)
-    x2, y2 = R.uniform(-2, 2), R.uniform(-2, 2)
-    initial_distance = max(abs(x1-x2), abs(y1-y2))
-    for n in range(26):
-        bound = s**(n//2) * initial_distance
-        assert max(abs(x1-x2),abs(y1-y2)) <= bound + 2e-12
-        th = W + n*a
-        x1,y1 = y1,math.sin(th-b*x1-d*y1)
-        x2,y2 = y2,math.sin(th-b*x2-d*y2)
-    contraction_tests += 1
+def main():
+    rng = random.Random(202311)
+    for _ in range(400):
+        b = rng.uniform(0.01, 0.45)
+        d = rng.uniform(b, 1.8)
+        a = rng.uniform(-3, 3)
+        p = tuple(rng.uniform(-4, 4) for _ in range(3))
+        assert abs(w(*step(*p, a, b, d), b, d) - w(*p, b, d) - a) < 5e-14
 
-pitchfork_tests = 0
-for eps in [0.0001, 0.001, 0.005, 0.01, 0.025, 0.04]:
-    s = 1 + eps
-    b0, d0 = .28, .72
-    b, d = s*b0, s*d0
-    root = positive_root(s)
-    assert abs(math.sin(s*root)-root) < 1e-14
-    assert eigen_radius_nonnegative(b,d) > 1
-    assert abs(math.cos(s*root))*eigen_radius_nonnegative(b,d) < 1
-    if eps <= .01:
-        approx = math.sqrt(6*eps/s**3)
-        assert abs(root/approx-1) < .02
-    pitchfork_tests += 1
+    for _ in range(100):
+        b = rng.uniform(.004, .30)
+        d = rng.uniform(b, .95-b)
+        s = b+d
+        a = rng.uniform(-math.pi, math.pi)
+        theta = rng.uniform(-5, 5)
+        p = tuple(rng.uniform(-2, 2) for _ in range(2))
+        q = tuple(rng.uniform(-2, 2) for _ in range(2))
+        initial = max(abs(p[0]-q[0]), abs(p[1]-q[1]))
+        for n in range(26):
+            bound = s**(n//2) * initial
+            assert max(abs(p[0]-q[0]), abs(p[1]-q[1])) <= bound + 2e-12
+            p = fiber(*p, theta+n*a, b, d)
+            q = fiber(*q, theta+n*a, b, d)
 
-# Numerical ergodic means are diagnostics only, not proofs of unique ergodicity.
-alpha = 2*math.pi*(math.sqrt(5)-1)/2
-b,d = .015, .04
-x,y,theta = 0.,0.,0.
-n = 180000
-acc = 0.
-for k in range(n + 2000):
-    x,y = y,math.sin(theta-b*x-d*y)
-    theta = (theta+alpha) % (2*math.pi)
-    if k >= 2000:
-        acc += y
-mean = acc/n
-first_order = (b*math.sin(2*alpha)+d*math.sin(alpha))/2
-# Analytic remainder bound 3s^2/2; small numerical discrepancy allowed.
-assert abs(mean-first_order) < 1.5*(b+d)**2+2e-4
+    for eps in (0.0001, 0.001, 0.005, 0.01, 0.025, 0.04):
+        t = 1+eps
+        b0, d0 = .28, .72
+        b, d = t*b0, t*d0
+        r = positive_root(t)
+        assert abs(math.sin(t*r)-r) < 1e-14
+        assert roots(b, d, 1)[0] > 1
+        c = math.cos(t*r)
+        lam, nu = roots(b, d, c)
+        assert max(abs(lam), abs(nu)) < 1
+        # Check the two Jacobian columns directly against the fiber map.
+        h = 1e-5
+        for dx, dy, xc, yc in ((h, 0, 0, b*c), (0, h, 1, d*c)):
+            plus = fiber(r+dx, r+dy, math.pi, b, d)
+            minus = fiber(r-dx, r-dy, math.pi, b, d)
+            assert abs((plus[0]-minus[0])/(2*h)-xc) < 1e-8
+            assert abs((plus[1]-minus[1])/(2*h)-yc) < 1e-8
+        if eps <= .01:
+            assert abs(r/math.sqrt(6*eps/t**3)-1) < .02
+            assert abs(lam - (1-2*eps/(1+b0))) < 10*eps**2
 
-print(f"PASS: {identity_tests} drift identities; {contraction_tests} uniform contraction cases;")
-print(f"      {pitchfork_tests} bifurcation/stability cases; mean={mean:.9f}, first-order={first_order:.9f}.")
-print("Limit: finite tests are supplementary; infinite statements use analytic arguments.")
+    alpha = math.pi*(math.sqrt(5)-1)
+    b, d = .015, .04
+    x = y = theta = acc = 0.
+    n = 180000
+    for k in range(n+2000):
+        x, y = fiber(x, y, theta, b, d)
+        theta = (theta+alpha) % (2*math.pi)
+        if k >= 2000:
+            acc += y
+    mean = acc/n
+    lead = (b*math.sin(2*alpha)+d*math.sin(alpha))/2
+    assert abs(mean-lead) < 1.5*(b+d)**2+2e-4
+    print(f"PASS: drift, contraction, six pitchfork samples; mean={mean:.9f}, lead={lead:.9f}.")
+    print("Finite samples are supplementary; uniform claims use the analytic proof.")
+
+
+if __name__ == '__main__':
+    main()

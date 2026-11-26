@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The spatial language is exactly the set of words labeling a path in the sixteen-vertex five-block De Bruijn presentation of the composed Rule-54 map. Extending the finite preimage to a bilateral configuration proves the finite-language/image equivalence. A complete, exact subset-product closure certifies the eighteen-state deterministic automaton for all word lengths. The integer identity \(P(M)v=0\) provides the full recurrence and generating series, while the irreducible aperiodic sixteen-state component and exact Collatz--Wielandt comparisons establish the entropy and root interval. The standalone checker verifies the relevant finite certificates and gives independent enumeration for nine lengths. No experimental sample is mistaken for an infinite proof.
+## correctness
 
-## Originality — PASS within inspected evidence
-The 2026 Pita full-text discussion concerns causal coupling diagnostics, not the second-image language. Existing published one-step Rule-54 image counts do not determine the two-step series, and a published all-rules second-image strictness test gives only existence of short differences. Published research and published-finding corpus semantic searches did not disclose this exact second-image recurrence or degree-fifteen spectral polynomial. The earlier Kassardjian--Balbi--Ruivo work constructs generic finite-time image process graphs but its complete text was inaccessible; an unstated equivalent historical calculation remains a concrete risk. A generic method of constructing a graph does not itself state the exact coefficients or entropy obtained from this particular graph.
+PASS
 
-## Value — PASS
-The celebrated class-IV Rule 54 has a natural spatial finite-time complexity filtration. Its exact second-image invariant is not a mere Boolean test or arbitrary small slice: it supplies the complete block-count sequence at every length, a nontrivial degree-fifteen Perron algebraic entropy, and a reproducible bridge from the original local rule to asymptotic spatial complexity. It complements one-step image results, without claiming a classification of future iterates.
+Compose the radius-one synchronous rule twice. A path through overlapping four-bit contexts supplies precisely an input block of length n+4; every such block extends bilaterally. A label word is accepted precisely when its subset of terminal contexts is nonempty. Deterministic transitions then count each spatial word once, with c_0=1. The independent replay /workspace/replay/rule54.py constructs the local rule and subsets, minimizes by partition refinement rather than using the published table, and obtains 39 reachable subsets and 18 quotient states including the sink. The accepted transfer matrix and its characteristic polynomial determine the entire rational series by Cayley–Hamilton and the initial coefficients; exact reduction gives both frozen polynomials and the stated first 16 terms. Separate two-pass input enumeration agrees for lengths 1–9. The 16 internal states form one strongly connected component with a loop; the initial state enters it, and rejecting edges do not contribute. Its characteristic polynomial is tP(t). Rational Collatz–Wielandt comparisons with K^80 1 give the stated interval; the independent approximation lambda=1.8276841668945112 gives log(lambda)=0.6030496828827792. Perron–Frobenius growth gives the shift entropy via the subshift block-count limit. This is an all-length certificate for two updates only, not a ring, trajectory, or eventual-image calculation.
 
-## Closest work and limitations
-The most relevant accessible published work is the one-step Rule-54 result and the second-update short-witness theorem in published-finding corpus, Pita's 2026 causal transducer paper, and Kassardjian--Balbi--Ruivo's 2024/2025 finite-time process-graph construction. The last paper's full text was not obtained through lawful access. No independent scholarly priority or mathematical validation has been undertaken. The finding does not address periodic rings, staggered/reversible rules, or the infinite-time limit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The graph construction and even its use for all elementary rules at the second iterate are antecedent. The distinct result is the complete Rule 54 second-image word-growth series and its exact spatial entropy, established by additional state closure, minimization and exact matrix calculation. Prior short-witness and one-step results do not supply these invariants. Plausible inaccessible process-graph text leaves a concrete priority risk.
+
+## value
+
+PASS
+
+Rule 54's finite-time image filtration has spatial complexity not captured by the first forbidden block or by ring preimage counts. The rational series gives all distinct block counts without re-enumeration and fixes the entropy as an algebraic growth constant for the complete second image. This is a natural invariant of a standard automaton even though its method is classical and later images remain open here.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The boundary argument derivative is exactly a sum of two Poisson kernels. Their positive- and negative-frequency Fourier coefficients give the absolutely convergent Parseval identity; a geometric-series sum gives the two-parameter rational objective. Its angular dependence is strictly monotone in the cosine of the separation for positive second radius, so antipodal separation is the only angular minimizer. The radial derivative has a unique sign change because \(t(1+rt)^2/(1-t^2)^2\) is strictly increasing on \([0,r]\) and crosses \(r\) there. The endpoints are strictly worse. Implicit analyticity and the endpoint limit prove the two expansions. Finite checker tests are supplemental, not infinite proofs.
+## correctness
 
-## Originality — PASS (best knowledge; historical priority not independently certified)
-The full text of Kovalev–Yang's 2020 arXiv paper was inspected for its pointwise extremal \(M(B),m(B)\) bounds and hypergeometric equality classification. These do not imply an \(L^2\)-variance minimizer under fixed maximum zero modulus. The relevant section of Gluchoff–Hartmann 2013 was read: its Theorems 7–10 optimize an interior mean \(1-M_2^2(\rho,B)\) with equal-radius zeros, not the boundary Poisson-speed variance while allowing a smaller second radius. Search comparisons against other published summaries and mathematical record descriptions did not expose an equivalent constrained classification. Residual risk: less visible classical Poisson kernel energy or Blaschke extremal literature may contain the statement in equivalent language.
+PASS
 
-## Value — PASS
-The angular speed of a finite Blaschke product is the intrinsic positive Jacobian of its boundary circle covering. The natural constraint on its farthest zero prevents the degenerate monomial solution with zero variance. Optimizing the squared speed deviation is a canonical quantitative flatness problem. Even for two zeros the optimal balanced covering requires a strictly smaller antipodal companion, contradicting the symmetric-radius guess; the exact sharp all-radius law and golden-ratio limiting radius give a useful benchmark for multi-zero boundary-speed equilibration. The assertion is a self-contained sharp constrained optimization, not a claimed general high-degree theorem.
+Each Blaschke factor has strictly positive boundary argument derivative P_a, the Poisson kernel with mean one; thus |B'|=P_a+P_b and the speed has mean two, also for repeated or zero zeros. Fourier pairing gives the pair integral ∫P_a P_b dθ/(2π)=(1−|a conjugate(b)|²)/|1−a conjugate(b)|², yielding the frozen variance formula. After rotation and interchange write a=r, |b|=t≤r. At fixed t>0 the pair integral uniquely minimizes when its denominator is greatest, i.e. b=−t. The resulting objective is F_r(t)=2[r²/(1−r²)+t²/(1−t²)−2rt/(1+rt)]. Its second derivative is 4[(1+3t²)/(1−t²)³+2r²/(1+rt)³]>0; its first derivative is negative at 0 and positive at r. Thus both endpoints are excluded and the unique global minimum is at the stated root. Comparing s/(1−s²)², strictly increasing in s, to r/(1+rs)², strictly increasing in r at fixed s, verifies strict monotonicity. The root equation has nonzero s-derivative at (0,0) and is invariant under simultaneous sign reversal, so the local branch is analytic and odd. The r³ and r⁵ coefficients follow from A+2=−2 and C+4A+1=1−4A, hence A=−4 and C=32. At r→1 the monotone limit solves L=(1−L)², since 1+L is positive, giving (3−sqrt(5))/2. This verifies the sharp value and all equality cases without running the supplied diagnostic script.
 
-## Closest work and limitations
-Kovalev–Yang (2020), arXiv:2007.09760, Theorems 1.2 and 1.4 (extremal pointwise speed). Gluchoff–Hartmann (2013), DOI:10.1007/978-1-4614-5341-3_9, Theorems 7–10 (interior Hardy means at common zero radius). The proof treats only degree two, and historical priority needs outside verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Fourier and Poisson identities and the same variance in other parameter families are known. The supported distinct result is the complete degree-two, fixed maximum modulus L² optimum, including strict inward relaxation and the full-r endpoint law. The available comparisons do not prescribe this optimizer or imply it by changing coordinates in a covered problem.
+
+## value
+
+PASS
+
+Degree two is the first covering with a choice of how two Poisson-kernel speed contributions can balance. Fixing the outermost radius prevents the constant-speed z² map and fixes how close a zero may come to the boundary. The answer gives a sharp global comparison against the natural equiradial antipodal baseline: that baseline always loses, and the optimum inner zero approaches a precise radius strictly inside the disk even as the prescribed outer zero tends to the boundary. This is a complete, motivated extremal classification and boundary law, rather than just a restatement of Parseval or a one-parameter numerical gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

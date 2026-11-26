@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The output-prefix identity is proved by an iid packet-word realization of the GSR \(a\)-shuffle, the generalized cycle lemma for the nearest two-step walk, and an exact binomial-tail cancellation at parameter \(p=1/a\). The finite-deck obstruction is bounded using the binomial Chernoff inequality, and all asymptotic constants follow from a local binomial limit and summation. The independent path-count and direct-shuffle checker supplies exact finite diagnostics, not a replacement for the proof. The theorem is explicitly restricted to the canonical top-half strategy at fixed shuffle depth.
+PASS
 
-## Originality — PASS against inspected sources
+Theorem 1.1, Eq. (1.2) of arXiv:2611.04339v1 has floor(i/a)+1, not floor((i−1)/a)+1, in the relevant prefix, and asserts expected-total-score optimality only for sufficiently large n at fixed k. The standard a-packet word with independent uniform marks has the correct conditional interleaving law. For t≤floor(n/2), with r=floor(t/a), later packets cannot match any prefix guess on N₀>r; the complementary event has probability at most exp(−n/(8a)). The first negative value of i−aS_i requires a zero mark and count exactly floor(i/a)+1, so the survival comparison preserves the correct strict hitting rule. Prepending +1 and counting positive rotations with multiplicity gives (t−aj+1)/(t+1) times binomial(t+1,j), even for periodic words. At p=1/a the weighted sum is the difference of the two given binomial CDFs divided by 1−p. A one-step Bernoulli coupling leaves precisely the binomial atom at r, including t=0. A first hit is impossible at a positive multiple of a because the preceding nonnegative height is at least a−1 modulo a. Stirling and the exponentially small error give the uniform relative tail for fixed a; summing the tail up to H_n−1 gives the exact leading coefficient of the truncated mean. The law concerns the specified canonical sequence, not arbitrary tie choices or early-hit optimization. Read RESULT.md, VERIFICATION.md and verify.py; script inspected, not run; the finite exact checks are not a proof of the all-horizon law.
 
-The principal 2026 article establishes optimal top-half guesses and total expected score, while the 2025 marginal-distribution article and the earlier 2022–2024 papers treat score moments and limit laws rather than the first-hit waiting time. The 2023/2024 Kuba–Panholzer paper even names waiting times as a further direction. Classical ballot formulas do describe the auxiliary walk, but do not themselves identify the riffle first-hit event or provide an exponentially accurate finite-deck transfer. Related accessible prior claims on fixed-shuffle unique-label scores and repeated-guess total-score distributions do not imply the presented prefix first-hit law. No assertion is made that the generalized ballot count is itself new. The 1998 Ciucu full text could not be inspected completely, and an unknown historical equivalent remains a genuine priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first successful prediction is a natural statistic separate from the total number of successes. Its entire top-half survival profile reduces to an unexpected single central binomial probability, giving both an exact all-integer prefix formula in the limiting packet-word representation and a quantitative finite-deck comparison. The explicit heavy tail shows the contrast between almost-sure eventual success and divergent mean waiting in the infinite model, with a sharp square-root censored mean for actual large decks. These conclusions were not available merely from known expected-score formulas.
+The prior optimal sequence, score distributions and ballot count are credited. The distinct result is the fixed-depth first-hit comparison between the finite GSR deck and a classical critical walk, including an explicit error through the midpoint and a sharp truncated mean. No inspected source covers that connection and quantitative conclusion.
 
-## Independent status and limitations
+## value
 
-Fixed shuffle depth, unbiased shuffles, canonical tie choice, and first-half truncation are essential. Neither beyond-midpoint first-hit probabilities nor other optimal tie choices are evaluated. The finite checker is supplementary, and no historical-priority guarantee follows from finite literature searches.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Waiting time is a natural observable distinct from total score and an explicitly identified gap in the one-shuffle literature. The quantitative coupling makes an exact random-walk identity useful for an actual finite policy. The limiting law is tight while even its half-deck-truncated mean grows like a computable constant times √n, a distinction not visible in expected total score.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

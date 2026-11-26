@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:54:18.101894Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For consecutive points (a,b,z),(b,a,w), eliminating z,w gives the reduced residuals K_1=b(m+z)-Aa and K_2=a(m+w)-Ab, with z=α(a²+rb²)/(1-r²) and w=α(b²+ra²)/(1-r²). A=1-n>0 makes zero coordinates yield the origin; a=b gives a fixed point and a=-b≠0 gives the unique symmetric cycle exactly under the first strict inequality. For Δ=a²-b²≠0, aK_1-bK_2=Δ(-A+αab/(1+r)) and bK_1-aK_2=-Δ(m+αr(a²+b²)/(1-r²)); the row transformation has determinant -Δ, so the sum/product constraints are necessary and sufficient. Positive distinct squared roots exist iff S>2|B|, with just two reflected orbits after quotient by phase. At equality the roots coincide. An independent derivative check: eliminate the third coordinate from F²-I by first using residual rows for the two second-coordinate equations and the third-coordinate return; subtract multiples of the first row to account for the intermediate second coordinate a+K_1 instead of a. The scalar Schur factor from the third-coordinate return is r²-1, giving det(P-I)=(r²-1)det DK. Differentiating the two factorizations at an asymmetric zero yields det DK=-2rΔ²/((1+r)(1-r²)), hence the asserted identity. The real monic characteristic polynomial is negative at 1 and positive at large arguments. The threshold difference for α=1 is A(1-3r)/(1-r), and for α=-1 the two thresholds are strictly ordered for every admissible r. The strict endpoints and the square-root discriminant onset both agree.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "In 6fdbde1ad9b7 put (ν_1,ν_2,ν_3)=(n,m,r) and c=1-n; its parameter range contains the frozen α=-1 range. Its two thresholds are -c and 2cν_3/(1-ν_3), with counts 0,1,3 and the same strict endpoint conventions.",
+          "The accessible Gonchenko paper states the exact map for both signs and treats local pitchfork/flip behavior. The two other cited articles were not accessible as full texts on the tested routes."
+        ],
+        "reasoning": "The negative-sign census is a direct restriction of a stronger result; the older normal-form article supplies the equivalence, not the complete count by itself.",
+        "searches": [
+          "6fdbde1ad9b7 Finding, Assumptions and proof",
+          "Gonchenko DOI:10.18500/0869-6632-003140 §§2.1–2.2",
+          "DOIs 10.1063/5.0172243 and 10.1016/j.padiff.2024.100904"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6fdbde1ad9b7 and d924c7a65241",
+        "doi:10.18500/0869-6632-003140",
+        "doi:10.1063/5.0172243 and doi:10.1016/j.padiff.2024.100904 (full texts not reached)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier positive-sign proof uses only 1+b>0 in its orbit and determinant algebra. Its product pq=(1+b)(1+c), squared sum, strict quadratic-root test and return determinant are exactly the ones here after n=-b, c=r, μ=m and det(I-K)=-det(K-I). The formulas extend without a change of argument.",
+          "More directly, from any A>0 to any A'=sA>0, scale (a,b) by sqrt(s) and (z,w,m) by s. This bijects all return solutions, preserves primitive period and scales thresholds by s. Under this change K' evaluated at scaled coordinates is s^(3/2)K, so det DK' scales by s²; the third-coordinate Schur factor r²-1 is unchanged. The prior determinant scales by exactly the same s² as (a²-b²)². Choose A' in (1,2) for the earlier parameter range.",
+          "The sign-flip second-iterate duality transfers the asymmetric result to the negative sign, and the discriminant S²-4B² already gives the onset expansion using the earlier sum/product equations."
+        ],
+        "reasoning": "The comparison does not identify dynamics under arbitrary n by conjugacy; it gives a precise reduction for the particular return equations and determinant. It leaves no substantive unaccounted census, threshold reversal, obstruction or onset claim.",
+        "searches": [
+          "d924c7a65241, proof at text offset 1408; compare all uses of 0<b<1",
+          "6fdbde1ad9b7, amplitude/collision passage at offset 600",
+          "Gonchenko Lemma 2, printed p. 842"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published transformation C(x,y,z)=(x,-y,-z), α→-α, m→-m conjugates the second iterates. Directly the first iterates satisfy F_{-α,n,-m}=S C F_{α,n,m} C with S the commuting axial reflection.",
+          "An asymmetric return point has unequal squares of its first coordinates, unchanged by C, so cannot be fixed under either sign. The derivatives of the second iterates are similar at corresponding points, transferring the determinant and expanding multiplier."
+        ],
+        "reasoning": "The duality alone does not transfer symmetric least-period-two orbits, since fixed points and switching points can exchange roles. It does transfer exactly the off-symmetry stability statement; the separate symmetric counts are compared individually.",
+        "searches": [
+          "Resultary: exact global prime-two census, axial quadratic map, switching and paired two-cycles",
+          "Gonchenko DOI:10.18500/0869-6632-003140, Lemma 2 and equations (14)–(16)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier 2026/11/17 record 6fdbde1ad9b7 gives the negative-sign phase table, merging into the symmetric cycle at equality, and the exact symmetry-breaking amplitude.",
+          "Earlier 2026/11/17 record d924c7a65241 gives N_2=1_{μ<-(1+b)}+2·1_{μ<-2c(1+b)/(1-c)}, det(I-K)=-2c(p²-q²)²/(1+c), and crossover c=1/3 for its coefficient -b, 0<b<1."
+        ],
+        "reasoning": "The negative-sign match is literal on the frozen domain. The positive-sign match has initially disjoint n ranges, so numerical or symbolic resemblance alone is not enough; the proof-domain and scaling checks below are decisive.",
+        "searches": [
+          "Resultary exact counts for both signs, expanding Floquet multiplier, 1/3 damping crossing"
+        ]
+      },
+      "rationale": "The α=-1 global census, onset and collision type are explicitly covered by Resultary 6fdbde1ad9b7. Record d924c7a65241 gives the α=+1 census, determinant and damping crossover for negative n as stated, but the actual proof and the return-residual normalization transfer these results mechanically to positive n. Known second-iterate duality then transfers the off-symmetry determinant to α=-1. Thus there is material prior coverage and no distinct nonmechanical main claim left in the frozen finding. Inaccessible Gonchenko papers are not the reason for failure.",
+      "residual_risks": [
+        "The 2023 and September 2024 full texts could document additional overlap; the identified earlier records and mathematical reductions suffice for the verdict without them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of negative-sign census and onset",
+          "evidence": "Thresholds -c and 2cν_3/(1-ν_3), central orbit plus reflected pair; exact (a+b)² onset formula.",
+          "identifier_or_url": "2026/11/17/SCOPE-exact-three-phase-two-cycle-census-in-an-axially-symmetric-quadr--6fdbde1ad9b7",
+          "material_read": "Finding and scope from offsets 0 and 600; inspected proof opening",
+          "method": "Local Resultary mirror",
+          "title": "Exact three-phase two-cycle census in an axially symmetric quadratic map",
+          "trigger": "Exact same negative-sign map and three-phase counts"
+        },
+        {
+          "assessment": "Mechanically extends to the frozen range via return normalization",
+          "evidence": "Proof reduces to positive A=1+b, pq=A(1+c), the squared sum, and det(I-K)=-2c(p²-q²)²/(1+c).",
+          "identifier_or_url": "2026/11/17/SCOPE-the-complete-prime-two-census-and-an-exact-instability-barrier-i--d924c7a65241",
+          "material_read": "Finding, assumptions, and complete proof at offsets 1408–3276",
+          "method": "Local Resultary mirror",
+          "title": "The complete prime-two census and an exact instability barrier",
+          "trigger": "Same positive-sign nonlinearity and all target formulas, but initially different sign of n"
+        },
+        {
+          "assessment": "Normal form and relevant exact second-iterate equivalence; not itself the global census",
+          "evidence": "Lemma 2 uses y→-y, z→-z, ν_2→-ν_2, α→-α; first-iterate bifurcations can differ.",
+          "identifier_or_url": "https://doi.org/10.18500/0869-6632-003140",
+          "material_read": "§2.1 Lemmas 1 and 2, equations (14)–(16), §2.2 local bifurcations, printed pp. 840–843",
+          "method": "OA journal PDF, bounded pages including offset 43619",
+          "title": "On discrete Lorenz attractors of various types",
+          "trigger": "Same exact map and published duality"
+        },
+        {
+          "assessment": "Further primary coverage unresolved; not relied on for failure",
+          "evidence": "The attempted lawful routes did not supply the original results sections.",
+          "identifier_or_url": "10.1063/5.0172243; 10.1016/j.padiff.2024.100904",
+          "material_read": "No full text; bibliographic/landing material and available abstract only",
+          "method": "DOI routes and identified PubMed route",
+          "title": "On discrete Lorenz-like attractors in three-dimensional maps with axial symmetry; Discrete Lorenz attractors of new types in three-dimensional maps with axial symmetry",
+          "trigger": "Earlier primary sources on same model and local bifurcations"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A global low-period census and a forced real multiplier would be mathematically useful for this normal form. But the frozen contribution beyond the directly covered negative-sign census is a homogeneous reparameterization of an existing complete return calculation plus a published second-iterate equivalence, not a further stability or bifurcation result; there is no independently useful distinct remainder to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

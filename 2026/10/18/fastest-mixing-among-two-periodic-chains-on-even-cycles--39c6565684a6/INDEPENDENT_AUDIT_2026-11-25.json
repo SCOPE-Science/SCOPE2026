@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:59:44.762926Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Two-vertex Bloch cells give off-diagonal product Z=(c cos θ+2ir sin θ)^2+d^2 sin²θ at the first nonconstant mode, with c=a+b, d=a−b, θ=2π/N. For X=c² cos²θ and Y=(d²−4r²)sin²θ, |Z|²−(X−Y)²=4Xd²sin²θ, so the square root with nonnegative real part has real part at least c cos θ. The other spectral obstruction is the alternating eigenvector in the constant-cell block, with eigenvalue 1−2c. Their maximum bound has its unique minimum at c=2/(3−cos θ), and the homogeneous reversible spectrum attains it. For even N≥6, at this c the first bound is strict for d≠0 by the identity, and for d=0,r≠0 by the imaginary part. For N=4 the two nonconstant-cell eigenvalues are 1−c±√(d²−4r²), whose maximum modulus exceeds 1−c unless the discriminant is zero, whether it is real positive or negative. Balancing against |1−2c| yields exactly c=2/3 and d²=4r²; then |r|≤1/6. The example has nonconstant-cell block with diagonals 1/3 and off-diagonals 1/3,0, establishing geometric multiplicity one. The invariant mean-zero subspace counts extra eigenvalues 1 in reducible cases. The supplied SymPy identities and witness and 2275 finite grid iterations were inspected, not rerun; the grid does not prove an optimum on the continuous domain.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2015 paper treats each perturbation type separately globally and the combined case locally. The broad cycle bound for total variation is of order N², and the later single-edge speedup uses a modified graph."
+        ],
+        "reasoning": "A local spectral ordering does not settle all admissible mixed rates. An order bound for a different mixing criterion gives neither the exact constant nor equality; an added edge violates the support hypothesis.",
+        "searches": [
+          "DOI 10.1109/ECC.2015.7330635, Props. 2–3 and Thm. 4",
+          "Markov chain mixing time on cycles, Thm. 1",
+          "arXiv:1905.03223 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Gerencsér–Hendrickx–Van Dooren (2015)",
+        "Markov chain mixing time on cycles",
+        "arXiv:1905.03223",
+        "Three closest local Resultary mirror records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier cycle work gives single-type global results and a mixed local result; its conclusion leaves the unrestricted mixed global comparison open at that date. The inspected catalogue records optimize in reversible settings."
+        ],
+        "reasoning": "One cannot combine separate inequalities for r=0 and d=0 into a bound for d and r both nonzero. The present product identity controls both simultaneously and can be strict away from the optimum for N≥6, while the special block at N=4 permits nontrivial nilpotent parts.",
+        "searches": [
+          "Gerencsér–Hendrickx–Van Dooren (2015), §II, Props. 2–3, Thm. 4 and conclusion",
+          "Local Resultary two-price cycle and alternating Metropolis records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2015 decomposition into homogeneous, symmetric inhomogeneous, and skew-circulation parts is equivalent after restricting the symmetric part to period two. The two-price catalogue records instead vary reversible continuous-time conductances under price constraints. The alternating Metropolis record has nonuniform stationary masses and no circulation."
+        ],
+        "reasoning": "The prior decomposition is already available, but imposing period two is not an equivalence between the present discrete-time mixed objective and a Laplacian-gap or Metropolis optimization. In particular the reversible problems cannot exhibit the defective optimizer.",
+        "searches": [
+          "Local Resultary comparisons for even cycles, mixed circulation and alternating edges",
+          "Gerencsér–Hendrickx–Van Dooren (2015), §II"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact benchmark is already given by the homogeneous solution. The frozen verifier gives symbolic tests and a finite grid, not a catalogue of continuum equality families."
+        ],
+        "reasoning": "A table of benchmark values or four-state spectra can duplicate the number or one witness, but cannot by itself establish the universal two-periodic mixed comparison and the full real-parameter equality locus. No pertinent standalone exact table for that locus was identified.",
+        "searches": [
+          "Local Resultary exact cycle and defective equality comparisons",
+          "2015 cycle paper benchmark and Propositions 2–3"
+        ]
+      },
+      "rationale": "The optimal value itself is the known homogeneous benchmark. The distinct comparison is the global bound when alternating symmetric rates and constant circulation are simultaneously allowed, with the resulting rigidity for N≥6 and the defective equality family for N=4. No unrestricted global cycle optimum is asserted.",
+      "residual_risks": [
+        "The bounded search did not establish the current status of unrestricted mixed optimization. One literature lookup was unavailable; this is not evidence against an earlier exact period-two calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the benchmark, pure perturbations globally, and mixed perturbations locally; no global mixed equality classification in these statements",
+          "evidence": "The abstract and conclusion describe the mixed global result as conjectural; the theorem and propositions distinguish local mixed from global pure comparisons.",
+          "identifier_or_url": "https://real.mtak.hu/173919/1/cycle_spectral_gap.pdf",
+          "material_read": "§II p. 2; Props. 2–3 p. 3; Thm. 4 pp. 3–4; abstract and conclusion",
+          "method": "Lawful OA full-text passage inspection",
+          "title": "Spectral gap of Markov chains on a cycle",
+          "trigger": "Identical cycle objective and unrestricted mixed perturbations"
+        },
+        {
+          "assessment": "Different mixing criterion and precision",
+          "evidence": "Total-variation t_mix(P,1/8)≥CN² for doubly stochastic cycle-subgraph chains; does not optimize spectral radius exactly.",
+          "identifier_or_url": "https://www.renyi.hu/~balazsg/ringmixing2011.pdf",
+          "material_read": "Thm. 1 p. 2",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Markov chain mixing time on cycles",
+          "trigger": "Broader lower bound allowing nonreversible cycle chains"
+        },
+        {
+          "assessment": "Changed graph and different criterion",
+          "evidence": "The single extra edge permits O(N^{3/2}) mixing with positive probability; that is outside the fixed nearest-neighbor cycle.",
+          "identifier_or_url": "https://arxiv.org/pdf/1905.03223.pdf",
+          "material_read": "Abstract p. 1",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Analysis of a non-reversible Markov chain speedup by a single edge",
+          "trigger": "Possibility of later cycle speedups"
+        },
+        {
+          "assessment": "Different objective and class, independently of the date",
+          "evidence": "Continuous-time symmetric Laplacian with alternating edge prices and independently variable conductances under a budget.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-and-unique-fastest-diffusion-on-two-price-even-cycles--33fae1c22fc4",
+          "material_read": "Mirrored RESULT.md Finding and hypotheses",
+          "method": "Configured local Resultary search and mirror reading",
+          "title": "Exact and unique fastest diffusion on two-price even cycles",
+          "trigger": "Closest indexed term and parameter match"
+        },
+        {
+          "assessment": "Not mixed discrete-time cycle optimization",
+          "evidence": "Priced continuous-time reversible problem.",
+          "identifier_or_url": "2026/10/13/SCOPE-square-root-price-geometry-for-fastest-mixing-on-alternating-eve--479ebc83d8ff",
+          "material_read": "Mirrored RESULT.md Finding and hypotheses",
+          "method": "Configured local Resultary search and mirror reading",
+          "title": "Square-root price geometry for fastest mixing on alternating even cycles",
+          "trigger": "Another alternating even-cycle exact optimization"
+        },
+        {
+          "assessment": "Different stationary distribution and reversible class",
+          "evidence": "Alternating nonuniform masses and Metropolis transition rules, not a uniform stationary law with constant directed circulation.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-stationary-bias-threshold-for-optimal-Metropolis-mixing-on--6d927e78fee0",
+          "material_read": "Mirrored RESULT.md Finding and hypotheses",
+          "method": "Configured local Resultary search and mirror reading",
+          "title": "Sharp stationary bias threshold for optimal Metropolis mixing",
+          "trigger": "Discrete-time spectral modulus with alternating cycle data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Period two is the simplest nonconstant periodic symmetric environment in which circulation can interact with inhomogeneity. The sharp bound gives a tractable global case beyond the separate-perturbation and local comparisons. Its four-cycle exception provides a whole explicit family showing that even attainment of the optimal spectral modulus need not imply reversibility or diagonalizability; this distinction matters for finite-time behavior.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:25:07.857220Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–84; frozen VERIFICATION.md",
+        "Independent bounded-check.md: full-period integer enumeration 2<=k<=12, compared with the digit-count product; numerical summation of the constant"
+      ],
+      "rationale": "Fix k before taking the density in n. For p^j<=k the local quotient valuation counts the multiples in the window minus one, and for p^j>k the contribution is zero. Subtracting from the Legendre sum for k! leaves nonnegative deficits: none when p^j divides m=k+1, and otherwise one minus the carry from adding m to n-1. Local equality forces all carries at and after the first nonzero digit of m in the retained positions; the respective digit counts are free, a_t, then a_i+1. Thus positive local densities multiply by the Chinese remainder theorem, and k! is attained. With J=floor((log m)^3), the primes up to m/J contribute O((m/J) log m)=o(m/log m); all others have exponent one and give log fractional parts of m/p, with prime divisors of m treated separately. On m/(j+1)<p<m/j, dyadic shells of size u in the fractional part have lengths O(um/j^2) and logarithmic loss growing only linearly in shell index. Brun–Titchmarsh at length at least m^(2/3) bounds total truncation loss by O(eta m/log m); shorter shells are nested toward the endpoint in a union of length O(m^(2/3)) per j and cost O(J m^(2/3) log m). Here eta=(log m)^(-2). For bounded truncated log values at the jumps, the variation is O(J log(1/eta)); partial summation with the stated PNT error replaces the prime sum by m/log m times its integral up to o(m/log m). The integral tail and clipping costs are O(1/J) and O(eta) by summing (j+u)^(-2). Integration by parts of log(u)/(j+u)^2 gives -log(1+1/j)/j, with the zero boundary term made finite using 1/j-1/(j+u). Replacing m by k does not change the limit.",
+      "residual_risks": [
+        "The finite calculation checks the maximum and density normalization, not the infinite limit. The latter uses the stated classical PNT and short-interval Brun–Titchmarsh bounds. The uploaded verifier was not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Farhi–Kane give exact least periods, Hong–Qian treat arithmetic-progression periods by prime-local valuation, and Huang–Yang and the November 2 record consider more general multiplicative functions for period questions."
+        ],
+        "reasoning": "These are broader in the family of quotients but not in the claimed observable: an exact least period does not give the count of maximizing residues, let alone its growth rate.",
+        "searches": [
+          "arXiv:0808.1507",
+          "arXiv:0903.0530",
+          "arXiv:2611.15379v1",
+          "2026/11/2/SCOPE-exact-least-periods-for-positive-multiplicative-consecutive-lcm--b42ad25dab65"
+        ]
+      },
+      "checked_sources": [
+        "Primary and Resultary sources itemized above; focused literature query about the extremal frequency"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prime-factor law gives an exact Bernoulli model for omega(Q_k) and a CLT. The lcm-binomial result gives equality density and a bound at scale exp(-c k/log k) for a different observable. The exact frequency law determines every finite d_k."
+        ],
+        "reasoning": "Distinct-prime counts omit the exponents needed to recognize k!; the lcm-binomial equality event is not the quotient maximum. The finite formula is an input, but the log singularities and equidistribution of primes must be controlled to conclude the sharp constant.",
+        "searches": [
+          "2026/11/22/SCOPE-gaussian-distinct-prime-factor-law-and-sharp-parity-bias-for-con--3cea4032cc5d",
+          "2026/11/8/SCOPE-digitwise-classification-and-least-equality-period-in-the-lcm-bi--7061eaf7542e",
+          "October 26 exact value-frequency law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same-day Gaussian logarithmic law, Finding and prior-work section: Z_k=log(k!/g_k(N_k)) under complete-period sampling has a centered Gaussian limit, mean asymptotic to gamma k and variance asymptotic to (2-log(2 pi)) k log k."
+        ],
+        "reasoning": "The exact equivalent event is Z_k=0, order sqrt(k/log k) standard deviations below the mean. A CLT in the typical range provides no sharp logarithmic probability for this single distant atom. Dating alone does not resolve priority.",
+        "searches": [
+          "Resultary: consecutive LCM quotient maximal frequency, growing-window logarithmic law",
+          "2026/11/22/SCOPE-a-gaussian-logarithmic-law-for-consecutive-integer-lcm-quotients--13a51748a6aa"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 26 Finding states the complete value distribution via coefficient frequencies; a=1,b=0 gives the consecutive-integer quotient and the coefficient for k! is d_k."
+        ],
+        "reasoning": "The exact finite quantity is fully covered and explicitly not claimed as new. This comparison does not provide a table or theorem for the limit with the displayed constant.",
+        "searches": [
+          "2026/10/26/SCOPE-exact-value-frequency-law-for-consecutive-arithmetic-progression--8e35eb7b4fbc",
+          "Focused primary literature and Resultary lookups for maximum consecutive-integer LCM quotient frequency asymptotics"
+        ]
+      },
+      "rationale": "Pass for the explicit sharp growing-window asymptotic, not the already covered finite frequencies or least periods. The same-observable Gaussian result is particularly close but does not estimate the rare endpoint atom; neither related statistic or the checked exact finite law supplies the derived rate without further asymptotic analysis.",
+      "residual_risks": [
+        "An unindexed analytic treatment of the same extremal density remains possible. The comparison with the same-day Gaussian law is based on statements and implications, not assumed publication order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers all finite frequencies, not the claimed asymptotic in the inspected result",
+          "evidence": "Complete value distribution; specialize progression parameters to a=1,b=0.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-value-frequency-law-for-consecutive-arithmetic-progression--8e35eb7b4fbc",
+          "material_read": "RESULT.md Finding, offsets 0–3216",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact value-frequency law for consecutive arithmetic-progression LCM quotients",
+          "trigger": "Potential exact d_k coverage"
+        },
+        {
+          "assessment": "Same observable and increasing regime, different probability question",
+          "evidence": "Centered Gaussian convergence and moment asymptotics, not a local estimate at Z_k=0.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-gaussian-logarithmic-law-for-consecutive-integer-lcm-quotients--13a51748a6aa",
+          "material_read": "RESULT.md Finding offsets 0–1716 and prior-work offsets 4900–6600",
+          "method": "Local mirror",
+          "title": "A Gaussian logarithmic law for consecutive-integer LCM quotients",
+          "trigger": "Same-day result for exactly the same random quotient"
+        },
+        {
+          "assessment": "Period theorem",
+          "evidence": "Least period as product over p for which p^e_p does not divide k+1.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-least-periods-for-positive-multiplicative-consecutive-lcm--b42ad25dab65",
+          "material_read": "RESULT.md Finding offsets 0–2004",
+          "method": "Local mirror",
+          "title": "Exact least periods for positive multiplicative consecutive LCM quotients",
+          "trigger": "Broader function class and arithmetic structure"
+        },
+        {
+          "assessment": "Direct background on g_k; not a frequency-rate statement in this passage",
+          "evidence": "Determination of least period P_k.",
+          "identifier_or_url": "https://arxiv.org/abs/0808.1507",
+          "material_read": "PDF p. 1, Introduction, offsets 1393–4675",
+          "method": "OA primary text",
+          "title": "New results on the least common multiple of consecutive integers",
+          "trigger": "Original least-period result for g_k"
+        },
+        {
+          "assessment": "General period and local valuation coverage",
+          "evidence": "Least-period formula, with a prime-local period analysis.",
+          "identifier_or_url": "https://arxiv.org/abs/0903.0530",
+          "material_read": "Theorem 1.2 p. 2, offsets 8137–10534; Proposition 3.8 p. 6, offsets 22029–23812",
+          "method": "OA primary text",
+          "title": "The least common multiple of consecutive arithmetic progression terms",
+          "trigger": "Prime-local framework for more general progressions"
+        },
+        {
+          "assessment": "Broader period work in the inspected result",
+          "evidence": "Identifies Farhi's g_k as a special case and describes the least-period problem.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.15379v1",
+          "material_read": "PDF p. 1, Introduction, offsets 1399–3988",
+          "method": "OA primary text",
+          "title": "On least periods of a class of arithmetic functions",
+          "trigger": "Motivating recent generalization"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "Exact Bernoulli law and Gaussian limit for the number of distinct prime factors.",
+          "identifier_or_url": "2026/11/22/SCOPE-gaussian-distinct-prime-factor-law-and-sharp-parity-bias-for-con--3cea4032cc5d",
+          "material_read": "RESULT.md Finding offsets 0–2414",
+          "method": "Local mirror",
+          "title": "Gaussian distinct prime-factor law and sharp parity bias for consecutive LCM quotients",
+          "trigger": "Same-prime-window analysis"
+        },
+        {
+          "assessment": "Different observable and one-sided estimate",
+          "evidence": "An upper bound exp(-((log 2)/6+o(1))k/log k) for lcm-binomial equality density.",
+          "identifier_or_url": "2026/11/8/SCOPE-digitwise-classification-and-least-equality-period-in-the-lcm-bi--7061eaf7542e",
+          "material_read": "RESULT.md Finding offsets 0–2885",
+          "method": "Local mirror",
+          "title": "Digitwise classification and least equality period in the lcm-binomial triangle",
+          "trigger": "Nearby equality-density bound at the same exponential scale"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 8–28 and 53–84",
+        "Exact finite-frequency and same-observable Gaussian comparisons above"
+      ],
+      "rationale": "This determines how often a classical sharp extremum of a natural consecutive arithmetic function is actually realized. It identifies a prime-scale exponent and a definite constant beyond the finite distribution, addressing a far-tail event not accessible by a typical-window CLT. The analytic control of prime intervals near singularities is substantive for obtaining that sharp rate.",
+      "residual_risks": [
+        "No effective error term or simultaneous growth in k and the averaging cutoff is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

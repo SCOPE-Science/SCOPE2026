@@ -1,21 +1,21 @@
-# Scientific assessment: finite-class susceptibility--infectivity moment comparison
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses the existing deterministic heterogeneous SIR final-size relation, not an approximation to finite-population outbreaks. The full system of moment equalities leaves a one-dimensional Vandermonde nullspace, with a last-moment coefficient fixed exactly. The divided-difference mean-value formula gives one unchanging sign for every strictly positive cumulative infection pressure. Strict concavity supplies the unique positive outbreak-pressure root whenever the shared invasion multiplier exceeds one. The strictly increasing attack-rate map preserves the ordering. An explicit binary-infectivity perturbation maintains both entire trait marginals and the invasion multiplier; hence the information cutoff is sharp. Exact three-class rational identities and supplementary finite-size arithmetic and root computations passed.
+PASS
 
-## Originality — PASS, subject to bounded source access
+In the stated deterministic rank-one model, survival in susceptibility class xᵢ is exp(−xᵢL); integrating weighted infections with common exit rate gives the scalar pressure equation with weights uᵢ, and the attack fraction uses pᵢ. For positive uᵢ and xᵢ, F(z)/z decreases strictly from m₁ to 0 by strict concavity and boundedness, giving one positive solution exactly when κm₁>1. The rank-(k−1) truncated Vandermonde matrix has kernel spanned by bᵢ=1/∏_{ℓ≠i}(xᵢ−xℓ): Lagrange leading coefficients annihilate monomials through degree k−2 and send degree k−1 to 1. Thus the pair's weight difference is Δb, with Δ the first unmatched moment difference. The divided difference of 1−exp(−zx) has the strict sign (−1)^k for positive z by its (k−1)st derivative. Evaluating the two scalar equations at one root transfers the sign to the positive pressures, and the common strictly increasing attack-fraction map transfers it to final fractions. Equal top moments give equal weights by the full Vandermonde matrix. The proposed binary infectivity perturbation is admissible for all sufficiently small positive ε, sums to zero in the relevant marginal because ∑bᵢ=0, preserves m₁ when k≥3, and has nonzero top moment; k=2 already has an invertible system with m₀,m₁. The exact example has top-moment difference 1/24 and the stated negative factored response difference. Independent bisection of the positive roots at κ=2 reproduced both pressures and fractions to the reported digits.
 
-The 2026 motivating joint-trait SIR preprint supplies the scalar equation and a concordance-order theorem; its comparison is not applicable to the displayed nonconcordant, same-marginal, same-reproduction-number pair. The 2012 Novozhilov review warns about moment insufficiency on unrestricted susceptibility distributions, but it does not state the finite known-support coupling cutoff or alternating last-moment direction. The Katriel susceptibility-Laplace comparison varies a marginal that is unchanged here. The 2026 Muslim moment-equivalence theorem concerns different variables, namely nonlinear interaction-group sizes and their factorial moments, and does not imply this deterministic SIR parity law. Existing classical Vandermonde interpolation and divided differences are credited and not claimed as novel. Indexed mathematical-results searches and other relevant empirical and stochastic sources did not establish equivalent or dominating coverage in their accessible material.
+## originality
 
-The remaining risks are a possible differently phrased historical application of the same divided-difference technique, inaccessible full texts for certain older stochastic and susceptibility-only studies, and an inaccessible full 2025 correlation study. No claim of exhaustive literature coverage or independent priority certification is made.
+PASS
 
-## Value — PASS
+The generalized convex-order and Laplace-transform sign mechanism, finite Vandermonde inversion, and scalar epidemic equation are established mathematics. In particular the all-pressure parity follows from the prior discrete sign-change criterion; it is not credited as a new stochastic-order theorem. The distinct scientific claim is the sharp finite mixed-moment information cutoff for the positive branch with both full trait marginals and the invasion threshold held fixed, witnessed for every k≥3 on any given distinct positive susceptibility support with positive frequencies. The inspected ordering and identifiability results do not give that simultaneous sharpness statement.
 
-The result is a natural complete classification of the information needed to forecast eventual deterministic attack from a population with known, finitely many fixed susceptibility classes. It resolves whether matching average infectivity, the reproduction threshold and then increasingly many mixed traits suffices: the answer is sharp at exactly the support cardinality, and the first unmatched mixed moment universally determines the direction of the discrepancy with support-size parity. The exact example holds both full trait marginals fixed, making the phenomenon a dependence-information effect rather than an artifact of changing risk-class proportions.
+## value
 
-## Limitations
+PASS
 
-The theorem addresses a single deterministic outbreak-pressure branch under rank-one well-mixed SIR transmission, fixed traits, and constant recovery. It says nothing about observed stochastic outbreaks, extinction probabilities, changing traits, arbitrary contact matrices, or unknown/continuous susceptibility support. Its original historical priority has not been independently validated.
+The model-based question is whether a finite collection of leading mixed moments identifies final size when susceptibility values and both trait marginals are known. The sharpness witness shows why knowing the reproduction threshold and, even at larger k, all but the final leading mixed moment can be insufficient without changing either population trait marginal. Combined with the exact finite cutoff, this gives a useful identifiability boundary for the model, rather than a relabeling of the classical sign inequality or a comparison limited to a single transmission parameter.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

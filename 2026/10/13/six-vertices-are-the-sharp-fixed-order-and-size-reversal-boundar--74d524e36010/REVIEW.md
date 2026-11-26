@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The domain is connected finite simple undirected graphs compared at common order and common edge count. The verifier reconstructs every connected isomorphism class through five vertices, reproduces the standard counts \(1,2,6,21\), and checks all same-\((n,m)\) pairs. Adjacency Perron roots and nonbacktracking roots are certified with exact rational polynomial arithmetic and Sturm isolation. The six-vertex graphs are reconstructed from their edge sets and satisfy the claimed opposite strict inequalities. The packaged verifier returns `VERIFY_OK`.
+## correctness
 
-Risk: interpreting inverse spectral radii as epidemic thresholds requires the modeling assumptions stated in the limitations; the graph-spectral reversal itself is exact.
+PASS
 
-## Originality
-**PASS.** Wang et al. establish the adjacency-eigenvalue epidemic-threshold viewpoint. Karrer et al. establish the nonbacktracking/message-passing percolation threshold and compare it with adjacency-based bounds. Lin and Zhou study inequalities and extremal behavior linking the two graph spectral radii. None of the inspected sources states the sharp fixed-order-and-size six-vertex ranking reversal, and targeted searches by aliases, fixed-edge formulations, and exact witness structure did not locate it.
+Regenerated all graph relabeling orbits from edge masks and independently found 1, 2, 6, 21 connected classes at orders 2–5. Compared all 32 same-(n,m) pairs of distinct classes, using exact matrix characteristic polynomials and joint real-root isolation, including exact ties. In contrast to the supplied proof, the replay formed the full directed-edge Hashimoto matrix rather than the Ihara–Bass auxiliary polynomial. Perron–Frobenius makes the largest real root the spectral radius for each nonnegative matrix, including the nilpotent tree case. For the specified connected six-vertex seven-edge witnesses, the adjacency factors match the proof and the largest roots lie respectively in (2.709275359436922, 2.709275359436923) and (2.705586727307843, 2.705586727307844). For the actual Hashimoto matrices the largest roots are the positive roots of x^3−3 and x^3−x−2, with disjoint exact intervals in the opposite order. Thus the lower bound and witness hold. Replay: python /workspace/replay_frozen_graphs.py 2 (SymPy 1.14.0); output /workspace/replay_2.log.
 
-Risk: an unindexed small-graph computation could contain the same pair without presenting the minimal boundary.
+## originality
 
-## Value
-**PASS.** Adjacency and nonbacktracking spectra are both used to summarize spreading or percolation vulnerability, but they encode different walk structure. Fixing both vertex count and edge count isolates a genuinely structural disagreement rather than a density effect. The exact minimal witness therefore gives a compact diagnostic for when the two common spectral surrogates can lead to opposite network comparisons.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The evidence supports a distinct exact fixed-(n,m) strict-order reversal boundary, not novelty of the spectral quantities, threshold surrogates, or qualitative observation that their optima can differ. The closest checked catalogue and primary-literature statements do not supply or imply the two opposite strict inequalities in a common (n,m) layer together with the lower-order exclusion.
+
+## value
+
+PASS
+
+Comparing ordinary walk growth with nonbacktracking walk growth at fixed vertex and edge counts removes changes in average degree as an explanation. The two small networks provide a sharp diagnostic: adjacency is sensitive to the placement of the pendant edges and hub while the nonbacktracking radius sees the cyclic core. This is an informative controlled benchmark for the two spectral proxies, not a claim that either inverse is an exact threshold for every spreading process.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

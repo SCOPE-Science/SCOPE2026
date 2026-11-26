@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the bipartition using common neighbors with only three variable names (the side-size lower bound is used explicitly), identifies deleted edges as intrinsic cross-side nonedges, and counts both the matched indices and the two unmatched-side populations to threshold \(k\). Each threshold is expressible with at most \(k\) reusable names, including the cases with a zero unmatched population. The proposed unlimited-round strategy preserves equality, side membership, matching-index pairs and the unrestricted unmatched populations; at most \(k-1\) occupied pebbles preclude exhaustion when a clipped population equals \(k\). The enumeration separates zero, one, two and at-least-three deleted edges and gives the stated formula. The two finite programs reproduced the recorded outputs. Limits: the proof uses \(a,b\ge3\), and the finite programs do not certify unbounded cases.
+## correctness
 
-## Originality
-PASS, qualified. Relevant research on finite-variable logic develops general pebble and Boolean-semiring frameworks without stating the full matching-deletion classification. The primary graph literature on this exact graph family instead establishes embedding/genus results. Work on crown graphs describes a proper balanced perfect-matching-deletion subfamily, which does not cover the two additional independently varying side populations. No identical or dominating classification was located in the available searches, but a stronger unlocated general composition theorem remains a priority risk; absence from searches is not proof of originality.
+PASS
 
-## Mathematical value
-PASS. The matching-deleted bipartite family is a standard three-parameter family in structural and topological graph research, not an arbitrary finite slice. The result describes all variable widths, shows a sharp two-to-three-variable transition, identifies precisely three clipped numerical invariants despite an unnamed bipartition, gives a cubic exact theory spectrum and canonical minimum representatives, and shows persistent strictness in the hierarchy. The unmatched-side reconstruction goes substantially beyond the balanced crown case.
+With both sides of size at least three, two same-side vertices lose at most two common neighbors, so equality or a shared neighbor defines the side relation in three variables. Cross-side nonadjacency then defines exactly the deleted matching. Scoped rebinding inside the unary and binary tests genuinely allows k simultaneous witnesses with only k names for k>=3. The two separately scoped one-side tests detect the smaller clipped unmatched count, not just the larger. Conversely, after removing the moved pebble at most k−1 matching indices or unmatched vertices on a side can be in use; maintaining a partial injection on matching indices as well as on unmatched vertices preserves all atomic relations in either direction. At width two the three possible pair types can always be matched, and width one is immediate. The disjoint profile counts sum to the stated cubic, and the clipped parameters attain the componentwise least admissible sizes. Minimum-order uniqueness is in the k>=3 classification, not at widths one and two. The strictness witnesses work, including the transition from two to three. Inspected the frozen refinement and structure programs and their recorded outputs (not rerun): they cover 50 graphs at widths 2 and 3, a 13-graph width-4 sample and finite structural/profile ranges; the proof, not these checks, gives unrestricted depth and graph order.
 
-## Limits and historical comparison
-The known crown subfamily and general pebble-game frameworks are close but do not state the full theorem. Published graph-embedding and centrality results address different invariants. A general unpublished or differently named model-theoretic decomposition could imply the classification; independent priority and proof review remain unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The t=0 branch overlaps a distinct same-date indexed result by setting the number of homogeneous biclique components to one; no priority is inferred and no originality credit rests on that branch. The supported distinction is the sharp positive-deletion classification, including simultaneous truncation of the match class and both unmatched populations, and the resulting complete spectrum. The closest inspected general framework and object-specific papers do not cover that classification.
+
+## value
+
+PASS
+
+This is a complete sharp variable-width classification on a natural near-complete family, not a finite census or a single width test. The positive-deletion result gives exact indistinguishability witnesses, minimal models, and an explicit count of theories despite unbounded quantifier depth. Reconstructing the latent sides and mates with reusable variables and proving sharp sufficiency contribute beyond the already available complete-biclique subcase.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

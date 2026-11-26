@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact local obstruction is Durham's Theorem 2; the binary partition valuations and necessary congruences are published in Sobolewski--Ulas. The new congruence \(b(8u)\equiv b(2u)+8\pmod{16}\) for odd \(u\) is derived independently from the cited reliable relations and the elementary binary partition recurrence. The exception table follows. The new counting recursion is a disjoint enumeration of \(4\)-adic layers. Every one of the sixteen edges of the two finite-state potentials satisfies the respective inequalities. This proves both a uniform upper discrepancy and a logarithmic lower bound. A fully explicit binary digit sequence attains the negative coefficient. A separate executable checks both symbolic sixteen-edge certificates, 60,000 partition congruences and cumulative counts, 120,000 potential bounds, and nine exact subsequence identities. No finite sample is substituted for an infinite proof.
+## correctness
 
-## Originality — PASS within inspected evidence
-Sobolewski--Ulas, arXiv:2211.16622v1, Remark 1.1 expressly identifies the weighted ternary form as a possible extension. Their Section 6 treats unweighted three-square or colored binary-partition counts. Durham's 2015 Theorem 2 classifies the weighted form's represented integers, but makes no partition-based discrepancy assertion. The shared congruences imply the digit criterion only after combining these works; the sharp global bound \(D(X)\le7\), its equality at 17, and the negative sharp logarithmic liminf are distinct from and not supplied by the published theorems. Targeted published-record and prior-result searches did not locate an equivalent or stronger statement. This does not rule out an unindexed deduction or an unpublished use of the same tools.
+PASS
 
-## Mathematical value — PASS
-The bound is sharp at a concrete cutoff, and the sign of logarithmically diverging errors is one-sided, contrasting with the positive error direction of the published ordinary three-square analysis. The exact limiting coefficient and constructive witness family quantify the fine distribution beyond the comparatively routine density \(1/6\). The two dual finite-state potential certificates can be reused for discrepancy analyses of other automatic arithmetic sets. This is a natural explicitly suggested weighted ternary-form extension, not an arbitrary finite calculation.
+Durham's Theorem 2 gives obstructions 4^j(16h+14), whose valuations are 2j+1. Sobolewski–Ulas Proposition 3.1 confines the values b(2n) to valuations 1 and 2, so only b(2n)≡14 mod 16 is needed. I checked the exact published congruences in Propositions 3.2 and 3.7. The first relation of Prop. 3.7 as printed is not used (at n=0 it would incorrectly identify b(8)=10 with b(2)=2 mod 16). The elementary recurrence b(2k)−b(2k−2)=b(k), together with b(2k+1)=b(2k), gives b(16v+8)=b(16v+4)+b(8v+2)+b(8v+4). Applying the cited usable relations at v=2m and v=2m+1 yields the required shift by 8 modulo 16 in both cases, and b(16m)≡b(4m) propagates the shift to all higher even-valuation layers. The two selected odd residues per sign and the disjoint scaled-layer count then follow. I independently reconstructed the 16 weights as 6·1_{4p+r≥3 or 7 according to sign}−3p−r and verified both potential inequalities and the terminal offsets with `python3 /workspace/review-evidence/binary_digit.py`; that script also checks 8192 residues using the partition Euler product rather than the recurrence. The upper potential gives D≤7, with four exceptions through 17. For the lower bound, the reduced weights e+3 admit a lower potential and telescope to d(Y)≥−3 times the number of base-four digits minus 1. In state order (0,+),(0,−),(1,+),(1,−), the witness Y with digits 2(12)^k11 starts with weight −2, traverses k cycles of weights −1,−5, and terminates with weights −1,−4 at (1,+). Appending 0 gives X=(768·16^k−28)/5 and offset −3, hence D(X)=−10−6k and the exact liminf −1/4 after normalization. The bounds prove density 1/6 for exceptions; the finite coefficient check is corroboration, not the all-index argument.
 
-## Closest literature and limitations
-Sobolewski--Ulas (2022 preprint/2023 journal), complete sections 1--3 and 6, supply the relevant partition congruences and discuss weighted forms without this sharp discrepancy. Durham (2015), complete theorem and relevant weighted-form argument, supplies the exact representability criterion without studying partitions. Remaining risk: a general automatic-sequence theorem or later publication could imply this particular sharp estimate. Independent external audit and priority certification have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct result is the weighted-form sharp all-cutoff discrepancy bound with an attaining index and the exact negative logarithmic liminf. The digit criterion is a near consequence of cited valuation/congruence ingredients and the known representation obstruction; the originating paper even names this weighted form as an extension. It is not credited here as a stand-alone originality claim. The closest three-square results have different exceptional sets and do not give the weighted-form sharp constants.
+
+## value
+
+PASS
+
+This is a weighted form explicitly suggested in the originating partition study. Its distribution differs in a substantive way from density alone: the positive discrepancy is uniformly bounded and attained, whereas negative excursions reach logarithmic size with an exact coefficient. The attaining digit path and potential bound explain the asymmetry rather than merely approximating it in a count table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

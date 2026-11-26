@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The identity \(\overline c P_s-aP_s^*=z(\Delta z+sB)\), strict Rouché comparison for \(\Delta>0\), and reciprocal-polynomial reduction for \(\Delta<0\) yield one crossing and complete 0/1/2 root counts for every \(s\ne T\). A circular-Gaussian unitary transform represents \(T\) as \(|Z|/\rho\), with \(Z\) real standard normal and \(\rho^2\) independent mean-one exponential. This proves the exact cumulative law, the fair independent sign, and all moments using a convergent beta integral. All algebraic hypotheses and the random-boundary exception are stated. The stand-alone finite checker is confirmatory rather than an infinite proof.
+PASS
 
-## Originality — PASS, provisional
+Independently, on the unit circle P_s(z)=0 is equivalent to c z + a conjugate(z)=−s b. This real-linear equation is invertible when Δ=|c|²−|a|²≠0, giving the unique candidate z=−sB/Δ. Thus a circle root exists exactly at T and is simple because the other root has modulus |a/c|≠1. The count is constant on each open interval avoiding T; at zero both root moduli are sqrt(|a/c|), and for large s the middle term dominates on the circle, giving exactly one interior root. For the law write b=ρe^(iψ), d=e^(2iψ)conjugate(c), D=d−a and S=d+a. D,S are conditionally independent circular Gaussians of variance 2 with conditional law independent of b. Then Δ=Re(S conjugate(D)), |B|=ρ|D|, and Z=Re(S conjugate(D)/|D|) is standard real normal with conditional law independent of D and b. Hence T=|Z|/ρ with ρ² unit exponential independent of Z. This also proves the stated null exclusions and the independent fair sign. The Gaussian integral gives the CDF, and its density is constant to leading order near zero and asymptotic to 2/s³ at infinity; the advertised beta integral yields exactly −1<q<2, the mean and divergent second moment. Solving the CDF equation gives the median, and the root-count law gives its stated mean and variance.
 
-A search of accessible earlier claims and mathematical research records did not identify the joint pathwise transition and exact heavy-tailed Gaussian threshold distribution. The closely related arXiv:2304.09147 supplies a deterministic trimonial Schur stability region, but no random-coefficient law in the inspected main results; the 2023 probabilistic Eneström–Kakeya study concerns real normal coefficients and bounds, not the displayed equality law, though its inaccessible full text is a genuine residual risk. Infinite Gaussian series and asymptotic Littlewood zero counts have different objects and parameters; inversion symmetry already gives the expected zero count and is explicitly not claimed novel. Alternative random-Schur-stability terminology may conceal coverage, so priority is not certified.
+## originality
 
-## Value — PASS
+PASS
 
-Root counts inside the unit disk are a fundamental Schur-stability observable. Their behavior as one coefficient is amplified has a natural one-parameter topology: the theorem determines the entire coupled zero-count path with exactly one threshold. Its explicit distribution and divergent second moment quantify a nontrivial instability scale and go beyond the already-known mean-root symmetry or a fixed-coefficient deterministic stability test.
+Credit the deterministic Schur test, the mean count, and the standard folded Student t distribution as known tools or consequences, not as novel results. The distinct contribution is identifying that distribution as the threshold of the entire realized holomorphic quadratic root-count path (and the resulting exact fixed-amplitude count probabilities). The strongest available nearby statements did not provide that identification.
 
-## Evidence and limits
+## value
 
-The main proof is self-contained, with normalizations and exceptional events in `RESULT.md`; finite reproduction is in `verify_gaussian_quadratic.py`. Closest sources: arXiv:2304.09147, DOI:10.3390/math11194061, arXiv:2011.06234, and the Gaussian Taylor-series fluctuations literature. No claim of independent mathematical validation or comprehensive historical priority is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The quadratic is the first case with competing zero-, one-, and two-inside-root counts. Following a single realization under amplitude variation gives an exact path, not only a stability probability. The law gives a precise probability of crossing by a prescribed amplitude and shows that the random crossing scale has a finite mean but no finite variance, features not visible in the constant mean root count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

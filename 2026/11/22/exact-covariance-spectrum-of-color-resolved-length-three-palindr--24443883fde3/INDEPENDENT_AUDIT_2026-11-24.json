@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:29:52.145192Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n≥5 the five shifts 0, ±1, ±2 are distinct; their joint events constrain respectively three identical-position letters, four letters with reversed ordered pairs, or five letters with the same outer color. All other shifts use disjoint letters. This gives the exact kernel including n=5. In the edge array space the symmetric row-sum map has rank q (a vector in the left nullspace would have x_a+x_b=0 for every a≠b, hence is zero for q≥3), while the skew row-sum map has rank q−1 (its left nullspace consists of constants). Their kernels give the two circulation multiplicities, with zero symmetric multiplicity at q=3. The constant and both centered color contrasts form their orthogonal complement. In the row/column contrast coordinates, multiplying the action by q^5 gives a 2×2 block with entries q²+2(q−1), 2q−2, 2q, q² in row-major order. Its midpoint is q²+q−1 and its half-gap is Δ=√((q−1)(5q−1)). The other modes act by scalars; comparing Δ with q+1, 2q−4 and 3q−1 proves the ordering and positive least eigenvalue. Their ratio yields the stated condition number and expansion. The usual fixed-q 2-dependent CLT on a line gives Σ_q as long-run covariance; wrapping changes at most two counts per coordinate, and whitening the limiting Gaussian gives the chi-square law. Independent replay: python3 /workspace/review_checks/3.py computes exact covariance matrices from full circular word enumeration and compares their exact characteristic polynomials for (q,n)=(3,5),(3,6),(4,5),(5,5). The all-q and asymptotic claims rely on the proof, not the finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen report identifies Theorem 30 as a general multivariate overlap-covariance result. The independent HAL attempt returned only front matter and the DOI text was inaccessible; no claim of independent inspection of the theorem is made. The word-statistics spectral paper's operator sums over all scattered positions, not over the five possible relative overlap shifts here."
+        ],
+        "reasoning": "A general overlap formula explains how to obtain entries or an asymptotic long-run covariance; no inspected general theorem gives the explicit directed-pair eigenvalues and ordering as a specialization. Full-text risk for Régnier remains and does not by itself decide the axis.",
+        "searches": [
+          "DOI:10.1016/S0166-218X(00)00195-5 / HAL lawful-copy attempt",
+          "Literature discovery: Mireille Régnier A unified approach to word occurrence probabilities Theorem 30 PDF occurrence covariance correlation polynomials open access 00195-5",
+          "arXiv:2012.00742 §1.1"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1016/S0166-218X(00)00195-5 (limited access)",
+        "arXiv:1505.08043",
+        "arXiv:2012.00742",
+        "Resultary b3ad3b36c62e and 09ebdb81d232; identical 24443883fde3 hit excluded as independent evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even granting the prior overlap-kernel expression, simultaneous color relabeling has two equivalent standard contrast spaces; symmetry does not force a single scalar there. The directed-pair block must be diagonalized and compared with both circulation modes and the constant to obtain the exact least eigenvalue and conditioning. Normal calibration by whitening is a consequence once positivity is known."
+        ],
+        "reasoning": "Credit known general covariance and limit machinery. The supported contribution is the ordered-color spectral calculation, not the fact that spectral analysis or a CLT is available.",
+        "searches": [
+          "DOI:10.1016/S0166-218X(00)00195-5, cited theorem scope",
+          "arXiv:2012.00742 §1.1",
+          "Resultary b3ad3b36c62e and 09ebdb81d232"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "This is the covariance of labeled ordered distinct-color triples of the form aba; each letter is sampled independently on a circle. Rubinchik–Shur's distinct palindromic factor statistic drops occurrence multiplicities. Even-Zohar–Lakrec–Tessler explicitly allow nonconsecutive subsequences. Relative-order triple statistics for permutations or categorized words drop color labels or change the null."
+        ],
+        "reasoning": "Neither distinct factors, scattered subsequences, nor pooling by rank pattern preserves this directed-pair covariance and its mixed color contrasts.",
+        "searches": [
+          "Resultary ordered color-resolved aba counts, consecutive-triple covariance spectrum, generalized ordinal patterns",
+          "arXiv:1505.08043 p. 1",
+          "arXiv:2012.00742 §1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-title hit is the assigned record itself. The earlier six-pattern spectrum is for linear uniform permutation triples; the 13-pattern result has weak-order classes and asymptotic nullspaces. Neither table indexes its matrix by the q(q−1) ordered distinct-color pairs of this finding."
+        ],
+        "reasoning": "The six- and thirteen-class records are exact structural comparisons under different statistics, not a census of or substitute for the present finite circular spectrum.",
+        "searches": [
+          "Resultary exact covariance spectrum consecutive triple patterns and exact covariance nullspaces three-point generalized ordinal patterns"
+        ]
+      },
+      "rationale": "The contribution is the complete explicit finite-circle spectrum, including dimensions, ordering and conditioning for ordered color motifs. General overlap-covariance methodology, the positivity-to-whitening step, and a fixed-q finite-dependence CLT are not independent novelty claims. Closely related triple-count spectra concern different statistics. The general word-occurrence paper remains a bounded access risk.",
+      "residual_risks": [
+        "Uninspected full text of the general word-occurrence paper and unlocated exact spectral specializations in the motif-count literature.",
+        "The alternate-copy discovery query did not identify a useful further copy; no negative inference is drawn.",
+        "No novelty assigned to a general m-dependent CLT, the overlap method, or chi-square whitening alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General methodology credited, no full-text noncoverage finding.",
+          "evidence": [
+            "The frozen relationship section cites correlation polynomials/general overlapping word counts and expressly excludes general kernel methodology from novelty."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0166-218X(00)00195-5",
+          "material_read": "HAL open-copy output contained front matter only; Theorem 30 not independently read. Its scope is attributed to the source record's cited comparison.",
+          "method": "Lawful HAL and DOI reachability attempts; bibliographic and recorded scope only",
+          "title": "A unified approach to word occurrence probabilities",
+          "trigger": "General overlap covariance could cover the covariance entries or this specialization"
+        },
+        {
+          "assessment": "Distinct factor count, not ordered motif covariance spectrum.",
+          "evidence": [
+            "Main statistic is the expected number of distinct palindromic factors."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1505.08043",
+          "material_read": "p. 1 abstract, offset 984",
+          "method": "Open primary PDF passage",
+          "title": "The Number of Distinct Subpalindromes in Random Words",
+          "trigger": "Uniform words and length-three palindromic factors"
+        },
+        {
+          "assessment": "Different counting operator.",
+          "evidence": [
+            "The definition counts subsequences and explicitly does not require consecutiveness."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2012.00742",
+          "material_read": "§1.1 p. 2, offset 4287",
+          "method": "Open primary PDF passage",
+          "title": "Spectral Analysis of Word Statistics",
+          "trigger": "Possible prior spectral theorem for word-count statistics"
+        },
+        {
+          "assessment": "Six relative-order triple counts from a linear uniform permutation.",
+          "evidence": [
+            "Relative-order classes and permutation sampling differ from ordered iid colors and wrapping."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-covariance-spectrum-of-the-six-consecutive-triple-patterns--b3ad3b36c62e",
+          "material_read": "Resultary Finding and statistic scope",
+          "method": "Resultary/local record comparison",
+          "title": "Exact covariance spectrum of the six consecutive triple patterns",
+          "trigger": "Closest published finite covariance-spectrum result for triples"
+        },
+        {
+          "assessment": "Asymptotic nullspaces of thirteen weak-order patterns, not this finite color spectrum.",
+          "evidence": [
+            "Its coordinates retain ordinal equality/order types rather than the identities of the two colors."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-covariance-nullspaces-of-three-point-generalized-ordinal-p--09ebdb81d232",
+          "material_read": "Resultary Finding and statistic scope",
+          "method": "Resultary/local record comparison",
+          "title": "Exact covariance nullspaces of three-point generalized ordinal patterns",
+          "trigger": "Categorical iid triples with weak-order ties"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Counting by ordered outer and inner colors makes the covariance a nontrivial operator rather than a single palindrome total. The decomposition separates coupled color contrasts from symmetric and skew circulation, establishes invertibility even on the smallest supported circle, and quantifies stability as the alphabet grows. This directly supplies a fixed-q omnibus null calibration without estimating a nuisance covariance; it does not assert exact finite-sample chi-square behavior or power.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

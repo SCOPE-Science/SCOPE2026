@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:01:30.034942Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The residue classes modulo g are the directed d-cycles. The rotation permutes them and b maps within them, so none can become empty. Under the word-action convention the macro E_j fixes every point except j, which it sends to j+d. A target meeting every cycle leaves missing vertices in disjoint paths, and deleting each path in source-to-successor order decreases rank at every step and gives exactly the desired target. Conversely a strict decrease is possible only when source and successor are both present, so these and only these precedence constraints apply; ell_i must denote the number of vertices in each path. The empty sequence works for the full target. Each b drops at most one rank and the rotations drop none, proving the optimal b-count. Independent nonempty subset choices give the stated polynomial and all ranks from g to n, with the coefficient formula by inclusion–exclusion. Independent /workspace/branches/audit_automaton.py found exact image sets and rank counts for 14 noncoprime pairs n<=10 and replayed actual forward contractions for 665 smaller targets and the 70-order example. Frozen verify.py lines 41–57 instead counts reverse schedules (a missing successor must already have been removed by its recursion); reversal is a bijection and preserves the count, but it does not independently simulate forward legal contractions as its comment suggests. The theorem is established by the proof and forward replay, not by interpreting that recursion as forward validation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "7ea017efeb25 has the same rotation and single 0-to-d move, but allows every n>=2 and 1<=d<n. It states exactly the nonempty residue-class hitting criterion and the minimum n-|S| defect letters.",
+          "Don gives complete reachability in the coprime regime; Casas–Volkov's subgroup obstruction detects the failure of complete reachability here. 3d0ad329ab1e treats two-defect reachability for a more general letter but only at one rank; 740d35a02fd8 uses a different letter advancing an active set."
+        ],
+        "reasoning": "The indexed strict-collapse result contains the whole frozen parameter regime. The other related results are not by themselves exact coverage of this noncoprime family.",
+        "searches": [
+          "Resultary 7ea017efeb25, Finding",
+          "Don Proposition 15; Casas–Volkov Proposition 1 and Theorem 2",
+          "Resultary 3d0ad329ab1e and 740d35a02fd8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7ea017efeb25, 3d0ad329ab1e, 740d35a02fd8",
+        "Don Proposition 15",
+        "Casas–Volkov proposition/theorem cited above",
+        "Hoffmann abstract and introduction",
+        "Frozen RESULT.md, verify.py, and check_output.txt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "By the indexed hitting criterion, selecting images means choosing a nonempty labelled subset independently in each class of size m. The one-class size polynomial is (1+z)^m-1.",
+          "The older full-reachability obstruction is strictly weaker: the proper invariant subgroup gZ/nZ shows that not all subsets occur, without identifying which ones do."
+        ],
+        "reasoning": "Multiplying the one-class polynomials immediately gives the displayed rank enumerator, z=1 gives the total, and expansion gives its coefficient formula. The only extra frozen expressions are routine consequences of exact indexed coverage.",
+        "searches": [
+          "Resultary 7ea017efeb25, Finding and Proof",
+          "Casas–Volkov arXiv:2205.09404, Proposition 1 and Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "7ea017efeb25 requires a deletion at p to precede a deletion at p+d when both points are missing and states k!/prod ell_i! for the resulting strict schedules.",
+          "In the frozen system a strict E_p application deletes p and does nothing else to the current image; its only constraint among missing vertices is the identical precedence relation."
+        ],
+        "reasoning": "There is a bijection between the indexed schedules and the frozen strict macro orders (same ordered deleted vertices). This is not a comparison to all minimum-b words, which the frozen claim does not count.",
+        "searches": [
+          "Resultary: cyclic defect-one strict collapses, reachable subsets, optimal defect letters and macro-order counts",
+          "Resultary 7ea017efeb25, Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed reachability criterion and multinomial apply to every labelled target subset, not just to example ranks or small n.",
+          "The frozen numerical n=10,d=4 example has two residue classes with five members and missing paths of four vertices apiece."
+        ],
+        "reasoning": "A table of instances is unnecessary to establish coverage; this indexed formula already determines every entry and the example rank count and schedule count.",
+        "searches": [
+          "Resultary exact reachability and schedule enumeration for circular defect-one automata; 7ea017efeb25"
+        ]
+      },
+      "rationale": "A distinct indexed result states the same reachable subsets, optimal number of defect letters and factorial schedule count for the identical automaton over a broader parameter range. Its schedules are exactly the frozen macros' strict orders. The explicit rank polynomial is the direct binomial product for that already characterized family, not a separate unsupported-priority issue. This is a finding of scientific coverage, not an inference of authorship or priority from catalogue dates.",
+      "residual_risks": [
+        "No independent precedence or authorship determination is made.",
+        "Primary text of DOI 10.1145/3798283 was not inspected; it is immaterial to the positive evidence of exact coverage in 7ea017efeb25."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same statements over broader parameters; rank enumeration follows directly",
+          "evidence": "Every nonempty target is reachable iff it hits all classes mod gcd(n,d); minimal b-count is k=n-|S|; strict schedules are interleavings of ordered d-successor runs, k!/prod ell_i!.",
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-counts-of-strict-collapse-schedules-in-cyclic-defect-one-a--7ea017efeb25",
+          "material_read": "RESULT.md Finding and Proof, offset 0, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary and local mirrored primary text",
+          "title": "Sharp counts of strict-collapse schedules in cyclic defect-one automata",
+          "trigger": "Direct matching reachability and schedule count"
+        },
+        {
+          "assessment": "Coprime regime only",
+          "evidence": "Coprime displacement gives reachability of every nonempty k-subset and a total-word length bound n(n-k).",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v23i3p12/pdf",
+          "material_read": "p. 7, Proposition 15 (offset 16916)",
+          "method": "OA journal PDF",
+          "title": "The Černý Conjecture and 1-Contracting Automata",
+          "trigger": "Cyclic single-defect complete reachability"
+        },
+        {
+          "assessment": "Gives an obstruction, not the partial image family",
+          "evidence": "A proper subgroup invariant under the defect letter prevents complete reachability. Here gZ/nZ is such a subgroup.",
+          "identifier_or_url": "https://arxiv.org/pdf/2205.09404",
+          "material_read": "p. 4 Proposition 1 and p. 11 Theorem 2",
+          "method": "OA arXiv PDF",
+          "title": "Binary Completely Reachable Automata",
+          "trigger": "Broader subgroup criterion for cyclic defect-one systems"
+        },
+        {
+          "assessment": "Read passages concern complete reachability and synchronizing-language complexity, not this exact partial spectrum",
+          "evidence": "Completeness is reaching each target subset, unlike enumerating partial reachability.",
+          "identifier_or_url": "https://arxiv.org/pdf/2011.14404",
+          "material_read": "p. 1 abstract, introduction and complete reachability definition (offset 915)",
+          "method": "OA arXiv PDF",
+          "title": "State Complexity of the Set of Synchronizing Words for Circular Automata and Automata over Binary Alphabets",
+          "trigger": "Circular binary automata and exact subset questions"
+        },
+        {
+          "assessment": "Not relied upon either to establish or to exclude coverage",
+          "evidence": "Decisive exact coverage was established in the distinct indexed result.",
+          "identifier_or_url": "https://doi.org/10.1145/3798283",
+          "material_read": "No primary passage retrieved from the DOI in the attempted OA routes",
+          "method": "Lawful OA retrieval and repository recovery attempt",
+          "title": "Recognizing Completely Reachable Automata in Quadratic Time",
+          "trigger": "General complete-reachability methods"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The partial image family and optimal strict-collapse counts are natural invariants, but their exact determination is already supplied by the broader indexed result. The only incremental expressions here are the immediate independent-residue-class product, its specialization, and its expansion. They make a convenient restatement but do not form a distinct, independently useful scientific result under this standard. No valuable uncovered remainder in the frozen finding warrants a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

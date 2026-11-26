@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The positive baseline and fixed budget imply positive definiteness and a compact feasible simplex. The Rayleigh-quotient argument proves that every asymmetric leaf allocation strictly worsens the bottom eigenvalue after symmetrization (with the top eigenvalue weakly worsening), so reducing to equal leaf loadings loses no optimizers. The full spectrum then separates into the \(m-1\) leaf-difference modes and the two quotient eigenvalues, which strictly straddle the former. Their ratio is minimized by a rational function whose derivative has exactly one real zero on the positive line. Clipping at the budget bound yields a unique global optimizer; the support boundary is the unique positive root of the displayed quadratic. Independently implemented rational and full-matrix checks passed 8,962 assertions. The finite checker is not offered as a proof of the universal claim.
+## correctness
 
-## Originality — PASS, subject to publication-priority risk
-Greif–Varah (2006) treat free low-rank perturbations, Lu–Pong (2011) provide general convex-program machinery for conditioning and a separate multiplicative diagonal preconditioning framework, and Kurras–von Luxburg–Blanchard (2014) treat a normalized graph-Laplacian construction. The inspected full texts contain no formula for the unique budgeted additive vertex loading of every unit star or its hub-activation threshold. Related archived spectral-gap and diagonal scaling records were compared by their mathematical hypotheses and conclusions, not just titles. Generic solvability as an SDP does not logically deliver the explicit optimizer, support threshold, or strict unrestricted uniqueness. Published and indexed coverage is not exhaustive; an unindexed equivalent specialization remains possible.
+PASS
 
-## Value — PASS
-An exact fixed-cost diagonal stabilization rule for a class of ill-conditioned sparse SPD systems is a motivated numerical linear algebra design problem. The theorem resolves the whole star family, proves strong uniqueness without symmetry assumptions, and identifies the exact budget at which the hub activates. The location and existence of the threshold are not immediate from a generic conditioning SDP or from edge-conductance spectral-gap optimization; the result is useful as a structural benchmark for diagonal regularization methods.
+For every feasible loading, positive definiteness follows from a>0. For fixed hub load, let the comparison matrix have the mean load on every leaf. Its extreme eigenvectors can be chosen in the hub/uniform-leaf space: the symmetric 2-by-2 quotient eigenvalues strictly straddle the repeated leaf diagonal (the quotient characteristic polynomial evaluated there is -m). Each such vector has exactly the same Rayleigh value on the original loading. The bottom eigenvector has a nonzero uniform leaf coordinate, so equality in the minimum Rayleigh bound forces every original leaf load to equal its mean, by the leaf equations. This proves strict improvement for every asymmetric loading, not just existence of a symmetric minimizer. Put D=m-1+B-(m+1)x and K=a(m+1)+2m+B. The quotient trace is (2K+(m-1)D)/(m+1); the derivative of (D²+4m)/trace² in D has the sign of 2KD-4m(m-1) throughout the feasible interval. This recovers the stated x_free and its one-sided clipping, with x_free>0. At x=B/m the zero of that derivative yields B²+[a(m+1)+3m-m²]B-am(m-1)(m+1)=0, with exactly one positive root. At equality the unique optimum still has zero hub load, and B=0 is a singleton. The exact example gives B_c=1 and, at B=2, loads (8/27,23/27,23/27). The proof relies on neither a grid nor an eigensolver. VERIFICATION.md and verify.py were inspected only; the frozen package's optional replay path is python3 verify.py from its directory.
 
-## Scope and limits
-All edge weights are one; \(m\ge2\), \(a>0\), and \(B\ge0\). The claim does not extend to all trees, arbitrary edge prices or other conditioning functionals. No exhaustive public-literature priority guarantee or independent proof audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No equivalently strong solution was identified in the inspected sources. The close four-site path result has the same additive budget and objective but not the star feasible spectral family; a star trace-inverse result has the same graph/budget but a different objective and a different support law. Generic spectral feasibility does not supply strict leaf equality, the minimizer, or the hub threshold. Historical priority remains provisional.
+
+## value
+
+PASS
+
+The exact boundary answers when hub stabilization first pays off under a fixed additive budget. The explicit optimizer and strict dominance over asymmetric designs provide a useful check of numerical diagonal-loading solvers and cannot be replaced by generic SDP solvability. This is a unit-star theorem only; it makes no claim for weighted stars, general graphs, or other objectives.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

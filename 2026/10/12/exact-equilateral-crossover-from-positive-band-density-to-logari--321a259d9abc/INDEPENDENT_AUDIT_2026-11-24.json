@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:44:28.377580Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Using Exner–Pekař Eq. (2.10) and Sec. 4 (not the low-energy Eq. (3.5)), the equilateral coefficients have a common sin(πk) factor. Its positive-integer zeros are flat for every phase. For k>0 off the integers the divisor 8k²ℓ²(1+c)² sin(πk), c=cos(πt/3), is nonzero. I independently expanded the normalized polynomial, obtaining 9(y+1)² sin²(πk)+4(3y+1)(cos θ−1), and checked 9(y+1)²−8(3y+1)=(3y−1)² for y=b_t²k². Thus real θ gives precisely the stated inequality over the whole t range. At fixed b_t>0 the threshold is 2√6/(3b_t k)+O(k⁻³), varies by O(n⁻²) on a large cell [n,n+1], and 2arcsin(A)/π is Lipschitz in A there. Freezing between cell extrema and summing C/n+O(n⁻²) gives C log K+O(1) with C=4√6/(3πb_t). In the scaled limit the thresholds converge uniformly after writing k=Kx. The min/max cell comparison still works at A=1 by uniform continuity of arcsin on [0,1], so a Riemann sum proves the profile; the last cell is negligible. At τ=0 the constant fraction is 0.783653104061… . With a=πℓτ/6, averaging 2arcsin(A(z²))/π over [0,a] gives (4√6/(3π)) log(a)/a+O(1/a), yielding the stated prefactor. Flat bands and k=0 cannot change Lebesgue measure. Read VERIFICATION.md and verify.py without executing the bundled script; a separate exact polynomial expansion corroborated the analytic reduction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The interpolation paper shows vanishing positive-t band probability using energy measure. The oriented-chain paper uses momentum measure at the non-time-reversal-invariant endpoint and gives O(1/k) band widths. Band–Berkolaiko defines the broader momentum-density observable."
+        ],
+        "reasoning": "Vanishing energy fraction implies vanishing momentum fraction since a momentum subset of measure M has energy image of measure at least M², but this does not recover the coefficient of log K. The endpoint width order and the generic density framework do not give the fixed-t coefficient for the interpolation or the τ/K profile.",
+        "searches": [
+          "arXiv:2403.09457v1 Secs. 3–4, Eq. (3.3); arXiv:2012.14344 Sec. 2.4 Eq. (2.27); arXiv:1304.6028 Eq. (3)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2403.09457v1",
+        "arXiv:2012.14344",
+        "arXiv:1304.6028",
+        "SCOPE-20261013-6cd5c5d95a2a",
+        "SCOPE-20261004-79646c7d3394",
+        "SCOPE-20261004-eefafa7116be",
+        "SCOPE-20261012-1dd38301a398"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source recognizes nonuniformity as t→0 but does not take the joint cutoff limit. The catalogue's full point-spectrum theorem yields the integer branch in the interior t range, not the non-flat band widths or phase fractions."
+        ],
+        "reasoning": "The determinant determines the spectrum in principle, and the threshold is its direct algebraic specialization. Neither the qualitative fixed/zero-t limits nor the integer-branch information implies the integrated profile without the cell phase average and joint scaling argument.",
+        "searches": [
+          "arXiv:2403.09457v1 Sec. 4 near the bounded-interval convergence discussion; arXiv:2012.14344 Sec. 2.4",
+          "SCOPE-20261013-6cd5c5d95a2a Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The older oriented endpoint determinant specializes at equilateral lengths to (x+3)²sin²(πk)=8(x+1)sin²(θ/2), x=k²ℓ². This is the same threshold at y=x/3. The Kirchhoff endpoint fraction in Exner–Pekař Sec. 3 is 2arcsin(2√2/3)/π."
+        ],
+        "reasoning": "These are exact endpoint overlaps, not independent innovations of this record. The general determinant already encodes the equilateral threshold; the contribution relies on exploiting its simple factorization to quantify the intermediate and scaled limits.",
+        "searches": [
+          "Resultary/literature: equilateral interpolation ring-chain band widths, band density, logarithmic momentum measure and boundary-layer scaling",
+          "arXiv:2403.09457v1 Secs. 2–4; arXiv:2012.14344 Eqs. (2.7)–(2.8)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The flat-band classification for general edge lengths uses 3m²b_t²=1 at integer m; in this equilateral case the edge commensurability alternative holds for every m. The other interpolating-chain result has a single-band m⁻¹/² scale; the square-chain result has a one-cell mt profile for a different model. The same-day Kirchhoff record has a unit-loop/unit-backbone geometry and cos θ=2cos k−1."
+        ],
+        "reasoning": "There is no numerical table claim. The closest exact indexed results were compared by geometry, momenta and observable; none of these statements supplies the integrated positive measure for the three-π-edge ring family at t=τ/K.",
+        "searches": [
+          "Resultary: ring-chain Kirchhoff boundary-layer, positive flat-band resonance, equilateral spectrum, and exact band-fraction crossover",
+          "SCOPE-20261013-6cd5c5d95a2a, SCOPE-20261004-79646c7d3394, SCOPE-20261004-eefafa7116be, SCOPE-20261012-1dd38301a398"
+        ]
+      },
+      "rationale": "The general determinant, commensurate flat bands, endpoint checks and qualitative loss of band density have substantial prior coverage. The distinct supported result is the quantitative fixed-interpolation logarithmic measure and the integrated t=τ/K profile, both obtained from the interior equilateral reduction.",
+      "residual_risks": [
+        "Bounded searches do not exclude an unindexed derivation of the equilateral rate or joint limit. The endpoint threshold, its zero-interpolation fraction, and commensurate flat points are not credited as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides secular input and qualitative or endpoint overlaps",
+          "evidence": [
+            "Sec. 4 gives γ=0 coefficients and nonuniform spectral convergence discussion; Eq. (3.3) concerns energy measure."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.09457v1",
+          "material_read": "Eq. (2.10), offset 15000; Sec. 3 density/low-energy passages, offsets 25304–28400; Sec. 4, offsets 56750 and 66900",
+          "method": "OA PDF passages",
+          "title": "Vertex coupling interpolation in quantum chain graphs",
+          "trigger": "Same operator, dispersion and nonuniform limit"
+        },
+        {
+          "assessment": "Exact endpoint implication, not an interpolating profile",
+          "evidence": [
+            "Equilateral specialization gives A(x/3), with vanishing momentum density and O(1/k) widths at the endpoint."
+          ],
+          "identifier_or_url": "arXiv:2012.14344",
+          "material_read": "Eqs. (2.7)–(2.8) offset 14800; Sec. 2.4 and Eq. (2.27) offset 54100",
+          "method": "OA PDF passages",
+          "title": "Spectrum of periodic chain graphs with time-reversal non-invariant vertex coupling",
+          "trigger": "Oriented endpoint and high-momentum widths"
+        },
+        {
+          "assessment": "Observable and generic-length setting, not this joint limit",
+          "evidence": [
+            "Momentum density is normalized momentum-spectrum measure, not normalized energy-spectrum measure."
+          ],
+          "identifier_or_url": "arXiv:1304.6028",
+          "material_read": "Eq. (3) and introductory scope",
+          "method": "OA paper passage",
+          "title": "Universality of the momentum band density of periodic networks",
+          "trigger": "Broader literature on the same density observable"
+        },
+        {
+          "assessment": "Covers the integer branch for interior t; no non-flat dispersion",
+          "evidence": [
+            "m must be an integer; either sin(ml_1)sin(ml_3)=0 or 3m²b_t²=1. Both alternatives concern point spectrum only."
+          ],
+          "identifier_or_url": "SCOPE-20261013-6cd5c5d95a2a",
+          "material_read": "Finding, assumptions and proof of the integer flat spectrum, offset 0",
+          "method": "Local mirror",
+          "title": "Exact positive flat bands from a coupling-tuned resonance in ring chains",
+          "trigger": "Same family and resonant equality"
+        },
+        {
+          "assessment": "Different scaling and observable",
+          "evidence": [
+            "Single-band analysis at t on the order of m⁻¹/², not aggregate measure at t=τ/K."
+          ],
+          "identifier_or_url": "SCOPE-20261004-79646c7d3394",
+          "material_read": "Mirrored Finding and scope",
+          "method": "Local mirror",
+          "title": "A square-root Kirchhoff boundary layer in quantum-chain high-energy bands",
+          "trigger": "Same interpolation and boundary-layer terminology"
+        },
+        {
+          "assessment": "Different graph and profile",
+          "evidence": [
+            "The mt scaling is for a square graph and a cell fraction, not the equilateral ring-chain integral."
+          ],
+          "identifier_or_url": "SCOPE-20261004-eefafa7116be",
+          "material_read": "Mirrored Finding and scope",
+          "method": "Local mirror",
+          "title": "Double-scaling band-fraction pinch in an interpolating square quantum graph",
+          "trigger": "Comparable double-scaling cell fraction"
+        },
+        {
+          "assessment": "Different operator geometry and no interpolation",
+          "evidence": [
+            "Unit loops/backbone and dispersion cos θ=2cos k−1."
+          ],
+          "identifier_or_url": "SCOPE-20261012-1dd38301a398",
+          "material_read": "Mirrored Finding and scope",
+          "method": "Local mirror",
+          "title": "Exact band and flat-band spectrum of the equilateral Kirchhoff loop chain",
+          "trigger": "Same-day equilateral band spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The source has different order-of-limits behavior at and away from the Kirchhoff endpoint. The exact cutoff-dependent crossover resolves which intermediate scales of interaction still give positive momentum density and quantifies the subsequent decline. The logarithmic coefficient adds a rate and constant not encoded by qualitative zero density. These are usable benchmarks in a symmetric instance of the interpolation, without claiming unequal-edge, energy-measure or negative-spectrum results.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

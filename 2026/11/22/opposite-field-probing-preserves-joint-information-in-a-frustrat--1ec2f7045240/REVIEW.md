@@ -1,22 +1,21 @@
-# Scientific review: Opposite-field probing preserves joint information in a frustrated Ising trimer
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact eight-state Gibbs partition function gives the full two-parameter Fisher covariance. Equal and opposite known fields cancel the odd cross entry when allocated equally; for any nonzero magnitude this maximizes the determinant over allocation weights. The resulting rational determinant has a differentiated quartic numerator. The sequence of coefficient sign thresholds proves precisely one positive quartic root for every positive exchange fugacity, and evaluating the polynomial at the physical boundary gives an exact, unique crossover. The scaled polynomial and rational determinant prove a positive strong-antiferromagnetic limiting information determinant. A separate uniform bound and matching evaluation show that every one-field design loses its determinant. The standalone standard-library checker reproduces the covariance by eight-state enumeration and passes 114 finite cases. Finite tests are corroboration only; the infinite-range and asymptotic claims rest on the explicit analytic proof.
+PASS
 
-## Originality — PASS, with known prior ingredients and residual risk
+The state types (B,M) have multiplicities 1 for (3,±3) and 3 for (−1,±1). Their covariance gives the two-parameter Fisher matrix for dimensionless coupling and common offset. Spin reversal preserves the two diagonal entries and changes the sign of the nonzero cross-entry at y>0, making w=1/2 uniquely optimal for a fixed y>0; all allocations coincide at zero field. Direct rational differentiation gives F'_a with the asserted quartic numerator. The coefficient thresholds appear in ascending order for decreasing degree, so there is one sign variation even at a zero coefficient. Descartes plus the signs at zero and infinity give exactly one simple positive root. The factorization P_a(1)=(a+3)(39a²−46a−9) gives the exact physical threshold, and at equality the derivative is strictly negative for q>1. In the limit a down to 0, the rescaled polynomial changes sign across aq=3, trapping the unique root; the scaled determinant converges locally uniformly around that root, so the maximum tends to 4. Converting q to y gives the stated field scale. For every single field, G_a≤64a/3 for a≤1, with matching limit at q=a^−1/2. This uniform comparison allows a field depending on a. The ratio uses identical total observation counts and the same parameterization.
 
-The nearest source is Ebadi et al., arXiv:2611.08072v1, especially Section 2 and Appendix A (A.4)–(A.6): it supplies the Gibbs model, Fisher tensor, and *one-field* determinant, which are therefore prior knowledge. It does not optimize the determinant of a weighted **pair** of Fisher tensors with common unknown offset; this objective differs algebraically from the reported one-field determinant, because cancellation of the off-diagonal information changes its limiting order. The 2008 full-text study of Invernizzi et al. concerns one-parameter quantum-Fisher optimization in a transverse-field Ising chain; no implication of this classical longitudinal two-parameter trimer design follows from it. Targeted published-record comparisons yielded no direct equivalent theorem. Unindexed optimal-design analyses and simple unpublished deductions from the known Fisher tensor remain possible, so absence of indexed matches is not a proof of historical priority.
+## originality
 
-## Value — PASS
+PASS
 
-The question is motivated by local experimental design for a frustrated molecular trimer or few-spin simulator when coupling and an ambient longitudinal offset must both be learned. A single field can make their fluctuation scores nearly collinear, producing a vanishing determinant. The opposite-field protocol provides a nonvanishing per-sample determinant in the strongly frustrated regime, and proves an asymptotically unbounded relative improvement over every single-field setting. The exact quartic classification includes the transition boundary, a non-obvious threshold extending slightly into ferromagnetic couplings, and optimal field scaling. This is an interpretable structural information-design result, not an arbitrary finite table or a claim of a thermodynamic phase transition.
+The Gibbs model, single-field metric and determinant are prior, and the single-field asymptotic follows directly from that known determinant. Symmetrized allocation is a standard information-design argument. The distinct contribution is the exact global magnitude classification within paired opposite equal-magnitude fields and the resulting strong-antiferromagnetic information rescue relative to all single fields, not the ingredients alone.
 
-## Closest literature, scope, and risks
+## value
 
-- Ebadi et al. (2026), arXiv:2611.08072v1, full relevant primary sections and Appendix A inspected. Its scalar-curvature study supplies the one-field metric but no paired-field design optimum.
-- Invernizzi et al. (2008), arXiv:0807.3213v1, full-text accessible portions of the theoretical model and few-spin calculations inspected. Its transverse-field quantum chain estimates a different single parameter.
-- Related quantum Ising multiparameter metrology discusses determinant criteria, but does not by itself identify the classical symmetric-trimer quartic or the opposite-field low-temperature rescue. Some full texts could not be retrieved; exact unindexed coverage remains a risk.
-- Results apply only to locally calibrated opposite equal-magnitude field settings and full spin readout. They do not establish optimality among all experimental protocols, physical phase transitions, or finite-sample estimator attainment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact paired design threshold solves a natural local joint-estimation problem and selects a nonzero probe magnitude even for a range of weak ferromagnetic couplings. In strong frustration the design changes a vanishing best single-field information determinant into a finite one, a qualitative improvement under the same sample budget.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

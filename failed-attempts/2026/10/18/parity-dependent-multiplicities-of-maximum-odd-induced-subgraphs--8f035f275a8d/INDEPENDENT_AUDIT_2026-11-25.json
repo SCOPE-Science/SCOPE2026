@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:46:18.654332Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–65, including all hypotheses and equality cases",
+        "VERIFICATION.md lines 20–24 and verify.py lines 73–110 (17-board census and 122 optimum subsets are source-reported; uploaded code not run)",
+        "Independent direct-adjacency, full-subset checks of 1×1, 1×3, 2×2, 2×4, 3×3, 2×3 and 3×4 matched both counts and optimum complement identities"
+      ],
+      "rationale": "For a retained cell the induced degree is m+n−2−r_i−c_j, where r_i and c_j count deletions from its row and column. Mixed parity gives odd degree on the full board, and an empty 1×1 remainder is vacuously odd. Otherwise fewer than m deletions leave an untouched row-column intersection, while deleting a full column attains m deletions. At equality for m<n an untouched column forces every row to be hit, and on a square the same obstruction forces all rows or all columns to be hit. With one deletion per row, any nonfull column must have even deletion count. This includes all columns if m is even, while if m is odd some full column must account for the entire odd deletion count. The converse is the same degree test. The row and column families on a square cannot overlap when m≥2 because a permutation matrix of deletions gives retained cells even degree. Counting labelled maps by even fibre sizes gives the cosh coefficient; the degree-r term at fixed m=2r comes solely from r fibres of size two, yielding (2r−1)!! times the falling factorial (n)_r. This verifies the stated cases and asymptotics.",
+      "residual_risks": [
+        "Finite checks illustrate the proof; the theorem counts labelled rather than symmetry-quotiented sets and concerns maximum cardinality only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "34e9c05b9d7d gives O_(m,n)(z)=Σ_(r,s) binom(m,r)binom(n,s) B_01(r,n−s;z) B_10(m−r,s;z) for every positive m,n and derives it from an exhaustive parity-block factorization.",
+          "The inspected general odd-cut, maximum-degree and bipartite lower bounds are existence/size estimates, not rook equality theorems."
+        ],
+        "reasoning": "Extracting the coefficient at the known maximum size gives the exact count even though the polynomial source does not separately print the arbitrary-board cosh simplification. The general bound papers are not the basis of rejection.",
+        "searches": [
+          "34e9c05b9d7d, Finding and Proof Steps 1–3",
+          "arXiv:2607.23266v1 Theorems 1.2 and 1.4; arXiv:2511.15489v1 Theorem 1.1 and related line-graph bound; arXiv:2608.02339v2 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 24–37 and 69–87",
+        "Local Resultary primary passages listed above; Stack Exchange answer 5141700; cited OA preprint excerpts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At the credited optimum of mn−m for same-parity dimensions, an untouched row and column would form a selected cell whose selected row and column sums have the same parity, excluded by the primary parity-block characterization.",
+          "Thus the m deletions hit all rows if m<n, and all rows or all columns on a square. After orienting them to hit rows, each row has one deletion and parity opposite to the original row. Every nonfull column must then retain the original column parity, so it has an even fibre. When m is odd the odd total forces one full column. The two square families overlap only in the singleton case, since an overlapping permutation matrix violates the parity-block rule on any retained cell.",
+          "The fixed-width growth term counts the maximal possible number of occupied even fibres, necessarily pairs."
+        ],
+        "reasoning": "The parity-block characterization specializes directly to the actual maximizing sets, not just to a numerical match. Multinomial fibre counting and taking the largest number of pairs do not establish a substantively different remaining theorem.",
+        "searches": [
+          "Math Stack Exchange answer 5141700; 34e9c05b9d7d parity-block characterization; 25a0ac62c7eb extremal families"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rook vertices are the edges of the complete bipartite graph; an occupied cell has induced degree d_i+e_j−2, so its selected row and column sums must have opposite parity.",
+          "The full polynomial weights each such labelled matrix by z to its number of ones."
+        ],
+        "reasoning": "Odd domination and star isolation are not equivalent. The parity-filtered matrix enumerator is equivalent on the exact objects here, and its top coefficient is the multiplicity of maximum odd induced sets.",
+        "searches": [
+          "Resultary: maximum odd induced-subgraph multiplicities in rook graphs; deletion family classification; cosh coefficient; line graph of K_(m,n) and bipartite equality cases",
+          "34e9c05b9d7d, Proof Steps 1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The all-cardinalities polynomial contains the top coefficient. The paired-domination entry prints the same 2m![z^m](cosh z)^m for its deletion-cell families on even squares m≥4.",
+          "The same-day star-isolation result forbids stars outside a closed neighborhood, and the tripartite line-graph odd-domination result tests all closed neighborhoods; neither counts the present odd-degree induced objects."
+        ],
+        "reasoning": "Compare count, object and scope, rather than date or keyword. The full enumerator is exact coverage; the paired-domination formula matches an actual family after complementing, while the other index hits do not match.",
+        "searches": [
+          "Resultary records 34e9c05b9d7d, 25a0ac62c7eb, 581833a4112b and 7b2b8bd5606e, actual RESULT.md Findings",
+          "Math Stack Exchange question 5141680, answer 5141700 via official API"
+        ]
+      },
+      "rationale": "The strongest catalogue match was resolved from primary text, not the summary: 34e9c05b9d7d gives the entire odd-cardinality enumerator O_(m,n)(z) for the same labelled board and empty-set convention, so its top coefficient already gives the claimed count for every size. It also describes the admissible matrices structurally by row/column parity. Combined with the credited optimum cardinality, that structure specializes directly to the stated equality families. The even-square family is even explicit as the same collection of cells in 25a0ac62c7eb, there as minimum paired-dominating sets, not retained odd sets. This is an assessment of mathematical coverage in the public corpus; the later catalogue dates of these entries do not establish earlier discovery or a priority direction.",
+      "residual_risks": [
+        "Question body and the Wang–Wu primary text were not read. Neither access limitation drives the decision.",
+        "Relative discovery, submission and release priority across records was not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirmed broader coverage for all board sizes",
+          "evidence": "Formula for O_(m,n)(z) counts every cardinality, including the vacuous empty set, via an exhaustive structural partition into two allowed cross-parity blocks.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-degree-parity-induced-subgraph-polynomials-of-rook-graphs-and-ca--34e9c05b9d7d/RESULT.md",
+          "material_read": "Offsets 0–1624 (Finding), 2730–6362 (parity-block proof and prism special case), 8050–10481 (verification examples, prior work and scope)",
+          "method": "Local mirror primary text",
+          "title": "Degree-parity induced-subgraph polynomials of rook graphs and cardinality gaps in complete prisms",
+          "trigger": "Plausible stronger result on the identical graph, parity test and cardinality observable"
+        },
+        {
+          "assessment": "Explicit family overlap after complementing for even squares m≥4, but a different optimized property",
+          "evidence": "Optimum sets are the row or column transversals with even opposite-coordinate fibres, counted by 2m![z^m](cosh z)^m.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-half-row-exchange-threshold-for-paired-domination-in-squar--25a0ac62c7eb/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–1608",
+          "method": "Local mirror primary text",
+          "title": "Sharp half-row exchange threshold for paired domination in square rook graphs",
+          "trigger": "Exact cosh count and square extremal families"
+        },
+        {
+          "assessment": "Different optimum family/feasibility condition",
+          "evidence": "Star-isolating sets control the complement of the closed neighborhood, not the degree parity of every selected cell.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-full-star-isolation-spectra-and-parity-rigid-minimum-sets-on-roo--581833a4112b/RESULT.md",
+          "material_read": "Finding, offsets 0–1350",
+          "method": "Local mirror primary text",
+          "title": "Full star-isolation spectra and parity-rigid minimum sets on rook graphs",
+          "trigger": "Same-day rook parity-related optimum sets"
+        },
+        {
+          "assessment": "Different odd condition",
+          "evidence": "Odd domination imposes an odd intersection with the closed neighborhood of each vertex, not odd induced degree only for members.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-four-parity-regimes-for-odd-domination-in-complete-tripartite-li--7b2b8bd5606e/RESULT.md",
+          "material_read": "Finding, offsets 0–806",
+          "method": "Local mirror primary text",
+          "title": "Four parity regimes for odd domination in complete-tripartite line graphs",
+          "trigger": "Alternative line-graph and odd-set terminology"
+        },
+        {
+          "assessment": "Scalar bound and its proof are public; no equality classification in the inspected answer",
+          "evidence": "Fewer than min(m,n) missing cells leave an untouched row and column, whose intersection violates oddness at equal parity.",
+          "identifier_or_url": "https://math.stackexchange.com/a/5141700",
+          "material_read": "Mike Earnest's answer ID 5141700; question metadata ID 5141680; question body not retrieved",
+          "method": "Official Stack Exchange API answer body and metadata",
+          "title": "Proof verification: maximum odd induced subgraph of a rook graph",
+          "trigger": "Credited scalar maximum, possible equality-case evidence"
+        },
+        {
+          "assessment": "General bound, not equality theorem here",
+          "evidence": "Odd-cut decomposition implies a universal n/5 size bound.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.23266v1",
+          "material_read": "Theorem 1.2, p. 1 offset 2860; Theorem 1.4, p. 2 offset 4880",
+          "method": "OA primary PDF",
+          "title": "Large odd induced subgraphs via odd cuts",
+          "trigger": "Cited general theory"
+        },
+        {
+          "assessment": "Different scope; generic size bounds",
+          "evidence": "Sharp 2n/7 for maximum degree four; reports a generic Wang–Wu line-graph lower bound, not an equality count for complete bipartite line graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/2511.15489v1",
+          "material_read": "Theorem 1.1 and related line-graph discussion, p. 2 offset 5603",
+          "method": "OA primary PDF",
+          "title": "Odd Induced Subgraphs in Graphs of Maximum Degree Four",
+          "trigger": "Cited induced-odd bounds and possible line-graph relevance"
+        },
+        {
+          "assessment": "Inspected lower bounds do not provide this equality characterization",
+          "evidence": "Includes general/bipartite lower bounds such as f_o(G)≥65n/256 in its bipartite setting.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.02339v2",
+          "material_read": "Abstract, p. 1 offset 0",
+          "method": "OA primary PDF excerpt",
+          "title": "Bounds on Odd and Odd-Even Induced Subgraphs",
+          "trigger": "Cited general and bipartite lower bounds"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and asymptotic; 34e9c05b9d7d Finding and Proof Steps 1–3; 25a0ac62c7eb Finding; top-degree deductions above"
+      ],
+      "rationale": "A truly unrecorded equality classification for this natural graph family would be useful: a scalar optimum alone does not encode the labelled extremizers. Here the exact full polynomial and its structural parity-block theorem are already available. The simplified top coefficient, its square duplication and the fixed-width leading power follow from the forced minimum-deletion fibres by short specialization. No distinct nonroutine invariant or structural gap is left for a valuable repair.",
+      "residual_risks": [
+        "The judgment concerns the incremental claim against verified coverage, not the utility of closed forms or equality classifications generally."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

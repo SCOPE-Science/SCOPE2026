@@ -1,24 +1,21 @@
-# Scientific review: sharp two-turn warming response in a chilling–forcing budburst model
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is restricted to the explicit exponential forcing requirement and quadratic cold-exposure curve in RESULT.md. Reconstructing its derivative reduces every turning point to intersections of a nonnegative function \(R(x;b,h)\) with level one. Its logarithmic derivative has exactly one zero, because \(x^2(1-s/2)\) increases strictly from zero to infinity. The tangency conditions eliminate to \(v^2=v+2h\), yielding the stated unique threshold. Critical point sign order, equality, the continuation at the chilling boundary, and the square-root splitting follow analytically. Exact symbolic simplification of the local Taylor coefficients agrees with the proof; the supplied numerical checker passed 11,288 supplemental assertions. No finite numerical check is treated as a proof of uniqueness.
+PASS
 
-## Originality — PASS (provisional)
+On the post-threshold spring ramp, H>0 fixes the positive square-root branch and gives the unique budburst date. For w<c put x=c−w, v=b exp(−x²/2), R=xv/√(2(h+v)). Then B′=−1+R, while B′=−1 at and beyond c (the one-sided limits agree because R(0)=0). With s=v/(h+v), (log R)_x=1/x−x(1−s/2), and s_x=−xs(1−s). Hence x²(1−s/2) increases strictly from zero to infinity; R has a unique strict peak and vanishes at both ends of x>0. Solving R=1 and R_x=0 gives v²−v−2h=0, v=y, x_c²=1+1/y, and b_c=y exp[(1+1/y)/2]. This explicit pair exists, and pointwise strict increase of R in b classifies max R below, at, or above one on the three ranges. At equality B′ vanishes only at w=c−x_c and B‴=R_xx<0 there; B″ changes sign and B is still strictly decreasing. Above equality the two x-roots are crossed in decreasing x, making the first w-turn a minimum and the second a maximum. Differentiation confirms d(log b_c)/dy=(2y−1)/(2y²)>0 and the auxiliary limits e and √(2eh). At the critical point g=log R has g_b=y/[b_c(y+1)] and g_xx=−(2y−1)/y. Rescale x−x_c by √(b−b_c); the limiting quadratic has two simple roots, yielding the stated γ and O(b−b_c) error. The finite tapered-winter integral equals x²/2 on 0≤w≤c, and c>x_+ puts both turns strictly inside it. None of this uses field validation or a rerun of the bundled checker.
 
-The exact quadratic cold-exposure / linear-spring-ramp phase diagram is not identified in the primary sources inspected. Cannell and Smith (1983) supply the historical exponential chilling–forcing relation, and Cannell and Smith (1986) establish the possibility of advance or delay, but neither accessible abstract states this exact two-turn threshold. Full-text model-comparison studies by Chuine, Cour and Rousseau (1999) and Fu et al. (2012) discuss chilling and forcing functions, calibration, and climatic responses, rather than the sharp boundary \(b_c(h)\) or the square-root birth of two turning points. Searches for two-turn and nonmonotone budburst thresholds found no exact dominating theorem. This is evidence of noncoverage in the inspected materials, not a proof of historical novelty. The original 1983 full text was inaccessible and remains a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The phase diagram sharply separates models that always predict advancing budburst under warming from models capable of an intermediate *delay window*, and bounds the response to two turns. The explicit threshold, monotonic baseline dependence, and square-root onset furnish reproducible benchmarks for sensitivity testing in a historically motivated chilling–forcing model. The finite triangular winter interpretation shows that both reversals need not rely solely on offsets beyond a real winter interval. The result is a mathematical benchmark, not an observation or calibrated species forecast; simple calculus alone is not taken as proof of biological significance.
+The supported distinction is a global phase diagram for the specified combination of quadratic cold exposure, offset uniform warming, and quadratic accumulated spring forcing. The empirical exponential requirement, competing signs of chilling and forcing, and the generic square-root exponent are background. The nearest available primary statements concern model formulation, qualitative advance or delay, or empirical comparisons; none supplies the exact threshold or complete two-turn classification on the stated surrogate. The exact catalogue hit is the assigned record itself.
 
-## Closest literature and remaining limitations
+## value
 
-- Cannell and Smith, *Thermal Time, Chill Days and Prediction of Budburst in Picea sitchensis* (1983), DOI 10.2307/2403139: empirical exponential heat/chill relation; only the abstract/bibliographic record accessible.
-- Cannell and Smith, *Climatic Warming, Spring Budburst and Frost Damage on Trees* (1986), DOI 10.2307/2403090: qualitative warming advance/delay mechanism; abstract accessible.
-- Chuine, Cour and Rousseau, *Selecting models to predict the timing of flowering of temperate trees* (1999), DOI 10.1046/j.1365-3040.1999.00395.x: alternative physiological response models, full HTML inspected.
-- Fu et al., *The Impact of Winter and Spring Temperatures on Temperate Tree Budburst Dates* (2012), DOI 10.1371/journal.pone.0047324: full open text inspected; field calibration and broader weather effects remain outside the theorem.
+PASS
 
-The biological chilling law, thermal ramp, and cold-margin continuation are idealized and may not remain valid under large climate changes. No general result for empirical temperature time series, photoperiod constraints, or individual trees is claimed. A comparable closed-form theorem in incompletely accessible historical work cannot be ruled out.
+The motivated question is whether a warming-driven advance can give way to a temporary delay and then return to advance when chilling and forcing compete. For this specified model, a numerical curve could suggest the shape but cannot certify either that no third turn is possible or exactly when the delay window first opens. The global threshold and the model-specific onset size make the switch interpretable, and the construction allows both extrema within one finite winter interval. This is useful as an exact model benchmark, not a forecast or measured tipping point.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

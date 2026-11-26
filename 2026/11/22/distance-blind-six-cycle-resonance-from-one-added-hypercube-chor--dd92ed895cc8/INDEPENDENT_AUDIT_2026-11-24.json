@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:40:31.132051Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–63; VERIFICATION.md, check_chord.py and check_field4.py inspected, not executed",
+        "Independent replay: python3 /workspace/reproductions/04_05.py, record 5 output. Checked 20 dimension/distance matrix cases (d=3–7); binary Q3 least-period populations (4,12,12,228), quaternary Q3 (16,240,240,65040), and binary Q4 entry shells (4,252,16128,49152), at every respective distance."
+      ],
+      "rationale": "In characteristic two A²=δI, δ=d mod 2, and for B=A+S the operator B²−δI maps onto W=span(e_u,e_v,Ae_u,Ae_v). The four vectors are independent: the nonadjacent endpoints are absent from both neighbor supports, and two distinct cube vertices at distance two share exactly two neighbors, whereas those at greater distance share none; d≥3 gives exclusive neighbors in both cases. The coefficient map of B²−δI from the four corresponding independent linear functionals is nonsingular. For C=A+δI the coordinate block split gives C=[[R,I],[I,R]], R²=I, and thus im C=ker C of dimension N/2. Ce_u and Ce_v are independent, so the span of the endpoint vectors avoids im C. Exclusive-neighbor columns of C give surjectivity of the endpoint coordinate projection on ker C. Consequently C restricted to vectors with both endpoint coordinates zero still surjects onto im C, and S adds exactly two dimensions outside it; rank(B+δI)=N/2+2. For even d, B maps W onto a two-dimensional span on which it swaps a basis, so the power ranks N, N/2+2, 4, 2, 2 imply one J₂(1), two J₃(0), N/2−4 J₂(0) and no other blocks. For odd d, B exchanges the pairs (e_u,Ae_v),(e_v,Ae_u) via the same order-three 2×2 map; the exchange has order two, B²−I is invertible on W, and the minimal polynomial on W is (X²+X+1)². On the complement B²=I, and rank(B−I) forces all its blocks to have size two. Thus the structure does not depend on distance and extends by scalars to each characteristic-two field. Fixed-space dimensions and divisor subtraction give the stated least periods; stable image dimensions plus nilpotent kernels give entry counts q²,q^(N/2),q^(N−2),q^N and the nonzero shell 1−q^(-2).",
+      "residual_risks": [
+        "The exhaustive checks are only for the stated small spaces. The rank and invariant-subspace proof gives all dimensions and field extensions. The polynomial block on W may split on an extension; its rational-factor description remains valid. No claim for d<3 or for other graph perturbations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Batal studies changes of the nullity of the closed-neighborhood Lights Out matrix under edge edits. The distance-layer result uses exact-distance Hamming graphs and proves equal transient counts across many distance layers for n=2^a+1.",
+          "The cited automata works concern injectivity over groups and automatic spacetime columns, respectively."
+        ],
+        "reasoning": "An exact-distance graph changes all edges, not one selected nonedge. Closed-neighborhood nullity can constrain one fixed-space dimension but does not determine the open-adjacency powers and primary factors. None of these inspected statements has both the operator and the dominating quantifiers needed to imply the classification.",
+        "searches": [
+          "arXiv:2108.03059, Batal edge addition/removal",
+          "Resultary 69a62e027bca, higher-distance parity rank law, RESULT.md Finding",
+          "arXiv:0906.4891 and arXiv:1209.6008, cited linear automata context"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 69a62e027bca, 0ddebf65b6fe, a9a2b0b84ed9, 4fb7fb6660f5, c1bf9e61b409",
+        "Batal arXiv:2108.03059 pp. 1, 3",
+        "Ceccherini-Silberstein–Coornaert arXiv:0906.4891 and Rowland–Yassawi arXiv:1209.6008, p. 1 each"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general literature query did not surface a decisive match and is not negative evidence. The inspected close statements establish closed-neighborhood nullity changes, distance-layer rank laws, or a present-bond deletion classification, respectively."
+        ],
+        "reasoning": "Even an exact closed-neighborhood rank identity would not imply the primary decomposition. The arbitrary nonedge case requires uniform four-dimensional defect action and simultaneous rank control; the adjacent-endpoint result actually has different block behavior. The orbit formulas then follow routinely from the new structure and are not a separate generic counting novelty.",
+        "searches": [
+          "Primary literature query: hypercube edge addition adjacency matrix characteristic two linear cellular automata Jordan form neighbor sum",
+          "Batal arXiv:2108.03059 pp. 1, 3",
+          "Resultary 69a62e027bca and 0ddebf65b6fe Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Deletion and addition toggle the same rank-two edge term over characteristic two, but the deletion results require distance one, whereas this claim has r≥2 and vanishing endpoint coordinates in each neighbor column. For odd d the deletion classification has periods 1,2,4, not 1,2,3,6.",
+          "The feedback result has odd-dimensional periods 1,2,3,6 but uses the rank-one diagonal update and a simple quadratic factor, not the squared factor for a nonedge. The same-day shortcut record uses I+L+t vvᵀ over the reals and studies the number of distinct eigenvalues."
+        ],
+        "reasoning": "Cube symmetries preserve the distinction between adjacent and nonadjacent endpoints, and equal possible periods are much weaker than equal Jordan form or state counts. Reduction of a real weighted Laplacian eigenvalue count is not a characteristic-two similarity theorem for open adjacency.",
+        "searches": [
+          "Resultary lookup for added nonedge, chorded hypercube XOR/linear cellular automaton and distance-blind Jordan structure",
+          "Published findings 0ddebf65b6fe, a9a2b0b84ed9, 4fb7fb6660f5 and c1bf9e61b409, RESULT.md Findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The full prior period and entry censuses in 0ddebf65b6fe and 4fb7fb6660f5 are for deletion of a present bond. Record a9a2b0b84ed9 provides a different census for a one-site feedback matrix. Record c1bf9e61b409 concerns real spectral grade, not any temporal population."
+        ],
+        "reasoning": "The indexed censuses are exact but apply to different matrices; one cannot identify their entries with the new formulas by matching only d or the occurrence of period six. No matching table was established by these comparisons.",
+        "searches": [
+          "Resultary semantic search for one added nonedge and hypercube parity dynamics; local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "rationale": "The supported distinct result is complete open-adjacency similarity for one inserted nonedge across all allowed Hamming distances, together with the induced exact populations. The nearby deletion, self-feedback, distance-layer and real spectral-grade theorems do not give this classification; some period labels and rank-perturbation methods overlap.",
+      "residual_risks": [
+        "The bounded primary-literature search was noisy. Unindexed or unreviewed algebraic work could overlap. No priority date or absence of other results is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial operator/rank overlap only",
+          "evidence": "The edited invariant is the nullity of the closed-neighborhood Lights Out matrix; the open evolution's Jordan form and census are not the same invariant.",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.03059",
+          "material_read": "pp. 1 and 3, OA offsets 0 and 8000",
+          "method": "Lawful OA PDF text",
+          "title": "Effects of edge addition or removal on the nullity of a graph in the Lights Out game",
+          "trigger": "Potential broader rank-two edge edit result"
+        },
+        {
+          "assessment": "Closest conceptual analogue, different adjacency",
+          "evidence": "Exact-distance Hamming graph adjacency at n=2^a+1, with equal transients over many distance layers.",
+          "identifier_or_url": "Resultary 69a62e027bca",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "A linear–quadratic rank law for higher-distance hypercube parity dynamics",
+          "trigger": "Prior distance-insensitive rank and transient counts"
+        },
+        {
+          "assessment": "Different endpoint regime and block classification",
+          "evidence": "Removes a present edge; odd d has a J₄(1) factor and periods 1,2,4; even d has a quadratic-squared component with nilpotent blocks.",
+          "identifier_or_url": "Resultary 0ddebf65b6fe",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "A missing-edge parity transition in hypercube XOR dynamics",
+          "trigger": "Same algebraic edge toggle with existing exact Jordan form"
+        },
+        {
+          "assessment": "Different perturbation and census",
+          "evidence": "Adds eeᵀ; its quadratic factor is simple rather than the squared factor for the inserted edge.",
+          "identifier_or_url": "Resultary a9a2b0b84ed9",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "A one-site feedback defect creates periods three and six on Boolean hypercubes",
+          "trigger": "Overlap in odd period set"
+        },
+        {
+          "assessment": "Deletion of a present bond only",
+          "evidence": "Parity-dependent Jordan forms and entry counts are for distance-one deletion, not insertion at any r≥2.",
+          "identifier_or_url": "Resultary 4fb7fb6660f5",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "One missing hypercube bond creates six-cycles or four-cycles in binary parity dynamics",
+          "trigger": "Strong exact parity/census overlap"
+        },
+        {
+          "assessment": "Genuinely distinct, no dating inference",
+          "evidence": "Uses positive real weights and the shifted Laplacian I+L+t vvᵀ; counts distinct eigenvalues rather than classifying finite-field temporal dynamics.",
+          "identifier_or_url": "Resultary c1bf9e61b409",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "One shortcut nearly doubles the Krylov spectral grade of a Boolean cube",
+          "trigger": "Same-day study of a nonedge insertion in the same graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and invariant-subspace proof",
+        "Resultary distance-layer, deletion and feedback comparison statements; Batal's closed-neighborhood invariant"
+      ],
+      "rationale": "Changing the chord length can create a triangle or preserve bipartiteness, so exact similarity for all lengths is not a graph-isomorphism tautology. The invariant determines a sharp parity dichotomy between an invertible clock of order six and a two-dimensional recurrent part with an exact three-update entry shell, including all primitive and transient populations over characteristic two. This is substantially more than a small census or a nullity calculation.",
+      "residual_risks": [
+        "This is a theorem about one nonedge and a specified linear update, not a general claim of robustness under faults or prediction for nonbinary characteristics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

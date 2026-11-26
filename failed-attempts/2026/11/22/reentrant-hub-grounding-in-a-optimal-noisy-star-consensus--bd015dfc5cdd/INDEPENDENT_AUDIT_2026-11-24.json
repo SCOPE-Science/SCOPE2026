@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:00:33.940837Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–62; frozen VERIFICATION.md and verify_star_gain.py inspected, not executed",
+        "Independent symbolic endpoint simplification and rational inverse-square gradient spot checks"
+      ],
+      "rationale": "Connectedness and B>0 make every feasible grounded Laplacian positive definite. The inverse trace has strictly positive directional second derivative for every nonzero diagonal direction, so uniqueness forces equal leaf gains. The leaf-contrast space and the two-dimensional hub/leaf-constant quotient give the stated objective. At the left endpoint, with t=1+B/m, its derivative simplifies independently to (m−1)/(m t²)−(1+t)/(mB), i.e. −H_m(B)/(Bm²(B+m)²). At the right endpoint it is (B+2)/B>0. Thus the sign criterion includes equality and the leaves are always funded. Direct rational inverse-square gradient checks agree, including zero at m=4, B=4. The cubic is positive for m=2,3; the stated factorization gives the two m=4 roots; for m≥5 signs at 0, m and infinity and Descartes' rule give exactly two simple positive roots. Rescaling the polynomial gives 2−s at B=s/m and s³−s at B=sm² after the respective normalizations, proving the scales by bracketing. Substitution verifies the hub-free objective.",
+      "residual_risks": [
+        "Finite spot checks are supplementary; the structural proof gives the all-budget result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The p−1 clique-contrast term in the split quotient disappears at p=1. The p,q-dependent 2×2 quotient, domain and convexity remain valid. The positive right-end derivative has no denominator vanishing at p=1.",
+          "Its fixed-p proof gives t₋∼2p/q² and t₊∼q/p; converting dimensionless t to B=pqt gives the star scales at p=1."
+        ],
+        "reasoning": "The hypothesis p≥2 is dispensable for the exact support and fixed-p claims. Confirming this requires reading the proof, not equating the two titles.",
+        "searches": [
+          "Resultary 0b9d2b9aa8a6 §§1–5 and 7; noisy leader optimization primary sources below"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0b9d2b9aa8a6, 3040bc2335f8, 7eae57d4d0a9, 58eb0fc2195a",
+        "Primary published sources identified in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At p=1,q=m, F_{1,m}(B/m)=m(m−1)/(1+B/m)²−1−2m/B=−H_m(B)/[B(B+m)²]. The split derivative criterion and endpoint positivity survive exactly.",
+          "The minimum of (1+2/t)(1+t)² is (11+5√5)/2, between 6 and 12, so testing m(m−1) gives the same cutoff m=4. The m=4 roots are evaluations of the same formula; the objective on the zero interval is its p=1,a=0 evaluation."
+        ],
+        "reasoning": "The prior formula and proof give the full optimizer and support, not just a related reentrance mechanism; the evaluations and fixed-p limits leave no novel remainder in the frozen claim.",
+        "searches": [
+          "0b9d2b9aa8a6 Finding and proof, mirror offsets 0, 2520, 4724"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K₁ join independent m is exactly the fixed unit-edge star, and the p=1 clique gain a is the hub gain. The split objective and budget are identical.",
+          "Discrete leader selection and Dirichlet inverse-trace objectives restrict a leader set, not continuous gain allocation; the condition-number star solves a different objective."
+        ],
+        "reasoning": "The complete-split formulation is equivalent at a singleton clique; the other apparent analogues do not yield the star cubic.",
+        "searches": [
+          "Resultary: star inverse-trace grounding, split-network clique grounding and two-hub bipartite grounding",
+          "arXiv:1302.0450; arXiv:1407.1569; arXiv:1412.6595"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0b9d2b9aa8a6 states reentrant gain support using F_{p,q}, with explicit zero, tangency and two-root cases.",
+          "3040bc2335f8 has two hubs and cutoff q=6; 7eae57d4d0a9 has the same star but a condition-number objective; 58eb0fc2195a uses fixed-cardinality perfect leaders."
+        ],
+        "reasoning": "The exact indexed sign formula, not the separate bipartite, condition-number or leader records, is decisive. Same-day dates do not identify publication order.",
+        "searches": [
+          "Resultary split grounding 0b9d2b9aa8a6, bipartite two-hub grounding 3040bc2335f8, star condition-number loading 7eae57d4d0a9, weighted-star perfect leaders 58eb0fc2195a"
+        ]
+      },
+      "rationale": "Demonstrable implicit coverage. The distinct indexed complete-split grounding record 0b9d2b9aa8a6 prints p,q≥2, but its actual proof of the objective, strict convexity, positive periphery, support and fixed-p budget scales specializes without a new argument to p=1. The star's additional small-size checks are simple evaluations of that criterion. This is a coverage finding, not a claim about chronological priority between same-day records.",
+      "residual_risks": [
+        "Literature comparison is bounded and does not establish which same-day work was produced first. The coverage decision rests on the explicit mathematical reduction, not on a negative literature search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proof and criterion mechanically cover the full star theorem despite printed p≥2",
+          "evidence": "Exact contrast/quotient formula, endpoint sign F_{p,q}, phase diagram, and fixed-clique scales remain valid at p=1.",
+          "identifier_or_url": "Resultary 0b9d2b9aa8a6",
+          "material_read": "Finding; Proof §§1–5, 7, offsets 0, 2520, 4724",
+          "method": "Bounded local mirror reads",
+          "title": "Reentrant clique grounding and a three-quarter-power imbalance law on complete split networks",
+          "trigger": "Identical continuous gain budget and inverse trace in containing graph family"
+        },
+        {
+          "assessment": "Related graph, not the decisive reduction",
+          "evidence": "K_{2,q} support criterion q(q−1)t≥(t+2)³ and q=6 cutoff.",
+          "identifier_or_url": "Resultary 3040bc2335f8",
+          "material_read": "Finding and Proof §§1–4",
+          "method": "Bounded local mirror read",
+          "title": "Reentrant optimal hub grounding on two-hub bipartite networks",
+          "trigger": "Same objective and reentrance in a related graph"
+        },
+        {
+          "assessment": "Different objective and threshold",
+          "evidence": "Condition number of aI+L+diag(d); one activation threshold.",
+          "identifier_or_url": "Resultary 7eae57d4d0a9",
+          "material_read": "Finding",
+          "method": "Bounded local mirror read",
+          "title": "A sharp hub activation threshold for budgeted diagonal conditioning",
+          "trigger": "Same star and continuous vertex load budget"
+        },
+        {
+          "assessment": "Different admissible controls",
+          "evidence": "Fixed cardinality of perfect leaders; inverse of a follower principal submatrix.",
+          "identifier_or_url": "Resultary 58eb0fc2195a",
+          "material_read": "Finding",
+          "method": "Bounded local mirror read",
+          "title": "Optimal noise-free leaders on an arbitrarily weighted star",
+          "trigger": "Same star geometry and inverse-trace-related objective"
+        },
+        {
+          "assessment": "Leader selection rather than budgeted continuous gain",
+          "evidence": "Preset leader count and Boolean choice, with relaxation for bounds.",
+          "identifier_or_url": "https://arxiv.org/pdf/1302.0450",
+          "material_read": "PDF p. 2, text offset 5735",
+          "method": "Lawful OA primary PDF passage",
+          "title": "Algorithms for Leader Selection in Stochastically Forced Consensus Networks",
+          "trigger": "Published noisy-consensus inverse-trace optimization"
+        },
+        {
+          "assessment": "Different decision variables; does not establish whole-paper exclusion",
+          "evidence": "Choice of a leader set subject to a prescribed maximum number.",
+          "identifier_or_url": "https://arxiv.org/pdf/1407.1569",
+          "material_read": "PDF p. 1, text offset 713",
+          "method": "Lawful OA primary PDF scope passage",
+          "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+          "trigger": "Optimal noisy leaders at finite strength"
+        },
+        {
+          "assessment": "Not this stationary-noise inverse trace",
+          "evidence": "Total gain cost and star stability/synchronization analysis.",
+          "identifier_or_url": "https://arxiv.org/pdf/0710.2716",
+          "material_read": "PDF pp. 3–4, offsets 10803 and 13238",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Cost and Effects of Pinning Control for Network Synchronization",
+          "trigger": "Continuous pinning and star cost comparisons"
+        },
+        {
+          "assessment": "Different feedback variables",
+          "evidence": "Relative information/edge feedback and coherence/effort, not independent grounded gains.",
+          "identifier_or_url": "https://ecs.syr.edu/faculty/fardad/Papers/LinFarJov10b.pdf",
+          "material_read": "PDF pp. 1, 5, offsets 0 and 32748",
+          "method": "Lawful OA primary PDF passages",
+          "title": "On the Optimal Localized Feedback Design for Multi-Vehicle Systems",
+          "trigger": "Optimal star feedback for coherence"
+        },
+        {
+          "assessment": "Discrete leader sets in a different graph setting",
+          "evidence": "R(S)=½ tr(L_FF⁻¹), |S|≤k, path/ring setting.",
+          "identifier_or_url": "https://arxiv.org/pdf/1412.6595",
+          "material_read": "PDF p. 2, offset 11962",
+          "method": "Lawful OA primary PDF passage",
+          "title": "Efficient, Optimal k-Leader Selection for Coherent, One-Dimensional Formations",
+          "trigger": "Exact inverse-trace optimization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Resultary 0b9d2b9aa8a6 §§2–5, 7 and singleton-clique specialization"
+      ],
+      "rationale": "Hub withdrawal at an intermediate budget is a useful phenomenon, and the star is a natural example. As a separate finding, however, the cubic, minimal size, example and both scales are routine specializations of an existing complete-split support proof. The frozen claim adds no distinct mechanism, sharper nontrivial bound, or independent consequence beyond those specializations.",
+      "residual_risks": [
+        "Judgment concerns the incremental contribution of this claim, not its usefulness as an illustration of a broader theorem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

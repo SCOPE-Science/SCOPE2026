@@ -1,19 +1,21 @@
-# Scientific review: thin-slit pressure and grazing headings
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The clipped-run embedded chain is regenerative at an exogenous Poisson reorientation clock, admits a unique mirror-symmetric invariant position law, and its wall impulse admits an exact renewal-reward expression. Reflecting symmetry and the bound on the interior mass control the error in replacing the stationary cumulative distribution by one half. The three stated asymptotics are derived by Laplace substitution, dominated convergence, and a logarithmic exponential-integral expansion, with explicit comparison of the remainder orders. Ninety-eight deterministic numerical checks reproduce the one-dimensional exact benchmark and the two- and three-dimensional small-width expansions; computation is not used to infer infinite-order asymptotics.
+PASS
 
-## Originality
+For any fixed width, the clipped exponential-run chain has the uniform lower bound Q(s)>0 on the transition mass at the right wall, giving uniqueness by minorization; reflection gives symmetry. The end-of-run wall atom and interior mass bound give |C_s−1/2|≤H(s), while the dimensionless right-wall reward is u exp[−(s−x)/u] for positive u. Integrating by parts, with the boundary atoms included, yields P=m_+−s/4+∫C_s(x)H(s−x)dx. The residual is bounded by H(s)∫H using H≥0. Since H→0, the right derivative follows with P continuously extended to zero. For the fractional case, split the angular integral near zero and use z=t/u to obtain cΓ(−α)t^α; the remainder exponent 3+2α is strictly larger than 2+α. The constant-density subtraction gives c log(1/t)−cγ+I+o(1), and the triangular kernel gives the additive 3/2; finite inverse moment gives J/4. Independently checked positive log(2) in 2D, zero I in 3D and the exact 1D atom 1/(2+s). The notation p(0) denotes the grazing coefficient c selected by the weighted-integrability hypothesis, not an arbitrary assigned point value of an a.e. density. The result concerns per-swimmer force. Inspected checker.py without executing it; finite-cell solving and special-function quadrature are corroboration only.
 
-PASS, with publication-priority qualification. Frydel (arXiv:2410.06393, full text §§II–VIII, especially equations 13, 19 and 48 and §VI.3–VI.4) gives the splitting equation and normal wall-force integral and develops adsorption, not the general heading-law pressure-response trichotomy or its inverse angular fingerprint. Ezhilan–Alonso-Matilla–Saintillan (arXiv:1507.06379, full text §§II–IV) give confined swim-pressure calculations, near-wall grazing structure and the leading narrow-gap force, but do not state these fractional/logarithmic second-order coefficients. Pietrangeli et al. (arXiv:2404.07680) treat longitudinal slit diffusion. The nearest indexed related research findings concern force noise, wall residence and longitudinal transport, not these pressure coefficients. Existing exact kernels do imply the new formulas after an additional singular renewal analysis; the work does not claim those inputs or the one-dimensional benchmark. Residual risk is an independently derived, unindexed equivalent result, or a preexisting higher-order formula not found in available text.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. This is a structural classification of the first nontrivial confinement correction in an active-matter mechanical observable. A measured quadratic-log coefficient identifies the density of near-parallel propulsive directions, while singular heading distributions lead to a distinct fractional-power response. The exact positive remainder estimate proves universality without solving the full singular stationary density. The separate isotropic two- and three-dimensional coefficients give natural, experimentally interpretable benchmarks beyond previously known leading pressure and numerical curves.
+The exact stationary reformulation, pressure functional, isotropic kernels and one-dimensional law are prior. The publishable difference against the inspected comparisons is the distribution-free small-width bound and first nonlinear force response, including a coefficient recovering the grazing-law constant; this is an explicit analysis of a known model, not a new model or exact force identity.
 
-## Scope and limitations
+## value
 
-Results require Poissonian renewal, symmetric iid normal headings, a fixed intrinsic speed, ideal sticky walls, and a fixed heading law as confinement varies. It is a per-swimmer force law, not a fixed-density pressure law, and not a classification of arbitrary slowly varying orientation densities. The full sources of the relevant 2024 and 2015 preprints were inspected; unindexed priority risk remains.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+In a natural mechanical observable the first nonlinear correction distinguishes integrable inverse speed, finite grazing coefficient and divergent grazing power. The bound both provides usable approximations without solving a singular stationary density and makes the logarithmic coefficient an explicit inverse signature. This is not a claim of statistical identifiability with noisy data or of a classification of all densities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

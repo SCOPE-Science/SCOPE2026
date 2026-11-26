@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:24:10.381932Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:3–52; VERIFICATION.md; verify.py:11–80 (inspected, not executed)"
+      ],
+      "rationale": "For I_H=v*Hv the coefficient of e^(imt), m≥0, is ∑ H_{j,j+m}r^(2j+m), so only the ±K pair aliases on a 2K-grid and the common radius-scaled coefficient is H_{0K}. The two normalized real readouts have unit rows (1,0) and (cos(Kδ),−sin(Kδ)). Their determinant and squared singular values give exactly the resonance and the stated κ, including its minimizers. This derives full traces for arbitrary Hermitian H, not just a polynomial lift. A coefficient vector a for P gives the lift H=conj(a)aᵀ in the v*Hv convention. Equal continuous traces on distinct circles imply two rational reflection identities for P/Q; comparing them gives invariance under a nonunit positive dilation. The Laurent expansion at zero is constant, including if a pole at zero had been contemplated. If one polynomial is identically zero, so is the other. Coincident radii give the ambiguity z^K versus r^K; at resonance the Kth powers of both grids are real and 1±iz^K have identical data but are not phase multiples. These checks include K=1 and degree-at-most rather than exact degree.",
+      "residual_risks": [
+        "The condition number applies only after radius normalization of the two real Nyquist readouts, not to full noisy polynomial recovery. If both grids coincide, duplicated labels do not add distinct locations; the failure proof is unaffected."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Philipp's indexed abstract explicitly gives 4N−4 phaseless Fourier measurements of p and p′ for degree less than N. The frozen comparison at lines 58–71 reports Pohl–Li–Boche's unbalanced 2K+1 and 2K−1 concentric design, Bodmann–Hammen's intersecting-circle construction and Chalendar–Partington's continuous-circle result. These precise primary passages were not independently retrieved."
+        ],
+        "reasoning": "Those comparisons address sample count, a different measurement operator, or full-circle rigidity, not necessarily the finite balanced criterion. The affirmative same-geometry, same-quantifier coverage comes from the exact earlier indexed statements, not from treating general phase retrieval as if it resolved all twists.",
+        "searches": [
+          "Pohl–Li–Boche 2017 SampTA slides, slide 18",
+          "Philipp arXiv:1403.4769; Bodmann–Hammen arXiv:1302.5487 §2.3; Chalendar–Partington arXiv:2403.16255 §2.2"
+        ]
+      },
+      "checked_sources": [
+        "Earlier exact Resultary indexed statements 0026bf390afd, 12ae1d0f43de, 0abfc08196ce, da0758db93a1 and c47681d1b8e5",
+        "Frozen RESULT.md:5–52, 58–71; Philipp abstract excerpt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At top frequency the normalized datum on a grid rotated by φ is Re(e^(iKφ)H_{0K}), independently of lower coefficients or any rank constraint. The previously identified normalized angular demixer has row inner product cos(Kδ), so the Gram eigenvalues are 1±|cos(Kδ)|. The discrete Fourier coefficient identity and division by r^K are linear in H."
+        ],
+        "reasoning": "The normalized κ is mechanically determined by that channel; no new stability theorem for the full recovery is supplied. The Hermitian extension records that the already known linear channel demixing never used rank one. Neither detail rescues the already covered central universal classification as a distinct finding.",
+        "searches": [
+          "Resultary entries 12ae1d0f43de, da0758db93a1 and c47681d1b8e5 compared with frozen RESULT.md:25–52"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "0026bf390afd: every positive d, two regular concentric 2d-gons, phase uniqueness exactly when radii differ and sin(d(ψ−φ))≠0; best stagger at phase offset π/2 modulo π.",
+          "12ae1d0f43de explicitly says complex polynomial degree at most d, 2d points on each ring, the same sin criterion and optimal two-dimensional de-aliasing. 0abfc08196ce confirms d≥1 with both obstructions."
+        ],
+        "reasoning": "Rotate the two-ring design by −φ (absorbed by composing the polynomial with a unit rotation) and rename d=K and ψ−φ=δ. This is the same geometry, data, universal polynomial scope and phase quotient. The two formulations are not distinguished by labeling or by the normalization of global phase.",
+        "searches": [
+          "Resultary: 0026bf390afd c47681d1b8e5 complete two polygon phase retrieval criterion complex polynomials degree at most d 2d regular vertices concentric radii sin(d delta) Nyquist condition number"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "These are exact theorem entries rather than a numerical lookup: c47681d1b8e5 states reconstruction of the complete intensities on both circles via the sole alias and explicit excluded-case witnesses; da0758db93a1 states unique optimal half-step for normalized Nyquist-intensity inversion and the ambiguity 1±iz^d."
+        ],
+        "reasoning": "The explicit indexed classification and inversion cover the exact facts at issue without requiring a numeric table. Summaries establish the criterion/interpolation/optimum, not the literal printing of arbitrary-Hermitian wording or the exact radical formula.",
+        "searches": [
+          "Resultary exact Nyquist and condition-number query above; 0026bf390afd, 12ae1d0f43de, da0758db93a1, c47681d1b8e5"
+        ]
+      },
+      "rationale": "There is strong affirmative earlier statement-level coverage, not merely an inaccessible possible match. The 2026/10/18 Resultary record 0026bf390afd gives the same all-degree two-regular-polygon iff criterion including distinct radii and sin(dΔ)≠0, the top alias, and the optimal stagger. The same-day earlier-dated record 12ae1d0f43de explicitly uses the degree-at-most hypothesis and optimization of the two-dimensional de-aliasing condition number; 0abfc08196ce states the iff for every d≥1. The 2026/11/8 record c47681d1b8e5 gives the same full-trace interpolation and failures for d≥3. Thus extending that last record to K=1,2 cannot be the new contribution: the all-degree criterion is already covered. Full literal prior coverage of the Hermitian wording and exact κ expression was not verified, but these are the rank-independent observation identity and the immediate two-unit-row singular-value calculation for the already identified normalized channel, not a distinct classification.",
+      "residual_risks": [
+        "The exact prior proofs and literal printing of the κ formula and Hermitian extension are unverified because the earlier matching proofs were not retrieved. The negative originality decision rests on the affirmative equation-level overlap of multiple earlier entries and the elementary implication for the local channel, not on any access error."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Affirmative verbatim mathematical coverage in the summary of the central iff and top stagger",
+          "evidence": "Every positive d; two regular concentric 2d-gons; exactly when radii differ and sin(d(ψ−φ))≠0; optimal stagger d(ψ−φ)=π/2 mod π.",
+          "identifier_or_url": "2026/10/18/SCOPE-complete-two-polygon-phase-retrieval-criterion-for-polynomials-o--0026bf390afd",
+          "material_read": "Returned indexed mathematical statement; full local-mirror Result not retrieved",
+          "method": "Targeted Resultary lookup; lawful local-mirror retrieval timed out",
+          "title": "Complete two-polygon phase-retrieval criterion for polynomials of every degree",
+          "trigger": "Same all-degree criterion and best twist"
+        },
+        {
+          "assessment": "Affirmative coverage of upper degree bound, balanced geometry, sharp angular criterion and normalized optimum",
+          "evidence": "12ae1d0f43de says degree at most d and half-Nyquist staggering uniquely optimizes two-dimensional de-aliasing; 0abfc08196ce says every d≥1 and requires differing radii plus sin(d(φ₂−φ₁))≠0.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-angular-criterion-for-balanced-two-circle-phaseless-polyno--12ae1d0f43de; 2026/11/1/SCOPE-exact-angular-resonance-threshold-for-balanced-concentric-phase--0abfc08196ce",
+          "material_read": "Returned indexed mathematical statements",
+          "method": "Targeted Resultary lookup by geometry and exact criterion",
+          "title": "Sharp angular criterion for balanced two-circle phaseless polynomial sampling; Exact angular-resonance threshold for balanced concentric phase-retrieval grids",
+          "trigger": "Degree-at-most scope and nondegeneracy conditions"
+        },
+        {
+          "assessment": "Affirmative same construction for d≥3 and explicit intensity reconstruction; the lower-degree gap is covered by other entries",
+          "evidence": "4d measurements, same iff, sole Nyquist alias, complete intensities on both circles and explicit ambiguities for excluded cases.",
+          "identifier_or_url": "2026/11/8/SCOPE-two-balanced-polygons-a-sharp-nyquist-criterion-for-polynomial-p--c47681d1b8e5",
+          "material_read": "Returned indexed mathematical statement; full proof not retrieved",
+          "method": "Targeted Resultary lookup; lawful local-mirror retrieval timed out",
+          "title": "Two balanced polygons: a sharp Nyquist criterion for polynomial phase retrieval",
+          "trigger": "Same finite trace reconstruction and all obstructions"
+        },
+        {
+          "assessment": "Count or continuous-circle background, not the basis of the exact prior-coverage decision",
+          "evidence": "Philipp uses 4N−4 phaseless Fourier measurements of p and p′; Pohl comparison reports unbalanced allocation.",
+          "identifier_or_url": "https://www.ce.cit.tum.de/fileadmin/w00cgn/lti/pdf/vortraege/Pohl-Phase_Retrieval_in_Spaces_of_Analytic_Functions_on_the_Unit_Disk.pdf slide 18; arXiv:1403.4769",
+          "material_read": "Philipp indexed abstract; Pohl–Li–Boche frozen citation and comparison at lines 60 and 70 only",
+          "method": "Primary lookup and bounded attempted slide retrieval (unavailable)",
+          "title": "Phase Retrieval in Spaces of Analytic Functions on the Unit Disk; Phase Retrieval from 4N-4 Measurements",
+          "trigger": "Concentric design with same count and general 4K predecessor"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:13–17, 25–52",
+        "Earlier phase-retrieval statements detailed in originality, especially 12ae1d0f43de and c47681d1b8e5"
+      ],
+      "rationale": "Balanced equiangular sampling and twist sensitivity are mathematically useful, but the useful exact classification and optimal stagger are already stated in earlier records. The remaining numerical expression is the singular-value ratio of the known two-unit-row demixer, and the Hermitian interpretation restates the same rank-independent linear interpolation. There is no established separate nonroutine exact fact left here; the record does not give a new sampling architecture or full inverse stability result.",
+      "residual_risks": [
+        "This assesses the incremental scientific content of the frozen finding, not the importance of phase retrieval or the utility of the already known criterion. No valuable distinct repair was established."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

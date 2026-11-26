@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:17:57.340278Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fix n>=2 and r>0 in the stated metric. In each upper-half-plane factor cosh(d(i,x+ie^s))=cosh(s)+x^2/(2e^s). With q=d_0(o,z)^2/2, the constraint ∇u=lambda ∇q forces x_1=x_2=0, the other factors equal to i, and s_1=-s_2=±b, b=r/sqrt(2). There is no interior critical point. At the maximum lambda=1/b; the horizontal constrained Hessian entries in the orthonormal frame are -e^b/sinh(b) and -e^(-b)/sinh(b) (also obtained directly from the distance identity), and the other 2n-3 are -1/b. Its absolute determinant is b^(-(2n-3))/sinh(b)^2; interchange of factors gives the minimum. Euclidean density in hyperbolic volume is prod(y_j^2)=1 there. Divergence with ∇u/2 gives boundary amplitudes ±1/sqrt(2) times (it)^(-1). Stationary phase on the smooth (2n-1)-sphere gives the exact prefactor and phase in the Finding and remainder O(t^(-n-3/2)) for fixed r. The real multiplier consequently alternates sign along large successive cosine extrema. For a selected positive zero, affine hyperbolic isometries give exact unweighted Euclidean mean zero at every upper-half-plane center. The transfer in Ma–Zhang (33)–(35) is valid for any fixed r after the zero is known. Independently, smooth cutoffs of radius j about (i exp(-j^3),...,i exp(-j^3)) can be separated by >2r on a tail, equal 1 on the half-radius balls and have metric Lipschitz norm O(1/j). Each radius-r ball interacting with one late cutoff has mean error O(r/j)+o(1): replace the cutoff by its center value and use that the inverse Cayley volume weight is uniformly asymptotic to a positive constant on these thickened supports. Thickened early supports are compact, so this covers approaches to every face, not just the distinguished boundary. Pullback by the center dilations and dominated convergence give the product of the one-factor normalized kernel moment and its conjugate: the moment reduces to 2 int_0^infty y^(it)(1+y)^(-3)dy = Gamma(1+it)Gamma(2-it), giving the stated positive squared modulus. Weakly null normalized kernels annihilate compact contributions to the limit. Thus the symbol and bound hold for each prescribed R with r=sqrt(2(n+1))R as normalized by the cited source, not uniformly in R or with one common symbol. The uploaded stationary checker was only inspected, not used for the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ma–Zhang's transfer does work for any fixed r once a positive multiplier zero is given, but its existence proof at (32) uses the small-ball Bessel limit, not a theorem about fixed arbitrarily large r.",
+          "Standard boundary stationary phase requires a separate proof of the critical-point geometry, nondegeneracy and nonvanishing Euclidean weight for this phase on this product sphere."
+        ],
+        "reasoning": "The prior transfer is broader than the prior theorem's stated radius interval, but remains conditional. The contribution is establishing the missing hypothesis for every r, not a new transfer or an application of an invariant measure theorem without change of weight.",
+        "searches": [
+          "Primary literature lookup for fixed-radius Euclidean product-hyperbolic ball transforms, radial mean-value/spherical transforms and Toeplitz noncompactness",
+          "arXiv:2610.22893v1, equations (32)–(35) and proof of Theorem 17"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_stationary.py for ordinal 3",
+        "Bounded Resultary and primary literature lookup",
+        "Ma–Zhang arXiv:2610.22893v1 §4",
+        "Published SCOPE spherical-transform record identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (32) is the small-r normalized Bessel limit with t proportional to 1/r. Equations (33)–(35) give zero-ball mean, kernel lower bound, and localization at the chosen zero.",
+          "The present fixed-r, t→infinity calculation has two isolated stationary points with a determinant explicitly positive at every r; the positive cosine coefficient produces infinitely many zeros."
+        ],
+        "reasoning": "The old limit in r cannot be exchanged for this high-frequency estimate at fixed r. The old conditional construction plus the new zero law yields the all-radius theorem; the latter does not follow from the inspected prior alone.",
+        "searches": [
+          "arXiv:2610.22893v1, §4 eq. (32) versus (33)–(35) and the essential-norm continuation",
+          "Published SCOPE spherical-transform result identified above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the half-plane metric ds_0^2 the Bergman radius is rescaled to r=sqrt(2(n+1))R. The old theorem has 0<R<R_n even after rescaling; its Bessel formula is a limit as r tends to zero.",
+          "Both statements use Euclidean mean, not invariant Riemannian volume, and the old example uses the same two-coordinate logarithmic phase."
+        ],
+        "reasoning": "Change of metric normalization or disk-to-half-plane coordinates does not convert a local radius interval to all positive radii. An invariant-volume spherical transform is not automatically the Euclidean-weighted product-ball Fourier integral.",
+        "searches": [
+          "Bounded Resultary searches for all-radius Bergman geodesic ball Toeplitz averaging and product hyperbolic multiplier zeros",
+          "arXiv:2610.22893v1, Theorem B(ii), §4 Theorem 17, equations (32)–(35)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected nearby SCOPE result is about conditional diffraction support on zeros of a spherical transform for hyperbolic/symmetric-space packing LP; it is not an exact law for Euclidean-volume product balls or a Toeplitz counterexample.",
+          "The bounded returns supplied no matching exact multiplier/zero formula or theorem; there is no finite parameter census whose lookup could establish this continuum asymptotic."
+        ],
+        "reasoning": "The closest retrieved exact catalogue statement uses a different transform and objects, so is no evidence of duplicate coverage.",
+        "searches": [
+          "Resultary bounded catalogue lookup for the exact fixed-radius multiplier and all-radius counterexample",
+          "SCOPE published record 2026/10/11/SCOPE-sharp-hyperbolic-linear-programming-witnesses-require-a-spherica--c6d2faebb7fc (RESULT.md offsets 1200–3686)"
+        ]
+      },
+      "rationale": "Credit Ma–Zhang for the sufficiently-small-radius theorem, the multiplier formulation and the localization/essential-norm transfer conditional on a zero. The supported distinct results are the exact large-frequency law at every fixed positive radius and the resulting removal of the small-radius restriction. The strongest checked prior does not supply that nondegeneracy calculation or zeros at arbitrary r.",
+      "residual_risks": [
+        "Bounded lookups do not establish global historical priority, in particular for older transform asymptotics in other terminology. No uniformity over radii is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct small-radius coverage and arbitrary-fixed-radius conditional localization; not all-radius zeros",
+          "evidence": [
+            "Small-radius limit (32) is used to locate one positive zero when r is sufficiently small.",
+            "At a zero, (33), (35) give exact affine-transport cancellation then errors C(r/L_j+epsilon_j); (34) and continuation give the same essential-norm lower bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.22893v1",
+          "material_read": "Section 4, Theorem 17, pp. 26–29, PDF text offsets 62100–75624; especially (32)–(35) and weakly-null-kernel continuation around 71475",
+          "method": "Bounded passages in lawful OA primary PDF",
+          "title": "Compact Toeplitz Operators and the Geometry of Fixed-Radius Averages",
+          "trigger": "Same multiplier, same geometry and symbol construction; nearest positive coverage"
+        },
+        {
+          "assessment": "Different transform and theorem",
+          "evidence": [
+            "Provides a condition on the diffraction support in a packing linear-programming bound, not the Euclidean-volume oscillatory product-ball multiplier."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-hyperbolic-linear-programming-witnesses-require-a-spherica--c6d2faebb7fc",
+          "material_read": "RESULT.md offsets 1200–3686 in snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Published catalogue lookup and local mirror passage",
+          "title": "Sharp hyperbolic linear-programming witnesses require a spherical-transform condition",
+          "trigger": "Nearest transform-zero published catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact fixed-radius averaging detector for compactness could otherwise still work on genuine polydisc balls of larger prescribed radii. The result rules out that possibility at every radius and gives an explicit nonzero essential-norm witness. The multiplier's oscillatory coefficient and infinitely many zeros are useful beyond rechecking a single small-radius example; the required sign oscillation is not a numerical or small-ball extrapolation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

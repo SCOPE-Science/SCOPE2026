@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:25:35.924422Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–46; VERIFICATION.md lines 19–23 and inspected verify.py",
+        "Independent replay: python3 /workspace/branches/04c9b29d-d8c3-4e27-a5ec-1b921b037264/independent_check.py; output in the same directory at independent_check.txt",
+        "Chang–Verwee arXiv:2610.10026v1 PDF, p. 4"
+      ],
+      "rationale": "Using the canonical F_1=F_2=1 encoding with a_1=0 and infinite zero padding, parsing zero followed by one as D and other zeros as S is unique and records only complete-block boundaries. The admissible word counts satisfy w_0=w_1=1 and w_m=w_{m-1}+w_{m-2}. An independently written exact checker enumerated the complete prime interval and additionally generated the admissible word sets to test equality, not only the sizes. It reproduced all twenty counts, thresholds and last words. In particular 135,340 primes through 1,803,947 fill exactly 10,946 length-20 classes; DSSDSSSSDSDSSSSS first occurs at that prime. The maximum of the exact first-hit primes proves coverage at the stated bound and failure at all lower bounds. Chang–Verwee Theorems 1.5–1.6 also justify existence for general fixed lengths in this convention.",
+      "residual_risks": [
+        "Exact exhaustion is for the stated twenty lengths. No numerical conclusion is drawn for larger lengths, and no formal proof-assistant check was performed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2610.10026v1 p. 4 theorem gives the asymptotic pi(X)/phi^len(B) at fixed B; section 9.2, p. 60, discusses uniformity at growing lengths"
+        ],
+        "reasoning": "The fixed-word asymptotic controls eventual frequency, not the last initial prime hit over all words of a given length. The census does not claim to solve the growing-length question.",
+        "searches": [
+          "Chang–Verwee Theorems 1.5–1.6 and section 9.2",
+          "Resultary: Fibonacci prime thresholds and terminal blocks"
+        ]
+      },
+      "checked_sources": [
+        "Chang–Verwee arXiv:2610.10026v1",
+        "Local Resultary search and indexed 01a369a885ee statement",
+        "Exact witness websearch"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.6 gives limiting frequency, and section 9.2 treats growing-length control separately",
+          "Independent first-hit maps establish the missing finite least-prime information"
+        ],
+        "reasoning": "Positive density proves that every first-hit prime exists, but does not identify it or bound the exact last witness sharply; the census is not just substitution into the asymptotic.",
+        "searches": [
+          "Chang–Verwee fixed-word theorem versus the exact maximum of least prime representatives"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary PDF p. 4, offsets 15900–19888, defines TB_e and the two Zeckendorf blocks; it describes the Fibonacci indexing shift"
+        ],
+        "reasoning": "The two block grammars agree after shifting the duplicate initial Fibonacci weight. Number of complete blocks e is not the same as total digit length m; the table tests all full-block words of weight m, not possible raw digit prefixes ending inside D.",
+        "searches": [
+          "Resultary: prime coverage thresholds for terminal Zeckendorf S/D words through digit length 20",
+          "Chang–Verwee arXiv:2610.10026v1, semi-proper blocks and terminal sequence convention"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No direct matching table was located; the literal-witness web results concerned unrelated products",
+          "Resultary 01a369a885ee has a similar threshold title but an indexed smallest-odd-prime-factor Fibonacci recurrence claim"
+        ],
+        "reasoning": "The thematic hit concerns initial-prime thresholds of a different recurrence, not first prime hits in terminal Zeckendorf classes. The bounded database comparisons do not prove priority.",
+        "searches": [
+          "Resultary: exact first-prime Zeckendorf terminal-block coverage frontier",
+          "Websearch: \"1803947\" \"1115701\" Zeckendorf Fibonacci prime terminal blocks coverage threshold OEIS"
+        ]
+      },
+      "rationale": "The distinct claim supported here is the exact twenty-length finite coverage frontier, including the sharp first-hit witnesses, not eventual coverage of fixed classes. The inspected primary source supplies an asymptotic for each fixed word but not these finite maxima. No equivalent table was established by the bounded catalogue and literal-witness searches.",
+      "residual_risks": [
+        "No exhaustive guarantee concerning unpublished or differently indexed tables; full text of the thematic catalogue hit was unavailable, so its comparison uses only its indexed claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same terminal classes after the indexing shift; fixed-word asymptotic does not give the finite threshold frontier",
+          "evidence": [
+            "The Zeckendorf semi-proper blocks are (0) and (0,1). Theorem 1.6 supplies the positive density of each fixed block word, while section 9.2 discusses growing terminal lengths."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.10026v1",
+          "material_read": "p. 4, offsets 15900–19888 (conventions and Theorems 1.5–1.6); section 9.2, p. 60, from offset 230322",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Terminal Blocks of Primes in Pisot Numeration Systems",
+          "trigger": "Primary fixed-word theorem and matching block grammar"
+        },
+        {
+          "assessment": "Indexed finding concerns a distinct recurrence; no priority inference from the date",
+          "evidence": [
+            "The indexed object is a smallest-odd-prime-factor Fibonacci recurrence and a least initial prime seed, not a Zeckendorf terminal prefix."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-prime-fibonacci-seed-thresholds-through-length-23--01a369a885ee",
+          "material_read": "Indexed claim; full mirror text not recovered",
+          "method": "Local Resultary statement comparison and local mirror attempt",
+          "title": "Sharp prime Fibonacci seed thresholds through length 23",
+          "trigger": "Same-day, superficially similar exact Fibonacci threshold hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 8–49; Chang–Verwee section 9.2",
+        "Independent complete first-hit census"
+      ],
+      "rationale": "A sharp coverage frontier and its last-hit witnesses are useful finite benchmarks for algorithms and quantitative predictions near the growing-word problem. The cutoff includes a complete family of 10,946 terminal classes, with both the sharp upper bound and a certified obstruction below it, rather than selected prime examples or approximate frequencies.",
+      "residual_risks": [
+        "Benchmark value is finite; the observations do not support an asymptotic law on their own."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

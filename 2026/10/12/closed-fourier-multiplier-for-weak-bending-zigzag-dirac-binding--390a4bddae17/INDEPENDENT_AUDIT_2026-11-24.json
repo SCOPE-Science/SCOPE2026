@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:56:46.204402Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, §§Assumptions and Proof; VERIFICATION.md and verify_multiplier.py (read, not executed)",
+        "Exner–Holzmann arXiv:2112.08109v1 §2 and Theorems 2.1 and 3.2; Theorem 3.2 checked at OA offset 29000"
+      ],
+      "rationale": "Keep Exner–Holzmann's geometric and decay hypotheses, including injectivity of the coordinates and the weighted integrability in Theorem 3.2. In that theorem the coefficient is 1/8 times the gamma L² norm squared minus the derivative-kernel term with the additional factor 1/2. Under the stated Fourier convention the transform of exp(−ρ_n|s|) is 2ρ_n/(ρ_n²+ξ²); the derivative contributes ξ². Thus Parseval gives 1/(16π) times the integral with symbol 1−Σ_n |(χ_n,uχ_1)|²ρ_n² ξ²/(ρ_n²+ξ²). The sine integral for n≥2, with only even n nonzero, gives precisely w_j=|(χ_2j,uχ_1)|²ρ_2j². The printed transverse expression is understood for the summed modes n≥2 (the separate n=1 element is zero by parity). The identity Σ_j w_j=1 turns the symbol into the asserted positive weighted sum; the exchange is justified by summability and the bounded frequency fractions. To check the summation, put x=q² and A=4j²−1: (A+1)/(A²(A+x))=(x−1)(1/A−1/(A+x))/x²+1/(xA²). The cotangent partial fractions with r²=1−x give exactly the printed formula, its r=0 limit gives 4−32/π², and imaginary r gives coth. The two additional sums in the proof give Σw_j=1 and Σw_jA_j=4 directly by combining inverse powers of A; the series controls q=0 without cancellation. Every term decreases strictly, the lower bound uses A≥3, the upper uses Jensen's inequality and the mean 4, and domination by w_jA_j gives q²M(q)→4. Squaring the inherited square-root law and rationalizing the dispersion relation give the stated coefficient and O(β⁵) at the positive spectral threshold, not a splitting of the two signed states.",
+      "residual_risks": [
+        "No improvement of the inherited weak-bending remainder or extension to noninjective strip coordinates or other boundary conditions is verified. The frozen numerical checker was not replayed; the decisive checks are analytic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.2 cites Exner–Kovařík Theorem 6.3 for the weak-bending expansion; the Dirac–Dirichlet correspondence already provides the dispersion relation. This covers the existence and order of the precursor asymptotic.",
+          "Inspected Results 8df53c617132 and a4d6ab7603ac respectively give an eigenvalue count bound for a soft closing-angle guide and a sufficient bound-state condition for a cut spiral hard domain. Neither concerns this infinite planar strip at weak scaled curvature or its first binding coefficient."
+        ],
+        "reasoning": "Prior binding theorems and related guide geometries are not interchangeable. The frozen exact response is a calculation within the older spectral regime, not a broader existence result. The unavailable monograph remains a plausible priority source, not evidence either way.",
+        "searches": [
+          "Exner–Holzmann §2 and Theorems 2.1, 3.2",
+          "Resultary: Dirichlet waveguide weak bending Fourier coefficient transverse mode sum curvature",
+          "External primary-literature query: Exner Kovařík Quantum Waveguides Weakly Coupled Bound States 6.14 author manuscript chapter open PDF curvature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2112.08109v1, doi:10.1007/s11005-022-01594-3",
+        "doi:10.1007/978-3-319-18576-7_6 (citation and access attempt; original chapter passages not independently read)",
+        "Resultary 8110ee2a687d, 8df53c617132, a4d6ab7603ac, 192b3bbe51a6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known square-root asymptotic and Dirac dispersion immediately imply the quartic gap with the known coefficient squared. The same theorem contains no evaluated cot/coth frequency multiplier in its displayed expansion or the proof passage.",
+          "The additional evaluation uses the exact transverse weights and a partial-fraction sum, and frequency bounds require the distribution of those weights and its mean. The external query found no useful further primary statement."
+        ],
+        "reasoning": "Do not credit the quartic exponent, coefficient transfer, or a bare recomputation of existing positivity. The elementary evaluation, quantitative bounds and frequency tail add evaluated information not established in the accessible precedent.",
+        "searches": [
+          "arXiv:2112.08109v1 Theorems 2.1 and 3.2 and measured threshold relation",
+          "External primary-literature query: Dirac operator spectrum in tubes and layers with a zigzag-type boundary / weak bending coefficient Exner Holzmann"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3.2 gives the gamma-derivative exponential-kernel formula. Its Fourier transform and the transverse sum rule identify the very same unsummed multiplier; the normalization and physical quantity agree.",
+          "The frozen comparison attributes the positive Fourier series to Exner–Kovařík Eq. (6.14). The original chapter was not available for an independent check; no novelty credit is given here for Fourier representation or positivity alone."
+        ],
+        "reasoning": "The nonlocal curvature form, its unsummed Fourier series and the resolvent-weighted series are equivalent. The distinction being assessed is evaluating the infinite transverse response in elementary functions and deriving quantitative frequency behavior, rather than choosing Fourier language.",
+        "searches": [
+          "Resultary: Dirichlet waveguide weak bending Fourier coefficient transverse mode sum curvature",
+          "Exner–Holzmann arXiv:2112.08109v1 Theorem 3.2",
+          "Exner–Kovařík Chapter 6 via doi:10.1007/978-3-319-18576-7_6, locator Theorem 6.3 (access attempt)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest cotangent hit 8110ee2a687d actually evaluates a finite cyclic conjugate-Fejér endpoint norm. The closest quartic/zigzag hit 192b3bbe51a6 treats a tight-binding chain with an impurity law of order ε^(4/3). Neither matches the continuum multiplier."
+        ],
+        "reasoning": "A numerical database of q-values would not substitute for the analytic identity; catalogue formulas were compared by variable, geometry and exact observable rather than by cotangent or zigzag terminology alone.",
+        "searches": [
+          "Resultary: cotangent coth exact multiplier weights 256j^2 4j^2 minus one cubed",
+          "Resultary: zigzag Dirac threshold gap beta fourth power weak bending"
+        ]
+      },
+      "rationale": "Credit Exner–Holzmann for the weak-bending expansion, spectral correspondence and unsummed coefficient, and the earlier Dirichlet literature for the input asymptotic, including the positivity and Fourier-series representation attributed to the monograph by the frozen record. The quartic order and algebraic transfer to the Dirac threshold are direct consequences of the published theorems, not an independent novelty. The supported distinct contribution is the evaluated elementary frequency response and its structural consequences, including strict frequency decay, explicit rational bounds and high-frequency constant. The verified precursor expression leaves the transverse response unevaluated; the strongest other compared catalogue statements have different operators, geometries or observables. I did not find established coverage of the elementary identity in material actually inspected.",
+      "residual_risks": [
+        "The 2015 chapter publisher route was unavailable. The parallel primary source identifies Theorem 6.3 but does not resolve whether Eq. (6.14), exercises or remarks in the book evaluate the same series. A targeted primary-literature query for a lawful author copy yielded no independently inspected authorized alternate. An earlier equivalent evaluation in that chapter or under a different normalization remains a real residual risk. Search absence is not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct precursor result with unsummed coefficient, and quartic gap implied by dispersion",
+          "evidence": [
+            "The square-root deficit is β²/8 times the gamma norm squared less the sum of derivative-kernel terms with factor 1/2. Theorem 3.2 gives exactly two simple discrete eigenvalues ±λ_1 for sufficiently small β and refers to the monograph for the asymptotic."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2112.08109v1",
+          "material_read": "§2, p. 4 assumptions, offset 12800; Theorem 2.1 spectral relation; §3, Theorem 3.2 and proof pp. 8–9, offset 29000",
+          "method": "Original OA preprint PDF relevant passages",
+          "title": "Dirac operator spectrum in tubes and layers with a zigzag-type boundary",
+          "trigger": "Same operator, source coefficient and geometric regime"
+        },
+        {
+          "assessment": "Known precursor by citation; exact prior Fourier summation remains unverified",
+          "evidence": [
+            "The proof of Theorem 3.2 says the mild bending expansion follows from EK15 Theorem 6.3. The frozen file also credits the book's unsummed Fourier representation."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-319-18576-7_6",
+          "material_read": "Citation to Theorem 6.3 in Exner–Holzmann Theorem 3.2 proof; no independently readable original chapter through the publisher route",
+          "method": "Publisher OA locator attempt and targeted alternate-copy search; no full-text comparison claimed",
+          "title": "Quantum Waveguides, Chapter 6: Weakly Coupled Bound States",
+          "trigger": "Cited earlier weak-bending theorem, most plausible same-series source"
+        },
+        {
+          "assessment": "Different finite cyclic operator and invariant",
+          "evidence": [
+            "Cotangent sum for a cyclic conjugate-Fejér/Hilbert endpoint norm, not a strip-curvature response."
+          ],
+          "identifier_or_url": "Resultary 8110ee2a687d",
+          "material_read": "Local mirror RESULT.md Finding",
+          "method": "Catalogue search and original mirror passage",
+          "title": "Exact endpoint norm of the Nyquist-sampled conjugate Fejér transform",
+          "trigger": "Strongest indexed cotangent multiplier match"
+        },
+        {
+          "assessment": "Different boundary model, parameter and invariant",
+          "evidence": [
+            "Eigenvalue-count lower bound in a closing angle for a soft guide."
+          ],
+          "identifier_or_url": "Resultary 8df53c617132",
+          "material_read": "Local mirror RESULT.md Finding",
+          "method": "Catalogue search and original mirror passage",
+          "title": "Optimized closing-angle lower coefficient for soft waveguide eigenvalue counts",
+          "trigger": "Closest soft-guide coefficient overlap"
+        },
+        {
+          "assessment": "Different geometry and nonperturbative existence condition",
+          "evidence": [
+            "A sufficient bound-state condition at angle at least π, not a small-curvature multiplier."
+          ],
+          "identifier_or_url": "Resultary a4d6ab7603ac",
+          "material_read": "Local mirror RESULT.md Finding",
+          "method": "Catalogue search and original mirror passage",
+          "title": "A half-turn cavity guarantee for the cut Archimedean spiral waveguide",
+          "trigger": "Possible hard-Dirichlet guide overlap"
+        },
+        {
+          "assessment": "Different tight-binding impurity model",
+          "evidence": [
+            "The stated law uses ε^(4/3) in a chain, not the positive continuum strip threshold at weak bending."
+          ],
+          "identifier_or_url": "Resultary 192b3bbe51a6",
+          "material_read": "Indexed finding",
+          "method": "Local catalogue search",
+          "title": "A quartic edge-impurity crossover in a zigzag quantum chain",
+          "trigger": "Closest quartic/zigzag catalogue query hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exner–Holzmann, arXiv:2112.08109v1 Theorem 3.2",
+        "Frozen RESULT.md, exact multiplier and its two bounds"
+      ],
+      "rationale": "The canonical leading binding coefficient is motivated by the known weak-bending theorem. Evaluating its transverse response at every frequency makes curvature-scale sensitivity explicit, with strict decay, usable uniform bounds and a quantified high-frequency tail, rather than merely giving another way to compute the coefficient at one input. This information is meaningful for profiles at different longitudinal scales; the elementary Dirac conversion alone would not supply that value.",
+      "residual_risks": [
+        "No optimality of the rational bounds or improved asymptotic remainder is shown or credited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

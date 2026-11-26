@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:33:30.520084Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 31–93",
+        "Frozen VERIFICATION.md, lines 19–25; verify.py, lines 6–78 (read, not executed)"
+      ],
+      "rationale": "The multiplication operator splits into the internal triangle, one signed triangle per external vertex, and a zero block. The three signs of each external triangle can be conjugated by a diagonal sign matrix to a common sign equal to their product. Thus only negative external triangles contribute a -1 eigenvalue, once each. A triple sign containing two fixed vertices of B and a variable external vertex is a separate fair pivot for each Pasch sign in B's star. If C meets B in at most one vertex, choose the two fixed vertices outside C so these pivots never occur in C's star. If C meets B in two vertices, choose one shared vertex and the respective nonshared vertex to form disjoint pivots for the two stars outside B union C. The unique common Pasch remains an independent shared fair bit. Conditional expectations of the two profile indicators given that bit are a_k and b_k (respectively a_l and b_l); their covariance is the stated quarter product. There are 3(m-3) such neighbors per block, counted in ordered pairs, and the diagonal is the one-block multinomial term. This includes m=4: all four blocks share one fair bit, so Var(T_0)=4. For a threshold indicator only O(Nm) of the N^2 covariances can be nonzero. Chebyshev and summability of O(m^-2), applied at rational thresholds and countably many tolerances, give almost-sure convergence to the binomial expectations, which converge by the binomial CLT. Continuity gives weak convergence under any cross-dimension coupling.",
+      "residual_risks": [
+        "No joint law or fluctuation CLT for the complete profile vector is established. The finite enumerations and sampling in the package are diagnostics, not premises of the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.5 relates binomial moments of the profile to overlap counts for each fixed decoration; Corollary 5.6 inverts that relation. The earlier Steiner algebra paper studies a different family."
+        ],
+        "reasoning": "Deterministic inversion would require additional random overlap moment and dependence information to produce the covariance or limit; those inputs are not furnished by the inspected statements.",
+        "searches": [
+          "arXiv:2609.25353v1, §5, Theorem 5.5 and Corollary 5.6",
+          "arXiv:2205.08838v1, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary",
+        "arXiv:2609.25353v1",
+        "arXiv:2205.08838v1",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The shared-Bernoulli law specifically applies when blocks meet in two vertices. The covariance contribution has coefficient 3N(m-3)/4. The summable variance estimate uses the independence for the other pairs."
+        ],
+        "reasoning": "The one-block binomial marginal, even paired with deterministic inversion, cannot supply the shared-bit law or establish concentration of the empirical distribution. These are the substantive additional claims.",
+        "searches": [
+          "arXiv:2609.25353v1, §§1.2, 5 and 7",
+          "Frozen RESULT.md, lines 57–93"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fox–Tkachev identify the deterministic profile with the degree distribution of the hypergraph of negative Pasch configurations."
+        ],
+        "reasoning": "This equivalence takes the model and statistic out of the novelty claim. The stochastic result concerns covariance between degree-bin counts in a random subhypergraph driven by triple signs, not merely the hypergraph formulation.",
+        "searches": [
+          "arXiv:2609.25353v1, abstract and §1.2",
+          "Resultary semantic lookup for fair-sign Peirce profiles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local lookup returned no materially overlapping finding. The prior paper reports thousands of randomly sampled m=8 profiles, not an exact table for the random moments or an all-m law."
+        ],
+        "reasoning": "Samples and listings of distinct deterministic profiles do not give the fair-decoration weights, overlap correction, or almost-sure limit. The search is bounded.",
+        "searches": [
+          "Resultary semantic lookup for the random Peirce covariance and limit",
+          "arXiv:2609.25353v1, §7, p. 25"
+        ]
+      },
+      "rationale": "The deterministic spectral statistic and profile are known; the supported distinct claim is the complete covariance of the random counts and their almost-sure Gaussian empirical profile for independent fair decorations. No equivalent coverage was found in the inspected evidence, with the access limitation below.",
+      "residual_risks": [
+        "The related decorated partial Steiner triple systems manuscript remains unread; primary and indexed comparisons are not exhaustive priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the statistic, deterministic profile and inversion, and computational sampling; inspected passages do not cover the random profile moments or strong limit.",
+          "evidence": [
+            "Theorem 5.5 and Corollary 5.6",
+            "§7 random m=8 profile sampling",
+            "Reference [8] names a related 2026 manuscript."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.25353v1",
+          "material_read": "Abstract and §1.2 (pp. 1, 4–5); §5 (pp. 19–21); §7 (p. 25); references (p. 27).",
+          "method": "Targeted OA full-text passages.",
+          "title": "On the Peirce spectral rigidity of decorated incidence algebras",
+          "trigger": "Same decorated Grassmannian algebra and spectral profile."
+        },
+        {
+          "assessment": "The inspected passage concerns a different model; no whole-document negative claim.",
+          "evidence": [
+            "Abstract describes a one-parameter family associated with Steiner triple systems."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.08838v1",
+          "material_read": "Abstract, p. 1.",
+          "method": "OA paper abstract passage.",
+          "title": "Killing metrized commutative nonassociative algebras associated with Steiner triple systems",
+          "trigger": "Earlier Steiner algebra model."
+        },
+        {
+          "assessment": "Coverage unresolved.",
+          "evidence": [
+            "Reference [8], p. 27 (2026)."
+          ],
+          "identifier_or_url": "Fox–Tkachev arXiv:2609.25353v1 reference [8]",
+          "material_read": "Bibliographic entry only.",
+          "method": "Reference identified in the primary paper; full text not available in the accessed sources.",
+          "title": "Spectral rigidity and Peirce decompositions of decorated partial Steiner triple systems",
+          "trigger": "Closely related decorated-system manuscript."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 13–29, 57–93",
+        "Fox–Tkachev arXiv:2609.25353v1, §7"
+      ],
+      "rationale": "The exact overlap correction quantifies when treating an existing, naturally sampled spectral profile as multinomial gives incorrect uncertainty. It covers all profile bins, including their cross-covariances, not only a mean or one variance. The strong law then shows that this local dependence does not obstruct a Gaussian shape for a typical large decoration. This supplies a usable baseline for the computationally sampled profiles in the prior work.",
+      "residual_risks": [
+        "The baseline is for independent fair decorations at the distinguished block idempotents, not constrained signs or arbitrary idempotents."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:05:59.925753Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The map agrees with Wood, including counting preferred left edges by the parent's even depth from the top of its preferred path. Both one-argument restrictions of Q are invertible affine maps, so varying a replacement label permutes the full root labels. Independent evaluation of the four five-leaf label witnesses gives 00, 01, 10, 11 in order. Independent evaluation of the two parity witnesses gives the same label 00 and parity pairs (0,0) and (1,1); the two incoming-depth cases are essential. Replacements preserve the first preorder occurrence (other equal-size occurrences are disjoint) and label-preserving replacements leave the preferred-path data outside unchanged. The four-element label orbits and parity involution therefore cancel the corresponding contributions exactly. With j forbidden patterns of size five the root recurrence subtracts exactly j z^5; coefficients are nonnegative, and nesting avoidance shows a_4(n) <= a_2(n). At r=0.251 the discriminants are 0.003970005010008 and 0.011940010020016 and decrease on [0,r]. The formal branch continues analytically through that interval, so Pringsheim's theorem is sufficient for the claimed evaluation and coefficient bound. Catalan asymptotics give the relative error. The supplied colour enumeration through n=10 is corroboration, inspected but not rerun; the exact witnesses and analytic argument do not rely on that enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The logarithmic-colouring work uses heavy paths defined by subtree size. The linear-quasigroup work counts bracketing equivalences from depth congruences, not paths selected by the children's labels."
+        ],
+        "reasoning": "Neither a heavy-path parity nor counts of unrestricted bracketing identities control the preferred-path bit for zero-labelled leaves.",
+        "searches": [
+          "Berendsohn–Cardinal–Iacono–Kozma 2610.11426v1",
+          "Lehtonen–Waldhauser 2310.09184",
+          "Wood 2611.19659v1 §2"
+        ]
+      },
+      "checked_sources": [
+        "Wood 2611.19659v1",
+        "Tan 2611.05323v1",
+        "Berendsohn et al. 2610.11426v1",
+        "Lehtonen–Waldhauser 2310.09184",
+        "Resultary 8e54e44c3559",
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Properness is a statement about pairs related by a rotation. The reviewed proof needs explicit size-preserving replacements that permute root labels or flip a global parity for either incoming depth."
+        ],
+        "reasoning": "Properness does not imply class balance, and ordinary Catalan enumeration does not produce either replacement property. Fringe avoidance quantifies their exceptions and gives the extra all-order estimate.",
+        "searches": [
+          "Wood Theorem 1 and §2",
+          "Tan 2611.05323v1 introduction and colouring definition",
+          "Berendsohn et al. 2610.11426v1 colouring and theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest Resultary hit, 8e54e44c3559, is precisely the frozen record, not separate coverage.",
+          "Wood's theorem concerns properness; Tan uses three label states and two parity bits on highlighted paths."
+        ],
+        "reasoning": "Neither renaming a proper colouring nor changing its path statistic gives the eight class counts of this particular map.",
+        "searches": [
+          "Resultary searches for Wood's eight-colouring, class balance and fringe substitutions",
+          "Wood 2611.19659v1 §§1–2",
+          "Tan 2611.05323v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Wood provides the quasigroup operation, not tables of N_n(s,b); the closest counted Catalan-variant classes are for a different equivalence relation."
+        ],
+        "reasoning": "Finite colour counts can be computed from Wood's rule, but a table could not certify the universal exponential error. The relevant exact comparison is the pattern-avoidance majorant for these actual classes.",
+        "searches": [
+          "Resultary 8e54e44c3559 and related associahedron colouring results",
+          "Wood 2611.19659v1 §2",
+          "Lehtonen–Waldhauser 2310.09184 abstract and class-count scope"
+        ]
+      },
+      "rationale": "The credited original result is the quantitative class distribution of Wood's actual fixed map with all leaf labels zero, not the map or the proper eight-colouring theorem. The inspected alternatives do not cover both label and parity frequencies for that map.",
+      "residual_risks": [
+        "A general theorem phrased in the language of decorated trees or finite-state tree statistics might imply a related balance result; no such equivalent was established in this bounded comparison.",
+        "The exponential rate is sufficient and uniform, not certified optimal."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact colouring is prior; class balance is not the theorem stated there",
+          "evidence": "Theorem 1 bounds the chromatic number by eight; §2 gives Q, the preferred-child rule and the even-path-depth count.",
+          "identifier_or_url": "https://arxiv.org/html/2611.19659v1",
+          "material_read": "§1 Theorem 1, offset 3500; §2 map, offset 6500",
+          "method": "Open-access HTML passages",
+          "title": "Associahedra are 8-colourable",
+          "trigger": "Identical colouring and properness convention"
+        },
+        {
+          "assessment": "Different map and theorem",
+          "evidence": "Three-state root label and two highlighted-path parity bits.",
+          "identifier_or_url": "https://arxiv.org/html/2611.05323v1",
+          "material_read": "Introduction offset 0 and colouring offset 6700",
+          "method": "Open-access HTML passages",
+          "title": "Associahedra are 12-colourable",
+          "trigger": "Closest alternative constant colouring"
+        },
+        {
+          "assessment": "Logarithmic colouring with a different path decomposition",
+          "evidence": "Uses left-heavy nodes and heavy paths determined by subtree size.",
+          "identifier_or_url": "https://arxiv.org/html/2610.11426v1",
+          "material_read": "Colour definitions offset 4850 and theorem offset 6250",
+          "method": "Open-access HTML passages",
+          "title": "Berendsohn–Cardinal–Iacono–Kozma associahedron colouring",
+          "trigger": "Even-depth path-parity antecedent"
+        },
+        {
+          "assessment": "Different equivalence classes and count",
+          "evidence": "Algorithms and Catalan-variant counts concern identities of bracketings, not the rooted preferred-path parity.",
+          "identifier_or_url": "https://arxiv.org/html/2310.09184",
+          "material_read": "Abstract, offset 650",
+          "method": "Open-access HTML scope comparison",
+          "title": "Associativity conditions for linear quasigroups and equivalence relations on binary trees",
+          "trigger": "Quasigroup statistics on bracketings"
+        },
+        {
+          "assessment": "The identical record under review",
+          "evidence": "Exactly the same 1/8 balance theorem and five-leaf argument.",
+          "identifier_or_url": "Resultary 8e54e44c3559 (2026/11/22)",
+          "material_read": "Finding and fringe-replacement proof in RESULT.md",
+          "method": "Local Resultary and frozen statement comparison",
+          "title": "Exponential eight-way balance in a constructive associahedron colouring",
+          "trigger": "Strongest indexed matching statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It quantifies how the classes in an explicit proper colouring of a natural graph are actually used. It proves eventual presence of all eight colours and controls finite-size imbalance, neither of which follows from an eight-colour upper bound. The depth-robust parity switch is a useful part of the explanation rather than a numerical observation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

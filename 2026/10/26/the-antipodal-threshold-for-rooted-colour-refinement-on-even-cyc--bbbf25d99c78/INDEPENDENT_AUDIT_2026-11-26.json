@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:02:54.878905Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–49; VERIFICATION.md, verifier source and recorded output inspected, not executed",
+        "Independent replay: python3 /workspace/checks/frozen_math.py 5"
+      ],
+      "rationale": "Through round k, vertices beyond distance k stay homogeneous by regularity and locality of the root marker. Independent coordinate reflections and permutations preserve every histogram fibre. To split the newly reached shell, let N be the multiplicity sum of inward neighbours; summing their histograms gives B_r=(N-2)m_r and B_j=(N-1)m_j+w_{j+1}m_{j+1} for 1≤j<r with w_r=2 and other positive weights one. Inversion works for N≥3. If N=1, one nonzero coordinate is determined by the shell; at N=2 one antipodal coordinate can collide only with two nonantipodal coordinates summing to r, and for r≥3 decreasing one of those coordinates of size at least two leaves two positive coordinates, distinguishing the predecessor multisets. This proves the induction without a higher-round assumption. The final antipodal shell is a singleton, but it is combined with the penultimate shell one round earlier. The histogram orbit sizes follow from coordinate position choices and signs, and their distance enumerator is the partition rectangle Gaussian polynomial. For r=2 the graph is a hypercube: all vertices in a shell have the same inward and outward degrees, and each successive shell separates when first reached until only the singleton antipode remains unseen. Exact direct refinement on eight independent test cases, including C_6^5 and C_4^5, matched every partition and the least stable round. The frozen verifier's recorded 21 full-graph configurations include six supplemental r=1 cases with duplicated cyclic neighbour moves, outside the theorem; these checks are not evidence about simple C_2 factors.",
+      "residual_risks": [
+        "Finite corroboration does not replace shell induction; unequal cycle factors and multiple marked vertices are out of scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "94d56243ec16 covers the all-round C_4 boundary via strongly regular factors, but not longer cycles. 1e745d5c3e61 uses walk lengths in unequal odd factors, and gives an upper bound.",
+          "General colour-refinement work inspected concerns stable equitable partitions, algorithmic applications, or worst-case iteration number."
+        ],
+        "reasoning": "Neither the common strongly regular parameter hypothesis nor the odd-factor walk-certificate hypothesis applies to C_6, C_8, and longer even cycles. General bounds do not give this profile.",
+        "searches": [
+          "Resultary 94d56243ec16 for general Cartesian products; 1e745d5c3e61 for walk certificates",
+          "arXiv:1307.5697, arXiv:1502.01255, arXiv:2005.10182"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e49c38d8ee17, 6bf9c30e2530, 94d56243ec16, 1e745d5c3e61",
+        "OA passages from arXiv:1307.5697, arXiv:1502.01255 and arXiv:2005.10182"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The odd-cycle argument requires one inward move per positive coordinate, but the antipode gives two in the target setting; its proof cannot be reused with the same injectivity claim without this change.",
+          "C_4 itself gives a weighted predecessor collision between one distance-two coordinate and two distance-one coordinates on shell two."
+        ],
+        "reasoning": "The new weighted inversion and its low-multiplicity exception analysis close a genuine proof gap. Same-day dates do not establish priority or imply equivalence.",
+        "searches": [
+          "6bf9c30e2530 proof and limitations; 94d56243ec16 product proof; Kiefer–McKay worst-case iteration statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "e49c38d8ee17 gives the same rooted stable partition for d=2, but expressly excludes exact refinement rounds.",
+          "6bf9c30e2530 has the same all-round and depth formulas for odd cycles and explicitly excludes the even antipodal case."
+        ],
+        "reasoning": "An equivalent partition formula on another graph class does not settle injectivity of the weighted inward multisets here, and matching only the stable partition in d=2 does not match the per-round theorem.",
+        "searches": [
+          "Resultary: rooted/marked even-cycle powers, square tori, odd-cycle powers and orbit/coordinate-distance certificates"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed 6bf9c30e2530 gives rd−1 with odd factors, and 94d56243ec16 gives 2d−1 with C_4 factors. The closest even-factor record e49c38d8ee17 tabulates stable orbits for two factors, not the all-round partition."
+        ],
+        "reasoning": "The matching numerical depths and the special-family stable data cannot substitute for exact even-cycle all-round evidence with r≥3.",
+        "searches": [
+          "Resultary exact stabilization depth rd−1, per-round histogram profiles, and C_4 hypercube exception"
+        ]
+      },
+      "rationale": "The supported distinct core is the exact all-round profile in arbitrary powers of even cycles of length at least six. The stable d=2 case and the hypercube comparison are covered, and the odd-cycle analogue has essentially the same conclusions but a different inward-neighbour hypothesis. The frozen work does not claim novelty for the hypercube shell partition; its role here is to identify the exceptional boundary. The finding does not obtain the main scope by parameter substitution into the inspected material.",
+      "residual_risks": [
+        "The odd-cycle record mentions Kluge (2022) on cyclic Cayley graphs/individualization without a complete citation in the inspected passage; any stronger relevant result there remains unresolved.",
+        "No claim of exhaustive literature coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap for d=2 stable classes, not all rounds or arbitrary d.",
+          "evidence": "Unordered pairs of coordinate distances classify stable colours, n≥5; exact rounds are expressly outside scope.",
+          "identifier_or_url": "Resultary e49c38d8ee17",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local Resultary query and record mirror",
+          "title": "Geodesic certificates for orbit-exact colour refinement on square tori",
+          "trigger": "Rooted refinement on equal-cycle factors including even lengths"
+        },
+        {
+          "assessment": "Strongest analogue, but its key inward-neighbour premise fails here.",
+          "evidence": "Homogeneous far region and complete inner histograms for odd cycles; only one inward move per positive coordinate.",
+          "identifier_or_url": "Resultary 6bf9c30e2530",
+          "material_read": "Finding at offset 0, proof around 2906, limitations and related work around 6400–8916",
+          "method": "Local Resultary query and record mirror",
+          "title": "Sharp rooted colour refinement on Cartesian powers of odd cycles",
+          "trigger": "Same form of depth/profile theorem"
+        },
+        {
+          "assessment": "Covers the C_4 comparison exactly; longer cycles are not strongly regular.",
+          "evidence": "Hamming-parameter case (4,2,0,2) yields truncated distance and diameter-minus-one depth for powers of C_4.",
+          "identifier_or_url": "Resultary 94d56243ec16",
+          "material_read": "Finding at offset 0, proof at offsets 2800–5562",
+          "method": "Local Resultary query and record mirror",
+          "title": "A sharp rooted colour-refinement dichotomy for Cartesian products",
+          "trigger": "Potential stronger theorem covering all factors"
+        },
+        {
+          "assessment": "Different factors and an upper bound, not exact even-factor rounds.",
+          "evidence": "Certificates combine distance, geodesic count, and opposite-parity walk length for unequal odd factors.",
+          "identifier_or_url": "Resultary 1e745d5c3e61",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local Resultary query and record mirror",
+          "title": "Opposite-parity walk certificates for rooted products of unequal odd cycles",
+          "trigger": "Possible general walk-based implication"
+        },
+        {
+          "assessment": "Foundations, not a torus profile.",
+          "evidence": "Colour classes, fractional isomorphism, and matrix dimension reduction.",
+          "identifier_or_url": "https://arxiv.org/abs/1307.5697",
+          "material_read": "PDF p. 1 around text offset 700",
+          "method": "OA PDF passage inspection",
+          "title": "Dimension Reduction via Colour Refinement",
+          "trigger": "Primary reference for general refinement"
+        },
+        {
+          "assessment": "Generic definitions do not imply exact rounds for this family.",
+          "evidence": "Refinement update, stable partition, and equitability.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.01255",
+          "material_read": "PDF pp. 4–5, offsets 14300–16793",
+          "method": "OA PDF passage inspection",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "Primary reference for stable refinement and equitability"
+        },
+        {
+          "assessment": "Worst-case result over graphs of a given order, not the target rooted family.",
+          "evidence": "Problem is the maximum iteration number on general n-vertex graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/2005.10182",
+          "material_read": "PDF pp. 1–2, offsets 5900–8500",
+          "method": "OA PDF passage inspection",
+          "title": "The Iteration Number of Colour Refinement",
+          "trigger": "Primary reference for exact iteration depth"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md all-round formulas, weighted predecessor lemma and C_4 comparison",
+        "Nearest stable square-torus and all-round odd-cycle results"
+      ],
+      "rationale": "A roundwise description gives strictly more than orbit-exactness or a depth bound. It resolves when coordinate structure becomes visible and why the extra antipodal neighbour multiplicity destroys it only for the four-cycle factors. The low-multiplicity collision analysis is useful in deciding when shell-by-shell refinement proofs transfer to other products.",
+      "residual_risks": [
+        "No claimed extension to other Cartesian products."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:50:38.233971Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Strict PD makes the augmented system invertible by testing a null vector against its constrained coefficient vector. Constants are reproduced exactly. On the mean-zero coefficient subspace, applying the mean-removal projection P gives PK_εc=Py; PK_ε is identity there up to O_n(φ(εh)). Thus c_i=y_i−mean(y)+O_n(φ(εh)V_d(y)), and the scalar term is mean(y)+O_n(φ(εh)V_d(y)). For the upper TV bound, each monotone translate contributes at most 1 flank for an endpoint and 2 for an interior node. For the lower TV bound use the partition alternating nodes and midpoints. Nodal values are exact; each midpoint differs from the scalar term by at most φ(εh/2)||c||_1, since every node is at least h/2 away. Comparing this partition variation with the endpoint/interior weighted sum confirms the stated uniform rate without differentiation or any assumption on extrema between nodes. Modulo constant input, differences are ℓ¹ coordinates and the unit coordinate vectors are the nodal steps, so subadditivity proves exact finite-ε reduction. A step at j has limiting weighted gain 4j(n−j)/n−1. The integer maximum and strict gap to noncentral steps (when such steps exist) prove the claim; for odd n the theorem does not require both eligible steps to tie. n=2 has norm 1, consistent with directly monotone interpolation. Read VERIFICATION.md and checker.py; the code uses one narrow effective width per grid and sampled partitions, which only lower-approximate continuous TV. It was not executed and is not needed for the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The examined Gaussian-RBF error/stability statements control pointwise or sup error, including an analytic-function theorem, or study a Lebesgue constant. The VSDK article addresses approximation with jumps using discontinuous kernels; its neighboring digital TV mention concerns post-processing."
+        ],
+        "reasoning": "A bound on pointwise interpolation error cannot count rises and falls across the entire node interval, and the class of discontinuous kernels designed for given jumps is different. No checked broader result supplies the weighted localized TV limit.",
+        "searches": [
+          "Platte–Driscoll report pp. 6–7 and Yarotsky arXiv:1205.5961 Theorem 2",
+          "Focused primary search on narrow RBF interpolation, variation and stability with jumps"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py",
+        "Resultary a4116b4b8c78, 914665cad692, 7de5de0f574f, 493d02a4b343",
+        "Davydov–Oanh Strathprints 36480",
+        "Platte–Driscoll Delaware report 2004-01",
+        "Yarotsky arXiv:1205.5961",
+        "De Marchi et al. DOI:10.1007/s10543-019-00786-z"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old linear system and Gaussian localization permit a coefficient-limit calculation, but the comparison passages do not bound TV outside node neighborhoods or count endpoint and interior flanks. The cubic results count different kinds of oscillations."
+        ],
+        "reasoning": "The ℓ¹ reduction is a general consequence of linearity and preserving constants, and the integer maximization is elementary conditional on the weights. The uniform continuous-TV step needs both negligible midpoint tails and globally controlled flanks; the reviewed sources do not mechanically imply the combination or its sharp norm.",
+        "searches": [
+          "DOI:10.1016/j.camwa.2011.06.037, Eqs. (8)–(12)",
+          "Platte–Driscoll report Eqs. (2.9)–(2.12); Resultary cubic TV and Gaussian lattice statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Davydov and Oanh use the same Gaussian interpolant with a constant and zero-sum kernel coefficients. Resultary's exact hit a4116b4b8c78 is the assigned record itself. The same-day cardinal-cubic and cubic-placement records use the same variational observable but different interpolation operators."
+        ],
+        "reasoning": "The comparison includes the same map under constant-augmentation or constant-trend terminology and the equivalent difference-coordinate norm. Augmentation prior use and sharp TV for a different interpolant do not establish the centered-flank law for peaked kernels.",
+        "searches": [
+          "Resultary: constant-augmented radial basis interpolation narrow peaked kernel sharp total variation step norm 4 floor(n²/4)/n, Gaussian RBF ordinary kriging BV",
+          "DOI:10.1016/j.camwa.2011.06.037, §2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit is the assigned record. Distinct Resultary formulas checked include a constant exact gain (2+√3+2√(2−√3))/3 for cardinal cubic splines, a two-branch four-node cubic norm, and a fixed-p, large-N Gaussian RKHS energy correction rather than an ordinary-kriging TV norm."
+        ],
+        "reasoning": "A single-step norm for another kernel or a Gaussian lattice energy coefficient is not an exact table entry for this operator and limit; the comparison checks the invariant, grid class, and limit order as well as formulas.",
+        "searches": [
+          "Resultary: exact narrow-kernel TV coefficient and central single-step extremizer; same-day cubic TV and finite Gaussian lattice boundary analogues"
+        ]
+      },
+      "rationale": "The old constant-trend construction and generic ℓ¹ step reduction are not the originality claim. The distinct result supported by the comparison is the uniform fixed-grid localized TV law, hence the sharp norm and eventual central eligibility for all stated monotone profiles.",
+      "residual_risks": [
+        "Specialist ordinary-kriging or BV literature may use another formulation. The literature hit On the optimal shape parameter for kernel methods: Sharp direct and inverse statements was not resolved at statement level (temporary PDF returned 404). No exhaustive priority claim follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical target",
+          "evidence": [
+            "States the same weights and fixed-grid amplification limit."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-universal-sharp-peaked-kernel-variation-law-for-constant-augme--a4116b4b8c78",
+          "material_read": "Frozen RESULT.md, Finding and proof",
+          "method": "Resultary identification plus matching frozen text",
+          "title": "A universal sharp peaked-kernel variation law for constant-augmented interpolation",
+          "trigger": "Exact catalogue hit"
+        },
+        {
+          "assessment": "Exact construction overlap, different observable and result",
+          "evidence": [
+            "The system includes a constant and the constraint that coefficients sum to zero; it is used in local RBF finite differences for the Laplacian."
+          ],
+          "identifier_or_url": "https://strathprints.strath.ac.uk/36480/1/meshless_scaling.pdf",
+          "material_read": "PDF p. 4 §2.2, Eqs. (8)–(12), offset about 8930",
+          "method": "OA source PDF",
+          "title": "On the optimal shape parameter for Gaussian radial basis function finite difference approximation of the Poisson equation",
+          "trigger": "Same constant-augmented Gaussian construction"
+        },
+        {
+          "assessment": "Sup-norm rather than BV control",
+          "evidence": [
+            "Lebesgue constant is max_x Σ|L_k(x)| for cardinal basis functions; the displayed error bound uses sup-norm."
+          ],
+          "identifier_or_url": "https://udspace.udel.edu/items/e069ffca-870f-437b-85ca-c0494e4117aa/full",
+          "material_read": "Report pp. 6–7, Eqs. (2.9)–(2.12), offset about 23500",
+          "method": "OA report PDF",
+          "title": "Polynomials and their Potential Theory for Gaussian Radial Basis Function Interpolation",
+          "trigger": "Gaussian interpolation operator stability"
+        },
+        {
+          "assessment": "Analytic approximation, not TV amplification",
+          "evidence": [
+            "The theorem bounds sup error for analytic inputs, not variation for arbitrary data with a step."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1205.5961",
+          "material_read": "Abstract and Theorem 2 (PDF pp. 1 and 8; offsets about 430 and 30400)",
+          "method": "OA arXiv PDF",
+          "title": "Univariate interpolation by exponential functions and Gaussian RBFs for generic sets of nodes",
+          "trigger": "Same Gaussian setting and arbitrary sites"
+        },
+        {
+          "assessment": "Different method and observable",
+          "evidence": [
+            "Discontinuous kernel design mitigates Gibbs effects; digital TV is discussed as post-processing."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10543-019-00786-z",
+          "material_read": "Abstract and introduction, PDF pp. 1–2, offsets 150 and 3047",
+          "method": "OA PDF",
+          "title": "Jumping with variably scaled discontinuous kernels (VSDKs)",
+          "trigger": "BV-adjacent kernel interpolation with jumps"
+        },
+        {
+          "assessment": "Same BV observable and step method, distinct operators",
+          "evidence": [
+            "One is a bi-infinite cardinal cubic spline with a fixed exact constant; the other is the interpolating cubic polynomial on four symmetric nodes with two gain branches."
+          ],
+          "identifier_or_url": "Resultary 914665cad692 and 7de5de0f574f",
+          "material_read": "Both RESULT.md Finding and scope, offset 0",
+          "method": "OA local mirror",
+          "title": "Sharp bounded-variation amplification of cardinal cubic spline interpolation; Variation-minimax placement of four symmetric cubic interpolation nodes",
+          "trigger": "Same-day exact TV operator norms and step extrema"
+        },
+        {
+          "assessment": "Different invariant and limiting regime",
+          "evidence": [
+            "It treats u_N^T G_N(p)^(−1)u_N for constant data and N→∞ at fixed p, an RKHS norm rather than interpolation TV."
+          ],
+          "identifier_or_url": "Resultary 493d02a4b343",
+          "material_read": "RESULT.md Finding and scope, offset 0",
+          "method": "OA local mirror",
+          "title": "Alternating finite-size boundary correction for Gaussian lattice interpolation",
+          "trigger": "Related Gaussian operator and boundary correction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The law quantifies a real stability distinction: constants are reproduced and the fixed-grid kernel matrix tends to the identity, yet the sharp variation amplification of the interpolated function grows linearly with the number of nodes. The exact universal coefficient and central perturbations identify a worst-case edge phenomenon not measured by conditioning or sup error. This assesses a fixed-grid peaked limit, not simultaneous scaling with node count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

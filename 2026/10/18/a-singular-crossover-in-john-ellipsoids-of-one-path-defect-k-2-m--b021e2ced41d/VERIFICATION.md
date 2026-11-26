@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of the John ellipsoid and the crossover law
+# Independent mathematical audit
 
-The proof is contained in `RESULT.md`; the programs supplement rather than replace it. The exact positive root is substituted into a weighted Laplacian and the derived effective-resistance identities are independently tested.
+## correctness
 
-Run `python checker.py` in an environment containing NumPy. It assembles full matrices for \(m=2,\ldots,15\) and nine different values of \(t\), totaling 126 configurations. For each it checks the pseudoinverse edge effective resistances, the trace normalization, and the entire positive-eigenvalue determinant against the matrix-tree formula. It also enumerates all spanning trees directly for seven ordinary graphs. Actual result: all 126 configurations and seven enumerations passed.
+PASS
 
-Run `python exact_checker.py` in an environment containing SymPy. It uses rational parameters and exact algebraic-number reduction, computes grounded Laplacian inverses without the analytic resistance formula, and checks every edge contact, a Laplacian cofactor against the tree polynomial, and the positive-multiplier normalization. Actual result: all five rational cases passed: \((m,t)=(2,1/2),(2,2),(3,3/2),(4,1/3),(5,1)\).
+Re-derived the resistance and volume without the spanning-tree differentiation: on the zero-sum hyperplane set h=x_u−x_v and z_i=x_{w_i}−(x_u+x_v)/2, and write G=sum g_i. The energy is Gh²/2+2 sum g_i z_i². Since the edge forms are ±h/2−z_i, their squared supports are 1/(2G)+1/(2g_i). The coordinate map has squared Jacobian m+2 (row Gram blocks 2 and I+11ᵀ/2), giving det_H L=(m+2)2^{m−1}G prod g_i and the claimed intrinsic volume. The ordinary support condition fixes a=(1+1/(m−1+r))/2; the exceptional support condition gives the stated quadratic with opposite-sign roots. Thus all contacts hold, including m=2 and t=1. For arbitrary feasible centered shape matrices the positive Laplacian decomposition bounds the log-determinant gain by zero, with equality only at the proposed shape. A translation adds |edge difference of the center| to the necessary support; at the optimal shape all these differences must vanish, so the center is zero. The zero-row-sum extension of the precision matrix L recovers labeled edges from negative off-diagonals, and the covariance determines the contacting lengths. For fixed t, rationalizing the positive root gives r→t⁻² and log(a/a₀)=O(m⁻²). At fixed m, r=2/t²−(m+1)/2+O(t²), giving det_H L~(m+2)t⁻⁴ and the stated prefactor. At t=c/√m the equation for u=r/m is c²u²+(c²−2)u−(1−1/m)=0, so u→ρ; (m+1)log(a/a₀)→−ρ/(1+ρ) and r(m−1+r)/m²→ρ(1+ρ). This gives the profile and both endpoints using ρ~2/c² and ρ~1/c². The bundled NumPy and SymPy programs were read but not executed; this check is analytical and covers the full parameter range.
 
-Separate direct numerical evaluations of the normalized volume at \(t=c/\sqrt m\) for \(c=0.1,0.5,1,2,5,10\) and \(m=100,1000,10000\) approached the stated scaling function. The universal asymptotic is proved by the positive-root limit and an explicit log-ratio expansion in `RESULT.md`; these finite evaluations are illustrative.
+## originality
 
-There is no machine proof or independent external certification. The verification state is self-reviewed only.
+PASS
+
+The general D-optimal certificate and the ordinary K_{2,m} baseline are not the new content. The supported distinction is the exceptional-path solution, its persistent contact when t varies, and the normalized volume scaling law. Checked related graph families do not imply this anisotropic formula and limit.
+
+## value
+
+PASS
+
+The one-path defect is a minimal controlled metric perturbation, and the normalized John volume is a specific extremal invariant. The exact solution distinguishes a two-direction collapse at fixed size from the linear large-network response and gives the crossover function, not just a possible scaling exponent. This has quantitative use for sensitivity of these metric balls; it does not assert that general heterogeneous metrics have full contact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

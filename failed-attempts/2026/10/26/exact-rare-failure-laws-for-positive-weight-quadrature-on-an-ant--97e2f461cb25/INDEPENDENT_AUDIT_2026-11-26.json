@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:40:28.394618Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–48",
+        "Frozen VERIFICATION.md and verify.py read without executing uploaded code"
+      ],
+      "rationale": "The constant kernel feature cancels for simplex weights; the error is the Euclidean center-to-hull distance. On a miss the unique gap of length pi+delta leaves a short occupied arc; its closing chord attains distance sin(delta/2). For an anchor in the direction of increasing angle the tail event forces all other points into the arc of mass 1/2 minus the displayed integral. Choices of anchor index are disjoint. In cumulative-mass coordinates, conditional on a miss and the anchor, the excess mass of the exceptional gap has survival (1-2m)^(N-1) on [0,1/2], independent of the anchor. Thus the scaled excess mass has rate 2, and rescaling back from mass to angle and distance gives rate 4f(theta). The positive minimum of f bounds the conditional scaled-distance tail by exp(-2 min(f) t), allowing integration against p t^(p-1) for every fixed p>0. Multiplying by N/2^(N-1) gives the stated normalization; strict Jensen and the reciprocal integral for the cosine density give the last claims.",
+      "residual_risks": [
+        "The increasing-angle orientation in the integral is counterclockwise in the usual Cartesian convention. The conditional density f holds for either directed gap anchor, as the half-circle mass is 1/2 from either endpoint. The scalar law is unaffected.",
+        "Continuous angles exclude positive-threshold atoms and coincident samples, including for N=2. The asymptotics are pointwise in the fixed positive density, not uniform as its minimum approaches zero."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "6fc92189d743 proves the joint limit (T,r(T) Exp(1)/(4 f(T))) with exact anchor density f, uniform integrability of fixed powers, and convex-order optimal density proportional to r.",
+          "Jewell–Romano's abstract identifies a general random-arc representation for fixed disk containment. Liu–Yang §3 derives a different finite law for sampling in a disk."
+        ],
+        "reasoning": "Set the radial function r identically one in the inspected older marked limit. Integrating powers of the exponential gives Gamma(p+1) for every real p>0. Strict convex or concave power tests in its convex-order argument give the extremal moments; the cosine specialization is elementary.",
+        "searches": [
+          "Resultary 6fc92189d743 Finding and Proof §§1–5",
+          "Jewell–Romano 10.2307/3213513",
+          "Liu–Yang 10.1016/j.crma.2014.08.015"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6fc92189d743",
+        "arXiv:1405.6114 and 2605.05705v1",
+        "Liu–Yang open primary PDF",
+        "Jewell–Romano abstract and Wendel via Liu–Yang with limitations above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact angular survival conditional on occupied-arc initial angle theta is [1-2 integral_(theta-s)^theta f]^(N-1). The same prior record's unit-circle check gives the equivalent clearance geometry.",
+          "Substitute s=2 arcsin z and integrate using the exact marked law and miss probability. For a forward rather than backward interval, apply Fubini to each mass-coordinate endpoint contribution or use the same exact argument with the opposite anchor; in either case this is the same scalar event.",
+          "The previous majorant and exact angular formula require no derivative of f and the disjoint-anchor argument holds for N=2."
+        ],
+        "reasoning": "The exact finite nonuniform law is an immediate implication even though the older Finding displays the distance formula explicitly only for uniform angles. Neither the weakening of the regularity nor the different quadrature terminology leaves a separately novel substantive claim.",
+        "searches": [
+          "Resultary 6fc92189d743 Proof §§2–6, retrieved at offsets 0 and 5457"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hayakawa treats general convex hulls in positive-weight quadrature. The three-dimensional feature mean here reduces the optimum exactly to the center clearance D_n in 6fc92189d743.",
+          "6fc92189d743 Proof §§1–2 use the initial sample point of the occupied arc rather than the terminal point. This is the clockwise start of the exceptional gap; either direction has the same density for the anchor."
+        ],
+        "reasoning": "The kernel and constraint merely represent this existing random distance; angular orientation can be reversed or the tail integral symmetrized by swapping pair endpoints.",
+        "searches": [
+          "Resultary: marked Wendel law and convex-order optimal sampling for random inscribed polygons 6fc92189d743",
+          "arXiv:2605.05705v1 abstract/introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target is an analytic family, not a finite exact census. Prior exact comparators include Wendel's zero threshold and the uniform finite-gap law from the Dirichlet spacings, also calibrated in the older Resultary record."
+        ],
+        "reasoning": "The exact uniform and zero-threshold formulas alone do not give the nonuniform positive-threshold law; the exact conditional angular endpoint law does.",
+        "searches": [
+          "Resultary 6fc92189d743 Finding and Proof §6",
+          "arXiv:1405.6114 §§1–2",
+          "Wendel 10.7146/math.scand.a-10655, formula checked in Liu–Yang §2"
+        ]
+      },
+      "rationale": "A distinct earlier Resultary record gives the marked clearance law, convergence of all fixed positive moments and sharper convex-order optimization for centrally symmetric ovals. Its exact conditional angular endpoint law, converted via the elementary unit-circle chord identity, gives the frozen nonuniform finite-N tail. The older formal C^1 density and N>=3 scopes do not fully contain the frozen statement verbatim, but the older exact angular calculation and exponential majorant require only positive continuity and apply unchanged at N=2. The RKHS interpretation does not create a separate mathematical law.",
+      "residual_risks": [
+        "Jewell–Romano historical coverage was not resolved. The verdict rests on affirmative earlier exact statements, not on an inaccessible source.",
+        "No absolute historical priority is assigned."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader asymptotic result and exact angular law imply the frozen claims on the circle",
+          "evidence": "Exact conditional angular survival in §2; all fixed positive moments in §4; convex order in §5; exact circle gap criterion in §6.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-marked-wendel-law-and-convex-order-optimal-sampling-for-random-i--6fc92189d743/RESULT.md",
+          "material_read": "Finding, Assumptions and Proof §§1–6, offsets 0–7669",
+          "method": "Read matching passages from the Resultary local mirror using the exact catalog ID",
+          "title": "Marked Wendel law and convex-order optimal sampling for random inscribed polygons",
+          "trigger": "Earlier marked clearance and density optimization match"
+        },
+        {
+          "assessment": "Potential older coverage remains open; not needed for the verdict",
+          "evidence": "Abstract states a random-arc equivalence with arbitrary bivariate midpoint/length law and exact formulas. Full statements of Corollary 4.2 and Example 4.1 not inspected.",
+          "identifier_or_url": "https://doi.org/10.2307/3213513",
+          "material_read": "Cambridge abstract; secondary discussion in Liu–Yang §1 p. 936 and reference [6]",
+          "method": "Lawful Cambridge/JSTOR access attempts yielded no full text; related open PDF read",
+          "title": "Coverage Problems and Random Convex Hulls",
+          "trigger": "General arc coverage and small-disk containment analogy"
+        },
+        {
+          "assessment": "Interior-disk sampling is different",
+          "evidence": "Theorem 3.1 concerns uniform points in the unit disk and nearest edge and vertex contributions.",
+          "identifier_or_url": "https://www.numdam.org/item/CRMATH_2014__352_11_935_0.pdf",
+          "material_read": "§1 p. 936; §2 Wendel formula; §3 Theorem 3.1 pp. 937–938",
+          "method": "Read open PDF passages",
+          "title": "Probabilities of Hitting a Convex Hull",
+          "trigger": "Planar finite hull-clearance law"
+        },
+        {
+          "assessment": "Wendel covers the miss probability, not its severity",
+          "evidence": "The planar probability is N/2^(N-1).",
+          "identifier_or_url": "https://doi.org/10.7146/math.scand.a-10655",
+          "material_read": "Original scan not text-readable in retrieval; statement via Liu–Yang §2",
+          "method": "Original scan attempt and bounded reading of the citing primary paper",
+          "title": "A Problem in Geometric Probability",
+          "trigger": "Known zero-threshold probability"
+        },
+        {
+          "assessment": "Uniform angular sampling, including the uniform gap law; not the nonuniform marked claim by itself",
+          "evidence": "Uniform spacings have the Dirichlet law and the unconditioned longest gap has a Gumbel scaling.",
+          "identifier_or_url": "arXiv:1405.6114",
+          "material_read": "Abstract and §§1–2",
+          "method": "Open full-text HTML passages",
+          "title": "Limiting distribution of the maximal distance between random points on a circle: A moments approach",
+          "trigger": "Exact and asymptotic circular spacing comparator"
+        },
+        {
+          "assessment": "General hull formulation and bounds, not the rare law itself",
+          "evidence": "Kernel error is framed by random convex-hull geometry.",
+          "identifier_or_url": "arXiv:2605.05705v1",
+          "material_read": "Abstract and introduction",
+          "method": "Open full-text HTML passages",
+          "title": "Convex-Geometric Error Bounds for Positive-Weight Kernel Quadrature",
+          "trigger": "Equivalent geometric formulation of positive-weight quadrature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, scope and limitations",
+        "Resultary 6fc92189d743 Finding and Proof §§2–6"
+      ],
+      "rationale": "Separating miss frequency from conditional loss is scientifically useful, but the frozen result recasts the existing stronger clearance analysis. Converting the known angular law by the elementary chord identity and inserting a cosine into the known moment functional are routine specializations rather than a new quadrature invariant or a new optimization principle.",
+      "residual_risks": [
+        "This does not assess more general kernels, a genuinely new sampling law, or algorithmic weight selection."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

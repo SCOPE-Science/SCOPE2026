@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The cubic cancellation condition forces the complete positive quadratic metric classification. Antipodal inward-boundary inequalities imply negative semidefiniteness of the entire shifted quadratic drift; two-by-two principal minors then force the center to scale linearly with the parameter. The exact drift along the displaced \(y\)-axis produces the sharp \(3\rho^2\) obstruction. The primary source's explicit trapping ball has precisely the same leading semiaxis, establishing sharpness. The packaged symbolic checker reproduced the nonstandard polynomial coefficients and the subleading radius asymptotic. This proof concerns forward-invariant ellipsoids only, not the actual attractor.
+## correctness
 
-**Originality — PASS under inspected evidence.** The original ETM-3D article provides an upper ellipsoid but no lower bound against optimizing fixed energy-compatible quadratic metrics. A published ETM-3D threshold result studies centered quadratic stability near the first saddle-node, not large-parameter absorbing radius optimization. Multiple semantically targeted mathematical database searches retrieved no stronger implication; those searches alone are not a uniqueness proof. The closest published result's full text was not accessible, so a residual historical-priority risk remains.
+PASS
 
-**Value — PASS.** High-parameter absorbing-set conservatism is a concrete open design issue identified by the original article. The theorem supplies a class-wide obstruction with an optimal universal leading constant, explaining rigorously why changing fixed energy-compatible quadratic weights or centers cannot shrink the certificate from quadratic to linear growth. It delineates when a genuinely nonlinear or otherwise broader trapping technique is needed, rather than merely giving another loose bound.
+In RESULT.md lines 25–63, coefficients of the distinct cubics x²y, x²z and xy² eliminate the three off-diagonal entries of W; the remaining xyz coefficient is a−2b+c. After translation, the even part of the boundary drift is the quadratic with diagonals (−2a,−b,−5c) and mixed coefficients b−aρ−cm_z, (b+c)ρ−am_x, and 2bm_y. Adding antipodal inequalities and rescaling every direction shows this form is negative semidefinite. The 2×2 minors bound the mixed coefficients by constants depending only on W, so m_x=(b+c)ρ/a+O_W(1), m_z=−aρ/c+O_W(1), m_y=O_W(1). Consequently f_y(m)=((2(b+c)−a)/c)ρ²+O_W(ρ)=3ρ²+O_W(ρ). At the positive y-boundary of the ellipsoid the exact drift is bt(f_y(m)−t), t=r/√b>0, giving the liminf. At the stated Euclidean center the completed-square drift is C−2(q_x+ρ)²−(q_y−h)²−5(q_z+(1−ρ)/2)². The shift has norm d; triangle inequality gives inward drift on the stated sphere and outside. Equality on the sphere would require both radial alignment with the shift and vanishing x,z coordinates after the shift; that is impossible since the shift has a nonzero x or z component for every ρ and C>0. Thus the sphere is forward invariant and entered in finite time from outside, by compactness of the intervening energy band. Rationalizing d−h and √C−h gives 5/12 and 13/12, respectively. The source's R(ρ) is the energy sublevel, not the radius. A bounded independent symbolic check of the antipodal and completed-square drift identities is replayable with `python /workspace/independent_reproduction.py`; no frozen code was executed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The specific class-wide high-ρ lower bound is distinct on the inspected evidence. The published ETM construction gives an upper certificate; the closest same-flow theorem both overlaps the metric classification and resolves a different, small-ρ centered stability question. The fixed-metric necessity argument, including optimization over unrestricted centers, is the supported addition, not the ball or the cancellation definition.
+
+## value
+
+PASS
+
+The source's conservative-looking radius raises a concrete certificate-design question: can the leading scale be reduced just by translating or reweighting the quadratic energy? The exact obstruction says no throughout a natural class and distinguishes certificate size from actual attractor size. This is stronger than constructing another sufficient ball.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

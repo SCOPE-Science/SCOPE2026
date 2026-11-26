@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:14:21.720455Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, steps 1–4 and finite tails; supplied verify.py inspected, not executed",
+        "Independent full finite PMF evaluation by direct polynomial residues versus disk shells: python3 /tmp/opencode/frozen_review_replays.py 4"
+      ],
+      "rationale": "For each simple residue root the Hensel lift α is unique and the factor f(x)/(x−α) is a unit on its root disk. Thus outside the root disks the valuation is zero, and within one it measures agreement with its centre. Different residue disks are disjoint. Two balls at depths t,s intersect exactly when their centres agree through min(t,s); then the intersection is the deeper ball and contains p^{k−max(t,s)} residues modulo p^k. This gives both exact finite tails and the stated Haar tails. In the mixed tail series the diagonal at m=min(t,s) contributes (zw)^{m−1}p^{−m}; the two off-diagonals multiply this by z/(p−z) and w/(p−w). Geometric summation over m≤d yields the PGF, with no convergence problem on the closed unit bidisk even at d=∞. At z=w=1 the mixed-tail sum is (p+1)Σ(1−p^{−d_a})/(p−1)^2. Subtracting the marginal product gives the formula. For split quadratics, r=0 is negative and r=2 is positive even at minimal d=1. For r=1 the numerator is −4·3^{−d} at p=3 and at least (p²−4p−1)/p>0 for p≥5. Coinciding lifts as well as empty root sets are consistent with the formulas in RESULT.md.",
+      "residual_risks": [
+        "The replay compares four full truncated PMFs, at (p,k)=(3,6) twice, (5,5), and (7,4), including finite and infinite collision depths. A truncated covariance need not have the sign of the limiting covariance, notably when the latter is zero. The exact general result uses the proof, not these histograms.",
+        "Read the slogan's dependency shorthand with r_f and r_g held fixed: the list of common-root depths alone does not determine marginal distributions. The actual theorem includes both counts. No claim is validated for nonsimple residue roots."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The weighted-tree formula allows arbitrary distinct integral p-adic residues of rational roots and arbitrary positive root multiplicities, including the case of a merged root with combined multiplicity. Snyder's Theorem 5.2 records the first differing digit per rational linear factor, then adds them. Bories instead treats polynomial maps under a strong nondegeneracy hypothesis."
+        ],
+        "reasoning": "The restriction to rational centres in the weighted-tree theorem does not obstruct this application. Replace each polynomial by the product of the linear factors at its simple p-adic lifts, with valuation unaffected since all other factors are units locally. Choose k greater than every finite pairwise collision depth. Replace each distinct centre by an integer representative of its class modulo p^k, using the same representative for actual coincidences. Translate each occupied p^k-disk from its lift to that representative, leaving other disks fixed. This bijection preserves Haar and preserves every valuation to the corresponding centres: within that disk the intended difference is invariant, and any difference to an outside centre has valuation less than k. Thus the prior rational-root theorem applies to exactly the same joint law, not just to the rationally split examples in the record.",
+        "searches": [
+          "math/0204360v1, §4.1 Eqs. (4.1)–(4.4), §5 vertex generating function and Lemma 5.1",
+          "arXiv:2308.11718v1, §§5–7",
+          "arXiv:1012.5087v3, scope and mapping zeta definition"
+        ]
+      },
+      "checked_sources": [
+        "math/0204360v1 §§4–5",
+        "arXiv:2308.11718v1",
+        "arXiv:2309.16637v1",
+        "arXiv:1505.02302v2",
+        "arXiv:1012.5087v3",
+        "Local Resultary comparisons, including shifted quadratic cumulants and dyadic specializations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At a tree vertex the prior W(u) is the sum of multiplicities sharing the prefix, and W*(B_u) is the cumulative sum on its stalk. For F^mG^n, every nonzero W is at least 2 when m,n≥2. The prior internal vertex term is p^{−1−level}(p−valence)T^{W*}; the terminal term is (1−p^{−1})p^{−level}T^{W*}/(1−p^{−1}T^W). Under z=T^m,w=T^n each monomial separates by the two colours."
+        ],
+        "reasoning": "In this specialization a singly occupied residue has one colour path; a common residue has both colours until depth d, then one path of each colour (or stays common for coincident centres). The prior terms give mass (p−1)/p^{j+1} on (j,j) for 1≤j<d, (p−2)/p^{d+1} on (d,d) at the split, and (p−1)/p^{j+1} on each of (j,d),(d,j) for j>d. With d=∞ the unbranched diagonal continues forever. These terms and the single-colour geometric marginals already give the joint law, its coefficients and the finite counts by reduction. The covariance is their first mixed moment minus the product of marginals; for quadratics the sign takes a three-case substitution in the resulting expression. The additional sign labels do not require an independent structural theorem.",
+        "searches": [
+          "math/0204360v1, §5 definition of L_u and Lemma 5.1/Eq. (5.12)",
+          "arXiv:2308.11718v1, Theorem 5.2 and Corollary 5.3",
+          "arXiv:1505.02302v2, §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The PGF is the independently weighted local integral of |f|_p^{s_1}|g|_p^{s_2}. Bories's mapping zeta applies a norm and encodes min(X,Y), not that integral. Zúñiga-Galindo's scalar integral, in contrast, can be taken on F^mG^n for all m,n. The local ternary-cumulant record states the same covariance on two matched roots at equal finite depth, but has the same date as the target and does not establish priority."
+        ],
+        "reasoning": "A single product valuation only gives X+Y, but arbitrary multiplicities recover independent coordinate weights. For fixed 0<T<1 the integrals of F^mG^n give the pair PGF at (T^m,T^n) for independently varying m,n≥2; the analytic identity principle in each variable then determines it. More strongly the prior tree formula explicitly gives those two weights in its monomials, not just uniqueness from sampled values.",
+        "searches": [
+          "Local Resultary: joint root-collision valuation laws, covariance for two quadratic evaluations",
+          "Primary search: multivariate Igusa local zeta functions univariate arbitrary residue collisions / weighted split-root trees",
+          "math/0204360v1, §4.1 and §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local exact-match law is the assigned record. Adjacent results include the same-date quadratic shifted-cumulant special case, dyadic neighbour valuations and dyadic binomial-factor carries. The quadratic tree paper classifies one quadratic at a time. The earlier weighted-tree formula encodes all coefficients of the general split-root law without tabulating cross moments."
+        ],
+        "reasoning": "There is no dependence on finding a matching table of numerical coefficients. The exact generating function in the earlier theorem, with two independent multiplicities, is a dominating enumeration of the target pair distributions after the disk transfer.",
+        "searches": [
+          "Local Resultary: exact joint polynomial valuation law across odd primes, including shifted quadratic covariance",
+          "arXiv:2309.16637v1, Theorems 1.1–1.2",
+          "math/0204360v1, Eqs. (4.3)–(4.4), §5"
+        ]
+      },
+      "rationale": "There is positive prior-implication evidence, not merely a search limitation. Zúñiga-Galindo's explicit weighted root-tree generating function (math/0204360v1, §§4–5, notably Lemma 5.1) covers the bivariate law by assigning multiplicities m,n to the two factors of a rationally split product. The transfer to arbitrary simple Hensel lifts needs only disjoint translations of sufficiently deep residue disks, not a new zeta-function calculation. Its explicit vertex terms specialize to the two-colour shell law, and the covariance and quadratic sign alternatives are direct summation and comparison of those terms. The frozen comparison considers product sums at fixed weights, not this arbitrary-multiplicity reduction. The stronger prior need not state the specific covariance wording.",
+      "residual_risks": [
+        "No assertion that the exact bivariate wording or the significance of p=3 was stated earlier. The negative judgment is based on a specific implication from an earlier explicit generating theorem; the targeted searches are not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Dominating generating formula under the arbitrary-multiplicity and rational-centre reductions",
+          "evidence": [
+            "Weights W and W* are additive in root multiplicities. Lemma 5.1 identifies the explicit sum of vertex terms with Z(s,f). The root-factor case and internal/terminal vertex terms apply to the product with exponents m,n≥2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0204360v1",
+          "material_read": "§4.1, Eqs. (4.1)–(4.4) (PDF pp. 7–8, OA offset 22800); §5 vertex terms (p. 10, offset 27800); Lemma 5.1 and Eq. (5.12) (pp. 11–12, offsets 35000 and 36200)",
+          "method": "OA PDF full-text passages and explicit substitution test",
+          "title": "Computing Igusa’s Local Zeta Functions of Univariate Polynomials, and Linear Feedback Shift Registers",
+          "trigger": "Explicit weighted predecessor capable of independently marking two sets of roots"
+        },
+        {
+          "assessment": "Supplies positioned rational factor trees; related but not the source of the decisive weighted closed formula",
+          "evidence": [
+            "Theorem 5.2 expresses a terminal node's valuation as the sum of first differing indices for the constituent linear factors. The frozen AUDIT.json mislabels Corollary 5.3 as a theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2308.11718v1",
+          "material_read": "§§5–7 (pp. 15–22, OA offsets 39614–64862), in particular Theorem 5.2 and Corollary 5.3",
+          "method": "OA PDF full-text passages",
+          "title": "Products of p-Adic Valuation Trees",
+          "trigger": "Most direct named product-tree predecessor"
+        },
+        {
+          "assessment": "Single quadratic only",
+          "evidence": [
+            "Theorems classify the branches and their valuations via the discriminant, not cross moments."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2309.16637v1",
+          "material_read": "Theorems 1.1–1.2, OA HTML offsets 7279–12265",
+          "method": "OA HTML passages",
+          "title": "The p-Adic Valuation Trees for Quadratic Polynomials for Odd Primes",
+          "trigger": "Potential exact prior tree classification for quadratics"
+        },
+        {
+          "assessment": "Single-observable results supporting the local reduction, not the decisive generating formula",
+          "evidence": [
+            "Gives the individual periodic/unbounded dichotomy and simple-root lifting."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1505.02302v2",
+          "material_read": "§2, Theorems 2.1–2.2 (p. 3, offsets 6180–9661)",
+          "method": "OA PDF passages",
+          "title": "Periodicity in the p-adic Valuation of a Polynomial",
+          "trigger": "Foundational lifting and valuation tree results"
+        },
+        {
+          "assessment": "The inspected mapping zeta is not the independently weighted two-observable law",
+          "evidence": [
+            "The map norm is max_i |f_i| and hence uses the minimum valuation; the polynomial-measure factor does not give the stated arbitrary-collision two-weight formula under the inspected hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1012.5087v3",
+          "material_read": "Abstract and mapping integral definition (pp. 1–3, offsets 0, 3393–7373)",
+          "method": "OA PDF passages",
+          "title": "Igusa’s p-adic local zeta function associated to a polynomial mapping and a polynomial integration measure",
+          "trigger": "Potential broader mapping-zeta coverage"
+        },
+        {
+          "assessment": "Restricted same-date overlap; not evidence of precedence",
+          "evidence": [
+            "Pair covariance [2(p+1)(1−p^{−s})−4]/(p−1)^2 is the present two-matched-root formula at equal depth."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-ternary-sign-exception-for-three-point-quadratic-valuation-c--4b62c8282c43/RESULT.md",
+          "material_read": "Mirrored RESULT.md, offset 0, joint law and pairwise covariance",
+          "method": "Local Resultary search and mirror",
+          "title": "Ternary sign exception for three-point quadratic valuation cumulants",
+          "trigger": "Close adjacent covariance publication"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, finding and covariance sign proof",
+        "Zúñiga-Galindo, math/0204360v1, weighted tree and vertex formula in §§4–5"
+      ],
+      "rationale": "The dependence question is natural and the sign description is useful exposition, but this exact law is mechanically supplied by the pre-existing explicit weighted-tree evaluation: the specialization has only single-colour stalks and at most one bifurcation per residue. The proposed additional boundary is a geometric moment sum and substitution of r=0,1,2 into that same known law. No independent non-routine unknown exact fact is established beyond this specialization; the finite check and alternate proof add neither.",
+      "residual_risks": [
+        "This is not a judgment against studying sign phenomena for more general joint valuations, and it does not reject the mathematical formulas as false. No changed claim has been assessed as a repair."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

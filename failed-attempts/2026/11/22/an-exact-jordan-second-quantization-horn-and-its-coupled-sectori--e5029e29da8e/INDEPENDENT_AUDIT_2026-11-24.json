@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:52:06.850081Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Nilpotence gives Q=e^(−az)(I+czN). Trace and determinant of Q*Q yield singular values e^(−at±arsinh(c|z|/2)). The nth symmetric power has top norm q^n, hence boundedness iff q≤1, with vacuum norm one; tensorized SVD supplies the product over all nonnegative mode counts. At q=1 the top vectors in different sectors prevent compactness. On q<1 finite-sector truncations converge locally uniformly in operator norm, proving holomorphy, and any open continuation agreeing on real time must agree with the entire finite-sector matrix elements. Strict contractions at t>0 and density of finite-particle vectors give strong continuity at the real origin. Rays near zero yield c≤2a cos θ for boundedness on a ray, with equality allowed. For the uniform joint limit, set D=(1−q²)(1−r²) on the real axis. Exact algebra gives D=e^(−2at)(4sinh²(at)−c²t²)=c²e^(−2at)b². Under c=2a(1−δ), the first bracket is 8a²δt²+4a⁴t⁴/3+O(δ²t²+t⁶); divided by the positive sum of leading terms the error vanishes uniformly. Since q,r→1, each (1−s^p)/(1−s²)→p/2 uniformly here, recovering both crossover constants and the fixed-c orders. Finally the triangular blocks have trace (n+1)e^(−ant). The numerical diagnostics were inspected only; the quantifiers are established by these exact arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Araki–Sinha–Sunder provide the general boundedness and Schatten criteria/product formula for the usual range p≥1.",
+          "The earlier OU SCOPE record supplies the same finite product for every p>0 and exact determinant for unequal as well as equal decay rates.",
+          "Li Theorem 4.1 and Corollary 4.5 give real-time Gaussian compactness/trace and determinant formulas under their stated assumptions."
+        ],
+        "reasoning": "The old general criterion applies to each complex z separately, and the earlier exact matrix calculation supplies the particular Gram determinant. The p<1 product is also explicitly covered on the equivalent real-time OU model.",
+        "searches": [
+          "Araki–Sinha–Sunder (1995) Theorems 3.3(a), 3.10(a) and Corollary 3.8",
+          "Li arXiv:2610.13358 §§4 and 4.2",
+          "SCOPE 3c7ebe9424c1 exact planar spectrum and sharp two-scale boundary"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_jordan_horn.py",
+        "SCOPE records 3c7ebe9424c1, 5165ef04c9e4 and the e5029e29da8e self-match",
+        "Araki–Sinha–Sunder (1995)",
+        "arXiv:2611.15455v1",
+        "arXiv:2610.13358"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier OU record proves D(t,κ)=D_*(t)+(4ab−κ²)r(t)² with D_*(t)=ab(a+b)²t⁴/3+O(t⁵), r(t)=t+O(t²). These exact and asymptotic terms are already uniform for every nonnegative ellipticity gap, not only paths with a finite scaled gap, once placed over their positive sum.",
+          "For a=b one has c² e^(−2at)b(t,c)²=D(t,c). The ratio of the p- and 2-denominator products tends to p²/4 because both singular values tend uniformly to 1.",
+          "Perelmuter's periodic hypoelliptic example has a different cusp and is not direct coverage of this horn."
+        ],
+        "reasoning": "The previous stronger exact determinant plus the general contraction criterion and analytic triangular matrix leave only direct algebra and Taylor limits. Credit the earlier coverage of the sharp real crossover; do not conflate the unrelated Perelmuter cusp with the equivalence.",
+        "searches": [
+          "SCOPE 3c7ebe9424c1, exact planar spectrum, determinant split and boundary expansion",
+          "Perelmuter arXiv:2611.15455v1 §1 Remark 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier record identifies H_{κ,t}=e^(−(a+b)t)U(P_t)^*U^(−1) and identifies the OU chaos decomposition with symmetric second quantization of its triangular drift flow.",
+          "At a=b, κ=c, the two finite-dimensional matrices coincide after transpose/coordinate swap; thus H_{c,t} is unitarily equivalent to e^(−2at)S(t)."
+        ],
+        "reasoning": "The same real-time operator and singular values are present up to an explicitly known scalar. The scalar is immaterial to the critical leading coefficients and exactly removable in every formula.",
+        "searches": [
+          "Resultary: Jordan/shear drift, nonnormal Gaussian Ornstein–Uhlenbeck symmetric second quantization, Schatten amplification and ellipticity edge",
+          "Earlier SCOPE 3c7ebe9424c1 derivation at offsets 3500–7476"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e5029e29da8e is the frozen record itself. Distinct earlier match 3c7ebe9424c1 publishes a stronger real-time family with exact spectral and boundary entries.",
+          "Same-day record 5165ef04c9e4 treats a diagonal two-rate Gaussian L^p family with arithmetic periodicity, not this Jordan model."
+        ],
+        "reasoning": "There is no separate exact-table match known for the complete complex horn. The substantive comparison is against the exact previous determinant and one-particle spectrum, not against similar titles or the self-match.",
+        "searches": [
+          "Resultary: Jordan complex-time boundedness horn and sector/Schatten crossover; Gaussian OU complex-time domains"
+        ]
+      },
+      "rationale": "A distinct earlier SCOPE record explicitly proves the same real-time symmetric Fock singular-value and all-p Schatten formulas up to a scalar, as well as the corresponding sharp Hilbert–Schmidt edge crossover. The stronger prior determinant identity and boundary expansion already imply the uniform all-path result; the new presentation's complex horn and its matching width are mechanical consequences, not evidence of separately established originality. Specifically, specialize that determinant to a=b and κ=c. For complex time the same triangular exponential has off-diagonal factor cz in place of ct and a unimodular scalar phase; in its two-by-two Gram trace, c²t² is simply replaced by c²|z|². Thus det(I−Q*Q)=e^(−2at)[4sinh²(at)−c²|z|²]. The known contraction criterion, with q r=e^(−2at), gives the exact horn. The horn-width identity b²=e^(2at)D(t,c)/c² and the universal p/2 factor at singular values tending to one transfer the already proved two-scale determinant asymptotics to both quantities, including paths with δ/t² unbounded. The ray angle follows by taking the tangent at zero, and the nonperiodicity follows from the sole boundary point at t=0. The earlier record is not asserted to print the horn or its angle verbatim. This is a direct-coverage/implication finding, not a verdict based on unavailable literature.",
+      "residual_risks": [
+        "This review does not establish whether an older source literally displays the same complex-time horn. That bibliographic risk is separate from the demonstrated mechanical implication.",
+        "No conclusion is drawn for nonsymmetric Fock norms, higher Jordan blocks or other OU realizations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent real-time model after diagonal-rate specialization, coordinate swap, and scalar normalization. Exact determinant yields the width law by identity; the exact earlier statement does not explicitly chart the complex horn.",
+          "evidence": [
+            "The chaos/Fock identification gives exact singular values and p-product for all p>0.",
+            "Sharp two-scale boundary gives the exact determinant split and the rank-one t⁴ term."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-nonnormal-schatten-amplification-and-ellipticity-edge-crossover--3c7ebe9424c1/RESULT.md",
+          "material_read": "Finding at offset 0; derivation offsets 3500–7476; relationship at offset 7500, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary and local source mirror, including direct inspection of the decisive determinant proof",
+          "title": "Nonnormal Schatten amplification and ellipticity-edge crossover",
+          "trigger": "Earlier exact shear-drift OU/Fock singular values and rank-one ellipticity crossover"
+        },
+        {
+          "assessment": "Covers abstract contraction/boundedness and the standard Schatten criteria; not a printed Jordan diagram.",
+          "evidence": [
+            "The general bosonic criterion transfers the norm inequality of Q(z) to boundedness of the Fock family pointwise."
+          ],
+          "identifier_or_url": "https://ems.press/content/serial-article-files/40585",
+          "material_read": "PDF p. 2 introduction (OA offset 2615) locating Theorems 3.3(a), 3.10(a); p. 9 Corollary 3.8 (offset 17380)",
+          "method": "Lawful OA journal PDF passages",
+          "title": "On Boundedness and p-Norm Continuity of Second Quantisation",
+          "trigger": "General criteria for the same symmetric amplifications"
+        },
+        {
+          "assessment": "Qualitatively adjacent, not direct coverage.",
+          "evidence": [
+            "Its hypoelliptic circle example has a periodic region with cos(s)≥cosh(t)−t sinh(t)/2, unlike the nonperiodic Jordan horn."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.15455v1",
+          "material_read": "§1 Remark 1, OA offset 6000",
+          "method": "Lawful OA primary HTML statement",
+          "title": "Semigroups with periodic complex-time boundedness and holomorphy regions",
+          "trigger": "Complex-time cusp and maximal boundedness sectors"
+        },
+        {
+          "assessment": "Real-time Gaussian framework and determinant formulas, not an independent complex-time classification for this matrix.",
+          "evidence": [
+            "Corollary 4.5 addresses trace, trace norm and Hilbert–Schmidt norm."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.13358",
+          "material_read": "§4 Theorem 4.1 at OA offset 53412; §4.2 Corollary 4.5 at offset 65927",
+          "method": "Lawful OA primary HTML result and proof passages",
+          "title": "Second quantization and compactness of induced Gaussian quantum Markov semigroups",
+          "trigger": "Gaussian real-time compactness and Schatten formulas"
+        },
+        {
+          "assessment": "Different diagonal Gaussian L^p problem.",
+          "evidence": [
+            "The arithmetic sine-window/periodicity conditions rely on two rates and p≠2, not a triangular shear at a repeated rate."
+          ],
+          "identifier_or_url": "Resultary SCOPE 2026/11/22 record 5165ef04c9e4",
+          "material_read": "Local-mirror Finding at offset 0",
+          "method": "Resultary and local source mirror",
+          "title": "Arithmetic phase transitions in complex-time boundedness of a two-rate Ornstein–Uhlenbeck semigroup",
+          "trigger": "Closest same-day complex-time OU alias"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The Fock example is natural and the formulas are correct, but the proposed independent scientific gain is the coupled crossover or sharp complex-time diagram. The crossover reexpresses the already known real-time rank-one edge invariant, and the diagram follows from the standard boundedness criterion and the same 2×2 determinant with t² replaced by |z|². The angle and absence of periods add direct consequences of that inequality, not a further mechanism. No independently valuable new mathematical remainder is established in this record; this can serve as an illustration of the covered result, not as a new validated finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

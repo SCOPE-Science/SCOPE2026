@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every \(d\in\{1,2,3,4,5,6\}\), the digit-column transition \(u+dv+c\) has exactly the binary carry condition, and disallowing consecutive one-bits in both summands is exactly captured by the two preceding-bit flags. The carry is bounded by \(d\); a successful path over the full canonical binary expansion ends with carry zero. The explicit DFA predicates for the proposed complements recognize the listed low-bit languages, including the geometric family for \(d=6\). Complete breadth-first traversal of the paired deterministic graphs exhausts respectively \(4,6,18,9,41,29\) states and checks every terminating-one edge, with zero handled separately. `verify.py` and `state_table.txt` contain the executable proof certificate, and an independent direct comparison through \(n=10000\) agrees. The separately derived exception counting formula follows by solving a power inequality. Finite numerical checks are not used to infer the universal statement.
+PASS
 
-## Originality — PASS within available evidence
+The digit recurrence maintains the identity between truncated summand columns and the target prefix, with the excess represented by the carry times the next place value. Both summands are nonnegative and at most the target, so no higher summand bits need be guessed past its canonical length; zero final carry is both necessary and sufficient. An independently written replay checked the frozen table's root, both successors of every row, the carry-zero and exception flags, complete reachability and opposite acceptance after every final-one edge. The frozen row counts were 4,6,18,9,41,29. An additional most-significant-bit-first check reversed the carry relation and used separately written exception recognizers, reaching 2,5,14,10,39,27 states after a leading one with no mismatch. Zero was checked separately in both directions. This checks all canonical lengths, not just the frozen script's bounded census. In ordinary bit order the sixth complement is 11 or (10)+011, giving 3 and the recurrence n -> 4n+7 on the sequence starting at 3, equivalently (4^k-7)/3 for k >= 2. Counting 4^k <= 3X+7 includes equality and handles X below 3, and logarithmic growth implies density zero. An infinite eventually periodic set would have positive density, so nonperiodicity follows.
 
-Macfarlane (arXiv:2405.18128; arXiv:2406.12455) studies the fibbinary/Wythoff correspondence and the **ordinary complement** of fibbinary integers, not the mixed sumset with dilation six. Dekking (arXiv:2105.04959) treats ordinary sumsets of indicator positions of substitution words and explicitly identifies different sets in its examples. The OEIS A003714 entry defines the fibbinary object but does not report the six-dilation sumset table or the geometric exceptional family. Searches for `fibbinary sumset`, `A003714 6 sumset`, exact parameter/sequence aliases, and semantic mathematical-record searches did not locate the same theorem. The residual risk is an unindexed equality or an unstated implication of a more general additive-language theorem; no independent priority review has taken place.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The fibbinary set is a classical zero-density digit-restricted set linked to Fibonacci combinatorics. Its ability to cover the integers after adding a small integer multiple of itself is a natural additive-number-theory question. The six initial dilations exhibit genuinely different qualitative behaviors: complete coverage at \(d\le3\), positive-density modular exclusion at \(d=4\), only one exclusion at \(d=5\), and a precisely determined nonperiodic infinite family of zero-density exceptions at \(d=6\). This last structural transition, together with a complete infinite proof and exact logarithmic counting law, is not merely a routine finite census or restatement of automatic decidability. Its extension to larger dilations remains open here.
+The pass is for the substantive first-six classification, particularly the precise exceptional sets for d=5 and d=6, not for introducing fibbinary integers, the d=1 identity, or the carry-automaton method. Closest inspected statements did not supply those higher-dilation complements. This is a bounded best-of-knowledge judgment, not historical-priority certification.
 
-## Closest literature and limitations
+## value
 
-Relevant primary works: Dekking, arXiv:2105.04959; Macfarlane, arXiv:2405.18128 and arXiv:2406.12455; OEIS A003714. Those works concern related objects/methods, not the stated classification. There is still a risk of independent prior derivations. This is a computer-assisted finite-state proof with openly reproducible source and complete finite certificate, and does not classify multipliers \(d\ge7\) or multiplicities.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The initial consecutive dilations of a standard sparse digit set give a natural comparison. The precise d=6 exceptional sequence determines membership at all scales and a logarithmic, not modular, obstruction immediately after the singleton at d=5. The theorem therefore supplies concrete structure beyond generic decidability or a finite list of observed misses; the elementary or already-known low cases chiefly provide context.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

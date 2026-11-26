@@ -1,0 +1,177 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:35:43.388752Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§1–4 (independent strip estimate and equality check)",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)"
+      ],
+      "rationale": "For fixed admissible Lipschitz graphs the arclength densities are 1+O(ε²) a.e., so P=4+O(ε²), and replacing each sample by an equal branch choice and uniform x costs O(ε²) in the bounded expected distance. The limiting mean horizontal distance is 2/3. Independently of the exact kernel primitive, split the distance excess into |x−z|≤ε, contributing O(ε²) by bounded graph heights, and its complement. There the leading term is ε²(u(x)−v(z))²/(2|x−z|), with integrated Taylor remainder O(ε²) from ε⁴|x−z|⁻³. Same-branch squared differences are O(|x−z|²). For opposite branches, replacing the squared difference by h(x)² costs O(ε²) after integration by Lipschitz regularity. The z-integral of 1/|x−z| over the complement is 2log(1/ε) plus a function bounded in L¹(dx) by the integrable endpoint logarithms. Each cross integral therefore contributes ε²log(1/ε)∫h²; two ordered cross terms of weight 1/16 each followed by division by P→4 give 1/32. Strict Cauchy–Schwarz gives ∫h²>A²/2 because the endpoints vanish and the continuous profile is positive inside. The Dirichlet Green representation expresses h/A as an area-one tent mixture, each with squared norm 2/3. Strict convexity of the squared L² norm forces a single apex at equality. Concave height-rescaled plateaus with tip ramps shrinking to zero approach the lower bound. These yield exactly the claimed interval and equality statements.",
+      "residual_risks": [
+        "The scope is fixed Lipschitz graph lenses and full-boundary Euclidean arclength sampling; the remainder need not be uniform in profile and no full ε² constant is claimed. A quadrature diagnostic cannot prove the asymptotic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shen proves E|X−Y|/P>1/6 for all planar convex bodies, sharp along degenerating rectangles. Lotnikov studies boundary and interior mean distances and related comparisons.",
+          "Resultary 2026/10/18/SCOPE-fifth-chord-moment-law-for-acute-triangles-in-thin-convex-bodies--6f181af2eba0 covers general compressed convex bodies, but with three area-uniform samples and a fifth chord moment."
+        ],
+        "reasoning": "Shen's theorem is broader in shapes but controls the baseline, not the scaled deficit; Lotnikov's inspected comparisons do not give a profile expansion. The fifth-moment result has broader geometries but different measures and a different event.",
+        "searches": [
+          "Shen arXiv:2611.21661v1, general perimeter inequality and sharpness",
+          "Lotnikov arXiv:2608.14848, general boundary/interior moment comparisons",
+          "Resultary fifth chord-moment law in thin convex bodies"
+        ]
+      },
+      "checked_sources": [
+        "Resultary acute-lens, isosceles triangle, stadium, fifth-moment and parallelogram originals",
+        "Shen arXiv:2611.21661v1 and Lotnikov arXiv:2608.14848 targeted full-text passages",
+        "Tokmachev 2024 abstract/landing page only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The thin parallelogram theorem expands M_boundary−M_interior for a fixed-angle family, with logarithmic coefficient sin²(θ)/3 in its length parameter even after a linear correction. It does not state the present perimeter-normalized boundary mean for two fixed zero-tip graphs.",
+          "The acute-lens upper envelope is one-dimensional Berwald; the global perimeter inequality gives no asymptotic scale or profile constant."
+        ],
+        "reasoning": "Computing the opposite-branch diagonal contribution for variable full width and proving the profile-dependent O(ε²) remainder are needed to get the law and midline cancellation. A normalized special-shape expansion, a boundary-versus-interior difference, or an independent moment inequality does not mechanically imply them.",
+        "searches": [
+          "Shen's sharpness proof; Lotnikov's boundary/interior results; Resultary triangle, stadium, parallelogram, and acute-lens statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shen and Lotnikov use the identical two-independent-boundary-point functional. Shen's Gini-mean-difference representation uses 2∫F(1−F) for each projected measure.",
+          "The acute-lens record has the same width functional in symmetric graph lenses but for a three-point acute-angle event. With full width h=2h₀ its coefficient (3/2)∫h₀² is 12 times the present κ."
+        ],
+        "reasoning": "Mean arclength chord length, two-point distance energy, and angularly averaged projected Gini difference can represent the same observable. The inspected projected identity is not a thin-profile expansion. The acute probability is not equivalent as an observable despite the proportional leading width functional.",
+        "searches": [
+          "Resultary searches for boundary mean distance, normalized mean chord length, collapsing lenses and sharp width moments",
+          "Shen arXiv:2611.21661v1, §1 and projection/Gini formulation; Lotnikov arXiv:2608.14848, Introduction and results"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The isosceles exact formula has a t→2 branch with leading (2−t)log(1/(2−t))/96, which matches κ=1/48 and ε²=(2−t)+O((2−t)²). The stadium record has leading (r/L)²log(L/r) for a different rounded family.",
+          "The prior acute-lens moment envelope converts exactly to A²/64<κ≤A²/48; it is not re-credited."
+        ],
+        "reasoning": "The original claim is asymptotic, so the decisive exact comparisons are formulas and coefficient data, not a data table. These establish exact special-case or profile-functional overlap. They do not determine the dependence of the two-point deficit on all admissible graph pairs. No priority ordering is drawn for same-day records.",
+        "searches": [
+          "Resultary exact normalized isosceles triangle chord-distance profile and degenerating stadium deficit",
+          "Resultary thin parallelogram saturation and acute-lens envelope"
+        ]
+      },
+      "rationale": "The global limiting value, concave-width moment envelope, and thin isosceles special case are covered in the compared material; the leading logarithm also occurs in a distinct stadium family. The supported distinct claim is the boundary two-point width law for all fixed admissible graph pairs, including nonconstant midlines. Neither the exact special shapes nor the broader inequalities or three-point measurements supply this coefficient for arbitrary such profiles.",
+      "residual_risks": [
+        "Relative priority of the exact triangle subcase and related stadium claim is not established. Tokmachev full text was inaccessible; a broader or earlier profile expansion outside the inspected material could overlap. The generic archive result from the public query is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader baseline and equivalent projection formulation, no general thin-lens law in the passages",
+          "evidence": [
+            "The ratio is strictly greater than 1/6; collapsing rectangles show sharpness. The comparison uses projected mean differences."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.21661v1",
+          "material_read": "Abstract/§1 offsets 0–5752 and sharpness/references offsets 24500–27936",
+          "method": "Lawfully accessible primary HTML passages",
+          "title": "A Sharp Perimeter Inequality for Mean Distances on Convex Curves",
+          "trigger": "Same observable and sharp lower baseline"
+        },
+        {
+          "assessment": "Same statistic, different estimates; no thin-profile expansion in the inspected passages",
+          "evidence": [
+            "Defines boundary θ and interior Δ separately and states mean/moment comparisons, including the disk bound for the ratio."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2608.14848",
+          "material_read": "Introduction offsets 0–4300 and results offsets 4200–8431",
+          "method": "OA primary HTML passages",
+          "title": "Mean distance between points inside and on the boundary of a convex body",
+          "trigger": "Identical boundary-distance functional and quantity closely related to the claimed asymptotic"
+        },
+        {
+          "assessment": "Global bound corroborated via Shen and Lotnikov; no claim of full-paper exclusion",
+          "evidence": [
+            "The other inspected sources cite the global disk upper bound; full-text thin-profile overlap is unresolved."
+          ],
+          "identifier_or_url": "Tokmachev, Journal of Mathematical Sciences 286 (2024), 798–806",
+          "material_read": "MathNet landing page and abstract only",
+          "method": "OA lookup; full text not obtained",
+          "title": "The Mean Distance Between Random Points on the Boundary of a Convex Figure",
+          "trigger": "Plausibly relevant same-observable antecedent"
+        },
+        {
+          "assessment": "Exact overlap of envelope after rescaling; distinct three-point probability",
+          "evidence": [
+            "For half width h₀ and B=∫h₀, the coefficient is (3/2)∫h₀² with 3B²/4<C≤B²; equality is a tent, the lower limit is flat."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-shape-bounds-and-conditional-tomography-for-acute-triangle--91e043b96fad",
+          "material_read": "Finding and proof §6, offsets 0 and 5000–8779",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp shape bounds and conditional tomography for acute triangles on collapsing convex lenses",
+          "trigger": "Same squared-width profile with the same extremizers"
+        },
+        {
+          "assessment": "Exact same-day special-case overlap at t↑2; priority unknown",
+          "evidence": [
+            "For s=2−t the logarithmic term is s log(1/s)/96, equivalent to the theorem at κ=1/48 because ε²=s+O(s²). The short-base endpoint is a different collapse."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-arclength-chord-distance-profile-for-isosceles-triangles--6a24a788730f",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp arclength chord-distance profile for isosceles triangles",
+          "trigger": "Exact same functional for a thin lens with a triangular width tent"
+        },
+        {
+          "assessment": "Related same-day asymptotic for a different family, no ordering inferred",
+          "evidence": [
+            "Uses moving semicircular caps with unbounded tip slopes, and coefficient 1 with thinness r/L."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-logarithmic-mean-distance-deficit-for-degenerating-euclidean-sta--e9fe3b5c1d68",
+          "material_read": "Finding and assumptions, local mirror offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Logarithmic mean-distance deficit for degenerating Euclidean stadiums",
+          "trigger": "Same statistic and scale in another collapsing shape"
+        },
+        {
+          "assessment": "Different sampling and observable",
+          "evidence": [
+            "The leading coefficient is A_K⁻³∫w⁵ for three independent area-uniform points and an acute event."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-fifth-chord-moment-law-for-acute-triangles-in-thin-convex-bodies--6f181af2eba0",
+          "material_read": "Finding and proof offsets 0–5495",
+          "method": "Resultary search and local mirror",
+          "title": "Fifth chord moment law for acute triangles in thin convex bodies",
+          "trigger": "Potential wider theorem for thin shapes and chord moments"
+        },
+        {
+          "assessment": "Related logarithm, but different statistic and one fixed-angle parallelogram family",
+          "evidence": [
+            "The difference M_boundary−M_interior is ℓ/3+(sin²θ/3)ℓ²log(1/ℓ)+O_θ(ℓ²)."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-universal-linear-and-angular-logarithmic-saturation-for-thin-par--fb1616479c47",
+          "material_read": "Finding, local mirror offsets 0–1720",
+          "method": "Local mirror original statement",
+          "title": "Universal linear and angular logarithmic saturation for thin parallelograms",
+          "trigger": "Earlier logarithmic two-point distance law for thin shapes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§2–4",
+        "Shen's perimeter lower bound and the exact isosceles special case",
+        "Prior acute-lens shape envelope"
+      ],
+      "rationale": "The global inequality leaves open how quickly and by what shape-dependent amount a collapsing lens approaches equality. This law isolates the singular scale and its coefficient for arbitrary fixed Lipschitz lenses, separates thickness from the midline, and turns a known width-moment envelope into an exact leading-deficit comparison at fixed unscaled area. It predicts more than specific symmetric or exactly integrable examples without claiming a new concavity inequality.",
+      "residual_risks": [
+        "Only the leading logarithm is identified; no uniform stability lower bound, subsequent coefficient, or unbounded-slope extension is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,68 +1,49 @@
 # Sharp all-factor subsequence-universality discrepancy in the regular paperfolding word
 
 ## Finding
-Let \(p=p_0p_1\cdots\) be the binary regular paperfolding word in the convention
-\[
-p_n=\begin{cases}0,&\operatorname{odd}(n+1)\equiv1\pmod4,\\1,&\operatorname{odd}(n+1)\equiv3\pmod4,\end{cases}\qquad n\ge0,
-\]
-where \(\operatorname{odd}(t)=t/2^{\nu_2(t)}\) is the odd part of a positive integer. This convention is the binary complement of another standard paperfolding convention; the results are complement-invariant.
 
-For a finite binary word \(v\), let \(\iota(v)\) be the largest \(k\ge0\) such that every binary word of length \(k\) is a scattered subsequence of \(v\). **For every starting position \(a\ge0\) and length \(N\ge1\)**,
+Let \(p=p_0p_1\cdots\) be the binary regular paperfolding word, with \(p_n=0\) if the odd part of \(n+1\) is \(1\pmod4\), and \(p_n=1\) if it is \(3\pmod4\). For a finite word \(v\), let \(\iota(v)\) be the largest \(k\ge0\) for which every binary word of length \(k\) is a scattered subsequence of \(v\). Then for every \(a\ge0\) and \(N\ge1\),
 \[
-\boxed{-11\le 8\iota(p_a\cdots p_{a+N-1})-3N\le7.}
+-11\le 8\iota(p_a\cdots p_{a+N-1})-3N\le7.
 \]
-Both integer constants are optimal. Equality at the lower end is attained by the factor \(p_7\cdots p_{23}=\mathtt{00011011000100111}\) of length \(17\) with index \(5\); equality at the upper end is attained by \(p_2\cdots p_{12}=\mathtt{10011000110}\) of length \(11\), also with index \(5\). Therefore \(\iota(v)/|v|\to3/8\) uniformly over factors \(v\) whose length tends to infinity.
-
-More precisely, for every \(J\ge1\),
-\[
-\boxed{\iota(p_0\cdots p_{8J-1})=3J-p_{J-1}.}
-\]
-In particular, for each \(m\ge3\) and \(j\ge0\), the aligned factor of length \(2^m\) beginning at \(2^m j\) has index \(3\cdot2^{m-3}-p_j\).
+Both endpoints are attained: \(p_7\cdots p_{23}=\mathtt{00011011000100111}\) and \(p_2\cdots p_{12}=\mathtt{10011000110}\) have index five and discrepancies \(-11\) and \(7\), respectively. In particular the density \(3/8\) holds uniformly in the starting position, with the displayed optimal two-sided bound. The contribution is the sharp discrepancy for **arbitrary factors**, not the previously known exact prefix law or the aligned dyadic formula implied by its proof.
 
 ## Assumptions and scope
-Every universality index uses the fixed binary alphabet \(\{0,1\}\); it is not taken relative to the letters that happen to occur in the factor. Intervals have integer, zero-based positions and are contiguous. The theorem concerns the regular paperfolding word, not arbitrary instruction sequences generating generalized paperfolding words. The symbols \(\emptyset,0,1\) below denote the three states of the greedy arch scanner.
+
+The alphabet for universality is always \(\{0,1\}\), even if a factor contains only one symbol. Factors are contiguous and indices are zero-based. Complementing the infinite word does not change any universality index. The result is for the regular paperfolding word, not arbitrary fold instructions.
 
 ## Proof
-**Arch scanner.** Read a word left-to-right, holding \(q=\emptyset\) if the current incomplete arch is empty, or \(q\in\{0,1\}\) if it has seen exactly that letter. Reading \(x\in\{0,1\}\) changes \(\emptyset\) to \(x\), leaves \(q=x\) unchanged, and changes \(q\ne x\) to \(\emptyset\) while adding one complete arch. The final number of arches equals \(\iota(v)\), by the standard shortest-rich-prefix characterization of subsequence universality.
 
-**Block lemma.** For each \(j\ge0\), the length-eight block is
+Greedily end a block (an *arch*) at the first position at which both bits have appeared since the last cut. Track the incomplete arch by its state \(q\in\{\emptyset,0,1\}\), where a bit denotes the only letter seen. The number of completed arches is \(\iota\): choosing one requested symbol in each arch embeds every word of the corresponding length, whereas choosing the closing letters of successive arches and appending a bit absent from the rest gives a word that does not embed. Indeed the earliest possible match of those closing letters reaches the last arch end.
+
+**Known aligned-block calculation.** Put \(B_j=p_{8j}\cdots p_{8j+7}\). The odd-part rule gives \(B_j=\mathtt{001}\,(j\bmod2)\,\mathtt{011}\,p_j\): among the first seven positions only the fourth depends on \(j\), and the odd part at the eighth equals that of \(j+1\). The four possibilities are \(\mathtt{00100110},\mathtt{00100111},\mathtt{00110110},\mathtt{00110111}\). The earlier exact-prefix proof [1, Proof §2] gives the transfer from states \(\emptyset,1\), with increment \(3-p_j+\mathbf1_{\{q=1\}}\) and outgoing state \(s(p_j)\), where \(s(0)=\emptyset\) and \(s(1)=1\). Starting with pending \(0\) has the same effect as starting empty: after the first bit \(0\), both states are \(0\) and neither has completed an arch. This extends the transfer to all three incoming states.
+
+For \(K\ge1\) complete blocks ending at \(B_h\), the transfer adds \(3K-p_h+\mathbf1_{\{q=1\}}\) arches and ends in \(s(p_h)\); cancellation follows because the previous outgoing status contributes exactly the previous last bit. This recovers the earlier exact formula \(\iota(p_0\cdots p_{8J-1})=3J-p_{J-1}\). It also implies the aligned dyadic formula: for \(m\ge3\) take \(K=2^{m-3}\), start at block \(jK\), and use \(p_{(j+1)K-1}=p_j\) by the odd-part rule. The resulting index is \(3K-p_j\). Neither consequence is a separate novelty claim here.
+
+**Arbitrary endpoints.** A factor wholly in one block is some \(B[r:s]\) with \(0\le r<s\le8\). If it touches two adjacent blocks it is \(B[r:8]C[0:s]\), with \(0\le r<8\), \(1\le s\le8\). Otherwise write it as the same two endpoint fragments with \(K\ge1\) complete blocks in between. Let \((c,q)\) be the arch count and final state on the initial suffix, read from empty; let \(z\) be the last bit of the final complete interior block; and let \(t\) be the arch count for the terminal prefix read from \(s(z)\). The discrepancy then equals
 \[
-B_j=p_{8j}\cdots p_{8j+7}=\mathtt{001}\,(j\bmod2)\,\mathtt{011}\,p_j.
+8\bigl(c+\mathbf1_{\{q=1\}}-z+t\bigr)-3(8-r+s).
 \]
-Indeed the residues of the odd parts of \(8j+r+1\) for \(r=0,\ldots,7\) give the first seven entries, with the fourth depending on parity of \(j\), while \(\operatorname{odd}(8j+8)=\operatorname{odd}(j+1)\) gives the last. Thus there are only four possible blocks, namely \(\mathtt{00100110},\mathtt{00100111},\mathtt{00110110},\mathtt{00110111}\).
+The full-block length cancels, so this can be evaluated by inserting a single complete block ending in \(z\), regardless of the actual value of \(K\). For each regime, the following exhaustive upper-envelope computation treats the endpoint block words and, in the third regime, \(z\) as independent. All actual intervals are represented; not every tuple need occur.
 
-Checking each of these four words by the explicit scanner rules yields, for any initial state \(q\in\{\emptyset,0,1\}\), the exact transfer
-\[
-\boxed{\mathcal T(B_j;q)=\big(3-p_j+\mathbf1_{\{q=1\}},\;q_j\big),\qquad q_j=\begin{cases}\emptyset,&p_j=0,\\1,&p_j=1.\end{cases}}
-\]
-Here the first coordinate is the number of newly completed arches and the second is the final scanner state. Crucially, the transfer is independent of \(j\bmod2\). Its verification consists of twelve elementary cases, all included in the standalone verifier.
+| Regime | Number of cases | Minimum | Maximum |
+|---|---:|---:|---:|
+| One block | 144 | −10 | 6 |
+| Two adjacent blocks | 1024 | −11 | 7 |
+| Complete blocks in between | 2048 | −11 | 7 |
 
-**Telescoping.** After one full block the state is \(q_j\), so consecutive complete blocks \(B_\ell\cdots B_h\), numbering \(K=h-\ell+1\), have the transfer
-\[
-\boxed{\mathcal T(B_\ell\cdots B_h;q)=\big(3K-p_h+\mathbf1_{\{q=1\}},\;q_h\big).}
-\]
-This follows by summing \(3-p_\ell+\mathbf1_{\{q=1\}}\) for the first block and \(3-p_j+p_{j-1}\) for subsequent blocks. Starting empty at \(\ell=0\) gives the prefix formula. For an aligned dyadic factor of length \(2^m\), take \(K=2^{m-3}\) and note \(p_{(j+1)K-1}=p_j\), since multiplication of \(j+1\) by a power of two leaves its odd part unchanged.
+To obtain the table, form the four block words above. In the first row loop over every nonempty substring of each. In the second row loop over all ordered pairs of block words and every nonempty suffix of the left and prefix of the right. For the third row use the second row's loops and insert \(\mathtt{00100110}\) and \(\mathtt{00100111}\) in turn. For each resulting word \(v\), repeatedly remove its initial constant run together with the next bit (if that bit exists), count the removals \(h\), and compute \(8h-3|v|\). This is the greedy arch rule. The four words and the two representatives suffice by the block transfer, so the enumeration is not a finite-prefix extrapolation. Direct use of the odd-part rule gives the two factors in the finding. Their five completed arches verify sharpness and complete the proof.
 
-**Sharp factor bound.** Every nonempty interval may be cut at multiples of eight. If it is within one block, exhaust the four possible block words and all \(0\le r<s\le8\). The resulting integer \(8\iota(v)-3|v|\) is between \(-10\) and \(6\). If it meets exactly two adjacent blocks, take the suffix of one and prefix of the next, exhausting the four choices for each and all \(0\le r<8\), \(1\le s\le8\); the range is \([-11,7]\).
+## Reproducibility and limitations
 
-Finally, suppose the interval includes \(K\ge1\) complete blocks between its two partial endpoint blocks. Let \((c,q)\) be the scanner result on the initial suffix, started empty; let \(\eta\in\{0,1\}\) be the last bit of the final complete middle block; and let \(t\) be the arch count when scanning the terminal prefix starting with state \(\emptyset\) if \(\eta=0\), and state \(1\) if \(\eta=1\). If the partial lengths are \(8-r\) and \(s\), the telescoping lemma yields
-\[
-8\iota(v)-3|v|=8\big(c+\mathbf1_{\{q=1\}}-\eta+t\big)-3(8-r+s).
-\]
-The \(3K\) contribution cancels exactly against the middle length \(8K\). Enumerate four possible words for each endpoint, two values of \(\eta\), and the same finite ranges of \(r,s\); the resulting range is precisely \([-11,7]\). These are *universal finite case reductions*, not experiments on a long prefix: every conceivable interval falls into one of the three exhaustive regimes, and every endpoint block belongs to the four proved shapes. The provided standalone code implements and checks all three finite tables from the scanner definition.
+The accompanying standalone `verify.py` calculates the same finite transfer and endpoint tables with a three-state scanner and checks both witnesses. Its longer finite-prefix tests are supplementary. The theorem supplies the optimal uniform bounds, not the full distribution of indices at each length. Literature comparison cannot rule out unindexed equivalent results.
 
-The two literal factors in the finding have arch count \(5\); substituting their lengths gives the lower and upper equalities. Dividing the inequality by \(8N\) proves the uniform limit.
+## Relation to earlier work
 
-## Verification
-Run `python3 verify.py` from this directory. The verifier checks the twelve block-transfer cases and the complete finite endpoint reductions (one block, adjacent blocks, at least one complete interior block). It separately constructs the first \(4096\) letters from the odd-part definition and checks the block identity, prefix formula, and bound for every factor wholly contained in that prefix. It checks the two sharpness witnesses. The full infinite proof relies on the block identity, transfer/telescoping, and exhaustive finite endpoint cases, not on finite-prefix induction.
+The exact prefix record [1] already contains the eight-letter block identity, its two-state transfer and all prefix indices. Record [2] gives dyadic prefix indices for the broader class of generalized paperfolding words. Here the new calculation is the all-start boundary analysis giving sharp constants; an exact prefix law by itself does not give these constants. Schnoebelen and Veron [3] establish general arch methods; Shallit and Xu [4] treat repetition factorizations of regular paperfolding factors, a different statistic. Adamson et al. [5] study regular-language universality, not these sharp bounds for paperfolding factors.
 
-## Relationship to prior work
-Schnoebelen and Veron (2023) give the general greedy-arch characterization of subsequence universality and methods for composing universality signatures. Shallit and Xu (2023) investigate repetition factorizations in paperfolding and other automatic sequences, rather than subsequence universality. Adamson and collaborators (2023) study subsequence universality in regular languages via automata. The finding applies the arch concept to the regular paperfolding word to obtain an exact all-factor sharp discrepancy and dyadic-prefix law; these quantitative results do not follow as stated from the cited general algorithms or the distinct repetition-factorization theorems.
-
-## Limitations
-The fixed source is a single regular paperfolding word (or its bitwise complement); generalized paperfolding sequences with arbitrary fold instructions are not covered. The theorem gives a sharp interval for the universality index, not the complete distribution of factor indices at each fixed length. No assertion of uniqueness against all unindexed literature is made.
-
-## References
-1. Philippe Schnoebelen and Julien Veron, *On arch factorization and subword universality for words and compressed words*, arXiv:2304.11932v1 (first posted 2023-04-24), https://arxiv.org/abs/2304.11932.
-2. Jeffrey Shallit and Xinhao Xu, *Repetition factorization of automatic sequences*, arXiv:2311.14961 (first posted 2023-11-25), https://arxiv.org/abs/2311.14961.
-3. Duncan Adamson, Pamela Fleischmann, Annika Huch, Tore Koß, Florin Manea, and Dirk Nowotka, *k-Universality of Regular Languages*, arXiv:2311.10658v1 (first posted 2023-11-17), https://arxiv.org/abs/2311.10658.
+1. *Exact scattered-subsequence universality of every regular paperfolding prefix*, <https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-scattered-subsequence-universality-of-every-regular-paperf--44b326d79dc6/RESULT.md>, Proof §2–4.
+2. *Dyadic scattered-subsequence universality of generalized paperfolding prefixes*, <https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-dyadic-scattered-subsequence-universality-of-generalized-paperfo--52dc399f6375/RESULT.md>.
+3. P. Schnoebelen and J. Veron, *On arch factorization and subword universality for words and compressed words*, <https://arxiv.org/abs/2304.11932>.
+4. J. Shallit and X. Xu, *Repetition factorization of automatic sequences*, <https://arxiv.org/abs/2311.14961>.
+5. D. Adamson et al., *k-Universality of Regular Languages*, <https://arxiv.org/abs/2311.10658>.

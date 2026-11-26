@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:06:06.108234Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–69; VERIFICATION.md; verify.py",
+        "/workspace/branches/independent_checks.py (case 3)"
+      ],
+      "rationale": "A hole is hit exactly when two successive fair bits equal the current environmental bit. For r=1 or 2 replicas conditional on the same environment, if k current bits match, those k next bits must all be opposite the environment for survival (factor 2^-k). The other r-k next bits remain fair. Persistence gives zero known matches at the next step, and a flip gives k; this recovers both substochastic matrices and the binomial initial weights. The first-moment roots, coefficients from a_0=1 and a_1=3/4, and the p=0 Jordan limit agree. For 0<p<1 the two-replica matrix is primitive since the square has positive entries. Exact characteristic-polynomial expansion and reduction modulo the first-moment quadratic give P_p(q²)=4p(p-1)q(q-1)(4q²-3)<0; its positive cubic leading coefficient forces a real root above q². The Perron projection has positive prefactor, giving the stated moment and variance rates. At p=0 and p=1, complementing all bits pairs the two possible environments and Q_n is nonrandom. Independent replay: python3 /workspace/branches/independent_checks.py 3; symbolic polynomial and remainder identities plus 132 exact comparisons using absolute environmental and bit states instead of match-count states.",
+      "residual_risks": [
+        "Only shared-environment moments are verified; no almost-sure escape exponent or law for other holes follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The random-open-system works supply pressure and escape frameworks. Feng–Lo–Shen relate affine matrix-product pressure to uniform Lyapunov behavior under irreducibility assumptions."
+        ],
+        "reasoning": "No verified substitution into these statements yields the strict two-replica inequality for every interior Markov persistence. The matrix-pressure route would require a Markov-weighted representation and a verified non-affinity or strictness condition; it also does not state the displayed cubic and all-horizon law.",
+        "searches": [
+          "arXiv:2103.04712 p. 3; arXiv:2307.00774 abstract",
+          "Feng–Lo–Shen, Lyapunov Exponents for Products of Matrices, pp. 5–7, Theorem 1.8"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1405.0361, 1312.7030, 1211.0698, 2103.04712, 2307.00774 (bounded passages as above)",
+        "Feng–Lo–Shen OA version, Theorem 1.8",
+        "Local Resultary 91c8d26540fd, 664f1ab42552, c56fa32ae4c6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Livorati et al. use periodic moving holes and discuss random holes as a possible direction. The closest same-hole index statement gives deterministic survival envelopes, not weighted second moments. The known averaged survival and moment framework supplies the method, not the strict comparison."
+        ],
+        "reasoning": "A bound or a single annealed escape eigenvalue does not supply the two-replica Perron root or its strict separation from q². Jensen gives only a non-strict inequality at finite n and cannot certify an exponential relative gap.",
+        "searches": [
+          "arXiv:1312.7030 pp. 2 and 7",
+          "arXiv:1405.0361 §3.1",
+          "Resultary mirror 91c8d26540fd, Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bahsoun–Schmeling–Vaienti average survival then treat mean and variance of first escape time. Bódai–Altmann–Endler distinguish random maps with perturbations shared across trajectories from independent trajectory noise."
+        ],
+        "reasoning": "The variance of first escape time is not variance over environments of the conditional survival probability at fixed time. A two-trajectory same-environment survival probability is equivalent to the target's b_n; recognizing that equivalence does not determine its matrix or rate.",
+        "searches": [
+          "arXiv:1405.0361 §3.1, Eq. (3.3) and Theorem 3.2",
+          "arXiv:1211.0698 p. 1 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "91c8d26540fd uses the same holes but prescribed deterministic schedules and exact envelopes. 664f1ab42552 studies iid annealed first moments for run holes of depth at least three. c56fa32ae4c6 gives exact survival under prescribed hole schedules on Markov binary trajectories; the chain is on a different object. The inspected hits are later entries."
+        ],
+        "reasoning": "Neither a same-hole deterministic bound nor an annealed first moment specifies the target's law over environmental schedules. In the third hit, exchanging which object is Markov changes the survival law. No exact equivalent was identified in the checked results.",
+        "searches": [
+          "Local Resultary exact title and technical searches for dyadic moving holes, Markov persistence, and shared-environment moments"
+        ]
+      },
+      "rationale": "Prior literature supports transfer operators, stochastic escape and the shared-versus-independent environment distinction. The supported distinct claim is the exact two-replica law with the strict Perron gap for the whole interior persistence range, not the transfer recipe, Jensen's inequality, or the fair iid first-moment baseline.",
+      "residual_risks": [
+        "A specialized random-product theorem or an unindexed exactly soluble example may overlap; the bounded comparisons do not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related, different probability variable",
+          "evidence": [
+            "Averaged surviving mass, followed by escape-time mean and variance; not variance of the environment-conditioned mass."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1405.0361",
+          "material_read": "§3.1 p. 5, Eq. (3.3), Theorem 3.2",
+          "method": "Bounded OA primary text",
+          "title": "On Transfer Operators and Maps with Random Holes",
+          "trigger": "Closest annealed transfer and prior escape moments"
+        },
+        {
+          "assessment": "Periodic protocol comparison",
+          "evidence": [
+            "Position or size varies periodically; nonperiodic random holes are discussed as a possible direction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1312.7030",
+          "material_read": "pp. 2, 7",
+          "method": "Bounded OA primary text",
+          "title": "Escape through a time-dependent hole in the doubling map",
+          "trigger": "Same map with changing holes"
+        },
+        {
+          "assessment": "Credits shared randomness distinction; no exact matrix identified in passage",
+          "evidence": [
+            "Differentiates simultaneous perturbations to all trajectories from noise sampled separately for each."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1211.0698",
+          "material_read": "p. 1, abstract",
+          "method": "Bounded OA primary text",
+          "title": "Stochastic perturbations in open chaotic systems: random versus noisy maps",
+          "trigger": "Common perturbations and variance"
+        },
+        {
+          "assessment": "Broader framework, not a verified implication",
+          "evidence": [
+            "Distinguishes iid annealed work and broader quenched pressure/escape theory; neither inspected passage computes this shared second moment."
+          ],
+          "identifier_or_url": "arXiv:2103.04712 and arXiv:2307.00774",
+          "material_read": "2103.04712 p. 3; 2307.00774 abstract p. 2",
+          "method": "Bounded OA primary texts",
+          "title": "Random-open-system pressure and escape papers by Atnip et al.",
+          "trigger": "Potential broader random-hole escape coverage"
+        },
+        {
+          "assessment": "Hypotheses require further model-specific work",
+          "evidence": [
+            "Criteria linking pressure affinity to uniform exponents under irreducibility do not settle this specific Markov family without a separate strictness argument."
+          ],
+          "identifier_or_url": "https://www.math.cuhk.edu.hk/~djfeng/fengpapers/Feng-Lo-Shen/FLS-170223.pdf",
+          "material_read": "pp. 5–7, Theorem 1.8",
+          "method": "Bounded OA primary text",
+          "title": "Lyapunov Exponents for Products of Matrices",
+          "trigger": "Possible broad pressure strictness theorem"
+        },
+        {
+          "assessment": "Deterministic schedule, not variance over random schedules",
+          "evidence": [
+            "The assumptions specify externally prescribed schedules and expressly exclude schedule randomness."
+          ],
+          "identifier_or_url": "Resultary 91c8d26540fd",
+          "material_read": "Mirrored Finding and scope",
+          "method": "Local search and mirror",
+          "title": "Sharp moving-hole escape envelopes and a zero-entropy alternating phase for the doubling map",
+          "trigger": "Exact same map and dyadic holes"
+        },
+        {
+          "assessment": "Different observable or probability model",
+          "evidence": [
+            "One uses iid selection and longer runs; the other makes the bit stream Markov but prescribes the schedule."
+          ],
+          "identifier_or_url": "Resultary 664f1ab42552 and c56fa32ae4c6",
+          "material_read": "Mirrored RESULT.md findings",
+          "method": "Local search and mirror",
+          "title": "Fair switching maximizes annealed escape through complementary binary run holes; Universal optimal escape and an exact phase-wall law for alternating binary Markov holes",
+          "trigger": "Closest iid annealed and Markov schedule index hits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 30–47 and 58–66",
+        "Prior distinction between shared and independent perturbations, arXiv:1211.0698"
+      ],
+      "rationale": "For the shortest complementary repeated-bit holes, persistence changes the distribution of survival over environments. The result gives a tractable benchmark where relative variance grows strictly exponentially at every stochastic parameter despite being identically zero at either deterministic endpoint. An exact rate and an all-parameter witness are useful for understanding when annealed escape alone hides large dispersion; this is more than applying a transfer matrix or establishing positive finite-time variance.",
+      "residual_risks": [
+        "The result does not describe typical conditional survival or sampling requirements beyond this fixed dyadic model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

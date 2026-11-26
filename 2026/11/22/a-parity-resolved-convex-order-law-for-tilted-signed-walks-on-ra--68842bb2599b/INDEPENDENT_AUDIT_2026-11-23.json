@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:44:28.755896Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fix the walk horizon k and a test on the finite score lattice. Write the signed-graph conditional expectation as the ratio of root averages of the tilted test expectation and the tilt weight. Conditional on the unsigned graph, only O(n) ordered pairs of radius-(k+1) root neighborhoods share signs, so the conditional variance of each bounded root average is O(1/n). The conditional numerator mean agrees with the tree mean up to a constant times the fraction of roots without a tree neighborhood, which tends to zero in probability by fixed-radius local convergence; the denominator mean is exactly [p exp(−β)+(1−p)exp(β)]^d and positive. Thus the ratio converges in probability, not only after averaging over graphs. On the tree the tilt changes precisely the d root-incident signs independently to parameter q. At distances zero, one and at least two the score laws are A0, A1 and A∞. The odd-time mass at distance one is d times the following even-time return mass u_m; no other tilted component is possible at either parity. The mean identity follows by counting tilted signs in expectation. For a convex test let h(j) be its expected value with j of d signs tilted. Two replacements give Δ²h(j)=(p−q)² times the expectation of the second difference of the test at W−2,W,W+2, where W uses the remaining j tilted signs. The even-minus-odd expectation is u_m[h(d)+(d−1)h(0)−dh(1)], nonnegative and strictly positive for a strictly convex test; neither direction of first-order dominance is possible at equal means with distinct laws. For the quadratic test the second difference is 8, giving gap 4d(d−1)u_m(p−q)². The Catalan first-return counts, divided by d^(2j), give the asserted renewal generating function. At ρ=d²/[4(d−1)] its square-root coefficient is −2d(d−1)/(d−2)²; on the principal branch the denominator does not vanish and transfer yields the stated positive m^(-3/2) prefactor. The example at d=3 and m=1 matches exactly; when β=0 or p is deterministic the mixtures coincide. The large-time asymptotic is subsequent to the fixed-time graph limit.",
+      "replay": "Independently propagate integer tree-walk counts by radius: from zero send d copies outward; at positive radius send one copy inward and d−1 outward; divide the counts at step k by d^k. Convolve Bernoulli sign masses exactly and form the odd/even mixtures. This reproduced normalization, mean, variance and convex-order hinges in 270 cases (degrees 3–8, five rational pairs (p,q), times m=1–9); 3,780 exact hinge checks, with the numerical example and the m=1 unit weight also checked. Bounded evidence only. The frozen checker.py has a separate rational replay and was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general signed theorem compares the initial score with each later score in stochastic order; a separate joint endpoint inequality still uses time zero. The rigidity theorem tests both successive stochastic inequalities on all three-vertex signed weighted graphs."
+        ],
+        "reasoning": "Universality of a start-versus-time statement does not imply any order between two later marginals. Existence of small graphs witnessing a failure of universal consecutive stochastic monotonicity does not force failure for this specific random-regular model and does not say which way convex order goes.",
+        "searches": [
+          "arXiv:2611.17118v1, Theorem 1(iv), Eq. (9), Theorem 2 and Example 1",
+          "SCOPE-three-vertex-rigidity-of-consecutive-time-stochastic-ordering-fo--7e62c6221a3d"
+        ]
+      },
+      "checked_sources": [
+        "Louvaris–Trevezas, arXiv:2611.17118v1",
+        "Three-vertex rigidity of consecutive-time stochastic ordering for signed-strength Markov walks",
+        "Arenas Longoria–Mingo, arXiv:2009.11950v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Louvaris–Trevezas explicitly do not assert monotonicity between successive times. Their tilted local-limit mechanism gives the input tree law, and the Catalan return paper independently gives the exact radial return counts."
+        ],
+        "reasoning": "Together these give ingredients, not a paired score law: one has to localize the affected edge signs by endpoint distance, use root-neighbor flux to identify paired weights, and prove convexity in the number of tilted signs. The equal means and strictly positive gap then resolve a genuinely different comparison.",
+        "searches": [
+          "arXiv:2611.17118v1, Section 2 and Section 5, Eq. (17)",
+          "arXiv:2009.11950v1, introduction and Lemmas 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The search of published results located the record under review and a same-day three-vertex rigidity theorem. The primary same-model work expresses the statistic in its Example 1 as a conditional mean increment, not the score at the random endpoint."
+        ],
+        "reasoning": "Changing the wording from signed vertex score to signed degree/strength leaves the question intact, but replacing the random endpoint by its conditional mean changes the law and removes the walk noise essential to a variance or convex-order comparison.",
+        "searches": [
+          "Resultary: tilted signed friendship paradox simple random walk random regular graphs consecutive parity convex order signed score",
+          "signed friendship paradox Louvaris Trevezas signed random regular random walk convex order root signed scores adjacent time distribution Kesten McKay return"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Arenas Longoria–Mingo, arXiv:2009.11950v1, constructs closed-walk moments by Catalan first returns and recurrence. The Resultary search did not identify an independent table of the p,q-dependent paired score mixtures; same-model Example 1 enumerates a different statistic."
+        ],
+        "reasoning": "The closed-walk sequence is prior and division by d^(2m) recovers u_m; its exact counting/generating function is not an original part of this finding. These moments have no sign parameters and do not give the odd/even score distributions or their strict convex separation.",
+        "searches": [
+          "random walk homogeneous regular tree return probabilities Kesten McKay asymptotic n^-3/2 local limit theorem exact return sequence Catalan",
+          "Resultary: tilted signed friendship paradox simple random walk random regular graphs consecutive parity convex order signed score"
+        ]
+      },
+      "rationale": "The same marked tree and exponential sampling tilt, and the exact return-count component, are prior mathematics. The new claim is the realized-score marginal law and strict spread comparison between paired adjacent times, not the stochastic comparison to time zero, the law of a root-wise mean bias, or the walk return law alone. The closest inspected results do not cover that combined claim; priority remains bounded.",
+      "residual_risks": [
+        "An equivalent result about a biased initial neighborhood in marked tree scenery could be indexed under different vocabulary. The comparison does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers model, reweighting and start-versus-time order, not paired score marginals",
+          "evidence": [
+            "Theorem 1(iv) is s(X0) ≤st s(Xk). The example's law is for b₁(H), the conditional mean score increment across sampled roots."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.17118v1",
+          "material_read": "Section 2, Theorem 1(iv), passage on successive times and Eq. (9); Section 5, Theorem 2 and Example 1 Eq. (17)",
+          "method": "Read relevant portions of the original OA preprint and compared random variables",
+          "title": "Universal sampling rules for the signed friendship paradox",
+          "trigger": "Same signed random-regular model and exponential tilt"
+        },
+        {
+          "assessment": "Related adjacent-time obstruction, not a dominating result",
+          "evidence": [
+            "Universal first-two-step monotonicity on three-vertex signed weighted networks forces magnitude-strength sampling, which is stationary. It does not compute model-specific spread or parity laws."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-three-vertex-rigidity-of-consecutive-time-stochastic-ordering-fo--7e62c6221a3d/RESULT.md",
+          "material_read": "Theorem and proof Steps 1–4 in the published result",
+          "method": "Compared universal quantifiers and the finite tests with the random-family limit",
+          "title": "Three-vertex rigidity of consecutive-time stochastic ordering for signed-strength Markov walks",
+          "trigger": "Exact adjacent-time stochastic ordering on closely related signed walks"
+        },
+        {
+          "assessment": "Directly covers the return-count ingredient only",
+          "evidence": [
+            "For c=d−1 the first return count at time 2m is (1+c)c^(m−1)C_(m−1); decomposing closed walks into irreducible returns gives the generating function."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2009.11950v1",
+          "material_read": "Abstract, introduction, closed-walk generating-function setup and Lemmas 1–2 (PDF text offsets 0–13,373)",
+          "method": "Checked the closed-walk and first-return counts and the normalization by d^(2m)",
+          "title": "The Kesten–McKay Law and the Truncation of Pascal’s Triangle",
+          "trigger": "Known exact regular-tree returns used in the variance decay"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A start-versus-future sampling theorem leaves open what happens between successive positive times. This result shows a systematic, not exceptional, distinction: the odd and following even limiting scores share a mean but are stochastically incomparable, with the even score strictly more dispersed in convex order. The exact mixture laws and return-controlled spread quantify that phenomenon for all nondegenerate parameters in the model. It is not a finite-graph coupling or a joint time-and-size limit.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

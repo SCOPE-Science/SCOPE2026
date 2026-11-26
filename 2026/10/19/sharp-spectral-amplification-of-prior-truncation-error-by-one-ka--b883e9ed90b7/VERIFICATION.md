@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-Run `python verify_covariance.py` with Python 3, NumPy and SymPy. The verifier symbolically checks the two-mode posterior subtraction, rank-one factorization and exact amplification identities; performs rational arithmetic on a nontrivial positive-noise witness; and checks PSD order, sharp upper bounds, convergence to the supremum and the aligned-sensor bound across dimensions two through seven.
+# Independent mathematical audit
 
-The tests consist of 385 deterministic assertions. They support but do not certify the general proof, which follows from the variational characterization of Gaussian conditioning, a spectral upper bound, and an explicit limiting one-sensor construction. The supremum requires a limiting sensor family; the verifier never treats finite sampling as a proof of universal sharpness. Independent audit is not performed.
+## correctness
+
+PASS
+
+For each test vector the conditioning quadratic form is the minimum over the observation coefficient of a nonnegative prior quadratic form plus a noise quadratic form. This proves Loewner monotonicity even for singular P_r and the bound 0≤K(P)−K(P_r)≤P. For the scalar row t e₁ᵀ+t² e_{r+1}ᵀ with R=1, the retained-coordinate posterior entries for the truncated and full priors tend to 0 and λ₁ respectively. The first diagonal difference thus proves sharpness by itself, even with eigenvalue multiplicities. The formula K(M)=M^{1/2}(I+M^{1/2}HᵀR^{-1}HM^{1/2})^{-1}M^{1/2} shows that alignment decouples the blocks even for singular M; the retained blocks cancel and the omitted block is bounded by P−P_r. The exact 2D rank-one update in RESULT.md lines 70–83 gives the stated amplification condition, including no amplification when b=0 or κ=1. At x=y=κ=100 it gives the stated rational witness. These checks concern a supremum over unbounded sensor coefficients, not finite attainment, and exact covariance conditioning only. The supplied verifier was inspected, not executed; no finite tests are needed for the universal conclusion.
+
+## originality
+
+PASS
+
+The inspected prior work supplies covariance update formulas, low-rank filtering and a qualitative warning about ignoring likelihood information in prior truncation, but not the sharp norm amplification for the specified order of operations, nor the accompanying alignment and two-dimensional threshold results.
+
+## value
+
+PASS
+
+The exact constant resolves how badly low-rank error can be amplified despite the posterior map being order preserving and covariance reducing. One scalar observation already causes the worst-case loss, whereas block alignment prevents it. The two-mode coefficient threshold gives a usable diagnostic beyond the qualitative warning that truncation ignores the likelihood.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

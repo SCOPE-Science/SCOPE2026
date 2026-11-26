@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The theorem concerns the worst-over-periods spectral condition number of the exact periodic Fourier symbol, not bounded-domain finite elements. Fourier integration yields the multiplier; a single global maximum of a specified function identifies the unique minimizing correction coefficient. The proof establishes separation of high-frequency minimum and low-frequency maximum, turning a pointwise monotonicity identity into global uniqueness. Exact Taylor bounds verify the two comparison constants. The packaged checker passes exact arithmetic and non-exhaustive frequency stress tests. Residual correctness risk: no independent mathematical check; numerical decimals are illustrative.
+## correctness
 
-**Originality: PASS (provisional, self-review literature comparison).** The motivating paper fixes the correction coefficient from kernel mass and proves spectral equivalence but does not derive this periodic symbol's minimax coefficient. A distinct 2026 two-level Toeplitz \(\tau\)-preconditioner paper addresses a different mechanism; only its abstract was available for direct comparison. Published mathematical search, relevant accessible claims, and exact-alias searches did not expose a statement implying this one. Standard spectral minimax methods remain background; absence of a search match does not establish uniqueness in the literature. Residual risk: an older Fourier-symbol/Toeplitz analysis might contain equivalent special cases.
+PASS
 
-**Mathematical value: PASS.** It asks a natural parameter-selection question for an existing analytically justified Poisson-plus-mass preconditioner, proves a unique robust optimum for a canonical admissible kernel, and gives a greater-than-two certified condition-number improvement over the kernel-mass coefficient. The global extremizer separation is structural, not a restatement of a finite numerical trial. The periodic spectral result offers a rigorous baseline for choosing or testing weights; it does not imply improvement of a specific finite-element PCG implementation.
+Integrating the top-hat difference on each Fourier mode gives the positive product symbol p_beta(t) with limits 1/3 and 2 beta. To justify the uniform ratio rather than ratios on unrelated grids, approximate each of an arbitrary pair of finite positive frequencies on the same grid of spacing h=2 pi delta/L, then let h tend to zero. Finite frequencies approach both limiting spectral endpoints. For beta>0 the symbol has positive infimum by compactness and the endpoint limits. The inequality p_beta≥1/3 at all frequencies is exactly beta≥sup H. Sine's upper Taylor bound and the negative sine on [pi,2 pi] give H≤1/6 through 2 pi, whereas H(5 pi/2)>1/6 and the limits of H are 1/20 and 1/6. The envelope t/[6(t−1)]−t^-2 bounds H above on the tail and is strictly below 9/50 there (the difference has numerator 2t³−27t²+150t−150 after multiplication by 150 t²(t−1)). At beta_star the symbol's maximum is attained below 2 pi: its value at pi exceeds 8/15, but the tail is at most 1309/2700 and the zero-frequency limit is 1/3. The attained threshold minimum is above 2 pi. Fixing the resulting maximizing and minimizing frequencies u<t, their ratio strictly decreases with beta, excluding every smaller beta. Every larger beta raises the value at u while the infimum cannot exceed 1/3. For beta=1/6 the lower tail estimate reduces to t³−10t²+60t−60≥0 for t≥6; the upper estimate uses the alternating Taylor bound through t^6 for sinc up to 19/5 and the decreasing envelope (1+1/t)(1+6/t²) thereafter. This gives p in [3/10,3/5]. At beta=1/2 the sine Taylor upper bound through degree 13 gives p(4)>4/3. All needed Taylor remainders have the asserted signs by decrease of the terms in the withheld tails over the stated ranges. Independent rational checks and local stationary-point diagnostics (python /workspace/review_checks.py, check 4) reproduce about 0.1747779923813 and 1.700200564562; these diagnostics do not certify global maximizing frequencies, nor are they needed for the theorem.
 
-Closest literature: Lu et al., arXiv:2609.24143v1, full primary manuscript examined in the construction, Fourier-symbol, theorem, numerical-results, and concluding passages; Zhang et al., DOI:10.1007/s10915-025-03150-2, abstract only; Du et al., *SIAM Review* 54 (2012), background citation. The result is deliberately delimited to avoid subsumption by the source's general spectral-equivalence theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The checked sources supply the preconditioner family and robustness results, or exact spread at one fixed coefficient, but do not imply the unique uniform minimizer over coefficients. Distinct supported contribution: the all-beta minimax characterization and uniqueness, with the quantitative comparison to the kernel-mass prescription. This is a best-of-knowledge statement, not exhaustive priority certification.
+
+## value
+
+PASS
+
+The mass coefficient is prescribed by a substantive existing construction, so optimizing it for the canonical top-hat symbol is not an arbitrary parameter search. Separation of the active frequencies turns two pointwise comparisons into a unique robust optimum, and the certified greater-than-two improvement is material for the ideal spectral model. It is a useful benchmark, not a PCG iteration or finite-element tuning guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

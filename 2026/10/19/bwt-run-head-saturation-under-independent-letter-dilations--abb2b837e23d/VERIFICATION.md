@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.8 or later; the program uses only the standard library. It independently computes the circular BWT by exhaustive rotation sorting, derives the structural BWT decomposition from maximal circular runs, and compares their full output strings. An additional independent cyclic suffix-doubling algorithm checks longer examples with larger ordered alphabets and independent letter-exponent vectors.
+## correctness
 
-Observed output:
+PASS
 
-`VERIFY_OK full_multialphabet_BWT_decomposition exhaustive_cases=38792 randomized_suffix_doubling_cases=220 sharp_h1=01`
+For a mixed word, each starting position belongs to one maximal circular run of symbol a and is specified there by its remaining length t. Every row followed by a letter smaller than a sorts before every row followed by a larger letter; t increases in the former class and decreases in the latter. At equal t the post-run continuation determines order, preserved by letter-dependent dilation since the shared prefix is expanded identically. Identical periodic tails determine the backward circular letters too, hence ties cannot affect the output. At t=q h_a the preceding letters form the fixed word B(q); the h_a-1 intervening levels each contribute R(q) copies of a. This proves the entire last-column product, including for periodic words. For h_a>=2 every inserted factor is nonempty, so varying its length cannot change any run head, including across block boundaries. Monochromatic words are immediate, and direct rotation sorting gives BWT(011)=110 versus BWT(0011)=1010, showing sharpness even when just one exponent is 1. An independently written bounded reproduction passed 23,226 comparisons of full last columns and heads, all ternary words of length 1–7 with exponents 2 or 3 on present letters. The uploaded verifier was inspected, not executed.
 
-The exhaustive parameter domain is every mixed binary word of lengths 2–9, every mixed ternary word of lengths 2–7, and every mixed four-letter word of lengths 2–6, each with four exponent vectors. The randomized domain uses 220 deterministic seeded words of length 15–100 over alphabets of size 2–6 with exponents 2–8. The separate sharpness test compares `01` and `0011`.
+## originality
 
-No physical or empirical test proves the all-length claim; its proof is the complete rotation-order and BWT decomposition argument in `RESULT.md`. No external or independent audit has been conducted. Reproducibility requires no third-party packages.
+PASS
+
+The supported distinct claim is the full arbitrary-parent, arbitrary-ordered-alphabet last-column decomposition and the resulting universal saturation of ordered heads from exponent 2. Mantaci et al. supply order preservation and a subsequence argument for Lyndon inputs, with a genuine special equality case when the source ratio is already maximal. The inspected material does not give the general threshold or the full decomposition. The frozen literature paragraph should qualify the cited theorems as statements for Lyndon inputs; this does not affect the proved finding.
+
+## value
+
+PASS
+
+BWT run counts measure clustering; prior single-letter monotonicity leaves open whether further expansion still changes that clustering. The proof gives an exact, sharp universal cutoff and a stronger ordered invariant, while the full factorization specifies how run lengths can still change. This is useful for predicting cyclic BWT structure without sorting the expanded word.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

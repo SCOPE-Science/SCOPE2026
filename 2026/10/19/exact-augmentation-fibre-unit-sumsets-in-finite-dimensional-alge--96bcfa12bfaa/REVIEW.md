@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The assertion is an exact additive sumset equality over all finite-dimensional augmented algebras over \(\mathbb F_q\), \(q>2\), and all \(n\ge2\). Matrix-block two-unit decomposability follows from an explicit rank normal form and a scalar outside \(\{0,1\}\); exact higher lengths follow inductively. A surjective augmentation of the semisimple quotient singles out one \(\mathbb F_q\) factor. All complementary simple factors are full matrix algebras over fields of size at least three. Unit lifting and absorption of the residual radical difference complete the proof with no assumption on the group order. Exact code checks replay finite test cases, including modular \(\mathbb F_3[S_3]\). The proof, not enumeration, establishes all quantifiers.
+PASS
 
-## Originality — PASS (same-model, subject to bibliographic risk)
+The nilpotent radical J maps to zero in the field. In the semisimple quotient, the surjective augmentation selects a single simple factor F: the central coordinate idempotents map to orthogonal idempotents in F summing to 1, and the resulting nonzero map on that simple factor is injective. Write the quotient as F times B. In a matrix block of B, independent invertible row and column operations put any matrix into diag(I_r,0); diag(t I_r,I) and diag((1-t) I_r,-I) are invertible and sum to that form for t outside {0,1}. Splitting any unit W as tW+(1-t)W increases the length by one. Therefore, for any prescribed augmentation summands in U adding to epsilon(x), each remaining block admits exactly the needed number of unit summands, independently. Lift those quotient units and add the radical error to one summand; its quotient and augmentation are unchanged. The reverse inclusion follows from additivity. Empty U gives empty sumsets, and the stated F_2 times F_2 example correctly shows that the field-size restriction is essential to the universal identity. The group-algebra augmentation is surjective, so the iff follows. The theorem and the phrase about inherited lengths are read in the explicit range n>=2; there is no n=1 assertion.
 
-Mináč--Nguyen--Tân, arXiv:2607.00404v1, §3.2 Question 3.5, expressly asks the unrestricted group-algebra statement. The paper establishes specialized cases (Propositions 3.7--3.13) and radical lifting (Proposition 3.2), but does not combine the distinguished semisimple augmentation factor with exact matrix-factor sums; its paragraph after Proposition 3.12 says the general case is unclear. The new equality addresses every fibre, every subset of field units, and every finite-dimensional augmented algebra, not just covering field-wise \(n\)-sum instances. Targeted mathematical-index and relevant literature searches did not identify a stronger theorem. The possibility of an unindexed equivalent unit-sumset lifting theorem is residual, not ruled out by absence of search results.
+## originality
 
-## Value — PASS
+PASS
 
-This supplies an affirmative answer, including modular cases with nonnormal Sylow structure, to an explicitly posed 2026 algebra question and strengthens it to an exact formula for all augmentation-fibre sumsets and representation lengths. The simple quotient reduction is reproducible, portable to non-group finite-dimensional algebras, and sharply delimited by a binary counterexample. Although its proof uses classical facts and is short, it settles a motivated family-wide gap rather than a routine isolated calculation.
+The restricted exact augmentation-fibre statement goes beyond unrestricted sums of units and beyond lifting a preexisting restricted statement across a radical. In the inspected version of the motivating primary paper the all-finite-group transfer at the same length is a question, not a theorem; its hypotheses on U are also narrower. The contribution is the uniform restricted sumset identity, not the classical summand decomposition or unit lifting.
 
-## Closest sources and limitations
+## value
 
-The central comparison is Question 3.5 and Propositions 3.2, 3.7--3.13 of arXiv:2607.00404v1. The matrix two-unit lemma is classical; Jacobson radical lifting and Artin--Wedderburn are standard. No claim extends to infinite-dimensional rings, arbitrary target rings, or the binary-field universal sumset identity. Equivalent unnoticed formulations are possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This answers a specifically published same-length transfer question uniformly for all finite groups, including modular cases, and determines each augmentation fibre even when the whole-ring sum property fails. Identifying the distinguished scalar factor makes the obstruction and construction exact; the short proof using standard ingredients is not merely a new example of unrestricted two-unit generation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

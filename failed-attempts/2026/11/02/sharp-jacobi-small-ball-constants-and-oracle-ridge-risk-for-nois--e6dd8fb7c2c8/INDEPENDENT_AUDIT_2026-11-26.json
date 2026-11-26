@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:56:46.529752Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–80; independent tube, endpoint and conditional-risk checks",
+        "Frozen VERIFICATION.md and verify.py, inspected without executing"
+      ],
+      "rationale": "With epsilon=sqrt(s), mean/deviation coordinates give Jacobian sqrt(m) and a transverse ball of dimension m-1. Away from the ends the product density converges to the beta density to the m-th power. For a subcritical end, scaling all coordinates by epsilon gives s^(ma/2) times the stated integral: bounded rescaled boxes are integrable because a>0 and the unbounded mean integral converges because m(a-1)<-1. At a critical end the section contributes proportional to s^q times the integral of dt/t from M epsilon to eta. Its relative integrand error can be made arbitrarily small by first choosing large M and small eta; the remaining parts of this endpoint's neighborhood contribute O(s^q) for fixed M and eta. This gives the factor 1/2 in the log coefficient. The two disjoint ends add even at equal exponents. The interior beta integral, inverse-moment boundary, and uniform and arcsine calibrations agree with this normalization. For fixed S>0 and lambda*=sigma^2/b^2, the conditional excess risk is b^2 S (lambda-lambda*)^2/[(S+lambda)^2(S+lambda*)], proving uniqueness also against lambda=0, whether or not the OLS expectation is finite. For the oracle risk the Stieltjes kernel integral yields the beta-function coefficient below delta=1, a logarithm at delta=1, and dominated or monotone convergence above it. No geometric critical logarithm enters the delta<=1 regimes since q>=3/2.",
+      "residual_risks": [
+        "The proof is for the uncorrected sum of squares, fixed m and shape parameters, independent equal-variance noise and a slope-dependent oracle penalty. The critical proof's away-from-left estimate is local to that endpoint's decomposition; it does not bound the opposite critical end, which is added separately."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Royen has broader exact CDF representations under indicated hypotheses, as well as a general coarse small-x estimate. Those are not being treated as verbatim unrestricted two-parameter tail equivalents.",
+          "Record 49dd7cad8477 has a varying two-endpoint critical window; at zero perturbations it gives the same coefficient at symmetric criticality. Record 83040a6c4736 already gives the full noisy-slope moment frontier. The examined Jacobi sampling and empirical covariance work concerns broader stability/rate or lower-tail contexts."
+        ],
+        "reasoning": "Same-day indexed matches are mathematical coverage regardless of unresolved ordering. The symmetric critical and moment overlaps are direct, but the decisive extension to arbitrary fixed shapes relies on the inspected exact power law and localization, not on interpreting the broader CDF formulas as already expanded.",
+        "searches": [
+          "Royen arXiv:0810.1572 Theorems 1, 4 and 5; exact distributions of beta sample variance",
+          "Resultary critical window 49dd7cad8477 and beta slope moments 83040a6c4736",
+          "Xu–Zhang arXiv:2407.10221 and Mourtada arXiv:1912.10754"
+        ]
+      },
+      "checked_sources": [
+        "Royen arXiv:0810.1572 §3, equations (47)–(50)",
+        "Resultary/local mirror f275509045a1, 49dd7cad8477, 83040a6c4736",
+        "Xu–Zhang arXiv:2407.10221 and Mourtada arXiv:1912.10754, scope only",
+        "Frozen RESULT.md, prior-work and limitation sections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At a left end use Royen with p=alpha and at a right end reflect, then use p=beta. At every singular end requiring Royen, p<1, as in his hypotheses. The local density ratio factor gives precisely B^(-m) J_m(p) or sqrt(m) v_(m-1)/(2B^m) for that end. All supercritical ends contribute O(s^q) by the same L^m tube bound on a restriction excluding the opposite endpoint.",
+          "In the interior phase, extend the one-site density f by zero. Hölder and telescoping bound the L1 difference between the product of m translates and f^m by ||f||_m^(m-1) times the sum of the m translation differences in L^m. This tends to zero uniformly over vanishing deviations, so the interior tube formula follows directly whenever both shapes are supercritical.",
+          "The inverse moments and the small-noise oracle formulas then follow by integration of the resulting tail; the ridge optimizer is pointwise in S."
+        ],
+        "reasoning": "A bounded-factor density comparison followed by eta tending to zero, a standard tube calculation, and an elementary integral determine all remaining fixed-shape branches. The prior exact power law, not merely Royen's broader exact-distribution representations, makes the scientific difference a routine deduction.",
+        "searches": [
+          "Royen §3 Theorem 3, exact constants and proof, arXiv PDF pp. 11–12",
+          "Frozen RESULT.md tube and risk steps, lines 57–80",
+          "Resultary prior exact and slope-moment matches f275509045a1, 49dd7cad8477, 83040a6c4736"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Royen's Q is the same uncorrected quadratic form and f_p(x)=p x^(p-1) is Beta(p,1). The exact subcritical coefficient is expressed by an integral of Gaussian-smoothed powers.",
+          "Record f275509045a1 uses unbiased variance V=S/2 for m=3 and gives the complete two-endpoint phase diagram at that sample count."
+        ],
+        "reasoning": "Royen's subcritical constant equals p^m J_m(p): expand the m-th power inside his integral and integrate over the real shift y to obtain sqrt(pi/m) times the integral of exp(-S(z)) against the power density on the orthant. Homogeneity turns that Laplace integral into Gamma(1+mp/2) J_m(p); Royen's prefactor cancels the Gaussian and gamma factors. At equality, (50) gives p^m sqrt(m) v_(m-1)/2. These are the same constants, not just matching exponents.",
+        "searches": [
+          "Royen arXiv:0810.1572, §3 Theorem 3, equations (47)–(50)",
+          "Resultary three-sample beta variance phase diagram, f275509045a1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact power-family coefficients are in (50); exact m=3 two-parameter coefficients and the all-m symmetric critical coefficient have indexed matches.",
+          "The four-arcsine exact range-tail value in 83040a6c4736 is for a different statistic; the inequalities between range squared and S do not specify the coefficient of S."
+        ],
+        "reasoning": "No inspected table states all cross-parameter constants together with the oracle risk. That absence does not establish originality: the subcritical and critical values are transferred from exact coefficients already given, and the range coefficient is not the basis for that transfer.",
+        "searches": [
+          "Beta/Jacobi sample-variance exact CDF and small-tail search, Royen arXiv:0810.1572",
+          "Resultary exact beta variance, arcsine and critical-window findings f275509045a1, 49dd7cad8477, 83040a6c4736"
+        ]
+      },
+      "rationale": "The full two-endpoint statement is not quoted verbatim in the inspected prior sources, but its constants are mechanically implied. Royen's Theorem 3 already gives the exact subcritical and critical coefficients for each power endpoint in the same statistic and all sample counts. On S<=s, coordinate spread is at most sqrt(2s), so fix a small eta and split into all coordinates within eta of one end or the other and the remaining interior. In either endpoint neighborhood the beta joint density differs from the matching pure-power joint density by (a B(alpha,beta))^(-m) times a factor tending uniformly to one as eta decreases. For the pure-power law the excluded part of S<=s is O(s^q), negligible both below and at criticality. This transfers Royen's constants endpoint by endpoint; two matching contributions just add. Above criticality the ordinary diagonal tube coefficient follows from L^m translation continuity, and the integral is a beta function. The risk optimizer and its small-noise constants are then elementary conditional squared-error and one-variable integral deductions. Thus the arbitrary-parameter synthesis is correct but is not a distinct non-mechanical finding.",
+      "residual_risks": [
+        "No claim about the earliest statement of the exact two-endpoint formula. The rejection rests on demonstrated implication from an inspected source, not failure to find a verbatim duplicate or relative priority on the same date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive exact antecedent: all sample counts, pure-power endpoint constants, transfers by explicit density comparison",
+          "evidence": [
+            "For f_p it gives power s^min(mp,m-1)/2 except at mp=m-1, where the exact leading power has a log factor. Equation (50) evaluates all three constants, with the critical numerator (p sqrt(pi))^m/2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0810.1572",
+          "material_read": "Section 3, Theorem 3, pp. 11–12, offset 33242, equations (47)–(50) and beginning of the proof; also compared Theorems 1, 4 and 5",
+          "method": "Primary OA PDF, targeted passages and independent implication check",
+          "title": "The Exact Distribution of the Sample Variance from Bounded Continuous Random Variables",
+          "trigger": "Closest primary exact asymptotics for the same quadratic statistic"
+        },
+        {
+          "assessment": "Full shape-parameter special case at m=3",
+          "evidence": [
+            "The unbiased variance is V=S/2. After rescaling, its exponents, endpoint multiplicity and constants match the m=3 specialization."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-exact-lower-tail-phase-diagram-for-the-three-sample-beta-varianc--f275509045a1",
+          "material_read": "Local-mirror Finding at offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Exact lower-tail phase diagram for the three-sample Beta variance",
+          "trigger": "Exact two-endpoint constants under an alternate variance normalization"
+        },
+        {
+          "assessment": "Includes the fixed symmetric critical case; same-day priority unresolved",
+          "evidence": [
+            "Setting both critical-window drift parameters to zero gives the sum of both endpoint constants sqrt(m) v_(m-1)/B^m."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-logarithmic-critical-window-localization-for-nearly-constant-bet--49dd7cad8477",
+          "material_read": "Local-mirror Finding at offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Logarithmic critical-window localization for nearly constant Beta samples",
+          "trigger": "Exact beta small-tail logarithm in the same statistic"
+        },
+        {
+          "assessment": "Matching moment frontier; range constant is not the desired variance constant",
+          "evidence": [
+            "Slope-moment order bound min(m-1,m alpha,m beta) agrees after converting slope moments to inverse moments of S. Exact four-arcsine range probability has a different event."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-moment-budget-for-noisy-affine-fits-under-beta-distributed--83040a6c4736",
+          "material_read": "Local-mirror Finding at offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Sharp moment budget for noisy affine fits under beta-distributed sampling",
+          "trigger": "Same design and inverse-moment consequences"
+        },
+        {
+          "assessment": "Context only, not used to decide exact coverage",
+          "evidence": [
+            "Polynomial least-squares sampling-rate and stability setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.10221",
+          "material_read": "Primary p. 1, scope and abstract",
+          "method": "OA primary scope comparison",
+          "title": "Stability of Least Square Approximation under Random Sampling",
+          "trigger": "Cited Jacobi sampling context"
+        },
+        {
+          "assessment": "Context only, not used to decide exact coverage",
+          "evidence": [
+            "General empirical covariance lower-tail bounds, not the exact power-endpoint comparison used here."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1912.10754",
+          "material_read": "Primary p. 1, scope and abstract",
+          "method": "OA primary scope comparison",
+          "title": "Exact minimax risk for linear least squares, and the lower tail of sample covariance matrices",
+          "trigger": "Cited risk and sample covariance lower-tail context"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, tail, inverse moments, and ridge applications",
+        "Royen Theorem 3 and exact coefficient transfer",
+        "Resultary beta slope-moment and critical-window findings"
+      ],
+      "rationale": "Exact design-noise benchmarks are well motivated, and the formulas are useful as an exposition. Here the endpoint coefficients transfer by a local multiplicative density comparison, the rest is the standard diagonal tube, and the oracle risk adds only a pointwise squared-error identity and elementary integration. No independent non-mechanically-implied result survives the comparisons; the explicit four-arcsine ridge benchmark follows by the same steps and does not warrant a separate repaired finding.",
+      "residual_risks": [
+        "This assessment does not dispute correctness or the utility of collecting the consequences in one place. It does not cover new data-driven penalties or other design models."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

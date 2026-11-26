@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The graph models follow the four independent transversals of the \(4\)-by-\(4\) generalized-quadrangle rook graph and the four mutually disjoint exceptional line classes on the minimal resolution (Degtyarev--Rams, Convention 2.12 and Theorem 3.20). Both characteristic polynomials follow from two invariant block decompositions using \(B^{\mathsf T}B=4I\) and \(RB=2(J-B)\). The four-color counts are proved by the exact finite sum over *all* order-four Latin squares, with complete row-class data. `CHECK.py` independently obtains the stated color counts by direct backtracking on the full graphs and checks the polynomials via exact integer arithmetic. No inference about actual surface realizability is made.
+PASS
 
-## Originality
+Convention 2.12 and Theorem 3.20/Remark 3.21 of Degtyarev–Rams confirm four mutually disjoint (-1)-vertices whose four neighborhoods partition the (-2)-rook graph into independent transversals. The Latin-square labels encode exactly such a partition. To check exhaustiveness independently, reduce the first row and column of the neighborhood Latin square to (0,1,2,3) by index and symbol permutations. The four reduced squares are the Klein table and the three simultaneous relabelings of the cyclic table. Thus the known two embeddable abstract types must be these (the color counts distinguish them). Independently reconstructed 64 edges per graph, both exact characteristic polynomials and the coloring counts (replay: python /workspace/branches/independent_replay.py 4 with SymPy). For the spectra, the symbol column space splits into the grid constant direction and three rook eigenvectors of eigenvalue -2; B^T B=4I supplies the couplings. Its orthogonal complement leaves six modes each at 2 and -2. Subtracting the two prescribed self-intersection diagonals yields the weighted blocks and inertia (1,10,9). For the count, normalize the first rook row by the unique palette permutation putting it in order (0,1,2,3); enumerate all 24 remaining Latin grids with that top row by exhausting three permutation rows, and multiply the four numbers of permissible colors for the independent extra vertices. The resulting normalized counts are 225 and 357, so the labeled counts are 5400 and 8568. Neither the matrices nor this enumeration establish separate geometric realizability of the candidates.
 
-PASS, qualified. Degtyarev--Rams (arXiv:2506.22733v1, §3.4) classify exactly two candidate dual graphs but do not compute their common adjacency and intersection polynomials or distinguish them via their precise numbers of independent-set color partitions. Besharati et al. (arXiv:1510.02521v2) deal with the **sixteen-vertex** Latin-square graph with extra same-symbol *edges*, rather than the present **twenty-vertex** graph with four separate symbol vertices. The compared mathematical literature contains analogous quartic-line spectra, but not these two candidates or counts. The residual risk is that an unindexed enumerative graph table may contain an equivalent calculation.
+## originality
 
-## Value
+PASS
 
-PASS. Four-colorings of the geometric dual graph are partitions of the twenty line classes into four families of pairwise nonintersecting curves on the minimal resolution, a natural question for competing candidate quartic configurations. The exact counts \(225\) versus \(357\) separate their combinatorics even though their complete adjacency spectra and weighted intersection spectra agree. This exposes a concrete limitation of spectral criteria for comparing the two lattice-theoretically admissible configurations identified in the initiating geometric classification. It is an exact self-contained natural invariant, not evidence that both configurations can be realized on surfaces.
+The two abstract types and their permitted incidence structure are prior; the shared adjacency/weighted polynomials together with the exact differing natural four-partition counts are supported as the distinct result on the checked evidence.
 
-## Closest literature and limits
+## value
 
-The initiating paper's full relevant classification and resolution conventions were checked. The earlier quartic-line count of González-Alonso--Rams supplies the bound and examples; the Latin-square chromatic study concerns a different graph construction. Both the new coloring census and spectral comparison are absent from the relevant text examined. The remaining scientific risks are unindexed equivalent graph tables, and the open realization question for the two abstract candidates. Only the stated finite graph and weighted matrix results are claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The objects are the two pre-existing maximal twenty-line candidates, and four is the smallest possible number of disjoint families because a rook row already forms a 4-clique. The two exact numbers of minimal disjoint-line decompositions separate those candidates even with both ordinary and weighted intersection spectra fixed. This is a useful exact invariant at the level at which both abstract types are known, without asserting existence of both surfaces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

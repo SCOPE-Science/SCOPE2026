@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is reconstructed with the exact Gram matrix \(G_{\varepsilon,u}=I_n-(1-\varepsilon)uu^{\mathsf T}\), the full-dimensional cone convention, and fixed \(u\) with nonzero coordinates. The rank-one Sherman–Morrison inverse gives a one-factor normal distribution for Gaussian coefficients. Conditioning yields exact interval-probability formulas for mixed and unanimous signs. The global cubic Taylor bound for the normal distribution function gives both \(O_u(\varepsilon^{3/2})\) errors; Gaussian extrema have finite third moments. Strict Hölder convexity proves every sign-pattern comparison, and random-label exchangeability proves the order-statistic gap formula. All endpoints and normalizations are stated. The numerical checker supplies 724 corroborative finite tests, not the general proof.
+PASS
 
-## Originality — PASS (provisional)
+The coefficient vector V^{-1}N for a generator factor V has covariance (V^T V)^{-1}, not the Gram matrix itself. Its exact law is g+sTu with s^2=(1-epsilon)/epsilon. Condition on g: the mixed-sign event restricts sT to (L,U), whereas for unanimous signs it is sT>H after a global sign change. Integrating the standard normal density gives a global cubic remainder about zero, bounded by |x|^3/(6 sqrt(2 pi)); fixed nonzero coordinates ensure the three extrema have finite third moments. The mixed gap has positive expectation because the feasible interval has positive length on an open Gaussian event; the maximum of at least two independent nondegenerate centered normals has positive mean. Replacing 1/s by sqrt(epsilon)+O(epsilon^{3/2}) yields both claimed errors. For equal magnitudes the sign-count integral is strictly log-convex by Hölder: the odds Phi(aT)/Phi(-aT) are nonconstant for 0<epsilon<1. Its p to n-p symmetry gives strict decrease to the midpoint. In the leading constant, the p labeled normals occupy exactly the p lowest ranks with conditional probability 1/binomial(n,p); only then does the interval have length equal to the stated adjacent spacing. Read RESULT.md lines 52–105, VERIFICATION.md and verify_angles.py; the recorded finite numerical result was not rerun and does not prove the theorem. No uniformity near zero coordinates or strictness at epsilon=1 is inferred.
 
-The closest source is Schange's October 2026 low-rank cone-angle theorem, which gives a general integral rather than the signed singular dichotomy and equal-spectrum extremal ordering. The Kabluchko–Zaporozhets generalized-orthant work covers all-equal-sign equicorrelation; their Gaussian-polytope/order-statistics paper addresses expected volumes and higher order-statistic coincidences. Neither inspected claim implies the all-parameter signed-partition ordering or the explicit arbitrary-magnitude mixed-sign degeneration. Searches for mixed-sign one-factor orthant probabilities, degenerating rank-one Gram cone angles, and Gaussian adjacent spacing connections identified no broader result that states the conjunction. As with any literature-led mathematical claim, unknown terminology or unindexed literature remains a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural boundary question for the low-rank cone Gram class, not an arbitrary numerical parameter slice. Two cones with identical Gram eigenvalues and generator lengths can have radically different angles near singularity; the theorem classifies their complete sign-profile extremal order in every dimension. It also identifies a sharp exponent and positive constant for every nonvanishing mixed-sign direction, giving a stable geometric boundary law with an order-statistic interpretation. These conclusions extend beyond the source's general evaluational formula and have direct relevance to strongly conditioned solid-angle calculations. No broader or independent application theorem is claimed.
+Credit Schange with the exact low-rank integral, including the signed negative-rank-one specialization. The supported distinction is the structural comparison across its fixed-spectrum sign patterns together with the explicit sharp singular coefficients, in particular their adjacent-rank spacing identity. Rescaling the known integral is a short route to the leading laws; the formula alone is not a stated or automatic ordering across sign counts or an order-statistic identity. Those require identifying strict log-convexity in the sign-count exponent and using the random label allocation in the mixed-sign limit. Neither the simplex equicorrelation results nor the inspected regular-simplex section result covers this comparison.
 
-## Closest literature and limits
+## value
 
-The mathematical antecedents are Schange (arXiv:2610.28084v1), Kabluchko–Zaporozhets (DOI: 10.1017/apr.2020.7), and Kabluchko–Zaporozhets (arXiv:1706.08092v1). The result does not treat positive rank-one perturbations, zero coordinates, or rank larger than one. Independent expert priority and proof review remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete strict ordering and sharp singular law show what generator lengths and the Gram spectrum fail to determine, even on the simplest nontrivial low-rank family. The difference is geometric rather than a numerical refinement: at the identical spectrum the limit can be one half or zero, and a particular adjacent Gaussian spacing quantifies the collapse at each mixed sign split. The value is the structural comparison and precise boundary geometry, not computing one more instance of a known integral.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

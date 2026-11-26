@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:59:58.015577Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof (basis action, product realization, word reduction, count and ranks); VERIFICATION.md and verify.py inspected without execution",
+        "Independent replay: python3 /workspace/reproductions/exact_checks.py 3"
+      ],
+      "rationale": "In the (E11,I,E12,E21) basis, direct multiplication gives T(a,v)(h,t,z)=(0,ω(v,z),hv+az). Reading the image of E11 and the two off-diagonal units recovers the parameters of a product (r,s,u,d) uniquely. Two factors give r=a₂a₁, s=a₂v₁, u=a₁v₂ and d=ω(v₂,v₁). If r≠0 this forces d=ω(u,s)/r and the converse follows by taking a₁=1, a₂=r. If r=0, at least one of u,s vanishes; any scalar d is realizable by nondegeneracy of ω, including when both vectors vanish (set a₁=a₂=0). On the trace-zero image of any generator, T(a₃,v₃)T(a₂,v₂) agrees with T(a₃a₂,a₂v₃), reducing every longer word. Among single factors exactly T(0,v≠0) are not twofold, and the identity is separate since the nonempty words kill I. Over F_q the r≠0 stratum has (q−1)q⁴ rank-two maps, the r=0 stratum has 2q³−q maps of rank one except for zero, and the extra q²−1 single factors have rank two. This gives the stated ranks and order; none of the structural steps requires a perfect field. Independent closure enumeration on all 16 vectors over F₂ returned 34 maps with ranks (1,13,19,0,1).",
+      "residual_risks": [
+        "The independent enumeration covers F₂ only; the proof establishes the general result. No formal or expert certification was performed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full endomorphism semigroup theorem is in characteristic not two, and its argument does not provide a general characteristic-two classification.",
+          "Resultary record cf83a5465863 concerns ranks of individual adjoints on a truncated free algebra; 5a1385fcdd07 concerns commuting square-zero derivation tuples on k[x,y]/(x²,y²)."
+        ],
+        "reasoning": "Neither replacing the characteristic in the broader Jordan theorem nor changing the underlying algebra in the indexed classifications yields the proof or counting classification here.",
+        "searches": [
+          "arXiv:2604.17664v1, Theorem 1.1 and characteristic-two discussion",
+          "Resultary: adjoint rank distributions and composition semigroups"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.17664v1 §1",
+        "arXiv:2204.03234v1 §1",
+        "Related Resultary entries cf83a5465863, 8f6dca19a4da, 5a1385fcdd07 (different underlying objects)",
+        "Bounded Resultary and literature count/terminology lookups"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Killing the scalars and having trace-zero image only gives an ambient constraint; over F_q on M₂ it permits a q⁹ family of linear transformations, including rank three.",
+          "The reviewed nonempty monoid instead has ranks at most two and an explicit realizability relation for two-factor maps."
+        ],
+        "reasoning": "The prior obstruction neither forces the dependence among the four parameters nor yields a shortening identity. It is credited rather than claimed as a contribution.",
+        "searches": [
+          "arXiv:2604.17664v1, §1 characteristic-two obstruction; arXiv:2204.03234v1, §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In characteristic two AX+XA=[A,X]; the Jordan multiplication paper explicitly makes that identification and notes that the image lies in sl_n and scalars are killed.",
+          "Local and 2-local derivation rigidity does not describe words of inner derivations under composition.",
+          "Resultary rank-one matrix sandwich commutator-fiber record 8f6dca19a4da uses X⋆Y=XAY for fixed A, not operator composition."
+        ],
+        "reasoning": "Use the equivalent adjoint language for the target without conflating it with normalized Jordan operators, maps tested locally against derivations, or fixed-sandwich multiplication of matrices.",
+        "searches": [
+          "Resultary: characteristic-two adjoint/inner-derivation operator products on M₂ and rank-one sandwich semigroups",
+          "arXiv:2604.17664v1, §1; arXiv:2204.03234v1, §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed adjacent results concern different operators/algebras and do not match the rank profile. The formula-targeted literature result was unrelated and supplies no affirmative evidence of overlap.",
+          "The characteristic-two remark in the primary Jordan paper gives no finite-field cardinality or rank table."
+        ],
+        "reasoning": "No verified matching table or formula was found in the bounded comparisons; a negative lookup does not establish absence.",
+        "searches": [
+          "Resultary: exact characteristic-two M₂ composition monoid order and rank table, including order 34 over F₂",
+          "Targeted literature lookup for the finite-field count and rank distribution"
+        ]
+      },
+      "rationale": "The characteristic-two obstruction is already explicit in the closest Jordan multiplication paper. The supported distinct contribution is the complete two-factor normal form, exceptional one-factor maps, and finite rank distribution for the unnormalized M₂(k) composition monoid. No inspected equivalent result or stronger implication was found.",
+      "residual_risks": [
+        "A specialized adjoint or transformation semigroup result under alternate terminology might not have been indexed or returned. The searches are not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the obstruction, not the claimed classification",
+          "evidence": [
+            "Theorem 1.1 assumes characteristic not two; in characteristic two the unnormalized operator is a commutator, kills scalars and lands in sl_n."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.17664v1",
+          "material_read": "§1 Theorem 1.1 (around OA text offset 7750) and characteristic-two discussion (around 16500)",
+          "method": "Primary open-access HTML, targeted theorem and remark passages",
+          "title": "The Jordan multiplication semigroup of matrix algebras is the full endomorphism semigroup",
+          "trigger": "Same generator family and explicit characteristic-two remark"
+        },
+        {
+          "assessment": "Different assertion about local/2-local maps",
+          "evidence": [
+            "Local derivation rigidity does not enumerate compositions or ranks of adjoints on characteristic-two M₂."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2204.03234v1",
+          "material_read": "§1 (around OA text offset 1450)",
+          "method": "Primary open-access HTML, targeted introduction",
+          "title": "Local and 2-local derivations on Lie matrix rings over commutative involutive rings",
+          "trigger": "Inner derivations of Lie matrix rings as an equivalent vocabulary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact normal forms and their disjoint strata",
+        "arXiv:2604.17664v1, Theorem 1.1 and characteristic-two obstruction"
+      ],
+      "rationale": "The monoid is the first nontrivial size for the characteristic-two analogue of an established generation problem. Knowing the prior obstruction alone cannot determine whether a proposed operator is attainable. The normal form decides attainability and minimal word length and gives rank counts uniformly over all finite fields of this characteristic, rather than an arbitrary small-field census.",
+      "residual_risks": [
+        "No conclusion for n>2 or for quadratic Jordan operators."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

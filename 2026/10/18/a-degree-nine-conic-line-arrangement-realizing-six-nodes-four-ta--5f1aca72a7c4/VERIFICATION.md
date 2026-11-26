@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the displayed arrangement
 
-The standalone `verify.py` checks the exact quartic product identity for four tangent lines, all \(21\) pairs of the seven lines, the precise grouping into four line-only triple points and nine line-only doubles, the three conic incidences at the triangle vertices, and four distinct simple tangencies. Bézout gives a complete intersection accounting rather than only a finite sample. It returns \((n_2,t_2,n_3)=(6,4,7)\) and \(\tau=46\).
+# Independent mathematical audit
 
-It also constructs the complete degree-four Jacobian coefficient matrix and checks the specified \(45\times45\) minor has determinant \(89\) modulo \(101\). This injectivity argument applies over characteristic zero. The exact characteristic-zero degree-five kernel produces an explicit nonzero polynomial syzygy, which the script substitutes and verifies as an identity. Consequently \(\operatorname{mdr}=5\).
+## correctness
 
-**Reproduction:** run `python verify.py` under Python 3 with SymPy. The program prints three `PASS` lines and fails with an assertion if any claimed identity is false. Computations are exact; there is no approximation or hidden data dependency.
+PASS
 
-**Scope:** The test does not establish uniqueness of the construction, classify the moduli space, determine logarithmic bundles, or certify any external independent review.
+The smooth conic XZ−Y² and the three triangle secants intersect transversely at the three distinct triangle vertices. For the four parameters t=±1±√2 the distinct extra lines are t²X−2tY+Z=0; restricting one to [1:s:s²] gives (s−t)². Pairing roots of t²−2a t−1 with a=±1 gives the quartic in the finding. Two tangents with distinct parameters s,t meet at [1:(s+t)/2:st], off the conic; this point lies on a secant precisely when s+t=0, s+t=2, or 2st=s+t respectively. These tests give the four listed off-conic triples and no other tangent pair plus secant incidences. No three tangents concur because the corresponding equation in t would be a nonzero quadratic with three roots. No tangent contains a triangle vertex. All 21 line pairs and all 14 conic–line multiplicity units are accounted for, yielding six transverse double points, four simple tangencies, and seven ordinary triples. Their local forms A1, A3 and D4 contribute 1, 3, and 4 respectively, hence τ=46. Independent arithmetic in integer pairs representing Q(√2) confirmed the incidence signatures; sparse Jacobian coefficient columns yielded rank 45/45 modulo 101 in degree four and rank 59/63 over Q in degree five, without relying on the frozen selected minor. These ranks give mdr=5 over C, since ranks over Q and C agree and any lower-degree syzygy could be multiplied to degree four. The sharp du Plessis–Wall expression at (9,5) is 64−15−3=46.
+
+## originality
+
+PASS
+
+The numerical maximal-Tjurina type (9,5) is known and a distinct Resultary record realizes the same weak basket. The supported distinct finding is this explicit, projectively inequivalent conic–seven-line realization with its verified Jacobian degree. Neither the invariants alone nor first realization of the basket across the catalogue is credited as new.
+
+## value
+
+PASS
+
+This is a concrete sharp example in a specified restricted singularity and component class, not a recomputation of the already known numerical bound. Its three secants and four tangents give a different incidence configuration from known same-basket extensions and a reproducible sharpness witness with verified mdr. The realizability question was motivated in the primary literature before this computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

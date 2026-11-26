@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:58:19.300970Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–34",
+        "Frozen VERIFICATION.md (recorded VERIFY_OK statement and verification status)",
+        "Frozen green_geodesic_check.py",
+        "Bodart–Carvalho–Monteiro arXiv:2609.35251v2, Theorem 2.4",
+        "Diekert–Kausch–Lohrey arXiv:1201.3174v1, Theorem 5.1"
+      ],
+      "rationale": "For fixed endpoints a,b on a finite tree, deleting any edge gives a cut. A covering walk must traverse an off-path edge at least twice and each a-to-b path edge at least once; performing subtree tours along that path attains 2e-d(a,b). In the Munn model (P,g), the range and domain idempotents are (P,1) and (g^(-1)P,1), so R fixes the initial-rooted tree, L the terminal-rooted tree, and H both endpoints. D allows translations: if Q=kP and h belongs to Q, the representative (P,k^(-1)h) links (P,g) by R to (Q,h) by L. Conversely such a link forces the translated-tree condition. For a covering walk starting at a nonidentity vertex a, the resulting Munn tree placed at identity is a^(-1)P and its terminal vertex is a^(-1)b; translation preserves distances. Thus maximizing d(a,b) gives the four displayed minima with the fixed endpoints, the initial or terminal eccentricity, or the diameter. For fixed rank, the verified graph-group shortlex theorem applies to the free group (no commutations); the reduced length of w[i+1..j] equals the Cayley-tree distance between the corresponding prefixes. Because the connected Munn subtree lies in a tree, this is also its internal distance. Simulating the logspace transducer on a virtual substring, counting output letters as emitted, and reusing its workspace makes each equality or distance query logarithmic space. Nested scans of prefix indices count first occurrences for e and maximize distances for the eccentricities and diameter, using only logarithmic counters. The final length comparisons, including the empty input, follow. The finite checker was inspected, not rerun; the logspace bound is analytic.",
+      "residual_risks": [
+        "The tree-root translation in the covering-walk argument must be understood as above. No variable-rank or nonstandard-generator bound is inferred. The recorded 5461 rank-two word checks test the minima on bounded input and do not establish the resource bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fixed-graph-group logspace normal form theorem covers free-group reduction but does not enumerate vertices of the Munn tree or solve its Green-class length problems.",
+          "The exact earlier indexed deterministic linear-space upper bound does not imply logspace."
+        ],
+        "reasoning": "The result operates on words for a free inverse monoid, not just group equivalence classes. It computes several tree extrema and a distinct-vertex count as a logspace composition; the broader group algorithm is credited as an essential ingredient.",
+        "searches": [
+          "arXiv:1201.3174v1 Theorem 5.1; arXiv:2609.35251v2 §§4, 11",
+          "Focused primary literature lookup (no usable results returned)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.35251v2",
+        "arXiv:1201.3174v1",
+        "Two expanded Resultary records listed above, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Green geometry fixes the class invariants; prior group shortlex gives an implicit distance oracle. Neither result states the logspace distinct-vertex enumeration and tree extrema on the original word."
+        ],
+        "reasoning": "Computing the minima in logspace requires constructing the implicit scans, not just replacing parameters in a published theorem. The extension is a short combination of substantial antecedents, not a new Green-geometric classification.",
+        "searches": [
+          "Bodart–Carvalho–Monteiro Theorem 2.4 and §§4, 11; Diekert–Kausch–Lohrey Theorem 5.1; Resultary 2026/10/18 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bodart–Carvalho–Monteiro §4 already gives the equivalent rooted/unrooted geodesic conditions using eccentricity/diameter; §11 asks about context sensitivity for D/R/L, not H.",
+          "The 2026/11/08 indexed modular-matrix proof gives the same D/R/L recognition bound (no H assertion) by a different stated distance computation."
+        ],
+        "reasoning": "Geometric equivalence directly supplies the formula targets but is not an input-word logspace algorithm. The later recognition theorem is a real mathematical overlap, not an earlier coverage finding.",
+        "searches": [
+          "Resultary: Green-geodesic languages, free inverse monoids, class minima, deterministic logspace",
+          "arXiv:2609.35251v2, §§2, 4, 11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier entry: exact R/L/D formulas and linear-space recognition; H formula also displayed for comparison.",
+          "Later entry: exact logspace recognition for D/R/L using modular equality and edge-traversal parity."
+        ],
+        "reasoning": "These are stronger evidence than title matches. The earlier entry covers geometry and the weaker space claim, and the later one has partial equivalent coverage; neither is evidence for an earlier four-class logspace result.",
+        "searches": [
+          "Resultary local mirror: 2026/10/18 SCOPE-deterministic-linear-space-recognition-of-the-green-geodesic-lan--52856bc99716; 2026/11/08 SCOPE-deterministic-logspace-recognition-of-green-geodesic-languages-o--4f0aa2fd8e54"
+        ]
+      },
+      "rationale": "The supported contribution is simultaneous deterministic logarithmic-space computation of the class minima from the input word, including the consequent logarithmic-space recognition; it is not the geometric minima themselves or the first context-sensitive upper bound. The exact earlier indexed geometry and linear-space recognition are credited. A later indexed statement of logspace recognition overlaps for R/L/D with a different argument; the text comparison demonstrates overlap but does not establish independent discovery or provenance.",
+      "residual_risks": [
+        "The attempted primary-literature search was unavailable; this is not negative evidence. The OA antecedents and indexed exact overlaps were directly compared, but an unindexed earlier logspace argument is possible. The later entry alone does not establish its provenance or establish priority for the frozen record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior Green/tree geometry; context-sensitive versus indexed question left open there for D/R/L",
+          "evidence": "R and L fix the tree and one root, H fixes the element, D fixes the tree; §4 maximizes the corresponding path lengths.",
+          "identifier_or_url": "https://arxiv.org/html/2609.35251v2",
+          "material_read": "Theorem 2.4 (offset 23039), §4 (39938), §11 (112300)",
+          "method": "OA HTML",
+          "title": "Green languages and growth of free inverse monoids",
+          "trigger": "Same languages, exact geometric criterion and original open question"
+        },
+        {
+          "assessment": "Proves claimed oracle, not FIM Green-class minima",
+          "evidence": "Shortlex normal forms computable in deterministic logspace for fixed graph groups.",
+          "identifier_or_url": "https://arxiv.org/html/1201.3174v1",
+          "material_read": "Theorem 5.1, offset 59475",
+          "method": "OA HTML",
+          "title": "Logspace computations in Coxeter groups and graph groups",
+          "trigger": "Exact external logspace prerequisite"
+        },
+        {
+          "assessment": "Earlier geometric formulas and weaker complexity bound",
+          "evidence": "D/R/L in deterministic linear space; gives all four tree formulas, H for comparison.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-deterministic-linear-space-recognition-of-the-green-geodesic-lan--52856bc99716",
+          "material_read": "RESULT.md theorem and comparison with H",
+          "method": "Local Resultary mirror",
+          "title": "Deterministic linear-space recognition of the Green geodesic languages",
+          "trigger": "Strongest earlier indexed exact overlap"
+        },
+        {
+          "assessment": "Later partial equivalent coverage using a different proof, not evidence of earlier priority",
+          "evidence": "Uses modular matrix equality and traversal parity; does not assert H recognition.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-deterministic-logspace-recognition-of-green-geodesic-languages-o--4f0aa2fd8e54",
+          "material_read": "RESULT.md Finding and method for distance calculation",
+          "method": "Local Resultary mirror",
+          "title": "Deterministic logspace recognition of Green geodesic languages",
+          "trigger": "Indexed exact D/R/L recognition overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–31 and 36–44",
+        "Earlier Resultary deterministic linear-space theorem",
+        "arXiv:2609.35251v2, §11"
+      ],
+      "rationale": "The improvement from explicit deterministic linear space to logarithmic workspace for these natural languages is substantive. The method outputs exact class minima without storing the Munn tree, not just testing acceptance, and applies even to the classes with neither context-free nor co-context-free geodesic languages. Its value is the stronger resource bound and uniform method over the four classes at each fixed rank, not rederiving the known geometry.",
+      "residual_risks": [
+        "No new logspace lower bound, indexed-language classification, or optimized running-time bound was established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

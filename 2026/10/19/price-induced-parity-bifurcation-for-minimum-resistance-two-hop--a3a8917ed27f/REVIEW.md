@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Strict convexity of the connected Laplacian inverse-trace and the injectivity of edge weights into off-diagonal Laplacian entries prove existence and uniqueness globally, not merely among circularly symmetric proposals. Price-preserving rotations force two edge classes. The Fourier objective is strictly convex in its one remaining variable; its two endpoint derivatives are reduced to established trigonometric sums and an explicitly derived odd-order secant-power sum. The parity disconnected boundary for even order and equality cases are included. The separately runnable exact-rational matrix program executed successfully on all 68 checks for graph orders 5 through 11. Finite tests do not prove the theorem; the proof is analytic for every order and price.
+## correctness
 
-**Originality — PASS (best-knowledge, residual risk).** Ghosh–Boyd–Saberi (2006) cover the general convex total-effective-resistance allocation methodology, but do not give this price-dependent two-hop-cycle optimizer or thresholds. Chair (2014) studies precisely the same underlying unweighted two-hop graph and the second-neighbor-only subgraph, including the odd/even connectivity distinction; that portion is acknowledged rather than claimed as new. Sections 1–5 and the appendix of that source provide fixed-network resistance formulas, not a two-cost globally optimal weight/support classification. Zhang–Yang (2006) provide general unweighted circulant Kirchhoff-index spectral expressions. Relevant mathematical-index searches and primary-source comparisons did not identify the claimed two-threshold cost phase law. Exact equivalence in unindexed work remains possible; no claim of absolute uniqueness in the literature is made.
+PASS
 
-**Value — PASS.** Shortcuts in cycle-based infrastructure are a natural design choice with nonuniform installation costs. The precise threshold tells a designer when to suppress every shortcut, when to use both edge classes, and when (only for odd order) to remove the conventional backbone entirely. It is an infinite-family optimal-support classification, not just a numerical evaluation at one network size; the fundamentally different asymptotic threshold scales, \(\(16/n^2\)\) and \(4\), expose a non-obvious parity-sensitive design effect.
+The connected Laplacians are positive definite on the orthogonal complement of the constants, and the trace of their inverses has positive second variation in every nonzero symmetric direction. Simple edges make the weight-to-Laplacian map injective; disconnection gives an infinite limit, and uniform scaling uses the full budget. Thus the global minimizer exists, is unique and must be invariant under rotations, including at the two endpoints. An independent endpoint evaluation is as follows. For the unit n-cycle let mu_k be its nonzero eigenvalues, S=sum(1/mu_k)=(n^2-1)/12, and J(d)=sum((2-2cos(2pi kd/n))/mu_k^2). Parallel-path resistance d(n-d)/n and its Fourier form give J(d+1)-2J(d)+J(d-1)=2S-d(n-d). With zero boundary values at d=0,n, this gives J(d)=d(n-d)[d(n-d)+2]/12. Thus leaving the first-only endpoint is unfavorable exactly at t>=J(2)/S=4(n-2)/(n+1). For odd n, in the second-neighbor cycle an original first step has distance (n-1)/2, and the second-only endpoint is optimal exactly at t<=S/J((n-1)/2)=16/(n^2+7). The even right endpoint is disconnected, and the objective has positive scalar second derivative on the connected interval, giving the stated unique mixed root and boundary classification. These exact computations cover all n>=5; no uploaded code was executed.
 
-**Limitations and risks.** All independent conductance variables are optimized, but only on two-hop cycles with uniform prices within edge classes. The mixed-weight root is implicit. The underlying circulant spectrum and parity connectivity are classical. Relevant non-open-access or unindexed work may duplicate the exact budgeted result. There has been no independent scientific audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass the exact total-resistance support thresholds and uniqueness for independently priced edge classes, not the conductance optimization framework, the Fourier reduction, the parity connectivity fact, or parity-dependent support for other objectives. The strongest same-graph, same-budget comparison optimizes a different function and has different thresholds and equality behavior.
+
+## value
+
+PASS
+
+The result settles exactly when a whole edge class can be discarded in a standard cyclic network without worsening the globally optimal all-pairs resistance. The even and odd distinction and the different limiting price scales affect the design decision; exact support/equality thresholds and a unique interior characterization are useful beyond computing the resistance of one fixed allocation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

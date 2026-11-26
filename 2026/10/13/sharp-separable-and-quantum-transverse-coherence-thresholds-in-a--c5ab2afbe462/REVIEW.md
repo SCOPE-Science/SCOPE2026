@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The three-qubit Ising triangle has ground energy \(-1\) with six ground basis vectors. In product states, the identity \(1+\sum_{i<j}z_iz_j=4\Pr(B_1=B_2=B_3)\) is exact for independent Bernoulli signs with means \(z_i\). Equality requires two pinned opposite \(Z\) eigenstates, leaving at most unit total transverse \(X\) expectation. Convex mixtures yield the necessary \(c\le1/3\), and a cyclic-and-global-flip twirl of \(\rho_+\otimes\rho_-\otimes(I+3cX)/2\) saturates it for the entire interval. Quantum states of energy \(-1\) live on six configurations; the compressed \(\sum X_j\) is the adjacency of \(C_6\), whose largest eigenvalue is \(2\), giving \(c\le2/3\). The uniform coherent ground vector and its mixture with the incoherent ground ensemble saturate all allowed values. The code independently checks exact finite matrices and rational witnesses, while the proof covers the continuous parameter interval.
+## correctness
 
-## Originality — PASS, with explicit residual risk
-The full text (main statements and supplemental SM7) of arXiv:2605.03022v1 was inspected. It develops general fixed-marginal separable-energy bounds and ferromagnetic/two-colorable saturation and discusses an antiferromagnetic symmetric-spin problem, but does not give the frustrated triangle's paired sharp \(1/3,2/3\) feasibility thresholds. The earlier energy-witness paper and related transverse-field Ising approximation work address broader but different questions; indexed records and pertinent previously recorded claims show no direct equivalent or stronger result. A specialized unindexed calculation or implicit corollary may exist: negative search evidence does not prove priority, and independent audit is needed before publication.
+PASS
 
-## Value — PASS
-This identifies an exact boundary of the physically natural fixed-single-qubit-marginal extension of a recent separable-energy framework on the smallest frustrated non-two-colorable graph. Unlike a routine unconstrained ground-state observation, it separates classically correlated mixtures from coherent quantum ground-space states using both measured local transverse coherence and total energy. The open interval \(1/3<c\le2/3\) is a sharp entanglement-certification region, with explicit feasible states on both sides and both endpoints. The small size is intrinsic to the first frustrated cycle; the claimed value is the natural sharp local-marginal cutoff, not an unsupported generalization.
+The energy−(−1) gap is four times the combined probability of 000 and 111, so equality requires support on the other six basis states. For any product constituent both probabilities must vanish individually: one site is certainly 0 and a different site certainly 1, leaving at most one unit of total transverse expectation. Convexity forces 3c≤1. Cyclic averaging the product of opposite Z eigenstates and (I+3cX)/2 and averaging under the global bit flip yields exactly the three target marginals and no support outside the ground space. For unrestricted states, the compressed transverse sum is the adjacency of a connected 2-regular six-cycle. Its norm bound follows from 2Re(conjugate(a)b)≤|a|²+|b|² on each edge, with equality at the uniform vector. There are two edges per site flip, while complement symmetry and real amplitudes annul Z and Y. Mixture with the diagonal ground ensemble covers every c through 2/3; none above it is possible. The packaged verification/verify.py was inspected rather than executed and supplements the proof with finite combinatorial and rational checks. Editorial caution: the Finding correctly makes no entanglement-depth claim across the witness interval; do not read the caveat in the Limitations as saying a nongenuine state is possible at c=2/3 itself. Equality there forces the unique uniform ground vector, whose one-site marginals all have rank two, so the pure endpoint is genuinely tripartite.
 
-## Boundaries and priority risk
-The result concerns fully separable versus unrestricted quantum feasibility at the exact ground energy only. No claim is made about entanglement depth, noisy robust certification, or arbitrary energy values. The closest research is the fixed-marginal optimization framework of Tóth–Pitrik; independent external scrutiny of specialized earlier studies remains necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the paired exact fixed-marginal feasibility boundary, especially the full-separability cutoff on a frustrated complete graph. The angular-momentum matrix element underlying the unrestricted endpoint is standard; the Hamiltonian in SM7 of the motivating paper is the same interaction after rotation and a constant shift at zero field, not an unrelated interaction. Its optimized class is different, however. No inspected statement gives or implies the paired boundary. This is not a priority claim for the collective-spin spectrum, fixed-marginal method or energy witnesses.
+
+## value
+
+PASS
+
+The triangle is the smallest frustrated odd cycle, where a natural bondwise benchmark loses sharpness. The result identifies exactly when routine one-site coherence and the total ground energy cannot coexist in a fully separable state, yet can coexist quantum mechanically. Both endpoints and the full intermediate witness interval are attainable or excluded precisely as appropriate. This is meaningful without a broader lattice theorem or a robustness claim away from exact ground energy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

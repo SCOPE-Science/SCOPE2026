@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement fixes the coordinate normalization, the induced Euclidean two-face measure, all dimensional ranges, and the exceptional order three. The published cycle face criterion is stated and applied as an input; the remaining proof uses an exhaustive cluster-type and graph-edge incidence partition, exact integer squared distances, and Heron's formula. The one-adjacency 5/4 label split and the two-adjacency 8/14/5 split have explicit sign-count explanations. An independent integer-arithmetic reproduction for every order 3–12 verifies the face-area histograms and square diagonals. The finite checker does not purport to establish the all-dimensional claim independently of the analytic classification.
+PASS
 
-## Originality — PASS (provisional historical priority)
+The face criterion in Kühne–Monin gives exactly the doubled-index q_i,r_i triangles and the distinct-index triangles, excluding the two coherent triples at n=3, plus one degree-two node face per node. Independently, with the exposing maximum shifted to zero and a_i=-ell(x_i), b_i=-ell(y_i), the slacks require a_i>=0 and |a_i-a_(i+1)|<=b_i<=a_i+a_(i+1). With both a's positive, a tight p uses the upper endpoint, a tight single q or r imposes a strict order on the a's, and a tight q,r pair imposes equality and b_i=0. For triples the only ordering cycles are the two coherent n=3 choices. If a_i=0, its node square is forced; its opposite corners have midpoint x_i and its diagonals are orthogonal of squared length 8. Disjoint indices yield squared side 6, incident indices 4 or 8 according to the shared sign, and q_i,r_i have squared side 8. For n>=4 a triple of edge indices has 0, 1 or 2 adjacencies with counts n(n-4)(n-5)/6, n(n-4), n; respective triangle choices split 27; 15/12; and 8/14/5. Doubled edges yield 6n triangles of label 28 and 3n(n-3) of label 32, with label 4 area^2. At n=3, all agreements allow zero or one negative node (4 choices), all disagreements are exactly the 2 excluded cycles, and the total number of disagreements over the 27 assignments is 36; hence exactly 12 assignments have one disagreement and 9 have two. This recovers the three stated classes after adding the 18 doubled triangles. The face-count denominator, concentration coefficient and summed-area leading term agree with these counts, including absent classes at n=4,5.
 
-The closest primary source is Kühne–Monin (arXiv:2209.08069), whose face enumeration and general face condition are expressly credited. It supplies a combinatorial input and total counts, rather than the complete Euclidean area multiset or the asymptotic predominance of equilateral two-faces. The founding paper (arXiv:1709.02813) supplies the coordinate model. Relevant published-record searches concerned exact two-face areas, triangle metric spectra, equivalent cycle coordinate models and stronger general coverage; indexed findings about reconstructing graphs from whole vertex distance matrices do not state the evaluated area-shell multiplicities. An unindexed equivalent theorem and derivability from a stronger as-yet-unlocated statement remain risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The entire metric geometry of codimension-independent two-faces is an intrinsic geometric question only after the canonical Euclidean realization is fixed. This result simultaneously enumerates seven nontrivial exact triangle areas, determines all nonsimplicial face areas, and identifies a pronounced concentration phenomenon: asymptotically almost all two-faces have the same equilateral shape. It is not just a re-expression of the published face count, as face counts alone cannot recover the metric spectrum. The exceptional order-three regime identifies a genuine combinatorial and metric boundary.
+The combinatorial classification and f_2 were already known in the same object. The distinct claim is the evaluated metric area multiset for all cycle sizes, including the low-order changes and concentration. The strongest comparisons were made in the common embedding; the inspected sources supply the inputs but not the weighted geometric enumeration.
 
-## Remaining limitations
+## value
 
-The theorem is for undirected simple cycles and the canonical metric, not all graphs. An exhaustive literature novelty certificate or external mathematical audit is unavailable; a 2024 Ehrhart-related paper was only abstract-screened, not comprehensively inspected. Finite exact checks corroborate the all-order enumeration and do not prove it by themselves.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete Euclidean face-measure histogram naturally refines the published two-face count in the canonical realization. Its particular values distinguish local adjacency patterns and the exceptional triangular cycle; it quantifies density and area of the dominant shell instead of simply enumerating faces. This is a useful exact benchmark for metric questions about graph-defined polytopes without treating a sum of planar areas as a surface area or intrinsic volume.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

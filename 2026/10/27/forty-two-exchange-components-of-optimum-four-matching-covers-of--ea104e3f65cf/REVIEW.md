@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite graph, domain of four distinct perfect matchings, all \(35{,}960\) possible four-subsets, edge-cover criterion, and one-replacement adjacency are unambiguous. An exhaustive least-unmatched-vertex recurrence yields exactly \(32\) matchings and checks that none of their three-subsets covers all edges. It identifies \(200\) optimal covers. Triple-sharing generates precisely \(220\) exchange edges; connected-component traversal and explicit graph-isomorphism backtracking verify all \(42\) components and their four isomorphism classes. An independently formulated four-color local constraint search generates \(400\) normalized colorings (two for each unordered cover), reconstructing all cardinalities and component profiles. Complete code and certificate are included; they give finite exhaustive computation, not extrapolation.
+## correctness
 
-## Originality — PASS (best-knowledge)
-Fouquet–Vanherpe's 2009 Proposition 3.1 and Theorem 3.8 already establish the local multiplicity structure and optimum covering cardinality for flower snarks. Hägglund–Markström's 2013 cycle-cover correspondence and Máčajová–Škoviera's 2020 flow characterization are more general descriptions, but the inspected relevant text does not supply the number of \(J_5\) four-covers or the exchange graph's components. Esperet–Mazzuoccolo's 2013 complexity theorem also does not imply the enumerated exchange classification. Published-record searches under multiple equivalent names found no directly covering claim. An unpublished census or differently indexed table remains a priority risk.
+PASS
 
-## Mathematical value — PASS
-The previously known optimum number \(4\) says that some small edge-cover exists but not whether feasible optimum covers can transform into one another. At the first nontrivial flower snark, the answer is sharply negative: \(42\) separate reconfiguration components and \(10\) fully isolated optima, with a complete finite classification. This gives an exact obstruction to local one-cover exchange search at a canonical cubic snark, rather than an arbitrary unmotivated slice of a large table. The correspondence with a doubled perfect matching also provides exact extension multiplicities. No infinite-family theorem is asserted.
+Reconstructed the specified J5 using the short and long rims and the spokes. In any perfect matching the selected rim edges must be disjoint on each rim, and the remaining rim vertices must include exactly one at each of the five spoke centres. The latter condition determines all the spokes, so the independent enumeration in /workspace/branches/replay/r5_rim.py is exhaustive. It found 32 matchings, no three-cover, 200 four-covers, and tested all pairs of four-covers directly for three common matchings. It recovered 220 exchange edges and 42 components and matched every edge, matching, cover, exchange and component list in the supplied JSON certificate. Exhaustive degree-preserving relabelling gave one isomorphism type each at orders 1, 5, 7, 10, with multiplicities 10, 20, 10, 2 and edge counts 0, 5, 9, 15; global degrees were 0^10, 1^50, 2^50, 3^70, 4^20. The local covering multiplicities at each vertex must be 2,1,1, so the double edges are a matching; the recomputation found extension frequencies 5^10, 6^10, 7^10, 10^2. This is a finite result for the specified J5 only. No uploaded code was executed.
 
-## Limitations and relevant literature
-The scope is a single finite graph. Publication priority is not guaranteed against inaccessible computational appendices or alternate encodings. Relevant sources: Fouquet–Vanherpe (arXiv:0904.1296), Hägglund–Markström (arXiv:1306.3088), Esperet–Mazzuoccolo (arXiv:1301.6926), and Máčajová–Škoviera (arXiv:2008.01398). The all-graph four-cover theory is credited and is not conflated with this exact exchange census.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact single-matching exchange classification and doubled-matching extension frequencies are distinct from the inspected work. The optimum size, number of perfect matchings, and local doubling lemma are not original and are not used to justify this pass.
+
+## value
+
+PASS
+
+At the canonical five-petal flower snark, the known optimum four does not say whether all optima can be reached by feasible single-matching replacements. Ten isolated optima and the complete set of 42 components answer that natural reachability question exactly; the extension frequencies additionally describe how optima are distributed over the known doubling invariant. This is a usable finite benchmark and obstruction, without claiming an implication for every snark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

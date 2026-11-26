@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,8 @@
 }
 ---
 
-# Reproduction of the numerical checks
-Run `python verify.py` with Python 3 and no third-party dependencies. Its actual output was `VERIFY_OK 36`.
+# Scope of the checks
 
-The program solves the published resonance relation numerically by bisection for six integer indices, forms each corner trajectory, constructs all four quarter-turn polygon chains, and computes shoelace area independently of the closed area formula at 36 combinations. It also evaluates the exact \(K=3\) special case and finite resonant-parameter asymptotic comparisons. It does not enumerate all levels or prove the asymptotic tail, and its floating-point tolerances do not constitute exact certification.
+The finite standard-library program `verify.py` compares direct polygon areas against the area polynomial at 36 distinguished levels, and tests the smallest resonance and finite samples of the large-resonance asymptotic. These tests did not examine rotation numbers between adjacent distinguished levels and cannot validate affine interpolation there.
 
-The universal mathematical checks consist of the geometric shoelace derivation, linear interpolation of rotation number along the original foliation, exact density differentiation, tail integration, and the displayed algebraic Taylor expansions in `RESULT.md`. No independent audit or outside validation has been performed.
+The corrected off-node relation is checked symbolically in `RESULT.md`: the area per unit leaf-coordinate interval has total mass \(4t(1-hq)\), and the image of the first corner vertex advances one arc of mass \(qtd\). The exact ratio, not affine interpolation, gives the rotation number. The example at \(K=3, r=1/14\) distinguishes the formulas. The proof gives the full area pushforward, moment cutoff, and resonant asymptotic independently of finite numerical tolerances.

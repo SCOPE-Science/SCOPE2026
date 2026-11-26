@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:47:27.879722Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the infinite proof from the three counts x1<=x2<=x3 of zeros preceding the ones. The counts of 011, 101 and 110 are 2x1+x2, 2(x3-x1) and 3(n-3)-x2-2x3, respectively, fixing the integral variation (-t,2t,-t). The difference in sum_i binom(x_i,2) is t(b-c+3t). The sum of the x_i is fixed; equality of this binomial sum fixes the sum of squares and hence both remaining mixed counts. The distinct root t=(c-b)/3 is exactly the stated nonnegative-gap swap, and each doubleton has one representative with c>b. Writing a=t+A gives n-3=4t+2b+A+d, yielding the asserted generating function; its order-four pole with leading factor 1/8 at 1 gives n^3/48+O(n^2), hence 7/8. One representative per fiber is necessary and sufficient. This includes the empty-pair regime n=3..6. A fresh prefix-DP computation of the eight deck counts for every weight-three word through n=17 corroborated the exact fibers and coefficients; e.g. P_7=1, P_16=44 and P_17=56. Replay: /workspace/review-work/small_checks.py deck; output /workspace/review-work/deck_results.txt. This is a finite check of the infinite proof, not a substitute for it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nilforoushan–Parvaresh give unrestricted binary three-deck growth Theta(n^9) and general affine-dimension results; those alone do not classify the fixed-weight fibers.",
+          "The two catalogue findings cover the exact same all-length fixed-weight domain, not merely a bounded subset or aggregate."
+        ],
+        "reasoning": "The strongest direct overlap is in the exact stratum. General moment/dimension formulas and aggregate counts are not used as substitutes for it.",
+        "searches": [
+          "arXiv:2609.23106",
+          "doi:10.3934/amc.2021032",
+          "Resultary 39c59472a4df, 61b009fefb1e"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 39c59472a4df, 61b009fefb1e, f95f52cd118b, ddfb28b06c4a",
+        "arXiv:2001.11732",
+        "arXiv:2609.23106",
+        "OEIS A258585",
+        "doi:10.3934/amc.2021032 (full text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both give singleton/doubleton weight-three classes with the gap-transfer partner and the same enumerator. 39c59472a4df explicitly gives the binomial-total-minus-pairs result and asymptotics."
+        ],
+        "reasoning": "Each collision pair consumes exactly one of the binom(n,3) possible representatives; the series determines the exact capacity and the leading pole already yields the stated asymptotic. No substantive remainder of the frozen finding survives.",
+        "searches": [
+          "Resultary 39c59472a4df RESULT.md, offset 0–5276",
+          "Resultary 61b009fefb1e RESULT.md, offset 0–5138"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lejeune–Rigo–Rosenfeld define equality of subsequence multiplicities through length k. At fixed length n>=3, summing the occurrences of an ell-pattern in the three-deck entries counts each original ell-occurrence binom(n-ell,3-ell) times.",
+          "Resultary 39c59472a4df and 61b009fefb1e apply the weight-three classification at every length."
+        ],
+        "reasoning": "The shorter decks in the binomial-equivalence wording are determined by the three-deck; changing from positions to gaps, or counting zeros in the same word, does not change the fiber.",
+        "searches": [
+          "Resultary: weight-three binary three-deck and 3-binomial collision classification",
+          "arXiv:2001.11732, Definition 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A258585 lists {0110001,1000110} at n=7, with totals over all compositions.",
+          "39c59472a4df gives exactly z^7/((1-z)^2(1-z^2)(1-z^4)) for the pair count, not only initial terms. The same-day records f95f52cd118b and ddfb28b06c4a give the same gap-swap enumerator."
+        ],
+        "reasoning": "The integer-sequence example only covers a finite overlap; the catalogue formulas establish equivalence for every coefficient.",
+        "searches": [
+          "OEIS A258585",
+          "Resultary 39c59472a4df, 61b009fefb1e, f95f52cd118b, ddfb28b06c4a"
+        ]
+      },
+      "rationale": "The complete finding, not only the n=7 example, is covered by distinct earlier-dated Resultary records. The weight and deck definitions, at-most-two fibers, explicit partners, exact pair series, maximum distinguishable codebook, and limiting behavior agree. Same-day matches are additional overlap, not evidence of posting order. No judgment about authorship or global priority follows.",
+      "residual_risks": [
+        "Catalogue dates and statement overlap do not establish authorship or publication priority.",
+        "Primary wording of Chrisnata et al.'s conjecture remains unverified; this does not weaken the independently located exact coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent full coverage; distinct earlier-dated record",
+          "evidence": "All-length gap-transfer doubletons, identical pair generating function, capacity and asymptotics.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-proof-of-the-weight-three-binary-three-deck-enumeration-conjectu--39c59472a4df/RESULT.md",
+          "material_read": "RESULT.md, offset 0–5276, statement and derivation",
+          "method": "Local Resultary mirror, commit 36a7204b5741b75430355c38bf0ef7468c2a4",
+          "title": "Proof of the weight-three binary three-deck enumeration conjecture",
+          "trigger": "Same weight/deck and apparently identical enumerator"
+        },
+        {
+          "assessment": "Equivalent classification and enumeration",
+          "evidence": "Same within-weight-three fibers and all-length pair series.",
+          "identifier_or_url": "Resultary 61b009fefb1e (2026-10-26)",
+          "material_read": "RESULT.md, offset 0–5138",
+          "method": "Local Resultary mirror",
+          "title": "Exact weight-three binary three-deck classes",
+          "trigger": "Independent matching theorem in index"
+        },
+        {
+          "assessment": "Distinct material overlaps; intra-day priority unestablished",
+          "evidence": "Identical gap swap and pair series, with the latter also giving fixed-weight capacity.",
+          "identifier_or_url": "Resultary f95f52cd118b and ddfb28b06c4a (2026-11-02)",
+          "material_read": "RESULT.md offsets 0–5391 and 0–5219 respectively",
+          "method": "Local Resultary mirror",
+          "title": "All binary three-deck collisions at weight three; Exact weight-three binary three-decks: a gap-swap classification",
+          "trigger": "Same-day exact matches must not be discarded"
+        },
+        {
+          "assessment": "Definition overlap; inspected material does not give the exact classification",
+          "evidence": "All scattered binomial counts of lengths at most k.",
+          "identifier_or_url": "https://arxiv.org/pdf/2001.11732",
+          "material_read": "p. 2 Definition 2; OA offset 5147",
+          "method": "Lawful OA primary PDF",
+          "title": "On the binomial equivalence classes of finite words",
+          "trigger": "Equivalent formulation"
+        },
+        {
+          "assessment": "Unrestricted asymptotics and dimension framework, not the restricted enumerator in the inspected statement",
+          "evidence": "D_2,3(n)=Theta(n^9).",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.23106",
+          "material_read": "p. 1, OA offset 1098",
+          "method": "Lawful OA primary PDF",
+          "title": "Improved upper bound on the number of distinct k-decks for any k and alphabet size by counting the independent parameters",
+          "trigger": "Broader same-object theorem"
+        },
+        {
+          "assessment": "The cited earliest pair is known",
+          "evidence": "The n=7 entry gives the exact weight-three pair as one of two unrestricted collisions.",
+          "identifier_or_url": "https://oeis.org/A258585",
+          "material_read": "Definition and example, offsets 0–2456",
+          "method": "Public entry text",
+          "title": "Number of three-binomial equivalence classes of binary words",
+          "trigger": "Potential table coverage"
+        },
+        {
+          "assessment": "Primary scope unresolved and not needed to decide direct catalogue coverage",
+          "evidence": "Matching records identify Conjecture 1 as the pair-generating prediction; that attribution is not treated here as a verified primary theorem.",
+          "identifier_or_url": "https://doi.org/10.3934/amc.2021032",
+          "material_read": "OA access attempt did not yield the full text; conjecture attribution is secondary",
+          "method": "Lawful OA attempt by DOI",
+          "title": "On the number of distinct k-decks: Enumeration and bounds",
+          "trigger": "Catalogue sources attribute matching conjectured enumerator to this paper"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The underlying constant-weight classification is structurally useful, but the submitted finding re-establishes the same exact fibers and capacity previously recorded. It supplies neither a distinct regime nor a new implication or independently motivated exact fact beyond that coverage.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

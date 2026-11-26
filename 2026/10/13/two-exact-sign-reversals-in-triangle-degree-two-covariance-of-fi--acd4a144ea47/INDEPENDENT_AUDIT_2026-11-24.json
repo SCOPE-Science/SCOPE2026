@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:47:03.835587Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 34–78",
+        "VERIFICATION.md and check.py (inspected, not executed)",
+        "Independent symbolic reconstruction: /tmp/opencode/scope_record4_algebra.py; factorization checks and scaled coefficients 4c²−8c+2"
+      ],
+      "rationale": "Conditioning on degree two and its two neighbors leaves a uniform (m−2)-edge sample among B nonincident edges. The conditional triangle mean is the sum of a single closure probability (m−2)/B and the ordinary triangle mean in this residual graph. Subtracting the unconditional mean and multiplying by n times the hypergeometric degree probability gives the stated covariance with a strictly positive prefactor in the nondegenerate range. For m<3, T=0; for m>B+2, V₂=0. Independent symbolic factorization reproduces Q_n(3), Q_n(n), Q_n(B+2) and the positive leading coefficient; the shifted numerator polynomials at n=6 have positive coefficients as claimed. Thus the covariance on the integer grid exhibits a positive, then negative, then positive regime: m=3,n,B+2 have these respective signs. The two interior real roots are boundaries, not necessarily integer zeros. For m/n→c>0, the degree-two probability equals B(m)_2/(N)_2 times the probability of excluding the other n−3 incident edges after two specified edges are included. The first factor tends to 2c² and the logarithm of the exclusion probability tends to −2c. The coefficients of n²Q_n(cn) tend to those of 4c²−8c+2, whose roots are simple, yielding both the limit and the scaled thresholds. In G(n,p) the nonincident graph is unaffected, so the conditional-minus-unconditional mean is p−Bp³; this confirms the comparator.",
+      "residual_risks": [
+        "At critical sparse scaling a zero limit does not decide eventual strict sign; finite real roots need not be integers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The stronger-looking fixed-edge cluster and moderate-deviation results concern triangle absence or fixed subgraph counts, including conditional increment covariances. Record 7537caf0e7d0 does give the degree-two sign when m=n−1 and n≥14; its threshold parameter is degree."
+        ],
+        "reasoning": "The latter is real special-slice coverage. Its varying-degree classification at one edge budget does not dominate varying the budget at degree two. The other statements concern different random variables.",
+        "searches": [
+          "arXiv:1608.05193, Theorems 1.2–1.3",
+          "arXiv:1902.06830, Theorem 1.1 and Propositions 7.1–7.2",
+          "Resultary: fixed-edge triangle covariance with counts of vertices of prescribed degree"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 7537caf0e7d0, 81c56545debd, b49fbe58c486 (the last used only as a search hit)",
+        "arXiv:1005.4390",
+        "arXiv:1412.0257",
+        "arXiv:1608.05193",
+        "arXiv:1902.06830"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Degree one precludes a triangle through the conditioned vertex, whereas degree two admits one such triangle. The fixed-edge degree-one result has one transition. The original degree-count and triangle-limit papers are marginal results in the independent-edge model."
+        ],
+        "reasoning": "The degree-one theorem cannot specialize to the missing closure term and a second threshold. The full fixed-edge mixed moment, when recoverable from general moment identities, still requires the all-n sign evaluations and a sparse coefficient limit. No n-uniform two-root theorem or its equivalent was found among the inspected statements.",
+        "searches": [
+          "7537caf0e7d0 and 81c56545debd, RESULT.md",
+          "arXiv:1005.4390, Theorem 2.1",
+          "arXiv:1412.0257, Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The apparent path/triangle covariance in Section 7 is for subgraph-count increments. The path count is Σ_v binom(deg(v),2), not the number of degree-two vertices. The independent-edge covariance has only one boundary."
+        ],
+        "reasoning": "Neither replacing degree-two vertices by wedges nor replacing the uniform edge budget by independent sampling is an equivalent change of formulation. A full independent-edge mixed-moment polynomial can instead be inverted coefficient by coefficient in the Bernstein basis, with the marginals, to recover fixed-edge moments. This does not alone classify the roots.",
+        "searches": [
+          "Resultary: degree-two vertex count versus triangle covariance in G(n,m), two sign reversals and roots (1±1/√2)n",
+          "arXiv:1902.06830, Section 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ranked results yielded the fixed-m=n−1 classification (7537caf0e7d0) and degree-one calculations (81c56545debd and b49fbe58c486), not an exact all-edge-count match. The first two SCOPE results were inspected at statement level."
+        ],
+        "reasoning": "The nearest sign classifications have a different variable or statistic. Absence from ranked retrieval is not evidence of absolute novelty.",
+        "searches": [
+          "Resultary: finding title, degree-two/triangle covariance formula and locations of the two roots"
+        ]
+      },
+      "rationale": "The distinct result is the global two-root sign classification at fixed degree two as the edge budget varies, with both sparse thresholds. Conditioning and extracting mixed moments are not claimed new. The strongest inspected overlapping result has the same statistic pair only at m=n−1, and studies variation of the degree instead of the edge count. No inspected statement gives the full fixed-degree edge-budget classification.",
+      "residual_risks": [
+        "An earlier mixed-moment treatment may have performed the Bernstein extraction and sign analysis; the ranked search and inspected statements do not rule this out.",
+        "No external websearch was used for this comparison; the primary checks target the four identified open articles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Actual negative-sign overlap at degree two and m=n−1; not an all-m result.",
+          "evidence": [
+            "n≥14, G(n,n−1), cubic governing changes as degree varies; includes degree 2."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-three-exact-covariance-sign-reversals-for-triangles-and-degree-f--7537caf0e7d0",
+          "material_read": "RESULT.md, finding and parameter restrictions",
+          "method": "Resultary and local mirror",
+          "title": "Three exact covariance sign reversals for triangles and degree frequencies",
+          "trigger": "Same triangle/degree-count covariance in the fixed-edge model"
+        },
+        {
+          "assessment": "Covers degree one, not degree two.",
+          "evidence": [
+            "For triangles the leaf covariance switches between m=n and n+1, with limit 8c³(c−1)e^(−2c)."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-a-motif-universal-sign-transition-for-leaf-covariance-in-fixed-e--81c56545debd",
+          "material_read": "RESULT.md, finding and triangle specialization",
+          "method": "Resultary and local mirror",
+          "title": "A motif-universal sign transition for leaf covariance in fixed-edge random graphs",
+          "trigger": "Same edge-count parameter and overlapping triangle motif"
+        },
+        {
+          "assessment": "Degree-count marginal in G(n,p).",
+          "evidence": [
+            "Normal approximation for a specified degree count when p=θ/(n−1)."
+          ],
+          "identifier_or_url": "arXiv:1005.4390",
+          "material_read": "Theorem 2.1, p. 8, text offset 23363",
+          "method": "Original OA PDF",
+          "title": "A Berry–Esseen bound with applications to vertex degree counts in the Erdős–Rényi random graph",
+          "trigger": "Fixed-degree count in an Erdős–Rényi model"
+        },
+        {
+          "assessment": "Marginal triangle result; neither the fixed-edge model nor degree-two covariance is in the statement.",
+          "evidence": [
+            "Local Gaussian approximation for the triangle count at fixed p∈(0,1)."
+          ],
+          "identifier_or_url": "arXiv:1412.0257",
+          "material_read": "Theorem 2, p. 5, text offset 15031",
+          "method": "Original OA PDF",
+          "title": "A local central limit theorem for triangles in a random graph",
+          "trigger": "Possible triangle-count result with joint extensions"
+        },
+        {
+          "assessment": "A triangle-absence asymptotic, not joint static covariance.",
+          "evidence": [
+            "Triangle-free G(n,m) probability in the regime m=o(n^(15/11))."
+          ],
+          "identifier_or_url": "arXiv:1608.05193",
+          "material_read": "Theorems 1.2–1.3, p. 3, text offsets 8350–9107",
+          "method": "Original OA PDF",
+          "title": "The probability of nonexistence of a subgraph in a moderately sparse random graph",
+          "trigger": "Fixed-edge triangle probability and subgraph clusters"
+        },
+        {
+          "assessment": "Subgraph-count deviations and conditional covariances of increments, not the static degree-two/triangle covariance.",
+          "evidence": [
+            "The explicit two-edge path/triangle expression concerns martingale increments; path counts include all vertices of degree at least two with multiplicity."
+          ],
+          "identifier_or_url": "arXiv:1902.06830",
+          "material_read": "Theorem 1.1, p. 4, offset 11159; Propositions 7.1–7.2, pp. 48–49, offset 143001",
+          "method": "Original OA PDF",
+          "title": "Moderate deviations of subgraph counts in the Erdős–Rényi random graphs G(n,m) and G(n,p)",
+          "trigger": "Potential dominating fixed-edge covariance theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof; fixed-edge leaf and m=n−1 comparisons in the originality assessment"
+      ],
+      "rationale": "Degree two is the first degree that permits the conditioned vertex to lie in a triangle. The exact positive–negative–positive pattern for every n≥6 shows how a local closure term and conditioning on the global edge budget interact. This distinguishes the fixed-edge and independent-edge ensembles on a natural mixed statistic. The two limiting edge densities quantify the difference, rather than simply tabulating the moments.",
+      "residual_risks": [
+        "The result neither classifies other vertex degrees or motifs nor quantifies the sign at sequences approaching a critical density."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

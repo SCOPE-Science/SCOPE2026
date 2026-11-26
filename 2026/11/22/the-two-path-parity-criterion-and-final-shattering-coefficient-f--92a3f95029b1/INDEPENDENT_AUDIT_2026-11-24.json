@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:08:05.297546Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–61 and 67–101",
+        "Frozen VERIFICATION.md and verification_output.txt; inspected verify_even_derangements.py without execution",
+        "Replay: python3 /workspace/branches/reproduce_5.py; output /workspace/branches/reproduce_5.txt"
+      ],
+      "rationale": "A forced partial bijection has n-k directed paths; completions permute their terminals to their initials, forbid fixed singleton paths, and have sign (-1)^(n-c-t) for t cycles of the path permutation. With at least four free rows the diagonal and forbidden-negative cells form two partial matchings. At four rows the second matching removes at most two cells and cannot kill the three even double transpositions or all six odd four-cycles. At five rows I independently counted both signs for all seven conjugacy types after extension to two full forbidden matchings. At six or more rows two common columns and Hall's theorem give opposite-sign completions by a swap. At rank n-2 only the all-positive and one-negative labels remain. A singleton forces crossing in the all-positive case; cutting a two-vertex path forbids two-cycle completions on the resulting three paths; cutting a cycle with two original singletons imposes the sign opposite that for all positives. Every other cut permits both signs by the three-cycle and a legal transposition. The rank n-3 exception and rank n-1 obstruction follow as stated. Ordering the two directed paths gives n!D_(m,c)/m! arrangements; division by two and parity projection give both top-coefficient formulas. An independent bitset partition of actual even derangements by Boolean traces checked 52,160 supports through n=7, recovering top counts 0, 240, 1140 and 15750; finite replay corroborates but does not replace the all-order argument.",
+      "residual_risks": [
+        "Ordinary incidence shattering of even derangements with n>=4 only; no claim for adaptive shattering or more general boards."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Unrestricted derangements realize every matching trace up to n-2, without sign control",
+          "Inspected graph derangement and learning literature addresses intersection/avoidance or abstract VC results rather than this signed trace-realization criterion"
+        ],
+        "reasoning": "General extension or avoidance results that lack a sign guarantee cannot furnish the all-labelings even completion; the odd-sign-only cases witness the distinction.",
+        "searches": [
+          "Resultary local mirror: perfect-matching trace universality; derangement incidence shattering",
+          "arXiv:1906.05908v2; arXiv:2201.02332; arXiv:1801.06566v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen prior-work discussion, lines 107–125",
+        "Resultary records listed in source_inspections, plus SCOPE-derangement-incidence-shattering-exact-static-dimension-and-the--951015b97f7a (unrestricted dimension)",
+        "Chase–Freitag, arXiv:1801.06566v1, HTML offset 0 (abstract learning framework)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen record credits ranks through n-3 and dimension to the near-top note, for which no public text was identified",
+          "Signed derangement statistics are about whole permutations, not the sign-conditioned set of all traces on each top support"
+        ],
+        "reasoning": "Lower-rank shattering is inherited from larger supports but cannot be used in reverse; dimension promises existence, not a classification. The exact top rank combines one-negative-label constraints with weights by cycle count and path lengths; neither the parity-free count nor the finite six-symbol case supplies this inference.",
+        "searches": [
+          "Frozen cited Parity-exceptional near-top shattering of even derangements",
+          "Resultary local mirror: perfect-matching trace universality; six-symbol finite result",
+          "arXiv:2105.08455"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-sharp-first-parity-leakage-in-permutation-matrix-membership-test--aa8ae022a14b",
+          "SCOPE-parity-refined-comparison-shattering-of-even-permutations--824e5263ec2a"
+        ],
+        "reasoning": "Full-board assignment queries allow fixed points in the completion; parity-blind traces up to rank n-2 on that larger class are not parity-blind after the fixed-point-free restriction. Order comparisons on even words are a different query domain, not the directed path-and-cycle completion board.",
+        "searches": [
+          "Resultary local mirror: even derangements, assignment membership and parity leakage; comparison shattering of even permutations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-a-nonpure-shattering-complex-for-even-derangements-on-six-symbol--f8caf5d6b77a gives 1140 of 2715 rank-four supports and the full order-six polynomial"
+        ],
+        "reasoning": "This is demonstrable existing exact coverage at n=6, independent of same-day chronology. It is a finite result, not an all-n criterion or coefficient formula.",
+        "searches": [
+          "Resultary local mirror: nonpure shattering complex for even derangements on six symbols"
+        ]
+      },
+      "rationale": "The supported distinct claim is the all-order two-path criterion and top coefficient at rank n-2. The exact n=6 specialization already appears in a separate same-day record; no order within that day is established or needed. The frozen result expressly credits that finite case and does not claim novelty for the near-top coefficients or dimension. The unrestricted and full-board parity results do not imply the new criterion.",
+      "residual_risks": [
+        "The near-top note has no identified lawful public text, so its exact scope and priority were not independently established; lower ranks are not credited here as new.",
+        "Bounded comparisons do not exclude an unindexed equivalent all-order criterion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers order six only",
+          "evidence": "Gives 1+30z+315z^2+1420z^3+1140z^4 and no rank-five support for even derangements.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-nonpure-shattering-complex-for-even-derangements-on-six-symbol--f8caf5d6b77a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage",
+          "title": "A nonpure shattering complex for even derangements on six symbols",
+          "trigger": "Same domain and exact coefficient"
+        },
+        {
+          "assessment": "Parity-free baseline",
+          "evidence": "All off-diagonal matchings through n-2 shatter for unrestricted derangements; ordinary rook number 2715 at n=6 rather than 1140.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-perfect-matching-trace-universality-and-the-shattering-polynomia--d84d57a040aa",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage",
+          "title": "Perfect-matching trace universality and the shattering polynomial of derangements",
+          "trigger": "Possible stronger prior rank classification"
+        },
+        {
+          "assessment": "Related, different domain and class",
+          "evidence": "Parity-blind traces through n-2 on the full assignment board; fixed points are permitted.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-first-parity-leakage-in-permutation-matrix-membership-test--aa8ae022a14b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage",
+          "title": "Sharp first parity leakage in permutation-matrix membership tests",
+          "trigger": "Same-day parity-and-membership result"
+        },
+        {
+          "assessment": "Different query domain",
+          "evidence": "Forest criterion for pairwise order comparisons on words, not incidence membership.",
+          "identifier_or_url": "SCOPE-parity-refined-comparison-shattering-of-even-permutations--824e5263ec2a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage",
+          "title": "Parity-refined comparison shattering of even permutations",
+          "trigger": "Potential equivalent query formulation"
+        },
+        {
+          "assessment": "Inspected results address matching intersection and graph derangement counts",
+          "evidence": "Not an even-sign Boolean trace classification in the inspected passage.",
+          "identifier_or_url": "arXiv:1906.05908v2",
+          "material_read": "HTML passage, offset 500",
+          "method": "OA bounded passage",
+          "title": "Perfect matchings and derangements on graphs",
+          "trigger": "Graph-derangement generalization"
+        },
+        {
+          "assessment": "Signed enumeration context",
+          "evidence": "The stated refinement is by excedances and minima, not signed realizability of incidence traces.",
+          "identifier_or_url": "arXiv:2105.08455",
+          "material_read": "PDF page 1, offset 0",
+          "method": "OA bounded passage",
+          "title": "An involution on derangements preserving excedances and right-to-left minima",
+          "trigger": "Parity-refined derangement enumeration"
+        },
+        {
+          "assessment": "Different counting problem",
+          "evidence": "Avoidance of a forbidden functional assignment is not classification of all traces by sign.",
+          "identifier_or_url": "arXiv:2201.02332",
+          "material_read": "PDF passage at offset 1750",
+          "method": "OA bounded passage",
+          "title": "On f-Derangements and Decomposing Bipartite Graphs into Paths",
+          "trigger": "Forbidden assignment and path terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and exact count, lines 5–61; path-cut argument, lines 85–101"
+      ],
+      "rationale": "The top coefficient measures the maximal supports that still realize every label under the sign restriction. The structural path-length condition isolates exactly where changing a single requested label can force the wrong parity, and completes a natural incidence-shattering polynomial rather than merely reproducing the already known dimension or the six-label example.",
+      "residual_risks": [
+        "Specific to static shattering on the off-diagonal board."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

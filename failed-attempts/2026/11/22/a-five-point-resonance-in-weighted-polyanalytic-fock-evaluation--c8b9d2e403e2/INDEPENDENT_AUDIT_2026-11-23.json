@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:39:53.315057Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The weighted orthogonal sum has the stated kernel; the exponential is nonzero and the squared distances satisfy (s−2)^2=2(1−τ). A singleton is optimal for τ>1 and an equilateral triple is optimal at τ=1. For 0≤τ<1 there is a triple at the shorter root. Independent exact enumeration of all 64 edge assignments reproduced the 11 determinant polynomials and verified all six positive-semidefinite rank-two cases via principal minors. The four ratios are 2, (3+√5)/2, 3, 2+√3, with multiplicities 1, 1, 2, 2. The classical planar bound and rigidity give five only for the pentagon; its two squared chords are 2±2/√5 with radius squared 4/5. These checks establish the phase diagram, not just finite numerical evidence. The frozen checker uses exact determinant polynomials but numerical PSD/chord diagnostics; the independent exact replay is in /workspace/branches/4947cce5-3f27-4f7a-851f-09728a477ac6/recompute.py.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The planar two-distance maximum is five, and every optimal set is similar to the regular pentagon with ordinary distance ratio (1+√5)/2; the six four-point similarity types are classical as credited in the record."
+        ],
+        "reasoning": "These results classify the geometry without any restriction on ratios or origin from a Fock kernel, so are strictly broader on the only nontrivial geometric part.",
+        "searches": [
+          "Nozaki–Shinohara §4.4, Prop. 4.16 and preceding classical classification",
+          "DOI:10.1007/978-94-011-2058-6_27 (Harborth–Piepmeyer)"
+        ]
+      },
+      "checked_sources": [
+        "Fulsche–Hagger arXiv:2308.11292v2",
+        "Nozaki–Shinohara arXiv:0906.0199",
+        "Harborth–Piepmeyer DOI:10.1007/978-94-011-2058-6_27, as cited and scoped by the frozen record",
+        "Resultary comparison with the full-order-three Fock design result"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The four admissible ratios give 7/9, 3/5, 1/2 and 1/3 by τ=8t/(1+t)^2−1. The known pentagon ratio singles out 3/5. The endpoints use only equilateral feasibility and the discriminant."
+        ],
+        "reasoning": "The proof adds a routine parameter conversion and a recomputation of the known four-point classes; neither supplies an additional mathematical result beyond the old classifications.",
+        "searches": [
+          "arXiv:2308.11292v2 Eq. (3.1); arXiv:0906.0199 §4.4; Harborth–Piepmeyer DOI:10.1007/978-94-011-2058-6_27"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (3.1) gives the true-level kernel factor; orthogonality is exactly the condition that all squared separations lie in {u,v}.",
+          "Rescaling any two-distance shape with squared-ratio t by the factor √(4/(1+t)) when short distance is one gives both desired distances exactly."
+        ],
+        "reasoning": "The equivalence is a bijection of shape classes for fixed τ; the geometry's similarity classification supplies the original isometry classification after the forced rescaling.",
+        "searches": [
+          "Resultary: weighted true polyanalytic Fock orthogonal point kernels Laguerre L2 plus tau planar two distance pentagon resonance",
+          "Fulsche–Hagger arXiv:2308.11292v2 §3; Nozaki–Shinohara arXiv:0906.0199 §4.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The record credits the 1993 chapter for the six four-site planar shapes. The independent Gram enumeration yields exactly those six, not a new class. The closest different Fock record uses L_2^1 and is not itself the same table."
+        ],
+        "reasoning": "An exact table written directly in τ was not located; changing coordinates on the known shape data is sufficient coverage.",
+        "searches": [
+          "Harborth–Piepmeyer, Two-Distance Sets and the Golden Ratio, DOI:10.1007/978-94-011-2058-6_27; frozen §Relationship to prior work and AUDIT.json",
+          "Resultary: weighted true polyanalytic Fock orthogonal point kernels Laguerre L2 plus tau planar two distance pentagon resonance"
+        ]
+      },
+      "rationale": "The results are mechanically implied by the known kernel expression and the classical complete planar two-distance classification. No prior publication of the exact weight table is required for this coverage. The unit-short normalization forgets no data relevant to orthogonality and the inverse scaling and τ are forced by the root sum/product.",
+      "residual_risks": [
+        "The 1993 full chapter was not independently inspected; its six-shape coverage is explicitly credited in the frozen source and is not an inference from absence of a search hit. Even the headline five-site result alone is directly implied by the open primary text and elementary kernel algebra."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly supplies the kernel inputs, not an independent new geometric condition.",
+          "evidence": [
+            "(3.1): K_(k)(z,w)=exp(z conjugate(w)) L^0_(k−1)(|z−w|²)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2308.11292v2",
+          "material_read": "Section 3, especially (3.1), with the separate full-level kernel notation",
+          "method": "Read open full text",
+          "title": "Quantum harmonic analysis for polyanalytic Fock spaces",
+          "trigger": "Kernel normalization and true-level Laguerre formula"
+        },
+        {
+          "assessment": "Covers the complete five-point geometry used in the claim.",
+          "evidence": [
+            "The d=2 paragraph gives maximum five, unique regular pentagon, and ordinary ratio (1+√5)/2."
+          ],
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/0906.0199",
+          "material_read": "Definition of a distance set, table of maxima, and §4.4 planar classification",
+          "method": "Read open full text",
+          "title": "On a Generalization of Distance Sets",
+          "trigger": "Planar five-point maximum and equality case"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Orthogonal point evaluations are a natural object, and the table is a useful illustration. But the isolated resonances and shapes are exactly the classical list read through a single scalar substitution. The recomputed table does not produce a new shape, new obstruction, or a bound beyond the already complete classification. No genuinely new valuable remainder is established in the frozen package.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every odd prime and every symmetric admissible inverse pencil, quadratic Gauss completion and the determinant-character weights give the **exact** Fourier multiplier (equation (1) of `RESULT.md`), with no omitted phase or normalization. Elementary quadratic-form character sums give every spectral multiplicity. The order-three root test proves the prime-three singularity dichotomy. The anisotropic binary example satisfies every inverse condition and realizes the universal minimum rank. These are unrestricted algebraic proofs; exact cyclotomic sample computations serve as corroboration.
+## correctness
 
-## Originality — PASS (historical risk remains)
-The 2003 full paper by Klappenecker–Rötteler proves quadratic-chirp mutually unbiased bases, and Casazza–Fickus (2006) compute individual finite-chirp Fourier transforms. The 2022 full article of Srivastava and collaborators develops a generalized discrete quadratic-phase transform and convolution theorem. None of their inspected statements supplies the combined three-inverse-pencil filter, its determinant alignment, every quadratic-level spectral multiplicity, the precise prime-three rank collapse or the sharp extremal classification. Semantic database searches for chirp sums, polynomial phase cancellation, inverse pencils, matrix determinants and convolution nullity returned nearby but nonimplicating results (see structured comparison). The method deliberately uses classical Gauss sums and standard quadratic-form counts; an equivalent older filter-bank formulation remains a material priority risk, not a resolved claim of unique discovery.
+PASS
 
-## Value — PASS
-Controlled invertibility and conditioning of finite convolution filters are natural Fourier questions. The finding classifies a genuinely infinite, geometrically defined family with **all singular values**, establishes an abrupt arithmetic obstruction at the prime three, determines the smallest possible rank and every equality configuration, and exhibits a rank-one nine-point convolution filter as an explicit boundary. The statement is not a single arbitrary small invariant or a routine restatement of one transform identity: the inverse-pencil design and optimization tie a full spectral census to an exact arithmetic transition.
+For unnormalized convolution on the additive group, the orthogonal characters diagonalize the operator, hence singular values are the absolute Fourier eigenvalues. Completing the square gives each chirp a factor chi_p(det A_j) G_p^d; the stipulated coefficient cancels its sign. The inverse pencil then yields the common unit phase times G_p^d(1+z+z^2) with z=exp(2 pi i t/p). Additive-character orthogonality and the p^{d-r} radical factor give both displayed level counts; for odd rank the sign comes from chi_p(-a)G_p times G_p^{2m+1}, with a=-4t. For r>=2 both binary types represent every residue, so every t occurs; the minimum absolute real sample brackets p/3 and the maximum is 3 at t=0. The closest grid-point distance is 1/3 and the angular derivative at the zero has magnitude sqrt(3), giving the stated asymptotic. At p=3 the rank is the zero-cone cardinality: it is minimized only at r=2 with sign -1. The exhibited binary block has determinant 1 and its three pencil determinants are 1,2,2, proving attainability in every dimension after adjoining the radical. The phrase 'only two singular values' means two possible levels: the explicit multiplicity of zero is zero when V=0. Verification code was inspected, not executed; the exact cyclotomic regressions corroborate finite cases only, and the algebra proves the all-parameter claims.
 
-## Boundaries
-The conclusion applies only when the three matrices in the inverse pencil are invertible and weights are the specified Legendre determinant signs. The simplified sharp condition number for primes at least five requires rank at least two. The phase transition and rank-one construction do not imply a theorem for general linear combinations of three chirps or continuous operators. Finite checker cases do not establish the all-primes theorem. A later independent audit and a wider historical-priority search would strengthen confidence.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Supported distinct contribution: the full convolution census and sharp ternary rank criterion for this inverse pencil. Individual chirp transforms and quadratic level-count formulas are established ingredients; the inspected nearby results do not give or dominate the claimed joint spectrum and its arithmetic boundary.
+
+## value
+
+PASS
+
+For a structured determinant-normalized sum of chirps, the census reduces all singular values and multiplicities to the rank and discriminant of one matrix, without constructing the convolution matrix. It answers practical mathematical questions about exact invertibility and conditioning and identifies a sharp low-characteristic boundary, not just another derivation of a single chirp transform. The ternary extremizer meets the nontrivial simultaneous-invertibility restrictions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

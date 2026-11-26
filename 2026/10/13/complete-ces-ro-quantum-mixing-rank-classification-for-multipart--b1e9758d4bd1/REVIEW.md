@@ -1,19 +1,21 @@
-# Scientific review: complete multipartite Cesàro mixing rank
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed nullspace is defined for all connected unweighted multipartite adjacency graphs, including two-part graphs and singleton blocks. A real symmetric spectral decomposition gives \(\widehat M=\sum_\lambda E_\lambda\circ E_\lambda\); each summand is positive semidefinite. The zero-eigenspace is exactly the direct sum of within-part contrasts, whose projector square has contrast eigenvalue \(1-2/n_i\). The \((-1)\)-eigenspace is exactly the contrast subspace on singleton parts when there are at least two of them, whose Schur square has contrast eigenvalue \(1-2/s\). For the one-singleton case a connected Perron eigenvector eliminates its remaining possible kernel direction. All other spectral projectors have equal columns on the identified pairs, so the claimed null vectors survive every summand. These complementary bounds establish the exact kernel, not merely a finite-data conjecture. The independent checker tested \(119\) full adjacency/projector examples and \(86\) exact rational projector examples, without treating enumeration as an infinite proof.
+PASS
 
-## Originality — PASS, with residual literature risk
+The distinct-eigenvalue Cesàro expansion is a sum of positive semidefinite Schur squares, so the kernel is their common kernel. On normalized part indicators the adjacency quotient is ww^T-diag(n_i), with w_i=sqrt(n_i); it has no zero vector in its kernel (a zero-mode equation in part values gives S=rS). Thus the zero projector is exactly the direct sum of within-part zero-sum projectors, using the zero operator if the zero eigenspace is absent. On a part of size m its Schur square is (1-2/m)I+J/m^2, so for m>=2 it leaves only the m=2 contrast in the kernel. The -1 quotient equation is (n_i-1)a_i=S: with a singleton it forces S=0 and leaves exactly singleton contrasts, and without singletons division would require 1=sum_i n_i/(n_i-1)>1. The corresponding singleton block excludes all singleton directions for s>=3, leaves a single contrast for s=2, and is absent for s=1, where the positive Perron projector detects the lone singleton direction. Orthogonality makes every other projector have equal columns at the vertices of each proposed contrast, so squaring entrywise does not remove those null vectors. This proves exactly the claimed kernel and rank, including K2, all-singleton graphs, and repeated non-singleton sizes. The supplied numerical and rational checks were inspected, not executed; the unrestricted result follows from the checked algebra, not finite examples.
 
-Godsil (arXiv:1103.2578) gives the general Schur-square representation, and Coutinho–Godsil–Guo–Zhan (arXiv:1709.03591) analyze ranks and commutants. Neither inspected full text states the complete multipartite all-part-sizes kernel classification; their general formulas still require the present invariant-subspace argument. Baptista–Coutinho–Marques (arXiv:2308.16378v1) study flexible time sampling and complete-bipartite cases, rather than the present ordinary Cesàro rank problem. Selected open problems (arXiv:2404.02236) concerns higher-regularity/primitive distance-regular cases. The balanced-multipartite instantaneous-uniformity literature concerns a distinct property. The established complete-graph answer is an acknowledged special case, not a novelty claim. Published full-text and comparison searches did not identify a stronger covering result. The principal residual risk is implicit equivalent coverage in association-scheme, automorphism, twin-vertex or equitable-partition theory; this is not excluded by negative searches.
+## originality
 
-## Value — PASS
+PASS
 
-The result calculates a natural structural invariant for **every** complete multipartite graph, including nonregular graphs with arbitrarily repeated and unequal part sizes. It identifies precisely two qualitatively different obstructions to positive definiteness: two-vertex independent twin classes and a two-vertex singleton-part true-twin class. The exact kernel is stronger than a rank bound and the classification exposes a sharp rank change at block size two and singleton count two. This is a motivated infinite-family classification within the spectral quantum-walk rank problem, not a parameter-slice table or a renaming of a known complete-graph formula. The rank formula is not claimed to solve wider open problems or to certify novelty independent of further publication search.
+Credit the existing equal-fibre blow-up formula and the published complete-graph calculation. The finding passes only as the unified result for arbitrary part sizes and the interaction of the size-two and singleton exceptions, not as novelty of those subfamilies or of the spectral-projector machinery. Bounded comparison did not substantiate coverage of this general claim.
 
-## Sources and remaining limits
+## value
 
-Primary scientific comparisons: Godsil, *Average Mixing of Continuous Quantum Walks* (arXiv:1103.2578); Coutinho–Godsil–Guo–Zhan, *A New Perspective on the Average Mixing Matrix* (arXiv:1709.03591); Baptista–Coutinho–Marques, *Unexpected Averages of Mixing Matrices* (arXiv:2308.16378v1); Coutinho–Guo, *Selected Open Problems in Continuous-Time Quantum Walks* (arXiv:2404.02236); and Lo et al., *Mixing of Quantum Walk on Circulant Bunkbeds* (arXiv:quant-ph/0509059). The 2026 Laplacian-walk work *Laziness of Quantum Walks on Graphs* (arXiv:2608.20739) concerns a different Hamiltonian and objective, but its complete full text was not inspected. The finding concerns only adjacency Cesàro ranks, not the whole mixing spectrum or optimized observation-time laws.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete multipartite family is a standard uneven blow-up family in which symmetry alone leaves several possible null directions. The uniform kernel tells exactly which initial-vertex distinctions are lost by averaging, exhibits two different twin mechanisms, and gives a sharp positive-definiteness criterion even with mixed part sizes. This is useful beyond the balanced and complete cases and is not just a recomputation of those ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

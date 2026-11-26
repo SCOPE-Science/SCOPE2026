@@ -1,11 +1,21 @@
-# Review of the local power-copula predictability reversal
+# Independent mathematical audit
 
-**Correctness — PASS.** The family is genuinely admissible for all stated positive parameters by an explicit mixed-density positivity argument. It is strictly NQD at every interior point, so its signed concordance class cannot itself explain the changing direction of rank predictability. The two population Chatterjee coefficients are normalized as conditional-CDF variances of the *response* given each opposite predictor. Integrating their squares produces the two exact one-dimensional formulas. Fourth-order-uniform Taylor control follows from bounded \(g\), bounded \(u f'\), positive denominators and power-log integrability. Four exact integrals give the coefficient expressions, with \(D_2\) uniquely zero at \(9/2\). The negative cubic coefficient and nonzero \(D_2'\) imply the locally unique curved boundary, with exact slope \(-3240/319\). Exact-arithmetic and independent high-precision checks agree. The conclusion is not extended to global uniqueness or finite-sample behavior.
+## correctness
 
-**Originality — PASS, qualified.** Chesneau's full 2023 source, Theorem 1 and Section 2.2, gives the model and copula-validity conditions; its Section 3 addresses an inverse-power variant and classical concordance, not the present power family's sharp directional \(\xi\) transition. Chatterjee's original paper gives the coefficient and its two-direction interpretation. Ansari–Rockel (2024) catalog dependence properties for major families but not this particular OVP phase boundary. Separate indexed research searches compared related power, asymmetric, and Chatterjee copula findings by their statements; no source implying this exact exponent threshold, cubic cancellation, or boundary slope was found. A 2024 variable-power companion's abstract was accessible but not its full body, leaving an explicit priority risk. The asserted novelty is limited to the new sharp local comparison, not the copula or metric themselves.
+PASS
 
-**Value — PASS.** The exact change in which variable predicts the other better is a natural question for a *deliberately asymmetric* model used to describe dependence. The sharp \(9/2\) transition and \(3240/319\) drift show that an entire fixed NQD class contains both opposite directional rankings, even arbitrarily close to independence. This is an analytic structural boundary for a continuous parameter family, not a numerical table, trivial substitution, or arbitrary sliced invariant. It provides a quantitative guide to interpreting the asymmetric power shape without conflating directed predictability with causation.
+The mixed density is nonnegative even at β=1/α, and C<uv throughout the open square for β>0. For f=1+β(1−u^α), the factor 6 follows from integrating the unconditional variance of the uniform-response indicator. In the V|U integral the first two nondifferential-in-square terms combine to (u/(2f+1))′ and the mixed-with-v terms to −2(u/(f+2))′; their integrated boundary values cancel the added 1/3. Thus the exact functionals reduce to ξ(V|U)=12∫(uf′)²/(2f+1)^3 du and ξ(U|V)=6∫u²(f−1)²/(2f−1) du over [0,1]. Expanding these shorter formulas and integrating u^(q+mα) as 1/(1+q+mα) independently reproduces D₂, D₃, D₂′(9/2)=−9/100 and D₃(9/2)=−1458/1595. The bounded denominators and uniform integrability on compact shape intervals give a uniform Taylor remainder; the divided functional Δ/β² extends analytically near (9/2,0), including at β=0. The implicit-function derivative is −3240/319, and the negative shape derivative gives the stated signed sides and local uniqueness. At the critical shape the explicit inequality is ξ(V|U)>ξ(U|V) for sufficiently small positive β; this disambiguates ‘reverse conditioning direction’ in line 26. Neither equality at every β for α=9/2 nor globally unique equality nor a causal interpretation follows. The frozen checker was inspected, not executed.
 
-The work establishes a local boundary only, and cannot guarantee historical uniqueness. All mathematical claims remain subject to independent assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same copula and the same directional population functional are established prior work. The new statement supported here is the model-specific weak-dependence crossing, its nonzero critical cubic coefficient, and the locally unique moving boundary. The strongest overlapping claims inspected do not cover that combination. This is a bounded best-of-knowledge judgment, not historical certification.
+
+## value
+
+PASS
+
+A deliberately asymmetric copula has opposite predictive orderings arbitrarily close to independence without changing the negative quadrant-dependence sign. The exact critical exponent and the nonvanishing cubic term distinguish a leading-order cancellation from actual equal predictability; the β-dependent boundary gives a useful local diagnostic for this established model. This is not just calculation of ξ for isolated parameter choices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

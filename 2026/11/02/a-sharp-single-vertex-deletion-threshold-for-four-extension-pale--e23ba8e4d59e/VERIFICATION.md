@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The package contains `verify_paley.py`, `verification_output.txt`, `independent_check.py`, and `independent_output.txt`. These are ordinary reproducible programs and records, not independent mathematical certification. Running each script with Python 3's standard library and comparing standard output to the corresponding embedded record reproduced both outputs byte-for-byte.
+# Independent mathematical audit
 
-The main program enumerates every odd prime power \(q\equiv1\pmod4\) below \(241\), builds the finite field, certifies extension-polynomial irreducibility, verifies graph symmetry and quadratic-residue cardinality, and checks every normalized quadruple \(\{0,1,a,b\}\) with all sixteen adjacency patterns. The output includes all exact minimum witness counts and the first attaining configuration in field-coordinate encoding. The independent program uses quadratic-character exponentiation and direct pattern histograms at nine field orders that include the sharp boundary and exceptional-order cases.
+## correctness
 
-The infinite \(q\ge241\) assertion is not based on experiments. Its character-sum lower bound is derived in `RESULT.md`: six quadratic pair terms contribute at most six, four cubic terms at most \(8\sqrt q\), the quartic term at most \(3\sqrt q\), and four excluded anchor terms at most thirty-two. Hence every pattern has more than two witnesses once \(q\ge241\). The irreducible-polynomial and all-pattern checks are executed by the supplied program; the mathematical proof of completeness of affine normalization is written in `RESULT.md`.
+PASS
 
-Limitations: finite enumeration is exhaustive only in the finite interval stated; a failed computation is never interpreted as an infinite impossibility proof. Historical priority is qualified because the full 1993 Ananchuen–Caccetta article was inaccessible, although its abstract and a full relevant thesis discussion were compared. No independent external audit was conducted.
+Five EF rounds need extension over at most four distinct previously selected vertices; smaller patterns are obtained by padding. Conversely a failed pattern refutes its rank-five universal-existential extension sentence. Deleting the only witness, or a non-anchor when there were none, proves the two-witness necessity. The q=5 edge case falls outside the phrasing 'more than five' in Step 1, but deletion leaves four vertices and the rank-five sentence asserting five distinct vertices fails, while a four-anchor pattern can never have two witnesses in P_5. In the tail calculation singleton sums vanish, each of six pair sums is -1, four cubic and one quartic Weil estimates cost 11 sqrt(q), and excluded anchors cost at most 32. The lower bound is greater than 2 at 241 and increasing thereafter. Square and nonsquare affine multipliers normalize a four-set to 0,1,a,b, with nonsquares only complementing the checked pattern. I inspected rather than ran the supplied scripts. A separately written exact program, /workspace/reviews/paley_reproduction.py, generates prime powers and finds its own irreducible moduli, constructs adjacency using squares, and partitions by three anchors before tallying both signs for the fourth. Its run reproduced all 30 minima below 241, including 181 with minimum 2 and 125 with minimum 1. It also reproduced witnesses [4] in the published F_125 representation and [11,81] at 89. Thus there is no uncovered range or reliance on a spot check.
+
+## originality
+
+PASS
+
+The distinct claim is the exact all-prime-power classification for two four-point witnesses, especially the failure after deletion at 125. The rank-five interpretation is standard and the least successful ordinary Paley order 89 and the positive two-witness case 121 have direct indexed overlaps, so neither constitutes separate novelty here. Prior multiple-witness inequalities already imply a positive tail. They do not determine the exceptional low field or the exact robust classification in the inspected statements.
+
+## value
+
+PASS
+
+One-vertex deletion robustness is a natural next invariant of a classical pseudorandom family. Its exact all-order range is useful for finite rank-five approximants and not determined by the usual tail bounds. The singleton at 125 makes the robustness margin genuinely different from the ordinary extension property and shows an actual failure after deletion amid successful orders; this is not an arbitrary truncated census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

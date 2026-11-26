@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and exact claim boundaries
+# Independent mathematical audit
 
-The sole theorem is for the particular thirty-vertex duad–syntheme Levi graph. A length-four ordered source tuple produces four-round coverage \(B_3(x_1)\cup B_2(x_2)\cup B_1(x_3)\cup B_0(x_4)\), even if it is not itself a legal ignition sequence. The theorem proves that the largest possible coverage is 29, gives a complete equality classification and derives the ordinary burning number five. The results are neither extrapolated beyond this graph nor presented as a count of genuine four-round burning sequences.
+## correctness
 
-Reproduce with `python3 verify_python.py`, and with `g++ -std=c++17 -O2 -Wall -Wextra -pedantic verify_cpp.cpp -o check_cpp && ./check_cpp`. Both are standalone source files and need no network access or external data sets. On replay, Python printed `CHECKER_PYTHON_OK`, verified the thirty-vertex distance profiles, an explicit point–line duality, all 900 two-radius intersections and all 810,000 four-source tuples. C++ printed `CHECKER_CPP_OK` after independent construction and the same complete exhaustive enumeration. The output of both is maximum coverage 29, count 2,160, source counts 72, per ordered antipodal pair nine and the second-source split 720/1,440. Both checked that every maximum-coverage tuple is a legal source sequence. Python verified a legal five-ignition construction.
+PASS
 
-The lower bound on four-round coverage is analytic: a first radius-three ball leaves eight distance-four vertices; the subsequent radius-two, radius-one and radius-zero balls can cover at most four, two and one of these vertices. The equality count follows from the explicit six-plus-eight case split and a verified part-swapping automorphism. The verification code is a transparent finite cross-check of these mathematical steps, not a proof for other graph families. There has been no independent external scholarly validation or auditing.
+The duad–syntheme incidence graph is cubic and bipartite; two disjoint duads lie in their unique completed matching, and three pairwise disjoint duads already comprise a single matching. These facts rule out cycles of lengths four and six. The independently computed distance profiles give layers 1,3,6,12,8 at every vertex. Cubicity, girth and bipartite parity give the stated radius-2 and radius-1 intersections with the distance-four shell; their maxima are 4 and 2. Thus even an unrestricted four-source tuple misses at least one vertex. Equality requires the second and third balls to hit 4 and 2 previously missed vertices and the singleton to add one more. For first duad 01, the distance-two second choice leaves the four crosses over its two labels, with two disjoint-pair completions; the distance-four second choice leaves one cross disjoint from each of the three others, with three completions. In either case there are two ways to place the last singleton. The automorphism listed in the frozen proof exchanges the two sides, and the stabilizer of a first duad is transitive on its eight antipodes. These facts explain counts 24+48 per source and nine per survivor. Independently enumerating all 27,000 first-three-source triples gives a minimum of two vertices missing and exactly 1,080 such triples. The two possible singleton extensions per minimizing triple exhaust all four-source maximizers; all 2,160 satisfy the six required distance constraints, with the exact advertised source–survivor and distance distributions. Five pairwise intersecting duads are pairwise at graph distance four, so the five-round construction is legal and its first ball covers. No four-round cover implies no shorter one because any shorter cover could be extended to an unrestricted four-tuple.
+
+## originality
+
+PASS
+
+The distinct contribution is the unrestricted four-round deficit and the complete census and legality of its attainers on the named cage, not the burning rule, the radius upper bound, the graph construction, or an independent priority claim for the coarse value b(T)=5. The identical catalogue hit is the frozen record itself. Distinct same-graph records checked involve other processes and give no implication for this count.
+
+## value
+
+PASS
+
+This is a complete exact invariant at the critical pre-completion time on a canonical highly symmetric cage. It measures the gap between the relaxed coverage objective and genuine completion, then identifies the entire class of near-complete schedules, including their legality and survivor distribution. These are natural quantities independent of how they were computed and suitable as an exact benchmark; the structural two-case description explains more than the burning number or a sample count would.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,26 +1,21 @@
-# Scientific review: sequential bi-threshold dynamics on complete graphs
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The hypotheses are explicit: a complete graph of size \(n\ge3\), fixed permutation-sequential sweeps, population in the closed neighborhood (all vertices), common up-threshold \(k\), down-threshold \(k+2\), and \(1\le k\le n-2\). At total population at most \(k-1\), no vertex activates; at least \(k+2\), none deactivates. The only transiently undecided populations \(k,k+1\) alternate on local flips until escape. A state not escaping in its first two updates must start with the mixed pair \(01\) at population \(k\), or \(10\) at population \(k+1\). These states cannot become constant after a single sweep; they either escape later or consist of a fully alternating word. Only odd dimensions at the central threshold give mutually complementing fully alternating states. Counting the two disjoint first-two-bit gates gives \(\binom{n-2}{k-1}+\binom{n-2}{k}=\binom{n-1}{k}\); subtract the two exceptional periodic words to get the exact second-entry shell. The count and statewise characterization are reconciled for \(n=3\) and every admissible threshold. The local central-binomial limit gives the probability law. This reconstructs the infinite proof without relying on finite experiments.
+PASS
 
-`verify.py` independently computes the microscopic updates for 360456 states over 78 pairs \((n,k)\), \(3\le n\le14\), and 196 further nonidentity-order parameter checks. Re-running produces the documented output. Finite checks alone are not an infinite-family proof.
+In sweep coordinates, populations below k or above k+1 move monotonically farther from the band and give a constant output when the sweep starts there. Inside the band the unique flips that do not escape are 0 to 1 at k and 1 to 0 at k+1. Escape on either of the first two updates leaves no already processed bit inconsistent with the resulting constant. Thus the only potentially nonconstant outputs come from the two stated first-two-bit signatures, which produce a mixed output prefix. Escape later yields a nonconstant output outside the band, with exactly one more sweep needed. Survival of the whole sweep forces an alternating input and complements it. For even n its complement has the wrong start bit for the same population and escapes on the next sweep; for odd n survival requires n=2k+1 and both alternators already form a cycle. This also excludes transient predecessors of the cycle and all other periodic configurations. The signature sizes are binomial(n-2,k-1) and binomial(n-2,k); subtract the two already periodic states precisely in the odd central case. This handles n=3, and gives a positive second shell for all n>=4. The local binomial estimate at k-(n-1)/2=s sqrt(n)+O(1) yields the stated Gaussian limit with the extra factor 1/2 from 2^n rather than 2^(n-1). An independent functional-graph enumeration discovered cycles without prespecifying them and reproduced the basin and entry claims on 14,344 initial states for all admissible pairs with 3<=n<=10.
 
-## Originality: PASS (qualified)
+## originality
 
-The full publicly accessible texts of Kuhlman–Mortveit–Murrugarra–Kumar, *Bifurcations in Boolean Networks* (2011 preprint, arXiv:1108.2974), and Defant, *Binary Codes and Period-2 Orbits of Sequential Dynamical Systems* (2015 preprint, arXiv:1509.03907), were inspected in the relevant sections. The former gives the critical-gap bifurcation and arbitrarily long *sequential* periodic behavior on cycles and trees; its *synchronous* period-two statement does not classify this sequential complete-graph family. The latter gives universal restrictions and extremal counts of two-cycles for general homogeneous complete-graph Boolean functions, but not the static bi-threshold parameter window, zero extra cycles or the exact first-entry histogram. The abstract of Wu–Adiga–Mortveit (2014) concerns dynamic rather than fixed thresholds. Record searches by bi-threshold, complete graph, fixed order, alternating cycles, threshold gap and binomial entry times found no implication-equivalent statement. The current accessible earlier claims were compared by substance rather than titles; relevant parity-automa findings concern linear XOR dynamics, not threshold hysteresis.
+PASS
 
-Risks: Kuhlman–Mortveit's 2015 generalized multi-threshold paper is particularly plausible but its complete text was unavailable after preprint/open-access attempts, and the authorized institutional request returned unavailable. Other unindexed historical results could subsume the theorem. Thus this is a qualified best-knowledge originality assessment, not a uniqueness guarantee.
+The known complementation lemma and critical threshold gap are not new. Neither the prior all-function extremal result nor the closest exact entry distributions give the two-bit, two-sweep shell and the isolated odd-central attractor for the specified clique rule.
 
-## Mathematical value: PASS
+## value
 
-A gap of two is the earliest threshold separation permitting nonfixed recurrent orbits under permutation-sequential bi-threshold systems on some graphs. The complete graph forms a natural topological boundary to the arbitrarily long oscillations of cycles and trees. The all-size theorem gives a sharp **isolated parity-only oscillation window**, uniform two-sweep stabilization, an explicit binomial transient-shell population, and a central-window probability scaling. It explains how graph completeness suppresses long cycles while retaining exactly one exceptional oscillator. Those are natural orbit and basin invariants of the cited model, not an arbitrary small parameter slice or merely computational tabulation.
+PASS
 
-## References and limitations
+Complete graphs are a natural global-interaction benchmark in a threshold-gap regime where general graphs can sustain long cycles. The result explains exactly which initial states delay relaxation and which realize persistent oscillation, separating the size of a slow shell from the tiny basin of the only nonconstant attractor. Neither an upper bound on period nor a numerical small-n census would supply this statewise and parametric information.
 
-- Kuhlman, Mortveit, Murrugarra, Kumar, *Bifurcations in Boolean Networks*, arXiv:1108.2974; https://dmtcs.episciences.org/en/articles/2975/download (relevant full text inspected).
-- Defant, *Binary Codes and Period-2 Orbits of Sequential Dynamical Systems*, arXiv:1509.03907; https://dmtcs.episciences.org/en/articles/2654/download (relevant full text inspected).
-- Wu, Adiga, Mortveit, *Limit cycle structure for dynamic bi-threshold systems*, DOI:10.1016/j.tcs.2014.06.042 (abstract inspected).
-- Kuhlman and Mortveit, *Limit Sets of Generalized, Multi-Threshold Networks*, Journal of Cellular Automata 10 (2015) 161–193 (abstract inspected; full text inaccessible).
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

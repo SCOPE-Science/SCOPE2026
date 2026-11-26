@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:22:12.320100Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–77 and 85–126",
+        "Frozen VERIFICATION.md and VERIFY.py (inspection only)"
+      ],
+      "rationale": "Independent analytic reconstruction. Orthogonality makes the two row-sign classes equally large and x*=0. The scalar normal equation gives (g²−h²)/(g²+h²+2ρgh+η), with an almost surely positive denominator even in the two rank-one sign classes. For |ρ|<1 and below the support endpoint, the upper tail of cos φ/(1+ρ sin φ) is the angular fraction on which cos φ−tρ sin φ>t, namely arccos(t/√(1+ρ²t²))/π. Symmetry, followed by differentiation, gives the stated absolute CDF and signed density. Orthogonal sums/differences give a standard Cauchy at |ρ|=1. Counting fair signs or the two size-N/2 populations gives all the weights, including the exact without-replacement cutoff; the largest nonextreme |ρ| is at most 1−2/m for m≥2, proving the stated support and tail separation. At the extremes the ridge squared risk is Q(η)=E[U²/(U²+η/2)²]. Scaling U=√(η/2)t gives √η Q(η)→√π/2, because the remaining integral of t²/(1+t²)² is π/2. The Gaussian-exponential error in the scaled integral is O(√η) by splitting at η^(-1/2), so the unscaled error is O(1). Away from extremes ridge only decreases squared magnitude. On |R_m|≤1/2 that magnitude is bounded by 4/3, while the nonextreme complement has contribution bounded by B_m² times the exponentially small fair-sign concentration tail. In the prefix coupling R_m→0 and η_m→0 give the arcsine variable of squared mean 1/2. Adding the exact extreme mass times Q(η_m) gives the arbitrary-sequence expansion and all three regimes, with errors governed by m and η_m, not their relative speed. The supplied script was inspected, not executed; the analytic verification does not rely on its numerical tests.",
+      "residual_risks": [
+        "Scalar fixed-data instance only; no claim about general regression, ordinary signed SRHT or Gaussian pooling. The numerical coefficient uses exactly the stated ηx²/2 penalty."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper's positive balanced Gaussian-pooled construction differs from its negative Gaussian-before-Hadamard example.",
+          "The Anderson-mixing record has inverse-square-root Gaussian ridge risk in a different evaluation-noise model, without rare Hadamard sign collisions."
+        ],
+        "reasoning": "An inverse-square-root singular integral alone does not determine its probability weight, the noncollision limit or the sharp exponential balance for this sampling model.",
+        "searches": [
+          "Resultary: sharp Gaussian ridge risk and two-column sketch-and-solve",
+          "arXiv:2608.26552 §2.2.3",
+          "Resultary 2026/11/8 record 2a3edc5dee7a"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.26552",
+        "Resultary 4ff6177726e5",
+        "Resultary 2a3edc5dee7a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Song–Zhang prove magnitude at least 3/7 on an event of nonvanishing probability, not an asymptotic ridge risk.",
+          "The rare-Cauchy law fixes the probability of the bad sector, but its marginal law does not specify the random denominator scale entering the ridge estimator."
+        ],
+        "reasoning": "The contribution requires resolving that scale through Gaussian sums and differences, then proving uniform control of the remaining sector. Hypergeometric rather than binomial counting supplies the exact no-collision threshold in the alternative experiment.",
+        "searches": [
+          "arXiv:2608.26552 p. 8 Eq. (3) and following counterexample",
+          "Resultary record 4ff6177726e5, exact tail statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source's two-coordinate ratio, normalization and with-replacement row products are identical at zero ridge.",
+          "4ff6177726e5 also gives the signed binomial/Cauchy mixture and far tail; its claim is unregularized and with replacement."
+        ],
+        "reasoning": "Recognize the equivalent unregularized ratio and distribution without treating a result about η=0 as a law of the η↓0 regularized expectation.",
+        "searches": [
+          "Resultary: Gaussian-diagonal Hadamard sketch-and-solve, Cauchy mixture and ridge risk",
+          "arXiv:2608.26552 §2.2.3 Eq. (3)",
+          "Resultary 2026/11/8 record 4ff6177726e5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact published catalogue match is for the unregularized with-replacement component; no inspected table or catalogue entry supplies the finite-population moment threshold together with the stated regularized risk."
+        ],
+        "reasoning": "This is an identity and asymptotic law for variable m, η, and admissible N, not a single number that can be looked up. The catalogue check specifically tests already-tabulated formulae and exact overlap.",
+        "searches": [
+          "Resultary record 4ff6177726e5, RESULT.md offsets 0–5084",
+          "Resultary record 2a3edc5dee7a, RESULT.md offset 0"
+        ]
+      },
+      "rationale": "The Gaussian/Hadamard ratio and its basic high-probability counterexample are prior work. A later distinct indexed record also gives the with-replacement unregularized law and exact rare-Cauchy tail. Credit here is for the exact regularized risk law, sharp simultaneous ridge constant and sampling-without-replacement classification, not for those shared ingredients. No inspected statement covers that substantive extension. The frozen source's reference to Section 3 of Song–Zhang is imprecise: the PDF locator is §2.2.3, Eq. (3).",
+      "residual_risks": [
+        "The broader scholarly exact-formula search was deferred; no comprehensive priority claim is made. Other descriptions of Gaussian ratios or sketched ridge risk could give additional partial overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap in model and unregularized ratio; inspected counterexample does not give the new risk law",
+          "evidence": "Same normalized sketch and fair row-sign average give exactly the η=0 normal equation and a nonvanishing-probability failure.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.26552",
+          "material_read": "Primary PDF §2.2.3, p. 8, Eq. (3) and accompanying argument, text offset 28900",
+          "method": "Lawful OA PDF, passage located by Gaussian diagonal",
+          "title": "Hadamard Flattening and Gaussian Pooling Sketch for Least Squares with Coordinate-wise Guarantee",
+          "trigger": "Direct motivating example; exact same scalar sketch"
+        },
+        {
+          "assessment": "Material partial coverage; with-replacement unregularized law",
+          "evidence": "Signed finite binomial mixture, Cauchy mass 2^(1−m) and exact far tail; no without-replacement or ridge theorem in the compared finding. Catalogue date is not evidence of derivation or priority.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-an-exact-rare-cauchy-tail-in-gaussian-diagonal-hadamard-sketch-a--4ff6177726e5",
+          "material_read": "RESULT.md offsets 0–5084",
+          "method": "Resultary search and local mirror",
+          "title": "An exact rare-Cauchy tail in Gaussian-diagonal Hadamard sketch-and-solve",
+          "trigger": "Same scalar setup and exact tail claim"
+        },
+        {
+          "assessment": "Different estimator and sample model",
+          "evidence": "Gaussian evaluation noise in Anderson extrapolation; no finite Hadamard mixture or m-dependent rare-event transition.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-gaussian-ridge-risk-law-for-two-point-anderson-mixing--2a3edc5dee7a",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp Gaussian ridge-risk law for two-point Anderson mixing",
+          "trigger": "Related sharp Gaussian ridge singularity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md parts (2)–(4)",
+        "arXiv:2608.26552 §2.2.3"
+      ],
+      "rationale": "The example is motivated by a specific proposed Gaussian substitution. The exact result explains why the visible typical behavior is not evidence of finite squared risk and gives the regularization scale and constant that balance rare singular sketches against the ordinary sector. It also shows exactly when changing the sampling design removes the pathology, rather than just bounding its probability. These facts are useful for evaluating this sketch on its motivating obstruction even without a general regression theorem.",
+      "residual_risks": [
+        "Instance-level risk diagnosis, not a general-purpose parameter recommendation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

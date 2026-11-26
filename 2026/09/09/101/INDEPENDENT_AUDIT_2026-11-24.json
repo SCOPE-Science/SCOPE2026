@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:44:01.000414Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two removed regions are disjoint 4-simplices of volume s^4/24. The polar is the hull of the cross-polytope and the tips ±(1,1,1,1)/(4−s); for s>0 each tip sees only its corresponding facet, giving two disjoint pyramids of volume s/[24(4−s)] each, with the formula also valid at s=0. The product gives D(s)=s/3+O(s²) and the recorded lower bound 2631s/8064; exact rational arithmetic confirms the three C=2 violations. For arbitrary fixed C>0 this lower bound beats the cubic as s tends to zero; C≤0 is immediate. The cube inclusions give 0≤δ≤−log(1−s/4)≤9s/32<D. Further, any Banach–Mazur sandwich B⊂TK_s⊂λB implies P(K_s)≤λ^4 P(B) by primal/polar inclusions and affine invariance. For x=D/P(B), δ≥x/[4(1+x)], and 0<x≤s/28≤1/56. Combining this with the lower bound on D gives δ≥(877/116736)s>s/140 throughout the interval, in particular at the checked nodes. Thus the quotient D/δ² is defined for s>0 and diverges. The side fallback is indeed false: the functional polar of exp(−|x|) is the indicator of [−1,1], so J=4 and variance 2 give a right side of 9/2. Inspected RESULT.md and artifacts/verify_target.py and verify_fallback_counterexample.py; independent simplex geometry and exact Fraction node evaluations, not reliance on archived statuses.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October normalized formula Q_d(t)=(1−t^d/(2^{d−1}d!))(1+t/(2^{d−1}(d−t))) at d=4,t=s is exactly P(K_s)/P(B), and explicitly acknowledges the earlier four-dimensional calculation.",
+          "The November all-dimensional slab formula covers the same profile; its highlighted thin-slab endpoint derivative is different from the cube-end derivative.",
+          "NPRZ proves a general local linear lower estimate, not the exact profile."
+        ],
+        "reasoning": "The later indexed formulas are actual encompassing statements, not independent evidence of prior coverage of the original September result; the prior general estimate is strictly less specific.",
+        "searches": [
+          "Resultary: all-dimensional opposite-corner truncation and diagonal slab formulas",
+          "arXiv:0905.0867 theorem and proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and support",
+        "NPRZ arXiv:0905.0867",
+        "Resultary SCOPE101, SCOPE077, 2026/10/18 f0d69cefe9a6 and 2026/11/8 68c4f55dac08"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "NPRZ derives P(K)≥P(B)+c''δ−Cδ² for a suitably normalized near-cube inclusion defect; this does not identify P(K_s), its derivative, or the recorded constants.",
+          "The October generalization implies the exact rate by substitution but identifies the September calculation as its earlier special case."
+        ],
+        "reasoning": "Do not credit qualitative near-cube stability as new. The exact s-profile and what it establishes for the specifically proposed cubic envelope are the surviving contribution.",
+        "searches": [
+          "NPRZ primary PDF, printed pp. 2–3, 7",
+          "October generalization's relationship section in Resultary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Slab parameter 4−s corresponds to two opposite stacked facets of the polar; the November profile contains this same path at n=4 with that width.",
+          "SCOPE077 uses an unconditional five-dimensional deformation with normalized slope 10, not the diagonal slab K_s."
+        ],
+        "reasoning": "Changing slab width to cutting depth and passing to the polar are genuine equivalences; the five-dimensional deformation is only a methodological analogue.",
+        "searches": [
+          "Resultary: diagonal cube truncation Mahler product, opposite cross-polytope facet stacking",
+          "arXiv:0905.0867"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE101 matches the body, range, formula, cubic refutation and node band, and is the object under review.",
+          "SCOPE077 is a distinct same-day record with different assumptions, dimension and conclusions."
+        ],
+        "reasoning": "Do not infer priority from a shared date; neither the self-match nor the non-equivalent analogue supplies an independent predecessor.",
+        "searches": [
+          "Resultary: exact four-dimensional cut, D(s)/s→1/3, cubic envelope, log Banach–Mazur band"
+        ]
+      },
+      "rationale": "Credit the exact path-specific product, derivative and consequent obstruction reversal, not discovery of linear-scale local minimality of the cube. The exact September index match is this same record. Two later general profiles cover the formula retrospectively; the October generalization expressly credits the September special case. The distinct same-day unconditional deformation is of a different body and does not imply this result. NPRZ gives a general linear lower bound in a normalized inclusion defect, not the exact path coefficient or product. The broad contextual assertion about unknown sharp rates should not be read as denying the known NPRZ linear bound.",
+      "residual_risks": [
+        "Bounded searches do not rule out an older independent exact cube-truncation formula under different terminology.",
+        "The result does not settle the proposed stronger s/8 Banach–Mazur lower bound or any global Mahler assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General local linear lower estimate, not an exact diagonal-slab calculation",
+          "evidence": "Offsets 3999, 8500 and 20400: theorem and lower estimate c''δ−Cδ².",
+          "identifier_or_url": "https://arxiv.org/pdf/0905.0867",
+          "material_read": "Printed pp. 2–3, 7, theorem and normalized inclusion/product proof",
+          "method": "OA PDF passage inspection",
+          "title": "A remark on the Mahler conjecture: local minimality of the unit cube",
+          "trigger": "Strong candidate for prior linear lower estimates"
+        },
+        {
+          "assessment": "Identical record, not independent prior coverage",
+          "evidence": "Same two corner cuts, P'(0+)=1/3, cubic violation and selected-node band.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/9/SCOPE101/RESULT.md",
+          "material_read": "Headline, formulas, evidence and limitations at offsets 0–3452 and 3400–6355",
+          "method": "Resultary local mirror",
+          "title": "Exact linear Mahler deficit on the 4D diagonal shadow path",
+          "trigger": "Exact index hit"
+        },
+        {
+          "assessment": "Analogue, not equivalent",
+          "evidence": "Different 5D unconditional ray and normalized slope 10, with quadratic upper envelope violation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/9/SCOPE077/RESULT.md",
+          "material_read": "Definitions, exact slope and proof at offsets 0–4140",
+          "method": "Resultary local mirror",
+          "title": "SCOPE077: five-dimensional unconditional deformation",
+          "trigger": "Distinct same-day rate and envelope result"
+        },
+        {
+          "assessment": "Later generalization and explicit acknowledgement of the frozen special case",
+          "evidence": "Its normalized d=4 profile agrees factor by factor.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-dimension-six-transition-in-the-mahler-maximizing-truncation-o--f0d69cefe9a6/RESULT.md",
+          "material_read": "Offsets 0–4240 and 4000–6922, formula, polar construction and relationship section",
+          "method": "Resultary local mirror",
+          "title": "A dimension-six transition in the Mahler-maximizing truncation",
+          "trigger": "Strongest matching general formula"
+        },
+        {
+          "assessment": "Later profile includes this case",
+          "evidence": "Use d=4 and width 4−s; highlighted thin-slab derivative is at the other endpoint.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-mahler-profiles-of-diagonal-cube-slabs-a-parity-reversal-and-a-s--68c4f55dac08/RESULT.md",
+          "material_read": "Offsets 0–4433, slab and polar formulas and endpoint statement",
+          "method": "Resultary local mirror",
+          "title": "Mahler profiles of diagonal cube slabs",
+          "trigger": "Stronger full-slab parameter range"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This natural primal truncation/polar stacking path was proposed as a concrete flat-rate obstruction. The exact product and nonzero coefficient resolve that proposed test in the opposite direction: the polar volume increases to first order while the primal loss is fourth order, decisively excluding every fixed cubic envelope. The claim is about this path, not the already-known general linear lower estimate or a general stability theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

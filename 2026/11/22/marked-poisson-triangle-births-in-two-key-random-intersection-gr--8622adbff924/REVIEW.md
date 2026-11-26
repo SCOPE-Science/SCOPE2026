@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Pairwise intersecting two-key sets admit an exhaustive deterministic classification as a common-key triple or a three-key cycle. Explicit union bounds at the first-triangle scale eliminate noncommon-key cycles, fourth key occurrences, and multiple witnesses. A coupling to independently sampled keys and independent Poisson clocks proves the marked Poisson process limit. Conditioning and Poisson concentration justify de-Poissonization. The displayed total-variation estimate follows from pair-coupling error, a Poisson occupancy coupling, Le Cam's inequality and the exceptional-event bounds, each explicitly of order at most \(m^{-1/3}\). All quantifiers are for fixed bounded rescaled horizons and \(m\to\infty\). Finite enumerations in `verify.py` test the structural identities without substituting for the infinite proof.
+PASS
 
-## Originality
+For three pairwise intersecting two-sets without a common key, the sets must be the three distinct edges on three keys; this yields the exact probability 6 binom(m,3)/binom(m,2)^3 for an ordered sample triple. The respective union bounds for such a cycle, a key with at least four appearances, and three identical sets are O_b(m⁻¹), O_b(m⁻¹ᐟ³), and O_b(m⁻²). On the complement the triangle/third-key bijection holds simultaneously for every prefix, with the same birth index. In the iid two-slot coupling, resampling collisions within pairs changes a prefix of n vertices with probability at most n/m. A rate-two labelled clock splits into independent rate-2/m clocks; the third-time CDF at t m^(2/3) is 4t³/(3m)+O_b(m⁻⁴ᐟ³), uniformly for bounded t. The independent Laplace products and label-grid sums give intensity 4t² dt du. A hit at slot k is assigned to vertex ceil(k/2), so the uniform maximal discrepancy from the corresponding Poisson arrival over O_b(m^(2/3)) slots is o_P(m^(2/3)). Near zero, the expected number of original keys hitting three times by εm^(2/3) is at most m binom(floor(εm^(2/3)),3)(2/m)³ ≤4ε³/3; thus the locally finite limit loses no initial jumps. The limit has no fixed boundary atoms or time ties, so convergence on [0,b] transfers to J1 for the counts. The first-event assertion follows by taking b large, since the limiting survival at b is exp(−4b³/3), and the intensity factors in time and label. For the quantitative claim, comparing a=2n iid slots with K of law Poisson(a) changes the third-hit count with probability at most m⁻² E[|K−a| binom(max(K,a),2)] ≤ O(m⁻²√a(1+a)²)=O_b(m⁻¹ᐟ³) by Cauchy–Schwarz, also valid at a=0. The Poissonized count is binomial with success q=Pr(Poisson(a/m)≥3)=O_b(m⁻¹); Le Cam gives O_b(m⁻¹), and expansion of mq plus integer rounding gives a mean mismatch O_b(m⁻¹ᐟ³). These errors combine with the graph and pair couplings and bound one-time TV uniformly in t, not path TV. The frozen VERIFICATION.md and verify.py were inspected without execution; their finite checks do not certify the asymptotics.
 
-**PASS (qualified).** Yağan and Makowski, arXiv:0910.0499v1, directly prove the threshold zero-one laws for triangle existence in the *same* uniform random key-graph model. These results do not imply the critical-window marked Poisson birth process or a quantitative marginal total-variation bound. Arratia, Garibaldi and Kilian, arXiv:1310.7055v1, supply occupancy/collision-process limit mechanisms but not their transfer to graph triangles under within-vertex key distinctness. Rybarczyk and Stark, arXiv:1609.01699v1, study Poisson clique/subgraph counts in the different binomial object-incidence model. The present theorem joins the source-specific third-occurrence process with a structural triangle reduction and controlled finite-scale errors. Related graph-count approximation literature is a historical-priority risk, and no exhaustive priority claim is made.
+## originality
 
-## Value
+PASS
 
-**PASS.** Zero-one triangle thresholds do not give the finite critical-window probability of remaining triangle-free, the distribution of the first triangle's witnessing key, or the joint timeline of the first few triangles. Those quantities are natural for clustered networks formed by shared attributes. The marked law and the explicit \(m^{-1/3}\) approximation rate supply a calibrated early-clustering null model without treating intersecting edges as independent.
+The scale and the common-key contribution are already in random-key-graph theory, and the first-third-hit Weibull law is inherited birthday theory after changing from draws to vertices. The supported increment is the transfer to the full key-marked graph birth process with a simultaneous unique witnessing key and the explicit uniform bounded-horizon one-marginal TV estimate in the fixed-two-distinct-keys graph. The elementary Poisson embedding or the first-event time law in isolation is not the novelty claim.
 
-## Closest literature and limits
+## value
 
-The strongest directly comparable primary paper is Yağan–Makowski (2009), whose zero-one threshold and common-key mechanism are acknowledged. The next strongest comparison is the Rybarczyk–Stark subgraph Poisson approximation (2016), which uses independent Bernoulli key inclusion rather than a fixed two-key ring. The multiple-birthday literature already explains the underlying three-hit occupancy scaling, which is not claimed as novel. The theorem is confined to exactly two distinct keys and fixed rescaled horizons. Its quantitative statement is for one-time marginals, not pathwise total variation. Independent mathematical audit is not available.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result turns a triangle threshold into a process law and explains which triangles cause it and when they appear. The simultaneous witness property rules out extra motifs and multiple witnesses throughout a bounded critical history. The one-time error estimate quantifies performance in the original fixed-size graph, rather than only for an occupancy proxy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

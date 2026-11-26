@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:30:22.226156Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–98",
+        "verify.py, lines 9–82: inspected GF(2) truncated-product, recurrence and binary checks; not executed",
+        "VERIFICATION.md, lines 18–22"
+      ],
+      "rationale": "Classifying the units digit gives h_b(bn)=h_b(n)+h_b(n-1) and h_b(bn+r)=h_b(n) for 1≤r<b, including n=0 by the zero convention. Modulo two, the state (h_b(n),h_b(n-1)) transforms by (a+c,c), (a,a+c), or (a,a) for digits 0, 1, or 2 through b-1; at n=0 a leading zero fixes (1,0). The absorbing zero state contributes no count. Count states (10,11,01) by x,y,z: x'=x+y, y'=(b-1)x+(b-2)y+z, z'=y+z, so x-z=1 and A_b=x+y, x_L=A_b(L-1) for L≥1. This gives the asserted inhomogeneous recurrence with (1,b), producing generating-function numerator 1-2t². Subtracting the constant solution 1/b yields characteristic polynomial u²-(b-1)u-2 and positive dominant coefficient as displayed. For b>2 the positive root is in (2,b) by evaluating the polynomial at 2 and b, and the other root has magnitude 2/λ_{b,+}<1; sandwiching arbitrary X between adjacent powers proves the stated Theta law. In base 2, the two Stern recurrences imply the even indices of the value sequence are precisely indices divisible by three: for odd index 2n+1 the sum is even just when n≡1 mod 3 because both adjacent terms are then odd. With h_2(n)=s_2(n+1), the complement of a single residue class gives N_2(X)=2X/3+O(1).",
+      "residual_risks": [
+        "The verifier checks finite instances, not the universal statement. The proof fixes b and gives no estimate uniform in b, and for b≥3 a Theta bound need not imply a limiting normalized coefficient for non-block X."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generalized Stern recurrences and digit matrices in these primary sources give pointwise counts and maximal-order results, not the sharp parity frequency as stated in those passages.",
+          "The inspected November 22 record proves density-one divisibility by each fixed modulus for b≥3, hence covers the zero-density component at modulus two; its sharp ternary exponent is for modulus three. It explicitly identifies bb0ad70479bb as the modulo-two level-count result."
+        ],
+        "reasoning": "Do not confuse calculating individual h_b(n) or knowing their maximal order with estimating the cardinality of their odd-value support. Broader divisibility density overlaps the qualitative claim; the other distinct Resultary record covers the exact quantitative one.",
+        "searches": [
+          "Defant arXiv:1506.07824v1 pp. 1–2",
+          "Coons–Spiegelhofer arXiv:1511.08267v1 pp. 1–2",
+          "Wakhare et al. arXiv:1810.11096v1 matrix section",
+          "Courtright–Sellers, Theorems 2.1 and 3.1",
+          "Resultary 5c4a6c339ac8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary bb0ad70479bb and 5c4a6c339ac8, local mirror",
+        "Courtright–Sellers (2004)",
+        "arXiv:1506.07824v1, 1511.08267v1, 1810.11096v1",
+        "OEIS identifiers as cited but not independently retrieved"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed recurrence, fraction and asymptotic statements are identical after H_b(k)=A_b(k); its leading coefficient (b-1)(b+1-μ_b)/(b(λ_b-μ_b)) is the same by substitution of the two roots.",
+          "Modulo-three Stern periodicity implies bounded error in the base-two density, not just existence of a limit. The sample sequences are direct outputs of the already matched recurrence."
+        ],
+        "reasoning": "No residual theorem in the frozen finding survives the exact overlap: alternate notation, numerical examples and the bounded error from classical binary parity do not support a distinct claim. This is a statement-coverage result, not a chronological priority result.",
+        "searches": [
+          "bb0ad70479bb, Finding and parity-state and binary proof",
+          "Courtright–Sellers Theorem 2.1 and Defant's Stern recurrence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A multiplicity d_j of part b^j is exactly the digit d_j in the frozen problem, with the same range 0 through b. Thus the indexed H_b(k) equals the frozen A_b(k), without any index shift.",
+          "The indexed pair (s_b(n),s_b(n+1)) is (h_b(n-1),h_b(n)), the swap of the frozen state. After swapping, its T_0,T_1,T_r are the frozen digit maps; its invariant x-y=1 is the frozen x-z=1 after reordering.",
+          "The inspected metadata have distinct record identifiers and run identifiers; this is not a search hit pointing to the frozen item's own identifier."
+        ],
+        "reasoning": "The dictionary preserves integer bases, all levels, the exact counts and both growth regimes; it is direct mathematical equivalence rather than thematic similarity.",
+        "searches": [
+          "Resultary hyper-ary partitions, hyper-b-ary over-expansions, generalized Stern parity, block recurrence and sharp exponent",
+          "bb0ad70479bb, Finding and Proof in local mirror"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local Resultary record bb0ad70479bb supplies the entire rational generating function and exact closed form for all the required table values. In particular the recurrence yields 1,3,7,19,51,139 and 1,4,13,46,163,580 at bases three and four.",
+          "The frozen record identifies these as shifted A052948 and A180144 respectively; direct OA/web reads of those entries were unavailable, so the OEIS crosswalk itself is not independently certified."
+        ],
+        "reasoning": "The exact all-base overlap is established by the accessible archive theorem, irrespective of the OEIS page access or combinatorial interpretations of the two individual sequences.",
+        "searches": [
+          "Resultary exact level-count generating function and sharp parity exponent",
+          "OEIS A052948 and A180144, the exact identifiers cited by RESULT.md"
+        ]
+      },
+      "rationale": "Distinct contribution relative to the inspected archive is not established. A different indexed Resultary record, bb0ad70479bb, states the same all-base theorem for the same h_b: identical exact block counts, recurrence, generating function, eigenvalue coefficient, and sharp positive-density/zero-density and higher-base exponent laws. Its proof also uses the same parity states up to coordinate swap, state reorder and matrix convention. The only superficially stronger binary O(1) estimate follows directly from the classical mod-three characterization and appears in the matched record's proof via that same characterization. The catalog dates and differing record identities establish neither historical priority nor derivation or authorship; the documented issue is exact mathematical coverage and no supported distinct remainder, not that the October record was proved to copy a later record.",
+      "residual_risks": [
+        "Chronological priority and dependence between the two records are unresolved; the metadata source dates are not evidence of first publication of the matched theorem. Some related published sources were not fully accessible. Neither access issue drives the verdict; the accessible exact statement match is decisive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct exact coverage by a distinct record; priority unresolved",
+          "evidence": "Same multiplicity restriction, H_b(k)=A_b(k), numerator 1-2z², denominator (1-z)(1-(b-1)z-2z²), identical recurrence and spectral solution; binary density 2/3 and exponent log_b λ_b for every b≥3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-parity-sparsity-transition-for-hyper-ary-partitions--bb0ad70479bb/RESULT.md",
+          "material_read": "Mirrored Finding, Assumptions, parity-state and binary Proof, Relationship to prior work; corresponding METADATA.json record identifiers",
+          "method": "Read local mirror, align variables and automata, and compare each theorem component",
+          "title": "A parity-sparsity transition for hyper-ary partitions",
+          "trigger": "Exact all-base recurrence and sparsity claim in search"
+        },
+        {
+          "assessment": "Qualitative subset coverage and a distinct ternary exponent",
+          "evidence": "Density-one divisibility for every fixed modulus in b≥3 includes modulus two, but its new sharp exponent uses modulus three and its own comparison points to bb0ad70479bb for modulus two.",
+          "identifier_or_url": "Resultary 2026/11/22, record 5c4a6c339ac8",
+          "material_read": "Mirrored Finding and Relationship to prior work",
+          "method": "Read the local mirror claims and modulus assumptions",
+          "title": "Profinite concentration and sharp ternary sparsity for hyper-ary counts",
+          "trigger": "Stronger qualitative conclusion about residue classes"
+        },
+        {
+          "assessment": "Classical binary component and higher-base progressions, not the inspected sharp aggregate exponent",
+          "evidence": "The hyperbinary congruence includes h_2(3n+2)≡0 mod 2. The generalized Stern recursion gives the full if-and-only-if binary parity rule.",
+          "identifier_or_url": "https://math.colgate.edu/~integers/e6/e6.pdf",
+          "material_read": "OA PDF pp. 1–4, Theorems 2.1 and 3.1",
+          "method": "Read definitions and congruence results",
+          "title": "Arithmetic Properties for Hyper m-Ary Partition Functions",
+          "trigger": "Potential general-base parity coverage from arithmetic-progression congruences"
+        },
+        {
+          "assessment": "Covers underlying count and pointwise recurrence, not the aggregate theorem in the read passages",
+          "evidence": "The objective is maximal values of the generalized Stern sequence, rather than the number of odd values in a block.",
+          "identifier_or_url": "https://arxiv.org/pdf/1506.07824",
+          "material_read": "arXiv v1 pp. 1–2, sequence definitions, digit recurrence and transfer-matrix framework",
+          "method": "Read primary OA text and align h_b(n) with s_b(n+1)",
+          "title": "Upper Bounds for Stern's Diatomic Sequence and Related Sequences",
+          "trigger": "Same generalized representation count under a sequence shift"
+        },
+        {
+          "assessment": "Pointwise matrices are distinct from counts of parity states",
+          "evidence": "The inspected matrices evaluate sequence or polynomial values along the digits of one input; they do not state the aggregate block-count recurrence.",
+          "identifier_or_url": "https://arxiv.org/pdf/1810.11096",
+          "material_read": "pp. 1–2 and matrix section pp. 5–6, offset 21380",
+          "method": "Read OA statements of representation and polynomial matrices",
+          "title": "Hyper b-ary Expansions and Stern Polynomials",
+          "trigger": "Digit-matrix representation might supply the same counting matrix"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md distribution theorem",
+        "Defant and Coons–Spiegelhofer on the different maximal-order question",
+        "Matched Resultary theorem bb0ad70479bb"
+      ],
+      "rationale": "Judged as a mathematical result, the exact contrast between binary positive density and higher-base polynomial sparsity with an explicit exponent is a meaningful distribution question for a natural generalization of Stern's sequence. The level generating function gives substantially more than a small table or an isolated numerical example. This assessment of the theorem's intrinsic interest does not give independent contribution credit to a record that duplicates the result.",
+      "residual_risks": [
+        "The arithmetic examples and the classical binary case alone are not a valuable distinct remainder; no repair is supplied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

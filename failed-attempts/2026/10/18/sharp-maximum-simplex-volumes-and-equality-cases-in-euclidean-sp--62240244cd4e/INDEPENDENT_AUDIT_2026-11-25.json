@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:25:07.875562Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4, lines 21–68",
+        "Frozen VERIFICATION.md and verify.py"
+      ],
+      "rationale": "The simplex-volume determinant identity follows by writing the centered columns in terms of the n columns of vertex differences; the resulting n-by-n Gram factor has eigenvalues 1 (multiplicity n−1) and 1/(n+1). Trace AM–GM and the equality Gram matrix give exactly the inscribed regular simplices in the unit ball. Independently checked the cap ellipsoid comparison: its quadratic transverse-radius surplus vanishes at z=1 and z=−t and has leading coefficient 1−a²/b²=−2(1−nt)/((n−1)(1+t)); it is strictly positive in the intervening open interval when t<1/n. The affine images of the apex and base rim are the north pole and the latitude −1/n, with transverse radius sqrt(1−1/n²), so a centered regular base yields an attaining regular simplex. Transforming the volume back gives the first formula, and all attaining vertices must be on the contact set, which forces the claimed apex/base equality geometry. At t=1/n, nonnegative shifted heights w_i have sum squared equal to their sum of squares by the regular simplex frame identity, forcing exactly one nonzero height shift. For larger caps that regular simplex remains feasible and the full-ball equality case is both necessary and sufficient. The finite checker was inspected, not executed.",
+      "residual_risks": [
+        "This validates the solid unit-cap theorem and equality cases as mathematics, not a priority claim or an extension to general truncated bodies."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 6.1 covers all parallel slices −1≤alpha<beta≤1 of the ball and gives the unit-ball enclosing branch exactly for alpha beta≤−1/n. In the nonball case Lemma 6.3 restricts sphere contacts to the two end latitudes, and Lemma 6.4 (6.8) gives the center/axis relations.",
+          "Horváth–Lángi Corollary 1 gives the full-ball maximum-simplex shape. The later indexed outer-ellipsoid result credits Todd for the cap ellipsoid and its transition."
+        ],
+        "reasoning": "Set beta=1. For alpha>−1/n, write a_G and b_G for the axial and transverse inverse-square radii in Güler–Gürtuna. The top contact and (6.8) give (1−tau)²=1/a_G=n(tau−alpha)(1−tau), hence tau=(1+n alpha)/(n+1); the bottom contact gives b_G=(1−1/n²)/(1−alpha²). These are the exact frozen ellipsoid, with the same transition and contact geometry, not merely a qualitative bound.",
+        "searches": [
+          "arXiv:0709.0707, §5 (5.1), §6 Theorem 6.1 and Lemmas 6.3–6.4",
+          "arXiv:1402.6496, Corollary 1",
+          "Resultary 8f18f059a757 and its Todd (1982) citation"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0709.0707 §§5–6",
+        "arXiv:1402.6496 Corollary 1",
+        "MathOverflow 198405 answer and comments",
+        "Todd DOI 10.1287/moor.7.2.253 (original unavailable)",
+        "Resultary 8f18f059a757, 3c021f6b841c and 46ddac4f2e85"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior axes send the lower contact to (alpha−tau)/(1−tau)=−1/n and the top contact to 1. The prior ball bound is tight for the regular simplex on those layers.",
+          "At the transition, for a feasible regular simplex the heights have sum zero and sum of squares (n+1)/n. From z_i≥−1/n and sum (z_i+1/n)²=(sum(z_i+1/n))², all but one shifted height vanish. In larger caps that simplex stays feasible."
+        ],
+        "reasoning": "The affine map gives the prior full-ball bound times its inverse determinant, already attained by the known apex-base candidate; the earlier endpoint contact statement forces every smaller-cap optimizer to be of this type. At the endpoint the standard regular frame forces the same geometry, and for larger caps the feasible inscribed regular simplices are exactly the equality cases of the ball bound. Thus the values, both equality branches and saturation all follow, even though no inspected predecessor phrases that combination as a separate cap-simplex theorem.",
+        "searches": [
+          "Güler–Gürtuna arXiv:0709.0707 Theorem 6.1 and Lemmas 6.3–6.4",
+          "Horváth–Lángi arXiv:1402.6496 Corollary 1",
+          "MathOverflow 198405 Firsching exact construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The public MathOverflow answers and comments recover Firsching's apex-regular-base lower bound and show O’Rourke raised the contact condition as a question, not a theorem.",
+          "The Resultary odd-dimensional symmetric slab uses related geometry but differs in feasible set and optimizer, and the one-sided John contact frame concerns an inscribed rather than containing ellipsoid.",
+          "Güler–Gürtuna §5, (5.1), includes the exact solid cap as B_(alpha,1) with alpha=1−h."
+        ],
+        "reasoning": "The direct lower-bound answer and the symmetric-slab/inner-ellipsoid neighbours do not cover the frozen theorem, but the outer-ellipsoid reformulation lands exactly in an earlier proved class and gives a matching affine-ball certificate.",
+        "searches": [
+          "Roy Han MathOverflow 198405: maximal volume of a simplex inscribed in a spherical cap",
+          "Resultary simplex volume and spherical slab/cap contact: 3c021f6b841c, 8f18f059a757, 46ddac4f2e85",
+          "Primary literature: minimum-volume ellipsoid for spherical caps and ellipsoidal slices (Todd, Güler–Gürtuna)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Firsching gives precisely the thin-branch expression as a construction alone.",
+          "The indexed outer-ellipsoid record gives exactly the needed axes and the transition at h=1+1/n; the primary slab theorem independently verifies those parameters in the cap specialization."
+        ],
+        "reasoning": "The exact tests are for symbolic formulas in dimension and height, not numerical tables. The prior axes and contact positions determine the thin-branch multiplier of the classical ball value without a fresh extremization.",
+        "searches": [
+          "Resultary 8f18f059a757, exact enclosing-ellipsoid formula",
+          "Resultary 3c021f6b841c, exact symmetric-slab simplex volume",
+          "MathOverflow 198405, exact apex-base volume",
+          "arXiv:0709.0707, Theorem 6.1 and (6.8)"
+        ]
+      },
+      "rationale": "The direct MathOverflow answer is only a prior lower bound, but the finding is a routine exact corollary of the earlier slab enclosing-ellipsoid theorem of Güler–Gürtuna combined with the classical maximum-simplex theorem in a ball. The earlier ellipsoid theorem literally includes a one-sided cap and already gives the same ellipsoid, boundary transition, and contact layers. The specialization gives base contact latitude −1/n after normalization, exactly the latitude of a regular simplex opposite its top vertex, so the standard volume bound is attained with the frozen equality geometry. This is established prior implication, not a conclusion from an inaccessible paper or a search snippet.",
+      "residual_risks": [
+        "Todd's original scope beyond the ellipsoid result was not read directly. The rejection relies on the accessible and independently verified primary slab theorem and ball-simplex result, not on that access gap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior ellipsoid and contact theorem; routine specialization and ball-simplex equality imply the frozen result",
+          "evidence": "One-sided beta=1 is expressly admitted. Threshold alpha beta=−1/n and the nonball end-latitude contacts are explicit. At beta=1, the upper contact together with (6.8) immediately gives the frozen center and both radii.",
+          "identifier_or_url": "https://arxiv.org/pdf/0709.0707",
+          "material_read": "§5 (5.1), §6 Theorem 6.1, Lemmas 6.3–6.4 and (6.8), PDF pp. 20 and 22–24, extracted passages near offsets 67398, 73920 and 79050",
+          "method": "Lawful OA primary PDF, literal locators and bounded passage reading",
+          "title": "The extremal volume ellipsoids of convex bodies, their symmetry properties, and their determination in some special cases",
+          "trigger": "Potential stronger theorem for exactly the enclosing ellipsoid and contacts in the frozen proof"
+        },
+        {
+          "assessment": "Supplies regular-simplex maximum and equality in the ball but no direct cap claim",
+          "evidence": "The stated ball/sphere optimizer is a regular inscribed simplex; carrying its determinant through the prior enclosing ellipsoid proves the volume upper bound.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.6496",
+          "material_read": "Abstract and Corollary 1, PDF pp. 1 and 4, extracted offset 13673",
+          "method": "Lawful OA PDF, targeted passage reading",
+          "title": "Maximum volume polytopes inscribed in the unit sphere",
+          "trigger": "Classical full-ball simplex equality"
+        },
+        {
+          "assessment": "Direct predecessor of the construction, not its proof of optimality",
+          "evidence": "The answer explicitly calls the matching formula a lower bound and identifies missing contact/regularity steps. The O’Rourke comment asks whether a face is flush with the base.",
+          "identifier_or_url": "https://mathoverflow.net/questions/198405/maximal-volume-of-a-simplex-inscribed-in-a-spherical-cap",
+          "material_read": "Firsching's full answer and the question comments by O’Rourke and Firsching",
+          "method": "Lawful exact same-post public Stack Exchange API answer and comment bodies after the ordinary page returned 403",
+          "title": "Maximal volume of a simplex inscribed in a spherical cap",
+          "trigger": "Same cap simplex problem and possible earlier proposed optimizer"
+        },
+        {
+          "assessment": "Corroborates the ellipsoid antecedent; not needed as a claim about what the inaccessible paper itself proves",
+          "evidence": "The accessible Güler–Gürtuna Introduction credits Todd with solving the enclosing slab problem in all cases; the later indexed record identifies Todd's Proposition 1 and §3 and displays the coinciding cap parameters.",
+          "identifier_or_url": "https://doi.org/10.1287/moor.7.2.253",
+          "material_read": "Original full text unavailable; explicit attribution in Güler–Gürtuna Introduction and in Resultary 8f18f059a757 RESULT.md at extracted offset 2041",
+          "method": "Lawful original-copy attempts and comparison of accessible sources that cite it",
+          "title": "On Minimum Volume Ellipsoids Containing Part of a Given Ellipsoid",
+          "trigger": "Older containing-ellipsoid result cited for the exact same cap axes"
+        },
+        {
+          "assessment": "Related method and different domain, not direct coverage",
+          "evidence": "The slab is symmetric, the dimensions are odd and the maximizing geometry uses opposing regular simplices, unlike the one-sided cap.",
+          "identifier_or_url": "Resultary 3c021f6b841c",
+          "material_read": "Finding and proof, local mirror extracted offsets 0–3923",
+          "method": "Resultary search and local mirror statement reading",
+          "title": "Sharp simplex volumes and equality geometry in odd-dimensional spherical slabs",
+          "trigger": "Very similar ball-segment determinant optimization"
+        },
+        {
+          "assessment": "Exact overlap in the ellipsoid ingredient, not itself an earlier asserted simplex result",
+          "evidence": "Its outer ellipsoid centers and axes agree with the frozen formula after substituting alpha=1−h; it explicitly cites Todd for that ingredient.",
+          "identifier_or_url": "Resultary 8f18f059a757",
+          "material_read": "Local mirror RESULT.md, formula and citation near extracted offset 2041",
+          "method": "Resultary search and local mirror statement reading",
+          "title": "Sharp enclosing ellipsoid transition and monotone excess volume",
+          "trigger": "Exact outer ellipsoid for the cap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4",
+        "Güler–Gürtuna arXiv:0709.0707 §§5–6",
+        "Horváth–Lángi arXiv:1402.6496 Corollary 1",
+        "MathOverflow 198405 lower-bound answer"
+      ],
+      "rationale": "The solid-cap optimization is a well-motivated question, and the frozen exposition is useful. But as an exact-invariant contribution the result is determined mechanically by the prior explicit slab ellipsoid and its end contacts, affine invariance of the ball-simplex bound, and the already computed lower-bound construction. The threshold equality is an elementary regular-frame consequence; no independent unknown invariant or new regime survives in the frozen finding as stated.",
+      "residual_risks": [
+        "The assessment concerns the incremental research contribution, not the pedagogical utility or truth of the cap theorem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:36:11.456136Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The fixed, nonempty, named palette is essential: even a colour missing from the host is an admissible request. An extension type of a marked word is exactly a gap and a colour. Induct on depth: after choosing a witness, the two split gaps and all unchanged gaps need depth at least one less. This is equivalent to all old gaps satisfying the next-depth interval recurrence, since the unchanged gaps then already satisfy the lower threshold. At rank at least t+1, choose a depth-t witness pivot for each colour; the leftmost pivot guarantees a depth-t prefix, the rightmost a depth-t suffix, and their ordered list is an all-colour permutation. Conversely, each colour in an embedded central permutation has the prescribed witnesses on both sides by subsequence monotonicity. The base is the empty pattern at t=0. The grammar flattens to exactly 2^t−1 permutation blocks; every minimum word has those fixed boundaries, hence length q(2^t−1), multiplicity 2^t−1 for each colour and count (q!)^(2^t−1). All other rank-at-least-t hosts contain one, so the basis is minimal; the floor-log size bound is attained by extending a basis word. This verifies the marked formula, all-depth quantifiers, and q=1 and absent-colour conventions in RESULT.md lines 27–60. The uploaded checker was inspected, not executed; no finite test is needed for the proved equivalence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Any k-universal word has k full arches; at minimum length qk these must all be q-letter permutations, with no remainder. Every arbitrary k-block concatenation works.",
+          "Resultary 31909ca10882 states the stronger spacing-parameter extremal theorem; s=1 is ordinary subsequence universality, explicitly not claimed new there.",
+          "López-Callejas–Navarro-Castillo Thm. 6.4 and Prop. 6.5 concern uncoloured linear orders and their marked intervals."
+        ],
+        "reasoning": "The arbitrary-k statements cover the entire extremal word family and count mechanically once k=2^t−1 is supplied. They do not decide the game rank. The uncoloured rank theorem covers only q=1, for which the universality index is simply length.",
+        "searches": [
+          "arXiv:2003.04629v1 Remark 5 and Proposition 10",
+          "Resultary: uniformly spaced subsequence universality 31909ca10882",
+          "arXiv:2604.14461v3 Definition 2.3 and Section 6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_colored_rank.py and AUDIT.json",
+        "arXiv:2003.04629v1",
+        "arXiv:2604.14461v3",
+        "Resultary 31909ca10882 and 05f42adf13ff"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rank source universally quantifies over extension types and existentially over the host realizations; its linear-order calculation is uncoloured.",
+          "The word source universally quantifies over fixed-length subsequences of the whole word, not adaptive insertions into marked intervals."
+        ],
+        "reasoning": "The bridge requires proving that per-colour admissible pivots can be collected between two common recursive flank witnesses, and the converse that the middle permutation answers all requests with those flanks. Neither the general successor definition, the q=1 calculation, nor the old universality theorem supplies that implication across q>1. The marked-gap induction then transports it to relative rank.",
+        "searches": [
+          "López-Callejas and Navarro-Castillo, arXiv:2604.14461v3, Def. 2.3, Thm. 6.4, Prop. 6.5",
+          "Barker et al. arXiv:2003.04629v1, greedy arches",
+          "Resultary: 31909ca10882 and 05f42adf13ff"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Barker et al. Def. 2 and Rem. 3 define k-universality over a fixed palette, and Def. 6, Rem. 7 and Prop. 10 identify the universality index with the number of greedy arches.",
+          "Each arch contains a permutation subsequence; conversely k permutation blocks realize every length-k pattern. Thus the frozen basis condition is exactly ι_Σ(w)≥2^t−1."
+        ],
+        "reasoning": "This is an exact equivalent word-language formulation. It shows where to attribute the old combinatorial structure and sharpens the surviving coloured-rank claim to rk(w)=floor(log₂(1+ι_Σ(w))). No checked source makes that identification for the coloured one-point rank.",
+        "searches": [
+          "Resultary: fixed-palette coloured order extension rank and scattered-subsequence universality",
+          "Barker et al., arXiv:2003.04629v1, universality index and arch factorization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirror of the bound record is a self-match, not independent evidence. The prior exact universality characterization already yields 2^7=128 and 6³=216 by substitution; an exact table is not necessary for coverage.",
+          "Same-day Resultary 05f42adf13ff is for oriented cyclic orders and gives different thresholds."
+        ],
+        "reasoning": "The specific reported counts have known combinatorial counterparts; the distinct ranked-object question is whether those are the minimum hosts of this game. A cyclic census has different admissible insertions and does not tabulate the linear rank.",
+        "searches": [
+          "Resultary: one-point extension rank minimal coloured hosts, exact word census, uniformly spaced universality and coloured cyclic rank"
+        ]
+      },
+      "rationale": "Pass is for identifying the one-point-extension rank of coloured words and of marked gaps with an exact function of existing subsequence universality. The permutation-block basis, minimum length and census for the universal-word problem are already consequences of the classical arch characterization at arbitrary k. They are not a separate original combinatorial classification. The checked rank results do not give the key rank–universality identification for q>1; the new use of the block criterion is that it decides the different adaptive extension game.",
+      "residual_risks": [
+        "A prior direct coloured extension-rank/universality bridge could change the result; no exhaustive history or finalized Kubiś–Shelah manuscript was established.",
+        "Do not present the universal-word extremizer family or the arbitrary-k counts as new independently of the rank bridge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the universality index and gives the minimum basis for arbitrary k; does not identify coloured Fraïssé extension rank with a function of that index.",
+          "evidence": [
+            "Prop. 10 counts complete arches to compute universality; Rem. 5 gives shortest length qk. At that length each full arch is a permutation and there is no remainder."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2003.04629",
+          "material_read": "OA PDF pp. 4–5 (Def. 2, Rem. 3 and 5, Def. 6 and Rem. 7), p. 9 (Prop. 10), and Hebrard citation on p. 29.",
+          "method": "Literal passage localization and bounded primary PDF reads; offsets about 14450, 16741, 17162, 30261 and 94964.",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Exact equivalence of permutation-block witnesses with an older word property"
+        },
+        {
+          "assessment": "Covers the rank definition and q=1 formula/minimum-over-intervals result; no coloured rank–universality result in the checked statements.",
+          "evidence": [
+            "Thm. 6.4 gives |Y|≥2^n−1 for depth n on uncoloured finite orders. Prop. 6.5 computes marked rank via uncoloured induced intervals. The cited Kubiś–Shelah source is listed as in preparation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.14461",
+          "material_read": "v3 PDF p. 3 Def. 2.3, p. 16 Thm. 6.4 and Prop. 6.5, and Kubiś–Shelah reference on p. 22.",
+          "method": "Bounded OA PDF passage reads at offsets about 13044, 66753, 67289 and 94439.",
+          "title": "A rank function for Fraïssé classes and the rank property",
+          "trigger": "Source of the same rank recursion and closest ranked theorem"
+        },
+        {
+          "assessment": "The s=1, k=2^t−1 specialization gives the identical minimum universal-word blocks, not the extension-rank characterization.",
+          "evidence": [
+            "Shortest length qk+(s−1)(k−1) with k permutation blocks separated by s−1 letters; the record explicitly excludes s=1 from its novelty claim."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-uniformly-spaced-subsequence-universality-exact-spectra-and-shor--31909ca10882",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions at offsets 0 and 1260.",
+          "method": "Configured Resultary search and local mirror comparison.",
+          "title": "Uniformly spaced subsequence universality: exact spectra and shortest hosts",
+          "trigger": "Strongest distinct word-basis overlap in Resultary"
+        },
+        {
+          "assessment": "Different object and numerical thresholds; date alone establishes no priority.",
+          "evidence": [
+            "The host is an oriented cyclic order, not a linear word with two end gaps."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-coloured-cyclic-order-extension-ranks-and-the-first-binary--05f42adf13ff",
+          "material_read": "Mirrored RESULT.md Finding at offset 0.",
+          "method": "Resultary and local mirror statement comparison.",
+          "title": "Sharp coloured cyclic order extension ranks and the first binary extremizers",
+          "trigger": "Same-day related coloured extension-rank theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact identification converts an adaptive marked-gap game into a static word invariant. In particular one can count greedy full-alphabet arches in each gap in one scan, rather than enumerate game strategies or use the cubic interval dynamic program; taking floor log₂ of one plus the smallest gap count gives the rank. This explains not only the optimal size but which fixed-size hosts succeed, including missing-colour and non-extremal cases. The rank transfer is the substantive value; counting already-classified permutation concatenations alone would not qualify.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

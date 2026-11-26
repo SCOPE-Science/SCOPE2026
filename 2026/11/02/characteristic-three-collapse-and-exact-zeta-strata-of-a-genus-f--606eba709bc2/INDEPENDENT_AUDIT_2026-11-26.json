@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:58:25.539100Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–46",
+        "VERIFICATION.md and verify_char3.py lines 41–78",
+        "Independent replay: python3 /workspace/branches/finite_replay.py (pencil checks)"
+      ],
+      "rationale": "In characteristic three the original branch polynomial is Xh³, and h² accounts for the square ratio to Xh wherever h≠0. At zeros the two equations both give exactly one affine point, and both monic even-degree models contribute two smooth rational points at infinity. This proves the zeta equality over all extensions, including reducible parameters. The derivative h′=c−X isolates the only possible repeated root, c; h(c)=c³−c²+d, so the repeated-root and zero-root loci are b=D and b=0. In the complement the root multiplicities are 1,3,3,3; on the separate b=0 and b=D branches they are respectively 4,3,3 and 1,6,3. At (0,0) they are 7,3, and at (1,0) the whole polynomial is X⁴(X−1)⁶. Units in the geometric completed local rings have square roots, yielding the asserted local equations; the nonsquare cases are geometrically integral. When smooth, the quartic transforms to W²=1+t+ct²+dt³, whose Cartier coefficient in characteristic three is c, giving the supersingularity criterion. Dividing the quartic by the square factors at the two-branch boundary gives smooth genus-zero conics with rational points; at the affected point the preimages satisfy W²=c in both cases. Thus normalization correction is −χ_q(c)^m=−χ_q(a)^m in degree m. At (0,0) there is no split-branch correction and the normalization is rational; at (1,0) there are two rational components meeting at two rational points, giving 2q^m. The two exceptional parameter loci have precisely two intersections, giving all five frequencies. The phrase ‘rational cuspidal normalization’ in the frequency summary refers to the cuspidal fiber with smooth rational normalization, as stated in case 3 and the proof; the normalization itself has no cusp. A separate direct square-root count from the expanded equations checked every pair over fields of sizes 3 and 9, including the trace criterion modulo 3 and every boundary count.",
+      "residual_risks": [
+        "The frozen verifier was inspected, not executed; it uses already factored equations and labels elliptic cases by a=0 rather than testing supersingularity directly. Neither that verifier nor the independent bounded replay proves the general local geometry or extension formulas; those rest on the algebraic checks. The counted pairs are not moduli points."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem B concerns superspecial smooth curves for primes 17≤p<1000; Theorem C assumes p≥7. The usual coefficient formula for the Hasse invariant applies to the smooth cubic normalization."
+        ],
+        "reasoning": "The general Cartier ingredient covers the elliptic test once the cubic is known, not the bad-reduction discriminant or branch splitting on the exceptional locus. The prior smooth genus-four theorems do not reach any of these fibers.",
+        "searches": [
+          "arXiv:2210.14822v1 Introduction, §2.1, Theorem B, Appendix A Theorem C"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2210.14822v1",
+        "Resultary 6fd174ba6932, 51423d54dfe7, 524d08c4edf5, 3f9fd0df2718, d832be6dd626, 519d5d7df39a and 366b0706ceb7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The degree-ten model in characteristic three has repeated roots everywhere; the indexed same-day p=5 and p=7 statements are smooth-fiber rank calculations. Neither the smooth genus-four hypothesis nor their coefficient loci give the branch correction χ_q(a)^m on the two rational boundary families."
+        ],
+        "reasoning": "Transferring the known equation is legitimate, but its full singular arithmetic requires the characteristic-three analysis and is not a direct instance of the inspected theorems.",
+        "searches": [
+          "arXiv:2210.14822v1 §2.1 and Appendix A against frozen RESULT.md lines 8–20; Resultary 524d08c4edf5 and 3f9fd0df2718"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kudo–Nakagawa–Takagi give the original degree-ten equation, but use separable branch polynomials for smooth hyperelliptic curves. Resultary 6fd174ba6932 uses y²=x¹⁰+ax⁵+1, not this cubic Frobenius reduction."
+        ],
+        "reasoning": "The quartic and original model have equal zeta counts here, but an unrelated smooth characteristic-three genus-four Jacobian classification cannot be substituted for their genus-at-most-one normalization strata.",
+        "searches": [
+          "Resultary comparison for the degree-ten cyclic-six pencil and the characteristic-three equivalent X(X³+X²+cX+d)³; primary literature comparison of characteristic-three genus-four degeneration and elliptic normalization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-equation indexed records 51423d54dfe7 and 524d08c4edf5 concern smooth characteristic five; 3f9fd0df2718 and d832be6dd626 concern smooth characteristic seven; 519d5d7df39a concerns characteristic seventeen. Characteristic-eleven Weil types (366b0706ceb7) concern smooth members, not these singular zeta functions."
+        ],
+        "reasoning": "These are real equation-level overlaps, including separately dated and same-day claims, but none enumerates the frozen characteristic-three parameter strata or zeta factors.",
+        "searches": [
+          "Resultary matches for x¹⁰+x⁷+ax⁴+bx, p-rank, a-number and Weil/zeta strata"
+        ]
+      },
+      "rationale": "The degree-ten pencil and the Hasse–Witt technique are known. The supported distinction is the full characteristic-three classification of this singular specialization and its normalization/zeta strata, including the exceptional pairwise intersections. The closest inspected same-equation results address smooth curves in different characteristics, and the closest characteristic-three result uses a different smooth equation.",
+      "residual_risks": [
+        "The focused web lookup did not surface a relevant competing source; this is not evidence of absence. An older or unindexed description of the same bad reduction, for example by the quartic model, may overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source of the equation, not the characteristic-three singular-fiber classification",
+          "evidence": [
+            "Theorem B uses 17≤p<1000; Appendix A Theorem C assumes p≥7; smooth curves are presented with separable branch polynomial."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2210.14822v1",
+          "material_read": "Introduction and Theorem B; §2.1 separability; Appendix A Theorem C, passage at OA offset 79859",
+          "method": "Open-access primary-text inspection",
+          "title": "Efficient search for superspecial hyperelliptic curves of genus four with automorphism group containing Z6",
+          "trigger": "Exact original pencil and possible bad-prime coverage"
+        },
+        {
+          "assessment": "Same equation but characteristic five and smooth fibers",
+          "evidence": [
+            "The supersingular member (4,2) is studied as a smooth genus-four fiber in characteristic five."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-characteristic-five-p-rank-strata-and-a-unique-supersingular-cur--51423d54dfe7",
+          "material_read": "Mirrored RESULT.md Finding and scope",
+          "method": "Resultary search and local-mirror statement inspection",
+          "title": "Characteristic-five p-rank strata and a unique supersingular curve",
+          "trigger": "Exact equation and possible zeta/table overlap"
+        },
+        {
+          "assessment": "Different smooth degree-ten family in the same characteristic",
+          "evidence": [
+            "The defining polynomial is x¹⁰+ax⁵+1; the result concerns its genus-four Jacobian strata."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-unique-supersingular-fiber-of-a-characteristic-three-dihedra--6fd174ba6932",
+          "material_read": "Mirrored RESULT.md Finding and scope",
+          "method": "Resultary search and local-mirror statement inspection",
+          "title": "The unique supersingular fiber of a characteristic-three dihedral family",
+          "trigger": "Closest same-characteristic indexed comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–20 and 25–46",
+        "arXiv:2210.14822v1 Introduction"
+      ],
+      "rationale": "Characteristic three is a natural bad prime for the cyclic-six pencil. Determining only that the branch polynomial is inseparable would miss the elliptic locus and its ordinary/supersingular split, the two exceptional parameter curves, and the dependence of the boundary zeta factor on branch splitting. The complete classification gives concrete arithmetic information on every specialization, rather than a selected finite-field sample.",
+      "residual_risks": [
+        "It classifies the specified equation and its singular fibers, not all models, stable reduction, or the moduli of the normalizations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

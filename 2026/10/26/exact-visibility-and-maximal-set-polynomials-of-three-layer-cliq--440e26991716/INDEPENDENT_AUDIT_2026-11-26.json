@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:37:46.358244Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, definitions and proof lines 24–60; frozen VERIFICATION.md and verify.py",
+        "Independent direct-BFS replay, independent_small_replay.py and independent_small_replay.txt"
+      ],
+      "rationale": "Independently reconstructing the geodesics, outer endpoints in the same column require the middle vertex to be absent. In different columns, an adjacent-layer pair has exactly two geodesics, with its two alternative corners as internal vertices; a far-layer pair A_i,C_j has internal pairs (A_j,B_j), (B_i,B_j), (B_i,C_i). A pivot A_i,B_i therefore precludes each possible double in another column: a second A/B double blocks A_i,B_j, a B/C double blocks A_i,C_j via B_i or B_j, and an A/C double blocks A_i,C_j via B_i or A_j. Reflection handles the other pivot. When the pivot is the only double, each pair incident with it has a clear path using the singleton endpoint's column, and all other pairs have the ordinary-column paths. Ordinary columns work because a selected outer endpoint never has its own middle vertex selected. In the ordinary class, empty columns and lone outer vertices can be extended; the all-middle set can become a pivot. When every column is middle-only or outer-paired and at least one is outer-paired, every addition makes a full column or a forbidden pivot. A pivot configuration is maximal exactly when every other column is occupied. The resulting counts give both polynomials, all maximal sizes, and the claimed unique maximum (n+1<2n for n≥2). In a separate direct BFS replay, all subsets for n=2,3,4 were checked: counts of visible/maximal sets were 41/15, 221/61 and 1137/231, and all coefficients agreed. No uploaded script was executed.",
+      "residual_risks": [
+        "The bounded replay corroborates n=2,3,4 only; the geodesic classification gives the unrestricted proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The product theorem gives μ(K_n×P₃)=2n, using μ(P₃)=μ_i(P₃)=2. The adjacent lemma's induced-four-cycle test is for two complete factors. The rook record concerns K₃×K_m, and the total visibility hit concerns Q₃×K_n.",
+          "The selected set A_i,B_i,A_j,C_j has no full Cartesian four-cycle, yet masks every length-three path from A_i to C_j."
+        ],
+        "reasoning": "Neither the product maximum formula nor the two-clique obstruction criterion covers the distance-three and inclusion-maximal structure in this hybrid graph. The inspected visibility-polynomial passages in Tonny–Shikhi do not supply it either.",
+        "searches": [
+          "arXiv:2112.13024v2 Theorem 3.4 and Lemma 3.5",
+          "DOI 10.17654/0974165826015, pp. 214–217",
+          "Resultary 54b55c893708 and a5f9c704c2b5"
+        ]
+      },
+      "checked_sources": [
+        "Cicerone–Di Stefano–Klavžar arXiv:2112.13024v2",
+        "Bujtás–Klavžar–Tian arXiv:2412.03066",
+        "Tonny–Shikhi DOI 10.17654/0974165826015",
+        "Resultary 036ef53d5845, a862ae98916e, 54b55c893708, a5f9c704c2b5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known maximum is a specialization of the product theorem and the n=2 all-set polynomial is a thin-grid specialization. The single-pivot obstruction and maximality distribution are not given by either prior statement."
+        ],
+        "reasoning": "The supported remainder includes the lower maximality invariant, unique maximum, full maximal spectrum and multiplicities, and the visibility polynomial beyond the grid specialization. Knowing a degree or a single specialization does not determine either family-wide polynomial.",
+        "searches": [
+          "arXiv:2112.13024v2 Theorem 3.4",
+          "Resultary 036ef53d5845 and a862ae98916e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bujtás–Klavžar–Tian define the same all-set polynomial, with inspected path and complete-bipartite examples, not this hybrid product. The Resultary clique-path hit a862ae98916e is about general position on the same graphs.",
+          "The selected triple A_i,B_i,C_j with i≠j is visible via alternative geodesics but not in general position, since B_i lies on a geodesic from A_i to C_j."
+        ],
+        "reasoning": "The count is for the existence of a clear geodesic for each selected pair. It is not general position, total visibility, or a rook-graph enumerator.",
+        "searches": [
+          "Resultary: ordinary mutual visibility and maximal-set polynomials, clique-path products, P₂×P₃ grids and rook graphs",
+          "arXiv:2412.03066 §3 Definition 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 3-distance visibility polynomial for P₂×P₃ in prior record 036ef53d5845 specializes to 1+6z+15z²+18z³+z⁴. Diameter three makes that predicate ordinary visibility here. No exact n≥3 match was retrieved."
+        ],
+        "reasoning": "This is an exact prior all-set specialization, not a mere numerical coincidence, but it neither covers the maximal-set polynomial 14z³+z⁴ at n=2 nor extends to K_n with n≥3.",
+        "searches": [
+          "Resultary: thin-grid specialization and ordinary visibility coefficients",
+          "Resultary 036ef53d5845, Finding and assumptions"
+        ]
+      },
+      "rationale": "Pass for the joint structural classification and the two family-wide enumerators for the hybrid product, not for the known maximum 2n or the previously covered all-set polynomial at n=2. Neither specialization supplies the maximal-set distribution or the ordinary visibility polynomial for n≥3.",
+      "residual_risks": [
+        "Bounded searches do not exclude differently formulated or unindexed prior classifications. The prior n=2 all-set specialization should receive credit in any literature discussion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": [
+            "Maximum 2n is implied. The four-cycle test has different factor hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2112.13024v2",
+          "material_read": "Theorem 3.4 and Lemma 3.5, offsets 19750 and 20825",
+          "method": "Original OA text",
+          "title": "On the mutual visibility in Cartesian products and triangle-free graphs",
+          "trigger": "Cartesian-product theorem with a complete factor"
+        },
+        {
+          "assessment": "EXACT_SPECIALIZATION",
+          "evidence": [
+            "Its 3-distance polynomial on P₂×P₃ gives the full ordinary visibility polynomial at n=2."
+          ],
+          "identifier_or_url": "Resultary 036ef53d5845",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "Complete distance-two and distance-three mutual-visibility polynomials of rectangular grids",
+          "trigger": "K₂=P₂, and the 2×3 grid has diameter three"
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING",
+          "evidence": [
+            "General position forbids selected interiors on all geodesics and is strictly stronger here."
+          ],
+          "identifier_or_url": "Resultary a862ae98916e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "General-position and maximal-set polynomials of clique-path Cartesian products",
+          "trigger": "Same graph family and a pair of related enumerators"
+        },
+        {
+          "assessment": "DEFINITION_AND_CONTEXT",
+          "evidence": [
+            "Establishes the polynomial definition, not an explicit evaluation on the target graph family in the inspected passage."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2412.03066",
+          "material_read": "§3, Definition 3.1 and nearby examples, offset 16800",
+          "method": "Original OA text",
+          "title": "Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets",
+          "trigger": "Definition and examples of the target enumerator"
+        },
+        {
+          "assessment": "RELEVANT_CONTEXT",
+          "evidence": [
+            "No target formula established in the inspected pages."
+          ],
+          "identifier_or_url": "https://doi.org/10.17654/0974165826015",
+          "material_read": "pp. 214–217",
+          "method": "Bounded primary-text inspection",
+          "title": "Visibility Polynomial of Some Graph Classes",
+          "trigger": "Possible evaluations on graph families"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen proof, lines 34–56",
+        "Cartesian product Theorem 3.4 and Lemma 3.5",
+        "Grid specialization Resultary 036ef53d5845"
+      ],
+      "rationale": "The three-layer path is the first clique-path case with distance-three obstructions, which changes the classification from an adjacent-layer four-cycle test. The two enumerators and complete maximality spectrum supply natural, independently usable benchmarks for visibility and lower mutual visibility in Cartesian products. The value lies in the family-wide structure and maximality data, not the already known maximum or a tiny-grid recount.",
+      "residual_risks": [
+        "No claim of extension to longer paths or to total visibility."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

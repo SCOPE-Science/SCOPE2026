@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:29:23.975753Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The corrected claim was checked on its stated stationary, fixed-parameter domain. The last-reset integral and |V| <= min(b,Sigma A) bound lead to the two squared errors 4r² lambda E[A³]=24 lambda/r and L²r² E[A⁴]/4=6L²/r². Concatenating clipped independent backward windows and exponential tails gives the independent age marks outside a probability m exp(-rd); fourth moments justify the product limits. The standardized covariance is exp(-2 lambda t)/2 for t>0 and 1 at t=0. Age regression and sign independence give the centered integrand covariance exp(-(r+2 lambda)|t-s|); summing squared grid values and interval increment bounds gives 4nT/(r+2 lambda)+2T²/n. Integrating the stationary coupling error then proves the uniform L² limit and the finite-time variance. The linear benchmark follows separately from the generator and covariance ODE; it is not a nonlinear diffusion limit. VERIFICATION.md and verify.py were inspected, not executed; simulations are supplementary. Replay: repaired RESULT.md, Proof and Verification and linear benchmark.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Olsen–Löwen Eqs. (1)–(7),(55) give partial-reset renewal/transport formulas with the reset variable reinitialized and spatial homogeneity.",
+          "November record Proof §1 retains the sign in a resolvent formula; its Finding gives an expansion of the infinite-time Green–Kubo coefficient."
+        ],
+        "reasoning": "A broader partial-reset transport formula and an asymptotic Green–Kubo expansion are not laws of the retained-sign path on a fixed horizon, nor multitime velocity distribution results. The finite-horizon proof controls a centered product with stationary age fluctuations.",
+        "searches": [
+          "arXiv:2401.12685",
+          "Resultary 2026/11/8/SCOPE-the-first-nonlinear-drag-fingerprint-of-diffusion-under-velocity--a93c21e7816d"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.00560v1",
+        "arXiv:2401.12685",
+        "Resultary 2026/11/8/SCOPE-the-first-nonlinear-drag-fingerprint-of-diffusion-under-velocity--a93c21e7816d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Long-time diffusivity is a single covariance integral; a stationary no-flip backward age is already an accessible leading approximation in the November record."
+        ],
+        "reasoning": "The single-point approximation is close to the existing age method and the linear consequence is already covered. Disjoint-age coupling and averaging the centered age process in supremum norm are separate steps not supplied by the transport results or forced by knowing the diffusion exponent.",
+        "searches": [
+          "arXiv:2401.12685 Eq. (55)",
+          "arXiv:2606.00560v1 §3",
+          "Resultary 2026/11/8/SCOPE-the-first-nonlinear-drag-fingerprint-of-diffusion-under-velocity--a93c21e7816d Proof §§1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Howlader–Mondal–Das Eqs. (1)–(5) have the same velocity-only resets and retained sign; pp. 9–12 report a numerical cusp and diffusion scaling.",
+          "The November record Proof §§2–3 gives the linear and backward-age formulas in the same model."
+        ],
+        "reasoning": "An exponential-age construction and a cusp are not yet a unit-scale Laplace error bound, independent marks at separated times, or a path-integral limit; the latter distinguish the velocity fluctuations from the persistent sign.",
+        "searches": [
+          "arXiv:2606.00560v1",
+          "Resultary 2026/11/8/SCOPE-the-first-nonlinear-drag-fingerprint-of-diffusion-under-velocity--a93c21e7816d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected indexed result records exact linear moments and long-time asymptotics; the closest model paper plots stationary densities and fits transport scalings."
+        ],
+        "reasoning": "There is no finite-data census or particular table entry at issue in this continuum-parameter path theorem. The actual exact linear entries and numerical model overlap are credited, not counted as new.",
+        "searches": [
+          "Resultary 2026/11/8/SCOPE-the-first-nonlinear-drag-fingerprint-of-diffusion-under-velocity--a93c21e7816d",
+          "arXiv:2606.00560v1 pp. 9–12"
+        ]
+      },
+      "rationale": "The surviving claim is the simultaneous quantitative stationary Laplace and separated exponential-mark limits and strong finite-horizon integrated-telegraph limit, not the reset protocol, linear formulas, stationary age construction alone, or the diffusion exponent. Checked overlap does not cover that joint claim.",
+      "residual_risks": [
+        "Bounded checks do not establish historical priority. Further general partial-reset or fast-switching theory could give a related implication.",
+        "One external search returned no usable results; this is not absence evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material protocol and scaling overlap; no equivalent theorem in the inspected passages",
+          "evidence": "Cusp-like stationary density and numerical D_eff proportional to r^-2, not normalized stationary and functional limit laws.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.00560",
+          "material_read": "v1 abstract, model Eqs. (1)–(5), pp. 9–12 stationary densities and transport",
+          "method": "OA PDF, located and read bounded passages",
+          "title": "Velocity Resetting of Inertial Run-and-Tumble Particles in Non-Newtonian Media: Velocity Distribution, Diffusion and First-Passage Time",
+          "trigger": "Same nonlinear model and retained sign"
+        },
+        {
+          "assessment": "Related broader transport machinery, not direct coverage of this retained-sign theorem",
+          "evidence": "Renewal under reinitialization and formulas for effective diffusion; no explicit retained telegraph sign in the inspected equations.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.12685",
+          "material_read": "Abstract, pp. 3–5 Eqs. (1)–(7), p. 16 Eq. (55) and conclusion",
+          "method": "Retrieved OA full text, read the indicated passages",
+          "title": "Dynamics of inertial particles under velocity resetting",
+          "trigger": "General partial-reset framework; frozen report could not access full text"
+        },
+        {
+          "assessment": "Exact overlap in stationary reset representation and linear benchmark, different main observable; no priority inference",
+          "evidence": "The exact long-time resolvent and expansion for D_g, and independent Exp(r) backward age in the proof, do not state the finite-horizon and multitime laws.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/8/SCOPE-the-first-nonlinear-drag-fingerprint-of-diffusion-under-velocity--a93c21e7816d/RESULT.md",
+          "material_read": "Finding, assumptions and Proof §§1–5; in particular offset 2933–5402",
+          "method": "Focused Resultary search and local mirror, verified resolvent and age passage",
+          "title": "The first nonlinear drag fingerprint of diffusion under velocity resetting",
+          "trigger": "Closest topical local index match, not the frozen record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In a specific persistent active-particle model, the result identifies quantitatively different instantaneous and time-integrated limits. It explains why a non-Gaussian stationary velocity law with a discontinuity in its limiting autocorrelation can coexist with a continuous telegraph-driven displacement. The unified finite-horizon statement is useful independently of a new long-time diffusivity formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

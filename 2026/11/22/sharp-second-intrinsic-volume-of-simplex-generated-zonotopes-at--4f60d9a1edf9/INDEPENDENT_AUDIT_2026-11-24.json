@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:12:05.337150Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For full-dimensional Z in dimension d≥3 represented by at most d+1 segments, use the Steiner-normalized area sum S=Σ a_i a_j sin θ_ij. Setting B=Σ w_ij sin²θ_ij, expansion gives A=A_*−Q/2 and B=B_*−E/2: tr(T²) includes the weighted squared inner products, and the diagonal terms cancel in L²−tr(T²). The angular weighted variance gives AB−S²=AH. Subtracting AB from A_*B_* gives the displayed identity and both nonnegative lower bounds, by writing the difference as A_*E/2+BQ/2 or B_*Q/2+AE/2. At equality Q=E=0, so all d+1 lengths are positive/equal, and the unit-direction Gram matrix is (d+1)/d times the orthogonal projection off a one-dimensional kernel. Its diagonal one forces all kernel magnitudes to be 1/√(d+1); column signs turn that kernel into the all-ones direction, and all signed off-diagonals equal −1/d. Conversely the simplex attains the bound. Sign changes just translate the zonotope. The checked zonotope convention gives mean width 2κ_(d−1)L/(dκ_d), so fixing L is equivalent to fixing mean width. RESULT.md lines 45–86 give an exact replay; verify.py is finite corroboration only and was not executed in the review.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Joós–Lángi handle unit generators for k=2 and pose the unequal-length fixed-mean-width question at intermediate k.",
+          "Brazitikos–McIntyre's proved p=1 case in Theorem 5 uses d vectors. Their general (4) is located under a conjecture; at k=2, its right-hand scaling would bound V₂ by L²(m−1)/(2m), weaker than the assigned sharp value at m=d+1.",
+          "Ivanov optimizes projections of an orthogonal cube over subspaces, not all length allocations for V₂."
+        ],
+        "reasoning": "The equilateral theorem does not compare against a non-equilateral competitor; filling that gap requires control of the independent length-variance term Q before using the simplex equality case.",
+        "searches": [
+          "Joós–Lángi arXiv:2206.03204v2, Theorem 6 and Problem 3",
+          "Brazitikos–McIntyre arXiv:2102.05900v1, Theorem 5 and Conjecture 1",
+          "Ivanov arXiv:1804.10055v3, Eq. (1.2)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 4f60d9a1edf9 (matching same-record statement)",
+        "Joós–Lángi arXiv:2206.03204v2; Brazitikos–McIntyre arXiv:2102.05900; Ivanov arXiv:1804.10055"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 6 states a unit-generator condition. Its printed inequality direction is inconsistent with its prose and proof; eqs. (12)–(13) establish the equilateral maximum in the direction cited by the frozen record.",
+          "Problem 3 asks the fixed-mean-width question for 1<k<d. The frozen argument resolves k=2; there is no higher-index claim."
+        ],
+        "reasoning": "The earlier proof covers the equal-length slice and regular equality benchmark. Extending to varying lengths and proving the Q/E/H decomposition is not supplied by that slice or the inspected vector-Maclaurin statements.",
+        "searches": [
+          "Joós–Lángi §3.3 and §5, Problem 3; Brazitikos–McIntyre Theorem 5 and Conjecture 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "V₂ equals the sum of pairwise wedge norms and V₁ equals the sum of lengths. Fixing mean width is the same constraint, not another theorem.",
+          "The isotropy defect uses the standard frame-potential inequality for columns √a_i u_i. Cube-projection optimization instead imposes Parseval structure on actual generator vectors and maximizes full projected volume."
+        ],
+        "reasoning": "The novelty is not the weighted isotropy inequality itself, but combining length and angle control at fixed V₁ to obtain an attained sharp constant and the exact joint deficit, without imposing equal lengths or tightness.",
+        "searches": [
+          "Resultary: sharp second intrinsic volume, fixed mean width, d+1 generators, simplex zonotopes",
+          "Joós–Lángi Corollary 1 and Remark 1; Brazitikos–McIntyre Conjecture 1 and Eq. (4); Ivanov Eq. (1.2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest Resultary exact match is the frozen result itself, inspected in the mirror. The exact known regular value is an attained lower bound on the unrestricted maximum, not its upper bound."
+        ],
+        "reasoning": "Neither a table of regular values nor the coincident same-record formula establishes the optimizing property over unequal lengths or the exact defect components. No distinct applicable table was established by the catalogue comparison.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-sharp-second-intrinsic-volume-of-simplex-generated-zonotopes-at--4f60d9a1edf9",
+          "Joós–Lángi eqs. (12)–(13), regular and equilateral values"
+        ]
+      },
+      "rationale": "The distinct result is the sharp fixed-mean-width maximum allowing unequal generator lengths, plus an exact quantitative defect identity. No separate originality credit is given for the equilateral maximum, the wedge-area formula, or the characterization of a real unit-norm tight frame with d+1 columns as signed simplex directions.",
+      "residual_risks": [
+        "The comparison is bounded. A prior equivalent extremal inequality in frame-potential or convex-geometry language outside these checked results is not excluded. The unsuccessful focused web lookup is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified exact geometric formulas and equilateral maximum; unrestricted k=2 is a special case of a posed question, not of the equilateral theorem.",
+          "evidence": "Theorem 6 assumes unit vectors. Its display prints ≥, but the proof concludes V₂(Z)≤V₂(Z_reg), equality iff regular. Problem 3 drops the unit-generator hypothesis.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.03204v2",
+          "material_read": "Corollary 1 and Remark 1 p. 5; §3.3 pp. 13–14, Theorem 6 and proof eqs. (12)–(13); Problem 3 p. 22",
+          "method": "Lawful primary-paper text with bounded passages",
+          "title": "Isoperimetric Problems for Zonotopes",
+          "trigger": "Identical optimizing body, intrinsic volume and mean-width constraint, with plausible exact coverage"
+        },
+        {
+          "assessment": "The pertinent proved p=1 theorem uses m=d; the broader conjecture does not supply the sharper d+1 formula or rigidity.",
+          "evidence": "Theorem 5 covers k=2,3,d with d vectors; Eq. (4) compares V₂/binom(m,2) to (V₁/m)² conjecturally for general m.",
+          "identifier_or_url": "https://arxiv.org/pdf/2102.05900",
+          "material_read": "Theorem 5 p. 2, Conjecture 1 p. 3 and the p=1 intrinsic-volume version Eq. (4) at offset 14020 onward",
+          "method": "Lawful arXiv original-paper passages",
+          "title": "Vector-Valued Maclaurin Inequalities",
+          "trigger": "Potential general comparison of summed wedge norms at fixed generator length sum"
+        },
+        {
+          "assessment": "Different constraints and optimizing functional in the inspected application.",
+          "evidence": "Eq. (1.2) maximizes vol_k([0,1]^n projected to H), dim H=k; the vectors here instead range over independent lengths and directions with a fixed sum of lengths and objective V₂.",
+          "identifier_or_url": "https://arxiv.org/pdf/1804.10055",
+          "material_read": "Abstract and introduction around Eq. (1.2), offsets 5700–8227",
+          "method": "Lawful arXiv PDF, bounded offset read",
+          "title": "Tight Frames and Related Geometric Problems",
+          "trigger": "Tight-frame reformulation of zonotope volume maximization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This settles a concrete intermediate-index case of the fixed-mean-width problem when generator lengths are unrestricted. The equality and exact defect decomposition also distinguish geometric mechanisms of near equality: the squared deficit controls length dispersion and isotropy independently. The result does not extrapolate to higher intrinsic volumes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

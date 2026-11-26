@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python checker.py` from the directory containing this document and the checker. The observed result is `ALL_CHECKS_OK independent finite instances 4..20; explicit witnesses 4..600; checked groups 613`.
+## correctness
 
-The checker enumerates **all** independent dominating subsets and three-subset combinations for every path size from \(4\) through \(20\); this finite check is separate from the symbolic argument. At every applicable size through \(600\), it builds the explicit construction recursively from the stated bases, checks independence and domination for each of the three sets and checks the minimum of the three symmetric-difference distances. It also enumerates the five independent dominating sets for \(n=6\).
+PASS
 
-The infinite exact statement follows from the universal three-word counting bound and the correctness of the repeatable insertion at the three residue-class bases. Numerical replay alone would not prove the arbitrary-size assertion. All arguments are elementary finite combinatorics and do not assume randomized testing, a SAT solver or third-party packages.
+Bidirectionality identifies stable extensions with maximal independent sets. Such nonempty path sets have first and last selections within one vertex of the ends and successive gaps 2 or 3. Each membership column contributes at most two to the sum of three pair distances, giving the stated upper bound. The six bases satisfy independence and domination; inserting the three singleton columns adds two to every distance. In the order-nine family the first A,BC replacement leaves A,C at the anchor; subsequent steps use the A,C rule with the same inserted block and the unchanged fourth column B. The complete order-six gap list gives the five-cycle at distance at least four; a triple attains three. Orders one to three have counts 1,2,2. Independent gap enumeration and forward-bitset triangle detection reproduce the exact optima for orders 4–20 (python /workspace/independent_checks.py 1); this finite check is separate from the insertion proof.
+
+## originality
+
+PASS
+
+The supported distinction is the exact bidirected-path invariant and order-six exception, not invention of maximin Hamming diversity. Closest same-day three-extension record concerns a disjoint domain; the closest exact path enumeration only gives a pair statistic.
+
+## value
+
+PASS
+
+Three viewpoints are the first case where a maximally distant pair does not solve the packing problem. Knowing exactly when stability imposes a loss relative to the unrestricted binary bound gives a complete natural benchmark, and the unique exception is analytically explained rather than tabulated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

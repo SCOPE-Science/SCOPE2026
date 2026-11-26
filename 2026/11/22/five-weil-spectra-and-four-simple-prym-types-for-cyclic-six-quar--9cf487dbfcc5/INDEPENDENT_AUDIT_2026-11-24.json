@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:06:00.894998Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The affine singularity test reduces to repeated roots of y⁴+ry²+1, hence r=±2; the only point at infinity [1:0:0] has nonzero Z derivative. A smooth plane quartic has genus three. On every odd extension, cubing is bijective: one point per y and one at infinity. Thus odd Frobenius power sums vanish and the reciprocal degree-six polynomial is even. A fresh exhaustive affine-pair enumeration over F₂₈₉, independent of the uploaded checker, gives counts 284,380,344,392,356,344,356,356,344,356,392,344,380,284 in parameter order 1,3,4,5,6,7,8,9,10,11,12,13,14,16. Newton's identity gives c=(N₂−290)/2 and d=c−17. The order-two quotient completes the square to V²=U³+(r²−4)/4, yielding an elliptic curve with 18 points and trace zero. The norm decomposition gives the complementary Prym factor. For F(X)=X⁴+dX²+289, a rational root yields its opposite root as well, so a reducible case must split into two monic rational quadratics. Vanishing cubic and linear coefficients say their linear terms are opposite and either zero or their constants coincide. The zero case needs the negative discriminant d²−1156 to be a square, the coincident case needs ±34−d to be a square; none is possible for the four listed d. At d=34 the factor is the elliptic square; via finite-field isogeny this gives exactly the stated nonsimple Pryms. Exactly r=±5 attains the upper bound 392. The primary r² criterion gives the seven geometric classes and the two distinct-curve collisions. The unrooted Hasse–Witt matrix has only possible entries (1,3) and (3,1) by X-degree mod 3 and Y-degree mod 2. With u=r² they are 7u+12 and 5u⁴+2u³+6u²+4u+10. Evaluation on D gives both zero exactly at ±5 and both units otherwise, so the claimed stable ranks and a-numbers follow. Independent reproduction files: /workspace/branches/5eba91cc-f0f1-48ad-92c7-cfbdd7ed8c31/. The frozen verify.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ohashi–Kudo–Harashita establish geometric classes and Cartier strata; their coefficient criterion specializes to 5+10r²=0 over F₁₇, namely r=±5.",
+          "Lercier–Ritzenthaler–Rovetta–Sijsling enumerate plane quartic twist representatives and base-field point counts; the inspected tables report class counts and distributions over F_p."
+        ],
+        "reasoning": "The specialization covers the Cartier exception and p-rank, not a classification of exact reciprocal Frobenius factors. The broad twist enumeration supplies models but needs a new extension-field computation to obtain this invariant.",
+        "searches": [
+          "arXiv:2111.09777 Theorem A, Eq. (3.4), Propositions 2.2.4 and 3.2.3, Theorem 3.2.6",
+          "arXiv:1403.0562 Sections 5.2–5.4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2111.09777 and arXiv:1403.0562",
+        "Resultary 9cf487dbfcc5 (self)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior Hasse criterion determines which geometric fibers have a-number three. It does not by itself identify Frobenius on the marked base-field forms or imply the integer d-values for the four simple strata.",
+          "Reconstructing the given polynomial from N₂ is routine, but the complete quadratic census, four irreducibility decisions and the two isogeny collisions are extra consequences, not specializations of a stronger arithmetic table in the inspected sources."
+        ],
+        "reasoning": "Even if geometric superspeciality and the existence of maximal forms are credited, the specific full marked arithmetic classification is not their corollary. The pass excludes a novelty claim for the repeated geometric Cartier computation.",
+        "searches": [
+          "Ohashi–Kudo–Harashita Eq. (3.4), Proposition 3.2.3 and Theorem 3.2.6",
+          "Lercier–Ritzenthaler–Rovetta–Sijsling §5.2.1 data description"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem A gives this very quartic family and the r² criterion, so a parameter square is an alias for the geometric class.",
+          "All odd counts and reciprocity make the full arithmetic Weil polynomial equivalent here to the F₂₈₉ point count of the marked F₁₇ form, not just its F₁₇ count or its geometric isomorphism class."
+        ],
+        "reasoning": "A table of those quadratic counts for the exact marked forms would be equivalent coverage. A geometric table or a list of base-field counts (all 18 here) is not equivalent.",
+        "searches": [
+          "Resultary: cyclic-six plane quartics over F₁₇ and F₂₈₉, five Weil spectra, simple Pryms",
+          "Ohashi–Kudo–Harashita arXiv:2111.09777 Theorem A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 9cf487dbfcc5 is the exact match but is the frozen record itself.",
+          "The inspected original quartic census passages and tables describe base-field counts and distributions, not the quadratic counts or Prym quartics claimed here."
+        ],
+        "reasoning": "The exact observable needed is N₂ on each specified marked model or its quartic Prym factor. Neither an exact self-match nor the genuine broad F₁₇ census establishes independent prior coverage of N₂.",
+        "searches": [
+          "Resultary: cyclic-six quartic F₁₇ Weil polynomial table; r=±5 maximal over F₂₈₉",
+          "Lercier–Ritzenthaler–Rovetta–Sijsling §5.2.1 and §§5.3–5.4 tables"
+        ]
+      },
+      "rationale": "Pass the distinct exact five-spectrum and four-simple-Prym classification on these marked F₁₇ forms. The family, geometric isomorphism classes and geometric Cartier strata, including the exceptional geometric class, are known and are not counted as original.",
+      "residual_risks": [
+        "An unindexed or auxiliary full-Weil data export of the plane quartic census might overlap. The inspected published sections do not establish such coverage. A focused literature query with no relevant result is not evidence of absence.",
+        "The result covers the specified coefficient-marked forms, not all arithmetic twists of the seven geometric classes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior geometric and Cartier classification, including p=17 via direct specialization; not the full arithmetic table",
+          "evidence": "C_r and C_s are geometrically equivalent precisely for r²=s², and the superspecial criterion specializes to the vanishing of 5+10r².",
+          "identifier_or_url": "https://arxiv.org/pdf/2111.09777",
+          "material_read": "Theorem A pp. 2–3; Hasse–Witt discussion pp. 10–11; Eq. (3.4) and Proposition 3.2.3 pp. 13–14; Theorem 3.2.6 pp. 18–19",
+          "method": "Bounded original OA PDF text",
+          "title": "The a-numbers of non-hyperelliptic curves of genus 3 with cyclic automorphism group of order 6",
+          "trigger": "Same family, geometric criterion, and possible exceptional-fiber coverage"
+        },
+        {
+          "assessment": "Ground-field census, not checked evidence of the exact quadratic-field table",
+          "evidence": "Data description pairs twists with their F_p point counts; the inspected tables are class-count and base-field count distributions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1403.0562",
+          "material_read": "Section 5.2.1, PDF p. 13 near offset 53200; §§5.3–5.4 table passages near offsets 56488, 56789 and 60939",
+          "method": "Bounded original OA PDF text",
+          "title": "Parametrizing the moduli space of curves and applications to smooth plane quartics over finite fields",
+          "trigger": "Plausible dominating finite-field quartic census"
+        },
+        {
+          "assessment": "Identical assigned finding, not another result or evidence of priority",
+          "evidence": "The same 14 marked forms, five Weil numerators, four simple Pryms, and ±5 exception.",
+          "identifier_or_url": "2026/11/22/SCOPE-five-weil-spectra-and-four-simple-prym-types-for-cyclic-six-quar--9cf487dbfcc5/RESULT.md",
+          "material_read": "Finding at local text offset 0",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Five Weil spectra and four simple Prym types for cyclic-six quartics over F₁₇",
+          "trigger": "Strongest exact indexed result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "All the marked curves have the same ground-field point count, so a full Weil census resolves an ambiguity left by that natural coarse invariant. It identifies geometrically different curves with isogenous Jacobians, determines the complete set of simple Prym types, and separates the marked maximizers. Those are meaningful exact invariants of this symmetry family beyond the known Cartier strata.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

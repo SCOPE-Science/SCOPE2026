@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:48:44.065129Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–85",
+        "Frozen VERIFICATION.md, lines 19–23 and verify.py, lines 12–85 (read, not executed)",
+        "Independent replay: python3 /workspace/branches/antiprism_cycle_cover_check.py — LOW_DEFECT_CYCLE_COVER_PASS 50 and ENUMERATION_PASS for N=6,8,10"
+      ],
+      "rationale": "For N=2n≥6 there are 2N distinct undirected bonds; each trace term for the ordered-pair transfer is one labelled cyclic sequence, counting the two bonds to each newly appended site and that site's marker exactly once. I checked the three required determinant polynomials with a separately written integer cycle-cover computation: each directed simple cycle contributes one minus sign in det(I−tT), collections are vertex-disjoint, and truncating at two defects is exact since costs are nonnegative. It reproduced D_0=(1−q)^2, D_1=−2t^4 y(y+2)(1−q) and D_(2,[2])=t²(2y+1)(−1−4q+4q²), q=t³y. In the formal log the order-one quotient has only t-exponents 1 mod 3, and the square term in order two has only exponents 2 mod 3; combining with D_2/D_0 gives t²[−(2y+1)−4(2y+1)q−(2y²+4)q²]/(1−q)^2 in that residue class. Its coefficient at t^(3m+2) uses multipliers m+1,m,m−1, and −t∂_t multiplies by −N. This recovers all coefficients in the Finding, including positivity and disappearance of lower defects for the allowed lengths. Evaluating at y=1 yields N(21m−3)=N(7N−17) in the quadratic case; dividing log multiplicity by N gives zero limiting entropy density. A separate direct edge-list check confirmed N=6,8,10, including occupancy counts (120,176,16) at N=8. The finite determinant certificates feed the all-N formal-series proof; the enumerations are only spot checks.",
+      "residual_risks": [
+        "The independent determinant check certifies only the needed low-order coefficients, not all transfer orders or a finite-field model."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The explicit Chang–Shrock magnetic transfer covers the same strip and provides the full finite-temperature joint weight for general q, v, w; their earlier zero-field calculation encodes unmarked counts. Weighted proper-colouring results set v=−1."
+        ],
+        "reasoning": "The general partition function already solves the computation in transfer form, so the frozen transfer itself is covered. At v=−1 the proper-colouring formulas vanish on the frustrated residue classes and do not select the next nonzero orders. The inspected general formulas do not evaluate the first surviving coefficient in each length class in the closed form reviewed here.",
+        "searches": [
+          "Primary literature: cyclic triangular width-two Potts magnetic transfer and low-temperature coefficients",
+          "arXiv:0907.0925 Eqs. (2.3), (5.22), (8.2); arXiv:cond-mat/0004181; arXiv:1009.1182"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting verification notes",
+        "arXiv:0907.0925",
+        "arXiv:cond-mat/0004181",
+        "arXiv:1009.1182",
+        "arXiv:cond-mat/0004330",
+        "Resultary 351c4c99b7bc",
+        "DOI 10.3390/sym18071180 (no full text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Applying q=3, x=1+v and y=w gives a transfer whose lowest nonzero x-coefficient is the target. The frozen proof evaluates the length-generating determinant's low orders, cancels the order-two logarithm terms, and extracts each congruence class, revealing new closed coefficients."
+        ],
+        "reasoning": "General transfer and specialization recover every fixed-size count algorithmically; this is substantial implicit coverage. The closed classification is not obtained by parameter substitution alone: one must locate the first nonzero order uniformly and resolve the length-dependent multiplicities, notably the quadratic two-defect branch. The pass credits the evaluated frustrated-sector formulas, not another representation of the known partition function.",
+        "searches": [
+          "arXiv:0907.0925, Eqs. (1.2)–(1.3), (2.3), (3.4), (5.22), (8.2), against frozen RESULT.md lines 41–81"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The width-two cyclic triangular ladder has edges T_iB_i, T_iT_(i+1), B_iB_(i+1), T_iB_(i+1); placing T_i at 2i and B_i at 2i−1 yields C_(2n)^2.",
+          "Chang–Shrock's convention specializes at q=3, v=x−1, w=y to the same bond and distinguished-colour polynomial."
+        ],
+        "reasoning": "The equivalence is exact, including the occupancy marker; a field weight is a formal marker here. A renaming of the lattice or of the variable does not distinguish the claims.",
+        "searches": [
+          "Resultary: three-state Potts antiprism, cyclic triangular ladder, next-nearest-neighbour Potts chain",
+          "arXiv:0907.0925, Secs. I, II, V and VIII"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Apart from the assigned self-hit, same-day record 351c4c99b7bc concerns the same ladder with a row-staggered field. Its multiplicity formulas assume 3 divides n and give six states at zero field."
+        ],
+        "reasoning": "That is actual overlap for the unmarked defect-zero count, not coverage for either frustrated branch or its occupancy polynomial. The shared date gives no priority order.",
+        "searches": [
+          "Resultary: antiprism defect multiplicities, magnetic occupancy, cyclic triangular ladder and nearest/next-nearest Potts chain"
+        ]
+      },
+      "rationale": "The distinct supported contribution is the evaluated length-congruence classification and closed fixed-colour coefficient polynomials in the frustrated sectors. A primary paper already gives the full uniform-field transfer for the same strips and hence encodes every coefficient; neither that encoding, the proper-colouring sector, nor the transfer method is credited as new. Extracting and simplifying the lowest nonzero orders uniformly in length is the contribution, not evaluating a known formula at one size.",
+      "residual_risks": [
+        "A prior explicit low-order expansion of the known magnetic transfer could cover the evaluated law; bounded comparisons do not certify priority.",
+        "The cited Lopez-Bonilla, Allagan and Morgan full text was unavailable; no claim of its entire content is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong prior coverage of the full marked transfer; no evaluated frustrated-sector length formulas in the passages read.",
+          "evidence": "With q=3, x=1+v and y=w it encodes exactly the joint defect/occupancy coefficients for this graph.",
+          "identifier_or_url": "https://arxiv.org/abs/0907.0925",
+          "material_read": "Sec. I pp. 1–2, Eqs. (1.2)–(1.3); Sec. II Eq. (2.3); proper-colouring specialization Eq. (3.4); triangular width-two blocks Eqs. (5.22), (8.2), pp. 21 and 30",
+          "method": "OA primary PDF passages",
+          "title": "Structure of the Partition Function and Transfer Matrices for the Potts Model in a Magnetic Field on Lattice Strips",
+          "trigger": "Exact same graph family and formal single-colour weight"
+        },
+        {
+          "assessment": "Same family in zero field; unmarked rather than occupancy-refined counts.",
+          "evidence": "Width-two cyclic longitudinal strips; proper-colouring specialization at v=−1.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0004181",
+          "material_read": "Abstract and Sec. I Eq. (1.6), pp. 1 and 3",
+          "method": "OA primary PDF passages",
+          "title": "Exact Potts Model Partition Function on Strips of the Triangular Lattice",
+          "trigger": "Same strip and all-temperature partition function"
+        },
+        {
+          "assessment": "Weighted proper-colouring specialization does not solve the positive-defect branches.",
+          "evidence": "P^h(G,q,s,w)=Z(G,q,s,−1,w).",
+          "identifier_or_url": "https://arxiv.org/abs/1009.1182",
+          "material_read": "Abstract and Eq. (1.7), pp. 1 and 3",
+          "method": "OA primary PDF passages",
+          "title": "Exact Results on Potts Model Partition Functions in a Generalized External Field and Weighted-Set Graph Colorings",
+          "trigger": "Weighted proper-colouring overlap"
+        },
+        {
+          "assessment": "General strip method, not the evaluated frustrated occupancy law.",
+          "evidence": "Fixed-width transfer representation in the zero-field/chromatic-polynomial setting.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0004330",
+          "material_read": "Sec. 1, p. 2, Eqs. (1.1a–b)",
+          "method": "OA primary PDF passage",
+          "title": "Transfer Matrices and Partition-Function Zeros for Antiferromagnetic Potts Models I",
+          "trigger": "Prior transfer machinery"
+        },
+        {
+          "assessment": "Direct partial overlap at h=0 for 3|n; no frustrated occupancy polynomials.",
+          "evidence": "For 3|n, the phase 0≤h<1 contains six ground states; the fields favour different colours in the two rows.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-sharp-entropy-spikes-for-a-row-staggered-three-state-potts-a--351c4c99b7bc",
+          "material_read": "RESULT.md at offsets 0 and 7600, graph definition and multiplicities",
+          "method": "Local mirror text",
+          "title": "Two sharp entropy spikes for a row-staggered three-state Potts antiferromagnet",
+          "trigger": "Same graph under cyclic triangular ladder alias"
+        },
+        {
+          "assessment": "No full-text coverage judgment; frozen characterization not independently confirmed.",
+          "evidence": "Bibliographic scope concerns prism-derived chromatic polynomials.",
+          "identifier_or_url": "https://doi.org/10.3390/sym18071180",
+          "material_read": "Bibliographic/landing material only; article and PDF unavailable in bounded attempts",
+          "method": "Lawful OA attempts at DOI and publisher article/PDF",
+          "title": "Quartic Equimodular Curves and Spectral Reductions in Prism-Derived Chromatic Polynomials",
+          "trigger": "Frozen citation concerning antiprism chromatic roots"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–25 and 61–81",
+        "arXiv:0907.0925 (comparison with known full transfer)"
+      ],
+      "rationale": "The classification links a small geometrically forced defect cost to three sharply different multiplicity scales in a natural frustrated periodic system. The occupancy polynomial gives the exact distribution within the zero-field ground sector, including the response of that sector to infinitesimal colour preference at fixed size, where the unmarked count or an unevaluated transfer does not exhibit it. In particular, the quadratic count despite only two bad bonds is a useful fine-size invariant even though the bulk entropy density vanishes.",
+      "residual_risks": [
+        "This does not compute a finite-field phase diagram or establish a thermodynamic transition."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

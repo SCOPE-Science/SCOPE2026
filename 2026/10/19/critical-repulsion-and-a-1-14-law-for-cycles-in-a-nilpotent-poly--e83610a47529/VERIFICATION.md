@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof, not numerical sampling, establishes the infinite-dimensional assertions. Its critical exact steps are: (a) the generalized polar equations with \(C^4+2S^2=1\); (b) the explicit primitive \(F'=A\); (c) cancellation by reflection; (d) the beta-moment identity \(\mathbb E[P(U)]=158/49725>0\); (e) the local analytic Poincaré return expansion and implicit function argument. The original-time duration follows by integrating the physical angular-speed formula.
+# Independent mathematical audit
 
-`verify.py` uses Python 3, SymPy and SciPy. Execute `python verify.py` alongside this document. It checks exact polynomial congruences and beta rational moments; it integrates the unexpanded radius/angular evolution on three sample amplitudes. The latter simulations cannot prove positivity at all sufficiently small amplitudes or exclude any other cycles. The checked execution produced `VERIFY_OK`, and reported \(T=7.4162987092054875\), \(I=0.010767997377371436\), \(K=1.4447335147802898\).
+## correctness
 
-Scientific limitations: the parameter limit is local near \(m=1/3\), and the theorem does not classify all other values of the integer family or all global limit cycles. Independent audit and external validation have not been performed.
+PASS
+
+Verified the return in the stated original positive-y section, not in an unspecified normal-form radius. For X=y=rC, Y=x=r²S, the angular clock is r(1−r⁷B_m)>0 locally, and at C=1, S=0 the section coordinate is exactly r. Independently expand r(θ)=ρ[1+c₁ρ⁷+c₂ρ¹⁴+c₃ρ²¹+…] in the radial equation. At m=1/3 this gives c₁=F, c₂=4F²+∫₀^θ AB, and c₃′=A(8c₂+28F²+15FB+B²). F vanishes at the two section ends and ∫AB=0 by reflection; integration by parts therefore gives c₃(T)=∫A(B²+7BF). In a separate exact rational calculation, expanding the beta-integrand numerator yielded coefficients (−36,225,−717,1521,−2181,2395,−1823,979,−363) in ascending order; dividing by 1152 and summing against (3/4)_j/(5/4)_j gave 158/49725. This reproduces the positive coefficient, its ρ²² power, and the O(ρ²⁹) remainder by analyticity. The linear coefficient at ρ⁸ is K(m−1/3), where K/T=15/77. Rescaling r=δ^(1/14)R gives the simple positive zero of −K+IR¹⁴ in C¹ and a return multiplier 1+14Iρ²¹+o(ρ²¹)>1. Integrating the actual reciprocal angular speed gives the physical period T/ρ(1+o(1)). Small sections exist uniformly near the threshold and remain transverse; the positive critical displacement implies local repulsion. The frozen verify.py and VERIFICATION.md were inspected, not executed; their finite sample integrations are corroboration only.
+
+## originality
+
+PASS
+
+The underlying family, threshold, noncritical stability and generalized-polar method are prior work. No inspected result establishes the higher critical coefficient for this same member, its sign, or the normalized 1/14 laws. The primary source expressly leaves this case uncomputed. This is a best-of-knowledge assessment, not a priority guarantee.
+
+## value
+
+PASS
+
+This is the first integer member left open at equality in the cited theorem, not an arbitrary sample parameter. Its two cancellations make a leading-coefficient test inconclusive. Resolving the sign with a normalized exact coefficient decides critical stability and determines the singular onset amplitude and physical-time period of an unstable cycle. No general k>2 or global limit-cycle classification is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:15:17.111745Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–84, VERIFICATION.md",
+        "Jenkins USGS TWRI 4-D1 pp. 4–5"
+      ],
+      "rationale": "With a=d²S/(4T)>0 and normalized by the constant pumping rate, the step response D(t)=erfc(√(a/t)) extends by zero at t≤0. Its derivative is q(t)=√(a/π)t^(−3/2)e^(−a/t), with q(0)=0. Linear superposition gives D(t)−D(t−τ); the derivative is positive during pumping, and afterwards is q(t)−q(t−τ). Independently, log q has derivative a/t²−3/(2t), giving the unique mode m=2a/3. If t>τ and t≤m, both arguments are on the increasing side and the difference is positive; if t≥τ+m it is negative. On max(τ,m)<t<τ+m, q(t) decreases and q(t−τ) increases, and the endpoint signs are respectively positive and negative, including t=τ via q(0)=0. There is therefore one strict global peak, with the claimed strict bounds. Equality of the kernels gives the stated logarithmic equation with the same sign and constants. Implicit differentiation gives dt*/dτ=q′(t*−τ)/[q′(t*−τ)−q′(t*)] in (0,1); the lag decreases. The bracket gives t*→m as τ↓0 and the equality on the increasing branch gives t*−τ→0 as τ→∞. This is an analytic check; no finite sample is required.",
+      "residual_risks": [
+        "Only the ideal linear fixed-stage model and one rectangular pulse are covered; this is a peak in rate, not cumulative depletion or drawdown."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "5d4ecd7d2393 treats t^(−3/2)exp(−c/t−bt), b≥0, and proves uniqueness, mode straddling, equal kernel, and 0<∂t*/∂τ<1. Jenkins gives residual superposition and a worked delayed peak. Zlotnik's retrieved abstract concerns the maximum fraction of pumping supplied by a stream in a leaky-aquifer setting; full text was not inspected."
+        ],
+        "reasoning": "The broader indexed family explicitly contains the b=0 edge, so no limiting argument or extension of its domain is necessary. Access limits on hydrology papers do not affect this decisive positive evidence.",
+        "searches": [
+          "Resultary 5d4ecd7d2393, Finding, Assumptions and Proof §§1–2",
+          "Primary sources on maximum stream depletion, residual depletion, and unimodal boxcar responses"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5d4ecd7d2393",
+        "Jenkins USGS TWRI 4-D1",
+        "DOI 10.1029/2003WR002932 (abstract)",
+        "DOI 10.1029/TR035i003p00468 (bibliographic only)",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proof §1 in 5d4ecd7d2393 gives one strict global maximum t*=τ+δ with δ>0 and δ<m<δ+τ. With b=0 its mode is 2c/3. Proof §2 gives ℓ(t*)=ℓ(δ) for ℓ=log f and explicitly gives the duration derivative and its strict bound."
+        ],
+        "reasoning": "With c=a and b=0, mode straddling is precisely max(τ,2a/3)<t*<τ+2a/3. Equality of log densities is the frozen equation, and the derivative and lag monotonicity follow verbatim. No separate pump-specific invariant beyond this substitution is asserted.",
+        "searches": [
+          "5d4ecd7d2393 RESULT.md local-mirror offsets 0–4301; frozen RESULT.md lines 5–80"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed first-passage tracer arrival for v=0 uses f(t)=L/(√(4πD)t^(3/2)) exp(−L²/(4Dt)). Set c=L²/(4D)=a. This equals q(t) and both finite sources integrate the same kernel over [max(0,t−τ),t]."
+        ],
+        "reasoning": "Normalized arriving flux and normalized stream depletion in these ideal models are the same mathematical pulse response under this substitution, even though the physical observables have different names. There is no additional proof to transfer peak location or duration sensitivity.",
+        "searches": [
+          "Resultary: finite pumping pulse, peak after shutoff, first-passage and tracer arrival",
+          "Jenkins USGS TWRI 4-D1, residual depletion and intermittent pumping"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Jenkins reports a peak about 10 days after stopping a 35-day pump in a worked case; Fig. 5 compares schedules of equal pumped volume. An exact indexed analytic formula covers all positive c and τ in the zero-drift case."
+        ],
+        "reasoning": "The worked values and charts do not provide the all-parameter bracket or derivative theorem. The exact relevant coverage is analytic in the indexed record, not established by a table or fitted plot.",
+        "searches": [
+          "Jenkins residual-effect example and intermittent-pumping Fig. 5; Resultary exact formula and peak-lag lookup"
+        ]
+      },
+      "rationale": "A distinct indexed record, 5d4ecd7d2393, proves every frozen peak-time conclusion for a larger kernel family that explicitly includes zero drift. Its mathematical specialization is exact, not an analogy. Same-day catalogue dating does not resolve historical priority; this is a decision on demonstrated scientific coverage, not a priority attribution.",
+      "residual_risks": [
+        "The Glover–Balmer and Zlotnik full texts were not retrieved, and the wider unimodality literature was not exhaustively checked. The disposition relies on verified indexed coverage, not on those access limits or any claim about first discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mathematical coverage at b=0, c=a; no priority inferred from date",
+          "evidence": "The assumptions allow v=0. The rectangular integrated kernel has one strict global peak, δ<m<δ+τ, equal endpoint densities, and 0<∂t*/∂τ<1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-drift-diffusion-crossover-in-the-peak-lag-after-finite-tracer--5d4ecd7d2393/RESULT.md",
+          "material_read": "Finding, Assumptions and Proof §§1–2, offsets 0–4301",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A drift–diffusion crossover in the peak lag after finite tracer shutoff",
+          "trigger": "Decisive broader first-passage kernel match"
+        },
+        {
+          "assessment": "Supports the superposition construction and illustrates delayed peak; inspected passages do not give the full peak theorem",
+          "evidence": "Uses continued pumping plus fictitious recharge; worked example reports a maximum about 10 days after a 35-day pumping period.",
+          "identifier_or_url": "https://pubs.usgs.gov/twri/twri4d1/pdf/twri_4-D1_a.pdf",
+          "material_read": "Residual effects pp. 4–5 (offsets 21000–29970); intermittent pumping and Fig. 5 pp. 7–8 (offsets 35000–42500)",
+          "method": "Official open USGS PDF",
+          "title": "Computation of Rate and Volume of Stream Depletion by Wells",
+          "trigger": "Closest historical same-model source on shutdown and intermittent pumping"
+        },
+        {
+          "assessment": "Abstract points to a different observable and setting; no whole-text noncoverage conclusion",
+          "evidence": "Discusses maximum fraction of pumping supplied by stream depletion for leaky aquifers.",
+          "identifier_or_url": "https://doi.org/10.1029/2003WR002932",
+          "material_read": "Available abstract only; full text not retrieved",
+          "method": "OA retrieval attempt and available bibliographic/abstract evidence",
+          "title": "A concept of maximum stream depletion rate for leaky aquifers in alluvial valleys",
+          "trigger": "Plausible hydrology title on a maximum depletion rate"
+        },
+        {
+          "assessment": "Not relied on to exclude historical coverage",
+          "evidence": "The frozen proof takes the classical step response as a premise; Jenkins and the checked analytic overlap suffice for this decision.",
+          "identifier_or_url": "https://doi.org/10.1029/TR035i003p00468",
+          "material_read": "Bibliographic identification; full text not retrieved",
+          "method": "OA retrieval attempt; no accessible alternate copy located",
+          "title": "River depletion resulting from pumping a well near a river",
+          "trigger": "Classical same-model step response"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Proof, and Limitations",
+        "Resultary 5d4ecd7d2393 Finding and Proof §§1–2",
+        "Jenkins residual-effects discussion"
+      ],
+      "rationale": "Monitoring after shutdown is a natural application, but the frozen record only recasts an exactly covered peak calculation. The endpoint bracketing and duration monotonicity use the strict single mode of the same known rectangular-window kernel; no additional hydrology-specific invariant, physical regime, or sharper estimate is established. The difference in application language is not a distinct unknown mathematical fact, and no surviving claim is established for repair.",
+      "residual_risks": [
+        "Useful as a model-specific explanation; the value judgment does not address broader pumping regimes or new bounds for those regimes."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

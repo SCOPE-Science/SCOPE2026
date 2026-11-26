@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact three-cell formula follows from integration of a constant density on each component and the weighted variance decomposition for the central cell. Its cross-gap term strictly dominates the smaller internal splitting gain under the stated separation. Comparing with an explicit two-plus-one midpoint codebook proves the claimed nonoptimality for all positive mixing weights. The endpoint \(G=L/\sqrt2\) is included, and positive middle-cell masses make the key inequality strict. Exact rational checks reproduce the identities but are not a substitute for the proof.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest source, Barua et al. (arXiv:2203.12664; *Arabian Journal of Mathematics*, 2025), expressly leaves the equal-length/equal-gap joint placement question open in Open 3.17 and Conjecture 3.19. Its finite examples concern selected weights, not an arbitrary-weight obstruction. Related eventual-separation results concern large quantizer counts and do not imply a three-center theorem. Literature and mathematical-research record searches did not locate an equivalent statement; unindexed earlier vector-quantization results remain possible.
+PASS
 
-**Value — PASS.** This excludes a natural, fully specified Voronoi layout across an entire family and supplies a negative answer to the precise conjunction posed in a published open problem. The cross-variance argument also gives a separation-to-length criterion beyond the motivating fixed intervals. No sharpness of that sufficient criterion or general classification of gap centers is claimed.
+Distinct ordered centers have interval Voronoi cells and ties of zero mass. An optimum cannot have an unused center: assigning it to a positive-length part of a used cell strictly improves squared error. For a fixed positive-mass cell the squared-error minimum is its centroid, so a strictly interior gap center must own positive mass from both components. The other two cells are confined to the outer portions of their respective supports; their positive masses ensure 0<u,v<L. Within-cell integration of a uniform segment of length t at density w/L gives w t^3/(12L). Pooling the two inner segments adds exactly AB/(A+B) times the squared difference of their means, with A=pu/L, B=qv/L and separation G+(u+v)/2. The splitting gains S_L=p u(L-u)/4, S_R=q v(L-v)/4 have min(S_L,S_R) at most L^2 min(A,B)/4. The pooling penalty is strictly larger even at G=L/sqrt(2), using AB/(A+B)>=min(A,B)/2 and u+v>0. Thus the proposed cost is strictly above L^2/12-max(S_L,S_R), which is at least L^2/12-L^2 max(p,q)/16. Midpoint allocation of two centers to the heavier component and one to the other achieves cost at most that last expression, since nearest-center assignment can only improve on within-component assignment. This verifies the universal proof, not just the rational sample. Independently integrated cell moments for the small-gap example: the three centroids agree and the distortion is 257/6000 versus the anchored 5/96, with no claim of global optimality. The theorem excludes only one point in each of the three regions and makes no optimal-separation or separate two-mean assertion.
 
-The most important limitation is that neither the two-mean gap-point question by itself nor three-means configurations with two centers on the same support are decided. The cited 2025 article's Open 3.18 for arbitrary interval geometry also remains unresolved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Barua et al. explicitly state and conjecture a negative answer to the equal-gap conjunction, but do not prove it in the inspected passages. The frozen result proves its three-mean obstruction uniformly in p and extends it to G/L in [1/sqrt(2),1) as well as larger gaps. No materially equivalent or stronger proved claim was identified in the bounded comparisons.
+
+## value
+
+PASS
+
+The three-center obstruction resolves the exact conjunction in a named open question and covers a nontrivial range of shorter gaps where the outer centroid conditions alone would not rule the configuration out. The splitting-gain versus pooling-penalty comparison is a natural explanation of why an interior gap centroid cannot pay for itself in this range. Scientific value does not depend on treating the sufficient barrier as sharp or implying that all gap centers are excluded.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

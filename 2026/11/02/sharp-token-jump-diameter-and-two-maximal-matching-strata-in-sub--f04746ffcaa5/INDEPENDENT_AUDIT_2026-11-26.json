@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:18:49.699962Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the matching-to-function bijection and the full sharp bound. Two unmatched original vertices would leave their shared subdivision vertex available. With only i unmatched, each edge from j to e_ij is forced; these matchings for different i are edge-disjoint, so their symmetric difference is 2(n−1)>2 (the weaker wording in RESULT.md line 29 is insufficient on its own). In the full tier, a jump changes exactly one coordinate and the legal choices at i are n−2−indeg(i), summing to n(n−3). If no wrong coordinate can be directly set, g permutes the wrong set in cycles of length at least three and the current map is g inverse there. On any such cycle some j has indegree at most n−3 since 3(n−2)>n; a legal temporary target cannot equal the blocked g(j) or the old target, the latter being j's predecessor. Thus the predecessor edit is legal after this temporary move, and each subsequent backward edit targets a vertex already corrected and cannot create a target 2-cycle. Each disjoint repaired cycle adds only one move beyond Hamming distance. In the inverse-cycle witness, no edit outside a cycle removes its initial obstruction, so each of floor(n/3) cycles forces one move besides the n last edits. For n=3 there are exactly two full-tier maps, both with degree zero. VERIFY.py independently constructs small incidence graphs, then uses BFS at n=4,5 and one source at n=6; these are finite diagnostics and the proof, not those runs, establishes the universal claims. The frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bousquet et al. give bipartite distance algorithms/approximation and a polynomial connectivity decision (Theorem 18); Theorem 4 concerns hardness of exact diameter in general.",
+          "Baste et al. study size and approximation bounds for minimum maximal matchings, not one-edge exchange distances."
+        ],
+        "reasoning": "The general fixed-cardinality matching graph also permits nonmaximal matchings in the lower tier. The broader algorithmic and minimum-size results do not give the complete tier and exact diameter laws here.",
+        "searches": [
+          "maximum matching token jumping exact diameter subdivision complete graph incidence reconfiguration n floor n/3 functional digraph inverse cycles",
+          "arXiv:1812.05419v1, bipartite maximum-matching distance and connectivity",
+          "arXiv:1905.12241v1, minimum maximal matchings"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and VERIFY.py",
+        "arXiv:1812.05419v1",
+        "arXiv:1905.12241v1",
+        "OEIS A134362",
+        "SCOPE a01ace1f3db3, 9e512596be10 and 68d0d1e90545"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior connectivity algorithm is a decision result and the distance results do not give the sharp all-n formula.",
+          "The catalogue swap distance 2k+2⌈k/2⌉ between inverse products of 3-cycles is a pairwise statement in a different reconfiguration graph; the C_(3k+1) metric is for minimum maximal matchings on a cycle."
+        ],
+        "reasoning": "Obtaining this exact invariant still requires controlling the detours for all current/target functions and constructing a partition into cycles that actually forces the additive term. Neither follows by reading off the general algorithms or the compared metrics.",
+        "searches": [
+          "arXiv:1812.05419v1, Theorems 4 and 18 and bipartite distance results",
+          "SCOPE a01ace1f3db3 and 9e512596be10, exact compared statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bousquet et al. use the identical fixed-cardinality |M△M′|=2 move, but the states in the full tier here correspond to all functions with no fixed points or reciprocal pairs, not just permutations.",
+          "SCOPE a01ace1f3db3 measures swaps of two positions in crown-graph derangements, not coordinate jumps on all such functions."
+        ],
+        "reasoning": "The common inverse-cycle obstruction does not identify these metrics. Projecting the matching to its occupied subdivision vertices loses the assignment and does not provide a basis-exchange distance formula.",
+        "searches": [
+          "Resultary/SCOPE semantic comparison of maximal-matching one-edge exchange and inverse-cycle detours",
+          "arXiv:1812.05419v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A134362 defines exactly the full-tier state count and supplies the inclusion–exclusion formula; the manuscript explicitly credits it.",
+          "The inspected cycle, crown-graph and Möbius–Kantor catalogue entries give exact metrics or components for other states or moves, not S(K_n)."
+        ],
+        "reasoning": "The existing exact enumeration covers the coefficient a_n, not the jump graph on those configurations.",
+        "searches": [
+          "OEIS A134362, maps whose second iterate has no fixed points",
+          "Resultary/SCOPE catalogue, exact matching exchange diameter and components"
+        ]
+      },
+      "rationale": "Pass applies to the exact diameter and matching-tier structure, not the known count or the token-jump model. The closest general matching results and related catalogue metrics do not state or supply the needed uniform one-detour cycle bound and sharp witness for this subdivision family.",
+      "residual_risks": [
+        "A specialized assignment-reconfiguration result or equivalent formulation of the one-coordinate functional graph could have been missed; inspected sources do not certify absolute priority.",
+        "Shared dates of different catalogue entries do not resolve priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the general model and decision/algorithmic results; no specialized exact invariant established by the inspected statements.",
+          "evidence": [
+            "Adjacency is symmetric difference of size two; the bipartite connectivity theorem decides whether the maximum-matching graph is connected."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1812.05419v1",
+          "material_read": "Problem definitions (diameter near offset 7135; token-jump adjacency near 8400), Theorem 4 near 12390, bipartite distance results and Theorem 18",
+          "method": "Primary arXiv HTML, targeted reading",
+          "title": "Shortest Reconfiguration of Matchings",
+          "trigger": "Identical move on a broader matching class"
+        },
+        {
+          "assessment": "Addresses minimum cardinality and approximation, not the exchange graph of the present family.",
+          "evidence": [
+            "The optimized quantity is size of a minimum maximal matching."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1905.12241v1",
+          "material_read": "Abstract and introduction",
+          "method": "Primary arXiv HTML, targeted reading",
+          "title": "Bounding and approximating minimum maximal matchings in regular graphs",
+          "trigger": "Prior minimum maximal-matching structure"
+        },
+        {
+          "assessment": "Direct prior coverage of the count only.",
+          "evidence": [
+            "The condition is f²(i)≠i; the sequence and alternating formula already appear."
+          ],
+          "identifier_or_url": "https://oeis.org/A134362",
+          "material_read": "Definition and inclusion–exclusion formula",
+          "method": "OEIS source page",
+          "title": "Number of maps whose second iterate has no fixed points",
+          "trigger": "Exact state enumeration"
+        },
+        {
+          "assessment": "Different states and move; same-day ordering is not inferred.",
+          "evidence": [
+            "Perfect matchings of the crown graph under alternating-4-cycle swaps; exact distance 2k+2⌈k/2⌉ for the stated pair."
+          ],
+          "identifier_or_url": "SCOPE a01ace1f3db3",
+          "material_read": "RESULT.md, offsets 0–4353",
+          "method": "Published record via local mirror",
+          "title": "Exact linear derangement-swap detour between inverse triangle products",
+          "trigger": "Closest conceptual overlap: detour between reversed 3-cycles"
+        },
+        {
+          "assessment": "Different graph and matching tier; no same-day ordering inferred.",
+          "evidence": [
+            "For C_(3k+1) the eccentricity and diameter are floor((3k+1)/2) in the specified minimum tier."
+          ],
+          "identifier_or_url": "SCOPE 9e512596be10",
+          "material_read": "RESULT.md, offsets 0–2130",
+          "method": "Published record via local mirror",
+          "title": "Every minimum maximal matching of a cycle of order 3k+1 has the same eccentricity",
+          "trigger": "Exact metric under the same one-edge replacement convention"
+        },
+        {
+          "assessment": "Different graph and only its minimum tier.",
+          "evidence": [
+            "The reported graph is the disjoint union of six C_16 and 80 isolated vertices."
+          ],
+          "identifier_or_url": "SCOPE 68d0d1e90545",
+          "material_read": "RESULT.md, offsets 0–2013",
+          "method": "Published record via local mirror",
+          "title": "Minimum maximal matching exchange graph of the Möbius–Kantor graph",
+          "trigger": "Exact one-edge exchange component description"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The family is the canonical incidence subdivision of a clique and the invariant measures worst-case reconfiguration cost, not just existence. The exact additive detour term, where inverse directed cycles require a temporary edit even when every coordinate must already move, identifies a structural obstruction that neither counting nor a connectivity test describes. The isolated smaller tier explains the separation between inclusion-maximal and maximum matchings under the prescribed jump.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The algebraic criterion follows from the vector part of the Nijenhuis identity on one symplectic vector and the central generator, then from the central part on two symplectic vectors. Those steps apply over arbitrary fields, including characteristic two. The isotropic-frame count and full-row-rank surjection count establish the finite-field formulas without dependence on a numerical experiment.
+# Independent mathematical audit
 
-Run `python3 checker.py` from the extracted package. The checker independently evaluates Nijenhuis torsion on basis pairs and verifies the derived isotropic-image criterion. All \(2^9\) endomorphisms over \(\mathbb F_2\) and \(3^9\) over \(\mathbb F_3\) are checked in dimension three. All \(2^{16}\) possible image matrices in dimension four are checked for isotropy/rank over \(\mathbb F_2\), and additional seeded randomized torsion/criterion cross-checks cover dimension five in characteristics two, three and five.
+## correctness
 
-The reference output concludes `HEISENBERG_NIJENHUIS_OK`. Finite tests do not establish the general theorem and do not provide an independent human or external audit.
+PASS
+
+Write N(v+tz)=Av+tu+(ell(v)+ct)z. Torsion on (v,z) forces omega(v,u)u=0 for every v, so u=0 by nondegeneracy. The residual torsion on V is exactly omega((A-cI)v,(A-cI)w)z. This is the isotropy of the image of B=A-cI, not the image of A. It needs no division or characteristic restriction. The number of rank-r maps B is the count of isotropic r-frames divided by the number of bases of a fixed r-space, times the full-row-rank count of surjections onto this space. Appending ell to B increases rank by one precisely outside its r-dimensional row space; the free c multiplies both counts by q. This gives both joint strata, also at r=0, and their sum. The characteristic polynomial factors as (T-c) times the shifted characteristic polynomial of B, for which the zero multiplicity is at least 2n-r. In a separate bounded computation the direct torsion test exhausted 512 and 19683 operators in dimension three over F2 and F3, with exact joint histograms (2,6,36,36) and (3,24,288,576) in order (0,0),(0,1),(1,1),(1,2). Exhaustion of all binary 4-by-4 B, followed by all ell,c for the isotropic B, gave (2,30,900,6300,25200,75600) in lexicographic order of feasible strata, total 108032. Both methods agree with the formulas.
+
+## originality
+
+PASS
+
+The distinct supported claim is the classification of all ordinary binary Heisenberg Nijenhuis endomorphisms over arbitrary fields and the resulting joint finite-field census. The closest inspected exact classification has a fixed twisting map and commutation constraint; the regular-semisimple obstruction and symplectic frame counts are prior ingredients, not coverage of this result.
+
+## value
+
+PASS
+
+This is a complete structural parametrization on the basic Heisenberg family, uniform in characteristic, not an isolated small count. It links an intrinsic rank on the quotient to the centered rank of the full map and gives every stratum, useful for comparison with classifications under additional constraints.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

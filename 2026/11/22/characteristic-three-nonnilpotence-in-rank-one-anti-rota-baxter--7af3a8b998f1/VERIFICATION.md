@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification of the rank-one matrix anti–Rota–Baxter census
+# Independent mathematical audit
 
-The package contains the complete standalone `verify.py`, requiring Python 3.11 or later and no external dependencies. Run `python verify.py` from the extracted package directory. This checker compares the original, bilinear anti–Rota–Baxter identity on all matrix units (rather than assuming the normal-form reduction), then verifies the resulting distinct operator counts.
+## correctness
 
-Successful recorded execution printed:
+PASS
 
-```
-EXHAUSTIVE 2 2 nonzero= 15 squarezero_image= 3 idempotent_image= 12 R2_nonzero= 0 idempotent_operator= 0
-EXHAUSTIVE 2 3 nonzero= 112 squarezero_image= 8 idempotent_image= 104 R2_nonzero= 78 idempotent_operator= 39
-EXHAUSTIVE 2 5 nonzero= 24 squarezero_image= 24 idempotent_image= 0 R2_nonzero= 0 idempotent_operator= 0
-DIRECT_ALL_CANONICAL 3 2 total= 651 squarezero_image= 315 idempotent_image= 336
-ANTI_ROTA_BAXTER_MATRIX_VERIFIED
-```
+For a rank-one map φ(−)U, evaluating the anti identity at φ(X)=φ(Y)=1 forces U²=λU; taking one argument in ker φ forces each multiplication functional to be proportional to φ. Testing matrix units verifies trace nondegeneracy without a restriction on characteristic. With φ=tr(V−), this is the equivalent system VU=aV, UV=bV, λ+a+b=0. When λ=0, a²=b²=0, so both vanish; otherwise normalize the output generator to the unique idempotent E on its line, and the eigenvalues must be 0 or 1. The condition 1+a+b=0 then gives exactly the two characteristic-two off-diagonal corners or the one characteristic-three diagonal corner. The composition square is tr(VE)R for normalized E and vanishes off the characteristic-three branch (use trace cyclicity for the off-diagonal corners). The strong identity for idempotent output would force ker φ⊆ker(−·E), impossible since right multiplication by E has rank n·rank E≥2. For the census, choosing image, kernel, and quotient-to-image isomorphism counts square-zero U; dividing by q−1 parametrizes image lines, and V then factors from k^n/im U to ker U. Ordered complementary subspaces count E and the block dimensions count V. Trace on M_r is surjective via a single diagonal matrix unit, even when the characteristic divides r, so each nonzero composition scalar has exactly the stated fiber size.
 
-The three dimension-two cases exhaust all matrix pairs and quotient duplicate linear operators. Dimension three checks the defining identity for every canonical normal-form factor pair; this does not exhaust all possible factor pairs outside the classification. In particular, the verification does not replace the general symbolic proof or resolve historical priority. No independent audit has been performed.
+## originality
+
+PASS
+
+The supported distinct claim is the full-matrix characteristic-three corner classification and finite-field census, including the prescribed nonzero composition-scalar strata, within the all-characteristic anti classification. The square-zero family and its count coincide with existing ordinary-RB results; the characteristic-two corners and their count are identical because the signs agree there. No distinct originality is credited to these portions or to an isolated example of R²≠0.
+
+## value
+
+PASS
+
+Rank one is the natural first linear-rank cutoff for these operators. The full-matrix classification separates the sign-sensitive characteristic-three branch from the previously known zero-square census, determines exactly when nonnilpotence occurs, and measures it by a count for every scalar. This is more informative than either exercising the standard square-zero case or exhibiting a single low-dimensional operator.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

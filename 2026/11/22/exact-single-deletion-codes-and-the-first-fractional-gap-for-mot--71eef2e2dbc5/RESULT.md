@@ -14,11 +14,11 @@ For each integer \(1\le n\le7\), let \(\mathcal M_n\) be the Motzkin excursions 
 | 6 | 51 | 14 | 14 | 28 |
 | 7 | 127 | 25 | \(382/15\) | 142560 |
 
-Thus the natural fractional packing relaxation is integral through length six and has its first strict gap at length seven:
+Thus the natural fractional packing relaxation has zero objective gap \(P_n-M_n\) through length six and its first strict objective gap at length seven:
 \[
 P_7-M_7=\frac7{15}>0.
 \]
-The rounded upper bound at length seven is still tight: \(\lfloor P_7\rfloor=M_7=25\). No integer-rounding failure is asserted.
+The rounded upper bound at length seven is still tight: \(\lfloor P_7\rfloor=M_7=25\). No integer-rounding failure is asserted. Equality of objectives does not imply that the packing polytope is integral: it has a fractional vertex already at length four.
 
 ## Assumptions and scope
 
@@ -30,7 +30,9 @@ An output of a source word \(w\) is any distinct word obtained by deleting exact
 
 **Matching exact lower and upper certificates.** The attached `certificates.json` contains a separate sparse, exact rational primal assignment, exact rational output-price dual assignment and explicit integer codebook for *each* \((n,t)\) with \(1\le n\le7\) and \(0\le t\le\lfloor n/2\rfloor\). Every primal variable is nonnegative and each deletion output has incoming primal mass at most one. Every dual output price is nonnegative and each source word sees dual price at least one. The total primal and dual objectives agree exactly, proving the fractional optimum for each layer by weak duality. Each listed integer codebook has pairwise disjoint deletion shadows. For every layer, its size \(m\) satisfies \(m\le P<m+1\). Hence it is an *integer-optimal* codebook: no larger integer code exists.
 
-**Complete optimizer count.** To count all integer optima, construct the graph on each layer with an edge between two words when their deletion shadows are disjoint. The exact bit-mask Bron–Kerbosch search in `verify.py` traverses every maximal clique with an explicit pivot and pruning only when the current clique plus all remaining candidate vertices is smaller than the best already found. Every maximum clique is maximal, so the search counts all and only maximum codebooks. The independently implemented include/exclude dynamic recursion of `verify_independent.py` enumerates all maximum independent sets of the complementary incompatibility graph, giving the same counts. The layer-wise counts at \(n=7\) are \(1,9,11,1440\) and capacities \(1,5,14,5\) for \(t=0,1,2,3\). Their product is \(142560\), while their sum is \(25\). Their fractional optima are respectively \(1,5,217/15,5\), summing to \(382/15\). The shorter-length totals appear in the table.
+**Complete optimizer count.** To count all integer optima, construct the graph on each layer with an edge between two words when their deletion shadows are disjoint. The exact bit-mask Bron–Kerbosch search in `verify.py` uses a pivot and prunes a branch only when the current clique plus all remaining candidate vertices is smaller than the best already found. Every maximum clique is maximal, and no maximum clique can be pruned by this bound. The independently implemented include/exclude dynamic recursion of `verify_independent.py` counts all maximum independent sets of the complementary incompatibility graph, giving the same counts. The layer-wise counts at \(n=7\) are \(1,9,11,1440\) and capacities \(1,5,14,5\) for \(t=0,1,2,3\). Their product is \(142560\), while their sum is \(25\). Their fractional optima are respectively \(1,5,217/15,5\), summing to \(382/15\). The shorter-length totals appear in the table.
+
+**A fractional vertex at length four.** Take \(u=\texttt{FUFD}\), \(v=\texttt{FUDF}\), and \(w=\texttt{UFDF}\). Their deletion shadows intersect pairwise but have no common word: the three pairwise intersections, in the order \((u,v),(u,w),(v,w)\), are \(\{\texttt{FUD},\texttt{FUF}\}\), \(\{\texttt{UFD}\}\), and \(\{\texttt{FDF},\texttt{UDF}\}\). Assign each of \(u,v,w\) weight \(1/2\) and all other words weight zero. Each output receives mass at most one. On the face fixing the other coordinates to zero, the three pairwise capacity equalities are tight and uniquely determine these three weights. The assignment is therefore a vertex of the full polytope. This does not affect its optimum for the objective \(\sum_v x_v\).
 
 All logical implications above are finite and exact; there is no unverified extrapolation to larger \(n\).
 

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:41:12.212412Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent reconstruction: writing y=N−1/2 gives y'=y+8(1/4−y²)y=3y−8y³, hence z'=3z−4z³. Haar measure for T(t)=3t+π projects by z=cos t to the ergodic arcsine law (mixing follows first on Fourier modes by escape of frequencies). The derivative normal to the axis as a quotient is ∂P'/∂P=1+h(N−m)=A+2z; ∂P'/∂N=0 at P=0. The proof's prose reverses the label of the off-diagonal entry, but its quotient and formulas are correct. The integral is the circle mean of log|w²+Aw+1|: Jensen contributes log max(1,|root|) for each root. Both roots have modulus one for |A|≤2, including the double-root endpoints, and otherwise only one contributes. Birkhoff applies for each fixed m; zero-multiplier seeds and their finite-level preimages form a countable null set. At A=0 the centered L² logarithm φ has cosine coefficients (−1)^(r+1)/r at frequency 2r. Averaging over the three inverse branches gives Pφ=φ/3 because division of compatible frequencies preserves coefficient sign and the π translation gives phase 1. Thus lag k covariance is 3^(−k)||φ||²=π²/(12·3^k); summing gives the stated variance (at n=1 it gives π²/12). With ψ=φ−φ∘T/3, Pψ=0 and ||ψ||²=(8/9)||φ||². For the reversed differences the row quadratic variation is an ergodic average of E(ψ²|T^(−1)B) along T; the expected normalized conditional Lindeberg sum is E[ψ² 1{|ψ|>ε√n}]→0. The telescoping endpoint term is uniformly L²-bounded, giving the claimed π²/6 Gaussian variance. This is an ensemble normal-quotient law on the real invariant interval, not a fixed-seed CLT or positive-population assertion. Read the included verifier as evidence; the reconstruction does not depend on running it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The lacunary survey treats sums of dilated periodic functions and identifies classical Kac/Salem–Zygmund work; the elementary bounded-variation/Lipschitz formulations cannot simply be quoted for a logarithmic singularity.",
+          "Hong–Zhang explicitly give the recurrence and boundary equilibria and focus on bifurcations/chaos at positive coexistence equilibria. Abstract transfer/martingale CLTs yield Gaussianity once the eigenfunction and variance are established."
+        ],
+        "reasoning": "General limit theory covers the probabilistic step, not an already established source-model locus, its mortality endpoints or stationary finite-horizon normal law. The scope of novelty is the exact computed invariant in that model.",
+        "searches": [
+          "Aistleitner–Berkes–Tichy, arXiv:2301.05561v3",
+          "Hong–Zhang DOI:10.3934/math.2023678, equation (1.2), introduction and section 2"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.3934/math.2023678",
+        "https://arxiv.org/html/nlin/0309065",
+        "https://arxiv.org/abs/2301.05561",
+        "Resultary indexed coupled-logistic and Lotka–Volterra comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original recurrence supplies the prey cubic and normal derivative to be analyzed; it does not imply these numerical formulas by citing any of its equilibrium theorems.",
+          "Anteneodo supplies the Fourier matching template, not the positive odd-degree correlation spectrum. Jensen's formula supplies the scalar integral once the A+2z multiplier and invariant law have been identified."
+        ],
+        "reasoning": "This is a short explicit model computation with classical ingredients, not a general new CLT. Neither a known degree-two law nor the local stability or bifurcation results specialize to the linked all-mortality and stationary finite-time normal assertions.",
+        "searches": [
+          "Hong–Zhang equation (1.2)",
+          "Anteneodo arXiv:nlin/0309065v2, equations (10)–(15)",
+          "Resultary: Exact transverse-log covariance spectrum on the chaotic axis of a coupled logistic population map (semantic match)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After setting u=t/π modulo 1, the midpoint process is exactly log|2 cos(π·3^j u)|. Anteneodo's centered Ulam derivative is log|2 cos(πu)| under powers of 2, with negative lag covariance and bounded variance for the sum.",
+          "The Resultary coupled-logistic-axis note gives a normal exponent band and parameterized degree-two covariance; the three-species Lotka–Volterra note gives an ambient spectrum and a cusp, not this cocycle."
+        ],
+        "reasoning": "The change from 2 to 3 is not a conjugacy/interchange of the known stochastic laws: matching Fourier frequencies preserves sign for odd multipliers but not even ones. No claim of novelty for the log-cosine Fourier expansion or for the idea of studying a plateau is warranted.",
+        "searches": [
+          "Resultary: cubic Chebyshev predator free boundary transverse Lyapunov exponent plateau Gaussian normal fluctuations log 2 cos tripling",
+          "Primary literature: logarithm 2 cos central limit tripling logarithmic singularity lacunary trigonometric sums Kac Chebyshev transverse Lyapunov predator prey cubic exact variance",
+          "Anteneodo arXiv:nlin/0309065v2, equations (10)–(15)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The index returns this record itself and related exact population-map notes. None of the inspected other summaries reports this Hong–Zhang normal cocycle or its finite-n variance; Anteneodo's explicit exact variance is for the different doubling observable process."
+        ],
+        "reasoning": "The most relevant indexed calculations overlap in method or in the existence of a plateau but are not a duplicate determination of these quantities. This check is not an exhaustive absence claim.",
+        "searches": [
+          "Resultary: cubic Chebyshev predator free boundary transverse Lyapunov exponent plateau Gaussian normal fluctuations log 2 cos tripling",
+          "Primary literature: Chebyshev cubic predator prey Allee cubic normal Lyapunov log cosine tripling Kac Gordin central limit log sine expanding circle map exact variance covariance"
+        ]
+      },
+      "rationale": "Best of knowledge, for the exact source-map locus and its quantified normal law only. The Fourier and martingale mechanisms are classical, and the known doubling calculation uses precisely the same centered logarithmic cosine observable, not merely a similar one. The odd arithmetic changes the correlation sign and removes the cancellation, and the exact parameter/cocycle identification in the Hong–Zhang map was not covered by the sources inspected.",
+      "residual_risks": [
+        "The exact log-cosine process under odd dilations may have a prior explicit treatment elsewhere in the lacunary or expanding-map literature. No historical-priority or generic probabilistic novelty claim.",
+        "Indexed summaries establish the overlap described but are not substitutes for a full document review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct antecedent for the model and equilibrium stability, rather than a prior computation of this stationary chaotic normal invariant",
+          "evidence": [
+            "Equation (1.2) gives the Euler predator factor; Section 2 gives the hP lower-left entry and 1+hN−hm lower-right entry.",
+            "The introduction maps Sections 3–5 to local coexistence bifurcations and their chaos simulations."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/math.2023678",
+          "material_read": "OA PDF abstract, introduction, equation (1.2), opening of Section 2 and Jacobian on pp. 13390–13392",
+          "method": "Read relevant pages from publisher's OA PDF text",
+          "title": "Bifurcations and chaotic behavior of a predator-prey model with discrete time",
+          "trigger": "Exact underlying nonlinear map and prior boundary analysis"
+        },
+        {
+          "assessment": "Closest explicit analytic antecedent; covers the centered derivative under doubling but not the tripling normal law",
+          "evidence": [
+            "Equation (13) gives the same coefficients after subtracting the mean; equations (14)–(15) give negative off-zero correlations and bounded centered-sum variance."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/nlin/0309065",
+          "material_read": "Full scholarly HTML, particularly equations (10)–(15), (20) and concluding discussion",
+          "method": "Read and compared the Fourier normalization, frequency match and finite-time variances",
+          "title": "Statistics of finite-time Lyapunov exponents in the Ulam map",
+          "trigger": "Same logarithmic Fourier observable and exact stationary correlations"
+        },
+        {
+          "assessment": "Places Gaussianity and regularity issues in the standard lacunary literature",
+          "evidence": [
+            "Introduction distinguishes lacunary trigonometric sums from sums of dilates of a centered function and identifies early CLTs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.05561",
+          "material_read": "OA v3 PDF abstract, introduction and setup for dilated periodic functions",
+          "method": "Read PDF text excerpts; used for context, not a whole-document priority verdict",
+          "title": "Lacunary sequences in analysis, probability and number theory",
+          "trigger": "Classical broader Gaussianity for sums of dilates"
+        },
+        {
+          "assessment": "Overlapping conceptual mechanism, different degree, displacement and fluctuation law; no whole-document negative verdict claimed",
+          "evidence": [
+            "Summary describes the doubling model, Bernoulli-polynomial spectrum and distinguishable bounded and diffusive cases."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-transverse-log-covariance-spectrum-on-the-chaotic-axis-of--634dc48171fb",
+          "material_read": "Indexed scientific summary",
+          "method": "Resultary semantic search",
+          "title": "Exact transverse-log covariance spectrum on the chaotic axis of a coupled logistic population map",
+          "trigger": "Prior population-map normal plateau and explicit covariance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The tuned midpoint is intrinsic to the mortality plateau: the linear normal multiplier there is centered on the symmetric invariant interval. The exact finite-time correction and positive diffusive variance quantify a distinction lost by the Lyapunov exponent, with a concrete contrast to bounded logarithmic amplitudes in the classical degree-two derivative case. The invariant interval is not wholly biologically admissible; value here is an exactly solved normal cocycle for real dynamics, not evidence of predator invasion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

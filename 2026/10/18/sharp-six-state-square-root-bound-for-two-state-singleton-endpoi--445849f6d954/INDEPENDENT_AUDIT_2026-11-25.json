@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:25:29.532426Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–53; VERIFICATION.md, CHECK.py and CHECK_OUTPUT.txt inspected and not executed",
+        "Independent doubled-word simulation, replay with node /workspace/evidence/5/witness.js"
+      ],
+      "rationale": "Membership of the doubled word is the Boolean (s,t) entry of M(w)^2. A path of unordered pairs lifts to two labeled runs: at each letter choose the matching that realizes the pair transition and swap labels as necessary to agree with the preceding step. Thus the two possible midpoint states for s≠t are implemented by independent three-state components, [s,s] to [s,t] and [s,t] to [t,t], with language terms m_ss·m_st and m_st·m_tt. For s=t the required terms are m_ss or m_su·m_us; the three-state pair component from [0,1] to itself admits also m_00·m_11, which is already covered by the ordinary two-state m_ss component. Disjoint union is epsilon-free and accepts the empty word exactly when s=t. I independently simulated the doubled concatenations in the two-state source by propagating reachable sets, without Boolean matrix multiplication or the uploaded checker. The six rows are 110000, 010000, 111000, 111100, 111110, 111111. All diagonals are one and no opposite off-diagonal pair is simultaneously one. Mark a state after each prefix in its chosen accepting run: equality of two marks would splice both cross-concatenations, a contradiction even with multiple initial states. This proves six states are required for the binary witness.",
+      "residual_risks": [
+        "The independent simulation checks the 36 witness words only; the universal construction and the fooling-set proof are separate. Five is a sufficiency result for coincident endpoints, not a sharpness assertion there."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general ordinary-NFA construction uses Q³. Its matching lower bound applies for n≥6 and its witness has three initial and three final states. The deterministic formula n^n−binom(n,2) is for complete DFAs."
+        ],
+        "reasoning": "The ordinary-NFA upper bound specializes to eight, and the high-state lower theorem does not imply any six-state bound at n=2. Determinism restricts the source transition matrices as well as changing the output model.",
+        "searches": [
+          "Onishchenko arXiv:2605.02957 Theorems 2–3",
+          "Caron, Hamel-de-le-court and Luque arXiv:2004.12958 §5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.02957; arXiv:2004.12958; Resultary records ending 087cc2ea55ea and c2c292048dbb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cubic construction evolves two ordered runs with a guessed midpoint. Quotienting by interchange is justified separately for the two specified endpoint transition tests in the submitted result. The parity result instead uses a word Hankel factorization and rank; a Boolean OR of possibly overlapping paths is not linear superposition over F₂."
+        ],
+        "reasoning": "The three-state pair reduction exploits these endpoints, and the lower bound uses a separate ordinary-NFA splice obstruction. Neither follows as a stated or mechanical consequence of the closest exact statements under a change of parameters.",
+        "searches": [
+          "arXiv:2605.02957 Q³ construction",
+          "Resultary parity record ending 087cc2ea55ea, assumptions and binary witness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A same-day parity-automaton result gives n³−n²+n, including the exact binary value six at n=2 with singleton source endpoints. It expressly uses parity of paths. Its lower certificate is a Hankel rank over F₂, and its displayed b matrix has the opposite loop placement from the ordinary-NFA witness."
+        ],
+        "reasoning": "The numerical and product-construction overlap is substantial, but replacing existential acceptance by parity can change even the square-root language of the same transition graph. On the frozen transitions, bbb belongs to the ordinary square root and not the parity one (the latter has M(b)^3=I). The certificates do not transfer merely by reducing transition entries modulo two.",
+        "searches": [
+          "Resultary: state complexity of square root, two-state NFAs and singleton endpoints; record ending 087cc2ea55ea",
+          "arXiv:2605.02957 §§3–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected exact parity result includes a binary 6×6 certificate at two states; the deterministic general formula gives three at two states. The other Resultary exact bound is for a binary subsequence ideal and counts complete-DFA states. None of these exact entries counts unrestricted existential-path output NFAs from the assigned singleton-endpoint source class."
+        ],
+        "reasoning": "The competing exact values must be compared with the semantics used to define both source and output; no matching same-model entry was established in the inspected sources.",
+        "searches": [
+          "Resultary: exact square-root state complexity and binary two-state witnesses; records ending 087cc2ea55ea and c2c292048dbb",
+          "arXiv:2605.02957 §§3–4",
+          "arXiv:2004.12958 §5"
+        ]
+      },
+      "rationale": "The exact ordinary-NFA small-source bound with a binary witness is not supplied by the general cubic theorem or the closest same-size parity or deterministic results. Credit is for existential-path state complexity under the stated endpoints, not for the general square-root construction or the standard fooling-set technique.",
+      "residual_risks": [
+        "Earlier same-model small-state work may express the result under a different operation name. Comparisons are against the inspected exact and broader statements, not an exhaustive priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same operation and acceptance, but no exact singleton-endpoint two-state bound in the checked theorems",
+          "evidence": "Q³ upper bound; matching lower bound only for n≥6 using three initial and three final states.",
+          "identifier_or_url": "https://arxiv.org/html/2605.02957",
+          "material_read": "§3 Theorem 2 and construction; §4 Definition 3 and Theorem 3, offsets around 6200–8880",
+          "method": "OA HTML passage inspection",
+          "title": "Nondeterministic state complexity of square root",
+          "trigger": "Strongest same-semantics general theorem"
+        },
+        {
+          "assessment": "Different model",
+          "evidence": "Uses complete DFAs; n^n−binom(n,2) evaluates to 3 at n=2.",
+          "identifier_or_url": "https://arxiv.org/html/2004.12958",
+          "material_read": "Opening definitions and §5 formula, offset about 53933",
+          "method": "OA HTML passage inspection",
+          "title": "The state complexity of a class of operations involving roots and boolean operations",
+          "trigger": "Exact bounds on the same language operation"
+        },
+        {
+          "assessment": "Different semantics and lower-bound certificate despite material structural overlap",
+          "evidence": "Defines F₂ path parity and Hankel rank; the binary transitions are diag(1,0) and rows (1,1),(1,0), with a rank-six certificate over F₂.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-parity-automaton-square-root-state-complexity-n-3-n-2-n--087cc2ea55ea",
+          "material_read": "RESULT.md offsets 0–2746 and 6380–7880, including assumptions and §5",
+          "method": "Local mirror passage inspection",
+          "title": "Exact parity-automaton square-root state complexity n³−n²+n",
+          "trigger": "Exact same parameter and value, including binary singleton-endpoint witness"
+        },
+        {
+          "assessment": "Different source family and output model",
+          "evidence": "An exact complete-DFA result for a subsequence-ideal language.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-quadratic-square-root-state-complexity-for-a-binary-subseq--c2c292048dbb",
+          "material_read": "RESULT.md finding",
+          "method": "Local mirror passage inspection",
+          "title": "Exact quadratic square-root state complexity for a binary subsequence ideal",
+          "trigger": "Resultary exact binary comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md constructions and witness; Onishchenko Theorems 2–3"
+      ],
+      "rationale": "Square root is a standard language operation, and two source states are the first nontrivial case. The sharp binary witness and endpoint-dependent pair compression give a justified exact gap from the general cubic upper bound; the witness is not a table lookup or a substitution in the known large-state theorem.",
+      "residual_risks": [
+        "No asserted exact coincident-endpoint bound, single-initial output bound, or extension to larger sources."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

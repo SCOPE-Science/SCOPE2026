@@ -1,24 +1,21 @@
-# Scientific review — geometric Mexican-hat scale-channel Riesz bounds
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The proof derives the normalized covariance between every two heat-Laplacian scales from the exact radial Fourier integral, with exponent \(\nu=(d+4)/2\). It then transforms the Toeplitz Gram kernel through a beta integral and Poisson summation into a uniformly convergent positive Gamma periodization. Crucially, the Euler product represents every Gamma modulus square as a positive Gaussian mixture; the Jacobi product proves all wrapped Gaussian summands strictly decreasing from frequency \(0\) to \(\pi\). Therefore the displayed endpoints are *global* sharp Riesz bounds, not numerically guessed extrema. Fejér packets show optimality also for a one-sided infinite scale family. An exact circular-convolution identity makes dimension improvement strict. Gamma Stirling asymptotics at one zero-frequency and two antipodal-frequency aliases establish both leading constants and their ratio. The supplementary checker passed 442 numerical assertions; no infinite claim is inferred from finite numerics.
+PASS
 
-## Originality (PASS, provisional historical priority)
+Plancherel's radial integral has power r^(d+3), giving heat-inner product proportional to (t+s)^(−ν) and normalized overlap sech^ν((log t−log s)/2). The beta substitution u=e^x yields 2^ν|Γ(ν/2+iy)|²/Γ(ν); Poisson summation then has factor 1/h and all aliases strictly positive. By Euler's product the Gamma ratio is the Laplace transform at y² of a sum of independent exponentials with summable means, so Tonelli expresses the periodization as a positive mixture of wrapped Gaussians. In the Jacobi product the first angle factor strictly decreases from 0 to π, the others are nonincreasing, and the products converge to positive values; comparison thus gives strict decrease of each Gaussian periodization and of the mixture without differentiating under the expectation. The exact Toeplitz form and arbitrarily long one-sided Fejér packets prove sharpness even for indices j≥0. Multiplication of the Gram sequence by sech^δ convolves the symbol with a full-support positive normalized probability kernel; nonconstancy makes both improvements strict. Stirling gives one leading alias at 0 and two at π, the rest exponentially smaller, yielding A∼2^(ν+2)π^ν h⁻ν exp(−π²/h)/Γ(ν) and B∼2^ν Γ(ν/2)²/(h Γ(ν)). Their ratio and 1/(16π²) in d=2 check. Dense scale asymptotics are for fixed dimension.
 
-The closest accessible Mexican-hat transform paper, Fukuda–Kinoshita–Yoshino (2017), explicitly treats the same mother-wavelet profile but studies wavelet-transform regularity, not the unshifted normalized geometric-scale Gram symbol, the exact extrema or dimensional sharpening. Antezana–Carando–Scotti (2021) work with integer dilations in \(L^2(0,1)\), not the Gaussian heat-Laplacian channels over Euclidean space. The full accessible result on causal differences of exponentials has a conceptually related Mellin/Toeplitz method but different channel overlap and a different condition-number coefficient; it does not imply the present coefficient or dimension monotonicity. Bui–Laugesen (2011) address full Mexican-hat frequency-scale frame completeness, whose published abstract and talk do not prove the current claim; their original full text was not accessible for direct comparison, creating a named residual historical risk. Searches for Mexican-hat dilation Gram eigenvalues, Gamma periodization, sech-power Toeplitz extrema and sharp scale conditioning yielded no source proving this precise result. These searches support best-knowledge originality, not a formal uniqueness certificate.
+## originality
 
-## Value (PASS)
+PASS
 
-Closely packed Gaussian heat-derivative channels are a natural scale-space feature family whose synthesis noise amplification cannot be read from the unit norm of each individual channel. The result gives the exact best-possible coefficient-conditioning budget for *every* logarithmic spacing in *every* dimension, reveals that the same frequency is always worst, proves strict conditioning improvement as spatial dimension grows, and quantifies an exponential small-spacing instability with a sharp dimension-specific leading constant. This is a mathematically motivated infinite-family stability result, not a prescribed numerical slice or a restatement of the abstract Riesz criterion. It does not assert completeness or transformed filter-bank frame bounds.
+Best-of-knowledge pass for the explicit dimension-dependent sharp endpoint, dimension ordering and dense-spacing results for the scale-only LoG family, not for Mellin–Poisson dilation analysis, standard theta monotonicity or the general sharpness criterion for Toeplitz forms. Catalogue summaries were compared with the mathematical statements actually available; no full-text exclusion is inferred for inaccessible sources.
 
-## Closest literature and limitations
+## value
 
-- Fukuda, Kinoshita and Yoshino, *Wavelet transforms on Gelfand–Shilov spaces and concrete examples* (2017), https://doi.org/10.1186/s13660-017-1393-0, full article read, §4 relevant.
-- Antezana, Carando and Scotti, *Splitting the Riesz basis condition for systems of dilated functions through Dirichlet series* (2021), https://arxiv.org/abs/2110.07659, original preprint sections read.
-- Bui and Laugesen, *Frequency-Scale Frames and the Solution of the Mexican Hat Problem* (2011), https://doi.org/10.1007/s00365-010-9098-3, bibliographic abstract available; primary full text not inspected.
-- *Sharp dense-scale conditioning of causal exponential-difference dilates*, https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-sharp-dense-scale-conditioning-of-causal-exponential-difference--665865eb3d5b, full scientific result and proof inspected.
+PASS
 
-The bounds concern unshifted normalized scale functions on their closed span, not a full translated-wavelet frame. Finite checks are supplementary, and independent verification is still outstanding.
+For one-centered normalized LoG scale synthesis, mere positivity of the Gram symbol cannot quantify how many nearby scales are stably resolvable as coefficients. The universal worst frequency, strict dimension improvement and sharp spacing cost including the leading factor address that natural stability question rather than giving a finite matrix experiment or a full-wavelet frame claim.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

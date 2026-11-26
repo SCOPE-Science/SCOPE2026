@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The operator difference has a signed kernel on the Bernstein nodes. Nonnegative interior masses and negative endpoint masses follow from the binomial martingale identity, so its exact row variation is twice nonabsorption probability. The recurrence for that probability is the Bernstein operator applied to the strictly concave symmetric first-step survival polynomial. The discrete-second-derivative identity preserves strict concavity, rigorously establishing the unique midpoint optimizer for all degrees and positive powers. Reflection diagonalizes the nonabsorbing matrix into even and odd spectral modes; the leading eigenvector is the quadratic variance polynomial, giving the stated Perron coefficient and fourth-eigenvalue remainder. The degree-four identity is derived from the symmetric two-dimensional eigenblock. Finite exact-rational checks of 940 assertions supplement the proof; they cannot certify all powers.
+## correctness
 
-## Originality — PASS within available evidence
-Kelisky--Rivlin (1967) establish convergence of the powers, not the finite-power sharp norm or its unique norming point in the portions examined. Cooper--Waldron (1999 author manuscript, published later) explicitly establish all polynomial eigenvalues, eigenfunction parities, and an expansion of the iterates, so none of those spectral inputs is claimed as new. The exact norm is a nonlinear absolute-row functional, not a direct spectral eigenvalue identity; obtaining its sharp value at every power requires establishing all signed kernel masses and proving global midpoint rigidity. Nagler--Kähler (2013), and Nagler--Cerejeiras--Forster (2014), study iterated Schoenberg-operator bounds and approximation errors, not the exact classical Bernstein power-to-limit norm. Searches for Wright--Fisher absorption survival, operator powers, and reflected spectral expansions found no logically covering statement. Priorities of some inaccessible older full texts, notably Nielson--Riesenfeld--Weiss (1976), Nagel (1980), and Badea (2009), remain unresolved; absence of a database hit is not a proof of novelty.
+PASS
 
-## Value — PASS
-This is the precise worst-case uniform stability/error of a canonical positive approximation process for every degree and time horizon, not a routine bound for a prescribed test function. The unique optimizing evaluation point is structural, giving an efficient exact finite computation, while the reflection-induced elimination of odd spectral modes identifies a faster genuinely sharp long-time error scale than a generic spectral estimate. Both the all-iteration norm formula and its asymptotic coefficient depend on the particular operator and normalization, not on a renaming of a standard theorem.
+At each x the degree-n binomial iteration is a martingale absorbed at the endpoints. For the difference with L, its interior masses are nonnegative and its endpoint masses are the negatives of their endpoint-interpolation weights. The total variation is twice survival and the continuous piecewise linear nodal sign function attains it. Survival begins at 1−x^n−(1−x)^n; the Bernstein second-difference formula preserves strict concavity, and reflection then gives the unique maximizer at 1/2. Positive one-step absorption from each interior node makes the norm strictly decreasing. On the polynomials vanishing at both endpoints, the eigenvalues λ₂,…,λ_n are distinct (the two affine eigenvalues are both 1) and the corresponding eigenfunctions restrict to a basis on the interior mesh. The Perron right vector is h_j=(j/n)(1−j/n), with projection of the constant vector h/H_n. The midpoint row gives b_n^T h=λ₂/4 and annihilates odd modes. This proves the exact coefficient, the O_n(λ₄^m) bound at fixed n and the vanishing remainder for n=2,3; it does not assert a nonzero λ₄ coefficient at every degree. The two symmetric modes at n=4 and survival values 1 at time zero and 7/8 after one step give the displayed closed form. An independent rational check at n=4, m=1,2 gave midpoint norms 7/4 and 171/128, with derivative sign switching only at 1/2 in each case. The frozen checker was inspected, not executed; its finite grid tests are not a proof of uniqueness. Analytic replay: frozen RESULT.md lines 37–62.
 
-## Closest literature and limitations
-The preceding full texts treat related convergence and spectra. Classical absorption-matrix machinery applies, but none of the checked primary statements supplies the same exact optimized function-space norm. Existing older literature may contain an equivalent special theorem. The fixed-degree remainder is not asserted to be uniform in degree, nor is a matching closed elementary expression for the quasi-stationary normalization claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the sharp all-iteration C-to-C norm and its unique evaluation point, with the consequent exact leading amplitude and improved remainder. Convergence, polynomial eigenvalues and parity are prior results. On establishing the sharp midpoint norm, selecting the even modes from the known expansion is a consequence, not a separate new spectral theorem. No inspected earlier source supplies the all-iteration optimized norm.
+
+## value
+
+PASS
+
+The uniform worst-case error of Bernstein iteration is a natural invariant of a canonical positive operator. The theorem determines it at every time without a continuous optimization, and shows exactly where to evaluate it. The normalized Perron coefficient and even-sector bound quantify long-time error, with the rate improvement realized at degree four. These conclusions go beyond computing the already-known Bernstein eigenvalues.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

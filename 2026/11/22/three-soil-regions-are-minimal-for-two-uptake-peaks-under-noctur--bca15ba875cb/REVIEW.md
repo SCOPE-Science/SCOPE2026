@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two-region result is an analytic strict-concavity argument in \(z=e^{-2\kappa T}\); the three-region path is solved exactly by the two decaying Laplacian modes. For the rational witness, the displayed degree-14 polynomial and strictly positive denominator are exact. A Euclidean Sturm calculation gives sign variations \(9\) and \(6\) at the endpoints, with coprime derivative, forcing exactly three simple roots. Exact rational signs isolate alternating derivative directions, hence exactly two distinct strict finite-rate maxima and one intervening minimum. The embedded checker reproduced the proof identities and 48 supplementary assertions. Numerical root values and RK4 comparisons are diagnostics, not substitutes for proof.
+PASS
 
-## Originality — PASS, provisional
+With two regions, the exchange semigroup gives the affine segment x=(m+delta*z,m-delta*z), z=exp(-2*kappa*T). The denominators are positive even for initially dry regions. The uptake sum in z has strictly negative second derivative when delta is nonzero and is constant otherwise. Thus it has at most one interior maximum; the monotone change of variable preserves its type. One region is constant. On the three-region path the eigenvectors (1,1,1), (1,0,-1), and (1,-2,1) give the stated normalized solution with modes 1,q,q^3 and nonnegative water fractions. For the stated positive capacities and half-saturations, independent exact differentiation recovers 108P over the product of the three squared nonvanishing denominators. Independent exact arithmetic reproduces gcd(P,P')=1, Sturm variations 9 and 6 at the nonroot endpoints, and signs +,-,+,- at 1/10,7/10,9/10,19/20. These bracket all three roots; the sign switches are max/min/max, and the smooth bijection q=exp(-kappa*T) reverses order without changing their types. The rates in increasing kappa*T are about 0.0661994572, 0.1881674312 and 0.7494616363. Replay: /workspace/branches/2c7df399-3f8f-41b6-9348-3b1831c18c0b/independent_exact_check.py. The uploaded checker was inspected, not executed. The count applies to finite positive rates for fixed T>0, not endpoint optima or realized daytime transpiration.
 
-The closest checked primary literature includes Amenu–Kumar's soil-root hydraulic redistribution model, Guswa's spatial variance and compensation study, Wang and colleagues' time-varying ecohydrological simulations, and Quijano–Kumar's root-conductivity sensitivity experiments. Their *main texts* were compared in scope, controls, observables, and quantifiers. Completed semantic indexed searches did not locate an equivalent minimal two-vs-three result. The nearest unrelated mathematical findings about two-box remote tracer and three-patch stochastic population variance do not imply the claimed concave instantaneous three-soil-region response. This is not an exhaustive mathematical-priority search: general positive-semigroup theory or supplementary materials remain risks.
+## originality
 
-## Value — PASS
+PASS
 
-A grounded modeling question is whether heterogeneity can create multiple preferred root-system coupling strengths rather than the single optimum forced by two-cell concavity. The sharp minimal region count and the exact three-zone witness constitute a structural boundary, not a routine numerical parameter estimate. It provides a test case for simplified root-hydraulic modeling and parameter-sensitivity procedures, without claiming field validation.
+The standard diffusion modes, concavity and Sturm method are not original. The distinct supported result is the sharp two-region obstruction and three-region example with exactly two interior maxima of saturating dawn uptake in the specified lossless transient model. Related path models inspected do not establish that result. This is a bounded best-of-knowledge comparison, not a priority determination.
 
-## Scientific limitations
+## value
 
-Fixed duration, equal volumes, symmetric nearest-neighbor exchange, no loss or uptake during the night, static local saturating responses at dawn and designed rational parameters. The finding is about number of *local* extrema, not proven global optimality, measured transpiration, or biological universality. Some possible literature coverage remains unresolved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The instantaneous saturation observable and varying exchange rate have a natural interpretation independently of the numerical example. The result separates one-mode averaging, which makes this response concave in the modal amplitude, from a minimal two-mode system with two strict competing optima despite conservative symmetric exchange and positive response parameters. An exact global count on positive rates is stronger than finding two apparent numerical peaks. No field efficacy or plant-specific calibration is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

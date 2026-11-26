@@ -1,21 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated claim is restricted to the smooth characteristic-five members of the marked reciprocal genus-four hyperelliptic family. Factoring the reciprocal quintic through the coordinate \(z=t+t^{-1}\) yields the explicit squarefree criterion. Coefficient extraction from the square of the degree-ten branch polynomial yields a Cartier matrix splitting into two conjugate \(2\)-by-\(2\) blocks, each with determinant \(D\). The second twisted Cartier iterate, using the appropriate semilinear order, reduces the rank-one case to \(N\); the ranks \(0,2,4\) and \(a\)-numbers \(2,0\) follow without assuming anything about Newton slopes.
+PASS
 
-Exact polynomial elimination gives the degree-six irreducible factor and the four exceptional rational first-coordinate values. Common-root calculations exclude all but the one smooth rational pair and show that each root of the irreducible factor gives exactly one smooth marked parameter. The included symbolic checker independently reproduces the asserted polynomial identities and enumerates every pair over the base field. All algebraic closures and extension counts are justified by the elimination/irreducibility argument, not by finite sampling.
+The reciprocal factorization in t=x^2 gives a quadratic in t+t^(-1) and a simple extra factor t+1 off the stated bad locus. Repeated roots occur at the quadratic discriminant or at the two branch values ±2, which gives exactly S; the leading coefficient is 1, so the degree-ten squarefree case has genus four. Fresh coefficient extraction gives B and its basis-reversed twin. On D=0, u=0 forces the singular pairs (0,0),(4,2). For the rank-one case, write B as x y^T with x=(u,ell)^T and y=(1,h/u)^T. The column-action Cartier map is (Bv)^(1/5); its square is represented after raising to the 25th power by B^(5)B. The middle scalar is (y^(5))^T x=N/u^5. Thus the block dies after the second iterate if N=0 and otherwise its image line is preserved with nonzero action; this establishes the stable ranks independently of the ordinary matrix rank that gives the a-number. A fresh exact calculation in U=a^2+2b checked the resultant and found the elimination generator a^8(a+1)(a+2)(a-2)^6 Q(a). The monic fiber gcds for a=0,1,2,3,4 are b^3,1,b-1,b-2,b-2, respectively; only (3,2) is smooth. Adjoining Q to the ideal gives precisely (Q,U-(a^2+2 beta(a))). The reduction of S there is coprime to Q. The modular Frobenius criterion verified irreducibility of Q, so the six marked points have exact degree six and the claimed extension census follows.
 
-## Originality — PASS, with residual risk
+## originality
 
-The family itself is explicitly taken from Ohashi--Kudo, arXiv:2312.16858v1, equation (3.6), and is not new. The inspected original article addresses superspecial curves and their classification principally in characteristics at least seven. It does not assert the complete rank-zero locus in characteristic five. The related superspecial census cannot cover the conclusion by implication, since a curve can have \(5\)-rank zero without being superspecial. The Hasse--Witt conventions of Achter--Howe are known technical background, not a novelty claim. Targeted searches did not identify an existing classification with the same characteristic, marked parameters, and three Cartier-rank regimes. An earlier unindexed computation or isomorphic reformulation remains a genuine residual risk; a negative search is not a proof of uniqueness in the literature.
+PASS
 
-## Mathematical value — PASS
+The exact reciprocal family and the Cartier machinery are prior. The supported distinction is the smooth characteristic-five rank stratification and exact seven-point coefficient-marked census for that family. The same-equation primary text, characteristic-five superspecial context and closest indexed rank computations do not give this marked classification in the inspected evidence.
 
-The arithmetic of a classical low-dimensional automorphism-rich hyperelliptic family is a natural problem. In the exceptional small characteristic five, the explicit determinantal and Frobenius-twisted equations give a complete global rank stratification and a finite geometrically exact nonordinary extremal locus. Determining that this locus consists of one rational pair and a single degree-six Frobenius orbit, together with its field-of-definition census, is a naturally motivated classification not implied by the original superspecial research. It distinguishes an entire characteristic-specific arithmetic phenomenon, rather than an arbitrary small-field table.
+## value
 
-## Scope and independent assessment
+PASS
 
-The parameters are equation-marked, not geometric isomorphism classes. Rank zero is not claimed to imply Newton supersingularity. The full zeta functions are outside scope. The exact verifier requires SymPy. Historical coverage could be broader than the inspected sources.
+This is a complete arithmetic classification on an established two-parameter family at a small characteristic outside the cited superspecial enumeration. It distinguishes intermediate rank from rank zero despite identical Cartier ranks on D=0, and gives an exact field-of-definition census via a rational point and an irreducible sextic orbit. These are useful input for choosing or counting marked examples over extensions; they are not an arbitrary lookup in one small field or a generic change of coordinates.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

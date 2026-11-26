@@ -1,19 +1,21 @@
-# Scientific review: fundamental–adjoint sixth moment on \(SU(3)\)
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement uses probability Haar measure and unnormalized irreducible characters \(w=\operatorname{tr}(g)\), \(h=|w|^2-1\), orthonormal in \(L^2\). The Weyl constant-term formula specified in `RESULT.md` yields exact moments \(\int h^6=145\), \(\int|w|^2h^4=40\), \(\int|w|^4h^2=13\), \(\int|w|^6=6\), and \(\int w^3h^3=22\). Cubic-center symmetry forbids all other mixed phases in the sixth moment. Subtraction from \(145(|a|^2+|b|^2)^3\) gives an exact deficit. It reduces to the rational function \(R(u)\), whose derivative numerator is an explicitly signed cubic with exactly two positive roots. The first critical point is its unique global minimum, including the boundary limit \(139\); its positive value proves that the only nonzero sharp moment maximizers are pure adjoint. Optimality of stability follows from the explicitly admissible phase-aligned mixed equality family. The second-variation coefficient \(75\) is greater than its globally sharp value. The checker reconstructs all Weyl integrals and polynomial identities by exact arithmetic and tests 600 additional complex pairs. Finite tests are not used to establish the universal theorem.
+PASS
 
-## Originality — PASS, best-knowledge comparison
+For ordinary traces and probability Haar, orthogonality gives the stated S. Independently, Schur–Weyl duality and the hook-length formula give the multiplicities in each tensor power of the fundamental; the three-row partitions are compared after subtracting the last row, because determinant twists disappear on SU(3). Pairing those multiplicities and expanding h=|w|²−1 gives moments 145, 40, 13, 6 and phase moment 22. The center retains only equal exponents or a difference of ±3, giving the full stated polynomial. After dividing by |a|²S², phase alignment minimizes the ratio. The derivative of the aligned ratio has two positive zeros, by the signs at 0, 1/4, 1 and 3 and Descartes' rule. Its unique global minimum is at the first zero, below 75 and below the endpoint at infinity (139). Positivity follows from the negative discriminant of 75−44u+318u². These steps also verify the pure-adjoint sixth-moment maximizer, the three relative phases at nontrivial stability equality, and the cases a=0 and b=0.
 
-Agarwal and Nahmgoong, *Singlets in the tensor product of an arbitrary number of Adjoint representations of SU(3)*, arXiv:2001.10826 (first public 2020-01-23), §3, establish the adjoint tensor-power singlet recurrence and display the known multiplicity \(145\) in degree six. The primary paper was inspected through its publicly accessible full HTML, including the Weyl-integration setup and multiplicity table; its stated theorems and main results do not provide a sharp norm or global quadratic stability coefficient on the mixed two-character space. The present claim explicitly attributes \(145\) to that source. Published-record searches for the specific fundamental–adjoint mixture, mixed sixth moments, adjoint tensors, and sharp \(L^6/L^2\) character inequalities located related abelian character-packet and higher-weight estimates, not statements implying this exact \(SU(3)\) stability inequality or its nontrivial equality family. Generic character identities are background, not a novelty claim. Residual risk: a prior equivalent inequality could be hidden in older representation-theoretic norm literature; independent priority audit has not been performed.
+## originality
 
-## Value — PASS
+PASS
 
-The known scalar moment \(145\) by itself does not yield the sharp two-character concentration inequality. The exact mixed sixth moment settles whether introducing the fundamental character can improve concentration, and exhibits an optimal *global* stability correction whose equality occurs at a nonzero mixing ratio. The strict inequality \(\kappa<75\) shows that local Hessian analysis at the maximizer misses the worst perturbation; phase alignment yields a rigid three-direction mixed family. This is a natural sharp stability and representation-interaction fact, not a free parameter substitution or a recomputation of an isolated known table entry.
+The pure-adjoint value 145 and general character-integration machinery are known. The supported distinct content is the mixed sharp inequality with its exact phase dependence and the globally optimal stability constant, not the individual adjoint moment or a general moment-computation method. No equivalent or implying result for this stability statement was identified in the inspected material.
 
-## Scope and remaining risk
+## value
 
-Only the two-character space and one exponent are settled; the constant for the larger fundamental–antifundamental–adjoint span is not asserted. No independent scientific priority determination or external validation has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The fundamental and adjoint are a natural defining/endomorphism character pair. This is an exact example where the local stability coefficient at the sharp optimizer does not describe the best global deficit bound: order-three central resonance selects specific interior phase directions. The sharp coefficient and equality loci quantify this distinction, rather than merely tabulating one character moment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

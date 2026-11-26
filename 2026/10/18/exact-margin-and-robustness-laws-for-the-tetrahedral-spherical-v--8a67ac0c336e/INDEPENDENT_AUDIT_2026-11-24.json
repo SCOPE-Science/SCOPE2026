@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:40:55.248836Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent slice calculation partitions generic directions into the 12 equiprobable ordered winner/runner pairs. For winner v_1 and runner v_2, use s=(U_2+U_3)/sqrt(2), w=sqrt(1−s²), U_1=w cos φ and (U_2−U_3)/sqrt(2)=w sin φ. Then Δ=κs, s≥0, and v_2 beats the other two exactly when U_1≥max(U_2,U_3), or w(sqrt(2)cos φ−|sin φ|)≥s. The angular interval has length 2H(s) up to s=sqrt(2/3); the surface element is ds dφ. Multiplying by 12/(4π) gives 6H(s)/π and rescaling gives the density. H'<0 on the interior; the stated primitive has derivative H and normalizes at the upper endpoint. Integration by parts gives the moment integrals; for the first use s=(sqrt(3)/2)sin θ and for the second z=sqrt(3−4s²), obtaining respectively arcsin(1/3) and π/6−1/(2sqrt(3)) for the integrals in the frozen proof. The nearest losing hemisphere has distance equal to the minimum over the three separating great circles; any path exiting the cell meets its boundary first, so inactive circle portions cannot give a smaller distance. Equal edge lengths make this distance arcsin(Δ/κ), giving the stated endpoint and the tail law; equality of the perturbation radius is immaterial in probability because there are no atoms. An independent direct sphere quadrature with 1024×2048 nodes found mean 0.529939262962 and second moment 0.398818370894, versus 0.529939502485 and 0.398818759625 analytically. CDF error at the four tested thresholds was at most 1.02×10^{-4} (finite-grid boundary error, not proof). Replay: /workspace/branches/9bd2fe8d-49a5-491b-8a41-8579561278d1/record5_quadrature.py and record5_quadrature_notes.txt. The frozen checker and recorded results were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mazonka gives a boundary integral for general conical surfaces, a product formula for polyhedral cones with great-circle boundaries, and an explicit formula for two circular caps. At positive threshold all three active cap boundaries here are small circles",
+          "9631069f9bd6 supplies near-maximum clearance asymptotics for general spherical triangles. 729f07123a91 uses a query uniform in a polytope interior and studies other vertex/facet margins"
+        ],
+        "reasoning": "For fixed winner the threshold event is precisely the intersection of three equal caps of height s=Δ_threshold/κ whose unit normals have pairwise dot 1/2; its area divided by π is the unconditional tail. Neither the two-cap law nor a zero-height cone law computes this positive-height three-way intersection. The general integral still needs the spherical boundary geometry and evaluation. A local tail of the general triangle law is not a law on the full support.",
+        "searches": [
+          "Exact area of intersection of three spherical caps / spherical triangle inner parallel area",
+          "arXiv:1205.1396, Secs. 2.1, 3.1 and 4.3",
+          "Resultary 9631069f9bd6 and 729f07123a91"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "arXiv:1205.1396",
+        "arXiv:1509.02897",
+        "arXiv:1907.04628",
+        "Resultary 9631069f9bd6, ef7e7f9edc6d, 23de31ea3def, 729f07123a91 and Gaussian spacing laws (summary only for the latter)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Andoni et al. use cross-polytope rankings; Laarhoven treats collisions of two correlated queries and tetrahedral query exponents",
+          "The triangle law recovers only the ε→0 upper-end tail; the conical-surface paper gives a general integral, not an evaluated three-cap intersection"
+        ],
+        "reasoning": "A one-query margin is not measured by the collision probability of two correlated queries or the winner score alone. A point-to-circle distance argument supplies the radius relation but no distribution. The strongest matched geometric and multi-cap sources do not mechanically yield the full CDF and moments without the additional three-active-constraint slice or an equivalent evaluation.",
+        "searches": [
+          "arXiv:1509.02897, multiprobe angular LSH",
+          "arXiv:1907.04628, spherical hashing and tetrahedron passages",
+          "arXiv:1205.1396, Eqs. (3), (21)–(25), (45)",
+          "Resultary 9631069f9bd6 and ef7e7f9edc6d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "ef7e7f9edc6d studies the minimum over all adjacent projected gaps, rather than the top gap; 23de31ea3def concerns nearest distance to an icosahedral vertex",
+          "For a standard Gaussian in three dimensions, the raw tetrahedral top-score gap equals ρΔ, where ρ has the independent chi_3 radial distribution. It is not already the normalized spherical spacing"
+        ],
+        "reasoning": "Equal-length vertex differences give a common scale for the distances to decision circles, but the minimum over all ordered gaps is not the winner's minimum gap to a competitor. A radial deconvolution would be needed to recover a spherical law from a raw Gaussian top spacing. The Gaussian catalogue match was only accessible in search summary and did not state that raw top-spacing law.",
+        "searches": [
+          "Resultary: tetrahedral top-two projection spacing, simplex Gaussian margins, spherical triangle boundary clearance",
+          "arXiv:1907.04628, tetrahedral spherical hashing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched full exact law is an icosahedron nearest-angle law or concerns a different simplex spacing. The closest triangle entry has a matching endpoint coefficient, not an exact CDF or moment table for this tetrahedral margin"
+        ],
+        "reasoning": "A continuous law is not addressed by a finite instance table; exact formula overlap was checked instead. The special-case coefficient 3sqrt(3)/π multiplies ε² in the tail within ε of the maximal radius, and agrees with the expansion of the frozen law. One endpoint coefficient does not determine the full density or moments.",
+        "searches": [
+          "Resultary: exact tetrahedral directional gap and spherical Voronoi clearance",
+          "Resultary 23de31ea3def, 9631069f9bd6 and ef7e7f9edc6d"
+        ]
+      },
+      "rationale": "The strongest inspected geometric and spacing results address a local clearance tail, a different order statistic, different sampling, or two-query collisions. A general spherical boundary integral and an explicit two-cap formula were inspected but do not evaluate the three-cap area needed here. The supported distinct content is the full one-query margin distribution and moments (and hence the exact radius distribution), not the general margin-to-hyperplane relation in isolation.",
+      "residual_risks": [
+        "An unlocated evaluated three-cap intersection or full spherical inner-parallel area theorem could give equivalent coverage. A general boundary method and local tail are verified related results, not negative evidence. This is a bounded best-of-knowledge decision, not a historical priority assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General integral and closed two-cap special case, not direct coverage of the positive-height three-cap law",
+          "evidence": [
+            "Boundary line integral still requires an arc and corner computation here; the finite product applies to great-circle edges; Eq. (45) is for two circular cones."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1205.1396",
+          "material_read": "Sec. 2.1 Eq. (3) and Eq. (4), p. 2 offset 2880; Sec. 3.1 Eqs. (21)–(25), pp. 4–5 offset 11258; Sec. 4.3 Eq. (45), p. 11 offset 26899",
+          "method": "OA primary PDF text by section and offset",
+          "title": "Solid Angle of Conical Surfaces, Polyhedral Cones, and Intersecting Spherical Caps",
+          "trigger": "Potential exact broader formula for the three-cap intersection underlying the margin tail"
+        },
+        {
+          "assessment": "Partial overlap at the upper endpoint only",
+          "evidence": [
+            "At the tetrahedral cell with area π and inward normals at mutual dot 1/2 its near-endpoint tail has coefficient 3sqrt(3)/π, agreeing with the frozen law's expansion."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-contact-rank-transition-in-maximal-spherical-triangle-clearance--9631069f9bd6",
+          "material_read": "Mirrored RESULT.md Finding and assumptions, offset 0",
+          "method": "Indexed match and mirrored text",
+          "title": "Contact-rank transition in maximal spherical-triangle clearance",
+          "trigger": "Same distance to spherical cell boundary"
+        },
+        {
+          "assessment": "Distinct order statistic",
+          "evidence": [
+            "Minimum of all consecutive projected gaps and its threshold integral, rather than the last consecutive gap."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-optimal-minimum-projection-spacing-of-regular-simplex-vertices--ef7e7f9edc6d",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Indexed match and mirrored text",
+          "title": "Optimal minimum projection spacing of regular simplex vertices",
+          "trigger": "Same simplex scores and projected spacing terminology"
+        },
+        {
+          "assessment": "Distinct polytope and statistic, irrespective of date",
+          "evidence": [
+            "Nearest to a vertex of the 12-vertex icosahedron, not distance to a tetrahedral decision boundary or its top-two score gap."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-the-exact-nearest-direction-law-of-the-regular-icosahedron--23de31ea3def",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Indexed match and mirrored text",
+          "title": "The exact nearest-direction law of the regular icosahedron",
+          "trigger": "A full regular-polytope direction law with the same catalogue date"
+        },
+        {
+          "assessment": "Different distribution of sampled points and margins in the inspected description",
+          "evidence": [
+            "Uniform interior point and nearest squared-distance/facet margins, not uniform spherical direction's top-two score gap."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-universal-joint-vertex-facet-margin-law-for-regular-polytopes--729f07123a91",
+          "material_read": "Indexed finding and scope",
+          "method": "Resultary comparison",
+          "title": "A universal joint vertex–facet margin law for regular polytopes",
+          "trigger": "Plausible broader regular-polytope margin result"
+        },
+        {
+          "assessment": "Cross-polytope rankings, no tetrahedral top-gap law in passages inspected",
+          "evidence": [
+            "Multiprobe score ranking in cross-polytope LSH."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1509.02897",
+          "material_read": "PDF p. 3, offsets 8189 and 10113",
+          "method": "OA primary PDF text",
+          "title": "Practical and Optimal LSH for Angular Distance",
+          "trigger": "Score ranking and angular spherical hashes"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": [
+            "Correlated two-query collision law via Gaussian orthants and tetrahedral exponent, not the one-query ordered score gap."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1907.04628",
+          "material_read": "PDF p. 3 offsets 11258–12608; p. 4 offset 17358",
+          "method": "OA primary PDF text",
+          "title": "Polytopes, lattices, and spherical codes for the nearest neighbor problem",
+          "trigger": "Same tetrahedral spherical nearest-vertex partition"
+        },
+        {
+          "assessment": "Summary indicates cut-count order statistics; stronger role not ruled out from inaccessible text",
+          "evidence": [
+            "The summary is about invariant hyperplane cuts, not the top-two margin of a uniform direction."
+          ],
+          "identifier_or_url": "Resultary 2026/11/1/SCOPE-gaussian-spacing-laws-and-rare-balanced-cuts-of-regular-simplices",
+          "material_read": "Search summary only; matching local mirror unavailable",
+          "method": "Resultary search",
+          "title": "Gaussian spacing laws and rare balanced cuts of regular simplices",
+          "trigger": "Possible exact Gaussian representation of simplex score gaps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The regular tetrahedron is a natural spherical nearest-vertex code, and the full distribution of its top gap tells exactly what surface fraction is robust against all perturbations at each angular radius. The formula supplies a usable benchmark from ties to maximal clearance, including a strictly decreasing margin density and moment values, not just one geometrical distance or endpoint estimate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

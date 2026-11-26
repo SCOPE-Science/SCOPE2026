@@ -1,31 +1,21 @@
-# Scientific review: all-budget threshold vaccination
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the precisely specified equal-susceptibility, heterogeneous-infectiousness SIR equations, time-integration gives the exact scalar final-size equation \(H=B+T(1-e^{-H})\) with \(B>0\). The proof checks existence and uniqueness of the **physical positive root** and shows \(1-Te^{-H}>0\) for every \(T\geq0\), including below and at the reproduction threshold. Its derivative yields strict improvement when weighted unvaccinated exposure decreases. A separate dose-saturation inequality proves that every fixed-budget maximizer uses the entire supply. An elementary threshold-exchange inequality then characterizes **all** optimizers, including ties, for every \(K\in[0,S]\). The rearrangement formula proves the full optimal survivor curve, its derivative where defined, and the endpoint cases. The 125-point rational-grid comparison and two independent numerical SIR integrations in `verify.py` check finite instances only and are not relied upon for the general conclusion.
+PASS
 
-## Originality — PASS, with residual risk
+The nonnegative integrated removals are bounded by initial susceptible plus infectious mass, so bounded beta/mu implies finite integrated force. The stable infectious equation with integrable incidence gives I(t,x) tending to zero. Integrating then yields H=B+T(1-exp(-H)), and the surviving mass is m+(S-m)exp(-H). Convexity, the negative value at zero when B>0 and the positive asymptotic slope give one positive root; at that root T exp(-H)=(H-B)/(exp(H)-1)<1. Thus at fixed m<S minimizing remaining weighted exposure strictly improves the objective and the threshold exchange integral gives all equality cases, with arbitrary allocation on the cut level. Adding a positive feasible increment strictly increases survival, so the budget is saturated, including the endpoints. The rearrangement and implicit differentiation give the frontier and its positive marginal term, regular through T=1. The inherited dynamic-control conclusion is about a supremum, not attainment; at the full endpoint it also follows by taking lower budgets tending to S and using S as an upper bound. Independent bounded bisection reproduced the reported two-group survivor masses 1.853622849292 and 1.574692330951. This is corroboration only; the continuum claim rests on the proof and the dynamic equivalence on the cited theorem. Uploaded code was inspected, not run.
 
-Almeida, Ducasse and Paparelli's Theorem 4 [1] proves the priority ordering only under an explicit upper bound on the vaccination budget; their Remark 1.4 specifically leaves removal of that bound for further work. Their Theorem 3 already proves dynamic/static supremum equivalence for all budgets, so that equivalence is **not** asserted to be new. Their proof also notes that tied priority levels can be treated; that observation likewise is **not** new. The new statement is that the threshold allocation is optimal for *all* budgets, together with the exact entire survivor curve and valid subcritical derivative. The full primary paper was examined at the theorem, assumptions, prior comparison and proof.
+## originality
 
-A particularly relevant earlier paper by Duijzer, van Jaarsveld, Wallinga and Dekker [2] uses a greedy ordering under separable mixing, but for an **unconstrained vaccine-quantity** optimization targeting the critical reproduction threshold. Its statement does not optimize final survivors at each prescribed budget in the presence of a strictly positive initial infectious seed. Penn and Donnelly [3] analyze small-supply asymptotics in a different group model; Gavish and Katriel [4] study imperfect (leaky) vaccination, which can have the opposite prioritization at high reproduction numbers. The rank-one final-size reduction and rearrangement arguments themselves are standard techniques. A specialized older fixed-budget result not located in the investigated literature could subsume the present statement; this is the principal originality risk.
+PASS
 
-## Mathematical value — PASS
+Pass for the exact all-budget allocation and finite-seed survivor frontier, including through and beyond the critical-exposure value. The priority ordering, tie handling in the restricted regime and the equality of dynamic and initial suprema are already in Almeida–Ducasse–Paparelli and are not credited as new. The primary theorem and its proof expressly restrict the budget for threshold optimality, with the all-budget extension posed as a possibility. Inspected analogues optimize another objective or operate in an approximation regime. This is a bounded best-of-knowledge decision with the stated access risks.
 
-The result closes an **explicitly identified unresolved budget range** in a recent mathematical epidemiology model, rather than changing a numerical constant or applying a cosmetic parameter substitution. It supplies a constructive global policy for every possible available quantity, characterizes ties and endpoint allocations, and produces an exact monotone all-budget survival frontier with a usable marginal-dose formula. A finite infected seed ensures this frontier passes smoothly through the critical reproduction level, addressing the mathematical obstacle that restricted the motivating proof. The example with \(K=1.5\) falls strictly outside the published small-budget condition \(K<1.25\), illustrating the newly established regime.
+## value
 
-## Scope and residual limits
+PASS
 
-The theorem assumes identical susceptibility, perfect immediate vaccination of initially susceptible individuals, equal cost per dose, strictly positive initial infection, and deterministic SIR dynamics. It does not cover leaky vaccines, susceptibility heterogeneity, weighted clinical outcomes, or supply delivery-rate constraints. It yields the optimum for initial vaccination and, only by [1, Theorem 3], the **supremum** for time-varying controls. No independent assessment is claimed. Relevant older specialized vaccine-optimization literature may still contain a stronger all-budget implication not identified here.
+The extension resolves a specific open regime in the cited model: finite-seed survivor optimization at budgets that can drive post-vaccination exposure through one. It provides a constructive exact allocation and continuous scalar frontier rather than a simulation, and clarifies why the marginal benefit has no singularity there. The common-hazard, perfect-vaccine objective bounds its practical interpretation.
 
-Self-review: passed. Independent audit: not yet performed.
-
-## Sources
-
-[1] Almeida, Ducasse, Paparelli, *Optimizing vaccine allocation in an age-structured SIR model*, arXiv:2605.18256v1, 18 May 2026. https://arxiv.org/abs/2605.18256 .
-
-[2] Duijzer, van Jaarsveld, Wallinga, Dekker, *The most efficient critical vaccination coverage and its equivalence with maximizing the herd effect*, Mathematical Biosciences 282 (2016), 68–81. https://repub.eur.nl/pub/79912/EI2016-06.pdf .
-
-[3] Penn, Donnelly, *Asymptotic Analysis of Optimal Vaccination Policies*, Bulletin of Mathematical Biology 85 (2023), article 15. https://doi.org/10.1007/s11538-022-01114-3 .
-
-[4] Gavish, Katriel, *Optimal vaccination at high reproductive numbers: sharp transitions and counter-intuitive allocations*, arXiv:2202.03909v1. https://arxiv.org/abs/2202.03909 .
+The dated certificate retains the supplied scientific assessment, sources and limitations.

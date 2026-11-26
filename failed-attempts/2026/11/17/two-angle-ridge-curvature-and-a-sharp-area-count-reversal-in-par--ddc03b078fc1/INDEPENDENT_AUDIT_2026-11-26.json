@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:25:20.528341Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the 0/1 metric, the odd-corner constraints are Hamming-distance affine functions d_w≥1. The open removed simplices are disjoint, since d_w+d_{w'}≥2 for distinct odd corners. No fractional vertex is introduced: one tight odd cut with at least two fractional coordinates permits a small opposite signed perturbation, and a single fractional coordinate cannot make such an affine cut tight. Two distinct tight cuts force the centers to be distance two and all other coordinates to be fixed to their common values; the intersection then lies on the segment between two even vertices. With no active cut, fractional coordinates are free. Thus the given facets exhaust the polytope. Fixing two axes leaves a parity halfcube, of full remaining dimension when n≥5; fixing one coordinate at its odd-center value removes one vertex from the simplex facet, producing a simplex ridge. Two odd centers have at most two common even neighbors and cannot make a ridge. These intersections give both counts, including the absence of coordinate–coordinate ridges when n=4. Subtracting orthogonal corner volumes gives each halfcube measure; a simplex Gram determinant m+1 gives volume sqrt(m+1)/m!. Coordinate normals are orthogonal and a coordinate and incident odd-cut normal have cosine 1/sqrt(n). In the stated Steiner normalization, the outer normal sector occupies θ/(2π) of its plane, giving the formula and V2(H4)=8sqrt(3)/3. The displayed positive denominator D_n satisfies D_{n+1}−2D_n=(n−3)(n−2)!, so the ratio decreases with the stated crossing and factorial tail. The opposing limits refer to the probability of an exactly right angle; both angle distributions themselves converge weakly to a point mass at π/2. The frozen floating-point program covers only dimensions 4–7; it is not the all-dimensional proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Green classifies and counts the faces in every dimension k, including k=n−2. Lemma 2.3.5 expresses K(v',S) as the full simplex facet intersected with one coordinate facet for each missing coordinate, and L(v,T) as the intersection of coordinate facets for missing coordinates.",
+          "Manecke–Sanyal–So give the coordinate and odd-subset simplex facet families in the even 0/1 realization; the Schneider monograph passage could not be retrieved."
+        ],
+        "reasoning": "For k=n−2 the missing-coordinate counts force the exact facet pairs in the result. This is stronger than an abstract combinatorial classification by face type alone.",
+        "searches": [
+          "Green arXiv:0806.1503v2, Theorem 2.3.6 and Lemma 2.3.5",
+          "Manecke–Sanyal–So Theorem 2.7 and §3; Schneider face-angle intrinsic volumes"
+        ]
+      },
+      "checked_sources": [
+        "Green arXiv:0806.1503v2; Manecke–Sanyal–So arXiv:1812.07491",
+        "Resultary ddc03b078fc1 (self), b9bae71b2cb8 and bc9bc51216ea (catalogue comparisons)",
+        "Frozen RESULT.md, VERIFICATION.md and halfcube_ridge_verify.py (inspected, frozen program not executed)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the known facet equations the only outward normal dot products are 0 and 1/sqrt(n). Green's explicit face vertices give either a coordinate unit halfcube (cube minus the odd corner simplices) or the standard regular simplex of edge sqrt(2). Applying the planar normal-sector fraction gives precisely the displayed two terms of V_(n−2).",
+          "The area ratio follows just by multiplying the already enumerated counts by these two measures. From (n−2)!−2^(n−3), its denominator grows by more than a factor two per dimension before the square-root factor; evaluating the first two dimensions gives the stated switch."
+        ],
+        "reasoning": "Neither a new ridge-exhaustion theorem nor a new metric integral is needed after the prior coordinate face theorem. The weighted/count comparison is a direct consequence of these data, despite its useful interpretation.",
+        "searches": [
+          "Green Lemma 2.3.5 and Theorems 2.3.6, 2.3.8; Manecke–Sanyal–So coordinate and odd-cut inequalities; standard codimension-two face-angle sum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Green arXiv:0806.1503v2 classifies the half cube in ±1 coordinates; x↦(x+1)/2 and, if needed, a single coordinate reflection give the unit 0/1 halfcube. Manecke–Sanyal–So §3 identifies it with Δ(n,[0,n]∩2Z)."
+        ],
+        "reasoning": "The change of realization is a similarity (possibly followed by reflection), not a general affine equivalence: it preserves angles and rescales k-measures predictably. Green's two coordinate face constructions are those in the assigned result.",
+        "searches": [
+          "R M Green half cube face classification Theorem half-cube number simplex faces ridge 2008 demihypercube dihedral angles face counts",
+          "Manecke–Sanyal–So arXiv:1812.07491, parity S-hypersimplex"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Green gives 2^(n−1) binom(n,k+1) simplex faces and 2^(n−k) binom(n,k) halfcube faces for 3≤k<n, giving n2^(n−1) and 2n(n−1) at codimension two. His 2-face count at n=4 is 32 simplex faces.",
+          "Resultary ddc03b078fc1 is the assigned record, not separate coverage. b9bae71b2cb8 concerns halfcube volume and covariance, not a ridge-angle table. The catalog summary for bc9bc51216ea is for a different polytope; its full text was not retrieved."
+        ],
+        "reasoning": "The census is an exact prior formula. No separate table of these intrinsic-volume values was verified, so the metric comparison rests on implication from the explicit coordinate descriptions.",
+        "searches": [
+          "Resultary: halfcube ridge curvature, parity halfcube intrinsic volume and weighted ridge law",
+          "Green Theorem 2.3.6 (iii)–(v), exact face counts"
+        ]
+      },
+      "rationale": "Green's earlier coordinate-level face classification and facet-intersection lemma cover the complete ridge census, with the same two types and counts. The remaining formulas are mechanical metric evaluations of these explicit faces and facet equations in the fixed 0/1 scale, followed by the standard polyhedral Steiner sum and a direct ratio of the resulting known face counts and elementary measures. The bounded search did not verify a prior table printing the final Steiner or crossover formulas verbatim; the FAIL is based on prior implication, not on assuming such a table exists.",
+      "residual_risks": [
+        "No exhaustive check of unindexed Coxeter-polytope tables. Schneider's full passage and the other-polytope same-day record were not retrieved. The verdict does not rely on those unavailable sources or on historical ordering of same-day results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior combinatorial census and coordinate constructions determining the metric data",
+          "evidence": "K(v',S) intersects its full simplex facet with the coordinate facets for missing mask positions; L(v,T) intersects coordinate facets. Counts for the two types are given for every k≥3 and the type at k=2 is enumerated separately.",
+          "identifier_or_url": "https://arxiv.org/abs/0806.1503",
+          "material_read": "Introduction; Lemma 2.3.5, Theorem 2.3.6, Remark 2.3.7, and opening of Theorem 2.3.8, PDF pp. 16–18 (OA offsets 34550 and 36594)",
+          "method": "Targeted original OA PDF passages",
+          "title": "Homology representations arising from the half cube",
+          "trigger": "Explicit earlier face counts and containing facets for the demihypercube"
+        },
+        {
+          "assessment": "Prior halfcube presentation and coordinate/simplex facet framework",
+          "evidence": "Even-parity S-hypersimplex with coordinate halfcubes and odd-subset simplex facets; higher-dimensional halfcube faces described as coordinate intersections.",
+          "identifier_or_url": "https://arxiv.org/abs/1812.07491",
+          "material_read": "Theorem 2.7 and §3, PDF pp. 5–7 (offsets 20308, 23924, 25429 and 29466)",
+          "method": "Targeted original OA PDF passages",
+          "title": "S-hypersimplices, pulling triangulations, and monotone paths",
+          "trigger": "Known unit-parity facet equations and realization"
+        },
+        {
+          "assessment": "No inference about a halfcube-specific table from this retrieval failure",
+          "evidence": "Used the standard outer normal sector argument to independently verify the codimension-two normalization stated in the frozen record.",
+          "identifier_or_url": "R. Schneider, 2nd expanded edition, 2014",
+          "material_read": "No decisive textbook passage retrieved",
+          "method": "Publisher and alternate preview attempts",
+          "title": "Convex Bodies: The Brunn–Minkowski Theory",
+          "trigger": "Standard intrinsic-volume normalization and face-angle decomposition"
+        },
+        {
+          "assessment": "Same realization; different metric statistic",
+          "evidence": "Volume, covariance and isotropic constants, rather than exterior normal angles of ridges.",
+          "identifier_or_url": "Resultary b9bae71b2cb8",
+          "material_read": "Catalogue comparison",
+          "method": "Local Resultary lookup",
+          "title": "Exact isotropic defect and the unique exceptional dimension of parity halfcubes",
+          "trigger": "Earlier metric finding on the same polytope"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The distinction between counting faces and weighting them by Euclidean measure is a meaningful question on this natural family. But here the precise cutoff and Steiner coefficient follow by routine metric evaluation and comparison of the established coordinate-level face census, without a surviving independently useful unknown structural or metric fact. The two angle measures actually have the same weak limit; the contrast is specifically in the mass at exactly π/2.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

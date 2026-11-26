@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:46:59.576950Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–70; VERIFICATION.md; certify_sensitivity.py; certified_intervals_{7,8,9,10}.json",
+        "Independent replay: python3 /workspace/brownian_review_replay.py 1024"
+      ],
+      "rationale": "Scale by t0=x0²/(4D): the reflection principle and independence give survival erf(t^(−1/2))^N. Restarting the entire ensemble at the first exponential clock gives h(z+ρ)/(1−ρh(z+ρ)). Its value and negative z derivative at zero give mean and half the raw second moment. Differentiating in ρ using h(0)=m0, h′(0)=−m1, h″(0)=m2 (finite since N>6) gives the asserted mean and variance slopes and C′=2(2m1²−m0m2)/m0³. Right differentiability and a nonzero slope suffice for the local strict comparison, and positive rescalings preserve signs. Independently certified signs on 4096 rational cells using degree 64/65 Taylor bounds, rational Machin normalization, outward-grid bounds on erf(u)/u, and exact tail and interval propagation. Outward slope-box numerators at scale 10^6, in order mean, variance, 2m1²−m0m2: 7 ([81616,89115], [−2946308,−2896667], [−1432566,−1413229]); 8 ([128610,135460], [−558489,−520491], [−289305,−279046]); 9 ([139906,146323], [−107318,−75947], [−82414,−75579]); 10 ([139531,145643], [18824,45917], [−23427,−18360]).",
+      "residual_risks": [
+        "Only four team sizes and sufficiently small positive common reset rates checked. The frozen script was inspected, not executed. VERIFICATION.md calls the quotient complementary-error-function in one sentence; the theorem and code correctly use erf, not erfc."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed Brownian result has (+,−,−) at 7–9, (+,+,−) at 10–11, and (+,+,+) at 12.",
+          "Biroli et al. give the mean slope change at approximately 6.3555864; Reuveni's unit relative SD concerns nonzero mean-optimal restart, not this zero endpoint."
+        ],
+        "reasoning": "The matching catalog result is strictly broader and subsumes the four-size claim, unlike the older, different fluctuation setting.",
+        "searches": [
+          "Same Resultary Finding and Assumptions",
+          "arXiv:2303.18012, Protocol B and Eqs. 25–29, B21",
+          "arXiv:1512.01600, Eqs. 4 and 6"
+        ]
+      },
+      "checked_sources": [
+        "Matched Resultary record b635406801e3",
+        "Biroli–Majumdar–Schehr 2023",
+        "Reuveni 2015/2016"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known mean criterion implies positive local mean slope over the integer range here. Generic restart calculus alone does not compare Brownian moments numerically. The matching catalog explicitly certifies the needed specialized inequalities."
+        ],
+        "reasoning": "Restrict the matched result to N≤10 and replace its raw moments by the survival integrals to get the whole frozen claim directly.",
+        "searches": [
+          "Biroli–Majumdar–Schehr Eq. 29 and B21",
+          "Reuveni Eq. 6",
+          "Resultary b635406801e3, raw-moment formulas and sign analysis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matched source specifies Protocol B, t0=x0²/(4D), q=rt0, and V/M². Its raw moments m1,m2,m3 equal the frozen m0,2m1,3m2, respectively."
+        ],
+        "reasoning": "This makes the compared sensitivities identical, rather than merely comparing search under the same rough parameters.",
+        "searches": [
+          "Resultary: simultaneous Brownian searchers / weak reset variance, mean and squared coefficient of variation",
+          "2026/11/8/SCOPE-three-distinct-weak-reset-risk-responses-for-simultaneous-browni--b635406801e3, RESULT.md offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed Finding gives the exact four rows needed for the frozen sign table plus two more. The earlier mean numerical material is not a variance or CV table."
+        ],
+        "reasoning": "Different enclosures of the same continuous integrals certify the same discrete sign table, not additional claimed mathematical content.",
+        "searches": [
+          "Resultary b635406801e3, exact sign triples in Finding and Assumptions",
+          "arXiv:2303.18012, mean-slope numeric discussion and Appendix B"
+        ]
+      },
+      "rationale": "The distinct indexed Three distinct weak-reset risk responses record certifies exactly the same triples for every frozen team size and also covers N=11,12. It uses the same Brownian motion, first-hit objective, one simultaneous Poisson clock, time/rate units and squared CV. Its three raw moments equal m0, 2m1, 3m2 of the frozen notation; all slope formulas and the nine–ten variance switch coincide. This is verified existing coverage, not a claim that the later catalog entry has historical priority. The traditional literature independently covers the renewal and mean part but was not sufficient to infer a prior evaluated variance switch on its own.",
+      "residual_risks": [
+        "The later catalog date is not a priority finding. No earlier evaluated variance-switch claim was established by the bounded literature check."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full coverage, and additional sizes; no priority inference",
+          "evidence": "The exact triples at 7–10 coincide and the proof defines the same slopes. Snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-three-distinct-weak-reset-risk-responses-for-simultaneous-browni--b635406801e3/RESULT.md",
+          "material_read": "Finding, Assumptions and renewal/moment identities, offset 0–2980",
+          "method": "Local Resultary mirror and direct normalization comparison",
+          "title": "Three distinct weak-reset risk responses for simultaneous Brownian searchers",
+          "trigger": "Strongest same-protocol same-sign-table match"
+        },
+        {
+          "assessment": "Covers mean component but inspected calculations don't evaluate the variance and CV slopes",
+          "evidence": "One common reset clock; same renewal survival and sign change of the mean slope near 6.3555864.",
+          "identifier_or_url": "arXiv:2303.18012",
+          "material_read": "Protocol B p. 2, Eq. 25–29, the mean-slope threshold discussion, Appendix B Eq. B21, and related mean numerics",
+          "method": "OA primary PDF",
+          "title": "Critical number of walkers for diffusive search processes with resetting",
+          "trigger": "Original paper on precisely this Brownian protocol"
+        },
+        {
+          "assessment": "General antecedent, different evaluated claim",
+          "evidence": "Unit relative SD at nonzero mean-optimal restart and a generic restart transform, not the team-size sign switch.",
+          "identifier_or_url": "arXiv:1512.01600",
+          "material_read": "Abstract, Eq. 4 and Eq. 6, pp. 1–3",
+          "method": "OA primary PDF",
+          "title": "Optimal stochastic restart renders fluctuations in first passage times universal",
+          "trigger": "Generic restart fluctuation result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and sensitivity computations",
+        "Biroli–Majumdar–Schehr mean threshold"
+      ],
+      "rationale": "The first four mean-disfavored team sizes provide a motivated comparison window: absolute risk and speed move in opposite directions at 7–9 and agree at 10, while relative risk falls in all four cases. This is an informative certified distinction between mean, variance and relative dispersion beyond a generic restart identity. It is not a distinct addition to the matching broader result.",
+      "residual_risks": [
+        "No global rate optimization, robustness, monotone threshold for all larger N, or independent-reset analogue is shown."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The labeled graph is reconstructed from its step set. The primitive integral top cycle is explicitly given by four signed dihedral facet orbits. Exact triangle-orbit boundary coefficients prove it is closed, and the computed third-boundary rank 79 over the two-element field, combined with an integral gcd-one cycle, proves uniqueness over the integers. The verifier independently checks every coefficient and all 106 free-face collapse pairs, the two triangulated vertex-link spheres, and their collapsible disk intersection. Published shellability yields the ambient sphere homotopy type; finite checks are used only for this finite combinatorial theorem.
+## correctness
 
-## Originality
-**PASS, subject to residual bibliography risk.** The 2014 first public description and the 2015 Earl–Vander Meulen–Van Tuyl proof explicitly establish shellability and non-vertex-decomposability and give the original 80-facet shelling. The 2015 lexicographic-product sequel and the 2023 commutative-algebra application rely on this established example. They do not present the chain generator's signed coefficients, support and sharp integral norm, nor identify each deletion as a sphere and each vertex link as a wedge of two spheres. Related public mathematical findings about different circulants or different sixteen-vertex graphs do not imply this exact theorem. An unindexed or differently titled calculation could still cover it.
+PASS
 
-## Mathematical value
-**PASS.** This is a canonical minimal counterexample in the shellability hierarchy. The new local homotopy classification explains a substantive distinction: deleting any vertex changes a shellable three-sphere model to a non-shellable complex that nevertheless collapses to an actual two-sphere. The link has two sphere classes, and the unique global integral three-cycle needs every facet, with triple-ridge constraints enforcing coefficient-two facets. Its integral 96-versus-mod-two 64 support discrepancy is not implied by shellability, Betti numbers, or the previously published negative deletion \(h\)-vector.
+Independent enumeration of all nonempty 16-vertex subsets found f=(16,80,144,80), no five-vertex independent set and no maximal face below dimension three. Exact elimination gave rank 79 for the third boundary over both Q and F₂. Solving over Q and clearing denominators gave a primitive signed cycle, normalized at (0,2,5,7), with seed weights (1,−1,2,1), the stated four facet-orbit sizes and the six tabulated triangle-orbit boundary rows. Signed rotation and reflection fix the cycle. Its coefficients have gcd one and magnitudes 1 on 64 facets and 2 on 16, so the rank-one integral kernel, ℓ₁=96 and the unique nonzero mod-two cycle with 64 facets follow. Any proper induced subcomplex omits a facet because every vertex belongs to a tetrahedron; its top cycles embed into the ambient kernel, so it has none. Independent replay checked the unique immediate coface at all 106 deletion moves; the remainder is precisely the stated connected closed triangulated surface of Euler characteristic two. The link pieces likewise are spheres and cover the entire link, and their intersection is a connected surface with one boundary cycle and Euler characteristic one, hence a disk. The two inclusions of the disk are cofibrations, so their union has the claimed wedge type. The word ‘partitioned’ in the proof should read ‘covered’: the shared disk has four triangles, as the very next statement and the certificates specify. This slip does not change the defined pieces or the argument. Translation transports both local certificates to every vertex.
 
-## Closest literature and limits
-The closest sources are the original MathOverflow example (11 September 2014), Earl–Vander Meulen–Van Tuyl arXiv:1505.02837v1 (Theorem 6.1), Vander Meulen–Van Tuyl arXiv:1505.02838v1 (Theorem 4.4), and Mafi–Naderi–Soufivand (2023, Theorem 2.4 and Example 2.5). The first two already imply the ambient topological sphere and are explicitly credited. The reported local collapse and cycle theorem is finite and specific to the graph. No generalization to lexicographic expansions or independent priority certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit prior work with the shellability, ambient homotopy and homology rank, and the implied link wedge type. The explicit collapse of each deletion to the stated triangulation and the primitive integral cycle with its exact nonuniform coefficients, full support and signed symmetry remain distinct from the earlier evidence. Direct later overlaps are recorded, not counted as earlier priority.
+
+## value
+
+PASS
+
+The standard exceptional circulant is a natural test of what shellability does not specify. The exact integral cycle shows that all vertices and all facets are necessary in characteristic zero even though 16 facet coefficients disappear modulo two. In addition, the deletion certificate gives a direct simple-homotopy description on each vertex removal, rather than just a Betti count. Those are useful finite facts about the canonical example, independent of credit for the already implied wedge types.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

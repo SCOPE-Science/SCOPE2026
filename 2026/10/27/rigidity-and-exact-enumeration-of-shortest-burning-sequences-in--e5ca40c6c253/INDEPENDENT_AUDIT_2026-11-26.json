@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:27:44.124914Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions and scope, Proof (lines 10–28)",
+        "Frozen verify_pg.py and verify_output.txt (inspected, not run)",
+        "Frozen VERIFICATION.md"
+      ],
+      "rationale": "In round r the old burned vertices and their pairwise sums are contained in the span of the first r−1 sources, and the contemporaneous source can add only one vertex. For r≤m the resulting bound 2^(r−1) is insufficient. The same argument in round m+1 with a deficient prefix span excludes every dependent first-m tuple. Conversely, for an ordered basis, at the end of r≤m the burned set is exactly the nonzero preceding span plus the new basis vector: sums of the preceding basis vector with all old nonzero span vectors fill its coset, except for the vector itself which is already burned. The same final update fills the space before the last source can have any effect. There are 2^(m−1)−1 legal final choices for each ordered basis; the product and forced profile follow. Validity uses the previous round's burned set, not the set after current propagation. The recorded m=3,4 counts agree; no finite computation is used for the universal proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier article treats projective and affine triple systems and proves lazy and sequential minimum lengths. Its projective lazy proof uses linear span closure.",
+          "The affine catalogue finding uses all seeds at time zero over F_3; the same-object incidence finding classifies pseudo-intents and does not analyze synchronous propagation."
+        ],
+        "reasoning": "The broader objects and lazy-closure statements do not classify the ordered timed source tuples in this parameter slice.",
+        "searches": [
+          "arXiv:2608.25627v1 §§3–4, Theorems 3.14 and 4.7",
+          "Local Resultary SCOPE-three-round-propagation-spectrum-of-minimum-seeds-in-ternary-aff--1eac82aa2272 and SCOPE-steiner-subsystems-determine-the-stem-bases-of-block-incidence-c--dc442f7184b5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.25627v1",
+        "JonesCaleb-MSc.pdf (targeted access unsuccessful)",
+        "Local Resultary records 1eac82aa2272 and dc442f7184b5",
+        "Frozen RESULT.md and verifier output"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4.7 inductively completes a hyperplane and adds an exterior vector and then a redundant point; from a chosen basis example, symmetry already supplies basis-prefix examples in every order.",
+          "Theorem 3.14 identifies the lazy closure as the span. The new necessity argument uses that the last source cannot yet contribute any propagated vertices outside the preceding span, and the exact count uses the saturated round-m set."
+        ],
+        "reasoning": "The earlier construction and span lemma give most of the sufficiency machinery. To get necessity and the count one still needs a temporal prior-span obstruction for every schedule plus identification of the round-m burned set; reading off the known optimum or counting all minimum lazy sets would not give this.",
+        "searches": [
+          "arXiv:2608.25627v1 Theorem 4.7 proof and Theorem 3.14 alternative proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper's PG(n,2) has vector dimension m=n+1, and its optimum n+2 is precisely m+1; its generalized sequence ends in a redundant placeholder.",
+          "The inspected catalogue neighbours concern block-incidence implications in the same binary triple system or lazy propagation in the ternary affine system."
+        ],
+        "reasoning": "Neither a minimum generating set at time zero, a block-incidence implication basis, nor one successful sequential schedule is the family of all labelled optimal synchronous schedules.",
+        "searches": [
+          "Local Resultary: binary projective Steiner sequential burning, basis schedules and optimal enumeration",
+          "arXiv:2608.25627v1 §4, Theorem 4.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frozen record attributes 504 and 141120 to a small-instance thesis table and the archived exhaustive recurrence agrees. The earlier article lookup did not locate 504; that miss is not an exclusion. The thesis access timed out on both routes."
+        ],
+        "reasoning": "The two finite counts are explicitly excluded from originality, whether tabulated or recomputed. A two-instance table does not establish the arbitrary-dimensional formula or its ordered-basis characterization.",
+        "searches": [
+          "C. W. Jones, Hypergraph Burning, JonesCaleb-MSc.pdf, attempted full-text lookup for 141120",
+          "arXiv:2608.25627v1 literal lookup 504",
+          "Frozen verify_output.txt lines 1–2"
+        ]
+      },
+      "rationale": "Credit the optimum length, the nested-hyperplane construction with a redundant final choice, and the standard lazy span closure to prior work. They are not the contribution. The inspected sources do not give the exact all-optima sequential classification with its forced synchronous profile and all-dimensional labelled count. The thesis could not be fully checked; the attributed small cases are not claimed as new.",
+      "residual_risks": [
+        "Unable to inspect the full MSc thesis or directly confirm its small-case counting convention; broader thesis coverage is unresolved.",
+        "Search coverage is bounded and not proof of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers minimum length, redundant-last witness, and span closure; not a statement of the full all-optima claim.",
+          "evidence": [
+            "Theorem 4.7 concludes b(PG(n,2))=n+2 and constructs a length n+2 generalized sequence with final *.",
+            "Theorem 3.14's proof recognizes closure of a lazy seed set as its span."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2608.25627",
+          "material_read": "Theorem 4.7 with proof (OA offset 62260 onwards); Theorem 3.14 alternative proof (offset 55300 onwards)",
+          "method": "OA HTML, bounded primary passages",
+          "title": "Burning Steiner Triple Systems",
+          "trigger": "Identical geometry and known minimum length"
+        },
+        {
+          "assessment": "Finite overlap credited provisionally; full historical comparison limited.",
+          "evidence": [
+            "Frozen RESULT.md lines 33–41 and verify_output.txt lines 1–2."
+          ],
+          "identifier_or_url": "https://www.math.mun.ca/~dapike/publications/Theses/JonesCaleb-MSc.pdf",
+          "material_read": "Frozen attribution only; no thesis pages successfully retrieved",
+          "method": "Attempted OA direct/VPN PDF retrieval with a targeted table lookup",
+          "title": "Hypergraph Burning",
+          "trigger": "Exact finite counts attributed to its computational table"
+        },
+        {
+          "assessment": "Different field, geometry, and lazy process.",
+          "evidence": [
+            "F_0 is a full affine basis in AG(d,3); no later ignitions are chosen."
+          ],
+          "identifier_or_url": "SCOPE-three-round-propagation-spectrum-of-minimum-seeds-in-ternary-aff--1eac82aa2272",
+          "material_read": "Finding",
+          "method": "Local Resultary search and mirrored RESULT.md",
+          "title": "Three-round propagation spectrum of minimum seeds in ternary affine Steiner systems",
+          "trigger": "Catalogue hit for basis-uniform burning profiles"
+        },
+        {
+          "assessment": "Different invariant.",
+          "evidence": [
+            "Counts implications from pairs and three-dimensional subspaces, not ordered burning schedules."
+          ],
+          "identifier_or_url": "SCOPE-steiner-subsystems-determine-the-stem-bases-of-block-incidence-c--dc442f7184b5",
+          "material_read": "Finding and projective-family corollary",
+          "method": "Local Resultary search and mirrored RESULT.md",
+          "title": "Steiner subsystems determine the stem bases of block-incidence contexts",
+          "trigger": "Catalogue hit on the same binary projective triple systems"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "arXiv:2608.25627v1 Theorem 4.7"
+      ],
+      "rationale": "The labelled optimum-schedule count is a natural refinement of the established minimum-round invariant, with small instances already of computational interest. The result replaces finite enumeration with one structural description for arbitrary dimension and determines which rounds and choices matter. The basis product alone is routine; the contribution is identifying exactly the schedules to which it applies, including forced redundancy and its multiplicity.",
+      "residual_risks": [
+        "Applies only to binary projective systems with synchronous round semantics and labelled sequences, not to automorphism classes or arbitrary designs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

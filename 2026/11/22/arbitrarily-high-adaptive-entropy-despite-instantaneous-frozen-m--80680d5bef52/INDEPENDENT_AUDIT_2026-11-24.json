@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:01:38.976824Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–58; independent analytic reconstruction, including a separated-set proof of the lower bound.",
+        "CHECK.py and VERIFICATION.md inspected, not executed; their reported finite rational tests are supplementary, not used in the all-m proof."
+      ],
+      "rationale": "The identical rows send every distribution to Bernoulli(q_m(θ)) in one step and give its unique frozen stationary distribution. Interpolation preserves [1/8,7/8] and continuity at each junction, including the parity-dependent value at b. The fixed unit-curvature loss produces the old-distribution gradient θ−x, so the update is F_m(x,θ)=(q_m(θ),x), not a one-variable update using the new distribution. On each affine piece outside the central interval both endpoint differences have the required strict sign relative to 1/2; on the central piece q_m(t)−t=1/4−t/2. Thus there is only the equilibrium (1/2,1/2). The central square is forward invariant and its second iterate scales displacements by 1/2, proving local exponential attraction. On L the second iterate g=q_m²|_L has m equal-length surjective affine branches with absolute slope m. For an independent entropy check, g^k has m^k full branches. Taking every other branch leaves intervening gaps, so inverse-branch words give an (N,δ_k)-separated set under g^k of size ceil(m^k/2)^N, with δ_k>0 independent of N. Taking k to infinity gives h(g)≥log m, while the Lipschitz bound gives h(g)≤log m. The same entropy holds on R by affine conjugacy. On the compact union K=L∪R the second iterate preserves both pieces, so h(q_m|_K)=log(m)/2. Finally F_m² acts as q_m×q_m, giving exactly log(m)/2 on the invariant K×K by the product and iterate identities. This is a lower bound for the full square, not an exact numerical claim about it.",
+      "residual_risks": [
+        "Deterministic expected-gradient step, local attraction only, and a continuous piecewise-affine family with sensitivity growing in m. It says nothing about finite-sample stochastic gradients."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Galatolo–Lippi give local convergence under hypotheses at small learning rates and discuss finite-rate period-two oscillations.",
+          "Piliouras–Yu Theorem 4.6 gives Li–Yorke chaos and all periods for sufficiently influential agents with exponentiated updates, including a single-agent case.",
+          "The Reflexivity Threshold p. 3 characterizes its threshold as information-theoretic, distinguishing it from earlier update-specific chaos; its convergence statement imposes curvature and sensitivity assumptions."
+        ],
+        "reasoning": "Qualitative chaos and small-feedback stability results do not give an arbitrary entropy lower bound coexisting with local attraction in the delayed two-state expected-gradient model. The prior learning guarantees rely on hypotheses not held uniform here.",
+        "searches": [
+          "Galatolo–Lippi arXiv:2611.15649v1, abstract and §8.3.3; Piliouras–Yu arXiv:2201.10483v1, §4.2; public hit The Reflexivity Threshold, related work."
+        ]
+      },
+      "checked_sources": [
+        "Resultary f4d47e06d1a4",
+        "arXiv:2611.15649v1 and 2201.10483v1",
+        "The Reflexivity Threshold PDF p. 3 and targeted public query."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The synchronized map in Piliouras–Yu equation (7) has log-odds update log(x/(1−x))−u(x−v); the derivative of that expression vanishes at most twice. Its single-agent/synchronized example has at most three laps, so does not by increasing influence generate unbounded entropy in this family.",
+          "The standard lap-growth and product identities evaluate entropy once an m-branch exchange subsystem exists; they do not construct it simultaneously with a unique attracting equilibrium and exact frozen refresh."
+        ],
+        "reasoning": "Increasing the influence in the prior one-agent example is not a dominating parameter for this claim. Neither earlier qualitative chaos nor the standard formula for the entropy of full-branch maps supplies the simultaneous construction.",
+        "searches": [
+          "Inspection of adaptive update in Galatolo–Lippi, Piliouras–Yu Theorem 4.6 and equation (7), and Resultary f4d47e06d1a4 assumptions and Finding."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The strongest distinct local hit, Resultary f4d47e06d1a4, uses rank-one two-state kernels, a tanh reset, and a strongly convex observation loss, with a convergence threshold and an attracting period-two orbit in another regime.",
+          "Here the unit step yields the delayed scalar realization F_m²=q_m×q_m, and the fixed point and swap intervals coexist."
+        ],
+        "reasoning": "One-step frozen mixing is equivalent across the two examples, but neither the scalar reset function, the update and phase portrait at unit step, nor the demonstrated invariant dynamics is the same. Same-day indexing establishes no priority order.",
+        "searches": [
+          "Local Resultary: two-state frozen refresh / strongly convex adaptive transfer / topological entropy and rank-one interval-map realizations.",
+          "Public query: adaptive Markov self-consistent transfer operator two-state rank-one instantaneous mixing quadratic loss unbounded topological entropy stable fixed point interval map performative prediction realization."
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed exact threshold f4d47e06d1a4 reports transition at δ=2/(1+a) and an attracting period-two regime, with unit step on the convergence side for its 0<a<1."
+        ],
+        "reasoning": "There is no matching exact entropy series or parametrized high-entropy example in this entry. Its exact two-cycle result cannot serve as an entropy table for these piecewise-affine reset maps. The assigned record is not an independent coverage hit.",
+        "searches": [
+          "Local Resultary exact sharp feedback thresholds and high-entropy examples under exact frozen refresh; public adaptive entropy query above."
+        ]
+      },
+      "rationale": "Coupled transfer and averaged-gradient control, strong frozen mixing with finite-step oscillations, performative chaos, and full-branch entropy formulas are not new. The distinct claim is unbounded topological entropy coexisting with the specified one-step frozen mixing, fixed uniformly quadratic loss, uniform positivity, and a unique locally exponentially attracting equilibrium. The inspected results do not supply this simultaneous construction or a stronger theorem entailing it.",
+      "residual_risks": [
+        "An equivalent earlier scalar-map embedding, perhaps in control or learning under different terminology, may exist. This is a bounded priority assessment, not reliance on a lack of search hits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong overlap in mechanism, different reset, conclusions and parameter regime.",
+          "evidence": "Reset p(θ)=1/2+c tanh θ; global convergence through 2/(1+a) and locally attracting period two above the threshold up to δ<2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-global-feedback-threshold-and-critical-relaxation-in-a-t--f4d47e06d1a4",
+          "material_read": "Local RESULT.md Finding and assumptions.",
+          "method": "Local Resultary index and mirror.",
+          "title": "A sharp global feedback threshold and critical relaxation in a two-state adaptive model",
+          "trigger": "Same-day exact frozen refresh, convex loss and adaptive phase transition."
+        },
+        {
+          "assessment": "Framework, local convergence and finite-rate oscillations; no matching construction in the inspected results.",
+          "evidence": "Local exponential convergence for sufficiently small learning rate under assumptions; section describes nonlinear period-two saturation after loss of stability.",
+          "identifier_or_url": "https://arxiv.org/html/2611.15649v1",
+          "material_read": "Abstract (HTML offset 1276) and §8.3.3 (offset 141552).",
+          "method": "OA full-text passages.",
+          "title": "Autonomous Neural Adaptive Control as a Self-Consistent Transfer Operator",
+          "trigger": "Same coupled evolution framework and potential global-dynamics coverage."
+        },
+        {
+          "assessment": "Prior chaos and all periods, but different update and no covering arbitrary entropy result in inspected single-agent model.",
+          "evidence": "For large total influence under the stated assumptions, exponentiated gradient yields Li–Yorke chaos; the synchronized dynamics are given by f_{u,v}(x)=x/[x+(1−x)exp(u(x−v))].",
+          "identifier_or_url": "https://arxiv.org/html/2201.10483v1",
+          "material_read": "Introduction at offset 7153; §4.2 Theorem 4.6 and equation (7), offsets 36200–40388.",
+          "method": "OA full-text passages.",
+          "title": "Multi-agent Performative Prediction: From Global Stability and Optimality to Chaos",
+          "trigger": "Strongest known adaptive chaos result with a single-agent specialization."
+        },
+        {
+          "assessment": "Different informational threshold; the inspected statement is not a high-entropy realization.",
+          "evidence": "Distinguishes dynamical Li–Yorke transitions from an information-theoretic threshold, and describes subcritical convergence under curvature and sensitivity assumptions.",
+          "identifier_or_url": "https://amahrous.com/papers/reflexivity-threshold/paper.pdf",
+          "material_read": "Related-work comparison, PDF p. 3, offsets 10050–11821.",
+          "method": "OA PDF, literal chaos locator followed by bounded passage.",
+          "title": "The Reflexivity Threshold: A Phase Transition for Multi-Agent Performative Prediction",
+          "trigger": "Closest candidate returned by targeted public query on adaptive feedback and phase transitions."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, construction and Proof; comparison with small-step stability, prior Li–Yorke chaos and the two-cycle Resultary record."
+      ],
+      "rationale": "This is a quantitative obstruction to inferring global simplicity of adaptive dynamics from stochastic relaxation and pointwise convexity alone. The controller can preserve a locally stable equilibrium and still realize arbitrarily many branches away from it, even when each plant forgets its state distribution in one transition. Exact invariant-subsystem entropy distinguishes this from a single cycle or a weak example of nonconvergence; it identifies parameter sensitivity as a resource not bounded by frozen mixing and positivity.",
+      "residual_risks": [
+        "Does not answer what happens under a uniform parameter-Lipschitz bound or stronger small-feedback assumptions; not a global attraction or noisy-learning theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

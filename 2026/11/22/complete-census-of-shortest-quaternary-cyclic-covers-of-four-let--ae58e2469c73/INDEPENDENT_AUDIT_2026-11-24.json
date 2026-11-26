@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:40:33.320335Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The 16 distinct selected starts occur in a cyclic order. Each positive gap is at least the least compatible shift (2 for a nonconstant reversed ordered pair, 3 for equal outer letter, 4 otherwise). Conversely a cyclic target tour can be laid out at its least shifts: adjacent windows match on each overlap, and nonadjacent starts are separated by at least four positions in either cyclic direction when they are nonadjacent on both sides. Thus all windows are compatible, including closing the cycle. At minimum cost every selected gap attains its bound, so every optimum is recovered by a minimizing tour. The exact subset recurrence anchors at 0000, goes to an unvisited target, and charges the final return to 0000. An independently written exact checker at /workspace/branches/0c226ade-1e89-49d6-b73e-b5ca8fee2efc/independent_census.py (result_q4.txt in the same directory) found minimum 44 and visited every optimal successor, giving 5472 tours. It scanned all cyclic windows, verified each required factor occurs once in each expansion, and recovered the generating order from each circle, yielding 5472 distinct rotation classes without dividing by reversal. Applying the 24 global permutations and reversal, with renormalization by the unique 0000, gave 124 orbits (105 of size 48, 17 of size 24, 2 of size 12) and exactly matched all representative/orbit-size pairs in the frozen CSV. This is exhaustive at q=4 only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For even q the broader theorem gives M(q)=(5q²+2q)/2 and lists M(4)=44; it explicitly excludes optimal-host enumeration and uniqueness.",
+          "Fici et al. address approximate shortest common superstrings with reversals. The cited Kari–Xu paper could not be inspected in full text."
+        ],
+        "reasoning": "Credit the all-q theorem for the exact minimum; general graph-tour or overlap methodology alone is not the new result and does not supply the fixed-alphabet equality census.",
+        "searches": [
+          "Resultary 339ce420148c Finding, Proof, Limitations and cost verifier",
+          "arXiv:1511.08431 §§1–2 context",
+          "Kari–Xu DOI:10.1142/S0129054112400540"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, both checker sources and representatives.csv (exact agreement in independent reproduction)",
+        "Resultary 339ce420148c, 1c5013f138d2, 11abece62ea8, 35e46779014c",
+        "OEIS A330022, A390882; arXiv:1511.08431; Kari–Xu DOI and author-copy access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The all-q formula determines 44, but a minimum-value verifier discards co-minimizers. The earlier binary linear overlap formulation computes path length, not the cyclic distinct-word and symmetry counts here."
+        ],
+        "reasoning": "Deriving the census requires traversing all optimal tours and checking the tour-to-circle multiplicity and permutation/reversal stabilizers; a length result and one construction do not mechanically give those invariants.",
+        "searches": [
+          "Resultary 339ce420148c analytic minimum and finite verification",
+          "OEIS A330022 weighted-overlap formulation",
+          "Resultary 35e46779014c tandem squares"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general-length catalogue record uses exactly the same oriented ordinary abba target language and cyclic feasibility, with q=4 included.",
+          "The other catalogue targets change abba to reverse-complement, abcba, or abab; the primary approximation paper treats linear hosts and permits each input or its reverse."
+        ],
+        "reasoning": "There is exact coverage of the length component even without relying on the explicit q=4 value. None of those variant problems identifies the optimal circular-word set under this labeling and rotation convention.",
+        "searches": [
+          "Resultary ordinary four-letter palindrome cyclic covering length: 339ce420148c",
+          "Resultary reverse-complement 1c5013f138d2, ternary length-five 11abece62ea8, tandem squares 35e46779014c",
+          "arXiv:1511.08431, shortest common superstring with reversals"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary searches surfaced the census record itself and the general-length record. The latter's Held–Karp routine returns only a minimum cost, not a count or optimal circle list.",
+          "A330022 gives length 12 and A390882 count 2 at length-four targets for linear binary hosts."
+        ],
+        "reasoning": "The databases' exact values do not refer to a cyclic quaternary host. The catalogue self-hit is not independent coverage; the distinct minimum-only hit is material but does not give 5472 or 124.",
+        "searches": [
+          "Resultary: exact 5472 circular covers and 124 classes",
+          "OEIS A330022 and A390882",
+          "Resultary 339ce420148c supporting palindrome_cover_verify.py"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact census of all shortest labeled circles, uniqueness of each required occurrence in every optimum, and the full symmetry quotient. The minimum 44 is demonstrably covered by a distinct same-day general formula, and receives no separate originality credit. No intra-day order is established. The closely related general record and its verifier do not enumerate the optimizers; the present frozen finding is a census rather than a minimum-only claim.",
+      "residual_risks": [
+        "The cited Kari–Xu primary text was unavailable via the attempted lawful routes. An older equivalent optimized-circuit census under different terminology is possible. The same-day general-length comparison establishes mathematical coverage of 44, not order of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers minimum 44, not optimizer census; no same-day priority inferred",
+          "evidence": "States all-q formula and explicitly lists 44. The limitations exclude uniqueness or enumeration of optimal hosts, and the DP returns a single minimum cost.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-cyclic-covering-length-for-ordinary-four-letter-palindrome--339ce420148c",
+          "material_read": "RESULT.md Finding and proof opening at offsets 0–2218 and Limitations around 7040–7430; VERIFICATION.md computation paragraph; palindrome_cover_verify.py offsets 2240–3538",
+          "method": "Resultary local mirror",
+          "title": "Sharp cyclic covering length for ordinary four-letter palindromes",
+          "trigger": "Strongest overlap, exact same target and domain containing q=4"
+        },
+        {
+          "assessment": "Different alphabet and linear normalization",
+          "evidence": "At length-four binary targets, minimum length is 12 and optimizer count is 2 for linear strings.",
+          "identifier_or_url": "https://oeis.org/A330022 and https://oeis.org/A390882",
+          "material_read": "Both entry statements and tables at offset 0",
+          "method": "OA public pages",
+          "title": "Shortest linear binary palindrome covers and counts",
+          "trigger": "Exact length and optimizer-count table comparison"
+        },
+        {
+          "assessment": "Unresolved access risk, not evidence of noncoverage",
+          "evidence": "Both retrievals returned 403. Frozen record describes order-two pseudo-de Bruijn sequences and Euler-tour parity.",
+          "identifier_or_url": "https://doi.org/10.1142/S0129054112400540",
+          "material_read": "No primary full text; frozen RESULT.md relationship paragraph only for its characterization",
+          "method": "Bounded DOI and cited ResearchGate author-copy attempts",
+          "title": "De Bruijn Sequences Revisited",
+          "trigger": "Named pseudo-de Bruijn and parity antecedent"
+        },
+        {
+          "assessment": "Related method, different target question",
+          "evidence": "Linear superstrings can cover an input string or its reversal; the result is an approximation algorithm.",
+          "identifier_or_url": "https://arxiv.org/abs/1511.08431",
+          "material_read": "PDF abstract and §1 pp. 1–2 from OA offset 0",
+          "method": "OA paper",
+          "title": "On the Greedy Algorithm for the Shortest Common Superstring Problem with Reversals",
+          "trigger": "Broad superstring and reversal formulation"
+        },
+        {
+          "assessment": "Different target language",
+          "evidence": "A fixed-point-free involution replaces ordinary reversal palindromes; the four-symbol cyclic/linear minima are 38/39.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-cyclic-and-linear-covers-of-reverse-complement-four-palind--1c5013f138d2",
+          "material_read": "RESULT.md Finding at mirror offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp cyclic and linear covers of reverse-complement four-palindromes",
+          "trigger": "Nearby length-four motif result"
+        },
+        {
+          "assessment": "Different alphabet and motif length",
+          "evidence": "Covers all ternary abcba targets, with cyclic minimum 66 and linear minimum 68.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-ternary-length-five-palindromic-covers-66-cyclic-and-68-li--11abece62ea8",
+          "material_read": "RESULT.md Finding and Proof opening at mirror offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact ternary length-five palindromic covers",
+          "trigger": "Exact ordinary palindrome covers with cyclic hosts"
+        },
+        {
+          "assessment": "Different target language",
+          "evidence": "Targets are abab, with q=4 cyclic minimum 40.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-shortest-cyclic-covers-of-all-four-letter-tandem-squares--35e46779014c",
+          "material_read": "RESULT.md Finding at mirror offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact shortest cyclic covers of all four-letter tandem squares",
+          "trigger": "Nearby four-letter cyclic cover formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The quaternary case is the first even alphabet beyond the binary case and exhibits a nontrivial parity obstruction and nonuniform symmetry stabilizers. An equality census for this natural cyclic cover problem answers more than a rerun of its known minimum: it proves unique target occurrences in every shortest host, distinguishes true labeled multiplicity from symmetries, and makes all symmetry representatives available for further structural comparisons. Neither the minimum nor one optimal construction resolves those questions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:30:48.675466Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the symmetric telegraph chain with directional rate s, let φ_i be the starting-state-conditioned homogeneous propagator, and order states as on, off. Its backward generator A has rows (−k−s,s) and (s,−s). The stationary partial second moments q follow from the state-specific diffusion input D and stiffness loss 2kq_1, giving q=(D/k,D/k+D/s). The covariance is qφ, the unconditioned impulse response is (φ_1+φ_0)/2, and −qA/D=(0,1), so −C′/D=φ_0 exactly. The stationary convolution has finite variance by the strictly negative eigenvalues of the killing generator at stiffness 2k; coupling with common future noise gives uniqueness since occupation of the on state grows unboundedly almost surely. The gap solves the scalar characteristic equation with decay-rate sum k+2s and product ks, and initial data (0,k/2). The two distinct positive decay rates give the stated positive sign, area 1/(2s) and precisely one derivative zero at exp(−Ωt)=λ_−/λ_+. Substitution gives the height and the stated slow/fast switching limits follow from the roots. The k=3,s=2,D=5 check reduces exactly to G=(3/10)(e^(−t)−e^(−6t)). The supplied verification/check_fdt.py was inspected as diagnostic evidence, not run; the exact argument is the replay, not the script or an attestation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "ID 91e29b772bb6, Finding: D a b(k1−k0)^2/[(a+b)ZΔ] multiplies the same exponential difference, where Z=a k0+b k1+2 k0 k1; the integrated defect at k0=0 is D a/[b(a+b)].",
+          "Di Terlizzi et al. have a general variance sum rule; the worked switching example has fixed stiffness and a changing trap center."
+        ],
+        "reasoning": "Set a=b=s, k1=k, k0=0; Z=sk and Δ=Ω. The resulting coefficient is Dk/(2Ω), the area is D/(2s), and the maximizing lag is identical. The direct coverage is the indexed stronger theorem, not a claim of coverage from the general variance sum rule alone.",
+        "searches": [
+          "integrated fluctuation response gap exactly inverse switching rate harmonic trap correlation response",
+          "arXiv:2403.10442"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 91e29b772bb6, 4b368a8d1e6f, 4f3243fa2ced",
+        "arXiv:2104.00609, 2202.02630, 2403.10442, 2407.12213",
+        "Frozen RESULT.md, VERIFICATION.md and verification/check_fdt.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched closed defect fixes its right derivative and height; its response is the stationary-start propagator.",
+          "The inspected primary passages give the switching model, moment/distribution results or entropy production, rather than the matched two-time claim."
+        ],
+        "reasoning": "The killed-chain backward equation gives φ_0−φ_1=(k/Ω)(e^(−λ_−t)−e^(−λ_+t)), twice the matched G. Thus R+G=φ_0, so the off-conditioned derivative and the two explicit inverse parameter formulas do not survive as distinct substantive claims.",
+        "searches": [
+          "91e29b772bb6 Finding and Proof",
+          "arXiv:2104.00609",
+          "arXiv:2202.02630",
+          "arXiv:2407.12213"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed strictly signed defect, ID 91e29b772bb6, Finding: ℱ=−C′−DR with additive drift and switching left unperturbed."
+        ],
+        "reasoning": "The normalization ℱ=D G gives equivalent observables, not just a similarity of titles. The candidate has the same λ± and Ω at equal rates and completely off stiffness.",
+        "searches": [
+          "intermittent harmonic trap stationary position autocorrelation additive force impulse response fluctuation response gap",
+          "off-conditioned impulse response equals negative stationary correlation derivative symmetric on-off harmonic trap"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary mirrored finding 91e29b772bb6 explicitly lists the symmetric fully off area D/(2r) and the unique maximum lag; distinct same-day records 4b368a8d1e6f and 4f3243fa2ced treat a marginal class-L boundary and a two-particle squared-position correlation, respectively."
+        ],
+        "reasoning": "There is direct catalog coverage of the formula and not just a numerical hit. The same-day records checked do not cover this force-response observable; catalog date labels do not establish priority.",
+        "searches": [
+          "universal integrated fluctuation response anomaly switching trap 1/(2s) unique peak",
+          "same-day 2026-10-18 harmonic switching FDT response gap correlation impulse"
+        ]
+      },
+      "rationale": "Verified existing coverage by a distinct indexed theorem, not a finding of historical priority. Its two-rate, two-stiffness defect specializes to the entire frozen positive gap and sum rule at the same force-response convention. The remaining off-conditioned interpretation follows directly from that theorem and the two-state propagator; peak, slope and reconstruction are direct deductions of the same defect.",
+      "residual_risks": [
+        "No historical priority order is inferred from catalog directory dates.",
+        "Bounded primary-text inspection does not establish absence of other derivations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen claim by specialization",
+          "evidence": "Same stationary C and additive impulse R, explicit two-exponential ℱ, unique lag and fully-off symmetric integral.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-strictly-signed-fluctuation-response-defect-in-a-randomly-swit--91e29b772bb6/RESULT.md",
+          "material_read": "Finding, assumptions and integrated-identity proof; mirrored text offsets 300–2899 and 4400–6600",
+          "method": "Resultary and local mirror",
+          "title": "A strictly signed fluctuation–response defect in a randomly switching harmonic trap",
+          "trigger": "Strongest distinct catalog match"
+        },
+        {
+          "assessment": "Different claim",
+          "evidence": "Stationary one-time law, not temporal response.",
+          "identifier_or_url": "Resultary 4b368a8d1e6f",
+          "material_read": "Finding",
+          "method": "Local mirror",
+          "title": "A sharp class-L transition for a two-rate intermittently confined process",
+          "trigger": "Same-day same model"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "Cross-particle squared-position correlation with both states confining.",
+          "identifier_or_url": "Resultary 4f3243fa2ced",
+          "material_read": "Finding and proof",
+          "method": "Local mirror",
+          "title": "A sharp temporal mode exchange in fourth-order correlations",
+          "trigger": "Same-day intermittent two-time model"
+        },
+        {
+          "assessment": "Same model, not direct coverage in the inspected passages",
+          "evidence": "Time-dependent variance and stationary distribution.",
+          "identifier_or_url": "arXiv:2104.00609",
+          "material_read": "pp. 2–4, text offsets 7557–12334",
+          "method": "OA full-text passages",
+          "title": "Brownian motion under intermittent harmonic potentials",
+          "trigger": "Same on/off model"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "Kinetic equations and entropy production.",
+          "identifier_or_url": "arXiv:2202.02630",
+          "material_read": "pp. 7–8, text offset 26851; Eqs. (24), (28)",
+          "method": "OA full-text passages",
+          "title": "Non-equilibrium thermodynamics of diffusion in fluctuating potentials",
+          "trigger": "Same model and nonequilibrium quantity"
+        },
+        {
+          "assessment": "General related framework; worked model not this one",
+          "evidence": "General displacement/force variance identity; example switches the center at fixed stiffness.",
+          "identifier_or_url": "arXiv:2403.10442",
+          "material_read": "pp. 3–4 Eqs. (3)–(8), text offset 8006; pp. 8–10, offset 27076",
+          "method": "OA full-text passages",
+          "title": "Variance sum rule: proofs and solvable models",
+          "trigger": "General fluctuation sum rule and switching example"
+        },
+        {
+          "assessment": "Closely related inputs only in inspected material",
+          "evidence": "Stationary mixture and moments, not the two-time defect.",
+          "identifier_or_url": "arXiv:2407.12213",
+          "material_read": "pp. 1–2, text offset 11943",
+          "method": "OA full-text passages",
+          "title": "Statistical mechanics of passive Brownian particles in a fluctuating harmonic trap",
+          "trigger": "Same model and stationary ingredients"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The stiffness-independent integral in this natural response experiment is scientifically meaningful, but the frozen contribution does not add a distinct invariant to the stronger existing defect theorem. The off-conditioned identity and the inversion of area and slope are routine consequences that do not constitute a surviving repaired contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

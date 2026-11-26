@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:27:01.040822Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each (u,a) and k>=1, the displacement f^k(x)-x is (1+u+...+u^(k-1))((u-1)x+a). If u mod m is not 1, conjugate by the unique fixed point. The nonzero radical points then have period d=ord(ubar), and units have period ord(u). In the lift of each ubar exactly one unit has order d: on the kernel 1+m, the dth-power map is invertible, while the other lifts have order dp. This gives both divisor sums with q^2 translations per lift. For u=1+w, the geometric sum is k+binom(k,2)w. It is a unit for p not dividing k and equals k when p divides k, since p is odd and p m=0. With a in m, the fixed set is either all points (identity), none (nonzero radical translation), or one q-point residue fiber (w nonzero); all other points have exact period p. With a outside m the displacement factor (u-1)x+a is a unit for every x, so the exact period of every point is p in characteristic p and p^2 in characteristic p^2. The latter contributes q^2(q-1) maps with a pure p^2 cycle partition. Adding the identity, the q-1 nonzero radical translations, the q(q-1) maps with one fixed fiber, and all q^3(q-2) maps with ubar not 1 gives the stated index and fixed-count marginal with total q^3(q-1). The weighted degree is q^2, and d prime to p makes the listed nonzero cycle signatures distinct. At fixed residue field size there is one ring of each characteristic: in char p the roots of x^q-x lift uniquely and form a coefficient field, and a generator of m gives dual numbers. In char p^2, lift a residue-field generator as a root of a fixed monic lift of its irreducible polynomial, using the invertible derivative and m^2=0. The resulting map from the monic quotient of (Z/p^2)[t] surjects on the residue field and on pR=m, hence is an isomorphism by the order q^2. Thus the coefficient of the p^2-only monomial reconstructs the ring, not just its characteristic. Independently ran /workspace/audit_evidence/affine9.py using T^2+T+2 as the residue polynomial; all 5832 maps in each of the two q=9 models matched the predicted monomials and marginal. The symbolic argument, not this replay, establishes all odd p and all f.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "69826b29ef65 synopsis: 'The complete element-order distribution of the invertible affine group of every odd-residue-characteristic, radical-square-zero finite local ring depends only on the residue-field size, radical dimension and whether the ring has characteristic p or p^2. It distinguishes split and mixed-characteristic affine groups that have identical conjugacy-class-size and ordinary irreducible-degree spectra.'",
+          "0a4181d7ad6d covers conjugacy and ordinary character spectra of affine groups over finite chain rings. 5531b23a5b4d treats affine-monoid centralizers and commuting probabilities."
+        ],
+        "reasoning": "The wider order theorem specializes at radical dimension one and covers order-based detection. It does not on its stated invariant supply the additional natural-action orbit partition. Ordinary character data without specifying the natural permutation character and the powers at which it is evaluated are not that orbit data; the monoid centralizer census counts different objects.",
+        "searches": [
+          "Resultary: element order spectra distinguish split and mixed characteristic affine groups 69826b29ef65 exact claim fixed points",
+          "Resultary: finite chain ring affine groups conjugacy cycle orders AGL1 ordinary character table"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_chain_affine.py (read, not executed)",
+        "Resultary 69826b29ef65, 0a4181d7ad6d, 5531b23a5b4d statement comparison",
+        "Cella §3.3 via frozen citation and unsuccessful primary retrieval",
+        "Fripertinger and the EMS chapter identification and access checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An element of order p^2 must have a p^2 cycle in this faithful permutation action, so the bare occurrence of such a length as a characteristic diagnostic needs no originality claim beyond the element-order theorem.",
+          "The stronger natural-action data need the assertion that these maps have all q^2 points in length-p^2 cycles, and the separation of the order-p stratum into fixed-fiber and fixed-free elements, as well as the d versus dp lengths within a single map. These are justified here by the displacement equation and the radical/unit partition.",
+          "Giving the complete aggregate order counts alone does not specify the split of the order-p family, nor does it give the numbers of shorter cycles in an element of order dp. The close matching record's full text and proof were not available to test whether it separately proves such action-specific assertions."
+        ],
+        "reasoning": "Prior order counts could replace a coefficient count once the actual action partition is proved. That action-level partition and the common fixed-point distribution are the meaningful refinement, not a claim that characteristic is first detected by any spectrum.",
+        "searches": [
+          "Resultary 69826b29ef65 synopsis versus frozen formula and fixed-point histogram",
+          "Resultary 0a4181d7ad6d and 5531b23a5b4d summaries versus the natural point action"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The invariant is a census of the disjoint cycle lengths of x maps to ux+a on the ring elements; it is not a character table, a single permutation representation character, a cycle index for the regular action, or an abstract group element order histogram.",
+          "The literature search returned Fripertinger's Cycle indices of linear, affine and projective groups and an EMS chapter on CRL-lists of affine maps of finite cyclic groups. No primary passage from either on the simultaneous length-two ring census was retrieved."
+        ],
+        "reasoning": "Natural-action orbit lengths, fixed points of all powers for each map, and its full cycle monomial are interchangeable. Fixed points at one step alone and lcm of cycle lengths alone are not interchangeable with that invariant. The distinction is concrete here: an order-p map can fix a whole residue fiber or have zero fixed points.",
+        "searches": [
+          "Resultary: affine cycle index length two chain rings natural action",
+          "Resultary: general affine group over finite rings element orders orbit lengths prime powers",
+          "Literature: affine permutations finite commutative chain rings \"cycle index\" Galois ring affine maps cycle structure square-zero radical Z/p^a Fripertinger Cella"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact all-q index hit is this frozen record, 5c2ceeae5196, not an independent result.",
+          "The frozen article credits Cella §3.3 with a classical prime-power cyclic-ring formula. The cited primary thesis passage was not retrieved in the bounded attempts, so the review claims no priority for the Z/p^2 Z specialization and does not infer that all other parts of that thesis are non-covering.",
+          "The distinct 69826b29ef65 record is a materially relevant same-day exact table but its available statement gives the complete element-order table, not the cycle-index table."
+        ],
+        "reasoning": "Extending a cyclic-ring formula by p to q substitution would not produce the comparison, since the nonprime residue models are not cyclic rings and the same residue field supports both characteristics. Comparing the table claims requires distinguishing the exact objects counted.",
+        "searches": [
+          "Resultary: AGL_1(Z/p^a Z) affine permutation cycle index Cella",
+          "Resultary: affine cycle index length two chain rings natural action",
+          "Cella thesis §3.3 p.49, cycle index for affine maps of Z/p^a Z"
+        ]
+      },
+      "rationale": "The distinct claim supported here is the full natural-action cycle index and its contrast with the common fixed-point distribution for both characteristic families over all odd residue degrees, not the prime-cyclic mixed-characteristic case or the detection of characteristic by abstract element orders. The strongest same-day indexed comparator proves the latter for a wider family, but its stated order distribution is strictly less information than a full point-cycle partition, and does not give the fixed-point marginal. The proof needs the actual action on both residue and radical fibers, not just the order of a map. Priority beyond the inspected material remains bounded.",
+      "residual_risks": [
+        "The same-day element-order proof may contain action-specific calculations not present in its synopsis; full matching text not accessible.",
+        "A prior nonprime extension in specialized cycle-index literature is not excluded; Cella and the newly identified primary cycle-index texts did not yield full-text passages in the bounded retrieval."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the order-based distinction, not the complete natural point-cycle data in the available statement; same-day is not a priority conclusion",
+          "evidence": "The synopsis explicitly classifies element-order distributions across the entire odd radical-square-zero family.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-element-order-spectra-distinguish-split-and-mixed-characteristic--69826b29ef65",
+          "material_read": "Exact indexed synopsis; targeted local-mirror requests for the result and orbit-length passage did not retrieve the full text",
+          "method": "Statement-level comparison with lcm and point-cycle reconstruction",
+          "title": "Element-order spectra distinguish split and mixed-characteristic square-zero affine groups",
+          "trigger": "Same affine groups in a wider family and the same characteristic comparison"
+        },
+        {
+          "assessment": "Different invariants; possible deeper proof overlap not established",
+          "evidence": "The former has ordinary class and character data; the latter counts centralizers of affine monoid elements.",
+          "identifier_or_url": "Resultary 0a4181d7ad6d and 5531b23a5b4d",
+          "material_read": "Indexed synopses, not full proofs",
+          "method": "Compare the stated representation or commuting counts with the natural point action",
+          "title": "Conjugacy and ordinary character spectra of affine groups over finite chain rings; Centralizer spectra of finite affine monoids distinguish local-ring geometry",
+          "trigger": "Potential recovery from prior conjugacy or affine geometry census"
+        },
+        {
+          "assessment": "Credit the mixed-characteristic prime-cyclic specialization, with broader primary coverage unresolved",
+          "evidence": "The credited formula is for AGL_1(Z/p^a Z) on the cyclic ring.",
+          "identifier_or_url": "https://amsdottorato.unibo.it/id/eprint/4180/1/cella_phd.pdf",
+          "material_read": "Frozen citation to thesis §3.3, p. 49; cited passage unavailable after literal-query and identified alternate PDF access attempts",
+          "method": "Comparison of the specialization credited in the frozen text",
+          "title": "On Symbolic Representations of Music",
+          "trigger": "Classical prime-power modulus specialization"
+        },
+        {
+          "assessment": "Unresolved coverage beyond the identified titles and the cyclic-group topic; access is not a finding of noncoverage",
+          "evidence": "These were the direct relevant literature hits alongside the chain-ring classification paper DOI 10.3934/math.2022100.",
+          "identifier_or_url": "https://imsc.uni-graz.at/fripertinger/papers/art10p.pdf ; https://ems.press/content/book-chapter-files/51671",
+          "material_read": "Search identifications only; located PDF queries for finite fields / finite cyclic groups did not return full-text passages",
+          "method": "Targeted primary access with identified sources",
+          "title": "Cycle indices of linear, affine and projective groups; CRL-lists of affine maps of finite cyclic groups",
+          "trigger": "Potential stronger general affine natural-action formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural point action is canonical and its index gives concrete orbit-counting information, for example via substitutions giving colorings of the ring modulo its affine action. The same one-step fixed-point statistics conceal which points form long cycles and how those cycles are distributed. Quantifying that loss uniformly for the two length-two families, including nonprime residue fields, is useful beyond the already covered yes/no diagnostic from abstract element orders. The contribution is the complete action-level comparison, not a general claim about all chain-ring lengths or even characteristic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

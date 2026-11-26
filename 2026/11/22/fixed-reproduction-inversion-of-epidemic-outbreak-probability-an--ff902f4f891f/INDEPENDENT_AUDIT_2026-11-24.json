@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:43:00.403904Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–36 and 38–87",
+        "Frozen VERIFICATION.md and verify.py, inspected, not executed",
+        "Independent replay python3 /tmp/opencode/frozen_math_rechecks.py: iterated the vector offspring extinction map from zero and the final-size map from the all-one attack vector rather than using scalar bisection. At p=1/2, A=4, R=1, allocations 1, 2, 4 gave attack fractions .892644753609, .823449123804, .733186926970 and model survival probabilities .500000000000, .549038105677, .600000000000."
+      ],
+      "rationale": "The type-to-type next-generation matrix is an outer product with sole nonzero eigenvalue R(1-p+pA). Integrating the susceptible and removed balances on the positive vanishing-seed branch gives q=R[(1-p)(1-exp(-q))+p(A/c)(1-exp(-cq))]. After division by q, the right side of the normalized equation decreases strictly from 1-p+pA to zero; there is exactly one positive root. Writing h=cq and f(u)=integral_0^1 exp(-tu) dt, the root q decreases with c at fixed equation level, whereas reparametrizing by h shows h increases. For the population sum, implicit differentiation with D=(1-p)f'(q)+pAc f'(h)<0 gives the sign of T' as the opposite of the sign of A G(h)-G(q), where G(u)=exp(u)(-f'(u)) is strictly increasing. Since h>=q and A>1, T'<0. For survival, independent Poisson births only conditional on the shared exponential lifetime yield the joint rational offspring generating function. Its nonzero survival fixed point has class probabilities z/(1+z) and w/(1+w), w=Az/c. The scalar balance is strictly decreasing in z from a supercritical initial level. Comparing it at fixed z and then at fixed w proves z increases and w decreases. Population weighting and elimination with the same equation give P=1-1/(AR)-(1-p)(1-1/A)/(1+z), hence P is strictly increasing. The strictly monotone level-set comparisons include the endpoints. These are results about two distinct mathematical limits, not finite-population identities.",
+      "residual_risks": [
+        "The bounded example does not prove strictness; the analytic argument does. It requires common exponential lifetimes for the rational branching law, a strictly supercritical rank-one model, a population-weighted founder, and the deterministic positive vanishing-seed branch. A different founder law or finite seed is not covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "El Khalifi orders the two outcomes by concordance while preserving the susceptibility and infectivity marginals. The present family varies both marginals while fixing the high-class product.",
+          "The frozen record attributes matched-reproduction comparisons to Harris et al.; an abstract-level result confirmed the topic, but no original passage substantiating or excluding this exact path was accessible in this review."
+        ],
+        "reasoning": "A theorem holding both marginal laws fixed cannot be specialized to distinct members of this path. The potentially relevant inaccessible texts are residual comparisons, not negative evidence.",
+        "searches": [
+          "El Khalifi arXiv:2601.01549v1 Propositions 1 and 5",
+          "Harris et al. DOI 10.1016/j.jtbi.2025.112211, UMD and medRxiv alternates",
+          "Kawagoe et al. DOI 10.1103/PhysRevResearch.3.033283",
+          "Nandi–Allen DOI 10.1080/17513758.2018.1538462"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary records named above",
+        "arXiv:2601.21743v1 and arXiv:2601.01549v1 primary passages",
+        "Harris, Kawagoe and Nandi–Allen access-limited comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-mean/fixed-spectral-radius results hold different features constant. The matching rank-one compatibility theorem does not assert parameter monotonicity; final-size-only records do not order early branching survival."
+        ],
+        "reasoning": "A fixed threshold by itself does not determine nonlinear size or survival. The final-size sign uses the monotonic integral G on the particular path; the survival sign uses the population weights and exponential-lifetime identity. The inspected general comparisons do not yield both signs under these varying marginals.",
+        "searches": [
+          "arXiv:2601.01549v1 Propositions 1 and 5",
+          "arXiv:2601.21743v1 §§II–III",
+          "Local Resultary 519b72c30ab7, 4a1a9464601d and ce59c0969205"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mazza et al. give the same product dependence of the invasion threshold. Resultary 519b72c30ab7 treats compatibility of paired profiles and reconstruction of a unique rank-one kernel for compatible data, not order along this allocation path."
+        ],
+        "reasoning": "Equivalence of model algebra and even profile compatibility is prior; neither reconstruction from profiles nor a product-dependent eigenvalue compares profiles as c varies.",
+        "searches": [
+          "arXiv:2601.21743v1 two-class HeSIR model and threshold",
+          "arXiv:2601.01549v1 §§2.1, 2.3, 2.6",
+          "Local Resultary reciprocal susceptibility/infectivity and joint rank-one attack/seeding profiles; 519b72c30ab7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct catalogue hit ff902f4f891f is the assigned record. The fixed-radius two-way record uses pure cross-type independent-Poisson branching. The size records concern fluctuating susceptibility, equal-threshold mixed moments, or equal-mean susceptibility with homogeneous infectivity. Mazza's inspected finite-network examples use fixed alpha_I=2 and alpha_S=3."
+        ],
+        "reasoning": "Related exact bounds and examples do not list the paired continuum law, and changing the offspring law changes the nonextinction functional.",
+        "searches": [
+          "Local Resultary fixed spectral radius nonextinction, fixed-reproduction final size, reciprocal-factor allocation; 008bb9ed75d7, 08ae64d66561, 4a1a9464601d, ce59c0969205",
+          "arXiv:2601.21743v1 §III"
+        ]
+      },
+      "rationale": "Credit prior rank-one heterogeneous SIR equations, product-dependent thresholds, concordance comparisons and the qualitative distinction between size and outbreak probability at matched reproduction. The supported distinct claim is the simultaneous strict opposite ordering for the whole specified fixed-product path at every supercritical rate, with class-resolved directions. Closest available general and catalogue statements do not imply it under their comparison hypotheses. Harris et al., Kawagoe et al. and Nandi–Allen were not independently inspected in full; priority on those comparisons remains qualified, not ruled out.",
+      "residual_risks": [
+        "The exact historical coverage of Harris et al. is the strongest unresolved full-text comparison; Kawagoe and Nandi–Allen were likewise not fully accessible. More general heterogeneous model comparisons could cover some components. No global priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Important general overlap; fixed marginals prevent applying its ordering to the changing-marginal family.",
+          "evidence": [
+            "Propositions 1 and 5 compare final size and outbreak probability under concordance within specified marginals."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.01549v1",
+          "material_read": "§2.1 p. 2, §2.3 Proposition 1 p. 4, §2.6 Proposition 5 p. 8; text offsets 7300, 16300 and 30200",
+          "method": "OA primary full-text passage comparison",
+          "title": "Dependence Structure and Epidemic Outcomes in Heterogeneous SIR Models",
+          "trigger": "Strongest joint outcome-order theorem found"
+        },
+        {
+          "assessment": "Prior model and product threshold, not the all-allocation paired comparison in the inspected passages.",
+          "evidence": [
+            "Threshold depends on the high-class susceptibility times infectivity; finite-network simulations inspect a different scope."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.21743v1",
+          "material_read": "§II two-class model and threshold, pp. 2–4; §III numerical setup, pp. 4–5; offsets 9800, 20500, 23600",
+          "method": "OA primary text",
+          "title": "Impact of behavioral heterogeneity on epidemic outcome and its mapping into effective network topologies",
+          "trigger": "Same two-class structure and threshold"
+        },
+        {
+          "assessment": "Qualitative overlap credited on frozen attribution; exact claim coverage unresolved, not excluded.",
+          "evidence": [
+            "DOI and abstract establish the trait-covariation topic. The frozen record cites §§3.3–3.5 and Figures 4–6; this review did not independently retrieve those sections."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jtbi.2025.112211",
+          "material_read": "Title and abstract-level search result only; no usable primary full-text passage in this review",
+          "method": "Publisher, UMD repository and medRxiv identified preprint attempts",
+          "title": "Infections are not alike: The effects of covariation between individual susceptibility and transmissibility on epidemic dynamics",
+          "trigger": "Closest plausible matched-reproduction comparison"
+        },
+        {
+          "assessment": "Broad model overlap; no whole-text inference.",
+          "evidence": [
+            "El Khalifi cites it for the heterogeneous susceptibility–infectivity setting."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevResearch.3.033283",
+          "material_read": "Citation and secondary comparison in El Khalifi §2.1; no usable primary APS section",
+          "method": "OA retrieval attempts and inspected secondary cite",
+          "title": "Epidemic dynamics in inhomogeneous populations and the role of superspreaders",
+          "trigger": "General final-size reduction or matched-threshold comparison"
+        },
+        {
+          "assessment": "Exact implication remains unresolved.",
+          "evidence": [
+            "Title and DOI establish a plausible comparison, not a theorem-level match."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/17513758.2018.1538462",
+          "material_read": "Bibliographic identification; publisher PDF and HTML inaccessible",
+          "method": "Lawful direct retrieval attempts",
+          "title": "Stochastic two-group models with transmission dependent on host infectivity or susceptibility",
+          "trigger": "Closely related two-group stochastic comparisons"
+        },
+        {
+          "assessment": "Rank-one compatibility and reconstruction, not an ordering result along the path.",
+          "evidence": [
+            "Exact compatibility of final attack and founder profiles for a finite-type Markovian SEIR kernel."
+          ],
+          "identifier_or_url": "Resultary:519b72c30ab7",
+          "material_read": "Mirrored Finding and Assumptions, offset 0",
+          "method": "Local catalogue and mirror",
+          "title": "Joint epidemic attack and seeding profiles: a unique rank-one kernel",
+          "trigger": "Same-date related paired profile theorem"
+        },
+        {
+          "assessment": "Different offspring assumptions or only deterministic final size; no joint coverage.",
+          "evidence": [
+            "Pure cross-type Poisson survival; fluctuating-vs-frozen susceptibility; fixed-support mixed-moment size comparisons; equal-mean susceptibility attack-size crossings with homogeneous infectivity, respectively."
+          ],
+          "identifier_or_url": "Resultary:008bb9ed75d7; 08ae64d66561; 4a1a9464601d; ce59c0969205",
+          "material_read": "Each mirrored Finding and, where applicable, Assumptions, offset 0",
+          "method": "Local catalogue and mirror",
+          "title": "Fixed-threshold outbreak risk bounds and related final-size order records",
+          "trigger": "Fixed-threshold and final-size aliases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions and limitations",
+        "arXiv:2601.21743v1 threshold comparison",
+        "arXiv:2601.01549v1 Propositions 1 and 5"
+      ],
+      "rationale": "The result isolates a structural limitation of a threshold summary in an abstract stochastic and deterministic epidemic model: identical invasion eigenvalues do not jointly rank the probability of escaping the initial branching phase and the positive macroscopic attack fraction. The all-allocation strict law and founder-class/population distinction are substantive compared with a sampled or endpoint-only example.",
+      "residual_risks": [
+        "The theorem does not rank unconditional finite-population epidemic size or prescribe interventions in a real population."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

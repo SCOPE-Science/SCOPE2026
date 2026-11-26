@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:56:06.047447Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The estimator is the Euclidean projection, not Sobolev projection; only the input/output norm uses Q=I+gamma D^T D. Every contiguous block composition has a strict KKT interior: take centered strictly decreasing residuals inside each block (all proper prefix sums positive) and strictly increasing block means. On that cell P is block averaging. For a straight segment the finitely many affine pieces give the maximum-cell norm bound by summing segment lengths, also on faces by continuity. Inside any strict cell a small displacement in an operator-norm maximizing direction gives an actual sharp pair. Independently, with B the block-indicator matrix and G=(B^TB)^(-1), I compressed the nonzero eigenvalues of Q^(-1) E Q E to those of G(B^T Q B)G(B^T Q^(-1)B); the exact factorization for n=2,3,4 and KKT checks for both printed attaining pairs are replayable with python /workspace/checks/2.py using SymPy (output /workspace/checks/2.txt). The only nonunit largest roots are A, B, H as printed. H is strictly dominated, A-B has the sign of 2 gamma-1 and derivative 1/126 at equality. The crossing gives 15/14 and a derivative jump of 1/126 for the squared modulus, with all four maximizing cells at equality. The leading coefficient ratio is 14/9; n=2 has no amplification and the mirror pair-cells tie for all gamma>0 at n=3. No limiting argument for larger n or unsupported inference from numerical data is needed. The submitted checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 05fdf4fa409d Finding uses H_p(z)=||Dz||_p and gives bounds for intermediate p, not a formula in gamma.",
+          "Resultary 7bfc7f16ca62 Finding gives exact ell_p constants for finite DAGs but uses ell_p projection and a coordinate ell_p metric."
+        ],
+        "reasoning": "A gradient-only seminorm is the strong-gradient limit problem, not the finite mixture of vertex and edge energies. Metric projection in a different norm and coordinate-norm bounds do not dominate the exact formula and optimizer in this anisotropic norm.",
+        "searches": [
+          "Resultary: Sobolev exponent growth isotonic regression sensitivity",
+          "Resultary: finite order cone sharp ell_p isotonic projection",
+          "arXiv:1706.01852v3 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Yang–Barber arXiv:1706.01852v3",
+        "Resultary 05fdf4fa409d, 7bfc7f16ca62",
+        "Limited or unavailable: DOI 10.1007/s10957-008-9477-0, Resultary f78c125227d5, fcdc0a30e6a2, Pešta (2006) Isotonic Regression in Sobolev Spaces"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected contraction theorem could predict amplification, but supplies no rational branch comparison.",
+          "The gradient-only result has no vertex-to-edge parameter; the Lipschitz-constraint paper's accessible landing page identifies a constraint on the regression problem, not this perturbation norm."
+        ],
+        "reasoning": "The two-input constant requires an exact comparison using both parts of Q, not simply substituting a known p or checking neighbor averaging. The bounded-slope and Lipschitz-constrained source comparisons are access-limited.",
+        "searches": [
+          "Yang–Barber arXiv:1706.01852v3 Theorem 1",
+          "Resultary 05fdf4fa409d Finding and assumptions",
+          "Yeganova–Wilbur DOI 10.1007/s10957-008-9477-0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target is sensitivity of Euclidean PAV measured in the path quadratic form on both sides, not projection in that form or fitting under a slope constraint.",
+          "Yang–Barber p. 3 Definition 2 and p. 4 Theorem 1 characterize contraction using neighbor averaging."
+        ],
+        "reasoning": "The same-map contraction equivalence sees whether all block averages are nonexpansive, but it does not compare their operator norms when more than one is expansive.",
+        "searches": [
+          "Resultary: Euclidean isotonic projection discrete H1 Sobolev path I+gamma Laplacian Lipschitz modulus",
+          "arXiv:1706.01852v3 Definition 2 and Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Path-Sobolev searches led to 05fdf4fa409d (gradient-only full text), and fcdc0a30e6a2 (catalogue summary only, mentions sqrt(14)/3 for bounded-slope regression).",
+          "The exact cited f78c125227d5 source path was unavailable; the checked 7bfc7f16ca62 is a separate record."
+        ],
+        "reasoning": "A shared limiting number in a neighbouring model is not an equivalent four-point finite-gamma table. Neither an unavailable source nor this bounded search establishes global priority.",
+        "searches": [
+          "Resultary: sharp Sobolev isotonic sensitivity gamma 1/2 four-point pooling",
+          "Resultary: bounded-slope discrete Sobolev sensitivity sqrt(14)/3",
+          "Resultary citation f78c125227d5 path"
+        ]
+      },
+      "rationale": "The supported distinct claim is the sharp finite-positive-coupling amplification and its change of maximizing pooling patterns. Yang–Barber's same-map theorem supplies a criterion for contractivity, not the modulus above one; another same-map Resultary record studies only the gradient seminorm without vertex masses. Exact formula and transition do not follow from either. Remaining literature access risks are stated separately.",
+      "residual_risks": [
+        "The exact cited finite-chain Resultary path, bounded-slope result full text, and Pešta's full text were unavailable. No exclusion of their entire contents is claimed.",
+        "An equivalent unindexed operator-norm comparison for adjacent block averages could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "qualitative contraction criterion, not sharp nonunit amplification",
+          "evidence": "Nonincrease under neighbor averaging is equivalent to contractivity.",
+          "identifier_or_url": "https://arxiv.org/abs/1706.01852v3",
+          "material_read": "Definition 2 pp. 3–4 (OA offset 12909), Theorem 1 p. 4 (offset 13587)",
+          "method": "original accessible arXiv PDF passages",
+          "title": "Contraction and uniform convergence of isotonic regression",
+          "trigger": "same projection in general seminorms"
+        },
+        {
+          "assessment": "homogeneous seminorm, no gamma-dependent crossover",
+          "evidence": "H_p measures only consecutive differences, with bounds at intermediate p.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-sobolev-exponent-growth-of-isotonic-regression-sensitivity--05fdf4fa409d/RESULT.md",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "local catalogue and mirrored full-text passages",
+          "title": "Sharp Sobolev exponent growth of isotonic regression sensitivity",
+          "trigger": "same Euclidean path map in a Sobolev metric"
+        },
+        {
+          "assessment": "different metric; for p≠2 a different estimator",
+          "evidence": "Exact constants for coordinate ell_p metric projection; at p=2 the constant is one.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-ell-p-isotonic-regression-stability-on-every-finite-partia--7bfc7f16ca62/RESULT.md",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "local catalogue and mirrored full-text passages",
+          "title": "Sharp ell_p isotonic regression stability on every finite partial order",
+          "trigger": "potential broader exact order-cone norm theorem"
+        },
+        {
+          "assessment": "scope comparison only; no whole-paper finding",
+          "evidence": "The accessible title and description concern a fitting constraint.",
+          "identifier_or_url": "https://doi.org/10.1007/s10957-008-9477-0",
+          "material_read": "accessible landing page only",
+          "method": "OA retrieval attempt",
+          "title": "Isotonic Regression under Lipschitz Constraint",
+          "trigger": "primary literature result from Sobolev and regression sensitivity search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Ordinary isotonic denoising applied to data with path-weighted errors can amplify the gradient contribution even though it is Euclidean-nonexpansive. The smallest chain with a change in the extremizing block geometry and an exact cusp is a useful sharp sensitivity benchmark, not merely an example of failure of contraction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

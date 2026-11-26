@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The leaf-attachment increments are \(\Delta Z=2\deg(V)+2\) and \(\Delta W=n+s(V)\). The deterministic tree identity \(\sum_v\deg(v)s(v)=4W-n(n-1)\), which is classical, establishes the exact conditional increment covariance. The classical maximal-Wiener path inequality makes every conditional increment covariance strictly negative once the base tree has three vertices. The total-covariance recurrence, known Wiener mean and harmonic telescoping prove the stated finite formula. A standalone exact-arithmetic program checks all \(5{,}913\) recursive trees of orders two through eight and recurrences through order three hundred. **Risk:** finite tests do not substitute for the general argument; the asymptotic correlation imports two published variance constants.
+## correctness
 
-**Originality — PASS (best-knowledge).** The full text of Feng–Hu (2011) concerns the Zagreb marginal moments and normal limit; its two additional indices are Gordon–Scantlebury and Platt, not the Wiener index. The full text of Neininger (2002) covers Wiener moments and covariance with internal path length, not degree-square sum. The known deterministic Schultz–Wiener identity in Eu–Yang–Yeh (2005) is used as a background lemma and does not determine this new mixed random-tree covariance. Hollas (2005) treats random vertex-mark indices and a different random tree experiment. A search of relevant public records found nearby degree/distance and root-degree/leaf results, but no covering covariance identity. **Residual risk:** other historical mixed-index literature may contain an equivalent formulation; a failed search cannot certify uniqueness.
+PASS
 
-**Value — PASS.** The result gives exact all-size dependence between two standard but geometrically contrasting tree shape descriptors used in combinatorial probability and mathematical chemistry. The sign has a structural explanation valid for *any* deterministic tree before uniformly attaching one leaf, rather than arising only after averaging. The \(n^2\log n\) covariance scale and decaying \((\log n)/\sqrt n\) correlation quantify a non-obvious difference between raw and normalized dependence. This is distinct from routine marginal moment recomputation.
+For a fixed tree, the contribution of an edge to the degree-weighted transmission about a root is 2k−1 where k is the size of the component away from the root. Summing gives Σ_v deg(v)s(v)=4W−n(n−1), with unordered W and undirected degrees. The uniform leaf increment pair is (2deg(V)+2,n+s(V)); taking its conditional covariance gives 8W/n²−2(n−1). The path maximizes W by leaf deletion and the bound that ordered distances from one vertex increase by at most one. Thus the conditional covariance is at most −2(n−1)(n−2)/(3n). The conditional means have respective drifts 6−4/n and n+2W/n. Total covariance then gives c_(n+1)=(n+2)c_n/n+8E[W_n]/n²−2(n−1). The mean E[W_n]=n(n+1)H_n−2n² follows from its recurrence at n=1. Dividing the mixed recurrence by (n+1)(n+2) gives the exact increment 8H_n/[n(n+2)]−(2n+14)/[(n+1)(n+2)], the difference of the frozen harmonic bracket at n+1 and n. That bracket vanishes at n=2. Order three is deterministic for both indices; strict negativity follows inductively from the conditional term for every n≥4. The bracket has leading term −2 log n; the two verified primary variance constants give correlation coefficient −3/√(31−3π²) multiplying log(n)/√n. Independent exact-rational enumeration of all 5913 recursive trees across orders 2–8 confirmed the mixed and conditional identities and signs (e.g. c_4=−4/9, c_8=−19953/1225). It did not execute the frozen verifier or substitute for the proof.
 
-**Closest sources and boundaries.** Neininger (2002, DOI:10.1017/S0963548302005321); Feng and Hu (2011, DOI:10.1239/jap/1324046027); Eu, Yang and Yeh (2005, public full manuscript and Theorem 1); Hollas (2005, DOI:10.1007/s10910-005-6474-5). The model is uniform increasing-parent recursive trees; no generalization to other tree models is asserted, and finite enumeration is diagnostic only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported new increment is the exact mixed covariance of first Zagreb and Wiener indices under the uniform increasing-parent law. The deterministic degree-distance identity and the published marginal constants are credited, as is the exact same pair under the distinct Cayley law. The one-step calculation makes the mixed recurrence possible but is a short consequence of the classical deterministic identity, not an independently broad novelty claim. Neither the same-model root-count profile nor the Cayley calculation gives the recursive-tree degree-square formula.
+
+## value
+
+PASS
+
+Joint size and sign of dependence matter when contrasting a local structural statistic with a global distance statistic on a standard growth model. The exact finite-size covariance shows strict negative dependence in the covariance sense despite a vanishing asymptotic correlation, identifies the log(n)/√n rate and constant, and relates the sign across all sizes to a uniform tree-by-tree growth mechanism. This adds an informative mixed invariant beyond independent marginal variance results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

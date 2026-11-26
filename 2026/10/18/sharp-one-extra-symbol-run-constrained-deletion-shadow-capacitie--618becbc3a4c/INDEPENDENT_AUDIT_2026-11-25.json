@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:15:37.029334Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The last-occurrence recurrence subtracts exactly the subsequences ending in the appended symbol that one can already embed using its most recent old occurrence. For cyclic run labels, repeats of physical spacing q contribute one loss each at degree q, the adjacent duplicate contributes z(1+z)^(r-1) through that degree, and repeats spanning the insertion with spacing q+1 contribute nothing through degree q. The left and right counts are (j-q)_+ and (r-j-q+1)_+, and their sum is minimized precisely between q and r-q+1 inclusive, in either endpoint order. The cited cyclic-label reduction applies to fixed run lengths. Independently, a direct upper bound avoids this citation: count leftmost greedy embeddings by discarding all deletion sets that remove the first copy but retain the second copy of the doubled letter. This discards binom(r-1,t-1). At t=q, split the word into the prefix ending at the first copy and the suffix starting at the second. Every (q+1)-window in either stretch contains a repeated letter. Delete the whole window except the later occurrence of such a pair; that retention is not leftmost. Each set contains the window start as its least deleted index, so the sets from different windows are distinct. The only possible overlap with the baseline is the prefix window ending at the first copy when that copy is deleted. In this case swap its deletion to the second copy; the earlier repeat still witnesses non-greediness, the least deleted index is unchanged, and the new set is no longer a baseline deletion. This gives exactly the needed lower bound on losses for every j. The cyclic construction attains the bound by the recurrence. The supplied finite checker was inspected as corroboration only. The statement about positions classifies cyclic maximizers, not all maximizing words.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The November 2 Resultary theorem for n≥r and q≥t+1 specializes at n=r+1 to the full t<q baseline via [z^t](1+z)^(r-1)(1+z+z^2). It excludes t=q.",
+          "Theorem 17 requires divisibility; Corollary 18 bounds the nondivisible word using a longer one rather than giving the stated exact t=q result."
+        ],
+        "reasoning": "Credit full coverage of the short-deletion baseline, but neither broader theorem covers the central alphabet-size deletion order.",
+        "searches": [
+          "Resultary 2036e6f8e3be, Finding",
+          "arXiv:2601.06493v2, Theorem 17 and Corollary 18"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2036e6f8e3be",
+        "Li–Wang–Fu, arXiv:2601.06493v2",
+        "Liron–Langberg, arXiv:1202.1644v1",
+        "Mercier–Khabbazian–Bhargava, doi:10.1109/TIT.2008.924730 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cyclic relabeling preserves the run-length vector and increases or preserves the shadow. It does not compare different doubled-run positions.",
+          "A deletion-pattern count and its first collision do not calculate the total collision loss (j-q)_+ + (r-j-q+1)_+."
+        ],
+        "reasoning": "The prior reduction is used and credited; the new degree-q count and minimization are not automatic implications of it.",
+        "searches": [
+          "arXiv:2601.06493v2, Lemma 10, Theorem 17 and Corollary 18",
+          "arXiv:1202.1644v1, Section VII",
+          "Resultary 2036e6f8e3be, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fixed-length distinct subsequences and distinct deletion outputs are the same object; the cardinality of deletion patterns is just an upper bound.",
+          "Resultary 2036e6f8e3be provides collision thresholds but not the exact number of losses at the threshold or their dependence on the doubled position in this family."
+        ],
+        "reasoning": "A threshold for the first failure of injectivity is weaker than an exact formula for the size of the image and an optimizer classification.",
+        "searches": [
+          "Resultary: run-pattern collisions and short-deletion extremality",
+          "arXiv:2601.06493v2, Lemma 10 and Section V-A",
+          "arXiv:1202.1644v1, Section VII"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected exact pattern law and balanced-string recurrences refer to different parameter ranges or prescribed strings; no matching loss table for all q,r,j at t=q was found."
+        ],
+        "reasoning": "Being able to enumerate individual instances does not establish the exact all-parameter extremum or the positional law.",
+        "searches": [
+          "Resultary 2036e6f8e3be, exact run-pattern thresholds and short-deletion bounds",
+          "arXiv:2601.06493v2, Section V-A and Corollary 18"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact loss and position law at t=q. The t<q formula is a baseline, explicitly covered by a broader later Resultary theorem and not credited as a distinct contribution here. The closest inspected collision thresholds, general upper bounds and counting recurrences do not supply the t=q global maximum and position profile. This is a best-of-knowledge comparison, not a priority certificate.",
+      "residual_risks": [
+        "The 2008 article was not available for internal theorem comparison; an earlier overlap, especially at particular small q, is not excluded.",
+        "No comprehensive priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers t<q baseline, not central t=q result; comparison is coverage, not a priority inference",
+          "evidence": [
+            "All n≥r under q≥t+1; balanced run-length polynomial with cyclic labels."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-run-pattern-collision-thresholds-and-short-deletion-extrem--2036e6f8e3be",
+          "material_read": "RESULT.md, Finding offsets 0–5771 and prior work offsets 5700–9225",
+          "method": "Resultary index and local mirror full-text passages",
+          "title": "Exact run-pattern collision thresholds and short-deletion extrema",
+          "trigger": "Exact stronger-looking run-constrained result"
+        },
+        {
+          "assessment": "Prior reduction; nearby exact and bounded results with distinct scope",
+          "evidence": [
+            "Lemma 10 is coefficientwise cyclic-label monotonicity; balance theorem assumes divisibility."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2601.06493v2",
+          "material_read": "Lemma 10 (~24242), Theorem 17 (~72819), Corollary 18 and Section V-A (~77250 onward)",
+          "method": "OA HTML, located and read theorem/recurrence passages",
+          "title": "On the Number of Subsequences in the Nonbinary Deletion Channel",
+          "trigger": "Main reduction and close extremal results"
+        },
+        {
+          "assessment": "Prior pattern-count framework, not the all-alphabet t=q extremum",
+          "evidence": [
+            "The number of patterns upper-bounds distinct outputs because patterns may collide."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1202.1644v1",
+          "material_read": "Section VII deletion-pattern discussion, around offset 57782",
+          "method": "OA HTML passage",
+          "title": "A Characterization of the Number of Subsequences Obtained via the Deletion Channel",
+          "trigger": "Binary run-constrained deletion maxima"
+        },
+        {
+          "assessment": "Unresolved as to internal results, not negative evidence",
+          "evidence": [
+            "Relevant counting topic and small-deletion scope; decisively matching theorem not verified."
+          ],
+          "identifier_or_url": "doi:10.1109/TIT.2008.924730",
+          "material_read": "Bibliographic identification; no full-text theorem comparison",
+          "method": "Lawful OA lookup did not retrieve the paper",
+          "title": "On the Number of Subsequences When Deleting Symbols From a String",
+          "trigger": "Plausibly overlapping small-deletion formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first nondivisible length and first alphabet-size deletion order form a natural boundary: the collision-free run-pattern bound ceases to describe the answer uniformly over positions. Resolving the exact loss for every alphabet and both end versus interior placements is useful beyond recomputing the known short-deletion baseline.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:33:22.057465Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope and proof",
+        "Frozen VERIFICATION.md, check.py and check-output.txt (inspected, not executed)",
+        "/workspace/branches/frozen_recheck.py, bwt()"
+      ],
+      "rationale": "Singleton multiplicities force primitivity and free rotation orbits, giving q!/2 necklaces. In the last column there is only one possible equal adjacent pair, so the linear run count is q or q+1. Its two occurrences of c are in rows beginning at the two successors of c. When they are distinct from c, the two singleton rows are adjacent exactly when the successors are neighboring alphabet values. When the occurrences of c are adjacent in the input, the c-prefixed rows begin cc and cx. Comparing c and x puts the c-preceded row cx on the side of the c block facing x, so the same neighboring-value criterion applies. For each unordered successor pair not containing c, designate one successor first, permute the other q−3 letters and cut the permutation into two tails. This gives (q−2)! necklaces per pair. For a pair containing c, use the unique representative ccx followed by the remaining q−2 letters in any order, giving the same count. There are q−1 neighboring pairs; count their complement or subtract from q!/2. At q=2 only the cc case arises and no q+1-run necklace exists. Aggregation and probabilities follow by disjoint choices of c and division. Independent last-column enumeration used stable inverse LF rather than sorting input rotations; all c at q=2..7 yielded the exact histogram, and reconstructing 20,159 necklaces also checked the successor rule. Replay: python -B /workspace/branches/frozen_recheck.py 4.",
+      "residual_risks": [
+        "The exhaustive computation is for q≤7. The count uses linear, not circular, runs, and an ordered alphabet without an endmarker."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fixed-Parikh-vector result gives the total q!/2; the following remark separates that invariant from full unclustering.",
+          "The CPM results give existence and lower bounds, including the all-symbols-used regime, not an exact fixed-content run census."
+        ],
+        "reasoning": "The total pools both run classes; existence and a lower bound do not determine the number of images in either class.",
+        "searches": [
+          "Kumallagov arXiv:2606.01267 §5.2 and Remark 5.6",
+          "Fici et al. DOI:10.4230/LIPIcs.CPM.2026.13 Theorems 2 and 30"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e59509c51e29 and 17765181f4c4",
+        "Kumallagov arXiv:2606.01267",
+        "Fici et al. DOI:10.4230/LIPIcs.CPM.2026.13"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Proposition 5.5 counts every one-cycle LF word for the content, ignoring adjacency of duplicate positions; Remark 5.6 distinguishes the refined question.",
+          "Theorem 30 is a lower-bound statement in a broader class."
+        ],
+        "reasoning": "To get the exact refinement one must additionally analyze the predecessor rows and their ordering inside the repeated-letter block, and count placements conditional on successor pair. It is not a numerical substitution in the prior results.",
+        "searches": [
+          "Kumallagov §5.2 Prop. 5.5 and Remark 5.6",
+          "Fici et al. Theorem 30, totally unclustered with all symbols present"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "e59509c51e29 for length n=q+1 on n−1 symbols counts (q−2)! per fixed unordered successor pair and gives the same neighboring-value test.",
+          "Primitive BWT last columns admit an equivalent one-cycle LF condition."
+        ],
+        "reasoning": "The successor test, fixed-c frequencies and aggregate agree with the later record; its additional ambient-alphabet consequence does not make that match partial. The earlier one-cycle condition defines the same valid images but does not evaluate their refined counts.",
+        "searches": [
+          "Resultary near-permutation and near-distinct BWT runs, e59509c51e29",
+          "arXiv:2606.01267 Proposition 5.7(a)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact later comparator yields (q−1)! and (q−1)!(q−2)/2 under n=q+1. The three-marker spectrum enumerates a different binary content family, including periodic words."
+        ],
+        "reasoning": "The exact formula match is documented as such; the November 22 index date does not establish prior coverage relative to the October 18 record. Three-marker binary counts do not specialize to one duplicate with every other symbol unique over varying q.",
+        "searches": [
+          "Resultary e59509c51e29, near-permutation all lengths",
+          "Resultary 17765181f4c4, three binary markers"
+        ]
+      },
+      "rationale": "Credit the fixed-content total and one-cycle criterion to prior theory. The exact two-bin run refinement and successor criterion are not covered by the available earlier fixed-content or existence results. A later-dated Resultary record does cover the entire theorem in equivalent notation; this is exact overlap, not proof of an earlier antecedent or of any priority relationship beyond the indexed dates.",
+      "residual_risks": [
+        "Older equivalent fixed-content enumerations under inverse-LF or necklace terminology could exist beyond these bounded searches. The later date is a catalogue fact, not proof of who first obtained the result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact theorem overlap, later index date",
+          "evidence": "n=q+1 yields the same per-successor-pair count, both run bins and structural criterion, plus an ambient-alphabet extension.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-complete-near-permutation-burrows-wheeler-run-distribution-at-al--e59509c51e29",
+          "material_read": "RESULT.md Finding/Assumptions (offset 0) and Proof §§2–4 (offset 3150), snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary semantic lookup and local mirror passage inspection",
+          "title": "Complete near-permutation Burrows–Wheeler run distribution at all lengths",
+          "trigger": "Closest exact matching content and run count"
+        },
+        {
+          "assessment": "Covers total and LF framework, not the refined count in inspected passages",
+          "evidence": "The gcd-one total q!/2 and single-cycle validation already follow. The work distinguishes these from complete unclustering.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.01267",
+          "material_read": "§5.2 Prop. 5.5, Remark 5.6 and Prop. 5.7(a), pp. 6–7 (around offsets 18550 and 19799)",
+          "method": "OA PDF passage inspection",
+          "title": "An extremal problem for completely unclustered Burrows-Wheeler images",
+          "trigger": "Prior exact fixed-content BWT and one-cycle theory"
+        },
+        {
+          "assessment": "Prior motivation, not this census",
+          "evidence": "Existence and lower bounds do not specify the run distribution conditional on exactly one repeated letter.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2026.13",
+          "material_read": "Theorem 2 p. 2 and Theorem 30 p. 14 (offsets around 6622 and 52650)",
+          "method": "Lawful publisher OA PDF passages",
+          "title": "Totally Unclustered BWT Images of Any Length over Non-Binary Alphabets",
+          "trigger": "Potential general exact nonbinary unclustering result"
+        },
+        {
+          "assessment": "Different content and later-dated",
+          "evidence": "Counts a spectrum for binary necklaces with three ones, not the one-duplicate content in ordered alphabets of variable size.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-burrows-wheeler-run-spectrum-of-cyclic-binary-words-with-t--17765181f4c4",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary lookup and local mirror",
+          "title": "Exact Burrows–Wheeler run spectrum of cyclic binary words with three markers",
+          "trigger": "Related exact run spectrum for a different content class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Kumallagov Remark 5.6",
+        "Fici et al. Theorems 2 and 30"
+      ],
+      "rationale": "This is the first content family in which BWT clustering can occur without any periodicity: the all-distinct family has no repeated symbols to cluster. The exact unclustering fraction 1−2/q, its rank independence and the local successor test give a baseline for fixed-content unclustering and run-enumeration work. The fixed-content total alone cannot answer that question, and the scope is natural rather than a chosen finite range.",
+      "residual_risks": [
+        "No arbitrary-content, sentinel, or circular-run extension is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

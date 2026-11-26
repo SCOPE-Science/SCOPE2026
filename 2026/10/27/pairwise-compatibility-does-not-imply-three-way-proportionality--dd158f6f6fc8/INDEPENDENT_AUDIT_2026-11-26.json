@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:03:25.821710Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 13–70",
+        "Frozen VERIFICATION.md and check_rankings.py, inspected only",
+        "Independent replay: python3 /workspace/branches/review4_recompute.py"
+      ],
+      "rationale": "The integer thresholds are exactly the lower quotas floor(ks/n). I independently encoded positive quotas by event family and evaluated all 295240 multisets, including repeats, using union, majority, and intersection of event bit sets for quotas 1, 2, and 3. The three displayed witnesses pass their respective pairs, and pair and triple counts are (5,44,6,0). All eleven obstruction supports agree. In the deduction, the two mandated top-two sets define distinct outputs A and B; B cannot contribute to the 5-before-3 quota, so C must. If A omits 1 from its top three, B must have tail 1,5,4 and the quotas give 2>4>5>1 in C, impossible. Once A has 1 third, C needs 3 in the top three; either 1 or 5 third in B would give 2>4>5>3 in C, impossible. So B has tail 4,5,1, and C must start 5,3,1. All then rank 5 above 1, contrary to the final quota. Replication scales numerator and denominator equally. Appending a common tail preserves witnesses; deleting tails from any alleged new joint solution keeps each witnessed original top-two set, cannot worsen any original top-position membership, and preserves original pairwise orders. This proves the whole stated existence family.",
+      "residual_risks": [
+        "The count is for the base profile only; neither the proof nor the enumeration asserts minimal parameters or counts across all profiles."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3 gives pairwise-only infeasibility on some inputs. Theorem 4 gives a joint solution under single-peakedness, and Theorem 5 guarantees pairwise+PSC on the single-crossing domain, with a selection from the input.",
+          "The two distinct Resultary records concern an input-only pairwise obstruction and probabilistic pairwise-only guarantees, respectively."
+        ],
+        "reasoning": "None of these comparisons covers the exhibited conjunction-feasibility pattern for unrestricted permutations.",
+        "searches": [
+          "arXiv:2610.23193v1, Theorems 3–5 and Appendix F",
+          "Resultary IDs 5ddaae52241b and e37ea1944ab9"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting evidence",
+        "Resultary/SCOPE local ranked search including distinct records 5ddaae52241b and e37ea1944ab9",
+        "Halpern et al., arXiv:2610.23193v1, especially §5 and Appendix F"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pairwise-only impossibility implies two pairs fail, unlike the frozen claim. Appendix F disproves input-only positional feasibility itself; 5ddaae52241b explicitly leaves room for synthetic pairwise-proportional outputs."
+        ],
+        "reasoning": "Dropping an output restriction can restore feasibility; neither argument implies a three-axiom obstruction after showing that all three pairs work.",
+        "searches": [
+          "arXiv:2610.23193v1, §5 and Appendix F; Resultary 5ddaae52241b §Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Threshold and floor-quota formulations describe the same events. PSC uses exact unordered prefix sets, not per-candidate top-position counts.",
+          "The closest same-model primary text allows repeated output rankings; its three-axiom guarantees are for restricted domains."
+        ],
+        "reasoning": "The comparison was made on the same axiom semantics and output model before distinguishing the earlier restricted results.",
+        "searches": [
+          "Halpern et al., arXiv:2610.23193v1, proportionality and output model; literal ‘simultaneously’ and ‘Appendix F’",
+          "Resultary ranking-compression / positional / pairwise / solid coalitions claim search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct matching profile or count table was found in the inspected results. Appendix F uses (4,14,2) and the input-selection model, not (6,5,3) with arbitrary outputs."
+        ],
+        "reasoning": "Different parameters alone would not exclude equivalent coverage, but the earlier table is also a different mathematical constraint problem.",
+        "searches": [
+          "Resultary ranking compression / three axioms / k=3",
+          "arXiv:2610.23193v1, Appendix F pp. 22–23"
+        ]
+      },
+      "rationale": "Bounded evidence supports the distinct separation in the unrestricted output-multiset model. Prior failure of the pairwise axiom itself, or obstruction after restricting all output rankings to input rankings, does not give pairwise feasibility for all three pairs together with triple infeasibility.",
+      "residual_risks": [
+        "Bounded catalogue and literature comparison does not certify priority or exclude unindexed equivalent separations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different conclusions",
+          "evidence": "Theorem 5 is pairwise+PSC for single-crossing, with output from input; Appendix F refutes positional proportionality under that very restriction, not unrestricted triple feasibility with all pairs feasible.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.23193v1",
+          "material_read": "Abstract, introductory statements, Theorems 4–5, and Appendix F counterexample (pp. 22–23, text around offset 100900)",
+          "method": "Lawful OA PDF, literal locations and bounded offsets",
+          "title": "Proportionality in Ranking Compression",
+          "trigger": "Original definitions and closest plausible implication"
+        },
+        {
+          "assessment": "Different output restriction and conclusion",
+          "evidence": "The counterexample has four alternatives and n=4,k=2; synthetic outputs can satisfy the pairwise axiom.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-three-to-four-alternative-boundary-for-input-only-pairwise--5ddaae52241b",
+          "material_read": "RESULT.md §Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp three-to-four alternative boundary for input-only pairwise proportionality",
+          "trigger": "Closest catalogue obstruction"
+        },
+        {
+          "assessment": "Different axioms and conclusion",
+          "evidence": "Probabilistic pairwise-only guarantee for two outputs.",
+          "identifier_or_url": "2026/11/8/SCOPE-two-scale-probabilistic-guarantees-for-pairwise-proportional-ran--e37ea1944ab9",
+          "material_read": "RESULT.md §Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Two-scale probabilistic guarantees for pairwise proportional ranking compression",
+          "trigger": "Plausibly related synthetic-output result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Halpern et al., arXiv:2610.23193v1, restricted-domain guarantees and Appendix F"
+      ],
+      "rationale": "The explicit obstruction answers a natural compatibility question left open by knowing that each axiom may work separately or that pairwise proportionality can fail by itself. It distinguishes genuine three-way interference from incompatible pairs in a small, unrestricted example. The exact counts quantify how often pair compatibility occurs on this fixed instance; the replication and padding are scope extensions, not the main contribution.",
+      "residual_risks": [
+        "No claim of profile minimality or general theory of compatibility is supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

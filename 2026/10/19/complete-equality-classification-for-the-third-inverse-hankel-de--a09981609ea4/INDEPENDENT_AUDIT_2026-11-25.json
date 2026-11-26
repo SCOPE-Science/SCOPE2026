@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:00:00.703160Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 18–73; VERIFICATION.md and verify_inverse_hankel.py inspected, not executed",
+        "Allu–Kumar arXiv:2604.23220v1, Eq. (2.6) and the Schur-group coefficients, pp. 3–5",
+        "Corrected /workspace/repairs/3/RESULT.md",
+        "Independent exact replay: python3 /workspace/reproductions/3.py (SymPy); verifies polynomial reconstruction and certificates, not historical priority"
+      ],
+      "rationale": "The corrected RESULT.md retains the equality theorem and closes a gap in the cited majorant argument. In Allu–Kumar's Eq. (2.6), the constant Schur group's g² coefficient is p²(4−p²)(172−49p²), negative for 172/49<p²<4; a termwise triangle bound cannot retain that sign. The upper bound itself survives: grouping the constant, linear and quadratic terms in −g gives A+Bexp(iψ)−Cexp(2iψ), where C/B≤2/17 and C/A≤4/27 in this regime, hence B(A−C)>4AC. Subtracting the absolute square from (A+B−C)² gives the nonnegative factorization in repaired Step 2. All other groups have valid separate absolute bounds. Consequently exactly the same Bernstein certificate proves strictness for p<2 and |g|<1. Independently reconstructed inverse coefficients by Lagrange inversion and Schur recursion; reconstructed the source majorant's Phi (Bernstein minima 0 and 160 in the first p-slice) and the reduced unimodular defect by exact Chebyshev substitution (Bernstein minima 78336, 78848 on the half-boxes). Thus equality forces p=2, or |g|=1 and either p=0 or g=−1. For the boundary cases the Schur transform terminates: p=2 gives Koebe, g=−1 gives z/(1−pz+z²), and p=0 gives z/(1−gz²). Rotations recover precisely the two-pole family. Substitution in w(1−az+bz²)=z gives the stated inverse coefficients and determinant b³; its starlikeness follows by averaging the two positive-real-part Cayley kernels.",
+      "residual_risks": [
+        "The frozen proof used the majorant as a premise without addressing the negative quadratic coefficient; its validity is established here by an analytical phase estimate, not by trying sample coefficients."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Allu–Kumar addresses exactly the ordinary starlike class and sharp absolute constant; names Koebe in the sharpness argument.",
+          "Rath et al.'s accessible metadata/abstract concern starlikeness with respect to symmetric points; the full-text overlap with the reported antipodal example was not independently rechecked."
+        ],
+        "reasoning": "A sharp bound in the same class is not a characterization. The symmetric-point condition is a different hypothesis and not a verified stronger equality theorem on this domain.",
+        "searches": [
+          "Allu–Kumar arXiv:2604.23220v1, Theorem 2.1 and pp. 3–6",
+          "Rath–Krishna–Kumar–Viswanadh DOI:10.30970/ms.58.1.45-50"
+        ]
+      },
+      "checked_sources": [
+        "Allu–Kumar arXiv:2604.23220v1",
+        "Rath et al. DOI:10.30970/ms.58.1.45-50 (metadata/abstract only)",
+        "Resultary 0f41cc0cf5d6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The majorant on |g|=1 equals 1152 for every p and does not distinguish the argument of g, whereas for 0<p<2 the actual determinant attains one only at g=−1.",
+          "The repaired weighted phase bound establishes the very majorant being used; the separate Laurent defect supplies information absent from that majorant."
+        ],
+        "reasoning": "The equality theorem is not a mere substitution into the earlier sharp inequality or an automatic equality case of the phase-blind bound.",
+        "searches": [
+          "arXiv:2604.23220v1 Eq. (2.6), Bernstein matrices and proof of Theorem 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normalized equality family corresponds to two equally weighted boundary atoms for zf′/f, including coincident and antipodal atoms; up to rotation and interchange, f=z/(1−2rz+z²), 0≤r≤1.",
+          "The closest Resultary symmetric H-domain record concerns the ordinary H_{3,1} of f in a Sakaguchi-type class, not H_{3,1} of the local inverse of an ordinary starlike function."
+        ],
+        "reasoning": "These equivalent parameterizations and the difference in coefficient functionals were compared against exact hypotheses, not the shared Hankel terminology.",
+        "searches": [
+          "Resultary: Allu–Kumar inverse Hankel equality, two-pole extremizers, Carathéodory/Schur formulations",
+          "arXiv:2604.23220v1 Lemma 1.1 and Theorem 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest concrete catalogue comparison 0f41cc0cf5d6 is a counterexample on another determinant/class and provides no exact equality-family result for this claim.",
+          "Theorem 2.1 supplies one sharp example rather than a list of all extremizers."
+        ],
+        "reasoning": "This continuous family is not a finite table problem. The relevant exact-claim search and comparison do not certify that an unindexed equality theorem is absent.",
+        "searches": [
+          "Resultary: exact inverse H(3,1) starlike extremizers; sharp inverse Hankel determinant rational two poles"
+        ]
+      },
+      "rationale": "The sharp constant and Koebe example are prior. The same excerpted primary proof controls the envelope but does not fully classify its sharp maps. The repaired proof adds the missing signed phase bound for the envelope and retains the separate phase-defect rigidity theorem for the actual determinant. The complete rational two-unit-pole family in the ordinary starlike class is not covered by the verified prior statements.",
+      "residual_risks": [
+        "Lawful full text of Rath et al. was not recovered; the source's reported antipodal example should not be claimed as independently verified prior overlap.",
+        "An unindexed earlier full equality theorem is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers constant and Koebe; not the full necessity and sufficiency; signed term in the majorant step needs justification",
+          "evidence": [
+            "Eq. (2.6) uses the signed quadratic coefficient; verified sign change and repaired the estimate without changing that polynomial.",
+            "The boundary majorant leaves the phase free."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2604.23220",
+          "material_read": "Definitions p. 1; Lemma 1.1 and Theorem 2.1 p. 2; proof pp. 3–6, including offsets 12300–15890 around Eq. (2.6) and the gap polynomial",
+          "method": "Primary OA PDF text; independent exact reconstruction of critical displayed expressions",
+          "title": "On the Third Hankel Determinant for Inverse Coefficients of Starlike Functions: A Bernstein Polynomial Approach",
+          "trigger": "Identical functional, normalization, and sharp bound"
+        },
+        {
+          "assessment": "Different class in the verified material; exact example comparison remains limited by access",
+          "evidence": [
+            "Starlikeness with respect to symmetric points, not the ordinary zf′/f positivity hypothesis."
+          ],
+          "identifier_or_url": "https://doi.org/10.30970/ms.58.1.45-50",
+          "material_read": "Accessible article metadata/abstract; supplied PDF URL did not return article full text and DOI recovery did not locate an OA copy",
+          "method": "Lawful OA and DOI checks",
+          "title": "The sharp bound of the third Hankel determinants for inverse of starlike functions with respect to symmetric points",
+          "trigger": "Earlier inverse Hankel sharp result with related class"
+        },
+        {
+          "assessment": "Not an overlapping classification",
+          "evidence": [
+            "Uses ordinary coefficients of f and a symmetric-point class."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-an-explicit-blaschke-counterexample-to-the-symmetric-h-domain-th--0f41cc0cf5d6",
+          "material_read": "RESULT.md claim and its setting",
+          "method": "Published-record local mirror",
+          "title": "An explicit Blaschke counterexample to the symmetric H-domain theorem",
+          "trigger": "Near Hankel/Schur catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected Finding and Steps 1–4",
+        "Allu–Kumar Theorem 2.1"
+      ],
+      "rationale": "A complete necessity-and-sufficiency theorem reveals a genuine continuous set of sharp maps missed by pointing to Koebe, distinguishes phase rigidity from saturation of a numerical upper envelope, and supplies exact proof rather than sampling. The proof repair is needed to support that structural conclusion; it does not rely on claiming a stronger bound.",
+      "residual_risks": [
+        "No assertion about stability, other determinants or other classes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction of mathematical checks
+# Independent mathematical audit
 
-Run `python3 verify_tetra.py` with Python 3 and SymPy. The script constructs the four tetrahedral sign vectors and two independent tangent vectors at each vertex, builds the exact differentiated Legendre-kernel Gram matrix and symbolically factors its determinant over the rational function field. It computes exact ranks for all degrees zero through twelve using rational Legendre polynomial derivatives and separately computes harmonic homogeneous-polynomial tangent-derivative ranks for degrees one through six. It checks by exact integer and rational inequalities the numerical comparisons required to apply the analytic Bernstein bound from degree thirteen upward.
+## correctness
 
-The checker was run successfully from its current package path. Expected terminal output is:
+PASS
 
-`VERIFY_OK determinant_factor=exact rank_0_to_12=[0, 3, 5, 6, 8, 5, 8, 8, 8, 8, 8, 8, 8] direct_harmonics_1_to_6=exact Bernstein_tail_13_plus=certified`
+The mixed directional derivative of the exact-degree addition kernel gives TT* up to a positive normalization. I rebuilt its rational matrix at dot product -1/3, using the unnormalized tangent directions but unit vertices, and recovered the symbolic determinant with factor multiplicities 2, 3, 3. Independently I generated solid harmonics from arbitrary z^0 and z^1 homogeneous coefficients, recursively solving (k+2)(k+1) f_{k+2}=-(∂_x²+∂_y²)f_k. Their directional derivatives at the sign vertices differ from the unit-vertex derivatives by a common nonzero degree-dependent factor. Exact row reduction yielded 0,3,5,6,8,5,8,8,8,8,8,8,8; multiplying the degree-three and degree-five evaluation matrices by the listed constraint rows gave zero, with independent rows spanning the full left nullspaces. For l≥13, DLMF 18.14.3 at alpha=beta=0 gives |P_m(-1/3)|≤sqrt(2/pi)(9/8)^(1/4)/sqrt(m+1/2)<1/sqrt(m). The Legendre differential identities bound the two derivative ratios as in the proof; the first two factors have off-diagonal ratio <6/16+5/2<3, and the third <18/16+5/2<9. This is an analytic tail exclusion, not extrapolation. Replay recipe: build the eight rows in RESULT.md order, use the solid-harmonic recurrence and exact rational row reduction through degree 12, then use the two displayed differential identities and inequalities; the frozen verify_tetra.py was inspected, not used for the independent calculation.
 
-The infinite-range argument additionally invokes the published classical Bernstein bound for Legendre polynomials at interior points, DLMF equation 18.14.3. The checker validates its required rational consequences; it does not purport to reprove this external classical inequality. The argument is exact, not floating-point extrapolation. Independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+The defensible increment is the isolated-degree tetrahedral gradient rank law including both exceptional compatibility spaces and the all-degree cutoff, not general addition identities or the idea of rank defects on symmetric point sets. No equivalent or dominating theorem was found in the bounded comparisons.
+
+## value
+
+PASS
+
+The tetrahedron is a canonical minimal symmetric spatial array, and the precise invariant answers whether arbitrary tangent data can be interpolated using one spectral degree. The degree-five loss after a surjective degree is not predictable from domain dimension; the explicit constraints identify which data are unavailable and the all-degree cutoff settles future exceptions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

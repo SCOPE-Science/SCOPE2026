@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The payoff first-order equations and strictly concave potential give a unique equilibrium on each covered graph. The exact identity \(W=\|x^*\|_2^2/2\) follows directly. All seven isomorphism-type formulas (one three-vertex, six four-vertex) were independently regenerated from symbolic inverse matrices using a standalone script; Bernstein coefficients and polynomial derivative arguments establish the global signs within all admissible parameter ranges. Explicit rational equilibrium values certify the counterexample. No unbounded-family or higher-vertex assertion is inferred from finite computation.
+PASS
 
-## Originality — PASS with literature risk
+Exact principal-minor checks on the 43 connected labeled graphs at orders 2–4 give I+A/2 positive semidefinite, making I+beta*A positive definite for 0<beta<1/2. The strictly concave potential has a unique orthant maximizer, the Nash equilibrium; for interior x it satisfies (I+beta*A)x=1 and the sum of player payoffs is ||x||²/2. Adding edge ij subtracts beta*x_i*x_j from the potential, so at the new interior optimizer its value is strictly smaller than the old maximum. The optimum equals T/2, proving strict fall of total action for every admissible transition. Independent mask enumeration and exact symbolic differences recovered one three-vertex and six four-vertex transition classes; the star and paw impose respective upper interior endpoints 1/3 and sqrt(2)-1. All payoff differences and the Bernstein sign certificates agree with the bound proof. The strictly decreasing C and Q start positive and become negative at their stated upper endpoints; the exact rational brackets locate the unique sign change in each. At alpha and gamma the corresponding payoff differences are zero, not negative; among the other transition classes all admissible comparisons strictly decrease payoff. At beta=3/8 the cycle-to-diamond witness gives Delta T=-12/91 and Delta W=276/8281. To replay, enumerate the connected masks and single missing edges modulo simultaneous vertex permutations, then compute the differences of the squared norms of the two symbolic solutions divided by two and check the signs as in RESULT.md lines 23–88. No uploaded verifier was run. These checks concern common-beta, interior comparisons, not corner equilibria.
 
-The parent working paper and its 2014 version were inspected at model definition, uniqueness, comparative statics, and proof material. Its monotonicity result concerns total equilibrium action and the potential, which is not the sum of individual quadratic equilibrium payoffs. The related public-goods welfare paper uses a positive-spillover benefit-minus-cost function; its bounds do not imply the negative-cross-term game's exact two-threshold classification. Bonacich key-player results study different structural operations and interaction regimes. Conceptual and exact-parameter literature searches, including semantic research records, identified no identical or stronger published statement. This supports the present assessment but cannot exclude an unindexed or differently named equivalent result.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result answers a motivated network-design question left unresolved by the classical aggregate-action monotonicity theorem: can more competition links nevertheless benefit all players in aggregate? It supplies a sharp minimum network size, an exact complete classification of first examples, two algebraic phase transitions, and an exact counterintuitive payoff/action witness. These are structurally informative, beyond an arbitrary single parameter substitution. The work makes no empirical or large-network significance claim.
+The game and the comparative static for aggregate equilibrium action are covered in primary work. The different response variable, total individual equilibrium payoff, is not an alias for the old result; it can increase under the same edge addition that reduces action. The inspected evidence does not provide the exact minimal order, transition classification, or two welfare thresholds. No priority claim is made beyond this bounded comparison.
 
-## Limits and closest references
+## value
 
-The statement is limited to connected simple graphs of orders at most four and to unique, strictly positive equilibria with interaction strength strictly below one half. Its closest literature is Bramoullé–Kranton–D'Amours (CIRPÉE 2010, author manuscript 2011, AER 2014), Ballester–Calvó-Armengol–Zenou (Econometrica 2006), and Chadha–Kulkarni (arXiv:1906.07630). Independent review is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+It is natural to ask whether reduced play from more competition also reduces the sum of equilibrium payoffs. The exact four-player reversals show why the answer is no in the standard quadratic model, separating two economically meaningful observables. The minimality and complete threshold classification show where this is possible and exclude the other transition types, rather than reporting a single floating-point counterexample. The value does not rely on interpreting the payoff increase as large or on extrapolation to heterogeneous, larger, or corner-equilibrium games.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:37:37.101333Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The primary source's t is the frozen g, and its Hamiltonian convention is i times the time derivative equals twice the Wirtinger energy gradient. The displayed functional and Eq. (51) are consistent with those two normalizations. Independently, at fixed b=|y|² the nonnegative quartic deficit in RESULT.md lines 55–66 is the sum of (a−c)²/8, b(√a−√c)²/2, and the loss from the maximum phase term. For a balanced, phase-matched state with a=c, the energy is −μ−g/4+(U−2g)a+(7g/2)a² for 0≤a≤1/2. Its constrained minimum and all equality conditions give the stated populations, energy and unique ray above and at threshold. Linearizing Eq. (51) in the frame rotating at 2μ+g gives the transverse block with diagonal ±(U−g) and off-diagonals −g,g. Its square is U(U−2g)I; hence −i times this block has a positive real eigenvalue precisely for 0<U<2g, and the block is nonzero nilpotent at equality. Tracing over the other site gives the occupation probabilities as eigenvalues and hence the claimed entropy and expansion. This checks the formulas algebraically; verification.py was inspected, not executed; its recorded finite checks are supplementary. No nonlinear stability or particle entanglement is implied.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The preceding work supplies both the whole U-dependent model and the slice reduction of the quartic term for all outer sums, although it does not present a diagram labelled U=2g.",
+          "The spinor phase diagrams and dynamical separatrix are for a different model; they are not evidence that the exact frozen entropy or spectrum was stated there."
+        ],
+        "reasoning": "Coverage of the principal optimization comes from the prior reduction for every fixed slice in the same Hamiltonian, not from broader analogies or an unrestricted infinite-array existence theorem.",
+        "searches": [
+          "arXiv:2609.21438v1 p. 12 and Appendix VII.C pp. 23–24",
+          "DOI:10.1038/srep14464 Eq. (3) and phase-diagram discussion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.21438v1 Eq. (51) and Appendix VII.C",
+        "DOI:10.1038/srep14464 Eq. (3)",
+        "Local Resultary records 6f71b8ea0b1d and 4f9471da9506"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The direct argument phase-aligns at fixed moduli, discusses each quarter-circle r₀²+r₂²=constant, and writes the balanced polynomial F=1+8a−14a².",
+          "One sentence about the separated term r₀⁴+r₂⁴ reverses its extremum. The intended slice reduction nonetheless follows directly from the same displayed (105): with S=a+c and phases aligned, F as a function of r=√(ac) is S²+b²+4bS+2r²+4br, increasing for r≥0, so r=S/2.",
+          "The prior one-body term contributes Ua−μ on the balanced slice. The resulting vertex is a=(2g−U)/(7g), clipped at zero for U≥2g."
+        ],
+        "reasoning": "This is a direct application of the source's explicit one-variable reduction, not just of the U=0 optimizer. The source's separated-term slip does not require a new reduction: its own phase-aligned formula certifies the same slice maximum by monotonicity in √(ac). The transverse matrix is not supplied by this implication, but follows separately by retaining the linear terms in Eq. (51).",
+        "searches": [
+          "arXiv:2609.21438v1 Appendix VII.C direct maximization paragraph on pp. 23–24 and Eq. (51) Hamiltonian"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Set F=||ψ⊙ψ||²=4V in Appendix VII.C. Its phase condition is exactly the frozen condition, and its displayed balanced value is F=1+8a−14a² in a=|x|²=|z|².",
+          "Huang et al. use the same relative phase up to sign, but use a conserved magnetization and a different spinor interaction energy with a quadratic Zeeman shift."
+        ],
+        "reasoning": "The prior F is exactly the same quartic after normalization and does not merely resemble it. The spinor analogue is not a second exact equivalence: phase matching and three populations alone do not make the energies or constraints the same.",
+        "searches": [
+          "arXiv:2609.21438v1 Eq. (51) and Appendix VII.C, Eqs. (103)–(110)",
+          "DOI:10.1038/srep14464 Eq. (3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first indexed finding computes a holomorphic-harmonic observation spectrum for a phase-selected region, not these energy minimizers.",
+          "The second gives linear two-boson hopping spectra and crossings on complete bipartite graphs, not the nonlinear functional studied here."
+        ],
+        "reasoning": "There is no natural integer table for this continuous normalized-energy diagram. The closest retrieved indexed exact results do not tabulate it; the decisive overlap is the analytic primary source.",
+        "searches": [
+          "Local Resultary: 6f71b8ea0b1d three-mode quartic phase matching",
+          "Local Resultary: 4f9471da9506 exact two-boson Hubbard spectrum"
+        ]
+      },
+      "rationale": "The principal constrained optimization is mechanically covered, not just related by a single endpoint. Fransson–Sowa give the U-dependent Hamiltonian at Eq. (51), and Appendix VII.C explicitly performs phase alignment and balance on every fixed outer-occupation slice, and prints the resulting quartic polynomial. The U term is constant on each such slice. Adding it to the prior reduced polynomial and clipping its vertex gives the whole positive-U minimizer classification, and its entropy then follows from the same populations. The exact rotating-frame spectrum is not claimed to be printed in the source, but is a separate elementary first-order calculation directly from its displayed ODE. The failure is on the principal submitted claim and does not assert that the precise spectrum was previously published.",
+      "residual_risks": [
+        "The bounded comparison does not settle whether the transverse spectrum or entropy was explicitly printed elsewhere. The finding fails on the evidenced prior implication, not on this possibility."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior quartic reduction and full U-dependent model; mechanically yields principal positive-U optimization",
+          "evidence": "Source uses (i/2) dot x=∂E/∂x* and E=(U/2)(a+c)−μ−tF/4. Appendix's balanced F is 1+8a−14a². The phase and fixed-slice comparisons precede maximization of that polynomial at U=0.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.21438v1",
+          "material_read": "p. 12 Eq. (51) and adjacent functional; pp. 23–24 Appendix VII.C, Eqs. (103)–(110), including direct argument and displayed reduced quartic",
+          "method": "Bounded primary OA PDF passages; decisive Appendix paragraph inspected at offset 130500",
+          "title": "Entanglement-Inducing Quantum Markov Processes",
+          "trigger": "Identical three-amplitude untempered model and Appendix optimizer"
+        },
+        {
+          "assessment": "Close analogue; not an exact statement of this optimization or entropy",
+          "evidence": "Magnetization is fixed, the interaction energy is spinorial, and the control is a quadratic Zeeman shift. Number fluctuations there are not this reduced-density-matrix entropy.",
+          "identifier_or_url": "https://doi.org/10.1038/srep14464",
+          "material_read": "PDF p. 2 Eq. (3), phase-diagram and spin-mixing discussion",
+          "method": "Primary OA statement and equation comparison",
+          "title": "Phase diagram and spin mixing dynamics in spinor condensates with a microwave dressing field",
+          "trigger": "Related quartic three-mode phase constraint and dynamical threshold"
+        },
+        {
+          "assessment": "Different spectral observable",
+          "evidence": "Spectrum of a holomorphic-harmonic observation operator restricted by a phase-selected region.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-three-mode-quartic-phase-matching-spectrum-on-complex-spheres--6f71b8ea0b1d",
+          "material_read": "Indexed and mirrored finding",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "A three-mode quartic phase-matching spectrum on complex spheres",
+          "trigger": "Same kind of quartic phase matching"
+        },
+        {
+          "assessment": "Linear hopping problem, not the frozen nonlinearity",
+          "evidence": "Linear two-boson hopping spectrum on K_{m,n} and interaction-dependent crossings.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-two-boson-hubbard-spectrum-and-asymmetry-triggered-resonan--4f9471da9506",
+          "material_read": "Indexed and mirrored finding",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Exact two-boson Hubbard spectrum and asymmetry-triggered resonance",
+          "trigger": "Two-boson Hubbard spectra and tuned thresholds"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An exact matched variational and dynamical threshold would be useful if it required a distinct result for this finite model. Here the main positive-U diagram is the clipped vertex of the prior slice polynomial after adding the already specified linear occupation term. The entropy is a partial trace of those same populations, and the remaining transverse calculation is the first-order spectrum of the 2×2 block at a stated pure occupation in the prior equations. The submission does not establish a distinct dynamical or entanglement result beyond these direct calculations, such as nonlinear behavior at the degenerate orbit. This assessment does not discount finite exact thresholds in general.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

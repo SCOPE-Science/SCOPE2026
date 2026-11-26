@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Fourier coefficient expansion gives the exact slack matrix \(H_n\). A direct second-difference calculation and the two reflection boundary conditions verify every eigenpair; counting \(n+1\) distinct modes proves completeness and gives the sharp smallest positive eigenvalue. This supplies a complete all-degree proof rather than extrapolation from finite tests. The included standard-library checker passed 421265 exact-rational and numerical supplementary assertions.
+PASS
 
-## Originality — PASS relative to checked sources
+The normalized Fejér multiplier incl. |j−k|=n gives the exact form b*H_nb. The two endpoint columns cancel, so H_ne=0. Reflection commutes with H_n. On the symmetric subspace orthogonal to e the endpoints vanish, and the negative discrete Dirichlet Laplacian applied to H_n is 4/n times the identity there by the second difference of |j−k|. Its reflected symmetric modes are the odd-indexed Dirichlet modes, exactly the asserted symmetric cosines and reciprocal eigenvalues. On the antisymmetric subspace the sum is zero and (H_nv)_0−(H_nv)_1=4v₀/n, with the mirrored right endpoint relation. Thus the negative Neumann difference operator with replicated endpoint ghosts applied to H_n is 4/n times the identity there, including the n=1 boundary-only case. Its odd-indexed Neumann modes are precisely the listed antisymmetric centered sines. Each block has simple positive eigenvalues, and cross-block equality would require n to divide the odd symmetric numerator, which lies strictly between 0 and n. Comparing the largest available half-frequencies gives the even symmetric or odd antisymmetric minimum eigenvalue exactly. Orthogonal projection onto e gives the stated distance and equality only on the kernel plus the simple soft eigenspace, with nonzero soft direction attainable at any fixed angle. Zero Fejér deficit itself requires only the kernel.
 
-MacDonald, arXiv:2611.05363 (2026), proves the underlying pointwise inequality and a partial-sum squares identity, as inspected in the full paper; the proof does not state the entire slack spectrum, parity-dependent sharp coefficient-distance constant, or unique soft eigenmode. Ruzieh and Powers (1990) diagonalize the *unmodified* path distance matrix, whereas the current matrix has a noncommuting all-ones correction. Targeted published mathematical record searches found no equivalent or dominating coefficient-stability result. A disguised older discrete Green-kernel or Brownian-bridge formula remains a bibliographic priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The new quantitative lower bound turns a qualitative equality classification into sharp, all-degree stability in the natural Euclidean metric on Fejér–Riesz factors. Its exact soft modes reveal which coefficient perturbations are hardest to detect, with an even/odd switch and degree-dependent decay. This is a motivated stability invariant, not an arbitrarily chosen coefficient or finite test case.
+MacDonald has the same slack sum of squares and classical zero-deficit equality, and the distinct two-index Resultary record generalizes the scalar domination. The supported distinct claim is the full spectral resolution and its sharp parity-dependent coefficient-distance refinement. Standard Green/path Laplacian spectra supply tools once the two different boundary operators are identified, but the inspected prior statements do not give those two reductions for the same slack or its sharp positive gap.
 
-## Limits
+## value
 
-The result does not establish factor-independent function-space stability or solve the Krzyż conjecture. The standalone code is supplementary, not an infinite-degree certificate. Earlier equivalent formulas under another spectral terminology cannot be ruled out exhaustively.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharpening a positive sum of squares to a sharp distance from its null space answers a natural near-equality question. The exact all-degree gap and equality directions identify the modes in which perturbing an extremizer is least expensive and reveal an endpoint-driven parity transition invisible in the scalar inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

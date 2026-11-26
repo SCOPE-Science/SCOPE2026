@@ -1,19 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The result assumes exactly \(n\) single visits, equal pollen-removal fractions, fixed counts of the two flower sensitivities, and an additive negative-exponential success objective. Flower identity does not alter the delivered amount, so selecting the largest \(r\) increments is an exact reduction. The strict-unimodal score argument, unique positive root of \(h(x)=h(cx)\), derivative-sign inequality and monotone block-switch thresholds prove the claimed complete optimizer classification for all admissible parameters. Boundary ties, \(r=1\), and \(r=n-1\) are included. Supplementary independent enumeration passed 6089 deterministic assertions; it is not relied on as an infinite proof.
+PASS
 
-## Originality: PASS (provisional)
+Deposition at visit j is independent of sensitivity, so the objective is a fixed baseline plus the sum of r scores h(x_j) for the high positions. Strict one-peak behavior of h on positive x ensures a superlevel set on the sampled ordered grid is an interval. If the cutoff is tied, any two tied indices have strictly larger scores between them and strictly smaller scores outside them; a noncontiguous maximizing set is impossible. The logarithmic derivative of h(x)/h(cx) is strictly negative: y/(exp(2y)-1) is decreasing, so coth(y)-c*coth(c*y)<1-c, giving the bound -b(1-c). The ratio decreases from 1/c to 0, proving unique crossing; taking c=q^r makes the adjacent block differences cross once at increasing loads in ratio 1/q. This gives all load intervals and the exact two-block ties, including r=1 and r=n-1. The golden-ratio substitution reduces to u(1+u)=1. Independent 70-digit enumeration of the 15 arrangements checks the five open regimes and four ties for the example; at L=8 positions 4,5 give 4.241880690637 versus 3.990255637369 for 1,2. Reproducer: /workspace/branches/531794c0-b94a-49b3-87b2-3cf5e1186206/staircase_independent_check.py. The supplied checker was read, not run; the numerical tie comparison corroborates the exact argument but is not its proof.
 
-The closest primary work establishes geometric pollen transfer, pollen-limitation dose response, paternity-shadow inference, and simulation of pollinator visitation sequences. None of the accessible full-text comparisons derives the exact optimization over arrangements of two fixed flower sensitivity classes, or the universal multiplicative spacing of all switching pollen loads. The elementary fact that an unimodal score sequence has contiguous top-\(r\) entries is not asserted to be new. Abstract-only accessible older papers and general assignment literature impose a residual priority risk; the stated originality judgment is bounded by that limitation.
+## originality
 
-## Value: PASS
+PASS
 
-The motivation is the conflict between concentrating a scarce pollen load on the most receptive flowers and wasting high-receptivity advantage through saturation when pollen is abundant. The theorem completely classifies all allowable arrangements for arbitrary sequence length and fixed high-receptivity count, identifies every transition without permutation search, and proves an unexpected reversal of visit priority with a universal geometric switching ratio. The exact threshold is a potentially useful benchmark for interpreting controlled visitation arrays and sensitivity heterogeneity, though not a field recommendation.
+Best-of-knowledge pass for the ordered phase diagram with two fixed recipient classes: neither geometric transfer, the saturating dose response, nor selecting the largest entries of a unimodal list is claimed as new.
 
-## Closest literature and limitations
+## value
 
-Iwasa, de Jong and Klinkhamer (1995), Waites and Ågren (2004), Cresswell and Hoyle (2006), Aizen and Harder (2007), and Kortsch et al. (2023) provide related biology and models. The 1995, 2004, 2006 and 2023 articles were inspected in relevant accessible full-text sections (the 1995 source via an online transcription); the 2007 result could only be compared with accessible abstract/metadata. The strict assumptions of fixed geometric deposition and equal flower-level saturation capacity matter. No independent external verification is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The model makes a specific scarcity-versus-saturation tradeoff: sensitivity is most useful late when earlier doses already saturate both classes, but early when doses are scarce throughout. The theorem resolves every optimizer and transition without a combinatorial search and makes exact spacing independent of the sensitivity values. It is a precise benchmark for idealized ordering under geometric carryover, not a field recommendation or evidence for deterministic free-foraging behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

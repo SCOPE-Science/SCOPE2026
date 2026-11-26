@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The hypothesis is a hereditary class of finite strict chains with exactly one of \(q\) named unary colours on each point, not a class requiring each colour to occur in every substructure. The one-point-extension game has precisely one type for every named colour and gap. Its recursive semantics gives a min-across-gaps rank and a per-colour max-over-pivots recurrence, with correct empty-gap and missing-colour boundary cases. In the inductive basis proof the extreme leftmost/rightmost of the \(q\) pivot positions supply the two recursive witnesses; their order supplies the central colour permutation. Conversely each central colour position has both necessary flanking witnesses. This gives the exact threshold and unique fixed-length decomposition for the minimum word census. Proof covers every \(q\ge1\), \(t\ge0\), and finite host size. Finite checks reproduce the abstract game on 2,127 host words, compare embeddings on 69,029 cases, and enumerate extremizers. The main unbounded claim is proved mathematically rather than inferred from those checks.
+PASS
 
-## Originality — PASS within inspected evidence
+The fixed, nonempty, named palette is essential: even a colour missing from the host is an admissible request. An extension type of a marked word is exactly a gap and a colour. Induct on depth: after choosing a witness, the two split gaps and all unchanged gaps need depth at least one less. This is equivalent to all old gaps satisfying the next-depth interval recurrence, since the unchanged gaps then already satisfy the lower threshold. At rank at least t+1, choose a depth-t witness pivot for each colour; the leftmost pivot guarantees a depth-t prefix, the rightmost a depth-t suffix, and their ordered list is an all-colour permutation. Conversely, each colour in an embedded central permutation has the prescribed witnesses on both sides by subsequence monotonicity. The base is the empty pattern at t=0. The grammar flattens to exactly 2^t−1 permutation blocks; every minimum word has those fixed boundaries, hence length q(2^t−1), multiplicity 2^t−1 for each colour and count (q!)^(2^t−1). All other rank-at-least-t hosts contain one, so the basis is minimal; the floor-log size bound is attained by extending a basis word. This verifies the marked formula, all-depth quantifiers, and q=1 and absent-colour conventions in RESULT.md lines 27–60. The uploaded checker was inspected, not executed; no finite test is needed for the proved equivalence.
 
-The full text of López-Callejas–Navarro-Castillo (arXiv:2604.14461) defines precisely this rank but computes finite orders with no colours; its \(\lfloor\log_2(n+1)\rfloor\) theorem is the \(q=1\) case only. Mwesigye–Truss (2018), inspected in the lawful open full PDF, asks about shortest representatives of a **two-structure** Ehrenfeucht–Fraïssé equivalence class. Its two- and three-move results do not imply the single-host, one-sided recursion, particularly the complete rank-at-least-\(t\) scattered-subword basis and count \((q!)^{2^t-1}\). Related published searchable results on one-red orders, three-move coloured orders and one-joker subsequence covers involve different properties and different implication directions. Other previously reported mathematical claims were compared by their statements and implications. Residual risk: literature search is finite and does not certify historical global priority.
+## originality
 
-## Value — PASS
+PASS
 
-The classification solves an intrinsic finite-rank invariant on the natural class of coloured finite orders: exact thresholds, all minimum hosts, their named-colour counts, and relative ranks for arbitrary marked suborders. It records how a finite palette multiplies adversarial insertion requirements, yielding many genuinely distinct extremizers, rather than simply rescaling an uncoloured formula. It is a complete basis theorem with a dynamic-programming test, not an arbitrary finite census or unsupported downstream application.
+Pass is for identifying the one-point-extension rank of coloured words and of marked gaps with an exact function of existing subsequence universality. The permutation-block basis, minimum length and census for the universal-word problem are already consequences of the classical arch characterization at arbitrary k. They are not a separate original combinatorial classification. The checked rank results do not give the key rank–universality identification for q>1; the new use of the block criterion is that it decides the different adaptive extension game.
 
-## Limitations and provenance
+## value
 
-The theorem is finite, uses a fixed nonempty named palette, and does not classify countable orders. Its computable enumeration is corroboration, not an infinite proof. The named references were read to the extent specified in the accompanying structured scientific comparison; no unindexed literature is asserted absent. Independent mathematical and historical-priority audits have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact identification converts an adaptive marked-gap game into a static word invariant. In particular one can count greedy full-alphabet arches in each gap in one scan, rather than enumerate game strategies or use the cubic interval dynamic program; taking floor log₂ of one plus the smallest gap count gives the rank. This explains not only the optimal size but which fixed-size hosts succeed, including missing-colour and non-extremal cases. The rank transfer is the substantive value; counting already-classified permutation concatenations alone would not qualify.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

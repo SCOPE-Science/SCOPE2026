@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:40:02.518299Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The invariant quadratic form with matrix entries 1 on the diagonal and −cos(theta) off diagonal conjugates J_c to a rotation with area Jacobian sin(theta). Its dual norm sends the strip to tangent distance r=h cos(theta/2). Opposite normals turn the angular gap sum into polygon area 2r² sum_i tan(delta_i/2); the pullback gives h² cot(theta/2) times that sum. The determinant of the first two strip functionals has absolute value c, giving A_2=4h²/c. At rational rotation number p/v the unoriented normals stabilize at v equal gaps; at irrational rotation number their density gives disk area. More precisely, for strict strips the transformed infinite survivor set is the closed disk minus the countable set of tangent contact points, not literally an open or closed disk. Also the strict-strip departure time agrees with the closed-middle-branch switch almost surely, not on all boundary orbits; neither qualification changes the area or probability results. The tangent Taylor expansion gives the v^(−2) spike, and only finitely many rationals of bounded denominator in (0,1) gives the asserted continuity classification. The lower bound for the excess comes from convexity at equal gaps. Bounded partial quotients give a convergent grid with maximal angle gap O(1/m); the excess is bounded above by a constant times sum_i delta_i³ <= pi(max_i delta_i)². For the conditional law, subtract the never-depart mass from the normalized finite survival probability and divide by the eventual-departure probability. The denominator is positive for irrational angles since A_infinity/A_2=(pi/4)sin(theta)<1; the formula properly excludes zero denominators, e.g. period two. The m^(−2) tail yields a convergent first-moment sum and a harmonic lower bound for the second moment. Independently clipping ±ell J_c^j z<=1 with rational arithmetic and using shoelace area gave 8, 5, 22/5, 13/3, 142/33, 47/11 at c=1/2 for m=2–7, matching separately evaluated gap areas within 2e−12. For replay, start in the exact parallelogram defined by the first two constraints and clip by the subsequent two half-planes per visit. The frozen verification/neutral_strip_check.py was inspected, not executed. No finite clipping check certifies the infinite-time results.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "cb4334e5f521 proves the bounded-type rate and shows unbounded normalized quadratic excursions for unbounded partial quotients.",
+          "The earlier inspected center-bifurcation literature establishes qualitative ellipse and polygon mechanisms for related maps."
+        ],
+        "reasoning": "The indexed theorem dominates the assigned one-way rate statement for the identical center slice; earlier related geometric descriptions alone do not prove the full probability law.",
+        "searches": [
+          "Resultary cb4334e5f521 Finding and proof §3",
+          "Sushko–Gardini 2006 §2.3.2 and 2008 center-bifurcation paper"
+        ]
+      },
+      "checked_sources": [
+        "Resultary cb4334e5f521",
+        "Resultary 2c2c7a7af3f0",
+        "Resultary ed975dc47a69",
+        "10.1016/j.chaos.2023.114143 (limited access)",
+        "Sushko–Gardini 2006 §2.3.2",
+        "10.1142/S0218127408020823"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed result gives Pr(L>=m)=A_m/A_2, p_infinity=A_infinity/A_2, and the quadratic excess estimate. The frozen record attributes the original qualitative ellipse/polygon dichotomy to the market-map source §4.7, but that passage was not independently accessible."
+        ],
+        "reasoning": "Subtract p_infinity and divide by 1−p_infinity to get the exact conditional law. Summing the quadratic tail gives finite conditional mean and infinite conditional second moment. None of those deductions requires a new dynamical estimate.",
+        "searches": [
+          "Resultary cb4334e5f521, proof §§1–3",
+          "Gardini et al. DOI 10.1016/j.chaos.2023.114143 §4.7 access attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The comparator uses the same J, same starting law up to null boundary sets, and normalized circle gaps g_i=delta_i/pi. Its area prefactor h² sqrt((4−c)/c) equals h² cot(theta/2)."
+        ],
+        "reasoning": "Open versus closed strips and >=h versus >h departure differ only on the countable union of iterated boundary lines. The tested statistics are areas and uniform-law probabilities, so this change creates no distinct conclusion.",
+        "searches": [
+          "Resultary: neutral-branch survival center bifurcation stock-market rotation survivor areas",
+          "Resultary cb4334e5f521, proof §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "cb4334e5f521 gives the exact finite area and the exact rational and irrational infinite survivor masses; multiply by 4h²/c to recover the frozen areas and spike.",
+          "2c2c7a7af3f0 concerns alternating half-plane islands and ed975dc47a69 compares intersections of two regular polygons, not this neutral orbit law."
+        ],
+        "reasoning": "The first match is an exact indexed duplicate on the specified observable; the other geometric matches are only related. The same-day geometric match was compared by its scope, not excluded by date.",
+        "searches": [
+          "Resultary cb4334e5f521 exact neutral-branch survival",
+          "Resultary 2c2c7a7af3f0 alternating islands",
+          "Resultary ed975dc47a69 tangent polygon gap laws"
+        ]
+      },
+      "rationale": "A distinct indexed result demonstrably covers the exact finite and infinite survivor areas, the rational spikes, and the bounded-type quadratic excess, and also proves the converse Diophantine classification. The conditional moment consequence is an immediate tail sum from that result. The distinct catalogue path is dated later than the assigned path; equivalent coverage and historical priority are different, and no historical priority conclusion is made.",
+      "residual_risks": [
+        "The exact scope of the original stock-market paper's §4.7 and any earlier quantitative convex-geometric coverage remain unresolved. They do not affect the positive indexed coverage finding or determine priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact area/law coverage and stronger rate classification",
+          "evidence": "Proof displays the gap-area identity, both survivor masses, rational spike expansion and bounded-type estimates with the unbounded-partial-quotient converse.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-neutral-branch-survival-and-a-diophantine-tail-dichotomy-i--cb4334e5f521/RESULT.md",
+          "material_read": "Finding, scope and proof §§1–3, offsets 0–7946",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact neutral-branch survival and a Diophantine tail dichotomy in a planar discontinuous map",
+          "trigger": "Same center-slice map and exact first-departure law"
+        },
+        {
+          "assessment": "Primary section coverage not independently resolved",
+          "evidence": "Bamberg route returned landing content; the other copies returned 403. Frozen RESULT.md attributes qualitative coverage to §4.7; this is not an independent source inspection of that passage.",
+          "identifier_or_url": "10.1016/j.chaos.2023.114143",
+          "material_read": "Bamberg landing page and abstract only; no readable §4.7",
+          "method": "Attempted indicated Bamberg OA bitstream and identified Unicatt repository and publisher copies",
+          "title": "A 2D piecewise-linear discontinuous map arising in stock market modeling: Two overlapping period-adding bifurcation structures",
+          "trigger": "Original same-model paper, especially §4.7"
+        },
+        {
+          "assessment": "Qualitative coverage in another center-bifurcation map",
+          "evidence": "Irrational invariant ellipse and rational invariant polygon; no survival-area or switching law in those passages.",
+          "identifier_or_url": "https://www.mdef.it/public/fileadmin/whoiswho/gardini/Publications/Contributions_in_Multiauthor_Books_and_Proceedings/Ch2-SG-06.pdf",
+          "material_read": "§2.3.2, pp. 5 and 7",
+          "method": "Author-posted OA PDF excerpts",
+          "title": "Center Bifurcation for a Two-Dimensional Piecewise Linear Map",
+          "trigger": "Earlier ellipse/rotation-resonance geometry"
+        },
+        {
+          "assessment": "Related geometry for a different map",
+          "evidence": "Ellipses and rational-angle polygons discussed in the inspected sections.",
+          "identifier_or_url": "10.1142/S0218127408020823",
+          "material_read": "Author-posted PDF pp. 7–8",
+          "method": "OA PDF excerpts",
+          "title": "Center Bifurcation for Two-Dimensional Border-Collision Normal Form",
+          "trigger": "Earlier piecewise-linear center mechanism"
+        },
+        {
+          "assessment": "Different invariant sets and map",
+          "evidence": "Alternating cells of a symmetric half-plane rotation, not neutral survivors of J_c in the middle strip.",
+          "identifier_or_url": "Resultary 2c2c7a7af3f0",
+          "material_read": "Finding at offset 0",
+          "method": "Local indexed mirror",
+          "title": "The exact alternating-island area law for symmetric half-plane rotations",
+          "trigger": "Exact arithmetic area spikes"
+        },
+        {
+          "assessment": "Related area formula, not the departure-time law",
+          "evidence": "Intersection of two rotated regular tangential polygons; no rotation-orbit survivor sequence in the inspected claim.",
+          "identifier_or_url": "Resultary ed975dc47a69",
+          "material_read": "Finding at offset 0",
+          "method": "Local indexed mirror",
+          "title": "Universal convex-gap rigidity and the exact rotational overlap law of unequal regular tangential polygons",
+          "trigger": "Same-day precise normal-gap geometry"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exact survival and critical first-switching moments are worthwhile quantities for this center slice. The submission does not add a distinct exact fact: both the area and tail are covered for the identical initial law, with a stronger rate classification, and the explicit moment threshold follows by the standard tail-sum formula. Changing the inequalities on null lines does not recover scientific value as a separate area or probability claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

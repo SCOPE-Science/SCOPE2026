@@ -1,6 +1,8 @@
-# Genus-conditioned embedding-dimension defects at the depth-two Frobenius boundary
+# A fixed-genus total-variation limit for embedding-dimension defects at depth two
 
 ## Finding
+
+The result is the density-conditioned convergence in total variation below, including convergence of the conditional mean. The Boolean parametrization and the exact finite and unconditioned formulas are included as context. The formulas for the defect, fixed-genus coefficient, unconditioned mean and unconditioned central limit theorem overlap with the companion record [1] (for its range \(N\ge1\)); no separate novelty or priority is claimed for them.
 
 Fix integers \(m\ge2\) and \(1\le c<m\), put \(F=2m-c\), and write \(N=m-c-1\). Every numerical semigroup with multiplicity \(m\) and Frobenius number \(F\) is uniquely of the form
 \[
@@ -71,14 +73,15 @@ The accompanying standalone `VERIFY.py` exhaustively constructs finite numerical
 
 ## Relationship to prior work
 
-Hernández-Yanes and Rosales (2026) study covarieties with prescribed pseudo-Frobenius numbers, including computational genus and type, and classify certain maximal-embedding-dimension cases. Bras-Amorós and Torra (2026) give exact counts by the triple of Frobenius number, genus and multiplicity but not embedding-dimension distributions. Singhal (2022) counts depth-two numerical semigroups by genus for fixed Frobenius number, and Li (2023) gives broad depth enumerations and maximal-embedding-dimension asymptotics. The parametrization and genus binomial count here are established background. Jambhale–Kaldybayev–Miller–Yao and earlier random-sumset work investigate missing sums for *independently sampled* subsets. The present result adds the exact embedding-dimension/minimal-generator correspondence, finite fixed-genus hypergeometric coefficient mean, and a limit law for embedding dimension **conditioned simultaneously on multiplicity, Frobenius number and genus**. The independent Bernoulli missing-sums fringe itself is not claimed as new.
+Hernández-Yanes and Rosales (2026) study covarieties with prescribed pseudo-Frobenius numbers, including computational genus and type, and classify certain maximal-embedding-dimension cases. Bras-Amorós and Torra (2026) give exact counts by the triple of Frobenius number, genus and multiplicity but not embedding-dimension distributions. Singhal (2022) counts depth-two numerical semigroups by genus for fixed Frobenius number, and Li (2023) gives broad depth enumerations and maximal-embedding-dimension asymptotics. The parametrization and genus binomial count are background. In [1], put \(\rho=N+1\) and identify its subset \(B\) with \(A\). Its defect \(e+g-2m\) is \(Q_N-1\). Its equations (1), (2), (3) and (6) cover the defect identity, unconditioned finite mean, fixed-genus coefficient and unconditioned Gaussian limit, respectively. Its equation (5) gives a total-variation limit in the unconditioned fair-subset model, not at prescribed genus. The independent missing-sum fringe itself is not a novelty claim; compare the iid random-sumset work of Jambhale–Kaldybayev–Miller–Yao. The distinct statement is convergence in total variation, with convergence of means, **conditional simultaneously on multiplicity, Frobenius number and genus**, for every limiting density \(p\) strictly between zero and one. The companion record is dated the same day; no order of priority is inferred from that date.
 
 ## Limitations
 
-The conditional limit excludes \(p=0,1\), where different scaling may occur. This does not establish a new distribution for independent Bernoulli missing-sums outside its semigroup interpretation. No complete finite conditional probability-generating function for the defect is asserted. Historical priority against all uncatalogued fixed-cardinality sumset papers is not certified; an independent audit has not been conducted.
+The conditional limit excludes \(p=0,1\), where different scaling may occur. This does not establish a new distribution for independent Bernoulli missing-sums outside its semigroup interpretation. No complete finite conditional probability-generating function for the defect is asserted. No claim of exhaustive historical priority is made.
 
 ## References
 
+- [1] *Exact joint genus–embedding moments and a boundary law for depth-two numerical semigroups*, companion record dated 2026-11-22, https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-joint-genus-embedding-moments-and-a-boundary-law-for-depth--d2845b6b7dea/RESULT.md .
 - W. G. Hernández-Yanes and J. C. Rosales, *The covariety of numerical semigroups with some prescribed pseudo-Frobenius numbers*, arXiv:2611.09425v1, first posted 2026-11-06. https://arxiv.org/abs/2611.09425
 - M. Bras-Amorós and V. Torra, *Multiparameter counting of numerical semigroups by Frobenius number, genus, and multiplicity*, arXiv:2611.11559v1, first posted 2026-11-08. https://arxiv.org/abs/2611.11559
 - D. Singhal, *Distribution of genus among numerical semigroups with fixed Frobenius number*, *Semigroup Forum* 104 (2022), 704–723. https://doi.org/10.1007/s00233-022-10282-6

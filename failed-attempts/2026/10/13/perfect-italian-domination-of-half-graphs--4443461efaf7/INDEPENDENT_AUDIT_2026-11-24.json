@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:13:21.598307Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two extreme 2-labels give weight 4. For n>=3, a feasible function of weight at most 4 must have a zero on each shore: if a whole shore is positive, at most one unit remains on the other, so the whole opposite shore must also be positive, which is too heavy. The two zero constraints therefore force both shore weights to be 2. If an A-positive index is at least 2, b_1 is positive (otherwise its guarding sum is below 2), then every a_i with i>=2 is positive. This is impossible for n>=4. For n=3 it forces x_2=x_3=1 and x_1=0; the two short B-prefixes force y_1=y_2=1 and y_3=0. In the other case a_1 carries both units and the zero a_n forces b_n=2. This fills the omitted shore-zero justification at weight 4 and the abbreviated n=3 argument in RESULT.md. An independent support/edge-list enumeration (branches/independent_small_replays.py half) reproduced 123949 bounded candidates for n=2..14, including (3,2) and (4,2) for n=2 and 3 (minimum, multiplicity), and the unique displayed optimum at each n=4..14. The proof, not the finite test, covers all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The chain-graph RESULT.md at offset 0 gives the exact ordinary Italian enumerator and the weight-three count C_3 for every canonical twin-class size profile. The structured-bipartite paper's Theorem 1 gives a polynomial algorithm for path-convex bipartite graphs, which include half graphs by their prefix neighborhoods."
+        ],
+        "reasoning": "The algorithm alone is not a symbolic classification. The exact chain-graph enumerator does determine the optimum counts here: set all classes to size 1; C_3=0 for n>=3; any ordinary weight-4 function has a zero on each shore (otherwise each vertex of the opposite shore must be positive), hence each shore has weight 2 and the ordinary conditions are exact.",
+        "searches": [
+          "Resultary: boundary-zero factorization, bivariate Italian domination of chain graphs",
+          "DOI 10.3390/math14183380, §3 and Thm. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f1d0270cff61, e8b19d022e1a, ac8744de6b62",
+        "arXiv:1905.06293",
+        "10.3390/math14183380"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Any weight<=4 perfect labeling for n>=3 is quasi-total: otherwise, by half-graph reversal symmetry take an isolated-positive 2-label on a_i (all its neighbors zero). Then b_n is zero and forces total A-weight 2. Its pendant neighbor a_n must be positive, so i=n. The zero a_{n-1} forces y_{n-1}=2 since y_n=0. No weight remains, so b_{n-2} is zero and sees no positive A-label, a contradiction. The extreme labeling is perfect. Of the four listed quasi-total optima on H_3, (0,0,1;1,1,1) and (1,1,1;1,0,0) fail the perfect sum at a_1 and b_3 respectively; the other two pass."
+        ],
+        "reasoning": "Thus an already indexed complete classification plus a short containment check and two explicit exclusions supplies the entire claim, including the exceptional order. The decision is about implication, not a claim about who derived it first.",
+        "searches": [
+          "SCOPE-minimum-quasi-total-italian-functions-of-half-graphs--f1d0270cff61, RESULT.md Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed quasi-total RESULT.md, offset 240, gives the same n>=4 optimizer and n=3 value, under >=2 plus each 2-label having a positive neighbor. It lists four n=3 optima, not two. Lauri–Mitillos characterize weights 2 and 3 (Prop. 5, Thm. 13/16), and give value 4 for large complete bipartite graphs (Lemma 17)."
+        ],
+        "reasoning": "The rules are not equivalent in general, but the quasi-total classification implies the perfect one in this low-weight range as shown below. The journal's complete bipartite case alone does not cover the missing triangular edge pattern.",
+        "searches": [
+          "Resultary: perfect Italian domination on half / chain graphs, ordinary and quasi-total Italian domination",
+          "Lauri–Mitillos arXiv:1905.06293, §§2.1–2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The quasi-total record explicitly lists all four weight-4 assignments on H_3 and the unique weight-4 assignment for each n>=4. The chain-graph record determines each weighted coefficient. The matching-deletion record ac8744de6b62 treats K_{m,n}-M_t rather than general half graphs."
+        ],
+        "reasoning": "These are actual classifications/formulas rather than title matches. The first becomes an exact catalogue for this problem by testing the perfect condition on its listed optima. The matching-deletion result is not used as coverage.",
+        "searches": [
+          "Resultary indexed exact records: quasi-total optimum on half graphs; Italian coefficient enumerator of chain graphs; perfect Italian matching-deletion graphs"
+        ]
+      },
+      "rationale": "The distinct indexed quasi-total result covers the entire frozen classification by an elementary low-weight implication, not just by a coincident numerical value. The ordinary Italian chain-graph enumerator independently covers the optimum multiplicities once one observes that each shore has weight 2 at any ordinary optimum of weight 4, so the ordinary >=2 inequalities become exact.",
+      "residual_risks": [
+        "No priority claim is made. Broader public literature querying was limited; the specific indexed implication is affirmative evidence and does not depend on a negative search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exact optimum classification after low-weight containment and n=3 filtering",
+          "evidence": [
+            "Lists 4 at n>=3, four optima for n=3, and precisely the extreme labeling for n>=4"
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-minimum-quasi-total-italian-functions-of-half-graphs--f1d0270cff61",
+          "material_read": "RESULT.md offsets 240–5340: Finding, assumptions, low-weight proof",
+          "method": "Local Resultary mirror, bounded passage",
+          "title": "Minimum quasi-total Italian functions of half graphs",
+          "trigger": "Same half graphs, identical large-order optimizer"
+        },
+        {
+          "assessment": "Gives ordinary minimum and weight coefficients; weight-4 ordinary solutions are exact on H_n for n>=3",
+          "evidence": [
+            "Full two-variable enumerator and C_3 formula"
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-boundary-zero-factorization-of-the-bivariate-italian-domination--e8b19d022e1a",
+          "material_read": "RESULT.md offsets 0–5098, theorem, minimum corollary and proof setup",
+          "method": "Local Resultary mirror, bounded passage",
+          "title": "Boundary-zero factorization of the bivariate Italian domination law of chain graphs",
+          "trigger": "Exact ordinary optimum/count on a superclass"
+        },
+        {
+          "assessment": "Helps with low-weight exclusion, not weight-4 uniqueness",
+          "evidence": [
+            "Proposition 5, Lemma 12, Theorem 13, Corollary 15/Theorem 16, and Lemma 17"
+          ],
+          "identifier_or_url": "arXiv:1905.06293; DOI 10.1016/j.dam.2020.05.024",
+          "material_read": "§§2.1–2.2, pp. 3–5",
+          "method": "Open primary paper passage comparison",
+          "title": "Perfect Italian domination on planar and regular graphs",
+          "trigger": "Exact low-weight perfect Italian characterizations"
+        },
+        {
+          "assessment": "Instance-wise tractability, no closed uniqueness statement in inspected passages",
+          "evidence": [
+            "An interval-neighborhood ordering suffices; algorithm returns a minimum function"
+          ],
+          "identifier_or_url": "10.3390/math14183380",
+          "material_read": "Abstract; §3 p. 4; Theorem 1 p. 11; conclusion p. 24",
+          "method": "Open published PDF passage comparison",
+          "title": "Perfect Italian Domination on Structured Bipartite Graphs: Algorithms, Parameterization, and Hardness",
+          "trigger": "Perfect Italian domination on a graph superclass"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact rigidity threshold is natural, but the recorded statement adds no independently useful unknown classification to the available quasi-total theorem: only the short low-weight containment and the filtering of two listed boundary cases are needed. No distinct substantive remainder is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

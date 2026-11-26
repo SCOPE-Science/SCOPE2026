@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:21:08.675256Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–43",
+        "VERIFICATION.md lines 1–24",
+        "checker.py lines 15–109 (inspected, not run)",
+        "checker_output.txt lines 1–10",
+        "Independent replay: python3 /workspace/branches/record-5-reproduction.py; observed output in /workspace/branches/record-5-reproduction.txt"
+      ],
+      "rationale": "Each factor of an overlap-free word is overlap-free, so the square-block recurrence enumerates every admissible ordered factorization by removing or appending its last block. For an independent replay I instead generated every overlap-free binary word through the intrinsic bound 108, testing new suffix overlaps via shifts and bit masks, then counted all paths in the graph of square cuts of each complete word, retaining their root sequences. The suffix test compares the last p+1 letters with their shift by p exactly when 2p+1 fits, so it includes cubes at p=1 and discards precisely newly introduced overlaps. The replay visited 50,295 words including empty, matched every table row, and yielded zero nine-square factorizations with cap 5 and exactly two with cap 6. The length-48 words are different, each has the sole root-length vector (3,2,2,2,6,2,2,2,3), and reversal and complementation both exchange them. Larger caps are unnecessary to establish the universal lower bound since every counterexample would have cap at most 5.",
+      "residual_risks": [
+        "The classification is of all products under the root cap, not of unrestricted nine-square words or their unrestricted factorizations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shallit’s Theorem 8 gives k+L(w)+R(w)≤9 in terms of square count and boundary extendability; its Lemma 7 controls a restricted four-block alphabet of squares.",
+          "Harju bounds the number of square-center positions. The indexed census allows arbitrary root lengths but bounds total length by 96."
+        ],
+        "reasoning": "Boundary extendability and centers do not classify cap-six nine-block products. The length-96 bound is not a dominating parameter for cap six, which permits total length up to 108.",
+        "searches": [
+          "arXiv:2605.28570v2 §3 Lemma 7, Theorem 8, and Theorem 1",
+          "Harju, arXiv:2108.04572 Theorem 4",
+          "Resultary fc9c72e08d71 Finding and Limitations"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof and Relationship to prior work",
+        "arXiv:2605.28570v2",
+        "Resultary 52c025fc067a and fc9c72e08d71",
+        "arXiv:2108.04572"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cap five implies length at most 90, so the length-96 census directly rules it out; Shallit’s example already attains cap six.",
+          "The indexed Proof at offsets 1649–3999 explicitly prunes any prefix whose length plus the minimal suffix would exceed 96 and stops its independent prefix method at 96. Cap six still allows even lengths 98 through 108, so none of these lengths is certified by those computations."
+        ],
+        "reasoning": "The cap-five obstruction and a sharp example follow from the compared coverage. The all-length cap-six uniqueness conclusion requires the remaining exclusion; the frozen result gives it and does not claim unrestricted uniqueness.",
+        "searches": [
+          "arXiv:2605.28570v2 §§2–3",
+          "Resultary fc9c72e08d71 RESULT.md and census_96.tsv"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The problem is an optimization of the largest constituent root length over ordered contiguous nine-square factorizations, not the sum of lengths or a count of square centers.",
+          "The first witness, including its displayed decomposition, is identical to Shallit’s; its complement and reversal are immediate symmetries."
+        ],
+        "reasoning": "The witness and its symmetries prove feasibility at cap six but do not exclude other words with that cap and larger total length, or other factorizations of the witnesses.",
+        "searches": [
+          "Resultary searches for nine-square overlap-free words, bounded constituent root lengths, minimum total length and exact classification",
+          "arXiv:2605.28570v2 Theorem 1 sharpness example"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "52c025fc067a establishes minimum total length 48 and the same two shortest words with unique decompositions.",
+          "The full length-96 census gives those two words and longer solutions only at lengths 76, 86, 92 and 96; the longer entries have a root of length 12."
+        ],
+        "reasoning": "These exact records overlap the same extremizers and the cap-six classification through 96, but do not provide the cap-six census through its intrinsic upper length 108.",
+        "searches": [
+          "Resultary 52c025fc067a RESULT.md Finding",
+          "Resultary fc9c72e08d71 RESULT.md and census_96.tsv"
+        ]
+      },
+      "rationale": "The full classification by maximum constituent root length is distinct in the compared evidence: the example and its decomposition are known, and an indexed length-96 census even implies the lower threshold and sharpness, while covering only part of the cap-six domain. The originality decision rests on exhaustive rigidity under the root cap, not on credit for the known example, the shortest-length classification, or the isolated lower threshold. Indexed record dates are not treated as evidence of priority.",
+      "residual_risks": [
+        "No historical-priority claim follows; an unindexed or stronger structural classification could imply the remaining exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the example and count/extendability, not cap-six rigidity",
+          "evidence": "Theorem 8 gives k+L(w)+R(w)≤9; the nine-square example has lengths (3,2,2,2,6,2,2,2,3).",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.28570v2",
+          "material_read": "§3, p. 4 Lemma 7 and Theorem 8; p. 6 sharpness example for Theorem 1",
+          "method": "Targeted OA PDF passages",
+          "title": "Ten Squares Force an Overlap",
+          "trigger": "Exact same word and a stronger-looking square-count theorem"
+        },
+        {
+          "assessment": "Exact overlap for shortest total length",
+          "evidence": "Nine squares have minimum total length 48 with the same two unique factorizations; all possible cap-six lengths are not covered.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-minimum-lengths-for-overlap-free-binary-products-of-up-to--52c025fc067a",
+          "material_read": "RESULT.md Finding at offset 114 and prior-work comparison at offset 861",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp minimum lengths for overlap-free binary products of up to nine squares",
+          "trigger": "Same two 48-bit words and uniqueness"
+        },
+        {
+          "assessment": "Implies cap-five infeasibility and cap-six uniqueness through length 96, but not through 108",
+          "evidence": "Only the length-48 entries have all roots at most six; every later census entry has a length-12 root. The proof prunes explicitly at total length 96 and gives no structural implication for larger lengths.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-first-doubling-window-spectrum-for-overlap-free-nine-square-prod--fc9c72e08d71",
+          "material_read": "RESULT.md Finding, Proof offsets 1649–3999, Limitations at offset 6072, and census_96.tsv",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "First doubling window spectrum for overlap-free nine-square products",
+          "trigger": "Exact nine-square census with constituent lengths"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "The bound 2M(w)≤|w|+3 concerns square-center positions, not cuts into bounded-root squares.",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.04572",
+          "material_read": "Abstract, p. 1; Theorem 4, p. 3",
+          "method": "Lawful OA copy, targeted passages",
+          "title": "A Note on Squares in Binary Words",
+          "trigger": "Potential structural coverage of squares in overlap-free words"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–46",
+        "arXiv:2605.28570v2 Theorem 1",
+        "Resultary fc9c72e08d71 census_96.tsv"
+      ],
+      "rationale": "The cap studied is attained by the canonical example at the maximum known number of squares, not an arbitrary slice. The complete rigidity result distinguishes optimal local constituent size from optimal total word length: minimizing the largest constituent does not add any further words, even when much greater total lengths are allowed. This is an exact structural constraint on extremal factorizations, not a repeat of the witness or a small-table check.",
+      "residual_risks": [
+        "The advance is limited to the extremal root cap; it gives no general classification at larger caps."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

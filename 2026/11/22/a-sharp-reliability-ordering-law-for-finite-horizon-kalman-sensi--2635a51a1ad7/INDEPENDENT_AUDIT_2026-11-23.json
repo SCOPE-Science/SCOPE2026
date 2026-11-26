@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:58:22.867048Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–3",
+        "VERIFICATION.md and verify.py (inspected, not executed; distinct finite rational checks and proof roles)"
+      ],
+      "rationale": "Subtracting T(U(x)) and U(T(x)) with U(x)=x/(1+λx), T(x)=gx+q gives the reported positive denominator and the numerator λ[q²+(λq²+2gq)x+g(g+λq−1)x²]. This is nonnegative for all admissible entering x iff g+λq≥1, by the sign of the quadratic coefficient at large x in the converse. In the local interchange of p<r, the two same-outcome events cancel in law, and the probability difference for first-only delivery is p−r (second-only gives its negative). Testing an increasing function proves the conditional stochastic order for every entering x. Conditioning on an independent prefix, then composing with the independent suffix of increasing covariance maps, preserves that order. Adjacent interchanges therefore yield the global claim for fixed permutations, including ties and rates 0 and 1. For q>0 below the frontier the quadratic has one positive and one negative root, giving the stated positive x* and strict reversal in expected covariance for distinct probabilities, with a tie at x*. The rational example checks directly: local differences T(U(x))−U(T(x)) are 4/245 and −19/210 at the two priors. For q=0 and 0<g<1 the commutator is strictly negative, giving the reverse sort if all forecasts are of that kind; at q=0,g=1 it vanishes. The sharpness is a uniform two-slot obstruction, not a necessity claim for every fixed longer schedule and prior.",
+      "residual_risks": [
+        "The ordering proof relies on a scalar filter, equal precision, independently delivered observations and nonadaptive one-use schedules. It supplies no comparison for unequal precision or correlated arrivals, and the two-use crossover is not a theorem for adaptive policies."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wu et al. give monotone stationary scheduling for multiple dynamic processes in a holding-time MDP. Marelli et al. give intermittent filtering stability results. Leong et al. derive adaptive covariance/energy thresholds for multiple sensors using a drop channel. Pezzutto et al. allow simultaneous transmissions and explicitly model mutual interference."
+        ],
+        "reasoning": "The inspected larger policy and stability frameworks do not establish terminal stochastic domination over every fixed reliability permutation on a single scalar process. Their assumptions, optimized quantities or admissible policies differ in decisive ways.",
+        "searches": [
+          "arXiv:1804.05618, Theorem 2",
+          "arXiv:1806.08098, abstract and introduction",
+          "arXiv:1511.04792, abstract",
+          "Pezzutto–Schenato–Dey, accessible accepted preprint abstract and pp. 2–3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 10a53b80564b, 2743d2c710c0 and 5fbc8bed4454",
+        "arXiv:1804.05618, 1806.08098, 1908.01119 and 1511.04792",
+        "Pezzutto–Schenato–Dey, university-hosted accepted IFAC preprint"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-use precision result compares a pair of deterministic Riccati outcomes, restricting to positive process noise, two uses and a scalar variance objective. Singh et al. prioritize time-stamped noisy data with a constant-gain estimator and value-of-information criterion."
+        ],
+        "reasoning": "The deterministic two-use window and the policy or packet-age results do not compare the first-only and second-only outcomes under reversal of two Bernoulli probabilities. They imply neither the pointwise commutator condition g+λq≥1 nor its stochastic-order consequence for arbitrary horizons.",
+        "searches": [
+          "Resultary 10a53b80564b, Finding and Limitations",
+          "arXiv:1908.01119, abstract and model",
+          "arXiv:1804.05618, Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The close two-use record uses unequal precisions with reliable delivery and a stronger-first window. Pezzutto–Schenato–Dey use SINR-dependent packet success with simultaneous transmissions and optimize under average transmission use."
+        ],
+        "reasoning": "Using expected effective precision does not equate a Bernoulli mixture of identically precise Kalman updates with a deterministic update of a different precision. Nor is an interference-mediated scheduling policy a permutation of independent one-use channels.",
+        "searches": [
+          "Resultary: scalar Kalman finite-horizon reliability ordering under packet loss",
+          "Resultary 10a53b80564b",
+          "Transmission Scheduling for Remote Estimation with Multi-packet Reception under Multi-Sensor Interference (identified by IFAC-PapersOnLine 53(2), pp. 2628–2633)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2635a51a1ad7 is the identical frozen record and is not independent precedence. 10a53b80564b gives a reliable precision-order window, 2743d2c710c0 an infinite-horizon uniform observation-precision result, and 5fbc8bed4454 a finite Bernoulli-order threshold for Kaczmarz projections."
+        ],
+        "reasoning": "These exact records optimize different decision variables, variances, or projection objectives; they do not supply a catalogue solution to the distinct FOSD sorting and scalar Riccati frontier. Same-day inclusion is not a priority ordering.",
+        "searches": [
+          "Resultary 2635a51a1ad7, 10a53b80564b, 2743d2c710c0 and 5fbc8bed4454"
+        ]
+      },
+      "rationale": "The closest scalar ordering comparison varies the measurement precision under certain delivery and is limited to two observations, while the closest packet scheduling papers optimize policies or study stability in different models. The supported distinct claim is a forecast-dependent test that yields all-horizon FOSD for nonadaptive reliability permutations, with a sharp local reversal. It is not credit for Kalman covariance monotonicity or the general adjacent-interchange technique.",
+      "residual_risks": [
+        "An equivalent covariance rearrangement result may use different terminology in stochastic order or scheduling literature. This comparison is bounded by the actual inspected statements and is not historical certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Reliable precision order, not Bernoulli reliability order",
+          "evidence": "Two unequal fixed precisions, reliable delivery, positive process noise, two uses and a terminal variance comparison.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-reentrant-ordering-frontier-for-two-use-scalar-kalman-se--10a53b80564b/RESULT.md",
+          "material_read": "RESULT.md offsets 0–3929 (Finding and scope), 7000–8990 (Limitations)",
+          "method": "Local Resultary mirror",
+          "title": "A sharp reentrant ordering frontier for two-use scalar Kalman sensing",
+          "trigger": "Closest exact scalar ordering result with a prior-dependent threshold"
+        },
+        {
+          "assessment": "Different resource and horizon",
+          "evidence": "Infinite-horizon average posterior variance with a mean-precision budget.",
+          "identifier_or_url": "2026/11/8/SCOPE-universal-optimality-of-uniform-observation-precision-in-scalar--2743d2c710c0",
+          "material_read": "RESULT.md Finding (offset 0)",
+          "method": "Local Resultary mirror",
+          "title": "Universal optimality of uniform observation precision in scalar Kalman filtering",
+          "trigger": "Related exact precision scheduling theorem"
+        },
+        {
+          "assessment": "Not a Kalman covariance result",
+          "evidence": "Worst-direction expected squared projection error for three fixed Kaczmarz row attempts; the threshold varies a common delivery probability.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-reliability-driven-reversal-of-three-row-kaczmarz-sweep--5fbc8bed4454",
+          "material_read": "RESULT.md Finding (offset 0)",
+          "method": "Local Resultary mirror and frozen assignment record",
+          "title": "A sharp reliability-driven reversal of three-row Kaczmarz sweep order",
+          "trigger": "Same-day exact finite reliability order analogue"
+        },
+        {
+          "assessment": "MDP policy monotonicity, not fixed-permutation dominance",
+          "evidence": "Multiple independent processes and a stationary policy monotone in process holding time.",
+          "identifier_or_url": "https://arxiv.org/pdf/1804.05618",
+          "material_read": "Abstract p. 1 (offset 129), Theorem 2 p. 5 (offset 38550)",
+          "method": "Bounded OA primary PDF text inspection",
+          "title": "Optimal Scheduling of Multiple Sensors over Lossy and Bandwidth Limited Channels",
+          "trigger": "Monotonicity and lossy sensor scheduling"
+        },
+        {
+          "assessment": "Stability objective",
+          "evidence": "Randomly varying measurement equations and filter stability, not finite-horizon permutation of reliabilities.",
+          "identifier_or_url": "https://arxiv.org/pdf/1806.08098",
+          "material_read": "Abstract and introduction, p. 1 (offset 1542)",
+          "method": "Bounded OA primary PDF text inspection",
+          "title": "Stability of Kalman Filtering with a Random Measurement Equation: Application to Sensor Scheduling with Intermittent Observations",
+          "trigger": "General intermittent Kalman filtering results"
+        },
+        {
+          "assessment": "Different receipt/estimator objective",
+          "evidence": "Value-of-information prioritization of time-stamped packets from different precisions, using a constant-gain remote estimator.",
+          "identifier_or_url": "https://arxiv.org/pdf/1908.01119",
+          "material_read": "Abstract p. 1 (offset 0), model p. 2 (offset 10968)",
+          "method": "Bounded OA primary PDF text inspection",
+          "title": "Optimal Information Updating based on Value of Information",
+          "trigger": "Scheduling heterogeneous packets for estimation"
+        },
+        {
+          "assessment": "Adaptive transmission, not a fixed permutation law",
+          "evidence": "Multiple sensors sharing a packet-drop channel; covariance/energy objective with threshold structure.",
+          "identifier_or_url": "https://arxiv.org/pdf/1511.04792",
+          "material_read": "Abstract p. 1 (offset 149)",
+          "method": "Bounded OA primary PDF text inspection",
+          "title": "Sensor Scheduling in Variance Based Event Triggered Estimation with Packet Drops",
+          "trigger": "Covariance-dependent switching in a dropped-packet model"
+        },
+        {
+          "assessment": "Different action space, receipt mechanism and cost",
+          "evidence": "Allows simultaneous transmissions, with SINR/capture and successive-interference-cancellation decoding; minimizes expected trace with average transmission constraints instead of terminal FOSD under a once-each independent schedule.",
+          "identifier_or_url": "https://automatica.dei.unipd.it/wp-content/uploads/2022/03/IFAC2020_Transmission_Scheduling_for_Remote_Estimation-1.pdf",
+          "material_read": "Accepted March 2020 preprint abstract p. 1 (offset 0), objectives and physical arrival model pp. 2–3 (offset 8900)",
+          "method": "Bounded OA primary PDF text inspection of lawful university-hosted copy identified by title and page range; DiVA copy unavailable",
+          "title": "Transmission Scheduling for Remote Estimation with Multi-packet Reception under Multi-Sensor Interference",
+          "trigger": "Plausible result for two sensors, a scalar system and packet losses; IFAC-PapersOnLine 53(2), pp. 2628–2633"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, theorem and sharp frontier in Proof §§2–3",
+        "Resultary 10a53b80564b for comparison with reliable precision scheduling"
+      ],
+      "rationale": "This supplies an explicit check on known forecast and measurement parameters that collapses a finite channel-permutation problem to sorting. Because the effect is distributional it covers tail and other increasing losses rather than just one mean criterion. The same sign computation yields exact conditions where the intuitive use of better channels later must fail, including sensitivity to the entering covariance. This is a useful structural design result in the scalar case, not a recomputation of ordinary Kalman filter risk.",
+      "residual_risks": [
+        "No claim that sorting is robust to model violations or that the sharp local frontier characterizes optimizers for every longer mixed-regime horizon."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

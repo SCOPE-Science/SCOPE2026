@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:37:13.908820Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–55 and 57–99",
+        "VERIFICATION.md lines 19–34 and verify.py lines 11–109, inspected but not run"
+      ],
+      "rationale": "The external game of a head k is the difference of its singleton unanimity game and the one requiring k and all its in-neighbors. An internal arc contributes half to each endpoint. This gives the stated h(d^-) plus t(d_j^--1) for each outgoing destination. Conditional on the root's outgoing arcs, the residual incoming counts at different destinations use disjoint columns excluding the root row, independent also of the root indegree. Nonnegativity gives the exact zero probability; efficiency gives the mean. At n=2 the mark is identically zero; the edge-probability endpoints also agree. The binomial limits and a tight number of marks give the tagged law, with the compound-Poisson component independent of h(P^-); positive credit and zero credit can be tested on the limiting integer data. The stated mean also follows from bounded second moments of the two root degrees, and the stated variance from conditioning on the Poisson number of marks. For the empirical part, line 85's informal exploration can be made exact without claiming conditional independence of all revealed absences: first expose the two roots' outgoing rows. The outside-root sources in the two root columns give independent Bin(n-2,p_n) indegrees, omitting the two arcs between roots. At each outside destination its incoming count from outside the two roots is an independent Bin(n-3,p_n) mark, independent of both rows and root columns. Use independent replacement marks for the second root at any common destination; the two resulting ideal payoffs are independent, because conditional on the rows their marks have the same product laws at all specified destinations and the rows determining their counts are independent. The original pair differs only if a root-to-root arc is present or an outside destination is shared, of probability at most 2p_n+(n-2)p_n². This proves asymptotic pair independence of bounded tests and zero indicators, hence empirical weak convergence by the variance bound and tightness. At the threshold the exact zero-to-isolation ratio is 1+o(1) while n times isolation probability tends to e^(-t); Markov transfers the isolate limit to W_n. The directed factorial moment exponent counts both cross arcs and internal arcs once, and yields the Poisson law. The subcritical second moment for isolates and supercritical first moment of W_n give the stated two sides.",
+      "residual_risks": [
+        "The frozen exhaustive checks cover small n only; the empirical and critical-window decisions instead use the proof and two-root coupling above.",
+        "The full tagged distribution is a sum with a compound-Poisson component; the evidence is not a claim of infinite divisibility of h(P^-)+the marked sum."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The weighted-graph decomposition theorem contains the unit-weight deterministic game. Standard local limits supply sparse directed degree limits and bounded local test convergence; the undirected Erdős–Rényi isolate theorem yields the isolate-count limit.",
+          "The same-day arborescence and in-star records concern deterministic core or payoff properties under different weights/assumptions."
+        ],
+        "reasoning": "The broader inputs are credited. The incoming-neighbor residual binomial marks, exact null law and parameter-specific equality with isolates are conclusions of modeling/calculation not supplied by a generic local limit or isolate theorem. The common use of the deterministic trust game does not turn the core results into these stochastic assertions.",
+        "searches": [
+          "arXiv:2605.18157v1 §§2–3",
+          "Focused literature checks for sparse directed random-graph trust-game Shapley limits and the isolated-vertex window",
+          "Resultary trust-game core and Shapley records cd47bc808075 and 4bdaf1b91eda"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "arXiv:2605.18157v1",
+        "arXiv:1701.01677",
+        "AAMAS 2024 proceedings entry and documented OA limitation",
+        "Resultary 481f46a64688, cd47bc808075 and 4bdaf1b91eda"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Deducing equality of the two counts with high probability requires n times the gap of their one-root probabilities to vanish, and the frozen exact null estimate gives it. A root with just one outgoing arc into a head of indegree one can have zero credit without isolation."
+        ],
+        "reasoning": "The isolate theorem determines the final limit only after the payoff-specific transfer has been proved. The tagged factorization similarly needs the arc disjointness of this random graph model. The older deterministic formula is fully credited and excluded from the novelty pass.",
+        "searches": [
+          "arXiv:2605.18157v1 Theorem 3.1",
+          "Frozen RESULT.md lines 68–99 versus standard isolated-vertex Poisson limit",
+          "Resultary related scientific statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior minimum-incoming external contribution becomes a single indicator at unit weights. Ryzák–Kroupa Theorem 3.1 and the internal-edge split then give the graphwise identity exactly.",
+          "Forgetting direction replaces the arc probability by the independent undirected pair probability 2p-p² for the isolate count."
+        ],
+        "reasoning": "The first equivalence is exact for the game and deterministic allocation, not by itself a stochastic law. The second is exact for isolates, not for credit: at fixed positive limiting mean degree zero-credit mass exceeds isolate mass by the strict exponential factor exp(lambda exp(-lambda)). Khatri changes the Shapley permutation rule and is not an equivalent payoff model.",
+        "searches": [
+          "Resultary exact directed trust-game sparse Shapley payoff/zero-credit searches",
+          "arXiv:2605.18157v1",
+          "arXiv:1701.01677"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The leading exact catalogue hit 481f46a64688 is the frozen record itself. Related original passages give Shapley–core calibration for directed arborescence contexts and an entry threshold for interpolated weighted in-stars, not tagged random-graph credit masses."
+        ],
+        "reasoning": "A same-day related game need not be ordered against the result; available scientific statements do not match the exact distribution, null atom or zero-credit window. Finite checks in VERIFICATION.md are present-record evidence and not prior table matches.",
+        "searches": [
+          "Resultary exact frozen title and finite tagged law, sparse empirical profile, critical zero-credit window searches",
+          "Resultary 481f46a64688, cd47bc808075, 4bdaf1b91eda"
+        ]
+      },
+      "rationale": "The game and deterministic Shapley formula are prior work as explicitly credited. The supported distinct contribution is the joint stochastic characterization: exact finite tagged distribution, its limiting sparse empirical payoff law, and the sharp equality in probability between zero-credit and isolated vertex counts in the critical window. The isolated-vertex Poisson limit itself is not new.",
+      "residual_risks": [
+        "The 2024 Example 3.2 PDF passage was inaccessible; no whole-text noncoverage conclusion from that source is asserted.",
+        "A differently indexed treatment of stochastic trust payoffs could have been missed. The judgement is not exhaustive publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact deterministic specialization, not the stochastic theorems",
+          "evidence": [
+            "The minimum-incoming external term becomes the external indicator, and the Shapley formula plus the internal half-edge contributions gives the frozen graphwise payoff."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.18157v1",
+          "material_read": "§2, Eq. (1)–(2), offsets 6700 and 8500; §3 Theorem 3.1, Eq. (3), offset 12150",
+          "method": "OA primary passages",
+          "title": "A Tractable Class of Cooperative Games Defined by Directed Networks: Unanimity Decomposition and Shapley Value",
+          "trigger": "Potential direct coverage of the trust-game payoff"
+        },
+        {
+          "assessment": "Earlier trust-game antecedent; no whole-paper comparison asserted",
+          "evidence": [
+            "The accessible later deterministic paper cites it as earlier work on the same trust game."
+          ],
+          "identifier_or_url": "https://aamas.csc.liv.ac.uk/Proceedings/aamas2024/pdfs/p132.pdf",
+          "material_read": "Proceedings listing; exact Example 3.2 not read after bounded OA attempts",
+          "method": "Lookup and attempted OA PDF; relation corroborated via the accessible Ryzák–Kroupa text",
+          "title": "Trust in Shapley: A Cooperative Quest for Global Trust in P2P Network",
+          "trigger": "Earlier binary trust-game example cited in the frozen record"
+        },
+        {
+          "assessment": "Different allocation rule",
+          "evidence": [
+            "Admissible permutations must not violate player subordination, unlike the ordinary Shapley value in this record."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1701.01677",
+          "material_read": "Opening definition/scope passage at offset 350",
+          "method": "OA original passage",
+          "title": "The Shapley Value of Cyclic Digraph Games",
+          "trigger": "Potential equivalent directed Shapley framework"
+        },
+        {
+          "assessment": "Closest same-game match, different theorem",
+          "evidence": [
+            "Deterministic Shapley–core calibration with indegree at least two and target-homogeneous weights."
+          ],
+          "identifier_or_url": "Resultary:2026/11/8/SCOPE-directed-arborescences-calibrate-shapley-core-coincidence-in-tru--cd47bc808075",
+          "material_read": "RESULT.md opening scientific statement, offset 0",
+          "method": "Resultary and source passage via local mirror",
+          "title": "Directed arborescences calibrate Shapley–core coincidence (indexed record)",
+          "trigger": "Same directed trust game and Shapley allocation"
+        },
+        {
+          "assessment": "Different threshold quantity and setting",
+          "evidence": [
+            "Weighted directed in-stars under an interpolation; core and Shapley entry, not zero payoffs in a random graph."
+          ],
+          "identifier_or_url": "Resultary:2026/11/8/SCOPE-core-boxes-and-a-sharp-shapley-entry-threshold-in-interpolated-d--4bdaf1b91eda",
+          "material_read": "RESULT.md opening scientific statement, offset 0",
+          "method": "Resultary and source passage via local mirror",
+          "title": "Core boxes and a sharp Shapley entry threshold (indexed record)",
+          "trigger": "Related Shapley threshold in an internal/external trust game"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 12–49 and 68–99"
+      ],
+      "rationale": "The exact law separates internal credit at a root and the contribution from redundant incoming support at its neighbors. It yields an explicit positive atom at zero and an empirical profile despite correlated allocations. That atom is strictly larger than the isolation fraction in the bounded-degree limit, whereas the delicate disappearance window is governed by isolation alone. This regime distinction is substantive; the result is not a recomputation of the classical isolate count or deterministic Shapley identity.",
+      "residual_risks": [
+        "No inference for nonunit weights, correlated arcs, alternative Shapley rules or small positive credit."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:11:40.847230Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 39–60; VERIFICATION.md; verify.py; verification_output.txt (recorded finite check through n=8, not rerun)",
+        "Independent reproduction /tmp/opencode/crown-audit.py: Floyd–Warshall distances, union of geodesic intervals and single-deletion minimality for every subset at n=3..7. Geodetic totals 39,177,783,3389,14409; minimal totals 5,6,7,28,149. All polynomial coefficients and maximal minimal sizes agree."
+      ],
+      "rationale": "A deleted-matching pair has a length-three interval containing every vertex, including at n=3. Without a selected matched pair, an omitted a_i can only be covered by two selected B vertices with indices different from i, and vice versa. Outside the two full-shore cases, both shores have omissions; if J is nonempty, an index of J is such an omitted A index and forces |J|>=3, and J empty also fails to cover an omitted A vertex. Symmetry yields the disjoint 3+3 threshold. Weighted index states give the matched-pair term; the disjoint k-index assignment excludes 2(1+k+binom(k,2)) choices. Monotonicity then leaves exactly the stated minimal types and gives g^+=n and n+2+20 binom(n,6).",
+      "residual_risks": [
+        "Finite reproduction is supplementary; the interval proof supplies the general claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "98565a07b2d3 covers complete multipartite graphs; arXiv:1810.04004 §3 concerns strong geodetic numbers on crowns."
+        ],
+        "reasoning": "A crown is not complete multipartite (nonadjacency is not transitive). Strong geodetic sets fix one path per pair and a scalar optimum for that variant does not cover all ordinary geodetic sets. Neither weakens the exact indexed match.",
+        "searches": [
+          "Resultary: ordinary geodetic polynomials of bipartite and complete multipartite graphs; 98565a07b2d3",
+          "Primary search: crown graph geodetic sets and polynomials; arXiv:1810.04004 §3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ac79cded1cfa and 98565a07b2d3",
+        "arXiv:1810.04004 §3",
+        "Vijayan–Dafini 2012 abstract",
+        "DOI 10.12723/mjs.67.8 and Vijayan–Selin publication pages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen package credits the edge-removal paper for g(Cr_n)=2 and matched witness pairs. The paths/wheels article describes the polynomial in its abstract. The distinct indexed crown classification additionally determines both cardinality enumerators and the exact inclusion-minimal sets."
+        ],
+        "reasoning": "A scalar optimum and the polynomial framework do not determine the crown classification; the distinct indexed crown theorem directly covers it.",
+        "searches": [
+          "10.12723/mjs.67.8; Vijayan–Dafini 2012, p. 123; Vijayan–Selin geodetic-polynomial article; ac79cded1cfa"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "ac79cded1cfa Finding (offset 0) lists exactly the matched-pair, full-shore and disjoint 3+3 threshold cases under the same definition. The minimal sets in that Finding are the same three types."
+        ],
+        "reasoning": "The relabeling X,Y to I,J changes nothing; the indexed result is not merely the frozen record itself.",
+        "searches": [
+          "Resultary: crown graph ordinary geodetic sets, minimal geodetic sets, cardinality polynomial; ac79cded1cfa"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed all-set polynomial uses 2^k-2-2k-k(k-1)=2^k-k^2-k-2. Its minimal polynomial is nz²+2z^n+binom(n,3)binom(n-3,3)z^6 and its Finding states the upper number and total count."
+        ],
+        "reasoning": "The counts match identically, not just in small tabulated cases: binom(n,3)binom(n-3,3)=20 binom(n,6), interpreted as zero below 6.",
+        "searches": [
+          "Resultary exact coverage: ac79cded1cfa RESULT.md, offset 0"
+        ]
+      },
+      "rationale": "A distinct indexed finding states the same theorem for precisely the same graphs and ordinary geodetic sets, down to all coefficients and the minimal-set types. It also explicitly states g^+=n and the equivalent total minimal count. A qualifying distinct contribution of the frozen finding is not established. This is a judgment of equivalent coverage, not an attribution or a judgment of priority from the displayed dates.",
+      "residual_risks": [
+        "Priority between equivalent findings is not adjudicated. Partial access to the edge-removal and early geodetic-polynomial papers does not drive the verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent all-set and minimal-set coverage",
+          "evidence": "Same n≥3 crown, same three set types, equivalent formulas; includes g^+=n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-geodetic-and-minimal-geodetic-cardinality-polynomials-of-crown-g--ac79cded1cfa/RESULT.md",
+          "material_read": "Finding, assumptions and start of interval proof, local mirror offset 0",
+          "method": "Bounded OA local-mirror text",
+          "title": "Geodetic and minimal-geodetic cardinality polynomials of crown graphs",
+          "trigger": "Exact theorem candidate"
+        },
+        {
+          "assessment": "Different graph class",
+          "evidence": "Complete multipartite hypothesis excludes crowns.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-geodetic-polynomial-of-complete-multipartite-graphs--98565a07b2d3/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Bounded OA local-mirror text",
+          "title": "Geodetic polynomial of complete multipartite graphs",
+          "trigger": "Broader class candidate"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Strong geodetic number, with prescribed shortest paths, not the ordinary geodetic generating function.",
+          "identifier_or_url": "https://arxiv.org/pdf/1810.04004",
+          "material_read": "§3 p. 6, offset 15500",
+          "method": "Bounded OA PDF text",
+          "title": "Strong geodetic results of Gledel and Iršič",
+          "trigger": "Same graph family"
+        },
+        {
+          "assessment": "Framework precedent; accessible passage covers paths and wheels",
+          "evidence": "Named families differ from crowns.",
+          "identifier_or_url": "https://ascent-journals.com/IJMSEA/Vol6No3/12-vijayan.pdf",
+          "material_read": "Abstract, p. 123",
+          "method": "OA PDF excerpt",
+          "title": "On geodetic sets and geodetic polynomials of wheels and paths",
+          "trigger": "Polynomial precedent"
+        },
+        {
+          "assessment": "Frozen paper credits the scalar crown result; scope not independently checked in full",
+          "evidence": "No whole-document assessment made.",
+          "identifier_or_url": "https://doi.org/10.12723/mjs.67.8",
+          "material_read": "Landing/abstract; full text not retrieved by attempted OA routes",
+          "method": "OA landing-page inspection",
+          "title": "Changing and Unchanging the Geodetic Number: Edge Removal",
+          "trigger": "Ordinary crown-specific citation"
+        },
+        {
+          "assessment": "Full-text coverage unresolved",
+          "evidence": "No whole-document assessment made.",
+          "identifier_or_url": "https://indianjournals.com/article/bpasms-31e-1-004",
+          "material_read": "Publication page only",
+          "method": "OA lookup",
+          "title": "An introduction to geodetic polynomial of a graph",
+          "trigger": "Early geodetic polynomial source"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof; Resultary ac79cded1cfa"
+      ],
+      "rationale": "As mathematical content, the full set classification resolves a natural distance-coverage question for a connected family whose missing edges produce distance-three pairs; it determines the size spectrum and inclusion-minimal witnesses rather than retabulating the scalar minimum. This does not establish a distinct contribution relative to the matching indexed result.",
+      "residual_risks": [
+        "No additional distinct theorem survives the documented overlap."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

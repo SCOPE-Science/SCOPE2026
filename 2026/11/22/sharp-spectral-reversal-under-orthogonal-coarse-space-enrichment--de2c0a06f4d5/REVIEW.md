@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact Galerkin two-grid operator uses \(A=I_3\), so its coarse projectors are orthogonal. Direct block multiplication proves \(E_U=S^2\). The enriched operator is rank one, so its only possible nonzero eigenvalue is \(z^TS^2z\); this yields the exact angle-shear phase transition with explicit equality cases. Singular norms and the contraction range were derived separately and checked against exact rational identities. The checker does not replace the proof.
+## correctness
 
-## Originality — PASS (qualified)
-The motivating 2026 work defines the general two-grid error operator and develops projector perturbation estimates, but the inspected mathematical statements do not identify the Jordan-angle spectral-radius reversal. Nabben and Rooch establish the general possibility of nonmonotone coarse enlargement using nonorthogonal corrections, and prove monotonicity under a normality hypothesis; those results do not imply the current strictly contractive nonnormal/orthogonal angle threshold. Notay develops general field-of-values convergence estimates, not this exact parameter law in the inspected material. published-finding corpus and accessible historical records were searched for the operator, nested-projector aliases, Jordan shear and equivalent spectral implications. The general idea that nonnormal two-grid behavior can be counterintuitive is not novel. Earlier unindexed special examples cannot be excluded.
+PASS
 
-## Value — PASS
-A learned or adaptively enriched coarse space is commonly treated as containing more information, but nestedness and Euclidean orthogonality alone cannot ensure improved convergence for a nonsymmetric smoother. The theorem identifies the smallest nontrivial nested setting and a complete sharp parameter-angle boundary; its unbounded relative slowdown is a concrete solver-design diagnostic rather than an arbitrary isolated matrix. It distinguishes spectral convergence from one-cycle amplification and explicitly states that both maps remain convergent.
+On the active 2×2 block J, the eigenvalues of JᵀJ give largest singular value (t+√(t²+4ρ²))/2, strictly less than one exactly when t+ρ²<1. The error matrix for U is S² since S annihilates e₁. For Vθ the complementary projector is zzᵀ with z=(0,−sinθ,cosθ), and the rank-one product (Sz)(zᵀS) has characteristic polynomial λ²(λ−zᵀS²z). Its spectral radius is ρ|ρ−q| for q=t sin(2θ), compared with ρ². The comparison is strict deterioration iff q>2ρ, improvement iff 0<q<2ρ, equality at q=0 or 2ρ. The maximum attainable q=t gives exactly the stated existence criterion. At θ=π/4 the ratio |1−t/ρ| diverges at fixed 0<t<1 even as both radii tend to zero. The enriched norm there is the product of the two rank-one vector norms, (ρ²+(t−ρ)²)/2; the original norm follows from the singular value of the block with diagonal ρ² and shear 2ρt. Dimension three is necessary for strict nesting of nonzero proper subspaces. An independent exact matrix/characteristic check including the stated numerical witness passed; replay with python3 /workspace/audit_checks.py 1.
 
-## Limitations and closest literature
-The identity system and upper-Jordan smoother are algebraic prototypes; the result does not claim that this configuration occurs in the particular additive Schwarz implementation of Bao–Cui–Li. The Nabben–Rooch nonmonotonicity example uses oblique projection, and its positive theorem assumes normality; the present statement concerns orthogonal corrections with a nonnormal smoother. The earlier Notay nonnormal framework is broader in purpose. Specialist sources not indexed by the searches remain a priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the exact orthogonal-nesting threshold and unbounded relative spectral penalty for the specified contractive same-smoother two-grid family. General nonnormal spectral pathologies and the Galerkin error-map formalism are not new. The closest located literature counterexample uses nonorthogonal projectors and a norm, not this spectral comparison with orthogonal corrections.
+
+## value
+
+PASS
+
+It tests whether increasing a Galerkin space helps asymptotic convergence when even the unpaired smoother is a strict contraction and all corrections are orthogonal. The minimal-dimensional counterexample separates same-smoother from adjoint-paired schemes and gives a finite threshold identifying exactly when monotonicity fails, plus an unbounded relative effect. Neither a generic nonnormal transient warning nor a counterexample with oblique projection answers that question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

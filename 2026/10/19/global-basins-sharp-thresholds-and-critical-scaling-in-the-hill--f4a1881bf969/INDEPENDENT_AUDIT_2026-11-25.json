@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:40:06.786289Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–112",
+        "Frozen VERIFICATION.md, lines 19–23",
+        "Frozen checker.py, lines 55–111 (inspected, not executed)"
+      ],
+      "rationale": "For positive data T² applies g in each coordinate and T⁴ applies h=g∘g. The scalar h is increasing and maps into a bounded interval away from zero, so its trajectories converge monotonically to roots and it has no other periods. For m>1, the Schwarzian of g follows from writing it as a fractional-linear map of z^m; it is −(m²−1)/(2z²). The Schwarzian chain rule implies strict convexity of (h′)^(−1/2), so Rolle permits at most three roots; at criticality h′(w)=1 already, so two additional roots are impossible. Above threshold the signs at 0, w±ε and infinity give both outer roots and their signs; the paired-root multiplier q=(m sinh(t)/sinh(mt))²<1 also rules out a pair below threshold (two downcrossings would require an upcrossing at w). For m≤1 use the strict logarithmic contraction after entry into [g(b),b]. The product grid splits into the claimed cycles, with the two lines precisely the union of the saddle stable set and the central fixed point and the boundaries between the return phases; the diagonal derivative supplies the stated multipliers. Recomputed the critical cubic coefficient c=(m²−1)/(6w_*²) and the derivative K=(m−1)²/(m w_*) of h_b′(w(b)). Reciprocal squares give the signed limit 1/sqrt(2c) for four-step return times; dividing the fixed-point expansion by the nonzero phase offset gives s²/(b−b_*)→K/c, with the claimed square-root amplitude. The exact m=2 equations force uv=1 and u+v=b for the nontrivial pair. No numerical premise is used in these arguments.",
+      "residual_risks": [
+        "Positive coordinates only. Both asymptotics hold for fixed m>1; the critical law counts returns of T⁴ and is not a uniform estimate in parameters or initial data."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected 2023 work exhibits eight noncentral fourth-iterate points numerically for m=2. Its finite-τ square-root scaling concerns a multiplier near a finite-step bifurcation, not the critical T⁴ orbit or the b-amplitude here.",
+          "The 2015 abstract describes tropical/ultradiscrete models and bifurcation conditions; full text was not retrieved."
+        ],
+        "reasoning": "Finite sampled orbit locations do not supply all-real-m basins or rule out additional periods. Similar finite-step scalings do not give either exact asymptotic constant for this map. No exclusion of overlap in the 2015 full text is inferred.",
+        "searches": [
+          "arXiv:2306.00733v1 Eq. (10), Table 1 and pp. 4–7",
+          "Gibo–Ito DOI 10.1016/j.jtbi.2015.04.024 and OA routes"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2305.05908v1",
+        "arXiv:2306.00733v1",
+        "Gibo–Ito DOI 10.1016/j.jtbi.2015.04.024 (abstract only)",
+        "Resultary 82d9263e05b7 and 71e6382fa924"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior exact recurrence and sampled phase points are compatible with the theorem but do not give a sharp global root count and signed return law.",
+          "The later parametrization directly implies the one-sided splitting limit, while its critical phase law directly includes the critical return coefficient."
+        ],
+        "reasoning": "Scalar monotonicity explains period exclusion once the scalar roots are classified; root count and stability on the entire positive half-line and evaluation of the two constants require additional reasoning. The prior numerical and related finite-step passages inspected do not imply these as stated.",
+        "searches": [
+          "arXiv:2305.05908v1 §§2–3 and arXiv:2306.00733v1 Eq. (10), Table 1",
+          "Resultary 82d9263e05b7 proof §§2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both 2023 works give the same infinite-step map, equivalently x_(n+2)=b/(1+x_n^m).",
+          "The max-plus locking-boundary record addresses a piecewise-affine map, and the finite-step tropical discretization retains additional current-state terms."
+        ],
+        "reasoning": "The lag-two scalar form is exact equivalence and not novel. Finite-step and max-plus conclusions do not transfer across these singular limits without proof.",
+        "searches": [
+          "Ohmori–Yamazaki arXiv:2305.05908v1 §3 Eq. (8)",
+          "Yamazaki–Ohmori arXiv:2306.00733v1 §3 Eq. (10)",
+          "Resultary 82d9263e05b7 and 71e6382fa924"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "82d9263e05b7 (later catalogue entry) states the same global basins and critical coefficient, and gives a hyperbolic parametrization of the endpoints; 71e6382fa924 is max-plus instead.",
+          "The earlier Table 1 records m=2 numerical orbit data, not the all-m theorem."
+        ],
+        "reasoning": "The later record is substantive overlap, not merely a title match. Expanding its B_m(s) gives b/b_*=1+(m+1)s²/6+O(s⁴); its endpoints are w(b)±w_*s+O(s²), giving exactly the frozen amplitude. This comparison does not infer historical priority from the catalogue alone.",
+        "searches": [
+          "Resultary: exact Hill map phase diagram, critical four-cycle relaxation and cycle amplitude",
+          "arXiv:2306.00733v1 Table 1"
+        ]
+      },
+      "rationale": "Credit the exact map, known numerical m=2 orbit structure, and standard scalar dynamics and normal-form methods to prior work. The supported distinction is a proved all-real-exponent global basin/period result with exact critical-time and parameter amplitudes for the exact infinite-step Hill map. A later indexed record supplies equivalent coverage of the main mathematics, including the split amplitude by direct expansion; it is not evidence of earlier coverage. The inaccessible 2015 full text leaves a named residual risk.",
+      "residual_risks": [
+        "Gibo–Ito 2015 full text was not lawfully retrieved; exact-limit coverage there remains unconfirmed.",
+        "The materially equivalent later Resultary entry should be cross-referenced; its later catalogue date alone does not determine authorship or discovery priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model already present; distinguish finite-step and max-plus results",
+          "evidence": "Taking τ→∞ gives exactly x′=y, y′=b/(1+x^m).",
+          "identifier_or_url": "https://arxiv.org/pdf/2305.05908v1.pdf",
+          "material_read": "Eq. (2) pp. 1–2; §3 Eq. (8) p. 6 and adjacent model distinction",
+          "method": "Lawful OA PDF, targeted passages",
+          "title": "Dynamical properties of discrete negative feedback models",
+          "trigger": "Original identified exact limit map"
+        },
+        {
+          "assessment": "Earlier sampled cycles and different finite-step multiplier law",
+          "evidence": "Eight noncentral fourth-return points observed numerically for m=2; the finite-step scaling varies τ, not b at criticality of the limit.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.00733v1.pdf",
+          "material_read": "pp. 4–7 and p. 11 Eq. (10), Table 1",
+          "method": "Lawful OA PDF, targeted passages",
+          "title": "Emergence of ultradiscrete states due to phase lock caused by saddle-node bifurcation in discrete limit cycles",
+          "trigger": "Same limit, numerical fourth-iterate points, related square-root scaling"
+        },
+        {
+          "assessment": "Priority risk; not an assertion of noncoverage",
+          "evidence": "Abstract describes oscillation and bifurcation conditions for discretized and ultradiscrete feedback models.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jtbi.2015.04.024",
+          "material_read": "Accessible abstract description only; finite-step attribution in the 2023 OA paper",
+          "method": "Lawful publisher/DOI and identified alternate routes; full text unavailable",
+          "title": "Discrete and ultradiscrete models for biological rhythms comprising a simple negative feedback loop",
+          "trigger": "Foundational discretization paper, plausible earlier exact-map coverage"
+        },
+        {
+          "assessment": "Materially equivalent later indexed result",
+          "evidence": "Same threshold, basin grid and critical coefficient; its cycle parametrization implies the frozen amplitude by Taylor expansion.",
+          "identifier_or_url": "82d9263e05b7",
+          "material_read": "Finding, proof §§2–4 and relationship notes, offsets 0 and 7168",
+          "method": "Local Resultary mirror, bounded passages",
+          "title": "Global four-cycle phase diagram and critical phase relaxation",
+          "trigger": "Strongest matching exact theorem on same map"
+        },
+        {
+          "assessment": "Different max-plus map",
+          "evidence": "Piecewise-affine model with count changing at t=5/3, not the Hill-map threshold.",
+          "identifier_or_url": "71e6382fa924",
+          "material_read": "Finding and setup, offset 0",
+          "method": "Local Resultary mirror, bounded passage",
+          "title": "Exact four-cycle locking boundary in a max-plus negative feedback map",
+          "trigger": "Same feedback circuit and four-cycle terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 14–41 and 54–112",
+        "arXiv:2306.00733v1 Table 1"
+      ],
+      "rationale": "The exact tau→infinity model was already used to interpret numerical stable and unstable cycles; this proof identifies all positive basins and exclusion of other periods, including the exceptional separatrices invisible to generic sampling. The two sharp constants quantify distinct slow-relaxation and orbit-birth phenomena near a natural threshold, beyond establishing a local flip or sampling a representative exponent.",
+      "residual_risks": [
+        "The exact-map calculation does not resolve corresponding finite-step or max-plus phase diagrams."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

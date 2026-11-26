@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:09:09.911507Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a fixed binary alphabet, each completed shortest both-letter segment supplies one letter of any prescribed subsequence. The word of successive segment-ending letters followed by a letter absent from the remainder cannot embed: earliest matching reaches the corresponding segment ends. From the odd parts of the eight position indices, the aligned block is 110a100b, with a the even-block indicator and b the symbol at the scaled index. With empty incoming remainder the first two arches close at offsets 3 and (5 if a=0, otherwise 6); the third closes at 8 if and only if b=1. An incoming zero remainder adds a closure at offset 1 and the states agree after offset 2. The outgoing remainder is empty for b=1 and zero-only otherwise. Telescoping gives U(8k)=3k+b_(k-1)-1 and the seven partial offsets give 3k+(0,0,1,1,2-a,2,2). This yields precisely the two corrections, including U(1)=U(2)=0. The discrepancies at N≡13 mod 16 and at N=8k with k≡3 mod 4 attain +1/8 and -1, respectively; the other residues stay between them. The density, dyadic and shortest-absent consequences follow. The independently written finite checker /workspace/branches/538c09fe-c9b8-4fbe-963c-de69dd2fe263/finite-prefix-check.py tested every binary candidate necessary to determine the index at N=1 through 32; e.g. U(5)=1, U(13)=5 and U(24)=8. The furnished Python code was inspected, not run; its documented tests are finite. The scanner argument, not enumeration, establishes the result for all N.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The matched theorem includes N=0 and its ten-value limiting discrepancy distribution.",
+          "Shallit supplies run start/end automata and run lengths 1–3. Madill–Rampersad count Parikh classes of contiguous factors, not scattered-subsequence universality."
+        ],
+        "reasoning": "The matched prefix theorem applies on the exact frozen domain and in addition describes discrepancy frequencies. The two external paperfolding results are not themselves such a theorem.",
+        "searches": [
+          "Resultary record 44b326d79dc6, Exact prefix theorem and consequences",
+          "arXiv:2412.17930v2, §§1–3",
+          "arXiv:1208.2856, pp. 1, 4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 44b326d79dc6",
+        "arXiv:1208.2856",
+        "arXiv:2003.04629",
+        "arXiv:2108.13968",
+        "arXiv:2412.17930v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The arch theorem gives the universality count from an arch decomposition, and the absent-subsequence paper gives shortest absent length as one plus the index.",
+          "Run endpoints can generate the input to the scanner, but runs are not arches: 11011001 has five runs and three arches.",
+          "The matched prefix formula and the generic absent-subsequence relation together give the entire frozen result."
+        ],
+        "reasoning": "The known generic relationships do not alone prove the paperfolding count. The indexed exact count, however, directly implies the floor expression, its discrepancies, density and dyadic specializations; the shortest-absent conclusion adds no uncovered claim.",
+        "searches": [
+          "arXiv:2003.04629, §2 Definition 6 and Remark 7",
+          "arXiv:2108.13968, introduction and §3",
+          "arXiv:2412.17930v2, Theorems 3–4 and Proposition 5",
+          "Resultary record 44b326d79dc6, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Matched RESULT.md, Exact prefix theorem, local mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4, offset 0: U(8T+r)=3T plus (-p_T,0,0,1,1,1+(T mod 2),2,2)."
+        ],
+        "reasoning": "Complement the bits and shift the indexing origin by one. Comparing the eight entries to floor((3N+1)/8) gives exactly the frozen corrections, not merely matching initial terms.",
+        "searches": [
+          "Configured Resultary search: regular paperfolding exact scattered-subsequence universality of prefixes; matched record 44b326d79dc6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed theorem's eight entries cover every positive prefix and both exceptional residue conditions; it is not a finite-value-only hit."
+        ],
+        "reasoning": "The searched index contains an exact all-input value table in residue form. A symbol table alone, by contrast, permits scans but would not give this index formula.",
+        "searches": [
+          "Resultary hit 2026/10/13/SCOPE-exact-scattered-subsequence-universality-of-every-regular-paperf--44b326d79dc6/RESULT.md; exact eight-residue formula"
+        ]
+      },
+      "rationale": "Direct equivalent coverage in a distinct indexed Resultary record. Its one-indexed bits are the complements of the frozen zero-indexed bits, which preserves binary universality. Its exact formula at r=0 subtracts p_T=1 precisely for odd(T)≡3 mod 4; its r=5 term is 1+(T mod 2), exactly the first residue correction. The other offsets coincide, as do discrepancy endpoints, density and dyadic values. The matched record also supplies a limiting discrepancy distribution. The date in the catalogue path is not independent evidence about authorship or priority; the scientific finding is equivalent coverage, not an attribution of how the records arose.",
+      "residual_risks": [
+        "The relationship and priority between distinct records are not inferred from path dates. The positive coverage comparison is unaffected by the targeted external search yielding no results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent direct coverage",
+          "evidence": "Exact prefix theorem, residues 0–7; complement invariance; sharp discrepancy and distribution.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-exact-scattered-subsequence-universality-of-every-regular-paperf--44b326d79dc6",
+          "material_read": "RESULT.md offset 0, Finding, Assumptions and opening proof",
+          "method": "Local OA mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact scattered-subsequence universality of every regular-paperfolding prefix",
+          "trigger": "Exact same object, invariant and all-prefix quantifier"
+        },
+        {
+          "assessment": "Different statistic in examined results",
+          "evidence": "Contiguous factor Parikh classes and their recurrence.",
+          "identifier_or_url": "https://arxiv.org/abs/1208.2856",
+          "material_read": "Primary PDF pp. 1 and 4, OA offsets 0 and about 8100",
+          "method": "OA PDF",
+          "title": "The abelian complexity of the paperfolding word",
+          "trigger": "Same underlying sequence and exact counting"
+        },
+        {
+          "assessment": "Supplies general method",
+          "evidence": "Number of complete arches equals the universality index.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.04629",
+          "material_read": "§2 Definition 6 and Remark 7, p. 5, OA offset about 16900",
+          "method": "OA PDF",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Exact arch characterization"
+        },
+        {
+          "assessment": "Covers generic shortest-absent consequence",
+          "evidence": "Universality index is the shortest absent length minus one.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.13968",
+          "material_read": "Introduction, p. 2, OA offset about 5000, and §3",
+          "method": "OA PDF",
+          "title": "Absent Subsequences in Words",
+          "trigger": "Shortest absent consequence"
+        },
+        {
+          "assessment": "Run information, not an equivalent arch invariant in examined results",
+          "evidence": "Theorems 3–4 and Proposition 5 concern run starts, ends and lengths.",
+          "identifier_or_url": "https://arxiv.org/html/2412.17930v2",
+          "material_read": "§1 Table 2 and §§2–3, OA offsets about 3950 and 13950",
+          "method": "OA primary HTML",
+          "title": "Runs in Paperfolding Sequences",
+          "trigger": "Strong exact run-position results on paperfolding"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact fixed-origin invariant and its sharp discrepancy would be useful for precise subsequence capacity and shortest absent lengths. However, the frozen contribution does not add a distinct invariant, regime or implication to the existing indexed all-prefix theorem; compact floor notation is an algebraic restatement. No surviving new valuable claim was identified to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

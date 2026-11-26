@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:28:03.465118Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–75; VERIFICATION.md; check_identification.py (read only)",
+        "Independent replay: python3 /workspace/review_evidence/assay.py (SymPy, exact polynomial arithmetic)"
+      ],
+      "rationale": "Poisson thinning and independent false positives give y_j=a+j theta q^j. Eliminating the geometric sequence (y_j-z)/j yields z^2-Bz+C=0. Independently checked its factorization: the larger root exceeds a by 4 theta q (3q^2-3q+1)>0, and y_1 minus that root equals -3 theta q (2q-1)^2, so even at equality q=1/2 it cannot have positive target signal. The smaller root reconstructs the input triple and gives the stated inverse. The Jacobian in (a,theta,q) is 2 theta q^2(3q^2-3q+1)>0; the coordinate changes are nonsingular, including the smooth one-sided restriction at f=0. With only levels 1,2, increasing a by any sufficiently small positive amount and solving for q and theta preserves both exact responses and the parameter restrictions, even when a starts at zero. The signs of the consecutive differences of y are those of 2q-1 and 3q-2; monotone transformation to p preserves the ties and all three regimes.",
+      "residual_risks": [
+        "Exact population probabilities only, not recovery from three binary outcomes or finite-sample guarantees. The prescribed thinning and false-positive laws are assumptions, and boundary identifiability as theta or q tends to zero is not claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schultz–Lance assume Poisson copy input and discuss accounting for measured inhibition by reducing expected copies",
+          "Wilcox et al. discuss sensitivity and cross-amplification",
+          "The general two-node confluent model with orders 1 and 2 has five unrestricted parameters; its standard recovery setting is not the three-measurement restricted model",
+          "McKee full text was not retrieved in the independent check"
+        ],
+        "reasoning": "The inspected Poisson model neither specifies the same cross-level exponential factor with an unknown constant false-positive rate nor gives inversion. Generic reconstruction with extra measurements is not a theorem for these three exact probabilities. The inaccessible McKee material is an open comparison, not negative evidence.",
+        "searches": [
+          "Schultz–Lance doi:10.1371/journal.pone.0141503 pp. 4,6; Wilcox et al. doi:10.1371/journal.pone.0059520 p. 1",
+          "Batenkov–Yomdin arXiv:1106.1137 §1.A, Eq. (1.5)",
+          "McKee–Spear–Pierson doi:10.1016/j.biocon.2014.11.031 via publisher and USGS identified copy"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1371/journal.pone.0141503, doi:10.1371/journal.pone.0059520, arXiv:1106.1137",
+        "Resultary 8108bff328aa, 52bb7d8f76bf, 41e776de6a6f, e05c5fdbd34e",
+        "doi:10.1016/j.biocon.2014.11.031 (retrieval attempted; primary text unresolved)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The model is a restricted confluent Prony system, but this comparison requires exploiting a known node and a missing coefficient to use only three equations",
+          "The closest inhibition-design record optimizes detection over an input rather than recovering the unknown inhibition and offset"
+        ],
+        "reasoning": "Dependence on the same physical ingredients does not imply recovery. The decisive remaining question is whether two algebraic roots can both satisfy the positive-signal constraints; neither generic Prony setup nor a different optimum or known-attenuation inverse settles that question in the inspected passages.",
+        "searches": [
+          "Batenkov–Yomdin Eq. (1.5) and the introductory measurement setup; Schultz–Lance pp. 4,6; Resultary 41e776de6a6f and e05c5fdbd34e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The log of nondetection transforms the assay to a+j theta q^j",
+          "Eq. (1.5) covers its algebraic form with one fixed node 1 and an unknown node q of multiplicity two, zero ordinary coefficient at q and derivative coefficient theta q",
+          "Resultary 52bb7d8f76bf uses a three-assay joint law for nested occupancy"
+        ],
+        "reasoning": "General confluent exponential reconstruction is a genuine reformulation, not an independent known solution at this sample count. The whole unconstrained family has more free parameters, and the nested occupancy joint law is not three marginal probabilities across controlled aliquots.",
+        "searches": [
+          "Resultary semantic lookups for the exact offset equation and root, eDNA/Poisson inhibition, three-dose identification and offset-exponential recovery",
+          "Public lookup on three-level offset-exponential identifiability",
+          "Batenkov–Yomdin arXiv:1106.1137 §1.A, Eq. (1.5)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact match 8108bff328aa is the assigned record itself",
+          "Distinct nearby findings concern nested occupancy, optimization of joint detection, and recovering source distance and scale from two station counts with known attenuation"
+        ],
+        "reasoning": "No distinct inspected catalog result tabulates or gives this exact inverse, minimal input design or equivalent parameter fiber. A self match and calendar dates do not prove priority.",
+        "searches": [
+          "Resultary exact formula and three-dose identification searches; mirror records 8108bff328aa, 52bb7d8f76bf, 41e776de6a6f and e05c5fdbd34e"
+        ]
+      },
+      "rationale": "Poisson-based eDNA detection, inhibiting effects, and exponential parameter recovery are prior ingredients. The inspected sources do not give the exact three-population-probability global inverse on the constrained domain or the inadmissibility of its second algebraic root. The claim is credited only for this model-specific identifiability threshold and its algebraic consequences, not priority for the ingredients.",
+      "residual_risks": [
+        "McKee et al. complete text was inaccessible. The focused public search was unproductive and is not evidence of absence.",
+        "An earlier specialized result in constrained or confluent Prony recovery could be unindexed or missed; no historical priority asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior model ingredients, not the claimed inverse in inspected passages",
+          "evidence": "Poisson sampling assumptions and proposal to reduce expected copies to reflect measured inhibition; inhibition not measured in the application.",
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0141503",
+          "material_read": "PLOS primary PDF pp. 4 and 6 (offsets about 22936 and 31385)",
+          "method": "OA PDF passage inspection",
+          "title": "Modeling the Sensitivity of Field Surveys for Detection of Environmental DNA (eDNA)",
+          "trigger": "Poisson detection model and inhibition corrections"
+        },
+        {
+          "assessment": "Context only; abstract is not a whole-document exclusion",
+          "evidence": "Discusses detection sensitivity and false results from cross-amplification with related species.",
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0059520",
+          "material_read": "PLOS primary PDF p. 1 abstract (offset about 618)",
+          "method": "OA PDF passage inspection",
+          "title": "Robust Detection of Rare Species Using Environmental DNA: The Importance of Primer Specificity",
+          "trigger": "Assay sensitivity and false positive context"
+        },
+        {
+          "assessment": "Unresolved, no negative inference from failure",
+          "evidence": "Frozen record reports abstract-level comparison only. The available independent retrieval did not establish the scope of the complete paper.",
+          "identifier_or_url": "https://doi.org/10.1016/j.biocon.2014.11.031",
+          "material_read": "Bibliographic citation and frozen description; no independent primary full-text passage retrieved",
+          "method": "Lawful publisher, USGS and DOI recovery attempts",
+          "title": "The effect of dilution and the use of a post-extraction nucleic acid purification column on the accuracy, precision, and inhibition of environmental DNA samples",
+          "trigger": "Plausible closest empirical dilution/inhibition comparator"
+        },
+        {
+          "assessment": "Exact embedding into a larger model, not the three-measurement restricted global-inverse result",
+          "evidence": "A known unit node plus one double node produces the two response terms when two of the general model parameters are fixed; the paper's general formulation counts both nodes and all multiplicity coefficients as unknown.",
+          "identifier_or_url": "https://arxiv.org/pdf/1106.1137",
+          "material_read": "§1.A, p. 2, Eq. (1.4)–(1.5) and adjoining parameter count and measurement discussion (offsets 5300–9609)",
+          "method": "OA PDF passage inspection",
+          "title": "On the Accuracy of Solving Confluent Prony Systems",
+          "trigger": "General exponential formulation might imply exact recovery"
+        },
+        {
+          "assessment": "Different observations and target parameters",
+          "evidence": "Uses the joint law of three binary assays, with occupancy, availability and a no-upstream-contamination condition.",
+          "identifier_or_url": "Resultary 52bb7d8f76bf",
+          "material_read": "RESULT.md finding and observation setup",
+          "method": "Resultary lookup and mirror passage inspection",
+          "title": "A minimal asymmetric nested occupancy design with unknown assay errors",
+          "trigger": "Three assays with false-positive identification"
+        },
+        {
+          "assessment": "Same model ingredients, different problem",
+          "evidence": "Optimizes joint detection over input, not three-level recovery.",
+          "identifier_or_url": "Resultary 41e776de6a6f",
+          "material_read": "RESULT.md model and optimization finding",
+          "method": "Resultary lookup and mirror passage inspection",
+          "title": "A sharp common-input threshold for joint environmental DNA detection",
+          "trigger": "Poisson inhibition with controlled input"
+        },
+        {
+          "assessment": "Different data and unknowns",
+          "evidence": "Two station counts identify distance and scale when the attenuation shape is known.",
+          "identifier_or_url": "Resultary e05c5fdbd34e",
+          "material_read": "RESULT.md finding and count model",
+          "method": "Resultary lookup and mirror passage inspection",
+          "title": "Two downstream environmental DNA counters identify source distance",
+          "trigger": "Exact eDNA identifiability via a small observation design"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–30 and 36–69",
+        "Schultz–Lance, doi:10.1371/journal.pone.0141503, inhibition discussion p. 6"
+      ],
+      "rationale": "The result resolves a concrete design ambiguity: when target load, dose-dependent inhibition and background are all unknown, exact data at the first two calibrated levels leave a continuum of solutions, whereas the third level separates the effects even without monotonicity. The positive-signal exclusion of the extra algebraic solution is needed to turn a quadratic elimination into a globally usable structural-identification benchmark.",
+      "residual_risks": [
+        "Useful only as an idealized assay benchmark; no field-validated protocol, statistical robustness guarantee or optimal noisy design is supplied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

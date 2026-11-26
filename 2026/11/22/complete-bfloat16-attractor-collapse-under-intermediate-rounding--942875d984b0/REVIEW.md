@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact state space contains 16,257 values, with the correct bfloat16 subnormal and normal encoding. Explicit rational arithmetic and two independent exact rounding algorithms agree on every successor edge. Orbit-walk and indegree-pruning graph decompositions agree on each vertex's final cycle and tail depth. The separate periodic orbit lists and basin counts together classify every state; a time-limited trajectory sample is not used as proof. Both maps preserve the specified finite state set. The self-contained certificate reproduces all figures from exact integer and rational calculations.
+PASS
 
-## Originality — PASS within inspected evidence
+The original table, cycle codes and hash fingerprints are correct, but the Finding's literal 'all other nonzero states' includes 1, which maps to zero in both rules. The replacement RESULT.md states that the period-20 basin is exactly the representable open interval and corrects what the supplied verifier asserts versus prints. The real polynomial is the Paul et al. Table 2 logistic entry at C=1. Exact rounding was independently reconstructed in integer units of 2^−133: for consecutive scaled values u,v, compare the rational argument with (u+v)/2 and choose the even encoding at equality. The exact A argument is at most 3.98/4; the staged product is at most (255/64)(1/4). Both maps thus stay in the specified code interval. I generated all 16,257 successors for each rule and replayed every orbit to first repetition separately. For A the period/basin/max-depth triples are (1,2,1), (5,2026,77), (22,14229,87); for B they are (1,2,1), (20,16255,83). In both maps the zero-basin codes were 0000 and 3f80. The 2,205 edge differences, every cycle code and both digests matched the frozen certificate. The replacement preserves the correct finite census and does not rely on the asserted strength of the supplied verifier.
 
-The 2021 conference paper and the 2023 full journal account describe the self-parameterized logistic design, but report real-map bifurcation/entropy and a different tent-oriented digitization, not the claimed complete bfloat16 logistic graph. The full accessible 2023 low-precision study by Klöwer et al. describes periodic collapse for the ordinary logistic map and generalized Bernoulli map; its exact statements do not determine cycles for the state-dependent gain and specified intermediate rounding. Existing exact classic-logistic binary16 graph reports likewise differ in the transfer map and floating-point format. A related continuous-state attracting cycle near this control does not imply a precise finite-state basin count. Residual priority risk: unindexed hardware notes or published bfloat16 implementations not identified by the searches may contain this exact graph, and a narrow publication-day ambiguity remains for the conference contribution.
+## originality
 
-## Value — PASS
+PASS
 
-The bfloat16 attractor basins of a published lightweight chaotic-generator construction are natural, implementation-sensitive invariants. The result supplies the complete graph and quantitative merging of a 2,026-state basin despite 2,205 changed one-step edges. This directly tests the design's advertised broad chaotic behavior under precise low-precision evaluation and is more informative than merely asserting all finite maps are eventually periodic. The state-independent counting measure and exact operator placement are essential limitations.
+The distinct repaired claim is the complete graph invariant of a published state-dependent logistic polynomial at its maximal external control under the two specified rounding rules, not the polynomial itself or eventual periodicity. Close same-date bfloat16 censuses use materially different functions and rounding trees; neither states nor mechanically implies this comparison. No ordering is inferred from their common date.
 
-## Scientific limitations
+## value
 
-Only the displayed arithmetic semantics and the full bfloat16 state set are classified. No real-state Lebesgue basin, stochastic-rounding result, field-programmable implementation behavior, or cryptographic certification is asserted. Independent reproduction and publication-priority scrutiny have not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a motivated real design at its documented control endpoint, the audit gives the exact collapse from two distinct nonzero recurrent basins to one under a specified arithmetic change. The depths, sizes, and changed-arrow count make this a reproducible benchmark for rounding sensitivity rather than just an example of eventual periodicity. The correction preserves that quantitative insight and distinguishes it from the unchanged {0,1} basin.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

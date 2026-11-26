@@ -1,0 +1,178 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:27:44.771648Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–36 and 38–68",
+        "VERIFICATION.md lines 19–25 and checker.py lines 17–120 (inspected, not executed)"
+      ],
+      "rationale": "Under the specified plug-flow law the comparison is exactly U(t+h)>EU(t), where E=e^(κτ). The jth difference is a single phase-rotated cosine of positive amplitude c_j=b_j|e^(iω_jh)−E|, so the unique torus maximum is S=Σc_j. For a strict gain the excursion threshold (E−1)/ρ must be below S. If it is below S, an open set of phases satisfies it. The continuous-time Fourier averages vanish for every nonzero integer mode by integer-rational independence; the mean of the event is therefore its Haar volume, since for fixed first m−1 coordinates its boundary has at most two values of the last coordinate. This establishes existence for any initial phases above threshold, and impossibility at equality, reached phase or not. At ρ=ρ_c+ε, the deficit cap is δ=Sε/ρ; on centered torus coordinates, u_j=√(2c_j) sin(θ_j/2) gives S−Σc_jcosθ_j=|u|² exactly near the unique maximum. The inverse Jacobian tends to 2^(m/2)/√(∏c_j); integration over |u|²<δ and Haar normalization gives exactly the stated exponent and K_m. For m=1 this agrees with arccos(ρ_c/ρ)/π above threshold. Finally, each c_j≥b_j(E−1) with equality precisely at phase alignment, so a physically admissible above-threshold interval exists exactly when some tone is mismatched. Simultaneous alignment of two rationally independent positive frequencies forces h=0, with h=0 always safe. When all modes are aligned there is no admissible limit from above, as the record specifies.",
+      "residual_risks": [
+        "Continuous-time, infinite-horizon equidistribution does not certify performance for finite or discretely sampled observation windows. Onset concerns fixed positive weights and nonresonant frequencies only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang arXiv:1812.08004v1 §2.1 Lemma 2.5 restates the classical Morse lemma: at a nondegenerate critical point of index k there are local coordinates in which f=f(0)−Σ_{j≤k}x_j²+Σ_{j>k}x_j². The lemma itself imposes no equal-weight or restricted-dimension condition. Kronecker–Weyl gives time averages of bounded Riemann-integrable observables under the rational independence used here; its Fourier test is shown in RESULT.md, lines 46–50."
+        ],
+        "reasoning": "For a unique nondegenerate maximum of a smooth Morse observable f in dimension m, the superlevel deficit δ gives a coordinate ball of radius √δ. Put Q=−Hess f at the maximum in the original chart; Q is positive definite. Differentiating the normal form twice gives inverse coordinate Jacobian 2^(m/2)/√det Q there. Integrating a continuous density gives Euclidean ball volume times that Jacobian and the density at the maximum, to leading order. Here all critical phases of F have each angle 0 or π and diagonal Hessian entries ±c_j, hence all are nondegenerate; its unique maximum has Q=diag(c_j). With Haar density (2π)^(−m), this immediately covers the claimed prefactor and exponent for every stated m and unequal positive weights.",
+        "searches": [
+          "Resultary: generic quasiperiodic excursion law m/2 power onset torus occupation fraction",
+          "Primary literature: Morse lemma sublevel volume asymptotic nondegenerate minimum determinant Hessian volume density of states band edge van Hove arbitrary dimension primary article",
+          "arXiv:1812.08004v1, §2.1 Lemma 2.5, PDF p. 4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, proof lines 38–62 and literature/scope lines 70–84",
+        "Resultary/local mirror records above",
+        "arXiv:1812.08004v1 Lemma 2.5; arXiv:1004.1435v1 §1",
+        "Domain and lattice DOI attempts as itemized"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The equations in RESULT.md, lines 39–62, exhibit a direct phasor transformation of the comparison event. The inspected Morse lemma is applicable to the resulting weighted cosine observable without any frequency arithmetic beyond the separate standard equidistribution step."
+        ],
+        "reasoning": "After substituting the stipulated V into the comparison, the observation reduces exactly to the linear time-invariant difference U(t+h)−EU(t): each frequency response is e^(iω_jh)−E. Maximal support of the torus observable gives ρ_c=(E−1)/S immediately. Haar occupation follows by the standard irrational-torus average, and plugging δ=S(ρ−ρ_c)/ρ into the general volume computation gives precisely K_m. The interval existence and all-amplitudes clock criterion use only the equality condition in |E−e^(iω_jh)|≥E−1 and the irrational frequency ratio. No new arithmetic or transport theorem is needed. This is mechanical coverage of the mathematical diagnosis, without claiming an earlier field article stated it in river terminology.",
+        "searches": [
+          "arXiv:1812.08004v1, Lemma 2.5, and arXiv:1004.1435v1, §1",
+          "Primary literature: \"A comparison of river water quality sampling methodologies under highly variable load conditions\" \"Evaluation of wastewater contaminant transport in surface waters using verified Lagrangian sampling\" full text"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Guttmann arXiv:1004.1435v1 §1 defines the Fourier structure function and gives the equal-weight hypercubic cosine symbol. The assigned occupation is the upper tail of the torus push-forward for its unequal-weight analog. The open-copy primary comparison did not itself establish the unequal-weight prefactor."
+        ],
+        "reasoning": "On ℤ^m, the anisotropic nearest-neighbor convolution with hopping c_j/2 to ±e_j has symbol F=Σc_j cosθ_j. Thus its spectral measure at a site is exactly the torus distribution in the record; equivalently this is the law of a sum of independent scaled arcsine variables. The phasor step changes weights and phases only. This identifies the same observable under a standard alternative formulation, not a second independent river theorem.",
+        "searches": [
+          "Resultary: multitone false attenuation threshold river grab samples quasiperiodic onset law",
+          "Resultary: cosine sum torus volume upper tail asymptotic",
+          "Primary literature: quasiperiodic cosine sum excursion occupation near maximum torus volume asymptotic threshold power law frequency count"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit 2026/11/22/SCOPE-a-sharp-multitone-false-attenuation-threshold-and-its-universal--408861095316 is the assigned record itself. The distinct cosine-correlation, Stuart–Landau and false-nearest-neighbour records were inspected at Finding; none tabulates this exact trigger and prefactor."
+        ],
+        "reasoning": "The cosine-correlation record has commensurate frequencies and a joint exceedance event, the Stuart–Landau record concerns random intrinsic torus volume, and the false-nearest-neighbour result averages a different event. No one-tone antecedent was resolved from the ranked results. The conclusion of coverage rests on the stronger mathematical statements, not on treating these catalogue analogues as exact duplicates.",
+        "searches": [
+          "Resultary: single-tone false attenuation river grab sample square-root threshold",
+          "Resultary: quasiperiodic excursion occupation near maximum torus volume exponent dimension half power",
+          "Resultary: quasiperiodic threshold exceedance time fraction"
+        ]
+      },
+      "rationale": "No inspected prior paper was found to print this river formula verbatim. Nonetheless the mathematical claim is covered by direct specialization: the plug-flow identity and a single phasor subtraction give a smooth torus observable, whose ordinary maximum, equidistributed occupation, and nondegenerate-maximum volume give the trigger, full occupation expression, and exact prefactor. The strongest broader result is the classical Morse normal form, not the narrower equal-weight lattice result. Applying that normal form and changing volume coordinates does not require a new lemma or checking an untested parameter regime. These are positive mathematical implications, not a failure based on inaccessible river papers or a lack of exact catalogue hits.",
+      "residual_risks": [
+        "Historical priority for the river phrasing is not determined. The FAIL relies on positive coverage by classical mathematical results and direct parameter conversion, not a claim of exhaustive field literature access."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The cited classical normal-form lemma directly applies; no use of this paper's separate gradient-field main result.",
+          "evidence": "Local coordinates at an index-k nondegenerate critical point give f=f(0)−x₁²−…−x_k²+x_{k+1}²+…+x_m². At the maximum k=m, and the original Hessian determines the volume multiplier as shown above.",
+          "identifier_or_url": "https://arxiv.org/pdf/1812.08004",
+          "material_read": "v1 pp. 3–4, §2.1, Lemma 2.5 (bounded PDF text starting near offset 8100).",
+          "method": "Primary-literature search, OA PDF locator and bounded passage reading.",
+          "title": "An Analytical Analogue of Morse’s Lemma",
+          "trigger": "Stronger result on local geometry at a nondegenerate maximum."
+        },
+        {
+          "assessment": "Establishes the relevant Fourier-symbol framework and an equal-weight model, not the full unequal-weight onset by itself.",
+          "evidence": "Hypercubic structure function d⁻¹Σcos(k_j) in arbitrary dimension d≥2, with torus integral for its Green function; p. 15 discusses asymptotics work but does not supply the general coefficient used here.",
+          "identifier_or_url": "https://arxiv.org/pdf/1004.1435",
+          "material_read": "v1 abstract and §1, p. 1 around offsets 0 and 3277, and related asymptotics passage on p. 15 near 49600.",
+          "method": "OA primary PDF, bounded reading.",
+          "title": "Lattice Green functions in all dimensions",
+          "trigger": "Same torus distribution in the lattice spectrum formulation; looking for arbitrary-dimensional edge coverage."
+        },
+        {
+          "assessment": "No inference from access failure.",
+          "evidence": "Not used as evidence of precise coverage.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRev.89.1189",
+          "material_read": "No text retrieved.",
+          "method": "OA DOI and identified publisher routes returned HTTP 403.",
+          "title": "The Occurrence of Singularities in the Elastic Frequency Distribution of a Crystal",
+          "trigger": "Classical lattice edge/critical point comparison."
+        },
+        {
+          "assessment": "Exact mirror of frozen record, not independent antecedent.",
+          "evidence": "Same tone frequencies, threshold, strict gain event, occupation and constant.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-multitone-false-attenuation-threshold-and-its-universal--408861095316",
+          "material_read": "RESULT.md Finding and Proof §§1–4; passages at offsets 0, 4146, 4773–5482.",
+          "method": "Resultary and local mirror.",
+          "title": "A sharp multitone false-attenuation threshold and its universal onset law for river grab samples",
+          "trigger": "Highest exact catalogue match."
+        },
+        {
+          "assessment": "Different frequency assumption and event.",
+          "evidence": "Joint threshold-arc agreement for positive integer frequencies, not an excursion of an irrational cosine sum.",
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-reciprocal-threshold-two-frequency-cosine-correlations--37afa94b7519",
+          "material_read": "RESULT.md Finding at offset 0.",
+          "method": "Resultary and local mirror.",
+          "title": "Sharp reciprocal threshold for two-frequency cosine correlations",
+          "trigger": "Closest distinct weighted cosine-threshold analogue."
+        },
+        {
+          "assessment": "Different random variable.",
+          "evidence": "Random intrinsic volume of invariant tori, not time occupation of a level set.",
+          "identifier_or_url": "2026/11/8/SCOPE-parity-sensitive-sharp-volume-tails-of-quasiperiodic-stuart-land--75bcecc0eb22",
+          "material_read": "RESULT.md Finding at offset 0.",
+          "method": "Resultary and local mirror.",
+          "title": "Parity-sensitive sharp volume tails of quasiperiodic Stuart–Landau tori",
+          "trigger": "Geometric hypervolume near its extremum with explicit half-power tail."
+        },
+        {
+          "assessment": "Different event geometry; no date-based inference.",
+          "evidence": "A false-nearest-neighbour fraction for cosine observations under an irrational circle rotation.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-false-nearest-neighbour-spectra-and-an-optimal-frequency-f--7e571f5a3488",
+          "material_read": "RESULT.md Finding at offset 0.",
+          "method": "Resultary and local mirror.",
+          "title": "Exact false-nearest-neighbour spectra and an optimal frequency for cosine observations",
+          "trigger": "Phase-independent occupation for an irrational cosine orbit."
+        },
+        {
+          "assessment": "Not used for a whole-text comparison.",
+          "evidence": "No inspected text resolves exact equivalence or noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1016/j.chemosphere.2006.07.050",
+          "material_read": "No relevant full-text passage retrieved; only bibliographic/limited access.",
+          "method": "Primary query and OA DOI with grab sampling locator.",
+          "title": "A comparison of river water quality sampling methodologies under highly variable load conditions",
+          "trigger": "Closest river grab-sampling citation."
+        },
+        {
+          "assessment": "Not used for a whole-text comparison.",
+          "evidence": "No inspected text resolves exact equivalence or noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1016/j.scitotenv.2013.09.079",
+          "material_read": "No relevant full-text passage retrieved.",
+          "method": "Primary query and OA DOI with Lagrangian sampling locators.",
+          "title": "Evaluation of wastewater contaminant transport in surface waters using verified Lagrangian sampling",
+          "trigger": "Direct parcel matching and attenuating transport context."
+        },
+        {
+          "assessment": "Access limitation, distinct from the positive mathematical comparison.",
+          "evidence": "No inspected text resolves exact equivalence or noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1016/j.scitotenv.2015.07.135",
+          "material_read": "No full-text methods passage independently retrieved.",
+          "method": "OA DOI with mass balance locators and attempted identified open copy.",
+          "title": "A high-precision sampling scheme to assess persistence and transport characteristics of micropollutants in rivers",
+          "trigger": "Variable-load mass-balance sampling precursor."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Proof §§1–4 and Limitations",
+        "arXiv:1812.08004v1 Lemma 2.5 and the explicit volume comparison above"
+      ],
+      "rationale": "Matching parcels and avoiding a spurious increase are legitimate monitoring goals, and the formula is usable within the toy model. But the stated exact threshold is only the support bound for a phasor sum, the occupation law is the standard torus mean, and the onset is the ordinary dimension-over-two cap law with a diagonal Hessian. The unique all-amplitudes clock criterion is just simultaneous phase alignment. The record offers no independently nonroutine transport prediction, finite-horizon sampling bound, or other surviving mathematical consequence beyond these routine deductions. The judgment does not require field validation or a general theory for a narrow result; it rests on the fact that this exact invariant is mechanically implied.",
+      "residual_risks": [
+        "An independently useful result for resonances or finite observation windows would be a different claim; none is proved here and no repair is made."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:42:47.221216Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a prescribed independent set J of sinks, all incident edges are forced, and the number of allowed residual choices is the number of orientations of G−J (acyclic orientations of G−J in the acyclic case, since no cycle can use J). Expanding z^s=(1+(z−1))^s verifies both enumerators independently: J is either a subset of the independent class or a single clique vertex. In the acyclic case, residual counts for those two types are k!(k+1)^(r−|J|) and (k−1)!k^r; the ordered clique admits exactly one cut per choice of attachment position for an independent vertex. In the unrestricted case the residual counts are 2 to the number of residual edges. Summing gives the displayed formulas. For F=(z+A)^r+C(z−1), a₀ falls and a₁ rises relative to the scaled binomial, so only a₂²≥a₁a₃ can fail; its difference is [r(r−1)A^(r−3)/12][r(r+1)A^(r−1)−2(r−2)C]. This handles r≥3 with r=1,2 automatic. At k=6 the acyclic difference criterion factors as (r−3)(r−8)≥0; at r=3 the unrestricted condition is k≤24(1−2^(−k))², true for 2≤k≤23 and false thereafter by the stated bounds. After translation, y^r+Cy−C(A+1) is strictly increasing for odd r, and strictly convex with negative value at y=0 and positive ends for even r. Nonnegative original coefficients and the constant terms locate the real zeros as stated, including the quadratic's positive discriminant. `python /workspace/replay_checks.py 3` independently deduplicated orientations induced by topological orders and directly counted all orientations in seven finite cases; the proof covers all sizes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md lines 57–61 attributes general sink-set expansions and real-rootedness for (chordal) claw-free graphs. The general expansion can be recovered by prescribing sinks and directly implies the two enumerators here. A clique vertex together with three independent vertices induces a claw as soon as r≥3. The earlier hub-and-clique bouquet catalogue statement has the star k=1 as the overlapping family, not the two-parameter interior."
+        ],
+        "reasoning": "The general expansions cover counting but do not compare the altered degree-two coefficient inequality. The reported stronger-looking real-rootedness theorems exclude the r≥3 range where the substantive phenomena occur.",
+        "searches": [
+          "Alexandersson and Saud Maia Leite, arXiv:2610.41502v1, Sections 2–4 and Theorems 3.1 and 4.3",
+          "Resultary 08e915842a75: clique-bouquet sink-polynomial root transitions"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, VERIFICATION.md, artifacts/verify.py",
+        "Resultary add7cad1ab66, 4c497236087f, 08e915842a75 (catalogue)",
+        "arXiv:2610.41502v1 and arXiv:1910.10920 (cited statements and bounded retrieval attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting residual counts into the independent sink-set expansion recovers both formulas and is covered as a general implication. The complete-bipartite adjacent statement addresses acyclic real zeros for a different graph, and the bouquet statement reports log-concavity for a different family."
+        ],
+        "reasoning": "Neither real-root counting elsewhere nor generic enumeration determines the degree-two obstruction and its reentrant sign changes for these two complete-split orientation laws. The nontrivial contribution is the identified obstruction, sharp two-family ranges, and the contrast with real roots.",
+        "searches": [
+          "arXiv:2610.41502v1, 1910.10920",
+          "Resultary 4c497236087f, 08e915842a75"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The reported four-vertex diamond is exactly G_(2,2); the formula there is 2z(z+8) in the acyclic convention. The Resultary record 4c497236087f concerns K_(2,n), whereas G_(2,n) adds an edge between the two degree-n vertices."
+        ],
+        "reasoning": "The diamond is a genuine equivalent instance, but a single r=2 computation cannot give the phase boundaries. With the added clique edge, cut choices and sink counts change, so the complete-bipartite real-zero result is not the same claim under new notation.",
+        "searches": [
+          "Resultary: complete split graphs, K_k join independent set, acyclic and unrestricted sink distributions",
+          "Hwang et al., arXiv:1910.10920, Definition 2.1 and Example 2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact ranked hit add7cad1ab66 is the assigned record. The distinctly indexed adjacent matches are 4c497236087f and 08e915842a75; the primary-literature lookup returned unrelated complete-split sandpile results, not a sink-shape table."
+        ],
+        "reasoning": "No returned distinct table provided the two thresholds. This describes returned material only, not absence from the literature.",
+        "searches": [
+          "Targeted Resultary search for complete-split sink polynomials and reentrant log-concavity",
+          "Primary-literature search for complete split orientation and sink-coefficient classifications"
+        ]
+      },
+      "rationale": "Credit the sink-set expansion, the resulting routine complete-split enumerator specializations, the diamond case, and the reported claw-free theorems to existing methods or results. The supported distinct claim is the exact coefficient-shape classification, including failure and recovery of log-concavity without a corresponding recovery of real-rootedness, and the comparison between the two orientation laws. The judgement concerns that classification, not priority for the definition or general formula.",
+      "residual_risks": [
+        "The two primary PDFs and decisive mirror passages remained inaccessible; a further uninspected complete-split coefficient classification could affect priority.",
+        "The comparison is confined to available statements and mathematical implications, not an exhaustive historical search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General counts credited; reported claw-free hypotheses omit the target range r≥3",
+          "evidence": [
+            "A fixed independent sink set can be removed with all incident orientations forced. Each complete split graph with r≥3 has an induced claw."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.41502v1",
+          "material_read": "Frozen account at RESULT.md lines 57–61 and references; primary §§2–4 not retrieved",
+          "method": "Targeted OA PDF and HTML passage attempts; direct mathematical specialization of the general expansion",
+          "title": "Sink polynomials of line graphs and weighted matching polynomials",
+          "trigger": "Closest general expansions and graph-class theorems"
+        },
+        {
+          "assessment": "Credit the reported exact diamond instance; no whole-text exclusion",
+          "evidence": [
+            "The diamond is the join of a two-vertex clique and two independent vertices; substitution gives 2z(z+8)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.10920",
+          "material_read": "Frozen RESULT.md line 59 and reference to Definition 2.1 and Example 2.4; decisive primary pages not retrieved",
+          "method": "Frozen attribution, exact graph substitution, and attempted OA passage retrieval",
+          "title": "Acyclic orientation polynomials and the sink theorem for chromatic symmetric functions",
+          "trigger": "Cited diamond computation"
+        },
+        {
+          "assessment": "Same parity theme, distinct graph and no indexed log-concavity comparison",
+          "evidence": [
+            "K_{2,n} has no edge joining the two vertices in its size-two part, unlike G_(2,n)."
+          ],
+          "identifier_or_url": "Resultary 4c497236087f",
+          "material_read": "Catalogue statement; decisive mirror Finding not retrieved",
+          "method": "Resultary and bounded mirror passage attempts",
+          "title": "Parity-rigid real-zero counts for acyclic sink polynomials of K_{2,n}",
+          "trigger": "Distinct same-day sink-polynomial root comparison"
+        },
+        {
+          "assessment": "Overlaps at the excluded star boundary; does not provide the displayed reentrant ranges in the available statement",
+          "evidence": [
+            "In a clique bouquet the peripheral cliques meet through one hub, and the reported acyclic coefficient sequence is strictly log-concave on its support."
+          ],
+          "identifier_or_url": "Resultary 08e915842a75",
+          "material_read": "Catalogue statement and frozen comparison at RESULT.md line 59; mirror not retrieved",
+          "method": "Resultary and attempted mirror retrieval",
+          "title": "Sharp sink-polynomial root transitions in clique bouquets",
+          "trigger": "Earlier explicit sink-shape classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A canonical chordal family separates two common coefficient properties in an exact and reusable way: for clique size six, acyclic log-concavity fails for a finite interval and returns even though real-rootedness cannot return. The two-parameter boundaries and acyclic versus unrestricted comparison are more informative than the enumerator specialization or a single counterexample alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

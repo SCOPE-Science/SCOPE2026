@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:36:30.980968Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The diagonal lengths are 2 and 2t and the area is 2t. In the two angular quadrants the projection extrema give W=W0+D with W0=cos(theta)+t sin(theta)+|cos(theta)-t sin(theta)| and D=(|s cos(theta) minus-or-plus h sin(theta)|-|cos(theta)-t sin(theta)|)_+. For fixed t the entire change is within O_t(epsilon) of theta0=arctan(1/t). On that interval the model d=(|a+b xi|-R|xi|)_+ has a=(ts minus-or-plus h)/R and b=O_t(epsilon); the uniform pointwise model error is O_t(epsilon^3) on the union of the supports, and hence gives O_t(epsilon^4) integral error even at a switching line. The two triangles have widths |a|/(R minus-or-plus sign(a)b), giving total area a^2 R/(R^2-b^2)=a^2/R+O_t(epsilon^4) and first signed moment O_t(epsilon^4). Each of the integrals of 2R|xi|d and d^2 is 2|a|^3/(3R)+O_t(epsilon^4), so both are required in the second moment. Base quadrant integrals are 2R and I0. Summing the two quadrants with weight 1/pi and dividing the second moment by the square of the first gives exactly the claimed coefficients. Independently, Cauchy–Schwarz gives I0>=8R^2/pi>=16t/pi>4t, so the quadratic form is strictly negative at every fixed t; the cubic and uniform remainder cannot change the nearby sign. Along a single axis the nonzero |h|^3 term also forbids a cubic Taylor polynomial. These are local at fixed t; arbitrary quadrilaterals are implicated only in ruling out local minimization. The stored Simpson checker reports 203 finite regressions; a separate piecewise exact-in-angle integration script /workspace/branches/5a46a59c-66b6-45b4-b133-05159763f20a/independent_width_check.py cross-checked the edge-kernel moments and 36 mixed paths at t=0.7,1,1.8, including both switching lines. The largest sampled scaled fourth-order residual was about 0.00338806. These tests are not the uniform proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Akiyama–Kamae give general convex-polygon first and second moment formulas via the edge kernel V(x)=(pi-|x|)cos(x)+sin|x|. Their §7 says the numerical four-gon minimum candidate is not a solution.",
+          "The square Hessian entry treats more variation directions at t=1, covering the frozen negative diagonal-midpoint directions at that shape."
+        ],
+        "reasoning": "The broad moment identity is applicable to the full family and can be used to derive local expansions, but does not assert the fixed-diagonal Hessian sign at general t or identify the mixed cubic. The broader perturbations at the square do not give results at other aspect ratios.",
+        "searches": [
+          "Akiyama–Kamae arXiv:2201.06736v1 §2 Theorem 1 and §7; DOI 10.1007/s00454-023-00545-6",
+          "Resultary ae14a66c3e0b square quadrilateral Hessian"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_width.py",
+        "Akiyama–Kamae arXiv:2201.06736v1",
+        "Resultary 0fca3299603f and ae14a66c3e0b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known edge kernel permits exact moment evaluation. To obtain the claimed asymptotic one still has to account for both coincident-support crossings, track the angular combinations ts+h and ts-h, normalize the competing moment variations, and show a negative quadratic coefficient throughout t>0.",
+          "A Hessian does not determine a nonpolynomial homogeneous cubic term, and the exact kite profile does not apply to a generic pair of nonzero offsets."
+        ],
+        "reasoning": "Credit is for the explicitly evaluated coupled crossover and uniform joint local law, not for merely specializing the definition of width or evaluating tabulated moments. The checked general and special-case results do not supply that structural conclusion directly.",
+        "searches": [
+          "Akiyama–Kamae §2 edge-moment theorem; Resultary ae14a66c3e0b Finding; Resultary 0fca3299603f projection law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Akiyama–Kamae's deviation rate is sqrt(Var W)/E W, the square root of the frozen functional; oriented versus unoriented uniform averaging agrees because width is pi-periodic.",
+          "If one midpoint offset is zero the family is a kite, within the stated exact projection law for K_(r,p,q); a generic simultaneous skew is not a kite."
+        ],
+        "reasoning": "Squaring the deviation rate does not change its extremizers, and the two coordinate axes are reparametrizations of known kite cases. Their two same-axis cubic coefficients cannot determine the mixed angular dependence or the two switching lines.",
+        "searches": [
+          "width deviation random projection convex quadrilaterals fixed orthogonal diagonals rhombus local maximum perturbation shifted diagonal midpoints cubic width variance Akiyama Kamae",
+          "Akiyama–Kamae arXiv:2201.06736v1 §2; Resultary 0fca3299603f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-day square result, ae14a66c3e0b, gives two negative diagonal-midpoint modes in its full quadrilateral Hessian; coordinate rescaling yields the same square coefficient -pi(pi-2)(s^2+h^2)/64.",
+          "The distinct kite result, 0fca3299603f, gives the exact width law and hence the moments on either axis of this family."
+        ],
+        "reasoning": "There is demonstrable coverage of the square quadratic term and of the axis-only laws. The date alone does not give priority, and neither matched statement covers the all-t mixed cubic plus uniform remainder.",
+        "searches": [
+          "Resultary: rhombus width deviation diagonal midpoint skews cubic cusp; ae14a66c3e0b and 0fca3299603f"
+        ]
+      },
+      "rationale": "The distinct supported result is the all-aspect-ratio, simultaneous two-skew expansion and coupled cubic cusp, with an all-t strict local comparison. Do not credit either axis alone or the quadratic instability of the square as a distinct result in this assessment: the former are accessible from the exact kite law and the latter is covered by a separate same-day catalogue record. The general width-moment kernel is known; the new conclusions are about the evaluated local two-axis variation, not the existence of a formula for the moments.",
+      "residual_risks": [
+        "The bounded literature review is not a historical priority certificate. Same-date priority of the square Hessian overlap is undetermined. The reviewed result does not solve the global four-gon minimum problem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General moment engine and motivation, not the asserted mixed local law",
+          "evidence": "Theorem 1 supplies E X_alpha=|alpha|/pi and the pair kernel V for edge-projection products; §7 calls the numerical four-gon candidate not a solution.",
+          "identifier_or_url": "https://arxiv.org/html/2201.06736v1",
+          "material_read": "Introduction offset 0; edge decomposition offsets 3789–4499; §2 Theorem 1 offset 16866; §7 around offset 72100",
+          "method": "OA arXiv original HTML passages; focused primary literature search also located the journal version",
+          "title": "Width deviation of convex polygons",
+          "trigger": "Primary prior theory for the same width functional"
+        },
+        {
+          "assessment": "Exact antecedent on both one-axis restrictions; generic mixed perturbation excluded",
+          "evidence": "For K_(r,p,q), W(theta)=r[max(cos(theta),p sin(theta))+max(cos(theta),q sin(theta))] on the stated angular quadrant.",
+          "identifier_or_url": "2026/11/1/SCOPE-three-spectral-singularities-reconstruct-asymmetric-kites-from-r--0fca3299603f/RESULT.md",
+          "material_read": "Finding and support profile, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Three spectral singularities reconstruct asymmetric kites from random widths",
+          "trigger": "Exact width distribution for offsets restricted to one axis"
+        },
+        {
+          "assessment": "Direct overlap on the square's quadratic instability; not the coupled cubic or all-aspect-ratio law",
+          "evidence": "Its full quadrilateral Hessian at the square has two negative diagonal-midpoint modes, yielding the frozen square quadratic coefficient after coordinate rescaling.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-square-is-a-two-negative-mode-saddle-for-polygonal-width-dev--ae14a66c3e0b/RESULT.md",
+          "material_read": "Finding, offsets 483 to about 1200",
+          "method": "Local Resultary mirror",
+          "title": "The square is a two-negative-mode saddle for polygonal width deviation",
+          "trigger": "Exact square midpoint-mode overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Keeping both diagonal lengths and area fixed isolates two genuine shape degrees of freedom and yields a directional-width instability for every rhombus, relevant to the open minimization problem without claiming to solve it. The exact mixed cubic describes the change of active support vertices and the third-order regularity failure, information that cannot be read off from the square Hessian or from separate one-axis perturbations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

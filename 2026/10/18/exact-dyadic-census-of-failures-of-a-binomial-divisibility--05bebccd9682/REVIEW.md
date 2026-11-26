@@ -1,19 +1,21 @@
-# Review of the exact dyadic nondivisibility census
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The rotation-orbit argument independently proves the odd/even divisibility reduction and bounds the missing prime factor to a single factor of two. Kummer's theorem converts failure into a precise binary carry equality. A fully stated seven-state transition system keeps track both of the carries in forming three-times and five-times the input and of the terminal zero tail. Seven exact integer-polynomial identities establish the rational generating function without finite extrapolation. The primitive recurrent block gives the asymptotic. The standalone verifier replayed these certificates and direct checks. The statement concerns all nonnegative levels and all integers within each dyadic interval; no interval cases are omitted.
+PASS
 
-## Originality
+Reconstructed RESULT.md lines 33–86. Rotation stabilizers act freely on positions, so their order divides both 5n+1 and 2n, making the tested quotient integral or a half-integer (integral for even n). For odd n with h=v2(3n+1), the trailing h ones of 3n force precisely the first h−1 carry-outs at positions 1 through h−1; failure means all carry-outs from h on are zero. Recomputed the seven transitions and acceptance under the actual infinite zero suffix: G rejects immediately, while the other six enter D (or remain there). The seven polynomial numerator equations check with constant-term identity matrix; padding to L bits therefore gives z(1+z)/Q, with F_0=0. The primitive C,F,D,G block has characteristic polynomial lambda(lambda−1)(lambda²−1)−1; the other blocks have spectral radius at most 1. The unique dominant simple root gives the claimed positive residue constant and all-cutoff density-zero bound. In the pole argument it is the quotient that has a pole, i.e. Q has a zero. Independently computed math.comb(5*n,2*n) % (3*n+1) for 1 <= n < 4096 and got counts 0,1,2,3,4,6,9,14,21,32,48,73,110 for L=0..12 (branches/d9759b80-6deb-4115-82f1-9370b39e5584/direct_exact_L12.txt). This is only a bounded check; the proof supplies the all-level claims. Frozen VERIFICATION.md and verify.py inspected, not executed.
 
-**PASS under accessible evidence, with residual risk.** Sun (arXiv:1005.1054, Theorem 1.4 and pages 4–5) gives the general divisibility bound and suggests investigating the exception function; Guo–Krattenthaler (arXiv:1301.7651, Theorems 1.1 and 2.1) proves qualitative infinitude and a first-exception bound, not this dyadic census. A prior exact carry-matrix result for the binomial ray determines the marginal valuation distribution, including its first two fibres, but no relationship with the varying target valuation of the proposed divisor; the new conditional distribution is not determined by those marginal counts. Searches for the exact parameters, aliases, carry characterizations, and rational generating functions found no covering count theorem. General finite-state digit-count methods may be capable of deriving the claim as an unstated specialization; priority is not independently certified.
+## originality
 
-## Value
+PASS
 
-**PASS.** The arithmetic object is the first simple nontrivial fixed-slope instance of a published binomial-divisibility exception problem, not an arbitrary computation. Existing theorems show infinitely many exceptions but do not measure their frequency. The exact level-by-level census, noninteger exponent and global density-zero consequence give a sharp, informative quantitative distinction between infinitude and sparsity. This precisely identifies how often a proven gcd divisibility bound fails to extend to the full divisor.
+Pass the explicit joint-event dyadic census and Perron asymptotic, not the known denominator bound, carry interpretation or infinitude. The same-day valuation-fibre result has a genuinely shared denominator and transfer mechanism, but its marginal count does not give the index-dependent joint event.
 
-## Limitations and relationship to sources
+## value
 
-The result is specific to the binomial slopes two and three and should not be represented as a general theorem on every pair of slopes. Overlap with the earlier marginal finite-state result is explicitly acknowledged. Direct source inspections include the mathematical statements on pages 1–5 of Sun's full arXiv manuscript, and the statement and theorems in pages 1–3 of Guo–Krattenthaler. Relevant general characterizations not discovered in these searches remain a residual novelty risk. No independent mathematical audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exceptions to a previously studied divisibility problem are a natural family. Exact prefix counts quantify how sparse the infinite failures are, including the nontrivial exponent and density zero, neither of which follows from existence or the previously available valuation marginals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The exact function-field substitutions from the quartic sign-change quotient produce the isotrivial Weierstrass K3. The transposition transforms \((t,X,Y)\) into \((t^{-1},t^{-4}X,t^{-6}Y)\); the invariant generators yield the specified rational elliptic equation. Four and two \(I_0^*\) fibers follow from exact discriminant valuations at all boundary points. The quadratic map is branched only at two smooth fibers, making the quotient and the fixed locus global rather than merely birational claims. A constant-curve descent argument proves all sections, and the two elliptic fixed fibers determine the invariant lattice by Nikulin. `CHECK.py` passed the symbolic identities; it is not a substitute for surface-theoretic arguments.
+PASS
 
-## Originality: PASS with residual risk
+The quartic is smooth (the two partials in each variable pair can vanish together only when that pair is zero). The sign change is symplectic by its determinant on the residue form; its eight fixed points give ordinary A1 quotient nodes, whose resolution is a K3. In w=1, t=x/y, v=z, q=y^2 give the invariant field relation f q^2+v^3+v=0 for f=t(t^2+1); adjoining y gives the nontrivial quadratic extension. X=fv and Y=i f^2 q invert this substitution birationally and give Y^2=X^3+f^2 X. As a degree-four section f has simple zeros 0,+i,-i,infinity; the reciprocal representative z^4 f(1/z) equals z(z^2+1). At these zeros the Weierstrass valuations (v(a4),v(Delta))=(2,6) give minimal I0* fibers in characteristic zero. With a section and fundamental line bundle O(2), the smooth relatively minimal surface is K3 and hence isomorphic to the resolved quotient. The coordinate exchange takes (t,v,q) to (1/t,v,t^2q), so (u,xi,eta)=(t+1/t,X/t^2,Y/t^3) give the quotient field with eta^2=xi^3+u^2xi. The base cover is quadratic, branched only at u=+2,-2; it is étale over the two I0* fibers at u=0,infinity and smooth base change over each branch fiber. Thus the pullback of the rational smooth O(1) elliptic surface is already relatively minimal, and its deck quotient is the stated smooth model, not just birational to it. Over u=v^2 the quotient's generic curve is a constant curve over C(v). All its rational points are constant by the genus obstruction to a nonconstant map from P1, and descent under v->-v requires inversion-fixed points, exactly (Z/2)^2 including the zero section. For iota the only possible fixed fibers are t=+1,-1, both smooth and pointwise fixed by the coordinate multipliers; the normal derivative is -1, so the involution is nonsymplectic. Independently, the only fixed preimages off the sign-quotient nodes are the plane sections x=+y and x=-y (opposite isolated eigenspace points miss the quartic). These smooth plane quartics each quotient to genus one by four ramification points. At their four common sign-quotient nodes, local coordinates (x,y) have sign action -1 and swap action interchanging entries, and the exceptional P1 has fixed directions exactly [1:1] and [1:-1], where the strict transforms separate. The other four nodes are exchanged in pairs. Nikulin's exceptional classification then gives (10,8,0); the indefinite even 2-elementary lattice U plus E8(-2) has those invariants. The symbolic evidence was inspected, not treated as a certificate of the global geometry.
 
-The initiating source [1, Section 3.7] treats the same involution and gives invariant rank ten, but describes only one fixed elliptic curve, hence \(a=10\). The independently derived quotient equation identifies two fixed elliptic fibers, the explicit rational surface and full Mordell–Weil group, and Nikulin type \((10,8,0)\). published-finding corpus semantic searches and inspected literature did not identify prior equivalent equations for this named involution. The general Nikulin and extremal-rational-surface theories are not claimed as new. The source's conflicting conclusion warrants independent checking, and historical coverage cannot prove priority.
+## originality
 
-## Value: PASS
+PASS
 
-A named self-mirror K3 example was used to compare mirror invariant lattices. An explicit elliptic quotient and a different fixed-locus type are structurally important: they refine the integral invariant lattice, give two complete singular-fiber lists and determine the quotient Mordell–Weil group. The conclusion is not just a routine rewriting of a known invariant, because it resolves a precise discrepancy in the geometric involution computation that changes the polarization discriminant length.
+The distinct result is the equivariant identification of this named BHK surface and its induced swap, including a demonstrable fixed-locus and lattice correction to the inspected version of Barrett et al. The abstract rational elliptic equation and its constant twist are classical: the quotient is the j=1728 specialization of the known X11(j) model, not a new abstract extremal elliptic surface.
 
-## Limitations and closest literature
+## value
 
-The result holds over \(\mathbb C\) for this explicit quartic and involution only. Barrett et al. [1] is the closest direct claim; Nikulin [2] supplies the general two-elliptic classification; Miranda–Persson [3] classifies abstract extremal surfaces; Garbagnati–Salgado [4] treats general elliptic-fibration involutions. Independent audit remains open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The explicit equivariant elliptic model corrects the number of fixed components and the 2-elementary lattice type on a named self-mirror K3; the invariant rank alone would not detect the distinction. It also realizes the quotient map as a specific quadratic base change with smooth branching and a transparent section group. The scientific value is in this identification and correction, not rediscovery of the classical rational surface entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

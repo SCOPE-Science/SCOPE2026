@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:45:41.668571Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–38",
+        "VERIFICATION.md lines 19–34",
+        "verify_hypercycle.py lines 25–105 (inspected)",
+        "/workspace/branches/review1-small.py and review1-small-output.txt (independent replay)"
+      ],
+      "rationale": "A private vertex and the junction with the same start hit cyclic intervals of length 3 and 4, respectively. Coverage by four per vertex gives the lower bound; junctions with positive gaps at most four attain it. Nested arcs at a repeated start would make one vertex redundant. In the periodic lift of distinct starts for m>=5, right endpoints are nondecreasing (lengths differ by at most one), so each gap must be covered by its own start. The boundary cases m=3,4 also give that condition directly. Deficits 4-d sum to delta<=3; at a positive deficit the gap admits one junction or r-2 private labels, and at zero it admits only the junction. Marking one start double counts with factor m/k and yields the polynomial and the at-most-delta private bound. For exchange, promote each private vertex to its same-start junction. Advancing a junction by one transfers one deficit from its outgoing gap to the previous gap; a positive donor implies the receiving gap has deficit at most two, so the move is legal and collision-free. Such transfers gather and redistribute all deficits, and a full circuit of one unit advances all marked junctions by one, giving every labelled translation. Zero deficit gives four disjoint periodic minima, hence isolated for k>=2; m=4 is K4 and m=3 has all singletons. A separate direct subset and exchange check confirmed every coefficient and component size for m=3..12, r=3..5.",
+      "residual_risks": [
+        "The separate finite replay is corroboration only; all-order coverage rests on the cyclic-gap proof. The bundled large-range test checks coefficient totals and selected specializations rather than a second all-residue proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Borg's Theorem 2 gives a general connected-hypergraph bound and extremal classification; the forbidden clique of size r is one edge. Li–Zhang–Ye's available abstract defines and treats general family isolation; its body was not available in the attempted lawful routes."
+        ],
+        "reasoning": "The inspected general statements concern bounds and extremizers rather than complete optima by private type or an exchange graph. No whole-document negative conclusion is drawn from the inaccessible paper.",
+        "searches": [
+          "arXiv:2601.00104v1",
+          "DOI:10.1007/s00373-024-02840-2",
+          "Primary literature lookup on uniform loose hypercycle isolation and reconfiguration"
+        ]
+      },
+      "checked_sources": [
+        "Bound RESULT.md lines 44–58",
+        "Resultary cycle, loose-hyperpath and cycle-domination entries identified above",
+        "Borg arXiv:2601.00104v1",
+        "Caro–Hansberg arXiv:1504.08055v1",
+        "Li–Zhang–Ye DOI:10.1007/s00373-024-02840-2 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cycle finding's binomial enumeration and connectivity agree at y=0. The new local calculation shows that shortened outgoing gaps, and only those, admit a private replacement, with r-2 labelled choices; promotion back to a junction transfers connectivity."
+        ],
+        "reasoning": "The obstruction and gap mechanism are covered for the skeleton. The polynomial measures which minima change type and with what multiplicity, requiring the additional hypergraph encoding; exchange of the enlarged set family follows once that encoding is known. The path result has boundary conditions that cannot be substituted for cyclic gaps.",
+        "searches": [
+          "2026/11/2/SCOPE-a-four-periodic-reconfiguration-theorem-for-minimum-isolating-se--4d710023d8c9, Finding at offset 46",
+          "2026/11/22/SCOPE-a-boundary-defect-census-of-minimum-isolating-sets-on-uniform-lo--3b45ed224f7c, Finding at offset 30"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordinary cycle isolation has the same ceiling formula. The exact ordinary-cycle record gives the y=0 specialization; it cannot count labelled private vertices, which it does not have. A four-periodic domination record concerns inclusion-minimal dominating sets with expansion/contraction, not these minima or these exchanges."
+        ],
+        "reasoning": "Reindexing a junction as a cycle vertex explains the uncoloured skeleton, but does not identify the larger ranks with the ordinary graph problem.",
+        "searches": [
+          "Resultary: minimum isolation, cyclic gaps, replacement connectivity on ordinary cycles and loose uniform hypercycles",
+          "arXiv:1504.08055v1, Example 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact rank>=3 hit is the bound record itself. The ordinary-cycle and loose-hyperpath entries are distinct: the former gives the complete junction-only count, and the latter a residue-four path count (including a unique minimum for multiples of four), not the cyclic private-type census."
+        ],
+        "reasoning": "Neither a self-hit nor a count on a different underlying family establishes independent coverage of the bivariate cyclic classification.",
+        "searches": [
+          "Resultary catalogue: exact minimum isolating-set censuses on cycles and loose hypergraphs"
+        ]
+      },
+      "rationale": "Pass for the rank>=3 census by private-vertex type. The ordinary cycle minimum size, unmarked junction-only count and four-periodic connectivity threshold have direct prior coverage. The private-vertex count and its extension of the exchange statement require identifying a different local coverage rule and its legal decorations; the inspected cycle result alone does not state or imply those counts without that additional analysis. The exchange obstruction is inherited, not independently new.",
+      "residual_risks": [
+        "Li–Zhang–Ye's full article and unindexed work on cyclic hypergraph domination may contain more specific results. No absolute priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers graph count and exchange threshold, not private-type census",
+          "evidence": "For n>=5, order (n/k) binomial(k+delta-1,delta), degree 2delta, connected for positive delta; four isolates at zero; C4 treated separately.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-four-periodic-reconfiguration-theorem-for-minimum-isolating-se--4d710023d8c9",
+          "material_read": "Finding, offset 46",
+          "method": "Resultary local mirror",
+          "title": "A four-periodic reconfiguration theorem for minimum isolating sets on cycles",
+          "trigger": "Direct exact cycle analogue"
+        },
+        {
+          "assessment": "General bounds, not a type census in inspected statements",
+          "evidence": "Clique isolation specializes to edge isolation for clique size equal to rank; theorem sets a bound and characterizes equality.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.00104",
+          "material_read": "Abstract and Theorem 2 on pp. 1, 3",
+          "method": "OA passage inspection",
+          "title": "Solution to a problem on isolation of cliques in uniform hypergraphs",
+          "trigger": "Broader same-predicate coverage"
+        },
+        {
+          "assessment": "Covers ordinary cycle minimum",
+          "evidence": "States iota(C_n)=ceil(n/4).",
+          "identifier_or_url": "https://arxiv.org/abs/1504.08055",
+          "material_read": "Example 2.1, p. 4",
+          "method": "OA passage inspection",
+          "title": "Partial domination—the isolation number of a graph",
+          "trigger": "Earlier cycle result"
+        },
+        {
+          "assessment": "Coverage beyond abstract unresolved",
+          "evidence": "Abstract defines hypergraph isolation and the more general family-isolation problem.",
+          "identifier_or_url": "https://doi.org/10.1007/s00373-024-02840-2",
+          "material_read": "Publisher abstract/search excerpt; full text not retrieved",
+          "method": "Publisher access and lawful full-text/PDF attempts",
+          "title": "Partial domination of hypergraphs",
+          "trigger": "Specific relevant broader published paper"
+        },
+        {
+          "assessment": "Different underlying family, not claimed as evidence of priority",
+          "evidence": "Counts total minima for loose hyperpaths by edge-count residue.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-boundary-defect-census-of-minimum-isolating-sets-on-uniform-lo--3b45ed224f7c",
+          "material_read": "Finding, offset 30",
+          "method": "Resultary local mirror",
+          "title": "A boundary-defect census of minimum isolating sets on uniform loose hyperpaths",
+          "trigger": "Exact near-match on loose hypergraphs"
+        },
+        {
+          "assessment": "Different predicate and moves",
+          "evidence": "Inclusion-minimal dominating sets with expansion/contraction and isolated 1100 patterns.",
+          "identifier_or_url": "2026/11/22/SCOPE-four-periodic-rigidity-of-inclusion-minimal-domination-reconfigu--34f7e0c65559",
+          "material_read": "Finding, offset 237",
+          "method": "Resultary local mirror",
+          "title": "Four-periodic rigidity of inclusion-minimal domination reconfigurations",
+          "trigger": "Similar periodic reconfiguration obstruction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and cyclic-gap proof",
+        "Earlier exact ordinary-cycle result"
+      ],
+      "rationale": "The complete type distribution answers how many optimal configurations use each kind of vertex when the uniform rank varies, a question not answered by the ordinary-cycle number or phase transition. It distinguishes ranks and shows that the non-junction contribution is confined to at most three vertices even at arbitrarily large order. This gives an exact benchmark for minimum isolation and for the effect of adding alternative vertices to an exchange system, with modest rather than standalone novelty for connectivity.",
+      "residual_risks": [
+        "No optimization or reconfiguration claim for general cyclic hypergraphs, and no new metric of the exchange graph is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

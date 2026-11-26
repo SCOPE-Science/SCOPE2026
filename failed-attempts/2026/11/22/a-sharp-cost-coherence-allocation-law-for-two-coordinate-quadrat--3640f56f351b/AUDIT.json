@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "A change to energy coordinates converts exact coordinate minimization into orthogonal rank-one projectors. The cost-normalized variables q_i=p_i/C satisfy c1q1+c2q2=1. An explicitly constructed unit vector w has squared correlations g c_i with the two regressors, giving the universal upper bound lambda_min≤g. The proposed positive q* meets its cost budget and has w as an eigenvector of eigenvalue g; its other eigenvalue is ≥g. Equality forces the same two independent linear equations and unique q*, even at rho=0. Exact-rational and numerical verification completed 35,662 supplementary assertions; finite experiments are not the proof. The sharp twofold bound follows from AM–GM and the stated joint limiting family.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rodomanov and Kropotov, arXiv:1904.04587v1, full HTML §§1–3 and §5.1: singleton selection is by diagonal curvature/volume, without an arbitrary external cost quotient.",
+        "Csiba and Richtárik (ALT 2018), full PDF §4.2 and §5.3, Theorem 2, compare expected work times a separable complexity upper bound, rather than maximize the exact smallest eigenvalue per expected work.",
+        "Qu and Richtárik (2015), arXiv:1412.8060: general arbitrary-sampling complexity analyses give bounds, not this explicit exact two-dimensional priced spectral optimizer in inspected abstract."
+      ],
+      "reasoning": "The older works have broader dimensions and update families, but their objectives are not the sharp fixed-step worst-direction spectral quotient with coordinate-dependent prices. General algorithmic sampling support does not imply the optimized formula, while publication-priority caution about other E-optimal formulations is retained.",
+      "searches": [
+        "randomized coordinate descent sharp optimal sampling probabilities two dimensional quadratic spectral radius weighted coordinate matrix",
+        "exact time cost optimal randomized coordinate descent two dimensional SPD quadratic per update coordinate heterogeneous evaluation cost sharp spectral contraction law",
+        "Coordinate Descent with Arbitrary Sampling I algorithms complexity Qu Richtarik 2015",
+        "arxiv 1904.04587 volume sampling randomized coordinate descent 2x2",
+        "2018 Csiba Richtarik coordinate descent faceoff expected iteration cost optimization"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1904.04587v1 (full accessible primary)",
+      "Csiba and Richtárik (2018), Coordinate Descent Faceoff (full accessible primary)",
+      "2026/10/13/SCOPE-planar-coincidence-theorem-for-optimal-randomized-kaczmarz-sampl--54597ea58934/RESULT.md (full primary finding)",
+      "2026/10/18/SCOPE-sharp-work-budget-phase-transition-between-one-step-and-asymptot--10323bbfb631/RESULT.md (full primary finding)",
+      "2026/11/2/SCOPE-an-exact-noise-rate-pareto-frontier-for-randomized-coordinate-de--58b00d457699 (published-finding corpus summary)",
+      "2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995 (published-finding corpus summary)",
+      "Martinez and Wegman (2000), DOI 10.1016/S0167-7152(99)00173-X (partial primary)",
+      "Elfving (1952), DOI 10.1214/aoms/1177729442 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published planar result proves equal masses for exactly two available planar projections when costs are absent; the new p-star equals 1/2 only if rho=0 or c1=c2.",
+        "The published budget phase transition admits skip/batch updates and equal singleton prices; price heterogeneity with singleton-only work quotient is outside its stated feasible model.",
+        "For H with unit diagonal and off-diagonal 3/5 and costs (9,1), the new formula yields p=3/10 and rate 4/85, whereas p=1/2 yields 1/25: exact witness of the substantive objective change."
+      ],
+      "reasoning": "A prior one-step unpriced optimization specializes to c1=c2 and therefore cannot determine its cost-asymmetric continuation. Cost-normalizing a previously computed optimal p is not generally valid because the denominator depends on p. The strict 20/17 witness shows a genuinely different optimal distribution. Generic E-optimality might still imply the equation through additional specialization; no such theorem was verified in full.",
+      "searches": [
+        "exact time cost optimal randomized coordinate descent two dimensional SPD quadratic per update coordinate heterogeneous evaluation cost sharp spectral contraction law",
+        "two-row Kaczmarz computational work normalized rate optimal row sampling cost correlation sqrt prices",
+        "published-finding corpus primary full text 2026/10/13/SCOPE-planar-coincidence-theorem-for-optimal-randomized-kaczmarz-sampl--54597ea58934",
+        "published-finding corpus primary full text 2026/10/18/SCOPE-sharp-work-budget-phase-transition-between-one-step-and-asymptot--10323bbfb631"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The objective is exactly a cost-constrained two-regressor E-optimal information-matrix eigenvalue problem after the normalization q_i=p_i/(p_1c_1+p_2c_2).",
+        "Martinez and Wegman (2000), DOI 10.1016/S0167-7152(99)00173-X, provide a general E-optimal procedure, but the publicly accessible abstract and introduction do not state this particular closed form.",
+        "Elfving (1952), DOI 10.1214/aoms/1177729442, abstract addresses optimal two-parameter allocation and briefly heterogeneous observation costs; the primary full text was inaccessible for a decisive comparison."
+      ],
+      "reasoning": "Reformulating randomized coordinate descent as two-atom E-optimal design is exact, not evidence of originality. The specific price and angle dependence, uniqueness on the complete probability simplex, and sharp equal-sampling ratio are compared separately. A generic SDP formulation or computational E-opt algorithm does not by itself state this result, but a classical specialized closed form could subsume it; this is a residual publication-priority risk.",
+      "searches": [
+        "min eigenvalue of weighted two rank one projectors divided by linear expected sampling cost closed form root correlation",
+        "two point E optimal experimental design unequal cost square root correlation formula",
+        "E optimal two point design costs two dimensional unit regression vectors explicit formula correlation",
+        "Martinez Wegman 2000 exact E-optimal designs DOI 10.1016/S0167-7152(99)00173-X",
+        "Elfving 1952 optimum allocation two parameters observation costs E optimal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual published-finding corpus comparison hits included 2026/10/13/SCOPE-planar-coincidence-theorem-for-optimal-randomized-kaczmarz-sampl--54597ea58934 (unpriced planar sampler), 2026/10/18/SCOPE-sharp-work-budget-phase-transition-between-one-step-and-asymptot--10323bbfb631 (budgeted batch/no-op two-row model), 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995 (unpriced SPD-coordinate sampling), and 2026/11/2/SCOPE-an-exact-noise-rate-pareto-frontier-for-randomized-coordinate-de--58b00d457699 (noisy diagonal coordinate optimization).",
+        "Own research ledger names 2026-11_week3 p0001_g000004 and 2026-11_week2 p0001_g000165 were searched for cost-aware coordinate claims and close aliases; no claim-level overlap was recovered."
+      ],
+      "reasoning": "Neither the inspected accessible records nor targeted mathematical-index and web searches yielded a database/table entry with the exact priced two-coordinate probability and sharp worst-direction gain. This is only searched-coverage evidence, not a proof that no such result exists.",
+      "searches": [
+        "min eigenvalue of weighted two rank one projectors divided by linear expected sampling cost closed form root correlation",
+        "two point E optimal experimental design unequal cost square root correlation formula",
+        "published-finding corpus semantic search: exact time cost optimal randomized coordinate descent two dimensional SPD quadratic per update coordinate heterogeneous evaluation cost sharp spectral contraction law",
+        "published-finding corpus semantic search: two-row Kaczmarz computational work normalized rate optimal row sampling cost correlation sqrt prices"
+      ]
+    },
+    "rationale": "Exact comparison is made at the level of statements and objective functions. The cost-unweighted planar Kaczmarz theorem produces equal selection for two distinct directions; the new theorem minimizes a cost-divided worst-eigenvalue quotient and is nonuniform with unequal prices. Existing coordinate-descent probability rules optimize different volume-sampling or complexity-bound objectives. Full texts of the 2019 motivating paper, a 2018 expected-cost complexity paper, and two closest published mathematical records were inspected. No exact price–coherence identity or sharp factor-two boundary was found; historical E-optimal design overlap remains an explicitly disclosed precedence risk.",
+    "residual_risks": [
+      "Classical two-parameter E-optimal-design theory, especially Elfving (1952) Section 4 with heterogeneous observation costs, may contain an equivalent or dominating formula; the accessible abstract could not resolve this.",
+      "Martinez and Wegman (2000) full E-optimal methods were not accessed; a specialized exact corollary might cover this model.",
+      "Unindexed optimal design or coordinate sampling literature may already contain an algebraically equivalent price–coherence rule. Publication priority is not independently validated."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides coordinate-curvature/volume sampling but not heterogeneous external costs or the exact cost-normalized two-dimensional spectral solution",
+        "evidence": "arXiv:1904.04587v1, first posted 2019-04-09; published algorithm and singleton rules",
+        "identifier_or_url": "https://arxiv.org/abs/1904.04587",
+        "material_read": "First public version date and substantial HTML primary sections on sampling, algorithm and quadratic applications",
+        "method": "Open-access arXiv HTML full primary text; examined problem and singleton design",
+        "title": "A Randomized Coordinate Descent Method with Volume Sampling",
+        "trigger": "First public motivating literature and closest natural volume/importance sampling benchmark"
+      },
+      {
+        "assessment": "Optimizes a complexity upper bound multiplied by average cost, not the exact worst-direction one-step spectral quotient; no implication of the new optimized probability established",
+        "evidence": "ALT 2018 full paper, §§4.2 and 5.3",
+        "identifier_or_url": "https://research.cs.cornell.edu/conferences/alt2018/A/csiba18.pdf",
+        "material_read": "Primary PDF sections 4.2 and 5.3, including Theorem 2 and expected work formulations",
+        "method": "PDF extracted text and rendered-page visual inspection",
+        "title": "Coordinate Descent Faceoff: Primal or Dual?",
+        "trigger": "Direct antecedent optimizing expected iteration work in coordinate descent"
+      },
+      {
+        "assessment": "Unpriced planar projection selection; for two distinct directions it gives p=1/2, which is not the priced objective solution",
+        "evidence": "2026/10/13/SCOPE-planar-coincidence-theorem-for-optimal-randomized-kaczmarz-sampl--54597ea58934/RESULT.md",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-planar-coincidence-theorem-for-optimal-randomized-kaczmarz-sampl--54597ea58934",
+        "material_read": "Entire public RESULT.md, including definitions, exact rate and proof of optimal distributions",
+        "method": "Read public record full primary finding via repository file retrieval",
+        "title": "Planar coincidence theorem for optimal randomized Kaczmarz sampling",
+        "trigger": "Closest existing exact planar minimax row sampling"
+      },
+      {
+        "assessment": "Equal singleton prices, fixed expected work and optional full-batch/no-op mask; no explicit arbitrary-priced single-coordinate quotient result",
+        "evidence": "2026/10/18/SCOPE-sharp-work-budget-phase-transition-between-one-step-and-asymptot--10323bbfb631/RESULT.md",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-sharp-work-budget-phase-transition-between-one-step-and-asymptot--10323bbfb631",
+        "material_read": "Entire public RESULT.md, including model, formulas, proof, and relationship to prior work",
+        "method": "Read public record full primary finding via repository file retrieval",
+        "title": "Sharp work-budget phase transition between one-step and asymptotic randomized two-row Kaczmarz",
+        "trigger": "Potentially dominating previous work-aware two-row result"
+      },
+      {
+        "assessment": "Generic E-optimal method; no verified matching formula in accessible material; unresolved full-text comparison risk",
+        "evidence": "Statistics & Probability Letters 47 (2000), 325–328, DOI 10.1016/S0167-7152(99)00173-X",
+        "identifier_or_url": "https://doi.org/10.1016/S0167-7152(99)00173-X",
+        "material_read": "Accessible abstract and opening explanation only, not complete primary methods",
+        "method": "Publisher metadata and partial accessible HTML",
+        "title": "An alternative criterion useful for finding exact E-optimal designs",
+        "trigger": "Exact general E-optimal design as a possible equivalent framework"
+      },
+      {
+        "assessment": "Mentions different observation costs and two-parameter optimal proportions; could subsume a reformulation, hence substantial priority uncertainty and no claim of whole-paper non-coverage",
+        "evidence": "Annals of Mathematical Statistics 23 (1952), 255–262; DOI 10.1214/aoms/1177729442",
+        "identifier_or_url": "https://doi.org/10.1214/aoms/1177729442",
+        "material_read": "Abstract and bibliography metadata only; primary full text unavailable from attempted lawful OA PDF route",
+        "method": "Publisher abstract and attempted Project Euclid access",
+        "title": "Optimum Allocation in Linear Regression Theory",
+        "trigger": "Early plausible two-parameter priced-optimal design result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3640f56f-351b-4d61-a4de-fbc3e52f0825",
+  "value": {
+    "rationale": "There is a motivated algorithmic mismatch between curvature-only/upper-bound importance sampling and sharp one-step worst-direction progress under heterogeneously priced coordinate evaluations. The theorem solves all two-dimensional positive-definite Hessians and positive prices, provides a simple closed-form unique minimax rule, explicitly resolves the equal-price and orthogonal boundaries, and proves a sharp near-twofold improvement over uniform selection. The quantitative gain is a worst-case per-work guarantee, not a wall-clock claim; the result does not reduce to relabeling an established unpriced optimizer.",
+    "status": "PASS"
+  }
+}

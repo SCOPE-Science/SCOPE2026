@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:01:15.473109Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–106, including equation (1); independent Narayana/hypergeometric and adjacent-ratio calculations",
+        "Frozen VERIFICATION.md and verify.py, read as finite supporting evidence rather than executed"
+      ],
+      "rationale": "Contracting a marked complete occurrence gives an ordered m-vertex tree with a marked leaf, with inverse given by expansion. Hence the leaf count shifts by ell-1 from the size-biased Narayana law; this is occurrence bias, not conditioning on presence. Vandermonde identifies the ordinary m-vertex leaf count as hypergeometric with population 2m-2, m-1 successes and m draws, giving mean m/2 and variance m(m-2)/(4(2m-3)). After cancellation, the shifted Palm-to-ordinary adjacent ratio at j is [(m-j-1)/(m-j+k-ell-1)][(m-j)/(m-j+k-ell)] times [1+(2ell-1)/j+ell(ell-1)/j^2]. Both factors are positive and strictly decreasing over the indices compared, since k-ell is at least one. The support is contiguous, with upper endpoint n-1-(k-ell), and lower endpoint ell. The above-one interval is nonempty by normalization and the missing positive ordinary mass; ell at least two excludes both endpoints. Contiguous rejection sets follow by thresholding, with boundary ties available for exact-size randomization. The normalized covariance is the difference of the Palm and ordinary means, hence ell-(k+1)/2+(m-2)/(2(2m-3)); the correction is zero at m=2 and in (0,1/4) otherwise. The strict-ratio comparisons are vacuous for m=2,3 where appropriate. At n=k Palm is deterministic, as separately stated.",
+      "residual_risks": [
+        "No extension to conditioned-on-presence, nonplane, or arbitrary weighted-tree laws. Finite verification notes do not establish the all-size claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected 1984 report counts tree patterns and identifies the Narayana leaf totals. Janson gives asymptotic fringe covariances including the one-vertex fringe count.",
+          "The 2025 free-fringe reduction is a relevant potential framework; fresh full-text retrieval was unsuccessful. The named 2009 paper is a remaining general pattern-enumeration risk."
+        ],
+        "reasoning": "General pattern counting covers the main enumeration ingredients; the inspected general covariance result controls the asymptotic term. Neither inspected result controls the strict second differences of log q minus log p or finite cutoff testing.",
+        "searches": [
+          "Dershowitz–Zaks, Patterns in Trees, §§4–5",
+          "Janson, arXiv:1312.1211v1, Corollary 1.8 and Example 2.1",
+          "Berzunza Ojeda–Holmgren–Janson, doi:10.1002/rsa.70001, §3",
+          "Dershowitz–Zaks, doi:10.1137/070687475"
+        ]
+      },
+      "checked_sources": [
+        "MIT-LCS-TM-271",
+        "arXiv:1312.1211v1",
+        "Resultary record ending 19bd34709e33",
+        "Lawful retrieval attempts for 10.1002/rsa.70001 and 10.1137/070687475"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Under geometric offspring, Janson's limiting covariance normalized by the mean occurrence count is ell-k/2-1/4, the limit of the displayed finite formula.",
+          "The size- and leaf-count shifts admit opposite-end factors in the comparison of the two probabilities; strictness comes from the positive k-ell and 2ell-1 terms after cancellation."
+        ],
+        "reasoning": "The exact moments are elementary consequences once the marked-tree law is known and the large-size covariance is already implied by prior work. The distinct comparison concerns the shape of the likelihood ratio for all admissible finite sizes, not the separate probability formulas or a generic consequence of Neyman–Pearson without that shape result.",
+        "searches": [
+          "Janson, arXiv:1312.1211v1, equations (1.20) and (1.23)",
+          "Dershowitz–Zaks, MIT-LCS-TM-271, §§4–5",
+          "Frozen RESULT.md, equation (1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Palm law is a shift of a size-biased Narayana law; after subtracting one from the size-biased leaf count it is hypergeometric with population 2m-3, m-2 successes and m-1 draws. The ordinary law is hypergeometric with population 2n-2, n-1 successes and n draws.",
+          "Relative log-concavity here is log-concavity of the ratio between those laws after the shift, not ordinary log-concavity of either law or a monotone likelihood ratio in root-degree order."
+        ],
+        "reasoning": "The equivalent reformulation is a comparison of distributions with differing populations and support endpoints. Narayana enumeration of each law separately does not assert that comparison, and the marked-object sampling distinction excludes uniform conditional and root-degree alternatives.",
+        "searches": [
+          "Dershowitz–Zaks, MIT-LCS-TM-271, §§4–5",
+          "Local Resultary comparison: Catalan leaf-count likelihood ordering"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest retrieved catalogue summary finds TP2/monotone likelihood-ratio ordering of leaf-count laws under changes in root degree. Its exact-ID local mirror was unavailable.",
+          "The Narayana table is known and is used as input, not presented as an exact database of occurrence-Palm relative likelihoods."
+        ],
+        "reasoning": "Root degree changes a conditioning parameter rather than weighting by all marked occurrences of a fixed fringe shape. The available matching summary and the Narayana triangle do not encode the theorem as stated.",
+        "searches": [
+          "Local Resultary comparison: 2026/11/2/SCOPE-root-degree-ordering-of-leaf-counts-in-uniform-catalan-trees--19bd34709e33",
+          "MIT-LCS-TM-271, §5 Example 1 (Narayana counts)"
+        ]
+      },
+      "rationale": "To the best of current knowledge the distinct result is the uniform-in-size strict relative log-concavity of the occurrence-Palm versus ordinary leaf laws and the resulting central-interval testing statement, with the finite sign boundaries as a companion. Basic marked-tree enumeration, Narayana counts, the general likelihood-ratio test principle and the leading asymptotic covariance are not credited as new.",
+      "residual_risks": [
+        "The 2009 tree-pattern paper could contain a stronger enumeration with implications for finite-size formulas; the corresponding original passages were not accessible. The 2025 framework was not independently inspected in full. The root-degree comparison is to its indexed statement only. These limitations do not establish absence of an equivalent result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior counting ingredients, not the inspected likelihood-ratio property",
+          "evidence": "§5 explicitly identifies ordered-tree leaf counts as Narayana numbers.",
+          "identifier_or_url": "https://groups.csail.mit.edu/tds/papers/Zaks/TM-271.pdf",
+          "material_read": "§4 single-pattern passage, PDF p. 11; §5 Example 1, p. 12",
+          "method": "Primary OA PDF bounded passages",
+          "title": "Patterns in Trees",
+          "trigger": "Classical broad pattern enumeration and Narayana leaf counts"
+        },
+        {
+          "assessment": "Implies and receives credit for the limiting covariance",
+          "evidence": "With offspring variance 2 and singleton probability 1/2, the normalized covariance limit is ell-k/2-1/4.",
+          "identifier_or_url": "https://arxiv.org/pdf/1312.1211",
+          "material_read": "Corollary 1.8, equations (1.20),(1.23), PDF p. 5; Example 2.1, p. 9",
+          "method": "Primary OA PDF/HTML bounded passages",
+          "title": "Asymptotic normality of fringe subtrees and additive functionals in conditioned Galton–Watson trees",
+          "trigger": "Prior broader covariance theorem including leaves"
+        },
+        {
+          "assessment": "Named access limitation, not an exclusion finding",
+          "evidence": "The frozen record describes a general contraction framework; the current review cannot characterize uninspected passages.",
+          "identifier_or_url": "10.1002/rsa.70001",
+          "material_read": "Citation and description in frozen record; direct text not independently recovered",
+          "method": "Lawful Wiley and repository attempts",
+          "title": "Fringe Trees for Random Trees With Given Vertex Degrees",
+          "trigger": "Related free-fringe reduction, §3 cited in frozen Finding"
+        },
+        {
+          "assessment": "Named residual risk",
+          "evidence": "Related pattern and leaf enumeration; not used to assert absence of an overlapping theorem.",
+          "identifier_or_url": "10.1137/070687475",
+          "material_read": "Citation and reported abstract scope in frozen record; primary full text not retrieved",
+          "method": "Lawful DOI access and repository check",
+          "title": "More Patterns in Trees: Up and Down, Young and Old, Odd and Even",
+          "trigger": "Stronger related tree-pattern enumeration could cover some finite moments"
+        },
+        {
+          "assessment": "The available statement compares root-degree-conditioned laws",
+          "evidence": "TP2 and monotone likelihood ratios in the root-degree ordering are distinct from log-concavity of the ratio against the ordinary law under fringe occurrence weighting.",
+          "identifier_or_url": "2026/11/2/SCOPE-root-degree-ordering-of-leaf-counts-in-uniform-catalan-trees--19bd34709e33",
+          "material_read": "Indexed title and mathematical summary; exact-ID mirror unavailable",
+          "method": "Local Resultary and mirror lookup",
+          "title": "Root-degree ordering of leaf counts in uniform Catalan trees",
+          "trigger": "Closest retrieved Resultary likelihood-ratio claim for the same tree model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§2–3"
+      ],
+      "rationale": "A leaf-only test for occurrence enrichment is a natural statistical question in this model. The exact all-size shape theorem says enrichment is detected by an interval, not necessarily by a one-sided tail, and for a fringe with multiple leaves the ratio-above-one region excludes both extremes. The normalized covariance sign identifies when a mean comparison obscures or reverses the impression of enrichment.",
+      "residual_risks": [
+        "The test is optimal only among tests based on the leaf count for the specified pair of laws; it is not an optimal test using the whole tree or a claim of a large-sample gain."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

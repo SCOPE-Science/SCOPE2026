@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T18:05:26.054153Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The subset-of-subsets invariant treats each labeling separately: unqueried bits union the two images for that labeling, queried bits split into two images, and an empty image means some labeling cannot occur even if the word is extended. I independently reconstructed the support language using three zero-run phases instead of the frozen seven suffix states. With phases A (ready), B (one zero), C (two zeros), the 0/1 transition rows are (B,A), (C,dead), (dead,A). All three start phases are allowed and all terminal phases accept. The recognized finite words are exactly those with each internal zero run of length two and each endpoint zero run of length at most two (the all-zero words have length at most two), equivalently avoiding 000 and 101. A leading run of one zero can start in B; a run of two starts in A. Encode subsets of A,B,C by bitmasks 1,2,4. Starting with the family [7], applying the above union/split rules breadth-first for input 0 then 1 gives these nine families with 0/1 successors (dash = rejection): [7]:(0,1); [1,6]:(2,3); [3,5]:(4,5); [1,2,4]:(6,−); [3,7]:(0,1); [1,2,6]:(7,−); [1,3,4]:(8,−); [3,4,5]:(8,−); [1,3,7]:(4,5). These are numbered 0..8 in order, with equivalence classes {0,4},{1},{2,8},{3,5},{6,7}. The quotient is exactly the published table. Minimality can be seen without software: continuation 1 separates {0,1,2} from {3,4}; 01 separates 3 and 4, 11 separates 0 from 1 and 2, and 011 separates 1 and 2. All states are reachable (empty, 1, 10, 11, 110). Independently evaluated the two transfer-matrix determinants: for M_ij=sum_{i→j} t z^b the first component of (I−M)^−1 1 uses det(I−M) and its determinant with column 0 replaced by all ones; expansion gives exactly the displayed denominator and numerator. The h inequality holds for every listed edge; the two witness prefixes 11 and 10011 end at 3 and 00011 is a loop there. The minimal lengths certified for weights k≥2 are ceil((5k−6)/2), and zero-padding is always permitted. n=0 has only the empty support and n=1 has VC dimension 1. Independently enumerated five-letter words and found [1,5,10,2], versus [1,5,10,7] for 000/111. The frozen code and captured output were read, not executed; their direct checks through n=11 are corroboration, not the all-length proof. The nine-family table is a bounded replay certificate: compute each subset image under A,B,C for a bit, union for mask 0 or retain both for mask 1, then compare the displayed classes and distinguishing suffixes.",
+      "replay_path": "/tmp/opencode/shattering_review.py",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Louidor–Marcus–Pavlov §§3–4 make a multi-choice word/point valid if every filling of its product of coordinate sets is valid, and include sofic methods for their fixed-background independence entropy.",
+          "Resultary 2a4a7f458de3 covers one forbidden trigram at a time; de3d7262f980 treats just 001, and e74c4aaef4b5 just 0011."
+        ],
+        "reasoning": "Even knowing which supports are shattered for each single-forbidden language cannot in general replace the witness quantifier for the intersection: a labeling may extend to each language separately with different completions. In the multi-choice framework the unqueried symbols must be fixed before labeling (or themselves be freely variable at additional allowed choices); no such uniform choice is required here. In this very shift a free interior position in a fixed-background configuration would require neighbors fixed to different bits to allow its 0 value. The zero neighbor then cannot tolerate a freely variable flank; hence in the bi-infinite version no genuine wildcard is possible. This is very different from the positive 2/5 existential-shattering density. A general regularity construction may apply to any regular word language, but does not by itself state its minimal automaton, exact rational function, or optimum here.",
+        "searches": [
+          "independence entropy Louidor Marcus Pavlov shattering shifts finite independence sets VC dimension forbidden words universal labeling unspecified coordinates SFT",
+          "symbolic dynamics \"independence sets\" \"sofic\" shifts independence set indicator density binary shifts forbidden words shattering entropy Kerr Li Falniowski",
+          "Resultary single-forbidden-trigram and near-neighbor shattering records from the exact-target search"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact-target and adjacent forbidden-word records",
+        "Johnson arXiv:2101.06490v2",
+        "Louidor–Marcus–Pavlov DOI 10.1007/s10440-013-9819-2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Johnson identifies sliding-window dimension with full-mask dimension for a fixed string but does not give a five-state law for the full two-trigram language. Louidor–Marcus–Pavlov characterize a differently quantified filling problem. The directly enumerated support count of the near-neighbor 000/111 result is different."
+        ],
+        "reasoning": "None of these supplies the simultaneous label-realizability computation for this pair. The characteristic five right languages and the minimum length needed for k queried positions require the actual finite-state analysis, not a formula substitution from the inspected near-neighbor findings.",
+        "searches": [
+          "Johnson arXiv:2101.06490v2 §2 and Props. 1–3",
+          "Louidor–Marcus–Pavlov DOI 10.1007/s10440-013-9819-2 §§3–4",
+          "Resultary a86c7bc37664 and related forbidden-word support laws"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aliases include completely filled coordinate traces, full masks on the word language, and zero runs of length two except for boundary effects. Johnson arXiv:2101.06490v2 §2 defines sliding-window and mask dimension from substrings of a fixed sequence. If a sequence is chosen whose language contains every word of this shift, its length-n sliding windows would give this same set system; the definitions alone do not calculate it.",
+          "The 000/111 record a86c7bc37664 uses the same trace notion on a different language. At length five a direct check finds 2 versus 7 supports of size three, which also rules out equivalence by any fixed coordinatewise label flip or coordinate permutation."
+        ],
+        "reasoning": "The notions are closely connected under an appropriate universal string, not unrelated uses of VC dimension, but the fixed-string framework stated in Johnson does not supply this particular finite-type classification. The neighboring monochromatic-triple language is provably a different instance rather than a relabeling.",
+        "searches": [
+          "binary words forbidden factors \"000\" \"101\" coordinate projections shattered sets VC dimension automaton shattering arbitrary regular language finite binary masks",
+          "Resultary: shattered support language finite binary words avoiding 000 101 contiguous forbidden trigrams five states VC dimension"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit is the record under review; nearby entries have other forbidden sets. The relevant 000/111 comparison was retrieved and checked explicitly at n=5, where its support count differs."
+        ],
+        "reasoning": "An ordinary word count for the shift or a table of traces at a single n would not give the all-length support enumerator. No separately indexed exact table was identified in this search; this does not establish historical priority.",
+        "searches": [
+          "Resultary exact two-trigram five-state shattering/VC-dimension query",
+          "binary words forbidden factors 000 101 coordinate projections shattered sets VC dimension automaton"
+        ]
+      },
+      "rationale": "Best of knowledge for this exact combination of forbidden factors, all-length support language and sharp count/dimension. Standard regular-language closure and transfer-matrix techniques are not claimed as new. The finite set of explicit right-language classes and the sharp periodic law are not supplied by the prior generic framework or the other forbidden-word calculations checked.",
+      "residual_risks": [
+        "Equivalent hidden finite-mask/coordinate-independence calculations in constraint coding or symbolic dynamics could predate this record; targeted searches and near-neighbor comparisons are not a uniqueness proof.",
+        "The checked LMP paper addresses fixed-product entropy, not every notion named independence sets. No novelty claim is made for general automata closures or generic finite-type combinatorics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the fixed-sequence framework for the same notion of a full coordinate trace when languages coincide, not this exact forbidden-factor theorem.",
+          "evidence": "§2 defines S_w(S) as length-w substrings of a single S, then identifies max_w VCdim(S_w) with mask dimension in Proposition 3.",
+          "identifier_or_url": "https://arxiv.org/pdf/2101.06490 (v2)",
+          "material_read": "Abstract and §2, pp. 3–5: definitions of substring and sliding-window set families and d-masks, Propositions 1–3.",
+          "method": "Lawfully available primary arXiv PDF",
+          "title": "Binary strings of finite VC dimension",
+          "trigger": "Same language of VC dimension, fixed-window traces and full masks"
+        },
+        {
+          "assessment": "Different witness quantifier; no general exclusion of other symbolic-dynamics independence formulations.",
+          "evidence": "§3 defines Φ(x̂) as the independent product of coordinate choices and requires Φ(x̂)⊆X; the golden mean example in the introduction explicitly fixes all even sites before odd sites vary.",
+          "identifier_or_url": "https://personal.math.ubc.ca/~marcus/pubs_electronic/independence_entropy_pub.pdf (DOI 10.1007/s10440-013-9819-2)",
+          "material_read": "Introduction and §3 definition of multi-choice fillings, printed pp. 297–301, including the explicit fixed-site example; overview of §4.",
+          "method": "Lawful author-hosted primary PDF",
+          "title": "Independence entropy of Z^d-shift spaces",
+          "trigger": "Closest named symbolic-dynamics invariant allowing independent choices under forbidden factors"
+        },
+        {
+          "assessment": "Same invariant, different instance; no equivalence even via fixed-coordinate flips and permutations.",
+          "evidence": "Only forbids 000 and 111, with VC dimension floor(n/2)+1 for positive n; size-three support count at length five is 7 rather than 2.",
+          "identifier_or_url": "Resultary 2026/11/8 / a86c7bc37664",
+          "material_read": "Indexed precise forbidden pattern pair, criterion, formula and dimension; tested the different length-five coefficient directly.",
+          "method": "Configured Resultary search and independent tiny enumeration (not an independent full-text read of that entry)",
+          "title": "A regular shattering complex for binary words with no monochromatic triple",
+          "trigger": "Closest previously catalogued exact finite automaton and generating function"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In a natural two-forbidden-factor shift, querying with label-dependent completions yields many shattered masks even though fixed-background freedom in the bi-infinite shift is absent. The result goes beyond a density estimate and beyond finite examples: minimal right-language classes characterize all masks, the rational series counts them by weight, and a tight universal potential with exact witnesses gives the finite endpoint corrections. These are useful concrete invariants for comparing existential shattering across finite-type constraints.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

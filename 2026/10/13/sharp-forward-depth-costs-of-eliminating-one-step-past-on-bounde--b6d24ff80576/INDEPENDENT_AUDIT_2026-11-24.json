@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:01:38.639788Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Syntax induction gives dependence on bits 0 through depth d, and monotonicity for the positive syntax. At a point on a t-cycle the positive formula's t-disjunct reads the predecessor in all its conjuncts, and every disjunct has a t-indexed conjunct reading that predecessor. Thus the LCM formula works uniformly. For a pair r,s attaining the maximum LCM L, the valuation with ones just at predecessor residues mod r is dominated by the valuation with zeros just at predecessor residues mod s up to index L−2; their first order violation is at L−1. This proves minimality and works on single cycles, hence also for the disjoint-union class. For n≥2, m=2n−2 bounds r+s−gcd(r,s) and max(r,s) for all allowed pairs. By Fine–Wilf the common prefix has gcd period and its positions r−1 and s−1 agree; a finite Boolean prefix disjunction gives depth m−1. The displayed n and n−1 blocks have a common prefix of length 2n−3 and opposite last bits, proving sharpness including n=2. Length 1 has predecessor equal to the root. Uniform substitution preserves the defining equivalence, not a separate lower bound for each fixed predicate substituted for p. Independent supplementary graph replay /workspace/branches/modal-residue-check.py used equality components and bipartite implications rather than valuation enumeration: 2080 pairs and 64 consecutive sets passed. The unbounded theorem rests on the proof, not this check. The frozen verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Minimal-tense completeness and Lyndon positivity are broader but address different statements; retrieved CTL-with-past work concerned infinite trees and FO expressivity"
+        ],
+        "reasoning": "Expressivity, positivity preservation and completeness alone do not bound both depths on this fixed class, and eventually is not the immediate successor operator.",
+        "searches": [
+          "Figallo–Sarmiento–Pezzini arXiv:2610.01547v1",
+          "Dvorkin arXiv:2602.02837v2, §4.2",
+          "Past-elimination and modal/temporal expressivity web search"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–54, VERIFICATION.md and verify.py",
+        "Published Resultary eac9243128cc and e1a5174e9077",
+        "Kurtonina–de Rijke 1997; arXiv:2608.21912, 2610.01547v1, 2602.02837v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fine–Wilf gives the Boolean upper bound once predecessor equality is translated to residues of a common equal prefix; the positive lower bound instead orders two unequal prefixes"
+        ],
+        "reasoning": "Classical periodicity directly explains the Boolean benchmark; it does not imply the positive threshold by applying periodicity to a word with both periods. Directed-simulation preservation similarly does not supply the matching LCM upper formula and lower witness for each S.",
+        "searches": [
+          "Fine–Wilf DOI 10.1090/S0002-9939-1965-0174934-9; accessible restatement arXiv:2608.21912",
+          "Kurtonina–de Rijke, Theorem 3.5; bounded cycle title/threshold search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen problem is an ordered-prefix separator (positive) and a prefix-equality separator (Boolean); the undirected cyclic stabilization result uses two-sided factors up to reversal"
+        ],
+        "reasoning": "Undirected type stabilization is not one-sided definability of the predecessor. General directed simulations characterize preservation but do not compute this numerical obstruction.",
+        "searches": [
+          "Resultary: past elimination, directed cycle forward depth, exact positive LCM and Boolean thresholds",
+          "Local mirror eac9243128cc and e1a5174e9077",
+          "Kurtonina–de Rijke, Theorem 3.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related exact results concern half-circumference type stabilization and proposition-free LoopPDL spectra; the supplied finite table checks n bounded by 7"
+        ],
+        "reasoning": "Those exact data neither tabulate this invariant nor establish its all-finite-S formula. No matching classification emerged in the bounded catalogue searches.",
+        "searches": [
+          "Published Resultary cycle-depth results eac9243128cc, e1a5174e9077",
+          "Finite verification notes and script in frozen package"
+        ]
+      },
+      "rationale": "Credit Fine–Wilf and positive modal simulation as prior ingredients. The supported distinct finding is the exact positive uniform depth for arbitrary finite length sets and, together with the Boolean benchmark, the quadratic-versus-linear gap for consecutive lengths. The strongest published-catalogue matches use a different frame relation, a different invariant, or a language without valuations; no checked source covers the stated uniform positive bottleneck.",
+      "residual_risks": [
+        "Bounded searches do not exclude an unindexed equivalent result phrased as ordered periodic-word separation.",
+        "Direct and alternative retrieval for the original Fine–Wilf paper did not provide the original full text; the exact classical inequality was confirmed from its accessible restatement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different relation and invariant",
+          "evidence": [
+            "Undirected cycles, length-2t+1 factors up to reversal, stabilization at floor(n/2)−1"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-sharp-half-circumference-modal-stabilization-on-two-colored-cycl--eac9243128cc",
+          "material_read": "RESULT.md opening Finding",
+          "method": "Published local mirror, 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp half-circumference modal stabilization on two-colored cycles",
+          "trigger": "Closest cycle/threshold catalogue hit"
+        },
+        {
+          "assessment": "Different language and invariant",
+          "evidence": [
+            "Proposition-free spectra of lengths, not depth for valuation-sensitive predecessor"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-gcd-spectra-of-proposition-free-loop-dynamic-logic-on-fini--e1a5174e9077",
+          "material_read": "RESULT.md opening Finding",
+          "method": "Published local mirror",
+          "title": "Exact gcd spectra of proposition-free loop dynamic logic on finite cycles",
+          "trigger": "Cycle/arithmetic catalogue hit"
+        },
+        {
+          "assessment": "General preservation characterization, not numerical depth",
+          "evidence": [
+            "Preservation under directed simulations characterizes negation-free definability"
+          ],
+          "identifier_or_url": "https://staff.fnwi.uva.nl/m.derijke/wp-content/papercite-data/pdf/kurtonina-simulating-1997.pdf",
+          "material_read": "Theorem 3.5, PDF p. 4, offset 11056",
+          "method": "OA full-text passage",
+          "title": "Simulating without Negation",
+          "trigger": "Potential general positivity coverage"
+        },
+        {
+          "assessment": "Supplies classical ingredient, not positive ordered-prefix depth",
+          "evidence": [
+            "Two periods r,s force gcd(r,s)-period at length at least r+s−gcd(r,s)"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2608.21912",
+          "material_read": "Abstract and opening introduction",
+          "method": "OA full text",
+          "title": "The Parameterized Periodicity Lemma",
+          "trigger": "Verify exact classical Fine–Wilf bound"
+        },
+        {
+          "assessment": "Read passage concerns minimal tense completeness",
+          "evidence": [
+            "Algebraic and proof-theoretic completeness rather than cycle-depth comparison"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.01547v1",
+          "material_read": "Title and abstract",
+          "method": "OA full-text opening",
+          "title": "Tense Logic via Truth Degrees: An Algebraic Completeness Result for Kashima's Calculus",
+          "trigger": "Tense logic reference"
+        },
+        {
+          "assessment": "Read passages treat Lyndon positivity, not exact cycle thresholds",
+          "evidence": [
+            "Positive definability on modal frame classes including linear-frame logics"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.02837v2",
+          "material_read": "Abstract and §4.2 around offset 79752",
+          "method": "OA full-text passages",
+          "title": "Monotonicity versus positivity in modal logics",
+          "trigger": "General positivity and linear frames"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The question measures a natural succinctness cost of removing a primitive tense operator on a basic deterministic frame class. Arbitrary allowed periods have an exact, usable positive depth bound and defining formula, with a matching witness, while the Boolean comparison gives an asymptotically different optimal scale. This separation is more informative than an expressibility theorem or textbook periodicity alone. No claim about formula size or eventuality semantics is made.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

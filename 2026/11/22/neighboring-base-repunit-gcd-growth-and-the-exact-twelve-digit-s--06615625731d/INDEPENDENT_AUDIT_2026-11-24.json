@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:48:22.082300Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 44–96",
+        "Frozen VERIFICATION.md and checker.py (inspected, not executed)",
+        "/workspace/audit_replays/repunits.py (SymPy integral polynomial gcd, resultants, all local lifts, exact evaluated frequency and period)"
+      ],
+      "rationale": "The roots of P_m are simple nonidentity m-th roots of unity. For a common root z of P_m(X),P_m(X+h), the two unit-modulus equations give Re z=−h/2. For h>2 this is impossible; h=2 translates the only candidate −1 to the excluded root 1. For h=1 the candidates have orders 3 and their translates have order 6, giving exactly the quadratic factor precisely when 6 divides m. After exact monic division, the residual evaluated GCD equals gcd(A(b),B(b),C) where C is the absolute nonzero resultant, giving divisibility, periodicity and the growth dichotomy. Independently expanding the original polynomials in ZZ verified the length-six bound after parity and the length-twelve resultant 1023252616422400. At length twelve there is no common root modulo 2; the listed roots modulo 5,7,13 have exactly the displayed disjoint lift digits modulo the respective squares. Hence the residual is squarefree. CRT gives the eight values and their frequencies; any period has to preserve each nonconstant prime indicator, forcing divisibility by all three primes. The independent replay also rejected all smaller cyclic shifts of the exact evaluated table.",
+      "residual_risks": [
+        "Growth and bounded periodicity are for fixed m and h. Complete spectra are proved only for h=1 and lengths 6 and 12. The length-six Bézout constant 14 is not its resultant, which the independent replay found to be 196."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frenkel–Pelikán explicitly give the resultant bound and a period for monic integral polynomials. Bodin–Dèbes–Najib establish finiteness and periodicity in one variable. The several-variable theorem is about stability under gcd and lcm. Komatsu's shifted geometric question is additive representation, not a GCD comparison."
+        ],
+        "reasoning": "The univariate abstract results already cover the bounded residual once the common factor is known; they do not identify the possible common complex roots or resolve the valuations when the resultant is not squarefree.",
+        "searches": [
+          "arXiv:1608.07936, Proposition 2",
+          "arXiv:2002.02292, Theorem 1.1",
+          "arXiv:2105.13883, Theorem 1.1 and Example 1.2",
+          "arXiv:2209.13118, abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1608.07936, 2002.02292, 2105.13883, 2209.13118",
+        "Resultary 5a00ad14fbc8, 09bce3505fd1, bbb1fe430b97 and the matching record 06615625731d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The target length-twelve resultant contains repeated factors. The prior fixed-polynomial theory permits valuations dividing such a bound and gives a candidate period, not the failure of simultaneous square lifts. The prior shifted-Phi_3 theorem fixes both inputs to the same quadratic."
+        ],
+        "reasoning": "Credit the standard resultant-divisibility and CRT methods. The unit-circle classification and actual local-prime obstruction calculation are the specialized steps needed for the claim; the inspected exact statements do not directly imply either full step.",
+        "searches": [
+          "arXiv:1608.07936, Proposition 2 and squarefree-resultant setting",
+          "Resultary 5a00ad14fbc8 and 09bce3505fd1, exact theorem statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "P_m is the product of cyclotomics with nonidentity orders dividing m. A translated factor is not generally an untranslated cyclotomic. The actual third-cyclotomic record takes only Phi_3 at its two or more shifted inputs."
+        ],
+        "reasoning": "The neighboring repunit problem involves all cross-factors among divisors of m, not just same-cyclotomic adjacent values. For example, the exceptional factor is Phi_3(X)=Phi_6(X+1), not a common factor of Phi_3(X) and Phi_3(X+1).",
+        "searches": [
+          "Resultary: neighboring-base repunit GCD, shifted cyclotomic GCD and exact residue spectra",
+          "arXiv:1608.07936, Proposition 2",
+          "Resultary 5a00ad14fbc8, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact-title hit 06615625731d is the bound record itself. The degree-six cyclotomic table concerns indices 7,9,14,18 and moduli 19,29,37. The fifth-index table combines a repunit with its binomial transform and has period 55."
+        ],
+        "reasoning": "Neither exact comparator involves the normalized length-six or length-twelve pair, so their frequency tables and prime triggers are not coverage of the current law.",
+        "searches": [
+          "Resultary: equal-length adjacent-base repunit GCD, twelve-digit residues, shifted cyclotomic gcd exact tables",
+          "Resultary 09bce3505fd1 and bbb1fe430b97, Findings"
+        ]
+      },
+      "rationale": "The general divisibility and periodicity theorem for coprime polynomial values is established prior work, and the finding does not claim it as new. The supported distinctions are the classification of which equal-length shifted repunit pairs have a common polynomial factor, and the exact two exceptional-length residual laws, in particular the length-twelve local square obstructions and least period. None of the inspected table comparators has these two polynomial inputs. The citation summary in RESULT.md line 99 overgroups Bodin–Dèbes (arXiv:2105.13883) with the univariate periodicity sources: its several-variable theorem concerns gcd/lcm stability and permits infinite sets. This is a literature-description correction, not a flaw in the theorem, whose periodicity proof is self-contained and also matches the separate univariate references.",
+      "residual_risks": [
+        "Unavailable full text by Ruiz and an indexed snippet on unshifted cyclotomic resultants were not used to exclude prior coverage. Unindexed equal-length GCD tables remain possible. No relative priority is inferred from the two distinct same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the general residual principle",
+          "evidence": "The GCD divides the resultant and is periodic with that period; squarefree-resultant results do not settle the non-squarefree example here.",
+          "identifier_or_url": "https://arxiv.org/abs/1608.07936",
+          "material_read": "p. 2, Proposition 2, PDF offset about 4350",
+          "method": "Lawful OA primary-text retrieval",
+          "title": "On the greatest common divisor of the value of two polynomials",
+          "trigger": "Directly covers evaluated GCD bound and periodicity"
+        },
+        {
+          "assessment": "General periodicity, no translated-repunit classification in the theorem",
+          "evidence": "States finiteness and periodicity of the GCD sequence for coprime polynomials.",
+          "identifier_or_url": "https://arxiv.org/abs/2002.02292",
+          "material_read": "p. 2, Theorem 1.1, offset about 7100",
+          "method": "Lawful OA primary-text retrieval",
+          "title": "Prime and coprime values of polynomials",
+          "trigger": "One-variable GCD of coprime polynomials"
+        },
+        {
+          "assessment": "Citation description needs qualification",
+          "evidence": "GCD/lcm stability of a multivariate value-GCD set; Example 1.2 has an infinite set.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.13883",
+          "material_read": "p. 2, Theorem 1.1 and Example 1.2, offset about 6250",
+          "method": "Lawful OA primary-text retrieval",
+          "title": "Coprime values of polynomials in several variables",
+          "trigger": "Check the frozen characterization of another cited general theorem"
+        },
+        {
+          "assessment": "Different pair of evaluated polynomials",
+          "evidence": "Uses F(n)=Phi_3(n) at each n+id and gives exact spectra, not a repunit or cross-factor calculation.",
+          "identifier_or_url": "Resultary 2026/10/18 record 5a00ad14fbc8",
+          "material_read": "RESULT.md Finding, offsets 0–2049",
+          "method": "Local-mirror comparison",
+          "title": "Sharp spectra and three-point stabilization for shifted third-cyclotomic gcds",
+          "trigger": "Same quadratic and fixed-shift GCD spectra"
+        },
+        {
+          "assessment": "Adjacent method but different polynomials and tables; no priority inference from date",
+          "evidence": "Only Phi_7,Phi_9,Phi_14,Phi_18 each compared with its translate; aggregate period 20387.",
+          "identifier_or_url": "Resultary 2026/11/22 record 09bce3505fd1",
+          "material_read": "RESULT.md Finding, offsets 0–1753",
+          "method": "Local-mirror comparison",
+          "title": "Consecutive-value GCDs of every degree-six cyclotomic polynomial",
+          "trigger": "Same-day exact GCD and residue tables for adjacent bases"
+        },
+        {
+          "assessment": "Second quantity is not a repunit in the neighboring base",
+          "evidence": "The second polynomial is ((b+1)^5-2^5)/(b-1), and the resulting exact period is 55.",
+          "identifier_or_url": "Resultary 2026/11/22 record bbb1fe430b97",
+          "material_read": "RESULT.md Finding and assumptions, offsets 0–2077",
+          "method": "Local-mirror comparison",
+          "title": "Exact fifth-index common divisors of repunits and their binomial transforms",
+          "trigger": "Same-day exact repunit divisor spectrum"
+        },
+        {
+          "assessment": "Motivational subject overlap, no matching claim in abstract",
+          "evidence": "Concerns Frobenius numbers and representation counts for geometric-like sequences.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.13118",
+          "material_read": "p. 1 abstract",
+          "method": "Lawful OA primary-text retrieval",
+          "title": "The Frobenius number for shifted geometric sequences associated with the number of solutions",
+          "trigger": "Shifted geometric and repunit language"
+        },
+        {
+          "assessment": "No coverage verdict on that source",
+          "evidence": "The frozen record reports related congruences; this review does not use failed retrieval as negative evidence.",
+          "identifier_or_url": "https://www.researchgate.net/publication/389438226_An_introduction_to_generalized_repunit_numbers",
+          "material_read": "No full text; Section 6 not inspected independently",
+          "method": "Two lawful access routes failed with HTTP 403",
+          "title": "An introduction to generalized repunit numbers",
+          "trigger": "Plausible base-change congruence overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§1–5",
+        "Independent length-six and length-twelve local and frequency outputs"
+      ],
+      "rationale": "Fixing the length and varying the positive base gap is a natural classification of shared divisibility across repunit bases. The unique quadratic-growth family and the two exact initial exceptional spectra give mathematically meaningful boundary data; the length-twelve example separates the coarse resultant bound from sharp simultaneous prime-power divisibility and from the true period.",
+      "residual_risks": [
+        "No closed exact spectrum is established for later exceptional lengths."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

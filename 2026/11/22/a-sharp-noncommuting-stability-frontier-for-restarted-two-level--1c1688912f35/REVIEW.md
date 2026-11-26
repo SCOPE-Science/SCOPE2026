@@ -1,9 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The stated FCF coarse-defect recurrence is derived from the block lower-bidiagonal system without using commutation; a geometric-series limit gives the stated restart map. Congruence by the positive-definite square root of \(F(I-F)\) produces a symmetric similar matrix, and an exact Schur complement yields the necessary-and-sufficient strict Loewner boundary. Explicit rational matrix products give the two-dimensional determinant and divergent eigenvalue. The independent local implementation of the finite defect correction and 9,800 exact-rational finite checks in `check.py` support, but do not establish, the arbitrary-dimensional theorem. The proof itself covers every finite dimension and strict boundary.
+## correctness
 
-**Originality — PASS with residual priority risk.** The earliest directly motivating source, Araújo–Krzysik–De Sterck (arXiv:2611.03621v1, Section 4.5), assumes simultaneous diagonalization for its long-trajectory spectral argument. Here neither \(F\) nor \(\Psi\) must commute; the all-dimensional Loewner criterion and its explicit rotation threshold are not stated in that manuscript. Southworth (arXiv:1810.07292v5, Sections 2–5) studies noncommuting propagators but estimates MGRIT inner space-time error reduction, not stability of repeated last-point restarts. Jin–Lin–Zhou (arXiv:2311.15320) investigates optimal coarse propagators for Parareal, not this restart map. Available research-record queries for noncommuting MGRIT restart endpoint maps, equivalent Schur/Loewner conditions and rotated two-mode coarse models returned related but mathematically different preconditioning, time-parallel and primal–dual results. A prior derivation hidden in broader temporal-approximation theory or unindexed literature remains possible; absence of a match is not a proof of priority.
+PASS
 
-**Value — PASS.** Eigenvector mismatch between fine and coarse symmetric quadratic models is a natural risk for multilevel optimization. The result completely classifies *every-start* linear stability of the asymptotic restarted endpoint map across all finite dimensions, and the two-dimensional minimal example exhibits an exact rotation-induced instability despite strict one-step contractivity of each model. This isolates a practically interpretable design condition rather than a mere normalization test or arbitrary parameter slice. It does not estimate speedup or extend to arbitrary finite trajectory lengths.
+Under strict Euclidean positive-definite contraction hypotheses, parallel C relaxation gives Fx at every positive coarse index from constant initialization; the second F relaxation does not change C points. The fine coarse-point residuals are zero at index one and (F²−F)x thereafter. Exact coarse forward substitution gives the ordered partial geometric sum and operator-norm convergence to V∞=F−C⁻¹D for C=I−Ψ and D=F(I−F). D^{1/2} conjugates this to H=F−D^{1/2}C⁻¹D^{1/2}≺I. Complementing the symmetric block matrix with diagonal blocks I+F and C first on C and then on I+F gives Inertia(I+H)=Inertia((I+F²)(I+F)⁻¹−Ψ), including nullity. Thus singular semidefinite difference gives a nondecaying −1 mode; a negative direction gives an eigenvalue below −1. Direct 2×2 arithmetic gives trace 43/840 and determinant (2−15 sin²θ)/3360 of the difference; at π/4 the endpoint trace is −51/32 and determinant 27/64, giving the stated eigenvalues. This is an analytic verification of the limiting restart, not of a finite-length trajectory or repeated solves on one trajectory. The frozen check.py was inspected, not executed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit the algorithm, ordered one-sweep operator, and commuting endpoint formula as prior. The distinct contribution supported here is the necessary-and-sufficient noncommuting SPD restart condition, its exact boundary inertia, and the rotated stability loss, not discovery of the restart algorithm or geometric-sum identity. No inspected prior result supplies that sharp noncommuting restart classification.
+
+## value
+
+PASS
+
+For natural nonmatching fine/coarse quadratic surrogates the exact gain boundary and its unstable-mode count are usable design tests. The smallest possible rotation example shows why individual strict contractions and their spectra alone cannot ensure restart stability. The Schur algebra is standard, but this exact criterion for the endpoint restart addresses a substantive failure mode of the method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

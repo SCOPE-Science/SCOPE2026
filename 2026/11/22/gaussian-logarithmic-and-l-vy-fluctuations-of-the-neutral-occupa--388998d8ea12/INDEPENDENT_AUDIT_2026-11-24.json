@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:16:20.660215Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The raw Poisson integral is finite by its first moment, including at the initial endpoint by monotonicity, and centering yields càdlàg independent-increment martingales. For r>2, integrating v E[W²] in the compensated bracket gives ((r−1)/(r−2))t^(2α) and the Lindeberg integral vanishes by domination. At r=2, truncating the raw jumps at b=(β log β)^(1/2) gives bracket t log b/log β + O_T(1/log β), uniformly including t=0. The jumps above εb have intensity O_T(1/log β), their discarded compensation is negligible for ε=1, and the variance between εb and b vanishes, giving the Brownian limit with variance t/2. For 1<r<2 the Jacobian for y=β^(−1/r)t^α w cancels the physical-time power by αr=1; independently comparing the unsimplified and displayed densities at β=37, t=.5, y=1.2, r in {1.25,1.5,1.9} gave relative differences below 5.4e−16. This density is for the stable-scaled, centered process divided by r−1 (centering does not affect jumps). Above ε it converges with its finite first-moment compensator; the Poisson cumulative sums have J1 convergence as limit jump times are distinct and avoid the endpoints almost surely. The small jump error has squared supremum bounded by 4T ε^(2−r)/(2−r), before and after taking the limit. Hence the converging-together argument identifies the stated stable process with full linear compensation, mean zero and exponent Γ(−r)(−iu)^r, on the principal branch. Standard martingale and Poisson limit tools justify the asserted J1 topology; finite checks alone would not. Supplied verification and checker examined without execution.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pitman–You characterize finite-rate nondecreasing 1-self-similar additive processes by scale-invariant Poisson times and iid jumps scaled by time.",
+          "Sera treats occupation/waiting-process convergence as an observation horizon grows in a conservative ergodic setting.",
+          "Wang gives scalar M1 convergence from the map to the Poisson family at finite intensity and an unscaled deterministic endpoint."
+        ],
+        "reasoning": "The structural theorem encompasses the process after changing time, not its family of centered limits as intensity grows. Observation-horizon theorems, including Wang's, do not give a uniform joint limit or this J1 high-intensity calculation.",
+        "searches": [
+          "Pitman–You arXiv:2111.09409, Theorem 4.1",
+          "Sera arXiv:1810.04571, Theorem 4.1",
+          "Wang arXiv:2611.03010, Theorem 1.4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 388998d8ea12 and ae147207556c",
+        "arXiv:2611.03010",
+        "arXiv:2111.09409",
+        "arXiv:1810.04571"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The deterministic endpoint does not determine centered fluctuation scales or laws.",
+          "The representation fixes how marks enter but does not impose a finite, borderline or infinite second moment, nor give the exact uniform physical-time limit for the Lomax law."
+        ],
+        "reasoning": "The proof independently resolves the critical truncated bracket and compensator and evaluates the stable time/size kernel, including the αr cancellation. These use the given marks and are not mere restatements of the general constructions. No novelty is claimed for classical limit theorems themselves.",
+        "searches": [
+          "Wang arXiv:2611.03010, Theorem 1.4 and accompanying family definition",
+          "Pitman–You arXiv:2111.09409, §4",
+          "Sera arXiv:1810.04571, Theorem 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The direct catalogue result is the assigned 388998d8ea12 record itself.",
+          "The renewal-reset match studies scalar time-averaged squared Brownian displacement with Pareto renewal intervals and a fourth-moment threshold; it explicitly does not give a functional theorem.",
+          "v=s^α transforms Wang's scale-invariant intensity and jump weights exactly, not merely in a limit."
+        ],
+        "reasoning": "Wang covers the same model under the time substitution but not the centered limits. The other trichotomy concerns different observables, moment boundary and convergence statements.",
+        "searches": [
+          "Resultary: high-intensity Lomax-mark neutral-occupation Poisson fluctuations",
+          "Wang arXiv:2611.03010, Theorem 1.4, Eq. (2)",
+          "Resultary ae147207556c renewal-reset trichotomy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue's exact hit is the identical frozen record, not an independent entry; the closely matching three-regime entry is different.",
+          "Wang's explicit law has the unscaled endpoint t^α, but does not tabulate or evaluate the centered clocks and coefficients."
+        ],
+        "reasoning": "No standard finite table applies to a family of J1 limit laws indexed by a continuum of α and physical times; the explicit published process formulas are the relevant exact-coverage comparison and do not record these fluctuations.",
+        "searches": [
+          "Resultary specific-family and Gaussian/logarithmic/stable transition matches",
+          "Wang arXiv:2611.03010, Eq. (2) and Theorem 1.4"
+        ]
+      },
+      "rationale": "The existing occupation theorem exactly supplies the Poisson family, and the limit tools are classical. The supported distinct result is the centered high-intensity functional classification with its model-specific critical coefficient, physical clocks and exact stable-scaled kernel. The examined occupation and representation theorems do not cover this high-intensity statement.",
+      "residual_risks": [
+        "The Zenodo version page was not readable; the original theorem was inspected in the accessible arXiv PDF.",
+        "A specialized additive-process domain-of-attraction result giving an equivalent package may exist outside the bounded search; priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same record, not separate prior coverage",
+          "evidence": [
+            "Same family and three J1 regimes."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-gaussian-logarithmic-and-l-vy-fluctuations-of-the-neutral-occupa--388998d8ea12",
+          "material_read": "Frozen and indexed finding and scope",
+          "method": "Local Resultary comparison",
+          "title": "Gaussian, logarithmic, and Lévy fluctuations of the neutral-occupation Poisson family",
+          "trigger": "Exact catalogue hit"
+        },
+        {
+          "assessment": "No model or limit equivalence",
+          "evidence": [
+            "Exact-Pareto resetting and a scalar Brownian-displacement statistic, without a functional limit."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-gaussian-logarithmic-stable-trichotomy-for-renewal-reset--ae147207556c",
+          "material_read": "Mirrored RESULT.md offsets 0–3123",
+          "method": "Local mirror read",
+          "title": "A sharp Gaussian/logarithmic/stable trichotomy for renewal resets",
+          "trigger": "Closest catalogue trichotomy"
+        },
+        {
+          "assessment": "Exactly covers family construction, not centered trichotomy",
+          "evidence": [
+            "Intensity is proportional to ds/s and weight s^α w; β is the proportionality constant after v=s^α. Infinite-intensity endpoint is t^α."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.03010",
+          "material_read": "PDF p. 5, Theorem 1.4 and Eq. (2), offset around 18421; Zenodo record 23633079 access attempted",
+          "method": "OA PDF passage; alternate Zenodo page returned 403",
+          "title": "Strong Borel–Cantelli laws and clusters of visits for random intermittent maps",
+          "trigger": "Source of same occupation law"
+        },
+        {
+          "assessment": "Broader construction, not high-intensity limits",
+          "evidence": [
+            "Representation uses scale-invariant Poisson times and a generic jump distribution scaled by time."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2111.09409",
+          "material_read": "PDF p. 9, §4, Theorem 4.1, offset 19678",
+          "method": "OA PDF passage",
+          "title": "The range of a self-similar additive gamma process is a scale invariant Poisson point process",
+          "trigger": "General marked hold-jump representation"
+        },
+        {
+          "assessment": "Different limiting parameter and object",
+          "evidence": [
+            "Joint occupation and waiting-process limit for a fixed conservative ergodic setting rather than intensity growth of this explicit Poisson family."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1810.04571",
+          "material_read": "PDF p. 15, Theorem 4.1, offset 46139",
+          "method": "OA PDF passage",
+          "title": "Functional limit theorem for occupation time processes of intermittent maps",
+          "trigger": "Closest occupation-time functional limit context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Poisson family is motivated by a specific occupation law, not chosen to restate textbook fluctuation scales. The result classifies whole paths, gives the exact critical logarithmic scale and identifies which limiting increments are stationary in physical time. These resolve behavior hidden by the known deterministic endpoint; they do not imply a joint map/intensity limit.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

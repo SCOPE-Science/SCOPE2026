@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:02:44.431074Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof and Verification; VERIFICATION.md; verify_93.py and check_full_states.cpp (inspected only)",
+        "Independent replay: python3 /workspace/reproductions/5.py",
+        "Repaired /workspace/repairs/5/RESULT.md; 2026-11-17 Pappus record, Finding and first-entry table"
+      ],
+      "rationale": "Independently partitioned the complement of each possible fixed 2-regular graph on nine points into triangles by exhaustive exact cover. There are 2, 6, 0 and 12 labelled covers for (9), (3,6), (4,5) and (3,3,3), respectively. In each feasible case the orbit of the displayed representative runs through exactly all covers. The Pappus representative has the classical crossed-line pattern with base triples (4,5,8), (6,3,7) and intersection line (0,1,2). Rebuilt the majority map from the block triples and enumerated all 262144 initial states for each representative, following each to its first state fixed by F squared. This reproduced all entry layers and every individual basin. The algebra follows since F squared separates into H and K, the computed fourth images consist of fixed symbols of H and K, and A and B identify these images and conjugate F to swapping two symbols. Matched shore fiber weights hold pointwise, yielding the product size for each fixed-point basin and twice the product for each two-cycle basin. The maxima four, four, three are attained; the repaired paper correctly distinguishes counts of recurrent shore symbols, periodic configurations and temporal orbits. The printed C++ histograms can be compared to the result tables but are not asserted against the tables in that file. The repair leaves all verified numeric findings unchanged and clearly labels the known Pappus row.",
+      "residual_risks": [
+        "The proof is exhaustive for these exact finite maps, not for other sizes or update rules."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bokowski–Pilaud give c_3(9)=3 as the number of combinatorial incidence types, and identify Pappus as a geometric example. The threshold paper gives a general period-at-most-two result for the relevant parallel majority setting.",
+          "The full text of the potentially relevant Cannings paper could not be retrieved by the lawful OA routes checked."
+        ],
+        "reasoning": "The incidence classes and general limit on temporal period are prior coverage, not contributions here. Neither inspected theorem specifies first-entry times, the counts of periodic states or the exact basin partitions for the two non-Pappus representatives.",
+        "searches": [
+          "Bokowski–Pilaud, Enumerating topological (n_k)-configurations, Table 1",
+          "Adam–Dahleh–Ozdaglar, On Threshold Models over Finite Networks, §4.3",
+          "Cannings, The majority and minority models on regular and random graphs"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b7ac6ea9e0f4 and 6fda51a7b933",
+        "Bokowski–Pilaud arXiv:1210.0306",
+        "Adam–Dahleh–Ozdaglar arXiv:1211.0654",
+        "Cannings (2009), bibliographic and abstract material only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older Pappus product rule with weights 2, 4 and 130 gives the same fixed-point basin classes 54 of size 4, 36 of size 16, and 2 of size 16900, and matches all six two-cycle basin classes.",
+          "The same two-shore factorization is general on bipartite graphs, but period bounds and factorization do not prescribe the matched weights or the finite first-entry counts. Those are separately computed at these two representatives."
+        ],
+        "reasoning": "A proof recasting the Pappus numbers without changing the dynamics would not be an independent finding. The surviving exact non-Pappus spectra and the differences among the three known configurations require new graph-specific determinations, not just an invocation of the older result.",
+        "searches": [
+          "Resultary b7ac6ea9e0f4 Finding and basin and first-entry passages; Resultary 6fda51a7b933 Finding and representative classification; Adam–Dahleh–Ozdaglar §4.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026-11-17 Pappus result concerns the same 18-vertex cubic bipartite Levi graph, not a collinearity graph on nine points. It uses the same synchronous strict majority rule.",
+          "Point/line duality just exchanges the two shores of the Levi graph and does not change the update map up to relabelling. The closest same-day all-three-type Resultary finding instead uses NOR."
+        ],
+        "reasoning": "Equivalent Levi labellings and dual configurations yield the same temporal dynamics; the Pappus result is genuine exact overlap. Changing the Boolean rule to NOR is not a relabelling of the graph or the state space with the stated majority census.",
+        "searches": [
+          "Resultary: synchronous majority on the Pappus graph, Levi graph cubic nine-point configurations, majority entry distributions and basin spectra",
+          "Bokowski–Pilaud, arXiv:1210.0306, definitions of isomorphism and duality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary record ending b7ac6ea9e0f4 gives 92 fixed states, 4186 two-cycles, maximum entry three, and the exact Pappus fiber histogram {2:54,4:36,130:2}. Its first-entry table by eventual period sums to (8464,79152,47808,126720), exactly the frozen Pappus row. The independent full-state replay confirms that row, not the conflicting layer tuple mentioned in the earlier record's proof prose.",
+          "Distinct Resultary record ending 6fda51a7b933 shares all three incidence types but gives NOR basin data."
+        ],
+        "reasoning": "The Pappus row, including its entry table and the multiset derived by fiber products, is exactly covered. Neither the prior one-graph majority table nor the distinct three-graph NOR table gives the two non-Pappus majority spectra. The unavailable lookup supplies no evidence that an exact non-Pappus table is absent.",
+        "searches": [
+          "Resultary: Pappus majority phase and exact first-entry or attraction basins; majority or NOR spectra of the three nine-point cubic incidence types",
+          "Primary-literature lookup for non-Pappus synchronous majority on the (9_3) Levi graphs (unavailable)"
+        ]
+      },
+      "rationale": "PASS for the repaired claim: the full majority spectra of the two non-Pappus types and the contrast with the credited Pappus baseline. The frozen novelty framing for all three does not pass as written: the earlier 2026-11-17 Pappus record gives the same orbit, fiber, transient, basin and entry data. The count of incidence types is also already known. The revision retains such facts as background, not independently new results. No checked source covers the surviving two exact majority censuses; this is not a claim of exhaustive historical search.",
+      "residual_risks": [
+        "Cannings's full paper was unavailable and may contain related exact examples; an unavailable alternate primary-literature search is not evidence of absence.",
+        "Indexed and inspected literature is bounded; a separate non-Pappus majority computation may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of the Pappus baseline; the prior first-entry table, not a conflicting prose tuple in its proof, agrees with independent computation",
+          "evidence": "Earlier 92 fixed, 4186 primitive two-cycles, F^5=F^3 and F^4!=F^2; weight histogram {2:54,4:36,130:2}; period-refined first-entry counts sum to the frozen row.",
+          "identifier_or_url": "2026/11/17/SCOPE-pappus-majority-dynamics-92-recurrent-symbols-and-a-sharp-three--b7ac6ea9e0f4",
+          "material_read": "RESULT.md Finding, basin and first-entry tables at the start; shore retraction and fiber discussion at offset 4300 onward; first-entry refinement passages",
+          "method": "Resultary catalogue and local-mirror passage",
+          "title": "Pappus majority dynamics: 92 recurrent symbols and a sharp three-update transient",
+          "trigger": "Exact same Pappus Levi graph and update dynamics"
+        },
+        {
+          "assessment": "Both share the graph classification, with a materially different update rule; date alone is not priority",
+          "evidence": "The NOR dynamical census reports one-update entry and different counts; it is not the strict majority rule.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-three-nine-point-cubic-configurations-have-distinct-nor-basi--6fda51a7b933",
+          "material_read": "RESULT.md offsets 0–3982 and 3850–8350, Finding and exact classification",
+          "method": "Resultary catalogue and local mirror",
+          "title": "The three nine-point cubic configurations have distinct NOR basin spectra",
+          "trigger": "Same three labelled incidence types and basin terminology"
+        },
+        {
+          "assessment": "Three-type count is prior",
+          "evidence": "The table gives three combinatorial (9_3) types up to isomorphism; the definitions distinguish shore-preserving isomorphism from duality.",
+          "identifier_or_url": "https://arxiv.org/abs/1210.0306",
+          "material_read": "pp. 1–2, OA text around offsets 1942 and 4700, definitions and Table 1",
+          "method": "OA PDF passages",
+          "title": "Enumerating topological (n_k)-configurations",
+          "trigger": "Exact number of underlying combinatorial incidence types"
+        },
+        {
+          "assessment": "General period bound, not the incidence-specific exact spectra",
+          "evidence": "The cited parallel majority setting admits at most temporal period two.",
+          "identifier_or_url": "https://arxiv.org/abs/1211.0654",
+          "material_read": "§4.3, pp. 18–19, OA text at about offset 59497",
+          "method": "OA PDF passage",
+          "title": "On Threshold Models over Finite Networks",
+          "trigger": "General majority convergence theorem, possibility of coverage of periods or transients"
+        },
+        {
+          "assessment": "Full-document overlap unresolved",
+          "evidence": "The title and available abstract are not sufficient to assess exact coverage of either non-Pappus majority spectrum.",
+          "identifier_or_url": "Cannings (2009), DOI cited in Resultary b7ac6ea9e0f4",
+          "material_read": "Identifying bibliographic and abstract material; full text not read",
+          "method": "Lawful OA direct and VPN attempts returned HTTP 403; no repository copy recovered",
+          "title": "The majority and minority models on regular and random graphs",
+          "trigger": "Potential exact examples in the same majority rule and regular-graph class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding and proof; independent classification and full-state replay",
+        "Bokowski–Pilaud Table 1 and earlier Pappus baseline"
+      ],
+      "rationale": "The two survivor graphs are all the remaining types at a classical small incidence size, not arbitrarily selected examples. Exact majority recurrent and transient data distinguish these highly constrained graphs even when order and degree agree, and the comparison isolates two properties unique to the Pappus baseline among the three types: no singleton fixed-point basins and universal entry by update three. Fiber weights yield a concise exact basin description future work can check against other dynamics or structural distinctions. This value does not depend on re-counting the known Pappus row as new.",
+      "residual_risks": [
+        "No universal threshold for all cubic incidence geometries is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

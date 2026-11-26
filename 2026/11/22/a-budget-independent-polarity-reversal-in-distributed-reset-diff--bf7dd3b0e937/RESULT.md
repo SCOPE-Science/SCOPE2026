@@ -2,7 +2,7 @@
 
 ## Finding
 
-For a Brownian searcher on an interval, Poisson-reset independently to a spatial law, consider optimally distributing a fixed total partial-absorption reactivity between its two endpoints. **The optimal allocation is unique for every positive reset rate and positive reaction budget. Its left-versus-right majority is determined by one hyperbolic odd moment of the reset-position distribution, independent of the size of the reaction budget.** For two reset positions on opposite sides of the midpoint, this moment has at most one positive zero, and a sharp necessary-and-sufficient criterion determines whether the optimizer switches polarity as the reset frequency varies.
+For a Brownian searcher on an interval, Poisson-reset independently to a spatial law, consider optimally distributing a fixed total partial-absorption reactivity between its two endpoints. **The optimal allocation is unique for every positive reset rate and positive reaction budget. Its left-versus-right majority is determined by one hyperbolic odd moment of the reset-position distribution, independent of the size of the reaction budget.** For two reset positions on opposite sides of the midpoint, this moment has at most one positive zero unless the two positions are symmetric and equally weighted, in which case it vanishes identically. A sharp necessary-and-sufficient criterion determines whether the optimizer switches polarity as the reset frequency varies.
 
 In particular, if resets choose \(0.1L\) with probability \(1/4\) and \(0.7L\) with probability \(3/4\), the unique optimal allocation is right-heavy when
 \[
@@ -52,7 +52,7 @@ Thus the optimal side of the budget depends only on the reset law and the reset 
 \[
  f_r(y)=\frac{a\cosh(k(1-y))+b\cosh(ky)+\frac{ab}{k}[\sinh(k(1-y))+\sinh(ky)]}{k\sinh k+(a+b)\cosh k+\frac{ab}{k}\sinh k}.
 \]
-This formula remains valid if one endpoint is reflecting, since \(a+b=K>0\). Integrating in \(\mu\) gives the displayed formula for \(f_\mu\). Positivity of the numerator and denominator shows \(0<f_\mu<1\). A reset cycle ends in capture before its exponential alarm with probability \(f_\mu\); its expected length is \((1-f_\mu)/r\). The strong Markov renewal identity therefore yields \(M_r=(1-f_\mu)/(rf_\mu)\), so minimizing \(M_r\) is maximizing \(f_\mu\).
+This formula remains valid if one endpoint is reflecting, since \(a+b=K>0\). Integrating in \(\mu\) gives the displayed formula for \(f_\mu\). Its numerator is positive. For the strict upper bound, \(\cosh(ky),\cosh(k(1-y))\le\cosh k\) and \(\sinh(ky)+\sinh(k(1-y))\le\sinh k\), the latter by convexity on \([0,1]\) and the equal endpoint values. The denominator thus exceeds the pointwise numerator by at least \(k\sinh k>0\). A reset cycle ends in capture before its exponential alarm with probability \(f_\mu\); its expected length is \((1-f_\mu)/r\). The strong Markov renewal identity therefore yields \(M_r=(1-f_\mu)/(rf_\mu)\), so minimizing \(M_r\) is maximizing \(f_\mu\).
 
 **2. Unique optimum, including endpoints.** Differentiating the rational expression shows
 \[

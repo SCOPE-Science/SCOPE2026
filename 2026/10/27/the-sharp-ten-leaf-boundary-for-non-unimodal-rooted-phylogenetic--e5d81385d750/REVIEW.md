@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The claim defines rooted phylogenetic diversity through descendant clades. The exact variance identity follows from the hit indicators' avoidance probabilities and their pairwise joint-avoidance probabilities. The verifier independently evaluates the witness by subset enumeration and by the clade-covariance identity, and exhaustively checks every rooted plane full binary shape with at most nine leaves.
+PASS
 
-## Originality
+Rooted unit-edge PD is the sum of ancestral edge-hit indicators. For two clades the covariance of the hit indicators equals that of the two absence indicators, and the joint absence probability is the binomial ratio for the clade union. This gives the stated exact variance identity. Every rooted full binary shape admits a plane embedding, so the source's recursive plane split enumeration exhausts the shapes through nine leaves; its integer sums and peak-index test implement the definition. An independent exact enumeration of unordered shapes found counts 1,1,1,2,3,6,11,23,46, with all 94 weakly unimodal. Independent exact subset and covariance calculations agreed for the balanced-eight-plus-cherry witness at every k: (0,16/25,136/225,28/45,1306/2205,1916/3969,3884/11025,2/9,8/81,0,0) including k=0. Since 144/225>136/225<140/225 and the next term is smaller, no weakly unimodal sequence can give that curve. Unit lengths, fixed-size sampling without replacement and the rooted convention are critical to the scope.
 
-PASS, subject to the residual literature risk below. The closest primary source derives general rarefaction mean and variance formulas, while the present result concerns the shape and sharp first failure of unimodality for the conditional variance sequence. A related finite tree-reconstruction result based on full moment curves does not imply this shape property. Searches returned no direct equivalent statement; search failure is not proof of global novelty.
+## originality
 
-## Value
+PASS
 
-PASS. Rarefaction variance quantifies sampling uncertainty in a phylogenetic-diversity estimate. The exact ten-leaf counterexample and finite sharp cutoff show that a one-peak assumption is unsafe even for a small, balanced rooted tree, which matters when choosing or interpreting sampling depths.
+Best-of-knowledge pass for the universal weak unimodality through nine leaves and its sharp unit-edge failure at ten. The exact variance formula, tree shape counts and general clade enumeration technology are prior work. The closest known results give formulas, distribution or moment-profile identifiability, or an onset under different branch-length hypotheses.
 
-## Closest literature and limitations
+## value
 
-Nipperess and Matsen (2013) derive the exact variance under rarefaction; Chao et al. (2015) study rarefaction/extrapolation and estimator uncertainty. This result is restricted to rooted full binary unit-edge trees and uniform fixed-size sampling. It is not an empirical generalization and does not classify larger trees.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a meaningful exact boundary for the shape of a standard finite-sampling variance curve, not an arbitrary graph statistic or a single isolated number. The explicit tree shows that increasing sample size can raise variance after a strict drop even without tuning lengths, and the exhaustion determines when that phenomenon can first defeat unimodality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

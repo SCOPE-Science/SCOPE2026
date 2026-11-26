@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The closed-neighborhood definition for three-vertex-path convexity is used with its full non-induced interpretation. In any join, selecting two vertices on one side forces the other side to be wholly selected, and selecting two on both sides forces the entire graph; a selected singleton on one side permits precisely unions of whole components on the other. When each side contributes one selected vertex, both selected vertices must be isolated inside their respective factors. These mutually exclusive cases prove the complete join enumerators, and disjoint unions factor. Cotree induction covers every cograph. The nonuniversal sharp bound follows directly from the join formula, with both equality conditions reconstructed. The supplied standalone enumeration was replayed, but is not used to infer the universal claim.
+PASS
 
-## Originality — PASS, with residual risk
+For the all-path version of P3-convexity, a selected pair of neighbors forces any outside middle vertex into the set, whether or not the pair itself is adjacent. At a join, two selected vertices on one shore force the opposite shore to be selected in full; if both shore orders are at least two this forces the full graph. Apart from empty and singleton cases, the only other possible proper set selects one vertex per shore, and each must be isolated within its own shore to avoid an outside middle vertex. With a singleton factor u, omitting u permits only empty or singleton sets, while including u leaves no allowance for an edge from a selected to an outside vertex inside the other factor: the selected subset there must be a union of components. This proves both polynomial formulas (also K2, without double counting). A disjoint union splits the condition by factor; joins are connected with no isolates, so the auxiliary updates follow. A connected cograph with no universal vertex has a join decomposition with both orders at least two. Equality in i(A)i(B)≤|A||B|≤floor(n²/4) forces edgeless balanced shores and conversely gives the claimed graph. The O(n²) dense coefficient arithmetic bound follows by charging child-size products to pairs of leaves and array overhead to the sum of node sizes; the scalar updates are O(n) arithmetic using counts. Own replay: python3 /workspace/review_replay.py 4, scanning all graphs through order six with an induced-P4 detector, checking the actual predicted families against independent wedge implications; 6039 cographs, with 3, 10 and 10 labelled equality cases at orders 4, 5 and 6. This is a finite check; the supplied checker and saved output were inspected, not executed. Nonmaterial environment note: the supplied checker uses int.bit_count(), which needs Python ≥3.10 rather than the 3.9+ in its header.
 
-The 2026 paper (arXiv:2603.04706v1) studies exactly the same convexity, proves the global connected extremum, and counts threshold graphs, not general cographs or their full coefficient vectors. The 2015 cograph paper (DOI:10.1016/j.dam.2014.05.005) develops algorithms for convexity **parameters** rather than the entire convex-set counting polynomial. The 2001 generic monadic-second-order counting theorem already implies tractability for bounded-clique-width cographs; therefore generic efficient computability is explicitly **not** presented as novel. Targeted exact/equivalent-terminology searches found no explicit covering cograph polynomial and no no-universal-vertex extremal classification. Residual risk: an equivalent short join lemma or sharp bound may exist under another indexing term or outside accessible material.
+## originality
 
-## Value — PASS
+PASS
 
-The result gives all cardinality coefficients across the natural \(P_4\)-free class rather than only a scalar count or a nonconstructive algorithm. The sharp quadratic bound separates connected cographs with no universal vertex from the exponential maximum attained by stars, and identifies balanced complete bipartite graphs as the unique extremizers for every order in the domain. This is a structural extremal distinction motivated directly by the 2026 counting programme; it is not merely a renamed instance of the generic clique-width counting theorem.
+The star extremum, general algorithmic countability, and the overlapping windmill/complete-bipartite special cases are not credited as novel. The distinct finding is the explicit cardinality and structure of the convex sets at arbitrary cograph joins/unions and its sharp extremal consequence with unique balanced bipartite equality class in connected cographs without a universal vertex. No inspected statement implies that full package.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The formula answers an existing convex-set counting problem in a natural class while retaining cardinality information lost by scalar algorithms. It identifies a sharp quadratic alternative to the exponential star regime in connected cographs with no universal vertex, and characterizes exactly the extremal graphs. These contributions are more than an algorithmic application or a census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

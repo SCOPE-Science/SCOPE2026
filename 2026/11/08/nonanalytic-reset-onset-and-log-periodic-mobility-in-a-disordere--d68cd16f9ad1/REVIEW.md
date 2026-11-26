@@ -1,22 +1,21 @@
-# Review of nonanalytic weak-return mobility on a random comb
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite-tooth stationary balance recurrence has two positive characteristic roots, and its reflecting boundary yields the exact occupation ratio in the result. Summing the branch master equations gives uniform backbone occupancy and an exact finite-ring velocity, consistent with the source's stationary normalization. A bounded return-rate branch occupancy permits an ordinary quenched strong law; at zero return rate the positive infinite-mean strong law identifies the trapped regime. Shifting the geometric sum by the logarithmic cutoff gives a two-sided geometrically dominated series uniformly in the phase, and its nonzero first Fourier coefficient proves that the amplitude is not constant. At criticality, splitting the regularized series at its logarithmic cutoff yields the inverse-logarithmic coefficient. The standalone checker passed 36 assertions, including exact rational finite-volume stationarity. No finite experiment is treated as an infinite proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+The reflecting branch imposes the ghost condition p_(L+1)=f p_L. The two stationary roots u,w give B/A=T(w/u)^(−L); summing the branch balance gives rΔ_L=α−βp_1 and hence (1), with the empty-tooth case checked separately by Δ_0=0. Branch-plus-junction balances force a constant junction mass on the ring, giving (3); Δ_L≤b supplies the strong law at each positive r, while the truncated strong law applies to the infinite unreset occupation mean when ρf≥1. For weak r, implicit root differentiation gives q=f+O(r), T∼c/r and b∼(α−β)/r. In the lattice shift about floor(log_q T), both tails are uniformly geometric (ρ for the positive tail, ρq>1 for the negative tail). The phase error is O(r log(1/r)); the limit sum is positive and bounded away from zero and its first harmonic is a nonzero Euler beta integral, so v/r^(1−s) has no phase-independent limit. At ρ=1/f one may omit 1−q^(−L) with error at most b/T=O(1); this is the bound needed in place of the extraneous factor (1−ρ) on frozen line 126. Replacing q by f costs O(1) since the kernel derivative is bounded by L/4 and geometric L has finite mean. The sum of (f^L+T)^(−1) equals T^(−1)(log_f T+O(1)), and (1−f^(−1))b/T=1+O(r), yielding the full claimed relative O(1/log(c/r)) correction. No numerical phase sample is used to establish nonconstancy.
 
-The original Sarkar–Gupta paper (arXiv:2205.15232, first posted 2022-05-30) establishes the exact random-comb stationary distribution, speed identity and trap boundary and examines a fixed-length small-return expansion. Those known claims are excluded from the claimed contribution. Its full accessible main text and relevant supplement were compared to the present assertion; no uniform infinite-volume geometric-disorder weak-return scaling, log-periodic prefactor or critical inverse-log law was identified. Kotak–Barma (arXiv:2204.05357) investigates unreset comb transit-time fluctuations and does not introduce returns. A related comb-resetting article in *Entropy* 25 (2023), 1529, has a different CTRW-finger model; its complete text could not be retrieved and is a residual source-access risk. The precise theorem is not inferred novel merely from a failed indexed search. An unindexed equivalent asymptotic derivation remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-At the natural trapping/transport threshold of a biased random comb, the exact speed is positive at every positive return rate but zero in the unreset thermodynamic limit. The theorem determines **how** this restored current vanishes: a continuum of fractional exponents and nontrivial lattice-scale modulation in the trapped regime, turning into an explicit inverse logarithm at criticality. This distinguishes fixed-tooth perturbation theory from an infinite disorder ensemble and makes the noncommuting limits of disorder averaging and weak regularization quantitative. The phase function cannot be replaced by an arbitrary fitted constant. This is a natural transport singularity, not an arbitrary finite-parameter computation.
+The exact stationary formula, reset-restored drift, and zero-reset threshold are prior results and are not credited as original. The distinct supported result is the singular small-r law for unbounded geometric teeth, including its evaluated, strictly nonconstant amplitude and the exact borderline logarithmic coefficient. The closest prior perturbation formula takes fixed lengths or finite cutoffs and has divergent coefficient moments here.
 
-## Closest literature and limits
+## value
 
-- Sarkar and Gupta, arXiv:2205.15232; known exact finite-rate speed and stationary weight, but not the asserted nonuniform weak-return asymptotic.
-- Kotak and Barma, arXiv:2204.05357; finite/infinite random-comb trapping and transit fluctuations without resetting.
-- Masó-Puigdellosas, Sandev and Méndez, DOI 10.3390/e25111529; related comb resetting with nonidentical dynamics, abstract/excerpts accessible but complete text not retrieved.
-- The zero-return and positive-return limits are ordered, and the integer-geometric assumption matters to the periodic amplitude. The numerical checker supports diagnostics only; independent scientific validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This fills a natural singular regime precisely where perturbative reset mobility based on finite moments breaks down. It distinguishes an actually oscillating amplitude from an ordinary regularly varying onset and identifies the sharp logarithmic boundary coefficient. Those sharpen the established statement of positive drift and are meaningful even when the harmonics are too small to resolve numerically.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

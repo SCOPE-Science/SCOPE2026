@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the precisely defined unit-conductance path on five vertices, each of the 64 edge subsets is represented by its exact nonzero-Laplacian characteristic polynomial. A standard determinant derivative turns the trace-inverse comparison into a rational polynomial with positive denominator. The complete set of 240 elementary inequalities is certified by exact integer/rational arithmetic: 29 vanish identically, 210 have strictly positive constant term and no negative coefficient when expanded about \(\mu=5/4\), and the remaining numerator is a positive factor times a quartic with one positive zero. An exact calculation gives the zero-screening counterexample \(3/70\). The statement does not extrapolate finite numerical experiments to an infinite parameter range; polynomial sign identities provide that extension.
+PASS
 
-## Originality — PASS on inspected evidence, qualified
+The four-term F submodularity slack is J(S)+J(S+ef)−J(S+e)−J(S+f), with common 1/μ terms cancelling and positive product denominator. Independently constructed all 64 characteristic polynomials using traces of Laplacian powers and Newton identities, rather than the supplied Leibniz code. Over all 240 unordered pair/base-set tests, the numerator is the asserted exceptional factorization once, identically zero 29 times, and strictly positive on μ≥5/4 by nonnegative shifted coefficients and positive constant 210 times. The least such constant after multiplying by 4^15 was 2607034601472000. The quartic changes sign between 5/4 and 13/10 and has exactly one positive root by Descartes' rule. Its numerator has the quartic's sign for μ>0, including equality at the root. At zero screening p′(0)/p(0) is the pseudoinverse trace; on the {24} witness the four traces are 8/3, 41/20, 41/20, 146/105, giving slack −3/70. Replay: python3 /workspace/evidence/p5_newton.py. The supplied script was inspected, not run.
 
-The 2014 edge-addition network-coherence paper addresses the unscreened objective, and its correction gives an unregularized three-chord counterexample on the same path. Neither inspected text derives the full six-candidate-edge screening threshold. The 2012 Gaussian-random-field V-optimality work treats a different ground set (observed vertices), hence does not imply a claim about added edges. Search records did not identify the same quartic threshold or a stronger corresponding theorem. Remaining risks include unindexed equivalents and work unavailable as full text; lack of a search result alone does not establish novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The graph is not an arbitrary slice: it is the explicit canonical five-vertex example used to invalidate a published submodularity guarantee. Establishing its exact minimal uniform diagonal screening to recover *all* edge-addition diminishing-returns inequalities gives a concrete, nontrivial restoration boundary for the combinatorial objective relevant to greedy network design. The result also distinguishes the original violation at zero screening from a different obstruction that persists to a larger positive threshold. This does not establish a guarantee for arbitrary graphs or edge weights.
+Credit the existing unscreened edge-addition counterexample, not priority for that example. The supported distinct claim is the exact positive-screening iff threshold on all six candidate edges and its strictness classification. Retrieved comparisons concern unscreened edge coherence or a genuinely different vertex-set objective, and do not imply the quartic, its global threshold role, or the equality counts.
 
-## Closest literature and limits
+## value
 
-Summers–Shames–Lygeros–Dörfler (2014) and their correction are the direct graph/objective predecessors. Ma–Garnett–Schneider (2012) covers regularized inverse-Laplacian vertex observation, not addition of edges. The new claim is limited to the stated six-edge finite ground set, homogeneous conductance and uniform screening. Further bibliographic search and independent verification may change priority assessments.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+P5 is a named counterexample to an edge-design submodularity guarantee, not an arbitrary tiny graph. The complete lattice restoration threshold answers exactly how much uniform screening repairs that failure, including a different obstruction at μ=0 and exact strictness. A pointwise test or the old counterexample cannot answer this interval question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

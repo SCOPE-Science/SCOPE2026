@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:01:46.420333Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–93",
+        "Frozen VERIFICATION.md, check.py and CHECKS.txt (source and recorded output inspected; uploaded checker not run)",
+        "Replay: python3 -I /workspace/branches/frozen_independent_checks.py (output labelled 1)",
+        "Independent exact composition replay: /workspace/branches/0365847d-0deb-490f-a5cd-d2a6e623d0b5/independent_exact_check.py"
+      ],
+      "rationale": "Grouping the unspecified colours in the symmetric Dirichlet mixture gives the reported rising-factorial formulas for p_m and q_m. Two colours and three draws force q_2=0, so the covariance is strictly negative there; strict ratio monotonicity is asserted only for m>=3. For those m the covariance sign is that of q_m/p_m^2-1. The k=0 terms cancel in the logarithmic derivative; the remaining three grids give the discrete second difference of F_s. The Laplace representation follows by the finite geometric sum, and (exp(u/s)-1)^(-1) is strictly convex in s>0: the bracket in its second derivative is B(x)=x(exp(x)+1)-2(exp(x)-1) with B(0)=B'(0)=0 and B''(x)=x exp(x)>0. The strictly positive discrete second difference integrates against a positive weight. The small-mass limit is below one by (2m-1)/((m+1)(m-1)^3); the large-mass limits are 243/256 and 32768/32805 for m=3,4. For t=m-1>=4 the truncated alternating binomial series is a lower bound (successive terms decrease), and multiplying out gives the stated polynomial with positive coefficients after t=u+4. Hence each m>=5 crosses once and only once. A separate exact sequential state recursion reproduced both m=5 covariances, and numerical bisection gave 0.3168812738193324758.... Another exact composition enumeration checked the two probability formulas and normalization for m=2 through 6 and alpha=1/4,1,2.",
+      "residual_risks": [
+        "Only the ratio, not the covariance itself, is proved increasing. The classification is for exactly m+1 draws, equal positive masses and unit reinforcement. Finite checks do not establish strict monotonicity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "0111d981dd23, Finding: at alpha=1 an exact cubic in draw count determines the signs for the same pair of specified colours, with a positive window when the alphabet has at least five colours.",
+          "08d9ba9adb10, Finding: a concentration crossing at high alphabet size for covariance of the total numbers of singleton and doubleton categories."
+        ],
+        "reasoning": "The first theorem dominates the fixed-alpha sample-size slice and gives the sign here at alpha=1 and N=m+1, but has no free alpha. The second varies concentration but its mixed singleton-doubleton statistic is not the pair of named singleton indicators. Neither broader regime dominates the actual theorem.",
+        "searches": [
+          "Resultary: singleton reversal in symmetric reinforcement; concentration-driven singleton doubleton covariance",
+          "2026/10/25/SCOPE-the-two-reversal-singleton-correlation-window-in-a-symmetric-rei--0111d981dd23",
+          "2026/10/25/SCOPE-a-unique-concentration-driven-singleton-doubleton-covariance-rev--08d9ba9adb10"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 95–107",
+        "arXiv:2309.11292v2",
+        "Resultary 0111d981dd23, 08d9ba9adb10 and 6882bffd0f38",
+        "DOI:10.1002/9781119995784.ch6 (bibliographic only)",
+        "PMC6800782 (landing page only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Dirichlet moment law gives the two rising-factorial probabilities by grouping colours.",
+          "The known alpha=1 occupancy window gives at most one concentration slice; ordinary count covariance is negative throughout while the singleton covariance need not be."
+        ],
+        "reasoning": "Getting sign uniqueness requires an all-alpha inequality for a ratio of finite grids, not evaluating the classical probabilities at a single mass. The strict convexity kernel and endpoint inequality for every alphabet are the additional steps.",
+        "searches": [
+          "arXiv:2309.11292v2, Eq. (5.63) and Theorem 6.1",
+          "Resultary 0111d981dd23 and 08d9ba9adb10 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dello Schiavo–Quattrocchi Eq. (5.63) identifies the colour-count Dirichlet–multinomial factor; Eq. (6.1) gives its underlying Dirichlet moment input.",
+          "Alpha=1 is uniform weak-composition occupancy and alpha=infinity is ordinary fixed-size iid uniform occupancy.",
+          "The Resultary singleton-correlation-window Finding uses the same two named singleton indicators at alpha=1, but varies the draw count."
+        ],
+        "reasoning": "The alternative occupancy laws are model equivalences, not further threshold results. Count covariance or monotone occupancy events cannot determine the covariance of two indicators of exactly one draw; the finite positive example is an explicit witness to the distinction.",
+        "searches": [
+          "Literature search for named singleton indicators, symmetric Dirichlet–multinomial or Pólya occupancy, concentration and sign reversal",
+          "arXiv:2309.11292v2 Ex. 5.54, Sec. 6",
+          "Resultary 0111d981dd23 and 08d9ba9adb10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The alpha=1 sign overlaps exactly with 0111d981dd23. The distinct same-day 6882bffd0f38 Finding concerns covariances of counts of distinct occupancy frequencies N_r,N_s in uniform weak compositions.",
+          "The supplied finite checks list two exact m=5 covariance values, reproduced independently."
+        ],
+        "reasoning": "The first is a fixed-mass overlap, and the same-day result is about different random variables, not the concentration roots. The reproduced numerical entries are corroboration, not evidence of priority or originality. No exact table of the variable-concentration crossings surfaced in the bounded comparisons.",
+        "searches": [
+          "Resultary: same named singleton events and fixed-size occupancy correlations",
+          "2026/11/2/SCOPE-a-single-covariance-positive-band-for-two-bose-einstein-occupanc--6882bffd0f38",
+          "Frozen CHECKS.txt and independent exact composition comparison"
+        ]
+      },
+      "rationale": "The exact event probabilities follow from the classical law, and the alpha=1 slice for these very indicators is already known in a broader sample-size window. The supported distinct claim is the strict concentration monotonicity of the ratio and the existence and uniqueness classification in alpha at N=m+1, not the single slice or either standard occupancy law. No inspected statement implies this varying-alpha result.",
+      "residual_risks": [
+        "The cited distribution chapter was not readable and only a landing page was available for PMC6800782. Searches do not establish absolute priority; an equivalent variable-concentration comparison under other occupancy terminology remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and moments established, no threshold implied by these statements",
+          "evidence": "The colour-count factor is Dirichlet–multinomial; the theorem supplies Dirichlet moments.",
+          "identifier_or_url": "https://arxiv.org/html/2309.11292v2",
+          "material_read": "Example 5.54 Eq. (5.63); Sec. 6 Theorem 6.1 Eq. (6.1)",
+          "method": "OA HTML passages at offsets 290918, 295620",
+          "title": "Polychromatic Partitions, Kingman Theory, and Ewens Sampling Formula",
+          "trigger": "Identical Dirichlet–multinomial law under colour-count terminology"
+        },
+        {
+          "assessment": "Exact coverage of fixed alpha=1 slice, not concentration uniqueness",
+          "evidence": "Starts with one ball per colour, gives a cubic sign formula as the draw count changes, and the positive window for at least five colours contains N=m+1.",
+          "identifier_or_url": "2026/10/25/SCOPE-the-two-reversal-singleton-correlation-window-in-a-symmetric-rei--0111d981dd23",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror passage",
+          "title": "The two-reversal singleton correlation window in a symmetric reinforced urn",
+          "trigger": "Same pair of singleton indicators in symmetric Pólya sampling"
+        },
+        {
+          "assessment": "Different statistic and regime",
+          "evidence": "Covariance is between total numbers of singleton and doubleton categories under a high-alphabet condition.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-unique-concentration-driven-singleton-doubleton-covariance-rev--08d9ba9adb10",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror passage",
+          "title": "A unique concentration-driven singleton–doubleton covariance reversal",
+          "trigger": "Concentration crossing in a closely related occupancy model"
+        },
+        {
+          "assessment": "Different statistic and variable parameter",
+          "evidence": "Uses distinct occupancy frequencies under the alpha=1 law, not two named singleton events at variable concentration.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-single-covariance-positive-band-for-two-bose-einstein-occupanc--6882bffd0f38",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror passage",
+          "title": "A single covariance-positive band for two Bose–Einstein occupancy frequencies",
+          "trigger": "Closest distinct same-day occupancy hit"
+        },
+        {
+          "assessment": "Full contents not determined",
+          "evidence": "The cited chapter is relevant background; the accessible passages of arXiv:2309.11292v2 establish the model separately.",
+          "identifier_or_url": "https://doi.org/10.1002/9781119995784.ch6",
+          "material_read": "Bibliographic information only",
+          "method": "OA retrieval returned HTTP 403 and no repository copy was identified",
+          "title": "Dirichlet–Multinomial Distribution",
+          "trigger": "Cited general chapter on the same distribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–23 and 47–89",
+        "Resultary 0111d981dd23 and 08d9ba9adb10 Findings"
+      ],
+      "rationale": "The first overfull sample size is a natural occupancy boundary at which repetitions are forced. A complete all-alphabet classification for two nonlinear indicators, including a separation from negative count covariance and a proof of exactly one concentration crossing, answers a concrete dependence question that neither the fixed-mass occupancy comparison nor an isolated sign example resolves.",
+      "residual_risks": [
+        "The result does not classify other draw counts, unequal masses or the joint law of all singleton indicators."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

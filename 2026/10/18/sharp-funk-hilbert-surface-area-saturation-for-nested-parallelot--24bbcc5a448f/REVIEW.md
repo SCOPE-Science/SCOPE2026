@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-At every facet point of an interior cube, tangent projection of the Funk polar yields the displayed asymmetric cross-polytope, and Hilbert gives its half-difference body. Orthant decomposition fixes the normalization and converts the total Funk hypersurface area into the exact \(2d(4a)^m/(m!\omega_m)\) formula. Rogers–Shephard equality characterizations give strictness for \(d\ge3\); after diagonal normalization, the projected polytopes converge to a simplex at the outer boundary, proving optimality by bounded convergence in probability. A four-edge zonotope determinant calculation establishes the exact spatial density and hence monotonicity and sharp asymptotics. The standalone exact rational checker passed all \(49\) constructed cases; independent numerical integration checks supplement, but do not replace, the proof.
+## correctness
 
-## Originality — PASS with historical-priority risk
-The nearest full source, Arya–Mount's arXiv:2601.16468, Corollary 5.1, supplies the universal comparison factor; it does not present the sharp nested-parallelotope realization or the exact dimension-three ratio. Searches for cube, parallelotope, homothetic, sharpness, and comparison within the 29-page full text did not locate such statements. Faifman's prior work develops Funk/Hilbert and difference-body volume comparisons, without establishing the claimed integrated hypersurface formula in the inspected material. The classical Rogers–Shephard inequality proves only the pointwise bound, not its integral saturation on concentric cubes. Semantic database searches found related cube/polytope results but no covering theorem. An undiscovered earlier exact cube calculation remains a meaningful priority risk.
+PASS
 
-## Mathematical value — PASS
-The source's dimension-only constant could have failed to be attainable even asymptotically on any single-shape nested geometry because each local polar has more vertices than a simplex. The theorem resolves that sharpness question inside the particularly restrictive, symmetric, homothetic class, explains the geometric concentration mechanism, and supplies a fully explicit spatial benchmark including exact monotonicity and a logarithmically slow convergence rate. These features are not a mere application of the numerical inequality.
+Under simultaneous affine transformation the induced cotangent densities pull back, so one can work on the inner cube. Projection onto each facet yields the asymmetric axial cross-polytope P_m(z); its orthant simplices give density 2^m/[m!∏(1−z_j²)] before the Holmes–Thompson factor. The substitution z_j=tanh(u_j) cancels that weight, yielding the formula for F_d and a uniform cube average of the difference-body ratio. At finite z all 2m vertices survive, ruling out the simplex equality case. Central symmetry would pair the axial vertices with a common midpoint: a midpoint with one nonzero coordinate is incompatible with the vertices on another axis; one with two is incompatible with both signs on either of those axes, and a pair cannot supply three nonzero coordinates. Thus the center must be zero, and the axial lengths agree only at z=0. Near each corner, coordinate reflections and diagonal rescaling give a nondegenerate simplex limit. Equivalently take U=aV with V fixed uniform on [−1,1]^m; tanh(U) approaches a corner almost surely, so the bounded local ratios converge in mean to β_m. For m=2 the sum of the absolute pairwise edge determinants gives the difference-body area, since the oriented edge segments sum to a zonotope with the polygon's width as support function. Dividing by the original area gives 1+max(|y|,|w|)/2. The maximum of the two absolute logarithmic coordinates has density 2u/a²; the resulting integral has positive derivative, and expanding 1−tanh u as 2/(1+e^(2u)) gives the π²/24 coefficient. The uploaded checker was inspected, not executed; the argument checks the decisive formula analytically.
 
-## Independent limitations
-No independent mathematical audit was commissioned or simulated. General-dimensional monotonicity is not claimed. A surviving unindexed-priority risk remains; the conclusion is based on the explicitly inspected literature and actual semantic searches.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The cotangent-ball identity and the general numerical comparison are already known. The distinction supported here is strict finite-radius comparison and saturation within the restricted homothetic parallelotope family, the exact Funk area, and the dimension-three integrated ratio and gap. A sharp local bound on each cotangent section does not determine this integrated saturation, because the weighted distribution of facet positions must also be analyzed.
+
+## value
+
+PASS
+
+This gives a concrete sharpness family for a surface-area comparison inside the restrictive setting of two concentric, homothetic and centrally symmetric bodies, even though local symmetry of the ambient cube does not force equality at the lower endpoint. The exact radius dependence and gap in dimension three quantify the comparison rather than merely exhibiting a limiting local simplex.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

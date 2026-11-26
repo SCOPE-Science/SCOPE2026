@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:07:47.654365Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The replacement at /workspace/repairs/1/RESULT.md corrects a counting error in the original proof sentence: once the doubled row's two columns are fixed, the distinct-column singleton placement has 2 assignments, not n(n-1). The latter is the count of such placements across all doubled-row column pairs, for a fixed doubled row. The original displayed polynomial was correct and is unchanged. For the final proof, domination is equivalent to occupying all rows or all columns. In the all-row case, at most three edges of a perfect matching already cover every row, so a minimal set has size four or six. No pair dominates. At size four a common singleton column allows an internal matching for the doubled row and one vertical pair. Distinct singleton columns require two vertical pairs; this gives n+2 possibilities after the doubled row and its column pair have been fixed. At size six any vertical edge in a perfect matching would give a four-vertex witness with another matching edge meeting the third row. Thus row counts are (2,2,2); any shared column would give a smaller paired set via the vertical edge and the third row's pair. Distinct columns suffice for minimality: no proper subset can cover all columns, and all-row coverage with a matching requires both cells in each row. In the empty-row case all columns are occupied. If two doubled columns exist, deleting from the same row (both row occupancies even) or from opposite rows (both odd) keeps full column coverage and makes row counts even, giving a proper paired subset. Hence the number of doubled columns is zero for even n and one for odd n. The parity counts and one-row double-count correction give 3(2^(n-1)-1) at even n; one doubled column gives 3n*2^(n-1) at odd n, with a vertical pair used just when both row counts are odd. These sets are minimal by column coverage and parity. The support at n=3,4,5,6 follows by merging coincident degrees; for n>=7 all three degrees occur. Independent finite replay: python3 /workspace/branches/rook_independent.py checks all 2,396,667 nonempty subsets for n=3..7 using direct neighborhood unions, a matching recurrence and proper-subset detection. Paired outputs by increasing degree are (81), (129), (210,240), (360,183), (567,630,1344); the frozen verifier was read, not executed. The finite check supports, but does not certify, the all-order proof. The corrected proof, unchanged claim and updated source comparison were re-audited; no supporting script or verification notes required a replacement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The rectangular paired result gives the minimum size 4 on K_3 square K_n and counts all paired sets. Mertens counts all ordinary dominating sets on the same board family.",
+          "Brešar–Henning–Rall's available abstract gives Cartesian product inequalities for the minimum paired-domination number. Dorbec–Henning's claw-free upper bound gives at most 2n here, larger than 2 ceil(n/2); Alizadeh–Gözüpek's abstract gives a general upper comparison, not graded counts."
+        ],
+        "reasoning": "Neither a general all-set polynomial nor scalar min/max comparisons supply the complete labeled inclusion-minimal classification.",
+        "searches": [
+          "Resultary 45220dd1e169, general K_m square K_n theorem",
+          "Brešar–Henning–Rall, Paired-domination of Cartesian products of graphs",
+          "Alizadeh–Gözüpek arXiv:2104.02446",
+          "Dorbec–Henning, Upper Paired-Domination in Claw-Free Graphs",
+          "Mertens, Domination Polynomial of the Rook Graph"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and artifacts/verify.py; repaired RESULT.md",
+        "Resultary 45220dd1e169, 7cd5e8a6684a, 802b2a8143e0, 0b2a58606477 and 975b771dc47e",
+        "Brešar–Henning–Rall (2007) institutional abstract",
+        "arXiv:2104.02446 and arXiv:2008.03887",
+        "Dorbec–Henning author abstract; Mertens JIS theorem and methods; Jiang et al. DOI metadata"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For one fixed graph the all-set polynomial groups valid sets by degree. It records no proper-subset relation between valid sets; at degrees above the minimum, inclusion-minimality cannot be tested from the coefficient alone.",
+          "The general parity criterion decides membership, so exhaustive subset tests are possible; it does not select the minimal supports without additional reasoning. The repaired proof extracts that structure by trimming matching witnesses to all-row coverage or preserving all-column coverage under parity-sensitive deletions."
+        ],
+        "reasoning": "The distinct higher-degree claim needs a new structural minimization argument, not just evaluating the earlier polynomial at m=3. A gap on a star prism does not specialize to a three-row complete rook graph.",
+        "searches": [
+          "Resultary 45220dd1e169 Finding and Proof §§1–3, compare coefficient extraction and parity/coverage criterion",
+          "Resultary 7cd5e8a6684a Finding, compare graph family and gap mechanisms"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A cell corresponds to an edge of K_{3,n}; the induced rook graph of a selected set is the line graph of its bipartite selected-edge graph.",
+          "The all-set polynomial already uses this reduction and the even-edge component criterion. It does not classify selected edge sets minimal for joint coverage and matching."
+        ],
+        "reasoning": "Changing between cells and bipartite edges does not create a new result. The distinguishing property is inclusion-minimality under proper subsets, not the graph representation.",
+        "searches": [
+          "Resultary: minimal paired domination polynomial of three-row rook graphs, upper paired domination, paired domination of Cartesian products",
+          "Resultary 45220dd1e169, line-graph and component-parity proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The all-set example at n=3 is 81z^4+84z^6+9z^8. The repaired formula has 81z^4 only; the degree-four coefficient is known from the all-set result because that is the smallest possible size.",
+          "Record 7cd5e8a6684a gives a sparse inclusion-minimal paired polynomial on K_{1,r} square K_2. Same-day 802b2a8143e0 counts all paired sets on K_n square K_2; same-day 0b2a58606477 counts minimum total 3-dominating sets on these three-row boards. Record 975b771dc47e considers ordinary upper domination on this board family."
+        ],
+        "reasoning": "The exact minimum layer and the phenomenon of gaps on a different graph family are not new here. The checked records do not give a higher-degree table for this labeled inclusion-minimal family.",
+        "searches": [
+          "Resultary: full target title, K3 square Kn minimal paired-domination polynomial and sparse support",
+          "Compare Resultary 45220dd1e169, 7cd5e8a6684a, 802b2a8143e0, 0b2a58606477 and 975b771dc47e"
+        ]
+      },
+      "rationale": "The repaired submission credits the closest family-wide enumerator for all paired-dominating sets and the overlap at minimum size. The supported distinct claim is the full inclusion-minimal distribution on three-row rook graphs, including the higher-degree layers and the exact size gaps. No inspected source gives that classification or implies it by direct specialization. This is a bounded statement-level comparison, not publication-priority certification.",
+      "residual_risks": [
+        "Full text of the 2007 Cartesian paired-domination paper and the Jiang et al. upper paired-domination paper was unavailable. An equivalent higher-degree classification elsewhere remains possible. Ranked index searches and inspected passages do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers all-set distribution and minimum layer only",
+          "evidence": [
+            "Definition sums over every paired-dominating subset; the 3-by-3 example has positive coefficients at 6 and 8, while those sets are nonminimal on that board."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-parity-component-formula-for-the-paired-domination-polynomial--45220dd1e169/RESULT.md",
+          "material_read": "Finding, assumptions and proof of the line-graph parity reduction, mirror chars 0–3170, with component enumeration comparison",
+          "method": "Direct local mirror (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "title": "A parity-component formula for the paired-domination polynomial of rook graphs",
+          "trigger": "Closest matching family and graded polynomial"
+        },
+        {
+          "assessment": "Available results concern the minimum; full text unavailable",
+          "evidence": [
+            "The inequalities in the abstract are in terms of the minimum paired-domination number and a 3-packing number of the factors."
+          ],
+          "identifier_or_url": "https://pure.uj.ac.za/en/publications/paired-domination-of-cartesian-products-of-graphs/",
+          "material_read": "Institutional abstract and bibliography, webpage chars 0–2588 (Utilitas Mathematica 73, pp.255–265)",
+          "method": "Targeted public primary-literature lookup, institutional OA abstract read; identified author-hosted ResearchGate PDF attempted but returned 403",
+          "title": "Paired-domination of Cartesian products of graphs",
+          "trigger": "Closest published title and same product operation"
+        },
+        {
+          "assessment": "General upper comparison, not the polynomial in the passage read",
+          "evidence": [
+            "Gamma_pr is the largest size of a minimal paired-dominating set; the article focuses on equality in Gamma_pr <= 2 Gamma."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2104.02446",
+          "material_read": "Article abstract, offset 0",
+          "method": "Available original article passage",
+          "title": "Upper paired domination versus upper domination",
+          "trigger": "Same inclusion-minimal notion and upper parameter"
+        },
+        {
+          "assessment": "General numeric upper bound, weaker on these boards",
+          "evidence": [
+            "The bound 2N/3 for connected claw-free graphs of minimum degree at least three gives 2n here."
+          ],
+          "identifier_or_url": "https://www.labri.fr/perso/dorbec/abstracts/upclaw.pdf",
+          "material_read": "Author-hosted abstract PDF, offset 0; not full text",
+          "method": "Available original abstract",
+          "title": "Upper Paired-Domination in Claw-Free Graphs",
+          "trigger": "Rook graphs are claw-free line graphs"
+        },
+        {
+          "assessment": "Unresolved full-text risk, not evidence of noncoverage",
+          "evidence": [
+            "Same upper paired-domination topic (Jiang, Wu, Zhang and Rao); no inspected theorem gives the target family census."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/math.2022069",
+          "material_read": "Bibliographic metadata only; no readable original full text obtained",
+          "method": "DOI/publisher and targeted OA copy lookup; latter did not return the paper",
+          "title": "Upper paired domination in graphs",
+          "trigger": "Same upper invariant in the frozen bibliography"
+        },
+        {
+          "assessment": "Different domination predicate and no minimality",
+          "evidence": [
+            "Uses the edge-cover polynomial of K_{m,n} to count all ordinary dominating rook placements."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL27/Mertens/mertens6.pdf",
+          "material_read": "Theorem 4 p.5 and §4 p.8, PDF-text offsets around 12714 and 25492",
+          "method": "Available original OA paper passages",
+          "title": "Domination Polynomial of the Rook Graph",
+          "trigger": "Exact enumeration on the same product family"
+        },
+        {
+          "assessment": "Different product or different domination parameter",
+          "evidence": [
+            "The paired inequalities concern the direct product; the Cartesian prism case referenced concerns ordinary upper domination."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2008.03887",
+          "material_read": "Introduction and later product discussion, text offsets 1465–4432 and 6853",
+          "method": "Available original article passages",
+          "title": "Tightness of Paired and Upper Domination Inequalities for Direct Product Graphs",
+          "trigger": "Paired domination for products and rook-graph comparison"
+        },
+        {
+          "assessment": "Different family, no specialization to three-row rook graphs",
+          "evidence": [
+            "The polynomial on the star prism K_{1,r} square K_2 is z^2+(2r+1)z^(2r)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-paired-domination-polynomial-and-minimal-set-gap-of-quadrilatera--7cd5e8a6684a/RESULT.md",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Local Resultary mirror comparison",
+          "title": "Paired-domination polynomial and minimal-set gap of quadrilateral books",
+          "trigger": "Same invariant and gap phenomenon"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Three rows are a natural next case beyond complete prisms and yield a nontrivial interaction between row/column coverage and induced matching. The exact classification distinguishes minimum and upper cardinality from the intervening support, proving that arbitrarily many even sizes are missing within a connected highly symmetric family. The all-set spectrum and general upper bounds do not answer that question.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The mass matrix and its inverse are calculated exactly. Differentiating the quadratic influence functions recovers the two projected-slope kernels; integration by parts then gives a representation for every Sobolev input derivative. Each influence kernel has exactly one interior sign change, so its absolute integral yields the attained sharp Lipschitz coefficient. The Hilbert endpoint is exactly the largest eigenvalue of a computed two-by-two influence Gram matrix, and every top eigenvector lifts to a genuine \(H^1\) input derivative. Monotonicity of the formulas and elementary expansions establish the balanced optimum and collapse rates. `checker.py` independently reproduces the stated algebra with SymPy; finite numerical examples are supplementary and are not used as general proofs.
+## correctness
 
-## Originality
-PASS with historical-priority risk. Closest literature: Diening–Storn–Tscherpel (arXiv:2008.01801), Theorem 4.13, supplies mesh-dependent sufficient Sobolev bounds but not the exact two-element constants; Bank–Yserentant (DOI 10.1007/s00211-013-0562-4), Section 7, gives an infinite graded-mesh \(H^1\) obstruction but not the exact three-node finite case; Ali–Funken–Schmidt (arXiv:2008.12759) treats two-dimensional quadrilateral adaptive meshes. Related precise spline results concern \(L^\infty\)-to-\(L^\infty\) or \(L^\infty\)-to-slope bounds, which do not imply the two operator norms claimed here. No equivalent exact formula appeared in the investigated mathematical record, but obscure older one-dimensional finite-element literature remains a possible source of prior coverage.
+PASS
 
-## Mathematical value
-PASS. Sobolev stability of \(L^2\) finite-element projection is a standard and consequential mesh-grading question. This theorem supplies sharp, simultaneously attained constants in the minimal nontrivial conforming mesh, a unique balanced optimum, and distinct amplification exponents at the two important Sobolev endpoints. It quantifies how a finite element degenerates beyond the existence of qualitative unstable grading sequences. It is deliberately a finite sharp benchmark, not a broad mesh classification.
+Reconstructed the derivative operator by adjoining the hinge w=(x-h)_+ to the affine subspace. With b=1-h, its affine projection is b²/2+β(x-1/2), β=b²(1+2h); the residual v has squared L² norm h³b³/3. If F(t)=∫_t^1 v and A(t)=6t(1-t), the derivative kernels on the left and right cells are A−βF/‖v‖² and A+(1−β)F/‖v‖². This gives the piecewise kernels in RESULT.md:34–43 by integration. For the left row the negative part on the long side beyond (1+2h)/3 has integral 2b²/(9h); the right row is its reflection with h and b swapped. Both have integral one, so taking the larger absolute integral and its kernel-sign derivative gives exactly the attained L∞ result. The squared L² norm is the top eigenvalue of the weighted row Gram matrix; integrating the polynomial pieces gives cross inner product −3(1−2h)²/(20hb), trace 3(1+4hb)/(10hb), and discriminant 9(1−4hb)(1−3hb)/(100h²b²). The adjoint applied to a top eigenvector supplies an admissible extremizing derivative. Both formulas decrease strictly as the mesh approaches balance: for L², write u=hb and observe that 1/u and sqrt((1−4u)(1−3u))/u decrease on (0,1/4]. Substitution verifies both minima and the leading graded constants. The one-cell affine projector has kernel A and fixed seminorm gains (1 and sqrt(6/5)), so it has no grading divergence. In RESULT.md:45 the prefactor for a slope kernel is a difference of coordinate vectors, not scalar hat values; the explicit kernels and proof calculation use that interpretation. Read checker.py and VERIFICATION.md; no uploaded code was executed and no formal verification is claimed.
 
-## Limitations
-This is an unweighted one-dimensional two-element theorem for derivative seminorms only. Historical priority is not independently certified. Numerical tests support but do not substitute for the mathematical proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the exact pair of attained, fixed two-cell derivative-to-derivative norms, with their balanced minima and precise singular-grading behavior. The reviewed indexed statements concern L¹ variation or bounded-input projector/slope norms; broad stability estimates and qualitative instability do not establish these sharp numbers. This is a bounded best-of-knowledge decision, not a priority certification.
+
+## value
+
+PASS
+
+This is the smallest mesh that can isolate grading-dependent instability of the ordinary L² projection. Exact best factors make the comparison quantitative: the Lipschitz seminorm grows as the inverse short-cell length while the Hilbert seminorm grows as its inverse square root. The formulas also give concrete worst inputs and the unique optimal knot. These are useful sharp benchmarks for mesh-dependent stability, not just repetitions of an upper estimate or numerical examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

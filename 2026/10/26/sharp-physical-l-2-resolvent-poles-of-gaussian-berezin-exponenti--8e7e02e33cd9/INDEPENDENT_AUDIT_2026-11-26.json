@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:35:50.576392Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Gaussian integration of exp[(α+u)ξ+(β+v)ξ̄] gives exp[(α+u)(β+v)], and coefficient extraction gives the block λ exp(D) with the stated derivatives. For N=λ(exp(D)−I), D lowers degree and N^m=λ^m A^m, A=β∂z+α∂w, since using a second derivative or any extra power kills total degree ≤m. The Laurent expansion terminates and after order-m+1 scaling converges uniformly in angle in norm to this leading coefficient, up to a unit scalar. To check the actual norm independently, complete the square with c=ᾱ+β and translate the two real coordinates to independent centered normals of variance 1/2. In these coordinates A=d∂x+e∂y, d=(β+α)/2 and e=i(α−β)/2. Monic product Hermites of bidegree (j,k) have squared norm j!k!/2^(j+k) before the common factor exp(|c|²). Only j+k=m contributes to A^m, with output m! d^j e^k. Duality therefore gives squared operator norm 2^m m!(|d|²+|e|²)^m=m!(|α|²+|β|²)^m after canceling the same factor on the constant output. This nonzero norm proves exact pole order. Complex Hermite orthogonality (equivalently the moments from exp(uv)) verifies the stated attaining vector. Directional differentiation is onto from homogeneous degree j to j−1 in adapted linear coordinates; descending correction for the second derivative gives the stated ranks and Jordan lengths. Uniform radial bounds and boundedness away from λ give the radius asymptotic. 'Maximal distance' here is the supremum, since the defining strict inequality generally does not attain it. VERIFICATION.md and the real-rational finite-degree verifier were inspected without rerunning the latter.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Qin–Liu–Huang provide the normalized Gaussian action and polynomial transform for these blocks. The earlier fixed-point paper was cited and sought but no full text could be inspected. The indexed integration resolvent concerns a different operator on the full Fock space."
+        ],
+        "reasoning": "Generic finite-dimensional Laurent expansion determines the leading operator from algebraic nilpotency but not its inherited-norm coefficient. Knowing that a fixed vector exists, or knowing Jordan sizes, similarly does not specify this norm.",
+        "searches": [
+          "arXiv:2610.22136v1 §3, Eqs. (3.5), (3.9)",
+          "10.1016/j.jfa.2015.03.003 fixed-point comparison",
+          "Resultary 321943a5173a Fock integration resolvent"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and gaussian_berezin_jet_verify.py",
+        "arXiv:2610.22136v1",
+        "DOI lookup for 10.1016/j.jfa.2015.03.003",
+        "Resultary 5341e28cb9dd, 6b173840b97e, 321943a5173a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq. (3.9) says B[R K_a,b]=exp(āb)K_a,b exp(D_a,b)R. It acts on coefficients; neither this identity nor the compared integration resolvent gives the inherited norm of the leading operator."
+        ],
+        "reasoning": "The block identity gives λ and, with degree counting, λ^m A^m. To get the claimed exact constant one still needs the metric induced on the polynomial factor, the Gaussian centering and its cancellation on the range, and an attaining dual-norm calculation. A coefficient-space Jordan normal form does not make these steps automatic.",
+        "searches": [
+          "Qin–Liu–Huang arXiv:2610.22136v1, exact equations (3.5) and (3.9)",
+          "Local Resultary 321943a5173a resolvent Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The parameter substitution exactly matches the convolution block, not its inherited-norm asymptotic. The closest Fock jet records 5341e28cb9dd and 6b173840b97e concern respectively a penalized reproducing kernel and Gram eigenvalues of colliding evaluations."
+        ],
+        "reasoning": "A kernel minimum-modulus profile or derivative-jet Gram collision is not the m-fold derivative norm on a centered polynomial chaos and does not give this resolvent residue. The exact algebraic equivalence with the cited block is credited.",
+        "searches": [
+          "Local Resultary Berezin Gaussian exponential-polynomial jet / Hermite norm / Fock pseudospectrum comparisons",
+          "arXiv:2610.22136v1 §3 with the substitution a=ᾱ, b=β"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved records tabulate or derive other exact Fock quantities, not the λ-weighted Hermite derivative coefficient or finite Berezin radius. No exact matching formula surfaced."
+        ],
+        "reasoning": "The comparison object is a parameterized formula for the physical operator norm, not a numerical eigenvalue or Jordan multiplicity.",
+        "searches": [
+          "Local Resultary comparisons for exact Berezin/Fock resolvent and jet norms: 5341e28cb9dd, 6b173840b97e, 321943a5173a"
+        ]
+      },
+      "rationale": "The Gaussian convolution identity, qualitative eigenstructure, and general resolvent pole mechanism are not distinct contributions. The supported addition is the exact leading coefficient in the inherited weighted Gaussian metric for arbitrary complex directions, with its associated sharp radius. The closest primary source gives the action on coefficients but not the metric calculation. This is a bounded literature judgment, not a priority claim.",
+      "residual_risks": [
+        "The 2015 related paper was not independently inspected in full. Bounded searches do not rule out an earlier equivalent weighted-Hermite norm or pseudospectral result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the algebraic transform, not the claimed physical norm",
+          "evidence": [
+            "K_a,b=exp(āz+bz̄); D_a,b=∂z∂w+b∂z+ā∂w. Substitution a=ᾱ,b=β recovers the reviewed block identity."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.22136v1",
+          "material_read": "Introduction (offset 0), exponential multiplier near 16900, Eq. (3.5) near 22300 and Eq. (3.9) near 27400",
+          "method": "Targeted OA HTML reading",
+          "title": "Commuting Toeplitz operators with harmonic symbols on the Fock space",
+          "trigger": "Exact same Gaussian exponential-polynomial block"
+        },
+        {
+          "assessment": "Earlier related fixed-point work; potential stronger coverage not settled by unavailable material",
+          "evidence": [
+            "No independent primary-text passage supporting or excluding the exact coefficient was available."
+          ],
+          "identifier_or_url": "10.1016/j.jfa.2015.03.003",
+          "material_read": "Frozen bibliographic entry and description; independent DOI attempt yielded no accessible article text",
+          "method": "Lawful lookup and primary retrieval attempt",
+          "title": "Commuting Toeplitz operators with pluriharmonic symbols on the Fock space",
+          "trigger": "Possible earlier fixed-point or Gaussian jet calculation"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Studies the modulus and zero radius of a reproducing kernel with a finite Taylor-jet penalty."
+          ],
+          "identifier_or_url": "Resultary 5341e28cb9dd",
+          "material_read": "Local mirror Finding",
+          "method": "Catalogue search and targeted mirror read",
+          "title": "Sharp minimum modulus profile for even-jet Fock kernels",
+          "trigger": "Exact Fock jet norm-related formula"
+        },
+        {
+          "assessment": "Different jet object and norm question",
+          "evidence": [
+            "Studies small Gram eigenvalues for colliding derivative evaluations."
+          ],
+          "identifier_or_url": "Resultary 6b173840b97e",
+          "material_read": "Local mirror Finding",
+          "method": "Catalogue search and targeted mirror read",
+          "title": "Sharp collision hierarchy for two equal Bargmann–Fock jet clusters",
+          "trigger": "Possible physical-norm characterization for jets"
+        },
+        {
+          "assessment": "Different operator, space and limiting regime",
+          "evidence": [
+            "Concerns integration on full Fock space, not a finite Berezin jet at its nonzero eigenvalue."
+          ],
+          "identifier_or_url": "Resultary 321943a5173a",
+          "material_read": "Local mirror Finding",
+          "method": "Catalogue search and targeted mirror read",
+          "title": "All-order coherent-state growth of the Bargmann–Fock integration resolvent",
+          "trigger": "Closest indexed Fock resolvent comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact perturbation scale near the Berezin eigenvalue is not determined by the qualitative fixed-point theory or the size of its Jordan blocks. It depends materially on the norm; using a coefficient norm in place of the inherited one could change the claimed scale. The sharp inherited coefficient, its attained form and the disk bounds provide a quantitative statement on these natural invariant sectors without making an invalid boundedness claim about the full Gaussian L² space.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

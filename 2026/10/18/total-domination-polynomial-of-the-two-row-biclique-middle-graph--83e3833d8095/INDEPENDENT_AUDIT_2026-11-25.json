@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:40:34.355690Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–78",
+        "VERIFICATION.md lines 19–23",
+        "verify.py and verification_output.txt (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/check_5_independent.py"
+      ],
+      "rationale": "First choose a nonempty edge-vertex subset in every column, with both rows represented, and allow all original vertices. This baseline has enumerator ((2z+z²)^n−2z^n)(1+z)^(n+2). It dominates all original and all unselected edge-vertices. A failure occurs only if a selected edge-vertex has no selected partner in its row or column; then it is an unpaired singleton row, and its original hub and original column endpoint must both be missing for the baseline choice to fail. For n≥3 at most one row can be singleton under column coverage. There are 2n unpaired singleton profiles, each of weight z^n, with n other free original vertices, so subtract 2nz^n(1+z)^n. This proves the entire polynomial. At degree n, the configurations use no originals and one edge-vertex per column; each row must have at least two. The constant in the bracket is 2^n−2n−2, positive from n=4. At n=3 it is zero, and the linear term is 24. Bernoulli substitution at q=1−p gives (1−q²)^n less 2(pq)^n(1+nq²), with a continuous extension at q=0. The correction is uniformly bounded by 2(n+1)4^(−n); the main term gives all three claimed limits, including the endpoints. A new exhaustive program built the middle graph by original endpoint intersections and tested domination by the union of selected open neighborhoods. All coefficients, including zeros, agreed for n=3–6 over 1,198,080 subsets. The positive totals reproduced 752, 4928, 30528 and 185344.",
+      "residual_risks": [
+        "The enumeration is bounded; the proof, not extrapolation, covers all n≥3. No result claimed here for n=1,2."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 2.15 covers the scalar minimum on complete bipartite middle graphs",
+          "4d429ac2b8f4 gives the full generating sum over original edge covers for any nonempty finite simple G; Hu et al. give general reductions and other graph-family results"
+        ],
+        "reasoning": "The later stronger expansion accounts for all coefficients here and should be credited; the count of edge covers with and without isolated selected edges is needed to obtain this evaluated closed form. The earlier scalar result does not encode any such counts.",
+        "searches": [
+          "Kazemnejad et al., arXiv:2204.07040, Proposition 2.15",
+          "Hu et al., arXiv:1607.00400",
+          "Resultary: ordinary total domination of middle graphs via edge covers"
+        ]
+      },
+      "checked_sources": [
+        "Kazemnejad et al. arXiv:2204.07040",
+        "Latheeshkumar 2017 §§4.2–4.3",
+        "Hu et al. arXiv:1607.00400",
+        "Resultary 4d429ac2b8f4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known scalar specializes to 4, then n; neither its optimal multiplicity nor the upper coefficients follow from those minima",
+          "In the later edge-cover formula an isolated selected edge is exactly an unpaired singleton-row edge here; counting such exceptional profiles and all other covers gives the same polynomial"
+        ],
+        "reasoning": "The later general result directly underlies the family enumerator, and a Bernoulli substitution is automatic once the compact evaluation is known. The audit credits distinctness only for the compact evaluation of the October 18 family record and its quantitative interpretation relative to the demonstrated earlier coverage, not for a new general principle.",
+        "searches": [
+          "Kazemnejad et al. Proposition 2.15",
+          "Latheeshkumar §§4.2–4.3",
+          "4d429ac2b8f4 Finding and Proof §§1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Thesis §4.2 treats complete multipartite graphs themselves; §4.3 treats middle graphs, including M(K_(1,n)) and pendant-leaf constructions",
+          "Resultary 4d429ac2b8f4 uses the identical middle-graph construction and open-neighborhood condition"
+        ],
+        "reasoning": "The graph and neighborhood convention are material. The no-leaf biclique K_(2,n) is not a star or a pendant-leaf construction covered by the inspected formulas. The later edge-cover expansion is genuinely equivalent at the enumerator level if evaluated.",
+        "searches": [
+          "Resultary: complete bipartite middle-graph total-domination polynomial and Bernoulli success law",
+          "Latheeshkumar 2017 thesis §§4.2–4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Targeted catalogue results include the October 26 general expansion 4d429ac2b8f4; its Finding and Ordinary enumerator give an unevaluated sum, not the compact formula or limit. The thesis has exact polynomials for neighboring families, not this one in the inspected passages."
+        ],
+        "reasoning": "No distinct exact compact-form match was established, as opposed to broader generating-sum coverage; unsuccessful queries are not proof of uniqueness.",
+        "searches": [
+          "Resultary: compact polynomial for M(K_(2,n)); two-row biclique, singleton row and Bernoulli window",
+          "Latheeshkumar §4.3, Theorems 4.3.3–4.3.4"
+        ]
+      },
+      "rationale": "The scalar minimum is known. The distinct claim is the evaluated compact all-size enumerator for this two-row family and its exact Bernoulli consequence. The inspected primary works do not give that evaluated family law. A later indexed general expansion is substantial broader coverage: it enumerates the same polynomial by edge covers but leaves the family-specific evaluation and probability window unstated. It is not earlier priority evidence.",
+      "residual_risks": [
+        "The broad external query wave was deferred; primary-source and local catalogue comparison cannot exclude an equivalent unpublished, unindexed or not-retrieved evaluated formula. Catalogue dates are not provenance or external priority certifications."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact scalar overlap, not a coefficient-distribution result",
+          "evidence": [
+            "The proposition covers the complete bipartite middle-graph case, including the stated two-row minimum"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2204.07040",
+          "material_read": "Proposition 2.15, p. 7, offset 17613",
+          "method": "OA PDF statement comparison",
+          "title": "Total domination number of middle graphs",
+          "trigger": "Same family and invariant minimum"
+        },
+        {
+          "assessment": "Related exact enumerators on different objects",
+          "evidence": [
+            "Star middle-graph polynomial x^n(1+x)^(n+1); pendant-leaf constructions; plain complete multipartite graphs"
+          ],
+          "identifier_or_url": "Latheeshkumar, University of Calicut thesis, 2017",
+          "material_read": "§4.2 complete multipartite result; §4.3 pp. 69–72, Theorems 4.3.3–4.3.4 and corollaries",
+          "method": "Thesis passage comparison",
+          "title": "Total Domination Polynomials: A New Approach",
+          "trigger": "Primary thesis with a middle-graph polynomial section"
+        },
+        {
+          "assessment": "Shows general reductions and other family results; coverage elsewhere not excluded by a literal miss",
+          "evidence": [
+            "Abstract mentions path and cycle polynomials and tree upper bounds"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1607.00400",
+          "material_read": "p. 1 abstract; literal phrase location for middle graph",
+          "method": "OA PDF limited inspection",
+          "title": "Total domination polynomials of graphs",
+          "trigger": "Possible old polynomial reduction or example"
+        },
+        {
+          "assessment": "Later record gives the same enumerator as an edge-cover expansion for all middle graphs; does not evaluate this family in those sections",
+          "evidence": [
+            "Weight of a cover C is z^|C|(1+z)^(|V|−2i(C))(2z+z²)^i(C), where i(C) counts isolated selected edges"
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-a-perfect-matching-sieve-from-total-domination-of-middle-graphs--4d429ac2b8f4",
+          "material_read": "RESULT.md Finding, Assumptions, Proof §§1–2, offsets 0–4076",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A perfect-matching sieve from total domination of middle graphs",
+          "trigger": "Exact broader generating-sum overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–27, 46–78",
+        "Kazemnejad et al. Proposition 2.15",
+        "Resultary 4d429ac2b8f4"
+      ],
+      "rationale": "A full exact size distribution for a standard family is more informative than the known minimum; it gives the number and shape of optimal sets and quantifies the probability of total domination over every density. The scaling law isolates the missing-column obstruction from the uniformly exponentially small row/endpoint obstructions, which explains the transition rather than only giving a table.",
+      "residual_risks": [
+        "Family-specific evaluation; no general classification for larger first part sizes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,8 +21,6 @@
 
 # Verification methodology
 
-The proof reduces the left, middle and right associator identities to four exact cyclic-polynomial equalities, then solves the resulting coefficient equations. The crucial middle/right distinction is whether doubling permutes the even exponents: it does exactly when \(n\equiv2\pmod4\). When \(4\mid n\), coefficient comparison at exponent \(2\) forces the pair sum to vanish. Intersecting with the left nucleus shows why characteristic \(2\) restores two full-nucleus dimensions.
+The proof obtains the associator and commutant constraints directly from the basis products. For even order \(n=2m\), the opposite-index coefficients combine into pair sums. The right nucleus requires not only constant pair sums, but invariance of the resulting polynomial under doubling exponents. Doubling permutes the even exponents exactly when \(m\) is odd. Otherwise the coefficient at exponent 2 forces the constant pair sum to vanish. Intersection with the parity-constant left nucleus then gives the claimed characteristic switch. The commutant test combines period dividing three with even support and implies the zero commutant.
 
-`verify.py` builds basis-product tables from \(e_i e_j=e_{2j-i}\), separately imposes all original associator and commutator identities on generic coefficient vectors, and computes ranks by modular elimination, with no use of the polynomial formulas to construct the constraint matrices. It checks the six predicted dimensions, explicit nucleus bases, the product law, and the odd-order commutant pattern for the displayed finite test range.
-
-Execute `python3 verify.py`. Expected final line: `ALL_NUCLEUS_CHECKS_OK`. Only the directly tested orders and prime fields are certified by this program; no computational exhaustiveness beyond that range and no independent audit are claimed. The arbitrary-field conclusion follows from the written proof.
+The accompanying `verify.py` imposes the defining identities on generic coefficient vectors and computes their ranks by modular elimination. Its even-order portion tests \(n=2,4,\ldots,14\) over characteristics 2, 3 and 5 and checks the indicated basis and product assertions; the script's odd-order tests are supplementary comparisons, not within the theorem. Execute `python3 verify.py`; the expected last line is `ALL_NUCLEUS_CHECKS_OK`. The finite tests do not prove the all-field result; that follows from the coefficient proof in `RESULT.md`.

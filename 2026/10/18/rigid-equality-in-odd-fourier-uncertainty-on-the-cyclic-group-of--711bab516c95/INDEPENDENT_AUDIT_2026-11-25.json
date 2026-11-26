@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:09:10.706157Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–27; VERIFICATION.md; verify.py (read only); verify_output.txt",
+        "Independent rank exhaustion: node /workspace/branches/check-2.js"
+      ],
+      "rationale": "Oddness is preserved by this Fourier convention. Each support has an even cardinality, 2a and 2b, and Parseval plus Cauchy–Schwarz gives 4ab>=27. Hence a+b>=6. At equality, odd Fourier inversion sends any support-size split to the reversed split, since the square of the transform is 27 times reflection, or -27 times identity on odd functions. This justifies the source's symmetry shorthand; matrix transpose alone is not the argument. I independently enumerated the restricted sine-matrix ranks over F_271 using z=5, a root of order 27 (z^9=28 is a nontrivial cube root), with incremental row elimination. The 16731, 55770 and 81796 patterns for (1,5), (2,4), (3,3) have just one exception: both pair-index sets {3,6,12}, with rank 2. The specialization is lawful algebraically because Phi_27(z)=1+z^9+z^18=0; each nonzero reduced minor certifies a nonzero complex minor. At the exception, a difference of order-three characters on 3G gives a complex null vector by the orthogonality sum on Z/9: its Fourier support is y=±3 mod 9, and its time support consists of 3u with u nonzero mod 3. Each is the stated six-point set. The rank lower bound and this witness give a one-dimensional complex kernel, with no inference from modular singularity alone.",
+      "residual_risks": [
+        "The finite exact certificate applies only to equality at cyclic order 27 and the asserted complex odd subspace. It does not give a quantitative stability claim or a prime-cube family classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Meshulam bounds Fourier support by 12-s for 3<=s<=9 at N=27. Bonami–Ghobber classify minimal cases on the cyclic prime square and other listed groups, not the prime cube in their Theorem 26. They note prime-power antecedents in Delvaux–Van Barel's submatrix work; comparison with that latter paper's exact hypotheses was limited by full-text access."
+        ],
+        "reasoning": "The divisor bound admits the pairs (4,8), (6,6) and (8,4); it neither eliminates the two unequal pairs in the odd subspace nor forces any support locations. The prime-square result can supply subgroup information but is not a theorem on how the odd components in different cosets couple.",
+        "searches": [
+          "Meshulam arXiv:math/0312407 Theorem 1.2; Bonami–Ghobber arXiv:1003.5060 Theorem 26 and its reference [2]",
+          "Primary literature search: cyclic prime cube equality cases, and Delvaux–Van Barel prime-power rank-deficient Fourier submatrices"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1807.07648; arXiv:math/0312407; arXiv:1003.5060",
+        "Delvaux–Van Barel, Linear Algebra Appl. 429 (2008), 1587–1605 (limited access)",
+        "Two Resultary records identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The elementary product bound and support parity already imply sum at least 12. Characters on the order-nine subgroup already construct an extremizer. The inspected larger-group inequality and smaller-group tables leave open cross-coset candidates or other support patterns, and the prime-order nonvanishing-minor theorem has the wrong order."
+        ],
+        "reasoning": "The new asserted content is to exclude every other support pair and identify exactly one complex coefficient line. That is not a substitution in the inspected bounds or the subgroup construction. The exact different-prime-power rank classification remains an access risk, not a verified implication.",
+        "searches": [
+          "Meshulam Theorem 1.2; Bonami–Ghobber Theorem 26; indexed order-nine incidence result; Garcia–Karaali–Katz Theorems 1.3, 1.5 and 5.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The classification is equivalent to identifying the deficient complementary-row/selected-column rectangular submatrices of the odd sine transform at a+b=6 and their complex kernels. Fourier inversion exchanges the support sizes without changing oddness, scalar classes, or the claimed line. Garcia–Karaali–Katz identify the discrete sine transform and the composite-order obstruction to full spark."
+        ],
+        "reasoning": "Failure of full spark or the explicit zero entry at (3,9) does not classify these rectangular ranks. Their prime-field symmetry bounds do not directly apply on the cyclic group of order 27.",
+        "searches": [
+          "Resultary: order-27 odd Fourier equality; odd sine transform and projective equality class; Meshulam equality comparison",
+          "Garcia–Karaali–Katz arXiv:1807.07648 §1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/11/SCOPE-exact-positional-fourier-support-incidence-on-the-cyclic-nine-po--bd4012acfc55 catalogues exact positional support pairs on Z/9, including 27 pairs of sizes (6,2). 2026/10/18/SCOPE-an-odd-semiprime-full-spark-rigidity-theorem-for-a-four-row-four--04538f9363bb classifies specific minors at N=3p for prime p, with the exceptional N=15. No directly matching indexed statement surfaced."
+        ],
+        "reasoning": "Restricting the exhibited odd generator to the subgroup of order 9 gives sizes (6,2), but the incidence table does not rule out additional odd classes on Z/27 or supply their coefficient dimensions. The four-row semiprime result omits N=27 and tests a different rank condition.",
+        "searches": [
+          "Four targeted Resultary comparisons: order-27 claim, odd sine/Fourier equality, projective classification, and Meshulam comparison"
+        ]
+      },
+      "rationale": "Credit is limited to the complete projective equality classification, not the numerical sum lower bound or the construction alone. The inspected inequalities and exact results on other groups do not classify this odd slice on the cyclic prime cube. Delvaux–Van Barel is a material remaining coverage risk: the available descriptions do not establish that its rank-block results at prime powers imply these exact odd coefficient lines. This best-of-knowledge assessment makes no priority claim.",
+      "residual_risks": [
+        "The prime-power submatrix paper was not read in full; a genuinely implying theorem there or elsewhere cannot be excluded. The related order-25 case mentioned without a citation was not identified. Focused index and literature searches cannot prove global novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same sine transform; different rank or group claims",
+          "evidence": "Theorem 1.3 gives prime-order iff nonvanishing minors, with an explicit composite-order zero. The finer symmetry theorems inspected are for prime fields.",
+          "identifier_or_url": "https://arxiv.org/pdf/1807.07648",
+          "material_read": "§1.2, pp. 3–4, offsets 7491–12670; Theorems 1.5 and 5.5, offsets 17145 and 70062",
+          "method": "Original OA PDF passages",
+          "title": "An improved uncertainty principle for functions with symmetry",
+          "trigger": "Same odd finite Fourier/sine transform and possible symmetry uncertainty coverage"
+        },
+        {
+          "assessment": "Bound covers the numerical constraint but not the odd equality classification",
+          "evidence": "The interpolation uses divisors 3 and 9 at s=4,6,8, giving the respective spectral lower bounds 8,6,4 without assigning positions or coefficients.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0312407",
+          "material_read": "Theorem 1.2, p. 2, offsets 3510–4698",
+          "method": "Alternate lawful original arXiv PDF after publisher access failure",
+          "title": "An uncertainty inequality for finite abelian groups",
+          "trigger": "General divisor-bound equality and dominating parameters"
+        },
+        {
+          "assessment": "Cyclic prime-square cases directly covered; no prime-cube equality theorem at the inspected passage",
+          "evidence": "Theorem 26 explicitly assumes Z/p^2. Its proof credits substantive earlier prime-power work in a different rank-block formulation, without stating the odd order-27 classification.",
+          "identifier_or_url": "https://arxiv.org/pdf/1003.5060; https://www.acta.hu/download.phtml?id=3238",
+          "material_read": "Abstract; arXiv Theorem 26 and proof opening at offsets 55375–57058; references at 65285–66023",
+          "method": "Original OA PDF passages and publisher-hosted opening page",
+          "title": "Equality cases for the uncertainty principle in finite Abelian groups",
+          "trigger": "Possible general equality theorem covering prime powers"
+        },
+        {
+          "assessment": "Plausible broader coverage risk, unresolved rather than ruled out",
+          "evidence": "The available description says it studies maximal rank-deficient submatrices of prime-power Fourier matrices by hierarchical low-rank blocks. It does not state which classification is complete or an odd-kernel implication.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0024379508002164; https://core.ac.uk/download/pdf/82424386.pdf",
+          "material_read": "Bibliographic reference and indexed abstract description only; no theorem passage available",
+          "method": "Attempted publisher, CORE and identified university routes; alternatives returned access errors, a portal fragment or a login landing page, none used as full text",
+          "title": "Rank-deficient submatrices of Fourier matrices",
+          "trigger": "Bonami–Ghobber reference [2]; broader family of Fourier submatrix results at prime powers"
+        },
+        {
+          "assessment": "Related exact table on Z/9; not the odd cyclic order-27 classification",
+          "evidence": "The table counts support sets for arbitrary complex coefficients, not projective odd coefficient lines beyond the subgroup.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-positional-fourier-support-incidence-on-the-cyclic-nine-po--bd4012acfc55",
+          "material_read": "RESULT.md Finding and incidence table, row (6,2)",
+          "method": "Resultary and local mirror at 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact positional Fourier-support incidence on the cyclic nine-point group",
+          "trigger": "Exact support-incidence result on a relevant subgroup"
+        },
+        {
+          "assessment": "Different group family, row choice and conclusion",
+          "evidence": "N=3p for prime p, with exceptional case N=15; fixed four-row rank theorem rather than odd function equality at 27.",
+          "identifier_or_url": "2026/10/18/SCOPE-an-odd-semiprime-full-spark-rigidity-theorem-for-a-four-row-four--04538f9363bb",
+          "material_read": "RESULT.md offsets 0–2490",
+          "method": "Resultary and local mirror",
+          "title": "An odd semiprime full-spark rigidity theorem for a four-row Fourier submatrix",
+          "trigger": "Same-day nearby Fourier rank-rigidity hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen equality claim, analytical witness and exact independent rank certificate; Meshulam and Garcia–Karaali–Katz comparisons"
+      ],
+      "rationale": "This resolves the equality geometry of a natural odd Fourier uncertainty problem on the smallest cyclic odd prime cube. The scalar uniqueness and exact support locations distinguish the possible extremizers from what the numerical bounds and known general composite-order obstructions can tell a researcher. It is a complete classification, not a support-size table, and the finite rank step answers a precise motivated question.",
+      "residual_risks": [
+        "No broad generalization in the prime or quantitative stability is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The one-sided rank-class parametrization has exactly \(\binom n2+n-1\) possibilities; outer decorations are independent. The proof exhaustively classifies two inner omitted-vertex pairs by intersection size zero, one or two, then hook statuses. Its seven computed coefficients sum to the square of the one-sided count, and the product rank and middle-component types follow from the alternating-path geometry. A full graph-gluing enumeration for \(n=3,4,5,6\) confirms every coefficient (205,602 total tested ordered products); finite enumeration is supplemental, not an infinite proof.
+## correctness
 
-## Originality — PASS (historically qualified)
-The closest full-text antecedent, Dolinka–East–Gray (arXiv:1512.02279), establishes rank-class counts and defines the two middle-component statistics but does not give their aggregated rank-refined ordered-pair census. Benkart–Halverson (arXiv:1106.5277) treats weighted Motzkin algebra multiplication and representations; Hatch–Ly–Posner (arXiv:1301.4518) gives a monoid presentation. A planar-idempotent enumeration has different conditioning. Accessible mathematical-record searches for mixed rank/path/loop distributions and related semigroups found no statement implying the seven-coefficient formula. In particular, Brauer rank-convolution and Jones-idempotent commutation results do not include singleton path multiplicities or the same hook-rescue cases. General diagram multiplication itself is known and explicitly credited. Residual risk: broader or unindexed literature may contain an equivalent aggregate formula.
+PASS
 
-## Value — PASS
-Rank \(n-2\) is the *first* Motzkin rank class where nonpropagating hooks can occur; at rank \(n-1\), the defect can only be a singleton. It is consequently the first natural multiplication stratum where simultaneous loop creation, isolated floating paths and rank rescue coexist. The seven-class polynomial calculates the joint distribution of the product rank and both genuine twisting exponents of the Motzkin algebra. Its non-obvious bridge class and exact rare-loop law cannot be obtained from the known one-sided class cardinality alone. This is a complete natural family of diagram-convolution invariants, not an arbitrary finite slice.
+A side of a rank-(n−2) diagram has exactly two omitted vertices: they can be singletons for any pair, or a hook for an adjacent pair, because a hook enclosing a propagating vertex would violate planarity. The other vertices match in increasing order, so either outer side is free, with W_n choices each. For disjoint inner omitted sets all four omitted vertices carry a boundary connection, and any hook joins stubs on the same side, leaving rank n−4 and no floating component. The three ordered counts with zero, one, and two hooks are respectively C(n,2)C(n−2,2), 2(n−1)C(n−2,2), and (n−2)(n−3). With one common vertex the no-hook, one-hook, and two-hook cases give counts n(n−1)(n−2), 4(n−1)(n−2), and 2(n−2): the common vertex floats only without hooks, and two overlapping hooks give exactly one new opposite-boundary connection. With coinciding sets there are two isolated paths, one hooked path, or a two-edge loop, with counts C(n,2), 2(n−1), and n−1. This yields all seven coefficients after the free factor W_n². The disjoint case cannot occur at n=3, so omit its term. The loop event has exactly n−1 inner pairs out of W_n², consistent with the reported probability and total mass W_n⁴.
 
-## Limitations and closest sources
-The result does not count prescribed-output products or arbitrary-length products. It is a mathematical proof with reproducible finite checks, not independent certification. Closest sources: arXiv:1512.02279 (semigroup structure, rank classes and twisting), arXiv:1106.5277 (diagram algebra), arXiv:1301.4518 (presentation), arXiv:1507.04838 (idempotents). An inaccessible or differently indexed historical generalization remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass the closed aggregate rank/path/loop distribution for arbitrary ordered corank-two Motzkin factors. The one-sided parametrization and individual-product weighting by middle components are prior. In particular Dolinka–East–Gray §5.2 defines the loop/path twist for partial Brauer diagrams and §5.3 explicitly restricts that same twist to the Motzkin subalgebra. Those formulas define terms in an aggregate but do not calculate the seven coefficients. Inspected nearby census results count other diagram classes or different fibers.
+
+## value
+
+PASS
+
+The first rank class allowing both singleton omissions and hooks gives a natural product census that distinguishes loss of rank from the creation of floating paths and loops. The exact joint law, including the rank-preserving overlap of distinct hooks, is useful for random product calculations and evaluating rank-refined class sums in weighted multiplication. Those outcomes are not available from diagram-class dimensions alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

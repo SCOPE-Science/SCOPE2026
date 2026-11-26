@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:57:39.172796Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 2–55",
+        "Frozen VERIFICATION.md, lines 18–41; verify.py, lines 3–46; verify_output.txt, lines 1–12 (read only)"
+      ],
+      "rationale": "A matched pair labeled 2 gives every zero exactly one 2-neighbor and has weight 4. At weight at most 4 there is a zero and hence at least one 2. If there is only one 2, its n−1 unmatched vertices in the opposite layer must all be positive, giving weight at least n+1>4. Thus a feasible labeling of weight at most 4 has exactly two 2s and no 1s. In one layer they would share a zero neighbor; in different layers but different columns the vertex matched to the opposite-layer defender would see both. The n matching pairs are therefore the entire optimum. For n=3 the one-defender lower bound is 4, and labeling the two nonneighbors 1 realizes that bound, confirming the stated boundary. The arbitrary-order proof is independent of the recorded finite run.",
+      "residual_risks": [
+        "The reported 61,899 bounded-weight labelings over 4≤n≤12 were not independently rerun; the input generator visits all ternary vectors of weights 0 through 4, and no computation is needed for the symbolic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For K_p square K_q with 2≤p≤q, the published rook-graph Finding gives 2p except on (2,2), and admits full columns of 2s, with additional rows for squares and singleton exceptions only at (2,2), (2,3), (3,3).",
+          "The 2024 Cartesian-product paper points to the 2022 paper for perfect Roman domination on paths and cycles; the passages inspected do not supply the complete-factor formula."
+        ],
+        "reasoning": "For p=2 and q=n≥4 none of the exceptions apply; the full columns of 2s with all remaining labels 0 are exactly the frozen set of optimizers.",
+        "searches": [
+          "Rook-graph Finding at local-mirror offset 0",
+          "DOI 10.1155/2022/1957027",
+          "DOI 10.37575/b/sci/240037"
+        ]
+      },
+      "checked_sources": [
+        "Distinct Resultary rook-graph, independent Italian prism, and crown-graph records above",
+        "Almulhim (2024), DOI 10.37575/b/sci/240037",
+        "Almulhim–Akwu–Al Subaiei (2022), DOI 10.1155/2022/1957027 (limited access)",
+        "Frozen RESULT.md, lines 57–75"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rook-graph theorem specializes without extra assumptions or proof steps beyond identifying coordinates.",
+          "The upper bound by twice the perfect domination number, identified in the rook-graph related-work discussion, can yield the matched-pair upper bound; it does not yield uniqueness of equality types or the matching lower bound."
+        ],
+        "reasoning": "The direct implication from the verified broader statement already covers the whole frozen claim in the current catalogue, independently of whether the earlier literature supplies any isolated part.",
+        "searches": [
+          "Rook-graph theorem and its related-work discussion, offsets 0 and 6690",
+          "Henning–Klostermeyer, DOI 10.2298/AADM1801143H (cited comparison)",
+          "Paleta–Jamil, DOI 10.29020/nybg.ejpam.v13i3.3763 (bound identified in rook-graph related work)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rook-graph Finding uses the same exact-one-2 condition. With two rows, the row cliques are the two prism layers and the column edges are the matching.",
+          "The independent Italian record has the same graph and weight but a different condition and off-matching optima. The crown-graph record has the same weight and count but uses a complete bipartite graph minus a matching, not the two-clique prism."
+        ],
+        "reasoning": "Only the rook-graph formulation matches both the graph and the optimization problem; coincidences in the scalar optimum do not identify a theorem.",
+        "searches": [
+          "Resultary: complete prism / perfect Roman domination / rectangular rook graph",
+          "2026/10/25/SCOPE-perfect-roman-domination-and-all-minimum-functions-on-rectangula--0d62a68677be",
+          "2026/10/13/SCOPE-independent-italian-domination-of-complete-prisms--74f099d3105f",
+          "2026/10/4/SCOPE-perfect-roman-domination-of-crown-graphs--e57b781e4a71"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Its count formula has M(p,q)=q outside the small exceptions and large squares, hence M(2,n)=n for all n≥4."
+        ],
+        "reasoning": "The catalogue gives a parametric table, not a few coincident finite-order entries. This independently confirms scope and count within the broader coverage finding.",
+        "searches": [
+          "Resultary rook-graph record, Finding, count formula M(p,q)"
+        ]
+      },
+      "rationale": "The present catalogue contains a distinct broader theorem that explicitly supplies the value, count, and every minimum function of the frozen claim at (p,q)=(2,n). This is verified coverage, not a conclusion about historical priority: the covering entry is dated later than the frozen record, and no equivalent earlier paper was established by this review.",
+      "residual_risks": [
+        "The 2022 paper's complete text was not independently accessible; earlier or unindexed coverage is possible.",
+        "The stronger current catalogue record has a later displayed date. The disposition is for present scientific coverage, not a finding that the frozen record was chronologically preceded or copied."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS entire claim as (2,n); no inference of historical priority",
+          "evidence": [
+            "2p=4, M(2,n)=n, family 1 only; columns coincide with prism matching edges."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-perfect-roman-domination-and-all-minimum-functions-on-rectangula--0d62a68677be/RESULT.md",
+          "material_read": "Finding and assumptions (offset 0); optimizer proof locator around offset 4566; related-work and references around offset 6690",
+          "method": "Published catalogue search, then bounded exact local-mirror reading",
+          "title": "Perfect Roman domination and all minimum functions on rectangular rook graphs",
+          "trigger": "Same parameter on a product family containing the prism"
+        },
+        {
+          "assessment": "Different parameter and optimizer family",
+          "evidence": [
+            "The n(n−1) minima use off-matching pairs with independent positive support."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-independent-italian-domination-of-complete-prisms--74f099d3105f",
+          "material_read": "Finding at offset 0",
+          "method": "Bounded local-mirror reading",
+          "title": "Independent Italian domination of complete prisms",
+          "trigger": "Same graph and optimum weight"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": [
+            "The underlying graph is K_{n,n} minus a matching, not K_n square K_2."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-perfect-roman-domination-of-crown-graphs--e57b781e4a71",
+          "material_read": "Finding at offset 0",
+          "method": "Bounded local-mirror reading",
+          "title": "Perfect Roman domination of crown graphs",
+          "trigger": "Same parameter and weight/count pattern"
+        },
+        {
+          "assessment": "Inspected product passages do not provide complete-prism classification",
+          "evidence": [
+            "It points to the 2022 work for path/cycle products and treats product complexity and bounds, not the matched-pair equality classification in the inspected material."
+          ],
+          "identifier_or_url": "https://doi.org/10.37575/b/sci/240037",
+          "material_read": "Page 2, offsets near 11500–12048; path/cycle discussion at offset 39200, printed pp. 66–67",
+          "method": "Bounded open PDF text reading",
+          "title": "Perfect Roman and Perfect Italian Domination of Cartesian Product Graphs",
+          "trigger": "Closest later primary Cartesian-product paper"
+        },
+        {
+          "assessment": "Not adjudicated at full-text level; no decisive reliance",
+          "evidence": [
+            "The accessible evidence identifies paths and cycles; full-text access attempts returned HTTP 403."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2022/1957027",
+          "material_read": "Public search material and the 2024 paper's characterization only; own full text not read",
+          "method": "Lawful access attempts via publisher and identified alternate listings",
+          "title": "The Perfect Roman Domination Number of the Cartesian Product of Some Graphs",
+          "trigger": "Plausible primary broader result on same parameter and product operation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 37–67",
+        "Rectangular rook-graph theorem, Finding, offset 0"
+      ],
+      "rationale": "A complete labeled-optimum classification on this natural family would be useful in isolation, but the frozen claim contributes no distinct equality case or boundary beyond the current rectangular-rook theorem. The specialization is a coordinate identification and parameter substitution, and the short proof furnishes no additional scientific claim.",
+      "residual_risks": [
+        "This assessment concerns added mathematical content relative to verified current coverage, not the historical worth of the original calculation."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

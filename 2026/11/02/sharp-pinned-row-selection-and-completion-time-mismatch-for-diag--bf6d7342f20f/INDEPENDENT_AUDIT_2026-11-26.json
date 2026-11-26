@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:30:49.415867Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each sampled coordinate is cleared forever and no other is changed; its survival probability after t iid draws is (1-p_i)^t. An initial unit error on a minimum-weight retained row attains the maximum for every t. If the least index retained is j, the rth selected index is at least j+r−1; replacing with the window preserves the numerator min(w) and weakly decreases the sum, strictly for a nonwindow if weights are strict. Inclusion-exclusion of missing coupons and summation of geometric tails give the CDF and expectation (including the empty-history convention 0^0=1 at t=0). Nonzero initial errors on all retained coordinates are necessary for that full coupon time to represent first solution time. Independently recomputed the four means by first-step recurrence, not inclusion-exclusion: for visited set U, E_U=(S+sum_{i not in U} w_i E_{U+i})/(sum_{i not in U} w_i), with E_R=0. In table order the outputs were 2593/360, 11057/1320, 937/105, 38677/5544. Comparing with 9/11, 11/13, 7/8 and 14/17 confirms the different unique optima. For 0<epsilon<1/2, epsilon²/(1+epsilon²)<1/5; pinning the largest weight minimizes the Frobenius residual but picks that smaller progress fraction. The stated divergent ratio is of 1−rho, not rho. Checked verify.py's finite coverage without executing it; the proof handles arbitrary weights, t and ties.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General coupon distributions and uniform/lower-bounded-simplex collection-time optima are available. Classical norm-squared Kaczmarz provides a geometric bound."
+        ],
+        "reasoning": "A free simplex of probabilities is not the fixed-size subset of a given sorted list normalized by its own sum; the checked statements do not resolve the exact two objectives on those subsets.",
+        "searches": [
+          "arXiv:1402.5245 Thm. 2; arXiv:1504.03878 Thms. 2,4; classical randomized Kaczmarz arXiv:math/0702226"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.29304v1, 2309.04889v2, math/0702226, 1402.5245, 1504.03878",
+        "Resultary f012d48bcef2, 5c14167b84fb, 6cdb9b864fa7, fc51ccf74dc5, 6e183c9f201f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The surrogate paper proposes a feasible objective, not a uniform ratio guarantee. The classical formula supplies the expectation for each fixed retained set. The earlier proposal-loss example concerns different matrices and zero-residual rejection."
+        ],
+        "reasoning": "Neither the classical expectation nor the generic proposal-loss construction gives the exact comparison of unique minimizers as the fixed diagonal row subset changes. The novelty evaluated is that combined selection result, not inclusion-exclusion or normalized row sampling.",
+        "searches": [
+          "Sun et al. §3.2 and Lemma 3.5; Anceaume et al. collection-time theorems; Resultary 5c14167b84fb and f012d48bcef2 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lok–Rebrova samples with squared projected row norms; Sun et al. explicitly reject residual-zero draws and use a Frobenius/ID surrogate."
+        ],
+        "reasoning": "The diagonal unrestricted-update chain is exactly coordinate coupon survival; accepted updates in the rejection algorithm are not the counted time here. No contradiction of the published algorithm's accepted-update result is claimed.",
+        "searches": [
+          "Hit-once diagonal SCRK versus fixed unequal-probability coupon collection",
+          "arXiv:2309.04889v2 Algorithm 1; arXiv:2605.29304v1 Algorithm 1 and Lemma 3.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier f012d48bcef2 concerns reversal of best hard row across update horizons in a generic 3x3 system. Earlier 5c14167b84fb gives unbounded proposal cost and a certificate gap on triangular systems. Later 6cdb9b864fa7 treats nondiagonal unit-row 6x4 examples. Same-day fc51ccf74dc5 and 6e183c9f201f optimize sampling laws."
+        ],
+        "reasoning": "These are genuine neighboring optimization and surrogate results, not the diagonal window rule or exact diagonal completion-time disagreement. Same-day dates alone do not determine precedence.",
+        "searches": [
+          "Resultary hard-row minimax SCRK, Frobenius selection, raw proposal cost, and coupon completion"
+        ]
+      },
+      "rationale": "The diagonal exact window and disagreement with exact mean completion are distinct from the checked SCRK results and classical coupon formulas. Credit the existing unbounded Frobenius/progress phenomenon, including a prior nondiagonal rejected-proposal example; the diagonal exact time-uniform rate separation is a scoped refinement, not first discovery of the generic surrogate problem.",
+      "residual_risks": [
+        "A more general normalized-weight subset optimization theorem could subsume the window argument. The bounded search does not establish historical priority, and the general surrogate-loss phenomenon is not new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defining prior work, different accepted-iteration convention",
+          "evidence": [
+            "Sampling continues until the residual is nonzero; projected Frobenius minimization is a feasible surrogate linked to row ID."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.29304v1",
+          "material_read": "Algorithm 1, Remark 3.1, §3.2 Lemma 3.5 (offsets ~36010 and 43212)",
+          "method": "OA HTML",
+          "title": "On subspace-constrained preconditioning for randomized iterative methods",
+          "trigger": "Frobenius surrogate and residual rejection"
+        },
+        {
+          "assessment": "Sampling and projection precede the diagonal selection result",
+          "evidence": [
+            "Probability proportional to the squared projected row norm."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2309.04889v2",
+          "material_read": "Algorithm 1 and Theorem 1.1, offset ~10085",
+          "method": "OA HTML",
+          "title": "A subspace constrained randomized Kaczmarz method for structure or external knowledge exploitation",
+          "trigger": "Unconditional SCRK formulation"
+        },
+        {
+          "assessment": "Classical coupon identity and unconstrained/lower-bounded distribution comparison, not subset selection",
+          "evidence": [
+            "Full collection without a null coupon is a special case of the distribution; optimization compares distributions on a simplex."
+          ],
+          "identifier_or_url": "arXiv:1402.5245; arXiv:1504.03878",
+          "material_read": "First paper Thm. 2, offset ~15071; second Thms. 2,4, offsets ~21159 and 31381",
+          "method": "OA HTML",
+          "title": "New results on a generalized coupon collector problem using Markov chains; Optimization results for a generalized coupon collector problem",
+          "trigger": "General coverage of completion formula/optimization"
+        },
+        {
+          "assessment": "Material partial or conceptual overlap, not exact diagonal window/completion result",
+          "evidence": [
+            "Generic 3x3 horizon reversals, triangular proposal cost, and later nondiagonal 6x4 one-step gap, respectively."
+          ],
+          "identifier_or_url": "Resultary f012d48bcef2; 5c14167b84fb; 6cdb9b864fa7",
+          "material_read": "Findings and relevant assumptions at offset 0",
+          "method": "Local mirror",
+          "title": "Two-step reversal of optimal hard-row choice; Unbounded rejected-draw cost of Frobenius-selected subspace constraints; Frobenius-optimal two-row constraints can arbitrarily slow norm-squared sampling",
+          "trigger": "Closest exact SCRK selection and surrogate statements"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "There is a practical objective choice even for uncoupled coordinates: the exact rate-optimal window is cheap to find, and a rational witness proves it need not minimize mean full solution time. The unbounded relative progress loss clarifies when not to use the Frobenius proxy. No implication for noise, setup cost, or accepted updates is needed for this value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

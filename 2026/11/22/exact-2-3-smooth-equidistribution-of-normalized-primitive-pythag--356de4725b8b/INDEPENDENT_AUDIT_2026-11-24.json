@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:23:55.818123Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–93",
+        "Frozen VERIFICATION.md, lines 19–23",
+        "Frozen check_area.py, inspected but not executed"
+      ],
+      "rationale": "The Euclidean parametrization counts each unordered primitive positive triangle once and gives J=mn(m−n)(m+n)/6. In the odd-m branch, F(m,n)−F(m,n′) for even n,n′ is (n−n′) times a unit at 2; this bijects even inputs with even outputs at all levels. The swapped parity branch has the same count. At 3 every nonzero residue pair gives F≡0, and its gradient reduces to (−n³,m³), so exactly three of nine lifts hit each prescribed next digit. The local counts at moduli 2^{a+1} and 3^{b+1} give 16Q pairs per target mod 6Q for Q=2^a3^b, including Q=1. In the sector of area πX/8, Möbius inversion uses only d coprime to 6. For each d, the parameter classes for the rescaled variables are the inverse-scaled preimages of the target classes (F is degree four), preserving the number of classes rather than fixing each class. The absolutely convergent factor is 9/π² and the summed boundary errors are O_Q(√X log(2X)), yielding X/(2πQ). At p≥5 the same primitive lattice argument makes nonzero pairs equally weighted; four lines contribute 4(p−1) of p²−1 pairs. Hence uniformity modulo any multiple of p is impossible. Independent enumeration agreed on all fibers for 14 smooth moduli through Q=72 and on the zero counts for p=5,7,11,13,17,19.",
+      "replay_paths": [
+        "/workspace/branches/6c4a7ebe-e132-439b-af46-ecbc97e442b2/independent_local_check.py",
+        "/workspace/branches/6c4a7ebe-e132-439b-af46-ecbc97e442b2/independent_local_check.out"
+      ],
+      "residual_risks": [
+        "The finite replay checks local counts only. The fixed-modulus hypotenuse asymptotic rests on the sector and coprimality argument, not numerical agreement.",
+        "The 16Q certificate is for Q=2^a3^b; it is not asserted for all Q."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kontorovich–Oh analyze squarefree sieve levels and give g^{F_A}(p)=4/p+O(p^{−3/2}); in the proof four lines on the cone form the odd-prime zero locus.",
+          "Romik gives primitive-pair density and angular statistics; Liu counts primitive triangles under size cutoffs including area, not all residue classes of A/6."
+        ],
+        "reasoning": "The general primitive-pair counting tools provide the passage from local classes to sector asymptotics, but do not determine the pushforward of J. The prior squarefree sieve does not prescribe all 2- and 3-power target multiplicities.",
+        "searches": [
+          "arXiv:1001.0370 §5.2, Lemma 5.4 and proof",
+          "Romik arXiv:math/0406512, pp. 20–21",
+          "Liu Acta Arith. 144 (2010), opening theorems"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1001.0370",
+        "OEIS A020885",
+        "arXiv:math/0406512",
+        "DOI:10.4064/aa144-2-3",
+        "Buckley 2012, pp. 6–7",
+        "Resultary 4181519973aa",
+        "Resultary 345a9b314e46"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Buckley derives forced divisibility by six. The known four simple zero lines mechanically give 4/(p+1) among primitive nonzero pairs modulo p, so the exact odd-prime obstruction alone adds little.",
+          "The positive result needs independent flatness at the primes dividing the normalizing denominator: permutation within each opposite-parity branch at 2, uniform lifts from the eight primitive pairs at 3, and their product."
+        ],
+        "reasoning": "Divisibility merely defines J, and four-line squarefree counting proves a negative criterion for odd primes. Neither gives uniform lifting into arbitrary specified normalized residues at 2 or 3. No inspected antecedent supplies that missing exact pushforward or implies the complete classification by parameter substitution.",
+        "searches": [
+          "arXiv:1001.0370 §§2.3.1 and 5.2",
+          "Buckley, A note on the area and volume of right-angled triangles with integer sides, pp. 6–7",
+          "Frozen RESULT.md, Steps 1–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kontorovich–Oh use F_A=xy/12=(u+v)(u−v)uv/6, precisely the same normalized area J, and identify four components.",
+          "OEIS A020885 lists A/6 of primitive Pythagorean triangles with multiplicity modulo leg exchange, also called congruous numbers divided by 24 in that entry."
+        ],
+        "reasoning": "The polynomial and normalized area sequence are not new. Ordering a multiset by area, finding its fixed-divisor obstruction or giving a thin-orbit sieve density is not the same as counting every residue among all primitive triangles ordered by hypotenuse.",
+        "searches": [
+          "Resultary: normalized primitive area distributions and Pythagorean local densities",
+          "Websearch: primitive Pythagorean triangle areas divided by 6 equidistribution residues modulo powers of 2 3 normalized area local density mn(m−n)(m+n)",
+          "arXiv:1001.0370 §2.3.1 and OEIS A020885"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The OEIS entry tabulates exact area/6 values with multiplicity, nondecreasing by value, not normalized residue frequencies with hypotenuse cutoff.",
+          "4181519973aa gives local factors for k-free odd legs; 345a9b314e46 classifies Legendre-symbol patterns for a Pythagorean pencil. The identical assigned record was a self-match."
+        ],
+        "reasoning": "Neither the sequence table nor the related exact local classifications tabulates these fiber counts or classifies which moduli give uniformity. The same-day Legendre-symbol result concerns signs of different coordinates, not normalized areas.",
+        "searches": [
+          "OEIS A020885, comments and example",
+          "Resultary 4181519973aa and 345a9b314e46, local-mirror findings"
+        ]
+      },
+      "rationale": "The supported distinct result is exact flatness of the normalized area on all dyadic and ternary depths and the consequent classification of all uniform fixed moduli in the full primitive triangle family. The normalized area, its factorization and the odd-prime zero-locus obstruction have substantial antecedents and are not independent grounds for novelty.",
+      "residual_risks": [
+        "Equivalent dyadic or ternary pushforwards might occur in unindexed local-density or congruous-number literature. The checks identify known parts but do not establish absolute historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive antecedent for normalized polynomial and odd-prime obstruction, not the all-depth smooth pushforward",
+          "evidence": "Names F_A=xy/12, four components, and squarefree sieve local factor g^{F_A}(p)=4/p+O(p^{−3/2}).",
+          "identifier_or_url": "https://arxiv.org/pdf/1001.0370",
+          "material_read": "§2.3.1 p. 9 offset 22483, §5.2 Lemma 5.4 pp. 25–26 offset 74000, proof pp. 26–27 offset 77200",
+          "method": "OA PDF passages",
+          "title": "Almost Prime Pythagorean Triples in Thin Orbits",
+          "trigger": "Same normalized-area invariant and local zero-locus geometry"
+        },
+        {
+          "assessment": "Exact value sequence, not the residue counting law",
+          "evidence": "The example includes two different triangles of area 210, counts J=35 twice and does not count leg exchange.",
+          "identifier_or_url": "https://oeis.org/A020885",
+          "material_read": "Comments, table link, formula and example, offset 650",
+          "method": "Public web page",
+          "title": "OEIS A020885: normalized areas of primitive Pythagorean triangles",
+          "trigger": "Exact database entry for the same normalized invariant"
+        },
+        {
+          "assessment": "Lattice density antecedent, not the normalized area residue law",
+          "evidence": "Studies triangular parameter regions and angular statistics.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0406512",
+          "material_read": "pp. 20–21 offsets 48800 and 51600",
+          "method": "OA PDF passages",
+          "title": "The dynamics of Pythagorean triples",
+          "trigger": "Primitive-pair angular statistics and counting"
+        },
+        {
+          "assessment": "Area and other size cutoffs, not residual distribution",
+          "evidence": "The counted sets are defined by upper bounds on triangle statistics rather than residues modulo Q.",
+          "identifier_or_url": "https://doi.org/10.4064/aa144-2-3",
+          "material_read": "Acta Arith. p. 135 offset 250, opening scope and results",
+          "method": "OA PDF passage",
+          "title": "On the distribution of primitive Pythagorean triples",
+          "trigger": "Primitive triangle counting with an area statistic"
+        },
+        {
+          "assessment": "The definition is grounded in known compulsory divisibility, not a distribution law",
+          "evidence": "Proves that the integer area is a multiple of 6.",
+          "identifier_or_url": "W. Buckley, Notes Number Theory Discrete Math. 18 (2012), 6–8",
+          "material_read": "pp. 6–7, OA offset 0",
+          "method": "OA PDF passage",
+          "title": "A note on the area and volume of right-angled triangles with integer sides",
+          "trigger": "Prior divisibility used to define the normalized statistic"
+        },
+        {
+          "assessment": "Different polynomial observable and local conditions",
+          "evidence": "Uses the product with factors 1−2/[p^{k−1}(p+1)] to count k-free odd legs.",
+          "identifier_or_url": "4181519973aa",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Density of power-free odd legs in primitive Pythagorean triangles",
+          "trigger": "Nearest distinct indexed use of local densities in the same full family"
+        },
+        {
+          "assessment": "Different invariant and quantification",
+          "evidence": "Studies sign words for t²−1, 2t and t²+1, with threshold p=31.",
+          "identifier_or_url": "345a9b314e46",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "The sharp mixed quadratic character threshold in a Pythagorean pencil",
+          "trigger": "Same-day indexed finite-field Pythagorean classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact local law and asymptotic classification",
+        "arXiv:1001.0370 §5.2 for the known scope of the obstruction",
+        "OEIS A020885"
+      ],
+      "rationale": "Normalization by the compulsory area factor gives a natural statistic. The exact all-target local law distinguishes full equidistribution from mere support and explains why precisely the primes removed by normalization permit uniformity at every depth. It yields a complete modulus classification and fixed-modulus counts rather than a list of congruences at a few small levels.",
+      "residual_risks": [
+        "No uniform-in-Q asymptotic or result about distinct area values is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

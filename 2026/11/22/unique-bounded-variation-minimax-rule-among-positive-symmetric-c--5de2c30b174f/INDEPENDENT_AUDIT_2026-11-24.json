@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:58:04.669962Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A symmetric probability rule on at most three points has outer radius d and common outer weight b, with possible centre mass 1−2b. The centred second moment forces b=1/(24d²), and the odd moments vanish. For pointwise Jordan BV, Jordan decomposition followed by layer cake on the increasing parts proves the exact error norm is the maximum over both initial-segment discrepancies, including at atoms. Open and closed upper-step witnesses give the reverse bound; at the endpoints use the endpoint spike or its complement as needed. The candidate discrepancies are 1/2−d, |b+d−1/2|, and 1/2−b. The first is dominated because 24d²(1−2d)≤8/9. The two remaining branches cross once at 12d²(1−d)=1. The crossing is below 2/5, with the first branch strictly decreasing up to the crossing and the second strictly increasing thereafter. This proves uniqueness including the two-node and endpoint cases. The witnesses give errors +d/2 and −d/2, respectively. Substitution gives 2/9 for three-point Gauss and 1/3 for Simpson; independent scalar bisection yielded d=0.361175862232188 and an 18.7354% reduction from Gauss. The packaged finite grid and random tests were inspected, not used as the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The at-most-four-node theorem allows two symmetric pairs and attains ~0.132166 on four nondegenerate nodes. The endpoint-based BV theorem fixes both endpoint locations and allows an interior evaluation."
+        ],
+        "reasoning": "The enlarged-class minimum is lower, is attained outside the audited class and does not establish its restricted optimum. The fixed-endpoint theorem does not vary the pair whose radius must be optimized.",
+        "searches": [
+          "Resultary c47cace4ff37 RESULTS, Finding and prior-work discussion",
+          "Dragomir–Momoniat Theorem 1, preprint v14a33"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5de2c30b174f and c47cace4ff37",
+        "Dragomir–Momoniat preprint v14a33, Theorem 1",
+        "Komisarski–Wąsowicz DOI 10.1007/s00010-022-00868-4",
+        "Klaričić Bakula et al. DOI 10.1186/s13660-015-0603-x"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical discrepancy bounds give the norm characterization but do not choose the moment-constrained radius. The 2015 corrected Euler formulas use derivative data and different regularity. Classical Gauss exactness gives the benchmark, not the minimax rule under the lower degree constraint."
+        ],
+        "reasoning": "The crossing calculation with domination of the endpoint discrepancy is a distinct constrained optimization, not an application of higher-degree exactness or the fixed-endpoint bound.",
+        "searches": [
+          "Dragomir–Momoniat Theorem 1",
+          "Komisarski–Wąsowicz §1",
+          "Klaričić Bakula et al. DOI 10.1186/s13660-015-0603-x",
+          "Förster–Petras DOI 10.1137/0728047"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same positive symmetric cubic-exact parameterization is obtained by setting z=2d after normalizing [−1,1]. The objective of the paper is inequalities on 3-convex functions, not a unit Jordan-variation ball."
+        ],
+        "reasoning": "The change of variables identifies the feasible measures, not the norm or its optimizer.",
+        "searches": [
+          "Komisarski–Wąsowicz DOI 10.1007/s00010-022-00868-4, abstract and §1",
+          "Resultary: symmetric cubic-exact quadrature, pointwise BV and discrepancy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact wording/formulas found in the audited record's own entry 5de2c30b174f; strongest distinct entry c47cace4ff37 has four nodes and a different cubic and discrepancy."
+        ],
+        "reasoning": "No distinct equivalent exact entry found in the checked corpus; a same-day date alone proves neither priority nor equivalence.",
+        "searches": [
+          "Local Resultary: Jordan variation three-node symmetric cubic-exact minimax, cubic and sharp coefficient"
+        ]
+      },
+      "rationale": "Credit the known rule family and discrepancy norm. The supported distinct claim is the exact unique constrained at-most-three-node minimizer of this norm, including sharpness and benchmarks. The inspected broader-node result and the moving-node 3-convex result do not furnish that minimizer. This is not a priority certification.",
+      "residual_risks": [
+        "Förster–Petras 1991 and Stern 1967 were not accessible in full; unindexed exact minimax formulations cannot be excluded.",
+        "This comparison gives no historical ordering between records dated the same day."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related larger class; does not establish restricted optimum",
+          "evidence": "9d²−32d³=1/12 with two distinct nonzero radii and worst-case error d≈0.132166, rather than the audited three-node optimizer.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-unique-positive-symmetric-cubic-exact-four-node-quadrature-minim--c47cace4ff37/RESULT.md",
+          "material_read": "Finding, degenerate-pair parameterization, prior work and limitations",
+          "method": "Local mirror, literal and offset inspection",
+          "title": "Unique positive symmetric cubic-exact four-node quadrature minimizing BV error",
+          "trigger": "Same objective and moment constraints, larger support class"
+        },
+        {
+          "assessment": "Related BV bound on different node family",
+          "evidence": "Theorem 1 at extraction offset 6868 takes both interval endpoint values and one interior value. Receipt date 31 May 2011 is not a verified first-public-posting date.",
+          "identifier_or_url": "https://rgmia.org/papers/v14/v14a33.pdf",
+          "material_read": "Preprint p. 1 and Theorem 1 on p. 3",
+          "method": "Open full text, bounded theorem reading",
+          "title": "A Three Point Quadrature Rule for Functions of Bounded Variation and Applications",
+          "trigger": "Same node count and BV"
+        },
+        {
+          "assessment": "Same cubic-exact family; different objective",
+          "evidence": "Normalized z=2d gives the same weights and nodes, but stated inequalities are for 3-convex functions.",
+          "identifier_or_url": "https://doi.org/10.1007/s00010-022-00868-4",
+          "material_read": "Abstract and §1, p. 1",
+          "method": "Open article PDF passages",
+          "title": "On optimal inequalities between three-point quadratures",
+          "trigger": "Same exact feasible family"
+        },
+        {
+          "assessment": "Corrected formulas and derivative-controlled remainders",
+          "evidence": "The quadratures use derivative data and do not give the present operator norm optimization on point values alone.",
+          "identifier_or_url": "https://doi.org/10.1186/s13660-015-0603-x",
+          "material_read": "Abstract and p. 4 BV passage",
+          "method": "Open article PDF passages",
+          "title": "Some Grüss type inequalities and corrected three-point quadrature formulae of Euler type",
+          "trigger": "Three-point symmetric quadrature with a BV connection"
+        },
+        {
+          "assessment": "Unresolved historical coverage risk",
+          "evidence": "HTTP 403 and no identified repository copy. The reported Gaussian emphasis is not evidence ruling out auxiliary minimax results.",
+          "identifier_or_url": "https://doi.org/10.1137/0728047",
+          "material_read": "Bibliographic identification and that record's description; no primary full text",
+          "method": "Lawful direct/VPN OA and DOI alternate lookup",
+          "title": "Error Estimates in Gaussian Quadrature for Functions of Bounded Variation",
+          "trigger": "Exact BV error precedent identified in the neighbouring four-node record"
+        },
+        {
+          "assessment": "Unresolved lesser risk",
+          "evidence": "Access returned HTTP 403; the derivative-based description from the frozen source is not a full-text finding of this audit.",
+          "identifier_or_url": "https://doi.org/10.1093/comjnl/9.4.396",
+          "material_read": "Bibliographic identification only; no independent primary full-text inspection",
+          "method": "Lawful OA attempts",
+          "title": "Optimal Quadrature Formulae",
+          "trigger": "Historical minimax quadrature citation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a sharp complete within-class design rather than a pointwise bound for an arbitrary fixed formula. It quantifies the robustness tradeoff between Jordan-BV inputs and higher polynomial exactness, with attained worst cases and a material improvement over standard rules. It asserts neither optimality without symmetry nor optimality with larger support.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

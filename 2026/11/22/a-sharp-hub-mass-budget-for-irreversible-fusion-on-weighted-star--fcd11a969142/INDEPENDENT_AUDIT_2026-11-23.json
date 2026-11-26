@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:26:26.075365Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Soft-thresholding each leaf about hub h leaves a scalar hub KKT equation with clipped terms and strictly positive slope at least m_0; the unique solution yields fusion exactly when |h-y_i|≤λa_i/m_i. To check persistence at simultaneous events, scale by τ=1/λ and write v=τh and q_i=v-τy_i. On every incident affine clip-pattern cell with unsaturated set I, let M_I=m_0+Σ_{j∈I}m_j and S be the saturated signed penalty sum. At an upper contact q_i=c_i=a_i/m_i, the branch slope satisfies τM_I q_i'=M_Ic_i+S. If i is unsaturated then M_I≥m_0+m_i and S≥-Σ_{j≠i}a_j; if i is saturated then its sign is positive, S≥a_i-Σ_{j≠i}a_j and M_I≥m_0. Both bounds give q_i'≥0 by the local budget; at a lower contact the mirrored bounds give q_i'≤0. A branch identically on the boundary has slope zero. Thus no affine piece on the decreasing-τ side can leave the fused strip, including ties and simultaneous changes. For λ=0, the tied-to-hub leaves can form one fused block for small positive λ: all strictly unequal data stay outside the clipped strips, since |h-y_0|≤λΣa_j/m_0, and the tied block's drift divided by λ has magnitude at most Σ_{outside}a_j/M_I≤a_i/m_i for every tied leaf by its own budget. This handles initial exact ties. For failure on leaf i, take y_0=0, y_i=H>0 and the rest very large, so the other leaves stay above the hub on a chosen finite interval (use the same uniform bound on |h-y_0|). Writing B=Σ_{j≠i}a_j and c=(m_0+m_i)a_i/m_i<B, the fused KKT solution exists exactly for m_0H/(B+c)≤λ≤m_0H/(B-c) there. An interior test and a later test beyond the upper endpoint give actual fusion followed by separation. The stated four-leaf rational fits satisfy the clipping and hub equations. Q=BM^-1B^T has diagonal a_i²(1/m_0+1/m_i) and off-diagonal a_i a_j/m_0; its weak dominance inequality is exactly the local budget. Normalizing the weights to sum one changes this budget to a_i/Σa_j≥m_i/(m_0+2m_i); the sum condition is necessary and distributing any slack proves feasibility even at equality. This includes k=1 and the stated equal-mass examples. VERIFICATION.md and checks/verify_star_fusion.py were inspected; the optional replay path is python3 checks/verify_star_fusion.py from the package root, not a substitute for the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tibshirani–Taylor eq. (23) provides weak diagonal dominance as a sufficient condition for dual boundary persistence. Their 1D discussion does not identify primal edge equality with dual interior on arbitrary graphs. Duan et al. supplies the primal sufficient implication independently. Hoefling gives a general max-flow split-event algorithm. Chiquet et al. give no-split complete pairwise penalty families, including weights depending on the data."
+        ],
+        "reasoning": "The max-flow method detects path events for provided data, but its stated conclusions do not furnish this uniform if-and-only-if classification or penalty-design obstruction. Data-dependent complete-pair families do not instantiate arbitrary fixed sparse star-spoke penalties.",
+        "searches": [
+          "Tibshirani–Taylor arXiv:1005.1971 §§5.1, 6",
+          "Hoefling arXiv:0910.0526 §3.2.2",
+          "Chiquet–Gutierrez–Rigaill arXiv:1407.5915 Theorems 1–2 and §5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checks/verify_star_fusion.py and AUDIT.json",
+        "arXiv:1104.3792, math/0406456, 1005.1971, 0910.0526 and 1407.5915",
+        "Resultary dd58c14de8c2, c426456313be and 10d1e07ec47c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the full-rank lasso, eq. (9) gives signed slopes from the active inverse Gram. The sufficiency proof says zero entries remain zero as λ increases. The three-vertex path result covers k=2 exactly and constructs fusions followed by splitting; it does not extend to k≥3 stars by parameter substitution. The cycle has dependent edge rows, a different graph and different exact criteria; the fixed-λ star variation theorem has a different quantifier."
+        ],
+        "reasoning": "A converse can be derived using established lasso equations, but requires an actual construction. For example if row i fails, choose signs s with s_i=1 and (Qs)_i<0. Pick a target θ with θ_i=0 and other entries strictly of signs s, and realize center By=θ+λ_0Qs for λ_0>0. Above λ_0 the all-active solution θ+(λ_0-λ)Qs has that sign pattern locally; below λ_0 the KKT dual coordinate for i moves strictly inside [-1,1] while the other signs persist. This supports sharpness but is not a quoted converse of the earlier sufficient result. The frozen star proof additionally gives an explicit interval and observations directly on the star. The mass-feasibility algebra is not credited on its own.",
+        "searches": [
+          "Duan et al., arXiv:1104.3792 eq. (9), Theorems 1 and 4",
+          "Resultary c426456313be for k=2, 10d1e07ec47c for cycles, dd58c14de8c2 for star variation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For z=M^(1/2)u and D=BM^(-1/2), condition on θ=Dz and minimize over z. This gives 1/2(θ-By)^T Q^-1(θ-By)+λ||θ||_1. Q=DD^T is positive definite by row rank. The whitened ordinary lasso has inverse Gram Q, every center By is attainable, and θ_i=0 is exactly primal edge fusion. Duan et al. Lemma 2 gives precisely this reduction in general form and Theorem 1's proof gives weak-DD primal shrinkage. The same-day two-input star variation theorem yields the same inequality when its measuring weights are chosen equal to the penalties, with the same resulting algebra for choosing weights."
+        ],
+        "reasoning": "The reduction identifies genuine sufficient coverage. The earlier stated lasso theorem is one-way, not a universal no-dropout converse. Starting with a bad sign direction, one must still realize it by data and establish a loss of support as λ decreases (equivalently, unfusion as λ increases), not just show an adverse slope on an abstract face. Efron's strict positive cone and Duan's weak version are not cited as necessary for a given data path. The two-input result compares different data with fixed λ, not zero support along a single data path as λ varies.",
+        "searches": [
+          "Lasso no dropouts for all response vectors, necessary/sufficient diagonal dominance inverse Gram, positive cone and support monotonicity",
+          "Duan et al. arXiv:1104.3792 §IV; Efron et al. arXiv:math/0406456 §4.1 and Appendix A.2",
+          "Resultary dd58c14de8c2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact fcd11a969142 hit is the assigned record. dd58c14de8c2 has the identical capacity inequality for two-input nonexpansivity, a known exact overlap of the numerical feasible inequalities. The weighted-path and weighted-cycle records contain exact formulas for their own graph families."
+        ],
+        "reasoning": "The nonexpansivity inequality and penalty-design inequality coincide as algebra after identifying two classes of weights, but that record does not certify which star penalties give all-data primal fusion along paths. A shared record date does not establish which work came first.",
+        "searches": [
+          "Resultary: weighted star universal no splitting, local hub mass budget and exact penalty feasibility",
+          "Resultary dd58c14de8c2, c426456313be, 10d1e07ec47c"
+        ]
+      },
+      "rationale": "A stronger prior sufficient result than the frozen citation alone was identified: Duan et al. already give primal coordinatewise shrinkage after the exact full-row-rank TV-to-lasso reduction under weak diagonal dominance. The sufficiency and its algebraic rewriting are not new. The surviving content is the sharp necessity for universal persistence with a genuine positive-length fusion-then-separation witness for any failed star row, and the resulting penalty-design feasibility for this path property. Same-day weighted-path and star-variation records overlap substantively but do not state that surviving result for branching stars. Historical priority remains provisional.",
+      "residual_risks": [
+        "A general all-response weak positive-cone/no-dropout converse, or an earlier star/weighted-tree classification, could fully subsume this classification. It was not established by the inspected primary sources. No priority order is inferred for distinct same-day entries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_PRIMAL_SUFFICIENCY_NOT_STATED_CONVERSE",
+          "evidence": [
+            "Lemma 2 reduces full-row-rank generalized TV to ordinary lasso. Under weak inverse Gram dominance, the proof shows nonincreasing magnitude of every coefficient and permanence of zeros for increasing λ; the TV theorem applies it with inverse Gram DD^T."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1104.3792",
+          "material_read": "Theorem 1, eqs. (8)–(9) and proof (pp. 5–6, offsets 12735 and 13785–20337); Lemma 2 and Theorem 4, §IV (pp. 10–12, offsets 35110–40609)",
+          "method": "Lawful primary arXiv PDF passages",
+          "title": "A sufficient condition on monotonic increase of the number of nonzero coefficients in LASSO",
+          "trigger": "Potential equivalent full-rank no-dropout or generalized TV theorem"
+        },
+        {
+          "assessment": "RELATED_STRICT_SUFFICIENT_CONDITION",
+          "evidence": [
+            "Signed active Gram inverses have positive row sums under the strict positive cone condition, used for LARS/Lasso agreement."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0406456",
+          "material_read": "Positive cone condition eq. (4.11), p. 20 (offset 54197), and Appendix A.2 Lemma 15 (offset 117300 onward)",
+          "method": "Lawful primary arXiv PDF passages",
+          "title": "Least Angle Regression",
+          "trigger": "Known signed inverse-Gram positive cone criterion"
+        },
+        {
+          "assessment": "KNOWN_DUAL_BOUNDARY_SUFFICIENCY",
+          "evidence": [
+            "Sufficient weak-DD boundary lemma for DD^T; the primal one-dimensional relation should not be asserted for arbitrary boundary ties without a primal argument or separate reduction."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1005.1971",
+          "material_read": "§5.1 pp. 13–14 (offsets 33243–34967), §6 p. 17 (offset 41982)",
+          "method": "Lawful primary arXiv PDF passages",
+          "title": "The solution path of the generalized lasso",
+          "trigger": "Diagonal dominance and dual/primal support comparison"
+        },
+        {
+          "assessment": "MORE_GENERAL_ALGORITHM_DIFFERENT_CONCLUSION",
+          "evidence": [
+            "Algorithms compute split events for particular data and do not state the star parameter classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0910.0526",
+          "material_read": "1D discussion p. 6 (offset 26662) and max-flow §3.2.2 p. 11 (offset 48200)",
+          "method": "Lawful primary arXiv PDF passages",
+          "title": "A path algorithm for the Fused Lasso Signal Approximator",
+          "trigger": "General-graph splitting characterization in homotopy algorithms"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH_AND_WEIGHT_HYPOTHESES",
+          "evidence": [
+            "All-pair penalty profiles n_k n_l, or n_k n_l f(|mean_k-mean_l|), rather than uniform-in-data conclusions for all fixed spoke weights."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1407.5915",
+          "material_read": "Theorem 1 p. 8 (offset 28579), §5 Theorem 2 p. 9 (offset 33103)",
+          "method": "Lawful primary arXiv PDF passages",
+          "title": "Fast tree inference with weighted fusion penalties",
+          "trigger": "A prior no-split weighted-clustering theorem"
+        },
+        {
+          "assessment": "IDENTICAL_INEQUALITY_FOR_DIFFERENT_PROPERTY",
+          "evidence": [
+            "Exact two-input seminorm gain independent of the regularizer coefficients, with measurement weights satisfying the same-form local budget for nonexpansivity."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-weighted-graph-variation-sensitivity-of-star-fused-lasso-d--dd58c14de8c2",
+          "material_read": "RESULT.md finding and scope, offsets 0–2869",
+          "method": "Resultary local mirror",
+          "title": "Sharp weighted graph-variation sensitivity of star fused-lasso denoising",
+          "trigger": "Strongest same-day star threshold overlap"
+        },
+        {
+          "assessment": "COVERS_TWO_LEAF_SPECIAL_CASE",
+          "evidence": [
+            "Path mass-concavity iff edgewise shrinkage and irreversible fusion; a three-vertex path is exactly a two-leaf star."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-mass-concavity-characterizes-monotone-jumps-and-irreversible-fus--c426456313be",
+          "material_read": "RESULT.md finding and scope, offsets 0–2792",
+          "method": "Resultary local mirror",
+          "title": "Mass-concavity characterizes monotone jumps and irreversible fusion in weighted path TV denoising",
+          "trigger": "Same property with exact special-case overlap"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH",
+          "evidence": [
+            "For n≥4 the cycle result requires constant penalties, with a separate triangle criterion."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-irreversible-edge-fusion-on-weighted-cycles-a-four-vertex-rigidi--10d1e07ec47c",
+          "material_read": "RESULT.md finding and scope, offsets 0–2269",
+          "method": "Resultary local mirror",
+          "title": "Irreversible edge fusion on weighted cycles: a four-vertex rigidity theorem and a triangle exception",
+          "trigger": "Universal persistence on a different simple graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact obstruction determines whether an irreversible-merge rule is universally sound on the fundamental branching graph and whether any positive edge-weight design can make it so. The converse supplies actual splitting after a nondegenerate interval, not merely a failed certificate, and the equal-mass four-spoke obstruction shows that tuning all the penalties cannot always fix it. The known sufficient criterion and the mass algebra alone are not the contribution. No general graph or statistical risk claim is made.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

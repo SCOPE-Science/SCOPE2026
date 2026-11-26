@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:54:32.242178Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–109, VERIFICATION.md and check.py (inspected, not executed)",
+        "/workspace/repairs/4/RESULT.md",
+        "Replay: python3 /workspace/review-evidence/cycle_signs.py (exact rational counterexample and both corrected extremizers)"
+      ],
+      "rationale": "For the repaired claim, solving p d[k+1]−q d[k]=1/n with zero total increment and then imposing zero mean gives the kernel, including the deterministic case with r⁰=1; at zero bias the second difference is 2/n off the source. Circulant row/column absolute sums coincide. The row signs attain ℓ∞; a unit point mass attains ℓ¹. In the frozen claim a counterexample is n=3, ε=0: G=(2/3)(I−J), both norms are 8/9, and the best ℓ¹ ratio of a full sign vector is only 16/27. Increasing successive differences give one negative block. On Fourier modes, n²λ tends to 2π²m²−2πiβm and inverse coefficients are uniformly bounded by 1/(8m²), giving uniform kernel convergence at mesh points and then the Riemann sum. The displayed continuum kernel has matching endpoints, jump −2 in its derivative and zero mean, so gives precisely that inverse. By mean zero its absolute integral is twice the negative mass. The exponential and constant errors each have L¹ mass 1/(2β²). In the finite strong-drift regime the centered ramp has absolute sum n/(4ε) for even n and (n−1/n)/(4ε) for odd n, and the other two terms each have absolute sum p/ε², giving the finite bound and sharp limit.",
+      "residual_risks": [
+        "The norms are full-space counting norms; a mean-zero-input optimization is not claimed. No inhomogeneous or non-nearest-neighbor case is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Beveridge, Theorem 1: Green(i,j)=π_j[H(π,j)−H(i,j)] on strongly connected digraphs",
+          "Resultary cycle phase-law Finding: sharp exact finite norm plus finer centered lattice-phase law at zero bias"
+        ],
+        "reasoning": "The graph theorem is broader in geometry, and the same-day result is stronger at zero bias. Neither supplies an all-sequence absolute-kernel scaling theorem with positive scaled drift or the strong-drift remainder. A weak convergence theorem for the walk alone would not imply convergence of these induced inverse norms.",
+        "searches": [
+          "Resultary: sharp endpoint norm Poisson inverse biased directed cycles weak drift crossover absolute Green profile",
+          "Literature: \"biased random walk\" cycle \"Green function\" discrete Laplacian directed cycle hitting times Poisson inverse sharp norm"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, especially prior-work section",
+        "Resultary local index and exact matching bda401cecdc2 record",
+        "Beveridge arXiv:1505.06989v1",
+        "Targeted biased-cycle and hitting-time literature searches named above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The symmetric unnormalized generator is twice the repaired record's unbiased generator; this identifies kernels, sign cutoff and exact norms by scaling",
+          "Theorem 1 gives a route to finite biased entries after solving hitting times, but no bounds uniform in bias-size product or the corresponding norm limits"
+        ],
+        "reasoning": "Credit the direct symmetric implication in full, without inferring priority from the date. The hitting-time identity makes the finite kernel accessible but does not mechanically entail the absolute profile and uniform bounds; neither endpoint extremizer is asserted as new.",
+        "searches": [
+          "Beveridge arXiv:1505.06989v1, Theorem 1 at offset 6971 and Section 4 at offset 35251",
+          "Resultary bda401cecdc2 RESULT.md, local copy offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Beveridge, arXiv:1505.06989v1, Theorem 1 and Section 4",
+          "Resultary cycle phase-law record bda401cecdc2, Finding and proof §2"
+        ],
+        "reasoning": "The Markov-chain centered occupation/Poisson Green formulations coincide here. The symmetric quadratic kernel is exactly Beveridge's cycle case. For positive scaled drift the non-self-adjoint periodic kernel and its absolute integral are outside that example.",
+        "searches": [
+          "Resultary: A sharp weak-drift crossover for the Poisson inverse on directed cycles",
+          "Resultary: directed cycle biased random walk Green function Poisson inverse l-infinity norm drift crossover",
+          "Literature: Andrew Beveridge \"A Hitting Time Formula for the Discrete Green's Function\" directed cycle biased nearest-neighbor cycle explicit Green function operator norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "bda401cecdc2 gives an exact closed norm and sign cutoff in n with stronger second-order terms; C_n(0)=2N_n",
+          "Beveridge explicitly lists the same symmetric G(0,j)"
+        ],
+        "reasoning": "These are exact family formulas, not merely small-n table matches; they cover the fixed-zero-bias slice. The residual target is quantified over drifting sequences rather than a finite numerical database; no matching parameterized biased norm formula emerged from the targeted catalogue or primary comparison.",
+        "searches": [
+          "Resultary: sharp endpoint norm Poisson inverse biased directed cycles weak drift crossover absolute Green profile",
+          "Beveridge full text, literal cycle; Section 4 at offset 35251"
+        ]
+      },
+      "rationale": "The repaired claim credits exact symmetric-cycle endpoint norm and sign-boundary coverage as a normalization reference. The supported distinct result is the positive-β absolute Green profile and sequence-uniform regime theorem, including the transition from finite bias-size product to the sharp strong-drift limit. Neither the same-day unbiased result nor the inspected general hitting-time identity states or delivers these asymptotics without further estimates.",
+      "residual_risks": [
+        "The two catalogue records are dated the same day; priority between them is not inferred.",
+        "A biased-cycle norm or related Markov-chain condition-number formulation may exist outside the sources inspected; search misses do not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct partial coverage, not biased crossover coverage",
+          "evidence": "The generator is 2I−S−S⁻¹; the exact endpoint norm, zero cutoff and leading term (√3/54)n² transfer by multiplying by two.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-cycle-poisson-norm-and-its-irrational-lattice-phase-limi--bda401cecdc2/RESULT.md",
+          "material_read": "Finding, Assumptions, proof §§1–2, offset 0 onward",
+          "method": "Local mirror full-text passages",
+          "title": "A sharp cycle Poisson norm and its irrational lattice-phase limit law",
+          "trigger": "Local catalogue exact-cycle and sharp-norm overlap"
+        },
+        {
+          "assessment": "Exact symmetric kernel and general hitting-time antecedent; inspected results do not give the biased endpoint crossover",
+          "evidence": "H(0,j)=j(n−j) in the symmetric example and G(0,j)=((n²−1)/6−j(n−j))/n. The general identity expresses entries by centered hitting times.",
+          "identifier_or_url": "https://arxiv.org/html/1505.06989v1",
+          "material_read": "Setup at offset 0, Theorem 1 at offset 6971, Section 4 The Cycle at offset 35251",
+          "method": "Bounded OA full-text passages",
+          "title": "A Hitting Time Formula for the Discrete Green's Function",
+          "trigger": "General directed Green representation and symmetric cycle specialization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, finite error bound and complementary limits",
+        "Symmetric-cycle phase-law comparison bda401cecdc2"
+      ],
+      "rationale": "The nontrivial finding quantifies sharp amplification of forcing by a centered Poisson solve as circulation competes with diffusion. It gives the transition scale, a full crossover function, and a usable finite bound in the directed regime. This is not a value claim for routine endpoint extremizers or recomputing the symmetric norm.",
+      "residual_risks": [
+        "No claim for nonhomogeneous cycles, other graphs or other operator norms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

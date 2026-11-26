@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:11:36.965317Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With fixed leftmost lexicographic ties the selected indices cannot move backward as the window slides, so a charge adds exactly one distinct index. The Parry chain is stationary and ergodic, and the bounded charge average converges in mean and almost surely. From a leading zero, an adjacent shifted k-mer cannot be smaller: the first adjacent disagreement, if any, is 01. From a leading one the shift is strictly smaller. Thus 00 prefixes charge, 100 does not, 010 charges exactly when K0=K2, and 101 charges exactly when K3<K1. After an initial 010, the first break in alternation replaces an expected 1 by 0, and makes the later lag-two k-mer strictly smaller if within the compared segments; otherwise they tie. This gives the alternating prefix and alternating suffix exceptions. After 00 and 1010 the numbers of completions to each endpoint are the first rows of A^(k+1) and A^(k-1), respectively, for A=[[1,1],[1,0]]. In the 010 case one alternating prefix can be completed with terminal 0, and also with terminal 1 iff k is odd; the one excluded completion in the 1010 case ends with 0 iff k is odd. This includes k=1, where 1010 itself is uncharged. The Parry probabilities telescope to the given endpoint weights because the squared norm of (phi,1) is phi+2; substituting the four counts and checking the Fibonacci identity at k=1,2 yields the closed density, plateaus and limit. The frozen enumeration script was read, not executed; no finite check is needed as a premise of this proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zheng et al. derive the generic charge identity and endpoint criterion for leftmost minimizers.",
+          "Golan and Shur's all-parameter density formula for w <= k assumes uniform random input and a uniform random total order.",
+          "Hoang et al. describe sequence-specific masked-minimizer optimization."
+        ],
+        "reasoning": "The first result reduces density to a context count but does not do that count on this shift. The latter two have different parameters that affect the statistic, not hypotheses that contain the fixed-order Parry case.",
+        "searches": [
+          "doi:10.1089/cmb.2023.0094 Definitions 1 and 3, Lemmas 5–6 and Corollary 1",
+          "arXiv:2410.16968 §3.1 Theorem 3.1",
+          "doi:10.1089/cmb.2023.0212 masked-minimizer formulation"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1089/cmb.2023.0094",
+        "arXiv:2410.16968",
+        "doi:10.1089/cmb.2023.0212",
+        "SCOPE 7b5294b83307",
+        "SCOPE 3dea66faf639",
+        "doi:10.1101/2025.11.21.689688 (bibliographic evidence only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generic endpoint criterion says which position a charged minimum occupies but gives no count of words in which it occurs.",
+          "The same-source random-order mean explicitly averages different ranks rather than controlling the fixed lexicographic minimum."
+        ],
+        "reasoning": "Deriving these formulas requires a new classification of fixed lexicographic ties by the location of the first break of alternation, then endpoint-specific count and stationary weighting. It is not a parameter substitution into the inspected results.",
+        "searches": [
+          "doi:10.1089/cmb.2023.0094 Lemmas 5–6, Corollary 1",
+          "SCOPE 7b5294b83307, stationary Parry specialization and comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest separate indexed result uses the no-11 Markov source family and the same window, but averages the density over uniformly random total orders. It has period-three corrections at the Parry parameter and expressly distinguishes averaging over orders from the density of an individual order."
+        ],
+        "reasoning": "Neither changing the description of the golden-mean source nor comparing equal windows makes a random-order average equivalent to the deterministic lexicographic statistic. The identical indexed record itself was excluded as independent coverage.",
+        "searches": [
+          "Resultary: lexicographic minimizer three k-mers golden-mean no-11 Fibonacci Parry density and alternating plateau",
+          "SCOPE 7b5294b83307, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE 3dea66faf639 enumerates all binary 3-mer rankings for windows of widths four and nine and fair iid input, giving finite Pareto density pairs.",
+          "SCOPE 7b5294b83307 gives an exact formula for the related random-order mean, not endpoint-refined lexicographic counts."
+        ],
+        "reasoning": "The finite table cannot provide the sought width-three Parry data, and the all-k comparison is for a genuinely different statistic. No matching table was found in the bounded checks.",
+        "searches": [
+          "Resultary: exact binary minimizer rankings, lexicographic width-three density and Fibonacci endpoint counts",
+          "SCOPE 3dea66faf639, Finding",
+          "SCOPE 7b5294b83307, Finding"
+        ]
+      },
+      "rationale": "The evidence supports the fixed-lexicographic all-k endpoint counts and density as distinct from the inspected results. Charging is known. The closest indexed result with the same source family and width averages over orders, while the bound claim uses the single lexicographic order, which changes both the density and the periodic correction. The conclusion is bounded by the listed access risks.",
+      "residual_risks": [
+        "The Models and Multiminimizers preprint's potentially relevant full text was inaccessible in these attempts.",
+        "An unindexed exact result for the fixed-order constrained-source model is not excluded by these bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known charge criterion, no special enumeration from these statements",
+          "evidence": "Leftmost ties and the endpoint criterion relate charged-context counts to selected-position counts.",
+          "identifier_or_url": "doi:10.1089/cmb.2023.0094",
+          "material_read": "Definition 1 (HTML offset 7300); Definition 3, Lemmas 5–6 and Corollary 1 (offsets 29550–31646)",
+          "method": "OA publisher full-text passage reading",
+          "title": "Creating and Using Minimizer Sketches in Computational Genomics",
+          "trigger": "Direct general theory of charged contexts and density"
+        },
+        {
+          "assessment": "Exact formula for a different random-order and uniform-input model",
+          "evidence": "Theorem 3.1 gives a correction to 2/(w+1) for the uniformly random total order with uniform input.",
+          "identifier_or_url": "arXiv:2410.16968",
+          "material_read": "PDF p. 2, source model; HTML §3.1 Theorem 3.1 (offsets 28200–30376)",
+          "method": "OA PDF and HTML passage reading",
+          "title": "Expected Density of Random Minimizers",
+          "trigger": "Potential dominating exact all-parameter density law"
+        },
+        {
+          "assessment": "Optimization formulation rather than a lexicographic Parry density identity in the inspected passages",
+          "evidence": "Optimization is sequence-specific and involves masks, density and conservation.",
+          "identifier_or_url": "doi:10.1089/cmb.2023.0212",
+          "material_read": "Abstract (HTML offsets 400–1845) and masked-minimizer formulation (6900–8617)",
+          "method": "OA HTML passage reading",
+          "title": "Density and Conservation Optimization of the Generalized Masked-Minimizer Sketching Scheme",
+          "trigger": "Possible broader density/optimization result"
+        },
+        {
+          "assessment": "Different order statistic; not equivalent coverage",
+          "evidence": "The law averages over all orders and at the Parry parameter has a 1/2-based period-three correction.",
+          "identifier_or_url": "SCOPE 7b5294b83307",
+          "material_read": "Finding (local-mirror offsets 0–3568), comparison (7780–9332)",
+          "method": "Local-mirror statement and proof comparison",
+          "title": "A sharp Markov-source phase transition in three-window random minimizers",
+          "trigger": "Same Markov-source family and exact window width"
+        },
+        {
+          "assessment": "Exact iid table for different widths",
+          "evidence": "Enumerates ranks for fixed k=3 and w=4,9, not w=3, under fair iid input.",
+          "identifier_or_url": "SCOPE 3dea66faf639",
+          "material_read": "Finding (local-mirror offsets 0–2783)",
+          "method": "Local-mirror passage reading",
+          "title": "Exact two-width Pareto frontier for binary three-mer minimizer orders",
+          "trigger": "Possible finite exact table containing the claimed case"
+        },
+        {
+          "assessment": "Unknown relevance of unseen results, no negative inference",
+          "evidence": "The available snippet identifies the preprint but does not state a result for deterministic lexicographic order on the stationary no-11 shift.",
+          "identifier_or_url": "doi:10.1101/2025.11.21.689688",
+          "material_read": "Bibliographic/search information only; decisive full-text passages not obtained",
+          "method": "Lawful OA attempts at the preprint PDF and full-text page returned HTTP 429/403",
+          "title": "Minimizer Density revisited: Models and Multiminimizers",
+          "trigger": "Plausibly broader minimizer-density model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact expected sampling density is a natural performance measure for a constrained stationary source, not the fraction of uniform finite contexts. The all-length endpoint counts expose a specific alternating-run mechanism for exact two-step plateaus and give enough information to distinguish stationary and finite-uniform sampling. Generic charge and Parry formulas do not mechanically supply that count. The result is useful without claiming lexicographic optimality or applicability beyond width three.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

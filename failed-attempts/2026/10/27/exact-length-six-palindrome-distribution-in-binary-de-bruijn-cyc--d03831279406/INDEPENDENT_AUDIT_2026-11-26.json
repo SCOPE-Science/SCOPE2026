@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:54:13.535286Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each cyclic tour is anchored by its unique edge 00000, so this counts rotation classes without dividing out complementation or reversal. A palindromic six-factor is a-v-a with v a palindromic four-bit vertex. The incoming-to-outgoing bijection gives both a=0 and a=1 palindromes or neither. At a constant vertex the direct bijection would map its unique loop to itself, impossible in a tour of 32 distinct edges. The two remaining centers, 0110 and 1001, give the claimed pairs; they are nonadjacent and their forced paths can be suppressed independently. Each shortcut retains its edge identity. The root loop remains first; for a degree-two balanced graph with that anchor the last exits at nonroot vertices form an in-tree and uniquely determine the edge orders, so the directed Laplacian cofactors count the required tours. Separate complete DFS replay anchored at 00000 visited 92636 calls and reconstructed and scanned all 2048 cycles, obtaining joint cells 768,512,512,256, in the order neither, first only, second only, both, with no other palindrome. The anchored scan counts distinct circular factors. The table gives E[P]=3/2, E[P^2]=4, variance 7/4 and covariance 1/8-(3/8)^2=-1/64. The frozen script was inspected, not executed. Independent replay and output: /workspace/branches/32969e6a-348e-41e3-b85d-7a4e5362dc50/palindrome_enum.py and palindrome_enum_result.json in the same directory. This is a complete finite result for order five only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2cd798b75b90 proves the pairing law for arbitrary order in its scope and specializes to the identical order-five profile.",
+          "The later all-length spectrum record describes numerous joint and lengthwise profiles; its abstracted Finding was inspected, not its TSV supplements."
+        ],
+        "reasoning": "The general law covers pairing, and the same earlier source supplies the fully specialized counts. No dependence on the later catalogue entry or on unseen supplements is needed.",
+        "searches": [
+          "Resultary 2cd798b75b90, general pairing statement and Proof §§2–3",
+          "Resultary 8196e282ed1c, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification.py",
+        "Resultary 2cd798b75b90 and 8196e282ed1c",
+        "arXiv:1002.2723 and 1608.08480"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior Finding gives the same covariance and the full distribution, verified there by transition settings and rooted Euler tours."
+        ],
+        "reasoning": "The moment formulas are summations over the prior four cells. The frozen cofactor proof is a compact alternative verification of the same finite result, not a new stated mathematical consequence outside that coverage.",
+        "searches": [
+          "2cd798b75b90, Finding and Proof §§2–3 at OA offsets 425 and 3642–5474"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Finding of 2cd798b75b90 specifies exactly the palindrome sets A={001100,101101}, C={010010,110011}, and labeled-binary cycles modulo rotation with neither reversal nor complement identified.",
+          "Burris–Motta–Shipman study forward/backward unoriented coverage, which is not the same equivalence convention or census."
+        ],
+        "reasoning": "The two catalogued claims agree on the objects, quotient, and indicator coordinates. Counting the set of distinct palindromes or recording which of A,C appears is equivalent here.",
+        "searches": [
+          "Resultary search for binary de Bruijn length-six palindrome pairing and joint distribution; 2cd798b75b90",
+          "arXiv:1608.08480, opening definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact table in 2cd798b75b90 has columns empty,A,C,A∪C and cells 768,512,512,256; it also lists the projected histogram.",
+          "The two literature tables concern binary palindrome values and graph incidences, respectively, not this census."
+        ],
+        "reasoning": "This is an exact prior table with all four relevant cells, not an approximate numerical overlap or a count from a different rotation quotient.",
+        "searches": [
+          "Exact local mirror of 2cd798b75b90/RESULT.md, Exact order-five joint spectrum",
+          "arXiv:1002.2723, array at OA offset 9357",
+          "arXiv:1608.08480, Table 1"
+        ]
+      },
+      "rationale": "Distinct Resultary record 2cd798b75b90 states the identical joint table, same pairs, same rotation-only normalization and even the covariance. It also proves the general pairing law. The new cofactor verification does not make the frozen distribution a different claim; the mean and variance follow immediately from the previous table.",
+      "residual_risks": [
+        "Priority relative to other literature was not established; older classical and application references were not verified in primary full text. Neither affects the demonstrated independent catalogue coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of frozen Finding",
+          "evidence": "The same two pairs, 2048 classes under rotations only, joint cells 768,512,512,256, and covariance -1/64.",
+          "identifier_or_url": "2026/10/18/SCOPE-even-palindrome-pairing-in-binary-de-bruijn-cycles-and-the-compl--2cd798b75b90",
+          "material_read": "RESULT.md Finding at offsets 425–1725, Proof §§2–3 at offsets 3642–5474; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror",
+          "title": "Even-palindrome pairing in binary de Bruijn cycles and the complete order-five spectrum",
+          "trigger": "Exact ranked match on pairs and order-five counts"
+        },
+        {
+          "assessment": "Related later all-length census; not relied on",
+          "evidence": "All-length and longest-palindrome distributions, 23 joint classes and 51 lengthwise profiles; inspected statement does not itself list this four-cell table.",
+          "identifier_or_url": "2026/11/2/SCOPE-complete-joint-palindromic-spectrum-of-binary-order-five-de-brui--8196e282ed1c",
+          "material_read": "RESULT.md Finding, offsets 0–2436; TSV supplements not inspected",
+          "method": "Local Resultary mirror",
+          "title": "Complete joint palindromic spectrum of binary order-five de Bruijn cycles",
+          "trigger": "Broader same-order census"
+        },
+        {
+          "assessment": "Different statistic in inspected passages",
+          "evidence": "Constructs palindrome words using a de Bruijn word; the finite array concerns palindrome values through length eight.",
+          "identifier_or_url": "https://arxiv.org/abs/1002.2723",
+          "material_read": "PDF pp. 2–3, OA offsets 4162 and 6757 (Proposition 2); array at offset 9357",
+          "method": "OA primary PDF",
+          "title": "Properties of palindromes in finite words",
+          "trigger": "Uses de Bruijn words to study binary palindromes"
+        },
+        {
+          "assessment": "Not this invariant or quotient",
+          "evidence": "Defines an unoriented variant and classifies Type-I and Type-II graph incidences.",
+          "identifier_or_url": "https://arxiv.org/abs/1608.08480",
+          "material_read": "p. 1 definition at offset 489 and p. 9 Table 1 at offset 30283",
+          "method": "OA primary PDF",
+          "title": "An Unoriented Variation on de Bruijn Sequences",
+          "trigger": "Alternative de Bruijn convention and finite table"
+        },
+        {
+          "assessment": "Unresolved, not relied on",
+          "evidence": "The retrieved title was an unrelated Hall-effect paper.",
+          "identifier_or_url": "N. G. de Bruijn, Proc. KNAW 49 (1946), 758–764",
+          "material_read": "No verified primary passage",
+          "method": "Attempted KNAW OA PDF route; response was a different article and was discarded",
+          "title": "A combinatorial problem",
+          "trigger": "Historical de Bruijn enumeration reference"
+        },
+        {
+          "assessment": "Unresolved, not relied on",
+          "evidence": "403 or a nonusable PDF response; no content inference.",
+          "identifier_or_url": "https://doi.org/10.1101/gr.074492.107",
+          "material_read": "No usable primary passage",
+          "method": "Attempted publisher and lawful PMC/Europe PMC retrieval",
+          "title": "Velvet: Algorithms for de novo short read assembly using de Bruijn graphs",
+          "trigger": "Cited application of the graph model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The joint table is naturally motivated: order five permits simultaneous presence of two nonconstant centers, whereas at order four the two nonconstant palindromic centers cannot both pair directly without isolating the alternating two-edge orbit. But the precise table and negative covariance are already available. Re-evaluating four small cofactors using standard BEST and Matrix–Tree is useful corroboration, not an independently valuable new finding under the frozen scope. No distinct surviving research claim is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

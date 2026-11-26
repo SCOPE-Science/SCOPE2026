@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:26:38.338118Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The finite sine sum gives (H_du)_i=cos((i-1/2)theta_k)/(2 sin(theta_k/2)); the proposed sine vector equals (-1)^(k-1) times that cosine vector. Its eigenvalues are ordered by decreasing magnitude, not algebraic size, and have alternating signs. Alternatively H=U J for unit upper triangular summation matrix U and reversal J, so H^(-1)=J(I-S) for upper shift S. Its square is the tridiagonal first-difference Gram matrix with cos((i-1/2)theta_k) modes. Full column rank permits rectangular congruence after extending a basis, giving exactly n-d additional zeros. For every B, loading is equivalent to H+eta I being PSD (take B=I); k=2 is the most negative eigenvalue, including d=2. In a symmetric binary PSD supermask, all entries in row one are one, forcing all diagonal entries to be one by principal minors. The zero quadratic forms on e_1-e_j then force every column to equal the first. The d(d-1)/2 additions count ordered products. The geometric positive-vector example has invertible B for q>0 and each missing product has norm at most (d+3)q^d; the full Gram norm is at least d+3. For fixed d the relative error goes to zero while negative inertia persists. The d=2 determinant is -9q^2. Independent bounded check: 63 inverse spectra (d=2 through 64) and exact negative principal-minor witnesses for all strict completions among 598 binary masks (d=2 through 6), via python3 /workspace/branches/reproduce_records_1_to_4.py. The universal claims follow from proof, not these ranges. Frozen verification and same-model evidence were read, not counted as independent experiments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Web lookup located the Sra bibliographic record but no usable passage. Frozen RESULT.md 67–71 reports Sra's min-kernel spectrum and Carson–Ma's product schedule. It also identifies Ochiai et al. as a distinct anti-triangular family. Identified primary text attempts timed out."
+        ],
+        "reasoning": "The prior schedule reported in Carson–Ma determines the mask, but an approximation schedule or normwise error estimate alone does not ensure PSD, force every omitted binary product under a universal PSD requirement, or give positive split witnesses with negative inertia. Sra's larger comparison is strongest for spectral information, not the split-vector conditions. These implications are not statements about unread full texts.",
+        "searches": [
+          "Web: Suvrit Sra 2014 \"Explicit diagonalization of an anti-triangular Cesàro matrix\" Proposition 3.2 Brownian kernel; Carson Ma 2026 Ozaki triangular product schedule equation (5) PSD Gram",
+          "arXiv:1411.4107, Proposition 3.2",
+          "arXiv:2611.03158v1, equation (5)",
+          "arXiv:1403.6797v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_splitmask.py, REVIEW.md, AUDIT.json",
+        "Resultary summaries 2d194b445558 and 93bae48b8121",
+        "arXiv:1411.4107, arXiv:2611.03158v1, arXiv:1403.6797v1 (targeted relevant passages sought; full texts not independently read)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The squared kernel has simple eigenvalues. Once its cosine modes are known, H acts scalarly on each one; comparing the last coordinate of H u (which is u_1) with u_d fixes the sign directly. The smallest signed eigenvalue then immediately gives the sharp scalar loading. The finite-precision schedule citation does not assert arbitrary split-vector attainability."
+        ],
+        "reasoning": "Spectrum, inertia and scalar repair are immediate once the modes/signs are available. The scientifically distinct part is the complete diagnosis of what can be done without scalar loading and the construction of an arbitrarily small-error but cone-violating family in the stated surrogate. The rigidity argument uses an elementary general PSD property, and is not claimed as new PSD matrix theory.",
+        "searches": [
+          "arXiv:1411.4107, Proposition 3.2 as cited",
+          "arXiv:2611.03158v1 equation (5) as cited",
+          "Frozen RESULT.md 33–61"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2d194b445558 exactly matches the assigned work. Resultary 93bae48b8121 reports a strictly lower-triangular 3-by-3 Schur truncation with spectral gain (1+2 sqrt(2))/7, not coefficient masking followed by congruence of arbitrary split vectors."
+        ],
+        "reasoning": "No literal identification between a fixed-size entrywise Schur truncation on PSD matrices and B H_d B^T for arbitrary split B. However H_d squared is exactly the reversed discrete Brownian min kernel. Reversal and squaring must be credited, not described as a new spectral family.",
+        "searches": [
+          "Resultary: triangular Gram split product signed spectrum PSD repair anti-triangular Hankel",
+          "Resultary: universal PSD repair diagonal loading binary completion all omitted products triangular mask Gram"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed formula for this surrogate is the assigned record itself. The classical discrete Brownian eigenvalue formula as identified in frozen RESULT.md 71 supplies the exact squared eigenvalues; the mask and its inverse were independently reconstructed."
+        ],
+        "reasoning": "Absolute eigenvalues and, given the eigenvectors, their signs do not amount to a new lookup table. No separate bounded index hit supplies the universal binary completion and positive-vector small-error family. A nonmatch in retrieval is not evidence of absence.",
+        "searches": [
+          "Resultary: anti triangular Cesaro matrix Sra Brownian covariance finite kernel eigenvalues",
+          "Resultary: universal PSD repair diagonal loading binary completion all omitted products triangular mask Gram"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the combined ideal triangular Gram cone diagnosis, limited to the product-retention rigidity and explicit arbitrarily accurate yet indefinite split families as distinct substantive content. Credit the classical Brownian spectrum and the signed-spectrum and diagonal-loading calculations that are direct consequences once its modes are known. No standalone novelty of those spectral constants or of Sylvester congruence is credited. The matching schedule is prior; inspected statements do not already establish the combined Gram conclusion. Direct Sra and Carson–Ma passage retrieval remained access-limited.",
+      "residual_risks": [
+        "Sra or older structured-matrix literature may state the signed spectrum explicitly; no independent priority claim for the spectrum or its immediate corollaries is made here.",
+        "Earlier coefficient-mask results or unread Gram discussions may already contain the combined completion and counterexample conclusions. Exact-arithmetic conclusions do not establish digital splitter attainability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit at least the squared spectrum and immediate sign reconstruction; whether the exact signed mask is directly printed is unverified",
+          "evidence": "(H_d^2)_{ij}=min(d+1-i,d+1-j); its simple modes also diagonalize H_d.",
+          "identifier_or_url": "arXiv:1411.4107",
+          "material_read": "Search bibliographic hit; frozen RESULT.md 71 characterization of Proposition 3.2; no primary passage recovered",
+          "method": "Focused web lookup and identified OA Proposition 3.2/Brownian-kernel attempt",
+          "title": "Explicit diagonalization of an anti-triangular Cesàro matrix",
+          "trigger": "Plausible exact signed spectrum or closely matching kernel"
+        },
+        {
+          "assessment": "Credit prior schedule; claims about whole-paper scope remain access-limited",
+          "evidence": "The exact schedule is reported as triangular split-product retention. The finding restricts itself to arbitrary-vector Gram specialization.",
+          "identifier_or_url": "arXiv:2611.03158v1",
+          "material_read": "Frozen RESULT.md 69 description of equation (5); no primary passage retrieved",
+          "method": "Focused lookup and identified OA equation (5) attempt",
+          "title": "Adaptive accuracy-driven splitting in Ozaki matrix multiplication and application to block LU factorization",
+          "trigger": "Exact motivating triangular product schedule"
+        },
+        {
+          "assessment": "Reported distinct diagonal-eigenvalue family; not a full-text exclusion",
+          "evidence": "The frozen comparison concerns a special diagonal-eigenvalue property rather than a Gram PSD completion.",
+          "identifier_or_url": "arXiv:1403.6797v1",
+          "material_read": "Frozen comparison at RESULT.md 71 and citation; no primary passage retrieved",
+          "method": "Identified OA passage attempt",
+          "title": "Eigenvalue problem for some special class of anti-triangular matrices",
+          "trigger": "Plausible anti-triangular matrix theorem"
+        },
+        {
+          "assessment": "Different operator and quantifiers in the available statement",
+          "evidence": "Fixed dimension three; sharp positive-cone gain of a lower-triangular Schur truncation, not an arbitrary-dimensional coefficient-supermask characterization.",
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-positivity-restricted-triangular-truncation-in-dimension-t--93bae48b8121",
+          "material_read": "Resultary summary; identified exact record passage attempt unavailable",
+          "method": "Local Resultary and mirror passage attempt",
+          "title": "Sharp positivity-restricted triangular truncation in dimension three",
+          "trigger": "Closest distinct positivity and triangular truncation summary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a motivated truncation schedule the result distinguishes normwise approximation from cone preservation in a complete ideal Gram model. It answers two distinct design questions with sharp boundaries: a scalar coefficient shift works at a precise cutoff, whereas a binary completion cannot save any omitted products. The positive, full-rank small-error example establishes that the obstruction is not limited to large relative error or mixed-sign inputs. No hardware or optimal accuracy claim is required or supported.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
